@@ -448,3 +448,140 @@ login_name_required:Le nomine de usator es requirite
 login_passwd_required:Le contrasigno es requirite
 login_invalid_radius:Le nomine de usator o le contrasigno es invalide
 reset_confirmation:Gratias pro inscriber te.\n\nPro activar tu conto, per favor visita le URL sequente:\n\n{VAR: url}\n\nQuando tu conto ha essite activate, tu essera identificate al foro\ne redirigite verso le pagina principal.
+reset_reset:Salute,\n\nTu ha requestate que tu contrasigno sia reinitialisate. Pro completar le processo,\nper favor visita le URL sequente:\n\n{VAR: url}\n\nNOTA: Iste foro immagazina le contrasignos con un mechanismo cryptographic unidirectional.\nIsto significa que le contrasigno que tu specifica es codificate de sorta que il es IMPOSSIBILE recuperar lo.\nCata vice que tu aperi un session, le version codificate in nostre systema es comparate con le version codificate del contrasigno que tu entra.\n(Si tu vole saper como functiona iste mechanismo, cerca informationes super le algorithmo MD5 HASH.)
+rpasswd_invalid_passwd:Contrasigno invalide
+rpasswd_passwd_nomatch:Le contrasignos non es identic
+rpasswd_passwd_length:Le contrasigno debe haber al minus 6 characteres
+reset_remind_pass:Rememoration del contrasigno
+reset_reset_conf:Tu contrasigno essera reinitialisate e inviate a te. Si tu non ha ancora confirmate tu adresse de e-mail, le requesta de confirmation essera re-inviate a te.
+reset_error:Adresse de e-mail non trovate in base de datos
+rpasswd_change_pass:Cambiar contrasigno
+rpasswd_login:Nomine de usator
+rpasswd_cur_pass:Contrasigno actual:
+rpasswd_new_pass:Nove contrasigno:
+rpasswd_conf_pass:Confirmar contrasigno:
+login_passwd:Contrasigno:
+reset_email:E-mail:
+reset_reset_button:Reinitialisar contrasigno
+rate_this_thread:Evalutar
+report_reporting_about:Reporto super:
+report_subject:Subjecto:
+report_by:Per:
+report_posted_on:Publicate le:
+report_give_reason:Per favor indica un motivo pro reportar iste message:
+report_submit_report:Submitter reporto
+search_entire_msg:Tote le message
+search_subject_only:Subjecto solmente
+search_forum:Foro
+search_posted_on:Publicate le
+search_no_results:Nulle resultato
+search_all_forums:Cercar in tote le foros
+search_in_forum:Cercar in le foro:
+search_forum_search:Cercar in foro
+move_thread_to:Displaciar le topico <b>{VAR: thr->subject}</b> verso:
+remail_email_topic:Inviar iste topico per e-mail a un amico
+remail_your_name:Tu nomine:
+remail_your_email:Tu e-mail:
+remail_friends_name:Nomine del amico:
+remail_friends_email:E-mail del amico:
+remail_required:obligatori
+remail_subject:Subjecto:
+remail_message:Message:
+remail_send_now:Inviar e-mail ora
+remail_anon_opt:Copia iste message in un programma de e-mail de tu preferentia pro inviar lo a tu amico(s).
+remail_done:Facite
+remail_sent_conf:Le message a tu amico a {VAR-HTML: _POST['femail']} super le topico {VAR: data->subject} ha essite inviate.
+remail_error:Un error ha occurrite
+mklist_type:Typo:
+mklist_option:Option:
+mklist_additem:Adder elemento
+mklist_apply:Applicar
+mklist_delete:Deler
+qbud_nick_name:Pseudonymo
+qbud_add_selected:Adder selection
+qbud_selected:Seligite
+qbud_no_buddies:Nulle amico disponibile
+mklist_numerical:Numeric
+mklist_aplha:Alphabetic
+mklist_square:Con quadratos
+mklist_disc:Con discos
+mklist_circle:Con circulos
+mklist_close:Clauder
+email_to:A:
+email_pg_title:E-mail
+email_subject:Subjecto:
+email_body:Texto:
+email_submit:Inviar
+ppost_quote_msg:{VAR: msg_to_list} scribeva le {TEMPLATE: ppost_quote_msg_date}
+ppost_quote:Citation:
+ppost_to:A:
+ppost_from_buddy_list:Seliger ex lista de amicos
+ppost_find_User:Cercar usator
+ppost_track_msg:Sequer iste message
+ppost_track_msg_desc:Notificar me (con un message private) quando iste message es legite.
+ppost_send:Inviar
+ppost_save_draft:Salveguardar version provisori
+poll_blank_option:Tu non pote adder un option vacue.
+poll_del_conf:Si tu vole deler iste option, preme OK
+poll_name:Nomine del sondage:
+poll_timelimit:Limite de tempore:
+poll_maxiumvotes:Numero maxime de votos:
+poll_create:Crear
+poll_update:Actualisar
+poll_disablesmilies:Disactivar emoticones
+poll_create_poll:Crear sondage
+poll_update_poll:Actualisar sondage
+poll_delete:Deler
+poll_updateoption:Actualisar option
+poll_addoption:Adder option
+poll_unlimited:Illimitate
+poll_day:die
+poll_days:dies
+poll_hour:hora
+poll_hours:horas
+poll_month:mense
+poll_year:anno
+poll_week:septimana
+tabs_register:Configurationes
+tabs_subscriptions:Subscriptiones
+tabs_bookmarkes:Favorites
+tabs_referrals:Referimentos
+tabs_buddy_list:Lista de amicos
+tabs_ignore_list:Lista de ignoratos
+tabs_private_messaging:Messageria private
+single_msg_delete:Tu es super le puncto de <span class="ErrorText">deler</span> le message titulate: <b>{VAR: data[3]}</b>
+thread_delete:Tu es super le puncto de <span class="ErrorText">deler</span> le <span class="ErrorText">topico integre</span> titulate: <b>{VAR: data[3]}</b>
+delete_proceed:<span class="fb">Vole tu continuar?</span>
+delete_yes:Si
+delete_no:No
+error_invalidurl:URL invalide
+error_error:Error
+usrinfo_profile:Profilo de {VAR: u->alias}
+usrinfo_show_all_posts:Monstrar tote le messages scribite per {VAR: u->alias}
+actions_update:Spiona altere personas, como tu lo face ora
+err_info:Info
+buddy_list_err_cantadd:Tu non pote adder te a tu proprie lista de amicos
+buddy_list_err_dup:Tu ha ja addite iste usator a tu lista de amicos
+buddy_list_err_nouser:Le usator que tu tentava adder a tu lista de amicos non ha essite trovate.
+buddy_list_err_nouser_title:Impossibile adder usator
+buddy_list_err_ignore:Non pote adder usatores qui te ignora a tu lista de amicos.
+buddy_list_update:Examina le proprie lista de amicos
+core_err_invinp_title:Entrata invalide
+core_err_invinp_err:Tu ha sequite un ligamine invalide. Per favor notifica le <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a> de como tu ha arrivate hic.
+core_adm_login_msg:Le administratores pote aperir un session <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">hic</a>.
+email_err_unabletoemail_title:ERROR: Impossibile inviar e-mail
+email_err_unabletoemail_msg:Le systema de e-mail ha essite disactivate per le administrator.
+email_error_unabletolocaddr:Le systema non poteva inviar e-mail a {VAR-HTML: _POST['tx_name']} proque illo non poteva determinar le adresse de e-mail.
+email_error_body:Es obligatori entrar texto pro le message
+email_error_subject:Le subjecto es obligatori
+email_error_namerequired:Le nomine es obligatori
+email_error_invaliduser:Usator invalide
+emailconf_err_invkey_title:Error
+emailconf_err_invkey_msg:Clave de confirmation invalide. Per favor verifica tu e-mail pro assecurar que tu ha entrate le URL correctemente. Si tu ha cliccate super le ligamine duo vices, tu conto pote ja esser confirmate. Aperi un session al foro pro requestar un altere clave.
+err_inc_criticaltitle:Error critic
+err_inc_criticalmsg:Un error ha occurrite. Infortunatemente, il ha tamben un problema con le systema de reportage de errores.
+finduser_update:Cerca usatores
+help_index_update:Lege le <a href="{TEMPLATE: help_index_update_lnk}">Adjuta</a>
+iemail_thr_subject:Nove responsa a {VAR: thr_subject} per {VAR: poster_login}
+iemail_thr_bodyemail:Pro vider le responsas non legite va a {VAR: goto_url['email']}\n\nSi tu non vole reciper ulterior notificationes super le responsas in iste topico, per favor va hic: {VAR: unsub_url['email']}
+iemail_frm_subject:Nove topico in le foro {VAR: frm_name}, titulate {VAR: thr_subject}, per {VAR: poster_login}

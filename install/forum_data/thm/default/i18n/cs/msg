@@ -1,6 +1,7 @@
 # Messages for Czech (Česky)
 # Exported from translatewiki.net
 # Author: Mormegil
+# Author: Mr. Richard Bolla
 
 action:Akce
 add_to_buddy_list:přidat do seznamu přátel
@@ -9,8 +10,7 @@ admin_control_panel:Administrační panel
 administrator:Administrátor
 attachment:Příloha:
 avatar:Ikona uživatele:
-# Fuzzy
-average_post_count:{VAR: u->posted_msg_count} Příspěvků (průměrně {VAR: avg} denně)
+average_post_count:{PLURAL: u->posted_msg_count|$1 Zpráva|$1 Zpráv} ({PLURAL: avg|$1 zpráva|$1 zpráv} denně)
 biography:Životopis:
 birth_date:Datum narození:
 by:Od:
@@ -19,13 +19,12 @@ current_time:Aktuální čas
 custom_avatar_queue:Zátup ikon uživatelů
 date_posted:Přidáno
 date_registered:Registrován:
-# Fuzzy
-download_counter:Staženo {VAR: v[3]} krát
+download_counter:Staženo {PLURAL: v[3]|$1 krát|$1 krát}
+pmsg_download_counter:Staženo {PLURAL: r->dlcount|$1 krát|$1 krát}
 email:Email:
 email_to_friend:Poslat email příteli
 email_to_friend_desc:Poslat příteli URL na tuto stránku emailem
-# Fuzzy
-email_user:Napsat email uživateli
+email_user:Poslat uživateli e-mail
 faq:Nápověda
 first_unread_msg:Jít na nepřečtené zprávy
 first_unread_msg_desc:Jít na první nepřečtenou zprávu v tomto tématu
@@ -41,14 +40,18 @@ go:Jdi
 goto_next_msg:Jdi na další zprávu
 goto_prev_msg:Jdi na předchozí zprávu
 home:Domů
+homepage:Domovská stránka:
 icq_control_panel:ICQ Online panel
 icq_message_form:Formulář ICQ zprávy:
 ignore_user:ignorovat uživatele
 im_aim:AIM:
+im_msnm:MSN Messenger:
+im_yahoo:Yahoo Messenger:
 image:Obrázek:
 index_forum:Fórum
 index_new_posts:Nové příspěvky od minulé návštěvy
 index_no_new_posts:Žádné nové příspěvky od minulé návštěvy
+index_url_redirection:Přesměrování
 interests:Zájmy:
 last_post:Poslední příspevek
 last_thread_msg:Jdi na poslední zprávu tohoto tématu
@@ -64,18 +67,20 @@ logout:Odhlásit
 mark_all_read:označ všechny zprávy jako přečtené
 mark_all_read_desc:Všechny zprávy budou označeny jako přečtené
 members:Členové
+calendar:Kalendář
+cal_goto_date:Přejít na:
+cal_no_events:Žádné události pro tento den.
 message:Zpráva
-# Fuzzy
-message_counter:Uživatelé přidali již <b>{VAR: post_count}</b> zpráv k <b>{VAR: thread_count}</b> tématům.
+message_counter:Naši uživatelé zaslali již celkem <b>{PLURAL: post_count|$1 příspěvek|$1 příspěvků}</b> k <b>{PLURAL: thread_count|$1 téma|$1 tématům}</b>.
 message_index:Seznam zpráv
 message_index_desc:Zobraz seznam zpráv
 minimize_category:Minimalizovat kategorii
+minimize_message:Minimalizovat zprávu
 moderation_queue:Moderační fronta
 moderator:Moderátor
 moderator_of:Moderátor:
 moderator_options:Volby moderátora
-# Fuzzy
-moderators:Moderátoři
+moderators:{PLURAL: modcount|Moderátor|Moderatoři}
 more_unread_messages:více nepřečtených zpráv
 more_unread_messages_desc:Zobraz více nepřečtených zpráv a označ nyní zobrazené zprávy jako přečtené
 move_thread:Přesunout
@@ -83,8 +88,7 @@ moved:Přesunuto to jiného fóra
 moved_thread_message:Toto téma bylo přesunuto do jiného fóra
 na:není k dispozici
 new_posts:Nové příspěvky
-# Fuzzy
-new_private_messages:Máte <span class="GenText" style="color: #ff0000">({VAR: c})</span> nových zpráv v poště
+new_private_messages:Máte <span class="GenTextRed">({VAR: c})</span> nových {PLURAL: c|skoukromá zpráva|soukromých zpráv}
 new_thread:Vytvoř nové téma
 newest_user:Nejnovější uživatel je
 next_page:Další strana
@@ -95,12 +99,12 @@ no_new_posts:Žádné nové příspěvky
 no_posts:Žádné příspěvky
 no_subscribed_forums:Žádná zapsaná fóra
 no_subscribed_threads:Žádná zapsaná témata
+no_bookmarked_threads:Žádná zazáložkovaná témata
 no_unread_locked:Toto téma bylo zamčeno
 no_unread_msg:Žádné nepřečtené zprávy k tomuto tématu
 no_unread_msg_unreg:Přečtené i nepřečtené zprávy jsou k nahlédnutí jen pro registrované uživatele
 num_pages:Stránek ({VAR: ttl_pg}):
-# Fuzzy
-num_votes:{VAR: obj->total_votes} hlasů
+num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|hlas|hlasů}
 occupation:Obsazení:
 off:Vypnuto
 on:Zapnuto
@@ -114,9 +118,10 @@ posts_c:Příspěvky:
 prev_thread:Předchozí téma:
 usrinfo_private_message:Pošta:
 profile:Profil
-# Fuzzy
-profile_desc:Klikněte sem pro přístup k panelu uživatelského nastavení
+profile_desc:Přístup k uživatelskému kontrolnímu panelu
 rate_thread:Ohodnotit téma
+rating:Hodnocení
+rating_track:Správa hodnocení pro téma <b>{VAR: thr->subject}</b>:
 refresh_list:Aktualizovat seznam
 register:Registrovat
 registered:Registerace:
@@ -140,12 +145,13 @@ sender_name:Jméno odesílatele:
 show_posts_by:Zobrazit příspěvky od: {VAR: u_alias}
 size:Velikost:
 status:Stav:
-# Fuzzy
-status_line:<b>{VAR: st_obj->online_users_reg}</b> členů, <b>{VAR: st_obj->online_users_hidden}</b> skrytých členů a <b>{VAR: st_obj->online_users_anon}</b> hostů v tomto klubu.
+status_line:Na tomto fóru je momentálně <b>{PLURAL: st_obj->online_users_reg|$1 online člen|$1 online členů}</b>, <b>{PLURAL: st_obj->online_users_hidden|$1 skrytý člen|$1 skrytých členů}</b> a <b>{PLURAL: st_obj->online_users_anon|$1 nepřihlášený uživatel|$1 nepřihlášených uživatelů}</b>.
 sticky:vývěska:
 stop_ignoring:přestat ignorovat tohoto uživatele
 sub_to_thread:Odebírat téma
 sub_to_thread_desc:Dostávat oznámení o nových příspěvcích v tomto tématu
+bookmark_thread:Zazáložkovat téma
+bookmark_thread_desc:Přidat toto téma do seznamu záložek
 subject:Nadpis
 subscribe:Odebírat
 subscribe_desc:Dostávat oznámení pokud někdo vytvoří nové téma v tomto fóru
@@ -153,11 +159,11 @@ subscribed_forums:Zapsaná fóra
 subscribed_forums_desc:Zapnout/vypnout filtr zapsaných fór (budou zobrazeny pozue příspěvky ze zapsaných fór)
 subscribed_threads:Zapsaná témata
 subscribed_threads_desc:Zapnout/vypnout filtr zapsaných témat (budou zobrazeny jen příspěvky zapsaných témat)
+bookmarked_threads:Zazáložkovaná témata
 switch_to_thread_view:Přepnout toto téma do stromového zobrazení
 thread:Téma:
 thread_announcement:Oznámení:
-# Fuzzy
-thread_first_unread_msg:Jdi na první nepřečtenou zprávu tohoto tématu
+thread_first_unread_msg:Přejít na první nepřečtený příspěvek k tomuto tématu
 thread_thread:Téma
 threads:Témata
 time:Čas
@@ -173,12 +179,13 @@ unread_posts:Nepřečtené příspěvky
 unread_posts_desc:Zobrazit všechny nepřečtené zprávy
 unsub_from_thread:Zrušit odebírání tématu
 unsub_from_thread_desc:Zastavit přísun oznámeni o nových příspěvcích tomhoo tématu
+unbookmark_thread:Odstranit ze záložek
+unbookmark_thread_desc:Odstranit toto téma ze seznamu záložek
 unsubscribe:Zrušit odebírání
 unsubscribe_desc:Zastavit odebírání oznámení o nových tématech v tomto fóru
 updated_on:Aktualizováno:
 user:Uživatel
-# Fuzzy
-user_counter:<b>{VAR: st_obj->user_count}</b> registrovaných uživatelů.
+user_counter:Máme <b>{VAR: st_obj->user_count}</b> registrovaných {PLURAL: st_obj->user_count|uživatel|uživatelů}.
 user_info:Informace o uživateli
 user_info_l:Inforace o uživateli {VAR: u->alias}
 user_offline:{VAR: obj->login} je nyní offline
@@ -186,12 +193,10 @@ user_online:{VAR: obj->login} je nyní online
 usrinfo_last_post:Poslední příspěvek:
 view_results:Zobraz výsledky
 views:Zobrazení
-# Fuzzy
-vote:{VAR: frm->n_rating} hlasů
+vote:{PLURAL: frm->n_rating|$1 hlas|$1 hlasů}
 vote_button:Hlasovat
 vote_for_thread:Hlasovat
-# Fuzzy
-was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> byla přemístěna do <a href="{TEMPLATE: was_moved_msg_lnk2}">{{VAR: r[12]}</a> moderátorem
+was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> byla moderátorem přemístěna do <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a>.
 welcome_message:Vítejte <b>{VAR: usr->alias}</b>, tvoje poslední návštěva byla v {TEMPLATE: welcome_message_date}
 what_ppl_doing:ukaž, co dělají ostatní
 reported_del_report:Zpráva o smazání
@@ -249,6 +254,20 @@ month_9:září
 month_10:říjen
 month_11:listopad
 month_12:prosinec
+sunday:Neděle
+sunday_short:Ne
+monday:Pondělí
+monday_short:Po
+tuesday:Úterý
+tuesday_short:Út
+wednesday:Středa
+wednesday_short:St
+thursday:Čtvrtek
+thursday_short:Čt
+friday:Pátek
+friday_short:Pá
+saturday:Sobota
+saturday_short:So
 male:muž
 female:žena
 unspecified:NESPECIFIKOVÁNO
@@ -267,6 +286,7 @@ finduser_joindate:Registrace
 finduser_action:Akce
 yes:Ano
 no:Ne
+register_email:E-mail
 edit_time_limit:<b>Časový limit na editaci</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minut
 no_edit_time_limit:<b>Časový limit na editaci</b>: <b>Neomezen</b>
 pmuserloc_login:Uživatelské jméno:
@@ -302,6 +322,8 @@ register_interests:Zájmy:
 register_image:Vzhled:
 register_icq:ICQ
 register_aim:AIM kód:
+register_yahoo:Yahoo Messenger:
+register_msnm:MSN Messenger:
 register_homepage:Domovská stránka:
 register_bday:Datum narození:
 register_bday_desc:Pokud zadáte datum narození, ostatní uživatelé ho mohou vidět také ve vašem profilu.
@@ -336,6 +358,7 @@ buddy_status:Stav
 my_buddies:Moji přátelé
 add_buddy:Přidat přítele
 add:Přidat
+buddy_search:Zadejte uživatelské jméno uživatele, kterého si přejete přidat.
 buddy_remove:odstranit
 post_normal:Normální
 post_sticky:Vývěsky
@@ -393,8 +416,7 @@ coppa_conf:Věkové potvrzení
 coppa_before:Před {TEMPLATE: coppa_date}
 coppa_after:Po {TEMPLATE: coppa_date}
 coppa_link:Klikněte na odkaz podle vašeho data narození
-# Fuzzy
-coppa:Rodič nebo opatrovník musí nafaxovat nebo zaslat emailem administrátorovi tohoto fóra formulář povolení o vstupu uživatele, kterému je 13 a méně, aby tento mohl dokončit registraci.<p>Pro další informace kontaktujte <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
+coppa:<p>Rodič či zákonný zástupce musí administrátorovi tohoto fóra zaslat e-mailem nebo faxem podepsané svolení, aby uživatel mladší 13 let mohl dokončit registraci.</p><p>Pro další informace kontaktujte <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a></p>
 prereg_info:Informace
 prereg_agree:Souhlasím
 prereg_disagree:Nesouhlasím
@@ -505,8 +527,7 @@ ppost_save_draft:Uložit koncept
 poll_blank_option:Nemůžete přidat prázdnou volbu.
 poll_del_conf:Pokud chcete smazat tuto volbu, stiskněte "OK"
 poll_name:Název ankety:
-# Fuzzy
-poll_timelimit:Časový limit
+poll_timelimit:Časový limit:
 # Fuzzy
 poll_maxiumvotes:Maximum hlasů
 poll_create:Vytvořit
@@ -786,6 +807,7 @@ logedin_latest_post:Poslední příspěvek na fóru:
 register_show_avatar:Ukázat ikony uživatelů:
 register_show_avatar_desc:Umožňuje vám skrýt ikony uživatelů, když si prohlížíte jejich zprávy
 drawmsg_view_rest_post:Ukázat zbytek zprávy
+post_re:Re:
 forumsel_goto_forum:Jít na fórum:
 minimsg_thread_view:Zobrazní tématu
 split_th_post_by:Příspěvek od:
@@ -798,13 +820,10 @@ split_th_split_unsel:Rozdělit nevybrané zprávy
 split_th_messages:Zprávy
 split_th_select:Vybrat
 report_report_post:Ohlásit příspěvek
-# Fuzzy
-quicklogin_login:Uživatelské jméno
-# Fuzzy
-quicklogin_password:Heslo
+quicklogin_login:Uživatelské jméno:
+quicklogin_password:Heslo:
 quicklogin_use_cookies:Používat cookies?
-# Fuzzy
-quicklogin_login_btn:Přihlásit
+quicklogin_login_btn:Přihlásit se
 quick_reply:rychlá odpověď
 post_notification_desc:Upozorni mě, pokud někdo bude reagovat na tuto zprávu.
 maximize_category:Zvětšit kategorii
@@ -819,15 +838,13 @@ post_proc_reveal_spoiler:Odkrýt narušitele
 register_jabber:Jabber identifikátor:
 forum_contact:Kontakt
 forum_home:Domů
-# Fuzzy
-post_cur_attached:máte {VAR: i} přiložených souborů
+post_cur_attached:v tuto chvíli máte {VAR: i} přiložených {PLURAL: i|soubor|souborů}
 ignored_anon_post:{GVAR: ANON_NICK} je ignorován
 ignored_user_post:Příspěvek od <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> je ignorován
 smladd_close_window:zavřít okno
 post_list_smilies:seznam všech smajlíků
 p_VISIBLE:Viditelný
-# Fuzzy
-reported_in_thread:V tématu
+reported_in_thread:V tématu:
 help_back_to_top:zpět na začátek
 help_return_to_index:Zpět na úvod nápovědy
 imsg_err_message_title:Nesprávná zpráva
@@ -869,8 +886,7 @@ read_message:Přečtená zpráva
 threadt_more:&lt;více&gt;
 threadt_disabled_ttl:Stromové zobrazení vláken bylo vypnuto.
 threadt_disabled_desc:Administrátor vypnul stromové zobrazení vláken, použijte místo toho ploché zobrazení.
-# Fuzzy
-threadt_update:Prohlížíte si fórum (stromové zobrazení) <a href="{TEMPLATE: threadt_update_lnk}">{VAR-HTML: frm->name}</a>
+threadt_update:Prohlížíte si fórum (stromové zobrazení) <a href="{TEMPLATE: threadt_update_lnk}">{VAR: frm->name}</a>
 mmod_delete_cofirm_ttl:Potvrzení smazání tématu/zprávy
 spell_alts:žádné alternativy
 insert_uploaded_image:Vložit obrázek do těla zprávy

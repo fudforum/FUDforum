@@ -498,10 +498,8 @@ ppost_save_draft:Salveaza Copie
 poll_blank_option:Nu puteti adauga o optiune nula
 poll_del_conf:Daca doriti sa stergeti aceasta optiune apasati STERGE
 poll_name:Numele Sondajului:
-# Fuzzy
-poll_timelimit:Limita de timp
-# Fuzzy
-poll_maxiumvotes:Numarul maxim de voturi accepat
+poll_timelimit:Limita de timp:
+poll_maxiumvotes:Numărul maxim de voturi:
 poll_create:Creeaza
 poll_update:Updateaza
 poll_disablesmilies:Dezactiveaza smilies
@@ -555,8 +553,7 @@ email_error_namerequired:Numele este obligatoriu
 email_error_invaliduser:Utilizator inexistent
 emailconf_err_invkey_title:Eroare
 emailconf_err_invkey_msg:Cheie de confirmare incorecta.  Va rugam sa va verificati adresa de email.
-# Fuzzy
-err_inc_criticaltitle:EROARE CRITICA
+err_inc_criticaltitle:Eroare critică
 err_inc_criticalmsg:EROARE dar din nefericire a fost afectat si sistemul de administrare a erorilor.
 finduser_update:Cauta utilizatori
 help_index_update:Citire <a href="{TEMPLATE: help_index_update_lnk}">Intrebari frecvente</a>

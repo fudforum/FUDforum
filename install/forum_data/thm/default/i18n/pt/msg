@@ -514,8 +514,7 @@ poll_blank_option:Não pode adicionar uma opção em branco.
 poll_del_conf:Se quiser apagar esta opção, carregue em OK
 poll_name:Nome da Votação:
 poll_timelimit:Tempo limite:
-# Fuzzy
-poll_maxiumvotes:Máximo de votos
+poll_maxiumvotes:Máximo de votos:
 poll_create:Criar
 poll_update:Actualizar
 poll_disablesmilies:desactivar smilies

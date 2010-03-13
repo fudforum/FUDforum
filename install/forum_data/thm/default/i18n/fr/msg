@@ -22,7 +22,7 @@ birth_date:Date de naissance :
 by:Par :
 by_mod:Par un modérateur
 current_time:Heure actuelle
-custom_avatar_queue:File d'attente des avatars personnalis&eacute;s
+custom_avatar_queue:File d'attente des avatars personnalisés
 date_posted:Posté le
 date_registered:Inscrit(e) le :
 download_counter:Téléchargé {PLURAL: v[3]|$1 fois|$1 fois}
@@ -539,7 +539,7 @@ poll_disablesmilies:Désactiver les smileys
 poll_create_poll:Créer le sondage
 poll_update_poll:Mettre le sondage à jour
 poll_delete:Effacer
-poll_updateoption:Option de mise à jour
+poll_updateoption:Mettre à jour l'option
 poll_addoption:Ajouter une option
 poll_unlimited:Illimité
 poll_day:jour
@@ -581,7 +581,7 @@ email_err_unabletoemail_msg:La fonctionnalité e-mail a été désactivée par l
 email_error_unabletolocaddr:Désolé, le système n'a pas été en mesure d'envoyer l'e-mail à {VAR-HTML: _POST['tx_name']} car il n'a pas trouvé son adresse e-mail dans le système
 email_error_body:Le contenu est obligatoire
 email_error_subject:Le sujet est obligatoire
-email_error_namerequired:Le nom est invalide
+email_error_namerequired:Le nom est obligatoire
 email_error_invaliduser:L'utilisateur est invalide
 emailconf_err_invkey_title:Erreur
 emailconf_err_invkey_msg:Clé de confirmation invalide. Veuillez vérifier votre e-mail afin de vous assurer que vous avez correctement entré l'URL

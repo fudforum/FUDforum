@@ -1,5 +1,6 @@
 # Messages for Danish (Dansk)
 # Exported from translatewiki.net
+# Author: McDutchie
 
 action:Handling
 add_to_buddy_list:Føj til venneliste
@@ -496,8 +497,7 @@ ppost_save_draft:Gem kladde
 poll_blank_option:Du kan ikke tilføje en tom valgmulighed.
 poll_del_conf:Hvis du vil slette denne mulighed, skal du trykke på OK
 poll_name:Meningsmåling navn:
-# Fuzzy
-poll_timelimit:Tidsfrist
+poll_timelimit:Tidsfrist:
 # Fuzzy
 poll_maxiumvotes:Største antal stemmer
 poll_create:Opret

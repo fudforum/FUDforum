@@ -517,7 +517,7 @@ poll_disablesmilies:Desactivar los smileys
 poll_create_poll:Crear lo sondatge
 poll_update_poll:Metre lo sondatge a jorn
 poll_delete:Escafar
-poll_updateoption:Opcion de mesa a jorn
+poll_updateoption:Metre a jorn l'opcion
 poll_addoption:Apondre una opcion
 poll_unlimited:Illimitat
 poll_day:jorn
@@ -559,7 +559,7 @@ email_err_unabletoemail_msg:La foncionalitat e-mail es estada desactivada per l'
 email_error_unabletolocaddr:O planhèm, lo sistèma es pas estat en mesura de mandar l'e-mail a {VAR-HTML: _POST['tx_name']} perque a pas trobat son adreça electronica dins lo sistèma
 email_error_body:Lo contengut es obligatòri
 email_error_subject:Lo subjècte es obligatòri
-email_error_namerequired:Lo nom es invalid
+email_error_namerequired:Lo nom es obligatòri
 email_error_invaliduser:L'utilizaire es invalid
 emailconf_err_invkey_title:Error
 emailconf_err_invkey_msg:Clau de confirmacion invalida. Verificatz vòstre e-mail per vos assegurar qu'avètz entrat l'URL corrèctament.

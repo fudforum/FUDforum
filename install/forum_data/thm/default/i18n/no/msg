@@ -1,5 +1,6 @@
 # Messages for Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
 # Exported from translatewiki.net
+# Author: McDutchie
 # Author: Nghtwlkr
 
 action:Handling
@@ -11,11 +12,11 @@ attachment:Vedlegg:
 avatar:Avatar:
 average_post_count:{PLURAL: u->posted_msg_count|$1 melding|$1 meldinger} ({PLURAL: avg|$1 melding|$1 meldinger} i gjennomsnitt per dag)
 biography:Biografi:
-birth_date:F&oslash;delsdato:
+birth_date:Fødelsdato:
 by:Av:
 by_mod:av moderatoren
-current_time:Klokken akkurat n&aring;
-custom_avatar_queue:Egne avatarer i k&oslash;
+current_time:Klokken akkurat nå
+custom_avatar_queue:Egne avatarer i kø
 date_posted:Postet dato
 date_registered:Registreringsdato:
 download_counter:Lastet ned {PLURAL: v[3]|$1 gang|$1 ganger}
@@ -26,18 +27,18 @@ email_to_friend_desc:Send denne sidens URL til en kontakt per e-post
 email_user:Send bruker en e-postmelding
 faq:Hjelp
 first_unread_msg:Til uleste innlegg
-first_unread_msg_desc:G&aring; til det f&oslash;rste uleste innlegget i denne tr&aring;den
+first_unread_msg_desc:Gå til det første uleste innlegget i denne tråden
 flat_view:Tilbake til flat visning
 forum:Forum:
 forum_icon:Forumikon
 forum_new_messages:Nye innlegg
-forum_none_messages:Kun registrerte medlemmer kan f&oslash;lge opp leste og uleste innlegg
+forum_none_messages:Kun registrerte medlemmer kan følge opp leste og uleste innlegg
 forum_old_messages:Ingen nye innlegg
 from:Fra:
-gender:Kj&oslash;nn:
-go:G&aring;
+gender:Kjønn:
+go:Gå
 goto_next_msg:Til neste innlegg
-goto_prev_msg:Til foreg&aring;ende innlegg
+goto_prev_msg:Til foregående innlegg
 home:Hjem
 homepage:Hjemmeside:
 icq_control_panel:ICQ Online-meldingspanel
@@ -53,18 +54,18 @@ index_no_new_posts:Ingen nye innlegg siden sist
 index_url_redirection:Omdirigering
 interests:Interesser:
 last_post:Siste innlegg
-last_thread_msg:G&aring; til det siste innlegget i denne tr&aring;den
+last_thread_msg:Gå til det siste innlegget i denne tråden
 legend:Tegnforklaring:
 location:By:
-lock_thread:L&aring;s tr&aring;d
-locked:L&aring;st
-locked_with_new_posts:L&aring;st (med uleste innlegg)
+lock_thread:Lås tråd
+locked:Låst
+locked_with_new_posts:Låst (med uleste innlegg)
 logged_in_list:Liste over medlemmer som er logget inn
 login:Logg in
 login_header:Logg in:
 logout:Logg ut
 mark_all_read:marker alle innlegg som leste
-mark_all_read_desc:Alle uleste innlegg kommer til &aring; bli markert som leste
+mark_all_read_desc:Alle uleste innlegg kommer til å bli markert som leste
 members:Medlemmer
 calendar:Kalender
 cal_goto_date:Gå til:
@@ -75,7 +76,7 @@ message_index:Innleggsindex
 message_index_desc:Vise en liste over innlegg
 minimize_category:Minimere kategori
 minimize_message:Minimer melding
-moderation_queue:Moderationsk&oslash;
+moderation_queue:Moderationskø
 moderator:Moderator
 moderator_of:Moderator av:
 moderator_options:Moderatoralternativ
@@ -84,41 +85,41 @@ more_unread_messages:flere uleste innlegg
 more_unread_messages_desc:Vise flere uleste innlegg og markere viste innlegg som leste
 move_thread:Flytt
 moved:Flyttet til et annet forum
-moved_thread_message:Denne tr&aring;den har blitt flyttet til et annet forum
+moved_thread_message:Denne tråden har blitt flyttet til et annet forum
 na:ingen
 new_posts:Nye innlegg
 new_private_messages:Du har <span class="GenTextRed">({VAR: c})</span> {PLURAL: c|ulest privat melding|uleste private meldinger}
-new_thread:Begynn en ny tr&aring;d
+new_thread:Begynn en ny tråd
 newest_user:Siste registrerte medlem er
 next_page:Neste side
-next_thread:Neste tr&aring;d:
+next_thread:Neste tråd:
 no_messages:Det fins ingen innlegg i dette forumet.
 no_msg_body:Uten tekst
 no_new_posts:Ingen nye innlegg
 no_posts:Ingen innlegg
 no_subscribed_forums:Ingen forespurte forum
-no_subscribed_threads:Ingen abbonerte tr&aring;der
+no_subscribed_threads:Ingen abbonerte tråder
 no_bookmarked_threads:Ingen bokmerkede emner
-no_unread_locked:Denne tr&aring;den er l&aring;st
-no_unread_msg:Denne tr&aring;den inneholder ingen uleste meldinger
-no_unread_msg_unreg:Leste og uleste meldinger f&oslash;lges opp bare for registrerte medlemmer
+no_unread_locked:Denne tråden er låst
+no_unread_msg:Denne tråden inneholder ingen uleste meldinger
+no_unread_msg_unreg:Leste og uleste meldinger følges opp bare for registrerte medlemmer
 num_pages:Sider ({VAR: ttl_pg}):
 num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|stemme|stemmer}
 occupation:Yrke:
 off:AV
-on:P&Aring;
-page_timings:Total tid for &aring; generere siden: {VAR: page_gen_time} sekunder
+on:PÅ
+page_timings:Total tid for å generere siden: {VAR: page_gen_time} sekunder
 pm:Private meldinger
 poll:Avstemning:
 post_count:Antall innlegg {VAR: u_pcount}
 post_count_l:Antall innlegg:
 posts:Innlegg
 posts_c:Innlegg:
-prev_thread:Foreg&aring;ende tr&aring;d:
+prev_thread:Foregående tråd:
 usrinfo_private_message:Privat melding:
 profile:Profil
 profile_desc:Gå til brukerkontrollpanelet
-rate_thread:rate tr&aring;den
+rate_thread:rate tråden
 rating:Vurdering
 rating_track:Administrer vurdering av emnet <b>{VAR: thr->subject}</b>:
 refresh_list:Oppdatere listen
@@ -130,7 +131,7 @@ report_to_mod:Rapportere innlegg til en moderator
 reported_messages:Rapporterte innlegg
 reveal_all_posts:vise alle innlegg av {VAR: user_login}
 reveal_post:vise innlegg
-search:S&oslash;k
+search:Søk
 sel_todays_posts:Dagens innlegg
 sel_todays_posts_desc:Filtrer for dagens inlegg (viser bare innlegg skrevne i dag)
 sel_unanswered_posts:Ubesvarte innlegg
@@ -142,46 +143,46 @@ send_pm_desc:Send en privat melding til dette medlemmet
 sender_email:Avsenderens e-postadresse:
 sender_name:Avsenderens navn:
 show_posts_by:Vise innlegg av: {VAR: u_alias}
-size:St&oslash;rrelse:
+size:Størrelse:
 status:Status:
 status_line:Det er <b>{PLURAL: st_obj->online_users_reg|$1 medlem|$1 medlemmer}</b>, <b>{PLURAL: st_obj->online_users_hidden|$1 usynlig medlem|$1 usynlige medlemmer}</b> og <b>{PLURAL: st_obj->online_users_anon|$1 gjest|$1 gjester}</b> som besøker dette forumet.
 sticky:klebrig:
 stop_ignoring:avslutt ignorerinig av dette medlemmet
-sub_to_thread:Abonner p&aring; denne tr&aring;den
-sub_to_thread_desc:Du f&aring;r melding om nye innlegg i denne tr&aring;den
+sub_to_thread:Abonner på denne tråden
+sub_to_thread_desc:Du får melding om nye innlegg i denne tråden
 bookmark_thread:Bokmerk dette emnet
 bookmark_thread_desc:Legg dette emnet til din liste med bokmerker
 subject:Emne
-subscribe:Abonner p&aring; dette forumet
-subscribe_desc:Du f&aring;r melding om nye tr&aring;dar i dette forumet
+subscribe:Abonner på dette forumet
+subscribe_desc:Du får melding om nye trådar i dette forumet
 subscribed_forums:Abonnerte forum
 subscribed_forums_desc:Filtrer for abonnerte forum (viser kun innlegg fra abonnerte forum)
-subscribed_threads:Abonnerte tr&aring;der
-subscribed_threads_desc:Filtrer for abonnerte tr&aring;der (viser kun innlegg fra abonnerte tr&aring;der)
+subscribed_threads:Abonnerte tråder
+subscribed_threads_desc:Filtrer for abonnerte tråder (viser kun innlegg fra abonnerte tråder)
 bookmarked_threads:Bokmerkede emner
-switch_to_thread_view:Vis innleggene tr&aring;det
-thread:Tr&aring;d:
+switch_to_thread_view:Vis innleggene trådet
+thread:Tråd:
 thread_announcement:melding:
 thread_first_unread_msg:Gå til den første uleste meldingen i dette emnet
-thread_thread:Tr&aring;d
-threads:Tr&aring;der
+thread_thread:Tråd
+threads:Tråder
 time:Tid
 todays_posts:Dagens innlegg
 todays_posts_desc:Vise alle innlegg som er postet i dag
 un_ignore_user:avslutt ignorering av dette medlemets innlegg
 unanswered_posts:Ubesvarte innlegg
 unanswered_posts_desc:Vise alle innlegg som mangler svar
-unlock_thread:L&aring;s opp tr&aring;d
-unread_msg:Denne tr&aring;den inneholder innlegg som du enda ikke har lest
-unread_msg_locked:L&aring;st tr&aring;d med uleste innlegg
+unlock_thread:Lås opp tråd
+unread_msg:Denne tråden inneholder innlegg som du enda ikke har lest
+unread_msg_locked:Låst tråd med uleste innlegg
 unread_posts:Uleste innlegg
 unread_posts_desc:Vise alle uleste innlegg
-unsub_from_thread:Avbestill tr&aring;den
-unsub_from_thread_desc:Avbestill meldinger om nye innlegg i denne tr&aring;den
+unsub_from_thread:Avbestill tråden
+unsub_from_thread_desc:Avbestill meldinger om nye innlegg i denne tråden
 unbookmark_thread:Fjern fra bokmerker
 unbookmark_thread_desc:Fjern dette emnet fra din liste med bokmerker
 unsubscribe:Avbestill
-unsubscribe_desc:Avbestill meldinger om nye tr&aring;der i dette forumet
+unsubscribe_desc:Avbestill meldinger om nye tråder i dette forumet
 updated_on:Oppdatert:
 user:Medlem
 user_counter:Vi har <b>{VAR: st_obj->user_count}</b> {PLURAL: st_obj->user_count|registrert medlem|registrerte medlemmer}.
@@ -196,21 +197,21 @@ vote:{PLURAL: frm->n_rating|$1 stemme|$1 stemmer}
 vote_button:Stem
 vote_for_thread:Stem
 was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> har blitt flyttet til <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> av moderatoren.
-welcome_message:Velkommen <b>{VAR: usr->alias}</b>! Ditt forrige bes&oslash;k var {TEMPLATE: welcome_message_date}
-what_ppl_doing:vis hva folk holder p&aring; med
+welcome_message:Velkommen <b>{VAR: usr->alias}</b>! Ditt forrige besøk var {TEMPLATE: welcome_message_date}
+what_ppl_doing:vis hva folk holder på med
 reported_del_report:Slett rapport
 reported_reason:Årsak
 reported_on:Tid:
 reported_reported_by:Rapportert av:
 reported_reported_msg:Rapporterte innlegg
-modque_pending_approval:innlegg som venter p&aring; godkjenning
+modque_pending_approval:innlegg som venter på godkjenning
 modque_approve:Godkjenn
 modque_delete:Slett
-modque_no_message:Ingen innlegg ventar p&aring; godkjenning
+modque_no_message:Ingen innlegg ventar på godkjenning
 pmsg_new_messages:Ulest privat melding
 pmsg_old_messages:Les privat melding
 deny_recipt:nekte kvittering
-deny_recipt_desc:Ikke send kvittering p&aring; at du har lest denne meldingen
+deny_recipt_desc:Ikke send kvittering på at du har lest denne meldingen
 restore_to:Still tilbake til:
 move_to:Flytt til:
 list_referes_referrals:Refererte medlemmer
@@ -232,7 +233,7 @@ pmsg_time:Tid
 pmsg_selected:Valgt
 pmsg_delete:Slett
 cur_ppage_pm:Private meldinger
-writing_pm:&aring; skrive en privat melding
+writing_pm:å skrive en privat melding
 browsing_folder:Viser mappen <b>{VAR: folders[$folder_id]}</b>
 inbox:INNBOKS
 draft:KLADD
@@ -270,14 +271,14 @@ saturday_short:L
 male:mann
 female:kvinne
 unspecified:USPESIFISERT
-register_tree_view:Tr&aring;det visning
-register_msg_tree_view:Flat tr&aring;dvisning/Tr&aring;det innleggsvisning
-register_tree_msg_view:Tr&aring;det tr&aring;dvisning/Flat innleggsvisning
+register_tree_view:Trådet visning
+register_msg_tree_view:Flat trådvisning/Trådet innleggsvisning
+register_tree_msg_view:Trådet trådvisning/Flat innleggsvisning
 register_flat_view:Flat visning
 use_forum_default:Bruk forumets innstilling
 finduser_user_info:Brukerinformasjon
 finduser_by_login:Entydig brukernavn:
-finduser_submit:S&oslash;k
+finduser_submit:Søk
 finduser_no_such_user:Ingen slike medlemmer
 finduser_user:Medlem
 finduser_postcount:Antall innlegg
@@ -286,8 +287,8 @@ finduser_action:Handling
 yes:Ja
 no:Nei
 register_email:E-post
-edit_time_limit:<b>Tidsgrense f&oslash;r editering</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minutter
-no_edit_time_limit:<b>Tidsgrense f&oslash;r editering</b>: <b>Ubegrenset</b>
+edit_time_limit:<b>Tidsgrense før editering</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minutter
+no_edit_time_limit:<b>Tidsgrense før editering</b>: <b>Ubegrenset</b>
 pmuserloc_login:Brukernavn:
 pmuserloc_submit:Send
 pmuserloc_user:Medlem
@@ -306,15 +307,15 @@ register_avatar_type:Avatartype:
 register_del_avatar:Slett avatar
 register_avatar:Avatar:
 register_sel_avatar:Velg avatar
-register_custom_avatar_rules:Din egen avatar kommer ikke til &aring; vises f&oslash;r den har blitt godkjent av administratoren.<br /><font class="SmallText">Avataren b&oslash;r ikke v&aelig;re st&oslash;rre enn <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} pixler</b> og m&aring; v&aelig;ra i <b>jpg-</b>, <b>gif-</b> eller <b>png-</b>format.</font>
+register_custom_avatar_rules:Din egen avatar kommer ikke til å vises før den har blitt godkjent av administratoren.<br /><font class="SmallText">Avataren bør ikke være større enn <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} pixler</b> og må væra i <b>jpg-</b>, <b>gif-</b> eller <b>png-</b>format.</font>
 register_custom_avatar_url:URL til egen avatar:
-register_preview:Forh&aring;ndsvisning
+register_preview:Forhåndsvisning
 register_custom_avatar_upload:Fil med egen avatar:
 register_register:Registrere
-register_required:N&oslash;dvendig informasjon
-register_required_desc:Alle felt m&aring; fylles ut. Husk at det er forskjell på sm&aring; og store bokstaver i passordet.
+register_required:Nødvendig informasjon
+register_required_desc:Alle felt må fylles ut. Husk at det er forskjell på små og store bokstaver i passordet.
 register_optional:Frivilig informasjon
-register_optional_desc:Vi anbefaler at du ikke avsl&oslash;rer noen personlige opplysninger i din profil. All informasjon kan ses av andre medlemmer.
+register_optional_desc:Vi anbefaler at du ikke avslører noen personlige opplysninger i din profil. All informasjon kan ses av andre medlemmer.
 register_location:Sted:
 register_occupation:Yrke:
 register_interests:Interesser:
@@ -324,19 +325,19 @@ register_aim:AIM brukernavn:
 register_yahoo:Yahoo Messenger:
 register_msnm:MSN Messenger:
 register_homepage:Hjemmeside:
-register_bday:F&oslash;dsesldato:
-register_bday_desc:Om du gir din f&oslash;dselsdato kan andre medlemmer se det i din profil
+register_bday:Fødsesldato:
+register_bday_desc:Om du gir din fødselsdato kan andre medlemmer se det i din profil
 register_day:Dag
-register_month:M&aring;ned
-register_year:&Aring;r
-register_gender:Kj&oslash;nn:
+register_month:Måned
+register_year:År
+register_gender:Kjønn:
 register_bio:Biografi:
 register_bio_desc:Noen detaljer om deg selv, f.eks. utdannelse, praksis etc...
 register_prefs:Innstillinger
 register_sig:Signatur:
 register_sig_desc:Signatur som kan settes inn nederst i innleggene dine.
 register_reset:Still tilbake
-register_def_thread_view:Forvalgt visning av tr&aring;d
+register_def_thread_view:Forvalgt visning av tråd
 register_msg_per_page:Antall innlegg per side:
 register_show_sig:Vise signaturer:
 register_show_sig_desc:Du kan velge om du vil se de andre medlemmenes signaturer eller ikke
@@ -347,13 +348,13 @@ register_ignore_admin:Ignorer meldinger fra administrator:
 register_invisible_mode:Usynlig modus:
 register_invisible_mode_desc:Viser ikke om du er online.
 register_show_email:Vis e-postadresse:
-register_show_email_desc:Velg dette alternativet om du vil at din e-postadresse skal v&aelig;re synlig for alle.
+register_show_email_desc:Velg dette alternativet om du vil at din e-postadresse skal være synlig for alle.
 register_notification:Melding om nye innlegg:
-register_notification_desc:Om melding om nye innlegg er forvalgt (kan velges bort n&aring;r man skriver innlegg) f&aring;r du automatisk melding om nye innlegg i de tr&aring;dene du deltar i.
+register_notification_desc:Om melding om nye innlegg er forvalgt (kan velges bort når man skriver innlegg) får du automatisk melding om nye innlegg i de trådene du deltar i.
 register_notify_method:Velg metode for melding om nye innlegg:
 register_notify_method_desc:Velg din foretrukne varslingsmåte eller deaktiver varslinger (for eksempel for når du drar på ferie).
 register_allow_email_msg:Tillat meldinger via e-post:
-register_allow_email_msg_desc:Tillat andre medlemmer &aring; sende deg e-post via forumet.
+register_allow_email_msg_desc:Tillat andre medlemmer å sende deg e-post via forumet.
 buddy_status:Status
 my_buddies:Mine kontakter
 add_buddy:Legg til kontakt
@@ -364,25 +365,25 @@ buddy_remove:ta bort
 post_normal:Normal
 post_sticky:Klebrig
 post_annoncement:Melding
-post_size:St&oslash;rrelse
+post_size:Størrelse
 post_color:Farge
 post_font:Skrifttype
-create_thread:Begynn tr&aring;d
+create_thread:Begynn tråd
 submit_reply:Send svar
 edit_message:Editere innlegg
 apply_spell_changes:Godta stavekontrollens endringer
-post_preview:Forh&aring;nsdvis innlegget
+post_preview:Forhånsdvis innlegget
 post_logedin_user:Inlogget medlem:
 post_logout:logg ut
-post_passwd:Passord for &aring; skrive innlegg:
+post_passwd:Passord for å skrive innlegg:
 post_poll:Avstemning:
 post_create_poll:LAG EN AVSTEMNING
 post_poll_delete:SLETT
 post_poll_edit:REDIGER
 post_mod_opt:Moderatoralternativer:
-post_thread_type:Tr&aring;dtype:
-post_thread_expiry:Tr&aring;den forfaller:
-post_locked:Les tr&aring;den
+post_thread_type:Trådtype:
+post_thread_expiry:Tråden forfaller:
+post_locked:Les tråden
 post_icons:Innleggsikon:
 post_no_icon:Uten ikon
 post_smiley:Smiley snarveier:
@@ -390,10 +391,10 @@ post_format_tools:Formateringsredskap:
 post_upload_file:Send fil
 post_file_del:Slett
 post_file_name:Navn
-post_file_size:St&oslash;rrelse
+post_file_size:Størrelse
 file_attachments:Vedlegg:
 allowed_files:Godkjente filtyper:
-max_file_size:Maksimal filst&oslash;rrelse
+max_file_size:Maksimal filstørrelse
 max_files_per_msg:Maksimalt antall filer per innlegg:
 post_notification:Melding om nye innlegg
 include_sig:Inkludere signatur
@@ -405,16 +406,16 @@ post_forum:Forum:
 post_title:Emne:
 post_body:Tekst:
 post_options:Alternativ:
-post_preview_btn:Forh&aring;ndsvis melding
+post_preview_btn:Forhåndsvis melding
 ignore_users:Ignorerte medlemmer
 add_ignore:Ignorere medlem
-forum_terms:Vilk&aring;r for forumet
+forum_terms:Vilkår for forumet
 forum_rules:<p>Registrering på dette forumet er gratis! Vi insisterer på at du følger reglene og rettledningene beskrevet nedenfor. Dersom du aksepterer betingelsene, vennligst klikk på «Jeg godkjenner»-knappen på slutten av siden. Merk: Ved å trykke på knappen erklærer du at du er over 13 år. Dersom du er 13 år eller yngre, vennligst bruk dette registreringsskjemaet</p><p>Selvom administratorene og moderatorene av dette forumet vil forsøke å holde alle støtende meldinger borte fra dette forumet er det umulig for oss å gå igjennom alle meldingene. Alle meldinger uttrykker meningene til forfatteren og verken eierne av forumet eller dets utviklere vil bli holdt ansvarlig for innholdet i meldingene.</p><p>Ved å klikke på «Jeg godkjenner»-knappen garanterer du at du ikke vil poste noen meldinger som er obskøne, vulgære, seksuelt orienterte, hatefulle, truende eller på noen annen måte bryter noen lover.</p><p>Eierne av dette forumet har rettigheten til å fjerne, endre, flytte eller lukke et hvert emne for enhver grunn.</p>
 forum_rules_13:<p>Alle brukere under 13 år må ha tillatelse fra deres foreldre eller formyndere for å kunne få medlemsskap til forumene. Mens vi ønsker deltakelse fra medlemmer under 13 år velkommen, krever vi at en forelder eller formynder faxer eller sender sender et signert tillatelsesskjema før vi innvilger medlemsskap.</p><p>Dersom du ønsker å begynne registreringsprosessen før vi mottar tillatelsesskjemaet, klikk på «Jeg godkjenner»-knappen under. Dersom du ønsker å avbryte registreringen, klikk på «Avbryt registreringen» for å gå tilbake til forumoversikten.</p><p>En kopi av tillatelsesskjemaet kan lastes ned her. For mer informasjon om registreringsprosessen, vennligst send en e-post til <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
 coppa_conf:COPPA-bekreftelse
-coppa_before:F&oslash;r {TEMPLATE: coppa_date}
+coppa_before:Før {TEMPLATE: coppa_date}
 coppa_after:Etter {TEMPLATE: coppa_date}
-coppa_link:Trykk p&aring; lenken som passer din f&oslash;delsdato
+coppa_link:Trykk på lenken som passer din fødelsdato
 coppa:<p>En forelder eller formynder må poste eller fakse et signer tillatelsesskjema til en administrator av dette forumet før en bruker under 13 år kan fullføre registreringen.</p><p>For mer informasjon, kontakt <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a></p>
 prereg_info:Informasjon
 prereg_agree:Jeg godkjenner
@@ -423,7 +424,7 @@ coppa_fax_instructions:Instruksjoner for en forelder eller formynder
 coppa_fax_instructions2:Vennligst skriv ut denne siden, undertegn den og fax den til:
 coppa_fax_reg_form:Registreringsformular
 coppa_fax_sign:Vennligst undertegn formularet og send det til oss
-coppa_fax_conf:Jeg har lest gjennom den informasjon mitt barn har gitt meg og jeg har lest websidens allmenne vilk&aring;r. Jag forst&aring;r at brukerprofilen kan endres med et passord. Jag forst&aring;r at jeg kan begj&aelig;ra at brukerprofilen slettes permanent.
+coppa_fax_conf:Jeg har lest gjennom den informasjon mitt barn har gitt meg og jeg har lest websidens allmenne vilkår. Jag forstår at brukerprofilen kan endres med et passord. Jag forstår at jeg kan begjæra at brukerprofilen slettes permanent.
 coppa_fax_permission:Undertegn her dersom du gir din tillatelse
 coppa_fax_no_permission:Undertegn her om du vil slette brukerprofilen permanent
 coppa_fax_parent_name:Forelders/ormynders fulle navn:
@@ -431,14 +432,14 @@ coppa_fax_relation:Relasjon til barnet:
 coppa_fax_telephone:Telefonnummer:
 coppa_fax_email:E-postadresse:
 coppa_fax_date:Dato:
-coppa_fax_questions:Vennligst kontakt <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> dersom du har noen sp&oslash;rsm&aring;l
+coppa_fax_questions:Vennligst kontakt <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> dersom du har noen spørsmål
 coppa_fax_login:Brukernavn
 coppa_fax_passwd:Passord
 coppa_fax_remail:E-postadresse
 coppa_fax_name:Navn
-login_not_logedin:Du m&aring; logge inn. Dette kan komme av  flere ulike ting:
-login_cookie_expired:Din cookie har g&aring;tt ut, og du m&aring; logge inn p&aring; nytt for &aring; aktivere den.
-login_perm_denied:Du har ikke rett til &aring; benytte den etterspurte ressursen som anonym bruker og m&aring; derfor logge inn.
+login_not_logedin:Du må logge inn. Dette kan komme av  flere ulike ting:
+login_cookie_expired:Din cookie har gått ut, og du må logge inn på nytt for å aktivere den.
+login_perm_denied:Du har ikke rett til å benytte den etterspurte ressursen som anonym bruker og må derfor logge inn.
 login_want_to_register:Vil du registrere deg?
 login_forgot_passwd:Jag har glemt mitt passord
 login_use_cookie:Bruk cookies<br /><span class="SmallText">Dersom du bruker en offentlig datamaskin, som for eksempel i bibliotek, skoler eller internettkaféer, anbefaler vi at du velger bort dette alternativet for bedre sikkerhet.<br />Dersom du lar dette alternativet stå huket av vil du bli automatisk pålogget forumet neste gang noen besøker siden.</span>
@@ -447,38 +448,38 @@ login_login_btn:Logg inn
 login_name_required:brukernavn er obligatorisk
 login_passwd_required:Passordet er obligatorisk
 login_invalid_radius:Ugyldig kombinasjon av brukernavn og passord
-reset_confirmation:Takk for din registrering!\n\nFor &aring; aktivere din konto skal du g&aring; til f&oslash;lgende URL:\n\n{VAR: url}\n\nN&aring;r din konto er aktivert blir du innlogget i forumet og\nvideresendt til forumets f&oslash;rste side.
-reset_reset:Hei!\n\nDu har bedt om at ditt passord nullstilles. For &aring; virkelig NULLSTILLE passordet ditt\nvennligst bes&oslash;k denna URLen\n\n{VAR: url}\n\nNOTER: Forumet lagrer passordene med enveis krypteringsmekanismer, hvilket inneb&aelig;rer at\nn&aring;r du har skrevet ditt passord krypteres det på en slik m&aring;te at det ikke kan dekrypteres.\nDette fungerer gjennom &aring; kryptere passordet hver gang du skriver det inn. Deretter sammenlignes resultatet for &aring; se om den nye og den lagrede versionen\nstemmer overens. (Dersom du er intressert i &aring; vite hvordan det fungerer, kan du lese om "MD5 HASH"-algoritmen)
+reset_confirmation:Takk for din registrering!\n\nFor å aktivere din konto skal du gå til følgende URL:\n\n{VAR: url}\n\nNår din konto er aktivert blir du innlogget i forumet og\nvideresendt til forumets første side.
+reset_reset:Hei!\n\nDu har bedt om at ditt passord nullstilles. For å virkelig NULLSTILLE passordet ditt\nvennligst besøk denna URLen\n\n{VAR: url}\n\nNOTER: Forumet lagrer passordene med enveis krypteringsmekanismer, hvilket innebærer at\nnår du har skrevet ditt passord krypteres det på en slik måte at det ikke kan dekrypteres.\nDette fungerer gjennom å kryptere passordet hver gang du skriver det inn. Deretter sammenlignes resultatet for å se om den nye og den lagrede versionen\nstemmer overens. (Dersom du er intressert i å vite hvordan det fungerer, kan du lese om "MD5 HASH"-algoritmen)
 rpasswd_invalid_passwd:Ugyldig passord
 rpasswd_passwd_nomatch:Passordene stemmer ikke overens
-rpasswd_passwd_length:Passordet m&aring; v&aelig;re minst 6 tegn langt
-reset_remind_pass:Passordsp&aring;minnelse
-reset_reset_conf:Ditt passord kommer &aring; nollstellas og ett nytt skickas &aring;t dig. Om du ikke har bekreftat din registrering kommer bekreftelsemeddelandet &aring; skickas istellet.
+rpasswd_passwd_length:Passordet må være minst 6 tegn langt
+reset_remind_pass:Passordspåminnelse
+reset_reset_conf:Ditt passord kommer å nollstellas og ett nytt skickas åt dig. Om du ikke har bekreftat din registrering kommer bekreftelsemeddelandet å skickas istellet.
 reset_error:E-postadressen finnes ikke i databasen
 rpasswd_change_pass:Bytt passord
 rpasswd_login:brukernavn:
-rpasswd_cur_pass:N&aring;v&aelig;rende passord:
+rpasswd_cur_pass:Nåværende passord:
 rpasswd_new_pass:Nytt passord:
 rpasswd_conf_pass:Bekrefte passord:
 login_passwd:Passord:
 reset_email:E-post:
 reset_reset_button:Nullstill passord
-rate_this_thread:Bed&oslash;m
+rate_this_thread:Bedøm
 report_reporting_about:Rapport om:
 report_subject:Emne:
 report_by:Av:
 report_posted_on:Postet dato:
-report_give_reason:Angi &aring;rsaken til at du rapporterer dette innlegget:
+report_give_reason:Angi årsaken til at du rapporterer dette innlegget:
 report_submit_report:Send rapport
 search_entire_msg:Hele innlegget
 search_subject_only:Bare emnet
 search_forum:Forum
 search_posted_on:Postet dato
 search_no_results:Ingen resultater
-search_all_forums:S&oslash;k i alle forum
-search_in_forum:S&oslash;k i forum:
-search_forum_search:S&oslash;k
-move_thread_to:Flytt tr&aring;d <b>{VAR: thr->subject}</b> til:
+search_all_forums:Søk i alle forum
+search_in_forum:Søk i forum:
+search_forum_search:Søk
+move_thread_to:Flytt tråd <b>{VAR: thr->subject}</b> til:
 remail_email_topic:Send denne diskusjonen til en venn per e-post
 remail_your_name:Ditt navn:
 remail_your_email:Din e-postadresse:
@@ -487,26 +488,26 @@ remail_friends_email:Din venns e-postadresse:
 remail_required:obligatorisk
 remail_subject:Emne:
 remail_message:Melding:
-remail_send_now:Send e-post n&aring;
-remail_anon_opt:Kopier denne meldingen til en valgbar e-postklient for &aring; sende til dine kontakter.
+remail_send_now:Send e-post nå
+remail_anon_opt:Kopier denne meldingen til en valgbar e-postklient for å sende til dine kontakter.
 remail_done:Klart
 remail_sent_conf:E-posten til din venn på {VAR-HTML: _POST['femail']} om {VAR: data->subject}-emnet har blitt sendt.
-remail_error:En feil har oppst&aring;tt
+remail_error:En feil har oppstått
 mklist_type:Type:
 mklist_option:Alternativ:
-mklist_additem:Legg til sak[??]
+mklist_additem:Legg til element
 mklist_apply:Bruk
 mklist_delete:Slett
 qbud_nick_name:Kallenavnn
 qbud_add_selected:Legg til valgte
 qbud_selected:Valgte
-qbud_no_buddies:Inga kontakter &aring; velge mellom
+qbud_no_buddies:Inga kontakter å velge mellom
 mklist_numerical:Numerisk
 mklist_aplha:Alfa
 mklist_square:Firkant
 mklist_disc:Disk
 mklist_circle:Sirkel
-mklist_close:N&aelig;rme
+mklist_close:Nærme
 email_to:Til:
 email_pg_title:E-post
 email_subject:Emne:
@@ -516,9 +517,9 @@ ppost_quote_msg:{VAR: msg_to_list} skrev {TEMPLATE: ppost_quote_msg_date}
 ppost_quote:Sitat:
 ppost_to:Til:
 ppost_from_buddy_list:Velg fra kontaktlisten
-ppost_find_User:S&oslash;k medlem
-ppost_track_msg:F&oslash;lg opp denne meldingen
-ppost_track_msg_desc:Gi meg beskjed n&aring;r mottakeren leser meldingen.
+ppost_find_User:Søk medlem
+ppost_track_msg:Følg opp denne meldingen
+ppost_track_msg_desc:Gi meg beskjed når mottakeren leser meldingen.
 ppost_send:Send
 ppost_save_draft:Lagre kladd
 poll_blank_option:Du kan ikke legge til et tomt alternativ.
@@ -528,7 +529,7 @@ poll_timelimit:Tidsgrense:
 poll_maxiumvotes:Maksimum stemmer:
 poll_create:Lage
 poll_update:Oppdatere
-poll_disablesmilies:Sl&aring; av smilies
+poll_disablesmilies:Slå av smilies
 poll_create_poll:Lag en avstemning
 poll_update_poll:Oppdatere avstemning
 poll_delete:Slette
@@ -539,8 +540,8 @@ poll_day:dag
 poll_days:dager
 poll_hour:time
 poll_hours:timer
-poll_month:m&aring;ned
-poll_year:&aring;r
+poll_month:måned
+poll_year:år
 poll_week:uke
 tabs_register:Innstillninger
 tabs_subscriptions:Abonnement
@@ -558,11 +559,11 @@ error_invalidurl:Ugyldig URL
 error_error:Feil
 usrinfo_profile:{VAR: u->alias}s profil
 usrinfo_show_all_posts:Vise alle innlegg av {VAR: u->alias}
-actions_update:Spionerer p&aring; andra medlemmer, akkurat som deg
+actions_update:Spionerer på andra medlemmer, akkurat som deg
 err_info:Info
 buddy_list_err_cantadd:Du kan ikke legge deg selv til kontaktlisten
 buddy_list_err_dup:Dette medlemmet er allerede i kontaktlisten din
-buddy_list_err_nouser:Kan ikke finne medlemmet du fors&oslash;kte å legge til kontaktlisten blandt dette forumets medlemmer.
+buddy_list_err_nouser:Kan ikke finne medlemmet du forsøkte å legge til kontaktlisten blandt dette forumets medlemmer.
 buddy_list_err_nouser_title:Kan ikke legge til medlemmet
 buddy_list_err_ignore:Kan ikke legge brukere som ignorerer deg til i vennelisten din.
 buddy_list_update:Viser egen kontaktliste
@@ -577,10 +578,10 @@ email_error_subject:Emne er obligatorisk
 email_error_namerequired:Navn er obligatoriskt
 email_error_invaliduser:Ugyldig medlem
 emailconf_err_invkey_title:Feil
-emailconf_err_invkey_msg:Ugyldig bekreftelseskode. Vennligst kontroller i din e-post at du virkelig har g&aring;tt til riktig URL
+emailconf_err_invkey_msg:Ugyldig bekreftelseskode. Vennligst kontroller i din e-post at du virkelig har gått til riktig URL
 err_inc_criticaltitle:Kritisk feil
-err_inc_criticalmsg:Du har st&oslash;tt p&aring; en feil, men dessverre har vi et problem med feilrapporteringssystemet
-finduser_update:S&oslash;ker etter medlemmer
+err_inc_criticalmsg:Du har støtt på en feil, men dessverre har vi et problem med feilrapporteringssystemet
+finduser_update:Søker etter medlemmer
 help_index_update:Leser <a href="{TEMPLATE: help_index_update_lnk}">hjelpen.</a>
 iemail_thr_subject:Nytt svar på {VAR: thr_subject} av {VAR: poster_login}
 iemail_thr_bodyemail:Gå til {VAR: goto_url['email']} for å vise uleste svar\n\nDersom du i fremtiden ikke vil motta meldinger om svar på denne tråden, kan du gå hit: {VAR: unsub_url['email']}
@@ -590,18 +591,18 @@ iemail_participate:For å delta i diskusjonen, gå hit:
 ignore_list_err_info_title:Info
 ignore_list_err_dup_msg:Du har allerede dette medlemmet i listen din
 ignore_list_err_nu_title:Kan ikke finne medlemmet
-ignore_list_err_nu_msg:Kan ikke finne medlemmet du du fors&oslash;kte &aring; legge til  listen din i dette forumet.
+ignore_list_err_nu_msg:Kan ikke finne medlemmet du du forsøkte å legge til  listen din i dette forumet.
 ignore_list_cantign_msg:Du kan ikke ignorere dette medlemmet
 ignore_list_update:Viser egen liste over ignorerte medlemmer
 index_update:Viser <a href="{TEMPLATE: index_update_lnk}">listen over forum</a>
 list_referers_update:Viser refererede medlemmer
 login_update:Logge inn
-msg_update:Leser tr&aring;den med emnet <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
+msg_update:Leser tråden med emnet <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
 pm_err_nopm_title:FEIL: Private meldinger er ikke tillatt
 pm_err_nopm_msg:Du kan ikke bruke systemet for private meldinger, ettersom administrator har stengt av for det.
 pm_update:Bruker privatmeldinger
-post_err_lockedthread_title:FEIL: L&aring;st tr&aring;d
-post_err_lockedthread_msg:Denne tr&aring;den er l&aring;st og tar ikke imot flere innlegg
+post_err_lockedthread_title:FEIL: Låst tråd
+post_err_lockedthread_msg:Denne tråden er låst og tar ikke imot flere innlegg
 err_coppa_title:FEIL: Din konto er ikke bekreftet enda
 err_coppa_msg:Vi har ikke mottatt en bekreftelse fra din forelder og/eller formynder, som ville tillatt deg å poste meldinger. Om du mistet ditt COPPA-skjema kan du <a href="{TEMPLATE: err_coppa_msg_lnk}">se det igjen</a>.
 err_banned_acct_title:FEIL: Du har blitt utestengt.
@@ -609,20 +610,20 @@ post_err_edttimelimit_title:FEIL
 post_err_edttimelimit_msg:Du kan ikke redigere denne meldingen lenger
 post_err_noannontopics_msg2:<legend>FEIL: Utilstrekkelige privilegier</legend>Anonyme brukere kan ikke opprette emner.
 post_err_noannonposts_msg2:<legend>FEIL: Utilstrekkelige privilegier</legend>Anonyme brukere kan ikke svare.
-post_err_floodtrig_title:FEIL: 	Flood-beskyttelse sl&aring;tt p&aring;
+post_err_floodtrig_title:FEIL: 	Flood-beskyttelse slått på
 post_err_floodtrig_msg:Vennligst prøv igjen om {PLURAL: tm|$1 sekund|$1 sekund}
-post_err_attach_size:Vedlegget er for stort (over grensen p&aring; {VAR: MAX_F_SIZE} byte)
-post_err_attach_ext:Filen du fors&oslash;ker &aring; sende er ikke av tillatt filtype.
-post_err_attach_filelimit:Du fors&oslash;ker &aring; sende flere filer enn det som er tillatt.
+post_err_attach_size:Vedlegget er for stort (over grensen på {VAR: MAX_F_SIZE} byte)
+post_err_attach_ext:Filen du forsøker å sende er ikke av tillatt filtype.
+post_err_attach_filelimit:Du forsøker å sende flere filer enn det som er tillatt.
 post_err_passwd:Feil passord
 post_reply_update:Svarer på <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> i {VAR: frm->name}
 post_topic_update:Skriver nytt emne i <a href="{TEMPLATE: post_topic_update_lnk}">{VAR: frm->name}</a>
-post_error_generic:En feil har oppst&aring;tt
+post_error_generic:En feil har oppstått
 postcheck_max_images_err:Maksimalt {GVAR: MAX_IMAGE_COUNT} bilder er tillatt per innlegg, vennligst reduser antall bilder
 postcheck_no_links_allowed:Du kan ikke bruke lenker før du har postet mer enn {PLURAL: posts_before_links|$1 melding|$1 meldinger}.
 postcheck_subj_needed:Emne obligatorisk
 postcheck_no_such_user:Medlemmet "{FUNC: char_fix(htmlspecialchars($v))}" finnes ikke i dette forumet
-postcheck_ignored:Du kan ikke sende en privat melding til "{FUNC: char_fix(htmlspecialchars($v))}", ettersom han/hun har valgt &aring; ignorere deg.
+postcheck_ignored:Du kan ikke sende en privat melding til "{FUNC: char_fix(htmlspecialchars($v))}", ettersom han/hun har valgt å ignorere deg.
 postcheck_no_recepient:Kan ikke sende meldingen, mangler mottaker
 postcheck_invalid_email:Gi en korrekt e-postadresse til din kontakt.
 postcheck_email_subject:Kan ikke sende e-post uten emne.
@@ -630,25 +631,25 @@ postcheck_email_body:Kan ikke sende e-post utan tekst.
 private_msg_notify_subj:Kvittering for: {VAR: m->subject}
 private_msg_notify_body:Hei!<br />Den {TEMPLATE: private_msg_notify_body_date} leste {VAR: usr->login} din private melding med emnet "{VAR: m->subject}"<br />
 referals_update:Visar refererte medlemmer
-register_err_short_login:Brukernavnet du har valgt er for kort. Det m&aring; v&aelig;re minst 4 tegn langt
+register_err_short_login:Brukernavnet du har valgt er for kort. Det må være minst 4 tegn langt
 register_err_login_notallowed:Dette brukernavnet er ikke tillatt
-register_err_loginunique:brukernavn m&aring; v&aelig;re unike. Det finnes allerede et medlem med dette brukernavnet
-register_err_emailexists:Denne e-postadressen finnes allerede i v&aring;r database. Dersom du pr&oslash;ver &aring; registrere deg p&aring; nytt fordi du har glemt passordet ditt, kan du bruke nullstillingsfunktionen istedet.
-register_err_shortpasswd:Passordet m&aring; v&aelig;re minst 6 tegn langt
+register_err_loginunique:brukernavn må være unike. Det finnes allerede et medlem med dette brukernavnet
+register_err_emailexists:Denne e-postadressen finnes allerede i vår database. Dersom du prøver å registrere deg på nytt fordi du har glemt passordet ditt, kan du bruke nullstillingsfunktionen istedet.
+register_err_shortpasswd:Passordet må være minst 6 tegn langt
 register_err_passwdnomatch:Passordene er ikke like.
-register_err_invalidemail:E-postadressen du har angitt ser ikke ut til &aring; v&aelig;re korrekt.
-register_err_needname:Du m&aring; angi navn for &aring; fullf&oslash;re registreringen.
-register_err_enterpasswd:Du m&aring; angi ditt n&aring;v&aelig;rande passord for &aring; fullf&oslash;re forandringene
+register_err_invalidemail:E-postadressen du har angitt ser ikke ut til å være korrekt.
+register_err_needname:Du må angi navn for å fullføre registreringen.
+register_err_enterpasswd:Du må angi ditt nåværande passord for å fullføre forandringene
 register_err_adminpasswd:Du må skrive inn ditt <b>administratorpassord</b> for å fullføre endringene.
 register_err_notyouremail:Noen har allerede registrert seg med denne e-postadressen, og denne noen er IKKE deg
-register_err_avatartobig:Filen du pr&oslash;ver &aring; sende er for stor, over grensen p&aring; {GVAR: CUSTOM_AVATAR_MAX_SIZE} byte
-register_err_avatarnotallowed:Avataren du pr&oslash;ver &aring; sende er ikke tillatt. Kontroller at den er av godkjent filtype.
+register_err_avatartobig:Filen du prøver å sende er for stor, over grensen på {GVAR: CUSTOM_AVATAR_MAX_SIZE} byte
+register_err_avatarnotallowed:Avataren du prøver å sende er ikke tillatt. Kontroller at den er av godkjent filtype.
 register_conf_subject:Bekreftelse av forumregistrering
-register_conf_msg:Takk for din registrering!\nGå til adressen under for &aring; aktivere din medlemskonto:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nEtter at din konto er aktivert blir du innlogget p&aring; forumet og \nvideressendt til hovedsiden.
+register_conf_msg:Takk for din registrering!\nGå til adressen under for å aktivere din medlemskonto:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nEtter at din konto er aktivert blir du innlogget på forumet og \nvideressendt til hovedsiden.
 register_welcome_subject:Velkommen til forumet
 register_welcome_msg:Takk for at du registrerte deg,\n\nHer er innloggingsinformasjonen din for forumet:\n\nForumets URL: {TEMPLATE: index_update_lnk}\nInnlogging: {VAR: uent->login}\nPassord: {VAR: _POST['reg_plaintext_passwd']}\n\nVennligst merk at passord skiller mellom store og små bokstaver!\nFor å endre innstillingene dine eller profilen din, gå til denne siden:\n{FULL_ROOT}{ROOT}?t=register
 register_err_cantreg_title:FEIL: kan ikke registrere
-regsiter_err_cantreg_msg:Kan ikke opprette brukerkonto, vennligst kontakt administratoren p&aring; adressen <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
+regsiter_err_cantreg_msg:Kan ikke opprette brukerkonto, vennligst kontakt administratoren på adressen <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:Viser sin egen profil
 register_register_update:Registreringsside
 report_err_nosuchmsg_title:FEIL
@@ -656,24 +657,24 @@ report_err_nosuchmsg_msg:Ikke noe slikt innlegg
 reset_err_invalidkey_title:FEIL
 reset_err_invalidkey_msg:Ugyldig kode for nullstilling av passord
 reset_err_rstconf_title:Informasjon
-reset_err_rstconf_msg:Du vil motta instruksjoner per e-post innen f&aring; minutter
+reset_err_rstconf_msg:Du vil motta instruksjoner per e-post innen få minutter
 reset_newpass_title:Nullstill passord
-reset_newpass_msg:Hei!\n\nDitt brukernavn og passord har blitt endret p&aring; din foresp&oslash;rsel.\nHer er din inloggingsinformasjon:\n\nBrukernavn: {VAR: ui[1]}\nPassord: {VAR: passwd}\n\nNoter deg at passordet ditt er endret til det overst&aring;ende. Om du vil\nendre passordet ditt kan du gj&oslash;re det i kontrollpanelet:\n{FULL_ROOT}{ROOT}?t=register
+reset_newpass_msg:Hei!\n\nDitt brukernavn og passord har blitt endret på din forespørsel.\nHer er din inloggingsinformasjon:\n\nBrukernavn: {VAR: ui[1]}\nPassord: {VAR: passwd}\n\nNoter deg at passordet ditt er endret til det overstående. Om du vil\nendre passordet ditt kan du gjøre det i kontrollpanelet:\n{FULL_ROOT}{ROOT}?t=register
 reset_login_notify:Ditt passord har blitt sendt til deg per e-post og burde komme frem innen et par minutter. Vennligst sjekk e-posten din for ditt brukernavn og passord.<br />.<br />.<br />
-search_update:S&oslash;ker blandt innleggene
+search_update:Søker blandt innleggene
 selmsg_update:Leser <a href="{TEMPLATE: selmsg_update_lnk}">Dagens innlegg</a>
 showposts_update:Viser innlegg av: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
 subscribed_update:Viser egne abonnement
 thread_update:Leser forumet <a href="{TEMPLATE: thread_update_lnk}">{VAR: frm->name}</a>
-tree_update:Leser tr&aring;den (tr&aring;det visning) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
-userinfo_update:Ser p&aring; <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}s</a> profil
+tree_update:Leser tråden (trådet visning) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
+userinfo_update:Ser på <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}s</a> profil
 ERR_login_msg2:<legend>FEIL: Du er ikke logget inn</legend>For å få tilgang til denne siden må du være medlem av dette forumet.
 ERR_disabled_ttl:Avstengt funksjon
 ERR_disabled_msg:Denne funksjonen er blitt deaktivert av systemadministratoren.
 ERR_access_ttl:FEIL: Ikke tilstrekkelige rettigheter
 ERR_access_msg:Du har ikke de nødvendige rettighetene til å utføre denne handlingen.
 ERR_registration_disabled_ttl:Registrering stengt
-ERR_registration_disabled_msg:Administratoren har stengt registreringen, pr&oslash;v p&aring; nytt senere
+ERR_registration_disabled_msg:Administratoren har stengt registreringen, prøv på nytt senere
 ERR_emailconf_ttl:FEIL: Din brukerkonto er enda ikke bekreftet
 ERR_emailconf_msg:Du har ikke bekreftet kontoen din via e-post enda.<br /><table border="0"><tr><td><ol><li>Dersom du ikke har mottatt en bekreftelsese-post, <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">be om ny her</a>.</li><li>Hvis {VAR: usr_d->email} ikke er din riktige e-postadresse, <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">oppgi den riktig adressen</a>.</li></ol></td></tr></table>
 ERR_user_ttl:FEIL: Finner ikke et slikt medlem
@@ -681,7 +682,7 @@ ERR_user_msg:Det finnes ikke et slikt medlem
 ERR_systemerr_ttl:FEIL: Systemfeil
 ERR_systemerr_msg:En systemfeil har oppstått. Vennligst rapporter den til <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a>.
 email_title:Send e-post
-finduser_title:S&oslash;k etter medlemmer
+finduser_title:Søk etter medlemmer
 help_title:Hjelp
 login_title:Logg inn
 poll_title:Gallupeditor
@@ -690,14 +691,14 @@ reset_title:Nullstill passord
 rpasswd_title:endre passord
 error_title:FEIL
 index_title:Velkommen til forumet
-search_title:S&oslash;k {VAR-HTML: srch}
+search_title:Søk {VAR-HTML: srch}
 remail_emailsent:E-post sendt
 remail_email:Hei,\n\nDet er et interessant emne om "{VAR: data->subject}" på {GVAR: FORUM_TITLE}-forumet som du kanskje vil lese. Du kan se emnet på:\n  {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nDin venn,\n\n{VAR: usr->alias}
 poll_add_option:Legg til alternativ:
-post_opt_html_on:<b>HTML</b>-kode er <b>P&Aring;</b>
-post_opt_fud_on:<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>FUD-kode</b> er <b>P&Aring;</b></a>
-post_opt_images_on:<b>Bilder</b> er <b>P&Aring;</b>
-post_opt_smilies_on:<a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank"><b>Smilies</b> er <b>P&Aring;</b></a>
+post_opt_html_on:<b>HTML</b>-kode er <b>PÅ</b>
+post_opt_fud_on:<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>FUD-kode</b> er <b>PÅ</b></a>
+post_opt_images_on:<b>Bilder</b> er <b>PÅ</b>
+post_opt_smilies_on:<a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank"><b>Smilies</b> er <b>PÅ</b></a>
 post_opt_html_off:<b>HTML</b>-kode er <b>AV</b>
 post_opt_fud_off:<b>FUD-kode</b> er <b>AV</b>
 post_opt_images_off:<b>Bilder</b> er <b>AV</b>
@@ -705,25 +706,25 @@ post_opt_smilies_off:<b>Smilies</b> er <b>AV</b>
 post_opt:Forumalternativ
 register_change_passwd:bytt passord
 approved_avatar_title:Din avatar godkjennes.
-approved_avatar_msg:Din avatar godkjennes av administratoren. Den burde n&aring; vises som din avatar i alle dine innlegg. Om du ikke ser den, eller ser din gamle avatar, beror det p&aring; at din webleser har siden i sitt minne. Du kan oppdatere siden en eller et par ganger, det burde l&oslash;se problemet.
+approved_avatar_msg:Din avatar godkjennes av administratoren. Den burde nå vises som din avatar i alle dine innlegg. Om du ikke ser den, eller ser din gamle avatar, beror det på at din webleser har siden i sitt minne. Du kan oppdatere siden en eller et par ganger, det burde løse problemet.
 unapproved_avatar_title:Din avatar ble ikke godkjent.
-unapproved_avatar_msg:Administratoren godkjente ikke din avatar. De vanligste grunnene er at avataren er for stor (filst&oslash;rrelse og/eller bildest&oslash;rrelse) eller tvilsomt innhold. Om du vil ha mer information om hvorfor din avatar ikke ble godkjent kan du kontakte administratoren.
-mvthread_request_move:Foresp&oslash;rsel om flyttning
-move_request_reason:Hvorfor vil flytte tr&aring;den?
-mvthread_submit_req:Send foresp&oslash;rsel
-thread_exchange:Tr&aring;dflytting
-move_request_by:Tr&aring;dflytting &oslash;nsket av:
-move_reason:&Aring;rsak til flyttningen:
-thr_exch_accept:godkjenn tr&aring;d
-thr_exch_decline:godkjenn ikke tr&aring;d
+unapproved_avatar_msg:Administratoren godkjente ikke din avatar. De vanligste grunnene er at avataren er for stor (filstørrelse og/eller bildestørrelse) eller tvilsomt innhold. Om du vil ha mer information om hvorfor din avatar ikke ble godkjent kan du kontakte administratoren.
+mvthread_request_move:Forespørsel om flyttning
+move_request_reason:Hvorfor vil flytte tråden?
+mvthread_submit_req:Send forespørsel
+thread_exchange:Trådflytting
+move_request_by:Trådflytting ønsket av:
+move_reason:Årsak til flyttningen:
+thr_exch_accept:godkjenn tråd
+thr_exch_decline:godkjenn ikke tråd
 thr_exch_orig_forum:Opprinnelig forum:
 thr_exch_dest_forum:Nytt forum:
-thr_exch_no_threads:Ingen tr&aring;der &aring; granske.
+thr_exch_no_threads:Ingen tråder å granske.
 thr_exch_decl_reason:Grunn for å avslå emnet <b>{VAR: data->subject}</b> i forumet <b>{VAR: data->f2_name}</b>
 thr_exch_submit:Send
 exch_decline_ttl:Flytting av emne {VAR: data->subject} til forum {VAR: data->f2_name} ble avslått.
-ppost_original_msg:melding som du sender videre eller svarer p&aring;
-split_thread:Splitte tr&aring;d
+ppost_original_msg:melding som du sender videre eller svarer på
+split_thread:Splitte tråd
 groupmgr_no_user:Det finnes ingen medlemmer med brukernavnet "{FUNC: char_fix(htmlspecialchars($gr_member))}"
 groupmgr_already_exists:Medlemmet "{FUNC: char_fix(htmlspecialchars($gr_member))}" finnes allerede i denne gruppen.
 groupmgr_yes:Ja
@@ -740,10 +741,10 @@ group_mgr_reged:Alle registrerte medlemmer
 show_show:Vis:
 group_mgr:Gruppe manager
 group_mgr_edit_btn:Rediger gruppe
-group_mgr_heading:Velg gruppe &aring; redigere
+group_mgr_heading:Velg gruppe å redigere
 group_mgr_group:Gruppe:
 permission_denied_title:Ikke tillatt!
-permission_denied_msg:Dine brukerrettigheter tillater ikke at du gj&oslash;r det du n&aring; fors&oslash;kte.
+permission_denied_msg:Dine brukerrettigheter tillater ikke at du gjør det du nå forsøkte.
 p_READ:Les
 p_POST:Skriv
 p_REPLY:Svar
@@ -753,16 +754,16 @@ p_STICKY:Klebrige innlegg
 p_POLL:Lag en avstemning
 p_FILE:Legg ved filer
 p_VOTE:Stem
-p_RATE:Bed&oslash;m tr&aring;der
-p_SPLIT:Splitt tr&aring;der
-p_LOCK:L&aring;s tr&aring;dar
-p_MOVE:Flytt tr&aring;der
+p_RATE:Bedøm tråder
+p_SPLIT:Splitt tråder
+p_LOCK:Lås trådar
+p_MOVE:Flytt tråder
 p_SML:Tillat smilies
 p_IMG:Tillat bilde-URL
 p_SEARCH:Kan søke
 group_mgr_search:Finn medlem
-group_mgr_indicator:Redigeres akkurat n&aring;: <b>{VAR: grp->name}</b>
-rate_worst:V&aelig;rst
+group_mgr_indicator:Redigeres akkurat nå: <b>{VAR: grp->name}</b>
+rate_worst:Værst
 rate_best:Best
 post_quote_msg:Den {TEMPLATE: make_report_date} skrev {VAR: msg->login}:
 post_quote:Sitat:
@@ -770,7 +771,7 @@ post_quote_selected:Sitér valgt tekst
 userinfo_referals:Refererte medlemmer:
 userinfo_referals_count:{VAR: referals} medlemmer
 pm_no_space_title:Ikke mer plass!
-pm_no_space_msg:Dine private meldinger tar for &oslash;yeblikket for mye plass. Maksimalt tillatt plass er <b>{GVAR: MAX_PMSG_FLDR_SIZE} byte</b>, og dine meldinger opptar n&aring; <b>{VAR: fldr_size} byte</b>.<br /><br /><font class="ErrorText">Ta bort noen gamle meldinger for &aring; frigj&oslash;re lagringsplass</font>.
+pm_no_space_msg:Dine private meldinger tar for øyeblikket for mye plass. Maksimalt tillatt plass er <b>{GVAR: MAX_PMSG_FLDR_SIZE} byte</b>, og dine meldinger opptar nå <b>{VAR: fldr_size} byte</b>.<br /><br /><font class="ErrorText">Ta bort noen gamle meldinger for å frigjøre lagringsplass</font>.
 pm_space_indct_msg:Dine mapper for private meldinger er fylt til {VAR: percent_full}%.
 th_expr_never:Aldri
 th_expr_one_hr:1 time
@@ -783,26 +784,26 @@ th_expr_two_day:2 dager
 th_expr_four_day:4 dager
 th_expr_one_week:1 uke
 th_expr_two_week:2 uker
-th_expr_one_month:1 m&aring;ned
-th_expr_two_month:2 m&aring;neder
-th_expr_four_month:4 m&aring;neder
-th_expr_one_year:1 &aring;r
+th_expr_one_month:1 måned
+th_expr_two_month:2 måneder
+th_expr_four_month:4 måneder
+th_expr_one_year:1 år
 thread_mod_delete:Slett
 action_latest_post:Siste innlegg
-online_today_last_visit:Siste bes&oslash;k
-online_today_update:Se liste over dem som har v&aelig;rt i dette forumet i dag.
-logedin_todays_visitors:dagens bes&oslash;kende
+online_today_last_visit:Siste besøk
+online_today_update:Se liste over dem som har vært i dette forumet i dag.
+logedin_todays_visitors:dagens besøkende
 logedin_latest_post:Siste innlegg:
 register_show_avatar:Vise avatarer:
-register_show_avatar_desc:Du kan la v&aelig;re &aring; vise andre medlemmers avatarer n&aring;r du leser deres innlegg
+register_show_avatar_desc:Du kan la være å vise andre medlemmers avatarer når du leser deres innlegg
 drawmsg_view_rest_post:Vise resten av inlegget
 post_re:Re:
-forumsel_goto_forum:G&aring; til forum:
-minimsg_thread_view:Tidigere innlegg i tr&aring;den
+forumsel_goto_forum:Gå til forum:
+minimsg_thread_view:Tidigere innlegg i tråden
 split_th_post_by:Skrevet av:
 split_th_posted_on:Postet dato:
 split_th_subject:Emne:
-split_th_new_thread_title:Nytt emne for denne tr&aring;den:
+split_th_new_thread_title:Nytt emne for denne tråden:
 split_th_forum:Forum:
 split_th_split_sel:Flytte valgte innlegg
 split_th_split_unsel:Flytte ikke-valgte innlegg
@@ -816,16 +817,16 @@ quicklogin_login_btn:Logg inn
 quick_reply:Hurtigsvar
 quick_reply_post:Post raskt svar
 quick_reply_preview:Forhåndsvis raskt svar
-post_notification_desc:Gi meg beskjed n&aring;r noen svarer p&aring; dette innlegget.
+post_notification_desc:Gi meg beskjed når noen svarer på dette innlegget.
 maximize_category:Maksimere kategori
 maximize_message:Maksimer melding
-no_view_perm:Du har ikke tilstrekkelige rettigheter for &aring; se denne tr&aring;den.
+no_view_perm:Du har ikke tilstrekkelige rettigheter for å se denne tråden.
 report_empty_report:Du kan ikke sende en tom rapport. Vennligst angi grunnen til rapporten.
 report_already_reported_title:Innlegget allerede rapportert
-report_already_reported_msg:Dette innlegget er allerede rapportert og ventar p&aring; &aring; bli tatt stilling til av moderatorene.
-register_err_toomanyimages:Du fors&oslash;ker &aring; bruke flere bilder enn det tillatte antallet {GVAR: FORUM_IMG_CNT_SIG} bilder i din signatur.
+report_already_reported_msg:Dette innlegget er allerede rapportert og ventar på å bli tatt stilling til av moderatorene.
+register_err_toomanyimages:Du forsøker å bruke flere bilder enn det tillatte antallet {GVAR: FORUM_IMG_CNT_SIG} bilder i din signatur.
 pmsg_next_msg:Neste melding
-pmsg_prev_msg:Foreg&aring;ende melding
+pmsg_prev_msg:Foregående melding
 post_proc_reveal_spoiler:Vise skjult tekst
 register_jabber:Jabber-brukernavn:
 register_skype:Skype-brukernavn:
@@ -847,11 +848,11 @@ reported_in_thread:I:
 help_back_to_top:tilbake til starten
 help_return_to_index:tilbaka til hjelpindex
 imsg_err_message_title:Ugyldig innlegg
-imsg_err_message_msg:Innlegget du fors&oslash;ker &aring; vise finnes ikke.
+imsg_err_message_msg:Innlegget du forsøker å vise finnes ikke.
 poll_edit:Redigere
 register_err_not_valid_img:Den valgte urlen inneholder ikke et gyldig bilde
 pmsg_recepient:Mottakere
-register_err_taken_alias:Aliaset du fors&oslash;ker &aring; bruke er allerede opptatt, vennligst velg et annet.
+register_err_taken_alias:Aliaset du forsøker å bruke er allerede opptatt, vennligst velg et annet.
 register_alias:Navn
 register_alias_desc:Om du vil at navnet ditt skal vises i stedet for  brukernavnet, kan du skrive det inn her.
 register_allow_pm_msg:Tillat private meldinger
@@ -864,32 +865,32 @@ polllist_date:Dato
 polllist_owner:Laget av
 polllist_votes:Antall stemmer totalt
 polllist_action:Aksjon
-polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">Ser p&aring; tilgjenglige avstemninger</a>
+polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">Ser på tilgjenglige avstemninger</a>
 userinfo_polls:Avstemninger:
 show_pollist:Vise avstemninger
 search_and:OG
 search_or:ELLER
 search_desc_order:Fallende sortering
 search_asc_order:Stigande ordning
-search_logic:S&oslash;kelogikk:
+search_logic:Søkelogikk:
 search_sorting:Sorter resultatene etter dato i:
 post_proceed:Fortsett
-post_moderated_forum:Du har skrevet et innlegg i et modererat forum, hvilket inneb&aelig;rer at innlegget synes f&oslash;rst n&aringr forumets moderator og/eller administrator har godkjent det.
+post_moderated_forum:Du har skrevet et innlegg i et modererat forum, hvilket innebærer at innlegget synes først n&aringr forumets moderator og/eller administrator har godkjent det.
 post_moderated_forum_ttl:Melding om modererat forum
 buddy_list_bday:Idag fyller {VAR: r[2]} {VAR: age} år
-email_warning_msg:Dersom du endrer din n&aring;v&aelig;rande e-postadresse kommer brukerkontoen din til &aring; bli regnet som ubekreftet inntil du bekrefter den nye e-postadressen.
+email_warning_msg:Dersom du endrer din nåværande e-postadresse kommer brukerkontoen din til å bli regnet som ubekreftet inntil du bekrefter den nye e-postadressen.
 register_show_im:Vis IM-indikatorer
-register_show_im_desc:Avgj&oslash;r om forfatterens IM-indikatorer skal vises utenfor innlegget.
+register_show_im_desc:Avgjør om forfatterens IM-indikatorer skal vises utenfor innlegget.
 unread_message:Ulest innlegg
 read_message:Les innlegg
 threadt_more:&lt;mer&gt;
-threadt_disabled_ttl:Tr&aring;det visning av tr&aring;dene er ikke tilgjengelig.
-threadt_disabled_desc:Administratoren har stengt den tr&aring;dete visningen av tr&aring;darna, bruk flat visning istedet.
+threadt_disabled_ttl:Trådet visning av trådene er ikke tilgjengelig.
+threadt_disabled_desc:Administratoren har stengt den trådete visningen av trådarna, bruk flat visning istedet.
 threadt_update:Leser forumet (trådet visning) <a href="{TEMPLATE: threadt_update_lnk}">{VAR: frm->name}</a>
-mmod_delete_cofirm_ttl:Bekreft sletting av tr&aring;d/innlegg
+mmod_delete_cofirm_ttl:Bekreft sletting av tråd/innlegg
 spell_alts:ingen alternativer
 insert_uploaded_image:Sett inn bilde i meldingen
-finduser_help:S&oslash;kemotoren vil automatisk legge * til s&oslash;kestrengen. F.eks. &aring; s&oslash;ke etter alle brukere med brukernavn som begynner med 'a', skriv 'a' i s&oslash;keboksen.
+finduser_help:Søkemotoren vil automatisk legge * til søkestrengen. F.eks. å søke etter alle brukere med brukernavn som begynner med 'a', skriv 'a' i søkeboksen.
 back_to_top:Tilbake til toppen
 pm_err_disabled_title:Private meldinger deaktivert
 err_mod_acc_ttl:Ubekreftet konto
@@ -928,7 +929,7 @@ merge_prev:Forrige emne
 thread_on:på
 userinfo_buddy:Venn:
 register_email_addr:E-postadresse:
-usrinfo_last_visit:Siste bes&oslash;k:
+usrinfo_last_visit:Siste besøk:
 mnav_newer:nyere enn
 mnav_older:eldre enn
 ip_search_by_ip:Søk brukere etter IP

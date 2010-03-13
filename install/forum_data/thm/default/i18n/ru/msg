@@ -73,6 +73,7 @@ mark_all_read_desc:Все непрочитанные вами сообщения
 members:Участники
 calendar:Календарь
 cal_goto_date:Перейти к:
+cal_no_events:Нет событий в этот день.
 message:Сообщение
 message_counter:Нашими пользователями оставлено <b>{PLURAL: post_count|$1 сообщение|$1 сообщения|$1 сообщений}</b> по <b>{PLURAL: thread_count|$1 теме|$1 темам|$1 темам}</b>.
 message_index:Список сообщений
@@ -258,12 +259,19 @@ month_10:Октябрь
 month_11:Ноябрь
 month_12:Декабрь
 sunday:Воскресенье
+sunday_short:вс
 monday:Понедельник
+monday_short:пн
 tuesday:Вторник
+tuesday_short:вт
 wednesday:Среда
+wednesday_short:ср
 thursday:Четверг
+thursday_short:чт
 friday:Пятница
+friday_short:пт
 saturday:Суббота
+saturday_short:сб
 male:Мужской
 female:Женский
 unspecified:НЕ УКАЗАНО
@@ -765,6 +773,7 @@ rate_worst:Так себе
 rate_best:Лучшая
 post_quote_msg:{VAR: msg->login} писал(а) {TEMPLATE: make_report_date}
 post_quote:Цитата:
+post_quote_selected:Цитировать выбранный текст
 userinfo_referals:Приглашенные:
 userinfo_referals_count:{VAR: referals} пользователей
 pm_no_space_title:Недостаточно свободного пространства!

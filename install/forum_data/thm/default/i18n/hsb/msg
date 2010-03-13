@@ -68,6 +68,7 @@ mark_all_read_desc:Wšě twoje njepřečitane powěsće budu so jako přečitane
 members:Čłonojo
 calendar:Protyka
 cal_goto_date:Skočić do:
+cal_no_events:Žane podawki tón dźeń.
 message:Powěsć
 message_counter:Naši wužiwarjo su dohromady <b>{PLURAL: post_count|$1 powěsć|$1 powěsći|$1 powěsće|$1 powěsćow}</b> znutřka <b>{PLURAL: thread_count|$1 temy|$1 temow|$1 temow|$1 temow}</b> pósłali.
 message_index:Powěsćowy indeks
@@ -253,12 +254,19 @@ month_10:Oktober
 month_11:Nowember
 month_12:December
 sunday:Njedźela
+sunday_short:N
 monday:Póndźela
+monday_short:Pó
 tuesday:Wutora
+tuesday_short:W
 wednesday:Srjeda
+wednesday_short:Sr
 thursday:Štwórtk
+thursday_short:Š
 friday:Pjatk
+friday_short:Pj
 saturday:Sobota
+saturday_short:So
 male:Muski
 female:Žónski
 unspecified:NJEPODATY
@@ -760,6 +768,7 @@ rate_worst:Najšpatniši
 rate_best:Najlěpši
 post_quote_msg:{VAR: msg->login} napisa dnja {TEMPLATE: make_report_date}
 post_quote:Citat:
+post_quote_selected:Wubrany tekst citować
 userinfo_referals:Doporučeni wužiwarjo:
 userinfo_referals_count:{VAR: referals} čłonow
 pm_no_space_title:Žadyn rum wyše!

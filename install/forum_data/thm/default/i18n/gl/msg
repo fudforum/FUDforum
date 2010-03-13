@@ -745,7 +745,7 @@ group_mgr:Xestor de grupo
 group_mgr_edit_btn:Editar o grupo
 group_mgr_heading:Selección do editor de grupo
 group_mgr_group:Grupo:
-permission_denied_title:Permiso denegado!
+permission_denied_title:Permisos rexeitados!
 permission_denied_msg:Os teus permisos de usuario non te permiten levar a cabo a acción que intentas realizar.
 p_READ:Ler
 p_POST:Publicar

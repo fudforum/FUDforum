@@ -1,6 +1,7 @@
 # Messages for Turkish (Türkçe)
 # Exported from translatewiki.net
 # Author: Srhat
+# Author: Tufan
 
 action:Eylem
 add_to_buddy_list:Arkadaş listesine ekle
@@ -18,19 +19,17 @@ current_time:Tarih
 custom_avatar_queue:Özel Avatar Kuyruğu
 date_posted:Gönderilme Tarihi
 date_registered:Kayıt Tarihi:
-# Fuzzy
-download_counter:{VAR: v[3]} kez indirildi.
-# Fuzzy
-pmsg_download_counter:{VAR: r->dlcount} kez indirildi.
-email:E-mektup:
+download_counter:{PLURAL: v[3]|$1 kez|$1 kez} indirildi.
+pmsg_download_counter:{PLURAL: r->dlcount|$1 kez|$1 kez} indirildi.
+email:E-posta:
 email_to_friend:Arkadaşınıza gönderin
 email_to_friend_desc:Bu sayfanın URL'sini arkadaşınıza gönderin
-# Fuzzy
-email_user:Kullanıcıya mektup atmak için buraya tıklayın.
+email_user:Kullanıcıya e-posta gönder
 faq:S.S.S.
 first_unread_msg:Okunmayan iletilere git.
-first_unread_msg_desc:Bu zincirdeki okunmamış ilk iletiye git.
+first_unread_msg_desc:Bu konudaki okunmamış ilk iletiye git.
 flat_view:Varsayılan düz görünüme geri dön.
+forum:Forum:
 forum_icon:Forum Simgesi
 forum_new_messages:Yeni ileti
 forum_none_messages:Sadece kayıtlı kullanıcılar iletileri izleyebilir.
@@ -49,14 +48,16 @@ im_aim:AIM:
 im_msnm:MSN:
 im_yahoo:Yahoo:
 image:Resim:
+index_forum:Forum
 index_new_posts:Son ziyaretinizden sonra yeni ileti gönderilmiş
 index_no_new_posts:Son ziyaretinizden sonra yeni ileti gönderilmemiş
+index_url_redirection:Yönlendirme
 interests:İlgi alanları:
 last_post:Son ileti
-last_thread_msg:Bu zincirdeki son iletiye git
+last_thread_msg:Bu konudaki son iletiye git
 legend:Rehber:
 location:Yer:
-lock_thread:Zinciri kilitle
+lock_thread:Konuyu kilitle
 locked:Kilitli
 locked_with_new_posts:Kilitli (Okunmamış iletiler var)
 logged_in_list:Giriş yapmış kullanıcı listesi
@@ -66,43 +67,44 @@ logout:Çıkış yap
 mark_all_read:Tüm iletileri okundu olarak işaretle
 mark_all_read_desc:Tüm okumadığınız iletiler okundu olarak işaretlenecek
 members:Üyeler
+calendar:Takvim
+cal_goto_date:Git:
+cal_no_events:Gün için etkinlik yok.
 message:İleti
-# Fuzzy
-message_counter:Kullanıcılarımız toplam <b>{VAR: thread_count}</b> zincir içinde yer alan toplam <b>{VAR: post_count}</b> ileti göndermiş durumda.
+message_counter:Kullanıcılarımız <b>{PLURAL: thread_count|$1 konu|$1 konu}</b> içinde yer alan toplam <b>{PLURAL: post_count|$1 ileti|$1 ileti}</b> göndermiş durumda.
 message_index:İleti indeksi
 message_index_desc:İleti listesini görüntüle
 minimize_category:Kategoriyi küçült
+minimize_message:İletiyi Küçült
 moderation_queue:Onay Kuyruğu
 moderator:Denetmen
 moderator_of:Denetlenen forum:
 moderator_options:Denetim Seçenekleri
-# Fuzzy
-moderators:Denetmen(ler)
+moderators:{PLURAL: modcount|Denetmen|Denetmen}
 more_unread_messages:diğer okunmamış iletiler
 more_unread_messages_desc:Okunmamış diğer iletileri göster ve şu anda görüntülenen iletileri okundu say.
 move_thread:Taşı
 moved:Diğer bir foruma taşınmış
-moved_thread_message:Bu zincir diğer bir foruma taşınmış durumda.
+moved_thread_message:Bu konu diğer bir foruma taşınmış durumda.
 na:g/d
 new_posts:Yeni ileti var
-# Fuzzy
-new_private_messages:<span class="GenText" style="color: #ff0000">({VAR: c})</span> okunmamış özel iletiniz var.
-new_thread:Yeni zincir yarat.
-newest_user:En son kaydolan kullanıcı:
+new_private_messages:<span class="GenTextRed">({VAR: c})</span> okunmamış özel iletiniz var
+new_thread:Konu aç
+newest_user:En son kayıt olan kullanıcı:
 next_page:Sonraki sayfa
-next_thread:Sonraki zincir:
+next_thread:Sonraki konu:
 no_messages:Bu forumda ileti yok
 no_msg_body:İleti gövdesi yok
 no_new_posts:Yeni ileti yok
 no_posts:İleti yok.
 no_subscribed_forums:Hiçbir foruma abone değilsiniz.
-no_subscribed_threads:Hiçbir zincire abone değilsiniz.
-no_unread_locked:Bu zincir kilitlenmiş durumda.
-no_unread_msg:Bu zincirde okunmamış ileti yok.
+no_subscribed_threads:Hiçbir konuya abone değilsiniz.
+no_bookmarked_threads:Yer imlenmiş konu yok
+no_unread_locked:Bu konu kilitlenmiş durumda.
+no_unread_msg:Bu konuda okunmamış ileti yok.
 no_unread_msg_unreg:İletilerin durumu sadece kayıtlı kullanıcılar tarafından izlenebilir.
 num_pages:Sayfalar ({VAR: ttl_pg}):
-# Fuzzy
-num_votes:{VAR: obj->total_votes} oy
+num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|oy|oy}
 occupation:İş:
 off:kapalı
 on:açık
@@ -113,17 +115,17 @@ post_count:İleti Sayısı {VAR: u_pcount}
 post_count_l:İleti Sayısı:
 posts:İleti Sayısı
 posts_c:İleti Sayısı:
-prev_thread:Önceki Zincir:
+prev_thread:Önceki konu:
 usrinfo_private_message:Özel İleti:
-profile:Kullanıcı Denetim Masası
-# Fuzzy
-profile_desc:Denetim masasına erişim için buraya tıklayın
-rate_thread:Zinciri değerlendir
+profile:Denetim Masası
+profile_desc:Denetim masasına erişin
+rate_thread:Konuyu değerlendir
+rating:Beğeni
+rating_track:<b>{VAR: thr->subject}</b> başlıklı konu için beğenileri düzenle.
 refresh_list:Listeyi yenile
 register:Kayıt ol
 registered:Kayıt tarihi
-# Fuzzy
-registered_on:Kayıt tarihi: {DATE: u->join_date %d %B %Y %a}
+registered_on:Kayıt tarihi: {TEMPLATE: registered_on_date}
 replies:Yanıtlar
 report_to_mod:İletiyi denetmene bildir
 reported_messages:Bildirilen İletiler
@@ -138,49 +140,51 @@ sel_unread_messages:Okunmamış İletiler
 sel_unread_messages_desc:Okunmamış İletiler süzgecini aç/kapa
 send:Gönder
 send_pm_desc:Bu kullanıcıya özel ileti gönder
-sender_email:Gönderen E-mektup:
+sender_email:Gönderen E-posta:
 sender_name:Gönderen İsim:
 show_posts_by:{VAR: u_alias} kullanıcısının iletilerini göster
 size:Boyut:
 status:Durum:
-# Fuzzy
-status_line:Bu forumu şu anda <b>{VAR: st_obj->online_users_reg}</b> üye, <b>{VAR: st_obj->online_users_hidden}</b> görünmez üye ve <b>{VAR: st_obj->online_users_anon}</b> konuk ziyaret ediyor.
+status_line:Bu forumu şu anda <b>{PLURAL: st_obj->online_users_reg|$1 üye|$1 üye}</b>, <b>{PLURAL: st_obj->online_users_hidden|$1 görünmez üye|$1 görünmez üye}</b> ve <b>{PLURAL: st_obj->online_users_anon|$1 konuk|$1 konuk}</b> ziyaret ediyor.
 sticky:Yapışkan:
 stop_ignoring:bu kullanıcıyı gözardı etmeyi durdur
-sub_to_thread:Zincire abone ol
-sub_to_thread_desc:Bu zincire yeni bir ileti gönderildiğinde haberiniz olsun
+sub_to_thread:Konuya abone ol
+sub_to_thread_desc:Bu konuya yeni bir ileti gönderildiğinde haberiniz olsun
+bookmark_thread:Konuyu yer imle
+bookmark_thread_desc:Bu konuyu yer imlerinize ekleyin.
 subject:Konu
 subscribe:Abone ol
-subscribe_desc:Bu forumda yeni bir zincir yaratıldığında haberiniz olsun
+subscribe_desc:Bu forumda yeni bir konu açıldığında haberiniz olsun
 subscribed_forums:Abone olduğunuz forumlar
 subscribed_forums_desc:Abone olduğunuz forum süzgecini aç/kapa (sadece abone olduğunuz forumları gösterir)
-subscribed_threads:Abone olduğunuz zincirler
-subscribed_threads_desc:Abone olduğunuz zincir süzgecini aç/kapa (sadece abone olduğunuz zincirleri gösterir)
-switch_to_thread_view:Bu zincir için zincir görünümüne geç
-thread:Zincir:
+subscribed_threads:Abone olduğunuz konular
+subscribed_threads_desc:Abone olduğunuz konu süzgecini aç/kapa (sadece abone olduğunuz konuları gösterir)
+bookmarked_threads:Yer imlenmiş konular
+switch_to_thread_view:Bu konu için ağaç görünümüne geç
+thread:Konu:
 thread_announcement:Duyuru:
-# Fuzzy
-thread_first_unread_msg:Bu zincirdeki ilk okunmamış iletiye gitmek için buraya tıklayın
-thread_thread:Zincir
-threads:Zincirler
+thread_first_unread_msg:Bu konudaki ilk okunmamış iletiye git
+thread_thread:Konu
+threads:Konular
 time:Saat
 todays_posts:Bugünkü iletiler
 todays_posts_desc:Bugün gönderilen tüm iletileri göster
 un_ignore_user:bu kullanıcının gönderdiklerini gözardı etmeyi durdur
 unanswered_posts:Yanıtlanmamış iletiler
 unanswered_posts_desc:Yanıtı olmayan tüm iletileri göster
-unlock_thread:Zincirin kilidini aç
-unread_msg:Bu zincirde henüz okumadığınız iletiler var
-unread_msg_locked:Okunmamış ileti bulunan kilitli zincir
+unlock_thread:Konunun kilidini aç
+unread_msg:Bu konuda henüz okumadığınız iletiler var
+unread_msg_locked:Okunmamış ileti bulunan kilitli konu
 unread_posts:Okunmamış iletiler
 unread_posts_desc:Okunmamış tüm iletileri göster
-unsub_from_thread:Zincir aboneliğinden çık
-unsub_from_thread_desc:Bu zincirdeki yeni iletilerin haber verilmesini durdur
+unsub_from_thread:Konu aboneliğinden çık
+unsub_from_thread_desc:Bu konudaki yeni iletilerin haber verilmesini durdur
+unbookmark_thread:Yer imlerinden çıkar
+unbookmark_thread_desc:Bu konuyu yer imleri listenizden çıkarır
 unsubscribe:Abonelikten çık
-unsubscribe_desc:Forumdaki yeni zincirlerin haber verilmesini durdur
+unsubscribe_desc:Forumdaki yeni konuların haber verilmesini durdur
 updated_on:Güncelleme tarihi:
 user:Kullanıcı
-# Fuzzy
 user_counter:<b>{VAR: st_obj->user_count}</b> kayıtlı kullanıcımız var.
 user_info:Kullanıcı Bilgisi
 user_info_l:Kullanıcı Bilgisi {VAR: u->alias}
@@ -188,15 +192,12 @@ user_offline:{VAR: obj->login}  şu anda bağlı değil
 user_online:{VAR: obj->login} şu anda bağlı
 usrinfo_last_post:Son ileti:
 view_results:Sonuçları görüntüle
-views:Görüntülenme<br />sayısı
-# Fuzzy
-vote:{VAR: frm->n_rating} Oy
+views:Görüntülenme
+vote:{PLURAL: frm->n_rating|$1 Oy|$1 Oy}
 vote_button:Oyla
 vote_for_thread:Oyla
-# Fuzzy
-was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> artık burda değil. Denetmen tarafından taşındığı yer: <a href="{TEMPLATE: was_moved_msg_lnk2}">{{VAR: r[12]}</a>
-# Fuzzy
-welcome_message:Hoş geldiniz <b>{VAR: usr->alias}</b>, son ziyaret tarihiniz {DATE: usr->last_visit %d %B %Y %A saat %H:%M} idi.
+was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> artık burda değil. Denetmen tarafından taşındığı yer: <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a>.
+welcome_message:Hoş geldin <b>{VAR: usr->alias}</b>, son ziyaret tarihin {TEMPLATE: welcome_message_date} idi.
 what_ppl_doing:insanların ne yaptığını göster
 reported_del_report:Bildirimi sil
 reported_reason:Neden
@@ -253,12 +254,26 @@ month_9:Eylül
 month_10:Ekim
 month_11:Kasım
 month_12:Aralık
+sunday:Pazar
+sunday_short:Pa
+monday:Pazartesi
+monday_short:Pts
+tuesday:Salı
+tuesday_short:Sa
+wednesday:Çarşamba
+wednesday_short:Çrş
+thursday:Perşembe
+thursday_short:Prş
+friday:Cuma
+friday_short:Cu
+saturday:Cumartesi
+saturday_short:Cts
 male:Bay
 female:Bayan
 unspecified:Belirtilmemiş
 register_tree_view:Ağaç Görünümü
-register_msg_tree_view:Zincirler için düz/İletiler için ağaç görünümü
-register_tree_msg_view:Zincirler için ağaç/İletiler için düz görünüm
+register_msg_tree_view:Konular için düz/İletiler için ağaç görünümü
+register_tree_msg_view:Konular için ağaç/İletiler için düz görünüm
 register_flat_view:Düz Görünüm
 use_forum_default:Forum varsayılanını kullan
 finduser_user_info:Kullanıcı bilgisini görüntüle
@@ -284,12 +299,13 @@ register_uploaded:Avatar Yükle
 register_login:Kullanıcı ismi:
 register_password:Parola:
 register_conf_pass:Parolayı Onayla:
-register_email_desc:Lütfen geçerli bir e-mektup adresi girin. İsterseniz aşağıda tercihler bölümünden gizleyebilirsiniz.
+register_email_desc:Lütfen geçerli bir e-posta adresi girin. İsterseniz aşağıda tercihler bölümünden gizleyebilirsiniz.
 register_name:İsim:
 register_your_pass:Parolanız:
 register_update:Güncelle
 register_avatar_type:Avatar Tipi:
 register_del_avatar:Avatarı Sil
+register_avatar:Avatar:
 register_sel_avatar:Avatar Seçimi
 register_custom_avatar_rules:Özel avatar yönetici tarafından onaylanıncaya dek görünmeyecek.<br /><font class="SmallText">Avatar, <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} piksel </b> boyutundan daha büyük olmamalı ve <b>jpg</b>, <b>gif</b> veya <b>png</b> biçiminde olmalı.</font>
 register_custom_avatar_url:Özel Avatar URL'si:
@@ -321,7 +337,7 @@ register_prefs:Tercihler
 register_sig:İmza:
 register_sig_desc:İsteğe bağlı imzanızın iletilerinizin alt kısmına eklenmesini sağlayabilirsiniz.
 register_reset:Sıfırla
-register_def_thread_view:Varsayılan zincir görünümü:
+register_def_thread_view:Varsayılan konu görünümü:
 register_msg_per_page:Sayfa başına ileti sayısı:
 register_show_sig:İmzaları göster:
 register_show_sig_desc:Forum üyelerinin imzalarını görünüp görünmeyeceğini belirlemenizi sağlar.
@@ -331,13 +347,14 @@ register_timezone:Saat dilimi:
 register_ignore_admin:Yönetim iletilerini gözardı et:
 register_invisible_mode:Görünmez kip:
 register_invisible_mode_desc:Bağlı olup olmadığınız bilgisini gizler.
-register_show_email:E-mektup adresini göster:
-register_show_email_desc:E-mektup adresinizin herkese açık şekilde görüntülenmesini istiyorsanız bu seçeneği kullanabilirsiniz.
+register_show_email:E-posta adresini göster:
+register_show_email_desc:E-posta adresinizin herkese açık şekilde görüntülenmesini istiyorsanız bu seçeneği kullanabilirsiniz.
 register_notification:Varsayılan olarak uyarı gönderilsin:
 register_notification_desc:Uyarı almayı varsayılan olarak seçseniz bile, ileti gönderirken kapatabilirsiniz.
 register_notify_method:Uyarı yöntemini seç:
-register_allow_email_msg:E-mektup iletilerine izin ver:
-register_allow_email_msg_desc:Diğer kullanıcıların forum yoluyla size e-mektup atabilmelerinize izin verin.
+register_notify_method_desc:Tercih ettiğiniz bilgilendirme yöntemini belirleyin veya bilgilendirmeyi kapatın (örneğin tatile giderken).
+register_allow_email_msg:E-posta iletilerine izin ver:
+register_allow_email_msg_desc:Diğer kullanıcıların forum yoluyla size e-posta gönderebilmesine izin verin.
 buddy_status:Durum
 my_buddies:Arkadaşlarım
 add_buddy:Arkadaş Ekle
@@ -351,7 +368,7 @@ post_annoncement:Duyuru
 post_size:Boyut
 post_color:Renk
 post_font:Yazıtipi
-create_thread:Zincir Yarat
+create_thread:Konu Oluştur
 submit_reply:Yanıtı gönder
 edit_message:İletiyi Düzelt
 apply_spell_changes:Yazım Değişikliklerini Uygula
@@ -360,13 +377,13 @@ post_logedin_user:Giriş yapılan kullanıcı:
 post_logout:Çıkış yap
 post_passwd:İleti Parolası:
 post_poll:Anket:
-post_create_poll:ANKET YARAT
+post_create_poll:ANKET OLUŞTUR
 post_poll_delete:SİL
 post_poll_edit:DÜZELT
 post_mod_opt:Denetim seçenekleri:
-post_thread_type:Zincir tipi:
-post_thread_expiry:Zincir zaman aşımı:
-post_locked:Zinciri kilitle
+post_thread_type:Konu tipi:
+post_thread_expiry:Konu süre aşımı:
+post_locked:Konuyu kilitle
 post_icons:İleti simgesi:
 post_no_icon:Simge yok
 post_smiley:Gülücük kısayolları:
@@ -385,6 +402,7 @@ include_sig_desc:Kişisel bilgilerinizdeki imzanızı dahil eder.
 disable_smilies:Bu iletide gülücükleri kapat.
 spell_check_msg:İletinin yazım hatalarını sına.
 post_form:Formu Gönder
+post_forum:Forum:
 post_title:Başlık:
 post_body:Gövde:
 post_options:Seçenekler:
@@ -392,16 +410,13 @@ post_preview_btn:Önizle
 ignore_users:Gözardı edilen kullanıcılar
 add_ignore:Ignoramus ekle
 forum_terms:Forum kuralları
-# Fuzzy
-forum_rules:Bu foruma üyelik serbest ve ücretsizdir. Bununla birlikte aşağıda ayrıntıları belirtilen kurallara uymanız konusunda yaptırımlar mevcut. Eğer kuralları kabul ediyorsanız, sayfanın sonundaki Kabul Ediyorum düğmesine basın. Dikkat: Düğmeye basarak 13 yaşından büyük olduğunuzu belirtmiş oluyorsunuz. 13 yaşında veya daha küçükseniz, lütfen bu kayıt formunu kullanın. <p>Bu forumun yöneticileri istenmeyen tüm iletileri forumdan uzak tutmaya çalışacak, bununla birlikte, atılan tüm iletileri gözden geçirmemiz imkansızdır. Tüm iletiler yazarın görüşünü yansıtır, ve ne forumun sahibi ne de geliştiricileri herhangi bir iletinin içeriğinden sorumlu tutulamaz.<p>Kabul Ediyorum düğmesine tıklayarak, kaba, küfürlü, cinsel içerikli, nefret dolu, tehdit edici, veya bir şekilde kanuna aykırı ileti göndermeyeceğiniz konusunda garanti vermiş oluyorsunuz.<p>Forumun sahipleri, herhangi bir zinciri, herhangi bir sebeple, kaldırma, taşıma, düzeltme veya kapatma hakkına sahiptir.<p>
-# Fuzzy
-forum_rules_13:13 yaşın altındaki tüm kullanıcılar anne-babalarından veya sorumluluğu altında oldukları kişiden foruma üye olabilmek için izin almalıdırlar. 13 yaşın altındaki kullanıcıların üye olmasında bizce herhangi bir sakınca olmamakla birlikte, üyelik vermeden önce anne-babaların veya sorumluluğu altında oldukları kişinin yazılı olarak izin verdiğini faks veya e-mektup ile bize göndermelerini şart koşuyoruz. <p>Eğer izin formu bize ulaşmadan önce kayıt işlemlerine başlamak istiyorsanız, aşağıdaki Kabul Ediyorum düğmesine tıklayın. Kayıt işlemini iptal etmek ve forum indeksine dönmek için aşağıdaki İptal Et düğmesine basın. <p>İzin formunun bir kopyasını burdan indirebilirsiniz. Kayıt işlemleri hakkında daha fazla bilgi için  <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> adresine bir e-mektup atın.<p>
+forum_rules:<p>Bu foruma üyelik serbesttir. Bununla birlikte aşağıda ayrıntıları belirtilen kurallara uymanız konusunda ısrar ediyoruz. Eğer kuralları kabul ediyorsanız, sayfanın sonundaki <b>Kabul Ediyorum</b> düğmesine basın. Dikkat: Düğmeye basarak 13 yaşından büyük olduğunuzu belirtmiş oluyorsunuz. 13 yaşında veya daha küçükseniz, lütfen bu kayıt formunu kullanın.</p> <p>Bu forumun yöneticileri istenmeyen tüm iletileri forumdan uzak tutmaya çalışacaktır. Bununla birlikte, atılan tüm iletileri gözden geçirmemiz imkansızdır. Tüm iletiler yazarın görüşünü yansıtır ve ne forumun sahibi ne de geliştiricileri herhangi bir iletinin içeriğinden sorumlu tutulamaz.</p><p>Kabul Ediyorum düğmesine tıklayarak, kaba, küfürlü, cinsel içerikli, nefret dolu, tehdit edici veya bir şekilde kanuna aykırı ileti göndermeyeceğinizi taahhüt etmiş oluyorsunuz.</p><p>Forumun sahipleri, herhangi bir konuyu, herhangi bir sebeple, kaldırma, taşıma, düzeltme veya kapatma hakkına sahiptir.</p>
+forum_rules_13:13 yaşın altındaki tüm kullanıcılar anne-babalarından veya sorumluluğu altında oldukları kişiden foruma üye olabilmek için izin almalıdırlar. 13 yaşın altındaki kullanıcıların üye olmasında bizce herhangi bir sakınca olmamakla birlikte, üyelik vermeden önce anne-babaların veya sorumluluğu altında oldukları kişinin yazılı olarak izin verdiğini faks veya e-posta ile bize göndermelerini şart koşuyoruz.</p> <p>Eğer izin formu bize ulaşmadan önce kayıt işlemlerine başlamak istiyorsanız, aşağıdaki Kabul Ediyorum düğmesine tıklayın. Kayıt işlemini iptal etmek ve forum indeksine dönmek için aşağıdaki İptal Et düğmesine basın.</p> <p>İzin formunun bir kopyasını burdan indirebilirsiniz. Kayıt işlemleri hakkında daha fazla bilgi için  <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> adresine bir e-posta gönderin.</p>
 coppa_conf:COPPA Onayı
 coppa_before:{TEMPLATE: coppa_date} tarihinden önce
 coppa_after:{TEMPLATE: coppa_date} tarihinden sonra
 coppa_link:Doğum tarihinize karşılık gelen linki tıklayın.
-# Fuzzy
-coppa:13 yaşın altında olan bir kullanıcının bu foruma kayıt olabilmesi için anne-babası veya sorumluluğu altında olduguğu kişinin yöneticiye imzalı izin formunu faks veya mektup atarak göndermesi gerekiyor.<p>Daha fazla bilgi için <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> ile iletişime geçin.
+coppa:<p>13 yaşın altında olan bir kullanıcının bu foruma kayıt olabilmesi için anne-babası veya sorumluluğu altında olduguğu kişinin yöneticiye imzalı izin formunu faks veya e-posta ile göndermesi gerekiyor.</p><p>Daha fazla bilgi için <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> ile iletişime geçin.</p>
 prereg_info:Bilgi
 prereg_agree:Kabul Ediyorum
 prereg_disagree:Kabul Etmiyorum
@@ -415,20 +430,19 @@ coppa_fax_no_permission:Hesabın silinmesini istiyorsanız burayı imzalayın
 coppa_fax_parent_name:Anne-Baba/Koruyucu İsim Soyisim:
 coppa_fax_relation:Çocuğa akrabalık derecesi:
 coppa_fax_telephone:Telefon:
-coppa_fax_email:E-mektup adresi:
+coppa_fax_email:E-posta adresi:
 coppa_fax_date:Tarih:
 coppa_fax_questions:Sorularınız için <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> iletişime geçin
 coppa_fax_login:Kullanıcı ismi
 coppa_fax_passwd:Parola
-coppa_fax_remail:E-mektup
+coppa_fax_remail:E-posta
 coppa_fax_name:İsim
 login_not_logedin:Giriş yapmamış durumdasınız. Bu bir kaç sebepten dolayı olabilir:
-login_cookie_expired:Kurabiyeniz (cookie) zaman aşımına uğramış olabilir, kurabiyenizi yenilemek için yeniden giriş yapmanız gerekiyor.
+login_cookie_expired:Çereziniz zaman aşımına uğramış olabilir, yenilemek için yeniden giriş yapmanız gerekiyor.
 login_perm_denied:İstenen kaynağa ulaşabilmek için isimsiz kullanıcı olarak izniniz olmayabilir, bu durumda söz konusu kaynağa erişim izni sağlayabilmek için giriş yapmak zorundasınız.
 login_want_to_register:Kayıt olmak istiyorum
 login_forgot_passwd:Parolamı unuttum
-# Fuzzy
-login_use_cookie:Kurabiye kullan<br /><font class="SmallText">Eğer kütüphane, okul, veya internet cafe gibi herkese açık bir bilgisayar kullanarak bağlanıyorsanız, güvenlik açısından bu seçeneği kaldırmanız önerilir.
+login_use_cookie:Çerez kullan<br /><span class="SmallText">Eğer kütüphane, okul, veya İnternet kafe gibi herkese açık bir bilgisayar kullanarak bağlanıyorsanız, güvenlik açısından bu seçeneği kaldırmanız önerilir.<br />Bu seçeneği açık bırakırsanız tarayıcınız sonraki ziyarette foruma otomatik olarak giriş yapacak. </p>
 login_login:Kullanıcı ismi
 login_login_btn:Giriş yap
 login_name_required:Lütfen kullanıcı isminizi belirtin
@@ -440,15 +454,15 @@ rpasswd_invalid_passwd:Geçersiz parola
 rpasswd_passwd_nomatch:Parolalar birbirini tutmuyor
 rpasswd_passwd_length:Parola en az 6 karakter uzunluğunda olmalı
 reset_remind_pass:Parola Hatırlatıcı
-reset_reset_conf:Parolanız yeniden belirlenip size gönderilecek, veya eğer e-mektubu doğrulamamış durumdaysanız, e-mektup doğrulama isteği size tekrar gönderilecek.
-reset_error:E-mektup veritabanında bulunamadı
+reset_reset_conf:Parolanız yeniden belirlenip size gönderilecek, veya eğer e-mektubu doğrulamamış durumdaysanız, e-posta doğrulama isteği size tekrar gönderilecek.
+reset_error:E-posta veritabanında bulunamadı
 rpasswd_change_pass:Parola değiştir
 rpasswd_login:Kullanıcı ismi
 rpasswd_cur_pass:Şu andaki Parola:
 rpasswd_new_pass:Yeni Parola:
 rpasswd_conf_pass:Yeni Parolayı Doğrula:
 login_passwd:Parola:
-reset_email:E-mektup:
+reset_email:E-posta:
 reset_reset_button:Parolayı Yeniden Belirle
 rate_this_thread:Oyla
 report_reporting_about:Bildirim Konusu:
@@ -459,25 +473,25 @@ report_give_reason:Bu iletiyi bildirme sebebiniz:
 report_submit_report:Bildirimi gönder
 search_entire_msg:Tüm iletide
 search_subject_only:Sadece başlıkta
+search_forum:Forum
 search_posted_on:Gönderilme Tarihi
 search_no_results:Bulunamadı
 search_all_forums:Tüm forumlar
 search_in_forum:Aranacak forum:
 search_forum_search:Forum Arama
-move_thread_to:<b>{VAR: thr->subject}</b> zincirini buraya taşı:
+move_thread_to:<b>{VAR: thr->subject}</b> başlıklı konuyu buraya taşı:
 remail_email_topic:Bu konuyu bir arkadaşına gönder
 remail_your_name:İsminiz:
-remail_your_email:E-mektup adresiniz:
+remail_your_email:E-posta adresiniz:
 remail_friends_name:Arkadaşınızın İsmi:
-remail_friends_email:Arkadaşınızın E-mektup adresi:
+remail_friends_email:Arkadaşınızın E-posta adresi:
 remail_required:zorunlu
 remail_subject:Konu:
 remail_message:İleti:
 remail_send_now:Gönder
-remail_anon_opt:Bu iletiyi arkadaş(lar)ınıza göndermek için e-mektup istemcinize kopyalayın.
+remail_anon_opt:Bu iletiyi arkadaş(lar)ınıza göndermek için e-posta istemcinize kopyalayın.
 remail_done:Yapıldı
-# Fuzzy
-remail_sent_conf:{{VAR: data->subject} konulu e-mektup, {VAR-HTML: _POST['femail']} adresindeki arkadaşınıza başarıyla gönderildi.
+remail_sent_conf:{VAR: data->subject} konulu e-posta, {VAR-HTML: _POST['femail']} adresli arkadaşınıza başarıyla gönderildi.
 remail_error:Bir hata oluştu
 mklist_type:Tipi:
 mklist_option:Seçenek:
@@ -495,7 +509,7 @@ mklist_disc:Daire
 mklist_circle:Çember
 mklist_close:Kapat
 email_to:Kime:
-email_pg_title:E-mektup
+email_pg_title:E-posta
 email_subject:Konu:
 email_body:Gövde:
 email_submit:Gönder
@@ -511,11 +525,9 @@ ppost_save_draft:Taslak olarak kaydet
 poll_blank_option:Boş seçenek ekleyemezsiniz.
 poll_del_conf:Bu seçeneği silmek istiyorsanız, Tamam düğmesini tıklayın
 poll_name:Anket İsmi:
-# Fuzzy
-poll_timelimit:Süre Sınırı
-# Fuzzy
-poll_maxiumvotes:En fazla oy
-poll_create:Yarat
+poll_timelimit:Süre Sınırı:
+poll_maxiumvotes:En fazla oy:
+poll_create:Oluştur
 poll_update:Güncelle
 poll_disablesmilies:Gülücükleri engelle
 poll_create_poll:Anket Yarat
@@ -533,14 +545,13 @@ poll_year:yıl
 poll_week:hafta
 tabs_register:Ayarlar
 tabs_subscriptions:Abonelikler
+tabs_bookmarkes:Yer İmleri
 tabs_referrals:Tanıtımlar
 tabs_buddy_list:Arkadaş Listesi
 tabs_ignore_list:Gözardı Listesi
 tabs_private_messaging:Özel İleti
-# Fuzzy
-single_msg_delete:<b>{VAR: data[3]}</b> başlıklı iletiyi <font color="#ff0000" size="4">SİLMEK</font> üzeresiniz
-# Fuzzy
-thread_delete:<b>{VAR: data[3]}</b> başlıklı <font color="#ff0000" size="4">TÜM ZİNCİRİ</font> <font color="#ff0000" size="4">SİLMEK</font> üzeresiniz
+single_msg_delete:<b>{VAR: data[3]}</b> başlıklı iletiyi <span class="ErrorText">silmek</span> üzeresiniz.
+thread_delete:<b>{VAR: data[3]}</b> başlıklı <span class="ErrorText">tüm konuyu</span> <span class="ErrorText">silmek</span> üzeresiniz.
 delete_proceed:<font size="3"><b>Devam etmek istiyor musunuz?</b></font>
 delete_yes:Evet
 delete_no:Hayır
@@ -554,29 +565,29 @@ buddy_list_err_cantadd:Arkadaş listesine kendinizi ekleyemezsiniz.
 buddy_list_err_dup:Bu kullanıcı arkadaş listenizde zaten var.
 buddy_list_err_nouser:Arkadaş listenize eklemeye çalıştığınız kullanıcı forumda bulunamadı.
 buddy_list_err_nouser_title:Kullanıcı eklenemedi
+buddy_list_err_ignore:Sizi gözardı eden kullanıcıları arkadaş listenize ekleyemezsiniz.
 buddy_list_update:Arkadaş listesini dolaşıyor
 core_err_invinp_title:Geçersiz girdi
 core_err_invinp_err:Geçersiz bir linki izlediniz, lütfen <a href="mailto:{GVAR: ADMIN_EMAIL}">yöneticiyi</a> uyarın.
 core_adm_login_msg:Yöneticiler <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">buradan</a> giriş yapabilir
-email_err_unabletoemail_title:HATA: E-mektup gönderilemedi
-email_err_unabletoemail_msg:E-mektup sistemi yönetici tarafından engellenmiş durumda.
-email_error_unabletolocaddr:Üzgünüz,  sistem {VAR-HTML: _POST['tx_name']} kullanıcısına e-mektup gönderemedi, çünkü kullanıcının e-mektup adresi bulunamadı.
+email_err_unabletoemail_title:HATA: E-posta gönderilemedi
+email_err_unabletoemail_msg:E-posta sistemi yönetici tarafından engellenmiş durumda.
+email_error_unabletolocaddr:Üzgünüz,  sistem {VAR-HTML: _POST['tx_name']} kullanıcısına e-posta gönderemedi, çünkü kullanıcının e-posta adresi bulunamadı.
 email_error_body:Gövde bölümü zorunludur.
 email_error_subject:Konu bölümü zorunludur.
 email_error_namerequired:İsim bölümü zorunludur.
 email_error_invaliduser:Geçersiz kullanıcı
 emailconf_err_invkey_title:Hata
 emailconf_err_invkey_msg:Geçersiz doğrulama anahtarı. Lütfen gönderilen e-mektubu gözden geçirerek doğru URL'ye gittiğinizden emin olun.
-# Fuzzy
-err_inc_criticaltitle:KRİTİK HATA
+err_inc_criticaltitle:Kritik hata
 err_inc_criticalmsg:Bir hata oluştu, fakat ne yazık ki hata bildirim sisteminde de bir sorun var.
 finduser_update:Kullanıcıları arıyor
 help_index_update:<a href="{TEMPLATE: help_index_update_lnk}">S.S.S.</a>
 iemail_thr_subject:{VAR: poster_login} tarafından {VAR: thr_subject} konulu iletiye yanıt geldi.
-iemail_thr_bodyemail:Okunmamış yanıtları görüntülemek için {VAR: goto_url['email']} adresine gidin.\n\nBu zincirde gönderilen yanıtların haber verilmesini istemiyorsanız, buraya gidin: {VAR: unsub_url['email']}
-iemail_frm_subject:{VAR: frm_name} forumunda {VAR: poster_login} tarafından {VAR: thr_subject} konulu yeni bir zincir başlatıldı.
-iemail_frm_bodyemail:Zinciri görüntülemek için:\n{VAR: goto_url['email']}\n\nBu forumda başlatılan zincirlerin haber verilmesini istemiyorsanız, buraya gidin: {VAR: unsub_url['email']}
-iemail_participate:Tartışma katılmak için buraya gidin:
+iemail_thr_bodyemail:Okunmamış yanıtları görüntülemek için {VAR: goto_url['email']} adresine gidin.\n\nBu konuya gönderilen yanıtların haber verilmesini istemiyorsanız, buraya gidin: {VAR: unsub_url['email']}
+iemail_frm_subject:{VAR: frm_name} forumunda {VAR: poster_login} tarafından {VAR: thr_subject} konulu yeni bir konu başlatıldı.
+iemail_frm_bodyemail:Konuyu görüntülemek için:\n{VAR: goto_url['email']}\n\nBu forumda başlatılan konuların haber verilmesini istemiyorsanız, buraya gidin: {VAR: unsub_url['email']}
+iemail_participate:Tartışmaya katılmak için buraya gidin:
 ignore_list_err_info_title:Bilgi
 ignore_list_err_dup_msg:Bu kullanıcı gözardı listesinizde zaten var
 ignore_list_err_nu_title:Kullanıcı bulunamadı
@@ -586,36 +597,37 @@ ignore_list_update:Gözardı listesini dolaşıyor
 index_update:<a href="{TEMPLATE: index_update_lnk}">Forum listesini</a> dolaşıyor
 list_referers_update:Tanıtımları Dolaşıyor
 login_update:Giriş Formu
-msg_update:<a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a> zincirini dolaşıyor
+msg_update:<a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a> konusuna göz atıyor.
 pm_err_nopm_title:HATA: Özel İletiler engellenmiş durumda
 pm_err_nopm_msg:Özel ileti sistemini kullanamıyorsunuz, çünkü bu özellik yönetici tarafından engellenmiş durumda.
 pm_update:Özel ileti sistemini kullanıyor.
-post_err_lockedthread_title:HATA: Kilitli Zincir
-post_err_lockedthread_msg:Bu zincir kilitlenmiş durumda, başka ileti gönderilmesine izin verilmiyor.
+post_err_lockedthread_title:HATA: Kilitli Konu
+post_err_lockedthread_msg:Bu konu kilitlenmiş durumda, başka ileti gönderilmesine izin verilmiyor.
 err_coppa_title:HATA: Hesabınız henüz doğrulanmamış durumda.
-# Fuzzy
-err_coppa_msg:Anne-babanız ve/veya yasal koruyucunuz tarafından bir doğrulama almamış durumdayız, bu yüzden henüz ileti gönderme izniniz yok. Eğer coppa formunuzu kaybettiyseniz almak için <a href="{TEMPLATE: err_coppa_msg_lnk}">buraya tıklayın</a>
+err_coppa_msg:Anne-babanız veya yasal koruyucunuz tarafından bir doğrulama almamış durumdayız, bu yüzden henüz ileti gönderme izniniz yok. Eğer COPPA formunuzu kaybettiyseniz tekrar görüntülemek için <a href="{TEMPLATE: err_coppa_msg_lnk}">buraya tıklayın</a>.
+err_banned_acct_title:HATA: Engellenmiş durumdasınız.
+err_banned_acct_msg:Forum kurallarını ihlal etmeniz nedeniyle foruma erişiminiz {IF: $ban_expiry}{DATE: ban_expiry %a, %d %B %Y %H:%M} tarihine kadar geçici olarak{ELSE}kalıcı olarak{ENDI} engellenmiştir.
 post_err_edttimelimit_title:HATA
 post_err_edttimelimit_msg:Bu iletiyi artık düzeltemezsiniz
+post_err_noannontopics_msg2:<legend>HATA: Yetersiz Yetki</legend>İsimsiz kullanıcıların konu açma izinleri bulunmuyor.
+post_err_noannonposts_msg2:<legend>HATA: Yetersiz Yetki</legend>İsimsiz kullanıcıların yanıtlama izinleri bulunmuyor.
 post_err_floodtrig_title:HATA: Üstüste ileti gönderemezsiniz.
-# Fuzzy
-post_err_floodtrig_msg:Lütfen {VAR: tm} saniye içinde tekrar deneyin.
+post_err_floodtrig_msg:Lütfen {PLURAL: tm|$1 saniye|$1 saniye} içinde tekrar deneyin.
 post_err_attach_size:Dosya eki çok büyük (izin verilen sınır: {VAR: MAX_F_SIZE} b)
 post_err_attach_ext:Yüklemeye çalıştığınız dosya tipi izin verilen tipler arasında yok.
 post_err_attach_filelimit:İzin verilenden daha fazla dosya yüklemeye çalışıyorsunuz.
 post_err_passwd:Yanlış parola.
-# Fuzzy
-post_reply_update:{VAR-HTML: frm->name} forumundaki <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> konulu iletiye yanıt yazıyor.
-# Fuzzy
-post_topic_update:<a href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a> forumunda yeni tartışma açıyor.
+post_reply_update:{VAR: frm->name} forumundaki <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> konulu iletiye yanıt yazıyor.
+post_topic_update:<a href="{TEMPLATE: post_topic_update_lnk}">{VAR: frm->name}</a> forumunda yeni konu açıyor.
 post_error_generic:Bir hata oluştu
 postcheck_max_images_err:İleti başına en fazla {GVAR: MAX_IMAGE_COUNT} resim gönderilebilir, lütfen resim sayısını azaltın.
+postcheck_no_links_allowed:Foruma toplam {PLURAL: posts_before_links|$1 ileti|$1 ileti} göndermeden iletilerinizde bağlantı adresleri kullanamazsınız.
 postcheck_subj_needed:Konu bölümü zorunlu
 postcheck_no_such_user:Bu forumda "{FUNC: char_fix(htmlspecialchars($v))}" isminde bir kullanıcı yok.
 postcheck_ignored:"{FUNC: char_fix(htmlspecialchars($v))}" kullanıcısına özel ileti gönderemezsiniz, çünkü bu kişi sizi gözardı ediyor.
 postcheck_no_recepient:İletiyi gönderemiyor, alıcı belirsiz.
-postcheck_invalid_email:Lütfen arkadışınızın geçerli bir e-mektup adresini girin.
-postcheck_email_subject:Konu bölümü boş olan bir e-mektup gönderemezsiniz.
+postcheck_invalid_email:Lütfen arkadışınızın geçerli bir e-posta adresini girin.
+postcheck_email_subject:Konu bölümü boş olan bir e-posta gönderemezsiniz.
 postcheck_email_body:Gövde bölümü boş olan bir ileti gönderemezsiniz.
 private_msg_notify_subj:{VAR: m->subject} için okundu haberi
 private_msg_notify_body:Selam,<br />{VAR: usr->login} kullanıcısı, {TEMPLATE: private_msg_notify_body_date} tarihinde atmış olduğunuz "{VAR: m->subject}" konulu özel iletinizi okumuş durumda.<br />
@@ -623,24 +635,22 @@ referals_update:Tanıtımları Dolaşıyor
 register_err_short_login:Seçtiğiniz kullanıcı ismi çok kısa. Kullanıcı isimleri en az 4 karakter uzunluğunda olmalı.
 register_err_login_notallowed:Bu kullanıcı ismine izin verilmiyor.
 register_err_loginunique:Forumdaki kullanıcı isimleri tek olmak zorunda, sistemde bu isimde bir kullanıcı zaten var.
-register_err_emailexists:Bu e-mektup zaten var, eğer parolanızı unuttuysanız tekrar kayıt olmak yerine lütfen parolayı yeniden belirleme seçeneğini kullanın.
+register_err_emailexists:Bu e-posta zaten var, eğer parolanızı unuttuysanız tekrar kayıt olmak yerine lütfen parolayı yeniden belirleme seçeneğini kullanın.
 register_err_shortpasswd:Parola en az 6 karakter uzunluğunda olmalı.
 register_err_passwdnomatch:Girdiğiniz parolalar birbirinin aynısı değil.
-register_err_invalidemail:Belirttiğiniz e-mektup adresi geçerli gibi görünmüyor.
+register_err_invalidemail:Belirttiğiniz e-posta adresi geçerli gibi görünmüyor.
 register_err_needname:Bu kaydı başarıyla tamamlayabilmek için isminizi girmelisiniz.
 register_err_enterpasswd:Değişiklikleri tamamlayabilmek için şu andaki parolanızı girmelisiniz.
-# Fuzzy
-register_err_adminpasswd:Değişiklikleri tamamlayabilmek için YÖNETİCİ parolanızı girmelisiniz.
-register_err_notyouremail:Birisi bu e-mektup ile daha önce kaydolmuş, fakat bu birisi siz DEÄİLSİNİZ.
+register_err_adminpasswd:Değişiklikleri tamamlamak için için <b>yönetici</b> parolanızı girmelisiniz.
+register_err_notyouremail:Başka biri bu e-posta adresi ile zaten kayıt olmuş durumda.
 register_err_avatartobig:Yüklemeye çalıştığınız dosya izin verilenden daha büyük. İzin verilen sınır: {GVAR: CUSTOM_AVATAR_MAX_SIZE} b
 register_err_avatarnotallowed:Yüklemeye çalıştığınız avatara izin verilmiyor. İzin verilen dosya tiplerini gözden geçirin.
 register_conf_subject:Kayıt Doğrulama
 register_conf_msg:Kayıt olduğunuz için teşekkürler,\nHesabınızı etkinleştirmek için lütfen aşağıdaki URL\'ye gidin:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nBir kez hesabınız etkineşti mi foruma giriş yapacak ve \nforumun ana sayfasına yönlendirileceksiniz.
 register_welcome_subject:Forum Kayıt Doğrulama
-# Fuzzy
-register_welcome_msg:Kayıt olduğunuz için teşekkürler,\n\nİşte forum için giriş bilgileriniz:\n\nForum adresi: {GVAR: WWW_ROOT}{FULL_ROOT}{ROOT}\nKullanıcı ismi: {VAR: uent->login}\nParola: {VAR: _POST['reg_plaintext_passwd']}\n\nLütfen parolada BÜYÜK/küçük harf ayrımının yapıldığını aklınızdan çıkarmayın!\nAyarlarınızda ve kişisel bilgilerinizde değişiklik yapmak için, bu sayfaya gidebilirsiniz:\n{FULL_ROOT}{ROOT}?t=register
+register_welcome_msg:Kayıt olduğunuz için teşekkürler,\n\nİşte forum için giriş bilgileriniz:\n\nForum URL'si: {TEMPLATE: index_update_lnk}\nKullanıcı ismi: {VAR: uent->login}\nParola: {VAR: _POST['reg_plaintext_passwd']}\n\nLütfen parolada BÜYÜK/küçük harf ayrımının yapıldığını aklınızdan çıkarmayın!\nAyarlarınızda ve/veya kişisel bilgilerinizde değişiklik yapmak için, bu sayfaya gidebilirsiniz:\n{FULL_ROOT}{ROOT}?t=register
 register_err_cantreg_title:HATA: kayıt olunamadı
-regsiter_err_cantreg_msg:Kullanıcı hesabı yaratılamadı, lütfen yönetici ile iletişime geçin: <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
+regsiter_err_cantreg_msg:Kullanıcı hesabı oluşturulamadı, lütfen yönetici ile iletişime geçin: <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:Kişisel bilgilerine göz atıyor
 register_register_update:Kayıt Sayfası
 report_err_nosuchmsg_title:HATA
@@ -648,35 +658,32 @@ report_err_nosuchmsg_msg:Böyle bir ileti yok
 reset_err_invalidkey_title:HATA
 reset_err_invalidkey_msg:Geçersiz parola belirleme anahtarı
 reset_err_rstconf_title:Bilgi
-reset_err_rstconf_msg:Yapmanız gerekenler bir kaç dakika içinde e-mektup adresinize ulaşacak.
+reset_err_rstconf_msg:Yapmanız gerekenler bir kaç dakika içinde e-posta adresinize ulaşacak.
 reset_newpass_title:Parolayı Yeniden Belirle
 reset_newpass_msg:Selam,\n\nİsteğiniz üzerine kayıt bilgileriniz gönderildi.\nGiriş bilgileriniz:\n\nKullanıcı ismi: {VAR: ui[1]}\nParola: {VAR: passwd}\n\nYukarıda belirtilen yeni parolanızı değiştirmek isterseniz, kullanıcı denetim masasından yapabilirsiniz:\n{FULL_ROOT}{ROOT}?t=register
-reset_login_notify:Parolanız e-mektup adresinize gönderildi. Bir kaç dakika içinde elinizde olmalı. Lütfen parolanızı gözden geçirin ve giriş yapın..<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
+reset_login_notify:Parolanız e-posta adresinize gönderildi. Bir kaç dakika içinde elinizde olmalı. Lütfen parolanızı gözden geçirin ve giriş yapın..<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
 search_update:İletileri arıyor
 selmsg_update:<a href="{TEMPLATE: selmsg_update_lnk}">Bugünkü İletilerde</a> dolaşıyor
 showposts_update:<a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a> tarafından gönderilen iletileri görüntülüyor.
 subscribed_update:Üyeliklerini dolaşıyor
-# Fuzzy
-thread_update:<a href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a> forumunda dolaşıyor
-tree_update:<a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a> zincirinde dolaşıyor (ağaç görünümü)
+bookmarked_update:Kendi yer imleri listesine göz atıyor.
+thread_update:<a href="{TEMPLATE: thread_update_lnk}">{VAR: frm->name}</a> forumuna göz atıyor.
+tree_update:<a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a> başlıklı konuya göz atıyor (ağaç görünümü).
 userinfo_update:<a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}</a> kullanıcısının kişisel bilgilerine bakıyor
 ERR_login_msg2:<legend>HATA: Giriş yapmadınız.</legend>Bu sayfaya erişebilmek için bu forumun bir üyesi olmanız gerekiyor.
 ERR_disabled_ttl:Engellenmiş Özellik
-# Fuzzy
 ERR_disabled_msg:Bu özellik sistem yöneticisi tarafından engellenmiş durumda.
 ERR_access_ttl:HATA: Yetersiz Erişim İzni
-# Fuzzy
-ERR_access_msg:Yapmak istediğiniz için yeterli erişim iznine sahip değilsiniz.
+ERR_access_msg:Bu eylem için yeterli  izne sahip değilsiniz.
 ERR_registration_disabled_ttl:Kayıt Engellenmiş
 ERR_registration_disabled_msg:Yönetici kayıtı engellemiş durumda. Lütfen daha sonra tekrar deneyin.
 ERR_emailconf_ttl:HATA: Hesabınız henüz doğrulanmadı
-# Fuzzy
-ERR_emailconf_msg:Hesabınızı henüz e-mektup yoluyla doğrulamadınız.<br /><table border="0"><tr><td><ol><li>Eğer doğrulama mektubu almadıysanız <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">buraya tıklayın</a><li>Eğer {VAR: usr_d->email} adresi sizin doğru adresiniz değilse <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">buraya tıklayın</a></ol></td></tr></table>
+ERR_emailconf_msg:Hesabınızı henüz e-posta yoluyla doğrulamadınız.<br /><table border="0"><tr><td><ol><li>Eğer doğrulama mektubu almadıysanız, <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">tekrar gönderilmesini sağlayın</a>.</li><li>Eğer {VAR: usr_d->email} adresi doğru değilse <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">düzeltme yapın</a>.</li></ol></td></tr></table>
 ERR_user_ttl:HATA: Kullanıcı yok
 ERR_user_msg:Böyle bir kullanıcı yok
 ERR_systemerr_ttl:HATA: Sistem Hatası
 ERR_systemerr_msg:Sistem hatası oluştu, lütfen <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster'a</a> bildirin.
-email_title:E-mektup formu
+email_title:E-posta formu
 finduser_title:Kullanıcı bul
 help_title:S.S.S.
 login_title:Giriş formu
@@ -687,9 +694,8 @@ rpasswd_title:Parola değiştirme formu
 error_title:Hata formu
 index_title:Hoşgeldiniz
 search_title:Aranacak sözcükler {VAR-HTML: srch}
-remail_emailsent:E-mektup gönderildi
-# Fuzzy
-remail_email:{GVAR: FORUM_TITLE} ( {GVAR: WWW_ROOT} ) adresinde okumak isteyebileceğin bir WWW sayfası var.\nİlgileceğini düşündüğüm "{VAR: data->subject}" konulu zincire buradan ulaşabilirsin:\n{FULL_ROOT}{ROOT}?t=rview&th={VAR: data->id}&rid={DEF: _uid}\n\nGönderen: {VAR: usr->alias}
+remail_emailsent:E-posta gönderildi
+remail_email:Selam,\n\n{GVAR: FORUM_TITLE} forumunda okumak isteyebileceğin  "{VAR: data->subject}" başlıklı ilginç bir konu var.  Konuya buraya tıklayarak ulaşabilirsin:\n  {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nGönderen: {VAR: usr->alias}
 poll_add_option:Seçenek Ekle:
 post_opt_html_on:<b>HTML AÇIK</b>
 post_opt_fud_on:<b><a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank">BBcode AÇIK</a></b>
@@ -706,23 +712,21 @@ approved_avatar_msg:Özel avatarınız yönetici tarafından onaylandı. Bundan 
 unapproved_avatar_title:Özel avatarınız reddedildi.
 unapproved_avatar_msg:Özel avatarınız yönetici tarafından onaylanmadı. Çoğunlukla bu avatarınız çok büyük olduğu (dosya veya resim boyutu) veya uygun olmayan bir konu içerdiği içindir. Avatarınızın neden kabul edilmediği hakkında daha fazla bilgi edinmek isterseniz, yöneticiyle iletişime geçin.
 mvthread_request_move:taşıma isteğinde bulun
-move_request_reason:Neden zincirin taşınmasını istiyorsunuz?
+move_request_reason:Konunun taşınmasını neden istiyorsunuz?
 mvthread_submit_req:İsteği gönder
-thread_exchange:Zincir değişimi
-move_request_by:Zincir taşıma isteği. Gönderen:
-move_reason:Zincir taşınma sebebi:
+thread_exchange:Konu değişimi
+move_request_by:Konu taşıma isteği. Gönderen:
+move_reason:Konu taşıma nedeni:
 thr_exch_accept:Kabul et
 thr_exch_decline:Reddet
 thr_exch_orig_forum:Özgün Forum:
 thr_exch_dest_forum:Hedef Forum:
-thr_exch_no_threads:Onay bekleyen zincir yok.
-# Fuzzy
-thr_exch_decl_reason:<b>{VAR-HTML: frm->name}</b> zincirinin <b>{VAR-HTML: frm->name}</b> forumuna taşınma isteğinin reddedilme sebebi:
+thr_exch_no_threads:Onay bekleyen konu yok.
+thr_exch_decl_reason:<b>{VAR: data->subject}</b> başlıklı konunun <b>{VAR: data->f2_name}</b> forumuna taşınma isteğinin reddedilme sebebi:
 thr_exch_submit:Gönder
-# Fuzzy
-exch_decline_ttl:{VAR: data->subject} zincirinin {VAR-HTML: data->f2_name} forumuna taşınması reddedildi.
+exch_decline_ttl:{VAR: data->subject} başlıklı konunun {VAR: data->f2_name} forumuna taşınması reddedildi.
 ppost_original_msg:yönlendirdiğiniz veya yanıtladığınız ileti
-split_thread:Zinciri Böl
+split_thread:Konuyu Böl
 groupmgr_no_user:"{FUNC: char_fix(htmlspecialchars($gr_member))}" kullanıcı isminde bir kullanıcı yok.
 groupmgr_already_exists:"{FUNC: char_fix(htmlspecialchars($gr_member))}" kullanıcısı bu grupta zaten var.
 groupmgr_yes:Evet
@@ -749,21 +753,23 @@ p_REPLY:Yanıtla
 p_EDIT:Düzelt
 p_DEL:Sil
 p_STICKY:Yapışkan İletiler
-p_POLL:Anket Yarat
+p_POLL:Anket Oluştur
 p_FILE:Dosya Ekle
 p_VOTE:Oyla
-p_RATE:Zinciri Değerlendir
-p_SPLIT:Zinciri Böl
-p_LOCK:Zinciri Kilitle
-p_MOVE:Zinciri Taşı
+p_RATE:Konuyu Değerlendir
+p_SPLIT:Konuyu Böl
+p_LOCK:Konuyu Kilitle
+p_MOVE:Konuyu Taşı
 p_SML:Gülücük kullan
 p_IMG:Resim tag'lerini kullan
+p_SEARCH:Arayabilir
 group_mgr_search:Kullanıcı bul
 group_mgr_indicator:Şu anda düzeltilen: <b>{VAR: grp->name}</b>
 rate_worst:Çok Kötü
 rate_best:Çok İyi
 post_quote_msg:{VAR: msg->login} kullanıcısı, {TEMPLATE: make_report_date} tarihinde yazmıştı:
 post_quote:Aktarım:
+post_quote_selected:Seçili Metni Alıntıla
 userinfo_referals:Tanıtım Yapılan Kullanıcılar:
 userinfo_referals_count:{VAR: referals} Üyeler
 pm_no_space_title:Yer kalmadı!
@@ -795,27 +801,29 @@ register_show_avatar_desc:Kullanıcıların iletilerini görüntülerken avatarl
 drawmsg_view_rest_post:İletinin geri kalanını göster
 post_re:Ynt:
 forumsel_goto_forum:Bu foruma git:
-minimsg_thread_view:Zincir Görünümü
+minimsg_thread_view:Konu Görünümü
 split_th_post_by:Gönderen:
 split_th_posted_on:Gönderildiği Tarih:
 split_th_subject:Konu:
-split_th_new_thread_title:Yeni zincir başlığı:
+split_th_new_thread_title:Yeni konu başlığı:
+split_th_forum:Forum:
 split_th_split_sel:Seçilen iletileri böl
 split_th_split_unsel:Seçilmeyen iletileri böl
 split_th_messages:İletiler
 split_th_select:Seç
 report_report_post:İletiyi Bildir
-# Fuzzy
-quicklogin_login:Kullanıcı ismi
-# Fuzzy
-quicklogin_password:Parola
-quicklogin_use_cookies:Kurabiye kullanılsın mı?
-# Fuzzy
+quicklogin_login:Kullanıcı ismi:
+quicklogin_password:Parola:
+quicklogin_use_cookies:Çerez kullanılsın mı?
 quicklogin_login_btn:Giriş yap
+quick_reply:Hızlı Yanıt
+quick_reply_post:Hızlı Yanıtı Gönder
+quick_reply_preview:Hızlı Yanıtı Önizle
 post_notification_desc:Bu iletiye yanıt yazıldığında bana haber ver.
 post_all_ext_allowed:(kısıtsız)
 maximize_category:Kategoriyi Aç
-no_view_perm:Bu zinciri görmek için uygun erişim iznine sahip değilsiniz.
+maximize_message:İletiyi Büyüt
+no_view_perm:Bu konuyu görmek için uygun erişim iznine sahip değilsiniz.
 report_empty_report:Boş bir bildirim gönderemezsiniz, lütfen bildirim için bir sebep belirtin.
 report_already_reported_title:Daha önce bildirildi
 report_already_reported_msg:Bu ileti daha önce bildirilmiş ve bildirim şu anda denetmenlerin gözden geçirme kuyruğunda yer alıyor.
@@ -824,18 +832,22 @@ pmsg_next_msg:Sonraki ileti
 pmsg_prev_msg:Önceki ileti
 post_proc_reveal_spoiler:Reveal Spoiler
 register_jabber:Jabber:
+register_skype:Skype kullanıcısı:
+register_twitter:Twitter Kullanıcısı:
+register_google:Google Chat/IM Kullanıcısı:
 im_jabber:Jabber:
+im_google:Google Talk:
+im_skype:Skype:
+im_twitter:Twitter:
 forum_contact:İletişim
 forum_home:Ana Sayfa
-# Fuzzy
-post_cur_attached:şu anda {VAR: i} dosya ekli
+post_cur_attached:şu anda {VAR: i} {PLURAL: i|dosya|dosya} ekli
 ignored_anon_post:{GVAR: ANON_NICK} gözardı edilmiş durumda
 ignored_user_post:<a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> tarafından gönderilen ileti gözardı ediliyor.
 smladd_close_window:penereyi kapat
 post_list_smilies:gülücük listesi
 p_VISIBLE:Görünür
-# Fuzzy
-reported_in_thread:Zincir içinde
+reported_in_thread:Konu:
 help_back_to_top:yukarı dön
 help_return_to_index:Yardım indeksine dön
 imsg_err_message_title:Geçersiz İleti
@@ -869,16 +881,15 @@ post_proceed:İlerle
 post_moderated_forum:Denetimli bir foruma ileti gönderdiniz, ve iletiniz forum denetmen(ler)ince veya yönetici tarafından onaylanmadan forumda görüntülenmeyecek.
 post_moderated_forum_ttl:Denetimli Forum Uyarısı
 buddy_list_bday:Bugün {VAR: r[2]} {VAR: age} yaşını dolduruyor.
-email_warning_msg:Eğer şu andaki e-mektup adresinizi değiştirirseniz, hesabınız doğrulanmamış olarak işaretlenecek, ve e-mektup yoluyla doğrulanana dek işaretli kalacak.
+email_warning_msg:Eğer şu andaki e-posta adresinizi değiştirirseniz, hesabınız doğrulanmamış olarak işaretlenecek, ve e-posta yoluyla doğrulanana dek işaretli kalacak.
 register_show_im:IM belirteçlerini göster
 register_show_im_desc:IM belirteçlerinin yazılan iletinin yanında görüntülenip görüntülenmeyeceğini belirler.
 unread_message:Okunmamış İleti
 read_message:İletiyi oku
 threadt_more:&lt;devamı&gt;
-threadt_disabled_ttl:Zincirler için ağaç görünümü engellenmiş durumda.
-threadt_disabled_desc:Yönetici zincirler için ağaç görünümü engellemiş durumda, lütfen düz görünümü kullanın.
-# Fuzzy
-threadt_update:<a href="{TEMPLATE: threadt_update_lnk}">{VAR-HTML: frm->name}</a> forumunu dolaşıyor (ağaç görünümü)
+threadt_disabled_ttl:Konular için ağaç görünümü engellenmiş durumda.
+threadt_disabled_desc:Yönetici konular için ağaç görünümü engellemiş durumda, lütfen düz görünümü kullanın.
+threadt_update:<a href="{TEMPLATE: threadt_update_lnk}">{VAR: frm->name}</a> forumuna göz atıyor (ağaç görünümü)
 mmod_delete_cofirm_ttl:Konu/İleti Silmeyi Doğrula
 spell_alts:alternatif yok
 insert_uploaded_image:İleti gövdesinin içine resim yerleştir
@@ -890,10 +901,8 @@ err_mod_acc_ttl:Onaylanmamış Hesap
 err_mod_acc_msg:Tüm hesapların etkinleşmeden önce yönetici tarafından onaylanması gerekiyor. Hesabınız yönetici tarafından etkinleştirilinceye dek hesabınızın tüm özelliklerini kullanamayabilirsiniz.
 accounts_pending_approval:Onay bekleyen hesaplar
 saved:Saklanan
-# Fuzzy
-register_err_time_limit:{GVAR: REG_TIME_LIMIT} saniye içinde sadece bir kayıt gerçekleştirilebilir. Lütfen {VAR: reg_limit_reached} saniye bekledikten sonra tekrar deneyin.
-# Fuzzy
-register_affero:Affero Username:<br /><font class="SmallText">If you have an <a href="http://www.affero.com/ca/{VAR-URL: GLOBALS['FORUM_TITLE']}" target="_blank">Affero</a> username enter it here.</font>
+register_err_time_limit:{GVAR: REG_TIME_LIMIT} saniye içinde sadece bir kayıt gerçekleştirilebilir. Lütfen {PLURAL: reg_limit_reached|$1 saniye|$1 saniye} bekledikten sonra tekrar deneyin.
+register_affero:Affero Kullanıcı İsmi:<br /><span class="SmallText">Eğer bir <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">Affero</a> kullanıcı ismine sahipseniz, buraya girin.</span>
 im_affero:Affero Kullanıcı İsmi
 register_err_avatardimtobig:<b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> boyutundaki avatar izin verilen boyutların <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b> dışında.
 buddy_offline:{VAR: r[2]} şu anda bağlı değil.
@@ -907,7 +916,7 @@ iemail_msg_subject:<b>Konuz:</b> {VAR: obj->subject}
 iemail_msg_date:<b>Tarih:</b> {TEMPLATE: dmsg_post_date}
 iemail_msg_reply:Yanıtla
 iemail_msg_quote:Alıntıla
-iemail_msg_view:Zinciri/İletiyi görüntüle
+iemail_msg_view:Konuyu/İletiyi görüntüle
 threadt_sticky:yapışkan
 threadt_announce:duyuru
 reported_no_messages:Bildirilmiş ileti yok.
@@ -916,22 +925,21 @@ no_unread_messages:Sorgunuza karşılık gelen okunmamış ileti yok.
 thread_mark_all_read:tüm okunmamış forum iletilerini okundu olarak işaretle
 thread_mark_all_read_desc:Bu forumdaki tüm iletiler okundu olarak işaretlenecek.
 private_no_messages:Bu klasörde ileti yok.
-register_email_change_subject:E-mektup adres değişiklik onayı.
-register_email_change_msg:Lütfen yeni e-mektup adresiniz olarak belirttiğiniz "{VAR: uent->email}" adresinin eski adres olan "{VAR: old_email}" adresinin yerine geçeceğini, aşağıdaki URL\'yi ziyaret ederek doğrulayın:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nYeni adresinizi onayladıktan sonra hesabınız tekrar etkin hale getirilecek.
-iemail_thread_unsub:Bu zincir aboneliğinden çık
+register_email_change_subject:E-posta değişiklik onayı.
+register_email_change_msg:Lütfen yeni e-posta adresiniz olarak belirttiğiniz "{VAR: uent->email}" adresinin eski adres olan "{VAR: old_email}" adresinin yerine geçeceğini, aşağıdaki URL\'yi ziyaret ederek doğrulayın:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nYeni adresinizi onayladıktan sonra hesabınız tekrar etkin hale getirilecek.
+iemail_thread_unsub:Bu konu aboneliğinden çık
 iemail_forum_unsub:Bu forum aboneliğinden çık
 primary_group_prefix:Bu forum için birincil grup:
 group_resources:Bu grup şu forumların izinlerini kontrol ediyor:
 register_admin_newuser_title:Yeni bir kullanıcı kayıt oldu ve hesabı onaylanmayı bekliyor.
 register_admin_newuser_msg:({VAR: uent->login}) kullanıcı isimli yeni bir kullanıcı foruma kayıt olmuş durumda, ve kayıt denetimi etkin durumda olduğu için yeni kullanıcının hesabı siz veya diğer forum yöneticilerinden biri tarafından onaylanmadığı sürece etkin hale getirilmeyecek. Yeni hesabı gözden geçirmek için bu adrese gidebilirsiniz: {GVAR: WWW_ROOT}adm/admaccapr.php\n\nBu otomatik bir iletidir, lütfen yanıt yazmayın.\nEğer gelecekte yeni kaydolan kullanıcılar için bu tür uyarılar almak istemiyorsanız Admin Control Panel içindeki "New Account Notification" ayarını değiştirerek bunu yapabilirsiniz.
 post_mod_msg_notify_title:"{VAR: frm->name}" forumunda onay bekleyen yeni ileti
-# Fuzzy
-post_mod_msg_notify_msg:"{VAR: msg_post->subject}" başlıklı yeni bir ileti denetlediğiniz forumlardan birine gönderilmiş durumda. Bu iletiyi gözden geçirmek ve onaylamak için bu adrese gidin: {FULL_ROOT}{ROOT}?t=modque\n\nBu otomatik bir iletidir, lütfen yanıt yazmayın.
+post_mod_msg_notify_msg:"{VAR: msg_post->subject}" başlıklı yeni bir ileti denetlediğiniz forumlardan birine gönderilmiş durumda. Bu iletiyi gözden geçirmek için bu adrese gidin: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nBu otomatik bir iletidir, lütfen yanıt yazmayın.
 thread_printable_pdf:Yazdırılabilir PDF Üret
 thread_syndicate:Haber başlıkları (XML)
 reg_conf_title:Kayıt Onayı
-reg_conf_email:<b>E-mektup Onayı</b><br /> Hesabınızın etkinleştirilmesi için özel bir adres içeren bir e-mektup adresinize gönderilmiş durumda. Bu mektup
-reg_conf_account:<b>Kayıt Onayı</b><br />Hesabınızın etkinleştirilmeden önce forum yöneticisi tarafından onaylanması gerekiyor. Onaylandığı zaman bunu size bildiren bir e-mektup alacaksınız. Onaylanana kadar foruma kullanıcı isminiz ve parolanız ile giriş yapabilir, fakat kayıtlı kullanıcılara açık olan tüm özelliklere ulaşamayabilirsiniz.
+reg_conf_email:<b>E-posta Onayı</b><br /> Hesabınızın etkinleştirilmesi için özel bir URL içeren bir e-posta adresinize gönderilmiş durumda. Bu e-postayı bir kaç dakika içinde almazsanız, hesabınıza giriş yaparak belirttiğiniz e-posta adresinin doğruluğundan emin olun. Hesabınızı doğruladıktan sonra, forumun sadece hesapları doğrulanmış kayıtlı kullanıcılara açık olan özelliklerinden yararlanabileceksiniz.
+reg_conf_account:<b>Kayıt Onayı</b><br />Hesabınızın etkinleştirilmeden önce forum yöneticisi tarafından onaylanması gerekiyor. Onaylandığı zaman bunu size bildiren bir e-posta alacaksınız. Onaylanana kadar foruma kullanıcı isminiz ve parolanız ile giriş yapabilir, fakat kayıtlı kullanıcılara açık olan tüm özelliklere ulaşamayabilirsiniz.
 forum_banned_user:Davranışlarınızdan dolayı bu forumda süresiz şekilde yasaklanmış durumdasınız. Güle güle.
 mnav_description:İleti Gezgini
 mnav_date_limit:Tarih aralığı:
@@ -960,14 +968,15 @@ findu_unban:Yasağı Kaldır
 findu_ban:Yasakla
 findu_edit:Düzenle
 findu_delete:Sil
-# Fuzzy
-dmsg_reply_to:, #{VAR: obj->reply_to} iletisine yanıttır.
-merge_topics:Zincirleri Birleştir
-merge_topics_cp:Zincirleri Birleştir Denetim Masası
-merge_topics_tpl:Birleşecek zincirleri seçin <font class="SmallText">(İki veya daha fazla zincir seçmelisiniz)</font>
+dmsg_reply_to:, bu iletiye yanıttır:
+dmsg_reply_num:#{VAR: obj->reply_to}
+merge_topics:Konuları Birleştir
+merge_topics_cp:Konuları Birleştir Denetim Masası
+merge_topics_tpl:Birleşecek konuları seçin <span class="SmallText">(İki veya daha fazla konu seçmelisiniz)</span>
 merge_merge:Seçili Zincirleri Birleştir
-merge_next:Sonraki Zincirler
-merge_prev:Önceki Zincirler
+merge_next:Sonraki Konular
+merge_prev:Önceki Konular
+merge_another:<a href="{TEMPLATE: merge_another_lnk}">son birleştirilen konuya</a> gidin veya bir başkasını birleştirin:
 split_cp:Zinciri Böl Denetim Masası
 groups_perms_header:İzinler <font size="-1">(izin hakkında açıklama almak için fareyi üzerine getirin)</font>
 register_err_sig_too_long:İmzanız en fazla {GVAR: FORUM_SIG_ML} karakter olabilir.
@@ -977,7 +986,7 @@ adm_account_accepted_s:'{GVAR: FORUM_TITLE}' için hesap isteğiniz kabul edildi
 adm_account_rejected:Hesabınız ('{VAR: login}') yönetici tarafından reddedildi. Bu kararın arkasındaki neden hakkında bilgi almak için '{GVAR: ADMIN_EMAIL}' adresinden yönetici ile iletişime geçebilirsiniz.
 adm_account_rejected_s:'{GVAR: FORUM_TITLE}' forumu için hesap isteğiniz reddedildi.
 userinfo_buddy:Arkadaş:
-register_email_addr:E-mektup Adresi:
+register_email_addr:E-posta Adresi:
 reset_suffix:Bu iletiyi yanlışlıkla aldıysanız, lütfen dikkate almayın. Bu mektubun birden fazla kopyasını istekte bulunmadığınız halde aldıysanız, lütfen yönetici ile iletişime geçin: {GVAR: ADMIN_EMAIL}\n\nİstekte bulunan: {VAR: _SERVER['REMOTE_ADDR']}.
 usrinfo_last_visit:Son Ziyaret:
 mnav_newer:newer then
@@ -995,6 +1004,7 @@ register_err_alias_notallowed:Bu takma isme izin verilmiyor
 post_err_mod_forum_edit_ttl:HATA
 post_err_mod_forum_edit_msg:You cannot edit messages inside a moderated forum.
 dmsg_num:ileti #{VAR: obj->id}
+postcheck_session_invalid:Oturumunuzun geçerlilik süresi bitti. Lütfen formu tekrar gönderin. Zorluk için özür dileriz.
 delete_message_extra_desc:<b>İsteğe bağlı</b><br />İletinin neden silindiği konusunda yazara bilgi gönderin.
 delete_message_extra_body:Yazara silinen iletinin gövdesini gönderin.
 delete_msg_removed_ttl:İletiniz yönetici tarafından silindi.
@@ -1005,12 +1015,96 @@ ip_whois_title:ISS Bilgisi
 register_theme:Tema:
 pmsg_trash:Çöpü boşalt
 uc_new_pm:Yeni Özel İletiler
-uc_new_topic:Yeni Zincir
+uc_new_topic:Yeni Konu
 uc_new_cat_forum:Abonesi olduğunuz forumlardan yeni ileti bulunanlar
 uc_cat_forum:Kategori &raquo; Forum
-uc_sub_topics:Abonesi olduğunuz zincirlerden yeni ileti bulunanlar
-uc_page_title:Kullanıcı Denetim Masası
+uc_sub_topics:Abonesi olduğunuz konulardan yeni ileti bulunanlar
+uc_page_title:Denetim Masası
 search_options:Arama Seçenekleri
 search_user_filter:Kullanıcıya göre ara:
 register_none:Haberdar etme
 findu_no_conf:onaylanmamış kullanıcı
+register_max_sig_len:En Fazla Uzunluk:
+register_turing:Lütfen aşağıda gösterilen kodu girin:
+register_err_turing:Geçersiz doğrulama kodu.
+modque_cat:Kategori
+modque_forum:Forum
+idx_compact_forum_row:Forumlar:
+mmd_del_title:Konu Sil
+mmd_mov_title:Konu Taşı
+mmd_move_threads_to:Hedef Forum:
+mmd_abort_move:İptal
+mmd_move:Konu Taşı
+pmsg_pdf_btn:PDF Arşivi Yap
+search_results_hdr:{VAR: total} arama sonucu bulundu.
+thread_del_all:Tüm Seçilileri Sil
+thread_mov_all:Tüm Seçilileri Taşı
+thread_merge_all:Tüm Seçilileri Birleştir
+thread_loc_all:Tüm Seçilileri Kilitle / Kilidini Aç
+dmsg_ip:IP:
+err_blockedaccnt_title:HATA: Hesabınız filtrelenmiş durumda.
+err_blockedaccnt_msg:Forumdaki kullanıcı filtrelerinden biri nedeniyle hesabınızın erişimi engellendi.
+merge_th_page_list:Konu Sayfa Seçimi
+most_users_online:Bağlı kullanıcı sayısının en çok olduğu tarih, <b>{VAR: st_obj->most_online}</b> kullanıcı ile <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b> idi.
+sub_unsub_all_forums:Tüm Forum Aboneliklerimi İptal Et
+sub_unsub_all_topics:Tüm Konu Aboneliklerimi İptal Et
+unbookmark_all_topics:Tüm Yer İmlerini Kaldır
+tabs_own_posts:Kendi Gönderilerimi Göster
+sml_emoticon:İfade
+sml_code:Kod
+mnav_sub_only:Sadece abone olduğum forumlarda ara
+register_topics_per_page:Sayfa Başına Konu:
+login_min_time:{VAR: MIN_TIME_BETWEEN_LOGIN} saniye içinde sadece bir giriş denemesi yapabilirsiniz, lütfen bir sonraki denemenizden önce {FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)} saniye bekleyin.
+post_not_logged_in:Şu an giriş yapmamış durumdasınız, iletiniz isimsiz olarak gönderilecek.
+post_common_bold:Kalın
+post_common_italics:Eğik
+post_common_underline:Altı Çizili
+post_common_align_left:Sola hizala
+post_common_align_center:Ortala
+post_common_align_right:Sağa Hizala
+post_common_link:Bağlantı ekle
+post_common_email:E-posta adresi ekle
+post_common_image:Görüntü ekle
+post_common_nlist:Numaralı liste ekle
+post_common_blist:Madde işaretli liste ekle
+post_common_quote:Alıntı Ekle
+post_common_code:Kod Ekle
+rating_delete:Sil
+post_always_on_top:Konunun her zaman konu listesinin en üstünde görünmesini sağla
+topic_rating:{PLURAL: frm->n_rating|$1 oy|$1 oy} ile {VAR: frm->rating}
+topic_list_rating:{PLURAL: r[21]|$1 oy|$1 oy} ile {VAR: r[17]}
+tabs_notifications:Haber Bildirileri
+finduser_flag:Bayrak
+post_descr:Konu Açıklaması:
+pmsg_download_dump:İleti Yığınını İndir
+move_messages:İletileri taşı
+move_msg_btn:Seçili İletileri Taşı
+move_msg_th_expl:Hedef konunun ID'sini belirtin (diğer forumlarda olabilir)
+captcha_img_alt:Captcha Doğrulama: Görüntüde metni tanımanız gerekiyor.
+captcha_img_help:Görüntü içinde sıfır ya da bir bulunmuyor.
+code_title:Kod:
+code_select_all:Tümünü seç
+code_show_hide:Göster / gizle
+social_sites:Sosyal ağ siteleri:
+postcheck_min_len_err:Mesajınız çok kısa. Asgari uzunluk {PLURAL: post_min_len|$1 karakter|$1 karakter}.
+postcheck_dup_err:Lütfen aynı konuyu birden fazla göndermeyin.
+btn_new_topic:Yeni Konu
+btn_new_pm:Yeni Ö. İleti
+btn_post_reply:Yanıt Gönder
+btn_tree_view:Ağaç görünümü
+btn_flat_view:Düz Görünüm
+btn_about:Profil
+btn_small_pm:Öİ
+btn_delete:sil
+btn_edit:değiştir
+btn_reply:yanıtla
+btn_forward:yönlendir
+btn_quote:alıntıla
+btn_email:e-posta
+btn_show_posts:gönderiler
+btn_homepage:www
+feed_no_data:Eşleşen veri bulunamadı.
+feed_rdf:RDF yayını
+feed_rss:RSS2 yayını
+feed_atom:ATOM yayını
+ip_whois_connect_err:WHOIS sunucusuna ({VAR: whois_server}) bağlanamıyor: {VAR: errstr}

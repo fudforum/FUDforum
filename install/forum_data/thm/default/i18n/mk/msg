@@ -68,6 +68,7 @@ mark_all_read_desc:Сите ваши непрочитани пораки ќе б
 members:Членови
 calendar:Календар
 cal_goto_date:Оди на:
+cal_no_events:Нема настани за тој ден.
 message:Порака
 message_counter:Нашите корисници имаат оставено вкупно <b>{PLURAL: post_count|$1 порака|$1 пораки}</b> во <b>{PLURAL: thread_count|$1 тема|$1 теми}</b>.
 message_index:Индекс на пораки
@@ -253,12 +254,19 @@ month_10:Октомври
 month_11:Ноември
 month_12:Декември
 sunday:недела
+sunday_short:нед
 monday:понеделник
+monday_short:пон
 tuesday:вторник
+tuesday_short:вто
 wednesday:среда
+wednesday_short:сре
 thursday:четврток
+thursday_short:чет
 friday:петок
+friday_short:пет
 saturday:сабота
+saturday_short:саб
 male:Машки
 female:Женски
 unspecified:НЕНАЗНАЧЕНО
@@ -760,6 +768,7 @@ rate_worst:Најлоша
 rate_best:Најдобра
 post_quote_msg:{VAR: msg->login} напиша на {TEMPLATE: make_report_date}
 post_quote:Цитат:
+post_quote_selected:Цитирај избран текст
 userinfo_referals:Поканети корисници:
 userinfo_referals_count:{VAR: referals} членови
 pm_no_space_title:Нема повеќе место!

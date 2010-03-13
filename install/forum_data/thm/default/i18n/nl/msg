@@ -452,7 +452,7 @@ login_invalid_radius:De combinatie van gebruikersnaam en wachtwoord is onjuist
 reset_confirmation:Dank u wel voor uw registratie.\n\nGa voor het activeren van uw gebruiker naar de onderstaande URL:\n\n{VAR: url}\n\nAls uw gebruiker actief is, wordt u aangemeld bij het forum en automatisch doorverwezen naar de hoofdpagina.
 reset_reset:Hallo,\n\nU hebt een verzoek uitgevoerd voor het opnieuw instellen van uw wachtwoord. Ga naar de volgende URL om het proces af te ronden:\n\n{VAR: url}\n\nLet op: het forum versleutelt de wachtwoorden op een manier die het niet mogelijk maakt het wachtwoord te achterhalen. De ingave van uw wachtwoord wordt versleuteld en vergeleken met de opgeslagen versleutelde versie. Als u hierover meer wilt weten, kunt u op internet zoeken naar het MD5 hash algoritme.
 rpasswd_invalid_passwd:Ongeldig wachtwoord
-rpasswd_passwd_nomatch:De opgegeven wachtwoorden zijn niet gelijk
+rpasswd_passwd_nomatch:De wachtwoorden komen niet overeen
 rpasswd_passwd_length:Het wachtwoord moet tenminste zes tekens lang zijn
 reset_remind_pass:Wachtwoord wijzigen via e-mail
 reset_reset_conf:Uw wachtwoord zal opnieuw ingesteld en aan u toegezonden. Als u uw e-mailadres nog niet hebt bevestigd, wordt het bevestigingsverzoek opnieuw aan u toegezonden.
