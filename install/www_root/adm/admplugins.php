@@ -20,7 +20,7 @@
 	fud_use('plugins.inc', true);
 	fud_use('draw_select_opt.inc');
 
-	require($WWW_ROOT_DISK . 'adm/header.php');
+	require($WWW_ROOT_DISK .'adm/header.php');
 
 	$help_ar = read_help();
 
@@ -38,35 +38,49 @@
 		}
 	}
 
-	$prev_plugins = plugin_load_from_cache();
-	if (isset($_POST['plugin_state'])) {
-		if (isset($_POST['plugins'])) {
-			plugin_rebuild_cache($_POST['plugins']);
-		} else {
-			plugin_rebuild_cache(NULL);
-		}
-	}
-	$plugins = plugin_load_from_cache();
-
 	// Install new plugins.
-	while (list($key, $val) = @each($plugins)) {
-		if (! in_array($val, $prev_plugins)) {
-			echo successify('Install/activate plugin: '. $val .'.');
-			$enable_func = substr($val, 0, strrpos($val, '.')) .'_enable';
-			if ((include_once($PLUGIN_PATH.'/'.$val)) && function_exists($enable_func)) {
-				$enable_func(); 
+	$prev_plugins = plugin_load_from_cache();
+	if (isset($_POST['plugin_state'], $_POST['plugins'])) {
+		while (list($key, $val) = @each($_POST['plugins'])) {
+			if (! in_array($val, $prev_plugins)) {
+				$enable_func = substr($val, 0, strrpos($val, '.')) .'_enable';
+				if ( strpos($enable_func, '/') ) {
+					$enable_func = substr($enable_func, strpos($enable_func, '/')+1);
+				}
+				if ((include_once($PLUGIN_PATH .'/'. $val)) && function_exists($enable_func)) {
+					$err = $enable_func();
+					if ($err) {
+						unset($_POST['plugins'][$key]);
+						echo errorify('Plugin '. $val .' cannot activate: '. $err);
+						continue;
+					}
+				}
+				echo successify('Plugin '. $val .' was successfully installed and activated.');
 			}
 		}
+		plugin_rebuild_cache($_POST['plugins']);
+	}
+
+	// Clear the plugin cache.
+	if (isset($_POST['plugin_state']) && !isset($_POST['plugins'])) {
+			plugin_rebuild_cache(NULL);
 	}
 
 	// Deinstall plugins.
+	$plugins = plugin_load_from_cache();
 	while (list($key, $val) = @each($prev_plugins)) {
 		if (! in_array($val, $plugins)) {
-			echo successify('Deinstall/deactivate plugin: '. $val .'.');
 			$disable_func = substr($val, 0, strrpos($val, '.')) .'_disable';
-			if ((include_once($PLUGIN_PATH.'/'.$val)) && function_exists($disable_func)) {
-				$disable_func();
+			if ( strpos($disable_func, '/') ) {
+				$disable_func = substr($disable_func, strpos($disable_func, '/')+1);
 			}
+			if ((include_once($PLUGIN_PATH.'/'.$val)) && function_exists($disable_func)) {
+				$err = $disable_func();
+				if ($err) {
+					echo errorify('Plugin '. $val .' uninstall error: '. $err);
+				}
+			}
+			echo successify('Plugin '. $val .' was successfully deinstalled and deactivated.');
 		}
 	}
 
@@ -186,4 +200,4 @@ Plugins are stored in: <?php echo realpath($PLUGIN_PATH); ?><br />
 To add new plugins, <b><a href="admbrowse.php?down=1&amp;cur=<?php echo urlencode($PLUGIN_PATH); ?>&amp;<?php echo __adm_rsid; ?>">upload</a></b> them to this directory and activate them on this page. Plugins may also be placed into subdirectories.
 </td></tr></table>
 
-<?php require($WWW_ROOT_DISK . 'adm/footer.php'); ?>
+<?php require($WWW_ROOT_DISK .'adm/footer.php'); ?>

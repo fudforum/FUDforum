@@ -10,9 +10,7 @@
 **/
 
 // Initialize me as an authentication plugin if LDAP extension is loaded.
-if (extension_loaded('ldap')) {
-	plugin_add_hook('AUTHENTICATE', 'plugin_ldap_auth');
-}
+plugin_add_hook('AUTHENTICATE', 'plugin_ldap_auth');
 
 // Authenticate users from LDAP directory.
 function plugin_ldap_auth($data) {
@@ -111,11 +109,14 @@ function ldap_info() {
 				 'version' => '1.2');
 }
 
-function ldap_config() {
+function ldap_enable() {
 	if (!extension_loaded('ldap')) {
-		echo '<div class="alert">Your PHP installation lacks support for LDAP, plugin will stay inactive.</div>';
+		return 'You PHP installation doesn\'t support LDAP.';
 	}
+	return;	// Good to go.
+}
 
+function ldap_config() {
 	if((@include_once $GLOBALS['PLUGIN_PATH'] .'/ldap/ldap.ini') === false) {
 		$ini = NULL;
 	}
