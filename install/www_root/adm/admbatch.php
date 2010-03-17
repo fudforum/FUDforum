@@ -22,9 +22,13 @@
 	$php  = escapeshellcmd($GLOBALS['PHP_CLI']);
 
 	if (!empty($_POST['btn_submit'])) {
-		change_global_settings(array('PHP_CLI' => $_POST['CF_PHP_CLI']));
-		$GLOBALS['PHP_CLI'] = $_POST['CF_PHP_CLI'];
-		echo successify('PHP executable path successfully set.');
+		if (!is_executable($_POST['CF_PHP_CLI'])) {
+			echo errorify('PHP executable path is invalid.');
+		} else {
+			change_global_settings(array('PHP_CLI' => $_POST['CF_PHP_CLI']));
+			$GLOBALS['PHP_CLI'] = $_POST['CF_PHP_CLI'];
+			echo successify('PHP executable path successfully set.');
+		}
 	}
 
 	// Submit job to run in background.

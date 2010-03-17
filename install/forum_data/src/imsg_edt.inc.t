@@ -45,7 +45,7 @@ class fud_msg_edit extends fud_msg
 		$this->thread_id = isset($this->thread_id) ? $this->thread_id : 0;
 		$this->reply_to = isset($this->reply_to) ? $this->reply_to : 0;
 
-		if ($GLOBALS['FUD_OPT_3'] & 32768) {
+		if ($GLOBALS['FUD_OPT_3'] & 32768) {	// DB_MESSAGE_STORAGE
 			$file_id = $file_id_preview = $length_preview = 0;
 			$offset = $offset_preview = -1;
 			$length = strlen($this->body);
@@ -111,7 +111,7 @@ class fud_msg_edit extends fud_msg
 			'.ssn($flag[1]).'
 		)');
 
-		if ($GLOBALS['FUD_OPT_3'] & 32768) {
+		if ($GLOBALS['FUD_OPT_3'] & 32768) {	// DB_MESSAGE_STORAGE
 			$file_id = db_qid('INSERT INTO {SQL_TABLE_PREFIX}msg_store (data) VALUES('._esc($this->body).')');
 			if ($message_threshold && $length > $message_threshold) {
 				$file_id_preview = db_qid('INSERT INTO {SQL_TABLE_PREFIX}msg_store (data) VALUES('._esc(trim_html($this->body, $message_threshold)).')');
@@ -148,7 +148,7 @@ class fud_msg_edit extends fud_msg
 
 	function sync($id, $frm_id, $message_threshold, $perm, $msg_tdescr='')
 	{
-		if ($GLOBALS['FUD_OPT_3'] & 32768) {
+		if ($GLOBALS['FUD_OPT_3'] & 32768) {	// DB_MESSAGE_STORAGE
 			$file_id = $file_id_preview = $length_preview = 0;
 			$offset = $offset_preview = -1;
 			$length = strlen($this->body);
@@ -182,7 +182,7 @@ class fud_msg_edit extends fud_msg
 			subject='.ssn($this->subject).'
 		WHERE id='.$this->id);
 
-		if ($GLOBALS['FUD_OPT_3'] & 32768) {
+		if ($GLOBALS['FUD_OPT_3'] & 32768) {	// DB_MESSAGE_STORAGE
 			q('DELETE FROM {SQL_TABLE_PREFIX}msg_store WHERE id IN('.$this->file_id.','.$this->file_id_preview.')');
 			$file_id = db_qid('INSERT INTO {SQL_TABLE_PREFIX}msg_store (data) VALUES('._esc($this->body).')');
 			if ($message_threshold && $length > $message_threshold) {
@@ -247,7 +247,7 @@ class fud_msg_edit extends fud_msg
 			q('UPDATE {SQL_TABLE_PREFIX}thread SET tdescr='._esc($msg_tdescr).' WHERE id='.$this->thread_id);
 		}
 
-		if ($GLOBALS['FUD_OPT_1'] & 16777216) {
+		if ($GLOBALS['FUD_OPT_1'] & 16777216) {	// FORUM_SEARCH enabled?
 			q('DELETE FROM {SQL_TABLE_PREFIX}index WHERE msg_id='.$this->id);
 			q('DELETE FROM {SQL_TABLE_PREFIX}title_index WHERE msg_id='.$this->id);
 			index_text((!strncasecmp('Re: ', $this->subject, 4) ? '' : $this->subject), $this->body, $this->id);
@@ -356,7 +356,7 @@ class fud_msg_edit extends fud_msg
 			db_unlock();
 		}
 
-		if ($GLOBALS['FUD_OPT_3'] & 32768) {
+		if ($GLOBALS['FUD_OPT_3'] & 32768) {	// DB_MESSAGE_STORAGE
 			q('DELETE FROM {SQL_TABLE_PREFIX}msg_store WHERE id IN('.$del->file_id.','.$del->file_id_preview.')');
 		}
 
@@ -437,7 +437,7 @@ class fud_msg_edit extends fud_msg
 
 		$mtf->body = read_msg_body($mtf->foff, $mtf->length, $mtf->file_id);
 
-		if ($GLOBALS['FUD_OPT_1'] & 16777216) {
+		if ($GLOBALS['FUD_OPT_1'] & 16777216) {	// FORUM_SEARCH enabled?
 			index_text((strncasecmp($mtf->subject, 'Re: ', 4) ? $mtf->subject : ''), $mtf->body, $mtf->id);
 		}
 

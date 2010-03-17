@@ -47,7 +47,7 @@
 
 <?php
 	if (isset($_GET['msg']) && ($r = db_saq('SELECT p.foff, p.length, p.subject, p.to_list, p.post_stamp, u.alias FROM '.$tbl.'pmsg p INNER JOIN '.$tbl.'users u ON p.ouser_id=u.id WHERE p.id='.(int)$_GET['msg']))) {
-		echo '<h2>Message: '.$r[2].'</h2>';
+		echo '<h3>Message: '. $r[2] .'</h3>';
 		echo '<table class="resulttable fulltable">';
 		echo '<tr class="resulttopic"><td><b>From:</b> '.$r[5].'</td>';
 		echo '                        <td><b>To:</b> '.$r[3].'</td>';
@@ -69,10 +69,10 @@
 <?php
 	$i = 0;
 	if (!empty($_POST['user']) || !empty($_GET['user'])) {
-		echo '<h2>Private messages sent by user: '.$user.'</h2>';
+		echo '<h3>Private messages sent by user: '. $user .'</h3>';
 		$cond = 'WHERE u.alias = '. _esc($user) . ' AND p.fldr=3';
 	} else {
-		echo '<h2>Recently sent private messages</h2>';
+		echo '<h3>Recently sent private messages</h3>';
 		$user = '';
 		$cond = 'WHERE p.fldr=3';
 	}

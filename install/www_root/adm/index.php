@@ -19,6 +19,10 @@
 		q('UPDATE '. $tbl .'stats_cache SET most_online = (online_users_reg+online_users_anon+online_users_hidden), most_online_time ='. __request_timestamp__);
 		echo successify('The forum\'s "most online users" statistic was successfully reset.');
 	}
+	if (isset($_POST['btn_clear_sessions'])) {
+		q('DELETE FROM '. $tbl .'ses');
+		echo successify('All forum sessions were cleared.<br />You (and all your users) will have to log in again!');
+	}
 
 ?>
 <h2>Forum Dashboard</h2>
@@ -159,6 +163,7 @@ FUDforum's documentation is available on our <b><a href="http://cvs.prohost.org/
 <hr />
 <form method="post" action="index.php"><?php echo _hs; ?>
 <input type="submit" name="btn_clear_online" class="button" value="Reset the 'most online users' counter" />
+<input type="submit" name="btn_clear_sessions" class="button" value="Clear ALL Forum Sessions" />
 </form>
 <br />
 

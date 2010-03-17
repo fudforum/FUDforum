@@ -21,7 +21,7 @@ function print_log($path, $search)
 		if (!($pfx = fread($fp, 23))) {
 			break;
 		}
-		if ($pfx{0} != '?') { // for old log entries.
+		if ($pfx{0} != '?') { // For old log entries.
 			continue;
 		}
 		list(,$s,$d,) = explode('?', $pfx);
@@ -66,7 +66,7 @@ function print_log($path, $search)
 <table width="95%" class="tutor"><tr><td>
 Jump to:
 	<?php if ($fud) { ?> [ <a href="#fud">FUDforum errors</a> ] <?php } ?>
-	<?php if ($sql) { ?> [ <a href="#sql">SQL errors</a>] <?php } ?>
+	<?php if ($sql) { ?> [ <a href="#sql">SQL errors</a> ] <?php } ?>
 </td><td align="right">
 <form method="post" action="admerr.php">
 	<?php echo _hs; ?>

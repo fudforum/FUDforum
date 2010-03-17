@@ -120,7 +120,12 @@
 			echo successify('Password was successfully reset and e-mailed to the user.');
 			break;
 		case 'del':
-			if ($usr_id == 1) {	// Prevent deletion of "Anonymous".
+			if ($usr_id == 1) {
+				echo errorify('Sorry, the anonymous user cannot be deleted!');
+				break;
+			}
+			if ($GLOBALS['usr']->id == $usr_id) {
+				echo errorify('Sorry, you cannot delete your own account!');
 				break;
 			}
 
@@ -143,10 +148,6 @@ Are you sure you want to do this, once deleted the account cannot be recovered?<
 <?php
 					exit;
 			} else if (isset($_POST['btn_yes'])) {
-				if ($GLOBALS['usr']->id == $usr_id) {
-					echo errorify('Sorry, you cannot delete your own account!');
-					break;
-				}
 				logaction(_uid, 'DELETE_USER', 0, $u->alias);
 				usr_delete($usr_id);
 				echo successify('User <b>'.$u->alias.'</b> was successfully removed.');
@@ -326,7 +327,7 @@ document.forms['frm_usr'].usr_login.focus();
 		$item_s = _esc($item_s);
 
 		if (($cnt = q_singleval('SELECT count(*) FROM '.$DBHOST_TBL_PREFIX.'users WHERE ' . $field . ($like ? ' LIKE ' : '=') . $item_s .' LIMIT 50'))) {
-			$c = uq('SELECT id, alias, email FROM '.$DBHOST_TBL_PREFIX.'users WHERE ' . $field . ($like ? ' LIKE ' : '=') . $item_s .' LIMIT 50');
+			$c = uq('SELECT id, alias, email, last_login, last_known_ip, posted_msg_count FROM '.$DBHOST_TBL_PREFIX.'users WHERE ' . $field . ($like ? ' LIKE ' : '=') . $item_s .' LIMIT 50');
 		}
 		switch ($cnt) {
 			case 0:
@@ -343,37 +344,36 @@ document.forms['frm_usr'].usr_login.focus();
 				}
 				break;
 			default:
-				echo '<p>There are '.$cnt.' users that match this '.$field.' mask:</p>';
+				echo '<p>There are '. $cnt .' users that match this '. $field .' mask:</p>';
 				echo '<table class="resulttable fulltable">';
 				echo '<thead><tr class="resulttopic">';
-				echo '	<th>User Login</th><th>E-mail</th><th>Action</th>';
+				echo '	<th>User Login</th><th>E-mail</th><th>Last online</th><th>Last IP</th><th>Posts</th><th>Action</th>';
 				echo '</tr></thead>';
 				$i = 0;
 				while ($r = db_rowarr($c)) {
 					$bgcolor = ($i++%2) ? ' class="resultrow2"' : ' class="resultrow1"';
-					echo '<tr'. $bgcolor .'><td>'.$r[1].'</td><td>'.htmlspecialchars($r[2]).'</td><td>[ <a href="admuser.php?usr_id='.$r[0].'&amp;act=m&amp;'.__adm_rsid.'">Pick user</a> ]</td></tr>';
+					echo '<tr'. $bgcolor .'><td>'. $r[1] .'</td><td>'. htmlspecialchars($r[2]) .'</td><td>'. fdate('%d %b %Y', $r[3]) .'</td><td>'. long2ip($r[4]) .'</td><td>'. $r[5] .'</td><td><a href="admuser.php?usr_id='. $r[0] .'&amp;act=m&amp;'. __adm_rsid .'">Edit</a> | <a href="admuser.php?act=del&amp;usr_id='. $r[0] .'&amp;'. __adm_rsid .'">Delete</a></td></tr>';
 				}
 				echo '</table>';
 				unset($c);
-				require($WWW_ROOT_DISK . 'adm/footer.php');
+				require($WWW_ROOT_DISK .'adm/footer.php');
 				exit;
 		}
 	}
 
 	/* Print user's details. */
 	if ($usr_id) { ?>
-<form action="admuser.php" method="post"><?php echo _hs; ?>
-<h3>Admin Controls for: <i><?php echo char_fix(htmlspecialchars($u->login)); ?></i></h3>
-<table class="datatable solidtable">
 
+<h3>Admin Controls for: <i><?php echo char_fix(htmlspecialchars($u->login)); ?></i></h3>
+
+<table class="datatable solidtable">
+<form action="admuser.php" method="post"><?php echo _hs; ?>
 	<tr class="field"><td>Login:</td><td><?php echo $login_error; ?><input type="text" value="<?php echo char_fix(htmlspecialchars($u->login)); ?>" maxlength="<?php echo $MAX_LOGIN_SHOW; ?>" name="login_name" /> <input type="submit" name="submit" value="Change Login Name" /></td></tr>
 	<tr class="field"><td>Password:</td><td><input type="text" value="" name="login_passwd" /> <input type="submit" name="submit" value="Change Password" /></td></tr>
-</table>
 	<input type="hidden" name="usr_id" value="<?php echo $usr_id; ?>" />
 	<input type="hidden" name="act" value="nada" />
-
 </form>
-<table class="datatable solidtable">
+
 <?php
 	if($FUD_OPT_2 & 128) {
 		echo '<tr class="field"><td>Alias:</td><td>'. $u->alias .'</td></tr>';

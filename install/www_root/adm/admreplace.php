@@ -16,14 +16,14 @@
 function clean_rgx()
 {
 	if (!$_POST['rpl_replace_opt']) {
-		$_POST['rpl_replace_str'] = '/' . $_POST['rpl_replace_str'] . '/' . $_POST['rpl_preg_opt'];
-		$_POST['rpl_from_post'] = '/' . $_POST['rpl_from_post'] . '/' . $_POST['rpl_from_post_opt'];
+		$_POST['rpl_replace_str'] = '/'. $_POST['rpl_replace_str'] .'/'. $_POST['rpl_preg_opt'];
+		$_POST['rpl_from_post'] = '/'. $_POST['rpl_from_post'] .'/'. $_POST['rpl_from_post_opt'];
 	} else {
-		$_POST['rpl_replace_str'] = '/' . addcslashes($_POST['rpl_replace_str'], '/') . '/';
+		$_POST['rpl_replace_str'] = '/'. addcslashes($_POST['rpl_replace_str'], '/') .'/';
 	}
 }
 
-	require($WWW_ROOT_DISK . 'adm/header.php');
+	require($WWW_ROOT_DISK .'adm/header.php');
 
 	if (isset($_POST['btn_submit']) && !empty($_POST['rpl_replace_str']) && !empty($_POST['rpl_with_str'])) {
 		clean_rgx();
@@ -38,22 +38,22 @@ function clean_rgx()
 		if ($_POST['rpl_replace_opt']) {
 			$_POST['rpl_from_post'] = $_POST['rpl_to_msg'] = '';
 		}
-		q('UPDATE '.$DBHOST_TBL_PREFIX.'replace SET
-			replace_opt='. (int)$_POST['rpl_replace_opt'].',
-			replace_str='. _esc($_POST['rpl_replace_str']).',
-			with_str='. _esc($_POST['rpl_with_str']).',
-			from_post='. _esc($_POST['rpl_from_post']).',
-			to_msg='. _esc($_POST['rpl_to_msg']).'
+		q('UPDATE '. $DBHOST_TBL_PREFIX .'replace SET
+			replace_opt='. (int)$_POST['rpl_replace_opt'] .',
+			replace_str='. _esc($_POST['rpl_replace_str']) .',
+			with_str='. _esc($_POST['rpl_with_str']) .',
+			from_post='. _esc($_POST['rpl_from_post']) .',
+			to_msg='. _esc($_POST['rpl_to_msg']) .'
 		WHERE id='. (int)$_POST['edit']);
 		echo successify('Replacement rule successfully updated.');
 	}
 
 	if (isset($_GET['del'])) {
-		q('DELETE FROM '.$DBHOST_TBL_PREFIX.'replace WHERE id='.(int)$_GET['del']);
+		q('DELETE FROM '. $DBHOST_TBL_PREFIX .'replace WHERE id='. (int)$_GET['del']);
 		echo successify('Replacement rule successfully deleted.');
 	}
 	if (isset($_GET['edit'])) {
-		list($rpl_replace_opt, $rpl_replace_str, $rpl_with_str, $rpl_from_post, $rpl_to_msg) = db_saq('SELECT replace_opt,replace_str,with_str,from_post,to_msg FROM '.$DBHOST_TBL_PREFIX.'replace WHERE id='.(int)$_GET['edit']);
+		list($rpl_replace_opt, $rpl_replace_str, $rpl_with_str, $rpl_from_post, $rpl_to_msg) = db_saq('SELECT replace_opt,replace_str,with_str,from_post,to_msg FROM '. $DBHOST_TBL_PREFIX .'replace WHERE id='. (int)$_GET['edit']);
 		$edit = (int)$_GET['edit'];
 		if ($rpl_replace_opt) {
 			$rpl_replace_str = str_replace('\\/', '/', substr($rpl_replace_str, 1, -1));
@@ -80,7 +80,7 @@ function clean_rgx()
 <table class="datatable solidtable">
 	<tr class="field">
 		<td>Replacement Type:</td>
-		<td><?php echo create_select('rpl_replace_opt', "Simple Replace\nPerl Regex (preg_replace)", "1\n0", ($rpl_replace_opt & 1), 'onchange="document.frm_rpl.submit();"'); ?></td>
+		<td><?php echo create_select('rpl_replace_opt', "Simple Replace\nPerl Regex (preg_replace)", "1\n0", ($rpl_replace_opt & 1), 'onchange="document.forms[\'frm_rpl\'].submit();"'); ?></td>
 	</tr>
 
 	<tr class="field">
@@ -168,7 +168,7 @@ function clean_rgx()
 	</tr>
 <?php
 	if (isset($_POST['btn_regex'])) {
-		$str = preg_replace('/'.$regex_str.'/'.$regex_str_opt, $regex_with, $regex_src);
+		$str = preg_replace('/'. $regex_str .'/'. $regex_str_opt, $regex_with, $regex_src);
 ?>
 	<tr class="fieldresult">
 		<td valign="top">Test result:</td>
@@ -239,4 +239,4 @@ document.forms['frm_rpl'].rpl_replace_str.focus();
 	}
 ?>
 </table>
-<?php require($WWW_ROOT_DISK . 'adm/footer.php'); ?>
+<?php require($WWW_ROOT_DISK .'adm/footer.php'); ?>

@@ -40,7 +40,7 @@
 		while (($data = db_rowarr($r))) {
 			try {
 				compile_all($data[0], $data[1], $data[2]);
-				pf(successify('Rebuilding theme '. $data[2] . ' ('. $data[1] .')...'));
+				echo successify('Theme '. $data[2] .' ('. $data[1] .') was successfully rebuilt.');
 			} catch (Exception $e) {
 				echo errorify('Please fix your theme: '.  $e->getMessage());
 			}
@@ -281,8 +281,8 @@ function update_locale()
 			<td>'.(!$r->pspell_lang ? '<font color="green">disabled</font> ' : htmlspecialchars($r->pspell_lang)).'</td>
 			<td>'.($r->theme_opt & 1 ? 'Yes' : '<font color="green">No</font>').'</td>
 			<td>'.($r->theme_opt & 2 ? 'Yes' : '<font color="green">No</font>').'</td>
-			<td nowrap="nowrap">[<a href="admthemes.php?'.__adm_rsid.'&amp;edit='.$r->id.'#edit">Edit</a>] [<a href="admthemes.php?'.__adm_rsid.'&amp;rebuild='.$r->id.'">Rebuild Theme</a>]
-			'.($r->id != 1 ? '[<a href="admthemes.php?'.__adm_rsid.'&amp;del='.$r->id.'">Delete</a>]' : '').'
+			<td nowrap="nowrap"><a href="admthemes.php?'.__adm_rsid.'&amp;edit='.$r->id.'#edit">Edit</a> | <a href="admthemes.php?'.__adm_rsid.'&amp;rebuild='.$r->id.'">Rebuild Theme</a>
+			'.($r->id != 1 ? ' | <a href="admthemes.php?'.__adm_rsid.'&amp;del='.$r->id.'">Delete</a>' : '').'
 			</td>
 		</tr>';
 	}

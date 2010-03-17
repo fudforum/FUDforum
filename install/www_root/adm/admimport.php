@@ -318,8 +318,11 @@ function resolve_dest_path($path)
 	}
 ?>
 <h2>Import forum data</h2>
-<div class="alert">The import process will REMOVE ALL current forum data (all files and tables with '<?php echo $DBHOST_TBL_PREFIX; ?>' prefix) and replace it with the data in the backup file you enter.</div>
-<div class="tutor">Remember to <a href="admdump.php?<?php echo __adm_rsid; ?>">BACKUP</a> your data before importing! You can use the <a href="admbrowse.php?cur=<?php echo urlencode($TMP).'&amp;'.__adm_rsid ?>">File Manager</a> to upload off-site backup files.</div>
+<div class="alert">
+	The import process will REMOVE ALL current forum data (all files and tables with '<?php echo $DBHOST_TBL_PREFIX; ?>' prefix) 
+	and replace it with the data in the backup file you enter. Remember to <a href="admdump.php?<?php echo __adm_rsid; ?>">BACKUP</a> your data before importing! You can use the 
+	<a href="admbrowse.php?cur=<?php echo urlencode($TMP).'&amp;'.__adm_rsid ?>">File Manager</a> to upload off-site backup files.
+</div>
 
 <?php
 $datadumps = (glob("$TMP*.fud*"));
@@ -336,8 +339,9 @@ if ($datadumps) {
 			<td> [ <a href="javascript://" onclick="document.admimport.path.value='<?php echo $datadump; ?>';">use</a> ]</td>
 		</tr>
 	<?php } ?>
-	<tr class="resultrow2 tiny"><td>[ <a href="admbrowse.php?down=1&amp;cur=<?php echo urlencode(dirname($datadump)); ?>&amp;<?php echo __adm_rsid; ?>">Manage backup files</a> ]</td></tr>
-	</table><br />
+	</table>
+	<span class="resultrow2 tiny">[ <a href="admbrowse.php?down=1&amp;cur=<?php echo urlencode(dirname($datadump)); ?>&amp;<?php echo __adm_rsid; ?>">Manage backup files</a> ]</span>
+
 <?php } ?>
 
 <h3>Dump to restore:</h3>

@@ -16,6 +16,8 @@
 	fud_use('users_adm.inc', true);
 	fud_use('ssu.inc');
 
+	require($WWW_ROOT_DISK . 'adm/header.php');
+
 	if (isset($_GET['usr_id'])) {
 		usr_adm_avatar((int)$_GET['usr_id'], 0);
 		echo successify('Avatar was successfully approved.');
@@ -23,8 +25,6 @@
 		usr_adm_avatar((int)$_GET['del'], 1);
 		echo successify('Avatar was successfully deleted.');
 	}
-
-	require($WWW_ROOT_DISK . 'adm/header.php');
 ?>
 <h2>Avatar Approval System</h2>
 <table class="resulttable fulltable">

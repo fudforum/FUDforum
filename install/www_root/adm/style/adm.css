@@ -10,6 +10,16 @@ body.popup {
 	vertical-align: top;
 }
 
+h2 {
+	color: #444;
+	text-shadow: 0px 2px 3px #888;
+}
+
+pre {
+	border: 1px blue dashed;
+	padding: 5px;
+} 
+
 a {
 	text-decoration: none;
 }
