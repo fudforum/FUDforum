@@ -213,10 +213,6 @@ function changeMsgFocus(mid)
 	$('body').css('cursor', 'progress');
 	$('#msgTbl').fadeTo('fast', 0.33);
 
-	$('#b' + mid).removeClass().addClass('RowStyleC');
-	$('#b' + cur_msg).removeClass().addClass( (cur_msg % 2 ? 'RowStyleA' : 'RowStyleB') );
-	cur_msg = mid;
-
 	$.ajax({
 		url: '{GVAR: WWW_ROOT}index.php?t=tree_msg&id='+mid+'&S={DEF: s}',
 		dataType: 'html',
@@ -227,7 +223,17 @@ function changeMsgFocus(mid)
 			}
 		},
 		success: function(data){
+			// Put new message on page.
 			$('#msgTbl').empty().append('<tbody><tr><td>'+data+'</td></tr></tbody>').fadeTo('fast', 1);
+
+			// Mark message as read (unread.png -> read.png).
+			var read_img = $('#b' + cur_msg).find('img');
+			read_img.attr('src', read_img.attr('src').replace('unread', 'read'));
+
+			// Change row color.
+			$('#b' + mid).removeClass().addClass('RowStyleC');
+			$('#b' + cur_msg).removeClass().addClass( (cur_msg % 2 ? 'RowStyleA' : 'RowStyleB') );
+			cur_msg = mid;
 		},
 		error: function(xhr, desc, e) {
 			alert('Failed to submit: ' + desc);
