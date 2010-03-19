@@ -212,18 +212,39 @@
 		// print_msg('DATA=['. substr($data, $p, ($e - $p)) .']');
 
 		/* Try to identify the user and if possible create a new user. */
-		if (isset($msg['email'])) {
+		if (isset($msg['email']) && strcmp($msg['email'], '') != 0) {
 			$id = q_singleval("SELECT id FROM {$DBHOST_TBL_PREFIX}users WHERE email='".addslashes($msg['email'])."'");
 			if (!$id) {
 				$id = (int) q_singleval("SELECT id FROM {$DBHOST_TBL_PREFIX}users WHERE login='".addslashes($msg['user'])."'");
+			} else {
+				print_msg('User=[' . $id . '] found by Mail Addr=[' . $msg['email'] . ']');
 			}
-			if (!$id) { /* Add new user to DB. */
-				$usr->login = $usr->name = $msg['user'];
-				$usr->email = $msg['email'];
-				$id = $usr->add_user();
+			if (!$id) {
+				$id = (int) q_singleval("SELECT id FROM {$DBHOST_TBL_PREFIX}users WHERE alias='".addslashes($msg['user'])."'");
+			} else {
+				print_msg('User=[' . $id . '] found by Login=[' . $msg['user'] . ']');
+			}
+			if (!$id) { /* Add new user. */
+				print_msg('Create new user Name=[' . $msg['user'] . '], EMail=[' . $msg['email'] . ']');
+				$u->login = $u->name = $msg['user'];
+				$u->email = $msg['email'];
+        			$u->join_date = $msg['time'];
+				$id = $u->add_user();
 			}
 		} else {
 			$id = (int) q_singleval("SELECT id FROM {$DBHOST_TBL_PREFIX}users WHERE login='".addslashes($msg['user'])."'");
+			if (!$id) {
+				$id = (int) q_singleval("SELECT id FROM {$DBHOST_TBL_PREFIX}users WHERE alias='".addslashes($msg['user'])."'");
+			} else {
+				print_msg('User=[' . $id . '] found by Login=[' . $msg['user'] . ']');
+			}
+			if (!$id) { /* Add new user. */
+				print_msg('Create new user Name=[' . $msg['user'] . '], EMail=[' . str_replace(' ', '_', $msg['user']) . '@oldforum.com' . ']');
+				$u->login = $u->name = $msg['user'];
+				$u->email = str_replace(' ', '_', $msg['user']) . '@oldforum.com';
+        			$u->join_date = $msg['time'];
+				$id = $u->add_user();
+			}
 		}
 
 		$m->subject = htmlspecialchars($msg['subject']);
