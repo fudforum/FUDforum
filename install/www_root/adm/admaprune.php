@@ -154,9 +154,4 @@ this form will offer to delete attachments older than 10 days.</p>
 </table>
 <?php echo _hs; ?>
 </form>
-<script type="text/javascript">
-/* <![CDATA[ */
-document.forms['adpa'].thread_age.focus();
-/* ]]> */
-</script>
 <?php require($WWW_ROOT_DISK . 'adm/footer.php'); ?>

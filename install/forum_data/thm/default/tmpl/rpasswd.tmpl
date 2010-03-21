@@ -22,8 +22,8 @@
 <tr><th colspan="2">{MSG: rpasswd_change_pass}</th></tr>
 <tr class="RowStyleB"><td>{MSG: rpasswd_login}</td><td>{VAR-HTML: usr->login}</td></tr>
 <tr class="RowStyleB"><td>{MSG: rpasswd_cur_pass}</td><td><input type="password" name="cpasswd" value="" /></td></tr>
-<tr class="RowStyleB"><td>{MSG: rpasswd_new_pass}</td><td><input type="password" name="passwd1" value="" /></td></tr>
-<tr class="RowStyleB"><td>{MSG: rpasswd_conf_pass}</td><td><input type="password" name="passwd2" value="" /></td></tr>
+<tr class="RowStyleB"><td>{MSG: rpasswd_new_pass}</td><td><input type="password" name="passwd1" id="passwd1" value="" /></td></tr>
+<tr class="RowStyleB"><td>{MSG: rpasswd_conf_pass}</td><td><input type="password" name="passwd2" id="passwd2" value="" onkeyup="passwords_match('passwd1', this); return false;" /></td></tr>
 <tr class="RowStyleB"><td align="right" colspan="2"><input type="submit" class="button" value="{MSG: go}" name="btn_submit" /></td></tr>
 </table></div>{DEF: _hs}</form>
 {TEMPLATE: footer_plain}

@@ -297,16 +297,6 @@ blockquote blockquote blockquote {
 	background-position: top;
 }
 
-input.button {
-	background: #eee;
-	color: #000;
-	font-weight: normal;
-	border-width: 1px;
-	border-style: solid;
-	border-color: #b4b2b4;
-
-}
-
 form {
 	padding: 0;
 	margin: 0;
@@ -583,6 +573,7 @@ font.selmsgInd {
 	font-weight: bold;
 	text-decoration: none;
 }
+
 td.avatarPad {
 	padding-right: 3px;
 	vertical-align: top;
@@ -640,21 +631,20 @@ hr.sig {
 }
 
 /* Header with rounded corners. */
-.header {color:#fff; background:#517ca1; margin:0 0; background-image: url(images/header.gif); background-repeat: no-repeat;
- 	-moz-border-radius: 0.75em;
+.header {color:#fff; background:#5478a4; margin:0 0; 
+	-moz-border-radius: 0.75em;
 	-webkit-border-radius: 0.75em;
 	border-radius: 0.75em;
 }
 .header a {color:#fff; text-decoration:none;}
-.headtitle {font-size:xx-large; font-weight:bold; text-decoration:none;}
-.headdescr {color:#eee; padding: 2px; font-size:small;}
+.headtitle {padding: 10px; font-size:xx-large; font-weight:bold; text-decoration:none;}
+.headdescr {padding: 20px; color:#eee; font-size:small;}
 .headsearch {font-size: small; font-weight:bold; float:right; white-space: nowrap; vertical-align: top;}
 .headbutton {color:#fff; background-color: red;}
 
 /* Textarea editor. */
 .resizable-textarea .grippie {
 	height: 9px;
-	width: 95%;
 	background: #eee url('images/grippie.gif') no-repeat center 2px;
 	border: 1px solid #ddd;
 	border-top-width: 0;
@@ -708,27 +698,25 @@ td.calendar-day-head {background:#ccc; font-weight:bold; text-align:center; widt
 div.day-number {background:#999; position:absolute; z-index:2; top:-5px; right:-25px; padding:5px; color:#fff; font-weight:bold; width:20px; text-align:center; }
 td.calendar-day, td.calendar-day-np { width:120px; padding:5px 25px 5px 5px; border-bottom:1px solid #999; border-right:1px solid #999; }
 
-/* CSS3 Butttons. */
-.button, .button:visited {
-	background: #222 url(overlay.png) repeat-x;
-	display: inline-block;
-	padding: 1px 6px 2px;
-	color: #fff;
-	text-decoration: none;
+/* Butttons. */
+input.button:link, input.button:visited, input.button {
+	background:#ddd url(images/button.png) repeat-x scroll left top;
+	border-color:#ccc #b4b2b4 #ccc #b4b2b4;
+	position: relative;
+	cursor: pointer;
 	-moz-border-radius: 6px;
 	-webkit-border-radius: 6px;
 	-moz-box-shadow: 0 1px 3px rgba(0,0,0,0.6);
 	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.6);
-	text-shadow: 0 -1px 1px rgba(0,0,0,0.25);
-	border-bottom: 1px solid rgba(0,0,0,0.25);
-	position: relative;
-	cursor: pointer
 }
+input.button:hover, input.button:hover {
+	background:#e2e2e2 url(images/button.png) repeat-x scroll left -115px;
+	color:#000;
+}
+.small.button, .small.button:visited   { font-size: 11px; }
 
 {TEMPLATE: css_overrides}
 {PAGE: END}
 
-{SECTION: css_overrides}
-/* Section that themes can redefine to add additional CSS declarations. */
+{SECTION: css_overrides Available for themes to add additional CSS declarations.}
 {SECTION: END}
-

@@ -159,9 +159,4 @@ delete topics with no messages in the last 10 days.</p>
 <?php echo _hs; ?>
 <input type="hidden" name="usr_id" value="<?php echo $usr_id; ?>" />
 </form>
-<script type="text/javascript">
-/* <![CDATA[ */
-document.forms['adp'].thread_age.focus();
-/* ]]> */
-</script>
 <?php require($WWW_ROOT_DISK . 'adm/footer.php'); ?>

@@ -30,11 +30,14 @@
       <br /><label accesskey="f" title="{MSG: search_forum_search}">{MSG: search_forum_search}:<br />
       <input type="text" name="srch" value="" size="15" placeholder="{MSG: search_forum_search}" /></label>
       <input type="hidden" name="t" value="search" />
-      <input type="submit" name="btn_submit" value="{MSG: search}" class="headbutton" />
+      <input type="submit" name="btn_submit" value="{MSG: search}" class="headbutton" />&nbsp;
     </form>
   </div>
 {ENDIF}
-<a href="{ROOT}" title="{MSG: home}"><span class="headtitle">{GVAR: FORUM_TITLE}</span></a><br />
+<a href="{ROOT}" title="{MSG: home}">
+  <img src="theme/default/images/header.gif" align="left" height="80" />
+  <span class="headtitle">{GVAR: FORUM_TITLE}</span>
+</a><br />
 <span class="headdescr">{GVAR: FORUM_DESCR}<br /><br /></span>
 </div>
 <br />

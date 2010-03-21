@@ -196,11 +196,6 @@ function clean_rgx()
 </table>
 <input type="hidden" name="edit" value="<?php echo $edit; ?>" />
 </form>
-<script type="text/javascript">
-/* <![CDATA[ */
-document.forms['frm_rpl'].rpl_replace_str.focus();
-/* ]]> */
-</script>
 <h3>Defined replacements:</h3>
 <table class="resulttable fulltable">
 <thead><tr class="resulttopic">

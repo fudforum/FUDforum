@@ -83,11 +83,6 @@ A range of IP addresses can be blocked by entering a mask (.*).</p>
 </table>
 <input type="hidden" name="edit" value="<?php echo $edit; ?>" />
 </form>
-<script type="text/javascript">
-/* <![CDATA[ */
-document.forms['ipf'].ipaddr.focus();
-/* ]]> */
-</script>
 
 <h3>Defined filters:</h3>
 <table class="resulttable fulltable">

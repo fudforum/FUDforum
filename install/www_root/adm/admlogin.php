@@ -68,11 +68,6 @@
 </table>
 <input type="hidden" name="edit" value="<?php echo $edit; ?>" />
 </form>
-<script type="text/javascript">
-/* <![CDATA[ */
-document.forms['alf'].login.focus();
-/* ]]> */
-</script>
 
 <h3>Defined filters:</h3>
 <table class="resulttable fulltable">

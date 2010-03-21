@@ -49,7 +49,9 @@
 </form>
 <script type="text/javascript">
 /* <![CDATA[ */
-document.forms['admsql'].sql.focus();
+$(document).ready(function() {
+	$('#sql').focus();
+});
 /* ]]> */
 </script>
 

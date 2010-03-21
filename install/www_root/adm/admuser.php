@@ -302,11 +302,6 @@ administration permissions to the forum. This individual will be able to do anyt
 </table>
 </fieldset>
 </form>
-<script type="text/javascript">
-/* <![CDATA[ */
-document.forms['frm_usr'].usr_login.focus();
-/* ]]> */
-</script>
 
 <?php
 	/* User searching logic. */

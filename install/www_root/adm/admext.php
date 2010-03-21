@@ -74,11 +74,6 @@
 <input type="hidden" name="edit" value="<?php echo $edit; ?>" />
 <?php echo _hs; ?>
 </form>
-<script type="text/javascript">
-/* <![CDATA[ */
-document.forms['exf'].c_ext.focus();
-/* ]]> */
-</script>
 <h3>Defined extensions:</h3>
 <table class="resulttable fulltable">
 <thead><tr class="resulttopic">

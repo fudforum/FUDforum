@@ -131,8 +131,6 @@ Register a new forum user:
 <p><a href="admuser.php?<?php echo __adm_rsid; ?>">&laquo; Back to User Administration System</a></p>
 <script type="text/javascript">
 /* <![CDATA[ */
-document.forms['frm_usr'].login.focus();
-
 function randomPassword() {
 	var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz";
 	var string_length = 8;

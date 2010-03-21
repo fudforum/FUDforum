@@ -65,9 +65,4 @@
 </tr>
 </table>
 </form>
-<script type="text/javascript">
-/* <![CDATA[ */
-document.forms['spell'].words.focus();
-/* ]]> */
-</script>
 <?php require($WWW_ROOT_DISK . 'adm/footer.php'); ?>

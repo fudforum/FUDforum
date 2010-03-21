@@ -58,9 +58,4 @@
 </table>
 </form>
 <br /><br /><br />
-<script type="text/javascript">
-/* <![CDATA[ */
-document.forms['admloginuser'].login.focus();
-/* ]]> */
-</script>
 <?php 	require($WWW_ROOT_DISK . 'adm/footer.php'); ?>

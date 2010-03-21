@@ -69,9 +69,4 @@
 </form>
 
 <p><a href="admuser.php?<?php echo __adm_rsid; ?>">&laquo; Back to User Administration System</a></p>
-<script type="text/javascript">
-/* <![CDATA[ */
-document.forms['frm_usr'].u1.focus();
-/* ]]> */
-</script>
 <?php require($WWW_ROOT_DISK . 'adm/footer.php'); ?>

@@ -29,7 +29,7 @@ function get_max_upload_size()
 	return $size;
 }
 
-	require($WWW_ROOT_DISK . 'adm/header.php');
+	require($WWW_ROOT_DISK .'adm/header.php');
 
 	$max_attach_size = get_max_upload_size();
 	if (isset($_POST['CF_PRIVATE_ATTACH_SIZE'])) {
@@ -180,10 +180,11 @@ function get_max_upload_size()
 <script type="text/javascript">
 /* <![CDATA[ */
 $(document).ready(function() {
-  $(".seclink").click(function () {
+  $('.seclink').click(function () {
     $('tbody.section').hide();
     $sec = $(this).attr('href').substr(1);
-    $('.'+$sec).slideDown("slow");
+    $('.'+$sec).slideDown('slow');
+    $('.'+$sec).slideDown('slow').find(':text:visible:enabled:first').focus();
   }); 
 });
 /* ]]> */
@@ -469,4 +470,4 @@ $(document).ready(function() {
 </table>
 <input type="hidden" name="form_posted" value="1" />
 </form>
-<?php require($WWW_ROOT_DISK . 'adm/footer.php'); ?>
+<?php require($WWW_ROOT_DISK .'adm/footer.php'); ?>

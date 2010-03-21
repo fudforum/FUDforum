@@ -8,16 +8,19 @@
 <div id="wikilink" style="text-align:right;">
 <script type="text/javascript">
 /* <![CDATA[ */
-// Make tables sortable.
 $(document).ready(function() {
+	// Make tables sortable.
 	$('.resulttable').tablesorter();
-});
 
-// Inject context sensitive 'Help' links to the Wiki.
-var wikilink = $('H2').first().text();
-if (wikilink.length > 0) {
-	$('#wikilink').append('[ <a href="http://cvs.prohost.org/index.php/'+ wikilink +'" title="Context sensitive help (FUDforum wiki)">Help</a> ]');
-}
+	// Focus on the first input element.
+	$(':text:visible:enabled:first').focus();
+
+	// Inject context sensitive 'Help' links to the Wiki.
+	var wikilink = $('H2').first().text();
+	if (wikilink.length > 0) {
+		$('#wikilink').append('[ <a href="http://cvs.prohost.org/index.php/'+ wikilink +'" title="Context sensitive help (FUDforum wiki)">Help</a> ]');
+	}
+});
 /* ]]> */
 </script>
 </div>

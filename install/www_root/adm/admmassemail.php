@@ -163,9 +163,4 @@
 	</tr>
 </table>
 </form>
-<script type="text/javascript">
-/* <![CDATA[ */
-document.forms['a_frm'].subject.focus();
-/* ]]> */
-</script>
 <?php require($WWW_ROOT_DISK . 'adm/footer.php'); ?>

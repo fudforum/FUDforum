@@ -226,10 +226,10 @@
 			}
 			if (!$id) { /* Add new user. */
 				print_msg('Create new user Name=[' . $msg['user'] . '], EMail=[' . $msg['email'] . ']');
-				$u->login = $u->name = $msg['user'];
-				$u->email = $msg['email'];
-        			$u->join_date = $msg['time'];
-				$id = $u->add_user();
+				$usr->login = $usr->name = $msg['user'];
+				$usr->email = $msg['email'];
+        			$usr->join_date = $msg['time'];
+				$id = $usr->add_user();
 			}
 		} else {
 			$id = (int) q_singleval("SELECT id FROM {$DBHOST_TBL_PREFIX}users WHERE login='".addslashes($msg['user'])."'");
@@ -240,10 +240,10 @@
 			}
 			if (!$id) { /* Add new user. */
 				print_msg('Create new user Name=[' . $msg['user'] . '], EMail=[' . str_replace(' ', '_', $msg['user']) . '@oldforum.com' . ']');
-				$u->login = $u->name = $msg['user'];
-				$u->email = str_replace(' ', '_', $msg['user']) . '@oldforum.com';
-        			$u->join_date = $msg['time'];
-				$id = $u->add_user();
+				$usr->login = $usr->name = $msg['user'];
+				$usr->email = str_replace(' ', '_', $msg['user']) . '@oldforum.com';
+        			$usr->join_date = $msg['time'];
+				$id = $usr->add_user();
 			}
 		}
 

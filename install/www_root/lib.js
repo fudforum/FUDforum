@@ -362,6 +362,7 @@ $(document).ready(function() {
 })
 }
 
+/* Highlight code, ready for copying. */
 function select_code(a) 
 {
 	var e = a.parentNode.parentNode.getElementsByTagName('PRE')[0];
@@ -390,6 +391,7 @@ function select_code(a)
 	}
 }
 
+/* Add controls to code blocks. */
 function format_code(codeMsg, selMsg, hideMsg) 
 {
 	$(document).ready(function() {
@@ -429,9 +431,19 @@ function quote_selected_text(quoteButtonText) {
 	});
 }
 
+/* Visual indication if confirmation password matches the original password. */
+function passwords_match(password1, password2) {
+	if ($(password2).attr("value") != $('#'+ password1).attr('value')) {
+		$(password2).css("color", "red");
+	} else {
+		$(password2).css("color", "green");
+	}
+}
+
 /* Code that will run on each page. */
 
 $(function init() {
+	/* Attach grippie to textareas. */
 	$('textarea:not(.textarea-processed)').each(function() {
 	var textarea = $(this).addClass('textarea-processed'), staticOffset = null;
 

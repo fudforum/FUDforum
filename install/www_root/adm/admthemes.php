@@ -204,7 +204,6 @@
 	?>
 <script type="text/javascript">
 /* <![CDATA[ */
-document.forms['admthm'].thm_name.focus();
 function update_locale()
 {
 	switch (document.forms['admthm'].thm_lang.value) {
