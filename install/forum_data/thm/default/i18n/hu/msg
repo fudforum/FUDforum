@@ -67,6 +67,9 @@ logout:Kijelentkezés
 mark_all_read:az összes üzenet olvasottnak jelölése
 mark_all_read_desc:Az összes olvasatlan üzeneted olvasottnak lesz jelölve
 members:Tagok
+calendar:Naptár
+cal_goto_date:Ugrás dátumra:
+cal_no_events:Nincsenek események ezen a napon.
 message:Üzenet
 message_counter:Felhasználóink összesen <b>{PLURAL: post_count|egy|$1} üzenetet</b> írtak, <b>{PLURAL: thread_count|egy|$1} témában</b>.
 message_index:Üzenetlista
@@ -251,6 +254,20 @@ month_9:szeptember
 month_10:október
 month_11:november
 month_12:december
+sunday:vasárnap
+sunday_short:V
+monday:hétfő
+monday_short:H
+tuesday:kedd
+tuesday_short:K
+wednesday:szerda
+wednesday_short:Sze
+thursday:csütörtök
+thursday_short:Cs
+friday:péntek
+friday_short:P
+saturday:szombat
+saturday_short:Szo
 male:férfi
 female:nő
 unspecified:NINCS MEGADVA
@@ -343,7 +360,7 @@ my_buddies:Barátaim
 add_buddy:Barát hozzáadása
 add:Hozzáadás
 buddy_search:Add meg a felhasználó nevét, akit hozzá szeretnél adni.
-member_search:Használhatod a <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 325,250);">felhasználókeresőt</a> személyek megtalálásához.
+member_search:Használhatod a <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">felhasználókeresőt</a> személyek megtalálásához.
 buddy_remove:eltávolítás
 post_normal:Normális
 post_sticky:Kiemelt
@@ -655,11 +672,9 @@ tree_update:A(z) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a> t
 userinfo_update:<a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}'s</a> profilját nézi
 ERR_login_msg2:<legend>HIBA: Nem vagy bejelentkezve</legend>A lap megtekintéséhez a fórum tagjának kell lenned.
 ERR_disabled_ttl:Letiltott funkció
-# Fuzzy
-ERR_disabled_msg:Ezt a funkciót letiltotta a rendszeradminisztrátor
+ERR_disabled_msg:Ezt a funkciót letiltotta a rendszeradminisztrátor.
 ERR_access_ttl:HIBA: nem megfelelő jogosultságok
-# Fuzzy
-ERR_access_msg:Nincs megfelelő jogosultságod a művelet elvégzéséhez
+ERR_access_msg:Nincs megfelelő jogosultságod a művelet elvégzéséhez.
 ERR_registration_disabled_ttl:Regisztráció letiltva
 ERR_registration_disabled_msg:A regisztrációt letiltotta az adminisztrátor. Próbáld újra később.
 ERR_emailconf_ttl:HIBA: a fiókod még nincs megerősítve
@@ -754,6 +769,7 @@ rate_worst:Legrosszabb
 rate_best:Legjobb
 post_quote_msg:{VAR: msg->login} írta, ekkor: {TEMPLATE: make_report_date}
 post_quote:Idézet:
+post_quote_selected:Kijelölt szöveg idézése
 userinfo_referals:Hivatkozott felhasználók:
 userinfo_referals_count:{VAR: referals} tag
 pm_no_space_title:Nincs több hely!
@@ -801,6 +817,8 @@ quicklogin_password:Jelszó:
 quicklogin_use_cookies:Sütik használata?
 quicklogin_login_btn:Bejelentkezés
 quick_reply:Gyors válasz
+quick_reply_post:Gyors válasz küldése
+quick_reply_preview:Gyors válasz előnézete
 post_notification_desc:Kapjak értesítést, ha valaki válaszol erre az üzenetre.
 post_all_ext_allowed:(korlátlan)
 maximize_category:Kategória megjelenítése

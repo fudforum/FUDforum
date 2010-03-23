@@ -360,7 +360,7 @@ my_buddies:Arkadaşlarım
 add_buddy:Arkadaş Ekle
 add:Ekle
 buddy_search:Eklemek istediğiniz kullanıcıyı girin.
-member_search:<a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 325,250);">Kullanıcı bul</a> özelliğini kullanabilirsiniz.
+member_search:<a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Kullanıcı bul</a> özelliğini kullanabilirsiniz.
 buddy_remove:çıkar
 post_normal:Olağan
 post_sticky:Yapışkan

@@ -343,7 +343,7 @@ my_buddies:أصدقائي
 add_buddy:أضف صديقًا
 add:إضافة
 buddy_search:أدخل اسم ولوج المستخدم الذى تريد إضافته.
-member_search:أو استخدم ميزه <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 325,250);">إيجاد مستخدم</a> لإيجاد شخص معين.
+member_search:أو استخدم ميزه <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">إيجاد مستخدم</a> لإيجاد شخص معين.
 buddy_remove:إزالة
 post_normal:عادي
 post_sticky:مُثبّت

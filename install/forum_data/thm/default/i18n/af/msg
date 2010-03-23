@@ -359,7 +359,7 @@ my_buddies:My vriende
 add_buddy:Voeg vriend by
 add:Voeg by
 buddy_search:Sleutel die naam van die gebruiker wat u wil byvoeg in.
-member_search:of gebruik die <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 325,250);">Vind Lid</a> funksie om vir 'n gebruiker te soek.
+member_search:of gebruik die <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Vind Lid</a> funksie om vir 'n gebruiker te soek.
 buddy_remove:Verwyder
 post_normal:Normaal
 post_sticky:Plakker

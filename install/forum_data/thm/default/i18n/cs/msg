@@ -408,10 +408,8 @@ post_preview_btn:Náhled zprávy
 ignore_users:Ignorovaní uživatelé
 add_ignore:Přidat ignorovaného
 forum_terms:Podmínky fóra
-# Fuzzy
-forum_rules:Registrace k tomuto fóru není omezena! Avšak vyžadujeme plnění následujících pravidel a podmínek. Pokud souhlasíte, prosím, stiskněte tlačítko "Souhlasím" na konci stránky. Poznámka: Stisknutím tohoto tlačítka prohlašujete, že je vám více než 13 let. Pokud je vám 13 a méně, prosím, použijte tento registrační formulář.<p>Ačkoliv administrátor i moderátoři tohoto fóra se snaží bránit všem nežádoucím zprávám, není pro nás možné je zcela vylučit. Všechny zprávy vyjadřují postoje autora. Majitel fóra nebo vývojář nenese zodpovědnost za obsah jakékoliv zprávy.<p>Kliknutím na talčítko "Souhlasím" potvrzujete, že nebudete posílat neslušné, hrubé, sexuálně orientované, nenávistivé, výhružné nebo zákon porušující zprávy.<p>Majiteké tohoto fóra mají právo vymazat, změnit, přesunout nebo zavřít jakékoliv téma z jakéhokoliv důvodu.<p>
-# Fuzzy
-forum_rules_13:Všichni uživatelé, kterým je 13 méně musí požádat o povolení své rodiče nebo opatrovníky k získání členství ve fóru. Jakkoli vítáme účast členů, kterým je 13 a méně, musíme vyžadovat fax nebo email od rodičů nebo opatrovníků back s podepsaným formulářem povolení než poskytneme členství.<p>Pokud již jsme přijali vaše povolení, můžete začít proces registrace stisknutím tlačítka "Souhlasím". Pokud chcete zrušit registraci, stiskněte tlačítko "Zrušit", vrátíte se do seznmu fór. <p>Kopie formuláře povolení je ke stažení zde. Pro více informací o procesu registrace, prosím, pošlete email na <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.<p>
+forum_rules:Registrace na toto fórum je zdarma! Trváme nicméně na dodržování všech níže uvedených pravidel a podmínek. Pokud s našimi podmínkami souhlasíte, prosím klikněte na tlačítko <b>Souhlasím</b> na konci stránky. Poznámka: Souhlasem s podmínkami prohlašujete, že jste starší 13 let. Pokud je Vám méně než 13 let, pro dokončení registrace prosím použijte tento registrační formulář.</p><p>Administrátoři a moderátoři fóra se snaží zabránit všem nevhodným příspěvkům, není však v našich silách je zcela vyloučit. Všechny zdejší příspěvky vyjadřují postoje a názory svých autorů; majitelé fóra nebo jeho vývojáři nenesou za obsah žádného příspěvku odpovědnost.</p><p>Klinutím na tlačítko Souhlasím stvrzujete, že nebudete uveřejňovat žádné obscénní, vulgární, sexuálně zaměřené, nenávistné nebo urážející či jinak zákony porušující příspěvky.</p><p>Majitelé tohoto fóra si vyhrazují právo smazat, upravit, přesunout či uzavřít kterékoliv téma pro jakýkoliv důvod.</p>
+forum_rules_13:<p>Všichni uživatelé mladší 13 let musí mít svolení svých rodičů nebo zákonného zástupce, aby se mohli stát členy tohoto fóra. Jakkoliv jsou uživatelé mladší 13 let vítáni, musíme vyžadovat e-mail či fax od jejich rodičů či zákonných zástupců s podepsaným svolením předtím, než můžeme udělit členství.</p><p>Pokud chcete započít registrační proces dříve, než obdržíme registrační formulář, klikněte na tlačítko <b>Souhlasím</b>, které se nachází níže. Pokud chcete registraci ukončit, klikněte na tlačítko <b>Nesouhlasím</b>, kterým se vrátíte na hlavní stránku.</p><p>Kopie registračního formuláře je ke stažení zde. Pro více informací o registraci můžete poslat e-mail na adresu <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.<p>
 coppa_conf:Věkové potvrzení
 coppa_before:Před {TEMPLATE: coppa_date}
 coppa_after:Po {TEMPLATE: coppa_date}
@@ -442,8 +440,7 @@ login_cookie_expired:Platnost vaší cookie vypršela, musíte se přihlásit zn
 login_perm_denied:Jako anonymní uživatel nemáte přístup k požadovaným prostředkům, musíte se přihlásit.
 login_want_to_register:Chcete se zaregistrovat?
 login_forgot_passwd:Zapomenuté heslo
-# Fuzzy
-login_use_cookie:S cookies<br /><font class="SmallText">Kvůli zvýšení bezpečnosti doporučujeme odškrtnout tuto volbu, pokud používáte veřejný terminál jako je počítač v knihovně, ve škole nebo internetové kavárně.<br />Pokud necháte tuto volbu vybránu, budete automaticky příhlášen(a) do fóra.
+login_use_cookie:Zapnout cookies<br /><span class="SmallText">Pokud používáte veřejně přístupný počítač (např. v knihovně, ve škole nebo internetové kavárně), potom se z důvodu lepšího zabezpečení doporučuje tuto možnost nepoužívat.<br />Pokud ponecháte cookies zapnuté, budete při příští tohoto fóra automaticky přihlášeni.</span>
 login_login:Uživatelské jméno
 login_login_btn:Přihlásit
 login_name_required:Uživatelské jméno je nutné k přihlášení
@@ -492,8 +489,7 @@ remail_message:Zpráva:
 remail_send_now:Odeslat email
 remail_anon_opt:Zkopírovat zprávu do vašeho emaulového klienta k odeslání.
 remail_done:Hotovo
-# Fuzzy
-remail_sent_conf:Email pro {VAR-HTML: _POST['femail']} ohledně {{VAR: data->subject} byl úspěšně odeslán.
+remail_sent_conf:E-mail Vašemu příteli {VAR-HTML: _POST['femail']} na téma {VAR: data->subject} byl úspěšně odeslán.
 remail_error:Máte chybu
 mklist_type:Typ:
 mklist_option:Volba:
@@ -528,8 +524,7 @@ poll_blank_option:Nemůžete přidat prázdnou volbu.
 poll_del_conf:Pokud chcete smazat tuto volbu, stiskněte "OK"
 poll_name:Název ankety:
 poll_timelimit:Časový limit:
-# Fuzzy
-poll_maxiumvotes:Maximum hlasů
+poll_maxiumvotes:Maximální počet hlasů:
 poll_create:Vytvořit
 poll_update:Aktualizovat
 poll_disablesmilies:Vypnout smajlíky
@@ -548,16 +543,14 @@ poll_year:rok
 poll_week:týden
 tabs_register:Nastavení
 tabs_subscriptions:Odebírání
+tabs_bookmarkes:Záložky
 tabs_referrals:Přivedení
 tabs_buddy_list:Seznam přátel
 tabs_ignore_list:Seznam ignorovaných
 tabs_private_messaging:Pošta
-# Fuzzy
-single_msg_delete:You are about to <font color="#ff0000" size="4">DELETE</font> a message titled: <b>{VAR: data[3]}</b>
-# Fuzzy
-thread_delete:You are about to <font color="#ff0000" size="4">DELETE</font> the <font color="#ff0000" size="4">ENTIRE TOPIC</font> titled: <b>{VAR: data[3]}</b>
-# Fuzzy
-delete_proceed:<font size="3"><b>Chcete pokračovat?</b></font>
+single_msg_delete:Chystáte se <span class="ErrorText">smazat</span> příspěvek s názvem: <b>{VAR: data[3]}</b>
+thread_delete:Chystáte se <span class="ErrorText">smazat</span> <span class="ErrorText">celé téma</span> s názvem: <b>{VAR: data[3]}</b>
+delete_proceed:<span class="fb">Přejete si pokračovat?</span>
 delete_yes:Ano
 delete_no:Ne
 error_invalidurl:Nesprávná URL
@@ -570,6 +563,7 @@ buddy_list_err_cantadd:Nemůže přídat sám(a) sebeC do seznamu přátel
 buddy_list_err_dup:Tohoto uživatele již na seznamu přátel máte
 buddy_list_err_nouser:Uživatel, kterého se snažíte přidat na seznam přátel nebyl ve fóru nalezen.
 buddy_list_err_nouser_title:Není možné přidat uživatele
+buddy_list_err_ignore:Uživatele, který Vás blokuje, si nemůžete přidat do seznamu přátel.
 buddy_list_update:Prohlížíte si seznam přátel
 core_err_invinp_title:Špatný vstup   ...je cosi shnilého ve státě dánském
 core_err_invinp_err:Následoval(a) jste špatný odkaz. Prosím, oznamte to <a href="mailto:{GVAR: ADMIN_EMAIL}">webmasterovi</a>
@@ -583,8 +577,7 @@ email_error_namerequired:Jméno je nutné
 email_error_invaliduser:Nesprávný uživatel
 emailconf_err_invkey_title:Chyba
 emailconf_err_invkey_msg:Špatný potvrzující klíč. Prosím, zkontrolujte váš email, aby jste se ujistil(a), že jste se sem dostal(a) správně
-# Fuzzy
-err_inc_criticaltitle:KRITICKÁ CHYBA   ...něco se krutě nepovedlo. Na sobotu svolávám hon na programátora.
+err_inc_criticaltitle:Kritická chyba
 err_inc_criticalmsg:Došlo k chybě. Bohužel je rozbitý i systém pro hlášení chyb.
 finduser_update:Vyhledávám uživatele
 help_index_update:Čtete si <a href="{TEMPLATE: help_index_update_lnk}">nápovědu.</a>
@@ -609,21 +602,18 @@ pm_update:Používáte poštu
 post_err_lockedthread_title:CHYBA: Uzamčené téma
 post_err_lockedthread_msg:Toto téma je uzamčeno, žádné další příspěvky nejsou povoleny
 err_coppa_title:CHYBA: Váš účet ještě není potvrzen
-# Fuzzy
-err_coppa_msg:Nedostali jsme potvrzení od vašich rodičů a/nebo zákonných opatrovníků, které by vám umožňovalo zasílat zprávy. Pokud jste ztratil(a) svůj potvrzovací formulář <a href="{TEMPLATE: err_coppa_msg_lnk}">klikněte zde</a>
+err_coppa_msg:Nedostali jsme potvrzení od Vašich rodičů nebo zákonného zástupce, který by Vám dovolil zveřejňovat Vaše příspěvky. Pokud jste ztratili svůj potvrzovací formulář, můžete si <a href="{TEMPLATE: err_coppa_msg_lnk}">stáhnout nový</a>.
+err_banned_acct_title:CHYBA: Byli jste zablokováni.
 post_err_edttimelimit_title:CHYBA
 post_err_edttimelimit_msg:Již nemůžete měnit tuto zprávu
 post_err_floodtrig_title:CHYBA: Příliš mnoho příspěvků na systém.
-# Fuzzy
-post_err_floodtrig_msg:Prosím, zkuste opět za {VAR: tm} vteřin
+post_err_floodtrig_msg:Prosím, zkuste to znovu za {PLURAL: tm|$1 sekunda|$1 sekund}
 post_err_attach_size:Příloha je moc velká (limit je {VAR: MAX_F_SIZE} bytů)
 post_err_attach_ext:Soubor, kerý se snažíte nahrát neodpovídá povoleným typům.
 post_err_attach_filelimit:Snažíte se nahrát více souborů než je povoleno.
 post_err_passwd:Nesprávné heslo.
-# Fuzzy
-post_reply_update:Odpovídáte na <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> ve fóru {VAR-HTML: frm->name}
-# Fuzzy
-post_topic_update:Píšete nové téma ve fóru <a href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a>
+post_reply_update:Odpovídáte na <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> ve fóru {VAR: frm->name}
+post_topic_update:Vytváříte nové téma ve fóru <a href="{TEMPLATE: post_topic_update_lnk}">{VAR: frm->name}</a>
 post_error_generic:Máte chybu
 postcheck_max_images_err:Maximální počet obrázků na příspěvek je {GVAR: MAX_IMAGE_COUNT}, prosím, snižte počet obrázků
 postcheck_subj_needed:Nadpis nutný
@@ -645,8 +635,7 @@ register_err_passwdnomatch:Hesla si neodpovídají.
 register_err_invalidemail:Emailová adresa nevypadá, že by byla platná.
 register_err_needname:Pro úspěšné dokončení registrace musíte uvést své jméno
 register_err_enterpasswd:Musíte zadat heslo, aby se změny mohly provést
-# Fuzzy
-register_err_adminpasswd:Musíte zadat svoje ADMINISTRÁTORSKÉ heslo na potvrzení změn
+register_err_adminpasswd:Abyste mohli dokončit změny, musíte zadat své <b>administrátorské</b> heslo.
 register_err_notyouremail:Někdo už je zaregistrován s tímto emailem, a vy to NEjste.
 register_err_avatartobig:Soubor, který se snažíte nahrát je příliš velký, limit je {GVAR: CUSTOM_AVATAR_MAX_SIZE} bytů
 register_err_avatarnotallowed:Ikona uživatele, kterou se snažíte nahrát není povolena. Prohlédněte si seznam povolených typů.
@@ -671,16 +660,15 @@ search_update:Hledáte příspěvky
 selmsg_update:Prohlížíte si <a href="{TEMPLATE: selmsg_update_lnk}">dnešní příspěvky</a>
 showposts_update:Prohlížíte si příspěvek od: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
 subscribed_update:Prohlížíte si odebíraná témata a fóra
-# Fuzzy
-thread_update:Prohlížíte si fórum <a href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a>
+bookmarked_update:Prohlédnout si seznam vlastních záložek
+thread_update:Prohlížíte si fórum <a href="{TEMPLATE: thread_update_lnk}">{VAR: frm->name}</a>
 tree_update:Prohlížíte si téma (ve stromovém zobrazení) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
 userinfo_update:Prohlížíte si profil uživatele <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}</a>
+ERR_login_msg2:<legend>CHYBA: Nejste přihlášeni</legend>Abyste získali přístup na tuto stránku, musíte se stát členem tohoto fóra.
 ERR_disabled_ttl:Vypnutá vlastnost
-# Fuzzy
-ERR_disabled_msg:Tato vlastnost byla vypnuta administrátorem
+ERR_disabled_msg:Tato vlastnost byla vypnuta administrátorem.
 ERR_access_ttl:CHYBA: Nedostatečné pravomoci
-# Fuzzy
-ERR_access_msg:Nemáte dostatečné pravomoci na provedení této akce
+ERR_access_msg:Nemátě dostatečná oprávnění na provedení této akce.
 ERR_registration_disabled_ttl:Registrace vypnuta
 ERR_registration_disabled_msg:Administrátor vypnul registraci, prosím, zkuste to později
 ERR_emailconf_ttl:CHYBA: Váš účet ještě není potvrzen
@@ -689,8 +677,7 @@ ERR_emailconf_msg:Ještě jste nepotvrdil(a) svůj účet přes email<br /><tabl
 ERR_user_ttl:CHYBA: Žádný takový uživatel není
 ERR_user_msg:Žádný takový uživatel není
 ERR_systemerr_ttl:CHYBA: Systémová chyba
-# Fuzzy
-ERR_systemerr_msg:Objevila se chyba v systému, prosím, nahlašte to <a href="mailto:{GVAR: ADMIN_EMAIL}">webmasterovi</a>.
+ERR_systemerr_msg:V systému se vyskytla chyba. Prosím nahlašte to <a href="mailto:{GVAR: ADMIN_EMAIL}">administrátorovi</a>.
 email_title:Emailový formulář
 finduser_title:Hledání uživatele
 help_title:Nápověda

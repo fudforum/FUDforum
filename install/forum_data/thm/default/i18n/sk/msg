@@ -341,7 +341,7 @@ my_buddies:Moji Priatelia
 add_buddy:Pridať Priateľa
 add:Pridať
 buddy_search:Zadajte používateľské meno používateľa, ktorého si želáte pridať.
-member_search:Alebo použite voľbu <a href="javascript://" class="GenLink" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 325,250);">Hľadať Používateľa</a>.
+member_search:Alebo použite voľbu <a href="javascript://" class="GenLink" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Hľadať Používateľa</a>.
 buddy_remove:odstrániť
 post_normal:Normálna
 post_sticky:Výveska

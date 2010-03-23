@@ -68,6 +68,9 @@ logout:Kuitaat
 mark_all_read:Merkañ an holl gemennadennoù evel lennet
 mark_all_read_desc:Merket e vo an holl gemennadennoù n'int ket bet lennet evel lennet
 members:Izili
+calendar:Deiziataer
+cal_goto_date:Mont da :
+cal_no_events:N'eus darvoud ebet evit an devezh.
 message:Kemennadenn
 message_counter:Hon implijerien o deus postet <b>{PLURAL: post_count|$1 gemennadenn|$1 kemennadenn}</b> en holl e-barzh <b>{PLURAL: thread_count|$1 gaoz|$1 kaoz}</b>.
 message_index:Meneger ar c'hemennadennoù
@@ -252,6 +255,20 @@ month_9:Gwengolo
 month_10:Here
 month_11:Du
 month_12:Kerzu
+sunday:Sul
+sunday_short:Sul
+monday:Lun
+monday_short:Lun
+tuesday:Meurzh
+tuesday_short:Meu
+wednesday:Merc'her
+wednesday_short:Mer
+thursday:Yaou
+thursday_short:Yaou
+friday:Gwener
+friday_short:Gwe
+saturday:Sadorn
+saturday_short:Sad
 male:Paotr
 female:Plac'h
 unspecified:DIANAV
@@ -344,7 +361,7 @@ my_buddies:Ma mignoned
 add_buddy:Ouzhpennañ ur mignon
 add:Ouzhpennañ
 buddy_search:Ebarzhit anv an implijer hoc'h eus c'hoant da ouzhpennañ.
-member_search:Pe implijit an arc'hweladur <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 325,250);">Kavout un implijer</a> evit kavout unan bennak.
+member_search:Pe implijit an arc'hweladur <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Kavout un implijer</a> evit kavout unan bennak.
 buddy_remove:lemel
 post_normal:Reizh
 post_sticky:Pegus
@@ -656,11 +673,9 @@ tree_update:O furchal ar gaoz (diskwel gwezennadur) <a href="{TEMPLATE: tree_upd
 userinfo_update:O sellet ouzh profil <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}'s</a>
 ERR_login_msg2:<legend>FAZI : N'oc'h ket kevreet</legend>Evit mont d'ar bajenn-mañ e rankit bezañ un ezel eus ar forom-mañ.
 ERR_disabled_ttl:Arc'hweladur diweredekaet
-# Fuzzy
-ERR_disabled_msg:Diweredekaet eo bet an arc'hweladur-mañ gant merour ar reizhiad
+ERR_disabled_msg:Diweredekaet eo bet an arc'hweladur-mañ gant merour ar reizhiad.
 ERR_access_ttl:FAZI : Aotreoù skort
-# Fuzzy
-ERR_access_msg:N'emañ ket an aotreoù ret ganeoc'h evit seveniñ an ober-mañ
+ERR_access_msg:N'emañ ket an aotreoù ret ganeoc'h evit seveniñ an ober-mañ.
 ERR_registration_disabled_ttl:Enskrivadur diweredekaet
 ERR_registration_disabled_msg:Diweredekaet eo bet an enskrivadur gant ar merour. Esaeit en-dro diwezhatoc'h, mar plij.
 ERR_emailconf_ttl:FAZI : N'eo ket kadarnaet ho kont c'hoazh
@@ -755,6 +770,7 @@ rate_worst:Gwashañ
 rate_best:Gwellañ
 post_quote_msg:{VAR: msg->login} en doa skrivet d'an {TEMPLATE: make_report_date}
 post_quote:Meneg :
+post_quote_selected:Menegiñ an destenn diuzet
 userinfo_referals:Implijerien paeroniet :
 userinfo_referals_count:{VAR: referals} Ezel
 pm_no_space_title:N'eus ket plas a-walc'h ken !
@@ -802,6 +818,8 @@ quicklogin_password:Ger-tremen :
 quicklogin_use_cookies:Implijout toupinoù ?
 quicklogin_login_btn:Kevreañ
 quick_reply:Respont prim
+quick_reply_post:Embann ur respont prim
+quick_reply_preview:Rakwelet ar respont prim
 post_notification_desc:Ma c'hemenn pa respont unan bennak d'ar gemennadenn-mañ.
 post_all_ext_allowed:(n'eo ket strishaet)
 maximize_category:Brasaat ar rummad

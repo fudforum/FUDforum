@@ -360,7 +360,7 @@ my_buddies:Mine kontakter
 add_buddy:Legg til kontakt
 add:Legg til
 buddy_search:Angi påloggingsinformasjonen til brukeren du ønsker å legge til.
-member_search:Eller bruk «<a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 325,250);">finn bruker</a>»-funksjonen for å finne en person.
+member_search:Eller bruk «<a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">finn bruker</a>»-funksjonen for å finne en person.
 buddy_remove:ta bort
 post_normal:Normal
 post_sticky:Klebrig
@@ -606,6 +606,7 @@ post_err_lockedthread_msg:Denne tråden er låst og tar ikke imot flere innlegg
 err_coppa_title:FEIL: Din konto er ikke bekreftet enda
 err_coppa_msg:Vi har ikke mottatt en bekreftelse fra din forelder og/eller formynder, som ville tillatt deg å poste meldinger. Om du mistet ditt COPPA-skjema kan du <a href="{TEMPLATE: err_coppa_msg_lnk}">se det igjen</a>.
 err_banned_acct_title:FEIL: Du har blitt utestengt.
+err_banned_acct_msg:Din konto ble {IF: $ban_expiry}midlertidig utestengt til {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}permanent utestengt{ENDI} fra nettstedet på grunn av brudd på forumets regler.
 post_err_edttimelimit_title:FEIL
 post_err_edttimelimit_msg:Du kan ikke redigere denne meldingen lenger
 post_err_noannontopics_msg2:<legend>FEIL: Utilstrekkelige privilegier</legend>Anonyme brukere kan ikke opprette emner.
@@ -665,6 +666,7 @@ search_update:Søker blandt innleggene
 selmsg_update:Leser <a href="{TEMPLATE: selmsg_update_lnk}">Dagens innlegg</a>
 showposts_update:Viser innlegg av: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
 subscribed_update:Viser egne abonnement
+bookmarked_update:Se igjennom egen bokmerkeliste
 thread_update:Leser forumet <a href="{TEMPLATE: thread_update_lnk}">{VAR: frm->name}</a>
 tree_update:Leser tråden (trådet visning) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
 userinfo_update:Ser på <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}s</a> profil
@@ -818,6 +820,7 @@ quick_reply:Hurtigsvar
 quick_reply_post:Post raskt svar
 quick_reply_preview:Forhåndsvis raskt svar
 post_notification_desc:Gi meg beskjed når noen svarer på dette innlegget.
+post_all_ext_allowed:(ubegrenset)
 maximize_category:Maksimere kategori
 maximize_message:Maksimer melding
 no_view_perm:Du har ikke tilstrekkelige rettigheter for å se denne tråden.
@@ -893,12 +896,20 @@ insert_uploaded_image:Sett inn bilde i meldingen
 finduser_help:Søkemotoren vil automatisk legge * til søkestrengen. F.eks. å søke etter alle brukere med brukernavn som begynner med 'a', skriv 'a' i søkeboksen.
 back_to_top:Tilbake til toppen
 pm_err_disabled_title:Private meldinger deaktivert
+pm_err_disabled_msg:Du kan ikke sende private melding før du aktiverer 'Tillat private meldinger' i din profil.
 err_mod_acc_ttl:Ubekreftet konto
+err_mod_acc_msg:Administratoren har valgt å godkjenne alle kontoer manuellt før aktivering. Inntil din konto har blitt godkjent av en administrator vil du ikke kunne utnytte alle egenskapene til din konto.
 accounts_pending_approval:Kontoer som venter på godkjenning
 saved:Lagret
+register_err_time_limit:Grensen for én registrering per {GVAR: REG_TIME_LIMIT} sekund er nådd. Vent {PLURAL: reg_limit_reached|ett sekund|$1 sekund} og prøv å registrere deg på nytt.
+register_affero:Affero-brukernavn:<br /><span class="SmallText">Om du har et <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">Affero</a>-brukernavn, skriv det inn her.</span>
 im_affero:Affero-brukernavn
+register_err_avatardimtobig:Avatardimensjonene på <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> overgår de tillatte dimensjonen på <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b> piksler.
 buddy_offline:{VAR: r[2]} er ikke pålogget
 buddy_online:{VAR: r[2]} er pålogget
+sml_no_smilies:Ingen uttrykksikon tilgjengelig.
+login_unapproved_account_ttl:Ikke-godkjent konto
+login_unapproved_account_msg:Administratoren av forumet har valgt å godkjenne hver nye konto manuellt før aktivering. Din konto har ikke blitt godkjent ennå, derfor vil du ikke få tilgang til noen av fuksjonene som er tilgjengelig for godkjente brukere.
 remove_from_buddy_list:fjern fra venneliste
 iemail_msg_author:<b>Forfatter:</b> {VAR: obj->alias}
 iemail_msg_subject:<b>Emne:</b> {VAR: obj->subject}
@@ -906,11 +917,26 @@ iemail_msg_date:<b>Dato:</b> {TEMPLATE: dmsg_post_date}
 iemail_msg_reply:Svar
 iemail_msg_quote:Sitat
 iemail_msg_view:Vis emne/melding
+threadt_announce:kunngjøring
+reported_no_messages:Det er ingen rapporterte meldinger.
+poll_no_polls:Det er ingen tilgjengelig spørreundersøkelser.
+no_unread_messages:Det er ingen uleste meldinger som samsvarer med spørringen din.
+thread_mark_all_read:merk alle uleste forummeldinger som lest
+thread_mark_all_read_desc:Alle uleste meldinger i dette forumet vil bli merket som lest
 private_no_messages:Det er ingen meldinger i denne mappen.
+register_email_change_subject:Bekreftelse på endret e-postadresse
+register_email_change_msg:Bekreft din nye e-postkonto "{VAR: uent->email}" som erstatter din gamle e-postkonto "{VAR: old_email}" ved å gå til nettadressen under:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nNår du har bekreftet din nye e-postadresse vil forumkontoen din ble aktivert igjen.
+primary_group_prefix:Primærgruppe for forum:
 register_admin_newuser_title:En ny bruker har registrert seg og kontoen venter på bekreftelse
+register_admin_newuser_msg:En ny bruker ({VAR: uent->login}) har akkurat registrert seg og siden kontobekreftelse er aktivert vil ikke deres konto bli aktiv før den er bekreftet av deg eller en annen forumadministrator. For å godkjenne kontoen gå til: {GVAR: WWW_ROOT}adm/admaccapr.php\n\nDette er en automatisert prosess. Ikke svar på denne meldingen.\nOm du vil slå av fremtidige e-postvarsler om nye brukerregistreringer kan du gjøre dette i Administratorens kontrollpanel. Endre «Varsel om ny konto»-innstillingen.
 post_mod_msg_notify_title:En ny melding i forumet «{VAR: frm->name}» venter på godkjenning
+post_mod_msg_notify_msg:En ny melding med tittelen «{VAR: msg_post->subject}» ble akkurat postet i et forum som du modererer. For å godkjenne denne meldingen gå til: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nDette er en automatisert prosess. Ikke svar på denne meldingen.
 thread_printable_pdf:Generer utskriftsvennlig PDF
 reg_conf_title:Registreringsbekreftelse
+reg_conf_email:<b>E-postvarsel</b><br />Et e-postvarsel har blitt sendt til deg med en unik nettadresse som du må besøke før kontoen din blir aktivert. Om du ikke mottar denne e-posten innen noen få minutter, logg deg på kontoen din og forsikre deg om at e-postadressen du har oppgitt er korrekt. Når du har bekreftet kontoen din vil du få full tilgang til forumfunksjonene som bare er tilgjengelige for bekreftede og registrerte brukere.
+reg_conf_account:<b>Kontobekreftelse</b><br />Før kontoen blir aktivert må den godkjennes av en administrator. Når dette skjer vil du motta en e-post som indikerer at kontoen har blitt bekreftet. I mellomtiden kan du logge på kontoen din, men du vil ikke ha full tilgang til enkelte funksjoner.
+forum_banned_user:Dine tidligere handliger har resultert i at du har blitt bannlyst permanent fra dette forumet. Farvel.
+mnav_forum_limit:Bare søk i:
 mnav_all_forums:Søk i alle forum
 mnav_submit:Start søk
 mnav_posted_by:Postet av:
@@ -920,32 +946,60 @@ mnav_hour:Time(r)
 mnav_day:Dag(er)
 mnav_week:Uke(r)
 mnav_month:Måned(er)
+pm_notify_subject:[{GVAR: FORUM_TITLE}] Varsel om ny privat melding
+pm_notify_body_email:Du har en ny privat melding med tittelen «{VAR: subject}», fra «{VAR: from}», i forumet «{GVAR: FORUM_TITLE}».\nFor å se meldingen, klikk her: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nFor å stoppe fremtidige varsel, deaktiver «Varsel om privat melding» i din profil.
+register_pm_notification:Varsel om privat melding:
+register_pm_notification_desc:Om aktivert vil du bli varslet hver gang du får en privat melding.
+findu_edit:Rediger
 findu_delete:Slett
 dmsg_reply_to:er et svar på
 dmsg_reply_num:melding #{VAR: obj->reply_to}
 merge_topics:Flett emner
+merge_topics_tpl:Velg hvilke emner som skal slåes sammen <span class="SmattText">(du må velge mer enn ett emne)</span>
+merge_merge:Slå sammen valgte emner
 merge_next:Neste emne
 merge_prev:Forrige emne
+merge_another:Gå til <a href="{TEMPLATE: merge_another_lnk}">siste sammenslåtte emne</a> eller slå sammen et annet:
+groups_perms_header:Tillatelser <span class="small">(mus over tillatelsene for å se dens type)</span>
+register_err_sig_too_long:Signaturen din overgår makslengden på {GVAR: FORUM_SIG_ML} tegn.
+register_sig_limit:{GVAR: FORUM_SIG_ML} tegn <a href="javascript: alert('Signaturen din er '+document.forms['fud_register'].reg_sig.value.length+' tegn lang. Maks tillatt signaturlengde er {GVAR: FORUM_SIG_ML} tegn.');" class="SmallText">Sjekk signaturlengde</a>
+adm_account_accepted:Din konto '{VAR: login}' ble godkjent av administratoren og er nå aktiv. Du har nå tilgang til forumet {GVAR: FORUM_TITLE} som en bekreftet og registrert bruker.
+adm_account_accepted_s:Din kontoforespørsel for '{GVAR: FORUM_TITLE}' ble akseptert.
+adm_account_rejected:Din konto '{VAR: login}' ble avslått av administratoren. Om du vil vite årsaken til denne avgjørelsen, ta gjerne kontakt med administratoren på '{GVAR: ADMIN_EMAIL}'
+adm_account_rejected_s:Din kontoforespørsel for '{GVAR: FORUM_TITLE}' ble avslått.
 thread_on:på
 userinfo_buddy:Venn:
 register_email_addr:E-postadresse:
+reset_suffix:Om du mottok denne meldingen ved et feiltak kan du ignorere den. Om du mottar flere uønskede kopier av denne e-posten, ta kontakt med forumets administrator på {GVAR: ADMIN_EMAIL}\n\nDenne forespørselen ble startet fra: {VAR: _SERVER['REMOTE_ADDR']}.
 usrinfo_last_visit:Siste besøk:
 mnav_newer:nyere enn
 mnav_older:eldre enn
 ip_search_by_ip:Søk brukere etter IP
 ip_search_syntax:Støttet syntaks: 1.2.3.4, 1.2.3, 1.2, 1
 ip_search:Søk
+ip_analyze_usage:Analyser IP-bruk
 ip_users_using:Brukere med '{VAR: ip}' IP-adresse
 ip_all_ips:Alle IP-adresser brukt av '{VAR: user}'
 userinfo_real_name:Virkelig navn:
+register_err_alias_notallowed:Dette aliaset er ikke tillatt
 post_err_mod_forum_edit_ttl:FEIL
+post_err_mod_forum_edit_msg:Du kan ikke redigere meldinger i et moderert forum.
 dmsg_num:melding #{VAR: obj->id}
+delete_message_extra_desc:<b>Valgfri</b><br />Oppgi en årsak for slettingen av denne meldingen. Denne vil bli sendt til forfatteren i en privat melding.
 delete_msg_pm_body:Opprinnelig melding
+delete_msg_pm_subject:Emne: {VAR: data[15]}
+ip_no_whois:Whois-informasjon for <b>{VAR: ip}</b> er ikke tilgjengelig.
+register_theme:Tema:
 pmsg_trash:Tøm søppel
 uc_new_pm:Nye private meldinger
+uc_new_topic:Nytt emne
+uc_cat_forum:Kategori » Forum
+search_options:Søkevalg
 search_user_filter:Filtrer etter bruker:
+register_none:Ikke varsle
 findu_no_conf:ubekreftet bruker
 register_max_sig_len:Maksimum lengde:
+register_turing:Skriv inn koden vist nedenfor:
 register_err_turing:Ugyldig valideringskode.
 modque_cat:Kategori
 modque_forum:Forum
@@ -962,8 +1016,12 @@ thread_mov_all:Flytt alle valgte
 thread_merge_all:Flett alle valgte
 dmsg_ip:IP:
 err_blockedaccnt_title:FEIL: Kontoen din har blitt filtrert ut.
+most_users_online:Mest brukere på samme tid noensinne var <b>{VAR: st_obj->most_online}</b> den <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
 unbookmark_all_topics:Fjern alle bokmerker
+sml_emoticon:Uttrykksikon
 sml_code:Kode
+login_min_time:Dette forumet tillater ett innloggingsforsøk per {VAR: MIN_TIME_BETWEEN_LOGIN} sekund, vent {FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)} sekund før du prøver igjen.
+post_not_logged_in:Du er ikke logget inn, meldingen vil bli postet anonymt.
 post_common_bold:Fet
 post_common_italics:Kursiv
 post_common_underline:Understreket
@@ -978,13 +1036,29 @@ post_common_blist:Legg til punktliste
 post_common_quote:Legg til sitat
 post_common_code:Legg til kode
 rating_delete:Slett
+topic_rating:{VAR: frm->rating} fra {PLURAL: frm->n_rating|én stemme|$1 stemmer}
+topic_list_rating:{VAR: r[17]} fra {PLURAL: r[21]|én stemme|$1 stemmer}
 tabs_notifications:Varsler
 post_descr:Emnebeskrivelse:
+pmsg_on:på
+pmsg_download_dump:Last ned meldingsdump
 move_messages:Flytt meldinger
 move_msg_btn:Flytt valgte meldinger
+move_msg_th_expl:Oppgi ID'en til destinasjonsemnet (kan være i andre fora)
+captcha_img_alt:Captcha-verifisering: du må kjenne igjen teksten i dette bildet.
+captcha_img_help:Det er ingen null eller en i bildet.
+powered-by:Levert av: FUDforum {GVAR: FORUM_VERSION}.<br />Copyright © 2001-2010 <a href="http://fudforum.org/">FUDforum Bulleting Board Software</a>
 code_title:Kode:
 code_select_all:Velg alle
 code_show_hide:Vis/ skjul
+social_sites:Sosiale nettverk:
+postcheck_min_len_err:Meldingen din er for kort. Minste lengde er {PLURAL: post_min_len|ett tegn|$1 tegn}.
+postcheck_dup_err:Ikke opprett dupliserte emner.
+btn_new_topic:Nytt emne
+btn_new_pm:Ny privat melding
+btn_post_reply:Legg inn svar
+btn_tree_view:Trevisning
+btn_flat_view:Flat visning
 btn_about:Profil
 btn_small_pm:PM
 btn_delete:slett
@@ -993,7 +1067,10 @@ btn_reply:svar
 btn_forward:videresend
 btn_quote:sitat
 btn_email:E-post
+btn_show_posts:innlegg
 btn_homepage:www
+feed_no_data:Ingen samsvarende data funnet.
 feed_rdf:RDF-mating
 feed_rss:RSS2-mating
 feed_atom:ATOM-mating
+ip_whois_connect_err:Kunne ikke koble til WHOIS-tjener ({VAR: whois_server}): {VAR: errstr}
