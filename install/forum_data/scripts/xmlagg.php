@@ -153,8 +153,10 @@
 
 		if ( isset($node->getElementsByTagName('link')->item(0)->nodeValue)) {
 			$articles[$date]['link'] = $node->getElementsByTagName('link')->item(0)->nodeValue;
-		} else {
+		} else if ( $node->getElementsByTagName('link')->length > 0) {
 			$articles[$date]['link'] = $node->getElementsByTagName('link')->item(0)->getAttribute('href');
+		} else {
+			$articles[$date]['link'] = '';
 		}
 	}
 	unset($arrFeeds);
