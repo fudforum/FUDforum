@@ -9,6 +9,7 @@
 * Free Software Foundation; version 2 of the License.
 **/
 
+	$login = $GLOBALS['r']->login;
 	$GLOBALS['account_accepted'] = '{TEMPLATE: adm_account_accepted}';
 	$GLOBALS['account_rejected'] = '{TEMPLATE: adm_account_rejected}';
 

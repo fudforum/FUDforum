@@ -21,7 +21,7 @@
 
 	if (isset($_POST['btn_download']) && isset($_POST['tlang'])) {
 		$tlang = $_POST['tlang'];
-		pf(successify('Downloading '. $tlang .' messages from tranalatewiki.net...'));
+		pf(successify('Downloading '. $tlang .' messages from translatewiki.net...'));
 
 		$url = "http://translatewiki.net/w/i.php?title=Special%3ATranslate&task=export-to-file&group=out-fudforum&language=$tlang&limit=2500";
 		$url_stuff = parse_url($url);

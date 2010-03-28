@@ -239,11 +239,7 @@ function resolve_sections($str)
 				$ret .= $GLOBALS['text_dir'];
 				break;
 			case 'LANG':	// Language code.
-				if (isset($GLOBALS['usr']->pspell_lang)) {
-					$ret .= $GLOBALS['usr']->pspell_lang;				
-				} else {
-					$ret .= 'en';
-				}
+				$ret .= $GLOBALS['__COMPILER__']['lang'];
 				break;
 
 			case 'FUNC':
