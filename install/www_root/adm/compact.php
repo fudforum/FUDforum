@@ -114,7 +114,7 @@ function write_body_c($data, &$len, &$offset, $fid)
 	$MAX_FILE_SIZE = 2140000000;
 
 	// Character set conversion.
-	if (!empty($_POST['fromcharset']) || !empty($_POST['tocharset'])) {
+	if (!empty($_POST['fromcharset']) && !empty($_POST['tocharset'])) {
 		$newdata = iconv($_POST['fromcharset'], $_POST['tocharset'], $data);
 		$data = $newdata;
 	}
@@ -138,7 +138,7 @@ function write_body_c($data, &$len, &$offset, $fid)
 
 		$data = preg_replace($GLOBALS['__FUD_REPL__']['pattern'], $GLOBALS['__FUD_REPL__']['replace'], $data);
 	}
-	
+
 	$len = strlen($data);
 
 	$s = $fid * 10000;
@@ -185,7 +185,7 @@ function eta_calc($start, $pos, $pc)
 	$tbl =& $DBHOST_TBL_PREFIX;
 	$stm = time();
 
-	/* Normal Messages */
+	/* Compact normal messages. */
 	pf('Compacting normal messages...');
 
 	$pc = ceil(q_singleval('SELECT count(*) FROM '.$tbl.'msg WHERE file_id>0') / 10);
@@ -244,7 +244,7 @@ function eta_calc($start, $pos, $pc)
 	}
 	pf('100% Done.');
 
-	/* Private Messages */
+	/* Compact private messages. */
 	pf('Compacting private messages...');
 
 	q('CREATE INDEX '.$tbl.'pmsg_foff_idx ON '.$tbl.'pmsg (foff)');

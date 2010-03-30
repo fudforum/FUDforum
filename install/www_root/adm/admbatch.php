@@ -58,7 +58,10 @@
 ?>
 
 <h2>Job Administration System</h2>
-<div class="tutor">The Job Administration System can be used to run ad hoc import scripts (to load <a href="admmlist.php?<?php echo __adm_rsid; ?>">Mailing list messages</a>, <a href="admnntp.php?<?php echo __adm_rsid; ?>">USENET posts</a> or <a href="admxmlagg.php?<?php echo __adm_rsid; ?>">XML Feeds</a>) and view their output log files. These scripts are stored in <?php echo realpath($path); ?>.</div>
+<div class="tutor">
+	The Job Administration System can be used to run ad hoc import scripts (to load <a href="admmlist.php?<?php echo __adm_rsid; ?>">Mailing list messages</a>, <a href="admnntp.php?<?php echo __adm_rsid; ?>">USENET posts</a> or <a href="admxmlagg.php?<?php echo __adm_rsid; ?>">XML Feeds</a>) and view their output log files.
+	These scripts are stored in <a href="admbrowse.php?cur=<?php echo urlencode($path).'&amp;'.__adm_rsid ?>"><?php echo realpath($path); ?></a>.
+</div>
 <h3>Job settings:</h3>
 <form method="post" action="admbatch.php">
 <?php echo _hs; ?>
@@ -77,6 +80,7 @@
 	<th>Exec Line</th>
 	<th align="center">Action</th>
 </tr></thead>
+	<!-- tr><td>Sitemap File</td><td>sitemap.php</td><td>[<a href="admbatch.php?script=sitemap&amp;job=1&amp;<?php echo __adm_rsid; ?>">Run now!</a>] [<a href="admbatch.php?viewlog=sitemap&amp;job=1&amp;<?php echo __adm_rsid; ?>">View Log</a>]</td></tr -->
 <?php
 	$c = uq('SELECT id, name, \'xmlagg\' FROM '.$tbl.'xmlagg UNION select id, name, \'maillist\' FROM '.$tbl.'mlist UNION select id, newsgroup, \'nntp\' FROM '.$tbl.'nntp');
 	$i = 0;

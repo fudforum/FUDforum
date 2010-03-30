@@ -152,13 +152,6 @@ function resolve_dest_path($path)
 				unset($c);
 			}
 
-			/* Check if MySQL version > 4.1.2. */
-			if (__dbtype__ == 'mysql') {
-				$my412 = version_compare(q_singleval('SELECT VERSION()'), '4.1.2', '>=');
-			} else {
-				$my412 = 0;
-			}
-
 			$idx = array();
 
 			/* Create table structure. */
@@ -181,8 +174,8 @@ function resolve_dest_path($path)
 
 					if (__dbtype__ != 'mysql') {
 						$line = strtr($line, array('BINARY'=>'', 'INT NOT NULL AUTO_INCREMENT'=>(__dbtype__ == 'sqlite' ? 'INTEGER' : 'SERIAL')));
-					} else if ($my412 && !strncmp($line, 'CREATE TABLE', strlen('CREATE TABLE'))) {
-						/* For MySQL 4.1.2+ we need to specify a default charset. */
+					} else if (!strncmp($line, 'CREATE TABLE', strlen('CREATE TABLE'))) {
+						/* Append default charset for MySQL 4.1.2+. */
 						$line .= ' DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci';
 					}
 
@@ -195,6 +188,14 @@ function resolve_dest_path($path)
 			do {
 				// Reverse formatting applied in admdump.php.
 				$line = str_replace('\n', "\n", $line);
+
+				// Handle different quote styles between databases for cross-database export/imports.
+				// For example, change \' --> '' (MySQL's --> SQLite or pgSQL)
+				if (__dbtype__ == 'mysql') {
+					$line = str_replace("''", "\'", $line);
+				} else {
+					$line = str_replace("\\'", "''", $line);
+				}
 
 				if (($line = trim($line))) {
 					if ($line{0} != '(') {
@@ -319,9 +320,9 @@ function resolve_dest_path($path)
 ?>
 <h2>Import forum data</h2>
 <div class="alert">
-	The import process will REMOVE ALL current forum data (all files and tables with '<?php echo $DBHOST_TBL_PREFIX; ?>' prefix) 
-	and replace it with the data in the backup file you enter. Remember to <a href="admdump.php?<?php echo __adm_rsid; ?>">BACKUP</a> your data before importing! You can use the 
-	<a href="admbrowse.php?cur=<?php echo urlencode($TMP).'&amp;'.__adm_rsid ?>">File Manager</a> to upload off-site backup files.
+	The import process will REMOVE ALL forum data (all files and tables with '<?php echo $DBHOST_TBL_PREFIX; ?>' prefix) 	and replace it with the data in the backup file you enter.
+	Remember to <a href="admdump.php?<?php echo __adm_rsid; ?>">BACKUP</a> your data before importing and do not try to import backups taken with old forum versions!
+	You can use the <a href="admbrowse.php?cur=<?php echo urlencode($TMP).'&amp;'.__adm_rsid ?>">File Manager</a> to upload off-site backup files.
 </div>
 
 <?php
