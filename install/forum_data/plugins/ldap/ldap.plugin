@@ -82,17 +82,18 @@ function plugin_ldap_auth($data) {
 	if ($login == $ldap_login) {
 		// Let user through, but first regsister in FUDforum's DB.
 
-		if (!($usr_d = db_sab('SELECT id, passwd FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'users WHERE login='. _esc($login)))) {
-			$uent = new fud_user_reg;	// Register FUDforum user.
+		if (!($usr_d = db_sab('SELECT id, passwd, salt FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'users WHERE login='. _esc($login)))) {
+			// Register new FUDforum user.
+			$uent = new fud_user_reg;
 			$uent->users_opt = -1;
 			$uent->login = $login;
 			$uent->plaintext_passwd = $password;
 			$uent->add_user();
-		} else if (md5($password) != $usr_d->passwd) {
-			$uent = new fud_user_reg;	// Sync password.
-			$uent->id = $usr_d->id;
-			$uent->plaintext_passwd = $password;
-			$uent->sync_user;
+		} else if ( !((empty($usr_d->salt) && $usr_d->passwd == md5($password)) || $usr_d->passwd == sha1($usr_d->salt . sha1($password)))) {
+			// Sync password.
+			$salt = substr(md5(uniqid(mt_rand(), true)), 0, 9);
+			$sec_pass = sha1($salt . sha1($password));
+			q('UPDATE '. $GLOBALS['DBHOST_TBL_PREFIX'] .'users SET passwd='._esc($sec_pass).', salt='._esc($salt).' WHERE id='.$usr_d->id);
 		}
 
 		return 1;	// Allow access.

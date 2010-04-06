@@ -39,13 +39,19 @@ function print_log($path, $search)
 	require('./GLOBALS.php');
 	fud_use('adm.inc', true);
 	require($WWW_ROOT_DISK .'adm/header.php');
-	
-	if (!empty($_GET['clear_sql_log'])) {
-		@unlink($ERROR_PATH .'sql_errors');
-		echo successify('SQL log successfully cleared.');
-	} else if (!empty($_GET['clear_fud_log'])) {
-		@unlink($ERROR_PATH .'fud_errors');
-		echo successify('Error log successfully cleared.');
+
+	if (!empty($_GET['clear_sql_log']) && is_file($ERROR_PATH .'sql_errors')) {
+		if (@unlink($ERROR_PATH .'sql_errors')) {
+		      echo successify('SQL log successfully cleared.');
+		} else {
+		      echo errorify('Unable to remove SQL log. Please fix file permissions of '. $ERROR_PATH .'sql_errors');
+		}
+	} else if (!empty($_GET['clear_fud_log']) && is_file($ERROR_PATH .'fud_errors')) {
+		if (@unlink($ERROR_PATH .'fud_errors')) {
+		      echo successify('Error log successfully cleared.');
+		} else {
+		      echo errorify('Unable to remove error log. Please fix file permissions of '. $ERROR_PATH .'fud_errors');
+		}
 	}
 
 	// Identify logs that will be displayed.
