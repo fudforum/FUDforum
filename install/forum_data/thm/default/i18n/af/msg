@@ -1074,7 +1074,7 @@ post_always_on_top:Vertoon die onderwerp altyd boaan die onderwerpslys.
 topic_rating:{VAR: frm->rating} van {PLURAL: frm->n_rating|$1 stem|$1 stemme}
 topic_list_rating:{VAR: r[17]} van {PLURAL: r[21]|$1 stem|$1 stemme}
 tabs_notifications:Kennisgewings
-finduser_flag:Merk
+finduser_flag:Vlag
 post_descr:Beskrywing van die onderwerp:
 pmsg_on:op
 pmsg_download_dump:Laai "dump" van boodskappe af

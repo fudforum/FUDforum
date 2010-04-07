@@ -6,7 +6,7 @@
 # Author: Silvonen
 
 action:Toiminto
-add_to_buddy_list:lisää kavereihin
+add_to_buddy_list:lisää kaverilistaan
 admin:Ylläpito
 admin_control_panel:Ylläpidon hallintapaneeli
 administrator:Ylläpitäjä
@@ -25,7 +25,7 @@ download_counter:Ladattu {PLURAL: v[3]|$1 kerta|$1 kertaa}
 pmsg_download_counter:Ladattu {PLURAL: r->dlcount|$1 kerta|$1 kertaa}
 email:Sähköposti:
 email_to_friend:Kerro kaverille
-email_to_friend_desc:Lähetä kaverille linkki tälle sivulle
+email_to_friend_desc:Lähetä kaverille linkki tälle sivulle sähköpostilla
 email_user:Lähetä käyttäjälle sähköpostiviesti
 faq:Ohje
 first_unread_msg:Siirry lukemattomiin viesteihin
@@ -91,7 +91,7 @@ moved_thread_message:Tämä aihe on siirretty toiseen foorumiin
 na:ei saatavilla
 new_posts:Uusia viestejä
 new_private_messages:Sinulla on <span class="GenTextRed">({VAR: c})</span> {PLURAL: c|lukematon yksityisviesti|lukematonta yksityisviestiä}
-new_thread:Aloita uusi aihe
+new_thread:Luo uusi aihe
 newest_user:Viimeisin rekisteröitynyt käyttäjä on
 next_page:Seuraava sivu
 next_thread:Seuraava aihe:
@@ -131,8 +131,8 @@ registered_on:Rekisteröitynyt {TEMPLATE: registered_on_date}
 replies:Vastauksia
 report_to_mod:Ilmoita viestistä moderaattoreille
 reported_messages:Ilmoitetut viestit
-reveal_all_posts:paljasta kaikki käyttäjän {VAR: user_login} viestit
-reveal_post:paljasta viesti
+reveal_all_posts:näytä kaikki käyttäjän {VAR: user_login} viestit
+reveal_post:näytä viesti
 search:Haku
 sel_todays_posts:Päivän viestit
 sel_todays_posts_desc:Valitse Päivän viestit -suodatin (näyttää vain tänään lähetetyt viestit)
@@ -148,7 +148,7 @@ show_posts_by:Näytä käyttäjän {VAR: u_alias} viestit
 size:Koko:
 status:Tila:
 status_line:Tällä hetkellä paikalla <b>{PLURAL: st_obj->online_users_reg|$1 jäsen|$1 jäsentä}</b>, <b>{PLURAL: st_obj->online_users_hidden|$1 näkymätön jäsen|$1 näkymätöntä jäsentä}</b> ja <b>{PLURAL: st_obj->online_users_anon|$1 vieras|$1 vierasta}</b>.
-sticky:kelluva:
+sticky:kiinnitetty:
 stop_ignoring:huomioi jälleen tämän käyttäjän viestit
 sub_to_thread:Tilaa aihe
 sub_to_thread_desc:Vastaanota ilmoitukset tämän aiheen uusista viesteistä
@@ -199,7 +199,7 @@ vote:{PLURAL: frm->n_rating|$1 ääni|$1 ääntä}
 vote_button:Äänestä
 vote_for_thread:Arvioi
 was_moved_msg:Moderaattori on siirtänyt aiheen <a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> foorumiin <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a>
-welcome_message:Tervetuloa <b>{VAR: usr->alias}</b>, kävit viimeksi {TEMPLATE: welcome_message_date}
+welcome_message:Tervetuloa <b>{VAR: usr->alias}</b>. Kävit viimeksi {TEMPLATE: welcome_message_date}
 what_ppl_doing:Näytä mitä muut tekevät
 reported_del_report:Poista ilmoitus
 reported_reason:Syy
@@ -354,6 +354,7 @@ register_show_email_desc:Määrittää näytetäänkö sähköpostiosoitteesi ju
 register_notification:Ilmoitukset uusista viesteistä oletuksena:
 register_notification_desc:Jos ilmoitukset uusista viesteistä vastaanotetaan oletuksena, voit silti estää ne lähettäessäsi uutta viestiä.
 register_notify_method:Valitse ilmoitusten välitystapa:
+register_notify_method_desc:Aseta haluamasi ilmoitusmenetelmä tai poista käytöstä ilmoitukset (esimerkiksi lomalle lähtiessä).
 register_allow_email_msg:Sähköpostin vastaanotto muilta käyttäjiltä:
 register_allow_email_msg_desc:Salli muiden käyttäjien lähettää sinulle sähköpostia tämän foorumin kautta.
 buddy_status:Tila
@@ -364,7 +365,7 @@ buddy_search:Anna käyttäjätunnus, jonka haluat lisätä.
 member_search:Tai käytä <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Hae käyttäjä</a> -toimintoa löytääksesi henkilön.
 buddy_remove:poista
 post_normal:Normaali
-post_sticky:Kelluva
+post_sticky:Kiinnitetty
 post_annoncement:Tiedote
 post_size:Koko
 post_color:Väri
@@ -443,7 +444,7 @@ login_cookie_expired:Eväste on vanhentunut. Päivitä eväste kirjautumalla sis
 login_perm_denied:Sinulla ei ole oikeuksia käyttää pyydettyä resurssia anonyyminä käyttäjänä.
 login_want_to_register:Haluatko rekisteröityä?
 login_forgot_passwd:Salasana unohtunut
-login_use_cookie:Käytä evästeitä.<br /><span class="SmallText">Jos käytät yhteiskäytössä olevaa tietokonetta, esimerkiksi kirjastossa, koulussa tai Internet-kahvilassa, suosittelemme että poistat ruksin tästä paremman tietoturvan takia.<br />Jättämällä tämän valinnan päälle kirjaudut automaattisesti foorumille.</span>
+login_use_cookie:Käytä evästeitä.<br /><span class="SmallText">Jos käytät yhteiskäytössä olevaa tietokonetta, kuten kirjastossa, koulussa tai Internet-kahvilassa on suositeltavaa, että poistat valinnan tästä paremman tietoturvan takia.<br />Jättämällä tämän valinnan päälle kirjaudut automaattisesti foorumille.</span>
 login_login:Käyttäjätunnus
 login_login_btn:Kirjaudu sisään
 login_name_required:Käyttäjätunnus on pakollinen
@@ -566,13 +567,14 @@ buddy_list_err_cantadd:Et voi lisätä itseäsi omalle kaverilistallesi
 buddy_list_err_dup:Tämä käyttäjä on jo kaverilistallasi
 buddy_list_err_nouser:Käyttäjää, jonka yritit lisätä, ei löydy foorumilta
 buddy_list_err_nouser_title:Käyttäjän lisääminen ei onnistunut
+buddy_list_err_ignore:Kaverilistaan ei voi lisätä käyttäjiä, jotka ovat torjuneet sinut.
 buddy_list_update:Selaa omaa kaverilistaansa
 core_err_invinp_title:Virheellinen syöte
 core_err_invinp_err:Yritit ladata virheellistä linkkiä, ole hyvä ja ilmoita tästä <a href="mailto:{GVAR: ADMIN_EMAIL}">sivuston ylläpitäjälle</a>.
 core_adm_login_msg:Ylläpitäjät voivat kirjautua sisään <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">täällä</a>
 email_err_unabletoemail_title:Virhe: Sähköpostin lähetys ei onnistunut
 email_err_unabletoemail_msg:Ylläpitäjä on estänyt sähköpostin lähetyksen.
-email_error_unabletolocaddr:Järjestelmä ei pystynyt lähettämään sähköpostia {VAR-HTML: _POST['tx_name']}, koska hänen osoitettaan ei löytynyt
+email_error_unabletolocaddr:Järjestelmä ei pystynyt lähettämään sähköpostia {VAR-HTML: _POST['tx_name']}, koska sähköpostiosoitetta ei löytynyt
 email_error_body:Viestin teksti on pakollinen
 email_error_subject:Otsikko on pakollinen
 email_error_namerequired:Nimi on pakollinen
@@ -584,10 +586,10 @@ err_inc_criticalmsg:Tapahtui virhe. Valitettavasti myös virheiden raportoinniss
 finduser_update:Etsii käyttäjiä
 help_index_update:Lukee <a href="{TEMPLATE: help_index_update_lnk}">ohjeita</a>
 iemail_thr_subject:Uusi viesti aiheessa {VAR: thr_subject} käyttäjältä: {VAR: poster_login}
-iemail_thr_bodyemail:Lue uudet lukemattomat viestit täällä:\n{VAR: goto_url['email']}\n\nJos et halua vastaanottaa ilmoituksia uusista viesteistä tässä aiheessa\nkäy täällä: {VAR: unsub_url['email']}
+iemail_thr_bodyemail:Lue uudet lukemattomat viestit: {VAR: goto_url['email']}\n\nJos et halua vastaanottaa ilmoituksia uusista viesteistä tässä aiheessa – käy sivulla: {VAR: unsub_url['email']}
 iemail_frm_subject:Uusi aihe foorumissa {VAR: frm_name} otsikolla {VAR: thr_subject} käyttäjältä: {VAR: poster_login}
-iemail_frm_bodyemail:Lue aihe täällä:\n{VAR: goto_url['email']}\n\nJos et halua vastaanottaa ilmoituksia uusista aiheista tässä foorumissa – käy täällä: {VAR: unsub_url['email']}
-iemail_participate:Osallistuaksesi keskusteluun, mene tänne:
+iemail_frm_bodyemail:Lue aihe täällä:\n{VAR: goto_url['email']}\n\nJos et halua vastaanottaa ilmoituksia uusista aiheista tässä foorumissa – käy sivulla: {VAR: unsub_url['email']}
+iemail_participate:Osallistuaksesi keskusteluun – siirry tänne:
 ignore_list_err_info_title:Tiedot
 ignore_list_err_dup_msg:Tämä käyttäjä on jo torjuttujen listalla
 ignore_list_err_nu_title:Käyttäjää ei löydy
@@ -608,6 +610,8 @@ err_coppa_msg:Emme ole vastaanottaneet varmistusta vanhemmiltasi tai lailliselta
 err_banned_acct_title:Virhe: Olet estetty.
 post_err_edttimelimit_title:Virhe
 post_err_edttimelimit_msg:Et voi enää muokata tätä viestiä.
+post_err_noannontopics_msg2:<legend>Virhe: Riittämättömät käyttöoikeudet</legend>Anonyymit käyttäjät eivät ole oikeutettuja luomaan aiheita.
+post_err_noannonposts_msg2:<legend>Virhe: Riittämättömät käyttöoikeudet</legend>Anonyymit käyttäjät eivät ole oikeutettuja vastaamaan.
 post_err_floodtrig_title:Virhe: Viestitulva.
 post_err_floodtrig_msg:Odota {PLURAL: tm|$1 sekunti|$1 sekuntia} ja yritä uudelleen.
 post_err_attach_size:Liitetiedoston koko ylittää suurimman sallitun {VAR: MAX_F_SIZE} tavun rajan
@@ -617,19 +621,20 @@ post_err_passwd:Virheellinen salasana.
 post_reply_update:Vastaa viestiin otsikolla <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> foorumissa {VAR: frm->name}
 post_topic_update:Kirjoittaa uutta aihetta foorumille <a href="{TEMPLATE: post_topic_update_lnk}">{VAR: frm->name}</a>
 post_error_generic:Tapahtui virhe
-postcheck_max_images_err:Maksimissaan {GVAR: MAX_IMAGE_COUNT} kuvaa sallittu per viesti. Ole hyvä ja vähennä kuvien määrää
+postcheck_max_images_err:Enintään {GVAR: MAX_IMAGE_COUNT} kuvaa sallittu viestiä kohden. Ole hyvä ja vähennä kuvien määrää.
+postcheck_no_links_allowed:Sinun täytyy lähettää {PLURAL: posts_before_links|$1 viesti|$1 viestiä} ennen kuin voit käyttää linkkejä.
 postcheck_subj_needed:Otsikko on pakollinen
 postcheck_no_such_user:Käyttäjää nimellä "{FUNC: char_fix(htmlspecialchars($v))}" ei löydy tältä foorumilta
 postcheck_ignored:Et voi lähettää yksityisviestiä käyttäjälle "{FUNC: char_fix(htmlspecialchars($v))}", koska hän on torjunut sinut.
-postcheck_no_recepient:Viestiä ei voida lähettää, vastaanottaja puuttuu
+postcheck_no_recepient:Viestiä ei voida lähettää, koska vastaanottaja puuttuu
 postcheck_invalid_email:Virheellinen sähköpostiosoite.
 postcheck_email_subject:Et voi lähettää sähköpostia ilman otsikkoa.
 postcheck_email_body:Et voi lähettää sahköpostia ilman viestiä.
 private_msg_notify_subj:Viesti otsikolla {VAR: m->subject} on luettu
-private_msg_notify_body:Hei,<br />{VAR: usr->login} on lukenut viestisi otsikolla ”{VAR: m->subject}”.<br />Tämä automaattinen huomautus luotiin {TEMPLATE: private_msg_notify_body_date}<br />
+private_msg_notify_body:Hei,<br />{VAR: usr->login} on lukenut viestisi otsikolla ”{VAR: m->subject}”.<br />Tämä automaattinen ilmoitus luotiin {TEMPLATE: private_msg_notify_body_date}<br />
 referals_update:Selaa suosittelujaan
 register_err_short_login:Valitsemasi käyttäjätunnus on liian lyhyt. Käyttäjätunnuksen täytyy olla vähintään 4 merkkiä pitkä.
-register_err_login_notallowed:Tätä tunnusta ei hyväksytty
+register_err_login_notallowed:Tätä tunnusta ei hyväksytty.
 register_err_loginunique:Foorumin käyttäjätunnusten täytyy olla uniikkeja ja annettu käyttäjätunnus on jo käytössä.
 register_err_emailexists:Tämä sähköpostiosoite on jo käytössä. Jos olet unohtanut salasanasi, ole hyvä ja käytä salasanan lähetys toimintoa uudelleen rekisteröitymisen sijaan.
 register_err_shortpasswd:Salasanan täytyy olla vähintään 6 merkkiä pitkä.
@@ -641,7 +646,7 @@ register_err_adminpasswd:Sinun on annettava <b>ylläpitosalasana</b> muuttaakses
 register_err_notyouremail:Tämä sähköpostiosoite on jo käytössä
 register_err_avatartobig:Lähetetyn tiedoston koko ylittää suurimman sallitun {GVAR: CUSTOM_AVATAR_MAX_SIZE} tavun rajan
 register_err_avatarnotallowed:Lähetetyn tiedoston tyyppi ei ole sallittu. Tarkista sallitut tiedostotyypit.
-register_conf_subject:Rekisteröitymisen vahvistus
+register_conf_subject:Rekisteröintivahvistus
 register_conf_msg:Kiitos rekisteröitymisestä.\nAktivoi käyttäjätilisi napsauttamalla alla olevaa linkkiä:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nKun käyttäjätilisi on aktivoitu, sisäänkirjautuminen tapahtuu automaattisesti ja sinut ohjataan foorumin etusivulle.
 register_welcome_subject:Rekisteröintivahvistus
 register_welcome_msg:Kiitos rekisteröitymisestä.\n\nTässä ovat kirjautumistietosi foorumille:\n\nFoorumin osoite: {TEMPLATE: index_update_lnk}\nKäyttäjätunnus: {VAR: uent->login}\nSalasana: {VAR: _POST['reg_plaintext_passwd']}\n\nSalasanojen isot ja pienet kirjaimet ovat eri merkkejä!\nVoit muuttaa asetuksia ja käyttäjätietojasi sivulla:\n{FULL_ROOT}{ROOT}?t=register
@@ -748,12 +753,12 @@ p_POST:Luoda uusia aiheita
 p_REPLY:Vastata viesteihin
 p_EDIT:Muokata viestejä
 p_DEL:Poistaa viestejä
-p_STICKY:Luoda kelluvia aiheita
+p_STICKY:Luoda kiinnitettyjä aiheita
 p_POLL:Luoda galluppeja
 p_FILE:Liittää tiedostoja
-p_VOTE:Äänestää gallupeissa
+p_VOTE:Äänestää
 p_RATE:Arvioida aiheita
-p_SPLIT:Pilkkoa/yhdistää aiheita
+p_SPLIT:Jakaa aiheita
 p_LOCK:Lukita/avata aiheita
 p_MOVE:Siirtää aiheita
 p_SML:Käyttää hymiöitä
@@ -850,7 +855,7 @@ help_return_to_index:Palaa ohjehakemistoon
 imsg_err_message_title:Virheellinen viesti
 imsg_err_message_msg:Viestiä ei ole olemassa.
 poll_edit:Muokkaa
-register_err_not_valid_img:Valittu linkki ei johda kelvolliseen kuvaan
+register_err_not_valid_img:Valittu linkki ei johda kelvolliseen kuvaan.
 pmsg_recepient:Vastaanottaja
 register_err_taken_alias:Alias, jonka valitsit on jo käytössä. Ole hyvä ja valitse toinen.
 register_alias:Alias
@@ -879,8 +884,8 @@ post_moderated_forum:Lähetit viestin moderoidulle foorumille. Viestisi ei näy 
 post_moderated_forum_ttl:Moderoitu foorumi
 buddy_list_bday:{VAR: r[2]} täyttää tänään {VAR: age}-vuotta
 email_warning_msg:Jos vaihdat nykyisen sähköpostiosoitteesi, käyttäjätilisi merkitään vahvistamattomaksi, kunnes olet vahvistanut sen sähköpostilla.
-register_show_im:Näytä IM-indikaattorit:
-register_show_im_desc:Määrittää näytetäänkö viesteissä kirjoittajan IM (Instant Messaging) indikaattori(t).
+register_show_im:Näytä IM-ilmaisimet:
+register_show_im_desc:Määrittää näytetäänkö viesteissä kirjoittajan IM-ilmaisimet.
 unread_message:Lukematon viesti
 read_message:Luettu viesti
 threadt_more:&lt;lisää&gt;
@@ -907,14 +912,14 @@ buddy_online:{VAR: r[2]} on sisäänkirjautunut
 sml_no_smilies:Hymiöitä ei käytettävissä.
 login_unapproved_account_ttl:Hyväksymätön käyttäjätili
 login_unapproved_account_msg:Ylläpitäjän täytyy hyväksyä kaikki käyttäjätilit ennen niiden aktivoimista. Käyttäjätiliäsi ei ole vielä hyväksytty, joten jotkin foorumin rekisteröityneille käyttäjille tarkoitetuista ominaisuuksista eivät ole vielä käytössäsi.
-remove_from_buddy_list:poista kavereista
+remove_from_buddy_list:poista kaverilistalta
 iemail_msg_author:<b>Lähettäjä:</b> {VAR: obj->alias}
 iemail_msg_subject:<b>Otsikko:</b> {VAR: obj->subject}
 iemail_msg_date:<b>Päiväys:</b> {TEMPLATE: dmsg_post_date}
 iemail_msg_reply:Vastaa
 iemail_msg_quote:Lainaa
 iemail_msg_view:Näytä aihe tai viesti
-threadt_sticky:kelluva
+threadt_sticky:kiinnitetty
 threadt_announce:tiedote
 reported_no_messages:Ei ilmoitettuja viestejä.
 poll_no_polls:Ei galluppeja saatavilla.
@@ -962,7 +967,7 @@ register_pm_notification:Ilmoitukset uusista yksityisviesteistä:
 register_pm_notification_desc:Määrittää lähetetäänkö uusista yksityisviesteistä viesti määrittelemälläsi ilmoitusten lähetystavalla.
 findu_admin_opts_header:Ylläpidon toiminnot
 findu_unban:Poista esto
-findu_ban:Aseta esto
+findu_ban:Estä
 findu_edit:Muokkaa
 findu_delete:Poista
 dmsg_reply_to:on vastaus viestiin
@@ -973,6 +978,7 @@ merge_topics_tpl:Valitse yhdistettävät aiheet <span class="SmallText">(sinun t
 merge_merge:Yhdistä valitut aiheet
 merge_next:Seuraavat aiheet
 merge_prev:Edelliset aiheet
+merge_another:Siirry <a href="{TEMPLATE: merge_another_lnk}">viimeisimpään yhdistettyyn aiheeseen</a> tai yhdistä toinen:
 split_cp:Aiheiden jakaminen
 groups_perms_header:Käyttöoikeudet <span class="small">(näet käyttöoikeuden tyypin laittamalla hiiren osoittimen sen päälle)</span>
 register_err_sig_too_long:Allekirjoituksesi ylittää suurimman sallitun pituuden {GVAR: FORUM_SIG_ML} merkkiä.
@@ -1013,13 +1019,14 @@ uc_cat_forum:Luokka &raquo; Foorumi
 uc_sub_topics:Tilattujen aiheiden uudet viestit
 search_options:Hakuasetukset
 search_user_filter:Suodata käyttäjän mukaan:
-register_none:Älä huomauta
+register_none:Älä ilmoita
 findu_no_conf:vahvistamaton käyttäjä
 register_max_sig_len:Maksimipituus:
 register_turing:Syötä alla oleva varmistuskoodi:
 register_err_turing:Virheellinen varmistuskoodi.
 modque_cat:Luokka
 modque_forum:Foorumi
+idx_compact_forum_row:Saatavilla olevat foorumit:
 mmd_del_title:Poista aiheet
 mmd_mov_title:Siirrä aiheet
 mmd_move_threads_to:Kohdefoorumi:
@@ -1041,14 +1048,22 @@ sml_code:Koodi
 register_topics_per_page:Aiheita sivua kohti:
 login_min_time:Tämä foorumi sallii yhden kirjautumisyrityksen {VAR: MIN_TIME_BETWEEN_LOGIN} sekunnin välein. Odota {FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)} sekuntia ennen kuin yrität uudelleen.
 post_not_logged_in:Et ole kirjautuneena sisään, joten viesti lähetetään anonyyminä.
+post_common_bold:Lihavointi
+post_common_italics:Kursivointi
+post_common_underline:Alleviivaus
+post_common_align_left:Tasaa vasemmalle
+post_common_align_center:Keskitä
+post_common_align_right:Tasaa oikealle
 post_common_link:Lisää linkki
 post_common_email:Lisää sähköpostiosoite
 post_common_image:Lisää kuva
 post_common_nlist:Lisää numeroitu lista
+post_common_blist:Lisää luettelomerkitty lista
 post_common_quote:Lisää lainaus
 post_common_code:Lisää koodi
 rating_delete:Poista
-tabs_notifications:Huomautukset
+tabs_notifications:Ilmoitukset
+finduser_flag:Lippu
 post_descr:Aiheen kuvaus:
 pmsg_download_dump:Lataa viestivedos
 move_messages:Siirrä viestit

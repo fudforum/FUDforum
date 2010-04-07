@@ -917,6 +917,7 @@ iemail_msg_date:<b>Dato:</b> {TEMPLATE: dmsg_post_date}
 iemail_msg_reply:Svar
 iemail_msg_quote:Sitat
 iemail_msg_view:Vis emne/melding
+threadt_sticky:klebrig
 threadt_announce:kunngjøring
 reported_no_messages:Det er ingen rapporterte meldinger.
 poll_no_polls:Det er ingen tilgjengelig spørreundersøkelser.
@@ -927,18 +928,26 @@ private_no_messages:Det er ingen meldinger i denne mappen.
 register_email_change_subject:Bekreftelse på endret e-postadresse
 register_email_change_msg:Bekreft din nye e-postkonto "{VAR: uent->email}" som erstatter din gamle e-postkonto "{VAR: old_email}" ved å gå til nettadressen under:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nNår du har bekreftet din nye e-postadresse vil forumkontoen din ble aktivert igjen.
 primary_group_prefix:Primærgruppe for forum:
+group_resources:Denne gruppen kontrollerer rettighetene på følgende fora
 register_admin_newuser_title:En ny bruker har registrert seg og kontoen venter på bekreftelse
 register_admin_newuser_msg:En ny bruker ({VAR: uent->login}) har akkurat registrert seg og siden kontobekreftelse er aktivert vil ikke deres konto bli aktiv før den er bekreftet av deg eller en annen forumadministrator. For å godkjenne kontoen gå til: {GVAR: WWW_ROOT}adm/admaccapr.php\n\nDette er en automatisert prosess. Ikke svar på denne meldingen.\nOm du vil slå av fremtidige e-postvarsler om nye brukerregistreringer kan du gjøre dette i Administratorens kontrollpanel. Endre «Varsel om ny konto»-innstillingen.
 post_mod_msg_notify_title:En ny melding i forumet «{VAR: frm->name}» venter på godkjenning
 post_mod_msg_notify_msg:En ny melding med tittelen «{VAR: msg_post->subject}» ble akkurat postet i et forum som du modererer. For å godkjenne denne meldingen gå til: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nDette er en automatisert prosess. Ikke svar på denne meldingen.
 thread_printable_pdf:Generer utskriftsvennlig PDF
+thread_syndicate:Syndiker dette forumet (XML)
 reg_conf_title:Registreringsbekreftelse
 reg_conf_email:<b>E-postvarsel</b><br />Et e-postvarsel har blitt sendt til deg med en unik nettadresse som du må besøke før kontoen din blir aktivert. Om du ikke mottar denne e-posten innen noen få minutter, logg deg på kontoen din og forsikre deg om at e-postadressen du har oppgitt er korrekt. Når du har bekreftet kontoen din vil du få full tilgang til forumfunksjonene som bare er tilgjengelige for bekreftede og registrerte brukere.
 reg_conf_account:<b>Kontobekreftelse</b><br />Før kontoen blir aktivert må den godkjennes av en administrator. Når dette skjer vil du motta en e-post som indikerer at kontoen har blitt bekreftet. I mellomtiden kan du logge på kontoen din, men du vil ikke ha full tilgang til enkelte funksjoner.
 forum_banned_user:Dine tidligere handliger har resultert i at du har blitt bannlyst permanent fra dette forumet. Farvel.
+mnav_description:Meldingsnavigatør
+mnav_date_limit:Datoområde:
 mnav_forum_limit:Bare søk i:
 mnav_all_forums:Søk i alle forum
 mnav_submit:Start søk
+mnav_no_range:Du må skrive inn et gyldig datoområde. Denne verdien kan inneholder desimaler (0.12) men må være større enn null.
+mnav_invalid_unit:Du må angi en gyldig tidsenhet.
+mnav_invalid_date:Datoområdet du anga er større enn det som er tillatt av administratorene. Prøv et mindre område.
+mnav_no_results:Det er ingen meldinger som samsvarer forespørselen.
 mnav_posted_by:Postet av:
 mnav_more:Mer »»
 mnav_minute:Minutt
@@ -946,6 +955,8 @@ mnav_hour:Time(r)
 mnav_day:Dag(er)
 mnav_week:Uke(r)
 mnav_month:Måned(er)
+mnav_title:Meldingsnavigatør
+mnav_update:Bla i meldinger med <a href="{TEMPLATE: mnav_update_lnk}">Meldingsnavigatøren</a>
 pm_notify_subject:[{GVAR: FORUM_TITLE}] Varsel om ny privat melding
 pm_notify_body_email:Du har en ny privat melding med tittelen «{VAR: subject}», fra «{VAR: from}», i forumet «{GVAR: FORUM_TITLE}».\nFor å se meldingen, klikk her: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nFor å stoppe fremtidige varsel, deaktiver «Varsel om privat melding» i din profil.
 register_pm_notification:Varsel om privat melding:
@@ -955,11 +966,13 @@ findu_delete:Slett
 dmsg_reply_to:er et svar på
 dmsg_reply_num:melding #{VAR: obj->reply_to}
 merge_topics:Flett emner
+merge_topics_cp:Kontrollpanel for emnesammenslåing
 merge_topics_tpl:Velg hvilke emner som skal slåes sammen <span class="SmattText">(du må velge mer enn ett emne)</span>
 merge_merge:Slå sammen valgte emner
 merge_next:Neste emne
 merge_prev:Forrige emne
 merge_another:Gå til <a href="{TEMPLATE: merge_another_lnk}">siste sammenslåtte emne</a> eller slå sammen et annet:
+split_cp:Kontrollpanel for emnesplitting
 groups_perms_header:Tillatelser <span class="small">(mus over tillatelsene for å se dens type)</span>
 register_err_sig_too_long:Signaturen din overgår makslengden på {GVAR: FORUM_SIG_ML} tegn.
 register_sig_limit:{GVAR: FORUM_SIG_ML} tegn <a href="javascript: alert('Signaturen din er '+document.forms['fud_register'].reg_sig.value.length+' tegn lang. Maks tillatt signaturlengde er {GVAR: FORUM_SIG_ML} tegn.');" class="SmallText">Sjekk signaturlengde</a>
@@ -980,6 +993,7 @@ ip_search:Søk
 ip_analyze_usage:Analyser IP-bruk
 ip_users_using:Brukere med '{VAR: ip}' IP-adresse
 ip_all_ips:Alle IP-adresser brukt av '{VAR: user}'
+ip_title:IP-leser
 userinfo_real_name:Virkelig navn:
 register_err_alias_notallowed:Dette aliaset er ikke tillatt
 post_err_mod_forum_edit_ttl:FEIL
@@ -989,6 +1003,7 @@ delete_message_extra_desc:<b>Valgfri</b><br />Oppgi en årsak for slettingen av 
 delete_msg_pm_body:Opprinnelig melding
 delete_msg_pm_subject:Emne: {VAR: data[15]}
 ip_no_whois:Whois-informasjon for <b>{VAR: ip}</b> er ikke tilgjengelig.
+ip_whois_title:Informasjon om internettleverandør
 register_theme:Tema:
 pmsg_trash:Tøm søppel
 uc_new_pm:Nye private meldinger
@@ -1018,8 +1033,10 @@ dmsg_ip:IP:
 err_blockedaccnt_title:FEIL: Kontoen din har blitt filtrert ut.
 most_users_online:Mest brukere på samme tid noensinne var <b>{VAR: st_obj->most_online}</b> den <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
 unbookmark_all_topics:Fjern alle bokmerker
+tabs_own_posts:Vis egne innlegg
 sml_emoticon:Uttrykksikon
 sml_code:Kode
+register_topics_per_page:Emner per side:
 login_min_time:Dette forumet tillater ett innloggingsforsøk per {VAR: MIN_TIME_BETWEEN_LOGIN} sekund, vent {FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)} sekund før du prøver igjen.
 post_not_logged_in:Du er ikke logget inn, meldingen vil bli postet anonymt.
 post_common_bold:Fet

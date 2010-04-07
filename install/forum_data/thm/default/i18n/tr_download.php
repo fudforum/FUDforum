@@ -22,14 +22,15 @@ while ($de = readdir($dp)) {
 
 	echo 'Downloading '. $de .' messages from translatewiki.net...';
 
-	$url = "http://translatewiki.net/w/i.php?title=Special%3ATranslate&task=export-to-file&group=out-fudforum&language=$de";
+	$url = 'http://translatewiki.net/w/i.php?title=Special%3ATranslate&task=export-to-file&group=out-fudforum&language='. $de;
 	$url_stuff = parse_url($url);
 
 	$fp = fsockopen($url_stuff['host'], 80, $errno, $errstr);
 	if (!$fp) {
 		echo 'ERROR: '. $errstr .' ('. $errno .")\n";
 	} else {
-		$query = 'GET '. $url_stuff['path'] .'?'. $url_stuff['query'] ." HTTP/1.0\r\n";
+		// $query = 'GET '. $url_stuff['path'] .'?'. $url_stuff['query'] ." HTTP/1.0\r\n";
+		$query = 'GET '. $url ." HTTP/1.0\r\n";
 		$query .= "User-Agent: FUDforum\r\n";
 		$query .= "Connection: close\r\n";
 		$query .= "\r\n\r\n";
@@ -45,7 +46,7 @@ while ($de = readdir($dp)) {
 		fclose($fp);
 
 		if (!strlen($messages) || substr($messages,0,15) != '# Messages for ' ) {
-			echo "Download failed.\n";
+			echo "Unexpected data. First part: [". substr($messages,0,15) ."]\n";
 		} else {
 			$msgfile = $de .'/msg';
 			file_put_contents($msgfile, $messages);

@@ -1,8 +1,10 @@
 # Messages for Spanish (Español)
 # Exported from translatewiki.net
 # Author: Crazymadlover
+# Author: Locos epraix
 # Author: McDutchie
 # Author: Peter17
+# Author: Translationista
 
 action:Acción
 add_to_buddy_list:agregar a la lista de amigos
@@ -11,7 +13,6 @@ admin_control_panel:Panel del administrador
 administrator:Administrador
 attachment:Archivo adjunto:
 avatar:Avatar:
-# Fuzzy
 average_post_count:{PLURAL: u->posted_msg_count|$1 Mensaje|$1 Mensajes} ({PLURAL: avg|$1 mensaje promedio|$1 mensajes promedio} por día)
 biography:Biografía:
 birth_date:Fecha de nacimiento:
@@ -46,6 +47,7 @@ homepage:Página de inicio:
 icq_control_panel:Panel ICQ en línea-mensaje
 icq_message_form:Formulario de mensaje ICQ:
 ignore_user:ignorar todos los mensajes publicados por este usuario
+im_aim:Usuario AIM:
 im_msnm:MSN Messenger:
 im_yahoo:Yahoo Messenger:
 image:Imagen:
@@ -69,8 +71,9 @@ mark_all_read:Marcar todos los mensajes como leídos
 mark_all_read_desc:Todos sus mensajes no leídos serán marcados como leídos
 members:Miembros
 calendar:Calendario
+cal_goto_date:Ir la:
+cal_no_events:No hay eventos para este día.
 message:Mensaje
-# Fuzzy
 message_counter:Nuestros usuarios han publicado un total de <b>{PLURAL: post_count|$1 mensaje|$1 mensajes}</b> dentro de <b>{PLURAL: thread_count|$1 tema|$1 temas}</b>.
 message_index:Índice de mensajes
 message_index_desc:Ver la lista de mensajes
@@ -88,8 +91,7 @@ moved:Movido a otro foro
 moved_thread_message:Este hilo de discusión ha sido movido a otro foro
 na:no disponible
 new_posts:Nuevos mensajes
-# Fuzzy
-new_private_messages:Tienes <span class="GenTextRed">({VAR: c})</span> {PLURAL: c|mensaje privado|privados} sin leer
+new_private_messages:Tienes <span class="GenTextRed">({VAR: c})</span> {PLURAL: c|mensaje privado|mensajes privados} sin leer
 new_thread:Crear un nuevo hilo de discusión
 newest_user:El último usuario registrado es
 next_page:Página siguiente
@@ -105,7 +107,6 @@ no_unread_locked:Este hilo de discusión ha sido bloqueado
 no_unread_msg:Este hilo de discusión no tiene mensajes no leídos
 no_unread_msg_unreg:Sólo los usuarios registrados pueden hacer seguimiento de mensajes leídos y no leídos
 num_pages:Páginas ({VAR: ttl_pg}):
-# Fuzzy
 num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|voto|votos}
 occupation:Ocupación:
 off:DESACTIVADO
@@ -147,7 +148,6 @@ sender_name:Nombre del remitente:
 show_posts_by:Mostrar mensajes de: {VAR: u_alias}
 size:Tamaño:
 status:Estado:
-# Fuzzy
 status_line:Hay <b>{PLURAL: st_obj->online_users_reg|$1 miembro|$1 miembros}</b>, <b>{PLURAL: st_obj->online_users_hidden|$1 miembro invisible|$1 miembros invisibles}</b> y <b>{PLURAL: st_obj->online_users_anon|$1 visitante|$1 visitantes}</b> visitando este foro.
 sticky:Fijo:
 stop_ignoring:dejar de ignorar a este usuario
@@ -188,8 +188,7 @@ unsubscribe:Desuscribir
 unsubscribe_desc:Dejar de recibir avisos acerca de nuevos hilos de discusión en el foro
 updated_on:Actualizado el:
 user:Usuario
-# Fuzzy
-user_counter:Tenemos <b>{VAR: st_obj->user_count}</b> {PLURAL: st_obj->user_count|usuario|usuarios} registrados.
+user_counter:Tenemos <b>{VAR: st_obj->user_count}</b> {PLURAL: st_obj->user_count|usuario registrado|usuariosregistrados}.
 user_info:Información del usuario
 user_info_l:Información del usuario {VAR: u->alias}
 user_offline:{VAR: obj->login} no está actualmente en el foro
@@ -400,13 +399,11 @@ file_attachments:Archivos adjuntos:
 allowed_files:Extensiones de archivos permitidas:
 max_file_size:Tamaño máximo de archivo:
 max_files_per_msg:Número máximo de archivos por mensaje:
-# Fuzzy
 post_notification:Publicar notificación
 include_sig:Incluir firma
 include_sig_desc:Incluir la firma de su perfil.
 disable_smilies:Desactivar los emoticonos en este mensaje
 spell_check_msg:Corregir la ortografía del mensaje
-# Fuzzy
 post_form:Publicar formulario
 post_forum:Foro:
 post_title:Título:
@@ -775,6 +772,7 @@ rate_worst:Peor
 rate_best:Mejor
 post_quote_msg:{VAR: msg->login} escribió el {TEMPLATE: make_report_date}
 post_quote:Cita:
+post_quote_selected:Citar texto seleccionado
 userinfo_referals:Usuarios referidos:
 userinfo_referals_count:{VAR: referals} Miembros
 pm_no_space_title:¡No queda espacio!
@@ -822,6 +820,8 @@ quicklogin_password:Contraseña:
 quicklogin_use_cookies:¿Usar cookies?
 quicklogin_login_btn:Iniciar sesión:
 quick_reply:Respuesta rápida
+quick_reply_post:Publicar respuesta rápida
+quick_reply_preview:Previsualizar respuesta rápida
 post_notification_desc:Notificarme cuando alguien responda a este mensaje.
 post_all_ext_allowed:(sin restricción)
 maximize_category:Maximizar categoría
@@ -836,6 +836,7 @@ pmsg_prev_msg:Mensaje anterior
 post_proc_reveal_spoiler:Mostrar Spoiler
 register_jabber:Usuario Jabber:
 register_skype:Identificador Skype:
+register_twitter:Nombre de usuario de Twitter:
 register_google:Identificador Google Chat/IM:
 im_jabber:Jabber:
 im_google:Google Talk:
@@ -903,7 +904,6 @@ err_mod_acc_ttl:La cuenta no está verificada
 err_mod_acc_msg:El administrator ha elegido revisar todas las cuentas manualmente antes de su activación. Hasta que el administrador valide la cuenta, no podrá usar todas las posibilidades de su cuenta.
 accounts_pending_approval:Cuentas pendientes de aprobación
 saved:Guardados
-# Fuzzy
 register_err_time_limit:Se ha alcanzado el límite de un registro cada {GVAR: REG_TIME_LIMIT} segundos. Por favor, espere {PLURAL: reg_limit_reached|$1 segundo|$1 segundos}, y luego vuelva a intentar el registro.
 register_affero:Nombre de usuario Affero:<br /><span class="SmallText">Si tiene un usuario <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">Affero</a>, ingréselo aquí.</span>
 im_affero:Usuario Affero
@@ -972,12 +972,14 @@ findu_ban:Expulsado
 findu_edit:Editar
 findu_delete:Borrar
 dmsg_reply_to:es una respuesta a
+dmsg_reply_num:mensaje #{VAR: obj->reply_to}
 merge_topics:Juntar hilo
 merge_topics_cp:Panel para unir hilos de discusión
 merge_topics_tpl:Seleccione los hilos que se van a unir <font class="SmallText">(debe selecionar más de 1 hilo)</font>
 merge_merge:Unir los hilos seleccionados
 merge_next:Hilos siguientes
 merge_prev:Hilo anterior
+merge_another:Ir al <a href="{TEMPLATE: merge_another_lnk}">último hilo combinado</a> o combine otro:
 split_cp:Panel de control para separar hilos
 groups_perms_header:Permisos <font size="-1">(mueva el ratón por encima del permiso para ver el tipo de permiso)</font>
 register_err_sig_too_long:Su firma supera el número máximo de caracteres permitidos ({GVAR: FORUM_SIG_ML}) en la firma.
@@ -1041,6 +1043,7 @@ pmsg_pdf_btn:Crear archivo PDF
 search_results_hdr:Se encontraron {VAR: total} resultados para su búsqueda
 thread_del_all:Borrar todos los seleccionados
 thread_mov_all:Mover todos los seleccionados
+thread_merge_all:Combinar todos los seleccionados
 thread_loc_all:Bloquear/desbloquear todos los seleccionados
 dmsg_ip:IP:
 err_blockedaccnt_title:ERROR: Su cuenta ha sido filtrada.
@@ -1078,6 +1081,7 @@ tabs_notifications:Notificaciones
 finduser_flag:Bandera
 post_descr:Descripción de tópico
 pmsg_on:en
+pmsg_download_dump:Descargar volcado de mensajes
 move_messages:Mover mensajes
 move_msg_btn:Mover mensajes seleccionados
 move_msg_th_expl:Especificar el ID del tópico de destino (puede estar en otros foros)
@@ -1091,14 +1095,22 @@ social_sites:Sitios de redes sociales:
 postcheck_min_len_err:Tu mensaje es demasiado corto. El tamaño mínimo es de {PLURAL: post_min_len|$1 caracter|$1 caracteres}.
 postcheck_dup_err:Por favor no crear tópicos duplicados.
 btn_new_topic:Nuevo tópico
+btn_new_pm:Nuevo mensaje personal
 btn_post_reply:Respuesta a mensaje
 btn_tree_view:Vista en árbol
 btn_flat_view:Vista plana
 btn_about:Perfil
+btn_small_pm:MP
 btn_delete:borrar
 btn_edit:editar
 btn_reply:respuesta
+btn_forward:siguiente
 btn_quote:cita
 btn_email:Correo electrónico
 btn_show_posts:mensajes
 btn_homepage:www
+feed_no_data:No se encontró ningún dato coincidente.
+feed_rdf:Fuente RDF
+feed_rss:fuente RSS2
+feed_atom:fuente ATOM
+ip_whois_connect_err:No se pudo conectar con el servidor WHOIS ({VAR: whois_server}): {VAR: errstr}

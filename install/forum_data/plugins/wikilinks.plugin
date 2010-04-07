@@ -17,6 +17,10 @@ plugin_add_hook('HTML2BBCODE', 'plugin_wikilinks_html_to_tag');
 function plugin_wikilinks_tag_to_html($array) {
 	list($bbcode) = $array;
 
+	if((@include_once $GLOBALS['PLUGIN_PATH'].'/wikilinks.ini') === false) {
+		die('ERROR: Please configure the wikilinks plugin from the Plugin Manager Control panel.');
+	}
+
 	// Remove [notag] blocks.
 	$pre = NULL; $i = 0;
 	if (preg_match_all('#\[notag\](.*?)\[\/notag\]#si', $bbcode, $notags, PREG_SET_ORDER)) {
