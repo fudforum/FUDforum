@@ -21,7 +21,8 @@
 	}
 	if (isset($_POST['btn_clear_sessions'])) {
 		q('DELETE FROM '. $tbl .'ses');
-		echo successify('All forum sessions were cleared.<br />You (and all your users) will have to log in again!');
+		echo successify('All forum sessions were cleared.');
+		echo errorify('You (and all your users) will have to log in again!');
 	}
 
 ?>

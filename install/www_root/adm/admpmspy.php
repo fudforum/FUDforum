@@ -27,7 +27,7 @@
 		}
 		unset($r, $r2);
 	}
-	
+
 	if (!empty($_POST['user']) || !empty($_GET['user'])) {
 		$user = empty($_POST['user']) ? $_GET['user'] : $_POST['user'];
 	}
@@ -81,7 +81,7 @@
 	while ($r = db_rowarr($c)) {
 		$bgcolor = ($i++%2) ? ' class="resultrow2"' : ' class="resultrow1"';
 		echo '<tr'. $bgcolor .'">';
-		echo '<td>'. $r[5] .'</td>';
+		echo '<td><a href="admpmspy.php?user='. $user .'&amp;'. __adm_rsid .'">'. $r[5] .'</a></td>';
 		echo '<td>'. $r[1] .'</td>';
 		echo '<td>'. $folders[$r[2]] .'</td>';
 		echo '<td><a href="admpmspy.php?msg='. $r[0] .'&amp;user='. $user .'&amp;'. __adm_rsid .'">'. $r[3] .'</a></td>';

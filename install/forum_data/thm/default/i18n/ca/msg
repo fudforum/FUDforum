@@ -1,6 +1,7 @@
 # Messages for Catalan (Català)
 # Exported from translatewiki.net
 # Author: McDutchie
+# Author: Paucabot
 # Author: Qllach
 # Author: Ssola
 
@@ -10,8 +11,7 @@ admin:Admin
 admin_control_panel:Panell de l`administrador
 administrator:Administrador
 attachment:Arxiu adjunt:
-# Fuzzy
-average_post_count:{VAR: u->posted_msg_count} missatge(s) ({VAR: avg} promig per dia)
+average_post_count:{PLURAL: u->posted_msg_count|$1 Missatge|$1 Missatges} ({PLURAL: avg|$1 missatge de mitjana|$1 missatges de mitjana} per dia)
 biography:Biografia:
 birth_date:Data de naixement:
 by:Per:
@@ -20,10 +20,8 @@ current_time:Data i hora actual
 custom_avatar_queue:Cua avatars personalitzats
 date_posted:Data de publicació
 date_registered:Data de registre:
-# Fuzzy
-download_counter:Descarregat {VAR: v[3]} vegades
-# Fuzzy
-pmsg_download_counter:Descarregat {VAR: r->dlcount} cop(s)
+download_counter:Descarregat {PLURAL: v[3]|$1 vegada|$1 vegades}
+pmsg_download_counter:Descarregat {PLURAL: r->dlcount|$1 vegada|$1 vegades}
 email:Correu electrònic:
 email_to_friend:Enviar un correu a un amic
 email_to_friend_desc:Enviar la URL d`aquesta pàgina per correu a un amic
@@ -66,8 +64,7 @@ mark_all_read:Marcar tots els missatges no llegits
 mark_all_read_desc:Tots els seus missatges no llegits seran marcats com a llegits
 members:Membres
 message:Missatge
-# Fuzzy
-message_counter:Els nostres usuaris han publicat un total de <b>{VAR: post_count}</b> missatges dins de <b>{VAR: thread_count}</b> fils de discussió.
+message_counter:Els nostres usuaris han publicat un total de <b>{PLURAL: post_count|$1 missatge|$1 missatges}</b>  a <b>{PLURAL: thread_count|$1 fil de discussió|$1 fils de discussió}</b>.
 message_index:Índex de missatges
 message_index_desc:Veure la llista de missatges
 minimize_category:Minimitzar categoria
@@ -75,8 +72,7 @@ moderation_queue:Cua de moderació
 moderator:Moderador
 moderator_of:Moderador de:
 moderator_options:Opcions del moderador
-# Fuzzy
-moderators:Moderador(s)
+moderators:{PLURAL: modcount|Moderador|Moderadors}
 more_unread_messages:més missatges no llegits
 more_unread_messages_desc:Mostrar més missatges no llegits i marcar els missatges actualment visibles com a llegits
 move_thread:Moure
@@ -84,8 +80,7 @@ moved:Mogut a un altre fòrum
 moved_thread_message:Aquest fil de discussió ha estat mogut a un altre fòrum
 na:no disponible
 new_posts:Nous missatges
-# Fuzzy
-new_private_messages:Vostè té <span class="GenText" style="color: #ff0000">({VAR: c})</span> missatge(s) privats sense llegir
+new_private_messages:Teniu <span class="GenTextRed">({VAR: c})</span> {PLURAL: c|missatge privat|missatges privats} sense llegir
 new_thread:Crear un nou fil de discussió
 newest_user:L`últim usuari registrat és
 next_page:Pàgina següent
@@ -100,8 +95,7 @@ no_unread_locked:Aquest fil de discussió ha estat bloquejat
 no_unread_msg:Aquest fil de discussió no té missatges no llegits
 no_unread_msg_unreg:Tan sols els usuaris enregistrats poden fer seguiment de missatges llegits i no llegits
 num_pages:Pàgines ({VAR: ttl_pg}):
-# Fuzzy
-num_votes:{VAR: obj->total_votes} vot(s)
+num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|vot|vots}
 occupation:Ocupació:
 off:DESACTIVAT
 on:ACTIVAT
@@ -371,14 +365,12 @@ file_attachments:Arxius adjuns:
 allowed_files:Extensions d`arxius permeses:
 max_file_size:Mida màxima d`arxiu:
 max_files_per_msg:Nombre màxim d`arxius per missatge:
-# Fuzzy
-post_notification:Publicar notificació
+post_notification:Notificació de nous comentaris
 include_sig:Incloure signatura
 include_sig_desc:Incloure la signatura del seu perfil.
 disable_smilies:Desactivar les emoticones en aquest missatge
 spell_check_msg:Corregir l`ortografi­a del missatge
-# Fuzzy
-post_form:Publicar formulari
+post_form:Formulari de publicació
 post_forum:Fòrum:
 post_title:Tí­tol:
 post_body:Cos del missatge:
@@ -827,8 +819,7 @@ ignored_anon_post:{GVAR: ANON_NICK} és ignorat
 ignored_user_post:El missatge de <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> és ignorat
 smladd_close_window:Tancar finestra
 post_list_smilies:llistar totes les emoticones
-# Fuzzy
-reported_in_thread:En fil de discussió
+reported_in_thread:A:
 help_back_to_top:Tornar a dalt
 help_return_to_index:Tornar a l`í­ndex d`ajuda
 imsg_err_message_title:El missatge no és vàlid
@@ -951,8 +942,7 @@ findu_unban:No expulsat
 findu_ban:Expulsat
 findu_edit:Modificar
 findu_delete:Esborrar
-# Fuzzy
-dmsg_reply_to:és una resposta al missatge #{VAR: obj->reply_to}
+dmsg_reply_to:és una resposta a
 merge_topics:Ajuntar fil
 merge_topics_cp:Panell per a unir fils de discussió
 merge_topics_tpl:Seleccioni els fils que s`uniran <font class="SmallText">(ha de seleccionar més d`un fil)</font>

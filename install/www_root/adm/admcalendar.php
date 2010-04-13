@@ -34,7 +34,7 @@
 		if (isset($_POST['FUD_OPT_3_CALENDAR_ENABLED'])) {
 			if ($_POST['FUD_OPT_3_CALENDAR_ENABLED'] & 134217728) {
 				$FUD_OPT_3 |= 134217728;
-				echo successify('The forum\'s calendar was successfully enabled. Visit the <a href="../'. __fud_index_name__ . '?t=cal&amp;'. __adm_rsid .'">calendar</a>.');
+				echo successify('The forum\'s calendar was successfully enabled.<br />Visit the <a href="../'. __fud_index_name__ . '?t=cal&amp;'. __adm_rsid .'">calendar</a>.');
 			} else {
 				$FUD_OPT_3 &= ~134217728;
 				echo successify('The forum\'s calendar was successfully disabled.');

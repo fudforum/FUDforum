@@ -395,7 +395,7 @@ coppa_fax_no_permission:Firma qui se preferisci che l'account sia rimosso
 coppa_fax_parent_name:Nome completo Genitore/Tutore:
 coppa_fax_relation:Tipo di parentela col bambino:
 coppa_fax_telephone:Telefono:
-coppa_fax_email:Indirizzo Email:
+coppa_fax_email:Indirizzo e-mail:
 coppa_fax_date:Data:
 coppa_fax_questions:Per piacere contatta <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> per qualsiasi domanda
 coppa_fax_remail:Email
@@ -441,7 +441,7 @@ search_in_forum:Cerca nel forum:
 search_forum_search:Ricerca nel forum
 move_thread_to:Sposta argomento <b>{VAR: thr->subject}</b> in:
 remail_email_topic:Segnala questo argomento ad un amico
-remail_your_name:Il tuo nome:
+remail_your_name:Tuo nome:
 remail_your_email:La tua email:
 remail_friends_name:Nome dell'amico:
 remail_friends_email:Email dell'amico:
@@ -816,7 +816,7 @@ polllist_vote:Vota
 polllist_view_results:Vedi risultati
 polllist_name:Sondaggio
 polllist_date:Creato
-polllist_owner:Creato da
+polllist_owner:creato da
 polllist_votes:Voti totali
 polllist_action:Azione
 polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">Sto controllando i sondaggi</a>

@@ -42,6 +42,12 @@ function welcome_pm_info() {
 				 'version' => '1.1');
 }
 
+function welcome_pm_enable() {
+	if((@include_once $GLOBALS['PLUGIN_PATH'].'/welcome_pm.ini') === false) {
+		return 'Please configure the welcome_pm plugin before enabling it.';
+	}
+}
+
 function welcome_pm_config() {
 	if((@include_once $GLOBALS['PLUGIN_PATH'].'/welcome_pm.ini') === false) {
 	  $ini = NULL;

@@ -402,12 +402,12 @@ function flood_check()
 			}
 
 			/* Where to redirect, to the tree view or the flat view and consider what to do for a moderated forum or post-only forum. */
-			if (!$MOD && 		// Not a modersator.
+			if (!$MOD && 		// Not a moderator.
 			    !($perms & 2))	// p_READ (cannot read forum)
 			{
 				check_return();
 			} else if (($frm->forum_opt & 2 && !$MOD) ||	// Moderated forum & not a mod.
-			           ($usr->posted_msg_count <= $MOD_FIRST_N_POSTS && !$MOD))	// Min quota posts not reached.
+			           ($usr->posted_msg_count < $MOD_FIRST_N_POSTS && !$MOD))	// Min quota posts not reached.
 			{
 				if ($FUD_OPT_2 & 262144) {	// MODERATED_POST_NOTIFY
 					$modl = db_all('SELECT u.email FROM {SQL_TABLE_PREFIX}mod mm INNER JOIN {SQL_TABLE_PREFIX}users u ON u.id=mm.user_id WHERE mm.forum_id='.$frm->id);

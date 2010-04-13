@@ -13,8 +13,8 @@
 function generate_turing_val(&$rt)
 {
 	if (defined('plugins')) {
-		list($text, $rt) = plugin_call_hook('CAPTCHA');
-		if ($text && $rt) {
+		@list($text, $rt) = plugin_call_hook('CAPTCHA');
+		if (isset($text) && isset($rt)) {
 			$rt = md5($rt);
 			return $text;
 		}

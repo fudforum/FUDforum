@@ -37,7 +37,7 @@ forum_none_messages:Alleen geregistreerde forumleden kunnen gelezen en ongelezen
 forum_old_messages:Geen nieuwe berichten
 from:Van:
 gender:Geslacht:
-go:OK
+go:Отваряне
 goto_next_msg:Naar volgende bericht
 goto_prev_msg:Naar vorige bericht
 home:Home
@@ -866,7 +866,7 @@ polllist_vote:Stemmen
 polllist_view_results:Resultaten bekijken
 polllist_name:Stemmingsnaam
 polllist_date:Aangemaakt op
-polllist_owner:gecreëerd door
+polllist_owner:aangemaakt door
 polllist_votes:Totaal aantal stemmen
 polllist_action:Handeling
 polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">Beschikbare stemmingen bekijken</a>
