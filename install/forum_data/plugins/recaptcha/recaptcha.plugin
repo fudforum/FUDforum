@@ -49,6 +49,12 @@ function recaptcha_info() {
 				 'version' => '1.0');
 }
 
+function recaptcha_enable() {
+	if((@include_once $GLOBALS['PLUGIN_PATH'].'/recaptcha/recaptcha.ini') === false) {
+		return 'Please configure the recaptcha plugin before enabling it.';
+	}
+}
+
 // Configuration via the Admin Control Panel
 function recaptcha_config() {
 	if((@include_once $GLOBALS['PLUGIN_PATH'].'/recaptcha/recaptcha.ini') === false) {
