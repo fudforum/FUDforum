@@ -92,6 +92,7 @@
 	unset($doc);
 
 	/* Loop through entries and extract requrired data into a date sortable structure. */
+	$articles = array();
 	foreach ($arrFeeds as $node) {
 		if (isset($node->getElementsByTagName('pubDate')->item(0)->nodeValue)) {
 			$date = $node->getElementsByTagName('pubDate')->item(0)->nodeValue;
