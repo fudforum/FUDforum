@@ -1,5 +1,6 @@
 # Messages for Latvian (Latviešu)
 # Exported from translatewiki.net
+# Author: Papuass
 
 action:Darbība
 add_to_buddy_list:pievienot kontaktu sarakstam
@@ -23,8 +24,7 @@ download_counter:{VAR: v[3]} reizes ielādēts
 email:E-pasts:
 email_to_friend:Nosūtīt E-pastu
 email_to_friend_desc:Nosūtīt URL-saiti par šo ierakstu pa E-pastu
-# Fuzzy
-email_user:Nospied lai nosūtītu E-pastu
+email_user:Nosūtīt lietotājam e-pasta ziņojumu
 faq:F.A.Q.
 first_unread_msg:Pāriet uz nelasītajiem paziņojumiem
 first_unread_msg_desc:Pāriet uz pirmo nelasīto šajā tēmā
@@ -74,8 +74,7 @@ minimize_category:Sakļaut kategoriju
 moderator:Moderātors
 moderator_of:Moderējamie forumi:
 moderator_options:Moderātora funkcijas
-# Fuzzy
-moderators:Moderātori
+moderators:{PLURAL: modcount|Moderators|Moderatori}
 more_unread_messages:pārējie nelasītie ieraksti
 more_unread_messages_desc:Parādīt pārējos nelasītos ierakstus un atzīmēt aktivizēto kā lasīto
 move_thread:Pārvietot
@@ -153,8 +152,7 @@ subscribed_threads_desc:Uzrādīt ierakstus tikai no pierakstītajām tēmām
 switch_to_thread_view:Uzrādīt ierakstus un atbildes hierarhijas koka veidā
 thread:Tēma:
 thread_announcement:Sludinājums:
-# Fuzzy
-thread_first_unread_msg:Uz pirmo nelasīto ierakstu šajā tēmā
+thread_first_unread_msg:Iet uz pirmo nelasīto ziņojumu šajā tēmā
 thread_thread:Tēma
 threads:Tēmas
 time:Laiks
@@ -246,6 +244,20 @@ month_9:Septembris
 month_10:Oktobris
 month_11:Novembris
 month_12:Decembris
+sunday:Svētdiena
+sunday_short:Sv
+monday:Pirmdiena
+monday_short:Pr
+tuesday:Otrdiena
+tuesday_short:Ot
+wednesday:Trešdiena
+wednesday_short:Tr
+thursday:Ceturtdiena
+thursday_short:Ce
+friday:Piektdiena
+friday_short:Pk
+saturday:Sestdiena
+saturday_short:Se
 male:Vīrietis
 female:Sieviete
 unspecified:Nekatrais
@@ -264,6 +276,7 @@ finduser_joindate:Pieslēgšanās datums
 finduser_action:Darbības
 yes:Jā
 no:Nē
+register_email:E-pasts
 edit_time_limit:<b>Izmaiņu veikšanas periods</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minūtes
 no_edit_time_limit:<b> Izmaiņu veikšanas periods </b>: <b>Nelimitēts</b>
 pmuserloc_login:Vārds:
@@ -313,6 +326,7 @@ register_bio_desc:Dažas papildus detaļas par Jums
 register_prefs:Privātie uzstādījumi
 register_sig:Paraksts:
 register_sig_desc:Neobligātais paraksts. Tiks pievienots Jūsu sūtījumiem.
+register_reset:Notīrīt
 register_def_thread_view:Noklusētais tēmu skats:
 register_msg_per_page:Ieraksti lapā:
 register_show_sig:Uzrādīt pierakstus:
@@ -402,7 +416,7 @@ coppa_fax_sign:Lūdzu izdrukājiet un aizpildiet šo formu, parakstiet to un nos
 coppa_fax_conf:I have reviewed the information my child has supplied and I have read the Privacy Policy for the web site. I understand that the profile information may be changed by a using a password. I understand that I may ask for this registration profile be removed entirely.
 coppa_fax_relation:Relation to child:
 coppa_fax_email:Email address:
-coppa_fax_remail:Email
+coppa_fax_remail:E-pasts
 login_not_logedin:Jūs neiekļuvāt forumā. Par iemeslu tam var būt sekojoši apstākļi:
 login_cookie_expired:Jūsu Web pārlūka cookie darbības laiks ir beidzies, lai to atjaunotu vēlreiz ielogojieties.
 login_perm_denied:Jums nav tiesību piekļūt pieprasītajiem resursiem kā anonīmajam lietotājam, tādēļ ienāciet ar reālu foruma dalībnieka Niku un Paroli.
@@ -477,10 +491,10 @@ mklist_disc:Aizzīme - diski
 mklist_circle:Aizzīme - aplīši
 mklist_close:Aizvērt
 email_to:Kam:
-email_pg_title:Email
+email_pg_title:E-pasts
 email_subject:Tēma:
 email_body:Teksts:
-email_submit:Email
+email_submit:E-pasts
 ppost_quote_msg:{VAR: msg_to_list} uzrakstīja {TEMPLATE: ppost_quote_msg_date}
 ppost_quote:Citāts:
 ppost_to:Kam:
@@ -493,8 +507,7 @@ ppost_save_draft:Saglabāt
 poll_blank_option:Tukšumu nevar pievienot.
 poll_del_conf:Lai dzēstu, spiediet OK
 poll_name:Balsojuma nosaukums:
-# Fuzzy
-poll_timelimit:Darbības laiks
+poll_timelimit:Termiņš:
 # Fuzzy
 poll_maxiumvotes:Maksimālais balsu skaits
 poll_create:Izveidot

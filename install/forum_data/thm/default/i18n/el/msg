@@ -62,6 +62,7 @@ logout:Αποσύνδεση
 mark_all_read:σήμανση όλων των μηνυμάτων ως διαβασμένων
 mark_all_read_desc:Όλα τα μη αναγνωσμένα μηνύματα θα σημανθούν ως αναγνωσμένα
 members:Μέλη
+calendar:Ημερολόγιο
 message:Μήνυμα
 message_index:Δείκτης μηνύματος
 message_index_desc:Εμφάνιση της λίστας μηνυμάτων
@@ -217,6 +218,20 @@ month_9:Σεπτέμβριος
 month_10:Οκτώβριος
 month_11:Νοέμβριος
 month_12:Δεκέμβριος
+sunday:Κυριακή
+sunday_short:Κ
+monday:Δευτέρα
+monday_short:Δ
+tuesday:Τρίτη
+tuesday_short:Τρ
+wednesday:Τετάρτη
+wednesday_short:Τε
+thursday:Πέμπτη
+thursday_short:Πέ
+friday:Παρασκευή
+friday_short:Πα
+saturday:Σάββατο
+saturday_short:Σ
 male:Άνδρας
 female:Γυναίκα
 unspecified:ΑΠΡΟΣΔΙΟΡΙΣΤΟ
@@ -357,6 +372,7 @@ report_err_nosuchmsg_title:ΣΦΑΛΜΑ
 reset_err_invalidkey_title:ΣΦΑΛΜΑ
 reset_err_rstconf_title:Πληροφορία
 help_title:Βοήθεια
+post_opt_images_on:Οι <b>εικόνες</b> είναι <b>σε</b>
 groupmgr_no:Όχι
 groupmgr_cancel:Άκυρο
 groupmgr_edit:Επεξεργασία
@@ -366,6 +382,20 @@ p_EDIT:Επεξεργασία
 p_DEL:Διαγραφή
 p_VOTE:Ψηφοφορία
 th_expr_never:Ποτέ
+th_expr_one_hr:1 ώρα
+th_expr_three_hr:3 Ώρες
+th_expr_four_hr:4 Ώρες
+th_expr_eight_hr:8 Ώρες
+th_expr_sixteen_hr:16 Ώρες
+th_expr_one_day:1 Ημέρα
+th_expr_two_day:2 Ημέρες
+th_expr_four_day:4 Ημέρες
+th_expr_one_week:1 εβδομάδα
+th_expr_two_week:2 Εβδομάδες
+th_expr_one_month:1 Μήνας
+th_expr_two_month:2 Μήνες
+th_expr_four_month:4 Μήνες
+th_expr_one_year:1 έτος
 thread_mod_delete:Διαγραφή
 split_th_subject:Θέμα:
 split_th_select:Επιλογή

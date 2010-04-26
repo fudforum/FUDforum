@@ -491,7 +491,7 @@ remail_subject:Onderwerp:
 remail_message:Bericht:
 remail_send_now:E-mail verzenden
 remail_anon_opt:Dit bericht kopiëren naar een e-mailprogramma van uw keuze om het naar een contactpersoon te verzenden.
-remail_done:Klaar
+remail_done:Afgerond
 remail_sent_conf:De e-mail naar uw vriend met e-mailadres {VAR-HTML: _POST['femail']} over het onderwerp {VAR: data->subject} is verzonden.
 remail_error:Er is een fout opgetreden
 mklist_type:Type:

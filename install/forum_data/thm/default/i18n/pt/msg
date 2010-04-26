@@ -1,5 +1,6 @@
 # Messages for Portuguese (Português)
 # Exported from translatewiki.net
+# Author: Crazymadlover
 # Author: Fryed-peach
 # Author: Hamilton Abreu
 # Author: Luckas Blade
@@ -70,6 +71,7 @@ logout:Sair
 mark_all_read:marcar todas as mensagens como lidas
 mark_all_read_desc:Todas a suas mensagens serão marcadas como lidas
 members:Membros
+calendar:Calendário
 message:Mensagem
 message_counter:Os nossos utilizadores colocaram um total de <b>{PLURAL: post_count|$1 mensagem|$1 mensagens}</b> em <b>{PLURAL: thread_count|$1 tópico|$1 tópicos}</b>.
 message_index:Indice da mensagem
@@ -251,6 +253,20 @@ month_9:Setembro
 month_10:Outubro
 month_11:Novembro
 month_12:Dezembro
+sunday:Domingo
+sunday_short:D
+monday:Segunda-feira
+monday_short:S
+tuesday:Terça-feira
+tuesday_short:T
+wednesday:Quarta-feira
+wednesday_short:Q
+thursday:Quinta-feira
+thursday_short:Qui
+friday:Sexta-feira
+friday_short:S
+saturday:Sábado
+saturday_short:Sa
 male:Masculino
 female:Feminino
 unspecified:NÃO ESPECIFICADO
@@ -288,6 +304,7 @@ register_your_pass:A sua Password:
 register_update:Actualizar
 register_avatar_type:Tipo de Avatar:
 register_del_avatar:Apagar Avatar
+register_avatar:Avatar:
 register_sel_avatar:Selecionar Avatar
 register_custom_avatar_rules:O Avatar escolhido não aparecerá até que seja aprovado pelo administrador.<br /><font class="SmallText">O Avatar não poderá ter mais de <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} pixels</b> de largura e terá de estar no formato.<b>jpg</b>, <b>gif</b> ou <b>png</b></font>
 register_custom_avatar_url:URL do Avatar escolhido:
@@ -943,6 +960,7 @@ mnav_minute:Minuto(s)
 mnav_hour:Hora(s)
 mnav_day:Dia(s)
 mnav_week:Semana(s)
+mnav_month:Mês (es)
 pm_notify_body_email:You have a new private message titled "{VAR: subject}" from "{VAR: from}" on the "{GVAR: FORUM_TITLE}" forum.\nTo view the message click here: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nTo stop future notifications, disable "Private Message Notification" in your profile.
 register_pm_notification:Private Message Notification
 register_pm_notification_desc:If enabled you will be notified the via your notification method of choice whenever a private message is sent to you.

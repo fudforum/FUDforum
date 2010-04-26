@@ -527,7 +527,7 @@ poll_del_conf:Trykk OK om du vil slette dette alternativet
 poll_name:emne for avstemning:
 poll_timelimit:Tidsgrense:
 poll_maxiumvotes:Maksimum stemmer:
-poll_create:Lage
+poll_create:Opprett
 poll_update:Oppdatere
 poll_disablesmilies:Slå av smilies
 poll_create_poll:Lag en avstemning
