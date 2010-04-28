@@ -421,7 +421,8 @@ function add_attachment($name, $data, $pid)
 		$inbox = '{'. $mlist->mbox_server .'/'. $protocol . $tls . '}INBOX';
 		echo "Connecting to mailbox $inbox\n";
 		$mbox = @imap_open($inbox, $mlist->mbox_user, $mlist->mbox_pass) or die('Can\'t connect to mailbox: '. imap_last_error());
-		$emails = @imap_search($mbox, 'RECENT');
+		// $emails = @imap_search($mbox, 'RECENT');
+		$emails = array_reverse(@imap_sort($mbox, 'SORTDATE', 0));
 	}
 
 	$done = 0;
