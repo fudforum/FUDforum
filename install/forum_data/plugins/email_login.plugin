@@ -1,0 +1,28 @@
+<?php
+/**
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* email                : forum@prohost.org
+* $Id$
+*
+* This program is free software; you can redistribute it and/or modify it
+* under the terms of the GNU General Public License as published by the
+* Free Software Foundation; version 2 of the License.
+**/
+
+// Initialize plugin.
+plugin_add_hook('AUTHENTICATE', 'plugin_email_login');
+
+// Change E-Mail address to forum userid.
+function plugin_email_login() {
+	if (!empty($_POST['login']) && preg_match('/^[^@]+\@.+\..+$/', $_POST['login'])) {
+		// Username looks like an E-Mail Address, look it up and return the username.
+		$_POST['login'] = q_singleval('SELECT login FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'users WHERE email='. _esc($_POST['login']));
+	}
+	return 1;	// Allow access.
+}
+
+function email_login_info() {
+	return array('name' => 'E-Mail Login',
+	             'desc' => 'Allow forum users to login to the forum with either their normal username or E-mail addresses.',
+	             'version' => '1.0');
+}
