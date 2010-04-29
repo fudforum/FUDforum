@@ -134,6 +134,13 @@ function error_check()
 	$_ERROR_ = 0;
 	$_ERROR_MSG_ = array();
 
+	// Call pre authentication plugins.
+	// If authetication successfully the plugin should return full user object.
+	$usr_d = null;
+	if (defined('plugins')) {
+		$usr_d = plugin_call_hook('PRE_AUTHENTICATE');
+	}
+
 	/* Deal with quicklogin from if needed. */
 	if (isset($_POST['quick_login']) && isset($_POST['quick_password'])) {
 		$_POST['login'] = $_POST['quick_login'];
@@ -141,7 +148,7 @@ function error_check()
 		$_POST['use_cookie'] = isset($_POST['quick_use_cookies']);
 	}
 
-	if (isset($_POST['login']) && !error_check()) {
+	if ($usr_d || isset($_POST['login']) && !error_check()) {
 		if ($usr->data) {
 			ses_putvar((int)$usr->sid, null);
 		}
@@ -153,7 +160,7 @@ function error_check()
 			}
 		}
 
-		if (!($usr_d = db_sab('SELECT last_login, id, passwd, salt, login, email, users_opt, ban_expiry FROM {SQL_TABLE_PREFIX}users WHERE login='._esc($_POST['login'])))) {
+		if (!$usr_d && !($usr_d = db_sab('SELECT last_login, id, passwd, salt, login, email, users_opt, ban_expiry FROM {SQL_TABLE_PREFIX}users WHERE login='._esc($_POST['login'])))) {
 			/* Cannot login: user not in DB. */
 			login_php_set_err('login', '{TEMPLATE: login_invalid_radius}');
 
@@ -162,8 +169,8 @@ function error_check()
 			q('UPDATE {SQL_TABLE_PREFIX}users SET last_login='.__request_timestamp__.' WHERE id='.$usr_d->id);
 			login_php_set_err('login', '{TEMPLATE: login_min_time}');
 
-		} else if (empty($usr_d->salt) && $usr_d->passwd != md5($_POST['password']) || 
-			  !empty($usr_d->salt) && $usr_d->passwd != sha1($usr_d->salt . sha1($_POST['password']))) 
+		} else if (!isset($usr_d->alias) && (empty($usr_d->salt) && $usr_d->passwd != md5($_POST['password']) || 
+			  !empty($usr_d->salt) && $usr_d->passwd != sha1($usr_d->salt . sha1($_POST['password'])))) 
 		{
 			/* Check password: No salt -> old md5() auth; with salt -> new sha1() auth. */
 			logaction($usr_d->id, 'WRONGPASSWD', 0, ($usr_d->users_opt & 1048576 ? 'ADMIN: ' : '').'Invalid Password '.htmlspecialchars(_esc($_POST['password'])).' for login '.htmlspecialchars(_esc($_POST['login'])).'. IP: '.get_ip());
