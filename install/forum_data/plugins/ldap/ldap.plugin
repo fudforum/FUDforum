@@ -24,16 +24,23 @@ function plugin_ldap_auth($data) {
 		return 0;
 	}
 
+	if (defined('forum_debug')) {
+		ldap_set_option(NULL, LDAP_OPT_DEBUG_LEVEL, 7);
+	}
 	$connection = ldap_connect($ini['LDAP_HOST'], $ini['LDAP_PORT']);
 
-	if (!connection) {
+	if (!$connection) {
 		echo 'Unable to connect to an LDAP server. Contact the forum administrator! (Debug 1)';
 		return 0;
 	}
 
 	@ldap_set_option($connection, LDAP_OPT_PROTOCOL_VERSION, 3);
+	@ldap_set_option($connection, LDAP_OPT_REFERRALS, 0);
 	if ($ini['LDAP_START_TLS']) {
-		ldap_start_tls($connection);
+ 		if (!ldap_start_tls($connection)) {
+ 			echo 'Unable to connect to LDAP server via TLS! (Debug 2)';
+ 			return 0;
+ 		}
 	}
 
 	// Connection made -- bind anonymously and get dn for username.
@@ -43,8 +50,8 @@ function plugin_ldap_auth($data) {
 		$bind = @ldap_bind($connection);
 	}
 
-	if (!bind) {
-		echo 'Anonymous bind to LDAP FAILED. Contact the forum administrator! (Debug 2)';
+	if (!$bind) {
+ 		echo 'Anonymous bind to LDAP failed:', ldap_error($connection), ' Contact the forum administrator! (Debug 3)';
 		return 0;
 	}
 
@@ -52,7 +59,7 @@ function plugin_ldap_auth($data) {
 
 	// Ensure only 1 result was returned - if not, there may be a * in the username.
 	if (ldap_count_entries($connection, $search) != 1) {
-		// echo 'Unknown username. Please try to login again. (Debug 3)';
+		// echo 'Unknown username. Please try to login again. (Debug 4)';
 		return 0;
 	}
 
@@ -61,7 +68,7 @@ function plugin_ldap_auth($data) {
 	// Now, try to rebind with their full dn and password.
 	$bind = @ldap_bind($connection, $info[0][dn], $password);
 	if (!$bind || !isset($bind)) {
-		// echo 'Wrong password! Please try again. (Debug 4)';
+		// echo 'Wrong password! Please try again. (Debug 5)';
 		return 0;
 	}
 
@@ -107,7 +114,7 @@ function plugin_ldap_auth($data) {
 function ldap_info() {
 	return array('name' => 'LDAP Authentication',
 	             'desc' => 'Authenticate forum users from an LDAP server. You may want to disable "<i>Allow Registration</i>" from the <i>Global Settings Manager</i> after enabling this plugin.',
-				 'version' => '1.2');
+				 'version' => '1.3');
 }
 
 function ldap_enable() {
