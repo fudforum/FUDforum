@@ -26,7 +26,7 @@ class fud_smtp
 
 	function wts($string)
 	{
-		/* write to stream */
+		/* Write to stream. */
 		fwrite($this->fs, $string . "\r\n");
 	}
 
@@ -50,29 +50,29 @@ class fud_smtp
 			return;
 		}
 
-		/* scan all lines and look for TLS support */
+		/* Scan all lines and look for TLS support. */
 		$tls = false;
 		if ($es) {
 			while($str = @fgets($this->fs, 515)) {
 				if (substr($str, 0, 12) == '250-STARTTLS') $tls = true;
-				if (substr($str, 3,  1) == ' ') break;	// done reading if 4th char is a space
+				if (substr($str, 3,  1) == ' ') break;	// Done reading if 4th char is a space.
 
 			}
 		}
 
-		/* Do SMTP Auth if needed */
+		/* Do SMTP Auth if needed. */
 		if ($GLOBALS['FUD_SMTP_LOGIN']) {
 			if ($tls) {
-				/*  initiate TSL communication with server */
+				/*  Initiate TSL communication with server. */
 				$this->wts('STARTTLS');
 				if (!$this->get_return_code(220)) {
 					return;
 				}
-				/* encrypt the connection */
+				/* Encrypt the connection. */
 				if (!stream_socket_enable_crypto($this->fs, true, STREAM_CRYPTO_METHOD_TLS_CLIENT)) {
 					return false;
 				} 
-				/* say hi again */
+				/* Say hi again. */
 				$this->wts(($es ? 'EHLO ' : 'HELO ').$smtp_srv);
 				if (!$this->get_return_code()) {
 					return;
@@ -152,19 +152,21 @@ class fud_smtp
 	function send_smtp_email()
 	{
 		if (!$this->open_smtp_connex()) {
-			exit('OC: Invalid SMTP return code: '.$this->last_ret."<br />\n");
+			fud_logerror('Open SMTP connection - invalid return code: '. $this->last_ret, 'fud_errors');
+			return;
 		}
 		if (!$this->send_from_hdr()) {
+			fud_logerror('Send "From:" header - invalid SMTP return code: '. $this->last_ret, 'fud_errors');
 			$this->close_connex();
-			exit('FH: Invalid SMTP return code: '.$this->last_ret."<br />\n");
+			return;
 		}
 		if (!$this->send_to_hdr()) {
+			fud_logerror('Send "To:" header - invalid SMTP return code: '. $this->last_ret, 'fud_errors');
 			$this->close_connex();
-			exit('TH: Invalid SMTP return code: '.$this->last_ret."<br />\n");
+			return;
 		}
 		if (!$this->send_data()) {
-			$this->close_connex();
-			exit('SD: Invalid SMTP return code: '.$this->last_ret."<br />\n");
+			fud_logerror('Send data - invalid SMTP return code: '. $this->last_ret, 'fud_errors');
 		}
 
 		$this->close_connex();

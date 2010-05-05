@@ -32,6 +32,7 @@ if (isset($_REQUEST['GLOBALS']) || isset($_FILES['GLOBALS'])) {
 	exit;
 }
 
+// Deprecated as of PHP 5.3.0.
 if (get_magic_quotes_gpc()) {
 	$in = array(&$_GET, &$_POST, &$_COOKIE);
 	while (list($k,$v) = each($in)) {
@@ -150,7 +151,17 @@ function __fud_cache($t)
 	return 0;
 }
 
-function fud_sql_error_handler($query, $error_string, $error_number, $server_version)
+function fud_logerror($error_msg, $logfile) {
+	$pfx = sprintf('?%-10d?%-10d?', strlen($error_msg) + 1, __request_timestamp__);
+	ini_set('log_errors_max_len', 0);
+	if (!error_log($pfx . $error_msg ."\n", 3, $GLOBALS['ERROR_PATH'] . $logfile)) {
+		echo '<hr><b>UNABLE TO WRITE TO LOG FILE</b><br />';
+		echo $error_msg;
+		echo '<hr>';
+	}
+}
+
+function fud_sql_error_handler($query, $error_string, $error_number, $db_version)
 {
 	if (db_locked() && !in_array($query, array('COMMIT','COMMIT WORK','UNLOCK TABLES'))) {
 		db_unlock();
@@ -181,27 +192,22 @@ function fud_sql_error_handler($query, $error_string, $error_number, $server_ver
 		}
 		$error_msg .= "<br />\n";
 	}
-	$error_msg .= 'Server Version: '.$server_version."<br />\n";
+	$error_msg .= 'Database Version: '. $db_version ."<br />\n";
 	if (isset($_SERVER['HTTP_REFERER'])) {
 		$error_msg .= '[Referring Page] '.htmlspecialchars($_SERVER['HTTP_REFERER'])."<br />\n";
 	}
 
-	$pfx = sprintf('?%-10d?%-10d?', strlen($error_msg) + 1, __request_timestamp__);
-	ini_set('log_errors_max_len', 0);
-	if (!error_log($pfx.$error_msg."\n", 3, $GLOBALS['ERROR_PATH'].'sql_errors')) {
-		echo "<b>UNABLE TO WRITE TO SQL LOG FILE</b><br />\n";
-		echo $error_msg;
+	fud_logerror($error_msg, 'sql_errors');
+
+	if (isset($GLOBALS['usr']->users_opt) && $GLOBALS['usr']->users_opt & 1048576) { // Admin user.
+		// ACP may try to catch DB errors, e.g. temp table check in admglobal.php.
+		throw new Exception($error_msg);
+	} elseif (defined('forum_debug')) {	// Debug mode.
+		echo '<hr>'. $error_msg .'<hr>';
 	} else {
-		if (isset($GLOBALS['usr']->users_opt) && $GLOBALS['usr']->users_opt & 1048576) { // Admin user.
-			// ACP may try to catch DB errors, e.g. temp table check in admglobal.php.
-			throw new Exception($error_msg);
-		} elseif (defined('forum_debug')) {	// Debug mode.
-			echo $error_msg;
-		} else {
-			trigger_error('SQL Error has occurred, please contact the <a href="mailto:'.$GLOBALS['ADMIN_EMAIL'].'?subject=SQL%20Error">administrator</a> of the forum and have them review the forum&#39;s SQL query log', E_USER_ERROR);
-			if (ini_get('display_errors') !== 1) {
-				exit('SQL Error has occurred, please contact the <a href="mailto:'.$GLOBALS['ADMIN_EMAIL'].'?subject=SQL%20Error">administrator</a> of the forum and have them review the forum&#39;s SQL query log');
-			}
+		trigger_error('SQL Error has occurred, please contact the <a href="mailto:'.$GLOBALS['ADMIN_EMAIL'].'?subject=SQL%20Error">administrator</a> of the forum and have them review the forum&#39;s SQL query log', E_USER_ERROR);
+		if (ini_get('display_errors') !== 1) {
+			exit('SQL Error has occurred, please contact the <a href="mailto:'.$GLOBALS['ADMIN_EMAIL'].'?subject=SQL%20Error">administrator</a> of the forum and have them review the forum&#39;s SQL query log');
 		}
 	}
 	exit;

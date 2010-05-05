@@ -27,9 +27,8 @@ function error_dialog($title, $msg, $level='WARN', $ses=null)
 	if (isset($_SERVER['HTTP_REFERER'])) {
 		$error_msg .= '[Referring Page] '.htmlspecialchars($_SERVER['HTTP_REFERER']).'<br />';
 	}
-	$pfx = sprintf('?%-10d?%-10d?', strlen($error_msg) + 1, __request_timestamp__);
-	ini_set('log_errors_max_len', 0);
-	error_log($pfx.$error_msg."\n", 3, $GLOBALS['ERROR_PATH'].'fud_errors');
+
+	fud_logerror($error_msg, 'fud_errors');
 
 	/* No need to redirect, we just want to log the error. */
 	if ($level == 'ATCH') {

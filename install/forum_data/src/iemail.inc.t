@@ -18,19 +18,19 @@ function validate_email($email)
 	$doms = explode('.', $bits[1]);
 	$last = array_pop($doms);
 
-	// validate domain extension 2-4 characters A-Z
+	// Validate domain extension 2-4 characters A-Z
 	if (!preg_match('!^[A-Za-z]{2,4}$!', $last)) {
 		return 1;
 	}
 
-	// (sub)domain name 63 chars long max A-Za-z0-9_
+	// (Sub)domain name 63 chars long max A-Za-z0-9_
 	foreach ($doms as $v) {
 		if (!$v || strlen($v) > 63 || !preg_match('!^[A-Za-z0-9_-]+$!', $v)) {
 			return 1;
 		}
 	}
 
-	// now the hard part, validate the e-mail address itself 
+	// Now the hard part, validate the e-mail address itself .
 	if (!$bits[0] || strlen($bits[0]) > 255 || !preg_match('!^[-A-Za-z0-9_.+{}~\']+$!', $bits[0])) {
 		return 1;
 	}
@@ -51,7 +51,7 @@ function send_email($from, $to, $subj, $body, $header='', $munge_newlines=1)
 		return;
 	}
 
-	/* html entities check */
+	/* HTML entities check. */
 	if (strpos($subj, '&') !== false) {
 		$subj = html_entity_decode($subj);
 	}
@@ -71,6 +71,10 @@ function send_email($from, $to, $subj, $body, $header='', $munge_newlines=1)
 	}
 	$subj = encode_subject($subj);
 
+	if (defined('forum_debug')) {
+		logaction(_uid, 'SEND EMAIL', 0, 'To=['. implode(',', $to) .']<br />Subject=['. $subj .']<br />Headers=['. str_replace("\n", '<br />', $header) .']<br />Message=['. $body .']');
+	}
+
 	if ($GLOBALS['FUD_OPT_1'] & 512) {
 		if (!class_exists('fud_smtp')) {
 			fud_use('smtp.inc');
@@ -86,7 +90,9 @@ function send_email($from, $to, $subj, $body, $header='', $munge_newlines=1)
 	}
 
 	foreach ((array)$to as $email) {
-		mail($email, $subj, $body, $header);
+		if (!mail($email, $subj, $body, $header)) {
+			fud_logerror('E-mail ['. $subj .'] to ['. $to .'] not accepted for delivery.', 'fud_errors');
+		}
 	}
 }
 ?>
