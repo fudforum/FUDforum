@@ -43,7 +43,7 @@
 		exit;
 	}
 
-	if ($FUD_OPT_2 & 8388608 && !__WEB__) {
+	if (strncasecmp('win', PHP_OS, 3) && $FUD_OPT_2 & 8388608 && !__WEB__) {
 		print_msg('Since you are running conversion script via the console you must UNLOCK forum\'s files first.');
 		exit;
 	}

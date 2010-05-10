@@ -71,7 +71,7 @@ function html_clean($str)
 		exit("This script must be placed in FUDforum's main web directory.\n");
 	}
 
-	if ($FILE_LOCK == 'Y' && !__WEB__) {
+	if (strncasecmp('win', PHP_OS, 3) && $FUD_OPT_2 & 8388608 && !__WEB__) {
 		exit("Since you are running conversion script via the console you must UNLOCK forum's files first.\n");
 	}
 

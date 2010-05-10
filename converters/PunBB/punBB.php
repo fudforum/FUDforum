@@ -68,7 +68,7 @@ function decode_ip($int_ip)
 		exit("This script must be placed in FUDforum's main web directory.\n");
 	}
 
-	if ($FUD_OPT_2 & 8388608 && !__WEB__) {
+	if (strncasecmp('win', PHP_OS, 3) && $FUD_OPT_2 & 8388608 && !__WEB__) {
 		exit("Since you are running conversion script via the console you must UNLOCK forum's files first.\n");
 	}
 

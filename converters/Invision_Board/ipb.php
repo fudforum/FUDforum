@@ -1,6 +1,6 @@
 <?php
 /***************************************************************************
-* copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -22,33 +22,14 @@
 
 /**** DO NOT EDIT BEYOND THIS POINT ****/
 
-function print_msg($msg)
-{
-	if (__WEB__) {
-		echo $msg . "<br />\n";	
-	} else {
-		echo $msg . "\n";
-	}
-}
-
-function make_avatar_loc($path, $disk, $web)
-{
-	$img_info = @getimagesize($disk . $path);
-
-	if ($img_info[2] < 4 && $img_info[2] > 0) {
-		return '<img src="'.$web . $path.'" '.$img_info[3].' />';
-	} else if ($img_info[2] == 4) {
-		return '<embed src="'.$web . $path.'" '.$img_info[3].' />';
-	} else {
-		return '';
-	}
-}
-
-	set_time_limit(500000);
+	set_time_limit(-1);
 	ini_set('memory_limit', '128M');
+	ini_set('display_errors', 1);
+	// error_reporting(E_ALL);
+
 	define('__WEB__', (isset($_SERVER["REMOTE_ADDR"]) === FALSE ? 0 : 1));
 
-	/* prevent session initialization */
+	/* Prevent session initialization. */
 	define('forum_debug', 1);
 	unset($_SERVER['REMOTE_ADDR']);
 
@@ -57,7 +38,7 @@ function make_avatar_loc($path, $disk, $web)
 		exit("This script must be placed in FUDforum's main web directory.\n");
 	}
 
-	if ($FUD_OPT_2 & 8388608 && !__WEB__) {
+	if (strncasecmp('win', PHP_OS, 3) && $FUD_OPT_2 & 8388608 && !__WEB__) {
 		exit("Since you are running conversion script via the console you must UNLOCK forum's files first.\n");
 	}
 
@@ -71,7 +52,7 @@ function make_avatar_loc($path, $disk, $web)
 	}
 	$ipb = $INFO['sql_database'] . '.' . $INFO['sql_tbl_prefix'];
 
-	/* include all the necessary FUDforum includes */
+	/* Include all the necessary FUDforum includes. */
 	fud_use('err.inc');
 	fud_use('db.inc');
 	fud_use('users.inc');
@@ -95,17 +76,17 @@ function make_avatar_loc($path, $disk, $web)
 	fud_use('groups_adm.inc', true);
 	fud_use('glob.inc', true);
 
-	/* IB includes */
+	/* IB includes. */
 	$path = dirname($IPB_CFG) . '/';
 	include $path . "sources/lib/post_parser.php";
 
-	/* some settings we must turn off */
+	/* Some settings we must turn off. */
 	$FUD_OPT_2 = $FUD_OPT_2 &~ (1|1024|8388608);
 	$FUD_OPT_1 = $FUD_OPT_1 &~ (268435456|16777216);
 
 	$GLOBALS['MOD'] = 1;
 
-	/* import blocked words */
+	/* Import blocked words. */
 	print_msg("Importing blocked words");
 	q("DELETE FROM {$DBHOST_TBL_PREFIX}replace");
 	$i = 0;
@@ -119,7 +100,7 @@ function make_avatar_loc($path, $disk, $web)
 			$s2 = "\\1{$s}\\2";
 			q("INSERT INTO {$DBHOST_TBL_PREFIX}replace (replace_opt, replace_str, with_str, from_post, to_msg) VALUES(0, '".addslashes($f2)."', '".addslashes($s2)."', '/".addslashes(addcslashes($s, '/'))."/', '".addslashes($t)."')");
 		} else {
-			$f = '/' . addcslashes($t, '/') . '/i';
+			$f = '/' . addcslashes($t, '/') . '/';
 			q("INSERT INTO {$DBHOST_TBL_PREFIX}replace (replace_str, with_str) VALUES('".addslashes($f)."', '".addslashes($s)."')");
 		}
 		++$i;
@@ -127,7 +108,7 @@ function make_avatar_loc($path, $disk, $web)
 	unset($r);
 	print_msg("Done: Importing {$i} blocked words");
 	
-	/* Add IPB members */
+	/* Add IPB members. */
 	print_msg("Importing forum members");
 
 	q("DELETE FROM {$DBHOST_TBL_PREFIX}users WHERE id>1");
@@ -135,7 +116,7 @@ function make_avatar_loc($path, $disk, $web)
 	q("DELETE FROM {$DBHOST_TBL_PREFIX}ses");
 	$i = 0;
 
-	/* common settings for all users */
+	/* Common settings for all users. */
 	$u = new fud_user_reg;
 	$u->plaintext_passwd = 'a';
 	$u->users_opt = 512 | 4 | 16 | 32 | 128 | 256 | 131072;
@@ -190,7 +171,7 @@ function make_avatar_loc($path, $disk, $web)
 
 		if ($obj->website) {
 			if ($obj->website != 'http://') {
-				$tmp = parse_url(preg_replace('!\s.*!', '', $obj->website));
+				$tmp = @parse_url(preg_replace('!\s.*!', '', $obj->website));
 				if (!isset($tmp['scheme'])) {
 					$obj->website = 'http://' . $obj->website;
 				}
@@ -218,7 +199,7 @@ function make_avatar_loc($path, $disk, $web)
 
 		$ib_u[$obj->id] = $uid = $u->add_user();
 
-		/* update settings we could not change during user creation */
+		/* Update settings we could not change during user creation. */
 		$avatar_loc = 'NULL';
 		$users_opt = 4194304;
 
@@ -272,6 +253,7 @@ function make_avatar_loc($path, $disk, $web)
 			users_opt=users_opt|{$users_opt},
 			avatar_loc='{$avatar_loc}',
 			passwd='{$obj->password}',
+			salt=NULL,
 			reg_ip=".sprintf("%u", ip2long($obj->ip_address))."
 		WHERE id=".$uid);
 
@@ -378,7 +360,7 @@ function make_avatar_loc($path, $disk, $web)
 
 		$ib_f[$obj->id] = $frm_id = $frm->add('LAST');
 
-		/* Import various forum permissions */
+		/* Import various forum permissions. */
 		$gid = q_singleval("SELECT id FROM {$DBHOST_TBL_PREFIX}groups WHERE forum_id=".$frm_id);
 
 		foreach ($plist as $k => $v) {
@@ -594,12 +576,12 @@ function make_avatar_loc($path, $disk, $web)
 
 		list($poll_name, $poll_status) = mysql_fetch_row(mysql_query("SELECT title, poll_state FROM {$ipb}topics WHERE tid=".$obj->tid, $ib));
 
-		/* create poll */
+		/* Create poll. */
 		$pid = poll_add(html_entity_decode($poll_name), 0, 0);
 		q("UPDATE {$DBHOST_TBL_PREFIX}poll SET owner={$ib_u[$obj->starter_id]}, creation_date={$obj->start_date} WHERE id=".$pid);
 		++$i;
 
-		/* add options */
+		/* Add options. */
 		$choices = unserialize($obj->choices);
 		$ttl = 0;
 		foreach ($choices as $c) {
@@ -642,7 +624,7 @@ function make_avatar_loc($path, $disk, $web)
 	print_msg("Done: Importing {$i} polls");
 
 	print_msg("Importing private messages");
-	/* disable pm notification for the duration of the import process */
+	/* Disable pm notification for the duration of the import process. */
 	$r = uq("SELECT id FROM {$DBHOST_TBL_PREFIX}users WHERE users_opt>=64 AND (users_opt & 64)>0");
 	$ul = array();
 	while (list($id) = db_rowarr($r)) {
@@ -654,13 +636,14 @@ function make_avatar_loc($path, $disk, $web)
 	$i = 0;
 	$r = mysql_query("SELECT * FROM {$ipb}messages", $ib) or die(mysql_error($ib));
 	$p = new fud_pmsg;
-	/* common settings */
+	/* Common settings. */
 	$p->pmsg_opt = 1|16;
 	$p->icon = '';
 	$p->ip_addr = '0.0.0.0';
 	$p->fldr = 3;
 
-	/* prevent warnings */
+	/* Prevent warnings. */
+	$GLOBALS['usr'] = new stdClass();
 	$GLOBALS['usr']->alias = NULL;
 
 	while ($obj = mysql_fetch_object($r)) {
@@ -746,8 +729,9 @@ function make_avatar_loc($path, $disk, $web)
 		$list['FUD_OPT_2'] = $FUD_OPT_2 &~ (16|2);
 	}
 
-	$list['DISABLED_REASON'] = $INFO['offline_msg'];
-	$list['FORUM_TITLE'] = $INFO['boardname'];
+	$list['DISABLED_REASON'] = str_replace("\n", '<br />', $INFO['offline_msg']);
+	$list['FORUM_TITLE'] = isset($INFO['board_name']) ? $INFO['board_name'] : $INFO['boardname'];
+	$list['FORUM_DESC'] = $INFO['board_desc'];
 	if (!$INFO['disable_gzip']) {
 		$list['FUD_OPT_2'] |= 16384;
 		$list['PHP_COMPRESSION_LEVEL'] = 9;
@@ -760,19 +744,35 @@ function make_avatar_loc($path, $disk, $web)
 	change_global_settings($list);
 	print_msg("Done: Importing miscellaneous settings");
 
-	print_msg("Conversion Process Complete!");
+	print_msg("<hr>Conversion Process Complete!");
 	print_msg("");
+	print_msg("To complete the conversion process run the consistency checker at: {$WWW_ROOT}adm/consist.php");
+	print_msg("You will need to login using the administrator account from the forum you've just imported.");	
 	print_msg("");
-	print_msg("------------------------------------------------------------------------------");
-	print_msg("                                IMPORTANT!!!");
-	print_msg("------------------------------------------------------------------------------");
-	print_msg("To complete the conversion process run the consistency checker at:");
-	print_msg("{$WWW_ROOT}adm/consist.php");
-	print_msg("You will need to login using the administrator account from the forum you've");
-	print_msg("just imported.");	
-	print_msg("");
-	print_msg("If you want the imported messages to be searcheable, rebuild the search index");
-	print_msg("Rebuild Search Index admin control panel.");
-	print_msg("------------------------------------------------------------------------------");
-	print_msg("");
+	print_msg("If you want the imported messages to be searcheable, rebuild the search index from the admin control panel.");
+
+/* Define functions. */
+
+function print_msg($msg)
+{
+	if (__WEB__) {
+		echo $msg . "<br />\n";	
+	} else {
+		echo $msg . "\n";
+	}
+}
+
+function make_avatar_loc($path, $disk, $web)
+{
+	$img_info = @getimagesize($disk . $path);
+
+	if ($img_info[2] < 4 && $img_info[2] > 0) {
+		return '<img src="'.$web . $path.'" '.$img_info[3].' />';
+	} else if ($img_info[2] == 4) {
+		return '<embed src="'.$web . $path.'" '.$img_info[3].' />';
+	} else {
+		return '';
+	}
+}
+
 ?>

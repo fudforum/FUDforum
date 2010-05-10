@@ -2,6 +2,25 @@
 # $Id$
 #
 
-Instructions on how to use the conversion script can be found at the top of the script itself,
-in most cases you will simply need to modify the value of a single variable, which identifies the location
-of the forum you are converting from.
+INSTRUCTIONS:
+
+1. Install FUDforum or identify an exiting installation where the messages must be
+   imported into. Note that FUDforum and the origin forum must use the same DB driver.
+   For example, if you convert from a forum that runs on MySQL, FUDforum must also use
+   MySQL.
+
+2. Download and copy the required conversion script to your forum's WWW_ROOT directory.
+
+3. Open the script with a text editor and review the documentation and setting at the
+   top of the script. In most cases you will simply need to modify the value of a single
+   variable, which identifies the location of the forum you are converting from.
+
+4. Run the script from a web browser of from the command line (perferred for large forums).
+
+5. Login to the forum and run the Consistency Checker. Note that you will not see any 
+   messages or users on the imported forum until you do the consistency check.
+
+If you run into problems, please report them on the support forum at fudforum.org.
+
+Best of luck!
+
