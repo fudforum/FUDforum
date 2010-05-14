@@ -94,7 +94,7 @@ function get_ip()
 			if (($lip = ip2long($ip)) === -1) {
 				continue;
 			}
-			/* some disallowed ip ranges, that are normally used for private networks
+			/* Some disallowed ip ranges, that are normally used for private networks:
 			 * 10.0.0.0 - 10.255.255.255
 			 * 172.16.0.0 - 172.31.255.255
 			 * 192.168.0.0 - 192.168.255.255
@@ -141,7 +141,7 @@ function __fud_cache($t)
 	}
 	$mod = gmdate('D, d M Y H:i:s', $t) . ' GMT';
 
-	/* send caching headers */
+	/* Send caching headers. */
 	header('Last-Modified: ' . $mod);
 	if (isset($_SERVER['HTTP_IF_MODIFIED_SINCE']) && !isset($_SERVER['HTTP_RANGE']) && $_SERVER['HTTP_IF_MODIFIED_SINCE'] == $mod) {
 		header('HTTP/1.1 304 Not Modified');
@@ -152,12 +152,20 @@ function __fud_cache($t)
 }
 
 function fud_logerror($error_msg, $logfile) {
+	if (defined('plugins')) {
+		// Alter, log or block error message.
+		$error_msg = plugin_call_hook('LOGERR', $error_msg);
+		if (empty($error_msg)) {
+			return;
+		}
+	}
+
 	$pfx = sprintf('?%-10d?%-10d?', strlen($error_msg) + 1, __request_timestamp__);
 	ini_set('log_errors_max_len', 0);
 	if (!error_log($pfx . $error_msg ."\n", 3, $GLOBALS['ERROR_PATH'] . $logfile)) {
-		echo '<hr><b>UNABLE TO WRITE TO LOG FILE</b><br />';
+		echo '<hr><b>UNABLE TO WRITE TO LOG FILE:</b><ul>';
 		echo $error_msg;
-		echo '<hr>';
+		echo '</ul><hr>';
 	}
 }
 
@@ -179,7 +187,7 @@ function fud_sql_error_handler($query, $error_string, $error_number, $db_version
 		if (count($_GET, 1) < 100) {
 			$error_msg .= htmlspecialchars(var_export($_GET, 1));
 		} else {
-			$error_msg .= 'Too many vars: '.count($_GET, 1);
+			$error_msg .= 'Too many vars to list: '.count($_GET, 1);
 		}
 		$error_msg .= "<br />\n";
 	}
@@ -192,7 +200,7 @@ function fud_sql_error_handler($query, $error_string, $error_number, $db_version
 		}
 		$error_msg .= "<br />\n";
 	}
-	$error_msg .= 'Database Version: '. $db_version ."<br />\n";
+	$error_msg .= 'Database version: '. $db_version ."<br />\n";
 	if (isset($_SERVER['HTTP_REFERER'])) {
 		$error_msg .= '[Referring Page] '.htmlspecialchars($_SERVER['HTTP_REFERER'])."<br />\n";
 	}

@@ -1,0 +1,28 @@
+<?php
+/**
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* email                : forum@prohost.org
+* $Id$
+*
+* This program is free software; you can redistribute it and/or modify it
+* under the terms of the GNU General Public License as published by the
+* Free Software Foundation; version 2 of the License.
+**/
+
+// Initialize plugin
+plugin_add_hook('LOGERR', 'plugin_syslog');
+
+// Write forum errors to the system log.
+function plugin_syslog($error_msg) {
+	openlog('FUDforum', LOG_CONS, LOG_USER);
+	syslog(LOG_ERR, $error_msg);
+	closelog();	
+
+	return null;	// Don't log to default error_log.
+}
+
+function syslog_info() {
+	return array('name' => 'Syslog',
+	             'desc' => 'Write errors to the system log instead of FUDforum\'s log file.',
+	             'version' => '1.0');
+}

@@ -95,6 +95,7 @@ function plugin_ldap_auth($data) {
 			$uent->users_opt = -1;
 			$uent->login = $login;
 			$uent->plaintext_passwd = $password;
+			$uent->email = $login .'@'. $ini['LDAP_HOST'];
 			$uent->add_user();
 		} else if ( !((empty($usr_d->salt) && $usr_d->passwd == md5($password)) || $usr_d->passwd == sha1($usr_d->salt . sha1($password)))) {
 			// Sync password.
