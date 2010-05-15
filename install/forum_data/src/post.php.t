@@ -206,7 +206,7 @@ function flood_check()
 							}
 						}
 					}
-				} else if ($msg_id) { /* if checksum fails and we're editing a message, get attachment data from db */
+				} else if ($msg_id) { /* If checksum fails and we're editing a message, get attachment data from db. */
 					$r = q('SELECT id FROM {SQL_TABLE_PREFIX}attach WHERE message_id='.$msg_id.' AND attach_opt=0');
 		 			while ($fa_id = db_rowarr($r)) {
 		 				$attach_list[$fa_id[0]] = $fa_id[0];
@@ -384,7 +384,7 @@ function flood_check()
 
 			if (!$msg_id &&	// New post.
 			    (!($frm->forum_opt & 2) || $MOD) &&	// Forum not moderated.
-			    ($usr->posted_msg_count > $MOD_FIRST_N_POSTS || $MOD))	// Min quota posts reached.
+			    ($usr->posted_msg_count >= $MOD_FIRST_N_POSTS || $MOD))	// Min quota posts reached.
 			{
 				$msg_post->approve($msg_post->id);
 			}
