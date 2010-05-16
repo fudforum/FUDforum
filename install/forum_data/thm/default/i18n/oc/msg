@@ -1,6 +1,7 @@
 # Messages for Occitan (Occitan)
 # Exported from translatewiki.net
 # Author: Cedric31
+# Author: Jfblanc
 # Author: McDutchie
 
 action:Accion
@@ -422,7 +423,7 @@ coppa_fax_passwd:Senhal
 coppa_fax_remail:Adreça de corrièr electronic
 coppa_fax_name:Nom
 login_not_logedin:Sètz pas connectat. Aquò pòt èsser degut a una de las rasons seguentas :
-login_cookie_expired:Vòstre cookie a expirat e vos cal vos connectar tornamai per lo regenerar.
+login_cookie_expired:Vòstre cookie a expirat e vos cal connectar tornamai per lo regenerar.
 login_perm_denied:Avètz pas la permission d'accedir a la ressorsa que volètz en tant qu'utilizaire anonim, e vos cal vos connectar (en mai de vos inscriure s'es pas encara fach) per i accedir.
 login_want_to_register:Vos volètz inscriure ?
 login_forgot_passwd:Ai doblidat mon senhal

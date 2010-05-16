@@ -69,6 +69,7 @@ mark_all_read_desc:すべての未読メッセージを既に読んだことに�
 members:メンバー一覧
 calendar:カレンダー
 cal_goto_date:移動:
+cal_no_events:この日のイベントはありません。
 message:メンバー
 message_counter:<b>{PLURAL: thread_count|$1 件}のトピック</b>内に合計で<b>{PLURAL: post_count|$1 通}のメッセージ</b>が投稿されました。
 message_index:メッセージ索引
@@ -254,12 +255,19 @@ month_10:10月
 month_11:11月
 month_12:12月
 sunday:日曜日
+sunday_short:日
 monday:月曜日
+monday_short:月
 tuesday:火曜日
+tuesday_short:火
 wednesday:水曜日
+wednesday_short:水
 thursday:木曜日
+thursday_short:木
 friday:金曜日
+friday_short:金
 saturday:土曜日
+saturday_short:土
 male:男
 female:女
 unspecified:非公開
@@ -761,6 +769,7 @@ rate_worst:最低
 rate_best:最高
 post_quote_msg:{VAR: msg->login} が {TEMPLATE: make_report_date} に書きました
 post_quote:引用:
+post_quote_selected:選択した文章を引用
 userinfo_referals:推薦された利用者:
 userinfo_referals_count:{VAR: referals} メンバー
 pm_no_space_title:空き領域がありません！

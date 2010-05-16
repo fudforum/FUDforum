@@ -585,3 +585,34 @@ help_index_update:Lege le <a href="{TEMPLATE: help_index_update_lnk}">Adjuta</a>
 iemail_thr_subject:Nove responsa a {VAR: thr_subject} per {VAR: poster_login}
 iemail_thr_bodyemail:Pro vider le responsas non legite va a {VAR: goto_url['email']}\n\nSi tu non vole reciper ulterior notificationes super le responsas in iste topico, per favor va hic: {VAR: unsub_url['email']}
 iemail_frm_subject:Nove topico in le foro {VAR: frm_name}, titulate {VAR: thr_subject}, per {VAR: poster_login}
+iemail_frm_bodyemail:Pro vider le topico va a:\n{VAR: goto_url['email']}\n\nPro non reciper pus notificationes super nove topicos in iste foro, per favor va hic: {VAR: unsub_url['email']}
+iemail_participate:Pro participar in le discussion, va hic:
+ignore_list_err_info_title:Info
+ignore_list_err_dup_msg:Iste usator ja figura in tu lista de ignoratos
+ignore_list_err_nu_title:Usator non trovate
+ignore_list_err_nu_msg:Le usator que tu tentava adder a tu lista de ignoratos non ha essite trovate.
+ignore_list_cantign_msg:Tu non pote ignorar iste usator
+ignore_list_update:Percurre su proprie lista de ignoratos
+index_update:Percurre le <a href="{TEMPLATE: index_update_lnk}">lista de foros</a>
+list_referers_update:Percurre le membros referite
+login_update:Formulario pro aperir session
+msg_update:Percurre le topico <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
+pm_err_nopm_title:ERROR: Messageria personal disactivate
+pm_err_nopm_msg:Tu non pote usar le systema de messageria private. Illo ha essite disactivate per le administrator.
+pm_update:Usa le messageria private
+post_err_lockedthread_title:ERROR: Topico claudite
+post_err_lockedthread_msg:Iste topico es claudite. Non es plus possibile adder messages.
+err_coppa_title:ERROR: Tu conto non ha ancora essite confirmate
+err_coppa_msg:Nos non ha recipite confirmation de tu parente e/o tutor legal, le qual te permitterea publicar messages.  Si tu ha perdite tu formulario COPPA, <a href="{TEMPLATE: err_coppa_msg_lnk}">obtene lo de novo</a>.
+err_banned_acct_title:ERROR: Tu ha essite bannite.
+err_banned_acct_msg:Tu conto ha essite bannite {IF: $ban_expiry}temporarimente, usque {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}permanentemente{ENDI} de acceder a iste sito, a causa de un violation del regulas de iste foro.
+post_err_edttimelimit_title:ERROR
+post_err_edttimelimit_msg:Tu non pote plus modificar iste message
+post_err_noannontopics_msg2:<legend>ERROR: Privilegios insufficiente</legend>Le usatores anonyme non ha le permission de crear topicos.
+post_err_noannonposts_msg2:<legend>ERROR: Privilegios insufficiente</legend>Le usatores anonyme non ha le permission de responder.
+post_err_floodtrig_title:ERROR: Tentativa de inundation detegite.
+post_err_floodtrig_msg:Per favor reproba post {PLURAL: tm|$1 secunda|$1 secundas}
+post_err_attach_size:Le file annexate es troppo grande (excede le limite de {VAR: MAX_F_SIZE} bytes)
+post_err_attach_ext:Le file que tu tenta incargar non es de un typo autorisate.
+post_err_attach_filelimit:Tu tenta incargar plus files de quanto permittite.
+post_err_passwd:Contrasigno incorrecte.

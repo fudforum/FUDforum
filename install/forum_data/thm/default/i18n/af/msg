@@ -876,8 +876,8 @@ search_desc_order:dalende volgorde
 search_asc_order:stygende volgorde
 search_logic:Logika vir soektog:
 search_sorting:Sorteer resultate volgens datum:
-post_proceed:Vooruit
-post_moderated_forum:U het 'n boodskap in 'n gemodereerde forum gepos. U boodskap sal nie op die forum sigbaar gemaak sal word alvorens dit nie deur 'n moderator of administrateur goedgekeur is nie.
+post_proceed:Gaan voort
+post_moderated_forum:U het 'n boodskap in 'n gemodereerde forum gepos. U boodskap sal nie op die forum sigbaar wees alvorens dit deur 'n moderator of administrateur goedgekeur is nie.
 post_moderated_forum_ttl:Gemodereerde forumboodskap
 buddy_list_bday:word vandag {VAR: r[2]}&nbsp;{VAR: age} jaar oud
 email_warning_msg:Indien u u huidig e-posadres wysig sal u rekening as &quot;nie bevestig&quot; gemerk word totdat u dit via e-pos bevestig.

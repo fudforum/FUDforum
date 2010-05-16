@@ -227,7 +227,7 @@ tuesday_short:Τρ
 wednesday:Τετάρτη
 wednesday_short:Τε
 thursday:Πέμπτη
-thursday_short:Πέ
+thursday_short:Πε
 friday:Παρασκευή
 friday_short:Πα
 saturday:Σάββατο
@@ -323,6 +323,8 @@ post_forum:Φόρουμ:
 post_title:Τίτλος:
 post_options:Επιλογές:
 prereg_info:Κανόνες του Φόρουμ
+prereg_agree:Συμφωνώ
+prereg_disagree:Διαφωνώ
 coppa_fax_telephone:Τηλέφωνο:
 coppa_fax_email:Διεύθυνση ηλεκτρονικού ταχυδρομείου:
 coppa_fax_date:Ημερομηνία:
@@ -336,6 +338,8 @@ rpasswd_login:Είσοδος
 rpasswd_new_pass:Νέος κωδικός πρόσβασης:
 login_passwd:Κωδικός:
 reset_email:Ηλεκτρονικό ταχυδρομείο:
+rate_this_thread:Βαθμολόγηση
+report_subject:Αντικείμενο:
 report_by:Από:
 remail_your_name:Το όνομά σας:
 remail_your_email:Το ηλεκτρονικό ταχυδρομείο σας:
@@ -347,6 +351,7 @@ mklist_type:Τύπος
 mklist_option:Επιλογή:
 mklist_delete:Διαγραφή
 qbud_selected:Επιλεγμένος
+mklist_numerical:Αριθμητικό
 ppost_to:Προς:
 poll_delete:Διαγραφή
 poll_unlimited:Απεριόριστο
@@ -382,7 +387,7 @@ p_EDIT:Επεξεργασία
 p_DEL:Διαγραφή
 p_VOTE:Ψηφοφορία
 th_expr_never:Ποτέ
-th_expr_one_hr:1 ώρα
+th_expr_one_hr:1 Ώρα
 th_expr_three_hr:3 Ώρες
 th_expr_four_hr:4 Ώρες
 th_expr_eight_hr:8 Ώρες
@@ -390,7 +395,7 @@ th_expr_sixteen_hr:16 Ώρες
 th_expr_one_day:1 Ημέρα
 th_expr_two_day:2 Ημέρες
 th_expr_four_day:4 Ημέρες
-th_expr_one_week:1 εβδομάδα
+th_expr_one_week:1 Εβδομάδα
 th_expr_two_week:2 Εβδομάδες
 th_expr_one_month:1 Μήνας
 th_expr_two_month:2 Μήνες

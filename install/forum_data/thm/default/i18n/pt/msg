@@ -300,7 +300,7 @@ register_password:Senha:
 register_conf_pass:Confirmar Password:
 register_email_desc:Por favor tem de introduzir um endereço de E-mail válido. Pode escolher ocultar o email na secção preferências.
 register_name:Nome:
-register_your_pass:A sua Password:
+register_your_pass:A sua Palavra-chave:
 register_update:Actualizar
 register_avatar_type:Tipo de Avatar:
 register_del_avatar:Apagar Avatar
