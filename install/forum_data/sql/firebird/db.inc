@@ -11,12 +11,12 @@
 #define('fud_query_stats', 1);
 
 if (!defined('fud_sql_lnk')) {
-	$connect_func = $GLOBALS['FUD_OPT_1'] & 256 ? 'mysql_pconnect' : 'mysql_connect';
+	$connect_func = $GLOBALS['FUD_OPT_1'] & 256 ? 'ibase_pconnect' : 'ibase_connect';
 
-	$conn = $connect_func($GLOBALS['DBHOST'], $GLOBALS['DBHOST_USER'], $GLOBALS['DBHOST_PASSWORD']) or fud_sql_error_handler("Initiating $connect_func", mysql_error(fud_sql_lnk), mysql_errno(fud_sql_lnk), "Unknown");
+	$conn = $connect_func($GLOBALS['DBHOST'] .':'. $GLOBALS['DBHOST_DBNAME'], $GLOBALS['DBHOST_USER'], $GLOBALS['DBHOST_PASSWORD']) or fud_sql_error_handler("Initiating $connect_func", ibase_errmsg(), ibase_errcode(), "Unknown");
 	define('fud_sql_lnk', $conn);
-	mysql_select_db($GLOBALS['DBHOST_DBNAME'], fud_sql_lnk) or fud_sql_error_handler("Opening database ".$GLOBALS['DBHOST_DBNAME'], mysql_error(fud_sql_lnk), mysql_errno(fud_sql_lnk), db_version());
-	mysql_query("SET NAMES 'utf8' COLLATE 'utf8_general_ci'");
+	// ibase_select_db($GLOBALS['DBHOST_DBNAME'], fud_sql_lnk) or fud_sql_error_handler("Opening database ".$GLOBALS['DBHOST_DBNAME'], ibase_errmsg(), ibase_errcode(), db_version());
+	// ibase_query("SET NAMES 'utf8' COLLATE 'utf8_general_ci'");
 
 	define('__dbtype__', 'mysql');
 	define('__FUD_SQL_CONCAT__', 'CONCAT');
@@ -25,7 +25,7 @@ if (!defined('fud_sql_lnk')) {
 function db_version()
 {
 	if (!defined('__FUD_SQL_VERSION__')) {
-		$ver = mysql_fetch_row(mysql_query('SELECT VERSION()', fud_sql_lnk));
+		$ver = ibase_fetch_row(ibase_query('SELECT rdb$get_context(\'SYSTEM\', \'ENGINE_VERSION\') from rdb$database'));
 		define('__FUD_SQL_VERSION__', $ver[0]);
 	}
 	return __FUD_SQL_VERSION__;
@@ -36,7 +36,7 @@ function db_lock($tables)
 	if (!empty($GLOBALS['__DB_INC_INTERNALS__']['db_locked'])) {
 		fud_sql_error_handler("Recursive Lock", "internal", "internal", db_version());
 	} else {
-		q('LOCK TABLES '.$tables);
+		// q('LOCK TABLES '.$tables);
 		$GLOBALS['__DB_INC_INTERNALS__']['db_locked'] = 1;
 	}
 }
@@ -63,18 +63,18 @@ function db_locked()
 
 function db_affected()
 {
-	return mysql_affected_rows(fud_sql_lnk);	
+	return ibase_affected_rows(fud_sql_lnk);	
 }
 
 if (!defined('fud_query_stats')) {
 	function q($query)
 	{
-		$r = mysql_query($query, fud_sql_lnk) or fud_sql_error_handler($query, mysql_error(fud_sql_lnk), mysql_errno(fud_sql_lnk), db_version());
+		$r = ibase_query($query) or fud_sql_error_handler($query, ibase_errmsg(), ibase_errcode(), db_version());
 		return $r;
 	}
 	function uq($query)
 	{
-		$r = mysql_unbuffered_query($query,fud_sql_lnk) or fud_sql_error_handler($query, mysql_error(fud_sql_lnk), mysql_errno(fud_sql_lnk), db_version());
+		$r = ibase_query($query) or fud_sql_error_handler($query, ibase_errmsg(), ibase_errcode(), db_version());
 		return $r;
 	}
 } else {
@@ -91,7 +91,7 @@ if (!defined('fud_query_stats')) {
 		}
 	
 		$s = gettimeofday();
-		$result = mysql_query($query, fud_sql_lnk) or fud_sql_error_handler($query, mysql_error(fud_sql_lnk), mysql_errno(fud_sql_lnk), db_version());
+		$result = ibase_query($query) or fud_sql_error_handler($query, ibase_errmsg(), ibase_errcode(), db_version());
 		$e = gettimeofday(); 
 
 		$GLOBALS['__DB_INC_INTERNALS__']['last_time'] = ($e['sec'] - $s['sec'] + (($e['usec'] - $s['usec'])/1000000));
@@ -114,40 +114,39 @@ if (!defined('fud_query_stats')) {
 
 function db_count($result)
 {
-	return (int) mysql_num_rows($result);
+	return (int) ibase_num_rows($result);
 }
 
 function db_rowobj($result)
 {
-	return mysql_fetch_object($result);
+	return ibase_fetch_object($result);
 }
 
 function db_rowarr($result)
 {
-	return mysql_fetch_row($result);
+	return ibase_fetch_row($result);
 }
 
 function q_singleval($query)
 {
-	if (($res = mysql_fetch_row(q($query))) !== false) {
+	if (($res = ibase_fetch_row(q($query))) !== false) {
 		return $res[0];
 	}
 }
 
 function q_limit($query, $limit, $off)
 {
-	// OLD SYNTAX: return $query .' LIMIT '. $off .','. $limit;
-	return $query .' LIMIT '. $limit .' OFFSET '. $off;
+	return 'SELECT FIRST '. $limit . ((!empty($off)) ? ' SKIP ' . $off : '') . substr($query, 6);
 }
 
 function get_fud_table_list($tbl='')
 {
 	if ($tbl) {
-		return q_singleval("SHOW TABLES LIKE '".$tbl."'");
+		return q_singleval('SELECT rdb$relation_name FROM rdb$relations WHERE rdb$view_blr is null AND(rdb$system_flag is null or rdb$system_flag = 0) AND rdb$relation_name LIKE \''. $tbl .'\'');
 	}
 
 	$ret = array();
-	$c = uq("SHOW TABLES LIKE '".$GLOBALS['DBHOST_TBL_PREFIX']."%'");
+	$c = uq('SELECT rdb$relation_name FROM rdb$relations WHERE rdb$view_blr is null AND(rdb$system_flag is null or rdb$system_flag = 0) AND rdb$relation_name LIKE \''. $GLOBALS['DBHOST_TBL_PREFIX'] .'%\'');
 	while ($r = db_rowarr($c)) {
 		$ret[] = $r[0];
 	}
@@ -166,40 +165,40 @@ function optimize_tables($tbl_list=null)
 
 function db_saq($q)
 {
-	return mysql_fetch_row(q($q));
+	return ibase_fetch_row(q($q));
 }
 function db_sab($q)
 {
-	return mysql_fetch_object(q($q));
+	return ibase_fetch_object(q($q));
 }
 function db_qid($q)
 {
 	q($q);
-	return mysql_insert_id(fud_sql_lnk);
+	return ibase_insert_id(fud_sql_lnk);
 }
 function db_arr_assoc($q)
 {
-	return mysql_fetch_array(q($q), MYSQL_ASSOC);
+	return ibase_fetch_array(q($q), ibase_ASSOC);
 }
 
 function db_fetch_array($q)
 {
-        return mysql_fetch_array($q);
+        return ibase_fetch_array($q);
 }
 
 function db_li($q, &$ef, $li=0)
 {
-	$r = mysql_query($q, fud_sql_lnk);
+	$r = ibase_query($q);
 	if ($r) {
-		return ($li ? mysql_insert_id(fud_sql_lnk) : $r);
+		return ($li ? ibase_insert_id(fud_sql_lnk) : $r);
 	}
 
 	/* duplicate key */
-	if (mysql_errno(fud_sql_lnk) == 1062) {
-		$ef = ltrim(strrchr(mysql_error(fud_sql_lnk), ' '));
+	if (ibase_errcode() == 1062) {
+		$ef = ltrim(strrchr(ibase_errmsg(), ' '));
 		return null;
 	} else {
-		fud_sql_error_handler($q, mysql_error(fud_sql_lnk), mysql_errno(fud_sql_lnk), db_version());
+		fud_sql_error_handler($q, ibase_errmsg(), ibase_errcode(), db_version());
 	}
 }
 
@@ -212,7 +211,7 @@ function db_all($q)
 {
 	$f = array();
 	$c = uq($q);
-	while ($r = mysql_fetch_row($c)) {
+	while ($r = ibase_fetch_row($c)) {
 		$f[] = $r[0];
 	}
 	return $f;
@@ -220,6 +219,6 @@ function db_all($q)
 
 function _esc($s)
 {
-	return "'".mysql_real_escape_string($s, fud_sql_lnk)."'";
+	return "'".ibase_real_escape_string($s, fud_sql_lnk)."'";
 }
 ?>

@@ -50,7 +50,8 @@
 	}
 
 	$find_user_data = '';
-	$c = uq('SELECT /*!40000 SQL_CALC_FOUND_ROWS */ flag_cc, flag_country, home_page, users_opt, alias, join_date, posted_msg_count, id, custom_color FROM {SQL_TABLE_PREFIX}users WHERE ' . $qry . ' id>1 ORDER BY ' . $ord . ' LIMIT '.qry_limit($MEMBERS_PER_PAGE, $start));
+	$c = uq(q_limit('SELECT /*!40000 SQL_CALC_FOUND_ROWS */ flag_cc, flag_country, home_page, users_opt, alias, join_date, posted_msg_count, id, custom_color FROM {SQL_TABLE_PREFIX}users WHERE ' . $qry . ' id>1 ORDER BY ' . $ord,
+			$MEMBERS_PER_PAGE, $start));
 	while ($r = db_rowobj($c)) {
 		$find_user_data .= '{TEMPLATE: find_user_entry}';
 	}

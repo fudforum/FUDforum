@@ -112,7 +112,7 @@ function fetch_search_cache($qry, $start, $count, $logic, $srch_type, $order, $f
 		return;
 	}
 
-	return q('SELECT u.alias, f.name AS forum_name, f.id AS forum_id,
+	return q(q_limit('SELECT u.alias, f.name AS forum_name, f.id AS forum_id,
 			m.poster_id, m.id, m.thread_id, m.subject, m.poster_id, m.foff, m.length, m.post_stamp, m.file_id, m.icon, 
 			mm.id AS md, (t.root_msg_id = m.id) AS is_rootm, (t.thread_opt & 1) AS is_lckd
 		FROM {SQL_TABLE_PREFIX}search_cache sc
@@ -128,7 +128,8 @@ function fetch_search_cache($qry, $start, $count, $logic, $srch_type, $order, $f
 			sc.query_type='.$qt.' AND sc.srch_query='.$qry_lck.$qry_lmt.'
 			'.($logic == 'AND' ? ' AND sc.n_match>='.$i : '').'
 			'.($GLOBALS['is_a'] ? '' : ' AND (mm.id IS NOT NULL OR (COALESCE(g2.group_cache_opt, g1.group_cache_opt) & 262146) >= 262146)').'
-		ORDER BY sc.n_match DESC, m.post_stamp '.$order.' LIMIT '.qry_limit($count, $start));
+		ORDER BY sc.n_match DESC, m.post_stamp '.$order,
+		$count, $start));
 }
 
 /*{POST_HTML_PHP}*/

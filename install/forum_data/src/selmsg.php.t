@@ -116,7 +116,7 @@ function path_info_lnk($var, $val)
 		$ord = isset($_GET['reply_count']) ? ' DESC ' : ' ASC ';
 
 		/* figure out the query */
-		$c = q('SELECT
+		$c = q(q_limit('SELECT
 			m.*, COALESCE(m.flag_cc, u.flag_cc) AS flag_cc, COALESCE(m.flag_country, u.flag_country) AS flag_country,
 			t.thread_opt, t.root_msg_id, t.last_post_id, t.forum_id,
 			f.message_threshold, f.name,
@@ -153,8 +153,8 @@ function path_info_lnk($var, $val)
 			'.$unread_limit.'
 			'.$perm_limit.'
 		ORDER BY
-			f.last_post_id '.$ord.', t.last_post_date '.$ord.', m.post_stamp '.$ord.'
-		LIMIT '.qry_limit($count, $start));
+			f.last_post_id '.$ord.', t.last_post_date '.$ord.', m.post_stamp '.$ord,
+		$count, $start));
 
 		/* message drawing code */
 		$message_data = $n = $prev_frm = $prev_th = '';

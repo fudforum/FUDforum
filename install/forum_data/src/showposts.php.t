@@ -43,13 +43,14 @@
 	if ($is_a || $fids) {
 		$qry_limit = $is_a ? '' : 'f.id IN ('.$fids.') AND ';
 
-		$c = uq('SELECT /*!40000 SQL_CALC_FOUND_ROWS */ f.name, f.id, m.subject, m.id, m.post_stamp
+		$c = uq(q_limit('SELECT /*!40000 SQL_CALC_FOUND_ROWS */ f.name, f.id, m.subject, m.id, m.post_stamp
 			FROM {SQL_TABLE_PREFIX}msg m
 			INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id
 			INNER JOIN {SQL_TABLE_PREFIX}forum f ON t.forum_id=f.id
 			INNER JOIN {SQL_TABLE_PREFIX}cat c ON c.id=f.cat_id
 			WHERE '.$qry_limit.' m.apr=1 AND m.poster_id='.$uid.'
-			ORDER BY m.post_stamp '.$SORT_ORDER.' LIMIT '.qry_limit($THREADS_PER_PAGE, $start));
+			ORDER BY m.post_stamp '.$SORT_ORDER,
+			$THREADS_PER_PAGE, $start));
 
 		while ($r = db_rowarr($c)) {
 			$post_entry .= '{TEMPLATE: post_entry}';

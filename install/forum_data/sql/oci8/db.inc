@@ -27,7 +27,7 @@ if (!defined('fud_sql_lnk')) {
 	define('__FUD_SQL_CONCAT__', 'textcat');
 }
 
-function get_version()
+function db_version()
 {
 	if (!defined('__FUD_SQL_VERSION__')) {
 		if (function_exists(oci_server_version)) {
@@ -44,7 +44,7 @@ function db_lock($tables)
 {
 	// echo "DEBUG db_lock..............<br>";
 	if (!empty($GLOBALS['__DB_INC_INTERNALS__']['db_locked'])) {
-		fud_sql_error_handler("Recursive Lock", "internal", "internal", get_version());
+		fud_sql_error_handler("Recursive Lock", "internal", "internal", db_version());
 	} else {
 		$tbl = array();
 		foreach (explode(',', str_replace(' WRITE', '', $tables)) as $v) {
@@ -61,12 +61,12 @@ function db_unlock()
 	// echo "DEBUG db_unlock..............<br>";
 	if (empty($GLOBALS['__DB_INC_INTERNALS__']['db_locked'])) {
 		unset($GLOBALS['__DB_INC_INTERNALS__']['db_locked']);
-		fud_sql_error_handler("DB_UNLOCK: no previous lock established", "internal", "internal", get_version());
+		fud_sql_error_handler("DB_UNLOCK: no previous lock established", "internal", "internal", db_version());
 	}
 
 	if (--$GLOBALS['__DB_INC_INTERNALS__']['db_locked'] < 0) {
 		unset($GLOBALS['__DB_INC_INTERNALS__']['db_locked']);
-		fud_sql_error_handler("DB_UNLOCK: unlock overcalled", "internal", "internal", get_version());
+		fud_sql_error_handler("DB_UNLOCK: unlock overcalled", "internal", "internal", db_version());
 	}
 	unset($GLOBALS['__DB_INC_INTERNALS__']['db_locked']);
 	q('COMMIT WORK', fud_sql_lnk);
@@ -90,7 +90,7 @@ function uq($q)
 if (!defined('fud_query_stats')) {
 	function q($q)
 	{
-		$GLOBALS['__FLPG__'] = ora_query(fud_sql_lnk, $q) or fud_sql_error_handler($q, oci_error(fud_sql_lnk), '', get_version());
+		$GLOBALS['__FLPG__'] = ora_query(fud_sql_lnk, $q) or fud_sql_error_handler($q, oci_error(fud_sql_lnk), '', db_version());
 		return $GLOBALS['__FLPG__'];
 	}
 } else {
@@ -107,7 +107,7 @@ if (!defined('fud_query_stats')) {
 		}
 
 		$s = gettimeofday();
-		$GLOBALS['__FLPG__'] = ora_query(fud_sql_lnk, $q) or fud_sql_error_handler($q, oci_error(fud_sql_lnk), '', get_version());
+		$GLOBALS['__FLPG__'] = ora_query(fud_sql_lnk, $q) or fud_sql_error_handler($q, oci_error(fud_sql_lnk), '', db_version());
 		$e = gettimeofday();
 	
 		$GLOBALS['__DB_INC_INTERNALS__']['last_time'] = ($e['sec'] - $s['sec'] + (($e['usec'] - $s['usec'])/1000000));
@@ -149,9 +149,9 @@ function q_singleval($query)
 	return $val ? $val[0] : null;
 }
 
-function qry_limit($limit, $off)
+function q_limit($query, $limit, $off)
 {
-	return $limit.' OFFSET '.$off;
+	return 'SELECT * FROM (SELECT /*+ FIRST_ROWS */ rownum AS xrownum, a.* FROM ('. $query .') a WHERE rownum <= '. ($off + $limit) .') WHERE xrownum >= '. $off;
 }
 
 function get_fud_table_list($tbl='')

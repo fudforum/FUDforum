@@ -34,7 +34,7 @@ if (empty(db::$db)) {
 	define('__FUD_SQL_CONCAT__', 'CONCAT');
 }
 
-function get_version()
+function db_version()
 {
 	if (!defined('__FUD_SQL_VERSION__')) {
 		$r = db::$db->query('SELECT VERSION()');
@@ -47,7 +47,7 @@ function get_version()
 function db_lock($tables)
 {
 	if (!empty($GLOBALS['__DB_INC_INTERNALS__']['db_locked'])) {
-		fud_sql_error_handler("Recursive Lock", "internal", "internal", get_version());
+		fud_sql_error_handler("Recursive Lock", "internal", "internal", db_version());
 	} else {
 		q('LOCK TABLES '.$tables);
 		$GLOBALS['__DB_INC_INTERNALS__']['db_locked'] = 1;
@@ -58,12 +58,12 @@ function db_unlock()
 {
 	if (empty($GLOBALS['__DB_INC_INTERNALS__']['db_locked'])) {
 		unset($GLOBALS['__DB_INC_INTERNALS__']['db_locked']);
-		fud_sql_error_handler("DB_UNLOCK: no previous lock established", "internal", "internal", get_version());
+		fud_sql_error_handler("DB_UNLOCK: no previous lock established", "internal", "internal", db_version());
 	}
 
 	if (--$GLOBALS['__DB_INC_INTERNALS__']['db_locked'] < 0) {
 		unset($GLOBALS['__DB_INC_INTERNALS__']['db_locked']);
-		fud_sql_error_handler("DB_UNLOCK: unlock overcalled", "internal", "internal", get_version());
+		fud_sql_error_handler("DB_UNLOCK: unlock overcalled", "internal", "internal", db_version());
 	}
 	unset($GLOBALS['__DB_INC_INTERNALS__']['db_locked']);
 	q('UNLOCK TABLES');
@@ -84,7 +84,7 @@ if (!defined('fud_query_stats')) {
 	{
 		$r = db::$db->query($query);
 		if (db::$db->error) {
-			fud_sql_error_handler($query, db::$db->error, db::$db->errno, get_version());
+			fud_sql_error_handler($query, db::$db->error, db::$db->errno, db_version());
 		}
 		return $r;
 	}
@@ -108,7 +108,7 @@ if (!defined('fud_query_stats')) {
 		$s = gettimeofday();
 		$result = db::$db->query($query);
 		if (db::$db->error) {
-			fud_sql_error_handler($query, db::$db->error, db::$db->errno, get_version());
+			fud_sql_error_handler($query, db::$db->error, db::$db->errno, db_version());
 		}
 		$e = gettimeofday(); 
 
@@ -153,9 +153,10 @@ function q_singleval($query)
 	}
 }
 
-function qry_limit($limit, $off)
+function q_limit($query, $limit, $off)
 {
-	return $off.','.$limit;
+	// OLD SYNTAX: return $query .' LIMIT '. $off .','. $limit;
+	return $query .' LIMIT '. $limit .' OFFSET '. $off;
 }
 
 function get_fud_table_list($tbl='')
@@ -222,7 +223,7 @@ function db_li($q, &$ef, $li=0)
 		$ef = ltrim(strrchr(db::$db->error, ' '));
 		return null;
 	} else {
-		fud_sql_error_handler($q, db::$db->error, db::$db->errno, get_version());
+		fud_sql_error_handler($q, db::$db->error, db::$db->errno, db_version());
 	}
 }
 

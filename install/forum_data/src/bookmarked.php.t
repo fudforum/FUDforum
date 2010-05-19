@@ -40,7 +40,8 @@
 		$start = 0;
 	}
 
-	$c = uq('SELECT /*!40000 SQL_CALC_FOUND_ROWS */ t.id, m.subject, f.name FROM {SQL_TABLE_PREFIX}bookmarks b INNER JOIN {SQL_TABLE_PREFIX}thread t ON b.thread_id=t.id INNER JOIN {SQL_TABLE_PREFIX}forum f ON f.id=t.forum_id INNER JOIN {SQL_TABLE_PREFIX}msg m ON t.root_msg_id=m.id WHERE b.user_id='._uid.' ORDER BY f.name, m.subject LIMIT '.qry_limit($THREADS_PER_PAGE, $start));
+	$c = uq(q_limit('SELECT /*!40000 SQL_CALC_FOUND_ROWS */ t.id, m.subject, f.name FROM {SQL_TABLE_PREFIX}bookmarks b INNER JOIN {SQL_TABLE_PREFIX}thread t ON b.thread_id=t.id INNER JOIN {SQL_TABLE_PREFIX}forum f ON f.id=t.forum_id INNER JOIN {SQL_TABLE_PREFIX}msg m ON t.root_msg_id=m.id WHERE b.user_id='._uid.' ORDER BY f.name, m.subject',
+			$THREADS_PER_PAGE, $start));
 
 	while (($r = db_rowarr($c))) {
 		$bookmarked_thread_data .= '{TEMPLATE: bookmarked_thread_entry}';

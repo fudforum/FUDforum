@@ -67,20 +67,21 @@
 			}
 		}
 
-		$c = q('SELECT /*!40000 SQL_CALC_FOUND_ROWS */ u.alias, f.name AS forum_name, f.id AS forum_id,
+		$c = q(q_limit('SELECT /*!40000 SQL_CALC_FOUND_ROWS */ u.alias, f.name AS forum_name, f.id AS forum_id,
 				m.poster_id, m.id, m.thread_id, m.subject, m.foff, m.length, m.post_stamp, m.file_id, m.icon
 				FROM {SQL_TABLE_PREFIX}msg m
 				INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id
 				INNER JOIN {SQL_TABLE_PREFIX}forum f ON t.forum_id=f.id
 				INNER JOIN {SQL_TABLE_PREFIX}cat c ON f.cat_id=c.id
-				INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id='.(_uid ? '2147483647' : '0').' AND g1.resource_id=f.id
+				INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id='. (_uid ? '2147483647' : '0') .' AND g1.resource_id=f.id
 				LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id
-				LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=f.id AND mm.user_id='._uid.'
-				LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g2.resource_id=f.id
+				LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=f.id AND mm.user_id='. _uid .'
+				LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='. _uid .' AND g2.resource_id=f.id
 			WHERE
-				m.post_stamp > '.$tm.' '.$date_limit.' AND m.apr=1 '.$qry_lmt.'
+				m.post_stamp > '. $tm .' '. $date_limit .' AND m.apr=1 '. $qry_lmt .'
 				'.($is_a ? '' : ' AND (mm.id IS NOT NULL OR (COALESCE(g2.group_cache_opt, g1.group_cache_opt) & 2) > 0)').'
-				ORDER BY m.thread_id, t.forum_id, m.post_stamp DESC LIMIT '.qry_limit($ppg, $start));
+				ORDER BY m.thread_id, t.forum_id, m.post_stamp DESC',
+			$ppg, $start));
 
 		$oldf = $oldt = 0;
 		$mnav_data = '{TEMPLATE: mnav_begin_results}';

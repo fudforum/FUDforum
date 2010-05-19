@@ -31,18 +31,24 @@ if ($th_id && !$GLOBALS['MINIMSG_OPT_DISABLED']) {
 
 	/* This is an optimization intended for topics with many messages */
 	if ($use_tmp) {
-		q('CREATE TEMPORARY TABLE {SQL_TABLE_PREFIX}_mtmp_'.__request_timestamp__.' AS SELECT id FROM {SQL_TABLE_PREFIX}msg WHERE thread_id='.$th_id.' AND apr=1 ORDER BY id '.$msg_order_by.' LIMIT ' . qry_limit($count, $start));
+		q(q_limit('CREATE TEMPORARY TABLE {SQL_TABLE_PREFIX}_mtmp_'. __request_timestamp__ .' AS SELECT id FROM {SQL_TABLE_PREFIX}msg WHERE thread_id='. $th_id .' AND apr=1 ORDER BY id '. $msg_order_by,
+			$count, $start));
 	}
 
-	$c = q('SELECT m.*, t.thread_opt, t.root_msg_id, t.last_post_id, t.forum_id,
+	$q = 'SELECT m.*, t.thread_opt, t.root_msg_id, t.last_post_id, t.forum_id,
 			u.id AS user_id, u.alias AS login, u.users_opt, u.last_visit AS time_sec,
 			p.max_votes, p.expiry_date, p.creation_date, p.name AS poll_name,  p.total_votes
 		FROM
-			'.($use_tmp ? '{SQL_TABLE_PREFIX}_mtmp_'.__request_timestamp__.' mt INNER JOIN {SQL_TABLE_PREFIX}msg m ON m.id=mt.id' : ' {SQL_TABLE_PREFIX}msg m').'
+			'.($use_tmp ? '{SQL_TABLE_PREFIX}_mtmp_'. __request_timestamp__ .' mt INNER JOIN {SQL_TABLE_PREFIX}msg m ON m.id=mt.id' : ' {SQL_TABLE_PREFIX}msg m').'
 			INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id
 			LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id
-			LEFT JOIN {SQL_TABLE_PREFIX}poll p ON m.poll_id=p.id' .
-		($use_tmp ? ' ORDER BY m.id '.$msg_order_by : ' WHERE m.thread_id='.$th_id.' AND m.apr=1 ORDER BY m.id '.$msg_order_by.' LIMIT ' . qry_limit($count, $start)));
+			LEFT JOIN {SQL_TABLE_PREFIX}poll p ON m.poll_id=p.id';
+	if ($use_tmp) {
+		$q .= ' ORDER BY m.id '. $msg_order_by;
+	} else {
+		$q = q_limit($q .' WHERE m.thread_id='. $th_id .' AND m.apr=1 ORDER BY m.id '. $msg_order_by, $count, $start);
+	}
+	$c = q($q);
 
 	$message_data='';
 	$m_count = 0;

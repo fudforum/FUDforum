@@ -156,10 +156,11 @@
 
 	/* This is an optimization intended for topics with many messages */
 	if ($use_tmp) {
-		q('CREATE TEMPORARY TABLE {SQL_TABLE_PREFIX}_mtmp_'.__request_timestamp__.' AS SELECT id FROM {SQL_TABLE_PREFIX}msg WHERE thread_id='.$th.' AND apr=1 ORDER BY id ASC LIMIT ' . qry_limit($count, $_GET['start']));
+		q(q_limit('CREATE TEMPORARY TABLE {SQL_TABLE_PREFIX}_mtmp_'. __request_timestamp__ .' AS SELECT id FROM {SQL_TABLE_PREFIX}msg WHERE thread_id='. $th .' AND apr=1 ORDER BY id ASC',
+			$count, $_GET['start']));
 	}
 
-	$result = q('SELECT
+	$q = 'SELECT
 		m.*, COALESCE(m.flag_cc, u.flag_cc) AS flag_cc, COALESCE(m.flag_country, u.flag_country) AS flag_country,
 		t.thread_opt, t.root_msg_id, t.last_post_id, t.forum_id,
 		f.message_threshold,
@@ -168,14 +169,19 @@
 		l.name AS level_name, l.level_opt, l.img AS level_img,
 		p.max_votes, p.expiry_date, p.creation_date, p.name AS poll_name, p.total_votes,
 		'.(_uid ? ' pot.id AS cant_vote ' : ' 1 AS cant_vote ').'
-	FROM '.($use_tmp ? '{SQL_TABLE_PREFIX}_mtmp_'.__request_timestamp__.' mt INNER JOIN {SQL_TABLE_PREFIX}msg m ON m.id=mt.id' : ' {SQL_TABLE_PREFIX}msg m').'
+	FROM '.($use_tmp ? '{SQL_TABLE_PREFIX}_mtmp_'. __request_timestamp__. ' mt INNER JOIN {SQL_TABLE_PREFIX}msg m ON m.id=mt.id' : ' {SQL_TABLE_PREFIX}msg m').'
 		INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id
 		INNER JOIN {SQL_TABLE_PREFIX}forum f ON t.forum_id=f.id
 		LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id
 		LEFT JOIN {SQL_TABLE_PREFIX}level l ON u.level_id=l.id
 		LEFT JOIN {SQL_TABLE_PREFIX}poll p ON m.poll_id=p.id'.
-		(_uid ? ' LEFT JOIN {SQL_TABLE_PREFIX}poll_opt_track pot ON pot.poll_id=p.id AND pot.user_id='._uid : ' ').
-		($use_tmp ? ' ORDER BY m.id ASC' : ' WHERE m.thread_id='.$th.' AND m.apr=1 ORDER BY m.id ASC LIMIT ' . qry_limit($count, $_GET['start'])));
+		(_uid ? ' LEFT JOIN {SQL_TABLE_PREFIX}poll_opt_track pot ON pot.poll_id=p.id AND pot.user_id='._uid : ' ');
+	if ($use_tmp) {
+		$q .= ' ORDER BY m.id ASC';
+	} else {
+		$q = q_limit($q .' WHERE m.thread_id='.$th.' AND m.apr=1 ORDER BY m.id ASC', $count, $_GET['start']);
+	}
+	$result = q($q);
 
 	$obj2 = $message_data = '';
 
@@ -189,7 +195,7 @@
 	unset($result);
 
 	if ($use_tmp && $FUD_OPT_1 & 256) {
-		q("DROP TEMPORARY TABLE {SQL_TABLE_PREFIX}_mtmp_".__request_timestamp__);
+		q('DROP TEMPORARY TABLE {SQL_TABLE_PREFIX}_mtmp_'. __request_timestamp__);
 	}
 
 	if ($FUD_OPT_2 & 32768) {

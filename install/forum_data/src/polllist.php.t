@@ -48,7 +48,7 @@
 	}
 
 	$poll_entries = '';
-	$c = uq('SELECT /*!40000 SQL_CALC_FOUND_ROWS */
+	$c = uq(q_limit('SELECT /*!40000 SQL_CALC_FOUND_ROWS */
 			p.owner, p.name, p.creation_date, p.id, p.max_votes, p.total_votes,
 			u.alias, u.alias AS login, (u.last_visit + '.($LOGEDIN_TIMEOUT * 60).') AS last_visit, u.users_opt,
 			'.($is_a ? '1' : 'mm.id').' AS md,
@@ -61,7 +61,8 @@
 			LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=p.forum_id AND mm.user_id='._uid.'
 			LEFT JOIN {SQL_TABLE_PREFIX}users u ON u.id=p.owner
 			LEFT JOIN {SQL_TABLE_PREFIX}poll_opt_track pot ON pot.poll_id=p.id AND pot.user_id='._uid.
-			$usr_lmt.' ORDER BY p.creation_date '.$oby.' LIMIT '.qry_limit($POLLS_PER_PAGE, $start));
+			$usr_lmt.' ORDER BY p.creation_date '.$oby,
+			$POLLS_PER_PAGE, $start));
 
 	while ($obj = db_rowobj($c)) {
 		$view_res_lnk = $obj->total_votes ? '{TEMPLATE: poll_view_res_lnk}' : '';

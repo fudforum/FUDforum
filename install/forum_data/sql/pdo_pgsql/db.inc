@@ -37,7 +37,7 @@ if (empty(db::$db)) {
 	define('__dbtype__', substr($GLOBALS['DBHOST_DBTYPE'], 4));
 }
 
-function get_version()
+function db_version()
 {
 	if (!defined('__FUD_SQL_VERSION__')) {
 		define('__FUD_SQL_VERSION__', db::$db->getAttribute(PDO::ATTR_SERVER_VERSION));
@@ -48,7 +48,7 @@ function get_version()
 function db_lock($tables)
 {
 	if (!empty($GLOBALS['__DB_INC_INTERNALS__']['db_locked'])) {
-		fud_sql_error_handler("Recursive Lock", "internal", "internal", get_version());
+		fud_sql_error_handler("Recursive Lock", "internal", "internal", db_version());
 	}
 	
 	// need this because pgsql can't handle lock aliases
@@ -67,12 +67,12 @@ function db_unlock()
 {
 	if (empty($GLOBALS['__DB_INC_INTERNALS__']['db_locked'])) {
 		unset($GLOBALS['__DB_INC_INTERNALS__']['db_locked']);
-		fud_sql_error_handler("DB_UNLOCK: no previous lock established", "internal", "internal", get_version());
+		fud_sql_error_handler("DB_UNLOCK: no previous lock established", "internal", "internal", db_version());
 	}
 	
 	if (--$GLOBALS['__DB_INC_INTERNALS__']['db_locked'] < 0) {
 		unset($GLOBALS['__DB_INC_INTERNALS__']['db_locked']);
-		fud_sql_error_handler("DB_UNLOCK: unlock overcalled", "internal", "internal", get_version());
+		fud_sql_error_handler("DB_UNLOCK: unlock overcalled", "internal", "internal", db_version());
 	}
 
 	q('COMMIT WORK');
@@ -100,14 +100,14 @@ function uq($query, $buf=0)
 	if (!strncasecmp($query, 'SELECT', 6)) {
 		db::$res = null;
 		db::$buf = $buf;
-		db::$res = db::$db->query($query) or fud_sql_error_handler($query, db::$db->errorCode(), __enifo(db::$db->errorInfo()), get_version());
+		db::$res = db::$db->query($query) or fud_sql_error_handler($query, db::$db->errorCode(), __enifo(db::$db->errorInfo()), db_version());
 		return db::$res;
 	}
 	if (!db::$buf) {
 		db::$res = null;
 	}
 	if ((db::$ar = db::$db->exec($query)) === FALSE) {
-		fud_sql_error_handler($query, db::$db->errorCode(), __enifo(db::$db->errorInfo()), get_version());
+		fud_sql_error_handler($query, db::$db->errorCode(), __enifo(db::$db->errorInfo()), db_version());
 	}
 	return db::$ar;
 }
@@ -137,9 +137,9 @@ function q_singleval($query)
 	return uq($query)->fetchColumn();
 }
 
-function qry_limit($limit, $off)
+function q_limit($query, $limit, $off)
 {
-	return $limit.' OFFSET '.$off;
+	return $query .' LIMIT '. $limit .' OFFSET '. $off;
 }
 
 function get_fud_table_list($tbl='')
@@ -214,7 +214,7 @@ function db_li($q, &$ef, $li=0)
 		$ef = ltrim(strrchr(__enifo(db::$db->errorInfo()), ' '));
 		return null;
 	} else {
-		fud_sql_error_handler($q, db::$db->errorCode(), __enifo(db::$db->errorInfo()), get_version());
+		fud_sql_error_handler($q, db::$db->errorCode(), __enifo(db::$db->errorInfo()), db_version());
 	}
 }
 
@@ -223,7 +223,7 @@ function ins_m($tbl, $flds, $vals, $type=0, $strict=1)
 	$sth = db::$db->prepare('INSERT INTO '.$tbl.' ('.$flds.') VALUES(?'.str_repeat(',?',substr_count($flds, ',')).')');
 	foreach ($vals as $v) {
 		if (!$sth->execute(explode(',', trim($v,"'"))) && $strict) {
-			fud_sql_error_handler($sth->queryString, db::$db->errorCode(), __enifo(db::$db->errorInfo()), get_version());
+			fud_sql_error_handler($sth->queryString, db::$db->errorCode(), __enifo(db::$db->errorInfo()), db_version());
 		}
 	}
 }
