@@ -47,7 +47,7 @@ function phorum2fudcode($str)
 	define('forum_debug', 1);
 	unset($_SERVER['REMOTE_ADDR']);
 
-	set_time_limit(-1);
+	set_time_limit(0);
 	error_reporting(E_ALL);
 	ini_set('memory_limit', '128M');
 	ini_set('default_socket_timeout', 10);

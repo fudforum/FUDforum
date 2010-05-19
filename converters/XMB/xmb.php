@@ -58,7 +58,7 @@ function html_clean($str)
 	return preg_replace('!&#([0-9]+);!me', "chr('\\1')", html_entity_decode($str));
 }
 
-	set_time_limit(-1);
+	set_time_limit(0);
 	ini_set('memory_limit', '128M');
 	define('__WEB__', (isset($_SERVER["REMOTE_ADDR"]) === FALSE ? 0 : 1));
 

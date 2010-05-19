@@ -22,7 +22,7 @@
 
 /**** DO NOT EDIT BEYOND THIS POINT ****/
 
-	set_time_limit(-1);
+	set_time_limit(0);
 	ini_set('memory_limit', '128M');
 	ini_set('display_errors', 1);
 	// error_reporting(E_ALL);
@@ -148,8 +148,8 @@
 		$u->aim = $obj->aim_name;
 		$u->yahoo = $obj->yahoo;
 		$u->msnm = $obj->msnname;
-		$u->location = $obj->location;
-		$u->interests = $obj->interests;
+		$u->location = substr($obj->location, 0, 255);
+		$u->interests = substr($obj->interests, 0, 255);
 		$u->users_opt |= $obj->email_pm ? 64 : 0;
 		$u->users_opt |= !$obj->coppa_user ? 0 : 262144;
 		$u->users_opt |= $obj->auto_track ? 2 : 0;
@@ -466,7 +466,7 @@
 		}
 		
 		$m->subject = char_fix(htmlspecialchars(html_entity_decode($obj->title)));
-		$m->ip_addr = $obj->ip_address ? $obj->ip_address : '0.0.0.0';
+		$m->ip_addr = $obj->ip_address ? substr($obj->ip_address, 0, 15) : '0.0.0.0';
 		if ($obj->author_id) {
 			if (isset($ib_u[$obj->author_id])) {
 				$m->poster_id = $ib_u[$obj->author_id];
