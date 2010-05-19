@@ -22,8 +22,8 @@
 <head>
 <?php echo '<title>'.$FORUM_TITLE.': '.'Admin Control Panel</title>' ?>
 <link rel="styleSheet" href="style/adm.css" type="text/css" />
-<script type="text/javascript" src="../jquery.js"></script>
-<script type="text/javascript" src="../lib.js"></script>
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript" src="../js/lib.js"></script>
 <script type="text/javascript" src="style/jquery.tablesorter.min.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=<?php echo $charset; ?>" />
 </head>

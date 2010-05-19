@@ -15,15 +15,14 @@
 <title>{GVAR: FORUM_TITLE}{VAR: TITLE_EXTRA}</title>
 <meta name="description" content="{GVAR: FORUM_DESCR}" />
 <base href="{FULL_ROOT}" />
-<script type="text/javascript" src="jquery.js"></script>
-<script type="text/javascript" src="lib.js"></script>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/lib.js"></script>
 <link rel="stylesheet" href="{THEME_ROOT}/forum.css" type="text/css" media="screen" title="Default FUDforum Theme" />
 <link rel="search" type="application/opensearchdescription+xml" title="{GVAR: FORUM_TITLE} Search" href="{FULL_ROOT}open_search.php" />
 {VAR: RSS}
 </head>
 <body>
-<table class="wa" border="0" cellspacing="3" cellpadding="5"><tr><td class="ForumBackground">
-<div class="header">
+<div class="ForumBackground header">
 {IF: $FUD_OPT_1 & 16777216}
   <div class="headsearch">
     <form id="headsearch" method="get" action="{ROOT}">{DEF: _hs}
@@ -40,7 +39,8 @@
 </a><br />
 <span class="headdescr">{GVAR: FORUM_DESCR}<br /><br /></span>
 </div>
-<br />
+<table class="wa" border="0" cellspacing="3" cellpadding="5"><tr><td class="ForumBackground">
+<!-- The left block. <td class="ForumBackground"> -->
 {MAIN_SECTION: END}
 
 {MAIN_SECTION: header_plain header for small popup forms}
@@ -50,8 +50,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset={CHARSET}" />
 <title>{GVAR: FORUM_TITLE}{VAR: TITLE_EXTRA}</title>
 <base href="{FULL_ROOT}" />
-<script type="text/javascript" src="jquery.js"></script>
-<script type="text/javascript" src="lib.js"></script>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/lib.js"></script>
 <link rel="stylesheet" href="{THEME_ROOT}/forum.css" type="text/css" />
 </head>
 <body>
