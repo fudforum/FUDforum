@@ -483,7 +483,7 @@ stdClass Object
     [twitter] => // twitter uin
     [affero] => // affero uin
     [time_zone] => // user's timezone of choice
-    [bday] => // user's b-day YYYYMMDD
+    [birthday] => // user's b-day MMDDYYYY
     [join_date] => // date this user registered on (unix timestamp)
     [user_image] => // optional image URL
     [theme] => // id of the forum theme used by this user
@@ -545,7 +545,7 @@ function fud_fetch_top_poster()
  * 	affero	- Affero IM id.
  * 	posts_ppg - Host many messages to display per page, will default to POSTS_PER_PAGE.
  * 	time_zone - Time zone, will default to server timezone as specified in admin settings.
- * 	bday	- Birth day YYYYMMDD format, must be an integer.
+ * 	birthday	- Birth day MMDDYYYY format.
  * 	last_visit -  Unix Timestamp of last visitation date.
  *	conf_key - 32 byte confirmation key for unconfirmed accounts.
  *	user_image - url to the user's image
@@ -614,7 +614,7 @@ function fud_add_user($vals, &$err)
 
 	// Make sure all fields are set.
 	foreach( array('login','alias','passwd','name','email','icq','aim','yahoo','msnm','jabber','google','skype','twitter',
-		'affero','posts_ppg','time_zone','bday','last_visit','conf_key','user_image',
+		'affero','posts_ppg','time_zone','birthday','last_visit','conf_key','user_image',
 		'join_date','location','theme','occupation','interests','referer_id','last_read',
 		'sig','home_page','bio','users_opt','reg_ip') as $v) {
 		if (empty($vals[$v])) {
@@ -640,7 +640,7 @@ function fud_add_user($vals, &$err)
 				affero,
 				posts_ppg,
 				time_zone,
-				bday,
+				birthday,
 				last_visit,
 				conf_key,
 				user_image,
@@ -673,7 +673,7 @@ function fud_add_user($vals, &$err)
 				".ssn(urlencode($vals['affero'])).",
 				".(int)$vals['posts_ppg'].",
 				"._esc($vals['time_zone']).",
-				".(int)$vals['bday'].",
+				".ssn($vals['birthday']).",
 				".(int)$vals['last_visit'].",
 				'".$vals['conf_key']."',
 				".ssn(htmlspecialchars($vals['user_image'])).",
@@ -728,7 +728,7 @@ function fud_update_user($uid, $vals, &$err)
 	$qry = "UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."users SET ";
 	// Apply changes.
 	foreach( array('login','alias','passwd','name','email','icq','aim','yahoo','msnm','jabber','google','skype','twitter',
-		'affero','posts_ppg','time_zone','bday','last_visit','conf_key','user_image',
+		'affero','posts_ppg','time_zone','birthday','last_visit','conf_key','user_image',
 		'join_date','location','theme','occupation','interests','referer_id','last_read',
 		'sig','home_page','bio','users_opt','reg_ip') as $v) {
 		if (isset($vals[$v])) {

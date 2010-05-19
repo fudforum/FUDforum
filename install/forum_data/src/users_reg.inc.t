@@ -14,7 +14,7 @@ class fud_user
 	var $id, $login, $alias, $passwd, $salt, $plaintext_passwd,
 	    $name, $email, $location, $occupation, $interests, $topics_per_page,
 	    $icq, $aim, $yahoo, $msnm, $jabber, $affero, $google, $skype, $twitter,
-	    $avatar, $avatar_loc, $posts_ppg, $time_zone, $bday, $home_page,
+	    $avatar, $avatar_loc, $posts_ppg, $time_zone, $birthday, $home_page,
 	    $sig, $bio, $posted_msg_count, $last_visit, $last_event, $conf_key,
 	    $user_image, $join_date, $theme, $last_read,
 	    $mod_list, $mod_cur, $level_id, $u_last_post_id, $users_opt, $cat_collapse_status,
@@ -47,19 +47,26 @@ class fud_user_reg extends fud_user
 
 	function add_user()
 	{
+		// Track referer.
 		if (isset($_COOKIE['frm_referer_id']) && (int)$_COOKIE['frm_referer_id']) {
 			$ref_id = (int)$_COOKIE['frm_referer_id'];
 		} else {
 			$ref_id = 0;
 		}
 
-		$this->salt  = generate_salt();
-		$secure_pass = sha1($this->salt . sha1($this->plaintext_passwd));
-		$o2 =& $GLOBALS['FUD_OPT_2'];
+		// Geneate salt & password (if not supplied).
+		if (empty($this->passwd) && empty($this->plaintext_passwd)) {
+			$this->plaintext_passwd = substr(md5(get_random_value()), 0, 8);
+		}
+		if (!empty($this->plaintext_passwd)) {
+			$this->salt  = generate_salt();
+			$this->passwd = sha1($this->salt . sha1($this->plaintext_passwd));
+		}
 
+		$o2 =& $GLOBALS['FUD_OPT_2'];
 		$this->alias = make_alias((!($o2 & 128) || !$this->alias) ? $this->login : $this->alias);
 
-		/* This used when utilities create users (aka nntp/mlist import). */
+		/* This used when utilities create users (aka nntp/mlist/xmlagg imports). */
 		if ($this->users_opt == -1) {
 			$this->users_opt = 4|16|128|256|512|2048|4096|8192|16384|131072|4194304;
 			$this->theme = q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}themes WHERE theme_opt>=2 AND (theme_opt & 2) > 0 LIMIT 1');
@@ -91,9 +98,6 @@ class fud_user_reg extends fud_user
 			$this->users_opt |= 131072;
 		}
 		$this->icq = (int)$this->icq ? (int)$this->icq : 'NULL';
-		if (!is_numeric($this->bday)) {
-			$this->bday = '0';
-		}
 
 		$this->html_fields();
 
@@ -118,7 +122,7 @@ class fud_user_reg extends fud_user
 				twitter,
 				posts_ppg,
 				time_zone,
-				bday,
+				birthday,
 				last_visit,
 				conf_key,
 				user_image,
@@ -140,7 +144,7 @@ class fud_user_reg extends fud_user
 			) VALUES (
 				'._esc($this->login).',
 				'._esc($this->alias).',
-				\''.$secure_pass.'\',
+				\''.$this->passwd.'\',
 				\''.$this->salt.'\',
 				'._esc($this->name).',
 				'._esc($this->email).',
@@ -155,7 +159,7 @@ class fud_user_reg extends fud_user
 				'.ssn(urlencode($this->twitter)).',
 				'.(int)$this->posts_ppg.',
 				'._esc($this->time_zone).',
-				'.$this->bday.',
+				'.ssn($this->bithday).',
 				'.__request_timestamp__.',
 				\''.$this->conf_key.'\',
 				'.ssn(htmlspecialchars($this->user_image)).',
@@ -213,7 +217,7 @@ class fud_user_reg extends fud_user
 			twitter='.ssn(urlencode($this->twitter)).',
 			posts_ppg='.(int)$this->posts_ppg.',
 			time_zone='._esc($this->time_zone).',
-			bday='.$this->bday.',
+			birthday='.ssn($this->birthday).',
 			user_image='.ssn(htmlspecialchars($this->user_image)).',
 			location='.ssn($this->location).',
 			occupation='.ssn($this->occupation).',

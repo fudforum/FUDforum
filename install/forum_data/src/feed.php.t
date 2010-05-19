@@ -206,7 +206,7 @@ function smiley_full(&$data)
 				}
 			}
 
-			$c = q('SELECT
+			$c = q(q_limit('SELECT
 					m.*,
 					u.alias,
 					t.forum_id,
@@ -226,7 +226,8 @@ function smiley_full(&$data)
 					LEFT JOIN {SQL_TABLE_PREFIX}poll p ON m.poll_id=p.id
 					'.$join.'
 				WHERE
-					' . $lmt  . ' ORDER BY m.post_stamp ' . (isset($_GET['l']) ? 'DESC LIMIT ' : 'ASC LIMIT ') . qry_limit($limit, $offset));
+					' . $lmt  . ' ORDER BY m.post_stamp ' . (isset($_GET['l']) ? 'DESC' : 'ASC'),
+				$limit, $offset));
 			while ($r = db_rowobj($c)) {
 				if (!$res) {
 					header('{TEMPLATE: xml_header}');
@@ -318,7 +319,7 @@ function smiley_full(&$data)
 					$lmt .= ' AND (g1.group_cache_opt & 2) > 0';
 				}
 			}
-			$c = q('SELECT
+			$c = q(q_limit('SELECT
 					t.*,
 					f.name AS frm_name,
 					c.name AS cat_name,
@@ -334,7 +335,8 @@ function smiley_full(&$data)
 					LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id
 					'.$join.'
 				WHERE
-					' . $lmt  . (isset($_GET['l']) ? ' ORDER BY m.post_stamp DESC LIMIT ' : ' LIMIT ') . qry_limit($limit, $offset));
+					' . $lmt  . (isset($_GET['l']) ? ' ORDER BY m.post_stamp DESC' : ''),
+				$limit, $offset));
 
 			$data = '';
 			while ($r = db_rowobj($c)) {
@@ -397,9 +399,9 @@ function smiley_full(&$data)
 			} else {
 				$perms = ', 1 AS can_show_msg';
 			}
-			$c = q('SELECT
+			$c = q(q_limit('SELECT
 						u.id, u.alias, u.join_date, u.posted_msg_count, u.avatar_loc, u.users_opt,
-						u.home_page, u.bday, u.last_visit, u.icq, u.aim, u.yahoo, u.msnm, u.jabber, u.google, u.skype, u.twitter, u.affero,
+						u.home_page, u.birthday, u.last_visit, u.icq, u.aim, u.yahoo, u.msnm, u.jabber, u.google, u.skype, u.twitter, u.affero,
 						u.name, u.email,
 						m.id AS msg_id, m.subject, m.thread_id,
 						t.forum_id,
@@ -414,20 +416,21 @@ function smiley_full(&$data)
 					LEFT JOIN {SQL_TABLE_PREFIX}cat c ON c.id=f.cat_id
 					'.$join.'
 					WHERE
-						' . $lmt . ' ORDER BY ' . $order_by . ' DESC LIMIT ' . qry_limit($limit, $offset));
+						' . $lmt . ' ORDER BY ' . $order_by . ' DESC',
+					$limit, $offset));
 			while ($r = db_rowobj($c)) {
 				if (!$res) {
 					header('{TEMPLATE: xml_header}');
 					$res = 1;
 				}
 
-				if ($r->bday && $r->bday > 18500000) {
-					$y = substr($r->bday, 0, 4);
-					$m = substr($r->bday, 4, 2);
-					$d = substr($r->bday, 6, 2);
-					$r->bday = gmdate('r', gmmktime(1, 1, 1, $m, $d, $y));
+				if ($r->birthday) {
+					$y = substr($r->birthday, 4);
+					$m = substr($r->birthday, 0, 2);
+					$d = substr($r->birthday, 2, 2);
+					$r->birthday = gmdate('r', gmmktime(1, 1, 1, $m, $d, $y));
 				} else {
-					$r->bday = '';
+					$r->birthday = '';
 				}
 				$r->last_visit = ($r->last_visit && $r->last_visit > 631155661) ? $r->last_visit : '';
 				$r->join_date = ($r->join_date && $r->join_date > 631155661) ? $r->join_date : '';

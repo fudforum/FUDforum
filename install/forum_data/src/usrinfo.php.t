@@ -111,12 +111,12 @@
 		$gender = '';
 	}
 
-	if ($u->bday) {
+	if ($u->birthday) {
 		// Convert birthday string to a date.
-		$yyyy = (int)substr($u->bday, 0, 4);
-		$mm   = (int)substr($u->bday, 4, 2);
-		$dd   = (int)substr($u->bday, 6, 2);
-		$u->bday = mktime(0, 0, 0, $mm, $dd, $yyyy);
+		$yyyy = (int)substr($u->birthday, 4);
+		$mm   = (int)substr($u->birthday, 0, 2);
+		$dd   = (int)substr($u->birthday, 2, 2);
+		$u->birthday = mktime(0, 0, 0, $mm, $dd, $yyyy);
 		$birth_date = '{TEMPLATE: birth_date}';
 	} else {
 		$birth_date = '';

@@ -413,7 +413,7 @@ function email_encode($val)
 			$uent->theme = q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}themes WHERE theme_opt>=2 AND (theme_opt & 2) > 0 LIMIT 1');
 		}
 
-		$uent->bday = fmt_year((int)$_POST['b_year']) . sprintf('%02d%02d', (int)$_POST['b_month'], (int)$_POST['b_day']);
+		$uent->birthday = sprintf('%02d%02d', (int)$_POST['b_month'], (int)$_POST['b_day']) . fmt_year((int)$_POST['b_year']);
 		$uent->msnm = email_encode($uent->msnm);
 		$uent->google = email_encode($uent->google);
 
@@ -625,13 +625,10 @@ function email_encode($val)
 			$reg_sig = char_fix($reg_sig);
 		}
 
-		if ($uent->bday) {
-			if (strlen($uent->bday) != 8) {
-				$uent->bday = str_pad($uent->bday, 8, '0', STR_PAD_LEFT);
-			}
-			$b_year = (int) substr($uent->bday, 0, 4);
-			$b_month = sprintf('%02d', substr($uent->bday, 4, 2));
-			$b_day = sprintf('%02d', substr($uent->bday, 6, 8));
+		if ($uent->birthday) {
+			$b_year = (int) substr($uent->birthday, 4);
+			$b_month = substr($uent->birthday, 0, 2);
+			$b_day = substr($uent->birthday, 2, 2);
 		} else {
 			$b_year = $b_month = $b_day = '';
 		}

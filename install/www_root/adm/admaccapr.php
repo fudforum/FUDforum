@@ -60,7 +60,6 @@ function print_if_avail($descr, $value, $no_html=1)
 		print_if_avail('Occupation', $obj->occupation) .
 		print_if_avail('Interests', $obj->interests) .
 		print_if_avail('Avatar', ($obj->avatar_loc), 0) .
-		print_if_avail('Birth Date', fdate('%B, %d, %Y', strtotime($obj->bday))) .
 		print_if_avail('Gender', ($obj->users_opt & 1024 ? 'Male' : ($obj->users_opt & 512 ? 'Unspecified' : 'Female'))) .
 		print_if_avail('Homepage', $obj->home_page) .
 		print_if_avail('Image', $obj->user_image) .

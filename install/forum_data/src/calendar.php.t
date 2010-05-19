@@ -102,14 +102,25 @@ function draw_calendar($year, $month, $events = array(), $size = 'large', $highl
 
 /* Query events from database.
  */
-function get_events($year, $month) {
+function get_events($year, $month, $day = 0) {
 	/* Fetch events to display from DB. */
 	$events = array();
-	$c = uq('SELECT u.alias, u.bday FROM {SQL_TABLE_PREFIX}users u WHERE bday LIKE \''. sprintf('%04d%02d', $year, $month) .'%\'');
-	while ($r = db_rowarr($c)) {
-		$events[$r[1]][] = 'Birthday: '. $r[0];
+
+	/* Display birthdays (DDMMYYYY) on day view. */
+	if ($GLOBALS['FUD_OPT_3'] & 268435456 && $day != 0) {
+		$c = uq('SELECT u.alias, u.birthday FROM fud30_users u WHERE birthday LIKE \''. sprintf('%02d%02d', $month, $day) .'%\'');
+		while ($r = db_rowarr($c)) {
+			$yyyy = substr($r[1], 4);
+			$mm = substr($r[1], 0, 2);
+			$dd = substr($r[1], 2, 2);
+			// echo "Het verjaasdag: ". $r[0] .' vir '. $yyyy . $mm . $dd .'<hr>';
+			$age = $year - $yyyy;
+			$events[ $year . $mm . $dd ][] = 'Birthday: '. $r[0] . ' ('. $age .' years old)'; // Replace birth year with current year.
+		}
 	}
-	$c = uq('SELECT day, descr, link FROM {SQL_TABLE_PREFIX}calendar WHERE (month=\''.$month.'\' AND year=\''.$year.'\') OR (month=\'*\' AND year=\''.$year.'\') OR (month=\''.$month.'\' AND year=\'*\') || (month=\'*\' AND year=\'*\')');
+
+	/* Defined events. */
+	$c = uq('SELECT day, descr, link FROM fud30_calendar WHERE (month=\''.$month.'\' AND year=\''.$year.'\') OR (month=\'*\' AND year=\''.$year.'\') OR (month=\''.$month.'\' AND year=\'*\') || (month=\'*\' AND year=\'*\')');
 	while ($r = db_rowarr($c)) {
 		if (empty($r[2])) {
 			$events[ sprintf('%04d%02d%02d', $year, $month, $r[0]) ][] = $r[1];
@@ -172,7 +183,7 @@ if ($view == 'd') {
 	$next_year  = date('Y', $tomorrow);
 	$prev_year  = date('Y', $yesterday);
 
-	$events = get_events($year, $month);
+	$events = get_events($year, $month, $day);
 
 	$event_day = sprintf('%04d%02d%02d', $year, $month, $day);
 	$events_for_day = '';

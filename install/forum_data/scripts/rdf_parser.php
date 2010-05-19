@@ -97,7 +97,7 @@ class fud_forum_rdf_msg_print extends fud_forum_rdf_msg
  *	user_email	- e-mail ('.' & '@' replaced with text equivalents for spam protection)
  *	post_count	- number of messages the user had posted
  *	homepage	- homepage (optional)
- *	bday		- birthdate (optional)
+ *	birthday		- date of birth (optional)
  *	last_visit	- last visit (optional)
  *	reg_date	- registration date (optional)
  *	im_icq		- ICQ uin (optional)
@@ -142,8 +142,8 @@ class fud_forum_rdf_user_print extends fud_forum_rdf_user
 		if ($this->reg_date) {
 			echo '<b>Registered On:</b> '.$this->reg_date.'<br />';
 		}
-		if ($this->bday) {
-			echo '<b>Birthday:</b> '.$this->bday.'<br />';
+		if ($this->birthday) {
+			echo '<b>Birthday:</b> '.$this->birthday.'<br />';
 		}
 		if ($this->last_visit) {
 			echo '<b>Last Visit:</b> '.$this->last_visit.'<br />';
@@ -314,7 +314,7 @@ class fud_forum_rdf_user
 	var	$parser, $ctag, $ctag_attr, $in_parser=false, $forum_url=null;
 
 	var	$user_id, $user_login, $user_name, $user_email, $post_count, $avatar_img, $homepage,
-		$bday, $last_visit, $reg_date, $im_icq, $im_aim, $im_yahoo, $im_msnm, $im_jabber, $im_google, $im_skype, $im_twitter, $im_affero,
+		$birthday, $last_visit, $reg_date, $im_icq, $im_aim, $im_yahoo, $im_msnm, $im_jabber, $im_google, $im_skype, $im_twitter, $im_affero,
 		$m_subject, $m_id, $m_thread_id, $m_forum_id, $m_forum_title, $m_cat_title;
 
 	function parse($url)
@@ -350,7 +350,7 @@ class fud_forum_rdf_user
 	{
 		if ($this->in_parser && $tag === 'item') {
 			$this->handle_fud_data();
-			unset($this->user_id, $this->user_login, $this->user_name, $this->user_email, $this->post_count, $this->avatar_img, $this->homepage, $this->bday, $this->last_visit, $this->reg_date, $this->im_icq, $this->im_aim, $this->im_yahoo, $this->im_msnm, $this->im_jabber, $this->im_google, $this->im_skype, $this->im_twitter, $this->im_affero, $this->m_subject, $this->m_id, $this->m_thread_id, $this->m_forum_id, $this->m_forum_title, $this->m_cat_title);
+			unset($this->user_id, $this->user_login, $this->user_name, $this->user_email, $this->post_count, $this->avatar_img, $this->homepage, $this->birthday, $this->last_visit, $this->reg_date, $this->im_icq, $this->im_aim, $this->im_yahoo, $this->im_msnm, $this->im_jabber, $this->im_google, $this->im_skype, $this->im_twitter, $this->im_affero, $this->m_subject, $this->m_id, $this->m_thread_id, $this->m_forum_id, $this->m_forum_title, $this->m_cat_title);
 			$this->in_parser = false;
 		}
 	}

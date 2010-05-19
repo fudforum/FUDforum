@@ -178,7 +178,7 @@ Queue user's first N posts for approval. If a user's post count exceeds this num
 Prevent users from posting empty or very short messages. Messages must be longer than this amount of characters before it will be accepted.}}}
 
 {{{POSTS_BEFORE_LINKS
-Prevent new users from posting spam. Users are required to post more than this amount of messages before they can embed links into their posts.}}}
+Prevent new users from posting spam. Users are required to post more than this amount of messages before they can embed links into their signatures and posts.}}}
 
 {{{SERVER_TZ
 Server time zone, specified in time offset from UTC.}}}
@@ -493,3 +493,6 @@ Full path to the command line PHP executable on your system. This command will b
 
 {{{CALENDAR_ENABLED	FUD_OPT_3	134217728
 Enable or disable the forum's built-in calendar.}}}
+
+{{{CALENDAR_SHOW_BIRTHDAYS	FUD_OPT_3	268435456
+Show forum member's birthdays on the built-in calendar.}}}

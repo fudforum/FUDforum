@@ -69,12 +69,12 @@
 
 /*{POST_HTML_PHP}*/
 
-	$c = uq('SELECT b.bud_id, u.id, u.alias, u.join_date, u.bday, (u.users_opt & 32768), u.posted_msg_count, u.home_page, u.last_visit AS time_sec
+	$c = uq('SELECT b.bud_id, u.id, u.alias, u.join_date, u.birthday, (u.users_opt & 32768), u.posted_msg_count, u.home_page, u.last_visit AS time_sec
 		FROM {SQL_TABLE_PREFIX}buddy b INNER JOIN {SQL_TABLE_PREFIX}users u ON b.bud_id=u.id WHERE b.user_id='._uid);
 
 	$buddies = '';
 	/* Result index
-	 * 0 - bud_id	1 - user_id	2 - login	3 - join_date	4 - bday	5 - users_opt	6 - msg_count
+	 * 0 - bud_id	1 - user_id	2 - login	3 - join_date	4 - birthday	5 - users_opt	6 - msg_count
 	 * 7 - home_page	8 - last_visit
 	 */
 
@@ -89,8 +89,8 @@
 				$online_status = '';
 			}
 
-			if ($r[4] && substr($r[4], 4) == $md) {
-				$age = $dt['year'] - substr($r[4], 0, 4);
+			if ($r[4] && substr($r[4], 0, 4) == $md) {
+				$age = $dt['year'] - (int)substr($r[4], 4);
 				$bday_indicator = '{TEMPLATE: bday_indicator}';
 			} else {
 				$bday_indicator = '';

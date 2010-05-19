@@ -163,7 +163,7 @@ Content-Type: application/{VAR: format}+xml
 	<post_count>{VAR: r->posted_msg_count}</post_count>
 	<avatar_img>{FUNC: sp($r->avatar_loc)}</avatar_img>
 	<homepage>{FUNC: sp(htmlspecialchars($r->homepage))}</homepage>
-	<bday>{VAR: r->bday}</bday>
+	<birthday>{VAR: r->birthday}</birthday>
 	{IF: $r->last_visit}<last_visit>{FUNC: gmdate('Y-m-d\TH:i:s', $r->last_visit)}</last_visit>{ENDIF}
 	{IF: $r->join_date}<reg_date>{FUNC: gmdate('Y-m-d\TH:i:s', $r->join_date)}</reg_date>{ENDIF}
 	<im_icq>{VAR: r->icq}</im_icq>

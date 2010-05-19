@@ -34,12 +34,22 @@
 		if (isset($_POST['FUD_OPT_3_CALENDAR_ENABLED'])) {
 			if ($_POST['FUD_OPT_3_CALENDAR_ENABLED'] & 134217728) {
 				$FUD_OPT_3 |= 134217728;
-				echo successify('The forum\'s calendar was successfully enabled.<br />Visit the <a href="../'. __fud_index_name__ . '?t=cal&amp;'. __adm_rsid .'">calendar</a>.');
 			} else {
 				$FUD_OPT_3 &= ~134217728;
-				echo successify('The forum\'s calendar was successfully disabled.');
 			}
 			change_global_settings(array('FUD_OPT_3' => $FUD_OPT_3));
+		}
+		if (isset($_POST['FUD_OPT_3_CALENDAR_SHOW_BIRTHDAYS'])) {
+			if ($_POST['FUD_OPT_3_CALENDAR_SHOW_BIRTHDAYS'] & 268435456) {
+				$FUD_OPT_3 |= 268435456;
+			} else {
+				$FUD_OPT_3 &= ~268435456;
+			}
+			change_global_settings(array('FUD_OPT_3' => $FUD_OPT_3));
+		}
+		echo successify('Calendar settings was successfully updated.');
+		if ($FUD_OPT_3 & 134217728) {
+			echo successify('Visit the <a href="../'. __fud_index_name__ . '?t=cal&amp;'. __adm_rsid .'">calendar</a>.');
 		}
 	}
 
@@ -115,6 +125,7 @@
 <table class="datatable solidtable">
 <?php
 	print_bit_field('Calendar Enabled', 'CALENDAR_ENABLED');
+	print_bit_field('Show Birthdays on Calendar', 'CALENDAR_SHOW_BIRTHDAYS');
 ?>
 <tr class="fieldaction"><td colspan="2" align="right"><input type="submit" name="btn_submit" value="Set" /></td></tr>
 </table>
