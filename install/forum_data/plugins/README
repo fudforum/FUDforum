@@ -1,5 +1,7 @@
 This directory contains some user written plugins. 
 
-These plugins are not officially part of FUDforum and the FUDforum 
-development team does not test nor support these plugins.
+To add plugin's to your forum, upload them to this directory and go to the
+Plugin Manager Admin Control Panel to activate them.
 
+NOTE: These plugins are not officially part of FUDforum and the FUDforum 
+development team does not test nor support these plugins.

@@ -15,7 +15,7 @@ plugin_add_hook('LOGERR', 'plugin_syslog');
 // Write forum errors to the system log.
 function plugin_syslog($error_msg) {
 	openlog('FUDforum', LOG_CONS, LOG_USER);
-	syslog(LOG_ERR, $error_msg);
+	syslog(LOG_ERR, preg_replace('/\<br(\s*)?\/?\>/i', "\n", $error_msg));
 	closelog();	
 
 	return null;	// Don't log to default error_log.

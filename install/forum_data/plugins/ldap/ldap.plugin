@@ -13,8 +13,10 @@
 plugin_add_hook('AUTHENTICATE', 'plugin_ldap_auth');
 
 // Authenticate users from LDAP directory.
-function plugin_ldap_auth($data) {
-	list($login, $password) = $data;
+function plugin_ldap_auth() {
+	$login    = $_POST['login'];
+	$password = $_POST['password'];
+
 	if ($login == 'admin') {	// Always allow admin through.
 		return 1;
 	}
