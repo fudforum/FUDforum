@@ -205,7 +205,7 @@ reported_reported_by:Gerapporteer deur:
 reported_reported_msg:Gerapporteerde boodskap
 modque_pending_approval:Boodskappe wat nog goedgekeur moet word
 modque_approve:Keur goed
-modque_delete:Verwyder
+modque_delete:Skrap
 modque_no_message:Daar is nie meer boodskappe wat nog goedgekeur moet word nie
 pmsg_new_messages:Ongeleesde privaatboodskap
 pmsg_old_messages:Geleesde privaatboodskap
@@ -230,7 +230,7 @@ pmsg_subject:Onderwerp
 pmsg_author:Outeur
 pmsg_time:Tyd
 pmsg_selected:Gekies
-pmsg_delete:Verwyder
+pmsg_delete:Skrap
 cur_ppage_pm:Privaat boodskap
 writing_pm:Skryf nuwe privaat boodskap
 browsing_folder:wys vouer <b>{VAR: folders[$folder_id]}</b>
@@ -388,7 +388,7 @@ post_no_icon:Geen Ikoon
 post_smiley:Gesiggies:
 post_format_tools:Formateringsgereedskap:
 post_upload_file:Laai lêer
-post_file_del:Verwyder
+post_file_del:Skrap
 post_file_name:Naam
 post_file_size:Groote
 file_attachments:Lêeraanhangsels:
@@ -496,7 +496,7 @@ mklist_type:Tipe:
 mklist_option:Opsie:
 mklist_additem:Voeg item by
 mklist_apply:Pas toe
-mklist_delete:Verwyder
+mklist_delete:Skrap
 qbud_nick_name:Bynaam
 qbud_add_selected:Voeg gekose by
 qbud_selected:Gekies
@@ -531,7 +531,7 @@ poll_update:Wysig
 poll_disablesmilies:Skakel gesiggies af
 poll_create_poll:Skep Stemming
 poll_update_poll:Wysig Stemming
-poll_delete:Verwyder
+poll_delete:Skrap
 poll_updateoption:Wysig Opsie
 poll_addoption:Voeg opsie by
 poll_unlimited:Onbeperk
@@ -736,7 +736,7 @@ groupmgr_cancel:Kanselleer
 groupmgr_add_member:Voeg lid by
 groupmgr_update_member:Wysig lid
 groupmgr_edit:Wysig
-groupmgr_delete:Verwyder
+groupmgr_delete:Skrap
 group_mgr_anon:Anoniem
 group_mgr_reged:Geregistreerde gebruikers
 show_show:Wys:
@@ -750,7 +750,7 @@ p_READ:Lees
 p_POST:Pos
 p_REPLY:Antwoord
 p_EDIT:Wysig
-p_DEL:Verwyder
+p_DEL:Skrap
 p_STICKY:Plakkerpos
 p_POLL:Skep stemming
 p_FILE:Heg lêer aan
@@ -789,7 +789,7 @@ th_expr_one_month:1 Maand
 th_expr_two_month:2 Maande
 th_expr_four_month:4 Maande
 th_expr_one_year:1 Jaar
-thread_mod_delete:Verwyder
+thread_mod_delete:Skrap
 action_latest_post:Laaste boodskap
 online_today_last_visit:Laaste besoek
 online_today_update:Wys wie die forum vandag besoek het.
@@ -966,7 +966,7 @@ findu_admin_opts_header:Administrasie:
 findu_unban:Ontban
 findu_ban:Verban
 findu_edit:Wysig
-findu_delete:Verwyder
+findu_delete:Skrap
 dmsg_reply_to:is 'n antwoord op
 dmsg_reply_num:boodskap #{VAR: obj->reply_to}
 merge_topics:Versmelt onderwerpe
@@ -1069,7 +1069,7 @@ post_common_nlist:Voeg 'n genommerde lys by
 post_common_blist:Voeg 'n ongenommerde lys by
 post_common_quote:Voeg 'n aanhaling by
 post_common_code:Voeg kode by
-rating_delete:Verwyder
+rating_delete:Skrap
 post_always_on_top:Vertoon die onderwerp altyd boaan die onderwerpslys.
 topic_rating:{VAR: frm->rating} van {PLURAL: frm->n_rating|$1 stem|$1 stemme}
 topic_list_rating:{VAR: r[17]} van {PLURAL: r[21]|$1 stem|$1 stemme}

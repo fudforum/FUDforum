@@ -322,6 +322,7 @@ post_file_size:Μέγεθος
 post_forum:Φόρουμ:
 post_title:Τίτλος:
 post_options:Επιλογές:
+ignore_users:Αγνοημένοι χρήστες
 prereg_info:Κανόνες του Φόρουμ
 prereg_agree:Συμφωνώ
 prereg_disagree:Διαφωνώ

@@ -589,7 +589,7 @@ post_err_floodtrig_title:EROARE: Incercare de flood prin intermediul mesajului t
 # Fuzzy
 post_err_floodtrig_msg:Va rugam sa incercati din nou in {VAR: tm} secunde
 post_err_attach_size:Fisierul atasat este prea mare (peste limita de {VAR: MAX_F_SIZE} bytes)
-post_err_attach_ext:Extensia fişierului pe care încercaţi să-l încărcaţi nu se potriveşte cu tipurile de fişiere acceptate.
+post_err_attach_ext:Extensia fișierului pe care încercați să-l încărcați nu se potrivește cu tipurile de fișiere acceptate.
 post_err_attach_filelimit:Incercati sa incarcati mai multe fisiere decat este permis
 post_err_passwd:Parola incorecta.
 # Fuzzy
