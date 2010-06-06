@@ -496,3 +496,9 @@ Enable or disable the forum's built-in calendar.}}}
 
 {{{CALENDAR_SHOW_BIRTHDAYS	FUD_OPT_3	268435456
 Show forum member's birthdays on the built-in calendar.}}}
+
+{{{LOGIN_WITH_USRPASS	FUD_OPT_3	536870912
+Enable uses to login to the forum by entering a userid and password.}}}
+
+{{{LOGIN_WITH_URL	FUD_OPT_3	1073741824
+Enable uses to login to the forum by entering a URL pointing to an OpenID account provider.}}}

@@ -70,6 +70,7 @@ function get_max_upload_size()
 		$GLOBALS['NEW_FUD_OPT_3'] |= $FUD_OPT_3 & (4194304);
 		/* Restore calendar settings. */
 		$GLOBALS['NEW_FUD_OPT_3'] |= $FUD_OPT_3 & (134217728);
+		$GLOBALS['NEW_FUD_OPT_3'] |= $FUD_OPT_3 & (268435456);
 		/* Restore GeoLocation settings. */
 		$GLOBALS['NEW_FUD_OPT_3'] |= $FUD_OPT_3 & (524288|2097152);
 
@@ -202,7 +203,6 @@ $(document).ready(function() {
 	$msg = ($GLOBALS['FUD_OPT_1'] & 1) ? '' : '<font color="red">NOTE: </font>';
 	print_bit_field($msg .'Forum Enabled', 'FORUM_ENABLED');
 	print_txt_field('Reason for Disabling', 'DISABLED_REASON');
-	print_bit_field('Allow Registration', 'ALLOW_REGISTRATION');
 ?>
 <tr class="fieldaction"><td align="left"><input type="submit" name="btn_submit" value="Set" /></td><td align="right">[ <a href="#top">top</a> ]</td></tr>
 </tbody>
@@ -329,6 +329,9 @@ $(document).ready(function() {
 <tbody class="section 9">
 <tr class="fieldtopic"><td colspan="2"><a name="9" /><br /><b>User Account Settings</b></td></tr>
 <?php
+	print_bit_field('Allow Registration', 'ALLOW_REGISTRATION');
+	print_bit_field('Allow Login with userid/password', 'LOGIN_WITH_USRPASS');
+	print_bit_field('Allow Login with OpenID URL', 'LOGIN_WITH_URL');
 	print_reg_field('Registration Time Limit', 'REG_TIME_LIMIT', 1);
 	print_reg_field('Unconfirmed User Expiry', 'UNCONF_USER_EXPIRY', 1);
 	print_bit_field('COPPA', 'COPPA');

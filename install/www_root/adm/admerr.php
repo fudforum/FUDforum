@@ -70,10 +70,6 @@ function print_log($path, $search)
 
 <?php if ($logcnt) { ?>
 <table width="95%" class="tutor"><tr><td>
-Jump to:
-	<?php if ($fud) { ?> [ <a href="#fud">FUDforum errors</a> ] <?php } ?>
-	<?php if ($sql) { ?> [ <a href="#sql">SQL errors</a> ] <?php } ?>
-</td><td align="right">
 <form method="post" action="admerr.php">
 	<?php echo _hs; ?>
 	Search for:
@@ -81,6 +77,10 @@ Jump to:
 	<input type="text" name="search" value="<?php echo $search; ?>" />
 	<input type="submit" value="Go" name="frm_submit" />
 </form>
+</td><td align="right">
+Jump to:
+	<?php if ($fud) { ?> [ <a href="#fud">FUDforum errors</a> ] <?php } ?>
+	<?php if ($sql) { ?> [ <a href="#sql">SQL errors</a> ] <?php } ?>
 </td></tr></table>
 
 <?php } ?>

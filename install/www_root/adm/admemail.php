@@ -52,7 +52,7 @@
 <table class="datatable solidtable">
 	<tr class="field">
 		<td>Type:</td>
-		<td><?php draw_select("e_email_block_opt", "Simple\nRegexp", "1\n0", $e_email_block_opt); ?></td>
+		<td><?php draw_select('e_email_block_opt', "Simple\nRegexp", "1\n0", $e_email_block_opt); ?></td>
 	</tr>
 
 	<tr class="field">

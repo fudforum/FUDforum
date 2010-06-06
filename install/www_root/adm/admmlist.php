@@ -46,7 +46,7 @@ function format_regex(&$regex)
 			$edit = '';
 		} else {
 			$mlist->add();
-			echo successify('Mailing list rule successfully added (see list at bottom of page).');
+			echo successify('Mailing list rule successfully added (see <a href="#list">list</a> at bottom of page).');
 		}
 	} else if (isset($_GET['del'])) {
 		fud_mlist::del((int)$_GET['del']);
@@ -78,7 +78,7 @@ function format_regex(&$regex)
 <table class="datatable">
 	<tr class="field">
 		<td>Mailing List E-mail:<br /><font size="-1">The email address of the mailing list.</font></td>
-		<td><input type="text" name="ml_name" value="<?php echo htmlspecialchars($ml_name); ?>" maxlength="255" /></td>
+		<td><input type="text" name="ml_name" value="<?php echo htmlspecialchars($ml_name); ?>" size="30" maxlength="255" /></td>
 	</tr>
 
 	<tr>
@@ -92,17 +92,17 @@ function format_regex(&$regex)
 
 	<tr class="field">
 		<td>Mailbox Server Name:<br /><font size="-1">Server and optional port where mailbox is located. For example: imap.gmail.com:993</font></td>
-		<td><input type="text" name="ml_mbox_server" value="<?php echo htmlspecialchars($ml_mbox_server); ?>" maxlength="255" /></td>
+		<td><input type="text" name="ml_mbox_server" value="<?php echo htmlspecialchars($ml_mbox_server); ?>" size="30"  maxlength="255" /></td>
 	</tr>
 
 	<tr class="field">
 		<td>Mailbox Username:<br /><font size="-1">Username to login to the mailbox.</font></td>
-		<td><input type="text" name="ml_mbox_user" value="<?php echo htmlspecialchars($ml_mbox_user); ?>" maxlength="255" /></td>
+		<td><input type="text" name="ml_mbox_user" value="<?php echo htmlspecialchars($ml_mbox_user); ?>" size="30" maxlength="255" /></td>
 	</tr>
 
 	<tr class="field">
 		<td>Mailbox Password:<br /><font size="-1">Password to login to the mailbox.</font></td>
-		<td><input type="text" name="ml_mbox_pass" value="<?php echo htmlspecialchars($ml_mbox_pass); ?>" maxlength="255" /></td>
+		<td><input type="text" name="ml_mbox_pass" value="<?php echo htmlspecialchars($ml_mbox_pass); ?>" size="30"  maxlength="255" /></td>
 	</tr>
 
 	<tr class="field">
@@ -294,7 +294,7 @@ function format_regex(&$regex)
 <input type="hidden" name="edit" value="<?php echo $edit; ?>" />
 </form>
 
-<h3>Available rules</h3>
+<h3><a name="list">Available rules</a></h3>
 <table class="resulttable fulltable">
 <thead><tr class="resulttopic">
 	<th nowrap="nowrap">Mailing List Rule</th>

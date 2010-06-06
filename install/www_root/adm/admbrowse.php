@@ -272,7 +272,7 @@ if (!extension_loaded('posix')) {
 		if (move_uploaded_file($_FILES['fname']['tmp_name'], $fdest)) {
 			@chmod($fdest, ($FUD_OPT_2 & 8388608 ? 0600 : 0666));
 			echo successify('File <i>'. basename($fdest) .'</i> was successfully uploaded.'.
-			                ((preg_match('/src|thm/', $fdest)) ? '<br />You need to rebuild your themes to see the changes.' : ''));
+			                ((preg_match('/src|thm/', $fdest)) ? '<br />Rebuild your themes from the <a href="admthemes.php?'.__adm_rsid .'">Theme Manager</a> to see the changes.' : ''));
 		} else {
 			switch ($_FILES['fname']['error']) {
 			case UPLOAD_ERR_INI_SIZE:
@@ -338,7 +338,7 @@ if (!extension_loaded('posix')) {
 	// Print README file.
 	$readme_file = $cur_dir.'/README';
 	if (is_file($readme_file)) {
-		echo '<code><pre><b>README:</b> '. htmlentities(file_get_contents($readme_file)) .'</pre></code>';
+		echo '<div class="dismiss"><code><pre><b>README:</b> '. htmlentities(file_get_contents($readme_file)) .'</pre></code></div>';
 	}
 ?>
 <br />

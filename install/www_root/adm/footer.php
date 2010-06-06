@@ -13,13 +13,18 @@ $(document).ready(function() {
 	$('.resulttable').tablesorter();
 
 	// Focus on the first input element.
-	$(':text:visible:enabled:first').focus();
+	if (window.location.hash.length <= 0) {	// But not if the URL has an anchor.
+		$(':text:visible:enabled:first').focus();
+	}
 
 	// Inject context sensitive 'Help' links to the Wiki.
 	var wikilink = $('H2').first().text();
 	if (wikilink.length > 0) {
 		$('#wikilink').append('[ <a href="http://cvs.prohost.org/index.php/'+ wikilink +'" title="Context sensitive help (FUDforum wiki)">Help</a> ]');
 	}
+
+	// Inject code for dismissable DIV boxes.
+	$('.dismiss').prepend('<span style="float:right;">&nbsp;[ <a href="javascript://" onclick="$(this).parents(\'.dismiss\').hide(\'slow\');" title="Dismiss!">X</a> ]</span>');
 });
 /* ]]> */
 </script>

@@ -14,7 +14,9 @@
 	fud_use('glob.inc', true);
 	fud_use('widgets.inc', true);
 	fud_use('draw_select_opt.inc');
-
+	
+	require($WWW_ROOT_DISK . 'adm/header.php');
+	
 	$help_ar = read_help();
 
 	if (isset($_POST['form_posted'])) {
@@ -52,14 +54,13 @@
 
 		if (isset($ch_list)) {
 			change_global_settings($ch_list);
-			/* put the settings 'live' so they can be seen on the form */
+			/* Put the settings 'live' so they can be seen on the form. */
 			foreach ($ch_list as $k => $v) {
 				$GLOBALS[$k] = $v;
 			}
+			echo successify('Settings was successfully updated.');
 		}
 	}
-
-	require($WWW_ROOT_DISK . 'adm/header.php');
 
 	$feed_url = $WWW_ROOT . 'feed.php';
 ?>

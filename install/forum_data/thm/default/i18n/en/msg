@@ -441,7 +441,7 @@ login_cookie_expired:Your cookie has expired, and you need to login to renew you
 login_perm_denied:You do not have permission to access the requested resource as an anonymous user. You must login to gain permission.
 login_want_to_register:Want to register?
 login_forgot_passwd:Forgot password
-login_use_cookie:Use cookies<br /><span class="SmallText">If you're using a public terminal such as a computer in a library, school, or Internet cafe, it is recommended that you uncheck this option for greater security.<br />If you leave this option selected then you will be automatically logged-into the forum the next time you visit.</span>
+login_use_cookie:Use cookies<br /><span class="SmallText">If you're using a public terminal such as a computer in a library, school, or Internet cafe, it is recommended that you uncheck this option for greater security. If you leave this option selected then you will be automatically logged-into the forum the next time you visit.</span>
 login_login:Login:
 login_login_btn:Login
 login_name_required:Login name is required

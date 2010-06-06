@@ -52,12 +52,18 @@ function get_server_software()
 </tr>
 <tr class="field">
 	<td><b>Database version:</b></td>
-	<td><?php echo get_version(); ?></td>
+	<td><?php echo db_version(); ?></td>
 </tr>
 <tr class="field">
 	<td><b>Web server:</b></td>
 	<td><?php echo get_server_software(); ?></td>
 </tr>
+<?php if (function_exists('sys_getloadavg') && ($load = sys_getloadavg()) ) { ?>
+	<tr class="field">
+		<td><b>Web Server load:</b></td>
+		<td><?php echo $load[1]; ?></td>
+	</tr>
+<?php } ?>
 <tr class="field">
 	<td><b>Web server to PHP interface:</b></td>
 	<td><?php echo php_sapi_name(); ?></td>

@@ -514,6 +514,15 @@ class fud_nntp
 				}
 			}
 
+			// Handle NNTP cancellation messages.
+			if (isset($this->headers['control']) && preg_match('!cancel!', $this->headers['control'])) {
+				// For future implementation. Anyone brave enough to test it for us?
+				// q('DELETE FROM '.sql_p.'msg WHERE mlist_msg_id='._esc($this->msg_id));
+				// if (db_affected()) {
+					continue;
+				// }
+			}
+
 			if (isset($this->headers['date'])) {
 				$msg_post->post_stamp = strtotime($this->headers['date']);
 				if ($msg_post->post_stamp <= 0 || $msg_post->post_stamp > __request_timestamp__) {
@@ -671,9 +680,10 @@ class fud_nntp
 		fputs($this->fs, "Reply-To: $from\r\n");
 		fputs($this->fs, 'Lines: '.substr_count($body,"\n")."\r\n");
 
-		// Will be used to identify forum's messages.
+		// Will be used to identify forum's messages. Prevent circular loads.
 		fputs($this->fs, 'X-FUDforum: '.md5($GLOBALS['WWW_ROOT'])." <$forum_msg_id>\r\n");
 
+		// Reference parent's Message-ID so it is seen as a reply.
 		if ($reply_to) {
 			fputs($this->fs, 'References: <'.$reply_to.">\r\n");
 		}

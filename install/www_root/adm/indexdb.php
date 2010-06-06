@@ -65,7 +65,7 @@ and can take a VERY LONG time, especially on large forums. You should ONLY run t
 
 	$tbl =& $DBHOST_TBL_PREFIX;
 
-	if (defined('forum_debug')) {
+	if (defined('shell_script')) {
 		list($locale, $GLOBALS['usr']->lang) = db_saq("SELECT locale, lang FROM {$tbl}themes WHERE theme_opt & (1|2) LIMIT 1");
 		$GLOBALS['good_locale'] = setlocale(LC_ALL, $locale);
 	}

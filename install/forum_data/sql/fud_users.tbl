@@ -38,7 +38,7 @@ CREATE TABLE {SQL_TABLE_PREFIX}users
 	posts_ppg		INT NOT NULL DEFAULT 0,
 	time_zone		VARCHAR(255) NOT NULL DEFAULT 'America/Montreal',
 
-	bday			INT NOT NULL DEFAULT 0,
+	birthday		CHAR(8),
 	join_date		BIGINT NOT NULL DEFAULT 0,
 
 	conf_key		VARCHAR(32) NOT NULL DEFAULT '0',
@@ -83,6 +83,7 @@ CREATE INDEX {SQL_TABLE_PREFIX}users_i_ck ON {SQL_TABLE_PREFIX}users (conf_key);
 CREATE INDEX {SQL_TABLE_PREFIX}users_i_ri ON {SQL_TABLE_PREFIX}users (referer_id);
 CREATE INDEX {SQL_TABLE_PREFIX}users_i_uo ON {SQL_TABLE_PREFIX}users (users_opt);
 CREATE INDEX {SQL_TABLE_PREFIX}users_i_jd ON {SQL_TABLE_PREFIX}users (join_date);
+CREATE INDEX {SQL_TABLE_PREFIX}users_i_bd ON {SQL_TABLE_PREFIX}users (birthday);
 
 # Opts
 # 1 display_email (ON/OFF)

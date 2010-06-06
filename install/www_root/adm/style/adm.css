@@ -203,7 +203,7 @@ span.linkgroup {
 
 .tutor {
 	padding: 5px;
-	margin: 3px;
+	margin: 7px;
 	background: #eeeffe;
 	-moz-border-radius: 0.75em;
 	-webkit-border-radius: 0.75em;
@@ -216,7 +216,7 @@ span.linkgroup {
 
 .alert {
 	padding: 5px;
-	margin: 3px;
+	margin: 7px;
 	color: red;
 	background-color: #fcc;
 	font-size: large;

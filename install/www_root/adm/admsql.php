@@ -103,9 +103,13 @@ if (isset($_POST['sql']) && $_POST['sql'] != '') {
 
 				echo '</table>';
 
-				$num_rows = db_count($q);
-				if (!$num_rows) $num_rows = ($i-1);
-				echo '<br /><i>'. $num_rows .' row(s) returned.</i>';
+				if ($i > 2) {
+					echo '<br /><i>'. ($i-1) .' rows returned.</i>';
+				} else if ($i > 1) {
+					echo '<br /><i>1 row returned.</i>';
+				} else {
+					echo '<i>Statement executed. No rows returned.</i>';
+				}
 
 			} catch(Exception $e) {
 				echo '<h2>SQL Error</h2>';

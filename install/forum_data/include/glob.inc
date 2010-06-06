@@ -11,7 +11,7 @@
 
 function read_help()
 {
-	$data = file_get_contents($GLOBALS['INCLUDE'].'GLOBALS_HELP');
+	$data = file_get_contents($GLOBALS['INCLUDE'] .'GLOBALS_HELP');
 	$p = 0;
 
 	while (($p = strpos($data, '{{{', $p)) !== false) {
@@ -57,7 +57,7 @@ function print_bit_field($descr, $field)
 				break;
 			}
 		}
-		echo create_select($o[0].'_'.$field, str_replace('\n', "\n", $o[1]), str_replace('\n', "\n", $o[2]), $val);
+		echo create_select($o[0] .'_'. $field, str_replace('\n', "\n", $o[1]), str_replace('\n', "\n", $o[2]), $val);
 	}
 
 	echo '</td></tr>';
@@ -71,7 +71,7 @@ function print_reg_field($descr, $field, $is_int=0, $pass=0)
 		$str = !$is_int ? htmlspecialchars($GLOBALS[$field]) : $GLOBALS[$field];
 	}
 
-	echo '<tr class="field"><td>'.$descr.': <br /><font size="-1">'.$GLOBALS['help_ar'][$field][0].'</font></td><td valign="top"><input type="'.(!$pass ? 'text' : 'password').'" name="CF_'.$field.'" value="'.$str.'" /></td></tr>';
+	echo '<tr class="field"><td>'. $descr .': <br /><font size="-1">'.$GLOBALS['help_ar'][$field][0].'</font></td><td valign="top"><input type="'.(!$pass ? 'text' : 'password').'" name="CF_'. $field .'" value="'. $str .'" /></td></tr>';
 }
 
 function print_txt_field($descr, $field, $rows=2, $cols=25)
@@ -82,14 +82,15 @@ function print_txt_field($descr, $field, $rows=2, $cols=25)
 		$str = htmlspecialchars($GLOBALS[$field]);
 	}
 
-	echo '<tr class="field"><td>'.$descr.': <br /><font size="-1">'.$GLOBALS['help_ar'][$field][0].'</font></td><td valign="top"><textarea rows="'.$rows.'" cols="'.$cols.'" name="CF_'.$field.'">'.$str.'</textarea></td></tr>';
+	echo '<tr class="field"><td>'. $descr .': <br /><font size="-1">'. $GLOBALS['help_ar'][$field][0] .'</font></td><td valign="top"><textarea rows="'. $rows .'" cols="'. $cols .'" name="CF_'. $field .'">'. $str .'</textarea></td></tr>';
 }
 
 function change_global_settings($list)
 {
-	$settings = file_get_contents($GLOBALS['INCLUDE'] . 'GLOBALS.php');
+	$settings = file_get_contents($GLOBALS['INCLUDE'] .'GLOBALS.php');
 	foreach ($list as $k => $v) {
-		if (($p = strpos($settings, '$' . $k)) === false) {
+		$v = str_replace("\n", '<br />', $v);	// Get rid of newlines (will break this function).
+		if (($p = strpos($settings, '$'. $k)) === false) {
 			$p = strpos($settings, '$ADMIN_EMAIL');
 			if (is_int($v)) {
 				$settings = substr_replace($settings, "\${$k}\t= {$v};\n\t", $p, 0);
@@ -102,15 +103,15 @@ function change_global_settings($list)
 			$e = $p + strrpos(substr($settings, $p, (strpos($settings, "\n", $p) - $p)), ';');
 
 			if (is_int($v)) {
-				$settings = substr_replace($settings, ' '.$v, $p, ($e - $p));
+				$settings = substr_replace($settings, ' '. $v, $p, ($e - $p));
 			} else {
 				$v = addcslashes($v, '\\\'');
-				$settings = substr_replace($settings, ' \''.$v.'\'', $p, ($e - $p));
+				$settings = substr_replace($settings, ' \''. $v .'\'', $p, ($e - $p));
 			}
 		}
 	}
 
-	$fp = fopen($GLOBALS['INCLUDE'].'GLOBALS.php', 'w');
+	$fp = fopen($GLOBALS['INCLUDE'] .'GLOBALS.php', 'w');
 	fwrite($fp, $settings);
 	fclose($fp);
 }

@@ -134,13 +134,6 @@ function error_check()
 	$_ERROR_ = 0;
 	$_ERROR_MSG_ = array();
 
-	// Call pre authentication plugins.
-	// If authetication successfully the plugin should return full user object.
-	$usr_d = null;
-	if (defined('plugins')) {
-		$usr_d = plugin_call_hook('PRE_AUTHENTICATE');
-	}
-
 	/* Deal with quicklogin from if needed. */
 	if (isset($_POST['quick_login']) && isset($_POST['quick_password'])) {
 		$_POST['login'] = $_POST['quick_login'];
@@ -148,16 +141,80 @@ function error_check()
 		$_POST['use_cookie'] = isset($_POST['quick_use_cookies']);
 	}
 
+	// Call PRE authentication plugins.
+	// If successfully autheticated, the plugin should return a full user object.
+	// Return null to continue with FUDforum's default authentication.
+	$usr_d = null;
+	if (defined('plugins')) {
+		$usr_d = plugin_call_hook('AUTHENTICATE');
+	}
+
+	// Call authentication plugins.
+	// Plugin should return 1 (allow access) or 0 (deny access).
+	if (defined('plugins')) {
+		// if (!plugin_call_hook('AUTHENTICATE', array($_POST['login'], $_POST['password'])) ) {
+		if (!plugin_call_hook('AUTHENTICATE')) {
+			login_php_set_err('login', 'plugin: {TEMPLATE: login_invalid_radius}');
+		}
+	}
+
+	if (!$usr_d && $FUD_OPT_3 & 1073741824) {	/* URL login request. */
+
+		// First entry: redirect to openid provider.
+		if (isset($_POST['url']) && strpos($_POST['url'], 'http') === 0) {
+			require_once $GLOBALS['INCLUDE'] . '/openid/class.dopeopenid.php';
+			$openid = new Dope_OpenID($_POST['url']);
+			$openid->setReturnURL($GLOBALS['WWW_ROOT'] .'index.php?t=login&verify=on');
+			$openid->SetTrustRoot($GLOBALS['WWW_ROOT']);
+			$openid->setOptionalInfo(array('nickname', 'email', 'fullname', 'dob', 'gender', 'postcode', 'country', 'language', 'timezone', 'prefix', 'firstname', 'lastname', 'suffix'));
+			if ($openid->getOpenIDEndpoint()) {
+				$openid->redirect();
+				exit(0);
+			}
+		}
+
+		// Second entry: openid provider has returned auth params.
+		if (isset($_REQUEST['verify']) && (empty($_REQUEST['openid_mode']) || $_REQUEST['openid_mode'] != 'cancel')) {
+			require_once $GLOBALS['INCLUDE'] . '/openid/class.dopeopenid.php';
+			$openid = new Dope_OpenID($_REQUEST['openid_op_endpoint']);
+
+			if ($openid->validateWithServer($_REQUEST) === TRUE) {	// Check auth token.
+				$id = $openid->filterUserInfo($_REQUEST);	// Get passed user's identity.
+
+				if (!empty($id['email'])) {
+					echo '<hr>ID provider returend:<br /><pre>';
+					var_dump($id);
+
+					if (!($usr_d = db_sab('SELECT id, passwd, salt FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'users WHERE email='. _esc($id['email'])))) {
+						echo '<hr>Register new user!<hr>';
+						die;
+
+						// Register new FUDforum user.
+						$uent = new fud_user_reg;
+						$uent->users_opt = -1;
+						$uent->login = !empty($id['nickname']) ? $id['nickname'] : substr($id['email'], 0, strpos($id['email'], '@'));
+						$uent->name = !empty($id['fullname']) ? $id['fullname'] : $id['prefix'] .' '. $id['firstname'] .' '. $id['lastname'] .' '. $id['suffix'];
+						$uent->email = $id['email'];
+						$uent->add_user();
+					}
+				}
+
+				// Attention: only google returns e-mail use $id['openid_identity'] instead.
+				if ($id = get_id_by_email($id['email'])) {
+					$usr_d = usr_reg_get_full($id);
+				}
+				echo '<hr>Matched to user:<br /><pre>';
+				var_dump($usr_d);
+			}
+		}
+	} /* End of URL login. */
+
+	// if (!$usr_d && $FUD_OPT_3 & 536870912) {	/* Userid/password login request. */
+	// } /* End of Userid/password login. */
+
 	if ($usr_d || isset($_POST['login']) && !error_check()) {
 		if ($usr->data) {
 			ses_putvar((int)$usr->sid, null);
-		}
-
-		// Call authentication plugins.
-		if (defined('plugins')) {
-			if (!plugin_call_hook('AUTHENTICATE', array($_POST['login'], $_POST['password'])) ) {
-				login_php_set_err('login', 'plugin: {TEMPLATE: login_invalid_radius}');
-			}
 		}
 
 		if (!$usr_d && !($usr_d = db_sab('SELECT last_login, id, passwd, salt, login, email, users_opt, ban_expiry FROM {SQL_TABLE_PREFIX}users WHERE login='._esc($_POST['login'])))) {
@@ -176,8 +233,9 @@ function error_check()
 			logaction($usr_d->id, 'WRONGPASSWD', 0, ($usr_d->users_opt & 1048576 ? 'ADMIN: ' : '').'Invalid Password '.htmlspecialchars(_esc($_POST['password'])).' for login '.htmlspecialchars(_esc($_POST['login'])).'. IP: '.get_ip());
 			q('UPDATE {SQL_TABLE_PREFIX}users SET last_login='.__request_timestamp__.' WHERE id='.$usr_d->id);
 			login_php_set_err('login', '{TEMPLATE: login_invalid_radius}');
+		}
 
-		} else if ($GLOBALS['_ERROR_'] != 1) {
+		if ($GLOBALS['_ERROR_'] != 1) {
 			/* Is user allowed to login. */
 			q('UPDATE {SQL_TABLE_PREFIX}users SET last_login='.__request_timestamp__.' WHERE id='.$usr_d->id);
 			$usr_d->users_opt = (int) $usr_d->users_opt;
@@ -198,7 +256,7 @@ function error_check()
 				exit;
 			}
 
-			if (!$usr->returnto) { /* nothing to do, send to front page */
+			if (!$usr->returnto) { /* Nothing to do, send to front page. */
 				check_return('');
 			}
 
@@ -206,18 +264,18 @@ function error_check()
 				$usr->returnto = str_replace(s, $ses_id, $usr->returnto);
 			}
 
-			if ($usr->returnto{0} != '/') { /* no GET vars or no PATH_INFO */
+			if ($usr->returnto{0} != '/') { /* No GET vars or no PATH_INFO. */
 				$ret =& $usr->returnto;
 				parse_str($ret, $args);
 				$args['SQ'] = $new_sq;
 
-				if ($FUD_OPT_1 & 128) { /* if URL sessions are supported */
+				if ($FUD_OPT_1 & 128) { /* If URL sessions are supported. */
 					$args['S'] = $ses_id;
 				}
 
 				$ret = '';
 				foreach ($args as $k => $v) {
-					$ret .= $k.'='.$v.'&';
+					$ret .= $k .'='. $v .'&';
 				}
 			} else { /* PATH_INFO url or GET url with no args. */
 				if ($FUD_OPT_1 & 128 && $FUD_OPT_2 & 32768 && !$sesp) {
@@ -225,7 +283,7 @@ function error_check()
 						$usr->returnto = str_replace($m[0], $ses_id, $usr->returnto);
 					}
 				}
-				$usr->returnto .= '?SQ='.$new_sq.'&S='.$ses_id;
+				$usr->returnto .= '?SQ='. $new_sq. '&S='. $ses_id;
 			}
 
 			check_return($usr->returnto);

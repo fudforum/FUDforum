@@ -48,6 +48,14 @@
 	} else {
 ?>
 <h2>MySQL Character Set Adjuster</h2>
+
+<div class="tutor">
+All forums should convert their tables to the <b>UTF-8</b> character set. 
+If unsure, it is safe to just re-run it.
+Note that the conversion will take a long time to run, especially on large databases. 
+After converting your database, remember to also convert your forum's messages by running the <b><a href="compact.php?<?php echo __adm_rsid; ?>">compactor</a></b>.
+</div>
+
 <form method="post" id="a_frm" action="">
 <?php echo _hs; ?>
 <table class="datatable solidtable">
@@ -67,13 +75,5 @@
 </tr>
 </table>
 </form>
-
-<br />
-<table class="tutor" width="99%"><tr><td>
-All forums should convert their tables to the <b>UTF-8</b> character set. 
-If unsure, it is safe to just re-run it.
-Note that the conversion will take a long time to run, especially on large databases. 
-After converting your database, remember to also convert your forum's messages by running the <b><a href="compact.php?<?php echo __adm_rsid; ?>">compactor</a></b>.
-</td></tr></table><br />
 
 <?php } require($WWW_ROOT_DISK . 'adm/footer.php'); ?>

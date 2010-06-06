@@ -22,7 +22,7 @@
 
 	$FUD_OPT_1		= 1743713471;
 	$FUD_OPT_2		= 1769345087;
-	$FUD_OPT_3		= 8388608;
+	$FUD_OPT_3		= 545259520;
 
 	$CUSTOM_AVATAR_MAX_SIZE = 10000;	/* bytes */
 	$CUSTOM_AVATAR_MAX_DIM	= '64x64';	/* width x height (pixels) */

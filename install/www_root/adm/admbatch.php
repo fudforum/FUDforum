@@ -80,7 +80,7 @@
 	<th>Exec Line</th>
 	<th align="center">Action</th>
 </tr></thead>
-	<!-- tr><td>Sitemap File</td><td>sitemap.php</td><td>[<a href="admbatch.php?script=sitemap&amp;job=1&amp;<?php echo __adm_rsid; ?>">Run now!</a>] [<a href="admbatch.php?viewlog=sitemap&amp;job=1&amp;<?php echo __adm_rsid; ?>">View Log</a>]</td></tr -->
+	<!-- tr><td>Sitemap File</td><td>sitemap.php</td><td>[<a href="admbatch.php?script=sitemap&amp;job=1&amp;<?php echo __adm_rsid; ?>">Run now!</a>] [<a href="admbatch.php?viewlog=sitemap&amp;job=1&amp;<?php echo __adm_rsid; ?>#output">View Log</a>]</td></tr -->
 <?php
 	$c = uq('SELECT id, name, \'xmlagg\' FROM '.$tbl.'xmlagg UNION select id, name, \'maillist\' FROM '.$tbl.'mlist UNION select id, newsgroup, \'nntp\' FROM '.$tbl.'nntp');
 	$i = 0;
@@ -88,7 +88,7 @@
 		$bgcolor = ($i++%2) ? ' class="resultrow1"' : ' class="resultrow2"';
 		echo '<tr'.$bgcolor.'><td>'.htmlspecialchars($r[1]).'</td>
 			<td nowrap="nowrap">'.$r[2].'.php '.$r[0].' </font></td>
-			<td>[<a href="admbatch.php?script='.$r[2].'&amp;job='.$r[0].'&amp;'.__adm_rsid.'">Run now!</a>] [<a href="admbatch.php?viewlog='.$r[2].'&amp;job='.$r[0].'&amp;'.__adm_rsid.'">View Log</a>]
+			<td>[<a href="admbatch.php?script='.$r[2].'&amp;job='.$r[0].'&amp;'.__adm_rsid.'">Run now!</a>] [<a href="admbatch.php?viewlog='.$r[2].'&amp;job='.$r[0].'&amp;'.__adm_rsid.'#output">View Log</a>]
 			</td></tr>';
 	}
 	unset($c);
@@ -101,15 +101,17 @@
 <?php 
 	// View a job's output log.
 	if (!empty($_GET['job']) && !empty($_GET['viewlog'])) {
-		echo '<h3>Job output (last run)</h3>';
+		echo '<h3><a name="output">Job output (last run)</a></h3>';
 		$output = $path . $_GET['viewlog'] .'_'. (int)$_GET['job'] .'.log';
 		echo '<p>Output of file <i>'. $output .'</i>:</p>';
 		if (file_exists($output)) {
+			echo '<pre><code>';
 			$fh = @fopen($output, 'r');
 			do {
-				echo(fgets($fh).'<br />');
+				echo(fgets($fh));
 			} while (!feof($fh));
 			fclose($fh);
+			echo '</code></pre>';
 		} else {
 			 echo(errorify('Log file not found!'));
 		}

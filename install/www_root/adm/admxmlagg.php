@@ -28,7 +28,7 @@
 		/* Validate URL's protocol. */
 		$protocol = substr($_POST['xmlagg_url'], 0, strpos($_POST['xmlagg_url'], '://'));
 		if (!in_array($protocol, stream_get_wrappers())) {
-			echo errorify('Protocol '. $protocol .':// is not supported.');
+			echo errorify('Feed URL doesn\'t have a protocol or protocol ('. $protocol .'://) is not supported.');
 			echo 'Supported protocols: '. implode(stream_get_wrappers(), ', ') ."\n";
 		} else {
 			$xmlagg_adm = new fud_xmlagg_adm;
@@ -38,7 +38,7 @@
 				$edit = '';
 			} else {
 				$xmlagg_adm->add();
-				echo successify('Aggregation rule successfully added (see list at bottom of page).');
+				echo successify('Aggregation rule successfully added (see <a href="#list">list</a> at bottom of page).');
 			}
 			unset($_POST);
 		}
@@ -72,12 +72,12 @@
 <table class="datatable">
 	<tr class="field">
 		<td>XML Feed Name:<br /><font size="-1">A short but descriptive name for this XML feed.</font></td>
-		<td><input type="text" name="xmlagg_name" value="<?php echo htmlspecialchars($xmlagg_name); ?>" maxlength="255" /></td>
+		<td><input type="text" name="xmlagg_name" value="<?php echo htmlspecialchars($xmlagg_name); ?>" size="30" maxlength="255" /></td>
 	</tr>
 	
 	<tr class="field">
 		<td>XML Feed URL:<br /><font size="-1">The URL of the XML (RDF, RSS or ATOM) feed you want to load.</font></td>
-		<td><input type="text" name="xmlagg_url" value="<?php echo htmlspecialchars($xmlagg_url); ?>" maxlength="255" /></td>
+		<td><input type="text" name="xmlagg_url" value="<?php echo htmlspecialchars($xmlagg_url); ?>" size="30" maxlength="255" /></td>
 	</tr>
 
 	<tr>
@@ -159,7 +159,7 @@
 <input type="hidden" name="edit" value="<?php echo $edit; ?>" />
 </form>
 
-<h3>Available rules</h3>
+<h3><a name="list">Available rules</a></h3>
 <table class="resulttable fulltable">
 <thead><tr class="resulttopic">
 	<th nowrap="nowrap">Aggregation Rule</th>
@@ -190,6 +190,7 @@
 <br /><br />
 <b>***Notes***</b><br />
 The <i>Exec Line</i> in the table above shows the execution line that you will need to place in your system's job scheduler.
+Windows users can use <a href="http://en.wikipedia.org/wiki/Schtasks" target="_new">schtasks.exe</a>.
 Here is a Linux <a href="http://en.wikipedia.org/wiki/Cron" target="_new">cron</a> example:
 <pre>
 0 * * * * <?php echo realpath($GLOBALS['DATA_DIR'].'scripts/xmlagg.php'); ?> 1

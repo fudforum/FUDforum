@@ -9,7 +9,6 @@
 * Free Software Foundation; version 2 of the License. 
 ***************************************************************************/
 
-	set_time_limit(-1);
 	@ini_set('magic_quotes_runtime', 0);	// Depricated in PHP 5.3.
 	ini_set('memory_limit', '128M');	// PHP 5.3's default, old defaults too small.
 	ini_set('display_errors', 1);

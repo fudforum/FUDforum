@@ -46,7 +46,7 @@
 			}
 		}
 		unset($r);
-		if (php_sapi_name() == 'cli') {
+		if (defined('shell_script')) {
 			pf('Done!');
 			return;
 		}

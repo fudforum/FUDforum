@@ -61,7 +61,6 @@ function create_new_user($from_name, $from_email, $reg_date=0)
 	}
 
 	$user->email =& $from_email;
-	$user->plaintext_passwd = substr(md5(get_random_value()), 0, 8);
 	$user->name =& $from_name;
 	$user->users_opt = -1;
 	$user->join_date = $reg_date;

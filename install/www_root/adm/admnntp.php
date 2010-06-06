@@ -31,7 +31,7 @@
 			$edit = '';
 		} else {
 			$nntp_adm->add();
-			echo successify('Newsgroup rule successfully added (see list at bottom of page).');
+			echo successify('Newsgroup rule successfully added (see <a href="#list">list</a> at bottom of page).');
 		}
 	} else if (isset($_GET['del'])) {
 		nntp_del((int)$_GET['del']);
@@ -65,22 +65,22 @@
 <table class="datatable">
 	<tr class="field">
 		<td>Newsgroup Name:<br /><font size="-1">The name of the newsgroup to import.</font></td>
-		<td><input type="text" name="nntp_newsgroup" value="<?php echo $nntp_newsgroup; ?>" maxlength="255" /></td>
+		<td><input type="text" name="nntp_newsgroup" value="<?php echo $nntp_newsgroup; ?>" size="30" maxlength="255" /></td>
 	</tr>
 
 	<tr class="field">
 		<td>Newsgroup Server:<br /><font size="-1">The ip or the hostname of your newsgroup server.</font></td>
-		<td><input type="text" name="nntp_server" value="<?php echo htmlspecialchars($nntp_server); ?>" maxlength="255" /></td>
+		<td><input type="text" name="nntp_server" value="<?php echo htmlspecialchars($nntp_server); ?>" size="30" maxlength="255" /></td>
 	</tr>
 
 	<tr class="field">
 		<td>Newsgroup Server Port:<br /><font size="-1">Port number the server is listeneing on. Default is 119.</font></td>
-		<td><input type="text" name="nntp_port" value="<?php echo $nntp_port; ?>" maxlength="10" /></td>
+		<td><input type="text" name="nntp_port" value="<?php echo $nntp_port; ?>" size="10" maxlength="10" type="number" /></td>
 	</tr>
 
 	<tr class="field">
 		<td>Newsgroup Server Timeout:<br /><font size="-1">Number of seconds to wait for the nntp server to respond.</font></td>
-		<td><input type="text" name="nntp_timeout" value="<?php echo $nntp_timeout; ?>" maxlength="10" /></td>
+		<td><input type="text" name="nntp_timeout" value="<?php echo $nntp_timeout; ?>" size="10" maxlength="10" type="number" /></td>
 	</tr>
 
 	<tr>
@@ -94,12 +94,12 @@
 
 	<tr class="field">
 		<td>Login:<br /><font size="-1">Not needed if authentication is not being used.</font></td>
-		<td><input type="text" name="nntp_login" value="<?php echo htmlspecialchars($nntp_login); ?>" maxlength="255" /></td>
+		<td><input type="text" name="nntp_login" value="<?php echo htmlspecialchars($nntp_login); ?>" size="30" maxlength="255" /></td>
 	</tr>
 
 	<tr class="field">
 		<td>Password:<br /><font size="-1">Not needed if authentication is not being used.</font></td>
-		<td><input type="text" name="nntp_pass" value="<?php echo htmlspecialchars($nntp_pass); ?>" maxlength="255" /></td>
+		<td><input type="text" name="nntp_pass" value="<?php echo htmlspecialchars($nntp_pass); ?>" size="30" maxlength="255" /></td>
 	</tr>
 
 	<tr>
@@ -206,7 +206,7 @@
 			import script from timing out.
 			</font>
 		</td>
-		<td><input type="text" name="nntp_imp_limit" value="<?php echo htmlspecialchars($nntp_imp_limit); ?>" maxlength="10" /></td>
+		<td><input type="text" name="nntp_imp_limit" value="<?php echo htmlspecialchars($nntp_imp_limit); ?>" size="10" maxlength="10" type="number" /></td>
 	</tr>
 
 	<tr class="field">
@@ -227,7 +227,7 @@
 <input type="hidden" name="edit" value="<?php echo $edit; ?>" />
 </form>
 
-<h3>Available rules</h3>
+<h3><a name="list">Available rules</a></h3>
 <table class="resulttable fulltable">
 <thead><tr class="resulttopic">
 	<th nowrap="nowrap">Newsgroup Rule</th>
@@ -259,6 +259,7 @@
 <b>***Notes***</b><br />
 The <i>Exec Line</i> in the table above shows the execution line that you will need to place in your system's job scheduler.
 It is recommended you run the script on a small interval, we recommend a 2-3 minute interval.
+Windows users can use <a href="http://en.wikipedia.org/wiki/Schtasks" target="_new">schtasks.exe</a>.
 Here is a Linux <a href="http://en.wikipedia.org/wiki/Cron" target="_new">cron</a> example:
 <pre>
 */2 * * * * <?php echo realpath($GLOBALS['DATA_DIR'].'scripts/nntp.php'); ?> 1

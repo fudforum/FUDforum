@@ -56,7 +56,6 @@
 				$GLOBALS[$k] = $v;
 			}
 		}
-		echo successify('Setting successfully updated.');
 	}
 
 	$rdf_url = $WWW_ROOT . 'pdf.php';

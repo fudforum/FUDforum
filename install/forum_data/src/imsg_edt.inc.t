@@ -496,6 +496,7 @@ class fud_msg_edit extends fud_msg
 				send_notifications($to, $mtf->id, $mtf->subject, $mtf->alias, $notify_type, ($notify_type == 'thr' ? $mtf->thread_id : $mtf->forum_id), $mtf->frm_name, $mtf->forum_id);
 			}
 		}
+
 		// Handle Mailing List and/or Newsgroup syncronization.
 		if (($mtf->nntp_id || $mtf->mlist_id) && !$mtf->mlist_msg_id) {
 			fud_use('email_msg_format.inc', 1);
@@ -506,7 +507,10 @@ class fud_msg_edit extends fud_msg
 			$mtf->subject = reverse_fmt($mtf->subject);
 
 			if ($mtf->reply_to) {
-				$replyto_id = q_singleval('SELECT mlist_msg_id FROM {SQL_TABLE_PREFIX}msg WHERE id='.$mtf->reply_to);
+				// Get the parent message's Message-ID:
+				if ( !($replyto_id = q_singleval('SELECT mlist_msg_id FROM {SQL_TABLE_PREFIX}msg WHERE id='. $mtf->reply_to))) {
+					fud_logerror('WARNING: Send reply with no Message-ID. The import script is not running or may be lagging.', 'fud_errors');
+				}
 			} else {
 				$replyto_id = 0;
 			}
@@ -527,7 +531,7 @@ class fud_msg_edit extends fud_msg
 				$attach_mime = $attach = null;
 			}
 
-			if ($mtf->nntp_id) {
+			if ($mtf->nntp_id) {	// Push out to usenet group.
 				fud_use('nntp.inc', true);
 
 				$nntp_adm = db_sab('SELECT * FROM {SQL_TABLE_PREFIX}nntp WHERE id='.$mtf->nntp_id);
@@ -550,7 +554,7 @@ class fud_msg_edit extends fud_msg
 				$nntp->post_message($mtf->subject, $body.$nntp_adm->custom_sig, $from, $mtf->id, $replyto_id, $attach);
 				$nntp->close_connection();
 				$nntp->release_lock($lock);
-			} else {
+			} else {	// Push out to mailing list.
 				fud_use('mlist_post.inc', true);
 				
 				$r = db_saq('SELECT name, additional_headers, custom_sig FROM {SQL_TABLE_PREFIX}mlist WHERE id='.$mtf->mlist_id);
