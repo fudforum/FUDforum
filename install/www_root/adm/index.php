@@ -28,21 +28,21 @@
 ?>
 <h2>Forum Dashboard</h2>
 
-<?php	
-	if (@	($WWW_ROOT_DISK.'install.php')) {
-		echo '<div class="alert dismiss">You still haven\'t removed the installation script at '.$WWW_ROOT_DISK.'install.php. Please <a href="admbrowse.php?cur='. urlencode($WWW_ROOT_DISK) .'&amp;'. __adm_rsid .'#flagged">do so now</a> before a hacker destroys your forum!<br /></div>';
+<?php
+	if (@file_exists($WWW_ROOT_DISK.'install.php')) {
+		echo '<div class="alert dismiss">You still haven\'t removed the installation script at <nobr>'.$WWW_ROOT_DISK.'install.php.</nobr> Please <a href="admbrowse.php?cur='. urlencode($WWW_ROOT_DISK) .'&amp;'. __adm_rsid .'#flagged">do so now</a> before a hacker destroys your forum!<br /></div>';
 	}
 	if (@file_exists($WWW_ROOT_DISK.'uninstall.php')) {
-		echo '<div class="alert dismiss">You still haven\'t removed the uninstall script at '.$WWW_ROOT_DISK.'uninstall.php. Please <a href="admbrowse.php?cur='. urlencode($WWW_ROOT_DISK) .'&amp;'. __adm_rsid .'#flagged">do so now</a> before a hacker destroys your forum!<br /></div>';
+		echo '<div class="alert dismiss">You still haven\'t removed the uninstall script at <nobr>'.$WWW_ROOT_DISK.'uninstall.php.</nobr> Please <a href="admbrowse.php?cur='. urlencode($WWW_ROOT_DISK) .'&amp;'. __adm_rsid .'#flagged">do so now</a> before a hacker destroys your forum!<br /></div>';
 	}
 	if (@file_exists($WWW_ROOT_DISK.'upgrade.php')) {
-		echo '<div class="alert dismiss">You still haven\'t removed the upgrade script at '.$WWW_ROOT_DISK.'upgrade.php. Please <a href="admbrowse.php?cur='. urlencode($WWW_ROOT_DISK) .'&amp;'. __adm_rsid .'#flagged">do so now</a> before a hacker destroys your forum!<br /></div>';
+		echo '<div class="alert dismiss">You still haven\'t removed the upgrade script at <nobr>'.$WWW_ROOT_DISK.'upgrade.php.</nobr> Please <a href="admbrowse.php?cur='. urlencode($WWW_ROOT_DISK) .'&amp;'. __adm_rsid .'#flagged">do so now</a> before a hacker destroys your forum!<br /></div>';
 	}
 	if (@file_exists($WWW_ROOT_DISK.'unprotect.php')) {
-		echo '<div class="alert dismiss">You still haven\'t removed the unprotect script at '.$WWW_ROOT_DISK.'unprotect.php. Please <a href="admbrowse.php?cur='. urlencode($WWW_ROOT_DISK) .'&amp;'. __adm_rsid .'#flagged">do so now</a> before a hacker destroys your forum!<br /></div>';
+		echo '<div class="alert dismiss">You still haven\'t removed the unprotect script at <nobr>'.$WWW_ROOT_DISK.'unprotect.php.</nobr> Please <a href="admbrowse.php?cur='. urlencode($WWW_ROOT_DISK) .'&amp;'. __adm_rsid .'#flagged">do so now</a> before a hacker destroys your forum!<br /></div>';
 	}
 	if (function_exists('sys_getloadavg') && ($load = sys_getloadavg()) && $load[0] > 15) {
-		echo '<div class="alert dismiss">You web server is extremely busy (CPU load is '. $load[1] .'). This may severely impact your forum\'s performance!</div><br />';
+		echo '<div class="alert dismiss">You web server is quite busy (CPU load is '. $load[1] .'). This may impact your forum\'s performance!</div><br />';
 	}
 ?>
 

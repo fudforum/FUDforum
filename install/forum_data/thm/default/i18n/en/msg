@@ -460,6 +460,11 @@ rpasswd_login:Login
 rpasswd_cur_pass:Current Password:
 rpasswd_new_pass:New Password:
 rpasswd_conf_pass:Confirm Password:
+ruser_title:Change Login Form
+ruser_change_user:Change Your Forum Login
+ruser_cur_login:Current Login:
+ruser_new_login:New Login:
+ruser_cur_pass:Current Password:
 login_passwd:Password:
 reset_email:E-mail:
 reset_reset_button:Reset Password
@@ -709,6 +714,7 @@ post_opt_images_off:<b>Images</b> are <b>off</b>
 post_opt_smilies_off:<b>Smilies</b> are <b>off</b>
 post_opt:Forum Options
 register_change_passwd:change password
+register_change_login:change login
 approved_avatar_title:Your custom avatar was approved.
 approved_avatar_msg:Your avatar was approved by the administrator. It should now appear as your avatar on all your messages. If you do not see it, or see your old avatar, it is because your browser has cached the page. Try refreshing it once or twice. In most cases this will solve the caching problem.
 unapproved_avatar_title:Your custom avatar was declined.

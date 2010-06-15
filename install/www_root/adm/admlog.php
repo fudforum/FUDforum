@@ -157,6 +157,9 @@ function return_forum_name($id)
 			case 'MERGE_USER':
 				echo '<td>Merged and removed user account</td><td>'.$obj->logaction.'</td>';
 				break;
+			case 'CHANGE_USER':
+				echo '<td>Change user login</td><td>'.$obj->logaction.'</td>';
+				break;
 			case 'SEND_ECONF':
 				echo '<td>Sent E-mail Confirmation</td><td>to user: '.$obj->logaction.'</td>';
 				break;

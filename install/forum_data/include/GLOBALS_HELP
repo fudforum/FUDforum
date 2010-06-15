@@ -11,7 +11,7 @@ Enable/disable the forum. Use this while you are upgrading or performing mainten
 This message will be shown to users when the forum is disabled.}}}
 
 {{{ALLOW_REGISTRATION	FUD_OPT_1	2
-Enable/disable new user registration.}}}
+Enable/disable new user registration. Disable if you don't want new users to register or if you have a plugin that auto registers uses from an external system.}}}
 
 {{{WWW_ROOT
 This is the URL of your forum.}}}
@@ -498,7 +498,7 @@ Enable or disable the forum's built-in calendar.}}}
 Show forum member's birthdays on the built-in calendar.}}}
 
 {{{LOGIN_WITH_USRPASS	FUD_OPT_3	536870912
-Enable uses to login to the forum by entering a userid and password.}}}
+Enable users to login to the forum by entering a userid and password.}}}
 
 {{{LOGIN_WITH_URL	FUD_OPT_3	1073741824
-Enable uses to login to the forum by entering a URL pointing to an OpenID account provider.}}}
+Enable users to login to the forum by entering a URL pointing to an OpenID account provider.}}}

@@ -19,7 +19,7 @@
 
 	/* Change current password (cpasswd) to passwd1 (use passwd2 for verification). */
 	if (isset($_POST['btn_submit'], $_POST['passwd1'], $_POST['cpasswd']) && is_string($_POST['passwd1'])) {
-		if (!($r = db_sab('SELECT id, passwd, salt FROM {SQL_TABLE_PREFIX}users WHERE login='._esc($usr->login)))) {
+		if (!($r = db_sab('SELECT id, passwd, salt FROM {SQL_TABLE_PREFIX}users WHERE login='. _esc($usr->login)))) {
 			exit('Go away!');
 		}
 		
@@ -32,7 +32,7 @@
 		} else {
 			$salt = substr(md5(uniqid(mt_rand(), true)), 0, 9);
 			$secure_pass = sha1($salt . sha1($_POST['passwd1']));
-			q("UPDATE {SQL_TABLE_PREFIX}users SET passwd='".$secure_pass."', salt='".$salt."' WHERE id=".__fud_real_user__);
+			q('UPDATE {SQL_TABLE_PREFIX}users SET passwd='. _esc($secure_pass) .', salt='. _esc($salt) .' WHERE id='. __fud_real_user__);
 			logaction(__fud_real_user__, 'CHANGE_PASSWD', 0, get_ip());
 			exit('<html><script>window.close();</script></html>');
 		}

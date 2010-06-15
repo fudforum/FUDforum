@@ -27,7 +27,7 @@ text,	.ForumBackground, a:link, a:visited, a:active, a.CatLink, .CatDesc, a.User
 	.FormattingToolsBG, .FormattingToolsCLR, .MiniTable, .quote, .dashed, .adminColor, .modsColor, td.tabI, td.tabA:hover,
 	.brdrNormal, .brdrSelected, input.button, form, img, .StClr, .AnClr, td.msgot, td.msgud, div.ctags, td.mvTc, td.pmNav,
 	.ModOpt, .MsgR1, .MsgR2, .MsgR3, .mnavMsg, .mnavWarnTbl, .mnavNoRes, font.lg, td.tt, table.tt, tr.tab, table.tab,
-	a.big:link, a.big:active, a.big:visited, .small, a.small:link, a.small:active, a.small:visited, td.rpasswdE, .curtime,
+	a.big:link, a.big:active, a.big:visited, .small, a.small:link, a.small:active, a.small:visited, .curtime,
 	font.anon, font.reg, td.permYES, td.permNO, td.repI, div.UserControlPanel, font.selmsgInd, fieldset
 {
 	font-family: Verdana,Geneva,Lucida,'Lucida Grande',Arial,Helvetica,Sans-serif;
@@ -88,11 +88,12 @@ div.UserControlPanel {
 	color: #000;
 }
 
-.GenTextRed, .ErrorText {
+.GenTextRed {
 	color: red;
 }
 
-.ErrorText, td.rpasswdE {
+.ErrorText {
+	color: red;
 	font-weight: bold;
 }
 
@@ -487,11 +488,6 @@ table.tab {
 	border: 1px solid #aebdc4;
 	vertical-align: middle;
 	padding: 1px 3px 1px 3px;
-}
-
-td.rpasswdE {
-	background: #fff;
-	text-align: center;
 }
 
 td.pmSn {

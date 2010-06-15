@@ -240,7 +240,8 @@ administration permissions to the forum. This individual will be able to do anyt
 			q('UPDATE '. $DBHOST_TBL_PREFIX ."users SET passwd='". $passwd ."', salt='". $salt ."' WHERE id=". $usr_id);
 			logaction(_uid, 'ADM_SET_PASSWD', 0, char_fix(htmlspecialchars($u->login)));
 			echo successify('User <b>'.$u->alias.'</b>\'s password was successfully changed.');
-		} else if (!empty($_POST['login_name']) && $u->login != $_POST['login_name']) { /* Chanding login name. */
+		/* Chanding login name. */
+		} else if (!empty($_POST['login_name']) && $u->login != $_POST['login_name']) {
 			$alias = _esc(make_alias($_POST['login_name']));
 			$login = _esc($_POST['login_name']);
 
@@ -259,12 +260,13 @@ administration permissions to the forum. This individual will be able to do anyt
 			}
 
 			if (!$login_error) {
+				logaction(_uid, 'CHANGE_USER', 0, char_fix(htmlspecialchars($u->login .'->'. $login)));
+				echo successify('User <b>'. $u->login .'</b>\'s login was successfully changed to '. $login);
 				rebuildmodlist();
 				$u->login = $_POST['login_name'];
 				if (!($FUD_OPT_2 & 128)) {
 					$u->alias = make_alias($u->alias);
 				}
-				echo successify('User <b>'.$u->alias.'</b>\'s login was successfully changed.');
 			}
 		}
 	}

@@ -1,0 +1,59 @@
+/**
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* email                : forum@prohost.org
+* $Id$
+*
+* This program is free software; you can redistribute it and/or modify it
+* under the terms of the GNU General Public License as published by the
+* Free Software Foundation; version 2 of the License.
+**/
+
+{PHP_FILE: input: ruser.php.t; output: ruser.php;}
+{REF: security.tmpl}
+{REF: header.tmpl}
+{REF: footer.tmpl}
+{REF: logaction.tmpl}
+{REF: users_reg.tmpl}
+{REF: allowed_user_lnk.tmpl}
+
+{PAGE: RUSER_PAGE change userid popup}
+{TEMPLATE: header_plain}
+<form method="post" action="{TEMPLATE: RUSER_PAGE_lnk3}"><div class="ac">
+<table cellspacing="1" cellpadding="2" class="MiniTable" width="100%">
+{TEMPLATE-DATA: ruser_error}
+<tr><th colspan="2">{MSG: ruser_change_user}</th></tr>
+<tr class="RowStyleB"><td>{MSG: ruser_cur_login}</td><td>{VAR-HTML: usr->login}</td></tr>
+<tr class="RowStyleB"><td>{MSG: ruser_new_login}</td><td><input type="text" name="nlogin" value="" /></td></tr>
+<tr class="RowStyleB"><td>{MSG: ruser_cur_pass}</td><td><input type="password" name="cpasswd" id="passwd" value="" /></td></tr>
+<tr class="RowStyleB"><td align="right" colspan="2"><input type="submit" class="button" value="{MSG: go}" name="btn_submit" /></td></tr>
+</table></div>{DEF: _hs}</form>
+{TEMPLATE: footer_plain}
+{PAGE: END}
+
+{SECTION: ruser_error failed to change login error message}
+<tr><td class="MsgR3 ErrorText ac" colspan="2">{VAR: ruser_error_msg}</td></tr>
+{SECTION: END}
+
+{SECTION: ruser_invalid_passwd}
+{MSG: rpasswd_invalid_passwd}
+{SECTION: END}
+
+{SECTION: ruser_err_loginunique}
+{MSG: register_err_loginunique}
+{SECTION: END}
+
+{SECTION: ruser_err_short_login}
+{MSG: register_err_short_login}
+{SECTION: END}
+
+{SECTION: ruser_err_login_notallowed}
+{MSG: register_err_login_notallowed}
+{SECTION: END}
+
+{SECTION: ruser_title}
+{MSG: ruser_title}
+{SECTION: END}
+
+{SECTION: RUSER_PAGE_lnk3}
+{ROOT}?t=ruser
+{SECTION: END}

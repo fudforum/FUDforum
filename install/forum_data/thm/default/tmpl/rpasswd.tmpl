@@ -17,7 +17,7 @@
 {PAGE: RPASSWD_PAGE change password popup}
 {TEMPLATE: header_plain}
 <form method="post" action="{TEMPLATE: RPASSWD_PAGE_lnk3}"><div class="ac">
-<table cellspacing="1" cellpadding="2" class="MiniTable">
+<table cellspacing="1" cellpadding="2" class="MiniTable" width="100%">
 {TEMPLATE-DATA: rpasswd_error}
 <tr><th colspan="2">{MSG: rpasswd_change_pass}</th></tr>
 <tr class="RowStyleB"><td>{MSG: rpasswd_login}</td><td>{VAR-HTML: usr->login}</td></tr>
@@ -30,7 +30,7 @@
 {PAGE: END}
 
 {SECTION: rpasswd_error failed to change password error message}
-<tr><td class="rpasswdE" colspan="2">{VAR: rpasswd_error_msg}</td></tr>
+<tr><td class="MsgR3 ErrorText ac" colspan="2">{VAR: rpasswd_error_msg}</td></tr>
 {SECTION: END}
 
 {SECTION: rpasswd_invalid_passwd}

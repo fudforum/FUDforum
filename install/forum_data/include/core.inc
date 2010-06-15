@@ -136,7 +136,7 @@ function __ffilesize($fp)
 
 function __fud_cache($t)
 {
-	if ($GLOBALS['FUD_OPT_3'] & 65536 || $GLOBALS['is_aol']) {
+	if ($GLOBALS['FUD_OPT_3'] & 65536 || $GLOBALS['is_aol']) {	// DISABLE_ANON_CACHE
 		return 0;
 	}
 	$mod = gmdate('D, d M Y H:i:s', $t) . ' GMT';
