@@ -187,7 +187,7 @@ user:User
 user_counter:We have <b>{VAR: st_obj->user_count}</b> registered {PLURAL: st_obj->user_count|user|users}.
 user_info:User Information
 user_info_l:User Information {VAR: u->alias}
-user_offline:{VAR: obj->login}  is currently offline
+user_offline:{VAR: obj->login} is currently offline
 user_online:{VAR: obj->login} is currently online
 usrinfo_last_post:Last Message:
 view_results:View Results
@@ -312,9 +312,9 @@ register_preview:Preview
 register_custom_avatar_upload:Custom Avatar File:
 register_register:Register
 register_required:Required Information
-register_required_desc:All fields are required.  Please note that passwords are case sensitive.
+register_required_desc:All fields are required. Please note that passwords are case sensitive.
 register_optional:Optional Information
-register_optional_desc:It is recommended that you not reveal any personal or identifying information in your profile.  All information will be viewable by other forum members.
+register_optional_desc:It is recommended that you not reveal any personal or identifying information in your profile. All information will be viewable by other forum members.
 register_location:Location:
 register_occupation:Occupation:
 register_interests:Interests:
@@ -409,7 +409,7 @@ post_preview_btn:Preview Message
 ignore_users:Ignored Users
 add_ignore:Add Ignoramus
 forum_terms:Forum Terms
-forum_rules:<p>Registration to this forum is free! We do insist that you abide by the rules and policies detailed below. If you agree to the terms, please press the <b>Agree</b> button at the end of the page. Note: By pressing the button you declare that you are over the age of 13. If you are 13 or under, please use this registration form.</p><p>Although the administrators and moderators of this forum will attempt to keep all objectionable messages off this forum, it is impossible for us to review all messages. All messages express the views of the author, and neither the owners of forum or the developers will be held responsible for the content of any message.</p><p>By clicking the Agree button, you warrant that you will not post any messages that are obscene, vulgar, sexually-oriented, hateful, threatening, or otherwise violate any laws.</p><p>The owners of this forum  have the right to remove, edit, move or close any topic for any reason.</p>
+forum_rules:<p>Registration to this forum is free! We do insist that you abide by the rules and policies detailed below. If you agree to the terms, please press the <b>Agree</b> button at the end of the page. Note: By pressing the button you declare that you are over the age of 13. If you are 13 or under, please use this registration form.</p><p>Although the administrators and moderators of this forum will attempt to keep all objectionable messages off this forum, it is impossible for us to review all messages. All messages express the views of the author, and neither the owners of forum or the developers will be held responsible for the content of any message.</p><p>By clicking the Agree button, you warrant that you will not post any messages that are obscene, vulgar, sexually-oriented, hateful, threatening, or otherwise violate any laws.</p><p>The owners of this forum have the right to remove, edit, move or close any topic for any reason.</p>
 forum_rules_13:<p>All users under the age of 13 must seek permission from their parent or guardian in order to gain membership to the forums. While we welcome participation from members under 13, we require that a parent or guardian fax or mail back a signed permission form before we grant membership.</p><p>If you would like to start the registration process prior to us receiving a permission form, press the <b>Agree</b> button below. If you would like to cancel the registration, press <b>Disagree</b> to return to the forums index.</p><p>A copy of the permission form can be downloaded here. For more information about the registration process, please send e-mail to <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
 coppa_conf:COPPA Confirmation
 coppa_before:Before {TEMPLATE: coppa_date}
