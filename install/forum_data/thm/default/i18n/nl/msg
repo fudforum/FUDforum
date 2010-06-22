@@ -310,7 +310,7 @@ register_avatar:Avatar:
 register_sel_avatar:Avatar selecteren
 register_custom_avatar_rules:Uw aangepaste avatar verschijnt niet totdat deze door een beheerder is goedgekeurd.<br /><font class="SmallText">De avatar mag niet groter zijn dan <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} pixels</b> en moet van het type <b>jpg</b>, <b>gif</b> of <b>png</b> zijn.</font>
 register_custom_avatar_url:URL voor avatar:
-register_preview:Voorvertoning weergeven
+register_preview:Voorvertoning
 register_custom_avatar_upload:Eigen avatarbestand:
 register_register:Registreren
 register_required:Vereiste informatie
@@ -459,9 +459,14 @@ reset_reset_conf:Uw wachtwoord zal opnieuw ingesteld en aan u toegezonden. Als u
 reset_error:Het e-mailadres is niet in de database aangetroffen
 rpasswd_change_pass:Wachtwoord wijzigen
 rpasswd_login:Aanmelden
-rpasswd_cur_pass:Huidig wachtwoord:
+rpasswd_cur_pass:Huidige wachtwoord:
 rpasswd_new_pass:Nieuw wachtwoord:
 rpasswd_conf_pass:Wachtwoordbevestiging:
+ruser_title:Formulier gebruikersnaam wijzigen
+ruser_change_user:Gebruikersnaam voor forum wijzigen
+ruser_cur_login:Huidige gebruikersnaam:
+ruser_new_login:Nieuwe gebruikersnaam:
+ruser_cur_pass:Huidige wachtwoord:
 login_passwd:Wachtwoord:
 reset_email:E-mail:
 reset_reset_button:Wachtwoord opnieuw instellen
@@ -708,6 +713,7 @@ post_opt_images_off:<b>Afbeeldingen</b> staan <b>uit</b>
 post_opt_smilies_off:<b>Smiley's</b> staan <b>uit</b>
 post_opt:Foruminstellingen
 register_change_passwd:wachtwoord wijzigen
+register_change_login:Gebruikersnaam wijzigen
 approved_avatar_title:Uw aangepaste avatar is goedgekeurd.
 approved_avatar_msg:Uw avatar is goedgekeurd door een beheerder. Uw nieuwe avatar verschijnt nu bij al uw berichten. Als u uw nieuwe avatar niet ziet, of uw oude avatar wordt nog steeds weergegeven, dan komt daar zeer waarschuwlijk door de cache van uw browser. Ververs uw browsercache. In de meeste browsers is het probleem dan opgelost.
 unapproved_avatar_title:Uw aangepaste avatar is afgekeurd.

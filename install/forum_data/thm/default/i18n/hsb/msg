@@ -460,6 +460,11 @@ rpasswd_login:Přizjewjenje
 rpasswd_cur_pass:Aktualne hesło:
 rpasswd_new_pass:Nowe hesło:
 rpasswd_conf_pass:Hesło wobkrućić:
+ruser_title:Přizjewjenski formular změnić
+ruser_change_user:Twoje forumowe wužiwarske daty změnić
+ruser_cur_login:Aktualne wužiwarske mjeno:
+ruser_new_login:Nowe wužiwarske mjeno:
+ruser_cur_pass:Aktualne hesło:
 login_passwd:Hesło:
 reset_email:E-mejl:
 reset_reset_button:Hesło wróćo stajić
@@ -706,6 +711,7 @@ post_opt_images_off:<b>Wobrazy</b> su <b>wupinjene</b>
 post_opt_smilies_off:<b>Smějački</b> su <b>wupinjene</b>
 post_opt:Forumowe opcije
 register_change_passwd:hesło změnić
+register_change_login:wužiwarske mjeno změnić
 approved_avatar_title:Twój swójski awatar bu schwaleny.
 approved_avatar_msg:Twój awatar bu wot administratora schwaleny. Měł so nětko na wšěch twojich stronach jako awatar jewić. Jeli jón njewidźeš abo stary awatar widźeš, je strona najskerje w pufrowaku twojeho wobhladowaka. Spytaj stronu jónu abo dwójce aktualizować. W najwjace padach so pufrowanski problem potom rozrisa.
 unapproved_avatar_title:Twój swójski awatar bu wotpokazany.

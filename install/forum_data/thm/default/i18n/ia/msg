@@ -230,7 +230,7 @@ pmsg_subject:Subjecto
 pmsg_author:Autor
 pmsg_time:Hora
 pmsg_selected:Seligite
-pmsg_delete:Delite
+pmsg_delete:Deler
 cur_ppage_pm:Messageria private
 writing_pm:Scriber un message private
 browsing_folder:Tu vide le dossier <b>{VAR: folders[$folder_id]}</b>
@@ -460,6 +460,11 @@ rpasswd_login:Nomine de usator
 rpasswd_cur_pass:Contrasigno actual:
 rpasswd_new_pass:Nove contrasigno:
 rpasswd_conf_pass:Confirmar contrasigno:
+ruser_title:Formulario pro cambiar de nomine de usator
+ruser_change_user:Cambiar tu nomine de usator del foro
+ruser_cur_login:Nomine de usator actual:
+ruser_new_login:Nomine de usator nove:
+ruser_cur_pass:Contrasigno actual:
 login_passwd:Contrasigno:
 reset_email:E-mail:
 reset_reset_button:Reinitialisar contrasigno
@@ -616,3 +621,56 @@ post_err_attach_size:Le file annexate es troppo grande (excede le limite de {VAR
 post_err_attach_ext:Le file que tu tenta incargar non es de un typo autorisate.
 post_err_attach_filelimit:Tu tenta incargar plus files de quanto permittite.
 post_err_passwd:Contrasigno incorrecte.
+post_reply_update:Responde a <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> in {VAR: frm->name}
+post_topic_update:Scribe un nove topico in <a href="{TEMPLATE: post_topic_update_lnk}">{VAR: frm->name}</a>
+post_error_generic:Un error ha occurrite
+postcheck_max_images_err:Non plus de  {GVAR: MAX_IMAGE_COUNT} imagines es permittite per message. Per favor reduce le numero de imagines.
+postcheck_no_links_allowed:Tu non pote usar ligamines ante de haber publicate plus de {PLURAL: posts_before_links|$1 message|$1 messages}.
+postcheck_subj_needed:Subjecto obligatori
+postcheck_no_such_user:Il non ha un usator nominate "{FUNC: char_fix(htmlspecialchars($v))}" in iste foro.
+postcheck_ignored:Tu non pote inviar un message private a "{FUNC: char_fix(htmlspecialchars($v))}", proque iste usator te ignora.
+postcheck_no_recepient:Impossibile inviar un message; manca le destinatario
+postcheck_invalid_email:Per favor entra un adresse de e-mail valide pro tu amico.
+postcheck_email_subject:Tu non pote inviar un e-mail sin subjecto.
+postcheck_email_body:Tu non pote inviar un e-mail sin texto.
+private_msg_notify_subj:Notification de lectura pro: {VAR: m->subject}
+private_msg_notify_body:Salute,<br />{VAR: usr->login} ha aperite tu message private titulate: "{VAR: m->subject}".<br />Isto es un notification automatic generate le {TEMPLATE: private_msg_notify_body_date}<br />
+referals_update:Percurre le membros referite
+register_err_short_login:Le nomine de usator que tu ha seligite es troppo curte. Le nomines de usator debe haber al minus 4 characteres.
+register_err_login_notallowed:Iste nomine de usator non es permittite.
+register_err_loginunique:Le nomines de usator del foro debe esser unic. Il ha ja un usator con iste nomine.
+register_err_emailexists:Iste adresse de e-mail es ja associate con un conto. Si tu ha oblidate tu contrasigno per favor usa le option Restaurar, in loco de re-registrar te.
+register_err_shortpasswd:Le contrasignos debe haber al minus 6 characteres.
+register_err_passwdnomatch:Le contrasignos non coincide, per favor reproba.
+register_err_invalidemail:Le adresse de e-mail que tu ha specificate non pare esser valide.
+register_err_needname:Pro completar iste registration con successo tu debe entrar tu nomine.
+register_err_enterpasswd:Tu debe entrar tu contrasigno actual pro completar le cambiamentos.
+register_err_adminpasswd:Tu debe entrar tu contrasigno <b>de administrator</b> pro completar le cambiamentos.
+register_err_notyouremail:Alcuno altere ja possede un conto con iste adresse de e-mail.
+register_err_avatartobig:Le file que tu tenta incargar es troppo grande, excedente {GVAR: CUSTOM_AVATAR_MAX_SIZE} bytes
+register_err_avatarnotallowed:Le avatar que tu tenta incargar non es permittite. Verifica le typos de file permittite.
+register_conf_subject:Confirmation del registration
+register_conf_msg:Gratias pro registrar te.\nPro activar tu conto, per favor visita le URL hic infra:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nQuando tu conto ha essite activate, tu essera authenticate al foro e\nredirigite verso le pagina principal.
+register_welcome_subject:Confirmation del registration in le foro
+register_welcome_msg:Gratias pro registrar te.\n\nEcce le detalios de tu conto in le foro:\n\nURL del foro: {TEMPLATE: index_update_lnk}\nNomine de usator: {VAR: uent->login}\nContrasigno: {VAR: _POST['reg_plaintext_passwd']}\n\nNota ben que le contrasignos distingue inter majusculas e minusculas!\nPro modificar tu preferentias o tu profilo, visita iste pagina:\n{FULL_ROOT}{ROOT}?t=register
+register_err_cantreg_title:ERROR: impossibile crear conto
+regsiter_err_cantreg_msg:Impossibile crear le conto de usator. Per favor contacta le administrator a <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
+register_profile_update:Visita su proprie profilo
+register_register_update:Pagina de registration
+report_err_nosuchmsg_title:ERROR
+report_err_nosuchmsg_msg:Message non existe
+reset_err_invalidkey_title:ERROR
+reset_err_invalidkey_msg:Le clave de reinitialisation de contrasigno es invalide. Es possibile que tu programma de e-mail ja aperiva iste pagina automaticamente, invalidante le clave de reinitialisation. In tal caso, tu deberea tosto reciper un e-mail con tu nove contrasigno. Si un tal e-mail non arriva, per favor tenta reinitialisar le contrasigno de novo.
+reset_err_rstconf_title:Information
+reset_err_rstconf_msg:Tu deberea reciper instructiones in e-mail in le proxime pauc minutas.
+reset_newpass_title:Reinitialisar contrasigno
+reset_newpass_msg:Salute,\n\nComo requestate, ecce le informationes de tu conto:\n\nNomine de usator: {VAR: ui[1]}\nContrasigno: {VAR: passwd}\n\nNota ben que tu contrasigno ha essite reinitialisate al valor hic supra. Si\ntu vole cambiar tu contrasigno, tu pote facer lo con le pannello de controlo\nde information de usator a:\n{FULL_ROOT}{ROOT}?t=register
+reset_login_notify:Tu contrasigno ha essite inviate a te in e-mail. Tu deberea reciper lo intra le proxime pauc minutas.<br />
+search_update:Cerca messages
+selmsg_update:Folia <a href="{TEMPLATE: selmsg_update_lnk}">le messages de hodie</a>
+showposts_update:Lege messages per: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
+subscribed_update:Folia le proprie subscriptiones
+bookmarked_update:Folia le proprie lista de favorites
+thread_update:Percurre le foro <a href="{TEMPLATE: thread_update_lnk}">{VAR: frm->name}</a>
+tree_update:Percurre le topico (tree view) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
+userinfo_update:Reguarda le profilo de <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}'s</a>

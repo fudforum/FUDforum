@@ -4,6 +4,7 @@
 # Author: Paucabot
 # Author: Qllach
 # Author: Ssola
+# Author: Vriullop
 
 action:Acció
 add_to_buddy_list:afegir a la llista d`amics
@@ -702,7 +703,7 @@ thr_exch_dest_forum:Fòrum de destà­:
 thr_exch_no_threads:No hi ha fils de discussió esperant aprovació.
 # Fuzzy
 thr_exch_decl_reason:Raó per a refusar l`ingrés del fil de discussió <b>{VAR-HTML: frm->name}</b> al fòrum<b>{VAR-HTML: frm->name}</b>
-thr_exch_submit:Enviar
+thr_exch_submit:Tramet
 # Fuzzy
 exch_decline_ttl:Trasllat del fil de discussió {VAR: data->subject} al fòrum {VAR-HTML: data->f2_name} ha estat refusada.
 ppost_original_msg:missatge que està  reenviant o responent

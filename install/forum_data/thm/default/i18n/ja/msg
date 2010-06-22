@@ -147,7 +147,7 @@ size:サイズ:
 status:状態:
 status_line:この掲示板には現在、<b>{PLURAL: st_obj->online_users_reg|$1人のメンバー}</b>、<b>{PLURAL: st_obj->online_users_hidden|$1人の不可視メンバー}</b>、<b>{PLURAL: st_obj->online_users_anon|$1人のゲスト}</b>がいます。
 sticky:常に先頭に表示するトピック:
-stop_ignoring:このユーザーの無視をやめる
+stop_ignoring:この利用者の無視をやめる
 sub_to_thread:トピックを購読
 sub_to_thread_desc:このトピック内での新規メッセージに関する通知を受信します
 bookmark_thread:トピックをブックマーク
@@ -461,6 +461,11 @@ rpasswd_login:ログイン
 rpasswd_cur_pass:現在のパスワード:
 rpasswd_new_pass:新規パスワード:
 rpasswd_conf_pass:パスワード確認:
+ruser_title:ログイン名変更フォーム
+ruser_change_user:フォーラムでのログイン名を変更します
+ruser_cur_login:現在のログイン名:
+ruser_new_login:新しいログイン名:
+ruser_cur_pass:現在のパスワード:
 login_passwd:パスワード:
 reset_email:電子メール:
 reset_reset_button:パスワードを再設定
@@ -707,6 +712,7 @@ post_opt_images_off:<b>画像</b>は<b>無効</b>です
 post_opt_smilies_off:<b>絵文字</b>は<b>無効</b>です
 post_opt:フォーラムオプション
 register_change_passwd:パスワード変更
+register_change_login:ログイン名変更
 approved_avatar_title:カスタムアバターは承認されました。
 approved_avatar_msg:あなたのアバターは管理者に承認されました。それはあなたのすべてのメッセージにアバターとして表示されるはずです。それが見えないか、古いアバターが見えるのは、ブラウザーがページをキャッシュしているからです。ページを1・2回再読み込みしてみてください。ほとんどの場合、これでキャッシュ問題が解決するでしょう。
 unapproved_avatar_title:カスタムアバターは拒否されました。

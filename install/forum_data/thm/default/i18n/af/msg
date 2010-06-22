@@ -460,6 +460,11 @@ rpasswd_login:Gebruiker
 rpasswd_cur_pass:Huidige wagwoord:
 rpasswd_new_pass:Nuwe wagwoord:
 rpasswd_conf_pass:Bevestig wagwoord:
+ruser_title:Vorm om gebruikersnaam te verander
+ruser_change_user:Verander u gebruikersnaam
+ruser_cur_login:Huidige gebruikersnaam:
+ruser_new_login:Nuwe gebruikersnaam:
+ruser_cur_pass:Huidige wagwoord:
 login_passwd:Wagwoord:
 reset_email:Epos:
 reset_reset_button:Herstel wagwoord
@@ -706,6 +711,7 @@ post_opt_images_off:<b>Fotos</b> is <b>AF</b>
 post_opt_smilies_off:<b>Gesiggies</b> is <b>AF</b>
 post_opt:Forumopsies
 register_change_passwd:verander wagwoord
+register_change_login:verander gebruikersnaam
 approved_avatar_title:U avatar is goedgekeur.
 approved_avatar_msg:U avatar is goedgekeur deur die administrateur. Di sal nou verskyn as u avatar in al jou boodskappe. Indien u dit nie sie nie, of u ou avatar sien komt dat omdat u browser die bladsy gekas het. probeer 1 of 2x op verversen te kliek (in sommige browsers werk die "F5" sleutel ook) hiermee los u in die meeste gevalle die kas probleem op.
 unapproved_avatar_title:U doelgemaakte avatar is afgekeur.

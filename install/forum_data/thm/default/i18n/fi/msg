@@ -322,7 +322,7 @@ register_location:Sijainti:
 register_occupation:Ammatti:
 register_interests:Harrastukset:
 register_image:Kuva:
-register_icq:ICQ
+register_icq:ICQ:
 register_aim:AIM-tunnus:
 register_yahoo:Yahoo Messenger:
 register_msnm:MSN Messenger:
@@ -998,7 +998,7 @@ ip_analyze_usage:Analysoi IP-käyttöä
 ip_users_using:Käyttäjät, jotka käyttävät IP-osoitetta {VAR: ip}
 ip_all_ips:Kaikki IP-osoitteet, joita '{VAR: user}' on käyttänyt
 ip_title:IP-selain
-userinfo_real_name:Nimi:
+userinfo_real_name:Oikea nimi:
 register_err_alias_notallowed:Tämä alias ei ole sallittu
 post_err_mod_forum_edit_ttl:Virhe
 post_err_mod_forum_edit_msg:Et voi muokata moderoidun foorumin viestejä.
