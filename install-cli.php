@@ -444,6 +444,7 @@ function initdb(&$settings)
 			'DBHOST_DBTYPE' => 'mysql',
 			'COOKIE_DOMAIN' => '',
 			'LANGUAGE' => '',
+			'TEMPLATE' => '',
 			'ROOT_LOGIN' => get_current_user(),
 			'ROOT_PASS' => '',
 			'ADMIN_EMAIL' => ''
@@ -774,12 +775,38 @@ function initdb(&$settings)
 		'DBHOST_TBL_PREFIX' => $settings['DBHOST_TBL_PREFIX']
 	));
 
+	/* Handle template selection. */
+	$templ_dir = glob($settings['SERVER_DATA_ROOT'].'thm/*', GLOB_ONLYDIR|GLOB_NOSORT);
+	if (!$templ_dir) {
+		fe("Could not open template directory at '{$settings['SERVER_DATA_ROOT']}thm/'\n");
+	}
+	foreach ($templ_dir as $f) {
+		$templ = strtolower(basename($f));
+		$templs[$templ] = $templ;
+	}
+	while (!isset($templs[ $settings['TEMPLATE'] ])) {
+		ksort($templs);
+		pf("Supported template sets: \n\t".wordwrap(implode(' ', array_keys($templs)), 75, "\n\t")."\n");
+
+		pf("Please enter template set [default]: ");
+		$templ = strtolower(trim(fgets(STDIN, 1024)));
+		if (!$templ) {
+			$settings['TEMPLATE'] = 'default';
+			break;
+		}
+		if (isset($templs[$templ])) {
+			$settings['TEMPLATE'] = $templ;
+			break;
+		}
+		pf("Invalid template set '{$templ}', please use a supported template set.\n");
+	}
+	
 	/* Handle language selection. */
-	$ln_dir = glob($settings['SERVER_DATA_ROOT'].'thm/default/i18n/*', GLOB_ONLYDIR|GLOB_NOSORT);
-	if (!$ln_dir) {
+	$lang_dir = glob($settings['SERVER_DATA_ROOT'].'thm/default/i18n/*', GLOB_ONLYDIR|GLOB_NOSORT);
+	if (!$lang_dir) {
 		fe("Could not open i18n directory at '{$settings['SERVER_DATA_ROOT']}thm/default/i18n'\n");
 	}
-	foreach ($ln_dir as $f) {
+	foreach ($lang_dir as $f) {
 		if (file_exists($f . '/locale')) {
 			$tryloc = file($f .'/locale', FILE_IGNORE_NEW_LINES);
 			$tryloc[] = '';	// Also consider the system's default locale.
@@ -807,11 +834,12 @@ function initdb(&$settings)
 		}
 		pf("Invalid language code '{$lang}', please use a supported language code.\n");
 	}
-	
+
 	/* Load default theme into db. */
 	$lang = $settings['LANGUAGE'];
+	$templ = $settings['TEMPLATE'];
 	dbquery("DELETE FROM ".$settings['DBHOST_TBL_PREFIX']."themes");
-	if (!dbquery("INSERT INTO ".$settings['DBHOST_TBL_PREFIX']."themes(id, name, theme, lang, locale, theme_opt, pspell_lang) VALUES(1, 'default', 'default', '{$lang}', '{$langs[$lang][0]}', 3, '{$langs[$lang][1]}')")) {
+	if (!dbquery("INSERT INTO ".$settings['DBHOST_TBL_PREFIX']."themes(id, name, theme, lang, locale, theme_opt, pspell_lang) VALUES(1, 'default', '{$templ}', '{$lang}', '{$langs[$lang][0]}', 3, '{$langs[$lang][1]}')")) {
 		fe(dberror());
 	}
 
@@ -857,7 +885,7 @@ function initdb(&$settings)
 	$GLOBALS['FUD_OPT_2']			= 8388608;
 
 	require($settings['SERVER_DATA_ROOT'] . 'include/compiler.inc');
-	compile_all('default', $settings['LANGUAGE']);
+	compile_all($settings['TEMPLATE'], $settings['LANGUAGE']);
 
 	pf("Congratulations! Your FUDforum installation is now complete.\n");
 	pf("You may access your new forum at: {$settings['WWW_ROOT']}/index.php\n\n");
