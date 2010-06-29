@@ -65,31 +65,28 @@ function draw_info($cnt)
 
 function delete_zero($tbl, $q)
 {
-	if (__dbtype__ == 'pgsql' || __dbtype__ == 'sqlite') {
-		q("DELETE FROM ".$tbl." WHERE id IN (".$q.")");
+	if (__dbtype__ == 'mysql') {	/* MySQL 4.1 optimization. */
+		q('DELETE '. $tbl .' '. substr($q, 7, strpos($q, '.') - 7) .' '. strstr($q, 'FROM'));
 		draw_info(db_affected());
-	} else if ($GLOBALS['FUD_OPT_3'] & 1024) { /* mysql 4.1 optimization */
-		q("DELETE ".$tbl." ".substr($q, 7, strpos($q, '.') - 7)." ".strstr($q, "FROM"));
+	} else {	/* All other databases. */
+		q('DELETE FROM '. $tbl .' WHERE id IN ('. $q .')');
 		draw_info(db_affected());
-	} else if (($a = db_all($q))) { /* mysql 3.23-4.0 */
-		q('DELETE FROM '.$tbl.' WHERE id IN ('.implode(',', $a).')');
-		draw_info(count($a));
 	}
 }
 
 	if (isset($_POST['btn_cancel'])) {
-		header('Location: '. $WWW_ROOT .'adm/index.php?'.__adm_rsid);
+		header('Location: '. $WWW_ROOT .'adm/index.php?'. __adm_rsid);
 		exit;
 	}
 
-	include($WWW_ROOT_DISK . 'adm/header.php');
+	include($WWW_ROOT_DISK .'adm/header.php');
 
 	if (!isset($_POST['conf']) && !isset($_GET['enable_forum']) && !isset($_GET['opt'])) {
 ?>
 <h2>Forum Consistency</h2>
 <div class="alert">
 Consistency check is a complex process which may take several minutes to run.
-While it is running, your forum will be disabled.
+While it is running, your forum will be disabled!
 </div>
 <form method="post" action="consist.php">
 <p>Do you wish to proceed?</p>
@@ -128,11 +125,11 @@ While it is running, your forum will be disabled.
 	if (__dbtype__ == 'mysql') {
 		q('DROP TABLE IF EXISTS '.$tbl.'tmp_consist');
 		q('CREATE TABLE '.$tbl.'tmp_consist (p INT, ps INT UNSIGNED, c INT)');
-		$tbl = strtolower($tbl); // table names on mysql need to be lowercase
+		$tbl = strtolower($tbl); // Table names on mysql need to be lowercase.
 	}
 	$tbls = get_fud_table_list();
 
-	// add view tables as needed 
+	// Add view tables as needed.
 	foreach (db_all('SELECT id FROM '.$tbl.'forum') as $v) {
 		$n = $tbl.'tv_'.$v;
 		if (!in_array($n, $tbls)) {
@@ -143,12 +140,13 @@ While it is running, your forum will be disabled.
 		frm_add_view_tbl($n);
 	}
 
-	// add the various table aliases
+	// Add the various table aliases.
 	array_push($tbls, 	$tbl.'users u', $tbl.'forum f', $tbl.'thread t', $tbl.'poll p', $tbl.'poll_opt po', $tbl.'poll_opt_track pot',
 				$tbl.'msg m', $tbl.'pmsg pm', $tbl.'mod mm', $tbl.'thread_rate_track trt', $tbl.'msg_report mr', $tbl.'cat c',
 				$tbl.'forum_notify fn', $tbl.'thread_notify tn', $tbl.'bookmarks bm', $tbl.'buddy b', $tbl.'user_ignore i', $tbl.'msg m1', $tbl.'msg m2',
 				$tbl.'users u1', $tbl.'users u2', $tbl.'attach a', $tbl.'thr_exchange te', $tbl.'read r', $tbl.'mime mi',
-				$tbl.'group_members gm', $tbl.'group_resources gr', $tbl.'groups g', $tbl.'group_members gm1', $tbl.'group_members gm2', $tbl.'themes thm');
+				$tbl.'group_members gm', $tbl.'group_resources gr', $tbl.'groups g', $tbl.'group_members gm1', $tbl.'group_members gm2', 
+				$tbl.'themes thm'); // , $tbl.'index si', $tbl.'title_index ti');
 
 	db_lock(implode(' WRITE, ', $tbls).' WRITE');
 	draw_stat('Locked!');
@@ -298,11 +296,11 @@ While it is running, your forum will be disabled.
 		
 	}
 	unset($c);
-	foreach ($tmp as $v) { // add lock table
+	foreach ($tmp as $v) { // Add lock tables.
 		q("CREATE TABLE ".$tbl."fl_".$v." (id INT)");
 	}
 	
-	/* private message lock table */
+	/* Add private message lock tables. */
 	if (!isset($tbl_k[$tbl.'fl_pm'])) {
 		q("CREATE TABLE ".$tbl."fl_pm (id INT)");
 	}
@@ -379,7 +377,7 @@ While it is running, your forum will be disabled.
 	delete_zero($tbl.'poll_opt_track', 'SELECT pot.id FROM '.$tbl.'poll_opt_track pot LEFT JOIN '.$tbl.'poll p ON p.id=pot.poll_id LEFT JOIN '.$tbl.'poll_opt po ON po.id=pot.poll_opt LEFT JOIN '.$tbl.'users u ON u.id=pot.user_id WHERE u.id IS NULL OR po.id IS NULL OR p.id IS NULL');
 
 	draw_stat('Rebuilding poll cache');
-	// first we validate to vote counts for each option
+	// First we validate to vote counts for each option.
 	q('UPDATE '.$tbl.'poll_opt SET count=0');
 	$c = q('SELECT poll_opt, count(*) FROM '.$tbl.'poll_opt_track GROUP BY poll_opt');
 	while ($r = db_rowarr($c)) {
@@ -387,7 +385,7 @@ While it is running, your forum will be disabled.
 	}
 	unset($c);
 
-	// now we rebuild the individual message poll cache
+	// Now we rebuild the individual message poll cache.
 	$oldp = '';
 	$opts = array();
 	$vt = 0;
@@ -472,6 +470,13 @@ While it is running, your forum will be disabled.
 	draw_stat('Checking forum notification');
 	delete_zero($tbl.'forum_notify', 'SELECT fn.id FROM '.$tbl.'forum_notify fn LEFT JOIN '.$tbl.'forum f ON f.id=fn.forum_id LEFT JOIN '.$tbl.'users u ON u.id=fn.user_id WHERE u.id IS NULL OR f.id IS NULL');
 
+	draw_stat('Checking search indexes');
+	q('DELETE FROM '.$tbl.'index WHERE NOT EXISTS (SELECT id FROM '.$tbl.'search WHERE '.$tbl.'index.word_id = id)');
+	q('DELETE FROM '.$tbl.'index WHERE NOT EXISTS (SELECT id FROM '.$tbl.'msg WHERE '.$tbl.'index.msg_id = id)');
+	q('DELETE FROM '.$tbl.'title_index WHERE NOT EXISTS (SELECT id FROM '.$tbl.'search WHERE '.$tbl.'title_index.word_id = id)');
+	q('DELETE FROM '.$tbl.'title_index WHERE NOT EXISTS (SELECT id FROM '.$tbl.'msg WHERE '.$tbl.'title_index.msg_id = id)');
+	q('DELETE FROM '.$tbl.'search where not exists (select * from '.$tbl.'index where '.$tbl.'search.id = word_id) and not exists (select * from '.$tbl.'title_index where '.$tbl.'search.id = word_id)');
+
 	draw_stat('Checking topic votes against topics');
 	delete_zero($tbl.'thread_rate_track', 'SELECT trt.id FROM '.$tbl.'thread_rate_track trt LEFT JOIN '.$tbl.'thread t ON t.id=trt.thread_id LEFT JOIN '.$tbl.'users u ON u.id=trt.user_id WHERE u.id IS NULL OR t.id IS NULL');
 
@@ -521,7 +526,7 @@ While it is running, your forum will be disabled.
 	draw_stat('Checking ignore list entries');
 	delete_zero($tbl.'user_ignore', 'SELECT i.id FROM '.$tbl.'user_ignore i LEFT JOIN '.$tbl.'users u1 ON u1.id=i.user_id LEFT JOIN '.$tbl.'users u2 ON u2.id=i.ignore_id WHERE u1.id IS NULL OR u2.id IS NULL');
 
-	// we do this together to avoid dupe query
+	// We do this together to avoid dupe query.
 	q('UPDATE '.$tbl.'users SET buddy_list=NULL, ignore_list=NULL');
 
 	draw_stat('Rebuilding buddy list cache');
@@ -595,8 +600,7 @@ While it is running, your forum will be disabled.
 	draw_stat('Done: Validating group resources');
 
 	draw_stat('Validating group validity');
-	# technically a group cannot exist without being assigned to at least 1 resource
-	# so when we encounter such as group, we do our patriotic duty and remove it.
+	// Technically a group cannot exist without being assigned to at least 1 resource so, when we encounter such as group, we do our patriotic duty and remove it.
 	delete_zero($tbl.'groups', 'SELECT g.id FROM '.$tbl.'groups g LEFT JOIN '.$tbl.'group_resources gr ON g.id=gr.group_id WHERE g.id > 2 AND gr.id IS NULL');
 	delete_zero($tbl.'groups', 'SELECT g.id FROM '.$tbl.'groups g LEFT JOIN '.$tbl.'forum f ON g.forum_id=f.id WHERE g.forum_id > 0 AND g.id > 2 AND f.id IS NULL');
 	draw_stat('Done: Validating group validity');
@@ -635,7 +639,7 @@ While it is running, your forum will be disabled.
 	}
 	unset($c);
 	if (isset($glm)) {
-		// make group based on 'primary' 1st group
+		// Make group based on 'primary' 1st group.
 		$anon = q_singleval("SELECT groups_opt FROM ".$tbl."groups WHERE id=1");
 		$regu = q_singleval("SELECT groups_opt FROM ".$tbl."groups WHERE id=2");
 		foreach ($glm as $k => $v) {
@@ -687,7 +691,7 @@ While it is running, your forum will be disabled.
 	draw_stat('Cleaning forum\'s tmp directory');
 	if (($files = glob($TMP.'*', GLOB_NOSORT))) {
 		foreach ($files as $file) {
-			// remove if file and not-standard forum backup file.
+			// Remove if file and not-standard forum backup file.
 			if (is_file($file) && !preg_match("/FUDforum_.*\.fud.*/", $file)) {
 				pf('- remove file: '. $file);
 				@unlink($file);

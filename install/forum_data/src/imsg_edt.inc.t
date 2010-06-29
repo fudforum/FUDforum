@@ -247,9 +247,9 @@ class fud_msg_edit extends fud_msg
 			q('UPDATE {SQL_TABLE_PREFIX}thread SET tdescr='._esc($msg_tdescr).' WHERE id='.$this->thread_id);
 		}
 
-		if ($GLOBALS['FUD_OPT_1'] & 16777216) {	// FORUM_SEARCH enabled?
-			q('DELETE FROM {SQL_TABLE_PREFIX}index WHERE msg_id='.$this->id);
-			q('DELETE FROM {SQL_TABLE_PREFIX}title_index WHERE msg_id='.$this->id);
+		if ($GLOBALS['FUD_OPT_1'] & 16777216) {	// FORUM_SEARCH enabled? If so, reindex message.
+			q('DELETE FROM {SQL_TABLE_PREFIX}index WHERE msg_id='. $this->id);
+			q('DELETE FROM {SQL_TABLE_PREFIX}title_index WHERE msg_id='. $this->id);
 			index_text((!strncasecmp('Re: ', $this->subject, 4) ? '' : $this->subject), $this->body, $this->id);
 		}
 	}
@@ -268,29 +268,36 @@ class fud_msg_edit extends fud_msg
 		}
 
 		if (!db_locked()) {
-			db_lock('{SQL_TABLE_PREFIX}msg_store WRITE, {SQL_TABLE_PREFIX}forum f WRITE, {SQL_TABLE_PREFIX}thr_exchange WRITE, {SQL_TABLE_PREFIX}tv_'.$del->forum_id.' WRITE, {SQL_TABLE_PREFIX}tv_'.$del->forum_id.' tv WRITE, {SQL_TABLE_PREFIX}msg m WRITE, {SQL_TABLE_PREFIX}thread t WRITE, {SQL_TABLE_PREFIX}level WRITE, {SQL_TABLE_PREFIX}forum WRITE, {SQL_TABLE_PREFIX}forum_read WRITE, {SQL_TABLE_PREFIX}thread WRITE, {SQL_TABLE_PREFIX}msg WRITE, {SQL_TABLE_PREFIX}attach WRITE, {SQL_TABLE_PREFIX}poll WRITE, {SQL_TABLE_PREFIX}poll_opt WRITE, {SQL_TABLE_PREFIX}poll_opt_track WRITE, {SQL_TABLE_PREFIX}users WRITE, {SQL_TABLE_PREFIX}thread_notify WRITE, {SQL_TABLE_PREFIX}bookmarks WRITE, {SQL_TABLE_PREFIX}msg_report WRITE, {SQL_TABLE_PREFIX}thread_rate_track WRITE');
+			db_lock('{SQL_TABLE_PREFIX}msg_store WRITE, {SQL_TABLE_PREFIX}forum f WRITE, {SQL_TABLE_PREFIX}thr_exchange WRITE, {SQL_TABLE_PREFIX}tv_'.$del->forum_id.' WRITE, {SQL_TABLE_PREFIX}tv_'.$del->forum_id.' tv WRITE, {SQL_TABLE_PREFIX}msg m WRITE, {SQL_TABLE_PREFIX}thread t WRITE, {SQL_TABLE_PREFIX}level WRITE, {SQL_TABLE_PREFIX}forum WRITE, {SQL_TABLE_PREFIX}forum_read WRITE, {SQL_TABLE_PREFIX}thread WRITE, {SQL_TABLE_PREFIX}msg WRITE, {SQL_TABLE_PREFIX}attach WRITE, {SQL_TABLE_PREFIX}poll WRITE, {SQL_TABLE_PREFIX}poll_opt WRITE, {SQL_TABLE_PREFIX}poll_opt_track WRITE, {SQL_TABLE_PREFIX}users WRITE, {SQL_TABLE_PREFIX}thread_notify WRITE, {SQL_TABLE_PREFIX}bookmarks WRITE, {SQL_TABLE_PREFIX}msg_report WRITE, {SQL_TABLE_PREFIX}thread_rate_track WRITE, {SQL_TABLE_PREFIX}index WRITE, {SQL_TABLE_PREFIX}title_index WRITE');
 			$ll = 1;
 		}
 
-		q('DELETE FROM {SQL_TABLE_PREFIX}msg WHERE id='.$mid);
+		q('DELETE FROM {SQL_TABLE_PREFIX}msg WHERE id='. $mid);
 
 		/* Attachments. */
 		if ($del->attach_cnt) {
-			$res = q('SELECT location FROM {SQL_TABLE_PREFIX}attach WHERE message_id='.$mid.' AND attach_opt=0');
+			$res = q('SELECT location FROM {SQL_TABLE_PREFIX}attach WHERE message_id='. $mid .' AND attach_opt=0');
 			while ($loc = db_rowarr($res)) {
 				@unlink($loc[0]);
 			}
 			unset($res);
-			q('DELETE FROM {SQL_TABLE_PREFIX}attach WHERE message_id='.$mid.' AND attach_opt=0');
+			q('DELETE FROM {SQL_TABLE_PREFIX}attach WHERE message_id='. $mid .' AND attach_opt=0');
 		}
 
-		q('DELETE FROM {SQL_TABLE_PREFIX}msg_report WHERE msg_id='.$mid);
+		/* Remove message reports. */
+		q('DELETE FROM {SQL_TABLE_PREFIX}msg_report WHERE msg_id='. $mid);
+
+		/* Cleanup index entries. */
+		if ($GLOBALS['FUD_OPT_1'] & 16777216) {	// FORUM_SEARCH enabled?
+			q('DELETE FROM {SQL_TABLE_PREFIX}index WHERE msg_id='. $mid);
+			q('DELETE FROM {SQL_TABLE_PREFIX}title_index WHERE msg_id='. $mid);
+		}
 
 		if ($del->poll_id) {
 			poll_delete($del->poll_id);
 		}
 
-		/* check if thread */
+		/* Check if thread. */
 		if ($del->root_msg_id == $del->id) {
 			$th_rm = 1;
 			/* Delete all messages in the thread if there is more than 1 message. */
@@ -556,7 +563,7 @@ class fud_msg_edit extends fud_msg
 				$nntp->release_lock($lock);
 			} else {	// Push out to mailing list.
 				fud_use('mlist_post.inc', true);
-				
+
 				$r = db_saq('SELECT name, additional_headers, custom_sig FROM {SQL_TABLE_PREFIX}mlist WHERE id='.$mtf->mlist_id);
 				if (!empty($r[2])) {	// Add signature marker.
 					$r[2] = "\n-- \n". $r[2];

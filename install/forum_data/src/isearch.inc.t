@@ -12,7 +12,7 @@
 function text_to_worda($text)
 {
 	$a = array();
-	$text = strip_tags(reverse_fmt($text));
+	$text = strtolower(strip_tags(reverse_fmt($text)));
 	$lang = $GLOBALS['usr']->lang;
 
 	if (@preg_match('/\p{L}/u', 'a') == 1) {	// PCRE unicode support is turned on
@@ -28,7 +28,7 @@ function text_to_worda($text)
 	}
 
 	/* PCRE unicode support is turned off, fallback to old non-utf8 algorithm */
-	$t1 = array_unique(str_word_count(strtolower($text), 1));
+	$t1 = array_unique(str_word_count($text, 1));
 	foreach ($t1 as $v) {
 		if (isset($v[51]) || !isset($v[2])) continue;	// word too short or long
 		$a[] = _esc($v);

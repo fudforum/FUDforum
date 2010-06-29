@@ -11,10 +11,9 @@ DROP TABLE IF EXISTS {SQL_TABLE_PREFIX}title_index;
 
 CREATE TABLE {SQL_TABLE_PREFIX}title_index
 (
-	id 		INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	word_id		INT NOT NULL DEFAULT 0,
 	msg_id		INT NOT NULL DEFAULT 0
 );
 
-CREATE INDEX {SQL_TABLE_PREFIX}title_index_i_wm ON {SQL_TABLE_PREFIX}title_index (word_id, msg_id);
+CREATE UNIQUE INDEX {SQL_TABLE_PREFIX}title_index_i_wm ON {SQL_TABLE_PREFIX}title_index (word_id, msg_id);
 CREATE INDEX {SQL_TABLE_PREFIX}title_index_i_m ON {SQL_TABLE_PREFIX}title_index (msg_id);
