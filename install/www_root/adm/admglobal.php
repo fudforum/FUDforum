@@ -226,16 +226,6 @@ $(document).ready(function() {
 	print_reg_field('Database Password', 'DBHOST_PASSWORD', 0, 1);
 	print_reg_field('Database Name', 'DBHOST_DBNAME');
 	print_bit_field('Use Persistent Connections', 'DBHOST_PERSIST');
-	if (__dbtype__ == 'mysql') { 
-		if (preg_match('!((3|4|5)\.([0-9]+)(\.([0-9]+))?)!',  q_singleval('SELECT VERSION()'), $m)) {
-			$version = $m[1];
-		} else {
-			$version = 0;
-		}
-		if (version_compare($version, '4.1.1', '>=')) {
-			print_bit_field('Use MySQL 4.1 Performance Options', 'MYSQL_4_1_OPT');
-		}
-	}
 	print_bit_field('Use Temporary Tables', 'USE_TEMP_TABLES');
 	print_bit_field('Use Database for message storage', 'DB_MESSAGE_STORAGE');
 	?>

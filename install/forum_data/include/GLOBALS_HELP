@@ -434,8 +434,8 @@ If disabled the browser will not attempt to 'remember' the values for the login 
 {{{APACHE_PUTENV	FUD_OPT_3	512
 If enabled the forum will never try to set a timezone by exporting TZ environment variable via putenv(). In Apache 2 where PHP is used in conjunction with mod_perl using PHP's putenv() may result in frequent crashes.}}}
 
-{{{MYSQL_4_1_OPT	FUD_OPT_3	1024
-If enabled the forum will use various query optimization tricks available through MySQL 4.1.2+ functionality.}}}
+{{{UNUSED	FUD_OPT_3	1024
+Available for future use.}}}
 
 {{{DISABLE_WELCOME_EMAIL	FUD_OPT_3	2048
 If enabled the forum will no longer send welcome e-mails when new users register.}}}

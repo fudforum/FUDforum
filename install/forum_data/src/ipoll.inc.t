@@ -37,11 +37,7 @@ function poll_del_opt($id, $poll_id)
 {
 	q('DELETE FROM {SQL_TABLE_PREFIX}poll_opt WHERE poll_id='.$poll_id.' AND id='.$id);
 	q('DELETE FROM {SQL_TABLE_PREFIX}poll_opt_track WHERE poll_id='.$poll_id.' AND poll_opt='.$id);
-	if ($GLOBALS['FUD_OPT_3'] & 1024 || __dbtype__ != 'mysql') {
-		q('UPDATE {SQL_TABLE_PREFIX}poll SET total_votes=(SELECT SUM(count) FROM {SQL_TABLE_PREFIX}poll_opt WHERE poll_id='.$poll_id.') WHERE id='.$poll_id);
-	} else {
-		q('UPDATE {SQL_TABLE_PREFIX}poll SET total_votes='.(int) q_singleval('SELECT SUM(count) FROM {SQL_TABLE_PREFIX}poll_opt WHERE poll_id='.$poll_id).' WHERE id='.$poll_id);
-	}
+	q('UPDATE {SQL_TABLE_PREFIX}poll SET total_votes=(SELECT SUM(count) FROM {SQL_TABLE_PREFIX}poll_opt WHERE poll_id='.$poll_id.') WHERE id='.$poll_id);
 }
 
 function poll_activate($poll_id, $frm_id)

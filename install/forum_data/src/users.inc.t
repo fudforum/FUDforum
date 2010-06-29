@@ -747,7 +747,7 @@ function &init_user()
 
 function user_register_forum_view($frm_id)
 {
-	if ($GLOBALS['FUD_OPT_3'] & 1024) {	// MYSQL_4_1_OPT
+	if (__dbtype__ == 'mysql') {	// MySQL optimization.
 		q('INSERT INTO {SQL_TABLE_PREFIX}forum_read (forum_id, user_id, last_view) VALUES ('.$frm_id.', '._uid.', '.__request_timestamp__.') ON DUPLICATE KEY UPDATE last_view=VALUES(last_view)');
 		return;
 	}
@@ -759,7 +759,7 @@ function user_register_forum_view($frm_id)
 
 function user_register_thread_view($thread_id, $tm=__request_timestamp__, $msg_id=0)
 {
-	if ($GLOBALS['FUD_OPT_3'] & 1024) {
+	if (__dbtype__ == 'mysql') {    // MySQL optimization.
 		q('INSERT INTO {SQL_TABLE_PREFIX}read (last_view, msg_id, thread_id, user_id) VALUES('.$tm.', '.$msg_id.', '.$thread_id.', '._uid.') ON DUPLICATE KEY UPDATE last_view=VALUES(last_view), msg_id=VALUES(msg_id)');
 		return;
 	}
@@ -785,13 +785,11 @@ function user_mark_all_read($id)
 
 function user_mark_forum_read($id, $fid, $last_view)
 {
-	if (__dbtype__ == 'mysql' || __dbtype__ == 'sqlite') {
-		if ($GLOBALS['FUD_OPT_3'] & 1024) {
-			q('INSERT INTO {SQL_TABLE_PREFIX}read (user_id, thread_id, msg_id, last_view) SELECT '.$id.', id, last_post_id, '.__request_timestamp__.' FROM {SQL_TABLE_PREFIX}thread WHERE forum_id='.$fid.' AND last_post_date > '.$last_view.' ON DUPLICATE KEY UPDATE last_view=VALUES(last_view), msg_id=VALUES(msg_id)');
-		} else {
-			q('REPLACE INTO {SQL_TABLE_PREFIX}read (user_id, thread_id, msg_id, last_view) SELECT '.$id.', id, last_post_id, '.__request_timestamp__.' FROM {SQL_TABLE_PREFIX}thread WHERE forum_id='.$fid.' AND last_post_date > '.$last_view);
-		}
-	} else {
+	if (__dbtype__ == 'mysql') {	// MySQL optimization.
+		q('INSERT INTO {SQL_TABLE_PREFIX}read (user_id, thread_id, msg_id, last_view) SELECT '.$id.', id, last_post_id, '.__request_timestamp__.' FROM {SQL_TABLE_PREFIX}thread WHERE forum_id='.$fid.' AND last_post_date > '.$last_view.' ON DUPLICATE KEY UPDATE last_view=VALUES(last_view), msg_id=VALUES(msg_id)');
+	} else if (__dbtype__ == 'sqlite') {	// SQLite optimization.
+		q('REPLACE INTO {SQL_TABLE_PREFIX}read (user_id, thread_id, msg_id, last_view) SELECT '.$id.', id, last_post_id, '.__request_timestamp__.' FROM {SQL_TABLE_PREFIX}thread WHERE forum_id='.$fid.' AND last_post_date > '.$last_view);
+	} else {	// Other databases.
 		if (!db_li('INSERT INTO {SQL_TABLE_PREFIX}read (user_id, thread_id, msg_id, last_view) SELECT '.$id.', id, last_post_id, '.__request_timestamp__.' FROM {SQL_TABLE_PREFIX}thread WHERE forum_id='.$fid.' AND last_post_date > '.$last_view, $ef)) {
 			q('UPDATE {SQL_TABLE_PREFIX}read SET user_id='.$id.', msg_id=t.last_post_id, last_view='.__request_timestamp__.' FROM (SELECT id, last_post_id FROM {SQL_TABLE_PREFIX}thread WHERE forum_id='.$fid.' AND last_post_date > '.$last_view.') t WHERE user_id='.$id.' AND thread_id=t.id');
 		}
