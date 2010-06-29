@@ -72,7 +72,7 @@
 					$u->ban_expiry = 0;
 				} else {
 					$u->users_opt &= ~$keys[$act];
-					$u->ban_expiry = (int) $_POST['ban_duration'] * 86400;
+					$u->ban_expiry = floatval($_POST['ban_duration']) * 86400;
 					if ($u->ban_expiry) {
 						$u->ban_expiry += __request_timestamp__;
 					}

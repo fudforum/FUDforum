@@ -1,4 +1,4 @@
-#!/usr/local/bin/php -q
+#!/usr/bin/php -q
 <?php
 /**
 * copyright            : (C) 2001-2010 Advanced Internet Designs Inc.

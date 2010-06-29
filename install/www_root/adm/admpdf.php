@@ -89,7 +89,7 @@
 <ul>
 	<li><a href="<?php echo $rdf_url; ?>?frm=1"><?php echo $rdf_url; ?>?frm=1</a> will generate a pdf with all the messages from forum with an id of 1.</li>
 	<li><a href="<?php echo $rdf_url; ?>?frm=1&amp;page=3"><?php echo $rdf_url; ?>?frm=1&amp;page=3</a> will generate a pdf with all the messages from forum with an id of 1, which can be found on page 3.</li>
-	<li><a href="<?php echo $rdf_url; ?>?thread=1"><?php echo $rdf_url; ?>?thread=1</a> will generate a pdf with all the messages from topic with an id of 1.</li>
+	<li><a href="<?php echo $rdf_url; ?>?th=1"><?php echo $rdf_url; ?>?th=1</a> will generate a pdf with all the messages from topic with an id of 1.</li>
 	<li><a href="<?php echo $rdf_url; ?>?msg=1"><?php echo $rdf_url; ?>?msg=1</a> will generate a pdf contaning a message with an id of 1.</li>
 </ul>
 </div>

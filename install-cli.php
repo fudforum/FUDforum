@@ -839,7 +839,7 @@ function initdb(&$settings)
 	$lang = $settings['LANGUAGE'];
 	$templ = $settings['TEMPLATE'];
 	dbquery("DELETE FROM ".$settings['DBHOST_TBL_PREFIX']."themes");
-	if (!dbquery("INSERT INTO ".$settings['DBHOST_TBL_PREFIX']."themes(id, name, theme, lang, locale, theme_opt, pspell_lang) VALUES(1, 'default', '{$templ}', '{$lang}', '{$langs[$lang][0]}', 3, '{$langs[$lang][1]}')")) {
+	if (!dbquery('INSERT INTO '.$settings['DBHOST_TBL_PREFIX']."themes(id, name, theme, lang, locale, theme_opt, pspell_lang) VALUES(1, 'default', '{$templ}', '{$lang}', '{$langs[$lang][0]}', 3, '{$langs[$lang][1]}')")) {
 		fe(dberror());
 	}
 
@@ -870,7 +870,7 @@ function initdb(&$settings)
 	dbquery("DELETE FROM ".$settings['DBHOST_TBL_PREFIX']."users WHERE id > 1");
 	$salt   = substr(md5(uniqid(rand(), true)), 0, 9);
 	$passwd = sha1($salt . sha1($settings['ROOT_PASS']));
-	if (!dbquery("INSERT INTO ".$settings['DBHOST_TBL_PREFIX']."users (login, alias, passwd, salt, name, email, avatar, avatar_loc, users_opt, join_date, theme, posted_msg_count, u_last_post_id, level_id, custom_status) VALUES('".addslashes($settings['ROOT_LOGIN'])."', '".addslashes(htmlspecialchars($settings['ROOT_LOGIN']))."', '".$passwd."', '".$salt."', 'Administrator', '".addslashes($settings['ADMIN_EMAIL'])."', 3, '<img src=\"". $settings['WWW_ROOT'] ."images/avatars/smiley03.jpg\" alt=\"\" width=\"64\" height=\"64\" />', 13777910, ".time().", 1, 1, 1, 3, 'Administrator')")) {
+	if (!dbquery('INSERT INTO '.$settings['DBHOST_TBL_PREFIX']."users (login, alias, passwd, salt, name, email, avatar, avatar_loc, users_opt, join_date, theme, posted_msg_count, u_last_post_id, level_id, custom_status) VALUES('".addslashes($settings['ROOT_LOGIN'])."', '".addslashes(htmlspecialchars($settings['ROOT_LOGIN']))."', '".$passwd."', '".$salt."', 'Administrator', '".addslashes($settings['ADMIN_EMAIL'])."', 3, '<img src=\"images/avatars/smiley03.jpg\" alt=\"\" width=\"64\" height=\"64\" />', 13777910, ".time().", 1, 1, 1, 3, 'Administrator')")) {
 		fe(dberror());
 	}
 	change_global_settings(array('ADMIN_EMAIL' => $settings['ADMIN_EMAIL'], 'NOTIFY_FROM' => $settings['ADMIN_EMAIL']));

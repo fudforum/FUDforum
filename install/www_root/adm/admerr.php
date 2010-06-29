@@ -68,6 +68,13 @@ function print_log($path, $search)
 
 <h2>Error Log Viewer</h2>
 
+<?php 
+global $plugin_hooks;
+if (isset($plugin_hooks['LOGERR'])) { 
+?>
+	<div class="alert">You have one or more LOGERR plugins enabled. Messages my be altered, suppressed or logged elsewhere.</div>
+<?php } ?>
+
 <?php if ($logcnt) { ?>
 <table width="95%" class="tutor"><tr><td>
 <form method="post" action="admerr.php">

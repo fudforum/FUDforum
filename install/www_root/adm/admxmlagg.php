@@ -146,7 +146,7 @@
 		<td>Post Signature:<br />
 			<font size="-1">A string of text to append to the end of every aggregated article. Use <i>{link}</i> to refer to the article's URL.</font>
 		</td>
-		<td><textarea name="xmlagg_custom_sig" rows="5" cols="30"><?php echo htmlspecialchars($xmlagg_custom_sig); ?></textarea></td>
+		<td><textarea name="xmlagg_custom_sig" rows="5" cols="40"><?php echo htmlspecialchars($xmlagg_custom_sig); ?></textarea></td>
 	</tr>
 
 	<tr class="fieldaction">
