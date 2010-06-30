@@ -64,7 +64,7 @@ $charsets = ARRAY(
 ?>
 <fieldset class="tutor">
 	<legend><b>Optional character set conversion:</b></legend>
-	<p>Non-English forums that are not using UTF-8 might want to convert their messages to UTF-8. Converting twice will corrupt your messages. Please leave empty if you don't require a character set conversion or if you are unsure:</p>
+	<p>Non-English forums that are not using UTF-8 might want to convert their messages to UTF-8. Converting twice will <u>corrupt your messages</u>. Please leave empty if you don't require a character set conversion or if you are unsure:</p>
 	<table class="datatable">
     <tr class="field"><td>From character set:</td>
 	    <td><select name="fromcharset" id="fromcharset" class="input">

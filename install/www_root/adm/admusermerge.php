@@ -12,8 +12,10 @@
 	require('./GLOBALS.php');
 	fud_use('adm.inc', true);
 	fud_use('logaction.inc');
+	fud_use('users_reg.inc');
+	fud_use('users_adm.inc', true);
 
-	require($WWW_ROOT_DISK . 'adm/header.php');
+	require($WWW_ROOT_DISK .'adm/header.php');
 
 	$u1 = isset($_POST['u1']) ? $_POST['u1'] : '';
 	$u2 = isset($_POST['u2']) ? $_POST['u2'] : '';
@@ -31,16 +33,9 @@
 			q('UPDATE '. $DBHOST_TBL_PREFIX .'msg SET poster_id = '. $id2 .' WHERE poster_id = '. $id1);
 			q('UPDATE '. $DBHOST_TBL_PREFIX .'pmsg SET ouser_id = '. $id2 .' WHERE ouser_id = '. $id1);
 			q('UPDATE '. $DBHOST_TBL_PREFIX .'pmsg SET duser_id = '. $id2 .' WHERE duser_id = '. $id1);
-			q('UPDATE '. $DBHOST_TBL_PREFIX .'bookmarks SET	user_id = '. $id2 .' WHERE user_id = '. $id1);
-			q('UPDATE '. $DBHOST_TBL_PREFIX .'user_ignore SET user_id = '. $id2 .' WHERE user_id = '. $id1);
-			q('UPDATE '. $DBHOST_TBL_PREFIX .'buddy SET user_id = '. $id2 .' WHERE user_id = '. $id1);
-			q('UPDATE '. $DBHOST_TBL_PREFIX .'thread_rate_track SET	user_id = '. $id2 .' WHERE user_id = '. $id1);
 
-			// Cleanup.
-			q('DELETE FROM '. $DBHOST_TBL_PREFIX .'read WHERE user_id = '. $id1);
-			q('DELETE FROM '. $DBHOST_TBL_PREFIX .'forum_read WHERE user_id = '. $id1);
-			q('DELETE FROM '. $DBHOST_TBL_PREFIX .'thread_notify WHERE user_id = '. $id1);
-			q('DELETE FROM '. $DBHOST_TBL_PREFIX .'users WHERE id = '. $id1);
+			// Remove user!
+			usr_delete($id1);
 
 			logaction(_uid, 'MERGE_USER', 0, $u1);
 			echo successify('Users '. $u1 .' and '. $u2 .' were successfully merged.');

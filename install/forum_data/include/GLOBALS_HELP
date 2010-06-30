@@ -450,7 +450,7 @@ When anonymous users post messages perform captcha test.}}}
 If enabled, subscribers to a forum will receive notifications about every new message in the forum, rather then just new topics in the forum.}}}
 
 {{{DB_MESSAGE_STORAGE	FUD_OPT_3	32768
-If enabled, regular and private messages will be stored inside the database. This is not recommended for performance reasons!}}}
+If enabled, regular and private messages will be stored inside the database. If disbaled, they will be stored in files on disk. For performance reasons we recommend you keep it disabled, especially on large forums!}}}
 
 {{{DISABLE_ANON_CACHE	FUD_OPT_3	65536
 Disable sending of page-cache headers to anonymous users, this may solve extended caching by browsers non-complaint with web specs.}}}

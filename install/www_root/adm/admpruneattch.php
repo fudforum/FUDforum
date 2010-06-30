@@ -15,9 +15,9 @@
 	fud_use('adm.inc', true);
 	fud_use('widgets.inc', true);
 
-	require($WWW_ROOT_DISK . 'adm/header.php');
+	require($WWW_ROOT_DISK .'adm/header.php');
 		
-	if (isset($_POST['btn_prune']) && !empty($_POST['thread_age'])) {
+	if (isset($_POST['btn_prune']) && !empty($_POST['thread_age']) && !isset($_POST['btn_cancel'])) {
 	$lmt = ' AND (thread_opt & (2|4)) = 0 ';
 		
 		/* Figure out our limit if any. */
@@ -106,7 +106,7 @@
 			unset($c, $r, $al, $ml);
 			echo successify('Selected attachments were removed.');
 		} else if ($back < 1) {
-			echo '<div style="text-align:center; font-size: large; font-weight: bolder; color: darkred">You\'ve selected a date too far in the past.</div>';
+			echo errorify('You\'ve selected a date too far in the past!');
 		}
 	}
 ?>
@@ -116,7 +116,7 @@
 specified date. For example if you enter a value of 10 and select "days"<br /> 
 this form will offer to delete attachments older than 10 days.</p>
 
-<form id="adpa" method="post" action="admaprune.php">
+<form id="adpa" method="post" action="admpruneattch.php">
 <table class="datatable">
 <tr class="field">
 	<td nowrap="nowrap">Attachments Older Than:</td>

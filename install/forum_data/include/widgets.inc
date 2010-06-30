@@ -27,7 +27,7 @@ function create_select($name, $options, $opt_val, $def_val, $js='', $extraval=''
 
 	if ( $js ) $js = ' '.$js;
 
-	$rval = '<select name="'.$name.'"'.$js.'>';
+	$rval = '<select id="'.$name.'" name="'.$name.'"'.$js.'>';
 	for ( $i=0; $i<$c; $i++ ) {
 		$selected = ( $def_val == $opt_val[$i] ) ? ' selected="selected"' : '';
 		if ( isset($opt_tag[$i]) )

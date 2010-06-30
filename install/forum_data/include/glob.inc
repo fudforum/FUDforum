@@ -43,7 +43,7 @@ function print_bit_field($descr, $field)
 	$h =& $GLOBALS['help_ar'][$field];
 	$o =& $h[1];
 
-	echo '<tr class="field"><td>'.$descr.': <br /><font size="-1">'.$h[0].'</font></td><td valign="top">';
+	echo '<tr class="field"><td><label for="'. $o[0].'_'.$field .'">'.$descr.': <br /><font size="-1">'.$h[0].'</font></label></td><td valign="top">';
 
 	if (!isset($o[2])) {
 		echo create_select($o[0].'_'.$field, "Yes\nNo", "{$o[1]}\n0", ($GLOBALS[$o[0]] & (int) $o[1]));
@@ -66,23 +66,23 @@ function print_bit_field($descr, $field)
 function print_reg_field($descr, $field, $is_int=0, $pass=0)
 {
 	if (!isset($GLOBALS[$field])) {
-		$str = !$is_int ? '' : '0';
+		$val = !$is_int ? '' : '0';
 	} else {
-		$str = !$is_int ? htmlspecialchars($GLOBALS[$field]) : $GLOBALS[$field];
+		$val = !$is_int ? htmlspecialchars($GLOBALS[$field]) : (int)$GLOBALS[$field];
 	}
-
-	echo '<tr class="field"><td>'. $descr .': <br /><font size="-1">'.$GLOBALS['help_ar'][$field][0].'</font></td><td valign="top"><input type="'.(!$pass ? 'text' : 'password').'" name="CF_'. $field .'" value="'. $str .'" /></td></tr>';
+	$extra = ($is_int) ? 'type="number" ' : '';	// HTML5 type spec.
+	echo '<tr class="field"><td><label for="CF_'. $field .'">'. $descr .': <br /><font size="-1">'.$GLOBALS['help_ar'][$field][0].'</font></label></td><td valign="top"><input type="'.(!$pass ? 'text' : 'password').'" name="CF_'. $field .'" id="CF_'. $field .'" value="'. $val .'" size="30" '. $extra .'/></td></tr>';
 }
 
-function print_txt_field($descr, $field, $rows=2, $cols=25)
+function print_txt_field($descr, $field, $rows=2, $cols=30)
 {
 	if (!isset($GLOBALS[$field])) {
-		$str = '';
+		$val = '';
 	} else {
-		$str = htmlspecialchars($GLOBALS[$field]);
+		$val = htmlspecialchars($GLOBALS[$field]);
 	}
 
-	echo '<tr class="field"><td>'. $descr .': <br /><font size="-1">'. $GLOBALS['help_ar'][$field][0] .'</font></td><td valign="top"><textarea rows="'. $rows .'" cols="'. $cols .'" name="CF_'. $field .'">'. $str .'</textarea></td></tr>';
+	echo '<tr class="field"><td><label for="CF_'. $field .'">'. $descr .': <br /><font size="-1">'. $GLOBALS['help_ar'][$field][0] .'</font></label></td><td valign="top"><textarea rows="'. $rows .'" cols="'. $cols .'" id="CF_'. $field .'" name="CF_'. $field .'">'. $val .'</textarea></td></tr>';
 }
 
 function change_global_settings($list)

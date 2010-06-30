@@ -87,7 +87,7 @@ if (defined('popup') ) {	/* Special header for popup pages. */
 	<a href="admdelfrm.php?<?php echo __adm_rsid; ?>">Deleted Forums</a><br />
 	<a href="admannounce.php?<?php echo __adm_rsid; ?>">Announcement Manager</a><br />
 	<a href="admprune.php?<?php echo __adm_rsid; ?>">Topic Pruning</a><br />
-	<a href="admaprune.php?<?php echo __adm_rsid; ?>">Attachment Pruning</a><br />
+	<a href="admpruneattch.php?<?php echo __adm_rsid; ?>">Attachment Pruning</a><br />
 	<a href="admmlist.php?<?php echo __adm_rsid; ?>">Mailing List Manager</a><br />
 	<a href="admnntp.php?<?php echo __adm_rsid; ?>">Newsgroup Manager</a><br />
 <?php
@@ -102,6 +102,7 @@ if (defined('popup') ) {	/* Special header for popup pages. */
 	<a href="admgroups.php?<?php echo __adm_rsid; ?>">Groups Manager</a><br />
 	<a href="admmassemail.php?<?php echo __adm_rsid; ?>">Mass E-mail</a><br />
 	<a href="admlevel.php?<?php echo __adm_rsid; ?>">Rank Manager</a><br />
+	<a href="admpruneusers.php?<?php echo __adm_rsid; ?>">Prune users</a><br />
 	<a href="admslist.php?<?php echo __adm_rsid; ?>">Privileged User List</a><br />
 	<a href="admbanlist.php?<?php echo __adm_rsid; ?>">Banned User List</a><br />
 	<br />

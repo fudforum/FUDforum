@@ -208,7 +208,7 @@ function db_arr_assoc($q)
 
 function db_fetch_array($r)
 {
-        return $r->fetch_array();
+        return is_object($r) ? $r->fetch_array() : null;
 }
 
 function db_li($q, &$ef, $li=0)

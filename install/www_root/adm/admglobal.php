@@ -236,7 +236,7 @@ $(document).ready(function() {
 <tr class="fieldtopic"><td colspan="2"><a name="4" /><br /><b>Interface Look &amp; Feel</b> </td></tr>
 <?php
 	print_reg_field('General Pager Link Count', 'GENERAL_PAGER_COUNT', 1);
-	print_reg_field('Quick Pager Link Count', 'THREAD_MSG_PAGER', 1);	
+	print_reg_field('Quick Pager Link Count', 'THREAD_MSG_PAGER', 1);
 	print_bit_field('Public Stats', 'PUBLIC_STATS');
 	print_bit_field('Show PDF Generation Link', 'SHOW_PDF_LINK');
 	print_bit_field('Show Syndication Link', 'SHOW_XML_LINK');

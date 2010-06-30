@@ -30,7 +30,7 @@
 </td></tr>
 <tr class="field"><td>
 	<div style="float:right; font-size:xx-small;">
-	Database: <?php echo $GLOBALS['DBHOST_USER'].'@'.$GLOBALS['DBHOST_DBNAME'] ?> :: 
+	Database: <?php echo __dbtype__ .' '. $GLOBALS['DBHOST_USER'].'@'.$GLOBALS['DBHOST_DBNAME'] ?> :: 
 	<select onchange="if(this.selectedIndex!=0) document.admsql.sql.value+=this.options[this.selectedIndex].value;">
 	<option>Insert table name:</option>
 	<?php   $tables = get_fud_table_list();
