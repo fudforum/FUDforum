@@ -11,8 +11,9 @@
 **/
 
 	/* Google sitemap settings. */
-	$frequency = 'weekly';
-	$priority  = '0.5';
+	$frequency    = 'weekly';
+	$priority     = '0.5';
+	$auth_as_user = 0;	// User 0 == anonymous.
 
 	set_time_limit(0);
 	ini_set('memory_limit', '128M');
@@ -28,7 +29,18 @@
 	fud_use('err.inc');
 	fud_use('db.inc');
 
-	$c = uq('SELECT id, last_post_date FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'thread ORDER BY last_post_date DESC LIMIT 50000');
+	// Limit topics to what the user has access to.
+	if ($auth_as_user) {
+		$join = 'INNER JOIN fud30_group_cache g1 ON g1.user_id=2147483647 AND g1.resource_id=f.id
+				LEFT JOIN fud30_group_cache g2 ON g2.user_id='. $auth_as_user .' AND g2.resource_id=f.id
+				LEFT JOIN fud30_mod mm ON mm.forum_id=t.forum_id AND mm.user_id='. $auth_as_user .' ';
+		$lmt  = '(mm.id IS NOT NULL OR (COALESCE(g2.group_cache_opt, g1.group_cache_opt) & 2) > 0)';
+	} else {
+		$join = 'INNER JOIN fud30_group_cache g1 ON g1.user_id=0 AND g1.resource_id=t.forum_id ';
+		$lmt  = '(g1.group_cache_opt & 2) > 0';
+	}
+
+	$c = uq('SELECT t.id, t.last_post_date FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'thread t '. $join .' WHERE '. $lmt .' ORDER BY t.last_post_date DESC LIMIT 50000');
 
 	echo "Writing sitemap.xml file to ${GLOBALS['WWW_ROOT_DISK']}\n";
 	$fh = fopen($GLOBALS['WWW_ROOT_DISK'].'/sitemap.xml', 'w');
