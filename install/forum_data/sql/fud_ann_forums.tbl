@@ -15,5 +15,5 @@ CREATE TABLE {SQL_TABLE_PREFIX}ann_forums
 	forum_id	INT NOT NULL DEFAULT 0
 );
 
-CREATE INDEX {SQL_TABLE_PREFIX}ann_forums_i_fa ON {SQL_TABLE_PREFIX}ann_forums (forum_id, ann_id);
+CREATE UNIQUE INDEX {SQL_TABLE_PREFIX}ann_forums_i_fa ON {SQL_TABLE_PREFIX}ann_forums (forum_id, ann_id);
 CREATE INDEX {SQL_TABLE_PREFIX}ann_forums_i_a ON {SQL_TABLE_PREFIX}ann_forums (ann_id);

@@ -18,5 +18,5 @@ CREATE TABLE {SQL_TABLE_PREFIX}msg_report
 	stamp		BIGINT NOT NULL DEFAULT 0
 );
 
-CREATE INDEX {SQL_TABLE_PREFIX}msg_report_i_mu ON {SQL_TABLE_PREFIX}msg_report (msg_id, user_id);
+CREATE UNIQUE INDEX {SQL_TABLE_PREFIX}msg_report_i_mu ON {SQL_TABLE_PREFIX}msg_report (msg_id, user_id);
 CREATE INDEX {SQL_TABLE_PREFIX}msg_report_i_u ON {SQL_TABLE_PREFIX}msg_report (user_id);

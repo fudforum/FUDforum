@@ -183,7 +183,7 @@ function db_arr_assoc($q)
 
 function db_fetch_array($q)
 {
-        return is_object($q) ? ibase_fetch_array($q) : null;
+        return $q ? ibase_fetch_array($q);
 }
 
 function db_li($q, &$ef, $li=0)

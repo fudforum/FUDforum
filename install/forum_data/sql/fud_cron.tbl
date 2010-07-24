@@ -7,11 +7,16 @@
 #       it under the terms of the GNU General Public License as published by
 #       the Free Software Foundation; version 2 of the License.
 
-DROP TABLE IF EXISTS {SQL_TABLE_PREFIX}mod_que;
+DROP TABLE IF EXISTS {SQL_TABLE_PREFIX}cron;
 
-CREATE TABLE {SQL_TABLE_PREFIX}mod_que
+CREATE TABLE {SQL_TABLE_PREFIX}cron
 (
 	id		INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	msg_id		INT NOT NULL DEFAULT 0,
-	forum_id	INT NOT NULL DEFAULT 0
+	name		VARCHAR(32) NOT NULL,
+	minute		VARCHAR(32) NOT NULL DEFAULT '*',
+	hour		VARCHAR(32) NOT NULL DEFAULT '*',
+	dom		VARCHAR(32) NOT NULL DEFAULT '*',
+	month		VARCHAR(32) NOT NULL DEFAULT '*',
+	dow		VARCHAR(32) NOT NULL DEFAULT '*',
+	cmd		VARCHAR(32) NOT NULL
 );
