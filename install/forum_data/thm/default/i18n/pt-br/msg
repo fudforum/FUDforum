@@ -1,5 +1,6 @@
 # Messages for Brazilian Portuguese (Português do Brasil)
 # Exported from translatewiki.net
+# Author: Giro720
 # Author: Luckas Blade
 # Author: McDutchie
 
@@ -9,8 +10,8 @@ admin:Admin
 admin_control_panel:Admin Painel de Controle
 administrator:Administrador
 attachment:Anexo:
-# Fuzzy
-average_post_count:{VAR: u->posted_msg_count} Post(s) ({VAR: avg} em média por dia)
+avatar:Avatar:
+average_post_count:{PLURAL: u->posted_msg_count|$1 mensagem|$1 Mensagens} ({PLURAL: avg|$1 mensagem em média|$1 mensagens em média} por dia)
 biography:Biografia:
 birth_date:Data de Nascimento :
 by:Por:
@@ -19,10 +20,8 @@ current_time:Hora Atual
 custom_avatar_queue:Avatar de Costume
 date_posted:Data do Post
 date_registered:Data do Registo:
-# Fuzzy
-download_counter:Foi baixada {VAR: v[3]} veze(s)
-# Fuzzy
-pmsg_download_counter:Descarregado {VAR: r->dlcount} vez(es)
+download_counter:Transferido {PLURAL: v[3]|$1 vez|$1 vezes}
+pmsg_download_counter:Descarregado {PLURAL: r->dlcount|$1 vez|$1 vezes}
 email:Email:
 email_to_friend:Email a um amigo
 email_to_friend_desc:Enviar o endereço (URL) desta pagina a um(s)amigo(s) via email
@@ -53,6 +52,7 @@ image:Imagem:
 index_forum:Fórum
 index_new_posts:Existem novos posts desde o último lido
 index_no_new_posts:Não existem novos posts desde o último lido
+index_url_redirection:Redirecionador
 interests:Interesses:
 last_post:Último post
 last_thread_msg:Ir para a ultima mensagem neste tópico
@@ -68,12 +68,15 @@ logout:Sair
 mark_all_read:marcar todas as mensagens como lidas
 mark_all_read_desc:Todas a suas mensagens serão marcadas como lidas
 members:Membros
+calendar:Calendário
+cal_goto_date:Ir para:
+cal_no_events:Não há eventos para este dia.
 message:Mensagem
-# Fuzzy
-message_counter:Os nossos membros postaram um total de <b>{VAR: post_count}</b> mensagens, em <b>{VAR: thread_count}</b> tópico.
+message_counter:Os nossos usuários postaram um total de <b>{PLURAL: post_count|$1 mensagem|$1 mensagens}</b> em <b>{PLURAL: thread_count|$1 tópico|$1 tópicos}</b>.
 message_index:Índice da mensagem
 message_index_desc:Ver lista de mensagens
 minimize_category:Minimizar Categoria
+minimize_message:Minimizar Mensagem
 moderation_queue:Moderação
 moderator:Moderador
 moderator_of:Moderador ausente:
@@ -86,8 +89,7 @@ moved:Movida para outro fórum
 moved_thread_message:Este tópico foi movido para outro Fórum
 na:n/d
 new_posts:Novos Posts
-# Fuzzy
-new_private_messages:tem <span class="GenText" style="color: #ff0000">({VAR: c})</span> mensagens privadas não lidas
+new_private_messages:Você tem <span class="GenTextRed">({VAR: c})</span> {PLURAL: c|mensagem privada não lida|mensagens privadas não lidas}
 new_thread:Criar um novo tópico
 newest_user:O mais novo membro registado é
 next_page:Próxima Página
@@ -98,6 +100,7 @@ no_new_posts:Não há novos posts
 no_posts:sem Posts
 no_subscribed_forums:Não há fórums subscritos
 no_subscribed_threads:Não há topicos subscritos
+no_bookmarked_threads:Não há nenhum tópico nos favoritos
 no_unread_locked:Este tópico foi fechado
 no_unread_msg:Neste tópico não há mensagens não lidas
 no_unread_msg_unreg:As mensagens lidas e não lidas só podem ser localizadas por membros registados
@@ -116,9 +119,10 @@ posts_c:Mensagens:
 prev_thread:Tópico anterior:
 usrinfo_private_message:Mensagem Privada:
 profile:Perfil
-# Fuzzy
-profile_desc:Clique aqui para acessar o painel de controle de membro
+profile_desc:Acessar o painel de controle de usuário
 rate_thread:Votar Tópico
+rating:Avaliação
+rating_track:Gerenciar as avaliações do tópico <b>{VAR: thr->subject}</b>:
 refresh_list:Atualizar a lista
 register:Registar-se
 registered:Registado:
@@ -142,12 +146,13 @@ sender_name:Nome do remetente:
 show_posts_by:Mostrar posts por: {VAR: u_alias}
 size:Tamanho:
 status:Estado:
-# Fuzzy
-status_line:Há <b>{VAR: st_obj->online_users_reg}</b> membros(s), <b>{VAR: st_obj->online_users_hidden}</b> membros invisiveis e  <b>{VAR: st_obj->online_users_anon}</b> convidado(s) a visitar esta página.
+status_line:Há <b>{PLURAL: st_obj->online_users_reg|$1 membro|$1 membros}</b>, <b>{PLURAL: st_obj->online_users_hidden|$1 membro invisível|$1 membros invisíveis}</b> e <b>{PLURAL: st_obj->online_users_anon|$1 visitante|$1 visitantes}</b> visitando esta página .
 sticky:fixo:
 stop_ignoring:parar de ignorar este usuário
 sub_to_thread:Subscrever o tópico
 sub_to_thread_desc:Receber notificação sobre novos posts neste tópico
+bookmark_thread:Adicionar tópico aos favoritos
+bookmark_thread_desc:Adicione este tópico à sua lista de favoritos
 subject:Assunto
 subscribe:Subscrever
 subscribe_desc:Receber notificações quando alguém criar novos tópicos neste fórum
@@ -155,11 +160,11 @@ subscribed_forums:Fóruns subscritos
 subscribed_forums_desc:Filtro de fóruns subscritos (só serão mostrados os posts dos fóruns que tem subscritos)
 subscribed_threads:Tópico subscritos
 subscribed_threads_desc:Filtro de tópicos subscritos (só serão mostrados os posts dos tópicos que tem subscritos)
+bookmarked_threads:Tópicos Favoritos
 switch_to_thread_view:Mudar para a visualização do assunto deste tópico
 thread:Tópico:
 thread_announcement:anuncio:
-# Fuzzy
-thread_first_unread_msg:Clique aqui para ir para a 1ª mensagem neste tópico
+thread_first_unread_msg:Ir à primeira mensagem neste tópico
 thread_thread:Tópico
 threads:Tópicos
 time:Hora
@@ -175,12 +180,13 @@ unread_posts:Posts não lidos
 unread_posts_desc:Mostrar todas as mensagens não lidas
 unsub_from_thread:Anular subscrição do tópico
 unsub_from_thread_desc:Parar de receber notificações sobre novos posts neste tópico
+unbookmark_thread:Remover dos favoritos
+unbookmark_thread_desc:Remove este tópico da sua lista de favoritos
 unsubscribe:Anular subscrição
 unsubscribe_desc:Parar de receber notificações sobre novos posts neste fórum
 updated_on:Atualizado em:
 user:Usuário
-# Fuzzy
-user_counter:Existem <b>{VAR: st_obj->user_count}</b> membros registados.
+user_counter:Temos <b>{VAR: st_obj->user_count}</b> {PLURAL: st_obj->user_count|usuários registrado|usuários registrados}.
 user_info:Informação do usuário
 user_info_l:Informação do usuário {VAR: u->alias}
 user_offline:{VAR: obj->login}  está neste momento offline
@@ -191,8 +197,7 @@ views:Vistas
 vote:{PLURAL: frm->n_rating|$1 Voto|$1 Votos}
 vote_button:Voto
 vote_for_thread:Voto
-# Fuzzy
-was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> foi movido para <a href="{TEMPLATE: was_moved_msg_lnk2}">{{VAR: r[12]}</a> pelo moderador
+was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> foi movido para <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> pelo moderador.
 welcome_message:Bem vindo <b>{VAR: usr->alias}</b>, a sua última visita foi em {TEMPLATE: welcome_message_date}
 what_ppl_doing:Mostrar o que os membros estão fazendo
 reported_del_report:Apagar relatório
@@ -250,6 +255,20 @@ month_9:Setembro
 month_10:Outubro
 month_11:Novembro
 month_12:Dezembro
+sunday:Domingo
+sunday_short:Dom
+monday:Segunda-feira
+monday_short:Seg
+tuesday:Terça-feira
+tuesday_short:Ter
+wednesday:Quarta-feira
+wednesday_short:Qua
+thursday:Quinta-feira
+thursday_short:Qui
+friday:Sexta-feira
+friday_short:Sex
+saturday:Sábado
+saturday_short:Sáb
 male:Masculino
 female:Feminino
 unspecified:NÃO ESPECIFICADO
@@ -287,6 +306,7 @@ register_your_pass:A sua Senha:
 register_update:Atualizar
 register_avatar_type:Tipo de Avatar:
 register_del_avatar:Apagar Avatar
+register_avatar:Avatar:
 register_sel_avatar:Selecionar Avatar
 register_custom_avatar_rules:O Avatar escolhido não aparecerá até que seja aprovado pelo administrador.<br /><font class="SmallText">O Avatar não poderá ter mais de <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} pixels</b> de largura e terá de estar no formato.<b>jpg</b>, <b>gif</b> ou <b>png</b></font>
 register_custom_avatar_url:URL do Avatar escolhido:
@@ -333,6 +353,7 @@ register_show_email_desc:Escolha esta opção se quiser que o seu endereço de e
 register_notification:Selecionar a notificação como padrão:
 register_notification_desc:Se a notificação estiver ativa como padrão, poderá ser desativada quando colocar um post.
 register_notify_method:Escolher modo de notificação:
+register_notify_method_desc:Defina o seu método de notificação preferido ou desative as notificações (por exemplo, quando você sai de férias).
 register_allow_email_msg:Autorizar mensagens E-mail:
 register_allow_email_msg_desc:Autorizar que outros membros enviem e-mails via fórum.
 buddy_status:Estado
@@ -376,14 +397,12 @@ file_attachments:Acessórios de arquivos:
 allowed_files:Permitir extenções de arquivos:
 max_file_size:Tamanho máximo do arquivo:
 max_files_per_msg:Máximo de arquivos por mensagem:
-# Fuzzy
-post_notification:Colocar Notificação
+post_notification:Notificação de Publicação
 include_sig:Incluir assinatura
 include_sig_desc:Incluir a minha assinatura no perfil.
 disable_smilies:Cancelar smilies nesta mensagem
 spell_check_msg:Acionar ortografia na mensagem
-# Fuzzy
-post_form:Colocar Formulário
+post_form:Formulário de Publicação
 post_forum:Fórum:
 post_title:Título:
 post_body:Corpo:
@@ -392,16 +411,13 @@ post_preview_btn:Visualizar mensagem
 ignore_users:Usuários ignorados
 add_ignore:Adicionar ignorados
 forum_terms:Termos de uso do Fórum
-# Fuzzy
-forum_rules:O registo neste fórum é gratuíto! Nós insistimos que siga as regras e políticas mencionadas. Se concordar com os termos, por favor clique no botão Concordo no final da página.<p>Embora os administradores e moderadores deste fórum tentem manter de fora todas as mensagens desagradáveis, é impossivel para nós previsualizar todas as mensagens. Todas as mensagens expressam o ponto de vista do autor, e nem os proprietários do fórum ou os seus programadores poderão ser responsabilizados pelo conteúdo de qualquer mensagem.<p>Ao pressionar o botão Concordo, compromete-se a não colocar qualquer mensagem obscena, com orientação sexual, ameaças, ou outras que violem a Lei. <p>Os proprietários deste fórum têm o direito de remover, editar, mover ou fechar qualquer tópico .<p>
-# Fuzzy
-forum_rules_13:Todos os usuário com menos de 13 anos têm de ter autorização dos encarregados de educação para poderem ser membros do fórum. Quando nós dermos as boas-vindas à participação dos membros com menos de 13 anos, teremos de ter em nosso poder o formulário por fax ou e-mail dos encarregados de educação com a autorização antes de aceitarmos o novo membro.<p>Para começar o registo antes de enviar a autorização, pressione o botão Concordo. Para cancelar o processo de registo, pressione o botão Cancelar para voltar ao index do fórum. <p>A cópia do formulario de autorização pode ser obtida aqui. Para mais informação sobre o processo de registo, por favor enviar um e-mail para <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.<p>
+forum_rules:O registro neste fórum é gratuito! Insistimos no respeito pelas regras e normas detalhadas abaixo. Se você concordar com estes termos, clique o botão <b>Concordo</b> no final da página, por favor. Nota: Ao clicar o botão, você declara ter mais de 13 anos. Se não tiver mais de 13 anos, use este formulário de registro, por favor.</p><p>Embora os administradores e moderadores deste fórum tentem mantê-lo livre de mensagens ofensivas, é-nos impossível fazer a revisão de todas as mensagens. Todas as mensagens expressam unicamente o ponto de vista de seu autor. Nem os proprietários do fórum, nem os programadores, poderão ser responsabilizados pelo conteúdo de qualquer mensagem.</p><p>Ao clicar o botão Concordo, garante que não colocará mensagens obscenas, vulgares, de natureza sexual, racistas ou ameaçadoras, nem que de qualquer outra forma constituam uma violação da lei.</p><p>Os proprietários deste fórum têm o direito de remover, editar, mover ou fechar qualquer tópico por qualquer motivo.<p>
+forum_rules_13:<p>Todos os usuários de idade inferior a 13 anos necessitam da autorização dos pais ou responsável para serem membros do fórum. Apesar de acolhermos a participação de membros com idade inferior a 13 anos, é necessário que um dos pais ou responsável envie um formulário de autorização assinado, por fax ou e-mail, antes de permitirmos a sua participação.</p><p>Se quiser iniciar o processo de inscrição antes de recebermos um formulário de autorização, clique o botão <b>Concordo</b>, abaixo. Se quiser cancelar o registro, clique <b>Não concordo</b>, para voltar ao índice do fórum.</p><p>Pode fazer o download de uma cópia do formulário de autorização aqui. Para mais informações sobre o processo de registro, envie um e-mail para <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
 coppa_conf:Confirmação COPPA
 coppa_before:Antes de {TEMPLATE: coppa_date}
 coppa_after:Depois de {TEMPLATE: coppa_date}
 coppa_link:Clique no link que corresponde à sua data de nascimento
-# Fuzzy
-coppa:O encarregado de educação deverá enviar um e-mail com o formulário de autorização devidamente preenchido e assinado ao administrador antes de um usuário com menos de 13 anos possa completar o processo de registo.<p>Para mais informações favor contatar <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
+coppa:<p>Para que um usuário de idade inferior a 13 anos possa completar o processo de registro, um dos pais ou o responsável deve enviar um formulário de autorização assinado, por fax ou e-mail, para o administrador deste fórum.</p><p>Para mais informações contate <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a></p>
 prereg_info:Informação
 prereg_agree:Concordo
 prereg_disagree:Não concordo
@@ -427,8 +443,7 @@ login_cookie_expired:O seu cookie expirou, e precisa de fazer novamente o login 
 login_perm_denied:Não tem permissão para acessar em modo anônimo, terá de fazer o login para acessar.
 login_want_to_register:Quer registar-se?
 login_forgot_passwd:Esqueceu a senha
-# Fuzzy
-login_use_cookie:Usar cookies<br /><font class="SmallText">Se está a usar um terminal público tal como um computador numa biblioteca, escola, ou cybercafé, é recomendado desativar esta opção para maior segurança.<br />Se deixar esta opção ativa então estará automaticamente logado no fórum.
+login_use_cookie:Usar cookies<br /><span class="SmallText">Se você está usando um terminal público, como um computador numa biblioteca, escola, ou cibercafé, é recomendado que se desative esta opção para maior segurança. Se você deixar esta opção ativa, será automaticamente autenticado no fórum na próxima vez que o visitar.</span>
 login_login:Entrar
 login_login_btn:Submeter
 login_name_required:Login requer nome
@@ -447,6 +462,11 @@ rpasswd_login:Usuário
 rpasswd_cur_pass:Senha atual:
 rpasswd_new_pass:Nova Senha:
 rpasswd_conf_pass:Confirma Senha:
+ruser_title:Formulário de alteração de login
+ruser_change_user:Alterar seu login no fórum
+ruser_cur_login:Identificação atual:
+ruser_new_login:Nova identificação:
+ruser_cur_pass:Senha atual:
 login_passwd:Senha:
 reset_email:Email:
 reset_reset_button:Alterar Senha
@@ -477,8 +497,7 @@ remail_message:Mensagem:
 remail_send_now:Enviar Email agora
 remail_anon_opt:Copiar esta mensagem para um cliente de email á sua escolha e envie-o aos seus amigos
 remail_done:Concluir
-# Fuzzy
-remail_sent_conf:O email do seu amigo {VAR-HTML: _POST['femail']} sobre {{VAR: data->subject} foi enviado com sucesso.
+remail_sent_conf:O e-mail a seu amigo {VAR-HTML: _POST['femail']} sobre {VAR: data->subject} foi enviado com sucesso.
 remail_error:Tem um erro
 mklist_type:Tipo:
 mklist_option:Opção:
@@ -490,6 +509,7 @@ qbud_add_selected:Adicionar seleção
 qbud_selected:Selecionado
 qbud_no_buddies:Não há amigos para escolha
 mklist_numerical:Numérico
+mklist_aplha:Alfanumérico
 mklist_square:Quadrado
 mklist_disc:Disco
 mklist_circle:Circulo
@@ -531,14 +551,13 @@ poll_year:ano
 poll_week:semana
 tabs_register:Configurações
 tabs_subscriptions:Subscrições
+tabs_bookmarkes:Favoritos
 tabs_referrals:Referências
 tabs_buddy_list:Lista de amigos
 tabs_ignore_list:Lista de ignorados
 tabs_private_messaging:Mensagens Privadas
-# Fuzzy
-single_msg_delete:Você está prestes a <font color="#ff0000" size="4">APAGAR</font> a menssagem entítulada: <b>{VAR: data[3]}</b>
-# Fuzzy
-thread_delete:Você está prestes a <font color="#ff0000" size="4">APAGAR</font> o <font color="#ff0000" size="4">TÓPICO INTEIRO</font> entítulado: <b>{VAR: data[3]}</b>
+single_msg_delete:Você está prestes a <span class="ErrorText">apagar</span> a mensagem intitulada: <b>{VAR: data[3]}</b>
+thread_delete:Você está prestes a <span class="ErrorText">eliminar</span> o <span class="ErrorText">tópico inteiro</span> intitulado: <b>{VAR: data[3]}</b>
 delete_proceed:<font size="3"><b>quer continuar?</b></font>
 delete_yes:Sim
 delete_no:Não
@@ -547,10 +566,12 @@ error_error:Erro
 usrinfo_profile:Ficha de {VAR: u->alias}
 usrinfo_show_all_posts:Mostrar todos os comentários por {VAR: u->alias}
 actions_update:A bisbilhotar outras pessoas
+err_info:Informação
 buddy_list_err_cantadd:Não se pode adicionar à sua própria lista de amigos
 buddy_list_err_dup:Já tem este usuário na lista de amigos
 buddy_list_err_nouser:O usuário que tentou adicionar à sua lista de amigos não foi encontrado no fórum.
 buddy_list_err_nouser_title:Não foi possivel adicionar usuário
+buddy_list_err_ignore:Não é possível adicionar usuários que ignoram você na sua lista de amigos.
 buddy_list_update:Visualizando a sua lista de amigos
 core_err_invinp_title:Entrada inválida
 core_err_invinp_err:Seguiu uma ligação inválida, por favor contacte o <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a>
@@ -573,6 +594,7 @@ iemail_thr_bodyemail:Para ver todas as respostas não lidas vá para {VAR: goto_
 iemail_frm_subject:Novo tópico no fórum {VAR: frm_name} chamado {VAR: thr_subject} por {VAR: poster_login}
 iemail_frm_bodyemail:Para ver o tópico vá para:\n{VAR: goto_url['email']}\n\nPara parar de receber notificações acerca de novos tópicos neste fórum, vá aqui: {VAR: unsub_url['email']}
 iemail_participate:Para participar na discussão vá aqui
+ignore_list_err_info_title:Informação
 ignore_list_err_dup_msg:Já tem este usuário na lista de ignorados
 ignore_list_err_nu_title:Usuário não encontrado
 ignore_list_err_nu_msg:O usuário que tentou adicionar à sua lista de ignorados, não existe neste fórum
@@ -588,9 +610,9 @@ pm_update:Utilizando mensagens privadas
 post_err_lockedthread_title:ERRO: Tópico Bloqueado
 post_err_lockedthread_msg:Este tópico está bloqueado, não é permitido colocar comentários
 err_coppa_title:ERRO: A sua conta ainda não foi confirmada
-# Fuzzy
-err_coppa_msg:Não foi recebida uma confirmação dos seus pais ou tutores legais, que permitam que coloque mensagens. Se perdeu o seu formulário <a href="{TEMPLATE: err_coppa_msg_lnk}">clique aqui</a> para o obter
+err_coppa_msg:Nós não recebemos uma confirmação dos seus pais ou responsáveis, que permitam que coloque mensagens. Se você perdeu o seu formulário <a href="{TEMPLATE: err_coppa_msg_lnk}">veja-o novamente</a>.
 err_banned_acct_title:ERRO: Você foi banido.
+err_banned_acct_msg:Sua conta foi {IF: $ban_expiry}temporariamente banida até {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}permanentemente banida{ENDI} do site, devido à violação das regras do fórum.
 post_err_edttimelimit_title:ERRO
 post_err_edttimelimit_msg:Já não pode editar esta mensagem
 post_err_noannontopics_msg2:<legend>ERRO: Privilégios Insuficientes</legend>Usuários anônimos não podem criar tópicos.
@@ -601,12 +623,11 @@ post_err_attach_size:O arquivo em anexo é demasiado grande (está a cima do lim
 post_err_attach_ext:O arquivo que está tentando fazer upload não condiz com os tipos de arquivos permitidos.
 post_err_attach_filelimit:Está tentando fazer o upload de mais arquivos do que o permitido.
 post_err_passwd:Senha Incorreta.
-# Fuzzy
-post_reply_update:Responder a <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> in {VAR-HTML: frm->name}
-# Fuzzy
-post_topic_update:Escrevando novo tópico em <a href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a>
+post_reply_update:Responder a <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> em {VAR: frm->name}
+post_topic_update:Escrevendo um tópico novo em <a href="{TEMPLATE: post_topic_update_lnk}">{VAR: frm->name}</a>
 post_error_generic:tem um erro
 postcheck_max_images_err:No máximo são permitidas {GVAR: MAX_IMAGE_COUNT} imagens por comentário, por favor diminua o n.º de imagens
+postcheck_no_links_allowed:Você não pode usar link até que tenhas postados pelo menos {PLURAL: posts_before_links|$1 mensagem|$1 mensagens}.
 postcheck_subj_needed:Assunto obrigatório
 postcheck_no_such_user:Não existe um usuário chamado "{FUNC: char_fix(htmlspecialchars($v))}" neste fórum
 postcheck_ignored:Não pode enviar uma mensagem privada  para "{FUNC: char_fix(htmlspecialchars($v))}", porque a pessoa está ignorando-o.
@@ -626,8 +647,7 @@ register_err_passwdnomatch:As Senhas não coincidem.
 register_err_invalidemail:O endereço de Email que colocou não parece ser um Email válido.
 register_err_needname:Para completar com sucesso o registo, informe o seu nome.
 register_err_enterpasswd:informe a sua Senha atual para completar as alterações
-# Fuzzy
-register_err_adminpasswd:informe a Senha de ADMINISTRADOR para completar as alterações
+register_err_adminpasswd:Você deve introduzir a sua senha de <b>administrador</b> para concluir as alterações.
 register_err_notyouremail:Alguém já se registou utilizando este Email, e esse alguem não é você.
 register_err_avatartobig:O Arquivo que está a tentar enviar para o servidor é demasiado grande, passa {GVAR: CUSTOM_AVATAR_MAX_SIZE} bytes do limite
 register_err_avatarnotallowed:O avatar que você está enviando para o servidor não é permitido, verifique os tipos de arquivos permitidos.
@@ -652,26 +672,22 @@ search_update:A procurar posts
 selmsg_update:Visualizando <a href="{TEMPLATE: selmsg_update_lnk}">posts de Hoje</a>
 showposts_update:Vendo posts por: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
 subscribed_update:Visualizando as próprias subscrições
-# Fuzzy
-thread_update:Visualizando fórum <a href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a>
+bookmarked_update:Explorando sua própria lista de favoritos
+thread_update:Visualizando o fórum <a href="{TEMPLATE: thread_update_lnk}">{VAR: frm->name}</a>
 tree_update:Visualizando tópico (vista de árvore) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
 userinfo_update:Procurar em <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}'s</a> perfil
 ERR_login_msg2:<legend>ERRO: Você não está conectado</legend>Para acessar esta página, você precisa ser um membro deste fórum.
 ERR_disabled_ttl:Possibilidade desabilitada
-# Fuzzy
-ERR_disabled_msg:Esta possibilidade foi desabilitada pelo administrador de sistema
+ERR_disabled_msg:Esta funcionalidade foi desativada pelo administrador do sistema.
 ERR_access_ttl:ERRO: Permissões insuficientes
-# Fuzzy
-ERR_access_msg:Não tem as permissões necessárias para fazer o que está tentando
+ERR_access_msg:Você não tem as permissões necessárias para realizar esta ação.
 ERR_registration_disabled_ttl:Registo de usuários desabilitado
 ERR_registration_disabled_msg:O administrador desabiliotu o registo de usuários novos, por favor tente mais tarde
 ERR_emailconf_ttl:ERRO: A sua conta ainda não está confirmada
-# Fuzzy
-ERR_emailconf_msg:Ainda não confirmou a sua conta via Email<br /><table border="0"><tr><td><ol><li>se não recebeu um email de confirmação <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">clique aqui</a><li>se {VAR: usr_d->email} não é o endereço de email correcto <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">clique aqui</a></ol></td></tr></table>
+ERR_emailconf_msg:Ainda não confirmou a sua conta via e-mail<br /><table border="0"><tr><td><ol><li>se não recebeu um e-mail de confirmação <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">clique aqui</a><li>se {VAR: usr_d->email} não é o endereço de e-mail correto <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">clique aqui</a></ol></td></tr></table>
 ERR_user_ttl:ERRO: Usuário inexistente
 ERR_user_msg:Usuário não existe
 ERR_systemerr_ttl:ERRO: Erro de sistema
-# Fuzzy
 ERR_systemerr_msg:Ocorreu um erro de sistema, por favor reporte-o ao <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a>.
 email_title:Formulário de Email
 finduser_title:Procurar Usuário
@@ -681,7 +697,7 @@ poll_title:Editor de votações
 register_title:Formulário de Registo
 reset_title:Cancelar Senha
 rpasswd_title:Formulário de alteração de Senha
-error_title:Erro no Formulário
+error_title:Formulário de erro
 index_title:Bem vindo ao fórum
 search_title:Procurar por {VAR-HTML: srch}
 remail_emailsent:Email enviado
@@ -697,6 +713,7 @@ post_opt_images_off:<b>As imagens</b> estão <b>Desligadas</b>
 post_opt_smilies_off:<b>Os smilies</b> estão <b>Desligados</b>
 post_opt:Opções do Fórum
 register_change_passwd:Alterar Senha
+register_change_login:mudar identificação
 approved_avatar_title:O seu avatar foi aprovado.
 approved_avatar_msg:O seu avatar foi aprovado pelo administrador. Aparecerá agora em todas as suas mensagens. Se não o vê, ou se vê o seu antigo avatar, é porque o seu browser está lendo esta página a partir da cache. Tente atualizar (F5) uma ou duas vezes, isto, na maioria dos casos resolve o problema com a cache.
 unapproved_avatar_title:O seu avatar foi rejeitado.
@@ -712,11 +729,9 @@ thr_exch_decline:recusar tópico
 thr_exch_orig_forum:Fórum original:
 thr_exch_dest_forum:Fórum de destino:
 thr_exch_no_threads:Não há tópicos à espera de aprovação.
-# Fuzzy
-thr_exch_decl_reason:Razão para recusa de tópico <b>{VAR-HTML: frm->name}</b> no fórum <b>{VAR-HTML: frm->name}</b>
+thr_exch_decl_reason:Razão para recusa de tópico <b>{VAR: data->subject}</b> into forum <b>{VAR: data->f2_name}</b>
 thr_exch_submit:Submeter
-# Fuzzy
-exch_decline_ttl:A mudança de tópico {VAR: data->subject} no fórum {VAR-HTML: data->f2_name} foi recusada.
+exch_decline_ttl:A mudança de tópico {VAR: data->subject} no fórum {VAR: data->f2_name} foi recusada.
 ppost_original_msg:mensagem que está encaminhando ou repondendo a
 split_thread:Dividir Tópico
 groupmgr_no_user:Não há nenhum usuário com login de "{FUNC: char_fix(htmlspecialchars($gr_member))}"
@@ -759,8 +774,9 @@ group_mgr_search:Encontrar Usuário
 group_mgr_indicator:Está editando: <b>{VAR: grp->name}</b>
 rate_worst:Ruim
 rate_best:Ótimo
-post_quote_msg:{VAR: msg->login} Escreveu em {TEMPLATE: make_report_date}
+post_quote_msg:{VAR: msg->login} escreveu em {TEMPLATE: make_report_date}
 post_quote:- Disse - :
+post_quote_selected:Citar o texto selecionado
 userinfo_referals:Usuários Referidos:
 userinfo_referals_count:{VAR: referals} Membros
 pm_no_space_title:Não há espaço suficiente!
@@ -803,15 +819,17 @@ split_th_split_unsel:Dividir mensagens não selecionadas
 split_th_messages:Mensagens
 split_th_select:Selecionar
 report_report_post:Colocar Relatório
-# Fuzzy
-quicklogin_login:Usuário
+quicklogin_login:Usuário:
 quicklogin_password:Senha:
 quicklogin_use_cookies:Usar Cookies?
 quicklogin_login_btn:Entrar:
 quick_reply:Resposta rápida
+quick_reply_post:Postar uma resposta rápida
+quick_reply_preview:Previsualizar resposta rápida
 post_notification_desc:Notificar quando alguém responder a esta mensagem.
 post_all_ext_allowed:(sem restrição)
 maximize_category:Maximizar Categoria
+maximize_message:Maximizar mensagem
 no_view_perm:Não tem as permissões necessárias para ver este tópico.
 report_empty_report:Não pode enviar um relatório vazio, por favor coloque uma razão para o seu relatório.
 report_already_reported_title:Já foi reportada
@@ -821,21 +839,22 @@ pmsg_next_msg:Mensagem Seguinte
 pmsg_prev_msg:Mensagem Anterior
 post_proc_reveal_spoiler:- Mostrar Spoiler -
 register_jabber:- Jabber Handle - :
+register_skype:Nome de usuário no Skype:
+register_twitter:Nome de usuário no Twitter:
+register_google:Nome de usuário no Google Chat/IM:
 im_jabber:- Jabber - :
 im_google:Google Talk:
 im_skype:Skype:
 im_twitter:Twitter:
 forum_contact:Contato
 forum_home:Início
-# Fuzzy
-post_cur_attached:arquivo anexado {VAR: i} file(s)
+post_cur_attached:atualmente anexados: {VAR: i} {PLURAL: i|arquivo|arquivos}
 ignored_anon_post:{GVAR: ANON_NICK} vai ser ignorado
 ignored_user_post:Colocado por <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> vai ser ignorado
 smladd_close_window:fechar janela
 post_list_smilies:listar todos os smilies
 p_VISIBLE:Visível
-# Fuzzy
-reported_in_thread:no tópico
+reported_in_thread:Em:
 help_back_to_top:voltar ao topo
 help_return_to_index:voltar ao início da ajuda
 imsg_err_message_title:Mensagem inválida
@@ -877,8 +896,7 @@ read_message:Ler Mensagem
 threadt_more:&lt;mais&gt;
 threadt_disabled_ttl:A visão de àrvore foi desabilitada.
 threadt_disabled_desc:O administrador desabilitou a visão em forma de àrvore, por favor use a visão plana.
-# Fuzzy
-threadt_update:A ver o Fórum (em forma de àrvore) <a href="{TEMPLATE: threadt_update_lnk}">{VAR-HTML: frm->name}</a>
+threadt_update:Navegando pelo fórum (em forma de árvore) <a href="{TEMPLATE: threadt_update_lnk}">{VAR: frm->name}</a>
 mmod_delete_cofirm_ttl:Confirmação de remoção de Tópico/Mensagem
 spell_alts:Não há alternativas
 insert_uploaded_image:Insira uma imagem dentro da mensagem
@@ -890,10 +908,8 @@ err_mod_acc_ttl:Conta não verificada
 err_mod_acc_msg:O administrador escolheu ver todas as contas manualmente antes de as ativar. Até que a sua conta seja validada pelo administrador não vai poder utilizar todas as possibilidades do fórum.
 accounts_pending_approval:Contas à espera de aprovação
 saved:Guardado
-# Fuzzy
-register_err_time_limit:O limite de 1 registo por {GVAR: REG_TIME_LIMIT} segundo(s) foi alcançado. Por favor aguarde {VAR: reg_limit_reached} segundo(s) e tente registar-se novamente
-# Fuzzy
-register_affero:Login para Affero:<br /><font class="SmallText">Se tem um login para <a href="http://www.affero.com/ca/{VAR-URL: GLOBALS['FORUM_TITLE']}" target="_blank">Affero</a> introduza-o.</font>
+register_err_time_limit:O limite de um registro a cada {GVAR: REG_TIME_LIMIT} segundos foi atingido. Aguarde {PLURAL: reg_limit_reached|$1 segundo|$1 segundos} e tente registrar-se novamente, por favor.
+register_affero:Login para Affero:<br /><span class="SmallText">Se você tem um login para <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">Affero</a> introduza-o.</span>
 im_affero:Login para Affero
 register_err_avatardimtobig:As dimensões do Avatar <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> excedem as dimensões permitidas de <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
 buddy_offline:{VAR: r[2]} está desconectado
@@ -925,8 +941,7 @@ group_resources:Este grupo controla as permissões dos seguintes sub-fórums
 register_admin_newuser_title:Registou-se um novo usuário e a sua conta aguarda confirmacao
 register_admin_newuser_msg:Um novo usuário ({VAR: uent->login}) registrou-se no fórum e como a Confirmacao de Conta está ativa, esta conta não será ativada até que seja confirmada por você ou outro administrador do fórum. Para rever a conta clique: {GVAR: WWW_ROOT}adm/admaccapr.php\n\nEste é um processo automático, não responda a esta mensagem.\nSe desejar desligar futuras notificacoes por e-mail de novos registos de usuários através do Painel de Controle de Administracão, alterando o valor de "Notificação de Nova Conta".
 post_mod_msg_notify_title:Nova mensagem no fórum "{VAR: frm->name}" aguardando aprovação
-# Fuzzy
-post_mod_msg_notify_msg:Uma nova mensagem entitulada "{VAR: msg_post->subject}" foi colocada agora num fórum que você modera. Para revê-la veja em: {FULL_ROOT}{ROOT}?t=modque\n\nEste é um processo automático, não responda a esta mensagem.
+post_mod_msg_notify_msg:Uma mensagem nova intitulada "{VAR: msg_post->subject}", foi colocada agora num fórum moderado por você. Para revisá-la, consulte: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nEste é um processo automático. Não responda a esta mensagem.
 thread_printable_pdf:Exportar para PDF
 thread_syndicate:Adicione este fórum (XML)
 reg_conf_title:Confirmação do Registo
@@ -960,14 +975,15 @@ findu_unban:Desbanir
 findu_ban:Banir
 findu_edit:Editar
 findu_delete:Apagar
-# Fuzzy
-dmsg_reply_to:É uma resposta para mensagem #{VAR: obj->reply_to}
+dmsg_reply_to:é uma resposta a
+dmsg_reply_num:mensagem n° {VAR: obj->reply_to}
 merge_topics:Unir Tópicos
 merge_topics_cp:Painel de Controle de União de Tópicos
 merge_topics_tpl:Selecione Tópicos para Unir <font class="SmallText">(você precisa selecionar mais de 1 tópico)</font>
 merge_merge:Unir Tópicos Selecionados
 merge_next:Próximos Tópicos
 merge_prev:Tópicos Anteriores
+merge_another:Ir ao <a href="{TEMPLATE: merge_another_lnk}">último tópico unificado</a> ou unificar outro:
 split_cp:Painel de Controle para Quebra de Tópicos
 groups_perms_header:Permissões <font size="-1">(passe o mouse sobre a permissão para ver seu tipo)</font>
 register_err_sig_too_long:Sua assinatura excede o comprimento máximo permitido de {GVAR: FORUM_SIG_ML} caracteres.
@@ -1031,15 +1047,74 @@ pmsg_pdf_btn:Criar arquivo PDF
 search_results_hdr:{VAR: total} Resultados encontrados
 thread_del_all:Apagar Todos os selecionados
 thread_mov_all:Mover Todos os selecionados
+thread_merge_all:Unificar todos os selecionados
+thread_loc_all:Bloquear/desbloquear todos os selecionados
+dmsg_ip:IP:
+err_blockedaccnt_title:ERRO: Sua conta foi filtrada.
+err_blockedaccnt_msg:Sua conta  foi bloqueada por um dos filtros de usuários instalados e, por isso, não poderá acessar o fórum.
+merge_th_page_list:Seleção de página de tópicos
+most_users_online:O recorde de usuários ''on line'' foi de <b>{VAR: st_obj->most_online}</b> em <b>({DATE: st_obj->most_online_time %a, %d %B %Y %H:%M})</b>
+sub_unsub_all_forums:Cancelar inscrição de todos os fóruns
+sub_unsub_all_topics:Cancelar inscrição de todos os tópicos
+unbookmark_all_topics:Remover todos os favoritos
+tabs_own_posts:Mostrar minhas mensagens
+sml_emoticon:Emoticon
 sml_code:Código
+mnav_sub_only:Pesquisar apenas em fóruns em que eu esteja inscrito
 register_topics_per_page:Tópicos por página:
+login_min_time:Este fórum permite uma tentativa de autenticação a cada {VAR: MIN_TIME_BETWEEN_LOGIN} segundos. Por favor espere {FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)} segundos antes da próxima tentativa.
+post_not_logged_in:Você não está autenticado no momento. de modo que a mensagem será postada anonimamente.
 post_common_bold:Negrito
 post_common_italics:Itálico
+post_common_underline:Sublinhado
+post_common_align_left:Alinhar à esquerda
+post_common_align_center:Centralizar
+post_common_align_right:Alinhar à direita
+post_common_link:Inserir um Link
 post_common_email:Inserir um endereço de e-mail
 post_common_image:Inserir uma imagem
+post_common_nlist:Adicionar uma lista numerada
+post_common_blist:Adicionar uma lista com marcadores
+post_common_quote:Adicionar uma citação
+post_common_code:Adicionar código
+rating_delete:Apagar
+post_always_on_top:Fazer com que o tópico apareça sempre no topo da listagem de tópicos.
+topic_rating:{VAR: frm->rating} de {PLURAL: frm->n_rating|$1 voto|$1 votos}
+topic_list_rating:{VAR: r[17]} de {PLURAL: r[21]|$1 voto|$1 votos}
+tabs_notifications:Notificações
+finduser_flag:Sinalização
 post_descr:Descrição do tópico:
+pmsg_on:em
+pmsg_download_dump:Descarregar uma cópia das mensagens
+move_messages:Mover mensagens
+move_msg_btn:Mover mensagens selecionadas
+move_msg_th_expl:Especifique a ID do tópico de destino (pode estar em outros fóruns)
+captcha_img_alt:Verificação por Captcha: você precisará reconhecer o texto nesta imagem.
+captcha_img_help:Não há zero ou um na imagem.
+powered-by:Powered by: FUDforum {GVAR: FORUM_VERSION}.<br />Direitos autorais &copy;2001-2010 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+code_title:Código:
+code_select_all:Selecionar tudo
+code_show_hide:Mostrar/esconder
+social_sites:Sites de rede social:
+postcheck_min_len_err:Sua mensagem é demasiadamente curta. O tamanho mínimo permitido é {PLURAL: post_min_len|$1 caractere|$1 caracteres}.
+postcheck_dup_err:Não crie tópicos duplicados, por favor.
 btn_new_topic:Novo tópico
+btn_new_pm:Nova mensagem privada
+btn_post_reply:Postar resposta
+btn_tree_view:Visualização em árvore
+btn_flat_view:Visualização plana
 btn_about:Perfil
+btn_small_pm:MP
+btn_delete:apagar
+btn_edit:editar
 btn_reply:responder
+btn_forward:encaminhar
+btn_quote:citar
 btn_email:E-mail
+btn_show_posts:mensagens
 btn_homepage:www
+feed_no_data:Dados correspondentes não encontrados.
+feed_rdf:Feed RDF
+feed_rss:feed RSS2
+feed_atom:feed ATOM
+ip_whois_connect_err:Não foi possível conectar-se ao servidor WHOIS ({VAR: whois_server}): {VAR: errstr}

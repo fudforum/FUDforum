@@ -1,0 +1,543 @@
+# Messages for Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))
+# Exported from translatewiki.net
+# Author: EugeneZelenko
+# Author: Jim-by
+
+action:Дзеяньне
+add_to_buddy_list:дадаць да сьпісу сяброў
+admin:Адміністратар
+admin_control_panel:Адміністрацыйная панэль кіраваньня
+administrator:Адміністратар
+attachment:Далучэньне:
+avatar:Выява:
+average_post_count:{PLURAL: u->posted_msg_count|$1 паведамленьне|$1 паведамленьні|$1 паведамленьняў} (у сярэднім {PLURAL: avg|$1 паведамленьне|$1 паведамленьні|$1 паведамленьняў} за дзень)
+biography:Біяграфія:
+birth_date:Дата нараджэньня:
+by:Ад:
+by_mod:ад мадэратара
+current_time:Цяперашні час
+custom_avatar_queue:Чарга аватараў удзельніка
+date_posted:Дата разьмяшчэньня
+date_registered:Дата рэгістрацыі:
+download_counter:Загружана {PLURAL: v[3]|$1 раз|$1 разы|$1 разоў}
+pmsg_download_counter:Загружана {PLURAL: r->dlcount|$1 раз|$1 разы|$1 разоў}
+email:Адрас электроннай пошты:
+email_to_friend:Даслаць электронны ліст сябру
+email_to_friend_desc:Даслаць спасылку на гэтую старонку Вашаму сябру/Вашым сябрам праз электронную пошту
+email_user:Даслаць паведамленьне карыстальніку праз электронную пошту
+faq:Дапамога
+first_unread_msg:Перайсьці да непрачытаных паведамленьняў
+first_unread_msg_desc:Перайсьці да першага непрачытанага паведамленьня гэтай тэмы
+flat_view:Вярнуцца да плоскага выгляду па змоўчваньні
+forum:Форум:
+forum_icon:Іконка форуму
+forum_new_messages:Новыя паведамленьні
+forum_none_messages:Толькі зарэгістраваныя ўдзельнікі форуму могуць сачыць за прачытанымі і непрачытанымі паведамленьнямі
+forum_old_messages:Няма новых паведамленьняў
+from:Ад:
+gender:Пол:
+go:Перайсьці
+goto_next_msg:Перайсьці да наступнага паведамленьня
+goto_prev_msg:Перайсьці да папярэдняга паведамленьня
+home:Галоўная старонка
+homepage:Хатняя старонка:
+icq_control_panel:Панэль паведамленьняў ICQ
+icq_message_form:Форма паведамленьня ICQ:
+ignore_user:ігнараваць усе паведамленьні гэтага карыстальніка
+im_aim:Ідэнтыфікатар AIM:
+im_msnm:Камунікатар MSN:
+im_yahoo:Камунікатар Yahoo:
+image:Выява:
+index_forum:Форум
+index_new_posts:Новыя паведамленьні пасьля апошняга наведваньня
+index_no_new_posts:Няма новых паведамленьняў пасьля апошняга наведваньня
+index_url_redirection:Перанакіраваньне
+interests:Зацікаўленасьці:
+last_post:Апошняе паведамленьне
+last_thread_msg:Перайсьці да апошняга паведамленьня ў гэтай тэме
+legend:Легенда
+location:Месцазнаходжаньне:
+lock_thread:Заблякаваць тэму
+locked:Заблякаваная
+locked_with_new_posts:Заблякаваная (з непрачытанымі паведамленьнямі)
+logged_in_list:Сьпіс зарэгістраваных карыстальнікаў
+login:Увайсьці ў сыстэму
+login_header:Імя карыстальніка:
+logout:Выйсьці
+mark_all_read:пазначыць усе паведамленьні як прачытаныя
+mark_all_read_desc:Усе непрачытаныя Вамі паведамленьні будуць пазначаныя як прачытаныя
+members:Удзельнікі
+calendar:Каляндар
+cal_goto_date:Перайсьці да:
+cal_no_events:Няма падзеяў у гэты дзень.
+message:Паведамленьне
+message_counter:Нашыя карыстальнікі разьмясьцілі ўсяго <b>{PLURAL: post_count|$1 паведамленьне ў|$1 паведамленьні ў|$1 паведамленьняў у}</b> <b>{PLURAL: thread_count|$1 тэме|$1 тэмах|$1 тэмах}</b>.
+message_index:Індэкс паведамленьня
+message_index_desc:Паказаць сьпіс паведамленьняў
+minimize_category:Мінімізаваць катэгорыю
+minimize_message:Мінімізаваць паведамленьне
+moderation_queue:Чарга мадэраваньня
+moderator:Мадэратар
+moderator_of:Мадэратар:
+moderator_options:Магчымасьці мадэратара
+moderators:{PLURAL: modcount|Мадэратар|Мадэратары}
+more_unread_messages:болей непрачытаных паведамленьняў
+more_unread_messages_desc:Паказаць болей непрачытаных паведамленьняў і пазначыць паведамленьні, якія зараз праглядаюцца, як прачытаныя
+move_thread:Перанесьці
+moved:Перанесена ў іншы форум
+moved_thread_message:Гэтая тэма была перанесеная ў іншы форум
+na:н/д
+new_posts:Новыя паведамленьні
+new_private_messages:Вы маеце <span class="GenTextRed">({VAR: c})</span> {PLURAL: c|непрачытанае асабістае паведамленьне|непрачытаных асабістых паведамленьня|непрачытаных асабістых паведамленьняў}
+new_thread:Стварыць новую тэму
+newest_user:Апошні зарэгістраваны карыстальнік —
+next_page:Наступная старонка
+next_thread:Наступная тэма:
+no_messages:У гэтым форуме няма паведамленьняў.
+no_msg_body:Няма тэксту паведамленьня
+no_new_posts:Няма новых паведамленьняў
+no_posts:Няма паведамленьняў
+no_subscribed_forums:Няма форумаў у падпісцы
+no_subscribed_threads:Няма тэмаў у падпісцы
+no_bookmarked_threads:Няма тэмаў у закладках
+no_unread_locked:Гэтая тэма была заблякаваная
+no_unread_msg:Гэтая тэма ня мае непрачытаных паведамленьняў
+no_unread_msg_unreg:Сачэньне за прачытанымі і непрачытанымі паведамленьнямі даступнае толькі для зарэгістраваных карыстальнікаў
+num_pages:Старонак ({VAR: ttl_pg}):
+num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|голас|галасы|галасоў}
+occupation:Занятак:
+off:выключыць
+on:уключыць
+page_timings:Агульны час стварэньня старонкі склаў: {VAR: page_gen_time} сэк.
+pm:Прыватныя паведамленьні
+poll:Апытаньне:
+post_count:Колькасьць паведамленьняў {VAR: u_pcount}
+post_count_l:Колькасьць паведамленьняў:
+posts:Паведамленьні
+posts_c:Паведамленьні:
+prev_thread:Папярэдняя тэма:
+usrinfo_private_message:Прыватнае паведамленьне:
+profile:Панэль кіраваньня
+profile_desc:Доступ да панэлі кіраваньня карыстальніка
+rate_thread:Адзначыць тэму
+rating:Адзнака
+rating_track:Кіраваньне адзнакамі тэмы <b>{VAR: thr->subject}</b>:
+refresh_list:Абнавіць сьпіс
+register:Рэгістрацыя
+registered:Зарэгістраваны:
+registered_on:Зарэгістраваны {TEMPLATE: registered_on_date}
+replies:Адказы
+report_to_mod:Паведаміць пра паведамленьне мадэратару
+reported_messages:Абвяшчэньні пра паведамленьні
+reveal_all_posts:паказаць усе паведамленьні ад {VAR: user_login}
+reveal_post:паказаць паведамленьне
+search:Пошук
+sel_todays_posts:Сёньняшнія паведамленьні
+sel_todays_posts_desc:Пераключыць фільтар сёньняшніх паведамленьняў (будуць паказвацца толькі паведамленьні зробленыя сёньня)
+sel_unanswered_posts:Паведамленьні без адказаў
+sel_unanswered_posts_desc:Пераключыць фільтар паведамленьняў без адказаў (будуць паказвацца толькі паведамленьні без адказаў)
+sel_unread_messages:Непрачытаныя паведамленьні
+sel_unread_messages_desc:Пераключыць фільтар непрачытаных паведамленьняў (будуць паказвацца толькі непрачытаныя паведамленьні)
+send:Даслаць
+send_pm_desc:Даслаць прыватнае паведамленьне гэтаму карыстальніку
+sender_email:Адрас электроннай пошты адпраўшчыка:
+sender_name:Імя адпраўшчыка:
+show_posts_by:Паказаць паведамленьні ад: {VAR: u_alias}
+size:Памер:
+status:Статус:
+status_line:Зараз на форуме <b>{PLURAL: st_obj->online_users_reg|$1 удзельнік|$1 удзельнікі|$1 удзельнікаў}</b>, <b>{PLURAL: st_obj->online_users_hidden|$1 нябачны ўдзельнік|$1 нябачных удзельнікі|$1 нябачных удзельнікаў}</b> і <b>{PLURAL: st_obj->online_users_anon|$1 госьць|$1 госьці|$1 госьцяў}</b>.
+sticky:прылеплены:
+stop_ignoring:спыніць ігнараваньне гэтага карыстальніка
+sub_to_thread:Падпісацца на тэму
+sub_to_thread_desc:Атрымліваць абвяшчэньні пра новыя паведамленьні ў гэтай тэме
+bookmark_thread:Дадаць тэму ў закладкі
+bookmark_thread_desc:Дадаць гэтую тэму ў Ваш сьпіс закладак
+subject:Тэма
+subscribe:Падпісацца
+subscribe_desc:Атрымліваць абвяшчэньні, калі ствараюцца новыя тэмы ў гэтым форуме
+subscribed_forums:Падпісаныя форумы
+subscribed_forums_desc:Пераключыць фільтар падпісаных формаў (будуць паказвацца толькі паведамленьні з форумаў, на якія Вы падпісаны)
+subscribed_threads:Падпісаныя тэмы
+subscribed_threads_desc:Пераключыць фільтар падпісаных тэмаў (будуць паказвацца толькі паведамленьні з тэмаў, на якія Вы падпісаны)
+bookmarked_threads:Закладкі на тэмы
+switch_to_thread_view:Пераключыць у дрэвападобны рэжым прагляду ў гэтай тэме
+thread:Тэма:
+thread_announcement:Анонс:
+thread_first_unread_msg:Перайсьці да першага непрачытанага паведамленьня ў гэтай тэме
+thread_thread:Тэма
+threads:Тэмы
+time:Час
+todays_posts:Сёньняшнія паведамленьні
+todays_posts_desc:Паказаць усе паведамленьні, якія былі разьмешчаныя сёньня
+un_ignore_user:не ігнараваць паведамленьні гэтага карыстальніка
+unanswered_posts:Паведамленьні без адказаў
+unanswered_posts_desc:Паказаць усе паведамленьні, якія ня маюць адказаў
+unlock_thread:Разблякаваць тэму
+unread_msg:Гэтая тэма ўтрымлівае паведамленьні, якія Вы яшчэ не прачыталі
+unread_msg_locked:Заблякаваная тэма з непрачытанымі паведамленьнямі
+unread_posts:Непрачытаныя паведамленьні
+unread_posts_desc:Паказаць усе непрачытаныя паведамленьні
+unsub_from_thread:Адпісацца ад тэмы
+unsub_from_thread_desc:Спыніць атрыманьне абвяшчэньняў пра новыя паведамленьні ў гэтай тэме
+unbookmark_thread:Выдаліць з закладак
+unbookmark_thread_desc:Выдаліць гэтую тэму з Вашага сьпісу закладак
+unsubscribe:Адпісацца
+unsubscribe_desc:Спыніць атрыманьне абвяшчэньняў пра новыя тэмы ў гэтым форуме
+updated_on:Абнаўленьні:
+user:Карыстальнік
+user_counter:Мы маем {VAR: st_obj->user_count}</b> {PLURAL: st_obj->user_count|зарэгістраванага карыстальніка|зарэгістраваных карыстальнікаў|зарэгістраваных карыстальнікаў}.
+user_info:Інфармацыя пра карыстальніка
+user_info_l:Інфармацыя пра карыстальніка {VAR: u->alias}
+user_offline:{VAR: obj->login} цяпер афляйн
+user_online:{VAR: obj->login} цяпер анляйн
+usrinfo_last_post:Апошняе паведамленьне:
+view_results:Паказаць вынікі
+views:Прагляды
+vote:{PLURAL: frm->n_rating|$1 голас|$1 галасы|$1 галасоў}
+vote_button:Прагаласаваць
+vote_for_thread:Прагаласаваць
+was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> перанесена мадэратарам у <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a>.
+welcome_message:Вітаем <b>{VAR: usr->alias}</b>, апошні раз Вы наведвалі нас {TEMPLATE: welcome_message_date}
+what_ppl_doing:Паказаць хто чым займаецца
+reported_del_report:Выдаліць справаздачу
+reported_reason:Прычына
+reported_on:Дата:
+reported_reported_by:Справаздача ад:
+reported_reported_msg:Абвяшчэньні пра паведамленьні
+modque_pending_approval:Паведамленьні, якія чакаюць зацьверджаньня
+modque_approve:Зацьвердзіць
+modque_delete:Выдаліць
+modque_no_message:Няма паведамленьняў, якія чакаюць зацьверджаньня
+pmsg_new_messages:Непрачытанае асабістае паведамленьне
+pmsg_old_messages:Прачытанае асабістае паведамленьне
+deny_recipt:забараніць пацьверджаньне
+deny_recipt_desc:Не дасылаць пацьверджаньне пра тое, што Вы прачыталі гэтае паведамленьне
+restore_to:Аднавіць у:
+move_to:Перанесьці ў:
+list_referes_referrals:Запрошаныя
+list_referes_members:Запрошаныя карыстальнікі
+list_referes_member:Карыстальнік
+referals_none:Пакуль няма запрошаных.
+referals_refered_by:Карыстальнікі форуму, запрошаныя: <b><a href="{TEMPLATE: referals_refered_by_lnk}" class="thLnk">{VAR: p_user[1]}</a></b>
+referals_post_count:Колькасьць паведамленьняў
+referals_registered_on:Дата рэгістрацыі
+referals_action:Дзеяньне
+pmsg_all:усе
+pmsg_none:няма
+folder:Папка:
+pmsg_replied:адказана
+pmsg_forwarded:пераслана
+pmsg_subject:Тэма
+pmsg_author:Аўтар
+pmsg_time:Час
+pmsg_selected:Выбрана
+pmsg_delete:Выдаліць
+cur_ppage_pm:Прыватныя паведамленьні
+writing_pm:Стварэньне асабістага паведамленьня
+browsing_folder:Прагляд папкі <b>{VAR: folders[$folder_id]}</b>
+inbox:Уваходзячыя
+draft:Чарнавік
+sent:Дасланыя
+trash:Сьметнік
+msg_author:Аўтар
+avatar_sel_form:Форма выбару аватара
+no_avatars:Няма даступных аватараў
+month_1:Студзень
+month_2:Люты
+month_3:Сакавік
+month_4:Красавік
+month_5:Травень
+month_6:Чэрвень
+month_7:Ліпень
+month_8:Жнівень
+month_9:Верасень
+month_10:Кастрычнік
+month_11:Лістапад
+month_12:Сьнежань
+sunday:Нядзеля
+sunday_short:Нд
+monday:Панядзелак
+monday_short:Пн
+tuesday:Аўторак
+tuesday_short:Аў
+wednesday:Серада
+wednesday_short:Ср
+thursday:Чацьвер
+thursday_short:Чц
+friday:Пятніца
+friday_short:Пт
+saturday:Субота
+saturday_short:Сб
+male:Мужчынскі
+female:Жаночы
+unspecified:НЯ ВЫЗНАЧАНА
+register_tree_view:Сьпіс паведамленьняў і тэмаў у выглядзе дрэва
+register_msg_tree_view:Плоскі сьпіс тэмаў/Сьпіс паведамленьняў у выглядзе дрэва
+register_tree_msg_view:Сьпіс тэмаў у выглядзе дрэва/Плоскі сьпіс паведамленьняў
+register_flat_view:Плоскі сьпіс паведамленьняў і тэмаў
+use_forum_default:Выкарыстоўваць устаноўкі форуму па змоўчваньні
+finduser_user_info:Інфармацыя пра карыстальніка
+finduser_by_login:Па імені:
+finduser_submit:Знайсьці
+finduser_no_such_user:Няма такога карыстальніка
+finduser_user:Карыстальнік
+finduser_postcount:Колькасьць паведамленьняў
+finduser_joindate:Дата рэгістрацыі
+finduser_action:Дзеяньне
+yes:Так
+no:Не
+register_email:Адрас электроннай пошты
+edit_time_limit:<b>Абмежаваньне часу рэдагаваньня</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> хв.
+no_edit_time_limit:<b>Абмежаваньне часу рэдагаваньня</b>: <b>Без абмежаваньняў</b>
+pmuserloc_login:Імя карыстальніка:
+pmuserloc_submit:Даслаць
+pmuserloc_user:Карыстальнік
+pmuserloc_no_result:Вынікаў няма
+register_builtin:Убудаваная
+register_specify_url:Падаць URL-адрас
+register_uploaded:Загрузіць аватару
+register_login:Імя карыстальніка:
+register_password:Пароль:
+register_conf_pass:Пацьверджаньне паролю:
+register_email_desc:Калі ласка, увядзіце слушны адрас электроннай пошты. Вы можаце яго схаваць ніжэй, у сэкцыі ўстановак.
+register_name:Імя:
+register_your_pass:Ваш пароль:
+register_update:Абнавіць
+register_avatar_type:Тып аватару:
+register_del_avatar:Выдаліць аватару
+register_avatar:Аватара:
+register_sel_avatar:Выбраць аватару
+register_custom_avatar_rules:Аватара карыстальніка не зьявіцца, пакуль ня будзе зацьверджаная адміністратарам.<br /><span class="SmallText">Аватара павінна мець памер ня болей <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} піксэляў</b> і павінна мець фармат <b>jpg</b>, <b>gif</b> ці <b>png</b>.</span>
+register_custom_avatar_url:URL-адрас нестандартнай аватары:
+register_preview:Папярэдні прагляд
+register_custom_avatar_upload:Нестандартны файл аватара:
+register_register:Рэгістрацыя
+register_required:Патрабуемая інфармацыя
+register_required_desc:Усе палі патрабуюцца. Калі каска, заўважце, што паролі адчувальныя да велічыні літараў.
+register_optional:Дадатковая інфармацыя
+register_optional_desc:Просім не публікаваць прыватную інфармацыю ў Вашым профілі. Уся інфармацыя будзе бачная іншым карыстальнікам форуму.
+register_location:Месцазнаходжаньне:
+register_occupation:Занятак:
+register_interests:Зацікаўленасьці:
+register_image:Выява:
+register_icq:ICQ:
+register_aim:Ідэнтыфікатар AIM:
+register_yahoo:Камунікатар Yahoo:
+register_msnm:Камунікатар MSN:
+register_homepage:Хатняя старонка:
+register_bday:Дата нараджэньня:
+register_bday_desc:Калі Вы пазначыце сваю дату нараджэньня, іншыя карыстальнікі форуму змогуць яе ўбачыць у Вашым профілі.
+register_day:Дзень
+register_month:Месяц
+register_year:Год
+register_gender:Пол:
+register_bio:Біяграфія:
+register_bio_desc:Падрабязьней пра Вас, напрыклад, Вашыя зацікаўленасьці, праца і г. д.
+register_prefs:Устаноўкі
+register_sig:Подпіс:
+register_sig_desc:Неабавязковы подпіс, які будзе далучацца да Вашых паведамленьняў.
+register_reset:Скінуць
+register_def_thread_view:Выгляд тэмаў па змоўчваньні:
+register_msg_per_page:Паведамленьняў на старонцы:
+register_show_sig:Паказваць подпісы:
+register_show_sig_desc:Дазваляе Вам уключаць ці выключаць паказ подпісаў іншых карыстальнікаў форуму.
+register_use_sig_default:Выкарыстоўваць подпіс па змоўчваньні:
+register_use_sig_default_desc:Аўтаматычна дадаваць Ваш подпіс да кожнага дасланага Вамі паведамленьня.
+register_timezone:Часавы пояс:
+register_ignore_admin:Ігнараваць адміністратыўныя паведамленьні
+register_invisible_mode:Рэжым нябачнасьці:
+register_invisible_mode_desc:Хавае Вашую прысутнасьць на форуме.
+register_show_email:Паказваць адрас электроннай пошты:
+register_show_email_desc:Выберыце гэтую магчымасьць, калі жадаеце каб адрас Вашай электроннай пошты быў бачны іншым карыстальнікам.
+register_notification:Выбраць абвяшчэньні па змоўчваньні:
+register_notification_desc:Калі абвяшчэньні ўключаныя па змоўчваньні, іх можна адключыць пад час разьмяшчэньня паведамленьня.
+register_notify_method:Выбраць мэтад абвяшчэньня:
+register_notify_method_desc:Устанаўлівае мэтад дасылкі Вам абвяшчэньняў ці адключыце іх (напрыклад, калі Вы ад’яжджаеце на адпачынак).
+register_allow_email_msg:Дазволіць дасылку паведамленьняў па электроннай пошце.
+register_allow_email_msg_desc:Дазваляе іншы карыстальнікам дасылаць Вам электронныя лісты праз гэты форум.
+buddy_status:Статус
+my_buddies:Мае знаёмыя
+add_buddy:Дадаць да знаёмых
+add:Дадаць
+buddy_search:Увядзіце імя карыстальніка, якога Вы жадаеце дадаць.
+member_search:Ці выкарыстоўвайце магчымасьць <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Пошук карыстальніка</a>, каб знайсьці асобу.
+buddy_remove:выдаліць
+post_normal:Звычайны
+post_sticky:Прычэплены
+post_annoncement:Анонс
+post_size:Памер
+post_color:Колер
+post_font:Шрыфт
+create_thread:Стварыць тэму
+submit_reply:Адправіць адказ
+edit_message:Прыняць зьмены паведамленьня
+apply_spell_changes:Прыняць вынікі праверкі артаграфіі
+post_preview:Папярэдні прагляд паведамленьня
+post_logedin_user:увайшоў у сыстэму як:
+post_logout:выйсьці
+post_passwd:Пароль для разьмяшчэньня паведамленьняў:
+post_poll:Апытаньне:
+post_create_poll:СТВАРЫЦЬ АПЫТАНЬНЕ
+post_poll_delete:ВЫДАЛІЦЬ
+post_poll_edit:РЭДАГАВАЦЬ
+post_mod_opt:Магчымасьці мадэратара:
+post_thread_type:Тып тэмы:
+post_thread_expiry:Тэрмін дзеяньня тэмы:
+post_locked:Закрытая тэма
+post_icons:Выява паведамленьня:
+post_no_icon:Няма выявы
+post_smiley:Устаўка ўсьмешак:
+post_format_tools:Інструмэнты фарматаваньня:
+post_upload_file:Загрузіць файл
+post_file_del:Выдаліць
+post_file_name:Назва
+post_file_size:Памер
+file_attachments:Далучэньні файлаў:
+allowed_files:Дазволеныя пашырэньні файлаў:
+max_file_size:Максымальны памер файла:
+max_files_per_msg:Максымальная колькасьць файлаў у паведамленьні:
+post_notification:Абвяшчэньне пра паведамленьне
+include_sig:Далучыць подпіс
+include_sig_desc:Далучае подпіс з Вашага профілю.
+disable_smilies:Адключыць усьмешкі ў гэтым паведамленьні
+spell_check_msg:Праверыць правапіс паведамленьня
+post_form:Даслаць паведамленьне
+post_forum:Форум:
+post_title:Назва:
+post_body:Тэкст:
+post_options:Устаноўкі:
+post_preview_btn:Папярэдні прагляд
+ignore_users:Ігнараваныя карыстальнікі
+add_ignore:Дадаць да сьпісу ігнараваных
+forum_terms:Правілы форуму
+forum_rules:<p>Рэгістрацыя на гэтым форуме зьяўляецца вольнай! Мы спадзяемся, што Вы азнаёміцеся з правіламі і ўмовамі пададзенымі ніжэй. Калі Вы згодныя з правіламі, калі ласка, націсьніце кнопку <b>Згодны</b> ў канцы старонкі. Заўвага: націскаючы на кнопку, Вы пацьвярджаеце, што Вам споўнілася болей 13 гадоў. Калі Вам 13 ці меней, калі ласка, выкарыстоўвайце гэтую форму рэгістрацыі.</p><p>Ня гледзячы на тое, што адміністратары і мадэратары гэтага форуму будуць старацца не дапускаць на форуме паведамленьняў, якія могуць выклікаць спрэчныя пытаньні, мы не зможам праверыць кожнае паведамленьне. Усе паведамленьні адлюстроўваюць пункты гледжаньня іх аўтараў, і ні ўладальнік, ні распрацоўшчыкі форуму не нясуць адказнасьці за зьмест любога з паведамленьняў.</p><p>Націскаючы на кнопку Згодны, Вы гарантуеце, што ня будзеце разьмяшчаць паведамленьні, якія маюць абражаючы, грубы, сэксуальна арыентаваны, выклікаючы нянавісьць, пагражаючы характар, ці як-небудзь парушаюць заканадаўства.</p><p>Уладальнікі гэтага форуму маюць права выдаляць, рэдагаваць, пераносіць ці закрываць любыя тэмы па любой прычыне.</p>
+forum_rules_13:<p>Усе карыстальнікі, ва ўзросьце да 13 гадоў, павінны атрымаць згоду ад сваіх бацькоў ці апекуноў на ўдзел у форуме. Мы вітаем удзел у форуме карыстальнікаў ва ўзросьце да 13 гадоў, але мы патрабуем падпісаны дазвол на ўдзел у форуме ад бацькоў ці апекуноў, дасланы праз факс ці пошту.</p><p>Калі Вы жадаеце пачаць працэдуру рэгістрацыі да атрыманьня намі дазволу, націсьніце кнопку <b>Згодны</b> ніжэй. Калі Вы жадаеце адмяніць рэгістрацыю, націсьніце кнопку <b>Нязгодны</b> каб вярнуцца да сьпісу форумаў.</p><p>Копію формы дазволу можна загрузіць тут. Для дадатковай інфармацыі пра працэс рэгістрацыі, калі ласка, дашліце электронны ліст на адрас <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
+coppa_conf:Пацьверджаньне COPPA
+coppa_before:Перад {TEMPLATE: coppa_date}
+coppa_after:Пасьля {TEMPLATE: coppa_date}
+coppa_link:Выберыце спасылку, якая адпавядае Вашай даце нараджэньня
+coppa:<p>Перад тым, як скончыць рэгістрацыю на форуме дзяцей ва ўзросьце да 13 гадоў, патрабуецца падпісаны дазвол ад бацькоў ці апекуноў дасланы па факсу ці па пошце.</p><p>Для атрыманьня дадатковай інфармацыі зьвярніцеся да <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a></p>
+prereg_info:Правілы форуму
+prereg_agree:Згодны
+prereg_disagree:Ня згодны
+coppa_fax_instructions:Інструкцыі для бацькоў ці апекуноў
+coppa_fax_instructions2:Калі ласка, надрукуйце гэтую старонку, падпішыце і дашліце яе па факсу:
+coppa_fax_reg_form:Форма рэгістрацыі
+coppa_fax_sign:Калі ласка, падпішыце форму ніжэй і дашліце яе нам
+coppa_fax_conf:Я азнаёміўся з інфармацыяй, прадстаўленай майму дзіцяці, і правіламі прыватнасьці сайта. Я разумею, што асабістыя зьвесткі могуць быць зьмененыя з выкарыстаньнем паролю. Я разумею, што магу патрабаваць выдаленьня профілю рэгістрацыі з гэтага форуму.
+coppa_fax_permission:Падпішыце тут, калі Вы даяце дазвол
+coppa_fax_no_permission:Падпішыце тут, калі Вы жадаеце, каб рахунак быў выдалены
+coppa_fax_parent_name:Поўнае імя бацькі/апекуна:
+coppa_fax_relation:Ступень роднасьці з дзіцём:
+coppa_fax_telephone:Тэлефон:
+coppa_fax_email:Адрас электроннай пошты:
+coppa_fax_date:Дата:
+coppa_fax_questions:Калі ласка, па любых пытаньнях зьвяртайцеся да <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
+coppa_fax_login:Імя карыстальніка
+coppa_fax_passwd:Пароль
+coppa_fax_remail:Адрас электроннай пошты
+coppa_fax_name:Назва
+login_not_logedin:Вы не ўвайшлі ў сыстэму. Гэта магло адбыцца па наступных прычынах:
+login_cookie_expired:Тэрмін дзеяньня закладкі (cookie) скончыўся, і Вам неабходна ўвайсьці ў сыстэму для яе абнаўленьня.
+login_perm_denied:Вы ня маеце правоў доступу на запытаны рэсурс, таму што зьяўляецеся ананімным карыстальнікам. Вам неабходна ўвайсьці ў сыстэму, каб атрымаць правы.
+login_want_to_register:Жадаеце зарэгістравацца?
+login_forgot_passwd:Забыў пароль
+login_use_cookie:Выкарыстоўваць закладкі (cookie)<br /><span class="SmallText">Калі Вы выкарыстоўваеце агульнадаступны тэрмінал, напрыклад, кампутар у бібліятэцы, школе ці інтэрнэт-кафэ, мы рэкамэндуем выключыць гэтую магчымасьць для большай бясьпекі. Калі Вы пакінеце гэтую магчымасьць уключанай, то ў наступным наведваньні адбудзецца аўтаматычны ўваход у сыстэму.</span>
+login_login:Імя карыстальніка:
+login_login_btn:Уваход
+login_name_required:Патрабуецца імя карыстальніка
+login_passwd_required:Патрабуецца пароль
+login_invalid_radius:Няслушная камбінацыя імя карыстальніка/паролю
+reset_confirmation:Дзякуй за рэгістрацыю.\n\nКаб актывізаваць Ваш рахунак, калі ласка, перайдзіце па URL-спасылцы пададзенай ніжэй:\n\n{VAR: url}\n\nПасьля актывацыі Вашага рахунку, Вы увойдзеце ў сыстэму на форуме і\nбудзеце перанакіраваны на галоўную старонку.
+rpasswd_invalid_passwd:Няслушны пароль
+rpasswd_passwd_nomatch:Паролі не супадаюць
+rpasswd_passwd_length:Пароль павінен утрымліваць ня меней 6 сымбаляў
+reset_remind_pass:Напамін паролю
+reset_reset_conf:Ваш пароль будзе створаны і дасланы Вам. Калі Вы яшчэ не пацьвердзілі адрас Вашай электроннай пошты, запыт на пацьверджаньне будзе дасланы Вам зноў.
+reset_error:Адрас электроннай пошты ня знойдзены ў базе зьвестак
+rpasswd_change_pass:Зьмяніць пароль
+rpasswd_login:Імя ўдзельніка
+rpasswd_cur_pass:Цяперашні пароль:
+rpasswd_new_pass:Новы пароль:
+rpasswd_conf_pass:Пацьверджаньне паролю:
+login_passwd:Пароль:
+reset_reset_button:Ачысьціць пароль
+report_subject:Тэма:
+search_forum:Форум
+remail_subject:Тэма:
+remail_message:Паведамленьне:
+mklist_type:Тып:
+mklist_delete:Выдаліць
+email_subject:Тэма:
+ppost_send:Даслаць
+ppost_save_draft:Захаваць чарнавік
+poll_create:Стварыць
+poll_update:Абнавіць
+poll_delete:Выдаліць
+poll_month:месяц
+poll_year:год
+delete_yes:Так
+delete_no:Не
+error_error:Памылка
+emailconf_err_invkey_title:Памылка
+post_err_edttimelimit_title:ПАМЫЛКА
+post_err_passwd:Няслушны пароль.
+report_err_nosuchmsg_title:ПАМЫЛКА
+reset_err_invalidkey_title:ПАМЫЛКА
+reset_newpass_title:Ачысьціць пароль
+help_title:Дапамога
+reset_title:Ачысьціць пароль
+register_change_passwd:зьмяніць пароль
+groupmgr_yes:Так
+groupmgr_no:Не
+groupmgr_action:Дзеяньне
+groupmgr_cancel:Адмяніць
+groupmgr_edit:Рэдагаваць
+groupmgr_delete:Выдаліць
+show_show:Паказаць:
+group_mgr_edit_btn:Рэдагаваць групу
+p_REPLY:Адказаць
+p_EDIT:Рэдагаваць
+p_DEL:Выдаліць
+p_MOVE:Перанесьці тэмы
+th_expr_never:Ніколі
+th_expr_one_month:1 месяц
+th_expr_two_month:2 месяцы
+th_expr_four_month:4 месяцы
+th_expr_one_year:1 год
+thread_mod_delete:Выдаліць
+split_th_subject:Тэма:
+split_th_forum:Форум:
+split_th_messages:Паведамленьні
+quicklogin_password:Пароль:
+im_jabber:Jabber:
+im_google:Google Talk:
+im_skype:Skype:
+im_twitter:Twitter:
+poll_edit:Рэдагаваць
+polllist_action:Дзеяньне
+iemail_msg_subject:<b>Тэма:</b> {VAR: obj->subject}
+iemail_msg_reply:Адказаць
+iemail_thread_unsub:Адпісацца ад гэтай тэмы
+iemail_forum_unsub:Адпісацца ад гэтага форуму
+findu_edit:Рэдагаваць
+findu_delete:Выдаліць
+merge_topics:Аб'яднаць тэмы
+merge_next:Наступныя тэмы
+merge_prev:Папярэднія тэмы
+post_err_mod_forum_edit_ttl:ПАМЫЛКА
+delete_msg_pm_subject:Тэма: {VAR: data[15]}
+uc_new_topic:Новая тэма
+modque_cat:Катэгорыя
+modque_forum:Форум
+mmd_del_title:Выдаліць тэмы
+mmd_mov_title:Перанесьці тэмы
+mmd_abort_move:Адмяніць
+sub_unsub_all_forums:Адпісацца ад усіх форумаў
+sub_unsub_all_topics:Адпісацца ад усіх тэмаў
+rating_delete:Выдаліць
+btn_new_topic:Новая тэма
+btn_about:Профіль
+btn_delete:выдаліць
+btn_edit:рэдагаваць
+btn_reply:адказаць

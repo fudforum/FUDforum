@@ -372,7 +372,7 @@ submit_reply:Submitter responsa
 edit_message:Applicar le cambios al message
 apply_spell_changes:Applicar le cambios al orthographia
 post_preview:Previsualisation del message
-post_logedin_user:Usator identificate:
+post_logedin_user:Usator authenticate:
 post_logout:clauder session
 post_passwd:Contrasigno de publication:
 post_poll:Sondage:
@@ -436,12 +436,12 @@ coppa_fax_login:Nomine de usator
 coppa_fax_passwd:Contrasigno
 coppa_fax_remail:E-mail
 coppa_fax_name:Nomine
-login_not_logedin:Tu non es identificate. Isto pote esser causate per varie factores:
+login_not_logedin:Tu non es authenticate. Isto pote esser causate per varie factores:
 login_cookie_expired:Tu cookie ha expirate, e tu debe aperir un session pro renovar tu cookie.
 login_perm_denied:Tu non ha le permission de acceder al ressource requestate como usator anonyme. Tu debe aperir un session pro obtener le permission.
 login_want_to_register:Vole tu inscriber te?
 login_forgot_passwd:Contrasigno oblidate
-login_use_cookie:Usar cookies<br /><span class="SmallText">Si tu usa un terminal public como un computator in un bibliotheca, schola o café internet, il es recommendate que tu dismarca iste option pro major securitate.<br />Si tu lassa iste option seligite, tu essera automaticamente identificate al foro le proxime vice que tu lo visita.</span>
+login_use_cookie:Usar cookies<br /><span class="SmallText">Si tu usa un terminal public como un computator in un bibliotheca, schola o café internet, il es recommendate que tu dismarca iste option pro major securitate.<br />Si tu lassa iste option seligite, tu essera automaticamente authenticate al foro le proxime vice que tu lo visita.</span>
 login_login:Nomine de usator:
 login_login_btn:Aperir session
 login_name_required:Le nomine de usator es requirite
@@ -547,7 +547,7 @@ poll_hours:horas
 poll_month:mense
 poll_year:anno
 poll_week:septimana
-tabs_register:Configurationes
+tabs_register:Configuration del conto
 tabs_subscriptions:Subscriptiones
 tabs_bookmarkes:Favorites
 tabs_referrals:Referimentos
@@ -602,7 +602,7 @@ index_update:Percurre le <a href="{TEMPLATE: index_update_lnk}">lista de foros</
 list_referers_update:Percurre le membros referite
 login_update:Formulario pro aperir session
 msg_update:Percurre le topico <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
-pm_err_nopm_title:ERROR: Messageria personal disactivate
+pm_err_nopm_title:ERROR: Messageria private disactivate
 pm_err_nopm_msg:Tu non pote usar le systema de messageria private. Illo ha essite disactivate per le administrator.
 pm_update:Usa le messageria private
 post_err_lockedthread_title:ERROR: Topico claudite
@@ -672,5 +672,316 @@ showposts_update:Lege messages per: <a href="{TEMPLATE: showposts_update_lnk}">{
 subscribed_update:Folia le proprie subscriptiones
 bookmarked_update:Folia le proprie lista de favorites
 thread_update:Percurre le foro <a href="{TEMPLATE: thread_update_lnk}">{VAR: frm->name}</a>
-tree_update:Percurre le topico (tree view) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
+tree_update:Percurre le topico (vista arborescente) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
 userinfo_update:Reguarda le profilo de <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}'s</a>
+ERR_login_msg2:<legend>ERROR: Tu non ha aperite un session</legend>Pro acceder a iste pagina tu debe esser un membro de iste foro.
+ERR_disabled_ttl:Function non active
+ERR_disabled_msg:Iste function ha essite disactivate per le administrator del systema.
+ERR_access_ttl:ERROR: Permissiones insufficiente
+ERR_access_msg:Tu non ha le permissiones necessari pro exequer iste action.
+ERR_registration_disabled_ttl:Registration disactivate
+ERR_registration_disabled_msg:Le administrator ha disactivate le registration. Per favor reproba plus tarde.
+ERR_emailconf_ttl:ERROR: Tu conto non ha ancora essite confirmate
+ERR_emailconf_msg:Tu non ha ancora confirmate tu conto via e-mail.<br /><table border="0"><tr><td><ol><li>Si tu non ha recipite un message de confirmation, <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">requesta lo de novo</a>.</li><li>Si {VAR: usr_d->email} non es tu adresse de e-mail correcte, <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">specifica le adresse correcte</a>.</li></ol></td></tr></table>
+ERR_user_ttl:ERROR: Usator non existe
+ERR_user_msg:Iste usator non existe
+ERR_systemerr_ttl:ERROR: Error de systema
+ERR_systemerr_msg:Un error de systema ha occurrite. Per favor reporta lo al <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a>.
+email_title:Formulario de e-mail
+finduser_title:Cercar usator
+help_title:Adjuta
+login_title:Formulario pro aperir session
+poll_title:Editor de sondages
+register_title:Formulario de registration
+reset_title:Reinitialisar contrasigno
+rpasswd_title:Formulario pro cambiar contrasigno
+error_title:Formulario de error
+index_title:Benvenite al foro
+search_title:Cercar {VAR-HTML: srch}
+remail_emailsent:Le e-mail ha essite inviate
+remail_email:Salute,\n\nIl ha un topico interessante super "{VAR: data->subject}" in le foro {GVAR: FORUM_TITLE} que poterea interessar te. Tu pote vider le topico a:\n {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nAmicalmente,\n\n{VAR: usr->alias}
+poll_add_option:Adder option:
+post_opt_html_on:<b>HTML</b> es <b>activate</b>
+post_opt_fud_on:<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>BBcode</b> es <b>activate</b></a>
+post_opt_images_on:<b>Imagines</b> es <b>activate</b>
+post_opt_smilies_on:<a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank"><b>Emoticones</b> es <b>activate</b></a>
+post_opt_html_off:<b>HTML</b> es <b>disactivate</b>
+post_opt_fud_off:<b>BBcode</b> es <b>disactivate</b>
+post_opt_images_off:<b>Imagines</b> es <b>disactivate</b>
+post_opt_smilies_off:<b>Emoticones</b> es <b>disactivate</b>
+post_opt:Optiones del foro
+register_change_passwd:cambiar contrasigno
+register_change_login:cambiar nomine de usator
+approved_avatar_title:Tu avatar personal ha essite approbate.
+approved_avatar_msg:Le administrator ha approbate tu avatar. Illo deberea nunc apparer como tu avatar in tote tu messages. Si tu non lo vide, o si tu vide tu ancian avatar, es perque tu navigator ha salveguardate le pagina in cache. Tenta refrescar lo un o duo vices. In le major parte del casos isto resolvera le problema de cache.
+unapproved_avatar_title:Tu avatar personal ha essite rejectate.
+unapproved_avatar_msg:Le administrator non ha approbate tu avatar. Le motivos le plus commun es que tu avatar esseva troppo grande (grandor e/o dimensiones) o contine un subjecto inappropriate. Si tu vole saper proque tu avatar ha essite rejectate, contacta le administrator.
+mvthread_request_move:requestar un displaciamento
+move_request_reason:Proque vole tu que le topico sia displaciate?
+mvthread_submit_req:Submitter requesta
+thread_exchange:Excambio de topicos
+move_request_by:Displaciamento del topico requestate per:
+move_reason:Motivo pro le displaciamento del topico:
+thr_exch_accept:acceptar topico
+thr_exch_decline:refusar topico
+thr_exch_orig_forum:Foro de origine:
+thr_exch_dest_forum:Foro de destination:
+thr_exch_no_threads:Nulle topico attende approbation.
+thr_exch_decl_reason:Motivo pro refusar le topico <b>{VAR: data->subject}</b> in le foro <b>{VAR: data->f2_name}</b>
+thr_exch_submit:Submitter
+exch_decline_ttl:Le displaciamento del topico {VAR: data->subject} in le foro {VAR: data->f2_name} ha essite refusate.
+ppost_original_msg:message que tu reinvia o al qual tu responde
+split_thread:Divider topico
+groupmgr_no_user:Non existe un usator con le nomine "{FUNC: char_fix(htmlspecialchars($gr_member))}"
+groupmgr_already_exists:Le usator "{FUNC: char_fix(htmlspecialchars($gr_member))}" existe ja in iste gruppo.
+groupmgr_yes:Si
+groupmgr_no:No
+groupmgr_action:Action
+groupmgr_member:Membro
+groupmgr_cancel:Cancellar
+groupmgr_add_member:Adder membro
+groupmgr_update_member:Actualisar membro
+groupmgr_edit:Modificar
+groupmgr_delete:Deler
+group_mgr_anon:Anonyme
+group_mgr_reged:Tote le usatores registrate
+show_show:Monstrar:
+group_mgr:Gestion de gruppos
+group_mgr_edit_btn:Modificar gruppo
+group_mgr_heading:Selige le gruppo a modificar
+group_mgr_group:Gruppo:
+permission_denied_title:Permission refusate!
+permission_denied_msg:Tu permissiones de usator non te consenti de exequer le action que tu tenta.
+p_READ:Leger
+p_POST:Publicar
+p_REPLY:Responder
+p_EDIT:Modificar
+p_DEL:Deler
+p_STICKY:Messages fixe
+p_POLL:Crear sondages
+p_FILE:Annexar files
+p_VOTE:Votar
+p_RATE:Evalutar topicos
+p_SPLIT:Divider topicos
+p_LOCK:Serrar topicos
+p_MOVE:Displaciar topicos
+p_SML:Usar emoticones
+p_IMG:Usar etiquettas de imagine
+p_SEARCH:Pote cercar
+group_mgr_search:Cercar usator
+group_mgr_indicator:Modifica justo ora: <b>{VAR: grp->name}</b>
+rate_worst:Pessime
+rate_best:Optime
+post_quote_msg:{VAR: msg->login} scribeva le {TEMPLATE: make_report_date}
+post_quote:Citation:
+post_quote_selected:Citar le texto seligite
+userinfo_referals:Usatores referite:
+userinfo_referals_count:{VAR: referals} Membros
+pm_no_space_title:Il non ha plus spatio!
+pm_no_space_msg:Tu dossieres a messages private excede le spatio de immagazinage permittite de <b>{GVAR: MAX_PMSG_FLDR_SIZE} bytes</b>. Illos contine actualmente <b>{VAR: fldr_size} bytes</b> in messages.<br /><br /><span class="ErrorText">Remove alcun vetule messages pro liberar spatio.</span>
+pm_space_indct_msg:Tu dossieres a messages private es plen a {VAR: percent_full}%.
+th_expr_never:Nunquam
+th_expr_one_hr:1 hora
+th_expr_three_hr:3 horas
+th_expr_four_hr:4 horas
+th_expr_eight_hr:8 horas
+th_expr_sixteen_hr:16 horas
+th_expr_one_day:1 die
+th_expr_two_day:2 dies
+th_expr_four_day:4 dies
+th_expr_one_week:1 septimana
+th_expr_two_week:2 septimanas
+th_expr_one_month:1 mense
+th_expr_two_month:2 menses
+th_expr_four_month:4 menses
+th_expr_one_year:1 anno
+thread_mod_delete:Deler
+action_latest_post:Ultime message
+online_today_last_visit:Ultime visita
+online_today_update:Vide le lista de usatores que esseva in le foro hodie.
+logedin_todays_visitors:Visitatores de hodie
+logedin_latest_post:Ultime message in le foro:
+register_show_avatar:Monstrar avatares:
+register_show_avatar_desc:Te permitte celar le avatares de altere usatores durante que tu lege lor messages.
+drawmsg_view_rest_post:Monstrar le resto del message
+post_re:Re:
+forumsel_goto_forum:Ir al foro:
+minimsg_thread_view:Vista per topico
+split_th_post_by:Message de:
+split_th_posted_on:Publicate le:
+split_th_subject:Subjecto:
+split_th_new_thread_title:Titulo del nove topico:
+split_th_forum:Foro:
+split_th_split_sel:Divider le messages seligite
+split_th_split_unsel:Divider le messages non seligite
+split_th_messages:Messages
+split_th_select:Seliger
+report_report_post:Reportar message
+quicklogin_login:Nomine de usator:
+quicklogin_password:Contrasigno:
+quicklogin_use_cookies:Usar cookies?
+quicklogin_login_btn:Aperir session
+quick_reply:Responsa rapide
+quick_reply_post:Publicar un responsa rapide
+quick_reply_preview:Previsualisar le responsa rapide
+post_notification_desc:Notificar me quando alcuno responde a iste message.
+post_all_ext_allowed:(sin restriction)
+maximize_category:Maximisar categoria
+maximize_message:Maximisar message
+no_view_perm:Tu non ha le permissiones necessari pro vider iste topico.
+report_empty_report:Non pote inviar un reporto vacue. Per favor entra un motivo pro tu reporto.
+report_already_reported_title:Ja reportate
+report_already_reported_msg:Iste message esseva ja reportate e le reporto es actualmente in le cauda del moderator.
+register_err_toomanyimages:Tu tenta usar plus del {GVAR: FORUM_IMG_CNT_SIG} imagines permittite in tu signatura.
+pmsg_next_msg:Message sequente
+pmsg_prev_msg:Message precedente
+post_proc_reveal_spoiler:Alternar spoiler
+register_jabber:Pseudonymo de Jabber:
+register_skype:Pseudonymo de Skype:
+register_twitter:Pseudonymo de Twitter:
+register_google:Pseudonymo de Google Chat/IM:
+im_jabber:Jabber:
+im_google:Google Talk:
+im_skype:Skype:
+im_twitter:Twitter:
+forum_contact:Contacto
+forum_home:Initio
+post_cur_attached:actualmente annexate: {VAR: i} {PLURAL: i|file|files}
+ignored_anon_post:{GVAR: ANON_NICK} es ignorate
+ignored_user_post:Le message de <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> es ignorate
+smladd_close_window:clauder fenestra
+post_list_smilies:listar tote le emoticones
+p_VISIBLE:Visibile
+reported_in_thread:In:
+help_back_to_top:retornar in alto
+help_return_to_index:Retornar al indice de adjuta
+imsg_err_message_title:Message invalide
+imsg_err_message_msg:Le message que tu tenta vider non existe.
+poll_edit:Modificar
+register_err_not_valid_img:Le URL specificate non contine un imagine valide.
+pmsg_recepient:Destinatario
+register_err_taken_alias:Le alias que tu tenta usar es ja in uso per un altere membro del foro. Per favor selige un altere.
+register_alias:Alias:
+register_alias_desc:Si tu vole que un pseudonymo altere que tu nomine de usator sia monstrate in le foro, entra lo hic.
+register_allow_pm_msg:Permitter messages private:
+register_allow_pm_msg_desc:Permitte que altere usatores te invia messages private in iste foro.
+postcheck_pm_disabled:Tu non pote inviar un message private a "{VAR-HTML: v}", perque iste persona non accepta messages private.
+polllist_vote:Votar
+polllist_view_results:Vider resultatos
+polllist_name:Nomine del sondage
+polllist_date:Create le
+polllist_owner:Create per
+polllist_votes:Total de votos
+polllist_action:Action
+polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">Revide le sondages disponibile</a>
+userinfo_polls:Sondages:
+show_pollist:Monstrar sondages
+search_and:E
+search_or:O
+search_desc_order:Ordine descendente
+search_asc_order:Ordine ascendente
+search_logic:Logica de recerca:
+search_sorting:Ordinar le resultatos per data in:
+post_proceed:Proceder
+post_moderated_forum:Tu ha scribite un message in un foro moderate. Tu message non essera visibile a alteres usque illo habera essite approbate per un del moderatores o administratores del foro.
+post_moderated_forum_ttl:Aviso de foro moderate
+buddy_list_bday:Hodie {VAR: r[2]} ha {VAR: age} annos
+email_warning_msg:Si tu cambia tu actual adresse de e-mail, tu conto essera marcate como non confirmate usque tu lo confirma via e-mail.
+register_show_im:Monstrar indicatores IM:
+register_show_im_desc:Monstrar o non le indicatores de messageria instantanee del autor juxta su messages.
+unread_message:Message non legite
+read_message:Leger message
+threadt_more:&lt;plus&gt;
+threadt_disabled_ttl:Le vista arborescente del lista de topicos ha essite disactivate.
+threadt_disabled_desc:Le administrator ha disactivate le vista arborescente del lista de topicos. Per favor usa le vista plan in su loco.
+threadt_update:Percurre le foro (vista arborescente) <a href="{TEMPLATE: threadt_update_lnk}">{VAR: frm->name}</a>
+mmod_delete_cofirm_ttl:Confirmar deletion de topico/message
+spell_alts:nulle alternativa
+insert_uploaded_image:Inserer le imagine in le texto del message
+finduser_help:Le motor de recerca adde automaticamente le masca * a tu consulta. <b>Le recerca distingue inter majusculas e minusculas.</b><br />P.ex.: pro cercar tote le usatores con nomines comenciante con un 'a', entra 'a' in le quadro de recerca.
+back_to_top:Retornar in alto
+pm_err_disabled_title:Messageria private disactivate
+pm_err_disabled_msg:Tu non pote inviar messages private usque tu activa le option 'Permitter messages private' in tu profilo.
+err_mod_acc_ttl:Conto non verificate
+err_mod_acc_msg:Le administrator ha optate pro revider tote le contos manualmente ante lor activation. Usque le administrator valida tu conto, tu non potera utilisar le plen capabilitates de illo.
+accounts_pending_approval:Contos attendente approbation
+saved:Salveguardate
+register_err_time_limit:Le limite de un registration per {GVAR: REG_TIME_LIMIT} secundas ha essite attingite. Per favor attende {PLURAL: reg_limit_reached|$1 secunda|$1 secundas}, e reproba postea a registrar te.
+register_affero:Nomine de usator Affero:<br /><span class="SmallText">Si tu ha un nomine de usator <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">Affero</a>, entra lo hic.</span>
+im_affero:Nomine de usator Affero
+register_err_avatardimtobig:Le dimensiones del avatar <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> excede le dimensiones permittite de <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b> pixeles.
+buddy_offline:{VAR: r[2]} al momento es foras de linea
+buddy_online:{VAR: r[2]} al momento es in linea
+sml_no_smilies:Nulle emoticone disponibile.
+login_unapproved_account_ttl:Conto non approbate
+login_unapproved_account_msg:Le administrator del foro ha optate pro confirmar cata nove conto manualmente ante su activation. Tu conto non ha ancora essite confirmate, ergo tu non potera acceder a alcunes del functiones disponibile al membros confirmate.
+remove_from_buddy_list:remover del lista de amicos
+iemail_msg_author:<b>Autor:</b> {VAR: obj->alias}
+iemail_msg_subject:<b>Subjecto:</b> {VAR: obj->subject}
+iemail_msg_date:<b>Data:</b> {TEMPLATE: dmsg_post_date}
+iemail_msg_reply:Responder
+iemail_msg_quote:Citar
+iemail_msg_view:Vider le topico/message
+threadt_sticky:fixe
+threadt_announce:annuncio
+reported_no_messages:Il non ha messages reportate.
+poll_no_polls:Il non ha sondages accessibile.
+no_unread_messages:Il non ha messages non legite correspondente a tu consulta.
+thread_mark_all_read:marcar tote le messages non legite del foro como legite
+thread_mark_all_read_desc:Tote le messages non legite in iste foro essera marcate como legite
+private_no_messages:Il non ha messages in iste dossier.
+register_email_change_subject:Confirmation del cambiamento de e-mail
+register_email_change_msg:Per favor confirma tu nove conto de e-mail "{VAR: uent->email}" que reimplacia tu vetule conto de e-mail "{VAR: old_email}", visitante le URL sequente:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nUn vice que tu confirma tu nove adresse de e-mail, tu conto del foro essera re-activate.
+iemail_thread_unsub:Cancellar subscription a iste topico
+iemail_forum_unsub:Cancellar subscription a iste foro
+primary_group_prefix:Gruppo primari pro le foro:
+group_resources:Iste gruppo controla le permissiones del sequente foros
+register_admin_newuser_title:Un nove usator se ha registrate e su conto attende confirmation
+register_admin_newuser_msg:Un nove usator ({VAR: uent->login}) se ha justo registrate, e post que le confirmation del contos es activate, su conto non devenira active usque illo es confirmate per te o un altere administrator del foro. Pro revider le conto, per favor visita: {GVAR: WWW_ROOT}adm/admaccapr.php\n\nIsto es un processo automatic. Non responde a iste message.\nSi tu vole disactivar le futur notificationes de registration de nove usatores, tu pote facer lo via le Pannello de Controlo Administrative. Cambia le option "Notification de nove contos".
+post_mod_msg_notify_title:Nove message in foro "{VAR: frm->name}" attende approbation
+post_mod_msg_notify_msg:Un nove message titulate "{VAR: msg_post->subject}" esseva justo inviate a un foro que tu modera. Pro revider iste message, visita: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nIsto es un processo automatic. Non responde a iste message.
+thread_printable_pdf:Generar PDF imprimibile
+thread_syndicate:Syndicar iste foro (XML)
+reg_conf_title:Confirmation del registration
+reg_conf_email:<b>Confirmation per e-mail</b><br />Un e-mail ha essite inviate a te, continente un URL special al qual tu debe acceder ante que tu conto es activate. Si tu non recipe iste e-mail in le proxime minutas, aperi un session a tu conto e assecura te que le adresse de e-mail que tu ha specificate es correcte. Un vice que tu confirma tu conto, tu potera acceder al functiones del foro disponibile solmente al usatores registrate e confirmate.
+reg_conf_account:<b>Confirmation del conto</b><br />Ante que tu conto es activate, illo debe esser approbate per un administrator. Un vice que isto eveni, tu recipera un e-mail indicante que tu conto ha essite confirmate. Intertanto, tu pote aperir un session a tu conto, ma tu non pote acceder a certe functiones.
+forum_banned_user:Tu actiones anterior ha resultate in tu expulsion permanente de iste foro. Adeo.
+mnav_description:Navigator de messages
+mnav_date_limit:Intervallo de datas:
+mnav_forum_limit:Cercar solmente in:
+mnav_all_forums:Cercar in tote le foros
+mnav_submit:Comenciar le recerca
+mnav_no_range:Tu debe entrar un intervallo de datas valide. Iste valor pote continer un puncto decimal (0.12) ma debe esser major que zero.
+mnav_invalid_unit:Tu debe specificar un unitate de tempore valide.
+mnav_invalid_date:Le intervallo de datas que tu ha specificate es plus longe que illo permittite per le administrator. Reduce le intervallo de datas.
+mnav_no_results:Il non ha messages correspondente al consulta.
+mnav_posted_by:Publicate per:
+mnav_more:Plus &raquo;&raquo;
+mnav_minute:Minuta(s)
+mnav_hour:Hora(s)
+mnav_day:Die(s)
+mnav_week:Septimana(s)
+mnav_month:Mense(s)
+mnav_title:Navigator de messages
+mnav_update:Percurre messages usante le <a href="{TEMPLATE: mnav_update_lnk}">Navigator de messages</a>
+pm_notify_subject:[{GVAR: FORUM_TITLE}] Notification de nove message private
+pm_notify_body_email:Tu ha un nove message private con le titulo "{VAR: subject}", de "{VAR: from}", in le foro "{GVAR: FORUM_TITLE}".\nPro vider le message, clicca hic: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nPro non plus reciper notificationes, disactiva "Notification de messages private" in tu profilo.
+register_pm_notification:Notification de messages private:
+register_pm_notification_desc:Si activate, tu recipera notification quandocunque un message private es inviate a te.
+findu_admin_opts_header:Optiones admin
+findu_unban:Disbannir
+findu_ban:Bannir
+findu_edit:Modificar
+findu_delete:Deler
+dmsg_reply_to:es un responsa a
+dmsg_reply_num:message № {VAR: obj->reply_to}
+merge_topics:Fusionar topicos
+merge_topics_cp:Pannello de controlo pro fusionar topicos
+merge_topics_tpl:Selige topicos a fusionar <span class="SmallText">(you must select more than one topic)</span>
+merge_merge:Fusionar le topicos seligite
+merge_next:Topicos sequente
+merge_prev:Topicos precedente
+merge_another:Vader al <a href="{TEMPLATE: merge_another_lnk}">ultime topico fusionate</a> o fusiona un altere:
+split_cp:Pannello de controlo pro divider topicos
+groups_perms_header:Permissiones <span class="small">(move le mouse super le permission pro vider su typo)</span>
+register_err_sig_too_long:Tu signatura excede le longitude maxime permittite de {GVAR: FORUM_SIG_ML} characteres.

@@ -460,6 +460,11 @@ rpasswd_login:Aamälde
 rpasswd_cur_pass:Aktuäll Passwort:
 rpasswd_new_pass:Nej Passwort:
 rpasswd_conf_pass:Passwort bstetige:
+ruser_title:Benutzeraamäldig ändere
+ruser_change_user:Dyy Benutzername fir s Forum ändere
+ruser_cur_login:Aktuälle Benutzername:
+ruser_new_login:Neje Benutzername:
+ruser_cur_pass:Aktuäll Passwort:
 login_passwd:Passwort:
 reset_email:E-Mail:
 reset_reset_button:Passwort zrucksetze
@@ -706,6 +711,7 @@ post_opt_images_off:<b>Bilder</b> sin <b>UUS</b>
 post_opt_smilies_off:<b>Smileys</b> sin <b>UUS</b>
 post_opt:Forumsyystellige
 register_change_passwd:Passwort ändere
+register_change_login:Benutzername ändere
 approved_avatar_title:Dyy persenlige Avatar isch gnähmigt wore.
 approved_avatar_msg:Dyy Avatar isch vum Administrator gnähmigt wore. Är sott jetz in allne Byytreg vu Dir erschyne. Wänn Du ne nit sihsch oder sttaat däm dr alt Avatar, lyt s dodra, ass dr Browser d Syte im Cache gspycheret het. Versuech d Syte ei- oder zweimol z aktualisiere, des sott in dr meischte Fäll s Probläm lese.
 unapproved_avatar_title:Dyy Benutzeravatar isch abglähnt wore.

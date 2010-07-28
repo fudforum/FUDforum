@@ -661,7 +661,7 @@ register_profile_update:Eigen profiel bekijken
 register_register_update:Registratiepagina
 report_err_nosuchmsg_title:Fout
 report_err_nosuchmsg_msg:onbekend bericht
-reset_err_invalidkey_title:FOUT
+reset_err_invalidkey_title:Fout
 reset_err_invalidkey_msg:Er is een ongeldige sleutel voor het opnieuw instellen van het wachtwoord opgegeven. Het is mogelijk dat uw e-mailprogramma deze pagina al automatisch heeft geopend, waardoor de sleutel ongeldig is geworden. Als dit het geval is, dan ontvangt u snel een e-mail met uw nieuwe wachtwoord. Als u zo'n e-mail niet ontvangt, probeer dan opnieuw het wachtwoord opnieuw in te stellen.
 reset_err_rstconf_title:Informatie
 reset_err_rstconf_msg:U ontvangt meestal binnen enkele minuten een e-mail met instructies.
@@ -755,7 +755,7 @@ group_mgr_group:Groep:
 permission_denied_title:U hebt geen toegang!
 permission_denied_msg:Uw gebruikersrechten staan u niet toe deze actie uit te voeren.
 p_READ:Lezen
-p_POST:Opslaan
+p_POST:Schrijven
 p_REPLY:Antwoorden
 p_EDIT:Bewerken
 p_DEL:Verwijderen

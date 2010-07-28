@@ -66,6 +66,9 @@ logout:Wyloguj się
 mark_all_read:zaznacz wszystkie wiadomości jako przeczytane
 mark_all_read_desc:Wszystkie Twoje nieprzeczytane wiadomości zostaną zaznaczone jako przeczytane
 members:Użytkownicy
+calendar:Kalendarz
+cal_goto_date:Przejdź do
+cal_no_events:Brak zdarzeń w tym dniu.
 message:Wiadomość
 message_counter:Użytkownicy zamieścili łącznie <b>{PLURAL: post_count|$1 wiadomość|$1 wiadomości}</b> w <b>{PLURAL: thread_count|$1 wątku|$1 wątkach}</b>.
 message_index:Indeks wiadomości
@@ -250,6 +253,20 @@ month_9:Wrzesień
 month_10:Październik
 month_11:Listopad
 month_12:Grudzień
+sunday:Niedziela
+sunday_short:Nie
+monday:Poniedziałek
+monday_short:Pon
+tuesday:Wtorek
+tuesday_short:Wt
+wednesday:Środa
+wednesday_short:Śr
+thursday:Czwartek
+thursday_short:Czw
+friday:Piątek
+friday_short:Pią
+saturday:Sobota
+saturday_short:So
 male:Mężczyzna
 female:Kobieta
 unspecified:NIEOKREŚLONY(A)

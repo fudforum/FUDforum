@@ -162,7 +162,7 @@ subscribed_threads_desc:Filtrer for abonnerte tråder (viser kun innlegg fra abo
 bookmarked_threads:Bokmerkede emner
 switch_to_thread_view:Vis innleggene trådet
 thread:Tråd:
-thread_announcement:melding:
+thread_announcement:Kunngjøring:
 thread_first_unread_msg:Gå til den første uleste meldingen i dette emnet
 thread_thread:Tråd
 threads:Tråder
@@ -364,7 +364,7 @@ member_search:Eller bruk «<a href="javascript://" onclick="javascript: window_o
 buddy_remove:ta bort
 post_normal:Normal
 post_sticky:Klebrig
-post_annoncement:Melding
+post_annoncement:Kunngjøring
 post_size:Størrelse
 post_color:Farge
 post_font:Skrifttype

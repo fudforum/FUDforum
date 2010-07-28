@@ -461,6 +461,11 @@ rpasswd_login:Usuario
 rpasswd_cur_pass:Contrasinal actual:
 rpasswd_new_pass:Contrasinal novo:
 rpasswd_conf_pass:Confirmar o contrasinal:
+ruser_title:Cambiar o nome de usuario
+ruser_change_user:Cambiar o teu nome de usuario
+ruser_cur_login:Nome de usuario actual:
+ruser_new_login:Nome de usuario novo:
+ruser_cur_pass:Contrasinal actual:
 login_passwd:Contrasinal:
 reset_email:Correo electrónico:
 reset_reset_button:Restablecer o contrasinal
@@ -707,6 +712,7 @@ post_opt_images_off:As <b>imaxes</b> están <b>desactivadas</b>
 post_opt_smilies_off:As <b>emoticonas</b> están <b>desactivadas</b>
 post_opt:Opcións do foro
 register_change_passwd:cambiar o contrasinal
+register_change_login:cambiar o nome de usuario
 approved_avatar_title:O teu avatar personalizado foi aprobado.
 approved_avatar_msg:O teu avatar foi aprobado polo administrador. Agora debería aparecer como o teu avatar en todas as túas mensaxes. Se non o ves ou aínda ves o teu antigo avatar é porque o teu navegador non refrescou a memoria caché. Intenta a actualizar a páxina unha ou dúas veces. Na maioría dos casos isto resolve o problema.
 unapproved_avatar_title:O teu avatar personalizado foi rexeitado.

@@ -1,6 +1,7 @@
 # Messages for Swedish (Svenska)
 # Exported from translatewiki.net
 # Author: McDutchie
+# Author: Nghtwlkr
 
 action:Handling
 add_to_buddy_list:lägg till kompislistan
@@ -791,8 +792,7 @@ split_th_select:Välj
 report_report_post:Rapportera inlägg
 # Fuzzy
 quicklogin_login:Användarnamn
-# Fuzzy
-quicklogin_password:Lösenord
+quicklogin_password:Lösenord:
 quicklogin_use_cookies:Använd kakor?
 # Fuzzy
 quicklogin_login_btn:Logga in

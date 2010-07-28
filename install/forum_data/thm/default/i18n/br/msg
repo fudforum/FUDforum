@@ -462,6 +462,7 @@ rpasswd_login:Kevreañ
 rpasswd_cur_pass:Ger-tremen bremañ :
 rpasswd_new_pass:Ger-tremen nevez :
 rpasswd_conf_pass:Kadarnaat ar ger-tremen :
+ruser_cur_pass:Ger-tremen a-vremañ :
 login_passwd:Ger-tremen :
 reset_email:Postel :
 reset_reset_button:Adderaouekaat ar ger-tremen

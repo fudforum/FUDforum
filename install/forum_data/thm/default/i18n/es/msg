@@ -464,6 +464,11 @@ rpasswd_login:Usuario
 rpasswd_cur_pass:Contraseña actual:
 rpasswd_new_pass:Contraseña nueva:
 rpasswd_conf_pass:Confirmar contraseña:
+ruser_title:Formulario de cambio de identificación
+ruser_change_user:Cambiar tu identificación en el foro
+ruser_cur_login:Identificación actual:
+ruser_new_login:Nueva identificación:
+ruser_cur_pass:Contraseña actual:
 login_passwd:Contraseña
 reset_email:Correo electrónico:
 reset_reset_button:Actualizar contraseña
@@ -710,6 +715,7 @@ post_opt_images_off:Las <b>imágenes</b> están <b>DESACTIVADAS</b>
 post_opt_smilies_off:Los <b>emoticonoss</b> están <b>DESACTIVADOS</b>
 post_opt:Opciones del foro
 register_change_passwd:cambiar contraseña
+register_change_login:cambiar identificación
 approved_avatar_title:Su avatar personalizado fue aprobado.
 approved_avatar_msg:Su avatar fue aprobado por el administrador. A partir de ahora debería aparecer como su avatar en todos sus mensajes. Si no lo ve, o ve su antiguo avatar, es porque su navegador ha guardado la página en la caché. Pruebe a recargar la página una o dos veces, en la mayoría de los casos esto resuelve el problema.
 unapproved_avatar_title:Su avatar personalizado ha sido rechazado.

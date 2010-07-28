@@ -465,6 +465,11 @@ rpasswd_login:Учётная запись:
 rpasswd_cur_pass:Текущий пароль:
 rpasswd_new_pass:Новый пароль:
 rpasswd_conf_pass:Пароль повторно (для проверки):
+ruser_title:Форма изменения логина
+ruser_change_user:Изменение вашего форумного логина
+ruser_cur_login:Текущий логин:
+ruser_new_login:Новый логин:
+ruser_cur_pass:Текущий пароль:
 login_passwd:Пароль:
 reset_email:Электронная почта:
 reset_reset_button:Сброс пароля
@@ -711,6 +716,7 @@ post_opt_images_off:<b>Картинки</b> - <b>выключены</b>
 post_opt_smilies_off:<b>Смайлики</b> - <b>выключены</b>
 post_opt:Параметры форума
 register_change_passwd:изменить пароль
+register_change_login:изменить логин
 approved_avatar_title:Ваша картинка утверждена.
 approved_avatar_msg:Модератор утвердил вашу картинку и теперь она должна быть видимой в вашей персональной информации и во всех ваших сообщениях. Если же картинка по-прежнему не видна, то возможно ваш браузер просто показывает устаревшую страницу из кэша. Попробуйте перезагрузить ее раз или два.
 unapproved_avatar_title:Ваша картинка отвергнута.

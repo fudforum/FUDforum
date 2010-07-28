@@ -1,6 +1,7 @@
 # Messages for Danish (Dansk)
 # Exported from translatewiki.net
 # Author: McDutchie
+# Author: Nghtwlkr
 
 action:Handling
 add_to_buddy_list:Føj til venneliste
@@ -792,8 +793,7 @@ split_th_select:Vælg
 report_report_post:Indrapporter besked
 # Fuzzy
 quicklogin_login:Logind-navn
-# Fuzzy
-quicklogin_password:Kodeord
+quicklogin_password:Adgangskode:
 quicklogin_use_cookies:Brug Cookies?
 # Fuzzy
 quicklogin_login_btn:Log ind

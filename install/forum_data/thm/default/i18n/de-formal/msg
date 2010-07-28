@@ -462,6 +462,11 @@ rpasswd_login:Login:
 rpasswd_cur_pass:Momentanes Passwort:
 rpasswd_new_pass:Neues Passwort:
 rpasswd_conf_pass:Passwort bestätigen:
+ruser_title:Formular zum Ändern des Logins
+ruser_change_user:Ihren Login ändern
+ruser_cur_login:Aktueller Login:
+ruser_new_login:Neuer Login:
+ruser_cur_pass:Aktuelles Passwort:
 login_passwd:Passwort
 reset_email:E-Mail:
 reset_reset_button:Passwort zurücksetzen
@@ -708,6 +713,7 @@ post_opt_images_off:<b>Bilder</b> sind <b>AUS</b>
 post_opt_smilies_off:<b>Smileys</b> sind <b>AUS</b>
 post_opt:Forumseinstellungen
 register_change_passwd:Passwort ändern
+register_change_login:Login ändern
 approved_avatar_title:Ihr persönlicher Avatar wurde genehmigt.
 approved_avatar_msg:Ihr Avatar wurde vom Administrator genehmigt. Er sollte nun in sämtlichen von Ihnen erstellten Beiträgen erscheinen. Falls Sie ihn nicht sehen oder stattdessen den alten Avatar, liegt es daran, dass der Browser die Seite im Cache gespeichert hat. Versuchen Sie, die Seite ein- oder zweimal zu aktualisieren, das sollte in den meisten Fällen das Problem beheben.
 unapproved_avatar_title:Ihr Benutzeravatar wurde abgelehnt.

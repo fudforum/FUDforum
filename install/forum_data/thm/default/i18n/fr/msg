@@ -467,6 +467,11 @@ rpasswd_login:Connexion
 rpasswd_cur_pass:Mot de passe actuel :
 rpasswd_new_pass:Nouveau mot de passe :
 rpasswd_conf_pass:Confirmez le mot de passe :
+ruser_title:Formulaire de changement de connexion
+ruser_change_user:Modifiez votre connexion au forum
+ruser_cur_login:Login actuel :
+ruser_new_login:Nouveau login :
+ruser_cur_pass:Mot de passe actuel :
 login_passwd:Mot de passe :
 reset_email:courriel :
 reset_reset_button:Réinitialiser le mot de passe
@@ -713,6 +718,7 @@ post_opt_images_off:Les <b>images</b> sont <b>DÉSACTIVÉES</b>
 post_opt_smilies_off:Les <b>smileys</b> sont <b>DÉSACTIVÉS</b>
 post_opt:Options activées sur le forum :
 register_change_passwd:Changer de mot de passe
+register_change_login:modifier la connexion
 approved_avatar_title:Votre avatar personnel a été approuvé.
 approved_avatar_msg:Votre avatar a été approuvé par l'administrateur. Il devrait maintenant apparaître dans tous vos messages. Si ce n'est pas le cas, c'est que votre navigateur le contient dans les pages de sa mémoire cache. Essayez de le rafraîchir quelques fois, cela devrait résoudre le problème.
 unapproved_avatar_title:Votre avatar personnel a été refusé par l'administrateur
