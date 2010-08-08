@@ -8,6 +8,7 @@
 * under the terms of the GNU General Public License as published by the
 * Free Software Foundation; version 2 of the License.
 **/
+
 	require('./GLOBALS.php');
 	fud_use('adm.inc', true);
 
@@ -29,20 +30,31 @@
 <h2>Forum Dashboard</h2>
 
 <?php
-	if (@file_exists($WWW_ROOT_DISK.'install.php')) {
+	if (@file_exists($WWW_ROOT_DISK .'install.php')) {
 		echo '<div class="alert dismiss">You still haven\'t removed the installation script at <nobr>'.$WWW_ROOT_DISK.'install.php.</nobr> Please <a href="admbrowse.php?cur='. urlencode($WWW_ROOT_DISK) .'&amp;'. __adm_rsid .'#flagged">do so now</a> before a hacker destroys your forum!<br /></div>';
 	}
-	if (@file_exists($WWW_ROOT_DISK.'uninstall.php')) {
+	if (@file_exists($WWW_ROOT_DISK .'uninstall.php')) {
 		echo '<div class="alert dismiss">You still haven\'t removed the uninstall script at <nobr>'.$WWW_ROOT_DISK.'uninstall.php.</nobr> Please <a href="admbrowse.php?cur='. urlencode($WWW_ROOT_DISK) .'&amp;'. __adm_rsid .'#flagged">do so now</a> before a hacker destroys your forum!<br /></div>';
 	}
-	if (@file_exists($WWW_ROOT_DISK.'upgrade.php')) {
+	if (@file_exists($WWW_ROOT_DISK .'upgrade.php')) {
 		echo '<div class="alert dismiss">You still haven\'t removed the upgrade script at <nobr>'.$WWW_ROOT_DISK.'upgrade.php.</nobr> Please <a href="admbrowse.php?cur='. urlencode($WWW_ROOT_DISK) .'&amp;'. __adm_rsid .'#flagged">do so now</a> before a hacker destroys your forum!<br /></div>';
 	}
-	if (@file_exists($WWW_ROOT_DISK.'unprotect.php')) {
+	if (@file_exists($WWW_ROOT_DISK .'unprotect.php')) {
 		echo '<div class="alert dismiss">You still haven\'t removed the unprotect script at <nobr>'.$WWW_ROOT_DISK.'unprotect.php.</nobr> Please <a href="admbrowse.php?cur='. urlencode($WWW_ROOT_DISK) .'&amp;'. __adm_rsid .'#flagged">do so now</a> before a hacker destroys your forum!<br /></div>';
 	}
-	if (function_exists('sys_getloadavg') && ($load = sys_getloadavg()) && $load[0] > 15) {
+
+	/* Check load. */
+	if (function_exists('sys_getloadavg') && ($load = sys_getloadavg()) && $load[0] > 25) {
 		echo '<div class="alert dismiss">You web server is quite busy (CPU load is '. $load[1] .'). This may impact your forum\'s performance!</div><br />';
+	}
+
+	/* Check version. */
+	if (@file_exists($FORUM_SETTINGS_PATH .'latest_version')) {
+		$verinfo = trim(file_get_contents($FORUM_SETTINGS_PATH .'latest_version'));
+		$display_ver = substr($verinfo, 0, strpos($verinfo, '::'));
+		if (version_compare($display_ver, $FORUM_VERSION, '>')) {
+			echo '<div class="alert dismiss">You are running an old forum version. Please upgrade to FUDforum '. $display_ver .' ASAP!<br /></div>';
+		}
 	}
 ?>
 
@@ -58,10 +70,17 @@ FUDforum's documentation is available on our <b><a href="http://cvs.prohost.org/
 </td><td width="50%" valign="top">
 
 <h4>Versions:</h4>
-<b>FUDforum</b>: <?php echo $FORUM_VERSION; ?><br />
+<?php if (!isset($display_ver)) { ?>
+	<b>FUDforum</b>: <?php echo $FORUM_VERSION; ?>
+<?php } elseif (version_compare($display_ver, $FORUM_VERSION, '>')) { ?>
+	<b>FUDforum</b>: <?php echo $FORUM_VERSION; ?> please upgrade ASAP!<br />
+<?php } else { ?>
+	<b>FUDforum</b>: <?php echo $FORUM_VERSION; ?> (latest)<br />
+<?php } ?>
 <b>PHP</b>: <?php echo PHP_VERSION; ?><br />
-<b>Database</b>: <?php echo __dbtype__ .' ('. $GLOBALS['DBHOST_DBTYPE'] .')'; ?><br />
-<b>DB version</b>: <?php echo db_version(); ?><br />
+<b>Database</b>: <?php echo __dbtype__ .' '. db_version() .' ('. $GLOBALS['DBHOST_DBTYPE'] .')'; ?><br />
+<b>Operating system</b>: <?php echo php_uname('s') .' '. php_uname('r') ?><br />
+
 <span style="float:right;"><a href="admsysinfo.php?<?php echo __adm_rsid; ?>">More... &raquo;</a></span>
 
 </td></tr></table>
