@@ -87,6 +87,7 @@
 	<td class="vt nw"><input spellcheck="true" type="text" name="srch" tabindex="1" value="{VAR-HTML: srch}" /> <input type="submit" tabindex="2" class="button" name="btn_submit" value="{MSG: search}" /><br /><span class="SmallText">{TEMPLATE-DATA: search_options}</span></td>
 	<td class="RowStyleB SmallText">
 <div class="sr">{MSG: search_in_forum}<br /><select class="SmallText" name="forum_limiter"><option value="">{MSG: search_all_forums}</option>{TEMPLATE-DATA: forum_limit_data}</select></div>
+<div class="sr">{MSG: search_attach}<br /><select class="SmallText" name="attach">{TEMPLATE-DATA: attach_options}</select></div>
 <div class="sr">{MSG: search_logic}<br /><select class="SmallText" name="search_logic">{TEMPLATE-DATA: logic_options}</select></div>
 <div class="sr">{MSG: search_sorting}<br /><select class="SmallText" name="sort_order">{TEMPLATE-DATA: sort_options}</select></div>
 <div class="sr">{MSG: search_user_filter}<br /><input class="SmallText" type="text" value="{VAR-HTML: author}" name="author" /></div>
@@ -135,6 +136,14 @@ document.forms['search'].srch.focus();
 
 {SECTION: search_desc_order}
 {MSG: search_desc_order}
+{SECTION: END}
+
+{SECTION: search_attach_all}
+{MSG: search_attach_all}
+{SECTION: END}
+
+{SECTION: search_attach_with}
+{MSG: search_attach_with}
 {SECTION: END}
 
 {SECTION: search_entry_lnk}

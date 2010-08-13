@@ -24,6 +24,7 @@
 	$field = !isset($_GET['field']) ? 'all' : ($_GET['field'] == 'subject' ? 'subject' : 'all');
 	$search_logic = (isset($_GET['search_logic']) && $_GET['search_logic'] == 'OR') ? 'OR' : 'AND';
 	$sort_order = (isset($_GET['sort_order']) && $_GET['sort_order'] == 'ASC') ? 'ASC' : 'DESC';
+	$attach = (isset($_GET['attach']) && $_GET['attach'] == '1') ? '1' : '0'; 
 	if (!empty($_GET['author'])) {
 		$author = (string) $_GET['author'];
 		$author_id = q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}users WHERE alias='._esc($author));
@@ -75,22 +76,26 @@ function fetch_search_cache($qry, $start, $count, $logic, $srch_type, $order, $f
 
 	if ($forum_limiter) {
 		if ($forum_limiter{0} != 'c') {
-			$qry_lmt = ' AND f.id=' . (int)$forum_limiter . ' ';
+			$qry_lmt = ' AND f.id='. (int)$forum_limiter .' ';
 		} else {
 			$cid = (int)substr($forum_limiter, 1);
 			$cids = array();
-			/* fetch all sub-categories if there are any */
+			/* Fetch all sub-categories if there are any. */
 			if (!empty($GLOBALS['cat_cache'][$cid][2])) {
 				$cids = $GLOBALS['cat_cache'][$cid][2];
 			}
 			$cids[] = $cid;
-			$qry_lmt = ' AND c.id IN(' . implode(',', $cids) . ') ';
+			$qry_lmt = ' AND c.id IN('. implode(',', $cids) .') ';
 		}
 	} else {
 		$qry_lmt = '';
 	}
 	if ($GLOBALS['author_id']) {
-		$qry_lmt .= ' AND m.poster_id='.$GLOBALS['author_id'].' ';
+		$qry_lmt .= ' AND m.poster_id='. $GLOBALS['author_id'] .' ';
+	}
+
+	if ($GLOBALS['attach'] > 0) {
+		$qry_lmt .= ' AND m.attach_cnt>0';
 	}
 
 	$qry_lck = "'" . $qry_lck . "'";
@@ -113,7 +118,7 @@ function fetch_search_cache($qry, $start, $count, $logic, $srch_type, $order, $f
 	}
 
 	return q(q_limit('SELECT u.alias, f.name AS forum_name, f.id AS forum_id,
-			m.poster_id, m.id, m.thread_id, m.subject, m.poster_id, m.foff, m.length, m.post_stamp, m.file_id, m.icon, 
+			m.poster_id, m.id, m.thread_id, m.subject, m.poster_id, m.foff, m.length, m.post_stamp, m.file_id, m.icon, m.attach_cnt,
 			mm.id AS md, (t.root_msg_id = m.id) AS is_rootm, (t.thread_opt & 1) AS is_lckd
 		FROM {SQL_TABLE_PREFIX}search_cache sc
 		INNER JOIN {SQL_TABLE_PREFIX}msg m ON m.id=sc.msg_id
@@ -137,6 +142,7 @@ function fetch_search_cache($qry, $start, $count, $logic, $srch_type, $order, $f
 	$search_options = tmpl_draw_radio_opt('field', "all\nsubject", "{TEMPLATE: search_entire_msg}\n{TEMPLATE: search_subject_only}", $field, '{TEMPLATE: radio_button_separator}');
 	$logic_options = tmpl_draw_select_opt("AND\nOR", "{TEMPLATE: search_and}\n{TEMPLATE: search_or}", $search_logic);
 	$sort_options = tmpl_draw_select_opt("DESC\nASC", "{TEMPLATE: search_desc_order}\n{TEMPLATE: search_asc_order}", $sort_order);
+	$attach_options = tmpl_draw_select_opt("0\n1", "{TEMPLATE: search_attach_all}\n{TEMPLATE: search_attach_with}", $attach);
 
 	$TITLE_EXTRA = ': {TEMPLATE: search_title}';
 

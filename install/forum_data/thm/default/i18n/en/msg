@@ -68,7 +68,9 @@ mark_all_read_desc:All your unread messages will be marked as read
 members:Members
 calendar:Calendar
 cal_goto_date:Jump to:
+cal_day_heading:Events for day
 cal_no_events:No events for day.
+cal_update:Browsing the forum calendar
 message:Message
 message_counter:Our users have posted a total of <b>{PLURAL: post_count|$1 message|$1 messages}</b> inside <b>{PLURAL: thread_count|$1 topic|$1 topics}</b>.
 message_index:Message index
@@ -419,6 +421,7 @@ coppa:<p>A parent or guardian must mail or fax a signed permission form to the a
 prereg_info:Forum Rules
 prereg_agree:Agree
 prereg_disagree:Disagree
+prereg_update:Reading the forum rules
 coppa_fax_instructions:Instructions for a Parent or Guardian
 coppa_fax_instructions2:Please print this page, sign it, and fax it to:
 coppa_fax_reg_form:Registration Form
@@ -698,7 +701,7 @@ reset_title:Reset Password
 rpasswd_title:Change Password Form
 error_title:Error Form
 index_title:Welcome to the forum
-search_title:Search For {VAR-HTML: srch}
+search_title:Search for {VAR-HTML: srch}
 thread_title:{VAR: frm->name}
 tree_title:{VAR: frm->name} &raquo; {VAR: frm->subject}
 remail_emailsent:E-mail was sent
@@ -885,6 +888,9 @@ search_desc_order:Descending Order
 search_asc_order:Ascending Order
 search_logic:Search Logic:
 search_sorting:Sort Results by Date in:
+search_attach:Attachments:
+search_attach_all:With or without
+search_attach_with:With attachments
 post_proceed:Proceed
 post_moderated_forum:You have made a post in a moderated forum. Your message will not be visible to others until it is approved by one of the forum's moderators or administrators.
 post_moderated_forum_ttl:Moderated Forum Notice
