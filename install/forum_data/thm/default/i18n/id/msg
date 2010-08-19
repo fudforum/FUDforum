@@ -1,6 +1,7 @@
 # Messages for Indonesian (Bahasa Indonesia)
 # Exported from translatewiki.net
 # Author: Bennylin
+# Author: Farras
 # Author: Irwangatot
 # Author: IvanLanin
 
@@ -68,6 +69,11 @@ logout:keluar log
 mark_all_read:Tandai semua terbaca
 mark_all_read_desc:Semua pesan blm terbaca akan ditandai sbg terbaca
 members:Anggota
+calendar:Kalender
+cal_goto_date:Langsung ke:
+cal_day_heading:Kegiatan hari ini
+cal_no_events:Tidak ada kegiatan untuk hari ini.
+cal_update:Meramban kalender forum
 message:Pesan
 message_counter:Pengguna kami telah mengirim sejumlah <b>{PLURAL: post_count|$1 message|$1 messages}</b> dalam <b>{PLURAL: thread_count|$1 topic|$1 topics}</b>.
 message_index:Daftar pesan
@@ -252,6 +258,20 @@ month_9:September
 month_10:Oktober
 month_11:November
 month_12:Desember
+sunday:Minggu
+sunday_short:M
+monday:Senin
+monday_short:S
+tuesday:Selasa
+tuesday_short:S
+wednesday:Rabu
+wednesday_short:R
+thursday:Kamis
+thursday_short:K
+friday:Jumat
+friday_short:J
+saturday:Sabtu
+saturday_short:S
 male:Pria
 female:Wanita
 unspecified:TIDAK JELAS
@@ -404,6 +424,7 @@ coppa:<p>Orang tua atau wali harus mengirim surat atau fax formulir izin masuk a
 prereg_info:Informasi
 prereg_agree:Setuju
 prereg_disagree:Tidak setuju
+prereg_update:Membaca aturan forum
 coppa_fax_instructions:Petunjuk untuk orang-tua / wali
 coppa_fax_instructions2:Silakan cetak dan tanda-tangani dan kirim melalui fax:
 coppa_fax_reg_form:Formulir Registrasi
@@ -435,16 +456,21 @@ login_invalid_radius:Kombinasi Login/password tidak berlaku
 reset_confirmation:Terima-kasih atas pendaftarannya,\n\nUntuk mengaktifkan, silakan buka halaman:\n\n{VAR: url}\n\nBila sudah aktif, anda bisa login ke forum dan\nsecara otomatis diarahkan ke halaman utama.
 reset_reset:Hallo,\n\nAnda meminta password anda ditimpa ulang. Untuk meneruskan proses silakan menjuj ke halaman ini:\n\n{VAR: url}\n\nCatatan: Forum ini menyimpan password dengan proses satu arah, artinya sekali anda memberikan password\nakan dienkripsi sehingga tidak mungkin untuk mengambilnya lagi!\nCara kerjanya adalah dengan membandingkan versi terenkripsi dengan yang anda ketik saat login.\n(Jika ingin tahu lebih detil, baca algoritma MD5 HASH)
 rpasswd_invalid_passwd:Password salah
-rpasswd_passwd_nomatch:Passwords tidak cocok
+rpasswd_passwd_nomatch:Sandi tidak cocok
 rpasswd_passwd_length:Password minimal 6 karakter
 reset_remind_pass:Pengingat Password
 reset_reset_conf:Password akan ditimpa dan dikirimkan ke anda. Jika anda belum mengkonfirmasikan di alamat e-mail, konfirmasi akan dikirim ulang.
 reset_error:E-mail address tidak ada di database
 rpasswd_change_pass:Ubah Password
 rpasswd_login:Masuk log
-rpasswd_cur_pass:Password sekarang:
+rpasswd_cur_pass:Sandi Sekarang:
 rpasswd_new_pass:Password baru:
 rpasswd_conf_pass:Ulang Password:
+ruser_title:Ubah Formulir Log Masuk
+ruser_change_user:Ubah Log Masuk Forum Anda
+ruser_cur_login:Log Masuk Sekarang:
+ruser_new_login:Log Masuk Baru:
+ruser_cur_pass:Sandi Sekarang:
 login_passwd:Kata sandi:
 reset_email:Surat-e:
 reset_reset_button:Timpa Password
@@ -656,11 +682,9 @@ tree_update:Melihat topik (tree view) <a href="{TEMPLATE: tree_update_lnk}">{VAR
 userinfo_update:Melihat profile dari <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}'s</a>
 ERR_login_msg2:<legend>SALAH: Anda tidak login</legend>Untuk mengakses forum ini, anda harus menjadi anggota
 ERR_disabled_ttl:Fasilitas dinon-aktifkan
-# Fuzzy
-ERR_disabled_msg:Fasilitas ini sudah di non-aktifkan oleh administrator
+ERR_disabled_msg:Fitur ini telah dinonaktifkan oleh pengurus sistem.
 ERR_access_ttl:SALAH: Wewenang tidak mencukupi
-# Fuzzy
-ERR_access_msg:Anda tidak berwenang untuk melakukan hal tersebut
+ERR_access_msg:Anda tidak memiliki izin yang diperlukan untuk melakukan tindakan ini.
 ERR_registration_disabled_ttl:Registrasi di non-aktifkan
 ERR_registration_disabled_msg:Administrator sudah menon-aktifkan proses registrasi, coba laha beberapa saat lagi.
 ERR_emailconf_ttl:SALAH: Akun anda belum dikonfirmasi
@@ -693,6 +717,7 @@ post_opt_images_off:<b>Images</b> di<b>NON-AKTIFKAN</b>
 post_opt_smilies_off:<b>Smilies</b> di<b>NON-AKTIFKAN</b>
 post_opt:Pilihan Forum
 register_change_passwd:ubah password
+register_change_login:ubah log masuk
 approved_avatar_title:Avatar kustom anda disetujui.
 approved_avatar_msg:Avatar kustom anda disetujui oleh administrator. Avatar ini seharusnya muncul disetiap pesan anda. Jika tidak, refresh browser sekali atau dua kali.
 unapproved_avatar_title:Avatar kustom anda tidak disetujui.
@@ -755,6 +780,7 @@ rate_worst:Paling Jelek
 rate_best:Bagus
 post_quote_msg:{VAR: msg->login} ditulis pada {TEMPLATE: make_report_date}
 post_quote:Petikan:
+post_quote_selected:Kutip Teks Terpilih
 userinfo_referals:Pengguna direferensikan:
 userinfo_referals_count:{VAR: referals} anggota
 pm_no_space_title:Tidak ada ruang sisa!
@@ -802,6 +828,8 @@ quicklogin_password:Katasandi:
 quicklogin_use_cookies:pergunakan "Cookies"?
 quicklogin_login_btn:Masuk log
 quick_reply:Balas dengan cepat
+quick_reply_post:Kirim Balasan Cepat
+quick_reply_preview:Pratayang Balasan Cepat
 post_notification_desc:Beritahu jika ada balasan untuk pesan ini.
 post_all_ext_allowed:(Tidak dibatasi)
 maximize_category:Perbesar kategori
@@ -860,6 +888,9 @@ search_desc_order:Urutan terbalik
 search_asc_order:Urutan
 search_logic:Logika pencarian:
 search_sorting:Urutkan hasil pencarian berdasarkan tanggal dengan:
+search_attach:Lampiran:
+search_attach_all:Dengan atau tanpa
+search_attach_with:Dengan lampiran
 post_proceed:Proses
 post_moderated_forum:Anda sudah menulis di forum termoderasi. Pesan anda tidak akan terbaca oleh pengguna lain sampai disetujui oleh salah satu moderator atau administrator.
 post_moderated_forum_ttl:Catatan forum termoderasi

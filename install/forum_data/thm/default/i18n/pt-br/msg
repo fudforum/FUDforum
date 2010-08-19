@@ -70,7 +70,9 @@ mark_all_read_desc:Todas a suas mensagens serão marcadas como lidas
 members:Membros
 calendar:Calendário
 cal_goto_date:Ir para:
+cal_day_heading:Eventos por dia
 cal_no_events:Não há eventos para este dia.
+cal_update:Navegando no calendário do fórum
 message:Mensagem
 message_counter:Os nossos usuários postaram um total de <b>{PLURAL: post_count|$1 mensagem|$1 mensagens}</b> em <b>{PLURAL: thread_count|$1 tópico|$1 tópicos}</b>.
 message_index:Índice da mensagem
@@ -421,6 +423,7 @@ coppa:<p>Para que um usuário de idade inferior a 13 anos possa completar o proc
 prereg_info:Informação
 prereg_agree:Concordo
 prereg_disagree:Não concordo
+prereg_update:Lendo as regras do fórum
 coppa_fax_instructions:Instruções para o encarregado de educação
 coppa_fax_instructions2:Por favor imprima esta página assine e envie para:
 coppa_fax_reg_form:Formulário de registo
@@ -884,6 +887,9 @@ search_desc_order:Ordem Descendente
 search_asc_order:Ordem Ascendente
 search_logic:Lógica de Busca:
 search_sorting:Mostrar os Resultados por Data no:
+search_attach:Anexos:
+search_attach_all:Com ou sem
+search_attach_with:Com anexos
 post_proceed:Avançar
 post_moderated_forum:Você postou uma mensagem em um Fórum moderado, o que quer dizer que a sua mensagem não vai ser visível no fórum até que seja aprovada por um dos moderador(es) e/ou administrador(es) do Fórum.
 post_moderated_forum_ttl:Notícia moderada do fórum.
@@ -1082,7 +1088,7 @@ post_always_on_top:Fazer com que o tópico apareça sempre no topo da listagem d
 topic_rating:{VAR: frm->rating} de {PLURAL: frm->n_rating|$1 voto|$1 votos}
 topic_list_rating:{VAR: r[17]} de {PLURAL: r[21]|$1 voto|$1 votos}
 tabs_notifications:Notificações
-finduser_flag:Sinalização
+finduser_flag:Bandeira
 post_descr:Descrição do tópico:
 pmsg_on:em
 pmsg_download_dump:Descarregar uma cópia das mensagens

@@ -68,7 +68,9 @@ mark_all_read_desc:Wšě twoje njepřečitane powěsće budu so jako přečitane
 members:Čłonojo
 calendar:Protyka
 cal_goto_date:Skočić do:
+cal_day_heading:Podawki za dźeń
 cal_no_events:Žane podawki tón dźeń.
+cal_update:Forumowa protyka so přepytuje
 message:Powěsć
 message_counter:Naši wužiwarjo su dohromady <b>{PLURAL: post_count|$1 powěsć|$1 powěsći|$1 powěsće|$1 powěsćow}</b> znutřka <b>{PLURAL: thread_count|$1 temy|$1 temow|$1 temow|$1 temow}</b> pósłali.
 message_index:Powěsćowy indeks
@@ -419,6 +421,7 @@ coppa:<p>Jedyn ze staršeju abo předporučnik dyrbi administratorej podpisany p
 prereg_info:Forumowe prawidła
 prereg_agree:Přihłosować
 prereg_disagree:Wotpokazać
+prereg_update:Forumowe prawidła so čitaja
 coppa_fax_instructions:Instrukcije za jednoho ze staršeju abo předporučnika
 coppa_fax_instructions2:Prošu wućišć tutu stronu, podpisaj ju a faksuj ju na:
 coppa_fax_reg_form:Registrowanski formular
@@ -882,6 +885,9 @@ search_desc_order:Spadowace sortěrowanje
 search_asc_order:Postupowace sortěrowanje
 search_logic:Pytanska logika:
 search_sorting:Wuslědki po datumje sortěrować w:
+search_attach:Přiwěški:
+search_attach_all:Z abo bjez
+search_attach_with:z přiwěškami
 post_proceed:Pokročować
 post_moderated_forum:Sy powěsć w moderěrowanym forumje spisał. Twoja powěsć njebudźe widźomna za druhich, doniž njeje wot jednoho z moderatorow abo administratorow foruma schwalena.
 post_moderated_forum_ttl:Zdźělenka moderěrowaneho foruma

@@ -460,14 +460,54 @@ rpasswd_login:Імя ўдзельніка
 rpasswd_cur_pass:Цяперашні пароль:
 rpasswd_new_pass:Новы пароль:
 rpasswd_conf_pass:Пацьверджаньне паролю:
+ruser_title:Форма зьмены імя карыстальніка
+ruser_change_user:Зьмена Вашага імя карыстальніка на форуме
+ruser_cur_login:Цяперашняе імя карыстальніка:
+ruser_new_login:Новае імя карыстальніка:
+ruser_cur_pass:Цяперашні пароль:
 login_passwd:Пароль:
+reset_email:Адрас электроннай пошты:
 reset_reset_button:Ачысьціць пароль
+rate_this_thread:Адзначыць
+report_reporting_about:Паведамленьне пра:
 report_subject:Тэма:
+report_by:Ад:
+report_posted_on:Дасланы:
+report_give_reason:Калі ласка, падайце прычыну, па якой Вы даслалі гэтае паведамленьне:
+report_submit_report:Адправіць паведамленьне
+search_entire_msg:Усё паведамленьне
+search_subject_only:Толькі тэма
 search_forum:Форум
+search_posted_on:Дасланы
+search_no_results:Вынікаў няма
+search_all_forums:Шукаць ва ўсіх форумах
+search_in_forum:Шукаць у форуме:
+search_forum_search:Пошук у форумах
+move_thread_to:Перанесьці тэму <b>{VAR: thr->subject}</b> у:
+remail_email_topic:Даслаць гэтую тэму сябру па электроннай пошце
+remail_your_name:Вашае імя:
+remail_your_email:Ваш адрас электроннай пошты:
+remail_friends_name:Імя сябра:
+remail_friends_email:Адрас электроннай пошты сябра:
+remail_required:абавязкова
 remail_subject:Тэма:
 remail_message:Паведамленьне:
+remail_send_now:Даслаць электронны ліст зараз
+remail_anon_opt:Скапіюйце гэтае паведамленьне ў Вашую паштовую праграму, каб даслаць яго Вашым сябрам.
+remail_done:Выканана
+remail_sent_conf:Электронны ліст Вашаму сябру на адпас {VAR-HTML: _POST['femail']} на тэму {VAR: data->subject} быў пасьпяхова дасланы.
+remail_error:Узьнікла памылка
 mklist_type:Тып:
+mklist_option:Устаноўка:
+mklist_additem:Дадаць элемэнт
+mklist_apply:Ужыць
 mklist_delete:Выдаліць
+qbud_nick_name:Мянушка
+qbud_add_selected:Дадаць выбраных
+qbud_selected:Выбрана
+qbud_no_buddies:Няма сяброў да выбару
+mklist_numerical:Нумараваны
+mklist_aplha:Альфабэтны
 email_subject:Тэма:
 ppost_send:Даслаць
 ppost_save_draft:Захаваць чарнавік

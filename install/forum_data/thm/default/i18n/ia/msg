@@ -68,7 +68,9 @@ mark_all_read_desc:Tote tu messages non legite essera marcate como legite
 members:Membros
 calendar:Calendario
 cal_goto_date:Saltar a:
+cal_day_heading:Eventos del die
 cal_no_events:Nulle eventos hodie.
+cal_update:Naviga per le calendario del foro
 message:Message
 message_counter:Nostre usatores ha publicate un total de <b>{PLURAL: post_count|$1 message|$1 messages}</b> in <b>{PLURAL: thread_count|$1 topico|$1 topicos}</b>.
 message_index:Indice de messages
@@ -419,6 +421,7 @@ coppa:<p>Un parente o tutor debe inviar per posta o fax un formulario de permiss
 prereg_info:Regulas del foro
 prereg_agree:De accordo
 prereg_disagree:Non de accordo
+prereg_update:Lege le regulas del foro
 coppa_fax_instructions:Instructiones pro un parente o tutor
 coppa_fax_instructions2:Per favor imprime iste pagina, signa lo, e invia lo per fax a:
 coppa_fax_reg_form:Formulario de inscription
@@ -882,6 +885,9 @@ search_desc_order:Ordine descendente
 search_asc_order:Ordine ascendente
 search_logic:Logica de recerca:
 search_sorting:Ordinar le resultatos per data in:
+search_attach:Annexos:
+search_attach_all:Con o sin
+search_attach_with:Con annexos
 post_proceed:Proceder
 post_moderated_forum:Tu ha scribite un message in un foro moderate. Tu message non essera visibile a alteres usque illo habera essite approbate per un del moderatores o administratores del foro.
 post_moderated_forum_ttl:Aviso de foro moderate
@@ -985,3 +991,134 @@ merge_another:Vader al <a href="{TEMPLATE: merge_another_lnk}">ultime topico fus
 split_cp:Pannello de controlo pro divider topicos
 groups_perms_header:Permissiones <span class="small">(move le mouse super le permission pro vider su typo)</span>
 register_err_sig_too_long:Tu signatura excede le longitude maxime permittite de {GVAR: FORUM_SIG_ML} characteres.
+register_sig_limit:{GVAR: FORUM_SIG_ML} characteres <a href="javascript: alert('Tu signatura ha un longitude de '+document.forms['fud_register'].reg_sig.value.length+' characteres. Le longitude maxime permittite es {GVAR: FORUM_SIG_ML} characteres.');" class="SmallText">Verifica le longitude del signatura</a>
+adm_account_accepted:Tu conto '{VAR: login}' esseva approbate per le administrator e es presentemente active. Tu pote ora acceder al foro '{GVAR: FORUM_TITLE}' como usator registrate e confirmate.
+adm_account_accepted_s:Tu requesta de conto pro '{GVAR: FORUM_TITLE}' esseva acceptate.
+adm_account_rejected:Tu conto '{VAR: login}' esseva refusate per le administrator. Si tu vole cognoscer le motivo de iste decision, sia libere de contactar le administrator a '{GVAR: ADMIN_EMAIL}'.
+adm_account_rejected_s:Tu requesta de conto pro '{GVAR: FORUM_TITLE}' esseva refusate.
+thread_on:le
+userinfo_buddy:Amico:
+register_email_addr:Adresse de e-mail:
+reset_suffix:Si tu ha recipite iste message in error, per favor ignora lo. Si tu recipe multiple copias de iste e-mail, le quales tu non ha requestate, per favor contacta le foro del administrator a {GVAR: ADMIN_EMAIL}\n\nIste requesta esseva initiate ab: {VAR: _SERVER['REMOTE_ADDR']}.
+usrinfo_last_visit:Ultime visita:
+mnav_newer:plus nove que
+mnav_older:plus vetule que
+ip_search_by_ip:Cercar usatores per IP
+ip_search_syntax:Syntaxe supportate: 1.2.3.4, 1.2.3, 1.2, 1
+ip_search:Cercar
+ip_analyze_usage:Analysar uso IP
+ip_analyze_usage_descr:Per favor specifica le nomine de usator exacte.
+ip_users_using:Usatores usante le adresse IP '{VAR: ip}'
+ip_all_ips:Tote le IPs usate per '{VAR: user}'
+ip_title:Navigator IP
+userinfo_real_name:Nomine real:
+register_err_alias_notallowed:Iste alias non es permittite
+post_err_mod_forum_edit_ttl:ERROR
+post_err_mod_forum_edit_msg:Tu non pote modificar messages in un foro moderate.
+dmsg_num:message №{VAR: obj->id}
+postcheck_session_invalid:Tu session ha expirate. Per favor resubmitte le formulario. Pardona le incommoditate.
+delete_message_extra_desc:<b>Optional</b><br />Specifica un motivo pro le deletion del message, le qual essera inviate al autor via un message private.
+delete_message_extra_body:Includer le texto del message removite que essera inviate al autor.
+delete_msg_removed_ttl:Tu message ha essite removite per le personal de administration.
+delete_msg_pm_body:Message original
+delete_msg_pm_subject:Subjecto: {VAR: data[15]}
+ip_no_whois:Informationes Whois pro <b>{VAR: ip}</b> non es disponibile.
+ip_whois_title:Informationes del ISP
+register_theme:Thema:
+pmsg_trash:Vacuar le corbe
+uc_new_pm:Nove messages private
+uc_new_topic:Nove topico
+uc_new_cat_forum:Foros subscribite con nove messages
+uc_cat_forum:Categoria &raquo; Foro
+uc_sub_topics:Topicos subscribite con nove messages
+uc_page_title:Reguarda le pannello de controlo personal.
+search_options:Optiones de recerca
+search_user_filter:Filtrar per usator:
+register_none:Non notificar
+findu_no_conf:usator non confirmate
+register_max_sig_len:Longitude maxime:
+register_turing:Per favor entra le codice monstrate hic infra:
+register_err_turing:Codice de validation invalide.
+modque_cat:Categoria
+modque_forum:Foro
+idx_compact_forum_row:Foros disponibile:
+mmd_del_title:Deler topicos
+mmd_mov_title:Displaciar topicos
+mmd_move_threads_to:Foro de destination:
+mmd_abort_move:Cancellar
+mmd_move:Displaciar topicos
+pmsg_pdf_btn:Facer archivo PDF
+search_results_hdr:{VAR: total} resultatos de recerca trovate
+thread_del_all:Deler tote le selection
+thread_mov_all:Displaciar tote le selection
+thread_merge_all:Fusionar tote le selection
+thread_loc_all:Serrar/Disserrar tote le selection
+dmsg_ip:IP:
+err_blockedaccnt_title:ERROR: Tu conto ha essite filtrate.
+err_blockedaccnt_msg:Tu conto ha essite blocate de acceder al foro debite a un del filtros de usator installate.
+merge_th_page_list:Selection de pagina de topico
+most_users_online:Le numero maxime de usatores connectite esseva <b>{VAR: st_obj->most_online}</b> a <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
+sub_unsub_all_forums:Cancellar subscription a tote le foros
+sub_unsub_all_topics:Cancellar subscription a tote le topicos
+unbookmark_all_topics:Remover tote le favorites
+tabs_own_posts:Monstrar proprie messages
+sml_emoticon:Emoticone
+sml_code:Codice
+mnav_sub_only:Cercar in foros subscribite solmente
+register_topics_per_page:Topicos per pagina:
+login_min_time:Iste foro permitte un sol tentativa de aperir session cata {VAR: MIN_TIME_BETWEEN_LOGIN} secundas. Per favor attende {FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)} secundas ante vostre proxime tentativa.
+post_not_logged_in:Tu non es actualmente authenticate. Le message essera publicate anonymemente.
+post_common_bold:Grasse
+post_common_italics:Italic
+post_common_underline:Sublineate
+post_common_align_left:Alinear a sinistra
+post_common_align_center:Alinear al centro
+post_common_align_right:Alinear a dextra
+post_common_link:Inserer un ligamine
+post_common_email:Inserer un adresse de e-mail
+post_common_image:Inserer un imagine
+post_common_nlist:Adder un lista numerate
+post_common_blist:Adder un lista a punctos
+post_common_quote:Adder un citation
+post_common_code:Adder codice
+rating_delete:Deler
+post_always_on_top:Facer le topico apparer sempre al initio del lista de topicos
+topic_rating:{VAR: frm->rating} de {PLURAL: frm->n_rating|$1 voto|$1 votos}
+topic_list_rating:{VAR: r[17]} de {PLURAL: r[21]|$1 voto|$1 votos}
+tabs_notifications:Notificationes
+finduser_flag:Bandiera
+post_descr:Description del topico:
+pmsg_on:le
+pmsg_download_dump:Discargar archivo de messages
+move_messages:Displaciar messages
+move_msg_btn:Displaciar selection
+move_msg_th_expl:Specifica le ID del topico de destination (pote esser in altere foro)
+captcha_img_alt:Verification per Captcha: tu debe recognoscer le texto in iste imagine.
+captcha_img_help:Il non ha zero o un in iste imagine.
+powered-by:Actionate per: FUDforum {GVAR: FORUM_VERSION}.<br />Copyright &copy;2001-2010 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+code_title:Codice:
+code_select_all:Seliger toto
+code_show_hide:Revelar/celar
+social_sites:Sitos de rete social:
+postcheck_min_len_err:Tu message es troppo curte. Le longitude minime es {PLURAL: post_min_len|$1 character|$1 characteres}.
+postcheck_dup_err:Per favor non crea topicos duplicate.
+btn_new_topic:Nove topico
+btn_new_pm:Nove msg private
+btn_post_reply:Responder
+btn_tree_view:Vista arborescente
+btn_flat_view:Vista plan
+btn_about:Profilo
+btn_small_pm:MP
+btn_delete:deler
+btn_edit:modificar
+btn_reply:responder
+btn_forward:reinviar
+btn_quote:citar
+btn_email:E-mail
+btn_show_posts:messages
+btn_homepage:www
+feed_no_data:Nulle datos correspondente trovate.
+feed_rdf:Syndication RDF
+feed_rss:Syndication RSS2
+feed_atom:Syndication ATOM
+ip_whois_connect_err:Impossibile connecter al servitor WHOIS ({VAR: whois_server}): {VAR: errstr}

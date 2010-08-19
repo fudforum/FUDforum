@@ -427,7 +427,7 @@ login_invalid_radius:Combinatie gresita utilizator/parola
 reset_confirmation:Va multumim pentru ca v-ati inregistrat,\n\nPentru a va activa contul mergeti la agresa de mai jos:\n\n{VAR: url}\n\nOdata ce contul dumneavoastra va fi confirmat veti fi automat autentificat si trimis la prima pagina a forumului.
 reset_reset:Ziua buna,\n\nAti cerut ca parola sa fie resetata, pentru a o reseta mergeti la adresa URL\n\n{VAR: url}
 rpasswd_invalid_passwd:Parola incorecta
-rpasswd_passwd_nomatch:Parolele nu se potrivesc
+rpasswd_passwd_nomatch:Parolele nu sunt identice
 rpasswd_passwd_length:Parola trebuie sa aiba minim 6 caractre
 reset_remind_pass:Reseteaza parola
 reset_reset_conf:Parola va fi resetata si trimisa prin email. Va rugam sa raspundeti la email pentru a confirma primirea parolei.

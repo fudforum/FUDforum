@@ -68,7 +68,9 @@ mark_all_read_desc:Alle boodskappe wat u nog nie gelees het nie sal as gelees ge
 members:Lede
 calendar:Kalender
 cal_goto_date:Gaan na:
+cal_day_heading:Gebeurtenisse vir dag
 cal_no_events:Geen gebeure vir die dag nie.
+cal_update:Blaai deur die forum se kalender
 message:Boodskap
 message_counter:Ons gebruikers het in totaal <b>{PLURAL: post_count|$1 boodskap|$1 boodskappe}</b> in <b>{PLURAL: thread_count|$1 onderwerp|$1 onderwerpe}</b> gepos.
 message_index:Boodskapslys
@@ -419,6 +421,7 @@ coppa:<p>U voog moet via faks of e-pos toestemming na die administrateur van die
 prereg_info:Informasie
 prereg_agree:Akoord
 prereg_disagree:Stem nie saam nie
+prereg_update:Lees die forum se reëls
 coppa_fax_instructions:Instruksies vir die voog
 coppa_fax_instructions2:Druk hierdie bladsy en faks dit na:
 coppa_fax_reg_form:Registrasie
@@ -882,6 +885,9 @@ search_desc_order:dalende volgorde
 search_asc_order:stygende volgorde
 search_logic:Logika vir soektog:
 search_sorting:Sorteer resultate volgens datum:
+search_attach:Aanhangsels:
+search_attach_all:Met of sonder
+search_attach_with:Met aanhangsels
 post_proceed:Gaan voort
 post_moderated_forum:U het 'n boodskap in 'n gemodereerde forum gepos. U boodskap sal nie op die forum sigbaar wees alvorens dit deur 'n moderator of administrateur goedgekeur is nie.
 post_moderated_forum_ttl:Gemodereerde forumboodskap

@@ -968,19 +968,20 @@ split_cp:Painel de Controle para Quebra de Tópicos
 groups_perms_header:Permissões <font size="-1">(passe o mouse sobre a permissão para ver seu tipo)</font>
 # Fuzzy
 register_sig_limit:{GVAR: FORUM_SIG_ML} caracteres <a href="javascript: alert('Sua assinatura possui '+document.forms['fud_register'].reg_sig.value.length+' caracteres. O comprimento máximo permitido é de {GVAR: FORUM_SIG_ML}');" class="SmallText">Veja o Tamanho da Assinatura</a>
-adm_account_accepted:Your account '{VAR: login}' was approved by the administrator and is now active. You may now access the {GVAR: FORUM_TITLE}' forum as a confirmed registered user.
-adm_account_accepted_s:Your accout request for '{GVAR: FORUM_TITLE}' was accepted.
-adm_account_rejected:Your account '{VAR: login}' was declined by the administrator and is now active. If you would like to know the reason behind this decision feel free to contact the administrator at '{GVAR: ADMIN_EMAIL}'.
-adm_account_rejected_s:Your accout request for '{GVAR: FORUM_TITLE}' was declined.
+adm_account_accepted:A sua conta '{VAR: login}' foi aprovada pelo administrador e já está activa. Agora pode aceder ao Fórum {GVAR: FORUM_TITLE}' como utilizador registado e confirmado.
+adm_account_accepted_s:O seu pedido de conta para o fórum '{GVAR: FORUM_TITLE}' foi aceite.
+adm_account_rejected:A sua conta '{VAR: login}' foi rejeitada pelo administrador. Se quiser saber a razão desta decisão, contacte o administrador no endereço '{GVAR: ADMIN_EMAIL}'.
+adm_account_rejected_s:O seu pedido de conta para o Fórum '{GVAR: FORUM_TITLE}' foi recusado.
+register_email_addr:Endereço de correio electrónico:
 usrinfo_last_visit:Ultimo Visitado:
-mnav_newer:newer then
-mnav_older:older then
+mnav_newer:mais recente que
+mnav_older:mais antigo que
 ip_search:Pesquisar
 userinfo_real_name:Nome real:
 post_err_mod_forum_edit_ttl:ERRO
-post_err_mod_forum_edit_msg:You cannot edit messages inside a moderated forum.
+post_err_mod_forum_edit_msg:Não pode editar mensagens num fórum moderado.
 dmsg_num:mensagem n° {VAR: obj->id}
-postcheck_session_invalid:Your session had expired, please re-submit the form. Sorry for the inconvenience.
+postcheck_session_invalid:A sua sessão expirou. Volte a enviar o formulário, por favor. Desculpe o inconveniente.
 delete_msg_pm_body:Mensagem original
 delete_msg_pm_subject:Assunto: {VAR: data[15]}
 register_theme:Tema:
@@ -1004,17 +1005,30 @@ sml_code:Código
 register_topics_per_page:Tópicos por página:
 post_common_bold:Negrito
 post_common_italics:Itálico
+post_common_align_left:Alinhar à Esquerda
+post_common_align_center:Centralizar
+post_common_align_right:Alinhar à Direita
 post_common_link:Inserir um Link
 post_common_email:Insira um endereço de correio electrónico
 post_common_image:Inserir uma imagem
+post_common_nlist:Adicionar lista numerada
+post_common_quote:Adicionar Citação
+post_common_code:Adicionar Código
+rating_delete:Apagar
 tabs_notifications:Notificações
 post_descr:Descrição do tópico:
 move_messages:Mover mensagens
 # Fuzzy
 powered-by:Powered by: FUDforum {GVAR: FORUM_VERSION}.<br />Copyright &copy;2001-2010 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Código:
+code_select_all:Seleccionar todos
+code_show_hide:Mostrar / ocultar
 btn_new_topic:Novo tópico
+btn_post_reply:Responder
 btn_about:Perfil
+btn_delete:apagar
 btn_edit:editar
 btn_reply:responder
+btn_quote:Citar
+btn_email:Correio electrónico
 btn_homepage:www

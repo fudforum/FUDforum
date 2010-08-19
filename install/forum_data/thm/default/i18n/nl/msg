@@ -11,14 +11,14 @@ admin_control_panel:Instellingen
 administrator:beheerder
 attachment:Bijlage:
 avatar:Avatar:
-average_post_count:$1 {PLURAL: u->posted_msg_count|bericht|berichten} ($2 {PLURAL: avg|bericht|berichten} gemiddeld per dag)
+average_post_count:$1 {PLURAL: u->posted_msg_count|bericht|berichten} ($1 {PLURAL: avg|bericht|berichten} gemiddeld per dag)
 biography:Biografie:
 birth_date:Geboortedatum:
 by:Door:
 by_mod:door moderator
 current_time:Huidige tijd
 custom_avatar_queue:Wachtrij voor aangepaste avatars
-date_posted:Berichtdatum:
+date_posted:Berichtdatum
 date_registered:Registratiedatum:
 download_counter:{PLURAL: v[3]|$1 keer|$1 keer} keer gedownload
 pmsg_download_counter:{PLURAL: r->dlcount|$1 keer|$1 keer} keer gedownload
@@ -26,7 +26,7 @@ email:E-mail:
 email_to_friend:Vriend e-mailen
 email_to_friend_desc:De URL naar deze pagina naar een of meer vrienden zenden via e-mail
 email_user:E-mail naar deze gebruiker zenden
-faq:F.A.Q.
+faq:Hulp
 first_unread_msg:Naar ongelezen berichten gaan
 first_unread_msg_desc:Naar het eerste ongelezen bericht binnen dit onderwerp gaan
 flat_view:Terug naar de platte weergave
@@ -70,7 +70,9 @@ mark_all_read_desc:Alle berichten die u nog niet gelezen hebt worden als gelezen
 members:Leden
 calendar:Kalender
 cal_goto_date:Ga naar:
+cal_day_heading:Gebeurtenissen voor dag
 cal_no_events:Geen gebeurtenissen voor dag.
+cal_update:De forumkalender aan het bekijken
 message:Bericht
 message_counter:Onze gebruikers hebben in totaal <b>{PLURAL: post_count|$1 bericht|$1 berichten}</b> geplaatst in <b>{PLURAL: thread_count|$1 onderwerp|$1 onderwerpen}</b>.
 message_index:Berichtenlijst
@@ -421,6 +423,7 @@ coppa:Een ouder of voogd moet via fax of post een getekend toestemmingsformulier
 prereg_info:Forumregels
 prereg_agree:Ik ga akkoord
 prereg_disagree:Niet akkoord
+prereg_update:De forumregels aan het lezen
 coppa_fax_instructions:Instructies voor ouder of voogd
 coppa_fax_instructions2:Druk deze pagina af en zend een fax naar:
 coppa_fax_reg_form:Registratieformulier
@@ -691,7 +694,7 @@ ERR_systemerr_ttl:Fout: systeemfout
 ERR_systemerr_msg:Er is een systeemfout opgetreden. Meld dit alstublieft aan de <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a>.
 email_title:E-mailformulier
 finduser_title:Gebruiker zoeken
-help_title:F.A.Q.
+help_title:Hulp
 login_title:Aanmeldformulier
 poll_title:Stemming bewerken
 register_title:Registratieformulier
@@ -884,6 +887,9 @@ search_desc_order:Aflopen gesorteerd
 search_asc_order:Oplopend gesorteerd
 search_logic:Logisch zoeken:
 search_sorting:Resultaten op datum sorteren in:
+search_attach:Bijlagen:
+search_attach_all:Met of zonder
+search_attach_with:Met bijlagen
 post_proceed:Doorgaan
 post_moderated_forum:U hebt een bericht geplaatst in een gemodereerd forum. Uw bericht is niet zichtbaar voor anderen totdat het is goedgekeurd door een forummoderator or beheerder.
 post_moderated_forum_ttl:Gemodereerd forumbericht
@@ -1082,7 +1088,7 @@ post_always_on_top:Het onderwerp altijd bovenaan de onderwerpenlijst weergeven
 topic_rating:{VAR: frm->rating} van {PLURAL: frm->n_rating|$1 stem|$1 stemmen}
 topic_list_rating:{VAR: r[17]} van {PLURAL: r[21]|$1 stem|$1 stemmen}
 tabs_notifications:Waarschuwingen
-finduser_flag:Markeren
+finduser_flag:Vlag
 post_descr:Beschrijving van het onderwerp:
 pmsg_on:op
 pmsg_download_dump:Berichtendump downloaden

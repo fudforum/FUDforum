@@ -70,7 +70,9 @@ mark_all_read_desc:Alle Beiträge werden als gelesen gekenzeichnet.
 members:Mitglieder
 calendar:Kalender
 cal_goto_date:Gehe zu:
+cal_day_heading:Ereignisse an diesem Tag
 cal_no_events:Keine Ereignisse an diesem Tag.
+cal_update:Durchsucht den Kalender
 message:Beitrag
 message_counter:Unsere Benutzer haben insgesamt <b>{PLURAL: post_count|$1 Nachricht|$1 Nachrichten}</b> in <b>{PLURAL: thread_count|$1 Thema|$1 Themen}</b> erstellt.
 message_index:Beitragsindex
@@ -421,6 +423,7 @@ coppa:<p>Ein Elternteil oder Vormund muss eine unterschriebene Einwilligungserkl
 prereg_info:Information
 prereg_agree:Zustimmen
 prereg_disagree:Ablehnen
+prereg_update:Liest die Forenregeln
 coppa_fax_instructions:Anleitung für ein Elternteil oder Vormund
 coppa_fax_instructions2:Bitte drucken Sie dieses Formular aus, unterschreiben und schicken es an:
 coppa_fax_reg_form:Registrierungsformular
@@ -640,7 +643,7 @@ private_msg_notify_body:Guten Tag,<br />{VAR: usr->login} hat Ihre private Nachr
 referals_update:Durchsucht die Anwerbungen
 register_err_short_login:Der Anmeldename, den Sie gewählt haben, ist zu kurz. Er muss mindestens 4 Zeichen enthalten.
 register_err_login_notallowed:Dieser Anmeldename ist nicht erlaubt
-register_err_loginunique:Anmeldenamen für das Forum müssen einmalig sein, es gibt bereits einen Benutzer mit diesen Anmeldenamen im System.
+register_err_loginunique:Anmeldenamen für das Forum müssen einmalig sein, es gibt bereits einen Benutzer mit diesem Anmeldenamen im System.
 register_err_emailexists:Diese E-Mail-Adresse wurde schon verwendet, falls Sie Ihr Passwort vergessen haben, lassen Sie es bitte zurücksetzen, anstatt sich neu zu registrieren.
 register_err_shortpasswd:Das Passwort muss mindestens 6 Zeichen lang sein.
 register_err_passwdnomatch:Ihre Passwörter stimmen nicht überein.
@@ -884,6 +887,9 @@ search_desc_order:Absteigende Sortierung
 search_asc_order:Aufsteigende Sortierung
 search_logic:Suchlogik:
 search_sorting:Ergebnisse nach Datum sortieren in:
+search_attach:Anhänge:
+search_attach_all:Mit oder Ohne
+search_attach_with:Mit Anhängen
 post_proceed:Fortsetzen
 post_moderated_forum:Sie haben einen Beitrag in einem moderierten Forum erstellt, was bedeutet, dass dieser nicht eher im Forum erscheinen wird, bevor einer der Moderatoren oder Administratoren ihn gebilligt hat.
 post_moderated_forum_ttl:Mitteilung vom moderierten Forum

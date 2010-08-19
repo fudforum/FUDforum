@@ -433,7 +433,7 @@ login_invalid_radius:Malvalida kombinaĵo de salutnomo/pasvorto
 reset_confirmation:Dankon por registrado.\n\nPor aktivigi vian konton, bonvolu iru al la jena URL-o:\n\n{VAR: url}\n\nPost via konto estas aktivigita, vi estos ensalutita en la forumo kaj alidirektita al la ĉefa paĝo.
 reset_reset:Saluton,\n\nVi petis por via pasvorto esti restarigita. Por plenumi la procezon, bonvolu iri al ĉi tiu URL:\n\n{VAR: url}\n\nNOTU: Ĉi tiu forumo konservas la pasvortojn en unu-direkta ĉifra mekanismo, kiu signifas ke post vi enigis vian pasvorton, ĝi estas ĉifrita tiel ne eblos reatingi ĝin. Ĉi tiu funkcias per komparante la ĉifritan registritan version kun la ĉifrita versio entajpita ĉe la ensaluta invito.\n(Se vi estas interesa kiel ĉi tiu mekanismo funkcias, prilegu pri MD5 HASH algoritmo)
 rpasswd_invalid_passwd:Malvalida Pasvorto
-rpasswd_passwd_nomatch:Pasvortoj ne kongruas
+rpasswd_passwd_nomatch:Pasvortoj ne estas samaj
 rpasswd_passwd_length:Pasvorto devas esti almenaŭ 6 signoj longaj
 reset_remind_pass:Pasvorta Memorilo
 reset_reset_conf:Via pasvorto estos restarigita kajk sendita al vi. Se vi ne estas konfirmita vian retadreson, la konfirmada peto estos resendita al vi.

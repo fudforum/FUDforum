@@ -69,7 +69,9 @@ mark_all_read_desc:Todas as túas mensaxes non lidas marcaranse como lidas
 members:Membros
 calendar:Calendario
 cal_goto_date:Ir a:
+cal_day_heading:Acontecementos de hoxe
 cal_no_events:Non hai eventos para este día.
+cal_update:Navegando polo calendario do foro
 message:Mensaxe
 message_counter:Os nosos usuarios publicaron un total <b>{PLURAL: post_count|dunha mensaxe|de $1 mensaxes}</b> <b>{PLURAL: thread_count|nun fío|en $1 fíos}</b>.
 message_index:Índice de mensaxes
@@ -420,6 +422,7 @@ coppa:<p>Un pai ou titor legal debe enviar por correo ou por fax un formulario d
 prereg_info:Regras do foro
 prereg_agree:Acepto
 prereg_disagree:Discordo
+prereg_update:Lendo as regras do foro
 coppa_fax_instructions:Instrucións para o pai ou titor legal
 coppa_fax_instructions2:Por favor, imprime esta páxina, asínaa e envíaa por fax a:
 coppa_fax_reg_form:Formulario de rexistro
@@ -883,6 +886,9 @@ search_desc_order:Orde descendente
 search_asc_order:Orde ascendente
 search_logic:Lóxica de busca:
 search_sorting:Ordenar os resultados por data en:
+search_attach:Datos adxuntos:
+search_attach_all:Con ou sen
+search_attach_with:Con datos adxuntos
 post_proceed:Proceder
 post_moderated_forum:Publicaches unha mensaxe nun foro moderado. A túa mensaxe non será visible no foro ata que sexa aprobada por calquera dos moderadores ou administradores do mesmo.
 post_moderated_forum_ttl:Aviso de foro moderado

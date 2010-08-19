@@ -75,7 +75,9 @@ mark_all_read_desc:Tous vos messages non lus vont être marqués comme lus
 members:Membres
 calendar:Calendrier
 cal_goto_date:Aller à :
+cal_day_heading:Événements pour la journée
 cal_no_events:Aucun événement pour le jour.
+cal_update:Parcourir le calendrier du forum
 message:Message
 message_counter:Nos utilisateurs ont posté un total de <b>{PLURAL: post_count|$1 message|$1 messages}</b> message(s) dans <b>{PLURAL: thread_count|$1 fil|$1 fil}</b>.
 message_index:Index des messages
@@ -426,6 +428,7 @@ coppa:<p>Un parent ou tuteur légal doit faxer ou envoyer par la poste une autor
 prereg_info:Information
 prereg_agree:J'accepte
 prereg_disagree:Je refuse
+prereg_update:Lire les règles du forum
 coppa_fax_instructions:Instructions aux parents ou tuteur(s)
 coppa_fax_instructions2:Veuillez imprimer cette page, la signer et la faxer ou l'envoyer par la poste à :
 coppa_fax_reg_form:Formulaire d'inscription
@@ -889,6 +892,9 @@ search_desc_order:Ordre décroissant
 search_asc_order:Ordre croissant
 search_logic:Logique :
 search_sorting:Trier les résultats par date et par :
+search_attach:Pièces jointes :
+search_attach_all:Avec ou sans
+search_attach_with:Avec des pièces jointes
 post_proceed:Confirmer
 post_moderated_forum:Vous avez écrit dans un forum modéré, cela signifie que votre message ne sera pas visible dans le forum tant qu'il n'aura pas été approuvé par l'un des modérateurs et/ou administrateurs du forum.
 post_moderated_forum_ttl:Modération du forum

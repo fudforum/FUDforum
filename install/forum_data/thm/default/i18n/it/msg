@@ -555,8 +555,7 @@ tabs_ignore_list:Lista utenti da ignorare
 tabs_private_messaging:Messaggi privati
 # Fuzzy
 single_msg_delete:Stai per <font color="#ff0000" size="4">CANCELLARE</font> un messaggio dal titolo: <b>{VAR: data[3]}</b>
-# Fuzzy
-thread_delete:Stai per <font color="#ff0000" size="4">CANCELLARE</font> un <font color="#ff0000" size="4">INTERO ARGOMENTO</font> intitolato: <b>{VAR: data[3]}</b>
+thread_delete:Si sta per <span class="ErrorText">cancellare</span> un<span class="ErrorText">intero argomento</span> intitolato: <b>{VAR: data[3]}</b>
 delete_proceed:Vuoi procedere?
 delete_yes:Sì
 delete_no:No
@@ -729,7 +728,6 @@ thr_exch_dest_forum:Forum di destinazione:
 thr_exch_no_threads:Non ci sono argomenti in attesa di approvazione.
 thr_exch_decl_reason:Motivazione per il rifiuto dell'inserimento dell'argomento  <b>{VAR: data->subject}</b> nel forum <b>{VAR: data->f2_name}</b>
 thr_exch_submit:Invia
-# Fuzzy
 exch_decline_ttl:La richiesta di spostamento dell'argomento {VAR: data->subject} nel forum {VAR: data->f2_name} è stata rifiutata.
 ppost_original_msg:messaggio che stai inoltrando a
 split_thread:Spezza il Topic
