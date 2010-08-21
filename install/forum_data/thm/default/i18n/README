@@ -1,4 +1,7 @@
-Files found in language directories:
+To add a new translation, create a directory containing the files described below.
+
+Note that missing files will be inherited from 'en' (English). 
+So please, only add those that need to be different.
 
 name
   Name of language (used by installer & ACP).
@@ -7,13 +10,15 @@ charset
   Character set of the language, should typically be 'utf-8'.
 
 dir
-  Interface text direction ('ltr' or 'rtl').
+  Interface text direction ('ltr' for left to right; or 'rtl' for right to left).
 
 locale
-  List of locales to try (one locale per line).
+  List of locales to try (one locale per line). 
+  For example: 'de_DE.UTF-8' will be a good choice for German.
 
 msg
   Messages used in template files.
+  Only include the messages that will be different from those in 'en/msg'.
 
 language.inc
   A PHP include file containing a single convertPlural() function.
@@ -23,6 +28,3 @@ help/
 
 img/
   Directory containing the forum's buttons.
-
-Notes:
-* Missing files will be inherited from 'en' (English).

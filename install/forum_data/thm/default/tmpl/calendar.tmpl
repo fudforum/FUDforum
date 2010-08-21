@@ -44,24 +44,22 @@
 {ENDIF}
 
 {IF: $view == 'm'}
-<tr><th class="al">
+<tr><th width="35%" class="al">
 	<a href="{TEMPLATE: month_prev_lnk}" class="control">&laquo;</a>
 </th><th class="ac">
 	<h2>{VAR: months[$month-1]} <a href="{TEMPLATE: year_cur_lnk}" class="control">{VAR: year}</a></h2>
-</th><th class="ar">
+</th><th width="35%" class="ar">
 	<a href="{TEMPLATE: month_next_lnk}" class="control">&raquo;</a>
 </th></tr>
-<tr><td colspan="3">
+<tr class="ac"><td colspan="3">
 {FUNC: draw_calendar($year, $month, $events, 'large', $year, $month, $day)}
-</td></tr><tr>
-	<td width="35%" class="vt"><h4>{VAR: months[$prev_month-1]} {VAR: prev_year}</h4>{FUNC: draw_calendar($prev_year, $prev_month, null, 'small')}</td>
-	<td width="30%" class="ac vt">
-		<br /><br /><br />
+</td></tr>
+<tr>
+	<td class="ac" colspan="3">
 		<form method="get" action="index.php">
 		<b>{MSG: cal_goto_date}</b><input type="hidden" name="t" value="cal" />
 		<br />{VAR: select_month_control} {VAR: select_year_control} <input type="submit" name="submit" value="{MSG: go}" />
 		</form></td>
-	<td width="35%" class="vt"><h4>{VAR: months[$next_month-1]} {VAR: next_year}</h4>{FUNC: draw_calendar($next_year, $next_month, null, 'small')}</td>
 </tr>
 {ENDIF}
 
@@ -72,7 +70,7 @@
 		<a href="{TEMPLATE: day_next_lnk}" class="control">&raquo;</a></h2>
 </th></tr>
 <tr><td class="RowStyleB vt" width="55%">
-		<h3>Events for day</h3>
+		<h3>{TEMPLATE: cal_day_heading}</h3>
 		{IF: $events_for_day}<ul>{VAR: events_for_day}</ul>{ELSE}{TEMPLATE: cal_no_events}{ENDI}
 		<br /><br />
 		<form method="get" action="index.php">
@@ -248,4 +246,12 @@
 
 {SECTION: cal_entry}
 <li><div class="event">'. $event .'</div></li>
+{SECTION: END}
+
+{SECTION: cal_update}
+{MSG: cal_update}
+{SECTION: END}
+
+{SECTION: cal_day_heading}
+{MSG: cal_day_heading}
 {SECTION: END}
