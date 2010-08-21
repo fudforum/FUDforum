@@ -27,6 +27,8 @@
 		exit;
 	}
 
+	ses_update_status($usr->sid, '{TEMPLATE: prereg_update}', 0, 0);
+
 	$TITLE_EXTRA = ': {TEMPLATE: forum_terms}';
 
 /*{POST_HTML_PHP}*/

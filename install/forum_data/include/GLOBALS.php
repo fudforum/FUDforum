@@ -112,5 +112,5 @@
 
 /* DO NOT EDIT FILE BEYOND THIS POINT UNLESS YOU KNOW WHAT YOU ARE DOING */
 
-	require($INCLUDE.'core.inc');
+	require($INCLUDE .'core.inc');
 ?>

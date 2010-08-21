@@ -9,25 +9,19 @@
 * Free Software Foundation; version 2 of the License.
 **/
 
-function cli_execute($post_conf, $get_opts=null)
-{
+	/* Sanity check. */
+	if (php_sapi_name() != 'cli') {
+		die('Go away.');
+	}
+
 	/* Prevent session initialization. */
 	define('forum_debug', 1);
 	unset($_SERVER['REMOTE_ADDR']);
 
+	/* Instantiate as an admin users. */
 	$GLOBALS['usr'] = new stdClass();
 	$GLOBALS['usr']->users_opt = 1048576;	// is_admin
+	define('__adm_rsid', 0);
 
 	define('shell_script', 1);
-	fud_use('adm.inc', 1);
-
-	if ($post_conf) {
-		$_POST['conf'] = 1;
-	}
-	if ($get_opts && is_array($get_opts)) {
-		foreach ($get_opts as $k => $v) {
-			$_GET[$k] = $v;
-		}
-	}
-}
 ?>

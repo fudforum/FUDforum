@@ -58,7 +58,7 @@ define('__request_timestamp__', $GLOBALS['PAGE_TIME']['sec']);
 mt_srand($GLOBALS['PAGE_TIME']['usec']);
 
 // Load and initialize the plugin handler.
-if ($GLOBALS['FUD_OPT_3'] & 4194304) {	// Plugins enabled
+if ($GLOBALS['FUD_OPT_3'] & 4194304) {	// Plugins enabled.
 	include_once $GLOBALS['INCLUDE'] . 'plugins.inc';
 	plugin_activate_enbled();
 }

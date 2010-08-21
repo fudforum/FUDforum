@@ -14,7 +14,7 @@ function smiley_rebuild_cache()
 	$rep = $src = $dst = array();
 
 	/* Rebuild POST -> Smiley Cache. */
-	$c = uq('SELECT code, '.__FUD_SQL_CONCAT__.'(\'images/smiley_icons/\', img), descr FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'smiley ORDER BY vieworder');
+	$c = uq('SELECT code, '. q_concat('\'images/smiley_icons/\'', 'img') .', descr FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'smiley ORDER BY vieworder');
 	while ($r = db_rowarr($c)) {
 		$src[] = $co = '<img src="'.$r[1].'" border="0" alt="'.$r[2].'" />';
 		$codes = explode('~', strtolower($r[0]));

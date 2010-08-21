@@ -22,7 +22,7 @@ function th_inc_view_count($id)
 		$th_views = call_user_func($plugin_hooks['CACHEGET'][0], 'th_views');
 		$th_views[$id] = (!empty($th_views) && array_key_exists($id, $th_views)) ? $th_views[$id]+1 : 1;
 
-		if ($th_views[$id] > 10 || count($th_views) > 50) {
+		if ($th_views[$id] > 10 || count($th_views) > 100) {
 			call_user_func($plugin_hooks['CACHESET'][0], 'th_views', array());	// Clear cache.
 			// Start delayed database updating.
 			foreach($th_views as $id => $views) {

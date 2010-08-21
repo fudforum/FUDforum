@@ -11,12 +11,12 @@
 
 function ses_make_sysid()
 {
-	if ($GLOBALS['FUD_OPT_2'] & 256) {
+	if ($GLOBALS['FUD_OPT_2'] & 256) {	// MULTI_HOST_LOGIN
 		return;
 	}
 
 	$keys = array('HTTP_USER_AGENT', 'SERVER_PROTOCOL', 'HTTP_ACCEPT_CHARSET', 'HTTP_ACCEPT_ENCODING', 'HTTP_ACCEPT_LANGUAGE');
-	if ($GLOBALS['FUD_OPT_3'] & 16 && !$GLOBALS['is_aol']) {
+	if ($GLOBALS['FUD_OPT_3'] & 16 && !$GLOBALS['is_aol']) {	// SESSION_IP_CHECK (not for AOL users)
 		$keys[] = 'HTTP_X_FORWARDED_FOR';
 		$keys[] = 'REMOTE_ADDR';
 	}
@@ -37,7 +37,7 @@ function ses_get($id=0)
 		} else if ((isset($_GET['S']) || isset($_POST['S'])) && $GLOBALS['FUD_OPT_1'] & 128) {
 			$url_s = 1;
 			$q_opt = 's.ses_id='._esc((isset($_GET['S']) ? (string) $_GET['S'] : (string) $_POST['S']));
-			/* do not validate against expired URL sessions */
+			/* Do not validate against expired URL sessions. */
 			$q_opt .= ' AND s.time_sec > '.(__request_timestamp__ - $GLOBALS['SESSION_TIMEOUT']);
 		} else {
 			return;
@@ -64,7 +64,7 @@ function ses_get($id=0)
 		LEFT OUTER JOIN {SQL_TABLE_PREFIX}themes t ON t.id=u.theme
 	WHERE '.$q_opt);
 
-	/* anon user, no session or login */
+	/* Anon user, no session or login. */
 	if (!$u || $u->id == 1 || $id) {
 		return $u;
 	}
@@ -76,7 +76,7 @@ function ses_get($id=0)
 		return;
 	}
 
-	/* try doing a strict SQ match in last-ditch effort to make things 'work' */
+	/* Try doing a strict SQ match in last-ditch effort to make things 'work'. */
 	if (isset($_POST['SQ']) && $_POST['SQ'] == $u->sq) {
 		return $u;
 	}
@@ -89,7 +89,7 @@ function ses_anon_make()
 	do {
 		$uid = 2000000000 + mt_rand(1, 147483647);
 		$ses_id = md5($uid . __request_timestamp__ . getmypid());
-	} while (!($id = db_li("INSERT INTO {SQL_TABLE_PREFIX}ses (ses_id, time_sec, sys_id, user_id) VALUES ('".$ses_id."', ".__request_timestamp__.", '".ses_make_sysid()."', ".$uid.')', $ef, 1)));
+	} while (!($id = db_li('INSERT INTO {SQL_TABLE_PREFIX}ses (ses_id, time_sec, sys_id, user_id) VALUES (\''.$ses_id.'\', '.__request_timestamp__.', \''.ses_make_sysid().'\', '.$uid.')', $ef, 1)));
 
 	/* When we have an anon user, we set a special cookie allowing us to see who referred this user. */
 	if (isset($_GET['rid']) && !isset($_COOKIE['frm_referer_id']) && $GLOBALS['FUD_OPT_2'] & 8192) {
@@ -107,7 +107,7 @@ function ses_update_status($ses_id, $str=null, $forum_id=0, $ret='')
 
 function ses_putvar($ses_id, $data)
 {
-	$cond = is_int($ses_id) ? 'id='.(int)$ses_id : "ses_id='".$ses_id."'";
+	$cond = is_int($ses_id) ? 'id='.(int)$ses_id : 'ses_id=\''.$ses_id.'\'';
 
 	if (empty($data)) {
 		q('UPDATE {SQL_TABLE_PREFIX}ses SET data=NULL WHERE '.$cond);
@@ -118,8 +118,8 @@ function ses_putvar($ses_id, $data)
 
 function ses_delete($ses_id)
 {
-	if (!($GLOBALS['FUD_OPT_2'] & 256)) {
-		q('DELETE FROM {SQL_TABLE_PREFIX}ses WHERE id='.$ses_id);
+	if (!($GLOBALS['FUD_OPT_2'] & 256)) {	// MULTI_HOST_LOGIN
+		q('DELETE FROM {SQL_TABLE_PREFIX}ses WHERE id='. $ses_id);
 	}
 	setcookie($GLOBALS['COOKIE_NAME'], '', __request_timestamp__-100000, $GLOBALS['COOKIE_PATH'], $GLOBALS['COOKIE_DOMAIN']);
 
@@ -132,10 +132,10 @@ function ses_anonuser_auth($id, $error)
 		$_SERVER['QUERY_STRING'] = '';
 	}
 	q('UPDATE {SQL_TABLE_PREFIX}ses SET data='._esc(serialize($error)).', returnto='.ssn($_SERVER['QUERY_STRING']).' WHERE id='.$id);
-	if ($GLOBALS['FUD_OPT_2'] & 32768) {
-		header('Location: {FULL_ROOT}{ROOT}/l/'._rsidl);
+	if ($GLOBALS['FUD_OPT_2'] & 32768) {	// USE_PATH_INFO
+		header('Location: {FULL_ROOT}{ROOT}/l/'. _rsidl);
 	} else {
-		header('Location: {FULL_ROOT}{ROOT}?t=login&'._rsidl);
+		header('Location: {FULL_ROOT}{ROOT}?t=login&'. _rsidl);
 	}
 	exit;
 }

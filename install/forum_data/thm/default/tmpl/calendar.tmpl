@@ -70,7 +70,7 @@
 		<a href="{TEMPLATE: day_next_lnk}" class="control">&raquo;</a></h2>
 </th></tr>
 <tr><td class="RowStyleB vt" width="55%">
-		<h3>{TEMPLATE: cal_day_heading}</h3>
+		<h3>{MSG: cal_day_heading}</h3>
 		{IF: $events_for_day}<ul>{VAR: events_for_day}</ul>{ELSE}{TEMPLATE: cal_no_events}{ENDI}
 		<br /><br />
 		<form method="get" action="index.php">
@@ -250,8 +250,4 @@
 
 {SECTION: cal_update}
 {MSG: cal_update}
-{SECTION: END}
-
-{SECTION: cal_day_heading}
-{MSG: cal_day_heading}
 {SECTION: END}

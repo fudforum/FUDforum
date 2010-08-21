@@ -13,7 +13,7 @@ fud_use('db.inc');
 
 if (!defined('shell_script')) {
 	if (php_sapi_name() == 'cli') {	// adm_cli.inc wasn't called.
-		exit("Sorry, cannot run from command line.\n");
+		die('Sorry, cannot run from command line.');
 	}
 
 	if ($GLOBALS['FUD_OPT_2'] & 32768) {	// USE_PATH_INFO
@@ -59,7 +59,7 @@ header('Expires: Mon, 26 Jul 1997 05:00:00 GMT'); // Date in the past.
 header('Pragma: no-cache');
 header('X-Robots-Tag: noindex, nofollow');
 
-/* COMMON FUNCTIONS USED IN ACP BELOW. */
+/* DEFINE COMMON FUNCTIONS USED IN ACP BELOW. */
 
 /* Print string to web browser or command line. */
 function pf($str, $webonly=false)

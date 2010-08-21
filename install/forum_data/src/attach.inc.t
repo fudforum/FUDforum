@@ -51,11 +51,7 @@ function attach_finalize($attach_list, $mid, $attach_opt=0)
 
 	if ($id_list) {
 		$id_list = substr($id_list, 0, -1);
-		if (__dbtype__ == 'pgsql') {	// postgreSQL textcat hack
-			$cc = __FUD_SQL_CONCAT__.'('.__FUD_SQL_CONCAT__."("._esc($GLOBALS['FILE_STORE']).", id::text), '.atch')";
-                } else {
-			$cc = __FUD_SQL_CONCAT__.'('.__FUD_SQL_CONCAT__."("._esc($GLOBALS['FILE_STORE']).", id), '.atch')";
-		}
+		$cc = q_concat(_esc($GLOBALS['FILE_STORE']), 'id', _esc('.atch'));
 		q('UPDATE {SQL_TABLE_PREFIX}attach SET location='.$cc.', message_id='.$mid.' WHERE id IN('.$id_list.') AND attach_opt='.$attach_opt);
 		$id_list = ' AND id NOT IN('.$id_list.')';
 	} else {

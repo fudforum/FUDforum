@@ -22,26 +22,44 @@ function plugin_wikilinks_tag_to_html($array) {
 	}
 
 	// Remove [notag] blocks.
-	$pre = NULL; $i = 0;
+	$notag_pre = NULL; $i = 0;
 	if (preg_match_all('#\[notag\](.*?)\[\/notag\]#si', $bbcode, $notags, PREG_SET_ORDER)) {
 		foreach ($notags as $notag) {
 			$bbcode = str_replace($notag[0], "***nOtAg_sTrInG$i***", $bbcode);
-			$pre[$i++] = $notag[0];
+			$notag_pre[$i++] = $notag[0];
 		}
 	}
+	// Remove [code] blocks.
+	$code_pre = NULL; $i = 0;
+	if (preg_match_all('#\[code\](.*?)\[\/code\]#si', $bbcode, $codes, PREG_SET_ORDER)) {
+		foreach ($codes as $code) {
+			$bbcode = str_replace($code[0], "***cOdE_sTrInG$i***", $bbcode);
+			$code_pre[$i++] = $code[0];
+		}
+	}
+
 	// Convert wiki-style links into BBcode links.
 	while (preg_match('!\[\[([\p{L}\p{N}\p{P}\p{Z}]+?)\]\](\w*)!ui', $bbcode, $res)) {
+	//OLD: while (preg_match('!\[\[([\w\s\*\/:-]+?)\]\](\w*)!i', $bbcode, $res)) {
 		$m = str_replace(' ', '_', $res[1]);
 		$bbcode = str_replace($res[0], '[url='.$ini['WIKILINKS_URL'].$m.']'.$res[1].$res[2].'[/url]', $bbcode);
 	}
 	while (preg_match('!\[\[([\p{L}\p{N}\p{P}\p{Z}]+?)\|([\p{L}\p{N}\p{P}\p{Z}]+?)\]\]!ui', $bbcode, $res)) {
+	//OLD: while (preg_match('!\[\[([\w\s\*\/:-]+)\|([\w\s\/-]+)\]\]!i', $bbcode, $res)) {
 		$m = str_replace(' ', '_', $res[1]);
 		$bbcode = str_replace($res[0], '[url='.$ini['WIKILINKS_URL'].$m.']'.$res[2].'[/url]', $bbcode);
 	}
+
 	// Reinsert [notag] blocks.
-	if( is_array($pre)) {
-		foreach($pre as $i => $notag) {
+	if( is_array($notag_pre)) {
+		foreach($notag_pre as $i => $notag) {
 			$bbcode = str_replace("***nOtAg_sTrInG$i***", $notag, $bbcode);
+		}
+	}
+	// Reinsert [code] blocks.
+	if( is_array($code_pre)) {
+		foreach($code_pre as $i => $code) {
+			$bbcode = str_replace("***cOdE_sTrInG$i***", $code, $bbcode);
 		}
 	}
 

@@ -73,7 +73,7 @@ function check_post_form()
 
 	/* Check against minimum post length. */
 	if ($GLOBALS['POST_MIN_LEN']) {
-		$body_without_bbcode = preg_replace('/\[(.*?)\]/', '', $_POST['msg_body']);
+		$body_without_bbcode = preg_replace('/\[(.*?)\]|\s+/', '', $_POST['msg_body']);	// Remove tags and whitespace.
 		if (strlen($body_without_bbcode) < $GLOBALS['POST_MIN_LEN']) {
 			$post_min_len = $GLOBALS['POST_MIN_LEN'];
 			set_err('msg_body', '{TEMPLATE: postcheck_min_len_err}');

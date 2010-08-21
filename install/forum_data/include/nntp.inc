@@ -192,7 +192,7 @@ class fud_nntp
 		if (isset($this->headers['message-id'])) {
 			$this->msg_id = substr(trim($this->headers['message-id']), 1, -1);
 		} else {
-			nntp_error_log('No message id', $this->raw_msg);
+			$this->nntp_error_log('No message id', $this->raw_msg);
 		}
 
 		// This fetches the id of the message if this is a reply to an existing message.
@@ -467,15 +467,35 @@ class fud_nntp
 	function exit_handler($exit=1)
 	{
 		if (!empty($this->error)) {
-			$u = umask(0111);
-			$fp = fopen($GLOBALS['ERROR_PATH'].'.nntp/error_log', 'ab');
-				fwrite($fp, $this->error);
-			fclose($fp);
-			umask($u);
+			$this->nntp_error_log($this->error, null, 'LOG');
 		}
 		$this->close_connection();
 		if ($exit) {
 			exit($this->error);
+		}
+	}
+	
+	function nntp_error_log($error, $msg_data, $level='WARNING')
+	{
+		$err_msg_cpy = $GLOBALS['ERROR_PATH'] .'.nntp/'. time() .'_'. md5($msg_data);
+		$u = umask(0111);
+
+		if (!empty($msg_data) && $level != 'LOG') {
+			if (!($fp = fopen($err_msg_cpy, 'wb'))) {
+				exit('No perms to write '. $err_msg_cpy ."\n");
+			}
+			fwrite($fp, $msg_data);
+			fclose($fp);
+			$err_msg_cpy = ' @ '. $err_msg_cpy;
+		} else {
+			$err_msg_cpy = '';
+		}
+
+		fud_logerror($error . $err_msg_cpy, 'nntp_errors');
+		umask($u);
+
+		if ($level == 'ERROR') {
+			exit;
 		}
 	}
 

@@ -1,7 +1,7 @@
-This directory contains some user written plugins. 
-
-To add plugin's to your forum, upload them to this directory and go to the
-Plugin Manager Admin Control Panel to activate them.
+This directory contains user written plugins. To add plugin's to your 
+forum, upload them to this directory and go to the Plugin Manager Admin 
+Control Panel to activate them. Documentation on how to write plugins 
+are available at http://cvs.prohost.org/index.php/Plugin
 
 NOTE: These plugins are not officially part of FUDforum and the FUDforum 
 development team does not test nor support these plugins.

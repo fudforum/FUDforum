@@ -17,7 +17,7 @@ class fud_forum
 	function fud_forum()
 	{
 		foreach ($this as $k => $v) {
-			if (isset($_POST['frm_'.$k])) {
+			if (isset($_POST['frm_'. $k])) {
 				$this->{$k} = $_POST['frm_'.$k];
 			}
 		}
@@ -28,13 +28,13 @@ class fud_forum
 		$tbl =& $GLOBALS['DBHOST_TBL_PREFIX'];
 
 		if ($pos == 'LAST') {
-			$this->view_order = (int)q_singleval('SELECT MAX(view_order) FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'forum WHERE cat_id='.$this->cat_id) + 1;
+			$this->view_order = (int)q_singleval('SELECT MAX(view_order) FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'forum WHERE cat_id='. $this->cat_id) + 1;
 		} else {
 			$this->view_order = 1;
-			q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'forum SET view_order=view_order+1 WHERE cat_id='.$this->cat_id);
+			q('UPDATE '. $GLOBALS['DBHOST_TBL_PREFIX'] .'forum SET view_order=view_order+1 WHERE cat_id='. $this->cat_id);
 		}
 
-		$this->id = db_qid('INSERT INTO '.$tbl.'forum (
+		$this->id = db_qid('INSERT INTO '. $tbl .'forum (
 			cat_id,
 			name,
 			descr,
@@ -62,13 +62,13 @@ class fud_forum
 			'.(int)$this->forum_opt.'
 		)');
 
-		$lck_tbl = $tbl.'fl_'.$this->id;
+		$lck_tbl = $tbl .'fl_'. $this->id;
 		/* Only create lock table if it does not already exist. */
 		if (!get_fud_table_list($lck_tbl)) {
-			q('CREATE TABLE '.$lck_tbl.' (id INT)');
+			q('CREATE TABLE '. $lck_tbl .' (id INT)');
 		}
 		
-		$view_tbl = $tbl.'tv_'.$this->id;
+		$view_tbl = $tbl .'tv_'. $this->id;
 		/* Only view lock table if it does not already exist. */
 		if (!get_fud_table_list($view_tbl)) {
 			frm_add_view_tbl($view_tbl);
@@ -85,7 +85,7 @@ class fud_forum
 	{
 		$tbl =& $GLOBALS['DBHOST_TBL_PREFIX'];
 
-		$gid = q_singleval('SELECT id FROM '.$tbl.'groups WHERE forum_id='.$id);
+		$gid = q_singleval('SELECT id FROM '. $tbl .'groups WHERE forum_id='. $id);
 
 		q('UPDATE '.$tbl.'forum SET
 			cat_id='.$cat_id.',
@@ -100,20 +100,20 @@ class fud_forum
 			forum_opt='.(int)$this->forum_opt.'
 		WHERE id='.$id);
 
-		q('UPDATE '.$tbl.'groups SET name='._esc($this->name).' WHERE id='.$gid);
+		q('UPDATE '. $tbl .'groups SET name='. _esc($this->name) .' WHERE id='. $gid);
 	}
 }
 
 function create_cat_select($name, $def, $blocked)
 {
 	$ret = '';
-	$c = uq('SELECT id, name FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'cat WHERE id!='.$blocked.' ORDER BY view_order');
+	$c = uq('SELECT id, name FROM '. $GLOBALS['DBHOST_TBL_PREFIX']. 'cat WHERE id!='. $blocked .' ORDER BY view_order');
 	while ($r = db_rowarr($c)) {
-		$ret .= '<option value="'.$r[0].'"'.($r[0] == $def ? ' selected' : '').'>'.$r[1].'</option>';
+		$ret .= '<option value="'. $r[0] .'"'. ($r[0] == $def ? ' selected' : '') .'>'. $r[1] .'</option>';
 	}
 	unset($c);
 
-	return ($ret ? '<select name="'.$name.'">' . $ret . '</select>' : '');
+	return ($ret ? '<select name="'. $name .'">'. $ret .'</select>' : '');
 }
 
 function frm_change_pos($oldp, $newp, $cat_id)
@@ -122,28 +122,28 @@ function frm_change_pos($oldp, $newp, $cat_id)
 		return;
 	}
 
-	db_lock($GLOBALS['DBHOST_TBL_PREFIX'].'forum WRITE');
-	q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'forum SET view_order=2147483647 WHERE cat_id='.$cat_id.' AND view_order='.$oldp);
+	db_lock($GLOBALS['DBHOST_TBL_PREFIX']. 'forum WRITE');
+	q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX']. 'forum SET view_order=2147483647 WHERE cat_id='. $cat_id .' AND view_order='. $oldp);
 	if ($oldp < $newp) {
-		q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'forum SET view_order=view_order-1 WHERE cat_id='.$cat_id.' AND view_order<='.$newp.' AND view_order>'.$oldp);
-		$maxp = q_singleval('SELECT MAX(view_order) FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'forum WHERE cat_id='.$cat_id.' AND view_order!=2147483647');
+		q('UPDATE '. $GLOBALS['DBHOST_TBL_PREFIX'] .'forum SET view_order=view_order-1 WHERE cat_id='. $cat_id .' AND view_order<='. $newp .' AND view_order>'. $oldp);
+		$maxp = q_singleval('SELECT MAX(view_order) FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'forum WHERE cat_id='. $cat_id .' AND view_order!=2147483647');
 		if ($newp > $maxp) {
 			$newp = $maxp + 1;
 		}
 	} else {
-		q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'forum SET view_order=view_order+1 WHERE  cat_id='.$cat_id.' AND view_order<'.$oldp.' AND view_order>='.$newp);
+		q('UPDATE '. $GLOBALS['DBHOST_TBL_PREFIX'] .'forum SET view_order=view_order+1 WHERE  cat_id='. $cat_id .' AND view_order<'. $oldp .' AND view_order>='. $newp);
 	}
-	q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'forum SET view_order='.$newp.' WHERE cat_id='.$cat_id.' AND view_order=2147483647');
+	q('UPDATE '. $GLOBALS['DBHOST_TBL_PREFIX'] .'forum SET view_order='. $newp .' WHERE cat_id='. $cat_id .' AND view_order=2147483647');
 	db_unlock();
 }
 
 function frm_rebuild_order($cat_id)
 {
 	$i = 1;
-	$c = q('SELECT id, view_order FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'forum WHERE cat_id='.$cat_id.' ORDER BY view_order');
+	$c = q('SELECT id, view_order FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'forum WHERE cat_id='. $cat_id .' ORDER BY view_order');
 	while ($r = db_rowarr($c)) {
 		if ($i != $r[1]) {
-			q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'forum SET view_order='.$i.' WHERE id='.$r[0]);
+			q('UPDATE '. $GLOBALS['DBHOST_TBL_PREFIX'] .'forum SET view_order='. $i .' WHERE id='. $r[0]);
 		}
 		++$i;
 	}
@@ -152,7 +152,7 @@ function frm_rebuild_order($cat_id)
 
 function frm_move_forum($id, $dest_cat, $src_cat)
 {
-	q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'forum SET cat_id='.$dest_cat.' WHERE id='.$id);
+	q('UPDATE '. $GLOBALS['DBHOST_TBL_PREFIX'] .'forum SET cat_id='. $dest_cat .' WHERE id='. $id);
 	if (db_affected()) {
 		if ($src_cat) {
 			frm_rebuild_order($src_cat);
@@ -167,7 +167,7 @@ function frm_move_forum($id, $dest_cat, $src_cat)
 
 function frm_add_view_tbl($view_tbl)
 {
-	foreach (explode(';', file_get_contents($GLOBALS['DATA_DIR'].'/sql/fud_thread_view.tbl')) as $v) {
+	foreach (explode(';', file_get_contents($GLOBALS['DATA_DIR'] .'/sql/fud_tv_1.tbl')) as $v) {
 		if (!strncmp(($v = trim($v)), 'CREATE', 6)) {
 			if (__dbtype__ == 'pgsql') {
 				$v = str_replace('INT NOT NULL AUTO_INCREMENT', 'SERIAL', $v);
@@ -183,18 +183,18 @@ function frm_delete($id)
 {
 	$tbl =& $GLOBALS['DBHOST_TBL_PREFIX'];
 
-	q('DELETE FROM '.$tbl.'ann_forums WHERE forum_id='.$id);
-	q('DELETE FROM '.$tbl.'thread WHERE forum_id='.$id);
-	q('DELETE FROM '.$tbl.'mod WHERE forum_id='.$id);
-	q('DELETE FROM '.$tbl.'forum_notify WHERE forum_id='.$id);
-	q('DELETE FROM '.$tbl.'group_cache WHERE resource_id='.$id);
-	q('DELETE FROM '.$tbl.'thread WHERE forum_id='.$id);
-	q('DELETE FROM '.$tbl.'mlist WHERE forum_id='.$id);
-	q('DELETE FROM '.$tbl.'nntp WHERE forum_id='.$id);
-	$gid = q_singleval('SELECT id FROM '.$tbl.'groups WHERE forum_id='.$id);
-	q('DROP TABLE '.$tbl.'fl_'.$id);
-	q('DROP TABLE '.$tbl.'tv_'.$id);
-	q('DELETE FROM '.$tbl.'forum WHERE id='.$id);
+	q('DELETE FROM '. $tbl .'ann_forums WHERE forum_id='. $id);
+	q('DELETE FROM '. $tbl .'thread WHERE forum_id='. $id);
+	q('DELETE FROM '. $tbl .'mod WHERE forum_id='. $id);
+	q('DELETE FROM '. $tbl .'forum_notify WHERE forum_id='. $id);
+	q('DELETE FROM '. $tbl .'group_cache WHERE resource_id='. $id);
+	q('DELETE FROM '. $tbl .'thread WHERE forum_id='. $id);
+	q('DELETE FROM '. $tbl .'mlist WHERE forum_id='. $id);
+	q('DELETE FROM '. $tbl .'nntp WHERE forum_id='. $id);
+	$gid = q_singleval('SELECT id FROM '. $tbl .'groups WHERE forum_id='. $id);
+	q('DROP TABLE '. $tbl .'fl_'. $id);
+	q('DROP TABLE '. $tbl .'tv_'. $id);
+	q('DELETE FROM '. $tbl .'forum WHERE id='. $id);
 
 	if ($gid) {
 		fud_use('groups_adm.inc', true);

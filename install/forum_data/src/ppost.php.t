@@ -301,11 +301,7 @@ function export_msg_data(&$m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smile
 							@chmod($FILE_STORE . $aid . '.atch', ($FUD_OPT_2 & 8388608 ? 0600 : 0666));
 						}
 					}
-					if (__dbtype__ == 'pgsql') {    // postgreSQL textcat hack
-						$cc = __FUD_SQL_CONCAT__.'('.__FUD_SQL_CONCAT__."('".$FILE_STORE."', id::text), '.atch')";
-					} else {
-						$cc = __FUD_SQL_CONCAT__.'('.__FUD_SQL_CONCAT__."('".$FILE_STORE."', id), '.atch')";
-					}
+					$cc = q_concat(_esc($FILE_STORE), 'id', _esc('.atch'));
 					q('UPDATE {SQL_TABLE_PREFIX}attach SET location='.$cc.' WHERE id IN('.implode(',', $aidl).')');
 				}
 			}

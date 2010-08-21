@@ -1,5 +1,5 @@
-In order to use the maillist and/or nntp utility you need to make sure
-the 1st line in the file points to the path of the PHP 
-executable on your system. By default this line is set to
-/usr/bin/php, if you php binary is else where modify
-the #!/usr/bin/php with the full path of your php binary.
+In order to use these utilities you need to ensure the 1st
+line in the file points to the path of the PHP executable
+on your system. By default this line is set to /usr/bin/php,
+if you php binary is else where modify the #!/usr/bin/php 
+with the full path of your php binary.

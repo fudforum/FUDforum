@@ -88,7 +88,7 @@ class fud_mlist
 			'.$this->mbox_type.'
 			)');
 		if ($this->mlist_opt & 4) {
-			q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'forum SET forum_opt=forum_opt|2 WHERE id='.$this->forum_id);
+			q('UPDATE '. $GLOBALS['DBHOST_TBL_PREFIX'] .'forum SET forum_opt=(forum_opt | 2) WHERE id='. $this->forum_id);
 		}
 		if (isset($ll)) {
 			db_unlock();
@@ -123,7 +123,7 @@ class fud_mlist
 		if ($old_frm_id != $this->forum_id && $mlist_opt & 4) {
 			q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'forum SET forum_opt=(forum_opt & ~ 2) WHERE id='.$old_frm_id);
 		}
-		q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'forum SET forum_opt=forum_opt | '.($this->mlist_opt & 1 ? 2 : 0).' WHERE id='.$this->forum_id);
+		q('UPDATE '. $GLOBALS['DBHOST_TBL_PREFIX'] .'forum SET forum_opt=(forum_opt | '. ($this->mlist_opt & 1 ? 2 : 0) .') WHERE id='. $this->forum_id);
 
 		if (isset($ll)) {
 			db_unlock();

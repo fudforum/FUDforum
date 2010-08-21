@@ -126,11 +126,11 @@ function fud_rmdir($dir)
 			print_error('Directory "'. $SERVER_ROOT .'" does not appear to be a Server Root directory!');
 		}
 
-		/* Read GLOBALS.php to determine database settings so that databases can be cleaned up. */
-		$data = file_get_contents($SERVER_DATA_ROOT .'/include/GLOBALS.php');
-		$s = strpos($data, '*/') + 2;
-		$data = substr($data, $s, (strpos($data, 'DO NOT EDIT FILE BEYOND THIS POINT UNLESS YOU KNOW WHAT YOU ARE DOING', $s) - $s)) .' */';
-		eval($data);
+		/* Read GLOBALS.php for database settings so that the db can be cleaned up. */
+		$settings = file($SERVER_DATA_ROOT .'/include/GLOBALS.php');
+		$settings = preg_grep('/^\s+\$\w+\s+=\s+.+;/', $settings);	// Only variables.
+		$settings = implode('', $settings);
+		eval($settings);
 
 		/* Check if debug mode is enabled. */
 		$dryrun = empty($_POST['dryrun']) ? 0 : 1;
@@ -143,8 +143,8 @@ function fud_rmdir($dir)
 		/* Drop database tables. */
 		$dbinc = $SERVER_DATA_ROOT .'/sql/'. $DBHOST_DBTYPE .'/db.inc';
 		if (!file_exists($dbinc)) {
-			show_debug_message('DB driver not fount at '. $dbinc);
-			show_debug_message('Database tables will be dropped!');
+			show_debug_message('No DB driver found at '. $dbinc);
+			show_debug_message('Database tables will not be dropped!');
 		} else {
 			include_once $dbinc;
 
@@ -195,7 +195,7 @@ function fud_rmdir($dir)
 <form name="uninstall" action="uninstall.php" method="post">
 <table cellspacing="1" cellpadding="4">
 	<tr class="field"><td><b>Forum Data Root</b><br /><font size="-1">This is the directory where you've installed the non-browseable forum files</font></td><td><input type="text" name="SERVER_DATA_ROOT" value="" size=40 /></td></tr>
-	<tr class="field"><td><b>Server Root</b><br /><font size="-1">This is the directory where you've installed the browseable forum files. If it is the same as "Forum Data Root", you can leave this field blank.</font></td><td><input type="text" name="SERVER_ROOT" value="" size="40" /></td></tr>
+	<tr class="field"><td><b>Server Root</b><br /><font size="-1">This is the directory where you've installed the browseable forum files. If it is the same as "Forum Data Root", you can leave this field empty.</font></td><td><input type="text" name="SERVER_ROOT" value="" size="40" /></td></tr>
 	<tr class="field"><td><b>Dry Run</b><br /><font size="-1">Do a mock uninstall. Forum will NOT be uninstalled.</font></td><td><input type="checkbox" name="dryrun" value="1" checked="checked" /></td></tr>
 	<tr><td colspan="2" align="center"><input type="submit" name="submit" value="uninstall" class="button" style="background:red; color:white; font-size: x-large;" /></td></tr>
 </table>

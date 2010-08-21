@@ -20,7 +20,7 @@ function resolve_refs($file_name)
 
 	/* Fetch file definition. */
 	$tset = $GLOBALS['__COMPILER__']['tset'];
-	$GLOBALS['CURFILE'] = $GLOBALS['DATA_DIR'].'thm/'.$tset.'/tmpl/'.$file_name;
+	$GLOBALS['CURFILE'] = $GLOBALS['DATA_DIR'] .'thm/'. $tset .'/tmpl/'. $file_name;
 	if (($str = @file_get_contents($GLOBALS['CURFILE'])) === false) {
 		// Not found, look in PATH_INFO theme.
 		if (file_exists($GLOBALS['DATA_DIR'].'thm/'.$tset.'/.path_info')) {
@@ -166,6 +166,7 @@ function resolve_sections($str)
 					throw new Exception('Missing message entry '. $name .' inside i18n/'. $GLOBALS['__COMPILER__']['lang'].'/msg');
 				}
 				$ret .= $GLOBALS['MSG'][$name]['data'];
+				//DEBUG: $ret .= $name .':'. $GLOBALS['MSG'][$name]['data'];
 				break;
 			case 'PLURAL':	// Pluralize messages at runtime.
 				list($var, $forms) = explode('|', $name, 2);
@@ -229,7 +230,7 @@ function resolve_sections($str)
 				$ret .= $GLOBALS['TC'][$sec][$name]['data'] = resolve_sections($GLOBALS['TC'][$sec][$name]['data']);
 				break;
 			case 'META-CONTENT-LANGUAGE':
-				echo 'WARNING: {META-CONTENT-LANGUAGE} is depricated, please remove it from your templates.<br />';
+				echo 'WARNING: {META-CONTENT-LANGUAGE} is deprecated, please remove it from your templates.<br />';
 				$ret .= '<meta http-equiv="Content-Type" content="text/html; charset='.$GLOBALS['char_set'].'" />';
 				break;
 			case 'CHARSET':	// Character set name.
@@ -265,7 +266,7 @@ function resolve_sections($str)
 			case 'ENDIF':
 				$ret .= "' : '' ) .'";
 				break;
-				
+
 			case 'ENDIFI':
 				$ret .= "' : '' )  .'";
 				break;
@@ -491,6 +492,10 @@ function generate_file($php_file)
 	if (!($fp = fopen($dir.$dst, 'wb'))) {
 		throw new Exception('Couldn\'t write to '. $dir . $dst .'.');
 	}
+
+	// Inject debug info to help with theme development.
+	/* $file_data = str_replace('</html>', '<?php echo "<pre>".htmlentities(print_r(get_defined_vars(), 1))."</pre>"; ?> </html>', $file_data); */
+
 	fwrite($fp, $file_data);
 	fclose($fp);
 }
@@ -635,7 +640,7 @@ function compile_all($tset='default', $lang='en', $tname='default')
 {
 	$oldmask = umask(0133);
 
-	/* make sure we can use the specified values to make 'nice' directory names */
+	/* Make sure we can use the specified values to make 'nice' directory names. */
 	$tname = preg_replace('![^A-Za-z0-9-]!', '_', $tname);
 	$tset = preg_replace('![^A-Za-z0-9-]!', '_', $tset);
 	$lang = preg_replace('![^A-Za-z0-9-]!', '_', $lang);
@@ -646,8 +651,8 @@ function compile_all($tset='default', $lang='en', $tname='default')
 	$GLOBALS['TC']                  = array();
 	$GLOBALS['file_cache']          = array();
 
-	@unlink($GLOBALS['DATA_DIR'].'src/db.inc.t'); // win32 hack
-	copy($GLOBALS['DATA_DIR'].'sql/'.$GLOBALS['DBHOST_DBTYPE'].'/db.inc', $GLOBALS['DATA_DIR'].'src/db.inc.t');
+	@unlink($GLOBALS['DATA_DIR'] .'src/db.inc.t'); // win32 hack
+	copy($GLOBALS['DATA_DIR'] .'sql/'. $GLOBALS['DBHOST_DBTYPE'] .'/db.inc', $GLOBALS['DATA_DIR'] .'src/db.inc.t');
 
 	$GLOBALS['__COMPILER__'] = array('tset' => $tset, 'lang' => $lang, 'tname' => $tname);
 	$cmpl =& $GLOBALS['__COMPILER__'];
@@ -656,23 +661,23 @@ function compile_all($tset='default', $lang='en', $tname='default')
 	$cmpl['FULL_ROOT'] = $GLOBALS['WWW_ROOT']{strlen($GLOBALS['WWW_ROOT']) - 1} == '/' ? $GLOBALS['WWW_ROOT'] : $GLOBALS['WWW_ROOT'].'/';
 	$cmpl['THEME_ROOT'] = 'theme/' . $tname;
 
-	$cmpl['THEME_ROOT_DISK'] = $GLOBALS['WWW_ROOT_DISK'].'theme/'.$tname;
-	$cmpl['THEME_IMAGE_ROOT'] = $cmpl['THEME_ROOT'].'/images';
+	$cmpl['THEME_ROOT_DISK'] = $GLOBALS['WWW_ROOT_DISK'] .'theme/'. $tname;
+	$cmpl['THEME_IMAGE_ROOT'] = $cmpl['THEME_ROOT'] .'/images';
 
-	$charset = $GLOBALS['DATA_DIR'].'thm/'.$tset.'/i18n/'.$lang.'/charset';
+	$charset = $GLOBALS['DATA_DIR'] .'thm/'. $tset .'/i18n/' .$lang .'/charset';
 	if (!is_file($charset)) {
-		$charset = $GLOBALS['DATA_DIR'].'thm/default/i18n/'.$lang.'/charset';
+		$charset = $GLOBALS['DATA_DIR'] .'thm/default/i18n/'. $lang .'/charset';
 		if (!is_file($charset)) {
-			$charset = $GLOBALS['DATA_DIR'].'thm/default/i18n/en/charset';
+			$charset = $GLOBALS['DATA_DIR'] .'thm/default/i18n/en/charset';
 		}
 	}
 	$GLOBALS['char_set'] = trim(file_get_contents($charset));
 
-	$text_dir = $GLOBALS['DATA_DIR'].'thm/'.$tset.'/i18n/'.$lang.'/dir';
+	$text_dir = $GLOBALS['DATA_DIR'] .'thm/'. $tset .'/i18n/'. $lang .'/dir';
 	if (!is_file($text_dir)) {
-		$text_dir = $GLOBALS['DATA_DIR'].'thm/default/i18n/'.$lang.'/dir';
+		$text_dir = $GLOBALS['DATA_DIR'] .'thm/default/i18n/'. $lang .'/dir';
 		if (!is_file($text_dir)) {
-			$text_dir = $GLOBALS['DATA_DIR'].'thm/default/i18n/en/dir';
+			$text_dir = $GLOBALS['DATA_DIR'] .'thm/default/i18n/en/dir';
 		}
 	}
 	$GLOBALS['text_dir'] = trim(file_get_contents($text_dir));
@@ -684,11 +689,11 @@ function compile_all($tset='default', $lang='en', $tname='default')
 	}
 
 	fud_mkdir($GLOBALS['WWW_ROOT_DISK'].'theme', $perms);
-	file_put_contents($GLOBALS['WWW_ROOT_DISK'] . 'theme/README', "Files in this directory are generated. Do not edit them.\nTo regenerate, navigate to the Theme Manager admin control panel.");
+	file_put_contents($GLOBALS['WWW_ROOT_DISK'] .'theme/README', "Files in this directory are generated. Do not edit them.\nTo regenerate, navigate to the Theme Manager admin control panel.");
 
-	fud_mkdir($GLOBALS['WWW_ROOT_DISK'] . 'theme/' . $tname, $perms);
-	fud_mkdir($GLOBALS['INCLUDE'] . 'theme', $perms);
-	fud_mkdir($GLOBALS['INCLUDE'] . 'theme/' . $tname, $perms);
+	fud_mkdir($GLOBALS['WWW_ROOT_DISK'] .'theme/'. $tname, $perms);
+	fud_mkdir($GLOBALS['INCLUDE'] .'theme', $perms);
+	fud_mkdir($GLOBALS['INCLUDE'] .'theme/'. $tname, $perms);
 	umask($u);
 
 	$GLOBALS['CMP_LOC_S'] = array('{ROOT}', '{FULL_ROOT}', '{THEME_ROOT}', '{THEME_ROOT_DISK}', ".'';", ".''.");
@@ -697,17 +702,17 @@ function compile_all($tset='default', $lang='en', $tname='default')
 	/*	
 	 * Build the message array.
 	 */
-	$prim_msg_file = $GLOBALS['DATA_DIR'].'thm/'.$cmpl['tset'].'/i18n/'.$cmpl['lang'].'/msg';
+	$prim_msg_file = $GLOBALS['DATA_DIR'] .'thm/'. $cmpl['tset'] .'/i18n/'. $cmpl['lang'] .'/msg';
 	build_msg($prim_msg_file);
 
 	$fl = array();
 	if ($cmpl['tset'] != 'default') {
 		/* check custom theme for templates not found in the default theme */
-		foreach (glob($GLOBALS['DATA_DIR'].'/thm/'.$cmpl['tset'].'/tmpl/*.tmpl') as $fe) {
+		foreach (glob($GLOBALS['DATA_DIR'] .'/thm/'. $cmpl['tset'] .'/tmpl/*.tmpl') as $fe) {
 			$fl[basename($fe)] = $fe;
 		}
 	}
-	foreach (glob($GLOBALS['DATA_DIR'].'/thm/default/tmpl/*.tmpl') as $fe) {
+	foreach (glob($GLOBALS['DATA_DIR'] .'/thm/default/tmpl/*.tmpl') as $fe) {
 		$fl[basename($fe)] = $fe;
 	}
 
@@ -767,12 +772,12 @@ function fudcopy($src, $dest, $mask='*', $recur=false)
 		}
 	
 		if (!is_readable($v)) {
-			echo 'Cannot open directory "'.$v.'"<br />';
+			echo 'Cannot open directory "'. $v .'"<br />';
 			return;
 		}
 
 		if (defined('GLOB_BRACE')) {		
-			if (!($files = glob($v . '/' . $mask, GLOB_BRACE|GLOB_NOSORT))) {
+			if (!($files = glob($v .'/'. $mask, GLOB_BRACE|GLOB_NOSORT))) {
 				continue;
 			}
 		} else {
@@ -785,11 +790,11 @@ function fudcopy($src, $dest, $mask='*', $recur=false)
 			}
 		}
 		foreach ($files as $file) {
-			$d = $dest . '/' . str_replace($src, '', $v) . '/' . basename($file);
+			$d = $dest .'/'. str_replace($src, '', $v) .'/'. basename($file);
 		
 			if (is_dir($file)) {
 				if (!is_dir($d) && !mkdir($d)) {
-					echo "Cannot create directory '".$d."'<br />";
+					echo "Cannot create directory '". $d ."'<br />";
 					return;
 				}
 				chmod($d, $dperm);
@@ -798,7 +803,7 @@ function fudcopy($src, $dest, $mask='*', $recur=false)
 			}
 	
 			if (!@copy($file, $d) && !@file_exists($d)) {
-				echo 'cannot copy "'.$file.'" to "'.$d.'"<br />';
+				echo 'cannot copy "'. $file .'" to "'. $d .'"<br />';
 			} else {
 				@chmod($d, $perms);
 			}
@@ -806,15 +811,15 @@ function fudcopy($src, $dest, $mask='*', $recur=false)
 	}
 
 	/* Copy .path_info marker */
-	if (is_readable($src.'/.path_info')) {
-		@copy($src.'/.path_info', $dest.'/.path_info');
+	if (is_readable($src .'/.path_info')) {
+		@copy($src .'/.path_info', $dest.'/.path_info');
 	}
 }
 
 /* Copy localized image files to the theme's image directory. */
 function copyimages($thm)
 {
-	$path = $GLOBALS['WWW_ROOT_DISK'].'theme/'.$thm->name.'/images';
+	$path = $GLOBALS['WWW_ROOT_DISK'] .'theme/'. $thm->name .'/images';
 
 	$u = umask(0);
 	if (!@is_dir($path) && !@mkdir($path, 0777)) {
@@ -823,17 +828,17 @@ function copyimages($thm)
 
 	fudcopy($GLOBALS['DATA_DIR'].'thm/default/images', $path, '{*.jpg,*.gif,*.png,*.jpeg}');
 	// some translations don't have customized image buttons
-	if (file_exists($GLOBALS['DATA_DIR'].'thm/default/i18n/'.$thm->lang.'/img/flat_view.gif')) {
-		fudcopy($GLOBALS['DATA_DIR'].'thm/default/i18n/'.$thm->lang.'/img', $path, '{*.jpg,*.gif,*.png,*.jpeg}');
+	if (file_exists($GLOBALS['DATA_DIR'] .'thm/default/i18n/'. $thm->lang .'/img/flat_view.gif')) {
+		fudcopy($GLOBALS['DATA_DIR'] .'thm/default/i18n/'. $thm->lang .'/img', $path, '{*.jpg,*.gif,*.png,*.jpeg}');
 	} else {
-		fudcopy($GLOBALS['DATA_DIR'].'thm/default/i18n/en/img', $path, '{*.jpg,*.gif,*.png,*.jpeg}');
+		fudcopy($GLOBALS['DATA_DIR'] .'thm/default/i18n/en/img', $path, '{*.jpg,*.gif,*.png,*.jpeg}');
 	}
 	if ($thm->theme != 'default') {
-		if (@file_exists($GLOBALS['DATA_DIR'].'thm/'.$thm->theme.'/images')) {
-			fudcopy($GLOBALS['DATA_DIR'].'thm/'.$thm->theme.'/images', $path, '{*.jpg,*.gif,*.png,*.jpeg}');
+		if (@file_exists($GLOBALS['DATA_DIR'] .'thm/'. $thm->theme .'/images')) {
+			fudcopy($GLOBALS['DATA_DIR'] .'thm/'. $thm->theme .'/images', $path, '{*.jpg,*.gif,*.png,*.jpeg}');
 		}
-		if (@file_exists($GLOBALS['DATA_DIR'].'thm/'.$thm->theme.'/i18n/'.$thm->lang.'/img')) {
-			fudcopy($GLOBALS['DATA_DIR'].'thm/'.$thm->theme.'/i18n/'.$thm->lang.'/img', $path, '{*.jpg,*.gif,*.png,*.jpeg}');
+		if (@file_exists($GLOBALS['DATA_DIR'] .'thm/'. $thm->theme .'/i18n/'. $thm->lang .'/img')) {
+			fudcopy($GLOBALS['DATA_DIR'] .'thm/'. $thm->theme .'/i18n/'. $thm->lang .'/img', $path, '{*.jpg,*.gif,*.png,*.jpeg}');
 		}
 	}
 
@@ -843,12 +848,12 @@ function copyimages($thm)
 /* Copy help files to the theme's help directory. */
 function copyhelp($thm)
 {
-	$path = $GLOBALS['WWW_ROOT_DISK'].'theme/'.$thm->name.'/help';
-	$src = $GLOBALS['DATA_DIR'].'thm/'.$thm->theme.'/i18n/'.$thm->lang.'/help';
+	$path = $GLOBALS['WWW_ROOT_DISK'] .'theme/'. $thm->name .'/help';
+	$src = $GLOBALS['DATA_DIR'] .'thm/'. $thm->theme .'/i18n/'. $thm->lang .'/help';
 	if (!@file_exists($src)) {
-		$src = $GLOBALS['DATA_DIR'].'thm/default/i18n/'.$thm->lang.'/help';
+		$src = $GLOBALS['DATA_DIR'] .'thm/default/i18n/'. $thm->lang .'/help';
 		if (!@file_exists($src)) {
-			$src = $GLOBALS['DATA_DIR'].'thm/default/i18n/en/help';
+			$src = $GLOBALS['DATA_DIR'] .'thm/default/i18n/en/help';
 		}
 	}
 

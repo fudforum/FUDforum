@@ -16,7 +16,7 @@ class fud_theme
 	function fud_theme()
 	{
 		foreach ($this as $k => $v) {
-			if (isset($_POST['thm_'.$k])) {
+			if (isset($_POST['thm_'. $k])) {
 				$this->{$k} = $_POST['thm_'.$k];
 			}
 		}
@@ -28,26 +28,26 @@ class fud_theme
 	{
 		if (!db_locked()) {
 			$ll = 1;
-			db_lock($GLOBALS['DBHOST_TBL_PREFIX'].'themes WRITE, '.$GLOBALS['DBHOST_TBL_PREFIX'].'users WRITE');
+			db_lock($GLOBALS['DBHOST_TBL_PREFIX'] .'themes WRITE, '. $GLOBALS['DBHOST_TBL_PREFIX'] .'users WRITE');
 		}
 
 		if ($this->theme_opt & 2) {
-			q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'themes SET theme_opt=theme_opt & ~ 2 WHERE theme_opt>=2 AND (theme_opt & 2) > 0');
+			q('UPDATE '. $GLOBALS['DBHOST_TBL_PREFIX'] .'themes SET theme_opt=theme_opt & ~ 2 WHERE theme_opt>=2 AND (theme_opt & 2) > 0');
 			$this->theme_opt |= 1;
 		}
 
-		if ($this->theme == 'path_info' || @file_exists($GLOBALS['DATA_DIR'].'thm/'.$this->theme.'/.path_info')) {
+		if ($this->theme == 'path_info' || @file_exists($GLOBALS['DATA_DIR'] .'thm/'. $this->theme .'/.path_info')) {
 			$this->theme_opt |= 4;
 		}
 
-		$this->id = db_qid('INSERT INTO '.$GLOBALS['DBHOST_TBL_PREFIX'].'themes
+		$this->id = db_qid('INSERT INTO '. $GLOBALS['DBHOST_TBL_PREFIX'] .'themes
 				(name, theme, lang, locale, theme_opt, pspell_lang)
 			VALUES
 				('._esc($this->name).', '._esc($this->theme).', '._esc($this->lang).', '._esc($this->locale).', '.$this->theme_opt.', '.ssn($this->pspell_lang).')');
 
 		/* Set anonymous user's theme to default. */
 		if ($this->theme_opt & 2) {
-			q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'users SET theme='.$this->id.' WHERE id=1');
+			q('UPDATE '. $GLOBALS['DBHOST_TBL_PREFIX'] .'users SET theme='. $this->id .' WHERE id=1');
 		}
 		if (isset($ll)) {
 			db_unlock();
@@ -59,16 +59,16 @@ class fud_theme
 	{
 		if (!db_locked()) {
 			$ll = 1;
-			db_lock($GLOBALS['DBHOST_TBL_PREFIX'].'themes WRITE, '.$GLOBALS['DBHOST_TBL_PREFIX'].'users WRITE');
+			db_lock($GLOBALS['DBHOST_TBL_PREFIX'] .'themes WRITE, '. $GLOBALS['DBHOST_TBL_PREFIX'] .'users WRITE');
 		}
 
 		if ($this->theme_opt & 2) {
-			q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'themes SET theme_opt=theme_opt & ~ 2 WHERE theme_opt>=2 AND (theme_opt & 2) > 0');
-			q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'users SET theme='.$id.' WHERE id=1');
+			q('UPDATE '. $GLOBALS['DBHOST_TBL_PREFIX'] .'themes SET theme_opt=theme_opt & ~ 2 WHERE theme_opt>=2 AND (theme_opt & 2) > 0');
+			q('UPDATE '. $GLOBALS['DBHOST_TBL_PREFIX'] .'users SET theme='. $id .' WHERE id=1');
 			$this->theme_opt |= 2;
 		}
 
-		if ($this->theme == 'path_info' || @file_exists($GLOBALS['DATA_DIR'].'thm/'.$this->theme.'/.path_info')) {
+		if ($this->theme == 'path_info' || @file_exists($GLOBALS['DATA_DIR'] .'thm/' .$this->theme .'/.path_info')) {
 			$this->theme_opt |= 4;
 		}
 
@@ -81,17 +81,17 @@ class fud_theme
 			pspell_lang='.ssn($this->pspell_lang).'
 		WHERE id='.$id);
 
-		if (!($this->theme_opt & 1) && !q_singleval('SELECT id FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'themes WHERE (theme_opt & 1) > 0')) {
-			q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'themes SET theme_opt=theme_opt|1 WHERE id=1');
-			q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'users SET theme=1 WHERE theme='.$id);
+		if (!($this->theme_opt & 1) && !q_singleval('SELECT id FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'themes WHERE (theme_opt & 1) > 0')) {
+			q('UPDATE '. $GLOBALS['DBHOST_TBL_PREFIX'] .'themes SET theme_opt=(theme_opt | 1) WHERE id=1');
+			q('UPDATE '. $GLOBALS['DBHOST_TBL_PREFIX'] .'users SET theme=1 WHERE theme='. $id);
 		}
 		if (!($this->theme_opt & 2) && !q_singleval('SELECT id FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'themes WHERE theme_opt>=2 AND (theme_opt & 2) > 0')) {
-			q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'themes SET theme_opt=theme_opt|3 WHERE id=1');
-			q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'users SET theme=1 WHERE theme=1');
+			q('UPDATE '. $GLOBALS['DBHOST_TBL_PREFIX'] .'themes SET theme_opt=(theme_opt | 3) WHERE id=1');
+			q('UPDATE '. $GLOBALS['DBHOST_TBL_PREFIX'] .'users SET theme=1 WHERE theme=1');
 		}
 
 		if (!($this->theme_opt & 1)) {
-			q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'users SET theme='.q_singleval('SELECT id FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'themes WHERE theme_opt>=2 AND (theme_opt & 2) > 0').' WHERE theme='.$id);
+			q('UPDATE '. $GLOBALS['DBHOST_TBL_PREFIX'] .'users SET theme='.q_singleval('SELECT id FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'themes WHERE theme_opt>=2 AND (theme_opt & 2) > 0') .' WHERE theme='. $id);
 		}
 
 		if (isset($ll)) {
@@ -101,38 +101,38 @@ class fud_theme
 
 	function get($id)
 	{
-		qobj('SELECT * FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'themes WHERE id='.$id, $this);
+		qobj('SELECT * FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'themes WHERE id='. $id, $this);
 	}
 
 	static function delete($id)
 	{
 		if (!db_locked()) {
 			$ll = 1;
-			db_lock($GLOBALS['DBHOST_TBL_PREFIX'].'themes WRITE, '.$GLOBALS['DBHOST_TBL_PREFIX'].'users WRITE');
+			db_lock($GLOBALS['DBHOST_TBL_PREFIX'].'themes WRITE, '. $GLOBALS['DBHOST_TBL_PREFIX'] .'users WRITE');
 		}
-		if (!($data = db_saq('SELECT theme_opt, name FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'themes WHERE id='.$id))) {
+		if (!($data = db_saq('SELECT theme_opt, name FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'themes WHERE id='. $id))) {
 			db_unlock();
 			return;
 		}
 
-		q('DELETE FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'themes WHERE id='.$id);
+		q('DELETE FROM '.$GLOBALS['DBHOST_TBL_PREFIX'] .'themes WHERE id='. $id);
 		if ($data[0] & 2) {
-			if (!($new_default = q_singleval('SELECT id FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'themes WHERE (theme_opt & 1) > 0'))) {
+			if (!($new_default = q_singleval('SELECT id FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'themes WHERE (theme_opt & 1) > 0'))) {
 				$new_default = 1;
 			}
-			q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'themes SET theme_opt=theme_opt|3 WHERE id='.$new_default);
+			q('UPDATE '. $GLOBALS['DBHOST_TBL_PREFIX'] .'themes SET theme_opt=(theme_opt | 3) WHERE id='. $new_default);
 		} else {
-			$new_default = q_singleval('SELECT id FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'themes WHERE theme_opt>=2 AND (theme_opt & 2) > 0');
+			$new_default = q_singleval('SELECT id FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'themes WHERE theme_opt>=2 AND (theme_opt & 2) > 0');
 		}
 
-		q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'users SET theme='.$new_default.' WHERE theme='.$id);
+		q('UPDATE '. $GLOBALS['DBHOST_TBL_PREFIX'] .'users SET theme='. $new_default .' WHERE theme='. $id);
 
 		if (isset($ll)) {
 			db_unlock();
 		}
 		if ($data[1] && $data[1] != 'default') {
-			cleandir($GLOBALS['WWW_ROOT_DISK'] . 'theme/' . $data[1]);
-			cleandir($GLOBALS['INCLUDE'] . 'theme/' . $data[1]);
+			cleandir($GLOBALS['WWW_ROOT_DISK'] .'theme/'. $data[1]);
+			cleandir($GLOBALS['INCLUDE'] .'theme/'. $data[1]);
 		}
 	}
 }
@@ -143,14 +143,14 @@ function cleandir($dir)
 	$dir = preg_replace('!/*$!', '', $dir);
 
 	if (!@is_dir($dir)) {
-		echo 'Couldn\'t delete "'.$dir.'", directory does not exist<br />';
+		echo 'Couldn\'t delete "'. $dir .'", directory does not exist<br />';
 		return;
 	}
 
 	$dirs = array(realpath($dir));
 
 	while (list(,$v) = each($dirs)) {
-		if (!($files = glob($v.'/*', GLOB_NOSORT))) {
+		if (!($files = glob($v .'/*', GLOB_NOSORT))) {
 			continue;
 		}
 		foreach ($files as $file) {
@@ -161,14 +161,14 @@ function cleandir($dir)
 			if (is_dir($file) && !is_link($file)) {
 				$dirs[] = $file;
 			} else if (!unlink($file)) {
-				echo '<b>Could not delete file "'.$file.'"<br />';
+				echo '<b>Could not delete file "'. $file .'"<br />';
 			}
 		}
 	}
 
 	foreach (array_reverse($dirs) as $dir) {
 		if (!rmdir($dir)) {
-			echo '<b>Could not delete directory "'.$dir.'"<br />';
+			echo '<b>Could not delete directory "'. $dir .'"<br />';
 		}
 	}
 }

@@ -71,7 +71,7 @@ function print_reg_field($descr, $field, $is_int=0, $pass=0)
 		$val = !$is_int ? htmlspecialchars($GLOBALS[$field]) : (int)$GLOBALS[$field];
 	}
 	$extra = ($is_int) ? 'type="number" ' : '';	// HTML5 type spec.
-	echo '<tr class="field"><td><label for="CF_'. $field .'">'. $descr .': <br /><font size="-1">'.$GLOBALS['help_ar'][$field][0].'</font></label></td><td valign="top"><input type="'.(!$pass ? 'text' : 'password').'" name="CF_'. $field .'" id="CF_'. $field .'" value="'. $val .'" size="30" '. $extra .'/></td></tr>';
+	echo '<tr class="field"><td><label for="CF_'. $field .'">'. $descr .': <br /><font size="-1">'.$GLOBALS['help_ar'][$field][0].'</font></label></td><td valign="top"><input type="'.(!$pass ? 'text' : 'password').'" name="CF_'. $field .'" id="CF_'. $field .'" value="'. $val .'" size="30" autocomplete="off" '. $extra .'/></td></tr>';
 }
 
 function print_txt_field($descr, $field, $rows=2, $cols=30)
@@ -114,6 +114,25 @@ function change_global_settings($list)
 	$fp = fopen($GLOBALS['INCLUDE'] .'GLOBALS.php', 'w');
 	fwrite($fp, $settings);
 	fclose($fp);
+}
+
+function fud_symlink($src, $dest)
+{
+	$WINDOWS = DIRECTORY_SEPARATOR != '/';
+	
+	/* Ensure we don't have any bogus symlinks (re-installing over old forum). */
+	@unlink($dest);
+
+	/* Older windows systems doesn't have symlinks and some hosts disable them - use crude emulation. */	
+	if ($WINDOWS || !function_exists('symlink')) {
+		if (!($fp = fopen($dest, 'wb'))) {
+			return FALSE;
+		}
+		fwrite($fp, '<?php include_once \''. $src .'\'; ?>');
+		fclose($fp);
+	} else {
+		symlink($src, $dest);
+	}
 }
 
 function maintenance_status($reason, $status)

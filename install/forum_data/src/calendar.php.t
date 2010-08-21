@@ -9,9 +9,13 @@
 * Free Software Foundation; version 2 of the License.
 **/
 
+/*{PRE_HTML_PHP}*/
+	
 if (!($FUD_OPT_3 & 134217728)) {	// Calender is disabled.
 	std_error('disabled');
 }
+
+ses_update_status($usr->sid, '{TEMPLATE: cal_update}');
 
 $TITLE_EXTRA = ': {TEMPLATE: calendar_title}';
 
@@ -108,7 +112,7 @@ function get_events($year, $month, $day = 0) {
 
 	/* Display birthdays (DDMMYYYY) on day view. */
 	if ($GLOBALS['FUD_OPT_3'] & 268435456 && $day != 0) {
-		$c = uq('SELECT u.alias, u.birthday FROM fud30_users u WHERE birthday LIKE \''. sprintf('%02d%02d', $month, $day) .'%\'');
+		$c = uq('SELECT u.alias, u.birthday FROM {SQL_TABLE_PREFIX}users u WHERE birthday LIKE \''. sprintf('%02d%02d', $month, $day) .'%\'');
 		while ($r = db_rowarr($c)) {
 			$yyyy = substr($r[1], 4);
 			$mm = substr($r[1], 0, 2);
@@ -120,7 +124,7 @@ function get_events($year, $month, $day = 0) {
 	}
 
 	/* Defined events. */
-	$c = uq('SELECT day, descr, link FROM fud30_calendar WHERE (month=\''.$month.'\' AND year=\''.$year.'\') OR (month=\'*\' AND year=\''.$year.'\') OR (month=\''.$month.'\' AND year=\'*\') || (month=\'*\' AND year=\'*\')');
+	$c = uq('SELECT day, descr, link FROM {SQL_TABLE_PREFIX}calendar WHERE (month=\''.$month.'\' AND year=\''.$year.'\') OR (month=\'*\' AND year=\''.$year.'\') OR (month=\''.$month.'\' AND year=\'*\') OR (month=\'*\' AND year=\'*\')');
 	while ($r = db_rowarr($c)) {
 		if (empty($r[2])) {
 			$events[ sprintf('%04d%02d%02d', $year, $month, $r[0]) ][] = $r[1];
@@ -132,7 +136,6 @@ function get_events($year, $month, $day = 0) {
 	return $events;
 }
 
-/*{PRE_HTML_PHP}*/
 /*{POST_HTML_PHP}*/
 
 /* Get calendar settings. */
@@ -157,7 +160,6 @@ for($x = ($year-floor($year_range/2)); $x <= ($year+floor($year_range/2)); $x++)
 }
 $select_year_control .= '</select>';
 
-	
 if ($view == 'y') {
 	$next_year  = $year + 1;
 	$prev_year  = $year - 1;

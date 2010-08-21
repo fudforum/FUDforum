@@ -18,7 +18,7 @@
 		exit("Please enable the 'register_argc_argv' php.ini directive.\n");
 	}
 	if ($_SERVER['argc'] < 2) {
-		exit("Missing Forum ID Parameter.\n");
+		exit("Please specify the XML feed identifier parameter.\n");
 	}
 
 	if (strncmp($_SERVER['argv'][0], '.', 1)) {
@@ -42,8 +42,6 @@
 	fud_use('rev_fmt.inc');
 	fud_use('fileio.inc');
 	fud_use('isearch.inc');
-	fud_use('forum_adm.inc', true);
-	fud_use('glob.inc', true);
 	fud_use('replace.inc');
 	fud_use('scripts_common.inc', true);
 

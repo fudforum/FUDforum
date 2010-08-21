@@ -27,7 +27,7 @@ function text_to_worda($text)
 		return $a;
 	}
 
-	/* PCRE unicode support is turned off, fallback to old non-utf8 algorithm */
+	/* PCRE unicode support is turned off, fallback to old non-utf8 algorithm. */
 	$t1 = array_unique(str_word_count($text, 1));
 	foreach ($t1 as $v) {
 		if (isset($v[51]) || !isset($v[2])) continue;	// word too short or long
@@ -38,7 +38,7 @@ function text_to_worda($text)
 
 function index_text($subj, $body, $msg_id)
 {
-	/* Remove stuff in quotes */
+	/* Remove stuff in [quote] tags. */
 	while (preg_match('!{TEMPLATE: post_html_quote_start_p1}(.*?){TEMPLATE: post_html_quote_start_p2}(.*?){TEMPLATE: post_html_quote_end}!is', $body)) {
 		$body = preg_replace('!{TEMPLATE: post_html_quote_start_p1}(.*?){TEMPLATE: post_html_quote_start_p2}(.*?){TEMPLATE: post_html_quote_end}!is', '', $body);
 	}
@@ -55,15 +55,7 @@ function index_text($subj, $body, $msg_id)
 
 	$w2 = array_unique($w2);
 
-	if (__dbtype__ != 'pgsql') {
-		ins_m('{SQL_TABLE_PREFIX}search', 'word', $w2, 'text', 0);
-	} else {
-		foreach ($w2 as $w) {
-			if (!q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}search WHERE word='. $w)) {
-				q('INSERT INTO {SQL_TABLE_PREFIX}search (word) VALUES('. $w .')');
-			}
-		}	
-	}	
+	ins_m('{SQL_TABLE_PREFIX}search', 'word', 'text', $w2);
 	if ($subj && $w1) {
 		db_li('INSERT INTO {SQL_TABLE_PREFIX}title_index (word_id, msg_id) SELECT id, '. $msg_id .' FROM {SQL_TABLE_PREFIX}search WHERE word IN('. implode(',', $w1) .')', $ef);
 	}

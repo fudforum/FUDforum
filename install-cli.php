@@ -22,7 +22,7 @@ function pf($str)
 function fe($str)
 {
 	pf("\nFATAL ERROR!\n");
-	pf($str);
+	pf($str ."\n\n");
 	exit(-1);
 }
 
@@ -49,7 +49,7 @@ function mkdir_r($path)
 	}
 	foreach (array_reverse($dirs) as $dir) {
 		if (!mkdir($dir, 0755)) {
-			fe("Failed to create '{$dir}' directory\n");	
+			fe('Failed to create "'. $dir .'" directory.');	
 		}
 	}
 }
@@ -111,12 +111,12 @@ function decompress_archive($data_root, $web_root)
 		$data = strtr(substr($data, 10), $clean);
 
 		if (!($data = gzuncompress($data, $data_len))) { /* compression */
-			fe("Failed decompressing the archive\n");
+			fe('Failed decompressing the archive.');
 		}
 	}
 
 	if (md5($data) != $checksum) {
-		fe("Archive did not pass checksum test, CORRUPT ARCHIVE!\nIf you've encountered this error it means that you've:\n\tdownloaded a corrupt archive\n\tuploaded the archive to your server in ASCII and not BINARY mode\n\tyour FTP Server/Decompression software/Operating System added un-needed cartrige return ('\\r') characters to the archive, resulting in archive corruption.\n\n");
+		fe("Archive did not pass checksum test, CORRUPT ARCHIVE!\nIf you've encountered this error it means that you've:\n\tdownloaded a corrupt archive\n\tuploaded the archive to your server in ASCII and not BINARY mode\n\tyour FTP Server/Decompression software/Operating System added un-needed cartrige return ('\\r') characters to the archive, resulting in archive corruption.");
 	}
 
 	$pos = 0;
@@ -145,7 +145,7 @@ function decompress_archive($data_root, $web_root)
 		if (isset($meta_data[5])) {
 			$file = substr($data, ($pos + 1), $meta_data[5]);
 			if (md5($file) != $meta_data[4]) {
-				fe("file '{$meta_data[1]}' was not read properly from archive.\n");
+				fe("file '{$meta_data[1]}' was not read properly from archive.");
 			}
 
 			if ($path == $web_root . '.htaccess' && @file_exists($path)) {
@@ -155,7 +155,7 @@ function decompress_archive($data_root, $web_root)
 
 			$fp = @fopen($path, 'wb');
 			if (!$fp) {
-				fe("Couldn't open '{$path}' for write\n");
+				fe("Couldn't open '{$path}' for write.");
 			}
 			fwrite($fp, $file);
 			fclose($fp);
@@ -171,19 +171,6 @@ function decompress_archive($data_root, $web_root)
 			chmod($path, 0755);
 		}
 	} while (($pos = strpos($data, "\n//", $pos)) !== false);
-}
-
-/* Older windows systems doesn't have symlinks and some hosts disable them - use crude emulation. */
-$WINDOWS = DIRECTORY_SEPARATOR != '/';
-if ($WINDOWS || !function_exists('symlink')) {
-	function fud_symlink($src, $dest)
-	{
-		if (!($fp = fopen($dest, 'wb'))) {
-			return FALSE;
-		}
-		fwrite($fp, '<?php include_once "'.$src.'"; ?>');
-		fclose($fp);
-	}
 }
 
 function htaccess_handler($web_root, $ht_pass)
@@ -252,7 +239,8 @@ function dberror()
 			return end($err);
 			break;			
 		case 'oci8':
-			return oci_error($GLOBALS['DB']);
+			$m = oci_error($GLOBALS['DB']);
+			return $err['message'];
 			break;
 	}
 }
@@ -288,9 +276,9 @@ function dbperms_check()
 			$version = 0;
 		}
 		if (($GLOBALS['DBHOST_DBTYPE'] == 'mysql' || $GLOBALS['DBHOST_DBTYPE'] == 'mysqli' || $GLOBALS['DBHOST_DBTYPE'] == 'pdo_mysql') && !version_compare($version, '4.1.0', '>=')) {
-			fe("The specified MySQL server is running version '{$version}', which is older then the minimum required version '4.1.0'\n");
+			fe("The specified MySQL server is running version '{$version}', which is older then the minimum required version '4.1.0'.");
 		} else if (($GLOBALS['DBHOST_DBTYPE'] == 'pgsql' || $GLOBALS['DBHOST_DBTYPE'] == 'pdo_pgsql') && !version_compare($version, '8.1.0', '>=')) {
-			fe("The specified PostgreSQL server is running version '{$version}', which is older then the minimum required version '8.1.0'\n");
+			fe("The specified PostgreSQL server is running version '{$version}', which is older then the minimum required version '8.1.0'.");
 		}
 	}
 
@@ -299,32 +287,32 @@ function dbperms_check()
 		case 'pdo_mysql':		
 			mysql_query('DROP TABLE IF EXISTS fud_forum_install_test_table');
 			if (!mysql_query('CREATE TABLE fud_forum_install_test_table (test_val INT)')) {
-				fe("Your MySQL account does not have permissions to create new MySQL tables.\nEnable this functionality and restart the script.\n");
+				fe("Your MySQL account does not have permissions to create new MySQL tables.\nEnable this functionality and restart the script.");
 			}
 			if (!mysql_query('ALTER TABLE fud_forum_install_test_table ADD test_val2 INT')) {
-				fe("Your MySQL account does not have permissions to run ALTER queries on existing MySQL tables\nEnable this functionality and restart the script.\n");
+				fe("Your MySQL account does not have permissions to run ALTER queries on existing MySQL tables\nEnable this functionality and restart the script.");
 			}
 			if (!mysql_query('LOCK TABLES fud_forum_install_test_table WRITE')) {
-				fe("Your MySQL account does not have permissions to run LOCK queries on existing MySQL tables\nEnable this functionality and restart the script.\n");
+				fe("Your MySQL account does not have permissions to run LOCK queries on existing MySQL tables\nEnable this functionality and restart the script.");
 			}
 			mysql_query('UNLOCK TABLES');
 			if (!mysql_query('DROP TABLE fud_forum_install_test_table')) {
-				fe("Your MySQL account does not have permissions to run DROP TABLE queries on existing MySQL tables\nEnable this functionality and restart the script.\n");
+				fe("Your MySQL account does not have permissions to run DROP TABLE queries on existing MySQL tables\nEnable this functionality and restart the script.");
 			}
 			break;
 		case 'pgsql':
 		case 'pdo_pgsql':		
 			@pg_query($GLOBALS['DB'], 'DROP TABLE fud_forum_install_test_table');
 			if (!pg_query($GLOBALS['DB'], 'CREATE TABLE fud_forum_install_test_table (test_val INT)')) {
-				fe("Your PostgreSQL account does not have permissions to create new PostgreSQL tables.\nEnable this functionality and restart the script.\n");
+				fe("Your PostgreSQL account does not have permissions to create new PostgreSQL tables.\nEnable this functionality and restart the script.");
 			}
 			if (!pg_query($GLOBALS['DB'], 'BEGIN WORK') || !pg_query($GLOBALS['DB'], 'ALTER TABLE fud_forum_install_test_table ADD test_val2 INT')) {
-				fe("Your PostgreSQL account does not have permissions to run ALTER queries on existing PostgreSQL tables\nEnable this functionality and restart the script.\n");
+				fe("Your PostgreSQL account does not have permissions to run ALTER queries on existing PostgreSQL tables\nEnable this functionality and restart the script.");
 			}
 			pg_query($GLOBALS['DB'], 'COMMIT WORK');
 
 			if (!pg_query($GLOBALS['DB'], 'DROP TABLE fud_forum_install_test_table')) {
-				fe("Your PostgreSQL account does not have permissions to run DROP TABLE queries on existing PostgreSQL tables\nEnable this functionality and restart the script.\n");
+				fe("Your PostgreSQL account does not have permissions to run DROP TABLE queries on existing PostgreSQL tables\nEnable this functionality and restart the script.");
 			}
 			break;
 		case 'pdo_sqlite': /* No need to check perms, we've got our own DB. */
@@ -334,37 +322,16 @@ function dbperms_check()
 
 function make_into_query($data)
 {
-	return trim(str_replace('{SQL_TABLE_PREFIX}', $GLOBALS['settings']['DBHOST_TBL_PREFIX'], preg_replace('![ \t]+!', ' ', preg_replace('!\#.*$!s', '', $data))));
-}
+	// Remove comments.
+	$q = preg_replace('%/\*[\s\S]+?\*/|(?://|#).*(?:\r\n|\n)%m', '', $data);
+	// Expand newlines.
+	$q = str_replace(array('\r\n', '\r'), "\r\n", $q);
+	// Table prefix.
+	$q = str_replace('{SQL_TABLE_PREFIX}', $GLOBALS['settings']['DBHOST_TBL_PREFIX'], $q);
+	// Expand date.
+	$q = str_replace('{UNIX_TIMESTAMP}', time(), $q);
 
-function change_global_settings($list)
-{
-	$settings = file_get_contents($GLOBALS['INCLUDE'] . 'GLOBALS.php');
-	foreach ($list as $k => $v) {
-		if (($p = strpos($settings, '$' . $k)) === false) {
-			$pos = strpos($settings, '$ADMIN_EMAIL');
-			if (is_int($v)) {
-				$settings = substr_replace($settings, "\${$k}\t= {$v};\n\t", $p, 0);
-			} else {
-				$v = addcslashes($v, '\\\'');
-				$settings = substr_replace($settings, "\${$k}\t= '{$v}';\n\t", $p, 0);
-			}
-		} else {
-			$p = strpos($settings, '=', $p) + 1;
-			$e = $p + strrpos(substr($settings, $p, (strpos($settings, "\n", $p) - $p)), ';');
-
-			if (is_int($v)) {
-				$settings = substr_replace($settings, ' '.$v, $p, ($e - $p));
-			} else {
-				$v = addcslashes($v, '\\\'');
-				$settings = substr_replace($settings, ' \''.$v.'\'', $p, ($e - $p));
-			}
-		}
-	}
-
-	$fp = fopen($GLOBALS['INCLUDE'].'GLOBALS.php', 'w');
-	fwrite($fp, $settings);
-	fclose($fp);
+	return trim($q);
 }
 
 function initdb(&$settings)
@@ -453,15 +420,15 @@ function initdb(&$settings)
 	$module_status = module_check();
 
 	if (!version_compare(PHP_VERSION, '5.1.0', '>=')) {
-		fe("Your php version (<?php echo PHP_VERSION; ?>) is older then the minimum required version (5.1.0)\n\n");
+		fe("Your php version (<?php echo PHP_VERSION; ?>) is older then the minimum required version (5.1.0).");
 	} else if (($fs = filesize(__FILE__)) < 200000) {
-		fe("The installer is missing the data archive, append the archive to the installer and try again.\n\n");
+		fe("The installer is missing the data archive, append the archive to the installer and try again.");
 	} else if ($fs < 3500000 && !$module_status['zlib']) {
-		fe("The zlib extension required to decompress the archive is not loaded.\nPlease recompile your PHP with zlib support or load the zlib extension, in the event this is not possible download\nthe non-zlib version of the install or upgrade script from FUDforum's website at:\nhttp://fudforum.org/forum/\n\n");
+		fe("The zlib extension required to decompress the archive is not loaded.\nPlease recompile your PHP with zlib support or load the zlib extension, in the event this is not possible download\nthe non-zlib version of the install or upgrade script from FUDforum's website at:\nhttp://fudforum.org/forum/.");
 	} else if (!$module_status['mysql'] && !$module_status['pgsql']) {
-		fe("FUDforum can utilize either MySQL or PosgreSQL database to store it's data, unfortunately, your PHP does not have\nsupport for either one. Please install or load the appropriate database extension and then re-run the install script.\n\n");
+		fe("FUDforum can utilize either MySQL or PosgreSQL database to store it's data, unfortunately, your PHP does not have\nsupport for either one. Please install or load the appropriate database extension and then re-run the install script.");
 	} else if (!$module_status['pcre']) {
-		fe("PCRE (Perl Compatible Regular Expression) extension required for proper forum operation is not available,\nplease load or install this extension and then re-run the installer.\n\n");
+		fe("PCRE (Perl Compatible Regular Expression) extension required for proper forum operation is not available,\nplease load or install this extension and then re-run the installer.");
 	}
 
 	$got_config = 0;
@@ -537,24 +504,17 @@ function initdb(&$settings)
 	$FORUM_SETTINGS_PATH = $settings['SERVER_DATA_ROOT'].'cache/';
 	$PLUGIN_PATH = $settings['SERVER_DATA_ROOT'].'plugins/';
 
-	chmod($INCLUDE . 'GLOBALS.php', 0666);
+	chmod($INCLUDE .'GLOBALS.php', 0666);
 	touch($ERROR_PATH . 'FILE_LOCK');
 
-	/* Ensure we don't have any bogus symlinks (re-installing over old forum). */
-	@unlink($settings['SERVER_ROOT'] . 'GLOBALS.php');
-	@unlink($settings['SERVER_ROOT'] . 'adm/GLOBALS.php');
-	@unlink($settings['SERVER_DATA_ROOT'] . 'scripts/GLOBALS.php');
+	/* Load glob.inc for functions like fud_symlink() and change_global_settings(). */
+	require($INCLUDE .'glob.inc');
 
+				
 	/* Make symlinks to GLOBALS.php. */
-	if ($WINDOWS || !function_exists('symlink')) {
-		fud_symlink($INCLUDE . 'GLOBALS.php', $settings['SERVER_ROOT'] . 'GLOBALS.php');
-		fud_symlink($INCLUDE . 'GLOBALS.php', $settings['SERVER_ROOT'] . 'adm/GLOBALS.php');
-		fud_symlink($INCLUDE . 'GLOBALS.php', $settings['SERVER_DATA_ROOT'] . 'scripts/GLOBALS.php');				
-	} else {
-		symlink($INCLUDE . 'GLOBALS.php', $settings['SERVER_ROOT'] . 'GLOBALS.php');
-		symlink($INCLUDE . 'GLOBALS.php', $settings['SERVER_ROOT'] . 'adm/GLOBALS.php');
-		symlink($INCLUDE . 'GLOBALS.php', $settings['SERVER_DATA_ROOT'] . 'scripts/GLOBALS.php');
-	}
+	fud_symlink($INCLUDE . 'GLOBALS.php', $settings['SERVER_ROOT'] .'GLOBALS.php');
+	fud_symlink($INCLUDE . 'GLOBALS.php', $settings['SERVER_ROOT'] .'adm/GLOBALS.php');
+	fud_symlink($INCLUDE . 'GLOBALS.php', $settings['SERVER_DATA_ROOT'] .'scripts/GLOBALS.php');
 
 	/* Default bitmask values. */
 	$FUD_OPT_1 = 1743713471;
@@ -695,7 +655,7 @@ function initdb(&$settings)
 	$sql = glob($settings['SERVER_DATA_ROOT'] . 'sql/*.sql', GLOB_NOSORT);
 
 	if (!$tbl || !$sql) {
-		fe("Failed to get a list of table defenitions and/or base table data from: '{$settings['SERVER_DATA_ROOT']}sql/'\n");
+		fe("Failed to get a list of table defenitions and/or base table data from: '{$settings['SERVER_DATA_ROOT']}sql/'.");
 	}
 
 	/* Import tables. */
@@ -730,9 +690,9 @@ function initdb(&$settings)
 				/* for MySQL 4.1.2 we need to specify a default charset */
 				$q .= " DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci";
 			}
-			if (($q = make_into_query(trim($q)))) {
+			if ($q = make_into_query($q)) {
 				if (!dbquery($q)) {
-					fe('Failed to create table "'.basename($t, '.tbl').'" ("'.$q.'"), SQL Reason: '.dberror()."\n");
+					fe('Failed to create table "'.basename($t, '.tbl').'" ("'.$q.'"), SQL Reason: '.dberror());
 					break 2;
 				}
 			}
@@ -742,9 +702,9 @@ function initdb(&$settings)
 	/* Create Oracle sequences and triggers. */
 	foreach($ora_statements as $q) {
 		echo "Execute Oracle stmt : ". $q ."\n";
-		if (($q = make_into_query(trim($q)))) {
+		if ($q = make_into_query($q)) {
 				if (!dbquery($q)) {
-					fe('Failed to create table "'.basename($t, '.tbl').'" ("'.$q.'"), SQL Reason: '.dberror()."\n");
+					fe('Failed to create table "'.basename($t, '.tbl').'" ("'.$q.'"), SQL Reason: '.dberror());
 					break;
 				}
 		}
@@ -752,14 +712,11 @@ function initdb(&$settings)
 
 	/* Import seed data. */
 	foreach ($sql as $t) {
-		$file = str_replace(array('\r\n', '\r'), "\r\n", file_get_contents($t));
+		$file = file_get_contents($t);
 		foreach (explode(";\n", $file) as $q) { 
-			if (strpos($q, '{UNIX_TIMESTAMP}') !== false) {
-				$q = str_replace('{UNIX_TIMESTAMP}', time(), $q);
-			}
-			if (($q = make_into_query(trim($q)))) {
+			if ($q = make_into_query($q)) {
 				if (!dbquery($q)) {
-					fe('Failed to import default data ("'.$q.'") into table '.basename($t, '.sql').', SQL Reason: '.dberror()."\n");
+					fe('Failed to import default data ("'.$q.'") into table '.basename($t, '.sql').', SQL Reason: '.dberror());
 					break 2;
 				}
 			}
@@ -778,7 +735,7 @@ function initdb(&$settings)
 	/* Handle template selection. */
 	$templ_dir = glob($settings['SERVER_DATA_ROOT'].'thm/*', GLOB_ONLYDIR|GLOB_NOSORT);
 	if (!$templ_dir) {
-		fe("Could not open template directory at '{$settings['SERVER_DATA_ROOT']}thm/'\n");
+		fe("Could not open template directory at '{$settings['SERVER_DATA_ROOT']}thm/'.");
 	}
 	foreach ($templ_dir as $f) {
 		$templ = strtolower(basename($f));
@@ -804,7 +761,7 @@ function initdb(&$settings)
 	/* Handle language selection. */
 	$lang_dir = glob($settings['SERVER_DATA_ROOT'].'thm/default/i18n/*', GLOB_ONLYDIR|GLOB_NOSORT);
 	if (!$lang_dir) {
-		fe("Could not open i18n directory at '{$settings['SERVER_DATA_ROOT']}thm/default/i18n'\n");
+		fe("Could not open i18n directory at '{$settings['SERVER_DATA_ROOT']}thm/default/i18n'.");
 	}
 	foreach ($lang_dir as $f) {
 		if (file_exists($f . '/locale')) {
@@ -851,12 +808,12 @@ function initdb(&$settings)
 			$settings['ROOT_LOGIN'] = $tmp;
 		}
 	}
-	
+
 	while (!$settings['ADMIN_EMAIL']) {
 		pf("Forum's Administrator E-mail: ");
 		$settings['ADMIN_EMAIL'] = trim(fgets(STDIN, 1024));
 	}
-	
+
 	while (!$settings['ROOT_PASS']) {
 		pf("Forum's Administrator Password: ");
 		$settings['ROOT_PASS'] = trim(fgets(STDIN, 1024));
@@ -875,7 +832,7 @@ function initdb(&$settings)
 	}
 	change_global_settings(array('ADMIN_EMAIL' => $settings['ADMIN_EMAIL'], 'NOTIFY_FROM' => $settings['ADMIN_EMAIL']));
 
-	/* build theme */
+	/* Build theme. */
 	$GLOBALS['WWW_ROOT_DISK']		= $settings['SERVER_ROOT'];
 	$GLOBALS['DATA_DIR']			= $settings['SERVER_DATA_ROOT'];
 	$GLOBALS['INCLUDE'] 			= $settings['SERVER_DATA_ROOT'] . '/include/';

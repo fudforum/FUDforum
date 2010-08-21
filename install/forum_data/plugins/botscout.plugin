@@ -58,7 +58,7 @@ function botscout_config() {
 		echo '<font color="green">Settings successfully saved.</font>';
 	}
 	?>
-<p>API key (get one from <a href="http://botscout.com/">botscout.com</a>):<br />
+<p>Your API key (get one from <a href="http://botscout.com/">botscout.com</a>):<br />
 <input name="BOTSCOUT_API_KEY" value="<?php echo $ini['BOTSCOUT_API_KEY'] ?>" size="60" /></p>
 	<?php
 }

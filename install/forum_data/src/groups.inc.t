@@ -82,7 +82,7 @@ function grp_rebuild_cache($user_id=null)
 	}
 
 	q('DELETE FROM {SQL_TABLE_PREFIX}group_cache' . ($lmt ? ' WHERE '.$lmt : ''));
-	ins_m('{SQL_TABLE_PREFIX}group_cache', 'resource_id, group_cache_opt, user_id', $tmp, 'integer, integer, integer');
+	ins_m('{SQL_TABLE_PREFIX}group_cache', 'resource_id, group_cache_opt, user_id', 'integer, integer, integer', $tmp);
 
 	if ($ll) {
 		db_unlock();
