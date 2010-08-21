@@ -22,7 +22,7 @@
 		if ($r && (empty($r->salt) && $r->passwd == md5($_POST['passwd']) || $r->passwd == sha1($r->salt . sha1($_POST['passwd'])))) {
 			$sid = user_login($r->id, $usr->ses_id, true);
 			$GLOBALS['new_sq'] = regen_sq($r->id);
-			header('Location: '.$WWW_ROOT.'adm/index.php?S='.$sid.'&SQ='.$new_sq);
+			header('Location: '. $WWW_ROOT .'adm/index.php?S='. $sid .'&SQ='. $new_sq);
 			exit;
 		} else {
 			q('UPDATE '.$DBHOST_TBL_PREFIX.'users SET last_login='.__request_timestamp__.' WHERE login='._esc($_POST['login']));
@@ -33,7 +33,7 @@
 		$err = '';
 	}
 
-	require($WWW_ROOT_DISK . 'adm/header.php');
+	require($WWW_ROOT_DISK .'adm/header.php');
 ?>
 <h1>Admin login</h1>
 <?php
@@ -58,4 +58,4 @@
 </table>
 </form>
 <br /><br /><br />
-<?php 	require($WWW_ROOT_DISK . 'adm/footer.php'); ?>
+<?php 	require($WWW_ROOT_DISK .'adm/footer.php'); ?>

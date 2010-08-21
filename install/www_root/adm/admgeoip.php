@@ -15,7 +15,7 @@
 	fud_use('widgets.inc', true);
 	fud_use('draw_select_opt.inc');
 
-	require($WWW_ROOT_DISK . 'adm/header.php');
+	require($WWW_ROOT_DISK .'adm/header.php');
 	$help_ar = read_help();
 
 	// Enable or disable ENABLE_GEO_LOCATION & UPDATE_GEOLOC_ON_LOGIN.

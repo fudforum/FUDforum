@@ -17,7 +17,7 @@
 		exit;
 	}
 
-	require($WWW_ROOT_DISK . 'adm/header.php');
+	require($WWW_ROOT_DISK .'adm/header.php');
 
 	if (isset($_POST['btn_download']) && isset($_POST['tlang'])) {
 		$tlang = $_POST['tlang'];
@@ -137,4 +137,4 @@
 </select></td></tr>
 <tr class="fieldaction" align="right"><td colspan="2"><input type="submit" name="btn_download" value="Download" <?php echo $disabled; ?> /></td></tr></table></form>
 
-<?php require($WWW_ROOT_DISK . 'adm/footer.php'); ?>
+<?php require($WWW_ROOT_DISK .'adm/footer.php'); ?>

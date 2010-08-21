@@ -39,7 +39,7 @@ function get_max_upload_size()
 	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
 	$max_upload_size = get_max_upload_size();
 
-	require($WWW_ROOT_DISK . 'adm/header.php');
+	require($WWW_ROOT_DISK .'adm/header.php');
 	
 	if (!$cat_id || ($cat_name = q_singleval('SELECT name FROM '.$tbl.'cat WHERE id='.$cat_id)) === NULL) {
 		exit('No such category.');
@@ -278,4 +278,4 @@ if (!isset($_GET['chpos'])) {	// Hide this if we are changing forum order.
 </table>
 <br clear="right" />
 
-<?php require($WWW_ROOT_DISK . 'adm/footer.php'); ?>
+<?php require($WWW_ROOT_DISK .'adm/footer.php'); ?>

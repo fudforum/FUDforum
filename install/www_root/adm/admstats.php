@@ -41,23 +41,25 @@ function dir_space_usage($dirp)
 
 function get_sql_disk_usage()
 {
-	if (!(__dbtype__ == 'mysql' || __dbtype__ == 'pdo_mysql')) {
-		return;
+	if (__dbtype__ == 'mysql') {
+		return q_singleval('SELECT sum(data_length + index_length) FROM information_schema.TABLES WHERE table_name LIKE \''. $GLOBALS['DBHOST_TBL_PREFIX'] .'%\'');
 	}
 
-	$sql_size = 0;
-	if ($GLOBALS['DBHOST_DBTYPE'] != 'pdo_mysql') {
-		$c = uq('SHOW TABLE STATUS FROM `'. $GLOBALS['DBHOST_DBNAME'] .'` LIKE \''. $GLOBALS['DBHOST_TBL_PREFIX'] .'%\'');
-	} else {
-		eval('db::$res = null; $tmp = db::$db;');
-		$c = $tmp->query('SHOW TABLE STATUS FROM `'. $GLOBALS['DBHOST_DBNAME'] .'` LIKE \''. $GLOBALS['DBHOST_TBL_PREFIX'] .'%\'');
-	}
-	while ($r = db_rowobj($c)) {
-		$sql_size += $r->Data_length + $r->Index_length;
-	}
-	unset($c);
+	return;
 
-	return $sql_size;
+	// $sql_size = 0;
+	//if ($GLOBALS['DBHOST_DBTYPE'] != 'pdo_mysql') {
+	//	$c = uq('SHOW TABLE STATUS FROM `'. $GLOBALS['DBHOST_DBNAME'] .'` LIKE \''. $GLOBALS['DBHOST_TBL_PREFIX'] .'%\'');
+	//} else {
+	//	eval('db::$res = null; $tmp = db::$db;');
+	//	$c = $tmp->query('SHOW TABLE STATUS FROM `'. $GLOBALS['DBHOST_DBNAME'] .'` LIKE \''. $GLOBALS['DBHOST_TBL_PREFIX'] .'%\'');
+	//}
+	// $c = q('SHOW TABLE STATUS FROM `'. $GLOBALS['DBHOST_DBNAME'] .'` LIKE \''. $GLOBALS['DBHOST_TBL_PREFIX'] .'%\'');
+	//while ($r = db_rowobj($c)) {
+	//	$sql_size += $r->Data_length + $r->Index_length;
+	//}
+	// unset($c);
+	// return $sql_size;
 }
 
 	$forum_start = (int) q_singleval('SELECT MIN(post_stamp) FROM '. $tbl .'msg');
@@ -77,7 +79,7 @@ function get_sql_disk_usage()
 	$vl_y = $kl_y = implode("\n", range($s_year, ($e_year + 1)));
 
 	$same_dir = (!strncmp($WWW_ROOT_DISK, $DATA_DIR, strlen($WWW_ROOT_DISK)) || !strncmp($DATA_DIR, $WWW_ROOT_DISK, strlen($DATA_DIR)));
-	require($WWW_ROOT_DISK . 'adm/header.php');
+	require($WWW_ROOT_DISK .'adm/header.php');
 ?>
 <h2>Forum Statistics</h2>
 <?php
@@ -252,7 +254,6 @@ function get_sql_disk_usage()
 <?php
 	if (isset($total_disk_usage)) {
 ?>
-<br />
 <h4>Disk Usage</h4>
 <table class="resulttable fulltable">
 <?php
@@ -371,5 +372,5 @@ function get_sql_disk_usage()
 <?php
 	} /* !isset($total_disk_usage) */
 
-	require($WWW_ROOT_DISK . 'adm/footer.php');
+	require($WWW_ROOT_DISK .'adm/footer.php');
 ?>

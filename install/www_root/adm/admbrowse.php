@@ -87,15 +87,15 @@ function fud_rmdir($dir)
 			}
 		}
 	}
-	
+
 	$dirs = array_reverse($dirs);
-	
+
 	foreach ($dirs as $dir) {
 		if (!rmdir($dir)) {
 			return false;
 		}
 	}
-	
+
 	return true;
 }
 
@@ -119,28 +119,28 @@ if (!extension_loaded('posix')) {
 	$cur_dir = realpath(isset($_POST['cur']) ? $_POST['cur'] : (isset($_GET['cur']) ? $_GET['cur'] : $ROOT_PATH[0]));
 	$dest = isset($_POST['dest']) ? basename($_POST['dest']) : (isset($_GET['dest']) ? basename($_GET['dest']) : '');
 
-	/* Ensure the specified path is within the forum directories. */
+	/* Ensure the specified path is within the forum directories (security check). */
 	if (strpos($cur_dir, $ROOT_PATH[1]) !== 0 && strpos($cur_dir, $ROOT_PATH[0]) !== 0) {
 		$cur = $cur_dir = $ROOT_PATH[0];
 		$dest = '';
 	}
 
 	/* Download file code. */
-	if (isset($_GET['down']) && $dest && @file_exists($cur_dir . '/' . $dest)) {
-		if (is_file($cur_dir . '/' . $dest)) {
+	if (isset($_GET['down']) && $dest && @file_exists($cur_dir .'/'. $dest)) {
+		if (is_file($cur_dir .'/'. $dest)) {
 			header('Content-type: application/octet-stream');
-			header('Content-Disposition: attachment; filename='.$dest);
-			readfile($cur_dir . '/' . $dest);
+			header('Content-Disposition: attachment; filename='. $dest);
+			readfile($cur_dir .'/'. $dest);
 		} else {
 			header('Content-type: application/x-tar');
-			header('Content-Disposition: attachment; filename='.$dest.'.tar');
-			echo make_tar($cur_dir . '/' . $dest);
+			header('Content-Disposition: attachment; filename='. $dest .'.tar');
+			echo make_tar($cur_dir .'/'. $dest);
 		}
 		exit;
 	}
-	
+
 	/* Delete file/directory code. */
-	if (isset($_GET['del']) && $dest && @file_exists($cur_dir . '/' . $dest)) {
+	if (isset($_GET['del']) && $dest && @file_exists($cur_dir .'/'. $dest)) {
 		if ($dest == '.' || $dest == '..') {
 			define('popup', 1);
 			require($WWW_ROOT_DISK .'adm/header.php');
@@ -182,6 +182,51 @@ if (!extension_loaded('posix')) {
 			<input type="hidden" name="del" value="1" />
 			<?php echo _hs; ?>
 			<div align="center"><input type="submit" name="btn_mini_cancel" value="No" /> <input type="submit" name="del_confirmed" value="Yes" /></div>
+			</form>
+		<?php
+			require($WWW_ROOT_DISK .'adm/footer.php');
+			exit;
+		}
+	}
+
+	/* Rename file. */
+	if (isset($_GET['rename']) && $dest && @file_exists($cur_dir . '/' . $dest)) {
+		if ($dest == '.' || $dest == '..') {
+			define('popup', 1);
+			require($WWW_ROOT_DISK .'adm/header.php');
+			echo '<h2>Rename File</h2>';
+			echo errorify('ERROR: You cannot rename . or ..');
+			require($WWW_ROOT_DISK .'adm/footer.php');
+			exit;
+		}
+		if (isset($_GET['rename_confirmed'], $_GET['new_dest'])) {
+			$new_dest = $_GET['new_dest'];
+			if (@is_writeable($cur_dir .'/'. $dest) && !rename($cur_dir .'/'. $dest, $cur_dir .'/'. $new_dest)) {
+				define('popup', 1);
+				require($WWW_ROOT_DISK .'adm/header.php');
+				echo '<h2>Rename File</h2>';
+				echo errorify('ERROR: failed to rename file '. $cur_dir .'/'. $dest);
+				require($WWW_ROOT_DISK .'adm/footer.php');
+				exit;
+			} else {
+				exit('<html><script type="text/javascript"> window.opener.location = \'admbrowse.php?'.__adm_rsidl.'&cur='.urlencode($cur_dir).'\'; window.close();</script></html>');
+			}
+		} else {
+			$file = $cur_dir .'/'. $dest;
+			$type = @is_dir($file) ? 'directory' : 'file';
+
+			define('popup', 1);
+			require($WWW_ROOT_DISK .'adm/header.php');
+		?>
+			<h2>Rename File</h2>
+			<p>Rename <?php echo $type.' <span style="color:red"><b>'.$file.'</b></span>'; ?>:</p>
+			<form method="get" action="admbrowse.php">
+			<input type="hidden" name="cur" value="<?php echo $cur_dir; ?>" />
+			<input type="hidden" name="dest" value="<?php echo $dest; ?>" />
+			<input type="hidden" name="rename" value="1" />
+			New name: <input type="text" name="new_dest" value="<?php echo $dest; ?>" />
+			<?php echo _hs; ?>
+			<div align="center"><input type="submit" name="btn_mini_cancel" value="No" /> <input type="submit" name="rename_confirmed" value="Yes" /></div>
 			</form>
 		<?php
 			require($WWW_ROOT_DISK .'adm/footer.php');
@@ -233,8 +278,6 @@ if (!extension_loaded('posix')) {
 		require($WWW_ROOT_DISK .'adm/footer.php');
 		exit;
 	}
-
-	/* Change file/directory permissions. */
 	if (isset($_POST['chmod']) && $dest && @file_exists($cur_dir . '/' . $dest)) {
 		$file = $cur_dir.'/'.$dest;
 		$perm_bits = array('oread', 'owrite', 'oexec', 'gread', 'gwrite', 'gexec', 'wread', 'wwrite', 'wexec', 'setuid', 'setgid', 'sticky');
@@ -303,14 +346,33 @@ if (!extension_loaded('posix')) {
 	}
 
 	/* View file code. */
-	if (isset($_GET['view']) && $dest && @file_exists($cur_dir . '/' . $dest)) {
-		$file = $cur_dir.'/'.$dest;
+	if (isset($_GET['view']) && $dest && @file_exists($cur_dir .'/'. $dest)) {
+		$file = str_replace('\\', '/', $cur_dir .'/'. $dest);
 		$ext = pathinfo($file, PATHINFO_EXTENSION);
-		if (in_array($ext, array('gz', 'zip', 'db', 'gif', 'jpg', 'png'))) {
+		if (in_array($ext, array('gz', 'zip', 'tar', 'db'))) {
 			echo errorify('Cannot view binary file.');
+		} elseif (in_array($ext, array('gif', 'jpg', 'png')) && strpos($file, $WWW_ROOT_DISK) !== FALSE) {
+			echo '<h2>View image: '. $dest .'</h2>';
+			echo '<table border="1" cellpadding="25"><tr><td>';
+			echo '<img src="'. $WWW_ROOT . substr($file, strlen($WWW_ROOT_DISK)) .'">';
+			echo '</td></tr></table>';
+			echo '<p><a href="admbrowse.php?'.__adm_rsid.'&amp;cur='.urlencode($cur_dir).'">&laquo; Back to file manager</a></p>';
+			exit;
 		} elseif (is_file($file) && is_readable($file)) {
+			$raw = (isset($_GET['raw']) && $_GET['raw'] == 1) ? 1 : 0;
+
 			echo '<h2>View file: '. $dest .'</h2>';
-			echo '<code><pre>'. htmlentities(file_get_contents($file)) .'</pre></code>';
+			echo '<div style="font-size: small;">';
+			echo '[ <a href="admbrowse.php?down=1&amp;dest='.urlencode($dest).'&amp;cur='.urlencode($cur_dir).'&smp;'.__adm_rsid.'">Download</a> ] ';
+			echo '[ <a href="admbrowse.php?view=1&amp;raw='.($raw ? 0 : 1).'&amp;dest='.urlencode($dest).'&amp;cur='.urlencode($cur_dir).'&smp;'.__adm_rsid.'">Toggle syntax highlighting</a> ]';
+			echo '</div>';
+			echo '<code><pre>';
+			if ($raw) {
+				highlight_file($file);
+			} else {	
+				echo '<br />'. htmlentities(file_get_contents($file)) .'<br />&nbsp;';
+			}
+			echo '</pre></code>';
 			echo '<p><a href="admbrowse.php?'.__adm_rsid.'&amp;cur='.urlencode($cur_dir).'">&laquo; Back to file manager</a></p>';
 			exit;
 		} else {
@@ -342,6 +404,7 @@ if (!extension_loaded('posix')) {
 	}
 ?>
 <br />
+
 <form method="get" action="admbrowse.php"><input type="hidden" name="cur" value="<?php echo $cur_dir; ?>" /><?php echo _hs; ?>
 <fieldset class="field">
         <legend><b>Create directory</b></legend>
@@ -375,9 +438,10 @@ if (!extension_loaded('posix')) {
 </fieldset>
 </form>
 <br />
+
 <table class="resulttable fulltable">
 <thead><tr class="resulttopic">
-	<th>Mode</th><?php if (!preg_match('/WIN/', PHP_OS)) echo '<th>Owner</th><th>Group</th>'; ?><th>Size</th><th>Date</th><th>Time</th><th>Name</th><th align="center" colspan="3">Action</th>	
+	<th>Name</th><?php if (!preg_match('/WIN/', PHP_OS)) echo '<th>Owner</th><th>Group</th>'; ?><th>Size</th><th>Date</th><th>Time</th><th>Mode</th><th align="center">Action</th>	
 </tr></thead>
 <?php
 	$file_list = array();
@@ -436,30 +500,32 @@ if (!extension_loaded('posix')) {
 			echo '<td nowrap="nowrap">';
 		}
 
-		echo $mode_str.' ('. $mode_o .')</td>';
+		echo $name .'</td>';
 		if (!preg_match('/WIN/', PHP_OS)) {	// No onwer & group on Windows.
 			echo '<td>'. $owner .'</td><td>'. $group .'</td>';
 		}
-		echo '<td nowrap="nowrap">'. $size .' KB</td><td nowrap="nowrap">'. $date_str .'</td><td>'. $time_str .'</td><td>'. $name .'</td>';
+		echo '<td nowrap="nowrap">'. $size .' KB</td><td nowrap="nowrap">'. $date_str .'</td><td>'. $time_str .'</td>';
+		echo '<td>'. $mode_str.' ('. $mode_o .')</td>';
 
+		echo '<td>';
 		if (@is_readable($fpath)) {
 			if (@is_writeable($fpath) && !preg_match('/WIN/', PHP_OS)) {
-				echo '<td style="border: #aebdc4; solid 1px 1px 1px 1px;"><a href="#" onclick="window.open(\'admbrowse.php?chmod=1&amp;cur='.$cur_enc.'&amp;dest='.$de_enc.'&amp;'.__adm_rsid.'\', \'chmod_window\', \'width=500,height=450,menubar=no\');">chmod</a></td>';
+				echo ' [<a href="#" onclick="window.open(\'admbrowse.php?chmod=1&amp;cur='.$cur_enc.'&amp;dest='.$de_enc.'&amp;'.__adm_rsid.'\', \'chmod_window\', \'width=500,height=450,menubar=no\');">chmod</a>]';
 			}
 
-			echo '<td style="border: #aebdc4; solid 1px 1px 1px 1px;"><a href="admbrowse.php?down=1&amp;cur='.$cur_enc.'&amp;dest='.$de_enc.'&amp;'.__adm_rsid.'">download</a></td>';
+			echo ' [<a href="admbrowse.php?down=1&amp;cur='.$cur_enc.'&amp;dest='.$de_enc.'&amp;'.__adm_rsid.'">download</a>]';
 
-			if (@is_writeable($fpath)) {
-				echo '<td style="border: #aebdc4; solid 1px 1px 1px 1px;"><a href="#" onclick="window.open(\'admbrowse.php?del=1&amp;cur='.$cur_enc.'&amp;dest='.$de_enc.'&amp;'.__adm_rsid.'\', \'delete_window\', \'width=500,height=350,menubar=no\');">delete</a></td>';
-			} else {
-				echo '<td style="border: #aebdc4; solid 1px 1px 1px 1px;" align="center">n/a</td>';
+			if (@is_writeable($fpath) && $de != '.' && $de != '..') {
+				echo ' [<a href="#" onclick="window.open(\'admbrowse.php?rename=1&amp;cur='.$cur_enc.'&amp;dest='.$de_enc.'&amp;'.__adm_rsid.'\', \'rename_window\', \'width=500,height=350,menubar=no\');">rename</a>]';
+				echo ' [<a href="#" onclick="window.open(\'admbrowse.php?del=1&amp;cur='.$cur_enc.'&amp;dest='.$de_enc.'&amp;'.__adm_rsid.'\', \'delete_window\', \'width=500,height=350,menubar=no\');">delete</a>]';
 			}
-		} else {
-			echo '<td style="border: #aebdc4; solid 1px 1px 1px 1px;" colspan="3" align="center">n/a</td>';
 		}
 		echo '</tr>';
 	}
-echo '</table>';
+?>
+</table>
+<br />
 
-require($WWW_ROOT_DISK . 'adm/footer.php');
+<?php
+require($WWW_ROOT_DISK .'adm/footer.php');
 ?>

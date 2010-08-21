@@ -16,7 +16,7 @@
 	fud_use('widgets.inc', true);
 
 	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
-	require($WWW_ROOT_DISK . 'adm/header.php');
+	require($WWW_ROOT_DISK .'adm/header.php');
 
 	if (!empty($_POST['btn_cancel'])) {
 		unset($_POST);
@@ -271,4 +271,4 @@ function imposeMaxLength(Object, len)
 	}
 ?>
 </table>
-<?php readfile($WWW_ROOT_DISK . 'adm/footer.php'); ?>
+<?php readfile($WWW_ROOT_DISK .'adm/footer.php'); ?>

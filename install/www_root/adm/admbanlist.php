@@ -12,7 +12,7 @@
 	require('./GLOBALS.php');
 	fud_use('adm.inc', true);
 
-	require($WWW_ROOT_DISK . 'adm/header.php');
+	require($WWW_ROOT_DISK .'adm/header.php');
 ?>
 
 <h2>Banned User List</h2>
@@ -40,4 +40,4 @@
 	}
 ?>
 </table>
-<?php require($WWW_ROOT_DISK . 'adm/footer.php'); ?>
+<?php require($WWW_ROOT_DISK .'adm/footer.php'); ?>

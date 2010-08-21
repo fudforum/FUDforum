@@ -19,7 +19,7 @@
 		exit;
 	}
 
-	require($WWW_ROOT_DISK . 'adm/header.php');
+	require($WWW_ROOT_DISK .'adm/header.php');
 
 	/* Limit theme names to sane characters */
 	if (isset($_POST['newname'], $_POST['btn_create'])) {
@@ -139,4 +139,4 @@
 <?php echo _hs; ?>
 </form>
 
-<?php require($WWW_ROOT_DISK . 'adm/footer.php'); ?>
+<?php require($WWW_ROOT_DISK .'adm/footer.php'); ?>

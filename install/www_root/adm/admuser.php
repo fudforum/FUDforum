@@ -18,7 +18,7 @@
 	fud_use('iemail.inc');
 	fud_use('private.inc');
 
-	require($WWW_ROOT_DISK . 'adm/header.php');
+	require($WWW_ROOT_DISK .'adm/header.php');
 
 	$acc_mod_only = !($GLOBALS['usr']->users_opt & 1048576) && $GLOBALS['usr']->users_opt & 268435456;
 
@@ -86,35 +86,35 @@
 				q('UPDATE '.$DBHOST_TBL_PREFIX.'users SET ban_expiry='.$block.', users_opt=users_opt & ~ '.$keys[$act].' WHERE id='.$usr_id);
 				$u->users_opt ^= $keys[$act];
 			} else {
-				q('UPDATE '.$DBHOST_TBL_PREFIX.'users SET ban_expiry='.$block.', users_opt=users_opt|'.$keys[$act].' WHERE id='.$usr_id);
+				q('UPDATE '. $DBHOST_TBL_PREFIX .'users SET ban_expiry='. $block .', users_opt=(users_opt | '. $keys[$act] .') WHERE id='. $usr_id);
 				$u->users_opt |= $keys[$act];
 			}
 
 			echo successify('User options successfully updated.');
 			if (isset($_GET['f'])) {
-				echo '<p>[ <a href="'. $WWW_ROOT.__fud_index_name__.$usr->returnto.'">return</a> ]</p>';
+				echo '<p>[ <a href="'. $WWW_ROOT.__fud_index_name__ . $usr->returnto .'">return</a> ]</p>';
 				exit;
 			}
 			break;
 		case 'color':
 			$u->custom_color = trim($_POST['custom_color']);
-			q('UPDATE '.$DBHOST_TBL_PREFIX.'users SET custom_color='.ssn($u->custom_color).' WHERE id='.$usr_id);
+			q('UPDATE '. $DBHOST_TBL_PREFIX .'users SET custom_color='. ssn($u->custom_color) .' WHERE id='. $usr_id);
 			echo successify('Custom color was successfully updated.');
 			break;
 		case 'reset':
-			$user_theme_name = q_singleval('SELECT name FROM '.$DBHOST_TBL_PREFIX.'themes WHERE '.(!$u->theme ? "theme_opt>=2 AND (theme_opt & 2) > 0" : 'id='.$u->theme));
+			$user_theme_name = q_singleval('SELECT name FROM '. $DBHOST_TBL_PREFIX .'themes WHERE '. (!$u->theme ? 'theme_opt>=2 AND (theme_opt & 2) > 0' : 'id='. $u->theme));
 			if ($FUD_OPT_2 & 1 && !($u->users_opt & 131072)) {
 				$conf_key = usr_email_unconfirm($u->id);
-				$url = $WWW_ROOT . __fud_index_name__ . '?t=emailconf&conf_key='.$conf_key;
-				send_email($NOTIFY_FROM, $u->email, $register_conf_subject, $reset_confirmation, "");
+				$url = $WWW_ROOT . __fud_index_name__ .'?t=emailconf&conf_key='. $conf_key;
+				send_email($NOTIFY_FROM, $u->email, $register_conf_subject, $reset_confirmation, '');
 				logaction(_uid, 'SEND_ECONF', 0, char_fix(htmlspecialchars($u->login)));
 			} else {
-				$user_theme_name = q_singleval('SELECT name FROM '.$DBHOST_TBL_PREFIX.'themes WHERE '.(!$u->theme ? 'theme_opt=3' : 'id='.$u->theme));
+				$user_theme_name = q_singleval('SELECT name FROM '. $DBHOST_TBL_PREFIX .'themes WHERE '. (!$u->theme ? 'theme_opt=3' : 'id='. $u->theme));
 				q("UPDATE ".$DBHOST_TBL_PREFIX."users SET reset_key='".($reset_key = md5(get_random_value(128)))."' WHERE id=".$u->id);
 
-				$url = $WWW_ROOT . __fud_index_name__ . '?t=reset&reset_key='.$reset_key;
-				include_once($INCLUDE . 'theme/' . $user_theme_name . '/rst.inc');
-				send_email($NOTIFY_FROM, $u->email, $reset_newpass_title, $reset_reset, "");
+				$url = $WWW_ROOT . __fud_index_name__ .'?t=reset&reset_key='.$reset_key;
+				include_once($INCLUDE .'theme/'. $user_theme_name .'/rst.inc');
+				send_email($NOTIFY_FROM, $u->email, $reset_newpass_title, $reset_reset, '');
 				logaction(_uid, 'ADM_RESET_PASSWD', 0, char_fix(htmlspecialchars($u->login)));
 			}
 			echo successify('Password was successfully reset and e-mailed to the user.');
@@ -296,10 +296,13 @@ administration permissions to the forum. This individual will be able to do anyt
 	</table>
 </td><td>
 	<!-- Links to control panels that Account Moderators can access. -->
-	<b>Account Moderation:</b><br /><br />
+	<b>Account moderation:</b><br />
 	[ <a href="admaccapr.php?<?php echo __adm_rsid; ?>">Approve new users</a> ]<br />
 	[ <a href="admuseradd.php?<?php echo __adm_rsid; ?>">Create new users</a> ]<br />
-	[ <a href="admusermerge.php?<?php echo __adm_rsid; ?>">Merge users</a> ]
+	[ <a href="admusermerge.php?<?php echo __adm_rsid; ?>">Merge users</a> ]<br /><br />
+	<b>Show:</b>
+	[ <a href="admslist.php?<?php echo __adm_rsid; ?>">Privileged</a> ] 
+	[ <a href="admbanlist.php?<?php echo __adm_rsid; ?>">Banned</a> ]
 </td></tr>
 </table>
 </fieldset>
@@ -536,5 +539,5 @@ if ($acc_mod_only) {
 </td></tr></table>
 <?php 
 } 
-require($WWW_ROOT_DISK . 'adm/footer.php'); 
+require($WWW_ROOT_DISK .'adm/footer.php'); 
 ?>

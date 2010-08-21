@@ -93,7 +93,7 @@ function validate_input()
 		$login = $passwd = $email = $name = '';
 	}
 
-	require($WWW_ROOT_DISK . 'adm/header.php');
+	require($WWW_ROOT_DISK .'adm/header.php');
 
 	if ($error) {
 		echo errorify('Error adding user.');
@@ -143,4 +143,4 @@ function randomPassword() {
 }
 /* ]]> */
 </script>
-<?php require($WWW_ROOT_DISK . 'adm/footer.php'); ?>
+<?php require($WWW_ROOT_DISK .'adm/footer.php'); ?>

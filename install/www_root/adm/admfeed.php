@@ -15,7 +15,7 @@
 	fud_use('widgets.inc', true);
 	fud_use('draw_select_opt.inc');
 	
-	require($WWW_ROOT_DISK . 'adm/header.php');
+	require($WWW_ROOT_DISK .'adm/header.php');
 	
 	$help_ar = read_help();
 
@@ -142,4 +142,4 @@ as you like in a single request.</p>
 <a href="<?php echo $feed_url; ?>?mode=t&amp;l=1&amp;n=20&amp;frm=1&amp;format=rss" target="_blank"><?php echo $feed_url; ?>?mode=t&amp;l=1&amp;n=20&amp;frm=1&amp;format=rss</a></p>
 </td></tr>
 </table>
-<?php require($WWW_ROOT_DISK . 'adm/footer.php'); ?>
+<?php require($WWW_ROOT_DISK .'adm/footer.php'); ?>

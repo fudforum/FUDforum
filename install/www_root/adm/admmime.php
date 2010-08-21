@@ -39,7 +39,7 @@
 		q('INSERT INTO '.$tbl.'mime (descr, mime_hdr, fl_ext, icon) VALUES ('._esc($_POST['mime_descr']).', '._esc($_POST['mime_mime_hdr']).', '._esc($_POST['mime_fl_ext']).', '._esc($_POST['mime_icon']).')');
 	}
 
-	require($WWW_ROOT_DISK . 'adm/header.php');
+	require($WWW_ROOT_DISK .'adm/header.php');
 ?>
 <h2>MIME Management System</h2>
 
@@ -136,4 +136,4 @@
 	}
 ?>
 </table>
-<?php require($WWW_ROOT_DISK . 'adm/footer.php'); ?>
+<?php require($WWW_ROOT_DISK .'adm/footer.php'); ?>

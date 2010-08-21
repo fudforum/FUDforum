@@ -125,7 +125,7 @@ function get_max_upload_size()
 			}
 
 			if ($o) {
-				q('UPDATE '.$DBHOST_TBL_PREFIX.'users SET users_opt=users_opt|'.$o.' WHERE (users_opt & '.$o.')=0');
+				q('UPDATE '.$DBHOST_TBL_PREFIX.'users SET users_opt=(users_opt | '.$o.') WHERE (users_opt & '.$o.')=0');
 			}
 
 			$q_data = array();
@@ -133,20 +133,20 @@ function get_max_upload_size()
 				$q_data[] = 'posts_ppg='.(int)$ch_list['POSTS_PER_PAGE'];
 			}
 			if (isset($ch_list['ANON_NICK'])) {
-				$q_data[] = "login="._esc($ch_list['ANON_NICK']).", alias="._esc(htmlspecialchars($ch_list['ANON_NICK'])).", name=".htmlspecialchars(_esc($ch_list['ANON_NICK']));
+				$q_data[] = 'login='. _esc($ch_list['ANON_NICK']) .', alias='. _esc(htmlspecialchars($ch_list['ANON_NICK'])).", name=".htmlspecialchars(_esc($ch_list['ANON_NICK']));
 			}
 			if (isset($ch_list['SERVER_TZ'])) {
-				$q_data[] = "time_zone="._esc($ch_list['SERVER_TZ']);
+				$q_data[] = 'time_zone='. _esc($ch_list['SERVER_TZ']);
 			}
 			if (!($NEW_FUD_OPT_2 & 12)) {
 				/* Only allow threaded topic view if it is selected & it's enabled. */
 				$opt  = $NEW_FUD_OPT_2 & 512 ? 0 : 128;
 				$opt |= $NEW_FUD_OPT_3 & 2 ? 256 : 0;
-				$q_data[] = 'users_opt=users_opt | '.$opt;
+				$q_data[] = 'users_opt=(users_opt | '. $opt .')';
 			}
 
 			if ($q_data) {
-				q('UPDATE '.$DBHOST_TBL_PREFIX.'users SET '.implode(',', $q_data).' WHERE id=1');
+				q('UPDATE '. $DBHOST_TBL_PREFIX .'users SET '. implode(',', $q_data) .' WHERE id=1');
 			}
 
 			/* Put the settings 'live' so they can be seen on the form. */

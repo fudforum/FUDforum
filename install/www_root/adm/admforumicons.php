@@ -13,7 +13,7 @@
 	fud_use('adm.inc', true);
 	fud_use('widgets.inc', true);
 
-	require($WWW_ROOT_DISK . 'adm/header.php');
+	require($WWW_ROOT_DISK .'adm/header.php');
 
 	/*
 	 * The presense of the which_dir variable tells us whether we are editing
@@ -94,4 +94,4 @@
 	}
 ?>
 </table>
-<?php require($WWW_ROOT_DISK . 'adm/footer.php'); ?>
+<?php require($WWW_ROOT_DISK .'adm/footer.php'); ?>

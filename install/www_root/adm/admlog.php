@@ -11,7 +11,7 @@
 
 	require('./GLOBALS.php');
 	fud_use('adm.inc', true);
-	require($WWW_ROOT_DISK . 'adm/header.php');
+	require($WWW_ROOT_DISK .'adm/header.php');
 
 	if (isset($_GET['clear'])) {
 		q('DELETE FROM '.$DBHOST_TBL_PREFIX.'action_log');
@@ -188,5 +188,5 @@ function return_forum_name($id)
 	}
 	echo '</table>';
 
-	require($WWW_ROOT_DISK . 'adm/footer.php');
+	require($WWW_ROOT_DISK .'adm/footer.php');
 ?>

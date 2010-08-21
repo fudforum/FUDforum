@@ -82,20 +82,16 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir, $p=0)
 }
 
 	require('./GLOBALS.php');
-	fud_use('db.inc');
-	fud_use('mem_limit.inc', 1);
 
 	// Run from command line.
 	if (php_sapi_name() == 'cli') {
-		fud_use('adm_cli.inc', 1);	// Contains cli_execute().
-		cli_execute('');
-
 		if (empty($_SERVER['argv'][1])) {
 			echo "Usage: php admdump.php /path/to/dump_file [compress]\n";
 			echo " - 'compress' is optional; specify only if you want to compress the dump_file.\n";
 			die();
 		}
 
+		fud_use('adm_cli.inc', 1);
 		$_POST['submitted'] = 1;
 		$_POST['path'] = $_SERVER['argv'][1];
 		if (!empty($_SERVER['argv'][2])) {
@@ -119,11 +115,12 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir, $p=0)
 			header('HTTP/1.0 401 Unauthorized');
 			exit('Authorization Required.');
 		}
-	} else {
-		fud_use('adm.inc', true);
 	}
 
-	require($WWW_ROOT_DISK . 'adm/header.php');
+	fud_use('adm.inc', true);
+	fud_use('mem_limit.inc', 1);	// Load include to set $GLOBALS['BUF_SIZE'].
+
+	require($WWW_ROOT_DISK .'adm/header.php');
 
 	if (isset($_POST['submitted']) && !@fopen($_POST['path'], 'w')) {
 		$path_error = errorify('Couldn\'t open backup destination file, '. $_POST['path'] .' for write.');
@@ -300,5 +297,5 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir, $p=0)
 <?php
 	} /* isset($_POST['submitted']) */
 
-	require($WWW_ROOT_DISK . 'adm/footer.php');
+	require($WWW_ROOT_DISK .'adm/footer.php');
 ?>

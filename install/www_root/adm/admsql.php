@@ -10,18 +10,16 @@
 **/
 
 	require('./GLOBALS.php');
-	fud_use('db.inc');	
 	fud_use('adm.inc', true);
 
-	require($WWW_ROOT_DISK . 'adm/header.php');
+	require($WWW_ROOT_DISK .'adm/header.php');
 ?>
 <h2>SQL Manager</h2>
 <form name="admsql" method="post" action="admsql.php">
 <?php echo _hs; ?>
 <table class="datatable">
 <tr><td class="alert">
-	NOTE: this feature IS DANGEROUS and can destroy your forum's data.
-	Please only use it to run SELECT and DESCRIBE statements. 
+	NOTE: Please only use this feature to run SELECT and DESCRIBE statements.
 	Anything else may result in data loss.
 </td></tr>
 <tr><td>&nbsp;</td></tr>
@@ -30,14 +28,17 @@
 </td></tr>
 <tr class="field"><td>
 	<div style="float:right; font-size:xx-small;">
-	Database: <?php echo __dbtype__ .' '. $GLOBALS['DBHOST_USER'].'@'.$GLOBALS['DBHOST_DBNAME'] ?> :: 
+	<b>Database:</b> <?php echo __dbtype__; ?> ::
+	<b>Connection:</b> <?php echo $GLOBALS['DBHOST_USER'].'@'.$GLOBALS['DBHOST_DBNAME'] ?> :: 
 	<select onchange="if(this.selectedIndex!=0) document.admsql.sql.value+=this.options[this.selectedIndex].value;">
 	<option>Insert table name:</option>
-	<?php   $tables = get_fud_table_list();
+	<?php
+		$tables = get_fud_table_list();
 		sort($tables);
 		foreach($tables as $tbl) {
-		echo '<option value="'. $tbl .'">'. $tbl .'</option>';
-	} ?>
+			echo '<option value="'. $tbl .'">'. $tbl .'</option>';
+		}
+	?>
 	</select>
 	</div>
 	<textarea id="sql" name="sql" rows="7" cols="72" style="width:99%;"><?php if (isset($_POST['sql'])) { print $_POST['sql']; } else { print 'SELECT * FROM '; } ?></textarea>
@@ -73,7 +74,7 @@ if (isset($_POST['sql']) && $_POST['sql'] != '') {
 			}
 
 			try {
-				$q = q($sql);
+				$q = uq($sql);
 
 				echo '<h2>SQL Results</h2>';
 				echo '<table class="resulttable">';
@@ -119,5 +120,5 @@ if (isset($_POST['sql']) && $_POST['sql'] != '') {
 	}
 }
 
-require($WWW_ROOT_DISK . 'adm/footer.php');
+require($WWW_ROOT_DISK .'adm/footer.php');
 ?>

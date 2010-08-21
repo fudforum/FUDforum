@@ -14,7 +14,7 @@
 	fud_use('widgets.inc', true);
 	fud_use('nntp_adm.inc', true);
 
-	require($WWW_ROOT_DISK . 'adm/header.php');
+	require($WWW_ROOT_DISK .'adm/header.php');
 	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
 
 	if (!empty($_POST['btn_cancel'])) {
@@ -264,4 +264,4 @@ Here is a Linux <a href="http://en.wikipedia.org/wiki/Cron" target="_new">cron</
 <pre>
 */2 * * * * <?php echo realpath($GLOBALS['DATA_DIR'].'scripts/nntp.php'); ?> 1
 </pre>
-<?php require($WWW_ROOT_DISK . 'adm/footer.php'); ?>
+<?php require($WWW_ROOT_DISK .'adm/footer.php'); ?>

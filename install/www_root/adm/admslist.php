@@ -25,7 +25,7 @@ function print_ul($qry)
 		echo '<center>None</center>';
 	}
 }
-	require($WWW_ROOT_DISK . 'adm/header.php');
+	require($WWW_ROOT_DISK .'adm/header.php');
 ?>
 <h2>Privileged User List</h2>
 <p>The following users have elevated forum permissions:</p>
@@ -58,4 +58,4 @@ function print_ul($qry)
 </td>
 </tr>
 </table>
-<?php require($WWW_ROOT_DISK . 'adm/footer.php'); ?>
+<?php require($WWW_ROOT_DISK .'adm/footer.php'); ?>

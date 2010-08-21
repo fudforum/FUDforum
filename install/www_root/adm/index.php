@@ -12,7 +12,7 @@
 	require('./GLOBALS.php');
 	fud_use('adm.inc', true);
 
-	include($WWW_ROOT_DISK . 'adm/header.php');
+	include($WWW_ROOT_DISK .'adm/header.php');
 	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
 
 	// Reset most users ever online. 
@@ -187,4 +187,4 @@ FUDforum's documentation is available on our <b><a href="http://cvs.prohost.org/
 </form>
 <br />
 
-<?php require($WWW_ROOT_DISK . 'adm/footer.php'); ?>
+<?php require($WWW_ROOT_DISK .'adm/footer.php'); ?>

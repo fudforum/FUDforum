@@ -20,7 +20,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<?php echo '<title>'.$FORUM_TITLE.': '.'Admin Control Panel</title>' ?>
+<?php echo '<title>'. $FORUM_TITLE .': '.'Admin Control Panel</title>' ?>
 <link rel="styleSheet" href="style/adm.css" type="text/css" />
 <script type="text/javascript" src="../js/jquery.js"></script>
 <script type="text/javascript" src="../js/lib.js"></script>
@@ -42,7 +42,7 @@ if (defined('popup') ) {	/* Special header for popup pages. */
   </td>
   <td><span class="linkhead">Admin Control Panel</span></td>
   <td align="right"><?php if (defined('__fud_index_name__')) { ?>
-      [ <a title="Go back to your forum" href="../<?php echo __fud_index_name__.'?'.__adm_rsid; ?>">Return to forum &raquo;</a> ]
+      [ <a title="Go back to your forum" href="../<?php echo __fud_index_name__ .'?'. __adm_rsid; ?>">Return to forum &raquo;</a> ]
       <?php } ?>
   </td>
 </tr></table>
@@ -64,18 +64,13 @@ if (defined('popup') ) {	/* Special header for popup pages. */
 	<a href="admglobal.php?<?php echo __adm_rsid; ?>">Global Settings Manager</a><br />
 	<a href="admplugins.php?<?php echo __adm_rsid; ?>">Plugin Manager</a><br />
 	<a href="admcalendar.php?<?php echo __adm_rsid; ?>">Calendar Manager</a><br />
-	<a href="admfeed.php?<?php echo __adm_rsid; ?>">Syndication Management</a><br />
-	<a href="admpdf.php?<?php echo __adm_rsid; ?>">PDF Generation Management</a><br />
-	<a href="admgeoip.php?<?php echo __adm_rsid; ?>">Geolocation Management</a><br />
-<?php
-	if (strncasecmp('win', PHP_OS, 3)) {
-		echo '<a href="admlock.php?'.__adm_rsid.'">Lock/Unlock Forum Files</a><br />';
-	}
-	if (extension_loaded('pspell')) {
-		echo '<a href="admspell.php?'.__adm_rsid.'">Custom Dictionary Spell Checker</a><br />';
-	}
-?>
-	<a href="admmime.php?<?php echo __adm_rsid; ?>">MIME Management System</a><br />
+	<a href="admfeed.php?<?php echo __adm_rsid; ?>">Syndication Manager</a><br />
+	<a href="admpdf.php?<?php echo __adm_rsid; ?>">PDF Generation Manager</a><br />
+	<a href="admgeoip.php?<?php echo __adm_rsid; ?>">Geolocation Manager</a><br />
+<?php if (extension_loaded('pspell')) { ?>
+	<a href="admspell.php?<?php echo __adm_rsid; ?>">Custom Dictionary Spell Checker</a><br />
+<?php } ?>
+	<a href="admmime.php?<?php echo __adm_rsid; ?>">MIME Manager</a><br />
 	<a href="admlog.php?<?php echo __adm_rsid; ?>">Action Log Viewer</a><br />
 	<a href="admerr.php?<?php echo __adm_rsid; ?>">Error Log Viewer</a><br />
 	<a href="admstats.php?<?php echo __adm_rsid; ?>">Forum Statistics</a><br />
@@ -83,28 +78,24 @@ if (defined('popup') ) {	/* Special header for popup pages. */
 	<br />
 
 	<span class="linkgroup">Forum Management</span><br />
-	<a href="admcat.php?<?php echo __adm_rsid; ?>">Category &amp; Forum Management</a><br />
+	<a href="admcat.php?<?php echo __adm_rsid; ?>">Category &amp; Forum Manager</a><br />
 	<a href="admdelfrm.php?<?php echo __adm_rsid; ?>">Deleted Forums</a><br />
 	<a href="admannounce.php?<?php echo __adm_rsid; ?>">Announcement Manager</a><br />
 	<a href="admprune.php?<?php echo __adm_rsid; ?>">Topic Pruning</a><br />
 	<a href="admpruneattch.php?<?php echo __adm_rsid; ?>">Attachment Pruning</a><br />
 	<a href="admmlist.php?<?php echo __adm_rsid; ?>">Mailing List Manager</a><br />
 	<a href="admnntp.php?<?php echo __adm_rsid; ?>">Newsgroup Manager</a><br />
-<?php
-	if ((bool)ini_get('allow_url_fopen') == TRUE) {
-		echo '<a href="admxmlagg.php?'.__adm_rsid.'">XML Aggregation</a><br />';
-	}
-?>
+<?php if ((bool)ini_get('allow_url_fopen') == TRUE) { ?>
+	<a href="admxmlagg.php?<?php echo __adm_rsid; ?>">XML Aggregation</a><br />
+<?php } ?>
 	<br />
 
 	<span class="linkgroup">User Management</span><br />
-	<a href="admuser.php?<?php echo __adm_rsid; ?>">Moderator/User Manager</a><br />
+	<a href="admuser.php?<?php echo __adm_rsid; ?>">User Manager</a><br />
 	<a href="admgroups.php?<?php echo __adm_rsid; ?>">Groups Manager</a><br />
-	<a href="admmassemail.php?<?php echo __adm_rsid; ?>">Mass E-mail</a><br />
 	<a href="admlevel.php?<?php echo __adm_rsid; ?>">Rank Manager</a><br />
 	<a href="admpruneusers.php?<?php echo __adm_rsid; ?>">Prune users</a><br />
-	<a href="admslist.php?<?php echo __adm_rsid; ?>">Privileged User List</a><br />
-	<a href="admbanlist.php?<?php echo __adm_rsid; ?>">Banned User List</a><br />
+	<a href="admmassemail.php?<?php echo __adm_rsid; ?>">Mass E-mail</a><br />
 	<br />
 
 	<span class="linkgroup">Template Management</span><br />
@@ -136,8 +127,11 @@ if (defined('popup') ) {	/* Special header for popup pages. */
 	<span class="linkgroup">Checks/Consistency</span><br />
 	<a href="consist.php?<?php echo __adm_rsid; ?>">Forum Consistency</a><br />
 	<a href="indexdb.php?<?php echo __adm_rsid; ?>">Rebuild Search Index</a><br />
-<?php if (!($FUD_OPT_3 & 32768)) /* Not using DB_MESSAGE_STORAGE. */ { ?>
+<?php if (!($FUD_OPT_3 & 32768)) {	/* Not using DB_MESSAGE_STORAGE. */ ?>
 	<a href="compact.php?<?php echo __adm_rsid; ?>">Compact Messages</a><br />
+<?php } ?>
+<?php if (strncasecmp('win', PHP_OS, 3)) {	/* Not for Windows. */ ?>
+		<a href="admlock.php?<?php echo __adm_rsid; ?>">Lock/Unlock Forum Files</a><br />
 <?php } ?>
 <?php if (__dbtype__ == 'mysql') { ?>
 	<a href="admmysql.php?<?php echo __adm_rsid; ?>">MySQL Charset Changer</a><br />

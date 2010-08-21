@@ -15,7 +15,7 @@
 	fud_use('adm.inc', true);
 	fud_use('forum_adm.inc', true);
 
-	require($WWW_ROOT_DISK . 'adm/header.php');
+	require($WWW_ROOT_DISK .'adm/header.php');
 
 	/* Restore forum. */
 	if (isset($_POST['frm_id'], $_POST['dst_cat'])) {
@@ -75,4 +75,4 @@
 	}
 ?>
 </table>
-<?php require($WWW_ROOT_DISK . 'adm/footer.php'); ?>
+<?php require($WWW_ROOT_DISK .'adm/footer.php'); ?>

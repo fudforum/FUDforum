@@ -15,7 +15,7 @@
 	fud_use('groups_adm.inc', true);
 	fud_use('groups.inc');
 
-	require($WWW_ROOT_DISK . 'adm/header.php');
+	require($WWW_ROOT_DISK .'adm/header.php');
 
 	if (!empty($_POST['btn_cancel'])) {
 		unset($_POST);
@@ -361,4 +361,4 @@ for the group's they manage. To change the user permissions please use the <a hr
 	}
 ?>
 </table>
-<?php require($WWW_ROOT_DISK . 'adm/footer.php'); ?>
+<?php require($WWW_ROOT_DISK .'adm/footer.php'); ?>

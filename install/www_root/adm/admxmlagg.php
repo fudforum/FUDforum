@@ -14,7 +14,7 @@
 	fud_use('widgets.inc', true);
 	fud_use('xmlagg_adm.inc', true);
 
-	require($WWW_ROOT_DISK . 'adm/header.php');
+	require($WWW_ROOT_DISK .'adm/header.php');
 	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
 
 	if (!empty($_POST['btn_cancel'])) {
@@ -195,4 +195,4 @@ Here is a Linux <a href="http://en.wikipedia.org/wiki/Cron" target="_new">cron</
 <pre>
 0 * * * * <?php echo realpath($GLOBALS['DATA_DIR'].'scripts/xmlagg.php'); ?> 1
 </pre>
-<?php require($WWW_ROOT_DISK . 'adm/footer.php'); ?>
+<?php require($WWW_ROOT_DISK .'adm/footer.php'); ?>

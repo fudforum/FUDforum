@@ -18,7 +18,7 @@
 	$tlang = isset($_POST['tlang']) ? $_POST['tlang'] : (isset($_GET['tlang']) ? $_GET['tlang'] : '');
 
 	if (!$tname || !$tlang) {
-		header('Location: '.$WWW_ROOT.'adm/admmessages.php?'.__adm_rsidl);
+		header('Location: '. $WWW_ROOT .'adm/admmessages.php?'. __adm_rsidl);
 		exit;
 	}
 
@@ -144,7 +144,7 @@ if (!isset($_GET['NO_TREE_LIST'])) {
 	list($tmplmsglist, $filedeps) = makedeps();
 	ksort($tmplmsglist);
 
-	require($WWW_ROOT_DISK . 'adm/header.php');
+	require($WWW_ROOT_DISK .'adm/header.php');
 ?>
 <table border="0" cellspacing="0" cellpadding="0"><tr><td valign="top">
 
@@ -218,4 +218,4 @@ if (!isset($_GET['NO_TREE_LIST'])) {
 	}
 ?>
 </tr></table>
-<?php require($WWW_ROOT_DISK . 'adm/footer.php'); ?>
+<?php require($WWW_ROOT_DISK .'adm/footer.php'); ?>

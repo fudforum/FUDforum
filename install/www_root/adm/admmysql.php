@@ -10,8 +10,9 @@
 **/
 	require('./GLOBALS.php');
 	fud_use('adm.inc', true);
+	fud_use('widgets.inc', true);
 
-	require($WWW_ROOT_DISK . 'adm/header.php');
+	require($WWW_ROOT_DISK .'adm/header.php');
 
 	if (__dbtype__ != 'mysql') {
 		exit("This control panel is intended for MySQL users only!");
@@ -60,15 +61,8 @@ After converting your database, remember to also convert your forum's messages b
 <?php echo _hs; ?>
 <table class="datatable solidtable">
 <tr class="field">
-        <td>Available Character Sets</td>
-	<td><select name="charset">
-<?php foreach ($charsets as $charset) 
-	if ( $charset == 'utf8' ) {
-		echo '<option value="'.$charset.'" selected="selected">'.$charset.'</option>'; 
-	} else {
-		echo '<option value="'.$charset.'">'.$charset.'</option>';  
-	}
-?></select></td>
+	<td>Available Character Sets</td>
+	<td><?php draw_select('charset', implode("\n", $charsets), implode("\n", $charsets), 'utf8'); ?></td>
 </tr>
 <tr class="field">
 	<td colspan="2" align="right"><input tabindex="3" type="submit" value="Change Charset" name="btn_submit" /></td>
@@ -76,4 +70,4 @@ After converting your database, remember to also convert your forum's messages b
 </table>
 </form>
 
-<?php } require($WWW_ROOT_DISK . 'adm/footer.php'); ?>
+<?php } require($WWW_ROOT_DISK .'adm/footer.php'); ?>

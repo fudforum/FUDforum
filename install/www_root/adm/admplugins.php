@@ -91,7 +91,7 @@
 		if ( strpos($func_base, '/') ) {
 			$func_base = substr($func_base, strpos($func_base, '/')+1);
 		}
-		include_once($PLUGIN_PATH.'/'.$plugin);
+		include_once($PLUGIN_PATH .'/'. $plugin);
 
 		// Process info hook.
 		$info_func = $func_base . '_info';
@@ -99,33 +99,34 @@
 			$info = $info_func();
 		}
 		if (isset($info['name'])) {
-			echo '<h2>Plugin: '.$info['name'].'</h2>';
+			echo '<h2>Plugin: '. $info['name'] .'</h2>';
 		} else {
-			echo '<h2>Plugin: '.$plugin.'</h2>';
+			echo '<h2>Plugin: '. $plugin. '</h2>';
 		}
 
 		echo '<fieldset class="tutor"><legend>Meta-information:</legend>';
 		echo '<table>';
 		echo '<tr><td><b>Plugin file:</b></td><td>'. $plugin .'</td></tr>';
-		echo '<tr><td><b>Last modified:</b></td><td>'.date('d F Y H:i:s', filemtime($PLUGIN_PATH.'/'.$plugin)).'</td></tr>';
+		echo '<tr><td><b>Last modified:</b></td><td>'. date('d F Y H:i:s', filemtime($PLUGIN_PATH.'/'.$plugin)) .'</td></tr>';
 		if (isset($info['author'])) {
-			echo '<tr><td><b>Author:</b></td><td>'.$info['author'].'</td></tr>';
+			echo '<tr><td><b>Author:</b></td><td>'. $info['author'] .'</td></tr>';
 		}
 		if (isset($info['version'])) {
-			echo '<tr><td><b>Version:</b></td><td>'.$info['version'].'</td></tr>';
+			echo '<tr><td><b>Version:</b></td><td>'. $info['version'] .'</td></tr>';
 		}
 		echo '<tr><td><b>Status:</b></td><td>'. (in_array($plugin, $plugins) ? 'Enabled' : 'Disabled') .
 		                        (($FUD_OPT_3 & 4194304) ? '' : ' (plugin system is disabled)') .'</td></tr>';
 		if (isset($info['desc'])) {
 			echo '<tr><td valign="top"><b>Description:</b></td><td>'. $info['desc'] .'</td></tr>';
 		}
-		echo '<tr><td colspan="2">';
+		echo '<tr><td colspan="2"><div style="font-size:small; float:right;">';
+		echo '[ <a href="admbrowse.php?view=1&amp;dest='. $func_base .'.plugin&amp;cur='. urlencode(dirname($PLUGIN_PATH.$plugin)) .'&amp;'. __adm_rsid .'">View code</a> ]';
 		if (isset($info['help'])) {
-			echo '<div style="font-size:small; float:right;">[ <a href="'.$info['help'].'">Plugin documentation</a> ]</div>';
+			echo '[ <a href="'. $info['help'] .'">Plugin documentation</a> ]';
 		} else {
-			echo '<div style="font-size:small; float:right;">[ <a href="http://cvs.prohost.org/index.php/'.$func_base.'.plugin">Documentation on Wiki</a> ]</div>';
+			echo '[ <a href="http://cvs.prohost.org/index.php/'. $func_base .'.plugin">Documentation on Wiki</a> ]';
 		}
-		echo '</td></tr></table>';
+		echo '</div></td></tr></table>';
 		echo '</fieldset>';
 		echo '<br />';
 
@@ -179,11 +180,11 @@ foreach (glob("$PLUGIN_PATH/*") as $file) {
 }
 
 $disabled = ($FUD_OPT_3 & 4194304) ? '' : 'disabled="disabled"';
-foreach ($plugin_files as $plugin) {	
+foreach ($plugin_files as $plugin) {
 	$checked = in_array($plugin, $plugins) ? 'checked="checked"' : '';
 ?>
 <tr class="field">
-  <td><a href="admplugins.php?config=<?php echo urlencode($plugin).'&amp;'.__adm_rsid.'">'.$plugin; ?></a></td>
+  <td><a href="admplugins.php?config=<?php echo urlencode($plugin).'&amp;'.__adm_rsid.'" title="Configure plugin">'.$plugin; ?></a></td>
   <td class="center"><input type="checkbox" name="plugins[]" value="<?php echo $plugin; ?>" <?php echo $checked.' '.$disabled; ?> /></td>
 </tr>
 <?php } ?> 

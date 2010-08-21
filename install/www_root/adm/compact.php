@@ -24,11 +24,10 @@
 			die();
 		}
 
-		fud_use('adm_cli.inc', 1);	// Contains cli_execute().
-		cli_execute(1);
+		fud_use('adm_cli.inc', 1);
+		$_POST['conf'] = 1;
 	}
 
-	fud_use('db.inc');
 	fud_use('fileio.inc');
 	fud_use('adm.inc', true);
 	fud_use('private.inc');
@@ -36,11 +35,11 @@
 	fud_use('imsg_edt.inc');
 
 	if (isset($_POST['btn_cancel'])) {
-		header('Location: '. $WWW_ROOT .'adm/index.php?'.__adm_rsid);
+		header('Location: '. $WWW_ROOT .'adm/index.php?'. __adm_rsid);
 		exit;
 	}
 
-	include($WWW_ROOT_DISK . 'adm/header.php');
+	include($WWW_ROOT_DISK .'adm/header.php');
 
 	if (!isset($_POST['conf'])) {
 ?>
@@ -308,5 +307,5 @@ function eta_calc($start, $pos, $pc)
 	}
 
 	pf('<br /><div class="tutor">Messages successfully compacted.</div>');
-	require($WWW_ROOT_DISK . 'adm/footer.php');
+	require($WWW_ROOT_DISK .'adm/footer.php');
 ?>

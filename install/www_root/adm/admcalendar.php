@@ -26,7 +26,7 @@
 		exit;
 	}
 
-	require($WWW_ROOT_DISK . 'adm/header.php');
+	require($WWW_ROOT_DISK .'adm/header.php');
 
 	// Enable or disable CALENDAR_ENABLED.
 	$help_ar = read_help();
@@ -59,6 +59,7 @@
 
 	$edit = isset($_GET['edit']) ? (int)$_GET['edit'] : (isset($_POST['edit']) ? (int)$_POST['edit'] : '');
 
+	// Add or edit a calendar entry.
 	if (isset($_POST['frm_submit'])) {
 		$error = 0;
 		$day = $_POST['cal_day'];
@@ -201,4 +202,4 @@ echo '<h3>'. ($edit ? '<a name="edit">Edit Event:</a>' : 'Add New Event:') .'</h
 <?php } ?>
 [ <a href="admcalendar.php?export=all&amp;<?php echo __adm_rsid; ?>">Export as vCal file</a> ]
 
-<?php require($WWW_ROOT_DISK . 'adm/footer.php'); ?>
+<?php require($WWW_ROOT_DISK .'adm/footer.php'); ?>

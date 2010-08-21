@@ -11,7 +11,7 @@
 
 	require('./GLOBALS.php');
 	fud_use('adm.inc', true);
-	require($WWW_ROOT_DISK . 'adm/header.php');
+	require($WWW_ROOT_DISK .'adm/header.php');
 
 	ob_start();
 	phpinfo(INFO_GENERAL|INFO_CONFIGURATION|INFO_MODULES|INFO_ENVIRONMENT|INFO_VARIABLES);
@@ -23,5 +23,5 @@
 	echo '<p>This page lists information about the PHP version installed on this server.<br />It may contain sensitive information and <u>should be kept private</u>!</p>';
 	echo '<div id="phpinfo">'.$info.'</div>';
 
-	require($WWW_ROOT_DISK . 'adm/footer.php');
+	require($WWW_ROOT_DISK .'adm/footer.php');
 ?>

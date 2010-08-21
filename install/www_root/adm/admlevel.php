@@ -13,7 +13,7 @@
 	fud_use('adm.inc', true);
 	fud_use('widgets.inc', true);
 
-	require($WWW_ROOT_DISK . 'adm/header.php');
+	require($WWW_ROOT_DISK .'adm/header.php');
 		
 	if (isset($_POST['lev_submit'])) {
 		q('INSERT INTO '.$DBHOST_TBL_PREFIX.'level (name, img, level_opt, post_count) VALUES ('._esc($_POST['lev_name']).', '.ssn($_POST['lev_img']).', '.(int)$_POST['lev_level_opt'].', '.(int)$_POST['lev_post_count'].')');
@@ -110,4 +110,4 @@
 	}
 ?>
 </table>
-<?php require($WWW_ROOT_DISK . 'adm/footer.php'); ?>
+<?php require($WWW_ROOT_DISK .'adm/footer.php'); ?>

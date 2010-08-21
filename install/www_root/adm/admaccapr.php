@@ -39,7 +39,7 @@ function print_if_avail($descr, $value, $no_html=1)
 	}
 }
 
-	require($WWW_ROOT_DISK . 'adm/header.php');
+	require($WWW_ROOT_DISK .'adm/header.php');
 ?>
 <h2>Account Approval</h2>
 <p>Approve or delete users who have registered (if 'New Account Moderation' is enabled in the Global Settings Manager).</p>
@@ -84,4 +84,4 @@ function print_if_avail($descr, $value, $no_html=1)
 ?>
 </table>
 <p><a href="admuser.php?<?php echo __adm_rsid; ?>">&laquo; Back to User Administration System</a></p>
-<?php require($WWW_ROOT_DISK . 'adm/footer.php'); ?>
+<?php require($WWW_ROOT_DISK .'adm/footer.php'); ?>

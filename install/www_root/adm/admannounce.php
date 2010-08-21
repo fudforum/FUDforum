@@ -26,11 +26,11 @@ function mk_date($y, $m, $d)
 }
 
 	if (isset($_GET['del'])) {
-		q('DELETE FROM '.$tbl.'announce WHERE id='.(int)$_GET['del']);
-		q('DELETE FROM '.$tbl.'ann_forums WHERE ann_id='.(int)$_GET['del']);
+		q('DELETE FROM '. $tbl .'announce WHERE id='. (int)$_GET['del']);
+		q('DELETE FROM '. $tbl .'ann_forums WHERE ann_id='. (int)$_GET['del']);
 	}
 
-	if (isset($_GET['edit']) && ($an_d = db_sab('SELECT * FROM '.$tbl.'announce WHERE id='.(int)$_GET['edit']))) {
+	if (isset($_GET['edit']) && ($an_d = db_sab('SELECT * FROM '. $tbl .'announce WHERE id='. (int)$_GET['edit']))) {
 		list($d_year, $d_month, $d_day) = raw_date($an_d->date_started);
 		list($d2_year, $d2_month, $d2_day) = raw_date($an_d->date_ended);
 		$a_subject = $an_d->subject;
@@ -80,7 +80,7 @@ function mk_date($y, $m, $d)
 		unset($frm_list);
 	}
 
-	require($WWW_ROOT_DISK . 'adm/header.php');
+	require($WWW_ROOT_DISK .'adm/header.php');
 ?>
 <h2>Announcement System</h2>
 
@@ -205,4 +205,4 @@ function mk_date($y, $m, $d)
 	}
 ?>
 </table>
-<?php require($WWW_ROOT_DISK . 'adm/footer.php'); ?>
+<?php require($WWW_ROOT_DISK .'adm/footer.php'); ?>

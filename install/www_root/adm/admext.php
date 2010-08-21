@@ -13,7 +13,7 @@
 	fud_use('adm.inc', true);
 	fud_use('ext.inc', true);
 	
-	include($WWW_ROOT_DISK . 'adm/header.php');	
+	include($WWW_ROOT_DISK .'adm/header.php');	
 	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
 
 	if (!empty($_POST['c_ext'])) {
@@ -95,4 +95,4 @@
 	}
 ?>
 </table>
-<?php require($WWW_ROOT_DISK . 'adm/footer.php'); ?>
+<?php require($WWW_ROOT_DISK .'adm/footer.php'); ?>

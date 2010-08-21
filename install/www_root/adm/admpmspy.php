@@ -16,7 +16,7 @@
 	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
 	$folders = array(1=>'inbox', 2=>'saved', 4=>'draft', 3=>'sent', 5=>'trash');
 
-	require($WWW_ROOT_DISK . 'adm/header.php');
+	require($WWW_ROOT_DISK .'adm/header.php');
 
 	// Delete PM from all mailboxes.
 	if (isset($_GET['delmsg']) && ($r = db_saq('SELECT ouser_id, subject FROM '. $tbl .'pmsg WHERE id='. (int)$_GET['delmsg']))) {
@@ -97,4 +97,4 @@
 ?>
 </table>
 
-<?php require($WWW_ROOT_DISK . 'adm/footer.php'); ?>
+<?php require($WWW_ROOT_DISK .'adm/footer.php'); ?>

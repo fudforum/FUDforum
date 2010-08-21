@@ -9,25 +9,46 @@
 * Free Software Foundation; version 2 of the License.
 **/
 
+function draw_stat($text)
+{
+	pf(htmlspecialchars($text));
+}
+
+function draw_info($cnt)
+{
+	draw_stat(($cnt < 1 ? 'OK' : $cnt . ' entries unmatched, deleted'));
+}
+
+function delete_zero($tbl, $q)
+{
+	if (__dbtype__ == 'mysql') {	/* MySQL 4.1 optimization. */
+		q('DELETE '. $tbl .' '. substr($q, 7, strpos($q, '.') - 7) .' '. strstr($q, 'FROM'));
+		draw_info(db_affected());
+	} else {	/* All other databases. */
+		q('DELETE FROM '. $tbl .' WHERE id IN ('. $q .')');
+		draw_info(db_affected());
+	}
+}
+
 	@set_time_limit(600);
 	@ini_set('memory_limit', '128M');
-
+	@ini_set('display_errors', '1');
 	require('./GLOBALS.php');
 
 	// Run from command line.
 	if (php_sapi_name() == 'cli') {
-		fud_use('adm_cli.inc', 1);	// Contains cli_execute().
-
 		if (isset($_SERVER['argv'][1]) && $_SERVER['argv'][1] == 'optimize') {
-			cli_execute(0, array('opt'=>1));	// Run SQL optimizer.
+			$_GET['opt'] = 1;	// Run SQL optimizer.
 		} elseif (isset($_SERVER['argv'][1]) && $_SERVER['argv'][1] == 'check') {
-			cli_execute(1);	// Run SQL optimizer.
+			$_POST['conf'] = 1;	// Run checks.
 		} else {
 			echo "Usage: php consist.php check|optimize\n";
 			echo " - specify 'check' to run the consistency checker.\n";
 			echo " - specify 'optimize' to run the SQL optimizer.\n";
 			die();
 		}
+		
+		fud_use('adm_cli.inc', 1);
 	}
 
 	fud_use('adm.inc', true);
@@ -53,27 +74,6 @@
 	fud_use('th_adm.inc');
 	fud_use('users_reg.inc');
 
-function draw_stat($text)
-{
-	pf(htmlspecialchars($text));
-}
-
-function draw_info($cnt)
-{
-	draw_stat(($cnt < 1 ? 'OK' : $cnt . ' entries unmatched, deleted'));
-}
-
-function delete_zero($tbl, $q)
-{
-	if (__dbtype__ == 'mysql') {	/* MySQL 4.1 optimization. */
-		q('DELETE '. $tbl .' '. substr($q, 7, strpos($q, '.') - 7) .' '. strstr($q, 'FROM'));
-		draw_info(db_affected());
-	} else {	/* All other databases. */
-		q('DELETE FROM '. $tbl .' WHERE id IN ('. $q .')');
-		draw_info(db_affected());
-	}
-}
-
 	if (isset($_POST['btn_cancel'])) {
 		header('Location: '. $WWW_ROOT .'adm/index.php?'. __adm_rsid);
 		exit;
@@ -84,6 +84,7 @@ function delete_zero($tbl, $q)
 	if (!isset($_POST['conf']) && !isset($_GET['enable_forum']) && !isset($_GET['opt'])) {
 ?>
 <h2>Forum Consistency</h2>
+
 <div class="alert">
 Consistency check is a complex process which may take several minutes to run.
 While it is running, your forum will be disabled!
@@ -674,6 +675,10 @@ While it is running, your forum will be disabled!
 	q("DELETE FROM ".$tbl."ses WHERE user_id>2000000000 AND time_sec < ".(__request_timestamp__ - $SESSION_TIMEOUT));
 	draw_stat('Done: Removing absolete entries inside sessions table');
 
+	draw_stat('Remove old action log entries (older than 90 days)');
+	q("DELETE FROM ".$tbl."action_log WHERE logtime < ".(__request_timestamp__ - (86400 * 90)));
+	draw_stat('Done: Removing old action log entries');
+
 	draw_stat('Rebuilding Topic Views');
 	foreach (db_all('SELECT id FROM '.$tbl.'forum') as $v) {
 		rebuild_forum_view_ttl($v);
@@ -689,9 +694,9 @@ While it is running, your forum will be disabled!
 	}
 
 	draw_stat('Cleaning forum\'s tmp directory');
-	if (($files = glob($TMP.'*', GLOB_NOSORT))) {
+	if (($files = glob($TMP .'*', GLOB_NOSORT))) {
 		foreach ($files as $file) {
-			// Remove if file and not-standard forum backup file.
+			// Remove ALL files, except forum backup files.
 			if (is_file($file) && !preg_match("/FUDforum_.*\.fud.*/", $file)) {
 				pf('- remove file: '. $file);
 				@unlink($file);
@@ -699,6 +704,33 @@ While it is running, your forum will be disabled!
 		}
 	}
 	draw_stat('Done: Cleaning forum\'s tmp directory');
+
+	draw_stat('Cleaning forum\'s error log files');
+	if (($files = glob($ERROR_PATH .'*_errors', GLOB_NOSORT))) {
+		foreach ($files as $file) {
+			$fsize = filesize($file);
+			if ($fsize > 102400) {	// Bigger than 100K.
+				$fp = fopen($file, 'r');
+				fseek($fp, $fsize - 102400);
+				$last = fread($fp, 102400);		// Read last 100K.
+				fclose($fp);
+
+				//  Discard the first partial record.
+				$next_rec_pos = 0;
+				while ($last[$next_rec_pos] != '?' && $last[$next_rec_pos+1] != "\n") $next_rec_pos++;
+				$last = substr($last, $next_rec_pos+2);
+
+				// Overwrite log file with trimmed content.
+				$fp = fopen($file, 'w');
+				fwrite($fp, $last);
+				fclose($fp);
+
+				unset($last);
+				pf('- '. basename($file) .' trimmed down from '. ($fsize/1024) .'K to 100K');
+			}
+		}
+	}
+	draw_stat('Done: Cleaning forum\'s error log files');
 
 	draw_stat('Validate GLOBALS.php');
 	$gvars = array();
@@ -729,6 +761,21 @@ While it is running, your forum will be disabled!
 	}
 	draw_stat('Done: Validate GLOBALS.php');
 
+	draw_stat('Validating symlinks to GLOBALS.php');
+	if ( is_link($WWW_ROOT_DISK .'adm/GLOBALS.php') && @readlink($WWW_ROOT_DISK .'adm/GLOBALS.php') != $INCLUDE .'GLOBALS.php' ) { 
+		pf('Recreate symlink to adm/GLOBALS.php');
+		fud_symlink($INCLUDE .'GLOBALS.php',  $WWW_ROOT_DISK .'adm/GLOBALS.php');
+	}
+	if ( is_link($WWW_ROOT_DISK .'GLOBALS.php') && @readlink($WWW_ROOT_DISK .'GLOBALS.php') != $INCLUDE .'GLOBALS.php' ) { 
+		pf('Recreate symlink to GLOBALS.php');
+		fud_symlink($INCLUDE .'GLOBALS.php',  $WWW_ROOT_DISK .'GLOBALS.php');
+	}
+	if ( is_link($DATA_DIR .'scripts/GLOBALS.php') && @readlink($DATA_DIR .'scripts/GLOBALS.php') != $INCLUDE .'GLOBALS.php' ) { 
+		pf('Recreate symlink to scripts/GLOBALS.php');
+		fud_symlink($INCLUDE .'GLOBALS.php',  $DATA_DIR .'scripts/GLOBALS.php');
+	}
+	draw_stat('Done: Validating symlinks to GLOBALS.php');
+
 	if ($FUD_OPT_1 & 1 || isset($_GET['enable_forum'])) {
 		draw_stat('Re-enabling the forum.');
 		maintenance_status($DISABLED_REASON, 0);
@@ -741,5 +788,5 @@ While it is running, your forum will be disabled!
 	if (!defined('shell_script')) {
 		pf('<hr /><div class="tutor">It is recommended that you run SQL table optimizer after completing the consistency check. To do so <span style="white-space:nowrap">&gt;&gt; <b><a href="consist.php?opt=1&amp;'.__adm_rsid.'">click here</a></b> &lt;&lt;</span>, keep in mind that this process may take several minutes to perform.</div>');
 	}
-	require($WWW_ROOT_DISK . 'adm/footer.php');
+	require($WWW_ROOT_DISK .'adm/footer.php');
 ?>

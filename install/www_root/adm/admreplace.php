@@ -25,6 +25,10 @@ function clean_rgx()
 
 	require($WWW_ROOT_DISK .'adm/header.php');
 
+	if (!empty($_POST['btn_cancel'])) {
+		unset($_POST);
+	}
+	
 	if (isset($_POST['btn_submit']) && !empty($_POST['rpl_replace_str']) && !empty($_POST['rpl_with_str'])) {
 		clean_rgx();
 		if (!$_POST['rpl_replace_opt']) {
@@ -52,9 +56,9 @@ function clean_rgx()
 		q('DELETE FROM '. $DBHOST_TBL_PREFIX .'replace WHERE id='. (int)$_GET['del']);
 		echo successify('Replacement rule successfully deleted.');
 	}
-	if (isset($_GET['edit'])) {
-		list($rpl_replace_opt, $rpl_replace_str, $rpl_with_str, $rpl_from_post, $rpl_to_msg) = db_saq('SELECT replace_opt,replace_str,with_str,from_post,to_msg FROM '. $DBHOST_TBL_PREFIX .'replace WHERE id='. (int)$_GET['edit']);
-		$edit = (int)$_GET['edit'];
+	if (isset($_GET['edit']) || isset($_POST['edit'])) {
+		$edit = isset($_GET['edit']) ? (int)$_GET['edit'] : (int)$_POST['edit'];
+		list($rpl_replace_opt, $rpl_replace_str, $rpl_with_str, $rpl_from_post, $rpl_to_msg) = db_saq('SELECT replace_opt,replace_str,with_str,from_post,to_msg FROM '. $DBHOST_TBL_PREFIX .'replace WHERE id='. $edit);
 		if ($rpl_replace_opt) {
 			$rpl_replace_str = str_replace('\\/', '/', substr($rpl_replace_str, 1, -1));
 		} else {
@@ -136,7 +140,10 @@ function clean_rgx()
 <?php
 	if (!$rpl_replace_opt) {
 		if (!isset($_POST['btn_regex'])) {
-			$regex_str = $regex_src = $regex_with = $regex_str_opt = '';
+			$regex_str = $rpl_replace_str;
+			$regex_src = 'Some '. $rpl_replace_str .' text';
+			$regex_with = $rpl_with_str;
+			$regex_str_opt = $rpl_preg_opt;
 		} else {
 			$regex_str = $_POST['regex_str'];
 			$regex_src = $_POST['regex_src'];
@@ -174,12 +181,12 @@ function clean_rgx()
 		<td valign="top">Test result:</td>
 		<td>
 			<font size="-1">'<?php echo htmlspecialchars($regex_str); ?>' applied to:</font><br />
-			<table border="1" cellspacing="0" cellpadding="3">
+			<table border="1" cellspacing="0" cellpadding="3" bgcolor="yellow">
 			<tr><td><font size="-1"><?php echo htmlspecialchars($regex_src); ?></font></td></tr>
 			</table>
 			<br />
 			<font size="-1">produces:</font><br />
-			<table border="1" cellspacing="0" cellpadding="3">
+			<table border="1" cellspacing="0" cellpadding="3" bgcolor="yellow">
 			<tr><td><font size="-1"><?php echo htmlspecialchars($str); ?></font></td></tr>
 			</table>
 		</td>

@@ -18,11 +18,11 @@
 	$gr_leader = isset($_GET['gr_leader']) ? $_GET['gr_leader'] : (isset($_POST['gr_leader']) ? $_POST['gr_leader'] : '');
 
 	if (!$group_id) {
-		header('Location: '.$WWW_ROOT.'adm/admgroups.php?'.__adm_rsidl);
+		header('Location: '. $WWW_ROOT .'adm/admgroups.php?'. __adm_rsidl);
 		exit;
 	}
 
-	require($WWW_ROOT_DISK . 'adm/header.php');
+	require($WWW_ROOT_DISK .'adm/header.php');
 	$error = '';
 
 	if (isset($_GET['del']) && ($del = (int)$_GET['del'])) {
@@ -125,4 +125,4 @@
 </table>
 </form>
 <a href="admgroups.php?<?php echo __adm_rsid; ?>">&laquo; Back to Admin Groups</a>
-<?php require($WWW_ROOT_DISK . 'adm/footer.php'); ?>
+<?php require($WWW_ROOT_DISK .'adm/footer.php'); ?>

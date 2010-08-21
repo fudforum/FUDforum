@@ -23,14 +23,12 @@
 
 	// Run from command line.
 	if (php_sapi_name() == 'cli') {
-		fud_use('adm_cli.inc', 1);	// Contains cli_execute().
-		cli_execute('');
-
 		if (empty($_SERVER['argv'][1])) {
 			echo "Usage: php admimport.php /path/to/dump_file\n";
 			die();
 		}
 
+		fud_use('adm_cli.inc', 1);
 		define('recovery_mode', 1);
 		$_POST['path'] = $_SERVER['argv'][1];
 		$_POST['submitted'] = 1;
@@ -64,7 +62,7 @@ function resolve_dest_path($path)
 	return $path;
 }
 
-	require($WWW_ROOT_DISK . 'adm/header.php');
+	require($WWW_ROOT_DISK .'adm/header.php');
 
 	if (isset($_POST['path'])) {
 		if (!@is_readable($_POST['path'])) {
@@ -361,4 +359,4 @@ if ($datadumps) {
 </table>
 </form>
 
-<?php require($WWW_ROOT_DISK . 'adm/footer.php'); ?>
+<?php require($WWW_ROOT_DISK .'adm/footer.php'); ?>

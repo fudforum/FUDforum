@@ -19,8 +19,8 @@
 			die();
 		}
 
-		fud_use('adm_cli.inc', 1);	// Contains cli_execute().
-		cli_execute(0, array('rebuild_all'=>1));
+		fud_use('adm_cli.inc', 1);
+		$_GET['rebuild_all'] = 1;
 	}
 
 	fud_use('widgets.inc', true);
@@ -28,7 +28,7 @@
 	fud_use('compiler.inc', true);
 	fud_use('theme.inc', true);
 
-	require($WWW_ROOT_DISK . 'adm/header.php');
+	require($WWW_ROOT_DISK .'adm/header.php');
 
 	if (!empty($_POST['btn_cancel'])) {
 		unset($_POST);
@@ -40,14 +40,13 @@
 		while (($data = db_rowarr($r))) {
 			try {
 				compile_all($data[0], $data[1], $data[2]);
-				echo successify('Theme '. $data[2] .' ('. $data[1] .') was successfully rebuilt.');
+				pf(successify('Theme '. $data[2] .' ('. $data[1] .') was successfully rebuilt.'));
 			} catch (Exception $e) {
-				echo errorify('Please fix your theme: '.  $e->getMessage());
+				pf(errorify('Please fix your theme: '.  $e->getMessage()));
 			}
 		}
 		unset($r);
 		if (defined('shell_script')) {
-			pf('Done!');
 			return;
 		}
 	}
@@ -117,7 +116,7 @@
 
 		if (!isset($thm_theme) || empty($thm_theme)) {
 			$thm_theme = 'default';
-		}		
+		}
 		if (!isset($thm_lang) || empty($thm_lang)) {
 			// Get default language from browser.
 			$thm_lang = isset($_SERVER['HTTP_ACCEPT_LANGUAGE']) ? substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2) : 'en';
@@ -290,4 +289,4 @@ function update_locale()
 </table>
 [ <a href="admthemes.php?rebuild_all=1&amp;<?php echo __adm_rsid; ?>">Rebuild all Themes</a> ]
 
-<?php require($WWW_ROOT_DISK . 'adm/footer.php'); ?>
+<?php require($WWW_ROOT_DISK .'adm/footer.php'); ?>

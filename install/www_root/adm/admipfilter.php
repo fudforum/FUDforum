@@ -13,7 +13,7 @@
 	fud_use('adm.inc', true);
 	fud_use('ipfilter.inc', true);
 
-	include($WWW_ROOT_DISK . 'adm/header.php');
+	include($WWW_ROOT_DISK .'adm/header.php');
 		
 	/* Validate the IP address. */
 	$bits = null;
@@ -29,13 +29,13 @@
 	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
 
 	if (isset($_POST['edit'], $_POST['btn_update']) && isset($bits)) {
-		q('UPDATE '.$tbl.'ip_block SET ca='.$bits[0].', cb='.$bits[1].', cc='.$bits[2].', cd='.$bits[3].' WHERE id='.(int)$_POST['edit']);
-		echo successify('IP address ('.$_POST['ipaddr'].') was successfully updated.');
+		q('UPDATE '. $tbl .'ip_block SET ca='. $bits[0] .', cb='. $bits[1] .', cc='. $bits[2] .', cd=' .$bits[3] .' WHERE id='. (int)$_POST['edit']);
+		echo successify('IP address ('. $_POST['ipaddr'] .') was successfully updated.');
 	} else if (isset($_POST['btn_submit']) && isset($bits)) {
-		q('INSERT INTO '.$tbl.'ip_block (ca, cb, cc, cd) VALUES ('.$bits[0].', '.$bits[1].', '.$bits[2].', '.$bits[3].')');
-		echo successify('IP address ('.$_POST['ipaddr'].') was successfully added.');
+		q('INSERT INTO '. $tbl .'ip_block (ca, cb, cc, cd) VALUES ('. $bits[0] .', '. $bits[1] .', '. $bits[2] .', '. $bits[3] .')');
+		echo successify('IP address ('. $_POST['ipaddr'] .') was successfully added.');
 	} else if (isset($_GET['del'])) {
-		q('DELETE FROM '.$tbl.'ip_block WHERE id='.(int)$_GET['del']);
+		q('DELETE FROM '. $tbl .'ip_block WHERE id='. (int)$_GET['del']);
 		echo successify('IP address was successfully removed.');
 	} else {
 		$nada = 1;
@@ -45,11 +45,7 @@
 	}
 
 	if (isset($_GET['edit'])) {
-		if (__dbtype__ == 'mysql') {
-			$ipaddr = q_singleval('SELECT CONCAT(ca, \'.\', cb, \'.\', cc, \'.\', cd) FROM '.$tbl.'ip_block WHERE id='.(int)$_GET['edit']);
-		} else {
-			$ipaddr = q_singleval('SELECT ca || \'.\' || cb || \'.\' || cc || \'.\' || cd FROM '.$tbl.'ip_block WHERE id='.(int)$_GET['edit']);
-		}
+		$ipaddr = q_singleval('SELECT '. q_concat('ca', _esc('.'), 'cb', _esc('.'), 'cc', _esc('.'), 'cd') .' FROM '.$tbl.'ip_block WHERE id='.(int)$_GET['edit']);
 		$ipaddr = str_replace('256', '*', $ipaddr);
 		$edit = $_GET['edit'];
 	} else {
@@ -91,11 +87,7 @@ A range of IP addresses can be blocked by entering a mask (.*).</p>
 	<th>Action</th>
 </tr></thead>
 <?php
-	if (__dbtype__ == 'mysql') {
-		$c = uq("SELECT id, CONCAT(ca, '.', cb, '.', cc, '.', cd) FROM ".$tbl.'ip_block');
-	} else {
-		$c = uq("SELECT id, ca || '.' || cb || '.' || cc || '.' || cd FROM ".$tbl.'ip_block');
-	}
+	$c = uq('SELECT id, '. q_concat('ca', _esc('.'), 'cb', _esc('.'), 'cc', _esc('.'), 'cd') .' FROM '. $tbl .'ip_block');
 	$i = 0;
 	while ($r = db_rowarr($c)) {
 		$i++;
@@ -110,4 +102,4 @@ A range of IP addresses can be blocked by entering a mask (.*).</p>
 	}
 ?>
 </table>
-<?php require($WWW_ROOT_DISK . 'adm/footer.php'); ?>
+<?php require($WWW_ROOT_DISK .'adm/footer.php'); ?>

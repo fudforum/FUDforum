@@ -87,7 +87,7 @@ function goto_tmpl($tmpl)
 	$edit = isset($_POST['edit']) ? $_POST['edit'] : (isset($_GET['edit']) ? $_GET['edit'] : '');
 
 	if (!$tname || !$tlang) {
-		header('Location: '.$WWW_ROOT.'adm/admtemplates.php?'.__adm_rsidl);
+		header('Location: '. $WWW_ROOT. 'adm/admtemplates.php?'. __adm_rsidl);
 		exit;
 	}
 
@@ -161,7 +161,7 @@ function goto_tmpl($tmpl)
 			$msg_list = ' <font size="-1">[ <a title="Edit embedded messages (popup window)" href="#" onclick="window_open(\'msglist.php?tname='.$tname.'&amp;tlang='.$tlang.'&amp;'.__adm_rsid.'&amp;NO_TREE_LIST=1&amp;msglist='.urlencode(implode(':', $msg_list)).'\', \'tmpl_msg\', 800, 300);">Edit Text Messages</a> ]</font>';
 		}
 	}
-	require($WWW_ROOT_DISK . 'adm/header.php');
+	require($WWW_ROOT_DISK .'adm/header.php');
 ?>
 
 <table width="100%" cellspacing="2" cellpadding="2">
@@ -342,4 +342,4 @@ function goto_tmpl($tmpl)
 <?php } /* if ($edit) */ ?>
 </tr>
 </table>
-<?php require($WWW_ROOT_DISK . 'adm/footer.php'); ?>
+<?php require($WWW_ROOT_DISK .'adm/footer.php'); ?>

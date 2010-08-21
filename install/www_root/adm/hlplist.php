@@ -18,11 +18,11 @@
 	$tlang = isset($_POST['tlang']) ? $_POST['tlang'] : (isset($_GET['tlang']) ? $_GET['tlang'] : '');
 
 	if (!$tname || !$tlang) {
-		header('Location: '.$WWW_ROOT.'adm/admhelp.php?'.__adm_rsidl);
+		header('Location: '. $WWW_ROOT .'adm/admhelp.php?'. __adm_rsidl);
 		exit;
 	}
 	
-	require($WWW_ROOT_DISK . 'adm/header.php');
+	require($WWW_ROOT_DISK .'adm/header.php');
 
 	$path = $GLOBALS['DATA_DIR'].'thm/'.$tname.'/i18n/'.$tlang.'/help';
 	$files = glob($path . '/*.hlp');
@@ -106,5 +106,5 @@ $(document).ready(function () {
 	}
 ?>
 </tr></table>
-<?php require($WWW_ROOT_DISK . 'adm/footer.php'); ?>
+<?php require($WWW_ROOT_DISK .'adm/footer.php'); ?>
 

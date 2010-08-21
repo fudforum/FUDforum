@@ -12,6 +12,21 @@
 	@set_time_limit(6000);
 
 	require('./GLOBALS.php');
+
+	// Run from command line.
+	if (php_sapi_name() == 'cli') {
+		if (empty($_SERVER['argv'][1])) {
+			echo "Usage: php admpruneusers.php days\n";
+			echo " - 'days' is the number of days the users haven't logged in for.\n";
+			die();
+		}
+
+		fud_use('adm_cli.inc', 1);
+		$_POST['btn_prune'] = $_POST['btn_conf'] = 1;
+		$_POST['user_age'] = $_SERVER['argv'][1];
+		$_POST['units'] = 86400; // a day.
+	}
+
 	fud_use('adm.inc', true);
 	fud_use('widgets.inc', true);
 	fud_use('users_reg.inc');
@@ -25,7 +40,7 @@
 
 		if (!isset($_POST['btn_conf']) && $back > 0) {
 			/* Count the number of users that will be affected. */
-			$user_count = q_singleval('SELECT count(*) FROM '. $DBHOST_TBL_PREFIX. 'users WHERE id > 1 AND posted_msg_count = 0 AND last_visit < '. $back .' AND join_date < '. $back);
+			$user_count = q_singleval('SELECT count(*) FROM '. $DBHOST_TBL_PREFIX .'users WHERE id > 1 AND posted_msg_count = 0 AND last_visit < '. $back .' AND join_date < '. $back);
 ?>
 <div align="center">You are about to delete <font color="red"><?php echo $user_count; ?></font> users,
 which haven't logged on since <font color="red"><?php echo fdate('%Y-%m-%d %T', $back); ?></font><br /><br />
@@ -48,9 +63,13 @@ which haven't logged on since <font color="red"><?php echo fdate('%Y-%m-%d %T', 
 				// echo 'DELETE USER '. $r[0] .'<br />';
 				usr_delete($r[0]);
 			}
-			echo successify('Done. It is highly recommended that you run a <a href="consist.php?'. __adm_rsid .'">consistency check</a> after pruning.');
+			pf(successify('Done. It is highly recommended that you run a <a href="consist.php?'. __adm_rsid .'">consistency check</a> after pruning.'));
 		} else if ($back < 1) {
-			echo errorify('You\'ve selected a date too far in the past!');
+			pf(errorify('You\'ve selected a date too far in the past!'));
+		}
+
+		if (defined('shell_script')) {
+			return;
 		}
 	}
 ?>
@@ -76,4 +95,4 @@ For example, if you enter a value of 2 and select "years" this form will offer t
 <?php echo _hs; ?>
 </form>
 
-<?php require($WWW_ROOT_DISK . 'adm/footer.php'); ?>
+<?php require($WWW_ROOT_DISK .'adm/footer.php'); ?>

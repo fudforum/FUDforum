@@ -29,7 +29,7 @@ function get_server_software()
 	}
 }
 
-	require($WWW_ROOT_DISK . 'adm/header.php');
+	require($WWW_ROOT_DISK .'adm/header.php');
 ?>
 <h2>System Configuration</h2>
 <p>Overview of your system's configuration. Please include this when reporting bugs on the <a href="http://fudforum.org/">support forum</a>:</p>
@@ -132,4 +132,4 @@ echo '<tr class="field">
 
 [ <a href="admphpinfo.php?<?php echo __adm_rsid; ?>">Detailed PHP info &raquo;</a> ]
 
-<?php require($WWW_ROOT_DISK . 'adm/footer.php'); ?>
+<?php require($WWW_ROOT_DISK .'adm/footer.php'); ?>

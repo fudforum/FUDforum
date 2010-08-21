@@ -15,7 +15,7 @@
 	fud_use('smtp.inc');
 	fud_use('iemail.inc');
 	
-	require($WWW_ROOT_DISK . 'adm/header.php');
+	require($WWW_ROOT_DISK .'adm/header.php');
 	
 	/* special user groups */
 	$all_mods = -1000000000;
@@ -163,4 +163,4 @@
 	</tr>
 </table>
 </form>
-<?php require($WWW_ROOT_DISK . 'adm/footer.php'); ?>
+<?php require($WWW_ROOT_DISK .'adm/footer.php'); ?>

@@ -14,7 +14,7 @@
 	fud_use('email_filter.inc', true);
 	fud_use('adm.inc', true);
 
-	require($WWW_ROOT_DISK . 'adm/header.php');
+	require($WWW_ROOT_DISK .'adm/header.php');
 		
 	if (isset($_POST['edit'], $_POST['btn_update']) && !empty($_POST['e_string'])) {
 		$e_email_block_opt = (int) $_POST['e_email_block_opt'];
@@ -97,4 +97,4 @@
 	}
 ?>
 </table>
-<?php require($WWW_ROOT_DISK . 'adm/footer.php'); ?>
+<?php require($WWW_ROOT_DISK .'adm/footer.php'); ?>

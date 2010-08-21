@@ -15,7 +15,7 @@
 	fud_use('widgets.inc', true);
 	fud_use('draw_select_opt.inc');
 
-	require($WWW_ROOT_DISK . 'adm/header.php');
+	require($WWW_ROOT_DISK .'adm/header.php');
 	
 	$help_ar = read_help();
 
@@ -94,4 +94,4 @@
 </ul>
 </div>
 
-<?php require($WWW_ROOT_DISK . 'adm/footer.php'); ?>
+<?php require($WWW_ROOT_DISK .'adm/footer.php'); ?>

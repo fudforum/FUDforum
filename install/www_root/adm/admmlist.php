@@ -29,7 +29,7 @@ function format_regex(&$regex)
 	fud_use('widgets.inc', true);
 	fud_use('mlist.inc', true);
 
-	require($WWW_ROOT_DISK . 'adm/header.php');
+	require($WWW_ROOT_DISK .'adm/header.php');
 	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
 
 	if (!empty($_POST['btn_cancel'])) {
@@ -324,4 +324,4 @@ function format_regex(&$regex)
 The <i>Exec Line</i> in the table above shows the execution line required to pipe mailing list messages into the forum.
 The <i>Help</i> page contains <a href="http://www.procmail.org/" target="_new">procmail</a> and <a href="http://www.postfix.org/" target="_new">postfix</a> examples.
 
-<?php require($WWW_ROOT_DISK . 'adm/footer.php'); ?>
+<?php require($WWW_ROOT_DISK .'adm/footer.php'); ?>

@@ -16,7 +16,7 @@
 	fud_use('users_adm.inc', true);
 	fud_use('ssu.inc');
 
-	require($WWW_ROOT_DISK . 'adm/header.php');
+	require($WWW_ROOT_DISK .'adm/header.php');
 
 	if (isset($_GET['usr_id'])) {
 		usr_adm_avatar((int)$_GET['usr_id'], 0);
@@ -48,5 +48,5 @@
 </table>
 <?php
 
-	require($WWW_ROOT_DISK . 'adm/footer.php');
+	require($WWW_ROOT_DISK .'adm/footer.php');
 ?>

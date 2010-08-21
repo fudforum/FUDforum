@@ -24,6 +24,10 @@ a {
 	text-decoration: none;
 }
 
+.maindata a:link, .maindata a:visited {
+	border-bottom: 1px dotted #888;
+}
+
 a:visited, a:link {
 	color: #242;
 }

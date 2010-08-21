@@ -13,22 +13,20 @@
 
 	// Run from command line.
 	if (php_sapi_name() == 'cli') {
-		fud_use('adm_cli.inc', 1);	// Contains cli_execute().
-		cli_execute('');
-
 		if (strcasecmp($_SERVER['argv'][1], 'lock') != 0 && strcasecmp($_SERVER['argv'][1], 'unlock') != 0 || empty($_SERVER['argv'][2]) || empty($_SERVER['argv'][3])) {
 			echo "Usage: php admlock.php [lock|unlock] userid password\n";
 			die();
 		}
 
-		$_POST[ 'btn_'. $_SERVER['argv'][1] ] = 'Lock/Unlock files';
+		fud_use('adm_cli.inc', 1);
+		$_POST['btn_'. $_SERVER['argv'][1] ] = 'Lock/Unlock files';
 		$_POST['usr_login'] = $_SERVER['argv'][2];
 		$_POST['usr_passwd'] = $_SERVER['argv'][3];
 	}
 
 	fud_use('adm.inc', true);
 	fud_use('glob.inc', true);
-	require($WWW_ROOT_DISK . 'adm/header.php');
+	require($WWW_ROOT_DISK .'adm/header.php');
 
 	// Authenticate login details.
 	$authenticated = 0;
@@ -89,7 +87,7 @@
 	}
 
 	$status = ($FUD_OPT_2 & 8388608 ? 'LOCKED' : 'UNLOCKED');
-	
+
 	if (defined('shell_script')) {
 		pf('Forum files appear to be '. $status);
 		exit;
@@ -112,4 +110,4 @@ If this test claims that the forum is unlocked, but you still cannot modify your
 </table>
 <?php echo _hs; ?>
 </form>
-<?php require($WWW_ROOT_DISK . 'adm/footer.php'); ?>
+<?php require($WWW_ROOT_DISK .'adm/footer.php'); ?>

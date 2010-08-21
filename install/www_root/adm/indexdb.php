@@ -22,8 +22,8 @@
 			die();
 		}
 
-		fud_use('adm_cli.inc', 1);	// Contains cli_execute().
-		cli_execute(1);
+		fud_use('adm_cli.inc', 1);
+		$_POST['conf'] = 1;
 	}
 
 	fud_use('adm.inc', true);
@@ -33,11 +33,11 @@
 	fud_use('rev_fmt.inc');
 
 	if (isset($_POST['btn_cancel'])) {
-		header('Location: '. $WWW_ROOT .'adm/index.php?'.__adm_rsid);
+		header('Location: '. $WWW_ROOT .'adm/index.php?'. __adm_rsid);
 		exit;
 	}
 
-	require($WWW_ROOT_DISK . 'adm/header.php');
+	require($WWW_ROOT_DISK .'adm/header.php');
 
 	if (!isset($_POST['conf'])) {
 ?>
@@ -103,5 +103,5 @@ and can take a VERY LONG time, especially on large forums. You should ONLY run t
 	}
 
 	pf('<br /><div class="tutor">Messages successfully reindexed.</div>');
-	require($WWW_ROOT_DISK . 'adm/footer.php');
+	require($WWW_ROOT_DISK .'adm/footer.php');
 ?>

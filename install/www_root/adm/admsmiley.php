@@ -15,7 +15,7 @@
 	fud_use('sml_rcache.inc', true);
 
 	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
-	require($WWW_ROOT_DISK . 'adm/header.php');
+	require($WWW_ROOT_DISK .'adm/header.php');
 	
 	$smiley_dir = '../images/smiley_icons/';
 
@@ -210,4 +210,4 @@ function sml_form_check()
 	}
 ?>
 </table>
-<?php require($WWW_ROOT_DISK . 'adm/footer.php'); ?>
+<?php require($WWW_ROOT_DISK .'adm/footer.php'); ?>

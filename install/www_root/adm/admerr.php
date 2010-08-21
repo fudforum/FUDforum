@@ -9,20 +9,46 @@
 * Free Software Foundation; version 2 of the License.
 **/
 
-function print_log($path, $search)
+function print_last($logfile)
 {
 	echo '<table class="resulttable">';
 	echo '<thead><tr class="resulttopic">';
 	echo '	<th>Time</th><th>Error Description</th>';
 	echo '</tr></thead>';
-	$fp = fopen($path, 'r');
+
+	$fsize = filesize($GLOBALS['ERROR_PATH'] . $logfile);
+	$fseek = ($fsize > 2048) ? $fsize -= 2048 : 0;
+	$fp = fopen($GLOBALS['ERROR_PATH'] . $logfile, 'r');
+	fseek($fp, $fseek);
+	$last = fread($fp, 2048);		// Read last 2K.
+	fclose($fp);
+
+	$records = preg_split("/\n(?=\?)/", $last);	// Newline + lookahead for a '?'.
+	if ($fseek) {
+		array_shift($records);	// Throw first incomplete record away.
+	}
+	$records = array_slice($records, -5);	// Only keep last 5 records (newest errors).
+
+	foreach(array_reverse($records, true) as $record) {
+		list(,$s,$d,$err) = explode('?', $record);
+		echo '<tr class="field"><td nowrap="nowrap" valign="top">'. gmdate('D M j G:i:s T Y', $d) .'</td><td>'. $err .'</td></tr>';
+	}
+
+	echo '</table><br />';
+}
+
+function print_log($logfile, $search)
+{
+	echo '<table class="resulttable">';
+	echo '<thead><tr class="resulttopic">';
+	echo '	<th>Time</th><th>Error Description</th>';
+	echo '</tr></thead>';
+	$linecnt = 0;
+	$fp = fopen($GLOBALS['ERROR_PATH'] . $logfile, 'r');
 	while (1) {
 		// ?%-10d?%-10d?
 		if (!($pfx = fread($fp, 23))) {
 			break;
-		}
-		if ($pfx{0} != '?') { // For old log entries.
-			continue;
 		}
 		list(,$s,$d,) = explode('?', $pfx);
 		$err = fread($fp, (int)$s);
@@ -30,9 +56,11 @@ function print_log($path, $search)
 			continue;	// Filter according to search criteria.
 		}
 		echo '<tr class="field"><td nowrap="nowrap" valign="top">'. gmdate('D M j G:i:s T Y', $d) .'</td><td>'. $err .'</td></tr>';
+		$linecnt++;
 	}
 	fclose($fp);
-	echo '</table><br /><br />';
+	echo '</table><br />';
+	echo '<i>Total: '. $linecnt .' errors.</i>';
 }
 
 /* main */
@@ -40,42 +68,48 @@ function print_log($path, $search)
 	fud_use('adm.inc', true);
 	require($WWW_ROOT_DISK .'adm/header.php');
 
-	if (!empty($_GET['clear_sql_log']) && is_file($ERROR_PATH .'sql_errors')) {
-		if (@unlink($ERROR_PATH .'sql_errors')) {
-		      echo successify('SQL log successfully cleared.');
-		} else {
-		      echo errorify('Unable to remove SQL log. Please fix file permissions of '. $ERROR_PATH .'sql_errors');
-		}
-	} else if (!empty($_GET['clear_fud_log']) && is_file($ERROR_PATH .'fud_errors')) {
-		if (@unlink($ERROR_PATH .'fud_errors')) {
-		      echo successify('Error log successfully cleared.');
-		} else {
-		      echo errorify('Unable to remove error log. Please fix file permissions of '. $ERROR_PATH .'fud_errors');
+	// Check for errors in the following error logs. 
+	$logs = array(
+		'fud_errors'   => 'Forum',
+		'sql_errors'   => 'SQL', 
+		'nntp_errors'  => 'Newsgroup', 
+		'mlist_errors' => 'Mailing List'
+	);
+
+	/* Empty out log file. */
+	if (isset($_GET['clear'], $_GET['log'])) {
+		$logfile = $ERROR_PATH . $_GET['log'];
+		if (is_file($logfile)) {
+			if (@unlink($logfile)) {
+				echo successify( strtoupper($_GET['log']) .' log successfully cleared.');
+			} else {
+				echo errorify('Unable to remove '. $_GET['log'] .' log. Please fix permissions of '. $logfile);
+			}
 		}
 	}
 
-	// Identify logs that will be displayed.
-	$logcnt = $fud = $sql = 0;
-	if (@file_exists($ERROR_PATH .'fud_errors') && filesize($ERROR_PATH .'fud_errors')) {
-		$fud = 1;
-		$logcnt++;
-	}
-	if (@file_exists($ERROR_PATH .'sql_errors') && filesize($ERROR_PATH .'sql_errors')) {
-		$sql = 1;
-		$logcnt++;
-	}
+	// Identify logs that must be displayed.
+	$display_logs = Array();
+	if (!empty($_GET['showall'])) {
+		$display_logs[] = $_GET['log'];	// Display only requested log.
+	} else {
+		foreach($logs as $log => $desc) {
+			if (@file_exists($ERROR_PATH . $log) && filesize($ERROR_PATH . $log)) {
+				$display_logs[] = $log;
+			}
+		}
+	} 
 ?>
 
 <h2>Error Log Viewer</h2>
 
 <?php 
 global $plugin_hooks;
-if (isset($plugin_hooks['LOGERR'])) { 
-?>
-	<div class="alert">You have one or more LOGERR plugins enabled. Messages my be altered, suppressed or logged elsewhere.</div>
-<?php } ?>
+if (isset($plugin_hooks['LOGERR'])) {
+	echo '<div class="alert">You have one or more LOGERR plugins enabled. Messages my be altered, suppressed or logged elsewhere.</div>';
+}
 
-<?php if ($logcnt) { ?>
+if ($display_logs) { ?>
 <table width="95%" class="tutor"><tr><td>
 <form method="post" action="admerr.php">
 	<?php echo _hs; ?>
@@ -85,29 +119,34 @@ if (isset($plugin_hooks['LOGERR'])) {
 	<input type="submit" value="Go" name="frm_submit" />
 </form>
 </td><td align="right">
-Jump to:
-	<?php if ($fud) { ?> [ <a href="#fud">FUDforum errors</a> ] <?php } ?>
-	<?php if ($sql) { ?> [ <a href="#sql">SQL errors</a> ] <?php } ?>
+	<?php if (count($display_logs) > 1) { ?>
+		Jump to log:
+		<?php foreach($display_logs as $log) echo ' [ <a href="#'. $log .'">'. $logs[$log] .'</a> ]'; ?>
+	<?php } ?>
 </td></tr></table>
-
 <?php } ?>
 
 <?php
-	$err = 0;
-
-	if ($fud) {
-		echo '<h3><a name="fud">FUDforum Error Log</a> [ <a href="admerr.php?clear_fud_log=1&amp;'. __adm_rsid .'">clear log</a> ]</h3>';
-		print_log($ERROR_PATH .'fud_errors', $search);
-		$err = 1;
+	foreach($display_logs as $log) {
+		if ($search) {
+			echo '<h3><a name="'. $log .'">Matching '. $logs[$log] .' Errors</a></h3>';
+			print_log($log, $search);
+			echo '<div align="right">[ <a href="admerr.php?'. __adm_rsid .'">Go back</a> ] ';
+			echo '[ <a href="admerr.php?clear=1&amp;log='. $log .'&amp;'. __adm_rsid .'">clear log</a> ]</div>';
+		} else 	if (isset($_GET['showall'])) {
+			echo '<h3><a name="'. $log .'">Full '. $logs[$log] .' Error Log</a></h3>';
+			print_log($log, $search);
+			echo '<div align="right">[ <a href="admerr.php?'. __adm_rsid .'">go back</a> ] ';
+			echo '[ <a href="admerr.php?clear=1&amp;log='. $log .'&amp;'. __adm_rsid .'">clear log</a> ]</div>';
+		} else {
+			echo '<h3><a name="'. $log .'">Latest '. $logs[$log] .' Errors</a></h3>';
+			print_last($log);
+			echo '<div align="right">[ <a href="admerr.php?showall=1&amp;log='. $log .'&amp;'. __adm_rsid .'">show all</a> ] ';
+			echo '[ <a href="admerr.php?clear=1&amp;log='. $log .'&amp;'. __adm_rsid .'">clear log</a> ]</div>';
+		}
 	}
 
-	if ($sql) {
-		echo '<h3><a name="sql">SQL Error Log</a> [ <a href="admerr.php?clear_sql_log=1&amp;'. __adm_rsid .'">clear log</a> ]</h3>';
-		print_log($ERROR_PATH .'sql_errors', $search);
-		$err = 1;
-	}
-
-	if (!$err) {
+	if (!$display_logs) {
 		echo '<p>All error logs are empty. Lucky you!</p>';
 	}
 
