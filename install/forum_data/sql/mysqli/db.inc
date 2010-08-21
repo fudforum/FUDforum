@@ -26,12 +26,11 @@ if (empty(db::$db)) {
 
 	db::$db = new mysqli($GLOBALS['DBHOST'], $GLOBALS['DBHOST_USER'], $GLOBALS['DBHOST_PASSWORD'], $GLOBALS['DBHOST_DBNAME'], NULL, $socket);
 	if (mysqli_connect_errno()) {
-		fud_sql_error_handler("Failed to establish database connection, MySQLi says: ".mysqli_connect_error(), '', '', '');
+		fud_sql_error_handler('Failed to establish database connection, MySQLi says: '. mysqli_connect_error(), '', '', '');
 	}
 	db::$db->set_charset('utf8');
 
 	define('__dbtype__', 'mysql');
-	define('__FUD_SQL_CONCAT__', 'CONCAT');
 }
 
 function db_version()
@@ -47,7 +46,7 @@ function db_version()
 function db_lock($tables)
 {
 	if (!empty($GLOBALS['__DB_INC_INTERNALS__']['db_locked'])) {
-		fud_sql_error_handler("Recursive Lock", "internal", "internal", db_version());
+		fud_sql_error_handler('Recursive Lock', 'internal', 'internal', db_version());
 	} else {
 		q('LOCK TABLES '.$tables);
 		$GLOBALS['__DB_INC_INTERNALS__']['db_locked'] = 1;
@@ -58,12 +57,12 @@ function db_unlock()
 {
 	if (empty($GLOBALS['__DB_INC_INTERNALS__']['db_locked'])) {
 		unset($GLOBALS['__DB_INC_INTERNALS__']['db_locked']);
-		fud_sql_error_handler("DB_UNLOCK: no previous lock established", "internal", "internal", db_version());
+		fud_sql_error_handler('DB_UNLOCK: no previous lock established', 'internal', 'internal', db_version());
 	}
 
 	if (--$GLOBALS['__DB_INC_INTERNALS__']['db_locked'] < 0) {
 		unset($GLOBALS['__DB_INC_INTERNALS__']['db_locked']);
-		fud_sql_error_handler("DB_UNLOCK: unlock overcalled", "internal", "internal", db_version());
+		fud_sql_error_handler('DB_UNLOCK: unlock overcalled', 'internal', 'internal', db_version());
 	}
 	unset($GLOBALS['__DB_INC_INTERNALS__']['db_locked']);
 	q('UNLOCK TABLES');
@@ -130,11 +129,6 @@ if (!defined('fud_query_stats')) {
 	}
 }
 
-function db_count($result)
-{
-	return (int) $result->num_rows;
-}
-
 function db_rowobj($result)
 {
 	return $result->fetch_object();
@@ -153,6 +147,13 @@ function q_singleval($query)
 	}
 }
 
+function q_concat($arg)
+{
+	// MySQL badly breaks the SQL standard by redefining || to mean OR. 
+	$tmp = func_get_args();
+	return 'CONCAT('. implode(',', $tmp) .')';
+}
+
 function q_limit($query, $limit, $off)
 {
 	// OLD SYNTAX: return $query .' LIMIT '. $off .','. $limit;
@@ -162,11 +163,11 @@ function q_limit($query, $limit, $off)
 function get_fud_table_list($tbl='')
 {
 	if ($tbl) {
-		return q_singleval("SHOW TABLES LIKE '".$tbl."'");
+		return q_singleval('SHOW TABLES LIKE \''. $tbl .'\'');
 	}
 
 	$ret = array();
-	$c = uq("SHOW TABLES LIKE '".$GLOBALS['DBHOST_TBL_PREFIX']."%'");
+	$c = uq('SHOW TABLES LIKE \''. $GLOBALS['DBHOST_TBL_PREFIX'] .'%\'');
 	while ($r = db_rowarr($c)) {
 		$ret[] = $r[0];
 	}
@@ -200,6 +201,7 @@ function db_qid($q)
 	q($q);
 	return db::$db->insert_id;
 }
+
 function db_arr_assoc($q)
 {
 	$r = q($q);
@@ -208,7 +210,7 @@ function db_arr_assoc($q)
 
 function db_fetch_array($r)
 {
-        return is_object($r) ? $r->fetch_array() : null;
+        return is_object($r) ? $r->fetch_array(MYSQLI_ASSOC) : null;
 }
 
 function db_li($q, &$ef, $li=0)
@@ -227,9 +229,9 @@ function db_li($q, &$ef, $li=0)
 	}
 }
 
-function ins_m($tbl, $flds, $vals, $type=0)
+function ins_m($tbl, $flds, $types, $vals)
 {
-	q("INSERT IGNORE INTO ".$tbl." (".$flds.") VALUES (".implode('),(', $vals).")");
+	q('INSERT IGNORE INTO '. $tbl .' ('. $flds .') VALUES ('. implode('),(', $vals) .')');
 }
 
 function db_all($q)
@@ -244,6 +246,6 @@ function db_all($q)
 
 function _esc($s)
 {
-	return "'".db::$db->real_escape_string($s)."'";
+	return '\''. db::$db->real_escape_string($s) .'\'';
 }
 ?>

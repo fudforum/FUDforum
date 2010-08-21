@@ -1,7 +1,5 @@
 <?php
 /**
-// http://www.phpclasses.org/browse/file/16059.html
-
 * copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
@@ -16,35 +14,40 @@ if (!defined('fud_sql_lnk')) {
 	$connect_func = $GLOBALS['FUD_OPT_1'] & 256 ? 'oci_pconnect' : 'oci_connect';	
 
 	if (! extension_loaded('oci8')) {
-		fud_sql_error_handler('None', '', 'We were unable to use an Oracle database because the OCI8 extension for PHP is not installed. Check your PHP.ini to see how it can be enabled', 'Unknown');
+		fud_sql_error_handler('Loading driver', 'We were unable to use an Oracle database because the OCI8 extension for PHP is not installed. Check your PHP.ini to see how it can be enabled', '', 'Unknown');
 	}
 
-	$conn = $connect_func($GLOBALS['DBHOST_USER'], $GLOBALS['DBHOST_PASSWORD'], $GLOBALS['DBHOST_DBNAME'] ) 
-		or fud_sql_error_handler('Initiating '.$connect_func, oci_error($conn), '', 'Unknown');
+	$conn = $connect_func($GLOBALS['DBHOST_USER'], $GLOBALS['DBHOST_PASSWORD'], $GLOBALS['DBHOST_DBNAME'] );
+	if (!$conn) {
+		$m = oci_error();
+		fud_sql_error_handler('Initiating '. $connect_func, $err['message'], $err['code'], 'Unknown');
+	}
 
 	define('fud_sql_lnk', $conn);
 	define('__dbtype__', 'oracle');
-	define('__FUD_SQL_CONCAT__', 'textcat');
 }
 
 function db_version()
 {
 	if (!defined('__FUD_SQL_VERSION__')) {
-		if (function_exists(oci_server_version)) {
-			$val = oci_server_version($fud_sql_lnk);
+		if (function_exists('oci_server_version')) {
+			$val = oci_server_version(fud_sql_lnk);
 		} else {
-			$val = ociserverversion($fud_sql_lnk);
+			$val = ociserverversion(fud_sql_lnk);
 		}
-		define('__FUD_SQL_VERSION__', ($val ? $val[0] : null));
+		if (preg_match('/([0-9]+\.([0-9\.])+)/', $val, $ver)) {
+			define('__FUD_SQL_VERSION__', $ver[1]);
+		} else {
+			define('__FUD_SQL_VERSION__', 'unknown');
+		}
 	}
 	return __FUD_SQL_VERSION__;
 }
 
 function db_lock($tables)
 {
-	// echo "DEBUG db_lock..............<br>";
 	if (!empty($GLOBALS['__DB_INC_INTERNALS__']['db_locked'])) {
-		fud_sql_error_handler("Recursive Lock", "internal", "internal", db_version());
+		fud_sql_error_handler('Recursive Lock', 'internal', 'internal', db_version());
 	} else {
 		$tbl = array();
 		foreach (explode(',', str_replace(' WRITE', '', $tables)) as $v) {
@@ -58,15 +61,14 @@ function db_lock($tables)
 
 function db_unlock()
 {
-	// echo "DEBUG db_unlock..............<br>";
 	if (empty($GLOBALS['__DB_INC_INTERNALS__']['db_locked'])) {
 		unset($GLOBALS['__DB_INC_INTERNALS__']['db_locked']);
-		fud_sql_error_handler("DB_UNLOCK: no previous lock established", "internal", "internal", db_version());
+		fud_sql_error_handler('DB_UNLOCK: no previous lock established', 'internal', 'internal', db_version());
 	}
 
 	if (--$GLOBALS['__DB_INC_INTERNALS__']['db_locked'] < 0) {
 		unset($GLOBALS['__DB_INC_INTERNALS__']['db_locked']);
-		fud_sql_error_handler("DB_UNLOCK: unlock overcalled", "internal", "internal", db_version());
+		fud_sql_error_handler('DB_UNLOCK: unlock overcalled', 'internal', 'internal', db_version());
 	}
 	unset($GLOBALS['__DB_INC_INTERNALS__']['db_locked']);
 	q('COMMIT WORK', fud_sql_lnk);
@@ -90,8 +92,13 @@ function uq($q)
 if (!defined('fud_query_stats')) {
 	function q($q)
 	{
-		$GLOBALS['__FLPG__'] = ora_query(fud_sql_lnk, $q) or fud_sql_error_handler($q, oci_error(fud_sql_lnk), '', db_version());
-		return $GLOBALS['__FLPG__'];
+		$c = oci_parse(fud_sql_lnk, _ora_syntax($q));
+		$GLOBALS['__FLPG__'] = @oci_execute($c);
+		if ($GLOBALS['__FLPG__'] === FALSE) {
+			$err = oci_error($c);
+			fud_sql_error_handler($err['sqltext'], $err['message'], $err['code'], db_version());
+		}
+		return $c;
 	}
 } else {
 	function q($q)
@@ -107,9 +114,14 @@ if (!defined('fud_query_stats')) {
 		}
 
 		$s = gettimeofday();
-		$GLOBALS['__FLPG__'] = ora_query(fud_sql_lnk, $q) or fud_sql_error_handler($q, oci_error(fud_sql_lnk), '', db_version());
+		$c = oci_parse(fud_sql_lnk, _ora_syntax($q));
+		$GLOBALS['__FLPG__'] = @oci_execute($c);
+		if ($GLOBALS['__FLPG__'] === FALSE) {
+			$err = oci_error($c);
+			fud_sql_error_handler($err['sqltext'], $err['message'], $err['code'], db_version());
+		}
 		$e = gettimeofday();
-	
+
 		$GLOBALS['__DB_INC_INTERNALS__']['last_time'] = ($e['sec'] - $s['sec'] + (($e['usec'] - $s['usec'])/1000000));
 		$GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'] += $GLOBALS['__DB_INC_INTERNALS__']['last_time'];
 		$GLOBALS['__DB_INC_INTERNALS__']['last_query'] = $q;
@@ -119,50 +131,51 @@ if (!defined('fud_query_stats')) {
 		echo '<pre>Affected rows: '.db_affected().'</pre>';
 		echo '<pre>total sql time: '.$GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'].'</pre>';
 
-		return $GLOBALS['__FLPG__'];
+		return $c;
 	}
-}
-
-function db_count($r)
-{
-	$r = oci_num_rows($r);
-	if ($r < 0) {
-		return 0;
-	}
-	return $r;
 }
 
 function db_rowobj($result)
 {
-	return oci_fetch_object($result, OCI_RETURN_LOBS);
+	$obj = new stdClass();
+	// We cannot use oci_fetch_object as it returns uppercase class variables. 
+	$tmp = oci_fetch_array($result, OCI_RETURN_LOBS+OCI_RETURN_NULLS+OCI_ASSOC);
+	if (!$tmp) return NULL;
+	foreach ($tmp as $key => $val) {
+		$obj->{strtolower($key)} = $val;
+	}
+	return $obj;
 }
 
 function db_rowarr($result)
 {
-	return oci_fetch_array($result, OCI_RETURN_LOBS+OCI_ASSOC);
+	return oci_fetch_array($result, OCI_RETURN_LOBS+OCI_RETURN_NULLS+OCI_NUM);
 }
 
 function q_singleval($query)
 {
-	// echo "DEBUG q_singleval: Q=".$query."<br>\n";
-	$val = oci_fetch_array(q($query), OCI_RETURN_LOBS+OCI_ASSOC);
+	$val = oci_fetch_array(q($query), OCI_RETURN_LOBS+OCI_RETURN_NULLS);
 	return $val ? $val[0] : null;
+}
+
+function q_concat($arg)
+{
+	$tmp = func_get_args();
+	return implode('||', $tmp);
 }
 
 function q_limit($query, $limit, $off)
 {
-	return 'SELECT * FROM (SELECT /*+ FIRST_ROWS */ rownum AS xrownum, a.* FROM ('. $query .') a WHERE rownum <= '. ($off + $limit) .') WHERE xrownum >= '. $off;
+	return 'SELECT * FROM (SELECT /*+ FIRST_ROWS */ rownum AS xrownum, a.* FROM ('. $query .') a WHERE rownum <= '. ($off + $limit) .') WHERE xrownum >= '. ($off+1);
 }
 
 function get_fud_table_list($tbl='')
 {
 	if (!$tbl) {
-		return db_all("SELECT table_name FROM user_tables WHERE table_name LIKE '".addcslashes($GLOBALS['DBHOST_TBL_PREFIX'],"_")."%'");
+		return db_all('SELECT table_name FROM user_tables WHERE table_name LIKE \''. strtoupper($GLOBALS['DBHOST_TBL_PREFIX'] .'%\''));
 	} else {
-		return q_singleval("SELECT table_name FROM user_tables WHERE table_name='".$tbl."'");
+		return q_singleval('SELECT table_name FROM user_tables WHERE table_name LIKE \''. strtoupper($tbl) .'\'');
 	}
-
-	return $ret;
 }
 
 function optimize_tables($tbl_list=null)
@@ -177,71 +190,87 @@ function optimize_tables($tbl_list=null)
 
 function db_saq($q)
 {
-	return oci_fetch_array(q($q), OCI_RETURN_LOBS+OCI_ASSOC);
+	return oci_fetch_array(q($q), OCI_RETURN_LOBS+OCI_RETURN_NULLS);
 }
 
 function db_sab($q)
 {
-	return oci_fetch_object(q($q), OCI_RETURN_LOBS);
+	$r = q($q);
+	return db_rowobj($r);
 }
 
 function db_qid($q)
 {
-	$r = q($q.' RETURNING id');
-	//TODO return q_singleval('SELECT lastval()');
-	// echo "DEBUG db_qid: q=".$q.", r=".$r."<br />\n";
-	return $r;
+	$r = q($q);
+
+	$seqname = preg_replace('/^.*\s+(FROM|INTO)\s+(\w+)[\s\(\,].*$/i', '\\2', $q) .'_id_seq';
+	return q_singleval('SELECT '. $seqname .'.CURRVAL from dual');
 }
 
 function db_arr_assoc($q)
 {
-	return oci_fetch_array(q($q), 0, OCI_RETURN_LOBS+OCI_ASSOC);
+	$r = q($q);
+	return db_fetch_array($r);
+}
+
+function db_fetch_array($q)
+{
+	$tmp = oci_fetch_array($q, OCI_RETURN_LOBS+OCI_RETURN_NULLS+OCI_ASSOC);
+	if (!$tmp) return NULL;
+
+	// Change Oracle's UPPERCASE keys to lowercase.
+	return array_change_key_case($tmp, CASE_LOWER);
 }
 
 function db_li($q, &$ef, $li=0)
 {
-	$id = 0;
-
-	// echo "DEBUG db_li: q=".$q."<br />\n";
-	$r = oci_parse(fud_sql_lnk, $q.' RETURNING id INTO :id');
-	oci_bind_by_name($r, ":id", $id, -1, SQLT_INT);
-	oci_execute($r);
+	$p = oci_parse(fud_sql_lnk, _ora_syntax($q));
+	$r = @oci_execute($p);
 
 	if ($r) {
 		if ($li) {
-			//TODO return q_singleval('SELECT lastval()');
-			// echo "DEBUG db_li: q=".$q.", id=".$id."<br />\n";
-			return $id;
+			$seqname = preg_replace('/^.*\s+(FROM|INTO)\s+(\w+)[\s\(\,].*$/i', '\\2', $q) .'_id_seq';
+			return q_singleval('SELECT '. $seqname .'.CURRVAL FROM dual');
 		}
 		return $r;
 	}
 
-	/* duplicate key */
-	$ef = ltrim(strrchr(oci_error(fud_sql_lnk), ' '));
-	return null;
+	/* Ignore duplicate keys : ORA-00001: unique constraint violated. */
+	$err = oci_error($p);
+	if ( $err['code'] == 1 ) {
+		return null;
+	} else {
+		fud_sql_error_handler($err['sqltext'], $err['message'], $err['code'], db_version());
+	}
 }
 
-function ins_m($tbl, $flds, $vals, $type)
+function ins_m($tbl, $flds, $types, $vals)
 {
-	// echo "DEBUG ins_m: Q=".$tbl."<br/>\n";
-	$pid = $GLOBALS['DBHOST_TBL_PREFIX'] . substr(md5(mt_rand()), 0, 10);
-
-	ora_query(fud_sql_lnk, 'PREPARE '.$pid.' ('.$type.') AS INSERT INTO '.$tbl.' ('.$flds.') VALUES($'.implode(',$', range(1, substr_count($flds, ',') + 1)).')');
-
-	$err = error_reporting(0);
+	$sth = oci_parse(fud_sql_lnk, 'INSERT INTO '. $tbl .' ('. $flds .') VALUES(:'. implode(',:', range(0, substr_count($flds, ','))) .')');
 	foreach ($vals as $v) {
-		ora_query(fud_sql_lnk, 'EXECUTE '.$pid.' ('.$v.')');
+		foreach (explode(',', trim($v,'\'')) as $v_no => $v_val) {
+			oci_bind_by_name($sth, ':'. $v_no, $v_val, -1);
+		}
+		if (!@oci_execute($sth, OCI_DEFAULT)) {
+			$err = oci_error($sth);
+			if ( $err['code'] == 1 ) {	// Ignore duplicate values!
+				continue;
+			} else {
+				fud_sql_error_handler($err['sqltext'], $err['message'], $err['code'], db_version());
+			}
+		}
 	}
-	error_reporting($err);
 }
 
 function db_all($q)
 {
-	if (!(oci_fetch_all(q($q), $r, OCI_RETURN_LOBS))) {
+	$r = q($q);
+	$nrows = oci_fetch_all($r, $rows, null, null, OCI_FETCHSTATEMENT_BY_ROW);
+	if (!$rows) {
 		return array();
 	}
 	$f = array();
-	foreach ($r as $v) {
+	foreach ($rows as $v) {
 		$f[] = current($v);
 	}
 	return $f;
@@ -255,31 +284,37 @@ function _esc($s)
 	// Replace any single ' with ''
 	$s = str_replace('\'', '\'\'', $s);
 
-	return '\''.$s.'\'';
+	return '\''. $s .'\'';
 }
 
-function ora_query($fud_sql_lnk, $q)
+function _ora_syntax($q)
 {
-	// LIMIT -> rownum
-	$q = preg_replace('/LIMIT (\d+)/', 'AND ROWNUM <= \1', $q);
+	// Change LIMIT to Oracle's ROWNUM.
+	if (preg_match('/LIMIT (\d+)/', $q, $res)) {
+		$off = 0;
+		$limit = $res[1];
+		$q = substr($q, 0, strpos($q, 'LIMIT '));
+		$q = 'SELECT * FROM (SELECT /*+ FIRST_ROWS */ rownum AS xrownum, a.* FROM ('. $q .') a WHERE rownum <= '. ($off + $limit) .') WHERE xrownum >= '. ($off+1);
+	}
 
-	// Convert MySQL's bitwise & to Oracle's BITAND() function
+	// SELECT without FROM, append 'FROM dual'.
+	if (preg_match('/^SELECT /i', $q) && !preg_match('/FROM/i', $q)) {
+		$q .= ' FROM dual';
+	}
+
+	// Convert MySQL's bitwise & to Oracle's BITAND() function.
 	$q = preg_replace('/\(([\.\w]+) \& (\d+)\)/', 'BITAND(\1, \2)', $q);
 
-	// OR values together in PHP - there is no BITOR() in Oracle
+	// Simulate BITOR().
+	$q = preg_replace('/\(([\.\w]+) \| (\d+)\)/', '\1 + \2 - BITAND(\1, \2)', $q);
+	
+	// OR values together in PHP - there is no BITOR() in Oracle.
 	$q = preg_replace_callback('/\b(\d[\d\|]+\d\b)/',
 			create_function('$matches',
 				'$or=0; foreach( explode(\'|\', $matches[0]) as $val) {$or = $or|$val;} return $or;'),
 			$q);
 
-	// 
-	// $query = 'SELECT * FROM (SELECT /*+ FIRST_ROWS */ rownum AS xrownum, a.* FROM (' . $query . ') a WHERE rownum <= ' . ($offset + $total) . ') WHERE xrownum >= ' . $offset;
-			
-	echo "<HR>DEBUG ora_query: Q=".$q."<br/>\n";
-
-	$r = oci_parse($fud_sql_lnk, $q);
-	oci_execute($r);
-	return $r;
+	return $q;
 }
 
 ?>

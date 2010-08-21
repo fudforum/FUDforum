@@ -28,7 +28,6 @@ if (!defined('fud_sql_lnk')) {
 	$conn = $connect_func(ltrim($connect_str)) or fud_sql_error_handler('Initiating '.$connect_func, pg_last_error($conn), '', 'Unknown');
 	define('fud_sql_lnk', $conn);
 	define('__dbtype__', 'pgsql');
-	define('__FUD_SQL_CONCAT__', 'textcat');
 }
 
 function db_version()
@@ -43,7 +42,7 @@ function db_version()
 function db_lock($tables)
 {
 	if (!empty($GLOBALS['__DB_INC_INTERNALS__']['db_locked'])) {
-		fud_sql_error_handler("Recursive Lock", "internal", "internal", db_version());
+		fud_sql_error_handler('Recursive Lock', 'internal', 'internal', db_version());
 	} else {
 		$tbl = array();
 		foreach (explode(',', str_replace(' WRITE', '', $tables)) as $v) {
@@ -61,12 +60,12 @@ function db_unlock()
 {
 	if (empty($GLOBALS['__DB_INC_INTERNALS__']['db_locked'])) {
 		unset($GLOBALS['__DB_INC_INTERNALS__']['db_locked']);
-		fud_sql_error_handler("DB_UNLOCK: no previous lock established", "internal", "internal", db_version());
+		fud_sql_error_handler('DB_UNLOCK: no previous lock established', 'internal', 'internal', db_version());
 	}
 	
 	if (--$GLOBALS['__DB_INC_INTERNALS__']['db_locked'] < 0) {
 		unset($GLOBALS['__DB_INC_INTERNALS__']['db_locked']);
-		fud_sql_error_handler("DB_UNLOCK: unlock overcalled", "internal", "internal", db_version());
+		fud_sql_error_handler('DB_UNLOCK: unlock overcalled', 'internal', 'internal', db_version());
 	}
 	unset($GLOBALS['__DB_INC_INTERNALS__']['db_locked']);
 	q('COMMIT WORK', fud_sql_lnk);
@@ -123,15 +122,6 @@ if (!defined('fud_query_stats')) {
 	}
 }
 
-function db_count($r)
-{
-	$r = pg_num_rows($r);
-	if ($r < 0) {
-		return 0;
-	}
-	return $r;
-}
-
 function db_rowobj($result)
 {
 	return pg_fetch_object($result);
@@ -148,6 +138,12 @@ function q_singleval($query)
 	return $val ? $val[0] : null;
 }
 
+function q_concat($arg)
+{
+	$tmp = func_get_args();
+	return implode('||', $tmp);
+}
+
 function q_limit($query, $limit, $off)
 {
 	return $query .' LIMIT '. $limit .' OFFSET '. $off;
@@ -156,9 +152,9 @@ function q_limit($query, $limit, $off)
 function get_fud_table_list($tbl='')
 {
 	if (!$tbl) {
-		return db_all("SELECT relname FROM pg_class WHERE relkind='r' AND relname LIKE '".addcslashes($GLOBALS['DBHOST_TBL_PREFIX'],"_")."%'");
+		return db_all('SELECT relname FROM pg_class WHERE relkind=\'r\' AND relname LIKE \''. addcslashes($GLOBALS['DBHOST_TBL_PREFIX'],'_').'%\'');
 	} else {
-		return q_singleval("SELECT relname FROM pg_class WHERE relkind='r' AND relname='".$tbl."'");
+		return q_singleval('SELECT relname FROM pg_class WHERE relkind=\'r\' AND relname=\''.$tbl.'\'');
 	}
 
 	return $ret;
@@ -215,23 +211,24 @@ function db_li($q, &$ef, $li=0)
 	return null;
 }
 
-function ins_m($tbl, $flds, $vals, $type)
+function ins_m($tbl, $flds, $types, $vals)
 {
 	$pid = $GLOBALS['DBHOST_TBL_PREFIX'] . substr(md5(mt_rand()), 0, 10);
 
-	pg_query(fud_sql_lnk, 'PREPARE '.$pid.' ('.$type.') AS INSERT INTO '.$tbl.' ('.$flds.') VALUES($'.implode(',$', range(1, substr_count($flds, ',') + 1)).')');
+	pg_query(fud_sql_lnk, 'PREPARE '.$pid.' ('.$types.') AS INSERT INTO '.$tbl.' ('.$flds.') VALUES($'.implode(',$', range(1, substr_count($flds, ',') + 1)).')');
 
-	$err = error_reporting(0);
+	$err = error_reporting(0);	// Simply ignore DUPLICATE errors.
 	foreach ($vals as $v) {
 		pg_query(fud_sql_lnk, 'EXECUTE '.$pid.' ('.$v.')');
 	}
 	error_reporting($err);
 
-	/* if persistent connections are used de-allocte the prepared statement to prevent query failures */
+	/* If persistent connections are used de-allocte the prepared statement to prevent query failures. */
 	if ($GLOBALS['FUD_OPT_1'] & 256) {
 		pg_query(fud_sql_lnk, 'DEALLOCATE '.$pid);
 	}
 }
+
 function db_all($q)
 {
 	if (function_exists('pg_fetch_all_columns')) {
@@ -250,6 +247,6 @@ function db_all($q)
 
 function _esc($s)
 {
-	return "'".pg_escape_string($s)."'";
+	return '\''. pg_escape_string($s) .'\'';
 }
 ?>

@@ -13,15 +13,14 @@
 if (!defined('fud_sql_lnk')) {
 	$connect_func = $GLOBALS['FUD_OPT_1'] & 256 ? 'mssql_pconnect' : 'mssql_connect';
 
-	$conn = $connect_func($GLOBALS['DBHOST'], $GLOBALS['DBHOST_USER'], $GLOBALS['DBHOST_PASSWORD']) or fud_sql_error_handler("Initiating $connect_func", mssql_get_last_message(fud_sql_lnk), null, "Unknown");
+	$conn = $connect_func($GLOBALS['DBHOST'], $GLOBALS['DBHOST_USER'], $GLOBALS['DBHOST_PASSWORD']) or fud_sql_error_handler('Initiating '. $connect_func, mssql_get_last_message(fud_sql_lnk), null, 'Unknown');
 	define('fud_sql_lnk', $conn);
-	mssql_select_db($GLOBALS['DBHOST_DBNAME'], fud_sql_lnk) or fud_sql_error_handler("Opening database ".$GLOBALS['DBHOST_DBNAME'], mssql_get_last_message(), null, db_version());
+	mssql_select_db($GLOBALS['DBHOST_DBNAME'], fud_sql_lnk) or fud_sql_error_handler('Opening database '. $GLOBALS['DBHOST_DBNAME'], mssql_get_last_message(), null, db_version());
 	@ini_set('mssql.charset', 'UTF-8');
 	@ini_set('mssql.textlimit', 2147483647);
 	@ini_set('mssql.textsize', 2147483647);
 
 	define('__dbtype__', 'mysql');
-	define('__FUD_SQL_CONCAT__', 'CONCAT');
 }
 
 function db_version()
@@ -36,7 +35,7 @@ function db_version()
 function db_lock($tables)
 {
 	if (!empty($GLOBALS['__DB_INC_INTERNALS__']['db_locked'])) {
-		fud_sql_error_handler("Recursive Lock", "internal", "internal", db_version());
+		fud_sql_error_handler('Recursive Lock', 'internal', 'internal', db_version());
 	} else {
 		// q('LOCK '.$tables.' in exclusive mode');
 		$GLOBALS['__DB_INC_INTERNALS__']['db_locked'] = 1;
@@ -48,12 +47,12 @@ function db_unlock()
 {
 	if (empty($GLOBALS['__DB_INC_INTERNALS__']['db_locked'])) {
 		unset($GLOBALS['__DB_INC_INTERNALS__']['db_locked']);
-		fud_sql_error_handler("DB_UNLOCK: no previous lock established", "internal", "internal", db_version());
+		fud_sql_error_handler('DB_UNLOCK: no previous lock established', 'internal', 'internal', db_version());
 	}
 
 	if (--$GLOBALS['__DB_INC_INTERNALS__']['db_locked'] < 0) {
 		unset($GLOBALS['__DB_INC_INTERNALS__']['db_locked']);
-		fud_sql_error_handler("DB_UNLOCK: unlock overcalled", "internal", "internal", db_version());
+		fud_sql_error_handler('DB_UNLOCK: unlock overcalled', 'internal', 'internal', db_version());
 	}
 	unset($GLOBALS['__DB_INC_INTERNALS__']['db_locked']);
 	q('COMMIT');
@@ -115,11 +114,6 @@ if (!defined('fud_query_stats')) {
 	}
 }
 
-function db_count($result)
-{
-	return (int) mssql_num_rows($result);
-}
-
 function db_rowobj($result)
 {
 	return mssql_fetch_object($result);
@@ -135,6 +129,13 @@ function q_singleval($query)
 	if (($res = mssql_fetch_row(q($query))) !== false) {
 		return $res[0];
 	}
+}
+
+function q_concat($arg)
+{
+	// Breaks the standard by using the '+' operator instead of '||'. 
+	$tmp = func_get_args();
+	return implode('+', $tmp);
 }
 
 function q_limit($query, $limit, $off)
@@ -160,11 +161,11 @@ function q_limit($query, $limit, $off)
 function get_fud_table_list($tbl='')
 {
 	if ($tbl) {
-		return q_singleval("EXEC sp_tables @table_name = '".$tbl."'");
+		return q_singleval('EXEC sp_tables @table_name = \''. $tbl .'\'');
 	}
 
 	$ret = array();
-	$c = uq("EXEC sp_tables @table_name = '".$GLOBALS['DBHOST_TBL_PREFIX']."%'");
+	$c = uq('EXEC sp_tables @table_name = \''. $GLOBALS['DBHOST_TBL_PREFIX'] .'%\'');
 	while ($r = db_rowarr($c)) {
 		$ret[] = $r[0];
 	}
@@ -220,10 +221,10 @@ function db_li($q, &$ef, $li=0)
 	}
 }
 
-function ins_m($tbl, $flds, $vals, $type=0)
+function ins_m($tbl, $flds, $types, $vals)
 {
 	// MS-SQL 2008 and higher supports multiple value pairs.
-	q("INSERT INTO ".$tbl." (".$flds.") VALUES (".implode('),(', $vals).")");
+	q('INSERT INTO '. $tbl. ' ('. $flds. ') VALUES ('. implode('),(', $vals). ')');
 }
 
 function db_all($q)
@@ -238,12 +239,11 @@ function db_all($q)
 
 function _esc($s)
 {
-	return "'".mssql_real_escape_string($s, fud_sql_lnk)."'";
+	return '\''. mssql_real_escape_string($s, fud_sql_lnk) .'\'';
 }
 
-
 /* Implement missing driver functions. */
-/*
+/***
 function mssql_unbuffered_query($query,$fud_sql_lnk) {
 	return mssql_query($query, $fud_sql_lnk);
 }
@@ -255,5 +255,5 @@ function mssql_errno($fud_sql_lnk) {
 function mssql_error($fud_sql_lnk) {
 	return mssql_get_last_message();
 }
-*/
+***/
 ?>

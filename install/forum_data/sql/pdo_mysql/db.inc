@@ -20,15 +20,14 @@ if (empty(db::$db)) {
 	}
 
 	$dsn = 'mysql:'.$host.';dbname='.$GLOBALS['DBHOST_DBNAME'];
-	define('__FUD_SQL_CONCAT__', 'CONCAT');
 
 	try {
 		db::$db = new PDO($dsn, $GLOBALS['DBHOST_USER'], $GLOBALS['DBHOST_PASSWORD']);
 	} catch (PDOException $e) {
-		fud_sql_error_handler("Failed to establish database connection, PDO says: ".$e->getMessage(), '', '', '');
+		fud_sql_error_handler('Failed to establish database connection, PDO says: '. $e->getMessage(), '', '', '');
 	}
 
-	db::$db->exec("SET NAMES 'utf8' COLLATE 'utf8_general_ci");
+	db::$db->exec('SET NAMES \'utf8\' COLLATE \'utf8_general_ci\'');
 
 	define('__dbtype__', substr($GLOBALS['DBHOST_DBTYPE'], 4));
 }
@@ -44,7 +43,7 @@ function db_version()
 function db_lock($tables)
 {
 	if (!empty($GLOBALS['__DB_INC_INTERNALS__']['db_locked'])) {
-		fud_sql_error_handler("Recursive Lock", "internal", "internal", db_version());
+		fud_sql_error_handler('Recursive Lock', 'internal', 'internal', db_version());
 	}
 	q('LOCK TABLES '.$tables);
 	$GLOBALS['__DB_INC_INTERNALS__']['db_locked'] = 1;
@@ -54,12 +53,12 @@ function db_unlock()
 {
 	if (empty($GLOBALS['__DB_INC_INTERNALS__']['db_locked'])) {
 		unset($GLOBALS['__DB_INC_INTERNALS__']['db_locked']);
-		fud_sql_error_handler("DB_UNLOCK: no previous lock established", "internal", "internal", db_version());
+		fud_sql_error_handler('DB_UNLOCK: no previous lock established', 'internal', 'internal', db_version());
 	}
 	
 	if (--$GLOBALS['__DB_INC_INTERNALS__']['db_locked'] < 0) {
 		unset($GLOBALS['__DB_INC_INTERNALS__']['db_locked']);
-		fud_sql_error_handler("DB_UNLOCK: unlock overcalled", "internal", "internal", db_version());
+		fud_sql_error_handler('DB_UNLOCK: unlock overcalled', 'internal', 'internal', db_version());
 	}
 
 	q('UNLOCK TABLES');
@@ -79,12 +78,12 @@ function db_affected()
 
 function __enifo($a)
 {
-	return end($a);
+	return end($a);	// Return last element of error array.
 }
 
 function uq($query, $buf=0)
 {
-	if (!strncasecmp($query, 'SELECT', 6)) {
+	if (!strncasecmp($query, 'SELECT', 6) || !strncasecmp($query, 'SHOW', 4)) {
 		db::$res = null;
 		db::$buf = $buf;
 		if ($buf && __dbtype__ == 'mysql') db::$db->setAttribute(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY, 1);
@@ -106,11 +105,6 @@ function q($query)
 	return uq($query, 1);
 }
 
-function db_count($result)
-{
-	return is_object($result) ? (int) $result->rowCount() : null;
-}
-
 function db_rowobj($result)
 {
 	return $result->fetch(PDO::FETCH_OBJ);
@@ -126,6 +120,13 @@ function q_singleval($query)
 	return uq($query)->fetchColumn();
 }
 
+function q_concat($arg)
+{
+	// MySQL badly breaks the SQL standard by redefining || to mean OR. 
+	$tmp = func_get_args();
+	return 'CONCAT('. implode(',', $tmp) .')';
+}
+
 function q_limit($query, $limit, $off)
 {
 	// OLD SYNTAX: return $query .' LIMIT '. $off .','. $limit;
@@ -135,15 +136,15 @@ function q_limit($query, $limit, $off)
 function get_fud_table_list($tbl='')
 {
 	if (!$tbl) {
-		$idx = str_replace("_", "\\_", $GLOBALS['DBHOST_TBL_PREFIX']);
+		$idx = str_replace('_', "\\_", $GLOBALS['DBHOST_TBL_PREFIX']);
 	}
 
 	db::$buf = db::$res = null;
 
 	if (!$tbl) {
-		return db::$db->query("SHOW TABLES LIKE '".$idx."%'")->fetchAll(PDO::FETCH_COLUMN);
+		return db::$db->query('SHOW TABLES LIKE \''. $idx .'%\'')->fetchAll(PDO::FETCH_COLUMN);
 	}
-	return db::$db->query("SHOW TABLES LIKE '".str_replace("_", "\\_", $tbl)."'")->fetchColumn();
+	return db::$db->query('SHOW TABLES LIKE \''. str_replace('_', "\\_", $tbl) .'\'')->fetchColumn();
 }
 
 function optimize_tables($tbl_list=null)
@@ -203,9 +204,9 @@ function db_li($q, &$ef, $li=0)
 	}
 }
 
-function ins_m($tbl, $flds, $vals, $type=0, $strict=1)
+function ins_m($tbl, $flds, $types, $vals)
 {
-	return uq("INSERT IGNORE INTO ".$tbl." (".$flds.") VALUES (".implode('),(', $vals).")");
+	return uq('INSERT IGNORE INTO '. $tbl .' ('. $flds .') VALUES ('. implode('),(', $vals). ')');
 }
 
 function db_all($q)

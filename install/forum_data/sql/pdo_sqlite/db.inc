@@ -22,18 +22,6 @@ if (empty(db::$db)) {
 	}
 
 	define('__dbtype__', substr($GLOBALS['DBHOST_DBTYPE'], 4));
-
-	/* special sqlite handling for lack of native concat function */
-	if ($GLOBALS['DBHOST_DBTYPE'] == 'pdo_sqlite') {
-		db::$db->sqliteCreateFunction('concat', 'pdo_concat');
-		define('__FUD_SQL_CONCAT__', 'concat');
-	}
-}
-
-function pdo_concat()
-{
-	$tmp = func_get_args();
-	return implode('', $tmp);
 }
 
 function db_version()
@@ -84,7 +72,7 @@ function db_affected()
 
 function __enifo($a)
 {
-	return end($a);
+	return end($a);	// Return last element of error array.
 }
 
 function uq($query, $buf=0)
@@ -109,11 +97,6 @@ function q($query)
 	return uq($query, 1);
 }
 
-function db_count($result)
-{
-	return is_object($result) ? (int) $result->rowCount() : null;
-}
-
 function db_rowobj($result)
 {
 	return $result->fetch(PDO::FETCH_OBJ);
@@ -127,6 +110,12 @@ function db_rowarr($result)
 function q_singleval($query)
 {
 	return uq($query)->fetchColumn();
+}
+
+function q_concat($arg)
+{
+	$tmp = func_get_args();
+	return implode('||', $tmp);
 }
 
 function q_limit($query, $limit, $off)
@@ -143,9 +132,9 @@ function get_fud_table_list($tbl='')
 	db::$buf = db::$res = null;
 
 	if (!$tbl) {
-		return db::$db->query("SELECT tbl_name FROM sqlite_master WHERE type='table' AND  name LIKE '".$GLOBALS['DBHOST_TBL_PREFIX']."%'")->fetchAll(PDO::FETCH_COLUMN);
+		return db::$db->query('SELECT tbl_name FROM sqlite_master WHERE type=\'table\' AND  name LIKE \''. $GLOBALS['DBHOST_TBL_PREFIX']. '%\'')->fetchAll(PDO::FETCH_COLUMN);
 	}
-	return q_singleval("SELECT tbl_name FROM sqlite_master WHERE type='table' AND name='".$tbl."'");
+	return q_singleval('SELECT tbl_name FROM sqlite_master WHERE type=\'table\' AND name=\''.$tbl.'\'');
 }
 
 function optimize_tables($tbl_list=null)
@@ -153,7 +142,7 @@ function optimize_tables($tbl_list=null)
 	if (!$tbl_list) {
 		$tbl_list = get_fud_table_list();
 	}
-	uq("VACUUM");
+	uq('VACUUM');
 }
 
 function db_saq($q)
@@ -194,7 +183,7 @@ function db_li($q, &$ef, $li=0)
 		return db::$db->lastInsertId();
 	}
 
-	/* duplicate key */
+	/* Duplicate key. */
 	if (($c = db::$db->errorCode()) == '23000' || $c == '23505') {
 		/* XXX unknown?? */
 		return null;
@@ -203,11 +192,11 @@ function db_li($q, &$ef, $li=0)
 	}
 }
 
-function ins_m($tbl, $flds, $vals, $type=0, $strict=1)
+function ins_m($tbl, $flds, $types, $vals)
 {
-	$sth = db::$db->prepare('INSERT INTO '.$tbl.' ('.$flds.') VALUES(?'.str_repeat(',?',substr_count($flds, ',')).')');
+	$sth = db::$db->prepare('INSERT OR IGNORE INTO '.$tbl.' ('.$flds.') VALUES(?'.str_repeat(',?',substr_count($flds, ',')).')');
 	foreach ($vals as $v) {
-		if (!$sth->execute(explode(',', trim($v,"'"))) && $strict) {
+		if (!$sth->execute(explode(',', trim($v,'\'')))) {
 			fud_sql_error_handler($sth->queryString, db::$db->errorCode(), __enifo(db::$db->errorInfo()), db_version());
 		}
 	}

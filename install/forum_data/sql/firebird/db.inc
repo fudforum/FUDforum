@@ -13,13 +13,12 @@
 if (!defined('fud_sql_lnk')) {
 	$connect_func = $GLOBALS['FUD_OPT_1'] & 256 ? 'ibase_pconnect' : 'ibase_connect';
 
-	$conn = $connect_func($GLOBALS['DBHOST'] .':'. $GLOBALS['DBHOST_DBNAME'], $GLOBALS['DBHOST_USER'], $GLOBALS['DBHOST_PASSWORD']) or fud_sql_error_handler("Initiating $connect_func", ibase_errmsg(), ibase_errcode(), "Unknown");
+	$conn = $connect_func($GLOBALS['DBHOST'] .':'. $GLOBALS['DBHOST_DBNAME'], $GLOBALS['DBHOST_USER'], $GLOBALS['DBHOST_PASSWORD']) or fud_sql_error_handler('Initiating '. $connect_func, ibase_errmsg(), ibase_errcode(), 'Unknown');
 	define('fud_sql_lnk', $conn);
-	// ibase_select_db($GLOBALS['DBHOST_DBNAME'], fud_sql_lnk) or fud_sql_error_handler("Opening database ".$GLOBALS['DBHOST_DBNAME'], ibase_errmsg(), ibase_errcode(), db_version());
-	// ibase_query("SET NAMES 'utf8' COLLATE 'utf8_general_ci'");
+	// ibase_select_db($GLOBALS['DBHOST_DBNAME'], fud_sql_lnk) or fud_sql_error_handler('Opening database '. $GLOBALS['DBHOST_DBNAME'], ibase_errmsg(), ibase_errcode(), db_version());
+	// ibase_query('SET NAMES \'utf8\' COLLATE \'utf8_general_ci\'');
 
 	define('__dbtype__', 'mysql');
-	define('__FUD_SQL_CONCAT__', 'CONCAT');
 }
 
 function db_version()
@@ -34,7 +33,7 @@ function db_version()
 function db_lock($tables)
 {
 	if (!empty($GLOBALS['__DB_INC_INTERNALS__']['db_locked'])) {
-		fud_sql_error_handler("Recursive Lock", "internal", "internal", db_version());
+		fud_sql_error_handler('Recursive Lock', 'internal', 'internal', db_version());
 	} else {
 		// q('LOCK TABLES '.$tables);
 		$GLOBALS['__DB_INC_INTERNALS__']['db_locked'] = 1;
@@ -45,12 +44,12 @@ function db_unlock()
 {
 	if (empty($GLOBALS['__DB_INC_INTERNALS__']['db_locked'])) {
 		unset($GLOBALS['__DB_INC_INTERNALS__']['db_locked']);
-		fud_sql_error_handler("DB_UNLOCK: no previous lock established", "internal", "internal", db_version());
+		fud_sql_error_handler('DB_UNLOCK: no previous lock established', 'internal', 'internal', db_version());
 	}
 	
 	if (--$GLOBALS['__DB_INC_INTERNALS__']['db_locked'] < 0) {
 		unset($GLOBALS['__DB_INC_INTERNALS__']['db_locked']);
-		fud_sql_error_handler("DB_UNLOCK: unlock overcalled", "internal", "internal", db_version());
+		fud_sql_error_handler('DB_UNLOCK: unlock overcalled', 'internal', 'internal', db_version());
 	}
 	unset($GLOBALS['__DB_INC_INTERNALS__']['db_locked']);
 	q('UNLOCK TABLES');
@@ -112,11 +111,6 @@ if (!defined('fud_query_stats')) {
 	}
 }
 
-function db_count($result)
-{
-	return (int) ibase_num_rows($result);
-}
-
 function db_rowobj($result)
 {
 	return ibase_fetch_object($result);
@@ -132,6 +126,12 @@ function q_singleval($query)
 	if (($res = ibase_fetch_row(q($query))) !== false) {
 		return $res[0];
 	}
+}
+
+function q_concat($arg)
+{
+	$tmp = func_get_args();
+	return implode('||', $tmp);
 }
 
 function q_limit($query, $limit, $off)
@@ -202,9 +202,9 @@ function db_li($q, &$ef, $li=0)
 	}
 }
 
-function ins_m($tbl, $flds, $vals, $type=0)
+function ins_m($tbl, $flds, $types, $vals)
 {
-	q("INSERT IGNORE INTO ".$tbl." (".$flds.") VALUES (".implode('),(', $vals).")");
+	q('INSERT IGNORE INTO '. $tbl .' ('. $flds .') VALUES ('. implode('),(', $vals). ')');
 }
 
 function db_all($q)
@@ -219,6 +219,6 @@ function db_all($q)
 
 function _esc($s)
 {
-	return "'".ibase_real_escape_string($s, fud_sql_lnk)."'";
+	return '\''. ibase_real_escape_string($s, fud_sql_lnk) .'\'';
 }
 ?>
