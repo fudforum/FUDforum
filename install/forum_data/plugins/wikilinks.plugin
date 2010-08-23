@@ -21,11 +21,20 @@ function plugin_wikilinks_tag_to_html($array) {
 		die('ERROR: Please configure the wikilinks plugin from the Plugin Manager Control panel.');
 	}
 
+	// Use PCRE Unicode regex (required for languages like Russian) or the old crappy ones.
+	if (@preg_match('/\p{L}/u', 'a') == 1) {
+		$re1 = '!\[\[([\p{L}\p{N}\p{P}\p{Z}]+?)\]\](\w*)!ui';
+		$re2 = '!\[\[([\p{L}\p{N}\p{P}\p{Z}]+?)\|([\p{L}\p{N}\p{P}\p{Z}]+?)\]\]!ui';
+	} else {
+		$re1 = '!\[\[([\w\s\*\/\.:-]+?)\]\](\w*)!i';
+		$re2 = '!\[\[([\w\s\*\/\.:-]+?)\|([\w\s\/-]+)\]\]!i';
+	}
+
 	// Remove [notag] blocks.
 	$notag_pre = NULL; $i = 0;
 	if (preg_match_all('#\[notag\](.*?)\[\/notag\]#si', $bbcode, $notags, PREG_SET_ORDER)) {
 		foreach ($notags as $notag) {
-			$bbcode = str_replace($notag[0], "***nOtAg_sTrInG$i***", $bbcode);
+			$bbcode = str_replace($notag[0], '***nOtAg_sTrInG$i***', $bbcode);
 			$notag_pre[$i++] = $notag[0];
 		}
 	}
@@ -33,33 +42,31 @@ function plugin_wikilinks_tag_to_html($array) {
 	$code_pre = NULL; $i = 0;
 	if (preg_match_all('#\[code\](.*?)\[\/code\]#si', $bbcode, $codes, PREG_SET_ORDER)) {
 		foreach ($codes as $code) {
-			$bbcode = str_replace($code[0], "***cOdE_sTrInG$i***", $bbcode);
+			$bbcode = str_replace($code[0], '***cOdE_sTrInG$i***', $bbcode);
 			$code_pre[$i++] = $code[0];
 		}
 	}
 
 	// Convert wiki-style links into BBcode links.
-	while (preg_match('!\[\[([\p{L}\p{N}\p{P}\p{Z}]+?)\]\](\w*)!ui', $bbcode, $res)) {
-	//OLD: while (preg_match('!\[\[([\w\s\*\/:-]+?)\]\](\w*)!i', $bbcode, $res)) {
+	while (preg_match($re1, $bbcode, $res)) {
 		$m = str_replace(' ', '_', $res[1]);
-		$bbcode = str_replace($res[0], '[url='.$ini['WIKILINKS_URL'].$m.']'.$res[1].$res[2].'[/url]', $bbcode);
+		$bbcode = str_replace($res[0], '[url='. $ini['WIKILINKS_URL'] . $m .']'. $res[1] . $res[2] .'[/url]', $bbcode);
 	}
-	while (preg_match('!\[\[([\p{L}\p{N}\p{P}\p{Z}]+?)\|([\p{L}\p{N}\p{P}\p{Z}]+?)\]\]!ui', $bbcode, $res)) {
-	//OLD: while (preg_match('!\[\[([\w\s\*\/:-]+)\|([\w\s\/-]+)\]\]!i', $bbcode, $res)) {
+	while (preg_match($re2, $bbcode, $res)) {
 		$m = str_replace(' ', '_', $res[1]);
-		$bbcode = str_replace($res[0], '[url='.$ini['WIKILINKS_URL'].$m.']'.$res[2].'[/url]', $bbcode);
+		$bbcode = str_replace($res[0], '[url='. $ini['WIKILINKS_URL'] . $m .']'. $res[2] .'[/url]', $bbcode);
 	}
 
 	// Reinsert [notag] blocks.
 	if( is_array($notag_pre)) {
 		foreach($notag_pre as $i => $notag) {
-			$bbcode = str_replace("***nOtAg_sTrInG$i***", $notag, $bbcode);
+			$bbcode = str_replace('***nOtAg_sTrInG$i***', $notag, $bbcode);
 		}
 	}
 	// Reinsert [code] blocks.
 	if( is_array($code_pre)) {
 		foreach($code_pre as $i => $code) {
-			$bbcode = str_replace("***cOdE_sTrInG$i***", $code, $bbcode);
+			$bbcode = str_replace('***cOdE_sTrInG$i***', $code, $bbcode);
 		}
 	}
 
@@ -74,13 +81,13 @@ function plugin_wikilinks_html_to_tag($array) {
 		die('ERROR: Please configure the wikilinks plugin from the Plugin Manager Control panel.');
 	}
 
-	while (preg_match('!<a href="'.str_replace('://', '&#58;&#47;&#47;', $ini['WIKILINKS_URL']).'([\p{L}\p{N}\p{P}\p{Z}]+?)" target="_blank">([\p{L}\p{N}\p{P}\p{Z}]+?)</a>!ui', $bbcode, $res)) {
+	while (preg_match('!<a href="'. str_replace('://', '&#58;&#47;&#47;', $ini['WIKILINKS_URL']) .'(.+?)" target="_blank">(.+?)</a>!ui', $bbcode, $res)) {
 		$m = str_replace('_', ' ', $res[1]);
 		if ( strpos($res[2], $res[1]) === 0 ) {  // start with
 			$x = substr($res[2], strlen($res[1]));
-			$bbcode = str_replace($res[0], '[['.$res[1].']]'.$x, $bbcode);
+			$bbcode = str_replace($res[0], '[['.$res[1].']]' .$x, $bbcode);
 		} else {
-			$bbcode = str_replace($res[0], '[['.$m.'|'.$res[2].']]', $bbcode);
+			$bbcode = str_replace($res[0], '[['. $m .'|'. $res[2] .']]', $bbcode);
 		}
 	}
 
@@ -107,11 +114,11 @@ function wikilinks_config() {
 	if (isset($_POST['Set'])) {
 		foreach (array_keys($_POST) as $key) {
 			if (substr($key,0,10) == 'WIKILINKS_') {
-				$ini[$key] = $_POST[$key];
+				$ini[$key] = trim($_POST[$key]);
 			}
 		}
-		$fp = fopen($GLOBALS['PLUGIN_PATH'].'/wikilinks.ini', 'w');
-		fwrite($fp, '<?php $ini = '.var_export($ini, 1).'; ?>');
+		$fp = fopen($GLOBALS['PLUGIN_PATH'] .'/wikilinks.ini', 'w');
+		fwrite($fp, '<?php $ini = '. var_export($ini, 1) .'; ?>');
 		fclose($fp);
 		echo '<font color="green">Settings successfully saved.</font>';
 	}
