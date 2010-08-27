@@ -109,7 +109,7 @@ num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|vote|votes}
 occupation:Occupation:
 off:off
 on:on
-page_timings:Total time taken to generate the page: {VAR: page_gen_time} seconds
+page_timings:Total time taken to generate the page: {PLURAL: page_gen_time|$1 seconds}
 pm:Private Messaging
 poll:Poll:
 post_count:Message Count {VAR: u_pcount}
@@ -650,7 +650,7 @@ register_err_needname:To successfully complete this registration you must enter 
 register_err_enterpasswd:You must enter your current password to complete the changes.
 register_err_adminpasswd:You must enter your <b>administrator</b> password to complete the changes.
 register_err_notyouremail:Someone else is already registered with this e-mail address.
-register_err_avatartobig:The file you are trying to upload is too big, more than {GVAR: CUSTOM_AVATAR_MAX_SIZE} bytes
+register_err_avatartobig:The file you are trying to upload is too big, more than {GVAR: CUSTOM_AVATAR_MAX_SIZE} bytes.
 register_err_avatarnotallowed:The avatar you are trying to upload is not allowed. Check the allowed file types.
 register_conf_subject:Registration Confirmation
 register_conf_msg:Thank you for registering,\nTo activate your account please go to the URL below:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nOnce your account is activated you will be logged-into the forum and\nredirected to the main page.
