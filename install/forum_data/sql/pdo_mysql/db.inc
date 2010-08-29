@@ -135,16 +135,11 @@ function q_limit($query, $limit, $off)
 
 function get_fud_table_list($tbl='')
 {
-	if (!$tbl) {
-		$idx = str_replace('_', "\\_", $GLOBALS['DBHOST_TBL_PREFIX']);
+	if ($tbl) {
+		return db_all('SHOW TABLES LIKE \''. str_replace('_', '\_', $tbl) .'\'');
 	}
 
-	db::$buf = db::$res = null;
-
-	if (!$tbl) {
-		return db::$db->query('SHOW TABLES LIKE \''. $idx .'%\'')->fetchAll(PDO::FETCH_COLUMN);
-	}
-	return db::$db->query('SHOW TABLES LIKE \''. str_replace('_', "\\_", $tbl) .'\'')->fetchColumn();
+	return db_all('SHOW TABLES LIKE \''. str_replace('_', '\_', $tbl) .'%\'');
 }
 
 function optimize_tables($tbl_list=null)

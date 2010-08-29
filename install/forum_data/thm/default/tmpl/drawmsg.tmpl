@@ -348,7 +348,7 @@
 <tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
 <tr class="MsgR2">
 {TEMPLATE-DATA: avatar}
-<td class="msgud">{TEMPLATE-DATA: online_indicator}{TEMPLATE-DATA: user_link}{IF: !$hide_controls}{IF: $obj->flag_cc && $GLOBALS['FUD_OPT_3'] & 524288}&nbsp;&nbsp;<img src="images/flags/{VAR: obj->flag_cc}.png" border="0" width="16" height="11" title="{VAR: obj->flag_country}" alt="{VAR: obj->flag_country}"/>{ENDIFI}{IF: $obj->user_id}<br /><b>{MSG: posts_c}</b> {VAR: obj->posted_msg_count}<br /><b>{MSG: registered}</b> {TEMPLATE: dmsg_join_date} {TEMPLATE-DATA: location}{ENDIFI}{ENDIFI}</td>
+<td class="msgud">{TEMPLATE-DATA: online_indicator}{TEMPLATE-DATA: user_link}{IF: !$hide_controls}{IF: $obj->disp_flag_cc && $GLOBALS['FUD_OPT_3'] & 524288}&nbsp;&nbsp;<img src="images/flags/{VAR: obj->disp_flag_cc}.png" border="0" width="16" height="11" title="{VAR: obj->flag_country}" alt="{VAR: obj->flag_country}"/>{ENDIFI}{IF: $obj->user_id}<br /><b>{MSG: posts_c}</b> {VAR: obj->posted_msg_count}<br /><b>{MSG: registered}</b> {TEMPLATE: dmsg_join_date} {TEMPLATE-DATA: location}{ENDIFI}{ENDIFI}</td>
 <td class="msgud">{TEMPLATE-DATA: dmsg_tags}</td>
 <td class="msgot">{TEMPLATE-DATA: dmsg_bd_il}{TEMPLATE-DATA: dmsg_im_row}{IF: !$hide_controls}{IF: ($obj->host_name && $o1 & 268435456)}<b>{MSG: from}</b> {VAR: obj->host_name}<br />{ENDIFI}{IF: ($b & 1048576 || $usr->md || $o1 & 134217728)}<b>{MSG: dmsg_ip}</b> <a href="{TEMPLATE: dmsg_ip_address_url}" target="_blank">{VAR: obj->ip_addr}</a>{ENDIFI}{ENDIFI}</td>
 </tr></table></td>

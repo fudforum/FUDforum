@@ -19,7 +19,7 @@ if (!defined('fud_sql_lnk')) {
 
 	$conn = $connect_func($GLOBALS['DBHOST_USER'], $GLOBALS['DBHOST_PASSWORD'], $GLOBALS['DBHOST_DBNAME'] );
 	if (!$conn) {
-		$m = oci_error();
+		$err = oci_error();
 		fud_sql_error_handler('Initiating '. $connect_func, $err['message'], $err['code'], 'Unknown');
 	}
 
@@ -166,16 +166,16 @@ function q_concat($arg)
 
 function q_limit($query, $limit, $off)
 {
-	return 'SELECT * FROM (SELECT /*+ FIRST_ROWS */ rownum AS xrownum, a.* FROM ('. $query .') a WHERE rownum <= '. ($off + $limit) .') WHERE xrownum >= '. ($off+1);
+	return 'SELECT * FROM (SELECT /*+ FIRST_ROWS */ a.*, rownum AS xrownum FROM ('. $query .') a WHERE rownum <= '. ($off + $limit) .') WHERE xrownum >= '. ($off+1);
 }
 
 function get_fud_table_list($tbl='')
 {
-	if (!$tbl) {
-		return db_all('SELECT table_name FROM user_tables WHERE table_name LIKE \''. strtoupper($GLOBALS['DBHOST_TBL_PREFIX'] .'%\''));
-	} else {
-		return q_singleval('SELECT table_name FROM user_tables WHERE table_name LIKE \''. strtoupper($tbl) .'\'');
+	if ($tbl) {
+		return db_all('SELECT lower(table_name) FROM user_tables WHERE table_name LIKE \''. strtoupper($tbl) .'\'');
 	}
+
+	return db_all('SELECT lower(table_name) FROM user_tables WHERE table_name LIKE \''. strtoupper($GLOBALS['DBHOST_TBL_PREFIX'] .'%\''));
 }
 
 function optimize_tables($tbl_list=null)
@@ -184,7 +184,7 @@ function optimize_tables($tbl_list=null)
 		$tbl_list = get_fud_table_list();
 	}
 	foreach ($tbl_list as $t) {
-		q('ANALYZE TABLE  ' . $t.' COMPUTE STATISTICS');
+		q('ANALYZE TABLE '. $t .' COMPUTE STATISTICS');
 	}
 }
 
@@ -307,7 +307,7 @@ function _ora_syntax($q)
 
 	// Simulate BITOR().
 	$q = preg_replace('/\(([\.\w]+) \| (\d+)\)/', '\1 + \2 - BITAND(\1, \2)', $q);
-	
+
 	// OR values together in PHP - there is no BITOR() in Oracle.
 	$q = preg_replace_callback('/\b(\d[\d\|]+\d\b)/',
 			create_function('$matches',

@@ -142,16 +142,10 @@ function q_limit($query, $limit, $off)
 function get_fud_table_list($tbl='')
 {
 	if ($tbl) {
-		return q_singleval('SELECT rdb$relation_name FROM rdb$relations WHERE rdb$view_blr is null AND(rdb$system_flag is null or rdb$system_flag = 0) AND rdb$relation_name LIKE \''. $tbl .'\'');
+		return q_all('SELECT rdb$relation_name FROM rdb$relations WHERE rdb$view_blr is null AND(rdb$system_flag is null or rdb$system_flag = 0) AND rdb$relation_name LIKE \''. $tbl .'\'');
 	}
 
-	$ret = array();
-	$c = uq('SELECT rdb$relation_name FROM rdb$relations WHERE rdb$view_blr is null AND(rdb$system_flag is null or rdb$system_flag = 0) AND rdb$relation_name LIKE \''. $GLOBALS['DBHOST_TBL_PREFIX'] .'%\'');
-	while ($r = db_rowarr($c)) {
-		$ret[] = $r[0];
-	}
-
-	return $ret;	
+	return db_all('SELECT rdb$relation_name FROM rdb$relations WHERE rdb$view_blr is null AND(rdb$system_flag is null or rdb$system_flag = 0) AND rdb$relation_name LIKE \''. $GLOBALS['DBHOST_TBL_PREFIX'] .'%\'');
 }
 
 function optimize_tables($tbl_list=null)

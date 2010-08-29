@@ -14,18 +14,22 @@ if (!defined('fud_sql_lnk')) {
 	
 	$connect_str = '';
 	if ($GLOBALS['DBHOST']) {
-		$connect_str .= 'host='.$GLOBALS['DBHOST'];
+		$connect_str .= 'host='. $GLOBALS['DBHOST'];
 	}
 	if ($GLOBALS['DBHOST_USER']) {
-		$connect_str .= ' user='.$GLOBALS['DBHOST_USER'];
+		$connect_str .= ' user='. $GLOBALS['DBHOST_USER'];
 	}
 	if ($GLOBALS['DBHOST_PASSWORD']) {
-		$connect_str .= ' password='.$GLOBALS['DBHOST_PASSWORD'];
+		$connect_str .= ' password='. $GLOBALS['DBHOST_PASSWORD'];
 	}
 	if ($GLOBALS['DBHOST_DBNAME']) {
-		$connect_str .= ' dbname='.$GLOBALS['DBHOST_DBNAME'];
+		$connect_str .= ' dbname='. $GLOBALS['DBHOST_DBNAME'];
 	}
-	$conn = $connect_func(ltrim($connect_str)) or fud_sql_error_handler('Initiating '.$connect_func, pg_last_error($conn), '', 'Unknown');
+
+	// The pgsql module cannot return connection errors. Don't event try pg_last_error(), it will fail!
+	$conn = $connect_func(ltrim($connect_str)) or fud_sql_error_handler('Initiating '. $connect_func, 'Unable to connect', '', 'Unknown');
+	pg_set_client_encoding('UTF8');
+
 	define('fud_sql_lnk', $conn);
 	define('__dbtype__', 'pgsql');
 }
@@ -33,8 +37,8 @@ if (!defined('fud_sql_lnk')) {
 function db_version()
 {
 	if (!defined('__FUD_SQL_VERSION__')) {
-		$ver = @pg_fetch_row(pg_query(fud_sql_lnk, 'SELECT VERSION()'));
-		define('__FUD_SQL_VERSION__', $ver[0]); 
+		$v = pg_version(fud_sql_lnk);
+		define('__FUD_SQL_VERSION__', $v['server']);
 	}
 	return __FUD_SQL_VERSION__;
 }
@@ -50,7 +54,7 @@ function db_lock($tables)
 			$tbl[] = strtok($v, ' ');
 		}
 		q('BEGIN WORK');
-		q('LOCK TABLE '.implode(',', $tbl).' IN ACCESS EXCLUSIVE MODE');
+		q('LOCK TABLE '. implode(',', $tbl) .' IN ACCESS EXCLUSIVE MODE');
 		$GLOBALS['__DB_INC_INTERNALS__']['db_locked'] = 1;
 	}
 }
@@ -113,10 +117,10 @@ if (!defined('fud_query_stats')) {
 		$GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'] += $GLOBALS['__DB_INC_INTERNALS__']['last_time'];
 		$GLOBALS['__DB_INC_INTERNALS__']['last_query'] = $q;
 
-		echo '<pre>'.preg_replace('!\s+!', ' ', $q).'</pre>';
-		echo '<pre>query count: '.$GLOBALS['__DB_INC_INTERNALS__']['query_count'].' time taken: '.$GLOBALS['__DB_INC_INTERNALS__']['last_time'].'</pre>';
-		echo '<pre>Affected rows: '.db_affected().'</pre>';
-		echo '<pre>total sql time: '.$GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'].'</pre>';
+		echo '<pre>'. preg_replace('!\s+!', ' ', $q) .'</pre>';
+		echo '<pre>query count: '.$GLOBALS['__DB_INC_INTERNALS__']['query_count'] .' time taken: '.$GLOBALS['__DB_INC_INTERNALS__']['last_time'].'</pre>';
+		echo '<pre>Affected rows: '. db_affected() .'</pre>';
+		echo '<pre>total sql time: '. $GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'] .'</pre>';
 
 		return $GLOBALS['__FLPG__'];
 	}
@@ -151,13 +155,11 @@ function q_limit($query, $limit, $off)
 
 function get_fud_table_list($tbl='')
 {
-	if (!$tbl) {
-		return db_all('SELECT relname FROM pg_class WHERE relkind=\'r\' AND relname LIKE \''. addcslashes($GLOBALS['DBHOST_TBL_PREFIX'],'_').'%\'');
-	} else {
-		return q_singleval('SELECT relname FROM pg_class WHERE relkind=\'r\' AND relname=\''.$tbl.'\'');
+	if ($tbl) {
+		return db_all('SELECT relname FROM pg_class WHERE relkind=\'r\' AND relname LIKE \''. $tbl .'\'');
 	}
 
-	return $ret;
+	return db_all('SELECT relname FROM pg_class WHERE relkind=\'r\' AND relname LIKE \''. addcslashes($GLOBALS['DBHOST_TBL_PREFIX'],'_') .'%\'');
 }
 
 function optimize_tables($tbl_list=null)
@@ -166,7 +168,7 @@ function optimize_tables($tbl_list=null)
 		$tbl_list = get_fud_table_list();
 	}
 	foreach ($tbl_list as $t) {
-		q('VACUUM ANALYZE ' . $t);
+		q('VACUUM ANALYZE '. $t);
 	}
 }
 
@@ -193,11 +195,16 @@ function db_arr_assoc($q)
 
 function db_fetch_array($q)
 {
-	return pg_fetch_array($q);
+	return pg_fetch_array($q, NULL, PGSQL_ASSOC);
 }
 
 function db_li($q, &$ef, $li=0)
 {
+	// PgSQL will fail the entire tran if dup val error is encountered.
+	if (pg_transaction_status(fud_sql_lnk) === PGSQL_TRANSACTION_INTRANS) {
+	      pg_exec('SAVEPOINT pre_db_li');
+	}
+
 	$r = @pg_query(fud_sql_lnk, $q);
 	if ($r) {
 		if ($li) {
@@ -206,26 +213,35 @@ function db_li($q, &$ef, $li=0)
 		return $r;
 	}
 
-	/* duplicate key */
-	$ef = ltrim(strrchr(pg_last_error(fud_sql_lnk), ' '));
+	/* Ignore duplicate key errors. */
+	if ($err = pg_last_error(fud_sql_lnk)) {
+		if (pg_transaction_status(fud_sql_lnk) === PGSQL_TRANSACTION_INTRANS) {
+			pg_exec('ROLLBACK TO pre_db_li');
+		}
+		$ef = ltrim(strrchr($err, ' '));
+	}
+
 	return null;
 }
 
 function ins_m($tbl, $flds, $types, $vals)
 {
 	$pid = $GLOBALS['DBHOST_TBL_PREFIX'] . substr(md5(mt_rand()), 0, 10);
-
-	pg_query(fud_sql_lnk, 'PREPARE '.$pid.' ('.$types.') AS INSERT INTO '.$tbl.' ('.$flds.') VALUES($'.implode(',$', range(1, substr_count($flds, ',') + 1)).')');
+	pg_query(fud_sql_lnk, 'PREPARE '. $pid .' ('. $types .') AS INSERT INTO '.$tbl.' ('.$flds.') VALUES($'. implode(',$', range(1, substr_count($flds, ',') + 1)) .')');
 
 	$err = error_reporting(0);	// Simply ignore DUPLICATE errors.
 	foreach ($vals as $v) {
-		pg_query(fud_sql_lnk, 'EXECUTE '.$pid.' ('.$v.')');
+		pg_exec('SAVEPOINT pre_ins_m');
+		pg_exec(fud_sql_lnk, 'EXECUTE '. $pid .' ('. $v .')');
+		if (pg_last_error(fud_sql_lnk)) {
+			pg_exec('ROLLBACK TO pre_ins_m');
+		}
 	}
 	error_reporting($err);
 
 	/* If persistent connections are used de-allocte the prepared statement to prevent query failures. */
 	if ($GLOBALS['FUD_OPT_1'] & 256) {
-		pg_query(fud_sql_lnk, 'DEALLOCATE '.$pid);
+		pg_query(fud_sql_lnk, 'DEALLOCATE '. $pid);
 	}
 }
 

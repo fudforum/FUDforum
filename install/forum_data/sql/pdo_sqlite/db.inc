@@ -18,7 +18,7 @@ if (empty(db::$db)) {
 	try {
 		db::$db = new PDO($dsn, $GLOBALS['DBHOST_USER'], $GLOBALS['DBHOST_PASSWORD']);
 	} catch (PDOException $e) {
-		fud_sql_error_handler('Failed to establish database connection, PDO says: '.$e->getMessage(), '', '', '');
+		fud_sql_error_handler('Failed to establish database connection, PDO says: '. $e->getMessage(), '', '', '');
 	}
 
 	define('__dbtype__', substr($GLOBALS['DBHOST_DBTYPE'], 4));
@@ -125,16 +125,11 @@ function q_limit($query, $limit, $off)
 
 function get_fud_table_list($tbl='')
 {
-	if (!$tbl) {
-		$idx = str_replace('_', '\_', $GLOBALS['DBHOST_TBL_PREFIX']);
+	if ($tbl) {
+		return db_all('SELECT tbl_name FROM sqlite_master WHERE type=\'table\' AND name LIKE \''. $tbl .'\'');
 	}
 
-	db::$buf = db::$res = null;
-
-	if (!$tbl) {
-		return db::$db->query('SELECT tbl_name FROM sqlite_master WHERE type=\'table\' AND  name LIKE \''. $GLOBALS['DBHOST_TBL_PREFIX']. '%\'')->fetchAll(PDO::FETCH_COLUMN);
-	}
-	return q_singleval('SELECT tbl_name FROM sqlite_master WHERE type=\'table\' AND name=\''.$tbl.'\'');
+	return db_all('SELECT tbl_name FROM sqlite_master WHERE type=\'table\' AND name LIKE \''. $GLOBALS['DBHOST_TBL_PREFIX']. '%\'');
 }
 
 function optimize_tables($tbl_list=null)

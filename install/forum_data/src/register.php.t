@@ -801,7 +801,7 @@ function email_encode($val)
 	}
 
 	$theme_select = '';
-	$r = uq('SELECT id, name FROM {SQL_TABLE_PREFIX}themes WHERE theme_opt>=1 AND (theme_opt & 1) > 0 ORDER BY ((theme_opt & 2) > 0) DESC, name');
+	$r = uq('SELECT id, name FROM {SQL_TABLE_PREFIX}themes WHERE theme_opt>=1 AND (theme_opt & 1) > 0 ORDER BY (theme_opt & 2) DESC, name');
 	/* Only display theme select if there is >1 theme. */
 	while ($t = db_rowarr($r)) {
 		$theme_select .= '{TEMPLATE: theme_select_value}';

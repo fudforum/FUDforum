@@ -239,7 +239,7 @@ function dberror()
 			return end($err);
 			break;			
 		case 'oci8':
-			$m = oci_error($GLOBALS['DB']);
+			$err = oci_error($GLOBALS['DB']);
 			return $err['message'];
 			break;
 	}
@@ -392,7 +392,8 @@ function initdb(&$settings)
 			$GLOBALS['DB'] = $conn;
 			return;
 		}
-		pf("Failed to connect using provided information '".oci_error()."'\n");
+		$err = oci_error();
+		pf("Failed to connect using provided information '". $err['message'] ."'\n");
 	} else {
 		pf('Unsupported database specified: '. $settings['DBHOST_DBTYPE'] ."\n");
 	}

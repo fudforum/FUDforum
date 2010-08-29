@@ -161,16 +161,10 @@ function q_limit($query, $limit, $off)
 function get_fud_table_list($tbl='')
 {
 	if ($tbl) {
-		return q_singleval('EXEC sp_tables @table_name = \''. $tbl .'\'');
+		return q_all('EXEC sp_tables @table_name = \''. $tbl .'\'');
 	}
 
-	$ret = array();
-	$c = uq('EXEC sp_tables @table_name = \''. $GLOBALS['DBHOST_TBL_PREFIX'] .'%\'');
-	while ($r = db_rowarr($c)) {
-		$ret[] = $r[0];
-	}
-
-	return $ret;	
+	return db_all('EXEC sp_tables @table_name = \''. $GLOBALS['DBHOST_TBL_PREFIX'] .'%\'');
 }
 
 function optimize_tables($tbl_list=null)

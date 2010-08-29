@@ -43,7 +43,7 @@
 	if ($is_a || $fids) {
 		$qry_limit = $is_a ? '' : 'f.id IN ('.$fids.') AND ';
 
-		$c = uq(q_limit('SELECT /*!40000 SQL_CALC_FOUND_ROWS */ f.name, f.id, m.subject, m.id, m.post_stamp
+		$c = uq(q_limit('SELECT /*!40000 SQL_CALC_FOUND_ROWS */ f.name, f.id as fid, m.subject, m.id, m.post_stamp
 			FROM {SQL_TABLE_PREFIX}msg m
 			INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id
 			INNER JOIN {SQL_TABLE_PREFIX}forum f ON t.forum_id=f.id
