@@ -51,6 +51,8 @@
 			}
 		}
 
+		$mails_sent = 0;
+		$mails_failed = 0;
 		if (!empty($_POST['pm'])) {
 			define('no_inline', 1);
 			fud_use('ssu.inc');
@@ -58,17 +60,18 @@
 			while ($r = db_rowarr($c)) {
 				$to[] = (int)$r[0];
 			}
-			$total = count($to);
+			$mails_sent = count($to);
 			if ($to) {
 				send_status_update($to, '', '', $_POST['subject'], $_POST['body']);
 			}
 		} else {
 			$email_block = 50;
-			$total = $email_block_stat = 0;
-			$send_to = $ADMIN_EMAIL;
+			$email_block_stat = 0;
 			$to = array();
 
 			if (!($FUD_OPT_1 & 512)) {	// USE_SMTP
+				$header = "From: ". $ADMIN_EMAIL. "\r\nErrors-To: ". $ADMIN_EMAIL. "\r\nReply-To: ". $ADMIN_EMAIL. "\r\nX-Mailer: FUDforum v". $GLOBALS['FORUM_VERSION']. "\r\nMIME-Version: 1.0\r\nContent-Type: text/plain; charset=". $charset. "\r\nContent-Transfer-Encoding: 8bit";
+			
 				$_POST['body'] = str_replace("\n.", "\n..", $_POST['body']);
 
 				while ($r = db_rowarr($c)) {
@@ -76,22 +79,35 @@
 					if (!(++$email_block_stat % $email_block)) {
 						$email_block_stat = 0;
 						$bcc = implode(', ', $to) . "\r\n";
-						mail(' ', encode_subject($_POST['subject']), $_POST['body'], "From: ".$ADMIN_EMAIL."\r\nReply-To: ".$ADMIN_EMAIL."\r\nErrors-To: ".$ADMIN_EMAIL."\r\nX-Mailer: FUDforum v".$GLOBALS['FORUM_VERSION']."\r\nBcc: ".$bcc);
+						$mail_success = @mail(' ', encode_subject($_POST['subject']), $_POST['body'], $header.'\nBcc: '.$bcc);
+						if ($mail_success) {
+							$mails_sent = $mails_sent + count($to);
+						} else {
+							$mails_failed = $mails_failed + count($to);
+							fud_logerror('Mass Mail ['. $_POST['subject'] .'] to ['. $to[0] .', ...] not accepted for delivery.', 'fud_errors');
+						}
 						$to = array();
 					}
-					++$total;
 				}
 				unset($c);
 				if ($to) {
 					$bcc = implode(', ', $to) . "\r\n";
-					mail(' ', encode_subject($_POST['subject']), $_POST['body'], "From: ".$ADMIN_EMAIL."\r\nReply-To: ".$ADMIN_EMAIL."\r\nErrors-To: ".$ADMIN_EMAIL."\r\nX-Mailer: FUDforum v".$GLOBALS['FORUM_VERSION']."\r\nBcc: ".$bcc);
+					$mail_success = @mail(' ', encode_subject($_POST['subject']), $_POST['body'], $header.'\nBcc: '.$bcc);
+					if ($mail_success) {
+						$mails_sent = $mails_sent + count($to);
+					} else {
+						$mails_failed = $mails_failed + count($to);
+						fud_logerror('Mass Mail ['. $_POST['subject'] .'] to ['. $to[0] .', ...] not accepted for delivery.', 'fud_errors');
+					}
 				}
 			} else {
+				$header = "Errors-To: ". $ADMIN_EMAIL. "\r\nReply-To: ". $ADMIN_EMAIL. "\r\nMIME-Version: 1.0\r\nContent-Type: text/plain; charset=". $charset. "\r\nContent-Transfer-Encoding: 8bit";
+			
 				$smtp = new fud_smtp;
 				$smtp->msg = str_replace("\n.", "\n..", $_POST['body']);
 				$smtp->subject = encode_subject($_POST['subject']);
 				$smtp->from = $ADMIN_EMAIL;
-				$smtp->headers = "MIME-Version: 1.0\r\nContent-Type: text/plain; charset=$charset\r\nContent-Transfer-Encoding: 8bit\r\nReply-To: ".$ADMIN_EMAIL."\r\nErrors-To: ".$ADMIN_EMAIL."\r\n";
+				$smtp->headers = $header;
 
 				while ($r = db_rowarr($c)) {
 					$to[] = $r[0];
@@ -99,20 +115,34 @@
 						$email_block_stat = 0;
 
 						$smtp->to = $to;
-						$smtp->send_smtp_email();
+						$mail_success = $smtp->send_smtp_email();
+						
+						if ($mail_success) {
+							$mails_sent = $mails_sent + count($to);
+						} else {
+							$mails_failed = $mails_failed + count($to);
+						}
 
 						$to = array();
 					}
-					++$total;
 				}
 				if (count($to)) {
 					$smtp->to = $to;
-					$smtp->send_smtp_email();
+					$mail_success = $smtp->send_smtp_email();
+					
+					if ($mail_success) {
+						$mails_sent = $mails_sent + count($to);
+					} else {
+						$mails_failed = $mails_failed + count($to);
+					}
 				}
 			}
 		}
-		if (!$err) {
-			echo '<font size="+1" color="green">'.$total.' '.(empty($_POST['pm']) ? 'E-mails' : 'Private Mesages').' were sent.</font><br />';
+		if ($mails_sent) {
+			echo successify($mails_sent.' '.(empty($_POST['pm']) ? 'Mail(s)' : 'Private Message(s)').' were sent.');
+		}
+		if ($mails_failed) {
+			echo errorify('Sending of '.$mails_failed.' '.(empty($_POST['pm']) ? 'Mail(s)' : 'Private Message(s)').' failed, please check Error Log for more information.');
 		}
 	}
 

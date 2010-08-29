@@ -90,7 +90,7 @@ function send_email($from, $to, $subj, $body, $header='', $munge_newlines=1)
 	}
 
 	foreach ((array)$to as $email) {
-		if (!mail($email, $subj, $body, $header)) {
+		if (!@mail($email, $subj, $body, $header)) {
 			fud_logerror('E-mail ['. $subj .'] to ['. $to .'] not accepted for delivery.', 'fud_errors');
 		}
 	}

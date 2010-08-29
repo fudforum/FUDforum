@@ -32,8 +32,9 @@ class fud_smtp
 
 	function open_smtp_connex()
 	{
-		if( !($this->fs = fsockopen($GLOBALS['FUD_SMTP_SERVER'], $GLOBALS['FUD_SMTP_PORT'], $errno, $errstr, $GLOBALS['FUD_SMTP_TIMEOUT'])) ) {
-			exit('ERROR: stmp server at '.$GLOBALS['FUD_SMTP_SERVER']." is not available<br />\nAdditional Problem Info: $errno -> $errstr <br />\n");
+		if( !($this->fs = @fsockopen($GLOBALS['FUD_SMTP_SERVER'], $GLOBALS['FUD_SMTP_PORT'], $errno, $errstr, $GLOBALS['FUD_SMTP_TIMEOUT'])) ) {
+			fud_logerror('ERROR: SMTP server at '.$GLOBALS['FUD_SMTP_SERVER']." is not available<br />\n".($errno ? "Additional Problem Info: $errno -> $errstr <br />\n" : ''), 'fud_errors');
+			return;
 		}
 		if (!$this->get_return_code(220)) {
 			return;
@@ -152,24 +153,29 @@ class fud_smtp
 	function send_smtp_email()
 	{
 		if (!$this->open_smtp_connex()) {
-			fud_logerror('Open SMTP connection - invalid return code: '. $this->last_ret, 'fud_errors');
-			return;
+			if ($this->last_ret) {
+				fud_logerror('Open SMTP connection - invalid return code: '. $this->last_ret, 'fud_errors');
+			}
+			return false;
 		}
 		if (!$this->send_from_hdr()) {
 			fud_logerror('Send "From:" header - invalid SMTP return code: '. $this->last_ret, 'fud_errors');
 			$this->close_connex();
-			return;
+			return false;
 		}
 		if (!$this->send_to_hdr()) {
 			fud_logerror('Send "To:" header - invalid SMTP return code: '. $this->last_ret, 'fud_errors');
 			$this->close_connex();
-			return;
+			return false;
 		}
 		if (!$this->send_data()) {
 			fud_logerror('Send data - invalid SMTP return code: '. $this->last_ret, 'fud_errors');
+			$this->close_connex();
+			return false;
 		}
 
 		$this->close_connex();
+		return true;
 	}
 }
 ?>
