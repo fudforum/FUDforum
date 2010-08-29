@@ -120,15 +120,18 @@ function register_form_check($user_id)
 			set_err('reg_email', '{TEMPLATE: register_err_emailexists}');
 		}
 	} else {
-		if (!($r = db_sab('SELECT id, passwd, salt FROM {SQL_TABLE_PREFIX}users WHERE id='.(!empty($_POST['mod_id']) ? __fud_real_user__ : $user_id)))) {
+		if (!($r = db_sab('SELECT id, passwd, salt, name, email FROM {SQL_TABLE_PREFIX}users WHERE id='.(!empty($_POST['mod_id']) ? __fud_real_user__ : $user_id)))) {
 			exit('Go away!');
 		}
 		
+		/* Require password only for changing E-mail address and name. */
 		if (empty($_POST['reg_confirm_passwd']) || !((empty($r->salt) && $r->passwd == md5($_POST['reg_confirm_passwd'])) || $r->passwd == sha1($r->salt . sha1($_POST['reg_confirm_passwd'])))) {
-			if (!empty($_POST['mod_id'])) {
-				set_err('reg_confirm_passwd', '{TEMPLATE: register_err_adminpasswd}');
-			} else {
-				set_err('reg_confirm_passwd', '{TEMPLATE: register_err_enterpasswd}');
+			if ($_POST['reg_email'] != $r->email || $_POST['reg_name'] != $r->name) {
+				if (!empty($_POST['mod_id'])) {
+					set_err('reg_confirm_passwd', '{TEMPLATE: register_err_adminpasswd}');
+				} else {
+					set_err('reg_confirm_passwd', '{TEMPLATE: register_err_enterpasswd}');
+				}
 			}
 		}
 
@@ -633,7 +636,7 @@ function email_encode($val)
 			$b_year = $b_month = $b_day = '';
 		}
 		if (!$reg_avatar && $reg_avatar_loc) { /* Custom avatar. */
-			if (preg_match('!src="([^"]+)" width="!', reverse_fmt($reg_avatar_loc), $tmp)) {
+			if (preg_match('!src="([^"]+)"!', reverse_fmt($reg_avatar_loc), $tmp)) {
 				$avatar_arr['file'] = $tmp[1];
 				$avatar_arr['del'] = 0;
 				$avatar_arr['leave'] = 1;
