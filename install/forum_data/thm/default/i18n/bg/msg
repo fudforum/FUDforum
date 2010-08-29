@@ -107,6 +107,7 @@ num_votes:{VAR: obj->total_votes} гласа
 occupation:професия:
 off:изкл
 on:вкл
+# Fuzzy
 page_timings:бПЕЛЕ, МЕНАУНДХЛН ГЮ ЯЗГДЮБЮМЕ МЮ РЮГХ ЯРПЮМХЖЮ: {VAR: page_gen_time} ЯЕЙСМДХ
 pm:Лична поща
 poll:Гласуване:

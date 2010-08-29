@@ -106,6 +106,7 @@ num_votes:{VAR: obj->total_votes} stemme(r)
 occupation:Beskæftigelse:
 off:FRA
 on:TIL
+# Fuzzy
 page_timings:Det tog {VAR: page_gen_time} sekunder at generere denne side
 pm:Privat besked
 poll:Meningsmåling:

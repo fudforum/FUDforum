@@ -108,6 +108,7 @@ num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|hlas|hlasů}
 occupation:Obsazení:
 off:Vypnuto
 on:Zapnuto
+# Fuzzy
 page_timings:Celkový čas potřebný k vygenerování této stránky: {VAR: page_gen_time} vteřin
 pm:Pošta
 poll:Anketa:

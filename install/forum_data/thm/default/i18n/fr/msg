@@ -116,7 +116,7 @@ num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|vote|votes}
 occupation:Métier :
 off:DÉSACTIVÉ
 on:ACTIVÉ
-page_timings:Temps total utilisé pour générer la page : {VAR: page_gen_time} seconde(s)
+page_timings:Temps total utilisé pour générer la page : {PLURAL: page_gen_time|$1 seconde|$1 secondes}
 pm:Messages privés
 poll:Sondage :
 post_count:Compteur de messages : {VAR: u_pcount}

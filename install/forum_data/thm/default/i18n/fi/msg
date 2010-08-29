@@ -110,6 +110,7 @@ num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|ääni|ääntä}
 occupation:Ammatti:
 off:ei
 on:kyllä
+# Fuzzy
 page_timings:Sivun luominen kesti {VAR: page_gen_time} sekuntia.
 pm:Yksityisviestit
 poll:Gallup:

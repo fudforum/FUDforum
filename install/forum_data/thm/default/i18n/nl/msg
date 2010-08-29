@@ -111,7 +111,7 @@ num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|stem|stemmen}
 occupation:Beroep:
 off:Uit
 on:Aan
-page_timings:Totale tijd voor paginaaanmaak: {VAR: page_gen_time} seconden
+page_timings:Totale tijd voor paginaaanmaak: {PLURAL: page_gen_time|$1 seconden}
 pm:Privébericht
 poll:Stemming:
 post_count:Aantal berichten {VAR: u_pcount}

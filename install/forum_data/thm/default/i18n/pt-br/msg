@@ -111,7 +111,7 @@ num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|voto|votos}
 occupation:Ocupação:
 off:DES
 on:LIG
-page_timings:Tempo total para gerar a página: {VAR: page_gen_time} segundos
+page_timings:Tempo total utilizado para gerar a página: {PLURAL: page_gen_time|$1 segundo|$1 segundos}
 pm:Mensagens Privadas
 poll:Votação:
 post_count:Contador de posts {VAR: u_pcount}

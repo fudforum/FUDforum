@@ -106,6 +106,7 @@ num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|vòte|vòtes}
 occupation:Mestièr :
 off:DESACTIVAT
 on:ACTIVAT
+# Fuzzy
 page_timings:Temps total utilizat per generar la pagina : {VAR: page_gen_time} segonda(s)
 pm:Messatges privats
 poll:Escandalhatge :
@@ -236,7 +237,7 @@ browsing_folder:Visitatz lo dorsièr <b>{VAR: folders[$folder_id]}</b>
 inbox:Recepcion
 draft:Borrolhon
 sent:Mandat
-trash:Banasta
+trash:Escobilhièr
 msg_author:Autor
 avatar_sel_form:Seleccion de l'avatar
 no_avatars:Pas cap d'avatar disponible
@@ -695,7 +696,7 @@ post_opt_smilies_off:Los <b>smileys</b> son <b>DESACTIVATS</b>
 post_opt:Opcions activadas sul forum :
 register_change_passwd:Cambiar de senhal
 approved_avatar_title:Vòstre avatar personal es estat aprovat.
-approved_avatar_msg:Vòstre avatar es estat aprovat per l'administrator. Ara, deuriá aparéisser dins totes vòstres messatges. S'es pas lo cas, es perque vòstre navigador o conten dins las paginas de sa memòria en amagatal. Ensajatz de lo refrescar qualques còps, aquò deuriá resòlvre lo problèma.
+approved_avatar_msg:Vòstre avatar es estat aprovat per l'administrator. Ara, deuriá aparéisser dins totes vòstres messatges. S'es pas lo cas, es perque vòstre navigador o conten dins las paginas de sa memòria en escondedor. Ensajatz de lo refrescar qualques còps, aquò deuriá resòlvre lo problèma.
 unapproved_avatar_title:Vòstre avatar personal es estat refusat per l'administrator
 unapproved_avatar_msg:L'administrator a pas aprovat vòstre avatar. Una rason correnta per un tal refús es que l'avatar es tròp grand (talha en octets e/o dimensions) o que conten un subjècte inapropriat. Se volètz saber perqué vòstre avatar es estat refusat, contactatz l'administrator.
 mvthread_request_move:Requèsta de desplaçament

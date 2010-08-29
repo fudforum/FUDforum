@@ -7,6 +7,7 @@
 # Author: Luckas Blade
 # Author: Malafaya
 # Author: McDutchie
+# Author: Waldir
 
 action:Acção
 add_to_buddy_list:Adicionar à lista de amigos
@@ -113,6 +114,7 @@ num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|voto|votos}
 occupation:Ocupação:
 off:DES
 on:LIG
+# Fuzzy
 page_timings:Tempo total para gerar a página: {VAR: page_gen_time} segundos
 pm:Mensagens Privadas
 poll:Sondagem:
@@ -494,8 +496,7 @@ remail_message:Mensagem:
 remail_send_now:Enviar Email agora
 remail_anon_opt:Copiar esta mensagem para um cliente de email á sua escolha e envie-o aos seus amigos
 remail_done:Concluido
-# Fuzzy
-remail_sent_conf:O email do seu amigo {VAR-HTML: _POST['femail']} sobre {{VAR: data->subject} foi enviado com sucesso.
+remail_sent_conf:O email para o seu amigo {VAR-HTML: _POST['femail']} sobre {VAR: data->subject} foi enviado com sucesso.
 remail_error:Tem um erro
 mklist_type:Tipo:
 mklist_option:Opção:
@@ -603,8 +604,7 @@ pm_update:A utilizar mensagens privadas
 post_err_lockedthread_title:ERRO: Tópico Bloqueado
 post_err_lockedthread_msg:Este tópico está bloqueado, não é permitido colocar comentários
 err_coppa_title:ERRO: A sua conta ainda não foi confirmada
-# Fuzzy
-err_coppa_msg:Não foi recebida uma confirmação dos seus pais ou tutores legais, que permitam que coloque mensagens. Se perdeu o seu formulário <a href="{TEMPLATE: err_coppa_msg_lnk}">clique aqui</a> para o obter
+err_coppa_msg:Ainda não recebemos uma confirmação dos teus pais ou tutores legais, o que te permitiria publicar mensagens. Se perdeste o teu formulário COPPA, <a href="{TEMPLATE: err_coppa_msg_lnk}">consulta-o novamente</a>.
 err_banned_acct_title:ERRO: Você foi banido.
 err_banned_acct_msg:Your account was {IF: $ban_expiry}temporarily banned until {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}permanently{ENDI} from accessing the site, due to a violation of the forum&#39s rules.
 post_err_edttimelimit_title:ERRO
@@ -665,8 +665,7 @@ search_update:A procurar posts
 selmsg_update:A visualisar <a href="{TEMPLATE: selmsg_update_lnk}">posts de Hoje</a>
 showposts_update:A ver posts por: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
 subscribed_update:A visualisar as próprias subscrições
-# Fuzzy
-thread_update:A visualisar forum <a href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a>
+thread_update:A ver o fórum <a href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a>
 tree_update:A visualisar tópico (vista de árvore) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
 userinfo_update:Procurar em <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}'s</a> perfil
 ERR_disabled_ttl:Possibilidade desabilitada
@@ -843,8 +842,7 @@ ignored_user_post:Colocado por <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR:
 smladd_close_window:fechar janela
 post_list_smilies:listar todos os smilies
 p_VISIBLE:Visivel
-# Fuzzy
-reported_in_thread:no tópico
+reported_in_thread:Em:
 help_back_to_top:voltar ao topo
 help_return_to_index:voltar ao inicio da ajuda
 imsg_err_message_title:Mensagem inválida
@@ -940,6 +938,7 @@ reg_conf_title:Confirmação do Registo
 reg_conf_email:<b>Confirmação por correio electrónico</b><br />Foi-lhe enviada uma mensagem contendo uma URL especial a que terá de aceder antes da sua conta ser activada. Se não receber essa notificação nos próximos minutos, entre na sua conta e garanta que o endereço de correio electrónico que introduziu está correcto. Após ter confirmado a sua conta, terá acesso às funcionalidades do fórum disponíveis aos utilizadores confirmados.
 reg_conf_account:<b>Confirmação de Conta</b><br />Antes da sua conta se tornar activa é necessário que seja aprovada pelo(s) administrador(es), assim que tal acontecer você receberá um e-mail indicando que a mesmo foi activada. Até essa altura você poderá aceder à sua conta, no entanto não poderá aceder às opções do forum somente disponíveis aos utilizadores confirmados.
 forum_banned_user:As suas acções anteriores obtiveram como resultado a sua expulsão permanente deste forum. Adeus.
+mnav_date_limit:Intervalo de datas:
 mnav_no_range:You must enter a valid date range. This value can be a float (0.12) but it must be greater then zero.
 mnav_invalid_date:The date range you've specified is larger then the one allowed by the administrator, narrow down date range of your search.
 mnav_no_results:There are no messages matching query.
@@ -951,10 +950,8 @@ mnav_week:Semana(s)
 mnav_month:Mês (es)
 # Fuzzy
 pm_notify_body_email:Você tem uma nova mensagem privada entitulada "{VAR: subject}" de "{VAR: from}" do fórum "{GVAR: FORUM_TITLE}".\nPara ver a mensagem clique aqui: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nPara deixar de receber notificações futuras, desative "Notificação de Mensagens Privadas" em seu perfil.
-# Fuzzy
-register_pm_notification:Notificação de Mensagens Privadas
-# Fuzzy
-register_pm_notification_desc:Se ativado, você receberá notificação através do método de notificação de sua escolha, sempre que uma mensagem privada for enviada para você.
+register_pm_notification:Notificação de Mensagem Privada:
+register_pm_notification_desc:Se activado, será notificado sempre que lhe for enviada uma mensagem privada.
 findu_ban:Banir
 findu_edit:Editar
 findu_delete:Apagar
@@ -962,16 +959,14 @@ dmsg_reply_to:é uma resposta a
 # Fuzzy
 merge_topics_tpl:Selecione Tópicos para Unir <font class="SmallText">(você precisa selecionar mais de 1 tópico)</font>
 merge_prev:Tópicos anteriores
-# Fuzzy
-split_cp:Painel de Controle para Quebra de Tópicos
-# Fuzzy
-groups_perms_header:Permissões <font size="-1">(passe o mouse sobre a permissão para ver seu tipo)</font>
-# Fuzzy
-register_sig_limit:{GVAR: FORUM_SIG_ML} caracteres <a href="javascript: alert('Sua assinatura possui '+document.forms['fud_register'].reg_sig.value.length+' caracteres. O comprimento máximo permitido é de {GVAR: FORUM_SIG_ML}');" class="SmallText">Veja o Tamanho da Assinatura</a>
+split_cp:Painel de Controlo para Separação de Tópicos
+groups_perms_header:Permissões <span class="small">(para ver o tipo da permissão coloque o ponteiro do rato sobre ela)</span>
+register_sig_limit:{GVAR: FORUM_SIG_ML} caracteres <a href="javascript: alert('A sua assinatura tem '+document.forms['fud_register'].reg_sig.value.length+' caracteres. O comprimento máximo permitido é de {GVAR: FORUM_SIG_ML} caracteres. ');" class="SmallText">Verificar o Tamanho da Assinatura</a>
 adm_account_accepted:A sua conta '{VAR: login}' foi aprovada pelo administrador e já está activa. Agora pode aceder ao Fórum {GVAR: FORUM_TITLE}' como utilizador registado e confirmado.
 adm_account_accepted_s:O seu pedido de conta para o fórum '{GVAR: FORUM_TITLE}' foi aceite.
 adm_account_rejected:A sua conta '{VAR: login}' foi rejeitada pelo administrador. Se quiser saber a razão desta decisão, contacte o administrador no endereço '{GVAR: ADMIN_EMAIL}'.
 adm_account_rejected_s:O seu pedido de conta para o Fórum '{GVAR: FORUM_TITLE}' foi recusado.
+thread_on:em
 register_email_addr:Endereço de correio electrónico:
 usrinfo_last_visit:Ultimo Visitado:
 mnav_newer:mais recente que
@@ -999,6 +994,8 @@ idx_compact_forum_row:Fóruns disponíveis:
 mmd_del_title:Apagar tópicos
 mmd_mov_title:Mover tópicos
 mmd_abort_move:Cancelar
+thread_del_all:Apagar todos os seleccionados
+thread_mov_all:Mover todos os seleccionados
 dmsg_ip:IP:
 most_users_online:O recorde de utilizadores em linha foi <b>{VAR: st_obj->most_online}</b> <b>({DATE: st_obj->most_online_time %a, %d %B %Y %H:%M})</b>
 sml_code:Código

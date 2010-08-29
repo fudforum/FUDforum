@@ -105,6 +105,7 @@ num_votes: {PLURAL: obj->total_votes|صوت|{VAR: obj->total_votes} أصوات}
 occupation:المهنة:
 off:مُطفأ
 on:مُشغّل
+# Fuzzy
 page_timings:الوقت المستغرق لتوليد الصفحة: {VAR: page_gen_time} ثانية
 pm:مراسله خاصة
 poll:اقتراع:

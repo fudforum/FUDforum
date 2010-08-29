@@ -108,6 +108,7 @@ num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|stemme|stemmer}
 occupation:Yrke:
 off:AV
 on:PÅ
+# Fuzzy
 page_timings:Total tid for å generere siden: {VAR: page_gen_time} sekunder
 pm:Private meldinger
 poll:Avstemning:

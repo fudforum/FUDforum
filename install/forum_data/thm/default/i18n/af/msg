@@ -109,7 +109,7 @@ num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|stem|stemme}
 occupation:Beroep:
 off:Af
 on:Aan
-page_timings:Totale tyd vir bou van die bladsy: {VAR: page_gen_time} sekondes
+page_timings:Totale tyd vir bou van die bladsy: {PLURAL: page_gen_time|$1 sekondes}
 pm:Privaat boodskappe
 poll:Stemming:
 post_count:Aantal boodskappe {VAR: u_pcount}
@@ -469,7 +469,7 @@ ruser_cur_login:Huidige gebruikersnaam:
 ruser_new_login:Nuwe gebruikersnaam:
 ruser_cur_pass:Huidige wagwoord:
 login_passwd:Wagwoord:
-reset_email:Epos:
+reset_email:E-pos:
 reset_reset_button:Herstel wagwoord
 rate_this_thread:beoordeel
 report_reporting_about:Rapport oor:

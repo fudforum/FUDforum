@@ -99,6 +99,7 @@ num_votes:{VAR: obj->total_votes} phiếu
 occupation:Nghề nghiệp:
 off:Tắt
 on:Mở
+# Fuzzy
 page_timings:Tổng thời gian để tạo trang: {VAR: page_gen_time} giây
 pm:Tin Nhắn Cá Nhân
 poll:Bảng khảo sát:

@@ -110,7 +110,7 @@ num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|voto|votos}
 occupation:Ocupación:
 off:DESACTIVADO
 on:ACTIVADO
-page_timings:Tempo total empregado para xerar a páxina: {VAR: page_gen_time} segundos
+page_timings:Tempo total empregado para xerar a páxina: {PLURAL: page_gen_time|$1 segundos}
 pm:Mensaxes privadas
 poll:Enquisa:
 post_count:Contador de mensaxes {VAR: u_pcount}

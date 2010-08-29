@@ -109,6 +109,7 @@ num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|vouezh|mouezh}
 occupation:Micher :
 off:DIWEREDEKAET
 on:GWEREDEKAET
+# Fuzzy
 page_timings:Amzer lakaet da grouiñ ar bajenn-mañ, en holl : {VAR: page_gen_time} eilenn
 pm:Kemennadennoù prevez
 poll:Sontadeg :

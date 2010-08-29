@@ -92,6 +92,7 @@ num_pages:페이지 ({VAR: ttl_pg}):
 # Fuzzy
 num_votes:{VAR: obj->total_votes} 투표
 occupation:직업:
+# Fuzzy
 page_timings:페이지 생성 시간: {VAR: page_gen_time} 초
 pm:쪽지
 poll:투표:

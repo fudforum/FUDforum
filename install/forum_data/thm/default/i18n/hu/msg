@@ -108,6 +108,7 @@ num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|szavazat|szavazat}
 occupation:Foglalkozás:
 off:kikapcsolva
 on:bekapcsolva
+# Fuzzy
 page_timings:Az oldal elkészítése {VAR: page_gen_time} másodpercet vett igénybe.
 pm:Privát üzenetek
 poll:Szavazás:

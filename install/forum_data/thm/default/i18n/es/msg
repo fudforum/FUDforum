@@ -111,6 +111,7 @@ num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|voto|votos}
 occupation:Ocupación:
 off:DESACTIVADO
 on:ACTIVADO
+# Fuzzy
 page_timings:Tiempo total que tardó la generación de la página: {VAR: page_gen_time} segundos
 pm:Mensajes privados
 poll:Encuesta:

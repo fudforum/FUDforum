@@ -96,6 +96,7 @@ num_votes:{VAR: obj->total_votes} balsų
 occupation:Pareigos:
 off:IŠJUNGTA
 on:ĮJUNGTA
+# Fuzzy
 page_timings:Puslapis sugeneruotas per: {VAR: page_gen_time} sekundžių.
 pm:Asmeninės žinutės
 poll:Apklausa:

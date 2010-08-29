@@ -68,7 +68,9 @@ mark_all_read_desc:Alli Dyyni uugläsene Byytreg wäre as gläse markiert
 members:Miglider
 calendar:Kaländer
 cal_goto_date:Gump zue:
+cal_day_heading:Ereignis an däm Tag
 cal_no_events:Kei Ereignis an däm Tag.
+cal_update:Am Dursueche vum Kalender
 message:Byytrag
 message_counter:Unsri Benutzer hän insgsamt <b>{PLURAL: post_count|$1 Byytrag|$1 Byytreg }</b> in <b>{PLURAL: thread_count|$1 Thema|$1 Themene}</b> aagleit.
 message_index:Byytragsverzeichnis
@@ -107,6 +109,7 @@ num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|Stimm|Stimme}
 occupation:Beruef:
 off:UUS
 on:AA
+# Fuzzy
 page_timings:Insgsamt bruchtig Zyt fir zem Aalege vu däre Syte: {VAR: page_gen_time} Sekunde
 pm:Privati Nochrichte
 poll:Abstimmig:
@@ -419,6 +422,7 @@ coppa:<p>E Elteredeil oder Vormund muess e unterschribeni Yywilligungserklärig 
 prereg_info:Forumsregle
 prereg_agree:Zuestimme
 prereg_disagree:Ablähne
+prereg_update:Am Läse vu dr Foreregle
 coppa_fax_instructions:Anleitig fir e Eltereteil oder Vormund
 coppa_fax_instructions2:Bitte drucke des Formular uus, unterschryybe s un schicke s an:
 coppa_fax_reg_form:Regischtrierigsformular
@@ -882,6 +886,9 @@ search_desc_order:Sortierig abezues
 search_asc_order:Sortierig uffezues
 search_logic:Suechlogik:
 search_sorting:Ergebnis no Datum sortiere in:
+search_attach:Aahäng:
+search_attach_all:Mit oder Ohni
+search_attach_with:Mit Aahäng
 post_proceed:Wytermache
 post_moderated_forum:Du hesch e Byytrag in eme moderierte Forum aagleit. DEs heißt, ass dää erscht im Forum erschynt, wänn er dur e Moderator oder Administrator billigt woren isch.
 post_moderated_forum_ttl:Mitteilig vum moderierte Forum

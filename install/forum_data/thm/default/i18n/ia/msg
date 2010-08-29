@@ -109,7 +109,7 @@ num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|voto|votos}
 occupation:Occupation:
 off:disactivate
 on:activate
-page_timings:Tempore total pro generar le pagina: {VAR: page_gen_time} secundas
+page_timings:Tempore total pro generar le pagina: {PLURAL: page_gen_time|$1 secunda|$1 secundas}
 pm:Messageria private
 poll:Sondage:
 post_count:Numero de messages: {VAR: u_pcount}

@@ -112,7 +112,7 @@ num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|suara|suara}
 occupation:Pekerjaan:
 off:NON-AKTIF
 on:AKTIF
-page_timings:Dibuat dlm {VAR: page_gen_time} detik
+page_timings:Waktu yang diperlukan untuk memunculkan halaman: {PLURAL: page_gen_time|$1 detik}
 pm:Pesan pribadi
 poll:Jajak:
 post_count:Jumlah Pesan {VAR: u_pcount}

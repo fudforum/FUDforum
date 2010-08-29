@@ -100,6 +100,7 @@ num_pages:({VAR: ttl_pg})lapas:
 # Fuzzy
 num_votes:{VAR: obj->total_votes} balsis:
 occupation:Nodarbošanās:
+# Fuzzy
 page_timings:{VAR: page_gen_time} sekundes patērētas lapas ģenerēšanai
 pm:Privātā sarakste
 poll:Balsojumi:

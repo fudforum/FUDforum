@@ -107,7 +107,7 @@ num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|głos|głosy|głosó
 occupation:Zawód:
 off:Wyłączone
 on:Włączone
-page_timings:Łączny czas generowania strony wyniósł {VAR: page_gen_time} sekund.
+page_timings:Łączny czas generowania strony wyniósł $1 {PLURAL: page_gen_time|sekundę|sekundy|sekund}
 pm:Prywatne wiadomości
 poll:Ankieta:
 post_count:Liczba wiadomości {VAR: u_pcount}
@@ -616,8 +616,7 @@ post_err_edttimelimit_msg:Nie możesz już edytować tej wiadomości
 post_err_noannontopics_msg2:<legend>BŁĄD: Brak Uprawnień</legend>Anonimowym użytkownikom forum nie wolno tworzyć nowych wątków. Aby to było możliwe, należy się zarejestrować.
 post_err_noannonposts_msg2:<legend>BŁĄD: Brak Uprawnień</legend>Anonimowym użytkownikom forum nie wolno odpowiadać na wiadomości. Aby to było możliwe, należy się zarejestrować.
 post_err_floodtrig_title:BŁĄD: Wykryto zbyt dużą ilość zamieszczanych wiadomości.
-# Fuzzy
-post_err_floodtrig_msg:Spróbuj ponownie za {VAR: tm} sekund
+post_err_floodtrig_msg:Spróbuj ponownie za {PLURAL: tm|$1 sekundę|$1 sekundy|$1 sekund}
 post_err_attach_size:Załącznik jest zbyt duży (ponad dozwolone ograniczenie {VAR: MAX_F_SIZE} bajtów)
 post_err_attach_ext:Plik, który próbujesz dołączyć nie pokrywa się z dozwolonymi typami plików.
 post_err_attach_filelimit:Próbujesz dołączyć więcej plików niż jest to dozwolone.
@@ -971,8 +970,7 @@ findu_unban:Odblokuj
 findu_ban:Zablokuj
 findu_edit:Edycja
 findu_delete:Usuń
-# Fuzzy
-dmsg_reply_to:(odpowiedź na #{VAR: obj->reply_to})
+dmsg_reply_to:jest odpowiedzią na
 merge_topics:Łącz Wątki
 merge_topics_cp:Panel Sterowania Łączeniem Wątków
 merge_topics_tpl:Wybierz Wątki do Połączenia <font class="SmallText">(musisz wybrać więcej niż jeden wątek)</font>

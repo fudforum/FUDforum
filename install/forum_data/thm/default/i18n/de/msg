@@ -4,6 +4,7 @@
 # Author: JanRei
 # Author: McDutchie
 # Author: Pill
+# Author: The Evil IP address
 # Author: Umherirrender
 
 action:Aktion
@@ -113,7 +114,7 @@ num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|Stimme|Stimmen}
 occupation:Beruf:
 off:AUS
 on:AN
-page_timings:Insgesamt benötigte Zeit, um die Seite zu erzeugen: {VAR: page_gen_time} Sekunden
+page_timings:Insgesamt benötigte Zeit, um die Seite zu erzeugen: {PLURAL: page_gen_time|$1 Sekunden}
 pm:Private Nachrichten
 poll:Abstimmung:
 post_count:Anzahl der Beiträge {VAR: u_pcount}

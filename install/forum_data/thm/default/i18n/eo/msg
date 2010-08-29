@@ -104,6 +104,7 @@ num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|voĉdono|voĉdonoj}
 occupation:Laboro:
 off:malŝalta
 on:ŝalta
+# Fuzzy
 page_timings:Suma tempo pasita por generi la paĝon: {VAR: page_gen_time} sekundoj
 pm:Privata Mesaĝado
 poll:Opinisondo:

@@ -108,6 +108,7 @@ num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|票}
 occupation:職業:
 off:切
 on:入
+# Fuzzy
 page_timings:このページを生成するのにかかった時間: {VAR: page_gen_time} 秒
 pm:プライベートメッセージ
 poll:投票:
