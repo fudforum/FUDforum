@@ -17,8 +17,8 @@ function print_ul($qry)
 	$i = 0;
 	$c = uq($qry);
 	while ($r = db_rowarr($c)) {
-		echo ++$i.') <b>'.$r[1].'</b> <a href="../'.__fud_index_name__.'?t=usrinfo&amp;id='.$r[0].'&amp;'.__adm_rsid.'">View Profile</a> | 
-		<a href="admuser.php?act=1&amp;usr_id='.$r[0].'&amp;'.__adm_rsid.'">Edit</a><br />';
+		echo ++$i .') <b>'. $r[1] .'</b> <a href="../'. __fud_index_name__ .'?t=usrinfo&amp;id='. $r[0] .'&amp;'. __adm_rsid .'">View Profile</a> | 
+		<a href="admuser.php?act=1&amp;usr_id='. $r[0] .'&amp;'. __adm_rsid .'">Edit</a><br />';
 	}
 	unset($c);
 	if ( $i == 0 ) {
@@ -38,21 +38,21 @@ function print_ul($qry)
 <tr>
 <td valign="top" class="resultrow1">
 <?php
-	print_ul('SELECT id, alias FROM '.$DBHOST_TBL_PREFIX.'users WHERE (users_opt & 1048576) > 0 ORDER BY alias');
+	print_ul('SELECT id, alias FROM '. $DBHOST_TBL_PREFIX .'users WHERE '. q_bitand('users_opt', 1048576) .' > 0 ORDER BY alias');
 ?>
 </td>
 <td valign="top" class="resultrow2">
 <?php
-	print_ul('SELECT u.id, u.alias FROM '.$DBHOST_TBL_PREFIX.'mod m
-		INNER JOIN '.$DBHOST_TBL_PREFIX.'users u ON u.id=m.user_id
+	print_ul('SELECT u.id, u.alias FROM '. $DBHOST_TBL_PREFIX .'mod m
+		INNER JOIN '. $DBHOST_TBL_PREFIX .'users u ON u.id=m.user_id
 		GROUP BY u.id, u.alias ORDER BY u.alias');
 ?>
 </td>
 <td valign="top" class="resultrow1">
 <?php
-	print_ul('SELECT u.id, u.alias FROM '.$DBHOST_TBL_PREFIX.'group_members g
-		INNER JOIN '.$DBHOST_TBL_PREFIX.'users u ON u.id=g.user_id
-		WHERE (group_members_opt & 131072) > 0
+	print_ul('SELECT u.id, u.alias FROM '. $DBHOST_TBL_PREFIX .'group_members g
+		INNER JOIN '. $DBHOST_TBL_PREFIX .'users u ON u.id=g.user_id
+		WHERE '. q_bitand('group_members_opt', 131072) .' > 0
 		GROUP BY u.id, u.alias ORDER BY u.alias');
 ?>
 </td>

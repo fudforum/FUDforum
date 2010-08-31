@@ -74,7 +74,7 @@
 			if ( strpos($disable_func, '/') ) {
 				$disable_func = substr($disable_func, strpos($disable_func, '/')+1);
 			}
-			if ((include_once($PLUGIN_PATH.'/'.$val)) && function_exists($disable_func)) {
+			if ((include_once($PLUGIN_PATH .'/'. $val)) && function_exists($disable_func)) {
 				$err = $disable_func();
 				if ($err) {
 					echo errorify('Plugin '. $val .' uninstall error: '. $err);
@@ -94,7 +94,7 @@
 		include_once($PLUGIN_PATH .'/'. $plugin);
 
 		// Process info hook.
-		$info_func = $func_base . '_info';
+		$info_func = $func_base .'_info';
 		if (function_exists($info_func)) {
 			$info = $info_func();
 		}
@@ -107,7 +107,7 @@
 		echo '<fieldset class="tutor"><legend>Meta-information:</legend>';
 		echo '<table>';
 		echo '<tr><td><b>Plugin file:</b></td><td>'. $plugin .'</td></tr>';
-		echo '<tr><td><b>Last modified:</b></td><td>'. date('d F Y H:i:s', filemtime($PLUGIN_PATH.'/'.$plugin)) .'</td></tr>';
+		echo '<tr><td><b>Last modified:</b></td><td>'. date('d F Y H:i:s', filemtime($PLUGIN_PATH .'/'. $plugin)) .'</td></tr>';
 		if (isset($info['author'])) {
 			echo '<tr><td><b>Author:</b></td><td>'. $info['author'] .'</td></tr>';
 		}
@@ -131,7 +131,7 @@
 		echo '<br />';
 
 		// Process config hook.
-		$config_func = $func_base . '_config';
+		$config_func = $func_base .'_config';
 		if (function_exists($config_func)) {
 			echo '<form method="post" action="admplugins.php" autocomplete="off">';
 			echo '<fieldset class="tutor"><legend>Configuration:</legend>';
@@ -142,7 +142,7 @@
 			echo '</fieldset></form>';
 		}
 
-		echo '<br /><div style="float:right;">[ <a href="admplugins.php?'.__adm_rsid.'">Return to Plugin Manager &raquo;</a> ]</div>';
+		echo '<br /><div style="float:right;">[ <a href="admplugins.php?'. __adm_rsid .'">Return to Plugin Manager &raquo;</a> ]</div>';
 
 		echo '</td></tr></table></body></html>';	// Standard footer not applicable here.
 		exit;
@@ -172,7 +172,7 @@ foreach (glob("$PLUGIN_PATH/*") as $file) {
 		$dir = basename($file);
 		foreach (glob("$PLUGIN_PATH/$dir/*") as $dirfile) {
 			if (!preg_match('/\.plugin$/', $dirfile)) continue;	// Not a plugin file.
-			$plugin_files[] = $dir.'/'.basename($dirfile);
+			$plugin_files[] = $dir .'/'. basename($dirfile);
 		}
 	}
 	if (!preg_match('/\.plugin$/', $file)) continue;	// Not a plugin file.
@@ -184,8 +184,8 @@ foreach ($plugin_files as $plugin) {
 	$checked = in_array($plugin, $plugins) ? 'checked="checked"' : '';
 ?>
 <tr class="field">
-  <td><a href="admplugins.php?config=<?php echo urlencode($plugin).'&amp;'.__adm_rsid.'" title="Configure plugin">'.$plugin; ?></a></td>
-  <td class="center"><input type="checkbox" name="plugins[]" value="<?php echo $plugin; ?>" <?php echo $checked.' '.$disabled; ?> /></td>
+  <td><a href="admplugins.php?config=<?php echo urlencode($plugin) .'&amp;'. __adm_rsid .'" title="Configure plugin">'. $plugin; ?></a></td>
+  <td class="center"><input type="checkbox" name="plugins[]" value="<?php echo $plugin; ?>" <?php echo $checked .' '. $disabled; ?> /></td>
 </tr>
 <?php } ?> 
 <tr class="fieldtopic center">

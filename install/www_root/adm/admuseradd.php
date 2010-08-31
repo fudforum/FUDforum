@@ -37,7 +37,7 @@ function validate_input()
 }
 
 	if (isset($_POST['usr_add']) && !($error = validate_input())) {
-		$default_theme = q_singleval('SELECT id FROM '.$DBHOST_TBL_PREFIX.'themes WHERE theme_opt>=2 AND (theme_opt & 2) > 0 LIMIT 1');
+		$default_theme = q_singleval('SELECT id FROM '. $DBHOST_TBL_PREFIX .'themes WHERE theme_opt>=2 AND '. q_bitand('theme_opt', 2) .' > 0 LIMIT 1');
 		if (strlen($_POST['login']) > $MAX_LOGIN_SHOW) {
 			$alias = substr($_POST['login'], 0, $MAX_LOGIN_SHOW);
 		} else {
@@ -59,23 +59,23 @@ function validate_input()
 		$al = $alias;
 		$salt   = substr(md5(uniqid(mt_rand(), true)), 0, 9);
 		$passwd = sha1($salt . sha1($_POST['passwd']));
-		while (($user_added = db_li('INSERT INTO '.$DBHOST_TBL_PREFIX.'users
+		while (($user_added = db_li('INSERT INTO '. $DBHOST_TBL_PREFIX .'users
 			(login, alias, passwd, salt, name, email, time_zone, join_date, theme, users_opt, last_read) VALUES (
-			'._esc($_POST['login']).', \''.$al.'\', \''.$passwd.'\', \''.$salt.'\',
-			'._esc($_POST['name']).', '._esc($_POST['email']).', \''.$SERVER_TZ.'\',
-			'.__request_timestamp__.', '.$default_theme.', '.$users_opt.', '.__request_timestamp__.')',
+			'. _esc($_POST['login']) .', \''. $al .'\', \''. $passwd .'\', \''. $salt .'\',
+			'. _esc($_POST['name']) .', '. _esc($_POST['email']) .', \''. $SERVER_TZ .'\',
+			'. __request_timestamp__ .', '. $default_theme .', '. $users_opt .', '. __request_timestamp__ .')',
 			$ef, 1)) === null) 
 		{
-			if (q_singleval('SELECT id FROM '.$DBHOST_TBL_PREFIX.'users WHERE login='._esc($_POST['login']))) {
+			if (q_singleval('SELECT id FROM '. $DBHOST_TBL_PREFIX .'users WHERE login='. _esc($_POST['login']))) {
 				$error = 1;
-				$err_login = errorify('Login ('.htmlspecialchars($_POST['login']).') is already in use.');
+				$err_login = errorify('Login ('. htmlspecialchars($_POST['login']) .') is already in use.');
 				break;
-			} else if (q_singleval('SELECT id FROM '.$DBHOST_TBL_PREFIX.'users WHERE email='._esc($_POST['email']))) {
+			} else if (q_singleval('SELECT id FROM '. $DBHOST_TBL_PREFIX .'users WHERE email='. _esc($_POST['email']))) {
 				$error = 1;
-				$err_email = errorify('E-mail ('.htmlspecialchars($_POST['email']).') is already in use.');
+				$err_email = errorify('E-mail ('. htmlspecialchars($_POST['email']) .') is already in use.');
 				break;
 			} else if ($ef == 4) {
-				$al = $alias . '_' . ++$i;
+				$al = $alias .'_'. ++$i;
 			} else {
 				$error = 1;
 			}

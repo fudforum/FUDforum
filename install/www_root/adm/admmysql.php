@@ -34,14 +34,14 @@
 			}
 			
 			if ($_POST['charset'] == 'utf8' && $charset != 'utf8') {
-				q('ALTER IGNORE TABLE '.$v.' CONVERT TO CHARACTER SET utf8 COLLATE utf8_unicode_ci');
+				q('ALTER IGNORE TABLE '. $v .' CONVERT TO CHARACTER SET utf8 COLLATE utf8_unicode_ci');
 			} else if ($_POST['charset'] == 'utf8' && $charset == 'utf8' && $collate != 'utf8_unicode_ci' ) {
-				q('ALTER IGNORE TABLE '.$v.' DEFAULT COLLATE utf8_unicode_ci');
+				q('ALTER IGNORE TABLE '. $v .' DEFAULT COLLATE utf8_unicode_ci');
 			} else if (!strcasecmp($charset, $_POST['charset'])) {
-				echo "Table " . $v . " was already converted<br />\n";
+				echo 'Table '. $v ." was already converted<br />\n";
 				continue;
 			} else {
-				q('ALTER IGNORE TABLE '.$v.' CONVERT TO CHARACTER SET '.$_POST['charset']);
+				q('ALTER IGNORE TABLE '. $v .' CONVERT TO CHARACTER SET '. $_POST['charset']);
 			}
 			echo 'Table '. $v ." was successfully converted.<br />\n";
 		}

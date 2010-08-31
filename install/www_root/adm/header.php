@@ -7,12 +7,12 @@
 		$usr->theme_name = 'default';
 	}
 
-	if (file_exists($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset')) {
-		$charset = trim(file_get_contents($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset'));
-	} else if (file_exists($DATA_DIR.'thm/default/i18n/'.$usr->lang.'/charset')) {
-		$charset = trim(file_get_contents($DATA_DIR.'thm/default/i18n/'.$usr->lang.'/charset'));
+	if (file_exists($DATA_DIR.'thm/'.$usr->theme_name .'/i18n/'. $usr->lang .'/charset')) {
+		$charset = trim(file_get_contents($DATA_DIR .'thm/'. $usr->theme_name .'/i18n/'. $usr->lang .'/charset'));
+	} else if (file_exists($DATA_DIR .'thm/default/i18n/'. $usr->lang .'/charset')) {
+		$charset = trim(file_get_contents($DATA_DIR .'thm/default/i18n/'. $usr->lang .'/charset'));
 	} else {
-		$charset = trim(file_get_contents($DATA_DIR.'thm/default/i18n/en/charset'));
+		$charset = trim(file_get_contents($DATA_DIR .'thm/default/i18n/en/charset'));
 	}
 
 	if (defined('shell_script') ) return;	// Command line execution.
@@ -20,7 +20,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<?php echo '<title>'. $FORUM_TITLE .': '.'Admin Control Panel</title>' ?>
+<?php echo '<title>'. $FORUM_TITLE .': Admin Control Panel</title>' ?>
 <link rel="styleSheet" href="style/adm.css" type="text/css" />
 <script type="text/javascript" src="../js/jquery.js"></script>
 <script type="text/javascript" src="../js/lib.js"></script>
@@ -38,7 +38,7 @@ if (defined('popup') ) {	/* Special header for popup pages. */
 ?>
 <body>
 <table class="headtable"><tr>
-  <td><a href="index.php<?php if (defined('__adm_rsid')) echo '?'.__adm_rsid; ?>" title="Return to the Admin Control Panel Dashboard"><img src="../images/fudlogo.gif" alt="" style="float:left;" border="0" /></a>
+  <td><a href="index.php<?php if (defined('__adm_rsid')) echo '?'. __adm_rsid; ?>" title="Return to the Admin Control Panel Dashboard"><img src="../images/fudlogo.gif" alt="" style="float:left;" border="0" /></a>
   </td>
   <td><span class="linkhead">Admin Control Panel</span></td>
   <td align="right"><?php if (defined('__fud_index_name__')) { ?>

@@ -66,7 +66,7 @@ function get_sql_disk_usage()
 
 	if ($forum_start) {
 		list($s_year,$s_month,$s_day) = explode(' ', date('Y n j', $forum_start));
-		list($e_year,$e_month,$e_day) = explode(' ', date('Y n j', q_singleval('SELECT MAX(post_stamp) FROM '.$tbl.'msg')));
+		list($e_year,$e_month,$e_day) = explode(' ', date('Y n j', q_singleval('SELECT MAX(post_stamp) FROM '. $tbl .'msg')));
 	} else {
 		$dt = getdate(__request_timestamp__);
 		$s_year = $e_year = $dt['year'];
@@ -114,7 +114,7 @@ function get_sql_disk_usage()
 		$lmt = array();
 		if (!empty($_POST['lmt'])) {
 			if ($_POST['lmt']{0} == 'c') {
-				$lmt = db_all('SELECT id FROM '.$tbl.'forum WHERE cat_id='.(int)substr($_POST['lmt'],1));
+				$lmt = db_all('SELECT id FROM '. $tbl .'forum WHERE cat_id='. (int)substr($_POST['lmt'],1));
 			} else if ((int)$_POST['lmt'] > 0) {
 				$lmt = array((int)$_POST['lmt']);
 			}
@@ -210,7 +210,7 @@ function get_sql_disk_usage()
 		$forum_stats['FORUMS'] = q_singleval('SELECT count(*) FROM '. $tbl .'forum');
 		$forum_stats['CATEGORIES'] = q_singleval('SELECT count(*) FROM '. $tbl .'cat');
 		$forum_stats['MEMBERS'] = q_singleval('SELECT count(*) FROM '. $tbl .'users');
-		$forum_stats['ADMINS'] = q_singleval('SELECT count(*) FROM '. $tbl .'users WHERE users_opt>=1048576 AND (users_opt & 1048576) > 0');
+		$forum_stats['ADMINS'] = q_singleval('SELECT count(*) FROM '. $tbl .'users WHERE users_opt>=1048576 AND '. q_bitand('users_opt', 1048576) .' > 0');
 		$forum_stats['MODERATORS'] = q_singleval('SELECT count(DISTINCT(user_id)) FROM '. $tbl .'mod');
 		$forum_stats['GROUPS'] = q_singleval('SELECT count(*) FROM '. $tbl .'groups');
 		$forum_stats['GROUP_MEMBERS'] = q_singleval('SELECT count(*) FROM '. $tbl .'group_members');

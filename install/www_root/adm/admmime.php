@@ -16,27 +16,27 @@
 	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
 
 	if (isset($_GET['del'])) {
-		q('DELETE FROM '.$tbl.'mime WHERE id='.(int)$_GET['del']);
+		q('DELETE FROM '. $tbl .'mime WHERE id='. (int)$_GET['del']);
 	}
 
 	if (isset($_GET['edit'])) {
-		list($mime_descr, $mime_mime_hdr, $mime_fl_ext, $mime_icon) = db_saq('SELECT descr, mime_hdr, fl_ext, icon FROM '.$tbl.'mime WHERE id='.(int)$_GET['edit']);
+		list($mime_descr, $mime_mime_hdr, $mime_fl_ext, $mime_icon) = db_saq('SELECT descr, mime_hdr, fl_ext, icon FROM '. $tbl .'mime WHERE id='. (int)$_GET['edit']);
 		$edit = (int)$_GET['edit'];
 	} else {
 		$mime_icon = $edit = $mime_descr = $mime_mime_hdr = $mime_fl_ext = '';
 	}
 
 	if (isset($_FILES['icoul']) && $_FILES['icoul']['size'] && preg_match('!\.(jpg|jpeg|gif|png)$!i', $_FILES['icoul']['name'])) {
-		move_uploaded_file($_FILES['icoul']['tmp_name'], $GLOBALS['WWW_ROOT_DISK'] . 'images/mime/' . $_FILES['icoul']['name']);
+		move_uploaded_file($_FILES['icoul']['tmp_name'], $GLOBALS['WWW_ROOT_DISK'] .'images/mime/'. $_FILES['icoul']['name']);
 		if (empty($_POST['mime_icon'])) {
 			$_POST['mime_icon'] = $_FILES['icoul']['name'];
 		}
 	}
 
 	if (isset($_POST['btn_update'], $_POST['edit'])) {
-		q('UPDATE '.$tbl.'mime SET descr='._esc($_POST['mime_descr']).', mime_hdr='._esc($_POST['mime_mime_hdr']).', fl_ext='._esc($_POST['mime_fl_ext']).', icon='._esc($_POST['mime_icon']).' WHERE id='.(int)$_POST['edit']);
+		q('UPDATE '. $tbl .'mime SET descr='. _esc($_POST['mime_descr']) .', mime_hdr='. _esc($_POST['mime_mime_hdr']) .', fl_ext='. _esc($_POST['mime_fl_ext']).', icon='._esc($_POST['mime_icon']).' WHERE id='. (int)$_POST['edit']);
 	} else if (isset($_POST['btn_submit'])) {
-		q('INSERT INTO '.$tbl.'mime (descr, mime_hdr, fl_ext, icon) VALUES ('._esc($_POST['mime_descr']).', '._esc($_POST['mime_mime_hdr']).', '._esc($_POST['mime_fl_ext']).', '._esc($_POST['mime_icon']).')');
+		q('INSERT INTO '. $tbl .'mime (descr, mime_hdr, fl_ext, icon) VALUES ('. _esc($_POST['mime_descr']) .', '. _esc($_POST['mime_mime_hdr']) .', '. _esc($_POST['mime_fl_ext']) .', '. _esc($_POST['mime_icon']) .')');
 	}
 
 	require($WWW_ROOT_DISK .'adm/header.php');
@@ -47,7 +47,7 @@
 <form action="admmime.php" id="frm_mime" method="post" enctype="multipart/form-data">
 <?php echo _hs; ?>
 <table class="datatable solidtable">
-<?php if (@is_writeable($GLOBALS['WWW_ROOT_DISK'] . 'images/mime/')) { ?>
+<?php if (@is_writeable($GLOBALS['WWW_ROOT_DISK'] .'images/mime/')) { ?>
 <tr class="fieldtopic">
 	<td colspan="2"><b>Upload mime icons into the system:</b></td>
 </tr>
@@ -93,7 +93,7 @@
 	<td valign="top">Preview Image:</td>
 	<td>
 		<table border="1" cellspacing="1" cellpadding="2" bgcolor="#ffffff">
-		<tr><td align="center" valign="middle"><img src="<?php echo ($mime_icon ? $GLOBALS['WWW_ROOT'] . 'images/mime/' . $mime_icon : '../blank.gif'); ?>" name="prev_icon" border="0" alt="Preview" /></td></tr>
+		<tr><td align="center" valign="middle"><img src="<?php echo ($mime_icon ? $GLOBALS['WWW_ROOT'] .'images/mime/'. $mime_icon : '../blank.gif'); ?>" name="prev_icon" border="0" alt="Preview" /></td></tr>
 		</table>
 	</td>
 </tr>
@@ -123,12 +123,12 @@
 	<th align="center">Action</th>
 </tr></thead>
 <?php
-	$c = uq('SELECT id, icon, mime_hdr, fl_ext, descr FROM '.$tbl.'mime');
+	$c = uq('SELECT id, icon, mime_hdr, fl_ext, descr FROM '. $tbl .'mime');
 	$i = 1;
 	while ($r = db_rowarr($c)) {
 		$i++;
 		$bgcolor = ($edit == $r[0]) ? ' class="resultrow3"' : (($i%2) ? ' class="resultrow1"' : ' class="resultrow2"');
-		echo '<tr'.$bgcolor.' valign="top"><td><img src="'.$GLOBALS['WWW_ROOT'].'images/mime/'.$r[1].'" border="0" alt="'.$r[4].'" /></td><td>'.$r[2].'</td><td>'.$r[4].'</td><td>'.$r[3].'</td><td nowrap="nowrap">[<a href="admmime.php?edit='.$r[0].'&amp;'.__adm_rsid.'#edit">Edit</a>] [<a href="admmime.php?del='.$r[0].'&amp;'.__adm_rsid.'">Delete</a>]</td></tr>';
+		echo '<tr'. $bgcolor .' valign="top"><td><img src="'. $GLOBALS['WWW_ROOT'] .'images/mime/'. $r[1] .'" border="0" alt="'. $r[4] .'" /></td><td>'. $r[2] .'</td><td>'. $r[4] .'</td><td>'. $r[3] .'</td><td nowrap="nowrap">[<a href="admmime.php?edit='. $r[0] .'&amp;'. __adm_rsid .'#edit">Edit</a>] [<a href="admmime.php?del='. $r[0] .'&amp;'. __adm_rsid .'">Delete</a>]</td></tr>';
 	}
 	unset($c);
 	if (!$i) {

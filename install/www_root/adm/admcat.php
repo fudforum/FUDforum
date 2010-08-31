@@ -44,7 +44,7 @@
 		}
 		rebuild_forum_cat_order();
 	}
-	if ($edit && ($c = db_arr_assoc('SELECT parent, name, description, cat_opt FROM '.$tbl.'cat WHERE id='.$edit))) {
+	if ($edit && ($c = db_arr_assoc('SELECT parent, name, description, cat_opt FROM '. $tbl .'cat WHERE id='. $edit))) {
 		foreach ($c as $k => $v) {
 			${'cat_'.$k} = $v;
 		}
@@ -63,23 +63,23 @@
 
 	if (isset($_GET['del'])) {
 		$del = (int)$_GET['del'];
-		db_lock($tbl.'cat WRITE, '.$tbl.'cat c WRITE, '.$tbl.'forum WRITE, '.$tbl.'forum f WRITE, '.$tbl.'fc_view WRITE');
-		q('DELETE FROM '.$tbl.'cat WHERE id='.$del);
+		db_lock($tbl.'cat WRITE, '. $tbl .'cat c WRITE, '. $tbl .'forum WRITE, '. $tbl .'forum f WRITE, '. $tbl .'fc_view WRITE');
+		q('DELETE FROM '. $tbl .'cat WHERE id='. $del);
 		if (db_affected()) {
-			require $GLOBALS['FORUM_SETTINGS_PATH'] . 'cat_cache.inc';
+			require $GLOBALS['FORUM_SETTINGS_PATH'] .'cat_cache.inc';
 			$dell = array();
 			if (!empty($cat_cache[$del][2])) {
 				/* Remove all child categories if available. */
 				$dell = $cat_cache[$del][2];
-				q("DELETE FROM ".$tbl."cat WHERE id IN(".implode(',',  $cat_cache[$del][2]).")");
+				q('DELETE FROM '. $tbl .'cat WHERE id IN('. implode(',',  $cat_cache[$del][2]) .')');
 			}
 			$dell[] = $del;
-			q('UPDATE '.$tbl.'forum SET cat_id=0 WHERE cat_id IN('.implode(',', $dell). ')');
+			q('UPDATE '. $tbl .'forum SET cat_id=0 WHERE cat_id IN('. implode(',', $dell) .')');
 			cat_rebuild_order();
 			rebuild_forum_cat_order();
 		}
 		db_unlock();
-		echo successify('Category was deleted. Forums assigned to this category were moved to the <b><a href="admdelfrm.php?'.__adm_rsid.'">recycle bin</a></b>.');
+		echo successify('Category was deleted. Forums assigned to this category were moved to the <b><a href="admdelfrm.php?'. __adm_rsid .'">recycle bin</a></b>.');
 	}
 	if (isset($_GET['chpos'], $_GET['newpos'], $_GET['par'])) {
 		cat_change_pos((int)$_GET['chpos'], (int)$_GET['newpos'], (int)$_GET['par']);
@@ -89,7 +89,7 @@
 	}
 
 	$ol = $cat_list = array();
-	$c = uq('SELECT * FROM '.$tbl.'cat ORDER BY parent, view_order');
+	$c = uq('SELECT * FROM '. $tbl .'cat ORDER BY parent, view_order');
 	while ($r = db_rowobj($c)) {
 		if (!isset($ol[$r->parent])) {
 			$ol[$r->parent] = array();
@@ -229,7 +229,7 @@ function imposeMaxLength(Object, len)
 	<th>Position</th>
 </tr></thead>
 <?php
-	$cpid = empty($_GET['chpos']) ? -1 : (int) q_singleval('SELECT parent FROM '.$tbl.'cat WHERE id='.(int)$_GET['cpid']);
+	$cpid = empty($_GET['chpos']) ? -1 : (int) q_singleval('SELECT parent FROM '. $tbl .'cat WHERE id='. (int)$_GET['cpid']);
 	$lp = '';
 
 	$stat = array(0 => 'Collapsed', 2 => 'Open', 4 => 'Compact');
@@ -242,7 +242,7 @@ function imposeMaxLength(Object, len)
 			if ($_GET['chpos'] == $r->view_order) {
 				$bgcolor = ' class="resultrow2"';
 			} else if ($_GET['chpos'] != ($r->view_order - 1)) {
-				echo '<tr class="field"><td align="center" colspan="7"><font size="-1"><a href="admcat.php?chpos='.$_GET['chpos'].'&amp;newpos='.($r->view_order - ($_GET['chpos'] < $r->view_order ? 1 : 0)).'&amp;par='.$r->parent.'&amp;'.__adm_rsid.'">Place Here</a></font></td></tr>';
+				echo '<tr class="field"><td align="center" colspan="7"><font size="-1"><a href="admcat.php?chpos='. $_GET['chpos'] .'&amp;newpos='. ($r->view_order - ($_GET['chpos'] < $r->view_order ? 1 : 0)) .'&amp;par='. $r->parent .'&amp;'. __adm_rsid .'">Place Here</a></font></td></tr>';
 			}
 			$lp = $r->view_order;
 		} else if ($cpid > -1) {
@@ -255,16 +255,16 @@ function imposeMaxLength(Object, len)
 			$r->description = substr($r->description, 3);
 		}
 
-		echo '<tr'.$bgcolor.'>
-			<td>'.str_repeat('-', $r->lvl) .' '. $r->name .'</td>
-			<td>'.htmlspecialchars(substr($r->description, 0, 30)).'...</td>
-			<td>'.($r->cat_opt & 1 ? 'Yes' : 'No').'</td>
-			<td>'.$stat[($r->cat_opt & (2|4))].'</td>
-			<td nowrap="nowrap">[<a href="admforum.php?cat_id='.$r->id.'&amp;'.__adm_rsid.'">Edit Forums</a>] [<a href="admcat.php?edit='.$r->id.'&amp;'.__adm_rsid.'#edit">Edit Category</a>] [<a href="admcat.php?del='.$r->id.'&amp;'.__adm_rsid.'">Delete</a>]</td>
-			<td>[<a href="admcat.php?chpos='.$r->view_order.'&amp;cpid='.$r->id.'&amp;'.__adm_rsid.'">Change</a>]</td></tr>';
+		echo '<tr'. $bgcolor .'>
+			<td>'. str_repeat('-', $r->lvl) .' '. $r->name .'</td>
+			<td>'. htmlspecialchars(substr($r->description, 0, 30)) .'...</td>
+			<td>'. ($r->cat_opt & 1 ? 'Yes' : 'No') .'</td>
+			<td>'. $stat[($r->cat_opt & (2|4))] .'</td>
+			<td nowrap="nowrap">[<a href="admforum.php?cat_id='. $r->id .'&amp;'. __adm_rsid .'">Edit Forums</a>] [<a href="admcat.php?edit='. $r->id .'&amp;'. __adm_rsid .'#edit">Edit Category</a>] [<a href="admcat.php?del='. $r->id .'&amp;'. __adm_rsid .'">Delete</a>]</td>
+			<td>[<a href="admcat.php?chpos='. $r->view_order .'&amp;cpid='. $r->id .'&amp;'. __adm_rsid .'">Change</a>]</td></tr>';
 	}
 	if ($lp && $parent == $cpid) {
-		echo '<tr class="field"><td align="center" colspan="6"><font size="-1"><a href="admcat.php?chpos='.$_GET['chpos'].'&amp;newpos='.($lp + 1).'&amp;par='.$parent.'&amp;'.__adm_rsid.'">Place Here</a></font></td></tr>';
+		echo '<tr class="field"><td align="center" colspan="6"><font size="-1"><a href="admcat.php?chpos='. $_GET['chpos'] .'&amp;newpos='. ($lp + 1) .'&amp;par='. $parent .'&amp;'. __adm_rsid .'">Place Here</a></font></td></tr>';
 	}
 	if (!$i) {
 		echo '<tr class="field"><td colspan="6"><center>No categories found. Define some above.</center></td></tr>';

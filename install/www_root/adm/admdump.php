@@ -67,9 +67,9 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir, $p=0)
 			}
 			$ln = filesize($f);
 			if ($ln < $BUF_SIZE) {
-				$write_func($fp, '||' . $dpath . $name . '||' . $ln . "||\n" . file_get_contents($f) . "\n");
+				$write_func($fp, '||'. $dpath . $name .'||'. $ln ."||\n". file_get_contents($f) ."\n");
 			} else {
-				$write_func($fp, '||' . $dpath . $name . '||' . $ln . "||\n");
+				$write_func($fp, '||'. $dpath . $name .'||'. $ln ."||\n");
 				$fp2 = fopen($f, 'rb');
 				while (($buf = fread($fp2, $BUF_SIZE))) {
 					$write_func($fp, $buf);
@@ -110,7 +110,8 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir, $p=0)
 		exit('Authorization Required.');
 	}
 	if (isset($_SERVER['PHP_AUTH_USER'], $_SERVER['PHP_AUTH_PW'])) {
-		if (!q_singleval('SELECT id FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'users WHERE login='._esc($_SERVER['PHP_AUTH_USER']).' AND passwd=\''.md5($_SERVER['PHP_AUTH_PW']).'\' AND users_opt>=1048576 AND (users_opt & 1048576) > 0')) {
+		$r = db_sab('SELECT id, passwd, salt FROM '. $DBHOST_TBL_PREFIX .'users WHERE login='. _esc($_SERVER['PHP_AUTH_USER']) .' AND users_opt>=1048576 AND '. q_bitand('users_opt', 1048576) .' > 0');
+		if (! ($r && (empty($r->salt) && $r->passwd == md5($_SERVER['PHP_AUTH_PW']) || $r->passwd == sha1($r->salt . sha1($_SERVER['PHP_AUTH_PW']))))) {
 			header('WWW-Authenticate: Basic realm="Private"');
 			header('HTTP/1.0 401 Unauthorized');
 			exit('Authorization Required.');
@@ -151,8 +152,8 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir, $p=0)
 		$write_func($fp, "\n----SQL_START----\n");
 
 		/* Read sql table defenitions. */
-		if (!($files = glob($DATA_DIR . 'sql/*.tbl', GLOB_NOSORT))) {
-			exit('Failed to open SQL directory "'.$DATA_DIR.'sql/"');
+		if (!($files = glob($DATA_DIR .'sql/*.tbl', GLOB_NOSORT))) {
+			exit('Failed to open SQL directory "'. $DATA_DIR .'sql/"');
 		}
 		$sql_col_list = array();
 		foreach ($files as $f) {
@@ -166,7 +167,7 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir, $p=0)
 					$col_list = '';
 					foreach($cols as $col) {
 						$col = preg_replace('/^(.*?) .*$/', '\1', trim($col));
-						$col_list .= empty($col_list) ? $col : ','.$col;
+						$col_list .= empty($col_list) ? $col : ','. $col;
 					}					
 					$sql_col_list[preg_quote($DBHOST_TBL_PREFIX).$matches[1]] = $col_list;
 				}
@@ -174,7 +175,7 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir, $p=0)
 
 			/* Write table definition to backup file. */
 			$sql_data = str_replace(';', "\n", $sql_data);
-			$write_func($fp, $sql_data . "\n");
+			$write_func($fp, $sql_data ."\n");
 		}
 		unset($files);
 
@@ -183,28 +184,28 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir, $p=0)
 
 		foreach($sql_table_list as $tbl_name) {
 			/* Skip tables that will be rebuilt by consistency checker. */
-			if (!strncmp($tbl_name, $DBHOST_TBL_PREFIX.'tv_', strlen($DBHOST_TBL_PREFIX.'tv_')) || 
-				$tbl_name == $DBHOST_TBL_PREFIX . 'ses' ||
-				!strncmp($tbl_name, $DBHOST_TBL_PREFIX.'fl_', strlen($DBHOST_TBL_PREFIX.'fl_'))
+			if (!strncmp($tbl_name, $DBHOST_TBL_PREFIX.'tv_', strlen($DBHOST_TBL_PREFIX .'tv_')) || 
+				$tbl_name == $DBHOST_TBL_PREFIX .'ses' ||
+				!strncmp($tbl_name, $DBHOST_TBL_PREFIX.'fl_', strlen($DBHOST_TBL_PREFIX .'fl_'))
 			) {
 				continue;
 			}
 			if (isset($_POST['skipsearch']) && $_POST['skipsearch'] == 'y' && (
-				$tbl_name == $DBHOST_TBL_PREFIX.'index' || 
-				$tbl_name == $DBHOST_TBL_PREFIX.'title_index' || 
-				$tbl_name == $DBHOST_TBL_PREFIX.'search' || 
-				$tbl_name == $DBHOST_TBL_PREFIX.'search_cache')
+				$tbl_name == $DBHOST_TBL_PREFIX .'index' || 
+				$tbl_name == $DBHOST_TBL_PREFIX .'title_index' || 
+				$tbl_name == $DBHOST_TBL_PREFIX .'search' || 
+				$tbl_name == $DBHOST_TBL_PREFIX .'search_cache')
 			) {
-				pf('Skipping table: '.$tbl_name);
+				pf('Skipping table: ' .$tbl_name);
 				continue;
 			}
 
-			$num_entries = q_singleval('SELECT count(*) FROM '.$tbl_name);
+			$num_entries = q_singleval('SELECT count(*) FROM '. $tbl_name);
 
-			pf('Processing table: '.$tbl_name.' ('.$num_entries.' rows)');
+			pf('Processing table: '.$tbl_name.' ('. $num_entries .' rows)');
 			if ($num_entries) {
-				$db_name = preg_replace('!^'.preg_quote($DBHOST_TBL_PREFIX).'!', '', $tbl_name);
-				$write_func($fp, "\0\0\0\0".$db_name."\n");
+				$db_name = preg_replace('!^'. preg_quote($DBHOST_TBL_PREFIX) .'!', '', $tbl_name);
+				$write_func($fp, "\0\0\0\0". $db_name ."\n");
 				
 				/* Fetch table data from database. */
 				$c = uq('SELECT '. $sql_col_list[$tbl_name] .' FROM '.$tbl_name);
@@ -242,7 +243,7 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir, $p=0)
 			}
 			$vars[$k] = $$k;
 		}
-		$write_func($fp, "\n\$global_vals = ".var_export($vars, 1).";\n");
+		$write_func($fp, "\n\$global_vals = ". var_export($vars, 1) .";\n");
 
 		if (isset($_POST['compress'])) {
 			gzclose($fp);
@@ -256,11 +257,11 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir, $p=0)
 		if (defined('__adm_rsid')) {
 			pf('<div align="right">[ <a href="admbrowse.php?down=1&amp;cur='. urlencode(dirname($datadump)) .'&amp;dest='. urlencode(basename($datadump)) .'&amp;'. __adm_rsid .'">Download</a> ] [ <a href="admbrowse.php?cur='. urlencode(dirname($datadump)) .'&amp;'. __adm_rsid .'">Open Directory</a> ]</div>');
 		}
-		pf('<div class="tutor">The backup process is complete! The dump file can be found at: <b>'.$datadump.'</b>. It is occupying '.filesize($_POST['path']).' bytes.</div>');
+		pf('<div class="tutor">The backup process is complete! The dump file can be found at: <b>'. $datadump .'</b>. It is occupying '. filesize($_POST['path']) .' bytes.</div>');
 	} else {
 		$gz = extension_loaded('zlib');
 		if (!isset($path_error)) {
-			$path = $TMP.'FUDforum_'.strftime('%d_%m_%Y_%I_%M', __request_timestamp__).'.fud';
+			$path = $TMP.'FUDforum_'. strftime('%d_%m_%Y_%I_%M', __request_timestamp__) .'.fud';
 			if ($gz) {
 				$path .= '.gz';
 				$compress = ' checked="checked"';

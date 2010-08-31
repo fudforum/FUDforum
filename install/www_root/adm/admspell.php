@@ -19,7 +19,7 @@
 		$wl = explode("\n", trim($_POST['words']));
 		if (count($wl)) {
 			$pspell_config = pspell_config_create($usr->pspell_lang);
-			pspell_config_personal($pspell_config, $FORUM_SETTINGS_PATH."forum.pws");
+			pspell_config_personal($pspell_config, $FORUM_SETTINGS_PATH .'forum.pws');
 			$pspell_link = pspell_new_config($pspell_config);
 
 			foreach ($wl as $w) {
@@ -39,13 +39,13 @@
 <h2>Custom Dictionary Spell Checker</h2>
 <?php
 	if (!($FUD_OPT_1 & 2097152)) {	// SPELL_CHECK_ENABLED
-		echo '<div class="alert">This control panel is currently disabled. Please enable the forum\'s spell checker in the <a href="admglobal.php?'.__adm_rsid.'#14">Global Settings Manager</a>.</div><br />';
+		echo '<div class="alert">This control panel is currently disabled. Please enable the forum\'s spell checker in the <a href="admglobal.php?' .__adm_rsid .'#14">Global Settings Manager</a>.</div><br />';
 		$disabled = 'disabled="disabled"';
 	} else {
 		$disabled = '';
 	}
 ?>
-<b>Custom Dictionary Location:<br /></b><?php echo $FORUM_SETTINGS_PATH."forum.pws"; ?><br />
+<b>Custom Dictionary Location:<br /></b><?php echo $FORUM_SETTINGS_PATH .'forum.pws'; ?><br />
 <form method="post" id="spell" action="admspell.php">
 <?php
 	echo _hs;

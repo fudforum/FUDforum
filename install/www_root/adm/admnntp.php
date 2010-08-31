@@ -36,26 +36,23 @@
 	} else if (isset($_GET['del'])) {
 		nntp_del((int)$_GET['del']);
 		echo successify('Newsgroup rule successfully deleted.');
-	} else if (isset($_GET['trk']) && ($nn = db_sab('SELECT * FROM '.$tbl.'nntp WHERE id='.(int)$_GET['trk']))) {
-		@unlink($ERROR_PATH.'.nntp/'.$nn->server.'-'.$nn->newsgroup.'.lock');
-		@unlink($ERROR_PATH.'.nntp/'.$nn->server.'-'.$nn->newsgroup);
+	} else if (isset($_GET['trk']) && ($nn = db_sab('SELECT * FROM '. $tbl .'nntp WHERE id='. (int)$_GET['trk']))) {
+		@unlink($ERROR_PATH .'.nntp/'. $nn->server.'-'. $nn->newsgroup .'.lock');
+		@unlink($ERROR_PATH .'.nntp/'. $nn->server.'-'. $nn->newsgroup);
 		nntp_reset((int)$_GET['trk']);
 		echo successify('Newsgroup tracker was successfully cleard. The next load will start with the first message in the group.');
 	}
 
-	if (isset($_GET['edit']) && $edit && ($o = db_sab('SELECT * FROM '.$tbl.'nntp WHERE id='.$edit))) {
+	if (isset($_GET['edit']) && $edit && ($o = db_sab('SELECT * FROM '. $tbl .'nntp WHERE id='. $edit))) {
 		foreach ($o as $k => $v) {
-			${'nntp_' . $k} = $v;
+			${'nntp_'. $k} = $v;
 		}
 	} else { /* Set the some default values. */
 		foreach (get_class_vars('fud_nntp_adm') as $k => $v) {
-			${'nntp_' . $k} = $v;
+			${'nntp_'. $k} = $v;
 		}
 	}
 
-	// if ($FUD_OPT_2 & 8388608 && strncasecmp('win', PHP_OS, 3)) {	// Forum is locked and not windows
-	//	echo '<div class="alert">You may need to <a href="admlock.php?'.__adm_rsid.'">unlock</a> the forum\'s files before you can run the newsgroup importing script(s).</div>';
-	// }
 ?>
 <h2>Newsgroup Manager</h2>
 
@@ -115,14 +112,14 @@
 		<td><select name="nntp_forum_id"><option></option>
 		<?php
 			$c = uq('SELECT f.id, f.name, c.name
-				FROM '.$tbl.'forum f
-				INNER JOIN '.$tbl.'cat c ON f.cat_id=c.id
-				LEFT JOIN '.$tbl.'nntp n ON f.id=n.forum_id
-				LEFT JOIN '.$tbl.'mlist ml ON f.id=ml.forum_id
-				WHERE ml.id IS NULL AND (n.id IS NULL OR n.id='.(int)$edit.')
+				FROM '. $tbl .'forum f
+				INNER JOIN '. $tbl .'cat c ON f.cat_id=c.id
+				LEFT JOIN '. $tbl .'nntp n ON f.id=n.forum_id
+				LEFT JOIN '. $tbl .'mlist ml ON f.id=ml.forum_id
+				WHERE ml.id IS NULL AND (n.id IS NULL OR n.id='. (int)$edit.')
 				ORDER BY c.parent, c.view_order, f.view_order');
 			while ($r = db_rowarr($c)) {
-				echo '<option value="'.$r[0].'"'.($r[0] != $nntp_forum_id ? '' : ' selected="selected"').'>'.$r[2].' &raquo; '.$r[1].'</option>';
+				echo '<option value="'. $r[0] .'"'.($r[0] != $nntp_forum_id ? '' : ' selected="selected"') .'>'. $r[2] .' &raquo; '. $r[1] .'</option>';
 			}
 			unset($c);
 		?>
@@ -237,17 +234,17 @@
 	<th align="center">Action</th>
 </tr></thead>
 <?php
-	$c = uq('SELECT n.id, n.newsgroup, n.tracker, f.name FROM '.$tbl.'nntp n INNER JOIN '.$tbl.'forum f ON n.forum_id=f.id');
+	$c = uq('SELECT n.id, n.newsgroup, n.tracker, f.name FROM '. $tbl .'nntp n INNER JOIN '. $tbl .'forum f ON n.forum_id=f.id');
 	$i = 0;
 	while ($r = db_rowarr($c)) {
 		$i++;
 		$bgcolor = ($edit == $r[0]) ? ' class="resultrow3"' : (($i%2) ? ' class="resultrow1"' : ' class="resultrow2"');
 
-		echo '<tr'.$bgcolor.'><td>'.htmlspecialchars($r[1]).'</td><td>'.$r[3].'</td>
-			<td nowrap="nowrap">nntp.php '.$r[0].'</td>
-			<td nowrap="nowrap">'.$r[2].'</td>
-			<td>[<a href="admnntp.php?edit='.$r[0].'&amp;'.__adm_rsid.'#edit">Edit</a>] [<a href="admnntp.php?del='.$r[0].'&amp;'.__adm_rsid.'">Delete</a>]
-			[<a href="admnntp.php?trk='.$r[0].'&amp;'.__adm_rsid.'">Clear Tracker</a>]</td></tr>';
+		echo '<tr'. $bgcolor .'><td>'. htmlspecialchars($r[1]) .'</td><td>'. $r[3] .'</td>
+			<td nowrap="nowrap">nntp.php '. $r[0] .'</td>
+			<td nowrap="nowrap">'. $r[2] .'</td>
+			<td>[<a href="admnntp.php?edit='. $r[0] .'&amp;'. __adm_rsid .'#edit">Edit</a>] [<a href="admnntp.php?del='. $r[0] .'&amp;'. __adm_rsid .'">Delete</a>]
+			[<a href="admnntp.php?trk='. $r[0] .'&amp;'. __adm_rsid .'">Clear Tracker</a>]</td></tr>';
 	}
 	unset($c);
 	if (!$i) {
@@ -262,6 +259,6 @@ It is recommended you run the script on a small interval, we recommend a 2-3 min
 Windows users can use <a href="http://en.wikipedia.org/wiki/Schtasks" target="_new">schtasks.exe</a>.
 Here is a Linux <a href="http://en.wikipedia.org/wiki/Cron" target="_new">cron</a> example:
 <pre>
-*/2 * * * * <?php echo realpath($GLOBALS['DATA_DIR'].'scripts/nntp.php'); ?> 1
+*/2 * * * * <?php echo realpath($GLOBALS['DATA_DIR'] .'scripts/nntp.php'); ?> 1
 </pre>
 <?php require($WWW_ROOT_DISK .'adm/footer.php'); ?>

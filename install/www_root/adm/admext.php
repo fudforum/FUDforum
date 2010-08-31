@@ -25,13 +25,13 @@
 	}
 
 	if (isset($_POST['edit'], $_POST['btn_update']) && $c_ext) {
-		q('UPDATE '.$tbl.'ext_block SET ext='._esc($c_ext).' WHERE id='.(int)$_POST['edit']);
-		echo successify('File extension (*.'.$c_ext.') was successfully updated.');
+		q('UPDATE '.$tbl.'ext_block SET ext='. _esc($c_ext) .' WHERE id='. (int)$_POST['edit']);
+		echo successify('File extension (*.'. $c_ext .') was successfully updated.');
 	} else if (isset($_POST['btn_submit']) && $c_ext) {
-		q('INSERT INTO '.$tbl.'ext_block (ext) VALUES('._esc($c_ext).')');
-		echo successify('File extension (*.'.$c_ext.') was successfully added.');
+		q('INSERT INTO '.$tbl.'ext_block (ext) VALUES('. _esc($c_ext) .')');
+		echo successify('File extension (*.'. $c_ext .') was successfully added.');
 	} else if (isset($_GET['del'])) {
-		q('DELETE FROM '.$tbl.'ext_block WHERE id='.(int)$_GET['del']);
+		q('DELETE FROM '. $tbl .'ext_block WHERE id='. (int)$_GET['del']);
 		echo successify('File extension was successfully removed.');
 	} else {
 		$nada = 1;
@@ -43,7 +43,7 @@
 	}
 
 	if (isset($_GET['edit'])) {
-		list($edit, $c_ext) = db_saq('SELECT id, ext FROM '.$tbl.'ext_block WHERE id='.(int)$_GET['edit']);
+		list($edit, $c_ext) = db_saq('SELECT id, ext FROM '. $tbl .'ext_block WHERE id='. (int)$_GET['edit']);
 	} else {
 		$edit = $c_ext = '';
 	}
@@ -81,13 +81,13 @@
 	<th>Action</th>
 </tr></thead>
 <?php
-	$c = uq('SELECT id, ext FROM '.$tbl.'ext_block');
+	$c = uq('SELECT id, ext FROM '. $tbl .'ext_block');
 	$i = 0;
 	while ($r = db_rowarr($c)) {
 		$i++;
 		$bgcolor = ($edit == $r[0]) ? ' class="resultrow3"' : (($i%2) ? ' class="resultrow1"' : ' class="resultrow2"');
 
-		echo '<tr'.$bgcolor.'><td>'.htmlspecialchars($r[1]).'</td><td>[<a href="admext.php?edit='.$r[0].'&amp;'.__adm_rsid.'#edit">Edit</a>] [<a href="admext.php?del='.$r[0].'&amp;'.__adm_rsid.'">Delete</a>]</td></tr>';
+		echo '<tr'.$bgcolor.'><td>'. htmlspecialchars($r[1]) .'</td><td>[<a href="admext.php?edit='. $r[0] .'&amp;'. __adm_rsid .'#edit">Edit</a>] [<a href="admext.php?del='. $r[0] .'&amp;'. __adm_rsid .'">Delete</a>]</td></tr>';
 	}
 	unset($c);
 	if (!$i) {

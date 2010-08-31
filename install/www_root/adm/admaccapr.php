@@ -14,14 +14,14 @@
 	fud_use('users_adm.inc', true);
 
 	if (isset($_GET['apr'])) {
-		if (($r = db_sab('SELECT email, login FROM '.$DBHOST_TBL_PREFIX.'users WHERE id='.(int)$_GET['apr']))) {
+		if (($r = db_sab('SELECT email, login FROM '. $DBHOST_TBL_PREFIX .'users WHERE id='. (int)$_GET['apr']))) {
 			fud_use('adm_acc.inc');
 			fud_use('iemail.inc');
-			q('UPDATE '.$DBHOST_TBL_PREFIX.'users SET users_opt=users_opt & ~ 2097152 WHERE id='.(int)$_GET['apr']);
+			q('UPDATE '. $DBHOST_TBL_PREFIX .'users SET users_opt='. q_bitand(users_opt, q_bitnot(2097152)) .' WHERE id='. (int)$_GET['apr']);
 			send_email($NOTIFY_FROM, $r->email, $account_accepted_s, $account_accepted);
 		}
 	} else if (isset($_GET['rm']) && (int)$_GET['rm'] != 1) {
-		if (($r = db_sab('SELECT email, login FROM '.$DBHOST_TBL_PREFIX.'users WHERE id='.(int)$_GET['rm']))) {
+		if (($r = db_sab('SELECT email, login FROM '. $DBHOST_TBL_PREFIX .'users WHERE id='. (int)$_GET['rm']))) {
 			fud_use('adm_acc.inc');
 			fud_use('iemail.inc');
 			send_email($NOTIFY_FROM, $r->email, $account_rejected_s, $account_rejected);
@@ -35,7 +35,7 @@ function print_if_avail($descr, $value, $no_html=1)
 		if ($no_html) {
 			$value = htmlspecialchars($value);
 		}
-		return '<tr><td>'.$descr.':</td><td>'.$value.'</td></tr>';
+		return '<tr><td>'. $descr .':</td><td>'. $value .'</td></tr>';
 	}
 }
 
@@ -49,7 +49,7 @@ function print_if_avail($descr, $value, $no_html=1)
 </tr></thead>
 <?php
 	$i = 0;
-	$c = uq('SELECT * FROM '.$DBHOST_TBL_PREFIX.'users WHERE users_opt>=2097152 AND (users_opt & 2097152) > 0 AND id > 0');
+	$c = uq('SELECT * FROM '. $DBHOST_TBL_PREFIX .'users WHERE users_opt>=2097152 AND '. q_bitand('users_opt', 2097152) .' > 0 AND id > 0');
 	while ($obj = db_rowobj($c)) {
 		$bgcolor = ($i++%2) ? ' class="resultrow2"' : ' class="resultrow1"';
 		echo '<tr'. $bgcolor .'"><td class="field"><table width="100%" '. $bgcolor .'>'.
@@ -75,7 +75,7 @@ function print_if_avail($descr, $value, $no_html=1)
 		print_if_avail('Signature', $obj->sig, 0) .
 		print_if_avail('IP Address', long2ip($obj->reg_ip), 0) .
 		'</table></td>
-		<td class="fieldaction">[ <a href="admaccapr.php?apr='.$obj->id.'&amp;'.__adm_rsid.'">Approve Account</a> | <a href="admaccapr.php?rm='.$obj->id.'&amp;'.__adm_rsid.'">Delete Account</a> ]</td></tr>';
+		<td class="fieldaction">[ <a href="admaccapr.php?apr='. $obj->id .'&amp;'. __adm_rsid .'">Approve Account</a> | <a href="admaccapr.php?rm='. $obj->id .'&amp;'. __adm_rsid .'">Delete Account</a> ]</td></tr>';
 	}
 	unset($c);
 	if (!$i) {

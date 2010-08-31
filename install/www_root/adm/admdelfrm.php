@@ -19,12 +19,12 @@
 
 	/* Restore forum. */
 	if (isset($_POST['frm_id'], $_POST['dst_cat'])) {
-		$pos = (int) q_singleval('SELECT MAX(view_order) FROM '.$tbl.'forum WHERE cat_id='.(int)$_POST['dst_cat']) + 1;
-		q('UPDATE '.$tbl.'forum SET cat_id='.(int)$_POST['dst_cat'].', view_order='.$pos.' WHERE id='.(int)$_POST['frm_id']);
+		$pos = (int) q_singleval('SELECT MAX(view_order) FROM '. $tbl .'forum WHERE cat_id='. (int)$_POST['dst_cat']) + 1;
+		q('UPDATE '. $tbl .'forum SET cat_id='. (int)$_POST['dst_cat'] .', view_order='. $pos .' WHERE id='. (int)$_POST['frm_id']);
 		fud_use('cat.inc', true);
 		rebuild_forum_cat_order();
 		echo successify('Forum was successfully restored. Go to <a href="admforum.php?cat_id='. (int)$_POST['dst_cat'] .'&amp;'. __adm_rsid .'">destination category</a>.');
-	} else if (isset($_GET['del']) && ($f = db_saq('SELECT id, thread_count, post_count, name FROM '.$tbl.'forum WHERE id='.(int)$_GET['del']))) {
+	} else if (isset($_GET['del']) && ($f = db_saq('SELECT id, thread_count, post_count, name FROM '. $tbl .'forum WHERE id='. (int)$_GET['del']))) {
 		/* User considers deleting a forum, give them final confirmation check. */
 ?>
 <div align="center">
@@ -58,7 +58,7 @@
 <?php
 	$i = 0;
 	$cat_sel = create_cat_select('dst_cat', '', 0);
-	$c = uq('SELECT id, name, descr FROM '.$tbl.'forum WHERE cat_id=0');
+	$c = uq('SELECT id, name, descr FROM '. $tbl .'forum WHERE cat_id=0');
 	while ($r = db_rowarr($c)) {
 		$bgcolor = ($i++%2) ? ' class="resultrow1"' : ' class="resultrow2"';
 		echo '<tr '.$bgcolor.'><td>'. $r[1] .'<br /><font size="-2">'. $r[2] .'</font></td><td valign="top" nowrap="nowrap"><a href="admdelfrm.php?del='. $r[0] .'&amp;'. __adm_rsid .'">Delete</a></td><td valign="top" nowrap="nowrap">';

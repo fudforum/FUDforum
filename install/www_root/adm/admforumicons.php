@@ -30,7 +30,7 @@
 	}
 
 	if (isset($_FILES['iconfile']) && $_FILES['iconfile']['size'] && preg_match('!\.(gif|png|jpg|jpeg)$!i', $_FILES['iconfile']['name'])) {
-		move_uploaded_file($_FILES['iconfile']['tmp_name'], $WWW_ROOT_DISK . $ICONS_DIR . '/' . $_FILES['iconfile']['name']);
+		move_uploaded_file($_FILES['iconfile']['tmp_name'], $WWW_ROOT_DISK . $ICONS_DIR .'/'. $_FILES['iconfile']['name']);
 		/* Rebuild message icon cache. */
 		if ($which_dir) {
 			fud_use('msg_icon_cache.inc', true);
@@ -39,7 +39,7 @@
 		echo successify('Icon successfully uploaded.');
 	}
 	if (isset($_GET['del'])) {
-		@unlink($WWW_ROOT_DISK . $ICONS_DIR . '/' . basename($_GET['del']));
+		@unlink($WWW_ROOT_DISK . $ICONS_DIR .'/'. basename($_GET['del']));
 		/* Rebuild message icon cache. */
 		if ($which_dir) {
 			fud_use('msg_icon_cache.inc', true);
@@ -83,14 +83,14 @@
 </tr></thead>
 <?php
 	$i = 0;
-	if (($files = glob($WWW_ROOT_DISK . $ICONS_DIR . '/{*.jpg,*.gif,*.png,*.jpeg}', GLOB_BRACE|GLOB_NOSORT))) {
+	if (($files = glob($WWW_ROOT_DISK . $ICONS_DIR .'/{*.jpg,*.gif,*.png,*.jpeg}', GLOB_BRACE|GLOB_NOSORT))) {
 		foreach ($files as $file) {
 			$de = basename($file);
 			$bgcolor = ($i++%2) ? ' class="resultrow1"' : ' class="resultrow2"';
-			echo '<tr'.$bgcolor.'><td><img src="'.$WWW_ROOT . $ICONS_DIR . '/' . $de.'" alt="Icon" /></td><td><a href="admforumicons.php?del='.urlencode($de).'&amp;'.__adm_rsid.'&amp;which_dir='.$which_dir.'">Delete</a></td></tr>';
+			echo '<tr'.$bgcolor.'><td><img src="'. $WWW_ROOT . $ICONS_DIR .'/'. $de .'" alt="Icon" /></td><td><a href="admforumicons.php?del='. urlencode($de) .'&amp;'. __adm_rsid .'&amp;which_dir='. $which_dir .'">Delete</a></td></tr>';
 		}
 	} else if ($files === FALSE && !is_readable($WWW_ROOT_DISK . $ICONS_DIR)) {
-		echo '<tr colspan="3"><td>Unable to open '.$WWW_ROOT_DISK . $ICONS_DIR.' for reading.</td></tr>';
+		echo '<tr colspan="3"><td>Unable to open '. $WWW_ROOT_DISK . $ICONS_DIR .' for reading.</td></tr>';
 	}
 ?>
 </table>

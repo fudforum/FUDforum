@@ -24,31 +24,31 @@
 		if ($_POST['forumsel'] == '0') {
 			$msg = '<font color="red">from all forums</font>';
 		} else if (!strncmp($_POST['forumsel'], 'cat_', 4)) {
-			$l = db_all('SELECT id FROM '.$DBHOST_TBL_PREFIX.'forum WHERE cat_id='.(int)substr($_POST['forumsel'], 4));
+			$l = db_all('SELECT id FROM '. $DBHOST_TBL_PREFIX .'forum WHERE cat_id='. (int)substr($_POST['forumsel'], 4));
 			if ($l) {
-				$lmt .= ' AND forum_id IN('.implode(',', $l).') ';
+				$lmt .= ' AND forum_id IN('. implode(',', $l) .') ';
 			}
-			$msg = '<font color="red">from all forums in category "'.q_singleval('SELECT name FROM '.$DBHOST_TBL_PREFIX.'cat WHERE id='.(int)substr($_POST['forumsel'], 4)).'"</font>';
+			$msg = '<font color="red">from all forums in category "'. q_singleval('SELECT name FROM '. $DBHOST_TBL_PREFIX .'cat WHERE id='. (int)substr($_POST['forumsel'], 4)) .'"</font>';
 		} else {
 			$lmt .= ' AND forum_id='.(int)$_POST['forumsel'].' ';
-			$msg = '<font color="red">from forum "'.q_singleval('SELECT name FROM '.$DBHOST_TBL_PREFIX.'forum WHERE id='.(int)$_POST['forumsel']).'"</font>';
+			$msg = '<font color="red">from forum "'. q_singleval('SELECT name FROM '. $DBHOST_TBL_PREFIX .'forum WHERE id='. (int)$_POST['forumsel']) .'"</font>';
 		}
 		$back = __request_timestamp__ - $_POST['units'] * $_POST['thread_age'];
 
 		if (!isset($_POST['btn_conf']) && $back > 0) {
 			if ($_POST['type'] == '0' || $_POST['type'] == '1') {
-				$pa_cnt = q_singleval('SELECT count(*) FROM '.$DBHOST_TBL_PREFIX.'pmsg m INNER JOIN '.$DBHOST_TBL_PREFIX.'attach a ON a.message_id=m.id AND a.attach_opt=1 WHERE m.post_stamp < '.$back);
+				$pa_cnt = q_singleval('SELECT count(*) FROM '. $DBHOST_TBL_PREFIX .'pmsg m INNER JOIN '. $DBHOST_TBL_PREFIX .'attach a ON a.message_id=m.id AND a.attach_opt=1 WHERE m.post_stamp < '. $back);
 			} else {
 				$pa_cnt = 0;
 			}
 			if ($_POST['type'] == '0' || $_POST['type'] == '2') {
-				$a_cnt = q_singleval('SELECT count(*) FROM '.$DBHOST_TBL_PREFIX.'msg m INNER JOIN '.$DBHOST_TBL_PREFIX.'thread t ON t.id=m.thread_id INNER JOIN '.$DBHOST_TBL_PREFIX.'attach a ON a.message_id=m.id AND a.attach_opt=0 WHERE m.post_stamp < '.$back.$lmt);
+				$a_cnt = q_singleval('SELECT count(*) FROM '. $DBHOST_TBL_PREFIX .'msg m INNER JOIN '. $DBHOST_TBL_PREFIX .'thread t ON t.id=m.thread_id INNER JOIN '. $DBHOST_TBL_PREFIX .'attach a ON a.message_id=m.id AND a.attach_opt=0 WHERE m.post_stamp < '. $back.$lmt);
 			} else {
 				$a_cnt = 0;
 			}
 ?>
 <div align="center">You are about to delete <font color="red"><?php echo $a_cnt; ?></font> public file attachments AND <font color="red"><?php echo $pa_cnt; ?></font> private file attachments.
-<br />That were posted before <font color="red"><?php echo fdate('%Y-%m-%d %T', $back); ?></font> <?php echo $msg; ?><br /><br />
+<br />That were posted before <font color="red"><?php echo fdate('%d %b %Y %H:%M:%S', $back); ?></font> <?php echo $msg; ?><br /><br />
 			Are you sure you want to do this?<br />
 			<form id="post" method="post" action="">
 			<input type="hidden" name="btn_prune" value="1" />
@@ -70,10 +70,10 @@
 
 			if ($_POST['type'] == '0' || $_POST['type'] == '2') {
 				$c = uq('SELECT a.message_id, a.location, a.id
-					FROM '.$DBHOST_TBL_PREFIX.'msg m
-					INNER JOIN '.$DBHOST_TBL_PREFIX.'thread t ON t.id=m.thread_id
-					INNER JOIN '.$DBHOST_TBL_PREFIX.'attach a ON a.message_id=m.id AND a.attach_opt=0
-					WHERE m.post_stamp < '.$back.$lmt);
+					FROM '. $DBHOST_TBL_PREFIX .'msg m
+					INNER JOIN '. $DBHOST_TBL_PREFIX .'thread t ON t.id=m.thread_id
+					INNER JOIN '. $DBHOST_TBL_PREFIX .'attach a ON a.message_id=m.id AND a.attach_opt=0
+					WHERE m.post_stamp < '. $back.$lmt);
 				while ($r = db_rowarr($c)) {
 					@unlink($r[1]);
 					$al[] = $r[2];
@@ -81,15 +81,15 @@
 				}
 				unset($c);
 				if ($ml) {
-					q('UPDATE '.$DBHOST_TBL_PREFIX.'msg SET attach_cnt=0, attach_cache=NULL WHERE id IN('. implode(',', $ml) .')');
+					q('UPDATE '. $DBHOST_TBL_PREFIX .'msg SET attach_cnt=0, attach_cache=NULL WHERE id IN('. implode(',', $ml) .')');
 				}
 				$ml = array();
 			}
 			if ($_POST['type'] == '0' || $_POST['type'] == '1') {
 				$c = uq('SELECT a.message_id, a.location, a.id
-					FROM '.$DBHOST_TBL_PREFIX.'pmsg m
-					INNER JOIN '.$DBHOST_TBL_PREFIX.'attach a ON a.message_id=m.id AND a.attach_opt=1
-					WHERE m.post_stamp < '.$back);
+					FROM '. $DBHOST_TBL_PREFIX .'pmsg m
+					INNER JOIN '. $DBHOST_TBL_PREFIX .'attach a ON a.message_id=m.id AND a.attach_opt=1
+					WHERE m.post_stamp < '. $back);
 				while ($r = db_rowarr($c)) {
 					@unlink($r[1]);
 					$al[] = $r[2];
@@ -97,11 +97,11 @@
 				}
 				unset($c);
 				if ($ml) {
-					q('UPDATE '.$DBHOST_TBL_PREFIX.'pmsg SET attach_cnt=0 WHERE id IN('. implode(',', $ml) .')');
+					q('UPDATE '. $DBHOST_TBL_PREFIX .'pmsg SET attach_cnt=0 WHERE id IN('. implode(',', $ml) .')');
 				}
 			}
 			if ($al) {
-				q('DELETE FROM '.$DBHOST_TBL_PREFIX.'attach WHERE id IN('. implode(',', $al) .')');
+				q('DELETE FROM '. $DBHOST_TBL_PREFIX .'attach WHERE id IN('. implode(',', $al) .')');
 			}
 			unset($c, $r, $al, $ml);
 			echo successify('Selected attachments were removed.');
@@ -134,14 +134,14 @@ this form will offer to delete attachments older than 10 days.</p>
 	<td colspan="2" nowrap="nowrap">
 	<?php
 		$oldc = '';
-		$c = uq('SELECT f.id, f.name, c.name, c.id FROM '.$DBHOST_TBL_PREFIX.'forum f INNER JOIN '.$DBHOST_TBL_PREFIX.'cat c ON f.cat_id=c.id ORDER BY c.parent, c.view_order, f.view_order');
+		$c = uq('SELECT f.id, f.name, c.name, c.id FROM '. $DBHOST_TBL_PREFIX .'forum f INNER JOIN '. $DBHOST_TBL_PREFIX .'cat c ON f.cat_id=c.id ORDER BY c.parent, c.view_order, f.view_order');
 		echo '<select name="forumsel"><option value="0">- All Forums -</option>';
 		while ($r = db_rowarr($c)) {
 			if ($oldc != $r[3]) {
-				echo '<option value="cat_'.$r[3].'">'.$r[2].'</option>';
+				echo '<option value="cat_'. $r[3] .'">'. $r[2] .'</option>';
 				$oldc = $r[3];
 			}
-			echo '<option value="'.$r[0].'">&nbsp;&nbsp;-&nbsp;'.$r[1].'</option>';
+			echo '<option value="'. $r[0] .'">&nbsp;&nbsp;-&nbsp;'. $r[1] .'</option>';
 		}
 		unset($c);
 		echo '</select>';

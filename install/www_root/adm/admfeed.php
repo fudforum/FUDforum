@@ -14,9 +14,9 @@
 	fud_use('glob.inc', true);
 	fud_use('widgets.inc', true);
 	fud_use('draw_select_opt.inc');
-	
+
 	require($WWW_ROOT_DISK .'adm/header.php');
-	
+
 	$help_ar = read_help();
 
 	if (isset($_POST['form_posted'])) {
@@ -26,10 +26,10 @@
 			if (!strncmp($k, 'CF_', 3)) {
 				$k = substr($k, 3);
 				if (!isset($GLOBALS[$k]) || $GLOBALS[$k] != $v) {
-					$ch_list[$k] = is_numeric($v) ? (int) $v : $v;
+					$ch_list[$k] = is_numeric($v) ? (int)$v : $v;
 				}
 			} else if (!strncmp($k, 'FUD_OPT_2', 9)) {
-				$NEW_FUD_OPT_2 |= (int) $v;
+				$NEW_FUD_OPT_2 |= (int)$v;
 			}
 		}
 

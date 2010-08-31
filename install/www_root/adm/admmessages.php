@@ -13,7 +13,7 @@
 	fud_use('adm.inc', true);
 
 	if (isset($_POST['tname'], $_POST['tlang'], $_POST['btn_edit'])) {
-		header('Location: msglist.php?tname='.$_POST['tname'].'&tlang='.$_POST['tlang'].'&'.__adm_rsidl);
+		header('Location: msglist.php?tname='. $_POST['tname'] .'&tlang='. $_POST['tlang'] .'&'. __adm_rsidl);
 		exit;
 	}
 
@@ -23,7 +23,7 @@
 		$tlang = $_POST['tlang'];
 		pf(successify('Downloading '. $tlang .' messages from translatewiki.net...'));
 
-		$url = "http://translatewiki.net/w/i.php?title=Special%3ATranslate&task=export-to-file&group=out-fudforum&language=$tlang&limit=2500";
+		$url = 'http://translatewiki.net/w/i.php?title=Special%3ATranslate&task=export-to-file&group=out-fudforum&language='. $tlang .'&limit=2500';
 		$url_stuff = parse_url($url);
 
 		$fp = fsockopen($url_stuff['host'], 80, $errno, $errstr);
@@ -50,12 +50,12 @@
 			} elseif ( substr($messages, 0, 15) != '# Messages for ' ) {
 				echo errorify('Corrupted download. Please try again.');
 			} else {
-				$msgfile = $GLOBALS['DATA_DIR'].'thm/default/i18n/'.$tlang.'/msg';
+				$msgfile = $GLOBALS['DATA_DIR'] .'thm/default/i18n/'. $tlang .'/msg';
 				file_put_contents($msgfile, $messages);
 		
 				// Rebuild themes based on this language.
 				fud_use('compiler.inc', true);
-				$c = q('SELECT theme, name FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'themes WHERE lang='._esc($tlang));
+				$c = q('SELECT theme, name FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'themes WHERE lang='. _esc($tlang));
 				while ($r = db_rowarr($c)) {
 					compile_all($r[0], $tlang, $r[1]);
 					echo successify('Theme '. $r[0] .' ('. $tlang .') was successfully rebuilt.');
@@ -65,7 +65,7 @@
 		}
 	}
 
-	list($def_thm, $def_tmpl) = db_saq('SELECT name, lang FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'themes WHERE theme_opt=3');
+	list($def_thm, $def_tmpl) = db_saq('SELECT name, lang FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'themes WHERE theme_opt=3');
 ?>
 <h2>Message Editor</h2>
 <div class="tutor">
@@ -81,12 +81,12 @@
 <tr class="field">
 <td>Template Set:</td><td><select name="tname">
 <?php
-	foreach (glob($GLOBALS['DATA_DIR'].'/thm/*', GLOB_ONLYDIR) as $file) {
-		if (!file_exists($file . '/tmpl')) {
+	foreach (glob($GLOBALS['DATA_DIR'] .'/thm/*', GLOB_ONLYDIR) as $file) {
+		if (!file_exists($file .'/tmpl')) {
 			continue;
 		}
 		$n = basename($file);
-		echo '<option value="'.$n.'"'.($n == $def_thm ? ' selected="selected"' : '').'>'.$n.'</option>';
+		echo '<option value="'. $n .'"'. ($n == $def_thm ? ' selected="selected"' : '') .'>'. $n .'</option>';
 	}
 ?>
 </select></td>
@@ -123,8 +123,8 @@
 <tr class="field">
 <td>Language:</td><td><select name="tlang">
 <?php
-	foreach (glob($GLOBALS['DATA_DIR'] . 'thm/default/i18n/*', GLOB_ONLYDIR) as $file) {
-		if (!file_exists($file . '/msg')) {
+	foreach (glob($GLOBALS['DATA_DIR'] .'thm/default/i18n/*', GLOB_ONLYDIR) as $file) {
+		if (!file_exists($file .'/msg')) {
 			continue;
 		}
 		$n = basename($file);

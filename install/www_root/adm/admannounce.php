@@ -36,7 +36,7 @@ function mk_date($y, $m, $d)
 		$a_subject = $an_d->subject;
 		$a_text = $an_d->text;
 		$edit = (int)$_GET['edit'];
-		$c = uq('SELECT forum_id FROM '.$tbl.'ann_forums WHERE ann_id='.(int)$_GET['edit']);
+		$c = uq('SELECT forum_id FROM '.$tbl.'ann_forums WHERE ann_id='. (int)$_GET['edit']);
 		while ($r = db_rowarr($c)) {
 			$frm_list[$r[0]] = $r[0];
 		}
@@ -73,9 +73,9 @@ function mk_date($y, $m, $d)
 
 	if (isset($_POST['frm_list'], $id)) {
 		$_POST['frm_list'] = array_unique($_POST['frm_list']);
-		q('DELETE FROM '.$tbl.'ann_forums WHERE ann_id='.$id);
+		q('DELETE FROM '.$tbl.'ann_forums WHERE ann_id='. $id);
 		foreach ($_POST['frm_list'] as $v) {
-			q('INSERT INTO '.$tbl.'ann_forums (forum_id, ann_id) VALUES('.(int)$v.','.$id.')');
+			q('INSERT INTO '. $tbl .'ann_forums (forum_id, ann_id) VALUES('. (int)$v .','. $id .')');
 		}
 		unset($frm_list);
 	}
@@ -95,7 +95,7 @@ function mk_date($y, $m, $d)
 <?php
 	require $FORUM_SETTINGS_PATH.'cat_cache.inc';
 	$pfx = $oldc = ''; $row = 0;
-	$c = uq('SELECT f.id, f.name, c.id FROM '.$tbl.'fc_view v INNER JOIN '.$tbl.'forum f ON f.id=v.f INNER JOIN '.$tbl.'cat c ON f.cat_id=c.id ORDER BY v.id');
+	$c = uq('SELECT f.id, f.name, c.id FROM '. $tbl .'fc_view v INNER JOIN '. $tbl .'forum f ON f.id=v.f INNER JOIN '. $tbl .'cat c ON f.cat_id=c.id ORDER BY v.id');
 	while ($r = db_rowarr($c)) {
 		if ($oldc != $r[2]) {
 			if ($row < 6) {

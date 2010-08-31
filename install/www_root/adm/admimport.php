@@ -47,7 +47,7 @@ function resolve_dest_path($path)
 				array($GLOBALS['WWW_ROOT_DISK'], $GLOBALS['DATA_DIR']), $path);
 	$dir = dirname($path);
 	if (!@is_dir($dir)) {
-		while ($dir && $dir != "/" && !@is_dir($dir)) {
+		while ($dir && $dir != '/' && !@is_dir($dir)) {
 			$dirs[] = $dir;
 			$dir = dirname($dir);
 		}

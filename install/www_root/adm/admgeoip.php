@@ -125,63 +125,63 @@ hours on a large forum.
 </table>
 </form>
 <?php 
-	require($WWW_ROOT_DISK . 'adm/footer.php');
+	require($WWW_ROOT_DISK .'adm/footer.php');
 
 	if ($upload_ok) {
 		while (@ob_end_flush());
 		flush();
-		q('DELETE FROM '.$DBHOST_TBL_PREFIX.'geoip');
+		q('DELETE FROM '. $DBHOST_TBL_PREFIX .'geoip');
 		$fp = fopen($_FILES['file']['tmp_name'], 'r');
 		while ($l = fgetcsv($fp, 100000)) {
 			if ($_POST['format'] == 'GEO') {
 				if (isset($l[2], $l[3], $l[4], $l[5])) {
-					q('INSERT INTO '.$DBHOST_TBL_PREFIX.'geoip (ips, ipe, cc, country) VALUES('._esc($l[2]).','._esc($l[3]).','._esc(strtolower($l[4])).','._esc($l[5]).')');
+					q('INSERT INTO '. $DBHOST_TBL_PREFIX .'geoip (ips, ipe, cc, country) VALUES('. _esc($l[2]) .','. _esc($l[3]) .','. _esc(strtolower($l[4])) .','. _esc($l[5]) .')');
 					++$i;
 				}
 			} else if (isset($l[0], $l[1], $l[2], $l[4])) { // IP2C
-				q('INSERT INTO '.$DBHOST_TBL_PREFIX.'geoip (ips, ipe, cc, country) VALUES('._esc($l[0]).','._esc($l[1]).','._esc(strtolower($l[2])).','._esc($l[4]).')');
+				q('INSERT INTO '. $DBHOST_TBL_PREFIX .'geoip (ips, ipe, cc, country) VALUES('. _esc($l[0]) .','. _esc($l[1]) .','. _esc(strtolower($l[2])) .',' ._esc($l[4]) .')');
 				++$i;
 			}
 			if (!($i % 100)) {
-				echo '<script type="text/javascript">changeCaption("'.$i.' entries were imported!");</script>';
+				echo '<script type="text/javascript">changeCaption("'. $i .' entries were imported!");</script>';
 				echo "\n";
 				flush();
 			}
 		}
 		fclose($fp);
-		echo '<script type="text/javascript">changeCaption("Import Completed, '.$i.' entries were imported!");</script>';
+		echo '<script type="text/javascript">changeCaption("Import Completed, '. $i .' entries were imported!");</script>';
 	} else if (!empty($_POST['rebuild_user_geoip'])) {
 		while (@ob_end_flush());
 		flush();
-		$c = q('SELECT id, reg_ip FROM '.$DBHOST_TBL_PREFIX.'users');
+		$c = q('SELECT id, COALESCE(last_known_ip, reg_ip) FROM '. $DBHOST_TBL_PREFIX .'users');
 		while ($r = db_rowarr($c)) {
 			++$i;
-			if (!$r[1] || (!$flag = db_saq('SELECT cc, country FROM '.$DBHOST_TBL_PREFIX.'geoip WHERE '.sprintf('%u', $r[1]).' BETWEEN ips AND ipe'))) {
+			if (!$r[1] || (!$flag = db_saq('SELECT cc, country FROM '. $DBHOST_TBL_PREFIX .'geoip WHERE '. sprintf('%u', $r[1]) .' BETWEEN ips AND ipe'))) {
 				continue;
 			}
-			q("UPDATE ".$DBHOST_TBL_PREFIX."users SET flag_cc="._esc($flag[0]).", flag_country="._esc($flag[1])." WHERE id=".$r[0]);
+			q('UPDATE '. $DBHOST_TBL_PREFIX .'users SET flag_cc='. _esc($flag[0]) .', flag_country='. _esc($flag[1]) .' WHERE id='. $r[0]);
 			if (!($i % 100)) {
-				echo '<script type="text/javascript">changeCaption("'.$i.' user geo-location cache entries updated.");</script>';
+				echo '<script type="text/javascript">changeCaption("'. $i .' user geo-location cache entries updated.");</script>';
 				echo "\n";
 				flush();
 			}
 		}
-		echo '<script type="text/javascript">changeCaption("'.$i.' user geo-location cache entries updated.");</script>';
+		echo '<script type="text/javascript">changeCaption("'. $i .' user geo-location cache entries updated.");</script>';
 	} else if (!empty($_POST['rebuild_msg_geoip'])) {
 		while (@ob_end_flush());
 		flush();
-		$c = q('SELECT distinct(ip_addr) FROM '.$DBHOST_TBL_PREFIX.'msg');
+		$c = q('SELECT distinct(ip_addr) FROM '. $DBHOST_TBL_PREFIX .'msg');
 		while ($r = db_rowarr($c)) {
 			++$i;
-			if ($r[0] == '0.0.0.0' || (!$flag = db_saq('SELECT cc, country FROM '.$DBHOST_TBL_PREFIX.'geoip WHERE '.sprintf('%u', ip2long($r[0])).' BETWEEN ips AND ipe'))) {
+			if ($r[0] == '0.0.0.0' || (!$flag = db_saq('SELECT cc, country FROM '. $DBHOST_TBL_PREFIX .'geoip WHERE '. sprintf('%u', ip2long($r[0])) .' BETWEEN ips AND ipe'))) {
 				continue;
 			}
-			q('UPDATE '.$DBHOST_TBL_PREFIX.'msg SET flag_cc='._esc($flag[0]).', flag_country='._esc($flag[1]).' WHERE ip_addr='._esc($r[0]));
+			q('UPDATE '. $DBHOST_TBL_PREFIX .'msg SET flag_cc='. _esc($flag[0]) .', flag_country='. _esc($flag[1]) .' WHERE ip_addr='. _esc($r[0]));
 			if (!($i % 100)) {
-				echo '<script type="text/javascript">changeCaption("'.$i.' message geo-location cache entries updated.");</script>';
+				echo '<script type="text/javascript">changeCaption("'. $i .' message geo-location cache entries updated.");</script>';
 				echo "\n";
 				flush();
 			}
 		}
-		echo '<script type="text/javascript">changeCaption("'.$i.' message geo-location cache entries updated.");</script>';
+		echo '<script type="text/javascript">changeCaption("'. $i .' message geo-location cache entries updated.");</script>';
 	}

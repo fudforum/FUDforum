@@ -45,21 +45,21 @@
 	} else if (isset($_GET['del'])) {
 		xmlagg_del((int)$_GET['del']);
 		echo successify('Aggregation rule successfully deleted.');
-	} else if (isset($_GET['trk']) && ($nn = db_sab('SELECT * FROM '.$tbl.'xmlagg WHERE id='.(int)$_GET['trk']))) {
+	} else if (isset($_GET['trk']) && ($nn = db_sab('SELECT * FROM '. $tbl .'xmlagg WHERE id='. (int)$_GET['trk']))) {
 		xmlagg_reset((int)$_GET['trk']);
 		echo successify('Aggregation tracker was successfully cleared. The next load will start with the oldest availale article.');
 	}
 
-	if (isset($_GET['edit']) && $edit && ($o = db_sab('SELECT * FROM '.$tbl.'xmlagg WHERE id='.$edit))) {
+	if (isset($_GET['edit']) && $edit && ($o = db_sab('SELECT * FROM '. $tbl .'xmlagg WHERE id='. $edit))) {
 		foreach ($o as $k => $v) {
-			${'xmlagg_' . $k} = $v;
+			${'xmlagg_'. $k} = $v;
 		}
 	} else { /* Set the some default values. */
 		foreach (get_class_vars('fud_xmlagg_adm') as $k => $v) {
 			if (isset($_POST['xmlagg_' . $k])) {
-				${'xmlagg_' . $k} = $_POST['xmlagg_' . $k];
+				${'xmlagg_'. $k} = $_POST['xmlagg_' . $k];
 			} else {
-				${'xmlagg_' . $k} = $v;
+				${'xmlagg_'. $k} = $v;
 			}
 		}
 	}
@@ -93,11 +93,11 @@
 		<td><select name="xmlagg_forum_id"><option></option>
 		<?php
 			$c = uq('SELECT f.id, f.name, c.name
-				FROM '.$tbl.'forum f
-				INNER JOIN '.$tbl.'cat c ON f.cat_id=c.id
+				FROM '. $tbl .'forum f
+				INNER JOIN '. $tbl .'cat c ON f.cat_id=c.id
 				ORDER BY c.parent, c.view_order, f.view_order');
 			while ($r = db_rowarr($c)) {
-				echo '<option value="'.$r[0].'"'.($r[0] != $xmlagg_forum_id ? '' : ' selected="selected"').'>'.$r[2].' &raquo; '.$r[1].'</option>';
+				echo '<option value="'. $r[0] .'"'. ($r[0] != $xmlagg_forum_id ? '' : ' selected="selected"') .'>'. $r[2] .' &raquo; '. $r[1] .'</option>';
 			}
 			unset($c);
 		?>
@@ -169,17 +169,17 @@
 	<th align="center">Action</th>
 </tr></thead>
 <?php
-	$c = uq('SELECT x.id, x.url, x.name, x.last_load_date, f.name FROM '.$tbl.'xmlagg x INNER JOIN '.$tbl.'forum f ON x.forum_id=f.id');
+	$c = uq('SELECT x.id, x.url, x.name, x.last_load_date, f.name FROM '. $tbl .'xmlagg x INNER JOIN '. $tbl .'forum f ON x.forum_id=f.id');
 	$i = 0;
 	while ($r = db_rowarr($c)) {
 		$i++;
 		$bgcolor = ($edit == $r[0]) ? ' class="resultrow3"' : (($i%2) ? ' class="resultrow1"' : ' class="resultrow2"');
 
-		echo '<tr'.$bgcolor.'><td>'.htmlspecialchars($r[2]).'</td><td>'.$r[4].'</td>
-			<td nowrap="nowrap">xmlagg.php '.$r[0].'</td>
-			<td nowrap="nowrap">'.gmdate('d M Y G:i', $r[3]).'</td>
-			<td>[<a href="admxmlagg.php?edit='.$r[0].'&amp;'.__adm_rsid.'#edit">Edit</a>] [<a href="admxmlagg.php?del='.$r[0].'&amp;'.__adm_rsid.'">Delete</a>]
-			[<a href="admxmlagg.php?trk='.$r[0].'&amp;'.__adm_rsid.'">Reset date</a>]</td></tr>';
+		echo '<tr'. $bgcolor .'><td>'. htmlspecialchars($r[2]) .'</td><td>'. $r[4] .'</td>
+			<td nowrap="nowrap">xmlagg.php '. $r[0] .'</td>
+			<td nowrap="nowrap">'. gmdate('d M Y G:i', $r[3]) .'</td>
+			<td>[<a href="admxmlagg.php?edit='. $r[0] .'&amp;'. __adm_rsid.'#edit">Edit</a>] [<a href="admxmlagg.php?del='. $r[0] .'&amp;'. __adm_rsid .'">Delete</a>]
+			[<a href="admxmlagg.php?trk='. $r[0] .'&amp;'. __adm_rsid .'">Reset date</a>]</td></tr>';
 	}
 	unset($c);
 	if (!$i) {
@@ -193,6 +193,6 @@ The <i>Exec Line</i> in the table above shows the execution line that you will n
 Windows users can use <a href="http://en.wikipedia.org/wiki/Schtasks" target="_new">schtasks.exe</a>.
 Here is a Linux <a href="http://en.wikipedia.org/wiki/Cron" target="_new">cron</a> example:
 <pre>
-0 * * * * <?php echo realpath($GLOBALS['DATA_DIR'].'scripts/xmlagg.php'); ?> 1
+0 * * * * <?php echo realpath($GLOBALS['DATA_DIR'] .'scripts/xmlagg.php'); ?> 1
 </pre>
 <?php require($WWW_ROOT_DISK .'adm/footer.php'); ?>

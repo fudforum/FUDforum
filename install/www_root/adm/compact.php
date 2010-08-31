@@ -87,7 +87,7 @@ $charsets = ARRAY(
 <?php echo _hs; ?>
 </form>
 <?php
-		require($WWW_ROOT_DISK . 'adm/footer.php');
+		require($WWW_ROOT_DISK .'adm/footer.php');
 		exit;
 	}
 ?>
@@ -125,7 +125,7 @@ function write_body_c($data, &$len, &$offset, $fid)
 			$a =& $GLOBALS['__FUD_REPL__']['pattern'];
 			$b =& $GLOBALS['__FUD_REPL__']['replace'];
 
-			$c = uq('SELECT with_str, replace_str FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'replace WHERE replace_str IS NOT NULL AND with_str IS NOT NULL AND LENGTH(replace_str)>0');
+			$c = uq('SELECT with_str, replace_str FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'replace WHERE replace_str IS NOT NULL AND with_str IS NOT NULL AND LENGTH(replace_str)>0');
 			while ($r = db_rowarr($c)) {
 				$a[] = $r[1];
 				$b[] = $r[0];
@@ -187,14 +187,14 @@ function eta_calc($start, $pos, $pc)
 	/* Compact normal messages. */
 	pf('Compacting normal messages...');
 
-	$pc = ceil(q_singleval('SELECT count(*) FROM '.$tbl.'msg WHERE file_id>0') / 10);
+	$pc = ceil(q_singleval('SELECT count(*) FROM '. $tbl .'msg WHERE file_id>0') / 10);
 	$i = 0;
 	if ($pc) {
-		db_lock($tbl.'msg m WRITE, '.$tbl.'thread t WRITE, '.$tbl.'forum f WRITE, '.$tbl.'msg WRITE, '.$tbl.'msg_store WRITE');
+		db_lock($tbl .'msg m WRITE, '. $tbl .'thread t WRITE, '. $tbl .'forum f WRITE, '. $tbl .'msg WRITE, '. $tbl .'msg_store WRITE');
 
 		while (1) {
 			$j = $i;
-			$c = q('SELECT m.id, m.foff, m.length, m.file_id, f.message_threshold, f.id FROM '.$tbl.'msg m INNER JOIN '.$tbl.'thread t ON m.thread_id=t.id INNER JOIN '.$tbl.'forum f ON t.forum_id=f.id WHERE m.file_id>0 LIMIT 100');
+			$c = q('SELECT m.id, m.foff, m.length, m.file_id, f.message_threshold, f.id FROM '. $tbl .'msg m INNER JOIN '. $tbl .'thread t ON m.thread_id=t.id INNER JOIN '. $tbl .'forum f ON t.forum_id=f.id WHERE m.file_id>0 LIMIT 100');
 			while ($r = db_rowarr($c)) {
 				if ($r[4] && $r[2] > $r[4]) {
 					$m2 = write_body_c(trim_html(read_msg_body($r[1], $r[2], $r[3]), $r[4]), $len2, $off2, $r[5]);
@@ -202,7 +202,7 @@ function eta_calc($start, $pos, $pc)
 					$m2 = $len2 = $off2 = 0;
 				}
 				$m1 = write_body_c(read_msg_body($r[1], $r[2], $r[3]), $len, $off, $r[5]);
-				q('UPDATE '.$tbl.'msg SET foff='.$off.', length='.$len.', file_id='.(-$m1).', file_id_preview='.(-$m2).', offset_preview='.$off2.', length_preview='.$len2.' WHERE id='.$r[0]);
+				q('UPDATE '. $tbl .'msg SET foff='. $off .', length='. $len .', file_id='. (-$m1) .', file_id_preview='. (-$m2) .', offset_preview='. $off2 .', length_preview='. $len2 .' WHERE id='. $r[0]);
 
 				if ($i && !($i % $pc)) {
 					eta_calc($stm, $i, $pc);
@@ -214,7 +214,7 @@ function eta_calc($start, $pos, $pc)
 		}
 
 		/* Rename our temporary files & update the database. */
-		q('UPDATE '.$tbl.'msg SET file_id=-file_id, file_id_preview=-file_id_preview WHERE file_id<0');
+		q('UPDATE '. $tbl .'msg SET file_id=-file_id, file_id_preview=-file_id_preview WHERE file_id<0');
 
 		/* Close message files before we delete them. */
 		if (isset($GLOBALS['__MSG_FP__'])) {
@@ -224,19 +224,19 @@ function eta_calc($start, $pos, $pc)
 		}
 
 		/* Remove old message files. */
-		foreach (glob($MSG_STORE_DIR.'msg_*') as $f) {
+		foreach (glob($MSG_STORE_DIR .'msg_*') as $f) {
 			if (!unlink($f)) {
-				exit('FATAL ERROR: unable to remove file '.$f.'.');
+				exit('FATAL ERROR: unable to remove file '. $f .'.');
 			}
 		}
 
 		/* Move new message files to the new location. */
 		foreach ($GLOBALS['__FUD_TMP_F__'] as $k => $f) {
 			fclose($GLOBALS['__FUD_TMP_F__'][$k][0]);
-			if(!rename($MSG_STORE_DIR . 'tmp_msg_'.$k, $MSG_STORE_DIR . 'msg_'.$k)) {
-				exit('FATAL ERROR: unable to rename tmp_msg_'.$k.' to msg_'.$k.'.');
+			if(!rename($MSG_STORE_DIR .'tmp_msg_'. $k, $MSG_STORE_DIR .'msg_'. $k)) {
+				exit('FATAL ERROR: unable to rename tmp_msg_'. $k .' to msg_'. $k .'.');
 			}
-			chmod($MSG_STORE_DIR . 'msg_'.$k, $mode);
+			chmod($MSG_STORE_DIR .'msg_'. $k, $mode);
 		}
 
 		db_unlock();
@@ -246,20 +246,20 @@ function eta_calc($start, $pos, $pc)
 	/* Compact private messages. */
 	pf('Compacting private messages...');
 
-	q('CREATE INDEX '.$tbl.'pmsg_foff_idx ON '.$tbl.'pmsg (foff)');
+	q('CREATE INDEX '. $tbl .'pmsg_foff_idx ON '. $tbl .'pmsg (foff)');
 
-	db_lock($tbl.'pmsg WRITE');
+	db_lock($tbl .'pmsg WRITE');
 	$i = $off = $len = 0;
 	$stm2 = time();
-	$fp = fopen($MSG_STORE_DIR.'private_tmp', 'wb');
+	$fp = fopen($MSG_STORE_DIR .'private_tmp', 'wb');
 	if (!$fp) {
 		exit('Failed to open temporary private message store.');
 	}
-	$pc = q_singleval('SELECT count(*) FROM '.$tbl.'pmsg');
+	$pc = q_singleval('SELECT count(*) FROM '. $tbl .'pmsg');
 	if ($pc) {
 		$pc = ceil($pc / 10);
 
-		$c = q('SELECT distinct(foff), length FROM '.$tbl.'pmsg');
+		$c = q('SELECT distinct(foff), length FROM '. $tbl .'pmsg');
 
 		while ($r = db_rowarr($c)) {
 			$data = read_pmsg_body($r[0], $r[1]);
@@ -271,7 +271,7 @@ function eta_calc($start, $pos, $pc)
 			if (($len = fwrite($fp, $data)) === FALSE || !fflush($fp)) {
 				exit('FATAL ERROR: system has ran out of disk space.');
 			}
-			q('UPDATE '.$tbl.'pmsg SET foff='.$off.', length='.$len.' WHERE foff='.$r[0]);
+			q('UPDATE '. $tbl .'pmsg SET foff='. $off .', length='. $len .' WHERE foff='. $r[0]);
 			$off += $len;
 
 			if ($i && !($i % $pc)) {
@@ -283,16 +283,16 @@ function eta_calc($start, $pos, $pc)
 	}
 	fclose($fp);
 
-	q('DROP INDEX '.$tbl.'pmsg_foff_idx'.(__dbtype__ == 'mysql' ? ' ON '.$tbl.'pmsg' : ''));
+	q('DROP INDEX '. $tbl .'pmsg_foff_idx'. (__dbtype__ == 'mysql' ? ' ON '. $tbl .'pmsg' : ''));
 
 	pf('100% Done.');
 
-	@unlink($MSG_STORE_DIR . 'private');
+	@unlink($MSG_STORE_DIR .'private');
 	if (!$i) {
-		@unlink($MSG_STORE_DIR . 'private_tmp');
+		@unlink($MSG_STORE_DIR .'private_tmp');
 	} else {
-		rename($MSG_STORE_DIR . 'private_tmp', $MSG_STORE_DIR . 'private');
-		chmod($MSG_STORE_DIR . 'private', $mode);
+		rename($MSG_STORE_DIR .'private_tmp', $MSG_STORE_DIR .'private');
+		chmod($MSG_STORE_DIR .'private', $mode);
 	}
 
 	db_unlock();
@@ -303,7 +303,7 @@ function eta_calc($start, $pos, $pc)
 		pf('Re-enabling the forum.');
 		maintenance_status($DISABLED_REASON, 0);
 	} else {
-		echo '<br /><font size="+1" color="red">Your forum is currently disabled, to re-enable it go to the <a href="admglobal.php?'.__adm_rsid.'">Global Settings Manager</a> and re-enable it.</font>';
+		echo '<br /><font size="+1" color="red">Your forum is currently disabled, to re-enable it go to the <a href="admglobal.php?'. __adm_rsid .'">Global Settings Manager</a> and re-enable it.</font>';
 	}
 
 	pf('<br /><div class="tutor">Messages successfully compacted.</div>');

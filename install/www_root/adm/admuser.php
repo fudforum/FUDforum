@@ -31,7 +31,7 @@
 	} else {
 		$usr_id = $act = '';
 	}
-	if ($act && $usr_id && !($u = db_sab('SELECT * FROM '.$DBHOST_TBL_PREFIX.'users WHERE id='.$usr_id))) {
+	if ($act && $usr_id && !($u = db_sab('SELECT * FROM '. $DBHOST_TBL_PREFIX .'users WHERE id='. $usr_id))) {
 		$usr_id = $act = '';
 	}
 
@@ -42,7 +42,7 @@
 
 	/* Check if ban had expired. */
 	if ($usr_id && !$act && $u->users_opt & 65536 && $u->ban_expiry && $u->ban_expiry < __request_timestamp__) {
-		q('UPDATE '.$DBHOST_TBL_PREFIX.'users SET ban_expiry=0, users_opt=users_opt &~ 65536 WHERE id='.$usr_id);
+		q('UPDATE '. $DBHOST_TBL_PREFIX .'users SET ban_expiry=0, users_opt='. q_bitand('users_opt', q_bitnot(65536)) .' WHERE id='. $usr_id);
 	}
 
 	$keys = array('block'=>65536, 'coppa'=>262144, 'econf'=>131072, 'sig'=>67108864, 'pm'=>33554432, 'conf'=>2097152, 'accmod'=>268435456);
@@ -83,16 +83,16 @@
 			}
 
 			if ($u->users_opt & $keys[$act]) {
-				q('UPDATE '.$DBHOST_TBL_PREFIX.'users SET ban_expiry='.$block.', users_opt=users_opt & ~ '.$keys[$act].' WHERE id='.$usr_id);
+				q('UPDATE '. $DBHOST_TBL_PREFIX .'users SET ban_expiry='. $block .', users_opt='. q_bitand('users_opt', q_bitnot($keys[$act])) .' WHERE id='.$usr_id);
 				$u->users_opt ^= $keys[$act];
 			} else {
-				q('UPDATE '. $DBHOST_TBL_PREFIX .'users SET ban_expiry='. $block .', users_opt=(users_opt | '. $keys[$act] .') WHERE id='. $usr_id);
+				q('UPDATE '. $DBHOST_TBL_PREFIX .'users SET ban_expiry='. $block .', users_opt='. q_bitor('users_opt', $keys[$act]) .' WHERE id='. $usr_id);
 				$u->users_opt |= $keys[$act];
 			}
 
 			echo successify('User options successfully updated.');
 			if (isset($_GET['f'])) {
-				echo '<p>[ <a href="'. $WWW_ROOT.__fud_index_name__ . $usr->returnto .'">return</a> ]</p>';
+				echo '<p>[ <a href="'. $WWW_ROOT. __fud_index_name__ . $usr->returnto .'">return</a> ]</p>';
 				exit;
 			}
 			break;
@@ -102,7 +102,7 @@
 			echo successify('Custom color was successfully updated.');
 			break;
 		case 'reset':
-			$user_theme_name = q_singleval('SELECT name FROM '. $DBHOST_TBL_PREFIX .'themes WHERE '. (!$u->theme ? 'theme_opt>=2 AND (theme_opt & 2) > 0' : 'id='. $u->theme));
+			$user_theme_name = q_singleval('SELECT name FROM '. $DBHOST_TBL_PREFIX .'themes WHERE '. (!$u->theme ? 'theme_opt>=2 AND '. q_bitand('theme_opt', 2) .' > 0' : 'id='. $u->theme));
 			if ($FUD_OPT_2 & 1 && !($u->users_opt & 131072)) {
 				$conf_key = usr_email_unconfirm($u->id);
 				$url = $WWW_ROOT . __fud_index_name__ .'?t=emailconf&conf_key='. $conf_key;
@@ -110,9 +110,9 @@
 				logaction(_uid, 'SEND_ECONF', 0, char_fix(htmlspecialchars($u->login)));
 			} else {
 				$user_theme_name = q_singleval('SELECT name FROM '. $DBHOST_TBL_PREFIX .'themes WHERE '. (!$u->theme ? 'theme_opt=3' : 'id='. $u->theme));
-				q("UPDATE ".$DBHOST_TBL_PREFIX."users SET reset_key='".($reset_key = md5(get_random_value(128)))."' WHERE id=".$u->id);
+				q('UPDATE '. $DBHOST_TBL_PREFIX .'users SET reset_key=\''. ($reset_key = md5(get_random_value(128))) .'\' WHERE id='. $u->id);
 
-				$url = $WWW_ROOT . __fud_index_name__ .'?t=reset&reset_key='.$reset_key;
+				$url = $WWW_ROOT . __fud_index_name__ .'?t=reset&reset_key='. $reset_key;
 				include_once($INCLUDE .'theme/'. $user_theme_name .'/rst.inc');
 				send_email($NOTIFY_FROM, $u->email, $reset_newpass_title, $reset_reset, '');
 				logaction(_uid, 'ADM_RESET_PASSWD', 0, char_fix(htmlspecialchars($u->login)));
@@ -150,16 +150,16 @@ Are you sure you want to do this, once deleted the account cannot be recovered?<
 			} else if (isset($_POST['btn_yes'])) {
 				logaction(_uid, 'DELETE_USER', 0, $u->alias);
 				usr_delete($usr_id);
-				echo successify('User <b>'.$u->alias.'</b> was successfully removed.');
+				echo successify('User <b>'. $u->alias .'</b> was successfully removed.');
 				unset($act, $u);
 				$usr_id = '';
 				if (isset($_POST['f']) || isset($_GET['f'])) {
-					echo '<p>[ <a href="'. $WWW_ROOT.__fud_index_name__.'?t=finduser">return</a> ]</p>';
+					echo '<p>[ <a href="'. $WWW_ROOT . __fud_index_name__ .'?t=finduser">return</a> ]</p>';
 					exit;
 				}
 			} else if (isset($_POST['btn_no'])) {
 				if (isset($_POST['f']) || isset($_GET['f'])) {
-					echo '<p>[ <a href="'. $WWW_ROOT.__fud_index_name__.$usr->returnto.'">return</a> ]</p>';
+					echo '<p>[ <a href="'. $WWW_ROOT. __fud_index_name__ . $usr->returnto .'">return</a> ]</p>';
 					exit;
 				}
 			}
@@ -184,12 +184,12 @@ Are you sure you want to do this?<br />
 						echo errorify('Sorry, you cannot abdicate from being and administrator!');
 						break;
 					}
-					if (q_singleval('SELECT count(*) FROM '.$DBHOST_TBL_PREFIX.'mod WHERE user_id='.$u->id)) {
-						q('UPDATE '.$DBHOST_TBL_PREFIX.'users SET users_opt=(users_opt & ~ 1048576) |524288 WHERE id='.$usr_id);
+					if (q_singleval('SELECT count(*) FROM '. $DBHOST_TBL_PREFIX .'mod WHERE user_id='. $u->id)) {
+						q('UPDATE '. $DBHOST_TBL_PREFIX .'users SET users_opt='. q_bitor( q_bitand('users_opt', q_bitnot(1048576)), 524288) .' WHERE id='. $usr_id);
 						$u->users_opt ^= 1048576;
 					} else {
-						q('UPDATE '.$DBHOST_TBL_PREFIX.'users SET users_opt=users_opt & ~ (524288|1048576) WHERE id='.$usr_id);
-						$u->users_opt = $u->users_opt &~ (1048576|524288);
+						q('UPDATE '. $DBHOST_TBL_PREFIX .'users SET users_opt='. q_bitand('users_opt', q_bitnot(524288|1048576)) .' WHERE id='. $usr_id);
+						$u->users_opt = $u->users_opt & ~(1048576|524288);
 					}
 					echo successify('User <b>'.$u->alias.'</b> was demoted from being an administrator.');
 				}
@@ -209,9 +209,9 @@ administration permissions to the forum. This individual will be able to do anyt
 <?php
 					exit;
 				} else if (isset($_POST['btn_yes'])) {
-					q('UPDATE '.$DBHOST_TBL_PREFIX.'users SET users_opt=(users_opt & ~ 524288) | 1048576 WHERE id='.$usr_id);
+					q('UPDATE ' .$DBHOST_TBL_PREFIX .'users SET users_opt='. q_bitor( q_bitand('users_opt', q_bitnot(524288)), 1048576) .' WHERE id='. $usr_id);
 					$u->users_opt |= 1048576;
-					echo successify('User <b>'.$u->alias.'</b> was promoted to administrator.');
+					echo successify('User <b>'. $u->alias .'</b> was promoted to administrator.');
 				}
 			}
 			break;
@@ -221,10 +221,10 @@ administration permissions to the forum. This individual will be able to do anyt
 	if ($usr_id) {
 		/* Deal with custom tags. */
 		if (!empty($_POST['c_tag'])) {
-			q('INSERT INTO '.$DBHOST_TBL_PREFIX.'custom_tags (name, user_id) VALUES('.ssn($_POST['c_tag']).', '.$usr_id.')');
+			q('INSERT INTO '. $DBHOST_TBL_PREFIX .'custom_tags (name, user_id) VALUES('. ssn($_POST['c_tag'] ).', '. $usr_id .')');
 			echo successify('Custom tag was added.');
 		} else if (!empty($_GET['deltag'])) {
-			q('DELETE FROM '.$DBHOST_TBL_PREFIX.'custom_tags WHERE id='.(int)$_GET['deltag']);
+			q('DELETE FROM '. $DBHOST_TBL_PREFIX .'custom_tags WHERE id='. (int)$_GET['deltag']);
 			echo successify('Custom tag was removed.');
 		} else {
 			$nada = 1;
@@ -237,20 +237,20 @@ administration permissions to the forum. This individual will be able to do anyt
 		if (!empty($_POST['login_passwd'])) {
 			$salt   = substr(md5(uniqid(mt_rand(), true)), 0, 9);
 			$passwd = sha1($salt . sha1($_POST['login_passwd']));
-			q('UPDATE '. $DBHOST_TBL_PREFIX ."users SET passwd='". $passwd ."', salt='". $salt ."' WHERE id=". $usr_id);
+			q('UPDATE '. $DBHOST_TBL_PREFIX .'users SET passwd=\''. $passwd .'\', salt=\''. $salt .'\' WHERE id='. $usr_id);
 			logaction(_uid, 'ADM_SET_PASSWD', 0, char_fix(htmlspecialchars($u->login)));
-			echo successify('User <b>'.$u->alias.'</b>\'s password was successfully changed.');
+			echo successify('User <b>'. $u->alias .'</b>\'s password was successfully changed.');
 		/* Chanding login name. */
 		} else if (!empty($_POST['login_name']) && $u->login != $_POST['login_name']) {
 			$alias = _esc(make_alias($_POST['login_name']));
 			$login = _esc($_POST['login_name']);
 
 			if ($FUD_OPT_2 & 128) {
-				if (db_li('UPDATE '.$DBHOST_TBL_PREFIX.'users SET login='.$login.' WHERE id='.$usr_id, $ef) === null) {
+				if (db_li('UPDATE '. $DBHOST_TBL_PREFIX .'users SET login='. $login .' WHERE id='. $usr_id, $ef) === null) {
 					$login_error = errorify('Someone is already using that login name.');
 				}
 			} else {
-				if (db_li('UPDATE '.$DBHOST_TBL_PREFIX.'users SET login='.$login.', alias='.$alias.' WHERE id='.$usr_id, $ef) === null) {
+				if (db_li('UPDATE '. $DBHOST_TBL_PREFIX .'users SET login='. $login .', alias='. $alias .' WHERE id='. $usr_id, $ef) === null) {
 					if ($ef == 2) {
 						$login_error = errorify('Someone is already using that login name.');
 					} else {
@@ -326,21 +326,21 @@ administration permissions to the forum. This individual will be able to do anyt
 		}
 		$item_s = _esc($item_s);
 
-		if (($cnt = q_singleval('SELECT count(*) FROM '.$DBHOST_TBL_PREFIX.'users WHERE ' . $field . ($like ? ' LIKE ' : '=') . $item_s .' LIMIT 50'))) {
-			$c = uq('SELECT id, alias, email, last_login, last_known_ip, posted_msg_count FROM '.$DBHOST_TBL_PREFIX.'users WHERE ' . $field . ($like ? ' LIKE ' : '=') . $item_s .' LIMIT 50');
+		if (($cnt = q_singleval('SELECT count(*) FROM '. $DBHOST_TBL_PREFIX .'users WHERE ' . $field . ($like ? ' LIKE ' : '=') . $item_s .' LIMIT 50'))) {
+			$c = uq('SELECT id, alias, email, last_login, last_known_ip, posted_msg_count FROM '. $DBHOST_TBL_PREFIX .'users WHERE '. $field . ($like ? ' LIKE ' : '=') . $item_s .' LIMIT 50');
 		}
 		switch ($cnt) {
 			case 0:
-				$search_error = errorify('There are no users matching the specified '.$field.' mask.');
+				$search_error = errorify('There are no users matching the specified '. $field .' mask.');
 				unset($c);
 				break;
 			case 1:
 				list($usr_id) = db_rowarr($c);
 				unset($c);
-				$u = db_sab('SELECT * FROM '.$DBHOST_TBL_PREFIX.'users WHERE id='.$usr_id);
+				$u = db_sab('SELECT * FROM '. $DBHOST_TBL_PREFIX .'users WHERE id='. $usr_id);
 				/* Check if ban had expired. */
 				if ($u->users_opt & 65536 && $u->ban_expiry && $u->ban_expiry < __request_timestamp__) {
-					q('UPDATE '.$DBHOST_TBL_PREFIX.'users SET ban_expiry=0, users_opt=users_opt &~ 65536 WHERE id='.$usr_id);
+					q('UPDATE '. $DBHOST_TBL_PREFIX .'users SET ban_expiry=0, users_opt='. q_bitand('users_opt', q_bitnot(65536)) .' WHERE id='. $usr_id);
 				}
 				break;
 			default:
@@ -420,11 +420,11 @@ if ($acc_mod_only) {
 }
 
 	echo '<tr class="field"><td nowrap="nowrap" valign="top">Moderating Forums:</td><td valign="top">';
-	$c = uq('SELECT f.name FROM '.$DBHOST_TBL_PREFIX.'mod mm INNER JOIN '.$DBHOST_TBL_PREFIX.'forum f ON mm.forum_id=f.id WHERE mm.user_id='.$usr_id);
+	$c = uq('SELECT f.name FROM '. $DBHOST_TBL_PREFIX .'mod mm INNER JOIN '. $DBHOST_TBL_PREFIX .'forum f ON mm.forum_id=f.id WHERE mm.user_id='. $usr_id);
 	if ($r = db_rowarr($c)) {
 		echo '<table border="0" cellspacing="1" cellpadding="3">';
 		do {
-			echo '<tr><td>'.$r[0].'</td></tr>';
+			echo '<tr><td>'. $r[0] .'</td></tr>';
 		} while ($r = db_rowarr($c));
 		echo '</table>';
 	} else {
@@ -437,9 +437,9 @@ if ($acc_mod_only) {
 
 	<tr class="field"><td valign="top">Custom Tags:</td><td valign="top">
 <?php
-	$c = uq('SELECT name, id FROM '.$DBHOST_TBL_PREFIX.'custom_tags WHERE user_id='.$usr_id);
+	$c = uq('SELECT name, id FROM '. $DBHOST_TBL_PREFIX .'custom_tags WHERE user_id='. $usr_id);
 	while ($r = db_rowarr($c)) {
-		echo $r[0] . ' [<a href="admuser.php?act=nada&amp;usr_id='.$usr_id.'&amp;deltag=' . $r[1] . '&amp;' . __adm_rsid . '">Delete</a>]<br />';
+		echo $r[0] .' [<a href="admuser.php?act=nada&amp;usr_id='. $usr_id .'&amp;deltag='. $r[1] . '&amp;' . __adm_rsid . '">Delete</a>]<br />';
 	}
 	unset($c);
 ?>
@@ -495,7 +495,7 @@ if ($acc_mod_only) {
 	<td><?php
 
 	$i = 0;
-	$c = uq('SELECT g.name FROM '.$DBHOST_TBL_PREFIX.'group_members m INNER JOIN '.$DBHOST_TBL_PREFIX.'groups g ON g.id=m.group_id WHERE m.user_id='.$usr_id);
+	$c = uq('SELECT g.name FROM '. $DBHOST_TBL_PREFIX .'group_members m INNER JOIN '. $DBHOST_TBL_PREFIX .'groups g ON g.id=m.group_id WHERE m.user_id='. $usr_id);
 	while ($r = db_rowarr($c)) {
 		echo $r[0] .'<br />';
 		$i++;
@@ -516,24 +516,24 @@ if ($acc_mod_only) {
 <tr class="field">
 	<td colspan="2">
 <?php
-	echo '<a href="../'.__fud_index_name__.'?t=register&amp;mod_id='.$usr_id.'&amp;'.__adm_rsidl.'">Edit Profile</a> | ';
+	echo '<a href="../'. __fud_index_name__ .'?t=register&amp;mod_id='. $usr_id .'&amp;'. __adm_rsidl .'">Edit Profile</a> | ';
 	if ($FUD_OPT_1 & 1024) {	// PM_ENABLED
-		echo '<a href="../'.__fud_index_name__.'?t=ppost&amp;'.__adm_rsid.'&amp;toi='.$usr_id.'">Send PM</a> | ';
+		echo '<a href="../'. __fud_index_name__ .'?t=ppost&amp;'. __adm_rsid .'&amp;toi='. $usr_id .'">Send PM</a> | ';
 	}
 	if ($FUD_OPT_2 & 1073741824) {	// ALLOW_EMAIL
-		echo '<a href="../'.__fud_index_name__.'?t=email&amp;toi='.$usr_id.'&amp;'.__adm_rsid.'">Send E-mail</a> | ';
+		echo '<a href="../'. __fud_index_name__ .'?t=email&amp;toi='. $usr_id .'&amp;'. __adm_rsid .'">Send E-mail</a> | ';
 	} else {
-		echo '<a href="mailto:'.$u->email.'">Send E-mail</a> | ';
+		echo '<a href="mailto:'. $u->email .'">Send E-mail</a> | ';
 	}
 
-	echo '  <a href="admuser.php?act=reset&amp;usr_id='.$usr_id.'&amp;'.__adm_rsid.'">Reset Password</a> |';
-	echo '  <a href="admuser.php?act=del&amp;usr_id='.$usr_id.'&amp;'.__adm_rsid.'">Delete User</a> |';
-	echo '	<a href="../'.__fud_index_name__.'?t=showposts&amp;id='.$usr_id.'&amp;'.__adm_rsid.'">See Messages</a>';	
+	echo '  <a href="admuser.php?act=reset&amp;usr_id='. $usr_id .'&amp;'. __adm_rsid .'">Reset Password</a> |';
+	echo '  <a href="admuser.php?act=del&amp;usr_id='. $usr_id .'&amp;'. __adm_rsid .'">Delete User</a> |';
+	echo '	<a href="../'. __fud_index_name__ .'?t=showposts&amp;id='. $usr_id .'&amp;'. __adm_rsid .'">See Messages</a>';	
 	if ($is_a) {
 		if ($FUD_OPT_1 & 1024) {	// PM_ENABLED
-			echo ' | <a href="admpmspy.php?user='.htmlspecialchars($u->login).'&amp;'.__adm_rsid.'">See Private Messages</a>';
+			echo ' | <a href="admpmspy.php?user='. htmlspecialchars($u->login) .'&amp;'. __adm_rsid .'">See Private Messages</a>';
 		}
-		echo ' | <a href="admprune.php?usr_id='.$usr_id.'&amp;'.__adm_rsid.'">Delete ALL messages by this user</a>';
+		echo ' | <a href="admprune.php?usr_id='. $usr_id .'&amp;'. __adm_rsid .'">Delete ALL messages by this user</a>';
 	}
 ?>
 </td></tr></table>

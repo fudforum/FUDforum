@@ -24,8 +24,8 @@
 	
 	require($WWW_ROOT_DISK .'adm/header.php');
 
-	$path = $GLOBALS['DATA_DIR'].'thm/'.$tname.'/i18n/'.$tlang.'/help';
-	$files = glob($path . '/*.hlp');
+	$path = $GLOBALS['DATA_DIR']. 'thm/'. $tname .'/i18n/'. $tlang .'/help';
+	$files = glob($path .'/*.hlp');
 	if (!$files) {
 		echo "Could not get list of help files from {$path}<br/>";
 		exit;
@@ -35,14 +35,14 @@
 		$data = '';
 		foreach($_POST['q'] as $k=>$q) {
 			if (empty($_POST['q']) || empty($_POST['a'][$k])) continue;
-			$data .= 'TOPIC_TITLE: '.$q."\nTOPIC_HELP:\n".$_POST['a'][$k]."\n\n";
+			$data .= 'TOPIC_TITLE: '. $q ."\nTOPIC_HELP:\n". $_POST['a'][$k] ."\n\n";
 		}	
 		$file = $path .'/'. $_POST['file'];
 		file_put_contents($file, $data);
 
                 // Recompile dependant themes.
                 fud_use('compiler.inc', true);
-                $c = q('SELECT name FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'themes WHERE theme='._esc($tname)." AND lang="._esc($tlang));
+                $c = q('SELECT name FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'themes WHERE theme='. _esc($tname) .' AND lang='. _esc($tlang));
                 while ($r = db_rowarr($c)) {
                         compile_all($tname, $tlang, $r[0]);
                 }
@@ -58,7 +58,7 @@
 	echo '<tr><td><b>Select file to edit:</b></td></tr>';
 	foreach ($files as $f) {
 		$file = basename($f);
-		echo '<tr><td><img src="../blank.gif" height="1" width="20" alt="blank" /><a class="deps" href="hlplist.php?tname='.$tname.'&amp;tlang='.$tlang.'&amp;'.__adm_rsid.'&amp;file='.$file.'" title="Edit this help file.">'.$file.'</a></td></tr>';
+		echo '<tr><td><img src="../blank.gif" height="1" width="20" alt="blank" /><a class="deps" href="hlplist.php?tname='. $tname .'&amp;tlang='. $tlang .'&amp;'. __adm_rsid .'&amp;file='. $file .'" title="Edit this help file.">'. $file .'</a></td></tr>';
 	}
 ?>
 </table></td>
@@ -76,7 +76,7 @@ $(document).ready(function () {
 </script>
 <?php
 	if (isset($_GET['file'])) {
-		echo '<td valign="top"><form method="post" action="hlplist.php?tname='.$tname.'&amp;tlang='.$tlang.'">'._hs.'<table border="0" cellpadding="3">';
+		echo '<td valign="top"><form method="post" action="hlplist.php?tname='. $tname .'&amp;tlang='. $tlang .'">'. _hs .'<table border="0" cellpadding="3">';
 		echo '<tr><td>Blank out content to remove a topic. Click on any of the <i>Add new topic</i> links to add a new topic.</td></tr>';
 		$file = $path .'/'. $_GET['file'];
 		$data = file_get_contents($file);

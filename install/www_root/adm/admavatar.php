@@ -52,10 +52,10 @@ function import_avatars($path)
 		}
 		$name_r = str_replace(' ', '_', $sect) . '_' . $name_r;
 
-		$id = db_li('INSERT INTO '.$GLOBALS['DBHOST_TBL_PREFIX'].'avatar (img, descr, gallery) VALUES('._esc($name_r).', '._esc($name).', '._esc($sect).')', $em, 1);
+		$id = db_li('INSERT INTO '. $GLOBALS['DBHOST_TBL_PREFIX'] .'avatar (img, descr, gallery) VALUES('. _esc($name_r) .', '. _esc($name) .', '. _esc($sect) .')', $em, 1);
 		if ($id) {
 			if (!copy($file, $av_path . $name_r)) {
-				q('DELETE FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'avatar WHERE id='.$id);
+				q('DELETE FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'avatar WHERE id='. $id);
 				$i++;
 			}
 		}
@@ -67,12 +67,12 @@ function import_avatars($path)
 	require($WWW_ROOT_DISK .'adm/header.php');
 	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
 
-	if (!empty($_GET['del']) && ($im = q_singleval('SELECT img FROM '.$tbl.'avatar WHERE id='.(int)$_GET['del']))) {
-		q('DELETE FROM '.$tbl.'avatar WHERE id='.(int)$_GET['del']);
+	if (!empty($_GET['del']) && ($im = q_singleval('SELECT img FROM '. $tbl .'avatar WHERE id='. (int)$_GET['del']))) {
+		q('DELETE FROM '.$tbl.'avatar WHERE id='. (int)$_GET['del']);
 		if (db_affected()) {
-			q('UPDATE '.$tbl.'users SET avatar_loc=NULL, avatar=0, users_opt=(users_opt & ~ (8388608|16777216)) | 4194304 WHERE avatar='.(int)$_GET['del']);
+			q('UPDATE '. $tbl .'users SET avatar_loc=NULL, avatar=0, users_opt='. q_bitor(q_bitand('users_opt', q_bitnot(8388608|16777216)), 4194304) .' WHERE avatar='. (int)$_GET['del']);
 		}
-		@unlink($GLOBALS['WWW_ROOT_DISK'] . 'images/avatars/'.$im);
+		@unlink($GLOBALS['WWW_ROOT_DISK'] .'images/avatars/'. $im);
 	}
 
 	// Gallery importing.
@@ -84,23 +84,23 @@ function import_avatars($path)
 
 	// Gallery removal.
 	if (!empty($_POST['gal_del'])) {
-		$r = uq('SELECT img FROM '.$tbl.'avatar WHERE gallery='._esc($_POST['gal_del']));
+		$r = uq('SELECT img FROM '. $tbl .'avatar WHERE gallery='. _esc($_POST['gal_del']));
 		while ($l = db_rowarr($r)) {
-			@unlink($GLOBALS['WWW_ROOT_DISK'] . 'images/avatars/' . $l[0]);
+			@unlink($GLOBALS['WWW_ROOT_DISK'] .'images/avatars/'. $l[0]);
 		}
 		unset($r);
-		q('DELETE FROM '.$tbl.'avatar WHERE gallery='._esc($_POST['gal_del']));
+		q('DELETE FROM '. $tbl .'avatar WHERE gallery='. _esc($_POST['gal_del']));
 	}
 
 	if (isset($_GET['edit'])) {
-		list($avt_img, $avt_descr, $avt_gal) = db_saq('SELECT img, descr, gallery FROM '.$tbl.'avatar WHERE id='.(int)$_GET['edit']);
+		list($avt_img, $avt_descr, $avt_gal) = db_saq('SELECT img, descr, gallery FROM '. $tbl .'avatar WHERE id='. (int)$_GET['edit']);
 		$edit = (int)$_GET['edit'];
 	} else {
 		$edit = $avt_gal = $avt_img = $avt_descr = '';
 	}
 
 	if (isset($_FILES['icoul']) && $_FILES['icoul']['size'] && preg_match('!\.(jpg|jpeg|gif|png)$!i', $_FILES['icoul']['name'])) {
-		move_uploaded_file($_FILES['icoul']['tmp_name'], $GLOBALS['WWW_ROOT_DISK'] . 'images/avatars/' . $_FILES['icoul']['name']);
+		move_uploaded_file($_FILES['icoul']['tmp_name'], $GLOBALS['WWW_ROOT_DISK'] .'images/avatars/'. $_FILES['icoul']['name']);
 		if (empty($_POST['avt_img'])) {
 			$_POST['avt_img'] = $_FILES['icoul']['name'];
 		}
@@ -120,21 +120,21 @@ function import_avatars($path)
 		if (db_affected() && $old_img != $_POST['avt_img']) {
 			$size = getimagesize($GLOBALS['WWW_ROOT_DISK'] . 'images/avatars/' . $_POST['avt_img']);
 			$new_loc = '<img src="'.$GLOBALS['WWW_ROOT'].'images/avatars/'.$_POST['avt_img'].'" '.$size[3].' />';
-			q('UPDATE '.$tbl.'users SET avatar_loc=\''.$new_loc.'\' WHERE avatar='.(int)$_POST['edit']);
+			q('UPDATE '. $tbl .'users SET avatar_loc=\''. $new_loc .'\' WHERE avatar='. (int)$_POST['edit']);
 		}
 	} else if (isset($_POST['btn_submit']) && !empty($_POST['avt_img'])) {
-		q('INSERT INTO '.$tbl.'avatar (img, descr, gallery) VALUES ('.ssn($_POST['avt_img']).', '._esc($_POST['avt_descr']).', '.ssn($avt_gal).')');
+		q('INSERT INTO '. $tbl .'avatar (img, descr, gallery) VALUES ('. ssn($_POST['avt_img']) .', '. _esc($_POST['avt_descr']) .', '. ssn($avt_gal) .')');
 	}
 
 	// Fetch a list of available galleries.
-	$galleries = db_all('SELECT DISTINCT(gallery) FROM '.$tbl.'avatar');
+	$galleries = db_all('SELECT DISTINCT(gallery) FROM '. $tbl .'avatar');
 ?>
 <h2>Avatar Management System</h2>
 
 <form id="frm_avt" method="post" action="admavatar.php" enctype="multipart/form-data">
 <?php echo _hs; ?>
 <table class="datatable solidtable">
-	<?php if (@is_writeable($GLOBALS['WWW_ROOT_DISK'] . 'images/avatars')) { ?>
+	<?php if (@is_writeable($GLOBALS['WWW_ROOT_DISK'] .'images/avatars')) { ?>
 		<tr class="field">
 			<td colspan="2"><b>Import Gallery</b><br /><font size="-1">Recursively process specified directory, creating avatars from all files with (*.gif, *.jpg, *.png, *.jpeg) extensions.<br />A new gallery will be created for every encountered sub-directory.</font></td>
 		</tr>
@@ -247,7 +247,7 @@ function import_avatars($path)
 		echo '<form method="get" action="admavatar.php#list">'._hs;
 		echo 'View gallery: <select name="avt_gal_sw">';
 		foreach ($galleries as $gal) {
-			echo '<option value="'.htmlspecialchars($gal).'"'.($avt_gal == $gal ? ' selected="selected"' : '').'>'.htmlspecialchars($gal).'</option>';
+			echo '<option value="'. htmlspecialchars($gal) .'"'.($avt_gal == $gal ? ' selected="selected"' : '').'>'. htmlspecialchars($gal) .'</option>';
 		}
 		echo '</select> <input type="submit" name="submit" value="Switch" />';
 		echo '</form></div>';
@@ -260,16 +260,16 @@ function import_avatars($path)
 	<th>Action</th>
 </tr></thead>
 <?php
-	$c = uq('SELECT id, img, descr FROM '.$tbl.'avatar WHERE gallery='._esc($show_def));
+	$c = uq('SELECT id, img, descr FROM '. $tbl .'avatar WHERE gallery='. _esc($show_def));
 	$i = 0;
 	while ($r = db_rowarr($c)) {
 		$i++;
 		$bgcolor = ($edit == $r[0]) ? ' class="resultrow3"' : (($i%2) ? ' class="resultrow1"' : ' class="resultrow2"');
 
 		echo '<tr'.$bgcolor.'>
-				<td><img src="'.$GLOBALS['WWW_ROOT'].'images/avatars/'.$r[1].'" alt="'.$r[2].'" border="0" /></td>
+				<td><img src="'. $GLOBALS['WWW_ROOT'] .'images/avatars/'. $r[1] .'" alt="'. $r[2] .'" border="0" /></td>
 				<td>'.$r[2].'</td>
-				<td>[<a href="admavatar.php?edit='.$r[0].'&amp;avt_gal_sw='.$avt_gal.'&amp'.__adm_rsid.'#edit">Edit</a>] [<a href="admavatar.php?del='.$r[0].'&amp;'.__adm_rsid.'">Delete</a>]</td>
+				<td>[<a href="admavatar.php?edit='. $r[0] .'&amp;avt_gal_sw='. $avt_gal .'&amp'. __adm_rsid .'#edit">Edit</a>] [<a href="admavatar.php?del='. $r[0] .'&amp;'. __adm_rsid .'">Delete</a>]</td>
 			</tr>';
 	}
 	unset($c);

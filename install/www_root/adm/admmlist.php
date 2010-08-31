@@ -53,7 +53,7 @@ function format_regex(&$regex)
 		echo successify('Mailing list rule successfully deleted.');
 	}
 
-	if (isset($_GET['edit']) && $edit && ($o = db_sab('SELECT * FROM '.$tbl.'mlist WHERE id='.$edit))) {
+	if (isset($_GET['edit']) && $edit && ($o = db_sab('SELECT * FROM '. $tbl .'mlist WHERE id='. $edit))) {
 		foreach ($o as $k => $v) {
 			${'ml_' . $k} = $v;
 		}
@@ -66,9 +66,6 @@ function format_regex(&$regex)
 		$ml_subject_regex_haystack_opt = $ml_body_regex_haystack_opt = '';
 	}
 
-	// if ($FUD_OPT_2 & 8388608 && strncasecmp('win', PHP_OS, 3)) {	// Forum is locked and not windows
-	// 	echo '<div class="alert">You may need to <a href="admlock.php?'.__adm_rsid.'">unlock</a> the forum\'s files before you can run the newsgroup importing script(s).</div>';
-	// }
 ?>
 <h2>Mailing List Manager</h2>
 
@@ -124,14 +121,14 @@ function format_regex(&$regex)
 		<td><select name="ml_forum_id"><option></option>
 		<?php
 			$c = uq('SELECT f.id, f.name, c.name
-				FROM '.$tbl.'forum f
-				INNER JOIN '.$tbl.'cat c ON f.cat_id=c.id
-				LEFT JOIN '.$tbl.'nntp n ON f.id=n.forum_id
-				LEFT JOIN '.$tbl.'mlist ml ON f.id=ml.forum_id
-				WHERE n.id IS NULL AND (ml.id IS NULL OR ml.id='.(int)$edit.')
+				FROM '. $tbl .'forum f
+				INNER JOIN '. $tbl .'cat c ON f.cat_id=c.id
+				LEFT JOIN '. $tbl .'nntp n ON f.id=n.forum_id
+				LEFT JOIN '. $tbl .'mlist ml ON f.id=ml.forum_id
+				WHERE n.id IS NULL AND (ml.id IS NULL OR ml.id='. (int)$edit .')
 				ORDER BY c.parent, c.view_order, f.view_order');
 				while ($r = db_rowarr($c)) {
-					echo '<option value="'.$r[0].'"'.($r[0] != $ml_forum_id ? '' : ' selected="selected"').'>'.$r[2].' &raquo; '.$r[1].'</option>';
+					echo '<option value="'. $r[0] .'"'. ($r[0] != $ml_forum_id ? '' : ' selected="selected"') .'>'. $r[2] .' &raquo; '. $r[1] .'</option>';
 				}
 				unset($c);
 		?>
@@ -303,15 +300,15 @@ function format_regex(&$regex)
 	<th align="center">Action</th>
 </tr></thead>
 <?php
-	$c = uq('SELECT ml.id, ml.name, f.name FROM '.$tbl.'mlist ml INNER JOIN '.$tbl.'forum f ON f.id=ml.forum_id');
+	$c = uq('SELECT ml.id, ml.name, f.name FROM '. $tbl .'mlist ml INNER JOIN '. $tbl .'forum f ON f.id=ml.forum_id');
 	$i = 0;
 	while ($r = db_rowarr($c)) {
 		$i++;
 		$bgcolor = ($edit == $r[0]) ? ' class="resultrow3"' : (($i%2) ? ' class="resultrow1"' : ' class="resultrow2"');
 
-		echo '<tr'.$bgcolor.'><td>'.htmlspecialchars($r[1]).'</td><td>'.$r[2].'</td>
+		echo '<tr'.$bgcolor.'><td>'. htmlspecialchars($r[1]) .'</td><td>'. $r[2] .'</td>
 		<td nowrap="nowrap">maillist.php '.$r[0].'</td>
-		<td>[<a href="admmlist.php?edit='.$r[0].'&amp;'.__adm_rsid.'#edit">Edit</a>] [<a href="admmlist.php?del='.$r[0].'&amp;'.__adm_rsid.'">Delete</a>]</td></tr>';
+		<td>[<a href="admmlist.php?edit='. $r[0] .'&amp;'. __adm_rsid .'#edit">Edit</a>] [<a href="admmlist.php?del='. $r[0] .'&amp;' .__adm_rsid .'">Delete</a>]</td></tr>';
 	}
 	unset($c);
 	if (!$i) {

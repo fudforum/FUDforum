@@ -49,7 +49,7 @@
 		}
 		echo successify('Calendar settings was successfully updated.');
 		if ($FUD_OPT_3 & 134217728) {
-			echo successify('Visit the <a href="../'. __fud_index_name__ . '?t=cal&amp;'. __adm_rsid .'">calendar</a>.');
+			echo successify('Visit the <a href="../'. __fud_index_name__ .'?t=cal&amp;'. __adm_rsid .'">calendar</a>.');
 		}
 	}
 
@@ -106,7 +106,7 @@
 	}
 
 	/* Set defaults. */
-	if ($edit && ($c = db_arr_assoc('SELECT * FROM '.$tbl.'calendar WHERE id='.$edit))) {
+	if ($edit && ($c = db_arr_assoc('SELECT * FROM '. $tbl .'calendar WHERE id='. $edit))) {
 		foreach ($c as $k => $v) {
 			${'cal_'.$k} = $v;
 		}
@@ -189,7 +189,7 @@ echo '<h3>'. ($edit ? '<a name="edit">Edit Event:</a>' : 'Add New Event:') .'</h
 	while ($r = db_rowarr($c)) {
 		$i++;
 		$bgcolor = ($edit == $r[0]) ? ' class="resultrow3"' : (($i%2) ? ' class="resultrow1"' : ' class="resultrow2"');
-		echo '<tr'.$bgcolor.'><td>'.$r[1].'</td><td>'.$r[2].'</td><td>'.$r[3].'</td><td>'.$r[4].'</td><td>'.$r[5].'</td><td><a href="admcalendar.php?edit='.$r[0].'&amp;'.__adm_rsid.'#edit">Edit</a> | <a href="admcalendar.php?del='.$r[0].'&amp;'.__adm_rsid.'">Delete</a></td></tr>';
+		echo '<tr'.$bgcolor.'><td>'. $r[1] .'</td><td>'. $r[2] .'</td><td>'. $r[3] .'</td><td>'. $r[4] .'</td><td>'. $r[5] .'</td><td><a href="admcalendar.php?edit='. $r[0] .'&amp;'. __adm_rsid .'#edit">Edit</a> | <a href="admcalendar.php?del='. $r[0] .'&amp;'. __adm_rsid .'">Delete</a></td></tr>';
 	}
 	unset($c);
 	if (!$i) {

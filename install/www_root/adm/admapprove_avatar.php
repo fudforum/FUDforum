@@ -34,9 +34,9 @@
 <?php
 	$i = 0;
 
-	$c = uq('SELECT id, avatar_loc, alias FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'users WHERE users_opt>=16777216 AND (users_opt & 16777216) > 0 ORDER BY id');
+	$c = uq('SELECT id, avatar_loc, alias FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'users WHERE users_opt>=16777216 AND '. q_bitand('users_opt', 16777216) .' > 0 ORDER BY id');
 	while ($r = db_rowarr($c)) {
-		echo '<tr class="field"><td>'.$r[2].'</td><td><center>'.$r[1].'</center></td><td>[<a href="admapprove_avatar.php?usr_id='.$r[0].'&amp;'.__adm_rsid.'">Approve</a>] [<a href="admapprove_avatar.php?del='.$r[0].'&amp;'.__adm_rsid.'">Delete</a>]</td></tr>';
+		echo '<tr class="field"><td>'. $r[2] .'</td><td><center>'. $r[1] .'</center></td><td>[<a href="admapprove_avatar.php?usr_id='. $r[0] .'&amp;'. __adm_rsid .'">Approve</a>] [<a href="admapprove_avatar.php?del='. $r[0] .'&amp;'. __adm_rsid .'">Delete</a>]</td></tr>';
 		$i++;
 	}
 	unset($c);

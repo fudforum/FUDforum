@@ -58,7 +58,7 @@ which haven't logged on since <font color="red"><?php echo fdate('%Y-%m-%d %T', 
 			require($WWW_ROOT_DISK . 'adm/footer.php');
 			exit;
 		} else if ( isset($_POST['btn_conf']) && $back > 0) {
-			$c = q('SELECT id FROM '. $DBHOST_TBL_PREFIX. 'users WHERE id > 1 AND posted_msg_count = 0 AND last_visit < '. $back .' AND join_date < '. $back);
+			$c = q('SELECT id FROM '. $DBHOST_TBL_PREFIX .'users WHERE id > 1 AND posted_msg_count = 0 AND last_visit < '. $back .' AND join_date < '. $back);
 			while ($r = db_rowarr($c)) {
 				// echo 'DELETE USER '. $r[0] .'<br />';
 				usr_delete($r[0]);

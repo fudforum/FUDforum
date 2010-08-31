@@ -31,16 +31,16 @@
 
 <?php
 	if (@file_exists($WWW_ROOT_DISK .'install.php')) {
-		echo '<div class="alert dismiss">You still haven\'t removed the installation script at <nobr>'.$WWW_ROOT_DISK.'install.php.</nobr> Please <a href="admbrowse.php?cur='. urlencode($WWW_ROOT_DISK) .'&amp;'. __adm_rsid .'#flagged">do so now</a> before a hacker destroys your forum!<br /></div>';
+		echo '<div class="alert dismiss">You still haven\'t removed the installation script at <nobr>'.$WWW_ROOT_DISK .'install.php.</nobr> Please <a href="admbrowse.php?cur='. urlencode($WWW_ROOT_DISK) .'&amp;'. __adm_rsid .'#flagged">do so now</a> before a hacker destroys your forum!<br /></div>';
 	}
 	if (@file_exists($WWW_ROOT_DISK .'uninstall.php')) {
-		echo '<div class="alert dismiss">You still haven\'t removed the uninstall script at <nobr>'.$WWW_ROOT_DISK.'uninstall.php.</nobr> Please <a href="admbrowse.php?cur='. urlencode($WWW_ROOT_DISK) .'&amp;'. __adm_rsid .'#flagged">do so now</a> before a hacker destroys your forum!<br /></div>';
+		echo '<div class="alert dismiss">You still haven\'t removed the uninstall script at <nobr>'. $WWW_ROOT_DISK .'uninstall.php.</nobr> Please <a href="admbrowse.php?cur='. urlencode($WWW_ROOT_DISK) .'&amp;'. __adm_rsid .'#flagged">do so now</a> before a hacker destroys your forum!<br /></div>';
 	}
 	if (@file_exists($WWW_ROOT_DISK .'upgrade.php')) {
-		echo '<div class="alert dismiss">You still haven\'t removed the upgrade script at <nobr>'.$WWW_ROOT_DISK.'upgrade.php.</nobr> Please <a href="admbrowse.php?cur='. urlencode($WWW_ROOT_DISK) .'&amp;'. __adm_rsid .'#flagged">do so now</a> before a hacker destroys your forum!<br /></div>';
+		echo '<div class="alert dismiss">You still haven\'t removed the upgrade script at <nobr>'. $WWW_ROOT_DISK .'upgrade.php.</nobr> Please <a href="admbrowse.php?cur='. urlencode($WWW_ROOT_DISK) .'&amp;'. __adm_rsid .'#flagged">do so now</a> before a hacker destroys your forum!<br /></div>';
 	}
 	if (@file_exists($WWW_ROOT_DISK .'unprotect.php')) {
-		echo '<div class="alert dismiss">You still haven\'t removed the unprotect script at <nobr>'.$WWW_ROOT_DISK.'unprotect.php.</nobr> Please <a href="admbrowse.php?cur='. urlencode($WWW_ROOT_DISK) .'&amp;'. __adm_rsid .'#flagged">do so now</a> before a hacker destroys your forum!<br /></div>';
+		echo '<div class="alert dismiss">You still haven\'t removed the unprotect script at <nobr>'. $WWW_ROOT_DISK .'unprotect.php.</nobr> Please <a href="admbrowse.php?cur='. urlencode($WWW_ROOT_DISK) .'&amp;'. __adm_rsid .'#flagged">do so now</a> before a hacker destroys your forum!<br /></div>';
 	}
 
 	/* Check load. */
@@ -86,16 +86,16 @@ FUDforum's documentation is available on our <b><a href="http://cvs.prohost.org/
 </td></tr></table>
 
 <?php
-	$forum_stats['MESSAGES'] = q_singleval('SELECT count(*) FROM '.$tbl.'msg');
-	$forum_stats['THREADS'] = q_singleval('SELECT count(*) FROM '.$tbl.'thread');
-	$forum_stats['PRIVATE_MESSAGES'] = q_singleval('SELECT count(*) FROM '.$tbl.'pmsg');
-	$forum_stats['FORUMS'] = q_singleval('SELECT count(*) FROM '.$tbl.'forum');
-	$forum_stats['CATEGORIES'] = q_singleval('SELECT count(*) FROM '.$tbl.'cat');
-	$forum_stats['MEMBERS'] = q_singleval('SELECT count(*) FROM '.$tbl.'users');
-	$forum_stats['ADMINS'] = q_singleval('SELECT count(*) FROM '.$tbl.'users WHERE users_opt>=1048576 AND (users_opt & 1048576) > 0');
-	$forum_stats['MODERATORS'] = q_singleval('SELECT count(DISTINCT(user_id)) FROM '.$tbl.'mod');
-	$forum_stats['GROUPS'] = q_singleval('SELECT count(*) FROM '.$tbl.'groups');
-	$forum_stats['GROUP_MEMBERS'] = q_singleval('SELECT count(*) FROM '.$tbl.'group_members');
+	$forum_stats['MESSAGES'] = q_singleval('SELECT count(*) FROM '. $tbl .'msg');
+	$forum_stats['THREADS'] = q_singleval('SELECT count(*) FROM '. $tbl .'thread');
+	$forum_stats['PRIVATE_MESSAGES'] = q_singleval('SELECT count(*) FROM '. $tbl .'pmsg');
+	$forum_stats['FORUMS'] = q_singleval('SELECT count(*) FROM '. $tbl .'forum');
+	$forum_stats['CATEGORIES'] = q_singleval('SELECT count(*) FROM '. $tbl .'cat');
+	$forum_stats['MEMBERS'] = q_singleval('SELECT count(*) FROM '. $tbl .'users');
+	$forum_stats['ADMINS'] = q_singleval('SELECT count(*) FROM '. $tbl .'users WHERE users_opt>=1048576 AND '. q_bitand('users_opt', 1048576) .' > 0');
+	$forum_stats['MODERATORS'] = q_singleval('SELECT count(DISTINCT(user_id)) FROM '. $tbl .'mod');
+	$forum_stats['GROUPS'] = q_singleval('SELECT count(*) FROM '. $tbl .'groups');
+	$forum_stats['GROUP_MEMBERS'] = q_singleval('SELECT count(*) FROM '. $tbl .'group_members');
 ?>
 
 <h4>Forum statistics:</h4>

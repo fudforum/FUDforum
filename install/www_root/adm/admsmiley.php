@@ -21,12 +21,12 @@
 
 	if (isset($_GET['del'])) {
 		db_lock($tbl.'smiley WRITE');
-		if (($im = q_singleval('SELECT img FROM '.$tbl.'smiley WHERE id='.(int)$_GET['del']))) {
-			q('DELETE FROM '.$tbl.'smiley WHERE id='.(int)$_GET['del']);
+		if (($im = q_singleval('SELECT img FROM '. $tbl .'smiley WHERE id='. (int)$_GET['del']))) {
+			q('DELETE FROM '. $tbl .'smiley WHERE id='. (int)$_GET['del']);
 			if (db_affected()) {
-				q('UPDATE '.$tbl.'smiley SET vieworder=vieworder-1 WHERE id>'.(int)$_GET['del']);
+				q('UPDATE '. $tbl .'smiley SET vieworder=vieworder-1 WHERE id>'. (int)$_GET['del']);
 			}
-			@unlink($GLOBALS['WWW_ROOT_DISK'] . 'images/smiley_icons/'.$im);
+			@unlink($GLOBALS['WWW_ROOT_DISK'] .'images/smiley_icons/'. $im);
 		}
 		smiley_rebuild_cache();
 		db_unlock();
@@ -34,14 +34,14 @@
 	}
 
 	if (isset($_GET['edit'])) {
-		list($sml_code, $sml_img, $sml_descr) = db_saq('SELECT code, img, descr FROM '.$tbl.'smiley WHERE id='.(int)$_GET['edit']);
+		list($sml_code, $sml_img, $sml_descr) = db_saq('SELECT code, img, descr FROM '. $tbl .'smiley WHERE id='. (int)$_GET['edit']);
 		$edit = (int)$_GET['edit'];
 	} else {
 		$edit = $sml_code = $sml_img = $sml_descr = '';
 	}
 
 	if (isset($_FILES['icoul']) && $_FILES['icoul']['size'] && preg_match('!\.(jpg|jpeg|gif|png)$!i', $_FILES['icoul']['name'])) {
-		move_uploaded_file($_FILES['icoul']['tmp_name'], $GLOBALS['WWW_ROOT_DISK'] . 'images/smiley_icons/' . $_FILES['icoul']['name']);
+		move_uploaded_file($_FILES['icoul']['tmp_name'], $GLOBALS['WWW_ROOT_DISK'] .'images/smiley_icons/'. $_FILES['icoul']['name']);
 		if (empty($_POST['avt_img'])) {
 			$_POST['avt_img'] = $_FILES['icoul']['name'];
 		}
@@ -49,12 +49,12 @@
 	}
 
 	if (isset($_POST['btn_update'], $_POST['edit']) && !empty($_POST['sml_img']) && !empty($_POST['sml_code']) && $_POST['sml_code']{strlen($_POST['sml_code']) - 1} != '~') {
-		q('UPDATE '.$tbl.'smiley SET code='.ssn($_POST['sml_code']).', img='.ssn($_POST['sml_img']).', descr='.ssn($_POST['sml_descr']).' WHERE id='.(int)$_POST['edit']);
+		q('UPDATE '. $tbl .'smiley SET code='. ssn($_POST['sml_code']) .', img='. ssn($_POST['sml_img']) .', descr='. ssn($_POST['sml_descr']) .' WHERE id='. (int)$_POST['edit']);
 		smiley_rebuild_cache();
 		echo successify('Smiley succesfully updated.');
 	} else if (isset($_POST['btn_submit']) && !empty($_POST['sml_img']) && !empty($_POST['sml_code']) && $_POST['sml_code']{strlen($_POST['sml_code']) - 1} != '~') {
-		$view_order = q_singleval('SELECT MAX(vieworder) FROM '.$tbl.'smiley') + 1;
-		q('INSERT INTO '.$tbl.'smiley (code, img, descr, vieworder) VALUES('.ssn($_POST['sml_code']).', '.ssn($_POST['sml_img']).', '.ssn($_POST['sml_descr']).', '.$view_order.')');
+		$view_order = q_singleval('SELECT MAX(vieworder) FROM '. $tbl .'smiley') + 1;
+		q('INSERT INTO '.$tbl.'smiley (code, img, descr, vieworder) VALUES('. ssn($_POST['sml_code']) .', '. ssn($_POST['sml_img']) .', '. ssn($_POST['sml_descr']) .', '. $view_order .')');
 		smiley_rebuild_cache();
 		echo successify('Smiley succesfully added.');
 	}
@@ -63,18 +63,18 @@
 		$oldp = (int)$_GET['chpos'];
 		$newp = (int)$_GET['chdest'];
 		if ($oldp != $newp && $newp) {
-			db_lock($GLOBALS['DBHOST_TBL_PREFIX'].'smiley WRITE');
-			q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'smiley SET vieworder=2147483647 WHERE vieworder='.$oldp);
+			db_lock($GLOBALS['DBHOST_TBL_PREFIX'] .'smiley WRITE');
+			q('UPDATE '. $GLOBALS['DBHOST_TBL_PREFIX'] .'smiley SET vieworder=2147483647 WHERE vieworder='. $oldp);
 			if ($oldp < $newp) {
-				q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'smiley SET vieworder=vieworder-1 WHERE vieworder<='.$newp.' AND vieworder>'.$oldp);
-				$maxp = q_singleval('SELECT MAX(vieworder) FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'smiley WHERE  vieworder!=2147483647');
+				q('UPDATE '. $GLOBALS['DBHOST_TBL_PREFIX'] .'smiley SET vieworder=vieworder-1 WHERE vieworder<='. $newp .' AND vieworder>'. $oldp);
+				$maxp = q_singleval('SELECT MAX(vieworder) FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'smiley WHERE  vieworder!=2147483647');
 				if ($newp > $maxp) {
 					$newp = $maxp + 1;
 				}
 			} else {
-				q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'smiley SET vieworder=vieworder+1 WHERE vieworder<'.$oldp.' AND vieworder>='.$newp);
+				q('UPDATE '. $GLOBALS['DBHOST_TBL_PREFIX'] .'smiley SET vieworder=vieworder+1 WHERE vieworder<'. $oldp .' AND vieworder>='. $newp);
 			}
-			q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'smiley SET vieworder='.$newp.' WHERE vieworder=2147483647');
+			q('UPDATE '. $GLOBALS['DBHOST_TBL_PREFIX'] .'smiley SET vieworder='. $newp .' WHERE vieworder=2147483647');
 			db_unlock();
 			$_GET['chpos'] = null;
 			echo successify('Smiley\'s position was succesfully changed.');
@@ -105,7 +105,7 @@ function sml_form_check()
 <?php
 	echo _hs;
 	echo '<table class="datatable solidtable">';
-	if (@is_writeable($GLOBALS['WWW_ROOT_DISK'] . 'images/smiley_icons')) { ?>
+	if (@is_writeable($GLOBALS['WWW_ROOT_DISK'] .'images/smiley_icons')) { ?>
 		<tr class="fieldtopic">
 			<td colspan="2"><b>Upload smiley into the system:</b></td>
 		</tr>
@@ -152,7 +152,7 @@ function sml_form_check()
 		<td>
 			<table border="1" cellspacing="1" cellpadding="2" bgcolor="#ffffff">
 				<tr><td align="center" valign="middle">
-					<img src="<?php echo ($sml_img ? $GLOBALS['WWW_ROOT'] . 'images/smiley_icons/' . $sml_img : '../blank.gif'); ?>" name="prev_icon" border="0" alt="blank" />
+					<img src="<?php echo ($sml_img ? $GLOBALS['WWW_ROOT'] .'images/smiley_icons/'. $sml_img : '../blank.gif'); ?>" name="prev_icon" border="0" alt="blank" />
 				</td></tr>
 			</table>
 		</td>
@@ -182,7 +182,7 @@ function sml_form_check()
 	<th>Action</th>
 </tr></thead>
 <?php
-	$c = uq('SELECT id, img, code, descr, vieworder FROM '.$tbl.'smiley ORDER BY vieworder');
+	$c = uq('SELECT id, img, code, descr, vieworder FROM '. $tbl .'smiley ORDER BY vieworder');
 	$i = 0;
 	$chpos = isset($_GET['chpos']) ? (int)$_GET['chpos'] : '';
 	while ($r = db_rowobj($c)) {
@@ -197,13 +197,13 @@ function sml_form_check()
 			}
 			$lp = $r->vieworder;
 		}
-		echo '<tr'.$bgcolor.'><td><img src="'.$GLOBALS['WWW_ROOT'].'images/smiley_icons/'.$r->img.'" border="0" alt="'.$r->descr.'" /></td><td>'.htmlspecialchars($r->code).'</td><td>'.$r->descr.'</td>
-			<td nowrap="nowrap">[<a href="admsmiley.php?edit='.$r->id.'&amp;'.__adm_rsid.'#edit">Edit</a>] [<a href="admsmiley.php?del='.$r->id.'&amp;'.__adm_rsid.'">Delete</a>] [<a href="admsmiley.php?chpos='.$r->vieworder.'&amp;'.__adm_rsid.'">Change Position</a>]</td>
+		echo '<tr'.$bgcolor.'><td><img src="'. $GLOBALS['WWW_ROOT'] .'images/smiley_icons/'. $r->img .'" border="0" alt="'. $r->descr .'" /></td><td>'.htmlspecialchars($r->code).'</td><td>'. $r->descr .'</td>
+			<td nowrap="nowrap">[<a href="admsmiley.php?edit='. $r->id .'&amp;'. __adm_rsid .'#edit">Edit</a>] [<a href="admsmiley.php?del='. $r->id .'&amp;'. __adm_rsid .'">Delete</a>] [<a href="admsmiley.php?chpos='. $r->vieworder .'&amp;'.__adm_rsid .'">Change Position</a>]</td>
 			</tr>';
 	}
 	unset($c);
 	if (isset($lp)) {
-		echo '<tr class="field"><td align="center" colspan="4"><a href="admsmiley.php?chpos='.$_GET['chpos'].'&amp;chdest='.($lp + 1).'&amp;'.__adm_rsid.'">Place Here</a></td></tr>';
+		echo '<tr class="field"><td align="center" colspan="4"><a href="admsmiley.php?chpos='. $_GET['chpos'] .'&amp;chdest='. ($lp + 1) .'&amp;'. __adm_rsid .'">Place Here</a></td></tr>';
 	}
 	if (!$i) {
 		echo '<tr class="field"><td colspan="4"><center>No smileys found. Define some above.</center></td></tr>';

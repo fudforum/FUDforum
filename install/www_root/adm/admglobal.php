@@ -45,19 +45,19 @@ function get_max_upload_size()
 	if (isset($_POST['form_posted'])) {
 		for ($i = 1; $i < 10; $i++) {
 			if (isset($GLOBALS['FUD_OPT_'.$i])) {
-				$GLOBALS['NEW_FUD_OPT_'.$i] = 0;
+				$GLOBALS['NEW_FUD_OPT_'. $i] = 0;
 			} else {
 				break;
 			}
 		}
 
 		/* Make a list of the fields we need to change. */
-		$sk = array('DBHOST_USER','DBHOST_PASSWORD','DBHOST_DBNAME');
+		$sk = array('DBHOST_USER', 'DBHOST_PASSWORD', 'DBHOST_DBNAME');
 		foreach ($_POST as $k => $v) {
 			if (!strncmp($k, 'CF_', 3)) {
 				$k = substr($k, 3);
 				if (!isset($GLOBALS[$k]) || $GLOBALS[$k] != $v) {
-					$ch_list[$k] = is_numeric($v) && !in_array($k, $sk) ? (int) $v : $v;
+					$ch_list[$k] = is_numeric($v) && !in_array($k, $sk) ? (int)$v : $v;
 				}
 			} else if (!strncmp($k, 'FUD_OPT_', 8)) {
 				$GLOBALS['NEW_' . substr($k, 0, 9)] |= (int) $v;
@@ -82,7 +82,7 @@ function get_max_upload_size()
 		/* Check if we can use TEMP tables. */
 		if ($NEW_FUD_OPT_3 & 4096) {
 			try {
-				q('CREATE TEMPORARY TABLE '.$DBHOST_TBL_PREFIX.'temp_test (val INT)');
+				q('CREATE TEMPORARY TABLE '. $DBHOST_TBL_PREFIX .'temp_test (val INT)');
 			} catch(Exception $e) {
 				echo errorify('Unable to create temporary tables. Feature cannot be enabled on your installation.');
 				$GLOBALS['NEW_FUD_OPT_3'] ^= 4096;
@@ -90,12 +90,12 @@ function get_max_upload_size()
 		}
 
 		for ($i = 1; $i < 10; $i++) {
-			if (!isset($GLOBALS['FUD_OPT_'.$i])) {
+			if (!isset($GLOBALS['FUD_OPT_'. $i])) {
 				break;
 			}
 
-			if ($GLOBALS['FUD_OPT_'.$i] != $GLOBALS['NEW_FUD_OPT_'.$i]) {
-				$ch_list['FUD_OPT_'.$i] = $GLOBALS['NEW_FUD_OPT_'.$i];
+			if ($GLOBALS['FUD_OPT_'. $i] != $GLOBALS['NEW_FUD_OPT_'. $i]) {
+				$ch_list['FUD_OPT_'. $i] = $GLOBALS['NEW_FUD_OPT_'. $i];
 			}
 		}
 
@@ -111,7 +111,7 @@ function get_max_upload_size()
 
 			/* Handle disabling of aliases. */
 			if (($FUD_OPT_2 ^ $NEW_FUD_OPT_2) & 128 && !($NEW_FUD_OPT_2 & 128)) {
-				q('UPDATE '.$DBHOST_TBL_PREFIX.'users SET alias=login');
+				q('UPDATE '. $DBHOST_TBL_PREFIX .'users SET alias=login');
 				rebuildmodlist();
 			}
 
@@ -125,15 +125,15 @@ function get_max_upload_size()
 			}
 
 			if ($o) {
-				q('UPDATE '.$DBHOST_TBL_PREFIX.'users SET users_opt=(users_opt | '.$o.') WHERE (users_opt & '.$o.')=0');
+				q('UPDATE '. $DBHOST_TBL_PREFIX .'users SET users_opt='. q_bitor('users_opt', $o) .' WHERE '. q_bitand('users_opt', $o) .'=0');
 			}
 
 			$q_data = array();
 			if (isset($ch_list['POSTS_PER_PAGE'])) {
-				$q_data[] = 'posts_ppg='.(int)$ch_list['POSTS_PER_PAGE'];
+				$q_data[] = 'posts_ppg='. (int)$ch_list['POSTS_PER_PAGE'];
 			}
 			if (isset($ch_list['ANON_NICK'])) {
-				$q_data[] = 'login='. _esc($ch_list['ANON_NICK']) .', alias='. _esc(htmlspecialchars($ch_list['ANON_NICK'])).", name=".htmlspecialchars(_esc($ch_list['ANON_NICK']));
+				$q_data[] = 'login='. _esc($ch_list['ANON_NICK']) .', alias='. _esc(htmlspecialchars($ch_list['ANON_NICK'])) .', name='. htmlspecialchars(_esc($ch_list['ANON_NICK']));
 			}
 			if (isset($ch_list['SERVER_TZ'])) {
 				$q_data[] = 'time_zone='. _esc($ch_list['SERVER_TZ']);
@@ -416,6 +416,7 @@ $(document).ready(function() {
 	print_reg_field('Notify From', 'NOTIFY_FROM');
 	print_bit_field('Notify W/Body', 'NOTIFY_WITH_BODY');
 	print_bit_field('Smart Notification', 'SMART_EMAIL_NOTIFICATION');
+	print_bit_field('All Message Forum Notification', 'FORUM_NOTIFY_ALL');
 	print_bit_field('Disable Welcome E-mail', 'DISABLE_WELCOME_EMAIL');
 	print_bit_field('Disable E-mail notifications', 'DISABLE_NOTIFICATION_EMAIL');
 	print_bit_field('Moderator Notification', 'MODERATED_POST_NOTIFY');
@@ -451,11 +452,8 @@ $(document).ready(function() {
 		print_bit_field('Use PHP compression', 'PHP_COMPRESSION_ENABLE');
 		print_reg_field('PHP compression level', 'PHP_COMPRESSION_LEVEL', 1);
 	}
-	print_bit_field('All Message Forum Notification', 'FORUM_NOTIFY_ALL');
 	print_bit_field('Public Host Resolving', 'PUBLIC_RESOLVE_HOST');
 	print_reg_field('Whois Server Address', 'FUD_WHOIS_SERVER');
-	print_bit_field('Enable Geo-Location', 'ENABLE_GEO_LOCATION');
-	print_bit_field('Update Geo-Location on login', 'UPDATE_GEOLOC_ON_LOGIN');
 ?>
 <tr class="fieldaction"><td align="left"><input type="submit" name="btn_submit" value="Set" /></td><td align="right">[ <a href="#top">top</a> ]</td></tr>
 </tbody>

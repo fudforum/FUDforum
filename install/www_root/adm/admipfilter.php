@@ -20,7 +20,7 @@
 	if (isset($_POST['ipaddr'])) {
 		$bits = explode('.', trim($_POST['ipaddr']));
 		foreach ($bits as $k => $v) {
-			$bits[$k] = ($v == '..' || $v == '*' || (!$v && $v !== '0')) ? 256 : (int) $v;
+			$bits[$k] = ($v == '..' || $v == '*' || (!$v && $v !== '0')) ? 256 : (int)$v;
 		}
 		for ($i=count($bits); $i < 4; $i++) {
 			$bits[$i] = 256;
@@ -45,7 +45,7 @@
 	}
 
 	if (isset($_GET['edit'])) {
-		$ipaddr = q_singleval('SELECT '. q_concat('ca', _esc('.'), 'cb', _esc('.'), 'cc', _esc('.'), 'cd') .' FROM '.$tbl.'ip_block WHERE id='.(int)$_GET['edit']);
+		$ipaddr = q_singleval('SELECT '. q_concat('ca', _esc('.'), 'cb', _esc('.'), 'cc', _esc('.'), 'cd') .' FROM '. $tbl .'ip_block WHERE id='. (int)$_GET['edit']);
 		$ipaddr = str_replace('256', '*', $ipaddr);
 		$edit = $_GET['edit'];
 	} else {
@@ -62,7 +62,7 @@ A range of IP addresses can be blocked by entering a mask (.*).</p>
 <table class="datatable solidtable">
 	<tr class="field">
 		<td>Block IP Mask:</td>
-		<td><input tabindex="1" type="text" name="ipaddr" value="<?php echo $ipaddr; ?>" size="15" maxlength="15" /></td>
+		<td><input tabindex="1" type="text" name="ipaddr" value="<?php echo $ipaddr; ?>" size="30" maxlength="15" /></td>
 	</tr>
 	<tr class="fieldaction">
 		<td colspan="2" align="right">
@@ -94,7 +94,7 @@ A range of IP addresses can be blocked by entering a mask (.*).</p>
 		$bgcolor = ($edit == $r[0]) ? ' class="resultrow3"' : (($i%2) ? ' class="resultrow1"' : ' class="resultrow2"');
 
 		$r[1] = str_replace('256', '*', $r[1]);
-		echo '<tr'.$bgcolor.'><td>'.$r[1].'</td><td>[<a href="admipfilter.php?edit='.$r[0].'&amp;'.__adm_rsid.'#edit">Edit</a>] [<a href="admipfilter.php?del='.$r[0].'&amp;'.__adm_rsid.'">Delete</a>]</td></tr>';
+		echo '<tr'.$bgcolor.'><td>'. $r[1] .'</td><td>[<a href="admipfilter.php?edit='. $r[0] .'&amp;'. __adm_rsid .'#edit">Edit</a>] [<a href="admipfilter.php?del='. $r[0] .'&amp;'. __adm_rsid .'">Delete</a>]</td></tr>';
 	}
 	unset($c);
 	if (!$i) {

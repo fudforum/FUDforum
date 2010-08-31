@@ -22,9 +22,9 @@
 		exit;
 	}
 
-	$msgfile = $GLOBALS['DATA_DIR'].'thm/'.$tname.'/i18n/'.$tlang.'/msg';
+	$msgfile = $GLOBALS['DATA_DIR'] .'thm/'. $tname .'/i18n/'. $tlang .'/msg';
 	if (!@file_exists($msgfile)) {
-		$msgfile = $GLOBALS['DATA_DIR'].'thm/default/i18n/'.$tlang.'/msg';
+		$msgfile = $GLOBALS['DATA_DIR'] .'thm/default/i18n/'. $tlang .'/msg';
 		$warn = 'WARNING: EDITING DEFAULT MESSAGE FILE, BECAUSE THIS TEMPLATE DOESN\'T HAVE ONE';
 	}
 
@@ -91,7 +91,7 @@ function makedeps()
 
 		$data = "\n" . file_get_contents($msgfile);
 		foreach ($msglist_arr as $v) {
-			if (($s = strpos($data, "\n" . $v . ':')) === false) {
+			if (($s = strpos($data, "\n". $v .':')) === false) {
 				// Message not in current file, validate if it can be added.
 				list($tmplmsglist, $filedeps) = makedeps();
 				if (!empty($_POST[$v]) && filter_var_array($tmplmsglist, array($v=>FILTER_SANITIZE_ENCODED)) !== FALSE) {
@@ -100,7 +100,7 @@ function makedeps()
 					if ($data[strlen($data)-1] != "\n") {
 						$data .= "\n";	// Last char is not a new line, add one.
 					}
-					$data .= $v.":\t\t".$_POST[$v];
+					$data .= $v .":\t\t". $_POST[$v];
 				}
 				continue;
 			}
@@ -113,20 +113,20 @@ function makedeps()
 			if (($e = strpos($data, "\n", $s)) === false) {
 				$e = strlen($data);
 			}
-			$_POST[$v] = str_replace(array("\r", "\n"), array("", "\\n"), trim($_POST[$v]));
+			$_POST[$v] = str_replace(array("\r", "\n"), array('', "\\n"), trim($_POST[$v]));
 			$data = substr_replace($data, $_POST[$v], $s, ($e - $s));
 		}
 
 		// Write message file.
 		if (!($fp = fopen($msgfile, 'wb'))) {
-			exit('unable to write to "'.$msgfile.'" message file');
+			exit('unable to write to "'. $msgfile .'" message file');
 		}
 		fwrite($fp, ltrim($data));
 		fclose($fp);
 		fud_use('compiler.inc', true);
 
 		// Recompile theme.
-		$c = q('SELECT name FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'themes WHERE theme='._esc($tname)." AND lang="._esc($tlang));
+		$c = q('SELECT name FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'themes WHERE theme='. _esc($tname) .' AND lang='. _esc($tlang));
 		while ($r = db_rowarr($c)) {
 			// echo "Recompiling theme $tname, $tlang, {$r[0]}<hr />\n";
 			compile_all($tname, $tlang, $r[0]);
@@ -152,7 +152,7 @@ if (!isset($_GET['NO_TREE_LIST'])) {
 <?php
 
 	if (isset($warn)) {
-		echo '<div align="center"><font color="green">'.$warn.'</font><br /><br /></div>';
+		echo '<div align="center"><font color="green">'. $warn .'</font><br /><br /></div>';
 	}
 	$tab = str_repeat('&nbsp;', 5);
 
@@ -160,14 +160,14 @@ if (!isset($_GET['NO_TREE_LIST'])) {
 		$list = $msgnamelist = '';
 		foreach($msg as $k => $msgname) {
 			$msgnamelist .= urlencode($msgname).':';
-			$list .='<tr><td><img src="../blank.gif" height="1" width="20" alt="blank" /><a class="deps" href="msglist.php?tname='.$tname.'&amp;tlang='.$tlang.'&amp;'.__adm_rsid.'&amp;msglist='.urlencode($msgname).'&amp;fl='.$file.'" title="Edit this message.">'.$msgname.'</a></td></tr>';
+			$list .='<tr><td><img src="../blank.gif" height="1" width="20" alt="blank" /><a class="deps" href="msglist.php?tname='. $tname .'&amp;tlang='. $tlang .'&amp;'. __adm_rsid .'&amp;msglist='. urlencode($msgname) .'&amp;fl='. $file .'" title="Edit this message.">'. $msgname .'</a></td></tr>';
 		}
 		$msgnamelist = substr($msgnamelist, 0, -1);
-		echo '<tr><td><a class="file_name" href="msglist.php?tname='.$tname.'&amp;tlang='.$tlang.'&amp;'.__adm_rsid.'&amp;msglist='.$msgnamelist.'&amp;fl='.$file.'" title="Edit all messages in template.">'.$file.'</a><a name="'.$file.'"></a></td></tr>' . $list;
+		echo '<tr><td><a class="file_name" href="msglist.php?tname='. $tname .'&amp;tlang='. $tlang .'&amp;'. __adm_rsid .'&amp;msglist='. $msgnamelist .'&amp;fl='. $file .'" title="Edit all messages in template.">'. $file .'</a><a name="'. $file .'"></a></td></tr>'. $list;
 		if (isset($filedeps[$file])) {
-			echo '<tr><td class="depson">'.$tab.'<b>&raquo; Used By:</b></td></tr>'."\n";
+			echo '<tr><td class="depson">'. $tab .'<b>&raquo; Used By:</b></td></tr>'."\n";
 			foreach($filedeps[$file] as $v) {
-				echo '<tr><td>'.$tab.$tab.'<a href="#'.$v.'" class="depson">'.$v.'</a></td></tr>';
+				echo '<tr><td>'. $tab . $tab .'<a href="#'. $v .'" class="depson">'. $v .'</a></td></tr>';
 			}
 		}
 

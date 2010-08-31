@@ -12,11 +12,11 @@
 	require('./GLOBALS.php');
 	fud_use('adm.inc', true);
 
-function print_image_list($dir,$js_field,$type)
+function print_image_list($dir, $js_field, $type)
 {
 	global $usr;
 
-	$web_dir = $GLOBALS['WWW_ROOT'] . $dir . '/';
+	$web_dir = $GLOBALS['WWW_ROOT'] . $dir .'/';
 	$path = $GLOBALS['WWW_ROOT_DISK'] . $dir;
 ?>
 <table border="0" cellspacing="1" cellpadding="2">
@@ -31,17 +31,17 @@ function print_image_list($dir,$js_field,$type)
 			if (!($col++%9) && ($col!=1)) {
 				echo '</tr><tr>';
 			}
-			echo '<td align="center"'.$bgcolor.'><a href="javascript:
-					window.opener.document.'.$js_field.'.value=\''.$f.'\';
+			echo '<td align="center"'. $bgcolor .'><a href="javascript:
+					window.opener.document.'. $js_field .'.value=\''. $f .'\';
 					if (window.opener.document.prev_icon) 
-						window.opener.document.prev_icon.src=\''.$web_dir.$f.'\';
+						window.opener.document.prev_icon.src=\''. $web_dir . $f .'\';
 					window.close();">
-				<img src="'.$web_dir.$f.'" border="0" alt="avatar" /><br /><font size="-2">'.$f.'</font></a></td>';
+				<img src="'. $web_dir . $f .'" border="0" alt="avatar" /><br /><font size="-2">'. $f .'</font></a></td>';
 		}
 	} else if (!is_readable($path)) {
-		echo '<td>Unable to open '.$path.' for reading.</td>';
+		echo '<td>Unable to open '. $path .' for reading.</td>';
 	} else {
-		echo '<td>No '.$type.' images are available.</td>';
+		echo '<td>No '. $type .' images are available.</td>';
 	}
 	echo '</tr></table>';
 }

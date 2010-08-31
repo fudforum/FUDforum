@@ -17,17 +17,17 @@
 	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
 
 	if (isset($_POST['edit'], $_POST['btn_update']) && !empty($_POST['login'])) {
-		q('UPDATE '.$tbl.'blocked_logins SET login='._esc(trim($_POST['login'])).' WHERE id='.(int)$_POST['edit']);
-		echo successify('Regex ('.$_POST['login'].') was successfully updated.');
+		q('UPDATE '. $tbl .'blocked_logins SET login='. _esc(trim($_POST['login'])) .' WHERE id='. (int)$_POST['edit']);
+		echo successify('Regex ('. $_POST['login'] .') was successfully updated.');
 	} else if (isset($_POST['btn_submit']) && !empty($_POST['login'])) {
-		if (preg_match('/'.addcslashes($_POST['login'], '\'/\\').'/i', $usr->login)) {
-			echo errorify('Regex ('.$_POST['login'].') cannot be added. It will block your current login.');
+		if (preg_match('/'. addcslashes($_POST['login'], '\'/\\') .'/i', $usr->login)) {
+			echo errorify('Regex ('. $_POST['login'] .') cannot be added. It will block your current login.');
 		} else {
-			q('INSERT INTO '.$tbl.'blocked_logins (login) VALUES('._esc(trim($_POST['login'])).')');
-			echo successify('Regex ('.$_POST['login'].') was successfully added.');
+			q('INSERT INTO '. $tbl .'blocked_logins (login) VALUES('. _esc(trim($_POST['login'])) .')');
+			echo successify('Regex ('. $_POST['login'] .') was successfully added.');
 		}
 	} else if (isset($_GET['del'])) {
-		q('DELETE FROM '.$tbl.'blocked_logins WHERE id='.(int)$_GET['del']);
+		q('DELETE FROM '. $tbl .'blocked_logins WHERE id='. (int)$_GET['del']);
 		echo successify('Regex was successfully removed.');
 	} else {
 		$nada = 1;
@@ -37,7 +37,7 @@
 	}
 
 	if (isset($_GET['edit'])) {
-		list($edit, $login) = db_saq('SELECT id, login FROM '.$tbl.'blocked_logins WHERE id='.(int)$_GET['edit']);
+		list($edit, $login) = db_saq('SELECT id, login FROM '. $tbl .'blocked_logins WHERE id='. (int)$_GET['edit']);
 	} else {
 		$edit = $login = '';
 	}
@@ -51,7 +51,7 @@
 <table class="datatable solidtable">
 	<tr class="field">
 		<td>Regex:</td>
-		<td><input tabindex="1" type="text" name="login" value="<?php echo char_fix(htmlspecialchars($login)); ?>" /></td>
+		<td><input tabindex="1" type="text" name="login" value="<?php echo char_fix(htmlspecialchars($login)); ?>" size="30" /></td>
 	</tr>
 
 	<tr class="fieldaction">
@@ -76,13 +76,13 @@
 	<th>Action</th>
 </tr></thead>
 <?php
-	$c = uq('SELECT id, login FROM '.$tbl.'blocked_logins');
+	$c = uq('SELECT id, login FROM '. $tbl .'blocked_logins');
 	$i = 0;
 	while ($r = db_rowarr($c)) {
 		$i++;
 		$bgcolor = ($edit == $r[0]) ? ' class="resultrow3"' : (($i%2) ? ' class="resultrow1"' : ' class="resultrow2"');
 
-		echo '<tr'.$bgcolor.'><td>'.char_fix(htmlspecialchars($r[1])).'</td><td>[<a href="admlogin.php?edit='.$r[0].'&amp;'.__adm_rsid.'#edit">Edit</a>] [<a href="admlogin.php?del='.$r[0].'&amp;'.__adm_rsid.'">Delete</a>]</td></tr>';
+		echo '<tr'.$bgcolor.'><td>'. char_fix(htmlspecialchars($r[1])) .'</td><td>[<a href="admlogin.php?edit='. $r[0] .'&amp;'. __adm_rsid .'#edit">Edit</a>] [<a href="admlogin.php?del='. $r[0] .'&amp;'.__adm_rsid.'">Delete</a>]</td></tr>';
 	}
 	unset($c);
 	if (!$i) {

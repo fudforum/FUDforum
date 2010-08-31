@@ -66,19 +66,19 @@ and can take a VERY LONG time, especially on large forums. You should ONLY run t
 	$tbl =& $DBHOST_TBL_PREFIX;
 
 	if (defined('shell_script')) {
-		list($locale, $GLOBALS['usr']->lang) = db_saq("SELECT locale, lang FROM {$tbl}themes WHERE theme_opt & (1|2) LIMIT 1");
+		list($locale, $GLOBALS['usr']->lang) = db_saq('SELECT locale, lang FROM '. $tbl .'themes WHERE '. q_bitand(theme_opt, (1|2)) .' > 0 LIMIT 1');
 		$GLOBALS['good_locale'] = setlocale(LC_ALL, $locale);
 	}
 
-	db_lock($tbl.'msg_store WRITE, '.$tbl.'search_cache WRITE, '.$tbl.'search WRITE, '.$tbl.'index WRITE, '.$tbl.'title_index WRITE, '.$tbl.'msg WRITE');
-	q('DELETE FROM '.$tbl.'search');
-	q('DELETE FROM '.$tbl.'index');
-	q('DELETE FROM '.$tbl.'title_index');
-	if (!($sid = q_singleval('SELECT MIN(query_type) FROM '.$tbl."search_cache WHERE srch_query='' AND query_type<0"))) {
-		q('DELETE FROM '.$tbl.'search_cache');
+	db_lock($tbl .'msg_store WRITE, '. $tbl .'search_cache WRITE, '. $tbl .'search WRITE, '. $tbl .'index WRITE, '. $tbl .'title_index WRITE, '. $tbl .'msg WRITE');
+	q('DELETE FROM '. $tbl .'search');
+	q('DELETE FROM '. $tbl .'index');
+	q('DELETE FROM '. $tbl .'title_index');
+	if (!($sid = q_singleval('SELECT MIN(query_type) FROM '. $tbl .'search_cache WHERE srch_query=\'\' AND query_type<0'))) {
+		q('DELETE FROM '. $tbl .'search_cache');
 	}
 
-	$c = q('SELECT id, subject, length, foff, file_id FROM '.$tbl.'msg WHERE '.($sid ? ' id>'.$sid.' AND ' : '').' apr=1 ORDER BY subject');
+	$c = q('SELECT id, subject, length, foff, file_id FROM '. $tbl .'msg WHERE '. ($sid ? ' id>'. $sid .' AND ' : '') .' apr=1 ORDER BY subject');
 	$old_subject = '';
 	while ($r = db_rowarr($c)) {
 		if ($old_subject != $r[1]) {
@@ -86,11 +86,11 @@ and can take a VERY LONG time, especially on large forums. You should ONLY run t
 		} else {
 			$subj = '';
 		}
-		q('INSERT INTO '.$tbl.'search_cache (srch_query, query_type, expiry, msg_id, n_match) VALUES(\'\', -'.$r[0].', 0,0,0)');
+		q('INSERT INTO '. $tbl .'search_cache (srch_query, query_type, expiry, msg_id, n_match) VALUES(\'\', -'. $r[0] .', 0,0,0)');
 		index_text($subj, read_msg_body($r[3], $r[2], $r[4]), $r[0]);
 	}
 	unset($c);
-	q('DELETE FROM '.$tbl.'search_cache');
+	q('DELETE FROM '. $tbl .'search_cache');
 	db_unlock();
 
 	pf('Done.');
@@ -99,7 +99,7 @@ and can take a VERY LONG time, especially on large forums. You should ONLY run t
 		pf('Re-enabling the forum.');
 		maintenance_status($GLOBALS['DISABLED_REASON'], 0);
 	} else {
-		echo '<br /><font size=+1 color="red">Your forum is currently disabled, to re-enable it go to the <a href="admglobal.php?'.__adm_rsid.'">Global Settings Manager</a> and re-enable it.</font>';
+		echo '<br /><font size=+1 color="red">Your forum is currently disabled, to re-enable it go to the <a href="admglobal.php?'. __adm_rsid .'">Global Settings Manager</a> and re-enable it.</font>';
 	}
 
 	pf('<br /><div class="tutor">Messages successfully reindexed.</div>');

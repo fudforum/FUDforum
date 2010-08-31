@@ -29,7 +29,7 @@
 <tr class="field"><td>
 	<div style="float:right; font-size:xx-small;">
 	<b>Database:</b> <?php echo __dbtype__; ?> ::
-	<b>Connection:</b> <?php echo $GLOBALS['DBHOST_USER'].'@'.$GLOBALS['DBHOST_DBNAME'] ?> :: 
+	<b>Connection:</b> <?php echo $GLOBALS['DBHOST_USER'] .'@' .$GLOBALS['DBHOST_DBNAME'] ?> :: 
 	<select onchange="if(this.selectedIndex!=0) document.admsql.sql.value+=this.options[this.selectedIndex].value;">
 	<option>Insert table name:</option>
 	<?php

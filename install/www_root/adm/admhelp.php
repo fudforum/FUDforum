@@ -19,7 +19,7 @@
 
 	require($WWW_ROOT_DISK .'adm/header.php');
 
-	list($def_thm, $def_tmpl) = db_saq('SELECT name, lang FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'themes WHERE theme_opt=3');
+	list($def_thm, $def_tmpl) = db_saq('SELECT name, lang FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'themes WHERE theme_opt=3');
 ?>
 <h2>Help File Editor</h2>
 <div class="tutor">Please document all changes you make to FUDforum's default help files, as future upgrades may overwrite your changes. Create a <a href="admtemplates.php?<?php echo __adm_rsid; ?>">custom template set</a> to prevent this from happening.</div>
@@ -30,12 +30,12 @@
 <tr class="field">
 <td>Template Set:</td><td><select name="tname">
 <?php
-	foreach (glob($GLOBALS['DATA_DIR'].'/thm/*', GLOB_ONLYDIR) as $file) {
+	foreach (glob($GLOBALS['DATA_DIR'] .'/thm/*', GLOB_ONLYDIR) as $file) {
 		if (!file_exists($file . '/tmpl')) {
 			continue;
 		}
 		$n = basename($file);
-		echo '<option value="'.$n.'"'.($n == $def_thm ? ' selected="selected"' : '').'>'.$n.'</option>';
+		echo '<option value="'. $n .'"'.($n == $def_thm ? ' selected="selected"' : '') .'>'. $n .'</option>';
 	}
 ?>
 </select></td>
@@ -44,7 +44,7 @@
 <td>Language:</td><td><select name="tlang">
 <?php
 	foreach (glob($GLOBALS['DATA_DIR'] .'thm/default/i18n/*', GLOB_ONLYDIR) as $file) {
-		if (!file_exists($file . '/msg')) {
+		if (!file_exists($file .'/msg')) {
 			continue;
 		}
 		$langcode = $langname = basename($file);

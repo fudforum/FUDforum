@@ -16,30 +16,30 @@
 	require($WWW_ROOT_DISK .'adm/header.php');
 		
 	if (isset($_POST['lev_submit'])) {
-		q('INSERT INTO '.$DBHOST_TBL_PREFIX.'level (name, img, level_opt, post_count) VALUES ('._esc($_POST['lev_name']).', '.ssn($_POST['lev_img']).', '.(int)$_POST['lev_level_opt'].', '.(int)$_POST['lev_post_count'].')');
+		q('INSERT INTO '. $DBHOST_TBL_PREFIX .'level (name, img, level_opt, post_count) VALUES ('. _esc($_POST['lev_name']) .', '. ssn($_POST['lev_img']) .', '. (int)$_POST['lev_level_opt'] .', '. (int)$_POST['lev_post_count'] .')');
 		echo successify('Level was successfully added.');
 	} else if (isset($_POST['edit'], $_POST['lev_update'])) {
-		q('UPDATE '.$DBHOST_TBL_PREFIX.'level SET name='._esc($_POST['lev_name']).', img='.ssn($_POST['lev_img']).', level_opt='.(int)$_POST['lev_level_opt'].', post_count='.(int)$_POST['lev_post_count'].' WHERE id='.(int)$_POST['edit']);
+		q('UPDATE '. $DBHOST_TBL_PREFIX .'level SET name='. _esc($_POST['lev_name']) .', img='. ssn($_POST['lev_img']) .', level_opt='. (int)$_POST['lev_level_opt'] .', post_count='. (int)$_POST['lev_post_count'] .' WHERE id='. (int)$_POST['edit']);
 		echo successify('Level was successfully updated.');		
 	}
 
 	if (isset($_GET['edit'])) {
 		$edit = (int)$_GET['edit'];
-		list($lev_name, $lev_img, $lev_level_opt, $lev_post_count) = db_saq('SELECT name, img, level_opt, post_count FROM '.$DBHOST_TBL_PREFIX.'level WHERE id='.(int)$_GET['edit']);
+		list($lev_name, $lev_img, $lev_level_opt, $lev_post_count) = db_saq('SELECT name, img, level_opt, post_count FROM '. $DBHOST_TBL_PREFIX .'level WHERE id='. (int)$_GET['edit']);
 	} else {
 		$edit = $lev_name = $lev_img = $lev_level_opt = $lev_post_count = '';
 	}
 
 	if (isset($_GET['del'])) {
-		q('DELETE FROM '.$DBHOST_TBL_PREFIX.'level WHERE id='.(int)$_GET['del']);
-		echo successify('Level successfully removed.');	
+		q('DELETE FROM '. $DBHOST_TBL_PREFIX .'level WHERE id='. (int)$_GET['del']);
+		echo successify('Level successfully removed.');
 	}
 
 	if (isset($_GET['rebuild_levels'])) {
 		$pl = 2000000000;
-		$c = q('SELECT id, post_count FROM '.$DBHOST_TBL_PREFIX.'level ORDER BY post_count DESC');
+		$c = q('SELECT id, post_count FROM '. $DBHOST_TBL_PREFIX .'level ORDER BY post_count DESC');
 		while ($r = db_rowarr($c)) {
-			q('UPDATE '.$DBHOST_TBL_PREFIX.'users SET level_id='.$r[0].' WHERE posted_msg_count<'.$pl.' AND posted_msg_count>='.$r[1]);
+			q('UPDATE '. $DBHOST_TBL_PREFIX .'users SET level_id='. $r[0] .' WHERE posted_msg_count<'. $pl .' AND posted_msg_count>='. $r[1]);
 			$pl = $r[1];
 		}
 		unset($c);
@@ -96,13 +96,13 @@
 	<th>Action</th>
 </tr></thead>
 <?php
-	$c = uq('SELECT id, name, post_count FROM '.$DBHOST_TBL_PREFIX.'level ORDER BY post_count');
+	$c = uq('SELECT id, name, post_count FROM '. $DBHOST_TBL_PREFIX .'level ORDER BY post_count');
 	$i = 0;
 	while ($r = db_rowobj($c)) {
 		$i++;
 		$bgcolor = ($edit == $r->id) ? ' class="resultrow3"' : (($i%2) ? ' class="resultrow1"' : ' class="resultrow2"');
 
-		echo '<tr'.$bgcolor.'><td>'.$r->name.'</td><td align="center">'.$r->post_count.'</td><td><a href="admlevel.php?edit='.$r->id.'&amp;'.__adm_rsid.'#edit">Edit</a> | <a href="admlevel.php?del='.$r->id.'&amp;'.__adm_rsid.'">Delete</a></td></tr>';
+		echo '<tr'. $bgcolor .'><td>'. $r->name .'</td><td align="center">'. $r->post_count .'</td><td><a href="admlevel.php?edit='. $r->id .'&amp;'. __adm_rsid .'#edit">Edit</a> | <a href="admlevel.php?del='. $r->id .'&amp;'. __adm_rsid .'">Delete</a></td></tr>';
 	}
 	unset($c);
 	if (!$i) {

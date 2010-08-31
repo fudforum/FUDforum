@@ -15,7 +15,7 @@
 	fud_use('theme.inc', true);
 
 	if (isset($_POST['tname'], $_POST['tlang'], $_POST['btn_edit'])) {
-		header('Location: tmpllist.php?tname='.$_POST['tname'].'&tlang='.$_POST['tlang'].'&'.__adm_rsidl);
+		header('Location: tmpllist.php?tname='. $_POST['tname'] .'&tlang='. $_POST['tlang'] .'&'. __adm_rsidl);
 		exit;
 	}
 
@@ -28,44 +28,44 @@
 		$_POST['newname'] = '';
 	}
 
-	if ($_POST['newname'] && !q_singleval('SELECT id FROM '.$DBHOST_TBL_PREFIX.'themes WHERE name='._esc($_POST['newname']))) {
+	if ($_POST['newname'] && !q_singleval('SELECT id FROM '. $DBHOST_TBL_PREFIX .'themes WHERE name='. _esc($_POST['newname']))) {
 		$root = $DATA_DIR . 'thm/';
 		$root_nn = $root . preg_replace('![^A-Za-z0-9_]!', '_', $_POST['newname']);
 		$u = umask(0);
 		if (!@is_dir($root_nn) && !@mkdir($root_nn, 0777)) {
-			exit('ERROR: Unable to create ['.$root_nn.']<br />');
+			exit('ERROR: Unable to create ['. $root_nn .']<br />');
 		}
 
-		if ($_POST['copy_mode'] == 'headfoot') {	// sparse theme - header & footer
+		if ($_POST['copy_mode'] == 'headfoot') {	// Sparse theme - header & footer.
 			mkdir($root_nn.'/tmpl', 0777);
 			if ($_POST['base_template_set'] == 'path_info') {
-				fudcopy($root . 'path_info/tmpl/', $root_nn.'/tmpl', '{header.tmpl,footer.tmpl}', true);
+				fudcopy($root .'path_info/tmpl/', $root_nn .'/tmpl', '{header.tmpl,footer.tmpl}', true);
 		    } else {
-				fudcopy($root . 'default/tmpl/', $root_nn.'/tmpl', '{header.tmpl,footer.tmpl}', true);
+				fudcopy($root .'default/tmpl/', $root_nn .'/tmpl', '{header.tmpl,footer.tmpl}', true);
 			}
 		} else if ($_POST['copy_mode'] == 'headfootcss') {	// sparse theme - header, footer & css
 			mkdir($root_nn.'/tmpl', 0777);
-			fudcopy($root . 'default/tmpl/', $root_nn.'/tmpl', 'forum.css.tmpl', true);
+			fudcopy($root . 'default/tmpl/', $root_nn .'/tmpl', 'forum.css.tmpl', true);
 			if ($_POST['base_template_set'] == 'path_info') {
-				fudcopy($root . 'path_info/tmpl/', $root_nn.'/tmpl', '{header.tmpl,footer.tmpl}', true);
+				fudcopy($root .'path_info/tmpl/', $root_nn .'/tmpl', '{header.tmpl,footer.tmpl}', true);
 		    } else {
-				fudcopy($root . 'default/tmpl/', $root_nn.'/tmpl', '{header.tmpl,footer.tmpl}', true);
+				fudcopy($root .'default/tmpl/', $root_nn .'/tmpl', '{header.tmpl,footer.tmpl}', true);
 			}
-		} else if ($_POST['copy_mode'] == 'all') {	// full theme with all files - not recommended!
-			fudcopy($root . 'default/', $root_nn, '*', true);
+		} else if ($_POST['copy_mode'] == 'all') {	// Full theme with all files - not recommended!
+			fudcopy($root .'default/', $root_nn, '*', true);
 			if ($_POST['base_template_set'] == 'path_info') {
-				fudcopy($root . 'path_info/', $root_nn, '*', true);
+				fudcopy($root .'path_info/', $root_nn, '*', true);
 		    }
 		}
 
-		if ($_POST['base_template_set'] == 'path_info') {	// Copy the PATH_INFO pointer
-			fudcopy($root . 'path_info/', $root_nn, '.path_info', true);
+		if ($_POST['base_template_set'] == 'path_info') {	// Copy the PATH_INFO pointer.
+			fudcopy($root .'path_info/', $root_nn, '.path_info', true);
 		}
 		umask($u);
-		echo successify('Template set '.$_POST['newname'].' was successfully created.');
+		echo successify('Template set '. $_POST['newname'] .' was successfully created.');
 	}
 	
-	list($def_thm, $def_tmpl) = db_saq('SELECT name, lang FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'themes WHERE theme_opt=3');
+	list($def_thm, $def_tmpl) = db_saq('SELECT name, lang FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'themes WHERE theme_opt=3');
 ?>
 <h2>Template Editor</h2>
 <div class="tutor">
@@ -82,11 +82,11 @@
 <td>Template Set:</td><td><select name="tname">
 <?php
 	foreach (glob($GLOBALS['DATA_DIR'].'/thm/*', GLOB_ONLYDIR) as $file) {
-		if (!file_exists($file . '/tmpl')) {
+		if (!file_exists($file .'/tmpl')) {
 			continue;
 		}
 		$n = basename($file);
-		echo '<option value="'.$n.'"'.($n == $def_thm ? ' selected="selected"' : '').'>'.$n.'</option>';
+		echo '<option value="'. $n .'"'. ($n == $def_thm ? ' selected="selected"' : '') .'>'. $n .'</option>';
 	}
 ?>
 </select></td>
@@ -94,15 +94,15 @@
 <tr class="field">
 <td>Language:</td><td><select name="tlang">
 <?php
-	foreach (glob($GLOBALS['DATA_DIR'] . 'thm/default/i18n/*', GLOB_ONLYDIR) as $file) {
-		if (!file_exists($file . '/msg')) {
+	foreach (glob($GLOBALS['DATA_DIR'] .'thm/default/i18n/*', GLOB_ONLYDIR) as $file) {
+		if (!file_exists($file .'/msg')) {
 			continue;
 		}
 		$langcode = $langname = basename($file);
 		if (file_exists($file .'/name')) {
 			$langname = trim(file_get_contents($file .'/name'));
 		}
-		echo '<option value="'. $langcode .'"'.($langcode == $def_tmpl ? ' selected="selected"' : '').'>'. $langname .'</option>';
+		echo '<option value="'. $langcode .'"'. ($langcode == $def_tmpl ? ' selected="selected"' : '') .'>'. $langname .'</option>';
 	}
 ?>
 </select></td></tr>

@@ -31,7 +31,7 @@
 	// Authenticate login details.
 	$authenticated = 0;
 	if (isset($_POST['usr_login'], $_POST['usr_passwd'])) {
-		$r = db_sab('SELECT id, passwd, salt FROM '. $DBHOST_TBL_PREFIX .'users WHERE login='. _esc($_POST['usr_login']) .' AND users_opt>=1048576 AND (users_opt & 1048576) > 0');
+		$r = db_sab('SELECT id, passwd, salt FROM '. $DBHOST_TBL_PREFIX .'users WHERE login='. _esc($_POST['usr_login']) .' AND users_opt>=1048576 AND '. q_bitand('users_opt', 1048576) .' > 0');
 		if ($r && (empty($r->salt) && $r->passwd == md5($_POST['usr_passwd']) || $r->passwd == sha1($r->salt . sha1($_POST['usr_passwd'])))) {
 			$authenticated = 1;
 		} else {

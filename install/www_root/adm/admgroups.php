@@ -53,7 +53,7 @@
 			}
 
 			if (empty($_POST['gr_name']) && $edit > 2) {
-				$_POST['gr_name'] = q_singleval('SELECT name FROM '.$DBHOST_TBL_PREFIX.'groups WHERE id='.$edit);
+				$_POST['gr_name'] = q_singleval('SELECT name FROM '. $DBHOST_TBL_PREFIX .'groups WHERE id='. $edit);
 			}
 
 			if ($val < 0) {
@@ -62,7 +62,7 @@
 				/* Determine what the permission should be. */
 				if (!$error) {
 					if (!$res) {
-						$r = uq('SELECT id, groups_opt, groups_opti, inherit_id FROM '.$DBHOST_TBL_PREFIX.'groups');
+						$r = uq('SELECT id, groups_opt, groups_opti, inherit_id FROM '. $DBHOST_TBL_PREFIX .'groups');
 						while ($o = db_rowobj($r)) {
 							$res[$o->id] = $o;
 						}
@@ -72,7 +72,7 @@
 					$ihl = array($edit=>1);
 					while (1) {
 						if (isset($ihl[$ih])) {
-							$error_reason = 'You\'ve created a circular inheritence for "'.$v[1].'" permission.';
+							$error_reason = 'You\'ve created a circular inheritence for "'. $v[1] .'" permission.';
 							$error = 1;
 							$val = 0;
 							break;
@@ -114,7 +114,7 @@
 				} else {
 					if ($gr_resource) {
 						foreach ($gr_resource as $v) {
-							q('INSERT INTO '.$DBHOST_TBL_PREFIX.'group_resources (resource_id, group_id) VALUES('.(int)$v.', '.$gid.')');
+							q('INSERT INTO '. $DBHOST_TBL_PREFIX .'group_resources (resource_id, group_id) VALUES('. (int)$v .', '. $gid .')');
 						}
 					}
 
@@ -124,19 +124,19 @@
 					}
 					echo successify('Group successfully added.');
 				}
-			} else if (($frm = q_singleval('SELECT forum_id FROM '.$DBHOST_TBL_PREFIX.'groups WHERE id='.$edit)) !== null) { /* update an existing group */
+			} else if (($frm = q_singleval('SELECT forum_id FROM '. $DBHOST_TBL_PREFIX .'groups WHERE id='. $edit)) !== null) { /* Update an existing group. */
 				if (!$res) {
-					$old = db_sab('SELECT groups_opt, groups_opti FROM '.$DBHOST_TBL_PREFIX.'groups WHERE id='.$edit);
+					$old = db_sab('SELECT groups_opt, groups_opti FROM '. $DBHOST_TBL_PREFIX .'groups WHERE id='. $edit);
 				} else {
 					$old =& $res[$edit];
 				}
 				group_sync($edit, (isset($_POST['gr_name']) ? $_POST['gr_name'] : null), $gr_inherit_id, $perm, $permi);
 				if (!$frm) {
-					q('DELETE FROM '.$DBHOST_TBL_PREFIX.'group_resources WHERE group_id='.$edit);
+					q('DELETE FROM '. $DBHOST_TBL_PREFIX .'group_resources WHERE group_id='. $edit);
 					$aff = db_affected();
 					if ($gr_resource) {
 						foreach ($gr_resource as $v) {
-							q('INSERT INTO '.$DBHOST_TBL_PREFIX.'group_resources (resource_id, group_id) VALUES('.(int)$v.', '.$edit.')');
+							q('INSERT INTO '. $DBHOST_TBL_PREFIX .'group_resources (resource_id, group_id) VALUES('. (int)$v .', '. $edit .')');
 						}
 					}
 					echo successify('Group successfully removed.');
@@ -167,7 +167,7 @@
 
 	/* Fetch all groups. */
 	$gl = array();
-	$r = uq('SELECT g.id, g.name AS gn, g.inherit_id, g.groups_opt, g.groups_opti, f.name AS fname, g.forum_id FROM '.$DBHOST_TBL_PREFIX.'groups g LEFT JOIN '.$DBHOST_TBL_PREFIX.'forum f ON f.id=g.forum_id');
+	$r = uq('SELECT g.id, g.name AS gn, g.inherit_id, g.groups_opt, g.groups_opti, f.name AS fname, g.forum_id FROM '. $DBHOST_TBL_PREFIX .'groups g LEFT JOIN '. $DBHOST_TBL_PREFIX .'forum f ON f.id=g.forum_id');
 	while ($o = db_rowobj($r)) {
 		$o = (array) $o;
 		$gid = array_shift($o);
@@ -232,15 +232,15 @@
 		} else {
 			echo '<select multiple="multiple" name="gr_resource[]" size="10">';
 			if (!isset($_POST['edit']) && $edit) {
-				$c = uq('SELECT resource_id FROM '.$DBHOST_TBL_PREFIX.'group_resources WHERE group_id='.$edit);
+				$c = uq('SELECT resource_id FROM '. $DBHOST_TBL_PREFIX .'group_resources WHERE group_id='. $edit);
 				while ($r = db_rowarr($c)) {
 					$gr_resource[$r[0]] = $r[0];
 				}
 				unset($c);
 			}
-			$c = uq('SELECT f.id, f.name, c.name FROM '.$DBHOST_TBL_PREFIX.'forum f INNER JOIN '.$DBHOST_TBL_PREFIX.'cat c ON c.id=f.cat_id ORDER BY c.parent, c.view_order, f.view_order');
+			$c = uq('SELECT f.id, f.name, c.name FROM '. $DBHOST_TBL_PREFIX .'forum f INNER JOIN '. $DBHOST_TBL_PREFIX .'cat c ON c.id=f.cat_id ORDER BY c.parent, c.view_order, f.view_order');
 			while ($r = db_rowarr($c)) {
-				echo '<option value="'.$r[0].'"'.(isset($gr_resource[$r[0]]) ? ' selected="selected"' : '').'>'.$r[2].' &raquo; '.$r[1].'</option>';
+				echo '<option value="'. $r[0] .'"'. (isset($gr_resource[$r[0]]) ? ' selected="selected"' : '') .'>'. $r[2] .' &raquo; '. $r[1] .'</option>';
 			}
 			unset($c);
 			echo '</select>';
@@ -249,7 +249,7 @@
 
 		foreach ($gl as $k => $v) {
 			if ($k == $edit) continue;
-			echo '<option value="'.$k.'" '.($gr_inherit_id == $k ? ' selected="selected"' : '').'>'.$v['gn'].'</option>';
+			echo '<option value="'. $k .'" '.($gr_inherit_id == $k ? ' selected="selected"' : '') .'>'. $v['gn'] .'</option>';
 		}
 
 		echo '</select></td></tr>';
@@ -273,16 +273,16 @@
 	}
 
 	foreach ($hdr as $k => $v) {
-		echo '<tr class="field"><td>'.$v[1].'</td><td><select name="'.$k.'">';
+		echo '<tr class="field"><td>'. $v[1] .'</td><td><select name="'. $k .'">';
 		if ($v1 && $permi & $v[0]) {
-			echo '<option value="-'.$v[0].'" selected="selected">Inherit</option>';
-			echo '<option value="0">No</option><option value="'.$v[0].'">Yes</option>';
+			echo '<option value="-'. $v[0] .'" selected="selected">Inherit</option>';
+			echo '<option value="0">No</option><option value="'. $v[0] .'">Yes</option>';
 		} else {
-			echo '<option value="-'.$v[0].'">Inherit</option>';
+			echo '<option value="-'. $v[0] .'">Inherit</option>';
 			if ($perm & $v[0]) {
-				echo '<option value="0">No</option><option value="'.$v[0].'" selected="selected">Yes</option>';
+				echo '<option value="0">No</option><option value="'. $v[0] .'" selected="selected">Yes</option>';
 			} else {
-				echo '<option value="0" selected="selected">No</option><option value="'.$v[0].'">Yes</option>';
+				echo '<option value="0" selected="selected">No</option><option value="'. $v[0] .'">Yes</option>';
 			}
 		}
 		echo '</select></td>';
@@ -325,7 +325,7 @@ for the group's they manage. To change the user permissions please use the <a hr
 </tr>
 <?php
 	/* Fetch all group leaders. */
-	$c = uq('SELECT gm.group_id, u.alias FROM '.$DBHOST_TBL_PREFIX.'group_members gm INNER JOIN '.$DBHOST_TBL_PREFIX.'users u ON gm.user_id=u.id WHERE gm.group_members_opt>=131072 AND (gm.group_members_opt & 131072) > 0');
+	$c = uq('SELECT gm.group_id, u.alias FROM '. $DBHOST_TBL_PREFIX .'group_members gm INNER JOIN '. $DBHOST_TBL_PREFIX .'users u ON gm.user_id=u.id WHERE gm.group_members_opt>=131072 AND '. q_bitand('gm.group_members_opt', 131072) .' > 0');
 	while ($r = db_rowarr($c)) {
 		$gll[$r[0]][] = $r[1];
 	}
@@ -336,25 +336,25 @@ for the group's they manage. To change the user permissions please use the <a hr
 		$bgcolor = ($edit == $k) ? ' class="tiny resultrow3"' : (($i%2) ? ' class="tiny resultrow1"' : ' class="tiny resultrow2"');
 
 		if (isset($gll[$k])) {
-			$grl = '<font size="-1">(total: '.count($gll[$k]).')</font><br /><select name="gr_leaders"><option>'.implode('</option><option>', $gll[$k]).'</option></select>';
+			$grl = '<font size="-1">(total: '. count($gll[$k]) .')</font><br /><select name="gr_leaders"><option>'. implode('</option><option>', $gll[$k]) .'</option></select>';
 		} else {
 			$grl = 'No Leaders';
 		}
 
-		$del_link = !$v['forum_id'] ? '[<a href="admgroups.php?del='.$k.'&amp;'.__adm_rsid.'">Delete</a>]' : '';
-		$user_grp_mgr = ($k > 2) ? ' '.$del_link.'<br />[<a href="admgrouplead.php?group_id='.$k.'&amp;'.__adm_rsid.'">Manage Leaders</a>] [<a href="../'.__fud_index_name__.'?t=groupmgr&amp;group_id='.$k.'&amp;'.__adm_rsid.'" target="_new">Manage Users</a>]' : '';
+		$del_link = !$v['forum_id'] ? '[<a href="admgroups.php?del='. $k .'&amp;'. __adm_rsid .'">Delete</a>]' : '';
+		$user_grp_mgr = ($k > 2) ? ' '. $del_link .'<br />[<a href="admgrouplead.php?group_id='. $k .'&amp;'. __adm_rsid .'">Manage Leaders</a>] [<a href="../'. __fud_index_name__ .'?t=groupmgr&amp;group_id='. $k .'&amp;'. __adm_rsid .'" target="_new">Manage Users</a>]' : '';
 
-		echo '<tr'.$bgcolor.'><td><a name="g'.$k.'">'.$v['gn'].'</a></td>';
+		echo '<tr'. $bgcolor .'><td><a name="g'. $k .'">'. $v['gn'] .'</a></td>';
 		foreach ($hdr as $v2) {
-			echo '<td nowrap="nowrap" align="center" title="'.$v2[1].'">';
+			echo '<td nowrap="nowrap" align="center" title="'. $v2[1] .'">';
 			if ($v['inherit_id'] && $v['groups_opti'] & $v2[0]) {
-				echo '<a href="#g'.$v['inherit_id'].'" title="Inheriting permissions from '.$gl[$v['inherit_id']]['gn'].'">(I: '.($gl[$v['inherit_id']]['groups_opt'] & $v2[0] ? '<font color="green">Y</font>' : '<font color="red">N</font>').')</a>';
+				echo '<a href="#g'. $v['inherit_id'] .'" title="Inheriting permissions from '. $gl[$v['inherit_id']]['gn'] .'">(I: '.($gl[$v['inherit_id']]['groups_opt'] & $v2[0] ? '<font color="green">Y</font>' : '<font color="red">N</font>') .')</a>';
 			} else {
 				echo ($v['groups_opt'] & $v2[0] ? '<font color="green">Y</font>' : '<font color="red">N</font>');
 			}
 			echo '</td>';
 		}
-		echo '<td valign="middle" align="center">'.$grl.'</td> <td nowrap="nowrap">[<a href="admgroups.php?edit='.$k.'&amp;'.__adm_rsid.'#edit">Edit</a>] '.$user_grp_mgr.'</td></tr>';
+		echo '<td valign="middle" align="center">'. $grl .'</td> <td nowrap="nowrap">[<a href="admgroups.php?edit='. $k .'&amp;'. __adm_rsid .'#edit">Edit</a>] '. $user_grp_mgr .'</td></tr>';
 	}
 	if (!$i) {
 		echo '<tr class="field"><td colspan="6"><center>No groups found. Define some above.</center></td></tr>';

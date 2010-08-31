@@ -41,7 +41,7 @@ function get_max_upload_size()
 
 	require($WWW_ROOT_DISK .'adm/header.php');
 	
-	if (!$cat_id || ($cat_name = q_singleval('SELECT name FROM '.$tbl.'cat WHERE id='.$cat_id)) === NULL) {
+	if (!$cat_id || ($cat_name = q_singleval('SELECT name FROM '. $tbl .'cat WHERE id='. $cat_id)) === NULL) {
 		exit('No such category.');
 	}
 
@@ -71,7 +71,7 @@ function get_max_upload_size()
 			echo successify('Forum was successfully updated.');
 		}
 	}
-	if ($edit && ($c = db_arr_assoc('SELECT * FROM '.$tbl.'forum WHERE id='.$edit))) {
+	if ($edit && ($c = db_arr_assoc('SELECT * FROM '. $tbl .'forum WHERE id='. $edit))) {
 		foreach ($c as $k => $v) {
 			${'frm_'.$k} = $v;
 		}
@@ -104,8 +104,8 @@ function get_max_upload_size()
 	} else if (isset($_POST['btn_chcat'], $_POST['frm_id'], $_POST['cat_id'], $_POST['dest_cat'])) {
 		if (frm_move_forum((int)$_POST['frm_id'], (int)$_POST['dest_cat'], $cat_id)) {
 			rebuild_forum_cat_order();
-			$r = db_saq('SELECT f.name, c1.name, c2.name FROM '.$tbl.'forum f INNER JOIN '.$tbl.'cat c1 ON c1.id='.$cat_id.' INNER JOIN '.$tbl.'cat c2 ON c2.id='.(int)$_POST['dest_cat'].' WHERE f.id='.(int)$_POST['frm_id']);
-			logaction(_uid, 'CHCATFORUM', 'Moved forum "'.$r[0].'" from category: "'.$r[1].'" to category: "'.$r[2].'"');
+			$r = db_saq('SELECT f.name, c1.name, c2.name FROM '. $tbl .'forum f INNER JOIN '. $tbl .'cat c1 ON c1.id='. $cat_id .' INNER JOIN '. $tbl .'cat c2 ON c2.id='. (int)$_POST['dest_cat'] .' WHERE f.id='. (int)$_POST['frm_id']);
+			logaction(_uid, 'CHCATFORUM', 'Moved forum "'. $r[0] .'" from category: "'. $r[1] .'" to category: "'. $r[2] .'"');
 			echo successify('Forum was successfully moved.');
 		}
 	}
@@ -114,9 +114,9 @@ function get_max_upload_size()
 	if (isset($_GET['o'], $_GET['ot'])) {
 		if (in_array($_GET['ot'], array('name', 'descr', 'date_created'))) {
 			$i = 0;
-			$r = q("SELECT id FROM {$tbl}forum WHERE cat_id={$cat_id} ORDER BY {$_GET['ot']} ".((int)$_GET['o'] ? 'ASC' : 'DESC'));
+			$r = q("SELECT id FROM {$tbl}forum WHERE cat_id={$cat_id} ORDER BY {$_GET['ot']} ". ((int)$_GET['o'] ? 'ASC' : 'DESC'));
 			while ($o = db_rowarr($r)) {
-				q("UPDATE {$tbl}forum SET view_order=".++$i." WHERE id={$o[0]}");
+				q("UPDATE {$tbl}forum SET view_order=". ++$i ." WHERE id={$o[0]}");
 			}
 			rebuild_forum_cat_order();
 		}
@@ -252,12 +252,12 @@ if (!isset($_GET['chpos'])) {	// Hide this if we are changing forum order.
 			}
 			$lp = $r->view_order;
 		}
-		$cat_name = !$move_ct ? $cat_name : '<form method="post" action="admforum.php">'._hs.'<input type="hidden" name="frm_id" value="'.$r->id.'" /><input type="hidden" name="cat_id" value="'.$cat_id.'" /><input type="submit" name="btn_chcat" value="Move To: " /> '.$move_ct.'</form>';
-		echo '<tr'.$bgcolor.'><td>'.$r->name.'</td><td><font size="-1">'.htmlspecialchars(substr($r->descr, 0, 30)).'...</font></td><td>'.($r->forum_opt & 4 ? 'Yes' : 'No').'</td><td nowrap="nowrap">[<a href="admforum.php?cat_id='.$cat_id.'&amp;edit='.$r->id.'&amp;'.__adm_rsid.'#edit">Edit</a>] [<a href="admforum.php?cat_id='.$cat_id.'&amp;del='.$r->id.'&amp;'.__adm_rsid.'">Delete</a>]</td><td nowrap="nowrap">'.$cat_name.'</td><td nowrap="nowrap">[<a href="admforum.php?chpos='.$r->view_order.'&amp;cat_id='.$cat_id.'&amp;'.__adm_rsid.'">Change</a>]</td></tr>';
+		$cat_name = !$move_ct ? $cat_name : '<form method="post" action="admforum.php">'. _hs .'<input type="hidden" name="frm_id" value="'.$r->id.'" /><input type="hidden" name="cat_id" value="'.$cat_id.'" /><input type="submit" name="btn_chcat" value="Move To: " /> '.$move_ct.'</form>';
+		echo '<tr'.$bgcolor.'><td>'.$r->name.'</td><td><font size="-1">'. htmlspecialchars(substr($r->descr, 0, 30)) .'...</font></td><td>'. ($r->forum_opt & 4 ? 'Yes' : 'No') .'</td><td nowrap="nowrap">[<a href="admforum.php?cat_id='. $cat_id .'&amp;edit='. $r->id .'&amp;'. __adm_rsid .'#edit">Edit</a>] [<a href="admforum.php?cat_id='. $cat_id .'&amp;del='. $r->id .'&amp;'. __adm_rsid .'">Delete</a>]</td><td nowrap="nowrap">'. $cat_name .'</td><td nowrap="nowrap">[<a href="admforum.php?chpos='. $r->view_order .'&amp;cat_id='. $cat_id .'&amp;'. __adm_rsid .'">Change</a>]</td></tr>';
 	}
 	unset($c);
 	if (isset($lp)) {
-		echo '<tr class="field""><td align="center" colspan="6"><a href="admforum.php?chpos='.$_GET['chpos'].'&amp;newpos='.($lp + 1).'&amp;cat_id='.$cat_id.'&amp;'.__adm_rsid.'">Place Here</a></td></tr>';
+		echo '<tr class="field""><td align="center" colspan="6"><a href="admforum.php?chpos='. $_GET['chpos'] .'&amp;newpos='. ($lp + 1) .'&amp;cat_id='. $cat_id .'&amp;'. __adm_rsid .'">Place Here</a></td></tr>';
 	}
 	if (!$i) {
 		echo '<tr class="field"><td colspan="6"><center>No forums found. Define some above.</center></td></tr>';

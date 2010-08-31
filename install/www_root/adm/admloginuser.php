@@ -18,15 +18,15 @@
 	fud_use('users_reg.inc');
 
 	if (!empty($_POST['login']) && !empty($_POST['passwd'])) {
-		$r = db_sab('SELECT id, passwd, salt FROM '.$DBHOST_TBL_PREFIX.'users WHERE login='._esc($_POST['login']).' AND users_opt>=1048576 AND (users_opt & 1048576) > 0 AND (last_login + '.$MIN_TIME_BETWEEN_LOGIN.') < '.__request_timestamp__);
+		$r = db_sab('SELECT id, passwd, salt FROM '. $DBHOST_TBL_PREFIX .'users WHERE login='. _esc($_POST['login']) .' AND users_opt>=1048576 AND '. q_bitand('users_opt', 1048576) .' > 0 AND (last_login + '.$MIN_TIME_BETWEEN_LOGIN.') < '.__request_timestamp__);
 		if ($r && (empty($r->salt) && $r->passwd == md5($_POST['passwd']) || $r->passwd == sha1($r->salt . sha1($_POST['passwd'])))) {
 			$sid = user_login($r->id, $usr->ses_id, true);
 			$GLOBALS['new_sq'] = regen_sq($r->id);
 			header('Location: '. $WWW_ROOT .'adm/index.php?S='. $sid .'&SQ='. $new_sq);
 			exit;
 		} else {
-			q('UPDATE '.$DBHOST_TBL_PREFIX.'users SET last_login='.__request_timestamp__.' WHERE login='._esc($_POST['login']));
-			logaction(0, 'WRONGPASSWD', 0, "Invalid admin login attempt from: ".get_ip()." using ".htmlspecialchars($_POST['login'], ENT_QUOTES)." / ".htmlspecialchars($_POST['passwd'], ENT_QUOTES));
+			q('UPDATE '. $DBHOST_TBL_PREFIX .'users SET last_login='. __request_timestamp__ .' WHERE login='. _esc($_POST['login']));
+			logaction(0, 'WRONGPASSWD', 0, 'Invalid admin login attempt from: '. get_ip() .' using '. htmlspecialchars($_POST['login'], ENT_QUOTES) .' / '. htmlspecialchars($_POST['passwd'], ENT_QUOTES));
 			$err = 'Only administrators with proper access credentials can login via this control panel.<br />Incorrect username/password or flood check triggered.';
 		}
 	} else {
