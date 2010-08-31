@@ -139,6 +139,18 @@ function q_limit($query, $limit, $off)
 	return 'SELECT FIRST '. $limit . ((!empty($off)) ? ' SKIP ' . $off : '') . substr($query, 6);
 }
 
+function q_bitand($fieldLeft, $fieldRight) {
+	return $fieldLeft .'&'. $fieldRight;
+}
+
+function q_bitor($fieldLeft, $fieldRight) {
+	return $fieldLeft .'|'. $fieldRight;
+}
+
+function q_bitnot($bitField) {
+	return '~'. $bitField;
+}
+
 function get_fud_table_list($tbl='')
 {
 	if ($tbl) {

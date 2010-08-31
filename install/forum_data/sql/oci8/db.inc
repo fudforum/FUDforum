@@ -169,6 +169,18 @@ function q_limit($query, $limit, $off)
 	return 'SELECT * FROM (SELECT /*+ FIRST_ROWS */ a.*, rownum AS xrownum FROM ('. $query .') a WHERE rownum <= '. ($off + $limit) .') WHERE xrownum >= '. ($off+1);
 }
 
+function q_bitand($fieldLeft, $fieldRight) {
+	return 'BITAND('. $fieldLeft .', '. $fieldRight .')'; 
+}
+
+function q_bitor($fieldLeft, $fieldRight) {
+	return $fieldLeft .' + '. $fieldRight .' - BITAND('. $fieldLeft .', '. $fieldRight .')';
+}
+
+function q_bitnot($bitField) {
+	return '(0 - '. $bitField .') - 1';
+}
+
 function get_fud_table_list($tbl='')
 {
 	if ($tbl) {
@@ -203,7 +215,7 @@ function db_qid($q)
 {
 	$r = q($q);
 
-	$seqname = preg_replace('/^.*\s+(FROM|INTO)\s+(\w+)[\s\(\,].*$/i', '\\2', $q) .'_id_seq';
+	$seqname = preg_replace('/^.*\s+(FROM|INTO)\s+(\w+)[\s\(\,].*$/si', '\\2', $q) .'_id_seq';
 	return q_singleval('SELECT '. $seqname .'.CURRVAL from dual');
 }
 
@@ -229,7 +241,7 @@ function db_li($q, &$ef, $li=0)
 
 	if ($r) {
 		if ($li) {
-			$seqname = preg_replace('/^.*\s+(FROM|INTO)\s+(\w+)[\s\(\,].*$/i', '\\2', $q) .'_id_seq';
+			$seqname = preg_replace('/^.*\s+(FROM|INTO)\s+(\w+)[\s\(\,].*$/si', '\\2', $q) .'_id_seq';
 			return q_singleval('SELECT '. $seqname .'.CURRVAL FROM dual');
 		}
 		return $r;
@@ -294,25 +306,28 @@ function _ora_syntax($q)
 		$off = 0;
 		$limit = $res[1];
 		$q = substr($q, 0, strpos($q, 'LIMIT '));
-		$q = 'SELECT * FROM (SELECT /*+ FIRST_ROWS */ rownum AS xrownum, a.* FROM ('. $q .') a WHERE rownum <= '. ($off + $limit) .') WHERE xrownum >= '. ($off+1);
+		$q = 'SELECT * FROM (SELECT /*+ FIRST_ROWS */ a.*, rownum AS xrownum FROM ('. $q .') a WHERE rownum <= '. ($off + $limit) .') WHERE xrownum >= '. ($off+1);
 	}
 
-	// SELECT without FROM, append 'FROM dual'.
+	// SELECT without FROM, we need to append 'FROM dual'.
 	if (preg_match('/^SELECT /i', $q) && !preg_match('/FROM/i', $q)) {
 		$q .= ' FROM dual';
 	}
 
-	// Convert MySQL's bitwise & to Oracle's BITAND() function.
-	$q = preg_replace('/\(([\.\w]+) \& (\d+)\)/', 'BITAND(\1, \2)', $q);
+	// OR numeric values together in PHP and pass as a single value to Oracle.
+	// $q = preg_replace_callback('/\b(\d[\d\|]+\d\b)/',
+	//		create_function('$matches',
+	//			'$or=0; foreach( explode(\'|\', $matches[0]) as $val) {$or = $or|$val;} return $or;'),
+	//		$q);
+
+	// Convert bitwise & to Oracle's BITAND() function.
+	// $q = preg_replace('/\(([\.\w]+)\s*\&\s*(~?\d+)\)/', 'BITAND(\1, \2)', $q);
 
 	// Simulate BITOR().
-	$q = preg_replace('/\(([\.\w]+) \| (\d+)\)/', '\1 + \2 - BITAND(\1, \2)', $q);
+	// $q = preg_replace('/\(([\.\w]+)\s*\|\s*(\d+)\)/', '\1 + \2 - BITAND(\1, \2)', $q);
 
-	// OR values together in PHP - there is no BITOR() in Oracle.
-	$q = preg_replace_callback('/\b(\d[\d\|]+\d\b)/',
-			create_function('$matches',
-				'$or=0; foreach( explode(\'|\', $matches[0]) as $val) {$or = $or|$val;} return $or;'),
-			$q);
+	// Simulate BITNOT().
+	// $q = preg_replace('/~\s?([\d\(\)]+)/', '(0 - \1) - 1', $q);
 
 	return $q;
 }
