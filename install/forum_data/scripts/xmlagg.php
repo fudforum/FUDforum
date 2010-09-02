@@ -22,9 +22,9 @@
 	}
 
 	if (strncmp($_SERVER['argv'][0], '.', 1)) {
-		require (dirname($_SERVER['argv'][0]) . '/GLOBALS.php');
+		require (dirname($_SERVER['argv'][0]) .'/GLOBALS.php');
 	} else {
-		require (getcwd() . '/GLOBALS.php');
+		require (getcwd() .'/GLOBALS.php');
 	}
 
 	if (!($FUD_OPT_1 & 1)) {
@@ -58,7 +58,7 @@
 
 	/* Set language & locale. */
 	$GLOBALS['usr'] = new stdClass();
-	list($GLOBALS['usr']->lang, $locale) = db_saq('SELECT lang, locale FROM '. sql_p .'themes WHERE theme_opt=1|2 LIMIT 1');
+	list($GLOBALS['usr']->lang, $locale) = db_saq('SELECT lang, locale FROM '. sql_p .'themes WHERE theme_opt='. (1|2) .' LIMIT 1');
 	$GLOBALS['good_locale'] = setlocale(LC_ALL, $locale);
 
 	$frm = new fud_forum;

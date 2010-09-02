@@ -27,8 +27,8 @@ function plain_text(&$data, $qs, $qm, $qe)
 			break;
 		}
 
-		$str = trim(strip_tags(substr($data, $s, ($e1 - $s)))) . "\n";
-		$str .= '> ' . str_replace("\n", "\n> ", trim(strip_tags(substr($data, $e1, ($e2 - $e1))))) . "\n";
+		$str = trim(strip_tags(substr($data, $s, ($e1 - $s)))) ."\n";
+		$str .= '> '. str_replace("\n", "\n> ", trim(strip_tags(substr($data, $e1, ($e2 - $e1))))) ."\n";
 
 		$data = substr_replace($data, $str, $s, ($e2 + strlen($qe) - $s));
 	}

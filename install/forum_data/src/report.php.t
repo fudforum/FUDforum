@@ -21,15 +21,15 @@
 	/* permission check */
 	is_allowed_user($usr);
 
-	$msg = db_sab('SELECT t.forum_id, m.subject, m.post_stamp, u.alias, mm.id AS md, (COALESCE(g2.group_cache_opt, g1.group_cache_opt) & 2) > 0 AS gco, mr.id AS reported
+	$msg = db_sab('SELECT t.forum_id, m.subject, m.post_stamp, u.alias, mm.id AS md, '. q_bitand('COALESCE(g2.group_cache_opt, g1.group_cache_opt)', 2) .' AS gco, mr.id AS reported
 			FROM {SQL_TABLE_PREFIX}msg m
 			INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id
-			INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id='.(_uid ? '2147483647' : '0').' AND g1.resource_id=t.forum_id
-			LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g2.resource_id=t.forum_id
-			LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=t.forum_id AND mm.user_id='._uid.'
+			INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id='. (_uid ? '2147483647' : '0') .' AND g1.resource_id=t.forum_id
+			LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='. _uid .' AND g2.resource_id=t.forum_id
+			LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=t.forum_id AND mm.user_id='. _uid .'
 			LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id
-			LEFT JOIN {SQL_TABLE_PREFIX}msg_report mr ON mr.msg_id='.$msg_id.' AND mr.user_id='._uid.'
-			WHERE m.id='.$msg_id.' AND m.apr=1');
+			LEFT JOIN {SQL_TABLE_PREFIX}msg_report mr ON mr.msg_id='. $msg_id .' AND mr.user_id='. _uid.'
+			WHERE m.id='. $msg_id .' AND m.apr=1');
 	if (!$msg) {
 		invl_inp_err();
 	}
@@ -43,7 +43,7 @@
 	}
 
 	if (!empty($_POST['reason']) && is_string($_POST['reason']) && ($reason = trim($_POST['reason']))) {
-		q('INSERT INTO {SQL_TABLE_PREFIX}msg_report (user_id, msg_id, reason, stamp) VALUES('._uid.', '.$msg_id.', '._esc(htmlspecialchars($reason)).', '.__request_timestamp__.')');
+		q('INSERT INTO {SQL_TABLE_PREFIX}msg_report (user_id, msg_id, reason, stamp) VALUES('. _uid .', '. $msg_id .', '. _esc(htmlspecialchars($reason)) .', '. __request_timestamp__ .')');
 		check_return($usr->returnto);
 	} else if ($GLOBALS['is_post']) {
 		$reason_error = '{TEMPLATE: report_empty_report}';

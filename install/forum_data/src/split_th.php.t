@@ -14,7 +14,7 @@
 
 function th_frm_last_post_id($id, $th)
 {
-	return (int) q_singleval('SELECT t.last_post_id FROM {SQL_TABLE_PREFIX}thread t INNER JOIN {SQL_TABLE_PREFIX}msg m ON t.root_msg_id=m.id WHERE t.forum_id='.$id.' AND t.id!='.$th.' AND t.moved_to=0 AND m.apr=1 ORDER BY t.last_post_date DESC LIMIT 1');
+	return (int) q_singleval('SELECT t.last_post_id FROM {SQL_TABLE_PREFIX}thread t INNER JOIN {SQL_TABLE_PREFIX}msg m ON t.root_msg_id=m.id WHERE t.forum_id='. $id .' AND t.id!='. $th .' AND t.moved_to=0 AND m.apr=1 ORDER BY t.last_post_date DESC LIMIT 1');
 }
 
 	$th = isset($_GET['th']) ? (int)$_GET['th'] : (isset($_POST['th']) ? (int)$_POST['th'] : 0);
@@ -24,7 +24,7 @@ function th_frm_last_post_id($id, $th)
 
 	/* permission check */
 	if (!$is_a) {
-		$perms = db_saq('SELECT mm.id, '.(_uid ? ' COALESCE(g2.group_cache_opt, g1.group_cache_opt) AS gco ' : ' g1.group_cache_opt AS gco ').'
+		$perms = db_saq('SELECT mm.id, '. (_uid ? ' COALESCE(g2.group_cache_opt, g1.group_cache_opt) AS gco ' : ' g1.group_cache_opt AS gco '). '
 				FROM {SQL_TABLE_PREFIX}thread t
 				LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.user_id='._uid.' AND mm.forum_id=t.forum_id
 				'.(_uid ? 'INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=2147483647 AND g1.resource_id=t.forum_id LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g2.resource_id=t.forum_id' : 'INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=0 AND g1.resource_id=t.forum_id').'

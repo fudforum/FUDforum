@@ -12,7 +12,7 @@
 function read_msg_body($off, $len, $id)
 {
 	if ($off == -1) {	// Fetch from DB and return.
-		return q_singleval('SELECT data FROM {SQL_TABLE_PREFIX}msg_store WHERE id='.$id);
+		return q_singleval('SELECT data FROM {SQL_TABLE_PREFIX}msg_store WHERE id='. $id);
 	}
 
 	if (!$len) {	// Empty message.
@@ -21,7 +21,7 @@ function read_msg_body($off, $len, $id)
 
 	// Open file if it's not already open.
 	if (!isset($GLOBALS['__MSG_FP__'][$id])) {
-		$GLOBALS['__MSG_FP__'][$id] = fopen($GLOBALS['MSG_STORE_DIR'].'msg_'.$id, 'rb');
+		$GLOBALS['__MSG_FP__'][$id] = fopen($GLOBALS['MSG_STORE_DIR'] .'msg_'. $id, 'rb');
 	}
 
 	// Read from file.

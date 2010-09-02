@@ -50,7 +50,7 @@
 
 function sp($data)
 {
-	return '<![CDATA[' . str_replace(array('[', ']'), array('&#91;', '&#93;'), $data) . ']]>';
+	return '<![CDATA['. str_replace(array('[', ']'), array('&#91;', '&#93;'), $data) .']]>';
 }
 
 function email_format($data)
@@ -88,7 +88,7 @@ function feed_cache_cleanup()
 function smiley_full(&$data)
 {
 	if (strpos($data, '<img src="images/smiley_icons/') !== false) {
-		$data = str_replace('<img src="images/smiley_icons/', '<img src="'.$GLOBALS['WWW_ROOT'].'images/smiley_icons/', $data);
+		$data = str_replace('<img src="images/smiley_icons/', '<img src="'. $GLOBALS['WWW_ROOT'] .'images/smiley_icons/', $data);
 	}
 }
 
@@ -106,7 +106,7 @@ function smiley_full(&$data)
 		$_GET['n'] = 10;
 	}
 
-	define('__ROOT__', $WWW_ROOT . 'index.php');
+	define('__ROOT__', $WWW_ROOT .'index.php');
 
 	$res = 0;
 	$offset = isset($_GET['o']) ? (int)$_GET['o'] : 0;
@@ -123,16 +123,16 @@ function smiley_full(&$data)
 		$key = array_map('strtolower', $key);
 		ksort($key);
 
-		$file_name = $FORUM_SETTINGS_PATH.'feed_cache_'.md5(serialize($key));
+		$file_name = $FORUM_SETTINGS_PATH .'feed_cache_'. md5(serialize($key));
 		if (file_exists($file_name) && (($t = filemtime($file_name)) + $FEED_CACHE_AGE) > __request_timestamp__) {
-			$mod = gmdate('D, d M Y H:i:s', $t) . ' GMT';
+			$mod = gmdate('D, d M Y H:i:s', $t) .' GMT';
 			if (isset($_SERVER['HTTP_IF_MODIFIED_SINCE']) && !isset($_SERVER['HTTP_RANGE']) && $_SERVER['HTTP_IF_MODIFIED_SINCE'] == $mod) {
 				header('HTTP/1.1 304 Not Modified');
 				header('Status: 304 Not Modified');
 				return;
 			}
 			header('{TEMPLATE: xml_header}');
-			header('Last-Modified: ' . $mod);
+			header('Last-Modified: '. $mod);
 			readfile($file_name);
 			return;
 		}
@@ -163,27 +163,27 @@ function smiley_full(&$data)
 			 * basic	- output basic info parsable by all rdf parsers
 			 */
 			if (isset($_GET['sf'])) {
-				$_GET['frm'] = db_all('SELECT forum_id FROM {SQL_TABLE_PREFIX}forum_notify WHERE user_id='.(int)$_GET['sf']);
+				$_GET['frm'] = db_all('SELECT forum_id FROM {SQL_TABLE_PREFIX}forum_notify WHERE user_id='. (int)$_GET['sf']);
 			} else if (isset($_GET['st'])) {
-				$_GET['th'] = db_all('SELECT thread_id FROM {SQL_TABLE_PREFIX}thread_notify WHERE user_id='.(int)$_GET['sf']);
+				$_GET['th'] = db_all('SELECT thread_id FROM {SQL_TABLE_PREFIX}thread_notify WHERE user_id='. (int)$_GET['sf']);
 			}
 			if (isset($_GET['cat'])) {
-			 	$lmt .= ' AND f.cat_id IN('.multi_id($_GET['cat']).')';
+			 	$lmt .= ' AND f.cat_id IN('. multi_id($_GET['cat']) .')';
 			}
 			if (isset($_GET['frm'])) {
-			 	$lmt .= ' AND t.forum_id IN('.multi_id($_GET['frm']).')';
+			 	$lmt .= ' AND t.forum_id IN('. multi_id($_GET['frm']) .')';
 			}
 			if (isset($_GET['th'])) {
-				$lmt .= ' AND m.thread_id IN('.multi_id($_GET['th']).')';
+				$lmt .= ' AND m.thread_id IN(' .multi_id($_GET['th']) .')';
 			}
 			if (isset($_GET['id'])) {
-			 	$lmt .= ' AND m.id IN('.multi_id($_GET['id']).')';
+			 	$lmt .= ' AND m.id IN('. multi_id($_GET['id']) .')';
 			}
 			if (isset($_GET['ds'])) {
-				$lmt .= ' AND m.post_stamp >='.(int)$_GET['ds'];
+				$lmt .= ' AND m.post_stamp >='. (int)$_GET['ds'];
 			}
 			if (isset($_GET['de'])) {
-				$lmt .= ' AND m.post_stamp <='.(int)$_GET['de'];
+				$lmt .= ' AND m.post_stamp <='. (int)$_GET['de'];
 			}
 
 			/* This is an optimization so that the forum does not need to
@@ -191,18 +191,18 @@ function smiley_full(&$data)
 			 * So, instead we set an arbitrary search limit of 5 days.
 			 */
 			if (isset($_GET['l']) && $lmt == ' t.moved_to=0 AND m.apr=1') {
-				$lmt .= ' AND t.last_post_date >=' . (__request_timestamp__ - 86400 * 5);
+				$lmt .= ' AND t.last_post_date >='. (__request_timestamp__ - 86400 * 5);
 			}
 
 			if ($FUD_OPT_2 & 33554432) {	// FEED_AUTH
 				if ($FEED_AUTH_ID) {
 					$join = '	INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=2147483647 AND g1.resource_id=f.id
-							LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='.$FEED_AUTH_ID.' AND g2.resource_id=f.id
-							LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=f.id AND mm.user_id='.$FEED_AUTH_ID.' ';
-					$lmt .= ' AND (mm.id IS NOT NULL OR (COALESCE(g2.group_cache_opt, g1.group_cache_opt) & 2) > 0)';
+							LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='. $FEED_AUTH_ID .' AND g2.resource_id=f.id
+							LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=f.id AND mm.user_id='. $FEED_AUTH_ID .' ';
+					$lmt .= ' AND (mm.id IS NOT NULL OR '. q_bitand('COALESCE(g2.group_cache_opt, g1.group_cache_opt)', 2) .' > 0)';
 				} else {
 					$join = ' INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=0 AND g1.resource_id=f.id ';
-					$lmt .= ' AND (g1.group_cache_opt & 2) > 0';
+					$lmt .= ' AND '. q_bitand('g1.group_cache_opt', 2) .' > 0';
 				}
 			}
 
@@ -224,9 +224,9 @@ function smiley_full(&$data)
 					LEFT JOIN {SQL_TABLE_PREFIX}msg m3 ON m3.id=m.reply_to
 					LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id
 					LEFT JOIN {SQL_TABLE_PREFIX}poll p ON m.poll_id=p.id
-					'.$join.'
+					'. $join .'
 				WHERE
-					' . $lmt  . ' ORDER BY m.post_stamp ' . (isset($_GET['l']) ? 'DESC' : 'ASC'),
+					'. $lmt  .' ORDER BY m.post_stamp '. (isset($_GET['l']) ? 'DESC' : 'ASC'),
 				$limit, $offset));
 			while ($r = db_rowobj($c)) {
 				if (!$res) {
@@ -285,19 +285,19 @@ function smiley_full(&$data)
 			 */
 			$lmt = ' t.moved_to=0 AND m.apr=1';
 			if (isset($_GET['cat'])) {
-				$lmt .= ' AND f.cat_id IN('.multi_id($_GET['cat']).')';
+				$lmt .= ' AND f.cat_id IN('. multi_id($_GET['cat']) .')';
 			}
 			if (isset($_GET['frm'])) {
-				$lmt .= ' AND t.forum_id IN('.multi_id($_GET['frm']).')';
+				$lmt .= ' AND t.forum_id IN('. multi_id($_GET['frm']) .')';
 			}
 			if (isset($_GET['id'])) {
-			 	$lmt .= ' AND t.id IN ('.multi_id($_GET['id']).')';
+			 	$lmt .= ' AND t.id IN ('. multi_id($_GET['id']) .')';
 			}
 			if (isset($_GET['ds'])) {
-				$lmt .= ' AND t.last_post_date >='.(int)$_GET['ds'];
+				$lmt .= ' AND t.last_post_date >='. (int)$_GET['ds'];
 			}
 			if (isset($_GET['de'])) {
-				$lmt .= ' AND t.last_post_date <='.(int)$_GET['de'];
+				$lmt .= ' AND t.last_post_date <='. (int)$_GET['de'];
 			}
 
 			/* This is an optimization so that the forum does not need to
@@ -305,18 +305,18 @@ function smiley_full(&$data)
 			 * So, instead we set an arbitrary search limit if 5 days.
 			 */
 			if (isset($_GET['l']) && $lmt == ' t.moved_to=0 AND m.apr=1') {
-				$lmt .= ' AND t.last_post_date >=' . (__request_timestamp__ - 86400 * 5);
+				$lmt .= ' AND t.last_post_date >='. (__request_timestamp__ - 86400 * 5);
 			}
 
 			if ($FUD_OPT_2 & 33554432) {	// FEED_AUTH
 				if ($FEED_AUTH_ID) {
 					$join = '	INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=2147483647 AND g1.resource_id=f.id
-							LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='.$FEED_AUTH_ID.' AND g2.resource_id=f.id
-							LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=f.id AND mm.user_id='.$FEED_AUTH_ID.' ';
-					$lmt .= ' AND (mm.id IS NOT NULL OR (COALESCE(g2.group_cache_opt, g1.group_cache_opt) & 2) > 0)';
+							LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='. $FEED_AUTH_ID .' AND g2.resource_id=f.id
+							LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=f.id AND mm.user_id='. $FEED_AUTH_ID .' ';
+					$lmt .= ' AND (mm.id IS NOT NULL OR '. q_bitand('COALESCE(g2.group_cache_opt, g1.group_cache_opt)', 2) .' > 0)';
 				} else {
 					$join = ' INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=0 AND g1.resource_id=f.id ';
-					$lmt .= ' AND (g1.group_cache_opt & 2) > 0';
+					$lmt .= ' AND '. q_bitand('g1.group_cache_opt', 2) .' > 0';
 				}
 			}
 			$c = q(q_limit('SELECT
@@ -333,9 +333,9 @@ function smiley_full(&$data)
 					INNER JOIN {SQL_TABLE_PREFIX}msg m ON t.root_msg_id=m.id
 					INNER JOIN {SQL_TABLE_PREFIX}msg m2 ON t.last_post_id=m2.id
 					LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id
-					'.$join.'
+					'. $join .'
 				WHERE
-					' . $lmt  . (isset($_GET['l']) ? ' ORDER BY m.post_stamp DESC' : ''),
+					'. $lmt . (isset($_GET['l']) ? ' ORDER BY m.post_stamp DESC' : ''),
 				$limit, $offset));
 
 			$data = '';
@@ -384,17 +384,17 @@ function smiley_full(&$data)
 				$order_by = 'u.alias';
 			}
 			if (isset($_GET['cl'])) {
-				$lmt .= ' AND u.last_visit>='.(__request_timestamp__ - $LOGEDIN_TIMEOUT * 60);
+				$lmt .= ' AND u.last_visit>='. (__request_timestamp__ - $LOGEDIN_TIMEOUT * 60);
 			}
 			if ($FUD_OPT_2 & 33554432) {	// FEED_AUTH
 				if ($FEED_AUTH_ID) {
 					$join = '	INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=2147483647 AND g1.resource_id=f.id
-							LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='.$FEED_AUTH_ID.' AND g2.resource_id=f.id
-							LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=f.id AND mm.user_id='.$FEED_AUTH_ID.' ';
-					$perms = ', (CASE WHEN (mm.id IS NOT NULL OR (COALESCE(g2.group_cache_opt, g1.group_cache_opt) & 2) > 0) THEN 1 ELSE 0 END) AS can_show_msg';
+							LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='. $FEED_AUTH_ID .' AND g2.resource_id=f.id
+							LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=f.id AND mm.user_id='. $FEED_AUTH_ID .' ';
+					$perms = ', (CASE WHEN (mm.id IS NOT NULL OR '. q_bitand('COALESCE(g2.group_cache_opt, g1.group_cache_opt)', 2) .' > 0) THEN 1 ELSE 0 END) AS can_show_msg';
 				} else {
 					$join = ' INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=0 AND g1.resource_id=f.id ';
-					$perms = ', (g1.group_cache_opt & 2) > 0 AS can_show_msg';
+					$perms = ', '. q_bitand('g1.group_cache_opt', 2) .' > 0 AS can_show_msg';
 				}
 			} else {
 				$perms = ', 1 AS can_show_msg';
@@ -407,16 +407,16 @@ function smiley_full(&$data)
 						t.forum_id,
 						f.name AS frm_name,
 						c.name AS cat_name
-						'.$perms.'
+						'. $perms .'
 
 					FROM {SQL_TABLE_PREFIX}users u
 					LEFT JOIN {SQL_TABLE_PREFIX}msg m ON m.id=u.u_last_post_id
 					LEFT JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id
 					LEFT JOIN {SQL_TABLE_PREFIX}forum f ON f.id=t.forum_id
 					LEFT JOIN {SQL_TABLE_PREFIX}cat c ON c.id=f.cat_id
-					'.$join.'
+					'. $join .'
 					WHERE
-						' . $lmt . ' ORDER BY ' . $order_by . ' DESC',
+						'. $lmt .' ORDER BY '. $order_by .' DESC',
 					$limit, $offset));
 			while ($r = db_rowobj($c)) {
 				if (!$res) {

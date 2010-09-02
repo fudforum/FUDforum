@@ -14,13 +14,13 @@
 	/* this form is for printing, therefore it lacks any advanced layout */
 	if (!__fud_real_user__) {
 		if ($FUD_OPT_2 & 32768) {
-			header('Location: {FULL_ROOT}{ROOT}/i/'._rsidl);
+			header('Location: {FULL_ROOT}{ROOT}/i/'. _rsidl);
 		} else {
-			header('Location: {FULL_ROOT}{ROOT}?t=index&'._rsidl);
+			header('Location: {FULL_ROOT}{ROOT}?t=index&'. _rsidl);
 		}
 		exit;
 	}
-	$name = q_singleval('SELECT name FROM {SQL_TABLE_PREFIX}users WHERE id='.__fud_real_user__);
+	$name = q_singleval('SELECT name FROM {SQL_TABLE_PREFIX}users WHERE id='. __fud_real_user__);
 
 /*{POST_PAGE_PHP_CODE}*/
 ?>

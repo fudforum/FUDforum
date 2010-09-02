@@ -17,7 +17,7 @@
 		if (($r = db_sab('SELECT email, login FROM '. $DBHOST_TBL_PREFIX .'users WHERE id='. (int)$_GET['apr']))) {
 			fud_use('adm_acc.inc');
 			fud_use('iemail.inc');
-			q('UPDATE '. $DBHOST_TBL_PREFIX .'users SET users_opt='. q_bitand(users_opt, q_bitnot(2097152)) .' WHERE id='. (int)$_GET['apr']);
+			q('UPDATE '. $DBHOST_TBL_PREFIX .'users SET users_opt='. q_bitand(users_opt, ~2097152) .' WHERE id='. (int)$_GET['apr']);
 			send_email($NOTIFY_FROM, $r->email, $account_accepted_s, $account_accepted);
 		}
 	} else if (isset($_GET['rm']) && (int)$_GET['rm'] != 1) {

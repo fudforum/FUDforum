@@ -12,17 +12,17 @@
 function rebuild_icon_cache()
 {
 	$iconl = array();
-	foreach ((array)glob($GLOBALS['WWW_ROOT_DISK'] . 'images/message_icons/{*.gif,*.jpg,*.png,*.jpeg}', GLOB_BRACE|GLOB_NOSORT) as $file) {
+	foreach ((array)glob($GLOBALS['WWW_ROOT_DISK'] .'images/message_icons/{*.gif,*.jpg,*.png,*.jpeg}', GLOB_BRACE|GLOB_NOSORT) as $file) {
 		$iconl[] = basename($file);
 	}
 
-	$fp = fopen($GLOBALS['TMP'].'icon_cache', 'w');
-	fwrite($fp, '<?php $ICON_L = '.var_export($iconl, 1).'; ?>');
+	$fp = fopen($GLOBALS['TMP'] .'icon_cache', 'w');
+	fwrite($fp, '<?php $ICON_L = '. var_export($iconl, 1) .'; ?>');
 	fclose($fp);
 
 	if (!strncasecmp('win', PHP_OS, 3)) {
-		@unlink($GLOBALS['FORUM_SETTINGS_PATH'].'icon_cache');
+		@unlink($GLOBALS['FORUM_SETTINGS_PATH'] .'icon_cache');
 	}
-	rename($GLOBALS['TMP'].'icon_cache', $GLOBALS['FORUM_SETTINGS_PATH'].'icon_cache');
+	rename($GLOBALS['TMP'] .'icon_cache', $GLOBALS['FORUM_SETTINGS_PATH'] .'icon_cache');
 }
 ?>

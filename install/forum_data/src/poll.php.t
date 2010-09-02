@@ -31,26 +31,26 @@
 
 	make_perms_query($fields, $join, $frm_id);
 
-	/* fetch forum, poll & moderator data */
-	if (!$pl_id) { /* new poll */
-		$frm = db_sab('SELECT f.id, f.forum_opt, m.id AS md, '.$fields.'
+	/* Fetch forum, poll & moderator data. */
+	if (!$pl_id) { /* New poll. */
+		$frm = db_sab('SELECT f.id, f.forum_opt, m.id AS md, '. $fields .'
 			FROM {SQL_TABLE_PREFIX}forum f
-			LEFT JOIN {SQL_TABLE_PREFIX}mod m ON m.user_id='._uid.' AND m.forum_id=f.id
-			'.$join.'
-			WHERE f.id='.$frm_id);
-	} else { /* editing a poll */
-		$frm = db_sab('SELECT f.id, f.forum_opt, m.id AS md, ms.id AS old_poll, p.id AS poll_id, p.*, '.$fields.'
+			LEFT JOIN {SQL_TABLE_PREFIX}mod m ON m.user_id='. _uid .' AND m.forum_id=f.id
+			'. $join .'
+			WHERE f.id='. $frm_id);
+	} else { /* Editing a poll. */
+		$frm = db_sab('SELECT f.id, f.forum_opt, m.id AS md, ms.id AS old_poll, p.id AS poll_id, p.*, '. $fields .'
 			FROM {SQL_TABLE_PREFIX}forum f
-			INNER JOIN {SQL_TABLE_PREFIX}poll p ON p.id='.$pl_id.'
-			LEFT JOIN {SQL_TABLE_PREFIX}mod m ON m.user_id='._uid.' AND m.forum_id=f.id
+			INNER JOIN {SQL_TABLE_PREFIX}poll p ON p.id='. $pl_id .'
+			LEFT JOIN {SQL_TABLE_PREFIX}mod m ON m.user_id='. _uid .' AND m.forum_id=f.id
 			LEFT JOIN {SQL_TABLE_PREFIX}msg ms ON ms.poll_id=p.id
-			'.$join.'
-			WHERE f.id='.$frm_id);
+			'. $join .'
+			WHERE f.id='. $frm_id);
 	}
 
 	if ($frm) {
-		$frm->group_cache_opt = (int) $frm->group_cache_opt;
-		$frm->forum_opt = (int) $frm->forum_opt;
+		$frm->group_cache_opt = (int)$frm->group_cache_opt;
+		$frm->forum_opt = (int)$frm->forum_opt;
 	}
 
 	if (!$frm || (!$frm->md && !$is_a && (!empty($frm->old_poll) && (!($frm->group_cache_opt & 4096) || (!($frm->group_cache_opt & 16) && $frm->owner != _uid))) && !($frm->group_cache_opt & 4))) {
@@ -61,9 +61,9 @@
 		$pl_name = isset($_POST['pl_name']) ? (string) $_POST['pl_name'] : '';
 		$pl_max_votes = isset($_POST['pl_max_votes']) ? (int) $_POST['pl_max_votes'] : 0;
 		$pl_expiry_date = isset($_POST['pl_expiry_date']) ? (int) $_POST['pl_expiry_date'] : 0;
-		if ($pl_id) { /* update a poll */
+		if ($pl_id) { /* Update a poll. */
 			poll_sync($pl_id, $pl_name, $pl_max_votes, $pl_expiry_date);
-		} else { /* adding a new poll */
+		} else { /* Adding a new poll. */
 			$pl_id = poll_add($pl_name, $pl_max_votes, $pl_expiry_date);
 		}
 	} else if (!empty($frm->poll_id)) {
@@ -74,12 +74,12 @@
 		$pl_name = $pl_max_votes = $pl_expiry_date = '';
 	}
 
-	/* remove a poll option */
+	/* Remove a poll option. */
 	if (isset($_GET['del_id'])) {
 		poll_del_opt((int)$_GET['del_id'], $pl_id);
 	}
 
-	/* Adding or Updating poll options */
+	/* Adding or Updating poll options. */
 	if(!empty($_POST['pl_upd']) || !empty($_POST['pl_add'])) {
 		$pl_option = apply_custom_replace($_POST['pl_option']);
 
@@ -101,10 +101,10 @@
 	}
 	$pl_option = '';
 
-	/* if we have a poll, fetch poll options */
+	/* If we have a poll, fetch poll options. */
 	$poll_opts = $pl_id ? poll_fetch_opts($pl_id) : array();
 
-	/* edit a poll option */
+	/* Edit a poll option. */
 	if (isset($_GET['pl_optedit'], $poll_opts[$_GET['pl_optedit']])) {
 		$pl_option = $poll_opts[$_GET['pl_optedit']];
 		$pl_option_id = $_GET['pl_optedit'];
@@ -124,7 +124,7 @@
 		$pl_smiley_disabled_chk = '';
 	}
 
-	/* this is only available on a created poll */
+	/* This is only available on a created poll. */
 	if ($pl_id) {
 		if ($pl_option) {
 			$pl_option = post_to_smiley($pl_option);

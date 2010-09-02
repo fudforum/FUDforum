@@ -47,7 +47,7 @@ function mail_check()
 
 	if (!strlen(trim($_POST['tx_name']))) {
 		set_err('tx_name', '{TEMPLATE: email_error_namerequired}');
-	} else if (!q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}users WHERE alias='._esc(htmlspecialchars($_POST['tx_name'])))) {
+	} else if (!q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}users WHERE alias='. _esc(htmlspecialchars($_POST['tx_name'])))) {
 		set_err('tx_name', '{TEMPLATE: email_error_invaliduser}');
 	}
 
@@ -58,14 +58,14 @@ function mail_check()
 	$error = $tx_name = $tx_subject = $tx_body = '';
 
 	if (isset($_GET['toi']) && (int)$_GET['toi']) {
-		$tx_name = q_singleval('SELECT alias FROM {SQL_TABLE_PREFIX}users WHERE id='.(int)$_GET['toi']);
-	} 
+		$tx_name = q_singleval('SELECT alias FROM {SQL_TABLE_PREFIX}users WHERE id='. (int)$_GET['toi']);
+	}
 	if (isset($_POST['btn_submit'])) {
 		if (!mail_check()) {
-			if (!($email = q_singleval('SELECT email FROM {SQL_TABLE_PREFIX}users WHERE alias='._esc(htmlspecialchars($_POST['tx_name'])).' AND (users_opt & 16) > 0'))) {
+			if (!($email = q_singleval('SELECT email FROM {SQL_TABLE_PREFIX}users WHERE alias='. _esc(htmlspecialchars($_POST['tx_name'])) .' AND (users_opt & 16) > 0'))) {
 				error_dialog('{TEMPLATE: email_err_unabletoemail_title}', '{TEMPLATE: email_error_unabletolocaddr}');
 			}
-			send_email($usr->email, $email, $_POST['tx_subject'], $_POST['tx_body'], 'Reply-To: '.$usr->email);
+			send_email($usr->email, $email, $_POST['tx_subject'], $_POST['tx_body'], 'Reply-To: '. $usr->email);
 			check_return($usr->returnto);
 		}
 

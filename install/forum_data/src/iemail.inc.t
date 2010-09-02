@@ -30,7 +30,7 @@ function validate_email($email)
 		}
 	}
 
-	// Now the hard part, validate the e-mail address itself .
+	// Now the hard part, validate the e-mail address itself.
 	if (!$bits[0] || strlen($bits[0]) > 255 || !preg_match('!^[-A-Za-z0-9_.+{}~\']+$!', $bits[0])) {
 		return 1;
 	}
@@ -39,7 +39,7 @@ function validate_email($email)
 function encode_subject($text)
 {
 	if (preg_match('![\x7f-\xff]!', $text)) {
-		$text = '=?' . '{TEMPLATE: iemail_CHARSET}' . '?B?' . base64_encode($text) . '?=';
+		$text = '=?' . '{TEMPLATE: iemail_CHARSET}' .'?B?'. base64_encode($text) .'?=';
 	}
 
 	return $text;
@@ -61,9 +61,9 @@ function send_email($from, $to, $subj, $body, $header='', $munge_newlines=1)
 	}
 	$extra_header = '';
 	if (strpos($header, 'MIME-Version') === false) {
-		$extra_header = "\nMIME-Version: 1.0\nContent-Type: text/plain; charset={TEMPLATE: iemail_CHARSET}\nContent-Transfer-Encoding: 8bit".$header;
+		$extra_header = "\nMIME-Version: 1.0\nContent-Type: text/plain; charset={TEMPLATE: iemail_CHARSET}\nContent-Transfer-Encoding: 8bit". $header;
 	}
-	$header = 'From: '.$from."\nErrors-To: ".$from."\nReturn-Path: ".$from."\nX-Mailer: FUDforum v".$GLOBALS['FORUM_VERSION'].$extra_header.$header;
+	$header = 'From: '. $from ."\nErrors-To: ". $from ."\nReturn-Path: ". $from ."\nX-Mailer: FUDforum v". $GLOBALS['FORUM_VERSION']. $extra_header. $header;
 
 	$body = str_replace("\r", '', $body);
 	if ($munge_newlines) {

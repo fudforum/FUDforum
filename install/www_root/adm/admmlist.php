@@ -111,7 +111,7 @@ function format_regex(&$regex)
 		<td colspan="2"><br /></td>
 	</tr>
 <?php	}	/* IMAP module is loaded. */ ?>
-	
+
 	<tr class="field">
 		<td>
 			Forum:<br />

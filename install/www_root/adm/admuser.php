@@ -42,7 +42,7 @@
 
 	/* Check if ban had expired. */
 	if ($usr_id && !$act && $u->users_opt & 65536 && $u->ban_expiry && $u->ban_expiry < __request_timestamp__) {
-		q('UPDATE '. $DBHOST_TBL_PREFIX .'users SET ban_expiry=0, users_opt='. q_bitand('users_opt', q_bitnot(65536)) .' WHERE id='. $usr_id);
+		q('UPDATE '. $DBHOST_TBL_PREFIX .'users SET ban_expiry=0, users_opt='. q_bitand('users_opt', ~65536) .' WHERE id='. $usr_id);
 	}
 
 	$keys = array('block'=>65536, 'coppa'=>262144, 'econf'=>131072, 'sig'=>67108864, 'pm'=>33554432, 'conf'=>2097152, 'accmod'=>268435456);
@@ -59,13 +59,12 @@
 			if ($act == 'accmod' && $acc_mod_only) {
 				break;
 			}
+			if ($act == 'block' && $GLOBALS['usr']->id == $usr_id) {
+				echo errorify('Sorry, you cannot ban or unban yourself!');
+				break;
+			}
 
 			if ($act == 'block' && isset($_POST['ban_duration'])) {
-				if ($GLOBALS['usr']->id == $usr_id) {
-					echo errorify('Sorry, you cannot ban or unban yourself!');
-					break;
-				}
-				
 				/* For post requests involving ban, do not act as a toggle. */
 				if (!isset($_POST['block'])) {
 					$u->users_opt |= $keys[$act];

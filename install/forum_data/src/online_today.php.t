@@ -28,10 +28,10 @@
 		FROM {SQL_TABLE_PREFIX}users u
 		LEFT JOIN {SQL_TABLE_PREFIX}msg m ON u.u_last_post_id=m.id
 		LEFT JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id
-		LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=t.forum_id AND mm.user_id='._uid.'
-		LEFT JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id='.(_uid ? '2147483647' : '0').' AND g1.resource_id=t.forum_id
-		LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g2.resource_id=t.forum_id
-		WHERE u.last_visit>'.mktime(0, 0, 0).' AND '.(!$is_a ? "(u.users_opt & 32768)=0 AND" : '').' u.id!='._uid.'
+		LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=t.forum_id AND mm.user_id='. _uid .'
+		LEFT JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id='. (_uid ? '2147483647' : '0') .' AND g1.resource_id=t.forum_id
+		LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='. _uid .' AND g2.resource_id=t.forum_id
+		WHERE u.last_visit>'. mktime(0, 0, 0) .' AND '. (!$is_a ? q_bitand('u.users_opt', 32768) .'=0 AND' : '') .' u.id!='. _uid .'
 		ORDER BY u.alias, u.last_visit');
 	/*
 		array(9) {

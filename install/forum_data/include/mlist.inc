@@ -21,8 +21,8 @@ class fud_mlist
 		if (isset($_POST) && count($_POST)) {
 			$el = array_keys(get_object_vars($this));
 			foreach ($el as $v) {
-		        	if (isset($_POST['ml_' . $v])) {
-					$this->{$v} = $_POST['ml_' . $v];
+		        	if (isset($_POST['ml_'. $v])) {
+					$this->{$v} = $_POST['ml_'. $v];
 				}
 			}
 
@@ -33,8 +33,8 @@ class fud_mlist
 
 			$this->mlist_opt = 0;
 			foreach (array('skip_non_forum_users', 'mlist_post_apr', 'allow_frm_post', 'frm_post_apr', 'allow_mlist_attch', 'allow_mlist_html', 'complex_reply_match', 'create_users') as $v) {
-				if (isset($_POST['ml_'.$v])) {
-					$this->mlist_opt |= (int) $_POST['ml_'.$v];
+				if (isset($_POST['ml_'. $v])) {
+					$this->mlist_opt |= (int) $_POST['ml_'. $v];
 				}
 			}
 
@@ -43,10 +43,10 @@ class fud_mlist
 			}
 
 			if ($this->subject_regex_haystack) {
-				$this->subject_regex_haystack = '/' . $this->subject_regex_haystack . '/' . $_POST['ml_subject_regex_haystack_opt'];
+				$this->subject_regex_haystack = '/'. $this->subject_regex_haystack .'/'. $_POST['ml_subject_regex_haystack_opt'];
 			}
 			if ($this->body_regex_haystack) {
-				$this->body_regex_haystack = '/' . $this->body_regex_haystack . '/' . $_POST['ml_body_regex_haystack_opt'];
+				$this->body_regex_haystack = '/'. $this->body_regex_haystack .'/'. $_POST['ml_body_regex_haystack_opt'];
 			}
 		}
 	}
@@ -55,9 +55,9 @@ class fud_mlist
 	{
 		if (!db_locked()) {
 			$ll = 1;
-			db_lock($GLOBALS['DBHOST_TBL_PREFIX'].'forum WRITE, '.$GLOBALS['DBHOST_TBL_PREFIX'].'mlist WRITE');
+			db_lock($GLOBALS['DBHOST_TBL_PREFIX'] .'forum WRITE, '. $GLOBALS['DBHOST_TBL_PREFIX'] .'mlist WRITE');
 		}
-		$this->id = db_qid('INSERT INTO '.$GLOBALS['DBHOST_TBL_PREFIX'].'mlist(
+		$this->id = db_qid('INSERT INTO '. $GLOBALS['DBHOST_TBL_PREFIX'] .'mlist(
 			forum_id,
 			name,
 			mlist_opt,
@@ -73,22 +73,22 @@ class fud_mlist
 			mbox_type
 			)
 			VALUES(
-			'.$this->forum_id.',
-			'._esc($this->name).',
-			'.$this->mlist_opt.',
-			'._esc($this->subject_regex_haystack).',
-			'._esc($this->subject_regex_needle).',
-			'._esc($this->body_regex_haystack).',
-			'._esc($this->body_regex_needle).',
-			'._esc($this->additional_headers).',
-			'._esc($this->custom_sig).',
-			'._esc($this->mbox_server).',
-			'._esc($this->mbox_user).',
-			'._esc($this->mbox_pass).',
-			'.$this->mbox_type.'
+			'. $this->forum_id .',
+			'. _esc($this->name) .',
+			'. $this->mlist_opt .',
+			'. _esc($this->subject_regex_haystack) .',
+			'. _esc($this->subject_regex_needle) .',
+			'. _esc($this->body_regex_haystack) .',
+			'. _esc($this->body_regex_needle) .',
+			'. _esc($this->additional_headers) .',
+			'. _esc($this->custom_sig) .',
+			'. _esc($this->mbox_server) .',
+			'. _esc($this->mbox_user) .',
+			'. _esc($this->mbox_pass) .',
+			'. $this->mbox_type .'
 			)');
 		if ($this->mlist_opt & 4) {
-			q('UPDATE '. $GLOBALS['DBHOST_TBL_PREFIX'] .'forum SET forum_opt=(forum_opt | 2) WHERE id='. $this->forum_id);
+			q('UPDATE '. $GLOBALS['DBHOST_TBL_PREFIX'] .'forum SET forum_opt='. q_bitor('forum_opt', 2) .' WHERE id='. $this->forum_id);
 		}
 		if (isset($ll)) {
 			db_unlock();
@@ -100,30 +100,30 @@ class fud_mlist
 	{
 		if (!db_locked()) {
 			$ll = 1;
-			db_lock($GLOBALS['DBHOST_TBL_PREFIX'].'forum WRITE, '.$GLOBALS['DBHOST_TBL_PREFIX'].'mlist WRITE');
+			db_lock($GLOBALS['DBHOST_TBL_PREFIX'] .'forum WRITE, '. $GLOBALS['DBHOST_TBL_PREFIX'] .'mlist WRITE');
 		}
-		list($old_frm_id, $mlist_opt) = db_saq('SELECT forum_id, mlist_opt FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'mlist WHERE id='.$id);
+		list($old_frm_id, $mlist_opt) = db_saq('SELECT forum_id, mlist_opt FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'mlist WHERE id='. $id);
 
-		q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'mlist SET
-			forum_id='.$this->forum_id.',
-			name='._esc($this->name).',
-			mlist_opt='.$this->mlist_opt.',
-			subject_regex_haystack='._esc($this->subject_regex_haystack).',
-			subject_regex_needle='._esc($this->subject_regex_needle).',
-			body_regex_haystack='._esc($this->body_regex_haystack).',
-			body_regex_needle='._esc($this->body_regex_needle).',
-			additional_headers='._esc($this->additional_headers).',
-			custom_sig='._esc($this->custom_sig).',
-			mbox_server='._esc($this->mbox_server).',
-			mbox_user='._esc($this->mbox_user).',
-			mbox_pass='._esc($this->mbox_pass).',
-			mbox_type='.$this->mbox_type.'
-		WHERE id='.$id);
+		q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'] .'mlist SET
+			forum_id='. $this->forum_id .',
+			name='. _esc($this->name) .',
+			mlist_opt='. $this->mlist_opt .',
+			subject_regex_haystack='. _esc($this->subject_regex_haystack) .',
+			subject_regex_needle='. _esc($this->subject_regex_needle) .',
+			body_regex_haystack='. _esc($this->body_regex_haystack) .',
+			body_regex_needle='. _esc($this->body_regex_needle) .',
+			additional_headers='. _esc($this->additional_headers) .',
+			custom_sig='. _esc($this->custom_sig) .',
+			mbox_server='. _esc($this->mbox_server) .',
+			mbox_user='. _esc($this->mbox_user) .',
+			mbox_pass='. _esc($this->mbox_pass) .',
+			mbox_type='. $this->mbox_type .'
+		WHERE id='. $id);
 
 		if ($old_frm_id != $this->forum_id && $mlist_opt & 4) {
-			q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'forum SET forum_opt=(forum_opt & ~ 2) WHERE id='.$old_frm_id);
+			q('UPDATE '. $GLOBALS['DBHOST_TBL_PREFIX'] .'forum SET forum_opt='. q_bitor('forum_opt', ~2) .' WHERE id='. $old_frm_id);
 		}
-		q('UPDATE '. $GLOBALS['DBHOST_TBL_PREFIX'] .'forum SET forum_opt=(forum_opt | '. ($this->mlist_opt & 1 ? 2 : 0) .') WHERE id='. $this->forum_id);
+		q('UPDATE '. $GLOBALS['DBHOST_TBL_PREFIX'] .'forum SET forum_opt='. q_bitor('forum_opt', ($this->mlist_opt & 1 ? 2 : 0)) .' WHERE id='. $this->forum_id);
 
 		if (isset($ll)) {
 			db_unlock();
@@ -132,7 +132,7 @@ class fud_mlist
 
 	function del($id)
 	{
-		q('DELETE FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'mlist WHERE id='.$id);
+		q('DELETE FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'mlist WHERE id='. $id);
 	}
 }
 ?>

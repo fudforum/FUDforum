@@ -114,9 +114,9 @@ function get_max_upload_size()
 	if (isset($_GET['o'], $_GET['ot'])) {
 		if (in_array($_GET['ot'], array('name', 'descr', 'date_created'))) {
 			$i = 0;
-			$r = q("SELECT id FROM {$tbl}forum WHERE cat_id={$cat_id} ORDER BY {$_GET['ot']} ". ((int)$_GET['o'] ? 'ASC' : 'DESC'));
+			$r = q('SELECT id FROM '. $tbl .'forum WHERE cat_id='. $cat_id .' ORDER BY '. $_GET['ot'] . ((int)$_GET['o'] ? 'ASC' : 'DESC'));
 			while ($o = db_rowarr($r)) {
-				q("UPDATE {$tbl}forum SET view_order=". ++$i ." WHERE id={$o[0]}");
+				q('UPDATE '. $tbl .'forum SET view_order='. ++$i .' WHERE id='. $o[0]);
 			}
 			rebuild_forum_cat_order();
 		}
@@ -253,7 +253,13 @@ if (!isset($_GET['chpos'])) {	// Hide this if we are changing forum order.
 			$lp = $r->view_order;
 		}
 		$cat_name = !$move_ct ? $cat_name : '<form method="post" action="admforum.php">'. _hs .'<input type="hidden" name="frm_id" value="'.$r->id.'" /><input type="hidden" name="cat_id" value="'.$cat_id.'" /><input type="submit" name="btn_chcat" value="Move To: " /> '.$move_ct.'</form>';
-		echo '<tr'.$bgcolor.'><td>'.$r->name.'</td><td><font size="-1">'. htmlspecialchars(substr($r->descr, 0, 30)) .'...</font></td><td>'. ($r->forum_opt & 4 ? 'Yes' : 'No') .'</td><td nowrap="nowrap">[<a href="admforum.php?cat_id='. $cat_id .'&amp;edit='. $r->id .'&amp;'. __adm_rsid .'#edit">Edit</a>] [<a href="admforum.php?cat_id='. $cat_id .'&amp;del='. $r->id .'&amp;'. __adm_rsid .'">Delete</a>]</td><td nowrap="nowrap">'. $cat_name .'</td><td nowrap="nowrap">[<a href="admforum.php?chpos='. $r->view_order .'&amp;cat_id='. $cat_id .'&amp;'. __adm_rsid .'">Change</a>]</td></tr>';
+		echo '<tr'. $bgcolor .'  title="'. htmlspecialchars($r->descr) .'">
+			<td>'. $r->name .'</td>
+			<td><font size="-1">'. htmlspecialchars(substr($r->descr, 0, 30)) .'...</font></td>
+			<td>'. ($r->forum_opt & 4 ? 'Yes' : 'No') .'</td>
+			<td nowrap="nowrap">[<a href="admforum.php?cat_id='. $cat_id .'&amp;edit='. $r->id .'&amp;'. __adm_rsid .'#edit">Edit</a>] [<a href="admforum.php?cat_id='. $cat_id .'&amp;del='. $r->id .'&amp;'. __adm_rsid .'">Delete</a>]</td>
+			<td nowrap="nowrap">'. $cat_name .'</td>
+			<td nowrap="nowrap">[<a href="admforum.php?chpos='. $r->view_order .'&amp;cat_id='. $cat_id .'&amp;'. __adm_rsid .'">Change</a>]</td></tr>';
 	}
 	unset($c);
 	if (isset($lp)) {

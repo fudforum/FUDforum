@@ -32,7 +32,7 @@
 	}
 
 	$uc_buddy_ents = '';
-	$c = uq('SELECT u.id, u.alias, u.last_visit, (users_opt & 32768) FROM {SQL_TABLE_PREFIX}buddy b INNER JOIN {SQL_TABLE_PREFIX}users u ON b.bud_id=u.id WHERE b.user_id='._uid.' ORDER BY u.last_visit DESC');
+	$c = uq('SELECT u.id, u.alias, u.last_visit, '. q_bitand('users_opt', 32768) .' FROM {SQL_TABLE_PREFIX}buddy b INNER JOIN {SQL_TABLE_PREFIX}users u ON b.bud_id=u.id WHERE b.user_id='. _uid .' ORDER BY u.last_visit DESC');
 	while ($r = db_rowarr($c)) {
 		$uc_pm = ($FUD_OPT_1 & 1024) ? '{TEMPLATE: uc_pm}' : '';
 		$obj = new stdClass();
@@ -43,7 +43,7 @@
 	unset($c);
 
 	$uc_new_pms = '';
-	$c = uq('SELECT m.ouser_id, u.alias, m.post_stamp, m.subject, m.id FROM {SQL_TABLE_PREFIX}pmsg m INNER JOIN {SQL_TABLE_PREFIX}users u ON u.id=m.ouser_id WHERE m.duser_id='._uid.' AND fldr=1 AND read_stamp=0 ORDER BY post_stamp DESC LIMIT '.($usr->posts_ppg ? $usr->posts_ppg : $POSTS_PER_PAGE));
+	$c = uq('SELECT m.ouser_id, u.alias, m.post_stamp, m.subject, m.id FROM {SQL_TABLE_PREFIX}pmsg m INNER JOIN {SQL_TABLE_PREFIX}users u ON u.id=m.ouser_id WHERE m.duser_id='. _uid .' AND fldr=1 AND read_stamp=0 ORDER BY post_stamp DESC LIMIT '. ($usr->posts_ppg ? $usr->posts_ppg : $POSTS_PER_PAGE));
 	while ($r = db_rowarr($c)) {
 		$uc_new_pms .= '{TEMPLATE: uc_new_pm_ent}';
 	}
@@ -62,14 +62,14 @@
 		INNER JOIN {SQL_TABLE_PREFIX}forum f ON f.id=fn.forum_id
 		INNER JOIN {SQL_TABLE_PREFIX}cat c ON c.id=f.cat_id
 		INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=2147483647 AND g1.resource_id=f.id
-		LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g2.resource_id=f.id
+		LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='. _uid .' AND g2.resource_id=f.id
 		LEFT JOIN {SQL_TABLE_PREFIX}msg m ON f.last_post_id=m.id
 		LEFT JOIN {SQL_TABLE_PREFIX}users u ON u.id=m.poster_id
-		LEFT JOIN {SQL_TABLE_PREFIX}forum_read fr ON fr.forum_id=f.id AND fr.user_id='._uid.'
-		LEFT JOIN {SQL_TABLE_PREFIX}mod mo ON mo.user_id='._uid.' AND mo.forum_id=f.id
-		WHERE fn.user_id='._uid.'
-		AND '.$usr->last_read.' < m.post_stamp AND (fr.last_view IS NULL OR m.post_stamp > fr.last_view)
-		'.($is_a ? '' : ' AND (mo.id IS NOT NULL OR (COALESCE(g2.group_cache_opt, g1.group_cache_opt) & 1) > 0)').'
+		LEFT JOIN {SQL_TABLE_PREFIX}forum_read fr ON fr.forum_id=f.id AND fr.user_id='. _uid .'
+		LEFT JOIN {SQL_TABLE_PREFIX}mod mo ON mo.user_id='. _uid .' AND mo.forum_id=f.id
+		WHERE fn.user_id='. _uid .'
+		AND '. $usr->last_read .' < m.post_stamp AND (fr.last_view IS NULL OR m.post_stamp > fr.last_view)
+		'. ($is_a ? '' : ' AND (mo.id IS NOT NULL OR (COALESCE(g2.group_cache_opt, g1.group_cache_opt) & 1) > 0)') .'
 		ORDER BY m.post_stamp DESC');
 	while ($r = db_rowobj($c)) {
 		$uc_sub_forum .= '{TEMPLATE: uc_sub_forum}';
@@ -90,13 +90,13 @@
 		INNER JOIN {SQL_TABLE_PREFIX}msg m ON t.last_post_id=m.id
 		INNER JOIN {SQL_TABLE_PREFIX}msg m2 ON t.root_msg_id=m2.id
 		INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=2147483647 AND g1.resource_id=t.forum_id
-		LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g2.resource_id=t.forum_id
+		LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='. _uid .' AND g2.resource_id=t.forum_id
 		LEFT JOIN {SQL_TABLE_PREFIX}users u ON u.id=m.poster_id
-		LEFT JOIN {SQL_TABLE_PREFIX}read r ON t.id=r.thread_id AND r.user_id='._uid.'
-		LEFT JOIN {SQL_TABLE_PREFIX}mod mo ON mo.user_id='._uid.' AND mo.forum_id=t.forum_id
-		WHERE tn.user_id='._uid.' AND m.post_stamp > '.$usr->last_read.' AND m.post_stamp > r.last_view '.
+		LEFT JOIN {SQL_TABLE_PREFIX}read r ON t.id=r.thread_id AND r.user_id='. _uid .'
+		LEFT JOIN {SQL_TABLE_PREFIX}mod mo ON mo.user_id='. _uid .' AND mo.forum_id=t.forum_id
+		WHERE tn.user_id='. _uid .' AND m.post_stamp > '. $usr->last_read .' AND m.post_stamp > r.last_view '.
 		($is_a ? '' : ' AND (mo.id IS NOT NULL OR (COALESCE(g2.group_cache_opt, g1.group_cache_opt) & 1) > 0)').
-		'ORDER BY m.post_stamp DESC LIMIT '.($usr->posts_ppg ? $usr->posts_ppg : $POSTS_PER_PAGE));
+		'ORDER BY m.post_stamp DESC LIMIT '. ($usr->posts_ppg ? $usr->posts_ppg : $POSTS_PER_PAGE));
 	while ($r = db_rowobj($c)) {
 		$msg_count = $r->replies + 1;
 		if ($msg_count > $ppg && $usr->users_opt & 256) {

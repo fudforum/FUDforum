@@ -39,7 +39,7 @@ window.close();
 /*{POST_HTML_PHP}*/
 
 	$buddies = '';
-	$c = uq('SELECT u.alias FROM {SQL_TABLE_PREFIX}buddy b INNER JOIN {SQL_TABLE_PREFIX}users u ON b.bud_id=u.id WHERE b.user_id='._uid.' AND b.user_id>1');
+	$c = uq('SELECT u.alias FROM {SQL_TABLE_PREFIX}buddy b INNER JOIN {SQL_TABLE_PREFIX}users u ON b.bud_id=u.id WHERE b.user_id='. _uid .' AND b.user_id>1');
 	while ($r = db_rowarr($c)) {
 		$buddies .= '{TEMPLATE: buddy_entry}';
 	}

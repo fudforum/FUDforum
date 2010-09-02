@@ -9,7 +9,7 @@
 * Free Software Foundation; version 2 of the License.
 **/
 
-/* needed by admapprove_avatar.php, so that avatar approval/decline can be sent in the appropriate languge */
+/* Needed by admapprove_avatar.php, so that avatar approval/decline can be sent in the appropriate languge. */
 
 $GLOBALS['approved_avatar_title'] = '{TEMPLATE: approved_avatar_title}';
 $GLOBALS['approved_avatar_msg'] = '{TEMPLATE: approved_avatar_msg}';

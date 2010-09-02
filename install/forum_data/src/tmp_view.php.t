@@ -14,12 +14,12 @@
 	if (!empty($_GET['img'])) {
 		$file = $TMP . basename($_GET['img']);
 		if (@file_exists($file) && ($im = @getimagesize($file))) {
-			header('Content-type: '.$im['mime']);
+			header('Content-type: '. $im['mime']);
 			readfile($file);
 			exit;
 		}
 	}
 
 	header('Content-type: image/gif');
-	readfile($WWW_ROOT_DISK . 'blank.gif');
+	readfile($WWW_ROOT_DISK .'blank.gif');
 ?>

@@ -13,15 +13,15 @@
 function register_vote(&$options, $poll_id, $opt_id, $mid)
 {
 	/* Invalid option or previously voted. */
-	if (!isset($options[$opt_id]) || q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}poll_opt_track WHERE poll_id='.$poll_id.' AND user_id='._uid)) {
+	if (!isset($options[$opt_id]) || q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}poll_opt_track WHERE poll_id='. $poll_id .' AND user_id='. _uid)) {
 		return;
 	}
 
-	if (db_li('INSERT INTO {SQL_TABLE_PREFIX}poll_opt_track(poll_id, user_id, poll_opt) VALUES('.$poll_id.', '._uid.', '.$opt_id.')', $a)) {
-		q('UPDATE {SQL_TABLE_PREFIX}poll_opt SET count=count+1 WHERE id='.$opt_id);
-		q('UPDATE {SQL_TABLE_PREFIX}poll SET total_votes=total_votes+1 WHERE id='.$poll_id);
+	if (db_li('INSERT INTO {SQL_TABLE_PREFIX}poll_opt_track(poll_id, user_id, poll_opt) VALUES('. $poll_id .', '. _uid .', '. $opt_id .')', $a)) {
+		q('UPDATE {SQL_TABLE_PREFIX}poll_opt SET count=count+1 WHERE id='. $opt_id);
+		q('UPDATE {SQL_TABLE_PREFIX}poll SET total_votes=total_votes+1 WHERE id='. $poll_id);
 		$options[$opt_id][1] += 1;
-		q('UPDATE {SQL_TABLE_PREFIX}msg SET poll_cache='._esc(serialize($options)).' WHERE id='.$mid);
+		q('UPDATE {SQL_TABLE_PREFIX}msg SET poll_cache='. _esc(serialize($options)) .' WHERE id='. $mid);
 	}
 
 	return 1;
@@ -36,9 +36,9 @@ if (isset($_GET['rev'])) {
 		$GLOBALS['__FMDSP__'][(int)$v] = 1;
 	}
 	if ($GLOBALS['FUD_OPT_2'] & 32768) {
-		define('reveal_lnk', '/' . $_GET['rev']);
+		define('reveal_lnk', '/'. $_GET['rev']);
 	} else {
-		define('reveal_lnk', '&amp;rev=' . $_GET['rev']);
+		define('reveal_lnk', '&amp;rev='. $_GET['rev']);
 	}
 } else {
 	define('reveal_lnk', '');
@@ -66,9 +66,9 @@ if (_uid) {
 			}
 		}
 		if ($GLOBALS['FUD_OPT_2'] & 32768) {
-			define('unignore_tmp', '/' . $_GET['reveal']);
+			define('unignore_tmp', '/'. $_GET['reveal']);
 		} else {
-			define('unignore_tmp', '&amp;reveal='.$_GET['reveal']);
+			define('unignore_tmp', '&amp;reveal='. $_GET['reveal']);
 		}
 	} else {
 		define('unignore_tmp', '');
@@ -94,9 +94,9 @@ function make_tmp_unignore_lnk($id)
 	}
 
 	if (!isset($_GET['reveal'])) {
-		return $_SERVER['QUERY_STRING_ENC'] . '&amp;reveal='.$id;
+		return $_SERVER['QUERY_STRING_ENC'] .'&amp;reveal='. $id;
 	} else {
-		return str_replace('&amp;reveal='.$_GET['reveal'], unignore_tmp . ':' . $id, $_SERVER['QUERY_STRING_ENC']);
+		return str_replace('&amp;reveal='. $_GET['reveal'], unignore_tmp .':'. $id, $_SERVER['QUERY_STRING_ENC']);
 	}
 }
 
@@ -107,9 +107,9 @@ function make_reveal_link($id)
 	}
 
 	if (empty($GLOBALS['__FMDSP__'])) {
-		return $_SERVER['QUERY_STRING_ENC'] . '&amp;rev='.$id;
+		return $_SERVER['QUERY_STRING_ENC'] .'&amp;rev='. $id;
 	} else {
-		return str_replace('&amp;rev='.$_GET['rev'], reveal_lnk . ':' . $id, $_SERVER['QUERY_STRING_ENC']);
+		return str_replace('&amp;rev='. $_GET['rev'], reveal_lnk .':'. $id, $_SERVER['QUERY_STRING_ENC']);
 	}
 }
 
@@ -272,7 +272,7 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 		/* Append session to getfile. */
 		if (_uid) {
 			if ($o1 & 128 && !isset($_COOKIE[$GLOBALS['COOKIE_NAME']])) {
-				$msg_body = str_replace('<img src="index.php?t=getfile', '<img src="index.php?t=getfile&amp;S='.s, $msg_body);
+				$msg_body = str_replace('<img src="index.php?t=getfile', '<img src="index.php?t=getfile&amp;S='. s, $msg_body);
 				$tap = 1;
 			}
 			if ($o2 & 32768 && (isset($tap) || $o2 & 8192)) {
@@ -312,7 +312,7 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 			(!isset($_POST['pl_view']) || $_POST['pl_view'] != $obj->poll_id) &&
 			($perms & 512 && (!($obj->thread_opt & 1) || $perms & 4096)) &&
 			(!$obj->expiry_date || ($obj->creation_date + $obj->expiry_date) > __request_timestamp__) &&
-			/* check if the max # of poll votes was reached */
+			/* Check if the max # of poll votes was reached. */
 			(!$obj->max_votes || $obj->total_votes < $obj->max_votes)
 		) {
 			$show_res = 0;

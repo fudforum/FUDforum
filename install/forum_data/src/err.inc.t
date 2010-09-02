@@ -16,16 +16,16 @@ function error_dialog($title, $msg, $level='WARN', $ses=null)
 	}
 
 	$error_msg = '[Error] '.$title.'<br />';
-	$error_msg .= '[Message Sent to User] '.trim($msg).'<br />';
-	$error_msg .= '[User IP] '.get_ip().'<br />';
+	$error_msg .= '[Message Sent to User] '. trim($msg) .'<br />';
+	$error_msg .= '[User IP] '. get_ip() .'<br />';
 	$error_msg .= '[Requested URL] http://';
 	$error_msg .= isset($_SERVER['HTTP_HOST']) ? htmlspecialchars($_SERVER['HTTP_HOST']) : '';
 	$error_msg .= isset($_SERVER['REQUEST_URI']) ? htmlspecialchars($_SERVER['REQUEST_URI']) : '';
-	$error_msg .= !empty($_POST) ? '<br />[Post-Data] '.base64_encode(serialize($_POST)) : '';
+	$error_msg .= !empty($_POST) ? '<br />[Post-Data] '. base64_encode(serialize($_POST)) : '';
 	$error_msg .= '<br />';
 
 	if (isset($_SERVER['HTTP_REFERER'])) {
-		$error_msg .= '[Referring Page] '.htmlspecialchars($_SERVER['HTTP_REFERER']).'<br />';
+		$error_msg .= '[Referring Page] '. htmlspecialchars($_SERVER['HTTP_REFERER']) .'<br />';
 	}
 
 	fud_logerror($error_msg, 'fud_errors');
@@ -39,15 +39,15 @@ function error_dialog($title, $msg, $level='WARN', $ses=null)
 
 	if (is_int($ses)) {
 		if ($GLOBALS['FUD_OPT_2'] & 32768) {
-			header('Location: {FULL_ROOT}{ROOT}/e/'._rsidl);
+			header('Location: {FULL_ROOT}{ROOT}/e/'. _rsidl);
 		} else {
-			header('Location: {FULL_ROOT}{ROOT}?t=error&'._rsidl);
+			header('Location: {FULL_ROOT}{ROOT}?t=error&'. _rsidl);
 		}
 	} else {
 		if ($GLOBALS['FUD_OPT_2'] & 32768) {
-			header('Location: {FULL_ROOT}{ROOT}/e/0/'.$ses);
+			header('Location: {FULL_ROOT}{ROOT}/e/0/'. $ses);
 		} else {
-			header('Location: {FULL_ROOT}{ROOT}?t=error&S='.$ses);
+			header('Location: {FULL_ROOT}{ROOT}?t=error&S='. $ses);
 		}
 	}
 	exit;
@@ -81,8 +81,8 @@ function std_error($type)
 'ERR_emailconf'=>array('{TEMPLATE: ERR_emailconf_ttl}', '{TEMPLATE: ERR_emailconf_msg}')
 );
 
-	if (isset($err_array['ERR_'.$type])) {
-		$err = $err_array['ERR_'.$type];
+	if (isset($err_array['ERR_'. $type])) {
+		$err = $err_array['ERR_'. $type];
 		error_dialog($err[0], $err[1]);
 	}
 	error_dialog('{TEMPLATE: err_inc_criticaltitle}', '{TEMPLATE: err_inc_criticalmsg}');

@@ -46,7 +46,7 @@ function tmpl_drawpmsg($obj, $usr, $mini)
 
 		if ($obj->location) {
 			if (strlen($obj->location) > $GLOBALS['MAX_LOCATION_SHOW']) {
-				$location = substr($obj->location, 0, $GLOBALS['MAX_LOCATION_SHOW']) . '...';
+				$location = substr($obj->location, 0, $GLOBALS['MAX_LOCATION_SHOW']) .'...';
 			} else {
 				$location = $obj->location;
 			}
@@ -60,7 +60,7 @@ function tmpl_drawpmsg($obj, $usr, $mini)
 		} else {
 			$buddy_link = '';
 		}
-		/* show im buttons if need be */
+		/* Show im buttons if need be. */
 		if ($b & 16384) {
 			$im = '';
 			if ($obj->icq) {
@@ -123,10 +123,10 @@ function tmpl_drawpmsg($obj, $usr, $mini)
 
 	$file_attachments = '';
 	if ($obj->attach_cnt) {
-		$c = uq('SELECT a.id, a.original_name, a.dlcount, m.icon, a.fsize FROM {SQL_TABLE_PREFIX}attach a LEFT JOIN {SQL_TABLE_PREFIX}mime m ON a.mime_type=m.id WHERE a.message_id='.$obj->id.' AND attach_opt=1');
+		$c = uq('SELECT a.id, a.original_name, a.dlcount, m.icon, a.fsize FROM {SQL_TABLE_PREFIX}attach a LEFT JOIN {SQL_TABLE_PREFIX}mime m ON a.mime_type=m.id WHERE a.message_id='. $obj->id .' AND attach_opt=1');
 		while ($r = db_rowobj($c)) {
 			$sz = $r->fsize/1024;
-			$sz = $sz<1000 ? number_format($sz, 2).'KB' : number_format($sz / 1024 ,2).'MB';
+			$sz = $sz<1000 ? number_format($sz, 2) .'KB' : number_format($sz / 1024 ,2) .'MB';
 			if(!$r->icon) {
 				$r->icon = 'unknown.gif';
 			}
@@ -135,9 +135,9 @@ function tmpl_drawpmsg($obj, $usr, $mini)
 		unset($c);
 		if ($file_attachments) {
 			$file_attachments = '{TEMPLATE: dpmsg_file_attachments}';
-			/* append session to getfile */
+			/* Append session to getfile. */
 			if ($o1 & 128 && !isset($_COOKIE[$GLOBALS['COOKIE_NAME']])) {
-				$msg_body = str_replace('<img src="index.php?t=getfile', '<img src="index.php?t=getfile&amp;S='.s, $msg_body);
+				$msg_body = str_replace('<img src="index.php?t=getfile', '<img src="index.php?t=getfile&amp;S='. s, $msg_body);
 				$tap = 1;
 			}
 			if ($o2 & 32768 && (isset($tap) || $o2 & 8192)) {

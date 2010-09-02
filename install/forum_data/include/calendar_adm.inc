@@ -16,8 +16,8 @@ class fud_calendar
 	function fud_calendar()
 	{
 		foreach ($this as $k => $v) {
-			if (isset($_POST['cal_'.$k])) {
-				$this->{$k} = $_POST['cal_'.$k];
+			if (isset($_POST['cal_'. $k])) {
+				$this->{$k} = $_POST['cal_'. $k];
 			}
 		}
 	}
@@ -48,11 +48,11 @@ class fud_calendar
 		$tbl =& $GLOBALS['DBHOST_TBL_PREFIX'];
 
 		q('UPDATE '. $tbl.'calendar SET
-			year='. ssn($this->year).',
-			month='. ssn($this->month).',
-			day='. ssn($this->day).',
-			descr='. ssn($this->descr).',
-			link='. ssn($this->link).'
+			year='. ssn($this->year) .',
+			month='. ssn($this->month) .',
+			day='. ssn($this->day) .',
+			descr='. ssn($this->descr) .',
+			link='. ssn($this->link) .'
 		WHERE id='. (int)$id);
 	}
 
@@ -69,7 +69,7 @@ class fud_calendar
 
 		$where = '';
 		$where = empty($year) ? '' : 'WHERE year = '._esc($year);
-		$where .= empty($month) ? '' : (empty($where) ? 'WHERE' : ' AND') . ' month = '._esc($month);
+		$where .= empty($month) ? '' : (empty($where) ? 'WHERE' : ' AND') .' month = '. _esc($month);
 
 		$buffer = "BEGIN:VCALENDAR\n".	// Add vCalendar header.
 			"VERSION:2.0\n".

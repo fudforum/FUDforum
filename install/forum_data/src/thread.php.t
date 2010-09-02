@@ -26,15 +26,15 @@
 		f.id, f.name,
 		t.id, t.moved_to, t.root_msg_id, t.replies, t.rating, t.thread_opt, t.views, 
 		r.last_view, t.n_rating, t.tdescr
-		FROM {SQL_TABLE_PREFIX}tv_'.$frm_id.' tv
+		FROM {SQL_TABLE_PREFIX}tv_'. $frm_id .' tv
 			INNER JOIN {SQL_TABLE_PREFIX}thread	t	ON tv.thread_id=t.id
 			INNER JOIN {SQL_TABLE_PREFIX}msg	m	ON t.root_msg_id=m.id
 			INNER JOIN {SQL_TABLE_PREFIX}msg	m2	ON m2.id=t.last_post_id
 			LEFT JOIN {SQL_TABLE_PREFIX}users	u	ON u.id=m.poster_id
 			LEFT JOIN {SQL_TABLE_PREFIX}users	u2	ON u2.id=m2.poster_id
 			LEFT JOIN {SQL_TABLE_PREFIX}forum	f	ON f.id=t.moved_to
-			LEFT JOIN {SQL_TABLE_PREFIX}read 	r	ON t.id=r.thread_id AND r.user_id='._uid.'
-			WHERE tv.seq BETWEEN '.($lwi - ($cur_frm_page * $THREADS_PER_PAGE) + 1).' AND '.($lwi - (($cur_frm_page - 1) * $THREADS_PER_PAGE)).'
+			LEFT JOIN {SQL_TABLE_PREFIX}read 	r	ON t.id=r.thread_id AND r.user_id='. _uid .'
+			WHERE tv.seq BETWEEN '. ($lwi - ($cur_frm_page * $THREADS_PER_PAGE) + 1) .' AND '. ($lwi - (($cur_frm_page - 1) * $THREADS_PER_PAGE)) .'
 			ORDER BY tv.seq DESC');
 	/* Field Defenitions
 	 * 0 msg.attach_cnt
@@ -73,7 +73,7 @@
 			$r[18] = (int) $r[18];
 
 			if ($r[14]) {
-				/* additional security check for moved forums */
+				/* Additional security check for moved forums. */
 				if (!$is_a && $r[11] && !th_moved_perm_chk($r[11])) {
 					continue;
 				}
@@ -103,7 +103,7 @@
 			$thread_read_status = $first_unread_msg_link = '';
 			if (_uid && $usr->last_read < $r[10] && $r[10] > $r[20]) {
 				$thread_read_status = ($r[18] & 1) ? '{TEMPLATE: thread_unread_locked}' : '{TEMPLATE: thread_unread}';
-				/* do not show 1st unread message link if thread has no replies */
+				/* Do not show 1st unread message link if thread has no replies. */
 				if ($r[16]) {
 					$first_unread_msg_link = '{TEMPLATE: first_unread_msg_link}';
 				}
@@ -129,9 +129,9 @@
 	}
 
 	if ($FUD_OPT_2 & 32768) {
-		$page_pager = tmpl_create_pager($start, $THREADS_PER_PAGE, $frm->thread_count, '{ROOT}/sf/thread/'.$frm_id.'/1/', '/' ._rsid);
+		$page_pager = tmpl_create_pager($start, $THREADS_PER_PAGE, $frm->thread_count, '{ROOT}/sf/thread/'. $frm_id .'/1/', '/' . _rsid);
 	} else {
-		$page_pager = tmpl_create_pager($start, $THREADS_PER_PAGE, $frm->thread_count, '{ROOT}?t=thread&amp;frm_id='.$frm_id.'&amp;'._rsid);
+		$page_pager = tmpl_create_pager($start, $THREADS_PER_PAGE, $frm->thread_count, '{ROOT}?t=thread&amp;frm_id='. $frm_id .'&amp;'. _rsid);
 	}
 
 /*{POST_PAGE_PHP_CODE}*/

@@ -27,16 +27,16 @@ class fud_smtp
 	function wts($string)
 	{
 		/* Write to stream. */
-		fwrite($this->fs, $string . "\r\n");
+		fwrite($this->fs, $string ."\r\n");
 	}
 
 	function open_smtp_connex()
 	{
 		if( !($this->fs = @fsockopen($GLOBALS['FUD_SMTP_SERVER'], $GLOBALS['FUD_SMTP_PORT'], $errno, $errstr, $GLOBALS['FUD_SMTP_TIMEOUT'])) ) {
-			fud_logerror('ERROR: SMTP server at '.$GLOBALS['FUD_SMTP_SERVER']." is not available<br />\n".($errno ? "Additional Problem Info: $errno -> $errstr <br />\n" : ''), 'fud_errors');
+			fud_logerror('ERROR: SMTP server at '. $GLOBALS['FUD_SMTP_SERVER'] ." is not available<br />\n". ($errno ? "Additional Problem Info: $errno -> $errstr <br />\n" : ''), 'fud_errors');
 			return;
 		}
-		if (!$this->get_return_code(220)) {
+		if (!$this->get_return_code(220)) {	// 220 == Ready to speak SMTP.
 			return;
 		}
 
@@ -46,7 +46,7 @@ class fud_smtp
 			$smtp_srv = 'FUDforum SMTP server';
 		}
 
-		$this->wts(($es ? 'EHLO ' : 'HELO ').$smtp_srv);
+		$this->wts(($es ? 'EHLO ' : 'HELO ') . $smtp_srv);
 		if (!$this->get_return_code()) {
 			return;
 		}
@@ -103,7 +103,7 @@ class fud_smtp
 
 	function send_from_hdr()
 	{
-		$this->wts('MAIL FROM: <'.$GLOBALS['NOTIFY_FROM'].'>');
+		$this->wts('MAIL FROM: <'. $GLOBALS['NOTIFY_FROM'] .'>');
 		return $this->get_return_code();
 	}
 
@@ -112,7 +112,7 @@ class fud_smtp
 		$this->to = (array) $this->to;
 
 		foreach ($this->to as $to_addr) {
-			$this->wts('RCPT TO: <'.$to_addr.'>');
+			$this->wts('RCPT TO: <'. $to_addr .'>');
 			if (!$this->get_return_code()) {
 				return;
 			}
@@ -132,12 +132,12 @@ class fud_smtp
 
 		if( empty($this->from) ) $this->from = $GLOBALS['NOTIFY_FROM'];
 
-		$this->wts('Subject: '.$this->subject);
-		$this->wts('Date: '.date('r'));
-		$this->wts('To: '.(count($this->to) == 1 ? $this->to[0] : $GLOBALS['NOTIFY_FROM']));
-		$this->wts('From: '.$this->from);
-		$this->wts('X-Mailer: FUDforum v'.$GLOBALS['FORUM_VERSION']);
-		$this->wts($this->headers."\r\n");
+		$this->wts('Subject: '. $this->subject);
+		$this->wts('Date: '. date('r'));
+		$this->wts('To: '. (count($this->to) == 1 ? $this->to[0] : $GLOBALS['NOTIFY_FROM']));
+		$this->wts('From: '. $this->from);
+		$this->wts('X-Mailer: FUDforum v'. $GLOBALS['FORUM_VERSION']);
+		$this->wts($this->headers ."\r\n");
 		$this->wts($this->msg);
 		$this->wts('.');
 

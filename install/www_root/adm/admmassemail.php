@@ -14,9 +14,9 @@
 	fud_use('widgets.inc', true);
 	fud_use('smtp.inc');
 	fud_use('iemail.inc');
-	
+
 	require($WWW_ROOT_DISK .'adm/header.php');
-	
+
 	/* Special user groups. */
 	$all_mods = -1000000000;
 	$all_grp_lead = -1000000001;	
@@ -129,7 +129,7 @@
 				if (count($to)) {
 					$smtp->to = $to;
 					$mail_success = $smtp->send_smtp_email();
-					
+
 					if ($mail_success) {
 						$mails_sent = $mails_sent + count($to);
 					} else {
@@ -142,7 +142,7 @@
 			echo successify($mails_sent .' '. (empty($_POST['pm']) ? 'Mail(s)' : 'Private Message(s)') .' were sent.');
 		}
 		if ($mails_failed) {
-			echo errorify('Sending of '. $mails_failed .' '. (empty($_POST['pm']) ? 'Mail(s)' : 'Private Message(s)') .' failed, please check Error Log for more information.');
+			echo errorify('Sending of '. $mails_failed .' '. (empty($_POST['pm']) ? 'Mail(s)' : 'Private Message(s)') .' failed, please check the <a href="admerr.php?'. __adm_rsid .'#fud_errors">Error Log</a> for more information.');
 		}
 	}
 

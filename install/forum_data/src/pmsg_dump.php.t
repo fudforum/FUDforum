@@ -23,7 +23,7 @@
 
 	$c = q('SELECT p.subject, p.post_stamp, p.foff, p.length, u.alias
 		FROM {SQL_TABLE_PREFIX}pmsg p INNER JOIN {SQL_TABLE_PREFIX}users u ON p.ouser_id=u.id
-		WHERE p.duser_id='._uid.' AND p.fldr IN(1,2,3) ORDER BY p.id');
+		WHERE p.duser_id='. _uid .' AND p.fldr IN(1,2,3) ORDER BY p.id');
 
 	$out = '';
 	while ($obj = db_rowobj($c)) {

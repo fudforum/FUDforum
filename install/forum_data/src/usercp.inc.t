@@ -10,7 +10,7 @@
 **/
 
 	if (__fud_real_user__ && $FUD_OPT_1 & 1024) {	// PM_ENABLED
-		$c = q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}pmsg WHERE duser_id='._uid.' AND fldr=1 AND read_stamp=0');
+		$c = q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}pmsg WHERE duser_id='. _uid .' AND fldr=1 AND read_stamp=0');
 		$private_msg = $c ? '{TEMPLATE: private_msg_unread}' : '{TEMPLATE: private_msg_empty}';
 	} else {
 		$private_msg = '';

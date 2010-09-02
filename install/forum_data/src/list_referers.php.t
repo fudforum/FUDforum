@@ -29,7 +29,7 @@
 				$MEMBERS_PER_PAGE, $start));
 		while ($r = db_rowarr($c)) {
 			$refered_entry_data = '';
-			$c2 = uq('SELECT alias, id FROM {SQL_TABLE_PREFIX}users WHERE referer_id='.$r[1]);
+			$c2 = uq('SELECT alias, id FROM {SQL_TABLE_PREFIX}users WHERE referer_id='. $r[1]);
 			while ($r2 = db_rowarr($c2)) {
 				$refered_entry_data .= '{TEMPLATE: refered_entry}';
 			}
@@ -40,9 +40,9 @@
 
 		if ($ttl > $MEMBERS_PER_PAGE) {
 			if ($FUD_OPT_2 & 32768) {
-				$page_pager = tmpl_create_pager($start, $MEMBERS_PER_PAGE, $ttl, '{ROOT}/lt/', '/' . _rsid);
+				$page_pager = tmpl_create_pager($start, $MEMBERS_PER_PAGE, $ttl, '{ROOT}/lt/', '/'. _rsid);
 			} else {
-				$page_pager = tmpl_create_pager($start, $MEMBERS_PER_PAGE, $ttl, '{ROOT}?t=list_referers&amp;'._rsid);
+				$page_pager = tmpl_create_pager($start, $MEMBERS_PER_PAGE, $ttl, '{ROOT}?t=list_referers&amp;'. _rsid);
 			}
 		}
 	}

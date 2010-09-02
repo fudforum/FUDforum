@@ -23,29 +23,29 @@
 
 /*{POST_HTML_PHP}*/
 
-	/* empty trash */
+	/* Empty trash. */
 	if (isset($_POST['btn_trash'])) {
-		$c = q('SELECT id FROM {SQL_TABLE_PREFIX}pmsg WHERE duser_id='._uid.' AND fldr=5');
+		$c = q('SELECT id FROM {SQL_TABLE_PREFIX}pmsg WHERE duser_id='. _uid .' AND fldr=5');
 		while ($r = db_rowarr($c)) {
 			pmsg_del((int)$r[0], 5);
 		}
-		unset($c, $_POST['sel'], $_GET['sel']); /* prevent message selection cofusion */
+		unset($c, $_POST['sel'], $_GET['sel']); /* Prevent message selection cofusion. */
 		if (isset($_POST['old_folder_id'])) {
 			$_GET['folder_id'] = $_POST['old_folder_id'];
 		}
 	}
 
-	/* moving or deleting a message */
+	/* Moving or deleting a message. */
 	if (isset($_POST['sel']) || isset($_GET['sel'])) {
 		if (!empty($_POST['btn_pdf'])) {
-			header('Location: {FULL_ROOT}pdf.php?sel[]='.implode('&sel[]=', $_POST['sel']).'&'._rsidl);
+			header('Location: {FULL_ROOT}pdf.php?sel[]='. implode('&sel[]=', $_POST['sel']) .'&'. _rsidl);
 			exit;		
 		}
 		$sel = isset($_POST['sel']) ? (array)$_POST['sel'] : (array)$_GET['sel'];
 		$move_to = (!isset($_POST['btn_delete']) && isset($_POST['moveto'], $folders[$_POST['moveto']])) ? (int) $_POST['moveto'] : 0;
 
 		if (!$move_to && !isset($_POST['old_folder_id'])) {
-			$_POST['old_folder_id'] = q_singleval('SELECT fldr FROM {SQL_TABLE_PREFIX}pmsg WHERE id='.$sel[0]);
+			$_POST['old_folder_id'] = q_singleval('SELECT fldr FROM {SQL_TABLE_PREFIX}pmsg WHERE id='. $sel[0]);
 		}
 
 		foreach ($sel as $m) {
@@ -73,10 +73,10 @@
 	$select_options_cur_folder = tmpl_draw_select_opt(implode("\n", array_keys($folders)), implode("\n", $folders), $folder_id);
 
 	if ($GLOBALS['FUD_OPT_3'] & 32768) {
-		$disk_usage  = q_singleval('SELECT SUM(length) FROM {SQL_TABLE_PREFIX}pmsg WHERE foff>0 AND duser_id='._uid);
-		$disk_usage += q_singleval('SELECT SUM(LENGTH(data)) FROM {SQL_TABLE_PREFIX}pmsg p INNER JOIN {SQL_TABLE_PREFIX}msg_store m ON p.length=m.id WHERE foff<0 AND duser_id='._uid);
+		$disk_usage  = q_singleval('SELECT SUM(length) FROM {SQL_TABLE_PREFIX}pmsg WHERE foff>0 AND duser_id='. _uid);
+		$disk_usage += q_singleval('SELECT SUM(LENGTH(data)) FROM {SQL_TABLE_PREFIX}pmsg p INNER JOIN {SQL_TABLE_PREFIX}msg_store m ON p.length=m.id WHERE foff<0 AND duser_id='. _uid);
 	} else {
-		$disk_usage = q_singleval('SELECT SUM(length) FROM {SQL_TABLE_PREFIX}pmsg WHERE duser_id='._uid);
+		$disk_usage = q_singleval('SELECT SUM(length) FROM {SQL_TABLE_PREFIX}pmsg WHERE duser_id='. _uid);
 	}
 	if ($usr->users_opt & 524288) {
 		$ms = $MAX_PMSG_FLDR_SIZE_PM;
@@ -119,9 +119,9 @@
 		$s = 'DESC';
 	}
 
-	$ttl = q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}pmsg WHERE duser_id='._uid.' AND fldr='.$folder_id);
+	$ttl = q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}pmsg WHERE duser_id='. _uid .' AND fldr='. $folder_id);
 	$count = $usr->posts_ppg ? $usr->posts_ppg : $POSTS_PER_PAGE;
-	$start = (empty($_GET['start']) || $_GET['start'] >= $ttl) ? 0 : (int) $_GET['start'];
+	$start = (empty($_GET['start']) || $_GET['start'] >= $ttl) ? 0 : (int)$_GET['start'];
 
 	$c = uq(q_limit('SELECT p.id, p.read_stamp, p.post_stamp, p.duser_id, p.ouser_id, p.subject, p.pmsg_opt, p.fldr, p.pdest, p.to_list,
 			u.users_opt, u.alias, u.last_visit AS time_sec,
@@ -129,7 +129,7 @@
 		FROM {SQL_TABLE_PREFIX}pmsg p
 		INNER JOIN {SQL_TABLE_PREFIX}users u ON p.ouser_id=u.id
 		LEFT JOIN {SQL_TABLE_PREFIX}users u2 ON p.pdest=u2.id
-		WHERE duser_id='._uid.' AND fldr='.$folder_id.' ORDER BY '.$o.' '.$s,
+		WHERE duser_id='. _uid .' AND fldr='. $folder_id .' ORDER BY '. $o .' '. $s,
 		$count, $start));
 
 	$private_msg_entry = '';
@@ -155,9 +155,9 @@
 		}
 
 		if ($FUD_OPT_2 & 32768 && !empty($_SERVER['PATH_INFO'])) {
-			$goto = $folder_id != 4 ? '{ROOT}/pmv/'.$obj->id.'/'._rsid : '{ROOT}/pmm/msg_id/'.$obj->id.'/'._rsid;
+			$goto = $folder_id != 4 ? '{ROOT}/pmv/'. $obj->id .'/'. _rsid : '{ROOT}/pmm/msg_id/'. $obj->id .'/'. _rsid;
 		} else {
-			$goto = $folder_id != 4 ? '{ROOT}?t=pmsg_view&amp;'._rsid.'&amp;id='.$obj->id : '{ROOT}?t=ppost&amp;'._rsid.'&amp;msg_id='.$obj->id;
+			$goto = $folder_id != 4 ? '{ROOT}?t=pmsg_view&amp;'. _rsid .'&amp;id='. $obj->id : '{ROOT}?t=ppost&amp;'. _rsid .'&amp;msg_id='. $obj->id;
 		}
 
 		if ($FUD_OPT_2 & 32 && (!($obj->users_opt & 32768) || $is_a)) {
@@ -203,9 +203,9 @@
 	}
 
 	if ($FUD_OPT_2 & 32768) {
-		$page_pager = tmpl_create_pager($start, $count, $ttl, '{ROOT}/pdm/' . $folder_id . '/0/'.strtolower($s[0]).'/'.$o.'/', '/' . _rsid);
+		$page_pager = tmpl_create_pager($start, $count, $ttl, '{ROOT}/pdm/'. $folder_id .'/0/'. strtolower($s[0]) .'/'. $o .'/', '/'. _rsid);
 	} else {
-		$page_pager = tmpl_create_pager($start, $count, $ttl, '{ROOT}?t=pmsg&amp;s='.strtolower($s[0]).'&amp;o='.$o.'&amp;folder_id=' . $folder_id . '&amp;'. _rsid);
+		$page_pager = tmpl_create_pager($start, $count, $ttl, '{ROOT}?t=pmsg&amp;s='. strtolower($s[0]) .'&amp;o='. $o .'&amp;folder_id='. $folder_id .'&amp;'. _rsid);
 	}
 
 /*{POST_PAGE_PHP_CODE}*/

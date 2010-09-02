@@ -30,9 +30,9 @@
 	/* Permission check, based on last thread since all threads are supposed to be from the same forum. */
 	if (!($perms = db_saq('SELECT t.forum_id, COALESCE(g2.group_cache_opt, g1.group_cache_opt) AS gco, mm.id AS md
 				FROM {SQL_TABLE_PREFIX}thread t
-				LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=t.forum_id AND mm.user_id='._uid.'
-				INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id='.(_uid ? '2147483647': '0').' AND g1.resource_id=t.forum_id
-				LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g2.resource_id=t.forum_id
+				LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=t.forum_id AND mm.user_id='. _uid .'
+				INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id='. (_uid ? '2147483647': '0') .' AND g1.resource_id=t.forum_id
+				LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='. _uid .' AND g2.resource_id=t.forum_id
 				WHERE t.id='.end($list)))) {
 		check_return($usr->returnto);		
 	}
@@ -57,7 +57,7 @@
 	$c = uq('SELECT m.subject, t.id, t.root_msg_id, t.replies, t.last_post_date, t.last_post_id, t.tdescr, t.thread_opt
 			FROM {SQL_TABLE_PREFIX}thread t 
 			INNER JOIN {SQL_TABLE_PREFIX}msg m ON m.id=t.root_msg_id
-			WHERE t.id IN('.implode(',', $list).') AND t.forum_id='.$perms[0]);
+			WHERE t.id IN(' .implode(',', $list) .') AND t.forum_id='. $perms[0]);
 	$ext = $list = array();
 	while ($r = db_rowarr($c)) {
 		$list[$r[1]] = $r[0];
@@ -76,11 +76,11 @@
 
 	if ($final_del) { /* Remove threads, one by one. */
 		foreach ($ext as $k => $v) {
-			logaction(_uid, 'DELTHR', 0, '"'.$list[$k].'" w/'.$v[1].' replies');
+			logaction(_uid, 'DELTHR', 0, '"'. $list[$k] .'" w/'. $v[1] .' replies');
 			fud_msg_edit::delete(1, $v[0], 1);
 		}
 		check_return($usr->returnto);
-	} else if ($final_loc) { /* lock threads, one by one */
+	} else if ($final_loc) { /* Lock threads, one by one. */
 		foreach ($ext as $k => $v) {
 			if ($v[0] & 1) {
 				logaction(_uid, 'THRUNLOCK', $k);
@@ -98,10 +98,10 @@
 		}
 		if (!($mv_perms = db_saq('SELECT COALESCE(g2.group_cache_opt, g1.group_cache_opt) AS gco, mm.id AS md
 				FROM {SQL_TABLE_PREFIX}forum f
-				LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=f.id AND mm.user_id='._uid.'
-				INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id='.(_uid ? '2147483647': '0').' AND g1.resource_id=f.id
-				LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g2.resource_id=f.id
-				WHERE f.id='.$_POST['forum_id']))) {
+				LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=f.id AND mm.user_id='. _uid .'
+				INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id='. (_uid ? '2147483647': '0') .' AND g1.resource_id=f.id
+				LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='. _uid .' AND g2.resource_id=f.id
+				WHERE f.id='. $_POST['forum_id']))) {
 			invl_inp_err();
 		}
 		if (!$is_a && !$mv_perms[1] && !($mv_perms[0] & 8192)) {
@@ -115,8 +115,8 @@
 	
 		/* Update last post ids in source & destination forums. */
 		foreach (array($perms[0], $_POST['forum_id']) as $v) {
-			$mid = (int) q_singleval('SELECT MAX(last_post_id) FROM {SQL_TABLE_PREFIX}thread t INNER JOIN {SQL_TABLE_PREFIX}msg m ON t.root_msg_id=m.id WHERE t.forum_id='.$v.' AND t.moved_to=0 AND m.apr=1');
-			q('UPDATE {SQL_TABLE_PREFIX}forum SET last_post_id='.$mid.' WHERE id='.$v);
+			$mid = (int) q_singleval('SELECT MAX(last_post_id) FROM {SQL_TABLE_PREFIX}thread t INNER JOIN {SQL_TABLE_PREFIX}msg m ON t.root_msg_id=m.id WHERE t.forum_id='. $v .' AND t.moved_to=0 AND m.apr=1');
+			q('UPDATE {SQL_TABLE_PREFIX}forum SET last_post_id='. $mid .' WHERE id='. $v);
 		}
 
 		check_return($usr->returnto);
@@ -127,7 +127,7 @@
 			    $new_title = $v;
 			}
 		}
-		header('Location: {FULL_ROOT}{ROOT}?t=merge_th&frm_id='.$perms[0].'&new_title='.urlencode($new_title).'&sel_th='.serialize($sel_th).'&'._rsidl);
+		header('Location: {FULL_ROOT}{ROOT}?t=merge_th&frm_id='. $perms[0] .'&new_title='. urlencode($new_title) .'&sel_th='. serialize($sel_th) .'&'. _rsidl);
 		exit;
 	}
 
@@ -146,10 +146,10 @@
 				LEFT JOIN {SQL_TABLE_PREFIX}mod m ON m.user_id='._uid.' AND m.forum_id=f.id
 				INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=2147483647 AND g1.resource_id=f.id
 				LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g2.resource_id=f.id
-				WHERE c.id!=0 AND f.id!='.$perms[0].($is_a ? '' : ' AND (CASE WHEN m.user_id IS NOT NULL OR (COALESCE(g2.group_cache_opt, g1.group_cache_opt) & 1) > 0 THEN 1 ELSE 0 END)=1').'
+				WHERE c.id!=0 AND f.id!='. $perms[0] . ($is_a ? '' : ' AND (CASE WHEN m.user_id IS NOT NULL OR '. q_bitand('COALESCE(g2.group_cache_opt, g1.group_cache_opt)', 1) /' > 0 THEN 1 ELSE 0 END)=1') .'
 				ORDER BY v.id');
 
-		require $FORUM_SETTINGS_PATH.'cat_cache.inc';
+		require $FORUM_SETTINGS_PATH .'cat_cache.inc';
 		while ($r = db_rowarr($c)) {
 			if ($oldc != $r[2]) {
 				while (list($k, $i) = each($cat_cache)) {

@@ -148,17 +148,17 @@ function q_concat($arg)
 	return implode('||', $tmp);
 }
 
-function q_limit($query, $limit, $off)
+function q_limit($query, $limit, $off=0)
 {
 	return $query .' LIMIT '. $limit .' OFFSET '. $off;
 }
 
 function q_bitand($fieldLeft, $fieldRight) {
-	return $fieldLeft .'&'. $fieldRight;
+	return $fieldLeft .' & '. $fieldRight;
 }
 
 function q_bitor($fieldLeft, $fieldRight) {
-	return $fieldLeft .'|'. $fieldRight;
+	return $fieldLeft .' | '. $fieldRight;
 }
 
 function q_bitnot($bitField) {
@@ -239,7 +239,7 @@ function db_li($q, &$ef, $li=0)
 function ins_m($tbl, $flds, $types, $vals)
 {
 	$pid = $GLOBALS['DBHOST_TBL_PREFIX'] . substr(md5(mt_rand()), 0, 10);
-	pg_query(fud_sql_lnk, 'PREPARE '. $pid .' ('. $types .') AS INSERT INTO '.$tbl.' ('.$flds.') VALUES($'. implode(',$', range(1, substr_count($flds, ',') + 1)) .')');
+	pg_query(fud_sql_lnk, 'PREPARE '. $pid .' ('. $types .') AS INSERT INTO '. $tbl .' ('. $flds .') VALUES($'. implode(',$', range(1, substr_count($flds, ',') + 1)) .')');
 
 	$err = error_reporting(0);	// Simply ignore DUPLICATE errors.
 	foreach ($vals as $v) {

@@ -22,8 +22,8 @@ if (!defined('shell_script')) {
 	}
 	fud_use('cookies.inc');
 	fud_use('users.inc');
-	define('__adm_rsid', _rsidl.'&amp;SQ='.$GLOBALS['sq']);
-	define('__adm_rsidl', _rsidl.'&SQ='.$GLOBALS['sq']);
+	define('__adm_rsid', _rsidl .'&amp;SQ='. $GLOBALS['sq']);
+	define('__adm_rsidl', _rsidl .'&SQ='. $GLOBALS['sq']);
 	if (isset($t)) {
 		$GLOBALS['FUD_OPT_2'] |= 32768;	// Re-enable PATH_INFO.
 	}
@@ -44,11 +44,11 @@ if (!($GLOBALS['usr']->users_opt & 1048576)) {	// is_admin
 			case 'admusermerge.php':
 				break;
 			default:
-				header('Location: '.$GLOBALS['WWW_ROOT'].'adm/admuser.php?'.__adm_rsidl);
+				header('Location: '. $GLOBALS['WWW_ROOT'] .'adm/admuser.php?'. __adm_rsidl);
 				exit;
 		}
 	} else {
-		header('Location: '.$GLOBALS['WWW_ROOT'].'adm/admloginuser.php?'.__adm_rsidl);
+		header('Location: '. $GLOBALS['WWW_ROOT'] .'adm/admloginuser.php?'. __adm_rsidl);
         	exit;
 	}
 }

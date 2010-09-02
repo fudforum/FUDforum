@@ -22,7 +22,7 @@
 		}
 	}
 
-	if (!($u = db_sab('SELECT s.time_sec, u.*, u.alias AS login, l.name AS level_name, l.level_opt, l.img AS level_img FROM {SQL_TABLE_PREFIX}users u LEFT JOIN {SQL_TABLE_PREFIX}ses s ON u.id=s.user_id LEFT JOIN {SQL_TABLE_PREFIX}level l ON l.id=u.level_id WHERE u.id='.(int)$_GET['id']))) {
+	if (!($u = db_sab('SELECT s.time_sec, u.*, u.alias AS login, l.name AS level_name, l.level_opt, l.img AS level_img FROM {SQL_TABLE_PREFIX}users u LEFT JOIN {SQL_TABLE_PREFIX}ses s ON u.id=s.user_id LEFT JOIN {SQL_TABLE_PREFIX}level l ON l.id=u.level_id WHERE u.id='. (int)$_GET['id']))) {
 		std_error('user');
 	}
 
@@ -48,7 +48,7 @@
 
 	$moderation = '';
 	if ($u->users_opt & 524288 && $forum_list) {
-		$c = uq('SELECT f.id, f.name FROM {SQL_TABLE_PREFIX}mod mm INNER JOIN {SQL_TABLE_PREFIX}forum f ON mm.forum_id=f.id INNER JOIN {SQL_TABLE_PREFIX}cat c ON f.cat_id=c.id WHERE '.($is_a ? '' : 'f.id IN('.$forum_list.') AND ').'mm.user_id='.$u->id);
+		$c = uq('SELECT f.id, f.name FROM {SQL_TABLE_PREFIX}mod mm INNER JOIN {SQL_TABLE_PREFIX}forum f ON mm.forum_id=f.id INNER JOIN {SQL_TABLE_PREFIX}cat c ON f.cat_id=c.id WHERE '. ($is_a ? '' : 'f.id IN('. $forum_list .') AND ') .'mm.user_id='. $u->id);
 		while ($r = db_rowarr($c)) {
 			$moderation .= '{TEMPLATE: moderation_entry}';
 		}
@@ -71,7 +71,7 @@
 
 	$last_post = '';
 	if ($u->u_last_post_id) {
-		$r = db_saq('SELECT m.subject, m.id, m.post_stamp, t.forum_id FROM {SQL_TABLE_PREFIX}msg m INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id WHERE m.id='.$u->u_last_post_id);
+		$r = db_saq('SELECT m.subject, m.id, m.post_stamp, t.forum_id FROM {SQL_TABLE_PREFIX}msg m INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id WHERE m.id='. $u->u_last_post_id);
 		if ($is_a || !empty($frm_perms[$r[3]])) {
 			$last_post = '{TEMPLATE: last_post}';
 		}
@@ -85,19 +85,19 @@
 		$email_link = '';
 	}
 
-	if ($FUD_OPT_2 & 8192 && ($referals = q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}users WHERE referer_id='.$u->id))) {
+	if ($FUD_OPT_2 & 8192 && ($referals = q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}users WHERE referer_id='. $u->id))) {
 		$referals = '{TEMPLATE: referals}';
 	} else {
 		$referals = '';
 	}
 
-	if (_uid && _uid != $u->id && !q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}buddy WHERE user_id='._uid.' AND bud_id='.$u->id)) {
+	if (_uid && _uid != $u->id && !q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}buddy WHERE user_id='. _uid .' AND bud_id='. $u->id)) {
 		$buddy = '{TEMPLATE: ui_buddy}';
 	} else {
 		$buddy = '';
 	}
 
-	if ($forum_list && ($polls = q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}poll p INNER JOIN {SQL_TABLE_PREFIX}forum f ON p.forum_id=f.id WHERE p.owner='.$u->id.' AND f.cat_id>0 '.($is_a ? '' : ' AND f.id IN('.$forum_list.')')))) {
+	if ($forum_list && ($polls = q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}poll p INNER JOIN {SQL_TABLE_PREFIX}forum f ON p.forum_id=f.id WHERE p.owner='. $u->id .' AND f.cat_id>0 '.($is_a ? '' : ' AND f.id IN('. $forum_list .')')))) {
 		$polls = '{TEMPLATE: polls}';
 	} else {
 		$polls = '';

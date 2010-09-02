@@ -9,7 +9,7 @@
 * Free Software Foundation; version 2 of the License.
 **/
 
-$GLOBALS['seps'] = array(' '=>' ', "\n"=>"\n", "\r"=>"\r", "'"=>"'", '"'=>'"', '['=>'[', ']'=>']', '('=>'(', ';'=>';', ')'=>')', "\t"=>"\t", '='=>'=', '>'=>'>', '<'=>'<');
+$GLOBALS['seps'] = array(' '=>' ', "\n"=>"\n", "\r"=>"\r", '\''=>'\'', '"'=>'"', '['=>'[', ']'=>']', '('=>'(', ';'=>';', ')'=>')', "\t"=>"\t", '='=>'=', '>'=>'>', '<'=>'<');
 
 function fud_substr_replace($str, $newstr, $pos, $len)
 {
@@ -18,7 +18,7 @@ function fud_substr_replace($str, $newstr, $pos, $len)
 
 function url_check($url)
 {
-	$url = preg_replace('!\s+!','', $url);
+	$url = preg_replace('!\s+!', '', $url);
 
 	if (strpos($url, '&amp;#') !== false) {
 		return preg_replace('!&#([0-9]{2,3});!e', "chr(\\1)", char_fix($url));
@@ -37,7 +37,7 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 	$ostr = '';
 	$pos = $old_pos = 0;
 
-	// Call all BBcode to HTML conversion plugins
+	// Call all BBcode to HTML conversion plugins.
 	if (defined('plugins')) {
 		list($str) = plugin_call_hook('BBCODE2HTML', array($str));
 	}
@@ -101,9 +101,9 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 		}
 
 		$cpos = $epos;
-		$ctag = '[/'.$tag.']';
+		$ctag = '[/'. $tag .']';
 		$ctag_l = strlen($ctag);
-		$otag = '['.$tag;
+		$otag = '['. $tag;
 		$otag_l = strlen($otag);
 		$rf = 1;
 		$nt_tag = 0;
@@ -148,7 +148,7 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 			}
 			switch ($tag) {
 				case 'notag':
-					$ostr .= '<span name="notag">'.substr($str, $epos+1, $cpos-1-$epos).'</span>';
+					$ostr .= '<span name="notag">'. substr($str, $epos+1, $cpos-1-$epos) .'</span>';
 					$epos = $cepos;
 					break;
 				case 'url':
@@ -173,11 +173,11 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 					}
 
 					if ( strtolower(substr($str, $epos+1, 6)) == '[/url]' ) {
-						$end_tag[$cpos] = $url.'</a>';  // fill empty link
+						$end_tag[$cpos] = $url .'</a>';  // fill empty link
 					} else {
 						$end_tag[$cpos] = '</a>';
 					}
-					$ostr .= '<a href="'.$url.'" target="_blank">';
+					$ostr .= '<a href="'. $url .'" target="_blank">';
 					break;
 				case 'i':
 				case 'u':
@@ -186,21 +186,21 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 				case 'sub':
 				case 'sup':
 				case 'del':
-					$end_tag[$cpos] = '</'.$tag.'>';
-					$ostr .= '<'.$tag.'>';
+					$end_tag[$cpos] = '</'. $tag .'>';
+					$ostr .= '<'. $tag .'>';
 					break;
 				case 'email':
 					if (!$parms) {
 						$parms = str_replace('@', '&#64;', substr($str, $epos+1, ($cpos-$epos)-1));
-						if (strpos( substr($email,1,-1), '.') === false) {	// E-mail mostly have dots in them
+						if (strpos( substr($email,1,-1), '.') === false) {	// E-mail mostly have dots in them.
 							$ppos = $pos += 1; continue;
 						}
-						$ostr .= '<a href="mailto:'.$parms.'" target="_blank">'.$parms.'</a>';
+						$ostr .= '<a href="mailto:'. $parms .'" target="_blank">'. $parms .'</a>';
 						$epos = $cepos;
 						$str[$cpos] = '<';
 					} else {
 						$end_tag[$cpos] = '</a>';
-						$ostr .= '<a href="mailto:'.str_replace('@', '&#64;', $parms).'" target="_blank">';
+						$ostr .= '<a href="mailto:'. str_replace('@', '&#64;', $parms) .'" target="_blank">';
 					}
 					break;
 				case 'color':
@@ -210,19 +210,19 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 						$tag = 'face';
 					}
 					$end_tag[$cpos] = '</font>';
-					$ostr .= '<font '.$tag.'="'.$parms.'">';
+					$ostr .= '<font '. $tag .'="'. $parms .'">';
 					break;
 				case 'code':
 					$param = substr($str, $epos+1, ($cpos-$epos)-1);
 
-					$ostr .= '<div class="pre"><pre>'.reverse_nl2br($param).'</pre></div>';
+					$ostr .= '<div class="pre"><pre>'. reverse_nl2br($param) .'</pre></div>';
 					$epos = $cepos;
 					$str[$cpos] = '<';
 					break;
 				case 'pre':
 					$param = substr($str, $epos+1, ($cpos-$epos)-1);
 
-					$ostr .= '<pre>'.reverse_nl2br($param).'</pre>';
+					$ostr .= '<pre>'. reverse_nl2br($param) .'</pre>';
 					$epos = $cepos;
 					$str[$cpos] = '<';
 					break;
@@ -231,16 +231,16 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 
 					if (strncmp($param, '<?php', 5)) {
 						if (strncmp($param, '<?', 2)) {
-							$param = "<?php\n" . $param;
+							$param = "<?php\n". $param;
 						} else {
-							$param = "<?php\n" . substr($param, 3);
+							$param = "<?php\n". substr($param, 3);
 						}
 					}
 					if (substr($param, -2) != '?>') {
 						$param .= "\n?>";
 					}
 
-					$ostr .= '<SPAN name="php">'.trim(@highlight_string($param, true)).'</SPAN>';
+					$ostr .= '<SPAN name="php">'. trim(@highlight_string($param, true)). '</SPAN>';
 					$epos = $cepos;
 					$str[$cpos] = '<';
 					break;
@@ -255,13 +255,13 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 						if (!$parms) {
 							$parms = substr($str, $epos+1, ($cpos-$epos)-1);
 							if (strpos(strtolower(url_check($parms)), 'script:') === false) {
-								$ostr .= '<img '.$class.'src="'.$parms.'" border="0" alt="'.$parms.'" />';
+								$ostr .= '<img '. $class .'src="'. $parms .'" border="0" alt="'. $parms .'" />';
 							} else {
 								$ostr .= substr($str, $pos, ($cepos-$pos)+1);
 							}
 						} else {
 							if (strpos(strtolower(url_check($parms)), 'script:') === false) {
-								$ostr .= '<img '.$class.'src="'.$parms.'" border="0" alt="'.substr($str, $epos+1, ($cpos-$epos)-1).'" />';
+								$ostr .= '<img '. $class .'src="'. $parms .'" border="0" alt="'. substr($str, $epos+1, ($cpos-$epos)-1) .'" />';
 							} else {
 								$ostr .= substr($str, $pos, ($cepos-$pos)+1);
 							}
@@ -281,7 +281,7 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 					break;
 				case 'align':
 					$end_tag[$cpos] = '</div>';
-					$ostr .= '<div align="'.$parms.'">';
+					$ostr .= '<div align="'. $parms .'">';
 					break;
 				case 'list':
 					$tmp = substr($str, $epos, ($cpos-$epos));
@@ -308,13 +308,13 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 						case 'decimal':
 						case 'a':
 							$end_tag[$cpos] = '</ol>';
-							$ostr .= '<ol type="'.$parms.'">';
+							$ostr .= '<ol type="'. $parms .'">';
 							break;
 						case 'square':
 						case 'circle':
 						case 'disc':
 							$end_tag[$cpos] = '</ul>';
-							$ostr .= '<ul type="'.$parms.'">';
+							$ostr .= '<ul type="'. $parms .'">';
 							break;
 						default:
 							$end_tag[$cpos] = '</ul>';
@@ -324,12 +324,12 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 				case 'spoiler':
 					$rnd = rand();
 					$end_tag[$cpos] = '</div></div>';
-					$ostr .= '<div class="dashed" style="padding: 3px;" align="center"><a href="javascript://" onclick="javascript: layerVis(\'s'.$rnd.'\', 1);">'
-						.($parms ? $parms : '{TEMPLATE: post_proc_reveal_spoiler}').'</a><div align="left" id="s'.$rnd.'" style="display: none;">';
+					$ostr .= '<div class="dashed" style="padding: 3px;" align="center"><a href="javascript://" onclick="javascript: layerVis(\'s'. $rnd .'\', 1);">'
+						.($parms ? $parms : '{TEMPLATE: post_proc_reveal_spoiler}').'</a><div align="left" id="s'. $rnd .'" style="display: none;">';
 					break;
 				case 'acronym':
 					$end_tag[$cpos] = '</acronym>';
-					$ostr .= '<acronym title="'.($parms ? $parms : ' ').'">';
+					$ostr .= '<acronym title="'. ($parms ? $parms : ' ') .'">';
 					break;
 				case 'wikipedia':
 					$end_tag[$cpos] = '</a>';
@@ -339,7 +339,7 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 					} else {
 						$parms = '';
 					}
-					$ostr .= '<a href="http://'.$parms.'wikipedia.com/wiki/'.$url.'" target="_blank" name="WikiPediaLink">';
+					$ostr .= '<a href="http://'. $parms .'wikipedia.com/wiki/'. $url .'" target="_blank" name="WikiPediaLink">';
 					break;
 			}
 
@@ -351,14 +351,14 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 	}
 	$ostr .= substr($str, $old_pos, strlen($str)-$old_pos);
 
-	/* url paser */
+	/* URL paser. */
 	$pos = 0;
 	$ppos = 0;
 	while (($pos = @strpos($ostr, '://', $pos)) !== false) {
 		if ($pos < $ppos) {
 			break;
 		}
-		// check if it's inside any tag;
+		// Check if it's inside any tag.
 		$i = $pos;
 		while (--$i && $i > $ppos) {
 			if ($ostr[$i] == '>' || $ostr[$i] == '<') {
@@ -370,7 +370,7 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 			continue;
 		}
 
-		// check if it's inside the a tag
+		// Check if it's inside the a tag.
 		if (($ts = strpos($ostr, '<a ', $pos)) === false) {
 			$ts = strlen($ostr);
 		}
@@ -382,7 +382,7 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 			continue;
 		}
 
-		// check if it's inside the pre tag
+		// Check if it's inside the PRE tag.
 		if (($ts = strpos($ostr, '<pre>', $pos)) === false) {
 			$ts = strlen($ostr);
 		}
@@ -394,7 +394,7 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 			continue;
 		}
 
-		// check if it's inside the span tag
+		// Check if it's inside the SPAN tag
 		if (($ts = strpos($ostr, '<span>', $pos)) === false) {
 			$ts = strlen($ostr);
 		}
@@ -444,14 +444,14 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 			$pos = $ue;
 			continue;
 		}
-		$html_url = '<a href="'.$url.'" target="_blank">'.$url.'</a>';
+		$html_url = '<a href="'. $url .'" target="_blank">'. $url .'</a>';
 		$html_url_l = strlen($html_url);
 		$ostr = fud_substr_replace($ostr, $html_url, $us+1, $ue-$us-1);
 		$ppos = $pos;
 		$pos = $us+$html_url_l;
 	}
 
-	/* email parser */
+	/* E-mail parser. */
 	$pos = 0;
 	$ppos = 0;
 
@@ -462,7 +462,7 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 			break;
 		}
 
-		// check if it's inside any tag;
+		// Check if it's inside any tag.
 		$i = $pos;
 		while (--$i && $i>$ppos) {
 			if ( $ostr[$i] == '>' || $ostr[$i] == '<') {
@@ -475,7 +475,7 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 		}
 
 
-		// check if it's inside the a tag
+		// Check if it's inside the a tag.
 		if (($ts = strpos($ostr, '<a ', $pos)) === false) {
 			$ts = strlen($ostr);
 		}
@@ -487,7 +487,7 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 			continue;
 		}
 
-		// check if it's inside the pre tag
+		// Check if it's inside the PRE tag.
 		if (($ts = strpos($ostr, '<div class="pre"><pre>', $pos)) === false) {
 			$ts = strlen($ostr);
 		}
@@ -522,7 +522,7 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 		}
 
 		$email = str_replace('@', '&#64;', substr($ostr, $es, $ee-$es));
-		$email_url = '<a href="mailto:'.$email.'" target="_blank">'.$email.'</a>';
+		$email_url = '<a href="mailto:'. $email .'" target="_blank">'. $email .'</a>';
 		$email_url_l = strlen($email_url);
 		$ostr = fud_substr_replace($ostr, $email_url, $es, $ee-$es);
 		$ppos =	$es+$email_url_l;
@@ -534,7 +534,7 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 
 function html_to_tags($fudml)
 {
-	// Call all HTML to BBcode conversion plugins
+	// Call all HTML to BBcode conversion plugins.
 	if (defined('plugins')) {
 		list($fudml) = plugin_call_hook('HTML2BBCODE', array($fudml));
 	}
@@ -543,41 +543,41 @@ function html_to_tags($fudml)
 		$tmp = trim(html_entity_decode(strip_tags(str_replace('<br />', "\n", $res[1]))));
 		$m = md5($tmp);
 		$php[$m] = $tmp;
-		$fudml = str_replace($res[0], "[php]\n".$m."\n[/php]", $fudml);
+		$fudml = str_replace($res[0], "[php]\n". $m ."\n[/php]", $fudml);
 	}
 
 	while (preg_match('!<span name="php">(.*?)</span>!is', $fudml, $res)) {
 		$tmp = trim(html_entity_decode(strip_tags(str_replace('<br />', "\n", $res[1]))));
 		$m = md5($tmp);
 		$php[$m] = $tmp;
-		$fudml = str_replace($res[0], "[php]\n".$m."\n[/php]", $fudml);
+		$fudml = str_replace($res[0], "[php]\n". $m ."\n[/php]", $fudml);
 	}
 
 	while (preg_match('!<a href="http://(?:([A-ZA-z]+)?\.)?wikipedia.com/wiki/([^"]+)" target="_blank" name="WikiPediaLink">(.*?)</a>!s', $fudml, $res)) {
 		if (count($res) == 4) {
-			$fudml = str_replace($res[0], '[wikipedia='.$res[1].']'.$res[2].'[/wikipedia]',$fudml);
+			$fudml = str_replace($res[0], '[wikipedia='. $res[1] .']'. $res[2] .'[/wikipedia]', $fudml);
 		} else {
-			$fudml = str_replace($res[0], '[wikipedia]'.$res[2].'[/wikipedia]',$fudml);
+			$fudml = str_replace($res[0], '[wikipedia]'. $res[2] .'[/wikipedia]', $fudml);
 		}
 	}
 
-	// quote tags
+	// Quote tags.
 	if (strpos($fudml, '{TEMPLATE: post_html_quote_start_p1}')  !== false) {
 -               $fudml = str_replace(array('{TEMPLATE: post_html_quote_start_p1}','{TEMPLATE: post_html_quote_start_p2}','{TEMPLATE: post_html_quote_end}'), array('[quote title=', ']', '[/quote]'), $fudml);
 	}
-	// old bad quote tags
+	// Old bad quote tags.
 	if (preg_match('!class="quote"!', $fudml)) { 
 		$fudml = preg_replace('!<table border="0" align="center" width="90%" cellpadding="3" cellspacing="1">(<tbody>)?<tr><td class="SmallText"><b>!', '[quote title=', $fudml);
 		$fudml = preg_replace('!</b></td></tr><tr><td class="quote">(<br>)?!', ']', $fudml);
 		$fudml = preg_replace('!(<br>)?</td></tr>(</tbody>)?</table>!', '[/quote]', $fudml);
 	}
 
-	/* spoiler tags */	
+	/* Spoiler tags. */	
 	if (preg_match('!<div class="dashed" style="padding: 3px;" align="center"( width="100%")?><a href="javascript://" OnClick="javascript: layerVis\(\'.*?\', 1\);">.*?</a><div align="left" id="(.*?)" style="display: none;">!is', $fudml)) {
 		$fudml = preg_replace('!\<div class\="dashed" style\="padding: 3px;" align\="center"( width\="100%")?\>\<a href\="javascript://" OnClick\="javascript: layerVis\(\'.*?\', 1\);">(.*?)\</a\>\<div align\="left" id\=".*?" style\="display: none;"\>!is', '[spoiler=\2]', $fudml);
 		$fudml = str_replace('</div></div>', '[/spoiler]', $fudml);
 	}
-	/* old bad spoiler format */
+	/* Old bad spoiler format. */
 	if (preg_match('!<div class="dashed" style="padding: 3px;" align="center" width="100%"><a href="javascript://" OnClick="javascript: layerVis\(\'.*?\', 1\);">.*?</a><div align="left" id="(.*?)" style="visibility: hidden;">!is', $fudml)) {
 		$fudml = preg_replace('!\<div class\="dashed" style\="padding: 3px;" align\="center" width\="100%"\>\<a href\="javascript://" OnClick\="javascript: layerVis\(\'.*?\', 1\);">(.*?)\</a\>\<div align\="left" id\=".*?" style\="visibility: hidden;"\>!is', '[spoiler=\1]', $fudml);
 		$fudml = str_replace('</div></div>', '[/spoiler]', $fudml);
@@ -640,7 +640,7 @@ function html_to_tags($fudml)
 		$fudml = str_replace(array_keys($php), array_values($php), $fudml);
 	}
 
-	/* unhtmlspecialchars */
+	/* Un-htmlspecialchars. */
 	return reverse_fmt($fudml);
 }
 

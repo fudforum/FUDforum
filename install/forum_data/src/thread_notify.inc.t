@@ -11,26 +11,26 @@
 
 function is_notified($user_id, $thread_id)
 {
-	return q_singleval('SELECT * FROM {SQL_TABLE_PREFIX}thread_notify WHERE thread_id='.(int)$thread_id.' AND user_id='.$user_id);
+	return q_singleval('SELECT * FROM {SQL_TABLE_PREFIX}thread_notify WHERE thread_id='. (int)$thread_id .' AND user_id='. $user_id);
 }
 
 function thread_notify_add($user_id, $thread_id)
 {
-	db_li('INSERT INTO {SQL_TABLE_PREFIX}thread_notify (user_id, thread_id) VALUES ('.$user_id.', '.(int)$thread_id.')', $ret);
+	db_li('INSERT INTO {SQL_TABLE_PREFIX}thread_notify (user_id, thread_id) VALUES ('. $user_id .', '. (int)$thread_id .')', $ret);
 }
 
 function thread_notify_del($user_id, $thread_id)
 {
-	q('DELETE FROM {SQL_TABLE_PREFIX}thread_notify WHERE thread_id='.(int)$thread_id.' AND user_id='.$user_id);
+	q('DELETE FROM {SQL_TABLE_PREFIX}thread_notify WHERE thread_id='. (int)$thread_id .' AND user_id='. $user_id);
 }
 
 function thread_bookmark_add($user_id, $thread_id)
 {
-	db_li('INSERT INTO {SQL_TABLE_PREFIX}bookmarks (user_id, thread_id) VALUES ('.$user_id.', '.(int)$thread_id.')', $ret);
+	db_li('INSERT INTO {SQL_TABLE_PREFIX}bookmarks (user_id, thread_id) VALUES ('. $user_id .', '. (int)$thread_id .')', $ret);
 }
 
 function thread_bookmark_del($user_id, $thread_id)
 {
-	q('DELETE FROM {SQL_TABLE_PREFIX}bookmarks WHERE thread_id='.(int)$thread_id.' AND user_id='.$user_id);
+	q('DELETE FROM {SQL_TABLE_PREFIX}bookmarks WHERE thread_id='. (int)$thread_id .' AND user_id='. $user_id);
 }
 ?>

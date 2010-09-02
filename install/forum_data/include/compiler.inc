@@ -281,7 +281,7 @@ function resolve_sections($str)
 				$ret .= $GLOBALS['__COMPILER__'][$tag];
 				break;
 			default:
-				throw new Exception('No such tag: '.htmlspecialchars($tag).' -> '.htmlspecialchars($name) .'.');
+				throw new Exception('No such tag: '. htmlspecialchars($tag) .' -> '. htmlspecialchars($name) .'.');
 		}
 	} while (($p = strpos($str, '{', $p)) !== false);
 
@@ -295,7 +295,7 @@ function compile_file($source)
 	if (empty($source)) {
 		throw new Exception('No file passed to compile, fatal error.');
 	}
-	if (($file_data = file_get_contents($GLOBALS['DATA_DIR'].'src/'.$source)) === false) {
+	if (($file_data = file_get_contents($GLOBALS['DATA_DIR'] .'src/'. $source)) === false) {
 		throw new Exception('Unable to open file '. $GLOBALS['DATA_DIR'] .'src/'. $source .'.');
 	}
 
@@ -304,7 +304,7 @@ function compile_file($source)
 	}
 
 	$gfc =& $GLOBALS['file_cache'];
-	$t = substr($source, 0, strpos($source, '.')).'.tmpl';
+	$t = substr($source, 0, strpos($source, '.')) .'.tmpl';
 	if (isset($gfc[$t]['include'])) {
 		foreach ($gfc[$t]['include'] as $v) {
 			if (!isset($gfc[$v]['compiled']) && $t != $v) {
@@ -345,12 +345,12 @@ function compile_file($source)
 				"'):'').'",
 				'); ?>'),  
 				$ref);
-			/* block of code below is needed to handled nested ifs inside the final page output where we convert
-			 * regular PHP code to one where <?php ?> are being used 
+			/* Block of code below is needed to handled nested ifs inside the final page output where we convert
+			 * regular PHP code to one where <?php ?> are being used.
 			 */
 			$end = $pos = 0;
 			while (($pos = strpos($ref, '<?php echo (', $pos)) !== false) { // found if() block
-				/* handle regular component */
+				/* Handle regular component. */
 				$new .= str_replace(array(".'.$", ".'", "'."), array('.<?php echo $', '; ?>', '<?php echo '), substr($ref, $end, ($pos - $end)));
 				if (($end_p = strpos($ref, '); ?>', $pos)) === false) { // find end of if()
 					++$pos;
@@ -358,7 +358,7 @@ function compile_file($source)
 				} else {
 					$end = $end_p + 5;
 				}
-				// the str_replace() is a hack for handling ifs() inside ifs()
+				// The str_replace() is a hack for handling ifs() inside ifs().
 				$new .= substr($ref, $pos, $l);
 				$pos += $l;
 				$new .= str_replace('<?php echo (', "'.(", substr($ref, $pos, ($end - $pos))); // append if() code
@@ -463,15 +463,15 @@ function generate_file($php_file)
 				$file_data = str_replace('/*{POST_HTML_PHP}*/', $ins['@'], $file_data);
 				$file_data = str_replace('/*{POST_PAGE_PHP_CODE}*/', $ins['!'], $file_data);
 			}
-			$file_data = str_replace(array(" .'' ", " ''."), array(" ", " "), $file_data);
+			$file_data = str_replace(array(" .'' ", " ''."), array(' ', ' '), $file_data);
 		}
 
-		$dir = $GLOBALS['WWW_ROOT_DISK'].'theme/'.$GLOBALS['__COMPILER__']['tname'].'/';
+		$dir = $GLOBALS['WWW_ROOT_DISK'] .'theme/'. $GLOBALS['__COMPILER__']['tname'] .'/';
 		$dst = $fc['dst'];
 	} else {
-		$dir = $GLOBALS['INCLUDE'].'theme/'.$GLOBALS['__COMPILER__']['tname'].'/';
+		$dir = $GLOBALS['INCLUDE'] .'theme/'. $GLOBALS['__COMPILER__']['tname'] .'/';
 		if ($fc['dst'][0] == '!' || $fc['dst'][0] == '@') {
-			$dst = substr($fc['dst'],1);
+			$dst = substr($fc['dst'], 1);
 		} else {
 			$dst = $fc['dst'];
 		}
@@ -557,9 +557,9 @@ function build_msg($file)
 	 */
 	if (file_exists($file)) {
 		if (preg_match('!thm/([^/]+)/i18n!', $file, $m)) {
-			parse_sections(@file_get_contents($GLOBALS['DATA_DIR'] . 'thm/'.$m[1].'/tmpl/messages'), '', 1);
-			if (file_exists($GLOBALS['DATA_DIR'] . 'thm/'.$m[1].'/tmpl/date_formats.tmpl')) {
-				parse_sections(@file_get_contents($GLOBALS['DATA_DIR'] . 'thm/'.$m[1].'/tmpl/date_formats.tmpl'), '', 1);
+			parse_sections(@file_get_contents($GLOBALS['DATA_DIR'] .'thm/'. $m[1] .'/tmpl/messages'), '', 1);
+			if (file_exists($GLOBALS['DATA_DIR'] .'thm/'. $m[1] .'/tmpl/date_formats.tmpl')) {
+				parse_sections(@file_get_contents($GLOBALS['DATA_DIR'] .'thm/'. $m[1] .'/tmpl/date_formats.tmpl'), '', 1);
 			}
 		}
 		parse_msgs($file);
@@ -569,17 +569,17 @@ function build_msg($file)
 	 * Append any missing entries from the DEFAULT template set (same language).
 	 */
 	$ts = substr(strrchr(dirname($file), '/'), 1);
-	$ts = $GLOBALS['DATA_DIR'] . 'thm/default/i18n/' . $ts . '/msg';
+	$ts = $GLOBALS['DATA_DIR'] .'thm/default/i18n/'. $ts .'/msg';
 	if ($ts != $file && file_exists($ts)) {
-		parse_sections(file_get_contents($GLOBALS['DATA_DIR'] . 'thm/default/tmpl/messages'), '', 1);
-		parse_sections(file_get_contents($GLOBALS['DATA_DIR'] . 'thm/default/tmpl/date_formats.tmpl'), '', 1);
+		parse_sections(file_get_contents($GLOBALS['DATA_DIR'] .'thm/default/tmpl/messages'), '', 1);
+		parse_sections(file_get_contents($GLOBALS['DATA_DIR'] .'thm/default/tmpl/date_formats.tmpl'), '', 1);
 		parse_msgs($ts);
 	}
 
 	/*
 	 * Append any missing entries from the DEFAULT ENGLISH template set.
 	 */
-	$en = $GLOBALS['DATA_DIR'] . 'thm/default/i18n/en/msg';
+	$en = $GLOBALS['DATA_DIR'] .'thm/default/i18n/en/msg';
 	if ($en != $file && $en != $ts && file_exists($en)) {
 		parse_msgs($en);
 	}
@@ -659,12 +659,12 @@ function compile_all($tset='default', $lang='en', $tname='default')
 
 	$cmpl['ROOT'] = 'index.php';
 	$cmpl['FULL_ROOT'] = $GLOBALS['WWW_ROOT']{strlen($GLOBALS['WWW_ROOT']) - 1} == '/' ? $GLOBALS['WWW_ROOT'] : $GLOBALS['WWW_ROOT'].'/';
-	$cmpl['THEME_ROOT'] = 'theme/' . $tname;
+	$cmpl['THEME_ROOT'] = 'theme/'. $tname;
 
 	$cmpl['THEME_ROOT_DISK'] = $GLOBALS['WWW_ROOT_DISK'] .'theme/'. $tname;
 	$cmpl['THEME_IMAGE_ROOT'] = $cmpl['THEME_ROOT'] .'/images';
 
-	$charset = $GLOBALS['DATA_DIR'] .'thm/'. $tset .'/i18n/' .$lang .'/charset';
+	$charset = $GLOBALS['DATA_DIR'] .'thm/'. $tset .'/i18n/'. $lang .'/charset';
 	if (!is_file($charset)) {
 		$charset = $GLOBALS['DATA_DIR'] .'thm/default/i18n/'. $lang .'/charset';
 		if (!is_file($charset)) {
@@ -707,7 +707,7 @@ function compile_all($tset='default', $lang='en', $tname='default')
 
 	$fl = array();
 	if ($cmpl['tset'] != 'default') {
-		/* check custom theme for templates not found in the default theme */
+		/* Check custom theme for templates not found in the default theme. */
 		foreach (glob($GLOBALS['DATA_DIR'] .'/thm/'. $cmpl['tset'] .'/tmpl/*.tmpl') as $fe) {
 			$fl[basename($fe)] = $fe;
 		}
@@ -783,7 +783,7 @@ function fudcopy($src, $dest, $mask='*', $recur=false)
 		} else {
 			$files = array();
 			foreach (explode(',', trim($mask, '{}')) as $m) {
-				$files = array_merge($files, (array)glob($v . '/' . $m, GLOB_NOSORT));
+				$files = array_merge($files, (array)glob($v .'/'. $m, GLOB_NOSORT));
 			}
 			if (!$files) {
 				continue;
@@ -812,7 +812,7 @@ function fudcopy($src, $dest, $mask='*', $recur=false)
 
 	/* Copy .path_info marker */
 	if (is_readable($src .'/.path_info')) {
-		@copy($src .'/.path_info', $dest.'/.path_info');
+		@copy($src .'/.path_info', $dest .'/.path_info');
 	}
 }
 
@@ -893,12 +893,12 @@ function copyhelp($thm)
 
 /* Copy langauge helper functions (language.inc) to the theme's directory. */
 function copylangfuncs($thm) {
-	$path = $GLOBALS['WWW_ROOT_DISK'].'theme/'.$thm->name.'/';
-	$src = $GLOBALS['DATA_DIR'].'thm/'.$thm->theme.'/i18n/'.$thm->lang.'/language.inc';
+	$path = $GLOBALS['WWW_ROOT_DISK'] .'theme/'. $thm->name .'/';
+	$src = $GLOBALS['DATA_DIR'] .'thm/'. $thm->theme.'/i18n/'. $thm->lang .'/language.inc';
 	if (!@file_exists($src)) {
-		$src = $GLOBALS['DATA_DIR'].'thm/default/i18n/'.$thm->lang.'/language.inc';
+		$src = $GLOBALS['DATA_DIR'] .'thm/default/i18n/'. $thm->lang .'/language.inc';
 		if (!@file_exists($src)) {
-			$src = $GLOBALS['DATA_DIR'].'thm/default/i18n/en/language.inc';
+			$src = $GLOBALS['DATA_DIR'] .'thm/default/i18n/en/language.inc';
 		}
 	}
 	

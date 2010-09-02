@@ -37,11 +37,11 @@
 		} else {
 			$t = $_GET['t'] = 'index';
 		}
-	} else if (preg_match('/[^a-z_]/', $t) || !@file_exists($WWW_ROOT_DISK . fud_theme . $t . '.php')) {
+	} else if (preg_match('/[^a-z_]/', $t) || !@file_exists($WWW_ROOT_DISK . fud_theme . $t .'.php')) {
 		$t = 'index';
 	}
 
-	if ($FUD_OPT_2 & 524288 && isset($_COOKIE[$COOKIE_NAME.'1']) && $t != 'error') {
+	if ($FUD_OPT_2 & 524288 && isset($_COOKIE[$COOKIE_NAME .'1']) && $t != 'error') {
 		fud_use('errmsg.inc');
 		exit(__fud_banned__);
 	}
@@ -55,6 +55,6 @@
 		define('img_ext', '.png');
 	}
 	
-	require($WWW_ROOT_DISK . fud_theme . 'language.inc');	// Initialize theme's language helper functions.
-	require($WWW_ROOT_DISK . fud_theme . $t . '.php');
+	require($WWW_ROOT_DISK . fud_theme .'language.inc');	// Initialize theme's language helper functions.
+	require($WWW_ROOT_DISK . fud_theme . $t .'.php');
 ?>

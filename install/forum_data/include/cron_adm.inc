@@ -16,8 +16,8 @@ class fud_cron
 	function fud_cron()
 	{
 		foreach ($this as $k => $v) {
-			if (isset($_POST['cron_'.$k])) {
-				$this->{$k} = $_POST['cron_'.$k];
+			if (isset($_POST['cron_'. $k])) {
+				$this->{$k} = $_POST['cron_'. $k];
 			}
 		}
 	}
@@ -51,14 +51,14 @@ class fud_cron
 	{
 		$tbl =& $GLOBALS['DBHOST_TBL_PREFIX'];
 
-		q('UPDATE '. $tbl.'cron SET
-			name='. ssn($this->name).',
-			minute='. ssn($this->minute).',
-			hour='. ssn($this->hour).',
-			dom='. ssn($this->dom).',
-			month='. ssn($this->month).',
-			dow='. ssn($this->dow).',
-			cmd='. ssn($this->cmd).'
+		q('UPDATE '. $tbl .'cron SET
+			name='. ssn($this->name) .',
+			minute='. ssn($this->minute) .',
+			hour='. ssn($this->hour) .',
+			dom='. ssn($this->dom) .',
+			month='. ssn($this->month) .',
+			dow='. ssn($this->dow) .',
+			cmd='. ssn($this->cmd) .'
 		WHERE id='. (int)$id);
 	}
 

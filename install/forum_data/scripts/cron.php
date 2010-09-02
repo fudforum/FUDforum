@@ -26,7 +26,7 @@
 
 	/* Set language & locale. */
 //echo "TIME NOW = [". date('r') ."]\n";
-	$locale = q_singleval('SELECT locale FROM '. sql_p .'themes WHERE theme_opt=1|2 LIMIT 1');
+	$locale = q_singleval('SELECT locale FROM '. sql_p .'themes WHERE theme_opt='. (1|2) .' LIMIT 1');
 	$GLOBALS['good_locale'] = setlocale(LC_ALL, $locale);
 // $GLOBALS['good_locale'] = setlocale(LC_ALL, null);
 // echo "DEFAULT TZ=[". date_default_timezone_get() ."]\n";

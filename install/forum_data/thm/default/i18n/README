@@ -17,7 +17,7 @@ locale
   For example: 'de_DE.UTF-8' will be a good choice for German.
 
 msg
-  Messages used in template files.
+  Translated messages that can be used in template files.
   Only include the messages that will be different from those in 'en/msg'.
 
 language.inc
@@ -28,3 +28,5 @@ help/
 
 img/
   Directory containing the forum's buttons.
+
+For more info, see http://cvs.prohost.org/index.php/Translating

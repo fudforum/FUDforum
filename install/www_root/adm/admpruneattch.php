@@ -18,7 +18,7 @@
 	require($WWW_ROOT_DISK .'adm/header.php');
 		
 	if (isset($_POST['btn_prune']) && !empty($_POST['thread_age']) && !isset($_POST['btn_cancel'])) {
-	$lmt = ' AND (thread_opt & (2|4)) = 0 ';
+		$lmt = ' AND '. q_bitand('thread_opt', (2|4)) .' = 0 ';
 		
 		/* Figure out our limit if any. */
 		if ($_POST['forumsel'] == '0') {

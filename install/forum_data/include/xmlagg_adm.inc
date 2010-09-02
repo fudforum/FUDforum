@@ -21,8 +21,8 @@ class fud_xmlagg_adm
 	{
 		if (isset($_POST) && count($_POST)) {
 			foreach (array_keys(get_object_vars($this)) as $v) {
-				if (isset($_POST['xmlagg_' . $v])) {
-					$this->{$v} = $_POST['xmlagg_' . $v];
+				if (isset($_POST['xmlagg_'. $v])) {
+					$this->{$v} = $_POST['xmlagg_'. $v];
 				}
 			}
 			$this->custom_sig = trim($this->custom_sig);
@@ -30,7 +30,7 @@ class fud_xmlagg_adm
 			$this->xmlagg_opt = 0;
 			foreach (array('skip_non_forum_users', 'xmlagg_post_apr', 'create_users', 'complex_reply_match') as $v) {
 				if (isset($_POST['xmlagg_'.$v])) {
-					$this->xmlagg_opt |= (int) $_POST['xmlagg_'.$v];
+					$this->xmlagg_opt |= (int) $_POST['xmlagg_'. $v];
 				}
 			}
 		}
@@ -38,7 +38,7 @@ class fud_xmlagg_adm
 
 	function add()
 	{
-		$this->id = db_qid('INSERT INTO '.$GLOBALS['DBHOST_TBL_PREFIX'].'xmlagg(
+		$this->id = db_qid('INSERT INTO '. $GLOBALS['DBHOST_TBL_PREFIX'] .'xmlagg(
 			forum_id,
 			name,
 			url,
@@ -46,15 +46,15 @@ class fud_xmlagg_adm
 			custom_sig
 			)
 			VALUES(
-			'.(int)$this->forum_id.',
-			'._esc($this->name).',
-			'._esc($this->url).',
-			'.$this->xmlagg_opt.',
-			'._esc($this->custom_sig).'
+			'. (int)$this->forum_id .',
+			'. _esc($this->name) .',
+			'. _esc($this->url) .',
+			'. $this->xmlagg_opt .',
+			'. _esc($this->custom_sig) .'
 			)');
 
 		if ($this->xmlagg_opt & 1) {
-			q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'forum SET forum_opt=forum_opt | 2 WHERE id='.$this->forum_id);
+			q('UPDATE '. $GLOBALS['DBHOST_TBL_PREFIX'] .'forum SET forum_opt='. q_bitor('forum_opt', 2) .' WHERE id='. $this->forum_id);
 		}
 
 		return $this->id;
@@ -62,36 +62,36 @@ class fud_xmlagg_adm
 
 	function sync($id)
 	{
-		list($old_frm_id, $xmlagg_opt) = db_saq('SELECT forum_id, xmlagg_opt FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'xmlagg WHERE id='.$id);
+		list($old_frm_id, $xmlagg_opt) = db_saq('SELECT forum_id, xmlagg_opt FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'xmlagg WHERE id='. $id);
 
-		q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'xmlagg SET
-			forum_id='.(int)$this->forum_id.',
-			name='._esc($this->name).',
-			url='._esc($this->url).',
-			xmlagg_opt='.$this->xmlagg_opt.',
-			custom_sig='._esc($this->custom_sig).'
-		WHERE id='.$id);
+		q('UPDATE '. $GLOBALS['DBHOST_TBL_PREFIX'] .'xmlagg SET
+			forum_id='. (int)$this->forum_id .',
+			name='. _esc($this->name) .',
+			url='. _esc($this->url) .',
+			xmlagg_opt='. $this->xmlagg_opt .',
+			custom_sig='. _esc($this->custom_sig) .'
+		WHERE id='. $id);
 
 		if ($old_frm_id != $this->forum_id && $xmlagg_opt & 1) {
-			q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'forum SET forum_opt=forum_opt & ~ 2 WHERE id='.$old_frm_id);
+			q('UPDATE '. $GLOBALS['DBHOST_TBL_PREFIX'] .'forum SET forum_opt='. q_bitand('forum_opt', ~2) .' WHERE id='. $old_frm_id);
 		}
-		q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'forum SET forum_opt=forum_opt | '.($this->xmlagg_opt & 1 ? 2 : 0).' WHERE id='.$this->forum_id);
+		q('UPDATE '. $GLOBALS['DBHOST_TBL_PREFIX'] .'forum SET forum_opt='. q_bitor('forum_opt', ($this->xmlagg_opt & 1 ? 2 : 0)) .' WHERE id='. $this->forum_id);
 	}
 }
 
 function xmlagg_del($id)
 {
-	if (!($d = db_saq('SELECT xmlagg_opt, forum_id FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'xmlagg WHERE id='.$id))) {
+	if (!($d = db_saq('SELECT xmlagg_opt, forum_id FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'xmlagg WHERE id='. $id))) {
 		return;
 	}
-	q('DELETE FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'xmlagg WHERE id='.$id);
+	q('DELETE FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'xmlagg WHERE id='. $id);
 	if ($d[0] & 1) {
-		q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'forum SET forum_opt=forum_opt & ~ 2 WHERE id='.$d[1]);
+		q('UPDATE '. $GLOBALS['DBHOST_TBL_PREFIX'] .'forum SET forum_opt='. q_bitand('forum_opt', ~2) .' WHERE id='. $d[1]);
 	}
 }
 
 function xmlagg_reset($id)
 {
-	q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'xmlagg SET last_load_date = 0 WHERE id='.$id);
+	q('UPDATE '. $GLOBALS['DBHOST_TBL_PREFIX'] .'xmlagg SET last_load_date = 0 WHERE id='. $id);
 }
 ?>

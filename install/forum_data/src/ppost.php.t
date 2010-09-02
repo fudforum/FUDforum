@@ -21,7 +21,7 @@ function export_msg_data(&$m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smile
 	$msg_track = $m->pmsg_opt & 4 ? '4' : '';
 	$msg_to_list = char_fix(htmlspecialchars($m->to_list));
 
-	/* we do not revert replacment for forward/quote */
+	/* We do not revert replacment for forward/quote. */
 	if ($repl) {
 		$msg_subject = apply_reverse_replace($msg_subject);
 		$msg_body = apply_reverse_replace($msg_body);
@@ -58,10 +58,10 @@ function export_msg_data(&$m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smile
 	}
 
 	if ($GLOBALS['FUD_OPT_3'] & 32768) {
-		$fldr_size  = q_singleval('SELECT SUM(length) FROM {SQL_TABLE_PREFIX}pmsg WHERE foff>0 AND duser_id='._uid);
-		$fldr_size += q_singleval('SELECT SUM(LENGTH(data)) FROM {SQL_TABLE_PREFIX}pmsg p INNER JOIN {SQL_TABLE_PREFIX}msg_store m ON p.length=m.id WHERE foff<0 AND duser_id='._uid);
+		$fldr_size  = q_singleval('SELECT SUM(length) FROM {SQL_TABLE_PREFIX}pmsg WHERE foff>0 AND duser_id='. _uid);
+		$fldr_size += q_singleval('SELECT SUM(LENGTH(data)) FROM {SQL_TABLE_PREFIX}pmsg p INNER JOIN {SQL_TABLE_PREFIX}msg_store m ON p.length=m.id WHERE foff<0 AND duser_id=' ._uid);
 	} else {
-		$fldr_size = q_singleval('SELECT SUM(length) FROM {SQL_TABLE_PREFIX}pmsg WHERE duser_id='._uid);
+		$fldr_size = q_singleval('SELECT SUM(length) FROM {SQL_TABLE_PREFIX}pmsg WHERE duser_id='. _uid);
 	}
 	if ($fldr_size > $ms) {
 		error_dialog('{TEMPLATE: pm_no_space_title}', '{TEMPLATE: pm_no_space_msg}');
@@ -73,21 +73,21 @@ function export_msg_data(&$m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smile
 	$attach_list = array();
 
 	if (!isset($_POST['prev_loaded'])) {
-		/* setup some default values */
+		/* Setup some default values. */
 		$msg_subject = $msg_body = $msg_icon = $old_subject = $msg_ref_msg_id = '';
 		$msg_track = '';
 		$msg_show_sig = $usr->users_opt & 2048 ? '1' : '';
 		$msg_smiley_disabled = $FUD_OPT_1 & 8192 ? '' : '2';
 		$reply = $forward = $msg_id = 0;
 
-		/* deal with users passed via GET */
+		/* Deal with users passed via GET. */
 		if (isset($_GET['toi']) && ($toi = (int)$_GET['toi'])) {
-			$msg_to_list = q_singleval('SELECT alias FROM {SQL_TABLE_PREFIX}users WHERE id='.$toi.' AND id>1');
+			$msg_to_list = q_singleval('SELECT alias FROM {SQL_TABLE_PREFIX}users WHERE id='. $toi .' AND id>1');
 		} else {
 			$msg_to_list = '';
 		}
 
-		/* see if we have pre-defined subject being passed (via message id) */
+		/* See if we have pre-defined subject being passed (via message id). */
 		if (isset($_GET['rmid']) && ($rmid = (int)$_GET['rmid'])) {
 			fud_use('is_perms.inc');
 			make_perms_query($fields, $join, 't.forum_id');
@@ -95,17 +95,17 @@ function export_msg_data(&$m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smile
 			$msg_subject = q_singleval('SELECT m.subject FROM {SQL_TABLE_PREFIX}msg m 
 							INNER JOIN {SQL_TABLE_PREFIX}thread t ON t.id=m.thread_id
 							'.$join.'
-							LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=t.forum_id AND mm.user_id='._uid.'
-							WHERE m.id='.$rmid.($GLOBALS['is_a'] ? '' : ' AND (mm.id IS NOT NULL OR (COALESCE(g2.group_cache_opt, g1.group_cache_opt) & 2) > 0 )'));
+							LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=t.forum_id AND mm.user_id='. _uid .'
+							WHERE m.id='. $rmid . ($GLOBALS['is_a'] ? '' : ' AND (mm.id IS NOT NULL OR '. q_bitand('COALESCE(g2.group_cache_opt, g1.group_cache_opt)', 2) .' > 0 )'));
 			$msg_subject = html_entity_decode($msg_subject);
 		}
 
-		if (isset($_GET['msg_id']) && ($msg_id = (int)$_GET['msg_id'])) { /* editing a message */
-			if (($msg_r = db_sab('SELECT id, subject, length, foff, to_list, icon, attach_cnt, pmsg_opt, ref_msg_id FROM {SQL_TABLE_PREFIX}pmsg WHERE id='.$msg_id.' AND duser_id='._uid))) {
+		if (isset($_GET['msg_id']) && ($msg_id = (int)$_GET['msg_id'])) { /* Editing a message. */
+			if (($msg_r = db_sab('SELECT id, subject, length, foff, to_list, icon, attach_cnt, pmsg_opt, ref_msg_id FROM {SQL_TABLE_PREFIX}pmsg WHERE id='. $msg_id .' AND duser_id='._uid))) {
 				export_msg_data($msg_r, $msg_subject, $msg_body, $msg_icon, $msg_smiley_disabled, $msg_show_sig, $msg_track, $msg_to_list, 1);
 			}
-		} else if (isset($_GET['quote']) || isset($_GET['forward'])) { /* quote or forward message */
-			if (($msg_r = db_sab('SELECT id, post_stamp, ouser_id, subject, length, foff, to_list, icon, attach_cnt, pmsg_opt, ref_msg_id '.(isset($_GET['quote']) ? ', to_list' : '').' FROM {SQL_TABLE_PREFIX}pmsg WHERE id='.(int)(isset($_GET['quote']) ? $_GET['quote'] : $_GET['forward']).' AND duser_id='._uid))) {
+		} else if (isset($_GET['quote']) || isset($_GET['forward'])) { /* Quote or forward message. */
+			if (($msg_r = db_sab('SELECT id, post_stamp, ouser_id, subject, length, foff, to_list, icon, attach_cnt, pmsg_opt, ref_msg_id '. (isset($_GET['quote']) ? ', to_list' : '') .' FROM {SQL_TABLE_PREFIX}pmsg WHERE id='. (int)(isset($_GET['quote']) ? $_GET['quote'] : $_GET['forward']) .' AND duser_id='. _uid))) {
 				$reply = $quote = isset($_GET['quote']) ? (int)$_GET['quote'] : 0;
 				$forward = isset($_GET['forward']) ? (int)$_GET['forward'] : 0;
 
@@ -113,7 +113,7 @@ function export_msg_data(&$m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smile
 				$msg_id = $msg_to_list = '';
 
 				if ($quote) {
-					$msg_to_list = q_singleval('SELECT alias FROM {SQL_TABLE_PREFIX}users WHERE id='.$msg_r->ouser_id);
+					$msg_to_list = q_singleval('SELECT alias FROM {SQL_TABLE_PREFIX}users WHERE id='. $msg_r->ouser_id);
 				}
 
 				if ($quote) {
@@ -137,7 +137,7 @@ function export_msg_data(&$m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smile
 				}
 			}
 		} else if (isset($_GET['reply']) && ($reply = (int)$_GET['reply'])) {
-			if (($msg_r = db_saq('SELECT p.subject, u.alias FROM {SQL_TABLE_PREFIX}pmsg p INNER JOIN {SQL_TABLE_PREFIX}users u ON p.ouser_id=u.id WHERE p.id='.$reply.' AND p.duser_id='._uid))) {
+			if (($msg_r = db_saq('SELECT p.subject, u.alias FROM {SQL_TABLE_PREFIX}pmsg p INNER JOIN {SQL_TABLE_PREFIX}users u ON p.ouser_id=u.id WHERE p.id='. $reply .' AND p.duser_id='. _uid))) {
 				$msg_subject = $msg_r[0];
 				$msg_to_list = $msg_r[1];
 
@@ -152,7 +152,7 @@ function export_msg_data(&$m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smile
 
 		/* restore file attachments */
 		if (!empty($msg_r->attach_cnt) && $PRIVATE_ATTACHMENTS > 0) {
-			$c = uq('SELECT id FROM {SQL_TABLE_PREFIX}attach WHERE message_id='.$msg_r->id.' AND attach_opt=1');
+			$c = uq('SELECT id FROM {SQL_TABLE_PREFIX}attach WHERE message_id='. $msg_r->id .' AND attach_opt=1');
 	 		while ($r = db_rowarr($c)) {
 	 			$attach_list[$r[0]] = $r[0];
 	 		}
@@ -171,7 +171,7 @@ function export_msg_data(&$m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smile
 		$msg_subject = $_POST['msg_subject'];
 		$old_subject = $_POST['old_subject'];
 		$msg_body = $_POST['msg_body'];
-		$msg_icon = (isset($_POST['msg_icon']) && basename($_POST['msg_icon']) == $_POST['msg_icon'] && @file_exists($WWW_ROOT_DISK.'images/message_icons/'.$_POST['msg_icon'])) ? $_POST['msg_icon'] : '';
+		$msg_icon = (isset($_POST['msg_icon']) && basename($_POST['msg_icon']) == $_POST['msg_icon'] && @file_exists($WWW_ROOT_DISK .'images/message_icons/'. $_POST['msg_icon'])) ? $_POST['msg_icon'] : '';
 		$msg_track = isset($_POST['msg_track']) ? '4' : '';
 		$msg_smiley_disabled = isset($_POST['msg_smiley_disabled']) ? '2' : '';
 		$msg_show_sig = isset($_POST['msg_show_sig']) ? '1' : '';
@@ -186,7 +186,7 @@ function export_msg_data(&$m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smile
 		$msg_id = isset($_POST['msg_id']) ? (int)$_POST['msg_id'] : 0;
 		$msg_ref_msg_id = isset($_POST['msg_ref_msg_id']) ? (int)$_POST['msg_ref_msg_id'] : '';
 
-		/* restore file attachments */
+		/* Restore file attachments. */
 		if (!empty($_POST['file_array']) && $PRIVATE_ATTACHMENTS > 0 && $usr->data === md5($_POST['file_array'])) {
 			$attach_list = unserialize(base64_decode($_POST['file_array']));
 		}
@@ -199,23 +199,23 @@ function export_msg_data(&$m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smile
 				$attach_count++;
 			}
 		}
-		/* remove file attachment */
+		/* Remove file attachment. */
 		if (isset($_POST['file_del_opt'], $attach_list[$_POST['file_del_opt']])) {
 			if ($attach_list[$_POST['file_del_opt']]) {
 				$attach_list[$_POST['file_del_opt']] = 0;
-				/* Remove any reference to the image from the body to prevent broken images */
-				if (strpos($msg_body, '[img]{ROOT}?t=getfile&id='.$_POST['file_del_opt'].'[/img]') !== false) {
-					$msg_body = str_replace('[img]{ROOT}?t=getfile&id='.$_POST['file_del_opt'].'[/img]', '', $msg_body);
+				/* Remove any reference to the image from the body to prevent broken images. */
+				if (strpos($msg_body, '[img]{ROOT}?t=getfile&id='. $_POST['file_del_opt'] .'[/img]') !== false) {
+					$msg_body = str_replace('[img]{ROOT}?t=getfile&id='. $_POST['file_del_opt'] .'[/img]', '', $msg_body);
 				}
-				if (strpos($msg_body, '[img]{FULL_ROOT}{ROOT}?t=getfile&id='.$_POST['file_del_opt'].'[/img]') !== false) {
-					$msg_body = str_replace('[img]{FULL_ROOT}{ROOT}?t=getfile&id='.$_POST['file_del_opt'].'[/img]', '', $msg_body);
+				if (strpos($msg_body, '[img]{FULL_ROOT}{ROOT}?t=getfile&id='. $_POST['file_del_opt'] .'[/img]') !== false) {
+					$msg_body = str_replace('[img]{FULL_ROOT}{ROOT}?t=getfile&id='. $_POST['file_del_opt'] .'[/img]', '', $msg_body);
 				}
 				$attach_count--;
 			}
 		}
 	}
 
-	/* deal with newly uploaded files */
+	/* Deal with newly uploaded files. */
 	if ($PRIVATE_ATTACHMENTS > 0 && isset($_FILES['attach_control']) && $_FILES['attach_control']['size'] > 0) {
 		if ($_FILES['attach_control']['size'] > $PRIVATE_ATTACH_SIZE) {
 			$MAX_F_SIZE = $PRIVATE_ATTACH_SIZE;
@@ -264,10 +264,10 @@ function export_msg_data(&$m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smile
 		if (empty($_POST['msg_id'])) {
 			$msg_p->pmsg_opt = $msg_p->pmsg_opt &~ 96;
 			if ($_POST['reply']) {
-				$msg_p->ref_msg_id = 'R'.$_POST['reply'];
+				$msg_p->ref_msg_id = 'R'. $_POST['reply'];
 				$msg_p->pmsg_opt |= 64;
 			} else if ($_POST['forward']) {
-				$msg_p->ref_msg_id = 'F'.$_POST['forward'];
+				$msg_p->ref_msg_id = 'F'. $_POST['forward'];
 			} else {
 				$msg_p->ref_msg_id = null;
 				$msg_p->pmsg_opt |= 32;
@@ -282,12 +282,12 @@ function export_msg_data(&$m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smile
 		if ($attach_list) {
 			attach_finalize($attach_list, $msg_p->id, 1);
 
-			/* we need to add attachments to all copies of the message */
+			/* We need to add attachments to all copies of the message. */
 			if (!isset($_POST['btn_draft'])) {
 				$atl = array();
-				$c = uq('SELECT id, original_name, mime_type, fsize FROM {SQL_TABLE_PREFIX}attach WHERE message_id='.$msg_p->id.' AND attach_opt=1');
+				$c = uq('SELECT id, original_name, mime_type, fsize FROM {SQL_TABLE_PREFIX}attach WHERE message_id='. $msg_p->id .' AND attach_opt=1');
 				while ($r = db_rowarr($c)) {
-					$atl[$r[0]] = _esc($r[1]).", ".$r[2].", ".$r[3];
+					$atl[$r[0]] = _esc($r[1]) .', '. $r[2] .', '. $r[3];
 				}
 				unset($c);
 				if ($atl) {
@@ -295,14 +295,14 @@ function export_msg_data(&$m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smile
 
 					foreach ($GLOBALS['send_to_array'] as $mid) {
 						foreach ($atl as $k => $v) {
-							$aid = db_qid('INSERT INTO {SQL_TABLE_PREFIX}attach (owner, attach_opt, message_id, original_name, mime_type, fsize, location) VALUES(' . $mid[0] . ', 1, ' . $mid[1] . ', ' . $v .', \'\')');
+							$aid = db_qid('INSERT INTO {SQL_TABLE_PREFIX}attach (owner, attach_opt, message_id, original_name, mime_type, fsize, location) VALUES('. $mid[0] .', 1, '. $mid[1] .', '. $v .', \'\')');
 							$aidl[] = $aid;
-							copy($FILE_STORE . $k . '.atch', $FILE_STORE . $aid . '.atch');
-							@chmod($FILE_STORE . $aid . '.atch', ($FUD_OPT_2 & 8388608 ? 0600 : 0666));
+							copy($FILE_STORE . $k .'.atch', $FILE_STORE . $aid .'.atch');
+							@chmod($FILE_STORE . $aid .'.atch', ($FUD_OPT_2 & 8388608 ? 0600 : 0666));
 						}
 					}
 					$cc = q_concat(_esc($FILE_STORE), 'id', _esc('.atch'));
-					q('UPDATE {SQL_TABLE_PREFIX}attach SET location='.$cc.' WHERE id IN('.implode(',', $aidl).')');
+					q('UPDATE {SQL_TABLE_PREFIX}attach SET location='. $cc .' WHERE id IN('. implode(',', $aidl) .')');
 				}
 			}
 		}
@@ -312,9 +312,9 @@ function export_msg_data(&$m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smile
 		}
 
 		if ($FUD_OPT_2 & 32768) {
-			header('Location: {FULL_ROOT}{ROOT}/pdm/1/'._rsidl);
+			header('Location: {FULL_ROOT}{ROOT}/pdm/1/'. _rsidl);
 		} else {
-			header('Location: {FULL_ROOT}{ROOT}?t=pmsg&'._rsidl.'&fldr=1');
+			header('Location: {FULL_ROOT}{ROOT}?t=pmsg&'. _rsidl .'&fldr=1');
 		}
 		exit;
 	}
@@ -411,7 +411,7 @@ function export_msg_data(&$m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smile
 		$file_attachments = '';
 	}
 
-	if ($reply && ($mm = db_sab('SELECT p.*, u.id AS user_id, u.sig, u.alias, u.users_opt, u.posted_msg_count, u.join_date, u.last_visit FROM {SQL_TABLE_PREFIX}pmsg p INNER JOIN {SQL_TABLE_PREFIX}users u ON p.ouser_id=u.id WHERE p.duser_id='._uid.' AND p.id='.$reply))) {
+	if ($reply && ($mm = db_sab('SELECT p.*, u.id AS user_id, u.sig, u.alias, u.users_opt, u.posted_msg_count, u.join_date, u.last_visit FROM {SQL_TABLE_PREFIX}pmsg p INNER JOIN {SQL_TABLE_PREFIX}users u ON p.ouser_id=u.id WHERE p.duser_id='. _uid .' AND p.id='. $reply))) {
 		fud_use('drawpmsg.inc');
 		$dpmsg_prev_message = $dpmsg_next_message = '';
 		$reference_msg = '{TEMPLATE: reference_msg}';

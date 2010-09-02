@@ -13,10 +13,10 @@ function thx_add($reason_msg, $th, $frm, $req_by)
 {
 	if (!db_locked()) {
 		$ll = 1;
-		db_lock($GLOBALS['DBHOST_TBL_PREFIX'].'thr_exchange WRITE');
+		db_lock($GLOBALS['DBHOST_TBL_PREFIX'] .'thr_exchange WRITE');
 	}
 
-	$id = db_qid('INSERT INTO '.$GLOBALS['DBHOST_TBL_PREFIX'].'thr_exchange (reason_msg,th,frm,req_by) VALUES('._esc(nl2br(htmlspecialchars($reason_msg))).','.$th.','.$frm.','.$req_by.')');
+	$id = db_qid('INSERT INTO '. $GLOBALS['DBHOST_TBL_PREFIX'] .'thr_exchange (reason_msg,th,frm,req_by) VALUES('. _esc(nl2br(htmlspecialchars($reason_msg))) .','. $th .','. $frm .','. $req_by .')');
 
 	if (isset($ll)) {
 		db_unlock();
@@ -27,11 +27,11 @@ function thx_add($reason_msg, $th, $frm, $req_by)
 
 function thx_get($id)
 {
-	return db_sab('SELECT id, reason_msg, th, frm, req_by FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'thr_exchange WHERE id='.$id);
+	return db_sab('SELECT id, reason_msg, th, frm, req_by FROM '. $GLOBALS['DBHOST_TBL_PREFIX']. 'thr_exchange WHERE id='. $id);
 }
 
 function thx_delete($id)
 {
-	q('DELETE FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'thr_exchange WHERE id='.$id);
+	q('DELETE FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'thr_exchange WHERE id='. $id);
 }
 ?>

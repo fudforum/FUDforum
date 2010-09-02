@@ -11,7 +11,7 @@
 
 /*{PRE_HTML_PHP}*/
 
-	/* only admins & moderators have access to this control panel */
+	/* Only admins & moderators have access to this control panel. */
 	if (!_uid) {
 		std_error('login');
 	} else if (!($usr->users_opt & (1048576|524288))) {
@@ -21,9 +21,9 @@
 	$appr = isset($_GET['appr']) ? (int) $_GET['appr'] : 0;
 	$del = isset($_GET['del']) ? (int) $_GET['del'] : 0;
 
-	/* we need to determine wether or not the message exists & if the user has access to approve/delete it */
+	/* We need to determine wether or not the message exists & if the user has access to approve/delete it. */
 	if ($appr || $del) {
-		if (!q_singleval('SELECT CASE WHEN (('.$usr->users_opt.' & 1048576) = 0) THEN mm.id ELSE 1 END FROM {SQL_TABLE_PREFIX}msg m INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON t.forum_id=mm.forum_id AND mm.user_id='._uid.' WHERE m.id='.($appr ? $appr : $del))) {
+		if (!q_singleval('SELECT CASE WHEN ('. q_bitand($usr->users_opt, 1048576) .' = 0) THEN mm.id ELSE 1 END FROM {SQL_TABLE_PREFIX}msg m INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON t.forum_id=mm.forum_id AND mm.user_id='. _uid .' WHERE m.id='. ($appr ? $appr : $del))) {
 			if (db_affected()) {
 				std_error('perms');
 			} else {
@@ -45,10 +45,10 @@
 
 	/*{POST_HTML_PHP}*/
 
-	/* for sanity sake, we only select up to POSTS_PER_PAGE messages, simply because otherwise the form will
+	/* For sanity sake, we only select up to POSTS_PER_PAGE messages, simply because otherwise the form will
 	 * become unmanageable.
 	 */
-	$r = q("SELECT
+	$r = q('SELECT
 		m.*, COALESCE(m.flag_cc, u.flag_cc) AS disp_flag_cc, COALESCE(m.flag_country, u.flag_country) AS disp_flag_country,
 		t.thread_opt, t.root_msg_id, t.last_post_id, t.forum_id,
 		f.message_threshold, f.name AS frm_name,
@@ -63,19 +63,19 @@
 	INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id
 	INNER JOIN {SQL_TABLE_PREFIX}forum f ON t.forum_id=f.id
 	INNER JOIN {SQL_TABLE_PREFIX}fc_view v ON v.f=f.id
-	".($is_a ? '' : ' INNER JOIN {SQL_TABLE_PREFIX}mod mm ON f.id=mm.forum_id AND mm.user_id='._uid.' ')."
+	'. ($is_a ? '' : ' INNER JOIN {SQL_TABLE_PREFIX}mod mm ON f.id=mm.forum_id AND mm.user_id='. _uid .' ') .'
 	INNER JOIN {SQL_TABLE_PREFIX}cat c ON f.cat_id=c.id
 	LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id
 	LEFT JOIN {SQL_TABLE_PREFIX}level l ON u.level_id=l.id
 	LEFT JOIN {SQL_TABLE_PREFIX}poll p ON m.poll_id=p.id
-	LEFT JOIN {SQL_TABLE_PREFIX}poll_opt_track pot ON pot.poll_id=p.id AND pot.user_id="._uid."
+	LEFT JOIN {SQL_TABLE_PREFIX}poll_opt_track pot ON pot.poll_id=p.id AND pot.user_id='. _uid .'
 	WHERE f.forum_opt>=2 AND m.apr=0
-	ORDER BY v.id, m.post_stamp DESC LIMIT ".$POSTS_PER_PAGE);
+	ORDER BY v.id, m.post_stamp DESC LIMIT '. $POSTS_PER_PAGE);
 
 	$modque_message = '';
 	$m_num = 0;
 
-	/* quick cheat to give us full access to the messages ;) */
+	/* Quick cheat to give us full access to the messages ;) */
 	$perms = 2147483647;
 	$_GET['start'] = 0;
 

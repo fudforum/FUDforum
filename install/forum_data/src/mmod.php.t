@@ -37,11 +37,11 @@
 			m.foff, m.length, m.file_id, m.poster_id, u.alias, u.email, m.subject
 			FROM {SQL_TABLE_PREFIX}msg m
 			INNER JOIN {SQL_TABLE_PREFIX}thread t ON t.id=m.thread_id
-			LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=t.forum_id AND mm.user_id='._uid.'
-			INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id='.(_uid ? '2147483647': '0').' AND g1.resource_id=t.forum_id
-			LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g2.resource_id=t.forum_id
+			LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=t.forum_id AND mm.user_id='. _uid .'
+			INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id='. (_uid ? '2147483647': '0') .' AND g1.resource_id=t.forum_id
+			LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='. _uid .' AND g2.resource_id=t.forum_id
 			LEFT JOIN {SQL_TABLE_PREFIX}users u ON u.id=m.poster_id
-			WHERE m.id='.$del))) {
+			WHERE m.id='. $del))) {
 			check_return($usr->returnto);
 		}
 
@@ -73,7 +73,7 @@
 				if ($body) {
 					/* PM disabled, notification will be sent via e-mail. */
 					if ($FUD_OPT_1 & 1024) {
-						/* will be done by send_status_update() */
+						/* Will be done by send_status_update(). */
 						$body = str_replace('<br />', '', $body);
 					} else {
 						$body = strip_tags($body);
@@ -86,15 +86,15 @@
 			}
 
 			if ($data[2] == $data[4]) {
-				logaction(_uid, 'DELTHR', 0, '"'.$data[3].'" w/'.$data[6].' replies');
+				logaction(_uid, 'DELTHR', 0, '"'. $data[3] .'" w/'. $data[6] .' replies');
 
 				fud_msg_edit::delete(true, $data[2], 1);
 
 				if (strpos($usr->returnto, 'selmsg') === false) {
 					if ($FUD_OPT_2 & 32768) {
-						header('Location: {FULL_ROOT}{ROOT}/f/'.$data[0].'/'._rsidl);
+						header('Location: {FULL_ROOT}{ROOT}/f/'. $data[0] .'/'. _rsidl);
 					} else {
-						header('Location: {FULL_ROOT}{ROOT}?t='.t_thread_view.'&'._rsidl.'&frm_id='.$data[0]);
+						header('Location: {FULL_ROOT}{ROOT}?t='. t_thread_view .'&'. _rsidl .'&frm_id='. $data[0]);
 					}
 					exit;
 				} else {
@@ -113,34 +113,34 @@
 		if (d_thread_view == 'tree') {
 			if (!$data[5]) {
 				if ($FUD_OPT_2 & 32768) {
-					header('Location: {FULL_ROOT}{ROOT}/mv/tree/'.$data[1].'/'._rsidl);
+					header('Location: {FULL_ROOT}{ROOT}/mv/tree/'. $data[1] .'/'. _rsidl);
 				} else {
-					header('Location: {FULL_ROOT}{ROOT}?t=tree&'._rsidl.'&th='.$data[1]);
+					header('Location: {FULL_ROOT}{ROOT}?t=tree&'. _rsidl .'&th='. $data[1]);
 				}
 			} else {
 				if ($FUD_OPT_2 & 32768) {
-					header('Location: {FULL_ROOT}{ROOT}/mv/tree/'.$data[1].'/'.$data[5].'/'._rsidl);
+					header('Location: {FULL_ROOT}{ROOT}/mv/tree/'. $data[1] .'/'. $data[5] .'/'. _rsidl);
 				} else {
-					header('Location: {FULL_ROOT}{ROOT}?t=tree&'._rsidl.'&th='.$data[1].'&mid='.$data[5]);
+					header('Location: {FULL_ROOT}{ROOT}?t=tree&'. _rsidl .'&th='. $data[1] .'&mid='. $data[5]);
 				}
 			}
 		} else {
-			$prev_id = q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}msg WHERE thread_id='.$data[1].' AND id < '.$data[2].' ORDER BY id DESC LIMIT 1');
+			$prev_id = q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}msg WHERE thread_id='. $data[1] .' AND id < '. $data[2] .' ORDER BY id DESC LIMIT 1');
 		
 			if ($FUD_OPT_2 & 32768) {
-				header('Location: {FULL_ROOT}{ROOT}/mv/msg/'.$data[1].'/'.$prev_id.'/'._rsidl);
+				header('Location: {FULL_ROOT}{ROOT}/mv/msg/'. $data[1] .'/'. $prev_id .'/'. _rsidl);
 			} else {
-				header('Location: {FULL_ROOT}{ROOT}?t=msg&th='.$data[1].'&'._rsidl.'&goto='.$prev_id);
+				header('Location: {FULL_ROOT}{ROOT}?t=msg&th='. $data[1] .'&'. _rsidl .'&goto='. $prev_id);
 			}
 		}
 		exit;
 	} else if ($th && (!isset($_GET['th']) || sq_check(0, $usr->sq))) {
 		if (!($data = db_saq('SELECT mm.id, COALESCE(g2.group_cache_opt, g1.group_cache_opt) AS gco
 			FROM {SQL_TABLE_PREFIX}thread t
-			LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=t.forum_id AND mm.user_id='._uid.'
-			INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id='.(_uid ? '2147483647': '0').' AND g1.resource_id=t.forum_id
-			LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g2.resource_id=t.forum_id
-			WHERE t.id='.$th))) {
+			LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=t.forum_id AND mm.user_id='. _uid .'
+			INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id='. (_uid ? '2147483647': '0') .' AND g1.resource_id=t.forum_id
+			LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='. _uid .' AND g2.resource_id=t.forum_id
+			WHERE t.id='. $th))) {
 			check_return($usr->returnto);
 		}
 		if (!$data[0] && !($data[1] & 4096) && !$is_a) {

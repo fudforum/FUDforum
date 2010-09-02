@@ -12,14 +12,14 @@
 function match_user_to_post($from_email, $from_name, $create_users, &$user_id, $reg_date=0)
 {
 	/* Try to identify user by email. */
-	$user_id = q_singleval('SELECT id FROM '.sql_p.'users WHERE email='._esc($from_email));
+	$user_id = q_singleval('SELECT id FROM '. sql_p .'users WHERE email='. _esc($from_email));
 
 	/* If user was not found via email, try to look the user up by login. */
 	if (empty($user_id) && !empty($from_name)) {
 		if ($GLOBALS['FUD_OPT_2'] & 128) {
-			$user_id = q_singleval('SELECT id FROM '.sql_p.'users WHERE alias='._esc(make_alias($from_name)));
+			$user_id = q_singleval('SELECT id FROM '. sql_p .'users WHERE alias='. _esc(make_alias($from_name)));
 		} else {
-			$user_id = q_singleval('SELECT id FROM '.sql_p.'users WHERE login='._esc($from_name));
+			$user_id = q_singleval('SELECT id FROM '. sql_p .'users WHERE login='. _esc($from_name));
 		}
 	}
 
@@ -50,14 +50,14 @@ function create_new_user($from_name, $from_email, $reg_date=0)
 	 * This code ensures that creation of user does not fail in the event another user on the forum
 	 * is already signed up under the same login name and/or alias.
 	 */
-	while (q_singleval('SELECT id FROM '.sql_p.'users WHERE login='._esc($user->login))) {
-		$user->login = $login.'['.$i++.']';
+	while (q_singleval('SELECT id FROM '. sql_p .'users WHERE login='. _esc($user->login))) {
+		$user->login = $login .'['. $i++ .']';
 	}
 
 	$alias = $user->alias = htmlspecialchars($user->login);
 
-	while (q_singleval('SELECT id FROM '.sql_p.'users WHERE alias='._esc($user->alias))) {
-		$user->alias = $alias.'['.$i++.']';
+	while (q_singleval('SELECT id FROM '. sql_p .'users WHERE alias='. _esc($user->alias))) {
+		$user->alias = $alias .'['. $i++ .']';
 	}
 
 	$user->email =& $from_email;
@@ -78,7 +78,7 @@ function get_fud_reply_id($complex, $forum_id, $subject, $data)
 		}
 
 		foreach ($data as $reply_id) {
-			if (($r = db_saq('SELECT m.id, m.thread_id FROM '.sql_p.'msg m INNER JOIN '.sql_p.'thread t ON m.thread_id=t.id WHERE m.mlist_msg_id='._esc($reply_id).' AND t.forum_id='.$forum_id.' ORDER BY m.post_stamp DESC LIMIT 1'))) {
+			if (($r = db_saq('SELECT m.id, m.thread_id FROM '. sql_p .'msg m INNER JOIN '. sql_p .'thread t ON m.thread_id=t.id WHERE m.mlist_msg_id='. _esc($reply_id) .' AND t.forum_id='. $forum_id .' ORDER BY m.post_stamp DESC LIMIT 1'))) {
 				break;
 			}
 		}
@@ -87,9 +87,9 @@ function get_fud_reply_id($complex, $forum_id, $subject, $data)
 		// This is slow, but only way to match 'rouge' replies in the event no reference fields are available.
 		// Reply prefix for most languages is "Re:",  "AW:" for German, etc.
 		if (preg_match('!(?:Re|AW|Wa)\s*:\s*(.*)$!i', $subject, $matches)) {
-			$r = db_saq('SELECT m.id, m.thread_id FROM '.sql_p.'msg m INNER JOIN '.sql_p.'thread t ON m.thread_id=t.id WHERE t.forum_id='.$forum_id.' AND m.subject='.ssn(trim($matches[1])).' ORDER BY m.post_stamp');
+			$r = db_saq('SELECT m.id, m.thread_id FROM '. sql_p .'msg m INNER JOIN '. sql_p .'thread t ON m.thread_id=t.id WHERE t.forum_id='. $forum_id .' AND m.subject='. ssn(trim($matches[1])) .' ORDER BY m.post_stamp');
 			if (!$r) {
-				$r = db_saq('SELECT m.id, m.thread_id FROM '.sql_p.'msg m INNER JOIN '.sql_p.'thread t ON m.thread_id=t.id WHERE t.forum_id='.$forum_id.' AND m.subject LIKE '.addcslashes(_esc(trim($matches[1]).'%'),'_').' ORDER BY m.post_stamp DESC LIMIT 1');
+				$r = db_saq('SELECT m.id, m.thread_id FROM '. sql_p .'msg m INNER JOIN '. sql_p .'thread t ON m.thread_id=t.id WHERE t.forum_id='. $forum_id .' AND m.subject LIKE '. addcslashes(_esc(trim($matches[1]).'%'),'_').' ORDER BY m.post_stamp DESC LIMIT 1');
 			}
 		}
 	}

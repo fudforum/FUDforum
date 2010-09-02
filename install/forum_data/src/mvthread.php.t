@@ -27,7 +27,7 @@
 			return;
 		}
 
-		if (!$is_a && q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}mod WHERE forum_id='.$thx.' AND user_id='._uid)) {
+		if (!$is_a && q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}mod WHERE forum_id='. $thx .' AND user_id='. _uid)) {
 			std_error('access');
 		}
 
@@ -38,7 +38,7 @@
 			}
 			exit('<html><script>window.close();</script></html>');
 		} else {
-			$thr = db_sab('SELECT f.name AS frm_name, m.subject FROM {SQL_TABLE_PREFIX}forum f INNER JOIN {SQL_TABLE_PREFIX}thread t ON t.id='.$th.' INNER JOIN {SQL_TABLE_PREFIX}msg m ON t.root_msg_id=m.id WHERE f.id='.$thx);
+			$thr = db_sab('SELECT f.name AS frm_name, m.subject FROM {SQL_TABLE_PREFIX}forum f INNER JOIN {SQL_TABLE_PREFIX}thread t ON t.id='. $th .' INNER JOIN {SQL_TABLE_PREFIX}msg m ON t.root_msg_id=m.id WHERE f.id='. $thx);
 			if (!$thr) {
 				invl_inp_err();
 			}
@@ -55,19 +55,19 @@
 		$thr = db_sab('SELECT
 				t.id, t.forum_id, t.last_post_id, t.root_msg_id, t.last_post_date, t.last_post_id, t.tdescr,
 				f1.last_post_id AS f1_lpi, f2.last_post_id AS f2_lpi,
-				'.($is_a ? ' 1 AS mod1, 1 AS mod2' : ' mm1.id AS mod1, mm2.id AS mod2').',
+				'. ($is_a ? ' 1 AS mod1, 1 AS mod2' : ' mm1.id AS mod1, mm2.id AS mod2') .',
 				COALESCE(gs2.group_cache_opt, gs1.group_cache_opt) AS sgco,
 				COALESCE(gd2.group_cache_opt, gd1.group_cache_opt) AS dgco
 			FROM {SQL_TABLE_PREFIX}thread t
 			INNER JOIN {SQL_TABLE_PREFIX}forum f1 ON t.forum_id=f1.id
-			INNER JOIN {SQL_TABLE_PREFIX}forum f2 ON f2.id='.$to.'
-			LEFT JOIN {SQL_TABLE_PREFIX}mod mm1 ON mm1.forum_id=f1.id AND mm1.user_id='._uid.'
-			LEFT JOIN {SQL_TABLE_PREFIX}mod mm2 ON mm2.forum_id=f2.id AND mm2.user_id='._uid.'
+			INNER JOIN {SQL_TABLE_PREFIX}forum f2 ON f2.id='. $to .'
+			LEFT JOIN {SQL_TABLE_PREFIX}mod mm1 ON mm1.forum_id=f1.id AND mm1.user_id='. _uid .'
+			LEFT JOIN {SQL_TABLE_PREFIX}mod mm2 ON mm2.forum_id=f2.id AND mm2.user_id='. _uid .'
 			INNER JOIN {SQL_TABLE_PREFIX}group_cache gs1 ON gs1.user_id=2147483647 AND gs1.resource_id=f1.id
-			LEFT JOIN {SQL_TABLE_PREFIX}group_cache gs2 ON gs2.user_id='._uid.' AND gs2.resource_id=f1.id
+			LEFT JOIN {SQL_TABLE_PREFIX}group_cache gs2 ON gs2.user_id='. _uid .' AND gs2.resource_id=f1.id
 			INNER JOIN {SQL_TABLE_PREFIX}group_cache gd1 ON gd1.user_id=2147483647 AND gd1.resource_id=f2.id
-			LEFT JOIN {SQL_TABLE_PREFIX}group_cache gd2 ON gd2.user_id='._uid.' AND gd2.resource_id=f2.id
-			WHERE t.id='.$th);
+			LEFT JOIN {SQL_TABLE_PREFIX}group_cache gd2 ON gd2.user_id='. _uid .' AND gd2.resource_id=f2.id
+			WHERE t.id='. $th);
 
 		if (!$thr) {
 			invl_inp_err();
@@ -77,28 +77,28 @@
 			std_error('access');
 		}
 
-		/* fetch data about source thread & forum */
+		/* Fetch data about source thread & forum. */
 		$src_frm_lpi = (int) $thr->f1_lpi;
-		/* fetch data about dest forum */
+		/* Fetch data about dest forum. */
 		$dst_frm_lpi = (int) $thr->f2_lpi;
 
 		th_move($thr->id, $to, $thr->root_msg_id, $thr->forum_id, $thr->last_post_date, $thr->last_post_id, $thr->tdescr);
 
 		if ($src_frm_lpi == $thr->last_post_id) {
-			$mid = (int) q_singleval('SELECT MAX(last_post_id) FROM {SQL_TABLE_PREFIX}thread t INNER JOIN {SQL_TABLE_PREFIX}msg m ON t.root_msg_id=m.id WHERE t.forum_id='.$thr->forum_id.' AND t.moved_to=0 AND m.apr=1');
-			q('UPDATE {SQL_TABLE_PREFIX}forum SET last_post_id='.$mid.' WHERE id='.$thr->forum_id);
+			$mid = (int) q_singleval('SELECT MAX(last_post_id) FROM {SQL_TABLE_PREFIX}thread t INNER JOIN {SQL_TABLE_PREFIX}msg m ON t.root_msg_id=m.id WHERE t.forum_id='. $thr->forum_id .' AND t.moved_to=0 AND m.apr=1');
+			q('UPDATE {SQL_TABLE_PREFIX}forum SET last_post_id='. $mid .' WHERE id='. $thr->forum_id);
 		}
 
 		if ($dst_frm_lpi < $thr->last_post_id) {
-			q('UPDATE {SQL_TABLE_PREFIX}forum SET last_post_id='.$thr->last_post_id.' WHERE id='.$to);
+			q('UPDATE {SQL_TABLE_PREFIX}forum SET last_post_id='. $thr->last_post_id .' WHERE id='. $to);
 		}
 
 		logaction(_uid, 'THRMOVE', $th);
 
 		if ($FUD_OPT_2 & 32768 && !empty($_SERVER['PATH_INFO'])) {
-			exit('<html><script>window.opener.location=\'{FULL_ROOT}{ROOT}/f/'.$thr->forum_id."/"._rsid."'; window.close();</script></html>");
+			exit('<html><script>window.opener.location=\'{FULL_ROOT}{ROOT}/f/'. $thr->forum_id .'/'. _rsid .'\'; window.close();</script></html>');
 		} else {
-			exit('<html><script>window.opener.location=\'{FULL_ROOT}{ROOT}?t='.t_thread_view."&"._rsid."&frm_id=".$thr->forum_id."'; window.close();</script></html>");
+			exit('<html><script>window.opener.location=\'{FULL_ROOT}{ROOT}?t='. t_thread_view .'&'. _rsid .'&frm_id='. $thr->forum_id .'\'; window.close();</script></html>');
 		}
 	}
 
@@ -114,15 +114,15 @@
 			FROM {SQL_TABLE_PREFIX}forum f
 			INNER JOIN {SQL_TABLE_PREFIX}fc_view v ON v.f=f.id
 			INNER JOIN {SQL_TABLE_PREFIX}cat c ON c.id=v.c
-			LEFT JOIN {SQL_TABLE_PREFIX}mod m ON m.user_id='._uid.' AND m.forum_id=f.id
+			LEFT JOIN {SQL_TABLE_PREFIX}mod m ON m.user_id='. _uid. ' AND m.forum_id=f.id
 			INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=2147483647 AND g1.resource_id=f.id
-			LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g2.resource_id=f.id
-			WHERE c.id!=0 AND f.url_redirect IS NULL AND f.id!='.$thr->forum_id.($is_a ? '' : ' AND (CASE WHEN m.user_id IS NOT NULL OR (COALESCE(g2.group_cache_opt, g1.group_cache_opt) & 1) > 0 THEN 1 ELSE 0 END)=1').'
+			LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='. _uid .' AND g2.resource_id=f.id
+			WHERE c.id!=0 AND f.url_redirect IS NULL AND f.id!='. $thr->forum_id . ($is_a ? '' : ' AND (CASE WHEN m.user_id IS NOT NULL OR '. q_bitand('COALESCE(g2.group_cache_opt, g1.group_cache_opt)', 1) .' > 0 THEN 1 ELSE 0 END)=1') .'
 			ORDER BY v.id');
 
 		$table_data = $oldc = '';
 
-		require $FORUM_SETTINGS_PATH.'cat_cache.inc';
+		require $FORUM_SETTINGS_PATH .'cat_cache.inc';
 		while ($r = db_rowarr($c)) {
 			if ($oldc != $r[2]) {
 				while (list($k, $i) = each($cat_cache)) {

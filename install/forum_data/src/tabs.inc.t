@@ -41,14 +41,14 @@ if (_uid) {
 		$pg = ($_GET['t'] == 'pmsg_view' || $_GET['t'] == 'ppost') ? 'pmsg' : $_GET['t'];
 
 		foreach($tablist as $tab_name => $tab) {
-			$tab_url = '{ROOT}?t='.$tab.(s ? '&amp;S='.s : '');
+			$tab_url = '{ROOT}?t='. $tab . (s ? '&amp;S='. s : '');
 			if ($tab == 'referals') {
 				if (!($FUD_OPT_2 & 8192)) {
 					continue;
 				}
-				$tab_url .= '&amp;id='._uid;
+				$tab_url .= '&amp;id='. _uid;
 			} else if ($tab == 'showposts') {
-				$tab_url .= '&amp;id='._uid;
+				$tab_url .= '&amp;id='. _uid;
 			}
 			$tabs .= $pg == $tab ? '{TEMPLATE: active_tab}' : '{TEMPLATE: inactive_tab}';
 		}

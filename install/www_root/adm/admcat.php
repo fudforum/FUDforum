@@ -221,7 +221,7 @@ function imposeMaxLength(Object, len)
 
 <table class="resulttable fulltable">
 <thead><tr class="resulttopic">
-	<th>Category Name</th>
+	<th>Name</th>
 	<th>Description</th>
 	<th>Collapsible</th>
 	<th>Default View</th>
@@ -255,9 +255,9 @@ function imposeMaxLength(Object, len)
 			$r->description = substr($r->description, 3);
 		}
 
-		echo '<tr'. $bgcolor .'>
+		echo '<tr'. $bgcolor .' title="'. htmlspecialchars($r->description) .'">
 			<td>'. str_repeat('-', $r->lvl) .' '. $r->name .'</td>
-			<td>'. htmlspecialchars(substr($r->description, 0, 30)) .'...</td>
+			<td><font size="-1">'. htmlspecialchars(substr($r->description, 0, 30)) .'...</font></td>
 			<td>'. ($r->cat_opt & 1 ? 'Yes' : 'No') .'</td>
 			<td>'. $stat[($r->cat_opt & (2|4))] .'</td>
 			<td nowrap="nowrap">[<a href="admforum.php?cat_id='. $r->id .'&amp;'. __adm_rsid .'">Edit Forums</a>] [<a href="admcat.php?edit='. $r->id .'&amp;'. __adm_rsid .'#edit">Edit Category</a>] [<a href="admcat.php?del='. $r->id .'&amp;'. __adm_rsid .'">Delete</a>]</td>

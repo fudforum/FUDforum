@@ -32,7 +32,7 @@ function draw_calendar($year, $month, $events = array(), $size = 'large', $highl
 
 	/* Table headings. */
 	$calendar = '<table cellpadding="0" cellspacing="0" class="calendar">';
-	$calendar .= '<tr class="calendar-row"><td class="calendar-day-head">'.implode('</td><td class="calendar-day-head">',$weekdays).'</td></tr>';
+	$calendar .= '<tr class="calendar-row"><td class="calendar-day-head">'. implode('</td><td class="calendar-day-head">', $weekdays).'</td></tr>';
 	$calendar .= '<tr class="calendar-row">';
 
 	/* Days and weeks vars. */
@@ -117,14 +117,13 @@ function get_events($year, $month, $day = 0) {
 			$yyyy = substr($r[1], 4);
 			$mm = substr($r[1], 0, 2);
 			$dd = substr($r[1], 2, 2);
-			// echo "Het verjaasdag: ". $r[0] .' vir '. $yyyy . $mm . $dd .'<hr>';
 			$age = $year - $yyyy;
-			$events[ $year . $mm . $dd ][] = 'Birthday: '. $r[0] . ' ('. $age .' years old)'; // Replace birth year with current year.
+			$events[ $year . $mm . $dd ][] = 'Birthday: '. $r[0] .' ('. $age .' years old)'; // Replace birth year with current year.
 		}
 	}
 
 	/* Defined events. */
-	$c = uq('SELECT day, descr, link FROM {SQL_TABLE_PREFIX}calendar WHERE (month=\''.$month.'\' AND year=\''.$year.'\') OR (month=\'*\' AND year=\''.$year.'\') OR (month=\''.$month.'\' AND year=\'*\') OR (month=\'*\' AND year=\'*\')');
+	$c = uq('SELECT day, descr, link FROM {SQL_TABLE_PREFIX}calendar WHERE (month=\''. $month .'\' AND year=\''. $year .'\') OR (month=\'*\' AND year=\''. $year .'\') OR (month=\''. $month .'\' AND year=\'*\') OR (month=\'*\' AND year=\'*\')');
 	while ($r = db_rowarr($c)) {
 		if (empty($r[2])) {
 			$events[ sprintf('%04d%02d%02d', $year, $month, $r[0]) ][] = $r[1];

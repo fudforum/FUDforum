@@ -138,7 +138,7 @@ function q_concat($arg)
 	return implode('+', $tmp);
 }
 
-function q_limit($query, $limit, $off)
+function q_limit($query, $limit, $off=0)
 {
 	if ($off) {
 		return 'SELECT TOP '. $limit .' FROM (SELECT TOP '. ($limit/$off)*$limit . substr($query, 6) .')';
@@ -159,11 +159,11 @@ function q_limit($query, $limit, $off)
 }
 
 function q_bitand($fieldLeft, $fieldRight) {
-	return $fieldLeft .'&'. $fieldRight;
+	return $fieldLeft .' & '. $fieldRight;
 }
 
 function q_bitor($fieldLeft, $fieldRight) {
-	return $fieldLeft .'|'. $fieldRight;
+	return $fieldLeft .' | '. $fieldRight;
 }
 
 function q_bitnot($bitField) {

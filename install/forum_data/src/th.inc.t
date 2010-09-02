@@ -11,7 +11,7 @@
 
 function th_lock($id, $lck)
 {
-	q('UPDATE {SQL_TABLE_PREFIX}thread SET thread_opt=(thread_opt|1)'. (!$lck ? '& ~ 1' : ''). ' WHERE id='. $id);
+	q('UPDATE {SQL_TABLE_PREFIX}thread SET thread_opt=('. (!$lck ? q_bitand('thread_opt', ~1) : q_bitor('thread_opt', 1)) .') WHERE id='. $id);
 }
 
 function th_inc_view_count($id)

@@ -165,7 +165,7 @@ if (!extension_loaded('posix')) {
 				require($WWW_ROOT_DISK .'adm/footer.php');
 				exit;
 			} else {
-				exit('<html><script type="text/javascript"> window.opener.location = \'admbrowse.php?'.__adm_rsidl.'&cur='.urlencode($cur_dir).'\'; window.close();</script></html>');
+				exit('<html><script type="text/javascript"> window.opener.location = \'admbrowse.php?'. __adm_rsidl .'&cur='. urlencode($cur_dir) .'\'; window.close();</script></html>');
 			}
 		} else {
 			$file = $cur_dir .'/'. $dest;
@@ -219,7 +219,7 @@ if (!extension_loaded('posix')) {
 			require($WWW_ROOT_DISK .'adm/header.php');
 		?>
 			<h2>Rename File</h2>
-			<p>Rename <?php echo $type.' <span style="color:red"><b>'.$file.'</b></span>'; ?>:</p>
+			<p>Rename <?php echo $type .' <span style="color:red"><b>'. $file .'</b></span>'; ?>:</p>
 			<form method="get" action="admbrowse.php">
 			<input type="hidden" name="cur" value="<?php echo $cur_dir; ?>" />
 			<input type="hidden" name="dest" value="<?php echo $dest; ?>" />
@@ -236,7 +236,7 @@ if (!extension_loaded('posix')) {
 
 	/* Change file/directory mode. */
 	if (isset($_GET['chmod'])) {
-		$file = $cur_dir.'/'.$dest;
+		$file = $cur_dir .'/'. $dest;
 		$st = stat($file);
 		if (!isset($st[2])) {
 			$st[2] = $st['mode'];
@@ -290,17 +290,17 @@ if (!extension_loaded('posix')) {
 		if (!@chmod($file, $new_mode)) {
 			exit('<html>Unable to chmod <b>'.$file.'</b><br /><a href="#" onclick="window.close();">close</a></html>');
 		} else {
-			exit('<html><script type="text/javascript"> window.opener.location = \'admbrowse.php?'.__adm_rsidl.'&cur='.urlencode($cur_dir).'\'; window.close();</script></html>');
+			exit('<html><script type="text/javascript"> window.opener.location = \'admbrowse.php?'. __adm_rsidl .'&cur='. urlencode($cur_dir) .'\'; window.close();</script></html>');
 		}
 	}
 
 	/* Print header & menu. No code for popup windows beyond this point. */
-	require($WWW_ROOT_DISK . 'adm/header.php');
+	require($WWW_ROOT_DISK .'adm/header.php');
 		
 	/* Directory creation code. */
 	if (isset($_GET['btn_mkdir']) && !empty($_GET['mkdir'])) {
 		$u = umask(0);
-		if (!@mkdir($cur_dir . '/' . basename($_GET['mkdir']), ($FUD_OPT_2 & 8388608 ? 0700 : 0777))) {
+		if (!@mkdir($cur_dir .'/'. basename($_GET['mkdir']), ($FUD_OPT_2 & 8388608 ? 0700 : 0777))) {
 			echo errorify('ERROR: failed to create '. $cur_dir .'/'. basename($_GET['mkdir']) .'.');
 		} else {
 			echo successify('Directory '. $cur_dir .'/'. basename($_GET['mkdir']) .' successfully created.');
@@ -311,7 +311,7 @@ if (!extension_loaded('posix')) {
 	/* File upload code. */
 	if (isset($_FILES['fname']) && $_FILES['fname']['size']) {
 		$fdest = !empty($_POST['d_name']) ? $_POST['d_name'] : $_FILES['fname']['name'];
-		$fdest = $cur_dir . '/' . basename($fdest);
+		$fdest = $cur_dir .'/'. basename($fdest);
 		if (move_uploaded_file($_FILES['fname']['tmp_name'], $fdest)) {
 			@chmod($fdest, ($FUD_OPT_2 & 8388608 ? 0600 : 0666));
 			echo successify('File <i>'. basename($fdest) .'</i> was successfully uploaded.'.
@@ -356,15 +356,15 @@ if (!extension_loaded('posix')) {
 			echo '<table border="1" cellpadding="25"><tr><td>';
 			echo '<img src="'. $WWW_ROOT . substr($file, strlen($WWW_ROOT_DISK)) .'">';
 			echo '</td></tr></table>';
-			echo '<p><a href="admbrowse.php?'.__adm_rsid.'&amp;cur='.urlencode($cur_dir).'">&laquo; Back to file manager</a></p>';
+			echo '<p><a href="admbrowse.php?'. __adm_rsid .'&amp;cur='. urlencode($cur_dir) .'">&laquo; Back to file manager</a></p>';
 			exit;
 		} elseif (is_file($file) && is_readable($file)) {
 			$raw = (isset($_GET['raw']) && $_GET['raw'] == 1) ? 1 : 0;
 
 			echo '<h2>View file: '. $dest .'</h2>';
 			echo '<div style="font-size: small;">';
-			echo '[ <a href="admbrowse.php?down=1&amp;dest='.urlencode($dest).'&amp;cur='.urlencode($cur_dir).'&smp;'.__adm_rsid.'">Download</a> ] ';
-			echo '[ <a href="admbrowse.php?view=1&amp;raw='.($raw ? 0 : 1).'&amp;dest='.urlencode($dest).'&amp;cur='.urlencode($cur_dir).'&smp;'.__adm_rsid.'">Toggle syntax highlighting</a> ]';
+			echo '[ <a href="admbrowse.php?down=1&amp;dest='. urlencode($dest) .'&amp;cur='. urlencode($cur_dir) .'&smp;'. __adm_rsid .'">Download</a> ] ';
+			echo '[ <a href="admbrowse.php?view=1&amp;raw='. ($raw ? 0 : 1) .'&amp;dest='. urlencode($dest) .'&amp;cur='. urlencode($cur_dir). '&smp;'. __adm_rsid .'">Toggle syntax highlighting</a> ]';
 			echo '</div>';
 			echo '<code><pre>';
 			if ($raw) {
@@ -373,7 +373,7 @@ if (!extension_loaded('posix')) {
 				echo '<br />'. htmlentities(file_get_contents($file)) .'<br />&nbsp;';
 			}
 			echo '</pre></code>';
-			echo '<p><a href="admbrowse.php?'.__adm_rsid.'&amp;cur='.urlencode($cur_dir).'">&laquo; Back to file manager</a></p>';
+			echo '<p><a href="admbrowse.php?'. __adm_rsid .'&amp;cur='. urlencode($cur_dir) .'">&laquo; Back to file manager</a></p>';
 			exit;
 		} else {
 			echo errorify('File not found: '. $file);
@@ -386,10 +386,10 @@ if (!extension_loaded('posix')) {
 		$cur_dir = $ROOT_PATH[0];
 	}
 
-	echo 'Currently browsing: <b>'.htmlspecialchars($cur_dir)."</b><br />\n";
+	echo 'Currently browsing: <b>'. htmlspecialchars($cur_dir) ."</b><br />\n";
 	echo 'Go to directory: ';
-	echo '[ <a href="admbrowse.php?'.__adm_rsid.'&amp;cur='.urlencode($ROOT_PATH[0]).'" title="'.htmlentities($ROOT_PATH[0]).'">WWW_SERVER_ROOT</a> ] ';
-	echo '[ <a href="admbrowse.php?'.__adm_rsid.'&amp;cur='.urlencode($ROOT_PATH[1]).'" title="'.htmlentities($ROOT_PATH[1]).'">DATA_ROOT</a> ]<br />';
+	echo '[ <a href="admbrowse.php?'. __adm_rsid .'&amp;cur='. urlencode($ROOT_PATH[0]) .'" title="Navigate to '. htmlentities($ROOT_PATH[0]) .'">WWW_SERVER_ROOT</a> ] ';
+	echo '[ <a href="admbrowse.php?'. __adm_rsid .'&amp;cur='. urlencode($ROOT_PATH[1]) .'" title="Navigate to '. htmlentities($ROOT_PATH[1]) .'">DATA_ROOT</a> ]<br />';
 
 	clearstatcache();
 	if (!is_readable($cur_dir)) {
@@ -398,7 +398,7 @@ if (!extension_loaded('posix')) {
 	}
 
 	// Print README file.
-	$readme_file = $cur_dir.'/README';
+	$readme_file = $cur_dir .'/README';
 	if (is_file($readme_file)) {
 		echo '<div class="dismiss"><code><pre><b>README:</b> '. htmlentities(file_get_contents($readme_file)) .'</pre></code></div>';
 	}
@@ -447,7 +447,7 @@ if (!extension_loaded('posix')) {
 	$file_list = array();
 	$dir_list = array('.', '..');
 
-	if (($files = glob(realpath($cur_dir) . '/*', GLOB_NOSORT))) {
+	if (($files = glob(realpath($cur_dir) .'/*', GLOB_NOSORT))) {
 		foreach ($files as $file) {
 			$n = basename($file);
 			if (is_dir($file)) {
@@ -466,13 +466,13 @@ if (!extension_loaded('posix')) {
 	$cur_enc = urlencode($cur_dir);
 
 	foreach($dir_data as $de) {
-		$fpath = $cur_dir . '/' . $de;
+		$fpath = $cur_dir .'/'. $de;
 
 		if (@is_file($fpath)) {
-			$name = '<a href="admbrowse.php?view=1&dest='.htmlspecialchars($de).'&cur='.urlencode($cur_dir).'&amp;'.__adm_rsid.'" title="View file">'.htmlspecialchars($de).'</a>';
+			$name = '<a href="admbrowse.php?view=1&dest='. htmlspecialchars($de) .'&cur='. urlencode($cur_dir) .'&amp;'. __adm_rsid .'" title="View file">'. htmlspecialchars($de) .'</a>';
 			$st = stat($fpath);
 		} else if (@is_dir($fpath)) {
-			$name = '<a href="admbrowse.php?cur='.urlencode($fpath).'&amp;'.__adm_rsid.'" title="Change directory">'.htmlspecialchars($de).'</a>';
+			$name = '<a href="admbrowse.php?cur='. urlencode($fpath) .'&amp;' .__adm_rsid .'" title="Change directory">'. htmlspecialchars($de) .'</a>';
 			$st = stat($fpath);
 		}
 
@@ -510,14 +510,14 @@ if (!extension_loaded('posix')) {
 		echo '<td>';
 		if (@is_readable($fpath)) {
 			if (@is_writeable($fpath) && !preg_match('/WIN/', PHP_OS)) {
-				echo ' [<a href="#" onclick="window.open(\'admbrowse.php?chmod=1&amp;cur='.$cur_enc.'&amp;dest='.$de_enc.'&amp;'.__adm_rsid.'\', \'chmod_window\', \'width=500,height=450,menubar=no\');">chmod</a>]';
+				echo ' [<a href="#" onclick="window.open(\'admbrowse.php?chmod=1&amp;cur='. $cur_enc .'&amp;dest='. $de_enc .'&amp;'. __adm_rsid .'\', \'chmod_window\', \'width=500,height=450,menubar=no\');">chmod</a>]';
 			}
 
-			echo ' [<a href="admbrowse.php?down=1&amp;cur='.$cur_enc.'&amp;dest='.$de_enc.'&amp;'.__adm_rsid.'">download</a>]';
+			echo ' [<a href="admbrowse.php?down=1&amp;cur='. $cur_enc .'&amp;dest='. $de_enc .'&amp;'. __adm_rsid .'">download</a>]';
 
 			if (@is_writeable($fpath) && $de != '.' && $de != '..') {
-				echo ' [<a href="#" onclick="window.open(\'admbrowse.php?rename=1&amp;cur='.$cur_enc.'&amp;dest='.$de_enc.'&amp;'.__adm_rsid.'\', \'rename_window\', \'width=500,height=350,menubar=no\');">rename</a>]';
-				echo ' [<a href="#" onclick="window.open(\'admbrowse.php?del=1&amp;cur='.$cur_enc.'&amp;dest='.$de_enc.'&amp;'.__adm_rsid.'\', \'delete_window\', \'width=500,height=350,menubar=no\');">delete</a>]';
+				echo ' [<a href="#" onclick="window.open(\'admbrowse.php?rename=1&amp;cur='. $cur_enc .'&amp;dest='. $de_enc .'&amp;'. __adm_rsid .'\', \'rename_window\', \'width=500,height=350,menubar=no\');">rename</a>]';
+				echo ' [<a href="#" onclick="window.open(\'admbrowse.php?del=1&amp;cur='. $cur_enc .'&amp;dest='. $de_enc .'&amp;'. __adm_rsid .'\', \'delete_window\', \'width=500,height=350,menubar=no\');">delete</a>]';
 			}
 		}
 		echo '</tr>';

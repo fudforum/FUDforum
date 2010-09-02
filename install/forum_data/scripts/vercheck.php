@@ -70,7 +70,7 @@ function get_remote_file($url, $timeout, $head_only = false, $max_redirects = 10
 		$remote = @fsockopen($parsed_url['host'], !empty($parsed_url['port']) ? intval($parsed_url['port']) : 80, $errno, $errstr, $timeout);
 		if ($remote) {
 			// Send a standard HTTP 1.0 request for the page.
-			fwrite($remote, ($head_only ? 'HEAD' : 'GET').' '.(!empty($parsed_url['path']) ? $parsed_url['path'] : '/').(!empty($parsed_url['query']) ? '?'.$parsed_url['query'] : '').' HTTP/1.0'."\r\n");
+			fwrite($remote, ($head_only ? 'HEAD' : 'GET') .' '. (!empty($parsed_url['path']) ? $parsed_url['path'] : '/') . (!empty($parsed_url['query']) ? '?'. $parsed_url['query'] : '') .' HTTP/1.0' ."\r\n");
 			fwrite($remote, 'Host: '.$parsed_url['host']."\r\n");
 			fwrite($remote, 'User-Agent: PunBB'."\r\n");
 			fwrite($remote, 'Connection: Close'."\r\n\r\n");

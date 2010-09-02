@@ -12,17 +12,17 @@
 function ip_cache_rebuild()
 {
 	$data = '';
-	$c = uq('SELECT ca, cb, cc, cd FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'ip_block');
+	$c = uq('SELECT ca, cb, cc, cd FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'ip_block');
 	while ($r = db_rowarr($c)) {
-		$data .= '$GLOBALS[\'__FUD_IP_FILTER__\']['.$r[0].']['.$r[1].']['.$r[2].']['.$r[3].'] = 1;';
+		$data .= '$GLOBALS[\'__FUD_IP_FILTER__\']['. $r[0] .']['. $r[1] .']['. $r[2] .']['. $r[3] .'] = 1;';
 	}
 	unset($c);
 	if (!$data) {
-		$data = '$GLOBALS[\'__FUD_IP_FILTER__\'] = array(); ';
+		$data = '$GLOBALS[\'__FUD_IP_FILTER__\'] = array();';
 	}
 
-	$fp = fopen($GLOBALS['FORUM_SETTINGS_PATH'] . 'ip_filter_cache', 'w');
-	fwrite($fp, '<?php ' . $data . ' ?>');
+	$fp = fopen($GLOBALS['FORUM_SETTINGS_PATH'] .'ip_filter_cache', 'w');
+	fwrite($fp, '<?php '. $data .' ?>');
 	fclose($fp);
 }
 ?>

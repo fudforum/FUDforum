@@ -11,15 +11,15 @@
 
 function login_cache_rebuild()
 {
-	$c = uq('SELECT login FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'blocked_logins');
+	$c = uq('SELECT login FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'blocked_logins');
 	while ($r = db_rowarr($c)) {
-		$a[] = '/' . addcslashes($r[0], '\'/\\') . '/i';
+		$a[] = '/'. addcslashes($r[0], '\'/\\') .'/i';
 	}
 	unset($c);
-	$data = '$GLOBALS[\'__FUD_LGN_FILTER__\'] = array(' . (isset($a) ? "'" . implode("', '", $a) . "'" : ''). ');';
+	$data = '$GLOBALS[\'__FUD_LGN_FILTER__\'] = array('. (isset($a) ? '\'' . implode("', '", $a) .'\'' : '') .');';
 
-	$fp = fopen($GLOBALS['FORUM_SETTINGS_PATH'] . 'login_filter_cache', 'w');
-	fwrite($fp, '<?php ' . $data . ' ?>');
+	$fp = fopen($GLOBALS['FORUM_SETTINGS_PATH'] .'login_filter_cache', 'w');
+	fwrite($fp, '<?php '. $data .' ?>');
 	fclose($fp);
 }
 ?>

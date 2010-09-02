@@ -17,7 +17,7 @@
 
 function ignore_alias_fetch($al, &$is_mod)
 {
-	if (!($tmp = db_saq('SELECT id, (users_opt & 1048576) FROM {SQL_TABLE_PREFIX}users WHERE alias='._esc(char_fix(htmlspecialchars($al)))))) {
+	if (!($tmp = db_saq('SELECT id, '. q_bitand('users_opt', 1048576) .' FROM {SQL_TABLE_PREFIX}users WHERE alias='. _esc(char_fix(htmlspecialchars($al)))))) {
 		return;
 	}
 	$is_mod = $tmp[1];
@@ -42,7 +42,7 @@ function ignore_alias_fetch($al, &$is_mod)
 		}
 	}
 
-	/* incomming from message display page (ignore link) */
+	/* Incomming from message display page (ignore link). */
 	if (isset($_GET['add']) && ($_GET['add'] = (int)$_GET['add'])) {
 		if (!sq_check(0, $usr->sq)) {
 			check_return($usr->returnto);
@@ -52,13 +52,13 @@ function ignore_alias_fetch($al, &$is_mod)
 			$usr->ignore_list = unserialize($usr->ignore_list);
 		}
 
-		if (($ignore_id = q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}users WHERE id='.$_GET['add'].' AND (users_opt & 1048576)=0')) && !isset($usr->ignore_list[$ignore_id])) {
+		if (($ignore_id = q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}users WHERE id='. $_GET['add'] .' AND '. q_bitand('users_opt', 1048576) .'=0')) && !isset($usr->ignore_list[$ignore_id])) {
 			ignore_add(_uid, $ignore_id);
 		}
 		check_return($usr->returnto);
 	}
 
-	/* anon user hack */
+	/* Anon user hack. */
 	if (isset($_GET['del']) && $_GET['del'] === '0') {
 		$_GET['del'] = 1;
 	}
@@ -69,7 +69,7 @@ function ignore_alias_fetch($al, &$is_mod)
 		}
 
 		ignore_delete(_uid, $_GET['del']);
-		/* needed for external links to this form */
+		/* Needed for external links to this form. */
 		if (isset($_GET['redr'])) {
 			check_return($usr->returnto);
 		}
@@ -83,7 +83,7 @@ function ignore_alias_fetch($al, &$is_mod)
 			u.id, u.alias AS login, u.join_date, u.posted_msg_count, u.home_page
 		FROM {SQL_TABLE_PREFIX}user_ignore ui
 		LEFT JOIN {SQL_TABLE_PREFIX}users u ON ui.ignore_id=u.id
-		WHERE ui.user_id='._uid);
+		WHERE ui.user_id='. _uid);
 
 	$ignore_list = '';
 	if (($r = db_rowarr($c))) {

@@ -9,7 +9,7 @@
 * Free Software Foundation; version 2 of the License.
 **/
 
-/* needed by admuser.php, so that password resets can be sent in the appropriate languge */
+/* Needed by admuser.php, so that password resets can be sent in the appropriate languge. */
 
 $GLOBALS['register_conf_subject']       = '{TEMPLATE: rst_register_conf_subject}';
 $GLOBALS['reset_newpass_title']         = '{TEMPLATE: rst_newpass_title}';

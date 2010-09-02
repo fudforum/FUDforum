@@ -48,7 +48,7 @@ function sanitize_url($url)
 		if (stristr($url, 'javascript:')) {
 			return '';
 		} else {
-			return 'http://' . $url;
+			return 'http://'. $url;
 		}
 	}
 	return $url;
@@ -77,7 +77,7 @@ function register_form_check($user_id)
 {
 	/* New user specific checks. */
 	if (!$user_id) {
-		if (($reg_limit_reached = $GLOBALS['REG_TIME_LIMIT'] + q_singleval('SELECT join_date FROM {SQL_TABLE_PREFIX}users WHERE id='.q_singleval('SELECT MAX(id) FROM {SQL_TABLE_PREFIX}users')) - __request_timestamp__) > 0) {
+		if (($reg_limit_reached = $GLOBALS['REG_TIME_LIMIT'] + q_singleval('SELECT join_date FROM {SQL_TABLE_PREFIX}users WHERE id='. q_singleval('SELECT MAX(id) FROM {SQL_TABLE_PREFIX}users')) - __request_timestamp__) > 0) {
 			set_err('reg_time_limit', '{TEMPLATE: register_err_time_limit}');
 		}
 
@@ -120,7 +120,7 @@ function register_form_check($user_id)
 			set_err('reg_email', '{TEMPLATE: register_err_emailexists}');
 		}
 	} else {
-		if (!($r = db_sab('SELECT id, passwd, salt, name, email FROM {SQL_TABLE_PREFIX}users WHERE id='.(!empty($_POST['mod_id']) ? __fud_real_user__ : $user_id)))) {
+		if (!($r = db_sab('SELECT id, passwd, salt, name, email FROM {SQL_TABLE_PREFIX}users WHERE id='. (!empty($_POST['mod_id']) ? __fud_real_user__ : $user_id)))) {
 			exit('Go away!');
 		}
 		
@@ -175,7 +175,7 @@ function register_form_check($user_id)
 			if (is_login_blocked($_POST['reg_alias'])) {
 				set_err('reg_alias', '{TEMPLATE: register_err_alias_notallowed}');
 			}
-			if (q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}users WHERE alias='._esc(make_alias($_POST['reg_alias'])).' AND id!='.$user_id)) {
+			if (q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}users WHERE alias='. _esc(make_alias($_POST['reg_alias'])) .' AND id!='. $user_id)) {
 				set_err('reg_alias', '{TEMPLATE: register_err_taken_alias}');
 			}
 		}
@@ -187,7 +187,7 @@ function register_form_check($user_id)
 
 	/* Check if user is allowed to post links. */
 	if (preg_match('?(\[url)|(http://)|(https://)?i', $_POST['reg_sig'])) {
-		$c = q_singleval('SELECT posted_msg_count FROM {SQL_TABLE_PREFIX}users WHERE id='._uid);
+		$c = q_singleval('SELECT posted_msg_count FROM {SQL_TABLE_PREFIX}users WHERE id='. _uid);
 		if ( $GLOBALS['POSTS_BEFORE_LINKS'] > $c ) {
 			$posts_before_links = $GLOBALS['POSTS_BEFORE_LINKS'];
 			set_err('reg_sig', '{TEMPLATE: postcheck_no_links_allowed}');
@@ -234,9 +234,9 @@ function make_avatar_loc($path, $disk, $web)
 	$img_info = @getimagesize($disk . $path);
 
 	if ($img_info[2] < 4 && $img_info[2] > 0) {
-		return '<img src="'.$web . $path.'" alt="" '.$img_info[3].' />';
+		return '<img src="'. $web . $path .'" alt="" '. $img_info[3] .' />';
 	} else if ($img_info[2] == 4) {
-		return '<embed src="'.$web . $path.'" '.$img_info[3].' />';
+		return '<embed src="'. $web . $path .'" '. $img_info[3] .' />';
 	} else {
 		return '';
 	}
@@ -245,7 +245,7 @@ function make_avatar_loc($path, $disk, $web)
 function remove_old_avatar($avatar_str)
 {
 	if (preg_match('!images/custom_avatars/(([0-9]+)\.([A-Za-z]+))" width=!', $avatar_str, $tmp)) {
-		@unlink($GLOBALS['WWW_ROOT_DISK'] . 'images/custom_avatars/' . basename($tmp[1]));
+		@unlink($GLOBALS['WWW_ROOT_DISK'] .'images/custom_avatars/'. basename($tmp[1]));
 	}
 }
 
@@ -275,15 +275,15 @@ function email_encode($val)
 	if (!__fud_real_user__ && !isset($_POST['reg_coppa']) && !isset($_GET['reg_coppa'])) {
 		if ($FUD_OPT_1 & 1048576) {
 			if ($FUD_OPT_2 & 32768) {
-				header('Location: {FULL_ROOT}{ROOT}/cp/'._rsidl);
+				header('Location: {FULL_ROOT}{ROOT}/cp/'. _rsidl);
 			} else {
-				header('Location: {FULL_ROOT}{ROOT}?t=coppa&'._rsidl);
+				header('Location: {FULL_ROOT}{ROOT}?t=coppa&'. _rsidl);
 			}
 		} else {
 			if ($FUD_OPT_2 & 32768) {
-				header('Location: {FULL_ROOT}{ROOT}/pr/0/'._rsidl);
+				header('Location: {FULL_ROOT}{ROOT}/pr/0/'. _rsidl);
 			} else {
-				header('Location: {FULL_ROOT}{ROOT}?t=pre_reg&'._rsidl);
+				header('Location: {FULL_ROOT}{ROOT}?t=pre_reg&'. _rsidl);
 			}
 		}
 		exit;
@@ -341,9 +341,9 @@ function email_encode($val)
 			$avatar_arr['del'] = 1;
 		}
 		if (!($FUD_OPT_1 & 8) && (!@file_exists($avatar_arr['file']) || empty($avatar_arr['leave']))) {
-			/* hack attempt for URL avatar */
+			/* Hack attempt for URL avatar. */
 			$avatar_arr = null;
-		} else if (($FUD_OPT_1 & 8) && isset($_FILES['avatar_upload']) && $_FILES['avatar_upload']['size'] > 0) { /* new upload */
+		} else if (($FUD_OPT_1 & 8) && isset($_FILES['avatar_upload']) && $_FILES['avatar_upload']['size'] > 0) { /* New upload. */
 			if ($_FILES['avatar_upload']['size'] >= $CUSTOM_AVATAR_MAX_SIZE) {
 				set_err('avatar', '{TEMPLATE: register_err_avatartobig}');
 			} else {
@@ -367,7 +367,7 @@ function email_encode($val)
 					set_err('avatar', '{TEMPLATE: register_err_avatardimtobig}');
 					unlink($TMP . $tmp_name);
 				} else {
-					/* remove old uploaded file, if one exists & is not in DB */
+					/* Remove old uploaded file, if one exists & is not in DB. */
 					if (empty($avatar_arr['leave']) && @file_exists($avatar_arr['file'])) {
 						@unlink($TMP . $avatar_arr['file']);
 					}
@@ -413,7 +413,7 @@ function email_encode($val)
 
 		/* only one theme available, so no select */
 		if (!$uent->theme) {
-			$uent->theme = q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}themes WHERE theme_opt>=2 AND (theme_opt & 2) > 0 LIMIT 1');
+			$uent->theme = q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}themes WHERE theme_opt>=2 AND '. q_bitand('theme_opt', 2) .' > 0 LIMIT 1');
 		}
 
 		$uent->birthday = sprintf('%02d%02d', (int)$_POST['b_month'], (int)$_POST['b_day']) . fmt_year((int)$_POST['b_year']);
@@ -467,7 +467,7 @@ function email_encode($val)
 
 			/* We notify all admins about the new user, so that they can approve him. */
 			if (($FUD_OPT_2 & 132096) == 132096) {
-				$admins = db_all('SELECT email FROM {SQL_TABLE_PREFIX}users WHERE users_opt>=1048576 AND (users_opt & 1048576) > 0');
+				$admins = db_all('SELECT email FROM {SQL_TABLE_PREFIX}users WHERE users_opt>=1048576 AND '. q_bitand('users_opt', 1048576) .' > 0');
 				send_email($NOTIFY_FROM, $admins, '{TEMPLATE: register_admin_newuser_title}', '{TEMPLATE: register_admin_newuser_msg}', '');
 			}
 
@@ -476,18 +476,18 @@ function email_encode($val)
 
 			if ($FUD_OPT_1 & 1048576 && $uent->users_opt & 262144) {
 				if ($FUD_OPT_2 & 32768) {
-					header('Location: {FULL_ROOT}{ROOT}/cpf/'._rsidl);
+					header('Location: {FULL_ROOT}{ROOT}/cpf/'. _rsidl);
 				} else {
-					header('Location: {FULL_ROOT}{ROOT}?t=coppa_fax&'._rsidl);
+					header('Location: {FULL_ROOT}{ROOT}?t=coppa_fax&'. _rsidl);
 				}
 				exit;
 			} else if (!($uent->users_opt & 131072) || $FUD_OPT_2 & 1024) {
-				header('Location: {FULL_ROOT}{ROOT}' . ($FUD_OPT_2 & 32768 ? '/rc/' : '?t=reg_conf&') . _rsidl);
+				header('Location: {FULL_ROOT}{ROOT}'. ($FUD_OPT_2 & 32768 ? '/rc/' : '?t=reg_conf&') . _rsidl);
 				exit;
 			}
 
 			check_return($usr->returnto);
-		} else if ($uent->id) { /* updating a user */
+		} else if ($uent->id) { /* Updating a user. */
 			/* Restore avatar values to their previous values. */
 			$uent->avatar = $old_avatar;
 			$uent->avatar_loc = $old_avatar_loc;
@@ -506,7 +506,7 @@ function email_encode($val)
 					if ($_POST['reg_avatar'] == '0') {
 						$uent->avatar_loc = '';
 						$uent->avatar = 0;
-					} else if ($uent->avatar != $_POST['reg_avatar'] && ($img = q_singleval('SELECT img FROM {SQL_TABLE_PREFIX}avatar WHERE id='.(int)$_POST['reg_avatar']))) {
+					} else if ($uent->avatar != $_POST['reg_avatar'] && ($img = q_singleval('SELECT img FROM {SQL_TABLE_PREFIX}avatar WHERE id='. (int)$_POST['reg_avatar']))) {
 						/* verify that the avatar exists and it is different from the one in DB */
 						$uent->avatar_loc = make_avatar_loc('images/avatars/' . $img, $WWW_ROOT_DISK, $WWW_ROOT);
 						$uent->avatar = $_POST['reg_avatar'];
@@ -539,13 +539,13 @@ function email_encode($val)
 					/* Add new avatar if needed. */
 					if ($common_av_name) {
 						if (defined('real_avatar_name')) {
-							$av_path = 'images/custom_avatars/' . real_avatar_name;
+							$av_path = 'images/custom_avatars/'. real_avatar_name;
 						} else {
 							$common_av_name = basename($common_av_name);
 							$ext = array(1=>'gif', 2=>'jpg', 3=>'png', 4=>'swf');
 							$img_info = getimagesize($TMP . $common_av_name);
 						}
-						$av_path = 'images/custom_avatars/' . $uent->id . '.' . $ext[$img_info[2]];
+						$av_path = 'images/custom_avatars/'. $uent->id .'.'. $ext[$img_info[2]];
 
 						copy($TMP . $common_av_name, $WWW_ROOT_DISK . $av_path);
 						@unlink($TMP . $common_av_name);
@@ -581,9 +581,9 @@ function email_encode($val)
 				check_return($usr->returnto);
 			} else {
 				if ($FUD_OPT_2 & 32768) {
-					header('Location: {FULL_ROOT}adm/admuser.php?usr_id='.$uent->id.'&'.str_replace(array(s, '/?'), array('S='.s, '&'),_rsidl).'&act=nada');
+					header('Location: {FULL_ROOT}adm/admuser.php?usr_id='. $uent->id .'&'. str_replace(array(s, '/?'), array('S='.s, '&'),_rsidl) .'&act=nada');
 				} else {
-					header('Location: {FULL_ROOT}adm/admuser.php?usr_id='.$uent->id.'&'._rsidl.'&act=nada');
+					header('Location: {FULL_ROOT}adm/admuser.php?usr_id='. $uent->id .'&'. _rsidl .'&act=nada');
 				}
 				exit;
 			}
@@ -754,7 +754,7 @@ function email_encode($val)
 				if (isset($_POST['prev_loaded'])) {
 					if ((!empty($_POST['reg_avatar']) && $_POST['reg_avatar'] == $uent->avatar) || (!empty($avatar_arr['file']) && empty($avatar_arr['del']) && $avatar_arr['leave'])) {
 						$custom_avatar_preview = $uent->avatar_loc;
-					} else if (!empty($_POST['reg_avatar']) && ($im = q_singleval('SELECT img FROM {SQL_TABLE_PREFIX}avatar WHERE id='.(int)$_POST['reg_avatar']))) {
+					} else if (!empty($_POST['reg_avatar']) && ($im = q_singleval('SELECT img FROM {SQL_TABLE_PREFIX}avatar WHERE id='. (int)$_POST['reg_avatar']))) {
 						$custom_avatar_preview = make_avatar_loc('images/avatars/' . $im, $WWW_ROOT_DISK, $WWW_ROOT);
 					} else {
 						if ($reg_avatar_loc_file) {
@@ -783,9 +783,9 @@ function email_encode($val)
 						$reg_avatar_img = 'blank.gif';
 					} else if (!empty($reg_avatar_loc)) {
 						preg_match('!images/avatars/([^"]+)"!', reverse_fmt($reg_avatar_loc), $tmp);
-						$reg_avatar_img = 'images/avatars/' . $tmp[1];
+						$reg_avatar_img = 'images/avatars/'. $tmp[1];
 					} else {
-						$reg_avatar_img = 'images/avatars/' . q_singleval('SELECT img FROM {SQL_TABLE_PREFIX}avatar WHERE id='.(int)$reg_avatar);
+						$reg_avatar_img = 'images/avatars/'. q_singleval('SELECT img FROM {SQL_TABLE_PREFIX}avatar WHERE id='. (int)$reg_avatar);
 					}
 					$del_built_in_avatar = $reg_avatar ? '{TEMPLATE: del_built_in_avatar}' : '';
 					$avatar = '{TEMPLATE: built_in_avatar}';
@@ -804,7 +804,7 @@ function email_encode($val)
 	}
 
 	$theme_select = '';
-	$r = uq('SELECT id, name FROM {SQL_TABLE_PREFIX}themes WHERE theme_opt>=1 AND (theme_opt & 1) > 0 ORDER BY (theme_opt & 2) DESC, name');
+	$r = uq('SELECT id, name FROM {SQL_TABLE_PREFIX}themes WHERE theme_opt>=1 AND '. q_bitand('theme_opt', 1) .' > 0 ORDER BY '. q_bitand('theme_opt', 2) .' DESC, name');
 	/* Only display theme select if there is >1 theme. */
 	while ($t = db_rowarr($r)) {
 		$theme_select .= '{TEMPLATE: theme_select_value}';

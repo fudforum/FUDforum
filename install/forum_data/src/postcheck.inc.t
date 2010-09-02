@@ -65,7 +65,7 @@ function check_post_form()
 
 	/* Check for duplicate topics (exclude replies and edits). */
 	if (($GLOBALS['FUD_OPT_3'] & 67108864) && $_POST['reply_to'] == 0 && $_POST['msg_id'] == 0) {
-		$c = q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}msg WHERE subject='. _esc($_POST['msg_subject']) .' AND reply_to=0 AND poster_id='._uid.' AND post_stamp >= '.(__request_timestamp__ - 86400));
+		$c = q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}msg WHERE subject='. _esc($_POST['msg_subject']) .' AND reply_to=0 AND poster_id='. _uid .' AND post_stamp >= '. (__request_timestamp__ - 86400));
 		if ( $c > 0 ) {
 			set_err('msg_body', '{TEMPLATE: postcheck_dup_err}');
 		}
@@ -84,7 +84,7 @@ function check_post_form()
 	/* Check if user is allowed to post links. */
 	if ($GLOBALS['POSTS_BEFORE_LINKS'] && !empty($_POST['msg_body'])) {
 		if (preg_match('?(\[url)|(http://)|(https://)?i', $_POST['msg_body'])) {
-			$c = q_singleval('SELECT posted_msg_count FROM {SQL_TABLE_PREFIX}users WHERE id='._uid);
+			$c = q_singleval('SELECT posted_msg_count FROM {SQL_TABLE_PREFIX}users WHERE id='. _uid);
 			if ( $GLOBALS['POSTS_BEFORE_LINKS'] > $c ) {
 				$posts_before_links = $GLOBALS['POSTS_BEFORE_LINKS'];
 				set_err('msg_body', '{TEMPLATE: postcheck_no_links_allowed}');
@@ -121,7 +121,7 @@ function check_ppost_form($msg_subject)
 				if ($hack !== false) {
 					$v = preg_replace('!&#([0-9]+)#!', '&#\1;', $v);
 				}
-				if (!($obj = db_sab('SELECT u.users_opt, u.id, ui.ignore_id FROM {SQL_TABLE_PREFIX}users u LEFT JOIN {SQL_TABLE_PREFIX}user_ignore ui ON ui.user_id=u.id AND ui.ignore_id='._uid.' WHERE u.alias='.ssn(char_fix(htmlspecialchars($v)))))) {
+				if (!($obj = db_sab('SELECT u.users_opt, u.id, ui.ignore_id FROM {SQL_TABLE_PREFIX}users u LEFT JOIN {SQL_TABLE_PREFIX}user_ignore ui ON ui.user_id=u.id AND ui.ignore_id='. _uid .' WHERE u.alias='. ssn(char_fix(htmlspecialchars($v)))))) {
 					set_err('msg_to_list', '{TEMPLATE: postcheck_no_such_user}');
 					break;
 				}

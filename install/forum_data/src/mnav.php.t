@@ -21,7 +21,7 @@
 	$ppg = $usr->posts_ppg ? $usr->posts_ppg : $POSTS_PER_PAGE;
 	$subl = !empty($_GET['sub']);
 
-	require $FORUM_SETTINGS_PATH.'cat_cache.inc';
+	require $FORUM_SETTINGS_PATH .'cat_cache.inc';
 
 /*{POST_HTML_PHP}*/
 
@@ -31,9 +31,9 @@
 
 	if ($forum_limiter) {
 		if ($forum_limiter[0] != 'c') {
-			$qry_lmt = ' AND f.id=' . (int)$forum_limiter . ' ';
+			$qry_lmt = ' AND f.id=' .(int)$forum_limiter .' ';
 		} else {
-			$qry_lmt = ' AND c.id=' . (int)substr($forum_limiter, 1) . ' ';
+			$qry_lmt = ' AND c.id=' .(int)substr($forum_limiter, 1) .' ';
 		}
 	} else {
 		$qry_lmt = '';
@@ -54,14 +54,14 @@
 		$tm = __request_timestamp__ - $mage;
 
 		if ($rng2 > 0) {
-			$date_limit = ' AND m.post_stamp < '.(__request_timestamp__ - ($rng2 * $unit));
+			$date_limit = ' AND m.post_stamp < '. (__request_timestamp__ - ($rng2 * $unit));
 		} else {
 			$date_limit = '';
 		}
 
 		if (_uid && $subl) {
-			if ($sf = db_all('SELECT forum_id FROM {SQL_TABLE_PREFIX}forum_notify WHERE user_id='._uid)) {
-				$qry_lmt .= ' AND f.id IN('.implode(',', $sf).') ';
+			if ($sf = db_all('SELECT forum_id FROM {SQL_TABLE_PREFIX}forum_notify WHERE user_id='. _uid)) {
+				$qry_lmt .= ' AND f.id IN('. implode(',', $sf) .') ';
 			} else {
 				$qry_lmt .= ' AND f.id=-1 ';
 			}
@@ -103,12 +103,12 @@
 					INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id
 					INNER JOIN {SQL_TABLE_PREFIX}forum f ON t.forum_id=f.id
 					INNER JOIN {SQL_TABLE_PREFIX}cat c ON f.cat_id=c.id
-					INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id='.(_uid ? '2147483647' : '0').' AND g1.resource_id=f.id
-					LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=f.id AND mm.user_id='._uid.'
-					LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g2.resource_id=f.id
+					INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id='. (_uid ? '2147483647' : '0') .' AND g1.resource_id=f.id
+					LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=f.id AND mm.user_id='. _uid .'
+					LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='. _uid .' AND g2.resource_id=f.id
 				WHERE
-					m.post_stamp > '.$tm.' '.$date_limit.' AND m.apr=1 '.$qry_lmt.'
-					'.($is_a ? '' : ' AND (mm.id IS NOT NULL OR (COALESCE(g2.group_cache_opt, g1.group_cache_opt) & 2) > 0)'));
+					m.post_stamp > '. $tm .' '. $date_limit .' AND m.apr=1 '. $qry_lmt .'
+					'. ($is_a ? '' : ' AND (mm.id IS NOT NULL OR '. q_bitand('COALESCE(g2.group_cache_opt, g1.group_cache_opt)', 2) .' > 0)'));
 		}
 
 		if (!$total) {
@@ -119,9 +119,9 @@
 			/* handle pager if needed */
 			if ($total > $ppg) {
 				if ($FUD_OPT_2 & 32768) {
-					$mnav_pager = tmpl_create_pager($start, $ppg, $total, '{ROOT}/ma/'.$rng.'/'.$rng2.'/'.$unit.'/', '/'.$subl.'/'._rsid);
+					$mnav_pager = tmpl_create_pager($start, $ppg, $total, '{ROOT}/ma/'. $rng .'/'. $rng2 .'/'. $unit .'/', '/'. $subl .'/'. _rsid);
 				} else {
-					$mnav_pager = tmpl_create_pager($start, $ppg, $total, '{ROOT}?t=mnav&amp;rng='.$rng.'&amp;u='.$unit.'&amp;'._rsid.'&amp;forum_limiter='.$forum_limiter.'&amp;rng2='.$rng2.'&amp;sub='.$subl);
+					$mnav_pager = tmpl_create_pager($start, $ppg, $total, '{ROOT}?t=mnav&amp;rng='. $rng .'&amp;u='. $unit .'&amp;'. _rsid .'&amp;forum_limiter='. $forum_limiter .'&amp;rng2='. $rng2 .'&amp;sub='. $subl);
 				}
 			}
 		}

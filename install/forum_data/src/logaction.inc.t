@@ -12,6 +12,6 @@
 function logaction($user_id, $res, $res_id=0, $action=null)
 {
 	q('INSERT INTO {SQL_TABLE_PREFIX}action_log (logtime, logaction, user_id, a_res, a_res_id)
-		VALUES('.__request_timestamp__.', '.ssn($action).', '.$user_id.', '.ssn($res).', '.(int)$res_id.')');
+		VALUES('. __request_timestamp__ .', '. ssn($action) .', '. $user_id .', '. ssn($res) .', '. (int)$res_id .')');
 }
 ?>

@@ -31,26 +31,26 @@
 	}
 
 	if (isset($_GET['pc'])) {
-		$ord = 'posted_msg_count ' . ($_GET['pc'] % 2 ? 'ASC' : 'DESC');
+		$ord = 'posted_msg_count '. ($_GET['pc'] % 2 ? 'ASC' : 'DESC');
 	} else if (isset($_GET['us'])) {
-		$ord = 'alias ' . ($_GET['us'] % 2 ? 'DESC' : 'ASC');
+		$ord = 'alias '. ($_GET['us'] % 2 ? 'DESC' : 'ASC');
 	} else if (isset($_GET['rd'])) {
-		$ord = 'join_date ' . ($_GET['rd'] % 2 ? 'DESC' : 'ASC');
+		$ord = 'join_date '. ($_GET['rd'] % 2 ? 'DESC' : 'ASC');
 	} else if (isset($_GET['fl'])) {
-		$ord = 'flag_cc ' . ($_GET['fl'] % 2 ? 'DESC' : 'ASC');
+		$ord = 'flag_cc '. ($_GET['fl'] % 2 ? 'DESC' : 'ASC');
 	} else {
 		$ord = 'id DESC';
 	}
 	$usr_login = !empty($_GET['usr_login']) ? trim((string)$_GET['usr_login']) : '';
 
 	if ($usr_login) {
-		$qry = 'alias LIKE '._esc(char_fix(htmlspecialchars(addcslashes($usr_login.'%','\\')))).' AND';
+		$qry = 'alias LIKE '. _esc(char_fix(htmlspecialchars(addcslashes($usr_login.'%','\\')))) .' AND';
 	} else {
 		$qry = '';
 	}
 
 	$find_user_data = '';
-	$c = uq(q_limit('SELECT /*!40000 SQL_CALC_FOUND_ROWS */ flag_cc, flag_country, home_page, users_opt, alias, join_date, posted_msg_count, id, custom_color FROM {SQL_TABLE_PREFIX}users WHERE ' . $qry . ' id>1 ORDER BY ' . $ord,
+	$c = uq(q_limit('SELECT /*!40000 SQL_CALC_FOUND_ROWS */ flag_cc, flag_country, home_page, users_opt, alias, join_date, posted_msg_count, id, custom_color FROM {SQL_TABLE_PREFIX}users WHERE '. $qry .' id>1 ORDER BY ' .$ord,
 			$MEMBERS_PER_PAGE, $start));
 	while ($r = db_rowobj($c)) {
 		$find_user_data .= '{TEMPLATE: find_user_entry}';
@@ -62,26 +62,26 @@
 
 	$pager = '';
 	if (($total = (int) q_singleval('SELECT /*!40000 FOUND_ROWS(), */ -1')) < 0) {
-		$total = q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}users WHERE ' . $qry . ' id > 1');
+		$total = q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}users WHERE '. $qry .' id > 1');
 	}
 	if ($total > $MEMBERS_PER_PAGE) {
 		if ($FUD_OPT_2 & 32768) {
 			$pg = '{ROOT}/ml/';
 
 			if (isset($_GET['pc'])) {
-				$pg .= (int)$_GET['pc'].'/';
+				$pg .= (int)$_GET['pc'] .'/';
 			} else if (isset($_GET['us'])) {
-				$pg .= (int)$_GET['us'].'/';
+				$pg .= (int)$_GET['us'] .'/';
 			} else if (isset($_GET['rd'])) {
-				$pg .= (int)$_GET['rd'].'/';
+				$pg .= (int)$_GET['rd'] .'/';
 			} else if (isset($_GET['fl'])) {
-				$pg .= ($_GET['fl']+6).'/';
+				$pg .= ($_GET['fl']+6) .'/';
 			} else {
 				$pg .= '0/';
 			}
 
 			$ul = $usr_login ? urlencode($usr_login) : 0;
-			$pg2 = '/' . $ul . '/';
+			$pg2 = '/'. $ul .'/';
 
 			if (isset($_GET['js_redr'])) {
 				$pg2 .= '1/';
@@ -90,24 +90,24 @@
 
 			$pager = tmpl_create_pager($start, $MEMBERS_PER_PAGE, $total, $pg, $pg2);
 		} else {
-			$pg = '{ROOT}?t=finduser&amp;' . _rsid . '&amp;';
+			$pg = '{ROOT}?t=finduser&amp;'. _rsid .'&amp;';
 			if ($usr_login) {
-				$pg .= 'usr_login='.urlencode($usr_login) . '&amp;';
+				$pg .= 'usr_login='. urlencode($usr_login) .'&amp;';
 			}
 			if (isset($_GET['pc'])) {
-				$pg .= 'pc='.(int)$_GET['pc'].'&amp;';
+				$pg .= 'pc='. (int)$_GET['pc'] .'&amp;';
 			}
 			if (isset($_GET['us'])) {
-				$pg .= 'us='.(int)$_GET['us'].'&amp;';
+				$pg .= 'us='. (int)$_GET['us'] .'&amp;';
 			}
 			if (isset($_GET['rd'])) {
-				$pg .= 'rd='.(int)$_GET['rd'].'&amp;';
+				$pg .= 'rd='. (int)$_GET['rd'] .'&amp;';
 			}
 			if (isset($_GET['fl'])) {
-				$pg .= 'fl='.(int)$_GET['fl'].'&amp;';
+				$pg .= 'fl='. (int)$_GET['fl'] .'&amp;';
 			}
 			if (isset($_GET['js_redr'])) {
-				$pg .= 'js_redr='.urlencode($_GET['js_redr']).'&amp;';
+				$pg .= 'js_redr='. urlencode($_GET['js_redr']) .'&amp;';
 			}
 			$pager = tmpl_create_pager($start, $MEMBERS_PER_PAGE, $total, $pg);
 		}

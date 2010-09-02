@@ -18,7 +18,7 @@ class fud_forum
 	{
 		foreach ($this as $k => $v) {
 			if (isset($_POST['frm_'. $k])) {
-				$this->{$k} = $_POST['frm_'.$k];
+				$this->{$k} = $_POST['frm_'. $k];
 			}
 		}
 	}
@@ -48,18 +48,18 @@ class fud_forum
 			message_threshold,
 			forum_opt
 		) VALUES (
-			'.$this->cat_id.',
-			'._esc(htmlspecialchars($this->name)).',
-			'.ssn($this->descr).',
-			'.ssn($this->url_redirect).',
-			'.ssn($this->post_passwd).',
-			'.__request_timestamp__.',
-			'.$this->view_order.',
-			'.ssn($this->forum_icon).',
-			'.(int)$this->max_attach_size.',
-			'.(int)$this->max_file_attachments.',
-			'.(int)$this->message_threshold.',
-			'.(int)$this->forum_opt.'
+			'. $this->cat_id .',
+			'. _esc(htmlspecialchars($this->name)) .',
+			'. ssn($this->descr) .',
+			'. ssn($this->url_redirect) .',
+			'. ssn($this->post_passwd) .',
+			'. __request_timestamp__ .',
+			'. $this->view_order .',
+			'. ssn($this->forum_icon) .',
+			'. (int)$this->max_attach_size .',
+			'. (int)$this->max_file_attachments .',
+			'. (int)$this->message_threshold .',
+			'. (int)$this->forum_opt .'
 		)');
 
 		$lck_tbl = $tbl .'fl_'. $this->id;
@@ -87,18 +87,18 @@ class fud_forum
 
 		$gid = q_singleval('SELECT id FROM '. $tbl .'groups WHERE forum_id='. $id);
 
-		q('UPDATE '.$tbl.'forum SET
-			cat_id='.$cat_id.',
-			name='._esc(htmlspecialchars($this->name)).',
-			descr='.ssn($this->descr).',
-			url_redirect='.ssn($this->url_redirect).',
-			post_passwd='.ssn($this->post_passwd).',
-			forum_icon='.ssn($this->forum_icon).',
-			max_attach_size='.(int)$this->max_attach_size.',
-			max_file_attachments='.(int)$this->max_file_attachments.',
-			message_threshold='.(int)$this->message_threshold.',
-			forum_opt='.(int)$this->forum_opt.'
-		WHERE id='.$id);
+		q('UPDATE '. $tbl .'forum SET
+			cat_id='. $cat_id .',
+			name='. _esc(htmlspecialchars($this->name)) .',
+			descr='. ssn($this->descr) .',
+			url_redirect='. ssn($this->url_redirect) .',
+			post_passwd='. ssn($this->post_passwd) .',
+			forum_icon='. ssn($this->forum_icon) .',
+			max_attach_size='. (int)$this->max_attach_size .',
+			max_file_attachments='. (int)$this->max_file_attachments .',
+			message_threshold='. (int)$this->message_threshold .',
+			forum_opt='. (int)$this->forum_opt .'
+		WHERE id='. $id);
 
 		q('UPDATE '. $tbl .'groups SET name='. _esc($this->name) .' WHERE id='. $gid);
 	}
@@ -122,8 +122,8 @@ function frm_change_pos($oldp, $newp, $cat_id)
 		return;
 	}
 
-	db_lock($GLOBALS['DBHOST_TBL_PREFIX']. 'forum WRITE');
-	q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX']. 'forum SET view_order=2147483647 WHERE cat_id='. $cat_id .' AND view_order='. $oldp);
+	db_lock($GLOBALS['DBHOST_TBL_PREFIX'] .'forum WRITE');
+	q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'] .'forum SET view_order=2147483647 WHERE cat_id='. $cat_id .' AND view_order='. $oldp);
 	if ($oldp < $newp) {
 		q('UPDATE '. $GLOBALS['DBHOST_TBL_PREFIX'] .'forum SET view_order=view_order-1 WHERE cat_id='. $cat_id .' AND view_order<='. $newp .' AND view_order>'. $oldp);
 		$maxp = q_singleval('SELECT MAX(view_order) FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'forum WHERE cat_id='. $cat_id .' AND view_order!=2147483647');

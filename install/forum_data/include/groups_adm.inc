@@ -13,19 +13,19 @@ function group_add($res_id, $name, $add_gl=0, $perm=0, $permi=2147483647, $inher
 {
 	$tbl =& $GLOBALS['DBHOST_TBL_PREFIX'];
 
-	$gid = db_qid('INSERT INTO '.$tbl.'groups (name, inherit_id, groups_opt, groups_opti, forum_id) VALUES
-		('._esc($name).', '.$inherit_id.', '.$perm.', '.$permi.', '.($add_gl == 2 ? $res_id : 0).')');
+	$gid = db_qid('INSERT INTO '. $tbl .'groups (name, inherit_id, groups_opt, groups_opti, forum_id) VALUES
+		('. _esc($name) .', '. $inherit_id .', '. $perm .', '. $permi .', '. ($add_gl == 2 ? $res_id : 0) .')');
 
 	foreach ((array)$res_id as $v) {
-		q('INSERT INTO '.$tbl.'group_resources (group_id, resource_id) VALUES ('.$gid.', '.$v.')');
+		q('INSERT INTO '. $tbl .'group_resources (group_id, resource_id) VALUES ('. $gid .', '. $v .')');
 	}
 
 	if ($add_gl) {
-		$reg = q_singleval('SELECT groups_opt FROM '.$tbl.'groups WHERE id=2') | 65536;
-		$ano = q_singleval('SELECT groups_opt FROM '.$tbl.'groups WHERE id=1') | 65536;
+		$reg = q_singleval('SELECT groups_opt FROM '. $tbl .'groups WHERE id=2') | 65536;
+		$ano = q_singleval('SELECT groups_opt FROM '. $tbl .'groups WHERE id=1') | 65536;
 
-		q('INSERT INTO '.$tbl.'group_members (group_id, user_id, group_members_opt) VALUES('.$gid.', 2147483647, '.$reg.')');
-		q('INSERT INTO '.$tbl.'group_members (group_id, user_id, group_members_opt) VALUES('.$gid.', 0, '.$ano.')');
+		q('INSERT INTO '. $tbl .'group_members (group_id, user_id, group_members_opt) VALUES('. $gid .', 2147483647, ' .$reg .')');
+		q('INSERT INTO '. $tbl .'group_members (group_id, user_id, group_members_opt) VALUES('. $gid .', 0, '. $ano .')');
 	}
 
 	return $gid;
@@ -33,11 +33,11 @@ function group_add($res_id, $name, $add_gl=0, $perm=0, $permi=2147483647, $inher
 
 function group_sync($id, $name, $inherit, $perm, $permi)
 {
-	$name = is_null($name) ? '' : 'name='._esc($name).', ';
+	$name = is_null($name) ? '' : 'name='. _esc($name) .', ';
 	if (!$inherit) {
 		$permi = 0;
 	}
-	q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'groups SET '.$name.' inherit_id='.$inherit.', groups_opt='.$perm.', groups_opti='.$permi.' WHERE id='.$id);
+	q('UPDATE '. $GLOBALS['DBHOST_TBL_PREFIX'] .'groups SET '. $name .' inherit_id='. $inherit .', groups_opt='. $perm .', groups_opti='. $permi .' WHERE id='. $id);
 }
 
 function rebuild_group_ih($gid, $perm, $perma)
@@ -50,7 +50,7 @@ function rebuild_group_ih($gid, $perm, $perma)
 	}
 
 	if ($perm === null) {
-		$perma = $perm = q_singleval('SELECT groups_opt FROM '.$tbl.'groups WHERE id='.$gid);
+		$perma = $perm = q_singleval('SELECT groups_opt FROM '. $tbl .'groups WHERE id='. $gid);
 	}
 
 	$gl = array($gid=>0);
@@ -58,7 +58,7 @@ function rebuild_group_ih($gid, $perm, $perma)
 		if ($v) continue; /* Prevents circular references. */
 
 		/* Select all groups that inherit permissions from current group. */
-		$r = q('SELECT id, groups_opt, groups_opti FROM '.$tbl.'groups WHERE inherit_id='.$gid.' AND (groups_opti & '.$perm.') > 0');
+		$r = q('SELECT id, groups_opt, groups_opti FROM '. $tbl .'groups WHERE inherit_id='. $gid .' AND '. q_bitand('groups_opti', $perm) .' > 0');
 		while ($o = db_rowarr($r)) {
 			foreach ($hdr as $p) {
 				if ($o[2] & $p[0]) {
@@ -69,7 +69,7 @@ function rebuild_group_ih($gid, $perm, $perma)
 					}
 				}
 			}
-			q('UPDATE '.$tbl.'groups SET groups_opt='.$o[1].' WHERE id='.$o[0]);
+			q('UPDATE '. $tbl .'groups SET groups_opt='. $o[1] .' WHERE id='. $o[0]);
 
 			if (empty($gl[$o[0]])) {
 				$gl[$o[0]] = 0;
@@ -87,16 +87,16 @@ function group_delete($id)
 
 	$tbl =& $GLOBALS['DBHOST_TBL_PREFIX'];
 
-	q('DELETE FROM '.$tbl.'group_resources WHERE group_id='.$id);
+	q('DELETE FROM '. $tbl .'group_resources WHERE group_id='. $id);
 
 	/* Rebuild group manager cache for managers of the removed group. */
-	$r = q('SELECT user_id FROM '.$tbl.'group_members WHERE group_id='.$id.' AND group_members_opt>=131072 AND (group_members_opt & 131072) > 0');
+	$r = q('SELECT user_id FROM '. $tbl .'group_members WHERE group_id='. $id .' AND group_members_opt>=131072 AND '. q_bitand('group_members_opt', 131072) .' > 0');
 	while ($o = db_rowarr($r)) {
 		rebuild_group_ldr_cache($o[0]);
 	}
 
-	q('DELETE FROM '.$tbl.'group_members WHERE group_id='.$id);
-	q('UPDATE '.$tbl.'groups SET groups_opti=0, inherit_id=0 WHERE inherit_id='.$id);
+	q('DELETE FROM '. $tbl .'group_members WHERE group_id='. $id);
+	q('UPDATE '. $tbl .'groups SET groups_opti=0, inherit_id=0 WHERE inherit_id='. $id);
 
 	/* Deal with inheritence. */
 	if (!function_exists('grp_rebuild_cache')) {
@@ -104,19 +104,19 @@ function group_delete($id)
 	}
 	grp_rebuild_cache();
 
-	q('DELETE FROM '.$tbl.'groups WHERE id='.$id);
+	q('DELETE FROM '. $tbl .'groups WHERE id='. $id);
 }
 
 function rebuild_group_ldr_cache($id)
 {
 	$tbl =& $GLOBALS['DBHOST_TBL_PREFIX'];
 
-	$g = db_all('SELECT group_id FROM '.$tbl.'group_members WHERE user_id='.$id.' AND group_members_opt>=131072 AND (group_members_opt & 131072) > 0');
+	$g = db_all('SELECT group_id FROM '. $tbl .'group_members WHERE user_id='. $id .' AND group_members_opt>=131072 AND '. q_bitand('group_members_opt', 131072) .' > 0');
 
 	if ($g) {
-		q('UPDATE '.$tbl.'users SET group_leader_list='.ssn(serialize($g)).' WHERE id='.$id);
+		q('UPDATE '. $tbl .'users SET group_leader_list='. ssn(serialize($g)).' WHERE id='. $id);
 	} else {
-		q('UPDATE '.$tbl.'users SET group_leader_list=NULL WHERE id='.$id);
+		q('UPDATE '. $tbl .'users SET group_leader_list=NULL WHERE id='. $id);
 	}
 }
 ?>

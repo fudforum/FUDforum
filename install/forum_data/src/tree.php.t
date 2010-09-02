@@ -24,9 +24,9 @@
 
 	if (isset($_GET['goto'])) {
 		if (($mid = (int)$_GET['goto']) && !$th) {
-			$th = q_singleval('SELECT thread_id FROM {SQL_TABLE_PREFIX}msg WHERE id='.$mid);
+			$th = q_singleval('SELECT thread_id FROM {SQL_TABLE_PREFIX}msg WHERE id='. $mid);
 		} else if ($_GET['goto'] == 'end' && $th) {
-			$mid = q_singleval('SELECT last_post_id FROM {SQL_TABLE_PREFIX}thread WHERE id='.$th);
+			$mid = q_singleval('SELECT last_post_id FROM {SQL_TABLE_PREFIX}thread WHERE id='. $th);
 		} else if ($th) {
 			$mid = (int)$_GET['goto'];
 		} else {
@@ -37,17 +37,17 @@
 		invl_inp_err();
 	}
 	if (!$mid && isset($_GET['unread']) && _uid) {
-		$mid = q_singleval('SELECT m.id FROM {SQL_TABLE_PREFIX}msg m LEFT JOIN {SQL_TABLE_PREFIX}read r ON r.thread_id=m.thread_id AND r.user_id='._uid.' WHERE m.thread_id='.$th.' AND m.apr=1 AND m.post_stamp > r.last_view AND m.post_stamp > '.$usr->last_read.' ORDER BY m.post_stamp ASC LIMIT 1');
+		$mid = q_singleval('SELECT m.id FROM {SQL_TABLE_PREFIX}msg m LEFT JOIN {SQL_TABLE_PREFIX}read r ON r.thread_id=m.thread_id AND r.user_id='. _uid .' WHERE m.thread_id='. $th .' AND m.apr=1 AND m.post_stamp > r.last_view AND m.post_stamp > '. $usr->last_read .' ORDER BY m.post_stamp ASC LIMIT 1');
 		if (!$mid) {
-			$mid = q_singleval('SELECT root_msg_id FROM {SQL_TABLE_PREFIX}thread WHERE id='.$th);
+			$mid = q_singleval('SELECT root_msg_id FROM {SQL_TABLE_PREFIX}thread WHERE id='. $th);
 		}
 	}
 
 	$RSS = '{TEMPLATE: tree_RSS}';
 
-	/* we create a BIG object frm, which contains data about forum,
+	/* We create a BIG object frm, which contains data about forum,
 	 * category, current thread, subscriptions, permissions, moderation status,
-	 * rating possibilites and if we will need to update last_view field for registered user
+	 * rating possibilites and if we will need to update last_view field for registered user.
 	 */
 	make_perms_query($fields, $join);
 
@@ -58,30 +58,30 @@
 			t.tdescr, t.id, t.forum_id, t.replies, t.rating, t.n_rating, t.root_msg_id, t.moved_to, t.thread_opt, t.root_msg_id, t.last_post_date, '.
 			(_uid ? ' tn.thread_id AS subscribed, tb.thread_id AS bookmarked, mo.forum_id AS md, tr.thread_id AS cant_rate, r.last_view, r2.last_view AS last_forum_view, ' : ' 0 AS md, 1 AS cant_rate, ').'
 			m2.thread_id AS last_thread,
-			'.$fields.'
+			'. $fields .'
 		FROM {SQL_TABLE_PREFIX}thread t
 			INNER JOIN {SQL_TABLE_PREFIX}msg		m ON m.id=t.root_msg_id
 			INNER JOIN {SQL_TABLE_PREFIX}forum		f ON f.id=t.forum_id
 			INNER JOIN {SQL_TABLE_PREFIX}cat		c ON f.cat_id=c.id
 			INNER JOIN {SQL_TABLE_PREFIX}msg 		m2 ON f.last_post_id=m2.id
-			'.(_uid ? 'LEFT  JOIN {SQL_TABLE_PREFIX}thread_notify 	tn ON tn.user_id='._uid.' AND tn.thread_id='.$th.'
-			LEFT  JOIN {SQL_TABLE_PREFIX}bookmarks          tb ON tb.user_id='._uid.' AND tb.thread_id='.$th.'
-			LEFT  JOIN {SQL_TABLE_PREFIX}mod 		mo ON mo.user_id='._uid.' AND mo.forum_id=t.forum_id
-			LEFT  JOIN {SQL_TABLE_PREFIX}thread_rate_track 	tr ON tr.thread_id='.$th.' AND tr.user_id='._uid.'
-			LEFT  JOIN {SQL_TABLE_PREFIX}read 		r ON r.thread_id=t.id AND r.user_id='._uid.'
-			LEFT  JOIN {SQL_TABLE_PREFIX}forum_read 	r2 ON r2.forum_id=t.forum_id AND r2.user_id='._uid : '')
-			.$join.'
-		WHERE t.id='.$th);
+			'.(_uid ? 'LEFT  JOIN {SQL_TABLE_PREFIX}thread_notify 	tn ON tn.user_id='. _uid .' AND tn.thread_id='. $th .'
+			LEFT  JOIN {SQL_TABLE_PREFIX}bookmarks          tb ON tb.user_id='. _uid .' AND tb.thread_id='. $th .'
+			LEFT  JOIN {SQL_TABLE_PREFIX}mod 		mo ON mo.user_id='. _uid .' AND mo.forum_id=t.forum_id
+			LEFT  JOIN {SQL_TABLE_PREFIX}thread_rate_track 	tr ON tr.thread_id='. $th .' AND tr.user_id='. _uid .'
+			LEFT  JOIN {SQL_TABLE_PREFIX}read 		r ON r.thread_id=t.id AND r.user_id='. _uid .'
+			LEFT  JOIN {SQL_TABLE_PREFIX}forum_read 	r2 ON r2.forum_id=t.forum_id AND r2.user_id='. _uid : '')
+			. $join .'
+		WHERE t.id='. $th);
 
-	if (!$frm) { /* bad thread, terminate request */
+	if (!$frm) { /* Bad thread, terminate request. */
 		invl_inp_err();
 	}
 
-	if ($frm->moved_to) { /* moved thread, we could handle it, but this case is rather rare, so it's cleaner to redirect */
+	if ($frm->moved_to) { /* Moved thread, we could handle it, but this case is rather rare, so it's cleaner to redirect. */
 		if ($FUD_OPT_2 & 32768) {
-			header('Location: {FULL_ROOT}{ROOT}/mv/tree/'.$frm->root_msg_id.'/'._rsidl.'#msg_'.$frm->root_msg_id);
+			header('Location: {FULL_ROOT}{ROOT}/mv/tree/'. $frm->root_msg_id .'/'. _rsidl .'#msg_'. $frm->root_msg_id);
 		} else {
-			header('Location: {FULL_ROOT}{ROOT}?t=tree&goto='.$frm->root_msg_id.'&'._rsidl.'#msg_'.$frm->root_msg_id);
+			header('Location: {FULL_ROOT}{ROOT}?t=tree&goto='. $frm->root_msg_id .'&'. _rsidl .'#msg_'. $frm->root_msg_id);
 		}
 		exit;
 	}
@@ -94,15 +94,15 @@
 			std_error('login');
 		}
 		if ($FUD_OPT_2 & 32768) {
-			header('Location: {FULL_ROOT}{ROOT}/i/' . _rsidl);
+			header('Location: {FULL_ROOT}{ROOT}/i/'. _rsidl);
 		} else {
-			header('Location: {FULL_ROOT}{ROOT}?t=index&' . _rsidl);
+			header('Location: {FULL_ROOT}{ROOT}?t=index&'. _rsidl);
 		}
 		exit;
 	}
 
 	if (_uid) {
-		/* Deal with thread subscriptions */
+		/* Deal with thread subscriptions. */
 		if (isset($_GET['notify'], $_GET['opt']) && sq_check(0, $usr->sq)) {
 			if (($frm->subscribed = ($_GET['opt'] == 'on'))) {
 				thread_notify_add(_uid, $th);
@@ -111,7 +111,7 @@
 			}
 		}
 
-		/* Deal with bookmarks */
+		/* Deal with bookmarks. */
 		if (isset($_GET['bookmark'], $_GET['opt']) && sq_check(0, $usr->sq)) {
 			if (($frm->bookmarked = ($_GET['opt'] == 'on'))) {
 				thread_bookmark_add(_uid, $th);
@@ -151,9 +151,9 @@
 		LEFT JOIN {SQL_TABLE_PREFIX}poll p ON m.poll_id=p.id'.
 		(_uid ? ' LEFT JOIN {SQL_TABLE_PREFIX}poll_opt_track pot ON pot.poll_id=p.id AND pot.user_id='._uid : ' ').'
 	WHERE
-		m.id='.$mid.' AND m.apr=1 AND m.thread_id='.$th);
+		m.id='. $mid .' AND m.apr=1 AND m.thread_id='. $th);
 
-	if (!$msg_obj) { // invalid message id
+	if (!$msg_obj) { // Invalid message id.
 		invl_inp_err();
 	}
 
@@ -181,7 +181,7 @@
 	}
 
 	$tree = $stack = $arr = null;
-	$c = uq('SELECT m.poster_id, m.subject, m.reply_to, m.id, m.poll_id, m.attach_cnt, m.post_stamp, m.icon, u.alias, u.last_visit FROM {SQL_TABLE_PREFIX}msg m INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id WHERE m.thread_id='.$th.' AND m.apr=1 ORDER BY m.reply_to ASC, m.id');
+	$c = uq('SELECT m.poster_id, m.subject, m.reply_to, m.id, m.poll_id, m.attach_cnt, m.post_stamp, m.icon, u.alias, u.last_visit FROM {SQL_TABLE_PREFIX}msg m INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id WHERE m.thread_id='. $th .' AND m.apr=1 ORDER BY m.reply_to ASC, m.id');
 	error_reporting(0);
 	while ($r = db_rowobj($c)) {
 		$arr[$r->id] = $r;
@@ -240,7 +240,7 @@
 			if ($cur->kiddie_pos < $cur->kiddie_count) {
 				++$lev;
 				$stack[$stack_cnt++] = &$cur->kiddies[$cur->kiddie_pos];
-			} else { // unwind the stack if needed
+			} else { // Unwind the stack if needed.
 				unset($stack[--$stack_cnt]);
 				--$lev;
 			}

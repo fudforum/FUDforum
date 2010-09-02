@@ -21,7 +21,7 @@
 
 	ses_update_status($usr->sid, '{TEMPLATE: index_update}');
 
-	require $FORUM_SETTINGS_PATH . 'idx.inc';
+	require $FORUM_SETTINGS_PATH .'idx.inc';
 	if (!isset($cidxc[$cat_id])) {
 		$cat_id = 0;
 	}
@@ -34,7 +34,7 @@
 	if ($cat_id) {
 		$cid = $cat_id;
 		while (($cid = $cidxc[$cid][4]) > 0) {
-			$cat_path = '{TEMPLATE: idx_forum_path}' . $cat_path;
+			$cat_path = '{TEMPLATE: idx_forum_path}'. $cat_path;
 		}
 		$cat_path = '{TEMPLATE: idx_cat_path}';
 	}
@@ -64,42 +64,42 @@
 				m.subject, m.id, m.post_stamp,
 				u.id, u.alias,
 				f.cat_id, f.forum_icon, f.id, f.last_post_id, f.moderators, f.name, f.descr, f.url_redirect, f.post_count, f.thread_count,
-				'.(_uid ? 'fr.last_view, mo.id, COALESCE(g2.group_cache_opt, g1.group_cache_opt) AS group_cache_opt' : '0,0,g1.group_cache_opt').',
+				'. (_uid ? 'fr.last_view, mo.id, COALESCE(g2.group_cache_opt, g1.group_cache_opt) AS group_cache_opt' : '0,0,g1.group_cache_opt') .',
 				c.cat_opt
 			FROM {SQL_TABLE_PREFIX}fc_view v
 			INNER JOIN {SQL_TABLE_PREFIX}cat c ON c.id=v.c
 			INNER JOIN {SQL_TABLE_PREFIX}forum f ON f.id=v.f
-			INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id='.(_uid ? 2147483647 : 0).' AND g1.resource_id=f.id
+			INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id='. (_uid ? 2147483647 : 0) .' AND g1.resource_id=f.id
 			LEFT JOIN {SQL_TABLE_PREFIX}msg m ON f.last_post_id=m.id
 			LEFT JOIN {SQL_TABLE_PREFIX}users u ON u.id=m.poster_id '.
 			(_uid ? ' LEFT JOIN {SQL_TABLE_PREFIX}forum_read fr ON fr.forum_id=f.id AND fr.user_id='._uid.' LEFT JOIN {SQL_TABLE_PREFIX}mod mo ON mo.user_id='._uid.' AND mo.forum_id=f.id LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g2.resource_id=f.id' : '').
 			((!$is_a || $cat_id) ?  ' WHERE ' : '') .
-			($is_a ? '' : (_uid ? ' (mo.id IS NOT NULL OR ((COALESCE(g2.group_cache_opt, g1.group_cache_opt) & 1) > 0))' : ' ((g1.group_cache_opt & 1) > 0)')) .
-			($cat_id ? ($is_a ? '' : ' AND ') . ' v.c IN('.implode(',', ($cf = $cidxc[$cat_id][5])).') ' : '').' ORDER BY v.id');
+			($is_a ? '' : (_uid ? ' (mo.id IS NOT NULL OR ('. q_bitand('COALESCE(g2.group_cache_opt, g1.group_cache_opt)', 1) .' > 0))' : ' ('. q_bitand('g1.group_cache_opt', 1) .' > 0)')) .
+			($cat_id ? ($is_a ? '' : ' AND ') .' v.c IN('. implode(',', ($cf = $cidxc[$cat_id][5])) .') ' : '') .' ORDER BY v.id');
 
 	$post_count = $thread_count = $last_msg_id = $cat = 0;
 	while ($r = db_rowarr($c)) {
-		/* increase thread & post count */
+		/* Increase thread & post count. */
 		$post_count += $r[13];
 		$thread_count += $r[14];
 
 		$cid = (int) $r[5];
 
 		if ($cat != $cid) {
-			if ($cbuf) { /* if previous category was using compact view, print forum row */
-				if (empty($collapse[$i[4]])) { /* only show if parent is not collapsed as well */
+			if ($cbuf) { /* If previous category was using compact view, print forum row. */
+				if (empty($collapse[$i[4]])) { /* Only show if parent is not collapsed as well. */
 					$forum_list_table_data .= '{TEMPLATE: idx_compact_forum_row}';
 				}
 				$cbuf = '';
 			}
 
 			while (list($k, $i) = each($cidxc)) {
-				/* 2nd check ensures that we don't end up displaying categories without any children */ 
+				/* 2nd check ensures that we don't end up displaying categories without any children. */ 
 				if (($cat_id && !isset($cf[$k])) || ($cid != $k && $i[4] >= $cidxc[$cid][4])) {
 					continue;
 				}
 
-				/* if parent category is collapsed, hide child category */
+				/* If parent category is collapsed, hide child category. */
 				if ($i[4] && !empty($collapse[$i[4]])) {
 					$collapse[$k] = 1;
 				}
@@ -123,23 +123,23 @@
 			$cat = $cid;
 		}
 
-		/* compact view check */
+		/* Compact view check. */
 		if ($r[18] & 4) {
 			$cbuf .= '{TEMPLATE: idx_compact_forum_entry}';
 			continue;
 		}
 
-		if (!($r[17] & 2) && !$is_a && !$r[16]) { /* visible forum with no 'read' permission */
+		if (!($r[17] & 2) && !$is_a && !$r[16]) { /* Visible forum with no 'read' permission. */
 			$forum_list_table_data .= '{TEMPLATE: forum_with_no_view_perms}';
 			continue;
 		}
 
-		/* code to determine the last post id for 'latest' forum message */
+		/* Code to determine the last post id for 'latest' forum message. */
 		if ($r[8] > $last_msg_id) {
 			$last_msg_id = $r[8];
 		}
 
-		if (!_uid) { /* anon user */
+		if (!_uid) { /* Anon user. */
 			$forum_read_indicator = '{TEMPLATE: forum_no_indicator}';
 		} else if ($r[15] < $r[2] && $usr->last_read < $r[2]) {
 			$forum_read_indicator = '{TEMPLATE: forum_unread}';
@@ -163,7 +163,7 @@
 	}
 	unset($c);
 
-	if ($cbuf) { /* if previous category was using compact view, print forum row */
+	if ($cbuf) { /* If previous category was using compact view, print forum row. */
 		$forum_list_table_data .= '{TEMPLATE: idx_compact_forum_row}';
 	}
 

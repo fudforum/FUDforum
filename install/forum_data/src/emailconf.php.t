@@ -16,18 +16,18 @@
 		error_dialog('{TEMPLATE: emailconf_err_invkey_title}', '{TEMPLATE: emailconf_err_invkey_msg}');
 	}
 
-	/* it is possible that a user may access the email confirmation URL twice, for such a 'rare' case,
-	 * we have this check to prevent a confusing error message being thrown at the hapeless user
+	/* It is possible that a user may access the email confirmation URL twice, for such a 'rare' case,
+	 * we have this check to prevent a confusing error message being thrown at the hapeless user.
 	 */
 	if (_uid && $usr->users_opt & 131072) {
 		check_return($usr->returnto);
 	}
 
-	$uid = q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}users WHERE conf_key='._esc($_GET['conf_key']));
+	$uid = q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}users WHERE conf_key='. _esc($_GET['conf_key']));
 	if (!$uid || (__fud_real_user__ && __fud_real_user__ != $uid)) {
 		error_dialog('{TEMPLATE: emailconf_err_invkey_title}', '{TEMPLATE: emailconf_err_invkey_msg}');
 	}
-	q("UPDATE {SQL_TABLE_PREFIX}users SET users_opt=users_opt|131072, conf_key='0' WHERE id=".$uid);
+	q('UPDATE {SQL_TABLE_PREFIX}users SET users_opt='. q_bitor(users_opt, 131072) .', conf_key=\'0\' WHERE id='. $uid);
 
 	if (defined('plugins')) {
 		plugin_call_hook('EMAILCONFIRMED', $usr);
@@ -35,7 +35,7 @@
 
 	if (!__fud_real_user__) {
 		$usr->ses_id = user_login($uid, $usr->ses_id, true);
-		$usr->users_opt = (int) q_singleval('SELECT users_opt FROM {SQL_TABLE_PREFIX}users WHERE id='.$uid);
+		$usr->users_opt = (int) q_singleval('SELECT users_opt FROM {SQL_TABLE_PREFIX}users WHERE id='. $uid);
 	}
 	if ($usr->users_opt & 2097152) {
 		header('Location: {FULL_ROOT}{ROOT}' . ($FUD_OPT_2 & 32768 ? '/rc/' : '?t=reg_conf&') . _rsidl);

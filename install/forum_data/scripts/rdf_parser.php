@@ -1,7 +1,7 @@
 <?php
 
 	/* path to the rdf file you wish to read */
-	$path_to_rdf = "";
+	$path_to_rdf = '';
 	/* parsing mode, what are we parsing, 'message', 'topic' or 'user' data */
 	$mode = 'message';
 
@@ -43,43 +43,43 @@ class fud_forum_rdf_msg_print extends fud_forum_rdf_msg
 {
 	function handle_fud_data()
 	{
-		echo $this->category_title . ' &raquo; ';
+		echo $this->category_title .' &raquo; ';
 
-		echo '<a href="'.$this->forum_url.'?t=rview&amp;frm_id='.$this->forum_id.'">' . $this->topic_title . '</a> &raquo; ';
+		echo '<a href="'. $this->forum_url .'?t=rview&amp;frm_id='. $this->forum_id .'">' . $this->topic_title .'</a> &raquo; ';
 
 		if ($this->topic_title && $this->topic_title != $this->title) {
-			echo '<a href="'.$this->forum_url.'?t=rview&amp;th='.$this->topic_id.'"> '.$this->topic_title.'</a> &raquo; ';
+			echo '<a href="'. $this->forum_url .'?t=rview&amp;th='. $this->topic_id .'"> '. $this->topic_title .'</a> &raquo; ';
 		}
 
-		echo '<a href="'.$this->forum_url.'?t=rview&amp;th='.$this->topic_id.'&amp;goto='.$this->message_id.'">'.$this->title.'</a><br />';
+		echo '<a href="'. $this->forum_url .'?t=rview&amp;th='. $this->topic_id .'&amp;goto='. $this->message_id .'">'. $this->title .'</a><br />';
 
-		echo '<b>Date: </b>'.$this->date.'<br />';
+		echo '<b>Date: </b>'. $this->date .'<br />';
 		
 		if ($this->author_id) {
-			echo '<b>Author: </b><a href="'.$this->forum_url.'?t=usrinfo&amp;id='.$this->author_id.'">'.$this->author.'</a><br />';
+			echo '<b>Author: </b><a href="'. $this->forum_url .'?t=usrinfo&amp;id='. $this->author_id .'">'. $this->author .'</a><br />';
 		} else {
-			echo '<b>Author: </b>'.$this->author.'<br />';
+			echo '<b>Author: </b>'. $this->author .'<br />';
 		}
 
 		if (!isset($this->reply_to_id) && $this->reply_to_title != $this->title) {
-			echo '<b>In Reply To:</b> <a href="'.$this->forum_url.'?t=rview&amp;th='.$this->topic_id.'&amp;id='.$this->reply_to_id.'"> '.$this->reply_to_title.'</a><br />';
+			echo '<b>In Reply To:</b> <a href="'. $this->forum_url .'?t=rview&amp;th='. $this->topic_id .'&amp;id='. $this->reply_to_id .'"> '. $this->reply_to_title .'</a><br />';
 		}
 
-		echo "<b>Message:</b><br /><blockquote>\n".$this->body."\n</blockquote><br />";
+		echo "<b>Message:</b><br /><blockquote>\n". $this->body ."\n</blockquote><br />";
 
 		if (@count($this->attachments)) {
 			echo '<b>Attachments:</b><br /><blockquote>';
 			foreach ($this->attachments as $atd) {
-				echo '<a href="'.$this->forum_url.'?t=getfile&amp;id='.$atd['id'].'">'.$atd['title'].'</a> ('.$atd['size'].') bytes, downloaded '.(int)$atd['nd'].' times<br />';
+				echo '<a href="'. $this->forum_url .'?t=getfile&amp;id='. $atd['id'] .'">'. $atd['title'] .'</a> ('. $atd['size'] .') bytes, downloaded '. (int)$atd['nd'] .' times<br />';
 			}
 			echo '</blockquote>';
 		}
 		if (!empty($this->poll_name)) {
-			echo '<b>Poll:</b> '.$this->poll_name.' (total votes: '.(int)$this->total_votes.')<br /><blockquote>';
+			echo '<b>Poll:</b> '. $this->poll_name .' (total votes: '. (int)$this->total_votes .')<br /><blockquote>';
 			$i = 0;
 			if (@count($this->poll_opts)) {
 				foreach ($this->poll_opts as $po) {
-					echo ++$i . '. ' . $po['title'] . ' (' . $po['votes'] . ')<br />';
+					echo ++$i .'. '. $po['title'] .' ('. $po['votes'] .')<br />';
 				}
 			}
 			echo '</blockquote>';
@@ -124,56 +124,56 @@ class fud_forum_rdf_user_print extends fud_forum_rdf_user
 {
 	function handle_fud_data()
 	{
-		echo '<b>User:</b> <a href="'.$this->forum_url.'?t=usrinfo&amp;id='.$this->user_id.'">'.$this->user_login.'</a>	<br />';
-		echo '<b>Real Name:</b> '.$this->user_name.'<br />';
-		echo '<b>E-mail:</b> <a href="mailto:'.$this->user_email.'">'.$this->user_email.'</a><br />';
-		echo '<b>Posted Messages:</b> '.$this->post_count.' <a href="'.$this->forum_url.'?t=showposts&id='.$this->user_id.'">view all messages by this user</a><br />';
-		/* draw last post by this user, if one is available */
+		echo '<b>User:</b> <a href="'. $this->forum_url .'?t=usrinfo&amp;id='. $this->user_id .'">'. $this->user_login .'</a><br />';
+		echo '<b>Real Name:</b> '. $this->user_name .'<br />';
+		echo '<b>E-mail:</b> <a href="mailto:'. $this->user_email .'">'. $this->user_email .'</a><br />';
+		echo '<b>Posted Messages:</b> '. $this->post_count .' <a href="'.$this->forum_url .'?t=showposts&id='. $this->user_id .'">view all messages by this user</a><br />';
+		/* Draw last post by this user, if one is available. */
 		if ($this->m_id) {
-			echo '<b>Last post:</b> '.$this->m_cat_title.' &raquo; <a href="'.$this->forum_url.'?t=rview&amp;frm_id='.$this->m_forum_id.'">'.$this->m_forum_title.'</a> &raquo; <a href="'.$this->forum_url.'?t=rview&amp;th='.$this->m_thread_id.'&amp;goto='.$this->m_id.'">'.$this->m_subject.'</a> <br />';
+			echo '<b>Last post:</b> '. $this->m_cat_title .' &raquo; <a href="'. $this->forum_url .'?t=rview&amp;frm_id='. $this->m_forum_id .'">'. $this->m_forum_title .'</a> &raquo; <a href="'. $this->forum_url .'?t=rview&amp;th='. $this->m_thread_id .'&amp;goto='. $this->m_id .'">'. $this->m_subject .'</a> <br />';
 		}
-		/* all of the following fields are optional, and therefore you should check if they exist before using them */
+		/* All of the following fields are optional, and therefore you should check if they exist before using them. */
 		if ($this->homepage) {
-			echo '<b>Homepage: <a href="'.$this->homepage.'" target="_blank">'.$this->homepage.'</a><br />';
+			echo '<b>Homepage: <a href="'. $this->homepage .'" target="_blank">'. $this->homepage .'</a><br />';
 		}
 		if ($this->avatar_img) {
-			echo '<b>Avatar:</b> '.$this->avatar_img.'<br />';
+			echo '<b>Avatar:</b> '. $this->avatar_img .'<br />';
 		}
 		if ($this->reg_date) {
-			echo '<b>Registered On:</b> '.$this->reg_date.'<br />';
+			echo '<b>Registered On:</b> '. $this->reg_date .'<br />';
 		}
 		if ($this->birthday) {
-			echo '<b>Birthday:</b> '.$this->birthday.'<br />';
+			echo '<b>Birthday:</b> '. $this->birthday .'<br />';
 		}
 		if ($this->last_visit) {
-			echo '<b>Last Visit:</b> '.$this->last_visit.'<br />';
+			echo '<b>Last Visit:</b> '. $this->last_visit .'<br />';
 		}
 		if ($this->im_icq) {
-			echo '<b>ICQ:</b> '.$this->im_icq.'<br />';
+			echo '<b>ICQ:</b> '. $this->im_icq .'<br />';
 		}
 		if ($this->im_aim) {
-			echo '<b>AIM:</b> '.$this->im_aim.'<br />';
+			echo '<b>AIM:</b> '. $this->im_aim .'<br />';
 		}
 		if ($this->im_yahoo) {
-			echo '<b>Yahoo Messenger:</b> '.$this->im_yahoo.'<br />';
+			echo '<b>Yahoo Messenger:</b> '. $this->im_yahoo .'<br />';
 		}
 		if ($this->im_msnm) {
-			echo '<b>MSN Messenger:</b> '.$this->im_msnm.'<br />';
+			echo '<b>MSN Messenger:</b> '. $this->im_msnm .'<br />';
 		}
 		if ($this->im_jabber) {
-			echo '<b>Jabber:</b> '.$this->im_jabber.'<br />';
+			echo '<b>Jabber:</b> '. $this->im_jabber .'<br />';
 		}
 		if ($this->im_google) {
-			echo '<b>Google:</b> '.$this->im_google.'<br />';
+			echo '<b>Google:</b> '. $this->im_google .'<br />';
 		}
 		if ($this->im_skype) {
-			echo '<b>Skype:</b> '.$this->im_skype.'<br />';
+			echo '<b>Skype:</b> '. $this->im_skype .'<br />';
 		}
 		if ($this->im_twitter) {
-			echo '<b>Twitter:</b> '.$this->im_twitter.'<br />';
+			echo '<b>Twitter:</b> '. $this->im_twitter .'<br />';
 		}
 		if ($this->im_affero) {
-			echo '<b>Affero:</b> '.$this->im_affero.'<br />';
+			echo '<b>Affero:</b> '. $this->im_affero .'<br />';
 		}
 		echo '<hr />';
 	}
@@ -203,14 +203,14 @@ class fud_forum_rdf_topic_print extends fud_forum_rdf_topic
 {
 	function handle_fud_data()
 	{
-		echo $this->category_title . ' &raquo; <a href="'.$this->forum_url.'?t=rview&amp;frm_id='.$this->forum_id.'">'.$this->forum_title.'</a> &raquo; <a href="'.$this->forum_url.'?t=rview&amp;th='.$this->topic_id.'">'.$this->topic_title.'</a><br />';
-		echo '<b>Created By:</b> <a href="'.$this->forum_url.'?t=usrinfo&amp;id='.$this->author_id.'">'.$this->author.'</a> on '.$this->topic_creation_date.'<br />';
-		echo 'This topic was <b>viewed '.$this->views.'</b> times and has <b>'.$this->replies.' replies</b><br />';
+		echo $this->category_title .' &raquo; <a href="'. $this->forum_url .'?t=rview&amp;frm_id='. $this->forum_id .'">'. $this->forum_title .'</a> &raquo; <a href="'. $this->forum_url .'?t=rview&amp;th='. $this->topic_id .'">'. $this->topic_title .'</a><br />';
+		echo '<b>Created By:</b> <a href="'. $this->forum_url .'?t=usrinfo&amp;id='. $this->author_id .'">'. $this->author .'</a> on '. $this->topic_creation_date .'<br />';
+		echo 'This topic was <b>viewed '. $this->views .'</b> times and has <b>'. $this->replies .' replies</b><br />';
 		/* this means that the thread has >1 replies and this will display the link to the last message
 		 * in this thread.
 		 */
 		if ($this->last_post_id) {
-			echo '<b>Last Post:</b> <a href="'.$this->forum_url.'?t=rview&amp;th='.$this->topic_id.'&amp;goto='.$this->last_post_id.'">'.$this->last_post_subj.'</a> posted on '.$this->last_post_date.'<br />';
+			echo '<b>Last Post:</b> <a href="'. $this->forum_url .'?t=rview&amp;th='. $this->topic_id .'&amp;goto='. $this->last_post_id .'">'. $this->last_post_subj .'</a> posted on '. $this->last_post_date .'<br />';
 		}
 	}
 } /* {{{ fud_forum_rdf_topic_print }}} */
@@ -228,11 +228,11 @@ class fud_forum_rdf_msg
 	{
 		$this->parser = xml_parser_create();
 		xml_parser_set_option($this->parser, XML_OPTION_CASE_FOLDING, false);
-		xml_parser_set_option($this->parser, XML_OPTION_TARGET_ENCODING, "UTF-8");
+		xml_parser_set_option($this->parser, XML_OPTION_TARGET_ENCODING, 'UTF-8');
 		xml_set_object($this->parser, $this);
 		xml_set_element_handler($this->parser, 'tag_open', 'tag_close');
 		xml_set_character_data_handler($this->parser, 'pdata');
-		xml_parse($this->parser, file_get_contents($url)) or die ("XML error: ".xml_error_string(xml_get_error_code($this->parser))." at line ".xml_get_current_line_number($this->parser)."<br />\n");
+		xml_parse($this->parser, file_get_contents($url)) or die ('XML error: '. xml_error_string(xml_get_error_code($this->parser)) .' at line '. xml_get_current_line_number($this->parser) ."<br />\n");
 		xml_parser_free($this->parser);
 	}
 
@@ -321,11 +321,11 @@ class fud_forum_rdf_user
 	{
 		$this->parser = xml_parser_create();
 		xml_parser_set_option($this->parser, XML_OPTION_CASE_FOLDING, false);
-		xml_parser_set_option($this->parser, XML_OPTION_TARGET_ENCODING, "UTF-8");
+		xml_parser_set_option($this->parser, XML_OPTION_TARGET_ENCODING, 'UTF-8');
 		xml_set_object($this->parser, $this);
 		xml_set_element_handler($this->parser, 'tag_open', 'tag_close');
 		xml_set_character_data_handler($this->parser, 'pdata');
-		xml_parse($this->parser, file_get_contents($url)) or die ("XML error: ".xml_error_string(xml_get_error_code($this->parser))." at line ".xml_get_current_line_number($this->parser)."<br />\n");
+		xml_parse($this->parser, file_get_contents($url)) or die ('XML error: '. xml_error_string(xml_get_error_code($this->parser)) .' at line '. xml_get_current_line_number($this->parser) ."<br />\n");
 		xml_parser_free($this->parser);
 	}
 
@@ -367,11 +367,11 @@ class fud_forum_rdf_topic
 	{
 		$this->parser = xml_parser_create();
 		xml_parser_set_option($this->parser, XML_OPTION_CASE_FOLDING, false);
-		xml_parser_set_option($this->parser, XML_OPTION_TARGET_ENCODING, "UTF-8");
+		xml_parser_set_option($this->parser, XML_OPTION_TARGET_ENCODING, 'UTF-8');
 		xml_set_object($this->parser, $this);
 		xml_set_element_handler($this->parser, 'tag_open', 'tag_close');
 		xml_set_character_data_handler($this->parser, 'pdata');
-		xml_parse($this->parser, file_get_contents($url)) or die ("XML error: ".xml_error_string(xml_get_error_code($this->parser))." at line ".xml_get_current_line_number($this->parser)."<br />\n");
+		xml_parse($this->parser, file_get_contents($url)) or die ('XML error: '. xml_error_string(xml_get_error_code($this->parser)) .' at line '. xml_get_current_line_number($this->parser) ."<br />\n");
 		xml_parser_free($this->parser);
 	}
 

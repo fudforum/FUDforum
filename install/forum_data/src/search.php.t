@@ -27,12 +27,12 @@
 	$attach = (isset($_GET['attach']) && $_GET['attach'] == '1') ? '1' : '0'; 
 	if (!empty($_GET['author'])) {
 		$author = (string) $_GET['author'];
-		$author_id = q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}users WHERE alias='._esc($author));
+		$author_id = q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}users WHERE alias='. _esc($author));
 	} else {
 		$author = $author_id = '';
 	}
 
-	require $FORUM_SETTINGS_PATH.'cat_cache.inc';
+	require $FORUM_SETTINGS_PATH .'cat_cache.inc';
 
 function fetch_search_cache($qry, $start, $count, $logic, $srch_type, $order, $forum_limiter, &$total)
 {
@@ -60,18 +60,13 @@ function fetch_search_cache($qry, $start, $count, $logic, $srch_type, $order, $f
 
 	$qry_lck = md5($qr);
 
-	/* remove expired cache */
-	q('DELETE FROM {SQL_TABLE_PREFIX}search_cache WHERE expiry<'.(__request_timestamp__ - $GLOBALS['SEARCH_CACHE_EXPIRY']));
+	/* Remove expired cache entries. */
+	q('DELETE FROM {SQL_TABLE_PREFIX}search_cache WHERE expiry<'. (__request_timestamp__ - $GLOBALS['SEARCH_CACHE_EXPIRY']));
 
-	if (!($total = q_singleval("SELECT count(*) FROM {SQL_TABLE_PREFIX}search_cache WHERE query_type=".$qt." AND srch_query='".$qry_lck."'"))) {
-		if (__dbtype__ == 'mysql') {
-			q("INSERT IGNORE INTO {SQL_TABLE_PREFIX}search_cache (srch_query, query_type, expiry, msg_id, n_match) SELECT '".$qry_lck."', ".$qt.", ".__request_timestamp__.", msg_id, count(*) as word_count FROM {SQL_TABLE_PREFIX}search s INNER JOIN {SQL_TABLE_PREFIX}".$tbl." i ON i.word_id=s.id WHERE word IN(".$qr.") GROUP BY msg_id ORDER BY word_count DESC LIMIT 500");
-			if (!($total = (int) db_affected())) {
-				return;
-			}
-		} else {
-			q("BEGIN; DELETE FROM {SQL_TABLE_PREFIX}search_cache; INSERT INTO {SQL_TABLE_PREFIX}search_cache (srch_query, query_type, expiry, msg_id, n_match) SELECT '".$qry_lck."', ".$qt.", ".__request_timestamp__.", msg_id, count(*) as word_count FROM {SQL_TABLE_PREFIX}search s INNER JOIN {SQL_TABLE_PREFIX}".$tbl." i ON i.word_id=s.id WHERE word IN(".$qr.") GROUP BY msg_id ORDER BY word_count DESC LIMIT 500; COMMIT;");
-		}
+	if (!($total = q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}search_cache WHERE query_type='. $qt .' AND srch_query=\''. $qry_lck .'\''))) {
+		q('INSERT INTO fud30_search_cache (srch_query, query_type, expiry, msg_id, n_match) '. 
+		  q_limit('SELECT \''. $qry_lck .'\', '. $qt .', '. __request_timestamp__ .', msg_id, count(*) as word_count FROM fud30_search s INNER JOIN fud30_'. $tbl .' i ON i.word_id=s.id WHERE word IN('. $qr .') GROUP BY msg_id ORDER BY word_count DESC', 
+		          500, 0));
 	}
 
 	if ($forum_limiter) {
@@ -98,7 +93,7 @@ function fetch_search_cache($qry, $start, $count, $logic, $srch_type, $order, $f
 		$qry_lmt .= ' AND m.attach_cnt>0';
 	}
 
-	$qry_lck = "'" . $qry_lck . "'";
+	$qry_lck = '\''. $qry_lck .'\'';
 
 	$total = q_singleval('SELECT count(*)
 		FROM {SQL_TABLE_PREFIX}search_cache sc
@@ -106,34 +101,34 @@ function fetch_search_cache($qry, $start, $count, $logic, $srch_type, $order, $f
 		INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id
 		INNER JOIN {SQL_TABLE_PREFIX}forum f ON t.forum_id=f.id
 		INNER JOIN {SQL_TABLE_PREFIX}cat c ON f.cat_id=c.id
-		INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id='.(_uid ? '2147483647' : '0').' AND g1.resource_id=f.id
-		LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=f.id AND mm.user_id='._uid.'
-		LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g2.resource_id=f.id
+		INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id='. (_uid ? '2147483647' : '0') .' AND g1.resource_id=f.id
+		LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=f.id AND mm.user_id='. _uid .'
+		LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='. _uid .' AND g2.resource_id=f.id
 		WHERE
-			sc.query_type='.$qt.' AND sc.srch_query='.$qry_lck.$qry_lmt.'
-			'.($logic == 'AND' ? ' AND sc.n_match>='.$i : '').'
-			'.($GLOBALS['is_a'] ? '' : ' AND (mm.id IS NOT NULL OR (COALESCE(g2.group_cache_opt, g1.group_cache_opt) & 262146) >= 262146)'));
+			sc.query_type='. $qt .' AND sc.srch_query='. $qry_lck . $qry_lmt .'
+			'. ($logic == 'AND' ? ' AND sc.n_match>='. $i : '') .'
+			'. ($GLOBALS['is_a'] ? '' : ' AND (mm.id IS NOT NULL OR '. q_bitand('COALESCE(g2.group_cache_opt, g1.group_cache_opt)', 262146) .' >= 262146)') );
 	if (!$total) {
 		return;
 	}
 
 	return q(q_limit('SELECT u.alias, f.name AS forum_name, f.id AS forum_id,
-			m.poster_id, m.id, m.thread_id, m.subject, m.poster_id, m.foff, m.length, m.post_stamp, m.file_id, m.icon, m.attach_cnt,
-			mm.id AS md, (t.root_msg_id = m.id) AS is_rootm, (t.thread_opt & 1) AS is_lckd
+			m.poster_id, m.id, m.thread_id, m.subject, m.foff, m.length, m.post_stamp, m.file_id, m.icon, m.attach_cnt,
+			mm.id AS md, CASE WHEN t.root_msg_id = m.id THEN 1 ELSE 0 END AS is_rootm, '. q_bitand('t.thread_opt', 1) .' AS is_lckd
 		FROM {SQL_TABLE_PREFIX}search_cache sc
 		INNER JOIN {SQL_TABLE_PREFIX}msg m ON m.id=sc.msg_id
 		INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id
 		INNER JOIN {SQL_TABLE_PREFIX}forum f ON t.forum_id=f.id
 		INNER JOIN {SQL_TABLE_PREFIX}cat c ON f.cat_id=c.id
-		INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id='.(_uid ? '2147483647' : '0').' AND g1.resource_id=f.id
+		INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id='. (_uid ? '2147483647' : '0') .' AND g1.resource_id=f.id
 		LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id
-		LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=f.id AND mm.user_id='._uid.'
-		LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g2.resource_id=f.id
+		LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=f.id AND mm.user_id='. _uid .'
+		LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='. _uid .' AND g2.resource_id=f.id
 		WHERE
-			sc.query_type='.$qt.' AND sc.srch_query='.$qry_lck.$qry_lmt.'
-			'.($logic == 'AND' ? ' AND sc.n_match>='.$i : '').'
-			'.($GLOBALS['is_a'] ? '' : ' AND (mm.id IS NOT NULL OR (COALESCE(g2.group_cache_opt, g1.group_cache_opt) & 262146) >= 262146)').'
-		ORDER BY sc.n_match DESC, m.post_stamp '.$order,
+			sc.query_type='. $qt .' AND sc.srch_query='. $qry_lck . $qry_lmt .'
+			'. ($logic == 'AND' ? ' AND sc.n_match>='.$i : '') .'
+			'. ($GLOBALS['is_a'] ? '' : ' AND (mm.id IS NOT NULL OR '. q_bitand('COALESCE(g2.group_cache_opt, g1.group_cache_opt)',  262146) .' >= 262146)') .'
+		ORDER BY sc.n_match DESC, m.post_stamp '. $order,
 		$count, $start));
 }
 
@@ -161,9 +156,9 @@ function fetch_search_cache($qry, $start, $count, $logic, $srch_type, $order, $f
 			unset($c);
 			$search_data = '{TEMPLATE: search_results}';
 			if ($FUD_OPT_2 & 32768) {
-				$page_pager = tmpl_create_pager($start, $ppg, $total, '{ROOT}/s/'.urlencode($srch).'/'.$field.'/'.$search_logic.'/'.$sort_order.'/'.($forum_limiter ? $forum_limiter : 0).'/', '/'.urlencode($author).'/'._rsid);
+				$page_pager = tmpl_create_pager($start, $ppg, $total, '{ROOT}/s/'. urlencode($srch) .'/'. $field .'/'. $search_logic .'/'. $sort_order .'/'. ($forum_limiter ? $forum_limiter : 0) .'/', '/'. urlencode($author) .'/'. _rsid);
 			} else {
-				$page_pager = tmpl_create_pager($start, $ppg, $total, '{ROOT}?t=search&amp;srch='.urlencode($srch).'&amp;field='.$field.'&amp;'._rsid.'&amp;search_logic='.$search_logic.'&amp;sort_order='.$sort_order.'&amp;forum_limiter='.$forum_limiter.'&amp;author='.urlencode($author));
+				$page_pager = tmpl_create_pager($start, $ppg, $total, '{ROOT}?t=search&amp;srch='. urlencode($srch) .'&amp;field='. $field .'&amp;'. _rsid .'&amp;search_logic='. $search_logic .'&amp;sort_order='. $sort_order .'&amp;forum_limiter='. $forum_limiter .'&amp;author='. urlencode($author));
 			}
 		}
 	} else {

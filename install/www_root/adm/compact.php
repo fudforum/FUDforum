@@ -194,7 +194,7 @@ function eta_calc($start, $pos, $pc)
 
 		while (1) {
 			$j = $i;
-			$c = q('SELECT m.id, m.foff, m.length, m.file_id, f.message_threshold, f.id FROM '. $tbl .'msg m INNER JOIN '. $tbl .'thread t ON m.thread_id=t.id INNER JOIN '. $tbl .'forum f ON t.forum_id=f.id WHERE m.file_id>0 LIMIT 100');
+			$c = q('SELECT m.id, m.foff, m.length, m.file_id, f.message_threshold, f.id as fid FROM '. $tbl .'msg m INNER JOIN '. $tbl .'thread t ON m.thread_id=t.id INNER JOIN '. $tbl .'forum f ON t.forum_id=f.id WHERE m.file_id>0 LIMIT 100');
 			while ($r = db_rowarr($c)) {
 				if ($r[4] && $r[2] > $r[4]) {
 					$m2 = write_body_c(trim_html(read_msg_body($r[1], $r[2], $r[3]), $r[4]), $len2, $off2, $r[5]);

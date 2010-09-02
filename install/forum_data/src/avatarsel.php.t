@@ -34,7 +34,7 @@
 
 	/* Here we draw the avatar control. */
 	$icons_per_row = 5;
-	$c = uq("SELECT id, descr, img FROM {SQL_TABLE_PREFIX}avatar WHERE gallery='".$gal."' ORDER BY id");
+	$c = uq('SELECT id, descr, img FROM {SQL_TABLE_PREFIX}avatar WHERE gallery=\''. $gal .'\' ORDER BY id');
 	$avatars_data = '';
 	$col = 0;
 	while ($r = db_rowarr($c)) {

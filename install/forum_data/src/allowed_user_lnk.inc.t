@@ -77,7 +77,7 @@ function is_allowed_user(&$usr, $simple=0)
 {
 	/* Check if the ban expired. */
 	if (($banned = $usr->users_opt & 65536) && $usr->ban_expiry && $usr->ban_expiry < __request_timestamp__) {
-		q('UPDATE {SQL_TABLE_PREFIX}users SET users_opt = users_opt &~ 65536 WHERE id='.$usr->id);
+		q('UPDATE {SQL_TABLE_PREFIX}users SET users_opt = '. q_bitand('users_opt', ~65536) .' WHERE id='. $usr->id);
 		$usr->users_opt ^= 65536;
 		$banned = 0;
 	} 

@@ -143,7 +143,7 @@ function resolve_dest_path($path)
 
 			/* If we are dealing with pgSQL drop all sequences too. */
 			if (__dbtype__ == 'pgsql') {
-				$c = q("SELECT relname from pg_class where relkind='S' AND relname ~ '^".str_replace('_', '\\\\_', $DBHOST_TBL_PREFIX)."'");
+				$c = q('SELECT relname from pg_class where relkind=\'S\' AND relname ~ \'^'. str_replace('_', '\\\\_', $DBHOST_TBL_PREFIX) .'\'');
 				while($r = db_rowarr($c)) {
 					q('drop sequence '.$r[0]);
 				}
@@ -259,8 +259,8 @@ function resolve_dest_path($path)
 
 			if (__dbtype__ == 'pgsql') {
 				/* We need to restore sequence numbers for postgreSQL. */
-				foreach(db_all("SELECT relname FROM pg_class WHERE relkind='S' AND relname LIKE '".addcslashes($DBHOST_TBL_PREFIX, '_')."%\_id\_seq'") as $v) {
-					if (!($m = q_singleval('SELECT MAX(id) FROM '.basename($v, '_id_seq')))) {
+				foreach(db_all('SELECT relname FROM pg_class WHERE relkind=\'S\' AND relname LIKE \''. addcslashes($DBHOST_TBL_PREFIX, '_') .'%\_id\_seq\'') as $v) {
+					if (!($m = q_singleval('SELECT MAX(id) FROM '. basename($v, '_id_seq')))) {
 						$m = 1;
 					}
 					q("SELECT setval('{$v}', {$m})");

@@ -14,7 +14,7 @@
 	/* Remove old unconfirmed users. */
 	if ($FUD_OPT_2 & 1) {
 		$account_expiry_date = __request_timestamp__ - (86400 * $UNCONF_USER_EXPIRY);
-		$list = db_all('SELECT id FROM {SQL_TABLE_PREFIX}users WHERE (users_opt & 131072)=0 AND join_date<'.$account_expiry_date.' AND posted_msg_count=0 AND last_visit<'.$account_expiry_date.' AND id!=1 AND (users_opt & 1048576)=0');
+		$list = db_all('SELECT id FROM {SQL_TABLE_PREFIX}users WHERE '. q_bitand('users_opt', 131072) .'=0 AND join_date<'. $account_expiry_date .' AND posted_msg_count=0 AND last_visit<'. $account_expiry_date .' AND id!=1 AND '. q_bitand('users_opt', 1048576) .'=0');
 
 		if ($list) {
 			fud_use('private.inc');
@@ -57,29 +57,29 @@
 						if (empty($tmp['goto']) || !q_singleval('SELECT t.forum_id
 								FROM {SQL_TABLE_PREFIX}msg m
 								INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id
-								INNER JOIN {SQL_TABLE_PREFIX}group_cache g ON g.user_id=0 AND g.resource_id=t.forum_id AND (g.group_cache_opt & 2) > 0
-								WHERE m.id='.(int)$tmp['goto'])) {
+								INNER JOIN {SQL_TABLE_PREFIX}group_cache g ON g.user_id=0 AND g.resource_id=t.forum_id AND '. q_bitand('g.group_cache_opt', 2) .' > 0
+								WHERE m.id='. (int)$tmp['goto'])) {
 							$returnto = '';
 							break;
 						}
 					} else {
 						if (!q_singleval('SELECT t.forum_id
 								FROM {SQL_TABLE_PREFIX}thread t
-								INNER JOIN {SQL_TABLE_PREFIX}group_cache g ON g.user_id=0 AND g.resource_id=t.forum_id AND (g.group_cache_opt & 2) > 0
-								WHERE t.id='.(int)$tmp['th'])) {
+								INNER JOIN {SQL_TABLE_PREFIX}group_cache g ON g.user_id=0 AND g.resource_id=t.forum_id AND '. q_bitand('g.group_cache_opt', 2) .' > 0
+								WHERE t.id='. (int)$tmp['th'])) {
 							$returnto = '';
 							break;
 						}
 					}
 				} else if ($page == 'thread' || $page == 'threadt') {
-					if (!q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}group_cache WHERE user_id=0 AND resource_id='.(isset($tmp['frm_id']) ? (int) $tmp['frm_id'] : 0).' AND (group_cache_opt & 2) > 0')) {
+					if (!q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}group_cache WHERE user_id=0 AND resource_id='. (isset($tmp['frm_id']) ? (int)$tmp['frm_id'] : 0).' AND '. q_bitand('g.group_cache_opt', 2) .' > 0')) {
 						$returnto = '';
 						break;
 					}
 				}
 
 				if (isset($tmp['S'])) {
-					$returnto = str_replace('S='.$tmp['S'], '', $usr->returnto);
+					$returnto = str_replace('S='. $tmp['S'], '', $usr->returnto);
 				} else {
 					$returnto = $usr->returnto;
 				}
@@ -97,9 +97,9 @@
 
 	if (_uid) { /* send logged in users to profile page if they are not logging out */
 		if ($FUD_OPT_2 & 32768) {
-			header('Location: {FULL_ROOT}{ROOT}/re/'._rsidl);
+			header('Location: {FULL_ROOT}{ROOT}/re/'. _rsidl);
 		} else {
-			header('Location: {FULL_ROOT}{ROOT}?t=register&'._rsidl);
+			header('Location: {FULL_ROOT}{ROOT}?t=register&'. _rsidl);
 		}
 		exit;
 	}
@@ -162,7 +162,7 @@ function error_check()
 
 		// First entry: redirect to openid provider.
 		if (isset($_POST['url']) && strpos($_POST['url'], 'http') === 0) {
-			require_once $GLOBALS['INCLUDE'] . '/openid/class.dopeopenid.php';
+			require_once $GLOBALS['INCLUDE'] .'/openid/class.dopeopenid.php';
 			$openid = new Dope_OpenID($_POST['url']);
 			$openid->setReturnURL($GLOBALS['WWW_ROOT'] .'index.php?t=login&verify=on');
 			$openid->SetTrustRoot($GLOBALS['WWW_ROOT']);
@@ -175,7 +175,7 @@ function error_check()
 
 		// Second entry: openid provider has returned auth params.
 		if (isset($_REQUEST['verify']) && (empty($_REQUEST['openid_mode']) || $_REQUEST['openid_mode'] != 'cancel')) {
-			require_once $GLOBALS['INCLUDE'] . '/openid/class.dopeopenid.php';
+			require_once $GLOBALS['INCLUDE'] .'/openid/class.dopeopenid.php';
 			$openid = new Dope_OpenID($_REQUEST['openid_op_endpoint']);
 
 			if ($openid->validateWithServer($_REQUEST) === TRUE) {	// Check auth token.
@@ -217,27 +217,27 @@ function error_check()
 			ses_putvar((int)$usr->sid, null);
 		}
 
-		if (!$usr_d && !($usr_d = db_sab('SELECT last_login, id, passwd, salt, login, email, users_opt, ban_expiry FROM {SQL_TABLE_PREFIX}users WHERE login='._esc($_POST['login'])))) {
+		if (!$usr_d && !($usr_d = db_sab('SELECT last_login, id, passwd, salt, login, email, users_opt, ban_expiry FROM {SQL_TABLE_PREFIX}users WHERE login='. _esc($_POST['login'])))) {
 			/* Cannot login: user not in DB. */
 			login_php_set_err('login', '{TEMPLATE: login_invalid_radius}');
 
 		} else if (($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN) > __request_timestamp__) { 
 			/* Flood control. */
-			q('UPDATE {SQL_TABLE_PREFIX}users SET last_login='.__request_timestamp__.' WHERE id='.$usr_d->id);
+			q('UPDATE {SQL_TABLE_PREFIX}users SET last_login='. __request_timestamp__ .' WHERE id='. $usr_d->id);
 			login_php_set_err('login', '{TEMPLATE: login_min_time}');
 
 		} else if (!isset($usr_d->alias) && (empty($usr_d->salt) && $usr_d->passwd != md5($_POST['password']) || 
 			  !empty($usr_d->salt) && $usr_d->passwd != sha1($usr_d->salt . sha1($_POST['password'])))) 
 		{
 			/* Check password: No salt -> old md5() auth; with salt -> new sha1() auth. */
-			logaction($usr_d->id, 'WRONGPASSWD', 0, ($usr_d->users_opt & 1048576 ? 'ADMIN: ' : '').'Invalid Password '.htmlspecialchars(_esc($_POST['password'])).' for login '.htmlspecialchars(_esc($_POST['login'])).'. IP: '.get_ip());
-			q('UPDATE {SQL_TABLE_PREFIX}users SET last_login='.__request_timestamp__.' WHERE id='.$usr_d->id);
+			logaction($usr_d->id, 'WRONGPASSWD', 0, ($usr_d->users_opt & 1048576 ? 'ADMIN: ' : '') .'Invalid Password '. htmlspecialchars(_esc($_POST['password'])) .' for login '. htmlspecialchars(_esc($_POST['login'])) .'. IP: '. get_ip());
+			q('UPDATE {SQL_TABLE_PREFIX}users SET last_login='. __request_timestamp__ .' WHERE id='. $usr_d->id);
 			login_php_set_err('login', '{TEMPLATE: login_invalid_radius}');
 		}
 
 		if ($GLOBALS['_ERROR_'] != 1) {
 			/* Is user allowed to login. */
-			q('UPDATE {SQL_TABLE_PREFIX}users SET last_login='.__request_timestamp__.' WHERE id='.$usr_d->id);
+			q('UPDATE {SQL_TABLE_PREFIX}users SET last_login='. __request_timestamp__ .' WHERE id='. $usr_d->id);
 			$usr_d->users_opt = (int) $usr_d->users_opt;
 			$usr_d->sid = $usr_d->id;
 			is_allowed_user($usr_d, 1);
@@ -252,7 +252,7 @@ function error_check()
 			}
 
 			if (!empty($_POST['adm']) && $usr_d->users_opt & 1048576) {
-				header('Location: {FULL_ROOT}adm/index.php?S='.$ses_id.'&SQ='.$new_sq);
+				header('Location: {FULL_ROOT}adm/index.php?S='. $ses_id .'&SQ='. $new_sq);
 				exit;
 			}
 
@@ -260,7 +260,7 @@ function error_check()
 				check_return('');
 			}
 
-			if (s && ($sesp = strpos($usr->returnto, s)) !== false) { /* replace old session with new session */
+			if (s && ($sesp = strpos($usr->returnto, s)) !== false) { /* Replace old session with new session. */
 				$usr->returnto = str_replace(s, $ses_id, $usr->returnto);
 			}
 
@@ -283,7 +283,8 @@ function error_check()
 						$usr->returnto = str_replace($m[0], $ses_id, $usr->returnto);
 					}
 				}
-				$usr->returnto .= '?SQ='. $new_sq. '&S='. $ses_id;
+				$usr->returnto .= '?SQ='. $new_sq .
+				'&S='. $ses_id;
 			}
 
 			check_return($usr->returnto);
@@ -300,5 +301,5 @@ function error_check()
 <?php
 	while (@ob_end_flush());
 	/* Clear expired sessions AND anonymous sessions older than 1 day. */
-	q('DELETE FROM {SQL_TABLE_PREFIX}ses WHERE time_sec<'.(__request_timestamp__- ($FUD_OPT_3 & 1 ? $SESSION_TIMEOUT : $COOKIE_TIMEOUT)) .' OR (user_id>2000000000 AND time_sec<'.(__request_timestamp__- 86400).')');
+	q('DELETE FROM {SQL_TABLE_PREFIX}ses WHERE time_sec<'. (__request_timestamp__- ($FUD_OPT_3 & 1 ? $SESSION_TIMEOUT : $COOKIE_TIMEOUT)) .' OR (user_id>2000000000 AND time_sec<'. (__request_timestamp__- 86400) .')');
 ?>

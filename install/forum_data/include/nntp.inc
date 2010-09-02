@@ -26,7 +26,7 @@ class fud_nntp
 	function get_return_code()
 	{
 		$this->lrc = fgets($this->fs, 1024);
-		return trim(substr($this->lrc, 0, strpos($this->lrc,' ')));
+		return trim(substr($this->lrc, 0, strpos($this->lrc, ' ')));
 	}
 
 	function compare_return_codes($code, $str='')
@@ -41,12 +41,12 @@ class fud_nntp
 	function auth_cmd()
 	{
 		if ($this-> nntp_opt & 128) {
-			switch ($this->cmd('AUTHINFO user '.$this->user, false)) {
+			switch ($this->cmd('AUTHINFO user '. $this->user, false)) {
 				case 281:
 					return true;
 					break 2;
 				case 381:
-					if ($this->cmd('AUTHINFO pass '.$this->pass, false) != 281) {
+					if ($this->cmd('AUTHINFO pass '. $this->pass, false) != 281) {
 						$this->error = "Authentication failed\n";
 						return false;
 					} else {
@@ -62,7 +62,7 @@ class fud_nntp
 				$this->error = "Authentication failed\n";
 				return false;
 			} else {
-				if ($this->cmd($this->user.' '.$this->pass, false) == 250) {
+				if ($this->cmd($this->user .' '. $this->pass, false) == 250) {
 					return true;
 				} else {
 					return false;
@@ -78,7 +78,7 @@ class fud_nntp
 
 	function cmd($cmd, $auth=true)
 	{
-		fputs($this->fs, $cmd."\r\n");
+		fputs($this->fs, $cmd ."\r\n");
 		$code = $this->get_return_code();
 		if ($auth && ($code == 450 || $code == 480)) {
 			if (!$this->auth_cmd()) {
@@ -104,14 +104,14 @@ class fud_nntp
 		$ret = $this->get_return_code();
 
 		if (!$this->compare_return_codes(200, $ret) && !$this->compare_return_codes(201, $ret)) {
-			$this->error = 'Failed to recieve proper response from NNTP Server, got '.$this->lrc."\n";
+			$this->error = 'Failed to recieve proper response from NNTP Server, got '. $this->lrc ."\n";
 			return false;
 		}
 
 		$ret = $this->cmd('MODE reader');
 
-		if (($this->cmd('GROUP '.$this->newsgroup) != 211)) {
-			$this->error = 'Unable to use '.$this->newsgroup.' newsgroup NTTP Msg: '.$this->lrc."\n";
+		if (($this->cmd('GROUP '. $this->newsgroup) != 211)) {
+			$this->error = 'Unable to use '. $this->newsgroup .' newsgroup NTTP Msg: '. $this->lrc ."\n";
 			return false;
 		} else {
 			$tmp = explode(' ', $this->lrc);
@@ -132,8 +132,8 @@ class fud_nntp
 		// Zero the vars.
 		$this->attachments=$this->user_id=$this->headers=$this->body=$this->raw_msg=$this->msg_id=$this->reply_to_msg_id=$this->from_email=$this->from_name=$this->ip=$this->boundary=null;
 
-		if ($this->cmd("ARTICLE $id") != 220) {
-			$this->error = 'Unable to Fetch Article #'.$id.', NTTP Msg: '.$this->lrc."\n";
+		if ($this->cmd('ARTICLE '. $id) != 220) {
+			$this->error = 'Unable to Fetch Article #'. $id .', NTTP Msg: '. $this->lrc ."\n";
 			return false;
 		}
 		while (!feof($this->fs)) {
@@ -527,7 +527,7 @@ class fud_nntp
 			// Handler for our own messages, which do not need to be imported.
 			if (isset($this->headers['x-fudforum']) && preg_match('!([A-Za-z0-9]{32}) <([0-9]+)>!', $this->headers['x-fudforum'], $m)) {
 				if ($m[1] == md5($GLOBALS['WWW_ROOT'])) {
-					q('UPDATE '.sql_p.'msg SET mlist_msg_id='._esc($this->msg_id).' WHERE id='.intval($m[2]).' AND mlist_msg_id IS NULL');
+					q('UPDATE '. sql_p .'msg SET mlist_msg_id='. _esc($this->msg_id) .' WHERE id='. intval($m[2]) .' AND mlist_msg_id IS NULL');
 					if (db_affected()) {
 						continue;
 					}
@@ -579,9 +579,9 @@ class fud_nntp
 			/* For anonymous users prefix 'contact' link. */
 			if (!$msg_post->poster_id) {
 				if ($frm->forum_opt & 16) {
-					$msg_post->body = "[b]Originally posted by:[/b] [email={(!empty($this->from_name) ? $this->from_name : '')}]{$this->from_email}[/email]\n\n".$msg_post->body;
+					$msg_post->body = "[b]Originally posted by:[/b] [email={(!empty($this->from_name) ? $this->from_name : '')}]{$this->from_email}[/email]\n\n". $msg_post->body;
 				} else {
-					$msg_post->body = 'Originally posted by: '.str_replace('@', '&#64', $this->from_email)."\n\n".$msg_post->body;
+					$msg_post->body = 'Originally posted by: '. str_replace('@', '&#64', $this->from_email) ."\n\n". $msg_post->body;
 				}
 			}
 
@@ -643,7 +643,7 @@ class fud_nntp
 	function get_lock()
 	{
 		$u = umask(0111);
-		$fp = fopen($GLOBALS['ERROR_PATH'].'.nntp/'.$this->server.'-'.$this->newsgroup.'.lock' , 'wb');
+		$fp = fopen($GLOBALS['ERROR_PATH'] .'.nntp/'. $this->server .'-'. $this->newsgroup.'. lock' , 'wb');
 		flock($fp, LOCK_EX);
 		umask($u);
 
@@ -661,7 +661,7 @@ class fud_nntp
 			$tracker = $this->group_last;
 		}
 
-		q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'nntp SET tracker = '.$tracker.' WHERE id='.$this->rule_id);
+		q('UPDATE '. $GLOBALS['DBHOST_TBL_PREFIX'] .'nntp SET tracker = '. $tracker .' WHERE id='. $this->rule_id);
 	}
 
 	function post_message($subject, $body, $from, $forum_msg_id, $reply_to='', $attch='')
@@ -673,7 +673,7 @@ class fud_nntp
 		}
 
 		if ($this->cmd('POST') != 340) {
-	        	$this->error = 'Failed to recieve proper response to POST command, NNTP server replied: '.$this->lrc."\n";
+	        	$this->error = 'Failed to recieve proper response to POST command, NNTP server replied: '. $this->lrc ."\n";
 			$this->exit_handler(0);
 			return;
 		}
@@ -693,23 +693,23 @@ class fud_nntp
 		}
 
 		if ($GLOBALS['FORUM_TITLE']) {
-	        	fputs($this->fs, 'Organization: '.$GLOBALS['FORUM_TITLE']."\r\n");
+	        	fputs($this->fs, 'Organization: '. $GLOBALS['FORUM_TITLE'] ."\r\n");
 		}
 
-		fputs($this->fs, 'Date: '.date('r')."\r\n");
+		fputs($this->fs, 'Date: '. date('r') ."\r\n");
 		fputs($this->fs, "Reply-To: $from\r\n");
-		fputs($this->fs, 'Lines: '.substr_count($body,"\n")."\r\n");
+		fputs($this->fs, 'Lines: '. substr_count($body,"\n") ."\r\n");
 
 		// Will be used to identify forum's messages. Prevent circular loads.
-		fputs($this->fs, 'X-FUDforum: '.md5($GLOBALS['WWW_ROOT'])." <$forum_msg_id>\r\n");
+		fputs($this->fs, 'X-FUDforum: '. md5($GLOBALS['WWW_ROOT']) ." <$forum_msg_id>\r\n");
 
 		// Reference parent's Message-ID so it is seen as a reply.
 		if ($reply_to) {
-			fputs($this->fs, 'References: <'.$reply_to.">\r\n");
+			fputs($this->fs, 'References: <'. $reply_to .">\r\n");
 		}
 
-		fputs($this->fs, 'User-Agent: FUDforum '.$GLOBALS['FORUM_VERSION']."\r\n");
-		fputs($this->fs, 'Content-Type: text/plain; charset='.$GLOBALS['CHARSET']."; format=flowed\r\n");
+		fputs($this->fs, 'User-Agent: FUDforum '. $GLOBALS['FORUM_VERSION'] ."\r\n");
+		fputs($this->fs, 'Content-Type: text/plain; charset='. $GLOBALS['CHARSET'] ."; format=flowed\r\n");
 
 		// Split body at first signature.
 		$sigpos = strpos($body, "\n-- \n");
@@ -730,7 +730,7 @@ class fud_nntp
 		fputs($this->fs, ".\r\n");
 
 		if (!$this->compare_return_codes(240)) {
-			$this->error = 'Posting Failed, NNTP Server Said: '.$this->lrc."\n";
+			$this->error = 'Posting Failed, NNTP Server Said: '. $this->lrc ."\n";
 			$this->exit_handler(0);
 			return;
 		}
@@ -742,9 +742,9 @@ class fud_nntp
 
 function uuencode($in, $file_name)
 {
-	$out = 'begin 644 ' . $file_name . "\r\n";
+	$out = 'begin 644 ' . $file_name ."\r\n";
 	if (function_exists('convert_uuencode')) {
-		return $out . convert_uuencode($in)."end\r\n";
+		return $out . convert_uuencode($in) ."end\r\n";
 	}
 
 	$n = strlen($in);
@@ -777,6 +777,6 @@ function uuencode($in, $file_name)
 		$out .= $c ? chr(($c & 077) + 32) : '`';
 
 	}
-	return $out . "\r\n`\r\nend\r\n";
+	return $out ."\r\n`\r\nend\r\n";
 }
 ?>

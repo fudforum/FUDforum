@@ -12,7 +12,7 @@
 /*{PRE_HTML_PHP}*/
 /*{POST_HTML_PHP}*/
 
-	include $FORUM_SETTINGS_PATH.'ps_cache';
+	include $FORUM_SETTINGS_PATH .'ps_cache';
 
 	$smileys = '';
 	foreach ($PS_SRC as $k => $v) {

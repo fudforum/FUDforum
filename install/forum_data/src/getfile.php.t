@@ -14,25 +14,25 @@
 
 function get_preview_img($id)
 {
-	return db_saq('SELECT mm.mime_hdr, a.original_name, a.location, 0, 0, 0, a.fsize FROM {SQL_TABLE_PREFIX}attach a LEFT JOIN {SQL_TABLE_PREFIX}mime mm ON mm.id=a.mime_type WHERE a.message_id=0 AND a.id='.$id);
+	return db_saq('SELECT mm.mime_hdr, a.original_name, a.location, 0, 0, 0, a.fsize FROM {SQL_TABLE_PREFIX}attach a LEFT JOIN {SQL_TABLE_PREFIX}mime mm ON mm.id=a.mime_type WHERE a.message_id=0 AND a.id='. $id);
 }
 
 
 	if (!isset($_GET['id']) || !($id = (int)$_GET['id'])) {
 		invl_inp_err();
 	}
-	if (empty($_GET['private'])) { /* non-private upload */
+	if (empty($_GET['private'])) { /* Non-private upload. */
 		$r = db_saq('SELECT mm.mime_hdr, a.original_name, a.location, m.id, mo.id,
-			('.(_uid ? 'COALESCE(g2.group_cache_opt, g1.group_cache_opt)' : 'g1.group_cache_opt').' & 2) > 0,
+			'. q_bitand(_uid ? 'COALESCE(g2.group_cache_opt, g1.group_cache_opt)' : '(g1.group_cache_opt)', 2) .' > 0,
 			a.fsize
 			FROM {SQL_TABLE_PREFIX}attach a
 			INNER JOIN {SQL_TABLE_PREFIX}msg m ON a.message_id=m.id AND a.attach_opt=0
 			INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id
-			INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id='.(_uid ? 2147483647 : 0).' AND g1.resource_id=t.forum_id
-			LEFT JOIN {SQL_TABLE_PREFIX}mod mo ON mo.forum_id=t.forum_id AND mo.user_id='._uid.'
+			INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id='. (_uid ? 2147483647 : 0) .' AND g1.resource_id=t.forum_id
+			LEFT JOIN {SQL_TABLE_PREFIX}mod mo ON mo.forum_id=t.forum_id AND mo.user_id='. _uid .'
 			LEFT JOIN {SQL_TABLE_PREFIX}mime mm ON mm.id=a.mime_type
-			'.(_uid ? 'LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g2.resource_id=t.forum_id' : '').'
-			WHERE a.id='.$id);
+			'. (_uid ? 'LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='. _uid .' AND g2.resource_id=t.forum_id' : '') .'
+			WHERE a.id='. $id);
 		if (!$r) {
 			if (!($r = get_preview_img($id))) {
 				invl_inp_err();
@@ -45,7 +45,7 @@ function get_preview_img($id)
 			FROM {SQL_TABLE_PREFIX}attach a
 			INNER JOIN {SQL_TABLE_PREFIX}pmsg pm ON a.message_id=pm.id AND a.attach_opt=1
 			LEFT JOIN {SQL_TABLE_PREFIX}mime mm ON mm.id=a.mime_type
-			WHERE a.attach_opt=1 AND a.id='.$id);
+			WHERE a.attach_opt=1 AND a.id='. $id);
 		if (!$r) {
 			if (!($r = get_preview_img($id))) {
 				invl_inp_err();
@@ -62,7 +62,7 @@ function get_preview_img($id)
 
 	$r[1] = reverse_fmt($r[1]);
 	if (!$r[2]) {
-		$r[2] = $GLOBALS['FILE_STORE'] . $id . '.atch';
+		$r[2] = $GLOBALS['FILE_STORE'] . $id .'.atch';
 	}
 
 	if (!strncmp($r[0], 'image/', 6)) {
@@ -104,9 +104,9 @@ function get_preview_img($id)
 		return;
 	}
 
-	header('Content-Type: '.$r[0]);
-	header('Content-Disposition: '.$append.'filename="'.urlencode($r[1]).'"');
-	header('Content-Length: '.array_pop($r));
+	header('Content-Type: '. $r[0]);
+	header('Content-Disposition: '. $append .'filename="'. urlencode($r[1]) .'"');
+	header('Content-Length: '. array_pop($r));
 	header('Connection: close');
 
 	attach_inc_dl_count($id, $r[3]);

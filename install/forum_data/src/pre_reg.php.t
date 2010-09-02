@@ -13,16 +13,16 @@
 
 	if (isset($_POST['disagree'])) {
 		if ($FUD_OPT_2 & 32768) {
-			header('Location: {FULL_ROOT}{ROOT}/i/'._rsidl);
+			header('Location: {FULL_ROOT}{ROOT}/i/'. _rsidl);
 		} else {
-			header('Location: {FULL_ROOT}{ROOT}?'._rsidl);
+			header('Location: {FULL_ROOT}{ROOT}?'. _rsidl);
 		}
 		exit;
 	} else if (isset($_POST['agree'])) {
 		if ($FUD_OPT_2 & 32768) {
-			header('Location: {FULL_ROOT}{ROOT}/re/' . ($FUD_OPT_1 & 1048576 ?(int)$_POST['coppa'] : 0) .'/'._rsidl);
+			header('Location: {FULL_ROOT}{ROOT}/re/'. ($FUD_OPT_1 & 1048576 ?(int)$_POST['coppa'] : 0) .'/'. _rsidl);
 		} else {
-			header('Location: {FULL_ROOT}{ROOT}?t=register&'._rsidl.'&reg_coppa='.($FUD_OPT_1 & 1048576 ?(int)$_POST['coppa'] : 0));
+			header('Location: {FULL_ROOT}{ROOT}?t=register&'. _rsidl .'&reg_coppa='. ($FUD_OPT_1 & 1048576 ?(int)$_POST['coppa'] : 0));
 		}
 		exit;
 	}

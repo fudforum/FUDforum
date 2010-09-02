@@ -18,9 +18,9 @@ function get_host($ip)
 	$name = gethostbyaddr($ip);
 
 	if ($name == $ip) {
-		$name = substr($name, 0, strrpos($name, '.')) . '*';
+		$name = substr($name, 0, strrpos($name, '.')) .'*';
 	} else if (substr_count($name, '.') > 1) {
-		$name = '*' . substr($name, strpos($name, '.')+1);
+		$name = '*'. substr($name, strpos($name, '.')+1);
 	}
 
 	return $name;

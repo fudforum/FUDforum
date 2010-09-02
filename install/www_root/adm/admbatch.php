@@ -91,18 +91,18 @@
 	/* Set defaults. */
 //	$jobs = "Generate sitemap\nBackup forum";
 //	$defs = "Generate sitemap::sitemap.php\nBackup forum::admdump.php";
-	$jobs = "Generate sitemap\nLookup latest version";
-	$defs = "Generate sitemap::sitemap.php\nLookup latest version::vercheck.php";
+	$jobs = "Check for new forum versions\nGenerate sitemap";
+	$defs = "Check for new forum versions::vercheck.php\nGenerate sitemap::sitemap.php";
 	$c = uq('SELECT id, name, \'xmlagg\' FROM '. $tbl .'xmlagg UNION 
 			 SELECT id, name, \'maillist\' FROM '. $tbl .'mlist WHERE mbox_server IS NOT NULL UNION 
 			 SELECT id, newsgroup, \'nntp\' FROM '. $tbl .'nntp');
 	while ($r = db_rowarr($c)) {
-		$jobs .= "\n". $r[1] .' ('. $r[2] .')';
+		$jobs .= "\n". $r[1] .' ('. $r[2] .' import)';
 		$defs .= "\n". $r[1] .'::'. $r[2] .'.php '. $r[0];
 	}
-	if ($edit && ($c = db_arr_assoc('SELECT * FROM '.$tbl.'cron WHERE id='.$edit))) {
+	if ($edit && ($c = db_arr_assoc('SELECT * FROM '. $tbl .'cron WHERE id='. $edit))) {
 		foreach ($c as $k => $v) {
-			${'cron_'.$k} = $v;
+			${'cron_'. $k} = $v;
 		}
 		$cron_def = $cron_name .'::'. $cron_cmd;
 	} else {
@@ -118,7 +118,7 @@
 <h2>Job Administration System</h2>
 <div class="tutor">
 	The Job Administration System can be used to run ad hoc import scripts (to load <a href="admmlist.php?<?php echo __adm_rsid; ?>">Mailing list messages</a>, <a href="admnntp.php?<?php echo __adm_rsid; ?>">USENET posts</a> or <a href="admxmlagg.php?<?php echo __adm_rsid; ?>">XML Feeds</a>) and view their output log files.
-	These scripts are stored in <a href="admbrowse.php?cur=<?php echo urlencode($path).'&amp;'.__adm_rsid ?>"><?php echo realpath($path); ?></a>.
+	These scripts are stored in <a href="admbrowse.php?cur=<?php echo urlencode($path) .'&amp;'. __adm_rsid ?>"><?php echo realpath($path); ?></a>.
 </div>
 <h3>Job settings:</h3>
 <form method="post" action="admbatch.php">
@@ -191,14 +191,14 @@ Notes: * means EVERY.
 	while ($r = db_rowarr($c)) {
 		$i++;
 		$bgcolor = ($edit == $r[0]) ? ' class="resultrow3"' : (($i%2) ? ' class="resultrow1"' : ' class="resultrow2"');
-		echo '<tr'.$bgcolor.'><td>'.htmlspecialchars($r[1]).'</td>
-			<td nowrap="nowrap">'.$r[2].' '.$r[3].' '.$r[4].' '.$r[5].' '.$r[6].' </font></td>
-			<td nowrap="nowrap">'.$r[7].' </font></td>
+		echo '<tr'.$bgcolor.'><td>'. htmlspecialchars($r[1]) .'</td>
+			<td nowrap="nowrap">'. $r[2] .' '. $r[3] .' '. $r[4] .' '. $r[5] .' '. $r[6] .' </font></td>
+			<td nowrap="nowrap">'. $r[7] .' </font></td>
 			<td><small>
-				[<a href="admbatch.php?edit='.$r[0].'&amp;'.__adm_rsid.'#edit">Edit</a>]
-				[<a href="admbatch.php?del='.$r[0].'&amp;'.__adm_rsid.'">Delete</a>]
-				[<a href="admbatch.php?run='.$r[0].'&amp;'.__adm_rsid.'">Run now!</a>]
-				[<a href="admbatch.php?log='.$r[0].'&amp;'.__adm_rsid.'#output">View Log</a>]
+				[<a href="admbatch.php?edit='. $r[0] .'&amp;'. __adm_rsid .'#edit">Edit</a>]
+				[<a href="admbatch.php?del='. $r[0] .'&amp;'. __adm_rsid .'">Delete</a>]
+				[<a href="admbatch.php?run='. $r[0] .'&amp;'. __adm_rsid .'">Run now!</a>]
+				[<a href="admbatch.php?log='. $r[0] .'&amp;'. __adm_rsid .'#output">View Log</a>]
 			</small></td></tr>';
 	}
 	unset($c);

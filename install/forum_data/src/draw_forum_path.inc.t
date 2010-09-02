@@ -9,7 +9,7 @@
 * Free Software Foundation; version 2 of the License.
 **/
 
-require $GLOBALS['FORUM_SETTINGS_PATH'].'cat_cache.inc';
+require $GLOBALS['FORUM_SETTINGS_PATH'] .'cat_cache.inc';
 
 function draw_forum_path($cid, $fn='', $fid=0, $tn='')
 {
@@ -17,7 +17,7 @@ function draw_forum_path($cid, $fn='', $fid=0, $tn='')
 
 	$data = '';
 	do {
-		$data = '{TEMPLATE: dfp_cat_link}' . $data;
+		$data = '{TEMPLATE: dfp_cat_link}'. $data;
 	} while (($cid = $cat_par[$cid]) > 0);
 
 	if ($fid) {

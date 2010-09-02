@@ -104,7 +104,7 @@ class fud_emsg
 	{
 		// Isolate boundry sections.
 		$this->body_sc = 0;
-		foreach (explode('--'.$boundry, $this->body) as $p) {
+		foreach (explode('--'. $boundry, $this->body) as $p) {
 			if (!trim($p)) continue;
 			// Parse inidividual body sections.
 			$this->body_s[$this->body_sc] = new fud_emsg;
@@ -347,9 +347,9 @@ function add_attachment($name, $data, $pid)
 	}
 
 	if (strncmp($_SERVER['argv'][0], '.', 1)) {
-		require (dirname($_SERVER['argv'][0]) . '/GLOBALS.php');
+		require (dirname($_SERVER['argv'][0]) .'/GLOBALS.php');
 	} else {
-		require (getcwd() . '/GLOBALS.php');
+		require (getcwd() .'/GLOBALS.php');
 	}
 
 	if (!($FUD_OPT_1 & 1)) {
@@ -394,10 +394,10 @@ function add_attachment($name, $data, $pid)
 	
 	/* Set language & locale. */
 	$GLOBALS['usr'] = new stdClass();
-	list($GLOBALS['usr']->lang, $locale) = db_saq('SELECT lang, locale FROM '.sql_p.'themes WHERE theme_opt=1|2 LIMIT 1');
+	list($GLOBALS['usr']->lang, $locale) = db_saq('SELECT lang, locale FROM '. sql_p .'themes WHERE theme_opt='. (1|2) .' LIMIT 1');
 	$GLOBALS['good_locale'] = setlocale(LC_ALL, $locale);
 
-	$frm = db_sab('SELECT id, forum_opt, message_threshold, (max_attach_size * 1024) AS max_attach_size, max_file_attachments FROM '.sql_p.'forum WHERE id='.$config->forum_id);
+	$frm = db_sab('SELECT id, forum_opt, message_threshold, (max_attach_size * 1024) AS max_attach_size, max_file_attachments FROM '. sql_p .'forum WHERE id='. $config->forum_id);
 
 	/* Fetch messaged form IMAP of POP3 inbox. */
 	if ($config->mbox_server && $config->mbox_user) {
@@ -416,7 +416,7 @@ function add_attachment($name, $data, $pid)
 
 		// Connect and serch for e-mail messages.
 		$tls = ($config->mbox_type >= 2) ? '/tls/novalidate-cert' : '/novalidate-cert';
-		$inbox = '{'. $config->mbox_server .'/'. $protocol . $tls . '}INBOX';
+		$inbox = '{'. $config->mbox_server .'/'. $protocol . $tls .'}INBOX';
 		echo "Connecting to mailbox $inbox\n";
 		$mbox = @imap_open($inbox, $config->mbox_user, $config->mbox_pass) or die('Can\'t connect to mailbox: '. imap_last_error());
 		// $emails = @imap_search($mbox, 'RECENT');
@@ -440,7 +440,7 @@ function add_attachment($name, $data, $pid)
 			}
 			$email_number = array_pop($emails);
 			$email_message = imap_fetchbody($mbox, $email_number, '');
-			echo "Laoding message $email_number.";
+			echo 'Loading message '. $email_number;
 			$emsg->parse_input($config->mlist_opt & 16, $email_message);
 			echo " Done. Deleting message.\n";
 			imap_delete($mbox, $email_number);
@@ -456,15 +456,15 @@ function add_attachment($name, $data, $pid)
 		$msg_post = new fud_msg_edit;
 
 		/* Check if message was already imported. */
-		if ($emsg->msg_id && q_singleval('SELECT m.id FROM '.sql_p.'msg m
-						INNER JOIN '.sql_p.'thread t ON t.id=m.thread_id
-						WHERE mlist_msg_id='._esc($emsg->msg_id).' AND t.forum_id='.$frm->id)) {
+		if ($emsg->msg_id && q_singleval('SELECT m.id FROM '. sql_p .'msg m
+						INNER JOIN '. sql_p .'thread t ON t.id=m.thread_id
+						WHERE mlist_msg_id='. _esc($emsg->msg_id) .' AND t.forum_id='. $frm->id)) {
 			continue;
 		}
 
 		/* Handler for our own messages, which do not need to be imported. */
 		if (isset($emsg->headers['x-fudforum']) && preg_match('!'.md5($GLOBALS['WWW_ROOT']).' <([0-9]+)>!', $emsg->headers['x-fudforum'], $m)) {
-			q('UPDATE '.sql_p.'msg SET mlist_msg_id='._esc($emsg->msg_id).' WHERE id='.(int)$m[1].' AND mlist_msg_id IS NULL');
+			q('UPDATE '. sql_p .'msg SET mlist_msg_id='. _esc($emsg->msg_id) .' WHERE id='. (int)$m[1] .' AND mlist_msg_id IS NULL');
 			continue;
 		}
 
@@ -498,7 +498,7 @@ function add_attachment($name, $data, $pid)
 				if (strpos($emsg->body, 'cid:'.$v) !== false) {
 					$id = add_attachment($k, $emsg->attachments[$k], $msg_post->poster_id);
 					$attach_list[$id] = $id;
-					$emsg->body = str_replace('cid:'.$v, $WWW_ROOT.'index.php?t=getfile&amp;id='.$id, $emsg->body);
+					$emsg->body = str_replace('cid:'. $v, $WWW_ROOT .'index.php?t=getfile&amp;id='. $id, $emsg->body);
 				}
 				unset($emsg->attachments[$k]);
 			}
@@ -509,9 +509,9 @@ function add_attachment($name, $data, $pid)
 		/* For anonymous users prefix 'contact' link. */
 		if (!$msg_post->poster_id) {
 			if ($frm->forum_opt & 16) {
-				$msg_post->body = '[b]Originally posted by:[/b] [email='.$emsg->from_email.']'.(!empty($emsg->from_name) ? $emsg->from_name : $emsg->from_email)."[/email]\n\n".$msg_post->body;
+				$msg_post->body = '[b]Originally posted by:[/b] [email='.$emsg->from_email .']'. (!empty($emsg->from_name) ? $emsg->from_name : $emsg->from_email) ."[/email]\n\n". $msg_post->body;
 			} else {
-				$msg_post->body = 'Originally posted by: '.str_replace('@', '&#64', $emsg->from_email)."\n\n".$msg_post->body;
+				$msg_post->body = 'Originally posted by: '. str_replace('@', '&#64', $emsg->from_email) ."\n\n". $msg_post->body;
 			}
 		}
 

@@ -33,10 +33,10 @@
 		$join = 'INNER JOIN '. $GLOBALS['DBHOST_TBL_PREFIX'] .'group_cache g1 ON g1.user_id=2147483647 AND g1.resource_id=f.id
 				LEFT JOIN '. $GLOBALS['DBHOST_TBL_PREFIX'] .'group_cache g2 ON g2.user_id='. $auth_as_user .' AND g2.resource_id=f.id
 				LEFT JOIN '. $GLOBALS['DBHOST_TBL_PREFIX'] .'mod mm ON mm.forum_id=t.forum_id AND mm.user_id='. $auth_as_user .' ';
-		$lmt  = '(mm.id IS NOT NULL OR (COALESCE(g2.group_cache_opt, g1.group_cache_opt) & 2) > 0)';
+		$lmt  = '(mm.id IS NOT NULL OR '. q_bitand('COALESCE(g2.group_cache_opt, g1.group_cache_opt)', 2) .' > 0)';
 	} else {
 		$join = 'INNER JOIN '. $GLOBALS['DBHOST_TBL_PREFIX'] .'group_cache g1 ON g1.user_id=0 AND g1.resource_id=t.forum_id ';
-		$lmt  = '(g1.group_cache_opt & 2) > 0';
+		$lmt  = q_bitand('g1.group_cache_opt', 2) .' > 0';
 	}
 
 	$c = uq('SELECT t.id, t.last_post_date, m.subject FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'thread t '. $join .'INNER JOIN '. $GLOBALS['DBHOST_TBL_PREFIX'] .'msg m ON t.root_msg_id = m.id WHERE '. $lmt .' ORDER BY t.last_post_date DESC LIMIT 50000');

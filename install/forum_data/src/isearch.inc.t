@@ -16,11 +16,11 @@ function text_to_worda($text)
 	$lang = $GLOBALS['usr']->lang;
 
 	if (@preg_match('/\p{L}/u', 'a') == 1) {	// PCRE unicode support is turned on
-		// Match utf-8 words (remove the \p{N} if you don't want to index words with numbers)
+		// Match utf-8 words (remove the \p{N} if you don't want to index words with numbers).
 		preg_match_all("/\p{L}[\p{L}\p{N}\p{Mn}\p{Pd}'\x{2019}]*/u", $text, $t1);
 		foreach ($t1[0] as $v) {
 			if ($lang != 'chinese' && $lang != 'japanese' && $lang != 'korean') {
-				if (isset($v[51]) || !isset($v[2])) continue;   // word too short or long
+				if (isset($v[51]) || !isset($v[2])) continue;   // Word too short or long.
 			}
 			$a[] = _esc($v);
 		}
@@ -30,7 +30,7 @@ function text_to_worda($text)
 	/* PCRE unicode support is turned off, fallback to old non-utf8 algorithm. */
 	$t1 = array_unique(str_word_count($text, 1));
 	foreach ($t1 as $v) {
-		if (isset($v[51]) || !isset($v[2])) continue;	// word too short or long
+		if (isset($v[51]) || !isset($v[2])) continue;	// Word too short or long.
 		$a[] = _esc($v);
 	}
 	return $a;

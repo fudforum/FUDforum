@@ -3,7 +3,7 @@
  * uncomment the line below and specify the full path to
  * the FUDforum's GLOBALS.php file.
  */
-// require_once("/path/to/GLOBALS.php");
+// require_once('/path/to/GLOBALS.php');
 
 /* 
 General Information
@@ -118,18 +118,18 @@ function fud_fetch_msg($arg)
 	$arg = is_numeric($arg) ? array($arg) : $arg;
 
 	$result = array();
-	$c = q("SELECT
+	$c = q('SELECT
 		m.*,
 		t.forum_id,
 		u.alias AS login, u.avatar_loc, u.email, u.posted_msg_count, u.join_date, u.location,
 		u.sig, u.custom_status, u.icq, u.aim, u.msnm, u.yahoo, u.jabber, u.google, u.skype, u.twitter, u.affero, u.users_opt, u.last_visit AS time_sec,
 		l.name AS level_name, l.img AS level_img
 	FROM
-		".$GLOBALS['DBHOST_TBL_PREFIX']."msg m
-		INNER JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."thread t ON m.thread_id=t.id
-		LEFT JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."users u ON m.poster_id=u.id
-		LEFT JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."level l ON u.level_id=l.id
-		WHERE m.id IN (".implode(',', $arg).") AND m.apr=1");
+		'. $GLOBALS['DBHOST_TBL_PREFIX'] .'msg m
+		INNER JOIN '. $GLOBALS['DBHOST_TBL_PREFIX'] .'thread t ON m.thread_id=t.id
+		LEFT JOIN '. $GLOBALS['DBHOST_TBL_PREFIX'] .'users u ON m.poster_id=u.id
+		LEFT JOIN '.$GLOBALS['DBHOST_TBL_PREFIX'] .'level l ON u.level_id=l.id
+		WHERE m.id IN ('. implode(',', $arg) .') AND m.apr=1');
 
 	while ($r = db_rowobj($c)) {
 		if ($r->poll_cache && $r->poll_id) {
@@ -171,7 +171,7 @@ function fud_fetch_msg($arg)
  */
 function fud_fetch_full_topic($arg)
 {
-	return _fud_msg_multi($arg, "SELECT id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."msg WHERE thread_id IN ({ARG}) AND apr=1");
+	return _fud_msg_multi($arg, 'SELECT id FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'msg WHERE thread_id IN ({ARG}) AND apr=1');
 }
 
 /* {{{ proto: mixed fud_fetch_recent_msg([float arg = 1]) }}}
@@ -183,7 +183,7 @@ function fud_fetch_full_topic($arg)
 function fud_fetch_recent_msg($arg=1)
 {
 	$range = time() - 86400 * (float) $arg;
-	return _fud_msg_multi(0, "SELECT id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."msg WHERE apr=1 AND post_stamp > ".$range);
+	return _fud_msg_multi(0, 'SELECT id FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'msg WHERE apr=1 AND post_stamp > '. $range);
 }
 
 /* {{{ proto: mixed fetch_fetch_msg_by_user(mixed arg) }}}
@@ -192,7 +192,7 @@ function fud_fetch_recent_msg($arg=1)
  */
 function fetch_fetch_msg_by_user($arg)
 {
-	return _fud_msg_multi(arg, "SELECT id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."msg WHERE poster_id IN ({ARG}) AND apr=1");
+	return _fud_msg_multi(arg, 'SELECT id FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'msg WHERE poster_id IN ({ARG}) AND apr=1');
 }
 
 /* {{{ proto: mixed fud_fetch_topic(mixed arg) }}}
@@ -223,18 +223,18 @@ function fud_fetch_topic($arg)
 
 	$result = array();	
 
-	$c = uq("SELECT
+	$c = uq('SELECT
 		m.attach_cnt, m.poll_id, m.subject, m.icon, m.post_stamp,
 		u.alias, u.id,
 		u2.id, u2.alias,
 		m2.id, m2.post_stamp,
 		t.id AS topic_id, t.moved_to, t.root_msg_id, t.replies, t.rating, t.thread_opt, t.views, t.tdescr
-		FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."thread t
-			INNER JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."msg	m	ON t.root_msg_id=m.id
-			INNER JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."msg	m2	ON m2.id=t.last_post_id
-			LEFT JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."users	u	ON u.id=m.poster_id
-			LEFT JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."users	u2	ON u2.id=m2.poster_id
-			WHERE t.id IN(".implode(',', $arg).")");
+		FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'thread t
+			INNER JOIN '. $GLOBALS['DBHOST_TBL_PREFIX'] .'msg	m	ON t.root_msg_id=m.id
+			INNER JOIN '. $GLOBALS['DBHOST_TBL_PREFIX'] .'msg	m2	ON m2.id=t.last_post_id
+			LEFT JOIN '. $GLOBALS['DBHOST_TBL_PREFIX'] .'users	u	ON u.id=m.poster_id
+			LEFT JOIN '. $GLOBALS['DBHOST_TBL_PREFIX'] .'users	u2	ON u2.id=m2.poster_id
+			WHERE t.id IN('. implode(',', $arg) .')');
 
 	while ($r = db_rowobj($c)) {
 		$r->replies++;
@@ -284,13 +284,13 @@ function fud_fetch_poll($arg)
 	$arg = is_numeric($arg) ? array($arg) : $arg;
 	$result = array();
 
-	$r = q("SELECT p.name, p.creation_date, p.total_votes, u.alias, p.id, p.owner
-			FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."poll p
-			LEFT JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."users u ON u.id=p.owner
-			WHERE p.id IN(".implode(',', $arg).")");
+	$r = q('SELECT p.name, p.creation_date, p.total_votes, u.alias, p.id, p.owner
+			FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'poll p
+			LEFT JOIN '. $GLOBALS['DBHOST_TBL_PREFIX']. 'users u ON u.id=p.owner
+			WHERE p.id IN('. implode(',', $arg) .')');
 	while ($row = db_rowobj($r)) {
 		$opts = array();
-		$r2 = uq("SELECT name, count FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."poll_opt WHERE poll_id=".$row->id." ORDER BY id");
+		$r2 = uq('SELECT name, count FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'poll_opt WHERE poll_id='. $row->id .' ORDER BY id');
 		while ($row2 = db_rowobj($r2)) {
 			$opts[] = $row2;
 		}
@@ -332,20 +332,20 @@ stdClass Object
 */ 
 function fud_fetch_attachment($arg)
 {
-	$res = _fud_simple_fetch_query($arg, "SELECT 
+	$res = _fud_simple_fetch_query($arg, 'SELECT 
 			a.*, u.alias, m.mime_hdr, m.descr, m.icon 
-			FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."attach a 
-			LEFT JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."users u ON u.id=a.owner
-			LEFT JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."mime m ON m.id=a.mime_type
-			WHERE a.id IN({ARG})");
+			FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'attach a 
+			LEFT JOIN '. $GLOBALS['DBHOST_TBL_PREFIX']. 'users u ON u.id=a.owner
+			LEFT JOIN '. $GLOBALS['DBHOST_TBL_PREFIX']. 'mime m ON m.id=a.mime_type
+			WHERE a.id IN({ARG})');
 
 	if (is_array($res)) {
 		foreach ($res as $k => $v) {
-			$res[$k]->download_url = $GLOBALS['WWW_ROOT'].'index.php?t=getfile&amp;id='.$v->id;
+			$res[$k]->download_url = $GLOBALS['WWW_ROOT'] .'index.php?t=getfile&amp;id='. $v->id;
 			unset($res[$k]->attach_opt);
 		}
 	} else {
-		$res->download_url = $GLOBALS['WWW_ROOT'].'index.php?t=getfile&amp;id='.$res->id;
+		$res->download_url = $GLOBALS['WWW_ROOT'] .'index.php?t=getfile&amp;id='. $res->id;
 		unset($res->attach_opt);
 	}
 	return $res;
@@ -376,7 +376,7 @@ stdClass Object
 */
 function fud_fetch_forum($arg)
 {
-	return _fud_decode_forum(_fud_simple_fetch_query($arg, "SELECT * FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."forum WHERE id IN({ARG})"));
+	return _fud_decode_forum(_fud_simple_fetch_query($arg, 'SELECT * FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'forum WHERE id IN({ARG})'));
 }
 
 /* {{{ proto: mixed fud_fetch_cat(mixed arg) }}}
@@ -391,7 +391,7 @@ stdClass Object
  */
 function fud_fetch_cat($arg)
 {
-	return _fud_simple_fetch_query($arg, "SELECT * FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."cat WHERE id IN({ARG})");
+	return _fud_simple_fetch_query($arg, 'SELECT * FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'cat WHERE id IN({ARG})');
 }
 
 /* {{{ proto: mixed fud_fetch_cat_forums(mixed arg) }}}
@@ -400,7 +400,7 @@ function fud_fetch_cat($arg)
  */
 function fud_fetch_cat_forums($arg)
 {
-	return _fud_decode_forum(_fud_simple_fetch_query($arg, "SELECT * FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."forum WHERE cat_id IN({ARG})"));
+	return _fud_decode_forum(_fud_simple_fetch_query($arg, 'SELECT * FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'forum WHERE cat_id IN({ARG})'));
 }
 
 /* {{{ proto: mixed fud_forum_stats() }}}
@@ -423,14 +423,14 @@ function fud_forum_stats()
 {
 	$tm_expire = __request_timestamp__ - ($GLOBALS['LOGEDIN_TIMEOUT'] * 60);
 
-	$uid = q_singleval("SELECT MAX(id) FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."users");
+	$uid = q_singleval('SELECT MAX(id) FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'users');
 
 	$stats = array(
-		'total_msg' => q_singleval("SELECT count(*) FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."msg"),
-		'total_topic' => q_singleval("SELECT count(*) FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."thread"),
-		'total_users' => q_singleval("SELECT count(*) FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."users"),
-		'online_users' => q_singleval("SELECT count(*) FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."ses WHERE time_sec>".$tm_expire." AND user_id<2000000000"),
-		'newest_user' => db_arr_assoc("SELECT id, alias FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."users WHERE id=".$uid)
+		'total_msg' => q_singleval('SELECT count(*) FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'msg'),
+		'total_topic' => q_singleval('SELECT count(*) FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'thread'),
+		'total_users' => q_singleval('SELECT count(*) FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'users'),
+		'online_users' => q_singleval('SELECT count(*) FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'ses WHERE time_sec>'. $tm_expire .' AND user_id<2000000000'),
+		'newest_user' => db_arr_assoc('SELECT id, alias FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'users WHERE id='. $uid)
 	);
 
 	return $stats;
@@ -451,11 +451,11 @@ function fud_fetch_online_users()
 {
 	$tm_expire = __request_timestamp__ - ($GLOBALS['LOGEDIN_TIMEOUT'] * 60);
 
-	return _fud_simple_fetch_query(0, "SELECT 
-			u.id, u.alias, s.time_sec, (u.users_opt &32768) as private
-			FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."ses s
-			INNER JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."users u ON s.user_id=u.id
-			WHERE time_sec>".$tm_expire);
+	return _fud_simple_fetch_query(0, 'SELECT 
+			u.id, u.alias, s.time_sec, '. q_bitand('u.users_opt', 32768) .' as private
+			FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'ses s
+			INNER JOIN '. $GLOBALS['DBHOST_TBL_PREFIX'] .'users u ON s.user_id=u.id
+			WHERE time_sec>'. $tm_expire);
 }
 
 /* {{{ proto: mixed fud_fetch_user(mixed arg) }}}
@@ -499,7 +499,7 @@ stdClass Object
 */
 function fud_fetch_user($arg)
 {
-	return _fud_simple_fetch_query($arg, "SELECT * FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."users WHERE id IN({ARG})");
+	return _fud_simple_fetch_query($arg, 'SELECT * FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'users WHERE id IN({ARG})');
 }
 
 /* {{{ proto: object fud_fetch_newest_user() }}}
@@ -507,7 +507,7 @@ function fud_fetch_user($arg)
  */
 function fud_fetch_newest_user()
 {
-	return fud_fetch_user(q_singleval("SELECT MAX(id) FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."users"));
+	return fud_fetch_user(q_singleval('SELECT MAX(id) FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'users'));
 }
 
 /* {{{ proto: object fud_fetch_random_user() }}}
@@ -515,7 +515,7 @@ function fud_fetch_newest_user()
  */
 function fud_fetch_random_user()
 {
-	return _fud_simple_fetch_query(0, "SELECT * FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."users ORDER BY RAND()");
+	return _fud_simple_fetch_query(0, 'SELECT * FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'users ORDER BY RAND()');
 }
 
 /* {{{ proto: object fud_fetch_top_poster() }}}
@@ -523,7 +523,7 @@ function fud_fetch_random_user()
  */
 function fud_fetch_top_poster()
 {
-	return _fud_simple_fetch_query(0, "SELECT * FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."users ORDER BY posted_msg_count DESC LIMIT 1");
+	return _fud_simple_fetch_query(0, 'SELECT * FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'users ORDER BY posted_msg_count DESC LIMIT 1');
 }
 
 /* {{{ proto: user_id fud_add_user($vals, &$err) }}}
@@ -567,7 +567,7 @@ function fud_add_user($vals, &$err)
 	// Check for required fields.
 	foreach (array('login', 'passwd', 'email', 'name') as $v) {
 		if (empty($vals[$v])) {
-			$err = "missing value for a required field {$v}";
+			$err = 'missing value for a required field '. $v;
 			return 0;
 		}
 	}
@@ -589,15 +589,15 @@ function fud_add_user($vals, &$err)
 
 	// Some fields must be unique, check them.
 	foreach (array('login', 'email', 'alias') as $v) {
-		if (q_singleval("SELECT id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."users WHERE {$v}="._esc($vals[$v]))) {
-			$err = "value for {$v} must be unique, specified value of {$vals[$v]} already exists.";
+		if (q_singleval('SELECT id FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'users WHERE '. $v .'='. _esc($vals[$v]))) {
+			$err = 'value for '. $v .' must be unique, specified value of '. $vals[$v] '. already exists.';
 			return 0;
 		}
 	}
 
 	$o2 =& $GLOBALS['FUD_OPT_2'];
 	$users_opt = 4|16|32|128|256|512|2048|4096|8192|16384|131072|4194304;
-	$theme = q_singleval("SELECT id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."themes WHERE theme_opt>=2 AND (theme_opt & 2) > 0 LIMIT 1");
+	$theme = q_singleval('SELECT id FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'themes WHERE theme_opt>=2 AND '. q_bitand('theme_opt', 2) .' > 0 LIMIT 1');
 	$time_zone =& $GLOBALS['SERVER_TZ'];
 	$posts_ppg =& $GLOBALS['POSTS_PER_PAGE'];
 	if (!($o2 & 4)) {
@@ -609,7 +609,7 @@ function fud_add_user($vals, &$err)
 	if ($o2 & 1) {
 		$o2 ^= 1;
 	}
-	$reg_ip = "127.0.0.1";
+	$reg_ip = '127.0.0.1';
 	$last_visit = $last_read = $join_date = __request_timestamp__;
 
 	// Make sure all fields are set.
@@ -622,8 +622,8 @@ function fud_add_user($vals, &$err)
 		}
 	}
 
-	return db_qid("INSERT INTO
-			".$GLOBALS['DBHOST_TBL_PREFIX']."users (
+	return db_qid('INSERT INTO
+			'. $GLOBALS['DBHOST_TBL_PREFIX'] .'users (
 				login,
 				alias,
 				passwd,
@@ -657,40 +657,40 @@ function fud_add_user($vals, &$err)
 				users_opt,
 				reg_ip
 			) VALUES (
-				"._esc($vals['login']).",
-				"._esc($vals['alias']).",
-				'".$vals['passwd']."',
-				"._esc($vals['name']).",
-				"._esc($vals['email']).",
-				".(int)$vals['icq'].",
-				".ssn(urlencode($vals['aim'])).",
-				".ssn(urlencode($vals['yahoo'])).",
-				".ssn(urlencode($vals['msnm'])).",
-				".ssn(htmlspecialchars($vals['jabber'])).",
-				".ssn(htmlspecialchars($vals['google'])).",
-				".ssn(htmlspecialchars($vals['skype'])).",
-				".ssn(htmlspecialchars($vals['twitter'])).",
-				".ssn(urlencode($vals['affero'])).",
-				".(int)$vals['posts_ppg'].",
-				"._esc($vals['time_zone']).",
-				".ssn($vals['birthday']).",
-				".(int)$vals['last_visit'].",
-				'".$vals['conf_key']."',
-				".ssn(htmlspecialchars($vals['user_image'])).",
-				".$vals['join_date'].",
-				".ssn($vals['location']).",
-				".(int)$vals['theme'].",
-				".ssn($vals['occupation']).",
-				".ssn($vals['interests']).",
-				".(int)$vals['referer_id'].",
-				".(int)$vals['last_read'].",
-				".ssn($vals['sig']).",
-				".ssn(htmlspecialchars($vals['home_page'])).",
-				".ssn($vals['bio']).",
-				".(int)$vals['users_opt'].",
-				".ip2long($vals['reg_ip'])."
+				'. _esc($vals['login']) .',
+				'. _esc($vals['alias']) .',
+				\''. $vals['passwd'] .'\',
+				'. _esc($vals['name']) .',
+				'. _esc($vals['email']) .',
+				'. (int)$vals['icq'] .',
+				'. ssn(urlencode($vals['aim'])) .',
+				'. ssn(urlencode($vals['yahoo'])) .',
+				'. ssn(urlencode($vals['msnm'])) .',
+				'. ssn(htmlspecialchars($vals['jabber'])) .',
+				'. ssn(htmlspecialchars($vals['google'])) .',
+				'. ssn(htmlspecialchars($vals['skype'])) .',
+				'. ssn(htmlspecialchars($vals['twitter'])) .',
+				'. ssn(urlencode($vals['affero'])) .',
+				'. (int)$vals['posts_ppg'] .',
+				'. _esc($vals['time_zone']) .',
+				'. ssn($vals['birthday']) .',
+				'. (int)$vals['last_visit'] .',
+				\''. $vals['conf_key'] .'\',
+				'. ssn(htmlspecialchars($vals['user_image'])) .',
+				'. $vals['join_date'] .',
+				'. ssn($vals['location']) .',
+				'. (int)$vals['theme'] .',
+				'. ssn($vals['occupation']) .',
+				'. ssn($vals['interests']) .',
+				'. (int)$vals['referer_id'] .',
+				'. (int)$vals['last_read'] .',
+				'. ssn($vals['sig']) .',
+				'. ssn(htmlspecialchars($vals['home_page'])) .',
+				'. ssn($vals['bio']) .',
+				'. (int)$vals['users_opt'] .',
+				'. ip2long($vals['reg_ip']) .'
 			)
-		");
+		');
 }
 
 /* {{{ proto: object fud_add_user($vals, &$err) }}}
@@ -702,8 +702,8 @@ function fud_update_user($uid, $vals, &$err)
 {
 	$uid = (int) $uid;
 
-	if (!q_singleval("SELECT id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."users WHERE id=".$uid)) {
-		$err = "Invalid user id";
+	if (!q_singleval('SELECT id FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'users WHERE id='. $uid)) {
+		$err = 'Invalid user id';
 		return 0;
 	}
 
@@ -719,23 +719,23 @@ function fud_update_user($uid, $vals, &$err)
 	foreach (array('login','email','alias')	as $v) {
 		if (empty($vals[$v])) continue;
 	
-		if (q_singleval("SELECT id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."users WHERE {$v}="._esc($vals[$v])." AND id!=".$uid)) {
-			$err = "value for {$v} must be unique, specified value of {$vals[$v]} already exists.";
+		if (q_singleval('SELECT id FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'users WHERE '. $v .'='. _esc($vals[$v]) .' AND id!='. $uid)) {
+			$err = 'value for '. $v .' must be unique, specified value of '. $vals[$v] .' already exists.';
 			return 0;
 		}
 	}
 
-	$qry = "UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."users SET ";
+	$qry = 'UPDATE '. $GLOBALS['DBHOST_TBL_PREFIX'] .'users SET ';
 	// Apply changes.
 	foreach( array('login','alias','passwd','name','email','icq','aim','yahoo','msnm','jabber','google','skype','twitter',
 		'affero','posts_ppg','time_zone','birthday','last_visit','conf_key','user_image',
 		'join_date','location','theme','occupation','interests','referer_id','last_read',
 		'sig','home_page','bio','users_opt','reg_ip') as $v) {
 		if (isset($vals[$v])) {
-			$qry .= "{$v}="._esc($vals[$v]).",";
+			$qry .= $v .'='. _esc($vals[$v]) .',';
 		}
 	}
-	uq(rtrim($qry,',')." WHERE id=".$uid);
+	uq(rtrim($qry,',') .' WHERE id='. $uid);
 	return 1;
 }
 
@@ -786,7 +786,7 @@ function fud_new_topic($subject, $body, $mode, $author, $forum, $icon=null, $att
  */
 function fud_new_reply($subject, $body, $mode, $author, $rep_id, $icon=null, $attach=null, $poll=null, $time=null)
 {
-	$forum = q_singleval("SELECT t.forum_id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."msg m INNER JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."thread t ON t.id=m.thread_id WHERE m.id=".$rep_id);
+	$forum = q_singleval('SELECT t.forum_id FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'msg m INNER JOIN '. $GLOBALS['DBHOST_TBL_PREFIX'] .'thread t ON t.id=m.thread_id WHERE m.id='. $rep_id);
 	return _fud_message_post($subject, $body, $mode, $author, $icon, 0, $forum, $rep_id, $attach, $poll, $time);
 }
 
@@ -812,7 +812,7 @@ function fud_new_reply($subject, $body, $mode, $author, $rep_id, $icon=null, $at
  */
 function fud_update_message($subject, $body, $mode, $author, $mid, $icon=null, $attach=null, $poll=null)
 {
-	$forum = q_singleval("SELECT t.forum_id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."msg m INNER JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."thread t ON t.id=m.thread_id WHERE m.id=".$mid);
+	$forum = q_singleval('SELECT t.forum_id FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'msg m INNER JOIN '. $GLOBALS['DBHOST_TBL_PREFIX'] .'thread t ON t.id=m.thread_id WHERE m.id='. $mid);
 	return _fud_message_post($subject, $body, $mode, $author, $icon, $mid, $forum, 0, $attach, $poll);
 }
 
@@ -852,7 +852,7 @@ function fud_delete_msg($arg)
  */
 function fud_delete_topic($arg)
 {
-	$ent = _fud_simple_fetch_query($arg, "SELECT root_msg_id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."thread WHERE id IN({ARG})");
+	$ent = _fud_simple_fetch_query($arg, 'SELECT root_msg_id FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'thread WHERE id IN({ARG})');
 	if (!$ent) {
 		return;
 	} else if (is_object($ent)) {
@@ -871,7 +871,7 @@ function fud_delete_topic($arg)
  */
 function fud_delete_poll($arg)
 {
-	$ent = _fud_simple_fetch_query($arg, "SELECT id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."poll WHERE id IN({ARG})");
+	$ent = _fud_simple_fetch_query($arg, 'SELECT id FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'poll WHERE id IN({ARG})');
 
 	if (!$ent) {
 		return;
@@ -889,7 +889,7 @@ function fud_delete_poll($arg)
  */
 function fud_delete_attachment($arg)
 {
-	$data = _fud_simple_fetch_query($arg, "SELECT id, message_id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."attach WHERE id IN({ARG})");
+	$data = _fud_simple_fetch_query($arg, 'SELECT id, message_id FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'attach WHERE id IN({ARG})');
 
 	if (!$data) {
 		return;
@@ -898,9 +898,9 @@ function fud_delete_attachment($arg)
 	fud_use('attach.inc');
 
 	foreach ((array)$data as $at) {
-		q("DELETE FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."attach WHERE id=".$at->id);
+		q('DELETE FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'attach WHERE id='. $at->id);
 		$atl = attach_rebuild_cache($at->message_id);
-		q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."msg SET attach_cnt=attach_cnt-1, attach_cache="._esc(@serialize($atl))." WHERE id=".$at->message_id);
+		q('UPDATE '. $GLOBALS['DBHOST_TBL_PREFIX'] .'msg SET attach_cnt=attach_cnt-1, attach_cache='. _esc(@serialize($atl)) .' WHERE id='. $at->message_id);
 	}
 }
 
@@ -909,7 +909,7 @@ function fud_delete_attachment($arg)
  */
 function fud_delete_user($arg)
 {
-	$data = _fud_simple_fetch_query($arg, "SELECT id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."users WHERE id IN({ARG})");
+	$data = _fud_simple_fetch_query($arg, 'SELECT id FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'users WHERE id IN({ARG})');
 
 	if (!$data) {
 		return;
@@ -929,7 +929,7 @@ function fud_delete_user($arg)
 
 function _fud_msg_multi($arg, $query)
 {
-	$arg = is_numeric($arg) ? array($arg) : (int) $arg;
+	$arg = is_numeric($arg) ? array($arg) : (int)$arg;
 	$ids = array();
 	$r = uq(str_replace('{ARG}', implode(',', $arg), $query));
 	while ($row = db_rowarr($r)) {
@@ -1036,18 +1036,18 @@ function _fud_message_post($subject, $body, $mode, $author, $icon, $id, $forum, 
 		$GLOBALS['FUD_OPT_1'] ^= 268435456;
 	}
 
-	$GLOBALS['good_locale'] = setlocale(LC_ALL, q_singleval("SELECT locale FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."themes WHERE theme_opt=1|2 LIMIT 1"));
-	list($forum_opt, $message_threshold) = db_saq("SELECT forum_opt, message_threshold FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."forum WHERE id=".$forum);
+	$GLOBALS['good_locale'] = setlocale(LC_ALL, q_singleval('SELECT locale FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'themes WHERE theme_opt='. (1|2) .' LIMIT 1'));
+	list($forum_opt, $message_threshold) = db_saq('SELECT forum_opt, message_threshold FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'forum WHERE id='. $forum);
 	if ($rep_id) {
-		$th_id = q_singleval("SELECT thread_id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."msg WHERE id=".$rep_id);
+		$th_id = q_singleval('SELECT thread_id FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'msg WHERE id='. $rep_id);
 	}
 
 	$msg = new fud_msg_edit();
-	$msg->poster_id = is_numeric($author) ? (int) $author : (int) q_singleval("SELECT id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."users WHERE login="._esc($author));
+	$msg->poster_id = is_numeric($author) ? (int) $author : (int) q_singleval('SELECT id FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'users WHERE login='. _esc($author));
 	$msg->subject = $subject;
 	$msg->body = apply_custom_replace($body);
 	$msg->icon = $icon;
-	$msg->thread_id = $id ? q_singleval("SELECT thread_id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."msg WHERE id=".$id) : 0;
+	$msg->thread_id = $id ? q_singleval('SELECT thread_id FROM '. $GLOBALS['DBHOST_TBL_PREFIX']. 'msg WHERE id='. $id) : 0;
 	$msg->msg_opt = $mode;
 	if ($time) {
 		$msg->post_stamp = $time;

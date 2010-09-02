@@ -11,8 +11,8 @@
 
 function ignore_add($user_id, $ignore_id)
 {
-	q('INSERT INTO {SQL_TABLE_PREFIX}user_ignore (ignore_id, user_id) VALUES ('.$ignore_id.', '.$user_id.')');
-	q('DELETE FROM {SQL_TABLE_PREFIX}buddy WHERE user_id='.$ignore_id.' AND bud_id='.$user_id);
+	q('INSERT INTO {SQL_TABLE_PREFIX}user_ignore (ignore_id, user_id) VALUES ('. $ignore_id .', '. $user_id .')');
+	q('DELETE FROM {SQL_TABLE_PREFIX}buddy WHERE user_id='. $ignore_id .' AND bud_id='. $user_id);
 	if (db_affected()) {
 		fud_use('buddy.inc');
 		buddy_rebuild_cache($ignore_id);
@@ -23,23 +23,23 @@ function ignore_add($user_id, $ignore_id)
 
 function ignore_delete($user_id, $ignore_id)
 {
-	q('DELETE FROM {SQL_TABLE_PREFIX}user_ignore WHERE user_id='.$user_id.' AND ignore_id='.$ignore_id);
+	q('DELETE FROM {SQL_TABLE_PREFIX}user_ignore WHERE user_id='. $user_id .' AND ignore_id='. $ignore_id);
 	return ignore_rebuild_cache($user_id);
 }
 
 function ignore_rebuild_cache($uid)
 {
 	$arr = array();
-	$q = uq('SELECT ignore_id FROM {SQL_TABLE_PREFIX}user_ignore WHERE user_id='.$uid);
+	$q = uq('SELECT ignore_id FROM {SQL_TABLE_PREFIX}user_ignore WHERE user_id='. $uid);
 	while ($ent = db_rowarr($q)) {
 		$arr[$ent[0]] = 1;
 	}
 	unset($q);
 
 	if ($arr) {
-		q('UPDATE {SQL_TABLE_PREFIX}users SET ignore_list='._esc(serialize($arr)).' WHERE id='.$uid);
+		q('UPDATE {SQL_TABLE_PREFIX}users SET ignore_list='. _esc(serialize($arr)) .' WHERE id='. $uid);
 		return $arr;
 	}
-	q('UPDATE {SQL_TABLE_PREFIX}users SET ignore_list=NULL WHERE id='.$uid);
+	q('UPDATE {SQL_TABLE_PREFIX}users SET ignore_list=NULL WHERE id='. $uid);
 }
 ?>

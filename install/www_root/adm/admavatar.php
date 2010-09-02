@@ -70,7 +70,7 @@ function import_avatars($path)
 	if (!empty($_GET['del']) && ($im = q_singleval('SELECT img FROM '. $tbl .'avatar WHERE id='. (int)$_GET['del']))) {
 		q('DELETE FROM '.$tbl.'avatar WHERE id='. (int)$_GET['del']);
 		if (db_affected()) {
-			q('UPDATE '. $tbl .'users SET avatar_loc=NULL, avatar=0, users_opt='. q_bitor(q_bitand('users_opt', q_bitnot(8388608|16777216)), 4194304) .' WHERE avatar='. (int)$_GET['del']);
+			q('UPDATE '. $tbl .'users SET avatar_loc=NULL, avatar=0, users_opt='. q_bitor(q_bitand('users_opt', ~(8388608|16777216)), 4194304) .' WHERE avatar='. (int)$_GET['del']);
 		}
 		@unlink($GLOBALS['WWW_ROOT_DISK'] .'images/avatars/'. $im);
 	}

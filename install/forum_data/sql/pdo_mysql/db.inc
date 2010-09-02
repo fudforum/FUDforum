@@ -127,18 +127,18 @@ function q_concat($arg)
 	return 'CONCAT('. implode(',', $tmp) .')';
 }
 
-function q_limit($query, $limit, $off)
+function q_limit($query, $limit, $off=0)
 {
 	// OLD SYNTAX: return $query .' LIMIT '. $off .','. $limit;
 	return $query .' LIMIT '. $limit .' OFFSET '. $off;
 }
 
 function q_bitand($fieldLeft, $fieldRight) {
-	return $fieldLeft .'&'. $fieldRight;
+	return $fieldLeft .' & '. $fieldRight;
 }
 
 function q_bitor($fieldLeft, $fieldRight) {
-	return $fieldLeft .'|'. $fieldRight;
+	return $fieldLeft .' | '. $fieldRight;
 }
 
 function q_bitnot($bitField) {

@@ -21,6 +21,6 @@ function forum_notify_add($user_id, $forum_id)
 
 function forum_notify_del($user_id, $forum_id)
 {
-	q('DELETE FROM {SQL_TABLE_PREFIX}forum_notify WHERE forum_id='. $forum_id .' AND user_id='.$user_id);
+	q('DELETE FROM {SQL_TABLE_PREFIX}forum_notify WHERE forum_id='. $forum_id .' AND user_id='. $user_id);
 }
 ?>

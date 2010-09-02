@@ -13,7 +13,7 @@ function init_spell($type, $dict)
 {
 	$pspell_config = pspell_config_create($dict);
 	pspell_config_mode($pspell_config, $type);
-	pspell_config_personal($pspell_config, $GLOBALS['FORUM_SETTINGS_PATH']."forum.pws");
+	pspell_config_personal($pspell_config, $GLOBALS['FORUM_SETTINGS_PATH'] .'forum.pws');
 	pspell_config_ignore($pspell_config, 2);
 	define('__FUD_PSPELL_LINK__', pspell_new_config($pspell_config));
 
@@ -28,7 +28,7 @@ function tokenize_string($data)
 	$wa = array();
 
 	$i = $p = 0;
-	$seps = array(','=>1,' '=>1,'/'=>1,'\\'=>1,'.'=>1,'=>1,'=>1,'!'=>1,'>'=>1,'?'=>1,"\n"=>1,"\r"=>1,"\t"=>1,")"=>1,"("=>1,"}"=>1,"{"=>1,"["=>1,"]"=>1,"*"=>1,";"=>1,'='=>1,':'=>1,'1'=>1,'2'=>1,'3'=>1,'4'=>1,'5'=>1,'6'=>1,'7'=>1,'8'=>1,'9'=>1,'0'=>1);
+	$seps = array(','=>1,' '=>1,'/'=>1,'\\'=>1,'.'=>1,','=>1,'!'=>1,'>'=>1,'?'=>1,"\n"=>1,"\r"=>1,"\t"=>1,')'=>1,'('=>1,'}'=>1,'{'=>1,'['=>1,']'=>1,'*'=>1,';'=>1,'='=>1,':'=>1,'1'=>1,'2'=>1,'3'=>1,'4'=>1,'5'=>1,'6'=>1,'7'=>1,'8'=>1,'9'=>1,'0'=>1);
 
 	while ($i < $len) {
 		if (isset($seps[$data{$i}])) {
@@ -51,7 +51,7 @@ function tokenize_string($data)
 				if ($wrd == '<pre>') {
 					$l = 'pre';
 					
-				/* deal with bad old style quotes - remove in future release */
+				/* Deal with bad old style quotes - remove in future release. */
 				} else if ($wrd == '<table border="0" align="center" width="90%" cellpadding="3" cellspacing="1">') {
 					$l = 1;
 					$p3 = $p;
@@ -68,7 +68,7 @@ function tokenize_string($data)
 						$p3 = strpos($data, '>', $p3);
 					}
 					
-				/* remove new style quotes */
+				/* Remove new style quotes. */
 				} else if ($wrd == '<blockquote>') {
 					$l = 1;
 					$p3 = $p;
@@ -129,12 +129,12 @@ function tokenize_string($data)
 
 function draw_spell_sug_select($v,$k,$type)
 {
-	$sel_name = 'spell_chk_'.$type.'_'.$k;
-	$data = '<select name="'.$sel_name.'">';
-	$data .= '<option value="'.htmlspecialchars($v['token']).'">'.htmlspecialchars($v['token']).'</option>';
+	$sel_name = 'spell_chk_'. $type .'_' .$k;
+	$data = '<select name="'. $sel_name .'">';
+	$data .= '<option value="'. htmlspecialchars($v['token']) .'">'. htmlspecialchars($v['token']) .'</option>';
 	$i = 0;
 	foreach(pspell_suggest(__FUD_PSPELL_LINK__, $v['token']) as $va) {
-		$data .= '<option value="'.$va.'">'.++$i.') '.$va.'</option>';
+		$data .= '<option value="'. $va .'">'. ++$i .') '. $va .'</option>';
 	}
 
 	if (!$i) {
@@ -151,8 +151,8 @@ function spell_replace($wa,$type)
 	$data = '';
 
 	foreach($wa as $k => $v) {
-		if( $v['check']==1 && isset($_POST['spell_chk_'.$type.'_'.$k]) && strlen($_POST['spell_chk_'.$type.'_'.$k])) {
-			$data .= $_POST['spell_chk_'.$type.'_'.$k];
+		if( $v['check']==1 && isset($_POST['spell_chk_'. $type .'_'. $k]) && strlen($_POST['spell_chk_'. $type .'_'. $k])) {
+			$data .= $_POST['spell_chk_'. $type .'_'. $k];
 		} else {
 			$data .= $v['token'];
 		}

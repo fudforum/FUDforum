@@ -36,7 +36,7 @@
 		{SQL_TABLE_PREFIX}pmsg p
 		INNER JOIN {SQL_TABLE_PREFIX}users u ON p.ouser_id=u.id
 		LEFT JOIN {SQL_TABLE_PREFIX}level l ON u.level_id=l.id
-	WHERE p.duser_id='._uid.' AND p.id='.$id);
+	WHERE p.duser_id='. _uid .' AND p.id='. $id);
 
 	if (!$m) {
 		invl_inp_err();
@@ -45,21 +45,21 @@
 	ses_update_status($usr->sid, '{TEMPLATE: pm_update}');
 
 	/* Next Msg */
-	if (($nid = q_singleval('SELECT p.id FROM {SQL_TABLE_PREFIX}pmsg p INNER JOIN {SQL_TABLE_PREFIX}users u ON u.id=p.ouser_id WHERE p.duser_id='._uid.' AND p.fldr='.$m->fldr.' AND post_stamp>'.$m->post_stamp.' ORDER BY p.post_stamp ASC LIMIT 1'))) {
+	if (($nid = q_singleval('SELECT p.id FROM {SQL_TABLE_PREFIX}pmsg p INNER JOIN {SQL_TABLE_PREFIX}users u ON u.id=p.ouser_id WHERE p.duser_id='. _uid .' AND p.fldr='. $m->fldr .' AND post_stamp>'. $m->post_stamp .' ORDER BY p.post_stamp ASC LIMIT 1'))) {
 		$dpmsg_next_message = '{TEMPLATE: dpmsg_next_message}';
 	} else {
 		$dpmsg_next_message = '';
 	}
 
 	/* Prev Msg */
-	if (($pid = q_singleval('SELECT p.id FROM {SQL_TABLE_PREFIX}pmsg p INNER JOIN {SQL_TABLE_PREFIX}users u ON u.id=p.ouser_id WHERE p.duser_id='._uid.' AND p.fldr='.$m->fldr.' AND p.post_stamp<'.$m->post_stamp.' ORDER BY p.post_stamp DESC LIMIT 1'))) {
+	if (($pid = q_singleval('SELECT p.id FROM {SQL_TABLE_PREFIX}pmsg p INNER JOIN {SQL_TABLE_PREFIX}users u ON u.id=p.ouser_id WHERE p.duser_id='. _uid .' AND p.fldr='. $m->fldr .' AND p.post_stamp<'. $m->post_stamp .' ORDER BY p.post_stamp DESC LIMIT 1'))) {
 		$dpmsg_prev_message = '{TEMPLATE: dpmsg_prev_message}';
 	} else {
 		$dpmsg_prev_message = '';
 	}
 
 	if (!$m->read_stamp && $m->pmsg_opt & 16) {
-		q('UPDATE {SQL_TABLE_PREFIX}pmsg SET read_stamp='.__request_timestamp__.', pmsg_opt=(pmsg_opt & ~ 4) |8 WHERE id='.$m->id);
+		q('UPDATE {SQL_TABLE_PREFIX}pmsg SET read_stamp='. __request_timestamp__ .', pmsg_opt='. q_bitor( q_bitand('pmsg_opt', ~4), 8) .' WHERE id='. $m->id);
 		if ($m->ouser_id != _uid && $m->pmsg_opt & 4 && !isset($_GET['dr'])) {
 			$track_msg = new fud_pmsg;
 			$track_msg->ouser_id = $track_msg->duser_id = $m->ouser_id;

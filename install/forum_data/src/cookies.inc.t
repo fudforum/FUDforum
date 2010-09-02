@@ -33,12 +33,12 @@ function ses_get($id=0)
 {
 	if (!$id) {
 		if (!empty($_COOKIE[$GLOBALS['COOKIE_NAME']])) {
-			$q_opt = 's.ses_id='._esc($_COOKIE[$GLOBALS['COOKIE_NAME']]);
+			$q_opt = 's.ses_id='. _esc($_COOKIE[$GLOBALS['COOKIE_NAME']]);
 		} else if ((isset($_GET['S']) || isset($_POST['S'])) && $GLOBALS['FUD_OPT_1'] & 128) {
 			$url_s = 1;
 			$q_opt = 's.ses_id='._esc((isset($_GET['S']) ? (string) $_GET['S'] : (string) $_POST['S']));
 			/* Do not validate against expired URL sessions. */
-			$q_opt .= ' AND s.time_sec > '.(__request_timestamp__ - $GLOBALS['SESSION_TIMEOUT']);
+			$q_opt .= ' AND s.time_sec > '. (__request_timestamp__ - $GLOBALS['SESSION_TIMEOUT']);
 		} else {
 			return;
 		}
@@ -51,7 +51,7 @@ function ses_get($id=0)
 			}
 		}
 	} else {
-		$q_opt = 's.id='.$id;
+		$q_opt = 's.id='. $id;
 	}
 
 	$u = db_sab('SELECT
@@ -62,7 +62,7 @@ function ses_get($id=0)
 	FROM {SQL_TABLE_PREFIX}ses s
 		INNER JOIN {SQL_TABLE_PREFIX}users u ON u.id=(CASE WHEN s.user_id>2000000000 THEN 1 ELSE s.user_id END)
 		LEFT OUTER JOIN {SQL_TABLE_PREFIX}themes t ON t.id=u.theme
-	WHERE '.$q_opt);
+	WHERE '. $q_opt);
 
 	/* Anon user, no session or login. */
 	if (!$u || $u->id == 1 || $id) {
@@ -89,7 +89,7 @@ function ses_anon_make()
 	do {
 		$uid = 2000000000 + mt_rand(1, 147483647);
 		$ses_id = md5($uid . __request_timestamp__ . getmypid());
-	} while (!($id = db_li('INSERT INTO {SQL_TABLE_PREFIX}ses (ses_id, time_sec, sys_id, user_id) VALUES (\''.$ses_id.'\', '.__request_timestamp__.', \''.ses_make_sysid().'\', '.$uid.')', $ef, 1)));
+	} while (!($id = db_li('INSERT INTO {SQL_TABLE_PREFIX}ses (ses_id, time_sec, sys_id, user_id) VALUES (\''. $ses_id .'\', '. __request_timestamp__ .', \''. ses_make_sysid() .'\', '. $uid .')', $ef, 1)));
 
 	/* When we have an anon user, we set a special cookie allowing us to see who referred this user. */
 	if (isset($_GET['rid']) && !isset($_COOKIE['frm_referer_id']) && $GLOBALS['FUD_OPT_2'] & 8192) {
@@ -102,17 +102,17 @@ function ses_anon_make()
 
 function ses_update_status($ses_id, $str=null, $forum_id=0, $ret='')
 {
-	q('UPDATE {SQL_TABLE_PREFIX}ses SET sys_id=\''.ses_make_sysid().'\', forum_id='.$forum_id.', time_sec='.__request_timestamp__.', action='.($str ? _esc($str) : 'NULL').', returnto='.(!is_int($ret) ? (isset($_SERVER['QUERY_STRING']) ? _esc($_SERVER['QUERY_STRING']) : 'NULL') : 'returnto').' WHERE id='.$ses_id);
+	q('UPDATE {SQL_TABLE_PREFIX}ses SET sys_id=\''. ses_make_sysid() .'\', forum_id='. $forum_id .', time_sec='. __request_timestamp__ .', action='. ($str ? _esc($str) : 'NULL') .', returnto='. (!is_int($ret) ? (isset($_SERVER['QUERY_STRING']) ? _esc($_SERVER['QUERY_STRING']) : 'NULL') : 'returnto') .' WHERE id='. $ses_id);
 }
 
 function ses_putvar($ses_id, $data)
 {
-	$cond = is_int($ses_id) ? 'id='.(int)$ses_id : 'ses_id=\''.$ses_id.'\'';
+	$cond = is_int($ses_id) ? 'id='. (int)$ses_id : 'ses_id=\''. $ses_id .'\'';
 
 	if (empty($data)) {
-		q('UPDATE {SQL_TABLE_PREFIX}ses SET data=NULL WHERE '.$cond);
+		q('UPDATE {SQL_TABLE_PREFIX}ses SET data=NULL WHERE '. $cond);
 	} else {
-		q('UPDATE {SQL_TABLE_PREFIX}ses SET data='._esc(serialize($data)).' WHERE '.$cond);
+		q('UPDATE {SQL_TABLE_PREFIX}ses SET data='. _esc(serialize($data)) .' WHERE '. $cond);
 	}
 }
 
@@ -131,7 +131,7 @@ function ses_anonuser_auth($id, $error)
 	if (!empty($_POST)) {
 		$_SERVER['QUERY_STRING'] = '';
 	}
-	q('UPDATE {SQL_TABLE_PREFIX}ses SET data='._esc(serialize($error)).', returnto='.ssn($_SERVER['QUERY_STRING']).' WHERE id='.$id);
+	q('UPDATE {SQL_TABLE_PREFIX}ses SET data='. _esc(serialize($error)) .', returnto='. ssn($_SERVER['QUERY_STRING']) .' WHERE id='. $id);
 	if ($GLOBALS['FUD_OPT_2'] & 32768) {	// USE_PATH_INFO
 		header('Location: {FULL_ROOT}{ROOT}/l/'. _rsidl);
 	} else {

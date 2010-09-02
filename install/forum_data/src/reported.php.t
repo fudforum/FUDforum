@@ -23,15 +23,15 @@ function draw_path($cid)
 
 	$data = '';
 	do {
-		$data = '{TEMPLATE: reported_cat_path}' . $data;
+		$data = '{TEMPLATE: reported_cat_path}'. $data;
 	} while (($cid = $cat_par[$cid]) > 0);
 
 	return $data;
 }
 
 	if (isset($_GET['del']) && ($del = (int)$_GET['del']) && sq_check(0, $usr->sq)) {
-		if ($is_a || q_singleval('SELECT mr.id FROM {SQL_TABLE_PREFIX}msg_report mr INNER JOIN {SQL_TABLE_PREFIX}msg m ON m.id=mr.msg_id INNER JOIN {SQL_TABLE_PREFIX}thread t ON t.id=m.thread_id INNER JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=t.forum_id AND mm.user_id='._uid.' WHERE mr.id='.$del)) {
-			q('DELETE FROM {SQL_TABLE_PREFIX}msg_report WHERE id='.$del);
+		if ($is_a || q_singleval('SELECT mr.id FROM {SQL_TABLE_PREFIX}msg_report mr INNER JOIN {SQL_TABLE_PREFIX}msg m ON m.id=mr.msg_id INNER JOIN {SQL_TABLE_PREFIX}thread t ON t.id=m.thread_id INNER JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=t.forum_id AND mm.user_id='. _uid .' WHERE mr.id='. $del)) {
+			q('DELETE FROM {SQL_TABLE_PREFIX}msg_report WHERE id='. $del);
 			if (db_affected()) {
 				logaction(_uid, 'DELREPORT');
 			}
@@ -59,12 +59,12 @@ function draw_path($cid)
 			INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id
 			INNER JOIN {SQL_TABLE_PREFIX}msg m2 ON m2.id=t.root_msg_id
 			INNER JOIN {SQL_TABLE_PREFIX}forum f ON t.forum_id=f.id
-			'.($is_a ? '' : ' INNER JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=t.forum_id AND mm.user_id='._uid).'
+			'. ($is_a ? '' : ' INNER JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=t.forum_id AND mm.user_id='. _uid) .'
 			LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id
 			LEFT JOIN {SQL_TABLE_PREFIX}users u2 ON mr.user_id=u2.id
 			LEFT JOIN {SQL_TABLE_PREFIX}level l ON u.level_id=l.id
 			LEFT JOIN {SQL_TABLE_PREFIX}poll p ON m.poll_id=p.id
-			LEFT JOIN {SQL_TABLE_PREFIX}poll_opt_track pot ON pot.poll_id=p.id AND pot.user_id='._uid.'
+			LEFT JOIN {SQL_TABLE_PREFIX}poll_opt_track pot ON pot.poll_id=p.id AND pot.user_id='. _uid.'
 		ORDER BY mr.id');
 
 	$perms = 2147483647;

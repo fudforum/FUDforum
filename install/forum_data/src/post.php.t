@@ -13,7 +13,7 @@ function flood_check()
 {
 	$check_time = __request_timestamp__-$GLOBALS['FLOOD_CHECK_TIME'];
 
-	if (($v = q_singleval("SELECT post_stamp FROM {SQL_TABLE_PREFIX}msg WHERE ip_addr='".get_ip()."' AND poster_id="._uid." AND post_stamp>".$check_time." ORDER BY post_stamp DESC LIMIT 1"))) {
+	if (($v = q_singleval('SELECT post_stamp FROM {SQL_TABLE_PREFIX}msg WHERE ip_addr=\''. get_ip() .'\' AND poster_id='. _uid .' AND post_stamp>'. $check_time .' ORDER BY post_stamp DESC LIMIT 1'))) {
 		return ($v - $check_time);
 	}
 
@@ -44,11 +44,11 @@ function flood_check()
 			error_dialog('{TEMPLATE: imsg_err_message_title}', '{TEMPLATE: imsg_err_message_msg}');
 		}
 	 	$th_id = $msg->thread_id;
-	 	$msg->login = q_singleval('SELECT alias FROM {SQL_TABLE_PREFIX}users WHERE id='.$msg->poster_id);
+	 	$msg->login = q_singleval('SELECT alias FROM {SQL_TABLE_PREFIX}users WHERE id='. $msg->poster_id);
 	}
 
 	if ($th_id) {
-		$thr = db_sab('SELECT t.forum_id, t.replies, t.thread_opt, t.root_msg_id, t.orderexpiry, t.tdescr, m.subject FROM {SQL_TABLE_PREFIX}thread t INNER JOIN {SQL_TABLE_PREFIX}msg m ON t.root_msg_id=m.id WHERE t.id='.$th_id);
+		$thr = db_sab('SELECT t.forum_id, t.replies, t.thread_opt, t.root_msg_id, t.orderexpiry, t.tdescr, m.subject FROM {SQL_TABLE_PREFIX}thread t INNER JOIN {SQL_TABLE_PREFIX}msg m ON t.root_msg_id=m.id WHERE t.id='. $th_id);
 		if (!$thr) {
 			invl_inp_err();
 		}
@@ -58,15 +58,15 @@ function flood_check()
 	} else {
 		std_error('systemerr');
 	}
-	$frm = db_sab('SELECT id, cat_id, name, max_attach_size, forum_opt, max_file_attachments, post_passwd, message_threshold FROM {SQL_TABLE_PREFIX}forum WHERE id='.$frm_id);
+	$frm = db_sab('SELECT id, cat_id, name, max_attach_size, forum_opt, max_file_attachments, post_passwd, message_threshold FROM {SQL_TABLE_PREFIX}forum WHERE id='. $frm_id);
 	if (!$frm) {
 		std_error('systemerr');
 	}
-	$frm->forum_opt = (int) $frm->forum_opt;
+	$frm->forum_opt = (int)$frm->forum_opt;
 
 	/* Fetch permissions & moderation status. */
-	$MOD = (int) ($is_a || ($usr->users_opt & 524288 && q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}mod WHERE user_id='._uid.' AND forum_id='.$frm->id)));
-	$perms = perms_from_obj(db_sab('SELECT group_cache_opt, '.$MOD.' as md FROM {SQL_TABLE_PREFIX}group_cache WHERE user_id IN('._uid.',2147483647) AND resource_id='.$frm->id.' ORDER BY user_id ASC LIMIT 1'), $is_a);
+	$MOD = (int) ($is_a || ($usr->users_opt & 524288 && q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}mod WHERE user_id='. _uid .' AND forum_id='. $frm->id)));
+	$perms = perms_from_obj(db_sab('SELECT group_cache_opt, '. $MOD .' as md FROM {SQL_TABLE_PREFIX}group_cache WHERE user_id IN('. _uid .',2147483647) AND resource_id='. $frm->id .' ORDER BY user_id ASC LIMIT 1'), $is_a);
 
 	/* More Security. */
 	if ($thr && !($perms & 4096) && $thr->thread_opt & 1) {
@@ -116,7 +116,7 @@ function flood_check()
 			$msg_show_sig = !$msg_id ? ($usr->users_opt & 2048) : ($msg->msg_opt & 1);
 
 			if ($msg_id || $reply_to) {
-				$msg_poster_notif = (($usr->users_opt & 2) && !q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}msg WHERE thread_id='.$msg->thread_id.' AND poster_id='._uid)) || is_notified(_uid, $msg->thread_id);
+				$msg_poster_notif = (($usr->users_opt & 2) && !q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}msg WHERE thread_id='. $msg->thread_id .' AND poster_id='. _uid)) || is_notified(_uid, $msg->thread_id);
 			} else {
 				$msg_poster_notif = ($usr->users_opt & 2);
 			}
@@ -138,7 +138,7 @@ function flood_check()
 			$_POST['msg_icon'] = $msg->icon;
 
 	 		if ($msg->attach_cnt) {
-	 			$r = q('SELECT id FROM {SQL_TABLE_PREFIX}attach WHERE message_id='.$msg->id.' AND attach_opt=0');
+	 			$r = q('SELECT id FROM {SQL_TABLE_PREFIX}attach WHERE message_id='. $msg->id .' AND attach_opt=0');
 	 			while ($fa_id = db_rowarr($r)) {
 	 				$attach_list[$fa_id[0]] = $fa_id[0];
 	 			}
@@ -164,7 +164,7 @@ function flood_check()
 					$msg_body = html_to_tags($msg_body);
 				 	$msg_body = '{TEMPLATE: fud_quote}';
 				} else if ($frm->forum_opt & 8) {
-					$msg_body = '> '.str_replace("\n", "\n> ", reverse_nl2br(reverse_fmt($msg_body)));
+					$msg_body = '> '. str_replace("\n", "\n> ", reverse_nl2br(reverse_fmt($msg_body)));
 					$msg_body = str_replace('<br />', "\n", '{TEMPLATE: plain_quote}');
 				} else {
 					$msg_body = '{TEMPLATE: html_quote}';
@@ -207,7 +207,7 @@ function flood_check()
 						}
 					}
 				} else if ($msg_id) { /* If checksum fails and we're editing a message, get attachment data from db. */
-					$r = q('SELECT id FROM {SQL_TABLE_PREFIX}attach WHERE message_id='.$msg_id.' AND attach_opt=0');
+					$r = q('SELECT id FROM {SQL_TABLE_PREFIX}attach WHERE message_id='. $msg_id .' AND attach_opt=0');
 		 			while ($fa_id = db_rowarr($r)) {
 		 				$attach_list[$fa_id[0]] = $fa_id[0];
 	 				}
@@ -220,11 +220,11 @@ function flood_check()
 			if (!empty($_POST['file_del_opt']) && isset($attach_list[$_POST['file_del_opt']])) {
 				$attach_list[$_POST['file_del_opt']] = 0;
 				/* Remove any reference to the image from the body to prevent broken images. */
-				if (strpos($msg_body, '[img]{ROOT}?t=getfile&id='.$_POST['file_del_opt'].'[/img]') !== false) {
-					$msg_body = str_replace('[img]{ROOT}?t=getfile&id='.$_POST['file_del_opt'].'[/img]', '', $msg_body);
+				if (strpos($msg_body, '[img]{ROOT}?t=getfile&id='. $_POST['file_del_opt'] .'[/img]') !== false) {
+					$msg_body = str_replace('[img]{ROOT}?t=getfile&id='. $_POST['file_del_opt'] .'[/img]', '', $msg_body);
 				}
-				if (strpos($msg_body, '[img]{FULL_ROOT}{ROOT}?t=getfile&id='.$_POST['file_del_opt'].'[/img]') !== false) {
-					$msg_body = str_replace('[img]{FULL_ROOT}{ROOT}?t=getfile&id='.$_POST['file_del_opt'].'[/img]', '', $msg_body);
+				if (strpos($msg_body, '[img]{FULL_ROOT}{ROOT}?t=getfile&id='. $_POST['file_del_opt'] .'[/img]') !== false) {
+					$msg_body = str_replace('[img]{FULL_ROOT}{ROOT}?t=getfile&id='.$_POST['file_del_opt'] .'[/img]', '', $msg_body);
 				}
 				$attach_count--;
 			}
@@ -353,6 +353,11 @@ function flood_check()
 				$msg_tdescr = '';
 			}
 
+			// PREPOST plugins.
+			if (defined('plugins')) {
+				$msg_post = plugin_call_hook('PREPOST', $msg_post);
+			}
+
 		 	/* Chose to create thread OR add message OR update message. */
 
 		 	if (!$th_id) {
@@ -410,12 +415,12 @@ function flood_check()
 			           ($usr->posted_msg_count < $MOD_FIRST_N_POSTS && !$MOD))	// Min quota posts not reached.
 			{
 				if ($FUD_OPT_2 & 262144) {	// MODERATED_POST_NOTIFY
-					$modl = db_all('SELECT u.email FROM {SQL_TABLE_PREFIX}mod mm INNER JOIN {SQL_TABLE_PREFIX}users u ON u.id=mm.user_id WHERE mm.forum_id='.$frm->id);
+					$modl = db_all('SELECT u.email FROM {SQL_TABLE_PREFIX}mod mm INNER JOIN {SQL_TABLE_PREFIX}users u ON u.id=mm.user_id WHERE mm.forum_id='. $frm->id);
 					if ($modl) {
 						send_email($NOTIFY_FROM, $modl, '{TEMPLATE: post_mod_msg_notify_title}', '{TEMPLATE: post_mod_msg_notify_msg}', '');
 					}
 				}
-				$data = file_get_contents($INCLUDE.'theme/'.$usr->theme_name.'/usercp.inc');
+				$data = file_get_contents($INCLUDE .'theme/'. $usr->theme_name .'/usercp.inc');
 				$s = strpos($data, '<?php') + 5;
 				eval(substr($data, $s, (strrpos($data, '?>') - $s)));
 				?>
@@ -425,7 +430,7 @@ function flood_check()
 			} else {
 				$t = d_thread_view;
 
-				if ($msg_id && ($frm->forum_opt & 2) && !q_singleval('SELECT apr FROM {SQL_TABLE_PREFIX}msg WHERE id='.$msg_id)) { /* Editing unapproved message in moderated forum. */
+				if ($msg_id && ($frm->forum_opt & 2) && !q_singleval('SELECT apr FROM {SQL_TABLE_PREFIX}msg WHERE id='. $msg_id)) { /* Editing unapproved message in moderated forum. */
 					check_return($usr->returnto);
 				}
 
@@ -439,9 +444,9 @@ function flood_check()
 				}
 				/* Redirect the user to their message. */
 				if ($FUD_OPT_2 & 32768) {
-					header('Location: {FULL_ROOT}{ROOT}/m/'.$msg_post->id.'/'._rsidl.'#msg_'.$msg_post->id);
+					header('Location: {FULL_ROOT}{ROOT}/m/'. $msg_post->id .'/'. _rsidl .'#msg_'. $msg_post->id);
 				} else {
-					header('Location: {FULL_ROOT}{ROOT}?t='.$t.'&goto='.$msg_post->id.'&'._rsidl.'#msg_'.$msg_post->id);
+					header('Location: {FULL_ROOT}{ROOT}?t='. $t .'&goto='. $msg_post->id .'&'. _rsidl .'#msg_'. $msg_post->id);
 				}
 				exit;
 			}
@@ -499,7 +504,7 @@ function flood_check()
 
 		if ($FUD_OPT_1 & 32768 && $msg_show_sig) {
 			if ($msg_id && $msg->poster_id && $msg->poster_id != _uid && !$reply_to) {
-				$sig = q_singleval('SELECT sig FROM {SQL_TABLE_PREFIX}users WHERE id='.$msg->poster_id);
+				$sig = q_singleval('SELECT sig FROM {SQL_TABLE_PREFIX}users WHERE id='. $msg->poster_id);
 			} else {
 				$sig = $usr->sig;
 			}
@@ -524,7 +529,7 @@ function flood_check()
 	if ($perms & 128) {
 		if (!$pl_id) {
 			$poll = '{TEMPLATE: create_poll}';
-		} else if (($poll = db_saq('SELECT id, name FROM {SQL_TABLE_PREFIX}poll WHERE id='.$pl_id))) {
+		} else if (($poll = db_saq('SELECT id, name FROM {SQL_TABLE_PREFIX}poll WHERE id='. $pl_id))) {
 			$poll = '{TEMPLATE: edit_poll}';
 		}
 	}

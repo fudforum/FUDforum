@@ -11,7 +11,7 @@
 
 /*{PRE_HTML_PHP}*/
 
-	/* permissions check, this form is only allowed for moderators & admins unless public
+	/* Permissions check, this form is only allowed for moderators & admins unless public.
 	 * Check if IP display is allowed.
 	 */
 	if (!($usr->users_opt & (524288|1048576)) && !($FUD_OPT_1 & 134217728)) {
@@ -31,7 +31,7 @@ function __fud_whois($ip, $whois_server='')
 		$errstr = preg_match('/WIN/', PHP_OS) ? utf8_encode($errstr) : $errstr;	// Windows silliness.
 		return '{TEMPLATE: ip_connect_err}';
 	}
-	fputs($sock, $ip."\n");
+	fputs($sock, $ip ."\n");
 	$buffer = '';
 	do {
 		$buffer .= fread($sock, 10240);
@@ -71,9 +71,9 @@ function fud_whois($ip)
 	}
 	if (isset($_GET['user'])) {
 		if (($user_id = (int) $_GET['user'])) {
-			$user = q_singleval('SELECT alias FROM {SQL_TABLE_PREFIX}users WHERE id='.$user_id);
+			$user = q_singleval('SELECT alias FROM {SQL_TABLE_PREFIX}users WHERE id='. $user_id);
 		} else {
-			list($user_id, $user) = db_saq('SELECT id, alias FROM {SQL_TABLE_PREFIX}users WHERE alias='._esc(char_fix(htmlspecialchars($_GET['user']))));
+			list($user_id, $user) = db_saq('SELECT id, alias FROM {SQL_TABLE_PREFIX}users WHERE alias=' ._esc(char_fix(htmlspecialchars($_GET['user']))));
 		}
 	} else {
 		$user = '';
@@ -83,26 +83,26 @@ function fud_whois($ip)
 
 	if ($ip) {
 		if (substr_count($ip, '.') == 3) {
-			$cond = "m.ip_addr='".$ip."'";
+			$cond = 'm.ip_addr=\''. $ip .'\'';
 		} else {
-			$cond = "m.ip_addr LIKE '".$ip."%'";
+			$cond = 'm.ip_addr LIKE \''. $ip .'%\'';
 		}
 
-		$o = uq('SELECT DISTINCT(m.poster_id), u.alias FROM {SQL_TABLE_PREFIX}msg m INNER JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id WHERE '.$cond);
+		$o = uq('SELECT DISTINCT(m.poster_id), u.alias FROM {SQL_TABLE_PREFIX}msg m INNER JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id WHERE '. $cond);
 		$user_list = '';
 		$i = 0;
 		while ($r = db_rowarr($o)) {
 			$user_list .= '{TEMPLATE: ip_user_entry}';
 		}
 		unset($o);
-		$o = uq('SELECT id, alias FROM {SQL_TABLE_PREFIX}users WHERE reg_ip='.ip2long($ip));
+		$o = uq('SELECT id, alias FROM {SQL_TABLE_PREFIX}users WHERE reg_ip='. ip2long($ip));
 		while ($r = db_rowarr($o)) {
 			$user_list .= '{TEMPLATE: ip_user_entry}';
 		}
 		unset($o);
 		$page_data = '{TEMPLATE: ip_users}';
 	} else if ($user) {
-		$o = uq('SELECT DISTINCT(ip_addr) FROM {SQL_TABLE_PREFIX}msg WHERE poster_id='.$user_id);
+		$o = uq('SELECT DISTINCT(ip_addr) FROM {SQL_TABLE_PREFIX}msg WHERE poster_id='. $user_id);
 		$ip_list = '';
 		$i = 0;
 		while ($r = db_rowarr($o)) {
@@ -110,7 +110,7 @@ function fud_whois($ip)
 		}
 		unset($o);
 		
-		$o = uq('SELECT reg_ip FROM {SQL_TABLE_PREFIX}users WHERE id='.$user_id);
+		$o = uq('SELECT reg_ip FROM {SQL_TABLE_PREFIX}users WHERE id='. $user_id);
 		while ($r = db_rowarr($o)) {
 			$r[0] = long2ip($r[0]);
 			$ip_list .= '{TEMPLATE: ip_ip_entry}';

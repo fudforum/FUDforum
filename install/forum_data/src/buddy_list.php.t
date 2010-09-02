@@ -16,13 +16,13 @@
 	}
 
 	if (isset($_POST['add_login']) && is_string($_POST['add_login'])) {
-		if (!($buddy_id = q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}users WHERE alias='._esc(char_fix(htmlspecialchars($_POST['add_login'])))))) {
+		if (!($buddy_id = q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}users WHERE alias='. _esc(char_fix(htmlspecialchars($_POST['add_login'])))))) {
 			error_dialog('{TEMPLATE: buddy_list_err_nouser_title}', '{TEMPLATE: buddy_list_err_nouser}');
 		}
 		if ($buddy_id == _uid) {
 			error_dialog('{TEMPLATE: err_info}', '{TEMPLATE: buddy_list_err_cantadd}');
 		}
-		if (q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}user_ignore WHERE user_id='.$buddy_id.' AND ignore_id='._uid)) {
+		if (q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}user_ignore WHERE user_id='. $buddy_id .' AND ignore_id='. _uid)) {
 			error_dialog('{TEMPLATE: err_info}', '{TEMPLATE: buddy_list_err_ignore}');
 		}
 
@@ -30,7 +30,7 @@
 			$usr->buddy_list = unserialize($usr->buddy_list);
 		}
 
-		if (!isset($usr->buddy_list[$buddy_id]) && !q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}user_ignore WHERE user_id='.$buddy_id.' AND ignore_id='._uid)) {
+		if (!isset($usr->buddy_list[$buddy_id]) && !q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}user_ignore WHERE user_id='. $buddy_id .' AND ignore_id='. _uid)) {
 			$usr->buddy_list = buddy_add(_uid, $buddy_id);
 		} else {
 			error_dialog('{TEMPLATE: err_info}', '{TEMPLATE: buddy_list_err_dup}');
@@ -47,7 +47,7 @@
 			$usr->buddy_list = unserialize($usr->buddy_list);
 		}
 
-		if (($buddy_id = q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}users WHERE id='.$_GET['add'])) && !isset($usr->buddy_list[$buddy_id]) && _uid != $buddy_id && !q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}user_ignore WHERE user_id='.$buddy_id.' AND ignore_id='._uid)) {
+		if (($buddy_id = q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}users WHERE id='. $_GET['add'])) && !isset($usr->buddy_list[$buddy_id]) && _uid != $buddy_id && !q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}user_ignore WHERE user_id='. $buddy_id .' AND ignore_id='. _uid)) {
 			buddy_add(_uid, $buddy_id);
 		}
 		check_return($usr->returnto);
@@ -69,8 +69,8 @@
 
 /*{POST_HTML_PHP}*/
 
-	$c = uq('SELECT b.bud_id, u.id, u.alias, u.join_date, u.birthday, (u.users_opt & 32768), u.posted_msg_count, u.home_page, u.last_visit AS time_sec
-		FROM {SQL_TABLE_PREFIX}buddy b INNER JOIN {SQL_TABLE_PREFIX}users u ON b.bud_id=u.id WHERE b.user_id='._uid);
+	$c = uq('SELECT b.bud_id, u.id, u.alias, u.join_date, u.birthday, '. q_bitand('u.users_opt', 32768) .', u.posted_msg_count, u.home_page, u.last_visit AS time_sec
+		FROM {SQL_TABLE_PREFIX}buddy b INNER JOIN {SQL_TABLE_PREFIX}users u ON b.bud_id=u.id WHERE b.user_id='. _uid);
 
 	$buddies = '';
 	/* Result index

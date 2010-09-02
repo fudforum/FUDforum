@@ -8,7 +8,7 @@ VALUES ('<b>Congratulations!</b> You have successfully installed FUDforum and ar
 INSERT INTO {SQL_TABLE_PREFIX}thread (forum_id, root_msg_id, last_post_date, replies, views, rating, n_rating, last_post_id, moved_to, orderexpiry, thread_opt, tdescr)
 VALUES (1, 1, {UNIX_TIMESTAMP}, 0, 1, 5, 1, 1, 0, 1000000000, 4, 'Welcome, welcome, welcome!');
 
-INSERT INTO {SQL_TABLE_PREFIX}tv_1 (seq, thread_id, iss) VALUES (1, 1, 0);
+INSERT INTO {SQL_TABLE_PREFIX}tv_1 (seq, thread_id, iss) VALUES (1, 1, 4);
 
 INSERT INTO {SQL_TABLE_PREFIX}forum_read (forum_id, user_id, last_view) VALUES (1, 2, 0);
 

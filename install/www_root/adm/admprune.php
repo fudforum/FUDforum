@@ -31,8 +31,8 @@
 	}
 
 	if (isset($_POST['btn_prune']) && !empty($_POST['thread_age']) && !isset($_POST['btn_cancel'])) {
-		$lmt = ' AND (thread_opt & (2|4)) = 0 ';
-	
+		$lmt = ' AND '. q_bitand('thread_opt', (2|4)) .' = 0 ';
+
 		/* Figure out our limit if any. */
 		if ($_POST['forumsel'] == '0') {
 			$msg = '<font color="red">from all forums</font>';
@@ -89,7 +89,7 @@ which were posted before <font color="red"><?php echo fdate('%d %b %Y %H:%M:%S',
 			} else {
 				$msg_tbl = $DBHOST_TBL_PREFIX .'msg';
 				$th_tbl = $DBHOST_TBL_PREFIX .'thread';
-				$c = q("SELECT {$msg_tbl}.id, {$th_tbl}.forum_id FROM {$msg_tbl} INNER JOIN {$th_tbl} ON {$msg_tbl}.thread_id={$th_tbl}.id WHERE poster_id=". $usr_id .' AND last_post_date<'. $back.$lmt);
+				$c = q('SELECT ', $msg_tbl .'.id, '. $th_tbl .'.forum_id FROM '. $msg_tbl .' INNER JOIN '. $th_tbl .' ON '. $msg_tbl .'.thread_id='. $th_tbl .'.id WHERE poster_id='. $usr_id .' AND last_post_date<'. $back.$lmt);
 				while ($r = db_rowarr($c)) {
 					fud_msg_edit::delete(false, $r[0]);
 					$frm_list[$r[1]] = $r[1];
@@ -119,7 +119,7 @@ delete topics with no messages in the last 10 days.</p>
 	if ($usr_id) {
 		echo '<tr class="field">';
 		echo '<td nowrap="nowrap">By author:</td>';
-		echo '<td colspan="2">'.q_singleval('SELECT alias FROM '. $DBHOST_TBL_PREFIX .'users WHERE id='. $usr_id) .'</td>';
+		echo '<td colspan="2">'. q_singleval('SELECT alias FROM '. $DBHOST_TBL_PREFIX .'users WHERE id='. $usr_id) .'</td>';
 		echo '</tr>';
 	}
 ?>

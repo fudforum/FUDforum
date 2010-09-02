@@ -73,7 +73,7 @@ function makedeps()
 		}
 	}
 
-	// build reverse deps
+	// Build reverse deps.
 	foreach($deps as $file => $reflist) {
 		foreach($reflist as $depfile) {
 			$filedeps[$depfile][] = $file;
@@ -178,13 +178,13 @@ if (!isset($_GET['NO_TREE_LIST'])) {
 	$msglist = isset($_GET['msglist']) ? $_GET['msglist'] : (isset($_POST['msglist']) ? $_POST['msglist'] : '');
 
 	if ($msglist) {
-		echo '<td valign="top"><form method="post" action="msglist.php?tname='.$tname.'&amp;tlang='.$tlang.'">'._hs.'<table border="0">';
+		echo '<td valign="top"><form method="post" action="msglist.php?tname='. $tname .'&amp;tlang='. $tlang .'">'. _hs .'<table border="0">';
 		$msglist_arr[] = strtok(trim($msglist), ':');
 		while (($v = strtok(':'))) {
 			$msglist_arr[] = trim($v);
 		}
 
-		$data = "\n" . file_get_contents($msgfile);
+		$data = "\n". file_get_contents($msgfile);
 
 		foreach ($msglist_arr as $v) {
 			if (($s = strpos($data, "\n" . $v . ':')) === false) {
@@ -200,16 +200,16 @@ if (!isset($_GET['NO_TREE_LIST'])) {
 			$len = strlen($txt);
 			if ($len > 50) {
 				$rows = ceil($len / 60) + 1;
-				$inptd = '<textarea name="'.$v.'" rows="'.$rows.'" cols="60">'.$txt.'</textarea>';
+				$inptd = '<textarea name="'. $v .'" rows="'. $rows .'" cols="60">'. $txt .'</textarea>';
 			} else {
-				$inptd = '<input type="text" name="'.$v.'" value="'.$txt.'" size="60" />';
+				$inptd = '<input type="text" name="'. $v .'" value="'. $txt .'" size="60" />';
 			}
-			echo '<tr><td valign="top" nowrap="nowrap"><a name="'.$v.'"></a><b><a href="http://translatewiki.net/w/i.php?title=Special%3ATranslations&amp;message='.$v.'&namespace=1218" title="Show all translations (new window)." target="_blank">'.$v.'</a></b>:</td><td valign="top">'.$inptd.'</td></tr>';
+			echo '<tr><td valign="top" nowrap="nowrap"><a name="'. $v .'"></a><b><a href="http://translatewiki.net/w/i.php?title=Special%3ATranslations&amp;message='.$v.'&namespace=1218" title="Show all translations (new window)." target="_blank">'. $v .'</a></b>:</td><td valign="top">'. $inptd .'</td></tr>';
 		}
-		echo '<tr><td align="right" colspan="2"><input type="submit" name="btn_submit" value="Edit" /></td></tr>';
-		echo '<tr><td><input type="hidden" name="msglist" value="'.$msglist.'" /></td></tr></table>';
+		echo '<tr><td colspan="2"><input type="submit" name="btn_submit" value="Save" /></td></tr>';
+		echo '<tr><td><input type="hidden" name="msglist" value="'. $msglist .'" /></td></tr></table>';
 		if (isset($_GET['fl'])) {
-			echo '<input type="hidden" name="fl" value="'.$_GET['fl'].'" />';
+			echo '<input type="hidden" name="fl" value="'. $_GET['fl'] .'" />';
 		}
 		if (isset($_GET['NO_TREE_LIST'])) {
 			echo '<input type="hidden" name="NO_TREE_LIST" value="1" />';

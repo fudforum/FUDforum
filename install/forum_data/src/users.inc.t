@@ -27,7 +27,7 @@ function &init_user()
 		if ($o2 & 8192) {
 			$_GET['rid'] = array_pop($p);
 		}
-		$_SERVER['QUERY_STRING'] = htmlspecialchars($_SERVER['PATH_INFO']) . '?' . $_SERVER['QUERY_STRING'];
+		$_SERVER['QUERY_STRING'] = htmlspecialchars($_SERVER['PATH_INFO']) .'?'. $_SERVER['QUERY_STRING'];
 
 		/* Continuation of path info parsing. */
 		if (!isset($p[0])) {
@@ -628,18 +628,18 @@ function &init_user()
 	}
 
 	if ($GLOBALS['t'] == 'register') {
-		$GLOBALS['THREADS_PER_PAGE_F'] = $GLOBALS['THREADS_PER_PAGE']; // store old value
+		$GLOBALS['THREADS_PER_PAGE_F'] = $GLOBALS['THREADS_PER_PAGE']; // Store old value.
 	}
 
-	header('P3P: CP="ALL CUR OUR IND UNI ONL INT CNT STA"'); /* P3P Policy */
+	header('P3P: CP="ALL CUR OUR IND UNI ONL INT CNT STA"'); /* P3P Policy. */
 
 	$sq = 0;
-	/* fetch an object with the user's session, profile & theme info */
+	/* Fetch an object with the user's session, profile & theme info. */
 	if (!($u = ses_get())) {
-		/* new anon user */
+		/* New anon user. */
 		$u = ses_anon_make();
-	} else if ($u->id != 1 && (!$GLOBALS['is_post'] || sq_check(1, $u->sq, $u->id, $u->ses_id))) { /* store the last visit date for registered user */
-		q('UPDATE {SQL_TABLE_PREFIX}users SET last_visit='.__request_timestamp__.' WHERE id='.$u->id);
+	} else if ($u->id != 1 && (!$GLOBALS['is_post'] || sq_check(1, $u->sq, $u->id, $u->ses_id))) { /* Store the last visit date for registered user. */
+		q('UPDATE {SQL_TABLE_PREFIX}users SET last_visit='. __request_timestamp__ .' WHERE id='. $u->id);
 		if ($GLOBALS['FUD_OPT_3'] & 1) {
 			setcookie($GLOBALS['COOKIE_NAME'], $u->ses_id, 0, $GLOBALS['COOKIE_PATH'], $GLOBALS['COOKIE_DOMAIN']);
 		}
@@ -656,7 +656,7 @@ function &init_user()
 	}
 	if ($GLOBALS['is_post'] || $GLOBALS['is_aol'] || $u->id > 1) {
 		header('Cache-Control: no-store, private, must-revalidate, proxy-revalidate, post-check=0, pre-check=0, max-age=0, s-maxage=0');
-		if (!$GLOBALS['is_aol']) { /* these headers cause troubles for AOL browser (amazing POS) */
+		if (!$GLOBALS['is_aol']) { /* These headers cause troubles for AOL browser (amazing POS). */
 			header('Expires: Mon, 21 Jan 1980 06:01:01 GMT');
 			header('Pragma: no-cache');
 		}
@@ -667,29 +667,29 @@ function &init_user()
 	}
 	$uo = $u->users_opt = (int) $u->users_opt;
 
-	/* this should allow path_info & normal themes to work properly within 1 forum */
+	/* This should allow path_info & normal themes to work properly within 1 forum. */
 	if ($o2 & 32768 && !($u->theme_opt & 4)) {
 		$o2 ^= 32768;
 	}
 
-	/* handle PM disabling for users */
+	/* Handle PM disabling for users. */
 	if (!($GLOBALS['is_a'] = $uo & 1048576) && $uo & 33554432) {
 		$o1 = $o1 &~ 1024;
 	}
 
-	/* set timezone */
+	/* Set timezone. */
 	if ($u->time_zone && !($GLOBALS['FUD_OPT_3'] & 512)) {
 		@putenv('TZ=' . $u->time_zone);
 	}
-	/* set locale */
+	/* Set locale. */
 	$GLOBALS['good_locale'] = setlocale(LC_ALL, $u->locale);
 
-	/* call inituser plugins */
+	/* Call inituser plugins. */
 	if (defined('plugins')) {
 		plugin_call_hook('INITUSER', $u);
 	}
 
-	/* view format for threads & messages */
+	/* View format for threads & messages. */
 	define('d_thread_view', $uo & 256 ? 'msg' : 'tree');
 	define('t_thread_view', $uo & 128 ? 'thread' : 'threadt');
 	if ($GLOBALS['t'] === 0) {
@@ -698,43 +698,43 @@ function &init_user()
 		$GLOBALS['t'] = $_GET['t'] = t_thread_view;
 	}
 
-	/* theme path */
+	/* Theme path. */
 	@define('fud_theme', 'theme/' . ($u->theme_name ? $u->theme_name : 'default') . '/');
 
-	/* define _uid, which, will tell us if this is a 'real' user or not */
+	/* Define _uid, which, will tell us if this is a 'real' user or not. */
 	define('__fud_real_user__', ($u->id != 1 ? $u->id : 0));
 	define('_uid', __fud_real_user__ && ($uo & 131072) && !($uo & 2097152) ? $u->id : 0);
 
-	/* allow user to set their own topics per page value, as long as it is smaller then the max */
+	/* Allow user to set their own topics per page value, as long as it is smaller then the max. */
 	if (__fud_real_user__ && $GLOBALS['THREADS_PER_PAGE'] > $u->topics_per_page) {
 		$GLOBALS['THREADS_PER_PAGE'] = (int) $u->topics_per_page;
 	}
 
 	$GLOBALS['sq'] = $sq;
 
-	/* define constants used to track URL sessions & referrals */
+	/* Define constants used to track URL sessions & referrals. */
 	if ($o1 & 128) {
-		define('s', $u->ses_id); define('_hs', '<input type="hidden" name="S" value="'.s.'" /><input type="hidden" name="SQ" value="'.$sq.'" />');
+		define('s', $u->ses_id); define('_hs', '<input type="hidden" name="S" value="'. s .'" /><input type="hidden" name="SQ" value="'. $sq .'" />');
 		if ($o2 & 8192) {
 			if ($o2 & 32768) {
-				define('_rsid', __fud_real_user__ . '/' . s.'/');
+				define('_rsid', __fud_real_user__ .'/'. s .'/');
 			} else {
-				define('_rsid', 'rid='.__fud_real_user__.'&amp;S='.s);
+				define('_rsid', 'rid='. __fud_real_user__ .'&amp;S='. s);
 			}
 		} else {
 			if ($o2 & 32768) {
-				define('_rsid', s.'/');
+				define('_rsid', s .'/');
 			} else {
-				define('_rsid',  'S='.s);
+				define('_rsid', 'S='. s);
 			}
 		}
 	} else {
-		define('s', ''); define('_hs', '<input type="hidden" name="SQ" value="'.$sq.'" />');
+		define('s', ''); define('_hs', '<input type="hidden" name="SQ" value="'. $sq .'" />');
 		if ($o2 & 8192) {
 			if ($o2 & 32768) {
-				define('_rsid', __fud_real_user__.'/');
+				define('_rsid', __fud_real_user__ .'/');
 			} else {
-				define('_rsid', 'rid='.__fud_real_user__);
+				define('_rsid', 'rid='. __fud_real_user__);
 			}
 		} else {
 			define('_rsid', '');
@@ -748,50 +748,50 @@ function &init_user()
 function user_register_forum_view($frm_id)
 {
 	if (__dbtype__ == 'mysql') {	// MySQL optimization.
-		q('INSERT INTO {SQL_TABLE_PREFIX}forum_read (forum_id, user_id, last_view) VALUES ('.$frm_id.', '._uid.', '.__request_timestamp__.') ON DUPLICATE KEY UPDATE last_view=VALUES(last_view)');
+		q('INSERT INTO {SQL_TABLE_PREFIX}forum_read (forum_id, user_id, last_view) VALUES ('. $frm_id .', '. _uid .', '. __request_timestamp__ .') ON DUPLICATE KEY UPDATE last_view=VALUES(last_view)');
 		return;
 	}
 	
-	if (!db_li('INSERT INTO {SQL_TABLE_PREFIX}forum_read (forum_id, user_id, last_view) VALUES ('.$frm_id.', '._uid.', '.__request_timestamp__.')', $ef)) {
-		q('UPDATE {SQL_TABLE_PREFIX}forum_read SET last_view='.__request_timestamp__.' WHERE forum_id='.$frm_id.' AND user_id='._uid);
+	if (!db_li('INSERT INTO {SQL_TABLE_PREFIX}forum_read (forum_id, user_id, last_view) VALUES ('. $frm_id .', '. _uid .', '. __request_timestamp__ .')', $ef)) {
+		q('UPDATE {SQL_TABLE_PREFIX}forum_read SET last_view='. __request_timestamp__ .' WHERE forum_id='. $frm_id .' AND user_id='. _uid);
 	}
 }
 
 function user_register_thread_view($thread_id, $tm=__request_timestamp__, $msg_id=0)
 {
 	if (__dbtype__ == 'mysql') {    // MySQL optimization.
-		q('INSERT INTO {SQL_TABLE_PREFIX}read (last_view, msg_id, thread_id, user_id) VALUES('.$tm.', '.$msg_id.', '.$thread_id.', '._uid.') ON DUPLICATE KEY UPDATE last_view=VALUES(last_view), msg_id=VALUES(msg_id)');
+		q('INSERT INTO {SQL_TABLE_PREFIX}read (last_view, msg_id, thread_id, user_id) VALUES('. $tm .', '. $msg_id .', '. $thread_id .', '. _uid .') ON DUPLICATE KEY UPDATE last_view=VALUES(last_view), msg_id=VALUES(msg_id)');
 		return;
 	}
 
-	if (!db_li('INSERT INTO {SQL_TABLE_PREFIX}read (last_view, msg_id, thread_id, user_id) VALUES('.$tm.', '.$msg_id.', '.$thread_id.', '._uid.')', $ef)) {
-		q('UPDATE {SQL_TABLE_PREFIX}read SET last_view='.$tm.', msg_id='.$msg_id.' WHERE thread_id='.$thread_id.' AND user_id='._uid);
+	if (!db_li('INSERT INTO {SQL_TABLE_PREFIX}read (last_view, msg_id, thread_id, user_id) VALUES('. $tm .', '. $msg_id .', '. $thread_id .', '. _uid .')', $ef)) {
+		q('UPDATE {SQL_TABLE_PREFIX}read SET last_view='. $tm .', msg_id='. $msg_id .' WHERE thread_id='. $thread_id .' AND user_id='. _uid);
 	}
 }
 
 function user_set_post_count($uid)
 {
-	$pd = db_saq('SELECT MAX(id),count(*) FROM {SQL_TABLE_PREFIX}msg WHERE poster_id='.$uid.' AND apr=1');
-	$level_id = (int) q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}level WHERE post_count <= '.$pd[1].' ORDER BY post_count DESC LIMIT 1');
-	q('UPDATE {SQL_TABLE_PREFIX}users SET u_last_post_id='.(int)$pd[0].', posted_msg_count='.(int)$pd[1].', level_id='.$level_id.' WHERE id='.$uid);
+	$pd = db_saq('SELECT MAX(id),count(*) FROM {SQL_TABLE_PREFIX}msg WHERE poster_id='. $uid .' AND apr=1');
+	$level_id = (int) q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}level WHERE post_count <= '. $pd[1] .' ORDER BY post_count DESC LIMIT 1');
+	q('UPDATE {SQL_TABLE_PREFIX}users SET u_last_post_id='. (int)$pd[0] .', posted_msg_count='. (int)$pd[1] .', level_id='. $level_id .' WHERE id='. $uid);
 }
 
 function user_mark_all_read($id)
 {
-	q('UPDATE {SQL_TABLE_PREFIX}users SET last_read='.__request_timestamp__.' WHERE id='.$id);
-	q('DELETE FROM {SQL_TABLE_PREFIX}read WHERE user_id='.$id);
-	q('DELETE FROM {SQL_TABLE_PREFIX}forum_read WHERE user_id='.$id);
+	q('UPDATE {SQL_TABLE_PREFIX}users SET last_read='. __request_timestamp__ .' WHERE id='. $id);
+	q('DELETE FROM {SQL_TABLE_PREFIX}read WHERE user_id='. $id);
+	q('DELETE FROM {SQL_TABLE_PREFIX}forum_read WHERE user_id='. $id);
 }
 
 function user_mark_forum_read($id, $fid, $last_view)
 {
 	if (__dbtype__ == 'mysql') {	// MySQL optimization.
-		q('INSERT INTO {SQL_TABLE_PREFIX}read (user_id, thread_id, msg_id, last_view) SELECT '.$id.', id, last_post_id, '.__request_timestamp__.' FROM {SQL_TABLE_PREFIX}thread WHERE forum_id='.$fid.' AND last_post_date > '.$last_view.' ON DUPLICATE KEY UPDATE last_view=VALUES(last_view), msg_id=VALUES(msg_id)');
+		q('INSERT INTO {SQL_TABLE_PREFIX}read (user_id, thread_id, msg_id, last_view) SELECT '. $id .', id, last_post_id, '. __request_timestamp__ .' FROM {SQL_TABLE_PREFIX}thread WHERE forum_id='. $fid .' AND last_post_date > '. $last_view .' ON DUPLICATE KEY UPDATE last_view=VALUES(last_view), msg_id=VALUES(msg_id)');
 	} else if (__dbtype__ == 'sqlite') {	// SQLite optimization.
-		q('REPLACE INTO {SQL_TABLE_PREFIX}read (user_id, thread_id, msg_id, last_view) SELECT '.$id.', id, last_post_id, '.__request_timestamp__.' FROM {SQL_TABLE_PREFIX}thread WHERE forum_id='.$fid.' AND last_post_date > '.$last_view);
+		q('REPLACE INTO {SQL_TABLE_PREFIX}read (user_id, thread_id, msg_id, last_view) SELECT '. $id .', id, last_post_id, '. __request_timestamp__ .' FROM {SQL_TABLE_PREFIX}thread WHERE forum_id='. $fid .' AND last_post_date > '. $last_view);
 	} else {	// Other databases.
-		if (!db_li('INSERT INTO {SQL_TABLE_PREFIX}read (user_id, thread_id, msg_id, last_view) SELECT '.$id.', id, last_post_id, '.__request_timestamp__.' FROM {SQL_TABLE_PREFIX}thread WHERE forum_id='.$fid.' AND last_post_date > '.$last_view, $ef)) {
-			q('UPDATE {SQL_TABLE_PREFIX}read SET user_id='.$id.', msg_id=t.last_post_id, last_view='.__request_timestamp__.' FROM (SELECT id, last_post_id FROM {SQL_TABLE_PREFIX}thread WHERE forum_id='.$fid.' AND last_post_date > '.$last_view.') t WHERE user_id='.$id.' AND thread_id=t.id');
+		if (!db_li('INSERT INTO {SQL_TABLE_PREFIX}read (user_id, thread_id, msg_id, last_view) SELECT '. $id .', id, last_post_id, '. __request_timestamp__ .' FROM {SQL_TABLE_PREFIX}thread WHERE forum_id='. $fid .' AND last_post_date > '. $last_view, $ef)) {
+			q('UPDATE {SQL_TABLE_PREFIX}read SET user_id='. $id .', msg_id=t.last_post_id, last_view='. __request_timestamp__ .' FROM (SELECT id, last_post_id FROM {SQL_TABLE_PREFIX}thread WHERE forum_id='. $fid .' AND last_post_date > '. $last_view .') t WHERE user_id='. $id .' AND thread_id=t.id');
 		}
 	}
 	user_register_forum_view($fid);
@@ -799,7 +799,7 @@ function user_mark_forum_read($id, $fid, $last_view)
 
 function sq_check($post, &$sq, $uid=__fud_real_user__, $ses=s)
 {
-	/* no sequence # check for anonymous users */
+	/* No sequence # check for anonymous users. */
 	if (!$uid) {
 		return 1;
 	}
@@ -818,7 +818,7 @@ function sq_check($post, &$sq, $uid=__fud_real_user__, $ses=s)
 			$sq = regen_sq($uid);
 			return 1;
 		}
-		header('Location: {FULL_ROOT}{ROOT}?S='.$ses);
+		header('Location: {FULL_ROOT}{ROOT}?S='. $ses);
 		exit;
 	}
 
@@ -828,7 +828,7 @@ function sq_check($post, &$sq, $uid=__fud_real_user__, $ses=s)
 function regen_sq($uid=__fud_real_user__)
 {
 	$sq = md5(get_random_value(128));
-	q("UPDATE {SQL_TABLE_PREFIX}users SET sq='".$sq."' WHERE id=".$uid);
+	q('UPDATE {SQL_TABLE_PREFIX}users SET sq=\''. $sq .'\' WHERE id='. $uid);
 	return $sq;
 }
 

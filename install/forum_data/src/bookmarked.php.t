@@ -21,13 +21,13 @@
 	}
 
 	if (!empty($_POST['t_unbookmark_all'])) {
-		q('DELETE FROM {SQL_TABLE_PREFIX}bookmarks WHERE user_id='._uid);
+		q('DELETE FROM {SQL_TABLE_PREFIX}bookmarks WHERE user_id='. _uid);
 	} else if (isset($_POST['t_unbookmark_sel'], $_POST['te'])) {
 		$list = array();
 		foreach((array)$_POST['te'] as $v) {
 			$list[(int)$v] = (int) $v;
 		}
-		q('DELETE FROM {SQL_TABLE_PREFIX}bookmarks WHERE user_id='._uid.' AND thread_id IN('.implode(',', $list).')');
+		q('DELETE FROM {SQL_TABLE_PREFIX}bookmarks WHERE user_id='. _uid .' AND thread_id IN('. implode(',', $list) .')');
 	}
 
 	ses_update_status($usr->sid, '{TEMPLATE: bookmarked_update}');
@@ -40,7 +40,7 @@
 		$start = 0;
 	}
 
-	$c = uq(q_limit('SELECT /*!40000 SQL_CALC_FOUND_ROWS */ t.id, m.subject, f.name FROM {SQL_TABLE_PREFIX}bookmarks b INNER JOIN {SQL_TABLE_PREFIX}thread t ON b.thread_id=t.id INNER JOIN {SQL_TABLE_PREFIX}forum f ON f.id=t.forum_id INNER JOIN {SQL_TABLE_PREFIX}msg m ON t.root_msg_id=m.id WHERE b.user_id='._uid.' ORDER BY f.name, m.subject',
+	$c = uq(q_limit('SELECT /*!40000 SQL_CALC_FOUND_ROWS */ t.id, m.subject, f.name FROM {SQL_TABLE_PREFIX}bookmarks b INNER JOIN {SQL_TABLE_PREFIX}thread t ON b.thread_id=t.id INNER JOIN {SQL_TABLE_PREFIX}forum f ON f.id=t.forum_id INNER JOIN {SQL_TABLE_PREFIX}msg m ON t.root_msg_id=m.id WHERE b.user_id='. _uid .' ORDER BY f.name, m.subject',
 			$THREADS_PER_PAGE, $start));
 
 	while (($r = db_rowarr($c))) {
@@ -50,13 +50,13 @@
 
 	/* Since a person can have MANY bookmarked threads, we need a pager & for the pager we need a entry count. */
 	if (($total = (int) q_singleval('SELECT /*!40000 FOUND_ROWS(), */ -1')) < 0) {
-		$total = q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}bookmarks b LEFT JOIN {SQL_TABLE_PREFIX}thread t ON b.thread_id=t.id INNER JOIN {SQL_TABLE_PREFIX}msg m ON t.root_msg_id=m.id WHERE b.user_id='._uid);
+		$total = q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}bookmarks b LEFT JOIN {SQL_TABLE_PREFIX}thread t ON b.thread_id=t.id INNER JOIN {SQL_TABLE_PREFIX}msg m ON t.root_msg_id=m.id WHERE b.user_id='. _uid);
 	}
 
 	if ($FUD_OPT_2 & 32768) {
-		$pager = tmpl_create_pager($start, $THREADS_PER_PAGE, $total, '{ROOT}/bml/start/', '/'._rsid.'#fff');
+		$pager = tmpl_create_pager($start, $THREADS_PER_PAGE, $total, '{ROOT}/bml/start/', '/'. _rsid .'#fff');
 	} else {
-		$pager = tmpl_create_pager($start, $THREADS_PER_PAGE, $total, '{ROOT}?t=bookmarked&a=1&'._rsid, '#fff');
+		$pager = tmpl_create_pager($start, $THREADS_PER_PAGE, $total, '{ROOT}?t=bookmarked&a=1&'. _rsid, '#fff');
 	}
 
 /*{POST_PAGE_PHP_CODE}*/

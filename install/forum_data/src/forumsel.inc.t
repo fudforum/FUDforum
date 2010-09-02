@@ -17,15 +17,15 @@ function tmpl_create_forum_select($frm_id, $mod)
 		$dest = $_GET['t'];
 	}
 
-	if ($mod) { /* admin optimization */
+	if ($mod) { /* Admin optimization. */
 		$c = uq('SELECT f.id, f.name, c.id FROM {SQL_TABLE_PREFIX}fc_view v INNER JOIN {SQL_TABLE_PREFIX}forum f ON f.id=v.f INNER JOIN {SQL_TABLE_PREFIX}cat c ON f.cat_id=c.id WHERE f.url_redirect IS NULL ORDER BY v.id');
 	} else {
 		$c = uq('SELECT f.id, f.name, c.id
 			FROM {SQL_TABLE_PREFIX}fc_view v
 			INNER JOIN {SQL_TABLE_PREFIX}forum f ON f.id=v.f
 			INNER JOIN {SQL_TABLE_PREFIX}cat c ON f.cat_id=c.id
-			INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id='.(_uid ? '2147483647' : '0').' AND g1.resource_id=f.id ' .
-			(_uid ? ' LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=f.id AND mm.user_id='._uid.' LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g2.resource_id=f.id WHERE mm.id IS NOT NULL OR (COALESCE(g2.group_cache_opt, g1.group_cache_opt) & 1) > 0 '  : ' WHERE (g1.group_cache_opt & 1) > 0 AND f.url_redirect IS NULL ').
+			INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id='. (_uid ? '2147483647' : '0') .' AND g1.resource_id=f.id ' .
+			(_uid ? ' LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=f.id AND mm.user_id='. _uid .' LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='. _uid .' AND g2.resource_id=f.id WHERE mm.id IS NOT NULL OR '. q_bitand('COALESCE(g2.group_cache_opt, g1.group_cache_opt)', 1) .' > 0 '  : ' WHERE '. q_bitand('g1.group_cache_opt', 1) .' > 0 AND f.url_redirect IS NULL ').
 			'ORDER BY v.id');
 	}
 	$f = array($frm_id => 1);

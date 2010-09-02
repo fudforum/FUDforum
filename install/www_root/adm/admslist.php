@@ -58,4 +58,5 @@ function print_ul($qry)
 </td>
 </tr>
 </table>
+<p><a href="admuser.php?<?php echo __adm_rsid; ?>">&laquo; Back to User Administration System</a></p>
 <?php require($WWW_ROOT_DISK .'adm/footer.php'); ?>

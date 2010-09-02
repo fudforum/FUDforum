@@ -12,7 +12,7 @@
 define('__fud_ecore_adm_login_msg', '{TEMPLATE: core_adm_login_msg}');
 define('__fud_banned__', '{TEMPLATE: forum_banned_user}');
 
-list($tset,$lang) = db_saq('SELECT name,lang FROM {SQL_TABLE_PREFIX}themes WHERE (theme_opt & (1|2)) = (1|2)');
+list($tset,$lang) = db_saq('SELECT name,lang FROM {SQL_TABLE_PREFIX}themes WHERE '. q_bitand('theme_opt', (1|2)) .' = '. (1|2));
 
 header('Content-type: text/html; charset={TEMPLATE: errmsg_CHARSET}');
 ?>

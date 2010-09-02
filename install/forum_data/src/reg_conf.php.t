@@ -11,12 +11,12 @@
 
 /*{PRE_HTML_PHP}*/
 
-/* if a regged user or anon user send back to the front page */
+/* If a registered user or anon user send back to the front page. */
 if (!__fud_real_user__ || _uid) {
 	if ($FUD_OPT_2 & 32768) {
-		header('Location: {FULL_ROOT}{ROOT}/i/'._rsidl);
+		header('Location: {FULL_ROOT}{ROOT}/i/'. _rsidl);
 	} else {
-		header('Location: {FULL_ROOT}{ROOT}?t=index&'._rsidl);
+		header('Location: {FULL_ROOT}{ROOT}?t=index&'. _rsidl);
 	}
 	exit;
 }

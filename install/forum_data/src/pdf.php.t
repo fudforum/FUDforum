@@ -156,11 +156,11 @@ class fud_pdf extends FPDF
 		foreach ($this->outlines as $i => $o) {
 			if($o['l'] > 0) {
 				$parent = $lru[$o['l']-1];
-				//Set parent and last pointers
+				// Set parent and last pointers.
 				$this->outlines[$i]['parent'] = $parent;
 				$this->outlines[$parent]['last'] = $i;
 				if ($o['l'] > $level) {
-					//Level increasing: set first pointer
+					// Level increasing: set first pointer.
 					$this->outlines[$parent]['first'] = $i;
 				}
 			} else {
@@ -168,7 +168,7 @@ class fud_pdf extends FPDF
 			}
 
 			if($o['l'] <= $level && $i > 0) {
-				//Set prev and next pointers
+				// Set prev and next pointers.
 				$prev = $lru[$o['l']];
 				$this->outlines[$prev]['next'] = $i;
 				$this->outlines[$i]['prev'] = $prev;
@@ -200,7 +200,7 @@ class fud_pdf extends FPDF
 		$this->_newobj();
 		$this->OutlineRoot = $this->n;
 		$this->_out('<</Type /Outlines /First '. $n .' 0 R');
-		$this->_out('/Last '. ($n+$lru[0]). ' 0 R>>');
+		$this->_out('/Last '. ($n+$lru[0]) .' 0 R>>');
 		$this->_out('endobj');
 	}
 }
@@ -303,11 +303,11 @@ class fud_pdf extends FPDF
 			$join .= '	INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=2147483647 AND g1.resource_id=f.id
 					LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='. _uid .' AND g2.resource_id=f.id
 					LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=f.id AND mm.user_id='. _uid .' ';
-			$lmt .= ' AND (mm.id IS NOT NULL OR (COALESCE(g2.group_cache_opt, g1.group_cache_opt) & 2) > 0)';
+			$lmt .= ' AND (mm.id IS NOT NULL OR '. q_bitand('COALESCE(g2.group_cache_opt, g1.group_cache_opt)', 2) .' > 0)';
 		}
 	} else {
 		$join .= ' INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=0 AND g1.resource_id=f.id ';
-		$lmt .= ' AND (g1.group_cache_opt & 2) > 0';
+		$lmt .= ' AND '. q_bitand('g1.group_cache_opt', 2) .' > 0';
 	}
 
 	if ($forum) {
@@ -323,7 +323,7 @@ class fud_pdf extends FPDF
 				p.name AS poll_name, p.total_votes
 			'. $join .'
 			WHERE
-				t.moved_to=0 AND m.apr=1 '.$lmt.' ORDER BY m.post_stamp, m.thread_id');
+				t.moved_to=0 AND m.apr=1 '. $lmt .' ORDER BY m.post_stamp, m.thread_id');
 	} else {
 		$c = q('SELECT p.*, u.alias, p.duser_id AS uid FROM {SQL_TABLE_PREFIX}pmsg p 
 				LEFT JOIN {SQL_TABLE_PREFIX}users u ON p.ouser_id=u.id
@@ -371,7 +371,7 @@ class fud_pdf extends FPDF
 				$fpdf->add_attacments($attch);
 			} else if ($sel) {
 				$attch = array();
-				$c2 = uq("SELECT id, original_name, dlcount FROM {SQL_TABLE_PREFIX}attach WHERE message_id={$o->id} AND attach_opt=1");
+				$c2 = uq('SELECT id, original_name, dlcount FROM {SQL_TABLE_PREFIX}attach WHERE message_id='. $o->id .' AND attach_opt=1');
 				while ($r2 = db_rowarr($c2)) {
 					$attch[] = array('id' => $r2[0], 'name' => $r2[1], 'nd' => $r2[2]);
 				}
@@ -396,7 +396,7 @@ class fud_pdf extends FPDF
 	unset($c);
 
 	/* Output content to browser. */
-	$out = $fpdf->Output('FUDforum'.date('Ymd') .'.pdf', 'S');
+	$out = $fpdf->Output('FUDforum'. date('Ymd') .'.pdf', 'S');
 	header('Content-Type: application/pdf');
 	if ($_SERVER['SERVER_PORT'] == '443' && (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE') !== false)) {
 		header('Cache-Control: must-revalidate, post-check=0, pre-check=0', 1);

@@ -23,6 +23,8 @@ if (!defined('fud_sql_lnk')) {
 		fud_sql_error_handler('Initiating '. $connect_func, $err['message'], $err['code'], 'Unknown');
 	}
 
+	$GLOBALS['FUD_OPT_3'] = $GLOBALS['FUD_OPT_3'] ^= 4096;	// Disable temp tables - not implemented for Oracle.
+		
 	define('fud_sql_lnk', $conn);
 	define('__dbtype__', 'oracle');
 }
@@ -92,13 +94,12 @@ function uq($q)
 if (!defined('fud_query_stats')) {
 	function q($q)
 	{
-		$c = oci_parse(fud_sql_lnk, _ora_syntax($q));
-		$GLOBALS['__FLPG__'] = @oci_execute($c);
-		if ($GLOBALS['__FLPG__'] === FALSE) {
-			$err = oci_error($c);
+		$GLOBALS['__FLPG__'] = oci_parse(fud_sql_lnk, _ora_syntax($q));
+		if (@oci_execute($GLOBALS['__FLPG__']) === FALSE) {
+			$err = oci_error($GLOBALS['__FLPG__']);
 			fud_sql_error_handler($err['sqltext'], $err['message'], $err['code'], db_version());
 		}
-		return $c;
+		return $GLOBALS['__FLPG__'];
 	}
 } else {
 	function q($q)
@@ -114,10 +115,9 @@ if (!defined('fud_query_stats')) {
 		}
 
 		$s = gettimeofday();
-		$c = oci_parse(fud_sql_lnk, _ora_syntax($q));
-		$GLOBALS['__FLPG__'] = @oci_execute($c);
-		if ($GLOBALS['__FLPG__'] === FALSE) {
-			$err = oci_error($c);
+		$GLOBALS['__FLPG__'] = oci_parse(fud_sql_lnk, _ora_syntax($q));
+		if (@oci_execute($GLOBALS['__FLPG__']) === FALSE) {
+			$err = oci_error($GLOBALS['__FLPG__']);
 			fud_sql_error_handler($err['sqltext'], $err['message'], $err['code'], db_version());
 		}
 		$e = gettimeofday();
@@ -131,7 +131,7 @@ if (!defined('fud_query_stats')) {
 		echo '<pre>Affected rows: '.db_affected().'</pre>';
 		echo '<pre>total sql time: '.$GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'].'</pre>';
 
-		return $c;
+		return $GLOBALS['__FLPG__'];
 	}
 }
 
@@ -164,13 +164,17 @@ function q_concat($arg)
 	return implode('||', $tmp);
 }
 
-function q_limit($query, $limit, $off)
+function q_limit($query, $limit, $off=0)
 {
-	return 'SELECT * FROM (SELECT /*+ FIRST_ROWS */ a.*, rownum AS xrownum FROM ('. $query .') a WHERE rownum <= '. ($off + $limit) .') WHERE xrownum >= '. ($off+1);
+	if ($off) {
+		return 'SELECT * FROM (SELECT /*+ FIRST_ROWS */ a.*, rownum AS xrownum FROM ('. $query .') a WHERE rownum <= '. ($off + $limit) .') WHERE xrownum >= '. ($off+1);
+	} else {
+		return 'SELECT * FROM (SELECT /*+ FIRST_ROWS */ a.* FROM ('. $query .') a WHERE rownum <= '. $limit .')';
+	}
 }
 
 function q_bitand($fieldLeft, $fieldRight) {
-	return 'BITAND('. $fieldLeft .', '. $fieldRight .')'; 
+	return 'BITAND('. $fieldLeft .', '. $fieldRight .')';
 }
 
 function q_bitor($fieldLeft, $fieldRight) {
@@ -259,9 +263,10 @@ function db_li($q, &$ef, $li=0)
 function ins_m($tbl, $flds, $types, $vals)
 {
 	$sth = oci_parse(fud_sql_lnk, 'INSERT INTO '. $tbl .' ('. $flds .') VALUES(:'. implode(',:', range(0, substr_count($flds, ','))) .')');
+	$types_arr = explode(',', $types);
 	foreach ($vals as $v) {
 		foreach (explode(',', trim($v,'\'')) as $v_no => $v_val) {
-			oci_bind_by_name($sth, ':'. $v_no, $v_val, -1);
+			oci_bind_by_name($sth, ':'. $v_no, $v_val, -1, (trim($types_arr[$v_no]) == 'integer') ? SQLT_INT : SQLT_CHR);
 		}
 		if (!@oci_execute($sth, OCI_DEFAULT)) {
 			$err = oci_error($sth);
@@ -291,7 +296,7 @@ function db_all($q)
 function _esc($s)
 {
 	// Trim first 4000 characters, based on Oracle VARCHAR2(4000) limitation.
-	$s = preg_replace('/(.{0,4000})(.*)/', '\1', $s);
+	// $s = preg_replace('/(.{0,4000})(.*)/', '\1', $s);
 
 	// Replace any single ' with ''
 	$s = str_replace('\'', '\'\'', $s);
@@ -313,21 +318,6 @@ function _ora_syntax($q)
 	if (preg_match('/^SELECT /i', $q) && !preg_match('/FROM/i', $q)) {
 		$q .= ' FROM dual';
 	}
-
-	// OR numeric values together in PHP and pass as a single value to Oracle.
-	// $q = preg_replace_callback('/\b(\d[\d\|]+\d\b)/',
-	//		create_function('$matches',
-	//			'$or=0; foreach( explode(\'|\', $matches[0]) as $val) {$or = $or|$val;} return $or;'),
-	//		$q);
-
-	// Convert bitwise & to Oracle's BITAND() function.
-	// $q = preg_replace('/\(([\.\w]+)\s*\&\s*(~?\d+)\)/', 'BITAND(\1, \2)', $q);
-
-	// Simulate BITOR().
-	// $q = preg_replace('/\(([\.\w]+)\s*\|\s*(\d+)\)/', '\1 + \2 - BITAND(\1, \2)', $q);
-
-	// Simulate BITNOT().
-	// $q = preg_replace('/~\s?([\d\(\)]+)/', '(0 - \1) - 1', $q);
 
 	return $q;
 }

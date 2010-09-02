@@ -14,7 +14,7 @@ function external_get_user_by_auth($login, $passwd)
 {
 	__fud_login_common(1);
 
-	$r = db_sab('SELECT id, passwd, salt FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'users WHERE login='._esc($login));
+	$r = db_sab('SELECT id, passwd, salt FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'users WHERE login='. _esc($login));
 	if ($r && (empty($r->salt) && $r->passwd == md5($passwd) || $r->passwd == sha1($r->salt . sha1($passwd)))) {
 		return $r->id;
 	}
@@ -30,11 +30,11 @@ function external_fud_login($user_id)
 	}
 
 	/* Create session. */
-	q("DELETE FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."ses WHERE user_id=".$user_id);
+	q('DELETE FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'ses WHERE user_id='. $user_id);
 	$sys_id = __ses_make_sysid(($GLOBALS['FUD_OPT_2'] & 256), ($GLOBALS['FUD_OPT_3'] & 16));
 	do {
 		$ses_id = md5($user_id . time() . getmypid());
-	} while (!($id = db_li("INSERT INTO ".$GLOBALS['DBHOST_TBL_PREFIX']."ses (ses_id, time_sec, sys_id, user_id) VALUES ('".$ses_id."', ".time().", '".$sys_id."', ".$user_id.")", $ef, 1)));
+	} while (!($id = db_li('INSERT INTO '. $GLOBALS['DBHOST_TBL_PREFIX'] .'ses (ses_id, time_sec, sys_id, user_id) VALUES (\''. $ses_id .'\', '. time() .', \''. $sys_id .'\', '. $user_id .')', $ef, 1)));
 	setcookie($GLOBALS['COOKIE_NAME'], $ses_id, time()+$GLOBALS['COOKIE_TIMEOUT'], $GLOBALS['COOKIE_PATH'], $GLOBALS['COOKIE_DOMAIN']);
 
 	return $ses_id;
@@ -49,7 +49,7 @@ function external_fud_status($action='Busy somewhere outside of the forum')
 	$ses_id = $_COOKIE[$GLOBALS['COOKIE_NAME']];
 	if (!empty($ses_id)) {
 		$sys_id = __ses_make_sysid(($GLOBALS['FUD_OPT_2'] & 256), ($GLOBALS['FUD_OPT_3'] & 16));
-		q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'ses SET sys_id=\''.$sys_id.'\', time_sec='.__request_timestamp__.', action='._esc($action).' WHERE ses_id=\''.$ses_id.'\'');
+		q('UPDATE '. $GLOBALS['DBHOST_TBL_PREFIX'] .'ses SET sys_id=\''. $sys_id .'\', time_sec='. __request_timestamp__ .', action='. _esc($action) .' WHERE ses_id=\''. $ses_id .'\'');
 	}
 }
 
@@ -63,7 +63,7 @@ function external_fud_logout($user_id)
 	}
 
 	// Remove session from database.
-	q("DELETE FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."ses WHERE user_id=".$user_id);
+	q('DELETE FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'ses WHERE user_id='. $user_id);
 	// Trash the cookie.
 	setcookie($GLOBALS['COOKIE_NAME'], '', 0, $GLOBALS['COOKIE_PATH'], $GLOBALS['COOKIE_DOMAIN']);
 }
@@ -75,7 +75,7 @@ if (!function_exists('fud_sql_error_handler'))
 {
 	function fud_sql_error_handler($query, $error_string, $error_number, $server_version)
 	{
-		exit("Query {$query} failed due to: {$error_string}");
+		exit('Query '. $query .' failed due to: '. $error_string);
 	}
 }
 
@@ -93,7 +93,7 @@ function __fud_login_common($skip=0, $user_id=0)
 	}
 
 	if (!$GLOBALS['PATH_TO_FUD_FORUM_DB_INC']) {
-		require_once $GLOBALS['INCLUDE'] . 'theme/default/db.inc';
+		require_once $GLOBALS['INCLUDE'] .'theme/default/db.inc';
 	} else {
 		require_once $GLOBALS['PATH_TO_FUD_FORUM_DB_INC'];
 	}
@@ -103,7 +103,7 @@ function __fud_login_common($skip=0, $user_id=0)
 	}
 
 	/* Validate user. */
-	if (!q_singleval("SELECT id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."users WHERE id=".$user_id)) {
+	if (!q_singleval('SELECT id FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'users WHERE id='. $user_id)) {
 		return;
 	}
 

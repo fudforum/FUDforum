@@ -16,7 +16,7 @@
 		case 'usermaintance':
 		case 'boardusage':
 		case 'readingposting':
-			$file = '{THEME_ROOT_DISK}/help/' . $section . '.hlp';
+			$file = '{THEME_ROOT_DISK}/help/'. $section .'.hlp';
 			$return_top = '{TEMPLATE: return_top}';
 			break;
 		default:

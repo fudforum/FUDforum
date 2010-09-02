@@ -41,17 +41,17 @@
 
 	$find_user_data = '';
 	if ($usr_login) {
-		$c = uq('SELECT alias FROM {SQL_TABLE_PREFIX}users WHERE alias LIKE '._esc(char_fix(htmlspecialchars(addcslashes($usr_login.'%','\\')))).' AND id>1');
+		$c = uq('SELECT alias FROM {SQL_TABLE_PREFIX}users WHERE alias LIKE '. _esc(char_fix(htmlspecialchars(addcslashes($usr_login.'%','\\')))) .' AND id>1');
 		$i = 0;
 		while ($r = db_rowarr($c)) {
 			if ($overwrite) {
-				$retlink = 'javascript: window.opener.document.forms[\''.$frm.'\'].'.$fld.'.value=\''.addcslashes($r[0], "'\\").'\'; window.close();';
+				$retlink = 'javascript: window.opener.document.forms[\''. $frm .'\'].'. $fld .'.value=\''. addcslashes($r[0], "'\\") .'\'; window.close();';
 			} else {
 				$retlink = 'javascript:
-						if (!window.opener.document.forms[\''.$frm.'\'].'.$fld.'.value) {
-							window.opener.document.forms[\''.$frm.'\'].'.$fld.'.value = \''.addcslashes($r[0], "'\\").'\';
+						if (!window.opener.document.forms[\''. $frm .'\'].'. $fld .'.value) {
+							window.opener.document.forms[\''. $frm .'\'].'. $fld .'.value = \''. addcslashes($r[0], "'\\") .'\';
 						} else {
-							window.opener.document.forms[\''.$frm.'\'].'.$fld.'.value = window.opener.document.forms[\''.$frm.'\'].'.$fld.'.value + \'; \' + \''.addcslashes($r[0], "'\\").'; \';
+							window.opener.document.forms[\''. $frm .'\'].'. $fld .'.value = window.opener.document.forms[\''. $frm .'\'].'. $fld .'.value + \'; \' + \''. addcslashes($r[0], "'\\") .'; \';
 						}
 					window.close();';
 			}

@@ -13,7 +13,7 @@ function &get_all_read_perms($uid, $mod)
 {
 	$limit = array(0);
 
-	$r = uq('SELECT resource_id, group_cache_opt FROM {SQL_TABLE_PREFIX}group_cache WHERE user_id='._uid);
+	$r = uq('SELECT resource_id, group_cache_opt FROM {SQL_TABLE_PREFIX}group_cache WHERE user_id='. _uid);
 	while ($ent = db_rowarr($r)) {
 		$limit[$ent[0]] = $ent[1] & 2;
 	}
@@ -21,14 +21,14 @@ function &get_all_read_perms($uid, $mod)
 
 	if (_uid) {
 		if ($mod) {
-			$r = uq('SELECT forum_id FROM {SQL_TABLE_PREFIX}mod WHERE user_id='._uid);
+			$r = uq('SELECT forum_id FROM {SQL_TABLE_PREFIX}mod WHERE user_id=' ._uid);
 			while ($ent = db_rowarr($r)) {
 				$limit[$ent[0]] = 2;
 			}
 			unset($r);
 		}
 
-		$r = uq('SELECT resource_id FROM {SQL_TABLE_PREFIX}group_cache WHERE resource_id NOT IN ('.implode(',', array_keys($limit)).') AND user_id=2147483647 AND (group_cache_opt & 2) > 0');
+		$r = uq('SELECT resource_id FROM {SQL_TABLE_PREFIX}group_cache WHERE resource_id NOT IN ('. implode(',', array_keys($limit)) .') AND user_id=2147483647 AND '. q_bitand('group_cache_opt', 2) .' > 0');
 		while ($ent = db_rowarr($r)) {
 			if (!isset($limit[$ent[0]])) {
 				$limit[$ent[0]] = 2;
@@ -58,10 +58,10 @@ function make_perms_query(&$fields, &$join, $fid='')
 	}
 
 	if (_uid) {
-		$join = ' INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=2147483647 AND g1.resource_id='.$fid.' LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g2.resource_id='.$fid.' ';
+		$join = ' INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=2147483647 AND g1.resource_id='. $fid .' LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='. _uid .' AND g2.resource_id='. $fid .' ';
 		$fields = ' COALESCE(g2.group_cache_opt, g1.group_cache_opt) AS group_cache_opt ';
 	} else {
-		$join = ' INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=0 AND g1.resource_id='.$fid.' ';
+		$join = ' INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=0 AND g1.resource_id='. $fid .' ';
 		$fields = ' g1.group_cache_opt ';
 	}
 }

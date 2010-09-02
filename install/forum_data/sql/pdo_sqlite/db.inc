@@ -118,17 +118,17 @@ function q_concat($arg)
 	return implode('||', $tmp);
 }
 
-function q_limit($query, $limit, $off)
+function q_limit($query, $limit, $off=0)
 {
 	return $query .' LIMIT '. $limit .' OFFSET '. $off;
 }
 
 function q_bitand($fieldLeft, $fieldRight) {
-	return $fieldLeft .'&'. $fieldRight;
+	return $fieldLeft .' & '. $fieldRight;
 }
 
 function q_bitor($fieldLeft, $fieldRight) {
-	return $fieldLeft .'|'. $fieldRight;
+	return $fieldLeft .' | '. $fieldRight;
 }
 
 function q_bitnot($bitField) {

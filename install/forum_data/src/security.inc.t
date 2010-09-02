@@ -10,6 +10,6 @@
 **/
 
 	if (_uid === '_uid') {
-		exit('sorry, you can not access this page');
+		exit('Sorry, you can not access this page.');
 	}
 ?>

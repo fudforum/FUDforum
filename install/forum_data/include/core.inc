@@ -78,7 +78,7 @@ function fud_use($file, $static=0)
 function get_random_value($bitlength=32)
 {
 	$n = round($bitlength/32);
-	$v='';
+	$v = '';
 	while (--$n > -1) {
 		$v .= mt_rand();
 	}
@@ -180,14 +180,14 @@ function fud_sql_error_handler($query, $error_string, $error_number, $db_version
 		$_SERVER['PATH_TRANSLATED'] .= "{$v['file']}:{$v['line']}<br />\n";
 	}
 
-	$error_msg = '('.$_SERVER['PATH_TRANSLATED'].') '.$error_number.': '.$error_string."<br />\n";
-	$error_msg .= 'Query: '.htmlspecialchars($query)."<br />\n";
+	$error_msg = '('. $_SERVER['PATH_TRANSLATED'] .') '. $error_number .': '. $error_string ."<br />\n";
+	$error_msg .= 'Query: '. htmlspecialchars($query) ."<br />\n";
 	if (!empty($_GET)) {
 		$error_msg .= '_GET: ';
 		if (count($_GET, 1) < 100) {
 			$error_msg .= htmlspecialchars(var_export($_GET, 1));
 		} else {
-			$error_msg .= 'Too many vars to list: '.count($_GET, 1);
+			$error_msg .= 'Too many vars to list: '. count($_GET, 1);
 		}
 		$error_msg .= "<br />\n";
 	}
@@ -196,13 +196,13 @@ function fud_sql_error_handler($query, $error_string, $error_number, $db_version
 		if (count($_POST, 1) < 100) {
 			$error_msg .= htmlspecialchars(var_export($_POST, 1));
 		} else {
-			$error_msg .= 'Too many vars: '.count($_POST, 1);
+			$error_msg .= 'Too many vars: '. count($_POST, 1);
 		}
 		$error_msg .= "<br />\n";
 	}
 	$error_msg .= 'Database version: '. $db_version ."<br />\n";
 	if (isset($_SERVER['HTTP_REFERER'])) {
-		$error_msg .= '[Referring Page] '.htmlspecialchars($_SERVER['HTTP_REFERER'])."<br />\n";
+		$error_msg .= '[Referring Page] '. htmlspecialchars($_SERVER['HTTP_REFERER']) ."<br />\n";
 	}
 
 	fud_logerror($error_msg, 'sql_errors');
@@ -213,9 +213,9 @@ function fud_sql_error_handler($query, $error_string, $error_number, $db_version
 	} elseif (defined('forum_debug')) {	// Debug mode.
 		echo '<hr>'. $error_msg .'<hr>';
 	} else {
-		trigger_error('SQL Error has occurred, please contact the <a href="mailto:'.$GLOBALS['ADMIN_EMAIL'].'?subject=SQL%20Error">administrator</a> of the forum and have them review the forum&#39;s SQL query log', E_USER_ERROR);
+		trigger_error('SQL Error has occurred, please contact the <a href="mailto:'. $GLOBALS['ADMIN_EMAIL'] .'?subject=SQL%20Error">administrator</a> of the forum and have them review the forum&#39;s SQL query log', E_USER_ERROR);
 		if (ini_get('display_errors') !== 1) {
-			exit('SQL Error has occurred, please contact the <a href="mailto:'.$GLOBALS['ADMIN_EMAIL'].'?subject=SQL%20Error">administrator</a> of the forum and have them review the forum&#39;s SQL query log');
+			exit('SQL Error has occurred, please contact the <a href="mailto:'. $GLOBALS['ADMIN_EMAIL'] .'?subject=SQL%20Error">administrator</a> of the forum and have them review the forum&#39;s SQL query log');
 		}
 	}
 	exit;

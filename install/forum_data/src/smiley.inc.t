@@ -9,12 +9,12 @@
 * Free Software Foundation; version 2 of the License.
 **/
 
-$GLOBALS['__SML_CHR_CHK__'] = array("\n"=>1, "\r"=>1, "\t"=>1, " "=>1, "]"=>1, "["=>1, "<"=>1, ">"=>1, "'"=>1, '"'=>1, "("=>1, ")"=>1, "."=>1, ","=>1, "!"=>1, "?"=>1);
+$GLOBALS['__SML_CHR_CHK__'] = array("\n"=>1, "\r"=>1, "\t"=>1, ' '=>1, ']'=>1, '['=>1, '<'=>1, '>'=>1, '\''=>1, '"'=>1, '('=>1, ')'=>1, '.'=>1, ','=>1, '!'=>1, '?'=>1);
 
 function smiley_to_post($text)
 {
 	$text_l = strtolower($text);
-	include $GLOBALS['FORUM_SETTINGS_PATH'].'sp_cache';
+	include $GLOBALS['FORUM_SETTINGS_PATH'] .'sp_cache';
 
 	/* remove all non-formatting blocks */
 	foreach (array('</pre>'=>'<pre>', '</span>' => '<span name="php">') as $k => $v) {
@@ -33,7 +33,7 @@ function smiley_to_post($text)
 		$a = 0;
 		$len = strlen($k);
 		while (($a = strpos($text_l, $k, $a)) !== false) {
-			if ((!$a || isset($GLOBALS['__SML_CHR_CHK__'][$text_l[$a - 1]])) && ((@$ch = $text_l[$a + $len]) == "" || isset($GLOBALS['__SML_CHR_CHK__'][$ch]))) {
+			if ((!$a || isset($GLOBALS['__SML_CHR_CHK__'][$text_l[$a - 1]])) && ((@$ch = $text_l[$a + $len]) == '' || isset($GLOBALS['__SML_CHR_CHK__'][$ch]))) {
 				$text_l = substr_replace($text_l, $v, $a, $len);
 				$text = substr_replace($text, $v, $a, $len);
 				$a += strlen($v) - $len;

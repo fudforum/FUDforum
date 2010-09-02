@@ -37,13 +37,13 @@ function plugin_activate_enbled() {
 
 	$plugins = plugin_load_from_cache();
 	foreach ($plugins as $plugin) {
-		include_once $GLOBALS['PLUGIN_PATH'].$plugin;
+		include_once $GLOBALS['PLUGIN_PATH'] . $plugin;
 	}
 }
 
 // Read list of enabled plugins from cache.
 function plugin_load_from_cache() {
-	$cachefile = $GLOBALS['FORUM_SETTINGS_PATH'].'plugin_cache';
+	$cachefile = $GLOBALS['FORUM_SETTINGS_PATH'] .'plugin_cache';
 
 	if (file_exists($cachefile)) {
 		include $cachefile;
@@ -59,13 +59,12 @@ function plugin_load_from_cache() {
 
 // Write list of enabled plugins to cache.
 function plugin_rebuild_cache($plugins) {
-        $fp = fopen($GLOBALS['TMP'].'plugin_cache', 'w');
-        fwrite($fp, '<?php $plugins = '.var_export($plugins, 1).'; ?>');
+        $fp = fopen($GLOBALS['TMP'] .'plugin_cache', 'w');
+        fwrite($fp, '<?php $plugins = '. var_export($plugins, 1) .'; ?>');
         fclose($fp);
 
         if (!strncasecmp('win', PHP_OS, 3)) {
-                @unlink($GLOBALS['FORUM_SETTINGS_PATH'].'plugin_cache');
+                @unlink($GLOBALS['FORUM_SETTINGS_PATH'] .'plugin_cache');
         }
-        rename($GLOBALS['TMP'].'plugin_cache', $GLOBALS['FORUM_SETTINGS_PATH'].'plugin_cache');
+        rename($GLOBALS['TMP'] .'plugin_cache', $GLOBALS['FORUM_SETTINGS_PATH'] .'plugin_cache');
 }
-

@@ -32,7 +32,7 @@ class fud_pmsg
 			list($this->foff, $this->length) = write_pmsg_body($this->body);
 		}
 
-		$this->id = db_qid("INSERT INTO {SQL_TABLE_PREFIX}pmsg (
+		$this->id = db_qid('INSERT INTO {SQL_TABLE_PREFIX}pmsg (
 			ouser_id,
 			duser_id,
 			pdest,
@@ -50,27 +50,27 @@ class fud_pmsg
 			length,
 			pmsg_opt
 			) VALUES(
-				".$this->ouser_id.",
-				".($this->duser_id ? $this->duser_id : $this->ouser_id).",
-				".(isset($GLOBALS['recv_user_id'][0]) ? (int)$GLOBALS['recv_user_id'][0] : '0').",
-				".ssn($this->to_list).",
-				'".$this->ip_addr."',
-				".$this->host_name.",
-				".$this->post_stamp.",
-				".ssn($this->icon).",
-				".$this->fldr.",
-				"._esc($this->subject).",
-				".(int)$this->attach_cnt.",
-				".$this->read_stamp.",
-				".ssn($this->ref_msg_id).",
-				".(int)$this->foff.",
-				".(int)$this->length.",
-				".$this->pmsg_opt."
-			)");
+				'. $this->ouser_id .',
+				'. ($this->duser_id ? $this->duser_id : $this->ouser_id) .',
+				'. (isset($GLOBALS['recv_user_id'][0]) ? (int)$GLOBALS['recv_user_id'][0] : '0') .',
+				'. ssn($this->to_list) .',
+				\''. $this->ip_addr .'\',
+				'. $this->host_name .',
+				'. $this->post_stamp .',
+				'. ssn($this->icon) .',
+				'. $this->fldr .',
+				'. _esc($this->subject) .',
+				'. (int)$this->attach_cnt .',
+				'. $this->read_stamp .',
+				'. ssn($this->ref_msg_id) .',
+				'. (int)$this->foff .',
+				'. (int)$this->length .',
+				'. $this->pmsg_opt .'
+			)');
 
 		if ($GLOBALS['FUD_OPT_3'] & 32768 && $this->body) {
-			$fid = db_qid('INSERT INTO {SQL_TABLE_PREFIX}msg_store (data) VALUES('._esc($this->body).')');
-			q('UPDATE {SQL_TABLE_PREFIX}pmsg SET length='.$fid.' WHERE id='.$this->id);
+			$fid = db_qid('INSERT INTO {SQL_TABLE_PREFIX}msg_store (data) VALUES('. _esc($this->body) .')');
+			q('UPDATE {SQL_TABLE_PREFIX}pmsg SET length='. $fid .' WHERE id='. $this->id);
 		}
 
 		if ($this->fldr == 3 && !$track) {
@@ -84,7 +84,7 @@ class fud_pmsg
 		$this->pmsg_opt &= 16|32|1|2|4;
 
 		foreach($GLOBALS['recv_user_id'] as $v) {
-			$id = db_qid("INSERT INTO {SQL_TABLE_PREFIX}pmsg (
+			$id = db_qid('INSERT INTO {SQL_TABLE_PREFIX}pmsg (
 				to_list,
 				ouser_id,
 				ip_addr,
@@ -100,36 +100,36 @@ class fud_pmsg
 				ref_msg_id,
 				pmsg_opt
 			) VALUES (
-				".ssn($this->to_list).",
-				".$this->ouser_id.",
-				'".$this->ip_addr."',
-				".$this->host_name.",
-				".$this->post_stamp.",
-				".ssn($this->icon).",
+				'. ssn($this->to_list).',
+				'. $this->ouser_id .',
+				\''. $this->ip_addr .'\',
+				'. $this->host_name .',
+				'. $this->post_stamp .',
+				'. ssn($this->icon) .',
 				1,
-				"._esc($this->subject).",
-				".(int)$this->attach_cnt.",
-				".$this->foff.",
-				".$this->length.",
-				".$v.",
-				".ssn($this->ref_msg_id).",
-				".$this->pmsg_opt.")");
+				'. _esc($this->subject) .',
+				'. (int)$this->attach_cnt .',
+				'. $this->foff .',
+				'. $this->length .',
+				'. $v .',
+				'. ssn($this->ref_msg_id) .',
+				'. $this->pmsg_opt .')');
 
 			if ($GLOBALS['FUD_OPT_3'] & 32768 && $this->body) {
-				$fid = db_qid('INSERT INTO {SQL_TABLE_PREFIX}msg_store (data) VALUES('._esc($this->body).')');
-				q('UPDATE {SQL_TABLE_PREFIX}pmsg SET length='.$fid.' WHERE id='.$id);
+				$fid = db_qid('INSERT INTO {SQL_TABLE_PREFIX}msg_store (data) VALUES('. _esc($this->body) .')');
+				q('UPDATE {SQL_TABLE_PREFIX}pmsg SET length='. $fid .' WHERE id='. $id);
 			}
 
 			$GLOBALS['send_to_array'][] = array($v, $id);
 			$um[$v] = $id;
 		}
-		$c =  uq('SELECT id, email FROM {SQL_TABLE_PREFIX}users WHERE id IN('.implode(',', $GLOBALS['recv_user_id']).') AND users_opt>=64 AND (users_opt & 64) > 0');
+		$c =  uq('SELECT id, email FROM {SQL_TABLE_PREFIX}users WHERE id IN('. implode(',', $GLOBALS['recv_user_id']) .') AND users_opt>=64 AND '. q_bitand('users_opt', 64) .' > 0');
 
 		$from = reverse_fmt($GLOBALS['usr']->alias);
 		$subject = reverse_fmt($this->subject);
 
 		while ($r = db_rowarr($c)) {
-			/* do not send notifications about messages sent to self */
+			/* Do not send notifications about messages sent to self. */
 			if ($r[0] == $this->ouser_id) {
 				continue;
 			}
@@ -145,33 +145,33 @@ class fud_pmsg
 		$this->host_name = $GLOBALS['FUD_OPT_1'] & 268435456 ? _esc(get_host($this->ip_addr)) : 'NULL';
 
 		if ($GLOBALS['FUD_OPT_3'] & 32768) {
-			if ($fid = q_singleval('SELECT length FROM {SQL_TABLE_PREFIX}pmsg WHERE id='.$this->id.' AND foff!=-1')) {
-				q('DELETE FROM {SQL_TABLE_PREFIX}msg_store WHERE id='.$this->length);
+			if ($fid = q_singleval('SELECT length FROM {SQL_TABLE_PREFIX}pmsg WHERE id='. $this->id .' AND foff!=-1')) {
+				q('DELETE FROM {SQL_TABLE_PREFIX}msg_store WHERE id='. $this->length);
 			}
 			$this->foff = $this->length = -1;
 		} else {
 			list($this->foff, $this->length) = write_pmsg_body($this->body);
 		}
 
-		q("UPDATE {SQL_TABLE_PREFIX}pmsg SET
-			to_list=".ssn($this->to_list).",
-			icon=".ssn($this->icon).",
-			ouser_id=".$this->ouser_id.",
-			duser_id=".$this->ouser_id.",
-			post_stamp=".$this->post_stamp.",
-			subject="._esc($this->subject).",
-			ip_addr='".$this->ip_addr."',
-			host_name=".$this->host_name.",
-			attach_cnt=".(int)$this->attach_cnt.",
-			fldr=".$this->fldr.",
-			foff=".(int)$this->foff.",
-			length=".(int)$this->length.",
-			pmsg_opt=".$this->pmsg_opt."
-		WHERE id=".$this->id);
+		q('UPDATE {SQL_TABLE_PREFIX}pmsg SET
+			to_list='. ssn($this->to_list) .',
+			icon='. ssn($this->icon) .',
+			ouser_id='. $this->ouser_id .',
+			duser_id='. $this->ouser_id .',
+			post_stamp='. $this->post_stamp .',
+			subject='. _esc($this->subject) .',
+			ip_addr=\''. $this->ip_addr .'\',
+			host_name='. $this->host_name .',
+			attach_cnt='. (int)$this->attach_cnt .',
+			fldr='. $this->fldr .',
+			foff='. (int)$this->foff .',
+			length='. (int)$this->length .',
+			pmsg_opt='. $this->pmsg_opt .'
+		WHERE id='. $this->id);
 
 		if ($GLOBALS['FUD_OPT_3'] & 32768 && $this->body) {
-			$fid = db_qid('INSERT INTO {SQL_TABLE_PREFIX}msg_store (data) VALUES('._esc($this->body).')');
-			q('UPDATE {SQL_TABLE_PREFIX}pmsg SET length='.$fid.' WHERE id='.$this->id);
+			$fid = db_qid('INSERT INTO {SQL_TABLE_PREFIX}msg_store (data) VALUES('. _esc($this->body) .')');
+			q('UPDATE {SQL_TABLE_PREFIX}pmsg SET length='. $fid .' WHERE id='. $this->id);
 		}
 
 		if ($this->fldr == 3) {
@@ -182,7 +182,7 @@ class fud_pmsg
 
 function set_nrf($nrf, $id)
 {
-	q('UPDATE {SQL_TABLE_PREFIX}pmsg SET pmsg_opt=(pmsg_opt & ~ 96) | '.$nrf.' WHERE id='.$id);
+	q('UPDATE {SQL_TABLE_PREFIX}pmsg SET pmsg_opt='. q_bitor( q_bitand('pmsg_opt', ~96), $nrf) .' WHERE id='. $id);
 }
 
 function write_pmsg_body($text)
@@ -191,7 +191,7 @@ function write_pmsg_body($text)
 		db_lock('{SQL_TABLE_PREFIX}fl_pm WRITE');
 	}
 
-	$fp = fopen($GLOBALS['MSG_STORE_DIR'].'private', 'ab');
+	$fp = fopen($GLOBALS['MSG_STORE_DIR'] .'private', 'ab');
 	if (!$fp) {
 		exit("FATAL ERROR: cannot open private message store<br />\n");
 	}
@@ -211,7 +211,7 @@ function write_pmsg_body($text)
 	}
 
 	if (!$s) {
-		chmod($GLOBALS['MSG_STORE_DIR'].'private', ($GLOBALS['FUD_OPT_2'] & 8388608 ? 0600 : 0666));
+		chmod($GLOBALS['MSG_STORE_DIR'] .'private', ($GLOBALS['FUD_OPT_2'] & 8388608 ? 0600 : 0666));
 	}
 
 	return array($s, $len);
@@ -224,7 +224,7 @@ function read_pmsg_body($offset, $length)
 	}
 
 	if ($GLOBALS['FUD_OPT_3'] & 32768 && $offset == -1) {
-		return q_singleval('SELECT data FROM {SQL_TABLE_PREFIX}msg_store WHERE id='.$length);
+		return q_singleval('SELECT data FROM {SQL_TABLE_PREFIX}msg_store WHERE id='. $length);
 	}
 
 	$fp = fopen($GLOBALS['MSG_STORE_DIR'].'private', 'rb');
@@ -237,32 +237,32 @@ function read_pmsg_body($offset, $length)
 
 function pmsg_move($mid, $fid, $validate)
 {
-	if (!$validate && !q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}pmsg WHERE duser_id='._uid.' AND id='.$mid)) {
+	if (!$validate && !q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}pmsg WHERE duser_id='. _uid .' AND id='. $mid)) {
 		return;
 	}
 
-	q('UPDATE {SQL_TABLE_PREFIX}pmsg SET fldr='.$fid.' WHERE duser_id='._uid.' AND id='.$mid);
+	q('UPDATE {SQL_TABLE_PREFIX}pmsg SET fldr='. $fid .' WHERE duser_id='. _uid .' AND id='. $mid);
 }
 
 function pmsg_del($mid, $fldr=0)
 {
-	if (!$fldr && !($fldr = q_singleval('SELECT fldr FROM {SQL_TABLE_PREFIX}pmsg WHERE duser_id='._uid.' AND id='.$mid))) {
+	if (!$fldr && !($fldr = q_singleval('SELECT fldr FROM {SQL_TABLE_PREFIX}pmsg WHERE duser_id='. _uid .' AND id='. $mid))) {
 		return;
 	}
 
 	if ($fldr != 5) {
 		pmsg_move($mid, 5, 0);
 	} else {
-		if ($GLOBALS['FUD_OPT_3'] & 32768 && ($fid = q_singleval('SELECT length FROM {SQL_TABLE_PREFIX}pmsg WHERE id='.$mid.' AND foff=-1'))) {
-			q('DELETE FROM {SQL_TABLE_PREFIX}msg_store WHERE id='.$fid);
+		if ($GLOBALS['FUD_OPT_3'] & 32768 && ($fid = q_singleval('SELECT length FROM {SQL_TABLE_PREFIX}pmsg WHERE id='. $mid .' AND foff=-1'))) {
+			q('DELETE FROM {SQL_TABLE_PREFIX}msg_store WHERE id='. $fid);
 		}
 		q('DELETE FROM {SQL_TABLE_PREFIX}pmsg WHERE id='.$mid);
-		$c = uq('SELECT id FROM {SQL_TABLE_PREFIX}attach WHERE message_id='.$mid.' AND attach_opt=1');
+		$c = uq('SELECT id FROM {SQL_TABLE_PREFIX}attach WHERE message_id='. $mid .' AND attach_opt=1');
 		while ($r = db_rowarr($c)) {
-			@unlink($GLOBALS['FILE_STORE'] . $r[0] . '.atch');
+			@unlink($GLOBALS['FILE_STORE'] . $r[0] .'.atch');
 		}
 		unset($c);
-		q('DELETE FROM {SQL_TABLE_PREFIX}attach WHERE message_id='.$mid.' AND attach_opt=1');
+		q('DELETE FROM {SQL_TABLE_PREFIX}attach WHERE message_id='. $mid .' AND attach_opt=1');
 	}
 }
 

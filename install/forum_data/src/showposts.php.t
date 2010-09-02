@@ -11,7 +11,7 @@
 
 /*{PRE_HTML_PHP}*/
 
-	if (!isset($_GET['id']) || !($tmp = db_saq('SELECT id, alias, posted_msg_count, join_date FROM {SQL_TABLE_PREFIX}users WHERE id='.(int)$_GET['id']))) {
+	if (!isset($_GET['id']) || !($tmp = db_saq('SELECT id, alias, posted_msg_count, join_date FROM {SQL_TABLE_PREFIX}users WHERE id='. (int)$_GET['id']))) {
 		invl_inp_err();
 	} else {
 		list($uid,$u_alias,$u_pcount,$u_reg_date) = $tmp;
@@ -41,15 +41,15 @@
 
 	$post_entry = '';
 	if ($is_a || $fids) {
-		$qry_limit = $is_a ? '' : 'f.id IN ('.$fids.') AND ';
+		$qry_limit = $is_a ? '' : 'f.id IN ('. $fids .') AND ';
 
 		$c = uq(q_limit('SELECT /*!40000 SQL_CALC_FOUND_ROWS */ f.name, f.id as fid, m.subject, m.id, m.post_stamp
 			FROM {SQL_TABLE_PREFIX}msg m
 			INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id
 			INNER JOIN {SQL_TABLE_PREFIX}forum f ON t.forum_id=f.id
 			INNER JOIN {SQL_TABLE_PREFIX}cat c ON c.id=f.cat_id
-			WHERE '.$qry_limit.' m.apr=1 AND m.poster_id='.$uid.'
-			ORDER BY m.post_stamp '.$SORT_ORDER,
+			WHERE '. $qry_limit .' m.apr=1 AND m.poster_id='. $uid .'
+			ORDER BY m.post_stamp '. $SORT_ORDER,
 			$THREADS_PER_PAGE, $start));
 
 		while ($r = db_rowarr($c)) {
@@ -57,20 +57,20 @@
 		}
 		unset($c);
 
-		/* we need the total for the pager & we don't trust the user to pass it via GET or POST */
+		/* We need the total for the pager & we don't trust the user to pass it via GET or POST. */
 		if (($total = (int) q_singleval('SELECT /*!40000 FOUND_ROWS(), */ -1')) < 0) {
 			$total = q_singleval('SELECT count(*)
 					FROM {SQL_TABLE_PREFIX}msg m
 					INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id
 					INNER JOIN {SQL_TABLE_PREFIX}forum f ON t.forum_id=f.id
 					INNER JOIN {SQL_TABLE_PREFIX}cat c ON c.id=f.cat_id
-					WHERE '.$qry_limit.' m.apr=1 AND m.poster_id='.$uid);
+					WHERE '. $qry_limit .' m.apr=1 AND m.poster_id='. $uid);
 		}
 
 		if ($FUD_OPT_2 & 32768) {
-			$pager = tmpl_create_pager($start, $THREADS_PER_PAGE, $total, '{ROOT}/sp/'.$uid.'/'.$SORT_ORDER.'/', '/'._rsid);
+			$pager = tmpl_create_pager($start, $THREADS_PER_PAGE, $total, '{ROOT}/sp/'. $uid .'/'. $SORT_ORDER .'/', '/'. _rsid);
 		} else {
-			$pager = tmpl_create_pager($start, $THREADS_PER_PAGE, $total, '{ROOT}?t=showposts&amp;id='.$uid.'&amp;so='.$SORT_ORDER.'&amp;'._rsid);
+			$pager = tmpl_create_pager($start, $THREADS_PER_PAGE, $total, '{ROOT}?t=showposts&amp;id='. $uid .'&amp;so='. $SORT_ORDER .'&amp;'. _rsid);
 		}
 	}
 

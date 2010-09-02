@@ -25,10 +25,10 @@
 		$data = db_sab('SELECT m.subject, t.id, mm.id AS md, COALESCE(g2.group_cache_opt, g1.group_cache_opt) AS gco
 				FROM {SQL_TABLE_PREFIX}thread t
 				INNER JOIN {SQL_TABLE_PREFIX}msg m ON t.root_msg_id=m.id
-				LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=t.forum_id AND mm.user_id='._uid.'
-				INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id='.(_uid ? '2147483647' : '0').' AND g1.resource_id=t.forum_id
-				LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g2.resource_id=t.forum_id
-				WHERE t.id='.$th);
+				LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=t.forum_id AND mm.user_id='. _uid .'
+				INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id='. (_uid ? '2147483647' : '0') .' AND g1.resource_id=t.forum_id
+				LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='. _uid .' AND g2.resource_id=t.forum_id
+				WHERE t.id='. $th);
 		if (!$data) {
 			invl_inp_err();
 		}
@@ -43,8 +43,8 @@
 /*{POST_HTML_PHP}*/
 
 	if (isset($_POST['posted']) && _uid && !check_femail_form()) {
-		$to = empty($POST['fname']) ? $_POST['femail'] : $_POST['fname'].' <'.$_POST['femail'].'>';
-		$from = $usr->alias. '<'.$usr->email.'>';
+		$to = empty($POST['fname']) ? $_POST['femail'] : $_POST['fname'] .' <'. $_POST['femail'] .'>';
+		$from = $usr->alias .'<'. $usr->email .'>';
 		send_email($from, $to, $_POST['subj'], $_POST['body']);
 
 		error_dialog('{TEMPLATE: remail_emailsent}', '{TEMPLATE: remail_sent_conf}');

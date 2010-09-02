@@ -31,9 +31,9 @@
 		LEFT JOIN {SQL_TABLE_PREFIX}users u ON s.user_id=u.id
 		LEFT JOIN {SQL_TABLE_PREFIX}msg m ON u.u_last_post_id=m.id
 		LEFT JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id
-		LEFT JOIN {SQL_TABLE_PREFIX}mod mm1 ON mm1.forum_id=t.forum_id AND mm1.user_id='._uid.'
-		LEFT JOIN {SQL_TABLE_PREFIX}mod mm2 ON mm2.forum_id=s.forum_id AND mm2.user_id='._uid.'
-		WHERE s.time_sec>'.(__request_timestamp__ - ($LOGEDIN_TIMEOUT * 60)).' AND s.user_id!='._uid.' ORDER BY u.alias, s.time_sec DESC');
+		LEFT JOIN {SQL_TABLE_PREFIX}mod mm1 ON mm1.forum_id=t.forum_id AND mm1.user_id='. _uid .'
+		LEFT JOIN {SQL_TABLE_PREFIX}mod mm2 ON mm2.forum_id=s.forum_id AND mm2.user_id='. _uid .'
+		WHERE s.time_sec>'. (__request_timestamp__ - ($LOGEDIN_TIMEOUT * 60)) .' AND s.user_id!='. _uid .' ORDER BY u.alias, s.time_sec DESC');
 
 	$action_data = ''; $uc = 0;
 	while ($r = db_rowarr($c)) {
@@ -71,9 +71,9 @@
 							array_pop($tmp);
 						}
 						$tmp[] = _rsid;
-						$sn = '{ROOT}/' . implode('/', $tmp);
+						$sn = '{ROOT}/'. implode('/', $tmp);
 					} else {
-						$sn = $s . '/' . _rsid;
+						$sn = $s .'/'. _rsid;
 					}
 					$action = str_replace($s, $sn, $r[0]);
 				} else {
@@ -81,9 +81,9 @@
 				}
 			} else {
 				if (($p = strpos($r[0], '?')) !== false) {
-					$action = substr_replace($r[0], '?'._rsid.'&', $p, 1);
+					$action = substr_replace($r[0], '?'. _rsid .'&', $p, 1);
 				} else if (($p = strpos($r[0], '.php')) !== false) {
-					$action = substr_replace($r[0], '.php?'._rsid.'&', $p, 4);
+					$action = substr_replace($r[0], '.php?'. _rsid .'&', $p, 4);
 				} else {
 					$action = $r[0];
 				}
@@ -101,5 +101,5 @@
 {TEMPLATE: ACTION_PAGE}
 <?php
 	/* Update loggedin user stats if needed. */
-	q('UPDATE {SQL_TABLE_PREFIX}stats_cache SET most_online='.$uc.', most_online_time='.__request_timestamp__.' WHERE most_online < '.$uc);
+	q('UPDATE {SQL_TABLE_PREFIX}stats_cache SET most_online='. $uc .', most_online_time='. __request_timestamp__ .' WHERE most_online < '. $uc);
 ?>

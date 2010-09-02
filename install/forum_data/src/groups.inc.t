@@ -15,20 +15,20 @@ function grp_delete_member($id, $user_id)
 		return;
 	}
 
-	q('DELETE FROM {SQL_TABLE_PREFIX}group_members WHERE group_id='.$id.' AND user_id='.$user_id);
+	q('DELETE FROM {SQL_TABLE_PREFIX}group_members WHERE group_id='. $id .' AND user_id='. $user_id);
 
-	if (q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}group_members WHERE user_id='.$user_id.' LIMIT 1')) {
-		/* we rebuild cache, since this user's permission for a particular resource are controled by
+	if (q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}group_members WHERE user_id='. $user_id .' LIMIT 1')) {
+		/* We rebuild cache, since this user's permission for a particular resource are controled by
 		 * more the one group. */
 		grp_rebuild_cache(array($user_id));
 	} else {
-		q('DELETE FROM {SQL_TABLE_PREFIX}group_cache WHERE user_id='.$user_id);
+		q('DELETE FROM {SQL_TABLE_PREFIX}group_cache WHERE user_id='. $user_id);
 	}
 }
 
 function grp_update_member($id, $user_id, $perm)
 {
-	q('UPDATE {SQL_TABLE_PREFIX}group_members SET group_members_opt='.$perm.' WHERE group_id='.$id.' AND user_id='.$user_id);
+	q('UPDATE {SQL_TABLE_PREFIX}group_members SET group_members_opt='. $perm .' WHERE group_id='. $id .' AND user_id='. $user_id);
 	grp_rebuild_cache(array($user_id));
 }
 
@@ -36,25 +36,25 @@ function grp_rebuild_cache($user_id=null)
 {
 	$list = array();
 	if ($user_id !== null) {
-		$lmt = ' user_id IN('.implode(',', $user_id).') ';
+		$lmt = ' user_id IN('. implode(',', $user_id) .') ';
 	} else {
 		$lmt = '';
 	}
 
-	/* generate an array of permissions, in the end we end up with 1ist of permissions */
-	$r = uq('SELECT gm.user_id AS uid, gm.group_members_opt AS gco, gr.resource_id AS rid FROM {SQL_TABLE_PREFIX}group_members gm INNER JOIN {SQL_TABLE_PREFIX}group_resources gr ON gr.group_id=gm.group_id WHERE gm.group_members_opt>=65536 AND (gm.group_members_opt & 65536) > 0' . ($lmt ? ' AND '.$lmt : ''));
+	/* Generate an array of permissions, in the end we end up with 1ist of permissions. */
+	$r = uq('SELECT gm.user_id, gm.group_members_opt, gr.resource_id FROM {SQL_TABLE_PREFIX}group_members gm INNER JOIN {SQL_TABLE_PREFIX}group_resources gr ON gr.group_id=gm.group_id WHERE gm.group_members_opt>=65536 AND '. q_bitand('gm.group_members_opt', 65536) .' > 0' . ($lmt ? ' AND '. $lmt : ''));
 	while ($o = db_rowobj($r)) {
 		foreach ($o as $k => $v) {
 			$o->{$k} = (int) $v;
 		}
-		if (isset($list[$o->rid][$o->uid])) {
-			if ($o->gco & 131072) {
-				$list[$o->rid][$o->uid] |= $o->gco;
+		if (isset($list[$o->resource_id][$o->user_id])) {
+			if ($o->group_members_opt & 131072) {
+				$list[$o->resource_id][$o->user_id] |= $o->group_members_opt;
 			} else {
-				$list[$o->rid][$o->uid] &= $o->gco;
+				$list[$o->resource_id][$o->user_id] &= $o->group_members_opt;
 			}
 		} else {
-			$list[$o->rid][$o->uid] = $o->gco;
+			$list[$o->resource_id][$o->user_id] = $o->group_members_opt;
 		}
 	}
 	unset($r);
@@ -62,18 +62,18 @@ function grp_rebuild_cache($user_id=null)
 	$tmp = array();
 	foreach ($list as $k => $v) {
 		foreach ($v as $u => $p) {
-			$tmp[] = $k.','.$p.','.$u;
+			$tmp[] = $k .','. $p .','. $u;
 		}
 	}
 
 	if (!$tmp) {
-		q('DELETE FROM {SQL_TABLE_PREFIX}group_cache' . ($lmt ? ' WHERE '.$lmt : ''));
+		q('DELETE FROM {SQL_TABLE_PREFIX}group_cache'. ($lmt ? ' WHERE '. $lmt : ''));
 		return;
 	}
 
 	if (__dbtype__ == 'mysql') {
-		q('REPLACE INTO {SQL_TABLE_PREFIX}group_cache (resource_id, group_cache_opt, user_id) VALUES ('.implode('),(', $tmp).')');
-		q('DELETE FROM {SQL_TABLE_PREFIX}group_cache WHERE '.($lmt ? $lmt . ' AND ' : '').' id < LAST_INSERT_ID()');
+		q('REPLACE INTO {SQL_TABLE_PREFIX}group_cache (resource_id, group_cache_opt, user_id) VALUES ('. implode('),(', $tmp) .')');
+		q('DELETE FROM {SQL_TABLE_PREFIX}group_cache WHERE '. ($lmt ? $lmt .' AND ' : '') .' id < LAST_INSERT_ID()');
 		return;
 	}
 	
