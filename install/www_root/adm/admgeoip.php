@@ -128,7 +128,7 @@ hours on a large forum.
 	require($WWW_ROOT_DISK .'adm/footer.php');
 
 	if ($upload_ok) {
-		while (@ob_end_flush());
+		while (ob_get_level() > 0) ob_end_flush();
 		flush();
 		q('DELETE FROM '. $DBHOST_TBL_PREFIX .'geoip');
 		$fp = fopen($_FILES['file']['tmp_name'], 'r');
@@ -151,7 +151,7 @@ hours on a large forum.
 		fclose($fp);
 		echo '<script type="text/javascript">changeCaption("Import Completed, '. $i .' entries were imported!");</script>';
 	} else if (!empty($_POST['rebuild_user_geoip'])) {
-		while (@ob_end_flush());
+		while (ob_get_level() > 0) ob_end_flush();
 		flush();
 		$c = q('SELECT id, COALESCE(last_known_ip, reg_ip) FROM '. $DBHOST_TBL_PREFIX .'users');
 		while ($r = db_rowarr($c)) {
@@ -168,7 +168,7 @@ hours on a large forum.
 		}
 		echo '<script type="text/javascript">changeCaption("'. $i .' user geo-location cache entries updated.");</script>';
 	} else if (!empty($_POST['rebuild_msg_geoip'])) {
-		while (@ob_end_flush());
+		while (ob_get_level() > 0) ob_end_flush();
 		flush();
 		$c = q('SELECT distinct(ip_addr) FROM '. $DBHOST_TBL_PREFIX .'msg');
 		while ($r = db_rowarr($c)) {

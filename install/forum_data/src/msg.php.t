@@ -210,7 +210,7 @@
 ?>
 {TEMPLATE: MSG_PAGE}
 <?php
-	while (@ob_end_flush());
+	while (ob_get_level() > 0) ob_end_flush();
 	if (!isset($_GET['prevloaded'])) {
 		th_inc_view_count($frm->id);
 	}

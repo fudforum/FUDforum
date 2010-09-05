@@ -67,7 +67,7 @@ WHERE
 ?>
 {TEMPLATE: TREE_MSG_PAGE}
 <?php
-	while (@ob_end_flush());
+	while (ob_get_level() > 0) ob_end_flush();
 	th_inc_view_count($msg_obj->thread_id);
 	if (_uid && $msg_obj) {
 		if ($msg_obj->last_forum_view < $msg_obj->post_stamp) {

@@ -299,7 +299,7 @@ function error_check()
 ?>
 {TEMPLATE: LOGIN_PAGE}
 <?php
-	while (@ob_end_flush());
+	while (ob_get_level() > 0) ob_end_flush();
 	/* Clear expired sessions AND anonymous sessions older than 1 day. */
 	q('DELETE FROM {SQL_TABLE_PREFIX}ses WHERE time_sec<'. (__request_timestamp__- ($FUD_OPT_3 & 1 ? $SESSION_TIMEOUT : $COOKIE_TIMEOUT)) .' OR (user_id>2000000000 AND time_sec<'. (__request_timestamp__- 86400) .')');
 ?>
