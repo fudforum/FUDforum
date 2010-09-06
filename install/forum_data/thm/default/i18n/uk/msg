@@ -1,0 +1,1127 @@
+# Messages for Ukrainian (Українська)
+# Exported from translatewiki.net
+# Author: Alex Khimich
+# Author: Apromix
+# Author: Prima klasy4na
+# Author: Тест
+
+action:Дія
+add_to_buddy_list:додати до списку контактів
+admin:Адмін
+admin_control_panel:Адміністративний центр
+administrator:Адміністратор
+attachment:Додаток:
+avatar:Аватар:
+average_post_count:{PLURAL: u->posted_msg_count|$1 Повідомлення|$1 Повідомлень} ({PLURAL: в середньому|$1 повідомлення|$1 повідомлень} в день)
+biography:Біографія:
+birth_date:Дата народження:
+by:Автор:
+by_mod:Модератором
+current_time:Cьогодні
+custom_avatar_queue:Черга власних аватарів
+date_posted:Дата розміщення
+date_registered:Дата реєстрації:
+download_counter:Завантажено {PLURAL: v[3]|$1 раз|$1 разів}
+pmsg_download_counter:Завантажено {PLURAL: r->dlcount|$1 раз|$1 разів}
+email:Електронна пошта:
+email_to_friend:Відправити по E-mail другу
+email_to_friend_desc:Відправити URL посилання до цієї сторінки по E-mail другу
+email_user:Відправити користувачеві E-mail
+faq:Довідка
+first_unread_msg:Перейти до непрочитаних повідомлень
+first_unread_msg_desc:Перейти до першого непрочитаного повідомлення у цій темі
+flat_view:Перейти до компактного стилю за замовчуванням
+forum:Форум:
+forum_icon:Іконка форуму
+forum_new_messages:Нові повідомлення
+forum_none_messages:Тільки зареєстровані користувачі форуму можуть відслідковувати і читати &amp; непрочитані повідомлення
+forum_old_messages:Немає нових повідомлень
+from:Від:
+gender:Стать:
+go:Перейти
+goto_next_msg:Перехід до наступного повідомлення
+goto_prev_msg:Перехід до попереднього повідомлення
+home:Домашня
+homepage:Домашня сторінка:
+icq_control_panel:Панель онлайн присутності в ICQ
+icq_message_form:Відправити повідомлення на ICQ
+ignore_user:ігнорувати всі повідомлення від цього користувача
+im_aim:Мережа AIM:
+im_msnm:Мережа MSN:
+im_yahoo:Мережа Yahoo:
+image:Зображення:
+index_forum:Форум
+index_new_posts:Нові повідомлення з моменту останнього відвідання
+index_no_new_posts:Немає нових повідомлення з моменту останнього відвідування
+index_url_redirection:Перенаправлення
+interests:Інтереси:
+last_post:Останнє повідомлення
+last_thread_msg:Перейти на останнє повідомлення в цій темі
+legend:Легенда
+location:Розташування:
+lock_thread:Закрити тему
+locked:Тема закрита
+locked_with_new_posts:Тема закрита (є непрочитанні повідомлення)
+logged_in_list:Зараз на форумі
+login:Вхід
+login_header:Логін:
+logout:Вийти
+mark_all_read:позначити всі повідомлення прочитаними
+mark_all_read_desc:Усі Ваші непрочитані повідомлення будуть помічені як прочитані
+members:Учасники
+calendar:Календар
+cal_goto_date:Перейти до:
+cal_day_heading:Події за день
+cal_no_events:Немає подій на день.
+cal_update:Перегляд форумного календаря
+message:Повідомлення
+message_counter:Користувачами форуму залишено <b>{PLURAL: post_count|$1 повідомлення|$1 повідомлень}</b> по <b>{PLURAL: thread_count|$1 темі|$1 темам|$1 темах}</b>.
+message_index:Список повідомлень
+message_index_desc:Переглянути список повідомлень
+minimize_category:Звернути категорію
+minimize_message:Згорнути повідомлення
+moderation_queue:Черга на модерування
+moderator:Модератор
+moderator_of:Модератор:
+moderator_options:Дії модератора
+moderators:{PLURAL: modcount|Модератор|Модератори}
+more_unread_messages:більше непрочитаних повідомлень
+more_unread_messages_desc:Показати інші непрочитані повідомлення та позначити поточні прочитаними
+move_thread:Перемістити
+moved:Перенесено в інший форум
+moved_thread_message:Ця тема була перенесена в інший форум
+na:не доступно
+new_posts:Нові повідомлення
+new_private_messages:У Вас <span class="GenTextRed">({VAR: c})</span> {PLURAL: c|непрочитане особисте повідомлення|непрочитаних особистих повідомленя|непрочитаних особистих повідомлень}
+new_thread:Створити нову тему
+newest_user:Останній зареєстрований користувач:
+next_page:Наступна сторінка
+next_thread:Наступна тема:
+no_messages:В цьому форумі немає повідомлень
+no_msg_body:Немає тексту повідомлення
+no_new_posts:Немає нових повідомлень
+no_posts:Немає повідомлень
+no_subscribed_forums:Немає підписок на форуми
+no_subscribed_threads:Немає підписок на теми
+no_bookmarked_threads:Немає тем в закладках
+no_unread_locked:Ця тема була закрита
+no_unread_msg:В цій темі немає непрочитаних повідомлень
+no_unread_msg_unreg:Відслідковування прочитаних та непрочитаних повідомлень доступне зареєстрованим користувачам
+num_pages:Сторінки ({VAR: ttl_pg}):
+num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|голос|голоси|голосів}
+occupation:Рід занять:
+off:викл
+on:вкл
+page_timings:Час створення сторінки: {PLURAL: page_gen_time|$1 секунд}
+pm:Приватні повідомлення
+poll:Опитування:
+post_count:Кількість повідомлень {VAR: u_pcount}
+post_count_l:Кількість повідомлень:
+posts:Повідомлення
+posts_c:Повідомлення:
+prev_thread:Попередня тема:
+usrinfo_private_message:Приватне повідомлення:
+profile:Панель управління
+profile_desc:Доступ до панелі керування користувача
+rate_thread:Оцінити тему
+rating:Рейтинг
+rating_track:Управління рейтингом теми <b>{VAR: thr->subject}</b>:
+refresh_list:Обновити список
+register:Реєстрація
+registered:Зареєстрований:
+registered_on:Дата реєстрації: {TEMPLATE: registered_on_date}
+replies:Відповіді
+report_to_mod:Повідомити про повідомлення модератора
+reported_messages:Позначені повідомлення
+reveal_all_posts:показати всі повідомлення {VAR: user_login}
+reveal_post:показати повідомлення
+search:Пошук
+sel_todays_posts:Сьогоднішні повідомлення
+sel_todays_posts_desc:Включити фільтр повідомлень надісланих сьогодні
+sel_unanswered_posts:Повідомлення без відповіді
+sel_unanswered_posts_desc:Включити фільтр показу тільки повідомлень без відповіді
+sel_unread_messages:Непрочитані повідомлення
+sel_unread_messages_desc:Включити фільтр показу тільки непрочитаних повідомлень
+send:Надіслати
+send_pm_desc:Відправити приватне повідомлення цьому користувачу
+sender_email:E-mail автора:
+sender_name:Ім'я відправника:
+show_posts_by:Показати повідомлення від: (VAR: u_alias)
+size:Розмір:
+status:Статус:
+status_line:Зараз на форумі <b>{PLURAL: st_obj->online_users_reg|$1 користувач|$1 користувача|$1 користувачів}</b>, <b>{PLURAL: st_obj->online_users_hidden|$1 невидимий користувач|$1 невидимих користувачів}</b> та <b>{PLURAL: st_obj->online_users_anon|$1 гість|$1 гостя|$1 гостей}</b>.
+sticky:важливо:
+stop_ignoring:припинити ігнорування цього користувача
+sub_to_thread:Підписатися на тему
+sub_to_thread_desc:Отримання сповіщення про нові повідомлення в цій темі
+bookmark_thread:Додати в закладки
+bookmark_thread_desc:Додати цю тему в свій список закладок
+subject:Тема
+subscribe:Підписатись
+subscribe_desc:Отримати повідомлення, коли хтось створює нову тему в цьому форумі
+subscribed_forums:Підписка на форуми
+subscribed_forums_desc:Ввімкнути фільтр лише на отримання повідомлень з підписаних форумів
+subscribed_threads:Підписка на теми
+subscribed_threads_desc:Ввімкнути фільтр лише на отримання повідомлень з підписаних тем
+bookmarked_threads:Теми в закладках
+switch_to_thread_view:Деревоподібний вигляд цієї теми
+thread:Тема:
+thread_announcement:Оголошення:
+thread_first_unread_msg:Перейти до першого непрочитаного повідомлення у цій темі
+thread_thread:Тема
+threads:Теми
+time:Час
+todays_posts:Сьогоднішні повідомлення
+todays_posts_desc:Показати всі повідомлення, які були опубліковані сьогодні
+un_ignore_user:скасувати ігнорування повідомлень від цього користувача
+unanswered_posts:Повідомлення без відповіді
+unanswered_posts_desc:Показати всі повідомлення, які не мають відповідей
+unlock_thread:Відкрити тему
+unread_msg:У цьому розділі містяться повідомлення, які Ви ще не читали
+unread_msg_locked:Закрита тема з непрочитаними повідомленнями
+unread_posts:Непрочитані повідомлення
+unread_posts_desc:Показати всі непрочитані повідомлення
+unsub_from_thread:Відписатись від теми
+unsub_from_thread_desc:Скасувати отримання повідомлень про нові повідомлення в цій темі
+unbookmark_thread:Вилучити з закладок
+unbookmark_thread_desc:Видалити цю тему зі списку закладок
+unsubscribe:Відписатись
+unsubscribe_desc:Зупинити отримування повідомлень про нові теми на форумі
+updated_on:Оновлено:
+user:Користувач
+user_counter:У нас <b>{VAR: st_obj->user_count}</b>  {PLURAL: st_obj->user_count|зареєстрований учасник|зареєстрованих учасника|зареєстрованих учасників}.
+user_info:Інформація про користувача
+user_info_l:Інформація про користувача {VAR: u->alias}
+user_offline:{VAR: obj->login} зараз не в мережі
+user_online:{VAR: obj->login} зараз в мережі
+usrinfo_last_post:Останнє повідомлення:
+view_results:Переглянути результати
+views:Переглядів
+vote:{PLURAL: frm->n_rating|$1 Голос|$1 Голоси|$1 Голосів}
+vote_button:Проголосувати
+vote_for_thread:Голосувати
+was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> перенесено модератором в <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a>.
+welcome_message:Ласкаво просимо, <b>{VAR: usr->alias}</b>, Ваш останній візит {TEMPLATE: welcome_message_date}
+what_ppl_doing:Показати, що люди роблять
+reported_del_report:Видалити звіт
+reported_reason:Причина
+reported_on:Дата публікації:
+reported_reported_by:Повідомленно від:
+reported_reported_msg:Позначені повідомлення
+modque_pending_approval:Черга повідомлень на підтвердження
+modque_approve:Підтвердити
+modque_delete:Видалити
+modque_no_message:Немає повідомлень для підтвердження
+pmsg_new_messages:Непрочитані приватні повідомлення
+pmsg_old_messages:Прочитати приватні повідомлення
+deny_recipt:відхилити сповіщення
+deny_recipt_desc:Не відсилати подтвердження автору про прочитання цього повідомлення
+restore_to:Відновити в:
+move_to:Перемістити до:
+list_referes_referrals:Запрошені
+list_referes_members:Запрошені користувачі по реферальним посиланням
+list_referes_member:Учасник
+referals_none:Запрошені поки що відсутні
+referals_refered_by:Користувачі форуму запрошені: <b><a href="{TEMPLATE: referals_refered_by_lnk}" class="thLnk">{VAR: p_user[1]}</a></b>
+referals_post_count:Кількість повідомлень
+referals_registered_on:Дата реєстрації
+referals_action:Дія
+pmsg_all:всі
+pmsg_none:немає
+folder:Папка:
+pmsg_replied:відповів
+pmsg_forwarded:перенаправлено
+pmsg_subject:Тема
+pmsg_author:Автор
+pmsg_time:Час
+pmsg_selected:Обраний
+pmsg_delete:Видалити
+cur_ppage_pm:Приватні повідомлення
+writing_pm:Створити особисте повідомлення
+browsing_folder:Перегляд папки <b>{VAR: folders[$folder_id]}</b>
+inbox:Вхідні
+draft:Чернетка
+sent:Надіслані
+trash:Сміття
+msg_author:Автор
+avatar_sel_form:Вибір аватарки
+no_avatars:Немає доступних зображень
+month_1:Січень
+month_2:Лютий
+month_3:Березень
+month_4:Квітень
+month_5:Травень
+month_6:Червень
+month_7:Липень
+month_8:Серпень
+month_9:Вересень
+month_10:Жовтень
+month_11:Листопад
+month_12:Грудень
+sunday:Неділя
+sunday_short:Нд
+monday:Понеділок
+monday_short:Пн
+tuesday:Вівторок
+tuesday_short:Вт
+wednesday:Середа
+wednesday_short:Ср
+thursday:Четвер
+thursday_short:Чт
+friday:П'ятниця
+friday_short:Пт
+saturday:Субота
+saturday_short:Сб
+male:Чоловічий
+female:Жіноча
+unspecified:НЕ ВКАЗАНО
+register_tree_view:Деревовидний перегляд тем та повідомлень
+register_msg_tree_view:Плоский список тем / Деревовидний список директорій
+register_tree_msg_view:Деревовидний список тем / Плоский список повідомлень
+register_flat_view:Плоский тип перегляду тем та повідомлень
+use_forum_default:Використовувати налаштування форуму за замовчуванням
+finduser_user_info:Інформація про користувача
+finduser_by_login:По імені:
+finduser_submit:Знайти
+finduser_no_such_user:Немає такого користувача
+finduser_user:Користувач
+finduser_postcount:Кількість повідомлень
+finduser_joindate:По даті реєстрації
+finduser_action:Дія
+yes:Так
+no:Ні
+register_email:Електронна пошта
+edit_time_limit:<b>Період можливості редагування</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> хвилин
+no_edit_time_limit:<b>Період можливості редагування</b>: <b>Необмежений</b>
+pmuserloc_login:Ім'я:
+pmuserloc_submit:Відправити
+pmuserloc_user:Користувач
+pmuserloc_no_result:Нічого не знайдено
+register_builtin:Вбудована
+register_specify_url:Вкажіть URL
+register_uploaded:Завантажити аватар
+register_login:Ім'я:
+register_password:Пароль:
+register_conf_pass:Повторіть пароль:
+register_email_desc:Будь ласка, введіть існуючу адресу електронної пошти. Ви можете обрати можливість приховати її, в розділі "Налаштування".
+register_name:Ім'я:
+register_your_pass:Ваш пароль:
+register_update:Оновити
+register_avatar_type:Тип Аватарки:
+register_del_avatar:Видалити аватар
+register_avatar:Аватар:
+register_sel_avatar:Вибрати аватар
+register_custom_avatar_rules:Ваш власний аватар на з'явиться до того часу, поки він не буде затверджений адміністратором.<br /><span class="SmallText">Аватар не повинен бути більшим ніж <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} пікселів</b> і повинен бути форматом зображення <b>jpg</b>, <b>gif</b> або <b>png</b>.</span>
+register_custom_avatar_url:URL власної аватарки:
+register_preview:Попередній перегляд
+register_custom_avatar_upload:Файл власної аватарки:
+register_register:Реєстрація
+register_required:Необхідна інформація
+register_required_desc:Всі поля обов'язкові для заповнення. Зверніть увагу, що паролі чутливі до регістру.
+register_optional:Додатково інформація
+register_optional_desc:Рекомендується, щоб ви не розкривали ніякої особистої або ідентифікаційної інформації у своєму профілі. Вся інформація буде проглядатися іншими учасниками форуму.
+register_location:Місцезнаходження:
+register_occupation:Рід занять:
+register_interests:Інтереси:
+register_image:Зображення:
+register_icq:ICQ:
+register_aim:Мережа AIM:
+register_yahoo:Мережа Yahoo:
+register_msnm:Мережа MSN:
+register_homepage:Домашня сторінка:
+register_bday:Дата народження:
+register_bday_desc:Якщо ввести дату народження, то інші учасники форуму зможуть побачити його у вашому профілі.
+register_day:День
+register_month:Місяць
+register_year:Рік
+register_gender:Стать:
+register_bio:Біографія:
+register_bio_desc:Цікава інформація про вас, така як ваші інтереси, робота, і та ін. ..
+register_prefs:Налаштування
+register_sig:Підпис:
+register_sig_desc:Не обов'язковий підпис, який буде з'являтися в нижній частині повідомлення.
+register_reset:Очистити
+register_def_thread_view:Вигляд тем за замовчуванням:
+register_msg_per_page:Повідомлень на сторінці:
+register_show_sig:Показати Підписи:
+register_show_sig_desc:Дозволяє приховувати або показувати підписи інших членів форуму.
+register_use_sig_default:Використання підпису за замовчуванням:
+register_use_sig_default_desc:Автоматично додавати підпис у кожне повідомлення яке ви відсилаєте
+register_timezone:Часовий пояс:
+register_ignore_admin:Ігнорувати адміністративні повідомлення:
+register_invisible_mode:Невидимий режим:
+register_invisible_mode_desc:Приховує ваш статус в мережі.
+register_show_email:Показати адреси електронної пошти:
+register_show_email_desc:Виберіть цю опцію, якщо ви хочете, щоб ваша адреса електронної пошти відображалась публічно.
+register_notification:Ввімкнення повідомлень за замовчуванням:
+register_notification_desc:Якщо сповіщення буде ввімкнене по замовчуванню, воно може бути вимкненим при публікації повідомлень.
+register_notify_method:Вибір методу сповіщення:
+register_notify_method_desc:Встановіть бажаний спосіб сповіщення або відключіть сповіщення (наприклад, коли ви йдете у відпустку).
+register_allow_email_msg:Дозволити повідомленя на електронну пошту:
+register_allow_email_msg_desc:Дозволити іншим користувачам відправляти Вам електронну пошту через цей форум.
+buddy_status:Статус
+my_buddies:Мої Друзі
+add_buddy:Додати до списку друзів
+add:Додати
+buddy_search:Введіть ім'я для облікового запису користувача, якого ви хочете додати.
+member_search:Або використайте можливість <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Пошуку</a>, щоб знайти користувача.
+buddy_remove:вилучити
+post_normal:Нормальний
+post_sticky:Нотатка
+post_annoncement:Оголошення:
+post_size:Розмір
+post_color:Колір
+post_font:Шрифт
+create_thread:Створити тему
+submit_reply:Надіслати відповідь
+edit_message:Зберегти зміни повідомлення
+apply_spell_changes:Підтвердити пеервірку орфографії
+post_preview:Попередній перегляд повідомлення
+post_logedin_user:Зареєстрований користувач:
+post_logout:вийти
+post_passwd:Пароль публікації:
+post_poll:Опитування:
+post_create_poll:Створити опитування
+post_poll_delete:Видалити
+post_poll_edit:Редагувати
+post_mod_opt:Налаштування модератора:
+post_thread_type:Тип теми:
+post_thread_expiry:Тема стає неактуальною:
+post_locked:Тема закрита
+post_icons:Іконка повідомлення:
+post_no_icon:Немає іконки
+post_smiley:Іконки емоцій:
+post_format_tools:Інструменти форматування:
+post_upload_file:Завантажити файл
+post_file_del:Вилучити
+post_file_name:Ім'я
+post_file_size:Розмір
+file_attachments:Приєднані файли:
+allowed_files:Дозволені розширення файлів:
+max_file_size:Максимальний розмір файлу:
+max_files_per_msg:Максимальна кількість файлів в повідомленні:
+post_notification:Сповіщення про повідомлення:
+include_sig:Додати підпис в повідомлення
+include_sig_desc:Додати ваш підпис профілю в повідомлення.
+disable_smilies:Відключити іконки емоцій в цьому повідомленні
+spell_check_msg:Перевірка орфографії повідомлення
+post_form:Відправка повідомлення
+post_forum:Форум:
+post_title:Заголовок:
+post_body:Текст:
+post_options:Налаштування:
+post_preview_btn:Попередній перегляд повідомлення
+ignore_users:Ігноровані користувачі
+add_ignore:Додати ігнорованих
+forum_terms:Умови форуму
+forum_rules:<p>Реєстрація на цьому форумі вільна! Але ми наполягаємо, щоб Ви дотримувалися правил і політик детально викладених нижче. Якщо ви згодні з умовами, будь ласка, натисніть кнопку <b>Згоден</b> в кінці сторінки. Примітка: Натискаючи кнопку, ви підтверджуєте, що Вам більше 13 років. Якщо вам 13 років і меньше, будь ласка, використовуйте нижче наведену реєстраційну форму.</p><p> Хоча адміністратори і модератори цього форуму намагаються видаляти всі образливі і некоректні повідомлення, неможливо швидко розглянути всі повідомлення. Всі повідомлення висловлюють думку автора, ні власники ні адміністратори форуму, або розробники не будуть нести відповідальність за зміст повідомлень.</p>\n<p>Натискаючи кнопку "Згоден", ви гарантуєте, що не будете відправляти ніякі повідомлення, які є непристойними, вульгарними, сексуально-орієнтованого змісту, загрозливого характеру, або іншим чином не порушують ніяких законів.</p><p> Власники форуму мають право видаляти, редагувати, переносити та закривати будь-яку тему з будь-якої причини.</p>
+forum_rules_13:<p>Всі користувачі у віці до 13 повинні отримати дозвіл від батьків або опікунів, з тим щоб отримати членство у форумах. Хоча ми вітаємо участь членів до 13 років, ми вимагаємо, щоб батьки або опікун по факсу або поштою підписав дозвіл на вступ до форму, перш ніж ми надаємо членство.</p><p>Якщо ви хочете почати процес реєстрації письмового дозволу, натисніть кнопку <b>Згоден</b> нижче. Якщо Ви хочете скасувати реєстрацію, натисніть <b>Не згоден</b> та поверніться на головну сторінку.</p><p>Копію дозволу форми можна завантажити тут. Для отримання додаткової інформації про процес реєстрації, будь ласка, відправте по електронній пошті <a href="mailto:{GVAR: ADMIN_EMAIL}">листа адміністратору {GVAR: ADMIN_EMAIL}</a>.</p>
+coppa_conf:COPPA Підтвердження
+coppa_before:Раніше {TEMPLATE: coppa_date}
+coppa_after:Після {TEMPLATE: coppa_date}
+coppa_link:Натисніть на посилання, яке відповідає вашій даті народження
+coppa:<p> Батько, мати або опікун повинен поштою або факсом надіслати підписаний дозвіл-форму для адміністратора цього форуму, перш ніж користувач у віці до 13 років зможе завершити реєстрацію. </p><p> За додатковою інформацією звертайтеся до адміністрації <a href="mailto:{GVAR: ADMIN_EMAIL}">(GVAR: admin_email)</a> </p>
+prereg_info:Правила форуму
+prereg_agree:Приймаю
+prereg_disagree:Не погоджуюсь
+prereg_update:Прочитайте правила форуму
+coppa_fax_instructions:Інструкції для одного з батьків або опікуна
+coppa_fax_instructions2:Будь ласка, роздрукуйте цю сторінку, підпишіть її та відправте по факсу:
+coppa_fax_reg_form:Реєстраційна форма
+coppa_fax_sign:Будь ласка, підпишіть наведену нижче форму і відправте її нам
+coppa_fax_conf:Я ознайомився з інформацією, показаною мені моєю дитиною, я ознайомився з політикою конфіденційності для веб-сайту. Я розумію, що дані профілю можуть бути змінені за допомогою пароля. Я розумію, що можу дати запит на видалення реєстрації профілю з цього форуму.
+coppa_fax_permission:Підпишіть, якщо ви даєте дозвіл
+coppa_fax_no_permission:Підпишіть тут, якщо ви хочете, щоб обліковий запис було видалено
+coppa_fax_parent_name:Повне ім'я Батька/Матері/Опікуна:
+coppa_fax_relation:Родинний ступінь до дитини:
+coppa_fax_telephone:Телефон:
+coppa_fax_email:Адреса електронної пошти:
+coppa_fax_date:Дата:
+coppa_fax_questions:Будь ласка, зв'яжіться з <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> з приводу любих питань
+coppa_fax_login:Ім'я
+coppa_fax_passwd:Пароль
+coppa_fax_remail:Електронна пошта
+coppa_fax_name:Ім'я
+login_not_logedin:Ви не пройшли ідентифікацію Це може бути пов'язано з однією з декількох причин:
+login_cookie_expired:Ваші сеанс авторизації минув, і ви повинні увійти, щоб відновити авторизацію.
+login_perm_denied:У вас немає дозволу на доступ до запитуваного ресурсу в якості анонімного користувача. Ви повинні увійти, щоб отримати дозвіл.
+login_want_to_register:Бажаєте зареєструватися?
+login_forgot_passwd:Забув пароль...
+login_use_cookie:Використовувати cookies<br /><span class="SmallText">Це зручно, так як вам не прийдеться вводити логін і пароль наступного разу. Краще не використовуйте цей параметр на публічнному комп'ютері, наприклад, в школі або в бібліотеці.</span>
+login_login:Ім'я:
+login_login_btn:Увійти
+login_name_required:Не вказане ім'я облікового запису
+login_passwd_required:Необхідний пароль
+login_invalid_radius:Невірний Логін або Пароль
+reset_confirmation:Дякуємо за реєстрацію.\n\nЩоб активувати свій обліковий запис, перейдіть по посиланню нижче:\n\n{VAR: url}\n\nПісля активації Вашого облікового запису Ви бути зареєстровані на форумі і \nперенаправленні на головну сторінку.
+reset_reset:Вітаємо,\n\nВи запросили анулювання старого паролю. Щоб завершити процес, \nбудь ласка, перейдіть на цей URL: \n\n{VAR: url}\n\nПримітка: Цей форум використовує механізм незворотнього шифрування паролю, тобто, якщо Ви його ввели, він шифрується, і немає способу відновити його в тому вигляді, в якому він був введений вами. Нами зберігається MD5 хеш цього паролю. \n\nПри авторизації на форумі Ваш пароль перетворюється в MD5 хеш, який порівнюється з тим, який ми маємо.\n(Якщо вас цікавлять деталі, прочитайте літературу про MD5 HASH алгоритм)
+rpasswd_invalid_passwd:Невірний пароль
+rpasswd_passwd_nomatch:Паролі не співпадають
+rpasswd_passwd_length:Пароль повинен містити не менше 6 символів
+reset_remind_pass:Нагадування паролю
+reset_reset_conf:Ваш пароль буде скинутий, і надісланий вам. Якщо ви ще не підтвердили свою адресу електронної пошти, ви отримаєте запит на підтвердження електронної пошти.
+reset_error:Адреса електронної пошти не знайна в базі даних
+rpasswd_change_pass:Змінити пароль
+rpasswd_login:Ім'я
+rpasswd_cur_pass:Поточний пароль:
+rpasswd_new_pass:Новий пароль:
+rpasswd_conf_pass:Підтвердження пароля:
+ruser_title:Форма зміни облікового імені
+ruser_change_user:Змінити облікове ім'я форуму
+ruser_cur_login:Поточний Логін:
+ruser_new_login:Новий Логін:
+ruser_cur_pass:Поточний пароль:
+login_passwd:Пароль:
+reset_email:Електронна пошта:
+reset_reset_button:Скинути пароль
+rate_this_thread:Оцінити
+report_reporting_about:Сповістити про:
+report_subject:Тема:
+report_by:Автор:
+report_posted_on:Опубліковано в:
+report_give_reason:Напишіть причину, чому ви хочете сповістити про це повідомлення:
+report_submit_report:Надіслати
+search_entire_msg:Повідомлення повністю
+search_subject_only:Тільки тема
+search_forum:Форум
+search_posted_on:Опубліковано:
+search_no_results:Нічого не знайдено
+search_all_forums:Пошук у всіх форумах
+search_in_forum:Пошук у форумі:
+search_forum_search:Пошук у форумах
+move_thread_to:Перемістити тему <b>{VAR: thr->subject}</b> до форуму:
+remail_email_topic:Відправити цю тему другу
+remail_your_name:Ваше ім'я:
+remail_your_email:Ваша електронна пошта:
+remail_friends_name:Ім'я друга:
+remail_friends_email:Електронна пошта друга:
+remail_required:обов'язкове поле
+remail_subject:Тема:
+remail_message:Повідомлення:
+remail_send_now:Надіслати повідомлення зараз
+remail_anon_opt:Зробіть копію цього повідомлення в поштовий клієнт на свій вибір, щоб відправити його другу або друзям.
+remail_done:Готово
+remail_sent_conf:Лист вашому другу {VAR-HTML: _POST['femail']} про {VAR: data->subject} був успішно відправлений.
+remail_error:Виникла помилка
+mklist_type:Тип:
+mklist_option:Параметр:
+mklist_additem:Додати елемент
+mklist_apply:Застосовувати
+mklist_delete:Видалити
+qbud_nick_name:Псевдонім
+qbud_add_selected:Додати вибрані
+qbud_selected:Обрано
+qbud_no_buddies:Немає друзів в вписку для вибору
+mklist_numerical:Номерований - Цифри
+mklist_aplha:Номерований - літери
+mklist_square:Маркований - квадрати
+mklist_disc:Маркований - дисками
+mklist_circle:Маркований - кола
+mklist_close:Закрити
+email_to:Кому:
+email_pg_title:Електронна адреса:
+email_subject:Тема:
+email_body:Текст:
+email_submit:Електронна пошта
+ppost_quote_msg:{VAR: msg_to_list} написав(ла) {TEMPLATE: ppost_quote_msg_date}
+ppost_quote:Цитата:
+ppost_to:Кому:
+ppost_from_buddy_list:Вибрати з списку друзів
+ppost_find_User:Знайти користувача
+ppost_track_msg:Слідкувати за повідомленням
+ppost_track_msg_desc:Сповістити мене (через приватне повідомлення) про прочитання повідомлення користувачем
+ppost_send:Надіслати
+ppost_save_draft:Зберегти чернетку
+poll_blank_option:Ви не можете додати порожній варіант.
+poll_del_conf:Якщо ви хочете видалити цю опцію, натисніть OK
+poll_name:Назва Опитування:
+poll_timelimit:Термін опитування:
+poll_maxiumvotes:Максимальна кількість голосів:
+poll_create:Створити
+poll_update:Оновити
+poll_disablesmilies:Вимкнути смайли
+poll_create_poll:Створити опитування
+poll_update_poll:Оновити опитування
+poll_delete:Видалити
+poll_updateoption:Поновити варіант
+poll_addoption:Додати варіант
+poll_unlimited:Необмежено
+poll_day:день
+poll_days:днів
+poll_hour:година
+poll_hours:годин
+poll_month:місяць
+poll_year:рік
+poll_week:тиждень
+tabs_register:Налаштування облікового запису
+tabs_subscriptions:Підписка
+tabs_bookmarkes:Закладки
+tabs_referrals:Запрошені
+tabs_buddy_list:Список користувачів
+tabs_ignore_list:Чорний список
+tabs_private_messaging:Приватні повідомлення
+single_msg_delete:Ви збираєтеся <span class="ErrorText">видалити</span> повідомлення: <b>{VAR: data[3]}</b>
+thread_delete:Ви збираєтеся <span class="ErrorText">видалити всю тему</span> під назвою: <b>{VAR: data[3]}</b>
+delete_proceed:<span class="fb">Ви хочете приступити?</span>
+delete_yes:Так
+delete_no:Ні
+error_invalidurl:Невірний URL
+error_error:Помилка
+usrinfo_profile:Інформація про користувача {VAR: u->alias}
+usrinfo_show_all_posts:Показати повідомлення від: {VAR: u->alias}
+actions_update:Піддивлятись за тими, хто схожий на Вас.
+err_info:Інформація
+buddy_list_err_cantadd:Ви не можете додати себе в список друзів
+buddy_list_err_dup:У вас вже є цей користувач в вашому списку друзів
+buddy_list_err_nouser:Користувача, якого Ви намагалися додати до списку друзів не було знайдено.
+buddy_list_err_nouser_title:Неможливо додати користувача
+buddy_list_err_ignore:Неможливо додати користувачів до списку друзів, які ігнорують вас.
+buddy_list_update:Перегляд власного списку друзів
+core_err_invinp_title:Недопустимий запит
+core_err_invinp_err:Ви перейшли за неправильним посиланням. Будь ласка, повідомте <a href="mailto:{GVAR: ADMIN_EMAIL}">Вебмайстра</a> про проблему.
+core_adm_login_msg:<a href="{GVAR: WWW_ROOT}adm/admloginuser.php">Вхід для адміністраторів</a>.
+email_err_unabletoemail_title:ПОМИЛКА: Не вдалося відправити Електронну пошту
+email_err_unabletoemail_msg:Система відправки електронної пошти була відключена адміністратором.
+email_error_unabletolocaddr:Вибачте, система не змогла відправити e-mail {VAR-HTML: _POST['tx_name']} так як неможливо було встановити e-mail користувача.
+email_error_body:Текст повідомлення обов'язковий
+email_error_subject:Тема повідомлення обов'язкова
+email_error_namerequired:Ім'я обов'язкове
+email_error_invaliduser:Недійсний користувач
+emailconf_err_invkey_title:Помилка
+emailconf_err_invkey_msg:Невірний ключ підтвердження. Будь ласка, перевірте свою адресу електронної пошти, щоб переконатися, що ви ввели URL правильно. Якщо ви натиснули на посилання два рази, Ваш обліковий запис може бути вже підтвердили. Увійдіть на форум, щоб запросити інший ключ.
+err_inc_criticaltitle:Критична помилка
+err_inc_criticalmsg:Сталася помилка. На жаль, існує також проблема з системою сповіщення помилок.
+finduser_update:Пошук користувачів
+help_index_update:Перегляд <a href="{TEMPLATE: help_index_update_lnk}">Довідки</a>
+iemail_thr_subject:Нова відповідь на півідомлення {VAR: thr_subject} від {VAR: poster_login}
+iemail_thr_bodyemail:Щоб переглянути непрочитані відповіді {VAR: goto_url['email']}\n\nЩоб більше не отримувати сповіщень про нові  відповіді в цій темі, перейдіть по посиланню: {VAR: unsub_url['email']}
+iemail_frm_subject:Нова тема в форумі {VAR: frm_name}, з назвою {VAR: thr_subject}, створена {VAR: poster_login}
+iemail_frm_bodyemail:Переглянути тему: {VAR: goto_url['email']}\n\nЩоб відмовитись від сповіщень про створення нових тем на форумі перейдіть по посиланню: {VAR: unsub_url['email']}
+iemail_participate:Щоб брати участь в обговоренні, Вам сюди:
+ignore_list_err_info_title:Інформація
+ignore_list_err_dup_msg:У вас вже є цей користувач в вашому чорному списку
+ignore_list_err_nu_title:Користувач не знайдений
+ignore_list_err_nu_msg:Користувача, якого Ви намагалися додати до чорного списку не було знайдено.
+ignore_list_cantign_msg:Ви не можете ігнорувати цього користувача
+ignore_list_update:Перегляд чорного списоку
+index_update:Перегляд <a href="{TEMPLATE: index_update_lnk}">списку форумів</a>
+list_referers_update:Перегляд рефералів
+login_update:Форма входу
+msg_update:Перегляд теми <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
+pm_err_nopm_title:ПОМИЛКА: Приватні повідомлення вимкнено
+pm_err_nopm_msg:Ви не можете використовувати службу приватних повідомлень. Вона була відключена адміністратором.
+pm_update:Приватні повідомлення
+post_err_lockedthread_title:ПОМИЛКА: Закрита тема
+post_err_lockedthread_msg:Ця тема закрита. Публікація повідомлень більше не допускається.
+err_coppa_title:ПОМИЛКА: Ваш обліковий запис ще не підтверджений
+err_coppa_msg:Ми не отримали підтвердження від ваших батьків/опікунів, яке дозволило би вам відправку повідомлень. Якщо ви загубили форму COPPA, <a href="{TEMPLATE: err_coppa_msg_lnk}">ви зможете переглянути її знову</a>.
+err_banned_acct_title:Помилка: Ви були заблоковані.
+err_banned_acct_msg:Ваш аккаунт {IF: $ban_expiry} було тимчасово заблоковано до {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE} було заблоковано на невизначений термін{ENDI}  швидше за все за грубі порушення правил форуму.
+post_err_edttimelimit_title:ПОМИЛКА
+post_err_edttimelimit_msg:Ви більше не можете редагувати повідомлення
+post_err_noannontopics_msg2:<legend> ПОМИЛКА: Недостатньо привілеїв </legend> Анонімні користувачі не можуть створювати теми.
+post_err_noannonposts_msg2:<legend> ПОМИЛКА: Недостатньо привілеїв </legend> Анонімні користувачі не можуть писати відповіді.
+post_err_floodtrig_title:ПОМИЛКА: Вваші повідомлення визнано спамом.
+post_err_floodtrig_msg:Будь ласка, спробуйте знову через {PLURAL: tm|$1 секунду|$1 секунди|$1 секунд}
+post_err_attach_size:Приєднаний файл занадто великий (понад дозволений ліміт в {VAR: MAX_F_SIZE} байт)
+post_err_attach_ext:Файл, який ви намагаєтеся завантажити, не відповідає дозволеним типам графічних файлів.
+post_err_attach_filelimit:Ви намагаєтеся завантажити файлів більше, ніж дозволено.
+post_err_passwd:Невірний пароль.
+post_reply_update:Відповідь на повідомлення <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> в форумі {VAR: frm->name}
+post_topic_update:Створення нової теми в <a href="{TEMPLATE: post_topic_update_lnk}">{VAR: frm->name}</a>
+post_error_generic:Виникла помилка
+postcheck_max_images_err:Не більше ніж {GVAR: MAX_IMAGE_COUNT} зображень дозволено в одному повідомленні. Зменьшіть кількість зображень.
+postcheck_no_links_allowed:Ви не ожете користуватись посиланнями, поки ви не  опублікували {PLURAL: posts_before_links|$1 повідомлення|$1 повідомлень}.
+postcheck_subj_needed:Тема не заповнена
+postcheck_no_such_user:На цьому форумі немає користувача з іменем "{FUNC: char_fix(htmlspecialchars($v))}".
+postcheck_ignored:Ви не можете відправити особисте повідомлення для "{FUNC: char_fix(htmlspecialchars($v))}", тому що цей користувач ігнорує вас.
+postcheck_no_recepient:Не вдається відправити повідомлення - відсутні отримувачі.
+postcheck_invalid_email:Будь ласка, введіть правдиву адресу електронної пошти вашого друга.
+postcheck_email_subject:Ви не можете надіслати електронну пошту без теми.
+postcheck_email_body:Ви не можете надіслати електронну поштою без тіла повідомлення.
+private_msg_notify_subj:Перегляд сповіщення про: {VAR: m->subject}
+private_msg_notify_body:Привіт,<br />{VAR: usr->login} відкрив ваше приватне повідомлення з назвою, "{VAR: m->subject}".<br />Це автоматичне сповіщення створене {TEMPLATE: private_msg_notify_body_date}<br />
+referals_update:Перегляд рефералів
+register_err_short_login:Логін, який ви вибрали, занадто короткий. Облікові імена повинні бути не менше 4 символів.
+register_err_login_notallowed:Таке облікове ім'я не допускається.
+register_err_loginunique:Імена облікових записів на форумі повинні бути унікальними. Вже є користувач з таким іменем.
+register_err_emailexists:Ця адреса електронна адреса вже пов'язана з обліковим записом. Якщо ви забули свій пароль, будь ласка, використовуйте опцію відновлення, замість повторної реєстрації.
+register_err_shortpasswd:Пароль повинен містити не менше 6 символів.
+register_err_passwdnomatch:Паролі не збігаються, спробуйте ще раз.
+register_err_invalidemail:Адреса електронної пошти ви вказали, як видається, несправжня.
+register_err_needname:Для успішного завершення реєстрації ви повинні ввести своє ім'я.
+register_err_enterpasswd:Ви повинні ввести свій поточний пароль, щоб завершити зміни.
+register_err_adminpasswd:Ви повинні ввести пароль <b>адміністратора,</b> щоб завершити зміни.
+register_err_notyouremail:Хтось вже зареєструвався з цією адресою електронної пошти.
+register_err_avatartobig:Файл, який ви намагаєтеся завантажити занадто великий, більш ніж {GVAR: CUSTOM_AVATAR_MAX_SIZE} байт.
+register_err_avatarnotallowed:Аватар ви намагаєтеся завантажити, не допускається. Перевірте дозволені типи файлів.
+register_conf_subject:Підтвердження реєстрації
+register_conf_msg:Дякуємо за реєстрацію!\nЩоб активувати свій обліковий запис, перейдіть по посиланню нижче:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nПісля того, як Ваш обліковий запис буде активовано, Ви зайдете на головну сторінку форуму.
+register_welcome_subject:Підтвердження реєстрації на форумі
+register_welcome_msg:Дякуємо за реєстрацію,\n\nНижче наведена інформація для входу на форум:\n\nАдреса форуму: {TEMPLATE: index_update_lnk}\nІм'я: {VAR: uent->login}\nПароль: {VAR: _POST['reg_plaintext_passwd']}\n\nБудь-ласка, зверніть увагу, паролі чутливі до регістру.\n\nЩоб змінити Ваші налаштування або профіль користувача, перейдіть на цю сторінку:\n{FULL_ROOT}{ROOT}?t=register
+register_err_cantreg_title:ПОМИЛКА: не вдалося зареєструватсь
+regsiter_err_cantreg_msg:Неможливо створити обліковий запис, <a href="mailto:{VAR: ADMIN_EMAIL}">будь-ласка, зв'яжіться з адміністратором.</a>
+register_profile_update:Перегляд власного профілю
+register_register_update:Реєстраційна форма
+report_err_nosuchmsg_title:ПОМИЛКА
+report_err_nosuchmsg_msg:Немає таких повідомлень
+reset_err_invalidkey_title:ПОМИЛКА
+reset_err_invalidkey_msg:Неправилиний ключ онулення паролю. Можливо, ваш поштовий клієнт автоматично відкрив сторінку онулення паролю, деактивувавши онулюючий ключ. Якщо це так, незабаром ви повинні отримати пароль з вашим новим ключем. Якщо такий лист не прийде, спробуйте онулити пароль ще раз.
+reset_err_rstconf_title:Інформація
+reset_err_rstconf_msg:Ви повинні отримати інструкції по електронній пошті чезер найближчих кілька хвилин.
+reset_newpass_title:Скинути пароль
+reset_newpass_msg:Привіт,\n\nПо Вашому запиту були відправлені відомості Вашого облікового запису:\n\nІм'я: {VAR: ui[1]}\nПароль: {VAR: passwd}\n\nЗверніть увагу, що Ваш пароль було скинуто до вказаного вище по замовчуванню. \n\nЯкщо ви хочете змінити Ваш пароль Вам потрібно зайти в панель керування Вашим профілем:\n{FULL_ROOT}{ROOT}?t=register
+reset_login_notify:Ваш пароль відправлений вам по електронній пошті. Ви повинні отримати його протягом декількох хвилин. <br />
+search_update:Пошук повідомлень
+selmsg_update:Перегляд <a href="{TEMPLATE: selmsg_update_lnk}">повідомлень за сьогодні</a>
+showposts_update:Переглянути всі повідомлення від: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
+subscribed_update:Перегляд власної підписки
+bookmarked_update:Перегляд власного списоку закладинок
+thread_update:Перегляд форуму <a href="{TEMPLATE: thread_update_lnk}">{VAR: frm->name}</a>
+tree_update:Перегляд теми (дерево) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
+userinfo_update:Перегляд персональної інформації профілю  <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}'s</a>
+ERR_login_msg2:<legend> ПОМИЛКА: Ви не авторизовані </legend> Для доступу до цієї сторінки, ви повинні бути користувачем цього форуму.
+ERR_disabled_ttl:Вимкнута функція
+ERR_disabled_msg:Ця функція була відключена системним адміністратором.
+ERR_access_ttl:ПОМИЛКА: Недостатньо прав
+ERR_access_msg:У вас недостатньо прав на виконання операції.
+ERR_registration_disabled_ttl:Реєстрація вимкнена
+ERR_registration_disabled_msg:Адміністратор відключив реєстрацію. Будь ласка, повторіть спробу пізніше.
+ERR_emailconf_ttl:ПОМИЛКА: Ваш обліковий запис ще не підтверджений
+ERR_emailconf_msg:Ви не підтвердили свій аккаунт через електронну пошту. <br /><table border="0"><tr><td><ol><li> Якщо ви не отримали підтвердження по електронній пошті <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">зробіть запит знову</a> . </li><li> Якщо {VAR: usr_d->e-mail} не є Вашою правильною адресою електронної пошти, <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">вкажіть точну адресу</a> . </li></ol></td></tr></table>
+ERR_user_ttl:Помилка: Немає такого користувача
+ERR_user_msg:Немає такого користувача
+ERR_systemerr_ttl:ПОМИЛКА: Системна помилка
+ERR_systemerr_msg:Системна помилка. Будь ласка, повідомте про це <a href="mailto:{GVAR: ADMIN_EMAIL}">вебмайстра</a> .
+email_title:Форма електронної пошти
+finduser_title:Знайти користувача
+help_title:Довідка
+login_title:Форма входу
+poll_title:Редактор опитуваннь
+register_title:Реєстраційна форма
+reset_title:Скинути пароль
+rpasswd_title:Форма зміни пароля
+error_title:Помилка
+index_title:Ласкаво просимо на форум
+search_title:Пошук {VAR-HTML: Srch}
+remail_emailsent:Електронна пошта була відправлена
+remail_email:Привіт,\n\nНа форумі {GVAR: FORUM_TITLE} є цікава тема з назвою "{VAR: data->subject}", яку, можливо, тобі буде цікаво перечитати: \n {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nЗ повагою,\n\n{VAR: usr->alias}
+poll_add_option:Додати Варіант:
+post_opt_html_on:<b>HTML</b> - <b>ввімкнений</b>
+post_opt_fud_on:<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>BBcode</b> - <b>Ввімкнений</b></a>
+post_opt_images_on:<b>Зображення</b> - <b>Ввімкнено</b>
+post_opt_smilies_on:<a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank"><b>Смайти/Емоції</b> - <b>Ввімкнені</b></a>
+post_opt_html_off:<b>HTML</b> - <b>ввімкнений</b>
+post_opt_fud_off:<b>BBcode</b> - <b>Вимкнений</b>
+post_opt_images_off:<b>Зображення</b> - <b>Вимкнені</b>
+post_opt_smilies_off:<b>Смайли/Емоції</b> - <b>Вимкнено</b>
+post_opt:Параметри форуму
+register_change_passwd:змінити пароль
+register_change_login:змінити логін
+approved_avatar_title:Ваш індивідуальний аватар був затверджений.
+approved_avatar_msg:Ваш аватар був схвалений адміністратором. Він повинен з'явитися в якості аватара на всі ваші повідомлення. Якщо ви не бачите, або побачили старий аватар, - ваш браузер показує кешовану інформацію. Спробуйте оновити її натиснути клавішу F5. У більшості випадків це вирішить проблеми кешування.
+unapproved_avatar_title:Ваш індивідуальний аватар був відхилений.
+unapproved_avatar_msg:Адміністратор не схвалив ваш аватар. Найбільш часті причини в тому, що ваш аватар занадто великий (розмір файлу/або розміри полотна зображення), або містить неприйнятний вигляд. Якщо ви хочете отримати більше інформації про те, чому ваш аватар був відхилений, зверніться до адміністратора.
+mvthread_request_move:запит про перенесення
+move_request_reason:Чому ви хочете щоб ця тема була перенесена?
+mvthread_submit_req:Надіслати запит
+thread_exchange:Черга переміщень тем
+move_request_by:Запит на перенесення теми надіслав:
+move_reason:Причина перенесення:
+thr_exch_accept:затвердити
+thr_exch_decline:відхилити
+thr_exch_orig_forum:Вихідний форум:
+thr_exch_dest_forum:Приймаючий форум:
+thr_exch_no_threads:Немає тем для затвердження.
+thr_exch_decl_reason:Причина відхилення перенесення <b>{VAR: data->subject}</b> в форум <b>{VAR: data->f2_name}</b>
+thr_exch_submit:Відправити
+exch_decline_ttl:Переміщення теми {VAR: data->subject} в форум {VAR: data->f2_name} відхилене.
+ppost_original_msg:повідомлення, яке ви пересилаєте або на яке відповідаєте
+split_thread:Розділити тему
+groupmgr_no_user:Немає користувача з логіном "{FUNC: char_fix(htmlspecialchars($gr_member))}"
+groupmgr_already_exists:Користувач "{FUNC: char_fix(htmlspecialchars($gr_member))}" вже існує в цій групі.
+groupmgr_yes:Так
+groupmgr_no:Ні
+groupmgr_action:Дія
+groupmgr_member:Учасник
+groupmgr_cancel:Скасувати
+groupmgr_add_member:Додати учасника
+groupmgr_update_member:Оновити інформацію про користувача
+groupmgr_edit:Редагувати
+groupmgr_delete:Видалити
+group_mgr_anon:Анонімні
+group_mgr_reged:Додати зареєстрованих користувачів
+show_show:Показати:
+group_mgr:Керуючий групою
+group_mgr_edit_btn:Редагувати групу
+group_mgr_heading:Вибір группи для редагування
+group_mgr_group:Група:
+permission_denied_title:Доступ заборонено.
+permission_denied_msg:В вас недостатньо повноважень для ваших дій.
+p_READ:Читати
+p_POST:Писати
+p_REPLY:Відповідь
+p_EDIT:Редагувати
+p_DEL:Видалити
+p_STICKY:Нотатка
+p_POLL:Створити опитування
+p_FILE:Прикріпити файли
+p_VOTE:Голосувати
+p_RATE:Оцінити тему
+p_SPLIT:Розділити тему
+p_LOCK:Закрити тему
+p_MOVE:Переміщення теми
+p_SML:Використання смайликів
+p_IMG:Використання тегів зображень
+p_SEARCH:Право пошуку
+group_mgr_search:Знайти користувача
+group_mgr_indicator:Редагується: <b>{VAR: grp->name}</b>
+rate_worst:Найгірший
+rate_best:Найкращий
+post_quote_msg:{VAR: msg->login} написав на {TEMPLATE: make_report_date}
+post_quote:Цитата:
+post_quote_selected:Цитувати виділений текст
+userinfo_referals:Запрошені користувачі:
+userinfo_referals_count:{VAR: referals} Користувачі
+pm_no_space_title:Недостатньо вільного місця!
+pm_no_space_msg:Розмір ваших особистих папок перевищив дозволений ліміт в <b>{GVAR: MAX_PMSG_FLDR_SIZE} байтів</b>. Поточний їхній розмір <b>{VAR: fldr_size} байтів.</b><br /><br /><span class="ErrorText">Видаліть старі повідомлення щоб звільнити місце</span>
+pm_space_indct_msg:Папка з вашими приватними повідомленнями заповнена на {VAR: percent_full}%.
+th_expr_never:Ніколи
+th_expr_one_hr:1 Година
+th_expr_three_hr:3 Години
+th_expr_four_hr:4 Години
+th_expr_eight_hr:8 Годин
+th_expr_sixteen_hr:16 Годин
+th_expr_one_day:1 День
+th_expr_two_day:2 Дні
+th_expr_four_day:4 Дні
+th_expr_one_week:1 Тиждень
+th_expr_two_week:2 Тижня
+th_expr_one_month:1 Місяць
+th_expr_two_month:2 Місяці
+th_expr_four_month:4 Місяці
+th_expr_one_year:1 Рік
+thread_mod_delete:Видалити
+action_latest_post:Останнє повідомлення
+online_today_last_visit:Останній візит
+online_today_update:Перегляд списку користувачів, які були на форумі сьогодні.
+logedin_todays_visitors:Сьогоднішні відвідувачі
+logedin_latest_post:Останнє повідомлення на форумі:
+register_show_avatar:Показувати аватари:
+register_show_avatar_desc:Дозволяє приховати аватари інших користувачів при перегляді їхніх повідомлень.
+drawmsg_view_rest_post:Показати решту повідомлення
+post_re:Re:
+forumsel_goto_forum:Перейти до форуму:
+minimsg_thread_view:Перегляд теми
+split_th_post_by:Автор повідомлення:
+split_th_posted_on:Опубліковано:
+split_th_subject:Тема:
+split_th_new_thread_title:Нова тема назва:
+split_th_forum:Форум:
+split_th_split_sel:Розілити вибрані повідомлення
+split_th_split_unsel:Розілити невибрані повідомлення
+split_th_messages:Повідомлення
+split_th_select:Вибирати
+report_report_post:Сповістити про повідомлення
+quicklogin_login:Логін:
+quicklogin_password:Пароль:
+quicklogin_use_cookies:Використовувати Cookies?
+quicklogin_login_btn:Логін
+quick_reply:Швидка відповідь
+quick_reply_post:Опублікувати швидку відповідь
+quick_reply_preview:Попередній перегляд швидкої відповіді
+post_notification_desc:Повідомити мене, коли хто-небудь відповість на це повідомлення.
+post_all_ext_allowed:(без обмежень)
+maximize_category:Розгорнути категорію
+maximize_message:Розгорнути повідомлення
+no_view_perm:У вас немає відповідних повноважень, щоб побачити цю тему.
+report_empty_report:Ви не можете відправити порожній звіт. Вкажіть причину для вашого звіту.
+report_already_reported_title:Вже повідомлялося
+report_already_reported_msg:Це повідомлення вже відправлене сповіщення і в даний час воно у черзі модератора.
+register_err_toomanyimages:Ви намагаєтеся використовувати більше, ніж дозволено {GVAR: FORUM_IMG_CNT_SIG} зображень у вашому підписі.
+pmsg_next_msg:Наступне повідомлення
+pmsg_prev_msg:Попереднє повідомлення
+post_proc_reveal_spoiler:Показати прихований текст
+register_jabber:Мережа Jabber:
+register_skype:Мережа Skype:
+register_twitter:Мережа Twitter:
+register_google:Мережа IM Google:
+im_jabber:Jabber:
+im_google:Google Talk:
+im_skype:Skype:
+im_twitter:Twitter:
+forum_contact:Зв'язок
+forum_home:Початок
+post_cur_attached:приєднано: {VAR: i} {PLURAL: i|файл|файли|файлів}
+ignored_anon_post:{GVAR: ANON_NICK} ігнорується
+ignored_user_post:Повідомлення від <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> ігноруються
+smladd_close_window:закрити вікно
+post_list_smilies:показати всі смайли
+p_VISIBLE:Видимий
+reported_in_thread:В темі:
+help_back_to_top:наверх
+help_return_to_index:Повернутися на головну сторінку довідки
+imsg_err_message_title:Недопустиме повідомлення
+imsg_err_message_msg:Повідомлення, яке Ви намагаєтесь переглянути не існує.
+poll_edit:Редагувати
+register_err_not_valid_img:Зазначені URL не містить дійсного зображення.
+pmsg_recepient:Одержувач
+register_err_taken_alias:Псевдонім, який ви намагаєтесь використати вже використовується іншим користувачем форуму. Будь ласка, оберіть інший.
+register_alias:Псевдонім:
+register_alias_desc:Якщо ви хочете нік, відмінний від логіну, яке буде відображатися у форумі, введіть його тут.
+register_allow_pm_msg:Дозволити Приватні повідомлення:
+register_allow_pm_msg_desc:Дозволити іншим користувачам відправляти вам приватні повідомлення на цьому форумі.
+postcheck_pm_disabled:Ви не можете відправити особисте повідомлення для "{VAR-HTML: v}", тому що ця людина відмовилась від особистих повідомлень на цьому форумі.
+polllist_vote:Голосувати
+polllist_view_results:Переглянути результати
+polllist_name:Назва опитування
+polllist_date:Дата створення:
+polllist_owner:Автор:
+polllist_votes:Всього проголосувало
+polllist_action:Дія
+polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">Перегляд доступних опитувань</a>
+userinfo_polls:Опитування:
+show_pollist:Показати Опитування
+search_and:А ТАКОЖ
+search_or:АБО
+search_desc_order:По спаданню
+search_asc_order:По зростанню
+search_logic:Логіка пошуку:
+search_sorting:Сортувати за датою:
+search_attach:Додатки:
+search_attach_all:З або БЕЗ
+search_attach_with:З прикріпленими файлами
+post_proceed:Приступити
+post_moderated_forum:Ви відправили повідомлення в форумі з попередньою перевіркою повідомлень. Ваше повідомлення не буде видимим поки не пройде перевірку одним з модераторів або адміністраторів.
+post_moderated_forum_ttl:Увага, форум з  попередньою перевіркою повідомлень.
+buddy_list_bday:Сьогодні сповнюється {VAR: r[2]} {VAR: age} років.
+email_warning_msg:Якщо ви зміните вашу поточну адресу електронної пошти, ваш обліковий запис буде позначений непідтвердженими, поки ви не підтвердите його електронною поштою.
+register_show_im:Показувати іконки мереж Інтернет-месенджерів.
+register_show_im_desc:Налаштування, яке вказує на онлайн/офлайн статус користувача в мережаж Інтернет месенджерів.
+unread_message:Непрочитане повідомлення
+read_message:Читати повідомлення
+threadt_more:&lt;Докладніше&gt;
+threadt_disabled_ttl:Деревовидний перегляд цієї теми було вимкнено
+threadt_disabled_desc:Адміністратор вимкнув можливість переглядати теми в вигляді дерева. Використовуйте плоский режим відображення натомість.
+threadt_update:Перегляд форуму (дерево) <a href="{TEMPLATE: threadt_update_lnk}">{VAR: frm->name}</a>
+mmod_delete_cofirm_ttl:Підтвердження видалення теми/повідомлення
+spell_alts:немає альтернативи
+insert_uploaded_image:Вставити зображення в текст повідомлення
+finduser_help:Пошукова система буде автоматично додавати * маску на запит, <b>пошук з урахуванням регістру.</b> <br />Тобто, для пошуку всіх користувачів, чий логін починається з "а", введіть "а" в полі пошуку.
+back_to_top:Наверх
+pm_err_disabled_title:Приватні повідомлення вимкнені
+pm_err_disabled_msg:Ви не можете відправити приватні повідомлення поки ви не включите "Дозволити опцію приватні повідомлення" у вашому профілі.
+err_mod_acc_ttl:Непідтверджений обліковий запис
+err_mod_acc_msg:Адміністратор вирішив провести огляд всіх рахунків вручну до активації. Поки ваш профіль не буде підтверджено адміністратором, ви не зможете використовувати всі можливості вашого профілю.
+accounts_pending_approval:Облікові записи, які очікують підтвердження
+saved:Збережено
+register_err_time_limit:Межа реєстрацій за {GVAR: REG_TIME_LIMIT} секунд буля досягнута. Зачекайте {PLURAL: reg_limit_reached|$1 секунду|$1 секунди|$1 секунд} і повторіть реєстрацію знову.
+register_affero:Мережа Affero:<br /><span class="SmallText">Якщо в вас є імя користувача в системі <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">Affero</a> введіть його тут.</span>
+im_affero:Мережа Affero
+register_err_avatardimtobig:Розміри аватару <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> перевищують допустимі межі в <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b> пікселів.
+buddy_offline:{VAR: r[2]} в даний час в офлайні
+buddy_online:{VAR: r[2]} в даний час в онлайн
+sml_no_smilies:Немє більше смайликів.
+login_unapproved_account_ttl:Непідтверджений обліковий запис
+login_unapproved_account_msg:Адміністратор форуму вибрав підтвердити кожен новий обліковий запис вручну, перш ніж його активувати. Ваш обліковий запис ще не підтверджено, тому ви не зможете отримати доступ до деяких функцій, які доступні для всіх підтверджених.
+remove_from_buddy_list:видалити зі списку друзів
+iemail_msg_author:<b>Автор:</b> {VAR: obj->alias}
+iemail_msg_subject:<b>Тема:</b> {VAR: obj->subject}
+iemail_msg_date:<b>Дата:</b> {TEMPLATE: dmsg_post_date}
+iemail_msg_reply:Відповідь
+iemail_msg_quote:Цитата
+iemail_msg_view:Перегляд теми/повідомлення
+threadt_sticky:важливо
+threadt_announce:оголошення
+reported_no_messages:Немає жодного сповіщенного повідомлення
+poll_no_polls:Немає доступних опитувань.
+no_unread_messages:Немає непрочитаних повідомлень, що відповідають Вашому запиту.
+thread_mark_all_read:відзначити всі непрочитані повідомлення у форумі прочитаними
+thread_mark_all_read_desc:Всі непрочитані повідомлення у цьому форумі будуть позначені як прочитані
+private_no_messages:В цій папці немає повідомлень
+register_email_change_subject:Електронна пошта - Підтвердження зміни
+register_email_change_msg:Будь ласка, підтвердіть свій новий обліковий запис електронної пошти "{VAR: uent->email}", що замінить ваш новий обліковий запис "{VAR: old_email}", шляхом переходу попосиланню:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nOnce you confirm your new e-mail address, your forum account will be re-activated.
+iemail_thread_unsub:Відписатись від цієї теми
+iemail_forum_unsub:Віписатись від цього форуму
+primary_group_prefix:Основна група для форуму:
+group_resources:Ця група визначає права доступу в наступних форумах
+register_admin_newuser_title:Новий користувач зареєстрований, i його обліковий запис в очікуванні підтвердження
+register_admin_newuser_msg:Новий користувач ({VAR: uent->login}) тільки що пройшов реєстрацію, оскільки ввімкнено завірення облікових записів адміністратором, його обліковий запис не буде активним, якщо його не завірите ви, або інший адміністратор. Перегляд аккаунту: {GVAR: WWW_ROOT}adm/admaccapr.php\n\nThis is an automated process. Do not reply to this message.\nIf you want to turn off future e-mail notifications of new user registrations, you can do so via the Admin Control Panel. Change the "New Account Notification" setting.
+post_mod_msg_notify_title:Нове повідомлення в форум "{VAR: frm->name}" в очікуванні затвердження
+post_mod_msg_notify_msg:В форумі, де Ви є модератором, з'явилось нове повідомлення з заголовком "{VAR: msg_post->subject}". Перегляд повідомлення: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nПовідомлення створено автоматично, не відповідайте на нього.
+thread_printable_pdf:Створити PDF для друку
+thread_syndicate:Створити XML
+reg_conf_title:Підтвердження реєстрації
+reg_conf_email:<b>Підтвердження по електронній пошті</b> <br /> По електронній пошті був відправлений до вас лист, що містить спеціальний URL, який вам знадобиться для доступу та активації вашаго акаунту. Якщо ви не отримали цей лист протягом наступних кількох хвилин, увйдіть в свій аккаунт і переконайтеся, що адреса електронної пошти правильна. Після підтвердження Вашого облікового запису, ви зможете отримати доступ до функцій форуму, які доступні тільки підтверженим зареєстрованим користувачам.
+reg_conf_account:<b>Підтвердження облікового запису</b> <br /> Перш ніж ваш обліковий запис буде зроблено активним він повиннен бути затверджений адміністратором. Як тільки це станеться, ви отримаєте по електронній пошті звіт. У той же час ви можете увійти у свій акаунт, однак ви не зможете отримати доступ до певних функцій.
+forum_banned_user:Ваші попередні дії призвели до постійного блокування вашого аккаунту на цьому форумі. До побачення.
+mnav_description:Навігатор повідомлень
+mnav_date_limit:Діапазон дат:
+mnav_forum_limit:Тільки пошук в:
+mnav_all_forums:Шукати у всіх форумах
+mnav_submit:Почати пошук
+mnav_no_range:Ви повинні ввести правильний діапазон дат. Це значення може містити десяткову крапку, (0.12), але вона повинна бути більше нуля.
+mnav_invalid_unit:Ви повинні вказати дійсну одиницю часу.
+mnav_invalid_date:Діапазону дат, зазначених вами, більший ніж дозволений адміністратором. Спробуйте менший діапазон дат.
+mnav_no_results:Не знайдено результатів, що відповідають запиту.
+mnav_posted_by:Написав:
+mnav_more:Детальніше &raquo;&raquo;
+mnav_minute:Хвилин
+mnav_hour:Годин
+mnav_day:Днів
+mnav_week:Тижднів
+mnav_month:Місяців
+mnav_title:Навігатор повідомлень
+mnav_update:Перегляд повідомлень за допомогою <a href="{TEMPLATE: mnav_update_lnk}">Навігатора повідомлень</a>
+pm_notify_subject:[{GVAR: FORUM_TITLE}] Сповіщення про нові приватні повідомлення
+pm_notify_body_email:У вас є нове приватне повідомлення під назвою "{VAR: subject}", від "{VAR: from}", у форумі "{GVAR: FORUM_TITLE}". \nЩоб переглянути повідомлення, натисніть тут: {FULL_ROOT}{ROOT}?t=pmsg_view&uk_translation=alex_khimich&id={VAR:PID} \n\nЩоб відмовитись від отримання сповіщень про нові повідомлення, вимкніть функцію "Сповіщення про приватні повідомлення" в вашому профілі.
+register_pm_notification:Сповіщення про приватні повідомлення:
+register_pm_notification_desc:У цьому випадку, ви будете повідомлені, коли особисте повідомлення посилається вам.
+findu_admin_opts_header:Налаштування Адміністратора
+findu_unban:Розблокувати
+findu_ban:Заблокувати
+findu_edit:Редагувати
+findu_delete:Видалити
+dmsg_reply_to:є відповіддю на
+dmsg_reply_num:повідомлення #{VAR: obj->reply_to}
+merge_topics:Злиття тем
+merge_topics_cp:Панель керування з'єднанням тем
+merge_topics_tpl:Виберіть теми для об'єднання <span class="SmallText">(потрібно обрати більше чим одну тему)</span>
+merge_merge:Злиття вибраних тем
+merge_next:Наступні теми
+merge_prev:Попередні теми
+merge_another:Перейти до <a href="{TEMPLATE: merge_another_lnk}">останньої поєднаної теми</a> або з'єднати інші:
+split_cp:Панель управління розділенням тем
+groups_perms_header:Права доступу <span class="small">(перемістіть курсор на пункти, щоб побачити їх тип)</span>
+register_err_sig_too_long:Ваш підпис перевищує максимально допустиму довжину {GVAR: FORUM_SIG_ML} символів.
+register_sig_limit:{GVAR: FORUM_SIG_ML} Символів <a href="javascript: alert('Довжина вашого підпису '+document.forms['fud_register'].reg_sig.value.length+' символів. Максимально дозволена довжина підпису {GVAR: FORUM_SIG_ML} characters.');" class="SmallText">Перевірити довжину символів.</a>
+adm_account_accepted:Ваш обліковий запис '{VAR: login}' схвалено адміністратором та активовано. Ви можете користуватись форумом {GVAR: FORUM_TITLE} як повноцінний користувач.
+adm_account_accepted_s:Ваш запит на створення облікового запису на форумі '{GVAR: FORUM_TITLE}' схвалено.
+adm_account_rejected:Ваш обліковий запис '{VAR: login}' був відхилений адміністратором. Якщо це не є тим, що ви чекали, сміливо контактуйте з адміністратоорм '{GVAR: ADMIN_EMAIL}'.
+adm_account_rejected_s:Ваш запит на реєстрацію на форумі '{GVAR: FORUM_TITLE}' був відхилений.
+thread_on:вкл
+userinfo_buddy:Контакт:
+register_email_addr:E-mail адреса:
+reset_suffix:Якщо ви отримали це повідомлення помилково, будь ласка, ігноруйте його. Якщо ви отримуєте кілька копій цієї електронної пошти,  яких ви не запрошували, будь ласка, зв'яжіться з адміністратором форуму за адресою: {GVAR: ADMIN_EMAIL} \n\nЦе прохання було відіслано з: {VAR: _SERVER['REMOTE_ADDR']}.
+usrinfo_last_visit:Останній візит:
+mnav_newer:новіше, ніж
+mnav_older:старше
+ip_search_by_ip:Пошук користувачів за IP
+ip_search_syntax:Підтримується синтаксис: 1.2.3.4, 1.2.3, 1.2, 1
+ip_search:Пошук
+ip_analyze_usage:Аналіз використання IP
+ip_analyze_usage_descr:Будь ласка, вкажіть точний логін користувача.
+ip_users_using:Користувачі, що використовують '{VAR: ip}' IP адресу
+ip_all_ips:Всі IP-адреси використані '{VAR: user}'
+ip_title:IP Статистика
+userinfo_real_name:Справжнє ім'я:
+register_err_alias_notallowed:Цей псевдонім не допускається
+post_err_mod_forum_edit_ttl:ПОМИЛКА
+post_err_mod_forum_edit_msg:Ви не можете редагувати повідомлення у модерованому форумі.
+dmsg_num:повідомлення #{VAR: obj->id}
+postcheck_session_invalid:Ваша сесія закінчилася. Будь ласка, ще раз представтесь у форумі. Вибачте за завдані незручності.
+delete_message_extra_desc:<b>Додатково</b><br />Вкажіть причину видалення повідомлення, яка буде відправлена автору через систему приватних повідомлень.
+delete_message_extra_body:Включити тіло видаленого повідомлення, яке буде направлено авторові.
+delete_msg_removed_ttl:Ваше повідомлення було видалено адміністрацією форуму.
+delete_msg_pm_body:Оригінал повідомлення
+delete_msg_pm_subject:Тема: {VAR: data[15]}
+ip_no_whois:Whois інформація для <b>{VAR: ip}</b> відсутня.
+ip_whois_title:Інформація про провайдера
+register_theme:Тема:
+pmsg_trash:Очистити кошик
+uc_new_pm:Нові приватні повідомлення
+uc_new_topic:Нова тема
+uc_new_cat_forum:Нові повідомлення в форумах з підпискою
+uc_cat_forum:Категорія &raquo; Форум
+uc_sub_topics:Підписані теми з новими повідомленнями
+uc_page_title:Перегляд особистій панелі управління.
+search_options:Параметри пошуку
+search_user_filter:Фільтр по користувачу:
+register_none:Не повідомляти
+findu_no_conf:підтверджений користувач
+register_max_sig_len:Максимальна довжина:
+register_turing:Будь ласка, введіть код, вказаний нижче:
+register_err_turing:Невірний код підтвердження.
+modque_cat:Категорія
+modque_forum:Форум
+idx_compact_forum_row:Доступні форуми:
+mmd_del_title:Видалити теми
+mmd_mov_title:Переміщення тем
+mmd_move_threads_to:Приймаючий форум:
+mmd_abort_move:Відміна
+mmd_move:Переміщення тем
+pmsg_pdf_btn:Зробити PDF Архів
+search_results_hdr:Знайдено сторінок в пошуку: {VAR: total}
+thread_del_all:Видалити всі зазначені
+thread_mov_all:Перемістити всі вибрані
+thread_merge_all:Злиття всіх обраних
+thread_loc_all:Блокування / розблокування усіх обраних
+dmsg_ip:IP:
+err_blockedaccnt_title:ПОМИЛКА: Ваш обліковий запис був відфільтровананий.
+err_blockedaccnt_msg:Доступ на форум заблоковано, внаслідок встановлення одного з фільтрів користувачів.
+merge_th_page_list:Сторінка вибору тем
+most_users_online:Найбільша кількість відвідувачів <b>({VAR: st_obj->most_online})</b> була відмічена на форумі <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
+sub_unsub_all_forums:Відмовитися від підписки на всіх форумах
+sub_unsub_all_topics:Відмовитися від підписки на всіх темах
+unbookmark_all_topics:Видалити всі закладки
+tabs_own_posts:Показати свої повідомлення
+sml_emoticon:Емоція
+sml_code:Код
+mnav_sub_only:Пошук у форумах тільки де є моя підписка
+register_topics_per_page:Тем на сторінку:
+login_min_time:На форумі пеердбачена одна спроба увійти на кожні {VAR: MIN_TIME_BETWEEN_LOGIN} секунд, зачекайте, будь ласка, {FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)} секунд перед тим як повторити спробу.
+post_not_logged_in:Ви не представились системі, анонімно повідомлення не буде опубліковано.
+post_common_bold:Жирний
+post_common_italics:Курсив
+post_common_underline:Підкреслений
+post_common_align_left:По лівому краю
+post_common_align_center:Вирівняти по центру
+post_common_align_right:По правому краю
+post_common_link:Вставити посилання
+post_common_email:Вставити адресу електронної пошти
+post_common_image:Вставити зображення
+post_common_nlist:Додати нумерований список
+post_common_blist:Додати маркований список
+post_common_quote:Додати цитату
+post_common_code:Додати код
+rating_delete:Вилучити
+post_always_on_top:Зробити тему завжди відображеною у верхній частині списку всіх тем
+topic_rating:{VAR: frm->rating} з {PLURAL: frm->n_rating|$1 голоса|$1 голосів}
+topic_list_rating:{VAR: r[17]} з {PLURAL: r[21]|$1 голоса|$1 голоси|$1 голосів}
+tabs_notifications:Сповіщення
+finduser_flag:Прапор
+post_descr:Опис теми
+pmsg_on:вкл
+pmsg_download_dump:Завантаження резервної копії всіх повідомлень
+move_messages:Переміщення повідомлень
+move_msg_btn:Переміщення обраних повідомлень
+move_msg_th_expl:Вкажіть ідентифікатор (ID) теми реціпієнта для перенесення повідомлень (може бути в других форумах)
+captcha_img_alt:Перевірка на те що ви людина: вам необхідно ввести розпізнаний текст на зображенні.
+captcha_img_help:На зображенні відсутні нулі (0) та одиниці (1).
+powered-by:Розробка: FUDforum {GVAR: FORUM_VERSION}.<br />Copyright &copy;2001-2010 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+code_title:Код:
+code_select_all:Виділити всі
+code_show_hide:Показати / приховати
+social_sites:Сайти соціальних мереж:
+postcheck_min_len_err:Ваше повідомлення занадто коротке. Мінімальний розмір {PLURAL: post_min_len|$1 символ|$1 символа|$1 символів}
+postcheck_dup_err:Будь ласка, не робіть подвійних тем.
+btn_new_topic:Нова тема
+btn_new_pm:Нове приватне повідомлення
+btn_post_reply:Відповісти
+btn_tree_view:В вигляді дерева
+btn_flat_view:Плоский вид
+btn_about:Профіль
+btn_small_pm:ПП
+btn_delete:видалити
+btn_edit:редагувати
+btn_reply:відповісти
+btn_forward:переслати
+btn_quote:цитата
+btn_email:Email
+btn_show_posts:повідомлення
+btn_homepage:www
+feed_no_data:Не знайдено відповідних данних.
+feed_rdf:RDF-канал
+feed_rss:RSS2-канал
+feed_atom:ATOM-канал
+ip_whois_connect_err:Не вдається підключитися до WHOIS-серверут ({VAR: whois_server}): {VAR: errstr}
