@@ -281,7 +281,7 @@ register_flat_view:Listagem normal de assuntos e mensagens
 use_forum_default:Usar o fórum padrão
 finduser_user_info:Informação sobre o usuário
 finduser_by_login:Por Login:
-finduser_submit:Encontrar
+finduser_submit:Procurar
 finduser_no_such_user:Esse usuário não existe
 finduser_user:Usuário
 finduser_postcount:Contador de posts
@@ -312,7 +312,7 @@ register_avatar:Avatar:
 register_sel_avatar:Selecionar Avatar
 register_custom_avatar_rules:O Avatar escolhido não aparecerá até que seja aprovado pelo administrador.<br /><font class="SmallText">O Avatar não poderá ter mais de <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} pixels</b> de largura e terá de estar no formato.<b>jpg</b>, <b>gif</b> ou <b>png</b></font>
 register_custom_avatar_url:URL do Avatar escolhido:
-register_preview:Previsualização
+register_preview:Pré-visualização
 register_custom_avatar_upload:Arquivo do Avatar escolhido:
 register_register:Registar
 register_required:Informação requerida
@@ -828,7 +828,7 @@ quicklogin_use_cookies:Usar Cookies?
 quicklogin_login_btn:Entrar:
 quick_reply:Resposta rápida
 quick_reply_post:Postar uma resposta rápida
-quick_reply_preview:Previsualizar resposta rápida
+quick_reply_preview:Pré-visualizar resposta rápida
 post_notification_desc:Notificar quando alguém responder a esta mensagem.
 post_all_ext_allowed:(sem restrição)
 maximize_category:Maximizar Categoria

@@ -1073,3 +1073,19 @@ powered-by:Korzysta z oprogramowania FUDforum {GVAR: FORUM_VERSION}.<br />Copyri
 code_title:KOD
 code_select_all:Wybierz wszystko
 code_show_hide:Pokaż lub ukryj
+btn_new_topic:Nowy wątek
+btn_new_pm:Nowa wiadomość prywatna
+btn_post_reply:Odpowiedz
+btn_tree_view:Drzewo
+btn_flat_view:Lista
+btn_about:Profil
+btn_small_pm:ślij
+btn_delete:usuń
+btn_edit:edytuj
+btn_reply:odpowiedz
+btn_forward:prześlij dalej
+btn_quote:cytuj
+btn_email:e‐mail
+btn_show_posts:wiadomości
+btn_homepage:www
+feed_no_data:Nie znaleziono pasujących danych.

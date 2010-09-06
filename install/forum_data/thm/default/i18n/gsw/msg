@@ -109,8 +109,7 @@ num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|Stimm|Stimme}
 occupation:Beruef:
 off:UUS
 on:AA
-# Fuzzy
-page_timings:Insgsamt bruchtig Zyt fir zem Aalege vu däre Syte: {VAR: page_gen_time} Sekunde
+page_timings:Insgsamt bruchti Zyt fir zem Aalege vu däre Syte: {PLURAL: page_gen_time|$1 Sekunde}
 pm:Privati Nochrichte
 poll:Abstimmig:
 post_count:Aazahl vu dr Byytreg {VAR: u_pcount}
