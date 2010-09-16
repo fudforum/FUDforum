@@ -622,7 +622,7 @@ post_err_noannontopics_msg2:<legend>Fout: onvoldoende rechten</legend>Anonieme g
 post_err_noannonposts_msg2:<legend>Fout: onvoldoende rechten</legend>Anonieme gebruikers mogen niet antwoorden.
 post_err_floodtrig_title:Fout: de berichtenlimiet per tijdseenheid is bereikt.
 post_err_floodtrig_msg:Probleer het over {PLURAL: tm|$1 seconde|$1 seconden} nog een keer.
-post_err_attach_size:De bijlage is te groot (de limiet is {VAR: MAX_F_SIZE} bytes)
+post_err_attach_size:De bijlage is te groot. De limiet is {VAR: MAX_F_SIZE} bytes.
 post_err_attach_ext:Het bestand dat u wilt bijvoegen is van een bestandsformaat dat niet is toegestaan.
 post_err_attach_filelimit:U probeert meer bestanden toe te voegen dan is toegestaan.
 post_err_passwd:Het wachtwoord is onjuist.

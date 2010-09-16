@@ -425,7 +425,7 @@ coppa_fax_no_permission:如果不同意请签字
 coppa_fax_parent_name:父母/监护人的真实姓名
 coppa_fax_relation:和孩子的关系：
 coppa_fax_telephone:电话
-coppa_fax_email:电子邮箱
+coppa_fax_email:电邮地址：
 coppa_fax_date:日期
 coppa_fax_questions:有任何问题请联系 <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
 coppa_fax_login:账号
@@ -1006,7 +1006,7 @@ adm_account_rejected:你的帐号 '{VAR: login}' 没有通过管理员的审核�
 adm_account_rejected_s:你在论坛 '{GVAR: FORUM_TITLE}' 注册的帐号未通过审核，请检查是否符合论坛相关规定。
 thread_on:于
 userinfo_buddy:好友：
-register_email_addr:电子邮件地址：
+register_email_addr:电邮地址：
 reset_suffix:如果你没有要求密码重置功能，请删除此邮件。如果你没有要求密码重置而收到了多封类似邮件，请联络管理员： {GVAR: ADMIN_EMAIL}\n\n密码重置请求来自： {VAR: _SERVER['REMOTE_ADDR']}.
 usrinfo_last_visit:最近一次登录:
 mnav_newer:新于：

@@ -1,0 +1,309 @@
+# Messages for Luxembourgish (Lëtzebuergesch)
+# Exported from translatewiki.net
+# Author: Robby
+
+action:Aktioun
+add_to_buddy_list:op d'Lëscht vun de Frënn derbäisetzen
+admin:Admin
+administrator:Administrateur
+biography:Biographie:
+birth_date:Geburstdatum:
+by:Vum:
+by_mod:vun engem Moderateur
+current_time:Aktuell Zäit
+date_posted:geschriwwen de(n)
+date_registered:Ageschriwwen den:
+download_counter:{PLURAL: v[3]|eemol|$1 mol} erofgelueden
+email:E-Mail:
+email_to_friend:Engem Frënd per E-Mail schécken
+email_user:Dem Benotzer en E-Mail-Message schécken
+faq:Hëllef
+forum:Forum:
+forum_new_messages:Nei Messagen
+forum_old_messages:Keng nei Messagen
+from:Vum:
+gender:Geschlecht:
+go:Lass
+goto_next_msg:Op den nächste Message goen
+goto_prev_msg:Op de virege Message goen
+home:Ufankssäit
+ignore_user:all Message vun deem Benotzer ignoréieren
+im_yahoo:Yahoo Messenger:
+image:Bild:
+index_forum:Forum
+index_url_redirection:Viruleedung
+interests:Interessen:
+last_post:Leschte Message
+location:Plaz:
+locked:Gespaart
+mark_all_read:All Messagen als geliest markéieren
+members:Memberen
+message:Message
+minimize_category:Kategorie minimiséieren
+minimize_message:Message minimiséieren
+moderator:Moderateur
+moderator_of:Moderateur vun:
+more_unread_messages:méi net gelieste Messagen
+move_thread:Réckelen
+new_posts:Nei Messagen
+newest_user:De neiste registréierte Benotzer ass
+next_page:Nächst Säit
+next_thread:Nächst Thema:
+no_messages:Et gëtt keng Messagen an dësem Forum.
+no_new_posts:Keng nei Messagen
+no_posts:Keng Messagen
+num_pages:Säiten ({VAR: ttl_pg}):
+occupation:Beruf:
+off:aus
+on:un
+poll:Ëmfro:
+posts:Messagen
+posts_c:Messagen:
+register:Registréieren
+replies:Äntwerten
+reveal_post:Message weisen
+search:Sichen
+sel_todays_posts:Message vun haut
+sel_unanswered_posts:Net-beäntwert Messagen
+sel_unread_messages:Net gelieste Messagen
+send:Schécken
+send_pm_desc:Dësem Benotzer e private Message schécken
+size:Gréisst:
+sub_to_thread:D'Thema abonnéieren
+subject:Sujet
+subscribe:Abonnéieren
+thread:Thema:
+thread_announcement:Ukënnegung:
+thread_thread:Thema
+threads:Themen
+time:Zäit
+todays_posts:Message vun haut:
+unanswered_posts:Net beäntwert Messagen
+unanswered_posts_desc:All Message weisen, déi keng Äntwert hunn
+updated_on:Aktualiséiert den:
+user:Benotzer
+user_info:Benotzerinformatiounen
+usrinfo_last_post:Leschte Message:
+view_results:Resultater weisen
+vote:{PLURAL: frm->n_rating|$1 Stëmm|$1 Stëmmen}
+vote_button:Ofstëmmen
+vote_for_thread:Ofsstëmmen
+reported_reason:Grond
+modque_delete:Läschen
+pmsg_old_messages:Private Message liesen
+move_to:Réckelen op:
+list_referes_member:Member
+referals_action:Aktioun
+pmsg_all:alleguer
+pmsg_none:keen
+pmsg_replied:beäntwert
+pmsg_forwarded:virugeschéckt
+pmsg_subject:Sujet
+pmsg_author:Auteur
+pmsg_time:Zäit
+pmsg_delete:Läschen
+draft:Virbereedung
+sent:Geschéckt
+msg_author:Auteur
+month_1:Januar
+month_2:Februar
+month_3:Mäerz
+month_4:Abrëll
+month_5:Mee
+month_6:Juni
+month_7:Juli
+month_8:August
+month_9:September
+month_10:Oktober
+month_11:November
+month_12:Dezember
+sunday:Sonndeg
+male:Männlech
+female:Weiblech
+finduser_submit:Sichen
+finduser_no_such_user:Et gëtt keen esou Benotzer
+finduser_user:Benotzer
+yes:Jo
+no:Neen
+pmuserloc_user:Benotzer
+pmuserloc_no_result:Kee Resultat
+register_password:Passwuert:
+register_conf_pass:Passwuert confirméieren:
+register_name:Numm:
+register_your_pass:Ärt Passwuert:
+register_update:Aktualiséieren
+register_del_avatar:Avatar läschen
+register_avatar:Avatar:
+register_required:Obligatoresch Informatioun
+register_interests:iInteressen:
+register_image:Bild:
+register_day:Dag
+register_month:Mount
+register_year:Joer
+register_gender:Geschlecht:
+register_bio:Biographie:
+register_sig:Ënnerschrëft:
+register_reset:Zrécksetzen
+register_show_sig:Ënnerschrëfte weisen
+register_timezone:Zäitzon:
+add:Derbäisetzen
+buddy_remove:ewechhuelen
+post_normal:Normal
+post_size:Gréisst
+post_color:Faarf
+post_poll_delete:LÄSCHEN
+post_poll_edit:ÄNNEREN
+post_upload_file:Fichier eroplueden
+post_file_del:Läschen
+post_file_name:Numm
+post_file_size:Gréisst
+post_forum:Forum:
+post_title:Titel:
+post_options:Optiounen:
+ignore_users:Ignoréiert Benotzer
+coppa_before:Virum {TEMPLATE: coppa_date}
+coppa_after:Nom {TEMPLATE: coppa_date}
+coppa_fax_date:Datum:
+coppa_fax_passwd:Passwuert
+coppa_fax_name:Numm
+login_forgot_passwd:Passwuert vergiess
+rpasswd_change_pass:Passwuert änneren
+rpasswd_cur_pass:Aktuellt Passwuert:
+rpasswd_new_pass:Neit Passwuert:
+rpasswd_conf_pass:Confirméiert d'Paswuert:
+login_passwd:Passwuert:
+reset_reset_button:Passwuert zrécksetzen
+rate_this_thread:Bewäerten
+report_subject:Sujet:
+report_by:Vum:
+search_entire_msg:Ganze Message
+search_forum:Forum
+search_no_results:Keng Resultater
+remail_your_name:Ären Numm:
+remail_your_email:Är E-Mail:
+remail_message:Message:
+mklist_option:Optioun:
+mklist_delete:Läschen
+qbud_nick_name:Spëtznumm
+qbud_selected:Erausgesicht
+mklist_disc:Scheif
+mklist_circle:Krees
+mklist_close:Zoumaachen
+email_subject:Sujet:
+ppost_find_User:Benotzer fannen
+poll_create:Uleeën
+poll_update:Aktualiséieren
+poll_delete:Läschen
+poll_day:Dag
+poll_days:Deeg
+poll_hour:Stonn
+poll_hours:Stonnen
+poll_month:Mount
+poll_year:Joer
+poll_week:Woch
+delete_yes:Jo
+delete_no:Neen
+error_error:Feeler
+emailconf_err_invkey_title:Feeler
+ignore_list_err_nu_title:Benotzer net fonnt
+post_err_edttimelimit_title:FEELER
+report_err_nosuchmsg_title:FEELER
+reset_err_invalidkey_title:FEELER
+reset_err_rstconf_title:Informatioun
+reset_newpass_title:Passwuert zrécksetzen
+help_title:Hëllef
+poll_add_option:Optioun derbäisetzen:
+split_thread:thema opdeelen
+groupmgr_yes:Jo
+groupmgr_no:Neen
+groupmgr_action:Aktioun
+groupmgr_member:Member
+groupmgr_cancel:Ofbriechen
+groupmgr_add_member:Member derbäisetzen
+groupmgr_edit:Änneren
+groupmgr_delete:Läschen
+group_mgr_anon:Anonym
+show_show:Weisen:
+group_mgr_group:Grupp:
+p_READ:Liesen
+p_REPLY:Äntwerten
+p_EDIT:Änneren
+p_DEL:Läschen
+p_VOTE:Ofstëmmen
+p_LOCK:Theme spären
+p_MOVE:Theme réckelen
+group_mgr_search:Benotzer fannen
+rate_worst:Am schlechsten
+rate_best:Am beschten
+post_quote:Zitat:
+userinfo_referals_count:{VAR: referals} Memberen
+pm_no_space_title:Et ass keng Plaz iwwreg!
+th_expr_never:Nie
+th_expr_one_hr:1 Stonn
+th_expr_three_hr:3 Stonnen
+th_expr_four_hr:4 Stonnen
+th_expr_eight_hr:8 Stonnen
+th_expr_sixteen_hr:16 Stonnen
+th_expr_one_day:1 Dag
+th_expr_two_day:2 Deeg
+th_expr_four_day:4 Deeg
+th_expr_one_week:1 Woch
+th_expr_two_week:2 Wochen
+th_expr_one_month:1 Mount
+th_expr_two_month:2 Méint
+th_expr_four_month:4 Méint
+th_expr_one_year:1 Joer
+thread_mod_delete:Läschen
+action_latest_post:Leschte Message
+online_today_last_visit:Leschte Besuch
+logedin_latest_post:Leschte Message am Forum:
+split_th_post_by:Message vum:
+split_th_subject:Sujet:
+split_th_forum:Forum:
+split_th_messages:Messagen
+quicklogin_password:Passwuert:
+pmsg_next_msg:Nächste Message
+pmsg_prev_msg:Virege Message
+smladd_close_window:Fënster zoumaachen
+poll_edit:Änneren
+polllist_view_results:Resultater kucken
+polllist_name:Numm vun der Ëmfro
+userinfo_polls:Ëmfroen:
+search_and:AN
+search_or:ODER
+saved:Gespäichert
+iemail_msg_reply:Äntwerten
+iemail_msg_quote:Zitat
+mnav_minute:Minutt(en)
+mnav_hour:Stonn(en)
+mnav_day:Dag/Deeg
+mnav_week:Woch(en)
+mnav_month:Mount/Méint
+findu_edit:Änneren
+findu_delete:Läschen
+mnav_newer:méi nei wéi
+mnav_older:méi al wéi
+ip_search:Sichen
+userinfo_real_name:Richtegen Numm:
+register_err_alias_notallowed:Dësen Alias ass net erlaabt
+post_err_mod_forum_edit_ttl:FEELER
+uc_new_topic:Neit Thema
+search_options:Sichoptiounen
+search_user_filter:Nom Benotzer filteren:
+modque_cat:Kategorie
+modque_forum:Forum
+mmd_abort_move:Ofbriechen
+dmsg_ip:IP:
+register_topics_per_page:Theme pro Säit:
+post_common_link:E Link drasetzen
+post_common_quote:Zitat derbäisetzen
+rating_delete:Läschen
+finduser_flag:Fändel
+post_descr:Beschreiwung vum Thema:
+code_show_hide:Weisen / Verstoppen
+btn_about:Profil
+btn_delete:läschen
+btn_edit:änneren
+btn_reply:äntwerten
+btn_forward:viruleeden
+btn_homepage:www

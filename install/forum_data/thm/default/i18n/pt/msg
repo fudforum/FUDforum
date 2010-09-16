@@ -114,8 +114,7 @@ num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|voto|votos}
 occupation:Ocupação:
 off:DES
 on:LIG
-# Fuzzy
-page_timings:Tempo total para gerar a página: {VAR: page_gen_time} segundos
+page_timings:Tempo total usado para gerar a página: {VAR: page_gen_time} segundos
 pm:Mensagens Privadas
 poll:Sondagem:
 post_count:Contador de posts {VAR: u_pcount}
@@ -157,6 +156,7 @@ sticky:fixo:
 stop_ignoring:parar de ignorar este utilizador
 sub_to_thread:Subscrever o tópico
 sub_to_thread_desc:Receber notificação sobre novos posts neste tópico
+bookmark_thread:Adicionar tópico aos favoritos
 bookmark_thread_desc:Adicione este tópico à sua lista de favoritos
 subject:Assunto
 subscribe:Subscrever
@@ -185,6 +185,7 @@ unread_posts:Posts não lidos
 unread_posts_desc:Mostrar todas as mensagens não lidas
 unsub_from_thread:Anular subscrição do tópico
 unsub_from_thread_desc:Parar de receber notificações sobre novos posts neste tópico
+unbookmark_thread_desc:Remover este tópico da sua lista de favoritos
 unsubscribe:Anular subscrição
 unsubscribe_desc:Parar de receber notificações sobre novos posts neste forum
 updated_on:Actualizado em:
@@ -563,6 +564,7 @@ error_error:Erro
 usrinfo_profile:Ficha de {VAR: u->alias}
 usrinfo_show_all_posts:Mostrar todos os comentários por {VAR: u->alias}
 actions_update:A bisbilhotar outras pessoas, é mesmo seu :P
+err_info:Informação
 buddy_list_err_cantadd:Não se pode adicionar á sua própria lista de amigos
 buddy_list_err_dup:Já tem este utilizador na lista de amigos
 buddy_list_err_nouser:O utilizador que tentou adicionar á sua lista de amigos não foi encontrado no forum.
@@ -589,6 +591,7 @@ iemail_thr_bodyemail:Para ver todas as respostas não lidas vá a {VAR: goto_url
 iemail_frm_subject:Novo tópico no forum {VAR: frm_name} chamado {VAR: thr_subject} by {VAR: poster_login}
 iemail_frm_bodyemail:Para ver o tópico vá a:\n{VAR: goto_url['email']}\n\nPara parar de receber notificações acerca de novos tópicos neste forum, vá aqui: {VAR: unsub_url['email']}
 iemail_participate:Para participar na discussão vá aqui
+ignore_list_err_info_title:Informação
 ignore_list_err_dup_msg:Já tem este utilizador na lista de ignorados
 ignore_list_err_nu_title:Utilizador não encontrado
 ignore_list_err_nu_msg:O utilizador que tentou adicionar á sua lista de ignorados, não existe neste forum
@@ -671,18 +674,15 @@ userinfo_update:Procurar em <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->a
 ERR_disabled_ttl:Possibilidade desabilitada
 ERR_disabled_msg:Esta funcionalidade foi desactivada pelo administrador do sistema.
 ERR_access_ttl:ERRO: Permissões insuficientes
-# Fuzzy
-ERR_access_msg:Não tem as permissões necessárias para fazer o que está a tentar
+ERR_access_msg:Você não tem as permissões necessárias para executar esta acção.
 ERR_registration_disabled_ttl:Registo de utilizadores desabilitado
 ERR_registration_disabled_msg:O administrador desabiliotu o registo de utilizadores novos, por favor tenta mais tarde
 ERR_emailconf_ttl:ERRO: A sua conta ainda não está confirmada
-# Fuzzy
-ERR_emailconf_msg:Ainda não confirmou a sua conta via Email<br /><table border="0"><tr><td><ol><li>se não recebeu um email de confirmação <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">clique aqui</a><li>se {VAR: usr_d->email} não é o endereço de email correcto <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">clique aqui</a></ol></td></tr></table>
+ERR_emailconf_msg:Ainda não confirmou a sua conta via email.<br /><table border="0"><tr><td><ol><li>Se não recebeu um email de confirmação <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">peça-o novamente</a>.</li><li>Se {VAR: usr_d->email} não é o seu endereço de email, <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">indique o endereço correcto</a>.</li></ol></td></tr></table>
 ERR_user_ttl:ERRO: Utilizador inexistente
 ERR_user_msg:Utilizador não existe
 ERR_systemerr_ttl:ERRO: Erro de sistema
-# Fuzzy
-ERR_systemerr_msg:Ocorreu um erro de sistema, por favor reporte-o ao <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a>.
+ERR_systemerr_msg:Ocorreu um erro de sistema. Por favor reporte-o ao <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a>.
 email_title:Formulário de Email
 finduser_title:Procurar Utilizador
 help_title:F.A.Q.
@@ -707,6 +707,7 @@ post_opt_images_off:<b>As imagens</b> estão <b>Desligadas</b>
 post_opt_smilies_off:<b>Os smilies</b> estão <b>Desligados</b>
 post_opt:Opções do Forum
 register_change_passwd:Alterar Password
+register_change_login:Alterar o nome de utilizador
 approved_avatar_title:O seu avatar foi aprovado.
 approved_avatar_msg:O seu avatar foi aprovado pelo administrador. Aparecerá agora em todas as suas mensagens. Se não o vê, ou se vê o seu antigo avatar, é porque o seu browser está a ler esta página a partir da cache. Tente refrescar uma ou duas vezes, isto, na maioria dos casos resolve o problema com a cache.
 unapproved_avatar_title:O seu avatar foi rejeitado.
@@ -722,11 +723,9 @@ thr_exch_decline:recusar tópico
 thr_exch_orig_forum:Forum original:
 thr_exch_dest_forum:Forum de destino:
 thr_exch_no_threads:Não há tópicos á espera de aprovação.
-# Fuzzy
-thr_exch_decl_reason:Razão para recusa de tópico <b>{VAR-HTML: frm->name}</b> no forum <b>{VAR-HTML: frm->name}</b>
+thr_exch_decl_reason:Razão para recusa de tópico <b>{VAR: data->subject}</b> no fórum <b>{VAR: data->f2_name}</b>
 thr_exch_submit:Submeter
-# Fuzzy
-exch_decline_ttl:A mudança de tópico {VAR: data->subject} no forum {VAR-HTML: data->f2_name} foi recusada.
+exch_decline_ttl:A mudança do tópico {VAR: data->subject} para o fórum {VAR: data->f2_name} foi recusada.
 ppost_original_msg:mensagem que está a encaminhar ou a responder a
 split_thread:Dividir Tópico
 groupmgr_no_user:Não há nenhum utilizador com login de "{FUNC: char_fix(htmlspecialchars($gr_member))}"
@@ -820,6 +819,7 @@ quick_reply:Resposta rápida
 post_notification_desc:Notificar quando alguém responder a esta mensagem.
 post_all_ext_allowed:(sem restrição)
 maximize_category:Maximizar Categoria
+maximize_message:Maximizar mensagem
 no_view_perm:Não tem as permissões necessárias para ver este tópico.
 report_empty_report:Não pode enviar um relatório vazio, por favor coloque uma razão para o seu relatório.
 report_already_reported_title:Já foi reportada
@@ -835,8 +835,7 @@ im_skype:Skype:
 im_twitter:Twitter:
 forum_contact:Contacto
 forum_home:Início
-# Fuzzy
-post_cur_attached:ficheiro anexado {VAR: i} file(s)
+post_cur_attached:actualmente anexados: {VAR: i} {PLURAL: i|ficheiro|ficheiros}
 ignored_anon_post:{GVAR: ANON_NICK} vai ser ignorado
 ignored_user_post:Colocado por <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> vai ser ignorado
 smladd_close_window:fechar janela
@@ -872,6 +871,7 @@ search_desc_order:Ordem Descendente
 search_asc_order:Ordem Ascendente
 search_logic:Lógica de Busca:
 search_sorting:Mostrar os Resultados por Data no:
+search_attach:Anexos:
 post_proceed:Avançar
 post_moderated_forum:Colocou uma mensagem num Forum moderado, o que quer dizer que a sua mensagem não vai ser visivel no forum até que seja aprovada por um dos moderador(es) e/ou administrador(es) do Forum.
 post_moderated_forum_ttl:Notícia moderada do forum.
@@ -884,8 +884,7 @@ read_message:Ler Mensagem
 threadt_more:&lt;mais&gt;
 threadt_disabled_ttl:A vista de àrvore foi desabilitada.
 threadt_disabled_desc:O administrador desabilitou a vista em forma de àrvore, por favor use a vista plana.
-# Fuzzy
-threadt_update:A ver o Forum (em forma de àrvore) <a href="{TEMPLATE: threadt_update_lnk}">{VAR-HTML: frm->name}</a>
+threadt_update:A ver o fórum (em vista de árvore) <a href="{TEMPLATE: threadt_update_lnk}">{VAR: frm->name}</a>
 mmod_delete_cofirm_ttl:Confirmação de remoção de Tópico/Mensagem
 spell_alts:Não há alternativas
 insert_uploaded_image:Insira uma imagem dentro da mensagem
@@ -898,8 +897,7 @@ err_mod_acc_msg:O administrador escolheu ver todas as contas manualmente antes d
 accounts_pending_approval:Contas á espera de aprovação
 saved:Guardado
 register_err_time_limit:Foi atingido o limite de um registo por cada {GVAR: REG_TIME_LIMIT} segundos. Aguarde {PLURAL: reg_limit_reached|$1 segundo|$1 segundos} e tente registar-se novamente, por favor.
-# Fuzzy
-register_affero:Login para Affero:<br /><font class="SmallText">Se tem um login para <a href="http://www.affero.com/ca/{VAR-URL: GLOBALS['FORUM_TITLE']}" target="_blank">Affero</a> introduza-o.</font>
+register_affero:Login para Affero:<br /><span class="SmallText">Se tem um login para <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">Affero</a>, introduza-o aqui.</span>
 im_affero:Login para Affero
 register_err_avatardimtobig:As dimensões do Avatar <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> excedem as dimensões permitidas de <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
 buddy_offline:{VAR: r[2]} está desconectado
@@ -939,6 +937,7 @@ reg_conf_email:<b>Confirmação por correio electrónico</b><br />Foi-lhe enviad
 reg_conf_account:<b>Confirmação de Conta</b><br />Antes da sua conta se tornar activa é necessário que seja aprovada pelo(s) administrador(es), assim que tal acontecer você receberá um e-mail indicando que a mesmo foi activada. Até essa altura você poderá aceder à sua conta, no entanto não poderá aceder às opções do forum somente disponíveis aos utilizadores confirmados.
 forum_banned_user:As suas acções anteriores obtiveram como resultado a sua expulsão permanente deste forum. Adeus.
 mnav_date_limit:Intervalo de datas:
+mnav_all_forums:Procurar em todos os fóruns
 mnav_no_range:You must enter a valid date range. This value can be a float (0.12) but it must be greater then zero.
 mnav_invalid_date:The date range you've specified is larger then the one allowed by the administrator, narrow down date range of your search.
 mnav_no_results:There are no messages matching query.
@@ -948,16 +947,16 @@ mnav_hour:Hora(s)
 mnav_day:Dia(s)
 mnav_week:Semana(s)
 mnav_month:Mês (es)
-# Fuzzy
-pm_notify_body_email:Você tem uma nova mensagem privada entitulada "{VAR: subject}" de "{VAR: from}" do fórum "{GVAR: FORUM_TITLE}".\nPara ver a mensagem clique aqui: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nPara deixar de receber notificações futuras, desative "Notificação de Mensagens Privadas" em seu perfil.
+pm_notify_body_email:Você tem uma nova mensagem privada intitulada "{VAR: subject}", de "{VAR: from}", no fórum "{GVAR: FORUM_TITLE}".\nPara ver a mensagem clique aqui: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nPara deixar de receber notificações, desactive "Notificação de Mensagens Privadas" no seu perfil.
 register_pm_notification:Notificação de Mensagem Privada:
 register_pm_notification_desc:Se activado, será notificado sempre que lhe for enviada uma mensagem privada.
 findu_ban:Banir
 findu_edit:Editar
 findu_delete:Apagar
 dmsg_reply_to:é uma resposta a
-# Fuzzy
-merge_topics_tpl:Selecione Tópicos para Unir <font class="SmallText">(você precisa selecionar mais de 1 tópico)</font>
+merge_topics:Unir Tópicos
+merge_topics_tpl:Seleccione Tópicos para Unir <font class="SmallText">(você tem que seleccionar mais que um tópico)</font>
+merge_next:Próximos Tópicos
 merge_prev:Tópicos anteriores
 split_cp:Painel de Controlo para Separação de Tópicos
 groups_perms_header:Permissões <span class="small">(para ver o tipo da permissão coloque o ponteiro do rato sobre ela)</span>
@@ -1015,11 +1014,13 @@ rating_delete:Apagar
 tabs_notifications:Notificações
 post_descr:Descrição do tópico:
 move_messages:Mover mensagens
-# Fuzzy
-powered-by:Powered by: FUDforum {GVAR: FORUM_VERSION}.<br />Copyright &copy;2001-2010 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+powered-by:Potenciado por: FUDforum {GVAR: FORUM_VERSION}.<br />Copyright &copy;2001-2010 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Código:
 code_select_all:Seleccionar todos
 code_show_hide:Mostrar / ocultar
+social_sites:Redes sociais:
+postcheck_min_len_err:A sua mensagem é demasiado curta. O tamanho mínimo permitido é {PLURAL: post_min_len|$1 caractere|$1 caracteres}.
+postcheck_dup_err:Por favor, não crie tópicos duplicados.
 btn_new_topic:Novo tópico
 btn_post_reply:Responder
 btn_about:Perfil

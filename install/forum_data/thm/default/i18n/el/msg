@@ -406,7 +406,7 @@ thread_mod_delete:Διαγραφή
 split_th_subject:Θέμα:
 split_th_select:Επιλογή
 quicklogin_login:Σύνδεση:
-quicklogin_password:Κωδικός πρόσβασης:
+quicklogin_password:Κωδικός:
 quicklogin_login_btn:Σύνδεση:
 register_jabber:Αναγνωριστής Jabber:
 register_skype:Αναγνωριστής Skype:

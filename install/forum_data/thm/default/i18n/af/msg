@@ -620,7 +620,7 @@ post_err_noannontopics_msg2:<legend>FOUT: Onvoldoende Regte</legend>Anonieme geb
 post_err_noannonposts_msg2:<legend>FOUT: Onvoldoende Regte</legend>Anonieme gebruikers word nie toegelaat om antwoorde te pos nie.
 post_err_floodtrig_title:FOUT: Post flood ingeschakeld.
 post_err_floodtrig_msg:probeer asseblief weer oor {PLURAL: tm|$1 seconde|$1 secondes}
-post_err_attach_size:Aanhangsel is te groot (oor die toegelate limiet van {VAR: MAX_F_SIZE} grepe)
+post_err_attach_size:Die aanhangsel is te groot. Die limiet is {VAR: MAX_F_SIZE} grepe.
 post_err_attach_ext:Die lêer wat u wil byvoeg is van 'n lêerformaat wat nie hier toegelaat word nie.
 post_err_attach_filelimit:U probeer om meer lêers by te voeg as wat toegelaat word.
 post_err_passwd:ongeldige wagwoord.

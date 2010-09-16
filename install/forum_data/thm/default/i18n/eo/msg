@@ -1,5 +1,6 @@
 # Messages for Esperanto (Esperanto)
 # Exported from translatewiki.net
+# Author: LyzTyphone
 # Author: Yekrats
 
 action:Ago
@@ -232,7 +233,7 @@ pmsg_delete:Forigi
 cur_ppage_pm:Privata Mesaĝado
 writing_pm:Skribante Privatan Mesaĝon
 browsing_folder:Legante <b>{VAR: folders[$folder_id]}</b> fadenujon
-inbox:Ricevujo
+inbox:Alvenkesto
 draft:Malnetujo
 sent:Senditujo
 trash:Rubujo

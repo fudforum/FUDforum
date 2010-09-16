@@ -280,7 +280,7 @@ register_builtin:Prednastavené
 register_specify_url:Zadať URL
 register_uploaded:Uploadovať Ikonu Používateľa
 register_login:<font class="StClr">Používateľské meno:</font>
-register_password:<font class="StClr">Heslo:</font>
+register_password:Heslo:
 register_conf_pass:<font class="StClr">Potvrdenie Hesla:</font>
 register_email_desc:Prosím, zadajte platnú emailovú adresu. V sekcii Nastavenia ju môžete pred ostatnými používateľmi skryť.
 register_name:<font class="StClr">Skutočné meno:</font>

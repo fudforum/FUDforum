@@ -586,8 +586,55 @@ email_error_subject:Патрабуецца тэма
 email_error_namerequired:Патрабуецца імя
 email_error_invaliduser:Няслушны карыстальнік
 emailconf_err_invkey_title:Памылка
+emailconf_err_invkey_msg:Няслушны ключ пацьверджаньня. Калі ласка, праверце Ваш электроны ліст, каб упэўніцца, што Вы ўвялі слушны URL-адрас. Калі Вы націснулі на спасылку двойчы, Ваш рахунак можа быць ужо пацьверджаны. Увайдзіце на форум, каб запытаць іншы ключ.
+err_inc_criticaltitle:Крытычная памылка
+err_inc_criticalmsg:Узьнікла памылка. На жаль, адначасова ўзьнікла памылка ў сыстэме паведамленьня пра памылкі.
+finduser_update:Пошук карыстальнікаў
+help_index_update:Чытаньне <a href="{TEMPLATE: help_index_update_lnk}">дапамогі</a>
+iemail_thr_subject:Новы адказ на {VAR: thr_subject} ад {VAR: poster_login}
+iemail_thr_bodyemail:Для прагляду непрачытаных адказаў перайдзіце на {VAR: goto_url['email']}\n\nКалі Вы болей не жадаеце атрымліваць паведамленьні пра адказы у гэтай тэме, калі ласка, перайдзіце сюды: {VAR: unsub_url['email']}
+iemail_frm_subject:Новая тэма на форуме {VAR: frm_name}, з назвай {VAR: thr_subject}, створаная {VAR: poster_login}
+iemail_frm_bodyemail:Для прагляду тэмы перайдзіце:\n{VAR: goto_url['email']}\n\nКалі Вы болей не жадаеце атрымліваць паведамленьні пра новыя тэмы на гэтым форуме, калі ласка, перайдзіце сюды: {VAR: unsub_url['email']}
+iemail_participate:Для ўдзелу ў абмеркаваньні, перайдзіце сюды:
+ignore_list_err_info_title:Інфармацыя
+ignore_list_err_dup_msg:Гэты карыстальнік ужо знаходзіцца ў Вашым сьпісе ігнараваных
+ignore_list_err_nu_title:Карыстальнік ня знойдзены
+ignore_list_err_nu_msg:Карыстальнік, якога Вы спрабуеце дадаць у Ваш сьпіс ігнараваных, ня знойдзены.
+ignore_list_cantign_msg:Вы ня можаце ігнараваць гэтага карыстальніка
+ignore_list_update:Прагляд сьпісу ігнараваных
+index_update:Прагляд <a href="{TEMPLATE: index_update_lnk}">сьпісу форумаў</a>
+list_referers_update:Прагляд запрошаных
+login_update:Форма ўваходу
+msg_update:Прагляд тэмы <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
+pm_err_nopm_title:ПАМЫЛКА: Прыватныя паведамленьні адключаныя
+pm_err_nopm_msg:Вы ня можаце выкарыстоўваць сыстэму прыватных паведамленьняў. Яна была адключаная адміністратарам.
+pm_update:Карыстаньне прыватнымі паведамленьнямі
+post_err_lockedthread_title:ПАМЫЛКА: Тэма закрытая
+post_err_lockedthread_msg:Гэтая тэма была закрытая. Разьмяшчэньне паведамленьняў немагчымае.
+err_coppa_title:ПАМЫЛКА: Ваш рахунак пакуль яшчэ не пацьверджаны
+err_coppa_msg:Пакуль што мы не атрымалі пацьверджаньне ад Вашых бацькоў і/ці законных апекуноў, якое дазволіла б Вам разьмяшчаць паведамленьні. Калі Вы страцілі Вашую форму дазволу COPPA, <a href="{TEMPLATE: err_coppa_msg_lnk}">праглядзіце яе яшчэ раз</a>.
+err_banned_acct_title:ПАМЫЛКА: Вы былі заблякаваныя.
+err_banned_acct_msg:Ваш рахунак быў {IF: $ban_expiry}часова заблякаваны да {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}заблякаваны назаўсёды{ENDI} за парушэньне правілаў форуму.
 post_err_edttimelimit_title:ПАМЫЛКА
+post_err_edttimelimit_msg:Вы болей ня можаце рэдагаваць гэтае паведамленьне
+post_err_noannontopics_msg2:<legend>ПАМЫЛКА: Недастаткова правоў</legend>Ананімныя карыстальнікі ня могуць ствараць новыя тэмы.
+post_err_noannonposts_msg2:<legend>ПАМЫЛКА: Недастаткова правоў</legend>Ананімныя карыстальнікі ня могуць адказваць на паведамленьні.
+post_err_floodtrig_title:ПАМЫЛКА: Вызначаная масавая адпраўка.
+post_err_floodtrig_msg:Калі ласка, паспрабуйце ізноў праз {PLURAL: tm|$1 сэкунду|$1 сэкунды|$1 сэкундаў}
+post_err_attach_size:Далучаны файл занадта вялікі (перавышае дазволенае абмежаваньне {VAR: MAX_F_SIZE} байтаў)
+post_err_attach_ext:Файл, які Вы спрабуеце загрузіць, не адпавядае дазволеным тыпам.
+post_err_attach_filelimit:Вы спрабуеце загрузіць болей файлаў, чым дазволена.
 post_err_passwd:Няслушны пароль.
+post_reply_update:Адказ на паведамленьне <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> у форуме {VAR: frm->name}
+post_topic_update:Стварэньне новай тэмы ў форуме <a href="{TEMPLATE: post_topic_update_lnk}">{VAR: frm->name}</a>
+post_error_generic:Узьнікла памылка
+postcheck_max_images_err:У адным паведамленьні дазволена ня больш за {GVAR: MAX_IMAGE_COUNT} выяваў. Калі ласка, паменшыце колькасьць выяваў.
+postcheck_no_links_allowed:Вы ня можаце выкарыстоўваць спасылкі, пакуль Вы не напісалі больш за {PLURAL: posts_before_links|$1 паведамленьне|$1 паведамленьні|$1 паведамленьняў}.
+postcheck_subj_needed:Патрабуецца назва тэмы
+postcheck_no_such_user:На гэтым форуме няма карыстальніка з іменем «{FUNC: char_fix(htmlspecialchars($v))}».
+postcheck_ignored:Вы ня можаце дасылаць асабістае паведамленьне да «{FUNC: char_fix(htmlspecialchars($v))}», таму што гэты карыстальнік Вас ігнаруе.
+postcheck_no_recepient:Немагчыма даслаць паведамленьне, таму што не пазначаны атрымальнік
+postcheck_invalid_email:Калі ласка, ўвядзіце слушны адрас электроннай пошты Вашага сябра.
 report_err_nosuchmsg_title:ПАМЫЛКА
 reset_err_invalidkey_title:ПАМЫЛКА
 reset_newpass_title:Ачысьціць пароль

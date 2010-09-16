@@ -2,6 +2,7 @@
 # Exported from translatewiki.net
 # Author: Alex Khimich
 # Author: Apromix
+# Author: Naudefj
 # Author: Prima klasy4na
 # Author: Тест
 
@@ -974,7 +975,7 @@ mnav_month:Місяців
 mnav_title:Навігатор повідомлень
 mnav_update:Перегляд повідомлень за допомогою <a href="{TEMPLATE: mnav_update_lnk}">Навігатора повідомлень</a>
 pm_notify_subject:[{GVAR: FORUM_TITLE}] Сповіщення про нові приватні повідомлення
-pm_notify_body_email:У вас є нове приватне повідомлення під назвою "{VAR: subject}", від "{VAR: from}", у форумі "{GVAR: FORUM_TITLE}". \nЩоб переглянути повідомлення, натисніть тут: {FULL_ROOT}{ROOT}?t=pmsg_view&uk_translation=alex_khimich&id={VAR:PID} \n\nЩоб відмовитись від отримання сповіщень про нові повідомлення, вимкніть функцію "Сповіщення про приватні повідомлення" в вашому профілі.
+pm_notify_body_email:У вас є нове приватне повідомлення під назвою "{VAR: subject}", від "{VAR: from}", у форумі "{GVAR: FORUM_TITLE}". \nЩоб переглянути повідомлення, натисніть тут: {FULL_ROOT}{ROOT}?t=pmsg_view&uk_translation=alex_khimich&id={VAR: PID} \n\nЩоб відмовитись від отримання сповіщень про нові повідомлення, вимкніть функцію "Сповіщення про приватні повідомлення" в вашому профілі.
 register_pm_notification:Сповіщення про приватні повідомлення:
 register_pm_notification_desc:У цьому випадку, ви будете повідомлені, коли особисте повідомлення посилається вам.
 findu_admin_opts_header:Налаштування Адміністратора

@@ -405,7 +405,7 @@ rpasswd_login:Tên đăng nhập
 rpasswd_cur_pass:Mật khẩu hiện tại:
 rpasswd_new_pass:Mật khẩu mới:
 rpasswd_conf_pass:Xác nhận mật khẩu:
-login_passwd:Mật Khẩu:
+login_passwd:Mật khẩu:
 reset_reset_button:Tạo mới mật khẩu
 search_entire_msg:Toàn bộ bài viết
 search_subject_only:Chỉ tựa đề
