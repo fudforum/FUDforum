@@ -318,14 +318,14 @@ class fud_pdf extends FPDF
 		$c = q('SELECT
 				m.id, m.thread_id, m.subject, m.post_stamp,
 				m.attach_cnt, m.attach_cache, m.poll_cache,
-				m.foff, m.length, m.file_id, u.id AS uid,
+				m.foff, m.length, m.file_id, u.id AS user_id,
 				COALESCE(u.alias, \''. $ANON_NICK .'\') as alias,
 				p.name AS poll_name, p.total_votes
 			'. $join .'
 			WHERE
 				t.moved_to=0 AND m.apr=1 '. $lmt .' ORDER BY m.post_stamp, m.thread_id');
 	} else {
-		$c = q('SELECT p.*, u.alias, p.duser_id AS uid FROM {SQL_TABLE_PREFIX}pmsg p 
+		$c = q('SELECT p.*, u.alias, p.duser_id AS user_id FROM {SQL_TABLE_PREFIX}pmsg p 
 				LEFT JOIN {SQL_TABLE_PREFIX}users u ON p.ouser_id=u.id
 				WHERE p.id IN('. implode(',', $sel) .') AND p.duser_id='. _uid);
 	}
@@ -350,7 +350,7 @@ class fud_pdf extends FPDF
 	$fpdf->begin_page($subject);
 	do {
 		/* Write message header. */
-		$fpdf->message_header(html_entity_decode($o->subject), array($o->uid, html_entity_decode($o->alias)), $o->post_stamp, $o->id, (isset($o->thread_id) ? $o->thread_id : 0));
+		$fpdf->message_header(html_entity_decode($o->subject), array($o->user_id, html_entity_decode($o->alias)), $o->post_stamp, $o->id, (isset($o->thread_id) ? $o->thread_id : 0));
 
 		/* Write message body. */
 		if (!$sel) {
