@@ -8,17 +8,18 @@
 * under the terms of the GNU General Public License as published by the 
 * Free Software Foundation; version 2 of the License. 
 **/
-# define('forum_debug', 1);
+// define('fud_query_stats', 1);
 
 class db { public static $db, $ar, $res, $buf; }
 
 if (empty(db::$db)) {
-	$dsn = 'sqlite:'.$GLOBALS['DBHOST'];
+	$dsn = 'sqlite:'. $GLOBALS['DBHOST'];
+	$opts = $GLOBALS['FUD_OPT_1'] & 256 ? array(PDO::ATTR_PERSISTENT=>true) : array();
 
 	try {
-		db::$db = new PDO($dsn, $GLOBALS['DBHOST_USER'], $GLOBALS['DBHOST_PASSWORD']);
+		db::$db = new PDO($dsn, $GLOBALS['DBHOST_USER'], $GLOBALS['DBHOST_PASSWORD'], $opts);
 	} catch (PDOException $e) {
-		fud_sql_error_handler('Failed to establish database connection, PDO says: '. $e->getMessage(), '', '', '');
+		fud_sql_error_handler('Failed to establish database connection', 'PDO says: '. $e->getMessage(), '', '');
 	}
 
 	define('__dbtype__', substr($GLOBALS['DBHOST_DBTYPE'], 4));
@@ -38,7 +39,7 @@ function db_lock($tables)
 		fud_sql_error_handler('Recursive Lock', 'internal', 'internal', db_version());
 	}
 	
-	q('BEGIN IMMEDIATE');
+	db::$db->beginTransaction();
 
 	$GLOBALS['__DB_INC_INTERNALS__']['db_locked'] = 1;
 }
@@ -55,7 +56,11 @@ function db_unlock()
 		fud_sql_error_handler('DB_UNLOCK: unlock overcalled', 'internal', 'internal', db_version());
 	}
 
-	q('COMMIT');
+	// Clear result set to prevent COMMIT from failing with "There is already an active transaction".
+	// To simulate, remove below line and post a reply to any existing topic.
+	db::$res = null;
+
+	db::$db->commit();
 
 	unset($GLOBALS['__DB_INC_INTERNALS__']['db_locked']);
 }
@@ -80,14 +85,14 @@ function uq($query, $buf=0)
 	if (!strncasecmp($query, 'SELECT', 6) || !strncasecmp($query, 'PRAGMA', 6)) {
 		db::$res = null;
 		db::$buf = $buf;
-		db::$res = db::$db->query($query) or fud_sql_error_handler($query, db::$db->errorCode(), __enifo(db::$db->errorInfo()), db_version());
+		db::$res = db::$db->query($query) or fud_sql_error_handler($query, __enifo(db::$db->errorInfo()), db::$db->errorCode(), db_version());
 		return db::$res;
 	}
 	if (!db::$buf) {
 		db::$res = null;
 	}
 	if ((db::$ar = db::$db->exec($query)) === FALSE) {
-		fud_sql_error_handler($query, db::$db->errorCode(), __enifo(db::$db->errorInfo()), db_version());
+		fud_sql_error_handler($query, __enifo(db::$db->errorInfo()), db::$db->errorCode(), db_version());
 	}
 	return db::$ar;
 }
@@ -112,15 +117,29 @@ function q_singleval($query)
 	return uq($query)->fetchColumn();
 }
 
+function q_limit($query, $limit, $off=0)
+{
+	return $query .' LIMIT '. $limit .' OFFSET '. $off;
+}
+
 function q_concat($arg)
 {
 	$tmp = func_get_args();
 	return implode('||', $tmp);
 }
 
-function q_limit($query, $limit, $off=0)
-{
-	return $query .' LIMIT '. $limit .' OFFSET '. $off;
+function q_rownum() {
+	// if (!function_exists('sqlite_rownum')) {
+	// 	function sqlite_rownum() {
+	//		return ++$GLOBALS['SQLITE_ROWNUM'];
+	//	}
+	//	db::$db->sqliteCreateFunction('rownum', 'sqlite_rownum');
+	// }
+	// $GLOBALS['SQLITE_ROWNUM'] = 0;
+	// return 'rownum()';
+
+	// Cannot be done. SQLite's subquery flattening will apply count before ORDER BY (probably a bug).
+	return 'id';
 }
 
 function q_bitand($fieldLeft, $fieldRight) {
@@ -133,23 +152,6 @@ function q_bitor($fieldLeft, $fieldRight) {
 
 function q_bitnot($bitField) {
 	return '~'. $bitField;
-}
-
-function get_fud_table_list($tbl='')
-{
-	if ($tbl) {
-		return db_all('SELECT tbl_name FROM sqlite_master WHERE type=\'table\' AND name LIKE \''. $tbl .'\'');
-	}
-
-	return db_all('SELECT tbl_name FROM sqlite_master WHERE type=\'table\' AND name LIKE \''. $GLOBALS['DBHOST_TBL_PREFIX']. '%\'');
-}
-
-function optimize_tables($tbl_list=null)
-{
-	if (!$tbl_list) {
-		$tbl_list = get_fud_table_list();
-	}
-	uq('VACUUM');
 }
 
 function db_saq($q)
@@ -195,16 +197,17 @@ function db_li($q, &$ef, $li=0)
 		/* XXX unknown?? */
 		return null;
 	} else {
-		fud_sql_error_handler($q, db::$db->errorCode(), __enifo(db::$db->errorInfo()), db_version());
+		fud_sql_error_handler($q, __enifo(db::$db->errorInfo()), db::$db->errorCode(), db_version());
 	}
 }
 
 function ins_m($tbl, $flds, $types, $vals)
 {
-	$sth = db::$db->prepare('INSERT OR IGNORE INTO '.$tbl.' ('.$flds.') VALUES(?'.str_repeat(',?',substr_count($flds, ',')).')');
+	$sth = db::$db->prepare('INSERT OR IGNORE INTO '. $tbl .' ('. $flds .') VALUES(?'. str_repeat(',?',substr_count($flds, ',')) .')');
 	foreach ($vals as $v) {
 		if (!$sth->execute(explode(',', trim($v,'\'')))) {
-			fud_sql_error_handler($sth->queryString, db::$db->errorCode(), __enifo(db::$db->errorInfo()), db_version());
+			// Note the use of undocumented $sth->queryString.
+			fud_sql_error_handler($sth->queryString, __enifo(db::$db->errorInfo()), db::$db->errorCode(), db_version());
 		}
 	}
 }

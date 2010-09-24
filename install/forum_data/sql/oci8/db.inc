@@ -23,8 +23,6 @@ if (!defined('fud_sql_lnk')) {
 		fud_sql_error_handler('Initiating '. $connect_func, $err['message'], $err['code'], 'Unknown');
 	}
 
-	$GLOBALS['FUD_OPT_3'] = $GLOBALS['FUD_OPT_3'] ^= 4096;	// Disable temp tables - not implemented for Oracle.
-		
 	define('fud_sql_lnk', $conn);
 	define('__dbtype__', 'oracle');
 }
@@ -114,22 +112,22 @@ if (!defined('fud_query_stats')) {
 			$GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'] = 0;
 		}
 
-		$s = gettimeofday();
+		$s = microtime(true);
 		$GLOBALS['__FLPG__'] = oci_parse(fud_sql_lnk, _ora_syntax($q));
 		if (@oci_execute($GLOBALS['__FLPG__']) === FALSE) {
 			$err = oci_error($GLOBALS['__FLPG__']);
 			fud_sql_error_handler($err['sqltext'], $err['message'], $err['code'], db_version());
 		}
-		$e = gettimeofday();
+		$e = gettimeofday(true);
 
-		$GLOBALS['__DB_INC_INTERNALS__']['last_time'] = ($e['sec'] - $s['sec'] + (($e['usec'] - $s['usec'])/1000000));
+		$GLOBALS['__DB_INC_INTERNALS__']['last_time'] = ($e - $s);
 		$GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'] += $GLOBALS['__DB_INC_INTERNALS__']['last_time'];
 		$GLOBALS['__DB_INC_INTERNALS__']['last_query'] = $q;
 
-		echo '<pre>'.preg_replace('!\s+!', ' ', $q).'</pre>';
-		echo '<pre>query count: '.$GLOBALS['__DB_INC_INTERNALS__']['query_count'].' time taken: '.$GLOBALS['__DB_INC_INTERNALS__']['last_time'].'</pre>';
-		echo '<pre>Affected rows: '.db_affected().'</pre>';
-		echo '<pre>total sql time: '.$GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'].'</pre>';
+		echo '<pre>'. preg_replace('!\s+!', ' ', $q) .'</pre>';
+		echo '<pre>query count: '. $GLOBALS['__DB_INC_INTERNALS__']['query_count'] .' time taken: '. $GLOBALS['__DB_INC_INTERNALS__']['last_time'] .'</pre>';
+		echo '<pre>Affected rows: '. db_affected() .'</pre>';
+		echo '<pre>total sql time: '. $GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'] .'</pre>';
 
 		return $GLOBALS['__FLPG__'];
 	}
@@ -158,12 +156,6 @@ function q_singleval($query)
 	return $val ? $val[0] : null;
 }
 
-function q_concat($arg)
-{
-	$tmp = func_get_args();
-	return implode('||', $tmp);
-}
-
 function q_limit($query, $limit, $off=0)
 {
 	if ($off) {
@@ -171,6 +163,16 @@ function q_limit($query, $limit, $off=0)
 	} else {
 		return 'SELECT * FROM (SELECT /*+ FIRST_ROWS */ a.* FROM ('. $query .') a WHERE rownum <= '. $limit .')';
 	}
+}
+
+function q_concat($arg)
+{
+	$tmp = func_get_args();
+	return implode('||', $tmp);
+}
+
+function q_rownum() {
+	return 'ROWNUM';
 }
 
 function q_bitand($fieldLeft, $fieldRight) {
@@ -183,25 +185,6 @@ function q_bitor($fieldLeft, $fieldRight) {
 
 function q_bitnot($bitField) {
 	return '(0 - '. $bitField .') - 1';
-}
-
-function get_fud_table_list($tbl='')
-{
-	if ($tbl) {
-		return db_all('SELECT lower(table_name) FROM user_tables WHERE table_name LIKE \''. strtoupper($tbl) .'\'');
-	}
-
-	return db_all('SELECT lower(table_name) FROM user_tables WHERE table_name LIKE \''. strtoupper($GLOBALS['DBHOST_TBL_PREFIX'] .'%\''));
-}
-
-function optimize_tables($tbl_list=null)
-{
-	if (!$tbl_list) {
-		$tbl_list = get_fud_table_list();
-	}
-	foreach ($tbl_list as $t) {
-		q('ANALYZE TABLE '. $t .' COMPUTE STATISTICS');
-	}
 }
 
 function db_saq($q)
@@ -251,7 +234,7 @@ function db_li($q, &$ef, $li=0)
 		return $r;
 	}
 
-	/* Ignore duplicate keys : ORA-00001: unique constraint violated. */
+	/* Ignore duplicate keys: ORA-00001: unique constraint violated. */
 	$err = oci_error($p);
 	if ( $err['code'] == 1 ) {
 		return null;
@@ -265,12 +248,13 @@ function ins_m($tbl, $flds, $types, $vals)
 	$sth = oci_parse(fud_sql_lnk, 'INSERT INTO '. $tbl .' ('. $flds .') VALUES(:'. implode(',:', range(0, substr_count($flds, ','))) .')');
 	$types_arr = explode(',', $types);
 	foreach ($vals as $v) {
-		foreach (explode(',', trim($v,'\'')) as $v_no => $v_val) {
-			oci_bind_by_name($sth, ':'. $v_no, $v_val, -1, (trim($types_arr[$v_no]) == 'integer') ? SQLT_INT : SQLT_CHR);
+		$row = explode(',', trim($v, '\''));
+		foreach ($row as $v_no => $v_val) {
+			oci_bind_by_name($sth, ':'. $v_no, $row[$v_no], -1, (trim($types_arr[$v_no]) == 'integer') ? SQLT_INT : SQLT_CHR);
 		}
-		if (!@oci_execute($sth, OCI_DEFAULT)) {
+		if (!@oci_execute($sth, OCI_DEFAULT)) {	// Don't auto commit.
 			$err = oci_error($sth);
-			if ( $err['code'] == 1 ) {	// Ignore duplicate values!
+			if ( $err['code'] == 1 ) {	// Ignore ORA-00001: unique constraint violated.
 				continue;
 			} else {
 				fud_sql_error_handler($err['sqltext'], $err['message'], $err['code'], db_version());
@@ -295,10 +279,7 @@ function db_all($q)
 
 function _esc($s)
 {
-	// Trim first 4000 characters, based on Oracle VARCHAR2(4000) limitation.
-	// $s = preg_replace('/(.{0,4000})(.*)/', '\1', $s);
-
-	// Replace any single ' with ''
+	// Replace any single ' with ''.
 	$s = str_replace('\'', '\'\'', $s);
 
 	return '\''. $s .'\'';

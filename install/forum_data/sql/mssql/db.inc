@@ -8,7 +8,7 @@
 * under the terms of the GNU General Public License as published by the 
 * Free Software Foundation; version 2 of the License. 
 **/
-#define('fud_query_stats', 1);
+// define('fud_query_stats', 1);
 
 if (!defined('fud_sql_lnk')) {
 	$connect_func = $GLOBALS['FUD_OPT_1'] & 256 ? 'mssql_pconnect' : 'mssql_connect';
@@ -92,18 +92,18 @@ if (!defined('fud_query_stats')) {
 			$GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'] = 0;
 		}
 	
-		$s = gettimeofday();
+		$s = microtime(true);
 		$result = mssql_query($query, fud_sql_lnk) or fud_sql_error_handler($query, mssql_get_last_message(), null, db_version());
-		$e = gettimeofday(); 
+		$e = microtime(true);
 
-		$GLOBALS['__DB_INC_INTERNALS__']['last_time'] = ($e['sec'] - $s['sec'] + (($e['usec'] - $s['usec'])/1000000));
+		$GLOBALS['__DB_INC_INTERNALS__']['last_time'] = ($e - $s);
 		$GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'] += $GLOBALS['__DB_INC_INTERNALS__']['last_time'];
 		$GLOBALS['__DB_INC_INTERNALS__']['last_query'] = $query;
 
-		echo '<pre>'.preg_replace('!\s+!', ' ', $query).'</pre>';
-		echo '<pre>query count: '.$GLOBALS['__DB_INC_INTERNALS__']['query_count'].' time taken: '.$GLOBALS['__DB_INC_INTERNALS__']['last_time'].'</pre>';
-		echo '<pre>Affected rows: '.db_affected().'</pre>';
-		echo '<pre>total sql time: '.$GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'].'</pre>';
+		echo '<pre>'. preg_replace('!\s+!', ' ', $query) .'</pre>';
+		echo '<pre>query count: '. $GLOBALS['__DB_INC_INTERNALS__']['query_count'] .' time taken: '. $GLOBALS['__DB_INC_INTERNALS__']['last_time'] .'</pre>';
+		echo '<pre>Affected rows: '. db_affected() .'</pre>';
+		echo '<pre>total sql time: '. $GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'] .'</pre>';
 
 		return $result; 
 	}
@@ -131,13 +131,6 @@ function q_singleval($query)
 	}
 }
 
-function q_concat($arg)
-{
-	// Breaks the standard by using the '+' operator instead of '||'. 
-	$tmp = func_get_args();
-	return implode('+', $tmp);
-}
-
 function q_limit($query, $limit, $off=0)
 {
 	if ($off) {
@@ -158,6 +151,17 @@ function q_limit($query, $limit, $off=0)
 */
 }
 
+function q_concat($arg)
+{
+	// Breaks the standard by using the '+' operator instead of '||'. 
+	$tmp = func_get_args();
+	return implode('+', $tmp);
+}
+
+function q_rownum() {
+    die('Not yet implemented');
+}
+
 function q_bitand($fieldLeft, $fieldRight) {
 	return $fieldLeft .' & '. $fieldRight;
 }
@@ -170,37 +174,22 @@ function q_bitnot($bitField) {
 	return '~'. $bitField;
 }
 
-function get_fud_table_list($tbl='')
-{
-	if ($tbl) {
-		return q_all('EXEC sp_tables @table_name = \''. $tbl .'\'');
-	}
-
-	return db_all('EXEC sp_tables @table_name = \''. $GLOBALS['DBHOST_TBL_PREFIX'] .'%\'');
-}
-
-function optimize_tables($tbl_list=null)
-{
-	if (!$tbl_list) {
-		$tbl_list = get_fud_table_list();
-	}
-
-	q('OPTIMIZE TABLE '. implode(', ', $tbl_list));
-}
-
 function db_saq($q)
 {
 	return mssql_fetch_row(q($q));
 }
+
 function db_sab($q)
 {
 	return mssql_fetch_object(q($q));
 }
+
 function db_qid($q)
 {
 	q($q);
 	return mssql_insert_id(fud_sql_lnk);
 }
+
 function db_arr_assoc($q)
 {
 	return mssql_fetch_array(q($q), MSSQL_ASSOC);
@@ -218,7 +207,7 @@ function db_li($q, &$ef, $li=0)
 		return ($li ? mssql_insert_id(fud_sql_lnk) : $r);
 	}
 
-	/* duplicate key */
+	/* Duplicate key. */
 	if (mssql_errno(fud_sql_lnk) == 1062) {
 		$ef = ltrim(strrchr(mssql_get_last_message(), ' '));
 		return null;

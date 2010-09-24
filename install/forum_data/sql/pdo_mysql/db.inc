@@ -8,26 +8,26 @@
 * under the terms of the GNU General Public License as published by the 
 * Free Software Foundation; version 2 of the License. 
 **/
-# define('forum_debug', 1);
+// define('fud_query_stats', 1);
 
 class db { public static $db, $ar, $res, $buf; }
 
 if (empty(db::$db)) {
 	if ($GLOBALS['DBHOST']{0} == ':') {
-		$host = 'unix_socket='.substr($GLOBALS['DBHOST'], 1);
+		$host = 'unix_socket='. substr($GLOBALS['DBHOST'], 1);
 	} else {
-		$host = 'host='.$GLOBALS['DBHOST'];
+		$host = 'host='. $GLOBALS['DBHOST'];
 	}
 
 	$dsn = 'mysql:'.$host.';dbname='.$GLOBALS['DBHOST_DBNAME'];
+	$opts = $GLOBALS['FUD_OPT_1'] & 256 ? array(PDO::ATTR_PERSISTENT=>true) : array();
+	$opts[] = array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8 COLLATE utf8_general_ci');
 
 	try {
-		db::$db = new PDO($dsn, $GLOBALS['DBHOST_USER'], $GLOBALS['DBHOST_PASSWORD']);
+		db::$db = new PDO($dsn, $GLOBALS['DBHOST_USER'], $GLOBALS['DBHOST_PASSWORD'], $opts);
 	} catch (PDOException $e) {
-		fud_sql_error_handler('Failed to establish database connection, PDO says: '. $e->getMessage(), '', '', '');
+		fud_sql_error_handler('Failed to establish database connection', 'PDO says: '. $e->getMessage(), '', '');
 	}
-
-	db::$db->exec('SET NAMES \'utf8\' COLLATE \'utf8_general_ci\'');
 
 	define('__dbtype__', substr($GLOBALS['DBHOST_DBTYPE'], 4));
 }
@@ -45,7 +45,10 @@ function db_lock($tables)
 	if (!empty($GLOBALS['__DB_INC_INTERNALS__']['db_locked'])) {
 		fud_sql_error_handler('Recursive Lock', 'internal', 'internal', db_version());
 	}
-	q('LOCK TABLES '.$tables);
+
+	db::$db->beginTransaction();
+	q('LOCK TABLES '. $tables);
+
 	$GLOBALS['__DB_INC_INTERNALS__']['db_locked'] = 1;
 }
 
@@ -62,6 +65,7 @@ function db_unlock()
 	}
 
 	q('UNLOCK TABLES');
+	db::$db->commit();
 
 	unset($GLOBALS['__DB_INC_INTERNALS__']['db_locked']);
 }
@@ -81,28 +85,87 @@ function __enifo($a)
 	return end($a);	// Return last element of error array.
 }
 
-function uq($query, $buf=0)
-{
-	if (!strncasecmp($query, 'SELECT', 6) || !strncasecmp($query, 'SHOW', 4)) {
-		db::$res = null;
-		db::$buf = $buf;
-		if ($buf && __dbtype__ == 'mysql') db::$db->setAttribute(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY, 1);
-		db::$res = db::$db->query($query) or fud_sql_error_handler($query, db::$db->errorCode(), __enifo(db::$db->errorInfo()), db_version());
-		if ($buf && __dbtype__ == 'mysql') db::$db->setAttribute(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY, 0);
-		return db::$res;
+if (!defined('fud_query_stats')) {
+	function uq($query, $buf=0)
+	{
+		if (!strncasecmp($query, 'SELECT', 6) || !strncasecmp($query, 'SHOW', 4)) {
+			db::$res = null;
+			db::$buf = $buf;
+			if ($buf) db::$db->setAttribute(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY, 1);
+			db::$res = db::$db->query($query) or fud_sql_error_handler($query, __enifo(db::$db->errorInfo()), db::$db->errorCode(), db_version());
+			if ($buf) db::$db->setAttribute(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY, 0);
+			return db::$res;
+		}
+		if (!db::$buf) {
+			db::$res = null;
+		}
+		if ((db::$ar = db::$db->exec($query)) === FALSE) {
+			fud_sql_error_handler($query, __enifo(db::$db->errorInfo()), db::$db->errorCode(), db_version());
+		}
+		return db::$ar;
 	}
-	if (!db::$buf) {
-		db::$res = null;
-	}
-	if ((db::$ar = db::$db->exec($query)) === FALSE) {
-		fud_sql_error_handler($query, db::$db->errorCode(), __enifo(db::$db->errorInfo()), db_version());
-	}
-	return db::$ar;
-}
 
-function q($query)
-{
-	return uq($query, 1);
+	function q($query)
+	{
+		return uq($query, 1);
+	}
+} else {
+	function uq($query, $buf=0)
+	{
+		if (!isset($GLOBALS['__DB_INC_INTERNALS__']['query_count'])) {
+			$GLOBALS['__DB_INC_INTERNALS__']['query_count'] = 1;
+		} else {
+			++$GLOBALS['__DB_INC_INTERNALS__']['query_count'];
+		}
+
+		if (!isset($GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'])) {
+			$GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'] = 0;
+		}
+
+		$s = microtime(true);
+		if (!strncasecmp($query, 'SELECT', 6) || !strncasecmp($query, 'SHOW', 4)) {
+			db::$res = null;
+			db::$buf = $buf;
+			if ($buf) db::$db->setAttribute(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY, 1);
+			db::$res = db::$db->query($query) or fud_sql_error_handler($query, __enifo(db::$db->errorInfo()), db::$db->errorCode(), db_version());
+			if ($buf) db::$db->setAttribute(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY, 0);
+			$e = microtime(true);
+
+			$GLOBALS['__DB_INC_INTERNALS__']['last_time'] = ($e - $s);
+			$GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'] += $GLOBALS['__DB_INC_INTERNALS__']['last_time'];
+			$GLOBALS['__DB_INC_INTERNALS__']['last_query'] = $query;
+
+			echo '<pre>'. preg_replace('!\s+!', ' ', $query) .'</pre>';
+			echo '<pre>query count: '. $GLOBALS['__DB_INC_INTERNALS__']['query_count'] .' time taken: '. $GLOBALS['__DB_INC_INTERNALS__']['last_time'] .'</pre>';
+			echo '<pre>Affected rows: '. db_affected() .'</pre>';
+			echo '<pre>total sql time: '. $GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'] .'</pre>';
+
+			return db::$res;
+		}
+		if (!db::$buf) {
+			db::$res = null;
+		}
+		if ((db::$ar = db::$db->exec($query)) === FALSE) {
+			fud_sql_error_handler($query, __enifo(db::$db->errorInfo()), db::$db->errorCode(), db_version());
+		}
+		$e = microtime(true);
+
+		$GLOBALS['__DB_INC_INTERNALS__']['last_time'] = ($e - $s);
+		$GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'] += $GLOBALS['__DB_INC_INTERNALS__']['last_time'];
+		$GLOBALS['__DB_INC_INTERNALS__']['last_query'] = $query;
+
+		echo '<pre>'. preg_replace('!\s+!', ' ', $query) .'</pre>';
+		echo '<pre>query count: '. $GLOBALS['__DB_INC_INTERNALS__']['query_count'] .' time taken: '. $GLOBALS['__DB_INC_INTERNALS__']['last_time'] .'</pre>';
+		echo '<pre>Affected rows: '. db_affected() .'</pre>';
+		echo '<pre>total sql time: '. $GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'] .'</pre>';
+
+		return db::$ar;
+	}
+
+	function q($query)
+	{
+		return uq($query, 1);
+	}
 }
 
 function db_rowobj($result)
@@ -120,6 +183,12 @@ function q_singleval($query)
 	return uq($query)->fetchColumn();
 }
 
+function q_limit($query, $limit, $off=0)
+{
+	// OLD SYNTAX: return $query .' LIMIT '. $off .','. $limit;
+	return $query .' LIMIT '. $limit .' OFFSET '. $off;
+}
+
 function q_concat($arg)
 {
 	// MySQL badly breaks the SQL standard by redefining || to mean OR. 
@@ -127,10 +196,9 @@ function q_concat($arg)
 	return 'CONCAT('. implode(',', $tmp) .')';
 }
 
-function q_limit($query, $limit, $off=0)
-{
-	// OLD SYNTAX: return $query .' LIMIT '. $off .','. $limit;
-	return $query .' LIMIT '. $limit .' OFFSET '. $off;
+function q_rownum() {
+	q('SET @seq=0');		// For simulating rownum.
+	return '(@seq:=@seq+1)';
 }
 
 function q_bitand($fieldLeft, $fieldRight) {
@@ -143,25 +211,6 @@ function q_bitor($fieldLeft, $fieldRight) {
 
 function q_bitnot($bitField) {
 	return '~'. $bitField;
-}
-
-function get_fud_table_list($tbl='')
-{
-	if ($tbl) {
-		return db_all('SHOW TABLES LIKE \''. str_replace('_', '\_', $tbl) .'\'');
-	}
-
-	return db_all('SHOW TABLES LIKE \''. str_replace('_', '\_', $tbl) .'%\'');
-}
-
-function optimize_tables($tbl_list=null)
-{
-	if (!$tbl_list) {
-		$tbl_list = get_fud_table_list();
-	}
-
-	$res = db::$db->query('OPTIMIZE TABLE '. implode(', ', $tbl_list));
-	unset($res);
 }
 
 function db_saq($q)
@@ -202,12 +251,12 @@ function db_li($q, &$ef, $li=0)
 		return db::$db->lastInsertId();
 	}
 
-	/* duplicate key */
+	/* Duplicate key. */
 	if (($c = db::$db->errorCode()) == '23000' || $c == '23505') {
 		$ef = ltrim(strrchr(__enifo(db::$db->errorInfo()), ' '));
 		return null;
 	} else {
-		fud_sql_error_handler($q, db::$db->errorCode(), __enifo(db::$db->errorInfo()), db_version());
+		fud_sql_error_handler($q, __enifo(db::$db->errorInfo()), db::$db->errorCode(), db_version());
 	}
 }
 

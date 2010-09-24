@@ -8,6 +8,7 @@
 * under the terms of the GNU General Public License as published by the 
 * Free Software Foundation; version 2 of the License. 
 **/
+// define('fud_query_stats', 1);
 
 if (!defined('fud_sql_lnk')) {
 	$connect_func = $GLOBALS['FUD_OPT_1'] & 256 ? 'pg_pconnect' : 'pg_connect';	
@@ -59,7 +60,6 @@ function db_lock($tables)
 	}
 }
 
-
 function db_unlock()
 {
 	if (empty($GLOBALS['__DB_INC_INTERNALS__']['db_locked'])) {
@@ -109,16 +109,16 @@ if (!defined('fud_query_stats')) {
 			$GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'] = 0;
 		}
 	
-		$s = gettimeofday();
+		$s = microtime(true);
 		$GLOBALS['__FLPG__'] = pg_query(fud_sql_lnk, $q) or fud_sql_error_handler($q, pg_last_error(fud_sql_lnk), '', db_version());
-		$e = gettimeofday(); 
+		$e = microtime(true);
 	
-		$GLOBALS['__DB_INC_INTERNALS__']['last_time'] = ($e['sec'] - $s['sec'] + (($e['usec'] - $s['usec'])/1000000));;
+		$GLOBALS['__DB_INC_INTERNALS__']['last_time'] = ($e - $s);;
 		$GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'] += $GLOBALS['__DB_INC_INTERNALS__']['last_time'];
 		$GLOBALS['__DB_INC_INTERNALS__']['last_query'] = $q;
 
 		echo '<pre>'. preg_replace('!\s+!', ' ', $q) .'</pre>';
-		echo '<pre>query count: '.$GLOBALS['__DB_INC_INTERNALS__']['query_count'] .' time taken: '.$GLOBALS['__DB_INC_INTERNALS__']['last_time'].'</pre>';
+		echo '<pre>query count: '. $GLOBALS['__DB_INC_INTERNALS__']['query_count'] .' time taken: '. $GLOBALS['__DB_INC_INTERNALS__']['last_time'] .'</pre>';
 		echo '<pre>Affected rows: '. db_affected() .'</pre>';
 		echo '<pre>total sql time: '. $GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'] .'</pre>';
 
@@ -142,15 +142,20 @@ function q_singleval($query)
 	return $val ? $val[0] : null;
 }
 
+function q_limit($query, $limit, $off=0)
+{
+	return $query .' LIMIT '. $limit .' OFFSET '. $off;
+}
+
 function q_concat($arg)
 {
 	$tmp = func_get_args();
 	return implode('||', $tmp);
 }
 
-function q_limit($query, $limit, $off=0)
-{
-	return $query .' LIMIT '. $limit .' OFFSET '. $off;
+function q_rownum() {
+	q('CREATE TEMPORARY SEQUENCE rnum');
+	return 'nextval(\'rnum\')';
 }
 
 function q_bitand($fieldLeft, $fieldRight) {
@@ -163,25 +168,6 @@ function q_bitor($fieldLeft, $fieldRight) {
 
 function q_bitnot($bitField) {
 	return '~'. $bitField;
-}
-
-function get_fud_table_list($tbl='')
-{
-	if ($tbl) {
-		return db_all('SELECT relname FROM pg_class WHERE relkind=\'r\' AND relname LIKE \''. $tbl .'\'');
-	}
-
-	return db_all('SELECT relname FROM pg_class WHERE relkind=\'r\' AND relname LIKE \''. addcslashes($GLOBALS['DBHOST_TBL_PREFIX'],'_') .'%\'');
-}
-
-function optimize_tables($tbl_list=null)
-{
-	if (!$tbl_list) {
-		$tbl_list = get_fud_table_list();
-	}
-	foreach ($tbl_list as $t) {
-		q('VACUUM ANALYZE '. $t);
-	}
 }
 
 function db_saq($q)
@@ -240,11 +226,13 @@ function ins_m($tbl, $flds, $types, $vals)
 {
 	$pid = $GLOBALS['DBHOST_TBL_PREFIX'] . substr(md5(mt_rand()), 0, 10);
 	pg_query(fud_sql_lnk, 'PREPARE '. $pid .' ('. $types .') AS INSERT INTO '. $tbl .' ('. $flds .') VALUES($'. implode(',$', range(1, substr_count($flds, ',') + 1)) .')');
+	// pg_prepare(fud_sql_lnk, $pid, 'INSERT INTO '. $tbl .' ('. $flds .') VALUES($'. implode(',$', range(1, substr_count($flds, ',') + 1)) .')');
 
 	$err = error_reporting(0);	// Simply ignore DUPLICATE errors.
 	foreach ($vals as $v) {
 		pg_exec('SAVEPOINT pre_ins_m');
 		pg_exec(fud_sql_lnk, 'EXECUTE '. $pid .' ('. $v .')');
+		// pg_execute(fud_sql_lnk, $pid,  explode(',', $v));	// $v must be unquoted before we can use this method.
 		if (pg_last_error(fud_sql_lnk)) {
 			pg_exec('ROLLBACK TO pre_ins_m');
 		}

@@ -8,10 +8,9 @@
 * under the terms of the GNU General Public License as published by the 
 * Free Software Foundation; version 2 of the License. 
 **/
-# define('forum_debug', 1);
+// define('fud_query_stats', 1);
 
-class db { public static $db, $ar, $res, $buf, $inTransaction; }
-// $inTransaction may be replaced with PDO:inTransaction() in future (if it's accepted).
+class db { public static $db, $ar, $res, $buf; }
 
 if (empty(db::$db)) {
 	$dsn = 'pgsql:';
@@ -27,14 +26,14 @@ if (empty(db::$db)) {
 	if ($GLOBALS['DBHOST_DBNAME']) {
 		$dsn .= ' dbname='. $GLOBALS['DBHOST_DBNAME'];
 	}
+	$opts = $GLOBALS['FUD_OPT_1'] & 256 ? array(PDO::ATTR_PERSISTENT=>true) : array();
 
 	try {
-		db::$db = new PDO($dsn, $GLOBALS['DBHOST_USER'], $GLOBALS['DBHOST_PASSWORD']);
+		db::$db = new PDO($dsn, $GLOBALS['DBHOST_USER'], $GLOBALS['DBHOST_PASSWORD'], $opts);
 	} catch (PDOException $e) {
-		fud_sql_error_handler('Failed to establish database connection, PDO says: '. $e->getMessage(), '', '', '');
+		fud_sql_error_handler('Failed to establish database connection', 'PDO says: '. $e->getMessage(), '', '');
 	}
 
-	db::$inTransaction = 0;
 	define('__dbtype__', substr($GLOBALS['DBHOST_DBTYPE'], 4));
 }
 
@@ -58,11 +57,11 @@ function db_lock($tables)
 		if (!($v = trim($v))) continue;
 		$tbl[] = strtok($v, ' ');
 	}
-	q('BEGIN WORK');
+
+	db::$db->beginTransaction();
 	q('LOCK TABLE '. implode(',', $tbl) .' IN ACCESS EXCLUSIVE MODE');
 
 	$GLOBALS['__DB_INC_INTERNALS__']['db_locked'] = 1;
-	db::$inTransaction = 1;
 }
 
 function db_unlock()
@@ -77,10 +76,9 @@ function db_unlock()
 		fud_sql_error_handler('DB_UNLOCK: unlock overcalled', 'internal', 'internal', db_version());
 	}
 
-	q('COMMIT WORK');
+	db::$db->commit();
 
 	unset($GLOBALS['__DB_INC_INTERNALS__']['db_locked']);
-	db::$inTransaction = 0;
 }
 
 function db_locked()
@@ -103,14 +101,14 @@ function uq($query, $buf=0)
 	if (!strncasecmp($query, 'SELECT', 6)) {
 		db::$res = null;
 		db::$buf = $buf;
-		db::$res = db::$db->query($query) or fud_sql_error_handler($query, db::$db->errorCode(), __enifo(db::$db->errorInfo()), db_version());
+		db::$res = db::$db->query($query) or fud_sql_error_handler($query, __enifo(db::$db->errorInfo()), db::$db->errorCode(), db_version());
 		return db::$res;
 	}
 	if (!db::$buf) {
 		db::$res = null;
 	}
 	if ((db::$ar = db::$db->exec($query)) === FALSE) {
-		fud_sql_error_handler($query, db::$db->errorCode(), __enifo(db::$db->errorInfo()), db_version());
+		fud_sql_error_handler($query, __enifo(db::$db->errorInfo()), db::$db->errorCode(), db_version());
 	}
 	return db::$ar;
 }
@@ -135,15 +133,20 @@ function q_singleval($query)
 	return uq($query)->fetchColumn();
 }
 
+function q_limit($query, $limit, $off=0)
+{
+	return $query .' LIMIT '. $limit .' OFFSET '. $off;
+}
+
 function q_concat($arg)
 {
 	$tmp = func_get_args();
 	return implode('||', $tmp);
 }
 
-function q_limit($query, $limit, $off=0)
-{
-	return $query .' LIMIT '. $limit .' OFFSET '. $off;
+function q_rownum() {
+	q('CREATE TEMPORARY SEQUENCE rnum');
+	return 'nextval(\'rnum\')';
 }
 
 function q_bitand($fieldLeft, $fieldRight) {
@@ -156,27 +159,6 @@ function q_bitor($fieldLeft, $fieldRight) {
 
 function q_bitnot($bitField) {
 	return '~'. $bitField;
-}
-
-function get_fud_table_list($tbl='')
-{
-	if ($tbl) {
-		return db_all('SELECT relname FROM pg_class WHERE relkind=\'r\' AND relname LIKE \''. $tbl .'\'');
-	}
-
-	return db_all('SELECT relname FROM pg_class WHERE relkind=\'r\' AND relname LIKE \''. addcslashes($GLOBALS['DBHOST_TBL_PREFIX'],'_') .'%\'');
-
-}
-
-function optimize_tables($tbl_list=null)
-{
-	if (!$tbl_list) {
-		$tbl_list = get_fud_table_list();
-	}
-
-	foreach ($tbl_list as $t) { 
-		uq('VACUUM ANALYZE '. $t); 
-	}
 }
 
 function db_saq($q)
@@ -210,7 +192,7 @@ function db_fetch_array($q)
 function db_li($q, &$ef, $li=0)
 {
 	// PgSQL will fail the entire tran if dup val error is encountered.
-	if (db::$inTransaction) {
+	if (!empty($GLOBALS['__DB_INC_INTERNALS__']['db_locked'])) {	// In a transaction.
 	      db::$db->exec('SAVEPOINT pre_db_li');
 	}
 
@@ -229,12 +211,12 @@ function db_li($q, &$ef, $li=0)
 	/* Ignore: 23000=integrity_constraint_violation and 23505=unique_violation. */
 	if (($c = db::$db->errorCode()) == '23000' || $c == '23505') {
 		$ef = ltrim(strrchr(__enifo(db::$db->errorInfo()), ' '));
-		if (db::$inTransaction) {
+		if (!empty($GLOBALS['__DB_INC_INTERNALS__']['db_locked'])) {	// In a transaction.
 			db::$db->exec('ROLLBACK TO pre_db_li');
 		}
 		return null;
 	} else {
-		fud_sql_error_handler($q, db::$db->errorCode(), __enifo(db::$db->errorInfo()), db_version());
+		fud_sql_error_handler($q, __enifo(db::$db->errorInfo()), db::$db->errorCode(), db_version());
 	}
 }
 

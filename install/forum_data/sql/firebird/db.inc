@@ -8,7 +8,7 @@
 * under the terms of the GNU General Public License as published by the 
 * Free Software Foundation; version 2 of the License. 
 **/
-#define('fud_query_stats', 1);
+// define('fud_query_stats', 1);
 
 if (!defined('fud_sql_lnk')) {
 	$connect_func = $GLOBALS['FUD_OPT_1'] & 256 ? 'ibase_pconnect' : 'ibase_connect';
@@ -89,18 +89,18 @@ if (!defined('fud_query_stats')) {
 			$GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'] = 0;
 		}
 	
-		$s = gettimeofday();
+		$s = microtime(true);
 		$result = ibase_query($query) or fud_sql_error_handler($query, ibase_errmsg(), ibase_errcode(), db_version());
-		$e = gettimeofday(); 
+		$e = microtime(true);
 
-		$GLOBALS['__DB_INC_INTERNALS__']['last_time'] = ($e['sec'] - $s['sec'] + (($e['usec'] - $s['usec'])/1000000));
+		$GLOBALS['__DB_INC_INTERNALS__']['last_time'] = ($e - $s);
 		$GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'] += $GLOBALS['__DB_INC_INTERNALS__']['last_time'];
 		$GLOBALS['__DB_INC_INTERNALS__']['last_query'] = $query;
 
-		echo '<pre>'.preg_replace('!\s+!', ' ', $query).'</pre>';
-		echo '<pre>query count: '.$GLOBALS['__DB_INC_INTERNALS__']['query_count'].' time taken: '.$GLOBALS['__DB_INC_INTERNALS__']['last_time'].'</pre>';
-		echo '<pre>Affected rows: '.db_affected().'</pre>';
-		echo '<pre>total sql time: '.$GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'].'</pre>';
+		echo '<pre>'. preg_replace('!\s+!', ' ', $query) .'</pre>';
+		echo '<pre>query count: '. $GLOBALS['__DB_INC_INTERNALS__']['query_count'] .' time taken: '. $GLOBALS['__DB_INC_INTERNALS__']['last_time'] .'</pre>';
+		echo '<pre>Affected rows: '. db_affected() .'</pre>';
+		echo '<pre>total sql time: '. $GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'] .'</pre>';
 
 		return $result; 
 	}
@@ -128,15 +128,19 @@ function q_singleval($query)
 	}
 }
 
+function q_limit($query, $limit, $off=0)
+{
+	return 'SELECT FIRST '. $limit . ((!empty($off)) ? ' SKIP ' . $off : '') . substr($query, 6);
+}
+
 function q_concat($arg)
 {
 	$tmp = func_get_args();
 	return implode('||', $tmp);
 }
 
-function q_limit($query, $limit, $off=0)
-{
-	return 'SELECT FIRST '. $limit . ((!empty($off)) ? ' SKIP ' . $off : '') . substr($query, 6);
+function q_rownum() {
+    die('Not yet implemented');
 }
 
 function q_bitand($fieldLeft, $fieldRight) {
@@ -149,24 +153,6 @@ function q_bitor($fieldLeft, $fieldRight) {
 
 function q_bitnot($bitField) {
 	return '~'. $bitField;
-}
-
-function get_fud_table_list($tbl='')
-{
-	if ($tbl) {
-		return q_all('SELECT rdb$relation_name FROM rdb$relations WHERE rdb$view_blr is null AND(rdb$system_flag is null or rdb$system_flag = 0) AND rdb$relation_name LIKE \''. $tbl .'\'');
-	}
-
-	return db_all('SELECT rdb$relation_name FROM rdb$relations WHERE rdb$view_blr is null AND(rdb$system_flag is null or rdb$system_flag = 0) AND rdb$relation_name LIKE \''. $GLOBALS['DBHOST_TBL_PREFIX'] .'%\'');
-}
-
-function optimize_tables($tbl_list=null)
-{
-	if (!$tbl_list) {
-		$tbl_list = get_fud_table_list();
-	}
-
-	q('OPTIMIZE TABLE '. implode(', ', $tbl_list));
 }
 
 function db_saq($q)
@@ -199,7 +185,7 @@ function db_li($q, &$ef, $li=0)
 		return ($li ? ibase_insert_id(fud_sql_lnk) : $r);
 	}
 
-	/* duplicate key */
+	/* Duplicate key. */
 	if (ibase_errcode() == 1062) {
 		$ef = ltrim(strrchr(ibase_errmsg(), ' '));
 		return null;
