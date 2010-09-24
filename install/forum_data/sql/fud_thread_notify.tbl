@@ -11,10 +11,9 @@ DROP TABLE IF EXISTS {SQL_TABLE_PREFIX}thread_notify;
 
 CREATE TABLE {SQL_TABLE_PREFIX}thread_notify
 (
-	id		INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	user_id		INT NOT NULL DEFAULT 0,
-	thread_id	INT NOT NULL DEFAULT 0
+	thread_id	INT NOT NULL DEFAULT 0,
+	PRIMARY KEY (user_id, thread_id)
 );
 
-CREATE UNIQUE INDEX {SQL_TABLE_PREFIX}thread_notify_i_ut ON {SQL_TABLE_PREFIX}thread_notify (user_id, thread_id);
 CREATE INDEX {SQL_TABLE_PREFIX}thread_notify_i_t ON {SQL_TABLE_PREFIX}thread_notify (thread_id);

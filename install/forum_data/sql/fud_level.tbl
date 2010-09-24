@@ -20,6 +20,6 @@ CREATE TABLE {SQL_TABLE_PREFIX}level
 
 CREATE INDEX {SQL_TABLE_PREFIX}level_i_p ON {SQL_TABLE_PREFIX}level (post_count);
 
-# 0 pri B
-# 1 pri A
-# 2 pri L
+# 0 = pri B (display both the user's avatar and rank images)
+# 1 = pri A (give priority to the user's avatar)
+# 2 = pri L (give priority to the rank image) 

@@ -11,9 +11,7 @@ DROP TABLE IF EXISTS {SQL_TABLE_PREFIX}bookmarks;
 
 CREATE TABLE {SQL_TABLE_PREFIX}bookmarks
 (
-	id			INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	user_id			INT NOT NULL,
-	thread_id		INT NOT NULL
+	thread_id		INT NOT NULL,
+	PRIMARY KEY (user_id, thread_id)
 );
-
-CREATE INDEX {SQL_TABLE_PREFIX}bookmarks_i_u ON {SQL_TABLE_PREFIX}bookmarks (user_id);
