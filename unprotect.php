@@ -14,28 +14,6 @@ function fud_ini_get($opt)
 	return (ini_get($opt) == '1' ? 1 : 0);
 }
 
-function fud_unlock($dir)
-{
-	$dirs = array(realpath($dir));
-
-	while (list(,$v) = each($dirs)) {
-		if (!($files = glob($v.'/{.b*,.h*,.p*,.n*,.m*,*}', GLOB_BRACE|GLOB_NOSORT))) {
-			continue;
-		}
-		foreach ($files as $file) {
-			if (is_dir($file) && !is_link($file)) {
-				$perm = 0777;
-				$dirs[] = $file;
-			} else {
-				$perm = 0666;
-			}
-			if (!chmod($file, $perm)) {
-				echo '<b>Could not unlock path "'. $file .'"<br />';
-			}
-		}
-	}
-}
-
 /* main */
 	if (fud_ini_get('safe_mode') && basename(__FILE__) != 'safe_unprotect.php') {
 		$c = getcwd();
@@ -45,6 +23,7 @@ function fud_unlock($dir)
 	}
 
 	require 'GLOBALS.php';
+	fud_use('file_adm.inc', true);
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">

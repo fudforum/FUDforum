@@ -16,7 +16,7 @@ function fud_ini_get($opt)
 	return (ini_get($opt) == '1' ? 1 : 0);
 }
 
-function show_debug_message($msg, $webonly=false)
+function pf($msg, $webonly=false)
 {
 	if (php_sapi_name() == 'cli') {
 		if ($webonly) return;
@@ -27,39 +27,12 @@ function show_debug_message($msg, $webonly=false)
 	}
 }
 
-function print_error($msg)
+function seterr($msg)
 {
 	if (php_sapi_name() == 'cli') {
 		exit(strip_tags($msg) ."\n");
 	} else {
 		exit('<br /><div class="alert">'. $msg .'</div></td></tr></table></body></html>');
-	}
-}
-
-/* Delete files and directories recursively. */
-function fud_rmdir($dir)
-{
-	$dirs = array(realpath($dir));
-
-	while (list(,$v) = each($dirs)) {
-		if (!($files = glob($v.'/{.b*,.h*,.p*,.n*,.m*,*}', GLOB_BRACE|GLOB_NOSORT))) {
-			continue;
-		}
-		foreach ($files as $file) {
-			if (is_dir($file) && !is_link($file)) {
-				$dirs[] = $file;
-			} else if (!unlink($file)) {
-				show_debug_message('<b>Could not delete file "'. $file .'"');
-			}
-		}
-	}
-
-	$dirs = array_reverse($dirs);
-
-	foreach ($dirs as $dir) {
-		if (!rmdir($dir)) {
-			show_debug_message('<b>Could not delete directory "'. $dir .'"');
-		}
 	}
 }
 
@@ -79,7 +52,7 @@ function fud_rmdir($dir)
 	if (count($_POST) && $_POST['SERVER_DATA_ROOT']) {
 		if (SAFE_MODE && basename(__FILE__) != 'uninstall_safe.php') {
 			$c = getcwd();
-			copy($c . '/uninstall.php', $c . '/uninstall_safe.php');
+			copy($c .'/uninstall.php', $c .'/uninstall_safe.php');
 			header('Location: '. dirname($_SERVER['SCRIPT_NAME']) .'/uninstall_safe.php?SERVER_DATA_ROOT='. urlencode($_POST['SERVER_DATA_ROOT']) .'&SERVER_ROOT='. urlencode($_POST['SERVER_ROOT']));
 			exit;
 		}
@@ -114,16 +87,16 @@ function fud_rmdir($dir)
 	if (isset($SERVER_DATA_ROOT)) {
 		/* Sanity checks. */
 		if (!is_dir($SERVER_DATA_ROOT)) {
-			print_error('Forum Data Root directory "'. $SERVER_DATA_ROOT .'" does not exist!');
+			seterr('The data directory "'. $SERVER_DATA_ROOT .'" does not exist!');
 		}
 		if (!empty($SERVER_ROOT) && !is_dir($SERVER_ROOT)) {
-			print_error('Server Root directory "'. $SERVER_ROOT .'" does not exist!');
+			seterr('The web directory "'. $SERVER_ROOT .'" does not exist!');
 		}
 		if (!file_exists($SERVER_DATA_ROOT .'/include/GLOBALS.php')) {
-			print_error('Directory "'. $SERVER_DATA_ROOT .'" does not appear to be a Forum Data Root directory!');
+			seterr('Directory "'. $SERVER_DATA_ROOT .'" does not appear to be a Forum Data directory!');
 		}
 		if (!empty($SERVER_ROOT) && !file_exists($SERVER_ROOT .'/adm/header.php')) {
-			print_error('Directory "'. $SERVER_ROOT .'" does not appear to be a Server Root directory!');
+			seterr('Directory "'. $SERVER_ROOT .'" does not appear to be a Forum Web directory!');
 		}
 
 		/* Read GLOBALS.php for database settings so that the db can be cleaned up. */
@@ -135,67 +108,75 @@ function fud_rmdir($dir)
 		/* Check if debug mode is enabled. */
 		$dryrun = empty($_POST['dryrun']) ? 0 : 1;
 		if ($dryrun) {
-			show_debug_message('<div class="tutor">Performing a mock uninstall. Don\'t worry, your forum will NOT be uninstalled!</div>');
+			pf('<div class="tutor">Performing a mock uninstall. Don\'t worry, your forum will NOT be uninstalled!</div>');
 		} else {
-			show_debug_message('<h2>Uninstall actions:</h2>');
+			pf('<h2>Uninstall actions:</h2>');
 		}
 
 		/* Drop database tables. */
 		$dbinc = $SERVER_DATA_ROOT .'/sql/'. $DBHOST_DBTYPE .'/db.inc';
 		if (!file_exists($dbinc)) {
-			show_debug_message('No DB driver found at '. $dbinc);
-			show_debug_message('Database tables will not be dropped!');
+			pf('No DB driver found at '. $dbinc);
+			pf('Database tables will not be dropped!');
 		} else {
 			include_once $dbinc;
+			include_once $SERVER_DATA_ROOT .'/include/dbadmin.inc';
 
 			foreach(get_fud_table_list() as $tbl) {
-				show_debug_message('Dropping table '. $tbl);
+				pf('Dropping table '. $tbl);
 				if (!$dryrun) {
-					q('DROP TABLE '. $tbl);
+					drop_table($tbl);
 				}
 			}
 		}
 
-		/* Remove symlinks first - unlink doesn't delete broken symlinks. */
-		if (!$dryrun) {
-			@unlink($SERVER_DATA_ROOT .'/scripts/GLOBALS.php');
-			@unlink((empty($SERVER_ROOT) ? $SERVER_DATA_ROOT : $SERVER_DATA_ROOT) .'/GLOBALS.php');
-			@unlink((empty($SERVER_ROOT) ? $SERVER_DATA_ROOT : $SERVER_DATA_ROOT) .'/adm/GLOBALS.php');
-		}
+		if (!file_exists($INCLUDE .'file_adm.inc')) {
+			pf('Unable to load file functions.');
+			pf('Files and directories will not be deleted!');
+		} else {
+			include_once $INCLUDE .'file_adm.inc';
 
-		/* Remove files on disk. */
-		show_debug_message('Removing files in directory '. $SERVER_DATA_ROOT);
-		if (!$dryrun) {
-			fud_rmdir($SERVER_DATA_ROOT);
-		}
-		if ($SERVER_ROOT != $SERVER_DATA_ROOT && $SERVER_ROOT) {
-			show_debug_message('Removing files in directory '. $SERVER_ROOT);
+			/* Remove symlinks first - unlink doesn't delete broken symlinks. */
 			if (!$dryrun) {
-				fud_rmdir($SERVER_ROOT);
+				@unlink($SERVER_DATA_ROOT .'/scripts/GLOBALS.php');
+				@unlink((empty($SERVER_ROOT) ? $SERVER_DATA_ROOT : $SERVER_DATA_ROOT) .'/GLOBALS.php');
+				@unlink((empty($SERVER_ROOT) ? $SERVER_DATA_ROOT : $SERVER_DATA_ROOT) .'/adm/GLOBALS.php');
+			}
+
+			/* Remove files on disk. */
+			pf('Removing files in directory '. $SERVER_DATA_ROOT);
+			if (!$dryrun) {
+				fud_rmdir($SERVER_DATA_ROOT, true);
+			}
+			if ($SERVER_ROOT != $SERVER_DATA_ROOT && $SERVER_ROOT) {
+				pf('Removing files in directory '. $SERVER_ROOT);
+				if (!$dryrun) {
+					fud_rmdir($SERVER_ROOT, true);
+				}
 			}
 		}
 
-		show_debug_message('FUDforum was successfully uninstalled!');
-		print_error('Sorry to see you go. If there is anything we can do to help, please let us know on the support forum at <a href="http://fudforum.org/">fudforum.org</a>.');
+		pf('FUDforum was successfully uninstalled!');
+		seterr('Sorry to see you go. If there is anything we can do to help, please let us know on the support forum at <a href="http://fudforum.org/">fudforum.org</a>.');
 	}
 
 	if (php_sapi_name() == 'cli') {
-		show_debug_message('Usage: uninstall.php SERVER_DATA_ROOT SERVER_ROOT');
-		print_error('Please run a full backup of your system before continuing!');
+		pf('Usage: uninstall.php SERVER_DATA_ROOT SERVER_ROOT');
+		seterr('Please run a full backup of your system before continuing!');
 	} else {
 ?>
 <br />
 <p class="alert">
-	This utility will uninstall FUDforum from the specified directories. 
-	Make sure that this is what you want to do, because once it runs there is no going back. 
+	This utility will uninstall FUDforum from the specified directories.
+	Make sure that this is what you want to do, because once it runs, there is no going back.
 	We recommend running a full backup of your system before continuing.
 </p>
 <br />
 <div align="center">
 <form name="uninstall" action="uninstall.php" method="post">
 <table cellspacing="1" cellpadding="4">
-	<tr class="field"><td><b>Forum Data Root</b><br /><font size="-1">This is the directory where you've installed the non-browseable forum files</font></td><td><input type="text" name="SERVER_DATA_ROOT" value="" size=40 /></td></tr>
-	<tr class="field"><td><b>Server Root</b><br /><font size="-1">This is the directory where you've installed the browseable forum files. If it is the same as "Forum Data Root", you can leave this field empty.</font></td><td><input type="text" name="SERVER_ROOT" value="" size="40" /></td></tr>
+	<tr class="field"><td><b>Data Directory</b><br /><font size="-1">This is the directory where you've installed the non-browseable forum files.</font></td><td><input type="text" name="SERVER_DATA_ROOT" value="" size=40 /></td></tr>
+	<tr class="field"><td><b>Web Directory</b><br /><font size="-1">This is the directory where you've installed the browseable forum files. If it is the same as the "Data Directory", you can leave this field empty.</font></td><td><input type="text" name="SERVER_ROOT" value="" size="40" /></td></tr>
 	<tr class="field"><td><b>Dry Run</b><br /><font size="-1">Do a mock uninstall. Forum will NOT be uninstalled.</font></td><td><input type="checkbox" name="dryrun" value="1" checked="checked" /></td></tr>
 	<tr><td colspan="2" align="center"><input type="submit" name="submit" value="uninstall" class="button" style="background:red; color:white; font-size: x-large;" /></td></tr>
 </table>

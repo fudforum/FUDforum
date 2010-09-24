@@ -1,4 +1,4 @@
-#!/usr/local/bin/php -q
+#!/usr/bin/php -q
 <?php
 /***************************************************************************
 * copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
@@ -19,7 +19,7 @@ function create_file_archive($dir)
 
 	while (list(,$v) = each($dirs)) {
 		if (!($d = opendir($v))) {
-			w_err('cannot access "'.$path.'"');
+			w_err('Cannot access ['. $path .'].');
 		}
 
 		$dd = str_replace($base, '', $v);
@@ -30,8 +30,8 @@ function create_file_archive($dir)
 		while (($f = readdir($d))) {
 			if ($f == '.' || $f == '..' || $f == 'CVS' || $f == '.svn') continue;
 
-			if (is_file($v . "/" . $f)) {
-				$fdata = file_get_contents($v . "/" . $f);
+			if (is_file($v .'/'. $f)) {
+				$fdata = file_get_contents($v .'/'. $f);
 				if ($f == 'lib.js') {
 				 	// Crude JavaScript compression.
 				 	$multiline_comment = '/\/\*(?!-)[\x00-\xff]*?\*\//';
@@ -43,10 +43,10 @@ function create_file_archive($dir)
 				 	// $removable_space = '/\s?([\{\};\=\(\)\/\+\*-])\s?/';
 				 	// $fdata = preg_replace($removable_space, '\\1', $fdata);
 				}
-				$data .= '//' . $f . '//0600//' . $dd . '//' . md5($fdata) . '//' . strlen($fdata) . "//\n" . $fdata . "\n";
+				$data .= '//'. $f .'//0600//'. $dd .'//'. md5($fdata) .'//'. strlen($fdata) ."//\n". $fdata ."\n";
 			} else {
-				$data .= '//' . $f . '//0700//' . $dd . "//\n";
-				$dirs[] = $v . "/" . $f;
+				$data .= '//'. $f .'//0700//'. $dd ."//\n";
+				$dirs[] = $v .'/'. $f;
 			}
 		}
 		closedir($d);
@@ -57,11 +57,13 @@ function create_file_archive($dir)
 
 function w_err($msg, $exit=true)
 {
-	fwrite(STDERR, $msg . "\n"); 
+	fwrite(STDERR, $msg ."\n"); 
 	exit;
 }
 
 /* main */
+	error_reporting(E_ALL);
+	@ini_set('display_errors', 1);
 	@ini_set('memory_limit', '128M');	// PHP 5.3's default, old defaults too small.
 	@set_magic_quotes_runtime(0);		// Depricated in PHP 5.3.
 
@@ -72,11 +74,11 @@ function w_err($msg, $exit=true)
 	if (!isset($_SERVER['argv'][1]) ) {
 		w_err("No arguments.\n\tSyntax: create_file_list directory_name [use compression]");
 	} else if (!@is_dir($_SERVER['argv'][1])) {
-		w_err("Supplied argument [".$_SERVER['argv'][1]."] is not a valid directory.");
+		w_err('ERROR: ['. $_SERVER['argv'][1] ."] is not a valid valid directory.\nPlease specify a valid directory to package.");
 	}
 
 	if (isset($_SERVER['argv'][2]) && !extension_loaded('zlib')) {
-		w_err('The zlib extension that is required to compress the archive is not installed. Restart without compression.');
+		w_err('The zlib extension that is required to compress the archive is not installed. Please install it or restart without compression.');
 	}	
 
 	$_SERVER['argv'][1] = preg_replace('!/+$!', '', $_SERVER['argv'][1]);
