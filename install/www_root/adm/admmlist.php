@@ -55,13 +55,13 @@ function format_regex(&$regex)
 
 	if (isset($_GET['edit']) && $edit && ($o = db_sab('SELECT * FROM '. $tbl .'mlist WHERE id='. $edit))) {
 		foreach ($o as $k => $v) {
-			${'ml_' . $k} = $v;
+			${'ml_'. $k} = $v;
 		}
 		$ml_subject_regex_haystack_opt = format_regex($ml_subject_regex_haystack);
 		$ml_body_regex_haystack_opt = format_regex($ml_body_regex_haystack);
 	} else {
 		foreach (get_class_vars('fud_mlist') as $k => $v) {
-			${'ml_' . $k} = $v;
+			${'ml_'. $k} = $v;
 		}
 		$ml_subject_regex_haystack_opt = $ml_body_regex_haystack_opt = '';
 	}
@@ -103,8 +103,8 @@ function format_regex(&$regex)
 	</tr>
 
 	<tr class="field">
-		<td>Mailbox Type:<br /><font size="-1">Protocol and mode to use to connect to the mailbox. Select TLS mode for secure connections.</font></td>
-		<td><?php draw_select('ml_mbox_type', "POP3\nIMAP\nPOP3, TLS mode\nIMAP, TLS mode", "0\n1\n2\n4", $ml_mbox_type); ?></td>
+		<td>Mailbox Type:<br /><font size="-1">Is this a <a href="http://en.wikipedia.org/wiki/POP3">POP3</a> or <a href="http://en.wikipedia.org/wiki/IMAP">IMAP</a> mailbox? Pick TLS for Transport Layer Security or SSL to use the Secure Sockets Layer protocol.</font></td>
+		<td><?php draw_select('ml_mbox_type', "POP3\nIMAP\nPOP3, TLS mode\nIMAP, TLS mode\nPOP3, SSL mode\nIMAP, SSL mode", "0\n1\n2\n4\n8\n16", $ml_mbox_type); ?></td>
 	</tr>
 
 	<tr>
@@ -308,7 +308,7 @@ function format_regex(&$regex)
 
 		echo '<tr'.$bgcolor.'><td>'. htmlspecialchars($r[1]) .'</td><td>'. $r[2] .'</td>
 		<td nowrap="nowrap">maillist.php '.$r[0].'</td>
-		<td>[<a href="admmlist.php?edit='. $r[0] .'&amp;'. __adm_rsid .'#edit">Edit</a>] [<a href="admmlist.php?del='. $r[0] .'&amp;' .__adm_rsid .'">Delete</a>]</td></tr>';
+		<td>[<a href="admmlist.php?edit='. $r[0] .'&amp;'. __adm_rsid .'#edit">Edit</a>] [<a href="admmlist.php?del='. $r[0] .'&amp;'. __adm_rsid .'">Delete</a>]</td></tr>';
 	}
 	unset($c);
 	if (!$i) {
@@ -319,6 +319,6 @@ function format_regex(&$regex)
 <br /><br />
 <b>***Notes***</b><br />
 The <i>Exec Line</i> in the table above shows the execution line required to pipe mailing list messages into the forum.
-The <i>Help</i> page contains <a href="http://www.procmail.org/" target="_new">procmail</a> and <a href="http://www.postfix.org/" target="_new">postfix</a> examples.
+The <i>Help</i> page contains <a href="http://www.procmail.org/">procmail</a> and <a href="http://www.postfix.org/">postfix</a> examples.
 
 <?php require($WWW_ROOT_DISK .'adm/footer.php'); ?>

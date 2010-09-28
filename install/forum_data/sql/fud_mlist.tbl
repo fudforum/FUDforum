@@ -48,3 +48,5 @@ CREATE INDEX {SQL_TABLE_PREFIX}mlist_i_f ON {SQL_TABLE_PREFIX}mlist (forum_id);
 # 1 a IMAP mailbox
 # 2 POP3, TLS mode
 # 4 IMAP, TLS mode
+# 8 POP3, SSL mode
+# 16 IMAP, SSL mode

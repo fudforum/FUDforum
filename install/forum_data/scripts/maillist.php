@@ -212,7 +212,7 @@ class fud_emsg
 				$this->decode_message_body();
 				break;
 
-			// case 'multipart/digest':  will/can contain many messages, ignore for our perpouse
+			// case 'multipart/digest':  // Can contain many messages, ignore for our purpose.
 		}
 	}
 
@@ -391,7 +391,7 @@ function add_attachment($name, $data, $pid)
 	$CREATE_NEW_USERS = $config->mlist_opt & 64;
 	$FUD_OPT_2 |= $FUD_OPT_2 &~ (1024|8388608);
 	$FUD_OPT_2 |= 128;
-	
+
 	/* Set language & locale. */
 	$GLOBALS['usr'] = new stdClass();
 	list($GLOBALS['usr']->lang, $locale) = db_saq('SELECT lang, locale FROM '. sql_p .'themes WHERE theme_opt='. (1|2) .' LIMIT 1');
@@ -405,18 +405,38 @@ function add_attachment($name, $data, $pid)
 			exit('PHP\'s IMAP extension was not detected, mail cannot be fetched.');
 		}
 
-		// Get protocol and ensure a port is specified.
-		if ($config->mbox_type & 1 || $config->mbox_type & 4) {
-			$protocol = 'IMAP';
-			$config->mbox_server .= (strpos($config->mbox_server, ':') === FALSE) ? ':143' : '';
-		} else {
+		// Setup protocol, port and flags.
+		if (!$config->mbox_type) {	// Unsecure POP3 mailbox.
 			$protocol = 'POP3';
-			$config->mbox_server .= (strpos($config->mbox_server, ':') === FALSE) ? ':110' : '';
+			$port     = 110;
+			$flags    = '';
+		} else if ($config->mbox_type & 1) {	// Unsecure IMAP mailbox.
+			$protocol = 'IMAP';
+			$port     = 143;
+			$flags    = '/novalidate-cert';
+		} else if ($config->mbox_type & 2) {	// POP3, TLS mode.
+			$protocol = 'POP3';
+			$port     = 110;
+			$flags    = '/tls/novalidate-cert';
+		} else if ($config->mbox_type & 4) {	// IMAP, TLS mode.
+			$protocol = 'IMAP';
+			$port     = 143;
+			$flags    = '/tls/novalidate-cert';
+		} else if ($config->mbox_type & 8) {	// POP3, SSL mode.
+			$protocol = 'POP3';
+			$port     = 995;
+			$flags    = '/ssl/novalidate-cert';
+		} else if ($config->mbox_type & 16) {	// IMAP, SSL mode.
+			$protocol = 'IMAP';
+			$port     = 993;
+			$flags    = '/ssl/novalidate-cert';
 		}
 
-		// Connect and serch for e-mail messages.
-		$tls = ($config->mbox_type >= 2) ? '/tls/novalidate-cert' : '/novalidate-cert';
-		$inbox = '{'. $config->mbox_server .'/'. $protocol . $tls .'}INBOX';
+		// Only use default port if the user haven't done it.
+		$config->mbox_server .= (strpos($config->mbox_server, ':') === FALSE) ? ':'. $port : '';
+
+		// Connect and search for e-mail messages.
+		$inbox = '{'. $config->mbox_server .'/'. $protocol . $flags .'}INBOX';
 		echo "Connecting to mailbox $inbox\n";
 		$mbox = @imap_open($inbox, $config->mbox_user, $config->mbox_pass) or die('Can\'t connect to mailbox: '. imap_last_error());
 		// $emails = @imap_search($mbox, 'RECENT');
@@ -449,7 +469,7 @@ function add_attachment($name, $data, $pid)
 			$done = 1;
 			$emsg->parse_input($config->mlist_opt & 16);
 		}
-		
+
 		$emsg->fetch_useful_headers();
 		$emsg->clean_up_data();
 
@@ -495,7 +515,7 @@ function add_attachment($name, $data, $pid)
 		/* Handle inlined attachments. */
 		if ($config->mlist_opt & 8) {
 			foreach ($emsg->inline_files as $k => $v) {
-				if (strpos($emsg->body, 'cid:'.$v) !== false) {
+				if (strpos($emsg->body, 'cid:'. $v) !== false) {
 					$id = add_attachment($k, $emsg->attachments[$k], $msg_post->poster_id);
 					$attach_list[$id] = $id;
 					$emsg->body = str_replace('cid:'. $v, $WWW_ROOT .'index.php?t=getfile&amp;id='. $id, $emsg->body);
@@ -509,7 +529,7 @@ function add_attachment($name, $data, $pid)
 		/* For anonymous users prefix 'contact' link. */
 		if (!$msg_post->poster_id) {
 			if ($frm->forum_opt & 16) {
-				$msg_post->body = '[b]Originally posted by:[/b] [email='.$emsg->from_email .']'. (!empty($emsg->from_name) ? $emsg->from_name : $emsg->from_email) ."[/email]\n\n". $msg_post->body;
+				$msg_post->body = '[b]Originally posted by:[/b] [email='. $emsg->from_email .']'. (!empty($emsg->from_name) ? $emsg->from_name : $emsg->from_email) ."[/email]\n\n". $msg_post->body;
 			} else {
 				$msg_post->body = 'Originally posted by: '. str_replace('@', '&#64', $emsg->from_email) ."\n\n". $msg_post->body;
 			}
