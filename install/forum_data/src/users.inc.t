@@ -678,9 +678,10 @@ function &init_user()
 	}
 
 	/* Set timezone. */
-	if ($u->time_zone && !($GLOBALS['FUD_OPT_3'] & 512)) {
-		@putenv('TZ=' . $u->time_zone);
+	if (@date_default_timezone_set($u->time_zone) === FALSE) {
+		date_default_timezone_set($GLOBALS['SERVER_TZ']);
 	}
+
 	/* Set locale. */
 	$GLOBALS['good_locale'] = setlocale(LC_ALL, $u->locale);
 
@@ -699,7 +700,9 @@ function &init_user()
 	}
 
 	/* Theme path. */
-	@define('fud_theme', 'theme/' . ($u->theme_name ? $u->theme_name : 'default') . '/');
+	if (!defined('fud_theme')) {
+		define('fud_theme', 'theme/'. ($u->theme_name ? $u->theme_name : 'default') .'/');
+	}
 
 	/* Define _uid, which, will tell us if this is a 'real' user or not. */
 	define('__fud_real_user__', ($u->id != 1 ? $u->id : 0));

@@ -21,7 +21,7 @@ function fetch_img($url, $user_id)
 	if (!($img_data = file_get_contents($url))) {
 		return;
 	}
-	$name = $user_id . '.' . $ext[$img_info[2]]. '_';
+	$name = $user_id .'.'. $ext[$img_info[2]] .'_';
 
 	while (($fp = fopen(($path = tempnam($GLOBALS['TMP'], $name)), 'ab'))) {
 		if (!ftell($fp)) { /* Ensure that the temporary file picked did not exist before. Yes, this is paranoid. */
@@ -123,7 +123,7 @@ function register_form_check($user_id)
 		if (!($r = db_sab('SELECT id, passwd, salt, name, email FROM {SQL_TABLE_PREFIX}users WHERE id='. (!empty($_POST['mod_id']) ? __fud_real_user__ : $user_id)))) {
 			exit('Go away!');
 		}
-		
+
 		/* Require password only for changing E-mail address and name. */
 		if (empty($_POST['reg_confirm_passwd']) || !((empty($r->salt) && $r->passwd == md5($_POST['reg_confirm_passwd'])) || $r->passwd == sha1($r->salt . sha1($_POST['reg_confirm_passwd'])))) {
 			if ($_POST['reg_email'] != $r->email || $_POST['reg_name'] != $r->name) {
@@ -352,7 +352,7 @@ function email_encode($val)
 					set_err('avatar', '{TEMPLATE: register_err_not_valid_img}');
 				}
 				/* [user_id].[file_extension]_'random data' */
-				define('real_avatar_name', $uent->id . '.' . $ext[$img_info[2]]);
+				define('real_avatar_name', $uent->id .'.'. $ext[$img_info[2]]);
 				if (move_uploaded_file($_FILES['avatar_upload']['tmp_name'], ($tmp_name = tempnam($GLOBALS['TMP'], 'av_')))) {
 					$tmp_name = basename($tmp_name);
 				} else {
@@ -508,7 +508,7 @@ function email_encode($val)
 						$uent->avatar = 0;
 					} else if ($uent->avatar != $_POST['reg_avatar'] && ($img = q_singleval('SELECT img FROM {SQL_TABLE_PREFIX}avatar WHERE id='. (int)$_POST['reg_avatar']))) {
 						/* verify that the avatar exists and it is different from the one in DB */
-						$uent->avatar_loc = make_avatar_loc('images/avatars/' . $img, $WWW_ROOT_DISK, $WWW_ROOT);
+						$uent->avatar_loc = make_avatar_loc('images/avatars/'. $img, $WWW_ROOT_DISK, $WWW_ROOT);
 						$uent->avatar = $_POST['reg_avatar'];
 					}
 					if ($uent->avatar && $uent->avatar_loc) {
@@ -755,7 +755,7 @@ function email_encode($val)
 					if ((!empty($_POST['reg_avatar']) && $_POST['reg_avatar'] == $uent->avatar) || (!empty($avatar_arr['file']) && empty($avatar_arr['del']) && $avatar_arr['leave'])) {
 						$custom_avatar_preview = $uent->avatar_loc;
 					} else if (!empty($_POST['reg_avatar']) && ($im = q_singleval('SELECT img FROM {SQL_TABLE_PREFIX}avatar WHERE id='. (int)$_POST['reg_avatar']))) {
-						$custom_avatar_preview = make_avatar_loc('images/avatars/' . $im, $WWW_ROOT_DISK, $WWW_ROOT);
+						$custom_avatar_preview = make_avatar_loc('images/avatars/'. $im, $WWW_ROOT_DISK, $WWW_ROOT);
 					} else {
 						if ($reg_avatar_loc_file) {
 							$common_name = $reg_avatar_loc_file;
@@ -827,7 +827,10 @@ function email_encode($val)
 	$gender_select		= tmpl_draw_select_opt("512\n1024\n0","{TEMPLATE: unspecified}\n{TEMPLATE: male}\n{TEMPLATE: female}", ($uent->users_opt & 512 ? 512 : ($uent->users_opt & 1024)));
 	$mppg_select		= tmpl_draw_select_opt("0\n5\n10\n20\n30\n40", "{TEMPLATE: use_forum_default}\n5\n10\n20\n30\n40", $reg_posts_ppg);
 	$view_select		= tmpl_draw_select_opt(implode("\n", array_keys($views)), implode("\n", $views), (($uent->users_opt & 128) | ($uent->users_opt & 256)));
-	$timezone_select	= tmpl_draw_select_opt($tz_values, $tz_names, $reg_time_zone);
+
+	$vals = implode("\n", timezone_identifiers_list());
+	$timezone_select	= tmpl_draw_select_opt($vals, $vals, $reg_time_zone);
+
 	$notification_select	= tmpl_draw_select_opt("4\n134217728", "{TEMPLATE: register_email}\n{TEMPLATE: register_none}", ($uent->users_opt & (4|134217728)));
 
 	$vals = implode("\n", range(5, $THREADS_PER_PAGE_F));

@@ -16,7 +16,6 @@
 {REF: stats.tmpl}
 {REF: draw_select_opt.tmpl}
 {REF: draw_radio_opt.tmpl}
-{REF: tz.tmpl}
 {REF: post_opt.tmpl}
 {REF: users_reg.tmpl}
 {REF: post_proc.tmpl}
@@ -54,17 +53,17 @@
 {SECTION: END}
 
 {SECTION: change_passwd_link}
-&nbsp; &nbsp; <span class="SmallText">[ <a href="javascript://" onclick="window_open(\'{TEMPLATE: change_passwd_link_lnk1}\',\'rpass\',470,250);">{MSG: register_change_passwd}</a> ]</span>
+&nbsp; <span class="SmallText">[ <a href="javascript://" onclick="window_open(\'{TEMPLATE: change_passwd_link_lnk1}\',\'rpass\',470,250);">{MSG: register_change_passwd}</a> ]</span>
 {SECTION: END}
 
 {SECTION: change_login_link}
-&nbsp; &nbsp; <span class="SmallText">[ <a href="javascript://" onclick="window_open(\'{TEMPLATE: change_login_link_lnk1}\',\'ruser\',470,250);">{MSG: register_change_login}</a> ]</span>
+&nbsp; <span class="SmallText">[ <a href="javascript://" onclick="window_open(\'{TEMPLATE: change_login_link_lnk1}\',\'ruser\',470,250);">{MSG: register_change_login}</a> ]</span>
 {SECTION: END}
 
 {SECTION: update_user update user section, is used when a registered user is editing their profile}
-<tr class="RowStyleA"><td width="60%">{MSG: register_login}</td><td><span class="fb">{VAR: reg_login}</span>{IF: !$mod_id}<br />{TEMPLATE: change_login_link}{ENDIFI}</td></tr>
+<tr class="RowStyleA"><td width="60%">{MSG: register_login}</td><td><span class="fb">{VAR: reg_login}</span>{IF: ($FUD_OPT_4 & 1) && !$mod_id}<br />{TEMPLATE: change_login_link}{ENDIFI}</td></tr>
 {IF: $FUD_OPT_2 & 128}{TEMPLATE: reg_alias}{ENDIFI}
-<tr class="RowStyleA"><td>{MSG: register_your_pass}{FUNC: draw_err('reg_confirm_passwd')}</td><td><input type="password" name="reg_confirm_passwd" size="25" />{IF: !$mod_id}<br />{TEMPLATE: change_passwd_link}{ENDIFI}</td></tr>
+<tr class="RowStyleA"><td>{MSG: register_your_pass}{FUNC: draw_err('reg_confirm_passwd')}</td><td><input type="password" name="reg_confirm_passwd" size="25" />{IF: ($FUD_OPT_4 & 2) && !$mod_id}<br />{TEMPLATE: change_passwd_link}{ENDIFI}</td></tr>
 <tr class="RowStyleA"><td>{MSG: register_email_addr}{FUNC: draw_err('reg_email')}<br /><span class="SmallText">{MSG: register_email_desc}</span>{TEMPLATE-DATA: email_warning_msg}</td><td><input type="text" name="reg_email" size="25" value="{VAR: reg_email}" /></td></tr>
 <tr class="RowStyleA"><td>{MSG: register_name}{FUNC: draw_err('reg_name')}</td><td><input type="text" name="reg_name" size="25" value="{VAR: reg_name}" /></td></tr>
 <tr><td colspan="2" class="ac RowStyleC"><input type="submit" class="button" name="fud_submit" value="{MSG: register_update}" /></td></tr>
@@ -188,9 +187,9 @@
 </td></tr>
 <tr><th colspan="2">{MSG: register_prefs}</th></tr>
 {IF: $FUD_OPT_1 & 32768}
-<tr class="RowStyleA"><td class="vt">{MSG: register_sig}<br /><span class="SmallText">{MSG: register_sig_desc}<br /></span>{FUNC: tmpl_post_options('sig')}{IF: $FORUM_SIG_ML}<br /><b>{MSG: register_max_sig_len} </b>{MSG: register_sig_limit}{ENDIFI}</td><td>{FUNC: draw_err('reg_sig')}<textarea name="reg_sig" rows="5" cols="50">{VAR: reg_sig}</textarea></td></tr>
+<tr class="RowStyleA"><td class="vt">{MSG: register_sig}<br /><span class="SmallText">{MSG: register_sig_desc}<br />{FUNC: tmpl_post_options('sig')}{IF: $FORUM_SIG_ML}<br /><b>{MSG: register_max_sig_len} </b>{MSG: register_sig_limit}{ENDIFI}</span></td><td>{FUNC: draw_err('reg_sig')}<textarea name="reg_sig" rows="5" cols="50">{VAR: reg_sig}</textarea></td></tr>
 {ENDIF}
-<tr class="RowStyleA"><td>{MSG: register_timezone}</td><td><select name="reg_time_zone" class="SmallText" style="width: 390px">{TEMPLATE-DATA: timezone_select}</select></td></tr>
+<tr class="RowStyleA"><td>{MSG: register_timezone}</td><td><select name="reg_time_zone">{TEMPLATE-DATA: timezone_select}</select></td></tr>
 <tr class="RowStyleA"><td>{MSG: register_ignore_admin}</td><td>{TEMPLATE-DATA: ignore_admin_radio}</td></tr>
 <tr class="RowStyleA"><td>{MSG: register_invisible_mode}<br /><span class="SmallText">{MSG: register_invisible_mode_desc}</span></td><td>{TEMPLATE-DATA: invisible_mode_radio}</td></tr>
 <tr class="RowStyleA"><td>{MSG: register_show_email}<br /><span class="SmallText">{MSG: register_show_email_desc}</span></td><td>{TEMPLATE-DATA: show_email_radio}</td></tr>

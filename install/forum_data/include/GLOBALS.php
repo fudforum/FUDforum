@@ -23,6 +23,7 @@
 	$FUD_OPT_1		= 1743713471;
 	$FUD_OPT_2		= 1769345087;
 	$FUD_OPT_3		= 545259520;
+	$FUD_OPT_4		= 3;
 
 	$CUSTOM_AVATAR_MAX_SIZE = 10000;	/* bytes */
 	$CUSTOM_AVATAR_MAX_DIM	= '64x64';	/* width x height (pixels) */
@@ -71,7 +72,7 @@
 	$MOD_FIRST_N_POSTS	= 1;
 	$POSTS_BEFORE_LINKS	= 0;
 	$POST_MIN_LEN		= 3;
-	$SERVER_TZ		= 'America/Montreal'; /* timezone code from tz.inc */
+	$SERVER_TZ		= 'UTC';
 	$SEARCH_CACHE_EXPIRY	= 172800;	/* seconds */
 	$MEMBERS_PER_PAGE	= 40;
 	$POLLS_PER_PAGE		= 40;

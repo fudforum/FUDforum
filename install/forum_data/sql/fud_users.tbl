@@ -23,7 +23,7 @@ CREATE TABLE {SQL_TABLE_PREFIX}users
 	interests		VARCHAR(255),
 	occupation		VARCHAR(255),
 	avatar			INT NOT NULL DEFAULT 0,
-	avatar_loc		TEXT,
+	avatar_loc		VARCHAR(512),
 
 	icq			BIGINT,
 	aim			VARCHAR(255),
@@ -36,12 +36,12 @@ CREATE TABLE {SQL_TABLE_PREFIX}users
 	twitter			VARCHAR(255),
 
 	posts_ppg		INT NOT NULL DEFAULT 0,
-	time_zone		VARCHAR(255) NOT NULL DEFAULT 'America/Montreal',
+	time_zone		VARCHAR(255) NOT NULL DEFAULT 'UTC',
 
 	birthday		CHAR(8),
 	join_date		BIGINT NOT NULL DEFAULT 0,
 
-	conf_key		VARCHAR(32) NOT NULL DEFAULT '0',
+	conf_key		VARCHAR(32),
 	user_image		VARCHAR(255),
 	theme			INT NOT NULL DEFAULT 0,
 
@@ -65,13 +65,15 @@ CREATE TABLE {SQL_TABLE_PREFIX}users
 	users_opt		INT NOT NULL DEFAULT 4488117,
 	sq	                VARCHAR(32),
 	reg_ip			BIGINT NOT NULL DEFAULT 0,
+	last_known_ip		BIGINT NOT NULL DEFAULT 0,
 	ban_expiry		BIGINT NOT NULL DEFAULT 0,
 	topics_per_page		INT NOT NULL DEFAULT 40,
 	last_login		BIGINT NOT NULL DEFAULT 0,
 
 	flag_cc			CHAR(2),
 	flag_country		VARCHAR(50),
-	last_known_ip		BIGINT NOT NULL DEFAULT 0
+	
+	custom_fields		TEXT
 );
 
 CREATE UNIQUE INDEX {SQL_TABLE_PREFIX}users_i_l ON {SQL_TABLE_PREFIX}users (login);

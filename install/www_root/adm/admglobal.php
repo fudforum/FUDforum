@@ -15,7 +15,6 @@
 	fud_use('widgets.inc', true);
 	fud_use('draw_select_opt.inc');
 	fud_use('users_reg.inc');
-	fud_use('tz.inc');
 
 function get_max_upload_size()
 {
@@ -60,7 +59,7 @@ function get_max_upload_size()
 					$ch_list[$k] = is_numeric($v) && !in_array($k, $sk) ? (int)$v : $v;
 				}
 			} else if (!strncmp($k, 'FUD_OPT_', 8)) {
-				$GLOBALS['NEW_' . substr($k, 0, 9)] |= (int) $v;
+				$GLOBALS['NEW_'. substr($k, 0, 9)] |= (int) $v;
 			}
 		}
 
@@ -128,6 +127,7 @@ function get_max_upload_size()
 				q('UPDATE '. $DBHOST_TBL_PREFIX .'users SET users_opt='. q_bitor('users_opt', $o) .' WHERE '. q_bitand('users_opt', $o) .'=0');
 			}
 
+			/* Settings that must also be applied to the Anonymous user. */
 			$q_data = array();
 			if (isset($ch_list['POSTS_PER_PAGE'])) {
 				$q_data[] = 'posts_ppg='. (int)$ch_list['POSTS_PER_PAGE'];
@@ -144,7 +144,6 @@ function get_max_upload_size()
 				$opt |= $NEW_FUD_OPT_3 & 2 ? 256 : 0;
 				$q_data[] = 'users_opt=(users_opt | '. $opt .')';
 			}
-
 			if ($q_data) {
 				q('UPDATE '. $DBHOST_TBL_PREFIX .'users SET '. implode(',', $q_data) .' WHERE id=1');
 			}
@@ -284,8 +283,7 @@ $(document).ready(function() {
 	print_bit_field('Show Edited By', 'SHOW_EDITED_BY');
 	print_bit_field('Show Edited By Moderator', 'EDITED_BY_MOD');
 	print_bit_field('Display IP Publicly', 'DISPLAY_IP');
-	print_bit_field('Enable Quick Reply', 'QUICK_REPLY_ENABLED');
-	print_bit_field('Quick Reply Display Mode', 'QUICK_REPLY_DISPLAY');
+	print_bit_field('Quick Reply', 'QUICK_REPLY');
 	print_reg_field('Flood Trigger (seconds)', 'FLOOD_CHECK_TIME', 1);
 	print_reg_field('Minimum Message Length', 'POST_MIN_LEN', 1);
 	print_reg_field('Moderate user\'s first N messages', 'MOD_FIRST_N_POSTS', 1);
@@ -295,7 +293,7 @@ $(document).ready(function() {
 	print_reg_field('Max Image Count', 'MAX_IMAGE_COUNT', 1);
 	print_reg_field('Max Smilies Shown', 'MAX_SMILIES_SHOWN', 1);
 	print_reg_field('Message icons per row', 'POST_ICONS_PER_ROW', 1);
-	print_bit_field('Enable Affero<br /><a href="http://www.affero.net/bbsteps.html" target="_blank">Click here for details</a>', 'ENABLE_AFFERO');
+	print_bit_field('Enable Affero<br /><a href="http://www.affero.net/bbsteps.html">Click here for details</a>', 'ENABLE_AFFERO');
 ?>
 <tr class="fieldaction"><td align="left"><input type="submit" name="btn_submit" value="Set" /></td><td align="right">[ <a href="#top">top</a> ]</td></tr>
 </tbody>
@@ -322,12 +320,14 @@ $(document).ready(function() {
 	print_bit_field('Allow Registration', 'ALLOW_REGISTRATION');
 	print_bit_field('Allow Login with userid/password', 'LOGIN_WITH_USRPASS');
 	print_bit_field('Allow Login with OpenID URL', 'LOGIN_WITH_URL');
+	print_bit_field('Allow Login Changes', 'ALLOW_LOGIN_CHANGES');
+	print_bit_field('Allow Password Resets', 'ALLOW_PASSWORD_RESET');
+	print_bit_field('Use Aliases', 'USE_ALIASES');
 	print_reg_field('Registration Time Limit', 'REG_TIME_LIMIT', 1);
 	print_reg_field('Unconfirmed User Expiry', 'UNCONF_USER_EXPIRY', 1);
 	print_bit_field('COPPA', 'COPPA');
 	print_reg_field('Maximum Shown Login Length', 'MAX_LOGIN_SHOW', 1);
 	print_reg_field('Maximum Shown Location Length', 'MAX_LOCATION_SHOW', 1);
-	print_bit_field('Use Aliases', 'USE_ALIASES');
 	print_bit_field('Hide user profiles', 'HIDE_PROFILES_FROM_ANON');
 	print_bit_field('Profile Image', 'ALLOW_PROFILE_IMAGE');
 	print_bit_field('New Account Moderation', 'MODERATE_USER_REGS');
@@ -397,14 +397,12 @@ $(document).ready(function() {
 <tbody class="section 14">
 <tr class="fieldtopic"><td colspan="2"><a name="14" /><br /><b>Spell Checker</b> </td></tr>
 <?php
-	if (extension_loaded('pspell')) {
-		$pspell_support = '<font color="red">is enabled.</font>';
-	} else {
-		$pspell_support = '<font color="red">is disabled.<br />Please ask your administrator to enable pspell support.</font>';
-		$GLOBALS['CF_SPELL_CHECK_ENABLED'] = 0;
+	if (!extension_loaded('pspell')) {
+		echo '<tr class="field"><td colspan="2">You cannot use the spell checker as PHP\'s pspell module is currently <span style="color:red">disabled</span>. Please ask your administrator to enable "pspell" support.</td></tr>';
 	}
 	print_bit_field('Enable Spell Checker', 'SPELL_CHECK_ENABLED');
 ?>
+</td></tr>
 <tr class="fieldaction"><td align="left"><input type="submit" name="btn_submit" value="Set" /></td><td align="right">[ <a href="#top">top</a> ]</td></tr>
 </tbody>
 
@@ -434,11 +432,11 @@ $(document).ready(function() {
 <tbody class="section 16">
 <tr class="fieldtopic"><td colspan="2"><a name="16" /><br /><b>General Settings</b> </td></tr>
 <?php
-	print_reg_field('Polls Per Page', 'POLLS_PER_PAGE', 1);
+	// Get list of timezones to display.
+	$tz_names = implode("\n", timezone_identifiers_list());
 ?>
-<tr class="field"><td colspan="2">Server Time Zone: <font size="-1"> <?php echo $help_ar['SERVER_TZ'][0]; ?></font><br /><select name="CF_SERVER_TZ" style="font-size: xx-small;"><?php echo tmpl_draw_select_opt($tz_values, $tz_names, $SERVER_TZ, '', ''); ?></select></td></tr>
+<tr class="field"><td>Server Time Zone: <font size="-1"> <?php echo $help_ar['SERVER_TZ'][0]; ?></font></td><td><select name="CF_SERVER_TZ"><?php echo tmpl_draw_select_opt($tz_names, $tz_names, $SERVER_TZ, '', ''); ?></select></td></tr>
 <?php
-	print_bit_field('Do not set timezone', 'APACHE_PUTENV');
 	print_bit_field('Track referrals', 'TRACK_REFERRALS');
 	print_reg_field('Max History', 'MNAV_MAX_DATE', 1);
 	print_reg_field('Max Message Preview Length', 'MNAV_MAX_LEN', 1);
@@ -454,6 +452,7 @@ $(document).ready(function() {
 	}
 	print_bit_field('Public Host Resolving', 'PUBLIC_RESOLVE_HOST');
 	print_reg_field('Whois Server Address', 'FUD_WHOIS_SERVER');
+	print_reg_field('Polls Per Page', 'POLLS_PER_PAGE', 1);
 ?>
 <tr class="fieldaction"><td align="left"><input type="submit" name="btn_submit" value="Set" /></td><td align="right">[ <a href="#top">top</a> ]</td></tr>
 </tbody>
