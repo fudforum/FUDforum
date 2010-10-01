@@ -135,4 +135,5 @@ class fud_mlist
 		q('DELETE FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'mlist WHERE id='. $id);
 	}
 }
+
 ?>
