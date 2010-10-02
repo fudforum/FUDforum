@@ -29,7 +29,7 @@ function mail_list_post($list_email, $from, $subject, $body, $msg_id, $reply_to=
 	}
 
 	if (!$multi_part) {
-		$header = "Content-Type: text/plain;\n  charset=\"". $GLOBALS['CHARSET'] ."\"\nContent-Transfer-Encoding: 8bit\n";
+		$header = "MIME-Version: 1.0\nContent-Type: text/plain;\n  charset=\"". $GLOBALS['CHARSET'] ."\"\nContent-Transfer-Encoding: 8bit\n";
 	} else {
 		$header = "MIME-Version: 1.0\nContent-Type: Multipart/Mixed;\n  boundary=\"$boundry\"\n";
 	}
@@ -56,4 +56,5 @@ function mail_list_post($list_email, $from, $subject, $body, $msg_id, $reply_to=
 
 	send_email($from, $list_email, $subject, $final_body, $header);
 }
+
 ?>
