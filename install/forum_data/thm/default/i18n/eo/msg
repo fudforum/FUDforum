@@ -279,7 +279,7 @@ pmuserloc_user:Uzanto
 pmuserloc_no_result:Neniu Rezulto
 register_builtin:Integrita
 register_specify_url:Specifigi URL-on
-register_uploaded:Alŝuti Avataron
+register_uploaded:Alŝuti vizaĝbildon
 register_login:Salutnomo:
 register_password:Pasvorto:
 register_conf_pass:Konfirmi Pasvorton:
@@ -528,7 +528,7 @@ poll_month:monato
 poll_year:jaro
 poll_week:semajno
 tabs_register:Kontaj Agordoj
-tabs_subscriptions:Abonaĵoj
+tabs_subscriptions:Abonatoj
 tabs_bookmarkes:Legosignoj
 tabs_referrals:Referencoj
 tabs_buddy_list:Amika Listo
@@ -851,7 +851,7 @@ polllist_date:Kreita Je
 polllist_owner:Kreita De
 polllist_votes:Tutaj Voĉdonoj
 polllist_action:Ago
-polllist_update:	<a href="{TEMPLATE: polllist_update_lnk}">Kontrolante Atingeblajn Opinisondojn</a>
+polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">Kontrolante Atingeblajn Opinisondojn</a>
 userinfo_polls:Opinisondoj:
 show_pollist:Montri Opinisondojn
 search_and:KAJ

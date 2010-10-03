@@ -312,7 +312,7 @@ register_custom_avatar_rules:Le avatar personalisate non apparera usque illo es 
 register_custom_avatar_url:URL del avatar personalisate:
 register_preview:Previsualisation
 register_custom_avatar_upload:File del avatar personalisate:
-register_register:Crear un conto
+register_register:Crear conto
 register_required:Information obligatori
 register_required_desc:Tote le campos es obligatori. Nota ben que le contrasignos distingue inter majusculas e minusculas.
 register_optional:Information optional

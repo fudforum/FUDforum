@@ -61,7 +61,7 @@ lock_thread:Lås tråd
 locked:Låst
 locked_with_new_posts:Låst (med uleste innlegg)
 logged_in_list:Liste over medlemmer som er logget inn
-login:Logg in
+login:Logg inn
 login_header:Logg in:
 logout:Logg ut
 mark_all_read:marker alle innlegg som leste
@@ -108,8 +108,7 @@ num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|stemme|stemmer}
 occupation:Yrke:
 off:AV
 on:PÅ
-# Fuzzy
-page_timings:Total tid for å generere siden: {VAR: page_gen_time} sekunder
+page_timings:Total tid for å generere siden: {PLURAL: page_gen_time|$1 sekund}
 pm:Private meldinger
 poll:Avstemning:
 post_count:Antall innlegg {VAR: u_pcount}
@@ -499,7 +498,7 @@ mklist_option:Alternativ:
 mklist_additem:Legg til element
 mklist_apply:Bruk
 mklist_delete:Slett
-qbud_nick_name:Kallenavnn
+qbud_nick_name:Kallenavn
 qbud_add_selected:Legg til valgte
 qbud_selected:Valgte
 qbud_no_buddies:Inga kontakter å velge mellom
@@ -533,7 +532,7 @@ poll_update:Oppdatere
 poll_disablesmilies:Slå av smilies
 poll_create_poll:Lag en avstemning
 poll_update_poll:Oppdatere avstemning
-poll_delete:Slette
+poll_delete:Slett
 poll_updateoption:Oppdatere alternativ
 poll_addoption:Legg til alternativ
 poll_unlimited:Ubegrenset

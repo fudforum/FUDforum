@@ -1,6 +1,7 @@
 # Messages for Swiss German (Alemannisch)
 # Exported from translatewiki.net
 # Author: Als-Holder
+# Author: Naudefj
 
 action:Aktion
 add_to_buddy_list:zue dr Fryndlischt zuefiege
@@ -411,7 +412,7 @@ post_preview_btn:Byytragsvorschau
 ignore_users:Ignorierti Benutzer
 add_ignore:Benutzer zue dr Ignorierlischt zuefiege
 forum_terms:Forumsregle
-forum_rules:<p>D Regischtrierig fir des Forum choschtet nyt. Mir bstehn aber druf, ass Du Di an die Vereinbarig unte haltesch. Wänn Du mit däne Regle yyverstande bisch, druck bitte uf dr <b>Zuestimme</b>-Chnopf. Obacht: Dur s Klicke vu däre Schaltflechi erklärsch Du, ass Du iber 13 Johr alt bisch. Wänn Du imfall 13 oder drunter bisch, no verwänd bitte des Regischtrierigsformular.</p><p>Au wänn d Administratore un Moderatore vum Forum versueche, des vu aasteßlige Mitteilige frejzhalte, isch s is eiewäg uumeglig, alli ibermittlete Byytreg aazluege. Die gän d Aasichte vu vum jewylige Autor wider, wäge däm cha keine vu dr Forumsmitarbeiter fir sälli Inhalt verantwortlig gmacht wäre.</p><p>Mit Aaklicken vu dr "Zuestimme"-Schaltflechi sicheresch Du is verbindlig zue, ass Dyyni Byytreg keinerlei obzöni, vulgäri, sexistischi, hasserfillti, nötigendi oder sunscht irgedwie gsetzeswidrigi Inhalt hän. <p />Di Verantwortlige vu däm Forum hän s Rächt, zue jedwädere Zyt us jedwäderem Grund Diskussionsthemene usezneh, z bearbeite, z verschiebe oder zuezmache.</p>
+forum_rules:<p>D Regischtrierig fir des Forum choschtet nyt. Mir bstehn aber druf, ass Du Di an die Vereinbarig unte haltesch. Wänn Du mit däne Regle yyverstande bisch, druck bitte uf dr <b>Zuestimme</b>-Chnopf. Obacht: Dur s Klicke vu däre Schaltflechi erklärsch Du, ass Du iber 13 Johr alt bisch. Wänn Du imfall 13 oder drunter bisch, no verwänd bitte des Regischtrierigsformular.</p><p>Au wänn d Administratore un Moderatore vum Forum versueche, des vu aasteßlige Mitteilige frejzhalte, isch s is eiewäg uumeglig, alli ibermittlete Byytreg aazluege. Die gän d Aasichte vu vum jewylige Autor wider, wäge däm cha keine vu dr Forumsmitarbeiter fir sälli Inhalt verantwortlig gmacht wäre.</p><p>Mit Aaklicken vu dr "Zuestimme"-Schaltflechi sicheresch Du is verbindlig zue, ass Dyyni Byytreg keinerlei obzöni, vulgäri, sexistischi, hasserfillti, nötigendi oder sunscht irgedwie gsetzeswidrigi Inhalt hän.</p><p>Di Verantwortlige vu däm Forum hän s Rächt, zue jedwädere Zyt us jedwäderem Grund Diskussionsthemene usezneh, z bearbeite, z verschiebe oder zuezmache.</p>
 forum_rules_13:<p>Alli Benutzer unter 13 Johr mien ihri Eltere oder ihre Vormund um Erlaubnis bitte go d Mitglidschaft im Forum z iberchuu. Au wänn mir fir d Teilnahm vu Benutzer unter 13 sin, verlange mit eiewäg, ass d Eltere oder dr Vormund e unterschribeni Yywilligungserklärig zruckschicke oder faxe, voreb mir d Mitglidschaft chenne gwähre.</p><p>Wänn Du d Regischtrierig mechtsch yyleite, voreb mir die Yywilligungserklärig iberchuu hän, klick uf d <b>Zuestimme</b>-Schaltflechi unte. Wänn Du d Regischtrierig witt abbräche, klick uf <b>Abbräche</b> go zum Forumsverzeichnis zruckchehre.</p><p>E Kopii vu dr Yywilligungserklärig, wu muess unterschryybe wäre, cha do abeglade wäre. Fir wyteri Informatione zue dr Regischtrierig schick bitte ne E-Mail an <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
 coppa_conf:COPPA Bstetigung
 coppa_before:Vor em {TEMPLATE: coppa_date}

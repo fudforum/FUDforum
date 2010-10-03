@@ -8,10 +8,11 @@
 # Author: Omnipaedista
 # Author: Peter17
 # Author: Robby
+# Author: Verdy p
 
 action:Action
 add_to_buddy_list:Ajouter à la liste de mes amis
-admin:Admin
+admin:Administrateur
 admin_control_panel:Panneau d'administration
 administrator:Administrateur
 attachment:Attaché :
@@ -31,7 +32,7 @@ email:E-mail :
 email_to_friend:Envoyer par courriel à un ami
 email_to_friend_desc:Envoyez l'URL de cette page à un/des ami(s) par courriel
 email_user:Envoyer un courriel à cet utilisateur
-faq:F.A.Q.
+faq:Aide
 first_unread_msg:Aller au(x) message(s) non lu(s)
 first_unread_msg_desc:Aller au premier message non lu dans ce fil
 flat_view:Vue plane (par défaut)
@@ -131,7 +132,7 @@ rate_thread:Donner une note à ce Fil
 rating:Note
 rating_track:Gérez les notes pour le sujet <b>{VAR: thr->subject}</b> :
 refresh_list:Rafraîchir la liste
-register:S'inscrire
+register:S’inscrire
 registered:Inscrit(e) :
 registered_on:Inscrit(e) le {TEMPLATE: registered_on_date}
 replies:Réponses
@@ -319,7 +320,7 @@ register_custom_avatar_rules:Les avatars personnels n'apparaissent qu'après leu
 register_custom_avatar_url:URL de l'avatar personnel :
 register_preview:Prévisualisation
 register_custom_avatar_upload:Fichier correspondant à l'avatar personnel :
-register_register:S'inscrire
+register_register:S’inscrire
 register_required:Informations obligatoires
 register_required_desc:Tous les champs sont obligatoires. Attention, le mot de passe interprète les majuscules et minuscules différemment !
 register_optional:Informations facultatives
@@ -699,7 +700,7 @@ ERR_systemerr_ttl:ERREUR : Erreur système
 ERR_systemerr_msg:Une erreur système s’est produite. Veuillez rapporter cet incident à l’<a href="mailto:{GVAR: ADMIN_EMAIL}">administrateur du site</a>.
 email_title:E-mail
 finduser_title:Chercher un utilisateur
-help_title:F.A.Q. (Foire Aux Questions, questions fréquemment posées)
+help_title:Aide
 login_title:Nom d'utilisateur
 poll_title:Editeur de sondage
 register_title:Inscription
@@ -769,7 +770,7 @@ p_EDIT:Éditer
 p_DEL:Effacer
 p_STICKY:Messages épinglés
 p_POLL:Créer un sondage
-p_FILE:Attacher un fichier
+p_FILE:Joindre des fichiers
 p_VOTE:Voter
 p_RATE:Noter les fils
 p_SPLIT:Découper les fils

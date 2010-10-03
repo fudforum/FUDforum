@@ -664,7 +664,7 @@ report_err_nosuchmsg_title:FOUT
 report_err_nosuchmsg_msg:onbekende boodskap
 reset_err_invalidkey_title:FOUT
 reset_err_invalidkey_msg:ongeldige wagwoord herstel sleutel
-reset_err_rstconf_title:Informasie
+reset_err_rstconf_title:Inligting
 reset_err_rstconf_msg:U sal binne enkele minuute verdere instruksies per epos ontvang
 reset_newpass_title:Herstel wagwoord
 reset_newpass_msg:Hallo,\n\nSoos versoek, hier is u gebruikersinligting:\n\nGebruikersnaam: {VAR: ui[1]}\nWagwoord: {VAR: passwd}\n\nLet op: U wagwoord is herstel na die bovermelde waarde. Indien u u wagwoord wil verander, kan u dit in u profiel doen by:\n{FULL_ROOT}{ROOT}?t=register
@@ -692,7 +692,7 @@ ERR_systemerr_ttl:FOUT: STESLELFOUT
 ERR_systemerr_msg:Daar was 'n STELSELFOUT, rapporteer dit asseblief aan die <a href="mailto:{GVAR: ADMIN_EMAIL}">webmeester</a>.
 email_title:Stuur E-pos
 finduser_title:Vind lid
-help_title:F.A.Q.
+help_title:Hulp
 login_title:Aanmelding
 poll_title:Wysig Stemming
 register_title:Registrasievorm

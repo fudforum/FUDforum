@@ -105,8 +105,7 @@ num_votes:{VAR: obj->total_votes} röster
 occupation:Yrke:
 off:AV
 on:PÅ
-# Fuzzy
-page_timings:Total tid för att skapa sidan: {VAR: page_gen_time} sekunder
+page_timings:Total tid för att skapa sidan: {PLURAL: page_gen_time|$1 sekunder}
 pm:Privata meddelanden
 poll:Gallup:
 post_count:Antal inlägg {VAR: u_pcount}

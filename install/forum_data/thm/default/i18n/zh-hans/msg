@@ -1,5 +1,6 @@
 # Messages for Simplified Chinese (‪中文(简体)‬)
 # Exported from translatewiki.net
+# Author: Chenxiaoqino
 # Author: PhiLiP
 
 action:操作
@@ -527,7 +528,7 @@ poll_name:调查名称：
 poll_timelimit:时间限制
 # Fuzzy
 poll_maxiumvotes:最大的投票量
-poll_create:完成
+poll_create:创建
 poll_update:更新
 poll_disablesmilies:不使用表情符号
 poll_create_poll:发起调查

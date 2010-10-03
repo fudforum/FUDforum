@@ -2,6 +2,7 @@
 # Exported from translatewiki.net
 # Author: Fohanno
 # Author: Fulup
+# Author: Naudefj
 # Author: Y-M D
 
 action:Ober
@@ -301,7 +302,7 @@ register_uploaded:Kas un avatar
 register_login:Anv implijer :
 register_password:Ger-tremen :
 register_conf_pass:Kadarnaat ar ger-tremen :
-register_email_desc:Ebarzhit ur chomlec'h postel reizh, mar plij. Gallout a rit e guzhat amañ dindan, er rann Dibaboù gwellañ.
+register_email_desc:Ebarzhit ur chomlec'h postel reizh, mar plij. Gallout a rit e guzhat amañ dindan, er Penndibaboù.
 register_name:Anv :
 register_your_pass:Ho ker-tremen :
 register_update:Hizivaat
@@ -335,7 +336,7 @@ register_year:Bloavezh
 register_gender:Reizh :
 register_bio:Tamm buhez :
 register_bio_desc:Un nebeud munudoù diwar ho penn, evel ar pezh ho tedenn, ho micher, hag all...
-register_prefs:Dibaboù gwellañ
+register_prefs:Penndibaboù
 register_sig:Sinadur :
 register_sig_desc:Sinadur a zeuio war wel e traoñ ho kemennadennoù.
 register_reset:Adderaouekaat
@@ -413,7 +414,8 @@ ignore_users:Implijerien dianavezet
 add_ignore:Ouzhpennañ un den dianavezet
 forum_terms:Reolennoù ar forom
 forum_rules:<p>Digoust eo en em enskrivañ er forom-mañ ! Koulskoude e tleit degemer an divizoù hag ar munudoù amañ dindan. M'o degemerit, pouezit war ar bouton <b>Aprouiñ</b> e fin ar bajenn. Notenn : Pa bouezit war ar bouton e tisklêriit ez oc'h en tu-hont da 13 vloaz. Ma n'oc'h ket trizek vloaz c'hoazh, implijit ar furmskrid en em enskrivañ-mañ. </p><p> Daoust ma vez distaolet ar c'hemennadennoù dizereat eus ar forom-mañ gant ar verourien hag an habaskerien, n'omp ket evit lenn ha kontrollañ an holl anezho. Pep kemennadenn a eztaol soñjoù an aozer anezhi, ha ne vo ket kiriek merourien ha habaskerien ar forom-mañ d'ar pezh zo er c'hemennadennoù. </p><p> Dre glikañ war ar bouton Aprouiñ e prometit chom hep postañ kemennadennoù hudur, lous, o tennañ d'ar revelezh, kasonius, gourdrouzus, pe o terriñ al lezenn e kement doare zo. </p><p> Gwir o deus perc'henned ar forom-mañ da lemel, aozañ, dilec'hiañ pe serriñ forzh peseurt kaoz evit forzh peseurt abeg.</p>
-forum_rules_13:<p>An holl implijerien dindan 13 vloaz a rank goulenn aotre o zud pe o gward evit dont da vezañ ezel eus ar forom-mañ. Daoust ma'z eo digor ar forom d'ar re dindan 13 vloaz, e rankomp kaout un aotre sinet digant unan eus an dud pe ar gward, dre lizher pe dre belleilenn, a-raok enskrivañ an den dindan 13 vloaz da vat. </p><p> Ma fell deoc'h kregiñ gant an argerzh enskrivañ a-raok ma resevfemp an aotre, pouezit war ar bouton Aprouiñ amañ dindan. Ma fell deoc'h nullañ an argerzh enskrivañ, klikit war ar bouton Nullañ evit distreiñ da veneger ar foromoù. <p /> Tu zo da bellgargañ un eilenn eus ar furmskrid aotren amañ. Evit gouzout hiroc'h diwar-benn an argerzh enskrivañ, kasit ur postel da href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>, mar plij.</p>
+# Fuzzy
+forum_rules_13:<p>An holl implijerien dindan 13 vloaz a rank goulenn aotre o zud pe o gward evit dont da vezañ ezel eus ar forom-mañ. Daoust ma'z eo digor ar forom d'ar re dindan 13 vloaz, e rankomp kaout un aotre sinet digant unan eus an dud pe ar gward, dre lizher pe dre belleilenn, a-raok enskrivañ an den dindan 13 vloaz da vat.</p><p> Ma fell deoc'h kregiñ gant an argerzh enskrivañ a-raok ma resevfemp an aotre, pouezit war ar bouton Aprouiñ amañ dindan. Ma fell deoc'h nullañ an argerzh enskrivañ, klikit war ar bouton Nullañ evit distreiñ da veneger ar foromoù.</p><p>Tu zo da bellgargañ un eilenn eus ar furmskrid aotren amañ. Evit gouzout hiroc'h diwar-benn an argerzh enskrivañ, kasit ur postel <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>, mar plij.</p>
 coppa_conf:Kadarnadur COPPA
 coppa_before:A-raok {TEMPLATE: coppa_date}
 coppa_after:Goude {TEMPLATE: coppa_date}
