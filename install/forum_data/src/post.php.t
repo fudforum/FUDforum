@@ -149,7 +149,7 @@ function flood_check()
 		} else if ($reply_to || $th_id) {
 			$subj = reverse_fmt($reply_to ? $msg->subject : $thr->subject);
 
-			$msg_subject = strncmp('{TEMPLATE: reply_prefix}', $subj, strlen('{TEMPLATE: reply_prefix}')) ? '{TEMPLATE: reply_prefix}' . ' ' . $subj : $subj;
+			$msg_subject = strncmp('{TEMPLATE: reply_prefix}', $subj, strlen('{TEMPLATE: reply_prefix}')) ? '{TEMPLATE: reply_prefix}' .' '. $subj : $subj;
 			$old_subject = $msg_subject;
 
 			if (isset($_GET['quote']) && $reply_to) {
@@ -359,7 +359,6 @@ function flood_check()
 			}
 
 		 	/* Chose to create thread OR add message OR update message. */
-
 		 	if (!$th_id) {
 		 		$create_thread = 1;
 		 		$msg_post->add($frm->id, $frm->message_threshold, $frm->forum_opt, ($perms & (64|4096)), 0, $msg_tdescr);
@@ -396,7 +395,7 @@ function flood_check()
 
 			if (_uid && !$msg_id) {
 				/* Deal with notifications. */
-	 			if (isset($_POST['msg_poster_notif'])) {
+	 			if (!empty($_POST['msg_poster_notif'])) {
 	 				thread_notify_add(_uid, $msg_post->thread_id);
 	 			} else {
 	 				thread_notify_del(_uid, $msg_post->thread_id);
