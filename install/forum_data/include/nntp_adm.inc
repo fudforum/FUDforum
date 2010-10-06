@@ -15,7 +15,7 @@ class fud_nntp_adm
 	var $server, $port=119, $login, $pass, $timeout=25, $newsgroup, $auth, $imp_limit=10;
 
 	// General Settings.
-	var $forum_id, $id, $nntp_opt=97, $custom_sig;
+	var $forum_id, $id, $nntp_opt=108, $custom_sig;
 
 	function fud_nntp_adm()
 	{
@@ -109,4 +109,5 @@ function nntp_reset($id)
 {
 	q('UPDATE '. $GLOBALS['DBHOST_TBL_PREFIX'] .'nntp SET tracker = 0 WHERE id='. $id);
 }
+
 ?>

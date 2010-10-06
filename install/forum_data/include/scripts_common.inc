@@ -133,13 +133,14 @@ function decode_string($str, $encoding, $charset='')
 
 function decode_header_value($val)
 {
+	// Better to let PHP do it as it will also deal with non-UTF-8 chars.
+	if (function_exists('iconv_mime_decode')) {
+		return iconv_mime_decode(trim($val), 2, 'UTF-8');
+	}
+
 	// Check if string needs to be decoded.
 	if (strpos($val, '?') === false) {
 		return trim($val);
-	}
-
-	if (function_exists('iconv_mime_decode')) {
-		return iconv_mime_decode($val, 2, 'UTF-8');
 	}
 
 	// Decode string.
@@ -167,4 +168,5 @@ function decode_header_value($val)
 	}
 	return trim($val);
 }
+
 ?>

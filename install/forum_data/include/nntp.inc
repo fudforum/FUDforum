@@ -11,17 +11,14 @@
 
 class fud_nntp
 {
-	var $rule_id, $server, $port=119, $user, $pass, $timeout=25, $newsgroup, $imp_limit, $tracker;
+	var $server, $port=119, $user, $pass, $timeout=25, $newsgroup;
 	var $error, $lrc;
 	var $fs;
 	var $group_na, $group_first, $group_last, $nntp_opt, $custom_sig;
-	// Per Message Variables.
-	var $headers, $body;
+
+	// Per message variables.
 	var $raw_msg;
-	var $msg_id, $reply_to, $reply_to_msg_id, $from_email, $from_name, $ip, $thread_id;
-	var $user_id;
-	var $attachments;
-	var $boundary;
+	var $attachments = array();
 
 	function get_return_code()
 	{
@@ -38,9 +35,10 @@ class fud_nntp
 		return ($str == $code);
 	}
 
+	/* Log in to NNTP server with supplied username and password. */
 	function auth_cmd()
 	{
-		if ($this-> nntp_opt & 128) {
+		if ($this-> nntp_opt & 128) {	// Auth (ORIGINAL/SIMPLE).
 			switch ($this->cmd('AUTHINFO user '. $this->user, false)) {
 				case 281:
 					return true;
@@ -57,7 +55,7 @@ class fud_nntp
 					return false;
 					break;
 			}
-		} else if (!($this->nntp_opt & 64)) {
+		} else if (!($this->nntp_opt & 64)) {	// Auth NONE.
 			if ($this->cmd('AUTHINFO SIMPLE', false) != 350) {
 				$this->error = "Authentication failed\n";
 				return false;
@@ -76,6 +74,7 @@ class fud_nntp
 		return false;
 	}
 
+	/* Send NNTP command to the server. */
 	function cmd($cmd, $auth=true)
 	{
 		fputs($this->fs, $cmd ."\r\n");
@@ -89,11 +88,12 @@ class fud_nntp
 		return $code;
 	}
 
+	/* Connect to newsgroup server and get metadata for the group. */
 	function connect()
 	{
 		$this->fs = @fsockopen($this->server, $this->port, $errno, $errstr, $this->timeout);
 		if (!@is_resource($this->fs)) {
-			$this->error = "Unable to establish connection to $this->server on port $this->port failed\nWith Error #$errno : $errstr\n";
+			$this->error = 'Unable to establish connection to '. $this->server .' on port '. $this->port ." failed\nWith Error #". $errno .': '. $errstr ."\n";
 			return false;
 		}
 		if (!socket_set_blocking($this->fs, true)) {
@@ -123,17 +123,14 @@ class fud_nntp
 		return true;
 	}
 
+	/* Fetch a sengle post from a newsgroup. */
 	function get_message($id)
 	{
-		if (php_sapi_name() == 'cli') {         // Running from command line.
-			echo 'Importing '. $this->newsgroup .' message '. $id ."\n";
-		}
-
 		// Zero the vars.
-		$this->attachments=$this->user_id=$this->headers=$this->body=$this->raw_msg=$this->msg_id=$this->reply_to_msg_id=$this->from_email=$this->from_name=$this->ip=$this->boundary=null;
+		$this->raw_msg = $this->attachments = null;
 
 		if ($this->cmd('ARTICLE '. $id) != 220) {
-			$this->error = 'Unable to Fetch Article #'. $id .', NTTP Msg: '. $this->lrc ."\n";
+			$this->error = 'Unable to fetch article #'. $id .', NTTP Msg: '. $this->lrc ."\n";
 			return false;
 		}
 		while (!feof($this->fs)) {
@@ -144,15 +141,11 @@ class fud_nntp
 			$this->raw_msg .= $line;
 		}
 
-		if (!preg_match('!^(.*?)\r?\n\r?\n(.*)!s', $this->raw_msg, $m)) {
-			return false;
-		}
-		$this->body = trim($m[2]);
-		$this->headers = trim($m[1]);
-
+		// We may want to rather return $this->raw_msg in a future release.
 		return true;
 	}
 
+	/* Close the connection. */
 	function close_connection()
 	{
 		if (@is_resource($this->fs)) {
@@ -160,486 +153,19 @@ class fud_nntp
 		}
 	}
 
-	function check_boundary($v)
-	{
-	  if (preg_match('/boundary="([^"]+)"/', $v, $matches)) {
-		$this->boundary=$matches[1];
-	  }
-	}
-
-	function format_headers()
-	{
-		/* Convert to unix line endings and handle multi-line headers. */
-		$this->headers = str_replace("\r\n","\n", $this->headers);
-		$this->headers = preg_replace("/\n(\t| )+/", ' ', $this->headers); 
-		
-		$hdr = explode("\n", trim($this->headers));
-		$this->headers = array();
-		foreach($hdr as $v) {
-			$this->check_boundary($v);
-			$hk = substr($v, 0, ($p = strpos($v, ':')));
-			// Skip non-valid header lines.
-			if (empty($hk) || (isset($v[++$p]) && $v[$p] != ' ' && $v[$p] != "\t")) {
-				continue;
-			}
-
-			$hk = strtolower(trim($hk));
-
-			$this->headers[$hk] = trim(substr($v, $p));
-		}
-
-		// Fetch Message ID.
-		if (isset($this->headers['message-id'])) {
-			$this->msg_id = substr(trim($this->headers['message-id']), 1, -1);
-		} else {
-			$this->nntp_error_log('No message id', $this->raw_msg);
-		}
-
-		// This fetches the id of the message if this is a reply to an existing message.
-		if (!empty($this->headers['references']) && preg_match_all('!<?([^\s<>]+)>?!', trim($this->headers['references']), $match)) {
-			$this->reply_to_msg_id = array_reverse($match[1]);
-		} else if (!empty($this->headers['reply-to']) && preg_match('!.*<?([^>]+)>?$!', trim($this->headers['reply-to']), $match)) {
-			$this->reply_to_msg_id = array($match[1]);
-		}
-
-		// Fetch From email and Possible name.
-		if (preg_match('!(.*?)<(.*?)>!', $this->headers['from'], $matches)) {
-			$this->from_email = trim($matches[2]);
-
-			if (!empty($matches[1])) {
-				$matches[1] = decode_header_value(trim($matches[1]));
-				if ($matches[1][0] == '"' && substr($matches[1], -1) == '"') {
-					$this->from_name = substr($matches[1], 1, -1);
-				} else {
-					$this->from_name = $matches[1];
-				}
-			} else {
-				$this->from_name = $this->from_email;
-			}
-			if (preg_match('![^\w\-\s]!', $this->from_name)) {
-				$this->from_name = substr($this->from_email, 0, strpos($this->from_email, '@'));
-			}
-		} else {
-			$this->from_email = trim($this->headers['from']);
-			$this->from_name = substr($this->from_email, 0, strpos($this->from_email, '@'));
-		}
-
-		$this->subject = htmlspecialchars(trim(decode_header_value($this->headers['subject'])));
-
-		// Attempt to Get Poster's IP from fields commonly used to store it.
-		if (isset($this->headers['nntp-posting-host'])) {
-			$this->ip = parse_ip($this->headers['nntp-posting-host']);
-		}
-		if (!$this->ip && isset($this->headers['x-trace'])) {
-			$this->ip = parse_ip($this->headers['x-trace']);
-		}
-		if (!$this->ip && isset($this->headers['path'])) {
-			$this->ip = parse_ip($this->headers['path']);
-		}
-	}
-
-	function fud_uudecode($data)
-	{
-		$data = trim($data);
-		// begin 0-7{3} (.*)\r\n (filename)
-		if (strncmp($data, 'begin', 5)) {
-			return;
-		}
-		$filename = substr($data, 0, ($e=strpos($data, "\n")));
-		$filename = substr($filename, strpos($filename, ' ', 6)+1);
-
-		if (($e2 = strrpos($data, 'end')) === false) {
-			return;
-		}
-		if (function_exists('convert_uudecode')) {
-			$this->attachments[$filename] = convert_uudecode(trim(substr($data, $e, ($e2-$e))));
-			return;
-		}
-
-		$data = trim(substr($data, $e, ($e2-$e)));
-
-		$out = '';
-		foreach(explode("\n", $data) as $line) {
-			$p = 0;
-			$n = ((ord($line[$p]) -32) & 077);
-			if ($n <= 0) {
-				break;
-			}
-
-			for (++$p; $n > 0; $n -= 3) {
-				if ($n >= 3) {
-					$out .= chr(((ord($line[$p++]) - 32) & 077) << 2 | ((ord($line[$p]) - 32) & 077) >> 4);
-					$out .= chr(((ord($line[$p++]) - 32) & 077) << 4 | ((ord($line[$p]) - 32) & 077) >> 2);
-					$out .= chr(((ord($line[$p++]) - 32) & 077) << 6 | ((ord($line[$p++]) - 32) & 077));
-				} else {
-					if ($n >= 1) {
-						$out .= chr(((ord($line[$p]) - 32) & 077) << 2 | ((ord($line[$p+1]) - 32) & 077) >> 4);
-					}
-					if ($n >= 2) {
-						$out .= chr(((ord($line[$p+1]) - 32) & 077) << 4 | ((ord($line[$p+2]) - 32) & 077) >> 2);
-					}
-
-					$p += 4;
-				}
-			}
-		}
-		$this->attachments[$filename] = $out;
-	}
-
-	function fud_base64decode($data)
-	{
-		if (strncmp($data, 'begin-base64', 12)) {
-			return;
-		}
-
-		$filename = substr($data, 0, ($e=strpos($data, "\n")));
-		$filename = substr($filename, strpos($filename, ' ', 13)+1);
-
-		if (($e2 = strpos($data, '====', $e)) === false) {
-			return;
-		}
-
-		$data = trim(substr($data, $e, ($e2-$e)));
-		$data = str_replace("\r", '', $data);
-
-		$this->attachments[$filename] = base64_decode($data);
-	}
-
-	function skip_to_next_line(&$s) {
-	  if($next_line = strpos($this->body, "\n", $s) ) {
-		$s = $next_line+1;
-	  }
-	}
-
-	function get_next_line(&$s) {
-	  $line='';
-	  if($next_line = strpos($this->body, "\n", $s) ) {
-		$line=substr($this->body, $s, $next_line - $s);
-		$line = str_replace("\r", '', $line);
-		$s = $next_line+1;
-	  } else {
-		  // EOF
-		  $line=substr($this->body, $s);
-		  $s += strlen($line);
-	  }
-	  return ($line);
-	}
-
-	function process_content_header($line, &$content_type, &$content_transfer, &$filename) {
-
-			$hk = substr($line, 0, ($p = strpos($line, ':')));
-			// Skip non-valid header lines.
-			if (empty($hk) || (isset($line[++$p]) && $line[$p] != ' ' && $line[$p] != "\t")) {
-					return;
-			}
-
-			$hk = strtolower(trim($hk));
-			if ($hk == 'content-transfer-encoding') {
-					$content_transfer = trim(substr($line, $p));
-			} elseif ($hk == 'content-type') {
-					$content_type = trim(substr($line, $p));
-			}
-			// Match for content-disposition and content-type case.
-			if (preg_match('/name="([^"]+)"/', $line, $matches)) {
-			   $filename=$matches[1];
-			}
-
-	}
-
-	function parse_mime_attachments() {
-
-		$s = 0;
-		$text_body = '';
-
-		while (($s = strpos($this->body, $this->boundary, $s)) !== false) {
-
-			   $content_type = $content_transfer = $filename = null;
-			   $this->skip_to_next_line($s);
-
-			   $line=$this->get_next_line($s);
-			   // Retrieve all lines until no more continuation lines or blank.
-			   do {
-				 $next_line=$this->get_next_line($s);
-				 if (($next_line != '') && ($next_line[0] == "\t")) {
-				   // Continuation line.
-				   $line .= $next_line;
-				 } else {
-				   // New header line, process previous completed line.
-				   $this->process_content_header($line, $content_type, $content_transfer, $filename);
-				   $line = $next_line;
-				 }
-
-			   } while ($next_line != '');
-
-			   $have_text_body = false;
-			   // Have processed headers at this point.
-			   // If it's text/plain or text/html, put into main message headers.
-			   if (isset($content_type)) {
-				   if (strpos($content_type, 'text/plain') !== false) {
-					   $this->headers['content-type'] = $content_type;
-					   $this->headers['content-transfer-encoding'] = $content_transfer;
-					   $have_text_body = true;
-				   } elseif (strpos($content_type, 'text/html') !== false) {
-					   if (!isset($this->headers['content-type'])) {
-						   // Give priority to text/plain.
-						   $this->headers['content-type'] = $content_type;
-						   $this->headers['content-transfer-encoding'] = $content_transfer;
-						   $have_text_body = true;
-					   }
-				   }
-			   }
-
-			   if( ($eom = strpos($this->body, $this->boundary, $s)) === FALSE) {
-			   	$eom = strlen($this->body);
-			   }
-			   if ($have_text_body) {
-				   $text_body = substr($this->body, $s, $eom-$s);
-				   $s = $eom;
-			   }
-			   if (isset($filename)) {
-				   $data = substr($this->body, $s, $eom-$s);
-				   $data = str_replace("\r", '', $data);
-				   $this->attachments[$filename] = base64_decode($data);
-				   $s = $eom;
-			   }
-		}
-
-		if ($text_body) {
-			$this->body = $text_body;  // Replace multipart mime by the text body.
-		}
-	}
-
-	function parse_attachments()
-	{
-		if (isset($this->boundary)) {
-		   $this->parse_mime_attachments();
-		   return;
-		}
-
-		// UU encoded.
-		$s = 0;
-		while (($s = strpos($this->body, 'begin ', $s)) !== false) {
-			if (!$s || ($this->body[$s - 2] == "\r" && $this->body[$s - 1] == "\n")) {
-				if (($e = strpos($this->body, "\r\nend\r\n", $s)) === false) {
-					if (($e = strpos($this->body, "\nend\n", $s)) === false) { // Invalid line endings.
-						if (substr($this->body, -3) == 'end') {
-							$e = strlen($this->body) - 5;
-						} else {
-							$s += 6;
-							continue;
-						}
-					} else {
-						$e -= 2;
-					}
-				}
-				if ($this->nntp_opt & 8) {
-					$this->fud_uudecode(str_replace("\r", '', substr($this->body, $s, ($e + 5 - $s))));
-				}
-				$this->body = substr($this->body, 0, $s) . substr($this->body, ($e + 7));
-				$s = 0;
-			} else {
-				$s += 6;
-			}
-		}
-
-		// Base64 encoded.
-		$s = 0;
-		while (($s = strpos($this->body, 'begin-base64 ', $s)) !== false) {
-			if (!$s || ($this->body[$s - 2] == "\r" && $this->body[$s - 1] == "\n")) {
-				if (($e = strpos($this->body, "====\r\n", $s)) === false) {
-					if (substr($this->body, -4) == '====') {
-						$e = strlen($this->body) - 4;
-					} else {
-						$s += 13;
-						continue;
-					}
-				}
-				if ($this->nntp_opt & 8) {
-					$this->fud_base64decode(str_replace("\r", '', substr($this->body, $s, ($e+4-$s))));
-				}
-				$this->body = substr($this->body, 0, $s) . substr($this->body, ($e + 5));
-				$s = 0;
-			}
-			$s += 13;
-		}
-	}
-
+	/* Check if we need to log an error and/or abort processing. */
 	function exit_handler($exit=1)
 	{
 		if (!empty($this->error)) {
-			$this->nntp_error_log($this->error, null, 'LOG');
+			$this->log_script_error($this->error, null, 'LOG');
 		}
 		$this->close_connection();
 		if ($exit) {
 			exit($this->error);
 		}
 	}
-	
-	function nntp_error_log($error, $msg_data, $level='WARNING')
-	{
-		$err_msg_cpy = $GLOBALS['ERROR_PATH'] .'.nntp/'. time() .'_'. md5($msg_data);
-		$u = umask(0111);
 
-		if (!empty($msg_data) && $level != 'LOG') {
-			if (!($fp = fopen($err_msg_cpy, 'wb'))) {
-				exit('No perms to write '. $err_msg_cpy ."\n");
-			}
-			fwrite($fp, $msg_data);
-			fclose($fp);
-			$err_msg_cpy = ' @ '. $err_msg_cpy;
-		} else {
-			$err_msg_cpy = '';
-		}
-
-		fud_logerror($error . $err_msg_cpy, 'nntp_errors');
-		umask($u);
-
-		if ($level == 'ERROR') {
-			exit;
-		}
-	}
-
-	function parse_msgs($frm, $nntp_adm, $start_id=0)
-	{
-		if (!$this->connect()) {
-			$this->exit_handler();
-		}
-
-		$this->group_last++;
-
-		if ($start_id && $start_id > $this->group_first/* && $start_id <= $this->group_last*/) {
-			$this->group_first = $start_id;
-		}
-
-		$counter = 1;
-
-		for ($i = $this->group_first; $i < $this->group_last; $i++) {
-			if (!$this->get_message($i)) {
-				$this->error = null;
-				continue;
-			}
-
-			$this->format_headers();
-			$this->parse_attachments();
-
-			$msg_post = new fud_msg_edit;
-
-			// Handler for our own messages, which do not need to be imported.
-			if (isset($this->headers['x-fudforum']) && preg_match('!([A-Za-z0-9]{32}) <([0-9]+)>!', $this->headers['x-fudforum'], $m)) {
-				if ($m[1] == md5($GLOBALS['WWW_ROOT'])) {
-					q('UPDATE '. sql_p .'msg SET mlist_msg_id='. _esc($this->msg_id) .' WHERE id='. intval($m[2]) .' AND mlist_msg_id IS NULL');
-					if (db_affected()) {
-						continue;
-					}
-				}
-			}
-
-			// Handle NNTP cancellation messages.
-			if (isset($this->headers['control']) && preg_match('!cancel!', $this->headers['control'])) {
-				// For future implementation. Anyone brave enough to test it for us?
-				// q('DELETE FROM '.sql_p.'msg WHERE mlist_msg_id='._esc($this->msg_id));
-				// if (db_affected()) {
-					continue;
-				// }
-			}
-
-			if (isset($this->headers['date'])) {
-				$msg_post->post_stamp = strtotime($this->headers['date']);
-				if ($msg_post->post_stamp <= 0 || $msg_post->post_stamp > __request_timestamp__) {
-					$msg_post->post_stamp = __request_timestamp__;
-				}
-			}
-
-			if (isset($this->headers['content-type']) && preg_match('!charset="?([^"]+?)"?(;|\s|$)!', $this->headers['content-type'], $m)) {
-				$charset = $m[1];
-			} else {
-				$charset = $GLOBALS['CHARSET'];
-			}
-			if (isset($this->headers['content-transfer-encoding']) &&
-			   ($this->headers['content-transfer-encoding'] == 'quoted-printable' ||
-			    $this->headers['content-transfer-encoding'] == 'base64'))
-			{ 
-				$enc = $this->headers['content-transfer-encoding'];
-			} else {
-				$enc = '';
-			}
-
-			$msg_post->poster_id = match_user_to_post($this->from_email, $this->from_name, $this->nntp_opt & 32, $this->user_id, $msg_post->post_stamp);
-			if (!$msg_post->poster_id && $this->nntp_opt & 256) {	// skip_non_forum_users.
-				return;
-			}
-
-			$msg_post->subject = substr(apply_custom_replace($this->subject), 0, 100);	// Subject col is VARCHAR(100).
-			if ( ($msg_post->subject == null) || !strlen($msg_post->subject) ) {
-				$msg_post->subject = '(no subject)';
-			}
-
-			$msg_post->body = decode_string($this->body, $enc, $charset);
-
-			/* For anonymous users prefix 'contact' link. */
-			if (!$msg_post->poster_id) {
-				if ($frm->forum_opt & 16) {
-					$msg_post->body = "[b]Originally posted by:[/b] [email={(!empty($this->from_name) ? $this->from_name : '')}]{$this->from_email}[/email]\n\n". $msg_post->body;
-				} else {
-					$msg_post->body = 'Originally posted by: '. str_replace('@', '&#64', $this->from_email) ."\n\n". $msg_post->body;
-				}
-			}
-
-			$msg_post->body = apply_custom_replace($msg_post->body);
-			if ($frm->forum_opt & 16) {	// tag_style == HTML
-				$msg_post->body = tags_to_html($msg_post->body, 'N');
-			} else {
-				$msg_post->body = nl2br($msg_post->body);
-			}
-
-			fud_wordwrap($msg_post->body);
-
-			$msg_post->ip_addr = $this->ip;
-			$msg_post->mlist_msg_id = $this->msg_id;
-			$msg_post->attach_cnt = 0;
-			$msg_post->msg_opt = 1|2;
-			$msg_post->poll_id = 0;
-
-			/* Try to determine whether this message is a reply or a new thread. */
-			list($msg_post->reply_to, $msg_post->thread_id) = get_fud_reply_id(($nntp_adm->nntp_opt & 16), $frm->id, $msg_post->subject, $this->reply_to_msg_id);
-
-			$msg_post->add($frm->id, $frm->message_threshold, 0, 0, false);
-
-			// Handle File Attachments.
-			if (isset($this->attachments) && is_array($this->attachments)) {
-				$attach_list = array();
-
-				foreach($this->attachments as $key => $val) {
-					if (!($nntp_adm->nntp_opt & 8) && (strlen($val) > $frm->max_attach_size || (isset($attach_list) && count($attach_list) > $frm->max_file_attachments) || filter_ext($key))) {
-						continue;
-					}
-
-					$tmpfname = tempnam($GLOBALS['TMP'], 'FUDf_');
-					$fp = fopen($tmpfname, 'wb');
-					fwrite($fp, $val);
-					fclose($fp);
-
-					$id = attach_add(array('name' => basename($key), 'size' => strlen($val), 'tmp_name' => $tmpfname), $msg_post->poster_id, 0, 1);
-					$attach_list[$id] = $id;
-				}
-				if (isset($attach_list)) {
-					attach_finalize($attach_list, $msg_post->id);
-				}
-			}
-			if (!($nntp_adm->nntp_opt & 1)) {
-				fud_msg_edit::approve($msg_post->id);
-			}
-			unset($msg_post);
-
-			/* Message import limit reached. */
-			if ($this->imp_limit && $counter++ >= $this->imp_limit) {
-				break;
-			}
-		}
-		$this->set_tracker_end($i); // We use $i so we stop in the right place if limit is reached.
-		$this->exit_handler();
-	}
-
+	/* Acquire lock to prevent concurrent NNTP inports. */ 
 	function get_lock()
 	{
 		$u = umask(0111);
@@ -650,23 +176,25 @@ class fud_nntp
 		return $fp;
 	}
 
+	/* Release the lock. */
 	function release_lock($fp)
 	{
 		fclose($fp);
 	}
 
-	function set_tracker_end($tracker)
+	/* Save message number as restarting point for the next run. */
+	function set_tracker_end($rule_id, $tracker)
 	{
 		if (++$tracker > $this->group_last) {
 			$tracker = $this->group_last;
 		}
 
-		q('UPDATE '. $GLOBALS['DBHOST_TBL_PREFIX'] .'nntp SET tracker = '. $tracker .' WHERE id='. $this->rule_id);
+		q('UPDATE '. $GLOBALS['DBHOST_TBL_PREFIX'] .'nntp SET tracker = '. $tracker .' WHERE id='. $rule_id);
 	}
 
+	/* Post a message back to the USENET newsgroup. Attachemnets will be UUencoded. */
 	function post_message($subject, $body, $from, $forum_msg_id, $reply_to='', $attch='')
 	{
-
 		if (!$this->connect()) {
 			$this->exit_handler(0);
 			return;
@@ -722,7 +250,7 @@ class fud_nntp
 		if (is_array($attch)) {
 			fputs($this->fs, "\r\n");
 			foreach ($attch as $fname => $file_data) {
-				fputs($this->fs, uuencode($file_data, $fname));
+				fputs($this->fs, $this->uuencode($file_data, $fname));
 			}
 		}
 
@@ -738,45 +266,173 @@ class fud_nntp
 		$this->close_connection();
 		return true;
 	}
-}
+	
+	/* UUencoded an attachement. Used by post_message(). */
+	function uuencode($in, $file_name)
+	{
+		$out = 'begin 644 '. $file_name ."\r\n";
+		if (function_exists('convert_uuencode')) {
+			return $out . convert_uuencode($in) ."end\r\n";
+		}
 
-function uuencode($in, $file_name)
-{
-	$out = 'begin 644 ' . $file_name ."\r\n";
-	if (function_exists('convert_uuencode')) {
-		return $out . convert_uuencode($in) ."end\r\n";
+		$n = strlen($in);
+		for ($i = 0; $i < $n; $i += 3) {
+			if (!($i % 45)) {
+				if ($i) {
+					$out .= "\r\n";
+				}
+				if (($i + 45) < $n) {
+					$out .= 'M';
+				} else {
+					if (($c = ($n - $i))) {
+						$out .= chr(($c & 077) + 32);
+					} else {
+						$out .= '`';
+					}
+				}
+			}
+
+			$n1 = ($i + 1 < $n) ? ord($in[$i + 1]) : 0;
+			$n2 = ($i + 2 < $n) ? ord($in[$i + 2]) : 0;
+
+			$c = ord($in[$i]) >> 2;
+			$out .= $c ? chr(($c & 077) + 32) : '`';
+			$c = ((ord($in[$i]) << 4) & 060) | (($n1 >> 4) & 017);
+			$out .= $c ? chr(($c & 077) + 32) : '`';
+			$c = (($n1 << 2) & 074) | (($n2 >> 6) & 03);
+			$out .= $c ? chr(($c & 077) + 32) : '`';
+			$c = $n2 & 077;
+			$out .= $c ? chr(($c & 077) + 32) : '`';
+
+		}
+		return $out ."\r\n`\r\nend\r\n";
 	}
 
-	$n = strlen($in);
-	for ($i = 0; $i < $n; $i += 3) {
-		if (!($i % 45)) {
-			if ($i) {
-				$out .= "\r\n";
-			}
-			if (($i + 45) < $n) {
-				$out .= 'M';
-			} else {
-				if (($c = ($n - $i))) {
-					$out .= chr(($c & 077) + 32);
-				} else {
-					$out .= '`';
+	/* Remove attachements from post and return body. 
+	 * Attachements will be decoded and added to $this->attachments.
+     */
+	function parse_attachments($body)
+	{
+		$this->attachments = null;
+		
+		// UU encoded.
+		$s = 0;
+		while (($s = strpos($body, 'begin ', $s)) !== false) {
+			if (!$s || ($body[$s - 2] == "\r" && $body[$s - 1] == "\n")) {
+				if (($e = strpos($body, "\r\nend\r\n", $s)) === false) {
+					if (($e = strpos($body, "\nend\n", $s)) === false) { // Invalid line endings.
+						if (substr($body, -3) == 'end') {
+							$e = strlen($body) - 5;
+						} else {
+							$s += 6;
+							continue;
+						}
+					} else {
+						$e -= 2;
+					}
 				}
+				if ($this->nntp_opt & 8) {	// allow_nntp_attch
+					$this->fud_uudecode(str_replace("\r", '', substr($body, $s, ($e + 5 - $s))));
+				}
+				$body = substr($body, 0, $s) . substr($body, ($e + 7));
+				$s = 0;
+			} else {
+				$s += 6;
 			}
 		}
 
-		$n1 = ($i + 1 < $n) ? ord($in[$i + 1]) : 0;
-		$n2 = ($i + 2 < $n) ? ord($in[$i + 2]) : 0;
+		// Base64 encoded.
+		$s = 0;
+		while (($s = strpos($body, 'begin-base64 ', $s)) !== false) {
+			if (!$s || ($body[$s - 2] == "\r" && $body[$s - 1] == "\n")) {
+				if (($e = strpos($body, "====\r\n", $s)) === false) {
+					if (substr($body, -4) == '====') {
+						$e = strlen($body) - 4;
+					} else {
+						$s += 13;
+						continue;
+					}
+				}
+				if ($this->nntp_opt & 8) {
+					$this->fud_base64decode(str_replace("\r", '', substr($body, $s, ($e+4-$s))));
+				}
+				$body = substr($body, 0, $s) . substr($body, ($e + 5));
+				$s = 0;
+			}
+			$s += 13;
+		}
 
-		$c = ord($in[$i]) >> 2;
-		$out .= $c ? chr(($c & 077) + 32) : '`';
-		$c = ((ord($in[$i]) << 4) & 060) | (($n1 >> 4) & 017);
-		$out .= $c ? chr(($c & 077) + 32) : '`';
-		$c = (($n1 << 2) & 074) | (($n2 >> 6) & 03);
-		$out .= $c ? chr(($c & 077) + 32) : '`';
-		$c = $n2 & 077;
-		$out .= $c ? chr(($c & 077) + 32) : '`';
-
+		// Send the body (witout attchements) back.
+		return $body;
 	}
-	return $out ."\r\n`\r\nend\r\n";
+
+	/* Decode a BASE64 attachement and add to $this->attachments. */
+	function fud_base64decode($data)
+	{
+		if (strncmp($data, 'begin-base64', 12)) {
+			return;
+		}
+
+		$filename = substr($data, 0, ($e=strpos($data, "\n")));
+		$filename = substr($filename, strpos($filename, ' ', 13)+1);
+
+		if (($e2 = strpos($data, '====', $e)) === false) {
+			return;
+		}
+
+		$data = trim(substr($data, $e, ($e2-$e)));
+		$data = str_replace("\r", '', $data);
+
+		$this->attachments[$filename] = base64_decode($data);
+	}
+
+	/* Decode a UUEncoded attachement and add to $this->attachments. */
+	function fud_uudecode($data)
+	{
+		$data = trim($data);
+		// begin 0-7{3} (.*)\r\n (filename)
+		if (strncmp($data, 'begin', 5)) {
+			return;
+		}
+		$filename = substr($data, 0, ($e=strpos($data, "\n")));
+		$filename = substr($filename, strpos($filename, ' ', 6)+1);
+
+		if (($e2 = strrpos($data, 'end')) === false) {
+			return;
+		}
+		if (function_exists('convert_uudecode')) {
+			$this->attachments[$filename] = convert_uudecode(trim(substr($data, $e, ($e2-$e))));
+		}
+
+		$data = trim(substr($data, $e, ($e2-$e)));
+
+		$out = '';
+		foreach(explode("\n", $data) as $line) {
+			$p = 0;
+			$n = ((ord($line[$p]) -32) & 077);
+			if ($n <= 0) {
+				break;
+			}
+
+			for (++$p; $n > 0; $n -= 3) {
+				if ($n >= 3) {
+					$out .= chr(((ord($line[$p++]) - 32) & 077) << 2 | ((ord($line[$p]) - 32) & 077) >> 4);
+					$out .= chr(((ord($line[$p++]) - 32) & 077) << 4 | ((ord($line[$p]) - 32) & 077) >> 2);
+					$out .= chr(((ord($line[$p++]) - 32) & 077) << 6 | ((ord($line[$p++]) - 32) & 077));
+				} else {
+					if ($n >= 1) {
+						$out .= chr(((ord($line[$p]) - 32) & 077) << 2 | ((ord($line[$p+1]) - 32) & 077) >> 4);
+					}
+					if ($n >= 2) {
+						$out .= chr(((ord($line[$p+1]) - 32) & 077) << 4 | ((ord($line[$p+2]) - 32) & 077) >> 2);
+					}
+
+					$p += 4;
+				}
+			}
+		}
+		$this->attachments[$filename] = $out;
+	}
 }
+
 ?>
