@@ -37,7 +37,7 @@ INSERT INTO {SQL_TABLE_PREFIX}mime (fl_ext,mime_hdr,descr,icon) VALUES('exe','ap
 INSERT INTO {SQL_TABLE_PREFIX}mime (fl_ext,mime_hdr,descr,icon) VALUES('bin','application/application','Binary File','binary.gif');
 INSERT INTO {SQL_TABLE_PREFIX}mime (fl_ext,mime_hdr,descr,icon) VALUES('sh','application/sh','UNIX Shell Script','sh.gif');
 INSERT INTO {SQL_TABLE_PREFIX}mime (fl_ext,mime_hdr,descr,icon) VALUES('hqx','application/mac-binhex40','Mac Binary','binary.gif');
-INSERT INTO {SQL_TABLE_PREFIX}mime (fl_ext,mime_hdr,descr,icon) VALUES('','application/octet-stream','Unknown','unknown.gif');
+INSERT INTO {SQL_TABLE_PREFIX}mime (fl_ext,mime_hdr,descr,icon) VALUES('*','application/octet-stream','Unknown','unknown.gif');
 INSERT INTO {SQL_TABLE_PREFIX}mime (fl_ext,mime_hdr,descr,icon) VALUES('pl','application/x-perl','Perl Script','source.gif');
 INSERT INTO {SQL_TABLE_PREFIX}mime (fl_ext,mime_hdr,descr,icon) VALUES('pm','application/x-perl','Perl Module','source.gif');
 INSERT INTO {SQL_TABLE_PREFIX}mime (fl_ext,mime_hdr,descr,icon) VALUES('php','application/x-httpd-php','PHP Script','source.gif');

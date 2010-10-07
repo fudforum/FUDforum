@@ -202,7 +202,7 @@ function db_qid($q)
 {
 	$r = q($q);
 
-	$seqname = preg_replace('/^.*\s+(FROM|INTO)\s+(\w+)[\s\(\,].*$/si', '\\2', $q) .'_id_seq';
+	$seqname = preg_replace('/.*INSERT\s+INTO\s+(\w+)[\s\(\,].*$/si', '\\1', $q) .'_id_seq';
 	return q_singleval('SELECT '. $seqname .'.CURRVAL from dual');
 }
 
@@ -228,7 +228,7 @@ function db_li($q, &$ef, $li=0)
 
 	if ($r) {
 		if ($li) {
-			$seqname = preg_replace('/^.*\s+(FROM|INTO)\s+(\w+)[\s\(\,].*$/si', '\\2', $q) .'_id_seq';
+			$seqname = preg_replace('/.*INSERT\s+INTO\s+(\w+)[\s\(\,].*$/si', '\\1', $q) .'_id_seq';
 			return q_singleval('SELECT '. $seqname .'.CURRVAL FROM dual');
 		}
 		return $r;

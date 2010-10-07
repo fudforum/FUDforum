@@ -224,9 +224,9 @@ function ins_m($tbl, $flds, $types, $vals)
 {
 	$sth = db::$db->prepare('INSERT INTO '. $tbl .' ('. $flds .') VALUES(?'.str_repeat(',?',substr_count($flds, ',')) .')');
 	foreach ($vals as $v) {
-		db::$db->exec('SAVEPOINT pre_ins_m');
+		if (!empty($GLOBALS['__DB_INC_INTERNALS__']['db_locked'])) db::$db->exec('SAVEPOINT pre_ins_m');
 		if (!$sth->execute(explode(',', trim($v, '\'')))) {
-			db::$db->exec('ROLLBACK TO pre_ins_m');
+			if (!empty($GLOBALS['__DB_INC_INTERNALS__']['db_locked'])) db::$db->exec('ROLLBACK TO pre_ins_m');
 			continue;
 		}
 	}

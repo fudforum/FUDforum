@@ -23,6 +23,12 @@ if (empty(db::$db)) {
 	}
 
 	define('__dbtype__', substr($GLOBALS['DBHOST_DBTYPE'], 4));
+
+	// SQLite optimization (dangerous, but very fast!).
+	if (defined('SQLITE_FAST_BUT_WRECKLESS')) {
+                q('PRAGMA temp_store = MEMORY');
+                q('PRAGMA synchronous = OFF');
+	}
 }
 
 function db_version()

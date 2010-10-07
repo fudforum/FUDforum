@@ -230,11 +230,11 @@ function ins_m($tbl, $flds, $types, $vals)
 
 	$err = error_reporting(0);	// Simply ignore DUPLICATE errors.
 	foreach ($vals as $v) {
-		pg_exec('SAVEPOINT pre_ins_m');
+		if (!empty($GLOBALS['__DB_INC_INTERNALS__']['db_locked'])) pg_exec('SAVEPOINT pre_ins_m');
 		pg_exec(fud_sql_lnk, 'EXECUTE '. $pid .' ('. $v .')');
 		// pg_execute(fud_sql_lnk, $pid,  explode(',', $v));	// $v must be unquoted before we can use this method.
 		if (pg_last_error(fud_sql_lnk)) {
-			pg_exec('ROLLBACK TO pre_ins_m');
+			if (!empty($GLOBALS['__DB_INC_INTERNALS__']['db_locked'])) pg_exec('ROLLBACK TO pre_ins_m');
 		}
 	}
 	error_reporting($err);
