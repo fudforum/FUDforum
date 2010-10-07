@@ -26,3 +26,5 @@ function email_login_info() {
 	             'desc' => 'Allow forum users to login to the forum with either their normal username or E-mail addresses.',
 	             'version' => '1.0');
 }
+
+?>

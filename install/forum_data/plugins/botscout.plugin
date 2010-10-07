@@ -14,7 +14,7 @@ plugin_add_hook('PREREGISTRATION', 'plugin_botscout');
 
 // Validate registering users with BotScout
 function plugin_botscout($uent) {
-	if((@include_once $GLOBALS['PLUGIN_PATH'].'/botscout.ini') === false) {
+	if((@include_once $GLOBALS['PLUGIN_PATH'] .'botscout.ini') === false) {
 		$ini = array();
 	}
 
@@ -38,11 +38,11 @@ function plugin_botscout($uent) {
 function botscout_info() {
 	return array('name' => 'BotScout',
 		     'desc' => 'This plugin integrates with the BotScout API to screen registering users and prevent known bots from creating accounts on your forum.',
-			 'version' => '1.2');
+		     'version' => '1.2');
 }
 
 function botscout_config() {
-	if((@include_once $GLOBALS['PLUGIN_PATH'].'/botscout.ini') === false) {
+	if((@include_once $GLOBALS['PLUGIN_PATH'] .'botscout.ini') === false) {
 		$ini = NULL;
 	}
 		
@@ -52,8 +52,8 @@ function botscout_config() {
 				$ini[$key] = $_POST[$key];
 			}
 		}
-		$fp = fopen($GLOBALS['PLUGIN_PATH'].'/botscout.ini', 'w');
-		fwrite($fp, '<?php $ini = '.var_export($ini, 1).'; ?>');
+		$fp = fopen($GLOBALS['PLUGIN_PATH'] .'botscout.ini', 'w');
+		fwrite($fp, '<?php $ini = '. var_export($ini, 1).'; ?>');
 		fclose($fp);
 		echo '<font color="green">Settings successfully saved.</font>';
 	}

@@ -17,7 +17,7 @@ function plugin_welcome_pm($usr) {
 	fud_use('private.inc');
 	fud_use('wordwrap.inc');
 
-	if((@include_once $GLOBALS['PLUGIN_PATH'].'/welcome_pm.ini') === false) {
+	if((@include_once $GLOBALS['PLUGIN_PATH'] .'welcome_pm.ini') === false) {
 		die('ERROR: Please configure the Welcome PM plugin from the Plugin Manager Control panel.');
 	}
 
@@ -39,17 +39,17 @@ function plugin_welcome_pm($usr) {
 function welcome_pm_info() {
 	return array('name' => 'Welcome Private Message',
 	             'desc' => 'This plugin, if enabled, will send a welcome PM (private message) to users when they confirm their E-mail addresses.',
-				 'version' => '1.1');
+		     'version' => '1.1');
 }
 
 function welcome_pm_enable() {
-	if((@include_once $GLOBALS['PLUGIN_PATH'].'/welcome_pm.ini') === false) {
+	if((@include_once $GLOBALS['PLUGIN_PATH'] .'welcome_pm.ini') === false) {
 		return 'Please configure the welcome_pm plugin before enabling it.';
 	}
 }
 
 function welcome_pm_config() {
-	if((@include_once $GLOBALS['PLUGIN_PATH'].'/welcome_pm.ini') === false) {
+	if((@include_once $GLOBALS['PLUGIN_PATH'] .'welcome_pm.ini') === false) {
 	  $ini = NULL;
 	}
 		
@@ -59,8 +59,8 @@ function welcome_pm_config() {
 				$ini[$key] = $_POST[$key];
 			}
 		}
-		$fp = fopen($GLOBALS['PLUGIN_PATH'].'/welcome_pm.ini', 'w');
-		fwrite($fp, '<?php $ini = '.var_export($ini, 1).'; ?>');
+		$fp = fopen($GLOBALS['PLUGIN_PATH'] .'/welcome_pm.ini', 'w');
+		fwrite($fp, '<?php $ini = '. var_export($ini, 1) .'; ?>');
 		fclose($fp);
 		echo '<font color="green">Settings successfully saved.</font>';
 	}

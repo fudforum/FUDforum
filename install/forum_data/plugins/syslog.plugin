@@ -24,6 +24,8 @@ function plugin_syslog($error_msg) {
 function syslog_info() {
 	return array('name' => 'Syslog',
 	             'desc' => '<p>Write errors to the system log instead of FUDforum\'s log file.</p>'.
-			       '<p>This will typically be the <i>Event Log</i> on Windows systems or syslog (/var/log/messages  file) on Linux/Unix systems.</p>',
+			       '<p>This will typically be the <i>Event Log</i> on Windows systems or syslog (/var/log/messages file) on Linux/Unix systems.</p>',
 	             'version' => '1.0');
 }
+
+?>

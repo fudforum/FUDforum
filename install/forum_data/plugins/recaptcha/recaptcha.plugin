@@ -15,14 +15,14 @@ plugin_add_hook('CAPTCHA_VALIDATE', 'plugin_recaptcha_validate');
 
 // Display recaptcha image
 function plugin_recaptcha_display() {
-	if((@include $GLOBALS['PLUGIN_PATH'].'/recaptcha/recaptcha.ini') === false) {
+	if((@include $GLOBALS['PLUGIN_PATH'] .'recaptcha/recaptcha.ini') === false) {
 		die('ERROR: Please configure the Recaptcha plugin from the Plugin Manager Control panel.');
 	}
 
 	$html = "<div id='recaptcha_widget' style='display:none;'><script type='text/javascript'>var RecaptchaOptions = {theme : 'custom',  custom_theme_widget: 'recaptcha_widget'};</script>
 <div id='recaptcha_image'></div><input type='hidden' id='recaptcha_response_field' name='recaptcha_response_field' />[ <a href='javascript:Recaptcha.reload()'>Get another CAPTCHA</a> ]<span class='recaptcha_only_if_image'>[ <a href='javascript:Recaptcha.switch_type(\"audio\")'>Get audio CAPTCHA</a> ]</span><span class='recaptcha_only_if_audio'>[ <a href='javascript:Recaptcha.switch_type(\"image\")'>Show image CAPTCHA</a> ]</span> 
-<script type='text/javascript' src='http://api.recaptcha.net/challenge?k=".$ini['RECAPTCHA_PUBKEY']."'></script>
-<noscript><iframe src='http://api.recaptcha.net/noscript?k=".$ini['RECAPTCHA_PUBKEY']."' height='300' width='500' frameborder='0'></iframe><textarea name='recaptcha_challenge_field' rows='1' cols='40'></textarea><input type='hidden' name='recaptcha_response_field' value='manual_challenge'></noscript></div>";
+<script type='text/javascript' src='http://api.recaptcha.net/challenge?k=". $ini['RECAPTCHA_PUBKEY'] ."'></script>
+<noscript><iframe src='http://api.recaptcha.net/noscript?k=". $ini['RECAPTCHA_PUBKEY'] ."' height='300' width='500' frameborder='0'></iframe><textarea name='recaptcha_challenge_field' rows='1' cols='40'></textarea><input type='hidden' name='recaptcha_response_field' value='manual_challenge'></noscript></div>";
 
 	return array($html, 'not set');
 }
@@ -32,7 +32,7 @@ function plugin_recaptcha_validate($array) {
 	list($test, $res) = $array;
 
 	require_once('recaptchalib.php');
-	require_once($GLOBALS['PLUGIN_PATH'].'/recaptcha/recaptcha.ini');
+	require_once($GLOBALS['PLUGIN_PATH'] .'recaptcha/recaptcha.ini');
 	$resp = recaptcha_check_answer($ini['RECAPTCHA_PRIVKEY'],
 				$_SERVER['REMOTE_ADDR'],
 				$_POST['recaptcha_challenge_field'],
@@ -50,14 +50,14 @@ function recaptcha_info() {
 }
 
 function recaptcha_enable() {
-	if((@include_once $GLOBALS['PLUGIN_PATH'].'/recaptcha/recaptcha.ini') === false) {
+	if((@include_once $GLOBALS['PLUGIN_PATH'] .'recaptcha/recaptcha.ini') === false) {
 		return 'Please configure the recaptcha plugin before enabling it.';
 	}
 }
 
 // Configuration via the Admin Control Panel
 function recaptcha_config() {
-	if((@include_once $GLOBALS['PLUGIN_PATH'].'/recaptcha/recaptcha.ini') === false) {
+	if((@include_once $GLOBALS['PLUGIN_PATH'] .'recaptcha/recaptcha.ini') === false) {
 		$ini = NULL;
 	}
 		
@@ -67,8 +67,8 @@ function recaptcha_config() {
 				$ini[$key] = $_POST[$key];
 			}
 		}
-		$fp = fopen($GLOBALS['PLUGIN_PATH'].'/recaptcha/recaptcha.ini', 'w');
-		fwrite($fp, '<?php $ini = '.var_export($ini, 1).'; ?>');
+		$fp = fopen($GLOBALS['PLUGIN_PATH'] .'recaptcha/recaptcha.ini', 'w');
+		fwrite($fp, '<?php $ini = '. var_export($ini, 1) .'; ?>');
 		fclose($fp);
 		echo '<font color="green">Settings successfully saved.</font>';
 	}

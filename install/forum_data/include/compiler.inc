@@ -23,22 +23,23 @@ function resolve_refs($file_name)
 	$GLOBALS['CURFILE'] = $GLOBALS['DATA_DIR'] .'thm/'. $tset .'/tmpl/'. $file_name;
 	if (($str = @file_get_contents($GLOBALS['CURFILE'])) === false) {
 		// Not found, look in PATH_INFO theme.
-		if (file_exists($GLOBALS['DATA_DIR'].'thm/'.$tset.'/.path_info')) {
-			$file1 = $GLOBALS['DATA_DIR'].'thm/path_info/tmpl/'.$file_name;
+		if (file_exists($GLOBALS['DATA_DIR'] .'thm/'. $tset .'/.path_info')) {
+			$file1 = $GLOBALS['DATA_DIR'] .'thm/path_info/tmpl/'. $file_name;
 			if (($str = @file_get_contents($file1)) === false) {
 				// Not found, look in DEFAULT theme.
-				$file1 = $GLOBALS['DATA_DIR'].'thm/default/tmpl/'.$file_name;
+				$file1 = $GLOBALS['DATA_DIR'] .'thm/default/tmpl/'. $file_name;
 				if (($str = @file_get_contents($file1)) === false) {
 					throw new Exception('Referenced file named (<b>'. $file_name .'</b>) doesn\'t exist.');
 				}
 			}
 		} else {	// Not a path_info theme.
-			$file1 = $GLOBALS['DATA_DIR'] .'thm/default/tmpl/'.$file_name;
+			$file1 = $GLOBALS['DATA_DIR'] .'thm/default/tmpl/'. $file_name;
 			if (($str = @file_get_contents($file1)) === false) {
 				throw new Exception('Referenced file named (<b>'. $file_name .'</b>) doesn\'t exist.');
 			}
 		}
 	}
+
 	if (($st = strpos($str, '{PHP_FILE: ')) !== false) {
 		$st += 11;
 		$st = substr($str, $st, (strpos($str, '}', $st) - $st - 1));
@@ -54,7 +55,7 @@ function resolve_refs($file_name)
 	}
 
 	if (strpos($GLOBALS['CURFILE'], 'thm/default/tmpl') === false) {
-		if (($tmp = @file_get_contents($GLOBALS['DATA_DIR'].'thm/default/tmpl/'.$file_name)) !== false) {
+		if (($tmp = @file_get_contents($GLOBALS['DATA_DIR'] .'thm/default/tmpl/'. $file_name)) !== false) {
 			parse_sections($tmp, ($st !== false ? $fc['dst'] : ''), 1);
 		}
 	}
@@ -177,29 +178,29 @@ function resolve_sections($str)
 				break;
 			case 'VAR':
 			case 'TEMPLATE-DATA':
-				$ret .= '\'.$'.$name.'.\'';
+				$ret .= '\'.$'. $name .'.\'';
 				break;
 			case 'GVAR':
-				$ret .= '\'.$GLOBALS[\''.$name.'\'].\'';
+				$ret .= '\'.$GLOBALS[\''. $name .'\'].\'';
 				break;
 			case 'DEF':
-				$ret .= '\'.'.$name.'.\'';
+				$ret .= '\'.'. $name .'.\'';
 				break;
 			case 'VAR-URL':
-				$ret .= '\'.urlencode($'.$name.').\'';
+				$ret .= '\'.urlencode($'. $name .').\'';
 				break;
 			case 'VAR-HTML':
-				$ret .= '\'.htmlspecialchars($'.$name.').\'';
+				$ret .= '\'.htmlspecialchars($'. $name .').\'';
 				break;
 			case 'VAR-UH':
-				$ret .= '\'.htmlspecialchars(urldecode($'.$name.')).\'';
+				$ret .= '\'.htmlspecialchars(urldecode($'. $name .')).\'';
 				break;
 			case 'VAR-FORM':
-				$ret .= '\'.stripslashes($'.$name.').\'';
+				$ret .= '\'.stripslashes($'. $name .').\'';
 				break;
 			case 'ALT-VAR':
 				list($name, $class1, $class2) = explode(' ', $name, 3);
-				$ret .= '\'.alt_var(\''.$name.'\',\''.$class1.'\',\''.$class2.'\').\'';
+				$ret .= '\'.alt_var(\''. $name .'\',\''.$class1.'\',\''.$class2.'\').\'';
 				break;
 			case 'DATE':
 				if (stristr($GLOBALS['char_set'], 'utf-8') !== false && substr(PHP_OS, 0, 3) == 'WIN') {
@@ -212,9 +213,9 @@ function resolve_sections($str)
 				}
 				list($var, $format) = explode(' ', $name, 2);
 				if ($var[0] != '!') {
-					$ret .= $func.$format.'", $'.$var.$close;
+					$ret .= $func . $format .'", $'. $var . $close;
 				} else {
-					$ret .= $func.$format.'", '.substr($var,1).$close;
+					$ret .= $func . $format .'", '. substr($var,1) . $close;
 				}
 				break;
 			case 'TEMPLATE':
@@ -227,11 +228,23 @@ function resolve_sections($str)
 				} else {
 					throw new Exception('Undefined template: "'. $tag .'" inside "'. $name .'".');
 				}
-				$ret .= $GLOBALS['TC'][$sec][$name]['data'] = resolve_sections($GLOBALS['TC'][$sec][$name]['data']);
+
+				$tmpl_resolved = $GLOBALS['TC'][$sec][$name]['data'] = resolve_sections($GLOBALS['TC'][$sec][$name]['data']);
+
+				// Give all COMPILER_EXPAND_TEMPLATE plugins the opportunity to modify the template.
+				if (defined('plugins')) {
+					list($tmpl_mod) = plugin_call_hook('COMPILER_EXPAND_TEMPLATE', array($tag, $sec, $name, $GLOBALS['TC'][$sec][$name]['file'], $tmpl_resolved));
+					if (!empty($tmpl_mod)) {
+						$tmpl_resolved = $tmpl_mod;
+					 }
+				}
+
+				$ret .= $tmpl_resolved;
+
 				break;
 			case 'META-CONTENT-LANGUAGE':
 				echo 'WARNING: {META-CONTENT-LANGUAGE} is deprecated, please remove it from your templates.<br />';
-				$ret .= '<meta http-equiv="Content-Type" content="text/html; charset='.$GLOBALS['char_set'].'" />';
+				$ret .= '<meta http-equiv="Content-Type" content="text/html; charset='. $GLOBALS['char_set'] .'" />';
 				break;
 			case 'CHARSET':	// Character set name.
 				$ret .= $GLOBALS['char_set'];
@@ -244,11 +257,11 @@ function resolve_sections($str)
 				break;
 
 			case 'FUNC':
-				$ret .= "'." . substr($str, $te, ($e - $te)) . ".'";
+				$ret .= "'.". substr($str, $te, ($e - $te)) .".'";
 				break;
 
 			case 'IF':
-				$ret .= "'.(" . substr($str, $te, ($e - $te)) . " ? '";
+				$ret .= "'.(". substr($str, $te, ($e - $te)) ." ? '";
 				break;
 				
 			case 'ELSE':
@@ -330,6 +343,7 @@ function compile_file($source)
 		} else {
 			throw new Exception('Undefined template: "'. $name .'" inside "'. $source .'".');
 		}
+
 		$ref =& $GLOBALS['TC'][$sec][$name]['data'];
 		$ref = resolve_sections($ref);
 
@@ -495,6 +509,11 @@ function generate_file($php_file)
 
 	// Inject debug info to help with theme development.
 	/* $file_data = str_replace('</html>', '<?php echo "<pre>".htmlentities(print_r(get_defined_vars(), 1))."</pre>"; ?> </html>', $file_data); */
+
+	// Call all COMPILER_FINALIZE_PAGE plugins.
+	if (defined('plugins')) {
+		list($file_data) = plugin_call_hook('COMPILER_FINALIZE_PAGE', array($file_data));
+	}
 
 	fwrite($fp, $file_data);
 	fclose($fp);
@@ -872,7 +891,7 @@ function copyhelp($thm)
 
 	$path .= '/';
 
-	$files = glob($src . '/*.hlp', GLOB_NOSORT);
+	$files = glob($src .'/*.hlp', GLOB_NOSORT);
 	if (!$files) {
 		throw new Exception('Failed to find help files inside \''. $src .'\'.');
 	}
@@ -894,21 +913,22 @@ function copyhelp($thm)
 /* Copy langauge helper functions (language.inc) to the theme's directory. */
 function copylangfuncs($thm) {
 	$path = $GLOBALS['WWW_ROOT_DISK'] .'theme/'. $thm->name .'/';
-	$src = $GLOBALS['DATA_DIR'] .'thm/'. $thm->theme.'/i18n/'. $thm->lang .'/language.inc';
+	$src = $GLOBALS['DATA_DIR'] .'thm/'. $thm->theme .'/i18n/'. $thm->lang .'/language.inc';
 	if (!@file_exists($src)) {
 		$src = $GLOBALS['DATA_DIR'] .'thm/default/i18n/'. $thm->lang .'/language.inc';
 		if (!@file_exists($src)) {
 			$src = $GLOBALS['DATA_DIR'] .'thm/default/i18n/en/language.inc';
 		}
 	}
-	
+
 	$u = umask(0);
 
 	if (!@is_dir($path) && !@mkdir($path, 0777)) {
 		throw new Exception('ERROR: Unable to create directory: '. $path .'.<br />');
 	}
-	
+
 	fudcopy(dirname($src), $path, '{language.inc}');
 	umask($u);
 }
+
 ?>

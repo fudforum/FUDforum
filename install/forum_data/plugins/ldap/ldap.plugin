@@ -21,7 +21,7 @@ function plugin_ldap_auth() {
 		return 1;
 	}
 
-	if((@include_once $GLOBALS['PLUGIN_PATH'].'/ldap/ldap.ini') === false) {
+	if((@include_once $GLOBALS['PLUGIN_PATH'] .'ldap/ldap.ini') === false) {
 		echo 'ERROR: Please configure the LDAP plugin from the Plugin Manager Control panel.';
 		return 0;
 	}
@@ -103,7 +103,7 @@ function plugin_ldap_auth() {
 			// Sync password.
 			$salt = substr(md5(uniqid(mt_rand(), true)), 0, 9);
 			$sec_pass = sha1($salt . sha1($password));
-			q('UPDATE '. $GLOBALS['DBHOST_TBL_PREFIX'] .'users SET passwd='._esc($sec_pass).', salt='._esc($salt).' WHERE id='.$usr_d->id);
+			q('UPDATE '. $GLOBALS['DBHOST_TBL_PREFIX'] .'users SET passwd='. _esc($sec_pass) .', salt='. _esc($salt) .' WHERE id='. $usr_d->id);
 		}
 
 		return 1;	// Allow access.
@@ -128,7 +128,7 @@ function ldap_enable() {
 }
 
 function ldap_config() {
-	if((@include_once $GLOBALS['PLUGIN_PATH'] .'/ldap/ldap.ini') === false) {
+	if((@include_once $GLOBALS['PLUGIN_PATH'] .'ldap/ldap.ini') === false) {
 		$ini = NULL;
 	}
 
@@ -142,7 +142,7 @@ function ldap_config() {
 		// Array key from ldap_get_entries() must be lowercase.
 		$ini['LDAP_UID'] = strtolower($ini['LDAP_UID']);
 
-		$fp = fopen($GLOBALS['PLUGIN_PATH'] .'/ldap/ldap.ini', 'w');
+		$fp = fopen($GLOBALS['PLUGIN_PATH'] .'ldap/ldap.ini', 'w');
 		fwrite($fp, '<?php $ini = '. var_export($ini, 1) .'; ?>');
 		fclose($fp);
 		echo '<font color="green">Settings successfully saved.</font>';

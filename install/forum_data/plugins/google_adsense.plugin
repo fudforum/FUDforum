@@ -1,0 +1,90 @@
+<?php
+/**
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* email                : forum@prohost.org
+* $Id$
+*
+* This program is free software; you can redistribute it and/or modify it
+* under the terms of the GNU General Public License as published by the
+* Free Software Foundation; version 2 of the License.
+**/
+
+// Initialize plugin.
+plugin_add_hook('COMPILER_EXPAND_TEMPLATE', 'plugin_google_adsense');
+
+function plugin_google_adsense($array) {
+	list($tag, $sec, $name, $file, $tmpl) = $array;
+
+	if((@include $GLOBALS['PLUGIN_PATH'] .'google_adsense.ini') === false) {
+		die('ERROR: Please configure the google_adsense plugin from the Plugin Manager Control panel.');
+	}
+
+	if ($name == 'header' && $ini['GOOGLE_ADSENSE_POS'] == 1) {
+		return array($ini['GOOGLE_ADSENSE_CODE'] . $tmpl);
+	} else if ($name == 'header' && $ini['GOOGLE_ADSENSE_POS'] == 2) {
+		return array($tmpl . $ini['GOOGLE_ADSENSE_CODE']);
+	} else if ($name == 'curtime' && $ini['GOOGLE_ADSENSE_POS'] == 3) {
+		return array($ini['GOOGLE_ADSENSE_CODE'] . $tmpl);
+	} else if ($name == 'curtime' && $ini['GOOGLE_ADSENSE_POS'] == 4) {
+		return array($tmpl . $ini['GOOGLE_ADSENSE_CODE']);
+	} else if ($name == 'footer' && $ini['GOOGLE_ADSENSE_POS'] == 5) {
+		return array($ini['GOOGLE_ADSENSE_CODE'] . $tmpl);
+	} else if ($name == 'footer' && $ini['GOOGLE_ADSENSE_POS'] == 6) {
+		return array($tmpl . $ini['GOOGLE_ADSENSE_CODE']);
+	} else if ($name == 'usercp' && $ini['GOOGLE_ADSENSE_POS'] == 7) {
+		return array($tmpl . $ini['GOOGLE_ADSENSE_CODE']);
+	}
+
+	return;
+}
+
+function google_adsense_info() {
+	return array('name' => 'Google AdSense',
+				'desc' => 'Display ads from Google AdSense on your forum\'s web pages.',
+				'version' => '1.0');
+}
+
+function google_adsense_enable() {
+	if((@include_once $GLOBALS['PLUGIN_PATH'] .'google_adsense.ini') === false) {
+		return 'Please configure the google_adsense plugin before enabling it.';
+	}
+}
+
+function google_adsense_config() {
+	if((@include_once $GLOBALS['PLUGIN_PATH'] .'google_adsense.ini') === false) {
+		$ini = NULL;
+	}
+
+	if (isset($_POST['Set'])) {
+		foreach (array_keys($_POST) as $key) {
+			if (substr($key,0,15) == 'GOOGLE_ADSENSE_') {
+				$ini[$key] = trim($_POST[$key]);
+			}
+		}
+		$fp = fopen($GLOBALS['PLUGIN_PATH'] .'google_adsense.ini', 'w');
+		fwrite($fp, '<?php $ini = '. var_export($ini, 1) .'; ?>');
+		fclose($fp);
+		echo '<font color="green">Settings successfully saved.</font><br />';
+		echo '<font color="orange">Please ensure the plugin is active and rebuild your themes to display the ad on your forum.</font>';
+	}
+	?>
+<p>Where should it be displayed:<br />
+<select name="GOOGLE_ADSENSE_POS">
+<option value="1" <?php if($ini['GOOGLE_ADSENSE_POS']==1) echo 'selected="selected"'; ?>>Before page header.</option>
+<option value="2" <?php if($ini['GOOGLE_ADSENSE_POS']==2) echo 'selected="selected"'; ?>>After page header.</option>
+<option value="3" <?php if($ini['GOOGLE_ADSENSE_POS']==3) echo 'selected="selected"'; ?>>Before current time.</option>
+<option value="4" <?php if($ini['GOOGLE_ADSENSE_POS']==4) echo 'selected="selected"'; ?>>After current time.</option>
+<option value="5" <?php if($ini['GOOGLE_ADSENSE_POS']==5) echo 'selected="selected"'; ?>>Before page footer.</option>
+<option value="6" <?php if($ini['GOOGLE_ADSENSE_POS']==6) echo 'selected="selected"'; ?>>After page footer.</option>
+<option value="7" <?php if($ini['GOOGLE_ADSENSE_POS']==7) echo 'selected="selected"'; ?>>After top level menu.</option>
+</select>
+</p>
+
+<p>Your AdSense unit code (get it from <a href="http://www.google.com/adsense/">google.com/adsense</a>):<br />
+<textarea name="GOOGLE_ADSENSE_CODE" cols="72" rows="10"><?php echo $ini['GOOGLE_ADSENSE_CODE'] ?></textarea>
+<font size="-1">Tip: you can add additional HTML as well. For example, use the CENTRE tag to center your ad.</font>
+</p>
+	<?php
+}
+
+?>

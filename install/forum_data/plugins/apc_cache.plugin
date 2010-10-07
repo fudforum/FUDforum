@@ -41,3 +41,5 @@ function apc_cache_enable() {
 	}
 	return;	// Good to go.
 }
+
+?>

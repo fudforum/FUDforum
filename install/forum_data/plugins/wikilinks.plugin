@@ -17,7 +17,7 @@ plugin_add_hook('HTML2BBCODE', 'plugin_wikilinks_html_to_tag');
 function plugin_wikilinks_tag_to_html($array) {
 	list($bbcode) = $array;
 
-	if((@include_once $GLOBALS['PLUGIN_PATH'].'/wikilinks.ini') === false) {
+	if((@include_once $GLOBALS['PLUGIN_PATH'] .'wikilinks.ini') === false) {
 		die('ERROR: Please configure the wikilinks plugin from the Plugin Manager Control panel.');
 	}
 
@@ -77,17 +77,17 @@ function plugin_wikilinks_tag_to_html($array) {
 function plugin_wikilinks_html_to_tag($array) {
 	list($bbcode) = $array;
 
-	if((@include_once $GLOBALS['PLUGIN_PATH'].'/wikilinks.ini') === false) {
+	if((@include_once $GLOBALS['PLUGIN_PATH'] .'wikilinks.ini') === false) {
 		die('ERROR: Please configure the wikilinks plugin from the Plugin Manager Control panel.');
 	}
 
-	while (preg_match('!<a href="'. str_replace('://', '&#58;&#47;&#47;', $ini['WIKILINKS_URL']) .'(.+?)" target="_blank">(.+?)</a>!ui', $bbcode, $res)) {
+	while (preg_match('!<a href="'. str_replace('://', '&#58;&#47;&#47;', $ini['WIKILINKS_URL']) .'(.+?)"( target="_blank")?>(.+?)</a>!ui', $bbcode, $res)) {
 		$m = str_replace('_', ' ', $res[1]);
-		if ( strpos($res[2], $res[1]) === 0 ) {  // start with
-			$x = substr($res[2], strlen($res[1]));
+		if ( strpos($res[3], $res[1]) === 0 ) {  // start with
+			$x = substr($res[3], strlen($res[1]));
 			$bbcode = str_replace($res[0], '[['.$res[1].']]' .$x, $bbcode);
 		} else {
-			$bbcode = str_replace($res[0], '[['. $m .'|'. $res[2] .']]', $bbcode);
+			$bbcode = str_replace($res[0], '[['. $m .'|'. $res[3] .']]', $bbcode);
 		}
 	}
 
@@ -101,13 +101,13 @@ function wikilinks_info() {
 }
 
 function wikilinks_enable() {
-	if((@include_once $GLOBALS['PLUGIN_PATH'].'/wikilinks.ini') === false) {
+	if((@include_once $GLOBALS['PLUGIN_PATH'] .'wikilinks.ini') === false) {
 		return 'Please configure the wikilinks plugin before enabling it.';
 	}
 }
 
 function wikilinks_config() {
-	if((@include_once $GLOBALS['PLUGIN_PATH'].'/wikilinks.ini') === false) {
+	if((@include_once $GLOBALS['PLUGIN_PATH'] .'wikilinks.ini') === false) {
 		$ini = NULL;
 	}
 
@@ -117,7 +117,7 @@ function wikilinks_config() {
 				$ini[$key] = trim($_POST[$key]);
 			}
 		}
-		$fp = fopen($GLOBALS['PLUGIN_PATH'] .'/wikilinks.ini', 'w');
+		$fp = fopen($GLOBALS['PLUGIN_PATH'] .'wikilinks.ini', 'w');
 		fwrite($fp, '<?php $ini = '. var_export($ini, 1) .'; ?>');
 		fclose($fp);
 		echo '<font color="green">Settings successfully saved.</font>';
