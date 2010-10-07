@@ -29,7 +29,9 @@ function tmpl_post_options($arg, $perms=0)
 		if ($perms & 32768) {
 			$post_opt_images = '{TEMPLATE: post_opt_images_on}';
 		}
-		$edit_time_limit = $GLOBALS['EDIT_TIME_LIMIT'] ? '{TEMPLATE: edit_time_limit}' : '{TEMPLATE: no_edit_time_limit}';
+		if ($GLOBALS['EDIT_TIME_LIMIT'] >= 0) {	// Time limit enabled,
+			$edit_time_limit = $GLOBALS['EDIT_TIME_LIMIT'] ? '{TEMPLATE: edit_time_limit}' : '{TEMPLATE: no_edit_time_limit}';
+		}
 	} else if ($arg == 'private') {
 		$o =& $GLOBALS['FUD_OPT_1'];
 
