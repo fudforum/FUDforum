@@ -17,14 +17,17 @@ $(document).ready(function() {
 		$(':text:visible:enabled:first').focus();
 	}
 
-	// Inject context sensitive 'Help' links to the Wiki.
+	// Add context sensitive 'Help' links to the Wiki.
 	var wikilink = $('H2').first().text();
 	if (wikilink.length > 0) {
 		$('#wikilink').append('[ <a href="http://cvs.prohost.org/index.php/'+ wikilink +'" title="Context sensitive help (FUDforum wiki)">Help</a> ]');
 	}
 
-	// Inject code for dismissable DIV boxes.
+	// Add code for dismissable DIV boxes.
 	$('.dismiss').prepend('<span style="float:right;">&nbsp;[ <a href="javascript://" onclick="$(this).parents(\'.dismiss\').hide(\'slow\');" title="Dismiss!">X</a> ]</span>');
+
+	// Open external links in new windows.
+	$('a[href^="http://"]').attr({ target: "_blank", title: "Opens in a new window!" });
 });
 /* ]]> */
 </script>

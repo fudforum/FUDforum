@@ -31,7 +31,7 @@
 <td>Template Set:</td><td><select name="tname">
 <?php
 	foreach (glob($GLOBALS['DATA_DIR'] .'/thm/*', GLOB_ONLYDIR) as $file) {
-		if (!file_exists($file . '/tmpl')) {
+		if (!file_exists($file .'/tmpl')) {
 			continue;
 		}
 		$n = basename($file);

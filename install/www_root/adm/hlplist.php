@@ -24,7 +24,7 @@
 	
 	require($WWW_ROOT_DISK .'adm/header.php');
 
-	$path = $GLOBALS['DATA_DIR']. 'thm/'. $tname .'/i18n/'. $tlang .'/help';
+	$path = $GLOBALS['DATA_DIR'] .'thm/'. $tname .'/i18n/'. $tlang .'/help';
 	$files = glob($path .'/*.hlp');
 	if (!$files) {
 		echo "Could not get list of help files from {$path}<br/>";

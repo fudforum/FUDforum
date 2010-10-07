@@ -36,7 +36,7 @@ function import_avatars($path)
 	}
 
 	$base = basename($list[0]);
-	$av_path = $GLOBALS['WWW_ROOT_DISK'] . 'images/avatars/';
+	$av_path = $GLOBALS['WWW_ROOT_DISK'] .'images/avatars/';
 	$i = 0;
 
 	foreach ($files as $file) {
@@ -50,7 +50,7 @@ function import_avatars($path)
 		if (!$sect) {
 			$sect = 'default';
 		}
-		$name_r = str_replace(' ', '_', $sect) . '_' . $name_r;
+		$name_r = str_replace(' ', '_', $sect) .'_'. $name_r;
 
 		$id = db_li('INSERT INTO '. $GLOBALS['DBHOST_TBL_PREFIX'] .'avatar (img, descr, gallery) VALUES('. _esc($name_r) .', '. _esc($name) .', '. _esc($sect) .')', $em, 1);
 		if ($id) {
@@ -118,7 +118,7 @@ function import_avatars($path)
 		$old_img = q_singleval('SELECT img FROM '.$tbl.'avatar WHERE id='.(int)$_POST['edit']);
 		q('UPDATE '.$tbl.'avatar SET gallery='.ssn($avt_gal).', img='.ssn($_POST['avt_img']).', descr='._esc($_POST['avt_descr']).' WHERE id='.(int)$_POST['edit']);
 		if (db_affected() && $old_img != $_POST['avt_img']) {
-			$size = getimagesize($GLOBALS['WWW_ROOT_DISK'] . 'images/avatars/' . $_POST['avt_img']);
+			$size = getimagesize($GLOBALS['WWW_ROOT_DISK'] .'images/avatars/'. $_POST['avt_img']);
 			$new_loc = '<img src="'.$GLOBALS['WWW_ROOT'].'images/avatars/'.$_POST['avt_img'].'" '.$size[3].' />';
 			q('UPDATE '. $tbl .'users SET avatar_loc=\''. $new_loc .'\' WHERE avatar='. (int)$_POST['edit']);
 		}
@@ -166,7 +166,7 @@ function import_avatars($path)
 		</tr>
 	<?php } else { ?>
 		<tr class="field">
-			<td colspan="2"><span style="color:red;">Web server doesn't have write permission to write to <b>'<?php echo $GLOBALS['WWW_ROOT_DISK'] . 'images/avatars'; ?>'</b>, avatar upload disabled</span></td>
+			<td colspan="2"><span style="color:red;">Web server doesn't have write permission to write to <b>'<?php echo $GLOBALS['WWW_ROOT_DISK'] .'images/avatars'; ?>'</b>, avatar upload disabled</span></td>
 		</tr>
 	<?php } ?>
 
@@ -216,7 +216,7 @@ function import_avatars($path)
 		<td>
 			<table border="1" cellspacing="1" cellpadding="2" bgcolor="#ffffff">
 				<tr><td align="center" valign="middle">
-					<img src="<?php echo ($avt_img ? $GLOBALS['WWW_ROOT'] . 'images/avatars/' . $avt_img : '../blank.gif'); ?>" name="prev_icon" border="0" alt="blank" />
+					<img src="<?php echo ($avt_img ? $GLOBALS['WWW_ROOT'] .'images/avatars/'. $avt_img : '../blank.gif'); ?>" name="prev_icon" border="0" alt="blank" />
 				</td></tr>
 			</table>
 		</td>

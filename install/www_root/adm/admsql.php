@@ -11,6 +11,7 @@
 
 	require('./GLOBALS.php');
 	fud_use('adm.inc', true);
+	fud_use('dbadmin.inc', true);	// For get_fud_table_list(), get_fud_col_list(), etc.
 
 	require($WWW_ROOT_DISK .'adm/header.php');
 ?>
@@ -19,7 +20,7 @@
 <?php echo _hs; ?>
 <table class="datatable">
 <tr><td class="alert">
-	NOTE: Please only use this feature to run SELECT and DESCRIBE statements.
+	NOTE: Please only use this feature to run <em>SELECT</em> and <em>DESCRIBE</em> statements.
 	Anything else may result in data loss.
 </td></tr>
 <tr><td>&nbsp;</td></tr>
@@ -29,7 +30,7 @@
 <tr class="field"><td>
 	<div style="float:right; font-size:xx-small;">
 	<b>Database:</b> <?php echo __dbtype__; ?> ::
-	<b>Connection:</b> <?php echo $GLOBALS['DBHOST_USER'] .'@' .$GLOBALS['DBHOST_DBNAME'] ?> :: 
+	<b>Connection:</b> <?php echo $GLOBALS['DBHOST_USER'] .'@'. $GLOBALS['DBHOST_DBNAME'] ?> :: 
 	<select onchange="if(this.selectedIndex!=0) document.admsql.sql.value+=this.options[this.selectedIndex].value;">
 	<option>Insert table name:</option>
 	<?php
@@ -60,7 +61,7 @@ $(document).ready(function() {
 if (isset($_POST['sql']) && $_POST['sql'] != '') {
 	$sqlfile = str_replace("\r", '', $_POST['sql']);
 	$sqlfile = str_replace('{SQL_TABLE_PREFIX}', $GLOBALS['DBHOST_TBL_PREFIX'], $sqlfile);
-	$sqlfile = explode(";\n", $sqlfile);
+	$sqlfile = explode(";", $sqlfile);
 
 	foreach ($sqlfile as $sql) {
 		if (preg_match('/[a-zA-Z]/', $sql) and !preg_match('/^(#|--)/', $sql)) {
@@ -68,11 +69,29 @@ if (isset($_POST['sql']) && $_POST['sql'] != '') {
 				echo '<div class="tutor">For security reasons you may not switch to another database</div>';
 				break;
 			}
-			if (__dbtype__ == 'sqlite' && preg_match('/^\s*desc(ribe)?\s+\w+\s*;?$/i', $sql)) {
-				// Change DESC to SQLite's PRAGMA syntax.
-				$sql = preg_replace('/^\s*desc(ribe)?\s+(\w+)\s*;?$/i', 'pragma table_info (\2);', $sql);
+
+			// Database neutral describe.
+			if (preg_match('/^\s*desc(ribe)?\s+(\w+)\s*;?$/i', $sql, $m)) {
+				echo '<h2>Columns for '. $m[2] .'</h2>';
+				echo '<table class="resulttable">';
+				echo '<thead><tr class="resulttopic"><th>Column Name</th><th>Type</th><th>Null</th><th>Primary</th><th>Default</th><th>Auto incrementing</th></tr></thead>';
+				foreach (get_fud_col_list($m[2]) as $col => $props) {
+					echo '<tr><td>'. $col .'</td><td>'. $props['type'] .'</td><td>'. ($props['not_null'] ? 'NOT NULL' : '') .'</td><td>'. ($props['primary'] ? 'Yes' : 'No') .'</td><td>'. $props['default'] .'</td><td>'. ($props['auto'] ? 'Yes' : 'No') .'</td></tr>';
+				}
+				echo '</table>';
+
+				echo '<h2>Indexes</h2>';
+				echo '<table class="resulttable">';
+				echo '<thead><tr class="resulttopic"><th>Index Name</th><th>Unique</th><th>Columns</th></tr></thead>';
+				foreach (get_fud_index_list($m[2]) as $idx => $props) {
+					echo '<tr><td>'. $idx .'</td><td>'. ($props['unique'] ? 'Yes' : 'No') .'</td><td>'. $props['cols'] .'</td><td></tr>';
+				}
+				echo '</table>';
+
+				continue;
 			}
 
+			// Execute query.
 			try {
 				$q = uq($sql);
 
@@ -94,7 +113,7 @@ if (isset($_POST['sql']) && $_POST['sql'] != '') {
 					echo '<tr class="field">';
 					foreach ($result as $key => $value) {
 						if (!is_numeric($key)) {
-							echo '<td>'. $value .'</td>';
+							echo '<td>'. htmlspecialchars($value) .'</td>';
 						}
 					}
 					echo '</tr>';

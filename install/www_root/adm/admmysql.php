@@ -11,11 +11,12 @@
 	require('./GLOBALS.php');
 	fud_use('adm.inc', true);
 	fud_use('widgets.inc', true);
+	fud_use('dbadmin.inc', true);	// For get_fud_table_list().
 
 	require($WWW_ROOT_DISK .'adm/header.php');
 
 	if (__dbtype__ != 'mysql') {
-		exit("This control panel is intended for MySQL users only!");
+		exit('This control panel is intended for MySQL users only!');
 	}
 
 	// Get a list of supported charsets.
@@ -24,7 +25,7 @@
 
 	if (!empty($_POST['charset']) && in_array($_POST['charset'], $charsets)) {
 		foreach (get_fud_table_list() as $v) {
-			$res = db_saq('SHOW CREATE TABLE ' . $v);
+			$res = db_saq('SHOW CREATE TABLE '. $v);
 			$charset = $collate = '';
 			if (preg_match('!CHARSET\s*=\s*([A-Za-z0-9-]+)!', $res[1], $m)) {
 				$charset = $m[1];
@@ -57,6 +58,7 @@ Note that the conversion will take a long time to run, especially on large datab
 After converting your database, remember to also convert your forum's messages by running the <b><a href="compact.php?<?php echo __adm_rsid; ?>">compactor</a></b>.
 </div>
 
+<br />
 <form method="post" id="a_frm" action="">
 <?php echo _hs; ?>
 <table class="datatable solidtable">
@@ -64,7 +66,7 @@ After converting your database, remember to also convert your forum's messages b
 	<td>Available Character Sets</td>
 	<td><?php draw_select('charset', implode("\n", $charsets), implode("\n", $charsets), 'utf8'); ?></td>
 </tr>
-<tr class="field">
+<tr class="fieldaction">
 	<td colspan="2" align="right"><input tabindex="3" type="submit" value="Change Charset" name="btn_submit" /></td>
 </tr>
 </table>

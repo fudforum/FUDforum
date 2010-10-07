@@ -33,7 +33,11 @@
 
 	/* Check for errors. */
 	if (isset($_POST['btn_submit'])) {
-		$gr_inherit_id = (int) $_POST['gr_inherit_id'];
+		if (isset($_POST['gr_inherit_id'])) {
+			$gr_inherit_id = (int)$_POST['gr_inherit_id'];
+		} else {
+			$gr_inherit_id = 0;
+		}
 		if (isset($_POST['gr_resource'])) {
 			$gr_resource = is_string($_POST['gr_resource']) ? array($_POST['gr_resource']) : array_unique($_POST['gr_resource']);
 		} else {
@@ -331,6 +335,7 @@ for the group's they manage. To change the user permissions please use the <a hr
 	}
 	unset($c);
 
+	$i = 0;
 	foreach ($gl as $k => $v) {
 		$i++;
 		$bgcolor = ($edit == $k) ? ' class="tiny resultrow3"' : (($i%2) ? ' class="tiny resultrow1"' : ' class="tiny resultrow2"');
@@ -342,7 +347,7 @@ for the group's they manage. To change the user permissions please use the <a hr
 		}
 
 		$del_link = !$v['forum_id'] ? '[<a href="admgroups.php?del='. $k .'&amp;'. __adm_rsid .'">Delete</a>]' : '';
-		$user_grp_mgr = ($k > 2) ? ' '. $del_link .'<br />[<a href="admgrouplead.php?group_id='. $k .'&amp;'. __adm_rsid .'">Manage Leaders</a>] [<a href="../'. __fud_index_name__ .'?t=groupmgr&amp;group_id='. $k .'&amp;'. __adm_rsid .'" target="_new">Manage Users</a>]' : '';
+		$user_grp_mgr = ($k > 2) ? ' '. $del_link .'<br />[<a href="admgrouplead.php?group_id='. $k .'&amp;'. __adm_rsid .'">Manage Leaders</a>] [<a href="../'. __fud_index_name__ .'?t=groupmgr&amp;group_id='. $k .'&amp;'. __adm_rsid .'">Manage Users</a>]' : '';
 
 		echo '<tr'. $bgcolor .'><td><a name="g'. $k .'">'. $v['gn'] .'</a></td>';
 		foreach ($hdr as $v2) {

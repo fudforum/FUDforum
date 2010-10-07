@@ -39,7 +39,7 @@
 <h2>Custom Dictionary Spell Checker</h2>
 <?php
 	if (!($FUD_OPT_1 & 2097152)) {	// SPELL_CHECK_ENABLED
-		echo '<div class="alert">This control panel is currently disabled. Please enable the forum\'s spell checker in the <a href="admglobal.php?' .__adm_rsid .'#14">Global Settings Manager</a>.</div><br />';
+		echo '<div class="alert">This control panel is currently disabled. Please enable the forum\'s spell checker in the <a href="admglobal.php?'. __adm_rsid .'#14">Global Settings Manager</a>.</div><br />';
 		$disabled = 'disabled="disabled"';
 	} else {
 		$disabled = '';

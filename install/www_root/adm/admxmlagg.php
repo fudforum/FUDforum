@@ -56,8 +56,8 @@
 		}
 	} else { /* Set the some default values. */
 		foreach (get_class_vars('fud_xmlagg_adm') as $k => $v) {
-			if (isset($_POST['xmlagg_' . $k])) {
-				${'xmlagg_'. $k} = $_POST['xmlagg_' . $k];
+			if (isset($_POST['xmlagg_'. $k])) {
+				${'xmlagg_'. $k} = $_POST['xmlagg_'. $k];
 			} else {
 				${'xmlagg_'. $k} = $v;
 			}
@@ -136,8 +136,9 @@
 	<tr class="field">
 		<td>
 			Slow Reply Match:<br />
-			<font size="-1">If this option is enabled the forum will try to determine if an article is a reply
-			by comparing it's subject to subjects of existing messages in the forum.</font>
+			<font size="-1">If this option is enabled the forum will try to determine if an article is a <b>reply</b>
+			by comparing it's subject to subjects of existing messages in the forum. Enable this when you syndicate
+			theaded discussions from a forum or mailing list.</font>
 		</td>
 		<td><?php draw_select('xmlagg_complex_reply_match', "No\nYes", "0\n8", ($xmlagg_xmlagg_opt & 8 ? 8 : 0)); ?></td>
 	</tr>
@@ -190,8 +191,8 @@
 <br /><br />
 <b>***Notes***</b><br />
 The <i>Exec Line</i> in the table above shows the execution line that you will need to place in your system's job scheduler.
-Windows users can use <a href="http://en.wikipedia.org/wiki/Schtasks" target="_new">schtasks.exe</a>.
-Here is a Linux <a href="http://en.wikipedia.org/wiki/Cron" target="_new">cron</a> example:
+Windows users can use <a href="http://en.wikipedia.org/wiki/Schtasks">schtasks.exe</a>.
+Here is a Linux <a href="http://en.wikipedia.org/wiki/Cron">cron</a> example:
 <pre>
 0 * * * * <?php echo realpath($GLOBALS['DATA_DIR'] .'scripts/xmlagg.php'); ?> 1
 </pre>

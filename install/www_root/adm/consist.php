@@ -16,15 +16,15 @@ function draw_stat($text)
 
 function draw_info($cnt)
 {
-	draw_stat(($cnt < 1 ? 'OK' : $cnt . ' entries unmatched, deleted'));
+	draw_stat(($cnt < 1 ? 'OK' : $cnt .' entries unmatched, deleted.'));
 }
 
 function delete_zero($tbl, $q)
 {
-	if (__dbtype__ == 'mysql') {	/* MySQL 4.1 optimization. */
+	if (__dbtype__ == 'mysql') {	// MySQL is full of crap (can't specify target table for update in FROM).
 		q('DELETE '. $tbl .' '. substr($q, 7, strpos($q, '.') - 7) .' '. strstr($q, 'FROM'));
 		draw_info(db_affected());
-	} else {	/* All other databases. */
+	} else {	// All other databases.
 		q('DELETE FROM '. $tbl .' WHERE id IN ('. $q .')');
 		draw_info(db_affected());
 	}
@@ -47,7 +47,7 @@ function delete_zero($tbl, $q)
 			echo " - specify 'optimize' to run the SQL optimizer.\n";
 			die();
 		}
-		
+
 		fud_use('adm_cli.inc', 1);
 	}
 
@@ -64,6 +64,7 @@ function delete_zero($tbl, $q)
 	fud_use('msg_icon_cache.inc', true);
 	fud_use('cat.inc', true);
 	fud_use('forum_adm.inc', true);
+	fud_use('dbadmin.inc', true);
 	fud_use('imsg_edt.inc');
 	fud_use('err.inc');
 	fud_use('private.inc');
@@ -95,7 +96,7 @@ While it is running, your forum will be disabled!
 <?php echo _hs; ?>
 </form>
 <?php
-		require($WWW_ROOT_DISK . 'adm/footer.php');
+		require($WWW_ROOT_DISK .'adm/footer.php');
 		exit;
 	}
 
@@ -105,7 +106,7 @@ While it is running, your forum will be disabled!
 	}
 	if (isset($_GET['opt'])) {
 		draw_stat('Optimizing forum\'s SQL tables.');
-		optimize_tables();
+		optimize_fud_tables();
 		draw_stat('Done: Optimizing forum\'s SQL tables.');
 
 		if ($FUD_OPT_1 & 1 || isset($_GET['enable_forum'])) {
@@ -121,22 +122,15 @@ While it is running, your forum will be disabled!
 	}
 
 	$tbl = $DBHOST_TBL_PREFIX;
-
-	draw_stat('Locking the database for checking');
-	if (__dbtype__ == 'mysql') {
-		q('DROP TABLE IF EXISTS '. $tbl .'tmp_consist');
-		q('CREATE TABLE '. $tbl .'tmp_consist (p INT, ps INT UNSIGNED, c INT)');
-		$tbl = strtolower($tbl); // Table names on mysql need to be lowercase.
-	}
 	$tbls = get_fud_table_list();
 
 	// Add view tables as needed.
-	foreach (db_all('SELECT id FROM '.$tbl.'forum') as $v) {
+	foreach (db_all('SELECT id FROM '. $tbl .'forum') as $v) {
 		$n = $tbl .'tv_'. $v;
 		if (!in_array($n, $tbls)) {
 			$tbls[] = $n;
 		} else {
-			q('DROP TABLE '. $n);
+			drop_table($n, true);
 		}
 		frm_add_view_tbl($n);
 	}
@@ -147,8 +141,9 @@ While it is running, your forum will be disabled!
 				$tbl .'forum_notify fn', $tbl .'thread_notify tn', $tbl .'bookmarks bm', $tbl .'buddy b', $tbl .'user_ignore i', $tbl .'msg m1', $tbl .'msg m2',
 				$tbl .'users u1', $tbl .'users u2', $tbl .'attach a', $tbl .'thr_exchange te', $tbl .'read r', $tbl .'mime mi',
 				$tbl .'group_members gm', $tbl .'group_resources gr', $tbl .'groups g', $tbl .'group_members gm1', $tbl .'group_members gm2', 
-				$tbl .'themes thm'); // , $tbl .'index si', $tbl .'title_index ti');
+				$tbl .'themes thm', $tbl .'index si', $tbl .'title_index ti');
 
+	draw_stat('Locking the database for checking');
 	db_lock(implode(' WRITE, ', $tbls) .' WRITE');
 	draw_stat('Locked!');
 
@@ -180,7 +175,7 @@ While it is running, your forum will be disabled!
 	draw_stat('Done: Rebuilding moderators');
 
 	draw_stat('Checking if all private messages have users');
-	delete_zero($tbl .'pmsg', 'SELECT pm.id FROM '. $tbl .'pmsg pm LEFT JOIN '. $tbl .'users u ON u.id=pm.ouser_id LEFT JOIN '. $tbl .'users u2 ON u2.id=pm.duser_id WHERE (pm.pmsg_opt & 16) > 0 AND (u.id IS NULL OR u2.id IS NULL)');
+	delete_zero($tbl .'pmsg', 'SELECT pm.id FROM '. $tbl .'pmsg pm LEFT JOIN '. $tbl .'users u ON u.id=pm.ouser_id LEFT JOIN '. $tbl .'users u2 ON u2.id=pm.duser_id WHERE '. q_bitand('pm.pmsg_opt', 16) .' > 0 AND (u.id IS NULL OR u2.id IS NULL)');
 
 	draw_stat('Checking messages against users & threads');
 	delete_zero($tbl .'msg', 'SELECT m.id FROM '. $tbl .'msg m LEFT JOIN '. $tbl .'users u ON u.id=m.poster_id LEFT JOIN '. $tbl .'thread t ON t.id=m.thread_id LEFT JOIN '. $tbl .'forum f ON f.id=t.forum_id WHERE (m.poster_id!=0 AND u.id IS NULL) OR t.id IS NULL OR f.id IS NULL');
@@ -189,7 +184,7 @@ While it is running, your forum will be disabled!
 	delete_zero($tbl .'thread', 'SELECT t.id FROM '. $tbl .'thread t LEFT JOIN '. $tbl .'forum f ON f.id=t.forum_id WHERE f.id IS NULL');
 
 	draw_stat('Checking message approvals');
-	$m = db_all('SELECT m.id FROM '. $tbl .'msg m INNER JOIN '. $tbl .'thread t ON m.thread_id=t.id INNER JOIN '. $tbl .'forum f ON t.forum_id=f.id WHERE m.apr=0 AND (f.forum_opt & 2) = 0');
+	$m = db_all('SELECT m.id FROM '. $tbl .'msg m INNER JOIN '. $tbl .'thread t ON m.thread_id=t.id INNER JOIN '. $tbl .'forum f ON t.forum_id=f.id WHERE m.apr=0 AND '. q_bitand('f.forum_opt', 2) .' = 0');
 	if ($m) {
 		q('UPDATE '. $tbl .'msg SET apr=1 WHERE id IN('. implode(',', $m) .')');
 		unset($m);
@@ -200,7 +195,7 @@ While it is running, your forum will be disabled!
 	$del = $tr = array();
 	draw_stat('Checking threads against messages');
 	q('UPDATE '. $tbl .'thread SET replies=0');
-	$c = uq('SELECT m.thread_id, t.id, count(*) as cnt FROM '. $tbl .'thread t LEFT JOIN '. $tbl .'msg m ON t.id=m.thread_id WHERE m.apr=1 GROUP BY m.thread_id,t.id ORDER BY '.(__dbtype__ != 'sqlite' ? 'cnt' : 'count(*)'));
+	$c = uq('SELECT m.thread_id, t.id, count(*) as cnt FROM '. $tbl .'thread t LEFT JOIN '. $tbl .'msg m ON t.id=m.thread_id WHERE m.apr=1 GROUP BY m.thread_id,t.id ORDER BY count(*)');
 	while ($r = db_rowarr($c)) {
 		if (!$r[0]) {
 			$del[] = $r[1];
@@ -234,7 +229,7 @@ While it is running, your forum will be disabled!
 	unset($c);
 	foreach ($m1 as $v) {
 		if (!($root = q_singleval('SELECT id FROM '. $tbl .'msg WHERE thread_id='. $v .' ORDER BY post_stamp LIMIT 1'))) {
-			q('DELETE FROM '.$tbl.'thread WHERE id='.$v);
+			q('DELETE FROM '. $tbl .'thread WHERE id='. $v);
 		} else {
 			q('UPDATE '. $tbl .'thread SET root_msg_id='. $root .' WHERE id='. $v);
 		}
@@ -300,7 +295,7 @@ While it is running, your forum will be disabled!
 	foreach ($tmp as $v) { // Add lock tables.
 		q('CREATE TABLE '. $tbl .'fl_'. $v .' (id INT)');
 	}
-	
+
 	/* Add private message lock tables. */
 	if (!isset($tbl_k[$tbl.'fl_pm'])) {
 		q('CREATE TABLE '. $tbl .'fl_pm (id INT)');
@@ -314,15 +309,14 @@ While it is running, your forum will be disabled!
 	draw_stat('Checking read table against users & threads');
 	delete_zero($tbl .'read', 'SELECT r.id FROM '. $tbl .'read r LEFT JOIN '. $tbl .'users u ON r.user_id=u.id LEFT JOIN '. $tbl .'thread t ON r.thread_id=t.id WHERE t.id IS NULL OR u.id IS NULL');
 
-	draw_stat('Checking file attachments against messages');
-	$arm = db_all('SELECT a.id FROM '. $tbl .'attach a LEFT JOIN '. $tbl .'msg m ON a.message_id=m.id WHERE m.id IS NULL AND attach_opt=0');
-	$arm = array_merge($arm, db_all('SELECT a.id FROM '. $tbl .'attach a LEFT JOIN '. $tbl .'pmsg pm ON a.message_id=pm.id WHERE pm.id IS NULL AND attach_opt=1'));
-
-	if (($cnt = count($arm))) {
-		foreach ($arm as $a) {
+	draw_stat('Checking file attachments against messages and private messages');
+	$attach_rm = db_all('SELECT a.id FROM '. $tbl .'attach a LEFT JOIN '. $tbl .'msg m ON a.message_id=m.id WHERE m.id IS NULL AND attach_opt=0');
+	$attach_rm = array_merge($attach_rm, db_all('SELECT a.id FROM '. $tbl .'attach a LEFT JOIN '. $tbl .'pmsg pm ON a.message_id=pm.id WHERE pm.id IS NULL AND attach_opt=1'));
+	if (($cnt = count($attach_rm))) {
+		foreach ($attach_rm as $a) {
 			@unlink($FILE_STORE . $a .'atch');
 		}
-		q('DELETE FROM '. $tbl .'attach WHERE id IN('. implode(',', $arm) .')');
+		q('DELETE FROM '. $tbl .'attach WHERE id IN('. implode(',', $attach_rm) .')');
 	}
 	draw_info($cnt);
 
@@ -358,6 +352,27 @@ While it is running, your forum will be disabled!
 	unset($c);
 	draw_stat('Done: Rebuild attachment cache for private messages');
 
+	draw_stat('Correcting Attachment Paths...');
+	$c = uq('SELECT id, location FROM '. $tbl .'attach WHERE location IS NOT NULL AND location NOT LIKE '. _esc($FILE_STORE .'%'));
+	while ($r = db_rowobj($c)) {
+		draw_stat(' - fix path for: '. $r->location);
+		preg_match('!(.*)/!', $r->location, $m);
+		q('UPDATE '. $tbl .'attach SET location=REPLACE(location, '. _esc($m[1] .'/') .', '. _esc($FILE_STORE) .') WHERE id='. $r->id);
+	}
+
+	draw_stat('Validate the forum\'s stats cache');
+	// The stats_cache should have one and only one row.
+	$cnt = q_singleval('SELECT count(*) FROM '. $DBHOST_TBL_PREFIX .'stats_cache');
+	if ($cnt > 1) {
+		draw_stat(' - too many entries, delete them all');
+		q('DELETE FROM '. $DBHOST_TBL_PREFIX .'stats_cache');
+		$cnt = 0;
+	}
+	if ($cnt == 0) {
+		draw_stat(' - add single row');
+		q('INSERT INTO '. $DBHOST_TBL_PREFIX .'stats_cache (online_users_text) VALUES(\'\')');
+	}
+	
 	draw_stat('Checking message reports');
 	delete_zero($tbl .'msg_report', 'SELECT mr.id FROM '. $tbl .'msg_report mr LEFT JOIN '. $tbl .'msg m ON mr.msg_id=m.id WHERE m.id IS NULL');
 
@@ -379,7 +394,7 @@ While it is running, your forum will be disabled!
 
 	draw_stat('Rebuilding poll cache');
 	// First we validate to vote counts for each option.
-	q('UPDATE '.$tbl.'poll_opt SET count=0');
+	q('UPDATE '. $tbl .'poll_opt SET count=0');
 	$c = q('SELECT poll_opt, count(*) FROM '. $tbl .'poll_opt_track GROUP BY poll_opt');
 	while ($r = db_rowarr($c)) {
 		q('UPDATE '. $tbl .'poll_opt SET count='. (int)$r[1] .' WHERE id='. $r[0]);
@@ -463,10 +478,14 @@ While it is running, your forum will be disabled!
 	smiley_rebuild_cache();
 
 	draw_stat('Checking topic notification');
-	delete_zero($tbl .'thread_notify', 'SELECT tn.id FROM '. $tbl .'thread_notify tn LEFT JOIN '. $tbl .'thread t ON t.id=tn.thread_id LEFT JOIN '. $tbl .'users u ON u.id=tn.user_id WHERE u.id IS NULL OR t.id IS NULL');
+	q('DELETE FROM '. $tbl .'thread_notify WHERE NOT EXISTS (SELECT id FROM '. $tbl .'users WHERE '. $tbl .'thread_notify.user_id = id)');
+	q('DELETE FROM '. $tbl .'thread_notify WHERE NOT EXISTS (SELECT id FROM '. $tbl .'thread WHERE '. $tbl .'thread_notify.thread_id = id)');
+	// delete_zero($tbl .'thread_notify', 'SELECT tn.user_id, tn.thread_id FROM '. $tbl .'thread_notify tn LEFT JOIN '. $tbl .'thread t ON t.id=tn.thread_id LEFT JOIN '. $tbl .'users u ON u.id=tn.user_id WHERE u.id IS NULL OR t.id IS NULL');
 
 	draw_stat('Checking topic bookmarks');
-	delete_zero($tbl .'bookmarks', 'SELECT bm.id FROM '. $tbl .'bookmarks bm LEFT JOIN '. $tbl .'thread t ON t.id=bm.thread_id LEFT JOIN '. $tbl .'users u ON u.id=bm.user_id WHERE u.id IS NULL OR t.id IS NULL');
+	q('DELETE FROM '. $tbl .'bookmarks WHERE NOT EXISTS (SELECT id FROM '. $tbl .'users WHERE '. $tbl .'bookmarks.user_id = id)');
+	q('DELETE FROM '. $tbl .'bookmarks WHERE NOT EXISTS (SELECT id FROM '. $tbl .'thread WHERE '. $tbl .'bookmarks.thread_id = id)');
+	// delete_zero($tbl .'bookmarks', 'SELECT bm.user_id, bm.thread_id FROM '. $tbl .'bookmarks bm LEFT JOIN '. $tbl .'thread t ON t.id=bm.thread_id LEFT JOIN '. $tbl .'users u ON u.id=bm.user_id WHERE u.id IS NULL OR t.id IS NULL');
 
 	draw_stat('Checking forum notification');
 	delete_zero($tbl .'forum_notify', 'SELECT fn.id FROM '. $tbl .'forum_notify fn LEFT JOIN '. $tbl .'forum f ON f.id=fn.forum_id LEFT JOIN '. $tbl .'users u ON u.id=fn.user_id WHERE u.id IS NULL OR f.id IS NULL');
@@ -476,10 +495,10 @@ While it is running, your forum will be disabled!
 	q('DELETE FROM '. $tbl .'index WHERE NOT EXISTS (SELECT id FROM '. $tbl .'msg WHERE '. $tbl .'index.msg_id = id)');
 	q('DELETE FROM '. $tbl .'title_index WHERE NOT EXISTS (SELECT id FROM '. $tbl .'search WHERE '. $tbl .'title_index.word_id = id)');
 	q('DELETE FROM '. $tbl .'title_index WHERE NOT EXISTS (SELECT id FROM '. $tbl .'msg WHERE '. $tbl .'title_index.msg_id = id)');
-	q('DELETE FROM '. $tbl .'search where not exists (select * from '. $tbl .'index where '. $tbl .'search.id = word_id) and not exists (select * from '. $tbl .'title_index where '. $tbl .'search.id = word_id)');
+	q('DELETE FROM '. $tbl .'search WHERE NOT EXISTS (SELECT * FROM '. $tbl .'index WHERE '. $tbl .'search.id = word_id) AND NOT EXISTS (SELECT * FROM '. $tbl .'title_index WHERE '. $tbl .'search.id = word_id)');
 
 	draw_stat('Checking topic votes against topics');
-	delete_zero($tbl.'thread_rate_track', 'SELECT trt.id FROM '. $tbl .'thread_rate_track trt LEFT JOIN '. $tbl .'thread t ON t.id=trt.thread_id LEFT JOIN '.$tbl.'users u ON u.id=trt.user_id WHERE u.id IS NULL OR t.id IS NULL');
+	delete_zero($tbl.'thread_rate_track', 'SELECT trt.id FROM '. $tbl .'thread_rate_track trt LEFT JOIN '. $tbl .'thread t ON t.id=trt.thread_id LEFT JOIN '. $tbl .'users u ON u.id=trt.user_id WHERE u.id IS NULL OR t.id IS NULL');
 
 	draw_stat('Rebuild topic rating cache');
 	q('UPDATE '. $tbl .'thread SET rating=0, n_rating=0');
@@ -492,26 +511,12 @@ While it is running, your forum will be disabled!
 
 	draw_stat('Rebuilding user ranks, message counts & last post ids');
 	q('UPDATE '. $tbl .'users SET level_id=0, posted_msg_count=0, u_last_post_id=0, custom_status=NULL');
-	if (__dbtype__ == 'mysql') {
-		q('INSERT INTO '. $tbl .'tmp_consist (ps, p, c) SELECT MAX(post_stamp), poster_id, count(*) FROM '. $tbl .'msg WHERE apr=1 GROUP BY poster_id ORDER BY poster_id');
-		if (version_compare('4.0.4', q_singleval('SELECT VERSION()')) < 1) {
-			q('UPDATE '. $tbl .'users u, '. $tbl .'tmp_consist, '. $tbl .'msg m SET u.u_last_post_id=m.id, u.posted_msg_count='. $tbl .'tmp_consist.c WHERE u.id=m.poster_id AND m.poster_id='. $tbl .'tmp_consist.p AND m.post_stamp='. $tbl .'tmp_consist.ps AND m.apr=1');
-		} else {
-			$c = q('SELECT '. $tbl .'tmp_consist.p, '. $tbl .'tmp_consist.c, m.id FROM '. $tbl .'tmp_consist INNER JOIN '. $tbl .'msg m ON m.apr=1 AND m.poster_id='. $tbl .'tmp_consist.p AND m.post_stamp='. $tbl .'tmp_consist.ps');
-			while ($r = db_rowarr($c)) {
-				if (!$r[1]) { continue; }
-				q('UPDATE '. $tbl .'users SET u_last_post_id='. $r[2] .', posted_msg_count='. $r[1] .' WHERE id='. $r[0]);
-			}
-			unset($c);
-		}
-	} else {
-		$c = q('SELECT MAX(post_stamp), poster_id, count(*) FROM '. $tbl .'msg WHERE apr=1 GROUP BY poster_id ORDER BY poster_id');
-		while (list($ps, $uid, $cnt) = db_rowarr($c)) {
-			if (!$uid) { continue; }
-			q('UPDATE '. $tbl .'users SET posted_msg_count='. $cnt .', u_last_post_id=(SELECT id FROM '. $tbl .'msg WHERE post_stamp='. $ps .' AND apr=1 AND poster_id='. $uid .') WHERE id='. $uid);
-		}
-		unset($c);
+	$c = q('SELECT MAX(post_stamp), poster_id, count(*) FROM '. $tbl .'msg WHERE apr=1 GROUP BY poster_id');
+	while (list($ps, $uid, $cnt) = db_rowarr($c)) {
+		if (!$uid) { continue; }
+		q('UPDATE '. $tbl .'users SET posted_msg_count='. $cnt .', u_last_post_id=(SELECT id FROM '. $tbl .'msg WHERE post_stamp='. $ps .' AND apr=1 AND poster_id='. $uid .') WHERE id='. $uid);
 	}
+	unset($c);
 
 	$c = q('SELECT id, post_count FROM '. $tbl .'level ORDER BY post_count DESC');
 	while ($r = db_rowarr($c)) {
@@ -667,6 +672,17 @@ While it is running, your forum will be disabled!
 	q('UPDATE '. $tbl .'users SET theme=(SELECT id FROM '. $tbl .'themes thm WHERE '. q_bitand('theme_opt', 3) .' = 3) WHERE theme NOT IN( (SELECT id FROM '. $tbl .'themes WHERE '. q_bitand('theme_opt', 1) .' > 0))');
 	draw_stat('Done: Validating User/Theme Relations');
 
+	draw_stat('Correcting Avatar Paths...');
+	$c = uq('SELECT id, avatar_loc FROM '. $tbl .'users WHERE avatar_loc IS NOT NULL AND users_opt>=8388608 AND '. q_bitand('users_opt', (8388608|16777216)) .'>0 AND avatar_loc NOT LIKE '. _esc('%'. $WWW_ROOT .'%'));
+	while ($r = db_rowobj($c)) {
+		preg_match('!http://(.*)/images/!', $r->avatar_loc, $m);
+		preg_match('!//(.*)/!', $WWW_ROOT, $m2);
+		if (isset($m[1], $m2[1])) {
+			pf(' - changing '. htmlentities($m[1]) .' to '. htmlentities($m2[1]));
+			q('UPDATE '. $tbl .'users SET avatar_loc=REPLACE(avatar_loc, '. _esc($m[1]) .', '. _esc($m2[1]) .') WHERE id = '. $r->id);
+		}
+	}
+
 	draw_stat('Rebuilding Forum/Category order cache');
 	rebuild_forum_cat_order();
 	draw_stat('Done: Rebuilding Forum/Category order cache');
@@ -688,10 +704,6 @@ While it is running, your forum will be disabled!
 	draw_stat('Unlocking database');
 	db_unlock();
 	draw_stat('Database unlocked');
-
-	if (__dbtype__ == 'mysql') {
-		q('DROP TABLE '.$tbl.'tmp_consist');
-	}
 
 	draw_stat('Cleaning forum\'s tmp directory');
 	if (($files = glob($TMP .'*', GLOB_NOSORT))) {
@@ -752,7 +764,7 @@ While it is running, your forum will be disabled!
 		}
 	}
 	if ($olc != count($data)) {
-		$fp = fopen($GLOBALS['INCLUDE'] . 'GLOBALS.php', 'w');
+		$fp = fopen($GLOBALS['INCLUDE'] .'GLOBALS.php', 'w');
 		fwrite($fp, implode('', $data));
 		if (strpos(array_pop($data), '?>') === false) {
 			fwrite($fp, "\n?>");

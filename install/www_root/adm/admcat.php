@@ -26,9 +26,9 @@
 
 	if (isset($_POST['cat_submit']) && !empty($_POST['cat_name'])) {
 		if (!empty($_POST['cat_description'])) {
-			$_POST['cat_description'] = ' - ' . $_POST['cat_description'];
+			$_POST['cat_description'] = ' - '. $_POST['cat_description'];
 		}
-		$_POST['cat_cat_opt'] = (int) $_POST['cat_allow_collapse'] | (int) $_POST['cat_default_view'];
+		$_POST['cat_cat_opt'] = (int)$_POST['cat_allow_collapse'] | (int)$_POST['cat_default_view'];
 		unset($_POST['cat_allow_collapse'], $_POST['cat_allow_collapse']);
 
 		$cat = new fud_cat;
@@ -46,7 +46,7 @@
 	}
 	if ($edit && ($c = db_arr_assoc('SELECT parent, name, description, cat_opt FROM '. $tbl .'cat WHERE id='. $edit))) {
 		foreach ($c as $k => $v) {
-			${'cat_'.$k} = $v;
+			${'cat_'. $k} = $v;
 		}
 		if ($cat_description && !strncmp($cat_description, ' - ', 3)) {
 			$cat_description = substr($cat_description, 3);
@@ -55,7 +55,7 @@
 	} else {
 		$c = get_class_vars('fud_cat');
 		foreach ($c as $k => $v) {
-			${'cat_'.$k} = '';
+			${'cat_'. $k} = '';
 		}
 		$cat_pos = 'LAST';
 		$cat_opt = 3;
@@ -179,14 +179,14 @@ function imposeMaxLength(Object, len)
 			continue;
 		}
 		$c_ids .= $c->id . "\n";
-		$c_names .= str_repeat("-- ", $c->lvl) . $c->name . "\n";
+		$c_names .= str_repeat('-- ', $c->lvl) . $c->name ."\n";
 	}
 
 	if ($c_names == "\n") {
 		$c_names = $c_ids = '';
 	}
 ?>
-		<td><?php draw_select('cat_parent', "Top Level" . rtrim($c_names), "0" . rtrim($c_ids), $cat_parent); ?></td>
+		<td><?php draw_select('cat_parent', 'Top Level'. rtrim($c_names), '0'. rtrim($c_ids), $cat_parent); ?></td>
 	</tr>
 
 	<?php if (!$edit) { ?>
@@ -202,7 +202,7 @@ function imposeMaxLength(Object, len)
 		<td colspan="2" align="right">
 <?php
 	if ($edit) {
-		echo '<input type="hidden" value="'.$edit.'" name="edit" />';
+		echo '<input type="hidden" value="'. $edit .'" name="edit" />';
 		echo '<input type="submit" name="btn_cancel" value="Cancel" />&nbsp;';
 	}
 ?>
@@ -215,7 +215,7 @@ function imposeMaxLength(Object, len)
 <h3>Available Categories:</h3>
 <?php
 	} else {	// Busy changing position.
-		echo '<a href="admcat.php?'.__adm_rsid.'">Cancel reorder operation</a><br />';
+		echo '<a href="admcat.php?'. __adm_rsid .'">Cancel reorder operation</a><br />';
 	}
 ?>
 
@@ -229,7 +229,7 @@ function imposeMaxLength(Object, len)
 	<th>Position</th>
 </tr></thead>
 <?php
-	$cpid = empty($_GET['chpos']) ? -1 : (int) q_singleval('SELECT parent FROM '. $tbl .'cat WHERE id='. (int)$_GET['cpid']);
+	$cpid = empty($_GET['chpos']) ? -1 : (int)q_singleval('SELECT parent FROM '. $tbl .'cat WHERE id='. (int)$_GET['cpid']);
 	$lp = '';
 
 	$stat = array(0 => 'Collapsed', 2 => 'Open', 4 => 'Compact');

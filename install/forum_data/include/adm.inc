@@ -95,4 +95,18 @@ function errorify($err)
 {
 	return '<span style="color:red;">'. $err .'</span><br />';
 }
+
+/* Calculate estimated time of completion for long running tasks. */
+function eta_calc($start_time, $step, $step_count)
+{
+	$time_now = time();
+	$progress = $step / $step_count;
+	$eta = ($time_now - $start_time) / $progress * (1 - $progress);
+	if ($eta > 60) {
+		pf( number_format($progress * 100, 2) .'% done; ETA: '. number_format($eta/60, 2) .' minutes');
+	} else {
+		pf( number_format($progress * 100, 2) .'% done; ETA: '. $eta .' seconds');
+	}
+}
+
 ?>

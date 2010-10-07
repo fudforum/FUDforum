@@ -70,7 +70,6 @@ if (defined('popup') ) {	/* Special header for popup pages. */
 <?php if (extension_loaded('pspell')) { ?>
 	<a href="admspell.php?<?php echo __adm_rsid; ?>">Custom Dictionary Spell Checker</a><br />
 <?php } ?>
-	<a href="admmime.php?<?php echo __adm_rsid; ?>">MIME Manager</a><br />
 	<a href="admlog.php?<?php echo __adm_rsid; ?>">Action Log Viewer</a><br />
 	<a href="admerr.php?<?php echo __adm_rsid; ?>">Error Log Viewer</a><br />
 	<a href="admstats.php?<?php echo __adm_rsid; ?>">Forum Statistics</a><br />
@@ -95,6 +94,7 @@ if (defined('popup') ) {	/* Special header for popup pages. */
 	<a href="admgroups.php?<?php echo __adm_rsid; ?>">Groups Manager</a><br />
 	<a href="admlevel.php?<?php echo __adm_rsid; ?>">Rank Manager</a><br />
 	<a href="admpruneusers.php?<?php echo __adm_rsid; ?>">Prune users</a><br />
+	<a href="admcustomfields.php?<?php echo __adm_rsid; ?>">Profile fields</a><br />
 	<a href="admmassemail.php?<?php echo __adm_rsid; ?>">Mass E-mail</a><br />
 	<br />
 
@@ -106,6 +106,7 @@ if (defined('popup') ) {	/* Special header for popup pages. */
 	<br />
 
 	<span class="linkgroup">Icon Management</span><br />
+	<a href="admmime.php?<?php echo __adm_rsid; ?>">MIME Manager</a><br />
 	<a href="admsmiley.php?<?php echo __adm_rsid; ?>">Smiley Manager</a><br />
 	<a href="admforumicons.php?<?php echo __adm_rsid; ?>">Forum Icon Manager</a><br />
 	<a href="admforumicons.php?<?php echo __adm_rsid; ?>&amp;which_dir=1">Message Icon Manager</a><br />

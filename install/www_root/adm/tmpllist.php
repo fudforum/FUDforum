@@ -101,7 +101,6 @@ function goto_tmpl($tmpl)
 		$max_list = '';
 	}
 
-
 	if (isset($_GET['fl'])) {
 		$fl = $_GET['fl'];
 		$sec = isset($_GET['sec']) ? $_GET['sec'] : '';
@@ -118,9 +117,9 @@ function goto_tmpl($tmpl)
 		}
 		$f_path = $GLOBALS['DATA_DIR'].'thm/'.$tname.'/tmpl/'.$fl;
 		if (!@file_exists($f_path)) {
-			exit('Non-existent template.<br />');
+			exit('Non-existent template '. $f_path .'.<br />');
 		} else if (!($data = @file_get_contents($f_path))) {
-			exit('Could not open template.<br />');
+			exit('Could not open template '. $f_path .'.<br />');
 		}
 		$tmpl = $sec ? $sec : $msec;
 		$tmpl_type = $sec ? 'SECTION' : 'MAIN';
@@ -290,7 +289,7 @@ function goto_tmpl($tmpl)
 			if( is_array($deps_on[$k]) ) {
 				$dp = '';
 				foreach($deps_on[$k] as $k2) {
-					if( $file_info_array[$k2] ) $dp .= '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="-1">&raquo;</font> <a href="tmpllist.php?tname='. $tname .'&amp;tlang='. $tlang .'&amp;'. __adm_rsid .'&amp;max_list='. goto_tmpl($k2) .'" class="depson">' .$k2 .'</a><br />';
+					if( $file_info_array[$k2] ) $dp .= '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="-1">&raquo;</font> <a href="tmpllist.php?tname='. $tname .'&amp;tlang='. $tlang .'&amp;'. __adm_rsid .'&amp;max_list='. goto_tmpl($k2) .'" class="depson">'. $k2 .'</a><br />';
 				}
 
 				if( !empty($dp) ) echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="-1">&raquo;</font> <font size="-1" color="#CC6600"><b>Used By</b></font><br />'. $dp;

@@ -62,7 +62,7 @@
 		}
 	}
 
-	$feed_url = $WWW_ROOT . 'feed.php';
+	$feed_url = $WWW_ROOT .'feed.php';
 ?>
 <h2>XML Syndication Management</h2>
 <form method="post" action="admfeed.php"><?php echo _hs; ?>
@@ -83,7 +83,7 @@
 <h3>Quick XML tutorial</h3>
 <table class="datatable">
 <tr><td class="tutor">
-<p>If enabled, the XML feed for your forum can be found at: <a href="<?php echo $feed_url; ?>" target="_blank"><?php echo $feed_url; ?></a></p>
+<p>If enabled, the XML feed for your forum can be found at: <a href="<?php echo $feed_url; ?>"><?php echo $feed_url; ?></a></p>
 <p>The feed has three modes of operation. You can specify the mode by passing the 'mode' parameter via GET to the feed script.
 The support modes are 'u', for user information retrieval, 't' for topic retrieval and 'm' for message retrieval.
 Each mode has a number of options that allow you to specify the exact nature of the data you wish to fetch. 
@@ -135,11 +135,11 @@ as you like in a single request.</p>
 </blockquote>
 <b>Examples:</b><br />
 <p>Fetch the 10 most recent <i>messages</i> from your forum and format it as an <i>RDF</i> feed:<br />
-<a href="<?php echo $feed_url; ?>?mode=m&amp;l=1&amp;n=10&amp;basic=1" target="_blank"><?php echo $feed_url; ?>?mode=m&amp;l=1&amp;n=10</a></p>
+<a href="<?php echo $feed_url; ?>?mode=m&amp;l=1&amp;n=10&amp;basic=1"><?php echo $feed_url; ?>?mode=m&amp;l=1&amp;n=10</a></p>
 <p>Fetch the 15 most recent <i>topics</i> from your forum and format it as an <i>ATOM</i> feed:<br />
-<a href="<?php echo $feed_url; ?>?mode=t&amp;l=1&amp;n=15&amp;format=atom" target="_blank"><?php echo $feed_url; ?>?mode=t&amp;l=1&amp;n=15&amp;format=atom</a></p>
+<a href="<?php echo $feed_url; ?>?mode=t&amp;l=1&amp;n=15&amp;format=atom"><?php echo $feed_url; ?>?mode=t&amp;l=1&amp;n=15&amp;format=atom</a></p>
 <p>Fetch the 20 most recent <i>topics</i> from the first forum and format it as a <i>RSS2</i> feed:<br />
-<a href="<?php echo $feed_url; ?>?mode=t&amp;l=1&amp;n=20&amp;frm=1&amp;format=rss" target="_blank"><?php echo $feed_url; ?>?mode=t&amp;l=1&amp;n=20&amp;frm=1&amp;format=rss</a></p>
+<a href="<?php echo $feed_url; ?>?mode=t&amp;l=1&amp;n=20&amp;frm=1&amp;format=rss"><?php echo $feed_url; ?>?mode=t&amp;l=1&amp;n=20&amp;frm=1&amp;format=rss</a></p>
 </td></tr>
 </table>
 <?php require($WWW_ROOT_DISK .'adm/footer.php'); ?>

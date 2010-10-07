@@ -29,7 +29,7 @@
 	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
 
 	if (isset($_POST['edit'], $_POST['btn_update']) && isset($bits)) {
-		q('UPDATE '. $tbl .'ip_block SET ca='. $bits[0] .', cb='. $bits[1] .', cc='. $bits[2] .', cd=' .$bits[3] .' WHERE id='. (int)$_POST['edit']);
+		q('UPDATE '. $tbl .'ip_block SET ca='. $bits[0] .', cb='. $bits[1] .', cc='. $bits[2] .', cd='. $bits[3] .' WHERE id='. (int)$_POST['edit']);
 		echo successify('IP address ('. $_POST['ipaddr'] .') was successfully updated.');
 	} else if (isset($_POST['btn_submit']) && isset($bits)) {
 		q('INSERT INTO '. $tbl .'ip_block (ca, cb, cc, cd) VALUES ('. $bits[0] .', '. $bits[1] .', '. $bits[2] .', '. $bits[3] .')');

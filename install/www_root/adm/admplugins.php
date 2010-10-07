@@ -101,7 +101,7 @@
 		if (isset($info['name'])) {
 			echo '<h2>Plugin: '. $info['name'] .'</h2>';
 		} else {
-			echo '<h2>Plugin: '. $plugin. '</h2>';
+			echo '<h2>Plugin: '. $plugin .'</h2>';
 		}
 
 		echo '<fieldset class="tutor"><legend>Meta-information:</legend>';
@@ -149,6 +149,12 @@
 	}
 ?>
 <h2>Plugin Manager</h2>
+<div class="tutor">
+Plugins are stored in: <?php echo realpath($PLUGIN_PATH); ?><br />
+To add new plugins, <b><a href="admbrowse.php?down=1&amp;cur=<?php echo urlencode($PLUGIN_PATH); ?>&amp;<?php echo __adm_rsid; ?>">upload</a></b> them to this directory and activate them on this page. Plugins may also be placed into subdirectories.
+</div>
+
+<h3>Settings:</h3>
 <form method="post" action="admplugins.php" autocomplete="off">
 <?php echo _hs ?>
 <table class="datatable solidtable">
@@ -194,11 +200,5 @@ foreach ($plugin_files as $plugin) {
 </tr>
 </table>
 </form>
-
-<br />
-<table class="tutor" width="99%"><tr><td>
-Plugins are stored in: <?php echo realpath($PLUGIN_PATH); ?><br />
-To add new plugins, <b><a href="admbrowse.php?down=1&amp;cur=<?php echo urlencode($PLUGIN_PATH); ?>&amp;<?php echo __adm_rsid; ?>">upload</a></b> them to this directory and activate them on this page. Plugins may also be placed into subdirectories.
-</td></tr></table>
 
 <?php require($WWW_ROOT_DISK .'adm/footer.php'); ?>

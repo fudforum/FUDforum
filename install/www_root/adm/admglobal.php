@@ -435,7 +435,7 @@ $(document).ready(function() {
 	// Get list of timezones to display.
 	$tz_names = implode("\n", timezone_identifiers_list());
 ?>
-<tr class="field"><td>Server Time Zone: <font size="-1"> <?php echo $help_ar['SERVER_TZ'][0]; ?></font></td><td><select name="CF_SERVER_TZ"><?php echo tmpl_draw_select_opt($tz_names, $tz_names, $SERVER_TZ, '', ''); ?></select></td></tr>
+<tr class="field"><td>Server Time Zone:<br /><font size="-1"> <?php echo $help_ar['SERVER_TZ'][0]; ?></font></td><td><select name="CF_SERVER_TZ"><?php echo tmpl_draw_select_opt($tz_names, $tz_names, $SERVER_TZ, '', ''); ?></select></td></tr>
 <?php
 	print_bit_field('Track referrals', 'TRACK_REFERRALS');
 	print_reg_field('Max History', 'MNAV_MAX_DATE', 1);

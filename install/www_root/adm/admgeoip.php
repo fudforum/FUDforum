@@ -84,19 +84,20 @@ Geo-Location feature.</p>
 <h3>Upload IP database</h3>
 <form method="post" action="admgeoip.php" enctype="multipart/form-data"><?php echo _hs; ?>
 <table class="datatable solidtable">
-	<tr><td class="tutor" colspan="2">
-<p>The two database format supported are GeoIP, which can be freely downloaded from 
-<a href="http://www.maxmind.com/app/geoip_country" target="_blank">http://www.maxmind.com/app/geoip_country</a> or the IP-To-Country 
-database freely available from 
-<a href="http://ip-to-country.webhosting.info/node/view/6" target="_blank">http://ip-to-country.webhosting.info/node/view/6</a>.
+	<tr><td class="fieldhead" colspan="2">
+<div class="tutor">
+The two database format supported are GeoIP, which can be freely downloaded from 
+<a href="http://www.maxmind.com/app/geoip_country">http://www.maxmind.com/app/geoip_country</a> or the IP-To-Country database freely available from 
+<a href="http://ip-to-country.webhosting.info/node/view/6">http://ip-to-country.webhosting.info/node/view/6</a>.
 Please note that commercial offerings are also available that will give better results.</p>
-
-<p style="font-size: small;">The expected internal formats are as follows:<br />
+<br /><br />
+<span style="font-size: small;">The expected internal formats are as follows:<br />
 GeoIP - "2.6.190.56","2.6.190.63",<span class="o">"33996344"</span>,<span class="o">"33996351"</span>,<span class="o">"GB"</span>,<span class="o">"United Kingdom"</span><br />
 IP-2-Country - <span class="o">"33996344"</span>,<span class="o">"33996351"</span>,<span class="o">"GB"</span>,"GBR",<span class="o">"UNITED KINGDOM"</span><br />
-The fields marked in orange are the ones the forum cares about, the rest of the fields are not relevant.</p>
-
-<b>The import process usually takes a few minutes.</b>
+The fields marked in orange are the ones the forum cares about, the rest of the fields are not relevant.</span>
+<br /><br />
+The import process usually takes a few minutes.
+</div>
 	</td></tr>
 	<tr class="field">
 		<td>Database format</td>
@@ -113,10 +114,11 @@ The fields marked in orange are the ones the forum cares about, the rest of the 
 <h3>Cache control</h3>
 <form method="post" action="admgeoip.php" enctype="multipart/form-data"><?php echo _hs; ?>
 <table class="datatable solidtable">
-	<tr><td class="tutor" colspan="2">
-When enabling Geo-Location functionality on an existing forum it is recommended that the user and message location caches are rebuilt,
+	<tr><td class="fieldhead" colspan="2">
+<p class="tutor">When enabling Geo-Location functionality on an existing forum it is recommended that the user and message location caches are rebuilt,
 without them, old messages will not have a flag appearing beside them. Please note that this is a <b>SLOW</b> process, which may take a few
 hours on a large forum.
+</p>
 	</td></tr>
 	<tr class="fieldaction"><td colspan="2" align="center">
 		<input type="submit" name="rebuild_user_geoip" value="Rebuild User Cache" />
@@ -139,7 +141,7 @@ hours on a large forum.
 					++$i;
 				}
 			} else if (isset($l[0], $l[1], $l[2], $l[4])) { // IP2C
-				q('INSERT INTO '. $DBHOST_TBL_PREFIX .'geoip (ips, ipe, cc, country) VALUES('. _esc($l[0]) .','. _esc($l[1]) .','. _esc(strtolower($l[2])) .',' ._esc($l[4]) .')');
+				q('INSERT INTO '. $DBHOST_TBL_PREFIX .'geoip (ips, ipe, cc, country) VALUES('. _esc($l[0]) .','. _esc($l[1]) .','. _esc(strtolower($l[2])) .','. _esc($l[4]) .')');
 				++$i;
 			}
 			if (!($i % 100)) {

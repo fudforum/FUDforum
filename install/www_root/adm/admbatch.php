@@ -25,7 +25,7 @@
 	require($WWW_ROOT_DISK .'adm/header.php');
 
 	$tbl  = $GLOBALS['DBHOST_TBL_PREFIX'];
-	$path = $GLOBALS['DATA_DIR'].'scripts/';
+	$path = $GLOBALS['DATA_DIR'] .'scripts/';
 	$php  = escapeshellcmd($GLOBALS['PHP_CLI']);
 
 	// Job settings.
@@ -66,8 +66,11 @@
 	if (!empty($_GET['run'])) {
 		$job    = (int) $_GET['run'];
 		$cmd    = q_singleval('SELECT cmd FROM '. $tbl .'cron WHERE id='. $job);
-		$script = escapeshellcmd($cmd);
-		$output = ' > '. preg_replace('/\s+/', '_', $cmd) .'_'. $job .'.log';
+		list($script, $args) = preg_split('/\s+/', $cmd);
+echo "DEBUG: script=$script<hr>";
+echo "DEBUG: args=$args<hr>";
+		$cmd = escapeshellcmd($script) .' '. escapeshellarg($args);
+		$output = ' >'. $script .'_'. $job .'.log';
 
 		if (empty($php)) {
 			echo errorify('ERROR: Please enter the PHP CLI executable below.');
@@ -79,8 +82,9 @@
 			chdir($path) or die('ERROR: Unable to change to scripts directory '. $path);
 
 			if (strncasecmp('win', PHP_OS, 3)) {	// Not Windows.
-				// exec($php .' '. escapeshellarg($script) .' '. $job . $output . ' 2>&1 &');
-				pclose(popen($php .' ./'. escapeshellarg($script) .' '. $job . $output . ' 2>&1 &', 'r'));
+				echo 'DEBUG: '. $php .' '. $path . $cmd .' '. $output .' 2>&1 &<hr>';
+				// exec($php .' '. escapeshellarg($script) .' '. $job . $output .' 2>&1 &');
+				pclose(popen($php .' '. $path . $cmd .' '. $output .' 2>&1 &', 'r'));
 			} else {
 				pclose(popen('start "FUDjob" /LOW /B "'. $php .'" '. escapeshellarg($script) .' '. $job . $output, 'r'));
 			}
@@ -214,7 +218,8 @@ Notes: * means EVERY.
 		echo '<h3><a name="output">Job output (last run)</a></h3>';
 		$job    = (int) $_GET['log'];
 		$cmd    = q_singleval('SELECT cmd FROM '. $tbl .'cron WHERE id='. $job);
-		$output = $path . preg_replace('/\s+/', '_', $cmd) .'_'. $job .'.log';
+		list($script, $args) = preg_split('/\s+/', $cmd);
+		$output = $path . $script .'_'. $job .'.log';
 		if (file_exists($output)) {
 			echo 'Job log: <i>'. $output .'</i><br />';
 			echo 'Last updated: <i>'. date('d M Y H:i', filemtime($output)) .'</i>';

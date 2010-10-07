@@ -208,7 +208,7 @@ administration permissions to the forum. This individual will be able to do anyt
 <?php
 					exit;
 				} else if (isset($_POST['btn_yes'])) {
-					q('UPDATE ' .$DBHOST_TBL_PREFIX .'users SET users_opt='. q_bitor( q_bitand('users_opt', q_bitnot(524288)), 1048576) .' WHERE id='. $usr_id);
+					q('UPDATE '. $DBHOST_TBL_PREFIX .'users SET users_opt='. q_bitor( q_bitand('users_opt', q_bitnot(524288)), 1048576) .' WHERE id='. $usr_id);
 					$u->users_opt |= 1048576;
 					echo successify('User <b>'. $u->alias .'</b> was promoted to administrator.');
 				}
@@ -325,7 +325,7 @@ administration permissions to the forum. This individual will be able to do anyt
 		}
 		$item_s = _esc($item_s);
 
-		if (($cnt = q_singleval('SELECT count(*) FROM '. $DBHOST_TBL_PREFIX .'users WHERE ' . $field . ($like ? ' LIKE ' : '=') . $item_s .' LIMIT 50'))) {
+		if (($cnt = q_singleval('SELECT count(*) FROM '. $DBHOST_TBL_PREFIX .'users WHERE '. $field . ($like ? ' LIKE ' : '=') . $item_s .' LIMIT 50'))) {
 			$c = uq('SELECT id, alias, email, last_login, last_known_ip, posted_msg_count FROM '. $DBHOST_TBL_PREFIX .'users WHERE '. $field . ($like ? ' LIKE ' : '=') . $item_s .' LIMIT 50');
 		}
 		switch ($cnt) {
@@ -382,7 +382,7 @@ administration permissions to the forum. This individual will be able to do anyt
 	<tr class="field"><td>Name:</td><td><?php echo $u->name; ?></td></tr>
 <?php
 	if ($u->home_page) {
-		echo '<tr class="field"><td>Home page:</td><td><a href="'. $u->home_page .'" title="Visit user\'s homepage">'. $u->home_page . '</a></td></tr>';
+		echo '<tr class="field"><td>Home page:</td><td><a href="'. $u->home_page .'" title="Visit user\'s homepage">'. $u->home_page .'</a></td></tr>';
 	}
 	if ($u->bio) {
 		echo '<tr class="field"><td>Bio:</td><td>'. $u->bio .'</td></tr>';
@@ -394,28 +394,28 @@ administration permissions to the forum. This individual will be able to do anyt
 		echo '<tr class="field"><td>Registration:</td><td>'. fdate('%d %B %Y', $u->join_date) .' from <a href="../'. __fud_index_name__ .'?t=ip&amp;ip='. long2ip($u->reg_ip) .'&amp;'. __adm_rsid .'" title="Analyse IP usage">'. long2ip($u->reg_ip) .'</td></tr>';
 	}
 	if ($u->last_known_ip) {
-		echo '<tr class="field"><td>Last visit:</td><td>'. fdate('%d %B %Y', $u->last_visit) .' from <a href="../'. __fud_index_name__ .'?t=ip&amp;ip='. long2ip($u->last_known_ip) .'&amp;'. __adm_rsid. '" title="Analyse IP usage">'. long2ip($u->last_known_ip) .'</a></td></tr>';
+		echo '<tr class="field"><td>Last visit:</td><td>'. fdate('%d %B %Y', $u->last_visit) .' from <a href="../'. __fud_index_name__ .'?t=ip&amp;ip='. long2ip($u->last_known_ip) .'&amp;'. __adm_rsid .'" title="Analyse IP usage">'. long2ip($u->last_known_ip) .'</a></td></tr>';
 	}
 	if ($u->posted_msg_count) {
 		echo '<tr class="field"><td>Post count:</td><td>'. $u->posted_msg_count .' [ <a href="../'.__fud_index_name__.'?t=showposts&amp;id='.$usr_id.'&amp;'.__adm_rsid.'" title="View user\'s messages on the forum">See Messages</a> ]</td></tr>';
 	}
 
-	echo '<tr class="field"><td>E-mail Confirmation:</td><td>'.($u->users_opt & 131072 ? 'Yes' : '<font size="+1" color="red">No</font>').' [<a href="admuser.php?act=econf&amp;usr_id=' . $usr_id . '&amp;' . __adm_rsidl .'">Toggle</a>]</td></tr>';
-	echo '<tr class="field"><td>Confirmed Account:</td><td>'.($u->users_opt & 2097152 ? '<font size="+1" color="red">No</font>' : 'Yes').' [<a href="admuser.php?act=conf&amp;usr_id=' . $usr_id . '&amp;' . __adm_rsidl .'">Toggle</a>]</td></tr>';
-	echo '<tr class="field"><td>Can use signature:</td><td>'.($u->users_opt & 67108864 ? 'No' : 'Yes').' [<a href="admuser.php?act=sig&amp;usr_id=' . $usr_id . '&amp;' . __adm_rsidl .'">Toggle</a>]</td></tr>';
-	echo '<tr class="field"><td>Can use private messaging:</td><td>'.($u->users_opt & 33554432 ? 'No' : 'Yes').' [<a href="admuser.php?act=pm&amp;usr_id=' . $usr_id . '&amp;' . __adm_rsidl .'">Toggle</a>]</td></tr>';
+	echo '<tr class="field"><td>E-mail Confirmation:</td><td>'.($u->users_opt & 131072 ? 'Yes' : '<font size="+1" color="red">No</font>').' [<a href="admuser.php?act=econf&amp;usr_id='. $usr_id .'&amp;'. __adm_rsidl .'">Toggle</a>]</td></tr>';
+	echo '<tr class="field"><td>Confirmed Account:</td><td>'.($u->users_opt & 2097152 ? '<font size="+1" color="red">No</font>' : 'Yes').' [<a href="admuser.php?act=conf&amp;usr_id='. $usr_id .'&amp;'. __adm_rsidl .'">Toggle</a>]</td></tr>';
+	echo '<tr class="field"><td>Can use signature:</td><td>'.($u->users_opt & 67108864 ? 'No' : 'Yes').' [<a href="admuser.php?act=sig&amp;usr_id='. $usr_id .'&amp;'. __adm_rsidl .'">Toggle</a>]</td></tr>';
+	echo '<tr class="field"><td>Can use private messaging:</td><td>'.($u->users_opt & 33554432 ? 'No' : 'Yes').' [<a href="admuser.php?act=pm&amp;usr_id='. $usr_id .'&amp;'. __adm_rsidl .'">Toggle</a>]</td></tr>';
 	if ($FUD_OPT_1 & 1048576) {
-		echo '<tr class="field"><td>COPPA:</td><td>'.($u->users_opt & 262144 ? 'Yes' : 'No').' [<a href="admuser.php?act=coppa&amp;usr_id=' . $usr_id . '&amp;' . __adm_rsidl .'">Toggle</a>]</td></tr>';
+		echo '<tr class="field"><td>COPPA:</td><td>'. ($u->users_opt & 262144 ? 'Yes' : 'No') .' [<a href="admuser.php?act=coppa&amp;usr_id='. $usr_id .'&amp;'. __adm_rsidl .'">Toggle</a>]</td></tr>';
 	}
 if (!$acc_mod_only) {
-	echo '<tr class="field"><td nowrap="nowrap">Forum Administrator:</td><td>'.($u->users_opt & 1048576 ? '<b><font size="+1" color="red">Yes</font></b>' : 'No').' [<a href="admuser.php?act=admin&amp;usr_id='.$usr_id . '&amp;' . __adm_rsidl.'">Toggle</a>]</td></tr>';
+	echo '<tr class="field"><td nowrap="nowrap">Forum Administrator:</td><td>'. ($u->users_opt & 1048576 ? '<b><font size="+1" color="red">Yes</font></b>' : 'No') .' [<a href="admuser.php?act=admin&amp;usr_id='. $usr_id .'&amp;'. __adm_rsidl .'">Toggle</a>]</td></tr>';
 } else {
-	echo '<tr class="field"><td nowrap="nowrap">Forum Administrator:</td><td>'.($u->users_opt & 1048576 ? '<b><font size="+1" color="red">Yes</font></b>' : 'No').'</td></tr>';
+	echo '<tr class="field"><td nowrap="nowrap">Forum Administrator:</td><td>'. ($u->users_opt & 1048576 ? '<b><font size="+1" color="red">Yes</font></b>' : 'No') .'</td></tr>';
 }	
 if ($acc_mod_only) {
-	echo '<tr class="field"><td>Account Moderator:</td><td>'.($u->users_opt & 268435456 ? '<b><font size="+1" color="red">Yes</font></b>' : 'No').'</td></tr>';
+	echo '<tr class="field"><td>Account Moderator:</td><td>'. ($u->users_opt & 268435456 ? '<b><font size="+1" color="red">Yes</font></b>' : 'No') .'</td></tr>';
 } else {
-	echo '<tr class="field"><td>Account Moderator:</td><td>'.($u->users_opt & 268435456 ? '<b><font size="+1" color="red">Yes</font></b>' : 'No').' [<a href="admuser.php?act=accmod&amp;usr_id=' . $usr_id . '&amp;' . __adm_rsidl .'">Toggle</a>]</td></tr>';
+	echo '<tr class="field"><td>Account Moderator:</td><td>'. ($u->users_opt & 268435456 ? '<b><font size="+1" color="red">Yes</font></b>' : 'No') .' [<a href="admuser.php?act=accmod&amp;usr_id='. $usr_id .'&amp;'. __adm_rsidl .'">Toggle</a>]</td></tr>';
 }
 
 	echo '<tr class="field"><td nowrap="nowrap" valign="top">Moderating Forums:</td><td valign="top">';
@@ -432,13 +432,13 @@ if ($acc_mod_only) {
 	unset($c);
 ?>
 	<a name="mod_here"> </a>
-	[ <a href="#mod_here" onclick="window.open('admmodfrm.php?usr_id=<?php echo $usr_id . '&amp;' . __adm_rsid; ?>', 'frm_mod', 'menubar=false,width=300,height=400,screenX=100,screenY=100,scrollbars=yes');">Modify Moderation Permissions</a> ]</td></tr>
+	[ <a href="#mod_here" onclick="window.open('admmodfrm.php?usr_id=<?php echo $usr_id .'&amp;'. __adm_rsid; ?>', 'frm_mod', 'menubar=false,width=300,height=400,screenX=100,screenY=100,scrollbars=yes');">Modify Moderation Permissions</a> ]</td></tr>
 
 	<tr class="field"><td valign="top">Custom Tags:</td><td valign="top">
 <?php
 	$c = uq('SELECT name, id FROM '. $DBHOST_TBL_PREFIX .'custom_tags WHERE user_id='. $usr_id);
 	while ($r = db_rowarr($c)) {
-		echo $r[0] .' [<a href="admuser.php?act=nada&amp;usr_id='. $usr_id .'&amp;deltag='. $r[1] . '&amp;' . __adm_rsid . '">Delete</a>]<br />';
+		echo $r[0] .' [<a href="admuser.php?act=nada&amp;usr_id='. $usr_id .'&amp;deltag='. $r[1] .'&amp;'. __adm_rsid .'">Delete</a>]<br />';
 	}
 	unset($c);
 ?>

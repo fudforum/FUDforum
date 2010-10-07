@@ -28,7 +28,7 @@ function print_image_list($dir, $js_field, $type)
 		foreach ($files as $file) {
 			$bgcolor = !($col % 2) ? ' bgcolor="#f4f4f4"' : '';
 			$f = basename($file);
-			if (!($col++%9) && ($col!=1)) {
+			if (!($col++%5) && ($col!=1)) {
 				echo '</tr><tr>';
 			}
 			echo '<td align="center"'. $bgcolor .'><a href="javascript:

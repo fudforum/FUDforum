@@ -58,7 +58,7 @@
 <?php echo _hs; ?>
 <table class="datatable solidtable">
 	<tr class="field">
-		<td>Upload Icon:<br /><font size="-1">Only (*.gif, *.jpg, *.png) files are supported</font></td>
+		<td>Upload Icon:<br /><font size="-1">Only *.gif, *.jpg and *.png files are allowed.</font></td>
 		<td><input type="file" name="iconfile" /></td>
 		<td><input type="hidden" name="tmp_f_val" value="1" /></td>
 	</tr>

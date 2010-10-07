@@ -50,7 +50,7 @@ function print_log($logfile, $search)
 		if (!($pfx = fread($fp, 23))) {
 			break;
 		}
-		list(,$s,$d,) = explode('?', $pfx);
+		list(, $s, $d,) = explode('?', $pfx);
 		$err = fread($fp, (int)$s);
 		if ($search && stripos($err, $search) === false) {	
 			continue;	// Filter according to search criteria.
@@ -81,7 +81,7 @@ function print_log($logfile, $search)
 		$logfile = $ERROR_PATH . $_GET['log'];
 		if (is_file($logfile)) {
 			if (@unlink($logfile)) {
-				echo successify( strtoupper($_GET['log']) .' log successfully cleared.');
+				echo successify('The '. strtoupper($_GET['log']) .' log was successfully cleared.');
 			} else {
 				echo errorify('Unable to remove '. $_GET['log'] .' log. Please fix permissions of '. $logfile);
 			}
@@ -120,7 +120,7 @@ if ($display_logs) { ?>
 </form>
 </td><td align="right">
 	<?php if (count($display_logs) > 1) { ?>
-		Jump to log:
+		Jump to error log:
 		<?php foreach($display_logs as $log) echo ' [ <a href="#'. $log .'">'. $logs[$log] .'</a> ]'; ?>
 	<?php } ?>
 </td></tr></table>
@@ -131,17 +131,17 @@ if ($display_logs) { ?>
 		if ($search) {
 			echo '<h3><a name="'. $log .'">Matching '. $logs[$log] .' Errors</a></h3>';
 			print_log($log, $search);
-			echo '<div align="right">[ <a href="admerr.php?'. __adm_rsid .'">Go back</a> ] ';
+			echo '<div>&nbsp; [ <a href="admerr.php?'. __adm_rsid .'">Go back</a> ] ';
 			echo '[ <a href="admerr.php?clear=1&amp;log='. $log .'&amp;'. __adm_rsid .'">clear log</a> ]</div>';
 		} else 	if (isset($_GET['showall'])) {
 			echo '<h3><a name="'. $log .'">Full '. $logs[$log] .' Error Log</a></h3>';
 			print_log($log, $search);
-			echo '<div align="right">[ <a href="admerr.php?'. __adm_rsid .'">go back</a> ] ';
+			echo '<div>&nbsp; [ <a href="admerr.php?'. __adm_rsid .'">go back</a> ] ';
 			echo '[ <a href="admerr.php?clear=1&amp;log='. $log .'&amp;'. __adm_rsid .'">clear log</a> ]</div>';
 		} else {
 			echo '<h3><a name="'. $log .'">Latest '. $logs[$log] .' Errors</a></h3>';
 			print_last($log);
-			echo '<div align="right">[ <a href="admerr.php?showall=1&amp;log='. $log .'&amp;'. __adm_rsid .'">show all</a> ] ';
+			echo '<div>&nbsp; [ <a href="admerr.php?showall=1&amp;log='. $log .'&amp;'. __adm_rsid .'">show all</a> ] ';
 			echo '[ <a href="admerr.php?clear=1&amp;log='. $log .'&amp;'. __adm_rsid .'">clear log</a> ]</div>';
 		}
 	}

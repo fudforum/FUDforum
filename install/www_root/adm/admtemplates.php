@@ -29,7 +29,7 @@
 	}
 
 	if ($_POST['newname'] && !q_singleval('SELECT id FROM '. $DBHOST_TBL_PREFIX .'themes WHERE name='. _esc($_POST['newname']))) {
-		$root = $DATA_DIR . 'thm/';
+		$root = $DATA_DIR .'thm/';
 		$root_nn = $root . preg_replace('![^A-Za-z0-9_]!', '_', $_POST['newname']);
 		$u = umask(0);
 		if (!@is_dir($root_nn) && !@mkdir($root_nn, 0777)) {
@@ -45,7 +45,7 @@
 			}
 		} else if ($_POST['copy_mode'] == 'headfootcss') {	// sparse theme - header, footer & css
 			mkdir($root_nn.'/tmpl', 0777);
-			fudcopy($root . 'default/tmpl/', $root_nn .'/tmpl', 'forum.css.tmpl', true);
+			fudcopy($root .'default/tmpl/', $root_nn .'/tmpl', 'forum.css.tmpl', true);
 			if ($_POST['base_template_set'] == 'path_info') {
 				fudcopy($root .'path_info/tmpl/', $root_nn .'/tmpl', '{header.tmpl,footer.tmpl}', true);
 		    } else {

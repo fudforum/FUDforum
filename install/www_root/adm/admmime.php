@@ -43,21 +43,18 @@
 ?>
 <h2>MIME Management System</h2>
 
-<h3>Upload MIME icons</h3>
+<h3>Upload MIME icon</h3>
 <form action="admmime.php" id="frm_mime" method="post" enctype="multipart/form-data">
 <?php echo _hs; ?>
 <table class="datatable solidtable">
 <?php if (@is_writeable($GLOBALS['WWW_ROOT_DISK'] .'images/mime/')) { ?>
-<tr class="fieldtopic">
-	<td colspan="2"><b>Upload mime icons into the system:</b></td>
-</tr>
 <tr class="field">
-	<td>Icon to upload:<br /><font size="-1">Only (.gif, *.jpg, *.jpeg, *.png) files are supported</font></td>
+	<td>Icon to upload:<br /><font size="-1">Only .gif, *.jpg, *.jpeg and *.png files are allowed.</font></td>
 	<td><input type="file" name="icoul" /> <input type="submit" name="btn_upload" value="Upload" /><input type="hidden" name="tmp_f_val" value="1" /></td>
 </tr>
 <?php } else { ?>
 <tr class="fieldtopic">
-	<td colspan="2"><span style="color:red;">Web server does not have write permissions to <b>'<?php echo $GLOBALS['WWW_ROOT_DISK']; ?>images/mime/'</b>, mime icon upload disabled</span></td>
+	<td colspan="2"><span style="color:red;">Web server does not have write permissions to <b>'<?php echo $GLOBALS['WWW_ROOT_DISK']; ?>images/mime/'</b>, mime icon upload disabled.</span></td>
 </tr>
 <?php } ?>
 </table>

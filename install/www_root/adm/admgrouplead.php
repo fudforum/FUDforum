@@ -27,7 +27,7 @@
 
 	if (isset($_GET['del']) && ($del = (int)$_GET['del'])) {
 		if (isset($_GET['ug'])) {
-			q('UPDATE '. $DBHOST_TBL_PREFIX .'group_members SET group_members_opt=(group_members_opt & ~131072) WHERE user_id='.$del.' AND group_id='.$group_id);
+			q('UPDATE '. $DBHOST_TBL_PREFIX .'group_members SET group_members_opt='. q_bitand('group_members_opt', ~131072) .' WHERE user_id='. $del .' AND group_id='. $group_id);
 		} else {
 			q('DELETE FROM '. $DBHOST_TBL_PREFIX .'group_members WHERE user_id='. $del .' AND group_id='. $group_id);
 			grp_rebuild_cache(array($del));
@@ -73,17 +73,17 @@
 
 				rebuild_group_ldr_cache($r[0]);
 				grp_rebuild_cache(array($r[0]));
-				echo successify('Group leader successfully added.');
+				echo successify('User '. $gr_leader .' was successfully promoted to group leader.');
 				$gr_leader = '';
 				break;
 			default:
 				/* More then 1 user found, draw a selection form. */
-				echo 'There are '.$cnt.' users matching your search mask:<br /><table border="0" cellspacing="0" cellpadding="3">';
+				echo '<p>There are '. $cnt .' users matching your search mask. Please select the correct user to add below:</p><ul>';
 				while ($r = db_rowarr($c)) {
-					echo '<tr><td><a href="admgrouplead.php?gr_leader='. urlencode($r[1]) .'&group_id='. $group_id .'&amp;'. __adm_rsid .'">'. $r[1] .'</a></td></tr>';
+					echo '<li><a href="admgrouplead.php?gr_leader='. urlencode($r[1]) .'&group_id='. $group_id .'&amp;'. __adm_rsid .'">'. $r[1] .'</a>';
 				}
 				unset($c);
-				echo '</table>';
+				echo '</ul>';
 				exit;
 		}
 		unset($c);
@@ -91,29 +91,31 @@
 ?>
 <?php
 	if ($error) {
-		echo '<br /><span class="alert">'. htmlspecialchars($error) .'</span>';
+		echo errorify( htmlspecialchars($error) );
 	}
 ?>
-<h3>Add Group Leader:</h3>
+<h2>Admin Group Manager</h2>
+
+<h3>Add new group leader:</h3>
 <form method="post" action="admgrouplead.php"><?php echo _hs; ?>
 <input type="hidden" value="<?php echo $group_id; ?>" name="group_id" />
 <table border="0" cellspacing="0" cellpadding="3">
-<tr><td>Group Leader</td><td><input type="text" name="gr_leader" value="<?php echo char_fix(htmlspecialchars($gr_leader)); ?>" /></td></tr>
+<tr><td>Group Leader Login</td><td><input type="text" name="gr_leader" value="<?php echo char_fix(htmlspecialchars($gr_leader)); ?>" /></td></tr>
 <tr><td colspan="2" align="right"><input type="submit" name="btn_submit" value="Add" /></td></tr>
 </table>
 
-<H3>Defined Group Leaders:</h3>
+<h3>Defined Group Leaders:</h3>
 <table class="resulttable fulltable">
 <thead><tr class="resulttopic">
-	<th>Leader Login</th><th>Action</th>
+	<th>Group Leader Login</th><th>Action</th>
 </tr></thead>
 <?php
 	$c = uq('SELECT u.id, u.alias FROM '. $DBHOST_TBL_PREFIX .'group_members gm INNER JOIN '. $DBHOST_TBL_PREFIX .'users u ON u.id=gm.user_id WHERE gm.group_id='. $group_id .' AND gm.group_members_opt>=131072 AND '. q_bitand('gm.group_members_opt', 131072) .' > 0');
 	$i = 0;
 	while ($r = db_rowarr($c)) {
 		$bgcolor = ($i++%2) ? ' class="resultrow1"' : ' class="resultrow2"';
-		echo '<tr'.$bgcolor.'><td>'.$r[1].'</td><td>
-		[<a href="admgrouplead.php?group_id='. $group_id .'&amp;del='. $r[0] .'&amp;'. __adm_rsid .'&amp;ug=1">Remove Group Leader Permission</a>]
+		echo '<tr'. $bgcolor .'><td>'. $r[1] .'</td><td>
+		[<a href="admgrouplead.php?group_id='. $group_id .'&amp;del='. $r[0] .'&amp;'. __adm_rsid .'&amp;ug=1">Revoke Group Leader Permission</a>]
 		[<a href="admgrouplead.php?group_id='. $group_id .'&amp;del='. $r[0] .'&amp;'. __adm_rsid .'">Remove From Group</a>]
 		</td></tr>';
 	}

@@ -187,7 +187,7 @@ if (!isset($_GET['NO_TREE_LIST'])) {
 		$data = "\n". file_get_contents($msgfile);
 
 		foreach ($msglist_arr as $v) {
-			if (($s = strpos($data, "\n" . $v . ':')) === false) {
+			if (($s = strpos($data, "\n". $v .':')) === false) {
 				$txt = '';
 			} else {
 				$s += 2 + strlen($v);
@@ -204,7 +204,7 @@ if (!isset($_GET['NO_TREE_LIST'])) {
 			} else {
 				$inptd = '<input type="text" name="'. $v .'" value="'. $txt .'" size="60" />';
 			}
-			echo '<tr><td valign="top" nowrap="nowrap"><a name="'. $v .'"></a><b><a href="http://translatewiki.net/w/i.php?title=Special%3ATranslations&amp;message='.$v.'&namespace=1218" title="Show all translations (new window)." target="_blank">'. $v .'</a></b>:</td><td valign="top">'. $inptd .'</td></tr>';
+			echo '<tr><td valign="top" nowrap="nowrap"><a name="'. $v .'"></a><b><a href="http://translatewiki.net/w/i.php?title=Special%3ATranslations&amp;message='. $v .'&namespace=1218" title="Show all translations (external site).">'. $v .'</a></b>:</td><td valign="top">'. $inptd .'</td></tr>';
 		}
 		echo '<tr><td colspan="2"><input type="submit" name="btn_submit" value="Save" /></td></tr>';
 		echo '<tr><td><input type="hidden" name="msglist" value="'. $msglist .'" /></td></tr></table>';

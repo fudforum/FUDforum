@@ -61,7 +61,7 @@
 			}
 ?>
 <div align="center">You are about to delete <font color="red"><?php echo $topic_cnt; ?></font> topics and <font color="red"><?php echo $msg_cnt; ?></font> messages,
-which were posted before <font color="red"><?php echo fdate('%d %b %Y %H:%M:%S', $back); ?></font> <?php echo $umsg . $msg; ?><br /><br />
+which were posted before <font color="red"><?php echo fdate('%d %B %Y %H:%M:%S', $back); ?></font> <?php echo $umsg . $msg; ?><br /><br />
 			Are you sure you want to do this?<br />
 			<form method="post" action="">
 			<input type="hidden" name="btn_prune" value="1" />

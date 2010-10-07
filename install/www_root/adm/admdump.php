@@ -18,28 +18,26 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir, $p=0)
 {
 	global $BUF_SIZE;
 
-	$dirs = array(realpath($dirp));
-	$repl = realpath($GLOBALS[$keep_dir]);
-	$is_win = !strncasecmp('win', PHP_OS, 3);
+	$dirs = array($dirp);
+	$repl = $GLOBALS[$keep_dir];
 
 	while (list(,$v) = each($dirs)) {
+		$v = realpath($v);
+
 		if (!is_readable($v)) {
-			pf('Could not open "'. $v .'" for reading');
+			pf('Could not open "'. $v .'" for reading.');
 			return;
 		}
-		pf('Processing directory: '. $v);
+		pf('... process directory: '. $v);
 
 		if (!($files = glob($v .'/{.h*,.p*,.n*,.m*,*}', GLOB_BRACE|GLOB_NOSORT))) {
 			continue;
 		}
-		if ($is_win) {
-			$v = str_replace("\\", '/', $v);
-		}
-		$dpath = trim(str_replace($repl, $keep_dir, $v), '/') . '/';
+		$dpath = trim(str_replace($repl, $keep_dir, $v), '/') .'/';
 
 		if ($p) {
-			$write_func($fp, '||WWW_ROOT_DISK/blank.gif||' . filesize($GLOBALS['WWW_ROOT_DISK'].'blank.gif') . "||\n" . file_get_contents($GLOBALS['WWW_ROOT_DISK'].'blank.gif') . "\n");
-			$write_func($fp, '||WWW_ROOT_DISK/lib.js||' . filesize($GLOBALS['WWW_ROOT_DISK'].'lib.js') . "||\n" . file_get_contents($GLOBALS['WWW_ROOT_DISK'].'lib.js') . "\n");
+			$write_func($fp, '||WWW_ROOT_DISK/blank.gif||'. filesize($GLOBALS['WWW_ROOT_DISK'] .'blank.gif') ."||\n". file_get_contents($GLOBALS['WWW_ROOT_DISK' ] .'blank.gif') ."\n");
+			// $write_func($fp, '||WWW_ROOT_DISK/lib.js||'. filesize($GLOBALS['WWW_ROOT_DISK'] .'lib.js') ."||\n". file_get_contents($GLOBALS['WWW_ROOT_DISK'] .'lib.js') ."\n");
 			$p = 0;
 		}
 
@@ -62,7 +60,7 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir, $p=0)
 				continue;
 			}
 			if (!is_readable($f)) {
-				pf('WARNING: unable to open "'.$f.'" for reading.');
+				pf('WARNING: unable to open "'. $f .'" for reading.');
 				continue;
 			}
 			$ln = filesize($f);
@@ -99,6 +97,10 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir, $p=0)
 		}
 	}
 
+	fud_use('adm.inc', true);
+	fud_use('mem_limit.inc', 1);	// Load include to set $GLOBALS['BUF_SIZE'].
+	fud_use('dbadmin.inc', true);	// For get_fud_table_list().
+
 	/*
 	 * Check for HTTP AUTH, before going for the usual cookie/session auth
 	 * this is done to allow for easier running of this process via an
@@ -117,9 +119,6 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir, $p=0)
 			exit('Authorization Required.');
 		}
 	}
-
-	fud_use('adm.inc', true);
-	fud_use('mem_limit.inc', 1);	// Load include to set $GLOBALS['BUF_SIZE'].
 
 	require($WWW_ROOT_DISK .'adm/header.php');
 
@@ -141,7 +140,7 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir, $p=0)
 			$write_func = 'fwrite';
 		}
 
-		pf('Compressing forum datafiles.');
+		pf('Backup forum files:');
 		$write_func($fp, "\n----FILES_START----\n");
 		backup_dir($DATA_DIR, $fp, $write_func, 'DATA_DIR');
 		backup_dir($WWW_ROOT_DISK.'images/', $fp, $write_func, 'WWW_ROOT_DISK', 1);
@@ -149,6 +148,7 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir, $p=0)
 
 		$write_func($fp, "\n----FILES_END----\n");
 
+		pf('Backup database tables:');
 		$write_func($fp, "\n----SQL_START----\n");
 
 		/* Read sql table defenitions. */
@@ -157,25 +157,9 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir, $p=0)
 		}
 		$sql_col_list = array();
 		foreach ($files as $f) {
-			$sql_data = file_get_contents($f);
-			$sql_data = preg_replace(array("!\#.*?\n!s","!\s+!s"), array("\n",' '), $sql_data);
-
 			/* Extract table's column list - needed for when we SELECT the data. */
-			foreach(explode(';', $sql_data) as $stmt) {
-				if (preg_match('/CREATE TABLE.*?\{.*?\}(\w*?) .*?\((.*)/', $stmt, $matches)) {
-					$cols = explode(',', $matches[2]);
-					$col_list = '';
-					foreach($cols as $col) {
-						$col = preg_replace('/^(.*?) .*$/', '\1', trim($col));
-						$col_list .= empty($col_list) ? $col : ','. $col;
-					}					
-					$sql_col_list[preg_quote($DBHOST_TBL_PREFIX).$matches[1]] = $col_list;
-				}
-			}
-
-			/* Write table definition to backup file. */
-			$sql_data = str_replace(';', "\n", $sql_data);
-			$write_func($fp, $sql_data ."\n");
+			$tbl = get_stbl_from_file($f);
+			$sql_col_list[ $tbl['name'] ] = implode(',', array_keys($tbl['flds']));
 		}
 		unset($files);
 
@@ -184,9 +168,9 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir, $p=0)
 
 		foreach($sql_table_list as $tbl_name) {
 			/* Skip tables that will be rebuilt by consistency checker. */
-			if (!strncmp($tbl_name, $DBHOST_TBL_PREFIX.'tv_', strlen($DBHOST_TBL_PREFIX .'tv_')) || 
-				$tbl_name == $DBHOST_TBL_PREFIX .'ses' ||
-				!strncmp($tbl_name, $DBHOST_TBL_PREFIX.'fl_', strlen($DBHOST_TBL_PREFIX .'fl_'))
+			if (!strncmp($tbl_name, $DBHOST_TBL_PREFIX .'tv_', strlen($DBHOST_TBL_PREFIX .'tv_')) || 
+				!strncmp($tbl_name, $DBHOST_TBL_PREFIX .'fl_', strlen($DBHOST_TBL_PREFIX .'fl_')) ||
+				$tbl_name == $DBHOST_TBL_PREFIX .'ses'
 			) {
 				continue;
 			}
@@ -196,33 +180,33 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir, $p=0)
 				$tbl_name == $DBHOST_TBL_PREFIX .'search' || 
 				$tbl_name == $DBHOST_TBL_PREFIX .'search_cache')
 			) {
-				pf('Skipping table: ' .$tbl_name);
+				pf('Skipping table: '. $tbl_name);
 				continue;
 			}
 
 			$num_entries = q_singleval('SELECT count(*) FROM '. $tbl_name);
 
-			pf('Processing table: '.$tbl_name.' ('. $num_entries .' rows)');
+			pf('... process table: '. $tbl_name .' ('. $num_entries .' rows)');
 			if ($num_entries) {
 				$db_name = preg_replace('!^'. preg_quote($DBHOST_TBL_PREFIX) .'!', '', $tbl_name);
 				$write_func($fp, "\0\0\0\0". $db_name ."\n");
-				
+
 				/* Fetch table data from database. */
-				$c = uq('SELECT '. $sql_col_list[$tbl_name] .' FROM '.$tbl_name);
+				$c = uq('SELECT '. $sql_col_list[$tbl_name] .' FROM '. $tbl_name);
 				while ($r = db_rowarr($c)) {
 					$tmp = '';
 					foreach ($r as $v) {
-						if ($v === null) {
+						if ($v === null || $v === '') {
 							$tmp .= 'NULL,';
 						} else {
-							$tmp .= _esc($v).',';
+							$tmp .= _esc($v) .',';
 						}
 					}
 					/* Ensure new lines inside queries don't cause problems. */
 					if (strpos($tmp, "\n") !== false) {
 						$tmp = str_replace("\n", '\n', $tmp);
 					}
-					$write_func($fp, "(".substr($tmp, 0, -1).")\n");
+					$write_func($fp, '('. substr($tmp, 0, -1) .")\n");
 				}
 				unset($c);
 			}
@@ -231,6 +215,7 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir, $p=0)
 		$write_func($fp, "\n----SQL_END----\n");
 
 		/* Backup GLOBALS.php. */
+		pf('Backup forum settings.');
 		fud_use('glob.inc', true);
 		$skip = array_flip(array('WWW_ROOT','COOKIE_PATH','COOKIE_DOMAIN','COOKIE_NAME',
 			'DBHOST','DBHOST_USER','DBHOST_PASSWORD','DBHOST_DBNAME','DBHOST_TBL_PREFIX',
@@ -252,12 +237,13 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir, $p=0)
 		}
 
 		db_unlock();
+		pf('<b>Backup successfully completed.</b><br />');
 
 		$datadump = realpath($_POST['path']);
 		if (defined('__adm_rsid')) {
 			pf('<div align="right">[ <a href="admbrowse.php?down=1&amp;cur='. urlencode(dirname($datadump)) .'&amp;dest='. urlencode(basename($datadump)) .'&amp;'. __adm_rsid .'">Download</a> ] [ <a href="admbrowse.php?cur='. urlencode(dirname($datadump)) .'&amp;'. __adm_rsid .'">Open Directory</a> ]</div>');
 		}
-		pf('<div class="tutor">The backup process is complete! The dump file can be found at: <b>'. $datadump .'</b>. It is occupying '. filesize($_POST['path']) .' bytes.</div>');
+		pf('<div class="tutor">The dump file can be found at: <b>'. $datadump .'</b>. It is occupying '. filesize($_POST['path']) .' bytes.</div>');
 	} else {
 		$gz = extension_loaded('zlib');
 		if (!isset($path_error)) {

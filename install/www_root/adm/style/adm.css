@@ -175,6 +175,13 @@ span.linkgroup {
 	margin: 3px;
 }
 
+fieldset {
+	-webkit-box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.4);
+	-miz-box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.4);
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+}
+
 .tiny {
 	font-size: x-small;
 }

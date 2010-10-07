@@ -71,7 +71,7 @@ FUDforum's documentation is available on our <b><a href="http://cvs.prohost.org/
 
 <h4>Versions:</h4>
 <?php if (!isset($display_ver)) { ?>
-	<b>FUDforum</b>: <?php echo $FORUM_VERSION; ?>
+	<b>FUDforum</b>: <?php echo $FORUM_VERSION; ?><br />
 <?php } elseif (version_compare($display_ver, $FORUM_VERSION, '>')) { ?>
 	<b>FUDforum</b>: <?php echo $FORUM_VERSION; ?> please upgrade ASAP!<br />
 <?php } else { ?>

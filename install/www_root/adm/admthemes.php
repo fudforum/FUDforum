@@ -35,6 +35,7 @@
 	}
 	$edit = isset($_GET['edit']) ? (int)$_GET['edit'] : (isset($_POST['edit']) ? (int)$_POST['edit'] : '');
 
+	// Rebuild all themes.
 	if (isset($_GET['rebuild_all'])) {
 		$r = q('SELECT theme, lang, name FROM '. $DBHOST_TBL_PREFIX .'themes');
 		while (($data = db_rowarr($r))) {
@@ -61,7 +62,9 @@
 	if (isset($_POST['thm_theme']) && !$edit) {
 		$thm = new fud_theme;
 		if ($thm->name) {
-			if (q_singleval('SELECT id FROM '. $DBHOST_TBL_PREFIX .'themes WHERE name='. _esc($_POST['thm_name']))) {
+			if (preg_replace('![^A-Za-z0-9_]!', '_', $thm->name) != $thm->name) {
+				pf(errorify('Please enter a valid name without any special or punctuation characters.'));
+			} else if (q_singleval('SELECT id FROM '. $DBHOST_TBL_PREFIX .'themes WHERE name='. _esc($_POST['thm_name']))) {
 				pf(errorify('There is already a theme with this name.'));
 			} elseif (setlocale(LC_ALL, $_POST['thm_locale']) === FALSE) {
 				pf(errorify('The specified locale ('. $_POST['thm_locale'] .') does not exist on your system.'));
@@ -279,8 +282,8 @@ function update_locale()
 			<td>'. (!$r->pspell_lang ? '<font color="green">disabled</font> ' : htmlspecialchars($r->pspell_lang)) .'</td>
 			<td>'. ($r->theme_opt & 1 ? 'Yes' : '<font color="green">No</font>') .'</td>
 			<td>'. ($r->theme_opt & 2 ? 'Yes' : '<font color="green">No</font>') .'</td>
-			<td nowrap="nowrap"><a href="admthemes.php?'.__adm_rsid.'&amp;edit=' .$r->id .'#edit">Edit</a> | <a href="admthemes.php?'. __adm_rsid .'&amp;rebuild='. $r->id .'">Rebuild Theme</a>
-			'. ($r->id != 1 ? ' | <a href="admthemes.php?'. __adm_rsid .'&amp;del=' .$r->id .'">Delete</a>' : '') .'
+			<td nowrap="nowrap"><a href="admthemes.php?'.__adm_rsid.'&amp;edit='. $r->id .'#edit">Edit</a> | <a href="admthemes.php?'. __adm_rsid .'&amp;rebuild='. $r->id .'">Rebuild Theme</a>
+			'. ($r->id != 1 ? ' | <a href="admthemes.php?'. __adm_rsid .'&amp;del='. $r->id .'">Delete</a>' : '') .'
 			</td>
 		</tr>';
 	}

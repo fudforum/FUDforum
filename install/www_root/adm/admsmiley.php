@@ -16,7 +16,7 @@
 
 	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
 	require($WWW_ROOT_DISK .'adm/header.php');
-	
+
 	$smiley_dir = '../images/smiley_icons/';
 
 	if (isset($_GET['del'])) {
@@ -97,26 +97,22 @@ function sml_form_check()
 /* ]]> */
 </script>
 
-
 <h2>Smiley Management System</h2>
 
-<h3>Upload smiley:</h3>
+<h3>Upload smiley icon:</h3>
 <form id="frm_sml" method="post" enctype="multipart/form-data" action="admsmiley.php" onsubmit="return sml_form_check();">
 <?php
 	echo _hs;
 	echo '<table class="datatable solidtable">';
 	if (@is_writeable($GLOBALS['WWW_ROOT_DISK'] .'images/smiley_icons')) { ?>
-		<tr class="fieldtopic">
-			<td colspan="2"><b>Upload smiley into the system:</b></td>
-		</tr>
 		<tr class="field">
-			<td>Smily to upload:<br /><font size="-1">Only (*.gif, *.jpg, *.jpeg, *.png) files are supported</font></td>
+			<td>Icon to upload:<br /><font size="-1">Only (*.gif, *.jpg, *.jpeg, *.png) files are allowed.</font></td>
 			<td><input type="file" name="icoul" /> <input type="submit" name="btn_upload" value="Upload" /></td>
 			<td><input type="hidden" name="tmp_f_val" value="1" /></td>
 		</tr>
 	<?php } else { ?>
 		<tr class="field">
-			<td colspan="2"><span style="color:red;">Web server doesn't have write permissions to <b>'<?php echo $GLOBALS['WWW_ROOT_DISK'] . 'images/smiley_icons'; ?>'</b>, smiley upload disabled</span></td>
+			<td colspan="2"><span style="color:red;">Web server doesn't have write permissions to <b>'<?php echo $GLOBALS['WWW_ROOT_DISK'] .'images/smiley_icons'; ?>'</b>, smiley upload disabled.</span></td>
 		</tr>
 	<?php } ?>
 </table>
@@ -129,7 +125,7 @@ function sml_form_check()
 	</tr>
 
 	<tr class="field">
-		<td>Smiley Text:<br /><font size="-1">Will be replaced with smiley,<br />use <b>~</b> to separate multiple allowed codes</font></td>
+		<td>Smiley Text:<br /><font size="-1">Will be replaced with smiley,<br />use <b>~</b> to separate multiple allowed codes.</font></td>
 		<td><input type="text" name="sml_code" value="<?php echo htmlspecialchars($sml_code); ?>" /></td>
 	</tr>
 
@@ -187,18 +183,19 @@ function sml_form_check()
 	$chpos = isset($_GET['chpos']) ? (int)$_GET['chpos'] : '';
 	while ($r = db_rowobj($c)) {
 		$i++;
+		$r->code = '<b>'. str_replace('~', '</b> or <b>', htmlspecialchars($r->code)) .'</b>';
 		$bgcolor = ($edit == $r->id) ? ' class="resultrow3"' : (($i%2) ? ' class="resultrow1"' : ' class="resultrow2"');
 
 		if (isset($_GET['chpos'])) {
 			if ($_GET['chpos'] == $r->vieworder) {
 				$bgcolor = ' class="resultrow2"';
 			} else if ($_GET['chpos'] != ($r->vieworder - 1)) {
-				echo '<tr class="field"><td align="center" colspan="9"><a href="admsmiley.php?chpos='.$_GET['chpos'].'&amp;chdest='.($r->vieworder - ($_GET['chpos'] < $r->vieworder ? 1 : 0)).'&amp;'.__adm_rsid.'">Place Here</a></td></tr>';
+				echo '<tr class="field"><td align="center" colspan="9"><a href="admsmiley.php?chpos='. $_GET['chpos'] .'&amp;chdest='. ($r->vieworder - ($_GET['chpos'] < $r->vieworder ? 1 : 0)) .'&amp;'. __adm_rsid .'">Place Here</a></td></tr>';
 			}
 			$lp = $r->vieworder;
 		}
-		echo '<tr'.$bgcolor.'><td><img src="'. $GLOBALS['WWW_ROOT'] .'images/smiley_icons/'. $r->img .'" border="0" alt="'. $r->descr .'" /></td><td>'.htmlspecialchars($r->code).'</td><td>'. $r->descr .'</td>
-			<td nowrap="nowrap">[<a href="admsmiley.php?edit='. $r->id .'&amp;'. __adm_rsid .'#edit">Edit</a>] [<a href="admsmiley.php?del='. $r->id .'&amp;'. __adm_rsid .'">Delete</a>] [<a href="admsmiley.php?chpos='. $r->vieworder .'&amp;'.__adm_rsid .'">Change Position</a>]</td>
+		echo '<tr'. $bgcolor .'><td><img src="'. $GLOBALS['WWW_ROOT'] .'images/smiley_icons/'. $r->img .'" border="0" alt="'. $r->descr .'" /></td><td>'. $r->code .'</td><td>'. $r->descr .'</td>
+			<td nowrap="nowrap">[<a href="admsmiley.php?edit='. $r->id .'&amp;'. __adm_rsid .'#edit">Edit</a>] [<a href="admsmiley.php?del='. $r->id .'&amp;'. __adm_rsid .'">Delete</a>] [<a href="admsmiley.php?chpos='. $r->vieworder .'&amp;'. __adm_rsid .'">Change Position</a>]</td>
 			</tr>';
 	}
 	unset($c);

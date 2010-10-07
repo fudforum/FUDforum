@@ -22,6 +22,8 @@
 		} else {
 			$c_ext = trim($_POST['c_ext']);
 		}
+	} else {
+		$c_ext = null;
 	}
 
 	if (isset($_POST['edit'], $_POST['btn_update']) && $c_ext) {

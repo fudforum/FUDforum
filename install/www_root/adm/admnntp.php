@@ -256,8 +256,8 @@
 <b>***Notes***</b><br />
 The <i>Exec Line</i> in the table above shows the execution line that you will need to place in your system's job scheduler.
 It is recommended you run the script on a small interval, we recommend a 2-3 minute interval.
-Windows users can use <a href="http://en.wikipedia.org/wiki/Schtasks" target="_new">schtasks.exe</a>.
-Here is a Linux <a href="http://en.wikipedia.org/wiki/Cron" target="_new">cron</a> example:
+Windows users can use <a href="http://en.wikipedia.org/wiki/Schtasks">schtasks.exe</a>.
+Here is a Linux <a href="http://en.wikipedia.org/wiki/Cron">cron</a> example:
 <pre>
 */2 * * * * <?php echo realpath($GLOBALS['DATA_DIR'] .'scripts/nntp.php'); ?> 1
 </pre>

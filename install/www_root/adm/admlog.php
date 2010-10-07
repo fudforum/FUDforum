@@ -30,7 +30,7 @@ function check_data_avl($data)
 
 function return_thread_subject($id)
 {
-	$res = q_singleval('SELECT m.subject FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'thread t INNER JOIN '. $GLOBALS['DBHOST_TBL_PREFIX'] .'msg m ON t.root_msg_id=m.id WHERE t.id=' .$id);
+	$res = q_singleval('SELECT m.subject FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'thread t INNER JOIN '. $GLOBALS['DBHOST_TBL_PREFIX'] .'msg m ON t.root_msg_id=m.id WHERE t.id='. $id);
 	return check_data_avl($res);
 }
 
@@ -41,7 +41,7 @@ function return_msg_subject($id)
 
 function return_forum_name($id)
 {
-	return check_data_avl(q_singleval('SELECT name FROM ' .$GLOBALS['DBHOST_TBL_PREFIX'] .'forum WHERE id='. $id));
+	return check_data_avl(q_singleval('SELECT name FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'forum WHERE id='. $id));
 }
 
 ?>

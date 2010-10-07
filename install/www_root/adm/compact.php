@@ -10,6 +10,7 @@
 **/
 
 	@set_time_limit(0);
+	@ini_set('memory_limit', '128M');
 
 	require('./GLOBALS.php');
 	if ($FUD_OPT_3 & 32768) {
@@ -147,7 +148,7 @@ function write_body_c($data, &$len, &$offset, $fid)
 	while (!isset($f[$s]) || $f[$s][1] + $len > $MAX_FILE_SIZE) {
 		if (isset($f[$s])) ++$s;
 
-		$f[$s][0] = fopen($GLOBALS['MSG_STORE_DIR'] . 'tmp_msg_'.$s, 'ab');
+		$f[$s][0] = fopen($GLOBALS['MSG_STORE_DIR'] .'tmp_msg_'. $s, 'ab');
 		flock($f[$s][0], LOCK_EX);
 		$f[$s][1] = __ffilesize($f[$s][0]);
 	}
@@ -161,18 +162,6 @@ function write_body_c($data, &$len, &$offset, $fid)
 	return $s;
 }
 
-function eta_calc($start, $pos, $pc)
-{
-	$cur = time();
-	$prg = $pos / $pc;
-	$eta = ($cur - $start) / $prg * (10 - $prg);
-	if ($eta > 60) {
-		pf( ($prg * 10) .'% done; ETA: '. sprintf('%.2f', $eta/60) .' minutes');
-	} else {
-		pf( ($prg * 10) .'% done; ETA: '. $eta .' seconds');
-	}
-}
-
 	if ($FUD_OPT_1 & 1) {
 		pf('Disabling the forum for the duration of maintenance run.');
 		maintenance_status('Undergoing maintenance, please come back later.', 1);
@@ -182,14 +171,14 @@ function eta_calc($start, $pos, $pc)
 
 	$mode = ($FUD_OPT_2 & 8388608 ? 0600 : 0666);
 	$tbl =& $DBHOST_TBL_PREFIX;
-	$stm = time();
+	$start_time = time();
 
 	/* Compact normal messages. */
 	pf('Compacting normal messages...');
 
-	$pc = ceil(q_singleval('SELECT count(*) FROM '. $tbl .'msg WHERE file_id>0') / 10);
 	$i = 0;
-	if ($pc) {
+	$i_count = q_singleval('SELECT count(*) FROM '. $tbl .'msg WHERE file_id>0');
+	if ($i_count) {
 		db_lock($tbl .'msg m WRITE, '. $tbl .'thread t WRITE, '. $tbl .'forum f WRITE, '. $tbl .'msg WRITE, '. $tbl .'msg_store WRITE');
 
 		while (1) {
@@ -204,8 +193,8 @@ function eta_calc($start, $pos, $pc)
 				$m1 = write_body_c(read_msg_body($r[1], $r[2], $r[3]), $len, $off, $r[5]);
 				q('UPDATE '. $tbl .'msg SET foff='. $off .', length='. $len .', file_id='. (-$m1) .', file_id_preview='. (-$m2) .', offset_preview='. $off2 .', length_preview='. $len2 .' WHERE id='. $r[0]);
 
-				if ($i && !($i % $pc)) {
-					eta_calc($stm, $i, $pc);
+				if ($i && !($i % ($i_count/10))) {
+					eta_calc($start_time, $i, $i_count);
 				}
 				$i++;
 			}
@@ -220,7 +209,7 @@ function eta_calc($start, $pos, $pc)
 		if (isset($GLOBALS['__MSG_FP__'])) {
 			foreach ($GLOBALS['__MSG_FP__'] as $id => $fp) {
 				fclose($GLOBALS['__MSG_FP__'][$id]);
-			}      
+			}
 		}
 
 		/* Remove old message files. */
@@ -250,15 +239,13 @@ function eta_calc($start, $pos, $pc)
 
 	db_lock($tbl .'pmsg WRITE');
 	$i = $off = $len = 0;
-	$stm2 = time();
+	$start_time2 = time();
 	$fp = fopen($MSG_STORE_DIR .'private_tmp', 'wb');
 	if (!$fp) {
 		exit('Failed to open temporary private message store.');
 	}
-	$pc = q_singleval('SELECT count(*) FROM '. $tbl .'pmsg');
-	if ($pc) {
-		$pc = ceil($pc / 10);
-
+	$i_count = q_singleval('SELECT count(*) FROM '. $tbl .'pmsg');
+	if ($i_count) {
 		$c = q('SELECT distinct(foff), length FROM '. $tbl .'pmsg');
 
 		while ($r = db_rowarr($c)) {
@@ -274,8 +261,8 @@ function eta_calc($start, $pos, $pc)
 			q('UPDATE '. $tbl .'pmsg SET foff='. $off .', length='. $len .' WHERE foff='. $r[0]);
 			$off += $len;
 
-			if ($i && !($i % $pc)) {
-				eta_calc($stm2, $i, $pc);
+			if ($i && !($i % ($i_count/10))) {
+				eta_calc($start_time2, $i, $i_count);
 			}
 			$i++;
 		}
@@ -297,7 +284,7 @@ function eta_calc($start, $pos, $pc)
 
 	db_unlock();
 
-	pf(sprintf('All done in %.2f minutes', (time() - $stm) / 60));
+	pf(sprintf('All done in %.2f minutes.', (time() - $start_time) / 60));
 
 	if ($FUD_OPT_1 & 1) {
 		pf('Re-enabling the forum.');

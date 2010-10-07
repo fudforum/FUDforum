@@ -12,55 +12,10 @@
 	require('./GLOBALS.php');
 	fud_use('adm.inc', true);
 	fud_use('draw_select_opt.inc');
+	fud_use('dbadmin.inc', true);	// For get_sql_disk_usage().
+	fud_use('file_adm.inc', true);	// For dir_space_usage().
 
 	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
-
-function dir_space_usage($dirp)
-{
-	$disk_space = 0;
-	$dirs = array(realpath($dirp));
-	
-	while (list(,$v) = each($dirs)) {
-		if (!($files = glob($v.'/*', GLOB_NOSORT))) {
-			continue;	
-		}
-		foreach ($files as $f) {
-			if (is_link($f)) {
-				continue;
-			}
-			if (is_dir($f)) {
-				$dirs[] = $f;
-				continue;
-			}
-			$disk_space += filesize($f);
-		}
-	}
-
-	return $disk_space;
-}
-
-function get_sql_disk_usage()
-{
-	if (__dbtype__ == 'mysql') {
-		return q_singleval('SELECT sum(data_length + index_length) FROM information_schema.TABLES WHERE table_name LIKE \''. $GLOBALS['DBHOST_TBL_PREFIX'] .'%\'');
-	}
-
-	return;
-
-	// $sql_size = 0;
-	//if ($GLOBALS['DBHOST_DBTYPE'] != 'pdo_mysql') {
-	//	$c = uq('SHOW TABLE STATUS FROM `'. $GLOBALS['DBHOST_DBNAME'] .'` LIKE \''. $GLOBALS['DBHOST_TBL_PREFIX'] .'%\'');
-	//} else {
-	//	eval('db::$res = null; $tmp = db::$db;');
-	//	$c = $tmp->query('SHOW TABLE STATUS FROM `'. $GLOBALS['DBHOST_DBNAME'] .'` LIKE \''. $GLOBALS['DBHOST_TBL_PREFIX'] .'%\'');
-	//}
-	// $c = q('SHOW TABLE STATUS FROM `'. $GLOBALS['DBHOST_DBNAME'] .'` LIKE \''. $GLOBALS['DBHOST_TBL_PREFIX'] .'%\'');
-	//while ($r = db_rowobj($c)) {
-	//	$sql_size += $r->Data_length + $r->Index_length;
-	//}
-	// unset($c);
-	// return $sql_size;
-}
 
 	$forum_start = (int) q_singleval('SELECT MIN(post_stamp) FROM '. $tbl .'msg');
 
@@ -260,34 +215,33 @@ function get_sql_disk_usage()
 	if (!$same_dir) {
 ?>
 <tr class="field">
-	<td><b>Web Dir:</b><br /><font size="-1"><b><?php echo $WWW_ROOT_DISK; ?></b><br />this is where all the forum's web browseable files are stored</font></td>
+	<td><b>Web Dir:</b><br /><span style="font-size: x-small;"><?php echo $WWW_ROOT_DISK; ?><br />This is where all the forum's web browseable files are stored</span></td>
 	<td align="right" valign="top"><?php echo number_format($disk_usage_array['WWW_ROOT_DISK']/1024); ?> KB</td>
 </tr>
 
 <tr class="field">
-	<td><b>Data Dir:</b><br /><font size="-1"><b><?php echo $DATA_DIR; ?></b><br />this is where the forum's internal data files are stored</font></td>
+	<td><b>Data Directories:</b><br /><span style="font-size: x-small;"><?php echo $DATA_DIR; ?><br />This is where the forum's internal data files are stored.</span></td>
 	<td align="right" valign="top"><?php echo number_format($disk_usage_array['DATA_DIR']/1024); ?> KB</td>
 </tr>
 <?php
 	} else { /* $same_dir */
 ?>
 <tr class="field">
-	<td><b>Forum Directories:</b></td>
+	<td><b>Forum Directories:</b><br /><span style="font-size: x-small;"><?php echo $WWW_ROOT_DISK; ?><br />This is where the forum's files are stored.</span></td>
 	<td align="right" valign="top"><?php echo number_format($total_disk_usage/1024); ?> KB</td>
 </tr>
 <?php
 	}
-?>
+	if ($sql_disk_usage) { ?>
 <tr class="field">
-	<td><b>Total Disk Usage:</b></td>
-	<td align="right" valign="top"><?php echo number_format($total_disk_usage/1024); ?> KB</td>
-</tr>
-<?php if ($sql_disk_usage) { ?>
-<tr class="field">
-        <td><b>MySQL Disk Usage:</b><br /><font style="font-size: xx-small;">may not be 100% accurate, depends on MySQL version.</font></td>
+        <td><b>Database Disk Usage:</b><br /><span style="font-size: x-small;">Estimated size of the forum's tables and indexes.</span></td>
 	<td align="right" valign="top"><?php echo number_format($sql_disk_usage/1024); ?> KB</td>
 </tr>
-<?php } ?>
+<?php	} ?>
+	<tr class="field">
+	<td><b>Total Disk Usage:</b></td>
+	<td align="right" valign="top"><?php echo number_format(($total_disk_usage+$sql_disk_usage)/1024); ?> KB</td>
+</tr>
 </table>
 
 <h4>Forum Statistics</h4>

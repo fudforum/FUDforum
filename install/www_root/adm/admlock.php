@@ -45,7 +45,7 @@
 		if (isset($_POST['btn_unlock'])) {
 			$dirperms = 0777;
 			$fileperms = 0666;
-			@unlink($ERROR_PATH.'FILE_LOCK');
+			@unlink($ERROR_PATH .'FILE_LOCK');
 			$FUD_OPT_2 ^= 8388608;
 		} else {
 			if (!strncmp(PHP_SAPI, 'apache', 6)) {

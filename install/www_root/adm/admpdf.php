@@ -58,7 +58,7 @@
 		}
 	}
 
-	$rdf_url = $WWW_ROOT . 'pdf.php';
+	$rdf_url = $WWW_ROOT .'pdf.php';
 ?>
 <h2>PDF Output Configuration</h2>
 <form method="post" action="admpdf.php"><?php echo _hs; ?>
