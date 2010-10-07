@@ -1,0 +1,35 @@
+#   copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+#   email                : forum@prohost.org
+#
+#   $Id$
+#
+#       This program is free software; you can redistribute it and/or modify
+#       it under the terms of the GNU General Public License as published by
+#       the Free Software Foundation; version 2 of the License.
+
+DROP TABLE IF EXISTS {SQL_TABLE_PREFIX}custom_fields;
+
+CREATE TABLE {SQL_TABLE_PREFIX}custom_fields
+(
+	id		INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	name		VARCHAR(255) NOT NULL,
+	descr		VARCHAR(255),
+	type_opt	INT NOT NULL,
+	choice		TEXT,
+	field_opt	INT NOT NULL,
+	vieworder	INT NOT NULL DEFAULT 0
+);
+
+# Field Opts
+# 0 Optional
+# 1 Mandatory
+#TODO: Maybe also:
+# Is editable
+# Is in register
+# Visible in user profile
+
+# Type Opts
+# 0 single line
+# 1 text box
+# 2 select drop down
+# 8 radio buttons

@@ -1,0 +1,51 @@
+/**
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* email                : forum@prohost.org
+* $Id$
+*
+* This program is free software; you can redistribute it and/or modify it
+* under the terms of the GNU General Public License as published by the
+* Free Software Foundation; version 2 of the License.
+**/
+
+{PHP_FILE: input: custom_fields.inc.t; output: @custom_fields.inc;}
+
+{SECTION: custom_field_single_line}
+<tr class="RowStyleA">
+	<td>{VAR: r->name}{FUNC: draw_err('custom_field_'. $r->id)}
+	    <br /><span class="SmallText">{VAR: r->descr}</span></td>
+	<td><input type="text" name="custom_field_{VAR: r->id}" value="{VAR: val}" maxlength="255" size="30" /></td>
+</tr>
+{SECTION: END}
+
+{SECTION: custom_field_text}
+<tr class="RowStyleA">
+	<td valign="top">{VAR: r->name}{FUNC: draw_err('custom_field_'. $r->id)}
+	                 <br /><span class="SmallText">{VAR: r->descr}</span></td>
+	<td><textarea name="custom_field_{VAR: r->id}" rows="5" cols="50">{VAR: val}</textarea></td>
+</tr>
+{SECTION: END}
+
+{SECTION: custom_field_select}
+<tr class="RowStyleA">
+	<td>{VAR: r->name}{FUNC: draw_err('custom_field_'. $r->id)}
+	    <br /><span class="SmallText">{VAR: r->descr}</span></td>
+	<td><select name="custom_field_{VAR: r->id}">{TEMPLATE-DATA: custom_field_select}</select></td>
+</tr>
+{SECTION: END}
+
+{SECTION: custom_field_radio}
+<tr class="RowStyleA">
+		<td>{VAR: r->name}{FUNC: draw_err('custom_field_'. $r->id)}
+		    <br /><span class="SmallText">{VAR: r->descr}</span></td>
+		<td>{TEMPLATE-DATA: custom_field_radio}</td>
+</tr>
+{SECTION: END}
+
+{SECTION: custom_field_radio_separator}
+&nbsp;&nbsp;
+{SECTION: END}
+
+{SECTION: custom_field_required}
+{MSG: custom_filed_required}
+{SECTION: END}
