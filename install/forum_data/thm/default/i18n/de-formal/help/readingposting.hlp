@@ -2,10 +2,10 @@ TOPIC_TITLE: <a name="style">Wie formatiert man Text?</a>
 TOPIC_HELP:
 Im Allgemeinen bestehen Forumsbeitr&auml;ge meistens aus unformatierten Text, es ist jedoch bei Bedarf m&ouml;glich,
 eine gewisse Formatierung anzuwenden, wie zum Beispiel W&ouml;rter fett oder kursiv schreiben &hellip;
-<p />
+<br /><br />
 Da in den meisten F&auml;llen der Administrator die Verwendung von HTML nicht gestatten wird, kann daf&uuml;r BBcode verwendet werden. Dieser besteht aus einer Reihe
 von Befehlen, die eine gewisse Textformatierung  erm&ouml;glichen. BBcode ist sehr leicht zu erlernen und erheblich sicherer als HTML.
-<p />
+<br /><br />
 
 <a name="url"><b>Links zu Webseiten</b></a><br />
 
@@ -48,7 +48,7 @@ von Befehlen, die eine gewisse Textformatierung  erm&ouml;glichen. BBcode ist se
 <i>Erkl&auml;rung:</i> Sie k&ouml;nnen mit BBcode Links mit eigener Beschriftung erstellen.
 <br /><br /><br />
 
-<p />
+<br /><br />
 <a name="email"><b>E-Mail-Links</b></a><br />
 
 <table>
@@ -464,7 +464,7 @@ Smileys sind kleine Icons, die in einem Beitrag als Ausdruck verschiedener Gef&u
 Wenn diese aktiviert sind, wird eine Auflistung der vom Forum unterst&uuml;tzten Smileys &uuml;ber dem Eingabefeld, in welchem man auch den Beitrag
 erstellt, angezeigt. Durch einfaches Anklicken k&ouml;nnen diese dann in den Beitrag eingef&uuml;gt werden.<br />
 Gebr&auml;uchliche Smileys k&ouml;nnen automatisch durch das entsprechende Symbol ersetzt werden, falls das nicht von Ihnen erw&uuml;nscht ist, k&ouml;nnen 
-Sie das <b>Smileys deaktivieren</b> K&auml;stchen ausw&auml;hlen.<p />
+Sie das <b>Smileys deaktivieren</b> K&auml;stchen ausw&auml;hlen.<br /><br />
 
 TOPIC_TITLE: <a name="polls">Wie erstelle ich Umfragen?</a>
 TOPIC_HELP:
@@ -476,7 +476,7 @@ mehreren Antwortm&ouml;glichkeiten erstellen l&auml;sst. Sobald Sie fertig sind,
 Bearbeitungsfenster gebracht. Die eben erstellte Umfrage wird dem Beitrag hinzugef&uuml;gt.<br />
 Sie k&ouml;nnen eine bereits vorhandene Umfrage durch Anklicken des Links <b>Bearbeiten</b> modifizieren oder durch einen Klick auf <b>L&ouml;schen</b> 
 vollst&auml;ndig entfernen.
-<p />
+<br /><br />
 Pro Umfrage haben Sie nur eine Stimme, daher sollten Sie Ihre Entscheidung gr&uuml;ndlich &uuml;berlegen, denn im Nachhinein l&auml;sst sie sich nicht mehr ver&auml;ndern.
 
 TOPIC_TITLE: <a name="attach">Kann ich Dateien an Beitr&auml;ge anh&auml;ngen?</a>
@@ -484,11 +484,11 @@ TOPIC_HELP:
 Falls vom Administrator erlaubt, k&ouml;nnen Sie eine oder mehrere Dateien an normale Beitr&auml;ge oder auch private Nachrichten anh&auml;ngen. Diese Funktion 
 wird von Forum zu Forum individuell festgelegt, weswegen Sie in einem Forum Dateien anh&auml;ngen k&ouml;nnen, w&auml;hrend es woanders nicht m&ouml;glich ist.
 <br />
-Die Seite, auf der Sie Beitr&auml;ge erstellen, listet drei Regeln auf, die f&uuml;r deine Anh&auml;nge gelten:<p />
+Die Seite, auf der Sie Beitr&auml;ge erstellen, listet drei Regeln auf, die f&uuml;r deine Anh&auml;nge gelten:<br /><br />
 <b>Erlaubte Dateitypen</b> - eine Liste von Dateiendungen, die an einem Beitrag angeh&auml;ngt werden k&ouml;nnen z.B.: .jpg, .gif, .png<br />
 <b>Maximale Dateigr&ouml;&szlig;e</b> - die maximale Gr&ouml;&szlig;e einer Datei, die an einem Beitrag angeh&auml;ngt werden kann<br />
 <b>Maximale Dateien pro Beitrag</b> - Die Anzahl der Dateien, die einem Beitrag hinzugef&uuml;gt werden k&ouml;nnen.
-<p />
+<br /><br />
 Um eine Datei dem Beitrag hinzuzuf&uuml;gen, klicken Sie auf die Schaltfl&auml;che <b>Durchsuchen</b> am unteren Ende der Beitragsseite. Ihr Browser wird daraufhin 
 ein Dialogfenster &ouml;ffnen, mit welchem die gew&uuml;nschte Datei zum Hochladen ausgew&auml;hlt werden kann. Sobald diese Datei ausgew&auml;hlt wurde, 
 klicken Sie die  <b>Datei hochladen</b>-Schaltfl&auml;che an, um die Datei an dem Beitrag anzuh&auml;ngen.<br />
@@ -513,7 +513,7 @@ TOPIC_TITLE: <a name="mod">Wer sind die Moderatoren und Administratoren?</a>
 TOPIC_HELP:
 Moderatoren sind "Superuser", die im Allgemeinen ein oder mehrere Foren beaufsichtigen. Sie haben das Recht, beliebige Beitr&auml;ge zu editieren, l&ouml;schen und 
 zu bewilligen. Sie sind auch die Ansprechpartner, falls Ihnen etwas Anst&ouml;&szlig;iges in einem Forum, das von ihnen moderiert wird, lesen sollten. 
-Du kannst dich auch mit Fragen zur Benutzung des Forums an sie wenden.<p />
+Du kannst dich auch mit Fragen zur Benutzung des Forums an sie wenden.<br /><br />
 Administratoren sind die Forenverwalter, sie k&ouml;nnen ALLES tun, daher seien Sie immer nett zu ihnen, wenn Sie mit ihnen reden ;-). Administratoren k&ouml;nnen zus&auml;tzlich auch 
 alle Moderatorenfunktionen ausf&uuml;hren, also Avatare billigen, individuelle R&auml;nge zuweisen und entfernen, Benutzer sperren und auf verschiedene Fragen antworten.
 Wenn bei der Nutzung des Forums irgendwelche Fehler auftreten sollten, ist der Administrator der Ansprechpartner.
@@ -527,8 +527,8 @@ TOPIC_TITLE: <a name="not">Kann ich &uuml;ber Antworten auf meine Beitr&auml;ge 
 TOPIC_HELP:
 Wenn Sie ein neues Thema erstellen oder zu einem bestehenden Thema eine Antwort schreiben, k&ouml;nnen Sie ausw&auml;hlen per E-Mail &uuml;ber Antworten informiert zu werden. Sie k&ouml;nnen auch ein Thema oder ganzes Forum abonnieren, ohne darin eine Antwort zu verfassen, indem Sie den <b>Abonnieren</b>-Link am oberen 
 Ende der Seite anklicken. Immer wenn ein neues Thema in diesem Forum erstellt worden ist, erh&auml;lten Sie dar&uuml;ber eine Benachrichtigung.
-<p />
+<br /><br />
 Wenn Sie keine weiteren Benachrichtigungen mehr w&uuml;nschen, k&ouml;nnen Sie beim Lesen des Themas oder Forums den <b>Abonnement beenden</b>-Link anklicken.
 Oder Sie rufen den Reiter <b>Abonnements</b> in Ihrem Profil auf und l&ouml;schen so das Thema oder Forum von der Liste.
-<p />
+<br /><br />
 Nur registrierte Benutzer k&ouml;nnen Benachrichtigungen erhalten.

@@ -27,26 +27,26 @@ TOPIC_HELP:
 Sofern nicht vom Administrator deaktiviert, k&ouml;nnen Sie private Nachrichten an ein oder mehrere registrierte Mitglieder des Forums versenden. Um auf das 
 PN-System zugreifen zu k&ouml;nnen, klicken Sie einfach auf den <a href="{ROOT}?t=pmsg&amp;%_rsid%">Private Nachrichten</a>-Link, 
 der auf der Seite oben rechts gefunden werden kann. Falls Sie noch ungelesene private Nachrichten haben, teilt Ihnen dieser Link deren Anzahl mit.
-<p />
+<br /><br />
 <b>Eine private Nachricht verschicken</b><br />
 Das Verschicken von privaten Nachrichten &auml;hnelt sehr dem Vorgang bei E-Mails: Sie geben den/die Empf&auml;nger an, denen Sie schreiben m&ouml;chten, schreiben die Nachricht und klicken auf <b>Senden</b>. Es stehen zwei Links zur Verf&uuml;gung, die es Ihnen erleichtern, Mitglieder, denen Sie schreiben m&ouml;chten, zu finden:
 <b>von der Buddyliste ausw&auml;hlen</b>, erm&ouml;glicht Ihnen, Leute von dieser Liste auszuw&auml;hlen und <b>Benutzer suchen</b> erlaubt Ihnen, die gesamte 
 Mitgliederliste nach Leuten zu durchsuchen, denen Sie Ihre Nachricht schicken m&ouml;chten.
 Eine Kopie von jeder versendeten Nachricht wird im <b>Verschickt</b>-Ordner aufbewahrt, um sich sp&auml;ter einmal darauf beziehen zu k&ouml;nnen. Diese lassen sich jederzeit auf Wunsch l&ouml;schen.
-<p />
+<br /><br />
 Es gibt drei weitere Ordner, die Sie kennen sollten:
-<p />
+<br /><br />
 <b>Posteingang</b>-Ordner enth&auml;lt alle Nachrichten, die Sie erhalten haben, jede einzelne hat eine Gelesen/Ungelesen-Anzeige, um Ihnen einen &Uuml;berblick dar&uuml;ber 
 zu verschaffen, ob eine Nachricht schon gelesen wurde oder nicht. Es wird auch der Absender angezeigt und ob dieser momentan auf dem Forum unterwegs ist, 
 dabei wird auch der Zeitpunkt des Versendens angezeigt.
-<p />
+<br /><br />
 <b>Entwurf</b>-Ordner enth&auml;lt alle Nachrichten, die Sie zwar geschrieben, aber noch nicht verschickt haben. Das Anklicken der Nachricht aktiviert den Editiermodus, 
 um es Ihnen zu erm&ouml;glichen, die Nachricht weiter zu bearbeiten und bei Bedarf zu verschicken. Sobald diese versendet wurde, wird sie vom <b>Entwurf</b>- in den <b>Verschickt</b>-Ordner verschoben.
-<p />
+<br /><br />
 <b>M&uuml;ll</b>-Ordner bewahrt alle Nachrichten auf, die zum L&ouml;schen markiert sind, aber noch nicht gel&ouml;scht wurden. Wenn eine Nachricht innerhalb dieses Ordners 
 gel&ouml;scht wird, so geschieht das unwiderruflich.
-<p />
-<b>Weiterverfolgen von Nachrichten</b><p />
+<br /><br />
+<b>Weiterverfolgen von Nachrichten</b><br /><br />
 Wenn Sie eine Nachricht mit aktivierter Empfangsbest&auml;tigung verschicken, erh&auml;lten Sie eine Systembenachrichtigung, sobald die Nachricht vom Empf&auml;nger 
 gelesen wurde.<br />
 Allerdings kann der Empf&auml;nger auch das Versenden der Best&auml;tigung verweigern, so dass der Nicht-Erhalt einer Best&auml;tigung nicht zwangsl&auml;ufig bedeutet, 
