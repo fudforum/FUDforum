@@ -31,9 +31,9 @@
 
 	if ($forum_limiter) {
 		if ($forum_limiter[0] != 'c') {
-			$qry_lmt = ' AND f.id=' .(int)$forum_limiter .' ';
+			$qry_lmt = ' AND f.id='. (int)$forum_limiter .' ';
 		} else {
-			$qry_lmt = ' AND c.id=' .(int)substr($forum_limiter, 1) .' ';
+			$qry_lmt = ' AND c.id='. (int)substr($forum_limiter, 1) .' ';
 		}
 	} else {
 		$qry_lmt = '';

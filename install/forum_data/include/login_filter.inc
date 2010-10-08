@@ -16,10 +16,11 @@ function login_cache_rebuild()
 		$a[] = '/'. addcslashes($r[0], '\'/\\') .'/i';
 	}
 	unset($c);
-	$data = '$GLOBALS[\'__FUD_LGN_FILTER__\'] = array('. (isset($a) ? '\'' . implode("', '", $a) .'\'' : '') .');';
+	$data = '$GLOBALS[\'__FUD_LGN_FILTER__\'] = array('. (isset($a) ? '\''. implode("', '", $a) .'\'' : '') .');';
 
 	$fp = fopen($GLOBALS['FORUM_SETTINGS_PATH'] .'login_filter_cache', 'w');
 	fwrite($fp, '<?php '. $data .' ?>');
 	fclose($fp);
 }
+
 ?>

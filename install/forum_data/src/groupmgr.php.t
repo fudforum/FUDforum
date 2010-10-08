@@ -124,7 +124,7 @@ function draw_tmpl_perm_table($perm, $perms, $names)
 
 			if (!($usr_id = q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}users WHERE alias='. _esc(char_fix(htmlspecialchars($gr_member)))))) {
 				$login_error = '{TEMPLATE: groupmgr_no_user}';
-			} else if (q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}group_members WHERE group_id='. $group_id .' AND user_id=' .$usr_id)) {
+			} else if (q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}group_members WHERE group_id='. $group_id .' AND user_id='. $usr_id)) {
 				$login_error = '{TEMPLATE: groupmgr_already_exists}';
 			} else {
 				q('INSERT INTO {SQL_TABLE_PREFIX}group_members (group_members_opt, user_id, group_id) VALUES ('. $perm .', '. $usr_id .', '. $group_id .')');

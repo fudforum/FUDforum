@@ -396,6 +396,7 @@ function format_code(codeMsg, selMsg, hideMsg)
 {
 	$(document).ready(function() {
 		$('div pre').each(function() {
+			// $(this).addClass('highlight');
 			var content = $(this).parent().html();
 			$(this).parent().html(
 			  '<span><div class="codehead">'+codeMsg+' '+
@@ -470,4 +471,8 @@ $(function init() {
 	  textarea.css('opacity', 1);
 	}
 	});
+
+	/* Syntax highlighting for code blocks. */
+	// $.SyntaxHighlighter.init();
+
 });

@@ -72,7 +72,7 @@
 						}
 					}
 				} else if ($page == 'thread' || $page == 'threadt') {
-					if (!q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}group_cache WHERE user_id=0 AND resource_id='. (isset($tmp['frm_id']) ? (int)$tmp['frm_id'] : 0).' AND '. q_bitand('g.group_cache_opt', 2) .' > 0')) {
+					if (!q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}group_cache WHERE user_id=0 AND resource_id='. (isset($tmp['frm_id']) ? (int)$tmp['frm_id'] : 0).' AND '. q_bitand('group_cache_opt', 2) .' > 0')) {
 						$returnto = '';
 						break;
 					}

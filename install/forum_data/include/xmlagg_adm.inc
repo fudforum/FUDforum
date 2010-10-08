@@ -94,4 +94,5 @@ function xmlagg_reset($id)
 {
 	q('UPDATE '. $GLOBALS['DBHOST_TBL_PREFIX'] .'xmlagg SET last_load_date = 0 WHERE id='. $id);
 }
+
 ?>

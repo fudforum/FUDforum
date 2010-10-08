@@ -169,7 +169,7 @@
 		l.name AS level_name, l.level_opt, l.img AS level_img,
 		p.max_votes, p.expiry_date, p.creation_date, p.name AS poll_name, p.total_votes,
 		'. (_uid ? ' pot.id AS cant_vote ' : ' 1 AS cant_vote ') .'
-	FROM '. ($use_tmp ? '{SQL_TABLE_PREFIX}_mtmp_'. __request_timestamp__. ' mt INNER JOIN {SQL_TABLE_PREFIX}msg m ON m.id=mt.id' : ' {SQL_TABLE_PREFIX}msg m') .'
+	FROM '. ($use_tmp ? '{SQL_TABLE_PREFIX}_mtmp_'. __request_timestamp__ .' mt INNER JOIN {SQL_TABLE_PREFIX}msg m ON m.id=mt.id' : ' {SQL_TABLE_PREFIX}msg m') .'
 		INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id
 		INNER JOIN {SQL_TABLE_PREFIX}forum f ON t.forum_id=f.id
 		LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id

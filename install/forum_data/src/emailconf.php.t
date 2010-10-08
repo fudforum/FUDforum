@@ -27,7 +27,7 @@
 	if (!$uid || (__fud_real_user__ && __fud_real_user__ != $uid)) {
 		error_dialog('{TEMPLATE: emailconf_err_invkey_title}', '{TEMPLATE: emailconf_err_invkey_msg}');
 	}
-	q('UPDATE {SQL_TABLE_PREFIX}users SET users_opt='. q_bitor(users_opt, 131072) .', conf_key=\'0\' WHERE id='. $uid);
+	q('UPDATE {SQL_TABLE_PREFIX}users SET users_opt='. q_bitor(users_opt, 131072) .', conf_key=NULL WHERE id='. $uid);
 
 	if (defined('plugins')) {
 		plugin_call_hook('EMAILCONFIRMED', $usr);
@@ -38,7 +38,7 @@
 		$usr->users_opt = (int) q_singleval('SELECT users_opt FROM {SQL_TABLE_PREFIX}users WHERE id='. $uid);
 	}
 	if ($usr->users_opt & 2097152) {
-		header('Location: {FULL_ROOT}{ROOT}' . ($FUD_OPT_2 & 32768 ? '/rc/' : '?t=reg_conf&') . _rsidl);
+		header('Location: {FULL_ROOT}{ROOT}'. ($FUD_OPT_2 & 32768 ? '/rc/' : '?t=reg_conf&') . _rsidl);
 		return;
 	}
 	check_return($usr->returnto);

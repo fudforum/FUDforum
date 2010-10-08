@@ -25,4 +25,5 @@ function rebuild_icon_cache()
 	}
 	rename($GLOBALS['TMP'] .'icon_cache', $GLOBALS['FORUM_SETTINGS_PATH'] .'icon_cache');
 }
+
 ?>

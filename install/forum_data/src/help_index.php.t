@@ -43,7 +43,7 @@
 		$topic_help = substr($str, 0, strlen($str)-strlen($end_of_str));
 		$str = $end_of_str;
 		if ($FUD_OPT_2 & 32768 && !empty($_SERVER['PATH_INFO'])) {
-			$rs = 'S=' . str_replace(array('/', '?'), array('&amp;', ''), _rsid);
+			$rs = 'S='. str_replace(array('/', '?'), array('&amp;', ''), _rsid);
 		} else {
 			$rs = _rsid;
 		}

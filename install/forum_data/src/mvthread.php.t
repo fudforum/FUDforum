@@ -114,7 +114,7 @@
 			FROM {SQL_TABLE_PREFIX}forum f
 			INNER JOIN {SQL_TABLE_PREFIX}fc_view v ON v.f=f.id
 			INNER JOIN {SQL_TABLE_PREFIX}cat c ON c.id=v.c
-			LEFT JOIN {SQL_TABLE_PREFIX}mod m ON m.user_id='. _uid. ' AND m.forum_id=f.id
+			LEFT JOIN {SQL_TABLE_PREFIX}mod m ON m.user_id='. _uid .' AND m.forum_id=f.id
 			INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=2147483647 AND g1.resource_id=f.id
 			LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='. _uid .' AND g2.resource_id=f.id
 			WHERE c.id!=0 AND f.url_redirect IS NULL AND f.id!='. $thr->forum_id . ($is_a ? '' : ' AND (CASE WHEN m.user_id IS NOT NULL OR '. q_bitand('COALESCE(g2.group_cache_opt, g1.group_cache_opt)', 1) .' > 0 THEN 1 ELSE 0 END)=1') .'

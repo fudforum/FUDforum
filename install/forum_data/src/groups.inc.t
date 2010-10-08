@@ -42,7 +42,7 @@ function grp_rebuild_cache($user_id=null)
 	}
 
 	/* Generate an array of permissions, in the end we end up with 1ist of permissions. */
-	$r = uq('SELECT gm.user_id, gm.group_members_opt, gr.resource_id FROM {SQL_TABLE_PREFIX}group_members gm INNER JOIN {SQL_TABLE_PREFIX}group_resources gr ON gr.group_id=gm.group_id WHERE gm.group_members_opt>=65536 AND '. q_bitand('gm.group_members_opt', 65536) .' > 0' . ($lmt ? ' AND '. $lmt : ''));
+	$r = uq('SELECT gm.user_id, gm.group_members_opt, gr.resource_id FROM {SQL_TABLE_PREFIX}group_members gm INNER JOIN {SQL_TABLE_PREFIX}group_resources gr ON gr.group_id=gm.group_id WHERE gm.group_members_opt>=65536 AND '. q_bitand('gm.group_members_opt', 65536) .' > 0'. ($lmt ? ' AND '. $lmt : ''));
 	while ($o = db_rowobj($r)) {
 		foreach ($o as $k => $v) {
 			$o->{$k} = (int) $v;
@@ -81,7 +81,7 @@ function grp_rebuild_cache($user_id=null)
 		db_lock('{SQL_TABLE_PREFIX}group_cache WRITE');
 	}
 
-	q('DELETE FROM {SQL_TABLE_PREFIX}group_cache' . ($lmt ? ' WHERE '.$lmt : ''));
+	q('DELETE FROM {SQL_TABLE_PREFIX}group_cache'. ($lmt ? ' WHERE '.$lmt : ''));
 	ins_m('{SQL_TABLE_PREFIX}group_cache', 'resource_id, group_cache_opt, user_id', 'integer, integer, integer', $tmp);
 
 	if ($ll) {

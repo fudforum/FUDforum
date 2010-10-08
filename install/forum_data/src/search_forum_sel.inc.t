@@ -74,7 +74,7 @@ function trim_body($body)
 
 	$body = strip_tags($body);
 	if (strlen($body) > $GLOBALS['MNAV_MAX_LEN']) {
-		$body = mb_substr($body, 0, $GLOBALS['MNAV_MAX_LEN']) . '...';
+		$body = mb_substr($body, 0, $GLOBALS['MNAV_MAX_LEN']) .'...';
 	}
 	return $body;
 }

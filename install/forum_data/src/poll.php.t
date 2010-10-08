@@ -57,7 +57,7 @@
 		std_error('access');
 	}
 
-	if (isset($_POST['pl_submit'])) {
+	if (isset($_POST['pl_submit']) && !empty($_POST['pl_name'])) {
 		$pl_name = isset($_POST['pl_name']) ? (string) $_POST['pl_name'] : '';
 		$pl_max_votes = isset($_POST['pl_max_votes']) ? (int) $_POST['pl_max_votes'] : 0;
 		$pl_expiry_date = isset($_POST['pl_expiry_date']) ? (int) $_POST['pl_expiry_date'] : 0;

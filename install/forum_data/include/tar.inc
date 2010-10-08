@@ -32,7 +32,7 @@ function add_to_tar($v, $di, $is_dir, $s)
 	$hdr .= str_pad(decoct($di[5]), 7, '0', STR_PAD_LEFT) ."\0";
 	$hdr .= str_pad(decoct(($is_dir ? 0 : $di[7])), 11, '0', STR_PAD_LEFT) ."\0";
 	$hdr .= str_pad(decoct($di[9]), 11, '0', STR_PAD_LEFT) ."\0";
-	$hdr .= '        ' . ($is_dir ? '5' : '0');
+	$hdr .= '        '. ($is_dir ? '5' : '0');
 	$hdr .= str_repeat("\0", 100);
 	$hdr .= "ustar  \0";
 	$hdr .= str_repeat("\0", 32 + 32 + 8 + 8 + 155 + 12);
@@ -93,4 +93,5 @@ function make_tar($dir)
 
 	return $out;
 }
+
 ?>

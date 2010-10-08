@@ -105,27 +105,19 @@ function rebuild_forum_view_ttl($forum_id, $skip_cron=0)
 		db_lock('{SQL_TABLE_PREFIX}tv_'. $forum_id .' WRITE, {SQL_TABLE_PREFIX}thread READ, {SQL_TABLE_PREFIX}msg READ');
 	}
 
-	if (__dbtype__ == 'mysql') {
-		q('SET @seq=0');
-		$val = '(@seq:=@seq+1)';
-	} else if (__dbtype__ == 'pgsql') {
-		$cur = q('SELECT nextval(\'{SQL_TABLE_PREFIX}tv_'. $forum_id .'_id_seq\')') - 1;
-		$val = '0';
-	} else {
-		$val = '0';
-	}
+	q('DELETE FROM {SQL_TABLE_PREFIX}tv_'. $forum_id);
 
-	q('DELETE FROM {SQL_TABLE_PREFIX}tv_'. $forum_id); /* In sqlite, this resets row counter. */
-	q('INSERT INTO {SQL_TABLE_PREFIX}tv_'. $forum_id .' (thread_id,iss,seq) SELECT {SQL_TABLE_PREFIX}thread.id, '. q_bitand('thread_opt', (2|4|8)) .', '. $val .' FROM {SQL_TABLE_PREFIX}thread 
+	q('INSERT INTO {SQL_TABLE_PREFIX}tv_'. $forum_id .' (thread_id,iss,seq) SELECT id, iss, '. q_rownum() .' FROM
+		(SELECT {SQL_TABLE_PREFIX}thread.id AS id, '. q_bitand('thread_opt', (2|4|8)) .' AS iss FROM {SQL_TABLE_PREFIX}thread 
 		INNER JOIN {SQL_TABLE_PREFIX}msg ON {SQL_TABLE_PREFIX}thread.root_msg_id={SQL_TABLE_PREFIX}msg.id 
 		WHERE forum_id='. $forum_id .' AND {SQL_TABLE_PREFIX}msg.apr=1 
-		ORDER BY (CASE WHEN thread_opt>=2 THEN (4294967294 + (('. q_bitand('thread_opt', 8) .') * 100000000) + {SQL_TABLE_PREFIX}thread.last_post_date) ELSE {SQL_TABLE_PREFIX}thread.last_post_date END) ASC');
+		ORDER BY (CASE WHEN thread_opt>=2 THEN (4294967294 + (('. q_bitand('thread_opt', 8) .') * 100000000) + {SQL_TABLE_PREFIX}thread.last_post_date) ELSE {SQL_TABLE_PREFIX}thread.last_post_date END) ASC) q1');
 
-	if (__dbtype__ == 'pgsql') {
-		q('UPDATE {SQL_TABLE_PREFIX}tv_'. $forum_id .' SET seq=id - '. $cur);
-	} else if (__dbtype__ == 'sqlite') { /* Adjust 1st value, since it can come from previous insert. */
+	if (__dbtype__ == 'sqlite') {
+		// q_rownum() is not implemented for SQLite.
+		// If we empty a table (the DELETE above), the ID (internal sequence) will be reset to 0. We will misuse it as the ROWNUM.
 		q('UPDATE {SQL_TABLE_PREFIX}tv_'. $forum_id .' SET seq=id');
-	} 
+	}
 
 	if (isset($ll)) {
 		db_unlock();

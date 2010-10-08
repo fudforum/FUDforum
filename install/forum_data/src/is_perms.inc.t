@@ -21,7 +21,7 @@ function &get_all_read_perms($uid, $mod)
 
 	if (_uid) {
 		if ($mod) {
-			$r = uq('SELECT forum_id FROM {SQL_TABLE_PREFIX}mod WHERE user_id=' ._uid);
+			$r = uq('SELECT forum_id FROM {SQL_TABLE_PREFIX}mod WHERE user_id='. _uid);
 			while ($ent = db_rowarr($r)) {
 				$limit[$ent[0]] = 2;
 			}

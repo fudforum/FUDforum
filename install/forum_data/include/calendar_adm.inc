@@ -91,4 +91,5 @@ class fud_calendar
 		return $buffer;
 	}
 }
+
 ?>

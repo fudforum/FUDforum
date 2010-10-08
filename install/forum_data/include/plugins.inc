@@ -13,13 +13,13 @@ if ($GLOBALS['FUD_OPT_3'] & 4194304) {	// Plugins enabled?
 	define('plugins', 1);
 }
 
-// Add a new hook.
+/* Add/register a plugin hook. */
 function plugin_add_hook($type, $func) {
 	global $plugin_hooks;
 	$plugin_hooks[$type][] = $func;
 }
 
-// Call all plugins.
+/* Execute all registered plugins of a particular hook. */
 function plugin_call_hook($type, $data=array()) {
 	global $plugin_hooks;
 
@@ -31,8 +31,8 @@ function plugin_call_hook($type, $data=array()) {
 	return $data;
 }
 
-// Activate enabled plugins.
-function plugin_activate_enbled() {
+/* Load/activate all the plugins that are enabled. */
+function plugin_activate_all_enbled() {
 	global $plugin_hooks;
 
 	$plugins = plugin_load_from_cache();
@@ -41,7 +41,7 @@ function plugin_activate_enbled() {
 	}
 }
 
-// Read list of enabled plugins from cache.
+/* Read list of enabled plugins from cache. */
 function plugin_load_from_cache() {
 	$cachefile = $GLOBALS['FORUM_SETTINGS_PATH'] .'plugin_cache';
 
@@ -57,7 +57,7 @@ function plugin_load_from_cache() {
 	return $plugins;
 }
 
-// Write list of enabled plugins to cache.
+/* Write list of enabled plugins to cache. */
 function plugin_rebuild_cache($plugins) {
         $fp = fopen($GLOBALS['TMP'] .'plugin_cache', 'w');
         fwrite($fp, '<?php $plugins = '. var_export($plugins, 1) .'; ?>');
@@ -68,3 +68,5 @@ function plugin_rebuild_cache($plugins) {
         }
         rename($GLOBALS['TMP'] .'plugin_cache', $GLOBALS['FORUM_SETTINGS_PATH'] .'plugin_cache');
 }
+
+?>

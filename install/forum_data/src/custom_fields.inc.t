@@ -13,8 +13,8 @@
 function get_custom_field_defs()
 {
 // TODO: Setup a cache so that we don't have read from DB every time we need them.
-	$custom_field_defs = null;
-	$c = uq('SELECT * FROM {SQL_TABLE_PREFIX}custom_fields ORDER BY vieworder');
+	$custom_field_defs = array();
+	$c = uq('SELECT id, name, descr, type_opt, choice, field_opt, vieworder FROM {SQL_TABLE_PREFIX}custom_fields ORDER BY vieworder');
 	while ($r = db_rowobj($c)) {
 		$custom_field_defs[ $r->id ] = $r;
 	}

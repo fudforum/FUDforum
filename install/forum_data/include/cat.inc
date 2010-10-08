@@ -224,4 +224,5 @@ function rebuild_forum_cat_order()
 		db_unlock();
 	}
 }
+
 ?>

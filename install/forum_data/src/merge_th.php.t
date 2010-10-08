@@ -89,7 +89,7 @@
 					q('UPDATE {SQL_TABLE_PREFIX}poll SET forum_id='. $forum .' WHERE id IN('. implode(',', $p) .')');
 				}
 			}
-			q('UPDATE {SQL_TABLE_PREFIX}msg SET thread_id={$new_th} WHERE thread_id IN('. $tl .')');
+			q('UPDATE {SQL_TABLE_PREFIX}msg SET thread_id='. $new_th .' WHERE thread_id IN('. $tl .')');
 			q('DELETE FROM {SQL_TABLE_PREFIX}thread WHERE id IN('. $tl .')');
 
 			rebuild_forum_view_ttl($forum);
@@ -177,7 +177,7 @@
 	$c = uq('SELECT t.id, m.subject FROM {SQL_TABLE_PREFIX}tv_'. $frm .' tv 
 			INNER JOIN {SQL_TABLE_PREFIX}thread t ON t.id=tv.thread_id 
 			INNER JOIN {SQL_TABLE_PREFIX}msg m ON m.id=t.root_msg_id 
-			WHERE tv.seq BETWEEN ' .($lwi - ($page * $THREADS_PER_PAGE) + 1) .' AND '. ($lwi - (($page - 1) * $THREADS_PER_PAGE)) .'
+			WHERE tv.seq BETWEEN '. ($lwi - ($page * $THREADS_PER_PAGE) + 1) .' AND '. ($lwi - (($page - 1) * $THREADS_PER_PAGE)) .'
 			'. (isset($_POST['sel_th']) ? 'AND t.id NOT IN('. implode(',', $_POST['sel_th']) .')' : '') .'
 			ORDER BY tv.seq DESC');
 	while ($r = db_rowarr($c)) {

@@ -45,4 +45,5 @@ function smiley_rebuild_cache()
 	}
 	rename($GLOBALS['TMP'] .'sp_cache', $GLOBALS['FORUM_SETTINGS_PATH'] .'sp_cache');
 }
+
 ?>

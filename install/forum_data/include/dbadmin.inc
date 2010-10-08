@@ -169,7 +169,7 @@ function get_fud_col_list($table)
 			// Check if PK is AUTO GENERATED (i.e. has a sequence).
 			$auto = 0;
 			if ($type == 'INT' && $key) {
-				$auto = (int)q_singleval('SELECT 1 FROM user_sequences WHERE sequence_name LIKE UPPER(\''. $table . '%_SEQ\')');
+				$auto = (int)q_singleval('SELECT 1 FROM user_sequences WHERE sequence_name LIKE UPPER(\''. $table .'%_SEQ\')');
 			}
 
 			$ret[$colname] = array('type'=>$type, 'not_null'=>$not_null, 'primary'=>$key, 'default'=>$default, 'auto'=>$auto);
@@ -349,7 +349,7 @@ function drop_table($tbl, $ifexists=false) {
 	
 	// Drop Orace sequences.
 	if (__dbtype__ == 'oracle') {
-		$c = q('SELECT sequence_name FROM user_sequences WHERE sequence_name LIKE \''. strtoupper($tbl . '%\''));
+		$c = q('SELECT sequence_name FROM user_sequences WHERE sequence_name LIKE \''. strtoupper($tbl .'%\''));
 		while ($r = db_rowarr($c)) {
 			// echo 'DEBUG: Drop oracle seq '. $r[0] .'<hr>';
 			q('DROP SEQUENCE '. $r[0]);
@@ -452,7 +452,7 @@ function get_fud_index_list($table)
 		while ($r = db_rowobj($c)) {
 			$tbl[$r->index_name] = array('unique' => $r->uniq, 'cols' => array());
 		
-			$c2 = q('SELECT LOWER(column_name) as column_name FROM user_ind_columns WHERE index_name = IPPER(\''. $r->index_name .'\') ORDER BY column_position');
+			$c2 = q('SELECT LOWER(column_name) as column_name FROM user_ind_columns WHERE index_name = UPPER(\''. $r->index_name .'\') ORDER BY column_position');
 			while ($r2 = db_rowobj($c2)) {
 				$tbl[$r->index_name]['cols'][] = $r2->column_name;
 			}

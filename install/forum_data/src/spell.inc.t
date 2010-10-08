@@ -129,7 +129,7 @@ function tokenize_string($data)
 
 function draw_spell_sug_select($v,$k,$type)
 {
-	$sel_name = 'spell_chk_'. $type .'_' .$k;
+	$sel_name = 'spell_chk_'. $type .'_'. $k;
 	$data = '<select name="'. $sel_name .'">';
 	$data .= '<option value="'. htmlspecialchars($v['token']) .'">'. htmlspecialchars($v['token']) .'</option>';
 	$i = 0;

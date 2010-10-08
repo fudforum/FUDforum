@@ -39,7 +39,7 @@ function validate_email($email)
 function encode_subject($text)
 {
 	if (preg_match('![\x7f-\xff]!', $text)) {
-		$text = '=?' . '{TEMPLATE: iemail_CHARSET}' .'?B?'. base64_encode($text) .'?=';
+		$text = '=?{TEMPLATE: iemail_CHARSET}?B?'. base64_encode($text) .'?=';
 	}
 
 	return $text;

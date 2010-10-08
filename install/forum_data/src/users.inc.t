@@ -654,12 +654,10 @@ function &init_user()
 			$sq =& $u->sq;
 		}
 	}
-	if ($GLOBALS['is_post'] || $GLOBALS['is_aol'] || $u->id > 1) {
+	if ($GLOBALS['is_post'] || $u->id > 1) {
 		header('Cache-Control: no-store, private, must-revalidate, proxy-revalidate, post-check=0, pre-check=0, max-age=0, s-maxage=0');
-		if (!$GLOBALS['is_aol']) { /* These headers cause troubles for AOL browser (amazing POS). */
-			header('Expires: Mon, 21 Jan 1980 06:01:01 GMT');
-			header('Pragma: no-cache');
-		}
+		header('Expires: Mon, 21 Jan 1980 06:01:01 GMT');
+		header('Pragma: no-cache');
 	}
 
 	if ($u->data) {
@@ -678,7 +676,7 @@ function &init_user()
 	}
 
 	/* Set timezone. */
-	if (@date_default_timezone_set($u->time_zone) === FALSE) {
+	if (empty($u->time_zone) || @date_default_timezone_set($u->time_zone) === FALSE) {
 		date_default_timezone_set($GLOBALS['SERVER_TZ']);
 	}
 

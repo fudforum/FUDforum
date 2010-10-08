@@ -181,7 +181,7 @@ Prevent users from posting empty or very short messages. Messages must be longer
 Prevent new users from posting spam. Users are required to post more than this amount of messages before they can embed links into their signatures and posts.}}}
 
 {{{SERVER_TZ
-Server time zone, specified in time offset from UTC.}}}
+The time zone of the web server.}}}
 
 {{{MEMBER_SEARCH_ENABLED	FUD_OPT_1	"Enabled\nDisabled\nOnly for registered users"	"8388608\n0\n4194304"
 Enable/disable the forum member search.}}}
@@ -205,8 +205,8 @@ Enable/disable the text that will reveal if a post was edited.}}}
 Enable/disable the text that will reveal if an edited post was edited by a moderator.}}}
 
 {{{EDIT_TIME_LIMIT
-This sets the length of time a message can be edited before message editing is disabled.}}}
-Set the value to 0 to give unlimited editing time.
+This sets the length of time a message can be edited before message editing is disabled.
+Set the value to 0 to allow unlimited editing time or -1 to disable.}}}
 
 {{{DISPLAY_IP	FUD_OPT_1	134217728
 Publicly display the IP address that the message was posted from. The administrators will always see the IPs and so will the forum moderators in the forums they moderate.}}}
@@ -242,7 +242,7 @@ Enable/disable the list of users who are currently using the forum on the front 
 Enable/disable email confirmation of new registered accounts. A special URL will be sent in the welcome email upon registration.}}}
 
 {{{PUBLIC_STATS	FUD_OPT_2	2
-Enable/disable the showing of how long it took the generate the page and how many SQL queries were run in the process.}}}
+Enable/disable the showing of how long it took to generate the page.}}}
 
 {{{DEFAULT_THREAD_VIEW	FUD_OPT_2	"Flat View thread and message list\nTree View thread and message list\nFlat thread listing/Tree message listing\nTree thread listing/Flat message listing"	"12\n0\n4\n8"
 The default view of the topic's contents and topic listing.}}}
@@ -260,10 +260,10 @@ The number of days unconfirmed forum members are held in the database. They will
 The number of days to show a pointer of a moved topic from the original forum to the new forum. The pointer will be removed after this period of time.}}}
 
 {{{DATA_DIR
-The directory where the forum's internal data is being stored.}}}
+The directory where the forum's data files are stored (cache, backups, and other data).}}}
 
 {{{WWW_ROOT_DISK
-The location on the disk where the forum's images are stored.}}}
+The directory where the forum's web browseable files are stored (*.php, images, etc.).}}}
 
 {{{SHOW_N_MODS
 Up to how many moderators per forum to show on the front page.}}}
@@ -293,7 +293,7 @@ Maximum depth of the tree to allow, this option will prevent long trees from scr
 At which point to cutoff subjects of messages on topic listing in tree mode. This options allows you to save on screen space if you want to show large topic trees.}}}
 
 {{{THREAD_DUP_CHECK	FUD_OPT_3	67108864 
-Prevent users from posting duplicate topics.}}}
+Double post protection. Prevent users from posting duplicate topics.}}}
 
 {{{MODERATE_USER_REGS	FUD_OPT_2	1024
 Whether or not every new registration will need to be approved by the administrator before the new account is activated.}}}
@@ -431,8 +431,8 @@ If disabled users will not need to complete a turing test intended to prevent au
 {{{DISABLE_AUTOCOMPLETE	FUD_OPT_3	256
 If disabled the browser will not attempt to 'remember' the values for the login form.}}}
 
-{{{APACHE_PUTENV	FUD_OPT_3	512
-If enabled the forum will never try to set a timezone by exporting TZ environment variable via putenv(). In Apache 2 where PHP is used in conjunction with mod_perl using PHP's putenv() may result in frequent crashes.}}}
+{{{UNUSED	FUD_OPT_3	512
+Available for future use.}}}
 
 {{{UNUSED	FUD_OPT_3	1024
 Available for future use.}}}
@@ -479,11 +479,8 @@ If enabled then user's country (name and flag) will be updated each time they lo
 {{{PLUGINS_ENABLED	FUD_OPT_3	4194304
 Enable/disable forum plugins. Plugins are typically created by third-party developers to extended the default capabilities of FUDforum.}}}
 
-{{{QUICK_REPLY_ENABLED	FUD_OPT_3	8388608
-Enable/disable the forum's quick reply editor.}}}
-
-{{{QUICK_REPLY_DISPLAY	FUD_OPT_3	"Expanded\nCollapsed"	"0\n16777216"
-Quick reply display mode: collapsed or expanded.}}}
+{{{QUICK_REPLY	FUD_OPT_3	"Disabled\nExpanded\nCollapsed"	"0\n8388608\n16777216"
+Quick reply display mode: disabled, collapsed or expanded.}}}
 
 {{{GRAPHICAL_TURING	FUD_OPT_3	33554432
 Use a graphical captcha instead of a text captcha (only if your PHP has GD support).}}}
@@ -502,3 +499,9 @@ Enable users to login to the forum by entering a userid and password.}}}
 
 {{{LOGIN_WITH_URL	FUD_OPT_3	1073741824
 Enable users to login to the forum by entering a URL pointing to an OpenID account provider.}}}
+
+{{{ALLOW_LOGIN_CHANGES	FUD_OPT_4	1
+Allow users to change their own logins. Disable if you authenticate users externally (i.e. via a plugin).}}}
+
+{{{ALLOW_PASSWORD_RESET	FUD_OPT_4	2
+Allow users to reset their own passwords.}}}

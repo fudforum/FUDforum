@@ -25,14 +25,14 @@
 			std_error('access');
 		}
 
-		if (db_li('INSERT INTO {SQL_TABLE_PREFIX}thread_rate_track (thread_id, user_id, stamp, rating) VALUES(' .$th .', '. _uid .', '. __request_timestamp__ .', '. $rt .')', $ef)) {
+		if (db_li('INSERT INTO {SQL_TABLE_PREFIX}thread_rate_track (thread_id, user_id, stamp, rating) VALUES('. $th .', '. _uid .', '. __request_timestamp__ .', '. $rt .')', $ef)) {
 			$rt = db_saq('SELECT count(*), ROUND(AVG(rating)) FROM {SQL_TABLE_PREFIX}thread_rate_track WHERE thread_id='.$th);
 			q('UPDATE {SQL_TABLE_PREFIX}thread SET rating='. (int)$rt[1] .', n_rating='. (int)$rt[0] .' WHERE id='. $th);
 
 			if ($is_a) {
 				$MOD = 1;
 			} else {
-				$MOD = q_singleval('SELECT m.id FROM {SQL_TABLE_PREFIX}thread t INNER JOIN {SQL_TABLE_PREFIX}mod m ON m.forum_id=t.forum_id WHERE t.id='. $th .' AND m.user_id=' ._uid);
+				$MOD = q_singleval('SELECT m.id FROM {SQL_TABLE_PREFIX}thread t INNER JOIN {SQL_TABLE_PREFIX}mod m ON m.forum_id=t.forum_id WHERE t.id='. $th .' AND m.user_id='. _uid);
 			}
 
 			$frm = new StdClass;

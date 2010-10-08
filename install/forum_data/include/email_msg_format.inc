@@ -79,4 +79,5 @@ function plain_text(&$data, $qs, $qm, $qe)
 
 	return html_entity_decode($data);
 }
+
 ?>

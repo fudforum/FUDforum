@@ -18,7 +18,8 @@ class fud_user
 	    $sig, $bio, $posted_msg_count, $last_visit, $last_event, $conf_key,
 	    $user_image, $join_date, $theme, $last_read,
 	    $mod_list, $mod_cur, $level_id, $u_last_post_id, $users_opt, $cat_collapse_status,
-	    $ignore_list, $buddy_list;
+	    $ignore_list, $buddy_list,
+	    $custom_fields;
 }
 
 function make_alias($text)
@@ -91,7 +92,7 @@ class fud_user_reg extends fud_user
 			$this->join_date = __request_timestamp__;
 		}
 
-		if ($o2 & 1) {
+		if ($o2 & 1) {	// EMAIL_CONFIRMATION
 			$this->conf_key = md5(implode('', (array)$this) . __request_timestamp__ . getmypid());
 		} else {
 			$this->conf_key = '';
@@ -140,7 +141,8 @@ class fud_user_reg extends fud_user
 				reg_ip,
 				topics_per_page,
 				flag_cc,
-				flag_country
+				flag_country,
+				custom_fields
 			) VALUES (
 				'. _esc($this->login) .',
 				'. _esc($this->alias) .',
@@ -159,7 +161,7 @@ class fud_user_reg extends fud_user
 				'. ssn(urlencode($this->twitter)) .',
 				'. (int)$this->posts_ppg .',
 				'. _esc($this->time_zone) .',
-				'. ssn($this->bithday) .',
+				'. ssn($this->birthday) .',
 				'. __request_timestamp__ .',
 				\''. $this->conf_key .'\',
 				'. ssn(htmlspecialchars($this->user_image)) .',
@@ -177,7 +179,8 @@ class fud_user_reg extends fud_user
 				'. ip2long($reg_ip) .',
 				'. (int)$this->topics_per_page .',
 				'. ssn($flag[0]) .',
-				'. ssn($flag[1]) .'
+				'. ssn($flag[1]) .',
+				'. _esc($this->custom_fields) .'
 			)
 		');
 
@@ -228,8 +231,9 @@ class fud_user_reg extends fud_user
 			sig='. ssn($this->sig) .',
 			home_page='. ssn(htmlspecialchars($this->home_page)) .',
 			bio='. ssn($this->bio) .',
-			users_opt='. $this->users_opt .',
-			topics_per_page='. $this->topics_per_page .'
+			users_opt='. (int)$this->users_opt .',
+			topics_per_page='. (int)$this->topics_per_page .',
+			custom_fields='. _esc($this->custom_fields) .'
 		WHERE id='. $this->id);
 
 		if ($rb_mod_list) {
@@ -252,6 +256,7 @@ function usr_email_unconfirm($id)
 {
 	$conf_key = md5(__request_timestamp__ . $id . get_random_value());
 	q('UPDATE {SQL_TABLE_PREFIX}users SET users_opt='. q_bitand('users_opt', ~131072) .', conf_key=\''. $conf_key .'\' WHERE id='. $id);
+
 	return $conf_key;
 }
 
@@ -289,7 +294,7 @@ function user_login($id, $cur_ses_id, $use_cookies)
 
 	/* If we can only have 1 login per account, 'remove' all other logins. */
 	q('DELETE FROM {SQL_TABLE_PREFIX}ses WHERE user_id='. $id .' AND ses_id!=\''. $cur_ses_id .'\'');
-	q('UPDATE {SQL_TABLE_PREFIX}ses SET user_id='. $id .', sys_id=\''. ses_make_sysid() .'\' WHERE ses_id=\'' .$cur_ses_id .'\'');
+	q('UPDATE {SQL_TABLE_PREFIX}ses SET user_id='. $id .', sys_id=\''. ses_make_sysid() .'\' WHERE ses_id=\''. $cur_ses_id .'\'');
 	$GLOBALS['new_sq'] = regen_sq($id);
 	if ($GLOBALS['FUD_OPT_3'] & 2097152) {
 		$flag = ret_flag();
@@ -307,7 +312,7 @@ function rebuildmodlist()
 	$lmt =& $GLOBALS['SHOW_N_MODS'];
 	$c = uq('SELECT u.id, u.alias, f.id FROM '. $tbl .'mod mm INNER JOIN '. $tbl .'users u ON mm.user_id=u.id INNER JOIN '. $tbl .'forum f ON f.id=mm.forum_id ORDER BY f.id,u.alias');
 	$u = $ar = array();
-	
+
 	while ($r = db_rowarr($c)) {
 		$u[] = $r[0];
 		if ($lmt < 1 || (isset($ar[$r[2]]) && count($ar[$r[2]]) >= $lmt)) {
@@ -335,17 +340,17 @@ function ret_flag($raw=0)
 		$ip = get_ip();
 	}
 
-	if ($GLOBALS['FUD_OPT_3'] & 524288) {
+	if ($GLOBALS['FUD_OPT_3'] & 524288) {	// ENABLE_GEO_LOCATION.
 		$val = db_saq('SELECT cc, country FROM {SQL_TABLE_PREFIX}geoip WHERE '. sprintf('%u', ip2long($ip)) .' BETWEEN ips AND ipe');
 		if ($raw) {
 			return $val ? $val : array(null,null);
 		}
 		if ($val) {
-			return 'flag_cc='. _esc($val[0]) .',flag_country='. _esc($val[1]).',';
+			return 'flag_cc='. _esc($val[0]) .', flag_country='. _esc($val[1]).',';
 		}
 	}
 	if ($raw) {
-		return array(null,null);
+		return array(null, null);
 	}
 }
 ?>

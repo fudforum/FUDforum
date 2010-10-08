@@ -12,55 +12,31 @@
 $FORUM_VERSION = '3.0.1';
 
 ignore_user_abort('1');
-@set_magic_quotes_runtime(0);
+@set_magic_quotes_runtime(0);	// Deprecated as of PHP 5.3.0.
+// set_error_handler('fud_php_error_handler');
+// set_exception_handler('fud_exception_handler');
 
-function rls_db_lck()
+register_shutdown_function('release_db_lock');
+function release_db_lock()
 {
 	if (connection_status() && defined('fud_sql_lnk') && db_locked()) {
 		db_unlock();
 	}
-	return;
 }
-
-register_shutdown_function('rls_db_lck');
 
 $GLOBALS['RSS'] = $GLOBALS['TITLE_EXTRA'] = '';
 $GLOBALS['is_post'] = !empty($_POST);
-$GLOBALS['is_aol'] = (isset($_SERVER['HTTP_USER_AGENT']) && strpos($_SERVER['HTTP_USER_AGENT'], 'AOL') !== false);
 
 if (isset($_REQUEST['GLOBALS']) || isset($_FILES['GLOBALS'])) {
-	exit;
+	exit;	// GLOBALS overwrite attempt.
 }
 
-// Deprecated as of PHP 5.3.0.
-if (get_magic_quotes_gpc()) {
-	$in = array(&$_GET, &$_POST, &$_COOKIE);
-	while (list($k,$v) = each($in)) {
-		foreach ($v as $key => $val) {
-			if (!is_array($val)) {
-				$in[$k][$key] = stripslashes($val);
-				continue;
-			}
-			$in[] =& $in[$k][$key];
-		}
-	}
-	unset($in);
-
-	if (!empty($_FILES)) {
-		foreach ($_FILES as $k => $v) {
-			$_FILES[$k]['name'] = stripslashes((string)$v['name']);
-		}
-	}
-}
-
-$GLOBALS['PAGE_TIME'] = @gettimeofday();
-define('__request_timestamp__', $GLOBALS['PAGE_TIME']['sec']);
-mt_srand($GLOBALS['PAGE_TIME']['usec']);
+define('__request_timestamp__', microtime(true));
 
 // Load and initialize the plugin handler.
 if ($GLOBALS['FUD_OPT_3'] & 4194304) {	// Plugins enabled.
-	include_once $GLOBALS['INCLUDE'] . 'plugins.inc';
-	plugin_activate_enbled();
+	include_once $GLOBALS['INCLUDE'] .'plugins.inc';
+	plugin_activate_all_enbled();
 }
 
 function fud_use($file, $static=0)
@@ -136,13 +112,13 @@ function __ffilesize($fp)
 
 function __fud_cache($t)
 {
-	if ($GLOBALS['FUD_OPT_3'] & 65536 || $GLOBALS['is_aol']) {	// DISABLE_ANON_CACHE
+	if ($GLOBALS['FUD_OPT_3'] & 65536) {	// DISABLE_ANON_CACHE
 		return 0;
 	}
-	$mod = gmdate('D, d M Y H:i:s', $t) . ' GMT';
+	$mod = gmdate('D, d M Y H:i:s', $t) .' GMT';
 
 	/* Send caching headers. */
-	header('Last-Modified: ' . $mod);
+	header('Last-Modified: '. $mod);
 	if (isset($_SERVER['HTTP_IF_MODIFIED_SINCE']) && !isset($_SERVER['HTTP_RANGE']) && $_SERVER['HTTP_IF_MODIFIED_SINCE'] == $mod) {
 		header('HTTP/1.1 304 Not Modified');
 		header('Status: 304 Not Modified');
@@ -220,4 +196,35 @@ function fud_sql_error_handler($query, $error_string, $error_number, $db_version
 	}
 	exit;
 }
+
+/*
+function fud_php_error_handler($no, $str, $file, $line, $ctx) {
+	if (!(error_reporting() & $no)) {
+		return;		// Errors that should be ignored.
+	}
+
+	fud_logerror('PHP Error '. $no .': '. $str .' in '. $file .' on line '. $line, 'fud_errors');
+
+	if (isset($GLOBALS['usr']->users_opt) && $GLOBALS['usr']->users_opt & 1048576) { // Admin user.
+		echo '<pre>';
+		echo 'no   : '. $no   ."\n";
+		echo 'str  : '. $str  ."\n";
+		echo 'file : '. $file ."\n";
+		echo 'line : '. $line ."\n";
+		echo 'ctx  : ';
+		print_r($ctx);
+		echo '</pre>';
+		die('PHP ERROR TO FIX!');
+	}
+}
+
+function fud_exception_handler($e) {
+	echo '<hr>EXCEPTION TRIGGERED:<pre>';
+	echo 'Error on line '. $e->getLine() .' in '. $e->getFile() .': <b>'. $e->getMessage() .'</b>';
+	var_dump( debug_backtrace() );
+	echo '</pre><hr>';
+	exit;
+}
+*/
+
 ?>

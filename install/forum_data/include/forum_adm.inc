@@ -62,10 +62,12 @@ class fud_forum
 			'. (int)$this->forum_opt .'
 		)');
 
+		fud_use('dbadmin.inc', true);	// For get_fud_table_list() and create_table().
+
 		$lck_tbl = $tbl .'fl_'. $this->id;
 		/* Only create lock table if it does not already exist. */
 		if (!get_fud_table_list($lck_tbl)) {
-			q('CREATE TABLE '. $lck_tbl .' (id INT)');
+			create_table('CREATE TABLE '. $lck_tbl .' (id INT)');
 		}
 		
 		$view_tbl = $tbl .'tv_'. $this->id;
@@ -107,7 +109,7 @@ class fud_forum
 function create_cat_select($name, $def, $blocked)
 {
 	$ret = '';
-	$c = uq('SELECT id, name FROM '. $GLOBALS['DBHOST_TBL_PREFIX']. 'cat WHERE id!='. $blocked .' ORDER BY view_order');
+	$c = uq('SELECT id, name FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'cat WHERE id!='. $blocked .' ORDER BY view_order');
 	while ($r = db_rowarr($c)) {
 		$ret .= '<option value="'. $r[0] .'"'. ($r[0] == $def ? ' selected' : '') .'>'. $r[1] .'</option>';
 	}
@@ -167,20 +169,18 @@ function frm_move_forum($id, $dest_cat, $src_cat)
 
 function frm_add_view_tbl($view_tbl)
 {
+	fud_use('dbadmin.inc', true);	// For create_table().
+
 	foreach (explode(';', file_get_contents($GLOBALS['DATA_DIR'] .'/sql/fud_tv_1.tbl')) as $v) {
 		if (!strncmp(($v = trim($v)), 'CREATE', 6)) {
-			if (__dbtype__ == 'pgsql') {
-				$v = str_replace('INT NOT NULL AUTO_INCREMENT', 'SERIAL', $v);
-			} else if (__dbtype__ == 'sqlite') {
-				$v = str_replace('INT NOT NULL AUTO_INCREMENT', 'INTEGER', $v);
-			}
-			q(str_replace('{SQL_TABLE_PREFIX}tv_1', $view_tbl, $v));
+			create_table(str_replace('{SQL_TABLE_PREFIX}tv_1', $view_tbl, $v));
 		}
 	}
 }
 
 function frm_delete($id)
 {
+	fud_use('dbadmin.inc', true);	// For drop_table().
 	$tbl =& $GLOBALS['DBHOST_TBL_PREFIX'];
 
 	q('DELETE FROM '. $tbl .'ann_forums WHERE forum_id='. $id);
@@ -192,8 +192,8 @@ function frm_delete($id)
 	q('DELETE FROM '. $tbl .'mlist WHERE forum_id='. $id);
 	q('DELETE FROM '. $tbl .'nntp WHERE forum_id='. $id);
 	$gid = q_singleval('SELECT id FROM '. $tbl .'groups WHERE forum_id='. $id);
-	q('DROP TABLE '. $tbl .'fl_'. $id);
-	q('DROP TABLE '. $tbl .'tv_'. $id);
+	drop_table($tbl .'fl_'. $id, true);
+	drop_table($tbl .'tv_'. $id, true);
 	q('DELETE FROM '. $tbl .'forum WHERE id='. $id);
 
 	if ($gid) {
@@ -201,4 +201,5 @@ function frm_delete($id)
 		group_delete($gid);
 	}
 }
+
 ?>

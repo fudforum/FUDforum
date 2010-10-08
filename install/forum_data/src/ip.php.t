@@ -24,10 +24,7 @@ function __fud_whois($ip, $whois_server='')
 		$whois_server = $GLOBALS['FUD_WHOIS_SERVER'];
 	}
 
-	$er = error_reporting(0);
-
-	if (!$sock = fsockopen($whois_server, 43, $errno, $errstr, 20)) {
-		error_reporting($er);
+	if (!$sock = @fsockopen($whois_server, 43, $errno, $errstr, 20)) {
 		$errstr = preg_match('/WIN/', PHP_OS) ? utf8_encode($errstr) : $errstr;	// Windows silliness.
 		return '{TEMPLATE: ip_connect_err}';
 	}
@@ -73,7 +70,7 @@ function fud_whois($ip)
 		if (($user_id = (int) $_GET['user'])) {
 			$user = q_singleval('SELECT alias FROM {SQL_TABLE_PREFIX}users WHERE id='. $user_id);
 		} else {
-			list($user_id, $user) = db_saq('SELECT id, alias FROM {SQL_TABLE_PREFIX}users WHERE alias=' ._esc(char_fix(htmlspecialchars($_GET['user']))));
+			list($user_id, $user) = db_saq('SELECT id, alias FROM {SQL_TABLE_PREFIX}users WHERE alias='. _esc(char_fix(htmlspecialchars($_GET['user']))));
 		}
 	} else {
 		$user = '';

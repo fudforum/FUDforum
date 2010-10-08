@@ -68,7 +68,7 @@ class fud_theme
 			$this->theme_opt |= 2;
 		}
 
-		if ($this->theme == 'path_info' || @file_exists($GLOBALS['DATA_DIR'] .'thm/' .$this->theme .'/.path_info')) {
+		if ($this->theme == 'path_info' || @file_exists($GLOBALS['DATA_DIR'] .'thm/'. $this->theme .'/.path_info')) {
 			$this->theme_opt |= 4;
 		}
 
@@ -172,4 +172,5 @@ function cleandir($dir)
 		}
 	}
 }
+
 ?>

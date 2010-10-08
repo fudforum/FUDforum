@@ -59,7 +59,7 @@ function export_msg_data(&$m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smile
 
 	if ($GLOBALS['FUD_OPT_3'] & 32768) {
 		$fldr_size  = q_singleval('SELECT SUM(length) FROM {SQL_TABLE_PREFIX}pmsg WHERE foff>0 AND duser_id='. _uid);
-		$fldr_size += q_singleval('SELECT SUM(LENGTH(data)) FROM {SQL_TABLE_PREFIX}pmsg p INNER JOIN {SQL_TABLE_PREFIX}msg_store m ON p.length=m.id WHERE foff<0 AND duser_id=' ._uid);
+		$fldr_size += q_singleval('SELECT SUM(LENGTH(data)) FROM {SQL_TABLE_PREFIX}pmsg p INNER JOIN {SQL_TABLE_PREFIX}msg_store m ON p.length=m.id WHERE foff<0 AND duser_id='. _uid);
 	} else {
 		$fldr_size = q_singleval('SELECT SUM(length) FROM {SQL_TABLE_PREFIX}pmsg WHERE duser_id='. _uid);
 	}
@@ -127,12 +127,12 @@ function export_msg_data(&$m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smile
 					}
 
 					if (strncmp($msg_subject, 'Re: ', 4)) {
-						$old_subject = $msg_subject = 'Re: ' . $msg_subject;
+						$old_subject = $msg_subject = 'Re: '. $msg_subject;
 					}
 					$msg_ref_msg_id = 'R'.$reply;
 					unset($msg_r);
 				} else if ($forward && strncmp($msg_subject, 'Fwd: ', 5)) {
-					$old_subject = $msg_subject = 'Fwd: ' . $msg_subject;
+					$old_subject = $msg_subject = 'Fwd: '. $msg_subject;
 					$msg_ref_msg_id = 'F'.$forward;
 				}
 			}
@@ -142,7 +142,7 @@ function export_msg_data(&$m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smile
 				$msg_to_list = $msg_r[1];
 
 				if (strncmp($msg_subject, 'Re: ', 4)) {
-					$old_subject = $msg_subject = 'Re: ' . $msg_subject;
+					$old_subject = $msg_subject = 'Re: '. $msg_subject;
 				}
 				$msg_subject = reverse_fmt($msg_subject);
 				unset($msg_r);
@@ -295,7 +295,7 @@ function export_msg_data(&$m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smile
 
 					foreach ($GLOBALS['send_to_array'] as $mid) {
 						foreach ($atl as $k => $v) {
-							$aid = db_qid('INSERT INTO {SQL_TABLE_PREFIX}attach (owner, attach_opt, message_id, original_name, mime_type, fsize, location) VALUES('. $mid[0] .', 1, '. $mid[1] .', '. $v .', \'\')');
+							$aid = db_qid('INSERT INTO {SQL_TABLE_PREFIX}attach (owner, attach_opt, message_id, original_name, mime_type, fsize, location) VALUES('. $mid[0] .', 1, '. $mid[1] .', '. $v .', \'placeholder\')');
 							$aidl[] = $aid;
 							copy($FILE_STORE . $k .'.atch', $FILE_STORE . $aid .'.atch');
 							@chmod($FILE_STORE . $aid .'.atch', ($FUD_OPT_2 & 8388608 ? 0600 : 0666));

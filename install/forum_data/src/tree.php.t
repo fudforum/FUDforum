@@ -180,21 +180,21 @@
 		$lock_thread = '';
 	}
 
-	$tree = $stack = $arr = null;
+	$tree = new stdClass();
+	$stack = $arr = array();
 	$c = uq('SELECT m.poster_id, m.subject, m.reply_to, m.id, m.poll_id, m.attach_cnt, m.post_stamp, m.icon, u.alias, u.last_visit FROM {SQL_TABLE_PREFIX}msg m INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id WHERE m.thread_id='. $th .' AND m.apr=1 ORDER BY m.reply_to ASC, m.id');
-	error_reporting(0);
 	while ($r = db_rowobj($c)) {
 		$arr[$r->id] = $r;
-		$arr[$r->reply_to]->kiddie_count++;
-		$arr[$r->reply_to]->kiddies[] = &$arr[$r->id];
-
-		if ($r->reply_to == 0) {
+		
+		if ($r->reply_to > 0) {
+			$arr[$r->reply_to]->kiddie_count++;
+			$arr[$r->reply_to]->kiddies[] = &$arr[$r->id];
+		} else 	if ($r->reply_to == 0) {
 			$tree->kiddie_count++;
 			$tree->kiddies[] = &$arr[$r->id];
 		}
 	}
 	unset($c);
-	error_reporting(2047);
 
 	$prev_msg = $next_msg = 0;
 	$rev = isset($_GET['rev']) ? $_GET['rev'] : '';

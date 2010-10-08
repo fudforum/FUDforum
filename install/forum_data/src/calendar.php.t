@@ -10,7 +10,7 @@
 **/
 
 /*{PRE_HTML_PHP}*/
-	
+
 if (!($FUD_OPT_3 & 134217728)) {	// Calender is disabled.
 	std_error('disabled');
 }

@@ -78,4 +78,5 @@ function usr_adm_avatar($id, $del=0)
 		}
 	}
 }
+
 ?>

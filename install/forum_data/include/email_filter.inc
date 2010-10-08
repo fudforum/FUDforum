@@ -30,4 +30,5 @@ function email_cache_rebuild()
 	fwrite($fp, '<?php $GLOBALS[\'__FUD_EMAIL_FILTER__\'] = array('. $data .'); ?>');
 	fclose($fp);
 }
+
 ?>

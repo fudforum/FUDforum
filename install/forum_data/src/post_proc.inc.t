@@ -13,7 +13,7 @@ $GLOBALS['seps'] = array(' '=>' ', "\n"=>"\n", "\r"=>"\r", '\''=>'\'', '"'=>'"',
 
 function fud_substr_replace($str, $newstr, $pos, $len)
 {
-        return substr($str, 0, $pos).$newstr.substr($str, $pos+$len);
+        return substr($str, 0, $pos) . $newstr . substr($str, $pos+$len);
 }
 
 function url_check($url)
@@ -137,7 +137,7 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 			$cpos = $cepos;
 		}
 
-		if (!$cpos || ($rf && $str[$cpos] == '<')) { /* left over [ handler */
+		if (!$cpos || ($rf && $str[$cpos] == '<')) { /* Left over [ handler. */
 			++$pos;
 			continue;
 		}
@@ -159,7 +159,7 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 					}
 
 					$url = url_check($url);
-					$url = str_replace('&quot;', '', $url); // Remove quotes from URL
+					$url = str_replace('&quot;', '', $url); // Remove quotes from URL.
 
 					if (!strncasecmp($url, 'www.', 4)) {
 						$url = 'http&#58;&#47;&#47;'. $url;
@@ -173,11 +173,11 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 					}
 
 					if ( strtolower(substr($str, $epos+1, 6)) == '[/url]' ) {
-						$end_tag[$cpos] = $url .'</a>';  // fill empty link
+						$end_tag[$cpos] = $url .'</a>';  // Fill empty link.
 					} else {
 						$end_tag[$cpos] = '</a>';
 					}
-					$ostr .= '<a href="'. $url .'" target="_blank">';
+					$ostr .= '<a href="'. $url .'">';
 					break;
 				case 'i':
 				case 'u':
@@ -195,12 +195,12 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 						if (strpos( substr($email,1,-1), '.') === false) {	// E-mail mostly have dots in them.
 							$ppos = $pos += 1; continue;
 						}
-						$ostr .= '<a href="mailto:'. $parms .'" target="_blank">'. $parms .'</a>';
+						$ostr .= '<a href="mailto:'. $parms .'">'. $parms .'</a>';
 						$epos = $cepos;
 						$str[$cpos] = '<';
 					} else {
 						$end_tag[$cpos] = '</a>';
-						$ostr .= '<a href="mailto:'. str_replace('@', '&#64;', $parms) .'" target="_blank">';
+						$ostr .= '<a href="mailto:'. str_replace('@', '&#64;', $parms) .'">';
 					}
 					break;
 				case 'color':
@@ -240,7 +240,7 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 						$param .= "\n?>";
 					}
 
-					$ostr .= '<SPAN name="php">'. trim(@highlight_string($param, true)). '</SPAN>';
+					$ostr .= '<SPAN name="php">'. trim(@highlight_string($param, true)) .'</SPAN>';
 					$epos = $cepos;
 					$str[$cpos] = '<';
 					break;
@@ -250,7 +250,7 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 					if (!$allow_img) {
 						$ostr .= substr($str, $pos, ($cepos-$pos)+1);
 					} else {
-						$class = ($tag == 'img') ? '' : 'class="'.$tag{3}.'" ';
+						$class = ($tag == 'img') ? '' : 'class="'. $tag{3} .'" ';
 
 						if (!$parms) {
 							$parms = substr($str, $epos+1, ($cpos-$epos)-1);
@@ -274,7 +274,7 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 					if (!$parms) {
 						$parms = '{TEMPLATE: post_quote}';
 					} else {
-						$parms = str_replace(array('@',':'), array('&#64;','&#58;'), $parms);
+						$parms = str_replace(array('@', ':'), array('&#64;', '&#58;'), $parms);
 					}
 					$ostr .= '{TEMPLATE: post_html_quote_start}';
 					$end_tag[$cpos] = '{TEMPLATE: post_html_quote_end}';
@@ -325,7 +325,7 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 					$rnd = rand();
 					$end_tag[$cpos] = '</div></div>';
 					$ostr .= '<div class="dashed" style="padding: 3px;" align="center"><a href="javascript://" onclick="javascript: layerVis(\'s'. $rnd .'\', 1);">'
-						.($parms ? $parms : '{TEMPLATE: post_proc_reveal_spoiler}').'</a><div align="left" id="s'. $rnd .'" style="display: none;">';
+						.($parms ? $parms : '{TEMPLATE: post_proc_reveal_spoiler}') .'</a><div align="left" id="s'. $rnd .'" style="display: none;">';
 					break;
 				case 'acronym':
 					$end_tag[$cpos] = '</acronym>';
@@ -339,7 +339,7 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 					} else {
 						$parms = '';
 					}
-					$ostr .= '<a href="http://'. $parms .'wikipedia.com/wiki/'. $url .'" target="_blank" name="WikiPediaLink">';
+					$ostr .= '<a href="http://'. $parms .'wikipedia.com/wiki/'. $url .'" name="WikiPediaLink">';
 					break;
 			}
 
@@ -444,7 +444,7 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 			$pos = $ue;
 			continue;
 		}
-		$html_url = '<a href="'. $url .'" target="_blank">'. $url .'</a>';
+		$html_url = '<a href="'. $url .'">'. $url .'</a>';
 		$html_url_l = strlen($html_url);
 		$ostr = fud_substr_replace($ostr, $html_url, $us+1, $ue-$us-1);
 		$ppos = $pos;
@@ -455,7 +455,7 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 	$pos = 0;
 	$ppos = 0;
 
-	$er = array_flip(array_merge(range(0,9), range('A', 'Z'), range('a','z'), array('.','-',"'","_")));
+	$er = array_flip(array_merge(range(0,9), range('A', 'Z'), range('a','z'), array('.', '-', '\'', '_')));
 
 	while (($pos = @strpos($ostr, '@', $pos)) !== false) {
 		if ($pos < $ppos) {
@@ -522,7 +522,7 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 		}
 
 		$email = str_replace('@', '&#64;', substr($ostr, $es, $ee-$es));
-		$email_url = '<a href="mailto:'. $email .'" target="_blank">'. $email .'</a>';
+		$email_url = '<a href="mailto:'. $email .'">'. $email .'</a>';
 		$email_url_l = strlen($email_url);
 		$ostr = fud_substr_replace($ostr, $email_url, $es, $ee-$es);
 		$ppos =	$es+$email_url_l;
@@ -538,14 +538,8 @@ function html_to_tags($fudml)
 	if (defined('plugins')) {
 		list($fudml) = plugin_call_hook('HTML2BBCODE', array($fudml));
 	}
-	
-	while (preg_match('!<SPAN name="php">(.*?)</SPAN>!s', $fudml, $res)) {
-		$tmp = trim(html_entity_decode(strip_tags(str_replace('<br />', "\n", $res[1]))));
-		$m = md5($tmp);
-		$php[$m] = $tmp;
-		$fudml = str_replace($res[0], "[php]\n". $m ."\n[/php]", $fudml);
-	}
 
+	// PHP code blocks.
 	while (preg_match('!<span name="php">(.*?)</span>!is', $fudml, $res)) {
 		$tmp = trim(html_entity_decode(strip_tags(str_replace('<br />', "\n", $res[1]))));
 		$m = md5($tmp);
@@ -553,8 +547,9 @@ function html_to_tags($fudml)
 		$fudml = str_replace($res[0], "[php]\n". $m ."\n[/php]", $fudml);
 	}
 
-	while (preg_match('!<a href="http://(?:([A-ZA-z]+)?\.)?wikipedia.com/wiki/([^"]+)" target="_blank" name="WikiPediaLink">(.*?)</a>!s', $fudml, $res)) {
-		if (count($res) == 4) {
+	// Wikipedia tags.
+	while (preg_match('!<a href="http://(?:([A-ZA-z]+)?\.)?wikipedia.com/wiki/([^"]+)"( target="_blank")? name="WikiPediaLink">(.*?)</a>!s', $fudml, $res)) {
+		if (count($res) == 5) {
 			$fudml = str_replace($res[0], '[wikipedia='. $res[1] .']'. $res[2] .'[/wikipedia]', $fudml);
 		} else {
 			$fudml = str_replace($res[0], '[wikipedia]'. $res[2] .'[/wikipedia]', $fudml);
@@ -562,8 +557,8 @@ function html_to_tags($fudml)
 	}
 
 	// Quote tags.
-	if (strpos($fudml, '{TEMPLATE: post_html_quote_start_p1}')  !== false) {
--               $fudml = str_replace(array('{TEMPLATE: post_html_quote_start_p1}','{TEMPLATE: post_html_quote_start_p2}','{TEMPLATE: post_html_quote_end}'), array('[quote title=', ']', '[/quote]'), $fudml);
+	if (strpos($fudml, '{TEMPLATE: post_html_quote_start_p1}') !== false) {
+               $fudml = str_replace(array('{TEMPLATE: post_html_quote_start_p1}','{TEMPLATE: post_html_quote_start_p2}','{TEMPLATE: post_html_quote_end}'), array('[quote title=', ']', '[/quote]'), $fudml);
 	}
 	// Old bad quote tags.
 	if (preg_match('!class="quote"!', $fudml)) { 
@@ -583,16 +578,20 @@ function html_to_tags($fudml)
 		$fudml = str_replace('</div></div>', '[/spoiler]', $fudml);
 	}
 
+	// Color, font and size tags.
 	$fudml = str_replace('<font face=', '<font font=', $fudml);
 	foreach (array('color', 'font', 'size') as $v) {
-		while (preg_match('!<font '.$v.'=".+?">.*?</font>!is', $fudml, $m)) {
-			$fudml = preg_replace('!<font '.$v.'="(.+?)">(.*?)</font>!is', '['.$v.'=\1]\2[/'.$v.']', $fudml);
+		while (preg_match('!<font '. $v .'=".+?">.*?</font>!is', $fudml, $m)) {
+			$fudml = preg_replace('!<font '. $v .'="(.+?)">(.*?)</font>!is', '['. $v .'=\1]\2[/'. $v .']', $fudml);
 		}
 	}
 
+	// Acronym tags.
 	while (preg_match('!<acronym title=".+?">.*?</acronym>!is', $fudml)) {
 		$fudml = preg_replace('!<acronym title="(.+?)">(.*?)</acronym>!is', '[acronym=\1]\2[/acronym]', $fudml);
 	}
+
+	// List tags.
 	while (preg_match('!<(o|u)l type=".+?">.*?</\\1l>!is', $fudml)) {
 		$fudml = preg_replace('!<(o|u)l type="(.+?)">(.*?)</\\1l>!is', '[list type=\2]\3[/list]', $fudml);
 	}
@@ -610,17 +609,17 @@ function html_to_tags($fudml)
 	),
 	$fudml);
 
-        while (preg_match('!<img src="(.*?)" border="?0"? alt="\\1" ?/?>!is', $fudml)) {
+	while (preg_match('!<img src="(.*?)" border="?0"? alt="\\1" ?/?>!is', $fudml)) {
                 $fudml = preg_replace('!<img src="(.*?)" border="?0"? alt="\\1" ?/?>!is', '[img]\1[/img]', $fudml);
 	}
-        while (preg_match('!<img class="(r|l)" src="(.*?)" border="?0"? alt="\\2" ?/?>!is', $fudml)) {
+	while (preg_match('!<img class="(r|l)" src="(.*?)" border="?0"? alt="\\2" ?/?>!is', $fudml)) {
                 $fudml = preg_replace('!<img class="(r|l)" src="(.*?)" border="?0"? alt="\\2" ?/?>!is', '[img\1]\2[/img\1]', $fudml);
 	}
-	while (preg_match('!<a href="mailto:(.+?)" target="_blank">\\1</a>!is', $fudml)) {
-		$fudml = preg_replace('!<a href="mailto:(.+?)" target="_blank">\\1</a>!is', '[email]\1[/email]', $fudml);
+	while (preg_match('!<a href="mailto:(.+?)"( target="_blank")?>\\1</a>!is', $fudml)) {
+		$fudml = preg_replace('!<a href="mailto:(.+?)"( target="_blank")?>\\1</a>!is', '[email]\1[/email]', $fudml);
 	}
-	while (preg_match('!<a href="(.+?)" target="_blank">\\1</a>!is', $fudml)) {
-		$fudml = preg_replace('!<a href="(.+?)" target="_blank">\\1</a>!is', '[url]\1[/url]', $fudml);
+	while (preg_match('!<a href="(.+?)"( target="_blank")?>\\1</a>!is', $fudml)) {
+		$fudml = preg_replace('!<a href="(.+?)"( target="_blank")?>\\1</a>!is', '[url]\1[/url]', $fudml);
 	}
 
 	if (strpos($fudml, '<img src="') !== false) {
@@ -630,10 +629,10 @@ function html_to_tags($fudml)
                 $fudml = preg_replace('!<img class="(r|l)" src="(.*?)" border="?0"? alt="(.*?)" ?/?>!is', '[img\1=\2]\3[/img\1]', $fudml);
 	}
 	if (strpos($fudml, '<a href="mailto:') !== false) {
-		$fudml = preg_replace('!<a href="mailto:(.+?)" target="_blank">(.+?)</a>!is', '[email=\1]\2[/email]', $fudml);
+		$fudml = preg_replace('!<a href="mailto:(.+?)"( target="_blank")?>(.+?)</a>!is', '[email=\1]\3[/email]', $fudml);
 	}
 	if (strpos($fudml, '<a href="') !== false) {
-		$fudml = preg_replace('!<a href="(.+?)" target="_blank">(.+?)</a>!is', '[url=\1]\2[/url]', $fudml);
+		$fudml = preg_replace('!<a href="(.+?)"( target="_blank")?>(.+?)</a>!is', '[url=\1]\3[/url]', $fudml);
 	}
 
 	if (isset($php)) {
@@ -644,10 +643,9 @@ function html_to_tags($fudml)
 	return reverse_fmt($fudml);
 }
 
-
 function filter_ext($file_name)
 {
-	include $GLOBALS['FORUM_SETTINGS_PATH'] . 'file_filter_regexp';
+	include $GLOBALS['FORUM_SETTINGS_PATH'] .'file_filter_regexp';
 	if (empty($GLOBALS['__FUD_EXT_FILER__'])) {
 		return;
 	}

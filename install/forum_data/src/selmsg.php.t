@@ -88,7 +88,7 @@ function path_info_lnk($var, $val)
 		$dt_opt = path_info_lnk('date', '1');
 		$rp_opt = path_info_lnk('reply_count', '0');
 	} else {
-		$dt_opt = isset($_GET['date']) ? str_replace('&amp;date='.$_GET['date'], '', $_SERVER['QUERY_STRING']) : $_SERVER['QUERY_STRING'] . '&amp;date=1';
+		$dt_opt = isset($_GET['date']) ? str_replace('&amp;date='.$_GET['date'], '', $_SERVER['QUERY_STRING']) : $_SERVER['QUERY_STRING'] .'&amp;date=1';
 		$rp_opt = isset($_GET['reply_count']) ? str_replace('&amp;reply_count='. (int)$_GET['reply_count'], '', $_SERVER['QUERY_STRING']) : $_SERVER['QUERY_STRING'] .'&amp;reply_count=0';
 	}
 

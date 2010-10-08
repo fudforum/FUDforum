@@ -56,7 +56,7 @@ class fud_pdf extends FPDF
 
 		$i = 0;
 		foreach ($attch as $a) {
-			$this->Write(5, ++$i . ') ');
+			$this->Write(5, ++$i .') ');
 			$this->add_link($GLOBALS['WWW_ROOT'] .'index.php?t=getfile&id='. $a['id'] . ($private ? '&private=1' : ''), $a['name']);
 			$this->Write(5, ', downloaded '. $a['nd'] .' times');
 			$this->Ln(5);
@@ -85,7 +85,7 @@ class fud_pdf extends FPDF
 
 		foreach ($opts as $o) {
 			$this->SetFillColor(52, 146, 40);
-			$this->Cell((!$o['votes'] ? 1 : $p1 * (($o['votes'] / $ttl_votes) * 100)), 5, $o['name'] . "\t\t" . $o['votes'] . '/('.round(($o['votes'] / $ttl_votes) * 100).'%)', 1, 0, '', 1);
+			$this->Cell((!$o['votes'] ? 1 : $p1 * (($o['votes'] / $ttl_votes) * 100)), 5, $o['name'] ."\t\t". $o['votes'] .'/('.round(($o['votes'] / $ttl_votes) * 100).'%)', 1, 0, '', 1);
 			$this->Ln(5);
 		}
 		$this->SetFillColor();

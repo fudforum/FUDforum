@@ -18,7 +18,7 @@ if ($th_id && !$GLOBALS['MINIMSG_OPT_DISABLED']) {
 	$total = $thr->replies + 1;
 
 	if ($reply_to && !isset($_POST['minimsg_pager_switch']) && $total > $count) {
-		$start = ($total - q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}msg WHERE thread_id=' .$th_id .' AND apr=1 AND id>='. $reply_to));
+		$start = ($total - q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}msg WHERE thread_id='. $th_id .' AND apr=1 AND id>='. $reply_to));
 		if ($start < 0) {
 			$start = 0;
 		}

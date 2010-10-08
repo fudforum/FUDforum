@@ -27,11 +27,12 @@ function thx_add($reason_msg, $th, $frm, $req_by)
 
 function thx_get($id)
 {
-	return db_sab('SELECT id, reason_msg, th, frm, req_by FROM '. $GLOBALS['DBHOST_TBL_PREFIX']. 'thr_exchange WHERE id='. $id);
+	return db_sab('SELECT id, reason_msg, th, frm, req_by FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'thr_exchange WHERE id='. $id);
 }
 
 function thx_delete($id)
 {
 	q('DELETE FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'thr_exchange WHERE id='. $id);
 }
+
 ?>

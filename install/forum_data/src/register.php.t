@@ -194,6 +194,9 @@ function register_form_check($user_id)
 		}
 	}
 
+	// Check if custom field values are OK.
+	validate_custom_fields();
+	
 	return $GLOBALS['error'];
 }
 
@@ -268,6 +271,7 @@ function email_encode($val)
 	return str_replace(array('@','.'), array('&#64;','&#46;'), htmlspecialchars($val));
 }
 
+/* main */
 	if (!__fud_real_user__ && !($FUD_OPT_1 & 2)) {
 		std_error('registration_disabled');
 	}
@@ -396,6 +400,7 @@ function email_encode($val)
 
 	/* SUBMITTION CODE */
 	if (isset($_POST['fud_submit']) && !isset($_POST['btn_detach']) && !isset($_POST['btn_upload']) && !register_form_check($uent->id)) {
+
 		$old_email = $uent->email;
 		$old_avatar_loc = $uent->avatar_loc;
 		$old_avatar = $uent->avatar;
@@ -404,14 +409,14 @@ function email_encode($val)
 			unset($_POST['reg_sig']);
 		}
 
-		/* import data from _POST into $uent object */
+		/* Import data from _POST into $uent object. */
 		foreach (array_keys(get_class_vars('fud_user')) as $v) {
 			if (isset($_POST['reg_'.$v])) {
 				$uent->{$v} = $_POST['reg_'.$v];
 			}
 		}
 
-		/* only one theme available, so no select */
+		/* Only one theme available, so no select. */
 		if (!$uent->theme) {
 			$uent->theme = q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}themes WHERE theme_opt>=2 AND '. q_bitand('theme_opt', 2) .' > 0 LIMIT 1');
 		}
@@ -437,6 +442,9 @@ function email_encode($val)
 			}
 			fud_wordwrap($uent->sig);
 		}
+		
+		// Round-up and serialize all custom field values.
+		$uent->custom_fields = serialize_custom_fields();
 
 		if (!__fud_real_user__) { /* new user */
 			/* New users do not have avatars. */
@@ -847,6 +855,7 @@ function email_encode($val)
 	$show_avatar_radio	= tmpl_draw_radio_opt('reg_show_avatars', "8192\n0", "{TEMPLATE: yes}\n{TEMPLATE: no}", ($uent->users_opt & 8192), '{TEMPLATE: radio_button_separator}');
 	$show_im_radio		= tmpl_draw_radio_opt('reg_show_im', "16384\n0", "{TEMPLATE: yes}\n{TEMPLATE: no}", ($uent->users_opt & 16384), '{TEMPLATE: radio_button_separator}');
 	$append_sig_radio	= tmpl_draw_radio_opt('reg_append_sig', "2048\n0", "{TEMPLATE: yes}\n{TEMPLATE: no}", ($uent->users_opt & 2048), '{TEMPLATE: radio_button_separator}');
+
 
 /*{POST_PAGE_PHP_CODE}*/
 ?>

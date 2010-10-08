@@ -56,7 +56,7 @@
 				LEFT JOIN {SQL_TABLE_PREFIX}mod m ON m.forum_id=g1.resource_id AND m.user_id='. _uid .'
 				WHERE g1.user_id=2147483647 AND (m.id IS NULL AND (COALESCE(g2.group_cache_opt, g1.group_cache_opt) & 2)=0)');
 		while ($r = db_rowarr($c)) {
-			$lmt .= $r[0] . ',';
+			$lmt .= $r[0] .',';
 		}
 		unset($c);
 		if ($lmt) {

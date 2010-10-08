@@ -9,6 +9,7 @@
 * Free Software Foundation; version 2 of the License.
 **/
 
+/* Read forum settings and descriptions from GLOBALS_HELP. */
 function read_help()
 {
 	$data = file_get_contents($GLOBALS['INCLUDE'] .'GLOBALS_HELP');
@@ -85,16 +86,29 @@ function print_txt_field($descr, $field, $rows=2, $cols=30)
 	echo '<tr class="field"><td><label for="CF_'. $field .'">'. $descr .': <br /><font size="-1">'. $GLOBALS['help_ar'][$field][0] .'</font></label></td><td valign="top"><textarea rows="'. $rows .'" cols="'. $cols .'" id="CF_'. $field .'" name="CF_'. $field .'">'. $val .'</textarea></td></tr>';
 }
 
+/* Read settings from GLOBALS.php without invoking core.inc. */
+function read_global_settings()
+{
+	$settings_path = dirname(__FILE__) .'/GLOBALS.php';
+	$settings = file($settings_path);
+	$settings = preg_grep('/^\s+\$\w+\s+=\s+.+;/', $settings);      // Filter out variables.
+	foreach($settings as $setting) {
+		preg_match('/\s+\$(\w+)\s*=\s+(.*);/', $setting, $m);
+		eval('$GLOBALS[\''. $m[1] .'\'] = '. $m[2] .';');	// Export them to GLOBAL scope.
+	}
+}
+
+/* Change forum settings in GLOBALS.php. */
 function change_global_settings($list)
 {
 	$settings = file_get_contents($GLOBALS['INCLUDE'] .'GLOBALS.php');
 	foreach ($list as $k => $v) {
-		$v = str_replace("\n", '<br />', $v);	// Get rid of newlines (will break this function).
-		if (($p = strpos($settings, '$'. $k)) === false) {
-			$p = strpos($settings, '$ADMIN_EMAIL');
+		if (($p = strpos($settings, '$'. $k)) === false) {	// New or existing setting?
+			$p = strpos($settings, '$ADMIN_EMAIL');			// Insert position for new settings.
 			if (is_int($v)) {
 				$settings = substr_replace($settings, "\${$k}\t= {$v};\n\t", $p, 0);
 			} else {
+				$v = str_replace("\n", '<br />', $v);	// Get rid of newlines (they will break this function).
 				$v = addcslashes($v, '\\\'');
 				$settings = substr_replace($settings, "\${$k}\t= '{$v}';\n\t", $p, 0);
 			}
@@ -116,11 +130,26 @@ function change_global_settings($list)
 	fclose($fp);
 }
 
+/* Enable (status=1) or disable (status=0) maintenace mode. */
+function maintenance_status($reason, $status)
+{
+	if ($status) {
+		if ($GLOBALS['FUD_OPT_1'] & 1) {
+			change_global_settings(array('FUD_OPT_1' => $GLOBALS['FUD_OPT_1'] ^1, 'DISABLED_REASON' => $reason));
+		} else {
+			change_global_settings(array('FUD_OPT_1' => $GLOBALS['FUD_OPT_1'], 'DISABLED_REASON' => $reason));
+		}
+	} else {
+		change_global_settings(array('FUD_OPT_1' => $GLOBALS['FUD_OPT_1']|1, 'DISABLED_REASON' => $reason));
+	}
+}
+
+/* Create symbolic links to the forum's GLOBALS.php file. */
 function fud_symlink($src, $dest)
 {
 	$WINDOWS = DIRECTORY_SEPARATOR != '/';
-	
-	/* Ensure we don't have any bogus symlinks (re-installing over old forum). */
+
+	/* Ensure we don't have any bogus symlinks (i.e. re-installing over old forum). */
 	@unlink($dest);
 
 	/* Older windows systems doesn't have symlinks and some hosts disable them - use crude emulation. */	
@@ -135,16 +164,4 @@ function fud_symlink($src, $dest)
 	}
 }
 
-function maintenance_status($reason, $status)
-{
-	if ($status) {
-		if (!($GLOBALS['FUD_OPT_1'] & 1)) {
-			change_global_settings(array('FUD_OPT_1' => $GLOBALS['FUD_OPT_1'] ^ 1, 'DISABLED_REASON' => $reason));
-		} else {
-			change_global_settings(array('DISABLED_REASON' => $reason));
-		}
-	} else if ($GLOBALS['FUD_OPT_1'] & 1) {
-		change_global_settings(array('FUD_OPT_1' => $GLOBALS['FUD_OPT_1']|1, 'DISABLED_REASON' => $reason));
-	}
-}
 ?>

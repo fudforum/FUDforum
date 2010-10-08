@@ -19,8 +19,9 @@ function ext_cache_rebuild()
 
 	$data = isset($a) ? "'". implode("', '", $a) ."'" : '';
 
-	$fp = fopen($GLOBALS['FORUM_SETTINGS_PATH'] . 'file_filter_regexp', 'w');
+	$fp = fopen($GLOBALS['FORUM_SETTINGS_PATH'] .'file_filter_regexp', 'w');
 	fwrite($fp, '<?php $GLOBALS[\'__FUD_EXT_FILER__\'] = array('. $data .'); ?>');
 	fclose($fp);
 }
+
 ?>

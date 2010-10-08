@@ -16,6 +16,9 @@
 	if (!__fud_real_user__) {
 		std_error('login');
 	}
+	if (!($FUD_OPT_4 & 1)) {	// ALLOW_LOGIN_CHANGES is disabled.
+                std_error('disabled');
+        }
 
 	/* Change current userid to nlogin. */
 	if (isset($_POST['btn_submit'], $_POST['nlogin'], $_POST['cpasswd']) && is_string($_POST['nlogin'])) {

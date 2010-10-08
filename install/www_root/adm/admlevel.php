@@ -14,7 +14,7 @@
 	fud_use('widgets.inc', true);
 
 	require($WWW_ROOT_DISK .'adm/header.php');
-		
+
 	if (isset($_POST['lev_submit'])) {
 		q('INSERT INTO '. $DBHOST_TBL_PREFIX .'level (name, img, level_opt, post_count) VALUES ('. _esc($_POST['lev_name']) .', '. ssn($_POST['lev_img']) .', '. (int)$_POST['lev_level_opt'] .', '. (int)$_POST['lev_post_count'] .')');
 		echo successify('Level was successfully added.');
@@ -56,11 +56,11 @@
 <?php echo _hs; ?>
 <table class="datatable solidtable">
 	<tr class="field">
-		<td>Rank Name</td>
+		<td>Rank Name:</td>
 		<td><input type="text" name="lev_name" value="<?php echo htmlspecialchars($lev_name); ?>" /></td>
 	</tr>
 	<tr class="field">
-		<td>Rank Image<br /><font size="-1">URL to the image</font></td>
+		<td>Rank Image:<br /><font size="-1">URL to image to display.</font></td>
 		<td><input type="text" name="lev_img" value="<?php echo htmlspecialchars($lev_img); ?>" /></td>
 	</tr>
 
@@ -70,7 +70,7 @@
 	</tr>
 
 	<tr class="field">
-		<td>Post Count</td>
+		<td>Post Count:</td>
 		<td><input type="text" name="lev_post_count" value="<?php echo $lev_post_count; ?>" size="11" maxlength="10" /></td>
 	</tr>
 

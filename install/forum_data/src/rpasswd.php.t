@@ -16,6 +16,9 @@
 	if (!__fud_real_user__) {
 		std_error('login');
 	}
+	if (!($FUD_OPT_4 & 2)) {	// Not ALLOW_PASSWORD_RESET.
+                std_error('disabled');
+        }
 
 	/* Change current password (cpasswd) to passwd1 (use passwd2 for verification). */
 	if (isset($_POST['btn_submit'], $_POST['passwd1'], $_POST['cpasswd']) && is_string($_POST['passwd1'])) {

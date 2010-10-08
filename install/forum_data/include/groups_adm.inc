@@ -24,7 +24,7 @@ function group_add($res_id, $name, $add_gl=0, $perm=0, $permi=2147483647, $inher
 		$reg = q_singleval('SELECT groups_opt FROM '. $tbl .'groups WHERE id=2') | 65536;
 		$ano = q_singleval('SELECT groups_opt FROM '. $tbl .'groups WHERE id=1') | 65536;
 
-		q('INSERT INTO '. $tbl .'group_members (group_id, user_id, group_members_opt) VALUES('. $gid .', 2147483647, ' .$reg .')');
+		q('INSERT INTO '. $tbl .'group_members (group_id, user_id, group_members_opt) VALUES('. $gid .', 2147483647, '. $reg .')');
 		q('INSERT INTO '. $tbl .'group_members (group_id, user_id, group_members_opt) VALUES('. $gid .', 0, '. $ano .')');
 	}
 
@@ -119,4 +119,5 @@ function rebuild_group_ldr_cache($id)
 		q('UPDATE '. $tbl .'users SET group_leader_list=NULL WHERE id='. $id);
 	}
 }
+
 ?>

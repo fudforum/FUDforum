@@ -174,7 +174,7 @@ function smiley_full(&$data)
 			 	$lmt .= ' AND t.forum_id IN('. multi_id($_GET['frm']) .')';
 			}
 			if (isset($_GET['th'])) {
-				$lmt .= ' AND m.thread_id IN(' .multi_id($_GET['th']) .')';
+				$lmt .= ' AND m.thread_id IN('. multi_id($_GET['th']) .')';
 			}
 			if (isset($_GET['id'])) {
 			 	$lmt .= ' AND m.id IN('. multi_id($_GET['id']) .')';
