@@ -21,7 +21,7 @@
 </tr>
 
 <tr class="MsgR2">
-<td class="MsgR3" width="85%" valign="top">{TEMPLATE-DATA: msg_body}{TEMPLATE-DATA: file_attachments}{IF: ($obj->sig && $o1 & 32768 && $obj->pmsg_opt & 1 && $b & 4096)}<p /><hr class="sig" />{VAR: obj->sig}{ENDIFI}</td>
+<td class="MsgR3" width="85%" valign="top">{TEMPLATE-DATA: msg_body}{TEMPLATE-DATA: file_attachments}{IF: ($obj->sig && $o1 & 32768 && $obj->pmsg_opt & 1 && $b & 4096)}<br /><br /><hr class="sig" />{VAR: obj->sig}{ENDIFI}</td>
 
 <td class="MsgR2" width="15%" valign="top">
 <table cellspacing="0" cellpadding="0" class="ContentTable"><tr class="MsgR2">{TEMPLATE-DATA: online_indicator}{TEMPLATE: dpmsg_profile_link}{IF: !$mini}{IF: $obj->user_id}<br />{TEMPLATE-DATA: avatar}<tr class="MsgR2"><td class="msgud">{TEMPLATE-DATA: dmsg_tags}</td></tr><tr class="MsgR2"> <td class="msgud">{MSG: posts_c}{VAR: obj->posted_msg_count}<br />

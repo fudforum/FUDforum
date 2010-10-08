@@ -42,7 +42,7 @@
 <b>{IF: !empty($_POST['del_sel_all'])}{MSG: mmd_del_title}{ELSE}{MSG: mmd_mov_title}{END}:</b><br />
 <span class="SmallText">
 {TEMPLATE-DATA: mmd_topic_ents}
-</span><p />
+</span><br /><br />
 {IF: !empty($_POST['del_sel_all'])}
 <input type="submit" name="NO" value="{MSG: delete_no}" /> 
 <input type="hidden" name="del_sel_all" value="1" />

@@ -24,7 +24,7 @@
 {MSG: registered}{TEMPLATE: dmsg_join_date} {TEMPLATE-DATA: location}{ENDIFI}{ENDIFI}</td></tr><tr class="MsgR2"><td class="msgud">{TEMPLATE-DATA: dmsg_bd_il}{TEMPLATE-DATA: dmsg_im_row}{IF: !$hide_controls}{IF: ($obj->host_name && $o1 & 268435456)}{MSG: from}{VAR: obj->host_name}<br />{ENDIFI}{IF: ($b & 1048576 || $usr->md || $o1 & 134217728)}{MSG: dmsg_ip} <a href="{TEMPLATE: dmsg_ip_address_url}" target="_blank">{VAR: obj->ip_addr}</a>{ENDIFI}{ENDIFI}</td></tr></table></td>
 
 <td class="MsgR3" width="85%" valign="top">{TEMPLATE-DATA: msg_body}{TEMPLATE-DATA: drawmsg_file_attachments}
-{TEMPLATE-DATA: modified_message}{IF: !$hide_controls}{IF: ($obj->sig && $o1 & 32768 && $obj->msg_opt & 1 && $b & 4096 && !($a & 67108864))}<p /><hr class="sig" />{VAR: obj->sig}{ENDIFI}{TEMPLATE: dmsg_report_to_mod_link}{ENDIFI}
+{TEMPLATE-DATA: modified_message}{IF: !$hide_controls}{IF: ($obj->sig && $o1 & 32768 && $obj->msg_opt & 1 && $b & 4096 && !($a & 67108864))}<br /><br /><hr class="sig" />{VAR: obj->sig}{ENDIFI}{TEMPLATE: dmsg_report_to_mod_link}{ENDIFI}
 </td></tr>
 {IF: !$hide_controls}{TEMPLATE: dmsg_message_toolbar}{ENDIFI}
 </table></td></tr>

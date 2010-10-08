@@ -1,4 +1,4 @@
-/***************************************************************************
+/**
 * copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
@@ -6,7 +6,7 @@
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
 * Free Software Foundation; version 2 of the License.
-***************************************************************************/
+**/
 
 {MAIN_SECTION: thread_rating}
 &nbsp;({IF: $MOD}<a href="javascript://" onclick="window_open(\'{FULL_ROOT}{ROOT}?t=ratingtrack&amp;{DEF: _rsid}&amp;th={VAR: frm->id}\', \'th_rating_track\', 300, 400);">{ENDIFI}<img src="{THEME_IMAGE_ROOT}/{VAR: frm->rating}stars.gif" title="{MSG: topic_rating}" alt=""/>{IF: $MOD}</a>{ENDIFI}) {MSG: vote}

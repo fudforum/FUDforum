@@ -1,4 +1,4 @@
-/**************************************************************************
+/**
 * copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
@@ -6,9 +6,9 @@
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
 * Free Software Foundation; version 2 of the License.
-***************************************************************************/
+**/
 
-{MAIN_SECTION: header forum page header}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+{MAIN_SECTION: header forum // The forum's page header.}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" dir="{DIR}" lang="{LANG}" xml:lang="{LANG}">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset={CHARSET}" />
@@ -34,7 +34,7 @@
   </div>
 {ENDIF}
 <a href="{ROOT}" title="{MSG: home}">
-  <img src="theme/default/images/header.gif" align="left" height="80" />
+  <img src="theme/default/images/header.gif" alt="" align="left" height="80" />
   <span class="headtitle">{GVAR: FORUM_TITLE}</span>
 </a><br />
 <span class="headdescr">{GVAR: FORUM_DESCR}<br /><br /></span>
@@ -43,7 +43,7 @@
 <!-- The left block. <td class="ForumBackground"> -->
 {MAIN_SECTION: END}
 
-{MAIN_SECTION: header_plain header for small popup forms}
+{MAIN_SECTION: header_plain // Another header for small popup forms.}
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" dir="{DIR}" lang="{LANG}" xml:lang="{LANG}">
 <head>
@@ -57,3 +57,4 @@
 <body>
 <table class="wa" border="0" cellspacing="3" cellpadding="5"><tr><td class="ForumBackground">
 {MAIN_SECTION: END}
+

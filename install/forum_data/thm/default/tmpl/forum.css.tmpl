@@ -1,4 +1,4 @@
-/***************************************************************************
+/**
 * copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
@@ -6,7 +6,7 @@
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
 * Free Software Foundation; version 2 of the License.
-***************************************************************************/
+**/
 
 {PHP_FILE: input: forum.css.t; output: forum.css;}
 
@@ -97,9 +97,9 @@ div.UserControlPanel {
 	font-weight: bold;
 }
 
-.SmallText, .DateText, .TopBy, td.msgud, td.msgot, td.permYES, td.permNO {
-	color: #000;
-	font-size: 9pt;
+.SmallText, .DateText, .TopBy, td.msgud, td.msgot, td.permYES, td.permNO, .SmallText a {
+	color: #505050;
+	font-size: 8pt;
 }
 
 th {
@@ -184,11 +184,6 @@ font.ptp { /* space between poll title & number of votes */
 	font-weight: bold;
 }
 
-.LevelText, div.ctags {
-	color: #000;
-	text-decoration: none;
-}
-
 .MsgSubText {
 	font-weight: bold;
 }
@@ -219,6 +214,7 @@ a.MsgSubText, a.MsgSubText:visited {
 
 cite {
 	/* quote titles */
+	color: #505050;
 	font-size: 9pt;
 	font-weight: bold;
 	margin-left: 20px;
@@ -317,9 +313,10 @@ img {
 	color: red;
 }
 
-.ModOpt {
+.ModOpt, .ModOpt a {
+	color: #a8b1b8;
 	margin-top: 2px;
-	font-size: 10pt;
+	font-size: small;
 	text-align: right;
 }
 
@@ -402,10 +399,11 @@ td.msgot, td.msgud {
 	white-space: nowrap;
 }
 
-td.msgud {
+td.msgud, td.msgud a {
 	padding-right: 10px;
 	text-align: left;
 	width: 33%;
+	color: #505050;
 }
 
 div.ctags {
@@ -415,6 +413,8 @@ div.ctags {
 	padding: 2px;
 	width: 100%;
 	height: 36px;
+	color: #505050;
+	font-size: small;
 }
 
 legend {
@@ -586,8 +586,10 @@ div.pre {
 	margin: 5px;
 }
 
+/* Code formatting. */
 pre { white-space: pre-wrap; }
-.codehead, .codehead a { background: #e9e9e9; font-size: xx-small; font-weight:bold; }
+.codehead, .codehead a { color: #505050; background: #e9e9e9; font-size: xx-small; font-weight:bold; }
+html pre.prettyprint { border:none; padding: 0; margin: 5px;} 
 
 a.big:active, a.big:hover, a:active, a:hover, a.CatLink:active, a.CatLink:hover,
 a.UserControlPanel:active, a.UserControlPanel:hover, a.thLnk:active,
@@ -615,15 +617,10 @@ img.r {
 	padding: 0;
 }
 
-hr.sig {
-	color: #000;
-	background-color: #000;
-	height: 1px;
-	width: 175px;
-	border: 0;
-	text-align: left;
-	padding: 0;
-	margin: 0;
+.signature {
+	border-top: 1px dotted #a0a0a0;
+	color: #505050;
+	font-size: 8pt;
 }
 
 /* Header with rounded corners. */
@@ -654,6 +651,8 @@ hr.sig {
 .wa { width:		100%; }
 .al { text-align:	left; }
 .ar { text-align:	right; }
+.fl { float: 		left; }
+.fr { float: 		right; }
 .ac { text-align:	center; }
 .vb { vertical-align:	bottom; }
 .vt { vertical-align:	top; }

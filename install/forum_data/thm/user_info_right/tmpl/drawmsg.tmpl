@@ -20,7 +20,7 @@
 
 <tr class="MsgR2">
 <td class="MsgR3" width="85%" valign="top">{TEMPLATE-DATA: msg_body}{TEMPLATE-DATA: drawmsg_file_attachments}
-{TEMPLATE-DATA: modified_message}{IF: !$hide_controls}{IF: ($obj->sig && $o1 & 32768 && $obj->msg_opt & 1 && $b & 4096 && !($a & 67108864))}<p /><hr class="sig" />{VAR: obj->sig}{ENDIFI}{TEMPLATE: dmsg_report_to_mod_link}{ENDIFI}
+{TEMPLATE-DATA: modified_message}{IF: !$hide_controls}{IF: ($obj->sig && $o1 & 32768 && $obj->msg_opt & 1 && $b & 4096 && !($a & 67108864))}<br /><br /><hr class="sig" />{VAR: obj->sig}{ENDIFI}{TEMPLATE: dmsg_report_to_mod_link}{ENDIFI}
 </td>
 
 <td class="MsgR2" width="15%" valign="top">

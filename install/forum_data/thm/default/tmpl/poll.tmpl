@@ -40,9 +40,9 @@
 
 	<tr><td colspan="2" class="ar">{IF: !$pl_id}{TEMPLATE: pl_submit_create}{ELSE}{TEMPLATE: pl_submit_update}{END}</td></tr>
 </table>
-<p />
+<br />
 {TEMPLATE-DATA: poll_editor}
-<p  />
+<br />
 <div class="ar">
 {IF: !$pl_id}{TEMPLATE: btn_submit}{ELSE}{TEMPLATE: btn_update}{END}
 </div>

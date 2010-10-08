@@ -46,11 +46,11 @@
 {SECTION: END}
 
 {SECTION: dpmsg_im_aim}
-<a href="aim:goim?screenname={VAR: obj->aim}&amp;message=Hi.+Are+you+there?" target="_blank"><img src="{THEME_IMAGE_ROOT}/aim{DEF: img_ext}" title="{VAR: obj->aim}" alt="" /></a>&nbsp;
+<a href="aim:goim?screenname={VAR: obj->aim}&amp;message=Hi.+Are+you+there?"><img src="{THEME_IMAGE_ROOT}/aim{DEF: img_ext}" title="{VAR: obj->aim}" alt="" /></a>&nbsp;
 {SECTION: END}
 
 {SECTION: dpmsg_im_yahoo}
-<a target="_blank" href="http://edit.yahoo.com/config/send_webmesg?.target={VAR: obj->yahoo}&amp;.src=pg"><img src="{THEME_IMAGE_ROOT}/yahoo{DEF: img_ext}" alt="" title="{VAR: obj->yahoo}" /></a>&nbsp;
+<a href="http://edit.yahoo.com/config/send_webmesg?.target={VAR: obj->yahoo}&amp;.src=pg"><img src="{THEME_IMAGE_ROOT}/yahoo{DEF: img_ext}" alt="" title="{VAR: obj->yahoo}" /></a>&nbsp;
 {SECTION: END}
 
 {SECTION: dpmsg_im_msnm}
@@ -66,15 +66,14 @@
 {SECTION: END}
 
 {SECTION: dpmsg_im_skype}
-<a target="_blank" href="callto://{VAR: obj->skype}"><img src="{THEME_IMAGE_ROOT}/skype{DEF: img_ext}" title="{VAR: obj->skype}" alt="" /></a>
+<a href="callto://{VAR: obj->skype}"><img src="{THEME_IMAGE_ROOT}/skype{DEF: img_ext}" title="{VAR: obj->skype}" alt="" /></a>
 {SECTION: END}
 
 {SECTION: dpmsg_im_twitter}
-<a target="_blank" href="http://twitter.com/{VAR: obj->twitter}"><img src="{THEME_IMAGE_ROOT}/twitter{DEF: img_ext}" title="{VAR: obj->twitter}" alt="" /></a>
+<a href="http://twitter.com/{VAR: obj->twitter}"><img src="{THEME_IMAGE_ROOT}/twitter{DEF: img_ext}" title="{VAR: obj->twitter}" alt="" /></a>
 {SECTION: END}
 
 {SECTION: dpmsg_file_attachments the file attachments list}
-<p />
 <ul class="AttachmentsList">
 {TEMPLATE-DATA: file_attachments}
 </ul>
@@ -88,7 +87,7 @@
 <li />
 <a href="{TEMPLATE: dpmsg_file_attachment_lnk}"><img src="images/mime/{VAR: r->icon}" class="at" alt="" /></a>
 <span class="GenText fb">{MSG: attachment}</span> <a href="{TEMPLATE: dpmsg_file_attachment_lnk}">{VAR: r->original_name}</a><br />
-<span class="SmallText">({MSG: size} {VAR: sz}, {MSG: pmsg_download_counter})<p /></span>
+<span class="SmallText">({MSG: size} {VAR: sz}, {MSG: pmsg_download_counter})<br /><br /></span>
 {SECTION: END}
 
 {SECTION: dpmsg_user_profile_lnk}
@@ -153,7 +152,11 @@
 <td class="msgot">{TEMPLATE-DATA: buddy_link}{TEMPLATE-DATA: dmsg_im_row}{IF: !$mini && $obj->host_name && $o1 & 268435456}<b>{MSG: from}</b> {VAR: obj->host_name}<br />{ENDIFI}</td>
 </tr></table></td>
 </tr>
-<tr><td class="MsgR3" colspan="2">{TEMPLATE-DATA: msg_body}{TEMPLATE-DATA: file_attachments}{IF: ($obj->sig && $o1 & 32768 && $obj->pmsg_opt & 1 && $b & 4096)}<p /><hr class="sig" />{VAR: obj->sig}{ENDIFI}</td></tr>
+<tr><td class="MsgR3" colspan="2">
+{TEMPLATE-DATA: msg_body}
+{TEMPLATE-DATA: file_attachments}
+{IF: ($obj->sig && $o1 & 32768 && $obj->pmsg_opt & 1 && $b & 4096)}<br /><br /><div class="signature">{VAR: obj->sig}</div>{ENDIFI}
+</td></tr>
 {TEMPLATE-DATA: msg_toolbar}
 <tr><td class="MsgR2 ac" colspan="2">{GVAR: dpmsg_prev_message} {GVAR: dpmsg_next_message}</td></tr>
 </table></td></tr>

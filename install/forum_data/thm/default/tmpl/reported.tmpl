@@ -30,7 +30,7 @@
 {SECTION: reported_msg_header}
 <tr><td class="RowStyleC">
 <b>{MSG: reported_reported_by}</b> {IF: $obj->report_user_id}{TEMPLATE: reported_reg_user_link}{ELSE}{TEMPLATE: reported_anon_user}{END} <b>{MSG: reported_on}</b> {TEMPLATE: reported_date}
-<b>{MSG: reported_in_thread}</b> {FUNC: draw_path($obj->cat_id)}{VAR: obj->frm_name} &raquo; <a href="{TEMPLATE: reported_msg_header_lnk1}" target="_blank">{VAR: obj->thread_subject}</a>
+<b>{MSG: reported_in_thread}</b> {FUNC: draw_path($obj->cat_id)}{VAR: obj->frm_name} &raquo; <a href="{TEMPLATE: reported_msg_header_lnk1}">{VAR: obj->thread_subject}</a>
 <br /><b>{MSG: reported_reason}</b> {VAR: obj->report_reason}
 <br />[<a href="{TEMPLATE: reported_msg_header_lnk}">{MSG: reported_del_report}</a>]
 </td></tr>

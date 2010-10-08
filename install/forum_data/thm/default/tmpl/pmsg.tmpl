@@ -98,8 +98,8 @@
 <form action="{TEMPLATE: PMSG_PAGE_lnk3}" method="post" id="priv_frm">{DEF: _hs}
 <table cellspacing="1" cellpadding="2" class="ContentTable">
 <tr class="RowStyleB">
-<td class="GenText al" colspan="3">{IF: $private_tools}<a href="{ROOT}?t=pmsg_dump&amp;{DEF: _rsid}">{MSG: pmsg_download_dump}</a>{ELSE}&nbsp;{ENDI}</td>
-<td colspan="3" class="GenText ar" style="white-space: nowrap">
+<td class="SmallText al" colspan="3">{IF: $private_tools}<a href="{ROOT}?t=pmsg_dump&amp;{DEF: _rsid}">{MSG: pmsg_download_dump}</a>{ELSE}&nbsp;{ENDI}</td>
+<td colspan="3" class="SmallText ar" style="white-space: nowrap">
 {MSG: folder} <select name="folder_id" onchange="document.forms[\'priv_frm\'].submit();">
 {TEMPLATE-DATA: select_options_cur_folder}
 </select> <input type="submit" class="button" name="sel_folder" value="{MSG: go}" />
@@ -176,8 +176,8 @@
 
 {SECTION: private_tools}
 <tr class="RowStyleB">
-<td class="GenText al" colspan="3"><a href="{ROOT}?t=pmsg_dump&amp;{DEF: _rsid}">{MSG: pmsg_download_dump}</a></td>
-<td colspan="3" class="GenText ar">
+<td class="SmallText al" colspan="3"><a href="{ROOT}?t=pmsg_dump&amp;{DEF: _rsid}">{MSG: pmsg_download_dump}</a></td>
+<td colspan="3" class="SmallText ar">
 <input type="submit" class="button" name="btn_move" value="{VAR: btn_action}" />
 <select name="moveto">{TEMPLATE-DATA: moveto_list}</select>
 <input type="hidden" name="old_folder_id" value="{VAR: folder_id}" />

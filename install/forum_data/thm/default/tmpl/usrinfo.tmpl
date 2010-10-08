@@ -105,7 +105,7 @@
 {IF: ($FUD_OPT_1 & 1024 && _uid)}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: usrinfo_private_message}</td><td class="GenText"><a href="{TEMPLATE: usrinfo_private_msg_lnk}"><img src="{THEME_IMAGE_ROOT}/msg_pm.gif" alt="" /></a></td></tr>{ENDIF}
 {TEMPLATE-DATA: buddy}
 {TEMPLATE-DATA: referals}
-{IF: $u->home_page}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: homepage}</td><td class="GenText"><a href="{VAR: u->home_page}" rel="nofollow" target="_blank">{VAR: u->home_page}</a></td></tr>{ENDIF}
+{IF: $u->home_page}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: homepage}</td><td class="GenText"><a href="{VAR: u->home_page}" rel="nofollow">{VAR: u->home_page}</a></td></tr>{ENDIF}
 {TEMPLATE-DATA: gender}
 {IF: $u->location}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: location}</td><td class="GenText">{VAR: u->location}</td></tr>{ENDIF}
 {IF: $u->occupation}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: occupation}</td><td class="GenText">{VAR: u->occupation}</td></tr>{ENDIF}
@@ -116,7 +116,7 @@
 		{VAR: u->icq} <img src="http://web.icq.com/whitepages/online?icq={VAR: u->icq}&amp;img=5" /><br />
 			<table class="icqCP">
 			<tr><td colspan="2">
-				<form action="http://wwp.icq.com/scripts/WWPMsg.dll" method="post" target=_blank>
+				<form action="http://wwp.icq.com/scripts/WWPMsg.dll" method="post">
 				<b>{MSG: icq_control_panel}</b>
 			</td></tr>
 			<tr>
@@ -150,7 +150,7 @@
 {IF: $u->google}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: im_google}</td><td class="GenText"><img src="{THEME_IMAGE_ROOT}/google{DEF: img_ext}" title="{VAR: obj->google}" alt="" />{VAR: u->google}</td></tr>{ENDIF}
 {IF: $u->skype}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: im_skype}</td><td class="GenText"><a href="callto://{VAR: u->skype}"><img src="{THEME_IMAGE_ROOT}/skype{DEF: img_ext}" title="{VAR: obj->skype}" alt="" />{VAR: u->skype}</a></td></tr>{ENDIF}
 {IF: $u->twitter}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: im_twitter}</td><td class="GenText"><a href="http://twitter.com/{VAR: u->twitter}"><img src="{THEME_IMAGE_ROOT}/twitter{DEF: img_ext}" title="{VAR: obj->twitter}" alt="" />{VAR: u->twitter}</a></td></tr>{ENDIF}
-{IF: ($FUD_OPT_2 & 2048 && $u->affero)}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: im_affero}</td><td class="GenText"><a href="http://svcs.affero.net/user-history.php?u={VAR: u->affero}" target="_blank">{VAR-UH: u->affero}</a></td></tr>{ENDIF}
+{IF: ($FUD_OPT_2 & 2048 && $u->affero)}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: im_affero}</td><td class="GenText"><a href="http://svcs.affero.net/user-history.php?u={VAR: u->affero}">{VAR-UH: u->affero}</a></td></tr>{ENDIF}
 {IF: $is_a}
 <tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: findu_admin_opts_header}</td>
 <td>

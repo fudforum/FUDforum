@@ -1,3 +1,4 @@
+/**
 * copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
@@ -28,8 +29,9 @@
 {REF: iemail.tmpl}
 {REF: allowed_user_lnk.tmpl}
 {REF: captcha.tmpl}
+{REF: custom_fields.tmpl}
 
-{SECTION: new_user new user section is shown to a new user trying to register}
+{SECTION: new_user // New user section is shown to a new user trying to register.}
 {IF: !__fud_real_user__}{FUNC: draw_err('reg_time_limit')}{ENDIFI}
 <tr class="RowStyleA"><td width="60%">{MSG: register_login}{FUNC: draw_err('reg_login')}</td><td width="60%"><input type="text" size="25" name="reg_login" value="{VAR: reg_login}" maxlength="{GVAR: MAX_LOGIN_SHOW}" /></td></tr>
 {IF: $FUD_OPT_2 & 128}{TEMPLATE: reg_alias}{ENDIFI}
@@ -41,7 +43,7 @@
 {SECTION: END}
 
 {SECTION: register_turing_test}
-<tr class="RowStyleA"><td>{MSG: register_turing}{FUNC: draw_err('reg_turing')}<br /><div style="white-space: pre; font-family: Courier, monospace; color: black; background-color: #C0C0C0;">{FUNC: generate_turing_val($turing_res)}<input type="hidden" name="turing_res" value="{VAR: turing_res}" /></div></td><td class="vt"><input type="text" name="turing_test" value="" /></td></tr>
+<tr class="RowStyleA"><td>{MSG: register_turing}{FUNC: draw_err('reg_turing')}<br /><div style="white-space: pre; font-family: Courier, monospace; color: black; background-color: #C0C0C0;">{FUNC: generate_turing_val($turing_res)}<input type="hidden" name="turing_res" value="{VAR: turing_res}" /></div></td><td class="vb"><input type="text" name="turing_test" value="" /></td></tr>
 {SECTION: END}
 
 {SECTION: theme_select}
@@ -60,13 +62,12 @@
 &nbsp; <span class="SmallText">[ <a href="javascript://" onclick="window_open(\'{TEMPLATE: change_login_link_lnk1}\',\'ruser\',470,250);">{MSG: register_change_login}</a> ]</span>
 {SECTION: END}
 
-{SECTION: update_user update user section, is used when a registered user is editing their profile}
-<tr class="RowStyleA"><td width="60%">{MSG: register_login}</td><td><span class="fb">{VAR: reg_login}</span>{IF: ($FUD_OPT_4 & 1) && !$mod_id}<br />{TEMPLATE: change_login_link}{ENDIFI}</td></tr>
+{SECTION: update_user // Update user section, is used when a registered user is editing their profile.}
+<tr class="RowStyleA"><td width="60%">{MSG: register_login}</td><td><span class="fb">{VAR: reg_login}</span>{IF: ($FUD_OPT_4 & 1) && !$mod_id}{TEMPLATE: change_login_link}{ENDIFI}</td></tr>
 {IF: $FUD_OPT_2 & 128}{TEMPLATE: reg_alias}{ENDIFI}
-<tr class="RowStyleA"><td>{MSG: register_your_pass}{FUNC: draw_err('reg_confirm_passwd')}</td><td><input type="password" name="reg_confirm_passwd" size="25" />{IF: ($FUD_OPT_4 & 2) && !$mod_id}<br />{TEMPLATE: change_passwd_link}{ENDIFI}</td></tr>
+<tr class="RowStyleA"><td>{MSG: register_your_pass}{FUNC: draw_err('reg_confirm_passwd')}</td><td><nobr><input type="password" name="reg_confirm_passwd" size="25" />{IF: ($FUD_OPT_4 & 2) && !$mod_id}{TEMPLATE: change_passwd_link}{ENDIFI}</nobr></td></tr>
 <tr class="RowStyleA"><td>{MSG: register_email_addr}{FUNC: draw_err('reg_email')}<br /><span class="SmallText">{MSG: register_email_desc}</span>{TEMPLATE-DATA: email_warning_msg}</td><td><input type="text" name="reg_email" size="25" value="{VAR: reg_email}" /></td></tr>
 <tr class="RowStyleA"><td>{MSG: register_name}{FUNC: draw_err('reg_name')}</td><td><input type="text" name="reg_name" size="25" value="{VAR: reg_name}" /></td></tr>
-<tr><td colspan="2" class="ac RowStyleC"><input type="submit" class="button" name="fud_submit" value="{MSG: register_update}" /></td></tr>
 {SECTION: END}
 
 {SECTION: avatar_type_sel avatar type select, allows to choose avatar type (upload/url...)}
@@ -133,8 +134,11 @@
 <tr><th colspan="2">{MSG: register_required}</th></tr>
 <tr><td colspan="2" class="RowStyleC">{MSG: register_required_desc}</td></tr>
 {IF: !__fud_real_user__}{TEMPLATE: new_user}{ELSE}{TEMPLATE: update_user}{ENDI}
+{TEMPLATE-DATA: required_custom_fields}
+{IF: __fud_real_user__}<tr><td colspan="2" class="ac RowStyleC">{TEMPLATE: update_button}</td></tr>{ENDIF}
 <tr><th colspan="2">{MSG: register_optional}</th></tr>
 <tr><td colspan="2" class="RowStyleC">{MSG: register_optional_desc}</td></tr>
+{TEMPLATE-DATA: optional_custom_fields}
 <tr class="RowStyleA"><td>{MSG: register_location}</td><td><input type="text" spellcheck="true" name="reg_location" value="{VAR: reg_location}" maxlength="255" size="30" /></td></tr>
 <tr class="RowStyleA"><td>{MSG: register_occupation}</td><td><input type="text" spellcheck="true" name="reg_occupation" value="{VAR: reg_occupation}" maxlength="255" size="30" /></td></tr>
 <tr class="RowStyleA"><td>{MSG: register_interests}</td><td><input type="text" spellcheck="true" name="reg_interests" value="{VAR: reg_interests}" maxlength="255" size="30" /></td></tr>
@@ -206,7 +210,6 @@
 <tr class="RowStyleA"><td>{MSG: register_topics_per_page}</td><td><select name="reg_topics_per_page">{TEMPLATE-DATA: topics_per_page}</select></td></tr>
 <tr class="RowStyleA"><td>{MSG: register_def_thread_view}</td><td><select name="reg_default_view">{TEMPLATE-DATA: view_select}</select></td></tr>
 {IF: $theme_select}{TEMPLATE: theme_select}{ENDIF}
-
 <tr class="RowStyleC"><td colspan="2" class="ac">{IF: !__fud_real_user__}{TEMPLATE: register_button}{ELSE}{TEMPLATE: update_button}{END}&nbsp;<input type="reset" class="button" name="Reset" value="{MSG: register_reset}" /></td></tr>
 </table>
 {DEF: _hs}
