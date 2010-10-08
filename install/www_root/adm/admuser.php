@@ -17,6 +17,7 @@
 	fud_use('logaction.inc');
 	fud_use('iemail.inc');
 	fud_use('private.inc');
+	fud_use('draw_pager.inc');
 
 	require($WWW_ROOT_DISK .'adm/header.php');
 
@@ -272,7 +273,7 @@ administration permissions to the forum. This individual will be able to do anyt
 ?>
 <h2>User Administration System</h2>
 <?php if (!$usr_id) echo '<p>Use an asterisk (*) to match multiple user accounts.</p>'; ?>
-<form id="frm_usr" method="post" action="admuser.php">
+<form id="frm_usr" method="GET" action="admuser.php">
 <fieldset class="tutor">
 <legend><b>Search for user:</b></legend>
 <?php echo _hs . $search_error; ?>
@@ -296,8 +297,8 @@ administration permissions to the forum. This individual will be able to do anyt
 </td><td>
 	<!-- Links to control panels that Account Moderators can access. -->
 	<b>Account moderation:</b><br />
-	[ <a href="admaccapr.php?<?php echo __adm_rsid; ?>">Approve new users</a> ]<br />
 	[ <a href="admuseradd.php?<?php echo __adm_rsid; ?>">Create new users</a> ]<br />
+	[ <a href="admaccapr.php?<?php echo __adm_rsid; ?>">Approve users</a> ]<br />
 	[ <a href="admusermerge.php?<?php echo __adm_rsid; ?>">Merge users</a> ]<br /><br />
 	<b>Show:</b>
 	[ <a href="admslist.php?<?php echo __adm_rsid; ?>">Privileged</a> ] 
@@ -309,9 +310,10 @@ administration permissions to the forum. This individual will be able to do anyt
 
 <?php
 	/* User searching logic. */
-	if (!empty($_POST['usr_email']) || !empty($_POST['usr_login'])) {
-		$item = !empty($_POST['usr_email']) ? $_POST['usr_email'] : $_POST['usr_login'];
-		$field = !empty($_POST['usr_email']) ? 'email' : ($FUD_OPT_2 & 128 ? 'alias' : 'login');
+	if (!empty($_GET['usr_email']) || !empty($_GET['usr_login'])) {
+		$item = !empty($_GET['usr_email']) ? $_GET['usr_email'] : $_GET['usr_login'];
+		$field = !empty($_GET['usr_email']) ? 'email' : ($FUD_OPT_2 & 128 ? 'alias' : 'login');
+		$start = !empty($_GET['start']) ? (int) $_GET['start'] : 0;
 		if (strpos($item, '*') !== false) {
 			$like = 1;
 			$item = str_replace('*', '%', $item);
@@ -325,8 +327,8 @@ administration permissions to the forum. This individual will be able to do anyt
 		}
 		$item_s = _esc($item_s);
 
-		if (($cnt = q_singleval('SELECT count(*) FROM '. $DBHOST_TBL_PREFIX .'users WHERE '. $field . ($like ? ' LIKE ' : '=') . $item_s .' LIMIT 50'))) {
-			$c = uq('SELECT id, alias, email, last_login, last_known_ip, posted_msg_count FROM '. $DBHOST_TBL_PREFIX .'users WHERE '. $field . ($like ? ' LIKE ' : '=') . $item_s .' LIMIT 50');
+		if (($cnt = q_singleval('SELECT count(*) FROM '. $DBHOST_TBL_PREFIX .'users WHERE '. $field . ($like ? ' LIKE ' : '=') . $item_s))) {
+			$c = uq(q_limit('SELECT id, alias, email, last_login, last_known_ip, posted_msg_count FROM '. $DBHOST_TBL_PREFIX .'users WHERE '. $field . ($like ? ' LIKE ' : '=') . $item_s, 40, $start));
 		}
 		switch ($cnt) {
 			case 0:
@@ -355,6 +357,7 @@ administration permissions to the forum. This individual will be able to do anyt
 				}
 				echo '</table>';
 				unset($c);
+				echo tmpl_create_pager($start, 40, $cnt, 'admuser.php?usr_login=*&amp;usr_email='. $_GET['usr_email'] .'&amp;usr_search='. $_GET['usr_login'], '&amp;'. __adm_rsid);
 				require($WWW_ROOT_DISK .'adm/footer.php');
 				exit;
 		}
