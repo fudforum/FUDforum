@@ -134,7 +134,7 @@ class fud_forum_rdf_user_print extends fud_forum_rdf_user
 		}
 		/* All of the following fields are optional, and therefore you should check if they exist before using them. */
 		if ($this->homepage) {
-			echo '<b>Homepage: <a href="'. $this->homepage .'" target="_blank">'. $this->homepage .'</a><br />';
+			echo '<b>Homepage: <a href="'. $this->homepage .'">'. $this->homepage .'</a><br />';
 		}
 		if ($this->avatar_img) {
 			echo '<b>Avatar:</b> '. $this->avatar_img .'<br />';

@@ -9,7 +9,7 @@
 * Free Software Foundation; version 2 of the License.
 **/
 
-// Attempts to fetch the provided URL using any available means.
+/* Attempts to fetch the provided URL using any available means. */
 function get_remote_file($url, $timeout, $head_only = false, $max_redirects = 10)
 {
 	$result = null;
@@ -17,8 +17,9 @@ function get_remote_file($url, $timeout, $head_only = false, $max_redirects = 10
 	$allow_url_fopen = strtolower(@ini_get('allow_url_fopen'));
 
 	// Quite unlikely that this will be allowed on a shared host, but it can't hurt.
-	if (function_exists('ini_set'))
+	if (function_exists('ini_set')) {
 		@ini_set('default_socket_timeout', $timeout);
+	}
 
 	// If we have cURL, we might as well use it.
 	if (function_exists('curl_init')) {
@@ -71,9 +72,9 @@ function get_remote_file($url, $timeout, $head_only = false, $max_redirects = 10
 		if ($remote) {
 			// Send a standard HTTP 1.0 request for the page.
 			fwrite($remote, ($head_only ? 'HEAD' : 'GET') .' '. (!empty($parsed_url['path']) ? $parsed_url['path'] : '/') . (!empty($parsed_url['query']) ? '?'. $parsed_url['query'] : '') .' HTTP/1.0' ."\r\n");
-			fwrite($remote, 'Host: '.$parsed_url['host']."\r\n");
-			fwrite($remote, 'User-Agent: PunBB'."\r\n");
-			fwrite($remote, 'Connection: Close'."\r\n\r\n");
+			fwrite($remote, 'Host: '.$parsed_url['host'] . "\r\n");
+			fwrite($remote, 'User-Agent: FUDforum' . "\r\n");
+			fwrite($remote, 'Connection: Close' . "\r\n\r\n");
 
 			stream_set_timeout($remote, $timeout);
 			$stream_meta = stream_get_meta_data($remote);
@@ -116,23 +117,19 @@ function get_remote_file($url, $timeout, $head_only = false, $max_redirects = 10
 	}
 	// Last case scenario, we use file_get_contents provided allow_url_fopen is enabled (any non 200 response results in a failure).
 	else if (in_array($allow_url_fopen, array('on', 'true', '1'))) {
-		// PHP5's version of file_get_contents() supports stream options.
-		if (version_compare(PHP_VERSION, '5.0.0', '>=')) {
-			// Setup a stream context
-			$stream_context = stream_context_create(
-				array(
-					'http' => array(
-						'method'		=> $head_only ? 'HEAD' : 'GET',
-						'user_agent'	=> 'PunBB',
-						'max_redirects'	=> $max_redirects + 1,	// PHP >=5.1.0 only.
-						'timeout'		=> $timeout	// PHP >=5.2.1 only.
-					)
+		// Setup a stream context.
+		$stream_context = stream_context_create(
+			array(
+				'http' => array(
+					'method'		=> $head_only ? 'HEAD' : 'GET',
+					'user_agent'	=> 'FUDforum',
+					'max_redirects'	=> $max_redirects + 1,	// PHP >=5.1.0 only.
+					'timeout'		=> $timeout	// PHP >=5.2.1 only.
 				)
-			);
+			)
+		);
 
-			$content = @file_get_contents($url, false, $stream_context);
-		} else
-			$content = @file_get_contents($url);
+		$content = @file_get_contents($url, false, $stream_context);
 
 		// Did we get anything?
 		if ($content !== false) {
@@ -158,25 +155,29 @@ function get_remote_file($url, $timeout, $head_only = false, $max_redirects = 10
 	}
 
 	if ((bool)ini_get('allow_url_fopen') == FALSE) {
-		die("Unable to check. Please enable allow_url_fopen in your php.ini.\n");
+		die("Unable to check version. Please enable allow_url_fopen in your php.ini.\n");
 	}
 
 	$lastcheck = filemtime($FORUM_SETTINGS_PATH .'latest_version');
-	if ($lastcheck > time() - 86400) {
-		die("Skip. Version was recently checked.\n");
+	if ($lastcheck > time() - 86400) {	// 1 day.
+		die("Skip. Forum version was recently checked.\n");
 	}
 
-	echo "Lookup latest forum version from FUDforum's wiki for proactive alerts in the ACP.\n";
+	echo "Busy looking up the latest forum version from FUDforum's wiki...\n";
 	$verinfo = get_remote_file('http://cvs.prohost.org/index.php?title=Current_version&action=raw', 30);
 
 	if ($verinfo && strpos($verinfo, '::')) {
-		// write out to forum's cache directory.
+		// Write version to the forum's cache directory.
 		file_put_contents($FORUM_SETTINGS_PATH .'latest_version', $verinfo);
 	} else {
 		$verinfo = 'unknown::Lookup failed!';
 	}
 
 	$display_ver = substr($verinfo, 0, strpos($verinfo, '::'));
-	echo 'Current version: '. $FORUM_VERSION .', latest version is: '. $display_ver ."\n";
+	echo 'Done! Current version: '. $FORUM_VERSION .', latest version is: '. $display_ver ."\n";
 
+	if (versioncompare($FORUM_VERSION, $display_ver)) {
+		fud_use('iemail.inc');
+		send_email($NOTIFY_FROM, $ADMIN_EMAIL, 'New FUDforum version available', 'A new FUDforum version is now available. Please upgrade your site at '. $WWW_ROOT .' from '. $FORUM_VERSION .' to '. $display_ver .' ASAP.');
+	}
 ?>

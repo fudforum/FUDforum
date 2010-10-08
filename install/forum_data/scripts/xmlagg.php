@@ -43,6 +43,7 @@
 	fud_use('fileio.inc');
 	fud_use('isearch.inc');
 	fud_use('replace.inc');
+	fud_use('forum_adm.inc', true);
 	fud_use('scripts_common.inc', true);
 
 	define('sql_p', $GLOBALS['DBHOST_TBL_PREFIX']);
@@ -56,10 +57,11 @@
 		exit('Invalid feed identifier.');
 	}
 
-	/* Set language & locale. */
+	/* Set language, locale and time zone. */
 	$GLOBALS['usr'] = new stdClass();
 	list($GLOBALS['usr']->lang, $locale) = db_saq('SELECT lang, locale FROM '. sql_p .'themes WHERE theme_opt='. (1|2) .' LIMIT 1');
 	$GLOBALS['good_locale'] = setlocale(LC_ALL, $locale);
+	date_default_timezone_set($GLOBALS['SERVER_TZ']);
 
 	$frm = new fud_forum;
 	$frm->id = $config->forum_id;		// Load into forum.
@@ -211,5 +213,5 @@
 		q('UPDATE '. sql_p .'xmlagg SET last_load_date = '. $new_last_load_date .' WHERE id = '. $config->id);
 	}
 
-	echo 'Done!';
+	echo "Done!\n";
 ?>

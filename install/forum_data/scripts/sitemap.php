@@ -28,7 +28,7 @@
 	fud_use('err.inc');
 	fud_use('db.inc');
 
-	// Limit topics to what the user has access to.
+	/* Limit topics to what the user has access to. */
 	if ($auth_as_user) {
 		$join = 'INNER JOIN '. $GLOBALS['DBHOST_TBL_PREFIX'] .'group_cache g1 ON g1.user_id=2147483647 AND g1.resource_id=f.id
 				LEFT JOIN '. $GLOBALS['DBHOST_TBL_PREFIX'] .'group_cache g2 ON g2.user_id='. $auth_as_user .' AND g2.resource_id=f.id
@@ -75,6 +75,7 @@ EOF;
 	fwrite($fh, "</urlset>\n");
 	fclose($fh);
 
+	/* Notify Google. */
 	$google = 'www.google.com';
 	echo 'Notify $google...';
 	if($fp = @fsockopen($google, 80)) {
