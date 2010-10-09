@@ -67,7 +67,7 @@ class fud_user_reg extends fud_user
 		$o2 =& $GLOBALS['FUD_OPT_2'];
 		$this->alias = make_alias((!($o2 & 128) || !$this->alias) ? $this->login : $this->alias);
 
-		/* This used when utilities create users (aka nntp/mlist/xmlagg imports). */
+		/* This is used when utilities create users (aka nntp/mlist/xmlagg imports). */
 		if ($this->users_opt == -1) {
 			$this->users_opt = 4|16|128|256|512|2048|4096|8192|16384|131072|4194304;
 			$this->theme = q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}themes WHERE theme_opt>=2 AND '. q_bitand('theme_opt', 2) .' > 0 LIMIT 1');

@@ -21,10 +21,18 @@ function get_custom_field_defs()
 	return $custom_field_defs;
 }
 
-/* Check if all required custom fields have values. */
+/* Validate custom field values. */
 function validate_custom_fields()
 {
 	foreach (get_custom_field_defs() as $k => $r) {
+		// Call CUSTOM_FIELD_VALIDATE plugins.
+		if (defined('plugins')) {
+			if( $err = plugin_call_hook('CUSTOM_FIELD_VALIDATE', array($r->id, $r->name, $_POST['custom_field_'. $r->id])) ) {
+				set_err('custom_field_'. $r->id, $err);
+			}
+		}
+
+		/* Check if all required custom fields have values. */
 		if (($r->field_opt & 1) && empty($_POST['custom_field_'. $r->id])) {	// 1==required.
 				set_err('custom_field_'. $r->id, '{TEMPLATE: custom_field_required}');
 		}

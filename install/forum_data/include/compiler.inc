@@ -233,10 +233,7 @@ function resolve_sections($str)
 
 				// Give all COMPILER_EXPAND_TEMPLATE plugins the opportunity to modify the template.
 				if (defined('plugins')) {
-					list($tmpl_mod) = plugin_call_hook('COMPILER_EXPAND_TEMPLATE', array($tag, $sec, $name, $GLOBALS['TC'][$sec][$name]['file'], $tmpl_resolved));
-					if (!empty($tmpl_mod)) {
-						$tmpl_resolved = $tmpl_mod;
-					 }
+					list($tmpl_resolved) = plugin_call_hook('COMPILER_EXPAND_TEMPLATE', array($tmpl_resolved, $tag, $sec, $name, $GLOBALS['TC'][$sec][$name]['file']));
 				}
 
 				$ret .= $tmpl_resolved;

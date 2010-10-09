@@ -13,7 +13,7 @@
 plugin_add_hook('COMPILER_EXPAND_TEMPLATE', 'plugin_google_adsense');
 
 function plugin_google_adsense($array) {
-	list($tag, $sec, $name, $file, $tmpl) = $array;
+	list($tmpl, $tag, $sec, $name, $file) = $array;
 
 	if((@include $GLOBALS['PLUGIN_PATH'] .'google_adsense.ini') === false) {
 		die('ERROR: Please configure the google_adsense plugin from the Plugin Manager Control panel.');

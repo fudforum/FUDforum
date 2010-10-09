@@ -25,7 +25,7 @@ function plugin_call_hook($type, $data=array()) {
 
 	if (isset($plugin_hooks[$type])) {
 		foreach ($plugin_hooks[$type] as $func) {
-			$data = call_user_func($func,$data);
+			$data = call_user_func($func, $data);
 		}
 	}
 	return $data;

@@ -158,9 +158,11 @@ function get_remote_file($url, $timeout, $head_only = false, $max_redirects = 10
 		die("Unable to check version. Please enable allow_url_fopen in your php.ini.\n");
 	}
 
-	$lastcheck = filemtime($FORUM_SETTINGS_PATH .'latest_version');
-	if ($lastcheck > time() - 86400) {	// 1 day.
-		die("Skip. Forum version was recently checked.\n");
+	if (file_exists($FORUM_SETTINGS_PATH .'latest_version')) {
+		$lastcheck = filemtime($FORUM_SETTINGS_PATH .'latest_version');
+		if ($lastcheck > time() - 86400) {	// 1 day.
+			die("Skip. Forum version was recently checked.\n");
+		}
 	}
 
 	echo "Busy looking up the latest forum version from FUDforum's wiki...\n";
@@ -176,7 +178,7 @@ function get_remote_file($url, $timeout, $head_only = false, $max_redirects = 10
 	$display_ver = substr($verinfo, 0, strpos($verinfo, '::'));
 	echo 'Done! Current version: '. $FORUM_VERSION .', latest version is: '. $display_ver ."\n";
 
-	if (versioncompare($FORUM_VERSION, $display_ver)) {
+	if (version_compare($FORUM_VERSION, $display_ver)) {
 		fud_use('iemail.inc');
 		send_email($NOTIFY_FROM, $ADMIN_EMAIL, 'New FUDforum version available', 'A new FUDforum version is now available. Please upgrade your site at '. $WWW_ROOT .' from '. $FORUM_VERSION .' to '. $display_ver .' ASAP.');
 	}
