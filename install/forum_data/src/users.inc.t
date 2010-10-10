@@ -253,6 +253,7 @@ function &init_user()
 						case 3: case 4: $_GET['us'] = $p[1]; break;
 						case 5: case 6: $_GET['rd'] = $p[1]; break;
 						case 7: case 8: $_GET['fl'] = $p[1]; break;
+						case 9: case 10: $_GET['lv'] = $p[1]; break;
 					}
 					if (isset($p[2])) {
 						$_GET['start'] = $p[2];
