@@ -102,7 +102,7 @@ function wikilinks_info() {
 
 function wikilinks_enable() {
 	if((@include_once $GLOBALS['PLUGIN_PATH'] .'wikilinks.ini') === false) {
-		return 'Please configure the wikilinks plugin before enabling it.';
+		return array(null, 'Please configure the wikilinks plugin before enabling it.');	// OK, Err.
 	}
 }
 

@@ -122,7 +122,7 @@ function ldap_info() {
 
 function ldap_enable() {
 	if (!extension_loaded('ldap')) {
-		return 'You PHP installation doesn\'t support LDAP.';
+		return array(null, 'You PHP installation doesn\'t support LDAP.');	// OK, Err.
 	}
 	return;	// Good to go.
 }

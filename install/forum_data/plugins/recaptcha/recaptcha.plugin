@@ -51,7 +51,7 @@ function recaptcha_info() {
 
 function recaptcha_enable() {
 	if((@include_once $GLOBALS['PLUGIN_PATH'] .'recaptcha/recaptcha.ini') === false) {
-		return 'Please configure the recaptcha plugin before enabling it.';
+		return array(null, 'Please configure the recaptcha plugin before enabling it.');	// OK, Err.
 	}
 }
 

@@ -1,0 +1,42 @@
+<?php
+/**
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* email                : forum@prohost.org
+* $Id$
+*
+* This program is free software; you can redistribute it and/or modify it
+* under the terms of the GNU General Public License as published by the
+* Free Software Foundation; version 2 of the License.
+**/
+
+// Initialize plugin.
+plugin_add_hook('COMPILER_EXPAND_TEMPLATE', 'plugin_addthis');
+
+function plugin_addthis($array) {
+	list($tmpl, $tag, $sec, $name, $file) = $array;
+
+	$addthis_code = '<br />
+<!-- AddThis Button BEGIN -->
+<a class="addthis_button" href="http://www.addthis.com/bookmark.php?v=250&amp;username=xa-4cb2136e4e2379d4"><img src="http://s7.addthis.com/static/btn/v2/lg-share-en.gif" width="125" height="16" alt="Bookmark and Share" style="border:0"/></a>
+<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#username=xa-4cb2136e4e2379d4"></script>
+<!-- AddThis Button END -->
+';
+
+	if ($name == 'post_reply') {
+		$tmpl .= $addthis_code;
+	}
+
+	return array($tmpl, $tag, $sec, $name, $file);
+}
+
+function addthis_enable() {
+	return array('Please rebuild your themes to display the adthis widget on your forum.', null);	// OK, Err.
+}
+
+function addthis_info() {
+	return array('name' => 'AddThis',
+				'desc' => 'Show Social Bookmarking Widgets from AddThis.com next to forum posts. This will allows visitors to bookmark and share your site easily with several popular services.',
+				'version' => '1.0');
+}
+
+?>

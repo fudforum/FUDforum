@@ -22,14 +22,16 @@ function plugin_botscout($uent) {
 	if ($ini['BOTSCOUT_API_KEY']) $apiquery .= '&key='. $ini['BOTSCOUT_API_KEY'];
 
 	$botscout_data = file_get_contents($apiquery);
-	if (substr($botscout_data, 0, 1) == '!') {	// exclamation mark indicates an error
-		return;
+	if (substr($botscout_data, 0, 1) == '!') {	// Exclamation mark indicates an error!
+		fud_logerror('Botscout returned ['. $botscout_data .'] while validating '. $uent->email .' from '. $_SERVER['REMOTE_ADDR'] .'. User will be allowed to register.', 'fud_errors');
+		return $uent;
 	}
 
 	$botdata = explode('|', $botscout_data); 
-	if ($botdata[3] > 0 || $botdata[5] > 0) { 	// tests email address or IP
-		print "The {$botdata[2]} was found {$botdata[3]} times, the {$botdata[4]} was found {$botdata[5]} times.<br />";
-		die('Sorry, bots are not allowed to register.');
+	if ($botdata[3] > 0 || $botdata[5] > 0) { 	// Tests email address or IP.
+		echo '<h2>Sorry, bots are not allowed to register.</h2>';
+		echo '<p>The '. $botdata[2] .' was found '. $botdata[3] .' times, the '. $botdata[4] .' was found '. $botdata[5] .' times.</p>';
+		exit;
 	}
 
 	return $uent;

@@ -33,7 +33,7 @@ function plugin_welcome_pm($usr) {
 	$msg_p->pmsg_opt   = 49;
 	$msg_p->add(1);
 
-	return;
+	return $usr;
 }
 
 function welcome_pm_info() {
@@ -44,7 +44,7 @@ function welcome_pm_info() {
 
 function welcome_pm_enable() {
 	if((@include_once $GLOBALS['PLUGIN_PATH'] .'welcome_pm.ini') === false) {
-		return 'Please configure the welcome_pm plugin before enabling it.';
+		return array(null, 'Please configure the welcome_pm plugin before enabling it.');	// OK, Err.
 	}
 }
 

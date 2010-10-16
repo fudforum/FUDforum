@@ -47,7 +47,7 @@ function google_analytics_info() {
 
 function google_analytics_enable() {
 	if((@include_once $GLOBALS['PLUGIN_PATH'] .'google_analytics.ini') === false) {
-		return 'Please configure the google_analytics plugin before enabling it.';
+		return array(null, 'Please configure the google_analytics plugin before enabling it.');	// OK, Err.
 	}
 }
 

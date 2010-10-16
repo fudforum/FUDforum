@@ -1,0 +1,39 @@
+<?php
+/**
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* email                : forum@prohost.org
+* $Id$
+*
+* This program is free software; you can redistribute it and/or modify it
+* under the terms of the GNU General Public License as published by the
+* Free Software Foundation; version 2 of the License.
+**/
+
+// Initialize plugin
+plugin_add_hook('PREREGISTRATION', 'plugin_gravatar');
+
+// Assign gravatar when user registers.
+function plugin_gravatar($uent) {
+	// r=g: Only use 'G' rated images.
+	// d=mm: Default avatar picture is mm (mystery-man).
+	// s=??: Image size (use forum's default, change in Global Settings Manager).
+	list($s, ) = explode('x', $GLOBALS['CUSTOM_AVATAR_MAX_DIM']);
+	$gravatar = 'http://www.gravatar.com/avatar/'. md5(strtolower(trim($uent->email))) .'?s='. $s .'&d=mm&r=g';
+
+	// Asign the avatar.
+	$uent->avatar = 0;
+	$uent->avatar_loc = '<img src="'. $gravatar .' alt="" width="'. $s .'" height="'. $s .'" />';
+
+	// Approve the user's avatar.
+	$uent->users_opt = $uent->users_opt | 8388608;
+
+	return $uent;
+}
+
+function gravatar_info() {
+	return array('name' => 'Gravatar',
+		     'desc' => 'Assign users a Globally Recognized Avatar from <a href="http://en.gravatar.com/">gravatar.com</a> when they register.<br />If the user doesn\'t have a gravatar, he/she will get a default mystery-man avatar.',
+		     'version' => '1.0');
+}
+
+?>

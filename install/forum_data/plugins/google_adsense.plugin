@@ -20,22 +20,23 @@ function plugin_google_adsense($array) {
 	}
 
 	if ($name == 'header' && $ini['GOOGLE_ADSENSE_POS'] == 1) {
-		return array($ini['GOOGLE_ADSENSE_CODE'] . $tmpl);
+		$tmpl = $ini['GOOGLE_ADSENSE_CODE'] . $tmpl;
 	} else if ($name == 'header' && $ini['GOOGLE_ADSENSE_POS'] == 2) {
 		return array($tmpl . $ini['GOOGLE_ADSENSE_CODE']);
+		$tmpl = $tmpl . $ini['GOOGLE_ADSENSE_CODE'];
 	} else if ($name == 'curtime' && $ini['GOOGLE_ADSENSE_POS'] == 3) {
-		return array($ini['GOOGLE_ADSENSE_CODE'] . $tmpl);
+		$tmpl = $ini['GOOGLE_ADSENSE_CODE'] . $tmpl;
 	} else if ($name == 'curtime' && $ini['GOOGLE_ADSENSE_POS'] == 4) {
-		return array($tmpl . $ini['GOOGLE_ADSENSE_CODE']);
+		$tmpl = $tmpl . $ini['GOOGLE_ADSENSE_CODE'];
 	} else if ($name == 'footer' && $ini['GOOGLE_ADSENSE_POS'] == 5) {
-		return array($ini['GOOGLE_ADSENSE_CODE'] . $tmpl);
+		$tmpl = $ini['GOOGLE_ADSENSE_CODE'] . $tmpl;
 	} else if ($name == 'footer' && $ini['GOOGLE_ADSENSE_POS'] == 6) {
-		return array($tmpl . $ini['GOOGLE_ADSENSE_CODE']);
+		$tmpl = $tmpl . $ini['GOOGLE_ADSENSE_CODE'];
 	} else if ($name == 'usercp' && $ini['GOOGLE_ADSENSE_POS'] == 7) {
-		return array($tmpl . $ini['GOOGLE_ADSENSE_CODE']);
+		$tmpl = $tmpl . $ini['GOOGLE_ADSENSE_CODE'];
 	}
 
-	return;
+	return array($tmpl, $tag, $sec, $name, $file);
 }
 
 function google_adsense_info() {
@@ -46,7 +47,7 @@ function google_adsense_info() {
 
 function google_adsense_enable() {
 	if((@include_once $GLOBALS['PLUGIN_PATH'] .'google_adsense.ini') === false) {
-		return 'Please configure the google_adsense plugin before enabling it.';
+		return array(null, 'Please configure the google_adsense plugin before enabling it.');	// OK, Err.
 	}
 }
 
