@@ -140,10 +140,10 @@ function insertAtCaret(textEl, text)
 function email_insert()
 {
 	if ( check_selection() ) {
-		dialogTag(document.post_form.msg_body, 'Email:', '', '[url=mailto:%s]', '[/url]');
-	}	
-	else
+		dialogTag(document.post_form.msg_body, 'Email:', '', '[email=%s]', '[/email]');
+	} else {
 		dialogTag(document.post_form.msg_body, 'Email:', '', '[email]%s[/email]', '');
+	}
 }
 
 function image_insert()

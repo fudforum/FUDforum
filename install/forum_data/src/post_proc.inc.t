@@ -192,9 +192,6 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 				case 'email':
 					if (!$parms) {
 						$parms = str_replace('@', '&#64;', substr($str, $epos+1, ($cpos-$epos)-1));
-						if (strpos( substr($email,1,-1), '.') === false) {	// E-mail mostly have dots in them.
-							$ppos = $pos += 1; continue;
-						}
 						$ostr .= '<a href="mailto:'. $parms .'">'. $parms .'</a>';
 						$epos = $cepos;
 						$str[$cpos] = '<';
@@ -522,6 +519,9 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 		}
 
 		$email = str_replace('@', '&#64;', substr($ostr, $es, $ee-$es));
+		if (strpos( substr($email, 1, -1), '.') === false) {	// E-mail mostly have dots in them.
+			$ppos = $pos += 1; continue;
+		}
 		$email_url = '<a href="mailto:'. $email .'">'. $email .'</a>';
 		$email_url_l = strlen($email_url);
 		$ostr = fud_substr_replace($ostr, $email_url, $es, $ee-$es);
