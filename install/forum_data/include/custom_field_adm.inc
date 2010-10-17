@@ -9,11 +9,11 @@
 * Free Software Foundation; version 2 of the License.
 **/
 
-class fud_custom_fields
+class fud_custom_field
 {
 	var	$name, $descr, $type_opt, $choice, $vieworder, $field_opt;
 
-	function fud_custom_fields()
+	function fud_custom_field()
 	{
 		foreach ($this as $k => $v) {
 			if (isset($_POST['custom_field_'. $k])) {

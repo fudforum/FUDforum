@@ -11,7 +11,7 @@
 
 	require('./GLOBALS.php');
 	fud_use('adm.inc', true);
-	fud_use('custom_fields_adm.inc', true);
+	fud_use('custom_field_adm.inc', true);
 	fud_use('widgets.inc', true);
 
 	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
@@ -24,25 +24,25 @@
 	$edit = isset($_GET['edit']) ? (int)$_GET['edit'] : (isset($_POST['edit']) ? (int)$_POST['edit'] : '');
 
 	// Add or edit a profile field.
-	if (isset($_POST['frm_submit'])) {
+	if (isset($_POST['frm_submit']) && !empty($_POST['custom_field_name'])) {
 		$error = 0;
 
 		if ($edit && !$error) {
-			$cfields = new fud_cfields;
-			$cfields->sync($edit);
+			$cfield = new fud_custom_field;
+			$cfield->sync($edit);
 			$edit = '';	
 			echo successify('Field was successfully updated.');
 		} else if (!$error) {
-			$cfields = new fud_custom_fields;
-			$cfields->add();
+			$cfield = new fud_custom_field;
+			$cfield->add();
 			echo successify('Field was successfully added.');
 		}
 	}
 
 	/* Remove a profile field. */
 	if (isset($_GET['del'])) {
-		$cfields = new fud_custom_fields();
-		$cfields->delete($_GET['del']);
+		$cfield = new fud_custom_field();
+		$cfield->delete($_GET['del']);
 		echo successify('Field was successfully deleted.');
 	}
 
@@ -74,9 +74,9 @@
 			${'custom_field_'.$k} = $v;
 		}
 	} else {
-		$c = get_class_vars('fud_custom_fields');
+		$c = get_class_vars('fud_custom_field');
 		foreach ($c as $k => $v) {
-			${'custom_field_'.$k} = '';
+			${'custom_field_'. $k} = '';
 		}
 	}
 ?>
@@ -117,7 +117,7 @@ echo '<h3>'. ($edit ? '<a name="edit">Edit Field:</a>' : 'Add New Field:') .'</h
 		<td colspan="2" align="right">
 <?php
 	if ($edit) {
-		echo '<input type="hidden" name="edit" value="'.$edit.'" />';
+		echo '<input type="hidden" name="edit" value="'. $edit .'" />';
 		echo '<input type="submit" value="Cancel" name="btn_cancel" /> ';
 	}
 ?>
@@ -130,11 +130,11 @@ echo '<h3>'. ($edit ? '<a name="edit">Edit Field:</a>' : 'Add New Field:') .'</h
 <h3>Defined fields:</h3>
 <table class="resulttable fulltable">
 <thead><tr class="resulttopic">
-	<th>Name</th><th>Description</th><th>Type</th><th>Value(s)</th><th>Action</th>
+	<th>Name</th><th>Description</th><th>Value(s)</th><th>Action</th>
 </tr></thead>
 <?php
 	$i = 0;
-	$c = uq('SELECT id, name, descr, type_opt, choice, vieworder FROM '. $tbl .'custom_fields ORDER BY vieworder LIMIT 100');
+	$c = uq('SELECT id, name, descr, choice, vieworder FROM '. $tbl .'custom_fields ORDER BY vieworder LIMIT 100');
 	while ($r = db_rowobj($c)) {
 		$i++;
 		$bgcolor = ($edit == $r->id) ? ' class="resultrow3"' : (($i%2) ? ' class="resultrow1"' : ' class="resultrow2"');
@@ -148,12 +148,12 @@ echo '<h3>'. ($edit ? '<a name="edit">Edit Field:</a>' : 'Add New Field:') .'</h
 			$lp = $r->vieworder;
 		}
 
-		echo '<tr'. $bgcolor .'><td>'. $r->name .'</td><td>'. $r->descr .'</td><td>'. $r->type_opt .'</td><td>'. $r->choice .'</td>';
-		echo '<td><a href="admcustomfields.php?edit='. $r->id .'&amp;'. __adm_rsid .'#edit">Edit</a> | <a href="admcustomfields.php?del='. $r->id .'&amp;'. __adm_rsid .'">Delete</a> | [<a href="admcustomfields.php?chpos='. $r->vieworder .'&amp;cpid='. $r->id .'&amp;'. __adm_rsid .'">Change Position</a>]</td></tr>';
+		echo '<tr'. $bgcolor .'><td>'. $r->name .'</td><td>'. $r->descr .'</td><td>'. $r->choice .'</td>';
+		echo '<td><a href="admcustomfields.php?edit='. $r->id .'&amp;'. __adm_rsid .'#edit">Edit</a> | <a href="admcustomfields.php?del='. $r->id .'&amp;'. __adm_rsid .'">Delete</a> | <a href="admcustomfields.php?chpos='. $r->vieworder .'&amp;cpid='. $r->id .'&amp;'. __adm_rsid .'">Change Position</a></td></tr>';
 	}
 	unset($c);
 	if (!$i) {
-		echo '<tr class="field"><td colspan="6"><center>No fields found. Define some above.</center></td></tr>';
+		echo '<tr class="field"><td colspan="4"><center>No fields found. Define some above.</center></td></tr>';
 	}
 ?>
 </table>
