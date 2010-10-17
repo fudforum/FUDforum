@@ -1,0 +1,112 @@
+<?php
+/**
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* email                : forum@prohost.org
+* $Id$
+*
+* This program is free software; you can redistribute it and/or modify it
+* under the terms of the GNU General Public License as published by the
+* Free Software Foundation; version 2 of the License.
+**/
+
+// Initialize as pre authentication plugin.
+plugin_add_hook('PRE_AUTHENTICATE', 'plugin_openid_auth');
+
+// Authenticate users by openid provider.
+function plugin_openid_auth()
+{
+	if((@include_once $GLOBALS['PLUGIN_PATH'] .'/openid/openid.ini') === false) {
+		die('ERROR: Please configure the OpenID plugin from the Plugin Manager Control panel.');
+	}
+
+	require_once $GLOBALS['PLUGIN_PATH'] .'/openid/lib/class.dopeopenid.php';
+	$openid = new Dope_OpenID($ini['OPENID_PROVIDER']);
+
+	// First entry: redirect to openid provider.
+	if (empty($_REQUEST['verify'])) {
+
+		// Set return & root urls.
+		$openid->setReturnURL($GLOBALS['WWW_ROOT'] .'index.php?t=login&verify=on');
+		$openid->SetTrustRoot($GLOBALS['WWW_ROOT']);
+
+		// Ask openid provider to return user's details.
+		$openid->setOptionalInfo(array('nickname', 'email', 'fullname', 'dob', 'gender', 'postcode', 'country', 'language', 'timezone', 'prefix', 'firstname', 'lastname', 'suffix'));
+
+		// Get openid provider meta information.
+		if ($openid->getOpenIDEndpoint()) {
+			// Redirect to openid provider.
+			$openid->redirect();
+			exit(0);
+		}
+
+	// Second entry: openid provider has returned auth params.
+	} else {
+		if (empty($_REQUEST['openid_mode']) || $_REQUEST['openid_mode'] != 'cancel') {
+
+			// Check auth token.
+			if ($openid->validateWithServer($_REQUEST) === TRUE) {
+
+				// Get passed user's identity.
+				$oid = $openid->filterUserInfo($_REQUEST);
+
+				if (!empty($oid['email'])) {
+
+					if (!($usr_d = db_sab('SELECT id, passwd, salt FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'users WHERE email='. _esc($oid['email'])))) {
+						// Register new FUDforum user.
+						$uent = new fud_user_reg;
+						$uent->users_opt = -1;
+						$uent->login = !empty($oid['nickname']) ? $oid['nickname'] : substr($oid['email'], 0, strpos($oid['email'], '@'));
+						$uent->name = !empty($oid['fullname']) ? $oid['fullname'] : $oid['prefix'] .' '. $oid['firstname'] .' '. $oid['lastname'] .' '. $oid['suffix'];
+						$uent->email = $oid['email'];
+						$uent->add_user();
+					}
+
+					// Attention: only google returns e-mail use $oid['openid_identity'] instead.
+					if ($forum_id = get_id_by_email($oid['email'])) {
+						return usr_reg_get_full($forum_id);
+					}
+				}
+			}
+		}
+	}
+
+	// By default, return false.
+	return false;
+}
+
+function openid_info() {
+	return array('name' => 'OpenID Authentication',
+	             'desc' => '<p>Authenticate forum users by OpenID provider.</p><p>NOTE: This plugin is provided for demonstration purposes only and will probably only work aginst Goodle.',
+	             'version' => '1.0');
+}
+
+function openid_enable() {
+	if (!function_exists('curl_exec')) {
+		return 'OpenID requires the PHP cURL extension.';
+	}
+	if((@include_once $GLOBALS['PLUGIN_PATH'] .'/openid/openid.ini') === false) {
+		return 'Please configure the plugin before enabling it.';
+	}
+}
+
+function openid_config() {
+	if((@include_once $GLOBALS['PLUGIN_PATH'] .'/openid/openid.ini') === false) {
+		$ini = NULL;
+	}
+
+	if (isset($_POST['Set'])) {
+		foreach (array_keys($_POST) as $key) {
+			if (substr($key,0,7) == 'OPENID_') {
+				$ini[$key] = $_POST[$key];
+			}
+		}
+		$fp = fopen($GLOBALS['PLUGIN_PATH'] .'/openid/openid.ini', 'w');
+		fwrite($fp, '<?php $ini = '. var_export($ini, 1) .'; ?>');
+		fclose($fp);
+		echo '<font color="green">Settings successfully saved.</font>';
+	}
+	?>
+<p>OpenID provider URL:<br />
+<input name="OPENID_PROVIDER" value="<?php echo $ini['OPENID_PROVIDER'] ?>" size="50" /></p>
+	<?php
+}
