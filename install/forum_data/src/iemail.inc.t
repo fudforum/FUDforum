@@ -72,7 +72,7 @@ function send_email($from, $to, $subj, $body, $header='', $munge_newlines=1)
 	$subj = encode_subject($subj);
 
 	if (defined('forum_debug')) {
-		logaction(_uid, 'SEND EMAIL', 0, 'To=['. implode(',', $to) .']<br />Subject=['. $subj .']<br />Headers=['. str_replace("\n", '<br />', $header) .']<br />Message=['. $body .']');
+		logaction(_uid, 'SEND EMAIL', 0, 'To=['. implode(',', $to) .']<br />Subject=['. $subj .']<br />Headers=['. str_replace("\n", '<br />', htmlentities($header)) .']<br />Message=['. $body .']');
 	}
 
 	if ($GLOBALS['FUD_OPT_1'] & 512) {
@@ -91,7 +91,7 @@ function send_email($from, $to, $subj, $body, $header='', $munge_newlines=1)
 
 	foreach ((array)$to as $email) {
 		if (!@mail($email, $subj, $body, $header)) {
-			fud_logerror('E-mail ['. $subj .'] to ['. $to .'] not accepted for delivery.', 'fud_errors');
+			fud_logerror('Your system didn\'t accept E-mail ['. $subj .'] to ['. $to .'] for delivery.', 'fud_errors');
 		}
 	}
 }

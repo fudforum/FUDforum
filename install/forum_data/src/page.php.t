@@ -11,8 +11,8 @@
 
 /*{PRE_HTML_PHP}*/
 
-if (isset($_GET['page'])) {
-	$page = db_sab('SELECT id, slug, title, body FROM {SQL_TABLE_PREFIX}pages WHERE id='. (int)$_GET['page']);
+if (isset($_GET['id'])) {
+	$page = db_sab('SELECT id, slug, title, body FROM {SQL_TABLE_PREFIX}pages WHERE id='. (int)$_GET['id']);
 	$TITLE_EXTRA = ': '. $page->title;
 } else {
 	$page_list = '';

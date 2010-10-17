@@ -31,11 +31,12 @@ CREATE TABLE {SQL_TABLE_PREFIX}forum
 );
 
 CREATE INDEX {SQL_TABLE_PREFIX}forum_i_c ON {SQL_TABLE_PREFIX}forum (cat_id);
-CREATE INDEX {SQL_TABLE_PREFIX}forum_i_lpi ON {SQL_TABLE_PREFIX}forum (last_post_id);
+CREATE UNIQUE INDEX {SQL_TABLE_PREFIX}forum_i_lpi ON {SQL_TABLE_PREFIX}forum (last_post_id);
 
 DROP TABLE IF EXISTS {SQL_TABLE_PREFIX}fl_1;
 CREATE TABLE {SQL_TABLE_PREFIX}fl_1 (id INT);
 
+# Opts
 # 1 anon_forum (ON/OFF)
 # 2 moderated (ON/OFF)
 # 4 passwd_posting (ON/OFF)

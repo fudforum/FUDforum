@@ -12,9 +12,10 @@
 
 function log_script_error($error, $msg_data='', $level='WARNING')
 {
-	// Make copy of message for later investigation.
-	$err_msg_cpy = $GLOBALS['ERROR_PATH'] .'.mlist/'. time() .'_'. md5($msg_data);
+	$err_msg_cpy = '';
 	if (!empty($msg_data) && $level != 'LOG') {
+		// Make copy of message for later investigation.
+		$err_msg_cpy = $GLOBALS['ERROR_PATH'] .'.mlist/'. time() .'_'. md5($msg_data);
 		$u = umask(0111);
 		if (!($fp = fopen($err_msg_cpy, 'wb'))) {
 			exit('No perms to write '. $err_msg_cpy ."\n");
@@ -23,8 +24,6 @@ function log_script_error($error, $msg_data='', $level='WARNING')
 		fclose($fp);
 		umask($u);
 		$err_msg_cpy = ' @ '. $err_msg_cpy;
-	} else {
-		$err_msg_cpy = '';
 	}
 
 	// Log error message.
@@ -178,6 +177,9 @@ function add_attachment($name, $data, $pid)
 		} else {
 			/* Read single message from pipe (stdin) and load into the forum. */
 			$email_message = file_get_contents('php://stdin');
+			if (empty($email_message)) {
+				log_script_error('Nothing to import! Please pipe your messages into the script or use a mailbox.', '', 'ERROR');
+			}
 			$emsg->parse_message($email_message, $config->mlist_opt & 16);
 			$done = 1;
 		}
@@ -217,6 +219,13 @@ function add_attachment($name, $data, $pid)
 		} else {
 			$msg_post->poster_id = match_user_to_post($emsg->from_email, $emsg->from_name, $config->mlist_opt & 64, $emsg->user_id, $msg_post->post_stamp);
 		}
+
+		/* Handle E-mail subscribe/unsubscribe requests. */
+/*TODO
+		if (preg_match('!subscribe!i', $msg_post->subject)) {
+			die('Yes, we have a subscription request!');
+		}
+*/
 
 		/* Check if matching user and if not, skip if necessary. */
 		if (!$msg_post->poster_id && $config->mlist_opt & 128) {

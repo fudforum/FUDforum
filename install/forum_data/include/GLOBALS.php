@@ -41,7 +41,7 @@
 	$DBHOST_TBL_PREFIX	= 'fud30_';		/* do not modify this */
 	$DBHOST_DBTYPE		= '';
 
-	$FUD_SMTP_SERVER	= '';
+	$FUD_SMTP_SERVER	= '127.0.0.1';
 	$FUD_SMTP_PORT		= 25;
 	$FUD_SMTP_TIMEOUT	= 10;		/* seconds */
 	$FUD_SMTP_LOGIN		= '';

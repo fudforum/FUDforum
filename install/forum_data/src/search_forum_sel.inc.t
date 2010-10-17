@@ -11,7 +11,11 @@
 
 /* Draw search engine selection boxes. */
 if ($is_a) {
-	$c = uq('SELECT f.id, f.name, c.id FROM {SQL_TABLE_PREFIX}fc_view v INNER JOIN {SQL_TABLE_PREFIX}forum f ON f.id=v.f INNER JOIN {SQL_TABLE_PREFIX}cat c ON f.cat_id=c.id WHERE f.url_redirect IS NULL ORDER BY v.id');
+	$c = uq('SELECT f.id, f.name, c.id
+			FROM {SQL_TABLE_PREFIX}fc_view v
+			INNER JOIN {SQL_TABLE_PREFIX}forum f ON f.id=v.f
+			INNER JOIN {SQL_TABLE_PREFIX}cat c ON f.cat_id=c.id
+			WHERE f.url_redirect IS NULL ORDER BY v.id');
 } else {
 	$c = uq('SELECT f.id, f.name, c.id
 			FROM {SQL_TABLE_PREFIX}fc_view v

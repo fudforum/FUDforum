@@ -615,6 +615,13 @@ function &init_user()
 				$_GET['t'] = 'calendar';
 				break;
 
+			case 'page':	/* Static page */
+				$_GET['t'] = 'page';
+				if (isset($p[1])) {
+					$_GET['id'] = $p[1];
+				}
+				break;
+
 			default:
 				$_GET['t'] = 'index';
 				break;

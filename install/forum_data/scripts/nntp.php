@@ -12,9 +12,10 @@
 
 function log_script_error($error, $msg_data='', $level='WARNING')
 {
-	// Make copy of message for later investigation.
-	$err_msg_cpy = $GLOBALS['ERROR_PATH'] .'.nntp/'. time() .'_'. md5($msg_data);
+	$err_msg_cpy = '';
 	if (!empty($msg_data) && $level != 'LOG') {
+		// Make copy of message for later investigation.
+		$err_msg_cpy = $GLOBALS['ERROR_PATH'] .'.nntp/'. time() .'_'. md5($msg_data);
 		$u = umask(0111);
 		if (!($fp = fopen($err_msg_cpy, 'wb'))) {
 			exit('No perms to write '. $err_msg_cpy ."\n");
@@ -23,8 +24,6 @@ function log_script_error($error, $msg_data='', $level='WARNING')
 		fclose($fp);
 		umask($u);
 		$err_msg_cpy = ' @ '. $err_msg_cpy;
-	} else {
-		$err_msg_cpy = '';
 	}
 
 	// Log error message.
@@ -173,12 +172,14 @@ function add_attachment($name, $data, $pid)
 
 		// Handle NNTP cancellation messages.
 		if (isset($emsg->headers['control']) && preg_match('!cancel!', $emsg->headers['control'])) {
-			log_script_error('Ignore NNTP cancellation message (not implemented).', $emsg->raw_msg);
+			log_script_error('Ignore NNTP cancellation message (not yet implemented).', $emsg->raw_msg);
+/*TODO
 			// For future implementation. Anyone brave enough to test it for us?
-			// q('DELETE FROM '.sql_p.'msg WHERE mlist_msg_id='._esc($emsg->msg_id));
-			// if (db_affected()) {
+			q('DELETE FROM '. sql_p .'msg WHERE mlist_msg_id='. _esc($emsg->msg_id));
+			if (db_affected()) {
 				continue;
-			// }
+			}
+*/
 		}
 
 		$msg_post->post_stamp = !empty($emsg->headers['date']) ? strtotime($emsg->headers['date']) : 0;
