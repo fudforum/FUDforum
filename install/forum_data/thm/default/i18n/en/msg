@@ -936,7 +936,7 @@ threadt_announce:announcement
 reported_no_messages:There are no reported messages.
 poll_no_polls:There are no accessible polls.
 no_unread_messages:There are no unread messages matching your query.
-thread_mark_all_read:mark all unread forum messages read
+thread_mark_all_read:Mark all unread forum messages read
 thread_mark_all_read_desc:All unread messages in this forum will be marked read
 private_no_messages:There are no messages in this folder.
 register_email_change_subject:E-mail change confirmation

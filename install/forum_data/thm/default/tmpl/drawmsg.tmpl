@@ -258,7 +258,7 @@
 {SECTION: END}
 
 {SECTION: dmsg_report_to_mod_link}
-<p class="fr"><a href="{TEMPLATE: dmsg_report_to_mod_link_lnk}">{MSG: report_to_mod}</a></p>
+<p class="fr"><a href="{TEMPLATE: dmsg_report_to_mod_link_lnk}" rel="nofollow">{MSG: report_to_mod}</a></p>
 {SECTION: END}
 
 {SECTION: dmsg_user_profile_lnk}
@@ -315,7 +315,7 @@
 
 {SECTION: dmsg_message_toolbar message toolbar, normally contains post/quote type buttons}
 <tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
-<td class="al nw">{IF: $obj->user_id}<a href="{TEMPLATE: dmsg_user_profile_lnk}"><img alt="" src="{THEME_IMAGE_ROOT}/msg_about.gif" /></a>&nbsp;{IF: ($o1 & 4194304 && $a & 16)}<a href="{TEMPLATE: dmsg_email_link_lnk}"><img alt="" src="{THEME_IMAGE_ROOT}/msg_email.gif" /></a>&nbsp;{ENDIFI}{IF: $o1 & 1024}<a href="{TEMPLATE: dmsg_private_msg_link_lnk}"><img alt="{MSG: send_pm_desc}" title="{MSG: send_pm_desc}" src="{THEME_IMAGE_ROOT}/msg_pm.gif" /></a>{ENDIFI}{ENDIFI}</td>
+<td class="al nw">{IF: $obj->user_id}<a href="{TEMPLATE: dmsg_user_profile_lnk}"><img alt="" src="{THEME_IMAGE_ROOT}/msg_about.gif" /></a>&nbsp;{IF: ($o1 & 4194304 && $a & 16)}<a href="{TEMPLATE: dmsg_email_link_lnk}" rel="nofollow"><img alt="" src="{THEME_IMAGE_ROOT}/msg_email.gif" /></a>&nbsp;{ENDIFI}{IF: $o1 & 1024}<a href="{TEMPLATE: dmsg_private_msg_link_lnk}"><img alt="{MSG: send_pm_desc}" title="{MSG: send_pm_desc}" src="{THEME_IMAGE_ROOT}/msg_pm.gif" /></a>{ENDIFI}{ENDIFI}</td>
 <td class="GenText wa ac">{TEMPLATE-DATA: next_page}</td>
 <td class="nw ar">{IF: $perms & 32}<a href="{TEMPLATE: dmsg_delete_link_lnk}"><img alt="" src="{THEME_IMAGE_ROOT}/msg_delete.gif" /></a>&nbsp;{ENDIFI}{TEMPLATE-DATA: edit_link}{TEMPLATE-DATA: reply_link}{TEMPLATE-DATA: quote_link}</td>
 </tr></table></td></tr>

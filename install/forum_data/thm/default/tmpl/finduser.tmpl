@@ -32,10 +32,10 @@
 </table><input type="hidden" name="t" value="finduser" /></form>
 <table cellspacing="1" cellpadding="2" class="ContentTable">
 <tr>
-{IF: $GLOBALS['FUD_OPT_3'] & 524288}<th width="1"><a class="thLnk" href="{TEMPLATE: FINDUSER_PAGE_lnk4}">{MSG: finduser_flag}</a></th>{ENDIF}
-<th class="wa"><a class="thLnk" href="{TEMPLATE: FINDUSER_PAGE_lnk}">{MSG: finduser_user}</a></th>
-<th style="white-space: nowrap"><a href="{TEMPLATE: FINDUSER_PAGE_lnk1}" class="thLnk">{MSG: finduser_postcount}</a></th>
-<th style="white-space: nowrap"><div class="ac"><a href="{TEMPLATE: FINDUSER_PAGE_lnk2}" class="thLnk">{MSG: finduser_joindate}</a></div></th>
+{IF: $GLOBALS['FUD_OPT_3'] & 524288}<th width="1"><a class="thLnk" href="{TEMPLATE: FINDUSER_PAGE_lnk4}" rel="nofollow">{MSG: finduser_flag}</a></th>{ENDIF}
+<th class="wa"><a class="thLnk" href="{TEMPLATE: FINDUSER_PAGE_lnk}" rel="nofollow">{MSG: finduser_user}</a></th>
+<th style="white-space: nowrap"><a href="{TEMPLATE: FINDUSER_PAGE_lnk1}" class="thLnk" rel="nofollow">{MSG: finduser_postcount}</a></th>
+<th style="white-space: nowrap"><div class="ac"><a href="{TEMPLATE: FINDUSER_PAGE_lnk2}" class="thLnk" rel="nofollow">{MSG: finduser_joindate}</a></div></th>
 <th class="ac">{MSG: finduser_action}</th>
 {IF: $is_a}{TEMPLATE: findu_admin_opts_header}{ENDIF}</tr>
 {TEMPLATE-DATA: find_user_data}
@@ -77,7 +77,7 @@ document.forms['fufrm'].usr_login.focus();
 {SECTION: END}
 
 {SECTION: email_link}
-<a href="{TEMPLATE: email_link_lnk}"><img src="{THEME_IMAGE_ROOT}/msg_email.gif" alt="" /></a>
+<a href="{TEMPLATE: email_link_lnk}" rel="nofollow"><img src="{THEME_IMAGE_ROOT}/msg_email.gif" alt="" /></a>
 {SECTION: END}
 
 {SECTION: finduser_title}
