@@ -85,7 +85,7 @@ function get_max_upload_size()
 		$frm_pos = 'LAST';
 		$frm_max_attach_size = floor($max_upload_size / 1024);
 		$frm_message_threshold = '0';
-		$frm_max_file_attachments = '1';
+		$frm_max_file_attachments = '5';
 		$frm_forum_opt = 16;
 	}
 
@@ -193,7 +193,7 @@ if (!isset($_GET['chpos'])) {	// Hide this if we are changing forum order.
 	</tr>
 
 	<tr class="field">
-		<td><a name="frm_icon_pos">Forum Icon:</a><font size="-2">Icon to display next to this forum.</font></td>
+		<td><a name="frm_icon_pos">Forum Icon:</a><br /><font size="-2">Icon to display next to this forum.</font></td>
 		<td><input type="text" name="frm_forum_icon" value="<?php echo $frm_forum_icon; ?>" /> <a href="javascript://" onclick="window.open('admiconsel.php?type=1&amp;<?php echo __adm_rsid; ?>', 'admiconsel', 'menubar=false,scrollbars=yes,resizable=yes,height=300,width=500,screenX=100,screenY=100')">[SELECT ICON]</a></td>
 	</tr>
 
