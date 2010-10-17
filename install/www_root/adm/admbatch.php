@@ -131,6 +131,20 @@ echo "DEBUG: args=$args<hr>";
 <?php
 	print_reg_field('PHP CLI Executable', 'PHP_CLI');
 ?>
+<tr class="field"><td>Last cron run:<br /><font size="-1">Last time cron jobs were executed.</font></td><td>
+<?php
+        $cronfile = $GLOBALS['ERROR_PATH'] . 'CRON.lck';
+        if (file_exists($cronfile)) {
+		$last = filemtime($cronfile);
+		if ($last < __request_timestamp__ - (24*60*60)) {	// Longer than 1 day ago?
+                	echo errorify( date('d M Y H:i', $last) );
+		} else {
+                	echo successify( date('d M Y H:i', $last) );
+		}
+        } else {
+		echo errorify('Never!'); 
+	}
+?></td></tr>
 <tr class="fieldaction"><td colspan="2" align="right"><input type="submit" name="btn_submit" value="Set" /></td></tr>
 </table>
 </form>

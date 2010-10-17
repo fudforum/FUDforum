@@ -17,10 +17,10 @@ function print_last($logfile)
 	echo '</tr></thead>';
 
 	$fsize = filesize($GLOBALS['ERROR_PATH'] . $logfile);
-	$fseek = ($fsize > 2048) ? $fsize -= 2048 : 0;
+	$fseek = ($fsize > 4096) ? $fsize -= 4096 : 0;
 	$fp = fopen($GLOBALS['ERROR_PATH'] . $logfile, 'r');
 	fseek($fp, $fseek);
-	$last = fread($fp, 2048);		// Read last 2K.
+	$last = fread($fp, 4096);		// Read last 4K.
 	fclose($fp);
 
 	$records = preg_split("/\n(?=\?)/", $last);	// Newline + lookahead for a '?'.
@@ -29,12 +29,23 @@ function print_last($logfile)
 	}
 	$records = array_slice($records, -5);	// Only keep last 5 records (newest errors).
 
+	$linecnt = 0;
 	foreach(array_reverse($records, true) as $record) {
-		list(,$s,$d,$err) = explode('?', $record);
+		list(,$s,$d,$err) = explode('?', $record, 4);
 		echo '<tr class="field"><td nowrap="nowrap" valign="top">'. gmdate('D M j G:i:s T Y', $d) .'</td><td>'. $err .'</td></tr>';
+		$linecnt++;
 	}
 
 	echo '</table><br />';
+	
+	$more = ($linecnt >= 5);
+	if ($more) {
+		echo '&nbsp; <i>Shown: last '. $linecnt .' error(s).</i>';
+	} else {
+		echo '&nbsp; <i>Total: '. $linecnt .' error(s).</i>';
+	}
+
+	return $more;	// There is more entries to read.
 }
 
 function print_log($logfile, $search)
@@ -60,7 +71,7 @@ function print_log($logfile, $search)
 	}
 	fclose($fp);
 	echo '</table><br />';
-	echo '<i>Total: '. $linecnt .' errors.</i>';
+	echo '&nbsp; <i>Total: '. $linecnt .' error(s).</i>';
 }
 
 /* main */
@@ -131,18 +142,20 @@ if ($display_logs) { ?>
 		if ($search) {
 			echo '<h3><a name="'. $log .'">Matching '. $logs[$log] .' Errors</a></h3>';
 			print_log($log, $search);
-			echo '<div>&nbsp; [ <a href="admerr.php?'. __adm_rsid .'">Go back</a> ] ';
-			echo '[ <a href="admerr.php?clear=1&amp;log='. $log .'&amp;'. __adm_rsid .'">clear log</a> ]</div>';
+			echo ' [ <a href="admerr.php?'. __adm_rsid .'">Go back</a> ] ';
+			echo ' [ <a href="admerr.php?clear=1&amp;log='. $log .'&amp;'. __adm_rsid .'">clear log</a> ]';
 		} else 	if (isset($_GET['showall'])) {
 			echo '<h3><a name="'. $log .'">Full '. $logs[$log] .' Error Log</a></h3>';
 			print_log($log, $search);
-			echo '<div>&nbsp; [ <a href="admerr.php?'. __adm_rsid .'">go back</a> ] ';
-			echo '[ <a href="admerr.php?clear=1&amp;log='. $log .'&amp;'. __adm_rsid .'">clear log</a> ]</div>';
+			echo ' [ <a href="admerr.php?'. __adm_rsid .'">go back</a> ] ';
+			echo ' [ <a href="admerr.php?clear=1&amp;log='. $log .'&amp;'. __adm_rsid .'">clear log</a> ]';
 		} else {
 			echo '<h3><a name="'. $log .'">Latest '. $logs[$log] .' Errors</a></h3>';
-			print_last($log);
-			echo '<div>&nbsp; [ <a href="admerr.php?showall=1&amp;log='. $log .'&amp;'. __adm_rsid .'">show all</a> ] ';
-			echo '[ <a href="admerr.php?clear=1&amp;log='. $log .'&amp;'. __adm_rsid .'">clear log</a> ]</div>';
+			$more = print_last($log);
+			if ($more) {
+				echo ' [ <a href="admerr.php?showall=1&amp;log='. $log .'&amp;'. __adm_rsid .'">show all</a> ] ';
+			}
+			echo ' [ <a href="admerr.php?clear=1&amp;log='. $log .'&amp;'. __adm_rsid .'">clear log</a> ]';
 		}
 	}
 

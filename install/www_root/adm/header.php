@@ -55,93 +55,94 @@ if (defined('popup') ) {	/* Special header for popup pages. */
 <tr>
 	<td nowrap="nowrap">
 	<center>
-	[ <a title="File Manager" href="admbrowse.php?<?php echo __adm_rsid; ?>">Files</a> ]
-	[ <a title="Database Manager" href="admsql.php?<?php echo __adm_rsid; ?>">SQL</a> ]
-	[ <a title="Job Manager" href="admbatch.php?<?php echo __adm_rsid; ?>">Jobs</a> ]
+	[ <a title="Browse your forum's files" href="admbrowse.php?<?php echo __adm_rsid; ?>">Files</a> ]
+	[ <a title="Query database tables" href="admsql.php?<?php echo __adm_rsid; ?>">SQL</a> ]
+	[ <a title="Define and run job" href="admbatch.php?<?php echo __adm_rsid; ?>">Jobs</a> ]
 	</center><br />
 
 	<span class="linkgroup">General Management</span><br />
-	<a href="admglobal.php?<?php echo __adm_rsid; ?>">Global Settings Manager</a><br />
-	<a href="admplugins.php?<?php echo __adm_rsid; ?>">Plugin Manager</a><br />
-	<a href="admcalendar.php?<?php echo __adm_rsid; ?>">Calendar Manager</a><br />
-	<a href="admfeed.php?<?php echo __adm_rsid; ?>">Syndication Manager</a><br />
-	<a href="admpdf.php?<?php echo __adm_rsid; ?>">PDF Generation Manager</a><br />
-	<a href="admgeoip.php?<?php echo __adm_rsid; ?>">Geolocation Manager</a><br />
+	<a title="Change forum settings" href="admglobal.php?<?php echo __adm_rsid; ?>">Global Settings Manager</a><br />
+	<a title="Enable and disable plugins" href="admplugins.php?<?php echo __adm_rsid; ?>">Plugin Manager</a><br />
+	<!-- a title="Add, edit and remove static pages" href="admpages.php?<?php echo __adm_rsid; ?>">Page Manager</a><br / -->
+	<a title="Manage events and calendar settings" href="admcalendar.php?<?php echo __adm_rsid; ?>">Calendar Manager</a><br />
+	<a title="Manage RDF, RSS and ATOM feeds" href="admfeed.php?<?php echo __adm_rsid; ?>">Syndication Manager</a><br />
+	<a title="Define PDF page settings" href="admpdf.php?<?php echo __adm_rsid; ?>">PDF Generation Manager</a><br />
+	<a title="Track the location of your users" href="admgeoip.php?<?php echo __adm_rsid; ?>">Geolocation Manager</a><br />
 <?php if (extension_loaded('pspell')) { ?>
-	<a href="admspell.php?<?php echo __adm_rsid; ?>">Custom Dictionary Spell Checker</a><br />
+	<a title="Setup spell checker" href="admspell.php?<?php echo __adm_rsid; ?>">Custom Dictionary Spell Checker</a><br />
 <?php } ?>
-	<a href="admlog.php?<?php echo __adm_rsid; ?>">Action Log Viewer</a><br />
-	<a href="admerr.php?<?php echo __adm_rsid; ?>">Error Log Viewer</a><br />
-	<a href="admstats.php?<?php echo __adm_rsid; ?>">Forum Statistics</a><br />
-	<a href="admsysinfo.php?<?php echo __adm_rsid; ?>">System Info</a><br />
+	<a title="Review forum actions" href="admlog.php?<?php echo __adm_rsid; ?>">Action Log Viewer</a><br />
+	<a title="Review your forum's error logs" href="admerr.php?<?php echo __adm_rsid; ?>">Error Log Viewer</a><br />
+	<a title="Visualize forum statistics" href="admstats.php?<?php echo __adm_rsid; ?>">Forum Statistics</a><br />
+	<a title="View system information" href="admsysinfo.php?<?php echo __adm_rsid; ?>">System Info</a><br />
 	<br />
 
 	<span class="linkgroup">Forum Management</span><br />
-	<a href="admcat.php?<?php echo __adm_rsid; ?>">Category &amp; Forum Manager</a><br />
-	<a href="admdelfrm.php?<?php echo __adm_rsid; ?>">Deleted Forums</a><br />
-	<a href="admannounce.php?<?php echo __adm_rsid; ?>">Announcement Manager</a><br />
-	<a href="admprune.php?<?php echo __adm_rsid; ?>">Topic Pruning</a><br />
-	<a href="admpruneattch.php?<?php echo __adm_rsid; ?>">Attachment Pruning</a><br />
-	<a href="admmlist.php?<?php echo __adm_rsid; ?>">Mailing List Manager</a><br />
-	<a href="admnntp.php?<?php echo __adm_rsid; ?>">Newsgroup Manager</a><br />
+	<a title="Setup categories and forums" href="admcat.php?<?php echo __adm_rsid; ?>">Category &amp; Forum Manager</a><br />
+	<a title="List forums in the recycle bin" href="admdelfrm.php?<?php echo __adm_rsid; ?>">Deleted Forums</a><br />
+	<a title="Announce important news" href="admannounce.php?<?php echo __adm_rsid; ?>">Announcement Manager</a><br />
+	<a title="Remove old forum topics" href="admprune.php?<?php echo __adm_rsid; ?>">Topic Pruning</a><br />
+	<a title="Remove old file attachements" href="admpruneattch.php?<?php echo __adm_rsid; ?>">Attachment Pruning</a><br />
+	<a title="Import Mailing Lists messages into your forum" href="admmlist.php?<?php echo __adm_rsid; ?>">Mailing List Manager</a><br />
+	<a title="Import Usenet posts into your forum" href="admnntp.php?<?php echo __adm_rsid; ?>">Newsgroup Manager</a><br />
 <?php if ((bool)ini_get('allow_url_fopen') == TRUE) { ?>
-	<a href="admxmlagg.php?<?php echo __adm_rsid; ?>">XML Aggregation</a><br />
+	<a title="Import XML Feeds into your forum" href="admxmlagg.php?<?php echo __adm_rsid; ?>">XML Aggregation</a><br />
 <?php } ?>
 	<br />
 
 	<span class="linkgroup">User Management</span><br />
-	<a href="admuser.php?<?php echo __adm_rsid; ?>">User Manager</a><br />
-	<a href="admgroups.php?<?php echo __adm_rsid; ?>">Groups Manager</a><br />
-	<a href="admlevel.php?<?php echo __adm_rsid; ?>">Rank Manager</a><br />
-	<a href="admpruneusers.php?<?php echo __adm_rsid; ?>">Prune users</a><br />
-	<a href="admcustomfields.php?<?php echo __adm_rsid; ?>">Profile fields</a><br />
-	<a href="admmassemail.php?<?php echo __adm_rsid; ?>">Mass E-mail</a><br />
+	<a title="Manage user accounts" href="admuser.php?<?php echo __adm_rsid; ?>">User Manager</a><br />
+	<a title="Setup groups and group permisions" href="admgroups.php?<?php echo __adm_rsid; ?>">Groups Manager</a><br />
+	<a title="Manage user ranks" href="admlevel.php?<?php echo __adm_rsid; ?>">Rank Manager</a><br />
+	<a title="Delete old users without messages" href="admpruneusers.php?<?php echo __adm_rsid; ?>">Prune users</a><br />
+	<a title="Define custom porfile fields" href="admcustomfields.php?<?php echo __adm_rsid; ?>">Profile fields</a><br />
+	<a title="Send E-mail to your forum memebers" href="admmassemail.php?<?php echo __adm_rsid; ?>">Mass E-mail</a><br />
 	<br />
 
 	<span class="linkgroup">Template Management</span><br />
-	<a href="admthemes.php?<?php echo __adm_rsid; ?>">Theme Manager</a><br />
-	<a href="admtemplates.php?<?php echo __adm_rsid; ?>">Template Editor</a><br />
-	<a href="admmessages.php?<?php echo __adm_rsid; ?>">Message Editor</a><br />
-	<a href="admhelp.php?<?php echo __adm_rsid; ?>">Help Editor</a><br />
+	<a title="Manage themes" href="admthemes.php?<?php echo __adm_rsid; ?>">Theme Manager</a><br />
+	<a title="Change your forum's look and feel" href="admtemplates.php?<?php echo __adm_rsid; ?>">Template Editor</a><br />
+	<a title="Edit 118n language strings" href="admmessages.php?<?php echo __adm_rsid; ?>">Message Editor</a><br />
+	<a title="Edit help pages" href="admhelp.php?<?php echo __adm_rsid; ?>">Help Editor</a><br />
 	<br />
 
 	<span class="linkgroup">Icon Management</span><br />
-	<a href="admmime.php?<?php echo __adm_rsid; ?>">MIME Manager</a><br />
-	<a href="admsmiley.php?<?php echo __adm_rsid; ?>">Smiley Manager</a><br />
-	<a href="admforumicons.php?<?php echo __adm_rsid; ?>">Forum Icon Manager</a><br />
-	<a href="admforumicons.php?<?php echo __adm_rsid; ?>&amp;which_dir=1">Message Icon Manager</a><br />
+	<a title="Define MIME types andicons" href="admmime.php?<?php echo __adm_rsid; ?>">MIME Manager</a><br />
+	<a title="Manage smilys" href="admsmiley.php?<?php echo __adm_rsid; ?>">Smiley Manager</a><br />
+	<a title="Manage forum icons" href="admforumicons.php?<?php echo __adm_rsid; ?>">Forum Icon Manager</a><br />
+	<a title="Manage messages icons" href="admforumicons.php?<?php echo __adm_rsid; ?>&amp;which_dir=1">Message Icon Manager</a><br />
 	<br />
 
 	<span class="linkgroup">Avatar Management</span><br />
-	<a href="admapprove_avatar.php?<?php echo __adm_rsid; ?>">Avatar Approval</a><br />
-	<a href="admavatar.php?<?php echo __adm_rsid; ?>">Avatar Manager</a><br />
+	<a title="Approve avatars" href="admapprove_avatar.php?<?php echo __adm_rsid; ?>">Avatar Approval</a><br />
+	<a title="Manage avatars" href="admavatar.php?<?php echo __adm_rsid; ?>">Avatar Manager</a><br />
 	<br />
 
 	<span class="linkgroup">Filters</span><br />
-	<a href="admreplace.php?<?php echo __adm_rsid; ?>">Replacement &amp; Censorship</a><br />
-	<a href="admemail.php?<?php echo __adm_rsid; ?>">E-mail filter</a><br />
-	<a href="admipfilter.php?<?php echo __adm_rsid; ?>">IP filter</a><br />
-	<a href="admlogin.php?<?php echo __adm_rsid; ?>">Login filter</a><br />
-	<a href="admext.php?<?php echo __adm_rsid; ?>">File filter</a><br />
+	<a title="Filter user entered data" href="admreplace.php?<?php echo __adm_rsid; ?>">Replacement &amp; Censorship</a><br />
+	<a title="Block E-mail addresses" href="admemail.php?<?php echo __adm_rsid; ?>">E-mail filter</a><br />
+	<a title="Block IP addresses" href="admipfilter.php?<?php echo __adm_rsid; ?>">IP filter</a><br />
+	<a title="Block logins" href="admlogin.php?<?php echo __adm_rsid; ?>">Login filter</a><br />
+	<a title="Define allowed file extentions" href="admext.php?<?php echo __adm_rsid; ?>">File filter</a><br />
 	<br />
 
 	<span class="linkgroup">Checks/Consistency</span><br />
-	<a href="consist.php?<?php echo __adm_rsid; ?>">Forum Consistency</a><br />
-	<a href="indexdb.php?<?php echo __adm_rsid; ?>">Rebuild Search Index</a><br />
+	<a title="Perform consistency check" href="consist.php?<?php echo __adm_rsid; ?>">Forum Consistency</a><br />
+	<a title="Reindex your forum" href="indexdb.php?<?php echo __adm_rsid; ?>">Rebuild Search Index</a><br />
 <?php if (!($FUD_OPT_3 & 32768)) {	/* Not using DB_MESSAGE_STORAGE. */ ?>
-	<a href="compact.php?<?php echo __adm_rsid; ?>">Compact Messages</a><br />
+	<a title="Compact messages" href="compact.php?<?php echo __adm_rsid; ?>">Compact Messages</a><br />
 <?php } ?>
 <?php if (strncasecmp('win', PHP_OS, 3)) {	/* Not for Windows. */ ?>
-		<a href="admlock.php?<?php echo __adm_rsid; ?>">Lock/Unlock Forum Files</a><br />
+		<a title="Secure your forum's files" href="admlock.php?<?php echo __adm_rsid; ?>">Lock/Unlock Forum Files</a><br />
 <?php } ?>
 <?php if (__dbtype__ == 'mysql') { ?>
-	<a href="admmysql.php?<?php echo __adm_rsid; ?>">MySQL Charset Changer</a><br />
+	<a title="Change the character set of your database tables" href="admmysql.php?<?php echo __adm_rsid; ?>">MySQL Charset Changer</a><br />
 <?php } ?>
 	<br />
 
 	<span class="linkgroup">Backup/Restore</span><br />
-	<a href="admdump.php?<?php echo __adm_rsid; ?>">Make forum datadump</a><br />
-	<a href="admimport.php?<?php echo __adm_rsid; ?>">Import forum data</a><br />
+	<a title="Backup your forum" href="admdump.php?<?php echo __adm_rsid; ?>">Make forum datadump</a><br />
+	<a title="Restore a forum backup" href="admimport.php?<?php echo __adm_rsid; ?>">Import forum data</a><br />
 	<br />
 </td></tr>
 </table>

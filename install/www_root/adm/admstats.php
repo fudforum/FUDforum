@@ -37,6 +37,7 @@
 	require($WWW_ROOT_DISK .'adm/header.php');
 ?>
 <h2>Forum Statistics</h2>
+
 <?php
 	if (isset($_POST['submitted'])) {
 		$start_tm = mktime(1, 1, 1, $_POST['s_month'], $_POST['s_day'], $_POST['s_year']);
@@ -121,8 +122,6 @@
 			$max_value = 0;
 		}
 
-		echo '<br /><div align="center" style="font-size: small;">'.$g_title.' ('.$g_type.')</div>';
-		echo '<table cellspacing="1" cellpadding="0" border="0" align="center">';
 		$ttl = 0;
 		$unit = ceil($max_value/100);
 		$date_str = 'F d, Y';
@@ -132,11 +131,20 @@
 			$date_str = 'F Y';
 		}
 
+		echo '<script type="text/javascript" src="style/jquery.charts.js"></script>';
+		echo '<table style="display: none;" id="graph">
+			<caption>'. $g_title .' ('. $g_type .')</caption>
+			<thead><tr><th>Date</th><th>Value</th></tr></thead>
+			<tbody>';
+
 		foreach($day_list as $k => $v) {
-			echo '<tr><td style="font-size: xx-small;">'. date($date_str, $details[$k]) .'</td><td width="100" bgcolor="white"><img style="background-color:red;" src="../blank.gif" height="5" width="'. (round($v / $unit) * 3) .'" alt="statistic" /></td><td style="font-size: xx-small;">('. $v .')</td></tr>';
+			echo '<tr><td>'. date($date_str, $details[$k]) .'</td><td>'. $v .'</td></tr>';
 			$ttl += $v;
 		}
-		echo '<tr style="font-size: xx-small;"><td><b>Total:</b></td><td colspan="2" align="right">'. $ttl .'</td></tr></table><br />';
+		echo '</tbody>';
+		echo '<tfoot><tr><td>Total</td><td>'. $ttl .'</td></tr></tfoot>';
+		echo '</table>';
+		echo '<script>$("#graph").charts();</script>';
 	} else {
 		$_POST['s_year'] = $s_year;
 		$_POST['s_month'] = $s_month;
@@ -176,6 +184,7 @@
 	require $FORUM_SETTINGS_PATH .'cat_cache.inc';
 	include_once $INCLUDE . fud_theme .'search_forum_sel.inc';
 ?>
+<h4>Draw bar graph</h4>
 <form action="admstats.php" method="post">
 <table class="datatable">
 <tr class="field">
@@ -238,7 +247,7 @@
 	<td align="right" valign="top"><?php echo number_format($sql_disk_usage/1024); ?> KB</td>
 </tr>
 <?php	} ?>
-	<tr class="field">
+	<tr class="fieldtopic">
 	<td><b>Total Disk Usage:</b></td>
 	<td align="right" valign="top"><?php echo number_format(($total_disk_usage+$sql_disk_usage)/1024); ?> KB</td>
 </tr>

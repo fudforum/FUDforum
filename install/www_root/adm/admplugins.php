@@ -42,20 +42,21 @@
 	$prev_plugins = plugin_load_from_cache();
 	if (isset($_POST['plugin_state'], $_POST['plugins'])) {
 		while (list($key, $val) = @each($_POST['plugins'])) {
+			$ok = $err = null;
 			if (! in_array($val, $prev_plugins)) {
 				$enable_func = substr($val, 0, strrpos($val, '.')) .'_enable';
 				if ( strpos($enable_func, '/') ) {
 					$enable_func = substr($enable_func, strpos($enable_func, '/')+1);
 				}
 				if ((include_once($PLUGIN_PATH .'/'. $val)) && function_exists($enable_func)) {
-					$err = $enable_func();
+					list($ok, $err) = $enable_func();
 					if ($err) {
 						unset($_POST['plugins'][$key]);
 						echo errorify('Plugin '. $val .' cannot activate: '. $err);
 						continue;
 					}
 				}
-				echo successify('Plugin '. $val .' was successfully installed and activated.');
+				echo $ok ? successify($ok) : successify('Plugin '. $val .' was successfully installed and activated.');
 			}
 		}
 		plugin_rebuild_cache($_POST['plugins']);
@@ -69,18 +70,21 @@
 	// Deinstall plugins.
 	$plugins = plugin_load_from_cache();
 	while (list($key, $val) = @each($prev_plugins)) {
+		$ok = $err = null;
 		if (! in_array($val, $plugins)) {
 			$disable_func = substr($val, 0, strrpos($val, '.')) .'_disable';
 			if ( strpos($disable_func, '/') ) {
 				$disable_func = substr($disable_func, strpos($disable_func, '/')+1);
 			}
 			if ((include_once($PLUGIN_PATH .'/'. $val)) && function_exists($disable_func)) {
-				$err = $disable_func();
+				list($ok, $err) = $disable_func();
 				if ($err) {
+					unset($_POST['plugins'][$key]);
 					echo errorify('Plugin '. $val .' uninstall error: '. $err);
+					continue;
 				}
 			}
-			echo successify('Plugin '. $val .' was successfully deinstalled and deactivated.');
+			echo $ok ? successify($ok) : successify('Plugin '. $val .' was successfully deinstalled and deactivated.');
 		}
 	}
 

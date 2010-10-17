@@ -43,7 +43,7 @@
 				compile_all($data[0], $data[1], $data[2]);
 				pf(successify('Theme '. $data[2] .' ('. $data[1] .') was successfully rebuilt.'));
 			} catch (Exception $e) {
-				pf(errorify('Please fix theme: '. $e->getMessage()));
+				pf(errorify('Please fix theme '. $data[2] .': '. $e->getMessage()));
 			}
 		}
 		unset($r);
@@ -183,7 +183,7 @@
 			if (file_exists($file .'/name')) {
 				$langname = trim(file_get_contents($file .'/name'));
 			}
-			$selopt .= '<option value="'. $langcode .'"'.($thm_lang == $langcode ? ' selected="selected"' : '').'>'. $langname .'</option>';
+			$selopt .= '<option value="'. $langcode .'"'. ($thm_lang == $langcode ? ' selected="selected"' : '') .'>'. $langname .'</option>';
 
 			$tryloc = file($file .'/locale', FILE_IGNORE_NEW_LINES);
 			$tryloc[] = '';	// Also consider the system's default locale.
@@ -223,7 +223,7 @@ function update_locale()
 
 <tr class="field">
 	<td>Locale:</td>
-	<td><input type="text" name="thm_locale" value="<?php echo htmlspecialchars($thm_locale); ?>" size="12" /></td>
+	<td><input type="text" name="thm_locale" value="<?php echo htmlspecialchars($thm_locale); ?>" /></td>
 </tr>
 
 <tr class="field">

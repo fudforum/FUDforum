@@ -8,6 +8,9 @@
 * under the terms of the GNU General Public License as published by the
 * Free Software Foundation; version 2 of the License.
 **/
+/*TODO: Add support for enchant.
+  http://blog.iwanluijks.nl/2010/10/using-enchant-with-php-on-windows-part.html
+*/
 
 	require('./GLOBALS.php');
 	fud_use('adm.inc', true);

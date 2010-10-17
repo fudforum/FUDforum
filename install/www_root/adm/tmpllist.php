@@ -68,7 +68,7 @@ function fetch_section($data, $file, $section, $type)
 	$ret['len'] = $ef - $ret['offset'];
 	$ret['data'] = substr($data, $te, $ret['len']);
 	if (isset($ti[2]) && ($ti[2] = trim($ti[2]))) {
-		$ret['comment']	= $ti[2];
+		$ret['comment']	= preg_replace('!^// !', '', $ti[2]);	// Remove leading comment indicator.
 	}
 	return $ret;
 }
@@ -77,9 +77,9 @@ function goto_tmpl($tmpl)
 {
 	global $max_list;
 
-	if( !preg_match('!(^|:)'.$tmpl.'!', $max_list) ) $max_list .= ':'.$tmpl;
+	if( !preg_match('!(^|:)'. $tmpl.'!', $max_list) ) $max_list .= ':'. $tmpl;
 
-	return $max_list.'#'.$tmpl;
+	return $max_list .'#'. $tmpl;
 }
 
 	$tname = isset($_POST['tname']) ? $_POST['tname'] : (isset($_GET['tname']) ? $_GET['tname'] : '');
@@ -115,7 +115,7 @@ function goto_tmpl($tmpl)
 		if (!isset($fl)) {
 			exit('Missing template name.<br />');
 		}
-		$f_path = $GLOBALS['DATA_DIR'].'thm/'.$tname.'/tmpl/'.$fl;
+		$f_path = $GLOBALS['DATA_DIR'].'thm/'. $tname .'/tmpl/'. $fl;
 		if (!@file_exists($f_path)) {
 			exit('Non-existent template '. $f_path .'.<br />');
 		} else if (!($data = @file_get_contents($f_path))) {
@@ -157,7 +157,7 @@ function goto_tmpl($tmpl)
 			$p = $e;
 		}
 		if (isset($msg_list)) {
-			$msg_list = ' <font size="-1">[ <a title="Edit embedded messages (popup window)" href="#" onclick="window_open(\'msglist.php?tname='. $tname .'&amp;tlang='. $tlang .'&amp;'.__adm_rsid.'&amp;NO_TREE_LIST=1&amp;msglist='. urlencode(implode(':', $msg_list)) .'\', \'tmpl_msg\', 800, 300);">Edit Text Messages</a> ]</font>';
+			$msg_list = ' <font size="-1">[ <a title="Edit embedded messages (popup window)" href="#" onclick="window_open(\'msglist.php?tname='. $tname .'&amp;tlang='. $tlang .'&amp;'. __adm_rsid .'&amp;NO_TREE_LIST=1&amp;msglist='. urlencode(implode(':', $msg_list)) .'\', \'tmpl_msg\', 800, 300);">Edit Text Messages</a> ]</font>';
 		}
 	}
 	require($WWW_ROOT_DISK .'adm/header.php');
@@ -169,19 +169,21 @@ function goto_tmpl($tmpl)
 <b>Available template files:</b><br /><br />
 <?php
 	$path = $DATA_DIR .'thm/'. $tname .'/tmpl';
-	$pathl = $path . '/';
+	$pathl = $path .'/';
 
 	if (!($files = glob($pathl .'*.tmpl', GLOB_NOSORT))) {
 		exit('Unable to open template directory at: "'. $path .'".<br />');
 	}
 	foreach ($files as $f) {
 		$data = file_get_contents($f);
-		$n = basename($f);
+//		$n = basename($f);
+		$file = basename($f);
 
+/* REMOVE - we are reading the template file, why look for its name elsewere?!
 		if ($n == 'footer.tmpl' || $n == 'header.tmpl') {
 			$file = $n;
 		} else {
-			/* fetch file name */
+			// Fetch file name.
 			if (($p = strpos($data, '{PHP_FILE: input: ')) === false) {
 				$file = $n;
 			} else {
@@ -196,6 +198,7 @@ function goto_tmpl($tmpl)
 				$file .= '.tmpl';
 			}
 		}
+*/
 
 		/* Build dependency list. */
 		$p = 0;
@@ -217,7 +220,7 @@ function goto_tmpl($tmpl)
 						$e = strpos($data, '}', $p);
 						$e2 = strpos($data, '{'. $tag .': END}', $e);
 						if ($e === false || $e2 === false) {
-							exit('broken template file "'. $file .'"');
+							exit('Broken template file "'. $file .'"');
 						}
 
 						$d = explode(' ', substr($data, $p, ($e - $p)), 3);
@@ -231,6 +234,7 @@ function goto_tmpl($tmpl)
 							$file_info_array[$file] .= '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="-1">&raquo;</font> <a class="sec" href="tmpllist.php?tname='. $tname .'&amp;tlang='. $tlang .'&amp;'. __adm_rsid .'&amp;edit=1&amp;fl='. $file .'&amp;sec='. urlencode($d[1]) .'&amp;max_list='. $max_list .'">'. $d[1] .'</a>';
 						}
 						if (isset($d[2]) && ($d[2] = trim($d[2]))) {
+							$d[2] = preg_replace('!^// !', '', $d[2]);	// Remove leading comment indicator.
 							if (!$edit) {
 								$file_info_array[$file] .= '<font size="-1" color="#008800">&nbsp;&nbsp;-&gt;&nbsp;&nbsp;'. htmlspecialchars($d[2]) .'</font>';
 							}
@@ -303,25 +307,30 @@ function goto_tmpl($tmpl)
 <td width="100%" valign="top">
 <?php
 	if (isset($update_ok)) {
-		echo '<font color="black"><b>***Theme was successfully updated.***</b></font><br /><br />';
+		echo successify('***Theme was successfully updated.***');
 	}
 ?>
-<font color="#008800"><b>Purpose:</b>
-<?php
-	if (isset($file_info_help[$msec.$sec])) {
-		echo $file_info_help[$msec.$sec];
-	} else if (isset($sdata['comment'])) {
-		echo $sdata['comment'];
-	}
-?>
-</font><br />
+
 <form method="post" action="tmpllist.php?tname=<?php echo $tname; ?>&amp;tlang=<?php echo $tlang; ?>" id="tmpledit">
 <?php echo _hs; ?>
 <table cellspacing="2" cellpadding="1" border="0">
 <tr>
 	<td>
 		<b><?php echo $tmpl; ?></b>:<?php echo (isset($msg_list) ? $msg_list : ''); ?><br />
-		<textarea rows="20" cols="60" name="tmpl_data"><?php echo htmlspecialchars($tmpl_data); ?></textarea>
+		<b>Purpose:</b>
+<?php
+	if (isset($file_info_help[$msec . $sec])) {
+		echo $file_info_help[$msec . $sec];
+	} else if (isset($sdata['comment'])) {
+		echo $sdata['comment'];
+	}
+?>
+		<br />
+		<textarea rows="20" cols="60" wrap="off" name="tmpl_data"><?php echo htmlspecialchars($tmpl_data); ?></textarea>
+		<small>
+		<a href="javascript://" onclick="rs_txt_box(-100, 0);" title="narrower">&lt;&lt;</a> resize 
+		<a href="javascript://" onclick="rs_txt_box(100, 0);" title="wider">&gt;&gt;</a>
+		</small>
 	</td>
 </tr>
 <tr>

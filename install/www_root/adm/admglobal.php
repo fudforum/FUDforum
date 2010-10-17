@@ -320,7 +320,7 @@ $(document).ready(function() {
 	print_bit_field('Allow Registration', 'ALLOW_REGISTRATION');
 	print_bit_field('Allow Login with userid/password', 'LOGIN_WITH_USRPASS');
 	print_bit_field('Allow Login with OpenID URL', 'LOGIN_WITH_URL');
-	print_bit_field('Allow Login Changes', 'ALLOW_LOGIN_CHANGES');
+	print_bit_field('Allow Userid Changes', 'ALLOW_LOGIN_CHANGES');
 	print_bit_field('Allow Password Resets', 'ALLOW_PASSWORD_RESET');
 	print_bit_field('Use Aliases', 'USE_ALIASES');
 	print_reg_field('Registration Time Limit', 'REG_TIME_LIMIT', 1);

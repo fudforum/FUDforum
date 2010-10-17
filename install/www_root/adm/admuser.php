@@ -381,7 +381,7 @@ administration permissions to the forum. This individual will be able to do anyt
 		echo '<tr class="field"><td>Alias:</td><td>'. $u->alias .'</td></tr>';
 	}
 ?>
-	<tr class="field"><td>E-mail:</td><td><?php echo $u->email; ?></td></tr>
+	<tr class="field"><td>E-mail:</td><td><a href="mailto:<?php echo $u->email; ?>"><?php echo $u->email; ?></a></td></tr>
 	<tr class="field"><td>Name:</td><td><?php echo $u->name; ?></td></tr>
 <?php
 	if ($u->home_page) {

@@ -140,11 +140,14 @@ function makedeps()
 		unset($_POST);
 	}
 
+if (isset($_GET['NO_TREE_LIST'])) {
+	define('popup', 1);
+}
+require($WWW_ROOT_DISK .'adm/header.php');
+	
 if (!isset($_GET['NO_TREE_LIST'])) {
 	list($tmplmsglist, $filedeps) = makedeps();
 	ksort($tmplmsglist);
-
-	require($WWW_ROOT_DISK .'adm/header.php');
 ?>
 <table border="0" cellspacing="0" cellpadding="0"><tr><td valign="top">
 
@@ -178,11 +181,15 @@ if (!isset($_GET['NO_TREE_LIST'])) {
 	$msglist = isset($_GET['msglist']) ? $_GET['msglist'] : (isset($_POST['msglist']) ? $_POST['msglist'] : '');
 
 	if ($msglist) {
-		echo '<td valign="top"><form method="post" action="msglist.php?tname='. $tname .'&amp;tlang='. $tlang .'">'. _hs .'<table border="0">';
+		echo '<td valign="top">';	// New col, we have messages to edit.
+		echo '<form method="post" action="msglist.php?tname='. $tname .'&amp;tlang='. $tlang .'">'. _hs .'<table border="0">';
+
 		$msglist_arr[] = strtok(trim($msglist), ':');
 		while (($v = strtok(':'))) {
 			$msglist_arr[] = trim($v);
 		}
+
+		echo (count($msglist_arr) == 1) ? '<h2>Edit message:</h2>' : '<h2>Edit messages:</h2>';
 
 		$data = "\n". file_get_contents($msgfile);
 

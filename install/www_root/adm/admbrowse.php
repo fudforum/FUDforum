@@ -351,7 +351,7 @@ if (!extension_loaded('posix')) {
 		$ext = pathinfo($file, PATHINFO_EXTENSION);
 		if (in_array($ext, array('gz', 'zip', 'tar', 'db'))) {
 			echo errorify('Cannot view binary file.');
-		} elseif (in_array($ext, array('gif', 'jpg', 'png')) && strpos($file, $WWW_ROOT_DISK) !== FALSE) {
+		} elseif (in_array($ext, array('gif', 'jpg', 'jpeg', 'png')) && strpos($file, $WWW_ROOT_DISK) !== FALSE) {
 			echo '<h2>View image: '. $dest .'</h2>';
 			echo '<table border="1" cellpadding="25"><tr><td>';
 			echo '<img src="'. $WWW_ROOT . substr($file, strlen($WWW_ROOT_DISK)) .'">';

@@ -1,0 +1,248 @@
+(function($)
+{
+	// This script was written by Steve Fenton
+	// http://www.stevefenton.co.uk/Content/Jquery-Side-Content/
+	// Feel free to use this jQuery Plugin
+	// Version: 1.0.5
+	
+	$.fn.charts = function (settings) {
+	
+		var config = {
+			classmodifier: "charts",
+			charttype: "bars",
+			direction: "horizontal",
+			labelcolumn: 0,
+			valuecolumn: 1,
+			groupcolumn: -1,
+			duration: 2000,
+			showoriginal: false,
+			chartbgcolours: ["#336699", "#669933", "#339966"],
+			chartfgcolours: ["#FFFFFF", "#FFFFFF", "#FFFFFF"],
+			chartpadding: 8,
+			chartheight: 300,
+			showlabels: true
+		};
+		
+		if (settings) {
+			$.extend(config, settings);
+		}
+		
+		var labelTimer;
+		
+		function RoundToTwoDecimalPlaces(number) {
+			number = Math.round(number * 100);
+			number = number / 100;
+			return number;
+		}
+		
+		function GetHorizontalBarsOutput(groupArray, labelArray, valueArray, totalValue, largestValue) {
+			var output = "";
+			var colourIndex = 0;
+			
+			output += "<ul>";
+			
+			for (var i = 0; i < valueArray.length; i++) {
+			
+				if (colourIndex >= config.chartbgcolours.length) {
+					colourIndex = 0;
+				}
+			
+				var percent = Math.round((valueArray[i] / totalValue) * 100);
+				var barWidth = Math.round((valueArray[i] / largestValue) * 100);
+				
+				var displayLabel = "";
+				if (config.showlabels) {
+					displayLabel = labelArray[i] + "<br>";
+				}
+				
+				output += "<li>" + displayLabel + "<span class=\"" + config.classmodifier + "bar\" style=\"display: block; width: 0%; background-color: " + config.chartbgcolours[colourIndex] + "; color: " + config.chartfgcolours[colourIndex] + "; padding: " + config.chartpadding + "px 0; text-align: right;\" rel=\"" + barWidth + "\" title=\"" + labelArray[i] + " - " + valueArray[i] + " (" + percent + "%)" + "\">" + valueArray[i] + "&nbsp;</span></li>";
+				
+				colourIndex++;
+			}
+			
+			output += "</ul>";
+			
+			return output;
+		}
+		
+		function GetVerticalBarsOutput(groupArray, labelArray, valueArray, totalValue, largestValue) {
+			var output = "";
+			var colourIndex = 0;
+			var leftShim = 0;
+			var shimAdjustment = RoundToTwoDecimalPlaces(100 / labelArray.length);//Math.floor(100 / labelArray.length);
+			var widthAdjustment = shimAdjustment - 1;
+			
+			var groupName = "";
+			var useGroups = false;
+			if (groupArray.length > 0) {
+				useGroups = true;
+			}
+			
+			output += "<div style=\"height: " + config.chartheight + "px; position: relative;\">";
+			
+			for (var i = 0; i < valueArray.length; i++) {
+			
+				if (colourIndex >= config.chartbgcolours.length) {
+					colourIndex = 0;
+				}
+			
+				var percent = Math.round((valueArray[i] / totalValue) * 100);
+				var barHeight = Math.round((valueArray[i] / largestValue) * 100);
+
+				// Group headings
+				if (useGroups) {
+					if (groupArray[i] != groupName) {
+						groupName = groupArray[i];
+						colourIndex = 0;
+						groupWidth = 0;
+						for (var j = i; j < valueArray.length; j++) {
+							if (groupArray[j] == groupName) {
+								groupWidth = groupWidth + (shimAdjustment -0.3);
+							}
+						}
+						output += '<div class="' + config.classmodifier + 'group" style="text-align: center; z-index: 1000; position: absolute; bottom: -1.5em; left: ' + leftShim + '%; display: block; background-color: ' + config.chartbgcolours[colourIndex] + '; color: ' + config.chartfgcolours[colourIndex] + '; width: ' + groupWidth + '%;">' + groupName + '</div>';
+					}
+				}
+				
+				// Labels
+				var displayLabel = "";
+				if (config.showlabels) {
+					displayLabel = "<span style=\"display: block; width: 100%; position: absolute; bottom: 0; text-align: center; background-color: " + config.chartbgcolours[colourIndex] + ";\">" + labelArray[i] + "</span>"
+				}
+				
+				// Column
+				output += "<div class=\"" + config.classmodifier + "bar\" style=\"position: absolute; bottom: 0; left: " + leftShim + "%; display: block; height: 0%; background-color: " + config.chartbgcolours[colourIndex] + "; color: " + config.chartfgcolours[colourIndex] + "; width: " + widthAdjustment + "%; text-align: center;\" rel=\"" + barHeight + "\" title=\"" + labelArray[i] + " - " + valueArray[i] + " (" + percent + "%)" + "\">" + valueArray[i] + displayLabel + "</div>"
+
+				leftShim = leftShim + shimAdjustment;
+				
+				colourIndex++;
+			}
+			
+			output += "</div>";
+			
+			return output;
+		}
+		
+		return this.each(function () {
+			
+			// Validate settings
+			if (config.chartbgcolours.length != config.chartfgcolours.length) {
+				alert("Invalid settings, chartfgcolours must be same length as chartbgcolours");
+			}
+			
+			var $table = $(this);
+			
+			// Caption
+			var caption = $(this).children("caption").text();
+			
+			// Headers
+			var maxColumn = Math.max(config.valuecolumn, config.labelcolumn, config.groupcolumn);
+			var headers = $(this).find("thead th");
+			if (headers.length <= maxColumn) {
+				alert("Header count doesn't match settings");
+			}
+			
+			// Values
+			var values = $(this).find("tbody tr");
+			
+			var labelArray = new Array();
+			var valueArray = new Array();
+			var groupArray = new Array();
+			
+			var totalValue = 0;
+			var largestValue = 0;
+			var currentGroup = "";
+			
+			// Creates a list of values and a total (and sets groups if required)
+			for (var i = 0; i < values.length; i++) {
+				if (config.groupcolumn > -1) {
+					groupArray[groupArray.length] = $(values[i]).children("td").eq(config.groupcolumn).text();
+				}
+				var valueString = $(values[i]).children("td").eq(config.valuecolumn).text();
+				if (valueString.length > 0) {
+					var valueAmount = parseInt(valueString, 10);
+					labelArray[labelArray.length] = $(values[i]).children("td").eq(config.labelcolumn).text();
+					valueArray[valueArray.length] = valueAmount;
+					totalValue = totalValue + valueAmount;
+					if (valueAmount > largestValue) {
+						largestValue = valueAmount;
+					}
+				}
+			}
+			
+			// Containing division
+			var output = "<h3>" + caption + "</h3>" +
+				"<div class=\"" + config.classmodifier + "container\">" +
+				"<div class=\"" + config.classmodifier + "label\">&nbsp;</div>";
+			
+			// Get output based on chart type
+			switch (config.charttype) {
+			
+				case 'bars':
+				
+					switch (config.direction) {
+						
+						case 'horizontal':
+							// Horizontal Bars
+							output += GetHorizontalBarsOutput(groupArray, labelArray, valueArray, totalValue, largestValue);
+							break;
+							
+						case 'vertical':
+							// Vertical Bars
+							output += GetVerticalBarsOutput(groupArray, labelArray, valueArray, totalValue, largestValue);
+							break;
+
+					}
+					break;
+			
+			}
+			
+			// Close container
+			output += "</div>";
+			
+			// Show the chart
+			$table.after(output);
+			
+			if (!config.showoriginal) {
+				$table.hide();
+			}
+			
+			// Animation
+			$("." + config.classmodifier + "bar").each( function() {
+				var calculatedSize = $(this).attr("rel");
+				
+				switch (config.direction) {
+					case "horizontal":
+						$(this).animate({ width: calculatedSize+"%" }, config.duration);
+						break;
+					case "vertical":
+						$(this).animate({ height: calculatedSize+"%" }, config.duration);
+						break;
+				}
+			});
+			
+			// Labels
+			$("." + config.classmodifier + "bar").mouseover( function() {
+				window.clearTimeout(labelTimer);
+				var $Label = $(this).parents("." + config.classmodifier + "container").find("." + config.classmodifier + "label");
+				var $Bar = $(this);
+				$Label.html("<div style=\"width: 70%; margin: 0 auto;\">" + $Bar.attr("title") + "</div>");
+				$Label.find("div").css({ "text-align": "center", color: $Bar.css("background-color"), "background-color": $Bar.css("color") });
+				var labelHeight = $Label.find("div").height();
+				$Label.css({ height: labelHeight });
+				return false;
+			});
+			
+			$("." + config.classmodifier + "bar").mouseleave( function() {
+				var $Bar = $(this);
+				labelTimer = window.setTimeout(function () {
+					$Bar.parents("." + config.classmodifier + "container").find("." + config.classmodifier + "label div").fadeOut("slow");
+				}, 1000);
+				return false;
+			});
+			
+		});
+		
+		return this;
+	};
+})(jQuery);
