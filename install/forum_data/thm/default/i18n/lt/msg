@@ -59,6 +59,7 @@ logged_in_list:Prisijungusių narių sąrašas
 login:Prisijungti
 login_header:Prisijungimas:
 logout:Atsijungti
+# Fuzzy
 mark_all_read:pažymėti visas žinutes kaip skaitytas
 members:Nariai
 message:Žinutė

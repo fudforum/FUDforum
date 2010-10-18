@@ -67,7 +67,7 @@ logged_in_list:Зараз на форумі
 login:Вхід
 login_header:Логін:
 logout:Вийти
-mark_all_read:позначити всі повідомлення прочитаними
+mark_all_read:Позначити всі повідомлення прочитаними
 mark_all_read_desc:Усі Ваші непрочитані повідомлення будуть помічені як прочитані
 members:Учасники
 calendar:Календар
@@ -1038,7 +1038,7 @@ uc_sub_topics:Підписані теми з новими повідомленн
 uc_page_title:Перегляд особистій панелі управління.
 search_options:Параметри пошуку
 search_user_filter:Фільтр по користувачу:
-register_none:Не повідомляти
+register_none:Не повідомляти мене
 findu_no_conf:підтверджений користувач
 register_max_sig_len:Максимальна довжина:
 register_turing:Будь ласка, введіть код, вказаний нижче:

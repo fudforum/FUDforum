@@ -64,7 +64,7 @@ logged_in_list:Lischt vu dr aagmäldete Benutzer
 login:Aamälde
 login_header:Aamälde:
 logout:Abmälde
-mark_all_read:alli Byytreg as gläse markiere
+mark_all_read:Alli Byytreg as gläse markiere
 mark_all_read_desc:Alli Dyyni uugläsene Byytreg wäre as gläse markiert
 members:Miglider
 calendar:Kaländer
@@ -1035,7 +1035,7 @@ uc_sub_topics:Abonnierti Themene mit neje Byytreg
 uc_page_title:Am Aaluege vum eigene Profil
 search_options:Suechoptione
 search_user_filter:No Benutzer filtere:
-register_none:Nit benochrichtige
+register_none:Mi nit benochrichtige
 findu_no_conf:nit bstetigte Benutzer
 register_max_sig_len:Maximali Lengi:
 register_turing:Bitte gib dr Code yy, wu unte aazeigt wird:
@@ -1123,3 +1123,4 @@ feed_rdf:RDF-Feed
 feed_rss:RSS2-Feed
 feed_atom:Atom-Feed
 ip_whois_connect_err:Cha kei Verbindig härstelle zum WHOIS-Server ({VAR: whois_server}): {VAR: errstr}
+custom_filed_required:Pflichtfäld.

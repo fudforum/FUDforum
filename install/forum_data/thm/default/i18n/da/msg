@@ -62,6 +62,7 @@ logged_in_list:Liste over indloggede brugere
 login:Log ind
 login_header:Logind-navn:
 logout:Log ud
+# Fuzzy
 mark_all_read:Markér alle beskeder som læste
 mark_all_read_desc:Alle dine ulæste beskeder vil blive markeret som læste
 members:Medlemmer
@@ -998,6 +999,7 @@ uc_sub_topics:abonnerede emner med nye beskeder
 uc_page_title:Visning af personligt kontrolpanel.
 search_options:Søgeindstillinger
 search_user_filter:Filtrer efter bruger:
+# Fuzzy
 register_none:Advisér ikke
 findu_no_conf:ubekræftet bruger
 register_max_sig_len:Største længde:

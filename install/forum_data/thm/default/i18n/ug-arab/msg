@@ -1,0 +1,424 @@
+# Messages for ئۇيغۇرچە (ئۇيغۇرچە)
+# Exported from translatewiki.net
+# Author: Sahran
+
+action:مەشغۇلات
+add_to_buddy_list:دوستلار تىزىملىكىگە قوش
+admin:باشقۇرغۇچى
+admin_control_panel:باشقۇرغۇچى تىزگىن تاختا
+administrator:سىستېما باشقۇرغۇچى
+attachment:قوشۇمچە:
+avatar:چىراي ئىپادە:
+average_post_count:{PLURAL: u->posted_msg_count|$1 ئۇچۇر|$1 ئۇچۇر} ({PLURAL: avg| كۈندىلىك ئوتتۇرىچە ئۇچۇر سانى $1|كۈندىلىك ئوتتۇرىچە ئۇچۇر سانى $1} )
+biography:تەرجىمىھال:
+birth_date:تۇغۇلغان كۈن:
+by:يوللىغۇچى:
+by_mod:رىياسەتچى:
+current_time:نۆۋەتتىكى ۋاقىت
+custom_avatar_queue:ئىختىيارى سىما تىزىملىكى
+date_posted:يوللانغان ۋاقتى
+date_registered:خەتلەتكەن ۋاقىت:
+download_counter: {PLURAL: v[3]|$1 قېتىم|$1 قېتىم} چۈشۈرۈلدى
+pmsg_download_counter:{PLURAL: r->dlcount|$1 قېتىم|$1 قېتىم} چۈشۈرۈلدى
+email::ئېلخەت
+email_to_friend:ددوستۇمغا ئېلخەت
+email_to_friend_desc:بۇ بەتنىڭ URL نى دوستىڭىزنىڭ ئېلخەتىگە ئەۋەتىدۇ
+email_user:ئىشلەتكۈچىگە ئېلخەت ئۇچۇرى يوللا
+faq:ياردەم
+first_unread_msg:ئوقۇمىغان ئۇچۇرغا يۆتكەل
+first_unread_msg_desc:بۇ تېمادىكى ئوقۇمىغان بىرىنچى ئۇچۇرغا يۆتكەل
+flat_view:كۆڭۈلدىكى تەكشى كۆرۈنۈشكە قايت
+forum:مۇنبەر:
+forum_icon:مۇنبەر سىنبەلگەسى
+forum_new_messages:يېڭى ئۇچۇرلار
+forum_none_messages:مۇنبەرگە خەتلەتكەن ئەزالارلا ئۇچۇرلارنىڭ ئوقۇلغان ياكى ئوقۇلمىغانلىقىنى ئىزلىيالايدۇ
+forum_old_messages:يېڭى ئۇچۇر يوق
+from:مەنبە:
+gender:جىنسى:
+go:يۆتكەل
+goto_next_msg:كېيىنكى ئۇچۇرغا يۆتكەل
+goto_prev_msg:ئالدىنقى ئۇچۇرغا يۆتكەل
+home:باش بەت
+homepage:باش بەت:
+icq_control_panel:ICQ توردا ئۇچۇرى
+icq_message_form:ICQ ئۇچۇر تىزىملىكى:
+ignore_user:بۇ ئىشلەتكۈچىنىڭ ھەممە ئۇچۇرلىرىغا پەرۋا قىلما
+im_aim::AIM
+im_msnm::MSN
+im_yahoo::Yahoo
+image:سۈرەت:
+index_forum:مۇنبەر
+index_new_posts:ئاخىرقى زىيارەتتىن كېيىنكى يېڭى ئۇچۇرلار
+index_no_new_posts:ئاخىرقى زىيارەتتىن كېيىن يېڭى ئۇچۇرلار يوق
+index_url_redirection:قايتا نىشانلا
+interests:قىزىقىش:
+last_post:ئاخىرقى ئۇچۇر
+last_thread_msg:بۇ تېمىدىكى ئاخىرقى ئۇچۇرغا يۆتكەل
+legend:بەلگە
+location:يەر:
+lock_thread:تېما قۇلۇپلا
+locked:قۇلۇپلانغان
+locked_with_new_posts:(قۇلۇپلانغان ئوقۇلمىغان ئۇچۇرلار)
+logged_in_list:تىزىمغا كىرگەن ئەزالار تىزىملىكى
+login:تىزىمغا كىر
+login_header:تەخەللۇس:
+logout:تىزىمدىن چىق
+mark_all_read:ھەممە ئۇچۇرغا ئوقۇلدى بەلگىسى سال
+mark_all_read_desc:سىز ئوقۇمىغان ھەممە ئۇچۇرغا ئوقۇلدى بەلگىسى قويۇلىدۇ
+members:ئەزالار
+calendar:يىلنامە
+cal_goto_date:ئاتلا:
+cal_day_heading:كۈندىلىك پائالىيەت
+cal_no_events:.كۈندىلىك پائالىيەت يوق
+cal_update:مۇنبەر يىلنامىسىغا كۆز يۈگۈرتۈۋاتىدۇ
+message:ئۇچۇر
+message_counter:ئىشلەتكۈچى <b>{PLURAL: thread_count|$1 تېما|$1 تېما}</b> دا جەمئى <b>{PLURAL: post_count|$1 ئۇچۇر|$1 ئۇچۇر}</b> يوللىدى.
+message_index:ئۇچۇر ئىندېكسى
+message_index_desc:ئۇچۇر تىزىملىكىنى كۆرسەت
+minimize_category:كاتېگورىيە كىچىكلەت
+minimize_message:ئۇچۇرنى كىچىكلەت
+moderation_queue:رىياسەتچىلەر تىزىملىكى
+moderator:رىياسەتچى
+moderator_of:رىياسەتچىسى:
+moderator_options:رىياسەتچى تاللانما
+moderators:{PLURAL: modcount|رىياسەتچى|رىياسەتچى}
+more_unread_messages:تېخىمۇ كۆپ ئوقۇمىغان ئۇچۇرلار
+more_unread_messages_desc:ئوقۇلمىغان تېخىمۇ كۆپ ئۇچۇرنى كۆرسىتىپ، نۆۋەتتىكى ئۇچۇرلارغا ئوقۇلدى بەلگىسى قوي
+move_thread:يۆتكە
+moved:باشقا مۇنبەرگە يۆتكەلدى
+moved_thread_message:بۇ تېما باشقا مۇنبەرگە يۆتكىلىدۇ
+na:ھازىرچە يوق
+new_posts:يېڭى ئۇچۇرلار
+new_private_messages:سىزنىڭ <span class="GenTextRed">({VAR: c})</span> ئوقۇلمىغان {PLURAL: c|شەخسىي ئۇچۇر|شەخسىي ئۇچۇر}ىڭىز بار
+new_thread:يېڭى تېما قۇر
+newest_user:يېڭى خەتلەتكەن ئەزا
+next_page:كېيىنكى بەت
+next_thread:كېيىنكى تېما:
+no_messages: بۇ مۇنبەردە ھېچقانداق ئۇچۇر يوق.
+no_msg_body:ئۇچۇر گەۋدىسى يوق
+no_new_posts:يېڭى ئۇچۇر يوق
+no_posts:ئۇچۇر يوق
+no_subscribed_forums:مۇشتەرى بولغان مۇنبەر يوق
+no_subscribed_threads:مۇشتەرى بولغان تېما يوق
+no_bookmarked_threads:خەتكۈچكە قوشقان تېما يوق
+no_unread_locked:بۇ تېما قۇلۇپلانغان
+no_unread_msg:بۇ تېمادا ئوقۇلمىغان ئۇچۇر يوق
+no_unread_msg_unreg:خەتلەتكەن ئىشلەتكۈچىلەرلا ئۇچۇرغا ئوقۇلدى ئوقۇلمىدى دەپ بەلگە قويالايدۇ
+num_pages:بەت({VAR: ttl_pg}):
+num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|بىلەت|بىلەت}
+occupation:كەسپى:
+off:ياپ
+on:ئاچ
+page_timings:بەت ھاسىل قىلىشقا كەتكەن ۋاقىت: {PLURAL: page_gen_time|$1 سېكۇنت}
+pm:شەخسىي ئۇچۇر
+poll:تەكشۈرۈش:
+post_count:ئۇچۇر سانى {VAR: u_pcount}
+post_count_l:ئۇچۇر سانى:
+posts:ئۇچۇرلار
+posts_c:ئۇچۇرلار:
+prev_thread:كېيىنكى تېما:
+usrinfo_private_message:شەخسىي ئۇچۇر:
+profile:تىزگىن تاختا
+profile_desc:ئىشلەتكۈچى تىزگىن تاختا زىيارەت
+rate_thread:تېمىغا باھا
+rating:باھا
+rating_track:تېما باشقۇرۇش باھاسى <b>{VAR: thr->subject}</b>:
+refresh_list:تىزىملىك يېڭىلا
+register:خەتلەت
+registered:خەتلەتكەن ۋاقتى:
+registered_on:خەتلەتكەن ۋاقتى {TEMPLATE: registered_on_date}
+replies:جاۋاب
+report_to_mod:رىياسەتچىگە ئۇچۇر مەلۇم قىل
+reported_messages:مەلۇم قىلىنغان ئۇچۇر
+reveal_all_posts: {VAR: user_login}نىڭ ھەممە ئۇچۇرىنى كۆرسەت
+reveal_post:كۆرسەتكەن ئۇچۇر
+search:ئىزدە
+sel_todays_posts:بۈگۈنكى ئۇچۇرلار
+sel_todays_posts_desc:بۈگۈنكى ئۇچۇرلارنىلا كۆرسەت
+sel_unanswered_posts:جاۋابسىز ئۇچۇرلار
+sel_unanswered_posts_desc:جاۋابسىز تېمىلارنىلا كۆرسەت
+sel_unread_messages:ئوقۇلمىغان ئۇچۇرلار
+sel_unread_messages_desc:ئوقۇلمىغان ئۇچۇرلارنىلا كۆرسەت
+send:يوللا
+send_pm_desc:بۇ ئىشلەتكۈچىگە شەخسىي ئۇچۇر يوللا
+sender_email:يوللىغۇچى ئېلخەت:
+sender_name:يوللىغۇچى ئاتى:
+show_posts_by:{VAR: u_alias} ئىشلەتكۈچىنىڭ ئۇچۇرلىرىنى كۆرسەت
+size:چوڭلۇقى:
+status:دەرىجە:
+status_line:بۇ مۇنبەرنى <b>{PLURAL: st_obj->online_users_reg|$1 ئەزا|$1 ئەزا}</b>،<b>{PLURAL: st_obj->online_users_hidden|$1 يوشۇرۇن ئەزا|$1 يوشۇرۇن ئەزا}</b> and <b>{PLURAL: st_obj->online_users_anon|$1 مېھمان|$1 مېھمان}</b> زىيارەت قىلىۋاتىدۇ.
+sticky:چوققا:
+stop_ignoring:بۇ ئىشلەتكۈچىگە پەرۋا قىلماسلىقنى توختات
+sub_to_thread:بۇ تېمىغا مۇشتەرى بول
+sub_to_thread_desc:بۇ تېمىنىڭ ئەڭ يېڭى جاۋاب ئۇچۇر ئۇقتۇرۇشىنى قوبۇل قىل
+bookmark_thread:تېمىنى خەتكۈچكە قوش
+bookmark_thread_desc:بۇ تېمىنى خەتكۈچ تىزىملىكىڭىزگە قوشىدۇ
+subject:تېما
+subscribe:مۇشتەرى بول
+subscribe_desc:مۇنبەرگە يېڭى تېما يوللانسا ماڭا ئۇقتۇر
+subscribed_forums:مۇشتەرى بولغان مۇنبەرلەر
+subscribed_forums_desc:مۇشتەرى بولغان مۇنبەر ئۇچۇرىنىلا كۆرسەت
+subscribed_threads:مۇشتەرى بولغان تېمالار
+subscribed_threads_desc:مۇشتەرى بولغان مۇنبەر تېمىسىنىلا كۆرسەت
+bookmarked_threads:خەتكۈچكە قوشقان تېمالار
+switch_to_thread_view:بۇ تېمىنىڭ شاخسىمان كۆرۈنۈشىگە ئالماشتۇر
+thread:تېما:
+thread_announcement:ئېلان:
+thread_first_unread_msg:بۇ تېمادىكى ئوقۇمىغان بىرىنچى ئۇچۇرغا يۆتكەل
+thread_thread:تېما
+threads:تېمالار
+time:سائەت
+todays_posts:بۈگۈنكى ئۇچۇرلار
+todays_posts_desc:بۈگۈن يوللانغان ھەممە ئۇچۇرنى كۆرسەت
+un_ignore_user:بۇ ئىشلەتكۈچىنىڭ ئۇچۇرىغا پەرۋا قىلماسلىقنى توختات
+unanswered_posts:جاۋابسىز ئۇچۇرلار
+unanswered_posts_desc:جاۋابسىز ئۇچۇرلارنىڭ ھەممىسىنى كۆرسەت
+unlock_thread:تېما قۇلۇپىنى ئاچ
+unread_msg:بۇ تېمىدا سىز ئوقۇمىغان ئۇچۇر بار
+unread_msg_locked:ئوقۇلمىغان قۇلۇپلانغان تېما
+unread_posts:ئوقۇلمىغان ئۇچۇرلار
+unread_posts_desc:ئوقۇمىغان ھەممە ئۇچۇرلارنى كۆرسەت
+unsub_from_thread:بۇ تېمىغا مۇشتەرى بولما
+unsub_from_thread_desc:بۇ تېمىنىڭ ئەڭ يېڭى جاۋاب ئۇچۇر ئۇقتۇرۇشىنى توختات
+unbookmark_thread:خەتكۈچتىن چىقىرىۋەت
+unbookmark_thread_desc:بۇ تېمىنى خەتكۈچ تىزىملىكىڭىزدىن چىقىرىۋېتىدۇ.
+unsubscribe:مۇشتەرى بولما
+unsubscribe_desc:بۇ مۇنبەرنىڭ ئەڭ يېڭى جاۋاب ئۇچۇر ئۇقتۇرۇشىنى توختات
+updated_on::يېڭىلانغان ۋاقتى
+user:ئىشلەتكۈچى
+user_counter:<b>{VAR: st_obj->user_count}</b> خەتلەتكەن{PLURAL: st_obj->user_count|ئىشلەتكۈچى|ئىشلەتكۈچى}مىز بار.
+user_info:ئىشلەتكۈچى ئۇچۇرى
+user_info_l:ئىشلەتكۈچى ئۇچۇرى {VAR: u->alias}
+user_offline:{VAR: obj->login} ھازىر توردا ئەمەس
+user_online:{VAR: obj->login} ھازىر توردا
+usrinfo_last_post:ئاخىرقى ئۇچۇر:
+view_results:نەتىجىلەرنى كۆرسەت
+views:كۆرۈنۈش
+vote:{PLURAL: frm->n_rating|$1 بىلەت|$1 بىلەت}
+vote_button:بىلەت
+vote_for_thread:بىلەت
+was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> رىياسەتچى <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> غا يۆتكىدى.
+welcome_message:مەرھابا <b>{VAR: usr->alias}</b>، سىز ئۆتكەن قېتىم  {TEMPLATE: welcome_message_date} زىيارەت قىلغان
+what_ppl_doing:زىيارەتچىلەرنىڭ مەشغۇلاتىنى كۆرسەت
+reported_del_report:دوكلاتنى ئۆچۈر
+reported_reason:سەۋەب
+reported_on:ھەققىدە:
+reported_reported_by::دوكلات يوللىغۇچى
+reported_reported_msg:مەلۇم قىلىنغان ئۇچۇر
+modque_pending_approval:تەستىق كۈتۈۋاتقان ئۇچۇرلار
+modque_approve:تەستىق
+modque_delete:ئۆچۈر
+modque_no_message:تەستىقلىنىدىغان ئۇچۇر يوق
+pmsg_new_messages:ئوقۇلمىغان شەخسىي ئۇچۇر
+pmsg_old_messages:شەخسىي ئۇچۇر ئوقۇ
+deny_recipt:قوبۇل قىلىشنى رەت قىل
+deny_recipt_desc:بۇ ئۇچۇرنى ئوقۇغاندىن كېيىن جەزملەش ئۇچۇرى يوللىما
+restore_to:ئەسلىگە كەلتۈرۈش ئورنى:
+move_to:يۆتكەش ئورنى:
+list_referes_referrals:نامزاتلار
+list_referes_members:نامزات ئەزالار
+list_referes_member:ئەزا
+referals_none:تېخى نامزات يوق
+referals_refered_by:نامزاتلىققا كۆرسىتىلگەن مۇنبەر ئەزالىرى: <b><a href="{TEMPLATE: referals_refered_by_lnk}" class="thLnk">{VAR: p_user[1]}</a></b>
+referals_post_count:ئۇچۇر سانى
+referals_registered_on:خەتلەتكەن ۋاقتى
+referals_action:مەشغۇلات
+pmsg_all:ھەممىسى
+pmsg_none:يوق
+folder:قىسقۇچ:
+pmsg_replied:جاۋاب بېرىلدى
+pmsg_forwarded:ئالدىغا
+pmsg_subject:تېما
+pmsg_author:يازغۇچى
+pmsg_time:سائەت
+pmsg_selected:تاللانغان
+pmsg_delete:ئۆچۈر
+cur_ppage_pm:شەخسىي ئۇچۇر
+writing_pm:شەخسىي ئۇچۇر يېزىۋاتىدۇ
+browsing_folder:<b>{VAR: folders[$folder_id]}</b> قىسقۇچقا كۆز يۈگۈرتۈۋاتىدۇ
+inbox:قوبۇللاش ساندۇقى
+draft:دەسلەپكى نۇسخا
+sent:يوللاش ساندۇقى
+trash:ئەخلەتخانا
+msg_author:يازغۇچى
+avatar_sel_form:سىما تاللاش جەدۋىلى
+no_avatars:ئىشلىتىلىشچان سىما يوق
+month_1:قەھرىتان
+month_2:ھۇت
+month_3:نەۋرۇز
+month_4:ئۇمۇت
+month_5:باھار
+month_6:سەپەر
+month_7:چىللە
+month_8:تومۇز
+month_9:مىزان
+month_10:ئوغۇز
+month_11:ئوغلاق
+month_12:كۆنەك
+sunday:يەكشەنبە
+sunday_short:ي
+monday:دۈشەنبە
+monday_short:د
+tuesday:سەيشەنبە
+tuesday_short:س
+wednesday:چارشەنبە
+wednesday_short:چ
+thursday:پەيشەنبە
+thursday_short:پ
+friday:جۈمە
+friday_short:ج
+saturday:شەنبە
+saturday_short:ش
+male:ئەر
+female:ئايال
+unspecified:مەخپىي
+register_tree_view:دەرەخسىمان كۆرۈنۈش
+register_msg_tree_view:كۆرۈنۈشنى ياي/دەرەخسىمان كۆرۈنۈش
+register_tree_msg_view:دەرەخسىمان كۆرۈنۈش/كۆرۈنۈشنى ياي
+register_flat_view:تۈز كۆرۈنۈش ۋە تېما تىزىملىكى
+use_forum_default:مۇنبەر كۆڭۈلدىكىنى قوللان
+finduser_user_info:ئىشلەتكۈچى ئۇچۇرى
+finduser_by_login:تىزىمغا كىرگۈچى:
+finduser_submit:ئىزدە:
+finduser_no_such_user:بۇنداق ئىشلەتكۈچى يوق
+finduser_user:ئىشلەتكۈچى
+finduser_postcount:ئۇچۇر سانى
+finduser_joindate:خەتلەتكەن چېسلا
+finduser_action:مەشغۇلات
+yes:ھەئە
+no:ياق
+register_email:ئېلخەت
+edit_time_limit:<b>تەھرىرلەش ۋاقىت چېكى</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> مىنۇت
+no_edit_time_limit:<b>تەھرىرلەش ۋاقىت چېكى</b>: <b>چەكلەنمەيدۇ</b>
+pmuserloc_login:تىزىمغا كىر:
+pmuserloc_submit:تاپشۇر
+pmuserloc_user:ئىشلەتكۈچى
+pmuserloc_no_result:نەتىجە يوق
+register_builtin:باش سۈرەت:
+register_specify_url:بەلگىلەنگەن URL
+register_uploaded:سىما يۈكلە
+register_login:تىزىمغا كىر:
+register_password:ئىم:
+register_conf_pass:ئىم جەزملە:
+register_email_desc:ئىناۋەتلىك ئېلخەت ئادرېسىنى كىرگۈزۈڭ. تۆۋەندىكى مايىللىق بۆلىكىدە مۇنبەردە ئېلخەت ئادرېسىڭىزنى كۆرسەتمەسلىكنى تاللىسىڭىز بولىدۇ.
+register_name:ئاتى:
+register_your_pass:ئىم:
+register_update:يېڭىلا
+register_avatar_type:سىما تىپى:
+register_del_avatar:سىما ئۆچۈر
+register_avatar:سىما:
+register_sel_avatar:سىما تاللاش
+register_custom_avatar_url:ئىختىيارى سىما URL:
+register_preview:ئالدىن كۆزەت
+register_custom_avatar_upload:ئىختىيارى سىما ھۆججەت:
+register_register:خەتلەت
+register_required:زۆرۈر ئۇچۇرلار
+register_required_desc:ھەممە سۆز بۆلەكلىرىنى تولدۇرۇش لازىم. دىققەت ئىم چوڭ كىچىك يېزىلىشنى پەرقلەندۈرىدۇ.
+register_optional:تاللاشچان ئۇچۇر
+register_optional_desc:ئۇچۇرىڭىزنى باشقا مۇنبەر ئەزالىرى كۆرەلىگەنلىكتىن، ئۇچۇرلىرىڭىزنى تولدۇرغاندا شەخسىي ئۇچۇرلىرىڭىزنى ئاشكارىلاماڭ.
+register_location:ئورنى:
+register_occupation:كەسپى:
+register_interests:قىزىقىش:
+register_image:سۈرەت:
+register_icq:ICQ:
+register_aim::AIM
+register_yahoo:ياخۇ مۇڭداشقۇ:
+register_msnm:MSN مۇڭداشقۇ:
+register_homepage:باش بەت:
+register_bday:تۇغۇلغان كۈن:
+register_bday_desc:ئەگەر تۇغۇلغان كۈننى تاللىسىڭىز، باشقا مۇنبەرنىڭ ئەزالىرى سەپلىمە ھۆججىتىڭىزدىن كۆرەلەيدۇ.
+register_day:كۈن
+register_month:ئاي
+register_year:يىل
+register_gender:جىنسى:
+register_bio:تەرجىمىھال:
+register_prefs:مايىللىق
+register_sig:ئىمزا:
+coppa_fax_telephone:تېلېفون:
+coppa_fax_email:ئېلخەت ئادرېس:
+coppa_fax_date:چېسلا:
+login_login:تىزىمغا كىر:
+login_login_btn:تىزىمغا كىر
+login_name_required:تىزىمغا كىرىش ئاتىنى كىرگۈزۈڭ
+login_passwd_required:ئىم كىرگۈزۈڭ
+reset_error:ئېلخەت ئادرېسنى سانداندىن تاپالمىدى
+rpasswd_change_pass:ئىم ئۆزگەرت
+rpasswd_login:تىزىمغا كىر
+rpasswd_cur_pass:نۆۋەتتىكى ئىم:
+rpasswd_new_pass:يېڭى ئىم:
+rpasswd_conf_pass:ئىم جەزملە:
+ruser_title:مۇنبەرگە تىزىمغا كىرىشنى ئۆزگەرت
+ruser_change_user:مۇنبەرگە كىرىشنى ئۆزگەرت
+ruser_cur_login:نۆۋەتتىكى تىزىمغا كىرىش
+ruser_new_login:يېڭى تىزىمغا كىر:
+ruser_cur_pass:نۆۋەتتىكى ئىم:
+login_passwd:ئىم:
+reset_email:ئېلخەت:
+reset_reset_button:ئىمنى ئەسلىگە قايتۇر
+rate_this_thread:باھا
+groupmgr_yes:ھەئە
+groupmgr_no:ياق
+groupmgr_action:مەشغۇلات
+groupmgr_member:ئەزا
+groupmgr_cancel:ۋاز كەچ
+groupmgr_add_member:ئەزا قوش
+groupmgr_update_member:ئەزا يېڭىلا
+groupmgr_edit:تەھرىر
+groupmgr_delete:ئۆچۈر
+group_mgr_anon:ئاتسىز
+group_mgr_reged:خەتلەتكەن ھەممە ئىشلەتكۈچى
+show_show:كۆرسەت:
+group_mgr:گۇرۇپپا باشقۇرغۇچى
+group_mgr_edit_btn:گۇرۇپپا تەھرىر
+group_mgr_heading:گۇرۇپپا تەھرىرلىگۈچى تاللاش
+group_mgr_group:گۇرۇپپا:
+permission_denied_title:ھوقۇق رەت قىلىندى!
+p_READ:ئوقۇ
+p_POST:يوللا
+p_REPLY:جاۋاب
+p_EDIT:تەھرىر
+p_DEL:ئۆچۈر
+p_STICKY:چوققا ئۇچۇر
+p_POLL:بىلەت تاشلاش قۇر
+p_FILE:ھۆججەت قوش
+th_expr_never:ھەرگىز
+th_expr_one_hr:1 سائەت
+th_expr_three_hr:3 سائەت
+th_expr_four_hr:4 سائەت
+th_expr_eight_hr:8 سائەت
+th_expr_sixteen_hr:16 سائەت
+th_expr_one_day:1 كۈن
+th_expr_two_day:2 كۈن
+th_expr_four_day:4 كۈن
+th_expr_one_week:1 ھەپتە
+th_expr_two_week:2 ھەپتە
+th_expr_one_month:1 ئاي
+th_expr_two_month:2 ئاي
+th_expr_four_month:4 ئاي
+th_expr_one_year:1 يىل
+thread_mod_delete:ئۆچۈر
+action_latest_post:ئاخىرقى ئۇچۇر
+online_today_last_visit:ئاخىرقى زىيارەت:
+findu_edit:تەھرىر
+findu_delete:ئۆچۈر
+post_common_bold:توم
+post_common_italics:يانتۇ
+post_common_underline:ئاستى سىزىق
+post_common_align_left:سولغا توغرىلا
+post_common_align_center:ئوتتۇرىغا توغرىلا
+post_common_align_right:ئوڭغا توغرىلا
+post_common_link:ئۇلانمىدىن بىرنى قىستۇر
+post_common_email:ئېلخەت ئادرېستىن بىرنى قىستۇر
+post_common_image:سۈرەتتىن بىرنى قىستۇر
+post_common_nlist:رەقەملىك تەرتىپ قوش
+post_common_blist:بەلگە تەرتىپ قوش
+post_common_quote:نەقىل قوش
+post_common_code:كود قوش
+rating_delete:ئۆچۈر
+btn_small_pm:چ ك
+btn_delete:ئۆچۈر
+btn_edit:تەھرىر
+btn_reply:جاۋاب
+btn_forward:ئالدىغا
+btn_quote:نەقىل
+btn_email:ئېلخەت

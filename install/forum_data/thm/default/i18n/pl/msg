@@ -63,6 +63,7 @@ logged_in_list:Lista zalogowanych użytkowników
 login:Zaloguj się
 login_header:Nazwa użytkownika:
 logout:Wyloguj się
+# Fuzzy
 mark_all_read:zaznacz wszystkie wiadomości jako przeczytane
 mark_all_read_desc:Wszystkie Twoje nieprzeczytane wiadomości zostaną zaznaczone jako przeczytane
 members:Użytkownicy
@@ -1023,6 +1024,7 @@ uc_sub_topics:Subskrybowane Wątki z Nowymi Wiadomościami
 uc_page_title:Osobisty panel sterowania
 search_options:Opcje wyszukiwania
 search_user_filter:Wyłącznie wiadomości użytkownika:
+# Fuzzy
 register_none:Nie powiadamiaj
 findu_no_conf:niezatwierdzony użytkownik
 register_max_sig_len:Maksymalna długość:

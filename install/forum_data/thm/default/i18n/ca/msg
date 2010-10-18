@@ -61,6 +61,7 @@ locked_with_new_posts:Bloquejat (amb missatges no llegits)
 logged_in_list:Llista d`usuaris connectats
 login:Iniciar sessió
 logout:Sortir
+# Fuzzy
 mark_all_read:Marcar tots els missatges no llegits
 mark_all_read_desc:Tots els seus missatges no llegits seran marcats com a llegits
 members:Membres
@@ -995,6 +996,7 @@ uc_sub_topics:Fils subscrits amb missatges nous
 uc_page_title:Veient el panell de control personal
 search_options:Opcions de recerca
 search_user_filter:Filtrar per usuari:
+# Fuzzy
 register_none:No notificar
 findu_no_conf:Usuari sense confirmar
 register_max_sig_len:Longitud màxima:

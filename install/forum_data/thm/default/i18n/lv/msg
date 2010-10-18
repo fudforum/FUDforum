@@ -62,6 +62,7 @@ logged_in_list:Šobrīd forumā
 login:Ieiet
 login_header:Lietotājs:
 logout:Iziet
+# Fuzzy
 mark_all_read:Visus ierakstus iezīmēt kā lasītus
 mark_all_read_desc:Visi ieraksti iezīmēti kā lasīti
 members:Lietotāji
@@ -116,7 +117,7 @@ profile_desc:Nospiest lai pārietu uz vadības paneli
 rate_thread:Novērtēt tēmu
 refresh_list:Atjaunot sarakstu
 register:Reģistrācija
-registered:Piereģistrēts:
+registered:Reģistrēts:
 registered_on:Reģistrācijas datums: {TEMPLATE: registered_on_date}
 replies:Atbildes
 report_to_mod:Paziņojums moderātoram
@@ -390,7 +391,7 @@ disable_smilies:Atslēgt smaidiņus
 spell_check_msg:Pārbaudīt ortogrāfiju
 post_form:Ieraksta nosūtīšana
 post_forum:Forums:
-post_title:Virsraksts:
+post_title:Nosaukums:
 post_body:Teksts:
 post_options:Parametri:
 post_preview_btn:Priekšapskate

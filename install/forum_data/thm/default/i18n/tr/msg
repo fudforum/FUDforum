@@ -64,6 +64,7 @@ logged_in_list:Giriş yapmış kullanıcı listesi
 login:Giriş
 login_header:Kullanıcı ismi:
 logout:Çıkış yap
+# Fuzzy
 mark_all_read:Tüm iletileri okundu olarak işaretle
 mark_all_read_desc:Tüm okumadığınız iletiler okundu olarak işaretlenecek
 members:Üyeler
@@ -1023,6 +1024,7 @@ uc_sub_topics:Abonesi olduğunuz konulardan yeni ileti bulunanlar
 uc_page_title:Denetim Masası
 search_options:Arama Seçenekleri
 search_user_filter:Kullanıcıya göre ara:
+# Fuzzy
 register_none:Haberdar etme
 findu_no_conf:onaylanmamış kullanıcı
 register_max_sig_len:En Fazla Uzunluk:

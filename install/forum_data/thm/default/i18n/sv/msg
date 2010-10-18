@@ -63,6 +63,7 @@ logged_in_list:Lista över inloggade medlemmar
 login:Användarnamn
 login_header:Logga in:
 logout:Logga ut
+# Fuzzy
 mark_all_read:markera alla inlägg som lästa
 mark_all_read_desc:Alla olästa inlägg kommer att markeras som lästa
 members:Medlemmar

@@ -63,7 +63,7 @@ logged_in_list:Aangetekende gebruikers
 login:Teken aan
 login_header:Lid:
 logout:Teken uit
-mark_all_read:merk alle boodskappe as gelees
+mark_all_read:Merk alle boodskappe as gelees
 mark_all_read_desc:Alle boodskappe wat u nog nie gelees het nie sal as gelees gemerk word
 members:Lede
 calendar:Kalender
@@ -1122,3 +1122,4 @@ feed_rdf:RDF-voer
 feed_rss:RSS2-voer
 feed_atom:ATOM-voer
 ip_whois_connect_err:Kon nie 'n verbinding met die WHOIS-bediener ({VAR: whois_server}) bewerkstellig nie: {VAR: errstr}
+custom_filed_required:Die veld is verpligtend.

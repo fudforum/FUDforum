@@ -64,6 +64,7 @@ logged_in_list:Listo de ensalutitaj uzantoj
 login:Ensaluti
 login_header:Ensaluti:
 logout:Elsaluti
+# Fuzzy
 mark_all_read:marki ĉiujn mesaĝojn kiel legitajn
 mark_all_read_desc:Ĉiuj de viaj nelegitaj mesaĝoj estos markitaj kiel legitaj
 members:Forumanoj

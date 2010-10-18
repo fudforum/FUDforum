@@ -66,7 +66,7 @@ locked:Gesperrt
 locked_with_new_posts:Gesperrt (mit ungelesenen Beiträgen)
 logged_in_list:Liste der angemeldeten Benutzer
 login:Anmelden
-login_header:Anmeldung:
+login_header:Benutzername:
 logout:Abmelden
 mark_all_read:Alle Beiträge als gelesen kennzeichnen
 mark_all_read_desc:Alle Beiträge werden als gelesen gekenzeichnet.
@@ -365,7 +365,7 @@ buddy_status:Status
 my_buddies:Meine Buddies
 add_buddy:Buddy hinzufügen
 add:Hinzufügen
-buddy_search:Trage den Login des Benutzers ein, den du hinzufügen möchtest
+buddy_search:Trage den Benutzernamen des Benutzers ein, den du hinzufügen möchtest
 member_search:Oder verwende die <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list',400,250);">Benutzersuche</a>, um einen Benutzer ausfindig zu machen.
 buddy_remove:Entfernen
 post_normal:Normal
@@ -440,7 +440,7 @@ coppa_fax_telephone:Telefon:
 coppa_fax_email:E-Mail-Adresse:
 coppa_fax_date:Datum:
 coppa_fax_questions:Bitte nehmen Sie Kontakt zu <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> auf bei weiteren Fragen
-coppa_fax_login:Login:
+coppa_fax_login:Benutzername:
 coppa_fax_passwd:Passwort:
 coppa_fax_remail:E-Mail:
 coppa_fax_name:Name:
@@ -450,11 +450,11 @@ login_perm_denied:Es ist dir als anonymem Benutzer nicht gestattet, auf die ange
 login_want_to_register:Möchtest du dich registrieren?
 login_forgot_passwd:Passwort vergessen
 login_use_cookie:Cookies verwenden<br /><span class="SmallText">Falls du einen öffentlich zugänglichen Rechner (z.B. in Bibliotheken, Schulen oder Internetcafés) verwendest, ist es ratsam, diesen Menüpunkt für eine erhöhte Sicherheit abzuwählen.<br />Wenn diese Option ausgewählt bleibt, wirst du automatisch in diesem Forum angemeldet, wenn du es in der nächsten Zeit besuchst.</span>
-login_login:Login
+login_login:Benutzername:
 login_login_btn:Anmelden
-login_name_required:Anmeldename erforderlich
+login_name_required:Benutzername erforderlich
 login_passwd_required:Passwort erforderlich
-login_invalid_radius:Ungültige Login/Passwort-Kombination
+login_invalid_radius:Ungültige Benutzername/Passwort-Kombination
 reset_confirmation:Danke für deine Registrierung,\n\nUm dein Konto zu aktivieren, gehe bitte auf die unten angezeigte URL:\n\n{VAR: url}\n\nSobald dein Konto aktiviert ist, wirst du am Forum angemeldet\nund zur Startseite des Forums geleitet.
 reset_reset:Hallo,\n\nDu hast darum gebeten, das Passwort zurückzusetzen, um wirklich das Passwort\nZURÜCKZUSETZEN gehe bitte zu dieser URL\n\n{VAR: url}\n\nACHTUNG: Dieses Forum verschlüsselt die Passwörter nur in eine Richtung, was\nbedeutet, dass sobald du dein Passwort eingegeben hast, es verschlüsselt\nwird, und es KEINE Möglichkeit gibt, es wiederherzustellen. Dies wird\nerreicht, in dem bei der Passworteingabe das Passwort verschlüsselt und auf\nÜbereinstimmung überprüft wird. (Bei Interesse an der\nVerschlüsselungsmethode, schlage unter MD5-Hash-Algorithmus nach.)
 rpasswd_invalid_passwd:Ungültiges Passwort
@@ -464,16 +464,16 @@ reset_remind_pass:Passwort Hinweis
 reset_reset_conf:Dein Passwort wird zurückgesetzt und an dich verschickt, oder falls du deine E-Mail noch nicht bestätigt hast, wird diese Bestätigungsanfrage erneut an dich versendet.
 reset_error:E-Mail-Adresse nicht in der Datenbank gefunden
 rpasswd_change_pass:Passwort ändern
-rpasswd_login:Login:
+rpasswd_login:Benutzername:
 rpasswd_cur_pass:Momentanes Passwort:
 rpasswd_new_pass:Neues Passwort:
 rpasswd_conf_pass:Passwort bestätigen:
-ruser_title:Formular zum Ändern des Logins
-ruser_change_user:Deinen Login ändern
-ruser_cur_login:Aktueller Login:
-ruser_new_login:Neuer Login:
+ruser_title:Formular zum Ändern des Benutzernamens
+ruser_change_user:Deinen Benutzernamen ändern
+ruser_cur_login:Aktueller Benutzername:
+ruser_new_login:Neuer Benutzername:
 ruser_cur_pass:Aktuelles Passwort:
-login_passwd:Passwort
+login_passwd:Passwort:
 reset_email:E-Mail:
 reset_reset_button:Passwort zurücksetzen
 rate_this_thread:Bewerten
@@ -644,10 +644,10 @@ postcheck_email_body:Du kannst keine E-Mail ohne Inhalt verschicken.
 private_msg_notify_subj:Benachrichtigung lesen zu: {VAR: m->subject}
 private_msg_notify_body:Hallo,<br />{VAR: usr->login} hat deine private Nachricht, „{VAR: m->subject}“, am {TEMPLATE: private_msg_notify_body_date} gelesen<br />
 referals_update:Durchsucht die Anwerbungen
-register_err_short_login:Der Anmeldename, den du gewählt hast, ist zu kurz. Er muss mindestens 4 Zeichen enthalten.
-register_err_login_notallowed:Dieser Anmeldename ist nicht erlaubt
-register_err_loginunique:Anmeldenamen für das Forum müssen einmalig sein, es gibt bereits einen Benutzer mit diesem Anmeldenamen im System.
-register_err_emailexists:Diese E-Mail-Adresse wurde schon verwendet, falls du dein Passwort vergessen hast, lasse es bitte zurücksetzen, anstatt dich neu zu registrieren
+register_err_short_login:Der Benutzername, den du gewählt hast, ist zu kurz. Er muss mindestens 4 Zeichen enthalten.
+register_err_login_notallowed:Dieser Benutzername ist nicht erlaubt.
+register_err_loginunique:Benutzernamen für das Forum müssen einmalig sein, es gibt bereits einen Benutzer mit diesem Benutzernamen im System.
+register_err_emailexists:Diese E-Mail-Adresse wurde schon verwendet, falls du dein Passwort vergessen hast, lasse es bitte zurücksetzen, anstatt dich neu zu registrieren.
 register_err_shortpasswd:Das Passwort muss mindestens 6 Zeichen lang sein.
 register_err_passwdnomatch:Deine Passwörter stimmen nicht überein.
 register_err_invalidemail:Die E-Mail-Adresse, die du angegeben hast, ist anscheinend nicht gültig.
@@ -660,7 +660,7 @@ register_err_avatarnotallowed:Der Avatar, den du hochladen möchtest, ist nicht 
 register_conf_subject:Registrierungsbestätigung
 register_conf_msg:Vielen Dank für deine Registrierung,\nUm dein Konto zu aktivieren, gehe bitte auf die unten angegebene Adresse:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nSobald dein Konto aktiviert ist, wirst du am System angemeldet und\nzur Hauptseite des Forums weitergeleitet.
 register_welcome_subject:Registrierungsbestätigung für das Forum
-register_welcome_msg:Vielen Dank für deine Registrierung,\n\nHier sind die Anmeldedetails für das Forum:\n\nForum URL: {TEMPLATE: index_update_lnk}\nAnmeldename: {VAR: uent->login}\nPasswort: {VAR: _POST['reg_plaintext_passwd']}\n\nBitte achte beim Passwort auf Groß- und Kleinschreibung!\nUm die Einstellungen und das Profil zu verändern, gehe bitte auf diese Seite:\n{FULL_ROOT}{ROOT}?t=register
+register_welcome_msg:Vielen Dank für deine Registrierung,\n\nHier sind die Anmeldedetails für das Forum:\n\nAdresse des Forums: {TEMPLATE: index_update_lnk}\nBenutzername: {VAR: uent->login}\nPasswort: {VAR: _POST['reg_plaintext_passwd']}\n\nBitte achte beim Passwort auf Groß- und Kleinschreibung!\nUm die Einstellungen und das Profil zu verändern, gehe bitte auf diese Seite:\n{FULL_ROOT}{ROOT}?t=register
 register_err_cantreg_title:FEHLER: Registrierung nicht möglich
 regsiter_err_cantreg_msg:Nicht in der Lage, das Benutzerkonto zu erstellen, bitte nimm Kontakt zum Administrator auf: <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:Betrachtet das eigene Profil
@@ -672,7 +672,7 @@ reset_err_invalidkey_msg:Ungültiger Schlüssel zum Zurücksetzen des Passwortes
 reset_err_rstconf_title:Information
 reset_err_rstconf_msg:Du solltest in den nächsten Minuten eine Anleitung per E-Mail erhalten.
 reset_newpass_title:Passwort zurücksetzen
-reset_newpass_msg:Hallo,\n\nWie von dir gewünscht, wird dir der Anmeldename zugesendet.\nHier sind deine Anmeldeinformationen:\n\nLogin: {VAR: ui[1]}\nPasswort: {VAR: passwd}\n\nBitte beachte, dass dein Passwort auf obigen angegebenen Wert zurückgesetzt\nwurde, wenn du es ändern willst, so kannst du das in\nden persönlichen Einstellungen tun:\n{FULL_ROOT}{ROOT}?t=register
+reset_newpass_msg:Hallo,\n\nWie von dir gewünscht, werden dir die Anmeldeinformationen zugesendet.\n\nBenutzername: {VAR: ui[1]}\nPasswort: {VAR: passwd}\n\nBitte beachte, dass dein Passwort auf obigen angegebenen Wert zurückgesetzt\nwurde, wenn du es ändern willst, so kannst du das in\nden persönlichen Einstellungen tun:\n{FULL_ROOT}{ROOT}?t=register
 reset_login_notify:Das Passwort wurde an dich versendet. Du solltest es in den nächsten Minuten erhalten. Bitte überprüfe die E-Mail auf Benutzername und Passwort.<br />.<br />.<br />
 search_update:Sucht nach Beiträgen
 selmsg_update:Durchsucht <a href="{TEMPLATE: selmsg_update_lnk}">die heutigen Beiträge</a>
@@ -719,7 +719,7 @@ post_opt_images_off:<b>Bilder</b> sind <b>AUS</b>
 post_opt_smilies_off:<b>Smileys</b> sind <b>AUS</b>
 post_opt:Forumseinstellungen
 register_change_passwd:Passwort ändern
-register_change_login:Login ändern
+register_change_login:Benutzernamen ändern
 approved_avatar_title:Dein persönlicher Avatar wurde genehmigt.
 approved_avatar_msg:Dein Avatar wurde vom Administrator genehmigt. Er sollte nun in sämtlichen von dir erstellten Beiträgen erscheinen. Falls du ihn nicht siehst oder stattdessen den alten Avatar, liegt es daran, dass der Browser die Seite im Cache gespeichert hat. Versuche, die Seite ein- oder zweimal zu aktualisieren, das sollte in den meisten Fällen das Problem beheben.
 unapproved_avatar_title:Dein Benutzeravatar wurde abgelehnt.
@@ -740,7 +740,7 @@ thr_exch_submit:Abschicken
 exch_decline_ttl:Das Verschieben des Themas {VAR: data->subject} ins Forum {VAR: data->f2_name} wurde abgelehnt.
 ppost_original_msg:Nachricht, die du weiterleitest oder beantwortest
 split_thread:Thema aufteilen
-groupmgr_no_user:Es gibt keinen Benutzer mit dem Login „{FUNC: char_fix(htmlspecialchars($gr_member))}“
+groupmgr_no_user:Es gibt keinen Benutzer mit dem Benutzernamen „{FUNC: char_fix(htmlspecialchars($gr_member))}“
 groupmgr_already_exists:Benutzer „{FUNC: char_fix(htmlspecialchars($gr_member))}“ ist bereits in dieser Gruppe vorhanden.
 groupmgr_yes:Ja
 groupmgr_no:Nein
@@ -870,7 +870,7 @@ register_err_not_valid_img:Die angegebene URL enthält kein gültiges Bild.
 pmsg_recepient:Empfänger
 register_err_taken_alias:Der Alias, welchen du verwenden möchtest, wird bereits von einem Forumsmitglied genutzt. Bitte nimm einen anderen Alias.
 register_alias:Alias
-register_alias_desc:Wenn du möchtest, dass dein Nickname, der im Forum angezeigt wird, sich vom Loginnamen unterscheidet, dann trage hier jenen ein, der angezeigt werden soll.
+register_alias_desc:Wenn du möchtest, dass dein Nickname, der im Forum angezeigt wird, sich vom Benutzernamen unterscheidet, dann trage hier jenen ein, der angezeigt werden soll.
 register_allow_pm_msg:Private Nachrichten erlauben
 register_allow_pm_msg_desc:Anderen Benutzern erlauben, dir über das Forum private Nachrichten zu schicken.
 postcheck_pm_disabled:Du kannst an „{VAR-HTML: v}“ keine privaten Nachrichten verschicken, weil diese Person das nicht möchte.
@@ -909,7 +909,7 @@ threadt_update:Durchsucht das Forum (Baumansicht) <a href="{TEMPLATE: threadt_up
 mmod_delete_cofirm_ttl:Bestätigung für Themen/Beitragslöschung
 spell_alts:keine Alternativen
 insert_uploaded_image:Bild in den Beitrag einfügen
-finduser_help:Die Suchmaschine fügt automatisch eine *-Maske deiner Anfrage hinzu, die Suche <b>berücksichtigt Groß- und Kleinschreibung</b>. Um zum Beispiel alle Benutzer zu suchen, deren Login mit einem „a“ beginnt, trägt man „a“ in die Sucheingabe ein.
+finduser_help:Die Suchmaschine fügt automatisch eine *-Maske deiner Anfrage hinzu, die Suche <b>berücksichtigt Groß- und Kleinschreibung</b>. Um zum Beispiel alle Benutzer zu suchen, deren Benutzernamen mit einem „a“ beginnt, trägt man „a“ in die Sucheingabe ein.
 back_to_top:Zurück zum Anfang
 pm_err_disabled_title:Private Nachrichten deaktiviert
 pm_err_disabled_msg:Du kannst keine privaten Nachrichten verschicken, solange du nicht die Option „Private Nachrichten erlauben“ in deinem Profil aktivierst.
@@ -1127,3 +1127,4 @@ feed_rdf:RDF-Feed
 feed_rss:RSS2-Feed
 feed_atom:ATOM-Feed
 ip_whois_connect_err:Verbindung zu WHOIS-Server ({VAR: whois_server}) fehlgeschlagen: {VAR: errstr}
+custom_filed_required:Dies ist ein Pflichtfeld.

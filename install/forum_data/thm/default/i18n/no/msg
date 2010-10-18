@@ -64,12 +64,14 @@ logged_in_list:Liste over medlemmer som er logget inn
 login:Logg inn
 login_header:Logg in:
 logout:Logg ut
-mark_all_read:marker alle innlegg som leste
+mark_all_read:Marker alle innlegg som lest
 mark_all_read_desc:Alle uleste innlegg kommer til å bli markert som leste
 members:Medlemmer
 calendar:Kalender
 cal_goto_date:Gå til:
+cal_day_heading:Aktiviteter for dagen
 cal_no_events:Ingen hendelser for dag.
+cal_update:Blar igjennom forumkalenderen
 message:Innlegg
 message_counter:Våre brukere har postet totalt <b>{PLURAL: post_count|$1 melding|$1 meldinger}</b> i <b>{PLURAL: thread_count|$1 emne|$1 emner}</b>.
 message_index:Innleggsindex
@@ -420,6 +422,7 @@ coppa:<p>En forelder eller formynder må poste eller fakse et signer tillatelses
 prereg_info:Informasjon
 prereg_agree:Jeg godkjenner
 prereg_disagree:Avbryt registreringen
+prereg_update:Leser forumreglene
 coppa_fax_instructions:Instruksjoner for en forelder eller formynder
 coppa_fax_instructions2:Vennligst skriv ut denne siden, undertegn den og fax den til:
 coppa_fax_reg_form:Registreringsformular
@@ -461,6 +464,11 @@ rpasswd_login:brukernavn:
 rpasswd_cur_pass:Nåværende passord:
 rpasswd_new_pass:Nytt passord:
 rpasswd_conf_pass:Bekrefte passord:
+ruser_title:Skjema for å endre innloggingsnavn
+ruser_change_user:Endre foruminnloggingsnavnet ditt
+ruser_cur_login:Nåværende innloggingsnavn:
+ruser_new_login:Nytt innloggingsnavn:
+ruser_cur_pass:Nåværende passord:
 login_passwd:Passord:
 reset_email:E-post:
 reset_reset_button:Nullstill passord
@@ -707,6 +715,7 @@ post_opt_images_off:<b>Bilder</b> er <b>AV</b>
 post_opt_smilies_off:<b>Smilies</b> er <b>AV</b>
 post_opt:Forumalternativ
 register_change_passwd:bytt passord
+register_change_login:endre innloggingsnavn
 approved_avatar_title:Din avatar godkjennes.
 approved_avatar_msg:Din avatar godkjennes av administratoren. Den burde nå vises som din avatar i alle dine innlegg. Om du ikke ser den, eller ser din gamle avatar, beror det på at din webleser har siden i sitt minne. Du kan oppdatere siden en eller et par ganger, det burde løse problemet.
 unapproved_avatar_title:Din avatar ble ikke godkjent.
@@ -877,6 +886,9 @@ search_desc_order:Fallende sortering
 search_asc_order:Stigande ordning
 search_logic:Søkelogikk:
 search_sorting:Sorter resultatene etter dato i:
+search_attach:Vedlegg:
+search_attach_all:Med eller uten
+search_attach_with:Med vedlegg
 post_proceed:Fortsett
 post_moderated_forum:Du har skrevet et innlegg i et modererat forum, hvilket innebærer at innlegget synes først n&aringr forumets moderator og/eller administrator har godkjent det.
 post_moderated_forum_ttl:Melding om modererat forum
@@ -927,6 +939,8 @@ thread_mark_all_read_desc:Alle uleste meldinger i dette forumet vil bli merket s
 private_no_messages:Det er ingen meldinger i denne mappen.
 register_email_change_subject:Bekreftelse på endret e-postadresse
 register_email_change_msg:Bekreft din nye e-postkonto "{VAR: uent->email}" som erstatter din gamle e-postkonto "{VAR: old_email}" ved å gå til nettadressen under:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nNår du har bekreftet din nye e-postadresse vil forumkontoen din ble aktivert igjen.
+iemail_thread_unsub:Stopp abonnement på dette emnet
+iemail_forum_unsub:Stopp abonnement på dette forumet
 primary_group_prefix:Primærgruppe for forum:
 group_resources:Denne gruppen kontrollerer rettighetene på følgende fora
 register_admin_newuser_title:En ny bruker har registrert seg og kontoen venter på bekreftelse
@@ -961,6 +975,9 @@ pm_notify_subject:[{GVAR: FORUM_TITLE}] Varsel om ny privat melding
 pm_notify_body_email:Du har en ny privat melding med tittelen «{VAR: subject}», fra «{VAR: from}», i forumet «{GVAR: FORUM_TITLE}».\nFor å se meldingen, klikk her: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nFor å stoppe fremtidige varsel, deaktiver «Varsel om privat melding» i din profil.
 register_pm_notification:Varsel om privat melding:
 register_pm_notification_desc:Om aktivert vil du bli varslet hver gang du får en privat melding.
+findu_admin_opts_header:Adminalternativ
+findu_unban:Opphev bannlysing
+findu_ban:Bannlys
 findu_edit:Rediger
 findu_delete:Slett
 dmsg_reply_to:er et svar på
@@ -991,6 +1008,7 @@ ip_search_by_ip:Søk brukere etter IP
 ip_search_syntax:Støttet syntaks: 1.2.3.4, 1.2.3, 1.2, 1
 ip_search:Søk
 ip_analyze_usage:Analyser IP-bruk
+ip_analyze_usage_descr:Oppgi brukerens nøyaktige innloggingsnavn.
 ip_users_using:Brukere med '{VAR: ip}' IP-adresse
 ip_all_ips:Alle IP-adresser brukt av '{VAR: user}'
 ip_title:IP-leser
@@ -999,7 +1017,10 @@ register_err_alias_notallowed:Dette aliaset er ikke tillatt
 post_err_mod_forum_edit_ttl:FEIL
 post_err_mod_forum_edit_msg:Du kan ikke redigere meldinger i et moderert forum.
 dmsg_num:melding #{VAR: obj->id}
+postcheck_session_invalid:Økten din har utløpt. Send inn skjemaet igjen. Beklager det inntrufne.
 delete_message_extra_desc:<b>Valgfri</b><br />Oppgi en årsak for slettingen av denne meldingen. Denne vil bli sendt til forfatteren i en privat melding.
+delete_message_extra_body:Inkluder den fjernede meldingen som vil bli sendt til forfatteren.
+delete_msg_removed_ttl:Meldingen din ble fjernet av administrasjonsstaben.
 delete_msg_pm_body:Opprinnelig melding
 delete_msg_pm_subject:Emne: {VAR: data[15]}
 ip_no_whois:Whois-informasjon for <b>{VAR: ip}</b> er ikke tilgjengelig.
@@ -1008,10 +1029,13 @@ register_theme:Tema:
 pmsg_trash:Tøm søppel
 uc_new_pm:Nye private meldinger
 uc_new_topic:Nytt emne
+uc_new_cat_forum:Abonnerte fora med nye meldinger
 uc_cat_forum:Kategori » Forum
+uc_sub_topics:Abonnerte emner med nye meldinger
+uc_page_title:Visning av personlig kontrollpanel.
 search_options:Søkevalg
 search_user_filter:Filtrer etter bruker:
-register_none:Ikke varsle
+register_none:Ikke varsle meg
 findu_no_conf:ubekreftet bruker
 register_max_sig_len:Maksimum lengde:
 register_turing:Skriv inn koden vist nedenfor:
@@ -1029,13 +1053,19 @@ search_results_hdr:{VAR: total} søkeresultat funnet
 thread_del_all:Slett alle valgte
 thread_mov_all:Flytt alle valgte
 thread_merge_all:Flett alle valgte
+thread_loc_all:Lås/Lås opp alle valgte
 dmsg_ip:IP:
 err_blockedaccnt_title:FEIL: Kontoen din har blitt filtrert ut.
+err_blockedaccnt_msg:Kontoen din har blitt blokkert fra forumet på grunn av en av de installerte brukerfiltrene.
+merge_th_page_list:Emnesidevalg
 most_users_online:Mest brukere på samme tid noensinne var <b>{VAR: st_obj->most_online}</b> den <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
+sub_unsub_all_forums:Stopp abonnement på alle fora
+sub_unsub_all_topics:Stopp abonnement på alle emner
 unbookmark_all_topics:Fjern alle bokmerker
 tabs_own_posts:Vis egne innlegg
 sml_emoticon:Uttrykksikon
 sml_code:Kode
+mnav_sub_only:Søk i kun abonnerte fora
 register_topics_per_page:Emner per side:
 login_min_time:Dette forumet tillater ett innloggingsforsøk per {VAR: MIN_TIME_BETWEEN_LOGIN} sekund, vent {FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)} sekund før du prøver igjen.
 post_not_logged_in:Du er ikke logget inn, meldingen vil bli postet anonymt.
@@ -1053,9 +1083,11 @@ post_common_blist:Legg til punktliste
 post_common_quote:Legg til sitat
 post_common_code:Legg til kode
 rating_delete:Slett
+post_always_on_top:Sørg for at emnet alltid vises i toppen av emneoversikten
 topic_rating:{VAR: frm->rating} fra {PLURAL: frm->n_rating|én stemme|$1 stemmer}
 topic_list_rating:{VAR: r[17]} fra {PLURAL: r[21]|én stemme|$1 stemmer}
 tabs_notifications:Varsler
+finduser_flag:Flagg
 post_descr:Emnebeskrivelse:
 pmsg_on:på
 pmsg_download_dump:Last ned meldingsdump
@@ -1091,3 +1123,4 @@ feed_rdf:RDF-mating
 feed_rss:RSS2-mating
 feed_atom:ATOM-mating
 ip_whois_connect_err:Kunne ikke koble til WHOIS-tjener ({VAR: whois_server}): {VAR: errstr}
+custom_filed_required:Dette feltet er obligatorisk.

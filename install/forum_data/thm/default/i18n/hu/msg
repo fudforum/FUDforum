@@ -64,6 +64,7 @@ logged_in_list:Bejelentkezett felhasználók listája
 login:Bejelentkezés
 login_header:Bejelentkezés:
 logout:Kijelentkezés
+# Fuzzy
 mark_all_read:az összes üzenet olvasottnak jelölése
 mark_all_read_desc:Az összes olvasatlan üzeneted olvasottnak lesz jelölve
 members:Tagok
@@ -1024,6 +1025,7 @@ uc_sub_topics:Feliratkozott témák új üzenetekkel
 uc_page_title:Saját felhasználói vezérlőpult megtekintése.
 search_options:Keresési beállítások
 search_user_filter:Szűrés felhasználó alapján:
+# Fuzzy
 register_none:Nem kérek értesítést
 findu_no_conf:nem megerősített felhasználó
 register_max_sig_len:Maximális hossz:

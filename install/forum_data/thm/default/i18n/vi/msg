@@ -59,6 +59,7 @@ logged_in_list:Danh sách thành viên đã đăng nhập
 login:Đăng nhập
 login_header:Tên Đăng Nhập:
 logout:Thoát
+# Fuzzy
 mark_all_read:Đánh dấu đọc tất cả bài viết
 mark_all_read_desc:Đánh dấu đã đọc cho tất cả bài viết chưa xem của bạn
 members:Thành Viên
@@ -795,6 +796,7 @@ uc_sub_topics:Theo dõi chủ đề này với bài viết mới
 uc_page_title:Xem khu vực cá nhân.
 search_options:Chọn lựa tìm kiếm
 search_user_filter:Lọc thành viên:
+# Fuzzy
 register_none:Không thông báo
 findu_no_conf:Thành Viên Chưa Xác Nhận
 register_max_sig_len:Độ dài tối đa:

@@ -65,7 +65,7 @@ logged_in_list:Lista de usuários visitando o fórum
 login:Entrar
 login_header:Usuário:
 logout:Sair
-mark_all_read:marcar todas as mensagens como lidas
+mark_all_read:Marcar todas as mensagens como lidas
 mark_all_read_desc:Todas a suas mensagens serão marcadas como lidas
 members:Membros
 calendar:Calendário
@@ -1036,7 +1036,7 @@ uc_sub_topics:Tópicos Subscritos com Novas Mensagens
 uc_page_title:Visualizando painel de controle pessoal.
 search_options:Opções de procura
 search_user_filter:Filtrar por usuário:
-register_none:Não notificar
+register_none:Não me notificar
 findu_no_conf:usuário não confirmado
 register_max_sig_len:Comprimento máximo:
 register_turing:Por favor, entre com o código aqui abaixo:
@@ -1124,3 +1124,4 @@ feed_rdf:Feed RDF
 feed_rss:feed RSS2
 feed_atom:feed ATOM
 ip_whois_connect_err:Não foi possível conectar-se ao servidor WHOIS ({VAR: whois_server}): {VAR: errstr}
+custom_filed_required:Este campo é obrigatório.

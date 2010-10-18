@@ -63,6 +63,7 @@ logged_in_list:Zoznam prihlásených užívateľov
 login:Prihlásiť sa
 login_header:Používateľské meno:
 logout:Odhlásiť sa
+# Fuzzy
 mark_all_read:Označiť všetky správy ako prečítané
 mark_all_read_desc:Všetky Vaše neprečítané správy budú označené ako prečítané
 members:Členovia

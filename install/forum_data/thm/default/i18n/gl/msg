@@ -64,7 +64,7 @@ logged_in_list:Lista de usuarios conectados
 login:Rexistro
 login_header:Inicio de sesión:
 logout:Saír
-mark_all_read:marcar todas as mensaxes como lidas
+mark_all_read:Marcar todas as mensaxes como lidas
 mark_all_read_desc:Todas as túas mensaxes non lidas marcaranse como lidas
 members:Membros
 calendar:Calendario
@@ -1035,7 +1035,7 @@ uc_sub_topics:Fíos aos que estou subscrito con mensaxes novas
 uc_page_title:Vendo o panel de control persoal.
 search_options:Opcións de busca
 search_user_filter:Filtrar por usuario:
-register_none:Non notificar
+register_none:Non me notifiquedes
 findu_no_conf:usuario non confirmado
 register_max_sig_len:Lonxitude máxima:
 register_turing:Por favor, insire o código que se mostra a continuación:
@@ -1123,3 +1123,4 @@ feed_rdf:Fonte de novas RDF
 feed_rss:Fonte de novas RSS2
 feed_atom:Fonte de novas ATOM
 ip_whois_connect_err:Non se puido conectar co servidor WHOIS ({VAR: whois_server}): {VAR: errstr}
+custom_filed_required:Este campo é obrigatorio.

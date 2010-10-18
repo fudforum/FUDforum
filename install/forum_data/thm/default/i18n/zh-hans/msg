@@ -67,6 +67,7 @@ logged_in_list:登录用户列表
 login:登录
 login_header:昵称：
 logout:注销
+# Fuzzy
 mark_all_read:标记所有信息为已读
 mark_all_read_desc:所有你没有读过的信息都将被标为已读。
 members:成员
@@ -1043,6 +1044,7 @@ uc_sub_topics:包含新帖的已订阅话题
 uc_page_title:查看个人控制面板
 search_options:搜索选项
 search_user_filter:仅限作者：
+# Fuzzy
 register_none:不要通知
 findu_no_conf:未验证Email
 register_max_sig_len:最大长度:

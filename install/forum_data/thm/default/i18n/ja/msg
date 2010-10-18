@@ -64,6 +64,7 @@ logged_in_list:ログイン済み利用者一覧
 login:ログイン
 login_header:ログイン:
 logout:ログアウト
+# Fuzzy
 mark_all_read:すべてのメッセージを既読とする
 mark_all_read_desc:すべての未読メッセージを既に読んだことにします
 members:メンバー一覧
@@ -1030,6 +1031,7 @@ uc_sub_topics:購読中トピックの新規メッセージ一覧
 uc_page_title:個人コントロールパネルを表示中
 search_options:検索オプション
 search_user_filter:利用者で絞り込み:
+# Fuzzy
 register_none:通知しない
 findu_no_conf:未確認利用者
 register_max_sig_len:最大長:

@@ -66,6 +66,7 @@ logged_in_list:Daftar pemakai sedang aktif
 login:Masuk log
 login_header:Masuk log:
 logout:keluar log
+# Fuzzy
 mark_all_read:Tandai semua terbaca
 mark_all_read_desc:Semua pesan blm terbaca akan ditandai sbg terbaca
 members:Anggota
@@ -1037,6 +1038,7 @@ uc_sub_topics:Topik berlangganan untuk pesan baru
 uc_page_title:Melihat panel kontrol pribadi
 search_options:Opsi pencarian
 search_user_filter:Filter atas dasar pengguna:
+# Fuzzy
 register_none:Jangan beritahu
 findu_no_conf:Pengguna belum dikonfirmasi
 register_max_sig_len:Panjang maksimum:

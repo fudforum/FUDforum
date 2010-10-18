@@ -65,6 +65,7 @@ logged_in_list:Lista dels utilizaires actualament connectats
 login:Connexion
 login_header:Connexion :
 logout:Desconnexion
+# Fuzzy
 mark_all_read:Marcar totes los messatges coma legits
 mark_all_read_desc:Totes vòstres messatges pas legits van èsser marcats coma legits
 members:Membres

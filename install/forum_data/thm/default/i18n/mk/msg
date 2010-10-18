@@ -63,7 +63,7 @@ logged_in_list:Список на најавени корисници
 login:Влез
 login_header:Корисничко име:
 logout:Излез
-mark_all_read:означи ги сите пораки како прочитани
+mark_all_read:Означи ги сите пораки како прочитани
 mark_all_read_desc:Сите ваши непрочитани пораки ќе бидат означени како прочитани
 members:Членови
 calendar:Календар
@@ -1034,7 +1034,7 @@ uc_sub_topics:Претплатени теми со нови пораки
 uc_page_title:Преглед на личната контролна табла.
 search_options:Нагодувања за пребарување
 search_user_filter:Филтрирај по корисник:
-register_none:Не известувај
+register_none:Не ме известувај
 findu_no_conf:непотврден корисник
 register_max_sig_len:Максимална должина:
 register_turing:Внесете го долуприкажаниот код:
@@ -1122,3 +1122,4 @@ feed_rdf:RDF канал
 feed_rss:RSS2 канал
 feed_atom:ATOM канал
 ip_whois_connect_err:Не можам да се поврзам со WHOIS-опслужувачот ({VAR: whois_server}): {VAR: errstr}
+custom_filed_required:Ова поле е задолжително.

@@ -66,6 +66,7 @@ logged_in_list:Roll an implijerien kevreet evit ar mare
 login:Kevreañ
 login_header:Kevreañ :
 logout:Kuitaat
+# Fuzzy
 mark_all_read:Merkañ an holl gemennadennoù evel lennet
 mark_all_read_desc:Merket e vo an holl gemennadennoù n'int ket bet lennet evel lennet
 members:Izili
@@ -1028,6 +1029,7 @@ uc_sub_topics:Kaozioù evezhiet gant kemennadennoù nevez
 uc_page_title:Gwelet ar banell gontrollañ personel.
 search_options:Dibarzhioù klask
 search_user_filter:Silañ dre implijer :
+# Fuzzy
 register_none:Arabat kemenn
 findu_no_conf:implijer n'eo ket kadarnaet
 register_max_sig_len:Hirded vrasañ :
@@ -1089,7 +1091,7 @@ move_msg_btn:Dilec'hiañ ar c'hemennadennoù diuzet
 move_msg_th_expl:Spisait anavezer ar gaoz pal (a c'hall bezañ en ur forom all)
 captcha_img_alt:Gwiriadur dre Captcha : dav eo deoc'h anavezout an destenn er skeudenn-mañ.
 captcha_img_help:N'eus ket a zero pe a unan er skeudenn.
-powered-by:Kaset en-dro gant : FUDforum {GVAR: FORUM_VERSION}.<br />Copyright &copy;2001-2010 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+powered-by:Enlusket gant : FUDforum {GVAR: FORUM_VERSION}.<br />Copyright &copy;2001-2010 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:KOD :
 code_select_all:Diuzañ pep tra
 code_show_hide:Diskouez / kuzhat

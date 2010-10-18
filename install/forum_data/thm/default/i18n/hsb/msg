@@ -63,6 +63,7 @@ logged_in_list:Lisćina přizjewjenych wužiwarjow
 login:Přizjewić
 login_header:Přizjewjenje:
 logout:Wotzjewić
+# Fuzzy
 mark_all_read:wšě powěsće jako přečitane markěrować
 mark_all_read_desc:Wšě twoje njepřečitane powěsće budu so jako přečitane markěrować
 members:Čłonojo
@@ -109,8 +110,7 @@ num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|hłós|hłosaj|hłos
 occupation:Powołanje:
 off:wupinjeny
 on:zapinjeny
-# Fuzzy
-page_timings:Dohromady trěbny čas, zo by so strona spłodźiła: {VAR: page_gen_time} sekundow
+page_timings:Dohromady trěbny čas, zo by so strona spłodźiła: {PLURAL: page_gen_time|$1 secosekundownds}
 pm:Priwatne powěsće
 poll:Wothłosowanje:
 post_count:Ličba powěsćow {VAR: u_pcount}
@@ -1035,6 +1035,7 @@ uc_sub_topics:Abonowane temy z nowymi powěsćemi
 uc_page_title:Pokazuje swójski profil
 search_options:Pytanske opcije
 search_user_filter:Po wužiwarjom filtrować:
+# Fuzzy
 register_none:Njezdźělić
 findu_no_conf:njewobkrućeny wužiwar
 register_max_sig_len:Maksimalna dołhosć:

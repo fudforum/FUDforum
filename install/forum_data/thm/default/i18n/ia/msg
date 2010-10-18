@@ -63,7 +63,7 @@ logged_in_list:Lista de usatores in session
 login:Aperir session
 login_header:Aperir session:
 logout:Clauder session
-mark_all_read:marcar tote le messages como legite
+mark_all_read:Marcar tote le messages como legite
 mark_all_read_desc:Tote tu messages non legite essera marcate como legite
 members:Membros
 calendar:Calendario
@@ -1034,7 +1034,7 @@ uc_sub_topics:Topicos subscribite con nove messages
 uc_page_title:Reguarda le pannello de controlo personal.
 search_options:Optiones de recerca
 search_user_filter:Filtrar per usator:
-register_none:Non notificar
+register_none:Non notificar me
 findu_no_conf:usator non confirmate
 register_max_sig_len:Longitude maxime:
 register_turing:Per favor entra le codice monstrate hic infra:
@@ -1122,3 +1122,4 @@ feed_rdf:Syndication RDF
 feed_rss:Syndication RSS2
 feed_atom:Syndication ATOM
 ip_whois_connect_err:Impossibile connecter al servitor WHOIS ({VAR: whois_server}): {VAR: errstr}
+custom_filed_required:Iste campo es obligatori.

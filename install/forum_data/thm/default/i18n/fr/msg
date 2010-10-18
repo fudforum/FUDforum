@@ -1042,7 +1042,7 @@ uc_sub_topics:Sujets surveillés avec des nouveaux messages
 uc_page_title:Affichage du panneau de contrôle personnel.
 search_options:Options de recherche
 search_user_filter:Filtrer par utilisateur :
-register_none:Ne pas notifier
+register_none:Ne pas me notifier
 findu_no_conf:utilisateur non confirmé
 register_max_sig_len:Longueur maximale :
 register_turing:Veuillez entrer le code ci-dessous:
@@ -1130,3 +1130,4 @@ feed_rdf:flux RDF
 feed_rss:flux RSS2
 feed_atom:flux ATOM
 ip_whois_connect_err:Impossible de se connecter au serveur WHOIS ({VAR: whois_server}) : {VAR: errstr}
+custom_filed_required:Ce champ est obligatoire.

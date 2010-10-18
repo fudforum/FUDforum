@@ -65,6 +65,7 @@ logged_in_list:Utenti collegati
 login:Login
 login_header:Login:
 logout:Logout
+# Fuzzy
 mark_all_read:segna tutti i messaggi come letti
 mark_all_read_desc:Tutti i tuoi messaggi non letti verranno marcati come letti
 members:Utenti
@@ -1015,6 +1016,7 @@ uc_sub_topics:Argomenti sottoscritti con Nuovi Messaggi
 uc_page_title:visualizzazione pannello di controllo personale.
 search_options:Opzioni di ricerca
 search_user_filter:Filtro per utente:
+# Fuzzy
 register_none:Non Notificare
 findu_no_conf:utente non approvato
 register_max_sig_len:Lunghezza massima:

@@ -54,6 +54,7 @@ logged_in_list:로그인 사용자
 login:로그인
 login_header:로그인:
 logout:로그아웃
+# Fuzzy
 mark_all_read:읽은 메시지로 표시
 mark_all_read_desc:읽지 않은 모든 메시지가 읽음으로 표시됩니다
 members:멤버

@@ -62,6 +62,7 @@ logged_in_list:Logheaza in lista de utilizatori
 login:Autentifica
 login_header:Autentifica:
 logout:Iesire
+# Fuzzy
 mark_all_read:marcheaza toate mesajele ca citite
 mark_all_read_desc:Toate mesajele necitite vor fi marcate ca citite
 members:Membri
@@ -988,6 +989,7 @@ uc_cat_forum:&raquo; Forum Categorie
 uc_page_title:Vizualizare panou de control personal.
 search_options:Optiuni de cautare
 search_user_filter:Filtrat de utilizator:
+# Fuzzy
 register_none:Fara Notificare
 findu_no_conf:Utilizator neconfirmat
 register_max_sig_len:Lungimea Maxima:
