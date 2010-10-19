@@ -189,6 +189,13 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 					$end_tag[$cpos] = '</'. $tag .'>';
 					$ostr .= '<'. $tag .'>';
 					break;
+				case 'h1':
+				case 'h2':
+				case 'h3':
+				case 'h4':
+					$end_tag[$cpos] = '</'.$tag.'>';
+					$ostr .= '<'.$tag.'>';
+					break;
 				case 'email':
 					if (!$parms) {
 						$parms = str_replace('@', '&#64;', substr($str, $epos+1, ($cpos-$epos)-1));
@@ -600,12 +607,14 @@ function html_to_tags($fudml)
 	array(
 		'<b>', '</b>', '<i>', '</i>', '<u>', '</u>', '<s>', '</s>', '<sub>', '</sub>', '<sup>', '</sup>', '<del>', '</del>',
 		'<div class="pre"><pre>', '</pre></div>', '<div align="center">', '<div align="left">', '<div align="right">', '</div>',
-		'<ul>', '</ul>', '<span name="notag">', '</span>', '<li>', '&#64;', '&#58;&#47;&#47;', '<br />', '<pre>', '</pre>','<hr>'
+		'<ul>', '</ul>', '<span name="notag">', '</span>', '<li>', '&#64;', '&#58;&#47;&#47;', '<br />', '<pre>', '</pre>','<hr>',
+		'<h1>', '</h1>', '<h2>', '</h2>', '<h3>', '</h3>', '<h4>', '</h4>'
 	),
 	array(
 		'[b]', '[/b]', '[i]', '[/i]', '[u]', '[/u]', '[s]', '[/s]', '[sub]', '[/sub]', '[sup]', '[/sup]', '[del]', '[/del]', 
 		'[code]', '[/code]', '[align=center]', '[align=left]', '[align=right]', '[/align]', '[list]', '[/list]',
-		'[notag]', '[/notag]', '[*]', '@', '://', '', '[pre]', '[/pre]','[hr]'
+		'[notag]', '[/notag]', '[*]', '@', '://', '', '[pre]', '[/pre]','[hr]',
+		'[h1]', '[/h1]', '[h2]', '[/h2]', '[h3]', '[/h3]', '[h4]', '[/h4]'
 	),
 	$fudml);
 
