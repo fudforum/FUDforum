@@ -128,7 +128,7 @@ if (defined('popup') ) {	/* Special header for popup pages. */
 
 	<span class="linkgroup">Checks/Consistency</span><br />
 	<a title="Perform consistency check" href="consist.php?<?php echo __adm_rsid; ?>">Forum Consistency</a><br />
-	<a title="Reindex your forum" href="indexdb.php?<?php echo __adm_rsid; ?>">Rebuild Search Index</a><br />
+	<a title="Reindex your forum messages" href="indexdb.php?<?php echo __adm_rsid; ?>">Rebuild Search Index</a><br />
 <?php if (!($FUD_OPT_3 & 32768)) {	/* Not using DB_MESSAGE_STORAGE. */ ?>
 	<a title="Compact messages" href="compact.php?<?php echo __adm_rsid; ?>">Compact Messages</a><br />
 <?php } ?>

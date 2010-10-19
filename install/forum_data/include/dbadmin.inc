@@ -279,60 +279,66 @@ function get_sql_disk_usage()
 		return q_singleval('SELECT sum(bytes) FROM user_segments WHERE segment_name LIKE UPPER(\''. $GLOBALS['DBHOST_TBL_PREFIX'] .'%\')');
 	} else if (__dbtype__ == 'pgsql') {
 		return q_singleval('SELECT pg_database_size(\''. $GLOBALS['DBHOST_DBNAME'] .'\')');
+	} else if (__dbtype__ == 'sqlite') {
+		// We can return filesize($DBHOST), but DB size is already accounted for in directory size.
+		return 0;
 	}
 
 	return 0;	// Not implemented.
 }
 
-/* Create a table. */
-function create_table($stmt)
+/* Create a new database table. */
+function create_table($script)
 {
-	$stmt = str_replace('{SQL_TABLE_PREFIX}', $GLOBALS['DBHOST_TBL_PREFIX'], $stmt);
+	$script = preg_replace('!#.*\n!', '', $script);	// Remove comments.
+	$statements = explode(';', $script);	// Script may have several statement.
 
-	if (__dbtype__ == 'mysql') {
-		if (preg_match('/^\s*CREATE\s*TABLE\s*/i', $stmt)) {
-			/* Because mysql with InnoDB table refuses to resolve indexes correctly, we need to force MyISAM table type. */
-			$stmt .= ' ENGINE=MyISAM ';
+	foreach ($statements as $q) {
+		$q = str_replace('{SQL_TABLE_PREFIX}', $GLOBALS['DBHOST_TBL_PREFIX'], $q);
+
+		/* Because mysql with InnoDB table refuses to resolve indexes correctly, we need to force MyISAM table type. */
+		if (__dbtype__ == 'mysql' && preg_match('/^\s*CREATE\s*TABLE\s*/i', $q)) {
+			$q .= ' ENGINE=MyISAM ';
 			/* We need to specify a default charset for MySQL 4.1.2+. */
-			$stmt .= ' DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci';
+			$q .= ' DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci';
 		}
-	}
 
-	// Queue statements to create Oracle sequence and trigger.
-	$extra_stmts = array();
-	if (__dbtype__ == 'oracle') {
-		if (preg_match('/^\s*CREATE\s*TABLE\s*([\{\}\w]*)/i', $stmt, $m)) {
+		// Queue statements to create Oracle sequence and trigger later.
+		$extra_stmts = array();
+		if (__dbtype__ == 'oracle' && preg_match('/^\s*CREATE\s*TABLE\s*([\{\}\w]*)/i', $q, $m)) {
 			$tbl = $m[1];				
-			preg_match_all('/\s*(\w*)\s*INT NOT NULL AUTO_INCREMENT/i', $stmt, $m, PREG_PATTERN_ORDER);
+			preg_match_all('/\s*(\w*)\s*INT NOT NULL AUTO_INCREMENT/i', $q, $m, PREG_PATTERN_ORDER);
 			foreach ($m[1] as $c) {
 				array_push($extra_stmts, 'CREATE SEQUENCE '. $tbl .'_'. $c .'_seq');
 				array_push($extra_stmts, 'CREATE OR REPLACE TRIGGER  '. $tbl .'_'. $c .'_trg BEFORE INSERT ON '. $tbl .' FOR EACH ROW BEGIN SELECT '. $tbl .'_'. $c .'_seq.nextval INTO :new.'. $c .' FROM dual; END;');
 			}
 		}
-	}
 
-	// Data type conversions.
-	$src = array("!#.*\n!", '!UNIX_TIMESTAMP!');
-	$dst = array('', time());
-	if (__dbtype__ == 'mssql') {
-		array_push($src, '!BINARY!', '!INT NOT NULL AUTO_INCREMENT!');
-		array_push($dst, '',          'INT IDENTITY');
-	} else if (__dbtype__ == 'oracle') {
-		// Use FLOAT (cannot use NUMBER) for BIGINT in Oracle. We need a seperate type to back map it to BIGINT later.
-		array_push($src, '/TEXT/', '/BIGINT/', '/BINARY/', '/INT NOT NULL AUTO_INCREMENT/', '/NOT NULL DEFAULT (.+?)([,\s$])/');
-		array_push($dst, 'CLOB',   'FLOAT',    '',         'NUMBER',                        'DEFAULT \\1 NOT NULL\\2');
-	} else if (__dbtype__ == 'pgsql') {
-		array_push($src, '!BINARY!', '!INT NOT NULL AUTO_INCREMENT!');
-		array_push($dst, '',         'SERIAL');
-	} else if (__dbtype__ == 'sqlite') {
-		array_push($src, '!BINARY!', '!INT NOT NULL AUTO_INCREMENT!');
-		array_push($dst, '',         'INTEGER');
-	}
-	$stmt = trim(preg_replace($src, $dst, $stmt));
+		// Data type conversions.
+		$src = array('!UNIX_TIMESTAMP!');
+		$dst = array(time());
+		if (__dbtype__ == 'mssql') {
+			array_push($src, '!BINARY!', '!INT NOT NULL AUTO_INCREMENT!');
+			array_push($dst, '',          'INT IDENTITY');
+		} else if (__dbtype__ == 'oracle') {
+			// Use FLOAT (cannot use NUMBER) for BIGINT in Oracle. We need a seperate type to back map it to BIGINT later.
+			array_push($src, '/TEXT/', '/BIGINT/', '/BINARY/', '/INT NOT NULL AUTO_INCREMENT/', '/NOT NULL DEFAULT (.+?)([,\s$])/');
+			array_push($dst, 'CLOB',   'FLOAT',    '',         'NUMBER',                        'DEFAULT \\1 NOT NULL\\2');
+		} else if (__dbtype__ == 'pgsql') {
+			array_push($src, '!BINARY!', '!INT NOT NULL AUTO_INCREMENT!');
+			array_push($dst, '',         'SERIAL');
+		} else if (__dbtype__ == 'sqlite') {
+			array_push($src, '!BINARY!', '!INT NOT NULL AUTO_INCREMENT!');
+			array_push($dst, '',         'INTEGER');
+		}
+		$q = preg_replace($src, $dst, $q);
 
-	// Do it!
-	$rc = q($stmt);
-	if ($rc === FALSE) return $rc;
+		// Do it!
+		if (($q = trim($q))) {
+			$rc = q($q);
+			if ($rc === FALSE) return $rc;
+		}
+	}
 
 	/* Run extra statements. For example, crreate Oracle sequences and triggers. */
 	foreach($extra_stmts as $q) {

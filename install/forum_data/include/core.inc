@@ -13,8 +13,9 @@ $FORUM_VERSION = '3.0.1';
 
 ignore_user_abort('1');
 @set_magic_quotes_runtime(0);	// Deprecated as of PHP 5.3.0.
-// set_error_handler('fud_php_error_handler');
-// set_exception_handler('fud_exception_handler');
+
+$GLOBALS['RSS'] = $GLOBALS['TITLE_EXTRA'] = '';
+$GLOBALS['is_post'] = !empty($_POST);
 
 register_shutdown_function('release_db_lock');
 function release_db_lock()
@@ -24,20 +25,17 @@ function release_db_lock()
 	}
 }
 
-$GLOBALS['RSS'] = $GLOBALS['TITLE_EXTRA'] = '';
-$GLOBALS['is_post'] = !empty($_POST);
-
 if (isset($_REQUEST['GLOBALS']) || isset($_FILES['GLOBALS'])) {
 	exit;	// GLOBALS overwrite attempt.
 }
-
-define('__request_timestamp__', microtime(true));
 
 // Load and initialize the plugin handler.
 if ($GLOBALS['FUD_OPT_3'] & 4194304) {	// Plugins enabled.
 	include_once $GLOBALS['INCLUDE'] .'plugins.inc';
 	plugin_activate_all_enbled();
 }
+
+define('__request_timestamp__', microtime(true));
 
 function fud_use($file, $static=0)
 {
@@ -196,35 +194,5 @@ function fud_sql_error_handler($query, $error_string, $error_number, $db_version
 	}
 	exit;
 }
-
-/*
-function fud_php_error_handler($no, $str, $file, $line, $ctx) {
-	if (!(error_reporting() & $no)) {
-		return;		// Errors that should be ignored.
-	}
-
-	fud_logerror('PHP Error '. $no .': '. $str .' in '. $file .' on line '. $line, 'fud_errors');
-
-	if (isset($GLOBALS['usr']->users_opt) && $GLOBALS['usr']->users_opt & 1048576) { // Admin user.
-		echo '<pre>';
-		echo 'no   : '. $no   ."\n";
-		echo 'str  : '. $str  ."\n";
-		echo 'file : '. $file ."\n";
-		echo 'line : '. $line ."\n";
-		echo 'ctx  : ';
-		print_r($ctx);
-		echo '</pre>';
-		die('PHP ERROR TO FIX!');
-	}
-}
-
-function fud_exception_handler($e) {
-	echo '<hr>EXCEPTION TRIGGERED:<pre>';
-	echo 'Error on line '. $e->getLine() .' in '. $e->getFile() .': <b>'. $e->getMessage() .'</b>';
-	var_dump( debug_backtrace() );
-	echo '</pre><hr>';
-	exit;
-}
-*/
 
 ?>
