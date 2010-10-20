@@ -242,7 +242,7 @@ function create_primary_key($table, $col_list)
 	}
 }
 
-/* Vacuum/Optimize/Analyze all FUDfiorum's database tables. */
+/* Vacuum/Optimize/Analyze all FUDforum's database tables. */
 function optimize_fud_tables($tbl_list=null)
 {
 	if (__dbtype__ == 'sqlite') {	// DB level.

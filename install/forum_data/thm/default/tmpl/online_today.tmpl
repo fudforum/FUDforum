@@ -44,11 +44,16 @@
 {TEMPLATE: header}
 {TEMPLATE: usercp}
 <br />{TEMPLATE-DATA: admin_cp}
-<br /><br />
+<br />
 <table cellspacing="1" cellpadding="2" class="ContentTable">
-<tr><th>{MSG: user}</th><th>{MSG: online_today_last_visit}</th><th>{MSG: action_latest_post}</th></tr>
+<tr>
+	<th><a href="{ROOT}?t=online_today&amp;{DEF: _rsid}&amp;{DEF: _rsid}&amp;o=alias&amp;s={IF: $o=='u.alias' && $s=='ASC'}d{ELSE}a{END}" class="thLnk" rel="nofollow">{MSG: user}</a></th>
+	<th><a href="{ROOT}?t=online_today&amp;{DEF: _rsid}&amp;{DEF: _rsid}&amp;o=last_visit&amp;s={IF: $o=='u.last_visit' && $s=='ASC'}d{ELSE}a{END}" class="thLnk" rel="nofollow">{MSG: online_today_last_visit}</a></th>
+	<th>{MSG: action_latest_post}</th>
+</tr>
 {TEMPLATE-DATA: user_entries}
 </table>
+<br />
 {TEMPLATE: curtime}
 {TEMPLATE-DATA: page_stats}
 {TEMPLATE: footer}

@@ -19,6 +19,22 @@
 
 /*{POST_HTML_PHP}*/
 
+	if (isset($_GET['o'])) {
+		switch ($_GET['o']) {
+			case 'alias':		$o = 'u.alias'; break;
+			case 'time':
+			default:			$o = 's.time_sec';
+		}	
+	} else {
+		$o = 'u.alias, s.time_sec';
+	}
+
+	if (isset($_GET['s']) && $_GET['s'] == 'a') {
+		$s = 'ASC';
+	} else {
+		$s = 'DESC';
+	}
+
 	$limit = &get_all_read_perms(_uid, ($usr->users_opt & 524288));
 
 	$c = uq('SELECT
@@ -33,7 +49,8 @@
 		LEFT JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id
 		LEFT JOIN {SQL_TABLE_PREFIX}mod mm1 ON mm1.forum_id=t.forum_id AND mm1.user_id='. _uid .'
 		LEFT JOIN {SQL_TABLE_PREFIX}mod mm2 ON mm2.forum_id=s.forum_id AND mm2.user_id='. _uid .'
-		WHERE s.time_sec>'. (__request_timestamp__ - ($LOGEDIN_TIMEOUT * 60)) .' AND s.user_id!='. _uid .' ORDER BY u.alias, s.time_sec DESC');
+		WHERE s.time_sec>'. (__request_timestamp__ - ($LOGEDIN_TIMEOUT * 60)) .' AND s.user_id!='. _uid .'
+		ORDER BY '. $o .' '. $s);
 
 	$action_data = ''; $uc = 0;
 	while ($r = db_rowarr($c)) {

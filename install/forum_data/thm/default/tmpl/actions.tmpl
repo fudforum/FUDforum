@@ -51,11 +51,17 @@
 {TEMPLATE: usercp}
 <br />{TEMPLATE-DATA: admin_cp}
 <div class="GenText ac">[ <a href="{TEMPLATE: ACTION_PAGE_lnk}" rel="nofollow">{MSG: refresh_list}</a> ]</div>
-<br /><br />
+<br />
 <table cellspacing="1" cellpadding="2" class="ContentTable">
-<tr><th>{MSG: user}</th><th>{MSG: action}</th><th>{MSG: time}</th><th>{MSG: action_latest_post}</th></tr>
+<tr>
+	<th><a href="{ROOT}?t=actions&amp;{DEF: _rsid}&amp;{DEF: _rsid}&amp;o=alias&amp;s={IF: $o=='u.alias' && $s=='ASC'}d{ELSE}a{ENDI}" class="thLnk" rel="nofollow">{MSG: user}</a></th>
+	<th>{MSG: action}</th>
+	<th><a href="{ROOT}?t=actions&amp;{DEF: _rsid}&amp;{DEF: _rsid}&amp;o=time&amp;s={IF: $o=='s.time_sec' && $s=='ASC'}d{ELSE}a{END}" class="thLnk" rel="nofollow">{MSG: time}</a></th>
+	<th>{MSG: action_latest_post}</th>
+</tr>
 {TEMPLATE-DATA: action_data}
 </table>
+<br />
 {TEMPLATE: curtime}
 {TEMPLATE-DATA: page_stats}
 {TEMPLATE: footer}

@@ -19,6 +19,22 @@
 
 /*{POST_HTML_PHP}*/
 
+	if (isset($_GET['o'])) {
+		switch ($_GET['o']) {
+			case 'alias':		$o = 'u.alias'; break;
+			case 'last_visit':
+			default:			$o = 'u.last_visit';
+		}	
+	} else {
+		$o = 'u.alias, u.last_visit';
+	}
+
+	if (isset($_GET['s']) && $_GET['s'] == 'a') {
+		$s = 'ASC';
+	} else {
+		$s = 'DESC';
+	}
+
 	$c = uq('SELECT
 			u.alias AS login, u.users_opt, u.id, u.last_visit, u.custom_color,
 			m.id AS mid, m.subject, m.post_stamp,
@@ -32,7 +48,7 @@
 		LEFT JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id='. (_uid ? '2147483647' : '0') .' AND g1.resource_id=t.forum_id
 		LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='. _uid .' AND g2.resource_id=t.forum_id
 		WHERE u.last_visit>'. mktime(0, 0, 0) .' AND '. (!$is_a ? q_bitand('u.users_opt', 32768) .'=0 AND' : '') .' u.id!='. _uid .'
-		ORDER BY u.alias, u.last_visit');
+		ORDER BY '. $o .' '. $s);
 	/*
 		array(9) {
 			   [0]=> string(4) "root" [1]=> string(1) "A" [2]=> string(4) "9944" [3]=> string(10) "1049362510"
