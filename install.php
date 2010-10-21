@@ -30,9 +30,7 @@ function modules_enabled()
 	}
 
 	// MySQLi is an extension, not a module, but we add it anyway.
-	if (function_exists('mysqli_connect')) {
-		$status['mysqli'] = 1;
-	}
+	$status['mysqli'] = function_exists('mysqli_connect');
 
 	return $status;
 }
@@ -383,20 +381,24 @@ function dialog_start($title, $help)
 
 function dialog_end($section)
 {
-	if ($section != 'done') {
-		echo '<tr bgcolor="#ffffff">';
-		if ($section != 'welcome') {
-			echo '<td align="left"><input class="button back" type="button" title="Go back to previous step." onclick="history.go(-1)" name="buttn" value="&lt;&lt; Back" /></td>';
-		} else {
-			echo '<td>&nbsp;</td>';
-		}
-		if ($section == 'welcome') {
-			echo '<td align="right"><input class="button forward" type="submit" title="Install FUDforum on your system." name="submit" value="Start installer &gt;&gt;" />';
-		} else {
-			echo '<td align="right"><input class="button forward" type="submit" title="Go to the next step." name="submit" value="Next &gt;&gt;" />';		
-		}
+	if ($section != 'prereq') {
+		if ($section != 'done') {
+			echo '<tr bgcolor="#ffffff">';
+			if ($section != 'welcome') {
+				echo '<td align="left"><input class="button back" type="button" title="Go back to previous step." onclick="history.go(-1)" name="buttn" value="&lt;&lt; Back" /></td>';
+			} else {
+				echo '<td>&nbsp;</td>';
+			}
+			if ($section == 'welcome') {
+				echo '<td align="right"><input class="button forward" type="submit" title="Install FUDforum on your system." name="submit" value="Start installer &gt;&gt;" />';
+			} else {
+				echo '<td align="right"><input class="button forward" type="submit" title="Go to the next step." name="submit" value="Next &gt;&gt;" />';		
+			}
+		} 
+		echo '</td></tr></table><br />';
+	} else {
+		echo '</table><br />';
 	}
-	echo '</td></tr></table><br />';
 }
 
 function input_row($title, $var, $def, $descr=NULL, $type='text', $extra='')
@@ -1209,7 +1211,7 @@ switch ($section) {
 			($module_status['zlib'] ? 'enabled' : 'disabled'), ($module_status['zlib'] ? 'green' : 'orange'));
 		prereq_row('Pspell Extension:', 'Pspell extension is optional, this extension is needed by the FUDforum\'s built-in spellchecker. If you want to allow users to spell check their messages, enable this extension.',
 			($module_status['pspell'] ? 'enabled' : 'disabled'), ($module_status['pspell'] ? 'green' : 'orange'));
-	dialog_end('done');
+	dialog_end('prereq');
 
 	dialog_start('Database information: <span class="descr">(at least one of the below database extensions must be enabled)</span>', '');
 	prereq_row('MySQL Improved Extention:', 'Improved interface to the MySQL server (mysqli), which is the recommended database for FUDforum.', 
@@ -1226,8 +1228,7 @@ switch ($section) {
 			($module_status['pdo_pgsql'] ? 'enabled' : 'disabled'), ($module_status['pdo_pgsql'] ? 'green' : 'orange'));
 	prereq_row('SQLite PDO Extension:', 'PDO interface to the SQLite server (pdo_sqlite).', 
 			($module_status['pdo_sqlite'] ? 'enabled' : 'disabled'), ($module_status['pdo_sqlite'] ? 'green' : 'orange'));
-	echo '<br />';
-	dialog_end('done');
+	dialog_end('prereq');
 	break;
 
 	case 'stor_path':
@@ -1261,7 +1262,7 @@ switch ($section) {
 			<li>If you have <i>shell access</i>, you can change the directory permission by typing "<b>chmod 777 directory_name</b>";</li>
 			<li><i>CuteFTP</i> can chmod a directory by selecting it and then pressing Ctrl+Shift+A. In the  checkbox, enter 777 and press OK; and</li>
 			<li>In <i>WS_FTP</i>, right-click on the directory and choose the chmod UNIX option. In the dialog, select all the checkboxes and click OK. This will chmod the directory to 777.</li></ul>
-			<p>If you click on <b>Next</b> the forum\'s files will be unpacked to the specified direcories.');
+			<p>If you click on <b>Next</b> the forum\'s files will be unpacked to the specified directories.</p>');
 		} else {
 			dialog_start('<div style="color:red"><b>SAFEMODE is ENABLED!</b></div><br />PATH OF SYSTEM FILES AND DIRECTORIES<span class="step">Step 1 of 5</span>',
 					'
@@ -1292,6 +1293,7 @@ switch ($section) {
 		<p>If you click on <b>Next</b> the installer will try to connect to the specified database to create its tables and load the seed data.</p>');
 
 		$db_types = databases_enabled();
+		reset($db_types);
 		if (count($db_types) > 1) {
 			sel_row('Database Type', 'DBHOST_DBTYPE', implode("\n", $db_types), implode("\n", array_keys($db_types)), 'Type of database to store your forum\'s data in.', (isset($_POST['DBHOST_DBTYPE']) ? $_POST['DBHOST_DBTYPE'] : 'mysql'));
 		} else {
@@ -1418,7 +1420,7 @@ switch ($section) {
 			<p style="text-align: center; color:red;">Before you continue, please delete this <b>install.php</b> script as it can be used to overwrite your forum.</p>
 		');
 
-		echo '<tr><td colspan="2" align="center"><input type="submit" name="submit" value="Finished" title="Start enjoying FUDforum!" onclick="window.location=\''. $_POST['WWW_ROOT'] .'/adm/index.php\'; return false;" /></td></tr></table>';
+		echo '<tr><td colspan="2" align="center"><input type="submit" name="submit" value="Finished" title="Start enjoying FUDforum!" onclick="window.location=\''. $_POST['WWW_ROOT'] .'/adm/index.php\'; return false;" />';
 		dialog_end($section);
 		break;
 }

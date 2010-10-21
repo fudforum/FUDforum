@@ -79,7 +79,7 @@ FUDforum's documentation is available on our <b><a href="http://cvs.prohost.org/
 <?php } ?>
 <b>PHP</b>: <?php echo PHP_VERSION; ?><br />
 <b>Database</b>: <?php echo __dbtype__ .' '. db_version() .' ('. $GLOBALS['DBHOST_DBTYPE'] .')'; ?><br />
-<b>Operating system</b>: <?php echo php_uname('s') .' '. php_uname('r') ?><br />
+<b>Operating system</b>: <?php echo (@php_uname() ? php_uname('s') .' '. php_uname('r') : 'n/a') ?><br />
 
 <span style="float:right;"><a href="admsysinfo.php?<?php echo __adm_rsid; ?>">More... &raquo;</a></span>
 

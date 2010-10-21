@@ -13,9 +13,9 @@
 if (!defined('fud_sql_lnk')) {
 	$connect_func = $GLOBALS['FUD_OPT_1'] & 256 ? 'mssql_pconnect' : 'mssql_connect';
 
-	$conn = $connect_func($GLOBALS['DBHOST'], $GLOBALS['DBHOST_USER'], $GLOBALS['DBHOST_PASSWORD']) or fud_sql_error_handler('Initiating '. $connect_func, mssql_get_last_message(fud_sql_lnk), null, 'Unknown');
+	$conn = @$connect_func($GLOBALS['DBHOST'], $GLOBALS['DBHOST_USER'], $GLOBALS['DBHOST_PASSWORD']) or fud_sql_error_handler('Initiating '. $connect_func, mssql_get_last_message(), null, 'Unknown');
 	define('fud_sql_lnk', $conn);
-	mssql_select_db($GLOBALS['DBHOST_DBNAME'], fud_sql_lnk) or fud_sql_error_handler('Opening database '. $GLOBALS['DBHOST_DBNAME'], mssql_get_last_message(), null, db_version());
+	@mssql_select_db($GLOBALS['DBHOST_DBNAME'], fud_sql_lnk) or fud_sql_error_handler('Opening database '. $GLOBALS['DBHOST_DBNAME'], mssql_get_last_message(), null, db_version());
 	@ini_set('mssql.charset', 'UTF-8');
 	@ini_set('mssql.textlimit', 2147483647);
 	@ini_set('mssql.textsize', 2147483647);

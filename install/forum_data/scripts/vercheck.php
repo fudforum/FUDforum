@@ -109,7 +109,7 @@ function get_remote_file($url, $timeout, $head_only = false, $max_redirects = 10
 					if ($content_start !== false) {
 						// $result['headers'] = explode("\r\n", substr($content, 0, $content_start));
 						// $result['content'] = substr($content, $content_start + 4);
-						$result = substr($last_content, $content_start + 4);
+						$result = substr($content, $content_start + 4);
 					}
 				}
 			}
@@ -179,6 +179,9 @@ function get_remote_file($url, $timeout, $head_only = false, $max_redirects = 10
 	echo 'Done! Current version: '. $FORUM_VERSION .', latest version is: '. $display_ver ."\n";
 
 	if (version_compare($FORUM_VERSION, $display_ver)) {
+		define('_uid', 0);
+		fud_use('db.inc');
+		fud_use('logaction.inc');
 		fud_use('iemail.inc');
 		send_email($NOTIFY_FROM, $ADMIN_EMAIL, 'New FUDforum version available', 'A new FUDforum version is now available. Please upgrade your site at '. $WWW_ROOT .' from '. $FORUM_VERSION .' to '. $display_ver .' ASAP.');
 	}

@@ -35,7 +35,8 @@ if ($GLOBALS['FUD_OPT_3'] & 4194304) {	// Plugins enabled.
 	plugin_activate_all_enbled();
 }
 
-define('__request_timestamp__', microtime(true));
+define('__request_timestamp__', time());
+define('__request_timestamp_exact__', microtime(true)); // for page stats
 
 function fud_use($file, $static=0)
 {
