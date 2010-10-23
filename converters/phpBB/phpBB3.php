@@ -100,6 +100,19 @@ function phpbb_decode_ip($int_ip)
 	$IMG_ROOT_DISK = $WWW_ROOT_DISK . 'images/';
 	require($PHPBB_INSTALL_ROOT."includes/constants.php");
 
+if (!function_exists('db_count')) {
+	function db_count($result)
+	{
+		return (int) mysql_num_rows($result);
+	}
+}
+if (!function_exists('get_fud_table_list')) {
+	fud_use('dbadmin.inc', true);
+}
+if (!defined('__FUD_SQL_CONCAT__')) {
+	define('__FUD_SQL_CONCAT__', 'CONCAT'); 
+}
+
 	/* include all the necessary FUDforum includes */
 	fud_use('err.inc');
 	fud_use('db.inc');
@@ -159,9 +172,12 @@ function phpbb_decode_ip($int_ip)
 	print_msg('Finished Importing Smilies');
 
 /* Import phpBB avatar galleries */
-
 function import_av_gal($dirn)
 {
+	if (!file_exists($dirn)) {
+		die("Invalid avatar directory [$dirn].\n");
+	}
+
 	print_msg("\tfrom: $dirn");
 	
 	$odir = getcwd();
@@ -198,7 +214,7 @@ function import_av_gal($dirn)
 	closedir($dir);
 	chdir($odir);
 }
-	
+
 	print_msg('Importing Avatar Galleries');
 	q("DELETE FROM ".$DBHOST_TBL_PREFIX."avatar");
 	$old_umask = umask(0111);
