@@ -72,7 +72,7 @@ function w_err($msg, $exit=true)
 	}
 
 	if (!isset($_SERVER['argv'][1]) ) {
-		w_err("No arguments.\n\tSyntax: create_file_list directory_name [use compression]");
+		w_err("No arguments.\n\tSyntax: create_file_archive directory_name [use compression]");
 	} else if (!@is_dir($_SERVER['argv'][1])) {
 		w_err('ERROR: ['. $_SERVER['argv'][1] ."] is not a valid valid directory.\nPlease specify a valid directory to package.");
 	}

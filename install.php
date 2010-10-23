@@ -441,7 +441,7 @@ function seterr($name, $text)
 function fud_sql_error_handler($query, $error_string, $error_number, $server_version)
 {
 	// echo $query ."\n";
-	throw new Exception('ERROR: '. $error_number .': '. $error_string);
+	throw new Exception($error_number .': '. $error_string .' @ '. $query);
 }
 
 function make_into_query($data)
@@ -529,11 +529,11 @@ being security and performance.');
 
 	/* Database check. */
 	if (!$module_status['mysql'] && !$module_status['pdo_mysql'] &&
-		!$module_status['oci8'] &&	
+		!$module_status['oci8'] &&
 		!$module_status['pgsql'] && !$module_status['pdo_pgsql'] &&
 		!$module_status['pdo_sqlite'])
 	{
-		seterr('NODB', 'FUDforum can utilize either a MySQL, Oracle, PosgreSQL or SQLite databases to store it\'s data, unfortunately, your PHP does not have support for any of these databases. Please install or load the appropriate database extension and then re-run the install script.');
+		seterr('NODB', 'FUDforum can utilize either a MySQL, Oracle, PosgreSQL or SQLite databases to store it\'s data, unfortunately, your PHP installation does not have support for any of these databases. Please install or load the appropriate database extension and then re-run the install script.');
 	}
 
 	/* PCRE check. */
@@ -744,7 +744,7 @@ if ($section == 'stor_path' || php_sapi_name() == 'cli') {
 			fclose($fp);
 
 			if (($d = @file_get_contents($WWW_ROOT .'fud_test_page.htm')) != $check_time) {
-				seterr('WWW_ROOT', 'Your Forum URL and Web Directory doesn\'t point to the same location on disk. Unable to serve '. $SERVER_ROOT .'fud_test_page.htm as '. $WWW_ROOT .'fud_test_page.htm. Error: '. $php_errormsg);
+				seterr('WWW_ROOT', 'Your Forum URL and Web Directory doesn\'t point to the same location on disk.<br /><small>Unable to load '. $SERVER_ROOT .'fud_test_page.htm as '. $WWW_ROOT .'fud_test_page.htm.<br />Error: '. $php_errormsg .'</small>');
 			}
 			unlink($SERVER_ROOT .'fud_test_page.htm');
 		}
@@ -837,8 +837,11 @@ if ($section == 'db' || php_sapi_name() == 'cli') {
 		/* Prompt for other database settings. */
 		if ($_POST['DBHOST_DBTYPE'] != 'pdo_sqlite') {
 			while (empty($_POST['DBHOST'])) {
-				echo 'Please specify database host: ';
+				echo 'Please specify database host (127.0.0.1): ';
 				$_POST['DBHOST'] = trim(fgets(STDIN, 1024));
+				if (empty($_POST['DBHOST'])) {
+					$_POST['DBHOST'] = '127.0.0.1';
+				}
 			}
 			while (empty($_POST['DBHOST_DBNAME'])) {
 				echo 'Please specify database name: ';
@@ -851,6 +854,10 @@ if ($section == 'db' || php_sapi_name() == 'cli') {
 			while (empty($_POST['DBHOST_PASSWORD'])) {
 				echo 'Please specify database password: ';
 				$_POST['DBHOST_PASSWORD'] = trim(fgets(STDIN, 1024));
+				if (empty($_POST['DBHOST_PASSWORD'])) {
+					$_POST['DBHOST_PASSWORD'] = '';			// Password can be NULL.
+					break;
+				}
 			}
 		}
 		while (empty($_POST['DBHOST_TBL_PREFIX'])) {
@@ -860,6 +867,8 @@ if ($section == 'db' || php_sapi_name() == 'cli') {
 				$_POST['DBHOST_TBL_PREFIX'] = 'fud30_';
 			}
 		}
+
+		echo "Creating database tables.\n";
 	}
 
 	// Validate the table prefix.
@@ -914,8 +923,6 @@ if ($section == 'db' || php_sapi_name() == 'cli') {
 			}
 			error_reporting(E_ALL);
 		}
-		
-		echo "Creating database tables.\n";
 	}
 
 	/* Validate database version. */
@@ -1220,7 +1227,7 @@ switch ($section) {
 			($module_status['mysql'] ? 'enabled' : 'disabled'), ($module_status['mysql'] ? 'green' : 'orange'));
 	prereq_row('MySQL PDO Extension:', 'PDO interface to the MySQL server (pdo_mysql).', 
 			($module_status['pdo_mysql'] ? 'enabled' : 'disabled'), ($module_status['pdo_mysql'] ? 'green' : 'orange'));
-	prereq_row('Oracle OCI Extension:', 'Iterface to Oracle database server (oci8).', 
+	prereq_row('Oracle OCI8 Extension:', 'Interface to Oracle database server (oci8).', 
 			($module_status['oci8'] ? 'enabled' : 'disabled'), ($module_status['oci8'] ? 'green' : 'orange'));
 	prereq_row('PostgreSQL Extension:', 'Interface to the PostgreSQL server.', 
 			($module_status['pgsql'] ? 'enabled' : 'disabled'), ($module_status['pgsql'] ? 'green' : 'orange'));
@@ -1284,7 +1291,7 @@ switch ($section) {
 		input_row('Web Directory', 'SERVER_ROOT', $SERVER_ROOT, 'Directory on the server where the forum\'s web browseable files (*.php, images, etc.) will be stored.');
 		input_row('Data Directory', 'SERVER_DATA_ROOT', $SERVER_DATA_ROOT, 'Directory on the server where the forum\'s <b>NON-</b>browseable (cache, backups, and other data) files will be stored. This directory should perferably NOT be accessable by your web server!');
 		input_row('Forum URL', 'WWW_ROOT', $WWW_ROOT, 'The URL of your forum. It should point to the forum\'s front page. This is also the address people will need to use to visit your forum.');
-		input_row('URL Check', 'url_check', '1', 'Turn off this check if you are getting errors pertaining to the <i>Forum URL</i> not matching the <i>Web Directory</i> and are certain that the paths indicated are correct.', 'checkbox', 'checked="checked"');
+		input_row('URL Check', 'url_check', '1', 'Turn off this check if you are getting errors pertaining to the <i>Forum URL</i> not matching the <i>Web Directory</i> and are certain that the paths indicated are correct (not recommended!)', 'checkbox', 'checked="checked"');
 		dialog_end($section);
 		break;
 

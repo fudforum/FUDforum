@@ -937,6 +937,7 @@ pf('<h2>Step 1: Admin login</h2>', true);
 			  'admpanel.php',	// Renamed to header.php (3.0.1).
 			  'admclose.html',	// Renamed to footer.php (3.0.1).
 			  'admaprune.php',	// Renamed to admpruneattch.php (3.0.2).
+			  'admbatch.php',	// Renamed to admjobs.php (3.0.2).
 			 );
 	foreach ($rm_adm as $f) {
  		if (file_exists($GLOBALS['WWW_ROOT_DISK'] .'adm/'. $f)) {
