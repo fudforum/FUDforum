@@ -307,7 +307,7 @@ function format_regex(&$regex)
 		$bgcolor = ($edit == $r[0]) ? ' class="resultrow3"' : (($i%2) ? ' class="resultrow1"' : ' class="resultrow2"');
 
 		echo '<tr'.$bgcolor.'><td>'. htmlspecialchars($r[1]) .'</td><td>'. $r[2] .'</td>
-		<td nowrap="nowrap">maillist.php '.$r[0].'</td>
+		<td nowrap="nowrap">maillist.php '. $r[0] .'</td>
 		<td>[<a href="admmlist.php?edit='. $r[0] .'&amp;'. __adm_rsid .'#edit">Edit</a>] [<a href="admmlist.php?del='. $r[0] .'&amp;'. __adm_rsid .'">Delete</a>]</td></tr>';
 	}
 	unset($c);
@@ -318,7 +318,10 @@ function format_regex(&$regex)
 </table>
 <br /><br />
 <b>***Notes***</b><br />
-The <i>Exec Line</i> in the table above shows the execution line required to pipe mailing list messages into the forum.
-The <i>Help</i> page contains examples for <a href="http://www.procmail.org/">procmail</a> and <a href="http://www.postfix.org/">postfix</a>.
+<p>If you load messages from a mailbox, you can use the <a href="admjobs.php?<?php echo __adm_rsid; ?>">Job Administration System</a> to schedule or run ad hoc mail imports.</p>
+
+<p>If not, you need to pipe messages into the forum with <a href="http://www.procmail.org/">procmail</a>, <a href="http://www.postfix.org/">postfix</a> or something similar. The <i>Exec Line</i> above shows the execution line required to pipe mailing list messages into the forum.</p>
+
+<p>If you synchronize Forum Posts to mailing lists, it is recommended to run the script on a small interval. For example, every 2-3 minutes.</p>
 
 <?php require($WWW_ROOT_DISK .'adm/footer.php'); ?>

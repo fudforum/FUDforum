@@ -190,10 +190,12 @@
 </table>
 <br /><br />
 <b>***Notes***</b><br />
-The <i>Exec Line</i> in the table above shows the execution line that you will need to place in your system's job scheduler.
-Windows users can use <a href="http://en.wikipedia.org/wiki/Schtasks">schtasks.exe</a>.
-Here is a Linux <a href="http://en.wikipedia.org/wiki/Cron">cron</a> example:
+<p>After setting up rules you can schedule or run ad hoc imports from the forum's <a href="admjobs.php?<?php echo __adm_rsid; ?>">Job Administration System</a>.</p>
+
+<p>Alternatively, add the <i>Exec Line</i> in the table above to your system's job scheduler.
+Windows users can use <a href="http://en.wikipedia.org/wiki/Schtasks">schtasks.exe</a> to schedule tasks. Here is a Linux <a href="http://en.wikipedia.org/wiki/Cron">cron</a> example:
 <pre>
 0 * * * * <?php echo realpath($GLOBALS['DATA_DIR'] .'scripts/xmlagg.php'); ?> 1
-</pre>
+</pre></p>
+
 <?php require($WWW_ROOT_DISK .'adm/footer.php'); ?>

@@ -71,7 +71,7 @@
 	$names = "A3: 842 x 1190\nA4: 595 x 842\nA5: 421 x 595\nletter: 612 x 792\nlegal: 612 x 1008";
 
 	$sel = create_select('CF_PDF_PAGE', $names, $opts, $PDF_PAGE);
-	echo '<tr class="field"><td>Page Dimensions: <br /><font size="-1">The sizes are in points, each point is 1/72 of an inch.</font></td><td valign="top">'.$sel.'</td></tr>';
+	echo '<tr class="field"><td>Page Dimensions: <br /><font size="-1">The sizes are in points, each point is 1/72 of an inch.</font></td><td valign="top">'. $sel .'</td></tr>';
 
 	print_reg_field('Horizontal Margin', 'PDF_WMARGIN', 1);
 	print_reg_field('Vertical Margin', 'PDF_HMARGIN', 1);

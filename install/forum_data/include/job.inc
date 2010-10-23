@@ -1,0 +1,310 @@
+<?php
+/**
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* email                : forum@prohost.org
+* $Id$
+*
+* This program is free software; you can redistribute it and/or modify it
+* under the terms of the GNU General Public License as published by the
+* Free Software Foundation; version 2 of the License.
+**/
+
+class fud_job
+{
+	var $id, $name, $minute, $hour, $dom, $month, $dow, $cmd, $job_opt=0;
+
+	function fud_job()
+	{
+		foreach ($this as $k => $v) {
+			if (isset($_POST['job_'. $k])) {
+				$this->{$k} = $_POST['job_'. $k];
+			}
+		}
+	}
+
+	function add()
+	{
+		$tbl =& $GLOBALS['DBHOST_TBL_PREFIX'];
+
+		$this->id = db_qid('INSERT INTO '. $tbl .'jobs (
+			name,
+			minute,
+			hour,
+			dom,
+			month,
+			dow,
+			cmd,
+			job_opt
+		) VALUES (
+			'. ssn($this->name) .',
+			'. ssn($this->minute) .',
+			'. ssn($this->hour) .',
+			'. ssn($this->dom) .',
+			'. ssn($this->month) .',
+			'. ssn($this->dow) .',
+			'. ssn($this->cmd) .',
+			'. ssn($this->job_opt) .'
+		)');
+
+		return $this->id;
+	}
+
+	function sync($id)
+	{
+		$tbl =& $GLOBALS['DBHOST_TBL_PREFIX'];
+
+		q('UPDATE '. $tbl .'jobs SET
+			name='. ssn($this->name) .',
+			minute='. ssn($this->minute) .',
+			hour='. ssn($this->hour) .',
+			dom='. ssn($this->dom) .',
+			month='. ssn($this->month) .',
+			dow='. ssn($this->dow) .',
+			cmd='. ssn($this->cmd) .',
+			job_opt='. ssn($this->job_opt) .'
+		WHERE id='. (int)$id);
+	}
+
+	function delete($id)
+	{
+		$tbl =& $GLOBALS['DBHOST_TBL_PREFIX'];
+
+		q('DELETE FROM '. $tbl .'jobs WHERE id = '. (int)$id);
+	}
+
+	function run($job_id=0)
+	{
+		/* Get job to run. */
+		if ($job_id > 0) {	// Specific Job.
+			$job = db_sab('SELECT * FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'jobs WHERE id = '. $job_id);
+		} else {	// Next due.
+			$job = db_sab('SELECT * FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'jobs WHERE nextrun <= '. __request_timestamp__ .' AND '. q_bitand('job_opt', 1) .' != 1 ORDER BY nextrun ASC LIMIT 1');
+		}
+		if (!$job) {	// Nothing to run.
+			return false;
+		}
+
+		/* Skip if the job is locked (still running) and locked less than 10 min ago. */
+		if ($job->locked != 0 && $job->locked > __request_timestamp__ - 600) {
+			throw new Exception('Skip '. $job->cmd .'. Job is already running.');
+		} else {
+			$path = $GLOBALS['DATA_DIR'] .'scripts/';
+			$php  = escapeshellcmd($GLOBALS['PHP_CLI']);
+
+			if (empty($php)) {
+				throw new Exception('PHP CLI Executable not set.');
+			}
+			if (!file_exists($path . $job->cmd)) {
+				throw new Exception('Cannot run task '. $job->cmd .'. No such file!');
+			}
+
+			$nextrun = $this->next_run_time($job);
+			q('UPDATE '. $GLOBALS['DBHOST_TBL_PREFIX'] .'jobs SET locked = '. __request_timestamp__ .', nextrun = '. $nextrun .' WHERE id = '. $job->id);
+
+			if (preg_match('/\s+/', $job->cmd, $m) && isset($m[2]) ) {
+				$script = escapeshellcmd($m[1]);
+				$cmd = $script .' '. escapeshellarg($m[2]);
+			} else {
+				$script = escapeshellcmd($job->cmd);
+				$cmd = $script;
+			}
+			$output = ' >'. $script .'_'. $job->id .'.log';
+			
+			chdir($path) or die('ERROR: Unable to change to scripts directory '. $path);
+			if (strncasecmp('win', PHP_OS, 3)) {	// Not Windows.
+				echo 'DEBUG: '. $php .' '. $path . $cmd .' '. $output .' 2>&1 &<hr>';
+				// exec($php .' '. $cmd .' '. $job->id . $output .' 2>&1 &');
+				pclose(popen($php .' '. $path . $cmd .' '. $output .' 2>&1 &', 'r'));
+			} else {
+				pclose(popen('start "FUDjob" /LOW /B "'. $php .'" '. $cmd .' '. $job->id . $output, 'r'));
+			}
+
+			q('UPDATE '. $GLOBALS['DBHOST_TBL_PREFIX'] .'jobs SET lastrun = '. __request_timestamp__ .', locked = 0 WHERE id = '. $job->id);
+		}
+	}
+
+	/* Calculate the next run time for a particular job. Used by run(). */
+	private function next_run_time($job)
+	{
+		$reset_hour = $reset_day = $reset_month = $reset_year = null;
+
+		$next_minute  = $current_minute  = date('i', __request_timestamp__);
+		$next_hour    = $current_hour    = date('H', __request_timestamp__);
+		$next_day     = $current_day     = date('d', __request_timestamp__);
+		$next_weekday = $current_weekday = date('w', __request_timestamp__);
+		$next_month   = $current_month   = date('m', __request_timestamp__);
+		$next_year    = $current_year    = date('Y', __request_timestamp__);
+
+		if ($job->minute == '*') {
+			++$next_minute;
+			if ($next_minute > 59) {
+				$reset_hour  = 1;
+				$next_minute = 0;
+			}
+		} else {
+			if ($this->next_run_bit($job->minute, $current_minute) != false) {
+				$next_minute = $this->next_run_bit($job->minute, $current_minute);
+			} else {
+				$next_minute = $this->first_run_time($job->minute);
+			}
+			if ($next_minute <= $current_minute) {
+				$reset_hour = 1;
+			}
+		}
+
+		if ($reset_hour || !$this->run_time_exists($job->hour, $current_hour)) {
+			if ($job->hour == '*') {
+				++$next_hour;
+				if ($next_hour > 23) {
+					$reset_day = 1;
+					$next_hour = 0;
+				}
+			} else {
+				if ($this->next_run_bit($job->hour, $current_hour) != false) {
+					$next_hour = $this->next_run_bit($job->hour, $current_hour);
+				} else {
+					$next_hour = $this->first_run_time($job->hour);
+					$reset_day = 1;
+				}
+				if ($next_hour < $current_hour) {
+					$reset_day = 1;
+				}
+			}
+			$next_minute = $this->first_run_time($job->minute);
+		}
+
+		if ($reset_day || ($job->dow == '*' && !$this->run_time_exists($job->dom, $current_day) || $job->dom == '*' && !$this->run_time_exists($job->dow, $current_weekday))) {
+			if ($job->dow == '*')	{
+				if ($job->dom == '*')	{
+					++$next_day;
+					if ($next_day > date('t', __request_timestamp__)) {
+						$reset_month = 1;
+						$next_day    = 1;
+					}
+				} else {
+					if ($this->next_run_bit($job->dom, $current_day) != false) {
+						$next_day = $this->next_run_bit($job->dom, $current_day);
+					} else {
+						$next_day    = $this->first_run_time($job->dom);
+						$reset_month = 1;
+					}
+					if ($next_day < $current_day) {
+						$reset_month = 1;
+					}
+				}
+			} else {
+				if ($this->next_run_bit($job->dow, $current_weekday) != false) {
+					$next_weekday = $this->next_run_bit($job->dow, $current_weekday);
+				} else {
+					$next_weekday = $this->first_run_time($job->dow);
+				}
+				$next_day = $current_day + ($next_weekday-$current_weekday);
+				if ($next_day <= $current_day) {
+					$next_day += 7;
+				}
+
+				if ($next_day > date('t', __request_timestamp__)) {
+					$reset_month = 1;
+				}
+			}
+			$next_minute = $this->first_run_time($job->minute);
+			$next_hour   = $this->first_run_time($job->hour);
+			if ($next_day == $current_day && $next_hour < $current_hour) {
+				$reset_month = 1;
+			}
+		}
+
+		if ($reset_month || !$this->run_time_exists($job->month, $current_month)) {
+			if ($job->month == '*') {
+				$next_month++;
+				if ($next_month > 12) {
+					$reset_year = 1;
+					$next_month = 1;
+				}
+			} else {
+				if (next_run_bit($job->month, $current_month) != false)	{
+					$next_month = $this->next_run_bit($job->month, $current_month);
+				} else {
+					$next_month = $this->first_run_time($job->month);
+					$reset_year = 1;
+				}
+				if ($next_month < $current_month) {
+					$reset_year = 1;
+				}
+			}
+			$next_minute = $this->first_run_time($job->minute);
+			$next_hour = $this->first_run_time($job->hour);
+			if ($job->dow == '*') {
+				$next_day = $this->first_run_time($job->dom);
+				if ($next_day == 0) $next_day = 1;
+			} else {
+				$next_weekday = $this->first_run_time($job->dow);
+				$new_weekday = date('w', mktime($next_hour, $next_minute, 0, $next_month, 1, $next_year));
+				$next_day = 1 + ($next_weekday - $new_weekday);
+				if ($next_weekday < $new_weekday) {
+					$next_day += 7;
+				}
+			}
+			if ($next_month == $current_month && $next_day == $current_day && $new_hour < $current_hour) {
+				$reset_year = 1;
+			}
+		}
+
+		if ($reset_year) {
+			$next_year++;
+			$next_minute = $this->first_run_time($job->minute);
+			$next_hour   = $this->first_run_time($job->hour);
+			$next_month  = $this->first_run_time($job->month);
+			if ($next_month == 0) $next_month = 1;
+			if ($job->dow == '*') {
+				$next_day = $this->first_run_time($job->dom);
+				if ($next_day == 0) $next_day = 1;
+			} else {
+				$next_weekday = $this->first_run_time($job->dow);
+				$new_weekday  = date('w', mktime($next_hour, $next_minute, 0, $next_month, 1, $next_year));
+				$next_day     = 1 + ($next_weekday-$new_weekday);
+				if ($next_weekday < $new_weekday) {
+					$next_day += 7;
+				}
+			}
+		}
+
+		return mktime($next_hour, $next_minute, 0, $next_month, $next_day, $next_year);
+	}
+
+	/* Return the next run time bit for a cron field. Used by next_run_time(). */
+	/* For example: build_next_run_bit('0,15,30,45', 20) will return 30. */
+	private function next_run_bit($data, $bit)
+	{
+		if ($data == '*') return $bit;
+		$data = explode(',', $data);
+		foreach($data as $thing) {
+			if ($thing > $bit) {
+				return $thing;
+			}
+		}
+		return false;
+	}
+
+	/* Checks if a run time exists for a cron field. Used by next_run_time(). */
+	private function run_time_exists($data, $bit)
+	{
+		if ($data == '*') return true;
+		$data = explode(',', $data);
+		if (in_array($bit, $data)) {
+			return true;
+		}
+		return false;
+	}
+
+	/* Fetches the first run bit for a cron field. Used by next_run_time(). */
+	private function first_run_time($data)
+	{
+		if ($data == '*') return '0';
+		$data = explode(',', $data);
+		return $data[0];
+	}
+
+}
+
+?>

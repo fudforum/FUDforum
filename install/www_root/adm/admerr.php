@@ -40,7 +40,7 @@ function print_last($logfile)
 	
 	$more = ($linecnt >= 5);
 	if ($more) {
-		echo '&nbsp; <i>Shown: last '. $linecnt .' error(s).</i>';
+		echo '&nbsp; <i>Last '. $linecnt .' error(s) shown.</i>';
 	} else {
 		echo '&nbsp; <i>Total: '. $linecnt .' error(s).</i>';
 	}

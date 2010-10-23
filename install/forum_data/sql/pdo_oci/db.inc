@@ -14,8 +14,6 @@
 // PROBLEM IS THAT PDO_OCI DOESN'T HAVE AN EQUIVALENT FOR "OCI_RETURN_LOBS".
 // HENCE, LOBS ARE RETURNED AS STREAMS.
 
-PDO_OCI does not support CLOBs NOTE: This driver is ex
-
 class db { public static $db, $ar, $res, $buf; }
 
 if (empty(db::$db)) {

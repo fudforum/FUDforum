@@ -7,9 +7,9 @@
 #       it under the terms of the GNU General Public License as published by
 #       the Free Software Foundation; version 2 of the License.
 
-DROP TABLE IF EXISTS {SQL_TABLE_PREFIX}cron;
+DROP TABLE IF EXISTS {SQL_TABLE_PREFIX}jobs;
 
-CREATE TABLE {SQL_TABLE_PREFIX}cron
+CREATE TABLE {SQL_TABLE_PREFIX}jobs
 (
 	id		INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	name		VARCHAR(32) NOT NULL,
@@ -19,5 +19,11 @@ CREATE TABLE {SQL_TABLE_PREFIX}cron
 	month		VARCHAR(32) NOT NULL DEFAULT '*',
 	dow		VARCHAR(32) NOT NULL DEFAULT '*',
 	cmd		VARCHAR(128) NOT NULL,
-	lastrun		BIGINT NOT NULL DEFAULT 0
+	nextrun		BIGINT NOT NULL DEFAULT 0,
+	lastrun		BIGINT NOT NULL DEFAULT 0,
+	locked		BIGINT NOT NULL DEFAULT 0,
+	job_opt		INT NOT NULL DEFAULT 0
 );
+
+# Opts
+# 1 = Disabled

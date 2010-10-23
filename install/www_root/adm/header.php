@@ -57,7 +57,7 @@ if (defined('popup') ) {	/* Special header for popup pages. */
 	<center>
 	[ <a title="Browse your forum's files" href="admbrowse.php?<?php echo __adm_rsid; ?>">Files</a> ]
 	[ <a title="Query database tables" href="admsql.php?<?php echo __adm_rsid; ?>">SQL</a> ]
-	[ <a title="Define and run job" href="admbatch.php?<?php echo __adm_rsid; ?>">Jobs</a> ]
+	[ <a title="Schedule and run ad hoc tasks" href="admjobs.php?<?php echo __adm_rsid; ?>">Jobs</a> ]
 	</center><br />
 
 	<span class="linkgroup">General Management</span><br />

@@ -77,7 +77,7 @@ EOF;
 
 	/* Notify Google. */
 	$google = 'www.google.com';
-	echo 'Notify $google...';
+	echo 'Notifying '. $google .'...';
 	if($fp = @fsockopen($google, 80)) {
 		$req = 'GET /webmasters/sitemaps/ping?sitemap='. urlencode($GLOBALS['WWW_ROOT'] .'sitemap.xml') ." HTTP/1.1\r\n".
 		       "Host: $google\r\n".

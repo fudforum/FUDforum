@@ -172,14 +172,14 @@ function get_remote_file($url, $timeout, $head_only = false, $max_redirects = 10
 		// Write version to the forum's cache directory.
 		file_put_contents($FORUM_SETTINGS_PATH .'latest_version', $verinfo);
 	} else {
-		$verinfo = 'unknown::Lookup failed!';
+		die('Lookup failed. Data returned ['. $verinfo .'].');
 	}
 
 	$display_ver = substr($verinfo, 0, strpos($verinfo, '::'));
 	echo 'Done! Current version: '. $FORUM_VERSION .', latest version is: '. $display_ver ."\n";
 
 	if (version_compare($FORUM_VERSION, $display_ver)) {
-		define('_uid', 0);
+		define('_uid', 1);
 		fud_use('db.inc');
 		fud_use('logaction.inc');
 		fud_use('iemail.inc');
