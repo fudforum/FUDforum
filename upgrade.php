@@ -9,7 +9,7 @@
 * Free Software Foundation; either version 2 of the License. 
 ***************************************************************************/
 
-$__UPGRADE_SCRIPT_VERSION = 5302.1;
+$__UPGRADE_SCRIPT_VERSION = 5302.2;
 
 /*
   * SQL Upgrade Functions - format is tablename_colname():
@@ -397,7 +397,7 @@ function extract_archive($memory_limit)
 	error_reporting(E_ALL);
 	ignore_user_abort(true);
 	@set_magic_quotes_runtime(0);	// Depricated in PHP 5.3.
-	@set_time_limit(600);
+	@set_time_limit(0);
 
 	error_reporting(E_ALL);
 	fud_ini_set('memory_limit', '128M');	// PHP 5.3's default, old defaults too small.
