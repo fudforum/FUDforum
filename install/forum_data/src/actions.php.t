@@ -23,10 +23,10 @@
 		switch ($_GET['o']) {
 			case 'alias':		$o = 'u.alias'; break;
 			case 'time':
-			default:			$o = 's.time_sec';
+			default:		$o = 's.time_sec';
 		}	
 	} else {
-		$o = 'u.alias, s.time_sec';
+		$o = 'u.alias';
 	}
 
 	if (isset($_GET['s']) && $_GET['s'] == 'a') {
@@ -74,25 +74,25 @@
 		}
 
 		if (!$r[2] || ($is_a || !empty($limit[$r[2]]) || $r[12])) {
-			if ($FUD_OPT_2 & 32768) {
-				if (($s = strpos($r[0], 'href="')) !== false) {
-					$s += 6;
-					$s = substr($r[0], $s, (strpos($r[0], '"', $s) - $s));
+			if ($FUD_OPT_2 & 32768) {	// USE_PATH_INFO
+				if (($p = strpos($r[0], 'href="')) !== false) {
+					$p += 6;
+					$p = substr($r[0], $p, (strpos($r[0], '"', $p) - $p));
 
-					if ($s{strlen($s) - 1} == '/') {
-						$tmp = explode('/', substr(str_replace('{ROOT}', '', $s), 1, -1));
-						if ($FUD_OPT_1 & 128) {
+					if ($p{strlen($p) - 1} == '/') {
+						$tmp = explode('/', substr(str_replace('{ROOT}', '', $p), 1, -1));
+						if ($FUD_OPT_1 & 128) {	// SESSION_USE_URL
 							array_pop($tmp);
 						}
-						if ($FUD_OPT_2 & 8192) {
+						if ($FUD_OPT_2 & 8192) {	// TRACK_REFERRALS
 							array_pop($tmp);
 						}
 						$tmp[] = _rsid;
 						$sn = '{ROOT}/'. implode('/', $tmp);
 					} else {
-						$sn = $s .'/'. _rsid;
+						$sn = $p .'/'. _rsid;
 					}
-					$action = str_replace($s, $sn, $r[0]);
+					$action = str_replace($p, $sn, $r[0]);
 				} else {
 					$action = $r[0];
 				}

@@ -753,7 +753,7 @@ if ($section == 'stor_path' || php_sapi_name() == 'cli') {
 	if (!isset($GLOBALS['errors'])) {
 		decompress_archive($SERVER_DATA_ROOT, $SERVER_ROOT);
 		/* Verify that all the important directories exist (old php bug). */
-		foreach (array('include', 'errors', 'messages', 'files', 'template', 'tmp', 'cache', 'errors/.nntp', 'errors/.mlist') as $v) {
+		foreach (array('include', 'errors', 'messages', 'files', 'thm', 'tmp', 'cache', 'errors/.nntp', 'errors/.mlist') as $v) {
 			if (!__mkdir($SERVER_DATA_ROOT . $v)) {
 				exit('FATAL ERROR: Couldn\'t create "'. $SERVER_DATA_ROOT . $v .'".<br />You can try creating it manually. If you do, be sure to chmod the directory 777.');
 			}

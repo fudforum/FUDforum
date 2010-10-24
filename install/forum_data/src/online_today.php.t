@@ -26,7 +26,7 @@
 			default:			$o = 'u.last_visit';
 		}	
 	} else {
-		$o = 'u.alias, u.last_visit';
+		$o = 'u.last_visit';
 	}
 
 	if (isset($_GET['s']) && $_GET['s'] == 'a') {

@@ -403,13 +403,41 @@ if (!extension_loaded('posix')) {
 		echo errorify('PERMISSION DENINED ACCSESING '. $cur_dir);
 		$cur_dir = $ROOT_PATH[0];
 	}
-
-	// Print README file.
-	$readme_file = $cur_dir .'/README';
-	if (is_file($readme_file)) {
-		echo '<br /><div class="dismiss" style="max-height:120px; width:97%; overflow:auto; border:1px dashed blue; Xackground-color:#0c0c0c; padding: 5px; white-space:pre-wrap;"><b>README:</b> '. htmlentities(file_get_contents($readme_file)) .'</div>';
-	}
 ?>
+<br />
+
+<form method="get" action="admbrowse.php"><input type="hidden" name="cur" value="<?php echo $cur_dir; ?>" /><?php echo _hs; ?>
+<fieldset class="field">
+        <legend><b>Create directory</b></legend>
+<table class="datatable">
+	<tr class="tiny">
+		<td>New directory name:</td>
+		<td><input type="text" name="mkdir" value="" /></td>
+		<td align="right" colspan="2"><input type="submit" name="btn_mkdir" value="Create Directory" /></td>
+	</tr>
+</table>
+</fieldset>
+</form>
+<br />
+
+<form method="post" action="admbrowse.php" enctype="multipart/form-data"><input type="hidden" name="cur" value="<?php echo $cur_dir; ?>" /><?php echo _hs; ?>
+<fieldset class="field">
+        <legend><b>Upload a file</b></legend>
+<table cellspacing="2" cellpadding="2" border="0">
+	<tr class="tiny">
+		<td>File to upload:</td>
+		<td><input type="file" name="fname" /><input type="hidden" name="tmp_f_val" value="1" /></td>
+	</tr>
+	<tr class="tiny">
+		<td>New file name:<br />(leave blank if want the uploaded filename to remain unchanged)</td>
+		<td><input type="text" name="d_name" value="" /></td>
+	</tr>
+	<tr class="tiny">
+		<td colspan="2" align="right"><input type="submit" name="file_upload" value="Upload File" /></td>
+	</tr>
+</table>
+</fieldset>
+</form>
 <br />
 
 <table class="resulttable fulltable">
@@ -501,41 +529,14 @@ if (!extension_loaded('posix')) {
 	}
 ?>
 </table>
-<br />
 
-<form method="get" action="admbrowse.php"><input type="hidden" name="cur" value="<?php echo $cur_dir; ?>" /><?php echo _hs; ?>
-<fieldset class="field">
-        <legend><b>Create directory</b></legend>
-<table class="datatable">
-	<tr class="tiny">
-		<td>New directory name:</td>
-		<td><input type="text" name="mkdir" value="" /></td>
-		<td align="right" colspan="2"><input type="submit" name="btn_mkdir" value="Create Directory" /></td>
-	</tr>
-</table>
-</fieldset>
-</form>
-<br />
-
-<form method="post" action="admbrowse.php" enctype="multipart/form-data"><input type="hidden" name="cur" value="<?php echo $cur_dir; ?>" /><?php echo _hs; ?>
-<fieldset class="field">
-        <legend><b>Upload a file</b></legend>
-<table cellspacing="2" cellpadding="2" border="0">
-	<tr class="tiny">
-		<td>File to upload:</td>
-		<td><input type="file" name="fname" /><input type="hidden" name="tmp_f_val" value="1" /></td>
-	</tr>
-	<tr class="tiny">
-		<td>New file name:<br />(leave blank if want the uploaded filename to remain unchanged)</td>
-		<td><input type="text" name="d_name" value="" /></td>
-	</tr>
-	<tr class="tiny">
-		<td colspan="2" align="right"><input type="submit" name="file_upload" value="Upload File" /></td>
-	</tr>
-</table>
-</fieldset>
-</form>
-<br />
+<?php
+	// Print README file.
+	$readme_file = $cur_dir .'/README';
+	if (is_file($readme_file)) {
+		echo '<br /><div class="dismiss" style="overflow:auto; border:1px dashed blue; padding: 5px; white-space:pre-wrap;"><b>README:</b> '. htmlentities(file_get_contents($readme_file)) .'</div>';
+	}
+?>
 
 <?php
 require($WWW_ROOT_DISK .'adm/footer.php');
