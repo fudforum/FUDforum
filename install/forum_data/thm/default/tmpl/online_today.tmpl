@@ -47,8 +47,8 @@
 <br />
 <table cellspacing="1" cellpadding="2" class="ContentTable">
 <tr>
-	<th><a href="{ROOT}?t=online_today&amp;{DEF: _rsid}&amp;{DEF: _rsid}&amp;o=alias&amp;s={IF: $o=='u.alias' && $s=='ASC'}d{ELSE}a{END}" class="thLnk" rel="nofollow">{MSG: user}</a></th>
-	<th><a href="{ROOT}?t=online_today&amp;{DEF: _rsid}&amp;{DEF: _rsid}&amp;o=last_visit&amp;s={IF: $o=='u.last_visit' && $s=='ASC'}d{ELSE}a{END}" class="thLnk" rel="nofollow">{MSG: online_today_last_visit}</a></th>
+	<th><a href="{TEMPLATE: online_today_sort_alias_lnk}" class="thLnk" rel="nofollow">{MSG: user}</a></th>
+	<th><a href="{TEMPLATE: online_today_sort_time_lnk}" class="thLnk" rel="nofollow">{MSG: online_today_last_visit}</a></th>
 	<th>{MSG: action_latest_post}</th>
 </tr>
 {TEMPLATE-DATA: user_entries}
@@ -73,4 +73,12 @@
 
 {SECTION: last_post_lnk}
 {ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: r[5]}&amp;{DEF: _rsid}#msg_{VAR: r[5]}
+{SECTION: END}
+
+{SECTION: online_today_sort_alias_lnk}
+{ROOT}?t=online_today&amp;o=alias&amp;s={IF: $o=='u.alias' && $s=='ASC'}d{ELSE}a{END}&amp;{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: online_today_sort_time_lnk}
+{ROOT}?t=online_today&amp;{DEF: _rsid}&amp;o=last_visit&amp;s={IF: $o=='u.last_visit' && $s=='ASC'}d{ELSE}a{END}&amp;{DEF: _rsid}
 {SECTION: END}

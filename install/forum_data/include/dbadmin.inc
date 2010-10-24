@@ -219,9 +219,9 @@ function get_fud_col_list($table)
 /* Add a composite primary key to a table. */
 function create_primary_key($table, $col_list)
 {
-	if (__dbtype__ != 'sqlite') {
-		q('ALTER TABLE '. $table .' ADD PRIMARY KEY ('. $col_list .')');
-	} else {
+	if (__dbtype__ == 'mysql') {
+		q('ALTER IGNORE TABLE '. $table .' ADD PRIMARY KEY ('. $col_list .')');
+	} else if (__dbtype__ == 'sqlite') {
 		// SQLite cannot add PK's, we need to recreate the table and copy the data over.
 
 		// Construct new CREATE TABLE statement.
@@ -239,6 +239,8 @@ function create_primary_key($table, $col_list)
 		q('INSERT INTO '. $table .' SELECT * FROM tmp');
 		drop_table('tmp');
 		q('COMMIT');
+	} else {
+		q('ALTER TABLE '. $table .' ADD PRIMARY KEY ('. $col_list .')');
 	}
 }
 

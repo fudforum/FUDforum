@@ -16,9 +16,9 @@
 	fud_use('err.inc');
 
 	/* Before we go on, we need to do some very basic activation checks. */
-	if (!($FUD_OPT_1 & 1)) {
+	if (!($FUD_OPT_1 & 1)) {	// FORUM_ENABLED
 		fud_use('errmsg.inc');
-		exit('<?xml version="1.0" encoding="{TEMPLATE: forum_CHARSET}"?><error><message>'. $DISABLED_REASON .'</message></error>');
+		exit_forum_disabled('xml');
 	}
 
 	/* Control options. */

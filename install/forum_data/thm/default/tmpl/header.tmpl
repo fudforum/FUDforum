@@ -17,13 +17,13 @@
 <base href="{FULL_ROOT}" />
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/lib.js"></script>
-<link rel="stylesheet" href="{THEME_ROOT}/forum.css" type="text/css" media="screen" title="Default FUDforum Theme" />
+<link rel="stylesheet" href="{THEME_ROOT}/forum.css" type="text/css" media="screen" title="Default Forum Theme" />
 <link rel="search" type="application/opensearchdescription+xml" title="{GVAR: FORUM_TITLE} Search" href="{FULL_ROOT}open_search.php" />
 {VAR: RSS}
 </head>
 <body>
 <div class="ForumBackground header">
-{IF: $FUD_OPT_1 & 16777216}
+{IF: $GLOBALS['FUD_OPT_1'] & 1 && $GLOBALS['FUD_OPT_1'] & 16777216}
   <div class="headsearch">
     <form id="headsearch" method="get" action="{ROOT}">{DEF: _hs}
       <br /><label accesskey="f" title="{MSG: search_forum_search}">{MSG: search_forum_search}:<br />

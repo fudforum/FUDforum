@@ -26,3 +26,11 @@
 {SECTION: reg_user_link_lnk}
 {ROOT}/u/{VAR: r[2]}/{DEF: _rsid}
 {SECTION: END}
+
+{SECTION: online_today_sort_alias_lnk}
+{ROOT}/ot/alias/{IF: $o=='u.alias' && $s=='ASC'}d{ELSE}a{END}/{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: online_today_sort_time_lnk}
+{ROOT}/ot/last_visit/{IF: $o=='u.last_visit' && $s=='ASC'}d{ELSE}a{END}/{DEF: _rsid}
+{SECTION: END}

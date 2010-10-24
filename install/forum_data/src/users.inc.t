@@ -396,6 +396,10 @@ function &init_user()
 
 			case 'a':
 				$_GET['t'] = 'actions';
+				if (isset($p[1], $p[2])) {
+					$_GET['s'] = $p[1];
+					$_GET['o'] = $p[2];
+				}
 				break;
 
 			case 's':
@@ -422,6 +426,10 @@ function &init_user()
 
 			case 'ot':
 				$_GET['t'] = 'online_today';
+				if (isset($p[1], $p[2])) {
+					$_GET['s'] = $p[1];
+					$_GET['o'] = $p[2];
+				}
 				break;
 
 			case 're':

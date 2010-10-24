@@ -54,9 +54,9 @@
 <br />
 <table cellspacing="1" cellpadding="2" class="ContentTable">
 <tr>
-	<th><a href="{ROOT}?t=actions&amp;{DEF: _rsid}&amp;{DEF: _rsid}&amp;o=alias&amp;s={IF: $o=='u.alias' && $s=='ASC'}d{ELSE}a{ENDI}" class="thLnk" rel="nofollow">{MSG: user}</a></th>
+	<th><a href="{TEMPLATE: action_sort_alias_lnk}" class="thLnk" rel="nofollow">{MSG: user}</a></th>
 	<th>{MSG: action}</th>
-	<th><a href="{ROOT}?t=actions&amp;{DEF: _rsid}&amp;{DEF: _rsid}&amp;o=time&amp;s={IF: $o=='s.time_sec' && $s=='ASC'}d{ELSE}a{END}" class="thLnk" rel="nofollow">{MSG: time}</a></th>
+	<th><a href="{TEMPLATE: action_sort_time_lnk}" class="thLnk" rel="nofollow">{MSG: time}</a></th>
 	<th>{MSG: action_latest_post}</th>
 </tr>
 {TEMPLATE-DATA: action_data}
@@ -85,4 +85,12 @@
 
 {SECTION: ACTION_PAGE_lnk}
 {ROOT}?t=actions&rand={FUNC: get_random_value()}&{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: action_sort_alias_lnk}
+{ROOT}?t=actions&amp;{DEF: _rsid}&amp;o=alias&amp;s={IF: $o=='u.alias' && $s=='ASC'}d{ELSE}a{END}&amp;{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: action_sort_time_lnk}
+{ROOT}?t=actions&amp;{DEF: _rsid}&amp;o=time&amp;s={IF: $o=='s.time_sec' && $s=='ASC'}d{ELSE}a{END}&amp;{DEF: _rsid}
 {SECTION: END}

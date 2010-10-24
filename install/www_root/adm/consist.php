@@ -514,7 +514,7 @@ While it is running, your forum will be disabled!
 	$c = q('SELECT MAX(post_stamp), poster_id, count(*) FROM '. $tbl .'msg WHERE apr=1 GROUP BY poster_id');
 	while (list($ps, $uid, $cnt) = db_rowarr($c)) {
 		if (!$uid) { continue; }
-		q('UPDATE '. $tbl .'users SET posted_msg_count='. $cnt .', u_last_post_id=(SELECT id FROM '. $tbl .'msg WHERE post_stamp='. $ps .' AND apr=1 AND poster_id='. $uid .') WHERE id='. $uid);
+		q('UPDATE '. $tbl .'users SET posted_msg_count='. $cnt .', u_last_post_id=(SELECT id FROM '. $tbl .'msg WHERE post_stamp='. $ps .' AND apr=1 AND poster_id='. $uid .' LIMIT 1) WHERE id='. $uid);
 	}
 	unset($c);
 
@@ -738,7 +738,7 @@ While it is running, your forum will be disabled!
 				fclose($fp);
 
 				unset($last);
-				pf('- '. basename($file) .' trimmed down from '. ($fsize/1024) .'K to 100K');
+				pf('- '. basename($file) .' trimmed down from '. number_format($fsize/1024, 2) .'K to 100K');
 			}
 		}
 	}

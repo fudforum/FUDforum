@@ -31,3 +31,11 @@
 {SECTION: ACTION_PAGE_lnk}
 {ROOT}/a/{FUNC: get_random_value()}/{DEF: _rsid}
 {SECTION: END}
+
+{SECTION: action_sort_alias_lnk}
+{ROOT}/a/alias/{IF: $o=='u.alias' && $s=='ASC'}d{ELSE}a{END}/{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: action_sort_time_lnk}
+{ROOT}/a/time/{IF: $o=='s.time_sec' && $s=='ASC'}d{ELSE}a{END}/{DEF: _rsid}
+{SECTION: END}

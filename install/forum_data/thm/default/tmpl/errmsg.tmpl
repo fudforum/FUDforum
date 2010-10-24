@@ -9,19 +9,34 @@
 **/
 
 {PHP_FILE: input: errmsg.inc.t; output: errmsg.inc;}
+{REF: header.tmpl}
+{REF: footer.tmpl}
 
 {SECTION: errmsg_CHARSET}
 {CHARSET}
 {SECTION: END}
 
-{SECTION: core_adm_login_msg}
-<br /><br />{MSG: core_adm_login_msg}
+{SECTION: forum_disabled_html}
+{TEMPLATE: header}
+<br />
+<h1>{GVAR: DISABLED_REASON}</h2>
+<br />
+<small>{MSG: core_adm_login_msg}</small>
+<br /><br />
+{TEMPLATE: footer}
 {SECTION: END}
 
-{SECTION: install_script_present_error}
-{MSG: install_script_present_error}
+{SECTION: forum_disabled_xml}
+<?xml version="1.0" encoding="{CHARSET}"?>
+<error>
+  <message>{GVAR: DISABLED_REASON}</message>
+</error>
 {SECTION: END}
 
 {SECTION: forum_banned_user}
+{TEMPLATE: header}
+<br />
 {MSG: forum_banned_user}
+<br /><br />
+{TEMPLATE: footer}
 {SECTION: END}

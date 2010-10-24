@@ -53,7 +53,7 @@
 	}
 
 	if (isset($_POST['thm_theme']) && @file_exists($DATA_DIR .'thm/'. $_POST['thm_theme'] .'/.path_info') && !($FUD_OPT_2 & 32768)) {
-		echo '<h3 class="alert">You need to enable PATH_INFO support in the <a href="admglobal.php?'. __adm_rsid .'#2">Global Settings Manager</a> before using a path_info theme.</h3>';
+		echo errorify('You need to enable PATH_INFO support in the <a href="admglobal.php?'. __adm_rsid .'#2">Global Settings Manager</a> before using a path_info theme.');
 		// Change POST to GET request to reload editor window.
 		$_GET['edit'] = $_POST['edit'];
 		unset($_POST['edit'], $_POST['thm_theme']);

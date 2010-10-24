@@ -34,7 +34,7 @@ function plugin_wikilinks_tag_to_html($array) {
 	$notag_pre = NULL; $i = 0;
 	if (preg_match_all('#\[notag\](.*?)\[\/notag\]#si', $bbcode, $notags, PREG_SET_ORDER)) {
 		foreach ($notags as $notag) {
-			$bbcode = str_replace($notag[0], '***nOtAg_sTrInG$i***', $bbcode);
+			$bbcode = str_replace($notag[0], '***nOtAg_sTrInG'. $i .'***', $bbcode);
 			$notag_pre[$i++] = $notag[0];
 		}
 	}
@@ -42,7 +42,7 @@ function plugin_wikilinks_tag_to_html($array) {
 	$code_pre = NULL; $i = 0;
 	if (preg_match_all('#\[code\](.*?)\[\/code\]#si', $bbcode, $codes, PREG_SET_ORDER)) {
 		foreach ($codes as $code) {
-			$bbcode = str_replace($code[0], '***cOdE_sTrInG$i***', $bbcode);
+			$bbcode = str_replace($code[0], '***cOdE_sTrInG'. $i .'***', $bbcode);
 			$code_pre[$i++] = $code[0];
 		}
 	}
@@ -60,13 +60,13 @@ function plugin_wikilinks_tag_to_html($array) {
 	// Reinsert [notag] blocks.
 	if( is_array($notag_pre)) {
 		foreach($notag_pre as $i => $notag) {
-			$bbcode = str_replace('***nOtAg_sTrInG$i***', $notag, $bbcode);
+			$bbcode = str_replace('***nOtAg_sTrInG'. $i .'***', $notag, $bbcode);
 		}
 	}
 	// Reinsert [code] blocks.
 	if( is_array($code_pre)) {
 		foreach($code_pre as $i => $code) {
-			$bbcode = str_replace('***cOdE_sTrInG$i***', $code, $bbcode);
+			$bbcode = str_replace('***cOdE_sTrInG'. $i .'***', $code, $bbcode);
 		}
 	}
 

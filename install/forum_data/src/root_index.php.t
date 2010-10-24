@@ -14,16 +14,16 @@
 	}
 	require('./GLOBALS.php');
 
+	/* Before we go on, we need to do some very basic activation checks. */
+	if (!($FUD_OPT_1 & 1)) {	// FORUM_ENABLED
+		fud_use('errmsg.inc');
+		exit_forum_disabled();
+	}
+
 /*{PRE_HTML_PHP}*/
 /*{POST_HTML_PHP}*/
 
 	fud_use('err.inc');
-
-	/* Before we go on, we need to do some very basic activation checks. */
-	if (!($FUD_OPT_1 & 1)) {
-		fud_use('errmsg.inc');
-		exit($DISABLED_REASON . __fud_ecore_adm_login_msg);
-	}
 
 	if ($FUD_OPT_2 & 16384 && $t != 'getfile') {
 		ob_start(array('ob_gzhandler', (int)$PHP_COMPRESSION_LEVEL));
@@ -43,10 +43,10 @@
 
 	if ($FUD_OPT_2 & 524288 && isset($_COOKIE[$COOKIE_NAME .'1']) && $t != 'error') {
 		fud_use('errmsg.inc');
-		exit(__fud_banned__);
+		exit_user_banned();
 	}
 
-	/* this is needed to determine what extension to use for alpha-transparency images */
+	/* This is needed to determine what extension to use for alpha-transparency images. */
 	if (!empty($_SERVER['HTTP_USER_AGENT']) && 
 		strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE') !== false && 
 		strpos($_SERVER['HTTP_USER_AGENT'], 'Opera') === false) {

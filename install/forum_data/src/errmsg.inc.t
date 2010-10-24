@@ -9,10 +9,32 @@
 * Free Software Foundation; version 2 of the License.
 **/
 
-define('__fud_ecore_adm_login_msg', '{TEMPLATE: core_adm_login_msg}');
-define('__fud_banned__', '{TEMPLATE: forum_banned_user}');
+if (!defined('_hs'))   define('_hs', '');
+if (!defined('_rsid')) define('_rsid', '');
 
-list($tset,$lang) = db_saq('SELECT name,lang FROM {SQL_TABLE_PREFIX}themes WHERE '. q_bitand('theme_opt', (1|2)) .' = '. (1|2));
+function exit_forum_disabled($format='html')
+{
+	$TITLE_EXTRA = $RSS = null;
 
-header('Content-type: text/html; charset={TEMPLATE: errmsg_CHARSET}');
+	header('HTTP/1.1 503 Service Temporarily Unavailable');
+	header('Status: 503 Service Temporarily Unavailable');
+	header('Retry-After: 1800');	// 30 minutes.
+	header('Connection: Close');
+	header('Content-type: text/'. $format .'; charset={TEMPLATE: errmsg_CHARSET}');
+
+	if ($format == 'xml') {
+		exit('{TEMPLATE: forum_disabled_xml}');
+	} else {
+		exit('{TEMPLATE: forum_disabled_html}');
+	}
+}
+
+function exit_user_banned()
+{
+	$TITLE_EXTRA = $RSS = null;
+
+	header('Content-type: text/html; charset={TEMPLATE: errmsg_CHARSET}');
+	exit('{TEMPLATE: forum_banned_user}');
+}
+
 ?>

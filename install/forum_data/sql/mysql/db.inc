@@ -16,7 +16,11 @@ if (!defined('fud_sql_lnk')) {
 	$conn = @$connect_func($GLOBALS['DBHOST'], $GLOBALS['DBHOST_USER'], $GLOBALS['DBHOST_PASSWORD']) or fud_sql_error_handler('Initiating '. $connect_func, mysql_error(), mysql_errno(), 'Unknown');
 	define('fud_sql_lnk', $conn);
 	@mysql_select_db($GLOBALS['DBHOST_DBNAME'], fud_sql_lnk) or fud_sql_error_handler('Opening database '. $GLOBALS['DBHOST_DBNAME'], mysql_error(fud_sql_lnk), mysql_errno(fud_sql_lnk), db_version());
-	mysql_set_charset('utf8');
+	if (function_exists('mysql_set_charset')) {	// Requires PHP 5.2.3 and MySQL 5.0.7 or later.
+		mysql_set_charset('utf8');
+	} else {
+		mysql_query('SET NAMES \'utf8\' COLLATE \'utf8_general_ci\'');
+	}
 
 	define('__dbtype__', 'mysql');
 }

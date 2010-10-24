@@ -9,10 +9,6 @@
 * Free Software Foundation; version 2 of the License.
 **/
 
-	require('./GLOBALS.php');
-	fud_use('err.inc');
-	fud_use('fpdf.inc', true);
-
 class fud_pdf extends FPDF
 {
 	var $outlines = array();
@@ -205,14 +201,19 @@ class fud_pdf extends FPDF
 	}
 }
 
-	/* This potentially can be a longer form to generate. */
-	@set_time_limit($PDF_MAX_CPU);
+/* main */
+	require('./GLOBALS.php');
+	fud_use('err.inc');
+	fud_use('fpdf.inc', true);
 
 	/* Before we go on, we need to do some very basic activation checks. */
 	if (!($FUD_OPT_1 & 1)) {	// FORUM_ENABLED
 		fud_use('errmsg.inc');
-		exit($DISABLED_REASON . __fud_ecore_adm_login_msg);
+		exit_forum_disabled();
 	}
+
+	/* This potentially can be a longer form to generate. */
+	@set_time_limit($PDF_MAX_CPU);
 
 /*{PRE_HTML_PHP}*/
 /*{POST_HTML_PHP}*/
