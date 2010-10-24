@@ -463,7 +463,7 @@ rpasswd_change_pass:Bytt passord
 rpasswd_login:brukernavn:
 rpasswd_cur_pass:Nåværende passord:
 rpasswd_new_pass:Nytt passord:
-rpasswd_conf_pass:Bekrefte passord:
+rpasswd_conf_pass:Bekreft passord:
 ruser_title:Skjema for å endre innloggingsnavn
 ruser_change_user:Endre foruminnloggingsnavnet ditt
 ruser_cur_login:Nåværende innloggingsnavn:

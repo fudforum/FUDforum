@@ -28,7 +28,7 @@ date_posted:Posté le
 date_registered:Inscrit(e) le :
 download_counter:Téléchargé {PLURAL: v[3]|$1 fois|$1 fois}
 pmsg_download_counter:Téléchargé {PLURAL: r->dlcount|$1 fois|$1 fois}
-email:E-mail :
+email:Courriel :
 email_to_friend:Envoyer par courriel à un ami
 email_to_friend_desc:Envoyez l'URL de cette page à un/des ami(s) par courriel
 email_user:Envoyer un courriel à cet utilisateur
@@ -46,7 +46,7 @@ gender:Sexe :
 go:Valider
 goto_next_msg:Message suivant
 goto_prev_msg:Message précédent
-home:Page d'accueil
+home:Accueil
 homepage:Site Web:
 icq_control_panel:Message en-ligne ICQ
 icq_message_form:Formulaire de message ICQ :
@@ -195,7 +195,7 @@ unsubscribe_desc:Cesser de recevoir des notifications lorsque de nouveaux fils s
 updated_on:Mis à jour le :
 user:Utilisateur
 user_counter:Nous avons <b>{VAR: st_obj->user_count}</b> {PLURAL: st_obj->user_count|utilisateur inscrit|utilisateurs inscrits}.
-user_info:Qui est cet utilisateur ?
+user_info:Informations sur l’utilisateur
 user_info_l:Qui est {VAR: u->alias} ?
 user_offline:{VAR: obj->login} n'est pas connecté
 user_online:{VAR: obj->login} est en ligne
@@ -215,7 +215,7 @@ reported_reported_by:Rapporté par :
 reported_reported_msg:Message rapporté
 modque_pending_approval:Messages en attente d'approbation
 modque_approve:Approuver
-modque_delete:Effacer
+modque_delete:Supprimer
 modque_no_message:Il n'y a pas de message en attente d'approbation
 pmsg_new_messages:Message privé non lu
 pmsg_old_messages:Message privé lu
@@ -240,7 +240,7 @@ pmsg_subject:Sujet
 pmsg_author:Auteur
 pmsg_time:Heure
 pmsg_selected:Sélectionné
-pmsg_delete:Effacer
+pmsg_delete:Supprimer
 cur_ppage_pm:Messagerie privée
 writing_pm:Écrire un message privé
 browsing_folder:Vous visitez le dossier <b>{VAR: folders[$folder_id]}</b>
@@ -285,7 +285,7 @@ register_msg_tree_view:Liste de fils plane/Liste des messages arborescente
 register_tree_msg_view:Liste de fils en arborescente/Liste des messages plane
 register_flat_view:Vue plane
 use_forum_default:Valeur par défaut du forum
-finduser_user_info:Recherche d'informations sur un utilisateur :
+finduser_user_info:Informations sur un utilisateur
 finduser_by_login:Par utilisateur :
 finduser_submit:Chercher
 finduser_no_such_user:Aucun utilisateur ne correspond à cette requête
@@ -312,7 +312,7 @@ register_email_desc:Veuillez entrer une adresse e-mail valide. Vous avez la poss
 register_name:Nom :
 register_your_pass:Votre mot de passe :
 register_update:Mettre à jour
-register_avatar_type:Type d'avatar :
+register_avatar_type:Type d’avatar :
 register_del_avatar:Effacer l'avatar
 register_avatar:Avatar :
 register_sel_avatar:Sélectionner un avatar
@@ -398,7 +398,7 @@ post_no_icon:Pas d'icône
 post_smiley:Raccourcis de smileys :
 post_format_tools:Outils de mise en page :
 post_upload_file:Télécharger le fichier
-post_file_del:Effacer
+post_file_del:Supprimer
 post_file_name:Nom
 post_file_size:Taille
 file_attachments:Fichier(s) attaché(s) :
@@ -445,7 +445,7 @@ coppa_fax_date:Date :
 coppa_fax_questions:Veuillez contacter <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> si vous avez des questions
 coppa_fax_login:Utilisateur
 coppa_fax_passwd:Mot de passe
-coppa_fax_remail:Adresse de courriel
+coppa_fax_remail:Courriel
 coppa_fax_name:Nom
 login_not_logedin:Vous n'êtes pas connecté. Cela peut être dû à l'une des raisons suivantes :
 login_cookie_expired:Votre cookie a expiré et vous devez vous connecter à nouveau afin de le régénérer.
@@ -477,7 +477,7 @@ ruser_cur_login:Login actuel :
 ruser_new_login:Nouveau login :
 ruser_cur_pass:Mot de passe actuel :
 login_passwd:Mot de passe :
-reset_email:courriel :
+reset_email:Courriel :
 reset_reset_button:Réinitialiser le mot de passe
 rate_this_thread:Note
 report_reporting_about:Je rapporte :
@@ -512,7 +512,7 @@ mklist_type:Type :
 mklist_option:Option :
 mklist_additem:Ajouter un élément
 mklist_apply:Valider
-mklist_delete:Effacer
+mklist_delete:Supprimer
 qbud_nick_name:Surnom
 qbud_add_selected:Ajouter les éléments sélectionnés
 qbud_selected:Sélectionné(s)
@@ -524,10 +524,10 @@ mklist_disc:Disque
 mklist_circle:Cercle
 mklist_close:Fermer
 email_to:À :
-email_pg_title:e-mail
+email_pg_title:Courriel
 email_subject:Sujet :
 email_body:Contenu :
-email_submit:e-mail
+email_submit:Courriel
 ppost_quote_msg:{VAR: msg_to_list} a écrit le {TEMPLATE: ppost_quote_msg_date}
 ppost_quote:Citation :
 ppost_to:À :
@@ -547,7 +547,7 @@ poll_update:Mettre à jour
 poll_disablesmilies:Désactiver les smileys
 poll_create_poll:Créer le sondage
 poll_update_poll:Mettre le sondage à jour
-poll_delete:Effacer
+poll_delete:Supprimer
 poll_updateoption:Mettre à jour l'option
 poll_addoption:Ajouter une option
 poll_unlimited:Illimité
@@ -705,7 +705,7 @@ login_title:Nom d'utilisateur
 poll_title:Editeur de sondage
 register_title:Inscription
 reset_title:Réinitialisation du mot de passe
-rpasswd_title:Changer de mot de passe
+rpasswd_title:Formulaire de changement de mot de passe
 error_title:Formulaire d'erreur
 index_title:Bienvenue sur le forum
 search_title:Recherche de {VAR-HTML: srch}
@@ -721,7 +721,7 @@ post_opt_fud_off:Le <b>BBcode</b> est <b>DÉSACTIVÉ</b>
 post_opt_images_off:Les <b>images</b> sont <b>DÉSACTIVÉES</b>
 post_opt_smilies_off:Les <b>smileys</b> sont <b>DÉSACTIVÉS</b>
 post_opt:Options activées sur le forum :
-register_change_passwd:Changer de mot de passe
+register_change_passwd:changer de mot de passe
 register_change_login:modifier la connexion
 approved_avatar_title:Votre avatar personnel a été approuvé.
 approved_avatar_msg:Votre avatar a été approuvé par l'administrateur. Il devrait maintenant apparaître dans tous vos messages. Si ce n'est pas le cas, c'est que votre navigateur le contient dans les pages de sa mémoire cache. Essayez de le rafraîchir quelques fois, cela devrait résoudre le problème.
@@ -752,8 +752,8 @@ groupmgr_member:Membre(s)
 groupmgr_cancel:Annuler
 groupmgr_add_member:Ajouter un membre
 groupmgr_update_member:Mettre le membre à jour
-groupmgr_edit:Éditer
-groupmgr_delete:Effacer
+groupmgr_edit:Modifier
+groupmgr_delete:Supprimer
 group_mgr_anon:Anonyme
 group_mgr_reged:Tous les utilisateurs inscrits
 show_show:Montrer :
@@ -766,8 +766,8 @@ permission_denied_msg:Vous n'avez pas suffisamment de privilèges pour entrepren
 p_READ:Lire
 p_POST:Envoyer
 p_REPLY:Répondre
-p_EDIT:Éditer
-p_DEL:Effacer
+p_EDIT:Modifier
+p_DEL:Supprimer
 p_STICKY:Messages épinglés
 p_POLL:Créer un sondage
 p_FILE:Joindre des fichiers
@@ -806,7 +806,7 @@ th_expr_one_month:1 mois
 th_expr_two_month:2 mois
 th_expr_four_month:4 mois
 th_expr_one_year:1 an
-thread_mod_delete:Effacer
+thread_mod_delete:Supprimer
 action_latest_post:Dernier message
 online_today_last_visit:Dernière visite aujourd'hui
 online_today_update:Voir la liste des personnes ayant visité le forum aujourd'hui.
@@ -856,7 +856,7 @@ im_google:Google Talk :
 im_skype:Skype :
 im_twitter:Twitter :
 forum_contact:Nous contacter
-forum_home:Page principale
+forum_home:Accueil
 post_cur_attached:{VAR: i} {PLURAL: i|fichier attaché|fichiers attachés}
 ignored_anon_post:{GVAR: ANON_NICK} est ignoré
 ignored_user_post:Le message de <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> est ignoré
@@ -868,7 +868,7 @@ help_back_to_top:Retour en haut de la page
 help_return_to_index:Retour à l'index d'aide
 imsg_err_message_title:Message invalide
 imsg_err_message_msg:Le message que vous essayez de voir n'existe pas
-poll_edit:Éditer
+poll_edit:Modifier
 register_err_not_valid_img:L'URL spécifiée ne pointe pas vers une image valide
 pmsg_recepient:Destinataire
 register_err_taken_alias:L'alias que vous avez choisi est déjà utilisé actuellement par quelqu'un d'autre, veuillez en choisir un autre
@@ -985,7 +985,7 @@ register_pm_notification_desc:Si cette option est activée, vous serez notifié 
 findu_admin_opts_header:Options d'admin.
 findu_unban:Autoriser
 findu_ban:Bannir
-findu_edit:Éditer
+findu_edit:Modifier
 findu_delete:Supprimer
 dmsg_reply_to:est une réponse au
 dmsg_reply_num:message n° {VAR: obj->reply_to}
@@ -1031,7 +1031,7 @@ delete_msg_removed_ttl:Votre message a été effacé par l'équipe d'administrat
 delete_msg_pm_body:Message original
 delete_msg_pm_subject:Sujet&nbsp;: {VAR: data[15]}
 ip_no_whois:Information Whois pour <b>{VAR: ip}</b> non disponible.
-ip_whois_title:Information sur le FAI
+ip_whois_title:Informations sur le FAI
 register_theme:Thème :
 pmsg_trash:Vider la corbeille
 uc_new_pm:Nouveaux messages privés
@@ -1089,7 +1089,7 @@ post_common_nlist:Ajouter une liste numérotée
 post_common_blist:Ajouter une liste à puces
 post_common_quote:Ajouter une citation
 post_common_code:Ajouter du code
-rating_delete:Supprimez
+rating_delete:Supprimer
 post_always_on_top:Faire toujours apparaître le sujet au sommet de la liste des sujets
 topic_rating:{VAR: frm->rating} de {PLURAL: frm->n_rating|$1 vote|$1 votes}
 topic_list_rating:{VAR: r[17]} de {PLURAL: r[21]|$1 vote|$1 votes}

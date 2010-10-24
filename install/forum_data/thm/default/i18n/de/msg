@@ -434,7 +434,7 @@ coppa_fax_sign:Bitte unterschreiben Sie das Formular und schicken es an uns
 coppa_fax_conf:Ich habe die Informationen meines Kindes begutachtet und die Handhabung der Privatssphäre auf der Webseite gelesen. Mir ist bekannt, dass die Informationen im Profil durch das Benutzen eines Passwortes geändert werden können. Mir ist bekannt, dass ich um vollständige Entfernung des Benutzerprofils bitten kann.
 coppa_fax_permission:Unterschreiben Sie hier, um die Erlaubnis zu erteilen
 coppa_fax_no_permission:Unterschreiben Sie hier, um das Benutzerkonto löschen zu lassen
-coppa_fax_parent_name:Vollständiger Name des Elternteils/Vormundes:
+coppa_fax_parent_name:Bürgerlicher Name des Elternteils/Vormundes:
 coppa_fax_relation:Bezug zum Kind:
 coppa_fax_telephone:Telefon:
 coppa_fax_email:E-Mail-Adresse:

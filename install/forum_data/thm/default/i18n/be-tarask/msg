@@ -811,10 +811,30 @@ drawmsg_view_rest_post:Паказаць рэшту паведамленьня
 post_re:Адк.:
 forumsel_goto_forum:Перайсьці да формы:
 minimsg_thread_view:Прагляд тэмы
+split_th_post_by:Аўтар паведамленьня:
+split_th_posted_on:Разьмешчаны:
 split_th_subject:Тэма:
+split_th_new_thread_title:Назва новай тэмы:
 split_th_forum:Форум:
+split_th_split_sel:Падзяліць выбраныя паведамленьні
+split_th_split_unsel:Падзяліць не выбраныя паведамленьні
 split_th_messages:Паведамленьні
+split_th_select:Выбраць
+report_report_post:Паведаміць пра паведамленьне
+quicklogin_login:Імя карыстальніка:
 quicklogin_password:Пароль:
+quicklogin_use_cookies:Выкарыстоўваць закладкі (cookies)?
+quicklogin_login_btn:Увайсьці
+quick_reply:Хуткі адказ
+quick_reply_post:Даслаць хуткі адказ
+quick_reply_preview:Папярэдні прагляд хуткага адказу
+post_notification_desc:Паведаміце мне, калі нехта адкажа на гэтае паведамленьне.
+post_all_ext_allowed:(без абмежаваньняў)
+maximize_category:Максымізаваць катэгорыю
+maximize_message:Максымізаваць паведамленьне
+no_view_perm:Вы ня маеце адпаведных правоў для прагляду гэтай тэмы.
+report_empty_report:Вы ня можаце даслаць пустое паведамленьне. Калі ласка, увядзіце прычыну Вашага паведамленьня.
+report_already_reported_title:Ужо паведамлена
 im_jabber:Jabber:
 im_google:Google Talk:
 im_skype:Skype:

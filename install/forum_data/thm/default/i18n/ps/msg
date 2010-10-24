@@ -277,6 +277,7 @@ quick_reply_preview:د چټک ځواب مخليدنه
 pmsg_next_msg:راتلونکی پيغام
 pmsg_prev_msg:پخوانی پيغام
 im_skype:سکايپ:
+im_twitter:ټوېټر:
 forum_contact:اړيکه
 forum_home:کور
 smladd_close_window:کړکۍ تړل
@@ -304,8 +305,21 @@ uc_new_topic:نوی سرليک
 search_options:د پلټلو خوښنې
 modque_cat:وېشنيزه
 modque_forum:فورم
+pmsg_pdf_btn:د PDF خونديځ جوړول
+thread_del_all:ټول ټاکلي ړنګول
+thread_mov_all:ټول ټاکلي لېږدول
+post_common_bold:زغرد
+post_common_italics:رېوند
+post_common_align_left:کيڼه پرليکتيا
+post_common_align_right:ښي پرليکتيا
+post_common_link:يوه تړنه ورټومبل
+post_common_email:يوه برېښليک پته ورکړۍ
+post_common_image:يو انځور ورټومبل
+post_common_blist:ګولۍ داره لړليک ورګډول
 rating_delete:ړنګول
 finduser_flag:رپی
+move_messages:پيغامونه لېږدول
+code_title:کوډ:
 code_select_all:ټول ټاکل
 code_show_hide:ښکاره کول/ پټول
 btn_new_topic:نوی سرليک

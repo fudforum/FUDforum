@@ -462,7 +462,7 @@ rpasswd_change_pass:Смени лозинка
 rpasswd_login:Корисничко име:
 rpasswd_cur_pass:Тековна лозинка:
 rpasswd_new_pass:Нова лозинка:
-rpasswd_conf_pass:Потврди лозинка
+rpasswd_conf_pass:Повторно лозинката:
 ruser_title:Образец за смена на корисничко име
 ruser_change_user:Смени мое корисничко име
 ruser_cur_login:Тековно корисничко име:

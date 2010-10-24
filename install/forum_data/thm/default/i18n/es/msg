@@ -67,7 +67,6 @@ logged_in_list:Lista de usuarios conectados
 login:Iniciar sesión
 login_header:Iniciar sesión:
 logout:Salir
-# Fuzzy
 mark_all_read:Marcar todos los mensajes como leídos
 mark_all_read_desc:Todos sus mensajes no leídos serán marcados como leídos
 members:Miembros
@@ -1034,8 +1033,7 @@ uc_sub_topics:Hilos suscritos con mensajes nuevos
 uc_page_title:Viendo el panel de control personal
 search_options:Opciones de búsqueda
 search_user_filter:Filtrar por usuario:
-# Fuzzy
-register_none:No notificar
+register_none:No me notifiquen
 findu_no_conf:Usuario sin confirmar
 register_max_sig_len:Longitud máxima:
 register_turing:Por favor, introduzca el código que se muestra debajo:

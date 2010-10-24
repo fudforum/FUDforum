@@ -2,6 +2,7 @@
 # Exported from translatewiki.net
 # Author: Crazymadlover
 # Author: Fryed-peach
+# Author: GTNS
 # Author: Giro720
 # Author: Hamilton Abreu
 # Author: Luckas Blade
@@ -70,8 +71,7 @@ logged_in_list:Lista de utilizadores a visitar o forum
 login:Entrar
 login_header:Utilizador:
 logout:Sair
-# Fuzzy
-mark_all_read:marcar todas as mensagens como lidas
+mark_all_read:Marcar todas as mensagens como lidas
 mark_all_read_desc:Todas a suas mensagens serão marcadas como lidas
 members:Membros
 calendar:Calendário
@@ -409,7 +409,7 @@ disable_smilies:Cancelar smilies nesta mensagem
 spell_check_msg:Accionar ortografia na mensagem
 post_form:Formulário de Publicação
 post_forum:Fórum:
-post_title:Titulo:
+post_title:Título:
 post_body:Corpo:
 post_options:Opções:
 post_preview_btn:Visualisar mensagem
