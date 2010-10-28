@@ -1094,7 +1094,7 @@ post_always_on_top:Faire toujours apparaître le sujet au sommet de la liste des
 topic_rating:{VAR: frm->rating} de {PLURAL: frm->n_rating|$1 vote|$1 votes}
 topic_list_rating:{VAR: r[17]} de {PLURAL: r[21]|$1 vote|$1 votes}
 tabs_notifications:Notifications
-finduser_flag:Drapeau
+finduser_flag:Indicateur
 post_descr:Description du sujet
 pmsg_on:activé
 pmsg_download_dump:Téléchargez une sauvegarde des messages

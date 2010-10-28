@@ -835,10 +835,30 @@ maximize_message:Максымізаваць паведамленьне
 no_view_perm:Вы ня маеце адпаведных правоў для прагляду гэтай тэмы.
 report_empty_report:Вы ня можаце даслаць пустое паведамленьне. Калі ласка, увядзіце прычыну Вашага паведамленьня.
 report_already_reported_title:Ужо паведамлена
+report_already_reported_msg:Пра гэтае паведамленьне ўжо было паведамлена, і цяпер яно знаходзіцца ў чарзе мадэратара на разгляд.
+register_err_toomanyimages:Вы спрабуеце выкарыстаць большую колькасьць выяваў у подпісу, чым дазволена {GVAR: FORUM_IMG_CNT_SIG}.
+pmsg_next_msg:Наступнае паведамленьне
+pmsg_prev_msg:Папярэдняе паведамленьне
+post_proc_reveal_spoiler:Паказаць схаваны тэкст
+register_jabber:Імя ў Jabber:
+register_skype:Імя ў Skype:
+register_twitter:Імя ў Twitter:
+register_google:Імя ў Google Chat/IM:
 im_jabber:Jabber:
 im_google:Google Talk:
 im_skype:Skype:
 im_twitter:Twitter:
+forum_contact:Кантакты
+forum_home:Галоўная старонка
+post_cur_attached:цяпер {VAR: i} {PLURAL: i|файл далучаны|файлы далучаныя|файлаў далучаныя}
+ignored_anon_post:{GVAR: ANON_NICK} ігнаруецца
+ignored_user_post:Паведамленьне ад <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> ігнаруецца
+smladd_close_window:зачыніць акно
+post_list_smilies:паказаць усе ўсьмешкі
+p_VISIBLE:Бачны
+reported_in_thread:У тэме:
+help_back_to_top:вярнуцца ўгару
+help_return_to_index:Вярнуцца на галоўную старонку дапамогі
 poll_edit:Рэдагаваць
 polllist_action:Дзеяньне
 iemail_msg_subject:<b>Тэма:</b> {VAR: obj->subject}
