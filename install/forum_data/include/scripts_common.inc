@@ -61,7 +61,7 @@ function create_new_user($from_name, $from_email, $reg_date=0)
 	}
 
 	$user->email =& $from_email;
-	$user->name =& $from_name;
+	$user->name  =& $from_name;
 	$user->users_opt = -1;
 	$user->join_date = $reg_date;
 
@@ -89,7 +89,7 @@ function get_fud_reply_id($complex, $forum_id, $subject, $data)
 		if (preg_match('!(?:Re|AW|Wa)\s*:\s*(.*)$!i', $subject, $matches)) {
 			$r = db_saq('SELECT m.id, m.thread_id FROM '. sql_p .'msg m INNER JOIN '. sql_p .'thread t ON m.thread_id=t.id WHERE t.forum_id='. $forum_id .' AND m.subject='. ssn(trim($matches[1])) .' ORDER BY m.post_stamp');
 			if (!$r) {
-				$r = db_saq('SELECT m.id, m.thread_id FROM '. sql_p .'msg m INNER JOIN '. sql_p .'thread t ON m.thread_id=t.id WHERE t.forum_id='. $forum_id .' AND m.subject LIKE '. addcslashes(_esc(trim($matches[1]).'%'),'_').' ORDER BY m.post_stamp DESC LIMIT 1');
+				$r = db_saq('SELECT m.id, m.thread_id FROM '. sql_p .'msg m INNER JOIN '. sql_p .'thread t ON m.thread_id=t.id WHERE t.forum_id='. $forum_id .' AND m.subject LIKE '. addcslashes(_esc(trim($matches[1]) .'%'),'_') .' ORDER BY m.post_stamp DESC LIMIT 1');
 			}
 		}
 	}
@@ -112,7 +112,7 @@ if (extension_loaded('iconv')) {
 	function charset_convert($str, $from, $to) { return @recode_string($from .'..'. $to, $str); }
 } else {
 	function charset_convert($str, $from, $to) { return $str; }
-}	
+}
 
 function decode_string($str, $encoding, $charset='')
 {
@@ -133,14 +133,14 @@ function decode_string($str, $encoding, $charset='')
 
 function decode_header_value($val)
 {
-	// Better to let PHP do it as it will also deal with non-UTF-8 chars.
-	if (function_exists('iconv_mime_decode')) {
-		return iconv_mime_decode(trim($val), 2, 'UTF-8');
-	}
-
-	// Check if string needs to be decoded.
+	// Should string be decoded? If not, this function may strip accented characters.
 	if (strpos($val, '?') === false) {
 		return trim($val);
+	}
+
+	// Better to let PHP do it as it will also deal with non-UTF-8 characters.
+	if (function_exists('iconv_mime_decode')) {
+		return iconv_mime_decode(trim($val), 2);
 	}
 
 	// Decode string.
@@ -161,7 +161,7 @@ function decode_header_value($val)
 				$newval .= $m[6][$i];
 			}
 			if (!empty($m[1][$i])) {
-				$newval = $m[1][$i].$newval;
+				$newval = $m[1][$i] . $newval;
 			}
 		}
 		$val = trim($newval);
