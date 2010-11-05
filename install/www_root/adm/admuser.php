@@ -37,7 +37,7 @@
 	}
 
 	if ($usr_id && $acc_mod_only && $u->users_opt & (268435456|1048576) && !($usr_id == $u->id)) {
-		echo '<h3>Account moderators are not allowed to modify administrator accounts or accounts of other account moderators.</h3>';
+		echo errorify('Account moderators are not allowed to modify administrator accounts or accounts of other account moderators.');
 		$u = $usr_id = null;
 	}
 
@@ -46,7 +46,7 @@
 		q('UPDATE '. $DBHOST_TBL_PREFIX .'users SET ban_expiry=0, users_opt='. q_bitand('users_opt', ~65536) .' WHERE id='. $usr_id);
 	}
 
-	$keys = array('block'=>65536, 'coppa'=>262144, 'econf'=>131072, 'sig'=>67108864, 'pm'=>33554432, 'conf'=>2097152, 'accmod'=>268435456);
+	$keys = array('block'=>65536, 'coppa'=>262144, 'econf'=>131072, 'sig'=>67108864, 'pm'=>33554432, 'conf'=>2097152, 'accmod'=>268435456, 'modposts'=>536870912);
 
 	switch ($act) {
 		case 'block':
@@ -56,6 +56,7 @@
 		case 'sig':
 		case 'pm':
 		case 'accmod':
+		case 'modposts':
 			/* Only admins can do this. */
 			if ($act == 'accmod' && $acc_mod_only) {
 				break;
@@ -83,7 +84,7 @@
 			}
 
 			if ($u->users_opt & $keys[$act]) {
-				q('UPDATE '. $DBHOST_TBL_PREFIX .'users SET ban_expiry='. $block .', users_opt='. q_bitand('users_opt', q_bitnot($keys[$act])) .' WHERE id='.$usr_id);
+				q('UPDATE '. $DBHOST_TBL_PREFIX .'users SET ban_expiry='. $block .', users_opt='. q_bitand('users_opt', q_bitnot($keys[$act])) .' WHERE id='. $usr_id);
 				$u->users_opt ^= $keys[$act];
 			} else {
 				q('UPDATE '. $DBHOST_TBL_PREFIX .'users SET ban_expiry='. $block .', users_opt='. q_bitor('users_opt', $keys[$act]) .' WHERE id='. $usr_id);
@@ -272,7 +273,13 @@ administration permissions to the forum. This individual will be able to do anyt
 	}
 ?>
 <h2>User Administration System</h2>
-<?php if (!$usr_id) echo '<p>Use an asterisk (*) to match multiple user accounts.</p>'; ?>
+<?php if (!$usr_id)	{
+	echo '<p>Use an asterisk (*) to match multiple user accounts.</p>';
+	if ( empty($_GET['usr_login']) && empty($_GET['usr_email']) ) {
+		$_GET['usr_login'] = '*';	// Default search.
+		$_GET['usr_email']  = '';
+	}
+} ?>
 <form id="frm_usr" method="GET" action="admuser.php">
 <fieldset class="tutor">
 <legend><b>Search for user:</b></legend>
@@ -297,9 +304,9 @@ administration permissions to the forum. This individual will be able to do anyt
 </td><td>
 	<!-- Links to control panels that Account Moderators can access. -->
 	<b>Account moderation:</b><br />
-	[ <a href="admuseradd.php?<?php echo __adm_rsid; ?>">Create new users</a> ]<br />
-	[ <a href="admaccapr.php?<?php echo __adm_rsid; ?>">Approve users</a> ]<br />
-	[ <a href="admusermerge.php?<?php echo __adm_rsid; ?>">Merge users</a> ]<br /><br />
+	&nbsp;[ <a href="admuseradd.php?<?php echo __adm_rsid; ?>">Create new users</a> ]<br />
+	&nbsp;[ <a href="admaccapr.php?<?php echo __adm_rsid; ?>">Approve users</a> ]<br />
+	&nbsp;[ <a href="admusermerge.php?<?php echo __adm_rsid; ?>">Merge users</a> ]<br /><br />
 	<b>Show:</b>
 	[ <a href="admslist.php?<?php echo __adm_rsid; ?>">Privileged</a> ] 
 	[ <a href="admbanlist.php?<?php echo __adm_rsid; ?>">Banned</a> ]
@@ -311,15 +318,15 @@ administration permissions to the forum. This individual will be able to do anyt
 <?php
 	/* User searching logic. */
 	if (!empty($_GET['usr_email']) || !empty($_GET['usr_login'])) {
-		$item = !empty($_GET['usr_email']) ? $_GET['usr_email'] : $_GET['usr_login'];
+		$item  = !empty($_GET['usr_email']) ? $_GET['usr_email'] : $_GET['usr_login'];
 		$field = !empty($_GET['usr_email']) ? 'email' : ($FUD_OPT_2 & 128 ? 'alias' : 'login');
 		$start = !empty($_GET['start']) ? (int) $_GET['start'] : 0;
 		if (strpos($item, '*') !== false) {
-			$like = 1;
-			$item = str_replace('*', '%', $item);
+			$like   = 1;
+			$item   = str_replace('*', '%', $item);
 			$item_s = str_replace('\\', '\\\\', $item);
 		} else {
-			$like = 0;
+			$like   = 0;
 			$item_s = $item;
 		}
 		if ($FUD_OPT_2 & 128) {
@@ -403,18 +410,19 @@ administration permissions to the forum. This individual will be able to do anyt
 		echo '<tr class="field"><td>Post count:</td><td>'. $u->posted_msg_count .' [ <a href="../'.__fud_index_name__.'?t=showposts&amp;id='.$usr_id.'&amp;'.__adm_rsid.'" title="View user\'s messages on the forum">See Messages</a> ]</td></tr>';
 	}
 
-	echo '<tr class="field"><td>E-mail Confirmation:</td><td>'.($u->users_opt & 131072 ? 'Yes' : '<font size="+1" color="red">No</font>').' [<a href="admuser.php?act=econf&amp;usr_id='. $usr_id .'&amp;'. __adm_rsidl .'">Toggle</a>]</td></tr>';
-	echo '<tr class="field"><td>Confirmed Account:</td><td>'.($u->users_opt & 2097152 ? '<font size="+1" color="red">No</font>' : 'Yes').' [<a href="admuser.php?act=conf&amp;usr_id='. $usr_id .'&amp;'. __adm_rsidl .'">Toggle</a>]</td></tr>';
-	echo '<tr class="field"><td>Can use signature:</td><td>'.($u->users_opt & 67108864 ? 'No' : 'Yes').' [<a href="admuser.php?act=sig&amp;usr_id='. $usr_id .'&amp;'. __adm_rsidl .'">Toggle</a>]</td></tr>';
-	echo '<tr class="field"><td>Can use private messaging:</td><td>'.($u->users_opt & 33554432 ? 'No' : 'Yes').' [<a href="admuser.php?act=pm&amp;usr_id='. $usr_id .'&amp;'. __adm_rsidl .'">Toggle</a>]</td></tr>';
+	echo '<tr class="field"><td>E-mail address confirmed:</td><td>'.($u->users_opt & 131072 ? 'Yes' : '<font size="+1" color="red">No</font>').' [<a href="admuser.php?act=econf&amp;usr_id='. $usr_id .'&amp;'. __adm_rsidl .'">Toggle</a>]</td></tr>';
+	echo '<tr class="field"><td>Account approved:</td><td>'.($u->users_opt & 2097152 ? '<font size="+1" color="red">No</font>' : 'Yes').' [<a href="admuser.php?act=conf&amp;usr_id='. $usr_id .'&amp;'. __adm_rsidl .'">Toggle</a>]</td></tr>';
+	echo '<tr class="field"><td>Can use signature:</td><td>'.($u->users_opt & 67108864 ? '<font size="+1" color="red">No</font>' : 'Yes').' [<a href="admuser.php?act=sig&amp;usr_id='. $usr_id .'&amp;'. __adm_rsidl .'">Toggle</a>]</td></tr>';
+	echo '<tr class="field"><td>Can use private messaging:</td><td>'.($u->users_opt & 33554432 ? '<font size="+1" color="red">No</font>' : 'Yes').' [<a href="admuser.php?act=pm&amp;usr_id='. $usr_id .'&amp;'. __adm_rsidl .'">Toggle</a>]</td></tr>';
 	if ($FUD_OPT_1 & 1048576) {
-		echo '<tr class="field"><td>COPPA:</td><td>'. ($u->users_opt & 262144 ? 'Yes' : 'No') .' [<a href="admuser.php?act=coppa&amp;usr_id='. $usr_id .'&amp;'. __adm_rsidl .'">Toggle</a>]</td></tr>';
+		echo '<tr class="field"><td>COPPA:</td><td>'. ($u->users_opt & 262144 ? 'Yes' : '<font size="+1" color="red">No</font>') .' [<a href="admuser.php?act=coppa&amp;usr_id='. $usr_id .'&amp;'. __adm_rsidl .'">Toggle</a>]</td></tr>';
 	}
+	echo '<tr class="field"><td>Queue user\'s posts for moderation:</td><td>'.($u->users_opt & 536870912 ? '<font size="+1" color="red">Yes</font>' : 'No').' [<a href="admuser.php?act=modposts&amp;usr_id='. $usr_id .'&amp;'. __adm_rsidl .'">Toggle</a>]</td></tr>';
 if (!$acc_mod_only) {
 	echo '<tr class="field"><td nowrap="nowrap">Forum Administrator:</td><td>'. ($u->users_opt & 1048576 ? '<b><font size="+1" color="red">Yes</font></b>' : 'No') .' [<a href="admuser.php?act=admin&amp;usr_id='. $usr_id .'&amp;'. __adm_rsidl .'">Toggle</a>]</td></tr>';
 } else {
 	echo '<tr class="field"><td nowrap="nowrap">Forum Administrator:</td><td>'. ($u->users_opt & 1048576 ? '<b><font size="+1" color="red">Yes</font></b>' : 'No') .'</td></tr>';
-}	
+}
 if ($acc_mod_only) {
 	echo '<tr class="field"><td>Account Moderator:</td><td>'. ($u->users_opt & 268435456 ? '<b><font size="+1" color="red">Yes</font></b>' : 'No') .'</td></tr>';
 } else {
@@ -441,14 +449,14 @@ if ($acc_mod_only) {
 <?php
 	$c = uq('SELECT name, id FROM '. $DBHOST_TBL_PREFIX .'custom_tags WHERE user_id='. $usr_id);
 	while ($r = db_rowarr($c)) {
-		echo $r[0] .' [<a href="admuser.php?act=nada&amp;usr_id='. $usr_id .'&amp;deltag='. $r[1] .'&amp;'. __adm_rsid .'">Delete</a>]<br />';
+		echo $r[0] .' [<a href="admuser.php?act=nada&amp;usr_id='. $usr_id .'&amp;deltag='. $r[1] .'&amp;'. __adm_rsid .'">Delete tag</a>]<br />';
 	}
 	unset($c);
 ?>
 	<form action="admuser.php" method="post">
 	<?php echo _hs; ?>
 	<input type="text" name="c_tag" />
-	<input type="submit" value="Add" />
+	<input type="submit" value="Add tag" />
 	<input type="hidden" name="usr_id" value="<?php echo $usr_id; ?>" />
 	<input type="hidden" name="act" value="nada" />
 	</form>

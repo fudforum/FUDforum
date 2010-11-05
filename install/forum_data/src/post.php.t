@@ -388,6 +388,7 @@ function flood_check()
 
 			if (!$msg_id &&	// New post.
 			    (!($frm->forum_opt & 2) || $MOD) &&	// Forum not moderated.
+				(!($usr->users_opt & 536870912)) &&	// User not moderated.
 			    ($usr->posted_msg_count >= $MOD_FIRST_N_POSTS || $MOD))	// Min quota posts reached.
 			{
 				$msg_post->approve($msg_post->id);
@@ -410,7 +411,8 @@ function flood_check()
 			    !($perms & 2))	// p_READ (cannot read forum)
 			{
 				check_return();
-			} else if (($frm->forum_opt & 2 && !$MOD) ||	// Moderated forum & not a mod.
+			} else if (($frm->forum_opt & 2 && !$MOD) ||	// Forum is moderated & not a mod.
+					   ($usr->users_opt & 536870912) ||	// User is moderated.
 			           ($usr->posted_msg_count < $MOD_FIRST_N_POSTS && !$MOD))	// Min quota posts not reached.
 			{
 				if ($FUD_OPT_2 & 262144) {	// MODERATED_POST_NOTIFY
