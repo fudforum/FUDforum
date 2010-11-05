@@ -32,7 +32,7 @@ function draw_tmpl_perm_table($perm, $perms, $names)
 	$hdr = group_perm_array();
 	/* Fetch all the groups user has access to. */
 	if ($is_a) {
-		$r = uq('SELECT id, name, forum_id FROM {SQL_TABLE_PREFIX}groups WHERE id>2 ORDER BY name');
+		$r = uq('SELECT id, name, forum_id FROM {SQL_TABLE_PREFIX}groups WHERE id>2 AND forum_id NOT IN (SELECT id FROM {SQL_TABLE_PREFIX}forum WHERE cat_id=0 OR url_redirect IS NOT NULL) ORDER BY name');
 	} else {
 		$r = uq('SELECT g.id, g.name, g.forum_id FROM {SQL_TABLE_PREFIX}group_members gm INNER JOIN {SQL_TABLE_PREFIX}groups g ON gm.group_id=g.id WHERE gm.user_id='. _uid .' AND group_members_opt>=131072 AND '. q_bitand('group_members_opt', 131072) .' > 0 ORDER BY g.name');
 	}
