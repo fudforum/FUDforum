@@ -193,7 +193,7 @@ function write_body_c($data, &$len, &$offset, $fid)
 				$m1 = write_body_c(read_msg_body($r[1], $r[2], $r[3]), $len, $off, $r[5]);
 				q('UPDATE '. $tbl .'msg SET foff='. $off .', length='. $len .', file_id='. (-$m1) .', file_id_preview='. (-$m2) .', offset_preview='. $off2 .', length_preview='. $len2 .' WHERE id='. $r[0]);
 
-				if ($i && !($i % ($i_count/10))) {
+				if ($i && !($i % ceil($i_count/10))) {
 					eta_calc($start_time, $i, $i_count);
 				}
 				$i++;
@@ -261,7 +261,7 @@ function write_body_c($data, &$len, &$offset, $fid)
 			q('UPDATE '. $tbl .'pmsg SET foff='. $off .', length='. $len .' WHERE foff='. $r[0]);
 			$off += $len;
 
-			if ($i && !($i % ($i_count/10))) {
+			if ($i && !($i % ceil($i_count/10))) {
 				eta_calc($start_time2, $i, $i_count);
 			}
 			$i++;

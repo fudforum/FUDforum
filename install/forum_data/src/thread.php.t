@@ -59,7 +59,7 @@
 	 * 19 thread.views
 	 * 20 read.last_view
 	 * 21 thread.n_rating
-	 * 21 thread.tdescr
+	 * 22 thread.tdescr
 	 */
 
 	if (!($r = db_rowarr($result))) {

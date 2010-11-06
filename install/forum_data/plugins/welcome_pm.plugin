@@ -17,7 +17,7 @@ function plugin_welcome_pm($usr) {
 	fud_use('private.inc');
 	fud_use('wordwrap.inc');
 
-	if((@include_once $GLOBALS['PLUGIN_PATH'] .'welcome_pm.ini') === false) {
+	if ((@include_once $GLOBALS['PLUGIN_PATH'] .'welcome_pm.ini') === false) {
 		die('ERROR: Please configure the Welcome PM plugin from the Plugin Manager Control panel.');
 	}
 

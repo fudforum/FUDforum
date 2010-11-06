@@ -9,6 +9,16 @@
 * Free Software Foundation; version 2 of the License.
 **/
 
+function format_err($err)
+{
+	// URLify.
+	$err = preg_replace('#((http://(www\.)?|www\.)[A-Za-z0-9\.\/\?\=\%\+\:\;\&\#\~]+)#i', 			'<a href="$1">$1</a>', $err);
+	// Highlight keywords.
+	$err = preg_replace('/(Query: |Database version: |_GET: |_POST: |\[.+?\] )/', '<span style="color:#396">\1</span>', $err);
+
+	return $err;
+}
+
 function print_last($logfile)
 {
 	echo '<table class="resulttable">';
@@ -32,12 +42,12 @@ function print_last($logfile)
 	$linecnt = 0;
 	foreach(array_reverse($records, true) as $record) {
 		list(,$s,$d,$err) = explode('?', $record, 4);
-		echo '<tr class="field"><td nowrap="nowrap" valign="top">'. gmdate('D M j G:i:s T Y', $d) .'</td><td>'. $err .'</td></tr>';
+		echo '<tr class="field"><td nowrap="nowrap" valign="top">'. gmdate('D M j G:i:s T Y', $d) .'</td><td>'. format_err($err) .'</td></tr>';
 		$linecnt++;
 	}
 
 	echo '</table><br />';
-	
+
 	$more = ($linecnt >= 5);
 	if ($more) {
 		echo '&nbsp; <i>Last '. $linecnt .' error(s) shown.</i>';
@@ -66,7 +76,7 @@ function print_log($logfile, $search)
 		if ($search && stripos($err, $search) === false) {	
 			continue;	// Filter according to search criteria.
 		}
-		echo '<tr class="field"><td nowrap="nowrap" valign="top">'. gmdate('D M j G:i:s T Y', $d) .'</td><td>'. $err .'</td></tr>';
+		echo '<tr class="field"><td nowrap="nowrap" valign="top">'. gmdate('D M j G:i:s T Y', $d) .'</td><td>'. format_err($err) .'</td></tr>';
 		$linecnt++;
 	}
 	fclose($fp);

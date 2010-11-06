@@ -26,7 +26,7 @@ CREATE TABLE {SQL_TABLE_PREFIX}mlist
 	custom_sig		TEXT,
 
 	mbox_server	VARCHAR(255),
-	mbox_user	VARCHAR(30),
+	mbox_user	VARCHAR(50),
 	mbox_pass	VARCHAR(30),
 	mbox_type	INT NOT NULL DEFAULT 0
 );

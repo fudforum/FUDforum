@@ -151,6 +151,7 @@
 /*{POST_HTML_PHP}*/
 
 	$TITLE_EXTRA = ': {TEMPLATE: msg_title}';
+	$META_DESCR = $frm->subject .' '. $frm->tdescr;	// Description for page header.
 
 	$use_tmp = $FUD_OPT_3 & 4096 && $frm->replies > 250;
 
@@ -175,7 +176,7 @@
 		LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id
 		LEFT JOIN {SQL_TABLE_PREFIX}level l ON u.level_id=l.id
 		LEFT JOIN {SQL_TABLE_PREFIX}poll p ON m.poll_id=p.id'.
-		(_uid ? ' LEFT JOIN {SQL_TABLE_PREFIX}poll_opt_track pot ON pot.poll_id=p.id AND pot.user_id='._uid : ' ');
+		(_uid ? ' LEFT JOIN {SQL_TABLE_PREFIX}poll_opt_track pot ON pot.poll_id=p.id AND pot.user_id='. _uid : ' ');
 	if ($use_tmp) {
 		$q .= ' ORDER BY m.id ASC';
 	} else {

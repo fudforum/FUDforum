@@ -147,10 +147,14 @@ function add_attachment($name, $data, $pid)
 
 		// Connect and search for e-mail messages.
 		$inbox = '{'. $config->mbox_server .'/'. $protocol . $flags .'}INBOX';
-		echo "Connecting to mailbox $inbox\n";
 		$mbox = @imap_open($inbox, $config->mbox_user, $config->mbox_pass) or die('Can\'t connect to mailbox: '. imap_last_error());
-		// $emails = @imap_search($mbox, 'RECENT');
-		$emails = array_reverse(@imap_sort($mbox, 'SORTDATE', 0));
+		if ($mbox) {
+			echo "Connected to mailbox $inbox\n";
+			// $emails = @imap_search($mbox, 'ALL');
+			$emails = @imap_sort($mbox, SORTARRIVAL, 1);
+		} else {
+			echo 'Error connecting to mailbox $inbox: '. imap_last_error() ."\n";
+		}
 	}
 
 	$done = 0;

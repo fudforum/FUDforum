@@ -48,10 +48,10 @@
 		if ($edit) {
 			$job->sync($edit);
 			$edit = '';
-			echo successify('Job was successfully updated.');
+			echo successify('Job schedule was successfully updated.');
 		} else {
 			$job->add();
-			echo successify('Job was successfully added.');
+			echo successify('Job schedule was successfully added.');
 		}
 	}
 
@@ -59,7 +59,7 @@
 	if (isset($_GET['del'])) {
 		$job = new fud_job();
 		$job->delete($_GET['del']);
-		echo successify('Job was successfully deleted.');
+		echo successify('Job was successfully unscheduled.');
 	}
 
 	// Submit job to run in background.

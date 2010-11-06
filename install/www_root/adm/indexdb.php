@@ -68,7 +68,7 @@
 		while ($r = db_rowarr($c)) {
 			index_text($r[1], read_msg_body($r[2], $r[3], $r[4]), $r[0]);
 
-			if ($i && !($i % ($i_count/10))) {
+			if ($i && !($i % ceil($i_count/10))) {
 				/* Commit and re-acquire locks. */
 				db_unlock();
 				eta_calc($start_time, $i, $i_count);

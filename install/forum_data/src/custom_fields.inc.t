@@ -27,7 +27,9 @@ function validate_custom_fields()
 	foreach (get_custom_field_defs() as $k => $r) {
 		// Call CUSTOM_FIELD_VALIDATE plugins.
 		if (defined('plugins')) {
-			if( $err = plugin_call_hook('CUSTOM_FIELD_VALIDATE', array($r->id, $r->name, $_POST['custom_field_'. $r->id])) ) {
+			$err = null;
+			list($err) = plugin_call_hook('CUSTOM_FIELD_VALIDATE', array($err, $r->id, $r->name, $_POST['custom_field_'. $r->id]));
+			if ($err) {
 				set_err('custom_field_'. $r->id, $err);
 			}
 		}

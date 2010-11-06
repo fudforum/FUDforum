@@ -146,13 +146,13 @@
 		echo '</table>';
 		echo '<script>$("#graph").charts();</script>';
 	} else {
-		$_POST['s_year'] = $s_year;
+		$_POST['s_year']  = $s_year;
 		$_POST['s_month'] = $s_month;
-		$_POST['s_day'] = $s_day;
-		$_POST['e_year'] = $e_year;
+		$_POST['s_day']   = $s_day;
+		$_POST['e_year']  = $e_year;
 		$_POST['e_month'] = $e_month;
-		$_POST['e_day'] = $e_day;
-		$_POST['type'] = $_POST['sep'] = '';
+		$_POST['e_day']   = $e_day;
+		$_POST['type']    = $_POST['sep'] = '';
 
 		$disk_usage_array = array();
 		$total_disk_usage = 0;
@@ -167,24 +167,24 @@
 
 		$sql_disk_usage = get_sql_disk_usage();
 
-		$forum_stats['MESSAGES'] = q_singleval('SELECT count(*) FROM '. $tbl .'msg');
-		$forum_stats['THREADS'] = q_singleval('SELECT count(*) FROM '. $tbl .'thread');
+		$forum_stats['MESSAGES']         = q_singleval('SELECT count(*) FROM '. $tbl .'msg');
+		$forum_stats['THREADS']          = q_singleval('SELECT count(*) FROM '. $tbl .'thread');
 		$forum_stats['PRIVATE_MESSAGES'] = q_singleval('SELECT count(*) FROM '. $tbl .'pmsg');
-		$forum_stats['FORUMS'] = q_singleval('SELECT count(*) FROM '. $tbl .'forum');
-		$forum_stats['CATEGORIES'] = q_singleval('SELECT count(*) FROM '. $tbl .'cat');
-		$forum_stats['MEMBERS'] = q_singleval('SELECT count(*) FROM '. $tbl .'users');
-		$forum_stats['ADMINS'] = q_singleval('SELECT count(*) FROM '. $tbl .'users WHERE users_opt>=1048576 AND '. q_bitand('users_opt', 1048576) .' > 0');
-		$forum_stats['MODERATORS'] = q_singleval('SELECT count(DISTINCT(user_id)) FROM '. $tbl .'mod');
-		$forum_stats['GROUPS'] = q_singleval('SELECT count(*) FROM '. $tbl .'groups');
-		$forum_stats['GROUP_MEMBERS'] = q_singleval('SELECT count(*) FROM '. $tbl .'group_members');
+		$forum_stats['FORUMS']           = q_singleval('SELECT count(*) FROM '. $tbl .'forum');
+		$forum_stats['CATEGORIES']       = q_singleval('SELECT count(*) FROM '. $tbl .'cat');
+		$forum_stats['MEMBERS']          = q_singleval('SELECT count(*) FROM '. $tbl .'users');
+		$forum_stats['ADMINS']           = q_singleval('SELECT count(*) FROM '. $tbl .'users WHERE users_opt>=1048576 AND '. q_bitand('users_opt', 1048576) .' > 0');
+		$forum_stats['MODERATORS']       = q_singleval('SELECT count(DISTINCT(user_id)) FROM '. $tbl .'mod');
+		$forum_stats['GROUPS']           = q_singleval('SELECT count(*) FROM '. $tbl .'groups');
+		$forum_stats['GROUP_MEMBERS']    = q_singleval('SELECT count(*) FROM '. $tbl .'group_members');
 	}
 
-	$is_a = 1;
+	$is_a          = 1;
 	$forum_limiter = '';
 	require $FORUM_SETTINGS_PATH .'cat_cache.inc';
 	include_once $INCLUDE . fud_theme .'search_forum_sel.inc';
 ?>
-<h4>Draw bar graph</h4>
+<h4>Draw bar graph:</h4>
 <form action="admstats.php" method="post">
 <table class="datatable">
 <tr class="field">
@@ -218,7 +218,7 @@
 <?php
 	if (isset($total_disk_usage)) {
 ?>
-<h4>Disk Usage</h4>
+<h4>Disk Usage:</h4>
 <table class="resulttable fulltable">
 <?php
 	if (!$same_dir) {
@@ -253,7 +253,7 @@
 </tr>
 </table>
 
-<h4>Forum Statistics</h4>
+<h4>Forum Statistics:</h4>
 <table class="resulttable fulltable">
 <tr class="field">
 	<td><b>Messages:</b></td>

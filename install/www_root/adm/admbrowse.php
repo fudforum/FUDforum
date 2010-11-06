@@ -309,38 +309,42 @@ if (!extension_loaded('posix')) {
 	}
 
 	/* File upload code. */
-	if (isset($_FILES['fname']) && $_FILES['fname']['size']) {
-		$fdest = !empty($_POST['d_name']) ? $_POST['d_name'] : $_FILES['fname']['name'];
-		$fdest = $cur_dir .'/'. basename($fdest);
-		if (move_uploaded_file($_FILES['fname']['tmp_name'], $fdest)) {
-			@chmod($fdest, ($FUD_OPT_2 & 8388608 ? 0600 : 0666));
-			echo successify('File <i>'. basename($fdest) .'</i> was successfully uploaded.'.
+	if (isset($_FILES['fname'])) {
+		if ($_FILES['fname']['error'] == UPLOAD_ERR_OK) {
+			$fdest = !empty($_POST['d_name']) ? $_POST['d_name'] : $_FILES['fname']['name'];
+			$fdest = $cur_dir .'/'. basename($fdest);
+			if (move_uploaded_file($_FILES['fname']['tmp_name'], $fdest)) {
+				@chmod($fdest, ($FUD_OPT_2 & 8388608 ? 0600 : 0666));
+				echo successify('File <i>'. basename($fdest) .'</i> was successfully uploaded.'.
 			                ((preg_match('/src|thm/', $fdest)) ? '<br />Rebuild your themes from the <a href="admthemes.php?'.__adm_rsid .'">Theme Manager</a> to see the changes.' : ''));
+			} else {
+				echo errorify('Unable to move file.');
+			}
 		} else {
 			switch ($_FILES['fname']['error']) {
-			case UPLOAD_ERR_INI_SIZE:
-				errorify('The uploaded file exceeds the upload_max_filesize directive in php.ini.');
-				return;
-			case UPLOAD_ERR_FORM_SIZE:
-				errorify('The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in the HTML form.');
-				return;
-			case UPLOAD_ERR_PARTIAL:
-				errorify('The uploaded file was only partially uploaded.');
-				return;
-			case UPLOAD_ERR_NO_FILE:
-				errorify('No file was uploaded.');
-				return;
-			case UPLOAD_ERR_NO_TMP_DIR:
-				errorify('Missing a temporary folder.');
-				return;
-			case UPLOAD_ERR_CANT_WRITE:
-				errorify('Failed to write file to disk.');
-				return;
-			case UPLOAD_ERR_EXTENSION:
-				errorify('File upload stopped by extension.');
-				return;
-			default:
-				errorify('Unknown upload error. Please try again.');
+				case UPLOAD_ERR_INI_SIZE:
+					echo errorify('The uploaded file exceeds the upload_max_filesize directive in php.ini.');
+					continue;
+				case UPLOAD_ERR_FORM_SIZE:
+					echo errorify('The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in the HTML form.');
+					continue;
+				case UPLOAD_ERR_PARTIAL:
+					echo errorify('The uploaded file was only partially uploaded.');
+					continue;
+				case UPLOAD_ERR_NO_FILE:
+					echo errorify('No file was uploaded.');
+					continue;
+				case UPLOAD_ERR_NO_TMP_DIR:
+					echo errorify('Missing a temporary folder.');
+					continue;
+				case UPLOAD_ERR_CANT_WRITE:
+					echo errorify('Failed to write file to disk.');
+					continue;
+				case UPLOAD_ERR_EXTENSION:
+					echo errorify('File upload stopped by extension.');
+					continue;
+				default:
+					echo errorify('Unknown upload error. Please try again.');
 			}
 		}
 	}
@@ -349,7 +353,7 @@ if (!extension_loaded('posix')) {
 	if (isset($_GET['view']) && $dest && @file_exists($cur_dir .'/'. $dest)) {
 		$file = str_replace('\\', '/', $cur_dir .'/'. $dest);
 		$ext = pathinfo($file, PATHINFO_EXTENSION);
-		if (in_array($ext, array('gz', 'zip', 'tar', 'db'))) {
+		if ($dest == 'fudforum_archive' || in_array($ext, array('gz', 'zip', 'tar', 'db'))) {
 			echo errorify('Cannot view binary file.');
 		} elseif (in_array($ext, array('gif', 'jpg', 'jpeg', 'png')) && strpos($file, $WWW_ROOT_DISK) !== FALSE) {
 			echo '<h2>View image: '. $dest .'</h2>';
@@ -496,7 +500,7 @@ if (!extension_loaded('posix')) {
 
 		$size = round((isset($st[7])?$st[7]:$st['size'])/1024);
 
-		if (preg_match('/(install.php|upgrade.php|unprotect.php)$/i', $fpath)) {
+		if (preg_match('/(install.php|upgrade.php|unprotect.php|fudforum_archive)$/i', $fpath)) {
 			echo '<tr class="field admin_fixed" style="color:red;">';
 			echo '<td nowrap="nowrap">';
 			echo '<a name="flagged"></a>';

@@ -85,10 +85,10 @@ The prefix for the FUDforum's database tables. Do not modify this option.}}}
 Whether or not to use FUDforum SMTP gateway to send email instead of standard PHP mail() function. Not recommended, unless you need SMTP AUTH or wish to use alternate SMTP server on UNIX systems.}}}
 
 {{{FUD_SMTP_SERVER
-The ip or host name of the SMTP server.}}}
+The IP adres or host name of the SMTP server.}}}
 
 {{{FUD_SMTP_PORT
-The the port on which to connect to the SMTP server.}}}
+The port to use to connect to the SMTP server.}}}
 
 {{{FUD_SMTP_TIMEOUT
 The number of seconds to wait for the SMTP server to respond to a request.}}}
@@ -166,7 +166,7 @@ The default number of messages to display per page.}}}
 The default number of topics per page. NOTE: This value also represents the maximum value a user can set this setting to in their profile.}}}
 
 {{{WORD_WRAP
-This setting defines on how many character to wrap message bodies on, any text string longer the the number of character in this option will be broken down into 1 or more strings using a space as a separator. Set this to 0 to disable word wrapping. For multibyte configurations disable wordwrap, since wrapping is done on a byte and not character bases.}}}
+This setting defines on how many character to wrap message bodies on, any text string longer than the number of character in this option will be broken down into 1 or more strings using a space as a separator. Set this to 0 to disable word wrapping. For multibyte configurations disable wordwrap, since wrapping is done on a byte and not character bases.}}}
 
 {{{FLOOD_CHECK_TIME
 The minimum time delay before a user can post a message.}}}
@@ -290,7 +290,7 @@ Whether or not to allow the tree view of the topic listing. This is a fairly CPU
 Maximum depth of the tree to allow, this option will prevent long trees from scrolling far of the users screen making the page unreadable.}}}
 
 {{{TREE_THREADS_MAX_SUBJ_LEN
-At which point to cutoff subjects of messages on topic listing in tree mode. This options allows you to save on screen space if you want to show large topic trees.}}}
+At which point to cut-off subjects of messages on topic listing in tree mode. This options allows you to save on screen space if you want to show large topic trees.}}}
 
 {{{THREAD_DUP_CHECK	FUD_OPT_3	67108864 
 Double post protection. Prevent users from posting duplicate topics.}}}
@@ -323,10 +323,10 @@ Number of message icons to show per row on message posting form.}}}
 Maximum number of currently logged-in users to show on the front page.}}}
 
 {{{PHP_COMPRESSION_ENABLE	FUD_OPT_2	16384
-Whether or not to use php to compress forum's output. By turning this option you are likely to save a fair bit of bandwidth. However, for performance reasons it is recommended that you use native compression built-in into most webservers like mod_gzip or mod_deflate for Apache.}}}
+Whether or not to use PHP to compress forum's output. By turning this option you are likely to save a fair bit of bandwidth. However, for performance reasons it is recommended that you use native compression built-in into most webservers like mod_gzip or mod_deflate for Apache.}}}
 
 {{{PHP_COMPRESSION_LEVEL
-If php's compression is used, this indicates how extensively should the data be compressed, the values can range from 1-9.}}}
+If PHP's compression is used, this indicates how extensively should the data be compressed, the values can range from 1-9.}}}
 
 {{{USE_PATH_INFO	FUD_OPT_2	32768
 Whether or not to use PATH_INFO based URLs that looks like http://a.com/index.php/a/b/c/. This makes the URLs easier to remember and more search engine friendly. Unfortunately this feature mostly works with Apache based servers and may not work with other webservers. To see if your webserver supports this feature, click on the test link above. If you see the forum's front page, you can enable it. Note that you will also need to enable a theme based on the 'path_info' template set.}}}
@@ -335,7 +335,7 @@ Whether or not to use PATH_INFO based URLs that looks like http://a.com/index.ph
 Whether or not to allow users to enter a URL to an image in their profile that will be displayed on the user info page for that user. The danger of this feature is that the user could potentially link to a page other then an image and insecure browsers like Internet Explorer will parse that page executing any potentially hostile Javascript that may be present.}}}
 
 {{{NEW_ACCOUNT_NOTIFY	FUD_OPT_2	131072
-This setting will only be used if you have chosen to manually approve all new registrations. If enabled, then everytime a new user is registered all forum administrators will receive a notification via e-mail.}}}
+This setting will only be used if you have chosen to manually approve all new registrations. If enabled, then every time a new user is registered all forum administrators will receive a notification via e-mail.}}}
 
 {{{MODERATED_POST_NOTIFY	FUD_OPT_2	262144
 Notify forum moderators via e-mail when a new message is posted in a forum where a message must first be approved by the moderator before shown to the rest of the visitors.}}}
@@ -450,13 +450,13 @@ When anonymous users post messages perform captcha test.}}}
 If enabled, subscribers to a forum will receive notifications about every new message in the forum, rather then just new topics in the forum.}}}
 
 {{{DB_MESSAGE_STORAGE	FUD_OPT_3	32768
-If enabled, regular and private messages will be stored inside the database. If disbaled, they will be stored in files on disk. For performance reasons we recommend you keep it disabled, especially on large forums!}}}
+If enabled, regular and private messages will be stored inside the database. If disabled, they will be stored in files on disk. For performance reasons we recommend you keep it disabled, especially on large forums!}}}
 
 {{{DISABLE_ANON_CACHE	FUD_OPT_3	65536
 Disable sending of page-cache headers to anonymous users, this may solve extended caching by browsers non-complaint with web specs.}}}
 
 {{{FUD_WHOIS_SERVER
-Hostname or IP address of the whois server to use for IP address analysis.}}}
+Hostname or IP address of the WHOIS server to use for IP address analysis.}}}
 
 {{{MIN_TIME_BETWEEN_LOGIN
 Minimum time between login attempts in seconds. This option is intended as a throttle mechanism against dictionary attacks on forum passwords.}}}
@@ -486,7 +486,7 @@ Quick reply display mode: disabled, collapsed or expanded.}}}
 Use a graphical captcha instead of a text captcha (only if your PHP has GD support).}}}
 
 {{{PHP_CLI
-Full path to the command line PHP executable on your system. This command will be used to execute batch scripts.}}}
+Full path to the command line PHP executable on your system. This command will be used to run periodic and ad hoc tasks.}}}
 
 {{{CALENDAR_ENABLED	FUD_OPT_3	134217728
 Enable or disable the forum's built-in calendar.}}}

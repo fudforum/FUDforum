@@ -15,14 +15,25 @@ plugin_add_hook('COMPILER_EXPAND_TEMPLATE', 'plugin_addthis');
 function plugin_addthis($array) {
 	list($tmpl, $tag, $sec, $name, $file) = $array;
 
-	$addthis_code = '<br />
-<!-- AddThis Button BEGIN -->
-<a class="addthis_button" href="http://www.addthis.com/bookmark.php?v=250&amp;username=xa-4cb2136e4e2379d4"><img src="http://s7.addthis.com/static/btn/v2/lg-share-en.gif" width="125" height="16" alt="Bookmark and Share" style="border:0"/></a>
-<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#username=xa-4cb2136e4e2379d4"></script>
-<!-- AddThis Button END -->
-';
+	if ((@include $GLOBALS['PLUGIN_PATH'] .'addthis.ini') === false) {
+		die('ERROR: Please configure the AddThis plugin from the Plugin Manager Control panel.');
+	}
 
-	if ($name == 'post_reply') {
+	$addthis_code = '<div class="fr">
+<!-- AddThis Button BEGIN -->
+<div class="addthis_toolbox addthis_default_style '. ($ini['ADDTHIS_BUTTON_SIZE'] ? 'addthis_32x32_style' : '') .'">';
+
+	for ($i = 1; $i < $ini['ADDTHIS_BUTTON_CNT']; $i++) {
+		$addthis_code .= '<a class="addthis_button_preferred_'. $i .'"></a>';
+	}
+
+	$addthis_code .= '<a class="addthis_button_compact"></a>
+</div>
+<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#username=xa-4cd3dd3733013045"></script>
+<!-- AddThis Button END -->
+</div>';
+
+	if ($name == 'post_reply') {	// After last button.
 		$tmpl .= $addthis_code;
 	}
 
@@ -30,13 +41,43 @@ function plugin_addthis($array) {
 }
 
 function addthis_enable() {
+	if((@include_once $GLOBALS['PLUGIN_PATH'] .'wikilinks.ini') === false) {
+		return array(null, 'Please configure the wikilinks plugin before enabling it.');	// OK, Err.
+	}
 	return array('Please rebuild your themes to display the adthis widget on your forum.', null);	// OK, Err.
 }
 
 function addthis_info() {
 	return array('name' => 'AddThis',
-				'desc' => 'Show Social Bookmarking Widgets from AddThis.com next to forum posts. This will allows visitors to bookmark and share your site easily with several popular services.',
+				'desc' => 'Show Social Bookmarking Widgets from AddThis.com next to forum posts. This will allow visitors to bookmark and share your site easily with several popular services.',
 				'version' => '1.0');
+}
+
+function addthis_config() {
+	if((@include_once $GLOBALS['PLUGIN_PATH'] .'addthis.ini') === false) {
+		$ini = NULL;
+	}
+
+	if (isset($_POST['Set'])) {
+		foreach (array_keys($_POST) as $key) {
+			if (substr($key,0,8) == 'ADDTHIS_') {
+				$ini[$key] = trim($_POST[$key]);
+			}
+		}
+		$fp = fopen($GLOBALS['PLUGIN_PATH'] .'addthis.ini', 'w');
+		fwrite($fp, '<?php $ini = '. var_export($ini, 1) .'; ?>');
+		fclose($fp);
+		echo '<font color="green">Saved. Rebuild your themes to see changes.</font>';
+	}
+	?>
+<p>Number of buttons to show:<br />
+<input name="ADDTHIS_BUTTON_CNT" value="<?php echo $ini['ADDTHIS_BUTTON_CNT'] ?>" size="10" /></p>
+
+<p>Button sizes:<br />
+<label><input type="radio" name="ADDTHIS_BUTTON_SIZE" value="1" <?php echo $ini['ADDTHIS_BUTTON_SIZE'] ? 'checked="checked"' : '' ?> /> Large (32x32)<br /></label>
+<label><input type="radio" name="ADDTHIS_BUTTON_SIZE" value=""  <?php echo $ini['ADDTHIS_BUTTON_SIZE'] ? '' : 'checked="checked"' ?> /> Small</label></p>
+
+	<?php
 }
 
 ?>

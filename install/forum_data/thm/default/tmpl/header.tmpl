@@ -13,7 +13,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset={CHARSET}" />
 <title>{GVAR: FORUM_TITLE}{VAR: TITLE_EXTRA}</title>
-<meta name="description" content="{GVAR: FORUM_DESCR}" />
+<meta name="description" content="{IF: !empty($META_DESCR)}{VAR: META_DESCR}{ELSE}{GVAR: FORUM_DESCR}{END}" />
 <base href="{FULL_ROOT}" />
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/lib.js"></script>

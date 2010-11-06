@@ -14,7 +14,7 @@ plugin_add_hook('PREREGISTRATION', 'plugin_botscout');
 
 // Validate registering users with BotScout
 function plugin_botscout($uent) {
-	if((@include_once $GLOBALS['PLUGIN_PATH'] .'botscout.ini') === false) {
+	if ((@include_once $GLOBALS['PLUGIN_PATH'] .'botscout.ini') === false) {
 		$ini = array();
 	}
 
@@ -30,7 +30,7 @@ function plugin_botscout($uent) {
 	$botdata = explode('|', $botscout_data); 
 	if ($botdata[3] > 0 || $botdata[5] > 0) { 	// Tests email address or IP.
 		echo '<h2>Sorry, bots are not allowed to register.</h2>';
-		echo '<p>The '. $botdata[2] .' was found '. $botdata[3] .' times, the '. $botdata[4] .' was found '. $botdata[5] .' times.</p>';
+		echo '<p>Your '. $botdata[2] .' was found '. $botdata[3] .' times.<br />Your '. $botdata[4] .' was found '. $botdata[5] .' times.</p>';
 		exit;
 	}
 

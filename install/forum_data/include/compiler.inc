@@ -347,18 +347,19 @@ function compile_file($source)
 		if ($sec == 'PAGE') {
 			$new = '';
 			$ref = str_replace(
-				array(".''.", "'.(", 
+				array(".''.", "'.(",
 				"' ) .'' ) .'",
 				"' ) .'' : '' ) .'",
-				" ) .'"), 
-				array('.', '<?php echo (', 
+				" ) .'"),
+				array('.', '<?php echo (',
 				"')).'",
 				"'):'').'",
-				'); ?>'),  
+				'); ?>'),
 				$ref);
-			/* Block of code below is needed to handled nested ifs inside the final page output where we convert
-			 * regular PHP code to one where <?php ?> are being used.
+			/* Block of code below is needed to handled nested IFs inside the final page output
+			 * where we convert regular PHP code to one where <?php ?> are being used.
 			 */
+// FRANK: Can't we fix the quoting problem here as well?
 			$end = $pos = 0;
 			while (($pos = strpos($ref, '<?php echo (', $pos)) !== false) { // found if() block
 				/* Handle regular component. */
@@ -382,17 +383,17 @@ function compile_file($source)
 			}
 
 			$end = $pos = 0;
-			// special handling for php init tags that end up being embeded
+			// Special handling for php init tags that end up being embeded.
 			while (($pos = strpos($ref, '<?php ', $pos)) !== false) {
 				$new_loc = $pos + 5;
 				$cnt = 0;
 			
-				/* find next PHP tag */
+				/* Find next PHP tag. */
 				if (($new_loc = strpos($ref, '<?php ', $new_loc)) === false) {
 					break;
 				}
 
-				/* find end tag */
+				/* Find end tag. */
 				if (($loc2 = strpos($ref, ' ?>', $pos)) === false) {
 					break;
 				}
@@ -403,7 +404,7 @@ function compile_file($source)
 							array('<?php echo', '<?php ', '; ?>'), 
 							array("'.","'.",".'"),
 							substr($ref, $new_loc, $loc2 + 3 - $new_loc + 1)
-						), 
+						),
 						$new_loc, $loc2 + 3 - $new_loc + 1);
 				} else {
 					$pos = $new_loc;
@@ -458,7 +459,7 @@ function generate_file($php_file)
 					continue;
 	        		}
 
-				$s = strpos($v['compiled'], '*/')+2;
+				$s = strpos($v['compiled'], '*/') + 2;
 				$k = $v['dst'][0];
 				if (!isset($ins[$k])) {
 					$k = 0;
@@ -537,9 +538,8 @@ function parse_msgs($file)
 			}
 		}
 
-		// Encode message test (without sections) to ensure they don't break our templates.
+		// Encode message text (without sections) to ensure they don't break our templates.
 		$msg = str_replace('\'', '&#39;', $msg);
-		$msg = str_replace('\\\'', '&#39;', $msg); // Delete when all \' are removed from message files
 
 		// Re-insert {sections}.
 		if( is_array($sections)) {

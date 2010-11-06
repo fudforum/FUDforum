@@ -41,7 +41,7 @@ text, .GenText {
 .ForumBackground {
 	background: #fff;
 	border: 1px solid #aebdc4;
-	padding: 3px;
+	padding: 5px;
 
 	-moz-border-radius: 0.75em;
 	-webkit-border-radius: 0.75em;
@@ -98,7 +98,7 @@ div.UserControlPanel {
 	font-weight: bold;
 }
 
-.SmallText, .DateText, .TopBy, td.msgud, td.msgot, td.permYES, td.permNO, .SmallText a {
+.SmallText, .DateText, .TopBy, td.permYES, td.permNO, .SmallText a {
 	color: #202020;
 	font-size: 8pt;
 }
@@ -398,29 +398,33 @@ a.small:link, a.small:active, a.small:visited {
 	color: #069;
 }
 
-td.msgot, td.msgud {
-	text-align: right;
+td.msgud, td.msgud a, td.msgot, td.msgot a {
+	color: #202020;
+	font-size: 8pt;
 	vertical-align: top;
 	width: 33%;
 	white-space: nowrap;
 }
 
-td.msgud, td.msgud a {
+td.msgud a:hover, td.msgot a:hover {
+	color: #dc143c;
+}
+
+td.msgud {
 	padding-right: 10px;
 	text-align: left;
-	width: 33%;
-	color: #202020;
+}
+
+td.msgot {
+	text-align: right;
 }
 
 div.ctags {
 	overflow: auto;
-	white-space: nowrap;
 	margin: 0;
 	padding: 2px;
 	width: 100%;
 	height: 36px;
-	color: #202020;
-	font-size: small;
 }
 
 legend {

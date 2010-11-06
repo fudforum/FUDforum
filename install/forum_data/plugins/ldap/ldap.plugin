@@ -21,7 +21,7 @@ function plugin_ldap_auth() {
 		return 1;
 	}
 
-	if((@include_once $GLOBALS['PLUGIN_PATH'] .'ldap/ldap.ini') === false) {
+	if ((@include_once $GLOBALS['PLUGIN_PATH'] .'ldap/ldap.ini') === false) {
 		echo 'ERROR: Please configure the LDAP plugin from the Plugin Manager Control panel.';
 		return 0;
 	}
