@@ -10,7 +10,7 @@
 ***************************************************************************/
 //TODO: Do we still need extract_archive()???
 
-$__UPGRADE_SCRIPT_VERSION = 5302.2;
+$__UPGRADE_SCRIPT_VERSION = 5302.3;
 
 /*
   * SQL Upgrade Functions - format is tablename_colname():
