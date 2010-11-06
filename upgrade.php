@@ -8,6 +8,7 @@
 * under the terms of the GNU General Public License as published by the 
 * Free Software Foundation; either version 2 of the License. 
 ***************************************************************************/
+//TODO: Do we still need extract_archive()???
 
 $__UPGRADE_SCRIPT_VERSION = 5302.2;
 
@@ -144,10 +145,58 @@ function htaccess_handler($web_root, $ht_pass)
 
 function upgrade_decompress_archive($data_root, $web_root)
 {
-	if ($GLOBALS['no_mem_limit']) {
-		$data = file_get_contents('./fudforum_archive');
+	$clean = array('PHP_OPEN_TAG'=>'<?', 'PHP_OPEN_ASP_TAG'=>'<%');
+
+	/* Install from './fudforum_archive' file. */
+	// $GLOBALS['no_mem_limit'] may look strange in this context, but it is actually $no_mem_limit defined earlier.
+	if ($GLOBALS['no_mem_limit']) {	
+		$size = filesize('./fudforum_archive');
+		$fp = fopen('./fudforum_archive', 'rb');
+		$checksum = fread($fp, 32);
+		$tmp = fread($fp, 20000);
+		fseek($fp, (ftell($fp) - 20000), SEEK_SET);
+		if (strpos($tmp, 'RAW_PHP_OPEN_TAG') !== FALSE) {	/* No compression. */
+			unset($clean['PHP_OPEN_TAG']); $clean['RAW_PHP_OPEN_TAG'] = '<?';
+			$data = '';
+			while (($tmp = fgets($fp))) {
+				$data .= strtr($tmp, $clean);
+			}
+		} else {
+			$data_len = (int) fread($fp, 10);
+			// Data should be @ least 100k.
+			if ($data_len < 100000) {
+				exit('Failed getting archive size from '. htmlentities(fread($fp, 10)));
+			}
+			$data = gzuncompress(strtr(fread($fp, $data_len), $clean), $data_len);
+		}
+		fclose($fp);
+
+	/* Install from embedded file archive. */
 	} else {
-		$data = extract_archive(0);
+		if (DIRECTORY_SEPARATOR == '/' && defined('__COMPILER_HALT_OFFSET__')) {
+			$data = stream_get_contents(fopen(__FILE__, 'r'), max_a_len, __COMPILER_HALT_OFFSET__ + 4); /* 4 = " ?>\n" */
+			$p = 0;
+		} else { 
+			$data = file_get_contents(__FILE__);
+			$p = strpos($data, '<?php __HALT_'.'COMPILER(); ?>') + strlen('<?php __HALT_'.'COMPILER(); ?>') + 1;
+		}
+		$checksum = substr($data, $p, 32);
+		$data = substr($data, $p + 32);
+		if (strpos($data, 'RAW_PHP_OPEN_TAG') !== FALSE) {	/* No compression. */
+			unset($clean['PHP_OPEN_TAG']); $clean['RAW_PHP_OPEN_TAG'] = '<?';
+			$data = strtr($data, $clean);
+		} else {
+			$data_len = (int) substr($data, 0, 10);
+			// Data should be @ least 100k.
+			if ($data_len < 100000) {
+				exit('Failed getting archive size from '. htmlentities(substr($data, 0, 10)));
+			}
+			$data = strtr(substr($data, 10), $clean);
+
+			if (!($data = gzuncompress($data, $data_len))) {	/* Compression. */
+				exit('Failed decompressing the archive.');
+			}
+		}
 	}
 
 	$pos = 0;
@@ -408,6 +457,9 @@ function extract_archive($memory_limit)
 			$no_mem_limit = 0;
 		}
 	}
+
+	/* Force install from external "fudforum_archive" file for FUDforum 3.0.2 and later releases. */
+	$no_mem_limit = 1;
 
 	define('max_a_len', filesize(__FILE__)); // Needed for offsets.
 

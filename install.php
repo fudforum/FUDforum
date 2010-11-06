@@ -482,8 +482,9 @@ if ($no_mem_limit) {
 		$no_mem_limit = 0;
 	}
 }
-/* Uncomment to force install from external "fudforum_archive" file. */
-//$no_mem_limit = 1;
+
+/* Force install from external "fudforum_archive" file for FUDforum 3.0.2 and later releases. */
+$no_mem_limit = 1;
 
 define('max_a_len', filesize(__FILE__)); // Needed for offsets.
 
@@ -1168,10 +1169,10 @@ if ($section == 'admin' || php_sapi_name() == 'cli') {
 		if (SAFE_MODE) {
 			unlink(__FILE__);
 		}
-		if ($no_mem_limit) {
-			unlink('./fudforum_archive');
-		}
-		
+
+		// We're done with the archive.
+		@unlink('./fudforum_archive');
+
 		$display_section = 'done';
 	}
 }
