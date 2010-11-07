@@ -5,6 +5,7 @@
 # Author: IAlex
 # Author: Jean-Frédéric
 # Author: McDutchie
+# Author: Naudefj
 # Author: Omnipaedista
 # Author: Peter17
 # Author: Robby
@@ -458,8 +459,8 @@ login_login_btn:Connexion
 login_name_required:Veuillez saisir votre nom d'utilisateur
 login_passwd_required:Veuillez saisir votre mot de passe
 login_invalid_radius:Association nom d'utilisateur / mot de passe invalide
-reset_confirmation:Merci de vous être inscrit.\n\nAfin d\'activer votre compte, veuillez visiter l\'URL suivante:\n\n{VAR: url}\n\nUne fois votre compte activé, vous serez connecté sur le forum et conduit vers la page d\'accueil.
-reset_reset:Vous avez décidé de réinitialiser votre mot de passe. Afin de poursuivre cette opération,\nveuillez vous diriger vers cette URL\n\n{VAR: url}\n\nNOTE: Le forum enregistre les mots de passe dans sa base de données en utilisant un mécanisme d\'encodage à sens unique, ce qui signifie qu\'une fois que vous avez soumis votre mot de passe, ce dernier\nest encodé de telle sorte qu\'il n\'est plus possible de le décrypter.\nCeci est possible par perpétuel réencryptage de votre mot de passe. Pour plus d\'information sur cette sécurité, veuillez vous référer à une documentation détaillant l\'algorithme de hachage MD5.
+reset_confirmation:Merci de vous être inscrit.\n\nAfin d'activer votre compte, veuillez visiter l'URL suivante:\n\n{VAR: url}\n\nUne fois votre compte activé, vous serez connecté sur le forum et conduit vers la page d'accueil.
+reset_reset:Vous avez décidé de réinitialiser votre mot de passe. Afin de poursuivre cette opération,\nveuillez vous diriger vers cette URL\n\n{VAR: url}\n\nNOTE: Le forum enregistre les mots de passe dans sa base de données en utilisant un mécanisme d'encodage à sens unique, ce qui signifie qu'une fois que vous avez soumis votre mot de passe, ce dernier\nest encodé de telle sorte qu'il n'est plus possible de le décrypter.\nCeci est possible par perpétuel réencryptage de votre mot de passe. Pour plus d'information sur cette sécurité, veuillez vous référer à une documentation détaillant l'algorithme de hachage MD5.
 rpasswd_invalid_passwd:Le mot de passe est invalide
 rpasswd_passwd_nomatch:Le mot de passe et sa confirmation ne sont pas identiques
 rpasswd_passwd_length:Le mot de passe doit comporter au moins 6 caractères
@@ -580,7 +581,7 @@ buddy_list_err_cantadd:Vous ne pouvez pas ajouter votre propre personne à votre
 buddy_list_err_dup:Cet utilisateur figure déjà dans votre liste d'amis
 buddy_list_err_nouser:L'utilisateur que vous avez essayé d'ajouter à votre liste d'amis ne semble pas exister sur le forum.
 buddy_list_err_nouser_title:Impossible d'ajouter un utilisateur
-buddy_list_err_ignore:Impossible d\'ajouter à votre liste d\'amis des utilisateurs qui vous ignorent.
+buddy_list_err_ignore:Impossible d'ajouter à votre liste d'amis des utilisateurs qui vous ignorent.
 buddy_list_update:Parcourir ma liste d'amis
 core_err_invinp_title:Entrée invalide
 core_err_invinp_err:Vous avez suivi un lien invalide, veuillez en avertir l'<a href="mailto:{GVAR: ADMIN_EMAIL}">administrateur</a>
@@ -599,9 +600,9 @@ err_inc_criticalmsg:Vous êtes en présence d'une erreur, mais malheureusement i
 finduser_update:Chercher un utilisateur
 help_index_update:Lit la <a href="{TEMPLATE: help_index_update_lnk}">F.A.Q.</a> (Foire Aux Questions, questions fréquemment posées)
 iemail_thr_subject:Nouvelle réponse au sujet {VAR: thr_subject} par {VAR: poster_login}
-iemail_thr_bodyemail:Pour lire les réponses non lues, veuillez cliquer ici : {VAR: goto_url['email']}\n\nSi vous ne souhaitez plus recevoir de notifications relatives aux réponses reçues sur ce fil à l\'avenir, veuillez cliquer ici : {VAR: unsub_url['email']}
+iemail_thr_bodyemail:Pour lire les réponses non lues, veuillez cliquer ici : {VAR: goto_url['email']}\n\nSi vous ne souhaitez plus recevoir de notifications relatives aux réponses reçues sur ce fil à l'avenir, veuillez cliquer ici : {VAR: unsub_url['email']}
 iemail_frm_subject:Nouveau fil dans le forum {VAR: frm_name} intitulé {VAR: thr_subject} par {VAR: poster_login}
-iemail_frm_bodyemail:Pour lire le fil, allez à :\n{VAR: goto_url['email']}\n\nSi vous ne souhaitez plus recevoir de notifications relatives aux nouveaux fils dans ce forum à l\'avenir, veuillez cliquer ici : {VAR: unsub_url['email']}
+iemail_frm_bodyemail:Pour lire le fil, allez à :\n{VAR: goto_url['email']}\n\nSi vous ne souhaitez plus recevoir de notifications relatives aux nouveaux fils dans ce forum à l'avenir, veuillez cliquer ici : {VAR: unsub_url['email']}
 iemail_participate:Pour participer à la discussion, allez ici :
 ignore_list_err_info_title:Information
 ignore_list_err_dup_msg:Cet utilisateur figure déjà dans votre liste de personnes à ignorer
@@ -621,7 +622,7 @@ post_err_lockedthread_msg:Ce fil est verrouillé, aucun nouveau message n'est au
 err_coppa_title:ERREUR : Votre compte n'est pas encore confirmé
 err_coppa_msg:Nous n'avons pas reçu de confirmation de vos parents ou de votre tuteur légal qui vous autorise à envoyer des messages. Si vous avez perdu votre formulaire COPPA, <a href="{TEMPLATE: err_coppa_msg_lnk}">pour l'obtenir à nouveau</a>.
 err_banned_acct_title:ERREUR : vous avez été banni.
-err_banned_acct_msg:Votre compte a été {IF: $ban_expiry}temporairement banni jusqu\'à {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}définitivement banni{ENDI} du site, en raison d\'une violation des règles du forum.
+err_banned_acct_msg:Votre compte a été {IF: $ban_expiry}temporairement banni jusqu'à {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}définitivement banni{ENDI} du site, en raison d'une violation des règles du forum.
 post_err_edttimelimit_title:ERREUR
 post_err_edttimelimit_msg:Vous n'avez plus la possibilité de modifier ce message
 post_err_noannontopics_msg2:<legend>ERREUR : droits insuffisants</legend>Les utilisateurs anonymes ne sont pas autorisés à créer des sujets.
@@ -661,7 +662,7 @@ register_err_notyouremail:Quelqu'un s'est déjà inscrit avec cette addresse e-m
 register_err_avatartobig:Le fichier que vous essayez de télécharger est trop gros, la taille limite autorisée est de {GVAR: CUSTOM_AVATAR_MAX_SIZE} octets
 register_err_avatarnotallowed:L'avatar que vous essayez de télécharger n'est pas autorisé, veuillez vérifier les types de fichier autorisés.
 register_conf_subject:Confirmation de votre inscription
-register_conf_msg:Merci de votre inscription.\nPour activer votre compte, veuillez visiter l\'URL ci-dessous :\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nUne fois votre compte activé, vous serez connecté au forum et redirigé vers la page d\'accueil du forum.
+register_conf_msg:Merci de votre inscription.\nPour activer votre compte, veuillez visiter l'URL ci-dessous :\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nUne fois votre compte activé, vous serez connecté au forum et redirigé vers la page d'accueil du forum.
 register_welcome_subject:Confirmation de votre inscription au forum.
 register_welcome_msg:Merci de vous être inscrit,\n\nVoici résumé de vos données de connexion au forum :\n\nURL du forum: {TEMPLATE: index_update_lnk}\nNom d'utilisateur: {VAR: uent->login}\nMot de passe: {VAR: _POST['reg_plaintext_passwd']}\n\nN'oubliez pas que les mots de passe différencient les majuscules des minuscules !\nPour modifier vos réglages et votre profil, visitez cette page :\n{FULL_ROOT}{ROOT}?t=register
 register_err_cantreg_title:ERREUR : Nous n'avons pas pu vous inscrire
@@ -675,7 +676,7 @@ reset_err_invalidkey_msg:Clé de réinitialisation de mot de passe invalide
 reset_err_rstconf_title:Information
 reset_err_rstconf_msg:Vous devriez recevoir des instructions par e-mail dans quelques minutes.
 reset_newpass_title:Réinitialisation du mot de passe
-reset_newpass_msg:Bonjour,\n\nveuillez trouver ci-joint les informations dont vous avez besoin pour accéder au forum :\n\n\nNom d\'utilisateur: {VAR: ui[1]}\nMot de passe: {VAR: passwd}\n\nNotez que vous pouvez modifier votre mot de passe à tout moment via le panneau de configuration de votre profil sur le site du forum, également accessible à l\'URL suivante:\n{FULL_ROOT}{ROOT}?t=register
+reset_newpass_msg:Bonjour,\n\nveuillez trouver ci-joint les informations dont vous avez besoin pour accéder au forum :\n\n\nNom d'utilisateur: {VAR: ui[1]}\nMot de passe: {VAR: passwd}\n\nNotez que vous pouvez modifier votre mot de passe à tout moment via le panneau de configuration de votre profil sur le site du forum, également accessible à l'URL suivante:\n{FULL_ROOT}{ROOT}?t=register
 reset_login_notify:Nous venons de vous envoyer un e-mail contenant vos informations d'inscription. Vous devriez le recevoir dans quelques instants. Cet e-mail contient votre nom d'utilisateur ainsi que votre mot de passe actuel.<br />
 search_update:Recherche des messages
 selmsg_update:Parcourt les <a href="{TEMPLATE: selmsg_update_lnk}">messages envoyés aujourd'hui</a>
@@ -685,7 +686,7 @@ bookmarked_update:Parcourt sa liste de favoris
 thread_update:Parcourt le forum <a href="{TEMPLATE: thread_update_lnk}">{VAR: frm->name}</a>
 tree_update:Parcourt le fil (vue arborescente) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
 userinfo_update:Regarde le profil de <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}'s</a>
-ERR_login_msg2:<legend>ERREUR : vous n\'êtes pas connecté</legend>Pour accéder à cette page, vous devez être un membre de ce forum
+ERR_login_msg2:<legend>ERREUR : vous n'êtes pas connecté</legend>Pour accéder à cette page, vous devez être un membre de ce forum
 ERR_disabled_ttl:Fonctionnalité désactivée
 ERR_disabled_msg:Cette fonctionnalité a été désactivée par l'administrateur du forum.
 ERR_access_ttl:ERREUR : Privilèges insuffisants
@@ -1007,7 +1008,7 @@ adm_account_rejected_s:Votre demande de compte pour '{GVAR: FORUM_TITLE}' a ét�
 thread_on:le
 userinfo_buddy:Ami :
 register_email_addr:Adresse de courriel :
-reset_suffix:Si vous avez reçu ce message par erreur, merci de l\'ignorer. Si vous recevez plusieurs copies non sollicitées de ce mail, merci de contacter l\'administrateur à {GVAR: ADMIN_EMAIL}\n\nCette requête a été initiée depuis : {VAR: _SERVER['REMOTE_ADDR']}.
+reset_suffix:Si vous avez reçu ce message par erreur, merci de l'ignorer. Si vous recevez plusieurs copies non sollicitées de ce mail, merci de contacter l'administrateur à {GVAR: ADMIN_EMAIL}\n\nCette requête a été initiée depuis : {VAR: _SERVER['REMOTE_ADDR']}.
 usrinfo_last_visit:Dernière visite aujourd'hui:
 mnav_newer:plus récents que
 mnav_older:plus anciens que
@@ -1063,9 +1064,9 @@ thread_merge_all:Fusionner tous les sélectionnés
 thread_loc_all:Verrouiller / Déverrouiller toute la sélection
 dmsg_ip:IP :
 err_blockedaccnt_title:ERREUR : Votre compte a été filtré.
-err_blockedaccnt_msg:Votre compte ne peut pas accéder à ce forum à cause de l\'un des filtres utilisateurs installés.
+err_blockedaccnt_msg:Votre compte ne peut pas accéder à ce forum à cause de l'un des filtres utilisateurs installés.
 merge_th_page_list:Sélection de page de sujet
-most_users_online:Le nombre maximum d\'utilisateurs en ligne était de <b>{VAR: st_obj->most_online}</b> le <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
+most_users_online:Le nombre maximum d'utilisateurs en ligne était de <b>{VAR: st_obj->most_online}</b> le <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
 sub_unsub_all_forums:Cesser la surveillance de tous les forums
 sub_unsub_all_topics:Cesser la surveillance de tous les fils
 unbookmark_all_topics:Supprimez tous les favoris
@@ -1074,8 +1075,8 @@ sml_emoticon:Émoticon
 sml_code:Code
 mnav_sub_only:Rechercher dans les forums surveillés seulement
 register_topics_per_page:Sujets par page :
-login_min_time:Ce forum ne permet qu\'une tentative de connexion par période de {VAR: MIN_TIME_BETWEEN_LOGIN} secondes, veuillez patienter {FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)} secondes avant votre prochaine tentative.
-post_not_logged_in:Vous n\'êtes pas connecté, le message sera posté anonymement.
+login_min_time:Ce forum ne permet qu'une tentative de connexion par période de {VAR: MIN_TIME_BETWEEN_LOGIN} secondes, veuillez patienter {FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)} secondes avant votre prochaine tentative.
+post_not_logged_in:Vous n'êtes pas connecté, le message sera posté anonymement.
 post_common_bold:Gras
 post_common_italics:Italique
 post_common_underline:Souligné
@@ -1100,7 +1101,7 @@ pmsg_on:activé
 pmsg_download_dump:Téléchargez une sauvegarde des messages
 move_messages:Déplacez les messages
 move_msg_btn:Déplacez les messages sélectionnés
-move_msg_th_expl:Précisez l\'identifiant du sujet de destination (peut être situé dans un autre forum)
+move_msg_th_expl:Précisez l'identifiant du sujet de destination (peut être situé dans un autre forum)
 captcha_img_alt:Vérification par Captcha : vous devez reconnaître le texte dans cette image.
 captcha_img_help:Il n'y a pas de zéro ou de un sur cette image.
 powered-by:Propulsé par : FUDforum {GVAR: FORUM_VERSION}.<br />Copyright &copy; 2001-2010 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>

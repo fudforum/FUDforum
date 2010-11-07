@@ -63,8 +63,7 @@ logged_in_list:Lisćina přizjewjenych wužiwarjow
 login:Přizjewić
 login_header:Přizjewjenje:
 logout:Wotzjewić
-# Fuzzy
-mark_all_read:wšě powěsće jako přečitane markěrować
+mark_all_read:Wšě powěsće jako přečitane markěrować
 mark_all_read_desc:Wšě twoje njepřečitane powěsće budu so jako přečitane markěrować
 members:Čłonojo
 calendar:Protyka
@@ -1035,7 +1034,6 @@ uc_sub_topics:Abonowane temy z nowymi powěsćemi
 uc_page_title:Pokazuje swójski profil
 search_options:Pytanske opcije
 search_user_filter:Po wužiwarjom filtrować:
-# Fuzzy
 register_none:Njezdźělić
 findu_no_conf:njewobkrućeny wužiwar
 register_max_sig_len:Maksimalna dołhosć:
@@ -1124,3 +1122,4 @@ feed_rdf:RDF-kanal
 feed_rss:RSS2-kanal
 feed_atom:ATOM-kanal
 ip_whois_connect_err:Njeje móžno z WHOIS-serwerom ({VAR: whois_server}) zwjazać: {VAR: errstr}
+custom_filed_required:Tute polo je trěbne.

@@ -189,7 +189,7 @@ unsubscribe_desc:Bij nieuwe onderwerpen in dit forum geen waarschuwingen meer ve
 updated_on:Bijgewerkt op:
 user:Gebruiker
 user_counter:We hebben <b>{VAR: st_obj->user_count}</b> geregistreerde {PLURAL: st_obj->user_count|gebruiker|gebruikers}.
-user_info:Gebruikersinformatie
+user_info:Gebruikersgegevens
 user_info_l:Ledeninformatie {VAR: u->alias}
 user_offline:{VAR: obj->login} is op dit moment afwezig
 user_online:{VAR: obj->login} is op dit moment aanwezig
@@ -279,7 +279,7 @@ register_msg_tree_view:Platte weergave onderwerpen/boomstructuurweergave bericht
 register_tree_msg_view:Boomstructuurweergave onderwerpen/platte weergave berichten
 register_flat_view:Platte weergave van berichten en onderwerpen
 use_forum_default:Standaardinstelling van forum gebruiken
-finduser_user_info:Gebruikersinformatie
+finduser_user_info:Gebruikersgegevens
 finduser_by_login:Op gebruikersnaam:
 finduser_submit:Zoeken
 finduser_no_such_user:Deze gebruiker bestaat niet
@@ -301,7 +301,7 @@ register_specify_url:Geef een URL op
 register_uploaded:Avatar uploaden
 register_login:Gebruikersnaam:
 register_password:Wachtwoord:
-register_conf_pass:Wachtwoordbevestiging:
+register_conf_pass:Wachtwoord bevestigen:
 register_email_desc:Geef alstublieft een geldig e-mailadres op. U kunt bij Voorkeuren aangeven dit te verbergen voor andere gebruikers.
 register_name:Naam:
 register_your_pass:Uw wachtwoord:
@@ -464,7 +464,7 @@ rpasswd_change_pass:Wachtwoord wijzigen
 rpasswd_login:Aanmelden
 rpasswd_cur_pass:Huidige wachtwoord:
 rpasswd_new_pass:Nieuw wachtwoord:
-rpasswd_conf_pass:Wachtwoordbevestiging:
+rpasswd_conf_pass:Wachtwoord bevestigen:
 ruser_title:Formulier gebruikersnaam wijzigen
 ruser_change_user:Gebruikersnaam voor forum wijzigen
 ruser_cur_login:Huidige gebruikersnaam:

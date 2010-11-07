@@ -2,6 +2,7 @@
 # Exported from translatewiki.net
 # Author: McDutchie
 # Author: Minisarm
+# Author: Naudefj
 
 action:Actiune
 add_to_buddy_list:adauga la lista cu prieteni
@@ -970,7 +971,7 @@ adm_account_rejected_s:Cererea dumneavoastra pentru '{GVAR: FORUM_TITLE}' a fost
 thread_on:la
 userinfo_buddy:Prieten:
 register_email_addr:Adresa E-mail:
-reset_suffix:Daca ati primit acest mesaj din greseala, va rugam sa il ignorati. Daca ati primit mai multe copii sau versiuni similare cu acest mesaj, si nu l\'ati cerut, va rugam sa contactati administratorul forumului la {GVAR: ADMIN_EMAIL}\n\nAceasta cerere a fost initiata de la: {VAR: _SERVER['REMOTE_ADDR']}.
+reset_suffix:Daca ati primit acest mesaj din greseala, va rugam sa il ignorati. Daca ati primit mai multe copii sau versiuni similare cu acest mesaj, si nu l'ati cerut, va rugam sa contactati administratorul forumului la {GVAR: ADMIN_EMAIL}\n\nAceasta cerere a fost initiata de la: {VAR: _SERVER['REMOTE_ADDR']}.
 usrinfo_last_visit:Ultima pagina vizitata:
 mnav_newer:mai nou decat
 mnav_older:mai vechi decat

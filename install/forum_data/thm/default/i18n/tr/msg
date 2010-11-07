@@ -1,5 +1,6 @@
 # Messages for Turkish (Türkçe)
 # Exported from translatewiki.net
+# Author: Naudefj
 # Author: Srhat
 # Author: Tufan
 
@@ -450,8 +451,8 @@ login_login_btn:Giriş yap
 login_name_required:Lütfen kullanıcı isminizi belirtin
 login_passwd_required:Lütfen parolanızı belirtin
 login_invalid_radius:Geçersiz kullanıcı ismi veya parola
-reset_confirmation:Kayıt olduğunuz için teşekkürler,\n\nHesabınızı doğrulayarak etkin hale getirmek için aşağıdaki URL\'ye gidin:\n\n{VAR: url}\n\nHesabınız etkinleştiğinde foruma giriş yapacak ve\nforumun ana sayfasına yönlendirileceksiniz.
-reset_reset:Selam,\n\nParolanızın yeniden belirlenmesini istediniz, bu işlemi TAMAMLAMAK için\nlütfen bu URL\'ye gidin\n\n{VAR: url}\n\nNOT: Bu forum parolaları tek-yönlü bir şifreleme mekanizması kullanarak saklıyor, bunun anlamı,\nparolanız öyle bir şekilde kodlanıyor ki kaybettiğinizde tekrar bulunması MÜMKÜN DEÄİL.\nParola doğrulama, basitçe girdiğiniz her parolanın her seferinde tekrar kodlanıp daha önce kodlanmış olan parolayla karşılıştarılması.\nve birbirini tutup tutmadığına bakmak şeklinde çalışıyor. (Eğer bu mekanizmanın nasıl çalıştığı ile ilgilenirseniz MD5 HASH algoritması hakkında araştırma yapabilirsiniz)
+reset_confirmation:Kayıt olduğunuz için teşekkürler,\n\nHesabınızı doğrulayarak etkin hale getirmek için aşağıdaki URL'ye gidin:\n\n{VAR: url}\n\nHesabınız etkinleştiğinde foruma giriş yapacak ve\nforumun ana sayfasına yönlendirileceksiniz.
+reset_reset:Selam,\n\nParolanızın yeniden belirlenmesini istediniz, bu işlemi TAMAMLAMAK için\nlütfen bu URL'ye gidin\n\n{VAR: url}\n\nNOT: Bu forum parolaları tek-yönlü bir şifreleme mekanizması kullanarak saklıyor, bunun anlamı,\nparolanız öyle bir şekilde kodlanıyor ki kaybettiğinizde tekrar bulunması MÜMKÜN DEÄİL.\nParola doğrulama, basitçe girdiğiniz her parolanın her seferinde tekrar kodlanıp daha önce kodlanmış olan parolayla karşılıştarılması.\nve birbirini tutup tutmadığına bakmak şeklinde çalışıyor. (Eğer bu mekanizmanın nasıl çalıştığı ile ilgilenirseniz MD5 HASH algoritması hakkında araştırma yapabilirsiniz)
 rpasswd_invalid_passwd:Geçersiz parola
 rpasswd_passwd_nomatch:Parolalar birbirini tutmuyor
 rpasswd_passwd_length:Parola en az 6 karakter uzunluğunda olmalı
@@ -648,7 +649,7 @@ register_err_notyouremail:Başka biri bu e-posta adresi ile zaten kayıt olmuş 
 register_err_avatartobig:Yüklemeye çalıştığınız dosya izin verilenden daha büyük. İzin verilen sınır: {GVAR: CUSTOM_AVATAR_MAX_SIZE} b
 register_err_avatarnotallowed:Yüklemeye çalıştığınız avatara izin verilmiyor. İzin verilen dosya tiplerini gözden geçirin.
 register_conf_subject:Kayıt Doğrulama
-register_conf_msg:Kayıt olduğunuz için teşekkürler,\nHesabınızı etkinleştirmek için lütfen aşağıdaki URL\'ye gidin:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nBir kez hesabınız etkineşti mi foruma giriş yapacak ve \nforumun ana sayfasına yönlendirileceksiniz.
+register_conf_msg:Kayıt olduğunuz için teşekkürler,\nHesabınızı etkinleştirmek için lütfen aşağıdaki URL'ye gidin:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nBir kez hesabınız etkineşti mi foruma giriş yapacak ve \nforumun ana sayfasına yönlendirileceksiniz.
 register_welcome_subject:Forum Kayıt Doğrulama
 register_welcome_msg:Kayıt olduğunuz için teşekkürler,\n\nİşte forum için giriş bilgileriniz:\n\nForum URL'si: {TEMPLATE: index_update_lnk}\nKullanıcı ismi: {VAR: uent->login}\nParola: {VAR: _POST['reg_plaintext_passwd']}\n\nLütfen parolada BÜYÜK/küçük harf ayrımının yapıldığını aklınızdan çıkarmayın!\nAyarlarınızda ve/veya kişisel bilgilerinizde değişiklik yapmak için, bu sayfaya gidebilirsiniz:\n{FULL_ROOT}{ROOT}?t=register
 register_err_cantreg_title:HATA: kayıt olunamadı
@@ -928,7 +929,7 @@ thread_mark_all_read:tüm okunmamış forum iletilerini okundu olarak işaretle
 thread_mark_all_read_desc:Bu forumdaki tüm iletiler okundu olarak işaretlenecek.
 private_no_messages:Bu klasörde ileti yok.
 register_email_change_subject:E-posta değişiklik onayı.
-register_email_change_msg:Lütfen yeni e-posta adresiniz olarak belirttiğiniz "{VAR: uent->email}" adresinin eski adres olan "{VAR: old_email}" adresinin yerine geçeceğini, aşağıdaki URL\'yi ziyaret ederek doğrulayın:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nYeni adresinizi onayladıktan sonra hesabınız tekrar etkin hale getirilecek.
+register_email_change_msg:Lütfen yeni e-posta adresiniz olarak belirttiğiniz "{VAR: uent->email}" adresinin eski adres olan "{VAR: old_email}" adresinin yerine geçeceğini, aşağıdaki URL'yi ziyaret ederek doğrulayın:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nYeni adresinizi onayladıktan sonra hesabınız tekrar etkin hale getirilecek.
 iemail_thread_unsub:Bu konu aboneliğinden çık
 iemail_forum_unsub:Bu forum aboneliğinden çık
 primary_group_prefix:Bu forum için birincil grup:

@@ -2,6 +2,7 @@
 # Exported from translatewiki.net
 # Author: Giallu
 # Author: McDutchie
+# Author: Naudefj
 # Author: Nexus
 
 action:Azione
@@ -148,7 +149,7 @@ sender_name:Nome del mittente:
 show_posts_by:Mostra i messaggi di: {VAR: u_alias}
 size:Dimensione:
 status:Stato:
-status_line:{PLURAL:st_obj->online_users_reg|C'è|Ci sono} <b>{PLURAL: st_obj->online_users_reg|$1 utente registrato|$1 utenti registrati}</b>, <b>{PLURAL: st_obj->online_users_hidden|$1 utente invisibile|$1 utenti invisibili}</b> e <b>{PLURAL: st_obj->online_users_anon|$1 utente anonimo|$1 utenti anonimi}</b> che stanno visitando questo forum.
+status_line:{PLURAL: st_obj->online_users_reg|C'è|Ci sono} <b>{PLURAL: st_obj->online_users_reg|$1 utente registrato|$1 utenti registrati}</b>, <b>{PLURAL: st_obj->online_users_hidden|$1 utente invisibile|$1 utenti invisibili}</b> e <b>{PLURAL: st_obj->online_users_anon|$1 utente anonimo|$1 utenti anonimi}</b> che stanno visitando questo forum.
 sticky:In evidenza:
 stop_ignoring:Cessa di ignorare questo utente
 sub_to_thread:Iscriviti all'argomento
@@ -175,7 +176,7 @@ todays_posts_desc:Mostra tutti i messaggi postati oggi
 un_ignore_user:Cessa di ignorare i messaggi di questo utente
 unanswered_posts:Messaggi senza risposta
 unanswered_posts_desc:Mostra tutti i messaggi che non hanno risposta
-unlock_thread:Riapri l\'argomento
+unlock_thread:Riapri l'argomento
 unread_msg:Questo argomento contiene messaggi che non hai ancora letto
 unread_msg_locked:Argomento chiuso con messaggi non letti
 unread_posts:Messaggi non letti
@@ -891,9 +892,9 @@ insert_uploaded_image:Inserisci una immagine nel testo del messaggio
 finduser_help:Il motore di ricerca aggiungerà automaticamente la maschera * nella tua richiesta. es. per ricercare tutti gli utenti la cui login comincia con una 'a', scrivi 'a' nel box di ricerca.
 back_to_top:Torna sopra
 pm_err_disabled_title:Messaggi privati Disabilitati
-pm_err_disabled_msg:Non puoi inviare messaggi privati finchè non abiliti l\'opzione 'Abilita Messaggi Privati' nel tuo profilo.
+pm_err_disabled_msg:Non puoi inviare messaggi privati finchè non abiliti l'opzione 'Abilita Messaggi Privati' nel tuo profilo.
 err_mod_acc_ttl:Account non verificato
-err_mod_acc_msg:L\'amministratore ha scelto di controllare tutti gli account manualmente prima della loro attivazione. Finchè il tuo account non sarà validato dall'amministratore, non potrai utilizzare tutte le funzioni del tuo account.
+err_mod_acc_msg:L'amministratore ha scelto di controllare tutti gli account manualmente prima della loro attivazione. Finchè il tuo account non sarà validato dall'amministratore, non potrai utilizzare tutte le funzioni del tuo account.
 accounts_pending_approval:Account in attesa di Approvazione
 saved:Salvato
 register_err_time_limit:Il limite di una registrazione ogni {GVAR: REG_TIME_LIMIT} secondi è stato raggiunto. Attendere {PLURAL: reg_limit_reached|$1 secondo|$1 secondi}, poi provare nuovamente a registrarsi.
@@ -904,7 +905,7 @@ buddy_offline:{VAR: r[2]} al momento è fuori linea
 buddy_online:{VAR: r[2]} al momento è in linea
 sml_no_smilies:Non ci sono emoticon disponibili.
 login_unapproved_account_ttl:Account non approvato
-login_unapproved_account_msg:L\'amministratore del forum ha sceltpo di confermare ogni nuovo account manualmente prima dell'attivazione. Il tuo account non è stato ancora confermato, per cui non potrai accedere ad alcune delle funzionalità disponibili per i membri del forum registrati, fino a quando il tuo account non verrà approvato.
+login_unapproved_account_msg:L'amministratore del forum ha sceltpo di confermare ogni nuovo account manualmente prima dell'attivazione. Il tuo account non è stato ancora confermato, per cui non potrai accedere ad alcune delle funzionalità disponibili per i membri del forum registrati, fino a quando il tuo account non verrà approvato.
 remove_from_buddy_list:rimuovi dalla lista degli amici
 iemail_msg_author:<b>Autore:</b> {VAR: obj->alias}
 iemail_msg_subject:<b>Oggetto:</b> {VAR: obj->subject}

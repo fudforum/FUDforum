@@ -287,7 +287,7 @@ finduser_joindate:Aangesluit op
 finduser_action:Aksie
 yes:Ja
 no:Nee
-register_email:Epos
+register_email:E-pos
 edit_time_limit:<b>Tydslimiet</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minuute
 no_edit_time_limit:<b>Tydslimiet aangepas</b>: <b>Onbeperk</b>
 pmuserloc_login:Gebruiker:
@@ -354,7 +354,7 @@ register_notification:Selekteer Notifikasie as standaard
 register_notification_desc:of die notifikasie standaard is ingesteld, u kan het nog aanpas by het posten
 register_notify_method:Kies notifikasie metode:
 register_notify_method_desc:Stel wat se kennisgewings wil u ontvang of skakel kennisgewings af (byvoorbeeld as u op vakasie is)
-register_allow_email_msg:Laat Epos Boodskappe toe:
+register_allow_email_msg:Laat boodskappe per E-pos toe:
 register_allow_email_msg_desc:Laat andere lede toe om vir u epos deur die forum te stuur.
 buddy_status:Status
 my_buddies:My vriende
@@ -437,7 +437,7 @@ coppa_fax_date:Datum:
 coppa_fax_questions:kontak <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> met al u vragen
 coppa_fax_login:Gebruiker
 coppa_fax_passwd:Wagwoord
-coppa_fax_remail:Epos
+coppa_fax_remail:E-pos
 coppa_fax_name:Naam
 login_not_logedin:U is nie aangeteken nie.  Daar kan verskeie redes hiervoor wees:
 login_cookie_expired:U "kookie" het verval en u sal weer moet aanteken om die kookie te hernu.
@@ -457,7 +457,7 @@ rpasswd_passwd_nomatch:Wagwoorde is nie dieselfde nie
 rpasswd_passwd_length:Wagwoord moet ten minste 6 karakters lank wees
 reset_remind_pass:Wagwoord herwinning
 reset_reset_conf:U wagwoord sal herstel word en aan u gestuur word. Indien u nog nie u epos bevestig het nie, sal die bevestiging weer aan u gestuur word.
-reset_error:Epos nie in database gevind nie
+reset_error:Die e-posadres is nie in die databasis gevind nie
 rpasswd_change_pass:Verander wagwoord
 rpasswd_login:Gebruiker
 rpasswd_cur_pass:Huidige wagwoord:
@@ -489,13 +489,13 @@ search_forum_search:Soek vir
 move_thread_to:Skuif onderwerp <b>{VAR: thr->subject}</b> na:
 remail_email_topic:E-pos die onderwerp aan 'n vriend
 remail_your_name:U naam:
-remail_your_email:U Epos:
+remail_your_email:U e-posadres:
 remail_friends_name:Vriend se naam:
 remail_friends_email:Vriend se epos:
 remail_required:verpligtend
 remail_subject:Onderwerp:
 remail_message:Boodskap:
-remail_send_now:Stuur Epos
+remail_send_now:Stuur e-pos
 remail_anon_opt:Kopieer die boodskap na 'n epos-program van u keuse om dit aan u vriende te stuur.
 remail_done:Gedoen
 remail_sent_conf:Die epos aan u vriend {VAR-HTML: _POST['femail']} oor die {VAR: data->subject} onderwerp was suksesvol gestuur.
@@ -653,7 +653,7 @@ register_err_notyouremail:Iemand is reeds met die e-posadres geregistreer, en di
 register_err_avatartobig:Die lêer wat u wil oplaai is te groot, groter as die {GVAR: CUSTOM_AVATAR_MAX_SIZE} grepe limiet
 register_err_avatarnotallowed:Die avatar wat u probeer oplaai is nie aanvaar nie. Kontroleer die toelaatbare lêertipes.
 register_conf_subject:Registrasiebevestiging
-register_conf_msg:Dankie vir u registrasie,\nOm u lidmaatskap te aktiveer gaan na die onderstaande URL:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nSodra u rekening geaktiveer is sal u ingeteken word op die forum en\ndeurgestuur word na die tuislad van die forum.
+register_conf_msg:Dankie vir u registrasie,\nVolg die onderstaande skakel om u lidmaatskap te aktiveer:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nSodra u gebruiker geaktiveer is sal u op die forum aangeteken word\nen na die forum se tuisblad deurgestuur word.
 register_welcome_subject:Forum registrasie bevestiging
 register_welcome_msg:Dankie vir u registrasie,\n\nhier is u gebruikernaam vir die forum:\n\nForum URL: {TEMPLATE: index_update_lnk}\nGebruiker: {VAR: uent->login}\nwagwoord: {VAR: _POST['reg_plaintext_passwd']}\n\nPas op, wagwoorde is gevoelig vir hoofletters!\nOm u voorkeure &amp; profiel aan te pas, gaan na hierdie bladsy:\n{FULL_ROOT}{ROOT}?t=register
 register_err_cantreg_title:FOUT: nie in staat om te registreer nie
@@ -685,7 +685,7 @@ ERR_access_msg:U het nie die vereiste regte om hierdie handeling uit te voer nie
 ERR_registration_disabled_ttl:Registrasie is gedeaktiveer
 ERR_registration_disabled_msg:Die administrateur het registrasie gedeaktiveer. Probeer asseblief later weer.
 ERR_emailconf_ttl:FOUT: U lidmaatskap is nog nie bevestig nie
-ERR_emailconf_msg:U rekening is nog nie per e-pos bevestig nie.<br /><table border="0"><tr><td><ol><li>Indien u nog nie \'n bevestigingsepos ontvang het nie, <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">kliek hier</a><li>Indien {VAR: usr_d->email} nie jou korrekte e-posadres is nie, <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">kliek hier</a></ol></td></tr></table>
+ERR_emailconf_msg:U het nog nie u gebruiker via e-pos bevestig nie:<br /><table border="0"><tr><td><ol><li>Indien u nog nie 'n bevestigings-epos ontvang het nie, <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">kliek hier</a>.</li>\n<li>Indien {VAR: usr_d->email} nie u korrekte e-posadres is nie, <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">kliek hier</a>.</li></ol></td></tr></table>
 ERR_user_ttl:FOUT: onbekend lid
 ERR_user_msg:Hierdie gebruiker bestaan nie
 ERR_systemerr_ttl:FOUT: STESLELFOUT
@@ -701,7 +701,7 @@ rpasswd_title:wagwoord-aanpassingsvorm
 error_title:Fout-vorm
 index_title:Welkom by die forum
 search_title:Soek na {VAR-HTML: srch}
-remail_emailsent:Epos is uitgestuur
+remail_emailsent:Die e-pos is uitgestuur
 remail_email:Hallo,\n\nDaar is 'n interessante onderwerp oor "{VAR: data->subject}" op {GVAR: FORUM_TITLE} forum wat u miskien sal wil lees. U kan die onderwerp sien by:\n {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nU vriend,\n\n{VAR: usr->alias}
 poll_add_option:Voeg opsie by:
 post_opt_html_on:<b>HTML</b> is <b>AAN</b>

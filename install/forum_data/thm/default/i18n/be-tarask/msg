@@ -356,7 +356,7 @@ register_notification_desc:Калі абвяшчэньні ўключаныя п
 register_notify_method:Выбраць мэтад абвяшчэньня:
 register_notify_method_desc:Устанаўлівае мэтад дасылкі Вам абвяшчэньняў ці адключыце іх (напрыклад, калі Вы ад’яжджаеце на адпачынак).
 register_allow_email_msg:Дазволіць дасылку паведамленьняў па электроннай пошце.
-register_allow_email_msg_desc:Дазваляе іншы карыстальнікам дасылаць Вам электронныя лісты праз гэты форум.
+register_allow_email_msg_desc:Дазваляе іншым карыстальнікам дасылаць Вам электронныя лісты праз гэты форум.
 buddy_status:Статус
 my_buddies:Мае знаёмыя
 add_buddy:Дадаць да знаёмых
@@ -859,8 +859,38 @@ p_VISIBLE:Бачны
 reported_in_thread:У тэме:
 help_back_to_top:вярнуцца ўгару
 help_return_to_index:Вярнуцца на галоўную старонку дапамогі
+imsg_err_message_title:Няслушнае паведамленьне
+imsg_err_message_msg:Паведамленьне, якое Вы спрабуеце праглядзець, не існуе.
 poll_edit:Рэдагаваць
+register_err_not_valid_img:Пазначаная URL-спасылка не ўтрымлівае слушнай выявы.
+pmsg_recepient:Атрымальнік
+register_err_taken_alias:Псэўданім, які Вы спрабуеце выкарыстаць, ужо выкарыстоўваецца іншым карыстальнікам форуму. Калі ласка, выберыце іншы.
+register_alias:Псэўданім:
+register_alias_desc:Калі Вы жадаеце, каб мянушка ў форуме адрозьнівалася ад імя карыстальніка, увядзіце яе тут.
+register_allow_pm_msg:Дазволіць асабістыя паведамленьні:
+register_allow_pm_msg_desc:Дазваляе іншым карыстальнікам дасылаць Вам асабістыя паведамленьні ў гэтым форуме.
+postcheck_pm_disabled:Вы ня можаце дасылаць асабістыя паведамленьні карыстальніку «{VAR-HTML: v}», таму што ён не дазволіў атрыманьне асабістых паведамленьняў.
+polllist_vote:Прагаласаваць
+polllist_view_results:Паказаць вынікі
+polllist_name:Назва галасаваньня
+polllist_date:Створанае
+polllist_owner:Стваральнік
+polllist_votes:Усяго галасоў
 polllist_action:Дзеяньне
+polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">Прагляд даступных галасаваньняў</a>
+userinfo_polls:Апытаньні:
+show_pollist:Паказаць галасаваньні
+search_and:І
+search_or:ЦІ
+search_desc_order:Па убываньню
+search_asc_order:Па ўзрастаньню
+search_logic:Лягічны пошук:
+search_sorting:Сартаваць вынікі па даце:
+search_attach:Далучэньні:
+search_attach_all:З ці без
+search_attach_with:З далучэньнямі
+post_proceed:Працягваць
+post_moderated_forum:Вы даслалі паведамленьне ў мадэраваны форум. Вашае паведамленьне ня будзе бачнае для іншых, пакуль яно ня будзе зацьверджанае адным з мадэратараў ці адміністратараў форуму.
 iemail_msg_subject:<b>Тэма:</b> {VAR: obj->subject}
 iemail_msg_reply:Адказаць
 iemail_thread_unsub:Адпісацца ад гэтай тэмы

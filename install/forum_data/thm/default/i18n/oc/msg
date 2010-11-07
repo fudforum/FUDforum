@@ -3,6 +3,7 @@
 # Author: Cedric31
 # Author: Jfblanc
 # Author: McDutchie
+# Author: Naudefj
 
 action:Accion
 add_to_buddy_list:Apondre a la lista de mos amics
@@ -373,7 +374,7 @@ post_locked:Fial Varrolhat
 post_icons:Causissètz una icòna d'associar a vòstre messatge :
 post_no_icon:Pas d'icòna
 post_smiley:Acorchis de smileys :
-post_format_tools:Espleches de mesa en pagina :
+post_format_tools:Aisinas de mesa en pagina :
 post_upload_file:Telecargar lo fichièr
 post_file_del:Escafar
 post_file_name:Nom
@@ -435,8 +436,8 @@ login_login_btn:Connexion
 login_name_required:Picatz vòstre nom d'utilizaire
 login_passwd_required:Picatz vòstre senhal
 login_invalid_radius:Associacion nom d'utilizaire / senhal invalida
-reset_confirmation:Mercés de vos èsser inscrich.\n\nPer activar vòstre compte, visitatz l\'URL seguenta :\n\n{VAR: url}\n\nUn còp vòstre compte activat, seretz connectat sul forum e conduch cap a la pagina d\'acuèlh.
-reset_reset:Adiu,\n\nAvètz decidit de tornar inixializar vòstre senhal. Per perseguir aquesta operacion,\ndirigissètz-vos cap a aquesta URL\n\n{VAR: url}\n\nNÒTA: Lo forum enregistra los senhals dins sa banca de donadas en utilizant un mecanisme d\'encodatge de sens unic, aquò significa qu\'un còp qu\'avètz somés vòstre senhal, aquel\nes encodat de tal biais qu\'es pas pus possible de lo desencriptar.\nAquò es possible per reencriptatge perpetual de vòstre senhal. Per mai d\'entresenhas sus aquesta seguretat, referissètz-vos a una documentacion detalhant l\'algoritme de hachatge MD5.
+reset_confirmation:Mercés de vos èsser inscrich.\n\nPer activar vòstre compte, visitatz l'URL seguenta :\n\n{VAR: url}\n\nUn còp vòstre compte activat, seretz connectat sul forum e conduch cap a la pagina d'acuèlh.
+reset_reset:Adiu,\n\nAvètz decidit de tornar inixializar vòstre senhal. Per perseguir aquesta operacion,\ndirigissètz-vos cap a aquesta URL\n\n{VAR: url}\n\nNÒTA: Lo forum enregistra los senhals dins sa banca de donadas en utilizant un mecanisme d'encodatge de sens unic, aquò significa qu'un còp qu'avètz somés vòstre senhal, aquel\nes encodat de tal biais qu'es pas pus possible de lo desencriptar.\nAquò es possible per reencriptatge perpetual de vòstre senhal. Per mai d'entresenhas sus aquesta seguretat, referissètz-vos a una documentacion detalhant l'algoritme de hachatge MD5.
 rpasswd_invalid_passwd:Lo senhal es invalid
 rpasswd_passwd_nomatch:Lo senhal e sa confirmacion son pas identics
 rpasswd_passwd_length:Lo senhal deu comportar al mens 6 caractèrs
@@ -571,9 +572,9 @@ err_inc_criticalmsg:Sètz en preséncia d'una error, mas malurosament i a un pro
 finduser_update:Cercar un utilizaire
 help_index_update:Legissètz la <a href="{TEMPLATE: help_index_update_lnk}">F.A.Q.</a> (Feira de las questions, questions pausadas frequentament)
 iemail_thr_subject:Responsa novèla al subjècte {VAR: thr_subject} per {VAR: poster_login}
-iemail_thr_bodyemail:Per legir las responsas pas legidas, clicatz aicí : {VAR: goto_url['email']}\n\nSe volètz recebre pas pus de notificacions relativas a las responsas recebudas sus aqueste fial a l\'avenidor, clicatz aicí : {VAR: unsub_url['email']}
+iemail_thr_bodyemail:Per legir las responsas pas legidas, clicatz aicí : {VAR: goto_url['email']}\n\nSe volètz recebre pas pus de notificacions relativas a las responsas recebudas sus aqueste fial a l'avenidor, clicatz aicí : {VAR: unsub_url['email']}
 iemail_frm_subject:Fial novèl dins lo forum {VAR: frm_name} intitolat {VAR: thr_subject} per {VAR: poster_login}
-iemail_frm_bodyemail:Per legir lo fial, anatz a :\n{VAR: goto_url['email']}\n\nSe volètz recebre pas pus de notificacions relativas als fials novèls dins aqueste forum a l\'avenidor, clicatz aicí : {VAR: unsub_url['email']}
+iemail_frm_bodyemail:Per legir lo fial, anatz a :\n{VAR: goto_url['email']}\n\nSe volètz recebre pas pus de notificacions relativas als fials novèls dins aqueste forum a l'avenidor, clicatz aicí : {VAR: unsub_url['email']}
 iemail_participate:Per participar a la discussion, anatz aicí :
 ignore_list_err_info_title:Informacion
 ignore_list_err_dup_msg:Aqueste utilizaire figura ja dins vòstra lista de personas d'ignorar
@@ -593,7 +594,7 @@ post_err_lockedthread_msg:Aqueste fial es varrolhat, cap de messatge novèl es p
 err_coppa_title:ERROR : Vòstre compte es pas encara confirmat
 err_coppa_msg:Avèm pas recebut de confirmacion de vòstres parents o de vòstre tutor legal que vos autoriza a mandar de messatges. S'avètz perdut vòstre formulari COPPA, <a href="{TEMPLATE: err_coppa_msg_lnk}">per l'obténer tornamai</a>.
 err_banned_acct_title:ERROR : sètz estat fòrabandit.
-err_banned_acct_msg:Vòstre compte es estat {IF: $ban_expiry}temporàriament fòrabandit fins a {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}fòrabandit definitivament {ENDI} del site, en rason d\'una violacion de las règlas del forum.
+err_banned_acct_msg:Vòstre compte es estat {IF: $ban_expiry}temporàriament fòrabandit fins a {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}fòrabandit definitivament {ENDI} del site, en rason d'una violacion de las règlas del forum.
 post_err_edttimelimit_title:ERROR
 post_err_edttimelimit_msg:Avètz pas pus la possibilitat de modificar aqueste messatge
 post_err_noannontopics_msg2:<legend>ERROR : dreches insufisents</legend>Los utilizaires anonims son pas autorizats a crear de subjèctes.
@@ -633,7 +634,7 @@ register_err_notyouremail:Qualqu'un s'es ja inscrich amb aquesta adreça e-mail,
 register_err_avatartobig:Lo fichièr qu'ensajatz de telecargar es tròp gròs, la talha limita autorizada es de {GVAR: CUSTOM_AVATAR_MAX_SIZE} octets
 register_err_avatarnotallowed:L'avatar qu'ensajatz de telecargar es pas autorizat, verificatz los tipes de fichièrs autorizats.
 register_conf_subject:Confirmacion de vòstra inscripcion
-register_conf_msg:Mercés per vòstra inscripcion.\nPer activar vòstre compte, visitatz l\'URL çaijós :\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nUn còp vòstre compte activat, seretz connectat al forum e redirigit cap a la pagina d\'acuèlh del forum.
+register_conf_msg:Mercés per vòstra inscripcion.\nPer activar vòstre compte, visitatz l'URL çaijós :\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nUn còp vòstre compte activat, seretz connectat al forum e redirigit cap a la pagina d'acuèlh del forum.
 register_welcome_subject:Confirmacion de vòstra inscripcion al forum.
 register_welcome_msg:Mercés de vos èsser inscrich,\n\nVaquí un resumit de vòstras donadas de connexion al forum :\n\nURL del forum : {TEMPLATE: index_update_lnk}\nNom d'utilizaire : {VAR: uent->login}\nSenhal : {VAR: _POST['reg_plaintext_passwd']}\n\nDoblidetz pas que los senhals fan la diferéncia entre las majusculas e las minusculas !\nPer modificar vòstres reglatges e vòstre perfil, visitatz aquesta pagina :\n{FULL_ROOT}{ROOT}?t=register
 register_err_cantreg_title:ERROR : Vos avèm pas pogut inscriure
@@ -647,7 +648,7 @@ reset_err_invalidkey_msg:Clau de reïnicializacion de senhal invalid
 reset_err_rstconf_title:Informacion
 reset_err_rstconf_msg:Deuriatz recebre d'instruccions per e-mail dins qualques minutas.
 reset_newpass_title:Reïnicializacion del senhal
-reset_newpass_msg:Bonjorn,\n\ntrobatz çaijunt las informacions que vos fan mestièr per accedir al forum :\n\n\nNom d\'utilizaire : {VAR: ui[1]}\nSenhal : {VAR: passwd}\n\nNotatz que podètz modificar vòstre senhal quand volètz via lo panèl de configuracion de vòstre perfil sul site del forum, tanben accessible a l\'URL seguenta :\n{FULL_ROOT}{ROOT}?t=register
+reset_newpass_msg:Bonjorn,\n\ntrobatz çaijunt las informacions que vos fan mestièr per accedir al forum :\n\n\nNom d'utilizaire : {VAR: ui[1]}\nSenhal : {VAR: passwd}\n\nNotatz que podètz modificar vòstre senhal quand volètz via lo panèl de configuracion de vòstre perfil sul site del forum, tanben accessible a l'URL seguenta :\n{FULL_ROOT}{ROOT}?t=register
 reset_login_notify:Vos venèm de mandar un e-mail que conten vòstras entresenhas d'inscripcion. O deuriatz recebre dins qualques minutas. Aqueste e-mail conten vòstre nom d'utilizaire e tanben vòstre senhal actual.<br />
 search_update:Recèrca dels messatges
 selmsg_update:Percor los <a href="{TEMPLATE: selmsg_update_lnk}">messatges mandats uèi</a>
