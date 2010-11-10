@@ -68,7 +68,8 @@ function pf($str, $webonly=false)
 		if ($webonly) return;
 		echo strip_tags($str) ."\n";
 	} else {
-		echo $str .'<br />';
+		if (!preg_match('#<br />#i', $str)) $str .= '<br />';
+		echo $str;
 		@ob_flush(); flush();
 	}
 }

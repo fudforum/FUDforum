@@ -200,7 +200,7 @@
 {IF: ($FUD_OPT_2 & 4096 && $perms & 1024 && !$frm->cant_rate)}{TEMPLATE: rate_thread}{ENDIF}
 {FUNC: tmpl_create_forum_select((isset($frm->forum_id) ? $frm->forum_id : $frm->id), $usr->users_opt & 1048576)}
 <br /><div class="wa ac">-=] <a href="javascript://" onclick="chng_focus('page_top');">{MSG: back_to_top}</a> [=-</div>
-<div class="ar SmallText">{IF: $FUD_OPT_2 & 2097152}{TEMPLATE: tree_pdf_link}{ENDIF} {IF: $FUD_OPT_2 & 1048576}{TEMPLATE: tree_xml_link}{ENDIF}</div>
+<div class="ar SmallText">{IF: $FUD_OPT_2 & 1048576}{TEMPLATE: tree_xml_link}{ENDIF} {IF: $FUD_OPT_2 & 2097152}{TEMPLATE: tree_pdf_link}{ENDIF}</div>
 {TEMPLATE: curtime}
 {TEMPLATE-DATA: page_stats}
 <script type="text/javascript">
@@ -267,7 +267,7 @@ highlightSearchTerms("{VAR-HTML: _GET['srch']}");
 {SECTION: END}
 
 {SECTION: tree_pdf_link}
-[ <a href="{TEMPLATE: tree_pdf_link_lnk}">{MSG: thread_printable_pdf}</a> ]
+[ <a href="{TEMPLATE: tree_pdf_link_lnk}"><img src="{THEME_IMAGE_ROOT}/pdf.gif" title="{MSG: thread_printable_pdf}" alt="PDF" /></a> ]
 {SECTION: END}
 
 {SECTION: tree_xml_link_lnk}

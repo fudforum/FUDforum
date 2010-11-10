@@ -29,6 +29,34 @@ if (isset($_REQUEST['GLOBALS']) || isset($_FILES['GLOBALS'])) {
 	exit;	// GLOBALS overwrite attempt.
 }
 
+// Deprecated as of PHP 5.3.0.
+if (get_magic_quotes_gpc()) {
+	$in = array(&$_GET, &$_POST, &$_COOKIE);
+	while (list($k,$v) = each($in)) {
+		foreach ($v as $key => $val) {
+			if (!is_array($val)) {
+				$in[$k][$key] = stripslashes($val);
+				continue;
+			}
+			$in[] =& $in[$k][$key];
+		}
+	}
+	unset($in);
+
+	if (!empty($_FILES)) {
+		foreach ($_FILES as $k => $v) {
+			$_FILES[$k]['name'] = stripslashes((string)$v['name']);
+		}
+	}
+}
+
+// Debug mode.
+if ($GLOBALS['FUD_OPT_3'] & 1073741824) {
+	set_error_handler('fud_php_error_handler');
+	define('forum_debug', 1);
+	define('fud_query_stats', 1);
+}
+
 // Load and initialize the plugin handler.
 if ($GLOBALS['FUD_OPT_3'] & 4194304) {	// Plugins enabled.
 	include_once $GLOBALS['INCLUDE'] .'plugins.inc';
@@ -194,6 +222,25 @@ function fud_sql_error_handler($query, $error_string, $error_number, $db_version
 		}
 	}
 	exit;
+}
+
+function fud_php_error_handler($no, $str, $file, $line, $ctx)
+{
+	if (!(error_reporting() & $no)) {
+		return;		// Errors that should be ignored.
+	}
+	fud_logerror('PHP Error '. $no .': '. $str .' in '. $file .' on line '. $line, 'fud_errors');
+	if (isset($GLOBALS['usr']->users_opt) && $GLOBALS['usr']->users_opt & 1048576) { // Admin user.
+		echo '<pre>';
+		echo 'no   : '. $no   ."\n";
+		echo 'str  : '. $str  ."\n";
+		echo 'file : '. $file ."\n";
+		echo 'line : '. $line ."\n";
+		echo 'ctx  : ';
+		print_r($ctx);
+		echo '</pre>';
+		die('PHP ERROR TO FIX!');
+	}
 }
 
 /* timezone_identifiers_list() may not exist in PHP 5.1.*/

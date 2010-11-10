@@ -202,6 +202,7 @@ $(document).ready(function() {
 	$msg = ($GLOBALS['FUD_OPT_1'] & 1) ? '' : '<font color="red">NOTE: </font>';
 	print_bit_field($msg .'Forum Enabled', 'FORUM_ENABLED');
 	print_txt_field('Reason for Disabling', 'DISABLED_REASON');
+	print_bit_field($msg .'Debug Forum', 'FORUM_DEBUG');
 ?>
 <tr class="fieldaction"><td align="left"><input type="submit" name="btn_submit" value="Set" /></td><td align="right">[ <a href="#top">top</a> ]</td></tr>
 </tbody>

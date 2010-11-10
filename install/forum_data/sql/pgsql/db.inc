@@ -154,8 +154,9 @@ function q_concat($arg)
 }
 
 function q_rownum() {
-	q('CREATE TEMPORARY SEQUENCE rnum');
-	return 'nextval(\'rnum\')';
+	q('DROP SEQUENCE IF EXISTS fud_rnum');
+	q('CREATE TEMPORARY SEQUENCE fud_rnum');
+	return 'nextval(\'fud_rnum\')';
 }
 
 function q_bitand($fieldLeft, $fieldRight) {

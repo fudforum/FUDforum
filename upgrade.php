@@ -572,9 +572,9 @@ $(document).ready(function() {
 			seterr('FUDforum '. $FORUM_VERSION .' must be upgraded to FUDforum version 3.0.0 before it can be upgraded to later release.');
 	}
 
-	/* If not set, try to guess the DATA_DIR. */
-	if (!isset($GLOBALS['DATA_DIR'])) {
-		$GLOBALS['DATA_DIR'] = realpath($GLOBALS['INCLUDE'] .'../') .'/';
+	/* Determine if this upgrade script was previously ran. */
+	if (@file_exists($GLOBALS['ERROR_PATH'] .'UPGRADE_STATUS') && (int) trim(file_get_contents($ERROR_PATH .'UPGRADE_STATUS')) >= $__UPGRADE_SCRIPT_VERSION) {
+		seterr('THIS UPGRADE SCRIPT HAS ALREADY BEEN RUN, IF YOU WISH TO RUN IT AGAIN USE THE FILE MANAGER TO REMOVE THE "'. $GLOBALS['ERROR_PATH'] .'UPGRADE_STATUS" FILE.');
 	}
 
 	/* If not set, try to guess the DBTYPE. This check should be removed from future versions. */
@@ -710,11 +710,6 @@ pf('<h2>Step 1: Admin login</h2>', true);
 				seterr('Your php\'s open_basedir limitation ('. open_basedir .') will prevent the upgrade script from writing to ('. $GLOBALS['WWW_ROOT_DISK'] .'). Please make sure that access to ('. $GLOBALS['WWW_ROOT_DISK'] .') is permitted.');
 			}
 		}
-	}
-
-	/* Determine if this upgrade script was previously ran. */
-	if (@file_exists($GLOBALS['ERROR_PATH'] .'UPGRADE_STATUS') && (int) trim(file_get_contents($ERROR_PATH .'UPGRADE_STATUS')) >= $__UPGRADE_SCRIPT_VERSION) {
-		seterr('THIS UPGRADE SCRIPT HAS ALREADY BEEN RUN, IF YOU WISH TO RUN IT AGAIN USE THE FILE MANAGER TO REMOVE THE "'. $GLOBALS['ERROR_PATH'] .'UPGRADE_STATUS" FILE.');
 	}
 
 	/* Load glob.inc for functions like change_global_settings(). */
@@ -1062,7 +1057,7 @@ pf('<h2>Step 1: Admin login</h2>', true);
 	$c = q('SELECT theme, lang, name FROM '. $DBHOST_TBL_PREFIX .'themes WHERE '. q_bitand('theme_opt', 1) .' > 0 OR id=1');
 	while ($r = db_rowarr($c)) {
 		// See if custom themes need to have their files updated.
-		if ($r[0] != 'default' && $r[0] != 'path_info' && $r[0] != 'user_info_left' && $r[0] != 'user_info_right' && $r[0] != 'forestgreen' && $r[0] != 'slateblue') {
+		if ($r[0] != 'default' && $r[0] != 'path_info' && $r[0] != 'user_info_left' && $r[0] != 'user_info_right' && $r[0] != 'forestgreen' && $r[0] != 'slateblue' && $r[0] != 'twilightgrey') {
 			// syncronize_theme($r[0]); -- Please remove from future versions.
 			pf('Please manually update custom theme '. $r[2] .'.');
 		}
@@ -1096,7 +1091,7 @@ pf('<h2>Step 1: Admin login</h2>', true);
 	fclose($fp);
 
 	/* Log upgrade action. */
-	q('INSERT INTO '. $DBHOST_TBL_PREFIX .'action_log (logtime, logaction, user_id, a_res) VALUES ('. __time__ .', \'Forum\', 2, \'Upgraded to '. $FORUM_VERSION .'\')');
+	q('INSERT INTO '. $DBHOST_TBL_PREFIX .'action_log (logtime, logaction, user_id, a_res) VALUES ('. __time__ .', \'Forum\', '. $auth .', \'Upgraded to '. $FORUM_VERSION .'\')');
 
 	/* Remove UPGRADE script if the user won't be able to do it himself. */
 	if (SAFE_MODE && basename(__FILE__) == 'upgrade_safe.php') {

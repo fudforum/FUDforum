@@ -80,7 +80,7 @@
 {TEMPLATE-DATA: admin_cp}
 <a name="page_top"> </a>
 {FUNC: draw_forum_path($frm->cat_id, $frm->name, $frm->forum_id, $frm->subject)}
- {IF: $frm->tdescr}<span class="small">({VAR: frm->tdescr})</span>{ENDIF} 
+{IF: $frm->tdescr}<span class="small">({VAR: frm->tdescr})</span>{ENDIF} 
 <span id="threadRating">{IF: $FUD_OPT_2 & 4096 && $frm->rating}{TEMPLATE: thread_rating}{ENDIF}</span>
 <table cellspacing="0" cellpadding="0" border="0" class="wa">
 <tr>
@@ -94,6 +94,7 @@
 <td class="vb ar">{IF: $FUD_OPT_3 & 2}{ELSE}{TEMPLATE: threaded_view}{END}{TEMPLATE: new_thread}{IF: (!($frm->thread_opt & 1) || $perms & 4096)}{TEMPLATE: post_reply}{ENDIF}</td>
 </tr>
 </table>
+{INJECTION_POINT: before_topic}
 <table cellspacing="0" cellpadding="0" class="ContentTable">{TEMPLATE-DATA: message_data}</table>
 {IF: $quick_reply_enabled}{TEMPLATE: quick_reply}{ENDIFI}
 <table border="0" cellspacing="0" cellpadding="0" class="wa">
@@ -102,6 +103,7 @@
 <td class="GenText ar vb nw">{IF: $FUD_OPT_3 & 2}{ELSE}{TEMPLATE: threaded_view}{END}{TEMPLATE: new_thread}{IF: !$quick_reply_enabled && (!($frm->thread_opt & 1) || $perms & 4096)}{TEMPLATE: post_reply}{ENDIF}</td>
 </tr>
 </table>
+{INJECTION_POINT: after_topic}
 {IF: (!empty($prev_thread_link) || !empty($next_thread_link))}
 <table border="0" cellspacing="1" cellpadding="1" align="right">
 {TEMPLATE-DATA: prev_thread_link}

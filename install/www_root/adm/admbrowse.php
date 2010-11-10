@@ -501,7 +501,7 @@ if (!extension_loaded('posix')) {
 		$size = round((isset($st[7])?$st[7]:$st['size'])/1024);
 
 		if (preg_match('/(install.php|upgrade.php|unprotect.php|fudforum_archive)$/i', $fpath)) {
-			echo '<tr class="field admin_fixed" style="color:red;">';
+			echo '<tr class="field admin_fixed" style="color:red;" title="Please delete this file!">';
 			echo '<td nowrap="nowrap">';
 			echo '<a name="flagged"></a>';
 		} else {

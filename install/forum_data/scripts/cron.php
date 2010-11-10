@@ -33,13 +33,18 @@
 	/* Mark CRON execution. */
 	$jobfile = $GLOBALS['ERROR_PATH'] . 'LAST_CRON_RUN';
 	touch($jobfile);
-	
+
 	/* Run the next in line job. */
 	$job = new fud_job();
 	try {
 		$job->run();
 	} catch (Exception $e) {
 		echo 'Unable to run job: '. $e->getMessage();
+	}
+
+	// Call cron plugins.
+	if (defined('plugins')) {
+		plugin_call_hook('CRON');
 	}
 
 ?>

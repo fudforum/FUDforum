@@ -66,7 +66,7 @@ if (isset($_POST['sql']) && $_POST['sql'] != '') {
 	foreach ($sqlfile as $sql) {
 		if (preg_match('/[a-zA-Z]/', $sql) and !preg_match('/^(#|--)/', $sql)) {
 			if (preg_match('/^\s*use\s+\w+\s*;?$/i', $sql)) {
-				echo '<div class="tutor">For security reasons you may not switch to another database</div>';
+				echo '<div class="tutor">For security reasons you may not switch to another database!</div>';
 				break;
 			}
 

@@ -15,12 +15,12 @@
 		std_error('login');
 	}
 
-	/* delete forum subscription */
+	/* Delete forum subscription. */
 	if (isset($_GET['frm_id']) && ($_GET['frm_id'] = (int)$_GET['frm_id']) && sq_check(0, $usr->sq)) {
 		forum_notify_del(_uid, $_GET['frm_id']);
 	}
 
-	/* delete thread subscription */
+	/* Delete thread subscription. */
 	if (isset($_GET['th']) && ($_GET['th'] = (int)$_GET['th']) && sq_check(0, $usr->sq)) {
 		thread_notify_del(_uid, $_GET['th']);
 	}
@@ -47,14 +47,14 @@
 
 /*{POST_HTML_PHP}*/
 
-	/* fetch a list of all the accessible forums */
+	/* Fetch a list of all the accessible forums. */
 	$lmt = '';
 	if (!$is_a) {
 		$c = uq('SELECT g1.resource_id
 				FROM {SQL_TABLE_PREFIX}group_cache g1
 				LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='. _uid .' AND g1.resource_id=g2.resource_id
 				LEFT JOIN {SQL_TABLE_PREFIX}mod m ON m.forum_id=g1.resource_id AND m.user_id='. _uid .'
-				WHERE g1.user_id=2147483647 AND (m.id IS NULL AND (COALESCE(g2.group_cache_opt, g1.group_cache_opt) & 2)=0)');
+				WHERE g1.user_id=2147483647 AND (m.id IS NULL AND '. q_bitand('COALESCE(g2.group_cache_opt, g1.group_cache_opt)',  2)=0)');
 		while ($r = db_rowarr($c)) {
 			$lmt .= $r[0] .',';
 		}

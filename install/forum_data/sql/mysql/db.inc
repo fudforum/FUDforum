@@ -19,7 +19,7 @@ if (!defined('fud_sql_lnk')) {
 	if (function_exists('mysql_set_charset')) {	// Requires PHP 5.2.3 and MySQL 5.0.7 or later.
 		mysql_set_charset('utf8');
 	} else {
-		mysql_query('SET NAMES \'utf8\' COLLATE \'utf8_general_ci\'');
+		mysql_query('SET NAMES \'utf8\' COLLATE \'utf8_unicode_ci\'');
 	}
 
 	define('__dbtype__', 'mysql');

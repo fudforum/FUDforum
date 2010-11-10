@@ -673,7 +673,7 @@ While it is running, your forum will be disabled!
 	draw_stat('Done: Validating User/Theme Relations');
 
 	draw_stat('Correcting Avatar Paths...');
-	$c = uq('SELECT id, avatar_loc FROM '. $tbl .'users WHERE avatar_loc IS NOT NULL AND users_opt>=8388608 AND '. q_bitand('users_opt', (8388608|16777216)) .'>0 AND avatar_loc NOT LIKE '. _esc('%'. $WWW_ROOT .'%'));
+	$c = q('SELECT id, avatar_loc FROM '. $tbl .'users WHERE avatar_loc IS NOT NULL AND users_opt>=8388608 AND '. q_bitand('users_opt', (8388608|16777216)) .'>0 AND avatar_loc NOT LIKE '. _esc('%'. $WWW_ROOT .'%'));
 	while ($r = db_rowobj($c)) {
 		preg_match('!http://(.*)/images/!', $r->avatar_loc, $m);
 		preg_match('!//(.*)/!', $WWW_ROOT, $m2);

@@ -173,7 +173,7 @@ function resolve_sections($str)
 				list($var, $forms) = explode('|', $name, 2);
 				$forms_arr = str_replace('\'', '&#39;', $forms);	// Encode single quotes.
 				$forms_arr = str_replace('|', '\',\'', $forms_arr);
-				$forms_arr = preg_replace('/\$\d/', "'.$". $var .".'", $forms_arr);	// $1, $2, etc. refers to the count.
+				$forms_arr = preg_replace('/\$\d/', "'.$". $var .".'", $forms_arr);	// $1, $2, etc. refers to the count ($var).
 				$ret .= "'.convertPlural($". $var .", array('". $forms_arr ."')).'";
 				break;
 			case 'VAR':
@@ -235,9 +235,18 @@ function resolve_sections($str)
 				if (defined('plugins')) {
 					list($tmpl_resolved) = plugin_call_hook('COMPILER_EXPAND_TEMPLATE', array($tmpl_resolved, $tag, $sec, $name, $GLOBALS['TC'][$sec][$name]['file']));
 				}
-
 				$ret .= $tmpl_resolved;
 
+				break;
+			case 'INJECTION_POINT':
+				// Give all COMPILER_INJECT plugins the opportunity to add code to the template.
+				if (defined('plugins')) {
+					$code_to_add = null;
+					list($code_to_add) = plugin_call_hook('COMPILER_INJECT', array($code_to_add, $name));
+					if ($code_to_add) {
+						$ret .= $code_to_add;
+					}
+				}
 				break;
 			case 'META-CONTENT-LANGUAGE':
 				echo 'WARNING: {META-CONTENT-LANGUAGE} is deprecated, please remove it from your templates.<br />';
@@ -298,6 +307,7 @@ function resolve_sections($str)
 	return $ret . substr($str, $op, (strlen($str) - $op));
 }
 
+/* Process a src (.t) file. */
 function compile_file($source)
 {
 	$l = strlen('<?php echo (');
@@ -359,7 +369,6 @@ function compile_file($source)
 			/* Block of code below is needed to handled nested IFs inside the final page output
 			 * where we convert regular PHP code to one where <?php ?> are being used.
 			 */
-// FRANK: Can't we fix the quoting problem here as well?
 			$end = $pos = 0;
 			while (($pos = strpos($ref, '<?php echo (', $pos)) !== false) { // found if() block
 				/* Handle regular component. */
@@ -387,7 +396,7 @@ function compile_file($source)
 			while (($pos = strpos($ref, '<?php ', $pos)) !== false) {
 				$new_loc = $pos + 5;
 				$cnt = 0;
-			
+
 				/* Find next PHP tag. */
 				if (($new_loc = strpos($ref, '<?php ', $new_loc)) === false) {
 					break;
@@ -422,6 +431,7 @@ function compile_file($source)
 	return str_replace('{SQL_TABLE_PREFIX}', $GLOBALS['DBHOST_TBL_PREFIX'], $ret . substr($file_data, $op, (strlen($file_data) - $op)));
 }
 
+/* Process a template (.tmpl) file. */
 function generate_file($php_file)
 {
 	if (!isset($GLOBALS['file_cache'][$php_file]['compiled']) && !isset($GLOBALS['file_cache'][$php_file]['inline'])) {

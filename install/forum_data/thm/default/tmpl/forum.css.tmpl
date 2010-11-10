@@ -354,7 +354,7 @@ a[href^="mailto:"] {
 }
 
 .mnavMsg {
-	border-bottom: 1px solid #000;
+	border-bottom: 1px dashed #eee;
 	width : 100%;
 }
 
@@ -398,16 +398,16 @@ a.small:link, a.small:active, a.small:visited {
 	color: #069;
 }
 
-td.msgud, td.msgud a, td.msgot, td.msgot a {
+a:hover, a.big:hover, td.msgud a:hover, td.msgot a:hover {
+	color: #dc143c;
+}
+
+td.msgud, td.msgud a, td.msgot, td.msgot a, div.ctags {
 	color: #202020;
 	font-size: 8pt;
 	vertical-align: top;
 	width: 33%;
 	white-space: nowrap;
-}
-
-td.msgud a:hover, td.msgot a:hover {
-	color: #dc143c;
 }
 
 td.msgud {
@@ -420,11 +420,8 @@ td.msgot {
 }
 
 div.ctags {
-	overflow: auto;
-	margin: 0;
 	padding: 2px;
 	width: 100%;
-	height: 36px;
 }
 
 legend {
@@ -601,10 +598,8 @@ pre { white-space: pre-wrap; }
 .codehead, .codehead a { color: #202020; background: #e9e9e9; font-size: xx-small; font-weight:bold; }
 html pre.prettyprint { border:none; padding: 0; margin: 5px;} 
 
-a.big:active, a.big:hover, a:active, a:hover, a.CatLink:active, a.CatLink:hover,
-a.UserControlPanel:active, a.UserControlPanel:hover, a.thLnk:active,
-a.thLnk:hover, a.small:active, a.small:hover, a.PagerLink:active, a.PagerLink:hover,
-a.MsgSubText:active, a.MsgSubText:hover {
+a.big:active, a:active, a.CatLink:active, a.UserControlPanel:active, a.thLnk:active, 
+a.small:active, a.PagerLink:active, a.MsgSubText:active {
 	color: #dc143c;
 }
 
@@ -669,6 +664,7 @@ img.r {
 .vm { vertical-align:	middle; }
 .nw { white-space: 	nowrap; }
 .fb { font-weight:	bold; }
+.clear { clear: both; }
 
 img.at { float: left; clear: left; }
 

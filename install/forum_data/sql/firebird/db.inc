@@ -16,7 +16,7 @@ if (!defined('fud_sql_lnk')) {
 	$conn = $connect_func($GLOBALS['DBHOST'] .':'. $GLOBALS['DBHOST_DBNAME'], $GLOBALS['DBHOST_USER'], $GLOBALS['DBHOST_PASSWORD']) or fud_sql_error_handler('Initiating '. $connect_func, ibase_errmsg(), ibase_errcode(), 'Unknown');
 	define('fud_sql_lnk', $conn);
 	// ibase_select_db($GLOBALS['DBHOST_DBNAME'], fud_sql_lnk) or fud_sql_error_handler('Opening database '. $GLOBALS['DBHOST_DBNAME'], ibase_errmsg(), ibase_errcode(), db_version());
-	// ibase_query('SET NAMES \'utf8\' COLLATE \'utf8_general_ci\'');
+	// ibase_query('SET NAMES \'utf8\' COLLATE \'utf8_unicode_ci\'');
 
 	define('__dbtype__', 'mysql');
 }

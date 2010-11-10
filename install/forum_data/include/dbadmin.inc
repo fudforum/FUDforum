@@ -125,6 +125,8 @@ function get_fud_table_list($tbl=null)
 /* Return a list of colums and column properties from the database. */
 function get_fud_col_list($table)
 {
+	$ret = array();
+
 	if (__dbtype__ == 'mysql') {
 		$c = q('SHOW FIELDS FROM '. $table);
 		while ($r = db_rowobj($c)) {
@@ -240,6 +242,8 @@ function create_primary_key($table, $col_list)
 		drop_table('tmp');
 		q('COMMIT');
 	} else {
+		/* Before adding the primary key, we need to remove the duplicates. */
+		delete_duplicate_values($table, $col_list);
 		q('ALTER TABLE '. $table .' ADD PRIMARY KEY ('. $col_list .')');
 	}
 }
@@ -375,6 +379,26 @@ function drop_table($tbl, $ifexists=false) {
 	}
 }
 
+/* Delete duplicate values from a table. */
+function delete_duplicate_values($tbl, $flds)
+{
+	$f = explode(',', $flds);
+	$n = count($f);
+	$c = q('SELECT '. $flds .', count(*) AS cnt FROM '. $tbl .' GROUP BY '. $flds .' HAVING count(*) > 1');
+	while ($r = db_rowarr($c)) {
+		$cond = '';
+		foreach ($f as $k => $v) {
+			if (empty($cond)) {
+				$cond .= $v .'=\''. addslashes($r[$k]) .'\'';
+			} else {
+				$cond .= ' AND '. $v .'=\''. addslashes($r[$k]) .'\'';
+			}
+		}
+		q('DELETE FROM '. $tbl .' WHERE '. $cond .' LIMIT '. ($r[$n] - 1));
+	}
+	unset($c);
+}
+
 /* Create an index on a table. */
 function create_index($tbl, $name, $unique, $flds, $del_dups=true)
 {
@@ -383,21 +407,7 @@ function create_index($tbl, $name, $unique, $flds, $del_dups=true)
 
 	/* Before adding a unique index, we need to check & remove any duplicates. */
 	if ($unique && $del_dups) {
-		$f = explode(',', $flds);
-		$n = count($f);
-		$c = q('SELECT '. $flds .', count(*) AS cnt FROM '. $tbl .' GROUP BY '. $flds .' HAVING count(*) > 1');
-		while ($r = db_rowarr($c)) {
-			$cond = '';
-			foreach ($f as $k => $v) {
-				if (empty($cond)) {
-					$cond .= $v .'=\''. addslashes($r[$k]) .'\'';
-				} else {
-					$cond .= ' AND '. $v .'=\''. addslashes($r[$k]) .'\'';
-				}
-			}
-			q('DELETE FROM '. $tbl .' WHERE '. $cond .' LIMIT '. ($r[$n] - 1));
-		}
-		unset($c);
+		delete_duplicate_values($tbl, $flds);
 	}
 
 	if (__dbtype__ == 'mysql') {
@@ -525,7 +535,6 @@ function add_column($tbl, $col, $prop)
 function alter_column($tbl, $col, $prop)
 {
 	if (__dbtype__ == 'pgsql') {
-var_dump($prop);
 		q('ALTER TABLE '. $tbl .' ALTER COLUMN '. $col .' TYPE '. $prop['type']);
 		if (!is_null($prop['default'])) {
 			if (strpos($prop['type'], 'INT') !== false || $prop['default'] == 'NULL') {

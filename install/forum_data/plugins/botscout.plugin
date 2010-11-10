@@ -19,7 +19,9 @@ function plugin_botscout($uent) {
 	}
 
 	$apiquery = 'http://botscout.com/test/?multi&mail='. urlencode($uent->email) .'.&ip='. $_SERVER['REMOTE_ADDR'];
-	if ($ini['BOTSCOUT_API_KEY']) $apiquery .= '&key='. $ini['BOTSCOUT_API_KEY'];
+	if ($ini['BOTSCOUT_API_KEY']) {
+		$apiquery .= '&key='. $ini['BOTSCOUT_API_KEY'];
+	}
 
 	$botscout_data = file_get_contents($apiquery);
 	if (substr($botscout_data, 0, 1) == '!') {	// Exclamation mark indicates an error!

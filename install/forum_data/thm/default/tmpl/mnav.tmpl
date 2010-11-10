@@ -139,10 +139,10 @@ document.forms['mnav'].rng.focus();
 {SECTION: mnav_msg}
 <tr><td class="RowStyleC">&nbsp;&nbsp;&nbsp;</td><td class="RowStyleC">&nbsp;&nbsp;&nbsp;</td><td>
 <table cellspacing="0" cellpadding="2" border="0" class="mnavMsg">
-<tr class="mnavH SmallText">
+<tr class="mnavH">
 	<td class="nw al"><a href="{TEMPLATE: mnav_msg_lnk}">{VAR: r->subject}</a></td>
-	<td class="wa ac">{MSG: mnav_posted_by} {IF: !empty($r->poster_id)}{TEMPLATE: mnav_user}{ELSE}{TEMPLATE: mnav_anon}{END}</td>
-	<td class="nw ar">{TEMPLATE: search_post_date}</td>
+	<td class="TopBy wa ac">{MSG: mnav_posted_by} {IF: !empty($r->poster_id)}{TEMPLATE: mnav_user}{ELSE}{TEMPLATE: mnav_anon}{END}</td>
+	<td class="DateText nw ar">{TEMPLATE: search_post_date}</td>
 </tr>
 <tr class="mnavM SmallText">
 	<td colspan="3">{FUNC: trim_body(read_msg_body($r->foff, $r->length, $r->file_id))} <a href="{TEMPLATE: mnav_msg_lnk2}">{MSG: mnav_more}</a></td>

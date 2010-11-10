@@ -497,8 +497,8 @@ Show forum member's birthdays on the built-in calendar.}}}
 {{{UNUSED	FUD_OPT_3	536870912
 Available for future use.}}}
 
-{{{UNUSED	FUD_OPT_3	1073741824
-Available for future use.}}}
+{{{FORUM_DEBUG	FUD_OPT_3	1073741824
+Debug the forum. Under normal conditions this should remain disabled.}}}
 
 {{{ALLOW_USERID_CHANGES	FUD_OPT_4	1
 Allow users to change their own logins. Disable if you authenticate users externally (i.e. via a plugin).}}}

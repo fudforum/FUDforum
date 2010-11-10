@@ -248,6 +248,18 @@
 <li><div class="event">{VAR: event}</div></li>
 {SECTION: END}
 
+{SECTION: cal_birthday}
+{MSG: cal_birthday} {IF: $age}{MSG: cal_birthday_age}{ENDIF}
+{SECTION: END}
+
+{SECTION: cal_user_link}
+<a href="{TEMPLATE: cal_user_link_lnk}">{VAR: r[1]}</a>
+{SECTION: END}
+
+{SECTION: cal_user_link_lnk}
+{ROOT}?t=usrinfo&amp;id={VAR: r[0]}&amp;{DEF: _rsid}
+{SECTION: END}
+
 {SECTION: cal_update}
 {MSG: cal_update}
 {SECTION: END}

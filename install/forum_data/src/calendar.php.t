@@ -112,13 +112,14 @@ function get_events($year, $month, $day = 0) {
 
 	/* Display birthdays (DDMMYYYY) on day view. */
 	if ($GLOBALS['FUD_OPT_3'] & 268435456 && $day != 0) {
-		$c = uq('SELECT u.alias, u.birthday FROM {SQL_TABLE_PREFIX}users u WHERE birthday LIKE \''. sprintf('%02d%02d', $month, $day) .'%\'');
+		$c = uq('SELECT id, alias, birthday FROM {SQL_TABLE_PREFIX}users WHERE birthday LIKE \''. sprintf('%02d%02d', $month, $day) .'%\'');
 		while ($r = db_rowarr($c)) {
-			$yyyy = substr($r[1], 4);
-			$mm = substr($r[1], 0, 2);
-			$dd = substr($r[1], 2, 2);
-			$age = $year - $yyyy;
-			$events[ $year . $mm . $dd ][] = 'Birthday: '. $r[0] .' ('. $age .' years old)'; // Replace birth year with current year.
+			$yyyy = substr($r[2], 4);
+			$mm   = substr($r[2], 0, 2);
+			$dd   = substr($r[2], 2, 2);
+			$age  = ($yyyy > 0) ? $year - $yyyy : 0;
+			$user = '{TEMPLATE: cal_user_link}';
+			$events[ $year . $mm . $dd ][] = '{TEMPLATE: cal_birthday}'; // Replace birth year with current year.
 		}
 	}
 
