@@ -79,7 +79,7 @@
 				LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='. _uid .' AND g2.resource_id=f.id
 			WHERE
 				m.post_stamp > '. $tm .' '. $date_limit .' AND m.apr=1 '. $qry_lmt .'
-				'.($is_a ? '' : ' AND (mm.id IS NOT NULL OR '. q_bitand('COALESCE(g2.group_cache_opt, g1.group_cache_opt)', 2) .') > 0').'
+				'.($is_a ? '' : ' AND (mm.id IS NOT NULL OR '. q_bitand('COALESCE(g2.group_cache_opt, g1.group_cache_opt)', 2) .' > 0)').'
 				ORDER BY m.thread_id, t.forum_id, m.post_stamp DESC',
 			$ppg, $start));
 
@@ -108,7 +108,7 @@
 					LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='. _uid .' AND g2.resource_id=f.id
 				WHERE
 					m.post_stamp > '. $tm .' '. $date_limit .' AND m.apr=1 '. $qry_lmt .'
-					'. ($is_a ? '' : ' AND (mm.id IS NOT NULL OR '. q_bitand('COALESCE(g2.group_cache_opt, g1.group_cache_opt)', 2) .') > 0)'));
+					'. ($is_a ? '' : ' AND (mm.id IS NOT NULL OR '. q_bitand('COALESCE(g2.group_cache_opt, g1.group_cache_opt)', 2) .' > 0)'));
 		}
 
 		if (!$total) {

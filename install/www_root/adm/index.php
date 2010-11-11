@@ -31,7 +31,7 @@
 
 <?php
 	if (@file_exists($WWW_ROOT_DISK .'install.php')) {
-		echo '<div class="alert dismiss" title="'. $WWW_ROOT_DISK .'install.php">Unless you want to <a href="../install.php">reinstall</a> your forum, please remove the <a href="admbrowse.php?cur='. urlencode($WWW_ROOT_DISK) .'&amp;'. __adm_rsid .'#flagged">install script</a> before a hacker does it for you.<br /></div>';
+		echo '<div class="alert dismiss" title="'. $WWW_ROOT_DISK .'install.php">Unless you want to <a href="../install.php">reinstall</a> your forum, please <a href="admbrowse.php?cur='. urlencode($WWW_ROOT_DISK) .'&amp;'. __adm_rsid .'#flagged">delete the install script</a> before a hacker does it for you.<br /></div>';
 	}
 	if (@file_exists($WWW_ROOT_DISK .'uninstall.php')) {
 		echo '<div class="alert dismiss" title="'. $WWW_ROOT_DISK .'uninstall.php">Please <a href="../uninstall.php">run the uninstall script</a> or <a href="admbrowse.php?cur='. urlencode($WWW_ROOT_DISK) .'&amp;'. __adm_rsid .'#flagged">delete it</a> to prevent hackers from destroying your forum.<br /></div>';

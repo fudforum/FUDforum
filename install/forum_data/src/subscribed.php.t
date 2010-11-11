@@ -54,7 +54,7 @@
 				FROM {SQL_TABLE_PREFIX}group_cache g1
 				LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='. _uid .' AND g1.resource_id=g2.resource_id
 				LEFT JOIN {SQL_TABLE_PREFIX}mod m ON m.forum_id=g1.resource_id AND m.user_id='. _uid .'
-				WHERE g1.user_id=2147483647 AND (m.id IS NULL AND '. q_bitand('COALESCE(g2.group_cache_opt, g1.group_cache_opt)',  2)=0)');
+				WHERE g1.user_id=2147483647 AND (m.id IS NULL AND '. q_bitand('COALESCE(g2.group_cache_opt, g1.group_cache_opt)', 2) .'=0)');
 		while ($r = db_rowarr($c)) {
 			$lmt .= $r[0] .',';
 		}

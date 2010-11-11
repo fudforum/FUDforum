@@ -59,7 +59,7 @@ function path_info_lnk($var, $val)
 	$unread_limit = (isset($_GET['unread']) && _uid) ? ' AND m.post_stamp > '. $usr->last_read .' AND (r.id IS NULL OR r.last_view < m.post_stamp) ' : '';
 	$th = isset($_GET['th']) ? (int)$_GET['th'] : 0;
 	$frm_id = isset($_GET['frm_id']) ? (int)$_GET['frm_id'] : 0;
-	$perm_limit = $is_a ? '' : ' AND (mm.id IS NOT NULL OR '. q_bitand(_uid ? '(COALESCE(g2.group_cache_opt, g1.group_cache_opt)' : '(g1.group_cache_opt)', 2) .') > 0)';
+	$perm_limit = $is_a ? '' : ' AND (mm.id IS NOT NULL OR ('. q_bitand(_uid ? 'COALESCE(g2.group_cache_opt, g1.group_cache_opt)' : '(g1.group_cache_opt)', 2) .') > 0)';
 
 	/* Mark messages read for registered users. */
 	if (_uid && isset($_GET['mr']) && !empty($usr->data)) {

@@ -146,6 +146,8 @@ function q_rownum() {
 
 	// Cannot be done. SQLite's subquery flattening will apply count before ORDER BY (probably a bug).
 	return 'id';
+
+//TODO: Test return 'ROW_NUMBER() OVER (ORDER BY id)';
 }
 
 function q_bitand($fieldLeft, $fieldRight) {

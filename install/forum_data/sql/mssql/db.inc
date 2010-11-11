@@ -10,6 +10,10 @@
 **/
 // define('fud_query_stats', 1);
 
+/* This is an experimantal driver for SQL Server "Denali".
+ * Do not try to use it with SQL Server 2008 or older releases.
+ */
+
 if (!defined('fud_sql_lnk')) {
 	$connect_func = $GLOBALS['FUD_OPT_1'] & 256 ? 'mssql_pconnect' : 'mssql_connect';
 
@@ -133,21 +137,13 @@ function q_singleval($query)
 
 function q_limit($query, $limit, $off=0)
 {
+	return $query . 'OFFSET '. $off .' ROWS FETCH NEXT '. $limit .'ROWS ONLY';
+/*
 	if ($off) {
 		return 'SELECT TOP '. $limit .' FROM (SELECT TOP '. ($limit/$off)*$limit . substr($query, 6) .')';
 	} else {
 		return 'SELECT TOP '. $limit . substr($query, 6);
 	}
-/*
-	SELECT TOP limitnumber
-    FROM (
-        SELECT TOP (limitnumber/ offset) * limitnumber) * 
-        FROM tablename 
-            AS T1 
-            WHERE clauses 
-            ORDER BY sortfield DESC) 
-        AS T2 
-        ORDER BY sortfield ASC;
 */
 }
 
@@ -159,7 +155,7 @@ function q_concat($arg)
 }
 
 function q_rownum() {
-    die('Not yet implemented');
+    return 'ROW_NUMBER () OVER (ORDER BY id)';
 }
 
 function q_bitand($fieldLeft, $fieldRight) {
