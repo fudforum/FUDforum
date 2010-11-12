@@ -29,8 +29,9 @@ function fud_ini_get($opt)
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 	<title>FUDforum Unlock Files Script</title>
-	<link rel="styleSheet" href="<?php echo $WWW_ROOT; ?>adm/style/adm.css" type="text/css" />
-	<style>html, body { height: 95%; }</style>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link rel="stylesheet" href="<?php echo $WWW_ROOT; ?>adm/style/adm.css" type="text/css" />
+	<style type="text/css">html, body { height: 95%; }</style>
 </head>
 <body>
 <table class="headtable"><tr>
@@ -57,8 +58,8 @@ function fud_ini_get($opt)
 	<p>Remember to lock your forum when you are done editing it by navigating to <i>Admin Control Panel</i> -&gt; <i>Lock/Unlock Forum Files</i>.</p>
 	<p>Also, please remember to delete this script to ensure hackers do not exploit it.</p>
 </div>
-</tr>
 </td>
+</tr>
 </table>
 </body>
 </html>

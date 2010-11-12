@@ -50,15 +50,17 @@ function seterr($msg)
 	}
 
 	if (count($_POST) && $_POST['SERVER_DATA_ROOT']) {
+		$dryrun = isset($_POST['dryrun']);
 		if (SAFE_MODE && basename(__FILE__) != 'uninstall_safe.php') {
 			$c = getcwd();
 			copy($c .'/uninstall.php', $c .'/uninstall_safe.php');
-			header('Location: '. dirname($_SERVER['SCRIPT_NAME']) .'/uninstall_safe.php?SERVER_DATA_ROOT='. urlencode($_POST['SERVER_DATA_ROOT']) .'&SERVER_ROOT='. urlencode($_POST['SERVER_ROOT']));
+			header('Location: '. dirname($_SERVER['SCRIPT_NAME']) .'/uninstall_safe.php?SERVER_DATA_ROOT='. urlencode($_POST['SERVER_DATA_ROOT']) .'&SERVER_ROOT='. urlencode($_POST['SERVER_ROOT']). '&dryrun='. $dryrun);
 			exit;
 		}
 		$SERVER_DATA_ROOT = rtrim($_POST['SERVER_DATA_ROOT'], '\\/ ');
 		$SERVER_ROOT = isset($_POST['SERVER_ROOT']) ? rtrim($_POST['SERVER_ROOT'], '\\/ ') : '';
 	} else if (SAFE_MODE && !empty($_GET['SERVER_DATA_ROOT'])) {
+		$dryrun = $_GET['dryrun'];
 		$SERVER_DATA_ROOT = rtrim($_GET['SERVER_DATA_ROOT'], '\\/ ');
 		$SERVER_ROOT = isset($_POST['SERVER_ROOT']) ? rtrim($_GET['SERVER_ROOT'], '\\/ ') : '';
 	}
@@ -69,8 +71,9 @@ function seterr($msg)
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 	<title>FUDforum Uninstaller</title>
-	<link rel="styleSheet" href="adm/style/adm.css" type="text/css" />
-	<style>html, body { height: 95%; }</style>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link rel="stylesheet" href="adm/style/adm.css" type="text/css" />
+	<style type="text/css">html, body { height: 95%; }</style>
 </head>
 <body>
 <table class="headtable"><tr>
@@ -106,7 +109,6 @@ function seterr($msg)
 		eval($settings);
 
 		/* Check if debug mode is enabled. */
-		$dryrun = empty($_POST['dryrun']) ? 0 : 1;
 		if ($dryrun) {
 			pf('<div class="tutor">Performing a mock uninstall. Don\'t worry, your forum will NOT be uninstalled!</div>');
 		} else {
@@ -175,7 +177,7 @@ function seterr($msg)
 <div align="center">
 <form name="uninstall" action="uninstall.php" method="post">
 <table cellspacing="1" cellpadding="4">
-	<tr class="field"><td><b>Data Directory</b><br /><font size="-1">This is the directory where you've installed the non-browseable forum files.</font></td><td><input type="text" name="SERVER_DATA_ROOT" value="" size=40 /></td></tr>
+	<tr class="field"><td><b>Data Directory</b><br /><font size="-1">This is the directory where you've installed the non-browseable forum files.</font></td><td><input type="text" name="SERVER_DATA_ROOT" value="" size="40" /></td></tr>
 	<tr class="field"><td><b>Web Directory</b><br /><font size="-1">This is the directory where you've installed the browseable forum files. If it is the same as the "Data Directory", you can leave this field empty.</font></td><td><input type="text" name="SERVER_ROOT" value="" size="40" /></td></tr>
 	<tr class="field"><td><b>Dry Run</b><br /><font size="-1">Do a mock uninstall. Forum will NOT be uninstalled.</font></td><td><input type="checkbox" name="dryrun" value="1" checked="checked" /></td></tr>
 	<tr><td colspan="2" align="center"><input type="submit" name="submit" value="uninstall" class="button" style="background:red; color:white; font-size: x-large;" /></td></tr>
