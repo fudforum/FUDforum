@@ -23,7 +23,11 @@ Content-Type: application/{VAR: format}+xml
 
 {SECTION: xml_no_data empty XML document}
 <?xml version="1.0" encoding="{CHARSET}"?>
-<error><message>{MSG: feed_no_data}</message></error>
+<errors>
+	<error>
+		<message>{MSG: feed_no_data}</message>
+	</error>
+</errors>
 {SECTION: END}
 
 {SECTION: xml_msg_lnk}

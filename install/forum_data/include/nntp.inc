@@ -157,7 +157,7 @@ class fud_nntp
 	function exit_handler($exit=1)
 	{
 		if (!empty($this->error)) {
-			$this->log_script_error($this->error, null, 'LOG');
+			log_script_error($this->error, null, 'LOG');
 		}
 		$this->close_connection();
 		if ($exit) {

@@ -203,7 +203,7 @@ was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> has been m
 welcome_message:Welcome <b>{VAR: usr->alias}</b>, your last visit was on {TEMPLATE: welcome_message_date}
 what_ppl_doing:Show what people are doing
 reported_del_report:Delete Report
-reported_reason:Reason
+reported_reason:Reason:
 reported_on:On:
 reported_reported_by:Reported By:
 reported_reported_msg:Reported Messages

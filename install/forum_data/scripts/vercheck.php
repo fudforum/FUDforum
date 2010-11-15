@@ -176,13 +176,16 @@ function get_remote_file($url, $timeout, $head_only = false, $max_redirects = 10
 	}
 
 	$display_ver = substr($verinfo, 0, strpos($verinfo, '::'));
-	echo 'Done! Current version: '. $FORUM_VERSION .', latest version is: '. $display_ver ."\n";
+	echo 'Current version: '. $FORUM_VERSION .', latest version is: '. $display_ver ."\n";
 
 	if (version_compare($FORUM_VERSION, $display_ver)) {
+		echo 'Please upgrade to '. $display_ver ." ASAP!\n";
 		define('_uid', 1);
 		fud_use('db.inc');
 		fud_use('logaction.inc');
 		fud_use('iemail.inc');
 		send_email($NOTIFY_FROM, $ADMIN_EMAIL, 'New FUDforum version available', 'A new FUDforum version is now available. Please upgrade your site at '. $WWW_ROOT .' from '. $FORUM_VERSION .' to '. $display_ver .' ASAP.');
+	} else {
+		echo "You are on the latest release.\n";
 	}
 ?>

@@ -19,7 +19,9 @@ function plugin_google_adsense($array) {
 		die('ERROR: Please configure the google_adsense plugin from the Plugin Manager Control panel.');
 	}
 
-	if ($name == 'header' && $ini['GOOGLE_ADSENSE_POS'] == 1) {
+	if ($name == 'usercp' && $ini['GOOGLE_ADSENSE_POS'] == 0) {
+		$tmpl = $tmpl . $ini['GOOGLE_ADSENSE_CODE'];
+	} else if ($name == 'header' && $ini['GOOGLE_ADSENSE_POS'] == 1) {
 		$tmpl = $ini['GOOGLE_ADSENSE_CODE'] . $tmpl;
 	} else if ($name == 'header' && $ini['GOOGLE_ADSENSE_POS'] == 2) {
 		return array($tmpl . $ini['GOOGLE_ADSENSE_CODE']);
@@ -31,8 +33,6 @@ function plugin_google_adsense($array) {
 	} else if ($name == 'footer' && $ini['GOOGLE_ADSENSE_POS'] == 5) {
 		$tmpl = $ini['GOOGLE_ADSENSE_CODE'] . $tmpl;
 	} else if ($name == 'footer' && $ini['GOOGLE_ADSENSE_POS'] == 6) {
-		$tmpl = $tmpl . $ini['GOOGLE_ADSENSE_CODE'];
-	} else if ($name == 'usercp' && $ini['GOOGLE_ADSENSE_POS'] == 7) {
 		$tmpl = $tmpl . $ini['GOOGLE_ADSENSE_CODE'];
 	}
 
@@ -71,13 +71,13 @@ function google_adsense_config() {
 	?>
 <p>Where should it be displayed:<br />
 <select name="GOOGLE_ADSENSE_POS">
+<option value="0" <?php if($ini['GOOGLE_ADSENSE_POS']==0) echo 'selected="selected"'; ?>>After top level menu.</option>
 <option value="1" <?php if($ini['GOOGLE_ADSENSE_POS']==1) echo 'selected="selected"'; ?>>Before page header.</option>
 <option value="2" <?php if($ini['GOOGLE_ADSENSE_POS']==2) echo 'selected="selected"'; ?>>After page header.</option>
 <option value="3" <?php if($ini['GOOGLE_ADSENSE_POS']==3) echo 'selected="selected"'; ?>>Before current time.</option>
 <option value="4" <?php if($ini['GOOGLE_ADSENSE_POS']==4) echo 'selected="selected"'; ?>>After current time.</option>
 <option value="5" <?php if($ini['GOOGLE_ADSENSE_POS']==5) echo 'selected="selected"'; ?>>Before page footer.</option>
 <option value="6" <?php if($ini['GOOGLE_ADSENSE_POS']==6) echo 'selected="selected"'; ?>>After page footer.</option>
-<option value="7" <?php if($ini['GOOGLE_ADSENSE_POS']==7) echo 'selected="selected"'; ?>>After top level menu.</option>
 </select>
 </p>
 

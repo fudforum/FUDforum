@@ -53,6 +53,7 @@ Please <a href="admdump.php?<?php echo __adm_rsid; ?>">backup</a> all files befo
 </div><br />
 <form method="post" action="compact.php">
 
+<!-- REMOVE
 <?php if (@extension_loaded('iconv')) { 
 $charsets = ARRAY(
 	'big5','euc-jp','gb2312',
@@ -82,7 +83,8 @@ $charsets = ARRAY(
 	</tr></table>
 </fieldset>
 <?php } ?>
-<p><b>Do you wish to proceed?</b></p>
+-->
+<b>Do you wish to proceed?</b>
 <p><label>Permanently apply <a href="admreplace.php?<?php echo __adm_rsid; ?>">Replacement and Censorship</a> rules to message bodies: <input name="replace" value="1" type="checkbox"></label></p>
 <input type="submit" name="btn_cancel" value="No" />&nbsp;&nbsp;&nbsp;<input type="submit" name="conf" value="Yes" />
 <?php echo _hs; ?>
@@ -235,6 +237,7 @@ function write_body_c($data, &$len, &$offset, $fid)
 	/* Compact private messages. */
 	pf('Compacting private messages...');
 
+	//TODO: Use create_index()
 	q('CREATE INDEX '. $tbl .'pmsg_foff_idx ON '. $tbl .'pmsg (foff)');
 
 	db_lock($tbl .'pmsg WRITE');
@@ -250,10 +253,12 @@ function write_body_c($data, &$len, &$offset, $fid)
 
 		while ($r = db_rowarr($c)) {
 			$data = read_pmsg_body($r[0], $r[1]);
+/* REMOVE
 			if (!empty($_POST['fromcharset']) || !empty($_POST['tocharset'])) {
 				$newdata = iconv($_POST['fromcharset'], $_POST['tocharset'], $data);
 				$data = $newdata;
 			}
+*/
 
 			if (($len = fwrite($fp, $data)) === FALSE || !fflush($fp)) {
 				exit('FATAL ERROR: system has ran out of disk space.');

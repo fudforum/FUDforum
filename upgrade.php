@@ -42,13 +42,18 @@ function users_birthday($flds)
 	pf('About to change birthday format. This may take a while...');
 	$c = q('SELECT id, bday FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'users');
 	while ($r = db_rowarr($c)) {
+		$bday = $yyyy = $mm = $dd = null;
+
 		$bday = str_pad($r[1], 8, '0', STR_PAD_LEFT);
+
 		$yyyy = substr($bday, 0, 4);
-		$mm = substr($bday, 4, 2);
-		$dd = substr($bday, 6, 2);
+		$mm   = substr($bday, 4, 2);
+		$dd   = substr($bday, 6, 2);
+
 		$yyyy = ($yyyy == '0000') ? '    ' : $yyyy;
-		$mm = ($mm == '00') ? '  ' : $mm;
-		$dd = ($dd == '00') ? '  ' : $dd;
+		$mm   = ($mm   == '00')   ? '  '   : $mm;
+		$dd   = ($dd   == '00')   ? '  '   : $dd;
+
 		// echo('UPDATE '. $GLOBALS['DBHOST_TBL_PREFIX'] .'users SET birthday=\''. $mm . $dd . $yyyy .'\' WHERE id='. $r[0] ."\n");
 		q('UPDATE '. $GLOBALS['DBHOST_TBL_PREFIX'] .'users SET birthday=\''. $mm . $dd . $yyyy .'\' WHERE id='. $r[0]);
 	}

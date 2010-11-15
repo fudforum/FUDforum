@@ -118,8 +118,8 @@
 		if (isset($info['version'])) {
 			echo '<tr><td><b>Version:</b></td><td>'. $info['version'] .'</td></tr>';
 		}
-		echo '<tr><td><b>Status:</b></td><td>'. (in_array($plugin, $plugins) ? 'Enabled' : 'Disabled') .
-		                        (($FUD_OPT_3 & 4194304) ? '' : ' (plugin system is disabled)') .'</td></tr>';
+		echo '<tr><td><b>Status:</b></td><td>'. (in_array($plugin, $plugins) ? '<font color="green">Enabled</font>' : '<font color="red">Disabled</font>') .
+		                        (($FUD_OPT_3 & 4194304) ? '' : ' <font color="red">(plugin system is disabled)</font>') .'</td></tr>';
 		if (isset($info['desc'])) {
 			echo '<tr><td valign="top"><b>Description:</b></td><td>'. $info['desc'] .'</td></tr>';
 		}

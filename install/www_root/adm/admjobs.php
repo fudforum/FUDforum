@@ -66,10 +66,10 @@
 	if (!empty($_GET['run'])) {
 		$job = new fud_job();
 		try {
-			$job->run((int) $_GET['run']);
+			$job->submit((int) $_GET['run']);
 			echo successify('Job was submitted to run in background.');
 		} catch (Exception $e) {
-			pf(errorify('Unable to run: '. $e->getMessage()));
+			pf(errorify('Unable to submit: '. $e->getMessage()));
 		}
 	}
 
@@ -110,19 +110,19 @@
 <?php
 	print_reg_field('PHP CLI Executable', 'PHP_CLI');
 ?>
-<tr class="field"><td>Last automated run:<br /><font size="-1">Last time cron.php was executed.</font></td><td>
+<tr class="field"><td>Last cron run:<br /><font size="-1">Last time cron.php was executed.</font></td><td>
 <?php
         $jobfile = $GLOBALS['ERROR_PATH'] .'LAST_CRON_RUN';
         if (file_exists($jobfile)) {
-			$last = filemtime($jobfile);
-			if ($last < __request_timestamp__ - (24*60*60)) {	// Longer than 1 day ago?
-				echo errorify( date('d M Y H:i', $last) );
-			} else {
-				echo successify( date('d M Y H:i', $last) );
-			}
+		$last = filemtime($jobfile);
+		if ($last < __request_timestamp__ - (24*60*60)) {	// Longer than 1 day ago?
+			echo errorify( date('d M Y H:i', $last) );
 		} else {
-			echo errorify('Never! Please schedule <i>cron.php</i> to run periodic jobs.');
+			echo successify( date('d M Y H:i', $last) );
 		}
+	} else {
+		echo errorify('Never! Please schedule <i>cron.php</i> to run periodic jobs.');
+	}
 ?></td></tr>
 <tr class="fieldaction"><td colspan="2" align="right"><input type="submit" name="btn_submit" value="Set" /></td></tr>
 </table>
@@ -178,33 +178,42 @@
 </table>
 </form>
 
-<h3>Scheduled jobs:</h3>
+<h3><a name="list">Scheduled jobs:</a></h3>
 <table class="resulttable fulltable">
 <thead><tr class="resulttopic">
 	<th nowrap="nowrap">Job Name</th>
 	<th>Last run</th>
 	<th>Next run</th>
+	<th>Running?</th>
 	<th align="center">Action</th>
 </tr></thead>
 <?php
-	$c = uq('SELECT id, name, lastrun, nextrun FROM '. $tbl .'jobs');
+	$c = uq('SELECT id, name, lastrun, nextrun, locked FROM '. $tbl .'jobs');
 	$i = 0;
 	while ($r = db_rowobj($c)) {
 		$i++;
 		$bgcolor = ($edit == $r->id) ? ' class="resultrow3"' : (($i%2) ? ' class="resultrow1"' : ' class="resultrow2"');
+
+		$running = 0;
+		if ((!empty($_GET['run']) && $r->id == $_GET['run']) ||			// Just submitted.
+		    ($r->locked != 0 && $r->locked > __request_timestamp__ - 600)) {	// Locked less than 10min ago.
+			$running = 1;
+		}
+
 		echo '<tr'. $bgcolor .'><td>'. htmlspecialchars($r->name) .'</td>
-			<td nowrap="nowrap">'. date('d M Y H:i', $r->lastrun) .'</td>
-			<td nowrap="nowrap">'. date('d M Y H:i', $r->nextrun) .'</td>
+			<td nowrap="nowrap">'. ($r->lastrun ? date('d M Y H:i', $r->lastrun) : 'Never') .'</td>
+			<td nowrap="nowrap">'. ($r->nextrun ? date('d M Y H:i', $r->nextrun) : 'n/a') .'</td>
+			<td nowrap="nowrap">'. ($r->locked  ? 'Yes ('. (__request_timestamp__ - $r->locked) .' sec)' : 'No') .'</td>
 			<td><small>
 				[<a href="admjobs.php?edit='. $r->id .'&amp;'. __adm_rsid .'#edit">Edit</a>]
-				[<a href="admjobs.php?del='. $r->id .'&amp;'. __adm_rsid .'">Delete</a>]
-				[<a href="admjobs.php?run='. $r->id .'&amp;'. __adm_rsid .'">Run now!</a>]
-				[<a href="admjobs.php?log='. $r->id .'&amp;'. __adm_rsid .'#output">View Log</a>]
+				[<a href="admjobs.php?del='.  $r->id .'&amp;'. __adm_rsid .'">Delete</a>] &nbsp;|&nbsp; '.
+				($running ? '' : '[<a href="admjobs.php?run='. $r->id .'&amp;'. __adm_rsid .'#list">Run now!</a>]') .'
+				[<a href="admjobs.php?log='.  $r->id .'&amp;'. __adm_rsid .'#output">View Log</a>]
 			</small></td></tr>';
 	}
 	unset($c);
 	if (!$i) {
-		echo '<tr class="field"><td colspan="4" align="center">No jobs defined.</td></tr>';
+		echo '<tr class="field"><td colspan="5" align="center">No jobs defined.</td></tr>';
 	}
 ?>
 </table>
@@ -214,11 +223,14 @@
 	if (!empty($_GET['log'])) {
 		echo '<h3><a name="output">Job output (last run)</a></h3>';
 		$job    = (int) $_GET['log'];
-		$cmd    = q_singleval('SELECT cmd FROM '. $tbl .'jobs WHERE id='. $job);
-		if (preg_match('/\s+/', $cmd, $m) && isset($m[1])) {
+		list($cmd, $locked) = db_saq('SELECT cmd, locked FROM '. $tbl .'jobs WHERE id='. $job);
+		if (preg_match('/(.*)\s+(.*)/', $cmd, $m) && isset($m[1])) {
 			$script = escapeshellcmd($m[1]);
 		} else {
 			$script = escapeshellcmd($cmd);
+		}
+		if ($locked) {
+			echo(errorify('The job is still running. Output may be old or incomplete.'));
 		}
 		$output = $path . $script .'_'. $job .'.log';
 		if (file_exists($output)) {

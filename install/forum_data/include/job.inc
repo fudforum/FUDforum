@@ -72,58 +72,44 @@ class fud_job
 		q('DELETE FROM '. $tbl .'jobs WHERE id = '. (int)$id);
 	}
 
-	function run($job_id=0)
+	/* Call cron.php to run job in background (transition from sync to async). Called from admjobs.php. */
+	function submit($id)
 	{
-		/* Get job to run. */
-		if ($job_id > 0) {	// Specific Job.
-			$job = db_sab('SELECT * FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'jobs WHERE id = '. $job_id);
-		} else {	// Next due.
-			$job = db_sab('SELECT * FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'jobs WHERE nextrun <= '. __request_timestamp__ .' AND '. q_bitand('job_opt', 1) .' != 1 ORDER BY nextrun ASC LIMIT 1');
-		}
-		if (!$job) {	// Nothing to run.
-			return false;
+		$php  = escapeshellcmd($GLOBALS['PHP_CLI']);
+		if (empty($php) || !is_executable($php)) {
+			throw new Exception('PHP CLI Executable not set or is not executable.');
 		}
 
-		/* Skip if the job is locked (still running) and locked less than 10 min ago. */
-		if ($job->locked != 0 && $job->locked > __request_timestamp__ - 600) {
-			throw new Exception('Skip '. $job->cmd .'. Job is already running.');
+		$path   = $GLOBALS['DATA_DIR'] .'scripts/';
+		chdir($path) or die('ERROR: Unable to change to scripts directory '. $path);
+
+		$script = 'cron.php';
+		if (!file_exists($path . $script)) {
+			throw new Exception('Cannot submit cron '. $path . $script .'. No such file!');
+		}
+
+		if (strncasecmp('win', PHP_OS, 3)) {	// Not Windows.
+			// echo "DEBUG: ". $php .' '. $path . $script .' '. $id .' 2>&1 &' ."<hr>";
+			pclose(popen($php .' '. $path . $script .' '. (int)$id .' 2>&1 &', 'r'));
 		} else {
-			$path = $GLOBALS['DATA_DIR'] .'scripts/';
-			$php  = escapeshellcmd($GLOBALS['PHP_CLI']);
-
-			if (empty($php)) {
-				throw new Exception('PHP CLI Executable not set.');
-			}
-			if (!file_exists($path . $job->cmd)) {
-				throw new Exception('Cannot run task '. $job->cmd .'. No such file!');
-			}
-
-			$nextrun = $this->next_run_time($job);
-			q('UPDATE '. $GLOBALS['DBHOST_TBL_PREFIX'] .'jobs SET locked = '. __request_timestamp__ .', nextrun = '. $nextrun .' WHERE id = '. $job->id);
-
-			if (preg_match('/\s+/', $job->cmd, $m) && isset($m[2]) ) {
-				$script = escapeshellcmd($m[1]);
-				$cmd = $script .' '. escapeshellarg($m[2]);
-			} else {
-				$script = escapeshellcmd($job->cmd);
-				$cmd = $script;
-			}
-			$output = ' >'. $script .'_'. $job->id .'.log';
-			
-			chdir($path) or die('ERROR: Unable to change to scripts directory '. $path);
-			if (strncasecmp('win', PHP_OS, 3)) {	// Not Windows.
-				echo 'DEBUG: '. $php .' '. $path . $cmd .' '. $output .' 2>&1 &<hr>';
-				// exec($php .' '. $cmd .' '. $job->id . $output .' 2>&1 &');
-				pclose(popen($php .' '. $path . $cmd .' '. $output .' 2>&1 &', 'r'));
-			} else {
-				pclose(popen('start "FUDjob" /LOW /B "'. $php .'" '. $cmd .' '. $job->id . $output, 'r'));
-			}
-
-			q('UPDATE '. $GLOBALS['DBHOST_TBL_PREFIX'] .'jobs SET lastrun = '. __request_timestamp__ .', locked = 0 WHERE id = '. $job->id);
+			pclose(popen('start "FUDjob" /LOW /B "'. $php .'" '. $script .' '. (int)$id, 'r'));
 		}
 	}
 
-	/* Calculate the next run time for a particular job. Used by run(). */
+	/* Lock job before execution. */
+	function lock($job)
+	{
+		$nextrun = $this->next_run_time($job);
+		q('UPDATE '. $GLOBALS['DBHOST_TBL_PREFIX'] .'jobs SET locked = '. __request_timestamp__ .', nextrun = '. $nextrun .' WHERE id = '. $job->id);
+	}
+
+	/* Unlock job after execution. */
+	function unlock($id)
+	{
+		q('UPDATE '. $GLOBALS['DBHOST_TBL_PREFIX'] .'jobs SET lastrun = '. __request_timestamp__ .', locked = 0 WHERE id = '. $id);
+	}
+
+	/* Calculate the next run time for a particular job. */
 	private function next_run_time($job)
 	{
 		$reset_hour = $reset_day = $reset_month = $reset_year = null;

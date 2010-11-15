@@ -20,8 +20,7 @@ function plugin_addthis($array) {
 	}
 
 	$addthis_code = '
-<!-- AddThis Button BEGIN -->
-<div class="addthis_toolbox addthis_default_style '. ($ini['ADDTHIS_BUTTON_SIZE'] ? 'addthis_32x32_style' : '') .'" style="width:360px; margin:0 0">';
+<div class="addthis_toolbox addthis_default_style '. ($ini['ADDTHIS_BUTTON_SIZE'] ? 'addthis_32x32_style' : '') .'" style="'. $ini['ADDTHIS_ALIGN'] .'">';
 
 	for ($i = 1; $i < $ini['ADDTHIS_BUTTON_CNT']; $i++) {
 		$addthis_code .= '<a class="addthis_button_preferred_'. $i .'"></a>';
@@ -30,7 +29,6 @@ function plugin_addthis($array) {
 	$addthis_code .= '<a class="addthis_button_compact"></a>
 </div>
 <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#username=xa-4cd3dd3733013045"></script>
-<!-- AddThis Button END -->
 ';
 
 	if ($name == $ini['ADDTHIS_POS']) {
@@ -74,7 +72,14 @@ function addthis_config() {
 <p>Display position:<br />
 <select name="ADDTHIS_POS">
 <option value="before_topic" <?php if($ini['ADDTHIS_POS']=='before_topic') echo 'selected="selected"'; ?>>Before topic.</option>
-<option value="after_topic" <?php if($ini['ADDTHIS_POS']=='after_topic') echo 'selected="selected"'; ?>>After topic.</option>
+<option value="after_topic"  <?php if($ini['ADDTHIS_POS']=='after_topic' ) echo 'selected="selected"'; ?>>After topic. </option>
+</select>
+
+<p>Horizontal alignment:<br />
+<select name="ADDTHIS_ALIGN">
+<option value="float:right"                <?php if($ini['ADDTHIS_ALIGN']=='float:right')                echo 'selected="selected"'; ?>>Float right</option>
+<option value="float:left"                 <?php if($ini['ADDTHIS_ALIGN']=='float:left')                 echo 'selected="selected"'; ?>>Float left</option>
+<option value="width:354px; margin:0 auto" <?php if($ini['ADDTHIS_ALIGN']=='width:354px; margin:0 auto') echo 'selected="selected"'; ?>>Center</option>
 </select>
 
 <p>Number of buttons to show:<br />

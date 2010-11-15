@@ -22,6 +22,8 @@
 {VAR: RSS}
 </head>
 <body>
+<table class="wa" border="0" cellspacing="3" cellpadding="5"><tr><td class="ForumBackground" valign="top">
+<!-- {INJECTION_POINT: left_block}<td class="ForumBackground" valign="top"> -->
 <div class="ForumBackground header">
 {IF: $GLOBALS['FUD_OPT_1'] & 1 && $GLOBALS['FUD_OPT_1'] & 16777216}
   <div class="headsearch">
@@ -39,8 +41,6 @@
 </a><br />
 <span class="headdescr">{GVAR: FORUM_DESCR}<br /><br /></span>
 </div>
-<table class="wa" border="0" cellspacing="3" cellpadding="5"><tr><td class="ForumBackground" valign="top">
-<!-- {INJECTION_POINT: left_block}<td class="ForumBackground" valign="top"> -->
 {MAIN_SECTION: END}
 
 {MAIN_SECTION: header_plain // Another header for small popup forms.}
