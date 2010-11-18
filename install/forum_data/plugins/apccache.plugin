@@ -10,31 +10,31 @@
 **/
 
 // Initialize plugin
-plugin_add_hook('CACHEGET', 'plugin_apc_cache_get');
-plugin_add_hook('CACHESET', 'plugin_apc_cache_set');
+plugin_add_hook('CACHEGET', 'plugin_apccache_get');
+plugin_add_hook('CACHESET', 'plugin_apccache_set');
 
 // Read value from cache.
-function plugin_apc_cache_get($key) {
+function plugin_apccache_get($key) {
 	// echo "<hr>Get $key from cache</hr>";
 	// return xcache_get($key)
 	return apc_fetch($key);
 }
 
 // Write value from cache.
-function plugin_apc_cache_set($key, $val) {
+function plugin_apccache_set($key, $val) {
 	// echo "<hr>Set $key to $val in cache</hr>";
 	// xcache_set($key, $val)
 	apc_store($key, $val);
 }
 
-function apc_cache_info() {
+function apccache_info() {
 	return array('name' => 'APC Cache',
 	             'desc' => '<p>Use <a href="http://pecl.php.net/package/APC">APC (Alternative PHP Cache)</a> to cache forum data in-memory. This plugin should only be enabled on high-traffic sites.</p>'.
 			       '<p>Currently only topic view counters are cached and will be written to the DB in batches.</p>',
 	             'version' => '1.0');
 }
 
-function apc_cache_enable() {
+function apccache_enable() {
 	// if (!extension_loaded('xcache')) {
 	if (!extension_loaded('APC')) {
 		return array(null, 'You PHP installation doesn\'t support APC. Please install it before you enable this plugin.');	// OK, Err.
