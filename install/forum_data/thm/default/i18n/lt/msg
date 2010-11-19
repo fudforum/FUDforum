@@ -175,7 +175,7 @@ vote_for_thread:Balsuoti
 was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> perkelta moderatoriaus į <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a>.
 welcome_message:Labas <b>{VAR: usr->alias}</b>, paskutinį kartą buvai {TEMPLATE: welcome_message_date}
 what_ppl_doing:rodyti ką veikia prisijungę žmonės
-reported_reason:Priežastis
+reported_reason:Priežastis:
 modque_approve:Patvirtinti
 modque_delete:Ištrinti
 restore_to:Atkurti:

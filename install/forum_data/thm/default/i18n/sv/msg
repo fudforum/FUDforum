@@ -1,5 +1,6 @@
 # Messages for Swedish (Svenska)
 # Exported from translatewiki.net
+# Author: Ernesto
 # Author: McDutchie
 # Author: Nghtwlkr
 
@@ -10,8 +11,7 @@ admin_control_panel:Administratorns kontrollpanel
 administrator:Administratör
 attachment:Bilaga:
 avatar:Visningsbild:
-# Fuzzy
-average_post_count:{VAR: u->posted_msg_count} inlägg ({VAR: avg} inlägg per dag i medeltal)
+average_post_count:{PLURAL: u->posted_msg_count|$1 inlägg|$1 inlägg} ({PLURAL: avg|$1 inlägg|$1 inlägg}  i genomsnitt per dag)
 biography:Biografi:
 birth_date:Födelsedatum:
 by:Av:
@@ -20,19 +20,17 @@ current_time:Klockan just nu
 custom_avatar_queue:Egna avatarer i kö
 date_posted:Postningsdatum
 date_registered:Registreringsdatum:
-# Fuzzy
-download_counter:Laddat ner {VAR: v[3]} gånger
-# Fuzzy
-pmsg_download_counter:Nedhämtad {VAR: r->dlcount} gång(er)
+download_counter:Hämtad {PLURAL: v[3]|$1 gång|$1 gånger}
+pmsg_download_counter:Hämtad {PLURAL: r->dlcount|$1 gång|$1 gånger}
 email:E-post:
 email_to_friend:E-posta till en vän
 email_to_friend_desc:Skicka den här sidans URL till en vän per e-post
-# Fuzzy
-email_user:Tryck här för att skicka e-post till medlemmen
+email_user:Skicka användare ett e-postmeddelande
 faq:Hjälp
 first_unread_msg:Till olästa inlägg
 first_unread_msg_desc:Gå till det första olästa inlägget i den här diskussionen
 flat_view:Tillbaka till platt vy
+forum:Forum:
 forum_icon:Forumikon
 forum_new_messages:Nya inlägg
 forum_none_messages:Endast registrerade medlemmar kan följa upp lästa och olästa inlägg
@@ -48,9 +46,13 @@ icq_control_panel:ICQ Online-meddelandepanel
 icq_message_form:ICQ meddelandeformulär:
 ignore_user:ignorera alla inlägg av den här medlemmen
 im_aim:AIM användarnamn:
+im_msnm:MSN Messenger:
+im_yahoo:Yahoo Messenger:
 image:Bild-URL:
+index_forum:Forum
 index_new_posts:Nya inlägg sedan senaste besök
 index_no_new_posts:Inga nya inlägg sedan senaste besök
+index_url_redirection:Omdirigering
 interests:Intressen:
 last_post:Senaste inlägg
 last_thread_msg:Gå till det sista inlägget i den här diskussionen
@@ -63,20 +65,26 @@ logged_in_list:Lista över inloggade medlemmar
 login:Användarnamn
 login_header:Logga in:
 logout:Logga ut
-# Fuzzy
-mark_all_read:markera alla inlägg som lästa
+mark_all_read:Markera alla meddelanden som lästa
 mark_all_read_desc:Alla olästa inlägg kommer att markeras som lästa
 members:Medlemmar
+calendar:Kalender
+cal_goto_date:Gå till:
+cal_day_heading:Dagens aktiviteter
+cal_no_events:Inga händelser för dagen.
+cal_update:Läser forumets kalender
+cal_birthday:Födelsedag: {VAR: user}
+cal_birthday_age:({PLURAL: age|$1 år|$1 år} gammal).
 message:Inlägg
-# Fuzzy
-message_counter:Våra medlemmar har postat totalt <b>{VAR: post_count}</b> inlägg i <b>{VAR: thread_count}</b> diskussioner.
+message_counter:Våra användare har skrivit totalt <b>{PLURAL: post_count|$1 inlägg|$1 inlägg}</b> i <b>{PLURAL: thread_count|$1 ämne|$1 ämnen}</b>
 message_index:Inläggsindex
 message_index_desc:Visa en lista över inlägg
 minimize_category:Minimera kategori
+minimize_message:Minimera inlägg
 moderation_queue:Moderationskö
+moderator:Moderator
 moderator_of:Moderator av:
 moderator_options:Moderatoralternativ
-# Fuzzy
 moderators:Moderatorer
 more_unread_messages:flera olästa inlägg
 more_unread_messages_desc:Visa fler olästa inlägg och markera de nu visade inläggen som lästa
@@ -85,7 +93,6 @@ moved:Flyttad till ett annat forum
 moved_thread_message:Den här diskussionen har blivit flyttad till ett annat forum
 na:inget
 new_posts:Nya inlägg
-# Fuzzy
 new_private_messages:Du har <span class="GenText" style="color: #ff0000">({VAR: c})</span> olästa privata meddelanden
 new_thread:Börja en ny diskussion
 newest_user:Den senast registrerade medlemmen är
@@ -97,11 +104,11 @@ no_new_posts:Inga nya inlägg
 no_posts:Inga inlägg
 no_subscribed_forums:Inga beställda forum
 no_subscribed_threads:Inga beställda diskussioner
+no_bookmarked_threads:Inga bokärkta ämnen
 no_unread_locked:Den här diskussionen har låsts
 no_unread_msg:Den här diskussionen innehåller inga olästa meddelanden
 no_unread_msg_unreg:Lästa och olästa meddelanden följs upp endast för registrerade medlemmar
 num_pages:Sidor ({VAR: ttl_pg}):
-# Fuzzy
 num_votes:{VAR: obj->total_votes} röster
 occupation:Yrke:
 off:AV
@@ -116,9 +123,10 @@ posts_c:Inlägg:
 prev_thread:Föregående diskussion:
 usrinfo_private_message:Privat meddelande:
 profile:Profil
-# Fuzzy
-profile_desc:Tryck här för att komma till medlemmens kontrollpanel
+profile_desc:Tillgång till kontrollpanelen
 rate_thread:Bedöm diskussionen
+rating:Betyg
+rating_track:Administrera betyg i tråd <b>{VAR: thr->subject}</b>:
 refresh_list:Uppdatera listan
 register:Registrera
 registered:Registrerad:
@@ -141,12 +149,15 @@ sender_email:Avsändarens e-postadress:
 sender_name:Avsändarens namn:
 show_posts_by:Visa inlägg av: {VAR: u_alias}
 size:Storlek:
+status:Status:
 # Fuzzy
-status_line:Vi har <b>{VAR: st_obj->online_users_reg}</b> medlemmar, <b>{VAR: st_obj->online_users_hidden}</b> osynliga medlemmar och <b>{VAR: st_obj->online_users_anon}</b> gäster på besök just nu.
+status_line:Det är <b>{VAR: st_obj->online_users_reg}</b> medlemmar, <b>{VAR: st_obj->online_users_hidden}</b> osynliga medlemmar och <b>{VAR: st_obj->online_users_anon}</b> gäster på besök just nu.
 sticky:klibbig:
 stop_ignoring:sluta ignorera den här medlemmen
 sub_to_thread:Beställ den här diskussionen
 sub_to_thread_desc:Du får meddelande om nya inlägg i den här diskussionen
+bookmark_thread:Bokmärk ämne
+bookmark_thread_desc:Lägg till ämnet till din lista av bokmärken
 subject:Rubrik
 subscribe:Beställ det här forumet
 subscribe_desc:Du får meddelande om nya diskussioner i det här forumet
@@ -154,6 +165,7 @@ subscribed_forums:Beställda forum
 subscribed_forums_desc:Koppla om filtret för beställda forum (visar inlägg endast från beställda forum)
 subscribed_threads:Beställda diskussioner
 subscribed_threads_desc:Koppla om filtret för beställda diskussioner (visar inlägg endast från beställda diskussioner)
+bookmarked_threads:Bokmärkta ämnen
 switch_to_thread_view:Visa inläggen trådade
 thread:Diskussion:
 thread_announcement:meddelande:
@@ -173,12 +185,13 @@ unread_posts:Olästa inlägg
 unread_posts_desc:Visa alla olästa inlägg
 unsub_from_thread:Avbeställ diskussionen
 unsub_from_thread_desc:Avbeställ meddelanden om nya inlägg i den här diskussionen
+unbookmark_thread:Ta bort från bokmärken
+unbookmark_thread_desc:Ta bort ämnet från listan med bokmärken
 unsubscribe:Avbeställ
 unsubscribe_desc:Avbeställ meddelanden om nya diskussioner i det här forumet
 updated_on:Uppdaterad:
 user:Medlem
-# Fuzzy
-user_counter:Vi har <b>{VAR: st_obj->user_count}</b> registrerade medlemmar.
+user_counter:Vi har <b>{VAR: st_obj->user_count}</b> registrerade användare.
 user_info:Användarinformation
 user_info_l:Användarinformation {VAR: u->alias}
 user_offline:{VAR: obj->login} är för tillfället offline
@@ -186,16 +199,14 @@ user_online:{VAR: obj->login} är för tillfället online
 usrinfo_last_post:Senaste inlägg:
 view_results:Visa resultat
 views:Visningar
-# Fuzzy
-vote:{VAR: frm->n_rating} röster
+vote:{PLURAL: frm->n_rating|$1 Röst|$1 Röster}
 vote_button:Rösta
 vote_for_thread:Rösta
-# Fuzzy
-was_moved_msg:Moderatorn har flyttat diskussionen <a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> till forumet <a href="{TEMPLATE: was_moved_msg_lnk2}">{{VAR: r[12]}</a>
+was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> är flyttat till <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> av en moderator.
 welcome_message:Välkommen <b>{VAR: usr->alias}</b>! Ditt senaste besök var {TEMPLATE: welcome_message_date}
 what_ppl_doing:visa vad folk håller på med
 reported_del_report:Radera rapport
-reported_reason:Förklaring
+reported_reason:Anledning:
 reported_on:Tid:
 reported_reported_by:Rapporterad av:
 reported_reported_msg:Rapporterade inlägg
@@ -249,6 +260,20 @@ month_9:september
 month_10:oktober
 month_11:november
 month_12:december
+sunday:Söndag
+sunday_short:S
+monday:Måndag
+monday_short:M
+tuesday:Tisdag
+tuesday_short:Ti
+wednesday:Onsdag
+wednesday_short:O
+thursday:Torsdag
+thursday_short:Ti
+friday:Fredag
+friday_short:F
+saturday:Lördag
+saturday_short:L
 male:man
 female:kvinna
 unspecified:OSPECIFICERAD
@@ -303,6 +328,8 @@ register_interests:Intressen:
 register_image:Bild:
 register_icq:ICQ
 register_aim:AIM användarnamn:
+register_yahoo:Yahoo Messenger:
+register_msnm:MSN Messenger:
 register_homepage:Hemsida:
 register_bday:Födelsedatum:
 register_bday_desc:Om du ger ditt födelsedatum kan andra medlemmar se det i din profil
@@ -331,14 +358,17 @@ register_show_email_desc:Välj det här alternativet om du vill att din e-postad
 register_notification:Förvälj meddelande om nya inlägg:
 register_notification_desc:Om meddelande om nya inlägg är förvalt (kan väljas bort när man skriver inlägg) får du automatiskt meddelande om nya inlägg i de diskussioner du deltar i.
 register_notify_method:Välj metod för meddelande om nya inlägg:
+register_notify_method_desc:Ange hur du vill bli notifierad eller inaktivera notifikationer (till exempel när du åker på semester).
 register_allow_email_msg:Tillåt privata meddelanden:
 register_allow_email_msg_desc:Tillåt andra medlemmar att skicka dig privata meddelanden via forumet.
+buddy_status:Status
 my_buddies:Mina kompisar
 add_buddy:Lägg till kompis
 add:Lägg till
 buddy_search:Ange användarnamnet på peronen du vill lägga till.
 member_search:Eller använd <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Användarsöknings</a> funtionen för att hitta personen.
 buddy_remove:ta bort
+post_normal:Normal
 post_sticky:Klibbig
 post_annoncement:Meddelande
 post_size:Storlek
@@ -378,6 +408,7 @@ include_sig_desc:Inkludera din profilsignatur.
 disable_smilies:Stäng av smilisar i det här inlägget
 spell_check_msg:Stavningskontroll
 post_form:Skriv inlägg
+post_forum:Forum:
 post_title:Rubrik:
 post_body:Text:
 post_options:Alternativ:
@@ -398,6 +429,7 @@ coppa:Om den blivande medlemmen är under 13 år måste en förälder eller för
 prereg_info:Information
 prereg_agree:Jag godkänner
 prereg_disagree:Avbryt registreringen
+prereg_update:Läser forumreglerna
 coppa_fax_instructions:Instruktioner för en förälder eller förmyndare
 coppa_fax_instructions2:Vänligen skriv ut den här sidan, underteckna den och faxa den till:
 coppa_fax_reg_form:Registreringsformulär
@@ -420,8 +452,7 @@ login_cookie_expired:Din kaka har gått ut, och du måste logga in på nytt för
 login_perm_denied:Du har inte rätt att använda den efterfrågade resursen som anonym användare och måste därför logga in.
 login_want_to_register:Vill du registrera dig?
 login_forgot_passwd:Jag har glömt mitt lösenord
-# Fuzzy
-login_use_cookie:Använd kakor<br /><font class="SmallText">Om du använder en offentlig terminal, som t.ex. datorer i bibliotek, skolor eller internetkaféer rekommenderar vi att du väljer bort det här alternativet för bättre säkerhet.
+login_use_cookie:Använd cookies<br /><font class="SmallText">Om du använder en offentlig terminal, som t.ex. en dator i  ett bibliotek, skola eller internetkafé, rekommenderar vi att du väljer bort det här alternativet för bättre säkerhet. Om du väljer detta alternative kommer du vara automatiskt inloggad på forumet nästa gång du besöker det från den här datorn.</span>
 login_login:Logga in
 login_login_btn:Logga in
 login_name_required:Användarnamnet är obligatoriskt
@@ -440,6 +471,11 @@ rpasswd_login:Användarnamn:
 rpasswd_cur_pass:Nuvarande lösenord:
 rpasswd_new_pass:Nytt lösenord:
 rpasswd_conf_pass:Bekräfta lösenord:
+ruser_title:Ända inloggningsfält
+ruser_change_user:Ändra ditt inloggningsnamn
+ruser_cur_login:Nuvarande inloggningsnamn:
+ruser_new_login:Nytt inloggningsnamn:
+ruser_cur_pass:Nuvarande lösenord:
 login_passwd:Lösenord:
 reset_email:E-post:
 reset_reset_button:Nollställ lösenord
@@ -452,6 +488,7 @@ report_give_reason:Ange orsaken till att du rapporterar det här inlägget:
 report_submit_report:Skicka rapport
 search_entire_msg:Hela inlägget
 search_subject_only:Endast rubriken
+search_forum:Forum
 search_posted_on:Postningsdatum
 search_no_results:Inga resultat
 search_all_forums:Sök i alla forum
@@ -469,8 +506,7 @@ remail_message:Meddelande:
 remail_send_now:Skicka e-post nu
 remail_anon_opt:Kopiera det här meddelandet till en valbar e-postklient för att sända till dina vänner.
 remail_done:Klart
-# Fuzzy
-remail_sent_conf:E-postmeddelandet till din vän {VAR-HTML: _POST['femail']} med rubriken {{VAR: data->subject} har skickats.
+remail_sent_conf:E-postmeddelandet till din vän med adressen {VAR-HTML: _POST['femail']} om ämnet {VAR: data->subject} har skickats.
 remail_error:Ett fel har uppstått
 mklist_type:Typ:
 mklist_option:Alternativ:
@@ -524,14 +560,13 @@ poll_year:år
 poll_week:vecka
 tabs_register:Inställningar
 tabs_subscriptions:Beställningar
+tabs_bookmarkes:Bokmärken
 tabs_referrals:Refererade medlemmar
 tabs_buddy_list:Kompislista
 tabs_ignore_list:Ignorerade medlemmar
 tabs_private_messaging:Privata meddelanden
-# Fuzzy
-single_msg_delete:Du håller på att <font color="#ff0000" size="4">RADERA</font> ett meddelande kallat: <b>{VAR: data[3]}</b>
-# Fuzzy
-thread_delete:Du håller på att <font color="#ff0000" size="4">RADERA</font> <font color="#ff0000" size="4">HELA ÄMNET</font> kallat: <b>{VAR: data[3]}</b>
+single_msg_delete:Du är på väg att <span class="ErrorText">radera</span> meddelandet med titeln: <b>{VAR: data[3]}</b>
+thread_delete:Du är på väg att <span class="ErrorText">radera</span> <span class="ErrorText">hela ämnet</span> med titeln: <b>{VAR: data[3]}</b>
 delete_proceed:<font size="3"><b>Vill du fortsätta?</b></font>
 delete_yes:Ja
 delete_no:Nej
@@ -540,15 +575,16 @@ error_error:Fel
 usrinfo_profile:{VAR: u->alias}s profil
 usrinfo_show_all_posts:Visa alla inlägg av {VAR: u->alias}
 actions_update:Spionerar på andra medlemmar, precis som du
+err_info:Info
 buddy_list_err_cantadd:Du kan lägga dig själv till kompislistan
 buddy_list_err_dup:Den här medlemmen finns redan på din kompislista
 buddy_list_err_nouser:Medlemmen du försökte lägga till kompislistan går inte att hitta bland detta forums medlemmar.
 buddy_list_err_nouser_title:Kan inte lägga till medlemmen
+buddy_list_err_ignore:Kan inte lägga till användare som ignorerar dig till din lista över vänner
 buddy_list_update:Visar egen kompislista
 core_err_invinp_title:Ogiltig input
 core_err_invinp_err:Du har följt en felaktig länk, vänligen meddela <a href="mailto:{GVAR: ADMIN_EMAIL}">webmastern</a>
-# Fuzzy
-core_adm_login_msg:Administratörer kan logga in <a href="adm/admloginuser.php">här</a>
+core_adm_login_msg:Administratörer kan logga in <a href="adm/admloginuser.php">här</a>.
 email_err_unabletoemail_title:FEL: Kan inte skicka e-post
 email_err_unabletoemail_msg:E-postsystemet har stängts av av administratorn.
 email_error_unabletolocaddr:Systemet kunde tyvärr inte skicka e-post till {VAR-HTML: _POST['tx_name']} eftersom det inte hittade hans/hennes e-postadress
@@ -567,6 +603,7 @@ iemail_thr_bodyemail:Gå till {VAR: goto_url['email']} för att visa olästa sva
 iemail_frm_subject:Ny diskussion av {VAR: poster_login} med rubriken {VAR: thr_subject} i forumet {VAR: frm_name}
 iemail_frm_bodyemail:För att visa diskussionen gå till:\n{VAR: goto_url['email']}\n\nIfall du i fortsättningen inte vill få meddelande om nya diskussioner i detta forum kan du gå hit: {VAR: unsub_url['email']}
 iemail_participate:För att delta i diskussionen, gå hit:
+ignore_list_err_info_title:Info
 ignore_list_err_dup_msg:Du har redan den här medlemmen på din lista
 ignore_list_err_nu_title:Kan inte hitta medlemmen
 ignore_list_err_nu_msg:Kan inte hitta medlemmen du försökte lägga till din lista i det här forumet.
@@ -582,23 +619,24 @@ pm_update:Använder privatmeddelanden
 post_err_lockedthread_title:FEL: Låst diskussion
 post_err_lockedthread_msg:Den här diskussionen är låst och inga fler inlägg tas emot
 err_coppa_title:FEL: Ditt konto är inte bekräftat ännu
-# Fuzzy
-err_coppa_msg:Vi har inte fått en bekräftelse av din förälder eller förmyndare. Därför kan vi inte låta dig skriva inlägg. Ifall du tappade ditt coppaformulär kan du <a href="{TEMPLATE: err_coppa_msg_lnk}">trycka här</a> för att få ett nytt
+err_coppa_msg:Vi har inte fått en bekräftelse av din förälder eller förmyndare, vilket skulle tillåtit dig att skriva inlägg. Om du tappat bort ditt COPPA-formulär kan du <a href="{TEMPLATE: err_coppa_msg_lnk}">se det här</a>.
+err_banned_acct_title:FEL: Du har blivit avstängd.
+err_banned_acct_msg:Ditt konto blev {IF: $ban_expiry}temporärt avstängt till {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}permanent avstängt{ENDI} för tillgång till websidan på grund av överträdelser av forumets regler.
 post_err_edttimelimit_title:FEL
 post_err_edttimelimit_msg:Du kan inte editera det här meddelandet längre
+post_err_noannontopics_msg2:<legend>FEL: Otillräckliga privilegier</legend>Anonyma användare får inte skapa ämnen.
+post_err_noannonposts_msg2:<legend>FEL: Otillräckliga privilegier</legend>Anonyma användare får inte svara.
 post_err_floodtrig_title:FEL: Flödesstopp påslaget
-# Fuzzy
-post_err_floodtrig_msg:Var vänlig försök på nytt om {VAR: tm} sekunder
+post_err_floodtrig_msg:Var vänlig försök på nytt om {PLURAL: tm|$1 sekund|$1 sekunder}
 post_err_attach_size:Bilagan är för stor (över gränsen på {VAR: MAX_F_SIZE} byte)
 post_err_attach_ext:Filen du försöker skicka är inte av tillåten typ.
 post_err_attach_filelimit:Du försöker skicka fler filer än vad som är tillåtet.
 post_err_passwd:Fel lösenord
-# Fuzzy
-post_reply_update:Svarar på <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> i {VAR-HTML: frm->name}
-# Fuzzy
-post_topic_update:Påbörjar ny diskussion i <a href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a>
+post_reply_update:Svarar på <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> i {VAR: frm->name}
+post_topic_update:Skapar nytt ämne i <a href="{TEMPLATE: post_topic_update_lnk}">{VAR: frm->name}</a>
 post_error_generic:Ett fel har uppstått
 postcheck_max_images_err:Maximalt {GVAR: MAX_IMAGE_COUNT} bilder är tillåtna per inlägg, vänligen minska antalet bilder
+postcheck_no_links_allowed:Du kan inte använda länkar innan du har skrivit minst {PLURAL: posts_before_links|$1 meddelande|$1 meddelanden}.
 postcheck_subj_needed:Rubrik obligatorisk
 postcheck_no_such_user:Medlemmen "{FUNC: char_fix(htmlspecialchars($v))}" finns inte i detta forum
 postcheck_ignored:Du kan inte skicka ett privat meddelande till "{FUNC: char_fix(htmlspecialchars($v))}", eftersom han/hon har valt att ignorera dig.
@@ -618,8 +656,7 @@ register_err_passwdnomatch:Lösenorden är inte likadana.
 register_err_invalidemail:E-postadressen du angett verkar inte vara korrekt.
 register_err_needname:Du måste ange ditt namn för att fullfölja registreringen.
 register_err_enterpasswd:Du måste ge ditt nuvarande lösenord för att fullfölja förändringarna
-# Fuzzy
-register_err_adminpasswd:Du måste ange ditt ADMINISTRATOR-lösenord för att fullfölja förändringarna
+register_err_adminpasswd:Du måste ange ditt <b>administratorlösenord</b> för att slutföra ändringarna.
 register_err_notyouremail:Någon har redan registrerat sig med den här e-postadressen, och denna någon är INTE du
 register_err_avatartobig:Filen du försöker skicka är för stor, över gränsen på {GVAR: CUSTOM_AVATAR_MAX_SIZE} byte
 register_err_avatarnotallowed:Avataren du försöker skicka är inte tillåten. Kontrollera att den är av godkänd filtyp.
@@ -635,6 +672,7 @@ report_err_nosuchmsg_title:FEL
 report_err_nosuchmsg_msg:Inget sådant inlägg
 reset_err_invalidkey_title:FEL
 reset_err_invalidkey_msg:Ogiltig kod får återställning av lösenord
+reset_err_rstconf_title:Information
 reset_err_rstconf_msg:Du torde få instruktioner per e-post inom ett par minuter
 reset_newpass_title:Nollställ lösenord
 reset_newpass_msg:Hej!\n\nEnligt önskemål har ditt användarnamn och ditt lösenord skickats till dig.\nHär är dina inloggningsuppgifter:\n\nAnvändarnamn: {VAR: ui[1]}\nLösenord: {VAR: passwd}\n\nNotera att ditt lösenord har ändrats till ovanstående. Om du vill\nändra ditt lösenord kan du göra det i medlemmens kontrollpanel:\n{FULL_ROOT}{ROOT}?t=register
@@ -643,16 +681,15 @@ search_update:Söker bland inläggen
 selmsg_update:Läser <a href="{TEMPLATE: selmsg_update_lnk}">Dagens inlägg</a>
 showposts_update:Visar inlägg av: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
 subscribed_update:Visar egna beställningar
-# Fuzzy
-thread_update:Läser forumet <a href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a>
+bookmarked_update:Ser över sin bokmärkeslista
+thread_update:Läser i forumet <a href="{TEMPLATE: thread_update_lnk}">{VAR: frm->name}</a>
 tree_update:Läser diskussionen (trådad vy) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
 userinfo_update:Ser på <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}s</a> profil
+ERR_login_msg2:<legend>FEL: Du är inte inloggad</legend>För att få tillgång till den här sidan måste du vara en medlem av det här forumet.
 ERR_disabled_ttl:Avstängd funktion
-# Fuzzy
-ERR_disabled_msg:Den här funktionen är avstängd av administratorn
+ERR_disabled_msg:Den här funktionen är inaktiverad av systemadministratören.
 ERR_access_ttl:FEL: Otillräckliga rättigheter
-# Fuzzy
-ERR_access_msg:Du har inte de rättigheter som behövs för att göra det här
+ERR_access_msg:Du har inte behörighet att utföra åtgärden.
 ERR_registration_disabled_ttl:Registrering avstängd
 ERR_registration_disabled_msg:Administratorn har stäng av registreringen, försök på nytt senare
 ERR_emailconf_ttl:FEL: Ditt användarkonto är ännu inte bekräftat
@@ -673,8 +710,7 @@ error_title:FEL
 index_title:Välkommen till forumet
 search_title:Sök {VAR-HTML: srch}
 remail_emailsent:E-posten skickad
-# Fuzzy
-remail_email:Det finns en websida här {GVAR: FORUM_TITLE} ( {TEMPLATE: index_update_lnk} ) som du kanske är intresserad av att läsa.\nTråden som jag tänkte att du skulle vara intresserad av, {VAR: data->subject} hittar du här: {FULL_ROOT}{ROOT}?t=rview&th={VAR: data->id}&rid={DEF: _uid}\nAv {VAR: usr->alias}
+remail_email:Hej, det finns ett intressant ämne om"{VAR: data->subject}" på {GVAR: FORUM_TITLE} forum som du kanske vill läsa. Du kan se ämnet här:\n {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nDin vän,\n\n{VAR: usr->alias}
 poll_add_option:Lägg till alternativ:
 post_opt_html_on:<b>HTML</b>-kod är <b>PÅ</b>
 post_opt_fud_on:<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>FUD-kod</b> är <b>PÅ</b></a>
@@ -686,6 +722,7 @@ post_opt_images_off:<b>Bilder</b> är <b>AV</b>
 post_opt_smilies_off:<b>Smilisar</b> är <b>AV</b>
 post_opt:Forumalternativ
 register_change_passwd:byt lösenord
+register_change_login:ändra inloggningsnamn
 approved_avatar_title:Din egen avatar godkändes.
 approved_avatar_msg:Din avatar godkändes av administratorn. Den borde nu synnas som din avatar i alla dina inlägg. Om du inte ser den, eller ser din gamla avatar, beror det på att din webbläsare har sidan i sitt minne. Du kan ladda om sidan en eller ett par gånger, det borde åtgärda saken.
 unapproved_avatar_title:Din egen avatar blev inte godkänd.
@@ -701,11 +738,9 @@ thr_exch_decline:godkänn inte diskussion
 thr_exch_orig_forum:Ursprungligt forum:
 thr_exch_dest_forum:Nytt forum:
 thr_exch_no_threads:Inga diskussioner att granska.
-# Fuzzy
-thr_exch_decl_reason:Orsakt till att inte godkänna flyttning av diskussionen <b>{VAR-HTML: frm->name}</b> till forumet <b>{VAR-HTML: frm->name}</b>
+thr_exch_decl_reason:Orsak till att avslå ämnet <b>{VAR: data->subject}</b> i forumet <b>{VAR: data->f2_name}</b>
 thr_exch_submit:Sänd
-# Fuzzy
-exch_decline_ttl:Flyttningen av diskussionen {VAR: data->subject} till forumet {VAR-HTML: data->f2_name} godkändes inte.
+exch_decline_ttl:Flyttningen av ämnet {VAR: data->subject} till forumet {VAR: data->f2_name} avlogs.
 ppost_original_msg:meddelande som du skickar vidare eller svarar på
 split_thread:Splittra diskussion
 groupmgr_no_user:Det finns ingen medlem med användarnamnet "{FUNC: char_fix(htmlspecialchars($gr_member))}"
@@ -750,6 +785,7 @@ rate_worst:Sämst
 rate_best:Bäst
 post_quote_msg:Den {TEMPLATE: make_report_date} skrev {VAR: msg->login}:
 post_quote:Citat:
+post_quote_selected:Citera vald text
 userinfo_referals:Refererade medlemmar:
 userinfo_referals_count:{VAR: referals} medlemmar
 pm_no_space_title:Inget utrymme kvar!
@@ -786,21 +822,23 @@ split_th_post_by:Skrivet av:
 split_th_posted_on:Postningsdatum:
 split_th_subject:Rubrik:
 split_th_new_thread_title:Ny rubrik för diskussionen:
+split_th_forum:Forum:
 split_th_split_sel:Flytta valda inlägg
 split_th_split_unsel:Flytta icke-valda inlägg
 split_th_messages:Inlägg
 split_th_select:Välj
 report_report_post:Rapportera inlägg
-# Fuzzy
-quicklogin_login:Användarnamn
+quicklogin_login:Inloggningsnamn:
 quicklogin_password:Lösenord:
 quicklogin_use_cookies:Använd kakor?
-# Fuzzy
 quicklogin_login_btn:Logga in
 quick_reply:Snabbt svar
+quick_reply_post:Posta snabbsvar
+quick_reply_preview:Förhandsgranska snabbsvar
 post_notification_desc:Meddela mig när någon svarar på detta inlägg.
 post_all_ext_allowed:(oinskränkt)
 maximize_category:Maximera kategori
+maximize_message:Maximera meddelande
 no_view_perm:Du har inte tillräckliga rättigheter för att läsa den här diskussionen.
 report_empty_report:Du kan inte sända en tom rapport. Var vänlig ange orsak till rapporten.
 report_already_reported_title:Inlägget redan rapporterat
@@ -810,18 +848,22 @@ pmsg_next_msg:Nästa meddelande
 pmsg_prev_msg:Föregående meddelande
 post_proc_reveal_spoiler:Visa gömd text
 register_jabber:Jabber-användarnamn:
+register_skype:Skype användarnamn:
+register_twitter:Twitter användarnamn:
+register_google:Google Chat/IM användarnamn:
 im_jabber:Jabber:
+im_google:Google Talk:
+im_skype:Skype:
+im_twitter:Twitter:
 forum_contact:Ta kontakt
 forum_home:Hem
-# Fuzzy
-post_cur_attached:{VAR: i} filer bifogade för tillfället
+post_cur_attached:bifogat: {VAR: i} {PLURAL: i|fil|filee}
 ignored_anon_post:{GVAR: ANON_NICK} ignoreras
 ignored_user_post:Inlägg av <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> ignoreras
 smladd_close_window:stäng fönstret
 post_list_smilies:visa alla smilisar
 p_VISIBLE:Synlig
-# Fuzzy
-reported_in_thread:I diskussionen
+reported_in_thread:I:
 help_back_to_top:tillbaka till början
 help_return_to_index:tillbaka till hjälpindex
 imsg_err_message_title:Ogiltigt inlägg
@@ -851,6 +893,9 @@ search_desc_order:Fallande ordning
 search_asc_order:Stigande ordning
 search_logic:Söklogik:
 search_sorting:Sortera resultaten enligt datum i:
+search_attach:Bilagor:
+search_attach_all:Med eller utan
+search_attach_with:Med bilagor
 post_proceed:Gå vidare
 post_moderated_forum:Du har skrivit ett inlägg i ett modererat forum, vilket innebär att inlägget syns först när forumets moderator och/eller administrator har godkänt det.
 post_moderated_forum_ttl:Meddelande om modererat forum
@@ -863,8 +908,7 @@ read_message:Läs inlägg
 threadt_more:&lt;mer&gt;
 threadt_disabled_ttl:Trådad vy av diskussionerna är inte tillgänglig.
 threadt_disabled_desc:Administratorn har stängt av den trådade vyn av diskussionerna, använd den platta vyn istället.
-# Fuzzy
-threadt_update:Läser forumet (trådad vy) <a href="{TEMPLATE: threadt_update_lnk}">{VAR-HTML: frm->name}</a>
+threadt_update:Läser forumet (trävy) <a href="{TEMPLATE: threadt_update_lnk}">{VAR: frm->name}</a>
 mmod_delete_cofirm_ttl:Bekräfta radering av diskussion/inlägg
 spell_alts:inga alternativ
 insert_uploaded_image:Sätt in bild i texten
@@ -911,8 +955,7 @@ group_resources:Denna grupp kontrollerar rättigheterna för följande forum
 register_admin_newuser_title:En ny medlem har registrerat sig och väntar på att kontot skall bekräftas
 register_admin_newuser_msg:Den nya medlemmen {VAR: uent->login} har just registrerat sig på forumet. Eftersom kontobekräftelsefunktionen är på måste du eller någon annan av forumadministratörerna bekräfta konto innan det kan aktiveras. Gå till {GVAR: WWW_ROOT}adm/admaccapr.php för att kontrollera kontot.\n\nDet här är en automatiserad process. Svara inte på detta meddelande.\nOm du inte vill ha ytterligare meddelanden om nya medlemmar som registrerar sig kan du koppla bort dem i Administratörens kontrollpanel. Funktionen heter "New Account Notification".
 post_mod_msg_notify_title:Ett nytt meddelande i forumet "{VAR: frm->name}" väntar på godkännande
-# Fuzzy
-post_mod_msg_notify_msg:Ett nytt meddelande med rubriken "{VAR: msg_post->subject}" har nyligen skrivits i ett forum som du modererar. Gå till {FULL_ROOT}{ROOT}?t=modque för att se meddelandet.\n\nDet här är en automatiserad process. Svara inte på detta meddelande.
+post_mod_msg_notify_msg:Ett nytt meddelande med rubriken "{VAR: msg_post->subject}" har nyligen skrivits i ett forum som du modererar. Gå till: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id} för att se meddelandet.\n\nDet här är en automatiserad process. Svara inte på detta meddelande.
 thread_printable_pdf:Gör utskriftsvänlig PDF
 thread_syndicate:Syndikera det här forumet (XML)
 reg_conf_title:Registreringsverifiering
@@ -946,14 +989,15 @@ findu_unban:Upphäv Bannlysning
 findu_ban:Bannlys
 findu_edit:Redigera
 findu_delete:Radera
-# Fuzzy
-dmsg_reply_to:är ett svar till meddelandet #{VAR: obj->reply_to}
+dmsg_reply_to:är ett svar på
+dmsg_reply_num:meddelande #{VAR: obj->reply_to}
 merge_topics:Sammanfoga Ämnen
 merge_topics_cp:Inställningar för Sammanfogade Ämnen
 merge_topics_tpl:Välj Ämnen Att Sammanfoga <font class="SmallText">(du måste välja mer än 1 ämne)</font>
 merge_merge:Sammanfoga Valda Ämnen
 merge_next:Nästa Ämnen
 merge_prev:Föregående Ämnen
+merge_another:Gå till <a href="{TEMPLATE: merge_another_lnk}">senast sammanslagna ämne</a> eller sammanfoga ett annat:
 split_cp:Inställningar för Splittade Ämnen
 groups_perms_header:Rättigheter <font size="-1">(flytta musen över rättigheten för att se rättighetstypen)</font>
 register_err_sig_too_long:Din signatur överskrider maxlängden på {GVAR: FORUM_SIG_ML} characters tecken.
@@ -963,4 +1007,123 @@ adm_account_accepted_s:Din kontoförfrågan för '{GVAR: FORUM_TITLE}' acceptera
 adm_account_rejected:Ditt konto '{VAR: login}' nekades av administratören och är inte aktivt. Om du vill veta varför detta beslut fattades, kontakta administratören på '{GVAR: ADMIN_EMAIL}'.
 adm_account_rejected_s:Din kontoförfrågan på '{GVAR: FORUM_TITLE}' nekades.
 thread_on:på
+userinfo_buddy:Vän:
+register_email_addr:E-postadress:
 usrinfo_last_visit:Senaste besök:
+mnav_newer:nyare än
+mnav_older:äldre än
+ip_search_by_ip:Sök användare efter IP
+ip_search_syntax:Stödda syntax: 1.2.3.4, 1.2.3, 1.2, 1
+ip_search:Sök
+ip_analyze_usage:Analysera IP användande
+ip_analyze_usage_descr:Ange användarens exakta inloggningsnamn.
+ip_users_using:Användare som använder '{VAR: ip}' IP-adressen
+ip_all_ips:Alla IP-adresser som används av '{VAR: user}'
+ip_title:IP-läsare
+userinfo_real_name:Riktigt namn:
+register_err_alias_notallowed:Detta alias är inte tillåtet
+post_err_mod_forum_edit_ttl:FEL
+post_err_mod_forum_edit_msg:Du kan inte redigera meddelanden i ett modererat forum.
+dmsg_num:meddelande #{VAR: obj->id}
+postcheck_session_invalid:Din session har löpt ut. Skicka in formuläret igen. Beklagar det inträffade.
+delete_message_extra_desc:<b>Valfritt</b><br />Ange en anledning för raderingen av meddelandet som skickas till författaren genom ett privat meddelande.
+delete_message_extra_body:Inkludera det raderade meddelandet i beskedet som skickas till författaren.
+delete_msg_removed_ttl:Ditt meddelande har blivit borttaget av administrationen.
+delete_msg_pm_body:Orginalmeddelande
+delete_msg_pm_subject:Ämne: {VAR: data[15]}
+ip_no_whois:Whois-information för <b>{VAR: ip}</b> är inte tillgänglig.
+ip_whois_title:Information om internetleverantör
+register_theme:Tema:
+pmsg_trash:Töm papperskorgen
+uc_new_pm:Nya privata meddelanden
+uc_new_topic:Nytt ämne
+uc_new_cat_forum:Prenumererade forum med nya meddelanden
+uc_cat_forum:Kategori &raquo; Forum
+uc_sub_topics:Prenumererade ämnen med nya meddelanden
+uc_page_title:Tittar på personliga kontrollpanelen.
+search_options:Sökalternativ
+search_user_filter:Filtrerar efter användare:
+register_none:Meddela mig inte
+findu_no_conf:obekräftad användare
+register_max_sig_len:Maximal längd:
+register_turing:Skriv in koden som visas nedan:
+register_err_turing:Ogiltig bekräftelsekod.
+modque_cat:Kategori
+modque_forum:Forum
+idx_compact_forum_row:Tillgängliga forum:
+mmd_del_title:Radera ämnen
+mmd_mov_title:Flytta ämnen
+mmd_move_threads_to:Målforum:
+mmd_abort_move:Avbryt
+mmd_move:Flytta ämnen
+pmsg_pdf_btn:Skapa PDF-arkiv
+search_results_hdr:{VAR: total} sökresultat funna
+thread_del_all:Radera alla valda
+thread_mov_all:Flytta alla valda
+thread_merge_all:Sammanfoga alla valda
+thread_loc_all:Lås / Lås upp alla valda
+dmsg_ip:IP:
+err_blockedaccnt_title:FEL: Ditt konto har filtrerats bort.
+err_blockedaccnt_msg:Ditt konto har spärrats från att komma åt forumet på grund av något av de installerade användarfiltren.
+merge_th_page_list:Ämnesidesval
+most_users_online:Flest användare online samtidigt var <b>{VAR: st_obj->most_online}</b> on <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
+sml_emoticon:Emotikon
+sml_code:Kod
+mnav_sub_only:Sök endast i prenumererade forum
+register_topics_per_page:Ämnen per sida:
+post_not_logged_in:Du är inte inloggad, medellandet kommer bli postat anonymt.
+post_common_bold:Fet
+post_common_italics:Kursiv
+post_common_underline:Understruken
+post_common_align_left:Vänsterjsutera
+post_common_align_center:Centrera
+post_common_align_right:Högerjustera
+post_common_link:Infoga en länk
+post_common_email:Infoga en e-postadress
+post_common_image:Infoga en bild
+post_common_nlist:Lägg till numrerad lista
+post_common_blist:Lägg till punktlista
+post_common_quote:Lägg till citat
+post_common_code:Lägg till kod
+rating_delete:Radera
+post_always_on_top:Gör så att ämnet alltid visas överst i ämnesöversikten
+topic_rating:{VAR: frm->rating} från {PLURAL: frm->n_rating|$1 röst|$1 röster}
+topic_list_rating:{VAR: r[17]} från {PLURAL: r[21]|$1 röst|$1 röster}
+tabs_notifications:Notifikationer
+finduser_flag:Flagga
+post_descr:Ämnesbeskrivning:
+pmsg_on:på
+pmsg_download_dump:Hämta meddelande som text
+move_messages:Flytta meddelanden
+move_msg_btn:Flytta valda meddelanden
+move_msg_th_expl:Specificera ID på destinationsämnet (kan vara i andra fora)
+captcha_img_alt:Caotcha verifiering: du måste tolka texten i denna bild.
+captcha_img_help:Det finns ingen nolla eller etta i bilden.
+powered-by:Drivs av: FUDforum {GVAR: FORUM_VERSION}.<br />Copyright &copy;2001-2010 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+code_title:Kod:
+code_select_all:Välj alla
+code_show_hide:Visa / dölj
+social_sites:Sociala nätverk:
+postcheck_min_len_err:Ditt meddelande är för kort. Minimilängden är {PLURAL: post_min_len|$1 tecken|$1 tecken}.
+postcheck_dup_err:Var snäll och skapa inte duplicerade ämnen.
+btn_new_topic:Nytt ämne
+btn_new_pm:Nytt priv. meddelande
+btn_post_reply:Svara
+btn_tree_view:Trävy
+btn_flat_view:Platt vy
+btn_about:Profil
+btn_small_pm:PM
+btn_delete:ta bort
+btn_edit:redigera
+btn_reply:svara
+btn_forward:skicka vidare
+btn_quote:citera
+btn_email:E-post
+btn_show_posts:inlägg
+btn_homepage:www
+feed_no_data:Ingen matchande data hittades.
+feed_rdf:RDF-flöde
+feed_rss:RSS2-flöde
+feed_atom:ATOM-flöde
+ip_whois_connect_err:Kan inte ansluta till WHOIS servern ({VAR: whois_server}): {VAR: errstr}
+custom_filed_required:Detta fält är obligatoriskt

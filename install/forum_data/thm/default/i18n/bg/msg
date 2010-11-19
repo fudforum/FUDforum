@@ -201,7 +201,7 @@ was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> е пре�
 welcome_message:Добре дошли, <b>{VAR: usr->alias}</b>, вашето последно посещение на форума: {TEMPLATE: welcome_message_date}
 what_ppl_doing:покажи кой какво прави
 reported_del_report:Изтрий доклада
-reported_reason:Причина
+reported_reason:Причина:
 reported_on:Дата:
 reported_reported_by:От:
 reported_reported_msg:Докладвани съобщения

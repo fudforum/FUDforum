@@ -205,7 +205,7 @@ was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> перен
 welcome_message:Ласкаво просимо, <b>{VAR: usr->alias}</b>, Ваш останній візит {TEMPLATE: welcome_message_date}
 what_ppl_doing:Показати, що люди роблять
 reported_del_report:Видалити звіт
-reported_reason:Причина
+reported_reason:Причина:
 reported_on:Дата публікації:
 reported_reported_by:Повідомленно від:
 reported_reported_msg:Позначені повідомлення

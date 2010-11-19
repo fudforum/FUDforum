@@ -71,6 +71,8 @@ cal_goto_date:Gaan na:
 cal_day_heading:Gebeurtenisse vir dag
 cal_no_events:Geen gebeure vir die dag nie.
 cal_update:Blaai deur die forum se kalender
+cal_birthday:Verjaardag: {VAR: user}
+cal_birthday_age:($1 {PLURAL: age|jaar|jaar}).
 message:Boodskap
 message_counter:Ons gebruikers het in totaal <b>{PLURAL: post_count|$1 boodskap|$1 boodskappe}</b> in <b>{PLURAL: thread_count|$1 onderwerp|$1 onderwerpe}</b> gepos.
 message_index:Boodskapslys
@@ -201,7 +203,7 @@ was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> is deur di
 welcome_message:Welkom <b>{VAR: usr->alias}</b>, jou laaste besoek was op {TEMPLATE: welcome_message_date}
 what_ppl_doing:Loer wat ander mense doen
 reported_del_report:Verwyder verslag
-reported_reason:Rede
+reported_reason:Rede:
 reported_on:op:
 reported_reported_by:Gerapporteer deur:
 reported_reported_msg:Gerapporteerde boodskap
@@ -521,7 +523,7 @@ email_subject:Onderwerp:
 email_body:Boodskap:
 email_submit:Stuur E-pos
 ppost_quote_msg:{VAR: msg_to_list} het op {TEMPLATE: ppost_quote_msg_date} geskryf
-ppost_quote:Kwoteer:
+ppost_quote:Aanhaling:
 ppost_to:Aan:
 ppost_from_buddy_list:Kies van vriendelys
 ppost_find_User:Vind lid
@@ -776,8 +778,8 @@ group_mgr_indicator:Wysig tans: <b>{VAR: grp->name}</b>
 rate_worst:Slegste
 rate_best:Beste
 post_quote_msg:{VAR: msg->login} het op {TEMPLATE: make_report_date} geskryf:
-post_quote:Kwoteer:
-post_quote_selected:Kwoteer geselekteerde teks
+post_quote:Aanhaling:
+post_quote_selected:Haal geselekteerde teks aan
 userinfo_referals:Verwysde lede:
 userinfo_referals_count:{VAR: referals} lede
 pm_no_space_title:Geen spasie oor nie!
@@ -922,11 +924,11 @@ sml_no_smilies:Geen gesiggies beskikbaar.
 login_unapproved_account_ttl:Onbevestigde rekening
 login_unapproved_account_msg:Die administrateur van die forum het besluit om nuwe rekeninge handmatig na te gaan alvorens dit bevestig word. U rekening is nog nie bevestig nie. As a gevolg sal u nie al die funksies van die forum kan gebruik nie.
 remove_from_buddy_list:verwyder van vriendelys
-iemail_msg_author:<b>Outeur:</b> {VAR: obj->alias}
+iemail_msg_author:<b>Van:</b> {VAR: obj->alias}
 iemail_msg_subject:<b>Onderwerp:</b> {VAR: obj->subject}
 iemail_msg_date:<b>Datum:</b> {TEMPLATE: dmsg_post_date}
-iemail_msg_reply:Beantwoord
-iemail_msg_quote:Aanhaal
+iemail_msg_reply:Antwoord
+iemail_msg_quote:Haal aan
 iemail_msg_view:Wys onderwerp/boodskap
 threadt_sticky:plakker
 threadt_announce:aankondiging

@@ -72,6 +72,8 @@ cal_goto_date:Перайсьці да:
 cal_day_heading:Падзеяў за дзень
 cal_no_events:Няма падзеяў у гэты дзень.
 cal_update:Прагляд календара форуму
+cal_birthday:Дзень народзінаў: {VAR: user}
+cal_birthday_age:({PLURAL: Узрост|$1 год|$1 гады|$1 гадоў}).
 message:Паведамленьне
 message_counter:Нашыя карыстальнікі разьмясьцілі ўсяго <b>{PLURAL: post_count|$1 паведамленьне ў|$1 паведамленьні ў|$1 паведамленьняў у}</b> <b>{PLURAL: thread_count|$1 тэме|$1 тэмах|$1 тэмах}</b>.
 message_index:Індэкс паведамленьня
@@ -202,7 +204,7 @@ was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> перан
 welcome_message:Вітаем <b>{VAR: usr->alias}</b>, апошні раз Вы наведвалі нас {TEMPLATE: welcome_message_date}
 what_ppl_doing:Паказаць хто чым займаецца
 reported_del_report:Выдаліць справаздачу
-reported_reason:Прычына
+reported_reason:Прычына:
 reported_on:Дата:
 reported_reported_by:Справаздача ад:
 reported_reported_msg:Абвяшчэньні пра паведамленьні
@@ -891,10 +893,58 @@ search_attach_all:З ці без
 search_attach_with:З далучэньнямі
 post_proceed:Працягваць
 post_moderated_forum:Вы даслалі паведамленьне ў мадэраваны форум. Вашае паведамленьне ня будзе бачнае для іншых, пакуль яно ня будзе зацьверджанае адным з мадэратараў ці адміністратараў форуму.
+post_moderated_forum_ttl:Папярэджаньне пра мадэраваны форум
+buddy_list_bday:Сёньня {VAR: r[2]} спаўняецца {VAR: age}.
+email_warning_msg:Калі Вы зьменіце Ваш цяперашні адрас электроннай пошты, Ваш рахунак будзе пазначаны як непацьверджаны, пакуль Вы не пацьвердзіце яго з новага адрасу.
+register_show_im:Паказваць індыкатары Інтэрнэт-камунікатараў:
+register_show_im_desc:Ці паказваць індыкатары Інтэрнэт-камунікатараў аўтара каля яго паведамленьняў.
+unread_message:Непрачытанае паведамленьне
+read_message:Чытаць паведамленьне
+threadt_more:&lt;болей&gt;
+threadt_disabled_ttl:Магчымасьць прагляду тэмаў у выглядзе дрэва была выключаная.
+threadt_disabled_desc:Адміністратар выключыў магчымасьць прагляду тэмаў у выглядзе дрэва. Калі ласка, выкарыстоўвайце магчымасьць прагляду ў плоскім выглядзе.
+threadt_update:Прагляд форуму (выгляд дрэва) <a href="{TEMPLATE: threadt_update_lnk}">{VAR: frm->name}</a>
+mmod_delete_cofirm_ttl:Пацьверджаньне выдаленьня тэмы/паведамленьня
+spell_alts:няма альтэрнатываў
+insert_uploaded_image:Уставіць выяву ў тэкст паведамленьня
+finduser_help:Пошукавы рухавік аўтаматычна дадасьць маску * да Вашага запыту, <b>пошук з улікам велічыні літараў</b>.<br />напрыклад, для пошуку ўсіх карыстальнікаў, імя якіх пачынаецца на 'а', увядзіце 'а' у поле пошуку.
+back_to_top:Вярнуцца ўгару
+pm_err_disabled_title:Прыватныя паведамленьні адключаныя
+pm_err_disabled_msg:Вы ня можаце дасылаць прыватныя паведамленьні, пакуль Вы не ўключыце магчымасьць «Дазволіць прыватныя паведамленьні» у Вашым профілі.
+err_mod_acc_ttl:Неправераны рахунак
+err_mod_acc_msg:Адміністратар выбраў асабісты прагляд ўсіх рахункаў, перад іх актывацыяй. Пакуль Ваш рахунак ня будзе правераны адміністратарам, Вы ня зможаце карыстацца ўсімі магчымасьцямі Вашага рахунку.
+accounts_pending_approval:Рахункі, якія чакаюць зацьверджаньня
+saved:Захаваны
+register_err_time_limit:Перавышанае абмежаваньне на адну рэгістрацыю на {GVAR: REG_TIME_LIMIT} сэкундаў. Калі ласка, пачакайце {PLURAL: reg_limit_reached|$1 сэкунду|$1 сэкунды|$1 сэкундаў} і паспрабуйце зарэгістравацца зноў.
+register_affero:Імя карыстальніка ў сыстэме:<br /><span class="SmallText">Калі Вы маеце зарэгістраваны рахунак <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">Affero</a> увядзіце яго назву тут.</span>
+im_affero:Імя карыстальніка ў сыстэме Affero
+register_err_avatardimtobig:Памеры аватары <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> перавышаюць дазволеныя ў <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b> піксэляў.
+buddy_offline:{VAR: r[2]} цяпер афляйн
+buddy_online:{VAR: r[2]} цяпер анляйн
+sml_no_smilies:Няма даступных усьмешак.
+login_unapproved_account_ttl:Незацьверджаны рахунак
+login_unapproved_account_msg:Адміністратар форуму вырашыў зацьвярджаць уручную ўсё новыя рахункі перад іх актывацыяй. Ваш рахунак яшчэ ня быў зацьверджаны, і Вы ня можаце выкарыстоўваць некаторыя магчымасьці, якія даступныя для зацьверджаных удзельнікаў.
+remove_from_buddy_list:выдаліць са сьпісу сяброў
+iemail_msg_author:<b>Аўтар:</b> {VAR: obj->alias}
 iemail_msg_subject:<b>Тэма:</b> {VAR: obj->subject}
+iemail_msg_date:<b>Дата:</b> {TEMPLATE: dmsg_post_date}
 iemail_msg_reply:Адказаць
+iemail_msg_quote:Цытата
+iemail_msg_view:Прагляд тэмы/паведамленьня
+threadt_sticky:прычэплены
+threadt_announce:анонс
+reported_no_messages:Няма абвяшчэньняў пра паведамленьні.
+poll_no_polls:Няма даступных галасаваньняў.
+no_unread_messages:Няма непрачытаных паведамленьняў, якія адпавядаюць Вашаму запыту.
+thread_mark_all_read:Пазначыць усе непрачытаныя паведамленьні форуму як прачытаныя
+thread_mark_all_read_desc:Усе непрачытаныя паведамленьні гэтага форуму будуць пазначаныя як прачытаныя
+private_no_messages:Няма паведамленьняў у гэтай папке.
+register_email_change_subject:Пацьверджаньне зьмены адрасу электроннай пошты
+register_email_change_msg:Калі ласка, пацьвердзіце Ваш новы адрас электроннай пошты «{VAR: uent->email}», які заменіць Ваш стары адрас электроннай пошты «{VAR: old_email}», каб пацьвердзіць гэтае дзеяньне перайдзіце па спасылцы ніжэй:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nПасьля таго, як Вы пацьвердзіце новы адрас электроннай пошты, Ваш рахунак на форуме будзе акрывізаваны зноў.
 iemail_thread_unsub:Адпісацца ад гэтай тэмы
 iemail_forum_unsub:Адпісацца ад гэтага форуму
+primary_group_prefix:Асноўная група для форума:
+group_resources:Гэтая група кантралюе доступ да наступных форумаў
 findu_edit:Рэдагаваць
 findu_delete:Выдаліць
 merge_topics:Аб'яднаць тэмы

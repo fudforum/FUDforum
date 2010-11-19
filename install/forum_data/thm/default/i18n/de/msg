@@ -76,6 +76,8 @@ cal_goto_date:Gehe zu:
 cal_day_heading:Ereignisse an diesem Tag
 cal_no_events:Keine Ereignisse an diesem Tag.
 cal_update:Durchsucht den Kalender
+cal_birthday:Geburtstag: {VAR: user}
+cal_birthday_age:({PLURAL: age|$1 Jahr|$1 Jahre} alt).
 message:Beitrag
 message_counter:Unsere Benutzer haben insgesamt <b>{PLURAL: post_count|$1 Nachricht|$1 Nachrichten}</b> in <b>{PLURAL: thread_count|$1 Thema|$1 Themen}</b> erstellt.
 message_index:Beitragsindex
@@ -206,7 +208,7 @@ was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> ist vom Mo
 welcome_message:Willkommen <b>{VAR: usr->alias}</b>, dein letzter Besuch war am {TEMPLATE: welcome_message_date}
 what_ppl_doing:Anzeigen, was die Leute gerade machen
 reported_del_report:Benachrichtigung löschen
-reported_reason:Grund
+reported_reason:Grund:
 reported_on:Am:
 reported_reported_by:Gemeldet von:
 reported_reported_msg:Gemeldete Beiträge

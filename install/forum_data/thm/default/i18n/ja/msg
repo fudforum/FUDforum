@@ -202,7 +202,7 @@ was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> はモデ�
 welcome_message:<b>{VAR: usr->alias}</b> さん、ようこそ。前回の訪問は{TEMPLATE: welcome_message_date}でした。
 what_ppl_doing:人々が何をしているのか表示する
 reported_del_report:報告を削除
-reported_reason:理由
+reported_reason:理由:
 reported_on:日付:
 reported_reported_by:報告者:
 reported_reported_msg:報告メッセージ

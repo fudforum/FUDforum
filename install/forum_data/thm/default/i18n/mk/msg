@@ -71,6 +71,8 @@ cal_goto_date:Оди на:
 cal_day_heading:Настани за денот
 cal_no_events:Нема настани за тој ден.
 cal_update:Прелистување на форумскиот календар
+cal_birthday:Роденден: {VAR: user}
+cal_birthday_age:(има {PLURAL: age|$1 година|$1 години}).
 message:Порака
 message_counter:Нашите корисници имаат оставено вкупно <b>{PLURAL: post_count|$1 порака|$1 пораки}</b> во <b>{PLURAL: thread_count|$1 тема|$1 теми}</b>.
 message_index:Индекс на пораки
@@ -201,7 +203,7 @@ was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> е пре�
 welcome_message:Добредојдовте <b>{VAR: usr->alias}</b>, последен пат нè посетивте на {TEMPLATE: welcome_message_date}
 what_ppl_doing:Прикажи што прават другите
 reported_del_report:Избриши пријава
-reported_reason:Причина
+reported_reason:Причина:
 reported_on:На:
 reported_reported_by:Пријавил:
 reported_reported_msg:Пријавени пораки

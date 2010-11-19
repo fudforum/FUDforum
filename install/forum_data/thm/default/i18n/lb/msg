@@ -88,7 +88,7 @@ view_results:Resultater weisen
 vote:{PLURAL: frm->n_rating|$1 Stëmm|$1 Stëmmen}
 vote_button:Ofstëmmen
 vote_for_thread:Ofsstëmmen
-reported_reason:Grond
+reported_reason:Grond:
 modque_delete:Läschen
 pmsg_old_messages:Private Message liesen
 move_to:Réckelen op:
@@ -137,6 +137,7 @@ register_avatar:Avatar:
 register_required:Obligatoresch Informatioun
 register_interests:iInteressen:
 register_image:Bild:
+register_bday:Gebuertsdatum:
 register_day:Dag
 register_month:Mount
 register_year:Joer

@@ -77,6 +77,8 @@ cal_goto_date:Перейти к:
 cal_day_heading:События за день
 cal_no_events:Нет событий в этот день.
 cal_update:Просмотр форумного календаря
+cal_birthday:День рождения: {VAR: user}
+cal_birthday_age:(возраст {PLURAL: age|$1 год|$1 года|$1 лет}).
 message:Сообщение
 message_counter:Нашими пользователями оставлено <b>{PLURAL: post_count|$1 сообщение|$1 сообщения|$1 сообщений}</b> по <b>{PLURAL: thread_count|$1 теме|$1 темам|$1 темам}</b>.
 message_index:Список сообщений
@@ -207,7 +209,7 @@ was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> перен
 welcome_message:Добро пожаловать, <b>{VAR: usr->alias}</b>, ваше последнее посещение форума: {TEMPLATE: welcome_message_date}
 what_ppl_doing:показать кто чем занимается
 reported_del_report:Удалить отчет
-reported_reason:Причина
+reported_reason:Причина:
 reported_on:Дата извещения:
 reported_reported_by:Извещение от:
 reported_reported_msg:Извещение о сообщении

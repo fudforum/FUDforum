@@ -72,6 +72,8 @@ cal_goto_date:Gump zue:
 cal_day_heading:Ereignis an däm Tag
 cal_no_events:Kei Ereignis an däm Tag.
 cal_update:Am Dursueche vum Kalender
+cal_birthday:Geburtstag: {VAR: user}
+cal_birthday_age:({PLURAL: age|$1 Johr|$1 Johr} alt).
 message:Byytrag
 message_counter:Unsri Benutzer hän insgsamt <b>{PLURAL: post_count|$1 Byytrag|$1 Byytreg }</b> in <b>{PLURAL: thread_count|$1 Thema|$1 Themene}</b> aagleit.
 message_index:Byytragsverzeichnis
@@ -202,7 +204,7 @@ was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> isch vum M
 welcome_message:Willchuu <b>{VAR: usr->alias}</b>, dyy letschte Bsuech isch am {TEMPLATE: welcome_message_date} gsi
 what_ppl_doing:Aazeige, was d Lyt grad mache
 reported_del_report:Benochrichtigung lesche
-reported_reason:Grund
+reported_reason:Grund:
 reported_on:Am:
 reported_reported_by:Gmäldet vu:
 reported_reported_msg:Gmäldeti Byytreg

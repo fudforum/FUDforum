@@ -205,7 +205,7 @@ was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> sudah dipi
 welcome_message:Selamat datang <b>{VAR: usr->alias}</b>, kunjungan terakhir anda pada {TEMPLATE: welcome_message_date}
 what_ppl_doing:Perlihatkan aktivitas pengguna lain
 reported_del_report:Hapus laporan
-reported_reason:Alasan
+reported_reason:Alasan:
 reported_on:pada:
 reported_reported_by:Dilaporkan oleh:
 reported_reported_msg:Pesan-pesan sudah dilaporkan

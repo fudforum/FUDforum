@@ -202,7 +202,7 @@ was_moved_msg:A moderátor áthelyezte a(z) <a href="{TEMPLATE: was_moved_msg_ln
 welcome_message:Szia, <b>{VAR: usr->alias}</b>! Legutóbb ekkor jártál erre: {TEMPLATE: welcome_message_date}
 what_ppl_doing:Mit csinálnak az emberek
 reported_del_report:Törlési jelentés
-reported_reason:Ok
+reported_reason:Ok:
 reported_on:Ideje:
 reported_reported_by:Jelentette:
 reported_reported_msg:Jelentett üzenet:

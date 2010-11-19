@@ -198,7 +198,7 @@ was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}" class="GenLink">{VAR: r[2]
 welcome_message:Vitajte <b>{VAR: usr->alias}</b>, Vaša posledná návšteva bola v {TEMPLATE: welcome_message_date}
 what_ppl_doing:Ukáž, čo robia ostatní
 reported_del_report:Zmazať oznámenie
-reported_reason:Dôvod
+reported_reason:Dôvod:
 reported_on:Čas oznámenia:
 reported_reported_by:Oznámené od:
 reported_reported_msg:Oznámené Príspevky

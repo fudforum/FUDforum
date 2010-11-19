@@ -204,7 +204,7 @@ was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> è stato s
 welcome_message:Benvenuto(a) <b>{VAR: usr->alias}</b>, la tua ultima visita è stata in data {TEMPLATE: welcome_message_date}
 what_ppl_doing:mostra quello che fa la gente
 reported_del_report:Cancella report
-reported_reason:Motivazione
+reported_reason:Motivo:
 reported_on:Il:
 reported_reported_by:Riferito da:
 reported_reported_msg:Messaggi segnalati

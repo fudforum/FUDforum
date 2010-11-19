@@ -205,7 +205,7 @@ was_moved_msg:Moderaattori on siirtänyt aiheen <a href="{TEMPLATE: was_moved_ms
 welcome_message:Tervetuloa <b>{VAR: usr->alias}</b>. Kävit viimeksi {TEMPLATE: welcome_message_date}
 what_ppl_doing:Näytä mitä muut tekevät
 reported_del_report:Poista ilmoitus
-reported_reason:Syy
+reported_reason:Syy:
 reported_on:Ilmoitettu:
 reported_reported_by:Ilmoittaja:
 reported_reported_msg:Ilmoitetut viestit

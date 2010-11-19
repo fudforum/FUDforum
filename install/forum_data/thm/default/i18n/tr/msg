@@ -203,7 +203,7 @@ was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> artık bur
 welcome_message:Hoş geldin <b>{VAR: usr->alias}</b>, son ziyaret tarihin {TEMPLATE: welcome_message_date} idi.
 what_ppl_doing:insanların ne yaptığını göster
 reported_del_report:Bildirimi sil
-reported_reason:Neden
+reported_reason:Neden:
 reported_on:Bildirim tarihi:
 reported_reported_by:Bildiren:
 reported_reported_msg:Bildirilen iletiler

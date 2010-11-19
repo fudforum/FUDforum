@@ -193,7 +193,7 @@ was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> ha estat m
 welcome_message:Benvingut <b>{VAR: usr->alias}</b>, la seva última visita fou el {TEMPLATE: welcome_message_date}
 what_ppl_doing:Mostrar el que la gent està fent
 reported_del_report:Esborrar informe
-reported_reason:Raó
+reported_reason:Motiu:
 reported_on:Activat:
 reported_reported_by:Informat per:
 reported_reported_msg:Missatges reportats

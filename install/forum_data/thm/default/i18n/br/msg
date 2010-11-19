@@ -204,7 +204,7 @@ was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> zo bet dil
 welcome_message:Degemer mat deoc'h, <b>{VAR: usr->alias}</b>. D'an {TEMPLATE: welcome_message_date} e oa ho kweladenn diwezhañ
 what_ppl_doing:Diskouez petra emañ an dud oc'h ober
 reported_del_report:Dilemel un danevell
-reported_reason:Abeg
+reported_reason:Abeg :
 reported_on:D'an :
 reported_reported_by:Titouret gant :
 reported_reported_msg:Kemennadennoù titouret

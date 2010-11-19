@@ -178,7 +178,7 @@ vote_button:투표
 vote_for_thread:투표
 what_ppl_doing:사용자들이 무엇을 하는지 보여줍니다
 reported_del_report:레포트 삭제
-reported_reason:이유
+reported_reason:이유:
 reported_reported_by:보고자:
 reported_reported_msg:게시글 보고
 modque_pending_approval:게시글이 승인 대기중 입니다

@@ -203,7 +203,7 @@ was_moved_msg:نقل المشرف <a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: 
 welcome_message:أهلا <b>{VAR: usr->alias}</b>، آخر زيارة لك كانت في {TEMPLATE: welcome_message_date}
 what_ppl_doing:أظهر ما يفعله الناس
 reported_del_report:احذف البلاغ
-reported_reason:السبب
+reported_reason:السبب:
 reported_on:في:
 reported_reported_by:بلّغ عنها:
 reported_reported_msg:الرسائل المبلغ عنها

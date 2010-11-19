@@ -201,7 +201,7 @@ was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> رىياس
 welcome_message:مەرھابا <b>{VAR: usr->alias}</b>، سىز ئۆتكەن قېتىم  {TEMPLATE: welcome_message_date} زىيارەت قىلغان
 what_ppl_doing:زىيارەتچىلەرنىڭ مەشغۇلاتىنى كۆرسەت
 reported_del_report:دوكلاتنى ئۆچۈر
-reported_reason:سەۋەب
+reported_reason:سەۋەب:
 reported_on:ھەققىدە:
 reported_reported_by::دوكلات يوللىغۇچى
 reported_reported_msg:مەلۇم قىلىنغان ئۇچۇر

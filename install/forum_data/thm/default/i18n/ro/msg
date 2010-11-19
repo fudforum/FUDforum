@@ -196,7 +196,7 @@ was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> a fost mut
 welcome_message:Bine ati venit <b>{VAR: usr->alias}</b>, ultima vizita a fost pe {TEMPLATE: welcome_message_date}
 what_ppl_doing:Arata procesele utilizatorilor
 reported_del_report:Sterge raport
-reported_reason:Motivul
+reported_reason:Motiv:
 reported_on:Pe:
 reported_reported_by:Raportat de:
 reported_reported_msg:Mesaje raportate

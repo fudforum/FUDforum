@@ -187,7 +187,7 @@ was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> đã đư�
 welcome_message:Chào mừng <b>{VAR: usr->alias}</b>, lần ghé thăm cuối của bạn vào {TEMPLATE: welcome_message_date}
 what_ppl_doing:Xem mọi người đang làm gì
 reported_del_report:Xóa thông báo
-reported_reason:Lý do
+reported_reason:Lý do:
 reported_on:Vào:
 reported_reported_by:Được thông báo bởi:
 reported_reported_msg:Bài viết được thông báo

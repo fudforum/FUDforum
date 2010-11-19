@@ -72,6 +72,8 @@ cal_goto_date:Gå til:
 cal_day_heading:Aktiviteter for dagen
 cal_no_events:Ingen hendelser for dag.
 cal_update:Blar igjennom forumkalenderen
+cal_birthday:Bursdag: {VAR: user}
+cal_birthday_age:({PLURAL: age|$1 år|$1 år} gammel).
 message:Innlegg
 message_counter:Våre brukere har postet totalt <b>{PLURAL: post_count|$1 melding|$1 meldinger}</b> i <b>{PLURAL: thread_count|$1 emne|$1 emner}</b>.
 message_index:Innleggsindex
@@ -202,7 +204,7 @@ was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> har blitt 
 welcome_message:Velkommen <b>{VAR: usr->alias}</b>! Ditt forrige besøk var {TEMPLATE: welcome_message_date}
 what_ppl_doing:vis hva folk holder på med
 reported_del_report:Slett rapport
-reported_reason:Årsak
+reported_reason:Årsak:
 reported_on:Tid:
 reported_reported_by:Rapportert av:
 reported_reported_msg:Rapporterte innlegg

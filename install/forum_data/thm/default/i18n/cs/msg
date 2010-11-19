@@ -202,7 +202,7 @@ was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> byla moder
 welcome_message:Vítejte <b>{VAR: usr->alias}</b>, tvoje poslední návštěva byla v {TEMPLATE: welcome_message_date}
 what_ppl_doing:ukaž, co dělají ostatní
 reported_del_report:Zpráva o smazání
-reported_reason:Důvod
+reported_reason:Důvod:
 reported_on:Oznámeno v:
 reported_reported_by:Oznámeno kým:
 reported_reported_msg:Oznámená zpráva

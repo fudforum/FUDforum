@@ -201,7 +201,7 @@ was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> es estat d
 welcome_message:Benvenguda <b>{VAR: usr->alias}</b>, vòstra darrièra visita se debanèt lo {TEMPLATE: welcome_message_date}
 what_ppl_doing:Far veire çò que los autres son a far
 reported_del_report:Destruire un rapòrt
-reported_reason:Rason
+reported_reason:Motiu :
 reported_on:Lo :
 reported_reported_by:Raportat per :
 reported_reported_msg:Messatges raportats

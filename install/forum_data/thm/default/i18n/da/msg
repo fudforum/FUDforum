@@ -202,7 +202,7 @@ was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> er blevet 
 welcome_message:Velkommen <b>{VAR: usr->alias}</b>, du var sidst på besøg her {TEMPLATE: welcome_message_date}
 what_ppl_doing:Vis, hvad folk gør
 reported_del_report:Slet rapport
-reported_reason:Begrundelse
+reported_reason:Begrundelse:
 reported_on:Den:
 reported_reported_by:Rapporteret af:
 reported_reported_msg:Rapporterede beskeder

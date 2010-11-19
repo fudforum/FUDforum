@@ -73,6 +73,8 @@ cal_goto_date:Ga naar:
 cal_day_heading:Gebeurtenissen voor dag
 cal_no_events:Geen gebeurtenissen voor dag.
 cal_update:De forumkalender aan het bekijken
+cal_birthday:Verjaardag: {VAR: user}
+cal_birthday_age:($1 {PLURAL: age|jaar|jaar}).
 message:Bericht
 message_counter:Onze gebruikers hebben in totaal <b>{PLURAL: post_count|$1 bericht|$1 berichten}</b> geplaatst in <b>{PLURAL: thread_count|$1 onderwerp|$1 onderwerpen}</b>.
 message_index:Berichtenlijst
@@ -203,7 +205,7 @@ was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> is verplaa
 welcome_message:Welkom <b>{VAR: usr->alias}</b>. Uw laatste bezoek was op {TEMPLATE: welcome_message_date}
 what_ppl_doing:Laat zien waar andere gebruikers mee bezig zijn
 reported_del_report:Rapport verwijderen
-reported_reason:Reden
+reported_reason:Reden:
 reported_on:Op:
 reported_reported_by:Gerapporteerd door:
 reported_reported_msg:Gerapporteerde berichten

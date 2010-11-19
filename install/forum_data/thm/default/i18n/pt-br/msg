@@ -73,6 +73,8 @@ cal_goto_date:Ir para:
 cal_day_heading:Eventos por dia
 cal_no_events:Não há eventos para este dia.
 cal_update:Navegando no calendário do fórum
+cal_birthday:Aniversário : {VAR: user}
+cal_birthday_age:({PLURAL: age|$1 ano|$1 anos}).
 message:Mensagem
 message_counter:Os nossos usuários postaram um total de <b>{PLURAL: post_count|$1 mensagem|$1 mensagens}</b> em <b>{PLURAL: thread_count|$1 tópico|$1 tópicos}</b>.
 message_index:Índice da mensagem
@@ -203,7 +205,7 @@ was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> foi movido
 welcome_message:Bem vindo <b>{VAR: usr->alias}</b>, a sua última visita foi em {TEMPLATE: welcome_message_date}
 what_ppl_doing:Mostrar o que os membros estão fazendo
 reported_del_report:Apagar relatório
-reported_reason:Razão
+reported_reason:Motivo:
 reported_on:Em:
 reported_reported_by:Reportado por:
 reported_reported_msg:Mensagens reportadas

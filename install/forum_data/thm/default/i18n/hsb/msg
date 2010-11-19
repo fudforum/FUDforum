@@ -71,6 +71,8 @@ cal_goto_date:Skočić do:
 cal_day_heading:Podawki za dźeń
 cal_no_events:Žane podawki tón dźeń.
 cal_update:Forumowa protyka so přepytuje
+cal_birthday:Narodniny: {VAR: user}
+cal_birthday_age:({PLURAL: age|$1 lěto|$1 lěće|$1 lěta|$1 lět} stary)
 message:Powěsć
 message_counter:Naši wužiwarjo su dohromady <b>{PLURAL: post_count|$1 powěsć|$1 powěsći|$1 powěsće|$1 powěsćow}</b> znutřka <b>{PLURAL: thread_count|$1 temy|$1 temow|$1 temow|$1 temow}</b> pósłali.
 message_index:Powěsćowy indeks
@@ -201,7 +203,7 @@ was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> bu wot mod
 welcome_message:Witaj <b>{VAR: usr->alias}</b>, twój posledni wopyt bě {TEMPLATE: welcome_message_date}
 what_ppl_doing:Pokazać, štož ludźo runje činja
 reported_del_report:Zdźělenku zničić
-reported_reason:Přičina
+reported_reason:Přičina:
 reported_on:Datum:
 reported_reported_by:Zdźěleny wot:
 reported_reported_msg:Zdźělene powěsće

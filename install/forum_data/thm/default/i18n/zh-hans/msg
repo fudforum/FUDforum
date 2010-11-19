@@ -206,7 +206,7 @@ was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> 已经被�
 welcome_message:欢迎！ <b>{VAR: usr->alias}</b>，你上一次访问是 {DATE: usr->last_visit %Y-%m-%d %H:%M}
 what_ppl_doing:显示浏览者的操作
 reported_del_report:删除报告
-reported_reason:原因
+reported_reason:原因：
 reported_on:关于：
 reported_reported_by:报告提出人：
 reported_reported_msg:报告相关内容

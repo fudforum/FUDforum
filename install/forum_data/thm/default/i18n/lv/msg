@@ -192,7 +192,7 @@ was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> moderātor
 welcome_message:Sveiki <b><u>{VAR: usr->alias}</u></b>, prieks Jūs atkal redzēt kopš {TEMPLATE: welcome_message_date}
 what_ppl_doing:parādīt ko kurš dara
 reported_del_report:Dzēst atskaiti
-reported_reason:Iemesls
+reported_reason:Iemesls:
 reported_on:Paziņojuma datums:
 reported_reported_by:Paziņojums no:
 reported_reported_msg:Paziņojums par ierakstu

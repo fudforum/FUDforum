@@ -199,7 +199,7 @@ was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> estis movi
 welcome_message:Bonvenon, <b>{VAR: usr->alias}</b>. Via lasta vizito estis je {TEMPLATE: welcome_message_date}
 what_ppl_doing:Montri kion uzantoj estas farantaj
 reported_del_report:Forigi Raporton
-reported_reason:Kialo
+reported_reason:Kialo:
 reported_on:Je:
 reported_reported_by:Raportita De:
 reported_reported_msg:Raportitaj Mesaĝoj
