@@ -94,9 +94,9 @@ function get_fud_table_list($tbl=null)
 		return db_all('SELECT rdb$relation_name FROM rdb$relations WHERE rdb$view_blr is null AND(rdb$system_flag is null or rdb$system_flag = 0) AND rdb$relation_name LIKE \''. $GLOBALS['DBHOST_TBL_PREFIX'] .'%\'');
 	} else if (__dbtype__ == 'mssql') {
 		if ($tbl) {
-			return db_all('EXEC sp_tables @table_name = \''. $tbl .'\'');
+			return db_all('SELECT table_name FROM information_schema.tables WHERE table_name LIKE \''. $tbl .'\'');
 		}
-		return db_all('EXEC sp_tables @table_name = \''. $GLOBALS['DBHOST_TBL_PREFIX'] .'%\'');
+		return db_all('SELECT table_name FROM information_schema.tables WHERE table_name LIKE \''. $GLOBALS['DBHOST_TBL_PREFIX'] .'%\'');
 	} else if (__dbtype__ == 'mysql') {
 		if ($tbl) {
 			return db_all('SHOW TABLES LIKE \''. $tbl .'\'');
@@ -369,7 +369,9 @@ function drop_table($tbl, $ifexists=false) {
 	}
 
 	if ($ifexists) {
-		if (__dbtype__ == 'oracle') {
+		if (__dbtype__ == 'mssql') {
+			q('IF EXISTS(SELECT table_name FROM information_schema.tables WHERE table_name = \''. $tbl .'\') DROP TABLE '. $tbl);
+		} else if (__dbtype__ == 'oracle') {
 			q('BEGIN execute immediate \'DROP TABLE '. $tbl .'\'; EXCEPTION when others then null; END;');
 		} else {
 			q('DROP TABLE IF EXISTS '. $tbl);

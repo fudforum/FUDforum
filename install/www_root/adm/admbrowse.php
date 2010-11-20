@@ -524,7 +524,7 @@ if (!extension_loaded('posix')) {
 
 			echo ' [<a href="admbrowse.php?down=1&amp;cur='. $cur_enc .'&amp;dest='. $de_enc .'&amp;'. __adm_rsid .'" title="Download">d/l</a>]';
 
-			if (@is_writeable($fpath) && $de != '.' && $de != '..') {
+			if (@is_writeable($fpath) && $de != '.' && $de != '..' && $de != '.htaccess') {
 				echo ' [<a href="#" onclick="window.open(\'admbrowse.php?rename=1&amp;cur='. $cur_enc .'&amp;dest='. $de_enc .'&amp;'. __adm_rsid .'\', \'rename_window\', \'width=500,height=350,menubar=no\');" title="Rename">ren</a>]';
 				echo ' [<a href="#" onclick="window.open(\'admbrowse.php?del=1&amp;cur='. $cur_enc .'&amp;dest='. $de_enc .'&amp;'. __adm_rsid .'\', \'delete_window\', \'width=500,height=350,menubar=no\');" title="Delete">del</a>]';
 			}

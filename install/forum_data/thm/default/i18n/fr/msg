@@ -43,7 +43,7 @@ forum_new_messages:Nouveaux messages
 forum_none_messages:Seuls les membres inscrits au forum peuvent surveiller les messages lus et non lus
 forum_old_messages:Pas de nouveau(x) message(s)
 from:De :
-gender:Sexe :
+gender:Genre :
 go:Valider
 goto_next_msg:Message suivant
 goto_prev_msg:Message précédent
@@ -342,7 +342,7 @@ register_bday_desc:Si vous entrez votre date de naissance, les autres membres du
 register_day:Jour
 register_month:Mois
 register_year:Année
-register_gender:Sexe :
+register_gender:Genre :
 register_bio:Biographie :
 register_bio_desc:Présentez-vous en quelques lignes ...
 register_prefs:Préférences
@@ -514,7 +514,7 @@ remail_error:Une erreur est survenue
 mklist_type:Type :
 mklist_option:Option :
 mklist_additem:Ajouter un élément
-mklist_apply:Valider
+mklist_apply:Appliquer
 mklist_delete:Supprimer
 qbud_nick_name:Surnom
 qbud_add_selected:Ajouter les éléments sélectionnés

@@ -199,7 +199,7 @@
 
 		$cases = '';
 		foreach($locales as $k => $v) {
-			$cases .= "case '$k': document.forms['admthm'].thm_locale.value = '". $v['locale'] ."'; ";
+			$cases .= "case '$k': document.forms['admthm'].thm_locale.value = '". addslashes($v['locale']) ."'; ";
 			$cases .= "document.forms['admthm'].thm_pspell_lang.value='". $v['pspell_lang'] ."'; ";
 			$cases .= "break;\n";
 		}

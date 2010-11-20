@@ -9,11 +9,6 @@
 * Free Software Foundation; version 2 of the License.
 **/
 
-	error_reporting(E_ALL);
-	@ini_set('display_errors', '1');
-	@ini_set('memory_limit', '256M');
-	@set_time_limit(0);
-
 function backup_dir($dirp, $fp, $write_func, $keep_dir, $p=0)
 {
 	global $BUF_SIZE;
@@ -78,6 +73,12 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir, $p=0)
 		}
 	}
 }
+
+/* main */
+	error_reporting(E_ALL);
+	@ini_set('display_errors', '1');
+	@ini_set('memory_limit', '256M');
+	@set_time_limit(0);
 
 	require('./GLOBALS.php');
 

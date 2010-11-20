@@ -18,7 +18,7 @@ birth_date:Tgl.Lahir:
 by:Oleh:
 by_mod:Oleh Moderator
 current_time:Waktu sekarang
-custom_avatar_queue:Antrian avatar kustom
+custom_avatar_queue:Antrean avatar kustom
 date_posted:Tgl dimasukkan
 date_registered:Tgl terdaftar:
 download_counter:Diunduh {PLURAL: v[3]|$1 time|$1 times}
@@ -66,8 +66,7 @@ logged_in_list:Daftar pemakai sedang aktif
 login:Masuk log
 login_header:Masuk log:
 logout:keluar log
-# Fuzzy
-mark_all_read:Tandai semua terbaca
+mark_all_read:Tandai semua pesan sebagai terbaca
 mark_all_read_desc:Semua pesan blm terbaca akan ditandai sbg terbaca
 members:Anggota
 calendar:Kalender
@@ -75,13 +74,15 @@ cal_goto_date:Langsung ke:
 cal_day_heading:Kegiatan hari ini
 cal_no_events:Tidak ada kegiatan untuk hari ini.
 cal_update:Meramban kalender forum
+cal_birthday:Ulang tahun: {VAR: user}
+cal_birthday_age:({PLURAL: age|$1 tahun|$1 tahun}).
 message:Pesan
 message_counter:Pengguna kami telah mengirim sejumlah <b>{PLURAL: post_count|$1 message|$1 messages}</b> dalam <b>{PLURAL: thread_count|$1 topic|$1 topics}</b>.
 message_index:Daftar pesan
 message_index_desc:Lihat daftar pesan
 minimize_category:Perkecil kategori
 minimize_message:Perkecil Pesan
-moderation_queue:Antrian moderasi
+moderation_queue:Antrean moderasi
 moderator:Moderator
 moderator_of:Moderator dari:
 moderator_options:Pilhan Moderator
@@ -838,7 +839,7 @@ maximize_message:Pesan diperbesar
 no_view_perm:Anda tidak memilik wewenang yang cukup untuk melihat topik ini.
 report_empty_report:Berikan alasan anda untuk melaporkan
 report_already_reported_title:Sudah dilaporkan
-report_already_reported_msg:Pesan ini sudah dilaporkan ke moderator, sedang menunggu antrian untuk diperiksa.
+report_already_reported_msg:Pesan ini sudah dilaporkan ke moderator dan sedang menunggu antrean untuk diperiksa.
 register_err_toomanyimages:Anda mencoba untuk memakai lebih dari {GVAR: FORUM_IMG_CNT_SIG} gambar di tanda-tangan anda.
 pmsg_next_msg:Pesan berikutnya
 pmsg_prev_msg:Pesan sebelumnya
@@ -1038,8 +1039,7 @@ uc_sub_topics:Topik berlangganan untuk pesan baru
 uc_page_title:Melihat panel kontrol pribadi
 search_options:Opsi pencarian
 search_user_filter:Filter atas dasar pengguna:
-# Fuzzy
-register_none:Jangan beritahu
+register_none:Jangan beritahu saya
 findu_no_conf:Pengguna belum dikonfirmasi
 register_max_sig_len:Panjang maksimum:
 register_turing:Masukkan kode terlihat dibawah ini:
@@ -1127,3 +1127,4 @@ feed_rdf:RDF asupan
 feed_rss:RSS2 asupan
 feed_atom:ATOM asupan
 ip_whois_connect_err:Tidak dapat terhubung ke server WHOIS ({VAR: whois_server}): {VAR: errstr}
+custom_filed_required:Bidang ini perlu diisi.

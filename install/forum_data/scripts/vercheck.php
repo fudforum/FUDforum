@@ -178,7 +178,7 @@ function get_remote_file($url, $timeout, $head_only = false, $max_redirects = 10
 	$display_ver = substr($verinfo, 0, strpos($verinfo, '::'));
 	echo 'Current version: '. $FORUM_VERSION .', latest version is: '. $display_ver ."\n";
 
-	if (version_compare($FORUM_VERSION, $display_ver)) {
+	if (version_compare($display_ver, $FORUM_VERSION, '>')) {
 		echo 'Please upgrade to '. $display_ver ." ASAP!\n";
 		define('_uid', 1);
 		fud_use('db.inc');

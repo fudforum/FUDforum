@@ -74,8 +74,8 @@
 	}
 
 	/* Set defaults. */
-	$jobs = "Check for new forum versions\nGenerate sitemap";
-	$defs = "Check for new forum versions::vercheck.php\nGenerate sitemap::sitemap.php";
+	$jobs = "Backup forum\nCheck for new forum versions\nCheck forum consistency\nGenerate sitemap\nOptimize database tables";
+	$defs = "Backup forum::acp.php backup\nCheck for new forum versions::vercheck.php\nCheck forum consistency::acp.php consist\nGenerate sitemap::sitemap.php\nOptimize database tables::acp.php dbcheck";
 	$c = uq('SELECT id, name, \'xmlagg\' FROM '. $tbl .'xmlagg UNION 
 			 SELECT id, name, \'maillist\' FROM '. $tbl .'mlist WHERE mbox_server != \'\' AND mbox_server IS NOT NULL UNION 
 			 SELECT id, newsgroup, \'nntp\' FROM '. $tbl .'nntp');
@@ -208,7 +208,7 @@
 				[<a href="admjobs.php?edit='. $r->id .'&amp;'. __adm_rsid .'#edit">Edit</a>]
 				[<a href="admjobs.php?del='.  $r->id .'&amp;'. __adm_rsid .'">Delete</a>] &nbsp;|&nbsp; '.
 				($running ? '' : '[<a href="admjobs.php?run='. $r->id .'&amp;'. __adm_rsid .'#list">Run now!</a>]') .'
-				[<a href="admjobs.php?log='.  $r->id .'&amp;'. __adm_rsid .'#output">View Log</a>]
+				[<a href="admjobs.php?log='.  $r->id .'&amp;'. __adm_rsid .'&amp;rand='. rand() .'#output">View Log</a>]
 			</small></td></tr>';
 	}
 	unset($c);

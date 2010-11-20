@@ -10,7 +10,7 @@
 ***************************************************************************/
 //TODO: Do we still need extract_archive()???
 
-$__UPGRADE_SCRIPT_VERSION = 5302.3;
+$__UPGRADE_SCRIPT_VERSION = 5302.4;
 
 /*
   * SQL Upgrade Functions - format is tablename_colname():
@@ -998,10 +998,20 @@ pf('<h2>Step 1: Admin login</h2>', true);
  	}
 
 	/* Remove obsolete SQL files. */
-	$rm_sql = array('def_users.sql');	// Merge into install.php (3.0.2).
+	$rm_sql = array('def_users.sql',	// Merge into install.php (3.0.2).
+			'fud_style.tbl',	// Left over from an ancient release.
+			'fud_settings.tbl');	// Another old file.
 	foreach ($rm_sql as $f) {
 		if (file_exists($GLOBALS['DATA_DIR'] .'sql/'. $f)) {
 			unlink($GLOBALS['DATA_DIR'] .'sql/'. $f);
+		}
+	}
+
+	/* Remove obsolete plugin files. */
+	$rm_plugins = array('apc_cache.plugin');	// Renamed to apccache.plugin (3.0.2).
+	foreach ($rm_plugins as $f) {
+		if (file_exists($GLOBALS['DATA_DIR'] .'plugins/'. $f)) {
+			unlink($GLOBALS['DATA_DIR'] .'plugins/'. $f);
 		}
 	}
 
@@ -1096,7 +1106,7 @@ pf('<h2>Step 1: Admin login</h2>', true);
 	fclose($fp);
 
 	/* Log upgrade action. */
-	q('INSERT INTO '. $DBHOST_TBL_PREFIX .'action_log (logtime, logaction, user_id, a_res) VALUES ('. __time__ .', \'Forum\', '. $auth .', \'Upgraded to '. $FORUM_VERSION .'\')');
+	q('INSERT INTO '. $DBHOST_TBL_PREFIX .'action_log (logtime, logaction, user_id, a_res) VALUES ('. __time__ .', \'Forum\', '. $auth .', \'Upgraded from '. $FORUM_VERSION .'\')');
 
 	/* Remove UPGRADE script if the user won't be able to do it himself. */
 	if (SAFE_MODE && basename(__FILE__) == 'upgrade_safe.php') {

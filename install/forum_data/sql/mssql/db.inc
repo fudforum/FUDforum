@@ -17,14 +17,15 @@
 if (!defined('fud_sql_lnk')) {
 	$connect_func = $GLOBALS['FUD_OPT_1'] & 256 ? 'mssql_pconnect' : 'mssql_connect';
 
-	$conn = @$connect_func($GLOBALS['DBHOST'], $GLOBALS['DBHOST_USER'], $GLOBALS['DBHOST_PASSWORD']) or fud_sql_error_handler('Initiating '. $connect_func, mssql_get_last_message(), null, 'Unknown');
+	$conn = $connect_func($GLOBALS['DBHOST'], $GLOBALS['DBHOST_USER'], $GLOBALS['DBHOST_PASSWORD']) or fud_sql_error_handler('Initiating '. $connect_func, mssql_get_last_message(), null, 'Unknown');
 	define('fud_sql_lnk', $conn);
+
 	@mssql_select_db($GLOBALS['DBHOST_DBNAME'], fud_sql_lnk) or fud_sql_error_handler('Opening database '. $GLOBALS['DBHOST_DBNAME'], mssql_get_last_message(), null, db_version());
 	@ini_set('mssql.charset', 'UTF-8');
 	@ini_set('mssql.textlimit', 2147483647);
 	@ini_set('mssql.textsize', 2147483647);
 
-	define('__dbtype__', 'mysql');
+	define('__dbtype__', 'mssql');
 }
 
 function db_version()
@@ -137,21 +138,25 @@ function q_singleval($query)
 
 function q_limit($query, $limit, $off=0)
 {
-	return $query . 'OFFSET '. $off .' ROWS FETCH NEXT '. $limit .'ROWS ONLY';
-/*
 	if ($off) {
-		return 'SELECT TOP '. $limit .' FROM (SELECT TOP '. ($limit/$off)*$limit . substr($query, 6) .')';
+		// return 'SELECT TOP '. $limit .' FROM (SELECT TOP '. ($limit/$off)*$limit . substr($query, 6) .')';
+		return $query . ' OFFSET '. $off .' ROWS FETCH NEXT '. $limit .' ROWS ONLY';
 	} else {
 		return 'SELECT TOP '. $limit . substr($query, 6);
 	}
-*/
 }
 
 function q_concat($arg)
 {
 	// Breaks the standard by using the '+' operator instead of '||'. 
 	$tmp = func_get_args();
-	return implode('+', $tmp);
+	$val = null;
+
+	foreach($tmp as $str) {
+		$val .= empty($val) ? 'CAST('. $str .' AS VARCHAR)' : ' + CAST('. $str .' AS VARCHAR)';
+	}
+
+	return $val;
 }
 
 function q_rownum() {
@@ -183,7 +188,7 @@ function db_sab($q)
 function db_qid($q)
 {
 	q($q);
-	return mssql_insert_id(fud_sql_lnk);
+	return q_singleval('SELECT @@identity');
 }
 
 function db_arr_assoc($q)
@@ -193,29 +198,31 @@ function db_arr_assoc($q)
 
 function db_fetch_array($q)
 {
-        return mssql_fetch_array($q);
+        return mssql_fetch_array($q, MSSQL_ASSOC);
 }
 
 function db_li($q, &$ef, $li=0)
 {
-	$r = mssql_query($q, fud_sql_lnk);
+	$r = @mssql_query($q, fud_sql_lnk);
 	if ($r) {
-		return ($li ? mssql_insert_id(fud_sql_lnk) : $r);
+		return ($li ? q_singleval('SELECT @@identity') : $r);
 	}
 
-	/* Duplicate key. */
-	if (mssql_errno(fud_sql_lnk) == 1062) {
-		$ef = ltrim(strrchr(mssql_get_last_message(), ' '));
-		return null;
-	} else {
-		fud_sql_error_handler($q, mssql_get_last_message(), null, db_version());
+	/* Error 2601 is Cannot insert duplicate key row in object. */
+	if ($err = mssql_get_last_message()) {
+		if (q_singleval('SELECT @@ERROR') == 2601) {
+			$ef = ltrim(strrchr(mssql_get_last_message(), ' '));
+			return null;
+		} else {
+			fud_sql_error_handler($q, $err, null, db_version());
+		}
 	}
 }
 
 function ins_m($tbl, $flds, $types, $vals)
 {
 	// MS-SQL 2008 and higher supports multiple value pairs.
-	q('INSERT INTO '. $tbl. ' ('. $flds. ') VALUES ('. implode('),(', $vals). ')');
+	@q('SET XACT_ABORT OFF; INSERT INTO '. $tbl. ' ('. $flds. ') VALUES ('. implode('),(', $vals). ')');
 }
 
 function db_all($q)
@@ -230,21 +237,8 @@ function db_all($q)
 
 function _esc($s)
 {
-	return '\''. mssql_real_escape_string($s, fud_sql_lnk) .'\'';
+	// There is no mssql_real_escape_string().
+	return '\''. stripslashes(str_replace("'", "''", $s)) .'\'';
 }
 
-/* Implement missing driver functions. */
-/***
-function mssql_unbuffered_query($query,$fud_sql_lnk) {
-	return mssql_query($query, $fud_sql_lnk);
-}
-
-function mssql_errno($fud_sql_lnk) {
-	return -1;
-}
-
-function mssql_error($fud_sql_lnk) {
-	return mssql_get_last_message();
-}
-***/
 ?>
