@@ -640,9 +640,11 @@ $(document).ready(function() {
 	}
 
 	if (!$auth) {
+/* REMOVE
 		if ($no_mem_limit && !@is_writeable(__FILE__)) {
 			seterr('You need to chmod the '. __FILE__ .' file 666 (-rw-rw-rw-), so that the upgrade script can modify itself.');
 		}
+*/
 		if ($no_mem_limit) {
 			extract_archive($no_mem_limit);
 		}
