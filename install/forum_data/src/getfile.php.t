@@ -17,6 +17,7 @@ function get_preview_img($id)
 	return db_saq('SELECT mm.mime_hdr, a.original_name, a.location, 0, 0, 0, a.fsize FROM {SQL_TABLE_PREFIX}attach a LEFT JOIN {SQL_TABLE_PREFIX}mime mm ON mm.id=a.mime_type WHERE a.message_id=0 AND a.id='. $id);
 }
 
+/* main */
 	if (!isset($_GET['id']) || !($id = (int)$_GET['id'])) {
 		invl_inp_err();
 	}
