@@ -11,10 +11,13 @@
 
 	require('./GLOBALS.php');
 	fud_use('adm.inc', true);
+	fud_use('logaction.inc');
+
 	require($WWW_ROOT_DISK .'adm/header.php');
 
 	if (isset($_GET['clear'])) {
 		q('DELETE FROM '. $DBHOST_TBL_PREFIX .'action_log');
+		logaction(_uid, 'Cleared action log');
 		echo successify('Action log was successfully cleared.');
 	}
 

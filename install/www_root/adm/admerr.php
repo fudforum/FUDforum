@@ -87,6 +87,7 @@ function print_log($logfile, $search)
 /* main */
 	require('./GLOBALS.php');
 	fud_use('adm.inc', true);
+	fud_use('logaction.inc');
 	require($WWW_ROOT_DISK .'adm/header.php');
 
 	// Check for errors in the following error logs. 
@@ -100,11 +101,13 @@ function print_log($logfile, $search)
 	/* Empty out log file. */
 	if (isset($_GET['clear'], $_GET['log'])) {
 		$logfile = $ERROR_PATH . $_GET['log'];
+		$logname = strtoupper($_GET['log']);
 		if (is_file($logfile)) {
 			if (@unlink($logfile)) {
-				echo successify('The '. strtoupper($_GET['log']) .' log was successfully cleared.');
+				logaction(_uid, 'Cleared error log', 0, $logname);
+				echo successify('The '. $logname .' log was successfully cleared.');
 			} else {
-				echo errorify('Unable to remove '. $_GET['log'] .' log. Please fix permissions of '. $logfile);
+				echo errorify('Unable to remove the '. $logname .' log. Please fix permissions of '. $logfile);
 			}
 		}
 	}
