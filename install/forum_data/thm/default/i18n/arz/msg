@@ -102,7 +102,7 @@ no_unread_locked:أغلق هذا الموضوع
 no_unread_msg:لا يحتوى هذا الموضوع رسائل غير مقروءة
 no_unread_msg_unreg:الرسائل المقروءه وغير المقروءه مُتتبّعه للمستخدمين المسجلين فقط
 num_pages:الصفحات ({VAR: ttl_pg}):
-num_votes: {PLURAL: obj->total_votes|صوت|{VAR: obj->total_votes} أصوات}
+num_votes:{PLURAL: obj->total_votes|صوت|{VAR: obj->total_votes} أصوات}
 occupation:المهنة:
 off:مُطفأ
 on:مُشغّل

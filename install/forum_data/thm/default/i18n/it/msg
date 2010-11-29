@@ -42,7 +42,7 @@ go:Vai
 goto_next_msg:Messaggio successivo
 goto_prev_msg:Messaggio precedente
 home:Home
-homepage: Homepage:
+homepage:Homepage:
 icq_control_panel:Pannello Messaggi on-line ICQ
 icq_message_form:ICQ Form Messaggi:
 ignore_user:ignora tutti i messaggi<br />di questo utente
@@ -197,7 +197,7 @@ user_online:{VAR: obj->login} è attualmente in linea
 usrinfo_last_post:Ultimo messaggio:
 view_results:Visualizza risultati
 views:visualizzazioni
-vote:↓ {PLURAL: frm->n_rating|$1 Voto|$1 Voti}
+vote:{PLURAL: frm->n_rating|$1 Voto|$1 Voti}
 vote_button:Vota
 vote_for_thread:Vota l'argomento
 was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> è stato spostato in <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> dal moderatore.

@@ -42,7 +42,7 @@ home:Почеток
 homepage:Почетна страница:
 icq_control_panel:Табла на присутни ICQ корисници
 icq_message_form:Образец за ICQ пораки:
-ignore_user:игнорирај ги сите пораки од овој корисник
+ignore_user:занемари ги сите пораки од овој корисник
 im_aim:AIM Handle:
 im_msnm:MSN Messenger:
 im_yahoo:Yahoo Messenger:
@@ -347,7 +347,7 @@ register_show_sig_desc:Ви овозможува да ги сокриете/пр
 register_use_sig_default:Користи потпис по основно:
 register_use_sig_default_desc:Автоматски приложи ми го потписот во секоја порака што ја објавувам.
 register_timezone:Часовна зона
-register_ignore_admin:Игнорирај административни пораки:
+register_ignore_admin:Занемари административни пораки:
 register_invisible_mode:Невидлив режим
 register_invisible_mode_desc:Крие дека сте на линија.
 register_show_email:Прикажи е-пошта:
@@ -391,7 +391,7 @@ post_icons:Икона на пораката:
 post_no_icon:Нема икона
 post_smiley:Смешковци:
 post_format_tools:Алатки за форматирање:
-post_upload_file:Подигни податотека
+post_upload_file:Подигање
 post_file_del:Избриши
 post_file_name:Име
 post_file_size:Големина

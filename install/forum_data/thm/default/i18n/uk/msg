@@ -1,5 +1,6 @@
 # Messages for Ukrainian (Українська)
 # Exported from translatewiki.net
+# Author: Ahonc
 # Author: Alex Khimich
 # Author: Apromix
 # Author: Naudefj
@@ -1049,7 +1050,7 @@ idx_compact_forum_row:Доступні форуми:
 mmd_del_title:Видалити теми
 mmd_mov_title:Переміщення тем
 mmd_move_threads_to:Приймаючий форум:
-mmd_abort_move:Відміна
+mmd_abort_move:Скасувати
 mmd_move:Переміщення тем
 pmsg_pdf_btn:Зробити PDF Архів
 search_results_hdr:Знайдено сторінок в пошуку: {VAR: total}

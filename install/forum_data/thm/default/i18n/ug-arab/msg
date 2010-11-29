@@ -18,7 +18,7 @@ current_time:نۆۋەتتىكى ۋاقىت
 custom_avatar_queue:ئىختىيارى سىما تىزىملىكى
 date_posted:يوللانغان ۋاقتى
 date_registered:خەتلەتكەن ۋاقىت:
-download_counter: {PLURAL: v[3]|$1 قېتىم|$1 قېتىم} چۈشۈرۈلدى
+download_counter:{PLURAL: v[3]|$1 قېتىم|$1 قېتىم} چۈشۈرۈلدى
 pmsg_download_counter:{PLURAL: r->dlcount|$1 قېتىم|$1 قېتىم} چۈشۈرۈلدى
 email::ئېلخەت
 email_to_friend:ددوستۇمغا ئېلخەت
@@ -94,7 +94,7 @@ new_thread:يېڭى تېما قۇر
 newest_user:يېڭى خەتلەتكەن ئەزا
 next_page:كېيىنكى بەت
 next_thread:كېيىنكى تېما:
-no_messages: بۇ مۇنبەردە ھېچقانداق ئۇچۇر يوق.
+no_messages:بۇ مۇنبەردە ھېچقانداق ئۇچۇر يوق.
 no_msg_body:ئۇچۇر گەۋدىسى يوق
 no_new_posts:يېڭى ئۇچۇر يوق
 no_posts:ئۇچۇر يوق
@@ -130,7 +130,7 @@ registered_on:خەتلەتكەن ۋاقتى {TEMPLATE: registered_on_date}
 replies:جاۋاب
 report_to_mod:رىياسەتچىگە ئۇچۇر مەلۇم قىل
 reported_messages:مەلۇم قىلىنغان ئۇچۇر
-reveal_all_posts: {VAR: user_login}نىڭ ھەممە ئۇچۇرىنى كۆرسەت
+reveal_all_posts:{VAR: user_login}نىڭ ھەممە ئۇچۇرىنى كۆرسەت
 reveal_post:كۆرسەتكەن ئۇچۇر
 search:ئىزدە
 sel_todays_posts:بۈگۈنكى ئۇچۇرلار
