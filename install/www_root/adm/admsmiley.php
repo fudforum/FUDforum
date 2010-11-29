@@ -75,6 +75,7 @@
 				q('UPDATE '. $GLOBALS['DBHOST_TBL_PREFIX'] .'smiley SET vieworder=vieworder+1 WHERE vieworder<'. $oldp .' AND vieworder>='. $newp);
 			}
 			q('UPDATE '. $GLOBALS['DBHOST_TBL_PREFIX'] .'smiley SET vieworder='. $newp .' WHERE vieworder=2147483647');
+			smiley_rebuild_cache();
 			db_unlock();
 			$_GET['chpos'] = null;
 			echo successify('Smiley\'s position was succesfully changed.');
