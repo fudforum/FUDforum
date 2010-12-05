@@ -103,16 +103,17 @@ function change_global_settings($list)
 {
 	$settings = file_get_contents($GLOBALS['INCLUDE'] .'GLOBALS.php');
 	foreach ($list as $k => $v) {
-		if (($p = strpos($settings, '$'. $k)) === false) {	// New or existing setting?
+		$v = str_replace("\n", '<br />', $v);	// Get rid of newlines (they will break this function).
+		$v = addcslashes($v, '\\\'');
+
+		if (($p = strpos($settings, '$'. $k)) === false) {	// Find it. New or existing setting?
 			$p = strpos($settings, '$ADMIN_EMAIL');			// Insert position for new settings.
 			if (is_int($v)) {
 				$settings = substr_replace($settings, "\${$k}\t= {$v};\n\t", $p, 0);
 			} else {
-				$v = str_replace("\n", '<br />', $v);	// Get rid of newlines (they will break this function).
-				$v = addcslashes($v, '\\\'');
 				$settings = substr_replace($settings, "\${$k}\t= '{$v}';\n\t", $p, 0);
 			}
-		} else {
+		} else {	// Update existing setting.
 			$p = strpos($settings, '=', $p) + 1;
 			$e = $p + strrpos(substr($settings, $p, (strpos($settings, "\n", $p) - $p)), ';');
 
