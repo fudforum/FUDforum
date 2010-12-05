@@ -123,8 +123,8 @@
 			$cat = $cid;
 		}
 
-		/* Compact view check. */
-		if ($r[18] & 4) {
+		/* Compact category view (ignore when expanded). */
+		if ($r[18] & 4 && !$cat_id) {
 			$cbuf .= '{TEMPLATE: idx_compact_forum_entry}';
 			continue;
 		}
