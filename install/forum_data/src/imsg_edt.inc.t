@@ -565,17 +565,24 @@ class fud_msg_edit extends fud_msg
 				define('sql_p', '{SQL_TABLE_PREFIX}');
 
 				$lock = $nntp->get_lock();
-				$nntp->post_message($mtf->subject, $body.$nntp_adm->custom_sig, $from, $mtf->id, $replyto_id, $attach);
+				$nntp->post_message($mtf->subject, $body . $nntp_adm->custom_sig, $from, $mtf->id, $replyto_id, $attach);
 				$nntp->close_connection();
 				$nntp->release_lock($lock);
 			} else {	// Push out to mailing list.
 				fud_use('mlist_post.inc', true);
 
-				$r = db_saq('SELECT name, additional_headers, custom_sig FROM {SQL_TABLE_PREFIX}mlist WHERE id='. $mtf->mlist_id);
-				if (!empty($r[2])) {	// Add signature marker.
-					$r[2] = "\n-- \n". $r[2];
+				$r = db_saq('SELECT name, additional_headers, custom_sig, fixed_from_address FROM {SQL_TABLE_PREFIX}mlist WHERE id='. $mtf->mlist_id);
+				
+				// Add forum's signature to the messages.
+				if (!empty($r[2])) {
+					$body .= "\n-- \n". $r[2];
 				}
-				mail_list_post($r[0], $from, $mtf->subject, $body.$r[2], $mtf->id, $replyto_id, $attach, $attach_mime, $r[1]);
+
+				if (!empty($r[3])) {	// Use the forum's fixed "From:" address.
+					mail_list_post($r[0], $r[2], $mtf->subject, $body, $mtf->id, $replyto_id, $attach, $attach_mime, $r[1]);
+				} else {				// Use poster's e-mail as the "From" address.
+					mail_list_post($r[0], $from, $mtf->subject, $body, $mtf->id, $replyto_id, $attach, $attach_mime, $r[1]);
+				}
 			}
 		}
 	}

@@ -77,6 +77,29 @@ function format_regex(&$regex)
 		<td>Mailing List E-mail:<br /><font size="-1">The email address of the mailing list.</font></td>
 		<td><input type="text" name="ml_name" value="<?php echo htmlspecialchars($ml_name); ?>" size="30" maxlength="255" /></td>
 	</tr>
+	
+	<tr class="field">
+		<td>
+			Forum:<br />
+			<font size="-1">Messages imported from the mailing list will be imported into this forum.
+			It is <b>**highly recommended**</b> that you setup a separate forum for each mailing list.</font>
+		</td>
+		<td><select name="ml_forum_id"><option></option>
+		<?php
+			$c = uq('SELECT f.id, f.name, c.name
+				FROM '. $tbl .'forum f
+				INNER JOIN '. $tbl .'cat c ON f.cat_id=c.id
+				LEFT JOIN '. $tbl .'nntp n ON f.id=n.forum_id
+				LEFT JOIN '. $tbl .'mlist ml ON f.id=ml.forum_id
+				WHERE n.id IS NULL AND (ml.id IS NULL OR ml.id='. (int)$edit .')
+				ORDER BY c.parent, c.view_order, f.view_order');
+				while ($r = db_rowarr($c)) {
+					echo '<option value="'. $r[0] .'"'. ($r[0] != $ml_forum_id ? '' : ' selected="selected"') .'>'. $r[2] .' &raquo; '. $r[1] .'</option>';
+				}
+				unset($c);
+		?>
+		</select></td>
+	</tr>
 
 	<tr>
 		<td colspan="2"><br /></td>
@@ -84,7 +107,7 @@ function format_regex(&$regex)
 
 <?php	if (function_exists('imap_open')) { ?>
 	<tr>
-		<td colspan="2">Mailbox from which to load and <font color="red">delete</font> messages. Leave empty to pipe messages into the forum.<br /></td>
+		<td colspan="2">Mailbox from which to load and <font color="red">delete</font> messages. Leave empty to pipe messages into the forum (recommended).<br /></td>
 	</tr>
 
 	<tr class="field">
@@ -112,29 +135,10 @@ function format_regex(&$regex)
 	</tr>
 <?php	}	/* IMAP module is loaded. */ ?>
 
-	<tr class="field">
-		<td>
-			Forum:<br />
-			<font size="-1">Messages imported from the mailing list will be imported into this forum.
-			It is <b>**highly recommended**</b> that you setup a separate forum for each mailing list.</font>
-		</td>
-		<td><select name="ml_forum_id"><option></option>
-		<?php
-			$c = uq('SELECT f.id, f.name, c.name
-				FROM '. $tbl .'forum f
-				INNER JOIN '. $tbl .'cat c ON f.cat_id=c.id
-				LEFT JOIN '. $tbl .'nntp n ON f.id=n.forum_id
-				LEFT JOIN '. $tbl .'mlist ml ON f.id=ml.forum_id
-				WHERE n.id IS NULL AND (ml.id IS NULL OR ml.id='. (int)$edit .')
-				ORDER BY c.parent, c.view_order, f.view_order');
-				while ($r = db_rowarr($c)) {
-					echo '<option value="'. $r[0] .'"'. ($r[0] != $ml_forum_id ? '' : ' selected="selected"') .'>'. $r[2] .' &raquo; '. $r[1] .'</option>';
-				}
-				unset($c);
-		?>
-		</select></td>
+	<tr>
+		<td colspan="2">Advanced options:<br /></td>
 	</tr>
-
+	
 	<tr class="field">
 		<td>
 			Moderate Mailing List Posts:<br />
@@ -210,6 +214,14 @@ function format_regex(&$regex)
 			to existing forum members be ignored.</font>
 		</td>
 		<td><?php draw_select('ml_skip_non_forum_users', "Yes\nNo", "128\n0", ($ml_mlist_opt & 128 ? 128 : 0)); ?></td>
+	</tr>
+
+	<tr class="field">
+		<td>
+			Fixed from address:<br />
+			<font size="-1">E-mail address to use as the "From" address when sending messages to the mailing list. If left empty, messages will be send to the mailing list with the user's e-mail as the "From" address.</font>
+		</td>
+		<td><input type="text" name="ml_fixed_from_address" value="<?php echo htmlspecialchars($ml_fixed_from_address); ?>" size="30"  maxlength="255" /></td>
 	</tr>
 
 	<tr>
@@ -322,6 +334,6 @@ function format_regex(&$regex)
 
 <p>If not, you need to pipe messages into the forum with <a href="http://www.procmail.org/">procmail</a>, <a href="http://www.postfix.org/">postfix</a> or something similar. The <i>Exec Line</i> above shows the execution line required to pipe mailing list messages into the forum.</p>
 
-<p>If you synchronize Forum Posts to mailing lists, it is recommended to run the script on a small interval. For example, every 2-3 minutes.</p>
+<p>If you synchronize Forum Posts back to the mailing lists, it is recommended to run the script on a small interval. For example, every 2-3 minutes.</p>
 
 <?php require($WWW_ROOT_DISK .'adm/footer.php'); ?>

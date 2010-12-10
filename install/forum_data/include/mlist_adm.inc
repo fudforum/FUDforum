@@ -15,6 +15,7 @@ class fud_mlist
 	var $mlist_opt=72;
 	var $subject_regex_haystack, $subject_regex_needle, $body_regex_haystack, $body_regex_needle, $additional_headers;
 	var $mbox_server, $mbox_user, $mbox_pass, $mbox_type=0;
+	var $fixed_from_address;
 
 	function fud_mlist()
 	{
@@ -27,7 +28,7 @@ class fud_mlist
 			}
 
 			// Text fields.
-			foreach (array('custom_sig','additional_headers','mbox_server','mbox_user') as $v) {
+			foreach (array('custom_sig', 'additional_headers', 'mbox_server', 'mbox_user', 'fixed_from_address') as $v) {
 				$this->$v = trim($this->$v);
 			}
 
@@ -70,7 +71,8 @@ class fud_mlist
 			mbox_server,
 			mbox_user, 
 			mbox_pass, 
-			mbox_type
+			mbox_type,
+			fixed_from_address
 			)
 			VALUES(
 			'. $this->forum_id .',
@@ -85,7 +87,8 @@ class fud_mlist
 			'. _esc($this->mbox_server) .',
 			'. _esc($this->mbox_user) .',
 			'. _esc($this->mbox_pass) .',
-			'. $this->mbox_type .'
+			'. $this->mbox_type .',
+			'. _esc($this->fixed_from_address) .'
 			)');
 		if ($this->mlist_opt & 4) {
 			q('UPDATE '. $GLOBALS['DBHOST_TBL_PREFIX'] .'forum SET forum_opt='. q_bitor('forum_opt', 2) .' WHERE id='. $this->forum_id);
@@ -117,7 +120,8 @@ class fud_mlist
 			mbox_server='. _esc($this->mbox_server) .',
 			mbox_user='. _esc($this->mbox_user) .',
 			mbox_pass='. _esc($this->mbox_pass) .',
-			mbox_type='. $this->mbox_type .'
+			mbox_type='. $this->mbox_type .',
+			fixed_from_address ='. _esc($this->fixed_from_address) .'
 		WHERE id='. $id);
 
 		if ($old_frm_id != $this->forum_id && $mlist_opt & 4) {
