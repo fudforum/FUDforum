@@ -210,7 +210,7 @@ reported_reported_msg:Gerapporteerde boodskap
 modque_pending_approval:Boodskappe wat nog goedgekeur moet word
 modque_approve:Keur goed
 modque_delete:Skrap
-modque_no_message:Daar is nie meer boodskappe wat nog goedgekeur moet word nie
+modque_no_message:Daar is nie nog boodskappe wat goedgekeur moet word nie.
 pmsg_new_messages:Ongeleesde privaatboodskap
 pmsg_old_messages:Geleesde privaatboodskap
 deny_recipt:moenie bevestiging van ontvangs stuur nie

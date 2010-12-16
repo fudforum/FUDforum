@@ -1022,7 +1022,7 @@ postcheck_session_invalid:Вашата сесија истече. Поднесе
 delete_message_extra_desc:<b>Дополнително</b><br />Наведете причина за бришењето на пораката, која ќе му биде испратена на авторот преку приватна порака.
 delete_message_extra_body:Вклучи ја содржината на отстранетата порака што ќе му биде испратена на авторот.
 delete_msg_removed_ttl:Вашата порака е отстранета од администрацијата.
-delete_msg_pm_body:Оригинална порака
+delete_msg_pm_body:Изворна порака
 delete_msg_pm_subject:Наслов: {VAR: data[15]}
 ip_no_whois:Whois-информациите за <b>{VAR: ip}</b> се недостапни.
 ip_whois_title:Информации за интернет-операторот

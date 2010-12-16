@@ -971,19 +971,89 @@ mnav_hour:Гадзіна(ў)
 mnav_day:Дзень(Дзён)
 mnav_week:Тыдзень(Тыдняў)
 mnav_month:Месяц(аў)
+mnav_title:Навігатар паведамленьняў
+mnav_update:Прагляд паведамленьняў з выкарыстаньнем <a href="{TEMPLATE: mnav_update_lnk}">Навігатара паведамленьняў</a>
+pm_notify_subject:[{GVAR: FORUM_TITLE}] Абвяшчэньне пра новае асабістае паведамленьне
+pm_notify_body_email:Вы маеце новае асабістае паведамленьне з назвай "{VAR: subject}" ад "{VAR: from}" на форуме "{GVAR: FORUM_TITLE}".\nКаб паглядзець паведамленьне, націсьніце тут: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nКаб не атрымліваць падобныя абвяшчэньні ў будучыні, выключыце «Абвяшчэньні пра асабістыя паведамленьні» у Вашым профілі.
+register_pm_notification:Абвяшчэньне пра асабістая паведамленьне:
+register_pm_notification_desc:Калі ўключана, Вы будзеце атрымліваць абвяшчэньні пра асабістыя паведамленьні.
+findu_admin_opts_header:Устаноўкі адміністратара.
+findu_unban:Разблякаваць
+findu_ban:Заблякаваць
 findu_edit:Рэдагаваць
 findu_delete:Выдаліць
+dmsg_reply_to:зьяўляецца адказам на
+dmsg_reply_num:паведамленьне #{VAR: obj->reply_to}
 merge_topics:Аб'яднаць тэмы
+merge_topics_cp:Панэль кіраваньня аб'яднаньням тэмаў
+merge_topics_tpl:Выбраць тэмы для аб'яднаньня <span class="SmallText">(Вам неабходна выбраць болей адной тэмы)</span>
+merge_merge:Аб'яднаць выбраныя тэмы
 merge_next:Наступныя тэмы
 merge_prev:Папярэднія тэмы
+merge_another:Перайсьці да <a href="{TEMPLATE: merge_another_lnk}">апошняй аб'яднанай тэмы</a> ці аб'яднаць іншыя:
+split_cp:Панэль кіраваньня падзелам тэмаў
+groups_perms_header:Правы <span class="small">(утрымлівайце курсор мышкі над правам, каб паглядзець іх тып)</span>
+register_err_sig_too_long:Ваш подпіс перавышае максымальна дазволеную даўжыню {GVAR: FORUM_SIG_ML} сымбаляў.
+register_sig_limit:{GVAR: FORUM_SIG_ML} сымбаляў <a href="javascript: alert('Даўжыня Вашага подпісу складае '+document.forms['fud_register'].reg_sig.value.length+' сымбаляў. Максымальная даўжыня подпісу складае {GVAR: FORUM_SIG_ML} сымбаляў.');" class="SmallText">Праверыць даўжыню подпісу</a>
+adm_account_accepted:Ваш рахунак '{VAR: login}' быў зацьверджаны адміністратарам і цяпер зьяўляецца актыўным. Цяпер Вы можаце карыстацца форумам {GVAR: FORUM_TITLE}' як зацьверджаны і зарэгістраваны карыстальнік.
+adm_account_accepted_s:Ваш рахунак на форуме '{GVAR: FORUM_TITLE}' быў зацьверджаны.
+adm_account_rejected:Ваш рахунак '{VAR: login}' быў адхілены адміністратарам. Калі Вы жадаеце ведаць прычыну такога рашэньня, Вы можаце зьвязацца з адміністратарам '{GVAR: ADMIN_EMAIL}'.
+adm_account_rejected_s:Запыт на рэгістрацыю рахунка на '{GVAR: FORUM_TITLE}' быў адхілены.
+thread_on:уключыць
+userinfo_buddy:Сябар:
+register_email_addr:Адрас электроннай пошты:
+reset_suffix:Калі Вы атрымалі гэтае паведамленьне памылкова, калі ласка, проста яго праігнаруйце. Калі Вы атрымалі некалькі копіяў гэтага электроннага ліста, якія Вы не запытвалі, калі ласка, зьвяжыцеся з адміністратарам форуму {GVAR: ADMIN_EMAIL}\n\nГэты запыт быў ініцыяваны з: {VAR: _SERVER['REMOTE_ADDR']}.
+usrinfo_last_visit:Апошняе наведваньне:
+mnav_newer:навейшае за
+mnav_older:старэйшае за
+ip_search_by_ip:Пошук карыстальнікаў па IP-адрасу
+ip_search_syntax:Падтрымліваецца сынтаксіс: 1.2.3.4, 1.2.3, 1.2, 1
+ip_search:Пошук
+ip_analyze_usage:Аналіз выкарыстаньня IP-адрасу
+ip_analyze_usage_descr:Калі ласка, пазначце дакладны рахунак карыстальніка.
+ip_users_using:Карыстальнікі, якія выкарыстоўвалі IP-адрас '{VAR: ip}'
+ip_all_ips:Усе IP-адрасы, якія выкарыстоўваліся '{VAR: user}'
+ip_title:IP-праглядальнік
+userinfo_real_name:Сапраўднае імя:
+register_err_alias_notallowed:Гэтая мянушка не дазволеная
 post_err_mod_forum_edit_ttl:ПАМЫЛКА
+post_err_mod_forum_edit_msg:Вы ня можаце рэдагаваць паведамленьні ў мадэраваным форуме.
+dmsg_num:паведамленьне #{VAR: obj->id}
+postcheck_session_invalid:Ваша сэсія скончылася. Калі ласка, дашліце форму зноў. Прабачце за нязручнасьці.
+delete_message_extra_desc:<b>Дадаткова</b><br />Пазначце прычыну выдаленьня паведамленьня, якое будзе дасланае аўтару прыватным паведамленьнем.
+delete_message_extra_body:Уключыць тэкст выдаленага паведамленьня, якое будзе дасланае аўтару.
+delete_msg_removed_ttl:Вашае паведамленьне было выдаленае адміністратарамі.
+delete_msg_pm_body:Арыгінальнае паведамленьне
 delete_msg_pm_subject:Тэма: {VAR: data[15]}
+ip_no_whois:Whois-інфармацыя для <b>{VAR: ip}</b> недаступная.
+ip_whois_title:Інфармацыя пра правайдэра
+register_theme:Афармленьне:
+pmsg_trash:Ачысьціць сьметніцу
+uc_new_pm:Новыя прыватныя паведамленьні
 uc_new_topic:Новая тэма
+uc_new_cat_forum:Новыя паведамленьні на падпісаных форумах
+uc_cat_forum:Катэгорыя &raquo; Форум
+uc_sub_topics:Новыя паведамленьні на падпісаных тэмах
+uc_page_title:Прагляд асабістай панэлі кіраваньня.
+search_options:Налады пошуку
+search_user_filter:Фільтраваць па карыстальнікам:
+register_none:Не паведамляць мне
+findu_no_conf:непацьверджаны карыстальнік
+register_max_sig_len:Максымальная даўжыня:
+register_turing:Калі ласка, увядзіце код, пададзены ніжэй:
+register_err_turing:Няслушны код пацьверджаньня.
 modque_cat:Катэгорыя
 modque_forum:Форум
+idx_compact_forum_row:Даступныя форумы:
 mmd_del_title:Выдаліць тэмы
 mmd_mov_title:Перанесьці тэмы
+mmd_move_threads_to:Мэтавы форум:
 mmd_abort_move:Адмяніць
+mmd_move:Перанесьці тэмы
+pmsg_pdf_btn:Стварыць архіў у фармаце PDF
+search_results_hdr:Знойдзена вынікаў пошуку: {VAR: total}
+thread_del_all:Выдаліць усе выбраныя
+thread_mov_all:Перанесьці ўсе выбраныя
 sub_unsub_all_forums:Адпісацца ад усіх форумаў
 sub_unsub_all_topics:Адпісацца ад усіх тэмаў
 rating_delete:Выдаліць

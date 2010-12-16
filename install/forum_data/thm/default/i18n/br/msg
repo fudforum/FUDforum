@@ -66,13 +66,16 @@ logged_in_list:Roll an implijerien kevreet evit ar mare
 login:Kevreañ
 login_header:Kevreañ :
 logout:Kuitaat
-# Fuzzy
 mark_all_read:Merkañ an holl gemennadennoù evel lennet
 mark_all_read_desc:Merket e vo an holl gemennadennoù n'int ket bet lennet evel lennet
 members:Izili
 calendar:Deiziataer
 cal_goto_date:Mont da :
+cal_day_heading:Darvoudoù an devezh
 cal_no_events:N'eus darvoud ebet evit an devezh.
+cal_update:Furchal e deiziataer ar forom
+cal_birthday:Deiz-ha-bloaz : {VAR: user}
+cal_birthday_age:({PLURAL: age|$1 bloaz|$1 bloaz}).
 message:Kemennadenn
 message_counter:Hon implijerien o deus postet <b>{PLURAL: post_count|$1 gemennadenn|$1 kemennadenn}</b> en holl e-barzh <b>{PLURAL: thread_count|$1 gaoz|$1 kaoz}</b>.
 message_index:Meneger ar c'hemennadennoù
@@ -111,8 +114,7 @@ num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|vouezh|mouezh}
 occupation:Micher :
 off:DIWEREDEKAET
 on:GWEREDEKAET
-# Fuzzy
-page_timings:Amzer lakaet da grouiñ ar bajenn-mañ, en holl : {VAR: page_gen_time} eilenn
+page_timings:Amzer lakaet da grouiñ ar bajenn-mañ, en holl : {PLURAL: page_gen_time|$1 eilenn|$1 eilenn}
 pm:Kemennadennoù prevez
 poll:Sontadeg :
 post_count:Konter kemennadennoù : {VAR: u_pcount}
@@ -415,8 +417,7 @@ ignore_users:Implijerien dianavezet
 add_ignore:Ouzhpennañ un den dianavezet
 forum_terms:Reolennoù ar forom
 forum_rules:<p>Digoust eo en em enskrivañ er forom-mañ ! Koulskoude e tleit degemer an divizoù hag ar munudoù amañ dindan. M'o degemerit, pouezit war ar bouton <b>Aprouiñ</b> e fin ar bajenn. Notenn : Pa bouezit war ar bouton e tisklêriit ez oc'h en tu-hont da 13 vloaz. Ma n'oc'h ket trizek vloaz c'hoazh, implijit ar furmskrid en em enskrivañ-mañ. </p><p> Daoust ma vez distaolet ar c'hemennadennoù dizereat eus ar forom-mañ gant ar verourien hag an habaskerien, n'omp ket evit lenn ha kontrollañ an holl anezho. Pep kemennadenn a eztaol soñjoù an aozer anezhi, ha ne vo ket kiriek merourien ha habaskerien ar forom-mañ d'ar pezh zo er c'hemennadennoù. </p><p> Dre glikañ war ar bouton Aprouiñ e prometit chom hep postañ kemennadennoù hudur, lous, o tennañ d'ar revelezh, kasonius, gourdrouzus, pe o terriñ al lezenn e kement doare zo. </p><p> Gwir o deus perc'henned ar forom-mañ da lemel, aozañ, dilec'hiañ pe serriñ forzh peseurt kaoz evit forzh peseurt abeg.</p>
-# Fuzzy
-forum_rules_13:<p>An holl implijerien dindan 13 vloaz a rank goulenn aotre o zud pe o gward evit dont da vezañ ezel eus ar forom-mañ. Daoust ma'z eo digor ar forom d'ar re dindan 13 vloaz, e rankomp kaout un aotre sinet digant unan eus an dud pe ar gward, dre lizher pe dre belleilenn, a-raok enskrivañ an den dindan 13 vloaz da vat.</p><p> Ma fell deoc'h kregiñ gant an argerzh enskrivañ a-raok ma resevfemp an aotre, pouezit war ar bouton Aprouiñ amañ dindan. Ma fell deoc'h nullañ an argerzh enskrivañ, klikit war ar bouton Nullañ evit distreiñ da veneger ar foromoù.</p><p>Tu zo da bellgargañ un eilenn eus ar furmskrid aotren amañ. Evit gouzout hiroc'h diwar-benn an argerzh enskrivañ, kasit ur postel <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>, mar plij.</p>
+forum_rules_13:<p>An holl implijerien dindan 13 vloaz a rank goulenn aotre o zud pe o gward evit dont da vezañ ezel eus ar foromoù. Daoust ma'z eo digor ar forom d'ar re dindan 13 vloaz, e rankomp kaout un aotre sinet digant unan eus an dud pe ar gward, dre lizher pe dre belleilenn, a-raok enskrivañ an den dindan 13 vloaz da vat.</p><p> Ma fell deoc'h kregiñ gant an argerzh enskrivañ a-raok ma resevfemp an aotre, pouezit war ar bouton <b>Mat eo din</b> amañ dindan. Ma fell deoc'h nullañ an argerzh enskrivañ, klikit war ar bouton <b>Ne savan ket a-du</b> evit distreiñ da veneger ar foromoù.</p><p>Tu zo da bellgargañ un eilenn eus ar furmskrid aotren amañ. Evit gouzout hiroc'h diwar-benn an argerzh enskrivañ, kasit ur postel <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>, mar plij.</p>
 coppa_conf:Kadarnadur COPPA
 coppa_before:A-raok {TEMPLATE: coppa_date}
 coppa_after:Goude {TEMPLATE: coppa_date}
@@ -425,6 +426,7 @@ coppa:<p>Unan eus an dud pe ar gward a rank postañ pe pelleilañ un aotre sinet
 prereg_info:Reolennoù ar forom
 prereg_agree:Mat eo din
 prereg_disagree:Ne savan ket a-du
+prereg_update:Lenn reolennoù ar forom
 coppa_fax_instructions:Kelennoù evit tud pe gward ar vugale
 coppa_fax_instructions2:Moullit ar bajenn-mañ, mar plij, sinit-hi ha pelleilit-hi da :
 coppa_fax_reg_form:Furmskrid enskrivañ
@@ -466,6 +468,10 @@ rpasswd_login:Kevreañ
 rpasswd_cur_pass:Ger-tremen bremañ :
 rpasswd_new_pass:Ger-tremen nevez :
 rpasswd_conf_pass:Kadarnaat ar ger-tremen :
+ruser_title:Furmskrid evit kemmañ an doare kevreañ
+ruser_change_user:Kemmit ho kevreadenn d'ar forom
+ruser_cur_login:Login red :
+ruser_new_login:Login nevez :
 ruser_cur_pass:Ger-tremen a-vremañ :
 login_passwd:Ger-tremen :
 reset_email:Postel :
@@ -713,6 +719,7 @@ post_opt_images_off:<b>DIWEREDEKAET</b> eo ar <b>skeudennoù</b>
 post_opt_smilies_off:<b>DIWEREDEKAET</b> eo ar <b>fromlunioù</b>
 post_opt:Dibarzhioù ar forom
 register_change_passwd:cheñch ger-tremen
+register_change_login:kemmañ al login
 approved_avatar_title:Aprouet eo bet hoc'h avatar personel.
 approved_avatar_msg:Aprouet eo bet hoc'h avatar gant ar merour. Bremañ e tlefe dont war wel en hoc'h holl gemennadennoù. Ma n'en gwelit ket, pe ma welit hoc'h avatar kozh, ez eo abalamour m'emañ ar bajenn er grubuilh. Klaskit he freskaat ur wech pe ziv. Peurliesañ e vo diskoulmet ar gudenn evel-se.
 unapproved_avatar_title:Nac'het eo bet hoc'h avatar personel.
@@ -883,6 +890,9 @@ search_desc_order:Urzh war zigresk
 search_asc_order:Urzh war gresk
 search_logic:Dezverkoù klask :
 search_sorting:Urzhiañ an disoc'hoù dre zeiziad, e-barzh :
+search_attach:Pezhioù stag :
+search_attach_all:Gant pe hep
+search_attach_with:Gant pezhioù stag
 post_proceed:Kadarnaat
 post_moderated_forum:Postet hoc'h eus ur gemennadenn en ur forom habaskaet. Ne c'hallo ket bezañ gwelet gant ar re all a-raok na vo aprouet gant unan eus habaskerien pe merourien ar forom.
 post_moderated_forum_ttl:Habaskaat ar forom
@@ -1029,8 +1039,7 @@ uc_sub_topics:Kaozioù evezhiet gant kemennadennoù nevez
 uc_page_title:Gwelet ar banell gontrollañ personel.
 search_options:Dibarzhioù klask
 search_user_filter:Silañ dre implijer :
-# Fuzzy
-register_none:Arabat kemenn
+register_none:Chom hep kemenn din
 findu_no_conf:implijer n'eo ket kadarnaet
 register_max_sig_len:Hirded vrasañ :
 register_turing:Ebarzhit ar c'hod diskouezet amañ dindan, mar plij :
@@ -1118,3 +1127,4 @@ feed_rdf:gwazh RDF
 feed_rss:gwazh RSS2
 feed_atom:gwazh ATOM
 ip_whois_connect_err:Ne c'haller ket kevreañ ouzh ar servijer WHOIS ({VAR: whois_server}) : {VAR: errstr}
+custom_filed_required:Rekis eo leuniañ ar vaezienn-mañ.

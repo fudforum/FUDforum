@@ -2,6 +2,7 @@
 # Exported from translatewiki.net
 # Author: Als-Holder
 # Author: JanRei
+# Author: Kghbln
 # Author: McDutchie
 # Author: Pill
 # Author: The Evil IP address
@@ -298,7 +299,7 @@ register_email:E-Mail
 edit_time_limit:<b>Zeitspanne zum Bearbeiten</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> Minuten
 no_edit_time_limit:<b>Zeitspanne zum Bearbeiten</b>: <b>Unbegrenzt</b>
 pmuserloc_login:Benutzername:
-pmuserloc_submit:Abschicken
+pmuserloc_submit:Senden
 pmuserloc_user:Benutzer
 pmuserloc_no_result:Keine Ergebnisse
 register_builtin:Eingebaut
@@ -738,7 +739,7 @@ thr_exch_orig_forum:Ursprüngliches Forum:
 thr_exch_dest_forum:Zielforum:
 thr_exch_no_threads:Keine Themen, die genehmigt werden müssen.
 thr_exch_decl_reason:Begründung für das Nicht-Verschieben von <b>{VAR: data->subject}</b> ins Forum <b>{VAR: data->f2_name}</b>
-thr_exch_submit:Abschicken
+thr_exch_submit:Senden
 exch_decline_ttl:Das Verschieben des Themas {VAR: data->subject} ins Forum {VAR: data->f2_name} wurde abgelehnt.
 ppost_original_msg:Nachricht, die du weiterleitest oder beantwortest
 split_thread:Thema aufteilen
