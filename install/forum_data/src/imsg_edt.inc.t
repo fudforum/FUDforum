@@ -324,7 +324,7 @@ class fud_msg_edit extends fud_msg
 
 			if ($del->apr) {
 				/* We need to determine the last post id for the forum, it can be null. */
-				$lpi = (int) q_singleval('SELECT t.last_post_id FROM {SQL_TABLE_PREFIX}thread t INNER JOIN {SQL_TABLE_PREFIX}msg m ON t.last_post_id=m.id AND m.apr=1 WHERE t.forum_id='.$del->forum_id.' AND t.moved_to=0 ORDER BY m.post_stamp DESC LIMIT 1');
+				$lpi = (int) q_singleval(q_limit('SELECT t.last_post_id FROM {SQL_TABLE_PREFIX}thread t INNER JOIN {SQL_TABLE_PREFIX}msg m ON t.last_post_id=m.id AND m.apr=1 WHERE t.forum_id='.$del->forum_id.' AND t.moved_to=0 ORDER BY m.post_stamp DESC', 1));
 				q('UPDATE {SQL_TABLE_PREFIX}forum SET last_post_id='. $lpi .', thread_count=thread_count-1, post_count=post_count-'. $del->replies .'-1 WHERE id='. $del->forum_id);
 			}
 		} else if (!$th_rm  && $del->apr) {
@@ -332,7 +332,7 @@ class fud_msg_edit extends fud_msg
 
 			/* Check if the message is the last in thread. */
 			if ($del->thread_lip == $del->id) {
-				list($lpi, $lpd) = db_saq('SELECT id, post_stamp FROM {SQL_TABLE_PREFIX}msg WHERE thread_id='. $del->thread_id .' AND apr=1 ORDER BY post_stamp DESC LIMIT 1');
+				list($lpi, $lpd) = db_saq(q_limit('SELECT id, post_stamp FROM {SQL_TABLE_PREFIX}msg WHERE thread_id='. $del->thread_id .' AND apr=1 ORDER BY post_stamp DESC', 1));
 				q('UPDATE {SQL_TABLE_PREFIX}thread SET last_post_id='. $lpi .', last_post_date='. $lpd .', replies=replies-1 WHERE id='. $del->thread_id);
 			} else {
 				q('UPDATE {SQL_TABLE_PREFIX}thread SET replies=replies-1 WHERE id='. $del->thread_id);
@@ -341,10 +341,10 @@ class fud_msg_edit extends fud_msg
 			/* Check if the message is the last in the forum. */
 			if ($del->forum_lip == $del->id) {
 				$page = q_singleval('SELECT seq FROM {SQL_TABLE_PREFIX}tv_'. $del->forum_id .' WHERE thread_id='. $del->thread_id);
-				$lp = db_saq('SELECT t.last_post_id, t.last_post_date 
+				$lp = db_saq(q_limit('SELECT t.last_post_id, t.last_post_date 
 					FROM {SQL_TABLE_PREFIX}tv_'. $del->forum_id .' tv
 					INNER JOIN {SQL_TABLE_PREFIX}thread t ON tv.thread_id=t.id 
-					WHERE tv.seq IN('. $page .','. ($page - 1) .') AND t.moved_to=0 ORDER BY t.last_post_date DESC LIMIT 1');
+					WHERE tv.seq IN('. $page .','. ($page - 1) .') AND t.moved_to=0 ORDER BY t.last_post_date DESC', 1));
 				if (!isset($lpd) || $lp[1] > $lpd) {
 					$lpi = $lp[0];
 				}
@@ -579,7 +579,7 @@ class fud_msg_edit extends fud_msg
 				}
 
 				if (!empty($r[3])) {	// Use the forum's fixed "From:" address.
-					mail_list_post($r[0], $r[2], $mtf->subject, $body, $mtf->id, $replyto_id, $attach, $attach_mime, $r[1]);
+					mail_list_post($r[0], $r[3], $mtf->subject, $body, $mtf->id, $replyto_id, $attach, $attach_mime, $r[1]);
 				} else {				// Use poster's e-mail as the "From" address.
 					mail_list_post($r[0], $from, $mtf->subject, $body, $mtf->id, $replyto_id, $attach, $attach_mime, $r[1]);
 				}
