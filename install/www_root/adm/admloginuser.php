@@ -26,7 +26,7 @@
 			exit;
 		} else {
 			q('UPDATE '. $DBHOST_TBL_PREFIX .'users SET last_login='. __request_timestamp__ .' WHERE login='. _esc($_POST['login']));
-			logaction(0, 'WRONGPASSWD', 0, 'Invalid admin login attempt from: '. get_ip() .' using '. htmlspecialchars($_POST['login'], ENT_QUOTES) .' / '. htmlspecialchars($_POST['passwd'], ENT_QUOTES));
+			logaction(0, 'WRONGPASSWD', 0, 'Invalid ACP user/password for login '. htmlspecialchars($_POST['login'], ENT_QUOTES) .'/'. preg_replace('/./', '*', $_POST['passwd']) .' from IP '. get_ip() .'.');
 			$err = 'Only administrators with proper access credentials can login via this control panel.<br />Incorrect username/password or flood check triggered.';
 		}
 	} else {

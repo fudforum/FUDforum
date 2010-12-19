@@ -172,11 +172,11 @@ function error_check()
 			q('UPDATE {SQL_TABLE_PREFIX}users SET last_login='. __request_timestamp__ .' WHERE id='. $usr_d->id);
 			login_php_set_err('login', '{TEMPLATE: login_min_time}');
 
+		/* Check password: No salt -> old md5() auth; with salt -> new sha1() auth. */
 		} else if (!isset($usr_d->alias) && (empty($usr_d->salt) && $usr_d->passwd != md5($_POST['password']) || 
 			  !empty($usr_d->salt) && $usr_d->passwd != sha1($usr_d->salt . sha1($_POST['password'])))) 
 		{
-			/* Check password: No salt -> old md5() auth; with salt -> new sha1() auth. */
-			logaction($usr_d->id, 'WRONGPASSWD', 0, ($usr_d->users_opt & 1048576 ? 'ADMIN: ' : '') .'Invalid Password '. htmlspecialchars(_esc($_POST['password'])) .' for login '. htmlspecialchars(_esc($_POST['login'])) .'. IP: '. get_ip());
+			logaction($usr_d->id, 'WRONGPASSWD', 0, 'Invalid '. ($usr_d->users_opt & 1048576 ? 'FORUM ADMIN ' : '') .'password for login '. htmlspecialchars(_esc($_POST['login'])) .' from IP '. get_ip() .'.');
 			q('UPDATE {SQL_TABLE_PREFIX}users SET last_login='. __request_timestamp__ .' WHERE id='. $usr_d->id);
 			login_php_set_err('login', '{TEMPLATE: login_invalid_radius}');
 		}
