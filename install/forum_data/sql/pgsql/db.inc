@@ -11,24 +11,31 @@
 // define('fud_query_stats', 1);
 
 if (!defined('fud_sql_lnk')) {
-	$connect_func = $GLOBALS['FUD_OPT_1'] & 256 ? 'pg_pconnect' : 'pg_connect';	
-	
-	$connect_str = '';
+	$connect_func = $GLOBALS['FUD_OPT_1'] & 256 ? 'pg_pconnect' : 'pg_connect';
+
+	$dsn = '';
 	if ($GLOBALS['DBHOST']) {
-		$connect_str .= 'host='. $GLOBALS['DBHOST'];
+		$dbhost = $GLOBALS['DBHOST'];
+
+		// Expand optional port number (e.g. [::1]:5432).
+		if ( preg_match('/^(.+):(\d*)$/', $dbhost, $m)) {
+			$dbhost = $m[1] .' port='. $m[2];
+		}
+		// Remove IPv6 block quotes (if present).
+		$dsn .= preg_replace('/\[|\]/', '', 'host='. $dbhost);
 	}
 	if ($GLOBALS['DBHOST_USER']) {
-		$connect_str .= ' user='. $GLOBALS['DBHOST_USER'];
+		$dsn .= ' user='. $GLOBALS['DBHOST_USER'];
 	}
 	if ($GLOBALS['DBHOST_PASSWORD']) {
-		$connect_str .= ' password='. $GLOBALS['DBHOST_PASSWORD'];
+		$dsn .= ' password='. $GLOBALS['DBHOST_PASSWORD'];
 	}
 	if ($GLOBALS['DBHOST_DBNAME']) {
-		$connect_str .= ' dbname='. $GLOBALS['DBHOST_DBNAME'];
+		$dsn .= ' dbname='. $GLOBALS['DBHOST_DBNAME'];
 	}
 
 	// The pgsql module cannot return connection errors. Don't event try pg_last_error(), it will fail!
-	$conn = $connect_func(ltrim($connect_str)) or fud_sql_error_handler('Initiating '. $connect_func, 'Unable to connect', '', 'Unknown');
+	$conn = $connect_func(ltrim($dsn)) or fud_sql_error_handler('Initiating '. $connect_func, 'Unable to connect', '', 'Unknown');
 	pg_set_client_encoding('UTF8');
 
 	define('fud_sql_lnk', $conn);

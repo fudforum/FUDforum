@@ -15,7 +15,14 @@ class db { public static $db, $ar, $res, $buf; }
 if (empty(db::$db)) {
 	$dsn = 'pgsql:';
 	if ($GLOBALS['DBHOST']) {
-		$dsn .= 'host='. $GLOBALS['DBHOST'];
+		$dbhost = $GLOBALS['DBHOST'];
+
+		// Expand optional port number (e.g. [::1]:5432).
+		if ( preg_match('/^(.+):(\d*)$/', $dbhost, $m)) {
+			$dbhost = $m[1] .' port='. $m[2];
+		}
+		// Remove IPv6 block quotes (if present).
+		$dsn .= preg_replace('/\[|\]/', '', 'host='. $dbhost);
 	}
 	if ($GLOBALS['DBHOST_USER']) {
 		$dsn .= ' user='. $GLOBALS['DBHOST_USER'];
