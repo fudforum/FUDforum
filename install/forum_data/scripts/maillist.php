@@ -119,7 +119,7 @@ function add_attachment($name, $data, $pid)
 		if (!$config->mbox_type) {	// Unsecure POP3 mailbox.
 			$protocol = 'POP3';
 			$port     = 110;
-			$flags    = '';
+			$flags    = '/novalidate-cert';
 		} else if ($config->mbox_type & 1) {	// Unsecure IMAP mailbox.
 			$protocol = 'IMAP';
 			$port     = 143;
