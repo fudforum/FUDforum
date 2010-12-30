@@ -1,3 +1,4 @@
+#!/usr/bin/php -q
 <?php
 /**
 * copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
@@ -30,7 +31,7 @@
 	define('sql_p', $GLOBALS['DBHOST_TBL_PREFIX']);
 
 	/* Set language, locale and time zone. */
-	$locale = q_singleval('SELECT locale FROM '. sql_p .'themes WHERE theme_opt='. (1|2) .' LIMIT 1');
+	$locale = q_singleval(q_limit('SELECT locale FROM '. sql_p .'themes WHERE theme_opt='. (1|2), 1));
 	$GLOBALS['good_locale'] = setlocale(LC_ALL, $locale);
 	date_default_timezone_set($GLOBALS['SERVER_TZ']);
 
@@ -42,14 +43,18 @@
 	if (!empty($_SERVER['argv'][1]) && is_numeric($_SERVER['argv'][1])) {
 		$job = db_sab('SELECT * FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'jobs WHERE id='. $_SERVER['argv'][1]);
 	} else {	// Next due.
-		$job = db_sab('SELECT * FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'jobs WHERE nextrun <= '. __request_timestamp__ .' AND '. q_bitand('job_opt', 1) .' != 1 ORDER BY nextrun ASC LIMIT 1');
-
-		/* Skip if the job is locked (still running) and locked less than 10 min ago. */
-		if ($job->locked != 0 && $job->locked > __request_timestamp__ - 600) {
-			return;
-		}
+		$job = db_sab(q_limit('SELECT * FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'jobs WHERE nextrun <= '. __request_timestamp__ .' AND '. q_bitand('job_opt', 1) .' != 1 ORDER BY nextrun ASC', 1));
 	}
-	if (!$job) {	// Nothing to do.
+
+	// Check if we need have something to run.
+	if (!$job) {    // Nothing to do.
+		echo date('d M Y H:i:s') .": Nothing to run.\n";
+		return;
+	}
+
+	/* Skip if the job is locked (still running) and locked less than 10 min ago. */
+	if ($job->locked != 0 && $job->locked > __request_timestamp__ - 600) {
+		echo date('d M Y H:i:s') .': '. $job->cmd ." is locked (busy running).\n";
 		return;
 	}
 
@@ -57,6 +62,9 @@
 	chdir($path) or die('ERROR: Unable to change to scripts directory '. $path);
 
 	$php  = escapeshellcmd($GLOBALS['PHP_CLI']);
+	if (empty($php)) {
+		$php = $_SERVER['_'];   // Get from Linux env.
+	}
 	if (empty($php)) {
 		throw new Exception('PHP CLI Executable not set.');
 	}
@@ -78,6 +86,7 @@
 	$exec->lock($job);
 
 	/* Run the job */
+	echo date('d M Y H:i:s') .': '. $php .' '. $path . $cmd . $outfile ."\n";
 	$output = array();
 	$rc     = 0;
 	exec($php .' '. $path . $cmd . $outfile, $output, $rc);
