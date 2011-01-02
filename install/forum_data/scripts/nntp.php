@@ -106,7 +106,7 @@ function add_attachment($name, $data, $pid)
 
 	/* Set language & locale. */
 	$GLOBALS['usr'] = new stdClass();
-	list($GLOBALS['usr']->lang, $locale) = db_saq('SELECT lang, locale FROM '. sql_p .'themes WHERE theme_opt='. (1|2) .' LIMIT 1');
+	list($GLOBALS['usr']->lang, $locale) = db_saq(q_limit('SELECT lang, locale FROM '. sql_p .'themes WHERE theme_opt='. (1|2), 1));
 	$GLOBALS['good_locale'] = setlocale(LC_ALL, $locale);
 
 	/* Try to increase DB timeout to prevent "MySQL server has gone away" errors. */
@@ -241,6 +241,9 @@ function add_attachment($name, $data, $pid)
 				$msg_post->body = 'Originally posted by: '. str_replace('@', '&#64', $emsg->from_email) ."\n\n". $msg_post->body;
 			}
 		}
+		
+		// Color levels of quoted text.
+		$msg_post->body = color_quotes($msg_post->body, $frm->forum_opt);
 
 		$msg_post->body = apply_custom_replace($msg_post->body);
 		if ($frm->forum_opt & 16) {
