@@ -4,6 +4,7 @@ Generally, messages on the forum are mostly plain text, however on occasion you 
 <br /><br />
 Since in most cases the admin does not permit you to use HTML inside your posts, you can use BBcode, which is a special set of tags that allows you to apply certain formatting to your text. BBcode is very easy to use and is a lot more secure than HTML.
 <br /><br />
+
 <a name="url"><b>URL Hyperlinking</b></a>
 <br />
 <table>
@@ -74,7 +75,6 @@ Since in most cases the admin does not permit you to use HTML inside your posts,
 <i>Explanation:</i> You can use BBcode to make email links with a self-chosen caption.
 <br /><br />
 
-<br />
 <b>Text Styling</b>
 <br />
 <a name="b"></a>
@@ -289,11 +289,11 @@ Since in most cases the admin does not permit you to use HTML inside your posts,
     <td width="300" align="center" valign="middle"><b>Result</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#f00"><b>[img]</b></font><br /><font color="#060">http://www.prohost.org/img/pro_logo.gif<br /></font><font color="#f00"><b>[/img]</b></font></td>
-    <td valign="middle" align="center"><img src="http://www.prohost.org/img/pro_logo.gif" alt="http://www.prohost.org/img/pro_logo.gif" width="204" height="31" /></td>
+    <td valign="middle" align="center"><font color="#f00"><b>[img]</b></font><br /><font color="#060">http://fudforum.org/forum/images/fudlogo.gif<br /></font><font color="#f00"><b>[/img]</b></font></td>
+    <td valign="middle" align="center"><img src="http://fudforum.org/forum/images/fudlogo.gif" alt="http://fudforum.org/forum/images/fudlogo.gif" width="140" height="49" /></td>
   </tr>
 </table>
-<br />    
+<br />
 
 <table>
   <tr>
@@ -301,12 +301,28 @@ Since in most cases the admin does not permit you to use HTML inside your posts,
     <td width="300" align="center" valign="middle"><b>Result</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#060"><font color="#f00"><b>[url=<font color="#060">http://www.prohost.org</font>]<br />[img]</b></font><br />http://www.prohost.org/img/pro_logo.gif<br /><b><font color="#f00">[/img]<br />[/url]</font></b></font></td>
-    <td valign="middle" align="center"><a href="http://www.prohost.org"><img src="http://www.prohost.org/img/pro_logo.gif" alt="image" width="204" height="31" border="0" /></a></td>
+    <td valign="middle" align="center"><font color="#060"><font color="#f00"><b>[url=<font color="#060">http://www.prohost.org</font>]<br />[img]</b></font><br />http://fudforum.org/forum/images/fudlogo.gif<br /><b><font color="#f00">[/img]<br />[/url]</font></b></font></td>
+    <td valign="middle" align="center"><a href="http://www.prohost.org"><img src="http://fudforum.org/forum/images/fudlogo.gif" alt="image" width="140" height="49" border="0" /></a></td>
   </tr>
 </table>
 <i>Explanation:</i> You can use BBcode to create linked images by enclosing the [img][/img] tag with the [url][/url] tag.
-<br /><br /><br />
+<br /><br />
+
+<a name="imglr"><b>Wrap text around images</b></a>
+<br />
+
+<table>
+  <tr>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
+    <td width="300" align="center" valign="middle"><b>Result</b></td>
+  </tr>
+  <tr>
+    <td valign="middle" align="center"><font color="#f00"><b>[imgl]</b></font><br /><font color="#060">http://fudforum.org/forum/images/fudlogo.gif<br /></font><font color="#f00"><b>[/imgl]</b></font></td>
+    <td valign="middle" align="center"><img class="l" src="http://fudforum.org/forum/images/fudlogo.gif" alt="Image with text wrapped around it" width="140" height="49" />Some text to the left.</td>
+  </tr>
+</table>
+<i>Explanation:</i> You can use BBcode to wrap text smoothly around images by enclosing the image url within [imgl][/imgl] "Image Left" or [imgr][/imgr] "image right" tags, These may also be used in conjunction with other text alignment and styling tags.
+<br /><br />
 
 <a name="quote"><b>Quoting other messages</b></a>
 <br />

@@ -38,6 +38,7 @@ TOPIC_HELP:
 	<li><a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#align">Alignment [align]</a></li>
 	<li><a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#list">Lists [list]</a></li>
 	<li><a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#img">Images [img]</a></li>
+	<li><a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#imglr">Image wrapping [imgl] and [imgr]</a></li>
 	<li><a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#url">Links [url]</a></li>
 	<li><a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#quote">Quotes [quote]</a></li>
 	<li><a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#pre">Reformatted [pre]</a></li>
