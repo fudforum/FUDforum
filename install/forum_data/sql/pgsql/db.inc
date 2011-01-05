@@ -156,8 +156,16 @@ function q_limit($query, $limit, $off=0)
 
 function q_concat($arg)
 {
-	$tmp = func_get_args();
-	return implode('||', $tmp);
+	$args = func_get_args();
+	$sql  = '';
+	foreach ($args as $arg) {
+		if (is_numeric($arg)) {
+			$sql .= (empty($sql)) ? 'cast('. $arg .' as text)' : '|| cast('. $arg .' as text)';
+		} else {
+			$sql .= (empty($sql)) ? $arg : '|| '. $arg;
+		}
+	}
+	return $sql;
 }
 
 function q_rownum() {
