@@ -1,4 +1,4 @@
-# Messages for Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))
+# Messages for Belarusian (Taraškievica orthography) (‪Беларуская (тарашкевіца)‬)
 # Exported from translatewiki.net
 # Author: EugeneZelenko
 # Author: Jim-by
@@ -1054,11 +1054,75 @@ pmsg_pdf_btn:Стварыць архіў у фармаце PDF
 search_results_hdr:Знойдзена вынікаў пошуку: {VAR: total}
 thread_del_all:Выдаліць усе выбраныя
 thread_mov_all:Перанесьці ўсе выбраныя
+thread_merge_all:Аб'яднаць усе выбраныя
+thread_loc_all:Заблякаваць/Разблякаваць усе выбраныя
+dmsg_ip:IP-адрас:
+err_blockedaccnt_title:Памылка: Ваш рахунак быў адфільтраваны.
+err_blockedaccnt_msg:Ваш рахунак быў заблякаваны ад уваходу на форум адным з усталяваных фільтраў.
+merge_th_page_list:Старонка выбару тэмаў
+most_users_online:Найбольшая колькасьць карыстальнікаў <b>{VAR: st_obj->most_online}</b> была на форуме <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
 sub_unsub_all_forums:Адпісацца ад усіх форумаў
 sub_unsub_all_topics:Адпісацца ад усіх тэмаў
+unbookmark_all_topics:Выдаліць усе закладкі
+tabs_own_posts:Паказаць уласныя паведамленьні
+sml_emoticon:Усьмешка
+sml_code:Код
+mnav_sub_only:Пошук толькі ў форумах, на якія падпісаны
+register_topics_per_page:Тэмаў на старонцы:
+login_min_time:Гэты форум дазваляе толькі адну спробу ўваходу кожныя {VAR: MIN_TIME_BETWEEN_LOGIN} сэкундаў, калі ласка, пачакайце {FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)} сэкундаў перад наступнай спробай.
+post_not_logged_in:Вы не ўвайшлі на форум, паведамленьне будзе разьмешчанае ананімна.
+post_common_bold:Тлусты
+post_common_italics:Курсіў
+post_common_underline:Падкрэсьлены
+post_common_align_left:Па леваму боку
+post_common_align_center:Па цэнтру
+post_common_align_right:Па праваму боку
+post_common_link:Уставіць спасылку
+post_common_email:Уставіць адрас электроннай пошты
+post_common_image:Уставіць выяву
+post_common_nlist:Дадаць нумараваны сьпіс
+post_common_blist:Дадаць маркіраваны сьпіс
+post_common_quote:Дадаць цытату
+post_common_code:Дадаць код
 rating_delete:Выдаліць
+post_always_on_top:Утрымліваць гэтую тэму заўсёды ў версе сьпісу тэмаў
+topic_rating:{VAR: frm->rating} з {PLURAL: frm->n_rating|$1 голас|$1 галасы|$1 галасоў}
+topic_list_rating:{VAR: r[17]} з {PLURAL: r[21]|$1 голасу|$1 галасоў|$1 галасоў}
+tabs_notifications:Абвяшчэньні
+finduser_flag:Сьцяг
+post_descr:Апісаньне тэмы:
+pmsg_on:уключыць
+pmsg_download_dump:Загрузка рэзэрвовых копіяў паведамленьняў
+move_messages:Перанос паведамленьняў
+move_msg_btn:Перанос выбраных паведамленьняў
+move_msg_th_expl:Пазначце ідэнтыфікатар мэтавай тэмы (можа быць на іншым форуме)
+captcha_img_alt:Праверка Captcha: Вам неабходна распазнаць тэкст на гэтай выяве.
+captcha_img_help:На выяве няма лічбаў 0 ці 1.
+powered-by:Падтрымліваецца з дапамогай FUDforum {GVAR: FORUM_VERSION}.<br />Copyright &copy;2001-2010 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+code_title:Код:
+code_select_all:Выбраць усё
+code_show_hide:Паказаць/схаваць
+social_sites:Сайты сацыяльных сетак:
+postcheck_min_len_err:Вашае паведамленьне занадта кароткае. Мінімальная даўжыня складае {PLURAL: post_min_len|$1 сымбаль|$1 сымбалі|$1 сымбаляў}.
+postcheck_dup_err:Калі ласка, не стварайце дублікаты тэмаў.
 btn_new_topic:Новая тэма
+btn_new_pm:Новае асабістае паведамленьне
+btn_post_reply:Апублікаваць адказ
+btn_tree_view:У выглядзе дрэва
+btn_flat_view:Плоскі выгляд
 btn_about:Профіль
+btn_small_pm:АП
 btn_delete:выдаліць
 btn_edit:рэдагаваць
 btn_reply:адказаць
+btn_forward:пераслаць
+btn_quote:цытата
+btn_email:Электронная пошта
+btn_show_posts:паведамленьні
+btn_homepage:www
+feed_no_data:Адпавядаючыя зьвесткі ня знойдзеныя.
+feed_rdf:RDF-стужка
+feed_rss:RSS2-стужка
+feed_atom:ATOM-стужка
+ip_whois_connect_err:Немагчыма далучыцца да сэрвэра WHOIS ({VAR: whois_server}): {VAR: errstr}
+custom_filed_required:Гэтае поле — абавязковае.

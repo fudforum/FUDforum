@@ -629,7 +629,7 @@ private_msg_notify_subj:Přečíst oznámení pro: {VAR: m->subject}
 private_msg_notify_body:Dobrý den,<br />{VAR: usr->login} si přečetl(a) zprávu, "{VAR: m->subject}", v {TEMPLATE: private_msg_notify_body_date}<br />
 referals_update:Prohlížíte si přivedené lidi
 register_err_short_login:Uživatelské jméno je příliš krátké. Musí mít alespoň 4 znaky
-register_err_login_notallowed:Toto uživatelské jméno není povoleno
+register_err_login_notallowed:Toto uživatelské jméno není dovoleno.
 register_err_loginunique:Uživatelské jména musí být jedinečná, toto uživatelské jméno již ve fóru existuje
 register_err_emailexists:Tento email již existuje. Pokud jste zapoměl(a) heslo, prosím, použijte obnovovací proceduru hesla namísto nové registrace
 register_err_shortpasswd:Heslo musí mít alespoň 6 znaků

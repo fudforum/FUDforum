@@ -1,5 +1,6 @@
 # Messages for Polish (Polski)
 # Exported from translatewiki.net
+# Author: Byulent
 # Author: Sp5uhe
 
 action:Akcja
@@ -70,6 +71,8 @@ members:Użytkownicy
 calendar:Kalendarz
 cal_goto_date:Przejdź do
 cal_no_events:Brak zdarzeń w tym dniu.
+cal_birthday:Data urodzenia: {VAR: user}
+cal_birthday_age:({PLURAL: wiek | $1 rok | $1 lat} życia).
 message:Wiadomość
 message_counter:Użytkownicy zamieścili łącznie <b>{PLURAL: post_count|$1 wiadomość|$1 wiadomości}</b> w <b>{PLURAL: thread_count|$1 wątku|$1 wątkach}</b>.
 message_index:Indeks wiadomości
@@ -464,6 +467,9 @@ rpasswd_login:Nazwa użytkownika
 rpasswd_cur_pass:Aktualne hasło:
 rpasswd_new_pass:Nowe hasło:
 rpasswd_conf_pass:Potwierdż hasło:
+ruser_cur_login:Aktualny login:
+ruser_new_login:Nowy login:
+ruser_cur_pass:Aktualne hasło:
 login_passwd:Hasło:
 reset_email:E‐mail
 reset_reset_button:Wyzeruj hasło
@@ -714,6 +720,7 @@ post_opt_images_off:<b>Obrazki</b> są <b>Wyłączone</b>
 post_opt_smilies_off:<b>Uśmieszki</b> są <b>Wyłączone</b>
 post_opt:Opcje Forum
 register_change_passwd:zmień hasło
+register_change_login:Zmień login
 approved_avatar_title:Twój dodatkowy avatar został zatwierdzony.
 approved_avatar_msg:Twój avatar został zatwierdzony przez administratora. Powinien teraz pojawić się jako Twój avatar we wszystkich Twoich wiadomościach. Jeśli go nie widzisz lub widzisz stary, jest tak ponieważ Twoja przeglądarka trzyma stronę w pamięci podręcznej. Spróbuj odświeżyć ją raz lub dwa, a to w większości przypadków powinno rozwiązać problem.
 unapproved_avatar_title:Twój dodatkowy avatar został odrzucony.
@@ -1068,6 +1075,7 @@ rating_delete:Usuń
 tabs_notifications:Powiadomienia
 finduser_flag:Flaga
 post_descr:Opis wątku
+pmsg_on:data:
 pmsg_download_dump:Pobierz zrzut wiadomości
 move_messages:Przenieś wiadomość
 move_msg_btn:Przenieś wybrane wiadomości
@@ -1075,6 +1083,7 @@ powered-by:Korzysta z oprogramowania FUDforum {GVAR: FORUM_VERSION}.<br />Copyri
 code_title:KOD
 code_select_all:Wybierz wszystko
 code_show_hide:Pokaż lub ukryj
+postcheck_min_len_err:Wiadomość jest zbyt krótka. Minimalna długość wiadomości: {PLURAL: post_min_len|$1 znak|$1 znaków}.
 btn_new_topic:Nowy wątek
 btn_new_pm:Nowa wiadomość prywatna
 btn_post_reply:Odpowiedz
@@ -1091,3 +1100,4 @@ btn_email:e‐mail
 btn_show_posts:wiadomości
 btn_homepage:www
 feed_no_data:Nie znaleziono pasujących danych.
+custom_filed_required:To pole jest wymagane.

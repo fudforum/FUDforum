@@ -1,5 +1,6 @@
 # Messages for Turkish (Türkçe)
 # Exported from translatewiki.net
+# Author: Emperyan
 # Author: Naudefj
 # Author: Srhat
 # Author: Tufan
@@ -65,13 +66,14 @@ logged_in_list:Giriş yapmış kullanıcı listesi
 login:Giriş
 login_header:Kullanıcı ismi:
 logout:Çıkış yap
-# Fuzzy
 mark_all_read:Tüm iletileri okundu olarak işaretle
 mark_all_read_desc:Tüm okumadığınız iletiler okundu olarak işaretlenecek
 members:Üyeler
 calendar:Takvim
 cal_goto_date:Git:
 cal_no_events:Gün için etkinlik yok.
+cal_birthday:Doğum günü: {VAR: user}
+cal_birthday_age:({PLURAL: age|$1 yıl|$1 yıllar} eski).
 message:İleti
 message_counter:Kullanıcılarımız <b>{PLURAL: thread_count|$1 konu|$1 konu}</b> içinde yer alan toplam <b>{PLURAL: post_count|$1 ileti|$1 ileti}</b> göndermiş durumda.
 message_index:İleti indeksi
@@ -110,8 +112,7 @@ num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|oy|oy}
 occupation:İş:
 off:kapalı
 on:açık
-# Fuzzy
-page_timings:Sayfanın oluşturulması toplam {VAR: page_gen_time} saniye sürdü.
+page_timings:Sayfanın oluşturulması toplam {PLURAL: page_gen_time|$1 saniye} sürdü
 pm:Özel İletiler
 poll:Oylama:
 post_count:İleti Sayısı {VAR: u_pcount}
@@ -423,6 +424,7 @@ coppa:<p>13 yaşın altında olan bir kullanıcının bu foruma kayıt olabilmes
 prereg_info:Bilgi
 prereg_agree:Kabul Ediyorum
 prereg_disagree:Kabul Etmiyorum
+prereg_update:Forum kurallarını okuyun
 coppa_fax_instructions:Anne-Baba veya Sorumluluk sahibi olanların yapması gerekenler
 coppa_fax_instructions2:Lütfen bu sayfayı yazdırın, imzalayın ve bu faksa gönderemiyoryollayın:
 coppa_fax_reg_form:Kayıt Formu
@@ -464,6 +466,11 @@ rpasswd_login:Kullanıcı ismi
 rpasswd_cur_pass:Şu andaki Parola:
 rpasswd_new_pass:Yeni Parola:
 rpasswd_conf_pass:Yeni Parolayı Doğrula:
+ruser_title:Giriş Formunu Değiştir
+ruser_change_user:Forum giriş bilgilerinizi değiştirin
+ruser_cur_login:Geçerli giriş:
+ruser_new_login:Yeni giriş:
+ruser_cur_pass:Geçerli şifre:
 login_passwd:Parola:
 reset_email:E-posta:
 reset_reset_button:Parolayı Yeniden Belirle
@@ -710,6 +717,7 @@ post_opt_images_off:<b>Resimler KAPALI</b>
 post_opt_smilies_off:<b>Gülücükler KAPALI</b>
 post_opt:Forum Seçenekleri
 register_change_passwd:parola değiştir
+register_change_login:Hesap değişimi
 approved_avatar_title:Özel avatarınız onaylandı.
 approved_avatar_msg:Özel avatarınız yönetici tarafından onaylandı. Bundan sonra tüm iletilerinizde avatarınız olarak görünmesi gerekiyor. Göremiyorsanız, ya da eski avatarınız görüyorsanız, tarayıcınız sayfayı cache'e attığı için olabilir. Sayfayı bir iki kez yenilemeyi deneyin, çoğunlukla bu sorunu giderecektir.
 unapproved_avatar_title:Özel avatarınız reddedildi.
@@ -880,6 +888,8 @@ search_desc_order:Azalan sırada
 search_asc_order:Artan sırada
 search_logic:Mantık:
 search_sorting:Tarihe göre sırala:
+search_attach:Ekler:
+search_attach_with:Ekleri ile
 post_proceed:İlerle
 post_moderated_forum:Denetimli bir foruma ileti gönderdiniz, ve iletiniz forum denetmen(ler)ince veya yönetici tarafından onaylanmadan forumda görüntülenmeyecek.
 post_moderated_forum_ttl:Denetimli Forum Uyarısı
@@ -988,6 +998,7 @@ adm_account_accepted:Hesabınız ('{VAR: login}') yönetici tarafından onayland
 adm_account_accepted_s:'{GVAR: FORUM_TITLE}' için hesap isteğiniz kabul edildi.
 adm_account_rejected:Hesabınız ('{VAR: login}') yönetici tarafından reddedildi. Bu kararın arkasındaki neden hakkında bilgi almak için '{GVAR: ADMIN_EMAIL}' adresinden yönetici ile iletişime geçebilirsiniz.
 adm_account_rejected_s:'{GVAR: FORUM_TITLE}' forumu için hesap isteğiniz reddedildi.
+thread_on:açık
 userinfo_buddy:Arkadaş:
 register_email_addr:E-posta Adresi:
 reset_suffix:Bu iletiyi yanlışlıkla aldıysanız, lütfen dikkate almayın. Bu mektubun birden fazla kopyasını istekte bulunmadığınız halde aldıysanız, lütfen yönetici ile iletişime geçin: {GVAR: ADMIN_EMAIL}\n\nİstekte bulunan: {VAR: _SERVER['REMOTE_ADDR']}.
@@ -1025,7 +1036,6 @@ uc_sub_topics:Abonesi olduğunuz konulardan yeni ileti bulunanlar
 uc_page_title:Denetim Masası
 search_options:Arama Seçenekleri
 search_user_filter:Kullanıcıya göre ara:
-# Fuzzy
 register_none:Haberdar etme
 findu_no_conf:onaylanmamış kullanıcı
 register_max_sig_len:En Fazla Uzunluk:
@@ -1080,12 +1090,14 @@ topic_list_rating:{PLURAL: r[21]|$1 oy|$1 oy} ile {VAR: r[17]}
 tabs_notifications:Haber Bildirileri
 finduser_flag:Bayrak
 post_descr:Konu Açıklaması:
+pmsg_on:açık
 pmsg_download_dump:İleti Yığınını İndir
 move_messages:İletileri taşı
 move_msg_btn:Seçili İletileri Taşı
 move_msg_th_expl:Hedef konunun ID'sini belirtin (diğer forumlarda olabilir)
 captcha_img_alt:Captcha Doğrulama: Görüntüde metni tanımanız gerekiyor.
 captcha_img_help:Görüntü içinde sıfır ya da bir bulunmuyor.
+powered-by:Destekleyen: FUDforum {GVAR: FORUM_VERSION}.<br />Telif hakkı &copy;2001-2010 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Kod:
 code_select_all:Tümünü seç
 code_show_hide:Göster / gizle
@@ -1112,3 +1124,4 @@ feed_rdf:RDF yayını
 feed_rss:RSS2 yayını
 feed_atom:ATOM yayını
 ip_whois_connect_err:WHOIS sunucusuna ({VAR: whois_server}) bağlanamıyor: {VAR: errstr}
+custom_filed_required:Bu alan gereklidir.

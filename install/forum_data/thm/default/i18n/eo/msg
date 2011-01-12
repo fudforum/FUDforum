@@ -1,6 +1,7 @@
 # Messages for Esperanto (Esperanto)
 # Exported from translatewiki.net
 # Author: LyzTyphone
+# Author: Mihxil
 # Author: Yekrats
 
 action:Ago
@@ -64,10 +65,16 @@ logged_in_list:Listo de ensalutitaj uzantoj
 login:Ensaluti
 login_header:Ensaluti:
 logout:Elsaluti
-# Fuzzy
-mark_all_read:marki ĉiujn mesaĝojn kiel legitajn
+mark_all_read:Marki ĉiujn mesaĝojn kiel legitajn
 mark_all_read_desc:Ĉiuj de viaj nelegitaj mesaĝoj estos markitaj kiel legitaj
 members:Forumanoj
+calendar:Kalendaro
+cal_goto_date:Iri al:
+cal_day_heading:Okazoj por jena tago
+cal_no_events:Mankas okazoj ĉi-tage
+cal_update:Foliumante la forum-kalendaron
+cal_birthday:Naskiĝtago: {VAR: user}
+cal_birthday_age:({PLURAL: age|$1}-jaraĝa).
 message:Mesaĝo
 message_counter:Niaj uzantoj estas afiŝitaj sumon de <b>{PLURAL: post_count|$1 mesaĝo|$1 mesaĝojn}</b> en <b>{PLURAL: thread_count|$1 fadeno|$1 fadenoj}</b>.
 message_index:Mesaĝa indekso
@@ -107,7 +114,7 @@ occupation:Laboro:
 off:malŝalta
 on:ŝalta
 # Fuzzy
-page_timings:Suma tempo pasita por generi la paĝon: {VAR: page_gen_time} sekundoj
+page_timings:Suma tempo pasita por generi la paĝon: {PLURAL: page_gen_time|$1 sekundoj}
 pm:Privata Mesaĝado
 poll:Opinisondo:
 post_count:Nombro de Mesaĝoj {VAR: u_pcount}
@@ -253,6 +260,20 @@ month_9:septembro
 month_10:oktobro
 month_11:novembro
 month_12:decembro
+sunday:Dimanĉo
+sunday_short:D
+monday:Lundo
+monday_short:L
+tuesday:Mardo
+tuesday_short:Ma
+wednesday:Merkredo
+wednesday_short:Me
+thursday:Ĵaŭdo
+thursday_short:Ĵ
+friday:Vendredo
+friday_short:V
+saturday:Sabato
+saturday_short:S
 male:Vira
 female:Virina
 unspecified:NESPECIFITA
@@ -405,6 +426,7 @@ coppa:<p>Gepatro aŭ zorganto devas retpoŝti aŭ faksi subskribita permesilo po
 prereg_info:Foruma Regularo
 prereg_agree:Mi Konsentas
 prereg_disagree:Mi Malkonsentas
+prereg_update:Legante la forumregulojn
 coppa_fax_instructions:Instruoj por Gepatro aŭ Zorganto
 coppa_fax_instructions2:Bonvolu printi ĉi tiun paĝon, subskribi ĝin, kaj faksi ĝin al:
 coppa_fax_reg_form:Registrilo
@@ -657,11 +679,9 @@ tree_update:Tralegante fadenon (laŭ arbeca aspekto) <a href="{TEMPLATE: tree_up
 userinfo_update:Trarigardante profilon de <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}</a>
 ERR_login_msg2:<legend>ERARO: Vi ne estas ensalutita</legend>Atingi ĉi tiu paĝo, vi devas esti forumano.
 ERR_disabled_ttl:Malŝalta eco
-# Fuzzy
-ERR_disabled_msg:Ĉi tiu eco estis malŝalta de la sistema administranto
+ERR_disabled_msg:Ĉi tiun funkction malŝaltis la sistemadministranto
 ERR_access_ttl:ERARO: Nesufiĉaj Rajtoj
-# Fuzzy
-ERR_access_msg:Vi ne havas la devigajn rajtojn por fari ĉi tiun agon
+ERR_access_msg:Vi ne havas la necesajn rajtojn por fari ĉi tiun agon
 ERR_registration_disabled_ttl:Registrado Malŝaltita
 ERR_registration_disabled_msg:La administranto malŝaltis registradon. Bonvolu reprovi poste.
 ERR_emailconf_ttl:ERARO: Via konto ne ankoraŭ estas konfirmita.
