@@ -1,0 +1,1001 @@
+# Messages for Serbian Cyrillic ekavian (‪Српски (ћирилица)‬)
+# Exported from translatewiki.net
+# Author: Rancher
+
+action:Радња
+add_to_buddy_list:додај на списак пријатеља
+admin:Администратор
+admin_control_panel:Управљачки панел
+administrator:Администратор
+attachment:Прилог:
+avatar:Корисничка сличица:
+average_post_count:{PLURAL: u->posted_msg_count|$1 порука|$1 поруке|$1 порука} ({PLURAL: avg|$1 просечна порука|$1 просечне поруке|$1 просечних порука} по дану)
+biography:Биографија:
+birth_date:Датум рођења:
+by:Од:
+by_mod:од уредника
+current_time:Тренутно време
+custom_avatar_queue:Ред корисничких сличица
+date_posted:Датум је постављен
+date_registered:Датум уписа:
+download_counter:Преузето {PLURAL: v[3]|једанпут|$1 пута|$1 пута}
+pmsg_download_counter:Преузето {PLURAL: r->dlcount|једанпут|$1 пута|$1 пута}
+email:Е-пошта:
+email_to_friend:Пошаљи пријатељу
+email_to_friend_desc:Пошаљи пријатељу URL адресу ове странице путем е-поште
+email_user:Пошаљи кориснику е-поруку
+faq:Помоћ
+first_unread_msg:Пређи на непрочитане поруке
+first_unread_msg_desc:Пређи на прву непрочитану поруку унутар ове теме
+flat_view:Врати ме на подразумевани равни приказ
+forum:Форум:
+forum_icon:Иконица форума
+forum_new_messages:Нове поруке
+forum_none_messages:Само уписани чланови форума могу да читају &amp; непрочитане поруке
+forum_old_messages:Нема нових порука
+from:Од:
+gender:Пол:
+go:Пређи
+goto_next_msg:Пређи на следећу поруку
+goto_prev_msg:Врати ме на претходну поруку
+home:Насловна страна
+homepage:Насловна страна:
+icq_control_panel:ICQ Месенџер
+icq_message_form:ICQ поруке:
+ignore_user:занемари све поруке овог члана
+im_aim:AIM надимак:
+im_msnm:MSN Месенџер:
+im_yahoo:Јаху Месенџер:
+image:Слика:
+index_forum:Форум
+index_new_posts:Нове поруке од претходног читања
+index_no_new_posts:Нема нових порука од претходног читања
+index_url_redirection:Преусмеравање
+interests:Занимања:
+last_post:Последња порука
+last_thread_msg:Пређи на последњу поруку ове теме
+legend:Легенда
+location:Локација:
+lock_thread:Закључај тему
+locked:Закључано
+locked_with_new_posts:Закључано (с непрочитаним порукама)
+logged_in_list:Списак пријављених чланова
+login:Пријави ме
+login_header:Пријава:
+logout:Одјави ме
+mark_all_read:Означи све поруке као прочитане
+mark_all_read_desc:Све ваше непрочитане поруке биће означене као прочитане
+members:Чланови
+calendar:Календар
+cal_goto_date:Пређи на:
+cal_day_heading:Догађаји за дан
+cal_no_events:Нема догађаја за дан.
+cal_update:Прегледање календара форума
+cal_birthday:Рођендан: {VAR: user}
+cal_birthday_age:({PLURAL: age|$1 година|$1 године|$1 година}).
+message:Порука
+message_counter:Наши чланови су поставили укупно <b>{PLURAL: post_count|$1 поруку|$1 поруке|$1 порука}</b> унутар <b>{PLURAL: thread_count|$1 теме|$1 теме|$1 тема}</b>.
+message_index:Попис поруке
+message_index_desc:Прикажи списак порука
+minimize_category:Смањи категорију
+minimize_message:Смањи поруку
+moderation_queue:Редослед уређивања
+moderator:Уредник
+moderator_of:Уредник:
+moderator_options:Поставке уредника
+moderators:{PLURAL: modcount|Уредник|Уредници}
+more_unread_messages:више непрочитаних порука
+more_unread_messages_desc:Прикажи више непрочитаних порука и означи поруке које тренутно читам као прочитане
+move_thread:Премести
+moved:Премештено у други форум
+moved_thread_message:Ова тема је премештена у други форум
+na:непознато
+new_posts:Нове поруке
+new_private_messages:Имате <span class="GenTextRed">({VAR: c})</span> {PLURAL: c|непрочитану поруку|непрочитане поруке|непрочитаних порука}
+new_thread:Направи нову тему
+newest_user:Најновији члан је
+next_page:Следећа страница
+next_thread:Следећа тема:
+no_messages:Нема порука у овом форуму.
+no_msg_body:Нема текста поруке
+no_new_posts:Нема нових порука
+no_posts:Нема порука
+no_subscribed_forums:Нема надгледаних форума
+no_subscribed_threads:Нема надгледаних тема
+no_bookmarked_threads:Нема забележених тема
+no_unread_locked:Ова тема је закључана
+no_unread_msg:Ова тема нема непрочитаних порука
+no_unread_msg_unreg:Читање &amp; непрочитаних порука доступно је само уписаним корисницима
+num_pages:Странице ({VAR: ttl_pg}):
+num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|глас|гласа|гласова}
+occupation:Занимање:
+off:искључено
+on:укључено
+page_timings:Укупно време за које је потребно направити страницу: {PLURAL: page_gen_time|$1 секунд|$1 секунде|$1 секунди}
+pm:Приватне поруке
+poll:Анкета:
+post_count:Број порука {VAR: u_pcount}
+post_count_l:Број порука:
+posts:Поруке
+posts_c:Поруке:
+prev_thread:Претходна тема:
+usrinfo_private_message:Приватна порука:
+profile:Управљачки панел
+profile_desc:Приступите корисничком управљачком панелу
+rate_thread:Оцени тему
+rating:Оцена
+rating_track:Управљај оценама за тему <b>{VAR: thr->subject}</b>:
+refresh_list:Освежи списак
+register:Отвори налог
+registered:Уписан:
+registered_on:Уписан/а {TEMPLATE: registered_on_date}
+replies:Одговори
+report_to_mod:Пријави поруку уреднику
+reported_messages:Пријављене поруке
+reveal_all_posts:откриј све поруке од {VAR: user_login}
+reveal_post:откриј поруку
+search:Претрага
+sel_todays_posts:Данашње поруке
+sel_todays_posts_desc:Промени филтер за данашње поруке (приказиваће само данашње поруке)
+sel_unanswered_posts:Неодговорене поруке
+sel_unanswered_posts_desc:Промени филтер за неодговорене поруке (приказиваће само поруке без одговора)
+sel_unread_messages:Непрочитане поруке
+sel_unread_messages_desc:Промени филтер за непрочитане поруке (приказиваће само непрочитане поруке)
+send:Пошаљи
+send_pm_desc:Пошаљи приватну поруку овом члану
+sender_email:Е-адреса пошиљалаца:
+sender_name:Име пошиљалаца:
+show_posts_by:Прикажи поруке од: {VAR: u_alias}
+size:Величина:
+status:Статус:
+status_line:Тренутно имамо <b>{PLURAL: st_obj->online_users_reg|$1 члана|$1 члана|$1 чланова}</b>, <b>{PLURAL: st_obj->online_users_hidden|$1 невидљив члан|$1 невидљива члана|$1 невидљивих чланова}</b> и <b>{PLURAL: st_obj->online_users_anon|$1 гост|$1 госта|$1 гостију}</b> на овом форуму.
+sticky:лепљива тема:
+stop_ignoring:престани игнорисање овог члана
+sub_to_thread:Надгледај тему
+sub_to_thread_desc:Прими обавештење о новим порукама унутар ове теме
+bookmark_thread:Забележи тему
+bookmark_thread_desc:Додај ову тему на списак забелешки
+subject:Наслов
+subscribe:Надгледај
+subscribe_desc:Прими обавештења када неко направи нову тему унутар овог форума
+subscribed_forums:Надгледани форуми
+subscribed_forums_desc:Промени филтер за надгледане форуме (приказиваће само поруке из форума који надгледате)
+subscribed_threads:Надгледане теме
+subscribed_threads_desc:Промени филтер за надгледане теме (приказиваће само поруке из тема које надгледате)
+bookmarked_threads:Забележене теме
+switch_to_thread_view:Пребаци на нитни приказ теме
+thread:Тема:
+thread_announcement:Саопштење:
+thread_first_unread_msg:Пређи на прву непрочитану поруку ове теме
+thread_thread:Тема
+threads:Теме
+time:Време
+todays_posts:Данашње поруке
+todays_posts_desc:Прикажи све данашње поруке
+un_ignore_user:престани занемаривање порука овог члана
+unanswered_posts:Неодговорене поруке
+unanswered_posts_desc:Прикажи све поруке које немају одговоре
+unlock_thread:Откључај тему
+unread_msg:Ова тема садржи поруке које још увек нисте прочитали
+unread_msg_locked:Закључана тема с непрочитаним порукама
+unread_posts:Непрочитане поруке
+unread_posts_desc:Прикажи све непрочитане поруке
+unsub_from_thread:Престани надгледање ове теме
+unsub_from_thread_desc:Престани примање обавештења о новим порукама унутар ове теме
+unbookmark_thread:Уклони из забелешки
+unbookmark_thread_desc:Уклони ову тему из списка забелешки
+unsubscribe:Престани надгледање
+unsubscribe_desc:Престани примање обавештења о новим темама у форуму
+updated_on:Ажурирано:
+user:Корисник
+user_counter:Тренутно имамо <b>{VAR: st_obj->user_count}</b> {PLURAL: st_obj->user_count|уписаног корисника|уписана корисника|уписаних корисника}.
+user_info:Кориснички подаци
+user_info_l:Кориснички подаци {VAR: u->alias}
+user_offline:{VAR: obj->login} је тренутно ван мреже
+user_online:{VAR: obj->login} је тренутно на мрежи
+usrinfo_last_post:Последња порука:
+view_results:Прикажи резултате
+views:Прегледи
+vote:{PLURAL: frm->n_rating|$1 глас|$1 гласа|$1 гласова}
+vote_button:Гласај
+vote_for_thread:Гласај
+was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> је премештен у <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> од стране уредника.
+welcome_message:Добро дошли <b>{VAR: usr->alias}</b>, ваша последња посета била је {TEMPLATE: welcome_message_date}
+what_ppl_doing:Прикажи шта људи раде
+reported_del_report:Обриши пријаву
+reported_reason:Разлог:
+reported_on:У:
+reported_reported_by:Пријављивач:
+reported_reported_msg:Пријављене поруке
+modque_pending_approval:Поруке које чекају одобрење
+modque_approve:Одобри
+modque_delete:Обриши
+modque_no_message:Нема порука које чекају одобрење
+pmsg_new_messages:Означи поруку као непрочитану
+pmsg_old_messages:Прочитај приватну поруку
+deny_recipt:одбиј потврду
+deny_recipt_desc:Не шаљи потврду да сте прочитали ову поруку
+restore_to:Врати у:
+move_to:Премести у:
+list_referes_referrals:Упућивачи
+list_referes_members:Упућени чланови
+list_referes_member:Члан
+referals_none:Још увек нема упућивача.
+referals_refered_by:Чланови упућени од: <b><a href="{TEMPLATE: referals_refered_by_lnk}" class="thLnk">{VAR: p_user[1]}</a></b>
+referals_post_count:Број порука
+referals_registered_on:Уписан
+referals_action:Радња
+pmsg_all:све
+pmsg_none:ништа
+folder:Фасцикла:
+pmsg_replied:одговорено
+pmsg_forwarded:прослеђено
+pmsg_subject:Наслов
+pmsg_author:Аутор
+pmsg_time:Време
+pmsg_selected:Изабрано
+pmsg_delete:Обриши
+cur_ppage_pm:Приватне поруке
+writing_pm:Писање приватне поруке
+browsing_folder:Прегледање <b>{VAR: folders[$folder_id]}</b> фасцикле
+inbox:Примљене
+draft:Сачуване
+sent:Послате
+trash:Отпад
+msg_author:Аутор
+avatar_sel_form:Избор корисничке сличице
+no_avatars:Корисничка сличица није доступна
+month_1:јануар
+month_2:фебруар
+month_3:март
+month_4:април
+month_5:мај
+month_6:јун
+month_7:јул
+month_8:август
+month_9:септембар
+month_10:октобар
+month_11:новембар
+month_12:децембар
+sunday:Недеља
+sunday_short:Нед
+monday:Понедељак
+monday_short:Пон
+tuesday:Уторак
+tuesday_short:Уто
+wednesday:Среда
+wednesday_short:Сре
+thursday:Четвртак
+thursday_short:Чет
+friday:Петак
+friday_short:Пет
+saturday:Субота
+saturday_short:Суб
+male:Мушко
+female:Женско
+unspecified:НЕОДРЕЂЕНО
+register_tree_view:Стабласти приказ порука и списак тема
+register_msg_tree_view:Раван списак тема/стабласти списак порука
+register_tree_msg_view:Стабласти списак тема/раван списак порука
+register_flat_view:Раван приказ порука и списак тема
+use_forum_default:Користи подразумеване вредности
+finduser_user_info:Кориснички подаци
+finduser_by_login:По пријави:
+finduser_submit:Пронађи
+finduser_no_such_user:Корисник није пронађен
+finduser_user:Корисник
+finduser_postcount:Број порука
+finduser_joindate:Датум уписа
+finduser_action:Радња
+yes:Да
+no:Не
+register_email:Е-пошта
+edit_time_limit:<b>Уређивање временског ограничења</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> минута
+no_edit_time_limit:<b>Уређивање временског ограничења</b>: <b>неограничено</b>
+pmuserloc_login:Пријава:
+pmuserloc_submit:Пошаљи
+pmuserloc_user:Корисник
+pmuserloc_no_result:Нема резултата
+register_builtin:Уграђено
+register_specify_url:Унесите URL адресу
+register_uploaded:Отпремите корисничку сличицу
+register_login:Корисничко име:
+register_password:Лозинка:
+register_conf_pass:Потврдите лозинку:
+register_email_desc:Унесите исправну е-адресу. Можете изабрати да је сакријете у одељку „Поставке“.
+register_name:Име:
+register_your_pass:Лозинка:
+register_update:Ажурирај
+register_avatar_type:Врста корисничке сличице:
+register_del_avatar:Обриши корисничку сличицу
+register_avatar:Корисничка сличица:
+register_sel_avatar:Изаберите корисничку сличицу
+register_custom_avatar_rules:Прилагођена корисничка сличица неће бити приказана док је не одобри администратор.<br /><span class="SmallText">Он не сме бити већи од <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} тачака</b> и мора бити у <b>JPG</b>, <b>GIF</b> или <b>PNG</b> формату.</span>
+register_custom_avatar_url:URL адреса корисничке сличице:
+register_preview:Претпреглед
+register_custom_avatar_upload:Датотека корисничке сличице:
+register_register:Отвори налог
+register_required:Обавезни подаци
+register_required_desc:Сва поља су обавезна. Упамтите да је лозинка осетљива на мала и велика слова.
+register_optional:Необавезни подаци
+register_optional_desc:Препоручљиво је да не одајете никакве личне податке у свом профилу. Сви подаци биће видљиви од стране других чланова.
+register_location:Локација:
+register_occupation:Занимање:
+register_interests:Занимања:
+register_image:Слика:
+register_icq:ICQ:
+register_aim:AIM надимак:
+register_yahoo:Јаху Месенџер:
+register_msnm:MSN Месенџер:
+register_homepage:Насловна страна:
+register_bday:Датум рођења:
+register_bday_desc:Ако унесете датум рођења, остали чланови моћи ће да га виде на вашем профилу.
+register_day:Дан
+register_month:Месец
+register_year:Година
+register_gender:Пол:
+register_bio:Биографија:
+register_bio_desc:Неколико детаља о себи: занимање, посао, итд.
+register_prefs:Поставке
+register_sig:Потпис:
+register_sig_desc:Потпис није обавезан. Он ће бити смештен на дну ваших порука.
+register_reset:Поништи
+register_def_thread_view:Подразумевани приказ тема:
+register_msg_per_page:Порука по страни:
+register_show_sig:Прикажи потписе:
+register_show_sig_desc:Омогућава вам да сакријете или прикажете потписе других чланова.
+register_use_sig_default:Користи потписе по подразумеваном:
+register_use_sig_default_desc:Закачи потпис на сваку поруку.
+register_timezone:Временска зона:
+register_ignore_admin:Занемари административне поруке:
+register_invisible_mode:Невидљиви режим:
+register_invisible_mode_desc:Сакрива ваш мрежни статус.
+register_show_email:Прикажи е-адресу:
+register_show_email_desc:Изаберите ову опцију ако желите да ваша е-адреса буде јавно приказана.
+register_notification:Изаберите обавештење по подразумеваном:
+register_notification_desc:Ако је обавештење омогућено по подразумеваном, оно може бити онемогућено при постављању порука.
+register_notify_method:Изаберите начин обавештавања:
+register_notify_method_desc:Поставите жељени начин обавештавања или их онемогућите.
+register_allow_email_msg:Дозволи е-поруке:
+register_allow_email_msg_desc:Дозволите другим члановима да вам шаљу е-поруке преко форума.
+buddy_status:Статус
+my_buddies:Пријатељи
+add_buddy:Додај пријатеља
+add:Додај
+buddy_search:Унесите корисничко име корисника кога желите да додате.
+member_search:Или користите опцију <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Пронађи члана</a> да бисте пронашли особу.
+buddy_remove:уклони
+post_normal:Обична
+post_sticky:Лепљива
+post_annoncement:Саопштење
+post_size:Величина
+post_color:Боја
+post_font:Фонт
+create_thread:Направи тему
+submit_reply:Пошаљи одговор
+edit_message:Примени измене поруке
+apply_spell_changes:Примени правописне измене
+post_preview:Претпреглед поруке
+post_logedin_user:Пријављен члан:
+post_logout:одјави ме
+post_passwd:Лозинка за постављање порука:
+post_poll:Анкета:
+post_create_poll:НАПРАВИ АНКЕТУ
+post_poll_delete:ОБРИШИ
+post_poll_edit:УРЕДИ
+post_mod_opt:Опције уредника:
+post_thread_type:Врста теме:
+post_thread_expiry:Истек теме:
+post_locked:Тема је закључана
+post_icons:Иконица поруке:
+post_no_icon:Нема иконице
+post_smiley:Пречице смешка:
+post_format_tools:Алатке за обликовање:
+post_upload_file:Отпреми датотеку
+post_file_del:Обриши
+post_file_name:Назив
+post_file_size:Величина
+file_attachments:Прилози:
+allowed_files:Дозвољене врсте датотека:
+max_file_size:Највећа величина датотеке:
+max_files_per_msg:Највише датотека по поруци:
+post_notification:Постављање обавештења
+include_sig:Укључи потпис
+include_sig_desc:Укључи потпис с профила.
+disable_smilies:Онемогући смешке у овој поруци
+spell_check_msg:Провери правопис у поруци
+post_form:Постављање обрасца
+post_forum:Форум:
+post_title:Наслов:
+post_body:Текст:
+post_options:Опције:
+post_preview_btn:Претпреглед поруке
+ignore_users:Игнорисани чланови
+add_ignore:Додај незналицу
+forum_terms:Правилник
+coppa_conf:COPPA потврда
+coppa_before:Пре {TEMPLATE: coppa_date}
+coppa_after:После {TEMPLATE: coppa_date}
+coppa_link:Кликните на везу која одговара вашем датуму рођења
+prereg_info:Правилник
+prereg_agree:Прихватам
+prereg_disagree:Не прихватам
+prereg_update:Читање правилника
+coppa_fax_instructions:Упутства за родитеља или старатеља
+coppa_fax_instructions2:Штампајте ову страницу, потпишите и пошаљите факсом на:
+coppa_fax_reg_form:Отварање налога
+coppa_fax_sign:Потпишите образац испод и пошаљите нам га
+coppa_fax_permission:Потпишите овде ако дајете дозволу
+coppa_fax_no_permission:Потпишите овде ако желите да окончате налог
+coppa_fax_parent_name:Име и презиме родитеља или старатеља:
+coppa_fax_relation:Сродство:
+coppa_fax_telephone:Телефон:
+coppa_fax_email:Е-адреса:
+coppa_fax_date:Датум:
+coppa_fax_questions:Контактирајте <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> за било које питање
+coppa_fax_login:Корисничко име
+coppa_fax_passwd:Лозинка
+coppa_fax_remail:Е-пошта
+coppa_fax_name:Име
+login_not_logedin:Нисте пријављени. Ово може бити због следећих разлога:
+login_cookie_expired:Колачићи су истекли. Пријавите се да бисте их обновили.
+login_perm_denied:Немате дозволу да приступите овом делу форума као анониман корисник. Морате да будете пријављени за добијање приступа.
+login_want_to_register:Желите налог?
+login_forgot_passwd:Заборавили сте лозинку?
+login_login:Корисничко име:
+login_login_btn:Пријави ме
+login_name_required:Корисничко име је обавезно
+login_passwd_required:Лозинка је обавезна
+login_invalid_radius:Неисправна комбинација корисничког имена и лозинке
+rpasswd_invalid_passwd:Неисправна лозинка
+rpasswd_passwd_nomatch:Лозинке се не поклапају
+rpasswd_passwd_length:Лозинка мора имати најмање 6 знакова
+reset_remind_pass:Подсетник за лозинку
+reset_reset_conf:Лозинка ће бити поништена и послата вама. Ако још увек нисте потврдили своју е-адресу, послаћемо образац за то.
+reset_error:Е-адреса није пронађена у бази података
+rpasswd_change_pass:Промени лозинку
+rpasswd_login:Корисничко име
+rpasswd_cur_pass:Лозинка:
+rpasswd_new_pass:Нова лозинка:
+rpasswd_conf_pass:Потврдите лозинку:
+ruser_title:Промена корисничког имена
+ruser_change_user:Промена корисничког имена
+ruser_cur_login:Корисничко име:
+ruser_new_login:Ново корисничко име:
+ruser_cur_pass:Лозинка:
+login_passwd:Лозинка:
+reset_email:Е-пошта:
+reset_reset_button:Поништи лозинку
+rate_this_thread:Оцени
+report_reporting_about:Опис:
+report_subject:Наслов:
+report_by:Од:
+report_posted_on:Постављено:
+report_give_reason:Наведите разлог зашто пријављујете поруку:
+report_submit_report:Пошаљи пријаву
+search_entire_msg:Цела порука
+search_subject_only:Само наслов
+search_forum:Форум
+search_posted_on:Постављено
+search_no_results:Нема резултата
+search_all_forums:Претражи све форуме
+search_in_forum:Претражи у форуму:
+search_forum_search:Претрага форума
+move_thread_to:Премести тему <b>{VAR: thr->subject}</b> у:
+remail_email_topic:Пошаљи ову тему пријатељу
+remail_your_name:Име:
+remail_your_email:Е-пошта:
+remail_friends_name:Име пријатеља:
+remail_friends_email:Е-пошта пријатеља:
+remail_required:обавезно
+remail_subject:Наслов:
+remail_message:Порука:
+remail_send_now:Пошаљи е-поруку
+remail_anon_opt:Умножи ову поруку у програм е-поште за касније слање вашим пријатељима.
+remail_done:Завршено
+remail_sent_conf:Пошаљите е-поруку пријатељу на {VAR-HTML: _POST['femail']} око {VAR: data->subject} теме која је успешно послата.
+remail_error:Дошло је до грешке
+mklist_type:Врста:
+mklist_option:Опција:
+mklist_additem:Додај ставку
+mklist_apply:Примени
+mklist_delete:Обриши
+qbud_nick_name:Надимак
+qbud_add_selected:Додај изабрано
+qbud_selected:Изабрано
+qbud_no_buddies:Нема пријатеља
+mklist_numerical:Нумерички
+mklist_aplha:Алфа
+mklist_square:Квадрат
+mklist_disc:Диск
+mklist_circle:Круг
+mklist_close:Затвори
+email_to:За:
+email_pg_title:Е-пошта
+email_subject:Наслов:
+email_body:Текст:
+email_submit:Е-пошта
+ppost_quote_msg:{VAR: msg_to_list} написа {TEMPLATE: ppost_quote_msg_date}
+ppost_quote:Цитат:
+ppost_to:За:
+ppost_from_buddy_list:Изаберите из списка пријатеља
+ppost_find_User:Пронађи корисника
+ppost_track_msg:Надгледај ову поруку
+ppost_track_msg_desc:Обавести ме путем приватне поруке када се ова порука прочита.
+ppost_send:Пошаљи
+ppost_save_draft:Сачувај
+poll_blank_option:Не можете да додате празну опцију.
+poll_del_conf:Ако желите да уклоните ову опцију, кликните на „У реду“
+poll_name:Назив анкете:
+poll_timelimit:Временско ограничење:
+poll_maxiumvotes:Највише гласова:
+poll_create:Направи
+poll_update:Ажурирај
+poll_disablesmilies:Онемогући смешке
+poll_create_poll:Направи анкету
+poll_update_poll:Ажурирај анкету
+poll_delete:Обриши
+poll_updateoption:Ажурирај опцију
+poll_addoption:Додај опцију
+poll_unlimited:Неограничено
+poll_day:дан
+poll_days:дана
+poll_hour:сат
+poll_hours:сати
+poll_month:месец
+poll_year:година
+poll_week:недеља
+tabs_register:Поставке налога
+tabs_subscriptions:Надгледања
+tabs_bookmarkes:Забелешке
+tabs_referrals:Упућивачи
+tabs_buddy_list:Списак пријатеља
+tabs_ignore_list:Списак игнорисаних корисника
+tabs_private_messaging:Приватне поруке
+single_msg_delete:Управо ћете <span class="ErrorText">обрисати</span> поруку под називом: <b>{VAR: data[3]}</b>
+thread_delete:Управо ћете <span class="ErrorText">обрисати</span> <span class="ErrorText">целу тему</span> под називом: <b>{VAR: data[3]}</b>
+delete_proceed:<span class="fb">Желите ли да наставите?</span>
+delete_yes:Да
+delete_no:Не
+error_invalidurl:Неисправна URL адреса
+error_error:Грешка
+usrinfo_profile:Профил члана {VAR: u->alias}
+usrinfo_show_all_posts:Прикажи све поруке од {VAR: u->alias}
+actions_update:Њушкам друге људе, као и ти
+err_info:Подаци
+buddy_list_err_cantadd:Не можете себе додати на списак пријатеља
+buddy_list_err_dup:Овај члан се већ налази на вашем списку пријатеља
+buddy_list_err_nouser:Члан кога сте желели да додате на списак пријатеља није пронађен.
+buddy_list_err_nouser_title:Додавање члана није успело
+buddy_list_err_ignore:Додавање чланова који вас игноришу не можете додати на списак пријатеља.
+buddy_list_update:Прегледање списка пријатеља
+core_err_invinp_title:Неисправан улаз
+core_err_invinp_err:Пратили сте неисправну везу. Обавестите <a href="mailto:{GVAR: ADMIN_EMAIL}">администратора</a> о грешци.
+core_adm_login_msg:Администратори се могу пријавити <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">овде</a>.
+email_err_unabletoemail_title:Грешка: слање е-поруке није успело
+email_err_unabletoemail_msg:Е-пошта је онемогућена од стране администратора.
+email_error_unabletolocaddr:Систем не може да контактира {VAR-HTML: _POST['tx_name']} преко е-поште јер е-адреса није пронађена
+email_error_body:Текст поруке је обавезан
+email_error_subject:Наслов је обавезан
+email_error_namerequired:Име је обавезно
+email_error_invaliduser:Погрешан корисник
+emailconf_err_invkey_title:Грешка
+err_inc_criticaltitle:Критична грешка
+err_inc_criticalmsg:Дошло је до грешке. Нажалост, постоји и проблем са системом за пријављивање грешака.
+finduser_update:Претраживање корисника
+help_index_update:Читање <a href="{TEMPLATE: help_index_update_lnk}">помоћи</a>
+iemail_thr_subject:Нови одговор на {VAR: thr_subject} од {VAR: poster_login}
+iemail_thr_bodyemail:За преглед непрочитаних одговора, пређите на {VAR: goto_url['email']}\n\nУколико не желите да примате будућа обавештења о одговорима ове теме, посетите: {VAR: unsub_url['email']}
+iemail_frm_subject:Нова тема у форуму {VAR: frm_name} под називом {VAR: thr_subject} од {VAR: poster_login}
+iemail_frm_bodyemail:За преглед теме пређите на:\n{VAR: goto_url['email']}\n\nДа бисте прекинули примање обавештења о новим темама у форуму, посетите: {VAR: unsub_url['email']}
+iemail_participate:Да бисте учествовали у дискусији, посетите:
+ignore_list_err_info_title:Подаци
+ignore_list_err_dup_msg:Овај члан се већ налази на вашем списку игнорисаних корисника
+ignore_list_err_nu_title:Корисник није пронађен
+ignore_list_err_nu_msg:Члан кога сте желели да додате на списак игнорисаних корисника није пронађен.
+ignore_list_cantign_msg:Не можете да игноришете овог корисника
+ignore_list_update:Прегледање списка игнорисаних корисника
+index_update:Прегледање <a href="{TEMPLATE: index_update_lnk}">списка форума</a>
+list_referers_update:Прегледање упућивача
+login_update:Пријава
+msg_update:Прегледање теме <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
+pm_err_nopm_title:Грешка: приватне поруке су онемогућене
+pm_err_nopm_msg:Не можете да користите систем приватних порука. Он је онемогућен од стране администратора.
+pm_update:Коришћење приватних порука
+post_err_lockedthread_title:Грешка: закључана тема
+post_err_lockedthread_msg:Ова тема је закључана. Постављање порука није дозвољено.
+err_coppa_title:Грешка: ваш налог још увек није потврђен
+err_coppa_msg:Нисмо примили потврду од вашег родитеља или старатеља која вам даје право да постављате поруке на форум. Ако сте изгубили COPPA образац, <a href="{TEMPLATE: err_coppa_msg_lnk}">погледајте га поново</a>.
+err_banned_acct_title:Грешка: забрањен вам је приступ.
+err_banned_acct_msg:Вама је {IF: $ban_expiry}привремено забрањен приступ до {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}трајно забрањен приступ{ENDI} због кршења правилника.
+post_err_edttimelimit_title:Грешка
+post_err_edttimelimit_msg:Не можете да измените ову поруку
+post_err_noannontopics_msg2:<legend>Грешка: недовољно привилегија</legend>Анонимним корисницима није дозвољено отварање тема.
+post_err_noannonposts_msg2:<legend>Грешка: недовољно привилегија</legend>Анонимним корисницима није дозвољено одговарање на тему.
+post_err_floodtrig_title:Грешка: прешли сте временско ограничење између постављања порука.
+post_err_floodtrig_msg:Покушајте поново за {PLURAL: tm|$1 секунду|$1 секунде|$1 секунди}
+post_err_attach_size:Прилог је превелики (прелази ограничење од {VAR: MAX_F_SIZE} бајтова)
+post_err_attach_ext:Врста датотеке коју желите да отпремите није подржана.
+post_err_attach_filelimit:Покушавате да отпремите више датотека него што је дозвољено.
+post_err_passwd:Неисправна лозинка.
+post_reply_update:Одговарање на <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> у {VAR: frm->name}
+post_topic_update:Писање нове теме у <a href="{TEMPLATE: post_topic_update_lnk}">{VAR: frm->name}</a>
+post_error_generic:Дошло је до грешке
+postcheck_max_images_err:Није дозвољено више од {GVAR: MAX_IMAGE_COUNT} слика по поруци. Смањите број слика.
+postcheck_no_links_allowed:Не можете да користите везе док год не поставите више од {PLURAL: posts_before_links|$1 поруке|$1 поруке|$1 порука}.
+postcheck_subj_needed:Наслов је обавезан
+postcheck_no_such_user:Не постоји корисник под именом "{FUNC: char_fix(htmlspecialchars($v))}" у овом форуму.
+postcheck_ignored:Не можете послати приватну поруку члану „{FUNC: char_fix(htmlspecialchars($v))}“ јер вас он/она игнорише.
+postcheck_no_recepient:Не можете послати поруку јер недостаје прималац.
+postcheck_invalid_email:Унесите исправну е-адресу за вашег пријатеља.
+postcheck_email_subject:Не можете послати е-поруку без наслова.
+postcheck_email_body:Не можете послати е-поруку без текста.
+private_msg_notify_subj:Прочитај обавештење за: {VAR: m->subject}
+private_msg_notify_body:Здраво,<br />{VAR: usr->login} отвори вашу приватну поруку под називом „{VAR: m->subject}“.<br />Ово је аутоматско обавештење направљено {TEMPLATE: private_msg_notify_body_date}<br />
+referals_update:Прегледање упућивача
+register_err_short_login:Корисничко име је прекратко. Оно мора имати најмање 4 знака.
+register_err_login_notallowed:Корисничко име није дозвољено.
+register_err_loginunique:Корисничко име мора бити јединствено. Већ постоји корисник с овим именом.
+register_err_emailexists:Ова е-адреса је већ додељена другом кориснику. Ако сте заборавили лозинку, користите подсетник да је вратите уместо отварања новог налога.
+register_err_shortpasswd:Лозинка мора имати најмање 6 знакова.
+register_err_passwdnomatch:Лозинке се не поклапају. Покушајте поново.
+register_err_invalidemail:Е-адреса коју сте унели није исправна.
+register_err_needname:Морате унети своје име да бисте отворили налог.
+register_err_enterpasswd:Морате унети своју лозинку да би се измене сачувале.
+register_err_adminpasswd:Морате унети своју <b>административну</b> лозинку да би се измене сачувале.
+register_err_notyouremail:Неко други је већ уписан преко ове е-адресе.
+register_err_avatartobig:Датотека коју желите да отпремите је превелика, већа од {GVAR: CUSTOM_AVATAR_MAX_SIZE} бајтова.
+register_err_avatarnotallowed:Отпремање жељене корисничке сличице није дозвољено. Погледајте списак подржаних датотека.
+register_conf_subject:Потврда уписа
+register_welcome_subject:Потврда уписа
+register_err_cantreg_title:Грешка: отварање налога није успело
+register_register_update:Страница за упис
+report_err_nosuchmsg_title:Грешка
+report_err_nosuchmsg_msg:Нема такве поруке
+reset_err_invalidkey_title:Грешка
+reset_err_rstconf_title:Подаци
+reset_newpass_title:Поништи лозинку
+search_update:Тражење порука
+selmsg_update:Прегледање <a href="{TEMPLATE: selmsg_update_lnk}">данашњих порука</a>
+showposts_update:Прегледање порука од: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
+subscribed_update:Прегледање надгледаних тема
+bookmarked_update:Прегледање забелешки
+userinfo_update:Посматрање <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}'s</a> профила
+ERR_disabled_ttl:Онемогућена могућност
+ERR_access_ttl:Грешка: недовољно дозвола
+ERR_registration_disabled_ttl:Отварање налога је онемогућено
+ERR_emailconf_ttl:Грешка: ваш налог још увек није потврђен
+ERR_user_ttl:Грешка: корисник не постоји
+ERR_user_msg:Не постоји такав корисник
+ERR_systemerr_ttl:Грешка: системска грешка
+email_title:Е-пошта
+finduser_title:Тражење корисника
+help_title:Помоћ
+login_title:Пријава
+poll_title:Уређивач анкета
+register_title:Отварање налога
+reset_title:Поништи лозинку
+rpasswd_title:Промена лозинке
+error_title:Грешка
+index_title:Добро дошли на форум
+search_title:Тражи {VAR-HTML: srch}
+remail_emailsent:Е-порука је послата
+poll_add_option:Додај опцију:
+post_opt_html_on:<b>HTML</b> је <b>укључен</b>
+post_opt_fud_on:<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>BBcode</b> је <b>укључен</b></a>
+post_opt_images_on:<b>Слике</b> су <b>укључене</b>
+post_opt_smilies_on:<a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank"><b>Смешци</b> су <b>укључени</b></a>
+post_opt_html_off:<b>HTML</b> кôд је <b>искључен</b>
+post_opt_fud_off:<b>BBcode</b> је <b>искључен</b>
+post_opt_images_off:<b>Слике</b> су <b>искључене</b>
+post_opt_smilies_off:<b>Смешци</b> су <b>искључени</b>
+post_opt:Опције форума
+register_change_passwd:промени лозинку
+register_change_login:промени корисничко име
+approved_avatar_title:Ваша корисничка сличица је одобрена.
+unapproved_avatar_title:Ваша корисничка сличица је одбијена.
+mvthread_request_move:затражи премештање
+move_request_reason:Зашто желите да преместимо тему?
+mvthread_submit_req:Пошаљи захтев
+thread_exchange:Размена тема
+move_request_by:Премештање теме је затражено од:
+move_reason:Разлог за премештање теме:
+thr_exch_accept:прихвати тему
+thr_exch_decline:одбиј тему
+thr_exch_orig_forum:Првобитни форум:
+thr_exch_dest_forum:Одредишни форум:
+thr_exch_no_threads:Ниједна тема не чека за одобрење.
+thr_exch_decl_reason:Разлог за одбијање теме <b>{VAR: data->subject}</b> у форум <b>{VAR: data->f2_name}</b>
+thr_exch_submit:Пошаљи
+exch_decline_ttl:Премештање теме {VAR: data->subject} у форум {VAR: data->f2_name} је одбијен.
+split_thread:Раздвоји тему
+groupmgr_no_user:Не постоји члан с корисничким именом "{FUNC: char_fix(htmlspecialchars($gr_member))}"
+groupmgr_already_exists:Корисник "{FUNC: char_fix(htmlspecialchars($gr_member))}" већ постоји у овој групи.
+groupmgr_yes:Да
+groupmgr_no:Не
+groupmgr_action:Радња
+groupmgr_member:Члан
+groupmgr_cancel:Откажи
+groupmgr_add_member:Додај члана
+groupmgr_update_member:Ажурирај члана
+groupmgr_edit:Уреди
+groupmgr_delete:Обриши
+group_mgr_anon:Анониман корисник
+group_mgr_reged:Сви уписани корисници
+show_show:Прикажи:
+group_mgr:Управљање групама
+group_mgr_edit_btn:Уреди групу
+group_mgr_heading:Избор уређивача групе
+group_mgr_group:Група:
+permission_denied_title:Приступ је одбијен!
+p_READ:Прочитај
+p_POST:Постави
+p_REPLY:Одговори
+p_EDIT:Уреди
+p_DEL:Обриши
+p_STICKY:Лепљиве поруке
+p_POLL:Направи анкете
+p_FILE:Закачи датотеке
+p_VOTE:Гласај
+p_RATE:Оцени теме
+p_SPLIT:Раздвоји теме
+p_LOCK:Закључај теме
+p_MOVE:Премести теме
+p_SML:Користи смешке
+p_IMG:Користи ознаке за слике
+p_SEARCH:Могућност претраге
+group_mgr_search:Пронађи корисника
+group_mgr_indicator:Тренутно се уређује: <b>{VAR: grp->name}</b>
+rate_worst:Најгоре
+rate_best:Најбоље
+post_quote_msg:{VAR: msg->login} написа {TEMPLATE: make_report_date}
+post_quote:Цитат:
+post_quote_selected:Цитирај изабрани текст
+userinfo_referals:Упућени корисници:
+userinfo_referals_count:{VAR: referals} чланови
+pm_no_space_title:Нема довољно простора!
+pm_space_indct_msg:Ваше фасцикле за приватне поруке су {VAR: percent_full}% попуњене.
+th_expr_never:Никад
+th_expr_one_hr:1 сат
+th_expr_three_hr:3 сата
+th_expr_four_hr:4 сата
+th_expr_eight_hr:8 сати
+th_expr_sixteen_hr:16 часова
+th_expr_one_day:1 дан
+th_expr_two_day:2 дана
+th_expr_four_day:4 дана
+th_expr_one_week:1 недеља
+th_expr_two_week:2 недеље
+th_expr_one_month:1 месец
+th_expr_two_month:2 месеца
+th_expr_four_month:4 месеца
+th_expr_one_year:1 година
+thread_mod_delete:Обриши
+action_latest_post:Последња порука
+online_today_last_visit:Последња посета
+online_today_update:Преглед списка корисника који су данас посетили форум.
+logedin_todays_visitors:Данашњи посетиоци
+logedin_latest_post:Последња порука на форуму:
+register_show_avatar:Прикажи корисничке сличице:
+drawmsg_view_rest_post:Прикажи остатак поруке
+post_re:Одг:
+forumsel_goto_forum:Пређи на форум:
+minimsg_thread_view:Преглед теме
+split_th_post_by:Порука од:
+split_th_posted_on:Постављено:
+split_th_subject:Наслов:
+split_th_new_thread_title:Нови наслов теме:
+split_th_forum:Форум:
+split_th_split_sel:Раздвоји изабране поруке
+split_th_split_unsel:Раздвоји неизабране поруке
+split_th_messages:Поруке
+split_th_select:Изабери
+report_report_post:Пријави поруку
+quicklogin_login:Корисничко име:
+quicklogin_password:Лозинка:
+quicklogin_use_cookies:Користити колачиће?
+quicklogin_login_btn:Пријави ме
+quick_reply:Брз одговор
+quick_reply_post:Пошаљи
+quick_reply_preview:Претпреглед
+post_notification_desc:Обавести ме када неко одговори на ову поруку.
+post_all_ext_allowed:(неограничено)
+maximize_category:Увећај категорију
+maximize_message:Увећај поруку
+report_already_reported_title:Већ је пријављено
+report_already_reported_msg:Ова порука је већ пријављена и чека на одобрење.
+register_err_toomanyimages:Прешли сте ограничење од {GVAR: FORUM_IMG_CNT_SIG} слика у потпису.
+pmsg_next_msg:Следећа порука
+pmsg_prev_msg:Претходна порука
+register_jabber:Џабер надимак:
+register_skype:Скајп надимак:
+register_twitter:Твитер надимак:
+register_google:Гугл Ток/IM надимак:
+im_jabber:Џабер:
+im_google:Гугл Ток:
+im_skype:Скајп:
+im_twitter:Твитер:
+forum_contact:Контакт
+forum_home:Насловна страна
+post_cur_attached:закачена: {VAR: i} {PLURAL: i|датотека|датотеке|датотека}
+smladd_close_window:затвори прозор
+post_list_smilies:прикажи све смешке
+p_VISIBLE:Видљиво
+help_back_to_top:врати ме на врх
+imsg_err_message_title:Неисправна порука
+poll_edit:Уреди
+pmsg_recepient:Прималац
+register_alias:Псеудоним:
+register_allow_pm_msg:Дозволи приватне поруке:
+polllist_vote:Гласај
+polllist_view_results:Прикажи резултате
+polllist_name:Назив анкете
+polllist_date:Направљено
+polllist_owner:Направљено од
+polllist_votes:Укупно гласова
+polllist_action:Радња
+userinfo_polls:Анкете:
+show_pollist:Прикажи анкете
+search_and:И
+search_or:ИЛИ
+search_desc_order:Опадајући низ
+search_asc_order:Растући низ
+search_sorting:Поређај резултате по датуму у:
+search_attach:Прилози:
+search_attach_all:Са или без
+search_attach_with:Са прилозима
+post_proceed:Настави
+unread_message:Означи поруку као непрочитану
+read_message:Прочитај поруку
+threadt_more:&lt;више&gt;
+back_to_top:Врати ме на врх
+saved:Сачувано
+buddy_offline:{VAR: r[2]} је тренутно ван мреже
+buddy_online:{VAR: r[2]} је тренутно на мрежи
+sml_no_smilies:Нема доступних смешака.
+login_unapproved_account_ttl:Непотврђени налог
+remove_from_buddy_list:уклони из списка пријатеља
+iemail_msg_author:<b>Аутор:</b> {VAR: obj->alias}
+iemail_msg_subject:<b>Наслов:</b> {VAR: obj->subject}
+iemail_msg_date:<b>Датум:</b> {TEMPLATE: dmsg_post_date}
+iemail_msg_reply:Одговори
+iemail_msg_quote:Цитат
+iemail_msg_view:Прикажи тему/поруку
+threadt_sticky:лепљива
+threadt_announce:саопштење
+reported_no_messages:Нема пријављених порука.
+poll_no_polls:Нема анкета.
+mnav_posted_by:Постављено од:
+findu_admin_opts_header:Административне опције
+findu_unban:Врати приступ
+findu_ban:Забрани приступ
+findu_edit:Уреди
+findu_delete:Обриши
+dmsg_reply_to:је одговор на
+dmsg_reply_num:порука #{VAR: obj->reply_to}
+merge_topics:Споји теме
+userinfo_buddy:Пријатељ:
+register_email_addr:Е-адреса:
+usrinfo_last_visit:Последња посета:
+mnav_newer:новије од
+mnav_older:старије од
+ip_search_by_ip:Тражи кориснике по IP адреси
+ip_search_syntax:Подржана синтакса: 1.2.3.4, 1.2.3, 1.2, 1
+ip_search:Претражи
+ip_analyze_usage:Анализирај употребу IP адресе
+ip_analyze_usage_descr:Наведите тачно корисничко име корисника.
+ip_users_using:Корисници који користе '{VAR: ip}' IP адресу
+ip_all_ips:Све IP адресе коришћене од члана „{VAR: user}“
+ip_title:Прегледач IP адресе
+userinfo_real_name:Право име:
+register_err_alias_notallowed:Овај псеудоним није дозвољен
+post_err_mod_forum_edit_ttl:Грешка
+post_err_mod_forum_edit_msg:Не можете да мењате поруке у уредничком форуму.
+dmsg_num:порука #{VAR: obj->id}
+postcheck_session_invalid:Ваша сесија је истекла. Поново унесите податке.
+delete_message_extra_desc:<b>Необавезно</b><br />Унесите разлог за брисање поруке који ће бити послат аутору преко приватне поруке.
+delete_message_extra_body:Унесите текст уклоњене поруке који ће бити послат аутору.
+delete_msg_removed_ttl:Ваша порука је уклоњена од стране администрације.
+delete_msg_pm_body:Оригинална порука
+delete_msg_pm_subject:Наслов: {VAR: data[15]}
+ip_no_whois:Whois подаци за <b>{VAR: ip}</b> нису доступни.
+ip_whois_title:ISP подаци
+register_theme:Тема:
+pmsg_trash:Испразни отпад
+uc_new_pm:Нове приватне поруке
+uc_new_topic:Нова тема
+uc_new_cat_forum:Надгледани форуми с новим порукама
+uc_cat_forum:Категорија &raquo; форума
+uc_sub_topics:Надгледане теме с новим порукама
+uc_page_title:Прегледање личног управљачког панела.
+search_options:Опције претраге
+search_user_filter:Сврстај по кориснику:
+register_none:Не обавештавај ме
+findu_no_conf:непотврђен корисник
+register_max_sig_len:Највећа дужина:
+register_turing:Унесите кôд испод:
+register_err_turing:Неисправан потврдни кôд.
+modque_cat:Категорија
+modque_forum:Форум
+idx_compact_forum_row:Доступни форуми:
+mmd_del_title:Обриши теме
+mmd_mov_title:Премести теме
+mmd_move_threads_to:Одредишни форум:
+mmd_abort_move:Откажи
+mmd_move:Премести теме
+pmsg_pdf_btn:Направи PDF архиву
+search_results_hdr:{VAR: total} резултата претраге је пронађено
+thread_del_all:Обриши све изабрано
+thread_mov_all:Премести све изабрано
+thread_merge_all:Споји све изабрано
+thread_loc_all:Закључај/откључај све изабрано
+dmsg_ip:IP:
+err_blockedaccnt_title:Грешка: ваш налог је избачен.
+err_blockedaccnt_msg:Вама је забрањен приступ форуму због неког од инсталираних корисничких филтера.
+merge_th_page_list:Избор странице теме
+most_users_online:Највише корисника на мрежи било је <b>{VAR: st_obj->most_online}</b>, <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
+sub_unsub_all_forums:Уклони све надгледане форуме
+sub_unsub_all_topics:Уклони све надгледане теме
+unbookmark_all_topics:Уклони све забелешке
+tabs_own_posts:Прикажи сопствене поруке
+sml_emoticon:Смешак
+sml_code:Кôд
+mnav_sub_only:Тражи само у надгледаним форумима
+register_topics_per_page:Тема по страници:
+login_min_time:Овај форум дозвољава један покушај пријављивања сваких {VAR: MIN_TIME_BETWEEN_LOGIN} секунди. Сачекајте {FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)} сек. пре следећег покушаја.
+post_not_logged_in:Нисте пријављени. Порука ће бити постављена анонимно.
+post_common_bold:Масна слова
+post_common_italics:Курзив
+post_common_underline:Подвуци
+post_common_align_left:Поравнај улево
+post_common_align_center:Поравнај по средини
+post_common_align_right:Поравнај удесно
+post_common_link:Убаци везу
+post_common_email:Убаци е-адресу
+post_common_image:Убаци слику
+post_common_nlist:Додај нумерички списак
+post_common_blist:Додај списак набрајања
+post_common_quote:Додај цитат
+post_common_code:Додај кôд
+rating_delete:Обриши
+post_always_on_top:Учини да се тема увек појављује на врху списка тема
+topic_rating:{VAR: frm->rating} од {PLURAL: frm->n_rating|$1 глас|$1 гласа|$1 гласова}
+topic_list_rating:{VAR: r[17]} од {PLURAL: r[21]|$1 глас|$1 гласа|$1 гласова}
+tabs_notifications:Обавештења
+finduser_flag:Заставица
+post_descr:Опис теме:
+pmsg_on:датума
+pmsg_download_dump:Преузми скуп порука
+move_messages:Премести поруке
+move_msg_btn:Премести изабране поруке
+move_msg_th_expl:Наведите ID одредишне теме (може бити и у другим форумима)
+captcha_img_alt:Потврдна слика: мораћете да препознате текст на овој слици.
+captcha_img_help:Не постоји нула или јединица на слици.
+powered-by:Покреће FUDforum {GVAR: FORUM_VERSION}.<br />Ауторска права &copy;2001–2010 <a href="http://fudforum.org/">FUDforum Bulletin Board софтвер</a>
+code_title:Кôд:
+code_select_all:Изабери све
+code_show_hide:Прикажи/сакриј
+social_sites:Друштвене мреже:
+postcheck_min_len_err:Порука је прекратка. Најмања дужина је {PLURAL: post_min_len|$1 знак|$1 знака|$1 знакова}.
+postcheck_dup_err:Молимо вас, не правите дупликате тема.
+btn_new_topic:Нова тема
+btn_new_pm:Нова приватна порука
+btn_post_reply:Пошаљи одговор
+btn_tree_view:Стабласти приказ
+btn_flat_view:Раван приказ
+btn_about:Профил
+btn_small_pm:ПП
+btn_delete:обриши
+btn_edit:уреди
+btn_reply:одговори
+btn_forward:проследи
+btn_quote:цитирај
+btn_email:Е-пошта
+btn_show_posts:поруке
+btn_homepage:www
+feed_no_data:Нема поклапања.
+feed_rdf:RDF довод
+feed_rss:RSS2 довод
+feed_atom:ATOM довод
+ip_whois_connect_err:Повезивање на WHOIS сервер није успело ({VAR: whois_server}): {VAR: errstr}
+custom_filed_required:Ово поље је обавезно.
