@@ -418,11 +418,15 @@ function email_encode($val)
 
 		/* Only one theme available, so no select. */
 		if (!$uent->theme) {
-			$uent->theme = q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}themes WHERE theme_opt>=2 AND '. q_bitand('theme_opt', 2) .' > 0 LIMIT 1');
+			$uent->theme = q_singleval(q_limit('SELECT id FROM {SQL_TABLE_PREFIX}themes WHERE theme_opt>=2 AND '. q_bitand('theme_opt', 2) .' > 0', 1));
 		}
 
 		$uent->birthday = sprintf('%02d%02d', (int)$_POST['b_month'], (int)$_POST['b_day']) . fmt_year((int)$_POST['b_year']);
-		$uent->msnm = email_encode($uent->msnm);
+		if ($uent->birthday == '00000000') {
+			$uent->birthday = '';
+		}
+
+		$uent->msnm   = email_encode($uent->msnm);
 		$uent->google = email_encode($uent->google);
 
 		if ($FUD_OPT_1 & 32768 && $uent->sig) {
