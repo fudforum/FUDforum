@@ -64,8 +64,7 @@ logged_in_list:Lista zalogowanych użytkowników
 login:Zaloguj się
 login_header:Nazwa użytkownika:
 logout:Wyloguj się
-# Fuzzy
-mark_all_read:zaznacz wszystkie wiadomości jako przeczytane
+mark_all_read:Oznacz wszystkie wiadomości jako przeczytane
 mark_all_read_desc:Wszystkie Twoje nieprzeczytane wiadomości zostaną zaznaczone jako przeczytane
 members:Użytkownicy
 calendar:Kalendarz
@@ -412,8 +411,7 @@ post_preview_btn:Podgląd wiadomości
 ignore_users:Ignorowani Użytkownicy
 add_ignore:Dodawanie ignorowanych
 forum_terms:Zasady Forum
-# Fuzzy
-forum_rules:Rejestracja na tym forum jest darmowa. Wymagane jest zaakceptowanie następującego warunku:<br />Użytkownik forum obwiązany jest do niezamieszczania wiadomości uznanych powszechnie za obraźliwe, wulgarne, pełnych nienawiści, pogróżek oraz w jakikolwiek inny sposób łamiące prawo.<p>Wszystkie wiadomości wyrażają poglądy autora. Właściciel, ani twórcy forum nie będą odpowiedzialni za ich treść.<p>Ponadto właściciele tego forum zastrzegają sobie prawo do usuwania, edytowania, przenoszenia lub zamykania wątków bez podania przyczyny.<br />
+forum_rules:<p>Rejestracja na forum jest darmowa! Wymagamy jednak, aby przestrzegać poniżej opisane zasady. Jeśli zgadzasz się na te warunki, wciśnij przycisk <b>Zgadzam się</b> na dole strony. Uwaga – poprzez wciśnięcie tego przycisku oświadczasz, że masz ukończone 14 lat. Jeśli masz 13 lat lub mniej użyj formularza rejestracji.</p><p>Chociaż administratorzy i moderatorzy tego forum będą starać się usuwać wszelkie niepożądane wiadomości nie jest możliwym dla nas sprawdzenie ich wszystkich. Każda wiadomość przedstawia poglądy jej autora, a właściciele i operatorzy forum nie ponoszą za jej treść odpowiedzialności.</p><p>Wciskając przycisk <b>Zgadzam się</b> gwarantujesz, że nie będziesz przesyłał żadnych wiadomości obscenicznych, wulgarnych, erotycznych, nawołujących do nienawiści, napastliwych lub w inny sposób naruszających prawo.</p><p>Właściciele tego forum zastrzegają sobie prawo do usuwania, edytowania, przenoszenia lub zamykania wątków bez podania przyczyny.</p>
 # Fuzzy
 forum_rules_13:Wszyscy użytkownicy poniżej 13 roku życia muszą uzyskać zgodę od swoich rodziców lub prawnych opiekunów, jeśli chcą zarejestrować się na tym forum. Chociaż nie mamy nic przeciwko udzielaniu się na forum osób o wieku poniżej 13 lat, wymagamy, aby rodzic lub opiekun przefaksował nam lub przesłał listem podpisaną zgodę zanim założymy konto.<p>Jeśli chcesz rozpocząć proces rejestracji naciśnij przycisk "Akceptuję" umieszczony poniżej. Jeśli chcesz zrezygnować z rejestracji, naciśnij przycisk "Anuluj", a powrócisz na główną stronę forum. <p>Kopia formularza pozwolenia może być pobrana z tego miejsca. Więcej informacji o procesie rejestracji można uzyskać wysyłając list na adres <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.<p>
 coppa_conf:Potwierdzenie systemu COPPA
@@ -651,8 +649,7 @@ register_err_passwdnomatch:Twoje hasła nie pokrywają się.
 register_err_invalidemail:Adres e-mail, który podałeś, nie wydaje się być poprawny.
 register_err_needname:Aby pomyślnie zakończyć proces rejestracji, musisz podać swoje nazwisko.
 register_err_enterpasswd:Musisz podać swoje aktualne hasło, aby wprowadzić zmiany.
-# Fuzzy
-register_err_adminpasswd:Musisz podać swoje hasło administratora, aby wprowadzić zmiany.
+register_err_adminpasswd:Musisz wprowadzić swoje <b>hasło administratora</b>, aby zapisać zmiany.
 register_err_notyouremail:Ktoś jest już zarejestrowany z tym adresem e-mail i tą osobą NIE jesteś Ty.
 register_err_avatartobig:Plik, który próbujesz dołączyć, jest za duży, ponieważ przekracza ograniczenie {GVAR: CUSTOM_AVATAR_MAX_SIZE} bajtów
 register_err_avatarnotallowed:Avatar, który próbujesz dołączyć, jest niedozwolony, więc sprawdź dozwolone typy plików.
@@ -682,10 +679,8 @@ tree_update:Przeglądanie wątku (widok drzewiasty) <a href="{TEMPLATE: tree_upd
 userinfo_update:Przeglądanie profilu użytkownika <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}</a>
 ERR_login_msg2:<legend>BŁĄD: Musisz się zalogować</legend>Aby korzystać z tego serwisu musisz się wcześniej zarejestrować.
 ERR_disabled_ttl:Wyłączona funkcja
-# Fuzzy
 ERR_disabled_msg:Ta funkcja została wyłączona przez administratora systemu.
 ERR_access_ttl:BŁĄD: Niewystarczające uprawnienia
-# Fuzzy
 ERR_access_msg:Nie masz wymaganych uprawnień, aby wykonać tę operację.
 ERR_registration_disabled_ttl:Rejestracja jest wyłączona
 ERR_registration_disabled_msg:Administrator wyłączył rejestrację, więc spróbuj ponownie później.
@@ -1031,8 +1026,7 @@ uc_sub_topics:Subskrybowane Wątki z Nowymi Wiadomościami
 uc_page_title:Osobisty panel sterowania
 search_options:Opcje wyszukiwania
 search_user_filter:Wyłącznie wiadomości użytkownika:
-# Fuzzy
-register_none:Nie powiadamiaj
+register_none:Nie powiadamiaj mnie
 findu_no_conf:niezatwierdzony użytkownik
 register_max_sig_len:Maksymalna długość:
 register_turing:Wpisz kod widoczny poniżej:

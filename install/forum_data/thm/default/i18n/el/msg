@@ -58,8 +58,8 @@ lock_thread:Κλείδωμα Θέματος
 locked:Κλειδώθηκε
 locked_with_new_posts:Κλειδώθηκε (w/ μη αναγνωσμένα μηνύματα)
 logged_in_list:Λίστα συνδεδεμένων χρηστών
-login:Σύνδεση
-login_header:Σύνδεση:
+login:Είσοδος
+login_header:Είσοδος:
 logout:Έξοδος
 # Fuzzy
 mark_all_read:σήμανση όλων των μηνυμάτων ως διαβασμένων
@@ -253,14 +253,14 @@ finduser_action:Ενέργεια
 yes:Ναι
 no:Όχι
 register_email:Ηλεκτρονική διεύθυνση
-pmuserloc_login:Σύνδεση:
+pmuserloc_login:Είσοδος:
 pmuserloc_submit:Καταχώρηση
 pmuserloc_user:Χρήστης
 pmuserloc_no_result:Κανένα Αποτέλεσμα
 register_builtin:Ενσωματώθηκε
 register_specify_url:Δώστε URL
 register_uploaded:Φόρτωση Άβαταρ
-register_login:Σύνδεση:
+register_login:Είσοδος:
 register_password:Κωδικός:
 register_conf_pass:Επιβεβαίωση Κωδικού:
 register_name:Όνομα:
@@ -423,9 +423,9 @@ th_expr_one_year:1 έτος
 thread_mod_delete:Διαγραφή
 split_th_subject:Θέμα:
 split_th_select:Επιλογή
-quicklogin_login:Σύνδεση:
+quicklogin_login:Όνομα:
 quicklogin_password:Κωδικός:
-quicklogin_login_btn:Σύνδεση:
+quicklogin_login_btn:Είσοδος
 register_jabber:Αναγνωριστής Jabber:
 register_skype:Αναγνωριστής Skype:
 register_twitter:Αναγνωριστής Twitter:

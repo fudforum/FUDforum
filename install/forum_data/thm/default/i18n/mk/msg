@@ -1100,7 +1100,7 @@ captcha_img_help:На сликата нема нула или единица.
 powered-by:Со поддршка од: FUDforum {GVAR: FORUM_VERSION}.<br />Авторски права &copy;2001-2010 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Код:
 code_select_all:Избери сè
-code_show_hide:Прикажи / сокриј
+code_show_hide:Прикажи / скриј
 social_sites:Мрежни места за друштвено вмрежување:
 postcheck_min_len_err:Вашата порака е прекратка. Минималната дозволена должина изнесува {PLURAL: post_min_len|$1 знак|$1 знаци}.
 postcheck_dup_err:Ве молиме не создавајте дуплирани теми.
