@@ -290,8 +290,8 @@ finduser_action:Action
 yes:Yes
 no:No
 register_email:E-mail
-edit_time_limit:<b>Editing Time Limit</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minutes
-no_edit_time_limit:<b>Editing Time Limit</b>: <b>Unlimited</b>
+edit_time_limit:<b>Editing Time Limit</b>: {GVAR: EDIT_TIME_LIMIT} minutes
+no_edit_time_limit:<b>Editing Time Limit</b>: Unlimited
 pmuserloc_login:Login:
 pmuserloc_submit:Submit
 pmuserloc_user:User
@@ -717,7 +717,7 @@ post_opt_html_off:<b>HTML</b> code is <b>off</b>
 post_opt_fud_off:<b>BBcode</b> is <b>off</b>
 post_opt_images_off:<b>Images</b> are <b>off</b>
 post_opt_smilies_off:<b>Smilies</b> are <b>off</b>
-post_opt:Forum Options
+post_opt:Forum Options:
 register_change_passwd:change password
 register_change_login:change login
 approved_avatar_title:Your custom avatar was approved.
@@ -804,6 +804,7 @@ th_expr_two_month:2 Months
 th_expr_four_month:4 Months
 th_expr_one_year:1 Year
 thread_mod_delete:Delete
+action_ip:IP
 action_latest_post:Last Message
 online_today_last_visit:Last Visited
 online_today_update:Viewing the list of users who were on the forum today.
@@ -1054,10 +1055,10 @@ mmd_abort_move:Cancel
 mmd_move:Move Topics
 pmsg_pdf_btn:Make PDF Archive
 search_results_hdr:{VAR: total} Search Results Found
-thread_del_all:Delete All Selected
-thread_mov_all:Move All Selected
-thread_merge_all:Merge All Selected
-thread_loc_all:Lock/Unlock All Selected
+thread_del_all:Delete selected
+thread_mov_all:Move Selected
+thread_merge_all:Merge Selected
+thread_loc_all:Lock/Unlock Selected
 dmsg_ip:IP:
 err_blockedaccnt_title:ERROR: Your account has been filtered out.
 err_blockedaccnt_msg:Your account has been blocked from accessing the forum due to one of the installed user filters.
@@ -1080,8 +1081,11 @@ post_common_align_left:Align Left
 post_common_align_center:Align Center
 post_common_align_right:Align Right
 post_common_link:Insert a Link
+post_common_link_popup:Link location:
 post_common_email:Insert an E-mail address
+post_common_email_popup:E-mail address:
 post_common_image:Insert an image
+post_common_image_popup:Image URL:
 post_common_nlist:Add numbered list
 post_common_blist:Add bulleted list
 post_common_quote:Add Quote
@@ -1100,7 +1104,7 @@ move_msg_btn:Move Selected Messages
 move_msg_th_expl:Specify the ID of the destination topic (can be in other forums)
 captcha_img_alt:Captcha Verification: you will need to recognize the text in this image.
 captcha_img_help:There is no zero or one in the image.
-powered-by:Powered by: FUDforum {GVAR: FORUM_VERSION}.<br />Copyright &copy;2001-2010 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+powered-by:Powered by: FUDforum {GVAR: FORUM_VERSION}.<br />Copyright &copy;2001-2011 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Code:
 code_select_all:Select all
 code_show_hide:Show/ hide
@@ -1128,3 +1132,5 @@ feed_rss:RSS2 feed
 feed_atom:ATOM feed
 ip_whois_connect_err:Unable to connect to WHOIS server ({VAR: whois_server}): {VAR: errstr}
 custom_filed_required:This field is required.
+page_list_heading:Available pages
+page_list_total: {PLURAL: i|$1 page|$1 pages} listed.
