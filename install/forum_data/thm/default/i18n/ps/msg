@@ -237,6 +237,7 @@ post_err_passwd:ناسم پټنوم.
 reset_err_rstconf_title:مالومات
 finduser_title:کارن موندل
 index_title:فورم ته ښه راغلاست
+# Fuzzy
 post_opt:د فورم خوښنې
 register_change_passwd:پټنوم بدلول
 groupmgr_yes:هو
@@ -306,7 +307,9 @@ search_options:د پلټلو خوښنې
 modque_cat:وېشنيزه
 modque_forum:فورم
 pmsg_pdf_btn:د PDF خونديځ جوړول
+# Fuzzy
 thread_del_all:ټول ټاکلي ړنګول
+# Fuzzy
 thread_mov_all:ټول ټاکلي لېږدول
 post_common_bold:زغرد
 post_common_italics:رېوند

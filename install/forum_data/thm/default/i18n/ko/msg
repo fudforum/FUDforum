@@ -633,6 +633,7 @@ index_title:포럼에 오신것을 환영합니다
 search_title:{VAR-HTML: srch} 검색
 remail_emailsent:이메일 발송 완료
 poll_add_option:옵션 추가:
+# Fuzzy
 post_opt:포럼 옵션
 register_change_passwd:패스워드 변경
 approved_avatar_title:사용자 아바타 승인.
@@ -867,7 +868,9 @@ mmd_abort_move:취소
 mmd_move:토픽 이동
 pmsg_pdf_btn:PDF 생성
 search_results_hdr:{VAR: total}개 찾음
+# Fuzzy
 thread_del_all:선택한 모든것 삭제
+# Fuzzy
 thread_mov_all:선택한 모든것 이동
 err_blockedaccnt_title:오류: 당신의 계정이 차단 당하였습니다
 merge_th_page_list:토픽 페이지 선택

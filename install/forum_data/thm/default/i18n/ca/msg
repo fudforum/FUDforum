@@ -265,8 +265,8 @@ finduser_joindate:data d`incorporació
 finduser_action:Acció
 yes:Sí­
 register_email:Correu electrònic
-edit_time_limit:<b>Lí­mit de temps d`edició</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minuts
-no_edit_time_limit:<b>Lí­mit de temps d`edició</b>: <b>Il.limitat</b>
+edit_time_limit:<b>Lí­mit de temps d`edició</b>: {GVAR: EDIT_TIME_LIMIT} minuts
+no_edit_time_limit:<b>Lí­mit de temps d`edició</b>: Il.limitat
 pmuserloc_submit:Enviar
 pmuserloc_user:Usuari
 pmuserloc_no_result:No hi ha hagut resultats
@@ -686,6 +686,7 @@ post_opt_html_off:El codi <b>HTML</b> està  <b>DESACTIVAT</b>
 post_opt_fud_off:El <b>BBcode</b> està  <b>DESACTIVAT</b>
 post_opt_images_off:Les <b>imatges</b> estan <b>DESACTIVADES</b>
 post_opt_smilies_off:Les <b>emoticones</b> estan <b>DESACTIVADES</b>
+# Fuzzy
 post_opt:Opcions del fòrum
 register_change_passwd:canviar contrasenya
 approved_avatar_title:El seu avatar personalitzat ha estat aprovat.
@@ -1012,7 +1013,9 @@ mmd_abort_move:Cancel.lar
 mmd_move:Moure fils
 pmsg_pdf_btn:Crear arxiu PDF
 search_results_hdr:S`han trobat {VAR: total} resultats per a la seva recerca
+# Fuzzy
 thread_del_all:Esborrar tots els seleccionats
+# Fuzzy
 thread_mov_all:Moure tots els seleccionats
 err_blockedaccnt_title:ERROR: el seu compte ha estat filtrat.
 err_blockedaccnt_msg:El seu compte ha estat bloquejat per un dels filtres d`usuaris instal.lats.

@@ -271,8 +271,8 @@ finduser_action:Akcia
 yes:Áno
 no:Nie
 register_email:Email
-edit_time_limit:<b>Časový Limit Na Editáciu</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minút
-no_edit_time_limit:<b>Časový Limit Na Editáciu</b>: <b>Neobmedzený</b>
+edit_time_limit:<b>Časový Limit Na Editáciu</b>: {GVAR: EDIT_TIME_LIMIT} minút
+no_edit_time_limit:<b>Časový Limit Na Editáciu</b>: Neobmedzený
 pmuserloc_login:Použivateľské meno:
 pmuserloc_submit:Odoslať
 pmuserloc_user:Používateľ
@@ -685,6 +685,7 @@ post_opt_html_off:<b>HTML</b> kód je <b>VYPNUTÝ</b>
 post_opt_fud_off:<b>BBcode</b> je <b>VYPNUTÝ</b>
 post_opt_images_off:<b>Obrázky</b> sú <b>VYPNUTÉ</b>
 post_opt_smilies_off:<b>Smajlíci</b> sú <b>VYPNUTÍ</b>
+# Fuzzy
 post_opt:Nastavenia fóra
 register_change_passwd:zmeniť heslo
 approved_avatar_title:Vaša ikona bola schválená.
@@ -984,7 +985,9 @@ mmd_mov_title:Presunúť Témy
 mmd_abort_move:Prerušiť
 mmd_move:Presunúť Témy
 pmsg_pdf_btn:Vytvoriť PDF Archív
+# Fuzzy
 thread_del_all:Zmazať Všetky Vybrané
+# Fuzzy
 thread_mov_all:Presunúť Všetky Vybrané
 err_blockedaccnt_title:CHYBA: Váš účet bol vyfiltrovaný.
 sub_unsub_all_forums:Odhlásiť Z Všetkých Fór

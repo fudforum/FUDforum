@@ -289,8 +289,8 @@ finduser_action:Művelet
 yes:Igen
 no:Nem
 register_email:E-mail
-edit_time_limit:<b>Szerkesztési időkorlát</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> perc
-no_edit_time_limit:<b>Szerkesztési időkorlát</b>: <b>korlátlan</b>
+edit_time_limit:<b>Szerkesztési időkorlát</b>: {GVAR: EDIT_TIME_LIMIT} perc
+no_edit_time_limit:<b>Szerkesztési időkorlát</b>: korlátlan
 pmuserloc_login:Bejelentkezési név:
 pmuserloc_submit:Elküldés
 pmuserloc_user:Felhasználó
@@ -707,6 +707,7 @@ post_opt_html_off:<b>HTML</b>-kód <b>letiltva</b>
 post_opt_fud_off:<b>BBcode</b>-kód <b>letiltva</b>
 post_opt_images_off:<b>Képek</b> <b>letiltva</b>
 post_opt_smilies_off:<b>Hangulatjelek</b> <b>letiltva</b>
+# Fuzzy
 post_opt:Fórum beállításai
 register_change_passwd:jelszó módosítása
 approved_avatar_title:Az egyedi avatarod el lett fogadva.
@@ -1041,9 +1042,13 @@ mmd_abort_move:Mégse
 mmd_move:Témák áthelyezése
 pmsg_pdf_btn:PDF-archícvum készítése
 search_results_hdr:Összesen {VAR: total} találat van
+# Fuzzy
 thread_del_all:Az összes kiválasztott törlése
+# Fuzzy
 thread_mov_all:Az összes kiválasztott áthelyezése
+# Fuzzy
 thread_merge_all:Minden kijelölt összevonása
+# Fuzzy
 thread_loc_all:Az összes kiválasztott lezárása/feloldása
 dmsg_ip:IP-cím:
 err_blockedaccnt_title:HIBA: a fiókod ki lett szűrve.
@@ -1087,7 +1092,7 @@ move_msg_btn:Kiválasztott üzenetek áthelyezése
 move_msg_th_expl:Add meg a céltéma azonosítóját (lehet más fórumban is)
 captcha_img_alt:Captcha-ellenőrzés: fel kell ismerned a képen látható szöveget.
 captcha_img_help:Nincs nulla vagy egy a képen.
-powered-by:Az oldalt a FUDfórum {GVAR: FORUM_VERSION} hajtja.<br />Copyright &copy;2001-2010 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+powered-by:Az oldalt a FUDfórum {GVAR: FORUM_VERSION} hajtja.<br />Copyright &copy;2001-2011 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Kód:
 code_select_all:Összes kijelölése
 code_show_hide:Megjelenítés/ elrejtés

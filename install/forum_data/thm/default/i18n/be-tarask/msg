@@ -291,8 +291,8 @@ finduser_action:Дзеяньне
 yes:Так
 no:Не
 register_email:Адрас электроннай пошты
-edit_time_limit:<b>Абмежаваньне часу рэдагаваньня</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> хв.
-no_edit_time_limit:<b>Абмежаваньне часу рэдагаваньня</b>: <b>Без абмежаваньняў</b>
+edit_time_limit:<b>Абмежаваньне часу рэдагаваньня</b>: {GVAR: EDIT_TIME_LIMIT} хв.
+no_edit_time_limit:<b>Абмежаваньне часу рэдагаваньня</b>: Без абмежаваньняў
 pmuserloc_login:Імя карыстальніка:
 pmuserloc_submit:Даслаць
 pmuserloc_user:Карыстальнік
@@ -715,6 +715,7 @@ post_opt_html_off:<b>HTML</b>-код — <b>выключаны</b>
 post_opt_fud_off:<b>BBcode</b> — <b>выключаны</b>
 post_opt_images_off:<b>Выявы</b> — <b>выключаныя</b>
 post_opt_smilies_off:<b>Усьмешкі</b> — <b>выключаныя</b>
+# Fuzzy
 post_opt:Устаноўкі форуму
 register_change_passwd:зьмяніць пароль
 register_change_login:зьмяніць імя карыстальніка
@@ -1052,9 +1053,13 @@ mmd_abort_move:Адмяніць
 mmd_move:Перанесьці тэмы
 pmsg_pdf_btn:Стварыць архіў у фармаце PDF
 search_results_hdr:Знойдзена вынікаў пошуку: {VAR: total}
+# Fuzzy
 thread_del_all:Выдаліць усе выбраныя
+# Fuzzy
 thread_mov_all:Перанесьці ўсе выбраныя
+# Fuzzy
 thread_merge_all:Аб'яднаць усе выбраныя
+# Fuzzy
 thread_loc_all:Заблякаваць/Разблякаваць усе выбраныя
 dmsg_ip:IP-адрас:
 err_blockedaccnt_title:Памылка: Ваш рахунак быў адфільтраваны.
@@ -1098,7 +1103,7 @@ move_msg_btn:Перанос выбраных паведамленьняў
 move_msg_th_expl:Пазначце ідэнтыфікатар мэтавай тэмы (можа быць на іншым форуме)
 captcha_img_alt:Праверка Captcha: Вам неабходна распазнаць тэкст на гэтай выяве.
 captcha_img_help:На выяве няма лічбаў 0 ці 1.
-powered-by:Падтрымліваецца з дапамогай FUDforum {GVAR: FORUM_VERSION}.<br />Copyright &copy;2001-2010 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+powered-by:Падтрымліваецца з дапамогай FUDforum {GVAR: FORUM_VERSION}.<br />Copyright &copy;2001-2011 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Код:
 code_select_all:Выбраць усё
 code_show_hide:Паказаць/схаваць

@@ -291,8 +291,8 @@ finduser_action:Azione
 yes:Sì
 no:No
 register_email:Email
-edit_time_limit:<b>Tempo limite per la modifica</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minuti
-no_edit_time_limit:<b>Tempo limite per la modifica</b>: <b>illimitato</b>
+edit_time_limit:<b>Tempo limite per la modifica</b>: {GVAR: EDIT_TIME_LIMIT} minuti
+no_edit_time_limit:<b>Tempo limite per la modifica</b>: illimitato
 pmuserloc_login:Login:
 pmuserloc_submit:Invia
 pmuserloc_user:Utente
@@ -712,6 +712,7 @@ post_opt_html_off:L'<b>HTML</b> è <b>Disattivo</b>
 post_opt_fud_off:<b>BBcode</b> è <b>Disattivo</b>
 post_opt_images_off:Le <b>immagini</b> sono <b>Disattivo</b>
 post_opt_smilies_off:Gli <b>smiley</b> sono <b>Disattivo</b>
+# Fuzzy
 post_opt:Opzioni del forum
 register_change_passwd:cambia password
 register_change_login:cambia login

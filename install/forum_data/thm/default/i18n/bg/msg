@@ -288,8 +288,8 @@ finduser_action:Действие
 yes:Да
 no:Не
 register_email:Е-поща
-edit_time_limit:<b>Ограничено време за редактиране</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> минути
-no_edit_time_limit:<b>Време за редактиране</b>: <b>Неограничено</b>
+edit_time_limit:<b>Ограничено време за редактиране</b>: {GVAR: EDIT_TIME_LIMIT} минути
+no_edit_time_limit:<b>Време за редактиране</b>: Неограничено
 pmuserloc_login:Потребителско име:
 pmuserloc_submit:Търси
 pmuserloc_user:Потребител
@@ -712,6 +712,7 @@ post_opt_html_off:<b>HTML</b> е <b>забранен</b>
 post_opt_fud_off:<b>BBcode</b> е <b>забранен</b>
 post_opt_images_off:<b>Изображения</b> са <b>забранени</b>
 post_opt_smilies_off:<b>Усмивките</b> са <b>забранени</b>
+# Fuzzy
 post_opt:Опции на форума
 register_change_passwd:Промени паролата
 approved_avatar_title:Аватара ти е одобрен.

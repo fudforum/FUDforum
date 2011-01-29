@@ -293,8 +293,8 @@ finduser_action:Toiminto
 yes:Kyllä
 no:Ei
 register_email:Sähköposti
-edit_time_limit:<b>Muokkausaikaraja</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minuuttia
-no_edit_time_limit:<b>Muokkausaikaraja</b>: <b>Ei rajoitettu</b>
+edit_time_limit:<b>Muokkausaikaraja</b>: {GVAR: EDIT_TIME_LIMIT} minuuttia
+no_edit_time_limit:<b>Muokkausaikaraja</b>: Ei rajoitettu
 pmuserloc_login:Käyttäjätunnus:
 pmuserloc_submit:Hae
 pmuserloc_user:Käyttäjä
@@ -710,6 +710,7 @@ post_opt_html_off:<b>HTML</b>-koodit: <b>Ei käytössä</b>
 post_opt_fud_off:<b>BBcode</b>: <b>Ei käytössä</b>
 post_opt_images_off:<b>Kuvat</b>: <b>Ei käytössä</b>
 post_opt_smilies_off:<b>Hymiöt</b>: <b>Ei käytössä</b>
+# Fuzzy
 post_opt:Foorumin asetukset
 register_change_passwd:vaihda salasana
 approved_avatar_title:Oma avatarisi on hyväksytty.
@@ -1039,9 +1040,13 @@ mmd_abort_move:Peruuta
 mmd_move:Siirrä aiheet
 pmsg_pdf_btn:Luo PDF-arkisto
 search_results_hdr:Haku löysi {VAR: total} viestiä
+# Fuzzy
 thread_del_all:Poista kaikki valitut
+# Fuzzy
 thread_mov_all:Siirrä kaikki valitut
+# Fuzzy
 thread_merge_all:Yhdistä kaikki valitut
+# Fuzzy
 thread_loc_all:Lukitse tai avaa kaikki valitut
 dmsg_ip:IP:
 merge_th_page_list:Aihesivun valinta
@@ -1075,7 +1080,7 @@ move_messages:Siirrä viestit
 move_msg_btn:Siirrä valitut viestit
 captcha_img_alt:Captcha-varmistus: Sinun täytyy tunnistaa teksti tästä kuvasta.
 captcha_img_help:Kuvassa ei ole nollaa tai ykköstä.
-powered-by:Palvelun mahdollistaa: FUDforum {GVAR: FORUM_VERSION}.<br />Copyright &copy;2001-2010 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+powered-by:Palvelun mahdollistaa: FUDforum {GVAR: FORUM_VERSION}.<br />Copyright &copy;2001-2011 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Koodi:
 code_select_all:Valitse kaikki
 code_show_hide:Näytä tai piilota

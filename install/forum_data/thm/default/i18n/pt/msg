@@ -76,7 +76,11 @@ mark_all_read_desc:Todas a suas mensagens serão marcadas como lidas
 members:Membros
 calendar:Calendário
 cal_goto_date:Ir para:
+cal_day_heading:Eventos para o dia
 cal_no_events:Não há eventos para este dia.
+cal_update:Consultando o calendário do fórum
+cal_birthday:Aniversário: {VAR: user}
+cal_birthday_age:({PLURAL: age|$1 ano|$1 anos}).
 message:Mensagem
 message_counter:Os nossos utilizadores colocaram um total de <b>{PLURAL: post_count|$1 mensagem|$1 mensagens}</b> em <b>{PLURAL: thread_count|$1 tópico|$1 tópicos}</b>.
 message_index:Indice da mensagem
@@ -186,6 +190,7 @@ unread_posts:Posts não lidos
 unread_posts_desc:Mostrar todas as mensagens não lidas
 unsub_from_thread:Anular subscrição do tópico
 unsub_from_thread_desc:Parar de receber notificações sobre novos posts neste tópico
+unbookmark_thread:Remover dos favoritos
 unbookmark_thread_desc:Remover este tópico da sua lista de favoritos
 unsubscribe:Anular subscrição
 unsubscribe_desc:Parar de receber notificações sobre novos posts neste forum
@@ -293,8 +298,8 @@ finduser_action:Acção
 yes:Sim
 no:Não
 register_email:Email
-edit_time_limit:<b>Limite de tempo de edição</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minutos
-no_edit_time_limit:<b>Limite de tempo de edição</b>: <b>Ilimitado</b>
+edit_time_limit:<b>Limite de tempo de edição</b>: {GVAR: EDIT_TIME_LIMIT} minutos
+no_edit_time_limit:<b>Limite de tempo de edição</b>: Ilimitado
 pmuserloc_login:Utilizador:
 pmuserloc_submit:Submeter
 pmuserloc_user:Utilizador
@@ -426,6 +431,7 @@ coppa:<p>Para que um utilizador de idade inferior a 13 anos possa completar o pr
 prereg_info:Informação
 prereg_agree:Concordo
 prereg_disagree:Não concordo
+prereg_update:Lendo as regras do fórum
 coppa_fax_instructions:Instruções para o encarregado de educação
 coppa_fax_instructions2:Por favor imprima esta página assine e envie para:
 coppa_fax_reg_form:Formulário de registo
@@ -467,6 +473,10 @@ rpasswd_login:Utilizador
 rpasswd_cur_pass:Palavra-chave Actual:
 rpasswd_new_pass:Nova Password:
 rpasswd_conf_pass:Confirma Password:
+ruser_title:Formulário de alteração de nome de utilizador
+ruser_change_user:Muda o teu nome de utilizador no fórum
+ruser_cur_login:Nome de utilizador atual
+ruser_new_login:Novo nome de utilizador:
 ruser_cur_pass:Palavra-chave Actual:
 login_passwd:Senha:
 reset_email:Email:
@@ -510,6 +520,7 @@ qbud_add_selected:Adicionar selecção
 qbud_selected:Selecionado
 qbud_no_buddies:Não há amigos para escolha
 mklist_numerical:Numérico
+mklist_aplha:Alfabética
 mklist_square:Quadrado
 mklist_disc:Disco
 mklist_circle:Circulo
@@ -551,6 +562,7 @@ poll_year:ano
 poll_week:semana
 tabs_register:Configurações
 tabs_subscriptions:Subscrições
+tabs_bookmarkes:Favoritos
 tabs_referrals:Referências
 tabs_buddy_list:Lista de amigos
 tabs_ignore_list:Lista de ignorados
@@ -570,6 +582,7 @@ buddy_list_err_cantadd:Não se pode adicionar á sua própria lista de amigos
 buddy_list_err_dup:Já tem este utilizador na lista de amigos
 buddy_list_err_nouser:O utilizador que tentou adicionar á sua lista de amigos não foi encontrado no forum.
 buddy_list_err_nouser_title:Não foi possivel adicionar utilizador
+buddy_list_err_ignore:Não se podem acrescentar utilizadores que te ignoram à tua lista de amigos.
 buddy_list_update:A ver a sua lista de amigos
 core_err_invinp_title:Entrada inválida
 core_err_invinp_err:Seguiu uma ligação inválida, por favor contacte o <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a>
@@ -625,6 +638,7 @@ post_reply_update:Responder a <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subj
 post_topic_update:A escrever um tópico novo em <a href="{TEMPLATE: post_topic_update_lnk}">{VAR: frm->name}</a>
 post_error_generic:tem um erro
 postcheck_max_images_err:No máximo são permitidas {GVAR: MAX_IMAGE_COUNT} imagens por comentário, por favor diminua o n.º de imagens
+postcheck_no_links_allowed:Não podes usar links até que tenhas publicado pelo menos {PLURAL: posts_before_links|$1 mensagem|$1 mensagens}.
 postcheck_subj_needed:Assunto obrigatório
 postcheck_no_such_user:Não existe um utlizador chamado "{FUNC: char_fix(htmlspecialchars($v))}" neste forum
 postcheck_ignored:Não pode enviar uma mensagem privada  para "{FUNC: char_fix(htmlspecialchars($v))}", porque a pessoa está a ignora-lo.
@@ -669,9 +683,11 @@ search_update:A procurar posts
 selmsg_update:A visualisar <a href="{TEMPLATE: selmsg_update_lnk}">posts de Hoje</a>
 showposts_update:A ver posts por: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
 subscribed_update:A visualisar as próprias subscrições
+bookmarked_update:Consultando a sua própria lista de favoritos
 thread_update:A ver o fórum <a href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a>
 tree_update:A visualisar tópico (vista de árvore) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
 userinfo_update:Procurar em <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}'s</a> perfil
+ERR_login_msg2:<legend>ERRO: Você não está autenticado</legend>Para aceder a esta página, você tem que ser um membro deste fórum.
 ERR_disabled_ttl:Possibilidade desabilitada
 ERR_disabled_msg:Esta funcionalidade foi desactivada pelo administrador do sistema.
 ERR_access_ttl:ERRO: Permissões insuficientes
@@ -706,6 +722,7 @@ post_opt_html_off:<b>Codigo</b> HTML está <b>Desligado</b>
 post_opt_fud_off:<b>O BBcode</b> está <b>Desligado</b>
 post_opt_images_off:<b>As imagens</b> estão <b>Desligadas</b>
 post_opt_smilies_off:<b>Os smilies</b> estão <b>Desligados</b>
+# Fuzzy
 post_opt:Opções do Forum
 register_change_passwd:Alterar Password
 register_change_login:Alterar o nome de utilizador
@@ -764,12 +781,14 @@ p_LOCK:Trancar tópicos
 p_MOVE:Mover tópicos
 p_SML:Usar smilies
 p_IMG:Usar imagem como tag
+p_SEARCH:Pode fazer pesquisas
 group_mgr_search:Encontrar Utilizador
 group_mgr_indicator:Está a Editar: <b>{VAR: grp->name}</b>
 rate_worst:Pior
 rate_best:Melhor
 post_quote_msg:{VAR: msg->login} escreveu em {TEMPLATE: make_report_date}
 post_quote:- Disse - :
+post_quote_selected:Citar o texto seleccionado
 userinfo_referals:Utilizadores Referidos:
 userinfo_referals_count:{VAR: referals} Membros
 pm_no_space_title:Não há espaço suficiente!
@@ -817,6 +836,8 @@ quicklogin_password:Senha:
 quicklogin_use_cookies:Usa Cookies?
 quicklogin_login_btn:Entrar:
 quick_reply:Resposta rápida
+quick_reply_post:Publicar resposta rápida
+quick_reply_preview:Pré-visualizar resposta rápida
 post_notification_desc:Notificar quando alguém responder a esta mensagem.
 post_all_ext_allowed:(sem restrição)
 maximize_category:Maximizar Categoria
@@ -830,6 +851,9 @@ pmsg_next_msg:Mensagem Seguinte
 pmsg_prev_msg:Mensagem Anterior
 post_proc_reveal_spoiler:- Mostrar Spoiler -
 register_jabber:- Jabber Handle - :
+register_skype:Nome de utilizador no Skype:
+register_twitter:Nome de utilizador no Twitter:
+register_google:Nome de utilizador no Google Chat/IM:
 im_jabber:- Jabber - :
 im_google:Google Talk:
 im_skype:Skype:
@@ -873,6 +897,8 @@ search_asc_order:Ordem Ascendente
 search_logic:Lógica de Busca:
 search_sorting:Mostrar os Resultados por Data no:
 search_attach:Anexos:
+search_attach_all:Com ou sem
+search_attach_with:Com anexos
 post_proceed:Avançar
 post_moderated_forum:Colocou uma mensagem num Forum moderado, o que quer dizer que a sua mensagem não vai ser visivel no forum até que seja aprovada por um dos moderador(es) e/ou administrador(es) do Forum.
 post_moderated_forum_ttl:Notícia moderada do forum.
@@ -937,36 +963,52 @@ reg_conf_title:Confirmação do Registo
 reg_conf_email:<b>Confirmação por correio electrónico</b><br />Foi-lhe enviada uma mensagem contendo uma URL especial a que terá de aceder antes da sua conta ser activada. Se não receber essa notificação nos próximos minutos, entre na sua conta e garanta que o endereço de correio electrónico que introduziu está correcto. Após ter confirmado a sua conta, terá acesso às funcionalidades do fórum disponíveis aos utilizadores confirmados.
 reg_conf_account:<b>Confirmação de Conta</b><br />Antes da sua conta se tornar activa é necessário que seja aprovada pelo(s) administrador(es), assim que tal acontecer você receberá um e-mail indicando que a mesmo foi activada. Até essa altura você poderá aceder à sua conta, no entanto não poderá aceder às opções do forum somente disponíveis aos utilizadores confirmados.
 forum_banned_user:As suas acções anteriores obtiveram como resultado a sua expulsão permanente deste forum. Adeus.
+mnav_description:Navegador de mensagens
 mnav_date_limit:Intervalo de datas:
+mnav_forum_limit:Pesquisar apenas em:
 mnav_all_forums:Procurar em todos os fóruns
+mnav_submit:Iniciar pesquisa
 mnav_no_range:You must enter a valid date range. This value can be a float (0.12) but it must be greater then zero.
+mnav_invalid_unit:Tens que especificar uma unidade de tempo válida.
 mnav_invalid_date:The date range you've specified is larger then the one allowed by the administrator, narrow down date range of your search.
 mnav_no_results:There are no messages matching query.
 mnav_posted_by:Postado por:
+mnav_more:Mais &raquo;&raquo;
 mnav_minute:Minuto(s)
 mnav_hour:Hora(s)
 mnav_day:Dia(s)
 mnav_week:Semana(s)
 mnav_month:Mês (es)
+mnav_title:Navegador de Mensagens
+mnav_update:Consultando as mensagens usando o <a href="{TEMPLATE: mnav_update_lnk}">Navegador de Mensagens</a>
+pm_notify_subject:[{GVAR: FORUM_TITLE}] Notificação de Nova Mensagem Privada
 pm_notify_body_email:Você tem uma nova mensagem privada intitulada "{VAR: subject}", de "{VAR: from}", no fórum "{GVAR: FORUM_TITLE}".\nPara ver a mensagem clique aqui: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nPara deixar de receber notificações, desactive "Notificação de Mensagens Privadas" no seu perfil.
 register_pm_notification:Notificação de Mensagem Privada:
 register_pm_notification_desc:Se activado, será notificado sempre que lhe for enviada uma mensagem privada.
+findu_admin_opts_header:Opções de administração
+findu_unban:Desbanir
 findu_ban:Banir
 findu_edit:Editar
 findu_delete:Apagar
 dmsg_reply_to:é uma resposta a
+dmsg_reply_num:mensagem n° {VAR: obj->reply_to}
 merge_topics:Unir Tópicos
+merge_topics_cp:Painel de Controlo de Fusão de Tópicos
 merge_topics_tpl:Seleccione Tópicos para Unir <font class="SmallText">(você tem que seleccionar mais que um tópico)</font>
+merge_merge:Fundir os tópicos selecionados
 merge_next:Próximos Tópicos
 merge_prev:Tópicos anteriores
+merge_another:Ir ao <a href="{TEMPLATE: merge_another_lnk}">último tópico fundido</a> ou fundir outro:
 split_cp:Painel de Controlo para Separação de Tópicos
 groups_perms_header:Permissões <span class="small">(para ver o tipo da permissão coloque o ponteiro do rato sobre ela)</span>
+register_err_sig_too_long:A sua assinatura excede o comprimento máximo permitido de {GVAR: FORUM_SIG_ML} caracteres.
 register_sig_limit:{GVAR: FORUM_SIG_ML} caracteres <a href="javascript: alert('A sua assinatura tem '+document.forms['fud_register'].reg_sig.value.length+' caracteres. O comprimento máximo permitido é de {GVAR: FORUM_SIG_ML} caracteres. ');" class="SmallText">Verificar o Tamanho da Assinatura</a>
 adm_account_accepted:A sua conta '{VAR: login}' foi aprovada pelo administrador e já está activa. Agora pode aceder ao Fórum {GVAR: FORUM_TITLE}' como utilizador registado e confirmado.
 adm_account_accepted_s:O seu pedido de conta para o fórum '{GVAR: FORUM_TITLE}' foi aceite.
 adm_account_rejected:A sua conta '{VAR: login}' foi rejeitada pelo administrador. Se quiser saber a razão desta decisão, contacte o administrador no endereço '{GVAR: ADMIN_EMAIL}'.
 adm_account_rejected_s:O seu pedido de conta para o Fórum '{GVAR: FORUM_TITLE}' foi recusado.
 thread_on:em
+userinfo_buddy:Amigo:
 register_email_addr:Endereço de correio electrónico:
 usrinfo_last_visit:Ultimo Visitado:
 mnav_newer:mais recente que
@@ -996,9 +1038,13 @@ mmd_mov_title:Mover tópicos
 mmd_abort_move:Cancelar
 mmd_move:Mover Tópicos
 pmsg_pdf_btn:Criar um ficheiro PDF
+# Fuzzy
 thread_del_all:Apagar todos os seleccionados
+# Fuzzy
 thread_mov_all:Mover todos os seleccionados
+# Fuzzy
 thread_merge_all:Fundir todos os seleccionados
+# Fuzzy
 thread_loc_all:Bloquear/Desbloquear todos os seleccionados
 dmsg_ip:IP:
 err_blockedaccnt_title:ERRO: Sua conta foi filtrada.
@@ -1020,7 +1066,7 @@ rating_delete:Apagar
 tabs_notifications:Notificações
 post_descr:Descrição do tópico:
 move_messages:Mover mensagens
-powered-by:Potenciado por: FUDforum {GVAR: FORUM_VERSION}.<br />Copyright &copy;2001-2010 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+powered-by:Potenciado por: FUDforum {GVAR: FORUM_VERSION}.<br />Copyright &copy;2001-2011 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Código:
 code_select_all:Seleccionar todos
 code_show_hide:Mostrar / ocultar

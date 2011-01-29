@@ -279,8 +279,8 @@ finduser_action:Darbības
 yes:Jā
 no:Nē
 register_email:E-pasts
-edit_time_limit:<b>Izmaiņu veikšanas periods</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minūtes
-no_edit_time_limit:<b> Izmaiņu veikšanas periods </b>: <b>Nelimitēts</b>
+edit_time_limit:<b>Izmaiņu veikšanas periods</b>: {GVAR: EDIT_TIME_LIMIT} minūtes
+no_edit_time_limit:<b> Izmaiņu veikšanas periods </b>: Nelimitēts
 pmuserloc_login:Vārds:
 pmuserloc_submit:Meklēt
 pmuserloc_user:Lietotājs
@@ -693,6 +693,7 @@ post_opt_html_off:<b>HTML</b>  - <b>izslēgts</b>
 post_opt_fud_off:<b>BBcode</b> - <b>izslēgts</b>
 post_opt_images_off:<b>Nozīmītes</b> - <b>izslēgtas</b>
 post_opt_smilies_off:<b>Smaidiņi</b> - <b>izslēgti</b>
+# Fuzzy
 post_opt:Foruma parametri
 register_change_passwd:nomainīt paroli
 approved_avatar_title:Jūsu nozīmīte apstiprināta.

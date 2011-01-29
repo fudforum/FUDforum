@@ -292,8 +292,8 @@ finduser_action:Ação
 yes:Sim
 no:Não
 register_email:Email
-edit_time_limit:<b>Limite de tempo de edição</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minutos
-no_edit_time_limit:<b>Limite de tempo de edição</b>: <b>Ilimitado</b>
+edit_time_limit:<b>Limite de tempo de edição</b>: {GVAR: EDIT_TIME_LIMIT} minutos
+no_edit_time_limit:<b>Limite de tempo de edição</b>: Ilimitado
 pmuserloc_login:Usuário:
 pmuserloc_submit:Submeter
 pmuserloc_user:Usuário
@@ -716,6 +716,7 @@ post_opt_html_off:<b>Codigo</b> HTML está <b>Desligado</b>
 post_opt_fud_off:<b>O BBcode</b> está <b>Desligado</b>
 post_opt_images_off:<b>As imagens</b> estão <b>Desligadas</b>
 post_opt_smilies_off:<b>Os smilies</b> estão <b>Desligados</b>
+# Fuzzy
 post_opt:Opções do Fórum
 register_change_passwd:Alterar Senha
 register_change_login:mudar identificação
@@ -1053,9 +1054,13 @@ mmd_abort_move:Cancelar
 mmd_move:Mover Tópicos
 pmsg_pdf_btn:Criar arquivo PDF
 search_results_hdr:{VAR: total} Resultados encontrados
+# Fuzzy
 thread_del_all:Apagar Todos os selecionados
+# Fuzzy
 thread_mov_all:Mover Todos os selecionados
+# Fuzzy
 thread_merge_all:Unificar todos os selecionados
+# Fuzzy
 thread_loc_all:Bloquear/desbloquear todos os selecionados
 dmsg_ip:IP:
 err_blockedaccnt_title:ERRO: Sua conta foi filtrada.
@@ -1099,7 +1104,7 @@ move_msg_btn:Mover mensagens selecionadas
 move_msg_th_expl:Especifique a ID do tópico de destino (pode estar em outros fóruns)
 captcha_img_alt:Verificação por Captcha: você precisará reconhecer o texto nesta imagem.
 captcha_img_help:Não há zero ou um na imagem.
-powered-by:Powered by: FUDforum {GVAR: FORUM_VERSION}.<br />Direitos autorais &copy;2001-2010 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+powered-by:Powered by: FUDforum {GVAR: FORUM_VERSION}.<br />Direitos autorais &copy;2001-2011 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Código:
 code_select_all:Selecionar tudo
 code_show_hide:Mostrar/esconder

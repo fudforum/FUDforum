@@ -296,8 +296,8 @@ finduser_action:Aktion
 yes:Ja
 no:Nein
 register_email:E-Mail
-edit_time_limit:<b>Zeitspanne zum Bearbeiten</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> Minuten
-no_edit_time_limit:<b>Zeitspanne zum Bearbeiten</b>: <b>Unbegrenzt</b>
+edit_time_limit:<b>Zeitspanne zum Bearbeiten</b>: {GVAR: EDIT_TIME_LIMIT} Minuten
+no_edit_time_limit:<b>Zeitspanne zum Bearbeiten</b>: Unbegrenzt
 pmuserloc_login:Benutzername:
 pmuserloc_submit:Senden
 pmuserloc_user:Benutzer
@@ -720,6 +720,7 @@ post_opt_html_off:<b>HTML</b> Code ist <b>AUS</b>
 post_opt_fud_off:<b>BBcode</b> ist <b>AUS</b>
 post_opt_images_off:<b>Bilder</b> sind <b>AUS</b>
 post_opt_smilies_off:<b>Smileys</b> sind <b>AUS</b>
+# Fuzzy
 post_opt:Forumseinstellungen
 register_change_passwd:Passwort ändern
 register_change_login:Benutzernamen ändern
@@ -1057,9 +1058,13 @@ mmd_abort_move:Abbrechen
 mmd_move:Thema verschieben
 pmsg_pdf_btn:PDF-Archiv erzeugen
 search_results_hdr:{VAR: total} Suchergebnisse gefunden
+# Fuzzy
 thread_del_all:Alle markierten löschen
+# Fuzzy
 thread_mov_all:Alle markierten verschieben
+# Fuzzy
 thread_merge_all:Alle markierten zusammenführen
+# Fuzzy
 thread_loc_all:Alle markierten sperren/entsperren
 dmsg_ip:IP:
 err_blockedaccnt_title:FEHLER: Dein Konto wurde ausgefiltert.
@@ -1103,7 +1108,7 @@ move_msg_btn:Verschiebe ausgewählte Beiträge
 move_msg_th_expl:Gib die ID des Zielthemas an (kann in einem anderem Forum sein)
 captcha_img_alt:CAPTCHA-Bestätigung: Du musst den Text in diesem Bild erkennen.
 captcha_img_help:Das Bild enthält keine Null oder Eins.
-powered-by:Betrieben mit: FUDforum {GVAR: FORUM_VERSION}.<br />Copyright &copy;2001–2010 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+powered-by:Betrieben mit: FUDforum {GVAR: FORUM_VERSION}.<br />Copyright &copy;2001–2011 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Code:
 code_select_all:alles markieren
 code_show_hide:anzeigen/verstecken

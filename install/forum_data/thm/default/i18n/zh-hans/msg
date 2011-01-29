@@ -1,6 +1,7 @@
 # Messages for Simplified Chinese (‪中文(简体)‬)
 # Exported from translatewiki.net
 # Author: Chenxiaoqino
+# Author: Hydra
 # Author: PhiLiP
 
 action:操作
@@ -10,8 +11,7 @@ admin_control_panel:管理界面
 administrator:系统管理员
 attachment:附件：
 avatar:头像：
-# Fuzzy
-average_post_count:{VAR: u->posted_msg_count} 帖子(日均发帖数{VAR: avg} )
+average_post_count:{PLURAL: u->posted_msg_count|$1 消息|$1 消息} (每日{PLURAL: avg|平均 $1 消息|平均 $1 消息})
 biography:个人简介：
 birth_date:生日：
 by:发帖：
@@ -20,15 +20,12 @@ current_time:当前时间
 custom_avatar_queue:定制头像列表
 date_posted:发布时间
 date_registered:注册日期：
-# Fuzzy
-download_counter:下载次数{VAR: v[3]}
-# Fuzzy
-pmsg_download_counter:下载了 {VAR: r->dlcount} 次
+download_counter:下载 {PLURAL: v[3] | $1 次|$1 次}
+pmsg_download_counter:下载 {PLURAL: r->dlcount|$1 次|$1 次}
 email:邮件：
 email_to_friend:发送邮件给朋友
 email_to_friend_desc:发送邮件，向你的朋友推荐这个帖子
-# Fuzzy
-email_user:点击这里向此用户发送邮件。
+email_user:发送电子邮件的用户
 faq:帮助
 first_unread_msg:转入未读的帖子
 first_unread_msg_desc:转入本主题第一个未读帖子
@@ -67,13 +64,12 @@ logged_in_list:登录用户列表
 login:登录
 login_header:昵称：
 logout:注销
-# Fuzzy
-mark_all_read:标记所有信息为已读
+mark_all_read:将读取的所有邮件都标记
 mark_all_read_desc:所有你没有读过的信息都将被标为已读。
 members:成员
+cal_goto_date:跳至：
 message:信息
-# Fuzzy
-message_counter:用户已经提交 <b>{VAR: post_count}</b>个帖子，分布在<b>{VAR: thread_count}</b>个主题里。
+message_counter:我们的用户已张贴共 <b>{PLURAL: post_count|$1 消息|$1 消息}</b> 内 <b>{PLURAL: thread_count|$1 主题|$1 主题}</b>。
 message_index:信息索引
 message_index_desc:查看信息列表
 minimize_category:减少目录层次
@@ -81,8 +77,7 @@ moderation_queue:版主列表
 moderator:版主
 moderator_of:版主：
 moderator_options:版主功能
-# Fuzzy
-moderators:版主
+moderators:{PLURAL: modcount|版主|版主}
 more_unread_messages:更多未读信息
 more_unread_messages_desc:显示更多未读信息，并且把现在的信息标为已读。
 move_thread:转移
@@ -90,8 +85,7 @@ moved:转移至别的论坛
 moved_thread_message:这个主题已被转移至别的论坛。
 na:暂无
 new_posts:新消息
-# Fuzzy
-new_private_messages:你有 <span class="GenText" style="color: #ff0000">({VAR: c})</span> 条未读悄悄话。
+new_private_messages:你有 <span class="GenTextRed">({VAR: c})</span> 未读 {PLURA: c | 私人消息 | 私人消息}
 new_thread:生成新的主题
 newest_user:最新注册的用户是
 next_page:下一页
@@ -260,6 +254,20 @@ month_9:9月
 month_10:10月
 month_11:11月
 month_12:12月
+sunday:星期日
+sunday_short:日
+monday:星期一
+monday_short:一
+tuesday:星期二
+tuesday_short:二
+wednesday:星期三
+wednesday_short:三
+thursday:星期四
+thursday_short:四
+friday:星期五
+friday_short:五
+saturday:星期六
+saturday_short:六
 male:男
 female:女
 unspecified:保密
@@ -279,8 +287,8 @@ finduser_action:操作
 yes:是
 no:否
 register_email:电子邮件：
-edit_time_limit:<b>编辑时间限制为</b>：<b>{GVAR: EDIT_TIME_LIMIT}</b> 分钟
-no_edit_time_limit:<b>编辑时间限制</b>：<b>不限</b>
+edit_time_limit:<b>编辑时间限制为</b>：{GVAR: EDIT_TIME_LIMIT} 分钟
+no_edit_time_limit:<b>编辑时间限制</b>：不限
 pmuserloc_login:登录：
 pmuserloc_submit:提交
 pmuserloc_user:用户
@@ -721,6 +729,7 @@ post_opt_html_off:<b>HTML</b> 代码： <b>关闭</b>
 post_opt_fud_off:<b>FUD代码：</b><b>关闭</b>
 post_opt_images_off:<b>帖图功能：</b><b>关闭</b>
 post_opt_smilies_off:<b>表情符号：</b><b>关闭</b>
+# Fuzzy
 post_opt:论坛选项
 register_change_passwd:更改密码
 approved_avatar_title:你定制的头像已被管理员批准。
@@ -830,12 +839,9 @@ split_th_split_unsel:分出没有选中的帖子
 split_th_messages:信息
 split_th_select:选择
 report_report_post:报告发布
-# Fuzzy
-quicklogin_login:登录
-# Fuzzy
-quicklogin_password:密码
+quicklogin_login:登录：
+quicklogin_password:密码：
 quicklogin_use_cookies:是否使用Cookies功能？
-# Fuzzy
 quicklogin_login_btn:登录
 quick_reply:快速回复
 post_notification_desc:当有人回复本主题时请通知我。
@@ -1044,8 +1050,7 @@ uc_sub_topics:包含新帖的已订阅话题
 uc_page_title:查看个人控制面板
 search_options:搜索选项
 search_user_filter:仅限作者：
-# Fuzzy
-register_none:不要通知
+register_none:不要通知我
 findu_no_conf:未验证Email
 register_max_sig_len:最大长度:
 register_turing:请输入下面显示的代码:
@@ -1060,7 +1065,9 @@ mmd_abort_move:取消
 mmd_move:移动话题
 pmsg_pdf_btn:生成PDF文档
 search_results_hdr:{VAR: total} 搜索结果
+# Fuzzy
 thread_del_all:删除所有选中的
+# Fuzzy
 thread_mov_all:移动所有选中的
 err_blockedaccnt_title:错误:你的帐号已经被过滤了。
 err_blockedaccnt_msg:你的帐号因为一个已经安装的用户过滤器而被阻止了。
@@ -1098,7 +1105,9 @@ topic_list_rating:{VAR: r[17]} 得票， {VAR: r[21]} 总票数
 tabs_notifications:通知
 finduser_flag:标识
 post_descr:帖子简述
+pmsg_on:在日期
 pmsg_download_dump:查看所有悄悄话
 move_messages:移动帖子
 move_msg_btn:移动所有选中的
 move_msg_th_expl:移至指定主题的ID（可以跨版块）
+code_select_all:选择全部

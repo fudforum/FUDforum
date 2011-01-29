@@ -290,8 +290,8 @@ finduser_action:Aksie
 yes:Ja
 no:Nee
 register_email:E-pos
-edit_time_limit:<b>Tydslimiet</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minuute
-no_edit_time_limit:<b>Tydslimiet aangepas</b>: <b>Onbeperk</b>
+edit_time_limit:<b>Tydslimiet</b>: {GVAR: EDIT_TIME_LIMIT} minuute
+no_edit_time_limit:<b>Tydslimiet aangepas</b>: Onbeperk
 pmuserloc_login:Gebruiker:
 pmuserloc_submit:Stuur
 pmuserloc_user:Lid
@@ -714,6 +714,7 @@ post_opt_html_off:<b>HTML</b> kode is <b>AF</b>
 post_opt_fud_off:<b>BBkode</b> is <b>AF</b>
 post_opt_images_off:<b>Fotos</b> is <b>AF</b>
 post_opt_smilies_off:<b>Gesiggies</b> is <b>AF</b>
+# Fuzzy
 post_opt:Forumopsies
 register_change_passwd:verander wagwoord
 register_change_login:verander gebruikersnaam
@@ -1051,9 +1052,13 @@ mmd_abort_move:Kanselleer
 mmd_move:Skuif onderwerpe
 pmsg_pdf_btn:Maak PDF-argief
 search_results_hdr:{VAR: total} resultate gevind
+# Fuzzy
 thread_del_all:Verwyder seleksie
+# Fuzzy
 thread_mov_all:Skuif seleksie
+# Fuzzy
 thread_merge_all:Versmelt seleksie
+# Fuzzy
 thread_loc_all:Sluit/Ontsluit seleksie
 dmsg_ip:IP:
 err_blockedaccnt_title:FOUT: Your account has been filtered out.
@@ -1097,7 +1102,7 @@ move_msg_btn:Skuif geselekteede boodskappe
 move_msg_th_expl:Spesifiseer die ID van die destinasie onderwerp (kan in 'n ander forum wees)
 captcha_img_alt:Captcha-verifikasie: u moet die teks in die beeld herken.
 captcha_img_help:Daar is nie 'n nul of 'n een in die beeld nie.
-powered-by:Aangedryf deur: FUDforum {GVAR: FORUM_VERSION}.<br />Kopiereg &copy;2001-2010 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+powered-by:Aangedryf deur: FUDforum {GVAR: FORUM_VERSION}.<br />Kopiereg &copy;2001-2011 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:KODE:
 code_select_all:Kies alles
 code_show_hide:Wys/ versteek

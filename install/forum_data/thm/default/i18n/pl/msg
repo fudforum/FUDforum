@@ -289,8 +289,8 @@ finduser_action:Akcja
 yes:Tak
 no:Nie
 register_email:E‐mail
-edit_time_limit:<b>Ograniczenie czasu edycji</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minut
-no_edit_time_limit:<b>Ograniczenie czasu edycji</b>: <b>Nieograniczony</b>
+edit_time_limit:<b>Ograniczenie czasu edycji</b>: {GVAR: EDIT_TIME_LIMIT} minut
+no_edit_time_limit:<b>Ograniczenie czasu edycji</b>: Nieograniczony
 pmuserloc_login:Nazwa użytkownika:
 pmuserloc_submit:Wyślij
 pmuserloc_user:Użytkownik
@@ -713,6 +713,7 @@ post_opt_html_off:<b>HTML</b> jest <b>Wyłączony</b>
 post_opt_fud_off:<b>FUD Code</b> jest <b>Wyłączony</b>
 post_opt_images_off:<b>Obrazki</b> są <b>Wyłączone</b>
 post_opt_smilies_off:<b>Uśmieszki</b> są <b>Wyłączone</b>
+# Fuzzy
 post_opt:Opcje Forum
 register_change_passwd:zmień hasło
 register_change_login:Zmień login
@@ -1040,8 +1041,11 @@ mmd_move_threads_to:Forum docelowe
 mmd_abort_move:Anuluj
 mmd_move:Przenieś wątki
 pmsg_pdf_btn:Utwórz archiwum w formacie PDF
+# Fuzzy
 thread_del_all:Usuń wszystkie wybrane
+# Fuzzy
 thread_mov_all:Przenieś wszystkie wybrane
+# Fuzzy
 thread_loc_all:Zablokuj lub odblokuj wszystkie wybrane
 dmsg_ip:IP
 err_blockedaccnt_title:BŁĄD - Twoje konto zostało odfiltrowane.
@@ -1073,7 +1077,7 @@ pmsg_on:data:
 pmsg_download_dump:Pobierz zrzut wiadomości
 move_messages:Przenieś wiadomość
 move_msg_btn:Przenieś wybrane wiadomości
-powered-by:Korzysta z oprogramowania FUDforum {GVAR: FORUM_VERSION}.<br />Copyright &copy;2001-2010 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+powered-by:Korzysta z oprogramowania FUDforum {GVAR: FORUM_VERSION}.<br />Copyright &copy;2001-2011 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:KOD
 code_select_all:Wybierz wszystko
 code_show_hide:Pokaż lub ukryj

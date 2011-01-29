@@ -113,8 +113,7 @@ num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|voĉdono|voĉdonoj}
 occupation:Laboro:
 off:malŝalta
 on:ŝalta
-# Fuzzy
-page_timings:Suma tempo pasita por generi la paĝon: {PLURAL: page_gen_time|$1 sekundoj}
+page_timings:Suma tempo pasinta por generi la paĝon: {PLURAL: page_gen_time|$1 sekundoj}
 pm:Privata Mesaĝado
 poll:Opinisondo:
 post_count:Nombro de Mesaĝoj {VAR: u_pcount}
@@ -293,8 +292,8 @@ finduser_action:Ago
 yes:Jes
 no:Ne
 register_email:Retadreso
-edit_time_limit:<b>Redaktante Tempa Limo</b> <b>{GVAR: EDIT_TIME_LIMIT}</b> minutoj
-no_edit_time_limit:<b>Redaktante Tempa Limo</b>: <b>Senlimigita</b>
+edit_time_limit:<b>Redaktante Tempa Limo</b> {GVAR: EDIT_TIME_LIMIT} minutoj
+no_edit_time_limit:<b>Redaktante Tempa Limo</b>: Senlimigita
 pmuserloc_login:Ensaluti:
 pmuserloc_submit:Enigi
 pmuserloc_user:Uzanto
@@ -712,6 +711,7 @@ post_opt_html_off:<b>HTML</b> estas <b>malŝalta</b>
 post_opt_fud_off:<b>BBcode</b> estas <b>malŝalta</b>
 post_opt_images_off:<b>Bildoj</b> estas <b>malŝalta</b>
 post_opt_smilies_off:<b>Miensimboloj</b> estas <b>malŝaltaj</b>
+# Fuzzy
 post_opt:Forumaj Agordoj
 register_change_passwd:ŝanĝi pasvorton
 approved_avatar_title:Via memprovizita avataro estis aprobita.

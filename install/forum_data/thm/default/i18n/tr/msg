@@ -71,7 +71,9 @@ mark_all_read_desc:Tüm okumadığınız iletiler okundu olarak işaretlenecek
 members:Üyeler
 calendar:Takvim
 cal_goto_date:Git:
+cal_day_heading:Günlük olaylar
 cal_no_events:Gün için etkinlik yok.
+cal_update:Forum takvimi tara
 cal_birthday:Doğum günü: {VAR: user}
 cal_birthday_age:({PLURAL: age|$1 yıl|$1 yıllar} eski).
 message:İleti
@@ -291,8 +293,8 @@ finduser_action:Eylem
 yes:Evet
 no:Hayır
 register_email:Email
-edit_time_limit:<b>Düzeltme süre sınırı</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> dakika
-no_edit_time_limit:<b>Düzeltme süre sınırı</b>: <b>Sınırsız</b>
+edit_time_limit:<b>Düzeltme süre sınırı</b>: {GVAR: EDIT_TIME_LIMIT} dakika
+no_edit_time_limit:<b>Düzeltme süre sınırı</b>: Sınırsız
 pmuserloc_login:Kullanıcı ismi:
 pmuserloc_submit:Bul
 pmuserloc_user:Kullanıcı
@@ -715,6 +717,7 @@ post_opt_html_off:<b>HTML KAPALI</b>
 post_opt_fud_off:<b>BBcode KAPALI</b>
 post_opt_images_off:<b>Resimler KAPALI</b>
 post_opt_smilies_off:<b>Gülücükler KAPALI</b>
+# Fuzzy
 post_opt:Forum Seçenekleri
 register_change_passwd:parola değiştir
 register_change_login:Hesap değişimi
@@ -889,6 +892,7 @@ search_asc_order:Artan sırada
 search_logic:Mantık:
 search_sorting:Tarihe göre sırala:
 search_attach:Ekler:
+search_attach_all:Olan veya olmayan
 search_attach_with:Ekleri ile
 post_proceed:İlerle
 post_moderated_forum:Denetimli bir foruma ileti gönderdiniz, ve iletiniz forum denetmen(ler)ince veya yönetici tarafından onaylanmadan forumda görüntülenmeyecek.
@@ -1051,9 +1055,13 @@ mmd_abort_move:İptal
 mmd_move:Konu Taşı
 pmsg_pdf_btn:PDF Arşivi Yap
 search_results_hdr:{VAR: total} arama sonucu bulundu.
+# Fuzzy
 thread_del_all:Tüm Seçilileri Sil
+# Fuzzy
 thread_mov_all:Tüm Seçilileri Taşı
+# Fuzzy
 thread_merge_all:Tüm Seçilileri Birleştir
+# Fuzzy
 thread_loc_all:Tüm Seçilileri Kilitle / Kilidini Aç
 dmsg_ip:IP:
 err_blockedaccnt_title:HATA: Hesabınız filtrelenmiş durumda.
@@ -1097,7 +1105,7 @@ move_msg_btn:Seçili İletileri Taşı
 move_msg_th_expl:Hedef konunun ID'sini belirtin (diğer forumlarda olabilir)
 captcha_img_alt:Captcha Doğrulama: Görüntüde metni tanımanız gerekiyor.
 captcha_img_help:Görüntü içinde sıfır ya da bir bulunmuyor.
-powered-by:Destekleyen: FUDforum {GVAR: FORUM_VERSION}.<br />Telif hakkı &copy;2001-2010 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+powered-by:Destekleyen: FUDforum {GVAR: FORUM_VERSION}.<br />Telif hakkı &copy;2001-2011 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Kod:
 code_select_all:Tümünü seç
 code_show_hide:Göster / gizle

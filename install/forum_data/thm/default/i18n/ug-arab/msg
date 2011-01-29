@@ -288,8 +288,8 @@ finduser_action:مەشغۇلات
 yes:ھەئە
 no:ياق
 register_email:ئېلخەت
-edit_time_limit:<b>تەھرىرلەش ۋاقىت چېكى</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> مىنۇت
-no_edit_time_limit:<b>تەھرىرلەش ۋاقىت چېكى</b>: <b>چەكلەنمەيدۇ</b>
+edit_time_limit:<b>تەھرىرلەش ۋاقىت چېكى</b>: {GVAR: EDIT_TIME_LIMIT} مىنۇت
+no_edit_time_limit:<b>تەھرىرلەش ۋاقىت چېكى</b>: چەكلەنمەيدۇ
 pmuserloc_login:تىزىمغا كىر:
 pmuserloc_submit:تاپشۇر
 pmuserloc_user:ئىشلەتكۈچى

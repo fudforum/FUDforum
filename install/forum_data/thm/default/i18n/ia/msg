@@ -290,8 +290,8 @@ finduser_action:Action
 yes:Si
 no:No
 register_email:E-mail
-edit_time_limit:<b>Limite de tempore pro modification</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minutas
-no_edit_time_limit:<b>Limite de tempore pro modification</b>: <b>Non limitate</b>
+edit_time_limit:<b>Limite de tempore pro modification</b>: {GVAR: EDIT_TIME_LIMIT} minutas
+no_edit_time_limit:<b>Limite de tempore pro modification</b>: Non limitate
 pmuserloc_login:Nomine de usator:
 pmuserloc_submit:Submitter
 pmuserloc_user:Usator
@@ -714,7 +714,7 @@ post_opt_html_off:<b>HTML</b> es <b>disactivate</b>
 post_opt_fud_off:<b>BBcode</b> es <b>disactivate</b>
 post_opt_images_off:<b>Imagines</b> es <b>disactivate</b>
 post_opt_smilies_off:<b>Emoticones</b> es <b>disactivate</b>
-post_opt:Optiones del foro
+post_opt:Optiones del foro:
 register_change_passwd:cambiar contrasigno
 register_change_login:cambiar nomine de usator
 approved_avatar_title:Tu avatar personal ha essite approbate.
@@ -801,6 +801,7 @@ th_expr_two_month:2 menses
 th_expr_four_month:4 menses
 th_expr_one_year:1 anno
 thread_mod_delete:Deler
+action_ip:IP
 action_latest_post:Ultime message
 online_today_last_visit:Ultime visita
 online_today_update:Vide le lista de usatores que esseva in le foro hodie.
@@ -1051,10 +1052,10 @@ mmd_abort_move:Cancellar
 mmd_move:Displaciar topicos
 pmsg_pdf_btn:Facer archivo PDF
 search_results_hdr:{VAR: total} resultatos de recerca trovate
-thread_del_all:Deler tote le selection
-thread_mov_all:Displaciar tote le selection
-thread_merge_all:Fusionar tote le selection
-thread_loc_all:Serrar/Disserrar tote le selection
+thread_del_all:Deler selection
+thread_mov_all:Displaciar selection
+thread_merge_all:Fusionar selection
+thread_loc_all:Serrar/Disserrar selection
 dmsg_ip:IP:
 err_blockedaccnt_title:ERROR: Tu conto ha essite filtrate.
 err_blockedaccnt_msg:Tu conto ha essite blocate de acceder al foro debite a un del filtros de usator installate.
@@ -1077,8 +1078,11 @@ post_common_align_left:Alinear a sinistra
 post_common_align_center:Alinear al centro
 post_common_align_right:Alinear a dextra
 post_common_link:Inserer un ligamine
+post_common_link_popup:Adresse del ligamine:
 post_common_email:Inserer un adresse de e-mail
+post_common_email_popup:Adresse de e-mail:
 post_common_image:Inserer un imagine
+post_common_image_popup:URL del imagine:
 post_common_nlist:Adder un lista numerate
 post_common_blist:Adder un lista a punctos
 post_common_quote:Adder un citation
@@ -1097,7 +1101,7 @@ move_msg_btn:Displaciar selection
 move_msg_th_expl:Specifica le ID del topico de destination (pote esser in altere foro)
 captcha_img_alt:Verification per Captcha: tu debe recognoscer le texto in iste imagine.
 captcha_img_help:Il non ha zero o un in iste imagine.
-powered-by:Actionate per: FUDforum {GVAR: FORUM_VERSION}.<br />Copyright &copy;2001-2010 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+powered-by:Actionate per: FUDforum {GVAR: FORUM_VERSION}.<br />Copyright &copy;2001-2011 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Codice:
 code_select_all:Seliger toto
 code_show_hide:Revelar/celar
@@ -1125,3 +1129,5 @@ feed_rss:Syndication RSS2
 feed_atom:Syndication ATOM
 ip_whois_connect_err:Impossibile connecter al servitor WHOIS ({VAR: whois_server}): {VAR: errstr}
 custom_filed_required:Iste campo es obligatori.
+page_list_heading:Paginas disponibile
+page_list_total:{PLURAL: i|$1 pagina|$1 paginas} listate.

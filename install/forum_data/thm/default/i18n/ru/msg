@@ -296,8 +296,8 @@ finduser_action:Действие
 yes:Да
 no:Нет
 register_email:Электронная почта
-edit_time_limit:<b>Период возможности редактирования</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> мин.
-no_edit_time_limit:<b>Период возможности редактирования</b>: <b>Неограниченно</b>
+edit_time_limit:<b>Период возможности редактирования</b>: {GVAR: EDIT_TIME_LIMIT} мин.
+no_edit_time_limit:<b>Период возможности редактирования</b>: Неограниченно
 pmuserloc_login:Имя:
 pmuserloc_submit:Найти
 pmuserloc_user:Пользователь
@@ -720,6 +720,7 @@ post_opt_html_off:<b>HTML</b>  - <b>выключен</b>
 post_opt_fud_off:<b>BBcode</b> - <b>выключен</b>
 post_opt_images_off:<b>Картинки</b> - <b>выключены</b>
 post_opt_smilies_off:<b>Смайлики</b> - <b>выключены</b>
+# Fuzzy
 post_opt:Параметры форума
 register_change_passwd:изменить пароль
 register_change_login:изменить логин
@@ -1057,9 +1058,13 @@ mmd_abort_move:Отмена
 mmd_move:Перенести темы
 pmsg_pdf_btn:Создать PDF-архив
 search_results_hdr:В результате поиска найдено страниц: {VAR: total}
+# Fuzzy
 thread_del_all:Удалить отмеченные
+# Fuzzy
 thread_mov_all:Перенести отмеченные
+# Fuzzy
 thread_merge_all:Объединить все выбранные
+# Fuzzy
 thread_loc_all:Блокировать / разблокировать всех выбранных
 dmsg_ip:IP:
 err_blockedaccnt_title:ОШИБКА: Ваш аккаунт внесен в список запрещенных.
@@ -1103,7 +1108,7 @@ move_msg_btn:Перенести выбранные сообщения
 move_msg_th_expl:Укажите ID темы для переноса в нее сообщений (может быть в других форумах)
 captcha_img_alt:Антибот проверка. Вам нужно распознать текст на этом изображении.
 captcha_img_help:На изображении нет цифр 0 и 1.
-powered-by:При поддержке: FUDforum {GVAR: FORUM_VERSION}.<br /> Copyright © 2001-2010 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+powered-by:При поддержке: FUDforum {GVAR: FORUM_VERSION}.<br /> Copyright © 2001-2011 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:CODE:
 code_select_all:Выделить все
 code_show_hide:Показать / скрыть

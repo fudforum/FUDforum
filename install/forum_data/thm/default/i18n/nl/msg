@@ -42,7 +42,7 @@ go:OK
 goto_next_msg:Naar volgende bericht
 goto_prev_msg:Naar vorige bericht
 home:Home
-homepage:Thuispagina:
+homepage:Startpagina:
 icq_control_panel:ICQ online-berichtenvenster
 icq_message_form:ICQ berichtenformulier:
 ignore_user:alle berichten van deze gebruiker negeren
@@ -293,8 +293,8 @@ finduser_action:Handeling
 yes:Ja
 no:Nee
 register_email:E-mail
-edit_time_limit:<b>Tijdslimiet voor bewerken</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minuten
-no_edit_time_limit:<b>Tijdslimiet voor bewerken</b>: <b>Onbeperkt</b>
+edit_time_limit:<b>Tijdslimiet voor bewerken</b>: {GVAR: EDIT_TIME_LIMIT} minuten
+no_edit_time_limit:<b>Tijdslimiet voor bewerken</b>: Onbeperkt
 pmuserloc_login:Aanmelden:
 pmuserloc_submit:Verzenden
 pmuserloc_user:Gebruiker
@@ -330,7 +330,7 @@ register_icq:ICQ:
 register_aim:AIM-gebruiker
 register_yahoo:Yahoo Messenger:
 register_msnm:MSN Messenger:
-register_homepage:Thuispagina:
+register_homepage:Startpagina:
 register_bday:Geboortedatum:
 register_bday_desc:Als u een geboortedatum selecteert kunnen andere gebruikers deze ook zien in uw profiel.
 register_day:Dag
@@ -717,7 +717,7 @@ post_opt_html_off:<b>HTML-code</b> staat <b>uit</b>
 post_opt_fud_off:<b>BBcode</b> staat <b>uit</b>
 post_opt_images_off:<b>Afbeeldingen</b> staan <b>uit</b>
 post_opt_smilies_off:<b>Smiley's</b> staan <b>uit</b>
-post_opt:Foruminstellingen
+post_opt:Foruminstellingen:
 register_change_passwd:wachtwoord wijzigen
 register_change_login:Gebruikersnaam wijzigen
 approved_avatar_title:Uw aangepaste avatar is goedgekeurd.
@@ -804,6 +804,7 @@ th_expr_two_month:2 maanden
 th_expr_four_month:4 maanden
 th_expr_one_year:1 jaar
 thread_mod_delete:Verwijderen
+action_ip:IP-adres
 action_latest_post:Laatste bericht
 online_today_last_visit:Laatste keer bezocht
 online_today_update:Lijst met gebruikers die vandaag het forum bezocht hebben aan het bekijken.
@@ -1080,8 +1081,11 @@ post_common_align_left:Link uitlijnen
 post_common_align_center:Centreren
 post_common_align_right:Rechts uitlijnen
 post_common_link:Een verwijzing invoegen
+post_common_link_popup:Verwijzingslocatie:
 post_common_email:Een e-mailadres invoegen
+post_common_email_popup:E-mailadres:
 post_common_image:Een afbeelding invoegen
+post_common_image_popup:Afbeeldings-URL:
 post_common_nlist:Een genummerde lijst toevoegen
 post_common_blist:Een ongenummerde lijst toevoegen
 post_common_quote:Een citaat toevoegen
@@ -1100,7 +1104,7 @@ move_msg_btn:Geselecteerde berichten verplaatsen
 move_msg_th_expl:Geef het nummer van het doelonderwerp (kan zich in een ander forum bevinden)
 captcha_img_alt:Captchacontrole: u moet de tekst in deze afbeelding herkennen
 captcha_img_help:Er is geen nul of een in de afbeelding.
-powered-by:Maakt gebruik van FUDforum {GVAR: FORUM_VERSION}.<br />Copyright &copy;2001-2010 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+powered-by:Maakt gebruik van FUDforum {GVAR: FORUM_VERSION}.<br />Copyright &copy;2001-2011 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Code:
 code_select_all:Alles selecteren
 code_show_hide:Weergeven/verbergen
@@ -1128,3 +1132,5 @@ feed_rss:RSS2-feed
 feed_atom:Atom-feed
 ip_whois_connect_err:Het was niet mogelijk verbinding te maken met de WHOIS-server ({VAR: whois_server}): {VAR: errstr}
 custom_filed_required:Dit veld is verplicht.
+page_list_heading:Beschikbare pagina's
+page_list_total:{PLURAL: i|$1 weergegeven pagina|$1 weergegeven pagina's}.

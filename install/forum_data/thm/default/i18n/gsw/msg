@@ -291,8 +291,8 @@ finduser_action:Aktion
 yes:Jo
 no:Nei
 register_email:E-Mail
-edit_time_limit:<b>Zytspanne zum Bearbeite</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> Minute
-no_edit_time_limit:<b>Zytspanne zum Bearbeite</b>: <b>Nit begränzt</b>
+edit_time_limit:<b>Zytspanne zum Bearbeite</b>: {GVAR: EDIT_TIME_LIMIT} Minute
+no_edit_time_limit:<b>Zytspanne zum Bearbeite</b>: Nit begränzt
 pmuserloc_login:Aamälde:
 pmuserloc_submit:Abschicke
 pmuserloc_user:Benutzer
@@ -715,6 +715,7 @@ post_opt_html_off:<b>HTML</b> Code isch <b>UUS</b>
 post_opt_fud_off:<b>BBcode</b> isch <b>UUS</b>
 post_opt_images_off:<b>Bilder</b> sin <b>UUS</b>
 post_opt_smilies_off:<b>Smileys</b> sin <b>UUS</b>
+# Fuzzy
 post_opt:Forumsyystellige
 register_change_passwd:Passwort ändere
 register_change_login:Benutzername ändere
@@ -1052,9 +1053,13 @@ mmd_abort_move:Abbräche
 mmd_move:Themene verschiebe
 pmsg_pdf_btn:PDF-Archiv aalege
 search_results_hdr:{VAR: total} Suechergebnis gfunde
+# Fuzzy
 thread_del_all:Alli markierte lesche
+# Fuzzy
 thread_mov_all:Alli markierte verschiebe
+# Fuzzy
 thread_merge_all:Alli uusgwehlte zämmefiere
+# Fuzzy
 thread_loc_all:Alli uusgwehlte sperre/entsperre
 dmsg_ip:IP:
 err_blockedaccnt_title:FÄHLER: Dyy Konto isch uusegfilteret wore.
@@ -1098,7 +1103,7 @@ move_msg_btn:Uusgwehlti Byytreg verschiebe
 move_msg_th_expl:Gib d ID vum Ziilthemas aa (cha in eme andere Forum syy)
 captcha_img_alt:Captchakontrolle: Du muesch dää Text in däm Bild wider chänne.
 captcha_img_help:S het kei Null oder Eis im Bild.
-powered-by:Mit fryndliger Unterstitzig vu.: FUDforum {GVAR: FORUM_VERSION}.<br />Copyright &copy;2001-2010 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+powered-by:Mit fryndliger Unterstitzig vu.: FUDforum {GVAR: FORUM_VERSION}.<br />Copyright &copy;2001-2011 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Code:
 code_select_all:Alli uuswehle
 code_show_hide:Zeige/verstecke

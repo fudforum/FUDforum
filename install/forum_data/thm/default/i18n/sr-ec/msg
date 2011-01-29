@@ -290,8 +290,8 @@ finduser_action:Радња
 yes:Да
 no:Не
 register_email:Е-пошта
-edit_time_limit:<b>Уређивање временског ограничења</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> минута
-no_edit_time_limit:<b>Уређивање временског ограничења</b>: <b>неограничено</b>
+edit_time_limit:<b>Уређивање временског ограничења</b>: {GVAR: EDIT_TIME_LIMIT} минута
+no_edit_time_limit:<b>Уређивање временског ограничења</b>: неограничено
 pmuserloc_login:Корисничко име:
 pmuserloc_submit:Пошаљи
 pmuserloc_user:Корисник
@@ -368,7 +368,7 @@ buddy_remove:уклони
 post_normal:Обична
 post_sticky:Лепљива
 post_annoncement:Саопштење
-post_size:величина
+post_size:Величина
 post_color:боја
 post_font:фонт
 create_thread:Направи тему
@@ -714,6 +714,7 @@ post_opt_html_off:<b>HTML</b> кôд је <b>искључен</b>
 post_opt_fud_off:<b>BBcode</b> је <b>искључен</b>
 post_opt_images_off:<b>Слике</b> су <b>искључене</b>
 post_opt_smilies_off:<b>Смешци</b> су <b>искључени</b>
+# Fuzzy
 post_opt:Опције форума
 register_change_passwd:промени лозинку
 register_change_login:промени корисничко име
@@ -1051,9 +1052,13 @@ mmd_abort_move:Откажи
 mmd_move:Премести теме
 pmsg_pdf_btn:Направи PDF архиву
 search_results_hdr:{VAR: total} резултата претраге је пронађено
+# Fuzzy
 thread_del_all:Обриши све изабрано
+# Fuzzy
 thread_mov_all:Премести све изабрано
+# Fuzzy
 thread_merge_all:Споји све изабрано
+# Fuzzy
 thread_loc_all:Закључај/откључај све изабрано
 dmsg_ip:IP:
 err_blockedaccnt_title:Грешка: ваш налог је избачен.
@@ -1097,7 +1102,7 @@ move_msg_btn:Премести изабране поруке
 move_msg_th_expl:Наведите ID одредишне теме (може бити и у другим форумима)
 captcha_img_alt:Потврдна слика: мораћете да препознате текст на овој слици.
 captcha_img_help:Не постоји нула или јединица на слици.
-powered-by:Покреће FUDforum {GVAR: FORUM_VERSION}. Превод: Rancher <br />Ауторска права &copy;2001–2010 <a href="http://fudforum.org/">FUDforum Bulletin Board софтвер</a>
+powered-by:Покреће FUDforum {GVAR: FORUM_VERSION}. Превод: Rancher <br />Ауторска права &copy;2001–2011 <a href="http://fudforum.org/">FUDforum Bulletin Board софтвер</a>
 code_title:Кôд:
 code_select_all:Изабери све
 code_show_hide:Прикажи/сакриј

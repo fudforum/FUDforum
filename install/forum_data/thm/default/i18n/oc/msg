@@ -274,8 +274,8 @@ finduser_action:Accion
 yes:Òc
 no:Non
 register_email:Corrièl
-edit_time_limit:<b>Temps maximum alogat per l'edicion</b> : <b>{GVAR: EDIT_TIME_LIMIT}</b> minutas
-no_edit_time_limit:<b>Temps maximum alogat per l'edicion</b> : <b>Illimitat</b>
+edit_time_limit:<b>Temps maximum alogat per l'edicion</b> : {GVAR: EDIT_TIME_LIMIT} minutas
+no_edit_time_limit:<b>Temps maximum alogat per l'edicion</b> : Illimitat
 pmuserloc_login:Utilizaire :
 pmuserloc_submit:Sometre
 pmuserloc_user:Utilizaire
@@ -695,6 +695,7 @@ post_opt_html_off:Lo còde <b>HTML</b> es <b>DESACTIVAT</b>
 post_opt_fud_off:Lo <b>BBcode</b> es <b>DESACTIVAT</b>
 post_opt_images_off:Los <b>imatges</b> son <b>DESACTIVATS</b>
 post_opt_smilies_off:Los <b>smileys</b> son <b>DESACTIVATS</b>
+# Fuzzy
 post_opt:Opcions activadas sul forum :
 register_change_passwd:Cambiar de senhal
 approved_avatar_title:Vòstre avatar personal es estat aprovat.

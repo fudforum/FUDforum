@@ -268,8 +268,8 @@ finduser_joindate:Registreret
 finduser_action:Aktion
 yes:Ja
 no:Nej
-edit_time_limit:<b>Redigerings tidsbegrænsning</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minutter
-no_edit_time_limit:<b>Redigerings tidsbegrænsning</b>: <b>Ingen</b>
+edit_time_limit:<b>Redigerings tidsbegrænsning</b>: {GVAR: EDIT_TIME_LIMIT} minutter
+no_edit_time_limit:<b>Redigerings tidsbegrænsning</b>: Ingen
 pmuserloc_login:Logind:
 pmuserloc_submit:Indsende
 pmuserloc_user:Bruger
@@ -687,6 +687,7 @@ post_opt_html_off:<b>HTML</b> kode er <b>FRA</b>
 post_opt_fud_off:<b>BBcode</b> er <b>FRA</b>
 post_opt_images_off:<b>Billeder</b> er <b>FRA</b>
 post_opt_smilies_off:<b>Smilies</b> er <b>FRA</b>
+# Fuzzy
 post_opt:Forum indstillinger
 register_change_passwd:Skift adgangskode
 approved_avatar_title:Din brugerdefinerede avatar blev godkendt.
@@ -1014,7 +1015,9 @@ mmd_abort_move:Annuller
 mmd_move:Flyt emner
 pmsg_pdf_btn:Arkiver i PDF
 search_results_hdr:{VAR: total}  søgeresultater fundet
+# Fuzzy
 thread_del_all:Slet alle valgte
+# Fuzzy
 thread_mov_all:Flyt alle markerede
 err_blockedaccnt_title:FEJLMEDDELELSE: Din konto er blevet spærret.
 err_blockedaccnt_msg:Din konto er blevet spærret for adgang til dette forum på grund af et af de installerede bruger filtre.

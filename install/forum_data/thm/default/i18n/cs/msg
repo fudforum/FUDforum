@@ -289,8 +289,8 @@ finduser_action:Akce
 yes:Ano
 no:Ne
 register_email:E-mail
-edit_time_limit:<b>Časový limit na editaci</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minut
-no_edit_time_limit:<b>Časový limit na editaci</b>: <b>Neomezen</b>
+edit_time_limit:<b>Časový limit na editaci</b>: {GVAR: EDIT_TIME_LIMIT} minut
+no_edit_time_limit:<b>Časový limit na editaci</b>: Neomezen
 pmuserloc_login:Uživatelské jméno:
 pmuserloc_submit:Odeslat
 pmuserloc_user:Uživatel
@@ -702,6 +702,7 @@ post_opt_html_off:<b>HTML tagy</b> jsou <b>VYPNUTY</b>
 post_opt_fud_off:<b>BBcode</b> je <b>VYPNUT</b>
 post_opt_images_off:<b>Obrázky</b> jsou <b>VYPNUTY</b>
 post_opt_smilies_off:<b>Smajlíci</b> jsou <b>VYPNUTI</b>
+# Fuzzy
 post_opt:Volby fóra
 register_change_passwd:změnit heslo
 approved_avatar_title:Vaše ikona byla schválena.

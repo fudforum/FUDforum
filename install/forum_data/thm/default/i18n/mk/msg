@@ -290,8 +290,8 @@ finduser_action:Дејство
 yes:Да
 no:Не
 register_email:Е-пошта
-edit_time_limit:<b>Дозволено време за уредување</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> минути
-no_edit_time_limit:<b>Дозволено време за уредување</b>: <b>Неограничено</b>
+edit_time_limit:<b>Дозволено време за уредување</b>: {GVAR: EDIT_TIME_LIMIT} минути
+no_edit_time_limit:<b>Дозволено време за уредување</b>: Неограничено
 pmuserloc_login:Корисничко име:
 pmuserloc_submit:Најди
 pmuserloc_user:Корисник
@@ -714,6 +714,7 @@ post_opt_html_off:<b>HTML</b>-кодот е <b>исклучен</b>
 post_opt_fud_off:<b>BBcode</b> е <b>исклучен</b>
 post_opt_images_off:<b>Сликите</b> се <b>исклучени</b>
 post_opt_smilies_off:<b>Смешковците</b> се <b>исклучени</b>
+# Fuzzy
 post_opt:Нагодувања на форумот
 register_change_passwd:смени лозинка
 register_change_login:смени корисничко име
@@ -1051,9 +1052,13 @@ mmd_abort_move:Откажи
 mmd_move:Премести теми
 pmsg_pdf_btn:Направи PDF-архив
 search_results_hdr:Пронајдени се {VAR: total} резултати
+# Fuzzy
 thread_del_all:Избриши одбрани
+# Fuzzy
 thread_mov_all:Премести одбрани
+# Fuzzy
 thread_merge_all:Спој сè одбрано
+# Fuzzy
 thread_loc_all:Заклучи/Отклучи сè одбрано
 dmsg_ip:IP:
 err_blockedaccnt_title:ГРЕШКА: Вашата сметка е исфилтрирана како недозволена.
@@ -1097,7 +1102,7 @@ move_msg_btn:Премести одбрани пораки
 move_msg_th_expl:Назначете ID на темата во која ќе се изврши преместувањето (може да биде на други форуми)
 captcha_img_alt:„Captcha“ антибот проверка: ќе треба да го препознаете текстот на сликава.
 captcha_img_help:На сликата нема нула или единица.
-powered-by:Со поддршка од: FUDforum {GVAR: FORUM_VERSION}.<br />Авторски права &copy;2001-2010 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+powered-by:Со поддршка од: FUDforum {GVAR: FORUM_VERSION}.<br />Авторски права &copy;2001-2011 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Код:
 code_select_all:Избери сè
 code_show_hide:Прикажи / скриј

@@ -293,8 +293,8 @@ finduser_action:Handling
 yes:Ja
 no:Nej
 register_email:Epost
-edit_time_limit:<b>Tidsgräns för editering</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minuter
-no_edit_time_limit:<b>Tidsgräns för editering</b>: <b>Obegränsad</b>
+edit_time_limit:<b>Tidsgräns för editering</b>: {GVAR: EDIT_TIME_LIMIT} minuter
+no_edit_time_limit:<b>Tidsgräns för editering</b>: Obegränsad
 pmuserloc_login:Användarnamn:
 pmuserloc_submit:Skicka
 pmuserloc_user:Medlem
@@ -720,6 +720,7 @@ post_opt_html_off:<b>HTML</b>-kod är <b>AV</b>
 post_opt_fud_off:<b>FUD-kod</b> är <b>AV</b>
 post_opt_images_off:<b>Bilder</b> är <b>AV</b>
 post_opt_smilies_off:<b>Smilisar</b> är <b>AV</b>
+# Fuzzy
 post_opt:Forumalternativ
 register_change_passwd:byt lösenord
 register_change_login:ändra inloggningsnamn
@@ -1058,9 +1059,13 @@ mmd_abort_move:Avbryt
 mmd_move:Flytta ämnen
 pmsg_pdf_btn:Skapa PDF-arkiv
 search_results_hdr:{VAR: total} sökresultat funna
+# Fuzzy
 thread_del_all:Radera alla valda
+# Fuzzy
 thread_mov_all:Flytta alla valda
+# Fuzzy
 thread_merge_all:Sammanfoga alla valda
+# Fuzzy
 thread_loc_all:Lås / Lås upp alla valda
 dmsg_ip:IP:
 err_blockedaccnt_title:FEL: Ditt konto har filtrerats bort.
@@ -1099,7 +1104,7 @@ move_msg_btn:Flytta valda meddelanden
 move_msg_th_expl:Specificera ID på destinationsämnet (kan vara i andra fora)
 captcha_img_alt:Caotcha verifiering: du måste tolka texten i denna bild.
 captcha_img_help:Det finns ingen nolla eller etta i bilden.
-powered-by:Drivs av: FUDforum {GVAR: FORUM_VERSION}.<br />Copyright &copy;2001-2010 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+powered-by:Drivs av: FUDforum {GVAR: FORUM_VERSION}.<br />Copyright &copy;2001-2011 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Kod:
 code_select_all:Välj alla
 code_show_hide:Visa / dölj

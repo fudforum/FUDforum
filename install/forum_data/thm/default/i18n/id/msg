@@ -293,8 +293,8 @@ finduser_action:LAkukan
 yes:Ya
 no:Tidak
 register_email:Surat-e
-edit_time_limit:<b>diubah pada</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minutes
-no_edit_time_limit:<b>Batas waktu perbaikan</b>: <b>Unlimited</b>
+edit_time_limit:<b>diubah pada</b>: {GVAR: EDIT_TIME_LIMIT} minutes
+no_edit_time_limit:<b>Batas waktu perbaikan</b>: Unlimited
 pmuserloc_login:Masuk log
 pmuserloc_submit:Masukkan
 pmuserloc_user:Pengguna
@@ -717,6 +717,7 @@ post_opt_html_off:kode <b>HTML</b> di<b>NON-AKTIFKAN</b>
 post_opt_fud_off:<b>BBcode</b> di<b>NON-AKTIFKAN</b>
 post_opt_images_off:<b>Images</b> di<b>NON-AKTIFKAN</b>
 post_opt_smilies_off:<b>Smilies</b> di<b>NON-AKTIFKAN</b>
+# Fuzzy
 post_opt:Pilihan Forum
 register_change_passwd:ubah password
 register_change_login:ubah log masuk
@@ -1054,9 +1055,13 @@ mmd_abort_move:Batalkan
 mmd_move:Pindahkan topik
 pmsg_pdf_btn:Buat PDF
 search_results_hdr:Ada: {VAR: total} hasil pencarian
+# Fuzzy
 thread_del_all:Hapus semua yang terpilih
+# Fuzzy
 thread_mov_all:Pindahkan yang terpilih
+# Fuzzy
 thread_merge_all:Gabungkan Semua yang Dipilih
+# Fuzzy
 thread_loc_all:Kunci/Buka kunci Semua Pilihan
 dmsg_ip:IP:
 err_blockedaccnt_title:SALAH: Akun anda sudah di-filter.
@@ -1100,7 +1105,7 @@ move_msg_btn:Pindahkan Pesan Terpilih
 move_msg_th_expl:Penetapan ID dari tujuan topik (bisa juga terdapat di Forum lain)
 captcha_img_alt:Verifikasi Captcha: Anda harus mengenali teks dalam gambar ini.
 captcha_img_help:Tidak ada nol atau satu pada berkas.
-powered-by:Di dukung oleh: FUDforum {GVAR: FORUM_VERSION}.<br />Copyright &copy;2001-2010 <a href="http://fudforum.org/">FUDforum Perangkat lunak Bulletin Board </a>
+powered-by:Di dukung oleh: FUDforum {GVAR: FORUM_VERSION}.<br />Copyright &copy;2001-2011 <a href="http://fudforum.org/">FUDforum Perangkat lunak Bulletin Board </a>
 code_title:Kode:
 code_select_all:Pilih semua
 code_show_hide:Tampil/ sembunyi

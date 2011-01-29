@@ -1,5 +1,6 @@
 # Messages for Vietnamese (Tiếng Việt)
 # Exported from translatewiki.net
+# Author: Minh Nguyen
 
 action:Hànhđộng
 add_to_buddy_list:thêm vào danh sách bạn bè
@@ -254,8 +255,8 @@ finduser_joindate:Ngày tham gia
 finduser_action:Hành động
 yes:Có
 no:Không
-edit_time_limit:<b>Hạn chế thời gian sửa</b> : <b>{GVAR: EDIT_TIME_LIMIT}</b> phút
-no_edit_time_limit:<b>Hạn chế thời gian sửa</b>:<b>Khônghạn chế</b>
+edit_time_limit:<b>Hạn chế thời gian sửa</b> : {GVAR: EDIT_TIME_LIMIT} phút
+no_edit_time_limit:<b>Hạn chế thời gian sửa</b>:Khônghạn chế
 pmuserloc_login:Tên đăng nhập:
 pmuserloc_submit:Tìm
 pmuserloc_user:Thành viên
@@ -307,7 +308,7 @@ register_show_sig:Xem chữ ký:
 register_show_sig_desc:Cho phép bạn ẩn hoặc xem chữ ký của thành viên khác trong diễn đàn
 register_use_sig_default:Sử dụng chữ ký theo chuẩn:
 register_use_sig_default_desc:Tự động xuất hiện chữ ký của bạn khi bạn gửi bài
-register_timezone:Vùng thời gian:
+register_timezone:Múi giờ:
 register_ignore_admin:Từ chối tin nhắn của người quản trị tối cao:
 register_invisible_mode:Trạng thái ẩn danh:
 register_invisible_mode_desc:Ẩn trạng thái online của bạn
@@ -596,6 +597,7 @@ post_opt_html_off:<b>Mã HTML</b> đã <b>Tắt</b>
 post_opt_fud_off:<b>TLcode</b> đã <b>Tắt</b>
 post_opt_images_off:<b>Hình ảnh</b> đã <b>Tắt</b>
 post_opt_smilies_off:<b>Biểu tượng cười</b> đã <b>Tắt</b>
+# Fuzzy
 post_opt:Mục chọn diễn đàn
 register_change_passwd:Đổi mật khẩu
 approved_avatar_title:Hình đại diện quen thuộc của bạn đã được chấp nhận.
@@ -808,7 +810,9 @@ idx_compact_forum_row:Những diễn đàn hiện có:
 mmd_del_title:Chủ đề bị xóa
 pmsg_pdf_btn:Tạo trang PDF
 search_results_hdr:Kết quả tìm kiếm được {VAR: total}
+# Fuzzy
 thread_del_all:Xóa tất cả đã được chọn
+# Fuzzy
 thread_mov_all:Di chuyển tất cả đã được chọn
 err_blockedaccnt_title:Lỗi :Tài khoản của bạn đã bị lọc ra ngoài.
 err_blockedaccnt_msg:Tài khoản của bạn đã bị cấm truy cập vào diễn đàn vì bộ lọc người sử dụng đã được thiết lập.

@@ -291,8 +291,8 @@ finduser_action:Acción
 yes:Sí
 no:No
 register_email:Correo electrónico
-edit_time_limit:<b>Límite de tiempo de edición</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minutos
-no_edit_time_limit:<b>Límite de tiempo de edición</b>: <b>Ilimitado</b>
+edit_time_limit:<b>Límite de tiempo de edición</b>: {GVAR: EDIT_TIME_LIMIT} minutos
+no_edit_time_limit:<b>Límite de tiempo de edición</b>: Ilimitado
 pmuserloc_login:Iniciar sesión:
 pmuserloc_submit:Enviar
 pmuserloc_user:Usuario
@@ -714,6 +714,7 @@ post_opt_html_off:El código <b>HTML</b> está <b>DESACTIVADO</b>
 post_opt_fud_off:El <b>BBcode</b> está <b>DESACTIVADO</b>
 post_opt_images_off:Las <b>imágenes</b> están <b>DESACTIVADAS</b>
 post_opt_smilies_off:Los <b>emoticonoss</b> están <b>DESACTIVADOS</b>
+# Fuzzy
 post_opt:Opciones del foro
 register_change_passwd:cambiar contraseña
 register_change_login:cambiar identificación
@@ -1048,9 +1049,13 @@ mmd_abort_move:Cancelar
 mmd_move:Mover hilos
 pmsg_pdf_btn:Crear archivo PDF
 search_results_hdr:Se encontraron {VAR: total} resultados para su búsqueda
+# Fuzzy
 thread_del_all:Borrar todos los seleccionados
+# Fuzzy
 thread_mov_all:Mover todos los seleccionados
+# Fuzzy
 thread_merge_all:Combinar todos los seleccionados
+# Fuzzy
 thread_loc_all:Bloquear/desbloquear todos los seleccionados
 dmsg_ip:IP:
 err_blockedaccnt_title:ERROR: Su cuenta ha sido filtrada.
@@ -1094,7 +1099,7 @@ move_msg_btn:Mover mensajes seleccionados
 move_msg_th_expl:Especificar el ID del tópico de destino (puede estar en otros foros)
 captcha_img_alt:Verificación captcha: necesitarás reconocer el texto en esta imagen.
 captcha_img_help:No hay cero o uno en la imagen
-powered-by:Impulsado por: FUDforum {GVAR: FORUM_VERSION}.<br />Copyright &copy;2001-2010 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+powered-by:Impulsado por: FUDforum {GVAR: FORUM_VERSION}.<br />Copyright &copy;2001-2011 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:CODIGO:
 code_select_all:Seleccionar todo
 code_show_hide:Mostrar/ocultar

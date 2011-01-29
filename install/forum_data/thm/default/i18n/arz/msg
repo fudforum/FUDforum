@@ -272,8 +272,8 @@ finduser_action:فعل
 yes:نعم
 no:لا
 register_email:البريد الإلكتروني
-edit_time_limit:<bحد وقت التحرير></b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> دقيقة
-no_edit_time_limit:<b>حد وقت التحرير</b>: <b>غير محدود</b>
+edit_time_limit:<bحد وقت التحرير></b>: {GVAR: EDIT_TIME_LIMIT} دقيقة
+no_edit_time_limit:<b>حد وقت التحرير</b>: غير محدود
 pmuserloc_login:الولوج:
 pmuserloc_submit:أرسل
 pmuserloc_user:مستخدم
@@ -690,6 +690,7 @@ post_opt_html_off:أكواد <b>HTML مُعطّلة</b>
 post_opt_fud_off:<b>BBcode مُعطّل</b>
 post_opt_images_off:<b>الصور مُعطّلة</b>
 post_opt_smilies_off:<b>الابتسامات مُعطّلة</b>
+# Fuzzy
 post_opt:خيارات المنتدى
 register_change_passwd:غيّر كلمه السر
 approved_avatar_title:اعتمد أفاترك المُخصّص.
@@ -1020,8 +1021,11 @@ mmd_abort_move:ألغِ
 mmd_move:انقل مواضيع
 pmsg_pdf_btn:أنشئ أرشيف PDF
 search_results_hdr:وُجدت {VAR: total} نتيجه بحث
+# Fuzzy
 thread_del_all:احذف كل المواضيع المختارة
+# Fuzzy
 thread_mov_all:انقل كل المواضيع المختارة
+# Fuzzy
 thread_loc_all:اقفل/ألغِ قفل كل المختار
 dmsg_ip:الآيبي:
 err_blockedaccnt_title:خطأ: رُشّح حسابك.
@@ -1065,7 +1069,7 @@ move_msg_btn:انقل الرسائل المختارة
 move_msg_th_expl:حدد هويه الموضوع الهدف (يمكن أن يكون فى منتديات أخرى)
 captcha_img_alt:تحقق كابتشا: سوف تحتاج إلى التعرف على نص هذه الصوره.
 captcha_img_help:لا يوجد صفر ولا واحد فى الصوره.
-powered-by:يشغله: FUDforum {GVAR: FORUM_VERSION}.<br />حقوق النشر &copy;2001-2010 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+powered-by:يشغله: FUDforum {GVAR: FORUM_VERSION}.<br />حقوق النشر &copy;2001-2011 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:الكود
 code_select_all:اختر الكل
 code_show_hide:أظهر/أخفِ

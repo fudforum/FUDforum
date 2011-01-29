@@ -291,8 +291,8 @@ finduser_action:Acción
 yes:Si
 no:Non
 register_email:Correo electrónico
-edit_time_limit:<b>Límite de tempo de edición</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minutos
-no_edit_time_limit:<b>Límite de tempo de edición</b>: <b>ilimitado</b>
+edit_time_limit:<b>Límite de tempo de edición</b>: {GVAR: EDIT_TIME_LIMIT} minutos
+no_edit_time_limit:<b>Límite de tempo de edición</b>: ilimitado
 pmuserloc_login:Usuario:
 pmuserloc_submit:Enviar
 pmuserloc_user:Usuario
@@ -715,6 +715,7 @@ post_opt_html_off:O código <b>HTML</b> está <b>desactivado</b>
 post_opt_fud_off:O <b>BBCode</b> está <b>desactivado</b>
 post_opt_images_off:As <b>imaxes</b> están <b>desactivadas</b>
 post_opt_smilies_off:As <b>emoticonas</b> están <b>desactivadas</b>
+# Fuzzy
 post_opt:Opcións do foro
 register_change_passwd:cambiar o contrasinal
 register_change_login:cambiar o nome de usuario
@@ -1052,9 +1053,13 @@ mmd_abort_move:Cancelar
 mmd_move:Mover os fíos
 pmsg_pdf_btn:Crear o arquivo PDF
 search_results_hdr:Atopáronse {VAR: total} resultados para a túa procura
+# Fuzzy
 thread_del_all:Borrar toda a selección
+# Fuzzy
 thread_mov_all:Mover toda a selección
+# Fuzzy
 thread_merge_all:Fusionar toda a selección
+# Fuzzy
 thread_loc_all:Bloquear/Desbloquear toda a selección
 dmsg_ip:Enderezo IP:
 err_blockedaccnt_title:ERRO: a túa conta foi filtrada.
@@ -1098,7 +1103,7 @@ move_msg_btn:Mover as mensaxes seleccionadas
 move_msg_th_expl:Especifique o ID do fío de destino (pode ser noutro foro)
 captcha_img_alt:Verificación por Captcha: terás que recoñecer o texto que hai nesta imaxe.
 captcha_img_help:Non hai cero ou un na imaxe.
-powered-by:Desenvolvido por: FUDforum {GVAR: FORUM_VERSION}.<br />Copyright &copy;2001-2010 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+powered-by:Desenvolvido por: FUDforum {GVAR: FORUM_VERSION}.<br />Copyright &copy;2001-2011 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Código:
 code_select_all:Seleccionar todo
 code_show_hide:Mostrar/agochar
