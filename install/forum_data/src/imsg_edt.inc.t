@@ -536,9 +536,7 @@ class fud_msg_edit extends fud_msg
 						WHERE a.message_id='. $mtf->id .' AND a.attach_opt=0');
 				while ($ent = db_rowarr($r)) {
 					$attach[$ent[1]] = file_get_contents($GLOBALS['FILE_STORE'] . $ent[0] .'.atch');
-					if ($mtf->mlist_id) {
-						$attach_mime[$ent[1]] = $ent[2];
-					}
+					$attach_mime[$ent[1]] = $ent[2];
 				}
 				unset($r);
 			} else {
@@ -565,7 +563,7 @@ class fud_msg_edit extends fud_msg
 				define('sql_p', '{SQL_TABLE_PREFIX}');
 
 				$lock = $nntp->get_lock();
-				$nntp->post_message($mtf->subject, $body . $nntp_adm->custom_sig, $from, $mtf->id, $replyto_id, $attach);
+				$nntp->post_message($mtf->subject, $body . $nntp_adm->custom_sig, $from, $mtf->id, $replyto_id, $attach, $attach_mime);
 				$nntp->close_connection();
 				$nntp->release_lock($lock);
 			} else {	// Push out to mailing list.

@@ -192,32 +192,51 @@ class fud_nntp
 		q('UPDATE '. $GLOBALS['DBHOST_TBL_PREFIX'] .'nntp SET tracker = '. $tracker .' WHERE id='. $rule_id);
 	}
 
-	/* Post a message back to the USENET newsgroup. Attachemnets will be UUencoded. */
-	function post_message($subject, $body, $from, $forum_msg_id, $reply_to='', $attch='')
+	/* Post a message back to the USENET newsgroup. */
+	function post_message($subject, $body, $from, $forum_msg_id, $reply_to=null, $attch=null, $attach_mime=null)
 	{
+		$multi_part = 0;
+		$final_body = '';
+
+		if ($GLOBALS['FUD_OPT_3'] & 8) {	// NNTP_OBFUSCATE_EMAIL
+			$from = str_replace(array('.', '@'), array('[dot]', '[at]'), $from);
+		}
+
+		// If we have attachements, and MIME encoding is prefered, insert attachments into body.
+		if ($GLOBALS['FUD_OPT_3'] & 512) {	// NNTP_MIME_POSTS
+			$multi_part = 1;
+			$boundry = md5(get_random_value());
+
+			$final_body = "\r\n--". $boundry ."\r\nContent-Type: text/plain;\r\n  charset=\"". $GLOBALS['CHARSET'] ."\"\nContent-Transfer-Encoding: 8bit\r\n\r\n". $body ."\r\n";
+
+			foreach ($attch as $file_name => $file_data) {
+				$final_body .= "\r\n--". $boundry ."\r\nContent-Type: ". $attach_mime[$file_name] ."; name=\"$file_name\"\nContent-Transfer-Encoding: base64\nContent-Disposition: attachment; filename=\"". $file_name ."\"\n\n". chunk_split(base64_encode($file_data)) ."\r\n\r\n";
+			}
+			$final_body .= "\r\n--". $boundry ."--\r\n";
+		} else {
+			$final_body = $body;
+		}
+
+		/* NNTP connect. If connection fails, it will set $this->error. */
 		if (!$this->connect()) {
 			$this->exit_handler(0);
 			return;
 		}
 
 		if ($this->cmd('POST') != 340) {
-	        	$this->error = 'Failed to recieve proper response to POST command, NNTP server replied: '. $this->lrc ."\n";
+			$this->error = 'Failed to recieve proper response to POST command, NNTP server replied: '. $this->lrc ."\n";
 			$this->exit_handler(0);
 			return;
 		}
 
-		if ($GLOBALS['FUD_OPT_3'] & 8) {	// NNTP_OBFUSCATE_EMAIL
-			$from = str_replace(array('.', '@'), array('[dot]','[at]'), $from);
-		}
-
-		fputs($this->fs, "From: $from\r\n");
-		fputs($this->fs, "Newsgroups: $this->newsgroup\r\n");
+		fputs($this->fs, 'From: '. $from ."\r\n");
+		fputs($this->fs, 'Newsgroups: '. $this->newsgroup ."\r\n");
 		if (function_exists('iconv_mime_encode')) {
 			fputs($this->fs, iconv_mime_encode('Subject', $subject,
 				array('scheme'=>'Q', 'input-charset'=>$GLOBALS['CHARSET'], 'output-charset'=>$GLOBALS['CHARSET']))
 				."\r\n"); 
 		} else {
-		        fputs($this->fs, "Subject: $subject\r\n");
+		        fputs($this->fs, 'Subject: '. $subject ."\r\n");
 		}
 
 		if ($GLOBALS['FORUM_TITLE']) {
@@ -225,10 +244,10 @@ class fud_nntp
 		}
 
 		fputs($this->fs, 'Date: '. date('r') ."\r\n");
-		fputs($this->fs, "Reply-To: $from\r\n");
-		fputs($this->fs, 'Lines: '. substr_count($body,"\n") ."\r\n");
+		fputs($this->fs, 'Reply-To: '. $from ."\r\n");
+		fputs($this->fs, 'Lines: '. substr_count($final_body, "\n") ."\r\n");
 
-		// Will be used to identify forum's messages. Prevent circular loads.
+		// Will be used to identify forum's messages. Prevent circular loads later.
 		fputs($this->fs, 'X-FUDforum: '. md5($GLOBALS['WWW_ROOT']) ." <$forum_msg_id>\r\n");
 
 		// Reference parent's Message-ID so it is seen as a reply.
@@ -237,25 +256,34 @@ class fud_nntp
 		}
 
 		fputs($this->fs, 'User-Agent: FUDforum '. $GLOBALS['FORUM_VERSION'] ."\r\n");
-		fputs($this->fs, 'Content-Type: text/plain; charset='. $GLOBALS['CHARSET'] ."; format=flowed\r\n");
+		fputs($this->fs, 'MIME-Version: 1.0' . "\r\n");
+		fputs($this->fs, 'Content-Transfer-Encoding: 8bit' . "\r\n");
+		if (!$multi_part) {
+			fputs($this->fs, 'Content-Type: text/plain; charset='. $GLOBALS['CHARSET'] ."; format=flowed\r\n");
+		} else {
+			fputs($this->fs, "Content-Type: Multipart/Mixed;\r\n  boundary=\"$boundry\"\r\n");
+		}
 
-		// Split body at first signature.
-		$sigpos = strpos($body, "\n-- \n");
-		$body_before_sig = $sigpos ? substr($body, 0, $sigpos) : $body;
-		$body_after_sig  = $sigpos ? substr($body, $sigpos)    : '';
+		if (is_array($attch) && (!$multi_part)) {
+			// Split body at first signature.
+			$sigpos = strpos($final_body, "\n-- \n");
+			$body_before_sig = $sigpos ? substr($final_body, 0, $sigpos) : $final_body;
+			$body_after_sig  = $sigpos ? substr($final_body, $sigpos)    : '';
 
-		fputs($this->fs, "\r\n$body_before_sig");
+			fputs($this->fs, "\r\n". $body_before_sig);
 
-		// Insert file attachments before the first signature to prevent signature pruning from removing them.
-		if (is_array($attch)) {
+			// Insert file attachments before the first signature to prevent signature pruning from removing them.
 			fputs($this->fs, "\r\n");
 			foreach ($attch as $fname => $file_data) {
 				fputs($this->fs, $this->uuencode($file_data, $fname));
 			}
+
+			fputs($this->fs, $body_after_sig);
+		} else {
+			fputs($this->fs, "\r\n". $final_body);
 		}
 
-		fputs($this->fs, "$body_after_sig\r\n");
-		fputs($this->fs, ".\r\n");
+		fputs($this->fs, "\r\n.\r\n");
 
 		if (!$this->compare_return_codes(240)) {
 			$this->error = 'Posting Failed, NNTP Server Said: '. $this->lrc ."\n";

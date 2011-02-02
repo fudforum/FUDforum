@@ -445,6 +445,7 @@ $(document).ready(function() {
 	print_bit_field('Anonymous User Captcha Test', 'USE_ANON_TURING');
 	print_bit_field('Use Captcha images', 'GRAPHICAL_TURING');
 	print_bit_field('Obfuscate e-mails in NNTP posts', 'NNTP_OBFUSCATE_EMAIL');
+	print_bit_field('MIME encode NNTP posts', 'NNTP_MIME_POSTS');
 	if (extension_loaded('zlib')) {
 		print_bit_field('Use PHP compression', 'PHP_COMPRESSION_ENABLE');
 		print_reg_field('PHP compression level', 'PHP_COMPRESSION_LEVEL', 1);

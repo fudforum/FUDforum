@@ -431,8 +431,8 @@ If disabled users will not need to complete a turing test intended to prevent au
 {{{DISABLE_AUTOCOMPLETE	FUD_OPT_3	256
 If disabled the browser will not attempt to 'remember' the values for the login form.}}}
 
-{{{UNUSED	FUD_OPT_3	512
-Available for future use.}}}
+{{{NNTP_MIME_POSTS	FUD_OPT_3	512
+Format forum messages as MIME encoded posts before sending them to a newsgroup. If disabled, messages will be UUencoded.}}}
 
 {{{UNUSED	FUD_OPT_3	1024
 Available for future use.}}}
