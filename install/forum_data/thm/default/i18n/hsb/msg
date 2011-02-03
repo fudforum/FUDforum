@@ -714,8 +714,7 @@ post_opt_html_off:<b>HTML</b>-kod je <b>wupinjeny</b>
 post_opt_fud_off:<b>BBcode</b> je <b>wupinjeny</b>
 post_opt_images_off:<b>Wobrazy</b> su <b>wupinjene</b>
 post_opt_smilies_off:<b>Smějački</b> su <b>wupinjene</b>
-# Fuzzy
-post_opt:Forumowe opcije
+post_opt:Forumowe opcije:
 register_change_passwd:hesło změnić
 register_change_login:wužiwarske mjeno změnić
 approved_avatar_title:Twój swójski awatar bu schwaleny.
@@ -802,6 +801,7 @@ th_expr_two_month:2 měsacaj
 th_expr_four_month:4 měsacy
 th_expr_one_year:1 lěto
 thread_mod_delete:Zničić
+action_ip:IP
 action_latest_post:Poslednja powěsć
 online_today_last_visit:Posledni wopyt
 online_today_update:Lisćinu wužiwarjow sej wobhladać, kotřiž běchu dźensa we forumje.
@@ -1052,14 +1052,10 @@ mmd_abort_move:Přetorhnyć
 mmd_move:Temy přesunyć
 pmsg_pdf_btn:PDF-archiw wutworić
 search_results_hdr:{VAR: total} pytanskich wuslědkow namakanych
-# Fuzzy
-thread_del_all:Wšě wubrane zničić
-# Fuzzy
-thread_mov_all:Wšě wubrane přesunyć
-# Fuzzy
-thread_merge_all:Wšě wubrane zjednoćić
-# Fuzzy
-thread_loc_all:Wšě wubrane zawrěć/wotewrěć
+thread_del_all:Wubrane zhašeć
+thread_mov_all:Wubrane přesunyć
+thread_merge_all:Wubrane zjednoćić
+thread_loc_all:Wubrane zawrěć/wotewrěć
 dmsg_ip:IP:
 err_blockedaccnt_title:ZMYLK: Twoje konto bu wufiltrowane.
 err_blockedaccnt_msg:Twoje konto přez jeden z instalowanych filtrow přistup na forum nima.
@@ -1082,8 +1078,11 @@ post_common_align_left:Nalěwo wusměrjeny
 post_common_align_center:Centrowany
 post_common_align_right:Naprawo wusměrjeny
 post_common_link:Wotkaz zasunyć
+post_common_link_popup:Wotkazowy cil:
 post_common_email:E-mejlowa dresu zasunyć
+post_common_email_popup:E-mejlowa adresa:
 post_common_image:Wobraz zasunyć
+post_common_image_popup:URL wobraza:
 post_common_nlist:Čisłowanu lisćinu přidać
 post_common_blist:Naličenje přidać
 post_common_quote:Citat přidać
@@ -1130,3 +1129,5 @@ feed_rss:RSS2-kanal
 feed_atom:ATOM-kanal
 ip_whois_connect_err:Njeje móžno z WHOIS-serwerom ({VAR: whois_server}) zwjazać: {VAR: errstr}
 custom_filed_required:Tute polo je trěbne.
+page_list_heading:K dispoziciji stejace strony
+page_list_total:{PLURAL: i|$1 strona podata|$1 stronje podatej|$1 strony podate|$1 stronow podatych}.

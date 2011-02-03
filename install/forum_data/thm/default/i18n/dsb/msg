@@ -1,0 +1,490 @@
+# Messages for Lower Sorbian (Dolnoserbski)
+# Exported from translatewiki.net
+# Author: Michawiki
+
+action:Akcija
+add_to_buddy_list:lisćinje pśijaśelow dodaś
+admin:Administrator
+administrator:Administrator
+attachment:Dodank:
+avatar:Awatar:
+biography:Biografija:
+birth_date:Narodny źeń:
+by:Wót:
+by_mod:wót moderatora
+current_time:Aktualny cas
+date_posted:Datum pśinoska
+date_registered:Datum registrěrowanja:
+email:E-mail:
+email_to_friend:Pśijaśeloju e-mail pósłaś
+email_to_friend_desc:URL toś togo boka twójim pśijaśelam pśez e-mail pósłaś
+email_user:Wužywarjeju e-mail pósłaś
+faq:Pomoc
+first_unread_msg:K njecytanym powěsćam
+forum:Forum:
+forum_icon:Forumowy symbol
+forum_new_messages:Nowe powěsći
+forum_old_messages:Žedne nowe powěsći
+from:Wót:
+gender:Rod:
+go:Start
+goto_next_msg:K pśiducej powěsći
+goto_prev_msg:K pjerwjejšnej powěsći
+home:Startowy bok
+homepage:Startowy bok:
+ignore_user:wšykne powěsći toś togo wužywarja ignorěrowaś
+im_msnm:MSN Messenger:
+im_yahoo:Yahoo Messenger:
+image:Wobraz:
+index_forum:Forum
+index_new_posts:Nowe powěsći wót slědnego woglěda
+index_no_new_posts:Žedne nowe powěsći wót slědnego woglěda
+index_url_redirection:Dalejpósrědnjenje
+interests:Zajmy:
+last_post:Slědna powěsć
+last_thread_msg:K slědnej powěsći w toś tej temje
+legend:Legenda
+location:Městno:
+logged_in_list:Lisćina pśizjawjonych wužywarjow
+login:Pśizjawiś
+login_header:Pśizjawjenje
+logout:Wótzjawiś
+mark_all_read:Wšykne powěsći ako cytane markěrowaś
+mark_all_read_desc:Wšykne twóje njecytane powěsći budu se ako cytane markěrowaś
+members:Cłonki:
+calendar:Kalendaŕ
+cal_goto_date:Skóc do:
+cal_day_heading:Tšojenja dnja
+cal_no_events:Žedne tšojenja za toś ten źeń.
+cal_birthday:Narodny źeń: {VAR: user}
+cal_birthday_age:({PLURAL: age|$1 lěto|$1 lěśe|$1 lěta|$1 lět} stary).
+message:Powěsć
+message_index:Indeks powěsćow
+message_index_desc:Lisćinu powěsćow se woglědaś
+minimize_category:Kategoriju miniměrowaś
+minimize_message:Powěsć miniměrowaś
+moderator:Moderator
+moderator_of:Moderator wót:
+moderator_options:Opcije moderatora
+moderators:{PLURAL: modcount|Moderator|Moderatora|Moderatory|Moderatory}
+more_unread_messages:dalšne njecytane powěsći
+move_thread:Pśesunuś
+moved:Do drugego foruma pśesunuś
+moved_thread_message:Toś ta tema jo se do drugego foruma pśesunuła
+na:njestoj k dispoziciji
+new_posts:Nowe powěsći
+new_private_messages:Maš <span class="GenTextRed">({VAR: c})</span> {PLURAL: c|njecytanu priwatnu powěsć|njecytanej priwatnej powěsći|njecytane priwatne powěsći|njecytanych priwatnych powěsćow}
+new_thread:Nowu temu napóraś
+newest_user:Nejnowšy zregistrěrowany wužywaŕ jo
+next_page:Pśiducy bok
+next_thread:Pśiduca tema:
+no_messages:W toś tom lisćinje žedne powěsći njejsu.
+no_new_posts:Žedne nowe powěsći
+no_posts:Žedne powěsći
+no_subscribed_forums:Žedne aboněrowane forumy
+no_subscribed_threads:Žedne aboněrowane temy
+no_unread_msg:Toś ta tema njama njepśecytane powěsći.
+num_pages:Boki ({VAR: ttl_pg}):
+occupation:Pówołanje:
+poll:Wótglosowanje:
+posts:Powěsći
+posts_c:Powěsći:
+prev_thread:Pjerwjejšna tema:
+usrinfo_private_message:Priwatna powěsć:
+rating:Pógódnośenje
+register:Registrěrowaś
+registered:Zregistrěrowany:
+registered_on:{TEMPLATE: registered_on_date} zregistrěrowany
+replies:Wótegrona
+report_to_mod:Powěsć k wěsći moderatora daś
+reported_messages:K wěsći dane powěsći
+search:Pytaś
+sel_todays_posts:Źinsajšne powěsći
+sel_unanswered_posts:Njewótegronjone powěsći
+sel_unread_messages:Njecytane powěsći
+send:Pósłaś
+send_pm_desc:Priwatnu powěsć toś tomu wužywarjoju pósłaś
+sender_email:E-mail wótpósłarja:
+sender_name:Mě wótpósłarja:
+show_posts_by:Powěsći wót {VAR: u_alias} pokazaś
+size:Wjelikosć:
+status:Status:
+stop_ignoring:Toś togo wužywarja wěcej njeignorěrowaś
+sub_to_thread:Temu aboněrowaś
+subject:Tema
+subscribe:Aboněrowaś
+subscribed_forums:Aboněrowane forumy
+subscribed_threads:Aboněrowane temy
+thread:Tema:
+thread_first_unread_msg:K prědnej njecytanej powěsći w temje
+thread_thread:Tema
+threads:Temy
+time:Cas
+todays_posts:Źinsajšne powěsći
+unanswered_posts:Njewótegronjone powěsći
+unanswered_posts_desc:Wšykne powěsći pokazaś, kótarež njamaju wótegrona
+unread_msg:Toś ta tema wopśimujo powěsći, kótarež hyšći njejsy pśecytał
+unread_posts:Njecytane powěsći
+unread_posts_desc:Wšykne njepśecytane powěsći pokazaś
+unsub_from_thread:Temu wótskazaś
+unsubscribe:Wótskazaś
+updated_on:Zaktualizěrowany:
+user:Wužywaŕ
+user_info:Wužywarske informacije
+user_info_l:Wužywarske informacije: {VAR: u->alias}
+usrinfo_last_post:Slědna powěsć:
+view_results:Wuslědki pokazaś
+reported_del_report:Powěźeńku wulašowaś
+reported_reason:Pśicyna:
+reported_reported_msg:K wěsći dane powěsći
+modque_approve:Pśizwóliś
+modque_delete:Wulašowaś
+pmsg_new_messages:Njecytana priwatna powěsć
+pmsg_old_messages:Pśecytana priwatna powěsć
+move_to:Pśesunuś do:
+list_referes_member:Cłonk
+referals_registered_on:Zregistrěrowany:
+referals_action:Akcija
+pmsg_all:wšykne
+pmsg_none:žeden
+folder:Zarědnik:
+pmsg_replied:z wótegronom
+pmsg_author:Awtor
+pmsg_time:Cas
+pmsg_selected:Wubrany
+pmsg_delete:Wulašowaś
+draft:Nacerjenje
+msg_author:Awtor
+no_avatars:Žedne awatary k dispoziciji
+month_1:januar
+month_2:februar
+month_3:měrc
+month_4:apryl
+month_5:maj
+month_6:junij
+month_7: julij
+month_8:awgust
+month_9:september
+month_10:oktober
+month_11:nowember
+month_12:december
+sunday:Njeźela
+sunday_short:Nj
+monday:Pónjeźele
+monday_short:Pó
+tuesday:Wałtora
+tuesday_short:Wa
+wednesday:Srjoda
+wednesday_short:Sr
+thursday:Stwórtk
+thursday_short:St
+friday:Pětk
+friday_short:Pě
+saturday:Sobota
+saturday_short:So
+male:Muskecy
+female:Žeńscyny
+finduser_user_info:Wužywarske informacije
+finduser_by_login:Pó wužywarskem mjenju:
+finduser_submit:Pytaś
+finduser_no_such_user:Wužywaŕ njeeksistěrujo
+finduser_user:Wužywaŕ
+finduser_action:Akcija
+yes:Jo
+no:Ně
+register_email:E-mail
+pmuserloc_login:Wužywarske mě:
+pmuserloc_submit:Wótpósłaś
+pmuserloc_user:Wužywaŕ
+pmuserloc_no_result:Žeden wuslědk
+register_specify_url:URL pódaś
+register_uploaded:Awatar nagraś
+register_login:Wužywarske mě:
+register_password:Gronidło:
+register_conf_pass:Gronidło wobkšuśiś:
+register_name:Mě:
+register_your_pass:Twójo gronidło:
+register_update:Aktualizěrowaś
+register_avatar_type:Typ awatara:
+register_del_avatar:Awatara wulašowaś
+register_avatar:Awatar:
+register_sel_avatar:Awatora wubraś
+register_custom_avatar_url:Swójski awatarowy URL:
+register_preview:Pśeglěd
+register_custom_avatar_upload:Swójska awatarowa dataja:
+register_register:Registrěrowaś
+register_required:Trěbne informacije
+register_optional:Opcionalne informacije
+register_location:Městno:
+register_occupation:Pówołanje:
+register_interests:Zajmy:
+register_image:Wobraz:
+register_icq:ICQ:
+register_yahoo:Yahoo Messenger:
+register_msnm:MSN Messenger:
+register_homepage:Startowy bok:
+register_bday:Naroźeński datum:
+register_day:Źeń
+register_month:Mjasec
+register_year:Lěto
+register_gender:Rod:
+register_bio:Biografija:
+register_prefs:Nastajenja
+register_sig:Signatura:
+register_msg_per_page:Powěsći na bok:
+register_show_sig:Signatury pokazaś:
+register_timezone:Casowa cona:
+register_invisible_mode:Modus njewidobnosći:
+register_invisible_mode_desc:Chowa swój onlineowy status.
+register_show_email:E-mailowu adresu pokazaś:
+buddy_status:Status
+add:Dodaś
+buddy_remove:wótpóraś
+post_normal:Normalny
+post_size:Wjelikosć
+post_color:Barwa
+post_font:Pismo
+create_thread:Temu napóraś
+submit_reply:Wótegrono wótpósłaś
+post_logedin_user:Pśizjawjony wužywaŕ:
+post_logout:wótzjawiś
+post_poll:Wótglosowanje:
+post_create_poll:WÓTGŁOSOWANJE NAPÓRAŚ
+post_poll_delete:LAŠOWAŚ
+post_poll_edit:WOBŹĚŁAŚ
+post_thread_type:Typ temy:
+post_icons:Powěsćowy symbol:
+post_no_icon:Žeden symbol
+post_upload_file:Dataju nagraś
+post_file_del:Wulašowaś
+post_file_name:Mě
+post_file_size:Wjelikosć
+file_attachments:Datajowe pśidanki:
+allowed_files:Dowólone datajowe sufikse:
+max_file_size:Maksimalna datajowa wjelikosć:
+max_files_per_msg:Maksimalna licba datajow na powěsć:
+include_sig:Signaturu dodaś
+include_sig_desc:Twóju profilowu signaturu dodaś.
+post_forum:Forum:
+post_title:Titel:
+post_options:Opcije:
+ignore_users:Ignorěrowane wužywarje
+forum_terms:Forumowe pšawidła
+prereg_info:Forumowe pšawidła
+coppa_fax_telephone:Telefon:
+coppa_fax_email:E-mailowa adresa:
+coppa_fax_date:Datum:
+coppa_fax_login:Pśizjawjenje
+coppa_fax_passwd:Gronidło
+coppa_fax_remail:E-mail
+coppa_fax_name:Mě
+login_want_to_register:Coš se registrěrowaś?
+login_forgot_passwd:Gronidło zabyte
+login_login:Wužywarske mě:
+login_login_btn:Pśizjawjenje
+login_name_required:Wužywarske mě jo trěbne
+login_passwd_required:Gronidło jo trěbne
+rpasswd_invalid_passwd:Njepłaśiwe gronidło
+rpasswd_passwd_nomatch:Gronidle se njemakatej
+rpasswd_passwd_length:Gronidło musy nanejmjenjej 6 znamuškow dłujke byś
+reset_error:E-mailowa adresa njejo se namakała w datowej bance
+rpasswd_change_pass:Gronidło změniś
+rpasswd_login:Wužywarske mě
+rpasswd_cur_pass:Aktualne gronidło:
+rpasswd_new_pass:Nowe gronidło:
+rpasswd_conf_pass:Gronidło wobkšuśiś:
+ruser_cur_login:aktualne wužywarske mě:
+ruser_cur_pass:Aktualne gronidło:
+login_passwd:Gronidło:
+reset_email:E-mail:
+search_entire_msg:Cełe gronidło
+search_forum:Forum
+search_no_results:Žedne wuslědki
+search_all_forums:We wšyknych forumach pytaś
+search_in_forum:We forumje pytaś:
+search_forum_search:Forumowe pytanje
+move_thread_to:Temu <b>{VAR: thr->subject}</b> pśesunuś do:
+remail_your_name:Twójo mě:
+remail_your_email:Twója e-mail:
+remail_friends_name:Mě pśijaśela:
+remail_friends_email:E-mail pśijaśela:
+remail_required:trěbny
+remail_message:Powěsć:
+remail_send_now:E-mail něnto pósłaś
+mklist_type:Typ:
+mklist_option:Opcija:
+mklist_additem:Element pśidaś
+mklist_apply:Nałožyś
+mklist_delete:Wulašowaś
+qbud_nick_name:Pśimě
+mklist_close:Zacyniś
+email_submit:E-mail
+ppost_find_User:Wužywarja pytaś
+ppost_send:Wótpósłaś
+ppost_save_draft:Nacerjenje składowaś
+poll_create:Napóraś
+poll_update:Aktualizěrowaś
+poll_delete:Wulašowaś
+poll_updateoption:Opciju aktualizěrowaś
+poll_addoption:Opciju pśidaś
+poll_day:źeń
+poll_days:dny
+poll_hour:góźina
+poll_hours:góźiny
+poll_month:mjasec
+poll_year:lěto
+poll_week:tyźeń
+tabs_register:Kontowe nastajenja
+tabs_subscriptions:Abonementy
+tabs_ignore_list:Lisćina ignorěrowanjow
+delete_yes:Jo
+delete_no:Ně
+error_invalidurl:Njepłaśiwy URL
+error_error:Zmólka
+err_info:Informacije
+buddy_list_err_nouser_title:Wužywaŕ njedajo se pśidaś
+email_error_namerequired:Mě jo trěbne
+email_error_invaliduser:Njepłaśiwy wužywaŕ
+emailconf_err_invkey_title:Zmólka
+err_inc_criticaltitle:Kritiska zmólka
+ignore_list_err_info_title:Informacije
+ignore_list_err_nu_title:Wužywaŕ njenamakany
+ignore_list_cantign_msg:Njamóžoš toś togo wužywarja ignorěrowaś
+err_coppa_title:ZMÓLKA: Twójo konto hyšći njejo wobkšuśone
+post_err_edttimelimit_title:ZMÓLKA
+post_err_passwd:Wopacne gronidło.
+postcheck_invalid_email:Pšosym zapódaj płaśiwu e-mailowu adresu za swójogo pśijaśela.
+register_err_shortpasswd:Gronidła muse nanejmjenjej 6 znamuškow dłujke byś
+register_err_passwdnomatch:Twójej gronidle se njemakatej, pšosym wopytaj hyšći raz.
+register_err_invalidemail:Zda se, až e-mailowa adresa, kótaruž sy pódał, njejo płaśiwa.
+register_err_notyouremail:Něchten drugi jo južo z toś teju e-mejloweju adresu zregistrěrowany.
+register_err_cantreg_title:ZMÓLKA: registrěrowanje njejo móžno
+report_err_nosuchmsg_title:ZMÓLKA
+reset_err_invalidkey_title:ZMÓLKA
+reset_err_rstconf_title:Informacije
+ERR_user_ttl:ZMÓLKA: Wužywaŕ njeeksistěrujo
+ERR_user_msg:Toś ten wužywaŕ njeeksistěrujo
+ERR_systemerr_ttl:ZMÓLKA: Systemowa zmólka
+finduser_title:Wužywarja pytaś
+help_title:Pomoc
+index_title:Witaj do foruma
+remail_emailsent:E-mail jo se wótpósłała
+poll_add_option:Opciju pśidaś:
+# Fuzzy
+post_opt:Forumowe opcije
+register_change_passwd:gronidło změniś
+register_change_login:wužywarske mě změniś
+thr_exch_accept:temu akceptěrowaś
+thr_exch_decline:temu wótpokazaś
+thr_exch_orig_forum:Spócetny forum:
+thr_exch_dest_forum:Celowy forum:
+thr_exch_submit:Wótpósłaś
+groupmgr_yes:Jo
+groupmgr_no:Ně
+groupmgr_action:Akcija
+groupmgr_member:Cłonk
+groupmgr_cancel:Pśetergnuś
+groupmgr_add_member:Cłonka pśidaś
+groupmgr_update_member:Cłonka aktualizěrowaś
+groupmgr_edit:Wobźěłaś
+groupmgr_delete:Wulašowaś
+group_mgr_anon:Anonymny
+group_mgr_reged:Wšykne zregistrěrowane wužywarje
+show_show:Pokazaś:
+group_mgr_edit_btn:Kupku wobźěłaś
+group_mgr_group:Kupka:
+p_REPLY:Wótegroniś
+p_EDIT:Wobźěłaś
+p_DEL:Wulašowaś
+p_MOVE:Temy pśesunuś
+group_mgr_search:Wužywarja pytaś
+thread_mod_delete:Wulašowaś
+action_latest_post:Slědna powěsć
+logedin_todays_visitors:Źinsajšne woglědarje
+register_show_avatar:Awatary pokazaś:
+drawmsg_view_rest_post:Wušk powěsći pokazaś
+split_th_new_thread_title:Titel noweje temy:
+split_th_forum:Forum:
+split_th_messages:Powěsći
+quicklogin_login:Wužywarske mě:
+quicklogin_password:Gronidło:
+quicklogin_use_cookies:Cookieje wužywaś?
+quicklogin_login_btn:Pśizjawiś
+quick_reply:Malsne wótegrono
+pmsg_next_msg:Pśiduca powěsć
+pmsg_prev_msg:Pjerwjejšna powěsć
+im_jabber:Jabber:
+im_google:Google Talk:
+im_skype:Skype:
+im_twitter:Twitter:
+forum_contact:Kontakt
+smladd_close_window:wokno zacyniś
+p_VISIBLE:Widobny
+imsg_err_message_title:Njepłaśiwa powěsć
+poll_edit:Wobźěłaś
+pmsg_recepient:Dostawaŕ
+register_allow_pm_msg:Priwatne powěsći dowóliś:
+register_allow_pm_msg_desc:Drugim wužywarjam dowóliś śi prwiatne powěsći w toś tom forumje pósłaś.
+polllist_view_results:Wuslědki pokazaś
+polllist_name:Mě wótgłosowanja
+userinfo_polls:Wótglosowanja:
+show_pollist:Wótgłosowanja pokazaś
+search_and:A
+search_or:ABO
+search_attach:Dodanki:
+search_attach_all:Z abo bźez
+search_attach_with:Z dodankami
+unread_message:Njecytana powěsć
+read_message:Pśecytana powěsć
+threadt_more:&lt;wěcej&gt;
+spell_alts:žedne alternatiwy
+saved:Skłaźony
+iemail_msg_reply:Wótegrono
+findu_edit:Wobźěłaś
+findu_delete:Wulašowaś
+dmsg_reply_to:jo wótegrono na
+merge_next:Pśiduce temy
+merge_prev:Pjerwjejšne temy
+register_email_addr:E-mailowa adresa:
+mnav_newer:nowše ako
+mnav_older:starše ako
+ip_search:Pytaś
+userinfo_real_name:Napšawdne mě:
+post_err_mod_forum_edit_ttl:ZMÓLKA
+delete_msg_pm_body:Spócetna powěsć
+uc_new_pm:Nowe priwatne powěsći
+uc_new_topic:Nowa tema
+search_options:Pytańske opcije
+findu_no_conf:njewobkšuśony wužywaŕ
+register_max_sig_len:Maksimalna dłujkosć:
+modque_cat:Kategorija
+modque_forum:Forum
+idx_compact_forum_row:K dispoziciji stojece forumy:
+mmd_del_title:Temy wulašowaś
+mmd_mov_title:Temy pśesunuś
+mmd_move_threads_to:Celowy forum:
+mmd_abort_move:Pśetergnuś
+dmsg_ip:IP:
+sml_code:Kod
+post_common_link:Wótkaz zasunuś
+post_common_email:E-mailowu adresu zasunuś
+post_common_image:Wobraz zasunuś
+post_common_quote:Citat dodaś
+post_common_code:Kod dodaś
+rating_delete:Lašowaś
+move_messages:Powěsći pśesunuś
+move_msg_btn:Wubrane powěsći pśesunuś
+code_title:Kod:
+code_select_all:Wše wubraś
+code_show_hide:Pokazaś/schowaś
+btn_new_topic:Nowa tema
+btn_delete:lašowaś
+btn_edit:wobźěłaś
+btn_reply:wótegroniś
+btn_quote:citěrowaś
+btn_email:E-mail
+btn_homepage:www
+feed_rdf:RDF-kanal
+feed_rss:RSS2-kanal
+feed_atom:ATOM-kanal
+custom_filed_required:Toś to pólo jo trěbne.

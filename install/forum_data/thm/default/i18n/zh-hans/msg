@@ -52,6 +52,7 @@ image:照片：
 index_forum:论坛
 index_new_posts:上次浏览以后的新帖
 index_no_new_posts:自从上次浏览以后没有新帖
+index_url_redirection:重定向
 interests:兴趣：
 last_post:最新帖子
 last_thread_msg:转入本主题最后一个帖子。
@@ -67,12 +68,19 @@ logout:注销
 mark_all_read:将读取的所有邮件都标记
 mark_all_read_desc:所有你没有读过的信息都将被标为已读。
 members:成员
+calendar:日历
 cal_goto_date:跳至：
+cal_day_heading:一天的事件
+cal_no_events:没有一天的事件。
+cal_update:浏览论坛日历
+cal_birthday:生日：{VAR: user}
+cal_birthday_age:（$1岁）。
 message:信息
 message_counter:我们的用户已张贴共 <b>{PLURAL: post_count|$1 消息|$1 消息}</b> 内 <b>{PLURAL: thread_count|$1 主题|$1 主题}</b>。
 message_index:信息索引
 message_index_desc:查看信息列表
 minimize_category:减少目录层次
+minimize_message:最小化消息
 moderation_queue:版主列表
 moderator:版主
 moderator_of:版主：
@@ -96,17 +104,16 @@ no_new_posts:没有新的主题
 no_posts:没有新主题
 no_subscribed_forums:没有预定的论坛
 no_subscribed_threads:没有预定的主题
+no_bookmarked_threads:没有用书签标记的主题
 no_unread_locked:本主题已被锁定（不可回复）。
 no_unread_msg:这个主题没有未读信息。
 no_unread_msg_unreg:只有注册用户能够把信息标为已读和未读。
 num_pages:页（{VAR: ttl_pg}）：
-# Fuzzy
-num_votes:{VAR: obj->total_votes} 选票
+num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|选票|选票}
 occupation:职业：
 off:关闭
 on:打开
-# Fuzzy
-page_timings:生成本页面共花费时间：{VAR: page_gen_time} 秒。
+page_timings:生成本页面共花费时间: {PLURAL: page_gen_time|$1 秒}。
 pm:悄悄话
 poll:调查：
 post_count:发帖数： {VAR: u_pcount}

@@ -715,8 +715,7 @@ post_opt_html_off:<b>HTML</b>-код — <b>выключаны</b>
 post_opt_fud_off:<b>BBcode</b> — <b>выключаны</b>
 post_opt_images_off:<b>Выявы</b> — <b>выключаныя</b>
 post_opt_smilies_off:<b>Усьмешкі</b> — <b>выключаныя</b>
-# Fuzzy
-post_opt:Устаноўкі форуму
+post_opt:Налады форуму:
 register_change_passwd:зьмяніць пароль
 register_change_login:зьмяніць імя карыстальніка
 approved_avatar_title:Ваша нестандартная аватара была зацьверджаная.
@@ -803,6 +802,7 @@ th_expr_two_month:2 месяцы
 th_expr_four_month:4 месяцы
 th_expr_one_year:1 год
 thread_mod_delete:Выдаліць
+action_ip:IP-адрас
 action_latest_post:Апошняе паведамленьне
 online_today_last_visit:Апошняе наведваньне
 online_today_update:Прагляд сьпісу карыстальнікаў, якія наведалі форум сёньня.
@@ -1053,14 +1053,10 @@ mmd_abort_move:Адмяніць
 mmd_move:Перанесьці тэмы
 pmsg_pdf_btn:Стварыць архіў у фармаце PDF
 search_results_hdr:Знойдзена вынікаў пошуку: {VAR: total}
-# Fuzzy
-thread_del_all:Выдаліць усе выбраныя
-# Fuzzy
-thread_mov_all:Перанесьці ўсе выбраныя
-# Fuzzy
-thread_merge_all:Аб'яднаць усе выбраныя
-# Fuzzy
-thread_loc_all:Заблякаваць/Разблякаваць усе выбраныя
+thread_del_all:Выдаліць выбраныя
+thread_mov_all:Перанесьці выбраныя
+thread_merge_all:Аб'яднаць выбраныя
+thread_loc_all:Заблякаваць/Разблякаваць выбраныя
 dmsg_ip:IP-адрас:
 err_blockedaccnt_title:Памылка: Ваш рахунак быў адфільтраваны.
 err_blockedaccnt_msg:Ваш рахунак быў заблякаваны ад уваходу на форум адным з усталяваных фільтраў.
@@ -1083,8 +1079,11 @@ post_common_align_left:Па леваму боку
 post_common_align_center:Па цэнтру
 post_common_align_right:Па праваму боку
 post_common_link:Уставіць спасылку
+post_common_link_popup:Мэта спасылкі:
 post_common_email:Уставіць адрас электроннай пошты
+post_common_email_popup:Адрас электроннай пошты:
 post_common_image:Уставіць выяву
+post_common_image_popup:URL-адрас выявы:
 post_common_nlist:Дадаць нумараваны сьпіс
 post_common_blist:Дадаць маркіраваны сьпіс
 post_common_quote:Дадаць цытату
@@ -1131,3 +1130,5 @@ feed_rss:RSS2-стужка
 feed_atom:ATOM-стужка
 ip_whois_connect_err:Немагчыма далучыцца да сэрвэра WHOIS ({VAR: whois_server}): {VAR: errstr}
 custom_filed_required:Гэтае поле — абавязковае.
+page_list_heading:Даступныя старонкі
+page_list_total:{PLURAL: i|Пералічаная $1 старонка|Пералічаныя $1 старонкі|Пералічаныя $1 старонак}.

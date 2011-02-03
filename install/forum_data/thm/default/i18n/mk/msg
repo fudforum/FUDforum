@@ -714,8 +714,7 @@ post_opt_html_off:<b>HTML</b>-кодот е <b>исклучен</b>
 post_opt_fud_off:<b>BBcode</b> е <b>исклучен</b>
 post_opt_images_off:<b>Сликите</b> се <b>исклучени</b>
 post_opt_smilies_off:<b>Смешковците</b> се <b>исклучени</b>
-# Fuzzy
-post_opt:Нагодувања на форумот
+post_opt:Нагодувања на форумот:
 register_change_passwd:смени лозинка
 register_change_login:смени корисничко име
 approved_avatar_title:Вашиот прилагоден аватар е одобрен.
@@ -802,6 +801,7 @@ th_expr_two_month:2 Месеца
 th_expr_four_month:4 Месеци
 th_expr_one_year:1 Година
 thread_mod_delete:Избриши
+action_ip:IP
 action_latest_post:Последна порака
 online_today_last_visit:Последна посета
 online_today_update:Го разгледува списокот на денешните посетители на форумот.
@@ -1052,14 +1052,10 @@ mmd_abort_move:Откажи
 mmd_move:Премести теми
 pmsg_pdf_btn:Направи PDF-архив
 search_results_hdr:Пронајдени се {VAR: total} резултати
-# Fuzzy
 thread_del_all:Избриши одбрани
-# Fuzzy
 thread_mov_all:Премести одбрани
-# Fuzzy
-thread_merge_all:Спој сè одбрано
-# Fuzzy
-thread_loc_all:Заклучи/Отклучи сè одбрано
+thread_merge_all:Спој одбрано
+thread_loc_all:Заклучи/Отклучи одбрано
 dmsg_ip:IP:
 err_blockedaccnt_title:ГРЕШКА: Вашата сметка е исфилтрирана како недозволена.
 err_blockedaccnt_msg:Блокирани сте од форумот поради еден од инсталираните филтри.
@@ -1082,8 +1078,11 @@ post_common_align_left:Порамни лево
 post_common_align_center:Порамни по средина
 post_common_align_right:Порамни десно
 post_common_link:Вметни врска
+post_common_link_popup:Место на врската:
 post_common_email:Вметни е-поштенска адреса
+post_common_email_popup:Е-пошта:
 post_common_image:Вметни слика
+post_common_image_popup:URL на сликата:
 post_common_nlist:Додај список со редни броеви
 post_common_blist:Додај список со потточки
 post_common_quote:Додај цитат
@@ -1130,3 +1129,5 @@ feed_rss:RSS2 канал
 feed_atom:ATOM канал
 ip_whois_connect_err:Не можам да се поврзам со WHOIS-опслужувачот ({VAR: whois_server}): {VAR: errstr}
 custom_filed_required:Ова поле е задолжително.
+page_list_heading:Страници на располагање
+page_list_total:{PLURAL: i|Наведена е $1 страница|Наведени се $1 страници}.

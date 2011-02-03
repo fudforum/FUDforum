@@ -629,7 +629,7 @@ post_err_passwd:ongeldige wagwoord.
 post_reply_update:Antwoorde op <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> in {VAR: frm->name}
 post_topic_update:Begin nuwe onderwerp in <a href="{TEMPLATE: post_topic_update_lnk}">{VAR: frm->name}</a>
 post_error_generic:Daar was 'n probleem
-postcheck_max_images_err:Maksimum {GVAR: MAX_IMAGE_COUNT} fotos word toegelaat per boodskap, verminder die aantal foto&quot;s
+postcheck_max_images_err:Maksimum {GVAR: MAX_IMAGE_COUNT} fotos word toegelaat per boodskap, verminder die aantal foto's
 postcheck_no_links_allowed:U mag geen skakels pos voordat u nie ten minste {PLURAL: posts_before_links|$1 boodskap|$1 boodskappe} gepos het nie.
 postcheck_subj_needed:U moet 'n onderwerp verskaf
 postcheck_no_such_user:Daar is geen lid genaamd "{FUNC: char_fix(htmlspecialchars($v))}" in die forum
@@ -714,8 +714,7 @@ post_opt_html_off:<b>HTML</b> kode is <b>AF</b>
 post_opt_fud_off:<b>BBkode</b> is <b>AF</b>
 post_opt_images_off:<b>Fotos</b> is <b>AF</b>
 post_opt_smilies_off:<b>Gesiggies</b> is <b>AF</b>
-# Fuzzy
-post_opt:Forumopsies
+post_opt:Forumopsies:
 register_change_passwd:verander wagwoord
 register_change_login:verander gebruikersnaam
 approved_avatar_title:U avatar is goedgekeur.
@@ -802,6 +801,7 @@ th_expr_two_month:2 Maande
 th_expr_four_month:4 Maande
 th_expr_one_year:1 Jaar
 thread_mod_delete:Skrap
+action_ip:IP
 action_latest_post:Laaste boodskap
 online_today_last_visit:Laaste besoek
 online_today_update:Wys wie die forum vandag besoek het.
@@ -1052,13 +1052,9 @@ mmd_abort_move:Kanselleer
 mmd_move:Skuif onderwerpe
 pmsg_pdf_btn:Maak PDF-argief
 search_results_hdr:{VAR: total} resultate gevind
-# Fuzzy
 thread_del_all:Verwyder seleksie
-# Fuzzy
 thread_mov_all:Skuif seleksie
-# Fuzzy
 thread_merge_all:Versmelt seleksie
-# Fuzzy
 thread_loc_all:Sluit/Ontsluit seleksie
 dmsg_ip:IP:
 err_blockedaccnt_title:FOUT: Your account has been filtered out.
@@ -1082,8 +1078,11 @@ post_common_align_left:Skuif Links
 post_common_align_center:Sentreer
 post_common_align_right:Skuif Regs
 post_common_link:Voeg 'n skakel by
+post_common_link_popup:Skakel:
 post_common_email:Voeg 'n E-posadres by
+post_common_email_popup:E-posadres:
 post_common_image:Voeg 'n beeld by
+post_common_image_popup:Beeld se URL:
 post_common_nlist:Voeg 'n genommerde lys by
 post_common_blist:Voeg 'n ongenommerde lys by
 post_common_quote:Voeg 'n aanhaling by
@@ -1130,3 +1129,5 @@ feed_rss:RSS2-voer
 feed_atom:ATOM-voer
 ip_whois_connect_err:Kon nie 'n verbinding met die WHOIS-bediener ({VAR: whois_server}) bewerkstellig nie: {VAR: errstr}
 custom_filed_required:Die veld is verpligtend.
+page_list_heading:Beskikbare bladsye
+page_list_total:{PLURAL: i|$1 bladsy|$1 bladsye} gelys.

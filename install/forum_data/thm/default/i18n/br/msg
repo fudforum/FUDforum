@@ -717,8 +717,7 @@ post_opt_html_off:<b>DIWEREDEKAET</b> eo ar c'hod <b>HTML</b>
 post_opt_fud_off:<b>DIWEREDEKAET</b> eo ar <b>BBcode</b>
 post_opt_images_off:<b>DIWEREDEKAET</b> eo ar <b>skeudennoù</b>
 post_opt_smilies_off:<b>DIWEREDEKAET</b> eo ar <b>fromlunioù</b>
-# Fuzzy
-post_opt:Dibarzhioù ar forom
+post_opt:Dibarzhioù ar forom :
 register_change_passwd:cheñch ger-tremen
 register_change_login:kemmañ al login
 approved_avatar_title:Aprouet eo bet hoc'h avatar personel.
@@ -805,6 +804,7 @@ th_expr_two_month:2 vizvezh
 th_expr_four_month:4 mizvezh
 th_expr_one_year:1 bloavezh
 thread_mod_delete:Dilemel
+action_ip:IP
 action_latest_post:Kemennadenn diwezhañ
 online_today_last_visit:Gweladennet da ziwezhañ
 online_today_update:Gwelet roll an dud o deus gweladennet ar forom hiziv.
@@ -1055,14 +1055,10 @@ mmd_abort_move:Nullañ
 mmd_move:Dilec'hiañ ar c'haozioù
 pmsg_pdf_btn:Ober un diell PDF
 search_results_hdr:{VAR: total} disoc'h evit an enklask
-# Fuzzy
-thread_del_all:Dilemel ar pezh zo diuzet
-# Fuzzy
-thread_mov_all:Dilec'hiañ an holl elfennoù diuzet
-# Fuzzy
-thread_merge_all:Kendeuziñ an holl re dibabet
-# Fuzzy
-thread_loc_all:Prennañ / Dibrennañ an elfennoù diuzet
+thread_del_all:Dilemel ar re diuzet
+thread_mov_all:Dilec'hiañ ar re diuzet
+thread_merge_all:Kendeuziñ ar re diuzet
+thread_loc_all:Prennañ/Dibrennañ ar re diuzet
 dmsg_ip:IP :
 err_blockedaccnt_title:FAZI : Silet eo bet ho kont.
 err_blockedaccnt_msg:Ne c'hall ket ho kont mont d'ar forom abalamour da unan eus ar siloù implijer staliet.
@@ -1085,8 +1081,11 @@ post_common_align_left:Linennet a-gleiz
 post_common_align_center:Kreizet
 post_common_align_right:Linennet a-zehou
 post_common_link:Ensoc'hañ ul liamm
+post_common_link_popup:Lec'hiadur al liamm :
 post_common_email:Ensoc'hañ ur chomlec'h postel
+post_common_email_popup:Chomlec'h postel :
 post_common_image:Ensoc'hañ ur skeudenn
+post_common_image_popup:Skeudenn URL :
 post_common_nlist:Ouzhpennañ ur roll niverennet
 post_common_blist:Ouzhpennañ ur roll padelliget
 post_common_quote:Ouzhpennañ ur meneg
@@ -1133,3 +1132,5 @@ feed_rss:gwazh RSS2
 feed_atom:gwazh ATOM
 ip_whois_connect_err:Ne c'haller ket kevreañ ouzh ar servijer WHOIS ({VAR: whois_server}) : {VAR: errstr}
 custom_filed_required:Rekis eo leuniañ ar vaezienn-mañ.
+page_list_heading:Pajennoù hegerz
+page_list_total:{PLURAL: i|$1 bajenn|$1 pajenn} rollet.

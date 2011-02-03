@@ -1133,4 +1133,4 @@ feed_atom:ATOM feed
 ip_whois_connect_err:Unable to connect to WHOIS server ({VAR: whois_server}): {VAR: errstr}
 custom_filed_required:This field is required.
 page_list_heading:Available pages
-page_list_total: {PLURAL: i|$1 page|$1 pages} listed.
+page_list_total:{PLURAL: i|$1 page|$1 pages} listed.

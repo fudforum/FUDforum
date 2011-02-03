@@ -269,7 +269,7 @@ yes:Da
 no:Nu
 register_email:Email:
 edit_time_limit:<b>Limita timpului de editare</b>: {GVAR: EDIT_TIME_LIMIT} minute
-no_edit_time_limit:<b>Limita timpului de editare</b>: Nelimitata
+no_edit_time_limit:<b>Limita timpului de editare</b>: nelimitat
 pmuserloc_login:Utilizator:
 pmuserloc_submit:OK
 pmuserloc_user:Utilizator
@@ -692,8 +692,7 @@ post_opt_html_off:Codul <b>HTML</b> este <b>OPRIT</b>
 post_opt_fud_off:<b>Codul HS</b> este <b>OPRIT</b>
 post_opt_images_off:<b>Imaginile</b> sunt <b>DEZACTIVATE</b>
 post_opt_smilies_off:<b>Smilies</b> sunt <b>OPRITE</b>
-# Fuzzy
-post_opt:Optiunile Forumului
+post_opt:Opțiunile forumului:
 register_change_passwd:schimba parola
 approved_avatar_title:Imaginea dumneavoastra a fost acceptata.
 approved_avatar_msg:Imaginea dumneavoastra a fost acceptata de administrator.
@@ -1006,7 +1005,5 @@ mmd_abort_move:Anuleaza
 mmd_move:Muta Temele
 pmsg_pdf_btn:Creeaza Arhiva PDF
 search_results_hdr:{VAR: total} Rezultate Gasite
-# Fuzzy
-thread_del_all:Sterge Toata Selectia
-# Fuzzy
-thread_mov_all:Muta Toata Selectia
+thread_del_all:Șterge selecția
+thread_mov_all:Mută selecția

@@ -714,8 +714,7 @@ post_opt_html_off:<b>HTML</b> кôд је <b>искључен</b>
 post_opt_fud_off:<b>BBcode</b> је <b>искључен</b>
 post_opt_images_off:<b>Слике</b> су <b>искључене</b>
 post_opt_smilies_off:<b>Смешци</b> су <b>искључени</b>
-# Fuzzy
-post_opt:Опције форума
+post_opt:Могућности форума:
 register_change_passwd:промени лозинку
 register_change_login:промени корисничко име
 approved_avatar_title:Ваша корисничка сличица је одобрена.
@@ -802,6 +801,7 @@ th_expr_two_month:два месеца
 th_expr_four_month:четири месеца
 th_expr_one_year:годину дана
 thread_mod_delete:Обриши
+action_ip:IP
 action_latest_post:Последња порука
 online_today_last_visit:Последња посета
 online_today_update:Преглед списка корисника који су данас посетили форум.
@@ -1052,14 +1052,10 @@ mmd_abort_move:Откажи
 mmd_move:Премести теме
 pmsg_pdf_btn:Направи PDF архиву
 search_results_hdr:{VAR: total} резултата претраге је пронађено
-# Fuzzy
-thread_del_all:Обриши све изабрано
-# Fuzzy
-thread_mov_all:Премести све изабрано
-# Fuzzy
-thread_merge_all:Споји све изабрано
-# Fuzzy
-thread_loc_all:Закључај/откључај све изабрано
+thread_del_all:Обриши изабрано
+thread_mov_all:Премести изабрано
+thread_merge_all:Споји изабрано
+thread_loc_all:Закључај/откључај изабрано
 dmsg_ip:IP:
 err_blockedaccnt_title:Грешка: ваш налог је избачен.
 err_blockedaccnt_msg:Вама је забрањен приступ форуму због неког од инсталираних корисничких филтера.
@@ -1082,8 +1078,11 @@ post_common_align_left:Поравнај улево
 post_common_align_center:Поравнај по средини
 post_common_align_right:Поравнај удесно
 post_common_link:Убаци везу
+post_common_link_popup:Локација везе:
 post_common_email:Убаци е-адресу
+post_common_email_popup:Е-адреса:
 post_common_image:Убаци слику
+post_common_image_popup:URL адреса слике:
 post_common_nlist:Додај нумерички списак
 post_common_blist:Додај списак набрајања
 post_common_quote:Додај цитат
@@ -1130,3 +1129,5 @@ feed_rss:RSS2 довод
 feed_atom:ATOM довод
 ip_whois_connect_err:Повезивање на WHOIS сервер није успело ({VAR: whois_server}): {VAR: errstr}
 custom_filed_required:Ово поље је обавезно.
+page_list_heading:Доступне странице
+page_list_total:{PLURAL: i|Приказана је $1 страница|Приказане су $1 странице|Приказано је $1 страница}.

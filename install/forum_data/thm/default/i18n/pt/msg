@@ -722,8 +722,7 @@ post_opt_html_off:<b>Codigo</b> HTML está <b>Desligado</b>
 post_opt_fud_off:<b>O BBcode</b> está <b>Desligado</b>
 post_opt_images_off:<b>As imagens</b> estão <b>Desligadas</b>
 post_opt_smilies_off:<b>Os smilies</b> estão <b>Desligados</b>
-# Fuzzy
-post_opt:Opções do Forum
+post_opt:Opções do Fórum:
 register_change_passwd:Alterar Password
 register_change_login:Alterar o nome de utilizador
 approved_avatar_title:O seu avatar foi aprovado.
@@ -810,6 +809,7 @@ th_expr_two_month:2 Mêses
 th_expr_four_month:4 Mêses
 th_expr_one_year:1 Ano
 thread_mod_delete:Apagar
+action_ip:IP
 action_latest_post:Ultima mensagem colocada
 online_today_last_visit:Ultimo Visitado
 online_today_update:Ver a lista de pessoas que estiveram no forum hoje.
@@ -1010,11 +1010,20 @@ adm_account_rejected_s:O seu pedido de conta para o Fórum '{GVAR: FORUM_TITLE}'
 thread_on:em
 userinfo_buddy:Amigo:
 register_email_addr:Endereço de correio electrónico:
+reset_suffix:Se você recebeu esta mensagem por engano, por favor ignore-a. Se você estiver a receber várias cópias desse e-mail, e você não solicitou isso, por favor contacte o administrador do fórum através do e-mail {GVAR: ADMIN_EMAIL}\n\nEsta solicitação teve origem em: {VAR: _SERVER['REMOTE_ADDR']}.
 usrinfo_last_visit:Ultimo Visitado:
 mnav_newer:mais recente que
 mnav_older:mais antigo que
+ip_search_by_ip:Procurar utilizadores por IP
+ip_search_syntax:Sintaxe suportada: 1.2.3.4, 1.2.3, 1.2, 1
 ip_search:Pesquisar
+ip_analyze_usage:Analisar uso de IP
+ip_analyze_usage_descr:Por favor especifique o login exato do utilizador.
+ip_users_using:Utilizadores que usam o endereço de IP '{VAR: ip}'
+ip_all_ips:Todos os IPs usados por '{VAR: user}'
+ip_title:Examinador de IPs
 userinfo_real_name:Nome real:
+register_err_alias_notallowed:Este pseudónimo não é permitido
 post_err_mod_forum_edit_ttl:ERRO
 post_err_mod_forum_edit_msg:Não pode editar mensagens num fórum moderado.
 dmsg_num:mensagem n° {VAR: obj->id}

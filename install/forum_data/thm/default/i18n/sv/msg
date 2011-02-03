@@ -3,6 +3,7 @@
 # Author: Ernesto
 # Author: McDutchie
 # Author: Nghtwlkr
+# Author: Tobulos1
 
 action:Handling
 add_to_buddy_list:lägg till kompislistan
@@ -150,8 +151,7 @@ sender_name:Avsändarens namn:
 show_posts_by:Visa inlägg av: {VAR: u_alias}
 size:Storlek:
 status:Status:
-# Fuzzy
-status_line:Det är <b>{VAR: st_obj->online_users_reg}</b> medlemmar, <b>{VAR: st_obj->online_users_hidden}</b> osynliga medlemmar och <b>{VAR: st_obj->online_users_anon}</b> gäster på besök just nu.
+status_line:Det finns <b>{PLURAL: st_obj->online_users_reg|$1 medlem|$1 medlemmar}</b>, <b>{PLURAL: st_obj->online_users_hidden|$1 osynlig medlem|$1 osynliga medlemmar}</b> och <b>{PLURAL: st_obj->online_users_anon|$1 gäst|$1 gäster}</b> som besöker detta forum.
 sticky:klibbig:
 stop_ignoring:sluta ignorera den här medlemmen
 sub_to_thread:Beställ den här diskussionen
@@ -416,16 +416,13 @@ post_preview_btn:Förhandsgranska meddelande
 ignore_users:Ignorerade medlemmar
 add_ignore:Ignorera medlem
 forum_terms:Villkor för forumet
-# Fuzzy
-forum_rules:Det kostar inget att registrera sig som medlem i det här forumet! Vi förväntar oss att du som blir medlem följer dessa regler. Om du går med villkoren, tryck på "Jag godkänner"-knappen i slutet av sidan. Notera att du genom att trycka på knappen intygar att du är minst 13 år gammal. Om du är 13 år eller yngre bör du använda det här registeringsformuläret.<p>Trots att administratörerna och moderatörerna gör sitt bästa för att hålla förargelseväckande inlägg borta kan vi inte läsa alla meddelanden. Alla inlägg utrycker skribentens åsikter, och varken forumets ägare eller dess programmerare kan ses ansvariga för innehållet i något inlägg.<p>Genom att trycka på "Jag godkänner"-knappen går du med på att inte posta några obscena, vulgära, hatiska, hotfulla eller på något sätt olagliga inlägg. <p>Forumets administrator förbehåller sig rätten att radera, editera, flytta eller stänga en diskussion av vilken anledning som helst.<p>
-# Fuzzy
-forum_rules_13:Alla medlemmar under 13 års ålder måste ha förälders eller förmyndares tillstånd för att få rätt att använda forumet. Vi välkomnar medlemmar som är under 13 år, men förutsätter att en förälder eller förmyndare faxar eller sänder ett undertecknat godkännande innan vi beviljar medlemskap.<p>Om du vill påbörja registreringsprocessen innan vi har fått godkännandet kan du trycka på "Jag godkänner"-knappen nedan. Tryck på Avbryt om du vill avbryta registreringen och komma tillbaka till forumets första sida. <p>En kopia av formuläret för godkännande kan laddas ner här. Skicka e-post till <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> för mer information om registreringsprocessen.<p>
+forum_rules:<p>Att registrera sig till detta forum kostar ingenting! Vi insisterar att du följa de regler och principer som anges nedan. Om du accepterar villkoren, tryck på knappen <b>Godkänn</b> i slutet av sidan. Notera: Genom att trycka på knappen uppger du att du är över 13 år. Om du är 13 eller under använd denna anmälningsblankett.</p><p>Trots att administratörer och moderatorer på detta forum kommer att försöka hålla alla stötande meddelanden från detta forum, är det omöjligt för oss att granska alla meddelanden. Alla meddelanden uttrycker åsikter av författaren, och varken ägarna till forumet eller utvecklarna kommer att hållas ansvarig för innehållet i ett meddelande.</p><p>Genom att klicka på knappen Godkänn, garanterar du att du inte kommer att bokföra eventuella meddelanden som är obscent vulgärt, sexuellt orienterade, hatiskt, hotande, eller på annat sätt bryter mot några lagar.</p><p>Ägarna till detta forum har rätt att ta bort, redigera, flytta eller stänga ett ämne av någon anledning.</p>
+forum_rules_13:<p>Alla användare som är under 13 år måste ha tillstånd från sin förälder eller målsman för att få rätt till medlemskap i detta forum. Vi välkomnar medlemmar som är under 13 år, men kräver att en förälder eller målsman faxar eller mailar tillbaka ett undertecknat godkännande innan vi beviljar medlemskap.</p><p>Om du vill påbörja registrering innan vi har fått godkännandet kan du trycka på knappen <b>Acceptera</b> nedan. Om du vill avbryta registreringen, trycker du <b>Accepterar inte</b> för att återgå till forumets första sida.</p><p>En kopia av formuläret för godkännande kan laddas ner här. För mer information om registreringen, vänligen skicka ett e-post till <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
 coppa_conf:COPPA-bekräftelse
 coppa_before:Före {TEMPLATE: coppa_date}
 coppa_after:Efter {TEMPLATE: coppa_date}
 coppa_link:Tryck på länken som motsvarar ditt födelsedatum
-# Fuzzy
-coppa:Om den blivande medlemmen är under 13 år måste en förälder eller förmyndare posta eller faxa ett undertecknat godkännande till forumets administrator.<p>Kontakta <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> för mer information.
+coppa:<p>En förälder eller målsman måste skicka ett e-post eller ett fax med en underskrift till administratören av detta forum innan en användare under 13 år kan slutföra registreringen.</p><p>För ytterligare information kontakta <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a></p>
 prereg_info:Information
 prereg_agree:Jag godkänner
 prereg_disagree:Avbryt registreringen
@@ -720,8 +717,7 @@ post_opt_html_off:<b>HTML</b>-kod är <b>AV</b>
 post_opt_fud_off:<b>FUD-kod</b> är <b>AV</b>
 post_opt_images_off:<b>Bilder</b> är <b>AV</b>
 post_opt_smilies_off:<b>Smilisar</b> är <b>AV</b>
-# Fuzzy
-post_opt:Forumalternativ
+post_opt:Forumalternativ:
 register_change_passwd:byt lösenord
 register_change_login:ändra inloggningsnamn
 approved_avatar_title:Din egen avatar godkändes.
@@ -808,6 +804,7 @@ th_expr_two_month:2 månader
 th_expr_four_month:4 månader
 th_expr_one_year:1 år
 thread_mod_delete:Radera
+action_ip:IP
 action_latest_post:Senaste inlägg
 online_today_last_visit:Senaste besök
 online_today_update:Tittar på listan över personer som besökt forumet idag.
@@ -921,8 +918,7 @@ err_mod_acc_ttl:Obekräftad användare
 err_mod_acc_msg:Administratorn har valt att själv granska alla användare innan aktivering. Du kommer inte att ha fulla rättigheter i forumet innan administratorn har godkänt ditt anv&uml;ndarnamn.
 accounts_pending_approval:Ej granskade användare
 saved:Sparade
-# Fuzzy
-register_err_time_limit:Registreringsbegränsningen av 1 registrering per {GVAR: REG_TIME_LIMIT} sekunder har överskridits. Vänligen vänta {VAR: reg_limit_reached} sekunder och försök sedan registrera er igen.
+register_err_time_limit:Registreringsbegränsningen av en registrering per {GVAR: REG_TIME_LIMIT} sekunder har överskridits. Vänligen vänta {PLURAL: reg_limit_reached|$1 sekund|$1 sekunder}, och försök sedan registrera er igen.
 # Fuzzy
 register_affero:Affero Username:<br /><font class="SmallText">If you have an <a href="http://www.affero.com/ca/{VAR-URL: GLOBALS['FORUM_TITLE']}" target="_blank">Affero</a> username enter it here.</font>
 im_affero:Affero Användarnamn
@@ -1059,19 +1055,19 @@ mmd_abort_move:Avbryt
 mmd_move:Flytta ämnen
 pmsg_pdf_btn:Skapa PDF-arkiv
 search_results_hdr:{VAR: total} sökresultat funna
-# Fuzzy
-thread_del_all:Radera alla valda
-# Fuzzy
-thread_mov_all:Flytta alla valda
-# Fuzzy
-thread_merge_all:Sammanfoga alla valda
-# Fuzzy
-thread_loc_all:Lås / Lås upp alla valda
+thread_del_all:Ta bort markerade
+thread_mov_all:Flytta markerade
+thread_merge_all:Sammanfoga markerade
+thread_loc_all:Lås/Lås upp markerade
 dmsg_ip:IP:
 err_blockedaccnt_title:FEL: Ditt konto har filtrerats bort.
 err_blockedaccnt_msg:Ditt konto har spärrats från att komma åt forumet på grund av något av de installerade användarfiltren.
 merge_th_page_list:Ämnesidesval
 most_users_online:Flest användare online samtidigt var <b>{VAR: st_obj->most_online}</b> on <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
+sub_unsub_all_forums:Avsluta Prenumeration Från Alla Forum
+sub_unsub_all_topics:Avsluta Prenumeration Från Alla Ämnen
+unbookmark_all_topics:Ta bort alla bokmärken
+tabs_own_posts:Visa Egna Inlägg
 sml_emoticon:Emotikon
 sml_code:Kod
 mnav_sub_only:Sök endast i prenumererade forum
@@ -1084,8 +1080,11 @@ post_common_align_left:Vänsterjsutera
 post_common_align_center:Centrera
 post_common_align_right:Högerjustera
 post_common_link:Infoga en länk
+post_common_link_popup:Länkadress:
 post_common_email:Infoga en e-postadress
+post_common_email_popup:E-postadress:
 post_common_image:Infoga en bild
+post_common_image_popup:Bild-URL:
 post_common_nlist:Lägg till numrerad lista
 post_common_blist:Lägg till punktlista
 post_common_quote:Lägg till citat
@@ -1132,3 +1131,5 @@ feed_rss:RSS2-flöde
 feed_atom:ATOM-flöde
 ip_whois_connect_err:Kan inte ansluta till WHOIS servern ({VAR: whois_server}): {VAR: errstr}
 custom_filed_required:Detta fält är obligatoriskt
+page_list_heading:Tillgängliga sidor
+page_list_total:{PLURAL: i|$1 sida|$1 sidor} listade.

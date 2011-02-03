@@ -720,8 +720,7 @@ post_opt_html_off:<b>HTML</b>  - <b>выключен</b>
 post_opt_fud_off:<b>BBcode</b> - <b>выключен</b>
 post_opt_images_off:<b>Картинки</b> - <b>выключены</b>
 post_opt_smilies_off:<b>Смайлики</b> - <b>выключены</b>
-# Fuzzy
-post_opt:Параметры форума
+post_opt:Параметры форума:
 register_change_passwd:изменить пароль
 register_change_login:изменить логин
 approved_avatar_title:Ваша картинка утверждена.
@@ -808,6 +807,7 @@ th_expr_two_month:2 Месяца
 th_expr_four_month:4 Месяца
 th_expr_one_year:1 Год
 thread_mod_delete:Удалить
+action_ip:IP
 action_latest_post:Последнее сообщение
 online_today_last_visit:Последнее посещение
 online_today_update:Просмотр списка сегодняшних посетителей.
@@ -1058,14 +1058,10 @@ mmd_abort_move:Отмена
 mmd_move:Перенести темы
 pmsg_pdf_btn:Создать PDF-архив
 search_results_hdr:В результате поиска найдено страниц: {VAR: total}
-# Fuzzy
-thread_del_all:Удалить отмеченные
-# Fuzzy
-thread_mov_all:Перенести отмеченные
-# Fuzzy
-thread_merge_all:Объединить все выбранные
-# Fuzzy
-thread_loc_all:Блокировать / разблокировать всех выбранных
+thread_del_all:Удалить выбранные
+thread_mov_all:Перенести выбранные
+thread_merge_all:Объединить выбранные
+thread_loc_all:Блок/Разблок выбранные
 dmsg_ip:IP:
 err_blockedaccnt_title:ОШИБКА: Ваш аккаунт внесен в список запрещенных.
 err_blockedaccnt_msg:Вам был заблокирован вход на форум одним из установленных фильтров.
@@ -1088,8 +1084,11 @@ post_common_align_left:Выравнивание слева
 post_common_align_center:Выравнивание по центру
 post_common_align_right:Выравнивание справа
 post_common_link:Вставить ссылку
+post_common_link_popup:Местоположение ссылки:
 post_common_email:Вставить адрес E-mail
+post_common_email_popup:Адрес эл. почты:
 post_common_image:Вставить изображение
+post_common_image_popup:URL-адрес изображения:
 post_common_nlist:Добавить нумерованный список
 post_common_blist:Добавить бюллетень
 post_common_quote:Добавить цитату
@@ -1136,3 +1135,5 @@ feed_rss:RSS2-канал
 feed_atom:ATOM-канал
 ip_whois_connect_err:Не удалось подключиться к WHOIS-серверу ({VAR: whois_server}): {VAR: errstr}
 custom_filed_required:Это поле является обязательным.
+page_list_heading:Доступные страницы
+page_list_total:{PLURAL: i|Показана $1 страница|Показаны $1 страницы|Показаны $1 страниц}.

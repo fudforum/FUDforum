@@ -715,8 +715,7 @@ post_opt_html_off:<b>HTML</b> Code isch <b>UUS</b>
 post_opt_fud_off:<b>BBcode</b> isch <b>UUS</b>
 post_opt_images_off:<b>Bilder</b> sin <b>UUS</b>
 post_opt_smilies_off:<b>Smileys</b> sin <b>UUS</b>
-# Fuzzy
-post_opt:Forumsyystellige
+post_opt:Forumsyystellige:
 register_change_passwd:Passwort ändere
 register_change_login:Benutzername ändere
 approved_avatar_title:Dyy persenlige Avatar isch gnähmigt wore.
@@ -803,6 +802,7 @@ th_expr_two_month:2 Monet
 th_expr_four_month:4 Monet
 th_expr_one_year:1 Johr
 thread_mod_delete:Lesche
+action_ip:IP-Adräss
 action_latest_post:Letschte Byytrag
 online_today_last_visit:Letschte bsuechte
 online_today_update:D Lischt vu dr Lyt aaluege, wu hite z Bsuech im Forum gsi sin.
@@ -1053,14 +1053,10 @@ mmd_abort_move:Abbräche
 mmd_move:Themene verschiebe
 pmsg_pdf_btn:PDF-Archiv aalege
 search_results_hdr:{VAR: total} Suechergebnis gfunde
-# Fuzzy
-thread_del_all:Alli markierte lesche
-# Fuzzy
-thread_mov_all:Alli markierte verschiebe
-# Fuzzy
-thread_merge_all:Alli uusgwehlte zämmefiere
-# Fuzzy
-thread_loc_all:Alli uusgwehlte sperre/entsperre
+thread_del_all:Uusgwehlti lesche
+thread_mov_all:Uusgwehlti verschiebe
+thread_merge_all:Usgwählti zämmefiere
+thread_loc_all:Uusgwehlti sperre/entsperre
 dmsg_ip:IP:
 err_blockedaccnt_title:FÄHLER: Dyy Konto isch uusegfilteret wore.
 err_blockedaccnt_msg:Dyym Konto isch wäg dr aktivierte Benutzerfilter dr Zuegriff uf s Forum verweigeret wore.
@@ -1083,8 +1079,11 @@ post_common_align_left:Linksbindig
 post_common_align_center:Zäntriert
 post_common_align_right:Rächtsbindig
 post_common_link:Gleich (Link) yyfiege
+post_common_link_popup:Linkort
 post_common_email:E-Mail-Adräss yyfiege
+post_common_email_popup:E-Mail-Adräss:
 post_common_image:Bild yyfiege
+post_common_image_popup:Bild-URL:
 post_common_nlist:Nummerierti Lischt yyfiege
 post_common_blist:Ufzellig yyfiege
 post_common_quote:Zitat yyfiege
@@ -1131,3 +1130,5 @@ feed_rss:RSS2-Feed
 feed_atom:Atom-Feed
 ip_whois_connect_err:Cha kei Verbindig härstelle zum WHOIS-Server ({VAR: whois_server}): {VAR: errstr}
 custom_filed_required:Pflichtfäld.
+page_list_heading:Verfiegbari Syte
+page_list_total:{PLURAL: i|$1 ufglischteti Syte|$1 ufglischteti Syte}.
