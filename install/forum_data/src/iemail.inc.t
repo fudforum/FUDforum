@@ -48,7 +48,7 @@ function encode_subject($text)
 function send_email($from, $to, $subj, $body, $header='', $munge_newlines=1)
 {
 	if (empty($to)) {
-		return;
+		return 0;
 	}
 
 	/* HTML entities check. */
@@ -72,6 +72,9 @@ function send_email($from, $to, $subj, $body, $header='', $munge_newlines=1)
 	$subj = encode_subject($subj);
 
 	if (defined('forum_debug')) {
+		if (!function_exists('logaction')) {
+			fud_use('logaction.inc');
+		}
 		logaction(_uid, 'SEND EMAIL', 0, 'To=['. implode(',', (array)$to) .']<br />Subject=['. $subj .']<br />Headers=['. str_replace("\n", '<br />', htmlentities($header)) .']<br />Message=['. $body .']');
 	}
 
@@ -86,13 +89,16 @@ function send_email($from, $to, $subj, $body, $header='', $munge_newlines=1)
 		$smtp->from = $from;
 		$smtp->headers = $header;
 		$smtp->send_smtp_email();
-		return;
+		return 1;
 	}
 
 	foreach ((array)$to as $email) {
 		if (!@mail($email, $subj, $body, $header)) {
 			fud_logerror('Your system didn\'t accept E-mail ['. $subj .'] to ['. $email .'] for delivery.', 'fud_errors');
+			return -1;
 		}
 	}
+	
+	return 1;
 }
 ?>
