@@ -13,7 +13,7 @@ function flood_check()
 {
 	$check_time = __request_timestamp__-$GLOBALS['FLOOD_CHECK_TIME'];
 
-	if (($v = q_singleval('SELECT post_stamp FROM {SQL_TABLE_PREFIX}msg WHERE ip_addr=\''. get_ip() .'\' AND poster_id='. _uid .' AND post_stamp>'. $check_time .' ORDER BY post_stamp DESC LIMIT 1'))) {
+	if (($v = q_singleval(q_limit('SELECT post_stamp FROM {SQL_TABLE_PREFIX}msg WHERE ip_addr=\''. get_ip() .'\' AND poster_id='. _uid .' AND post_stamp>'. $check_time .' ORDER BY post_stamp DESC', 1)))) {
 		return ($v - $check_time);
 	}
 
@@ -32,7 +32,7 @@ function flood_check()
 
 	/* We do this because we don't want to take a chance that data is passed via cookies. */
 	$src = empty($_POST) ? '_GET' : '_POST';
-	foreach (array('reply_to','msg_id','th_id','frm_id') as $v) {
+	foreach (array('reply_to', 'msg_id', 'th_id', 'frm_id') as $v) {
 		$$v = isset(${$src}[$v]) ? (int) ${$src}[$v] : 0;
 	}
 
@@ -66,7 +66,7 @@ function flood_check()
 
 	/* Fetch permissions & moderation status. */
 	$MOD = (int) ($is_a || ($usr->users_opt & 524288 && q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}mod WHERE user_id='. _uid .' AND forum_id='. $frm->id)));
-	$perms = perms_from_obj(db_sab('SELECT group_cache_opt, '. $MOD .' as md FROM {SQL_TABLE_PREFIX}group_cache WHERE user_id IN('. _uid .',2147483647) AND resource_id='. $frm->id .' ORDER BY user_id ASC LIMIT 1'), $is_a);
+	$perms = perms_from_obj(db_sab(q_limit('SELECT group_cache_opt, '. $MOD .' as md FROM {SQL_TABLE_PREFIX}group_cache WHERE user_id IN('. _uid .',2147483647) AND resource_id='. $frm->id .' ORDER BY user_id ASC', 1)), $is_a);
 
 	/* More Security. */
 	if ($thr && !($perms & 4096) && $thr->thread_opt & 1) {
@@ -463,6 +463,12 @@ function flood_check()
 	}
 
 /*{POST_HTML_PHP}*/
+
+	/* User cancelled operation. */
+	if (isset($_POST['cancel'])) {
+		// header('Location: {FULL_ROOT}{ROOT}?'. $usr->returnto);
+		check_return($usr->returnto);
+	}
 
 	if (!$th_id) {
 		$label = '{TEMPLATE: create_thread}';
