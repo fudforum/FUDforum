@@ -112,9 +112,9 @@ function add_attachment($name, $data, $pid)
 	/* Try to increase DB timeout to prevent "MySQL server has gone away" errors. */
 	if (__dbtype__ == 'mysql') {
 		$db_timeout = q_singleval('select @@session.wait_timeout');
-		if ($db_timeout < $nntp->timeout) {
+		if ($db_timeout < $config->timeout) {
 			echo 'WARNING: MySQL timeout is smaller than the NNTP Timeout. Will try to increase database timeout.';
-			q('SET SESSION wait_timeout = '. $nntp->timeout);
+			q('SET SESSION wait_timeout = '. $config->timeout);
 		}
 	}
 
