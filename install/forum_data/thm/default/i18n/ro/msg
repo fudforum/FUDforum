@@ -1,5 +1,6 @@
 # Messages for Romanian (Română)
 # Exported from translatewiki.net
+# Author: Danutz
 # Author: McDutchie
 # Author: Minisarm
 # Author: Naudefj
@@ -354,7 +355,7 @@ post_passwd:Parola de trimitere:
 post_poll:Sondaj:
 post_create_poll:CREEAZA SONDAJ
 post_poll_delete:STERGE
-post_poll_edit:EDITEAZA
+post_poll_edit:EDITARE
 post_mod_opt:Optiuni Moderator:
 post_thread_type:Tipul Temei:
 post_thread_expiry:Data de expirare a Temei:

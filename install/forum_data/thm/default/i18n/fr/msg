@@ -723,8 +723,7 @@ post_opt_html_off:Le code <b>HTML</b> est <b>DÉSACTIVÉ</b>
 post_opt_fud_off:Le <b>BBcode</b> est <b>DÉSACTIVÉ</b>
 post_opt_images_off:Les <b>images</b> sont <b>DÉSACTIVÉES</b>
 post_opt_smilies_off:Les <b>smileys</b> sont <b>DÉSACTIVÉS</b>
-# Fuzzy
-post_opt:Options activées sur le forum :
+post_opt:Options du forum :
 register_change_passwd:changer de mot de passe
 register_change_login:modifier la connexion
 approved_avatar_title:Votre avatar personnel a été approuvé.
@@ -811,6 +810,7 @@ th_expr_two_month:2 mois
 th_expr_four_month:4 mois
 th_expr_one_year:1 an
 thread_mod_delete:Supprimer
+action_ip:IP
 action_latest_post:Dernier message
 online_today_last_visit:Dernière visite aujourd'hui
 online_today_update:Voir la liste des personnes ayant visité le forum aujourd'hui.
@@ -1061,14 +1061,10 @@ mmd_abort_move:Annuler
 mmd_move:Déplacer les sujets
 pmsg_pdf_btn:Constituer une archive PDF
 search_results_hdr:{VAR: total} résultats pour cette recherche
-# Fuzzy
-thread_del_all:Supprimer tout ce qui est sélectionné
-# Fuzzy
-thread_mov_all:Déplacer tout ce qui est sélectionné
-# Fuzzy
-thread_merge_all:Fusionner tous les sélectionnés
-# Fuzzy
-thread_loc_all:Verrouiller / Déverrouiller toute la sélection
+thread_del_all:Supprimer la sélection
+thread_mov_all:Déplacer la sélection
+thread_merge_all:Fusionner la sélection
+thread_loc_all:Verrouiller / Déverrouiller la sélection
 dmsg_ip:IP :
 err_blockedaccnt_title:ERREUR : Votre compte a été filtré.
 err_blockedaccnt_msg:Votre compte ne peut pas accéder à ce forum à cause de l'un des filtres utilisateurs installés.
@@ -1091,8 +1087,11 @@ post_common_align_left:Aligné à gauche
 post_common_align_center:Centré
 post_common_align_right:Aligné à droite
 post_common_link:Insérer un lien
+post_common_link_popup:Adresse du lien :
 post_common_email:Insérer une adresse de courriel
+post_common_email_popup:Adresse de courriel :
 post_common_image:Insérer une image
+post_common_image_popup:URL de l'image :
 post_common_nlist:Ajouter une liste numérotée
 post_common_blist:Ajouter une liste à puces
 post_common_quote:Ajouter une citation
@@ -1139,3 +1138,5 @@ feed_rss:flux RSS2
 feed_atom:flux ATOM
 ip_whois_connect_err:Impossible de se connecter au serveur WHOIS ({VAR: whois_server}) : {VAR: errstr}
 custom_filed_required:Ce champ est obligatoire.
+page_list_heading:Pages disponibles
+page_list_total:{PLURAL: i|$1 page listée|$1 pages listées}.

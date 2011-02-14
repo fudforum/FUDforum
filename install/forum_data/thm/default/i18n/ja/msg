@@ -2,6 +2,7 @@
 # Exported from translatewiki.net
 # Author: Aotake
 # Author: Fryed-peach
+# Author: Iwai.masaharu
 
 action:操作
 add_to_buddy_list:仲間リストに追加
@@ -712,8 +713,7 @@ post_opt_html_off:<b>HTML</b> コードは<b>無効</b>です
 post_opt_fud_off:<b>FUDコード</b>は<b>無効</b>です
 post_opt_images_off:<b>画像</b>は<b>無効</b>です
 post_opt_smilies_off:<b>絵文字</b>は<b>無効</b>です
-# Fuzzy
-post_opt:フォーラムオプション
+post_opt:フォーラムオプション:
 register_change_passwd:パスワード変更
 register_change_login:ログイン名変更
 approved_avatar_title:カスタムアバターは承認されました。
@@ -800,6 +800,7 @@ th_expr_two_month:2か月
 th_expr_four_month:4か月
 th_expr_one_year:1 年間
 thread_mod_delete:削除
+action_ip:IP
 action_latest_post:最後のメッセージ
 online_today_last_visit:最終訪問日時
 online_today_update:今日フォーラム上に居た人々を閲覧中
@@ -1080,6 +1081,7 @@ post_common_align_right:右寄せ
 post_common_link:リンクを挿入
 post_common_email:メールアドレスを挿入
 post_common_image:画像を挿入
+post_common_image_popup:画像URL:
 post_common_nlist:番号付き箇条書きを追加
 post_common_blist:番号なし箇条書きを追加
 post_common_quote:引用を追加

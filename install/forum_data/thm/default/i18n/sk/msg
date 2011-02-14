@@ -63,10 +63,15 @@ logged_in_list:Zoznam prihlásených užívateľov
 login:Prihlásiť sa
 login_header:Používateľské meno:
 logout:Odhlásiť sa
-# Fuzzy
 mark_all_read:Označiť všetky správy ako prečítané
 mark_all_read_desc:Všetky Vaše neprečítané správy budú označené ako prečítané
 members:Členovia
+calendar:Kalendár
+cal_goto_date:Prejsť na:
+cal_day_heading:Udalosti pre deň
+cal_no_events:Žiadne udalosti pre tento deň.
+cal_update:Prezeranie kalendára
+cal_birthday:Narodeniny: {VAR: user}
 message:Správa
 message_counter:Naši užívatelia vytvorili spolu <b>{PLURAL: post_count|$1 správu|$1 správy}</b> v <b>{PLURAL: thread_count|$1 téme|$1 témach}</b>.
 message_index:Zoznam správ
@@ -105,8 +110,7 @@ num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|hlas|hlasov}
 occupation:Zamestnanie:
 off:vypnuté
 on:zapnuté
-# Fuzzy
-page_timings:Celkový čas potrebný na vygenerovanie tejto stránky: {VAR: page_gen_time} sekundy
+page_timings:Celkový čas potrebný na generovanie stránky: {množné číslo: page_gen_time|$ 1 sekúnd}
 pm:Súkromné Správy
 poll:Anketa:
 post_count:Počet Príspevkov {VAR: u_pcount}
@@ -252,6 +256,20 @@ month_9:September
 month_10:Október
 month_11:November
 month_12:December
+sunday:Nedeľa
+sunday_short:Ne
+monday:Pondelok
+monday_short:Po
+tuesday:Utorok
+tuesday_short:Ut
+wednesday:Streda
+wednesday_short:St
+thursday:Štvrtok
+thursday_short:Št
+friday:Piatok
+friday_short:Pia
+saturday:Sobota
+saturday_short:So
 male:Muž
 female:Žena
 unspecified:NEŠPECIFIKOVANÉ
@@ -444,6 +462,7 @@ rpasswd_login:Užívateľské meno
 rpasswd_cur_pass:Súčasné Heslo:
 rpasswd_new_pass:Nové Heslo:
 rpasswd_conf_pass:Potvrdiť Heslo:
+ruser_new_login:Nové prihlasovacie údaje:
 login_passwd:Heslo:
 reset_email:Email:
 reset_reset_button:Reset Hesla
@@ -650,11 +669,9 @@ thread_update:Prehliada fórum <a href="{TEMPLATE: thread_update_lnk}">{VAR: frm
 tree_update:Prehliada si tému (stromové zobrazenie) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
 userinfo_update:Prezerá si profil užívateľa <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}'s</a>
 ERR_disabled_ttl:Vypnuté možnosti
-# Fuzzy
-ERR_disabled_msg:Táto možnosť bola vypnutá administrátorom
+ERR_disabled_msg:Táto funkcia bola vypnutá správcom systému.
 ERR_access_ttl:CHYBA: Nedostatočné právomoci
-# Fuzzy
-ERR_access_msg:Nemáte dostatočné právomoci na vykonanie tejto akcie
+ERR_access_msg:Nemáte potrebné oprávnenia na vykonanie tejto akcie.
 ERR_registration_disabled_ttl:Registrácia je vypnutá
 ERR_registration_disabled_msg:Administrátor vypol registračný systém, prosím skúste neskôr.
 ERR_emailconf_ttl:CHYBA: Váš účet ešte nebol potvrdený
@@ -685,8 +702,7 @@ post_opt_html_off:<b>HTML</b> kód je <b>VYPNUTÝ</b>
 post_opt_fud_off:<b>BBcode</b> je <b>VYPNUTÝ</b>
 post_opt_images_off:<b>Obrázky</b> sú <b>VYPNUTÉ</b>
 post_opt_smilies_off:<b>Smajlíci</b> sú <b>VYPNUTÍ</b>
-# Fuzzy
-post_opt:Nastavenia fóra
+post_opt:Nastavenia Fóra:
 register_change_passwd:zmeniť heslo
 approved_avatar_title:Vaša ikona bola schválená.
 approved_avatar_msg:Vaša ikona bola schválená administrátorom. Mala by sa teraz zobraziť vedľa všetkých Vašich správ. Ak ju nevidíte, alebo vidíte Vašu starú ikonu, je to preto, že Vás prehliadač má stránku v pamäti. Skúste ju raz alebo dva krát obnoviť, vo väčšine prípadov to problém vyrieši.
@@ -849,6 +865,9 @@ search_desc_order:Zostupne
 search_asc_order:Vzostupne
 search_logic:Logika vyhľadávania:
 search_sorting:Zoradiť výsledky podľa dátumu:
+search_attach:Prílohy:
+search_attach_all:S alebo bez
+search_attach_with:S prílohami
 post_proceed:Pokračovať
 post_moderated_forum:Poslali ste správu do moderovaného fóra, čo znamená, že správa nebude vo fóre viditeľná pokiaľ nebude odsúhlasená moderátorom fóra a/alebo administrátorom.
 post_moderated_forum_ttl:Upozornenie: Moderované fórum
@@ -940,14 +959,16 @@ findu_unban:Odblokovať
 findu_ban:Zablokovať
 findu_edit:Editovať
 findu_delete:Vymazat
+dmsg_reply_to:je odpoveď na
 # Fuzzy
-dmsg_reply_to:je odpoveďou na správu #{VAR: obj->reply_to}
+dmsg_reply_num:správa # {VAR: obj-> reply_to}
 merge_topics:Zlúčiť témy
 merge_topics_cp:Ovládací panel pre zlúčenie tém
 merge_topics_tpl:Vyberte témy na zlúčenie <font class="SmallText">(musíte vybrať viac než jednu tému)</font>
 merge_merge:Zlúčiť vybrané témy
 merge_next:Ďalšie témy
 merge_prev:Predchádzajúce témy
+merge_another:Prejsť na <a href="{TEMPLATE: merge_another_lnk}">poslednú zlúčenú tému</a> alebo zlúčiť ďalšie:
 split_cp:Ovládací panel pre rozdelenie vlákien
 groups_perms_header:Právomoci <font size="-1">(presuňte kurzor myši nad právomoc aby ste uvideli jej typ)</font>
 register_err_sig_too_long:Váš podpis prekračuje maximálnu povolenú dĺžku, ktorá je {GVAR: FORUM_SIG_ML} znakov.
@@ -964,6 +985,7 @@ usrinfo_last_visit:Posledná návšteva:
 mnav_newer:novší než
 mnav_older:staršie než
 ip_search:Vyhľadávať
+ip_title:IP prehliadač
 userinfo_real_name:Skutočné Meno:
 register_err_alias_notallowed:Táto prezývka nie je povolená
 post_err_mod_forum_edit_ttl:CHYBA
@@ -971,6 +993,7 @@ dmsg_num:správa #{VAR: obj->id}
 delete_msg_removed_ttl:Váš príspevok bol administrátormi odstránený.
 delete_msg_pm_body:Pôvodná správa
 delete_msg_pm_subject:Predmet: {VAR: data[15]}
+register_theme:Téma vzhľadu:
 uc_new_pm:Nové Súkromné Správy
 uc_new_topic:Nová Téma
 search_options:Nastavenia Vyhľadávania
@@ -985,10 +1008,8 @@ mmd_mov_title:Presunúť Témy
 mmd_abort_move:Prerušiť
 mmd_move:Presunúť Témy
 pmsg_pdf_btn:Vytvoriť PDF Archív
-# Fuzzy
-thread_del_all:Zmazať Všetky Vybrané
-# Fuzzy
-thread_mov_all:Presunúť Všetky Vybrané
+thread_del_all:Zmazať vybrané
+thread_mov_all:Presunúť vybrané
 err_blockedaccnt_title:CHYBA: Váš účet bol vyfiltrovaný.
 sub_unsub_all_forums:Odhlásiť Z Všetkých Fór
 sub_unsub_all_topics:Odhlásiť Z Všetkých Tém
@@ -1002,11 +1023,14 @@ post_common_align_center:Centrovať
 post_common_align_right:Zarovnať Vpravo
 post_common_link:Vložiť Odkaz
 post_common_email:Vložiť Emailovú adresu
+post_common_email_popup:Emailová adresa:
 post_common_image:Vložiť obrázok
+post_common_image_popup:URL obrázku:
 post_common_nlist:Pridať číselný zoznam
 post_common_code:Pridať Kód
 rating_delete:Zmazať
 tabs_notifications:Upozornenia
+finduser_flag:Vlajka
 post_descr:Popis Témy:
 pmsg_on:dňa
 pmsg_download_dump:Stiahnuť Archív Správ
@@ -1023,5 +1047,9 @@ btn_about:Profil
 btn_delete:zmazať
 btn_edit:editovať
 btn_reply:odpovedať
+btn_forward:Preposlať
+btn_quote:citovať
 btn_email:Email
 btn_show_posts:príspevky
+btn_homepage:www
+page_list_heading:Dostupné stránky

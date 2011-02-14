@@ -1028,53 +1028,87 @@ post_err_mod_forum_edit_ttl:ERRO
 post_err_mod_forum_edit_msg:Não pode editar mensagens num fórum moderado.
 dmsg_num:mensagem n° {VAR: obj->id}
 postcheck_session_invalid:A sua sessão expirou. Volte a enviar o formulário, por favor. Desculpe o inconveniente.
+delete_message_extra_desc:<b>Opcional</b><br />Especifique uma razão para a eliminação da mensagem, que será enviada ao autor através de uma mensagem privada.
+delete_message_extra_body:Incluir o corpo da mensagem removida que será enviada ao autor.
+delete_msg_removed_ttl:A sua mensagem foi removida pelo pessoal da administração.
 delete_msg_pm_body:Mensagem original
 delete_msg_pm_subject:Assunto: {VAR: data[15]}
+ip_no_whois:Não está disponível informação Whois para <b>{VAR: ip}</b>.
+ip_whois_title:Informação do ISP
 register_theme:Tema:
+pmsg_trash:Esvaziar o Lixo
+uc_new_pm:Novas Mensagens Privadas
 uc_new_topic:Novo tópico
+uc_new_cat_forum:Fóruns Subscritos com Novas Mensagens
 uc_cat_forum:Categoria &raquo; Fórum
+uc_sub_topics:Tópicos Subscritos com Novas Mensagens
 uc_page_title:A ver o painel de controlo pessoal.
 search_options:Opções de Pesquisa
 search_user_filter:Filtrar por utilizador:
+register_none:Não me notificar
 findu_no_conf:utilizador não confirmado
 register_max_sig_len:Comprimento Máximo:
+register_turing:Por favor, insira o código mostrado abaixo:
 register_err_turing:Código de validação inválido.
 modque_cat:Categoria
 modque_forum:Fórum
 idx_compact_forum_row:Fóruns disponíveis:
 mmd_del_title:Apagar tópicos
 mmd_mov_title:Mover tópicos
+mmd_move_threads_to:Fórum de Destino:
 mmd_abort_move:Cancelar
 mmd_move:Mover Tópicos
 pmsg_pdf_btn:Criar um ficheiro PDF
-# Fuzzy
-thread_del_all:Apagar todos os seleccionados
-# Fuzzy
-thread_mov_all:Mover todos os seleccionados
-# Fuzzy
-thread_merge_all:Fundir todos os seleccionados
-# Fuzzy
-thread_loc_all:Bloquear/Desbloquear todos os seleccionados
+search_results_hdr:{VAR: total} resultados encontrados
+thread_del_all:Apagar os seleccionados
+thread_mov_all:Mover os seleccionados
+thread_merge_all:Fundir os seleccionados
+thread_loc_all:Bloquear/desbloquear os seleccionados
 dmsg_ip:IP:
 err_blockedaccnt_title:ERRO: Sua conta foi filtrada.
+err_blockedaccnt_msg:O acesso ao fórum foi bloqueado à sua conta devido a um dos filtros de utilizadores instalados.
+merge_th_page_list:Seleção de página do tópico
 most_users_online:O recorde de utilizadores em linha foi <b>{VAR: st_obj->most_online}</b> <b>({DATE: st_obj->most_online_time %a, %d %B %Y %H:%M})</b>
+sub_unsub_all_forums:Cancelar inscrição em todos os fóruns
+sub_unsub_all_topics:Cancelar inscrição em todos os tópicos
+unbookmark_all_topics:Remover todos os favoritos
+tabs_own_posts:Mostrar mensagens próprias
+sml_emoticon:Emoticon
 sml_code:Código
+mnav_sub_only:Pesquisar apenas em fóruns em que eu esteja inscrito
 register_topics_per_page:Tópicos por página:
+login_min_time:Este fórum permite uma tentativa de autenticação a cada {VAR: MIN_TIME_BETWEEN_LOGIN} segundos. Por favor espere {FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)} segundos antes da próxima tentativa.
+post_not_logged_in:Você não está autenticado. A mensagem será publicada anonimamente.
 post_common_bold:Negrito
 post_common_italics:Itálico
+post_common_underline:Sublinhado
 post_common_align_left:Alinhar à Esquerda
 post_common_align_center:Centralizar
 post_common_align_right:Alinhar à Direita
 post_common_link:Inserir um Link
+post_common_link_popup:Destino do link:
 post_common_email:Insira um endereço de correio electrónico
+post_common_email_popup:Endereço de email:
 post_common_image:Inserir uma imagem
+post_common_image_popup:URL da imagem:
 post_common_nlist:Adicionar lista numerada
+post_common_blist:Adicionar lista com marcadores
 post_common_quote:Adicionar Citação
 post_common_code:Adicionar Código
 rating_delete:Apagar
+post_always_on_top:Fazer com que o tópico apareça sempre no topo da listagem de tópicos.
+topic_rating:{VAR: frm->rating} de {PLURAL: frm->n_rating|$1 voto|$1 votos}
+topic_list_rating:{VAR: r[17]} de {PLURAL: r[21]|$1 voto|$1 votos}
 tabs_notifications:Notificações
+finduser_flag:Bandeira
 post_descr:Descrição do tópico:
+pmsg_on:em
+pmsg_download_dump:Descarregar um arquivo das mensagens
 move_messages:Mover mensagens
+move_msg_btn:Mover mensagens selecionadas
+move_msg_th_expl:Especifique a ID do tópico de destino (pode estar em outros fóruns)
+captcha_img_alt:Verificação por Captcha: você terá que reconhecer o texto nesta imagem.
+captcha_img_help:Não há zero ou um na imagem.
 powered-by:Potenciado por: FUDforum {GVAR: FORUM_VERSION}.<br />Copyright &copy;2001-2011 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Código:
 code_select_all:Seleccionar todos
@@ -1083,14 +1117,25 @@ social_sites:Redes sociais:
 postcheck_min_len_err:A sua mensagem é demasiado curta. O tamanho mínimo permitido é {PLURAL: post_min_len|$1 caractere|$1 caracteres}.
 postcheck_dup_err:Por favor, não crie tópicos duplicados.
 btn_new_topic:Novo tópico
+btn_new_pm:Nova mensagem privada
 btn_post_reply:Responder
+btn_tree_view:Visualização em árvore
+btn_flat_view:Visualização plana
 btn_about:Perfil
+btn_small_pm:MP
 btn_delete:apagar
 btn_edit:editar
 btn_reply:responder
+btn_forward:encaminhar
 btn_quote:Citar
 btn_email:Correio electrónico
+btn_show_posts:mensagens
 btn_homepage:www
+feed_no_data:Não foram encontrados dados coincidentes.
 feed_rdf:Feed RDF
 feed_rss:Feed RSS2
 feed_atom:Feed ATOM
+ip_whois_connect_err:Não foi possível ligar-se ao servidor WHOIS ({VAR: whois_server}): {VAR: errstr}
+custom_filed_required:Este campo é obrigatório.
+page_list_heading:Páginas disponíveis
+page_list_total:{PLURAL: i|$1 página|$1 páginas} listadas.

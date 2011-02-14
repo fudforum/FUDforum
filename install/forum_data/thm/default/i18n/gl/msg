@@ -715,8 +715,7 @@ post_opt_html_off:O código <b>HTML</b> está <b>desactivado</b>
 post_opt_fud_off:O <b>BBCode</b> está <b>desactivado</b>
 post_opt_images_off:As <b>imaxes</b> están <b>desactivadas</b>
 post_opt_smilies_off:As <b>emoticonas</b> están <b>desactivadas</b>
-# Fuzzy
-post_opt:Opcións do foro
+post_opt:Opcións do foro:
 register_change_passwd:cambiar o contrasinal
 register_change_login:cambiar o nome de usuario
 approved_avatar_title:O teu avatar personalizado foi aprobado.
@@ -803,6 +802,7 @@ th_expr_two_month:2 meses
 th_expr_four_month:4 meses
 th_expr_one_year:1 ano
 thread_mod_delete:Borrar
+action_ip:IP
 action_latest_post:Última mensaxe
 online_today_last_visit:Última visita
 online_today_update:Ollando a lista de usuarios que estiveron hoxe no foro.
@@ -1053,14 +1053,10 @@ mmd_abort_move:Cancelar
 mmd_move:Mover os fíos
 pmsg_pdf_btn:Crear o arquivo PDF
 search_results_hdr:Atopáronse {VAR: total} resultados para a túa procura
-# Fuzzy
-thread_del_all:Borrar toda a selección
-# Fuzzy
-thread_mov_all:Mover toda a selección
-# Fuzzy
-thread_merge_all:Fusionar toda a selección
-# Fuzzy
-thread_loc_all:Bloquear/Desbloquear toda a selección
+thread_del_all:Eliminar o seleccionado
+thread_mov_all:Mover o seleccionado
+thread_merge_all:Fusionar o seleccionado
+thread_loc_all:Bloquear/Desbloquear o seleccionado
 dmsg_ip:Enderezo IP:
 err_blockedaccnt_title:ERRO: a túa conta foi filtrada.
 err_blockedaccnt_msg:A túa conta foi bloqueada fronte ao acceso ao foro debido a un dos filtros de usuario instalados.

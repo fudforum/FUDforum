@@ -123,16 +123,14 @@ posts_c:发帖数：
 prev_thread:下一个主题：
 usrinfo_private_message:悄悄话
 profile:个人信息
-# Fuzzy
-profile_desc:点击这里至用户管理界面
+profile_desc:访问用户控制面板
 rate_thread:主题评价
 rating:评价
 rating_track:给帖子评价 <b>{VAR: thr->subject}</b>：
 refresh_list:更新目录
 register:注册
 registered:注册时间：
-# Fuzzy
-registered_on:注册日期：{DATE: u_reg_date %Y-%m-%d}
+registered_on:上注册 {TEMPLATE: registered_on_date}
 replies:回复
 report_to_mod:违规帖举报
 reported_messages:已向版主举报的违规帖
@@ -158,6 +156,8 @@ sticky:置顶：
 stop_ignoring:不再拒绝这个用户
 sub_to_thread:订阅这个主题
 sub_to_thread_desc:接受关于这个主题的最新回复的通知
+bookmark_thread:书签主题
+bookmark_thread_desc:本主题添加到书签列表中
 subject:主题
 subscribe:预定
 subscribe_desc:当本论坛有人发布新的主题时，请通知我。
@@ -165,11 +165,11 @@ subscribed_forums:预定论坛信息
 subscribed_forums_desc:只显示预定的论坛信息
 subscribed_threads:预定论坛主题
 subscribed_threads_desc:只显示预定论坛主题
+bookmarked_threads:用书签标记的主题
 switch_to_thread_view:转换成以树状方式浏览
 thread:主题：
 thread_announcement:公告：
-# Fuzzy
-thread_first_unread_msg:点击这里到达本主题的第一条未读信息。
+thread_first_unread_msg:转到本主题中的第一个未读消息
 thread_thread:主题
 threads:主题
 time:时间
@@ -185,12 +185,13 @@ unread_posts:未读的主题
 unread_posts_desc:显示所有未读信息
 unsub_from_thread:不预定本主题
 unsub_from_thread_desc:不接受关于这个主题的最新回复的邮件通知
+unbookmark_thread:删除书签
+unbookmark_thread_desc:从您的书签列表中删除此主题
 unsubscribe:不预定
 unsubscribe_desc:当本论坛有人发布新的主题时，请勿通知我。
 updated_on:更新：
 user:用户名
-# Fuzzy
-user_counter:我们有 <b>{VAR: st_obj->user_count}</b> 注册用户。
+user_counter:我们有 <b>{VAR: st_obj->user_count}</b> {PLURAL: st_obj->user_count|用户|用户}。
 user_info:用户信息
 user_info_l:用户信息 {VAR: u->alias}
 user_offline:{VAR: obj->login}  现在不在线
@@ -198,8 +199,7 @@ user_online:{VAR: obj->login} 现在在线
 usrinfo_last_post:上一次登录：
 view_results:查看结果
 views:点击
-# Fuzzy
-vote:{VAR: frm->n_rating} 投票
+vote:{复数： frm->n_rating|$1 票|$1 票}
 vote_button:投票
 vote_for_thread:调查
 was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> 已经被版主移至<a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a>
@@ -474,6 +474,11 @@ rpasswd_login:登录
 rpasswd_cur_pass:当前密码：
 rpasswd_new_pass:新密码：
 rpasswd_conf_pass:密码确认：
+ruser_title:更改登录窗体
+ruser_change_user:更改您的论坛登录
+ruser_cur_login:当前登录：
+ruser_new_login:新的登录名：
+ruser_cur_pass:当前的密码：
 login_passwd:密码：
 reset_email:电子邮箱：
 reset_reset_button:重新输入密码
@@ -505,7 +510,7 @@ remail_send_now:发送邮件
 remail_anon_opt:把这些内容拷贝到你选择的邮件地址中，发送给你的朋友。
 remail_done:完成
 # Fuzzy
-remail_sent_conf:给你的朋友 {VAR-HTML: _POST['femail']} 的关于{{VAR: data->subject} 的邮件已经成功发送。
+remail_sent_conf:给你的朋友 {VAR-HTML: _POST['femail']} 的关于{VAR: data->subject} 的邮件已经成功发送。
 remail_error:发生了错误
 mklist_type:类型：
 mklist_option:选项：

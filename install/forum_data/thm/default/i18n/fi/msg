@@ -710,8 +710,7 @@ post_opt_html_off:<b>HTML</b>-koodit: <b>Ei käytössä</b>
 post_opt_fud_off:<b>BBcode</b>: <b>Ei käytössä</b>
 post_opt_images_off:<b>Kuvat</b>: <b>Ei käytössä</b>
 post_opt_smilies_off:<b>Hymiöt</b>: <b>Ei käytössä</b>
-# Fuzzy
-post_opt:Foorumin asetukset
+post_opt:Foorumin asetukset:
 register_change_passwd:vaihda salasana
 approved_avatar_title:Oma avatarisi on hyväksytty.
 approved_avatar_msg:Ylläpitäjän on hyväksynyt oman avatarisi. Sen pitäisi nyt näkyä kaikissa viesteissäsi. Jos et näe sitä tai näet vanhan avatarisi, se johtuu siitä että selaimesi on tallentanut sivun välimuistiin. Päivitä sivu kerran tai pari ja oikean kuvan pitäisi näkyä.
@@ -797,6 +796,7 @@ th_expr_two_month:2 kuukaudessa
 th_expr_four_month:4 kuukaudessa
 th_expr_one_year:1 vuodessa
 thread_mod_delete:Poista
+action_ip:IP
 action_latest_post:Viimeisin viesti
 online_today_last_visit:Käytti viimeksi
 online_today_update:Selaa listaa käyttäjistä, jotka ovat tänään käyneet foorumilla.
@@ -1040,14 +1040,10 @@ mmd_abort_move:Peruuta
 mmd_move:Siirrä aiheet
 pmsg_pdf_btn:Luo PDF-arkisto
 search_results_hdr:Haku löysi {VAR: total} viestiä
-# Fuzzy
-thread_del_all:Poista kaikki valitut
-# Fuzzy
-thread_mov_all:Siirrä kaikki valitut
-# Fuzzy
-thread_merge_all:Yhdistä kaikki valitut
-# Fuzzy
-thread_loc_all:Lukitse tai avaa kaikki valitut
+thread_del_all:Poista valitut
+thread_mov_all:Siirrä valitut
+thread_merge_all:Yhdistä valitut
+thread_loc_all:Lukitse tai avaa valitut
 dmsg_ip:IP:
 merge_th_page_list:Aihesivun valinta
 most_users_online:Eniten yhtaikaisia käyttäjiä (<b>{VAR: st_obj->most_online}</b>) oli <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
@@ -1066,6 +1062,7 @@ post_common_align_center:Keskitä
 post_common_align_right:Tasaa oikealle
 post_common_link:Lisää linkki
 post_common_email:Lisää sähköpostiosoite
+post_common_email_popup:Sähköpostiosoite:
 post_common_image:Lisää kuva
 post_common_nlist:Lisää numeroitu lista
 post_common_blist:Lisää luettelomerkitty lista

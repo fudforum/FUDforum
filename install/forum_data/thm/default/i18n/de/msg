@@ -1,6 +1,7 @@
 # Messages for German (Deutsch)
 # Exported from translatewiki.net
 # Author: Als-Holder
+# Author: George Animal
 # Author: JanRei
 # Author: Kghbln
 # Author: McDutchie
@@ -720,8 +721,7 @@ post_opt_html_off:<b>HTML</b> Code ist <b>AUS</b>
 post_opt_fud_off:<b>BBcode</b> ist <b>AUS</b>
 post_opt_images_off:<b>Bilder</b> sind <b>AUS</b>
 post_opt_smilies_off:<b>Smileys</b> sind <b>AUS</b>
-# Fuzzy
-post_opt:Forumseinstellungen
+post_opt:Forumseinstellungen:
 register_change_passwd:Passwort ändern
 register_change_login:Benutzernamen ändern
 approved_avatar_title:Dein persönlicher Avatar wurde genehmigt.
@@ -808,6 +808,7 @@ th_expr_two_month:2 Monate
 th_expr_four_month:4 Monate
 th_expr_one_year:1 Jahr
 thread_mod_delete:Löschen
+action_ip:IP
 action_latest_post:Letzter Beitrag
 online_today_last_visit:Letzter Besuch
 online_today_update:Die Liste der Leute ansehen, die heute zu Besuch im Forum waren.
@@ -1058,7 +1059,6 @@ mmd_abort_move:Abbrechen
 mmd_move:Thema verschieben
 pmsg_pdf_btn:PDF-Archiv erzeugen
 search_results_hdr:{VAR: total} Suchergebnisse gefunden
-# Fuzzy
 thread_del_all:Alle markierten löschen
 # Fuzzy
 thread_mov_all:Alle markierten verschieben
@@ -1088,8 +1088,11 @@ post_common_align_left:Linksbündig
 post_common_align_center:Zentriert
 post_common_align_right:Rechtsbündig
 post_common_link:Link einfügen
+post_common_link_popup:Link-Ort:
 post_common_email:E-Mail-Adresse einfügen
+post_common_email_popup:E-Mail-Adressen:
 post_common_image:Bild einfügen
+post_common_image_popup:Bild-URL:
 post_common_nlist:Nummerierte Liste einfügen
 post_common_blist:Aufzählung einfügen
 post_common_quote:Zitat einfügen
@@ -1136,3 +1139,6 @@ feed_rss:RSS2-Feed
 feed_atom:ATOM-Feed
 ip_whois_connect_err:Verbindung zu WHOIS-Server ({VAR: whois_server}) fehlgeschlagen: {VAR: errstr}
 custom_filed_required:Dies ist ein Pflichtfeld.
+page_list_heading:Verfügbare Seiten
+# Fuzzy
+page_list_total:{PLURAL: I|$ 1 Page|$ 1 Seiten} aufgelistet.

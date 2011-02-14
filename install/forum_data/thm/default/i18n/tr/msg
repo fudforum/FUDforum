@@ -717,8 +717,7 @@ post_opt_html_off:<b>HTML KAPALI</b>
 post_opt_fud_off:<b>BBcode KAPALI</b>
 post_opt_images_off:<b>Resimler KAPALI</b>
 post_opt_smilies_off:<b>Gülücükler KAPALI</b>
-# Fuzzy
-post_opt:Forum Seçenekleri
+post_opt:Forum Seçenekleri:
 register_change_passwd:parola değiştir
 register_change_login:Hesap değişimi
 approved_avatar_title:Özel avatarınız onaylandı.
@@ -805,6 +804,7 @@ th_expr_two_month:2 Ay
 th_expr_four_month:4 Ay
 th_expr_one_year:1 Yıl
 thread_mod_delete:Sil
+action_ip:IP
 action_latest_post:Son İleti
 online_today_last_visit:Son Ziyaret:
 online_today_update:Bugün forumda olan insanların listesini görüntülüyor.
@@ -1055,14 +1055,10 @@ mmd_abort_move:İptal
 mmd_move:Konu Taşı
 pmsg_pdf_btn:PDF Arşivi Yap
 search_results_hdr:{VAR: total} arama sonucu bulundu.
-# Fuzzy
-thread_del_all:Tüm Seçilileri Sil
-# Fuzzy
-thread_mov_all:Tüm Seçilileri Taşı
-# Fuzzy
-thread_merge_all:Tüm Seçilileri Birleştir
-# Fuzzy
-thread_loc_all:Tüm Seçilileri Kilitle / Kilidini Aç
+thread_del_all:Seçilenleri sil
+thread_mov_all:Seçilenleri Taşı
+thread_merge_all:Seçilenleri Birleştir
+thread_loc_all:Seçilenleri Kilitle/Kilidini Aç
 dmsg_ip:IP:
 err_blockedaccnt_title:HATA: Hesabınız filtrelenmiş durumda.
 err_blockedaccnt_msg:Forumdaki kullanıcı filtrelerinden biri nedeniyle hesabınızın erişimi engellendi.
@@ -1085,8 +1081,11 @@ post_common_align_left:Sola hizala
 post_common_align_center:Ortala
 post_common_align_right:Sağa Hizala
 post_common_link:Bağlantı ekle
+post_common_link_popup:Bağlantı konumu:
 post_common_email:E-posta adresi ekle
+post_common_email_popup:E-posta adresi:
 post_common_image:Görüntü ekle
+post_common_image_popup:Resim URL'si:
 post_common_nlist:Numaralı liste ekle
 post_common_blist:Madde işaretli liste ekle
 post_common_quote:Alıntı Ekle

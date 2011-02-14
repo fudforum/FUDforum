@@ -416,6 +416,7 @@ post_title:Заголовок:
 post_body:Текст:
 post_options:Параметры:
 post_preview_btn:Предварительный просмотр
+post_cancel_btn:Отмена
 ignore_users:Игнорируемые участники
 add_ignore:Добавить игнорируемого
 forum_terms:Правила форума
