@@ -14,7 +14,11 @@ CREATE TABLE {SQL_TABLE_PREFIX}poll_opt_track
 	id		INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	poll_id		INT NOT NULL DEFAULT 0,
 	user_id		INT NOT NULL DEFAULT 0,
+	ip_addr		BIGINT,
 	poll_opt	INT NOT NULL DEFAULT 0
 );
 
-CREATE UNIQUE INDEX {SQL_TABLE_PREFIX}poll_opt_track_i_pu ON {SQL_TABLE_PREFIX}poll_opt_track (poll_id, user_id);
+CREATE UNIQUE INDEX {SQL_TABLE_PREFIX}poll_opt_track_i_pu ON {SQL_TABLE_PREFIX}poll_opt_track (poll_id, user_id, ip_addr);
+
+// If user_id == 0 (anonymous), look at ip_addr.
+

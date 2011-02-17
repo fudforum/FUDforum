@@ -177,9 +177,9 @@ function draw_tmpl_perm_table($perm, $perms, $names)
 		$mbr = 0;
 	}
 
-	/* Anon users cannot vote or rate. */
+	/* Anon users cannot rate topics. */
 	if ($mbr && !$mbr->user_id) {
-		$maxperms = $maxperms &~ (512|1024);
+		$maxperms = $maxperms &~ 1024;
 	}
 
 	/* No members inside the group. */
