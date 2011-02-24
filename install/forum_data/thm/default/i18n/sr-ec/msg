@@ -312,7 +312,7 @@ register_avatar:Корисничка сличица:
 register_sel_avatar:Изаберите корисничку сличицу
 register_custom_avatar_rules:Прилагођена корисничка сличица неће бити приказана док је не одобри администратор.<br /><span class="SmallText">Она не сме бити већа од <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} тачака</b> и мора бити <b>JPG</b>, <b>GIF</b> или <b>PNG</b> формата.</span>
 register_custom_avatar_url:URL адреса корисничке сличице:
-register_preview:Претпреглед
+register_preview:Преглед
 register_custom_avatar_upload:Датотека корисничке сличице:
 register_register:Отвори налог
 register_required:Обавезни подаци
@@ -426,12 +426,12 @@ prereg_agree:Прихватам
 prereg_disagree:Не прихватам
 prereg_update:Читање правилника
 coppa_fax_instructions:Упутства за родитеља или старатеља
-coppa_fax_instructions2:Штампајте ову страницу, потпишите и пошаљите факсом на:
+coppa_fax_instructions2:Одштампајте ову страницу, потпишите је и пошаљите факсом на:
 coppa_fax_reg_form:Отварање налога
 coppa_fax_sign:Потпишите образац испод и пошаљите нам га
 coppa_fax_conf:Погледах податке које ми је моје дете дало и прочитах политику приватности. Разумем да се подаци на профилу могу променити путем лозинке и да се профил може обрисати на захтев.
 coppa_fax_permission:Потпишите овде ако дајете дозволу
-coppa_fax_no_permission:Потпишите овде ако желите да окончате налог
+coppa_fax_no_permission:Потпишите овде ако желите да затворите налог
 coppa_fax_parent_name:Име и презиме родитеља или старатеља:
 coppa_fax_relation:Сродство:
 coppa_fax_telephone:Телефон:
@@ -526,7 +526,7 @@ email_submit:Е-пошта
 ppost_quote_msg:{VAR: msg_to_list} написа {TEMPLATE: ppost_quote_msg_date}
 ppost_quote:Цитат:
 ppost_to:За:
-ppost_from_buddy_list:Изаберите из списка пријатеља
+ppost_from_buddy_list:Изаберите са списка пријатеља
 ppost_find_User:Пронађи корисника
 ppost_track_msg:Надгледај ову поруку
 ppost_track_msg_desc:Обавести ме путем приватне поруке када се ова порука прочита.
@@ -558,7 +558,7 @@ tabs_subscriptions:Надгледања
 tabs_bookmarkes:Забелешке
 tabs_referrals:Упућивачи
 tabs_buddy_list:Списак пријатеља
-tabs_ignore_list:Списак занемарених корисника
+tabs_ignore_list:Списак игнорисаних корисника
 tabs_private_messaging:Приватне поруке
 single_msg_delete:Управо ћете <span class="ErrorText">обрисати</span> поруку под називом: <b>{VAR: data[3]}</b>
 thread_delete:Управо ћете <span class="ErrorText">обрисати</span> <span class="ErrorText">целу тему</span> под називом: <b>{VAR: data[3]}</b>
@@ -830,7 +830,7 @@ quicklogin_use_cookies:Користити колачиће?
 quicklogin_login_btn:Пријави ме
 quick_reply:Брз одговор
 quick_reply_post:Пошаљи
-quick_reply_preview:Претпреглед
+quick_reply_preview:Прегледај
 post_notification_desc:Обавести ме када неко одговори на ову поруку.
 post_all_ext_allowed:(неограничено)
 maximize_category:Увећај категорију
@@ -1110,9 +1110,9 @@ social_sites:Друштвене мреже
 postcheck_min_len_err:Порука је прекратка. Најмања дужина је {PLURAL: post_min_len|$1 знак|$1 знака|$1 знакова}.
 postcheck_dup_err:Молимо вас, не правите дупликате тема.
 btn_new_topic:Нова тема
-btn_new_pm:Нова приватна порука
-btn_post_reply:Пошаљи одговор
-btn_tree_view:Стабласти приказ
+btn_new_pm:Нова ПП
+btn_post_reply:Одговори
+btn_tree_view:Нитни приказ
 btn_flat_view:Раван приказ
 btn_about:Профил
 btn_small_pm:ПП

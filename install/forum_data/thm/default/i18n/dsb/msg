@@ -497,22 +497,36 @@ read_message:Pśecytana powěsć
 threadt_more:&lt;wěcej&gt;
 spell_alts:žedne alternatiwy
 saved:Skłaźony
+buddy_offline:{VAR: r[2]} jo tuchylu offline
+buddy_online:{VAR: r[2]} jo tuchylu online
+login_unapproved_account_ttl:Njewobkšuśone konto
+iemail_msg_author:<b>Awtor:</b> {VAR: obj->alias}
 iemail_msg_reply:Wótegrono
+thread_mark_all_read:Wšykne njepśecytane powěsći foruma ako pśecytane markěrowaś
+thread_mark_all_read_desc:Wšykne njepśecytane powěsći w toś tom forumje budu se ako pśecytane markěrowaś
+private_no_messages:W toś tom zarědniku žedne powěsći njejsu.
 iemail_thread_unsub:Toś tu temu wótskazaś
 iemail_forum_unsub:Toś ten forum wótskazaś
+register_admin_newuser_title:Nowy wužywaŕ jo se zregistrěrował a jogo konto caka na wobkšuśenje
+post_mod_msg_notify_title:Nowa powěźeńka we forumje "{VAR: frm->name}", kótaraž caka na wobkšuśenje
+reg_conf_title:Wobkšuśenje registrěrowanja
 mnav_forum_limit:Jano pytaś w:
 mnav_all_forums:Wšykne forumy pśepytaś
 mnav_invalid_unit:Musyš płaśiwu casowu jadnotku pódaś.
+mnav_posted_by:Pósłany wót:
 mnav_minute:minuty
 mnav_hour:góźiny
 mnav_day:dny
 mnav_week:tyźenje
 mnav_month:mjasece
+findu_admin_opts_header:Opcije administratora
 findu_edit:Wobźěłaś
 findu_delete:Wulašowaś
 dmsg_reply_to:jo wótegrono na
 merge_next:Pśiduce temy
 merge_prev:Pjerwjejšne temy
+thread_on:dnja
+userinfo_buddy:Pśijaśel:
 register_email_addr:E-mailowa adresa:
 usrinfo_last_visit:Slědny woglěd:
 mnav_newer:nowše ako
@@ -520,6 +534,10 @@ mnav_older:starše ako
 ip_search_by_ip:Wužywarjow pó IP pytaś
 ip_search_syntax:Pódpěrana syntaksa: 1.2.3.4, 1.2.3, 1.2, 1
 ip_search:Pytaś
+ip_analyze_usage:IP-wužywanje analyzěrowaś
+ip_users_using:Wužywarje, kótarež wužywaju IP-adresu "{VAR: ip}"
+ip_all_ips:Wšykne IP-adrese, kótarež su se wót "{VAR: user}" wužyli
+ip_title:IP-wobglědowak
 userinfo_real_name:Napšawdne mě:
 register_err_alias_notallowed:Toś ten alias njejo dowólony
 post_err_mod_forum_edit_ttl:ZMÓLKA

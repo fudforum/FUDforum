@@ -3,6 +3,7 @@
 # Author: Chenxiaoqino
 # Author: Hydra
 # Author: PhiLiP
+# Author: 阿pp
 
 action:操作
 add_to_buddy_list:加入好友列表
@@ -150,8 +151,7 @@ sender_name:发送者姓名：
 show_posts_by:显示用户 {VAR: u_alias}发布的主题
 size:大小：
 status:级别：
-# Fuzzy
-status_line:现有 <b>{VAR: st_obj->online_users_reg}</b> 名用户，还有 <b>{VAR: st_obj->online_users_hidden}</b> 名隐身用户和 <b>{VAR: st_obj->online_users_anon}</b> 名访客访问本论坛。
+status_line:现有 <b>{PLURAL: st_obj->online_users_reg|$1 member|$1 members}</b> 名用户，还有 {PLURAL: st_obj->online_users_hidden|$1 invisible member|$1 invisible members} 名隐身用户和 <b>{PLURAL: st_obj->online_users_anon|$1 guest|$1 guests}</b> 名访客访问本论坛。
 sticky:置顶：
 stop_ignoring:不再拒绝这个用户
 sub_to_thread:订阅这个主题
@@ -203,8 +203,7 @@ vote:{复数： frm->n_rating|$1 票|$1 票}
 vote_button:投票
 vote_for_thread:调查
 was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> 已经被版主移至<a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a>
-# Fuzzy
-welcome_message:欢迎！ <b>{VAR: usr->alias}</b>，你上一次访问是 {DATE: usr->last_visit %Y-%m-%d %H:%M}
+welcome_message:欢迎！ <b>{VAR: usr->alias}</b>，你上一次访问是在 {TEMPLATE: welcome_message_date}
 what_ppl_doing:显示浏览者的操作
 reported_del_report:删除报告
 reported_reason:原因：
@@ -414,24 +413,21 @@ post_title:主题：
 post_body:内容：
 post_options:选项：
 post_preview_btn:预览
+post_cancel_btn:取消
 ignore_users:被拒绝的用户
 add_ignore:添加被拒绝的用户
 forum_terms:论坛协议
-# Fuzzy
-forum_rules:本论坛免费注册！我们希望你务必遵守下列政策和规定。如果你同意这些规定，请点击本页最下面的“我同意”按钮。注：如果你点击了此按钮即表明你宣告自己是13岁以上公民；如果你未满13岁，请领取注册表。<p>尽管论坛管理员和版主将尽力清除非法言论，但是难免挂一漏万。因此我们在此郑重声明，所有发言都仅代表作者观点，作者言责自负。论坛所有者和发展商对此不负任何责任。<p>点击了“我同意”按钮即表明你保证不在论坛上发布任何淫秽、色情、反动、暴力等非法言论。<p>论坛管理者有权因为任何理由编辑、删除或者关闭任何发言。<p>
-# Fuzzy
-forum_rules_13:所有13岁以下用户必须经过父母或者监视人允许才能成为论坛成员。我们欢迎13岁以下用户加入，但是只有在收到你的父母或者监护人通过传真或者电子邮件给我们的签名授权文件以后，我们才能通过你的申请。<p>如果你想在我们收到授权文件之前注册，请点击下面的“我同意”按钮，如果你不想继续注册，请点击“删除”按钮回到论坛主页。<p>你可以在这里下载授权文件，想了解更多的信息请发邮件至<a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>。<p>
+forum_rules:本论坛免费注册！我们希望你务必遵守下列政策和规定。如同意请点击本页最下面的“我同意”按钮。注：如果你点击了此按钮即表明你宣告自己是13岁以上公民；如果你未满13岁，请使用这个表格。<p>论坛管理员和版主将尽力清除非法言论，但疏漏在所难免。因此我们在此郑重声明，所有发言都仅代表作者观点，作者言责自负。论坛所有者和开发者对此不负任何责任。<p>点击“我同意”按钮即表明你保证不在论坛上发布任何淫秽、色情、反动、暴力等非法言论。<p>论坛管理者有权因为任何理由删除、编辑、移动或者关闭任何发言。<p>
+forum_rules_13:13岁以下用户必须经过父母或者监护人允许才能成为论坛成员。我们欢迎13岁以下用户加入，但只有在收到父母或者监护人通过传真或电子邮件给我们的签名授权文件以后，我们才能通过你的申请。<p>如果你想在我们收到授权文件之前开始注册程序，请点击下面的“我同意”按钮，如果你不想继续注册，请点击“不同意”按钮回到论坛主页。<p>你可以在这里下载授权表格，想了解更多的信息请发邮件至<a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>。<p>
 coppa_conf:注册确认
-# Fuzzy
-coppa_before:之前 {DATE: coppa %Y-%m-%d}
-# Fuzzy
-coppa_after:之后{DATE: coppa %Y-%m-%d}
+coppa_before:{TEMPLATE: coppa_date}之前
+coppa_after:{TEMPLATE: coppa_date}之后
 coppa_link:根据你的出生日期，请选择
-# Fuzzy
-coppa:对于13岁以下的用户，只有当论坛管理员收到了你的父母或者监护人的确认邮件或者传真以后才能完成注册。<p>要了解更多的信息，请联系<a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
+coppa:对于13岁以下的用户，只有当论坛管理员通过电子邮件或者传真收到了你的父母或者监护人的授权表格以后才能完成注册。<p>要了解更多的信息，请联系<a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
 prereg_info:信息
 prereg_agree:同意
 prereg_disagree:不同意
+prereg_update:阅读论坛规则
 coppa_fax_instructions:父母或监护人介绍
 coppa_fax_instructions2:请打印这页，并签名传真至：
 coppa_fax_reg_form:登记表
@@ -454,8 +450,7 @@ login_cookie_expired:你的cookie功能被终止了。需要登录重新开启co
 login_perm_denied:作为匿名用户，只有登录以后才有权限访问相关资源。
 login_want_to_register:先注册?
 login_forgot_passwd:密码忘了
-# Fuzzy
-login_use_cookie:使用cookies功能<br /><font class="SmallText">如果你是在学校、图书馆、网吧等公共场合使用计算机，为安全起见，建议你不要使用这个功能。
+login_use_cookie:使用cookies功能<br /><font class="SmallText">如果你是在学校、图书馆、网吧等公共场合使用计算机，为安全起见，不建议你使用此功能。选择此项则下次访问时会自动登入。</span>
 login_login:登录
 login_login_btn:登录
 login_name_required:登录时必须输入账号
@@ -509,8 +504,7 @@ remail_message:内容：
 remail_send_now:发送邮件
 remail_anon_opt:把这些内容拷贝到你选择的邮件地址中，发送给你的朋友。
 remail_done:完成
-# Fuzzy
-remail_sent_conf:给你的朋友 {VAR-HTML: _POST['femail']} 的关于{VAR: data->subject} 的邮件已经成功发送。
+remail_sent_conf:给你在{VAR-HTML: _POST['femail']}的朋友主题为{VAR: data->subject}的邮件已经成功发送。
 remail_error:发生了错误
 mklist_type:类型：
 mklist_option:选项：
@@ -532,8 +526,7 @@ email_pg_title:电子邮箱
 email_subject:主题：
 email_body:内容：
 email_submit:发送
-# Fuzzy
-ppost_quote_msg:{VAR: msg_to_list} 于 {DATE: msg_r->post_stamp %Y-%m-%d %H:%M} 在大作中提到：
+ppost_quote_msg:{VAR: msg_to_list}在{TEMPLATE: ppost_quote_msg_date}写道：
 ppost_quote:引用：
 ppost_to:至：
 ppost_from_buddy_list:从好友名单中选择
@@ -545,10 +538,8 @@ ppost_save_draft:保存草稿
 poll_blank_option:你不能提交空的选项。
 poll_del_conf:如果你想删除这个选项，请按OK
 poll_name:调查名称：
-# Fuzzy
-poll_timelimit:时间限制
-# Fuzzy
-poll_maxiumvotes:最大的投票量
+poll_timelimit:时间限制：
+poll_maxiumvotes:最大的投票数：
 poll_create:创建
 poll_update:更新
 poll_disablesmilies:不使用表情符号
@@ -567,14 +558,13 @@ poll_year:年
 poll_week:周
 tabs_register:设置
 tabs_subscriptions:预定内容
+tabs_bookmarkes:书签
 tabs_referrals:推荐
 tabs_buddy_list:好友列表
 tabs_ignore_list:黑名单
 tabs_private_messaging:悄悄话
-# Fuzzy
-single_msg_delete:你正要<font color="#ff0000" size="4">删除</font>标题为：<b>{VAR: data[3]}</b>的帖子。
-# Fuzzy
-thread_delete:你正要<font color="#ff0000" size="4">删除整个主题</font> 标题为：<b>{VAR: data[3]}</b>
+single_msg_delete:你将要<span class="ErrorText">删除</span>标题为：<b>{VAR: data[3]}</b>的帖子。
+thread_delete:你正要<span class="ErrorText">删除</span>标题为<b>{VAR: data[3]}</b>的整个主题
 delete_proceed:<font size="3"><b>是否继续?</b></font>
 delete_yes:是
 delete_no:否
@@ -591,10 +581,8 @@ buddy_list_err_nouser_title:无法添加
 buddy_list_err_ignore:不能增加忽略你的用户到你的朋友列表.
 buddy_list_update:浏览我的好友列表
 core_err_invinp_title:输入错误
-# Fuzzy
-core_err_invinp_err:你输入了一个错误的链接，请更正
-# Fuzzy
-core_adm_login_msg:<a href="adm/admloginuser.php">管理员登陆</a>
+core_err_invinp_err:你点击了一个无效的链接，请告知<a href="mailto:{GVAR: ADMIN_EMAIL}">管理员</a>具体情况。
+core_adm_login_msg:管理员可<a href="{GVAR: WWW_ROOT}adm/admloginuser.php">在此</a>登入。
 email_err_unabletoemail_title:错误：无法发送邮件
 email_err_unabletoemail_msg:系统管理员设置邮件系统无法使用。
 email_error_unabletolocaddr:对不起，因为无法登录对方的邮件服务器导致系统无法发送邮件{VAR-HTML: _POST['tx_name']}
@@ -604,8 +592,7 @@ email_error_namerequired:必须填写邮件接受者姓名
 email_error_invaliduser:用户名错误
 emailconf_err_invkey_title:错误
 emailconf_err_invkey_msg:无效的地址。请检查并确认你的填写的是正确的地址信息。
-# Fuzzy
-err_inc_criticaltitle:紧急错误
+err_inc_criticaltitle:严重错误
 err_inc_criticalmsg:发生错误，而且很不幸的是错误报告系统本身也存在问题。
 finduser_update:搜索用户
 help_index_update:阅读<a href="{TEMPLATE: help_index_update_lnk}">使用帮助</a>
@@ -630,8 +617,7 @@ pm_update:使用悄悄话功能
 post_err_lockedthread_title:错误：该帖子已被锁定
 post_err_lockedthread_msg:这个主题已被锁定，不能回复
 err_coppa_title:错误：你没有此项权限
-# Fuzzy
-err_coppa_msg:我们还没有收到来自你父母或者法定监护人的关于同意你发布帖子的确认证明。 如果丢失了申请表，<a href="{TEMPLATE: err_coppa_msg_lnk}">请点这里</a>。
+err_coppa_msg:我们还没有收到来自你父母或者法定监护人的关于同意你发布帖子的确认函。 如果丢失了申请表，<a href="{TEMPLATE: err_coppa_msg_lnk}">请点这里</a>。
 err_banned_acct_title:错误:你被屏蔽了.
 err_banned_acct_msg:你的帐号被暂时{IF: $ban_expiry}锁定直到{DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}允许{ENDI} 登录本站，因为本站的&#39s规则.
 post_err_edttimelimit_title:错误
@@ -639,18 +625,16 @@ post_err_edttimelimit_msg:你不能再编辑这条信息
 post_err_noannontopics_msg2:<legend>错误：权限不够</legend>匿名用户不允许发帖。
 post_err_noannonposts_msg2:<legend>错误：权限不够</legend>匿名用户不许回帖。
 post_err_floodtrig_title:错误：发布灌水帖子
-# Fuzzy
-post_err_floodtrig_msg:请在{VAR: tm}秒以内重试
+post_err_floodtrig_msg:请在{PLURAL: tm|$1 second|$1 seconds}内重试
 post_err_attach_size:附件文件太大（超过了允许的最大{VAR: MAX_F_SIZE}字节）
 post_err_attach_ext:你正在上传的文件类型不符合论坛对上传文件类型的设置。
 post_err_attach_filelimit:你正在上传的文件超过了限制的数量。
 post_err_passwd:密码错误。
-# Fuzzy
-post_reply_update:回复 <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> 在 {VAR-HTML: frm->name}
-# Fuzzy
-post_topic_update:发表新主题 <a href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a>
+post_reply_update:在{VAR: frm->name}回复<a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a>
+post_topic_update:在<a href="{TEMPLATE: post_topic_update_lnk}">{VAR: frm->name}</a>发表新话题
 post_error_generic:发生错误
 postcheck_max_images_err:一次提交图片允许的最大数是{GVAR: MAX_IMAGE_COUNT} ，请尽量减少图片数量。
+postcheck_no_links_allowed:发布未满{PLURAL: posts_before_links|$1 message|$1 messages}之前不可使用此链接。
 postcheck_subj_needed:输入主题
 postcheck_no_such_user:本论坛没有 "{FUNC: char_fix(htmlspecialchars($v))}" 用户
 postcheck_ignored:"{FUNC: char_fix(htmlspecialchars($v))}"用户拒绝接受你的悄悄话。
@@ -659,8 +643,7 @@ postcheck_invalid_email:请输入你的朋友的正确电子邮箱地址。
 postcheck_email_subject:如果不输入主题，你将无法发送邮件。
 postcheck_email_body:如果没有内容，你将无法发送邮件。
 private_msg_notify_subj:读取通知：{VAR: m->subject}
-# Fuzzy
-private_msg_notify_body:你好，<br />{VAR: usr->login} 用户已经阅读了你的悄悄话， "{VAR: m->subject}"，在 {DATE: track_msg->post_stamp %Y-%m-%d %H:%M}<br />
+private_msg_notify_body:你好，<br />{VAR: usr->login} 用户已经阅读了你的悄悄话 "{VAR: m->subject}"。<br />本自动提示于{TEMPLATE: private_msg_notify_body_date}生成。<br />
 referals_update:浏览被推荐者
 register_err_short_login:你输入的账号太短，必须至少包括4个字符。
 register_err_login_notallowed:不能使用这个账号注册。
@@ -671,16 +654,14 @@ register_err_passwdnomatch:你的密码不对。
 register_err_invalidemail:你输入的电子邮件地址不正确。
 register_err_needname:你必须输入你的姓名才能完成此次注册。
 register_err_enterpasswd:你必须输入密码才能进行修改。
-# Fuzzy
-register_err_adminpasswd:你必须输入系统管理员密码才能完成这些修改。
+register_err_adminpasswd:您必须输入<b>管理员</b>密码才能完成更改。
 register_err_notyouremail:已经有人用这个电子邮箱地址注册了，但是那个人不是你。
 register_err_avatartobig:你正在上传的文件太大，超过了{GVAR: CUSTOM_AVATAR_MAX_SIZE} 字节的最大限制。
 register_err_avatarnotallowed:你正在上传的头像不能上传，请查看允许上传的文件类型。
 register_conf_subject:注册确认
 register_conf_msg:谢谢注册,\n进入当前账号，请点击下列地址：\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\n进入当前账号后，你将直接进入论坛\n转入论坛的主页。
 register_welcome_subject:论坛注册确认
-# Fuzzy
-register_welcome_msg:谢谢注册，\n\n这是你注册的详细资料：\n\n论坛URL：{GVAR: WWW_ROOT}\n账号：{VAR: uent->login}\n密码：{VAR: _POST['reg_plaintext_passwd']}\n\n请注意密码区分大小写！\n要更改你的设置或者个人信息，请点击：\n{FULL_ROOT}{ROOT}?t=register
+register_welcome_msg:谢谢注册，\n\n这是你注册的详细资料：\n\n论坛地址：{TEMPLATE: index_update_lnk}\n帐号：{VAR: uent->login}\n密码：{VAR: _POST['reg_plaintext_passwd']}\n\n请注意密码区分大小写！\n要更改你的设置或者个人信息，请点击：\n{FULL_ROOT}{ROOT}?t=register
 register_err_cantreg_title:错误：无法注册
 regsiter_err_cantreg_msg:无法注册新的账号，请和系统管理员联系<a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:查看个人信息
@@ -698,22 +679,19 @@ search_update:搜索
 selmsg_update:浏览 <a href="{TEMPLATE: selmsg_update_lnk}">今天发布的主题</a>
 showposts_update:查看用户 <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>发布的主题
 subscribed_update:浏览自己预定的内容
-# Fuzzy
-thread_update:浏览论坛<a href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a>
+bookmarked_update:浏览自己的书签列表
+thread_update:浏览论坛<a href="{TEMPLATE: thread_update_lnk}">{VAR: frm->name}</a>
 tree_update:浏览（以树状方式） <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
 userinfo_update:查看 <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}的</a> 个人信息
 ERR_login_msg2:<legend>错误：未登录</legend>登录后才能访问所需页面。
 ERR_disabled_ttl:被禁止的功能
-# Fuzzy
-ERR_disabled_msg:此项功能已经被系统管理员关闭。
+ERR_disabled_msg:此功能已被系统管理员禁用。
 ERR_access_ttl:错误：权限不够
-# Fuzzy
-ERR_access_msg:你没有权利进行此项操作
+ERR_access_msg:你无权执行该项操作。
 ERR_registration_disabled_ttl:注册失败
 ERR_registration_disabled_msg:注册功能被系统管理员禁止，请重试！
 ERR_emailconf_ttl:错误：此账号无效
-# Fuzzy
-ERR_emailconf_msg:你注册的账号尚未进行邮件确认<br /><table border="0"><tr><td><ol><li>如果你没有收到确认邮件 <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">请点击这里</a><li>如果 {VAR: usr_d->email} 邮件地址有误<a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">请点击这里</a></ol></td></tr></table>
+ERR_emailconf_msg:你注册的账号尚未进行邮件确认<br /><table border="0"><tr><td><ol><li>如果你没有收到确认邮件 <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">请点击这里</a>。</li><li>如果此地址 {VAR: usr_d->email} 有误<a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">请点击这里</a>。</li></ol></td></tr></table>
 ERR_user_ttl:错误：没有这个用户
 ERR_user_msg:没有这个用户
 ERR_systemerr_ttl:系统错误
@@ -730,8 +708,7 @@ error_title:格式错误
 index_title:欢迎到来
 search_title:搜索 {VAR-HTML: srch}
 remail_emailsent:邮件已经发送
-# Fuzzy
-remail_email:这个页面的内容{GVAR: FORUM_TITLE} ( {GVAR: WWW_ROOT} ) 你可能会感兴趣！\n这里是你可能感兴趣的主题：{VAR: data->subject} 请点击：{FULL_ROOT}{ROOT}?t=rview&th={VAR: data->id}&rid={DEF: _uid}\n 发件人 {VAR: usr->alias}
+remail_email:你好.\n\n你可能对{GVAR: FORUM_TITLE}论坛的主题{VAR: data->subject}感兴趣。请点击：{FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}。\n\n发件人:\n\n{VAR: usr->alias}
 poll_add_option:添加选项：
 post_opt_html_on:<b>HTML</b><b>代码：开放</b>
 post_opt_fud_on:<b><a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank">FUD代码：</b><b>开放</a></b>
@@ -741,9 +718,9 @@ post_opt_html_off:<b>HTML</b> 代码： <b>关闭</b>
 post_opt_fud_off:<b>FUD代码：</b><b>关闭</b>
 post_opt_images_off:<b>帖图功能：</b><b>关闭</b>
 post_opt_smilies_off:<b>表情符号：</b><b>关闭</b>
-# Fuzzy
-post_opt:论坛选项
+post_opt:论坛选项：
 register_change_passwd:更改密码
+register_change_login:更改登录信息
 approved_avatar_title:你定制的头像已被管理员批准。
 approved_avatar_msg:你定制的头像已被系统管理员批准，以后你发布的所有信息都将显示该头像。如果你尚未看到或者看到的是旧的头像，那可能是你的浏览器缓存了相关页面，尝试多刷新几次或许能解决这个问题。
 unapproved_avatar_title:你定制的头像未被批准。
@@ -759,11 +736,9 @@ thr_exch_decline:拒绝该主题
 thr_exch_orig_forum:转出的论坛：
 thr_exch_dest_forum:目标论坛：
 thr_exch_no_threads:没有需要批复的主题。
-# Fuzzy
-thr_exch_decl_reason:拒绝主题 <b>{VAR-HTML: frm->name}</b> 转入<b>{VAR-HTML: frm->name}</b>论坛的理由。
+thr_exch_decl_reason:拒绝主题 <b>{VAR: data->subject}</b> 转入<b>{VAR: data->f2_name}</b>论坛的理由。
 thr_exch_submit:发布
-# Fuzzy
-exch_decline_ttl:把主题 {VAR: data->subject} 转移至{VAR-HTML: data->f2_name} 论坛的要求被拒绝。
+exch_decline_ttl:把主题 {VAR: data->subject} 转移至{VAR: data->f2_name}论坛的要求被拒绝。
 ppost_original_msg:你正在发送或者回复的信息
 split_thread:分开主题
 groupmgr_no_user:此账号不存在 "{FUNC: char_fix(htmlspecialchars($gr_member))}"
@@ -806,9 +781,9 @@ group_mgr_search:查找用户
 group_mgr_indicator:正在编辑：<b>{VAR: grp->name}</b>
 rate_worst:最差的
 rate_best:最好的
-# Fuzzy
-post_quote_msg:{VAR: msg->login} 于 {DATE: msg->post_stamp %Y-%m-%d %H:%M} 在大作中提到：
+post_quote_msg:{VAR: msg->login}于{TEMPLATE: make_report_date}在大作中提到：
 post_quote:引用：
+post_quote_selected:报价将选定的文本
 userinfo_referals:被推荐的用户：
 userinfo_referals_count:{VAR: referals} 成员：
 pm_no_space_title:空间不够
@@ -830,6 +805,7 @@ th_expr_two_month:2个月
 th_expr_four_month:4个月
 th_expr_one_year:1年
 thread_mod_delete:删除
+action_ip:IP
 action_latest_post:最近一次登录
 online_today_last_visit:最近一次登录
 online_today_update:查看本论坛今天的在线用户
@@ -856,9 +832,12 @@ quicklogin_password:密码：
 quicklogin_use_cookies:是否使用Cookies功能？
 quicklogin_login_btn:登录
 quick_reply:快速回复
+quick_reply_post:邮政快速回复
+quick_reply_preview:预览快速回复
 post_notification_desc:当有人回复本主题时请通知我。
 post_all_ext_allowed:（没有限制）
 maximize_category:增加目录层次
+maximize_message:最大限度地消息
 no_view_perm:很抱歉，你没有察看这个页面的权限
 report_empty_report:你不能提交空的报告，请说明推荐理由。
 report_already_reported_title:报告已经提交
@@ -869,21 +848,21 @@ pmsg_prev_msg:前一条信息
 post_proc_reveal_spoiler:显示隐藏内容
 register_jabber:Jabber：
 register_skype:Skype:
+register_twitter:Twitter 的句柄：
 register_google:Google Chat/IM：
 im_jabber:Jabber：
 im_google:Google Talk：
 im_skype:Skype：
+im_twitter:Twitter：
 forum_contact:联系
 forum_home:主页
-# Fuzzy
-post_cur_attached:正在粘帖{VAR: i} 个文件
+post_cur_attached:正在粘帖{VAR: i}个{PLURAL: i|文件|文件}
 ignored_anon_post:{GVAR: ANON_NICK} 被忽略
 ignored_user_post:设置忽略信息<a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a>
 smladd_close_window:关闭窗口
 post_list_smilies:显示所有表情符号
 p_VISIBLE:可见的
-# Fuzzy
-reported_in_thread:展开浏览
+reported_in_thread:!展开浏览：
 help_back_to_top:回到页首
 help_return_to_index:返回帮助索引
 imsg_err_message_title:帖子出错
@@ -891,6 +870,7 @@ imsg_err_message_msg:你要查看的帖子不存在。
 poll_edit:编辑
 register_err_not_valid_img:指定的图片连接不正确
 pmsg_recepient:收信人
+register_err_taken_alias:您要使用的别名已在另一论坛成员使用。请选择另一个。
 register_alias:昵称
 register_alias_desc:如果你想应用昵称代替你的用户名来显示在论坛上就请你填入你想要的昵称。
 register_allow_pm_msg:接受悄悄话
@@ -912,6 +892,9 @@ search_desc_order:降序排列
 search_asc_order:升序排列
 search_logic:方式：
 search_sorting:结果按日期：
+search_attach:附件：
+search_attach_all:有无
+search_attach_with:带有附件
 post_proceed:返回论坛
 post_moderated_forum:恭喜！你已经发表成功，等版主或者管理员确认后会发布到网上！
 post_moderated_forum_ttl:受限论坛说明
@@ -1077,10 +1060,11 @@ mmd_abort_move:取消
 mmd_move:移动话题
 pmsg_pdf_btn:生成PDF文档
 search_results_hdr:{VAR: total} 搜索结果
-# Fuzzy
-thread_del_all:删除所有选中的
-# Fuzzy
-thread_mov_all:移动所有选中的
+thread_del_all:删除所选
+thread_mov_all:移动选择
+thread_merge_all:合并所选
+thread_loc_all:锁定/解锁选定
+dmsg_ip:IP：
 err_blockedaccnt_title:错误:你的帐号已经被过滤了。
 err_blockedaccnt_msg:你的帐号因为一个已经安装的用户过滤器而被阻止了。
 merge_th_page_list:话题页面选择
@@ -1088,6 +1072,7 @@ merge_th_page_list:话题页面选择
 most_users_online:最高在线人数：<b>{VAR: st_obj->most_online}</b> 在 <b>{DATE: st_obj->most_online_time 周%a, %B%d日 %Y %H:%M}</b>
 sub_unsub_all_forums:从所有的论坛取消订阅
 sub_unsub_all_topics:从所有的话题取消订阅
+unbookmark_all_topics:删除所有书签
 tabs_own_posts:显示自己发的帖子
 sml_emoticon:表情
 sml_code:代码
@@ -1102,8 +1087,11 @@ post_common_align_left:左对齐
 post_common_align_center:居中
 post_common_align_right:右对齐
 post_common_link:插入超链接
+post_common_link_popup:链接位置：
 post_common_email:电子邮件超链接
+post_common_email_popup:电邮地址：
 post_common_image:插入图片
+post_common_image_popup:图像 URL：
 post_common_nlist:添加顺序的排列
 post_common_blist:添加无序的排列
 post_common_quote:添加引用
@@ -1122,4 +1110,32 @@ pmsg_download_dump:查看所有悄悄话
 move_messages:移动帖子
 move_msg_btn:移动所有选中的
 move_msg_th_expl:移至指定主题的ID（可以跨版块）
+captcha_img_alt:验证码： 您需要识别此图像中的文本。
+captcha_img_help:有没有为零或图像中的一个。
+code_title:代码：
 code_select_all:选择全部
+code_show_hide:显示/隐藏
+social_sites:社交网站：
+postcheck_min_len_err:您的邮件是太短。最小长度是 {PLURAL: post_min_len|$1 字符|$1 字符}。
+postcheck_dup_err:请不要创建重复的主题。
+btn_new_topic:新主题
+btn_new_pm:新私人信息
+btn_post_reply:投递答复
+btn_tree_view:树视图
+btn_flat_view:平面视图
+btn_about:配置文件
+btn_small_pm:私人信息
+btn_delete:删除
+btn_edit:编辑
+btn_reply:答复
+btn_forward:向前
+btn_quote:报价
+btn_email:电子邮件
+btn_show_posts:职位
+btn_homepage:www
+feed_no_data:找不到匹配的数据。
+feed_rdf:RDF 饲料
+feed_rss:RSS2 饲料
+feed_atom:ATOM 源
+custom_filed_required:此字段是必需的。
+page_list_heading:可用页面

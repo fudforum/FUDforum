@@ -419,6 +419,7 @@ post_title:Titre :
 post_body:Contenu :
 post_options:Options :
 post_preview_btn:Voir le message avant de l'envoyer
+post_cancel_btn:Annuler
 ignore_users:Ignorer les utilisateurs
 add_ignore:Ignorer quelqu'un d'autre
 forum_terms:Forum

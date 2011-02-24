@@ -410,6 +410,7 @@ post_title:Titulo:
 post_body:Texto:
 post_options:Optiones:
 post_preview_btn:Previsualisar message
+post_cancel_btn:Cancellar
 ignore_users:Usatores ignorate
 add_ignore:Ignorar usator
 forum_terms:Conditions d'utilisation du forum

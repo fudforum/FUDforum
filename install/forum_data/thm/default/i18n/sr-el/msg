@@ -312,7 +312,7 @@ register_avatar:Korisnička sličica:
 register_sel_avatar:Izaberite korisničku sličicu
 register_custom_avatar_rules:Prilagođena korisnička sličica neće biti prikazana dok je ne odobri administrator.<br /><span class="SmallText">Ona ne sme biti veća od <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} tačaka</b> i mora biti <b>JPG</b>, <b>GIF</b> ili <b>PNG</b> formata.</span>
 register_custom_avatar_url:URL adresa korisničke sličice:
-register_preview:Pretpregled
+register_preview:Pregled
 register_custom_avatar_upload:Datoteka korisničke sličice:
 register_register:Otvori nalog
 register_required:Obavezni podaci
@@ -425,3 +425,160 @@ prereg_info:Pravilnik
 prereg_agree:Prihvatam
 prereg_disagree:Ne prihvatam
 prereg_update:Čitanje pravilnika
+coppa_fax_instructions:Uputstva za roditelja ili staratelja
+coppa_fax_instructions2:Odštampajte ovu stranicu, potpišite je i pošaljite faksom na:
+coppa_fax_reg_form:Otvaranje naloga
+coppa_fax_sign:Potpišite obrazac ispod i pošaljite nam ga
+coppa_fax_conf:Pogledah podatke koje mi je moje dete dalo i pročitah politiku privatnosti. Razumem da se podaci na profilu mogu promeniti putem lozinke i da se profil može obrisati na zahtev.
+coppa_fax_permission:Potpišite ovde ako dajete dozvolu
+coppa_fax_no_permission:Potpišite ovde ako želite da zatvorite nalog
+coppa_fax_parent_name:Ime i prezime roditelja ili staratelja:
+coppa_fax_relation:Srodstvo:
+coppa_fax_telephone:Telefon:
+coppa_fax_email:E-adresa:
+coppa_fax_date:Datum:
+coppa_fax_questions:Kontaktirajte <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> za bilo koje pitanje
+coppa_fax_login:Korisničko ime
+coppa_fax_passwd:Lozinka
+coppa_fax_remail:E-pošta
+coppa_fax_name:Ime
+login_not_logedin:Niste prijavljeni. Ovo može biti zbog sledećih razloga:
+login_cookie_expired:Kolačići su istekli. Prijavite se da biste ih obnovili.
+login_perm_denied:Nemate dozvolu da pristupite ovom delu foruma kao anoniman korisnik. Morate da budete prijavljeni za dobijanje pristupa.
+login_want_to_register:Želite nalog?
+login_forgot_passwd:Zaboravili ste lozinku?
+login_use_cookie:Korišćenje kolačića<br /><span class="SmallText">Ako koristite javno dostupan računar (biblioteka, škola ili internet kafe), deštriklirajte ovu opciju radi veće sigurnosti. Ako ova opcija ostane omogućena, bićete automatski prijavljeni sledeći put kada posetite forum.</span>
+login_login:Korisničko ime:
+login_login_btn:Prijavi me
+login_name_required:Korisničko ime je obavezno
+login_passwd_required:Lozinka je obavezna
+login_invalid_radius:Neispravna kombinacija korisničkog imena i lozinke
+reset_confirmation:Hvala vam što ste otvorili nalog.\n\nDa biste ga omogućili, posetite sledeću vezu:\n\n{VAR: url}\n\nKada završite s ovim postupkom, bićete prijavljeni\nna forum i preusmereni na naslovnu stranu.
+reset_reset:Zdravo,\n\nZatražili ste poništavanje lozinke.\nDa biste završili postupak, posetite sledeću vezu:\n\n{VAR: url}\n\nNapomena: ovaj forum smešta lozinke preko jednosmernog šifrovanja.\nTo znači da, kada prvi put unesete lozinku, ona će biti šifrovana tako da nema povratka.\nOvo radi poređenjem šifrovanog izdanja koje imamo u bazi sa šifrovanim izdanjem koje unesete.\n(Ako vas zanima kako ovaj mehanizam radi, pročitajte MD5 algoritam o disperziji.)
+rpasswd_invalid_passwd:Neispravna lozinka
+rpasswd_passwd_nomatch:Lozinke se ne poklapaju
+rpasswd_passwd_length:Lozinka mora imati najmanje 6 znakova
+reset_remind_pass:Podsetnik za lozinku
+reset_reset_conf:Lozinka će biti poništena i poslata vama. Ako još uvek niste potvrdili svoju e-adresu, poslaćemo obrazac za to.
+reset_error:E-adresa nije pronađena u bazi podataka
+rpasswd_change_pass:Promena lozinke
+rpasswd_login:Korisničko ime:
+rpasswd_cur_pass:Lozinka:
+rpasswd_new_pass:Nova lozinka:
+rpasswd_conf_pass:Potvrdite lozinku:
+ruser_title:Promena korisničkog imena
+ruser_change_user:Promena korisničkog imena
+ruser_cur_login:Korisničko ime:
+ruser_new_login:Novo korisničko ime:
+ruser_cur_pass:Lozinka:
+login_passwd:Lozinka:
+reset_email:E-pošta:
+reset_reset_button:Poništi lozinku
+rate_this_thread:Oceni
+report_reporting_about:Opis:
+report_subject:Naslov:
+report_by:Od:
+report_posted_on:Postavljeno:
+report_give_reason:Navedite razlog zašto prijavljujete poruku:
+report_submit_report:Pošalji prijavu
+search_entire_msg:cela poruka
+search_subject_only:samo naslov
+search_forum:Forum
+search_posted_on:Postavljeno
+search_no_results:Nema rezultata
+search_all_forums:Pretraži sve forume
+search_in_forum:Pretraži u forumu:
+move_thread_to:Premesti temu <b>{VAR: thr->subject}</b> u:
+remail_email_topic:Pošalji ovu temu prijatelju
+remail_your_name:Ime:
+remail_your_email:E-pošta:
+remail_friends_name:Ime prijatelja:
+remail_friends_email:E-pošta prijatelja:
+remail_required:obavezno
+remail_subject:Naslov:
+remail_message:Poruka:
+remail_send_now:Pošalji e-poruku
+remail_anon_opt:Umnoži ovu poruku u program e-pošte za kasnije slanje vašim prijateljima.
+remail_done:Završeno
+remail_sent_conf:Pošaljite e-poruku prijatelju na {VAR-HTML: _POST['femail']} oko {VAR: data->subject} teme koja je uspešno poslata.
+remail_error:Došlo je do greške
+mklist_type:Vrsta:
+mklist_option:Opcija:
+mklist_additem:Dodaj stavku
+mklist_apply:Primeni
+mklist_delete:Obriši
+qbud_nick_name:Nadimak
+qbud_add_selected:Dodaj izabranо
+qbud_selected:Izabrano
+qbud_no_buddies:Nema prijatelja
+mklist_numerical:numerički
+mklist_aplha:alfa
+mklist_square:kvadrat
+mklist_disc:disk
+mklist_circle:krug
+mklist_close:Zatvori
+email_to:Za:
+email_pg_title:E-pošta
+email_subject:Naslov:
+email_body:Tekst:
+email_submit:E-pošta
+ppost_quote_msg:{VAR: msg_to_list} napisa {TEMPLATE: ppost_quote_msg_date}
+ppost_quote:Citat:
+ppost_to:Za:
+ppost_from_buddy_list:Izaberite sa spiska prijatelja
+ppost_find_User:Pronađi korisnika
+ppost_track_msg:Nadgledaj ovu poruku
+ppost_track_msg_desc:Obavesti me putem privatne poruke kada se ova poruka pročita.
+ppost_send:Pošalji
+ppost_save_draft:Sačuvaj
+poll_blank_option:Ne možete da dodate praznu opciju.
+poll_del_conf:Ako želite da uklonite ovu opciju, kliknite na „U redu“
+poll_name:Naziv ankete:
+poll_timelimit:Vremensko ograničenje:
+poll_maxiumvotes:Najviše glasova:
+poll_create:Napravi
+poll_update:Ažuriraj
+poll_disablesmilies:Onemogući smeške
+poll_create_poll:Napravi anketu
+poll_update_poll:Ažuriraj anketu
+poll_delete:Obriši
+poll_updateoption:Ažuriraj opciju
+poll_addoption:Dodaj opciju
+poll_unlimited:neograničeno
+poll_day:dan
+poll_days:dana
+poll_hour:sat
+poll_hours:sati
+poll_month:mesec
+poll_year:godina
+poll_week:nedelja
+tabs_register:Postavke naloga
+tabs_subscriptions:Nadgledanja
+tabs_bookmarkes:Zabeleške
+tabs_referrals:Upućivači
+tabs_buddy_list:Spisak prijatelja
+tabs_ignore_list:Spisak ignorisanih korisnika
+tabs_private_messaging:Privatne poruke
+single_msg_delete:Upravo ćete <span class="ErrorText">obrisati</span> poruku pod nazivom: <b>{VAR: data[3]}</b>
+thread_delete:Upravo ćete <span class="ErrorText">obrisati</span> <span class="ErrorText">celu temu</span> pod nazivom: <b>{VAR: data[3]}</b>
+delete_proceed:<span class="fb">Želite li da nastavite?</span>
+delete_yes:Da
+delete_no:Ne
+error_invalidurl:Neispravna URL adresa
+error_error:Greška
+usrinfo_profile:Profil člana {VAR: u->alias}
+usrinfo_show_all_posts:Prikaži sve poruke od člana {VAR: u->alias}
+actions_update:Njuškam druge ljude, kao i ti
+err_info:Podaci
+buddy_list_err_cantadd:Ne možete sebe dodati na spisak prijatelja
+buddy_list_err_dup:Ovaj član se već nalazi na vašem spisku prijatelja
+buddy_list_err_nouser:Član koga ste želeli da dodate na spisak prijatelja nije pronađen.
+buddy_list_err_nouser_title:Dodavanje člana nije uspelo
+buddy_list_err_ignore:Dodavanje članova koji vas ignorišu ne možete dodati na spisak prijatelja.
+buddy_list_update:Pregledanje spiska prijatelja
+core_err_invinp_title:Neispravan ulaz
+core_err_invinp_err:Pratili ste neispravnu vezu. Obavestite <a href="mailto:{GVAR: ADMIN_EMAIL}">administratora</a> o grešci.
+core_adm_login_msg:Administratori se mogu prijaviti <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">ovde</a>.
+email_err_unabletoemail_title:Greška: slanje e-poruke nije uspelo
+email_err_unabletoemail_msg:E-pošta je onemogućena od strane administratora.
+email_error_unabletolocaddr:Sistem ne može da kontaktira {VAR-HTML: _POST['tx_name']} preko e-pošte jer e-adresa nije pronađena

@@ -2,6 +2,7 @@
 # Exported from translatewiki.net
 # Author: Als-Holder
 # Author: George Animal
+# Author: Hydra
 # Author: JanRei
 # Author: Kghbln
 # Author: McDutchie
@@ -417,6 +418,7 @@ post_title:Titel:
 post_body:Inhalt:
 post_options:Optionen:
 post_preview_btn:Beitragsvorschau
+post_cancel_btn:Abbrechen
 ignore_users:Ignorierte Benutzer
 add_ignore:Benutzer zur Ignorierliste hinzufügen
 forum_terms:Forumsregeln
@@ -1060,11 +1062,8 @@ mmd_move:Thema verschieben
 pmsg_pdf_btn:PDF-Archiv erzeugen
 search_results_hdr:{VAR: total} Suchergebnisse gefunden
 thread_del_all:Alle markierten löschen
-# Fuzzy
 thread_mov_all:Alle markierten verschieben
-# Fuzzy
 thread_merge_all:Alle markierten zusammenführen
-# Fuzzy
 thread_loc_all:Alle markierten sperren/entsperren
 dmsg_ip:IP:
 err_blockedaccnt_title:FEHLER: Dein Konto wurde ausgefiltert.
@@ -1140,5 +1139,4 @@ feed_atom:ATOM-Feed
 ip_whois_connect_err:Verbindung zu WHOIS-Server ({VAR: whois_server}) fehlgeschlagen: {VAR: errstr}
 custom_filed_required:Dies ist ein Pflichtfeld.
 page_list_heading:Verfügbare Seiten
-# Fuzzy
-page_list_total:{PLURAL: I|$ 1 Page|$ 1 Seiten} aufgelistet.
+page_list_total:{PLURAL: i|$1 Seite|$1 Seiten} aufgeführt.

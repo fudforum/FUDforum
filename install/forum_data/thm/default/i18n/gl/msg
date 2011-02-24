@@ -411,6 +411,7 @@ post_title:Título:
 post_body:Corpo da mensaxe:
 post_options:Opcións:
 post_preview_btn:Vista previa da mensaxe
+post_cancel_btn:Cancelar
 ignore_users:Usuarios ignorados
 add_ignore:Ignorar o usuario
 forum_terms:Termos do foro
@@ -1079,8 +1080,11 @@ post_common_align_left:Aliñar á esquerda
 post_common_align_center:Centrar
 post_common_align_right:Aliñar á dereita
 post_common_link:Inserir unha ligazón
+post_common_link_popup:Destino da ligazón:
 post_common_email:Inserir un enderezo de correo electrónico
+post_common_email_popup:Enderezo de correo electrónico:
 post_common_image:Inserir unha imaxe
+post_common_image_popup:URL da imaxe:
 post_common_nlist:Engadir unha lista numerada
 post_common_blist:Engadir unha lista de asteriscos
 post_common_quote:Engadir unha cita
@@ -1127,3 +1131,5 @@ feed_rss:Fonte de novas RSS2
 feed_atom:Fonte de novas ATOM
 ip_whois_connect_err:Non se puido conectar co servidor WHOIS ({VAR: whois_server}): {VAR: errstr}
 custom_filed_required:Este campo é obrigatorio.
+page_list_heading:Páxinas dispoñibles
+page_list_total:{PLURAL: i|$1 páxina listada|$1 páxinas listadas}.

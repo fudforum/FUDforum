@@ -413,6 +413,7 @@ post_title:Başlık:
 post_body:Gövde:
 post_options:Seçenekler:
 post_preview_btn:Önizle
+post_cancel_btn:İptal
 ignore_users:Gözardı edilen kullanıcılar
 add_ignore:Ignoramus ekle
 forum_terms:Forum kuralları
@@ -1132,3 +1133,4 @@ feed_rss:RSS2 yayını
 feed_atom:ATOM yayını
 ip_whois_connect_err:WHOIS sunucusuna ({VAR: whois_server}) bağlanamıyor: {VAR: errstr}
 custom_filed_required:Bu alan gereklidir.
+page_list_heading:Mevcut sayfalar

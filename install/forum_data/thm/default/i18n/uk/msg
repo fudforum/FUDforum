@@ -76,6 +76,8 @@ cal_goto_date:Перейти до:
 cal_day_heading:Події за день
 cal_no_events:Немає подій на день.
 cal_update:Перегляд форумного календаря
+cal_birthday:День народження: {VAR: user}
+cal_birthday_age:({PLURAL: вік|$1 рік|$1 роки |$1 років})
 message:Повідомлення
 message_counter:Користувачами форуму залишено <b>{PLURAL: post_count|$1 повідомлення|$1 повідомлень}</b> по <b>{PLURAL: thread_count|$1 темі|$1 темам|$1 темах}</b>.
 message_index:Список повідомлень
@@ -413,6 +415,7 @@ post_title:Заголовок:
 post_body:Текст:
 post_options:Налаштування:
 post_preview_btn:Попередній перегляд повідомлення
+post_cancel_btn:Скасувати
 ignore_users:Ігноровані користувачі
 add_ignore:Додати ігнорованих
 forum_terms:Умови форуму
@@ -717,8 +720,7 @@ post_opt_html_off:<b>HTML</b> - <b>ввімкнений</b>
 post_opt_fud_off:<b>BBcode</b> - <b>Вимкнений</b>
 post_opt_images_off:<b>Зображення</b> - <b>Вимкнені</b>
 post_opt_smilies_off:<b>Смайли/Емоції</b> - <b>Вимкнено</b>
-# Fuzzy
-post_opt:Параметри форуму
+post_opt:Параметри форуму:
 register_change_passwd:змінити пароль
 register_change_login:змінити логін
 approved_avatar_title:Ваш індивідуальний аватар був затверджений.
@@ -805,6 +807,7 @@ th_expr_two_month:2 Місяці
 th_expr_four_month:4 Місяці
 th_expr_one_year:1 Рік
 thread_mod_delete:Видалити
+action_ip:IP
 action_latest_post:Останнє повідомлення
 online_today_last_visit:Останній візит
 online_today_update:Перегляд списку користувачів, які були на форумі сьогодні.
@@ -1055,14 +1058,10 @@ mmd_abort_move:Скасувати
 mmd_move:Переміщення тем
 pmsg_pdf_btn:Зробити PDF Архів
 search_results_hdr:Знайдено сторінок в пошуку: {VAR: total}
-# Fuzzy
-thread_del_all:Видалити всі зазначені
-# Fuzzy
-thread_mov_all:Перемістити всі вибрані
-# Fuzzy
-thread_merge_all:Злиття всіх обраних
-# Fuzzy
-thread_loc_all:Блокування / розблокування усіх обраних
+thread_del_all:Видалити всі вибрані
+thread_mov_all:Перемістити вибрані
+thread_merge_all:Об'єднати виділені
+thread_loc_all:Блокувати/розблокуватьи вибрані
 dmsg_ip:IP:
 err_blockedaccnt_title:ПОМИЛКА: Ваш обліковий запис був відфільтровананий.
 err_blockedaccnt_msg:Доступ на форум заблоковано, внаслідок встановлення одного з фільтрів користувачів.
@@ -1085,8 +1084,11 @@ post_common_align_left:По лівому краю
 post_common_align_center:Вирівняти по центру
 post_common_align_right:По правому краю
 post_common_link:Вставити посилання
+post_common_link_popup:Розташування посилання:
 post_common_email:Вставити адресу електронної пошти
+post_common_email_popup:E-mail адреса:
 post_common_image:Вставити зображення
+post_common_image_popup:URL зображення:
 post_common_nlist:Додати нумерований список
 post_common_blist:Додати маркований список
 post_common_quote:Додати цитату
@@ -1133,3 +1135,5 @@ feed_rss:RSS2-канал
 feed_atom:ATOM-канал
 ip_whois_connect_err:Не вдається підключитися до WHOIS-серверут ({VAR: whois_server}): {VAR: errstr}
 custom_filed_required:Це поле є обов'язковим.
+page_list_heading:Доступних сторінок
+page_list_total:Показано {PLURAL: i| $1 сторінка| $1 сторінки| $1 сторінок}.
