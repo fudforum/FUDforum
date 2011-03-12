@@ -1,0 +1,142 @@
+<?php
+/***************************************************************************
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* email                : forum@prohost.org
+* $Id: PunBB.inc 5054 2010-10-23 00:47:24Z naudefj $
+*
+* This program is free software; you can redistribute it and/or modify it 
+* under the terms of the GNU General Public License as published by the 
+* Free Software Foundation; version 2 of the License. 
+***************************************************************************/
+
+function source_read_config($dir) {
+	config_file_include('config.php');
+}
+
+function source_db_connect() {
+	bbconn(	$GLOBALS['db_host'], 
+		$GLOBALS['db_name'],
+		$GLOBALS['db_username'],
+		$GLOBALS['db_password'],
+		$GLOBALS['db_prefix']	);
+}
+
+function source_load_users() {
+	$c = bbq('SELECT * FROM '. dbpref .'users WHERE id>0 ORDER BY id');
+	while ($r = bbfetch($c)) {
+		// Hack for user id of 1, since this id is reserved for anon user in FUDforum.
+		if ($r->id == 1) $r->id = $GLOBALS['hack_id'] = bbfetch(bbq('SELECT MAX(id) AS cnt FROM '. dbpref .'users'))->cnt + 1;
+
+		$user = array(
+			'id'        => $r->id,
+			'login'     => $r->username,
+			'name'      => $r->realname,
+			'passwd'    => $r->password,
+			'salt'      => $r->salt,
+			'last_visit'=> $r->last_visit,
+			'last_read' => 0,
+			'join_date' => $r->registered,
+			'reg_ip'    => $r->registration_ip,
+			'email'     => $r->email,
+			'home_page' => '',
+			'location'  => $r->location,
+			'time_zone' => '',
+			'sig'       => $r->signature,
+			'avatar'    => '',
+			'icq'       => $r->icq,
+			'aim'       => $r->aim,
+			'yahoo'     => $r->yahoo,
+			'msn'       => $r->msn,
+			'users_opt' => 0
+		);
+		$user['users_opt'] |= ($r->group_id==1)      ? 1048576 : 0;	// Admin.
+		$user['users_opt'] |= ($r->group_id==4)      ? 524288  : 0;	// Moderator.
+		$user['users_opt'] |= ($r->email_setting==0) ? 1       : 0;	// Show e-mail address to other users.
+		$user['users_opt'] |= ($r->show_sig)         ? 2048    : 0;	// Show signatures.
+		target_add_user($user);
+	}
+}
+
+function source_load_cats() {
+	$c = bbq('select * from '. dbpref .'categories');
+	while ($r = bbfetch($c)) {
+		$cat = array(
+			'id'          => $r->id,
+			'name'        => $r->cat_name,
+			'description' => '',
+			'view_order'  => $r->disp_position
+		);
+		target_add_cat($cat);
+	}
+}
+
+function source_load_forums() {
+	$c = bbq('select * from '. dbpref .'forums');
+	while ($r = bbfetch($c)) {
+		$forum = array(
+			'id'          => $r->id,
+			'cat_id'      => $r->cat_id,
+			'name'        => $r->forum_name,
+			'description' => $r->forum_desc,
+			'view_order'  => $r->disp_position,
+			'post_passwd' => '',
+			'url_redirect'=> $r->redirect_url
+		);
+		target_add_forum($forum);
+	}
+}
+
+function source_load_topics() {
+	$c = bbq('select * from '. dbpref .'topics');
+	while ($r = bbfetch($c)) {
+		$topic = array(
+			'id'          => $r->id,
+			'forum_id'    => $r->forum_id,
+			'root_msg_id' => $r->first_post_id,
+			'views'       => $r->num_views,
+			'replies'     => $r->num_replies,
+			'thread_opt'  => 0
+		);
+		$topic['thread_opt'] |= ($r->closed)      ? 1 : 0;	// Topic closed.
+		$topic['thread_opt'] |= ($r->sticky == 1) ? 4 : 0;	// Sticky topic.
+		target_add_topic($topic);
+	}
+}
+
+function source_load_messages() {
+	$c = bbq('select * from '. dbpref .'posts p INNER JOIN '. dbpref .'topics t ON t.id=p.topic_id');
+	while ($r = bbfetch($c)) {
+		$message = array(
+			'id'           => $r->id,
+			'thread_id'    => $r->topic_id,
+			'poster_id'    => $r->poster_id,
+			'forum_id'     => $r->forum_id,
+			'post_stamp'   => $r->posted,
+			'update_stamp' => $r->edited,
+			'updated_by'   => $r->edited_by,
+			'subject'      => $r->subject,
+			'ip_addr'      => $r->poster_ip,
+			'msg_opt'      => 0,
+			'body'         => $r->message
+		);
+		$message['msg_opt'] |= ($r->hide_smilies) ? 2 : 0;
+		target_add_message($message);
+	}
+}
+
+function source_load_topic_subscriptions() {
+	$c = bbq('select * from '. dbpref .'subscriptions');
+	while ($r = bbfetch($c)) {
+		$sub = array(
+			'user_id'    => $r->user_id,
+			'thread_id'  => $r->topic_id
+		);
+		target_add_topic_subscription($sub);
+	}
+}
+
+function source_auth_function() {
+	return 'sha1($u->salt.sha1($password))';
+}
+
+?>

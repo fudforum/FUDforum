@@ -1,0 +1,132 @@
+<?php
+/***************************************************************************
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* email                : forum@prohost.org
+* $Id: Vanilla2.inc 5054 2010-10-23 00:47:24Z naudefj $
+*
+* This program is free software; you can redistribute it and/or modify it 
+* under the terms of the GNU General Public License as published by the 
+* Free Software Foundation; version 2 of the License. 
+***************************************************************************/
+
+function source_read_config($dir) {
+	define('APPLICATION', 1);
+	config_file_include('conf/config.php');
+	config_file_include('conf/constants.php');
+}
+
+function source_db_connect() {
+	bbconn(	$GLOBALS['Configuration']['Database']['Host'], 
+		$GLOBALS['Configuration']['Database']['Name'],
+		$GLOBALS['Configuration']['Database']['User'],
+		$GLOBALS['Configuration']['Database']['Password'],
+		'gdn_'	); // DB Prefix should probably not be hard coded!
+}
+
+function source_load_users() {
+	$c = bbq('SELECT * FROM '. dbpref .'user WHERE UserID>0 ORDER BY UserID');
+	while ($r = bbfetch($c)) {
+		// Hack for user id of 1, since this id is reserved for anon user in FUDforum.
+		if ($r->UserID == 1) $r->UserID = $GLOBALS['hack_id'] = bbfetch(bbq('SELECT MAX(UserID) AS cnt FROM '. dbpref .'user'))->cnt + 1;
+
+		$user = array(
+			'id'        => $r->UserID,
+			'login'     => $r->Name,
+			'name'      => $r->Name,
+			'passwd'    => $r->Password,
+			'salt'      => '',
+			'last_visit'=> $r->DateLastActive,
+			'last_read' => 0,
+			'join_date' => $r->DateFirstVisit,
+			'reg_ip'    => '',
+			'email'     => $r->Email,
+			'home_page' => '',
+			'location'  => '',
+			'time_zone' => '',
+			'sig'       => '',
+			'avatar'    => '',
+			'icq'       => '',
+			'aim'       => '',
+			'yahoo'     => '',
+			'msn'       => '',
+			'users_opt' => 0
+		);
+		$user['users_opt'] |= $r->Admin ? 1048576 : 0;	// is_admin
+		target_add_user($user);
+	}
+}
+
+function source_load_forums() {
+	// Vanilla cats are actually forums.
+	$c = bbq('select * from '. dbpref .'category');
+	while ($r = bbfetch($c)) {
+		$forum = array(
+			'id'          => $r->CategoryID,
+			'cat_id'      => 1,
+			'name'        => $r->Name,
+			'description' => $r->Description,
+			'view_order'  => $r->Sort,
+			'post_passwd' => '',
+			'url_redirect'=> ''
+		);
+		target_add_forum($forum);
+	}
+}
+
+function source_load_topics() {
+	$c = bbq('select * from '. dbpref .'discussion');
+	while ($r = bbfetch($c)) {
+		$topic = array(
+			'id'          => $r->DiscussionID,
+			'forum_id'    => $r->CategoryID,
+			'root_msg_id' => 0, // $r->firstpost,
+			'views'       => $r->CountViews,
+			'replies'     => $r->CountComments,
+			'thread_opt'  => 0
+		);
+		$topic['thread_opt'] |= ($r->Closed)   ? 1 : 0;	// Topic closed.
+		$topic['thread_opt'] |= ($r->Announce) ? 2 : 0;	// Announcement.
+		target_add_topic($topic);
+	}
+}
+
+function source_load_messages() {
+	// Load discussions.
+	$c = bbq('select * from '. dbpref .'discussion');
+	while ($r = bbfetch($c)) {
+		$message = array(
+			'id'           => 'NULL',
+			'thread_id'    => $r->DiscussionID,
+			'poster_id'    => $r->InsertUserID,
+			'forum_id'     => $r->CategoryID,
+			'post_stamp'   => $r->DateInserted,
+			'update_stamp' => $r->DateUpdated,
+			'updated_by'   => $r->UpdateUserID,
+			'subject'      => $r->Name,
+			'ip_addr'      => '',
+			'msg_opt'      => 0,
+			'body'         => $r->Body
+		);
+		target_add_message($message);
+	}
+	// Load comments - replies.
+	$c = bbq('select c.*, d.CategoryID, d.Name from '. dbpref .'comment c LEFT JOIN '. dbpref .'discussion d ON c.DiscussionID=d.DiscussionID');
+	while ($r = bbfetch($c)) {
+		$message = array(
+			'id'           => 'NULL',
+			'thread_id'    => $r->DiscussionID,
+			'poster_id'    => $r->InsertUserID,
+			'forum_id'     => $r->CategoryID,
+			'post_stamp'   => $r->DateInserted,
+			'update_stamp' => $r->DateUpdated,
+			'updated_by'   => $r->UpdateUserID,
+			'subject'      => 'Re: '. $r->Name,
+			'ip_addr'      => '',
+			'msg_opt'      => 0,
+			'body'         => $r->Body
+		);
+		target_add_message($message);
+	}
+}
+
+?>

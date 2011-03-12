@@ -1,0 +1,176 @@
+<?php
+/***************************************************************************
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* email                : forum@prohost.org
+* $Id: Simple_Machines.inc 5054 2010-10-23 00:47:24Z naudefj $
+*
+* This program is free software; you can redistribute it and/or modify it 
+* under the terms of the GNU General Public License as published by the 
+* Free Software Foundation; version 2 of the License. 
+***************************************************************************/
+
+function source_read_config($dir) {
+	config_file_include('Settings.php');
+}
+
+function source_db_connect() {
+	bbconn(	$GLOBALS['db_server'], 
+		$GLOBALS['db_name'],
+		$GLOBALS['db_user'],
+		$GLOBALS['db_passwd'],
+		$GLOBALS['db_prefix']	);
+
+	$c = bbq('SELECT * FROM '. dbpref .'settings');
+	while ($r = bbfetch($c)) {
+		$GLOBALS['settings'][$r->variable] = $r->value;
+	}
+}
+
+function source_load_avatars() {
+	$avatar_dir = $GLOBALS['settings']['avatar_directory'] .'/';
+	$dir = opendir($avatar_dir);
+	while( $file = readdir($dir) ) {
+		if( $file == '.' || $file == '..' || @is_dir($file) || @is_link($file) ) continue;
+		$avatar = array(
+			'file'      => $avatar_dir . $file,
+			'descr'     => '',
+		);
+		target_add_avatar($avatar);
+	}
+}
+
+function source_load_smilies() {
+	$c = bbq('SELECT * from '. dbpref .'smileys');
+	while ($r = bbfetch($c)) {
+		$smiley = array(
+			'file'      => $GLOBALS['settings']['smileys_dir'] .'/'. $GLOBALS['settings']['smiley_sets_default'] .'/'. $r->filename,
+			'code'      => $r->code,
+			'descr'     => $r->description,
+			'vieworder' => $r->smileyOrder
+		);
+		target_add_smiley($smiley);
+	}
+}
+
+function source_load_users() {
+	$c = bbq('SELECT * FROM '. dbpref .'members u LEFT JOIN '. dbpref .'membergroups g ON u.ID_GROUP = g.ID_GROUP WHERE ID_MEMBER>0 ORDER BY ID_MEMBER');
+	while ($r = bbfetch($c)) {
+		// Hack for user id of 1, since this id is reserved for anon user in FUDforum.
+		if ($r->ID_MEMBER == 1) $r->ID_MEMBER = $GLOBALS['hack_id'] = bbfetch(bbq('SELECT MAX(ID_MEMBER) AS cnt FROM '. dbpref .'members'))->cnt + 1;
+
+		$user = array(
+			'id'        => $r->ID_MEMBER,
+			'login'     => $r->memberName,
+			'name'      => $r->realName,
+			'passwd'    => $r->passwd,
+			'salt'      => $r->passwordSalt,
+			'last_visit'=> $r->dateRegistered,
+			'reg_ip'    => $r->memberIP,
+			'last_read' => 0,
+			'join_date' => $r->dateRegistered,
+			'email'     => $r->emailAddress,
+			'home_page' => $r->websiteUrl,
+			'location'  => $r->location,
+			'time_zone' => $r->timeOffset,
+			'sig'       => $r->signature,
+			'avatar'    => '',
+			'icq'       => $r->ICQ,
+			'aim'       => $r->AIM,
+			'yahoo'     => $r->YIM,
+			'msn'       => $r->MSN,
+			'users_opt' => 0
+		);
+
+		$user['users_opt'] |= ($r->groupName == 'Administrator') ? 1048576 : 0;	// Admin.
+		$user['users_opt'] |= ($r->groupName == 'Moderator') ? 524288 : 0;	// Moderator.
+		$user['users_opt'] |= ($r->groupName == 'Global Moderator') ? 268435456 : 0;	// Account moderator.
+		target_add_user($user);
+	}
+}
+
+function source_load_cats() {
+	$c = bbq('select * from '. dbpref .'categories');
+	while ($r = bbfetch($c)) {
+		$cat = array(
+			'id'          => $r->ID_CAT,
+			'name'        => $r->name,
+			'description' => '',
+			'view_order'  => $r->catOrder
+		);
+		target_add_cat($cat);
+	}
+}
+
+function source_load_forums() {
+	$c = bbq('select * from '. dbpref .'boards');
+	while ($r = bbfetch($c)) {
+		$forum = array(
+			'id'          => $r->ID_BOARD,
+			'cat_id'      => $r->ID_CAT,
+			'name'        => $r->name,
+			'description' => $r->description,
+			'view_order'  => $r->boardOrder,
+			'post_passwd' => '',
+			'url_redirect'=> ''
+		);
+		target_add_forum($forum);
+	}
+}
+
+function source_load_topics() {
+	$c = bbq('select * from '. dbpref .'topics');
+	while ($r = bbfetch($c)) {
+		$topic = array(
+			'id'          => $r->ID_TOPIC,
+			'forum_id'    => $r->ID_BOARD,
+			'root_msg_id' => $r->ID_FIRST_MSG,
+			'views'       => $r->numViews,
+			'replies'     => $r->numReplies,
+			'thread_opt'  => 0
+		);
+		$topic['thread_opt'] |= ($r->locked)   ? 1 : 0;	// Topic closed.
+		$topic['thread_opt'] |= ($r->isSticky) ? 4 : 0;	// Sticky topic.
+		target_add_topic($topic);
+	}
+}
+
+function source_load_messages() {
+	$c = bbq('select * from '. dbpref .'messages');
+	while ($r = bbfetch($c)) {
+		$message = array(
+			'id'           => $r->ID_MSG,
+			'thread_id'    => $r->ID_TOPIC,
+			'poster_id'    => $r->ID_MEMBER,
+			'forum_id'     => $r->ID_BOARD,
+			'post_stamp'   => $r->posterTime,
+			'update_stamp' => $r->modifiedTime,
+			'updated_by'   => $r->ID_MSG_MODIFIED,
+			'subject'      => $r->subject,
+			'ip_addr'      => $r->posterIP,
+			'msg_opt'      => 0,
+			'body'         => $r->body
+		);
+		$message['msg_opt'] |= ($r->smileysEnabled) ? 2 : 0;
+		target_add_message($message);
+	}
+}
+
+function source_load_attachments() {
+	$c = bbq('select * from '. dbpref .'attachments');
+	while ($r = bbfetch($c)) {
+		$att = array(
+			'file'           => '/attachments/'. $r->ID_ATTACH .'_'. $r->file_hash,
+			'original_name'  => $r->filename,
+			'user_id'        => $r->ID_MEMBER,
+			'post_id'        => $r->ID_MSG,
+			'download_count' => $r->downloads
+		);
+		target_add_attachment($att);
+	}
+}
+
+function source_auth_function() {
+	return 'sha1(strtolower($login).$password)';
+}
+
+?>

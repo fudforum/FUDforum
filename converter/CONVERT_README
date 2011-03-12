@@ -1,0 +1,60 @@
+#
+# $Id: README 4954 2010-05-10 18:00:16Z naudefj $
+#
+
+DESIGN PHILOSOPHY
+-----------------
+
+Writing converters is like shooting at a moving target. New forums and forum
+versions are released all the time, which will probably break the exiting
+converters. As a result it's often necessary to tweak and enhance the converter
+for best results.
+
+To make it easier to focus on the mapping of the source forum to FUDforum, we've
+separated the conversion rules into "map" files. To add a new converter,
+simply add a new *.map file to the "converters/" directory or tweak the rules in
+exiting map files.
+
+A map consists of a series of SOURCE_* functions (for example
+source_source_load_users). All these functions are optional and a map file only
+contain the functions it requires. These functions will retrieve information from
+the source forum and map it into an array, witch is then passed back to the 
+converter to add to FUDforum. As an example, source_source_load_users() will
+make callbacks to target_load_user() to add users to FUDforum.
+
+INSTRUCTIONS:
+-------------
+
+1. Install FUDforum or identify an exiting installation where the messages must be
+   imported into.
+
+2. Download and copy the conversion script to your forum's WWW_ROOT directory.
+
+3. Run the script from a web browser or from command line (pick one).
+
+3.1. Start the script by navigating to http://your.form.com/forum/convert.php
+     Select the source forum type and enter the full path to where it is installed.
+
+3.2. Command line installation is preferred for large forums.
+     Example: $ php ./convert.php MyBB ../mybb/
+     The first agrument is the source forum type. The second is the path to where
+     it is installed.
+
+4. After running the converter, login to the forum and run the Consistency Checker.
+   You will not see any messages nor users on the target forum until you do the
+   consistency check.
+
+If you run into problems, please report them on the support forum at fudforum.org.
+
+Best of luck!
+
+
+KNOWN PROBLEMS AND RESTRICTIONS:
+--------------------------------
+
+1. The source forum must use MySQL.
+   Easy to change, but only MySQL is implemented at this stage.
+
+2. After conversion, login to the forum (not the ACP!).
+   The ACP will not invoke authentication plugins and may not allow you to
+   log in (first time only).

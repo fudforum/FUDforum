@@ -1,0 +1,223 @@
+<?php
+/***************************************************************************
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* email                : forum@prohost.org
+* $Id: phpBB3.inc 5054 2010-10-23 00:47:24Z naudefj $
+*
+* This program is free software; you can redistribute it and/or modify it 
+* under the terms of the GNU General Public License as published by the 
+* Free Software Foundation; version 2 of the License. 
+***************************************************************************/
+
+function source_read_config($dir) {
+	define('IN_PHPBB', 1);
+	config_file_include('config.php');
+	config_file_include('includes/constants.php');
+}
+
+function source_db_connect() {
+	bbconn(	$GLOBALS['dbhost'], 
+		$GLOBALS['dbname'],
+		$GLOBALS['dbuser'],
+		$GLOBALS['dbpasswd'],
+		$GLOBALS['table_prefix']	);
+
+	$c = bbq('SELECT * FROM '. dbpref .'config');
+	while ($r = bbfetch($c)) {
+		$GLOBALS['settings'][$r->config_name] = $r->config_value;
+	}
+}
+
+function source_load_avatars() {
+	$avatar_dir = $GLOBALS['CONVERT_FROM_DIR'] .'/'. $GLOBALS['settings']['avatar_gallery_path'] .'/';
+	$dir = opendir($avatar_dir);
+	while( $file = readdir($dir) ) {
+		if( $file == '.' || $file == '..' || @is_dir($file) || @is_link($file) ) continue;
+		$avatar = array(
+			'file'      => $avatar_dir . $file,
+			'descr'     => '',
+		);
+		target_add_avatar($avatar);
+	}
+}
+
+function source_load_smilies() {
+	$c = bbq('SELECT * from '. dbpref .'smilies');
+	while ($r = bbfetch($c)) {
+		$smiley = array(
+			'file'      => $GLOBALS['settings']['smilies_path'] .'/'. $r->smiley_url,
+			'code'      => $r->code,
+			'descr'     => $r->emotion,
+			'vieworder' => $r->smiley_order
+		);
+		target_add_smiley($smiley);
+	}
+}
+
+function source_load_users() {
+	$c = bbq('SELECT * FROM '. dbpref .'users u WHERE user_id>1 ORDER BY user_id');
+	while ($r = bbfetch($c)) {
+		// Hack for user id of 1, since this id is reserved for anon user in FUDforum.
+		if ($r->user_id == 1) $r->user_id = $GLOBALS['hack_id'] = bbfetch(bbq('SELECT MAX(user_id) AS cnt FROM '. dbpref .'users'))->cnt + 1;
+
+		// 0 = AVATAR_REMOTE, 1 = AVATAR_UPLOAD, 2 = AVATAR_GALLER.
+		$ext = strtolower(strrchr($r->user_avatar, '.'));
+		if ($r->user_avatar_type == 1) $r->user_avatar = $GLOBALS['settings']['avatar_path'] .'/'. $GLOBALS['settings']['avatar_salt'] .'_'. $r->user_id . $ext;
+		if ($r->user_avatar_type == 2) $r->user_avatar = $GLOBALS['settings']['avatar_gallery_path'] .'/'. $GLOBALS['settings']['avatar_salt'] .'_'. $r->user_id . $ext;
+
+		$user = array(
+			'id'        => $r->user_id,
+			'login'     => $r->username,
+			'name'      => $r->username_clean,
+			'passwd'    => $r->user_password,
+			'salt'      => $r->user_form_salt,
+			'last_visit'=> $r->user_lastvisit,
+			'last_read' => 0,
+			'join_date' => $r->user_regdate,
+			'reg_ip'    => $r->user_ip,
+			'email'     => $r->user_email,
+			'home_page' => $r->user_website,
+			'location'  => $r->user_from,
+			'time_zone' => $r->user_timezone,
+			'sig'       => $r->user_sig,
+			'avatar'    => $r->user_avatar,
+			'icq'       => $r->user_icq,
+			'aim'       => $r->user_aim,
+			'yahoo'     => $r->user_yim,
+			'msn'       => $r->user_msnm,
+			'users_opt' => 0
+		);
+		$user['users_opt'] |= ($r->user_type == USER_FOUNDER) ? 1048576 : 0;	// Admin.
+		$user['users_opt'] |= ($r->user_type == USER_INACTIVE) ? 131072 : 0;	// email_conf.
+		$user['users_opt'] |= $r->user_allow_viewemail ? 1 : 0;
+		$user['users_opt'] |= $r->user_notify ? 2 : 0;
+		$user['users_opt'] |= $r->user_notify_pm ? 64 : 0;
+		// $user['users_opt'] |= $r->user_attachsig ? 2048 : 0;
+		$user['users_opt'] |= $r->user_allow_viewonline ? 32768 : 0;
+		target_add_user($user);
+	}
+}
+
+function source_load_cats() {
+	$c = bbq('select * from '. dbpref .'forums WHERE forum_type = 0');
+	while ($r = bbfetch($c)) {
+		$cat = array(
+			'id'          => $r->forum_id,
+			'name'        => $r->forum_name,
+			'description' => $r->forum_desc,
+			'view_order'  => $r->left_id
+		);
+		target_add_cat($cat);
+	}
+}
+
+function source_load_forums() {
+	$c = bbq('select * from '. dbpref .'forums WHERE forum_type = 1');
+	while ($r = bbfetch($c)) {
+		$forum = array(
+			'id'          => $r->forum_id,
+			'cat_id'      => $r->parent_id,
+			'name'        => $r->forum_name,
+			'description' => $r->forum_desc,
+			'view_order'  => $r->left_id,
+			'post_passwd' => $r->forum_password,
+			'url_redirect'=> $r->forum_link
+		);
+		target_add_forum($forum);
+	}
+}
+
+function source_load_topics() {
+	$c = bbq('select * from '. dbpref .'topics');
+	while ($r = bbfetch($c)) {
+		$topic = array(
+			'id'          => $r->topic_id,
+			'forum_id'    => $r->forum_id,
+			'root_msg_id' => $r->topic_first_post_id,
+			'views'       => $r->topic_views,
+			'replies'     => $r->topic_replies,
+			'thread_opt'  => 0
+		);
+		$topic['thread_opt'] |= ($r->topic_status == ITEM_LOCKED) ? 1 : 0;	// Topic closed.
+		$topic['thread_opt'] |= ($r->topic_type == POST_ANNOUNCE) ? 2 : 0;	// Announcement.
+		$topic['thread_opt'] |= ($r->topic_type == POST_STICKY)   ? 4 : 0;	// Sticky topic.
+		target_add_topic($topic);
+	}
+}
+
+function source_load_messages() {
+	$c = bbq('select * from '. dbpref .'posts');
+	while ($r = bbfetch($c)) {
+		$message = array(
+			'id'           => $r->post_id,
+			'thread_id'    => $r->topic_id,
+			'poster_id'    => $r->poster_id,
+			'forum_id'     => $r->forum_id,
+			'post_stamp'   => $r->post_time,
+			'update_stamp' => $r->post_edit_time,
+			'updated_by'   => $r->post_edit_user,
+			'subject'      => $r->post_subject,
+			'ip_addr'      => $r->poster_ip,
+			'msg_opt'      => 0,
+			'body'         => $r->post_text
+		);
+		$message['msg_opt'] |= ($r->enable_smilies) ? 2 : 0;
+		target_add_message($message);
+	}
+}
+
+function source_load_attachments() {
+	$c = bbq('select * from '. dbpref .'attachments');
+	while ($r = bbfetch($c)) {
+		$att = array(
+			'file'           => $GLOBALS['settings']['upload_path'] .'/'. $r->	physical_filename,
+			'original_name'  => $r->real_filename,
+			'user_id'        => $r->poster_id,
+			'post_id'        => $r->post_msg_id,
+			'download_count' => $r->download_count
+		);
+		target_add_attachment($att);
+	}
+}
+
+function source_load_topic_subscriptions() {
+	// notify_status=0 => receive emails.
+	$c = bbq('select * from '. dbpref .'topics_watch WHERE notify_status=0');
+	while ($r = bbfetch($c)) {
+		$sub = array(
+			'user_id'    => $r->user_id,
+			'thread_id'  => $r->topic_id
+		);
+		target_add_topic_subscription($sub);
+	}
+}
+
+function source_load_private_messages() {
+	$c = bbq('SELECT * from '. dbpref .'privmsgs p LEFT JOIN '. dbpref .'privmsgs_to t ON p.msg_id = t.msg_id');
+	while ($r = bbfetch($c)) {
+		// $folder = $r->privmsgs_type != PRIVMSGS_SENT_MAIL ? 1 : 3;
+		$folder = 3;
+		$pm = array(
+			'ouser_id'   => $r->author_id,
+			'duser_id'   => $r->user_id,
+			'ip_addr'    => $r->author_ip,
+			'post_stamp' => $r->message_time,
+			'read_stamp' => 0,
+			'fldr'       => $folder,
+			'subject'    => $r->message_subject,
+			'pmsg_opt'   => 0,
+			'to_list'    => $r->to_address,
+			'body'       => $r->message_text
+		);
+		// if ($r->folder==2) $pm['fldr'] = 3;	// 3==SENT for FUDforum.
+		$pm['pmsg_opt'] |= $r->enable_sig     ? 1 : 0;
+		$pm['pmsg_opt'] |= $r->enable_smilies ? 0 : 2;
+		target_add_private_message($pm);
+	}
+}
+
+function source_auth_function() {
+	return 'md5(md5($u->salt).md5($password))';
+}
+
+?>

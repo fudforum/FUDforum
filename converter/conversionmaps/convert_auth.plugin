@@ -1,0 +1,65 @@
+<?php
+/***************************************************************************
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* email                : forum@prohost.org
+* $Id$
+*
+* This program is free software; you can redistribute it and/or modify it 
+* under the terms of the GNU General Public License as published by the 
+* Free Software Foundation; version 2 of the License. 
+***************************************************************************/
+
+plugin_add_hook('AUTHENTICATE', 'plugin_convert_auth');
+
+function plugin_convert_auth($data) {
+	$login    = $_POST['login'];
+	$password = $_POST['password'];
+
+	if (!($u = db_sab('SELECT id, passwd, salt FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'users WHERE login='. _esc($login)))) {
+		// Deny access, not a valid forum user.
+		return 0;
+	} else if (empty($u->salt) && $u->passwd == md5($password) || $u->passwd == sha1($u->salt . sha1($password))) {
+		// Allow through, valid FUDforum password.
+		return 1;
+	} else {
+		if ((@include_once $GLOBALS['PLUGIN_PATH'] .'convert_auth.ini') !== false) {
+			eval('$stored_passwd = '. $ini['auth_func'] .';');
+			if ($stored_passwd == $u->passwd) {
+				// Convert imported password to a FUDforum password.
+				q('UPDATE '. $GLOBALS['DBHOST_TBL_PREFIX'] .'users SET passwd = \''. md5($password) .'\', salt = NULL WHERE id='. $u->id);
+				return 1;
+			}
+		}
+	}
+
+	// Deny access.
+	return 0;
+}
+
+function convert_auth_info() {
+	return array('name' => 'Convert authentication',
+		     'desc' => '<p>This plugin will authenticate imported users and convert their passwords to FUDforum\'s standard as they log in.</p><p>This plugin can be removed after a couple of weeks when all active user acconts have been converted.</p>',
+		     'version' => '1.0');
+}
+
+function convert_auth_config() {
+	if((@include_once $GLOBALS['PLUGIN_PATH'] .'convert_auth.ini') === false) {
+		$ini = NULL;
+	}
+
+	if (isset($_POST['Set'])) {
+		foreach (array_keys($_POST) as $key) {
+			if ($key == 'auth_func') {
+				$ini[$key] = trim($_POST[$key]);
+			}
+		}
+		$fp = fopen($GLOBALS['PLUGIN_PATH'] .'convert_auth.ini', 'w');
+		fwrite($fp, '<?php $ini = '. var_export($ini, 1) .'; ?>');
+		fclose($fp);
+		pf(successify('Settings successfully saved.'));
+	}
+	echo '<p>Autentication function:<br />';
+	echo '<input name="auth_func" value="'. $ini['auth_func'] .'" size="30" /></p>';
+}
+
+?>

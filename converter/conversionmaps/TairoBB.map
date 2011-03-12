@@ -1,0 +1,144 @@
+<?php
+/***************************************************************************
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* email                : forum@prohost.org
+* $Id: TairoBB.inc 5054 2010-10-23 00:47:24Z naudefj $
+*
+* This program is free software; you can redistribute it and/or modify it 
+* under the terms of the GNU General Public License as published by the 
+* Free Software Foundation; version 2 of the License. 
+***************************************************************************/
+
+function source_read_config($dir) {
+	config_file_include('settings.php');
+}
+
+function source_db_connect() {
+	bbconn(	$GLOBALS['conf']['host'], 
+		$GLOBALS['conf']['db'],
+		$GLOBALS['conf']['user'],
+		$GLOBALS['conf']['pass'],
+		$GLOBALS['prefix']	);
+}
+
+function source_load_users() {
+	$c = bbq('SELECT u.*, r.name AS role FROM '. dbpref .'users u LEFT JOIN '. dbpref .'roles r ON r.id = u.rolegroup WHERE u.id>0 ORDER BY u.id');
+	while ($r = bbfetch($c)) {
+		// Hack for user id of 1, since this id is reserved for anon user in FUDforum.
+		if ($r->id == 1) $r->id = $GLOBALS['hack_id'] = bbfetch(bbq('SELECT MAX(id) AS cnt FROM '. dbpref .'users'))->cnt + 1;
+
+		$user = array(
+			'id'        => $r->id,
+			'login'     => $r->username,
+			'name'      => $r->displayname,
+			'passwd'    => $r->password,
+			'salt'      => $r->seed,
+			'last_visit'=> $r->register_time,
+			'reg_ip'    => $r->register_ip,
+			'last_read' => 0,
+			'join_date' => $r->onlinetime,
+			'email'     => $r->email,
+			'home_page' => $r->www,
+			'location'  => '',
+			'time_zone' => $r->timefix,
+			'sig'       => $r->signature,
+			'avatar'    => '',
+			'icq'       => $r->icq,
+			'aim'       => $r->aim,
+			'yahoo'     => $r->yim,
+			'msn'       => $r->msn,
+			'users_opt' => 0
+		);
+		$user['users_opt'] |= ($r->role == 'Admin') ? 1048576 : 0;	// Admin.
+		$user['users_opt'] |= ($r->role == 'Moderator') ? 524288  : 0;	// Moderator.
+		target_add_user($user);
+	}
+}
+
+function source_load_cats() {
+	$c = bbq('select * from '. dbpref .'boards WHERE parent_id = 0');
+	while ($r = bbfetch($c)) {
+		$cat = array(
+			'id'          => $r->id,
+			'name'        => $r->title,
+			'description' => $r->desc,
+			'view_order'  => $r->order
+		);
+		target_add_cat($cat);
+	}
+}
+
+function source_load_forums() {
+	$c = bbq('select * from '. dbpref .'boards WHERE parent_id != 0');
+	while ($r = bbfetch($c)) {
+		$forum = array(
+			'id'          => $r->id,
+			'cat_id'      => $r->parent_id,
+			'name'        => $r->title,
+			'description' => $r->desc,
+			'view_order'  => $r->order,
+			'post_passwd' => '',
+			'url_redirect'=> $r->www_redirect
+		);
+		target_add_forum($forum);
+	}
+}
+
+function source_load_topics() {
+	$c = bbq('select * from '. dbpref .'topics');
+	while ($r = bbfetch($c)) {
+		$topic = array(
+			'id'          => $r->id,
+			'forum_id'    => $r->board,
+			'root_msg_id' => 0,
+			'views'       => $r->views,
+			'replies'     => $r->post_count,
+			'thread_opt'  => 0
+		);
+		$topic['thread_opt'] |= ($r->is_lock)   ? 1 : 0;	// Topic closed.
+		$topic['thread_opt'] |= ($r->is_sticky) ? 4 : 0;	// Sticky topic.
+		target_add_topic($topic);
+	}
+}
+
+function source_load_messages() {
+	// Load discussions.
+	$c = bbq('select * from '. dbpref .'posts');
+	while ($r = bbfetch($c)) {
+		$message = array(
+			'id'           => $r->id,
+			'thread_id'    => $r->topic,
+			'poster_id'    => $r->creator_id,
+			'forum_id'     => $r->board,
+			'post_stamp'   => $r->creation_time,
+			'update_stamp' => $r->edit_time,
+			'updated_by'   => $r->edit_id,
+			'subject'      => $r->title,
+			'ip_addr'      => '',
+			'msg_opt'      => 0,
+			'body'         => $r->text
+		);
+		target_add_message($message);
+	}
+}
+
+function source_load_attachments() {
+	$c = bbq('select * from '. dbpref .'attachments');
+	while ($r = bbfetch($c)) {
+		$att = array(
+			'file'           => '/uploads/attachments/'. $r->real_filename,
+			'original_name'  => $r->filename,
+			'user_id'        => $r->user_id,
+			'post_id'        => $r->post_id,
+			'download_count' => $r->downloads
+
+		);
+		target_add_attachment($att);
+	}
+}
+
+function source_auth_function() {
+	return 'substr(str_rot13(sha1(substr($u->salt,0,9).$password)),0,39).substr($u->salt,9,1)';
+}
+
+?>

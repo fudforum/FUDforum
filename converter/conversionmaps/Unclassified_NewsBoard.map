@@ -1,0 +1,142 @@
+<?php
+/***************************************************************************
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* email                : forum@prohost.org
+* $Id: Unclassified_NewsBoard.inc 5054 2010-10-23 00:47:24Z naudefj $
+*
+* This program is free software; you can redistribute it and/or modify it 
+* under the terms of the GNU General Public License as published by the 
+* Free Software Foundation; version 2 of the License. 
+***************************************************************************/
+
+function source_read_config($dir) {
+	$conf_filename = $GLOBALS['CONVERT_FROM_DIR'] .'/board.conf.php';
+
+	$cf = file($conf_filename);
+	if ($cf === false) {
+		seterr('The configuration file could not be read.');
+	}
+
+	foreach ($cf as $line) {
+		$line = ltrim($line);
+		if ($line == '') continue;
+		if ($line{0} === '#' || trim($line) === '<?php' || trim($line) === '?>') continue;
+		$pos = strpos($line, '=');
+		$value = trim(substr($line, $pos + 1));
+		if ($pos > 0) $GLOBALS[ rtrim(substr($line, 0, $pos)) ] = $value;
+	}
+}
+
+function source_db_connect() {
+	if (!strncmp($GLOBALS['db_pass'], 'b64:', 4)) $GLOBALS['db_pass'] = base64_decode(substr($GLOBALS['db_pass'], 4));
+	bbconn(	$GLOBALS['db_server'], 
+		$GLOBALS['db_name'],
+		$GLOBALS['db_user'],
+		$GLOBALS['db_pass'],
+		$GLOBALS['db_prefix']	);
+}
+
+function source_load_users() {
+	$c = bbq('SELECT * FROM '. dbpref .'users WHERE id>0 ORDER BY id');
+	while ($r = bbfetch($c)) {
+		// Hack for user id of 1, since this id is reserved for anon user in FUDforum.
+		if ($r->ID == 1) $r->ID = $GLOBALS['hack_id'] = bbfetch(bbq('SELECT MAX(id) AS cnt FROM '. dbpref .'users'))->cnt + 1;
+		$user = array(
+			'id'        => $r->ID,
+			'login'     => $r->Name,
+			'name'      => $r->Name,
+			'passwd'    => $r->Password,
+			'salt'      => '',
+			'last_visit'=> $r->LastActivity,
+			'last_read' => 0,
+			'join_date' => $r->RegDate,
+			'reg_ip'    => '',
+			'email'     => $r->EMail,
+			'home_page' => $r->Homepage,
+			'location'  => $r->Location,
+			'time_zone' => $r->Timezone,
+			'sig'       => $r->Signature,
+			'avatar'    => '',
+			'icq'       => $r->ICQ,
+			'aim'       => $r->AIM,
+			'yahoo'     => $r->YIM,
+			'msn'       => $r->MSN,
+			'users_opt' => 0
+		);
+		$c2 = bbq('SELECT * FROM '. dbpref .'groupmembers m LEFT JOIN '. dbpref .'groupnames g ON m.User = g.ID WHERE User='. $r->ID);
+		while ($r2 = bbfetch($c)) {
+			$user['users_opt'] |= ($r2->Name == 'Administrator'    ) ? 1048576 : 0;	// Admin.
+			$user['users_opt'] |= ($r2->Name == 'Global Moderators') ?  524288 : 0;	// Moderator.
+		}
+		target_add_user($user);
+	}
+}
+
+function source_load_cats() {
+	$c = bbq('select * from '. dbpref .'forums WHERE Flags = 1');
+	while ($r = bbfetch($c)) {
+		$cat = array(
+			'id'          => $r->ID,
+			'name'        => $r->Name,
+			'description' => $r->Description,
+			'view_order'  => $r->Sort
+		);
+		target_add_cat($cat);
+	}
+}
+
+function source_load_forums() {
+	$c = bbq('select * from '. dbpref .'forums WHERE Flags = 0');
+	while ($r = bbfetch($c)) {
+		$forum = array(
+			'id'          => $r->ID,
+			'cat_id'      => $r->Parent,
+			'name'        => $r->Name,
+			'description' => $r->Description,
+			'view_order'  => $r->Sort,
+			'post_passwd' => '',
+			'url_redirect'=> $r->Link
+		);
+		target_add_forum($forum);
+	}
+}
+
+function source_load_topics() {
+	$c = bbq('select * from '. dbpref .'threads');
+	while ($r = bbfetch($c)) {
+		$topic = array(
+			'id'          => $r->ID,
+			'forum_id'    => $r->Forum,
+			'root_msg_id' => 0,
+			'views'       => $r->Views,
+			'replies'     => 0,
+			'thread_opt'  => 0
+		);
+		$topic['thread_opt'] |= ($r->Options == 1) ? 1 : 0;	// Topic open.
+		$topic['thread_opt'] |= ($r->Options == 2) ? 4 : 0;	// Sticky topic.
+		target_add_topic($topic);
+	}
+}
+
+function source_load_messages() {
+	$c = bbq('select * from '. dbpref .'posts p INNER JOIN '. dbpref .'threads t ON t.ID = p.THREAD');
+	while ($r = bbfetch($c)) {
+		$message = array(
+			'id'           => $r->ID,
+			'thread_id'    => $r->Thread,
+			'poster_id'    => $r->IP,
+			'forum_id'     => $r->Forum,
+			'post_stamp'   => $r->Date,
+			'update_stamp' => $r->EditDate,
+			'updated_by'   => $r->EditUser,
+			'subject'      => $r->Subject,
+			'ip_addr'      => $r->IP,
+			'msg_opt'      => 0,
+			'body'         => $r->Msg
+		);
+		$message['msg_opt'] |= ($r->Options == 1) ? 2 : 0;	// NoSmileys.
+		target_add_message($message);
+	}
+}
+
+?>
