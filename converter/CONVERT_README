@@ -12,8 +12,8 @@ for best results.
 
 To make it easier to focus on the mapping of the source forum to FUDforum, we've
 separated the conversion rules into "map" files. To add a new converter,
-simply add a new *.map file to the "converters/" directory or tweak the rules in
-exiting map files.
+simply add a new *.map file to the "conversionmaps/" directory or tweak the rules
+in the exiting map files.
 
 A map consists of a series of SOURCE_* functions (for example
 source_source_load_users). All these functions are optional and a map file only
