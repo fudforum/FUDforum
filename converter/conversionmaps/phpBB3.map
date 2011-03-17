@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: phpBB3.inc 5054 2010-10-23 00:47:24Z naudefj $
+* $Id: phpBB3.map 5054 2010-10-23 00:47:24Z naudefj $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -20,7 +20,8 @@ function source_db_connect() {
 		$GLOBALS['dbname'],
 		$GLOBALS['dbuser'],
 		$GLOBALS['dbpasswd'],
-		$GLOBALS['table_prefix']	);
+		$GLOBALS['table_prefix'],
+		$GLOBALS['dbms'] );
 
 	$c = bbq('SELECT * FROM '. dbpref .'config');
 	while ($r = bbfetch($c)) {
@@ -70,7 +71,7 @@ function source_load_users() {
 			'login'     => $r->username,
 			'name'      => $r->username_clean,
 			'passwd'    => $r->user_password,
-			'salt'      => $r->user_form_salt,
+			'salt'      => '',
 			'last_visit'=> $r->user_lastvisit,
 			'last_read' => 0,
 			'join_date' => $r->user_regdate,
@@ -217,7 +218,7 @@ function source_load_private_messages() {
 }
 
 function source_auth_function() {
-	return 'md5(md5($u->salt).md5($password))';
+	return 'phpbb_check_hash($password, $u->passwd)';
 }
 
 ?>

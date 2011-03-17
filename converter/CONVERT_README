@@ -15,12 +15,12 @@ separated the conversion rules into "map" files. To add a new converter,
 simply add a new *.map file to the "conversionmaps/" directory or tweak the rules
 in the exiting map files.
 
-A map consists of a series of SOURCE_* functions (for example
-source_source_load_users). All these functions are optional and a map file only
-contain the functions it requires. These functions will retrieve information from
-the source forum and map it into an array, witch is then passed back to the 
-converter to add to FUDforum. As an example, source_source_load_users() will
-make callbacks to target_load_user() to add users to FUDforum.
+A map consists of a series of SOURCE_* functions (for example source_load_users).
+All these functions are optional and a map file only contain the functions it
+requires. These functions will retrieve information from the source forum and map
+it into an array, witch is then passed back to the converter to add to FUDforum.
+As an example, source_source_load_users() will make callbacks to target_load_user()
+to add users to FUDforum.
 
 INSTRUCTIONS:
 -------------
@@ -52,8 +52,8 @@ Best of luck!
 KNOWN PROBLEMS AND RESTRICTIONS:
 --------------------------------
 
-1. The source forum must use MySQL.
-   Easy to change, but only MySQL is implemented at this stage.
+1. The source forum must use MySQL or PostgreSQL.
+   It is, however, quite easy to add support for additional databases.
 
 2. After conversion, login to the forum (not the ACP!).
    The ACP will not invoke authentication plugins and may not allow you to

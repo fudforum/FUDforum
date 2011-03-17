@@ -32,46 +32,55 @@ function seterr($msg)
 	}
 }
 
-/** Connect to the source forum's DB.
-  * @TODO: Support databases other than MySQL.
-  */
-function bbconn($host, $dbname, $dbuser, $dbpass, $prefix) {
-	if (!($conn = mysql_connect($host, $dbuser, $dbpass))) {
-	// if (!($conn = pg_connect('host='. $host .' dbname='. $dbname .' user='. $dbuser .' password='. $dbpass))) {
-		seterr('Unable to connect to the source forum\'s database.');
+/** Connect to the source forum's DB. */
+function bbconn($host, $dbname, $dbuser, $dbpass, $prefix, $dbtype='mysql') {
+	if (preg_match('/mysql/i', $dbtype)) {
+		if (!($conn = mysql_connect($host, $dbuser, $dbpass))) {
+			seterr('Unable to connect to the source forum\'s MySQL database.');
+		}
+		define('dbtype', 'mysql');
+		define('dbpref', $dbname .'.'. $prefix);
+	} else if (preg_match('/pgsql/i', $dbtype) || preg_match('/postgres/i', $dbtype)) {
+		$dsn = 'host='. $host .' dbname='. $dbname .' user='. $dbuser .' password='. $dbpass;
+		if (!($conn = pg_connect($dsn))) {
+			seterr('Unable to connect to the source forum\'s PostgreSQL database.');
+		}
+		define('dbtype', 'pgsql');
+		define('dbpref', $prefix);
+	} else {
+		seterr('Unsupported database type ['. $dbtype .']');
 	}
+
 	define('dbconn', $conn);
-	define('dbpref', $dbname .'.'. $prefix);
 }
 
-/** Perform query against source forum's DB. 
-  * @TODO: Support databases other than MySQL.
-  */
+/** Perform query against source forum's DB. */
 function bbq($q, $err=0)
 {
-	$r = mysql_query($q, dbconn);
-	// $r = pg_query($q, dbcon);
+	if (dbtype == 'mysql') $r = mysql_query($q, dbconn);
+	if (dbtype == 'pgsql') $r = pg_query(dbconn, $q);
 	if ($r) {
 		return $r;
 	}
 	if (!$err) {
-		die(mysql_error(dbconn));
-		// die(pg_last_error(dbconn));
+		if (dbtype == 'mysql') die(mysql_error(  dbconn));
+		if (dbtype == 'pgsql') die(pg_last_error(dbconn));
 	}
 }
 
-/** Fetch a row from the source forum's DB.
-  * @TODO: Support databases other than MySQL.
-  */
+/** Fetch a row from the source forum's DB. */
 function bbfetch($r)
 {
-	return mysql_fetch_object($r);
-	// return pg_fetch_object($r);
+	if (dbtype == 'mysql') return mysql_fetch_object($r);
+	if (dbtype == 'pgsql') return pg_fetch_object(   $r);
 }
 
 /** BBCode cleanup and convertion. */
 function bbcode2fudcode($str)
 {
+	// Replace [center] with [align=center].
+	$str = preg_replace('!\[center\](.*)\[/center\]!i', '[align=center]\1[/align]', $str);
+
 	$str = preg_replace('!\[(.+?)\:([a-z0-9]+)?\]!s', '[\1]', $str);
 	$str = preg_replace('!\[quote\:([a-z0-9]+?)="(.*?)"\]!is', '[quote=\2]', $str);
 	$str = preg_replace('!\[code\:([^\]]+)\]!is', '[code]', $str);
@@ -190,6 +199,11 @@ function target_add_user($user)
 		seterr('Cannot add user with id 1 since it is reserved for the anon user in FUDforum.');
 	}
 
+	if (!$user['last_visit']) $user['last_visit'] = max($user['last_read'],  $user['join_date']);
+	if (!$user['last_read'] ) $user['last_read']  = max($user['last_visit'], $user['join_date']);
+	if (!$user['join_date'] ) $user['join_date']  = max($user['last_read'],  $user['last_visit']);
+
+	// Load avatar.
 	$avatar = 0; $avatar_loc = '';
 	if (!empty($user['avatar'])) {
 		$avatar_file = preg_replace('/\?.*/', '\\1', $user['avatar']);	// Remove URL params.
@@ -292,11 +306,10 @@ $GLOBALS['cat_map'][$c->fid] = $nc->add('LAST');	// FIRST should also be default
 function target_add_forum($forum)
 {
 	if ($GLOBALS['VERBOSE']) pf('...'. $forum['name']);
-	
-	if ($forum['cat_id']==0 || !isset($GLOBALS['cat_map'][ $forum['cat_id'] ])) {
+
+	if (!isset($GLOBALS['cat_map'][ $forum['cat_id'] ])) {
 		pf('WARNING: Create category for uncategorized forum.');
 		$cat_id = q_singleval('SELECT MAX(id)+1 from '. $GLOBALS['DBHOST_TBL_PREFIX'] .'cat');
-		if (!$cat_id) $cat_id = 1;
 		target_add_cat(array('id'=>$cat_id, 'name'=>'Uncategorized Forums', 'description'=>'', 'view_order'=>$cat_id));
 		$forum['cat_id'] = $cat_id;
 	}
@@ -452,7 +465,7 @@ function target_add_topic_subscription($sub)
 function target_add_poll($poll)
 {
 	if ($GLOBALS['VERBOSE']) pf('...'. $poll['name']);
-	
+
 	if ($poll['owner'] == 1) {
 		$poll['owner'] = $GLOBALS['hack_id'];
 	}
@@ -550,6 +563,22 @@ if ($gl === FALSE) {
 	seterr('Please install FUDforum and copy this script into the forum\'s main web directory.');
 }
 
+/* Check if forum must be un-locked, */
+define('__WEB__', (isset($_SERVER['REMOTE_ADDR']) === FALSE ? 0 : 1));
+if (strncasecmp('win', PHP_OS, 3) && ($FUD_OPT_2 & 8388608) && !__WEB__) {
+	seterr('Since you are running the script via the console, you must first UNLOCK your forum\'s files.');
+}
+
+/* List available converter mapping plugins. */
+foreach (glob('./conversionmaps/*.map') as $f) {
+	$f = preg_replace('/(.*)\.map$/', '\1', basename($f));
+	$converters[] = $f;
+}
+if (empty($converters)) {
+	seterr('No converters available that can be used.');
+}
+
+/* Get parameters. */
 if (php_sapi_name() == 'cli') {
 
 	if (empty($_SERVER['argv'][1]) || empty($_SERVER['argv'][2])) {
@@ -589,15 +618,6 @@ $(document).ready(function() {
 
 <?php
 	if (!count($_POST)) {
-
-		// List available converter mapping plugins.
-		foreach (glob('./conversionmaps/*.map') as $f) {
-			$f = preg_replace('/(.*)\.map$/', '\1', basename($f));
-			$converters[] = $f;
-		}
-		if (empty($converters)) {
-			seterr('No converters available that can be used.');
-		}
 		$dir = str_replace('\\', '/', dirname( getcwd() ) .'/');
 
 ?>
@@ -652,20 +672,15 @@ $(document).ready(function() {
 }
 
 /* Load the releant converter mapping plugin. */
-$inc = include('./conversionmaps/'. $CONVERT_FROM_FORUM .'.map');
+$inc = @include('./conversionmaps/'. $CONVERT_FROM_FORUM .'.map');
 if ($inc === FALSE) {
-	seterr('Invalid converter ['. $CONVERT_FROM_FORUM .'] specified.');
+	pf('Invalid forum_type specified ['. $CONVERT_FROM_FORUM .'] specified.');
+	seterr('Available: '. implode(', ', $converters));
 }
 
 /* Check source forum directory. */
 if (!is_dir($CONVERT_FROM_DIR)) {
 	seterr('Source forum direcory is invalid ['. $CONVERT_FROM_DIR .'].');
-}
-
-/* Check if forum must be un-locked, */
-define('__WEB__', (isset($_SERVER['REMOTE_ADDR']) === FALSE ? 0 : 1));
-if (strncasecmp('win', PHP_OS, 3) && ($FUD_OPT_2 & 8388608) && !__WEB__) {
-	seterr('Since you are running conversion script via the console you must UNLOCK your forum\'s files first.');
 }
 
 /* Prevent session initialization. */
@@ -748,6 +763,7 @@ if (function_exists('source_load_forums')) {
 if (function_exists('source_load_topics')) {
 	pf('Import topics...');
 	q('DELETE FROM '. $DBHOST_TBL_PREFIX .'thread');
+	q('DELETE FROM '. $DBHOST_TBL_PREFIX .'thread_rate_track');
 	source_load_topics();
 }
 
@@ -830,6 +846,7 @@ if (!$admin || $ADD_ADMIN) {
 // Clear old FUDforum sessions.
 q('DELETE FROM '. $DBHOST_TBL_PREFIX .'ses');
 
+// Print time taken.
 $time_taken = time() - $start_time;
 if ($time_taken > 120) {
 	$time_taken .= ' seconds.';
@@ -837,7 +854,7 @@ if ($time_taken > 120) {
 	$m = floor($time_taken/60);
 	$s = $time_taken - $m*60;
 	$time_taken = $m .' minutes '. $s .' seconds.';
-}	
+}
 
 pf('<hr><span style="color:darkgreen;">Conversion of '. $CONVERT_FROM_FORUM .' to FUDforum has been completed.</span>');
 pf('Time Taken: '. $time_taken);

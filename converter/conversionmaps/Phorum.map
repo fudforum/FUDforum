@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: Phorum.inc 5054 2010-10-23 00:47:24Z naudefj $
+* $Id: Phorum.map 5054 2010-10-23 00:47:24Z naudefj $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -19,7 +19,8 @@ function source_db_connect() {
 		$GLOBALS['PHORUM']['DBCONFIG']['name'],
 		$GLOBALS['PHORUM']['DBCONFIG']['user'],
 		$GLOBALS['PHORUM']['DBCONFIG']['password'],
-		$GLOBALS['PHORUM']['DBCONFIG']['table_prefix'] .'_'	);
+		$GLOBALS['PHORUM']['DBCONFIG']['table_prefix'] .'_',
+		$GLOBALS['PHORUM']['DBCONFIG']['type']	);
 }
 
 function source_load_users() {
@@ -50,21 +51,33 @@ function source_load_users() {
 			'msn'       => '',
 			'users_opt' => 0
 		);
-		$user['users_opt'] |= $r->admin      ? 1048576 : 0;	// is_admin
-		$user['users_opt'] |= $r->hide_email ?       1 : 0;
+		$user['users_opt'] |= ($r->admin)         ? 1048576 : 0;	// is_admin
+		$user['users_opt'] |= (!$r->active)       ?   65536 : 0;	// blocked
+		$user['users_opt'] |= ($r->hide_activity) ?   32768 : 0;	// invisible_mode
+		$user['users_opt'] |= (!$r->hide_email)   ?       1 : 0;	// display_email
 		target_add_user($user);
 	}
 }
 
 function source_load_cats() {
+	$c = bbq('SELECT * FROM '. dbpref .'forums WHERE folder_flag = 1');
+	while ($r = bbfetch($c)) {
+		$cat = array(
+			'id'          => $r->forum_id,
+			'name'        => $r->name,
+			'description' => $r->description,
+			'view_order'  => $r->forum_id
+		);
+		target_add_cat($cat);
+	}
 }
 
 function source_load_forums() {
-	$c = bbq('SELECT * FROM '. dbpref .'forums');
+	$c = bbq('SELECT * FROM '. dbpref .'forums WHERE folder_flag = 0');
 	while ($r = bbfetch($c)) {
 		$forum = array(
 			'id'          => $r->forum_id,
-			'cat_id'      => 0,
+			'cat_id'      => $r->parent_id,
 			'name'        => $r->name,
 			'description' => $r->description,
 			'view_order'  => $r->display_order,
@@ -119,5 +132,41 @@ function source_load_topic_subscriptions() {
 			'topic_id'  => $r->thread
 		);
 		target_add_topic_subscription($sub);
+	}
+}
+
+function source_load_attachments() {
+	$c = bbq('SELECT * FROM '. dbpref .'files WHERE message_id > 0');
+	while ($r = bbfetch($c)) {
+		file_put_contents($GLOBALS['CONVERT_FROM_DIR'] .'att.tmp', base64_decode($r->file_data));
+		$att = array(
+			'file'           => $GLOBALS['CONVERT_FROM_DIR'] .'att.tmp',
+			'original_name'  => $r->filename,
+			'user_id'        => $r->user_id,
+			'post_id'        => $r->message_id,
+			'download_count' => 0
+
+		);
+		target_add_attachment($att);
+	}
+}
+
+function source_load_private_messages() {
+	$c = bbq('SELECT m.*, x.read_flag, x.user_id to_id from '. dbpref .'pm_messages m LEFT JOIN  '. dbpref .'pm_xref x ON m.pm_message_id = x.pm_message_id WHERE special_folder = \'inbox\'');
+	while ($r = bbfetch($c)) {
+		$pm = array(
+			'ouser_id'   => $r->user_id,
+			'duser_id'   => $r->to_id,
+			'ip_addr'    => '',
+			'post_stamp' => $r->datestamp,
+			'read_stamp' => 0,
+			'fldr'       => 1,	// INBOX
+			'subject'    => $r->subject,
+			'pmsg_opt'   => 0,
+			'to_list'    => $r->to_id,
+			'body'       => $r->message
+		);
+		$pm['pmsg_opt'] |= $r->read_flag  ? 4 : 0;
+		target_add_private_message($pm);
 	}
 }
