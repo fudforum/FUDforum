@@ -132,7 +132,6 @@ function source_load_topics() {
 function source_load_messages() {
 	$c = bbq('SELECT * FROM '. dbpref .'posts');
 	while ($r = bbfetch($c)) {
-		$msg_opt = ($r->smilieoff ? 2 : 0);
 		$message = array(
 			'id'           => $r->pid,
 			'thread_id'    => $r->tid,
@@ -143,9 +142,10 @@ function source_load_messages() {
 			'updated_by'   => $r->edituid,
 			'subject'      => $r->subject,
 			'ip_addr'      => $r->ipaddress,
-			'msg_opt'      => $msg_opt,
+			'msg_opt'      => 0,
 			'body'         => $r->message
 		);
+		$message['msg_opt'] |= $r->smilieoff ? 2 : 0;
 		target_add_message($message);
 	}
 }
@@ -206,8 +206,8 @@ function source_load_topic_subscriptions() {
 	$c = bbq('SELECT * from '. dbpref .'threadsubscriptions WHERE notification=1');
 	while ($r = bbfetch($c)) {
 		$sub = array(
-			'user_id'    => $r->uid,
-			'thread_id'  => $r->tid
+			'user_id'   => $r->uid,
+			'topic_id'  => $r->tid
 		);
 		target_add_topic_subscription($sub);
 	}

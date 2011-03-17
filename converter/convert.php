@@ -37,6 +37,7 @@ function seterr($msg)
   */
 function bbconn($host, $dbname, $dbuser, $dbpass, $prefix) {
 	if (!($conn = mysql_connect($host, $dbuser, $dbpass))) {
+	// if (!($conn = pg_connect('host='. $host .' dbname='. $dbname .' user='. $dbuser .' password='. $dbpass))) {
 		seterr('Unable to connect to the source forum\'s database.');
 	}
 	define('dbconn', $conn);
@@ -49,11 +50,13 @@ function bbconn($host, $dbname, $dbuser, $dbpass, $prefix) {
 function bbq($q, $err=0)
 {
 	$r = mysql_query($q, dbconn);
+	// $r = pg_query($q, dbcon);
 	if ($r) {
 		return $r;
 	}
 	if (!$err) {
 		die(mysql_error(dbconn));
+		// die(pg_last_error(dbconn));
 	}
 }
 
@@ -63,6 +66,7 @@ function bbq($q, $err=0)
 function bbfetch($r)
 {
 	return mysql_fetch_object($r);
+	// return pg_fetch_object($r);
 }
 
 /** BBCode cleanup and convertion. */
@@ -289,9 +293,10 @@ function target_add_forum($forum)
 {
 	if ($GLOBALS['VERBOSE']) pf('...'. $forum['name']);
 	
-	if (!isset($GLOBALS['cat_map'][ $forum['cat_id'] ])) {
+	if ($forum['cat_id']==0 || !isset($GLOBALS['cat_map'][ $forum['cat_id'] ])) {
 		pf('WARNING: Create category for uncategorized forum.');
 		$cat_id = q_singleval('SELECT MAX(id)+1 from '. $GLOBALS['DBHOST_TBL_PREFIX'] .'cat');
+		if (!$cat_id) $cat_id = 1;
 		target_add_cat(array('id'=>$cat_id, 'name'=>'Uncategorized Forums', 'description'=>'', 'view_order'=>$cat_id));
 		$forum['cat_id'] = $cat_id;
 	}
@@ -730,13 +735,13 @@ if (function_exists('source_load_cats')) {
 	q('DELETE FROM '. $DBHOST_TBL_PREFIX .'cat');
 	q('DELETE FROM '. $DBHOST_TBL_PREFIX .'group_resources');
 	q('DELETE FROM '. $DBHOST_TBL_PREFIX .'groups WHERE id>2');
-	q('DELETE FROM '. $DBHOST_TBL_PREFIX .'forum');
 	q('DELETE FROM '. $DBHOST_TBL_PREFIX .'group_members');
 	source_load_cats();
 }
 
 if (function_exists('source_load_forums')) {
 	pf('Import forums...');
+	q('DELETE FROM '. $DBHOST_TBL_PREFIX .'forum');
 	source_load_forums();
 }
 

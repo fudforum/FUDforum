@@ -128,8 +128,8 @@ function source_load_topic_subscriptions() {
 	$c = bbq('select * from '. dbpref .'topic_subscriptions');
 	while ($r = bbfetch($c)) {
 		$sub = array(
-			'user_id'    => $r->user_id,
-			'thread_id'  => $r->topic_id
+			'user_id'  => $r->user_id,
+			'topic_id' => $r->topic_id
 		);
 		target_add_topic_subscription($sub);
 	}
