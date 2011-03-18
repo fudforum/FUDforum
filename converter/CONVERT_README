@@ -16,16 +16,16 @@ simply add a new *.map file to the "conversionmaps/" directory or tweak the rule
 in the exiting map files.
 
 A map consists of a series of SOURCE_* functions (for example source_load_users).
-All these functions are optional and a map file only contain the functions it
+All these functions are optional and a map file only contains the functions it
 requires. These functions will retrieve information from the source forum and map
-it into an array, witch is then passed back to the converter to add to FUDforum.
+it into an array, which is then passed back to the converter to add to FUDforum.
 As an example, source_source_load_users() will make callbacks to target_load_user()
 to add users to FUDforum.
 
 INSTRUCTIONS:
 -------------
 
-1. Install FUDforum or identify an exiting installation where the messages must be
+1. Install FUDforum or identify an existing installation where the messages must be
    imported into.
 
 2. Download and copy the conversion script to your forum's WWW_ROOT directory.
@@ -37,7 +37,7 @@ INSTRUCTIONS:
 
 3.2. Command line installation is preferred for large forums.
      Example: $ php ./convert.php MyBB ../mybb/
-     The first agrument is the source forum type. The second is the path to where
+     The first argument is the source forum type. The second is the path to where
      it is installed.
 
 4. After running the converter, login to the forum and run the Consistency Checker.

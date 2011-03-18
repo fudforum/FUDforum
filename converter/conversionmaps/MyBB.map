@@ -19,7 +19,8 @@ function source_db_connect() {
 		$GLOBALS['config']['database']['database'],
 		$GLOBALS['config']['database']['username'],
 		$GLOBALS['config']['database']['password'],
-		$GLOBALS['config']['database']['table_prefix']	);
+		$GLOBALS['config']['database']['table_prefix'],
+		$GLOBALS['config']['database']['type']	);
 }
 
 function source_load_avatars() {

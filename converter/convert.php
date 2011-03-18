@@ -9,7 +9,7 @@
 * Free Software Foundation; version 2 of the License. 
 ***************************************************************************/
 
-/** Print string to web browser or command line. */
+/** Print a message to web browser or command line. */
 function pf($str='', $webonly=false)
 {
 	if (php_sapi_name() == 'cli') {
@@ -212,7 +212,7 @@ function target_add_user($user)
 			// External avatar.
 			if (!($im = @getimagesize($avatar_file))) {
 					pf('WARNING: external avatar ['. $avatar_file .'] is an invalid image.');
-					return;
+					// return;
 			}
 			$avatar_loc = '<img src="'. $avatar_file .'" alt="" '. $im[3] .' />';
 		} else {
@@ -226,13 +226,13 @@ function target_add_user($user)
 				}
 				if (!($im = @getimagesize($avatar_file))) {
 					pf('WARNING: Cannot find custom uplaoded avatar ['. $avatar_file .']');
-					return;
+					// return;
 				}
 				$new_avatar_file = $GLOBALS['WWW_ROOT_DISK'] .'/images/custom_avatars/'. basename($avatar_file);
 				$new_avatar_url  = $GLOBALS['WWW_ROOT']      .'/images/custom_avatars/'. basename($avatar_file);
 				if (!copy($avatar_file, $new_avatar_file)) {
 					pf('WARNING: Cannot copy custom uploaded avatar ['. $avatar_file .'] to ['. $new_avatar_file .']!');
-					return;
+					// return;
 				}
 				$avatar_loc = '<img src="'. $new_avatar_url .'" alt="" '. $im[3] .' />';
 			}
@@ -262,7 +262,7 @@ function target_add_user($user)
 			'. _esc(bbcode2fudcode($user['sig'])) .',
 			'. (int)$avatar .',
 			'. _esc($avatar_loc) .',
-			'. _esc($user['icq']) .',
+			'. (int)$user['icq'] .',
 			'. _esc($user['aim']) .',
 			'. _esc($user['yahoo']) .',
 			'. _esc($user['msn']) .',
@@ -310,6 +310,7 @@ function target_add_forum($forum)
 	if (!isset($GLOBALS['cat_map'][ $forum['cat_id'] ])) {
 		pf('WARNING: Create category for uncategorized forum.');
 		$cat_id = q_singleval('SELECT MAX(id)+1 from '. $GLOBALS['DBHOST_TBL_PREFIX'] .'cat');
+		if (!$cat_id) $cat_id = 1;
 		target_add_cat(array('id'=>$cat_id, 'name'=>'Uncategorized Forums', 'description'=>'', 'view_order'=>$cat_id));
 		$forum['cat_id'] = $cat_id;
 	}
@@ -352,6 +353,8 @@ $GLOBALS['forum_map'][$c->fid] = $nf->add('LAST');
 /** Callback to load a topic/thread into the FUDforum database. */
 function target_add_topic($topic)
 {
+	// if ($GLOBALS['VERBOSE']) pf('...'. $topic['id']);
+
 	if (!isset($topic['orderexpiry'])) {
 		$topic['orderexpiry'] = 0;
 	}
@@ -359,6 +362,12 @@ function target_add_topic($topic)
 	// Set orderexpiry for announcement and sticky topics.
 	if (($topic['thread_opt'] & 2) || ($topic['thread_opt'] & 4)) {
 		$topic['orderexpiry'] = 1000000000;
+	}
+
+	// Skip topics that doesn't belong to a forum.
+	if (!isset($GLOBALS['forum_map'][ (int)$topic['forum_id'] ])) {
+		pf('WARNING: Skip topic #'. $topic['id'] .'. Probably an announcement or orphaned message!');
+		return;
 	}
 
 	q('INSERT INTO '. $GLOBALS['DBHOST_TBL_PREFIX'] .'thread (
@@ -485,9 +494,6 @@ function target_add_poll($poll)
 /** Callback to load a poll question into the FUDforum database. */
 function target_add_poll_question($q)
 {
-	if (!isset($q['count'])) {
-		$q['count'] = 0;
-	}
 	$qid = db_qid('INSERT INTO '. $GLOBALS['DBHOST_TBL_PREFIX'] .'poll_opt (poll_id, name)
 		VALUES('. (int)$q['id'] .', '. _esc($q['name']) .')');
 	return $qid;
@@ -577,6 +583,7 @@ foreach (glob('./conversionmaps/*.map') as $f) {
 if (empty($converters)) {
 	seterr('No converters available that can be used.');
 }
+natcasesort($converters);
 
 /* Get parameters. */
 if (php_sapi_name() == 'cli') {
@@ -597,7 +604,6 @@ if (php_sapi_name() == 'cli') {
 <head>
 <title>FUDforum Migration Assistant</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="styleSheet" href="adm/adm.css" type="text/css" />
 <link rel="styleSheet" href="adm/style/adm.css" type="text/css" />
 <style type="text/css">html, body { height: 95%; }</style>
 <script type="text/javascript" src="js/jquery.js"></script>
@@ -838,13 +844,18 @@ if (!$admin || $ADD_ADMIN) {
 	if (!$admin) {
 		pf('<hr>There is no admin account in the database, so we took the liberty of creating one for you.');
 	} else {
-		pf('<hr>As requeted, we\'ve created an admin user for you.');
+		pf('<hr>As requested, we\'ve created an admin user for you.');
 	}
 	pf('Please login with: <b>'. $user .'/fudforum</b>');
 }
 
 // Clear old FUDforum sessions.
 q('DELETE FROM '. $DBHOST_TBL_PREFIX .'ses');
+
+// Clear & log action.
+fud_use('logaction.inc');
+q('DELETE FROM '. $DBHOST_TBL_PREFIX .'action_log');
+logaction(1, 'Converted from '. $CONVERT_FROM_FORUM, 0, $CONVERT_FROM_DIR);
 
 // Print time taken.
 $time_taken = time() - $start_time;

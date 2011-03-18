@@ -18,7 +18,8 @@ function source_db_connect() {
 		$GLOBALS['config']['db_database'],
 		$GLOBALS['config']['db_user'],
 		$GLOBALS['config']['db_pass'],
-		$GLOBALS['config']['db_prefix']	);
+		$GLOBALS['config']['db_prefix'],
+		$GLOBALS['config']['db_engine']	);
 }
 
 function source_load_users() {
