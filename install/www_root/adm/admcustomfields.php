@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -26,6 +26,9 @@
 	// Add or edit a profile field.
 	if (isset($_POST['frm_submit']) && !empty($_POST['custom_field_name'])) {
 		$error = 0;
+
+		// OR values together - stored in one DB field.
+		$_POST['custom_field_field_opt'] = $_POST['custom_field_field_opt_1'] | $_POST['custom_field_field_opt_2'];
 
 		if ($edit && !$error) {
 			$cfield = new fud_custom_field;
@@ -109,8 +112,13 @@ echo '<h3>'. ($edit ? '<a name="edit">Edit Field:</a>' : 'Add New Field:') .'</h
 	</tr>
 
 	<tr class="field">
+		<td>Visible:<br /><font size="-2">Who can see the value entered into this field.</font></td>
+		<td><?php draw_select('custom_field_field_opt_1', "Private\nAll users\nAll logged in users", "0\n2\n4", ($custom_field_field_opt & (2|4))); ?></td>
+	</tr>
+
+	<tr class="field">
 		<td>Section:<br /><font size="-2">Is the field part of the mandatory or optional section of the profile page.</font></td>
-		<td><?php draw_select('custom_field_field_opt', "Optional\nMandatory", "0\n1", ($custom_field_field_opt & (1))); ?></td>
+		<td><?php draw_select('custom_field_field_opt_2', "Optional\nMandatory", "0\n1", ($custom_field_field_opt & (1))); ?></td>
 	</tr>
 
 	<tr class="fieldaction">
@@ -134,7 +142,7 @@ echo '<h3>'. ($edit ? '<a name="edit">Edit Field:</a>' : 'Add New Field:') .'</h
 </tr></thead>
 <?php
 	$i = 0;
-	$c = uq('SELECT id, name, descr, choice, vieworder FROM '. $tbl .'custom_fields ORDER BY vieworder LIMIT 100');
+	$c = uq(q_limit('SELECT id, name, descr, choice, vieworder FROM '. $tbl .'custom_fields ORDER BY vieworder', 100));
 	while ($r = db_rowobj($c)) {
 		$i++;
 		$bgcolor = ($edit == $r->id) ? ' class="resultrow3"' : (($i%2) ? ' class="resultrow1"' : ' class="resultrow2"');

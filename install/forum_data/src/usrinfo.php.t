@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -121,6 +121,23 @@
 	} else {
 		$birth_date = '';
 	}
+
+	// Setup custom fields for display.
+	$custom_fields = null;
+	if ($u->custom_fields) {
+		$custom_field_vals = unserialize($u->custom_fields);
+		$c = uq('SELECT id, name, choice, field_opt FROM {SQL_TABLE_PREFIX}custom_fields ORDER BY vieworder');
+		while ($r = db_rowobj($c)) {
+			if (!empty($custom_field_vals[$r->id])) {	// Have a value to display?
+				$custom_field_name = $r->name;
+				$custom_field_val  = $custom_field_vals[$r->id];
+				if ($r->field_opt & 2 || ($r->field_opt & 4) && _uid) {
+					$custom_fields .= '{TEMPLATE: ui_custom_field}';
+				}
+			}
+		}
+	}
+
 /*{POST_PAGE_PHP_CODE}*/
 ?>
 {TEMPLATE: USERINFO_PAGE}

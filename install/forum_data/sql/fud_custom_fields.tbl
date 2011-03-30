@@ -1,4 +1,4 @@
-#   copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+#   copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 #   email                : forum@prohost.org
 #
 #   $Id$
@@ -21,15 +21,13 @@ CREATE TABLE {SQL_TABLE_PREFIX}custom_fields
 );
 
 # Field Opts
-# 0 Optional
-# 1 Mandatory
-#TODO: Maybe also:
-# Is editable
-# Is in register
-# Visible in user profile
+# 0 optional
+# 1 mandatory
+# 2 visible in profile (all users)
+# 4 only visible to logged in users
 
 # Type Opts
 # 0 single line
 # 1 text box
 # 2 select drop down
-# 8 radio buttons
+# 4 radio buttons

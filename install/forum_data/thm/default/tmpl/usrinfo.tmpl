@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@fudforum.org
 * $Id$
 *
@@ -20,12 +20,12 @@
 {REF: alt_var.tmpl}
 {REF: allowed_user_lnk.tmpl}
 
-{SECTION: last_post_lnk}
+{SECTION: userinfo_last_post_lnk}
 {ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: r[1]}&amp;{DEF: _rsid}#msg_{VAR: r[1]}
 {SECTION: END}
 
 {SECTION: last_post last post link}
-<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="vt nw GenText">{MSG: usrinfo_last_post}</td><td class="GenText"><span class="DateText">{TEMPLATE: uinfo_last_post_date}</span><br /><a href="{TEMPLATE: last_post_lnk}">{VAR: r[0]}</a></td></tr>
+<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="vt nw GenText">{MSG: usrinfo_last_post}</td><td class="GenText"><span class="DateText">{TEMPLATE: uinfo_last_post_date}</span><br /><a href="{TEMPLATE: userinfo_last_post_lnk}">{VAR: r[0]}</a></td></tr>
 {SECTION: END}
 
 {SECTION: email_link}
@@ -112,6 +112,7 @@
 {IF: $u->interests}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: interests}</td><td class="GenText">{VAR: u->interests}</td></tr>{ENDIF}
 {IF: $u->bio}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: biography}</td><td class="GenText">{VAR: u->bio}</td></tr>{ENDIF}
 {TEMPLATE-DATA: birth_date}
+{TEMPLATE-DATA: custom_fields}
 {IF: $u->icq}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw vt GenText"><a name="icq_msg">{MSG: icq_message_form}</a></td><td class="GenText">
 		{VAR: u->icq} <img src="http://web.icq.com/whitepages/online?icq={VAR: u->icq}&amp;img=5" /><br />
 			<table class="icqCP">
@@ -204,4 +205,8 @@
 
 {SECTION: ui_buddy}
 <tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: userinfo_buddy}</td><td class="GenText"><a href="{TEMPLATE: ui_buddy_lnk}">{MSG: add_to_buddy_list}</a></td></tr>
+{SECTION: END}
+
+{SECTION: ui_custom_field}
+<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{VAR: custom_field_name}:</td><td class="GenText">{VAR: custom_field_val}</td></tr>
 {SECTION: END}
