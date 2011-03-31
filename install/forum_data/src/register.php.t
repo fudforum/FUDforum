@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -388,13 +388,14 @@ function email_encode($val)
 		$new_users_opt = 0;
 		foreach (array('display_email', 'notify', 'notify_method', 'ignore_admin', 'email_messages', 'pm_messages', 'pm_notify', 'default_view', 'gender', 'append_sig', 'show_sigs', 'show_avatars', 'show_im', 'invisible_mode') as $v) {
 			if (!empty($_POST['reg_'.$v])) {
-				$new_users_opt |= (int) $_POST['reg_'.$v];
+				$new_users_opt |= (int) $_POST['reg_'. $v];
 			}
 		}
 
 		/* Security check, prevent haxors from passing values that shouldn't. */
-		if (!($new_users_opt & (131072|65536|262144|524288|1048576|2097152|4194304|8388608|16777216|33554432|67108864))) {
-			$uent->users_opt = ($uent->users_opt & (131072|65536|262144|524288|1048576|2097152|4194304|8388608|16777216|33554432|67108864)) | $new_users_opt;
+		if (!($new_users_opt & (131072|65536|262144|524288|1048576|2097152|4194304|8388608|16777216|33554432|67108864|268435456|536870912))) {
+			// We're OK, no admin options inputted, allow existing valid admin options.
+			$uent->users_opt = ($uent->users_opt & (131072|65536|262144|524288|1048576|2097152|4194304|8388608|16777216|33554432|67108864|268435456|536870912)) | $new_users_opt;
 		}
 	}
 
