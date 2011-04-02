@@ -1,0 +1,136 @@
+<?php
+/***************************************************************************
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* email                : forum@prohost.org
+* $Id: Drupal7_forum.map 5054 2010-10-23 00:47:24Z naudefj $
+*
+* This program is free software; you can redistribute it and/or modify it 
+* under the terms of the GNU General Public License as published by the 
+* Free Software Foundation; version 2 of the License. 
+***************************************************************************/
+
+function source_read_config($dir) {
+	config_file_include('sites/default/settings.php');
+}
+
+function source_db_connect() {
+	bbconn(	$GLOBALS['databases']['default']['default']['host'],
+		$GLOBALS['databases']['default']['default']['database'],
+		$GLOBALS['databases']['default']['default']['username'],
+		$GLOBALS['databases']['default']['default']['password'],
+		$GLOBALS['databases']['default']['default']['prefix'],
+		$GLOBALS['databases']['default']['default']['driver']	);
+
+	// Vocabulary ID of the forum.
+	$GLOBALS['vid'] = bbfetch(bbq('SELECT vid FROM '. dbpref .'taxonomy_vocabulary WHERE module = \'forum\''))->vid;
+}
+
+function source_load_users() {
+	$c = bbq('SELECT * FROM '. dbpref .'users WHERE uid>0 ORDER BY uid');
+	while ($r = bbfetch($c)) {
+		// Hack for user id of 1, since this id is reserved for anon user in FUDforum.
+		if ($r->uid == 1) $r->uid = $GLOBALS['hack_id'] = bbfetch(bbq('SELECT MAX(uid) AS cnt FROM '. dbpref .'users'))->cnt + 1;
+
+		$user = array(
+			'id'        => $r->uid,
+			'login'     => $r->name,
+			'name'      => $r->name,
+			'passwd'    => $r->pass,
+			'salt'      => '',
+			'last_visit'=> $r->access,
+			'last_read' => 0,
+			'join_date' => $r->created,
+			'reg_ip'    => '',
+			'email'     => $r->mail,
+			'home_page' => '',
+			'location'  => '',
+			'interests' => '',
+			'occupation'=> '',
+			'time_zone' => $r->timezone,
+			'sig'       => $r->signature,
+			'avatar'    => '',
+			'icq'       => '',
+			'aim'       => '',
+			'yahoo'     => '',
+			'msn'       => '',
+			'users_opt' => 0
+		);
+//		$user['users_opt'] |= ($r->status=='Super Administrator') ? 1048576 : 0;	// Admin.
+		$user['users_opt'] |= (!$r->status)                       ?   65536 : 0;	// Banned.
+		target_add_user($user);
+	}
+}
+
+function source_load_forums() {
+	$c = bbq('SELECT * FROM '. dbpref .'taxonomy_term_data t WHERE vid = '. $GLOBALS['vid'] .' AND EXISTS (SELECT tid FROM '. dbpref .'forum_index f WHERE t.tid = f.tid)');
+	while ($r = bbfetch($c)) {
+		$forum = array(
+			'id'          => $r->tid,
+			'cat_id'      => 0,
+			'name'        => $r->name,
+			'description' => $r->description,
+			'view_order'  => $r->weight,
+			'post_passwd' => '',
+			'url_redirect'=> ''
+		);
+		target_add_forum($forum);
+	}
+}
+
+function source_load_topics() {
+	$c = bbq('SELECT * FROM '. dbpref .'forum_index');
+	while ($r = bbfetch($c)) {
+		$topic = array(
+			'id'          => $r->nid,
+			'forum_id'    => $r->tid,
+			'root_msg_id' => $r->nid,
+			'views'       => 0,
+			'replies'     => $r->comment_count,
+			'thread_opt'  => 0
+		);
+		$topic['thread_opt'] |= ($r->sticky) ? 4 : 0;	// Sticky topic.
+		target_add_topic($topic);
+	}
+}
+
+function source_load_messages() {
+	// Load nodes.
+	$c = bbq('SELECT * FROM '. dbpref .'forum f LEFT JOIN '. dbpref .'node n ON f.nid = n.nid AND f.vid = n.vid LEFT JOIN '. dbpref .'field_data_body b ON f.nid = b.entity_id AND f.vid = b.revision_id');
+	while ($r = bbfetch($c)) {
+		$message = array(
+			'id'           => 'NULL',
+			'thread_id'    => $r->nid,
+			'poster_id'    => $r->uid,
+			'forum_id'     => $r->tid,
+			'post_stamp'   => $r->created,
+			'update_stamp' => ($r->created==$r->changed) ? 0: $r->changed,
+			'updated_by'   => 0,
+			'subject'      => $r->title,
+			'ip_addr'      => '',
+			'msg_opt'      => 0,
+			'body'         => $r->body_value
+		);
+		target_add_message($message);
+
+		// Load comments - replies.
+		$c2 = bbq('SELECT * FROM '. dbpref .'comment c LEFT JOIN '. dbpref .'field_data_comment_body b ON c.nid = b.entity_id WHERE nid = '. $r->nid);
+		while ($r2 = bbfetch($c2)) {
+			$message = array(
+				'id'           => 'NULL',
+				'thread_id'    => $r2->nid,
+				'poster_id'    => $r2->uid,
+				'forum_id'     => $r->tid,
+				'post_stamp'   => $r2->created,
+				'update_stamp' => ($r2->created==$r2->changed) ? 0: $r2->changed,
+				'updated_by'   => 0,
+				'subject'      => $r2->subject,
+				'ip_addr'      => '',
+				'msg_opt'      => 0,
+				'body'         => $r2->	comment_body_value
+			);
+			target_add_message($message);
+		}
+	}
+}
+
+?>

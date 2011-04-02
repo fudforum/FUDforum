@@ -40,6 +40,8 @@ function source_load_users() {
 			'home_page' => $r->user_url,
 			'time_zone' => '',
 			'location'  => '',
+			'interests' => '',
+			'occupation'=> '',
 			'sig'       => '',
 			'avatar'    => '',
 			'icq'       => '',
@@ -57,7 +59,7 @@ function source_load_users() {
 }
 
 function source_load_forums() {
-	$c = bbq('select * from '. dbpref .'forums');
+	$c = bbq('SELECT * FROM '. dbpref .'forums');
 	while ($r = bbfetch($c)) {
 		$forum = array(
 			'id'          => $r->forum_id,
@@ -73,7 +75,7 @@ function source_load_forums() {
 }
 
 function source_load_topics() {
-	$c = bbq('select * from '. dbpref .'topics');
+	$c = bbq('SELECT * FROM '. dbpref .'topics');
 	while ($r = bbfetch($c)) {
 		$topic = array(
 			'id'          => $r->topic_id,
@@ -90,7 +92,7 @@ function source_load_topics() {
 }
 
 function source_load_messages() {
-	$c = bbq('select * from '. dbpref .'posts p INNER JOIN '. dbpref .'topics t ON t.TOPIC_id=p.topic_id');
+	$c = bbq('SELECT * FROM '. dbpref .'posts p INNER JOIN '. dbpref .'topics t ON t.TOPIC_id=p.topic_id');
 	while ($r = bbfetch($c)) {
 		$message = array(
 			'id'           => $r->post_id,

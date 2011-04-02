@@ -40,7 +40,7 @@ function source_load_avatars() {
 }
 
 function source_load_smilies() {
-	$c = bbq('SELECT * from '. dbpref .'smileys');
+	$c = bbq('SELECT * FROM '. dbpref .'smileys');
 	while ($r = bbfetch($c)) {
 		$smiley = array(
 			'file'      => $GLOBALS['settings']['smileys_dir'] .'/'. $GLOBALS['settings']['smiley_sets_default'] .'/'. $r->filename,
@@ -71,6 +71,8 @@ function source_load_users() {
 			'email'     => $r->emailAddress,
 			'home_page' => $r->websiteUrl,
 			'location'  => $r->location,
+			'interests' => '',
+			'occupation'=> '',
 			'time_zone' => $r->timeOffset,
 			'sig'       => $r->signature,
 			'avatar'    => '',
@@ -89,7 +91,7 @@ function source_load_users() {
 }
 
 function source_load_cats() {
-	$c = bbq('select * from '. dbpref .'categories');
+	$c = bbq('SELECT * FROM '. dbpref .'categories');
 	while ($r = bbfetch($c)) {
 		$cat = array(
 			'id'          => $r->ID_CAT,
@@ -102,7 +104,7 @@ function source_load_cats() {
 }
 
 function source_load_forums() {
-	$c = bbq('select * from '. dbpref .'boards');
+	$c = bbq('SELECT * FROM '. dbpref .'boards');
 	while ($r = bbfetch($c)) {
 		$forum = array(
 			'id'          => $r->ID_BOARD,
@@ -118,7 +120,7 @@ function source_load_forums() {
 }
 
 function source_load_topics() {
-	$c = bbq('select * from '. dbpref .'topics');
+	$c = bbq('SELECT * FROM '. dbpref .'topics');
 	while ($r = bbfetch($c)) {
 		$topic = array(
 			'id'          => $r->ID_TOPIC,
@@ -135,7 +137,7 @@ function source_load_topics() {
 }
 
 function source_load_messages() {
-	$c = bbq('select * from '. dbpref .'messages');
+	$c = bbq('SELECT * FROM '. dbpref .'messages');
 	while ($r = bbfetch($c)) {
 		$message = array(
 			'id'           => $r->ID_MSG,
@@ -156,7 +158,7 @@ function source_load_messages() {
 }
 
 function source_load_attachments() {
-	$c = bbq('select * from '. dbpref .'attachments');
+	$c = bbq('SELECT * FROM '. dbpref .'attachments');
 	while ($r = bbfetch($c)) {
 		$att = array(
 			'file'           => '/attachments/'. $r->ID_ATTACH .'_'. $r->file_hash,

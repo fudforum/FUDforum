@@ -42,6 +42,8 @@ function source_load_users() {
 			'email'     => $r->email,
 			'home_page' => '',
 			'location'  => '',
+			'interests' => '',
+			'occupation'=> '',
 			'time_zone' => '',
 			'sig'       => $r->signature,
 			'avatar'    => '',
@@ -125,7 +127,7 @@ function source_load_messages() {
 }
 
 function source_load_topic_subscriptions() {
-	$c = bbq('SELECT * from '. dbpref .'subscribers');
+	$c = bbq('SELECT * FROM '. dbpref .'subscribers');
 	while ($r = bbfetch($c)) {
 		$sub = array(
 			'user_id'   => $r->user_id,
@@ -152,7 +154,7 @@ function source_load_attachments() {
 }
 
 function source_load_private_messages() {
-	$c = bbq('SELECT m.*, x.read_flag, x.user_id to_id from '. dbpref .'pm_messages m LEFT JOIN  '. dbpref .'pm_xref x ON m.pm_message_id = x.pm_message_id WHERE special_folder = \'inbox\'');
+	$c = bbq('SELECT m.*, x.read_flag, x.user_id to_id FROM '. dbpref .'pm_messages m LEFT JOIN  '. dbpref .'pm_xref x ON m.pm_message_id = x.pm_message_id WHERE special_folder = \'inbox\'');
 	while ($r = bbfetch($c)) {
 		$pm = array(
 			'ouser_id'   => $r->user_id,

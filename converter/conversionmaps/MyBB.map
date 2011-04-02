@@ -37,7 +37,7 @@ function source_load_avatars() {
 }
 
 function source_load_smilies() {
-	$c = bbq('SELECT * from '. dbpref .'smilies');
+	$c = bbq('SELECT * FROM '. dbpref .'smilies');
 	while ($r = bbfetch($c)) {
 		$smiley = array(
 			'file'      => $r->image,
@@ -68,6 +68,8 @@ function source_load_users() {
 			'email'     => $r->email,
 			'home_page' => $r->website,
 			'location'  => '',
+			'interests' => '',
+			'occupation'=> '',
 			// 'birthday'  => strtotime($r->birthday), // European %d-%m-%y'.
 			'time_zone' => $r->timezone,
 			'sig'       => $r->signature,
@@ -204,7 +206,7 @@ function source_load_polls() {
 }
 
 function source_load_topic_subscriptions() {
-	$c = bbq('SELECT * from '. dbpref .'threadsubscriptions WHERE notification=1');
+	$c = bbq('SELECT * FROM '. dbpref .'threadsubscriptions WHERE notification=1');
 	while ($r = bbfetch($c)) {
 		$sub = array(
 			'user_id'   => $r->uid,
@@ -216,7 +218,7 @@ function source_load_topic_subscriptions() {
 
 function source_load_private_messages() {
 	// myBB Folders: 1==INBOX, 2==SENT.
-	$c = bbq('SELECT * from '. dbpref .'privatemessages WHERE folder IN (1, 2)');
+	$c = bbq('SELECT * FROM '. dbpref .'privatemessages WHERE folder IN (1, 2)');
 	while ($r = bbfetch($c)) {
 		$pm = array(
 			'ouser_id'   => $r->uid,

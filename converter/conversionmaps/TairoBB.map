@@ -40,6 +40,8 @@ function source_load_users() {
 			'email'     => $r->email,
 			'home_page' => $r->www,
 			'location'  => '',
+			'interests' => '',
+			'occupation'=> '',
 			'time_zone' => $r->timefix,
 			'sig'       => $r->signature,
 			'avatar'    => '',
@@ -56,7 +58,7 @@ function source_load_users() {
 }
 
 function source_load_cats() {
-	$c = bbq('select * from '. dbpref .'boards WHERE parent_id = 0');
+	$c = bbq('SELECT * FROM '. dbpref .'boards WHERE parent_id = 0');
 	while ($r = bbfetch($c)) {
 		$cat = array(
 			'id'          => $r->id,
@@ -69,7 +71,7 @@ function source_load_cats() {
 }
 
 function source_load_forums() {
-	$c = bbq('select * from '. dbpref .'boards WHERE parent_id != 0');
+	$c = bbq('SELECT * FROM '. dbpref .'boards WHERE parent_id != 0');
 	while ($r = bbfetch($c)) {
 		$forum = array(
 			'id'          => $r->id,
@@ -85,7 +87,7 @@ function source_load_forums() {
 }
 
 function source_load_topics() {
-	$c = bbq('select * from '. dbpref .'topics');
+	$c = bbq('SELECT * FROM '. dbpref .'topics');
 	while ($r = bbfetch($c)) {
 		$topic = array(
 			'id'          => $r->id,
@@ -103,7 +105,7 @@ function source_load_topics() {
 
 function source_load_messages() {
 	// Load discussions.
-	$c = bbq('select * from '. dbpref .'posts');
+	$c = bbq('SELECT * FROM '. dbpref .'posts');
 	while ($r = bbfetch($c)) {
 		$message = array(
 			'id'           => $r->id,
@@ -123,7 +125,7 @@ function source_load_messages() {
 }
 
 function source_load_attachments() {
-	$c = bbq('select * from '. dbpref .'attachments');
+	$c = bbq('SELECT * FROM '. dbpref .'attachments');
 	while ($r = bbfetch($c)) {
 		$att = array(
 			'file'           => '/uploads/attachments/'. $r->real_filename,

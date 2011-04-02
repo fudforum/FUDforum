@@ -24,7 +24,7 @@ function source_db_connect() {
 }
 
 function source_load_smilies() {
-	$c = bbq('SELECT * from '. dbpref .'smilies WHERE type = \'smiley\'');
+	$c = bbq('SELECT * FROM '. dbpref .'smilies WHERE type = \'smiley\'');
 	while ($r = bbfetch($c)) {
 		$smiley = array(
 			'file'      => 'images/smilies/'. $r->url,
@@ -55,6 +55,8 @@ function source_load_users() {
 			'email'     => $r->email,
 			'home_page' => $r->site,
 			'location'  => $r->location,
+			'interests' => '',
+			'occupation'=> '',
 			'time_zone' => $r->timeoffset,
 			'sig'       => $r->sig,
 			'avatar'    => $r->avatar,
@@ -70,11 +72,8 @@ function source_load_users() {
 	}
 }
 
-function source_load_cats() {
-}
-
 function source_load_forums() {
-	$c = bbq('select * from '. dbpref .'forums WHERE type = \'forum\'');
+	$c = bbq('SELECT * FROM '. dbpref .'forums WHERE type = \'forum\'');
 	while ($r = bbfetch($c)) {
 		$forum = array(
 			'id'          => $r->fid,
@@ -90,7 +89,7 @@ function source_load_forums() {
 }
 
 function source_load_topics() {
-	$c = bbq('select * from '. dbpref .'threads');
+	$c = bbq('SELECT * FROM '. dbpref .'threads');
 	while ($r = bbfetch($c)) {
 		$topic = array(
 			'id'          => $r->tid,
@@ -107,7 +106,7 @@ function source_load_topics() {
 }
 
 function source_load_messages() {
-	$c = bbq('select p.*, m.uid from '. dbpref .'posts p LEFT JOIN '. dbpref .'members m ON p.author = m.username');
+	$c = bbq('SELECT p.*, m.uid FROM '. dbpref .'posts p LEFT JOIN '. dbpref .'members m ON p.author = m.username');
 	while ($r = bbfetch($c)) {
 		$message = array(
 			'id'           => $r->pid,
@@ -128,7 +127,7 @@ function source_load_messages() {
 }
 
 function source_load_attachments() {
-	$c = bbq('select * from '. dbpref .'attachments');
+	$c = bbq('SELECT * FROM '. dbpref .'attachments');
 	while ($r = bbfetch($c)) {
 		file_put_contents($GLOBALS['CONVERT_FROM_DIR'] .'att.tmp', $r->attachment);
 		$att = array(

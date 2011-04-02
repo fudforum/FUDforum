@@ -42,6 +42,8 @@ function source_load_users() {
 			'email'     => $r->Email,
 			'home_page' => '',
 			'location'  => '',
+			'interests' => '',
+			'occupation'=> '',
 			'time_zone' => '',
 			'sig'       => '',
 			'avatar'    => '',
@@ -58,7 +60,7 @@ function source_load_users() {
 
 function source_load_forums() {
 	// Vanilla cats are actually forums.
-	$c = bbq('select * from '. dbpref .'category');
+	$c = bbq('SELECT * FROM '. dbpref .'category');
 	while ($r = bbfetch($c)) {
 		$forum = array(
 			'id'          => $r->CategoryID,
@@ -74,7 +76,7 @@ function source_load_forums() {
 }
 
 function source_load_topics() {
-	$c = bbq('select * from '. dbpref .'discussion');
+	$c = bbq('SELECT * FROM '. dbpref .'discussion');
 	while ($r = bbfetch($c)) {
 		$topic = array(
 			'id'          => $r->DiscussionID,
@@ -92,7 +94,7 @@ function source_load_topics() {
 
 function source_load_messages() {
 	// Load discussions.
-	$c = bbq('select * from '. dbpref .'discussion');
+	$c = bbq('SELECT * FROM '. dbpref .'discussion');
 	while ($r = bbfetch($c)) {
 		$message = array(
 			'id'           => 'NULL',
@@ -110,7 +112,7 @@ function source_load_messages() {
 		target_add_message($message);
 	}
 	// Load comments - replies.
-	$c = bbq('select c.*, d.CategoryID, d.Name from '. dbpref .'comment c LEFT JOIN '. dbpref .'discussion d ON c.DiscussionID=d.DiscussionID');
+	$c = bbq('SELECT c.*, d.CategoryID, d.Name FROM '. dbpref .'comment c LEFT JOIN '. dbpref .'discussion d ON c.DiscussionID=d.DiscussionID');
 	while ($r = bbfetch($c)) {
 		$message = array(
 			'id'           => 'NULL',

@@ -43,7 +43,7 @@ function source_load_avatars() {
 }
 
 function source_load_smilies() {
-	$c = bbq('SELECT * from '. dbpref .'smilies');
+	$c = bbq('SELECT * FROM '. dbpref .'smilies');
 	while ($r = bbfetch($c)) {
 		$smiley = array(
 			'file'      => $GLOBALS['settings']['smilies_path'] .'/'. $r->smiley_url,
@@ -79,6 +79,9 @@ function source_load_users() {
 			'email'     => $r->user_email,
 			'home_page' => $r->user_website,
 			'location'  => $r->user_from,
+			'interests' => $r->user_interests,
+			'occupation'=> $r->user_occ,
+			'birthday'  => 0,	// 1- 7-1969
 			'time_zone' => $r->user_timezone,
 			'sig'       => $r->user_sig,
 			'avatar'    => $r->user_avatar,
@@ -100,7 +103,7 @@ function source_load_users() {
 }
 
 function source_load_cats() {
-	$c = bbq('select * from '. dbpref .'forums WHERE forum_type = 0');
+	$c = bbq('SELECT * FROM '. dbpref .'forums WHERE forum_type = 0');
 	while ($r = bbfetch($c)) {
 		$cat = array(
 			'id'          => $r->forum_id,
@@ -113,7 +116,7 @@ function source_load_cats() {
 }
 
 function source_load_forums() {
-	$c = bbq('select * from '. dbpref .'forums WHERE forum_type = 1 ORDER BY left_id ASC');
+	$c = bbq('SELECT * FROM '. dbpref .'forums WHERE forum_type = 1 ORDER BY left_id ASC');
 	while ($r = bbfetch($c)) {
 		$forum = array(
 			'id'          => $r->forum_id,
@@ -129,7 +132,7 @@ function source_load_forums() {
 }
 
 function source_load_topics() {
-	$c = bbq('select * from '. dbpref .'topics');
+	$c = bbq('SELECT * FROM '. dbpref .'topics');
 	while ($r = bbfetch($c)) {
 		$topic = array(
 			'id'          => $r->topic_id,
@@ -147,7 +150,7 @@ function source_load_topics() {
 }
 
 function source_load_messages() {
-	$c = bbq('select * from '. dbpref .'posts');
+	$c = bbq('SELECT * FROM '. dbpref .'posts');
 	while ($r = bbfetch($c)) {
 		$message = array(
 			'id'           => $r->post_id,
@@ -168,7 +171,7 @@ function source_load_messages() {
 }
 
 function source_load_attachments() {
-	$c = bbq('select * from '. dbpref .'attachments');
+	$c = bbq('SELECT * FROM '. dbpref .'attachments');
 	while ($r = bbfetch($c)) {
 		$att = array(
 			'file'           => $GLOBALS['settings']['upload_path'] .'/'. $r->physical_filename,
@@ -219,7 +222,7 @@ function source_load_polls() {
 
 function source_load_topic_subscriptions() {
 	// notify_status=0 => receive emails.
-	$c = bbq('select * from '. dbpref .'topics_watch WHERE notify_status=0');
+	$c = bbq('SELECT * FROM '. dbpref .'topics_watch WHERE notify_status=0');
 	while ($r = bbfetch($c)) {
 		$sub = array(
 			'user_id'   => $r->user_id,
@@ -230,7 +233,7 @@ function source_load_topic_subscriptions() {
 }
 
 function source_load_private_messages() {
-	$c = bbq('SELECT * from '. dbpref .'privmsgs p LEFT JOIN '. dbpref .'privmsgs_to t ON p.msg_id = t.msg_id');
+	$c = bbq('SELECT * FROM '. dbpref .'privmsgs p LEFT JOIN '. dbpref .'privmsgs_to t ON p.msg_id = t.msg_id');
 	while ($r = bbfetch($c)) {
 		// $folder = $r->privmsgs_type != PRIVMSGS_SENT_MAIL ? 1 : 3;
 		$folder = 3;

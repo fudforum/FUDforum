@@ -59,7 +59,7 @@ function convert_auth_config() {
 		pf(successify('Settings successfully saved.'));
 	}
 	echo '<p>Autentication function:<br />';
-	echo '<input name="auth_func" value="'. $ini['auth_func'] .'" size="30" /></p>';
+	echo '<input name="auth_func" value="'. $ini['auth_func'] .'" size="72" /></p>';
 }
 
 /** Support functions for PHPbb3 authentication.

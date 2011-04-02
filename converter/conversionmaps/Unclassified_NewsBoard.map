@@ -54,6 +54,8 @@ function source_load_users() {
 			'email'     => $r->EMail,
 			'home_page' => $r->Homepage,
 			'location'  => $r->Location,
+			'interests' => '',
+			'occupation'=> '',
 			'time_zone' => $r->Timezone,
 			'sig'       => $r->Signature,
 			'avatar'    => '',
@@ -73,7 +75,7 @@ function source_load_users() {
 }
 
 function source_load_cats() {
-	$c = bbq('select * from '. dbpref .'forums WHERE Flags = 1');
+	$c = bbq('SELECT * FROM '. dbpref .'forums WHERE Flags = 1');
 	while ($r = bbfetch($c)) {
 		$cat = array(
 			'id'          => $r->ID,
@@ -86,7 +88,7 @@ function source_load_cats() {
 }
 
 function source_load_forums() {
-	$c = bbq('select * from '. dbpref .'forums WHERE Flags = 0');
+	$c = bbq('SELECT * FROM '. dbpref .'forums WHERE Flags = 0');
 	while ($r = bbfetch($c)) {
 		$forum = array(
 			'id'          => $r->ID,
@@ -102,7 +104,7 @@ function source_load_forums() {
 }
 
 function source_load_topics() {
-	$c = bbq('select * from '. dbpref .'threads');
+	$c = bbq('SELECT * FROM '. dbpref .'threads');
 	while ($r = bbfetch($c)) {
 		$topic = array(
 			'id'          => $r->ID,
@@ -119,7 +121,7 @@ function source_load_topics() {
 }
 
 function source_load_messages() {
-	$c = bbq('select * from '. dbpref .'posts p INNER JOIN '. dbpref .'threads t ON t.ID = p.THREAD');
+	$c = bbq('SELECT * FROM '. dbpref .'posts p INNER JOIN '. dbpref .'threads t ON t.ID = p.THREAD');
 	while ($r = bbfetch($c)) {
 		$message = array(
 			'id'           => $r->ID,

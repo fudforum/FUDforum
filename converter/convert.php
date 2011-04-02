@@ -239,11 +239,19 @@ function target_add_user($user)
 		}
 	}
 
+	// Birthday calculations.
+	if (!empty($user['birthday'])) {
+		$birthday = strftime('%m%d%Y', $user['birthday']);
+	} else {
+		$birthday = '';
+	}
+
 	$user['users_opt'] |= 2 | 4 | 4194304 | 16 | 32 | 128 | 256 | 512 | 4096 | 8192 | 16384 | 32768 | 131072;
 
 	q('INSERT INTO '. $GLOBALS['DBHOST_TBL_PREFIX'] .'users 
 		(id, login, alias, name, passwd, salt, last_visit, last_read, join_date, 
-		email, home_page, location, time_zone, sig, avatar, avatar_loc,
+		email, home_page, location, interests, occupation, birthday,
+		time_zone, sig, avatar, avatar_loc,
 		icq, aim, yahoo, msnm, users_opt, theme)
 		VALUES (
 			'. (int)$user['id'] .',
@@ -258,6 +266,9 @@ function target_add_user($user)
 			'. _esc($user['email']) .',
 			'. _esc($user['home_page']) .',
 			'. _esc($user['location']) .',
+			'. _esc($user['interests']) .',
+			'. _esc($user['occupation']) .',
+			'. _esc($birthday) .',
 			'. _esc($user['time_zone']) .',
 			'. _esc(bbcode2fudcode($user['sig'])) .',
 			'. (int)$avatar .',
@@ -312,7 +323,7 @@ function target_add_forum($forum)
 		$cat_id = q_singleval('SELECT MAX(id)+1 from '. $GLOBALS['DBHOST_TBL_PREFIX'] .'cat');
 		if (!$cat_id) $cat_id = 1;
 		target_add_cat(array('id'=>$cat_id, 'name'=>'Uncategorized Forums', 'description'=>'', 'view_order'=>$cat_id));
-		$forum['cat_id'] = $cat_id;
+		$GLOBALS['cat_map'][ $forum['cat_id'] ] = $cat_id;
 	}
 
 	$forum_opt = 16;	// Set tag_style to BBCode.
@@ -556,8 +567,8 @@ function target_load_calendar_event($event)
 }
 
 /* main */
-error_reporting(E_NOTICE | E_ERROR | E_WARNING | E_PARSE | E_COMPILE_ERROR);
-ini_set('display_errors', '1');
+error_reporting(E_ALL | E_NOTICE | E_ERROR | E_WARNING | E_PARSE | E_COMPILE_ERROR);
+ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 ini_set('memory_limit', '128M');
 ini_set('default_socket_timeout', 10);
@@ -569,7 +580,7 @@ if ($gl === FALSE) {
 	seterr('Please install FUDforum and copy this script into the forum\'s main web directory.');
 }
 
-/* Check if forum must be un-locked, */
+/* Check if forum must be un-locked. */
 define('__WEB__', (isset($_SERVER['REMOTE_ADDR']) === FALSE ? 0 : 1));
 if (strncasecmp('win', PHP_OS, 3) && ($FUD_OPT_2 & 8388608) && !__WEB__) {
 	seterr('Since you are running the script via the console, you must first UNLOCK your forum\'s files.');
@@ -638,7 +649,7 @@ $(document).ready(function() {
 	<td><select name="from" />
 <?php
 	foreach ($converters as $converter) {
-		echo '<option value="'. htmlspecialchars($converter) .'">'. htmlspecialchars($converter) .'</option>';
+		echo '<option value="'. htmlspecialchars($converter) .'">'. htmlspecialchars(strtr($converter, '_', ' ')) .'</option>';
 	}
 ?>
 	</select></td>
@@ -718,6 +729,11 @@ fud_use('forum_adm.inc', true);
 fud_use('groups_adm.inc', true);
 fud_use('glob.inc', true);
 
+// Optimize SQLite db for speed.
+if ($GLOBALS['DBHOST_DBTYPE'] == 'pdo_sqlite') {
+	define('SQLITE_FAST_BUT_WRECKLESS', 1);
+}
+
 $start_time = time();
 pf('<h2>'. $CONVERT_FROM_FORUM .' to FUDforum conversion</h2>');
 
@@ -762,6 +778,9 @@ if (function_exists('source_load_cats')) {
 
 if (function_exists('source_load_forums')) {
 	pf('Import forums...');
+	if (!function_exists('source_load_cats')) {	// No cats loaded.
+		q('DELETE FROM '. $DBHOST_TBL_PREFIX .'cat');
+	}
 	q('DELETE FROM '. $DBHOST_TBL_PREFIX .'forum');
 	source_load_forums();
 }
