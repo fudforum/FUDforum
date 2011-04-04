@@ -2,6 +2,7 @@
 # Exported from translatewiki.net
 # Author: Chenxiaoqino
 # Author: Hydra
+# Author: Naudefj
 # Author: PhiLiP
 # Author: 阿pp
 
@@ -94,7 +95,7 @@ moved:转移至别的论坛
 moved_thread_message:这个主题已被转移至别的论坛。
 na:暂无
 new_posts:新消息
-new_private_messages:你有 <span class="GenTextRed">({VAR: c})</span> 未读 {PLURA: c | 私人消息 | 私人消息}
+new_private_messages:你有 <span class="GenTextRed">({VAR: c})</span> 未读 {PLURAL: c | 私人消息 | 私人消息}
 new_thread:生成新的主题
 newest_user:最新注册的用户是
 next_page:下一页

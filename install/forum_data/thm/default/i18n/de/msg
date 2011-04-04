@@ -19,7 +19,7 @@ attachment:Anhang:
 avatar:Avatar:
 average_post_count:{PLURAL: u->posted_msg_count|$1 Nachricht|$1 Nachrichten} (durchschnittlich {PLURAL: avg|$1 Nachricht|$1 Nachrichten} pro Tag)
 biography:Biographie:
-birth_date:Geburtstag:
+birth_date:Geburtsdatum:
 by:Von:
 by_mod:vom Moderator
 current_time:aktuelle Zeit

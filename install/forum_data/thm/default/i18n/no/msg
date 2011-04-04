@@ -1,5 +1,6 @@
 # Messages for Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
 # Exported from translatewiki.net
+# Author: Jon Harald Søby
 # Author: McDutchie
 # Author: Nghtwlkr
 
@@ -411,6 +412,7 @@ post_title:Emne:
 post_body:Tekst:
 post_options:Alternativ:
 post_preview_btn:Forhåndsvis melding
+post_cancel_btn:Avbryt
 ignore_users:Ignorerte medlemmer
 add_ignore:Ignorere medlem
 forum_terms:Vilkår for forumet
@@ -715,8 +717,7 @@ post_opt_html_off:<b>HTML</b>-kode er <b>AV</b>
 post_opt_fud_off:<b>FUD-kode</b> er <b>AV</b>
 post_opt_images_off:<b>Bilder</b> er <b>AV</b>
 post_opt_smilies_off:<b>Smilies</b> er <b>AV</b>
-# Fuzzy
-post_opt:Forumalternativ
+post_opt:Forurminnstillinger:
 register_change_passwd:bytt passord
 register_change_login:endre innloggingsnavn
 approved_avatar_title:Din avatar godkjennes.
@@ -803,6 +804,7 @@ th_expr_two_month:2 måneder
 th_expr_four_month:4 måneder
 th_expr_one_year:1 år
 thread_mod_delete:Slett
+action_ip:IP
 action_latest_post:Siste innlegg
 online_today_last_visit:Siste besøk
 online_today_update:Se liste over dem som har vært i dette forumet i dag.
@@ -1053,14 +1055,10 @@ mmd_abort_move:Avbryt
 mmd_move:Flytt emner
 pmsg_pdf_btn:Lag PDF-arkiv
 search_results_hdr:{VAR: total} søkeresultat funnet
-# Fuzzy
-thread_del_all:Slett alle valgte
-# Fuzzy
-thread_mov_all:Flytt alle valgte
-# Fuzzy
-thread_merge_all:Flett alle valgte
-# Fuzzy
-thread_loc_all:Lås/Lås opp alle valgte
+thread_del_all:Slett valgte
+thread_mov_all:Flytt valgte
+thread_merge_all:Flett valgte
+thread_loc_all:Lås/åpne valgte
 dmsg_ip:IP:
 err_blockedaccnt_title:FEIL: Kontoen din har blitt filtrert ut.
 err_blockedaccnt_msg:Kontoen din har blitt blokkert fra forumet på grunn av en av de installerte brukerfiltrene.
@@ -1083,8 +1081,11 @@ post_common_align_left:Venstrejuster
 post_common_align_center:Midtstill
 post_common_align_right:Høyrejuster
 post_common_link:Sett inn en lenke
+post_common_link_popup:Lenkeadresse:
 post_common_email:Sett inn en e-postadresse
+post_common_email_popup:E-postadresse:
 post_common_image:Sett inn et bilde
+post_common_image_popup:Bildeadresse:
 post_common_nlist:Legg til nummerert liste
 post_common_blist:Legg til punktliste
 post_common_quote:Legg til sitat
@@ -1131,3 +1132,5 @@ feed_rss:RSS2-mating
 feed_atom:ATOM-mating
 ip_whois_connect_err:Kunne ikke koble til WHOIS-tjener ({VAR: whois_server}): {VAR: errstr}
 custom_filed_required:Dette feltet er obligatorisk.
+page_list_heading:Tilgjengelige sider
+page_list_total:{PLURAL: i|$1 side|$1 sider} oppført.

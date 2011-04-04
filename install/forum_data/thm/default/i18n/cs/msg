@@ -348,7 +348,7 @@ register_show_sig:Zobrazovat podpisy:
 register_show_sig_desc:Umožňuje vám zobrazovat podpisy ostatních
 register_use_sig_default:Výchozí používání podpisu:
 register_use_sig_default_desc:Automaticky přidá podpis ke každé vaší zprávě
-register_timezone:Časová zóna:
+register_timezone:Časové pásmo:
 register_ignore_admin:Ignorovat administrativní zprávy:
 register_invisible_mode:Skrytý mód:
 register_invisible_mode_desc:Ačkoliv budete online, ostatní to neuvidí.

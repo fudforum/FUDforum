@@ -45,6 +45,9 @@ last_post:Slědna powěsć
 last_thread_msg:K slědnej powěsći w toś tej temje
 legend:Legenda
 location:Městno:
+lock_thread:Temu zastajaś
+locked:Zastajony
+locked_with_new_posts:Zastajony (z njepśecytanymi powěsćami)
 logged_in_list:Lisćina pśizjawjonych wužywarjow
 login:Pśizjawiś
 login_header:Pśizjawjenje
@@ -93,6 +96,7 @@ posts_c:Powěsći:
 prev_thread:Pjerwjejšna tema:
 usrinfo_private_message:Priwatna powěsć:
 rating:Pógódnośenje
+refresh_list:Lisćinu aktualizěrowaś
 register:Registrěrowaś
 registered:Zregistrěrowany:
 registered_on:{TEMPLATE: registered_on_date} zregistrěrowany
@@ -117,6 +121,7 @@ subscribe:Aboněrowaś
 subscribed_forums:Aboněrowane forumy
 subscribed_threads:Aboněrowane temy
 thread:Tema:
+thread_announcement:Pśipowěźenje
 thread_first_unread_msg:K prědnej njecytanej powěsći w temje
 thread_thread:Tema
 threads:Temy
@@ -124,6 +129,7 @@ time:Cas
 todays_posts:Źinsajšne powěsći
 unanswered_posts:Njewótegronjone powěsći
 unanswered_posts_desc:Wšykne powěsći pokazaś, kótarež njamaju wótegrona
+unlock_thread:Zastajenje temy wótpóraś
 unread_msg:Toś ta tema wopśimujo powěsći, kótarež hyšći njejsy pśecytał
 unread_posts:Njecytane powěsći
 unread_posts_desc:Wšykne njepśecytane powěsći pokazaś
@@ -135,6 +141,8 @@ user_info:Wužywarske informacije
 user_info_l:Wužywarske informacije: {VAR: u->alias}
 usrinfo_last_post:Slědna powěsć:
 view_results:Wuslědki pokazaś
+views:Naglědy
+what_ppl_doing:Pokazaś, což luźe cynje
 reported_del_report:Powěźeńku wulašowaś
 reported_reason:Pśicyna:
 reported_reported_msg:K wěsći dane powěsći
@@ -142,6 +150,8 @@ modque_approve:Pśizwóliś
 modque_delete:Wulašowaś
 pmsg_new_messages:Njecytana priwatna powěsć
 pmsg_old_messages:Pśecytana priwatna powěsć
+deny_recipt:wobtwarźenje dostaśa wótpokazaś
+deny_recipt_desc:Žedno wobkšuśenje njepósłaś, až sy toś tu powěsć pśecytał
 move_to:Pśesunuś do:
 list_referes_member:Cłonk
 referals_registered_on:Zregistrěrowany:
@@ -156,6 +166,7 @@ pmsg_selected:Wubrany
 pmsg_delete:Wulašowaś
 writing_pm:Priwatnu powěsć pisaś
 draft:Nacerjenje
+trash:Papjernik
 msg_author:Awtor
 no_avatars:Žedne awatary k dispoziciji
 month_1:januar
@@ -205,6 +216,7 @@ register_uploaded:Awatar nagraś
 register_login:Wužywarske mě:
 register_password:Gronidło:
 register_conf_pass:Gronidło wobkšuśiś:
+register_email_desc:Pšosym zapódaj płaśiwu e-mailowu adresu. W nastajenjach móžoš nastajiś, lěc se wóna schowa.
 register_name:Mě:
 register_your_pass:Twójo gronidło:
 register_update:Aktualizěrowaś
@@ -217,6 +229,7 @@ register_preview:Pśeglěd
 register_custom_avatar_upload:Swójska awatarowa dataja:
 register_register:Registrěrowaś
 register_required:Trěbne informacije
+register_required_desc:Wšykne póla su trěbne. Pšosym źiwaj na to, až gronidła zapśimuju wjelikopisanje.
 register_optional:Opcionalne informacije
 register_location:Městno:
 register_occupation:Pówołanje:
@@ -241,6 +254,8 @@ register_invisible_mode:Modus njewidobnosći:
 register_invisible_mode_desc:Chowa swój onlineowy status.
 register_show_email:E-mailowu adresu pokazaś:
 buddy_status:Status
+my_buddies:Móje pśijaśele
+add_buddy:Pśijaśela pśidaś
 add:Dodaś
 buddy_search:Zapódaj wužywarske mě wužywarja, kótaregož coš pśidaś.
 buddy_remove:wótpóraś
@@ -250,15 +265,20 @@ post_color:Barwa
 post_font:Pismo
 create_thread:Temu napóraś
 submit_reply:Wótegrono wótpósłaś
+edit_message:Změny powěsći nałožyś
+apply_spell_changes:Pšawopisne změny nałožyś
+post_preview:Pśeglěd powěsći
 post_logedin_user:Pśizjawjony wužywaŕ:
 post_logout:wótzjawiś
 post_poll:Wótglosowanje:
 post_create_poll:WÓTGŁOSOWANJE NAPÓRAŚ
 post_poll_delete:LAŠOWAŚ
 post_poll_edit:WOBŹĚŁAŚ
+post_mod_opt:Opcije moderatora:
 post_thread_type:Typ temy:
 post_icons:Powěsćowy symbol:
 post_no_icon:Žeden symbol
+post_format_tools:Formatěrowańske rědy:
 post_upload_file:Dataju nagraś
 post_file_del:Wulašowaś
 post_file_name:Mě
@@ -269,6 +289,7 @@ max_file_size:Maksimalna datajowa wjelikosć:
 max_files_per_msg:Maksimalna licba datajow na powěsć:
 include_sig:Signaturu dodaś
 include_sig_desc:Twóju profilowu signaturu dodaś.
+spell_check_msg:Pšawopis powěsći kontrolěrowaś
 post_forum:Forum:
 post_title:Titel:
 post_body:Wopśimjeśe:
@@ -280,6 +301,12 @@ forum_terms:Forumowe pšawidła
 coppa_before:Do {TEMPLATE: coppa_date}
 coppa_after:Pó {TEMPLATE: coppa_date}
 prereg_info:Forumowe pšawidła
+prereg_agree:Pśigłosyś
+prereg_disagree:Wótpokazaś
+prereg_update:Forumowe pšawidła cytaś
+coppa_fax_instructions2:Pšosym śišć toś ten bok, pódpiš jen a faksuj jen do:
+coppa_fax_reg_form:Registěrowański formular
+coppa_fax_sign:Pšosym pódpiš slědujucy formular a pósćel jen nam
 coppa_fax_telephone:Telefon:
 coppa_fax_email:E-mailowa adresa:
 coppa_fax_date:Datum:
@@ -293,6 +320,7 @@ login_login:Wužywarske mě:
 login_login_btn:Pśizjawjenje
 login_name_required:Wužywarske mě jo trěbne
 login_passwd_required:Gronidło jo trěbne
+login_invalid_radius:Njepłaśiwa kombinacija wužywarske mě/gronidło
 rpasswd_invalid_passwd:Njepłaśiwe gronidło
 rpasswd_passwd_nomatch:Gronidle se njemakatej
 rpasswd_passwd_length:Gronidło musy nanejmjenjej 6 znamuškow dłujke byś
@@ -330,11 +358,16 @@ mklist_additem:Element pśidaś
 mklist_apply:Nałožyś
 mklist_delete:Wulašowaś
 qbud_nick_name:Pśimě
+qbud_add_selected:Wubrane pśidaś
+qbud_selected:Wubrany
 mklist_close:Zacyniś
 email_to:Komu:
 email_pg_title:E-mail
 email_body:Wopśimjeśe:
 email_submit:E-mail
+ppost_quote_msg:{VAR: msg_to_list} jo napisał dnja {TEMPLATE: ppost_quote_msg_date}
+ppost_to:Komu:
+ppost_from_buddy_list:Z lisćiny pśijaśelow wubraś
 ppost_find_User:Wužywarja pytaś
 ppost_send:Wótpósłaś
 ppost_save_draft:Nacerjenje składowaś
@@ -355,15 +388,23 @@ poll_year:lěto
 poll_week:tyźeń
 tabs_register:Kontowe nastajenja
 tabs_subscriptions:Abonementy
+tabs_buddy_list:Lisćina pśijaśelow
 tabs_ignore_list:Lisćina ignorěrowanjow
 delete_yes:Jo
 delete_no:Ně
 error_invalidurl:Njepłaśiwy URL
 error_error:Zmólka
+usrinfo_profile:Profil wužywarja {VAR: u->alias}
 err_info:Informacije
+buddy_list_err_cantadd:Njamóžoš se samego k lisćinje pśijaśelow pśidaś
+buddy_list_err_dup:Maš toś togo wužywarja na swójej lisćinje pśijaśelow
+buddy_list_err_nouser:Wužywaŕ, kótaregož wopytujoš swójej lisćinje pśijaśelow pśidaś, njejo se namakał.
 buddy_list_err_nouser_title:Wužywaŕ njedajo se pśidaś
 core_err_invinp_title:Njepłaśiwe zapódaśe
+core_adm_login_msg:Administratory mógu se <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">how</a> pśizjawiś.
+email_err_unabletoemail_title:ZMÓLKA: E-mail njedajo se rozesłaś
 email_err_unabletoemail_msg:E-mailowy system jo se wót administratora znjemóžnił.
+email_error_body:Wopśimjeśe trěbne
 email_error_namerequired:Mě jo trěbne
 email_error_invaliduser:Njepłaśiwy wužywaŕ
 emailconf_err_invkey_title:Zmólka
@@ -550,6 +591,7 @@ search_options:Pytańske opcije
 search_user_filter:Pó wužywarju filtrowaś
 findu_no_conf:njewobkšuśony wužywaŕ
 register_max_sig_len:Maksimalna dłujkosć:
+register_turing:Pšosym zapódaj slědujucy code:
 modque_cat:Kategorija
 modque_forum:Forum
 idx_compact_forum_row:K dispoziciji stojece forumy:
@@ -557,8 +599,17 @@ mmd_del_title:Temy wulašowaś
 mmd_mov_title:Temy pśesunuś
 mmd_move_threads_to:Celowy forum:
 mmd_abort_move:Pśetergnuś
+mmd_move:Temy pśesunuś
+pmsg_pdf_btn:PDF-archiw załožyś
+search_results_hdr:{VAR: total} pytańskich wuslědkow namakanych
 dmsg_ip:IP:
+err_blockedaccnt_title:ZMÓLKA: Twójo konto jo se wufiltrowało.
+sub_unsub_all_forums:Wšykne forumy wótskazaś
+sub_unsub_all_topics:Wšykne temy wótskazaś
+tabs_own_posts:Swójske powěsći pokazaś
 sml_code:Kod
+mnav_sub_only:Jano w aboněrowanych forumach pytaś
+register_topics_per_page:Temy na bok:
 post_common_bold:Tucny
 post_common_italics:Kursiwny
 post_common_underline:Pódšmarnjony
@@ -567,6 +618,7 @@ post_common_email:E-mailowu adresu zasunuś
 post_common_email_popup:E-mailowa adresa:
 post_common_image:Wobraz zasunuś
 post_common_image_popup:URL wobraza:
+post_common_nlist:Numerěrowanu lisćinu pśidaś
 post_common_quote:Citat dodaś
 post_common_code:Kod dodaś
 rating_delete:Lašowaś
@@ -575,20 +627,28 @@ post_descr:Wopisanje temy:
 pmsg_on:dnja
 move_messages:Powěsći pśesunuś
 move_msg_btn:Wubrane powěsći pśesunuś
+move_msg_th_expl:Pódaj ID celoweje temy (móžo teke w drugich forumach byś)
 code_title:Kod:
 code_select_all:Wše wubraś
 code_show_hide:Pokazaś/schowaś
+postcheck_dup_err:Pšosym njenapóraj temy dwójcy.
 btn_new_topic:Nowa tema
+btn_new_pm:Nowa priwatna powěsć
 btn_post_reply:Wótegroniś
+btn_tree_view:Bomowy naglěd
+btn_flat_view:Płony naglěd
 btn_about:Profil
+btn_small_pm:PP
 btn_delete:lašowaś
 btn_edit:wobźěłaś
 btn_reply:wótegroniś
 btn_quote:citěrowaś
 btn_email:E-mail
 btn_homepage:www
+feed_no_data:Žedne wótpwědujuce daty namakane.
 feed_rdf:RDF-kanal
 feed_rss:RSS2-kanal
 feed_atom:ATOM-kanal
 custom_filed_required:Toś to pólo jo trěbne.
 page_list_heading:K dispoziciji stojece boki
+page_list_total:{PLURAL: i|$1 bok pódany|$1 boka pódanej|$1 boki pódane|$1 bokow pódanych}.

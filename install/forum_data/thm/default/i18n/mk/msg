@@ -271,8 +271,8 @@ friday:петок
 friday_short:пет
 saturday:сабота
 saturday_short:саб
-male:Машки
-female:Женски
+male:машки
+female:женски
 unspecified:НЕНАЗНАЧЕНО
 register_tree_view:Разгранети пораки и теми
 register_msg_tree_view:Рамни теми/Разгранети пораки

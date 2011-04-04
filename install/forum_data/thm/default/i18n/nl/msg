@@ -187,7 +187,7 @@ unsub_from_thread:Abonnenment op dit onderwerp opheffen
 unsub_from_thread_desc:Bij nieuwe berichten in dit onderwerp geen waarschuwingen meer verzenden
 unbookmark_thread:Bladwijzer verwijderen
 unbookmark_thread_desc:Bladwijzer voor dit onderwerp verwijderen
-unsubscribe:Abonnement opheffen
+unsubscribe:Uitschrijven
 unsubscribe_desc:Bij nieuwe onderwerpen in dit forum geen waarschuwingen meer verzenden
 updated_on:Bijgewerkt op:
 user:Gebruiker
@@ -241,7 +241,7 @@ pmsg_delete:Verwijderen
 cur_ppage_pm:Privéberichten
 writing_pm:Een privébericht schrijven
 browsing_folder:Bezig met het bekijken van de map <b>{VAR: folders[$folder_id]}</b>
-inbox:Postvak In
+inbox:Postvak IN
 draft:Concepten
 sent:Verzonden
 trash:Prullenbak
@@ -320,7 +320,7 @@ register_custom_avatar_upload:Eigen avatarbestand:
 register_register:Registreren
 register_required:Vereiste informatie
 register_required_desc:Alle velden zijn verplicht.  Let op: wachtwoorden zijn hoofdlettergevoelig.
-register_optional:Bijkomende informatie
+register_optional:Optionele gegevens
 register_optional_desc:Het is aangewezen dat u geen persoonlijke of identificerende info weergeeft in uw profiel.  Alle info zal zichtbaar zijn voor andere forum leden.
 register_location:Locatie:
 register_occupation:Beroep:
@@ -973,7 +973,7 @@ mnav_more:Meer &raquo;&raquo;
 mnav_minute:Minuut(en)
 mnav_hour:Uur(en)
 mnav_day:Dag(en)
-mnav_week:Week(en)
+mnav_week:We(e)k(en)
 mnav_month:Maand(en)
 mnav_title:Navigatie
 mnav_update:Met <a href="{TEMPLATE: mnav_update_lnk}">Berichtennavigator</a> door berichten bladeren
@@ -1096,7 +1096,7 @@ post_always_on_top:Het onderwerp altijd bovenaan de onderwerpenlijst weergeven
 topic_rating:{VAR: frm->rating} van {PLURAL: frm->n_rating|$1 stem|$1 stemmen}
 topic_list_rating:{VAR: r[17]} van {PLURAL: r[21]|$1 stem|$1 stemmen}
 tabs_notifications:Waarschuwingen
-finduser_flag:Vlag
+finduser_flag:Markering
 post_descr:Beschrijving van het onderwerp:
 pmsg_on:op
 pmsg_download_dump:Berichtendump downloaden

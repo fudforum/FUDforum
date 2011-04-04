@@ -5,35 +5,32 @@
 # Author: Minisarm
 # Author: Naudefj
 
-action:Actiune
-add_to_buddy_list:adauga la lista cu prieteni
+action:Acțiune
+add_to_buddy_list:adaugă la lista cu prieteni
 admin:Administrator
-admin_control_panel:Panou de Control Administrator
-attachment:Atasament:
+admin_control_panel:Panou de control pentru administrator
+administrator:Administrator
+attachment:Atașament:
 avatar:Imagine:
-# Fuzzy
-average_post_count:{VAR: u->posted_msg_count} mesaje ({VAR: avg} mesaje trimise pe zi)
+average_post_count:{PLURAL: u->posted_msg_count|$1 mesaj|$1 mesaje} ({PLURAL: avg|$1 mesaj|$1 mesaje} în medie pe zi)
 biography:Biografie:
-birth_date:Data nasterii:
+birth_date:Data nașterii:
 by:De:
 by_mod:de Moderator
-current_time:Ora curenta
+current_time:Ora curentă
 custom_avatar_queue:Alege imagine
 date_posted:Data trimiterii
-date_registered:Data inregistrarii:
-# Fuzzy
-download_counter:Descarcat de {VAR: v[3]} ori
-# Fuzzy
-pmsg_download_counter:Descarcat de {VAR: r->dlcount} ori
-email:Email:
-email_to_friend:Trimite un email pritenului(lor)
-email_to_friend_desc:Trimite adresa acestei pagini unui prieten prin email
-# Fuzzy
-email_user:Apasati aici pentru a trimite
-faq:Intrebari frecvente
+date_registered:Data înregistrării:
+download_counter:Descărcat {PLURAL: v[3]|$1 singură dată|de $1 de ori}
+pmsg_download_counter:Descărcat {PLURAL: r->dlcount|$1 dată|de $1 ori}
+email:E-mail:
+email_to_friend:Trimite prin e-mail unui prieten
+email_to_friend_desc:Trimite URL-ul acestei pagini unui prieten prin e-mail
+email_user:Trimite utilizatorului un e-mail
+faq:Ajutor
 first_unread_msg:Du-te la mesajele necitite
-first_unread_msg_desc:Du-te la primul mesaj necitit din acest subiect
-flat_view:Intoarcere la vizualizare normala
+first_unread_msg_desc:Du-te la primul mesaj necitit pe această temă
+flat_view:Revenire la vizualizarea implicită
 forum_icon:Iconita Forum
 forum_new_messages:Mesaje noi
 forum_none_messages:Doar membrii inregistrati pot citi mesajele necitite

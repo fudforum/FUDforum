@@ -317,7 +317,7 @@ register_custom_avatar_upload:Doelgemaakte Avatar lêer:
 register_register:Registreer
 register_required:Vereiste Inligting
 register_required_desc:Alle velde moet voltooi word.  Oppas, wagwoorde is gevoelig vir hoofletters!
-register_optional:Bykomende inligting
+register_optional:Opsionele inligting
 register_optional_desc:Moet asb nie persoonlike of identifikasie inligting in u profiel plaas nie. Alle info sal sigbaar wees vir ander forum lede.
 register_location:Ligging:
 register_occupation:Beroep:

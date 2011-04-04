@@ -597,7 +597,7 @@ iemail_thr_subject:Нови одговор на {VAR: thr_subject} од {VAR: po
 iemail_thr_bodyemail:За преглед непрочитаних одговора, пређите на {VAR: goto_url['email']}\n\nУколико не желите да примате будућа обавештења о одговорима ове теме, посетите: {VAR: unsub_url['email']}
 iemail_frm_subject:Нова тема у форуму {VAR: frm_name} под називом {VAR: thr_subject} од {VAR: poster_login}
 iemail_frm_bodyemail:За преглед теме пређите на:\n{VAR: goto_url['email']}\n\nДа бисте прекинули примање обавештења о новим темама у форуму, посетите: {VAR: unsub_url['email']}
-iemail_participate:Да бисте учествовали у дискусији, посетите:
+iemail_participate:Да бисте учествовали у расправи, посетите:
 ignore_list_err_info_title:Подаци
 ignore_list_err_dup_msg:Овај члан се већ налази на вашем списку игнорисаних корисника
 ignore_list_err_nu_title:Корисник није пронађен
@@ -661,7 +661,7 @@ register_welcome_subject:Потврда уписа
 register_welcome_msg:Хвала вам што сте отворили налог.\n\nИспод се налазе подаци за пријављивање на форум:\n\nАдреса: {TEMPLATE: index_update_lnk}\nКорисничко име: {VAR: uent->login}\nЛозинка: {VAR: _POST['reg_plaintext_passwd']}\n\nУпамтите да су лозинке осетљиве на мала и велика слова!\nДа бисте променили своје поставке или профил, посетите:\n{FULL_ROOT}{ROOT}?t=register
 register_err_cantreg_title:Грешка: отварање налога није успело
 regsiter_err_cantreg_msg:Налог није направљен. Контактирајте администратора <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
-register_profile_update:Прегледање сопственог профила
+register_profile_update:Прегледа сопствени профил
 register_register_update:Страница за упис
 report_err_nosuchmsg_title:Грешка
 report_err_nosuchmsg_msg:Нема такве поруке
@@ -706,7 +706,7 @@ index_title:Добро дошли на форум
 search_title:Тражење „{VAR-HTML: srch}“
 remail_emailsent:Е-порука је послата
 remail_email:Здраво,\n\nОтворена је занимљива тема „{VAR: data->subject}“ у {GVAR: FORUM_TITLE} форуму коју бисте можда желели да видите. Тему можете видети на:\n {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nВаш пријатељ,\n\n{VAR: usr->alias}
-poll_add_option:Додај опцију:
+poll_add_option:Додај могућност:
 post_opt_html_on:<b>HTML</b> је <b>укључен</b>
 post_opt_fud_on:<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>BBcode</b> је <b>укључен</b></a>
 post_opt_images_on:<b>Слике</b> су <b>укључене</b>
@@ -738,8 +738,8 @@ thr_exch_submit:Пошаљи
 exch_decline_ttl:Премештање теме {VAR: data->subject} у форум {VAR: data->f2_name} је одбијен.
 ppost_original_msg:порука коју прослеђујете или на коју одговарате
 split_thread:Раздвоји тему
-groupmgr_no_user:Не постоји члан с корисничким именом "{FUNC: char_fix(htmlspecialchars($gr_member))}"
-groupmgr_already_exists:Корисник "{FUNC: char_fix(htmlspecialchars($gr_member))}" већ постоји у овој групи.
+groupmgr_no_user:Не постоји члан с корисничким именом „{FUNC: char_fix(htmlspecialchars($gr_member))}“
+groupmgr_already_exists:Корисник „{FUNC: char_fix(htmlspecialchars($gr_member))}“ већ постоји у овој групи.
 groupmgr_yes:Да
 groupmgr_no:Не
 groupmgr_action:Радња
@@ -846,14 +846,14 @@ post_proc_reveal_spoiler:Промени спојлер
 register_jabber:Џабер:
 register_skype:Скајп:
 register_twitter:Твитер:
-register_google:Гугл Ток:
+register_google:Гугл разговор:
 im_jabber:Џабер:
-im_google:Гугл Ток:
+im_google:Гугл разговор:
 im_skype:Скајп:
 im_twitter:Твитер:
 forum_contact:Контакт
-forum_home:Насловна страна
-post_cur_attached:закачена: {VAR: i} {PLURAL: i|датотека|датотеке|датотека}
+forum_home:Почетна
+post_cur_attached:закачено: {VAR: i} {PLURAL: i|датотека|датотеке|датотека}
 ignored_anon_post:{GVAR: ANON_NICK} је игнорисан/а
 ignored_user_post:Порука од члана <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> је занемарена
 smladd_close_window:затвори прозор

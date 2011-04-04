@@ -4,6 +4,7 @@
 # Author: Naudefj
 # Author: Srhat
 # Author: Tufan
+# Author: Vito Genovese
 
 action:Eylem
 add_to_buddy_list:Arkadaş listesine ekle
@@ -1134,3 +1135,4 @@ feed_atom:ATOM yayını
 ip_whois_connect_err:WHOIS sunucusuna ({VAR: whois_server}) bağlanamıyor: {VAR: errstr}
 custom_filed_required:Bu alan gereklidir.
 page_list_heading:Mevcut sayfalar
+page_list_total:$1 sayfa listelendi.

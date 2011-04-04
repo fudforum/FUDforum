@@ -3,13 +3,14 @@
 # Author: McDutchie
 # Author: Paucabot
 # Author: Qllach
+# Author: SMP
 # Author: Ssola
 # Author: Vriullop
 
 action:Acció
 add_to_buddy_list:afegir a la llista d`amics
 admin:Admin
-admin_control_panel:Panell de l`administrador
+admin_control_panel:Panell de l'administrador
 administrator:Administrador
 attachment:Arxiu adjunt:
 average_post_count:{PLURAL: u->posted_msg_count|$1 Missatge|$1 Missatges} ({PLURAL: avg|$1 missatge de mitjana|$1 missatges de mitjana} per dia)
@@ -61,8 +62,7 @@ locked_with_new_posts:Bloquejat (amb missatges no llegits)
 logged_in_list:Llista d`usuaris connectats
 login:Iniciar sessió
 logout:Sortir
-# Fuzzy
-mark_all_read:Marcar tots els missatges no llegits
+mark_all_read:Marca tots els missatges com a llegits
 mark_all_read_desc:Tots els seus missatges no llegits seran marcats com a llegits
 members:Membres
 message:Missatge
@@ -101,8 +101,7 @@ num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|vot|vots}
 occupation:Ocupació:
 off:DESACTIVAT
 on:ACTIVAT
-# Fuzzy
-page_timings:Temps total que ha tardat la generació de la pàgina: {VAR: page_gen_time} segons
+page_timings:Temps total per a general la pàgina: {PLURAL: page_gen_time|$1 segons}
 pm:Missatges privats
 poll:Enquesta:
 post_count:Total de Missatges {VAR: u_pcount}
@@ -139,8 +138,7 @@ sender_name:Nom del remitent:
 show_posts_by:Mostrar missatges de: {VAR: u_alias}
 size:Mida:
 status:Estat:
-# Fuzzy
-status_line:Hi ha <b>{VAR: st_obj->online_users_reg}</b> membre(s), <b>{VAR: st_obj->online_users_hidden}</b> membres invisibles i <b>{VAR: st_obj->online_users_anon}</b> convidat(s) visitant aquest fòrum.
+status_line:Hi ha <b>{PLURAL: st_obj->online_users_reg|$1 membre|$1 membres}</b>, <b>{PLURAL: st_obj->online_users_hidden|$1 membre invisible|$1 membres invisibles}</b> i <b>{PLURAL: st_obj->online_users_anon|$1 convidat|$1 convidats}</b> visitant aquest lloc.
 sticky:Fixe:
 stop_ignoring:Deixar d`ignorar a aquest usuari
 sub_to_thread:Subscriure`s al fil de discussió
@@ -175,8 +173,7 @@ unsubscribe:Donar-se de baixa
 unsubscribe_desc:Deixar de rebre avisos referents a nous fils de discussió al fòrum
 updated_on:Actualitzat el:
 user:Usuari
-# Fuzzy
-user_counter:Tenim <b>{VAR: st_obj->user_count}</b> usuaris enregistrats.
+user_counter:Tenim <b>{VAR: st_obj->user_count}</b> {PLURAL: st_obj->user_count|usuari|usuaris} registrats.
 user_info:Informació de l`usuari
 user_info_l:Informació de l`usuari {VAR: u->alias}
 user_offline:{VAR: obj->login} no està  actualment al fòrum
@@ -184,8 +181,7 @@ user_online:{VAR: obj->login} està  actualment al fòrum
 usrinfo_last_post:últim missatge:
 view_results:Veure resultats
 views:Vistes
-# Fuzzy
-vote:{VAR: frm->n_rating} Vot(s)
+vote:{PLURAL: frm->n_rating|$1 Vot|$1 Vots}
 vote_button:Votar
 vote_for_thread:Votar
 # Fuzzy
@@ -235,18 +231,18 @@ trash:Paperera
 msg_author:Autor
 avatar_sel_form:Formulari de selecció d`avatars
 no_avatars:No hi ha avatars disponibles
-month_1:Gener
-month_2:Febrer
-month_3:Març
-month_4:Abril
-month_5:Maig
-month_6:Juny
-month_7:Juliol
-month_8:Agost
-month_9:Setembre
-month_10:Octubre
-month_11:Novembre
-month_12:Desembre
+month_1:gener
+month_2:febrer
+month_3:març
+month_4:abril
+month_5:maig
+month_6:juny
+month_7:juliol
+month_8:agost
+month_9:setembre
+month_10:octubre
+month_11:novembre
+month_12:desembre
 male:Masculí­
 female:Femení­
 unspecified:SENSE ESPECIFICAR
@@ -686,8 +682,7 @@ post_opt_html_off:El codi <b>HTML</b> està  <b>DESACTIVAT</b>
 post_opt_fud_off:El <b>BBcode</b> està  <b>DESACTIVAT</b>
 post_opt_images_off:Les <b>imatges</b> estan <b>DESACTIVADES</b>
 post_opt_smilies_off:Les <b>emoticones</b> estan <b>DESACTIVADES</b>
-# Fuzzy
-post_opt:Opcions del fòrum
+post_opt:Opcions del fòrum:
 register_change_passwd:canviar contrasenya
 approved_avatar_title:El seu avatar personalitzat ha estat aprovat.
 approved_avatar_msg:El seu avatar ha estat aprovat per l`administrador. A partir d`ara hauria d`aparèixer com el seu avatar en tots els seus missatges. Si no el veu, o veu el seu antic avatar, és perquè el seu navegador ha guardat la pàgina a la catxé. Provi a recarregar la pàgina un o dos cops, en la majoria dels casos això resol el problema.
