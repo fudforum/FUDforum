@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -231,29 +231,44 @@ function flood_check()
 
 			if ($frm->forum_opt & 32 && $MOD) {
 				$frm->max_attach_size = (int) ini_get('upload_max_filesize');
-				$t = str_replace($frm->max_attach_size, '', ini_get('upload_max_filesize'));
-				if ($t == 'M' || $t == 'm') {
+				$unit = str_replace($frm->max_attach_size, '', ini_get('upload_max_filesize'));
+				if ($unit == 'M' || $unit == 'm') {
 					$frm->max_attach_size *= 1024;
 				}
 				$frm->max_file_attachments = 100;
 			}
 			$MAX_F_SIZE = $frm->max_attach_size * 1024;
 
-			/* Newly uploaded files. */
-			if (isset($_FILES['attach_control']) && $_FILES['attach_control']['size']) {
-				if ($_FILES['attach_control']['size'] > $MAX_F_SIZE) {
-					$attach_control_error = '{TEMPLATE: post_err_attach_size}';
-				} else {
-					if (!($MOD && $frm->forum_opt & 32) && filter_ext($_FILES['attach_control']['name'])) {
+			/* Deal with newly uploaded files. */
+			if (isset($_FILES['attach_control'])) {
+				// Old themes may still have non-array upload controls without ...name="attach_control[]" multiple="multiple".
+				// We do this so that even file upload fields that are not arrays, are processed as arrays... it's easier.
+				if (isset($_FILES['attach_control']['name']) && !is_array($_FILES['attach_control']['name'])) {
+					$_FILES['attach_control'] = array(
+						'tmp_name' => array($_FILES['attach_control']['tmp_name']),
+						'name'     => array($_FILES['attach_control']['name']),
+						'size'     => array($_FILES['attach_control']['size']),
+						'error'    => array($_FILES['attach_control']['error']),
+						'type'     => array($_FILES['attach_control']['type']),
+					);
+				}
+				foreach ($_FILES['attach_control']['error'] as $i => $error) {
+					if ($error == UPLOAD_ERR_INI_SIZE || $error == UPLOAD_ERR_FORM_SIZE || $_FILES['attach_control']['size'][$i] > $MAX_F_SIZE) {
+						$attach_control_error = '{TEMPLATE: post_err_attach_size}';
+					} else if (!($MOD && $frm->forum_opt & 32) && filter_ext($_FILES['attach_control']['name'][$i])) {
 						$attach_control_error = '{TEMPLATE: post_err_attach_ext}';
+					} else if (($attach_count+1) > $frm->max_file_attachments) {
+						$attach_control_error = '{TEMPLATE: post_err_attach_filelimit}';
+					} else if (empty($_FILES['attach_control']['tmp_name']) || $error != UPLOAD_ERR_OK) {
+						continue;
 					} else {
-						if (($attach_count+1) <= $frm->max_file_attachments) {
-							$val = attach_add($_FILES['attach_control'], _uid);
-							$attach_list[$val] = $val;
-							$attach_count++;
-						} else {
-							$attach_control_error = '{TEMPLATE: post_err_attach_filelimit}';
-						}
+						$file = array();
+						$file['tmp_name'] = $_FILES['attach_control']['tmp_name'][$i];
+						$file['name']     = $_FILES['attach_control']['name'][$i];
+						$file['size']     = $_FILES['attach_control']['size'][$i];
+						$val = attach_add($file, _uid);
+						$attach_list[$val] = $val;
+						$attach_count++;
 					}
 				}
 			}
@@ -601,7 +616,7 @@ function flood_check()
 			}
 			$frm->max_file_attachments = 100;
 		}
-		$file_attachments = draw_post_attachments($attach_list, $frm->max_attach_size, $frm->max_file_attachments, $attach_control_error, 0, $msg_id);
+		$file_attachments = draw_post_attachments($attach_list, $frm->max_attach_size*1024, $frm->max_file_attachments, $attach_control_error, 0, $msg_id);
 	} else {
 		$file_attachments = '';
 	}

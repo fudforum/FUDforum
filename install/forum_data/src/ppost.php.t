@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -150,7 +150,7 @@ function export_msg_data(&$m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smile
 			}
 		}
 
-		/* restore file attachments */
+		/* Restore file attachments. */
 		if (!empty($msg_r->attach_cnt) && $PRIVATE_ATTACHMENTS > 0) {
 			$c = uq('SELECT id FROM {SQL_TABLE_PREFIX}attach WHERE message_id='. $msg_r->id .' AND attach_opt=1');
 	 		while ($r = db_rowarr($c)) {
@@ -216,21 +216,36 @@ function export_msg_data(&$m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smile
 	}
 
 	/* Deal with newly uploaded files. */
-	if ($PRIVATE_ATTACHMENTS > 0 && isset($_FILES['attach_control']) && $_FILES['attach_control']['size'] > 0) {
-		if ($_FILES['attach_control']['size'] > $PRIVATE_ATTACH_SIZE) {
-			$MAX_F_SIZE = $PRIVATE_ATTACH_SIZE;
-			$attach_control_error = '{TEMPLATE: post_err_attach_size}';
-		} else {
-			if (filter_ext($_FILES['attach_control']['name'])) {
+	if ($PRIVATE_ATTACHMENTS > 0 && isset($_FILES['attach_control'])) {
+		// Old themes may still have non-array upload controls without ...name="attach_control[]" multiple="multiple".
+		// We do this so that even file upload fields that are not arrays, are processed as arrays... it's easier.
+		if (isset($_FILES['attach_control']['name']) && !is_array($_FILES['attach_control']['name'])) {
+			$_FILES['attach_control'] = array(
+				'tmp_name' => array($_FILES['attach_control']['tmp_name']),
+				'name'     => array($_FILES['attach_control']['name']),
+				'size'     => array($_FILES['attach_control']['size']),
+				'error'    => array($_FILES['attach_control']['error']),
+				'type'     => array($_FILES['attach_control']['type']),
+			);
+		}
+		foreach ($_FILES['attach_control']['error'] as $i => $error) {
+			if ($error == UPLOAD_ERR_INI_SIZE || $error == UPLOAD_ERR_FORM_SIZE || $_FILES['attach_control']['size'][$i] > $PRIVATE_ATTACH_SIZE) {
+				$MAX_F_SIZE = $PRIVATE_ATTACH_SIZE;
+				$attach_control_error = '{TEMPLATE: post_err_attach_size}';
+			} else if (!($MOD && $frm->forum_opt & 32) && filter_ext($_FILES['attach_control']['name'][$i])) {
 				$attach_control_error = '{TEMPLATE: post_err_attach_ext}';
+			} else if (($attach_count+1) > $PRIVATE_ATTACHMENTS) {
+				$attach_control_error = '{TEMPLATE: post_err_attach_filelimit}';
+			} else if (empty($_FILES['attach_control']['tmp_name']) || $error != UPLOAD_ERR_OK) {
+				continue;
 			} else {
-				if (($attach_count+1) <= $PRIVATE_ATTACHMENTS) {
-					$val = attach_add($_FILES['attach_control'], _uid, 1);
-					$attach_list[$val] = $val;
-					$attach_count++;
-				} else {
-					$attach_control_error = '{TEMPLATE: post_err_attach_filelimit}';
-				}
+				$file = array();
+				$file['tmp_name'] = $_FILES['attach_control']['tmp_name'][$i];
+				$file['name']     = $_FILES['attach_control']['name'][$i];
+				$file['size']     = $_FILES['attach_control']['size'][$i];
+				$val = attach_add($file, _uid, 1);
+				$attach_list[$val] = $val;
+				$attach_count++;
 			}
 		}
 	}
@@ -406,7 +421,7 @@ function export_msg_data(&$m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smile
 	}
 
 	if ($PRIVATE_ATTACHMENTS > 0) {
-		$file_attachments = draw_post_attachments($attach_list, round($PRIVATE_ATTACH_SIZE / 1024), $PRIVATE_ATTACHMENTS, $attach_control_error, ($FUD_OPT_2 & 32768 ? '1' : '&amp;private=1'), $msg_id ? $msg_id : (isset($_GET['forward']) ? (int)$_GET['forward'] : 0));
+		$file_attachments = draw_post_attachments($attach_list, $PRIVATE_ATTACH_SIZE, $PRIVATE_ATTACHMENTS, $attach_control_error, ($FUD_OPT_2 & 32768 ? '1' : '&amp;private=1'), $msg_id ? $msg_id : (isset($_GET['forward']) ? (int)$_GET['forward'] : 0));
 	} else {
 		$file_attachments = '';
 	}

@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -13,7 +13,7 @@ function draw_post_smiley_cntrl()
 {
 	global $PS_SRC, $PS_DST; /* Import from global scope, if possible. */
 
-	include_once $GLOBALS['FORUM_SETTINGS_PATH'].'ps_cache';
+	include_once $GLOBALS['FORUM_SETTINGS_PATH'] .'ps_cache';
 
 	/* Nothing to do. */
 	if ($GLOBALS['MAX_SMILIES_SHOWN'] < 1 || !$PS_SRC) {
@@ -24,17 +24,17 @@ function draw_post_smiley_cntrl()
 		$limit = $GLOBALS['MAX_SMILIES_SHOWN'];
 	}
 
-	$data = '';
+	$smilies = '';
 	$i = 0;
 	while ($i < $limit) {
-		$data .= '{TEMPLATE: post_smiley_entry}';
+		$smilies .= '{TEMPLATE: post_smiley_entry}';
 	}
 	return '{TEMPLATE: post_smilies}';
 }
 
 function draw_post_icons($msg_icon)
 {
-	include $GLOBALS['FORUM_SETTINGS_PATH'].'icon_cache';
+	include $GLOBALS['FORUM_SETTINGS_PATH'] .'icon_cache';
 
  	/* Nothing to do. */
 	if (!$ICON_L) {
@@ -91,6 +91,7 @@ function draw_post_attachments($al, $max_as, $max_a, $attach_control_error, $pri
 			$allowed_extensions = implode(' ', $GLOBALS['__FUD_EXT_FILER__']);
 		}
 	}
+	$max_as_k = round($max_as / 1024);	// We display max attch size in KB.
 	return '{TEMPLATE: file_attachments}';
 }
 ?>
