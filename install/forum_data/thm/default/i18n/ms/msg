@@ -1,1 +1,1131 @@
- 
+# Messages for Malay (Bahasa Melayu)
+# Exported from translatewiki.net
+# Author: Anakmalaysia
+
+action:Tindakan
+add_to_buddy_list:tambahkan ke senarai kawan
+admin:Pentadbir
+admin_control_panel:Panel Kawalan Pentadbir
+administrator:Pentadbir
+attachment:Lampiran:
+avatar:Avatar:
+average_post_count:{PLURAL: u->posted_msg_count|$1 Pesanan|$1 Pesanan} (purata {PLURAL: avg|$1 pesanan|$1 pesanan} sehari)
+biography:Biografi:
+birth_date:Tarikh Lahir:
+by:Oleh:
+by_mod:oleh Pengawal Selia
+current_time:Waktu Sekarang
+custom_avatar_queue:Baris Gilir Avatar Tempahan
+date_posted:Tarikh Disiarkan
+date_registered:Tarikh Berdaftar:
+download_counter:Dimuat turun {PLURAL: v[3]|sekali|$1 kali}
+pmsg_download_counter:Dimuat turun {PLURAL: r->dlcount|sekali|$1 kali}
+email:E-mel:
+email_to_friend:E-mel kepada rakan
+email_to_friend_desc:Hantarkan URL ke laman ini kepada rakan anda melalui e-mel
+email_user:Hantarkan surat e-mel kepada pengguna
+faq:Bantuan
+first_unread_msg:Pergi ke pesanan yang belum dibaca
+first_unread_msg_desc:Pergi ke pesanan belum dibaca yang pertama dalam topik ini
+flat_view:Kembali ke paparan leper sediakala
+forum:Forum:
+forum_icon:Ikon Forum
+forum_new_messages:Pesanan baru
+forum_none_messages:Ahli forum yang berdaftar sahaja boleh menjejaki pesanan yang sudah &amp; belum dibaca
+forum_old_messages:Tiada pesanan baru
+from:Daripada:
+gender:Jantina:
+go:Pergi
+goto_next_msg:Lihat pesanan seterusnya
+goto_prev_msg:Lihat pesanan sebelumnya
+home:Laman Utama
+homepage:Laman Utama:
+icq_control_panel:Panel Pesanan Dalam Talian ICQ
+icq_message_form:Borang Pesanan ICQ:
+ignore_user:abaikan semua pesanan daripada pengguna ini
+im_aim:AIM Handle:
+im_msnm:MSN Messenger:
+im_yahoo:Yahoo Messenger:
+image:Gambar:
+index_forum:Forum
+index_new_posts:Pesanan baru sejak bacaan terakhir
+index_no_new_posts:Tiada pesanan baru sejak bacaan terakhir
+index_url_redirection:Pelencongan
+interests:Minat:
+last_post:Pesanan terkini
+last_thread_msg:Lihat pesanan terkini dalam topik ini
+legend:Petunjuk
+location:Lokasi:
+lock_thread:Kunci Topik
+locked:Dikunci
+locked_with_new_posts:Dikunci (dgn pesanan yang belum dibaca)
+logged_in_list:Senarai pengguna yang log masuk
+login:Log masuk
+login_header:Log masuk:
+logout:Log keluar
+mark_all_read:Tandai semua pesanan sebagai sudah dibaca
+mark_all_read_desc:Semua pesanan belum dibaca anda akan ditandai sebagai sudah dibaca
+members:Ahli
+calendar:Kalendar
+cal_goto_date:Lompat ke:
+cal_day_heading:Acara untuk hari
+cal_no_events:Tiada acara untuk hari.
+cal_update:Melayari kalendar forum
+cal_birthday:Hari lahir: {VAR: user}
+cal_birthday_age:({PLURAL: age|setahun|$1 tahun}).
+message:Pesanan
+message_counter:Para pengguna kami telah mengirim sejumlah <b>{PLURAL: post_count|$1 pesanan|$1 pesanan}</b> dalam <b>{PLURAL: thread_count|$1 topik|$1 topik}</b>.
+message_index:Indeks pesanan
+message_index_desc:Lihat senarai pesanan
+minimize_category:Kuncupkan Kategori
+minimize_message:Kuncupkan Pesanan
+moderation_queue:Baris Gilir Kawal Selia
+moderator:Pengawal Selia (Moderator)
+moderator_of:Pengawal Selia di:
+moderator_options:Opsyen Pengawal Selia
+moderators:{PLURAL: modcount|Pengawal Selia|Pengawal Selia}
+more_unread_messages:banyak lagi pesanan yang belum dibaca
+more_unread_messages_desc:Tunjukkan banyak lagi pesanan yang belum dibaca dan tandai pesanan-pesanan yang boleh dilihat sekarang sebagai sudah dibaca
+move_thread:Pindahkan
+moved:Dipindahkan ke forum lain
+moved_thread_message:Topik ini telah dipindahkan ke forum lain
+na:n/a
+new_posts:Pesanan Baru
+new_private_messages:Anda ada <span class="GenTextRed">({VAR: c})</span> {PLURAL: c|pesanan peribadi|pesanan peribadi} yang belum dibaca.
+new_thread:Buka topik baru
+newest_user:Pengguna berdaftar yang baru ialah
+next_page:Halaman Berikutnya
+next_thread:Topik Seterusnya:
+no_messages:Tiada pesanan dalam forum ini.
+no_msg_body:Tiada Isi Pesanan
+no_new_posts:Tiada pesanan Baru
+no_posts:Tiada Pesanan
+no_subscribed_forums:Tiada forum yang dilanggan
+no_subscribed_threads:Tiada topik yang dilanggan
+no_bookmarked_threads:Tiada topik yang digemari
+no_unread_locked:Topik ini telah dikunci
+no_unread_msg:Topik ini tiada mesej yang belum dibaca
+no_unread_msg_unreg:Pesanan yang sudah &amp; belum dibaca hanya dijejaki untuk pengguna berdaftar
+num_pages:Halaman ({VAR: ttl_pg}):
+num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|undian|undian}
+occupation:Pekerjaan:
+off:tutup
+on:buka
+page_timings:Masa yang diambil untuk menjana halaman ini: {PLURAL: page_gen_time|$1 saat}
+pm:Khidmat Pesanan Peribadi
+poll:Tinjauan:
+post_count:Kiraan Pesanan {VAR: u_pcount}
+post_count_l:Kiraan Pesanan:
+posts:Pesanan
+posts_c:Pesanan:
+prev_thread:Topik Sebelumnya:
+usrinfo_private_message:Pesanan Peribadi:
+profile:Panel Kawalan
+profile_desc:Masuki panel kawalan pengguna
+rate_thread:Nilai Topik
+rating:Penilaian
+rating_track:Uruskan penilaian untuk topik <b>{VAR: thr->subject}</b>:
+refresh_list:Muat Semula Senarai
+register:Daftar
+registered:Berdaftar:
+registered_on:Berdaftar di {TEMPLATE: registered_on_date}
+replies:Balasan
+report_to_mod:Laporkan pesanan kepada pengawal selia
+reported_messages:Pesanan yang Dilaporkan
+reveal_all_posts:tunjukkan semua pesanan oleh {VAR: user_login}
+reveal_post:tunjukkan mesej
+search:Cari
+sel_todays_posts:Pesanan Hari Ini
+sel_todays_posts_desc:Togol penapis pesanan hari ini (untuk memaparkan pesanan yang dibuat hari ini sahaja)
+sel_unanswered_posts:Pesanan yang Belum Dibalas
+sel_unanswered_posts_desc:Togol penapis pesanan belum dibalas (untuk memaparkan pesanan yang tidak berbalas sahaja)
+sel_unread_messages:Pesanan yang Belum Dibaca
+sel_unread_messages_desc:Togol penapis pesanan belum dibaca (untuk memaparkan pesanan yang belum dibaca sahaja)
+send:Kirim
+send_pm_desc:Kirim pesanan peribadi kepada pengguna ini
+sender_email:E-mel Pengirim:
+sender_name:Nama Penghantar:
+show_posts_by:Tunjukkan Pesanan Mengikut: {VAR: u_alias}
+size:Saiz:
+status:Status:
+status_line:Terdapat <b>{PLURAL: st_obj->online_users_reg|seorang ahli|$1 orang ahli}</b>, <b>{PLURAL: st_obj->online_users_hidden|seorang ahli limunan|$1 orang ahli limunan}</b> dan <b>{PLURAL: st_obj->online_users_anon|seorang tamu|$1 orang tamu}</b> yang mengunjungi tapak ini.
+sticky:lekit:
+stop_ignoring:jangan abaikan pengguna ini
+sub_to_thread:Langgan topik
+sub_to_thread_desc:Terima pemberitahuan tentang pesanan baru dalam topik ini
+bookmark_thread:Gemari topik
+bookmark_thread_desc:Tambahkan topik ini ke dalam senarai kegemaran anda
+subject:Subjek
+subscribe:Langgan
+subscribe_desc:Terima pemberitahuan apabila ada orang yang membuka topik baru di forum ini
+subscribed_forums:Forum yang Dilanggan
+subscribed_forums_desc:Togol penapis forum yang dilanggan (untuk menunjukkan pesanan-pesanan dari forum langganan anda sahaja)
+subscribed_threads:Topik yang Dilanggan
+subscribed_threads_desc:Togol penapis topik yang dilanggan (untuk menunjukkan pesanan-pesanan dari topik langganan anda sahaja)
+bookmarked_threads:Topik yang Digemari
+switch_to_thread_view:Beralih ke paparan topik secara bertred
+thread:Topik:
+thread_announcement:Pengumuman:
+thread_first_unread_msg:Pergi ke pesanan belum dibaca yang pertama dalam topik ini
+thread_thread:Topik
+threads:Topik
+time:Waktu
+todays_posts:Pesanan Hari Ini
+todays_posts_desc:Paparkan semua pesanan yang dikirim hari ini
+un_ignore_user:jangan abaikan pesanan oleh pengguna ini
+unanswered_posts:Pesanan yang Belum Dibalas
+unanswered_posts_desc:Paparkan semua pesanan yang belum dibalas
+unlock_thread:Buka Kunci Topik
+unread_msg:Topik ini mengandungi pesanan yang belum anda baca
+unread_msg_locked:Topik terkunci dengan pesanan yang belum dibaca
+unread_posts:Pesanan yang Belum Dibaca
+unread_posts_desc:Paparkan semua pesanan yang belum dibaca
+unsub_from_thread:Berhenti melanggan topik
+unsub_from_thread_desc:Berhenti menerima pemberitahuan pesanan baru dalam topik ini
+unbookmark_thread:Gugurkan daripada kegemaran
+unbookmark_thread_desc:Gugurkan topik ini daripada senarai kegemaran anda
+unsubscribe:Berhenti melanggan
+unsubscribe_desc:Berhenti menerima pemberitahuan pesanan baru dalam forum
+updated_on:Dikemas kini pada:
+user:Pengguna
+user_counter:Kami ada <b>{VAR: st_obj->user_count}</b> {PLURAL: st_obj->user_count|pengguna|pengguna} berdaftar.
+user_info:Maklumat Pengguna
+user_info_l:Maklumat Pengguna {VAR: u->alias}
+user_offline:{VAR: obj->login} kini di luar talian
+user_online:{VAR: obj->login} kini di dalam talian
+usrinfo_last_post:Pesanan Terkini:
+view_results:Lihat Hasil
+views:Kunjungan
+vote:{PLURAL: frm->n_rating|$1 Undian|$1 Undian}
+vote_button:Undi
+vote_for_thread:Undi
+was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> telah dipindahkan kepada <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> oleh pengawal selia.
+welcome_message:Selamat datang <b>{VAR: usr->alias}</b>, kali terakhir anda ke sini adalah pada {TEMPLATE: welcome_message_date}
+what_ppl_doing:Paparkan kegiatan orang lain
+reported_del_report:Padamkan Laporan
+reported_reason:Sebab:
+reported_on:Pada:
+reported_reported_by:Dilaporkan Oleh:
+reported_reported_msg:Pesanan yang Dilaporkan
+modque_pending_approval:Pesanan-pesanan yang menunggu kelulusan
+modque_approve:Luluskan
+modque_delete:Padamkan
+modque_no_message:Tiada mesej yang menunggu kelulusan
+pmsg_new_messages:Pesanan peribadi yang belum dibaca
+pmsg_old_messages:Pesanan peribadi yang sudah dibaca
+deny_recipt:tolak penerimaan
+deny_recipt_desc:Jangan menghantar pengesahan bahawa anda telah membaca pesanan ini
+restore_to:Pulihkan Ke:
+move_to:Pindahkan Ke:
+list_referes_referrals:Rujukan
+list_referes_members:Ahli yang Dirujukkan
+list_referes_member:Ahli
+referals_none:Belum dirujukkan lagi.
+referals_refered_by:Ahli forum yang dirujukkan oleh: <b><a href="{TEMPLATE: referals_refered_by_lnk}" class="thLnk">{VAR: p_user[1]}</a></b>
+referals_post_count:Kiraan Pesanan:
+referals_registered_on:Berdaftar pada
+referals_action:Tindakan
+pmsg_all:semua
+pmsg_none:tiada
+folder:Folder:
+pmsg_replied:dibalas
+pmsg_forwarded:dihantar semula
+pmsg_subject:Subjek
+pmsg_author:Pengarang
+pmsg_time:Waktu
+pmsg_selected:Dipilih
+pmsg_delete:Hapuskan
+cur_ppage_pm:Pesanan Peribadi
+writing_pm:Menulis Pesanan Peribadi
+browsing_folder:Melayari folder <b>{VAR: folders[$folder_id]}</b>
+inbox:Peti Masuk
+draft:Draf
+sent:Dihantar
+trash:Buangan
+msg_author:Pengarang
+avatar_sel_form:Borang Pemilihan Avatar
+no_avatars:Tiada Avatar
+month_1:Januari
+month_2:Februari
+month_3:Mac
+month_4:April
+month_5:Mei
+month_6:Jun
+month_7:Julai
+month_8:Ogos
+month_9:September
+month_10:Oktober
+month_11:November
+month_12:Disember
+sunday:Ahad
+sunday_short:A
+monday:Isnin
+monday_short:I
+tuesday:Selasa
+tuesday_short:Se
+wednesday:Rabu
+wednesday_short:R
+thursday:Khamis
+thursday_short:K
+friday:Jumaat
+friday_short:J
+saturday:Sabtu
+saturday_short:Sa
+male:Lelaki
+female:Perempuan
+unspecified:TIDAK DINYATAKAN
+register_tree_view:Senarai pesanan dan topik secara Paparan Pepohon
+register_msg_tree_view:Senarai topik Leper/Senarai pesanan Pepohon
+register_tree_msg_view:Senarai topik Pepohon/Senarai pesanan Leper
+register_flat_view:Senarai pesanan dan topik secara Paparan Leper
+use_forum_default:Gunakan tetapan forum yang sediakala
+finduser_user_info:Maklumat Pengguna
+finduser_by_login:Mengikut Log Masuk:
+finduser_submit:Cari
+finduser_no_such_user:Pengguna Tidak Wujud
+finduser_user:Pengguna
+finduser_postcount:Kiraan Pesanan
+finduser_joindate:Tarikh Penyertaan
+finduser_action:Tindakan
+yes:Ya
+no:Tidak
+register_email:E-mel
+edit_time_limit:<b>Had Masa Menyunting</b>: {GVAR: EDIT_TIME_LIMIT} minit
+no_edit_time_limit:<b>Had Masa Menyunting</b>: Tiada
+pmuserloc_login:Log masuk:
+pmuserloc_submit:Serahkan
+pmuserloc_user:Pengguna
+pmuserloc_no_result:Tiada Hasil
+register_builtin:Terbina Dalam
+register_specify_url:Nyatakan URL
+register_uploaded:Muat Naik Avatar
+register_login:Log masuk:
+register_password:Kata laluan:
+register_conf_pass:Sahkan Kata Laluan:
+register_email_desc:Sial berikan alamat e-mel yang sah. Anda boleh memilih untuk menyorokkannya di bawah, dalam bahagian Keutamaan.
+register_name:Nama:
+register_your_pass:Kata Laluan Anda:
+register_update:Kemas kini
+register_avatar_type:Jenis Avatar:
+register_del_avatar:Padamkan Avatar
+register_avatar:Avatar:
+register_sel_avatar:Pilih Avatar
+register_custom_avatar_rules:Avatar anda tidak akan muncul sehingga ia diluluskan oleh pihak pentadbiran.<br /><span class="SmallText">Avatar itu seharusnya tidak lebih besar daripada <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} piksel</b> dan mestilah berformat <b>jpg</b>, <b>gif</b> atau <b>png</b>.</span>
+register_custom_avatar_url:URL Avatar Ubah Suai:
+register_preview:Pralihat
+register_custom_avatar_upload:Fail Avatar Ubah Suai:
+register_register:Daftar
+register_required:Maklumat yang Diperlukan
+register_required_desc:Semua ruangan mesti diisi. Sila ingat bahawa kata laluan adalah peka huruf besar kecil.
+register_optional:Maklumat Pilihan
+register_optional_desc:Anda disaran supaya tidak mendedahkan sebarang maklumat peribadi atau identiti anda dalam profil, kerana segala maklumat sedemikian akan boleh dilihat oleh ahli-ahli forum yang lain.
+register_location:Lokasi:
+register_occupation:Pekerjaan:
+register_interests:Minat:
+register_image:Gambar:
+register_icq:ICQ:
+register_aim:AIM Handle:
+register_yahoo:Yahoo Messenger:
+register_msnm:MSN Messenger:
+register_homepage:Laman Utama:
+register_bday:Tarikh Lahir:
+register_bday_desc:Jika anda mengisikan tarikh lahir, ahli-ahli forum lain boleh melihatnya dalam profil anda.
+register_day:Hari
+register_month:Bulan
+register_year:Tahun
+register_gender:Jantina:
+register_bio:Biografi:
+register_bio_desc:Sedikit butiran mengenai anda, seperti minat, pekerjaan anda dsb...
+register_prefs:Keutamaan
+register_sig:Tandatangan:
+register_sig_desc:Tandatangan tak wajib yang akan muncul di bawah sekali pesanan anda.
+register_reset:Reset
+register_def_thread_view:Pandangan Topik Tersedia:
+register_msg_per_page:Pesanan Per Halaman:
+register_show_sig:Tunjukkan Tandatangan:
+register_show_sig_desc:Membolehkan anda menyorokkan/memaparkan tandatangan ahli-ahli forum yang lain.
+register_use_sig_default:Sentiasa Sediakan Tandatangan:
+register_use_sig_default_desc:Sisipkan tandatangan anda secara automatik kepada setiap pesanan yang anda kirimkan.
+register_timezone:Zon Waktu:
+register_ignore_admin:Abaikan Pesanan Pentadbiran:
+register_invisible_mode:Mod Limunan (Invisible):
+register_invisible_mode_desc:Menyorokkan status dalam talian anda.
+register_show_email:Tunjukkan Alamat E-mel:
+register_show_email_desc:Pilih opsyen ini jika anda ingin menunjukkan alamat e-mel anda kepada umum.
+register_notification:Sentiasa Sediakan Pemberitahuan:
+register_notification_desc:Jika pemberitahuan dihidupkan secara tersedia, ia boleh dimatikan ketika mengepos.
+register_notify_method:Pilih Kaedah Pemberitahuan:
+register_notify_method_desc:Tetapkan kaedah pemberitahuan yang anda gemari atau matikan sahaja pemberitahuan (misalnya, apabila anda pergi bercuti).
+register_allow_email_msg:Benarkan Pesanan E-mel:
+register_allow_email_msg_desc:Benarkan pengguna lain menghantar e-mel kepada anda melalui forum ini.
+buddy_status:Status
+my_buddies:Kawan-kawan Saya
+add_buddy:Tambahkan Kawan
+add:Tambahkan
+buddy_search:Isikan nama log masuk pengguna yang anda mahu tambahkan.
+member_search:Atau guna ciri <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Cari Pengguna</a> untuk mencari orang.
+buddy_remove:gugurkan
+post_normal:Biasa
+post_sticky:Lekit
+post_annoncement:Pengumuman
+post_size:Saiz
+post_color:Warna
+post_font:Fon
+create_thread:Buka Topik
+submit_reply:Balas
+edit_message:Tetapkan Perubahan Pesanan
+apply_spell_changes:Tetapkan Perubahan Ejaan
+post_preview:Pralihat Pesanan
+post_logedin_user:Pengguna log masuk:
+post_logout:log keluar
+post_passwd:Kata Laluan Mengirim:
+post_poll:Tinjauan:
+post_create_poll:CIPTA TINJAUAN
+post_poll_delete:HAPUSKAN
+post_poll_edit:SUNTING
+post_mod_opt:Opsyen Pengawal Selia:
+post_thread_type:Jenis Topik:
+post_thread_expiry:Topik Luput pada:
+post_locked:Topik Dikunci
+post_icons:Ikon Pesanan:
+post_no_icon:Tiada Ikon
+post_smiley:Kekunci Pintas Emotikon:
+post_format_tools:Alatan Pemformatan:
+post_upload_file:Muat Naik Fail
+post_file_del:Hapuskan
+post_file_name:Nama
+post_file_size:Saiz
+file_attachments:Lampiran Fail:
+allowed_files:Sambungan Fail yang Dibenarkan:
+max_file_size:Saiz Fail Maksimum:
+max_files_per_msg:Bil. Fail Maksimum Per Pesanan:
+post_notification:Pemberitahuan Kiriman
+include_sig:Sertakan Tandatangan
+include_sig_desc:Sertakan tandatangan profil anda.
+disable_smilies:Tutup ciri emotikon dalam pesanan ini
+spell_check_msg:Semak Ejaan Pesanan
+post_form:Borang Kiriman
+post_forum:Forum:
+post_title:Tajuk:
+post_body:Isi:
+post_options:Opsyen:
+post_preview_btn:Pralihat Pesanan
+post_cancel_btn:Batalkan
+ignore_users:Pengguna yang Diabaikan
+add_ignore:Abaikan Pengguna
+forum_terms:Syarat-syarat Forum
+forum_rules:<p>Pendaftaran di forum ini adalah percuma! Kami mengehendaki supaya anda mematuhi peraturan-peraturan dan dasar-dasar yang diterangkan di bawah. Jika anda bersetuju dengan syarat-syarat ini, sila tekan butang <b>Agree</b> di akhir halaman ini. Perhatian: Dengan menekan butang tersebut, anda mengakui diri anda berumur lebih 13 tahun. Jika anda berumur 13 tahun ke bawah, sila gunakan borang pendaftaran ini.</p><p>Walaupun para pentadbir dan pengawal selia forum ini akan cuba membendung pesanan-pesanan yang menyalahi peraturan di forum ini, namun adalah mustahil bagi kami menyemak semua pesanan. Semua pesanan meluahkan pendapat pengarang masing-masing, dan pemilik mahupun pihak pembangunan forum tidak akan dipertanggungjawabkan atas isi kandungan mana-mana pesanan.</p><p>Dengan menekan butang Setuju, anda bersumpah untuk tidak mengirim sebarang pesanan yang mengandungi kata-kata lucah, kesat, berorientasikan seks, kebencian, mengugut, ataupun melanggar undang-undang sekalipun.</p><p>Para pemilik forum ini berhak untuk memadamkan, menyunting, memindahkan atau menutup mana-mana topik atas sebarang alasan.</p>
+forum_rules_13:<p>Semua pengguna bawah umur 13 tahun mesti meminta kebenaran ibu bapa atau penjaga untuk mendapat keahlian di forum ini. Walaupun kami mengalu-alukan penyertaan aghli bawah umur 13 tahun, namun kami mewajibkan supaya ibu bapa atau penjaga mengirim borang kebenaran melalui faks atau e-mel sebelum kami meluluskan keahlian.</p><p>Jika anda hendak memulakan proses pendaftaran sebelum borang kebenaran dapat disampaikan kepada kami, tekan butang <b>Setuju</b> di bawah. Jika anda hendak membatalkan pendaftaran, tekan <b>Tidak setuju</b> untuk kembali ke indeks forum.</p><p>Salinan borang kebenaran boleh dimuat turun di sini. Untuk maklumat lanjut mengenai proses pendaftaran, sila kirim e-mel kepada <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
+coppa_conf:Pengesahan COPPA
+coppa_before:Selepas {TEMPLATE: coppa_date}
+coppa_after:Selepas {TEMPLATE: coppa_date}
+coppa_link:Klik pautan yang berpadan dengan tarikh lahir anda
+coppa:<p>Ibu bapa atau penjaga mesti menghantar borang keizingan bertandatangan melalui pos atau faks kepada pentadbir forum ini sebelum pengguna di bawah umur 13 tahun boleh melengkapkan pendaftarannya.</p><p>Untuk maklumat lanjut, hubungi <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a></p>
+prereg_info:Peraturan Forum
+prereg_agree:Setuju
+prereg_disagree:Tidak setuju
+prereg_update:Membaca peraturan forum
+coppa_fax_instructions:Arahan untuk Ibu Bapa/Penjaga
+coppa_fax_instructions2:Sila cetakkan, tandatangani dan fakskan laman ini ke:
+coppa_fax_reg_form:Borang Pendaftaran
+coppa_fax_sign:Sila tandatangani borang berikut lalu hantarkannya kepada kami
+coppa_fax_conf:Saya telah menyemak maklumat yang diberikan oleh anak saya, dan saya telah membaca Dasar Privasi tapak web ini. Saya faham bahawa maklumat profil boleh diubah dengan menggunakan kata laluan. Saya faham bahawa saya boleh meminta supaya profil pendaftaran ini boleh digugurkan sepenuhnya daripada forum.
+coppa_fax_permission:Tandatangani di sini jika anda memberikan kebenaran
+coppa_fax_no_permission:Tandatangani di sini jika anda mahu akaun dihapuskan
+coppa_fax_parent_name:Nama Penuh Ibu Bapa/Penjaga:
+coppa_fax_relation:Hubungan dengan Anak:
+coppa_fax_telephone:Telefon:
+coppa_fax_email:Alamat E-mel:
+coppa_fax_date:Tarikh:
+coppa_fax_questions:Sila hubungi <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> untuk bertanya
+coppa_fax_login:Log masuk
+coppa_fax_passwd:Kata laluan
+coppa_fax_remail:E-mel
+coppa_fax_name:Nama
+login_not_logedin:Anda belum log masuk. Ini mungkin disebabkan oleh yang berikut:
+login_cookie_expired:Cecikut (''cookie'') anda telah luput, dan anda perlu log masuk untuk memperbaharui cecikut anda.
+login_perm_denied:Anda tiada kebenaran untuk mencapai sumber yang dipohon sebagai pengguna tanpa nama. Anda mesti log masuk untuk mendapatkan kebenaran.
+login_want_to_register:Nak daftar?
+login_forgot_passwd:Lupa kata laluan
+login_use_cookie:Gunakan cecikut (''cookies'')<br /><span class="SmallText">Jika anda menggunakan komputer kegunaan awam seperti di perpustakaan, sekolah atau kafe Internet, anda disaran supaya memadamkan tanda pada opysen ini demi keselamatan anda. Jika anda biarkan opsyen ini dipilih, anda akan dilog masuk ke dalam forum secara automatik pada lain kali.</span>
+login_login:Log masuk:
+login_login_btn:Log masuk
+login_name_required:Nama log masuk diperlukan
+login_passwd_required:Kata laluan diperlukan
+login_invalid_radius:Gabungan log masuk/kata laluan tidak sah
+reset_confirmation:Terima kasih kerana berdaftar.\n\nUntuk mengaktifkan akaun anda, sila ke URL berikut:\n\n{VAR: url}\n\nSebaik sahaja akaun anda diaktifkan, anda akan log masuk ke dalam forum dan dilencongkan ke laman utama.
+reset_reset:Helo,\n\nAnda telah memohon supaya kata laluan anda direset. Untuk menyiapkan prosesnya, sila ke URL berikut:\n\n{VAR: url}\n\nPERHATIAN: Forum ini menyimpan kata laluan dalam mekanisme penyulitan sehala, iaitu sebaik sahaja anda mengisikan kata laluan anda, ia akan dikodkan supaya ia langsung TIDAK BOLEH diambil balik. Ini berfungsi dengan membandingkan versi yang dikodkan dalam rekod kami dengan versi yang dikodkan yang anda taipkan dalam prompt Log Masuk.\n(Jika anda berminat untuk tahu cara mekanisme ini berfungsi, sila kaji algortima MD5 HASH)
+rpasswd_invalid_passwd:Kata Laluan Tidak Sah
+rpasswd_passwd_nomatch:Kata laluan tidak sepadan
+rpasswd_passwd_length:Kata laluan mestilah 6 aksara ke atas
+reset_remind_pass:Peringatan Kata Laluan
+reset_reset_conf:Kata laluan anda akan direset dan dihantarkan kepada anda. Jika anda belum mengesahkan alamat e-mel anda, permohonan pengesahan akan dihantar semula ke anda.
+reset_error:Alamat e-mel tiada dalam pangkalan data
+rpasswd_change_pass:Tukar Kata Laluan
+rpasswd_login:Log masuk
+rpasswd_cur_pass:Kata Laluan Sekarang:
+rpasswd_new_pass:Kata Laluan Baru:
+rpasswd_conf_pass:Sahkan Kata Laluan:
+ruser_title:Tukar Borang Log Masuk
+ruser_change_user:Tukar Nama Log Masuk Forum Anda
+ruser_cur_login:Nama Log Masuk Sekarang:
+ruser_new_login:Nama Log Masuk Baru:
+ruser_cur_pass:Kata Laluan Sekarang:
+login_passwd:Kata laluan:
+reset_email:E-mel:
+reset_reset_button:Set Semula Kata Laluan
+rate_this_thread:Nilai
+report_reporting_about:Laporan Tentang:
+report_subject:Subjek:
+report_by:Oleh:
+report_posted_on:Dikirim pada:
+report_give_reason:Sila nyatakan sebab anda hendak melaporkan pesanan ini:
+report_submit_report:Hantar Laporan
+search_entire_msg:Seluruh Pesanan
+search_subject_only:Subjek Sahaja
+search_forum:Forum
+search_posted_on:Dikirim pada
+search_no_results:Tiada Hasil
+search_all_forums:Cari Semua Forum
+search_in_forum:Cari dalam Forum:
+search_forum_search:Carian Forum
+move_thread_to:Pindahkan topik <b>{VAR: thr->subject}</b> ke:
+remail_email_topic:E-melkan Topik Ini Kepada Seorang Rakan
+remail_your_name:Nama Anda:
+remail_your_email:Alamat E-mel Anda:
+remail_friends_name:Nama Rakan:
+remail_friends_email:Alamat E-mel Rakan:
+remail_required:wajib
+remail_subject:Subjek:
+remail_message:Pesanan:
+remail_send_now:Kirim E-mel Sekarang
+remail_anon_opt:Salin pesanan ini ke dalam klien mel pilihan anda untuk dihantar kepada rakan-rakan anda.
+remail_done:Siap
+remail_sent_conf:E-mel mengenai topik {VAR: data->subject} berjaya kepada rakan anda di {VAR-HTML: _POST['femail']}.
+remail_error:Ralat dialami ketika e-mel dikirim
+mklist_type:Jenis:
+mklist_option:Opysen:
+mklist_additem:Tambahkan Item
+mklist_apply:Gunakan
+mklist_delete:Hapuskan
+qbud_nick_name:Nama Timangan
+qbud_add_selected:Tambahkan yang Terpilih
+qbud_selected:Terpilih
+qbud_no_buddies:Tiada kawan untuk dipilih
+mklist_numerical:Bernombor
+mklist_aplha:Alfa
+mklist_square:Petak
+mklist_disc:Cakera
+mklist_circle:Bulatan
+mklist_close:Tutup
+email_to:Kepada:
+email_pg_title:E-mel
+email_subject:Subjek:
+email_body:Isi:
+email_submit:E-mel
+ppost_quote_msg:{VAR: msg_to_list} menulis pada {TEMPLATE: ppost_quote_msg_date}
+ppost_quote:Petikan:
+ppost_to:Kepada:
+ppost_from_buddy_list:Pilih daripada Senarai Kawan
+ppost_find_User:Cari Pengguna
+ppost_track_msg:Jejaki Pesanan Ini
+ppost_track_msg_desc:Beritahu saya (melalui pesanan peribadi) apabila pesanan ini dibaca.
+ppost_send:Hantar
+ppost_save_draft:Simpan Draf
+poll_blank_option:Anda tidak boleh menambahkan pilihan kosong.
+poll_del_conf:Jika anda hendak menggugurkan pilihan ini, tekan OK
+poll_name:Tajuk Tinjauan:
+poll_timelimit:Had Masa:
+poll_maxiumvotes:Undian Maksimum:
+poll_create:Cipta
+poll_update:Kemas kini
+poll_disablesmilies:Matikan emotikon
+poll_create_poll:Buka Tinjauan
+poll_update_poll:Kemas Kini Tinjauan
+poll_delete:Hapuskan
+poll_updateoption:Kemas Kini Pilihan
+poll_addoption:Tambahkan Pilihan
+poll_unlimited:Tanpa Had
+poll_day:hari
+poll_days:hari
+poll_hour:jam
+poll_hours:jam
+poll_month:bulan
+poll_year:Tahun
+poll_week:minggu
+tabs_register:Tetapan Akaun
+tabs_subscriptions:Langganan
+tabs_bookmarkes:Kegemaran
+tabs_referrals:Rujukan
+tabs_buddy_list:Senarai Kawan
+tabs_ignore_list:Senarai Abai
+tabs_private_messaging:Khidmat Pesanan Peribadi
+single_msg_delete:Anda akan <span class="ErrorText">memadamkan</span> pesanan yang bertajuk: <b>{VAR: data[3]}</b>
+thread_delete:Anda akan <span class="ErrorText">menghapuskan</span> <span class="ErrorText">seluruh topik</span> yang bertajuk: <b>{VAR: data[3]}</b>
+delete_proceed:<span class="fb">Adakah anda ingin teruskan?</span>
+delete_yes:Ya
+delete_no:Tidak
+error_invalidurl:URL tidak sah
+error_error:Ralat
+usrinfo_profile:Profil {VAR: u->alias}
+usrinfo_show_all_posts:Tunjukkan semua pesanan oleh {VAR: u->alias}
+actions_update:Mengintip=intip orang lain, seperti yang anda lakukan
+err_info:Maklumat
+buddy_list_err_cantadd:Anda tidak boleh menambahkan diri anda ke dalam senarai kawan anda
+buddy_list_err_dup:Pengguna ini sudah berada dalam senarai kawan anda
+buddy_list_err_nouser:Pengguna yang anda cuba tambahkan ke dalam senarai kawan anda itu tidak dijumpai.
+buddy_list_err_nouser_title:Pengguna tidak dapat ditambahkan
+buddy_list_err_ignore:Pengguna yang mengabaikan anda tidak dapat ditambahkan ke dalam senarai kawan anda.
+buddy_list_update:Melayari senarai kawan sendiri
+core_err_invinp_title:Input Tidak Sah
+core_err_invinp_err:Anda telah mengikut pautan yang tidak sah. Sila beritahu <a href="mailto:{GVAR: ADMIN_EMAIL}">pentadbir web (webmaster)</a> bagaimana anda ke sini.
+core_adm_login_msg:Pentadbir boleh log masuk di <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">sini</a>.
+email_err_unabletoemail_title:RALAT: E-mel tidak dapat dihantar
+email_err_unabletoemail_msg:Sistem e-mel telah dimatikan oleh pentadbir.
+email_error_unabletolocaddr:Maaf, sistem tidak dapat menghantar e-mel {VAR-HTML: _POST['tx_name']} kerana tidak dapat menentukan alamat e-melnya.
+email_error_body:Isi diperlukan
+email_error_subject:Subjek diperlukan
+email_error_namerequired:Nama diperlukan
+email_error_invaliduser:Pengguna tidak sah
+emailconf_err_invkey_title:Ralat
+emailconf_err_invkey_msg:Kunci pengesahan tidak sah. Sila semak e-mel anda untuk memastikan anda telah menaipkan URL dengan betul. Jika anda telah mengklik pautan ini dua kali, mungkin akaun anda telah disahkan. Log masuk ke forum untuk meminta satu lagi kunci.
+err_inc_criticaltitle:Ralat kritikal
+err_inc_criticalmsg:Satu ralat telah berlaku. Malangnya, sistem pelaporan ralat juga mengalami masalah.
+finduser_update:Mencari pengguna
+help_index_update:Membaca laman <a href="{TEMPLATE: help_index_update_lnk}">Bantuan</a>
+iemail_thr_subject:Balasan baru kepada {VAR: thr_subject} oleh {VAR: poster_login}
+iemail_thr_bodyemail:Untuk membaca balasan yang belum dibaca, sila ke {VAR: goto_url['email']}\n\nJika anda tidak ingin menerima pemberitahuan tentang balasan topik anda lagi, sila ke sini: {VAR: unsub_url['email']}
+iemail_frm_subject:Topik baru dalam forum {VAR: frm_name} bertajuk {VAR: thr_subject} oleh {VAR: poster_login}
+iemail_frm_bodyemail:Untuk membaca topik itu, sila ke:\n{VAR: goto_url['email']}\n\nUntuk berhenti menerima pemberitahuan tentang topik baru di forum ini, sila ke sini: {VAR: unsub_url['email']}
+iemail_participate:Untuk mengambil bahagian dalam perbincangan, sila ke sini:
+ignore_list_err_info_title:Maklumat
+ignore_list_err_dup_msg:Pengguna ini sudah berada dalam senarai abai anda
+ignore_list_err_nu_title:Pengguna tidak dijumpai
+ignore_list_err_nu_msg:Pengguna yang anda cuba tambahkan ke dalam senarai abai anda itu tidak dijumpai.
+ignore_list_cantign_msg:Anda tidak boleh mengabaikan pengguna ini
+ignore_list_update:Melayari senarai abai sendiri
+index_update:Melayari <a href="{TEMPLATE: index_update_lnk}">senarai forum</a>
+list_referers_update:Melayari rujukan
+login_update:Borang Log Masuk
+msg_update:Melayari topik <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
+pm_err_nopm_title:PERHATIAN: Khidmat Pesanan Peribadi Ditutup
+pm_err_nopm_msg:Anda tidak boleh menggunakan sistem khidmat pesanan peribadi kerana ia telah dimatikan oleh pentadbir.
+pm_update:Menggunakan khidmat pesanan peribadi
+post_err_lockedthread_title:PERHATIAN: Topik Dikunci
+post_err_lockedthread_msg:Topik ini dikunci. Sesiapa tidak boleh mengirim apa-apa di sini lagi.
+err_coppa_title:PERHATIAN: Akaun anda belum disahkan
+err_coppa_msg:Kami belum menerima pengesahan daripada ibu bapa dan/atau penjaga anda yang akan membenarkan anda untuk mengirim pesanan. Sekiranya anda hilang borang COPPA anda, <a href="{TEMPLATE: err_coppa_msg_lnk}">sila dapatkan borang tersebut di sini</a>.
+err_banned_acct_title:PERHATIAN: Anda telah dilarang masuk.
+err_banned_acct_msg:Akaun anda {IF: $ban_expiry}dilarang buat sementara hingga {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}dilarang buat selamanya{ENDI} daripada mencapai tapak ini kerana melanggar peraturan forum.
+post_err_edttimelimit_title:PERHATIAN
+post_err_edttimelimit_msg:Anda tidak boleh menyunting pesanan ini lagi
+post_err_noannontopics_msg2:<legend>PERHATIAN: Hak Istimewa Tidak Mencukupi</legend>Para pengguna tanpa nama tidak dibenarkan membuka topik.
+post_err_noannonposts_msg2:<legend>PERHATIAN: Hak Istimewa Tidak Mencukupi</legend>Para pengguna tanpa nama tidak dibenarkan membalas topik.
+post_err_floodtrig_title:ERROR: Kebanjiran kiriman tercetus.
+post_err_floodtrig_msg:Sila cuba lagi dalam $1 saat
+post_err_attach_size:Lampiran Fail terlalu besar (melebihi had maksimum {VAR: MAX_F_SIZE} bait)
+post_err_attach_ext:Fail yang anda cuba muat naik itu tidak berpadan dengan jenis fail yang dibenarkan.
+post_err_attach_filelimit:Anda cuba memuat naik lebih banyak fail daripada yang dibenarkan.
+post_err_passwd:Kata laluan tidak betul.
+post_reply_update:Membalas <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> di {VAR: frm->name}
+post_topic_update:Menulis topik baru <a href="{TEMPLATE: post_topic_update_lnk}">{VAR: frm->name}</a>
+post_error_generic:Ralat dialami ketika mengirim
+postcheck_max_images_err:Setiap pesanan dibenarkan tidak lebih {GVAR: MAX_IMAGE_COUNT} imej. Sila kurangkan bilangan imej.
+postcheck_no_links_allowed:Anda tidak boleh menggunakan pautan selagi anda belum mengirim lebih daripada $1 pesanan.
+postcheck_subj_needed:Subjek diperlukan
+postcheck_no_such_user:Tiada pengguna yang bernama "{FUNC: char_fix(htmlspecialchars($v))}" di forum ini.
+postcheck_ignored:Anda tidak boleh menghantar pesanan peribadi kepada "{FUNC: char_fix(htmlspecialchars($v))}" kerana dia mengabaikan anda.
+postcheck_no_recepient:Pesanan tidak boleh dihantar kerana penerima tidak dinyatakan
+postcheck_invalid_email:Sila berikan alamat e-mel yang sah untuk rakan anda.
+postcheck_email_subject:Anda tidak boleh menghantar e-mel tanpa subjek.
+postcheck_email_body:Anda tidak boleh menghantar e-mel tanpa isi pesanan.
+private_msg_notify_subj:Baca Pemberitahuan Untuk: {VAR: m->subject}
+private_msg_notify_body:Apa khabar,<br />{VAR: usr->login} telah membuka pesanan peribadi anda yang bertajuk, "{VAR: m->subject}".<br />Ini merupakan pemberitahuan janaan automatik yang dijana pada {TEMPLATE: private_msg_notify_body_date}<br />
+referals_update:Melayari rujukan
+register_err_short_login:Nama Log Masuk yang anda pilih itu terlalu pendek. Nama log masuk mesti sekurang-kurangnya 4 aksara panjangnya.
+register_err_login_notallowed:Nama log masuk ini tidak dibenarkan.
+register_err_loginunique:Nama log masuk forum mestilah unik. Nama ini sudah dipunyai oleh pengguna lain.
+register_err_emailexists:Alamat e-mel ini sudah dikaitkan dengan sebuah akaun di sini. Jika anda terlupa kata laluan anda, sila gunakan opsyen Pulih daripada mendaftar semula begitu sahaja.
+register_err_shortpasswd:Kata laluan mestilah 6 aksara ke atas.
+register_err_passwdnomatch:Kata laluan anda tidak berpadan, sila cuba lagi.
+register_err_invalidemail:Alamat e-mel yang anda nyatakan itu nampaknya tidak sah.
+register_err_needname:Untuk menjayakan pendaftaran, anda mesti mengisikan nama anda.
+register_err_enterpasswd:Anda perlu mengisikan kata laluan anda sekarang untuk melengkapkan perubahan.
+register_err_adminpasswd:Anda perlu mengisikan kata laluan <b>pentadbir</b> anda untuk melengkapkan perubahan.
+register_err_notyouremail:Sudah ada orang lain yang berdaftar dengan alamat e-mel ini.
+register_err_avatartobig:Fail yang anda cuba muat naik itu terlalu besar, iaitu lebih daripada {GVAR: CUSTOM_AVATAR_MAX_SIZE} bait.
+register_err_avatarnotallowed:Avatar yang anda cuba muat naik ini tidak dibenarkan. Sila lihat jenis-jenis fail yang dibenarkan.
+register_conf_subject:Pengesahan Pendaftaran
+register_conf_msg:Terima kasih kerana berdaftar. Sila pergi ke URL berikut untuk mengaktifkan akaun anda:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nSebaik sahaja akaun anda diaktifkan, anda akan log masuk ke dalam forum lalu dilencongkan ke laman utamanya.
+register_welcome_subject:Pengesahan Pendaftaran Forum
+register_welcome_msg:Terima kasih kerana berdaftar.\n\nBerikut ialah butiran-butiran log masuk untuk forum ini:\n\nURL Forum: {TEMPLATE: index_update_lnk}\nNama Log Masuk: {VAR: uent->login}\nKata Laluan: {VAR: _POST['reg_plaintext_passwd']}\n\nSila ingat bahawa kata laluan itu peka huruf besar kecil!\nUntuk mengubahsuai tetapan atau profil anda, sila ke laman ini:\n{FULL_ROOT}{ROOT}?t=register
+register_err_cantreg_title:PERHATIAN: tidak dapat berdaftar
+regsiter_err_cantreg_msg:Akaun pengguna tidak dapat dibuka; sila hubungi pentadbir di <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
+register_profile_update:Melihat profil sendiri
+register_register_update:Laman Pendaftaran
+report_err_nosuchmsg_title:RALAT
+report_err_nosuchmsg_msg:Mesej Tak Wujud
+reset_err_invalidkey_title:RALAT
+reset_err_invalidkey_msg:Kunci set semula tidak sah. Mungkin klien e-mel anda telah membuka laman ini secara automatik, sekaligus menghilangkan kesahan kunci set semula ini. Kalau begitu, anda sepatutnya menerima e-mel yang berisi kata laluan baru anda seketika lagi. Jika e-mel sedemikian tidak tiba lagi, sila cuba mengeset semula kata laluan itu lagi.
+reset_err_rstconf_title:Maklumat
+reset_err_rstconf_msg:Anda sepatutnya menerima arahan dalam e-mel anda beberapa minit kemudian.
+reset_newpass_title:Set Semula Kata Laluan
+reset_newpass_msg:Apa khabar,\n\nSeperti yang dimohon, maklumat log masuk anda adalah seperti berikut:\n\nNama Log Masuk: {VAR: ui[1]}\nKata Laluan: {VAR: passwd}\n\nSila ingati bahawa kata laluan anda telah diset semula kepada nilai di atas. Jika anda hendak menukar kata laluan, anda boleh berbuat demikian di panel kawalan maklumat pengguna di:\n{FULL_ROOT}{ROOT}?t=register
+reset_login_notify:Kata laluan anda telah die-melkan kepada anda. Anda dijangka menerimanya beberapa minit kemudian.<br />
+search_update:Mencari pesanan
+selmsg_update:Melayari <a href="{TEMPLATE: selmsg_update_lnk}">Kiriman Hari Ini</a>
+showposts_update:Melihat kiriman oleh: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
+subscribed_update:Melayari langganan sendiri
+bookmarked_update:Melayari senarai kegemaran sendiri
+thread_update:Melayari forum <a href="{TEMPLATE: thread_update_lnk}">{VAR: frm->name}</a>
+tree_update:Melayari topik (paparan pepohon) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
+userinfo_update:Melihat profil <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}'s</a>
+ERR_login_msg2:<legend>PERHATIAN: Anda belum log masuk</legend>Untuk mencapai laman ini, anda mesti menjadi ahli forum ini.
+ERR_disabled_ttl:Ciri dimatikan
+ERR_disabled_msg:Ciri ini telah dimatikan oleh pentadbir sistem
+ERR_access_ttl:RALAT: Kebenaran Tidak Mencukupi
+ERR_access_msg:Anda tidak diberi kebenaran yang diperlukan untuk melakukan tindakan ini.
+ERR_registration_disabled_ttl:Pendaftaran Dimatikan
+ERR_registration_disabled_msg:Pendaftaran forum dimatikan oleh pentadbir. Sila cuba lagi lain kali.
+ERR_emailconf_ttl:PERHATIAN: Akaun anda belum disahkan
+ERR_emailconf_msg:Anda belum mengesahkan akaun anda melalui e-mel.<br /><table border="0"><tr><td><ol><li>Jika anda belum menerima e-mel pengesahan, <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">sila mohon semula</a>.</li><li>Jika {VAR: usr_d->email} bukan alamat e-mel anda yang tepat, <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">sila nyatakan alamat yang betul</a>.</li></ol></td></tr></table>
+ERR_user_ttl:PERHATIAN: Pengguna tak wujud
+ERR_user_msg:Pengguna ini tidak wujud
+ERR_systemerr_ttl:PERHATIAN: Ralat Sistem
+ERR_systemerr_msg:Ralat sistem telah berlaku. Sila laporkannya kepada <a href="mailto:{GVAR: ADMIN_EMAIL}">pentadbir web (webmaster)</a>.
+email_title:Borang E-mel
+finduser_title:Cari Pengguna
+help_title:Bantuan
+login_title:Borang Log Masuk
+poll_title:Penyunting Tinjauan
+register_title:Borang Pendaftaran
+reset_title:Set Semula Kata Laluan
+rpasswd_title:Borang Tukar Kata Laluan
+error_title:Borang Ralat
+index_title:Selamat datang ke forum
+search_title:Cari {VAR-HTML: srch}
+remail_emailsent:E-mel dihantar
+remail_email:Apa khabar,\n\nAda satu topik tentang "{VAR: data->subject}" di forum {GVAR: FORUM_TITLE} yang mungkin menarik minat saudara. Saudara boleh lihat topik itu di:\n {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nYang telus,\n\n{VAR: usr->alias}
+poll_add_option:Tambahkan Opsyen:
+post_opt_html_on:<b>HTML</b> <b>dipasang</b>
+post_opt_fud_on:<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>BBcode</b> <b>dipasang</b></a>
+post_opt_images_on:<b>Imej</b> <b>dipasang</b>
+post_opt_smilies_on:<a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank"><b>Emotikon</b> <b>dipasang</b></a>
+post_opt_html_off:Kod <b>HTML</b> <b>ditutup</b>
+post_opt_fud_off:<b>BBcode</b> <b>ditutup</b>
+post_opt_images_off:<b>Imej</b> <b>ditutup</b>
+post_opt_smilies_off:<b>Emotikon</b> <b>ditutup</b>
+post_opt:Opsyen Forum:
+register_change_passwd:tukar kata laluan
+register_change_login:tukar nama log masuk
+approved_avatar_title:Avatar anda diluluskan.
+approved_avatar_msg:Avatar anda diluluskan oleh pentadbir, dan sepatutnya muncul sebagai avatar anda di semua pesanan anda sekarang. Jika anda tidak dapat melihatnya, atau masih melihat avatar lama anda, ini adalah kerana pelayar anda telah menyimpan laman itu dalam cache. Cuba muat semula laman itu sekali dua. Biasanya ini boleh meleraikan masalah ini.
+unapproved_avatar_title:Avatar anda ditolak.
+unapproved_avatar_msg:Avatar anda tidak diterima oleh pihak pentadbiran. Ini mungkin disebabkan avatar anda terlalu besar (dari segi saiz dan/atau dimensi), atau mengandungi unsur-unsur yang tidak sesuai diperlihatkan di forum ini. Jika anda ingin mengetahui lebih lanjut tentang sebab avatar anda ditolak, sila hubungi pentadbir.
+mvthread_request_move:memohon pemindahan
+move_request_reason:Mengapakah anda ingin topik ini dipindahkan?
+mvthread_submit_req:Hantar Permohonan
+thread_exchange:Pertukaran Topik
+move_request_by:Pemindahan topik dipohon oleh:
+move_reason:Sebab topik dipindahkan:
+thr_exch_accept:menerima topik
+thr_exch_decline:menolak topik
+thr_exch_orig_forum:Forum Asal:
+thr_exch_dest_forum:Forum Destinasi:
+thr_exch_no_threads:Tiada topik yang menunggu kelulusan.
+thr_exch_decl_reason:Sebab penolakan permohonan topik {VAR: data->subject} ke dalam forum <b>{VAR: data->f2_name}</b>
+thr_exch_submit:Serahkan
+exch_decline_ttl:Pemindahan topik {VAR: data->subject} ke forum {VAR: data->f2_name} ditolak.
+ppost_original_msg:pesanan yang anda hantar semula atau balas
+split_thread:Pecahkan Topik
+groupmgr_no_user:Tiada pengguna yang bernama log masuk "{FUNC: char_fix(htmlspecialchars($gr_member))}"
+groupmgr_already_exists:Pengguna "{FUNC: char_fix(htmlspecialchars($gr_member))}" sudah wujud dalam kumpulan ini.
+groupmgr_yes:Ya
+groupmgr_no:Tidak
+groupmgr_action:Tindakan
+groupmgr_member:Ahli
+groupmgr_cancel:Batalkan
+groupmgr_add_member:Tambahkan Ahli
+groupmgr_update_member:Kemas Kini Ahli
+groupmgr_edit:Sunting
+groupmgr_delete:Hapuskan
+group_mgr_anon:Tanpa nama
+group_mgr_reged:Semua Pengguna yang Berdaftar
+show_show:Tunjukkan:
+group_mgr:Pengurus Kumpulan
+group_mgr_edit_btn:Sunting Kumpulan
+group_mgr_heading:Kumpulan yang Hendak Disunting
+group_mgr_group:Kumpulan:
+permission_denied_title:Kebenaran Ditolak!
+permission_denied_msg:Kebenaran pengguna anda tidak membenarkan anda melakukan tindakan yang anda cuba itu.
+p_READ:Baca
+p_POST:Kirim
+p_REPLY:Balas
+p_EDIT:Sunting
+p_DEL:Hapuskan
+p_STICKY:Pesanan lekit
+p_POLL:Buka tinjauan
+p_FILE:Lampirkan fail
+p_VOTE:Undi
+p_RATE:Nilai topik
+p_SPLIT:Pecahkan topik
+p_LOCK:Kunci topik
+p_MOVE:Alihkan topik
+p_SML:Gunakan emotikon
+p_IMG:Gunakan tag gambar
+p_SEARCH:Boleh Cari
+group_mgr_search:Cari Pengguna
+group_mgr_indicator:Sedang Menyunting: <b>{VAR: grp->name}</b>
+rate_worst:Terburuk
+rate_best:Terbaik
+post_quote_msg:{VAR: msg->login} menulis pada {TEMPLATE: make_report_date}
+post_quote:Petikan:
+post_quote_selected:Petik Teks yang Dipilih
+userinfo_referals:Pengguna yang Dirujuk:
+userinfo_referals_count:{VAR: referals} Ahli
+pm_no_space_title:Tiada ruang lagi!
+pm_no_space_msg:Folder pesanan peribadi anda mengandungi pesanan-pesanan sebanyak <b>{VAR: fldr_size} bait</b>, iaitu melebihi saiz simpanan yang dibenarkan <br>{GVAR: MAX_PMSG_FLDR_SIZE} bait</b>.<br /><br /><span class="ErrorText">Anda perlu membuang beberapa pesanan lama untuk membuka ruang.</span>
+pm_space_indct_msg:Folder pesanan peribadi anda diisi {VAR: percent_full}% isipadunya.
+th_expr_never:Jangan
+th_expr_one_hr:Sejam
+th_expr_three_hr:3 Jam
+th_expr_four_hr:4 Jam
+th_expr_eight_hr:8 Jam
+th_expr_sixteen_hr:16 Jam
+th_expr_one_day:Sehari
+th_expr_two_day:2 Hari
+th_expr_four_day:4 Hari
+th_expr_one_week:Seminggu
+th_expr_two_week:2 Minggu
+th_expr_one_month:Sebulan
+th_expr_two_month:2 Bulan
+th_expr_four_month:4 Bulan
+th_expr_one_year:Setahun
+thread_mod_delete:Hapuskan
+action_ip:IP
+action_latest_post:Pesanan Terkini
+online_today_last_visit:Kunjungan Terkini
+online_today_update:Melihat senarai pengguna yang berada di forum hari ini.
+logedin_todays_visitors:Pengunjung Hari Ini
+logedin_latest_post:Pesanan terkini di forum:
+register_show_avatar:Tunjukkan Avatar:
+register_show_avatar_desc:Membolehkan anda menyorokkan avatar pengguna lain apabila melihat pesanan mereka.
+drawmsg_view_rest_post:Tunjukkan seluruh pesanan
+post_re:Re:
+forumsel_goto_forum:Pergi ke Forum:
+minimsg_thread_view:Paparan Topik
+split_th_post_by:Pesanan Oleh:
+split_th_posted_on:Dikirim Pada:
+split_th_subject:Subjek:
+split_th_new_thread_title:Tajuk topik baru:
+split_th_forum:Forum:
+split_th_split_sel:Pecahkan pesanan terpilih
+split_th_split_unsel:Pecahkan pesanan tak terpilih
+split_th_messages:Pesanan
+split_th_select:Pilih
+report_report_post:Laporkan Pesanan
+quicklogin_login:Log masuk:
+quicklogin_password:Kata laluan:
+quicklogin_use_cookies:Cecikut (''Cookie'') Digunakan?
+quicklogin_login_btn:Log masuk
+quick_reply:Balas Segera
+quick_reply_post:Kirim Balasan Segera
+quick_reply_preview:Pralihat Balas Segera
+post_notification_desc:Beritahu saya apabila pesanan ini dibalas.
+post_all_ext_allowed:(tidak terhad)
+maximize_category:Kembangkan Kategori
+maximize_message:Kembangkan Pesanan
+no_view_perm:Anda tidak diberi kebenaran yang berpatutan untuk melihat topik ini.
+report_empty_report:Anda tidak boleh menghantar laporan kosong. Sila nyatakan sebab dalam laporan anda.
+report_already_reported_title:Sudah Dilaporkan
+report_already_reported_msg:Pesanan ini sudah dilaporkan, dan laporannya kini berada dalam baris gilir kawal selia.
+register_err_toomanyimages:Anda sedang menggunakan imej {GVAR: FORUM_IMG_CNT_SIG} yang lebih daripada yang dibenarkan dalam tandatangan anda.
+pmsg_next_msg:Pesanan berikutnya
+pmsg_prev_msg:Pesanan sebelumnya
+post_proc_reveal_spoiler:Togol Spoiler
+register_jabber:Jabber Handle:
+register_skype:Skype Handle:
+register_twitter:Twitter Handle:
+register_google:Google Chat/IM Handle:
+im_jabber:Jabber:
+im_google:Google Talk:
+im_skype:Skype:
+im_twitter:Twitter:
+forum_contact:Hubungi kami
+forum_home:Laman utama
+post_cur_attached:kini dilampirkan: {VAR: i} fail
+ignored_anon_post:{GVAR: ANON_NICK} diabaikan
+ignored_user_post:Pesanan oleh <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> diabaikan
+smladd_close_window:tutup tetingkap
+post_list_smilies:senaraikan semua emotikon
+reported_in_thread:Di:
+help_back_to_top:kembali ke atas
+help_return_to_index:Kembali ke Indeks Bantuan
+imsg_err_message_title:Pesanan Tak Sah
+imsg_err_message_msg:Pesanan yang anda cuba melihat itu tidak wujud.
+poll_edit:Sunting
+register_err_not_valid_img:URL yang dinyatakan itu tidak mengandungi imej yang sah.
+pmsg_recepient:Penerima
+register_err_taken_alias:Alias yang anda cuba pakai itu sudah dipakai oleh ahli forum yang lain. Sila pilih satu lagi.
+register_alias:Alias:
+register_alias_desc:Jika anda mahu memakai nama timangan yang lain daripada nama log masuk anda untuk dipaparkan dalam forum, sila isikannya di sini.
+register_allow_pm_msg:Benarkan Pesanan Peribadi:
+register_allow_pm_msg_desc:Benarkan pengguna lain menghantar pesanan peribadi kepada anda di forum ini.
+postcheck_pm_disabled:Anda tidak boleh menghantar pesanan peribadi kepada "{VAR-HTML: v}" kerana dia tidak menerima pesanan peribadi.
+polllist_vote:Undi
+polllist_view_results:Lihat Hasil
+polllist_name:Tajuk Tinjauan
+polllist_date:Dibuka Pada
+polllist_owner:Dibuka Oleh
+polllist_votes:Jumlah Undian
+polllist_action:Tindakan
+polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">Menyemak Tinjauan yang Sedia Ada</a>
+userinfo_polls:Tinjauan:
+show_pollist:Tunjukkan Tinjauan
+search_and:DAN
+search_or:ATAU
+search_desc_order:Urutan Menurun
+search_asc_order:Urutan Menaik
+search_sorting:Susun Hasil mengikut Tarikh di:
+search_attach:Lampiran:
+search_attach_all:Dengan atau tanpa
+search_attach_with:Dengan lampiran
+post_proceed:Teruskan
+post_moderated_forum:Anda telah mengirim sesuatu dalam forum yang ketat dikawal selia. Pesanan anda tidak akan dipaparkan kepada orang lain sehingga ia diluluskan oleh pengawal selia/pentadbir forum.
+post_moderated_forum_ttl:Makluman Forum Dikawal Selia
+buddy_list_bday:Hari ini, {VAR: r[2]} menyambut hari jadi ke-{VAR: age}
+email_warning_msg:Jika anda menukar alamat e-mel anda sekarang, akaun anda akan ditandai sebagai belum disahkan sehingga anda mengesahkannya melalui e-mel.
+register_show_im:Paparkan penunjuk IM:
+register_show_im_desc:Menunjukkan sebarang penunjuk IM yang digunakan oleh pengarang dekat pesanan-pesanannya.
+unread_message:Pesanan yang Belum Dibaca
+read_message:Pesanan yang Sudah Dibaca
+threadt_more:&lt;lagi&gt;
+threadt_disabled_ttl:Paparan senarai topik secara pepohon telah dimatikan.
+threadt_disabled_desc:Pentadbir telah menutup ciri pemaparan senarai topik secara pepohon. Sila gunakan paparan leper sahaja.
+threadt_update:Melayari forum (paparan pepohon) <a href="{TEMPLATE: threadt_update_lnk}">{VAR: frm->name}</a>
+mmod_delete_cofirm_ttl:Sahkan Pemadaman Topik/Pesanan
+spell_alts:tiada alternatif
+insert_uploaded_image:Sisipkan gambar (imej) ke dalam isi pesanan
+finduser_help:Enjin carian akan membubuh topeng * secara automatik pada pertanyaan anda, dan <b>carian ini peka huruf besar kecil</b>.<br />cth. untuk mencari semua pengguna yang nama log masuknya bermula dengan 'a', isikan 'a' dalam ruangan carian.
+back_to_top:Kembali ke Atas
+pm_err_disabled_title:Khidmat Pesanan Peribadi Ditutup
+pm_err_disabled_msg:Anda tidak boleh mengirim pesanan peribadi selagi tidak menghidupkan opsyen 'Benarkan Pesanan Peribadi' dalam profil anda.
+err_mod_acc_ttl:Akaun yang Belum Disahkan
+err_mod_acc_msg:Pentadbir telah memutuskan untuk menyemak semua akaun secara manual sebelum mengaktifkannya. Anda tidak boleh menggunakan kemudahan akaun anda sepenuhnya sehingga akaun anda disahkan oleh pentadbir.
+accounts_pending_approval:Akaun yang Menunggu Kelulusan
+saved:Disimpan
+register_err_time_limit:Had satu pendaftaran per {GVAR: REG_TIME_LIMIT} saat telah dicapai. Sila tunggu $1 saat, kemudian cuba berdaftar sekali lagi.
+register_affero:Nama Pengguna Affero:<br /><span class="SmallText">Jika abda ada nama pengguna <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">Affero</a>, sila taipkannya di sini.</span>
+im_affero:Nama Pengguna Affero
+register_err_avatardimtobig:Dimensi avatar <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> melampaui had maksimum <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b> piksel.
+buddy_offline:{VAR: r[2]} kini di luar talian
+buddy_online:{VAR: r[2]} kini di dalam talian
+sml_no_smilies:Tiada emotikon disediakan.
+login_unapproved_account_ttl:Akaun yang Tidak Diluluskan
+login_unapproved_account_msg:Pentadbir forum ini telah memutuskan untuk mengesahkan setiap akaun baru secara manual sebelum mengaktifkannya. Akaun anda belum lagi disahkan, maka anda tidak boleh menggunakan sesetengah ciri yang boleh digunakan oleh ahli-ahli yang disahkan.
+remove_from_buddy_list:gugurkan daripada senarai kawan
+iemail_msg_author:<b>Pengarang:</b> {VAR: obj->alias}
+iemail_msg_subject:<b>Subjek:</b> {VAR: obj->subject}
+iemail_msg_date:<b>Tarikh:</b> {TEMPLATE: dmsg_post_date}
+iemail_msg_reply:Balas
+iemail_msg_quote:Petik
+iemail_msg_view:Lihat Topik/Pesanan
+threadt_sticky:lekit
+threadt_announce:pengumuman
+reported_no_messages:Tiada pesanan yang dilaporkan.
+poll_no_polls:Tiada tinjauan yang boleh dicapai.
+no_unread_messages:Tiada pesanan yang belum dibaca yang berpadan dengan pertanyaan anda.
+thread_mark_all_read:Tandai semua pesanan belum dibaca sebagai sudah dibaca
+thread_mark_all_read_desc:Semua pesanan yang belum dibaca dalam forum ini akan ditandai sebagai sudah dibaca
+private_no_messages:Tiada pesanan dalam folder ini.
+register_email_change_subject:Pengesahan penukaran e-mel
+register_email_change_msg:Sila ke URL berikut untuk mengesahkan akaun e-mel baru anda, "{VAR: uent->email}" yang menggantikan akaun e-mel lama anda, "{VAR: old_email}":\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nSebaik sahaja anda mengesahkan alamat e-mel baru anda itu, akaun forum anda akan diaktifkan semula.
+iemail_thread_unsub:Berhenti melanggan topik ini
+iemail_forum_unsub:Berhenti melanggan forum ini
+primary_group_prefix:Kumpulan utama forum:
+group_resources:Kumpulan ini mengawal kebenaran pengguna di forum-forum berikut:
+register_admin_newuser_title:Seorang pengguna baru telah berdaftar, dan akaunnya sedang menunggu pengesahan
+register_admin_newuser_msg:Seorang pengguna baru ({VAR: uent->login}) baru berdaftar; oleh sebab ciri pengesahan akaun dihidupkan, akaunnya tidak diaktifkan sehingga ia disahkan oleh anda atau seorang lagi pentadbir forum. Untuk menyemak akaun itu, sila ke: {GVAR: WWW_ROOT}adm/admaccapr.php\n\nIni ialah proses yang berautomat. Jangan balas pesanan ini.\nJika anda ingin menutup ciri pemberitahuan pendaftaran pengguna baru melalui e-mel pada masa depan, anda boleh berbuat demikian di Panel Kawalan Pentadbir, dengan menukar tetapan "Pemberitahuan Akaun Baru".
+post_mod_msg_notify_title:Pesanan baru menunggu kelulusan di forum "{VAR: frm->name}"
+post_mod_msg_notify_msg:Pesanan baru bertajuk "{VAR: msg_post->subject}" baru dikirim dalam forum yang anda kawal selia. Untuk menyemak pesanan itu, sila ke: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nIni ialah proses yang berautomat. Jangan balas pesanan ini.
+thread_printable_pdf:Jana fail PDF yang boleh dicetak
+thread_syndicate:Sindiketkan forum ini (XML)
+reg_conf_title:Pengesahan Pendaftaran
+reg_conf_email:<b>Pengesahan E-mel</b><br />Sepucuk e-mel telah dihantar kepada anda, mengandungi URL khas yang anda perlu capai sebelum akaun anda diaktifkan. Jika anda tidak menerima e-mel ini dalam beberapa minit kemudian, sila log masuk ke dalam akaun anda dan pastikan bahawa alamat e-mel yang anda nyatakan itu adalah betul. Sebaik sahaja anda mengesahkan akaun anda, anda akan boleh mencapai ciri-ciri forum yang boleh digunakan oleh pengguna berdaftar yang disahkan sahaja.
+reg_conf_account:<b>Pengesahan Akaun</b><br />Akaun anda perlu diluluskan oleh pentadbir sebelum diaktifkan. Sebaik sahaja akaun diluluskan, anda akan menerima e-mel yang menyatakan bahawa akaun anda telah disahkan. Sementara menunggu kelulusan akaun, anda boleh log masuk ke dalam akaun anda, tetapi anda tidak boleh menggunakan ciri-ciri tertentu.
+forum_banned_user:Disebabkan perbuatan anda sebelum ini, anda telah dilarang daripada memasuki forum ini buat selamanya. Selamat tinggal.
+mnav_description:Pemandu Arah Pesanan
+mnav_date_limit:Julat tarikh:
+mnav_forum_limit:Hanya cari di:
+mnav_all_forums:Cari semua forum
+mnav_submit:Mula Mencari
+mnav_no_range:Anda mesti mengisikan julat tarikh yang sah. Nilai ini boleh mengandungi tanda perpuluhan (cth. 0.12), tetapi ia mestilah lebih daripada sifar.
+mnav_invalid_unit:Anda mesti menyatakan unit waktu yang sah.
+mnav_no_results:Tiada pesanan yang sepadan dengan pertanyaan.
+mnav_posted_by:Dikirim Oleh:
+mnav_more:Lagi &raquo;&raquo;
+mnav_minute:Minit
+mnav_hour:Jam
+mnav_day:Hari
+mnav_week:Minggu
+mnav_month:Bulan
+mnav_title:Pemandu Arah Pesanan
+mnav_update:Melayari Pesanan dengan <a href="{TEMPLATE: mnav_update_lnk}">Pemandu Arah Pesanan</a>
+pm_notify_subject:Pemberitahuan Pesanan Peribadi Baru [{GVAR: FORUM_TITLE}]
+pm_notify_body_email:Anda telah menerima pesanan perubadi baru bertajuk "{VAR: subject}" daripada "{VAR: from}" di forum "{GVAR: FORUM_TITLE}".\nUntuk melihat pesanan itu, klik di sini: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nUntuk berhenti menerima pemberitahuan, matikan "Pemberitahuan Pesanan Peribadi" di profil anda.
+register_pm_notification:Pemberitahuan Pesanan Peribadi:
+register_pm_notification_desc:Jika dihidupkan, anda akan diberitah apabila pesanan peribadi dihantar kepada anda.
+findu_admin_opts_header:Opsyen Pentadbir
+findu_unban:Tarik Balik Larangan
+findu_ban:Larang
+findu_edit:Sunting
+findu_delete:Hapuskan
+dmsg_reply_to:membalas
+dmsg_reply_num:pesanan #{VAR: obj->reply_to}
+merge_topics:Gabungkan Topik
+merge_topics_cp:Panel Kawalan Penggabungan Topik
+merge_topics_tpl:Pilih Topik yang Ingin Digabungkan <span class="SmallText">(anda mesti memilih lebih daripada satu topik)</span>
+merge_merge:Gabungkan Topik yang Terpilih
+merge_next:Topik-topik Seterusnya
+merge_prev:Topik-topik Sebelumnya
+merge_another:Pergi ke <a href="{TEMPLATE: merge_another_lnk}">topik terkini yang digabung</a> atau gabungkan satu lagi:
+split_cp:Panel Kawalan Pemecahan Topik
+groups_perms_header:Kebenaran <span class="small">(alihkan tetikus kepada kebenaran itu untuk melihat jenisnya)</span>
+register_err_sig_too_long:Tandatangan anda melebihi had maksimum {GVAR: FORUM_SIG_ML} aksara.
+register_sig_limit:{GVAR: FORUM_SIG_ML} aksara <a href="javascript: alert('Tandatangan anda '+document.forms['fud_register'].reg_sig.value.length+' aksara panjangnya. Had maksimum tandatangan ialah {GVAR: FORUM_SIG_ML} aksara.');" class="SmallText">Semak Panjang Tandatangan</a>
+adm_account_accepted:Akaun anda, '{VAR: login}' diluluskan oleh pentadbir dan kini sudah aktif. Sekarang, anda boleh mencapai forum {GVAR: FORUM_TITLE} sebagai pengguna berdaftar yang disahkan.
+adm_account_accepted_s:Permohonan akaun anda untuk '{GVAR: FORUM_TITLE}' diterima.
+adm_account_rejected:Akaun anda, '{VAR: login}' ditolak oleh pentadbir. Jika anda ingin tahu sebab akaun anda ditolak, jangan segan untuk menghubungi pentadbir di '{GVAR: ADMIN_EMAIL}'.
+adm_account_rejected_s:Permohonan akaun anda untuk '{GVAR: FORUM_TITLE}' ditolak.
+thread_on:pada
+userinfo_buddy:Kawan:
+register_email_addr:Alamat E-mel:
+reset_suffix:Jika anda tersalah terima pesanan ini, sila abaikannya. Jika anda menerima lebih daripada satu salinan e-mel ini tanpa permintaan anda, sila hubungi pentadbir forum di {GVAR: ADMIN_EMAIL}\n\nPermintaan ini dimulakan dari: {VAR: _SERVER['REMOTE_ADDR']}.
+usrinfo_last_visit:Kali Terakhir Dikunjungi:
+mnav_newer:lebih baru daripada
+mnav_older:lebih lama daripada
+ip_search_by_ip:Cari pengguna mengikut IP
+ip_search_syntax:Sintaks yang disokong: 1.2.3.4, 1.2.3, 1.2, 1
+ip_search:Cari
+ip_analyze_usage:Analisa penggunaan IP
+ip_analyze_usage_descr:Sila nyatakan log masuk pengguna yang tepat.
+ip_users_using:Pengguna yang menggunakan alamat IP '{VAR: ip}'
+ip_all_ips:Semua IP yang digunakan oleh '{VAR: user}'
+ip_title:Pelayar IP
+userinfo_real_name:Nama Sebenar:
+register_err_alias_notallowed:Alias ​​ini tidak dibenarkan
+post_err_mod_forum_edit_ttl:RALAT
+post_err_mod_forum_edit_msg:Anda tidak boleh menyunting pesanan dalam forum yang dimoderasi.
+dmsg_num:pesanan #{VAR: obj->id}
+postcheck_session_invalid:Sesi anda telah luput. Sila serahkan borang itu semula. Maaf atas sebarang kesulitan.
+delete_message_extra_desc:<b>Tidak wajib</b><br />Nyatakan sebab pesanan ini dipadamkan, untuk dimaklumkan kepada pengarangnya melalui pesanan peribadi.
+delete_message_extra_body:Sertakan isi kandungan pesanan yang dipadamkan itu untuk dihantar kepada pengarangnya.
+delete_msg_removed_ttl:Pesanan anda telah dipadamkan oleh pihak pentadbiran.
+delete_msg_pm_body:Pesanan asal
+delete_msg_pm_subject:Subjek: {VAR: data[15]}
+ip_no_whois:Tiada maklumat whois untuk <b>{VAR: ip}</b>.
+ip_whois_title:Maklumat ISP
+register_theme:Tema:
+pmsg_trash:Lupuskan Buangan
+uc_new_pm:Pesanan Peribadi Baru
+uc_new_topic:Topik Baru
+uc_new_cat_forum:Forum yang Dilanggan Dengan Pesanan Baru
+uc_cat_forum:Kategori &raquo; Forum
+uc_sub_topics:Forum yang Dilanggan Dengan Pesanan Baru
+uc_page_title:Melihat panel kawalan peribadi.
+search_options:Opsyen Carian
+search_user_filter:Tapis mengikut pengguna:
+register_none:Jangan beritahu saya
+findu_no_conf:pengguna yang belum disahkan
+register_max_sig_len:Panjang Maksimum:
+register_turing:Sila isikan kod yang dipaparkan di bawah:
+register_err_turing:Kod pengesahan tidak sah.
+modque_cat:Kategori
+modque_forum:Forum
+idx_compact_forum_row:Forum yang Ada:
+mmd_del_title:Padamkan Topik
+mmd_mov_title:Pindahkan Topik
+mmd_move_threads_to:Forum Destinasi:
+mmd_abort_move:Batalkan
+mmd_move:Pindahkan Topik
+pmsg_pdf_btn:Buat Arkib PDF
+search_results_hdr:{VAR: total} Hasil Carian Dijumpai
+thread_del_all:Hapuskan yang Dipilih
+thread_mov_all:Pindahkan yang Dipilih
+thread_merge_all:Gabungkan yang Dipilih
+thread_loc_all:Kunci/Buka Kunci yang Dipilih
+dmsg_ip:IP:
+err_blockedaccnt_title:PERHATIAN: Akaun anda telah ditapis keluar.
+err_blockedaccnt_msg:Akaun anda telah disekat daripada mencapai forum ini disebabkan salah satu penapis pengguna yang terpasang.
+merge_th_page_list:Pemilihan Laman Topik
+most_users_online:Detik paling ramai pengguna: <b>{VAR: st_obj->most_online}</b> orang pada <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
+sub_unsub_all_forums:Berhenti Melanggan Semua Forum
+sub_unsub_all_topics:Berhenti Melanggan Semua Topik
+unbookmark_all_topics:Gugurkan semua kegemaran
+tabs_own_posts:Tunjukkan Kiriman Sendiri
+sml_emoticon:Emotikon
+sml_code:Kod
+mnav_sub_only:Cari dalam forum yang dilanggan sahaja
+register_topics_per_page:Topik Per Halaman:
+login_min_time:Forum ini membenarkan satu cubaan log masuk setiap {VAR: MIN_TIME_BETWEEN_LOGIN} saat, sila tunggu {FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)} saat sebelum mencuba lagi.
+post_not_logged_in:Anda tidak log masuk, maka pesanan ini dikirim tanpa nama pengirimnya.
+post_common_bold:Tebal
+post_common_italics:Condong
+post_common_underline:Bergaris Bawah
+post_common_align_left:Jajar ke Kiri
+post_common_align_center:Jajar ke Tengah
+post_common_align_right:Jajar ke Kanan
+post_common_link:Sisipkan Pautan
+post_common_link_popup:Lokasi pautan:
+post_common_email:Sisipkan alamat E-mel
+post_common_email_popup:Alamat e-mel:
+post_common_image:Sisipkan gambar
+post_common_image_popup:URL gambar:
+post_common_nlist:Isikan senarai bernombor
+post_common_blist:Isikan senarai berbulet
+post_common_quote:Isikan Petikan
+post_common_code:Isikan Kod
+rating_delete:Hapuskan
+post_always_on_top:Jadikan topik ini sentiasa terpapar di atas senarai topik
+topic_rating:{VAR: frm->rating} daripada {PLURAL: frm->n_rating|$1 undian|$1 undian}
+topic_list_rating:{VAR: r[17]} daripada {PLURAL: r[21]|$1 undian|$1 undian}
+tabs_notifications:Pemberitahuan
+finduser_flag:Bendera
+post_descr:Keterangan Topik:
+pmsg_on:pada
+pmsg_download_dump:Muat Turun Longgokan Pesanan
+move_messages:Pindahkan pesanan
+move_msg_btn:Pindahkan Pesanan yang Dipilih
+move_msg_th_expl:Nyatakan ID topik destinasi (termasuk topik di forum lain)
+captcha_img_alt:Pengesahan Captcha; anda perlu mengecam teks dalam imej ini.
+captcha_img_help:Dalam imej ini tiada angka sifar atau satu.
+powered-by:Dijana oleh: FUDforum {GVAR: FORUM_VERSION}.<br />Hakcipta &copy;2001-2011 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+code_title:Kod:
+code_select_all:Pilih semua
+code_show_hide:Tunjukkan/ sorokkan
+social_sites:Tapak perangkaian sosial:
+postcheck_min_len_err:Pesanan anda terlalu ringkas. Panjang minimumnya ialah {PLURAL: post_min_len|$1 aksara|$1 aksara}.
+postcheck_dup_err:Tolong jangan buka topik berulang (duplikat).
+btn_new_topic:Topik Baru
+btn_new_pm:P.Peribadi Baru
+btn_post_reply:Balas
+btn_tree_view:Paparan pepohon (Tree)
+btn_flat_view:Paparan rata (flat)
+btn_about:Profil
+btn_small_pm:PP
+btn_delete:hapuskan
+btn_edit:sunting
+btn_reply:balas
+btn_forward:kirim semula
+btn_quote:petik
+btn_email:E-mel
+btn_show_posts:kiriman
+btn_homepage:www
+feed_no_data:Tiada data yang berpadan dijumpai.
+feed_rdf:Suapan RDF
+feed_rss:Suapan RSS2
+feed_atom:Suapan ATOM
+ip_whois_connect_err:Tidak dapat bersambung dengan pelayan WHOIS ({VAR: whois_server}), {VAR: errstr}
+custom_filed_required:Ruangan ini wajib diisi.
+page_list_heading:Halaman yang ada
+page_list_total:{PLURAL: i|$1 halaman|$1 halaman} disenaraikan.

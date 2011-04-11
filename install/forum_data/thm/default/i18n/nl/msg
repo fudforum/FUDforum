@@ -12,7 +12,7 @@ admin_control_panel:Instellingen
 administrator:beheerder
 attachment:Bijlage:
 avatar:Avatar:
-average_post_count:$1 {PLURAL: u->posted_msg_count|bericht|berichten} ($1 {PLURAL: avg|bericht|berichten} gemiddeld per dag)
+average_post_count:{PLURAL: u->posted_msg_count|$1 bericht|$1 berichten} ({PLURAL: avg|$1 bericht|$1 berichten} gemiddeld per dag)
 biography:Biografie:
 birth_date:Geboortedatum:
 by:Door:
@@ -552,7 +552,7 @@ poll_unlimited:Onbeperkt
 poll_day:dag
 poll_days:dagen
 poll_hour:uur
-poll_hours:uren
+poll_hours:uur
 poll_month:maand
 poll_year:jaar
 poll_week:week
@@ -1096,7 +1096,7 @@ post_always_on_top:Het onderwerp altijd bovenaan de onderwerpenlijst weergeven
 topic_rating:{VAR: frm->rating} van {PLURAL: frm->n_rating|$1 stem|$1 stemmen}
 topic_list_rating:{VAR: r[17]} van {PLURAL: r[21]|$1 stem|$1 stemmen}
 tabs_notifications:Waarschuwingen
-finduser_flag:Markering
+finduser_flag:Vlag
 post_descr:Beschrijving van het onderwerp:
 pmsg_on:op
 pmsg_download_dump:Berichtendump downloaden

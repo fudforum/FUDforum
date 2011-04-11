@@ -396,8 +396,8 @@ post_file_del:Skrap
 post_file_name:Naam
 post_file_size:Groote
 file_attachments:Lêeraanhangsels:
-allowed_files:Toegelate Lêetipes:
-max_file_size:Maksimum Lêergrootte:
+allowed_files:Toegelate lêertipes:
+max_file_size:Maksimum lêergrootte:
 max_files_per_msg:Maksimum aantal lêers per boodskap:
 post_notification:Stuur kennisgewings
 include_sig:Met handtekening

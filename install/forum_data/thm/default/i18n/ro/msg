@@ -281,7 +281,7 @@ register_conf_pass:Confira Parola:
 register_email_desc:Va rugam sa introduceti o adresa de email valida.
 register_name:Nume:
 register_your_pass:Parola:
-register_update:Updateaza
+register_update:Actualizează
 register_avatar_type:Tipul imaginii:
 register_del_avatar:Sterge imaginea
 register_avatar:Imagine:
