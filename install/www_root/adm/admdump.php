@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -28,6 +28,9 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir, $p=0)
 		if (!($files = glob($v .'/{.h*,.p*,.n*,.m*,*}', GLOB_BRACE|GLOB_NOSORT))) {
 			continue;
 		}
+
+		// Remove DATA_DIR/ WWW_ROOT_DISK from the path.
+		$v = str_replace('\\', '/', $v);	// See fix_slashes() in install.php.
 		$dpath = trim(str_replace($repl, $keep_dir, $v), '/') .'/';
 
 		if ($p) {

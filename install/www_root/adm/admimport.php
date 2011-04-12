@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -9,42 +9,15 @@
 * Free Software Foundation; version 2 of the License.
 **/
 
-	error_reporting(E_ALL);
-	@ini_set('display_errors', 1);
-	@ini_set('memory_limit', '256M');
-	@set_time_limit(0);
-
-	require('./GLOBALS.php');
-
-	/* Uncomment the line below if you wish to import data without authentication.
-	 * This is useful if the previous import had failed resulting in the loss of old SQL data.
-	**/
-	// define('recovery_mode', 1);
-
-	// Run from command line.
-	if (php_sapi_name() == 'cli') {
-		if (empty($_SERVER['argv'][1])) {
-			echo "Usage: php admimport.php /path/to/dump_file\n";
-			die();
-		}
-
-		fud_use('adm_cli.inc', 1);
-		define('recovery_mode', 1);
-		$_POST['path'] = $_SERVER['argv'][1];
-		$_POST['submitted'] = 1;
-	}
-
-	fud_use('glob.inc', true);
-	fud_use('dbadmin.inc', true);	// For creating and dropping tables, indexes, etc.
-	if (defined('recovery_mode')) {
-		fud_use('db.inc');
-	} else {
-		fud_use('adm.inc', true);
-	}
+/* Uncomment and fix the lines below if you wish to import data without authentication.
+ * This is useful if the previous import failed resulting in the loss of old SQL data.
+**/
+// define('recovery_mode', 1);
+// $_POST['path'] = '/path/to/your/forum/dump';
 
 function resolve_dest_path($path)
 {
-	$path = str_replace(array('WWW_ROOT_DISK','DATA_DIR'), 
+	$path = str_replace(array('WWW_ROOT_DISK', 'DATA_DIR'), 
 				array($GLOBALS['WWW_ROOT_DISK'], $GLOBALS['DATA_DIR']), $path);
 	$dir = dirname($path);
 	if (!@is_dir($dir)) {
@@ -63,7 +36,36 @@ function resolve_dest_path($path)
 	return $path;
 }
 
-	require($WWW_ROOT_DISK .'adm/header.php');
+/* main */
+	error_reporting(E_ALL);
+	@ini_set('display_errors', 1);
+	@ini_set('memory_limit', '256M');
+	@set_time_limit(0);
+
+	require('./GLOBALS.php');
+
+	// Run from command line.
+	if (php_sapi_name() == 'cli') {
+		if (empty($_SERVER['argv'][1])) {
+			echo "Usage: php admimport.php /path/to/dump_file\n";
+			die();
+		}
+
+		fud_use('adm_cli.inc', 1);
+		define('recovery_mode', 1);
+		$_POST['path'] = $_SERVER['argv'][1];
+		$_POST['submitted'] = 1;
+	}
+
+	fud_use('glob.inc', true);
+	fud_use('dbadmin.inc', true);	// For creating and dropping tables, indexes, etc.
+	if (defined('recovery_mode')) {
+		fud_use('db.inc');
+		fud_use('adm_common.inc', true);	// For pf().
+	} else {
+		fud_use('adm.inc', true);
+		require($WWW_ROOT_DISK .'adm/header.php');
+	}
 
 	if (isset($_POST['path'])) {
 		if (!@is_readable($_POST['path'])) {
@@ -106,6 +108,7 @@ function resolve_dest_path($path)
 				}
 
 				$path = resolve_dest_path($path);
+				if (defined('forum_debug')) pf('... '. $path);
 				if (!($fd = fopen($path, 'wb'))) {
 					pf('WARNING: couldn\'t create '. $path);
 					if ($readf == 'gzread') {
@@ -156,8 +159,9 @@ function resolve_dest_path($path)
 			}
 
 			/* Start loading the data. */
+			pf('Start loading database tables...');
 			$i = $skip = 0;
-			$tmp = $pfx = ''; 
+			$tmp = $pfx = '';
 			while (($line = $getf($fp, 1000000)) && $line != "----SQL_END----\n") {
 				// Reverse formatting applied in admdump.php.
 				$line = str_replace('\n', "\n", $line);
@@ -172,7 +176,7 @@ function resolve_dest_path($path)
 							$tmp = '';
 						}
 						if ($i > 0) {
-							pf('&nbsp;...'. $i .' rows loaded.');
+							pf(' ...'. $i .' rows loaded.');
 							$i = 0;
 						}
 						$tbl = $line;
@@ -206,16 +210,11 @@ function resolve_dest_path($path)
 					++$i;
 				}
 			}
-
-			pf('&nbsp;...'. $i .' rows loaded.');
-/* STILL NEEDED???
 			if ($tmp && !$skip) {
 				q($pfx . substr($tmp, 0, -1));
-				pf('&nbsp;...'.$pfx . substr($tmp, 0, -1));
-				pf($i .' rows loaded.');
+				pf('&nbsp;... last '. $i .' rows loaded.');
 				unset($tmp);
 			}
-*/
 
 			pf('Creating indexes...');
 			foreach ($idx as $v) {
@@ -232,11 +231,11 @@ function resolve_dest_path($path)
 			eval(trim($readf($fp, 100000))); // Should be enough to read all options in one shot.
 			change_global_settings($global_vals);
 
-			/* Try to restore the current admin's account by seeing if he exists in the imported database. */
+			/* Try to restore the current admin account's session if he exists in the imported database. */
 			if (!defined('recovery_mode')) {
 				if (($uid = q_singleval('SELECT id FROM '. $DBHOST_TBL_PREFIX .'users WHERE login=\''. $usr->login .'\' AND users_opt>=1048576 AND '. q_bitand('users_opt', 1048576) .' > 0'))) {
 					q('INSERT INTO '. $DBHOST_TBL_PREFIX .'ses (ses_id, sys_id, user_id, time_sec) VALUES(\''. $usr->ses_id .'\', \''. $usr->sys_id .'\', '. $uid .', '. __request_timestamp__ .')');
-				} else if (!defined('recovery_mode')) {
+				} else {
 					pf( errorify('Your current login ('. htmlspecialchars($usr->login) .') is not found in the imported database.<br />Therefor you\'ll need to re-login once the import process is complete.') );
 				}
 			}
@@ -262,9 +261,9 @@ function resolve_dest_path($path)
 ?>
 <h2>Import forum data</h2>
 <div class="alert">
-	The import process will REMOVE ALL forum data (all files and tables with '<?php echo $DBHOST_TBL_PREFIX; ?>' prefix) and replace it with the data in the backup file you enter.
+	The import process will REMOVE ALL forum data (files and tables with '<?php echo $DBHOST_TBL_PREFIX; ?>' prefix) and replace it with the data in the backup file you enter.
 	Remember to <a href="admdump.php?<?php echo __adm_rsid; ?>">BACKUP</a> your data before importing and do not try to import backups taken with old forum versions!
-	You can use the <a href="admbrowse.php?cur=<?php echo urlencode($TMP) .'&amp;'. __adm_rsid ?>">File Manager</a> to upload off-site backup files.
+	You can use the <a href="admbrowse.php?cur=<?php echo urlencode($TMP) .'&amp;'. __adm_rsid ?>">File Manager</a> to upload off-site backups.
 </div>
 
 <?php
@@ -279,7 +278,7 @@ if ($datadumps) {
 	<?php foreach ($datadumps as $datadump) { ?>
 		<tr class="field admin_fixed">
 			<td><?php echo basename($datadump); ?></td>
-			<td><?php echo fdate('%d %b %Y %H:%M:%S', filectime($datadump)); ?></td>
+			<td><?php echo fdate(filectime($datadump)); ?></td>
 			<td> [ <a href="javascript://" onclick="document.admimport.path.value='<?php echo $datadump; ?>';">use</a> ]</td>
 		</tr>
 	<?php } ?>
