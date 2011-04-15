@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -87,7 +87,12 @@ function get_stbl_from_file($file)
 /* Return a list of FUDforum tables from the database. */
 function get_fud_table_list($tbl=null)
 {
-	if (__dbtype__ == 'firebird') {
+	if (__dbtype__ == 'db2') {
+		if ($tbl) {
+			return db_all('SELECT lower(tabname) FROM syscat.tables WHERE tabname LIKE \''. strtoupper($tbl) .'\'');
+		}
+		return db_all('SELECT lower(tabname) FROM syscat.tables WHERE tabname LIKE \''. strtoupper($GLOBALS['DBHOST_TBL_PREFIX'] .'%\''));
+	} else if (__dbtype__ == 'firebird') {
 		if ($tbl) {
 			return db_all('SELECT rdb$relation_name FROM rdb$relations WHERE rdb$view_blr is null AND(rdb$system_flag is null or rdb$system_flag = 0) AND rdb$relation_name LIKE \''. $tbl .'\'');
 		}
@@ -127,7 +132,44 @@ function get_fud_col_list($table)
 {
 	$ret = array();
 
-	if (__dbtype__ == 'mysql') {
+	if (__dbtype__ == 'db2') {
+		$c = q('SELECT DISTINCT c.colname, c.typename, c.nulls, c.default, c.length, c.scale,
+                c.identity, tc.type, k.colseq, c.colno
+                FROM syscat.columns c
+                LEFT JOIN (syscat.keycoluse k JOIN syscat.tabconst tc
+                ON (k.tabschema = tc.tabschema
+                    AND k.tabname = tc.tabname
+                    AND tc.type = \'P\'))
+                ON (c.tabschema = k.tabschema
+                    AND c.tabname = k.tabname
+                    AND c.colname = k.colname)
+                WHERE UPPER(c.tabname) = UPPER(\''. $table .'\') 
+				ORDER BY c.colno');
+		while ($r = db_rowarr($c)) {
+			$colname = strtolower($r[0]);
+			$type = preg_replace(array('!INTEGER!', '!CHARACTER!', '!CLOB\(.+?\)!'), array('INT', 'CHAR', 'TEXT'), $r[1]);
+			$type = ($type=='CHAR' || $type=='VARCHAR') ? $type .'('. $r[4] .')' : $type;	// Append type length.
+			$not_null = $r[2] == 'Y' ? 0 : 1;
+			$key = $r[7] == 'P' ? 1 : 0;
+			$default = trim(str_replace("'", '', $r[3]));
+			$auto = $r[6] == 'Y' ? 1 : 0;
+			$ret[$colname] = array('type'=>$type, 'not_null'=>$not_null, 'primary'=>$key, 'default'=>$default, 'auto'=>$auto);
+		}
+	} else if (__dbtype__ == 'mssql') {
+		// @TODO: Implement for MS-SQL.
+		die("TODO: not yet implemented!!!<br>");
+		$c = q('SELECT column_name, data_type, is_nullable, column_default FROM INFORMATION_SCHEMA.columns WHERE table_name LIKE \''. $table .'\' ORDER BY ordinal_position');
+		while ($r = db_rowarr($c)) {
+			$colname = $r[0];
+			$type = $r[1];
+			$not_null = $r[2];
+			// $key = 
+			$default = $r[3];
+			// $auto = 
+			$ret[$colname] = array('type'=>$type, 'not_null'=>$not_null, 'primary'=>$key, 'default'=>$default, 'auto'=>$auto);
+		}
+	} else if (__dbtype__ == 'mysql') {
+		// We can also use: SELECT COLUMN_NAME, DATA_TYPE, IS_NULLABLE, COLUMN_DEFAULT FROM INFORMATION_SCHEMA.COLUMNS...
 		$c = q('SHOW FIELDS FROM '. $table);
 		while ($r = db_rowobj($c)) {
 			$type = strtoupper(preg_replace('!(int|bigint)\(([0-9]+)\)!', '\1', $r->Type));
@@ -243,7 +285,7 @@ function create_primary_key($table, $col_list)
 		q('COMMIT');
 	} else {
 		/* Before adding the primary key, we need to remove the duplicates. */
-		delete_duplicate_values($table, $col_list);
+		delete_duplicate_rows($table, $col_list);
 		q('ALTER TABLE '. $table .' ADD PRIMARY KEY ('. $col_list .')');
 	}
 }
@@ -262,7 +304,9 @@ function optimize_fud_tables($tbl_list=null)
 	}
 
 	foreach ($tbl_list as $t)
-		if (__dbtype__ == 'mssql') {
+		if (__dbtype__ == 'db2') {
+			uq('CALL SYSPROC.ADMIN_CMD(\'RUNSTATS ON TABLE '. $GLOBALS['DBHOST_USER'] .'.'. $t .' ON KEY COLUMNS and INDEXES ALL\');');
+		} else if (__dbtype__ == 'mssql') {
 			uq('UPDATE STATISTICS '. $t);
 		if (__dbtype__ == 'mysql') {
 			uq('OPTIMIZE TABLE '. $t);
@@ -279,7 +323,11 @@ function optimize_fud_tables($tbl_list=null)
 /* Return the size of FUDforum's database tables in bytes. */
 function get_sql_disk_usage()
 {
-	if (__dbtype__ == 'mysql') {
+	if (__dbtype__ == 'db2') {
+		return q_singleval('SELECT SUM(t.npages*ts.pagesize) AS size FROM SYSCAT.TABLES t, SYSCAT.TABLESPACES ts WHERE t.tbspace = ts.tbspace AND T.tabname LIKE UPPER(\''. $GLOBALS['DBHOST_TBL_PREFIX'] .'%\')');
+	} else if (__dbtype__ == 'mssql') {
+		return q_singleval('SELECT SUM(a.used_pages)*8 FROM sys.objects o JOIN sys.partitions p ON p.object_id = o.object_id JOIN sys.allocation_units a ON p.partition_id = a.container_id WHERE o.type = \'U\' AND o.name LIKE \''. $GLOBALS['DBHOST_TBL_PREFIX'] .'%\'');
+	} else if (__dbtype__ == 'mysql') {
 		return q_singleval('SELECT sum(data_length + index_length) FROM information_schema.TABLES WHERE table_name LIKE \''. $GLOBALS['DBHOST_TBL_PREFIX'] .'%\'');
 	} else if (__dbtype__ == 'oracle') {
 		return q_singleval('SELECT sum(bytes) FROM user_segments WHERE segment_name LIKE UPPER(\''. $GLOBALS['DBHOST_TBL_PREFIX'] .'%\')');
@@ -302,14 +350,23 @@ function create_table($script)
 	foreach ($statements as $q) {
 		$q = str_replace('{SQL_TABLE_PREFIX}', $GLOBALS['DBHOST_TBL_PREFIX'], $q);
 
+/* TODO:
+See http://dba.fyicenter.com/faq/sql_server_2/PHP_MSSQL_Making_Columns_to_Take_NULL.html
+		// We need to explistitely add NULL for MS-SQL.
+		// If CREATE TABLE is executed through mssql_query() and "NULL/NOT NULL" keyword is omitted in column definition, mssql_query() will assume NOT NULL.
+		if (__dbtype__ == 'mssql' && preg_match('/^\s*CREATE\s*TABLE\s+/i', $q)) {
+			echo "SQL Server create table: $q<hr>";
+		}
+*/
+
 		/* Because mysql with InnoDB table refuses to resolve indexes correctly, we need to force MyISAM table type. */
 		if (__dbtype__ == 'mysql' && preg_match('/^\s*CREATE\s*TABLE\s*/i', $q)) {
 			$q .= ' ENGINE=MyISAM ';
 			/* We need to specify a default charset for MySQL 4.1.2+. */
 			$q .= ' DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci';
-		}
+		}		
 
-		// Queue statements to create Oracle sequence and trigger later.
+		// Queue extra statements to create Oracle sequence and trigger later.
 		$extra_stmts = array();
 		if (__dbtype__ == 'oracle' && preg_match('/^\s*CREATE\s*TABLE\s*([\{\}\w]*)/i', $q, $m)) {
 			$tbl = $m[1];				
@@ -323,11 +380,15 @@ function create_table($script)
 		// Data type conversions.
 		$src = array('!UNIX_TIMESTAMP!');
 		$dst = array(time());
-		if (__dbtype__ == 'mssql') {
+		if (__dbtype__ == 'db2') { 
+			array_push($src, '!TEXT!',      '!BINARY!', '!INT NOT NULL AUTO_INCREMENT!');
+			array_push($dst, 'CLOB(65535)', '',         'INTEGER GENERATED BY DEFAULT AS IDENTITY');
+		} else if (__dbtype__ == 'mssql') {
 			array_push($src, '!BINARY!', '!INT NOT NULL AUTO_INCREMENT!');
 			array_push($dst, '',          'INT IDENTITY');
 		} else if (__dbtype__ == 'oracle') {
 			// Use FLOAT (cannot use NUMBER) for BIGINT in Oracle. We need a seperate type to back map it to BIGINT later.
+			// 'NOT NULL' for Oracle must be specified last.
 			array_push($src, '/TEXT/', '/BIGINT/', '/BINARY/', '/INT NOT NULL AUTO_INCREMENT/', '/NOT NULL DEFAULT (.+?)([,\s$])/');
 			array_push($dst, 'CLOB',   'FLOAT',    '',         'NUMBER',                        'DEFAULT \\1 NOT NULL\\2');
 		} else if (__dbtype__ == 'pgsql') {
@@ -341,6 +402,7 @@ function create_table($script)
 
 		// Do it!
 		if (($q = trim($q))) {
+			// echo "<pre>DEBUG: ". $q ."</pre>";
 			$rc = q($q);
 			if ($rc === FALSE) return $rc;
 		}
@@ -348,7 +410,7 @@ function create_table($script)
 
 	/* Run extra statements. For example, crreate Oracle sequences and triggers. */
 	foreach($extra_stmts as $q) {
-		// echo "DEBUG: Run $q<hr>";
+		// echo "<pre>DEBUG: Run $q</pre>";
 		$rc = q($q);
 	}
 
@@ -356,9 +418,10 @@ function create_table($script)
 }
 
 /* Drop a table. */
-function drop_table($tbl, $ifexists=false) {
+function drop_table($tbl, $ifexists=false)
+{
 	$tbl = str_replace('{SQL_TABLE_PREFIX}', $GLOBALS['DBHOST_TBL_PREFIX'], $tbl);
-	
+
 	// Drop Orace sequences.
 	if (__dbtype__ == 'oracle') {
 		$c = q('SELECT sequence_name FROM user_sequences WHERE sequence_name LIKE \''. strtoupper($tbl .'%\''));
@@ -373,6 +436,8 @@ function drop_table($tbl, $ifexists=false) {
 			q('IF EXISTS(SELECT table_name FROM information_schema.tables WHERE table_name = \''. $tbl .'\') DROP TABLE '. $tbl);
 		} else if (__dbtype__ == 'oracle') {
 			q('BEGIN execute immediate \'DROP TABLE '. $tbl .'\'; EXCEPTION when others then null; END;');
+		} else if (__dbtype__ == 'db2') {
+			q('BEGIN IF EXISTS (SELECT name FROM sysibm.systables WHERE name = \''. strtoupper($tbl) .'\') THEN EXECUTE IMMEDIATE \'DROP TABLE '. $tbl .'\'; END IF; END');
 		} else {
 			q('DROP TABLE IF EXISTS '. $tbl);
 		}
@@ -381,11 +446,37 @@ function drop_table($tbl, $ifexists=false) {
 	}
 }
 
-/* Delete duplicate values from a table. */
-function delete_duplicate_values($tbl, $flds)
+/* Empty out a table. */
+function truncate_table($tbl)
+{
+	if (__dbtype__ == 'sqlite') {
+		// Guess what database doen't have a TRUNCATE command.
+		q('DELETE FROM '. $tbl);
+	} else {
+		q('TRUNCATE TABLE '. $tbl);
+	}
+}
+
+/* Delete duplicate rows from a table. */
+function delete_duplicate_rows($tbl, $flds)
 {
 	$f = explode(',', $flds);
 	$n = count($f);
+
+	// Databases with an internal row identifier.
+	if (__dbtype__ == 'pgsql' || __dbtype__ == 'sqlite' || __dbtype__ == 'oracle') {
+		$idcol = (__dbtype__ == 'pgsql') ? 'oid' : 'rowid';
+		$where = '';
+		foreach ($f as $v) {
+			$cond   = 'i.'. $v .' = '. $tbl .'.'. $v;
+			$where .= (empty($where)) ? $cond : ' AND '. $cond;
+		}
+		q('DELETE FROM '. $tbl .' WHERE EXISTS (SELECT 1 FROM '. $tbl .' i WHERE '. $where .' AND i.'. $idcol .' < '. $tbl .'.'. $idcol .')');
+
+		return;
+	}
+
+	// Other databases (at leaset MySQL & MS-SQL).
 	$c = q('SELECT '. $flds .', count(*) AS cnt FROM '. $tbl .' GROUP BY '. $flds .' HAVING count(*) > 1');
 	while ($r = db_rowarr($c)) {
 		$cond = '';
@@ -396,7 +487,13 @@ function delete_duplicate_values($tbl, $flds)
 				$cond .= ' AND '. $v .'=\''. addslashes($r[$k]) .'\'';
 			}
 		}
-		q('DELETE FROM '. $tbl .' WHERE '. $cond .' LIMIT '. ($r[$n] - 1));
+		if (__dbtype__ == 'mysql') {
+			q('DELETE FROM '. $tbl .' WHERE '. $cond .' LIMIT '. ($r[$n] - 1));
+		} else if (__dbtype__ == 'mssql') {
+			q('DELETE TOP ('. ($r[$n] - 1) .') FROM '. $tbl .' WHERE '. $cond);
+		} else {
+			die('Cannot delete duplicate rows. Not implemented for your database!');
+		}
 	}
 	unset($c);
 }
@@ -409,7 +506,7 @@ function create_index($tbl, $name, $unique, $flds, $del_dups=true)
 
 	/* Before adding a unique index, we need to check & remove any duplicates. */
 	if ($unique && $del_dups) {
-		delete_duplicate_values($tbl, $flds);
+		delete_duplicate_rows($tbl, $flds);
 	}
 
 	if (__dbtype__ == 'mysql') {
@@ -424,7 +521,9 @@ function create_index($tbl, $name, $unique, $flds, $del_dups=true)
 /* Drop a database index. */
 function drop_index($table, $index)
 {
-	if (__dbtype__ == 'mysql') {
+	if (__dbtype__ == 'mssql') {
+		q('DROP INDEX '. $index .' ON '. $table);
+	} else if (__dbtype__ == 'mysql') {
 		q('ALTER TABLE '. $table .' DROP INDEX '. $index);
 	} else if (__dbtype__ == 'pgsql') {
 		// Leave PostgreSQL's Primary Keys alone.
@@ -447,7 +546,28 @@ function get_fud_index_list($table)
 {
 	$tbl = array();
 
-	if (__dbtype__ == 'mysql') {
+	if (__dbtype__ == 'db2') {
+		$c = q('SELECT LOWER(indname) AS index_name, DECODE(uniquerule, \'U\', 1, 0) AS uniq 
+				FROM syscat.indexes
+				WHERE tabname = UPPER(\''. $table .'\')
+				AND user_defined = 1');
+		while ($r = db_rowobj($c)) {
+			$tbl[$r->index_name] = array('unique' => $r->uniq, 'cols' => array());
+		
+			$c2 = q('SELECT LOWER(colname) as column_name FROM syscat.indexcoluse WHERE indname = UPPER(\''. $r->index_name .'\') ORDER BY colorder');
+			while ($r2 = db_rowobj($c2)) {
+				$tbl[$r->index_name]['cols'][] = $r2->column_name;
+			}
+		}
+		unset($c);
+
+		foreach ($tbl as $k => $v) {
+			$tbl[$k]['cols'] = implode(',', $v['cols']);
+		}
+	} else if (__dbtype__ == 'mssql') {
+		// @TODO: Implement for MS-SQL.
+		die("TODO: not yet implemented!!!<br>");
+	} else if (__dbtype__ == 'mysql') {
 		$c = q('SHOW INDEX FROM '. $table);
 		while ($r = db_rowobj($c)) {
 			if ($r->Key_name == 'PRIMARY') {
@@ -467,11 +587,11 @@ function get_fud_index_list($table)
 	} else if (__dbtype__ == 'oracle') {
 		$c = q('SELECT LOWER(index_name) AS index_name, DECODE(uniqueness, \'UNIQUE\', 1, 0) AS uniq 
 				FROM user_indexes
-				WHERE table_name =UPPER(\''. $table .'\')
+				WHERE table_name = UPPER(\''. $table .'\')
 				AND index_type = \'NORMAL\' AND generated = \'N\'');
 		while ($r = db_rowobj($c)) {
 			$tbl[$r->index_name] = array('unique' => $r->uniq, 'cols' => array());
-		
+
 			$c2 = q('SELECT LOWER(column_name) as column_name FROM user_ind_columns WHERE index_name = UPPER(\''. $r->index_name .'\') ORDER BY column_position');
 			while ($r2 = db_rowobj($c2)) {
 				$tbl[$r->index_name]['cols'][] = $r2->column_name;
@@ -600,7 +720,10 @@ function make_table_row($col, $prop)
 	// Because I'm lazy I've copied this from create_table(). Separate func maybe?
 	// Data type conversions.
 	$src = $dst = array();
-	if (__dbtype__ == 'mssql') {
+	if (__dbtype__ == 'db2') { 
+		array_push($src, '!TEXT!',      '!BINARY!', '!INT NOT NULL AUTO_INCREMENT!');
+		array_push($dst, 'CLOB(65535)', '',         'INTEGER GENERATED BY DEFAULT AS IDENTITY');
+	} else if (__dbtype__ == 'mssql') {
 		array_push($src, '!BINARY!', '!INT NOT NULL AUTO_INCREMENT!');
 		array_push($dst, '',          'INT IDENTITY');
 	} else if (__dbtype__ == 'oracle') {
@@ -645,8 +768,16 @@ function drop_column($tbl, $col)
 /* Reset database sequences to the highest count based on data values. */
 function reset_fud_sequences()
 {
-	/* We may need to restore sequence numbers for databases like Oracle and PostgreSQL. */
-	if (__dbtype__ == 'oracle') {
+	/* We may need to restore sequence numbers for databases like DB2, Oracle and PostgreSQL. */
+	if (__dbtype__ == 'db2') {
+		foreach(db_all('SELECT tabname FROM syscat.columns WHERE identity=\'Y\' AND tabname LIKE upper(\''. addcslashes($GLOBALS['DBHOST_TBL_PREFIX'], '_') .'%\')  ESCAPE \'\\\'') as $v) {
+			if (!($m = q_singleval('SELECT MAX(id)+1 AS max_id FROM '. $v))) {
+				$m = 1;
+			}
+			echo 'Reset DB2 sequence '. $v .'.id to '. $m .'.<br />';
+			q('ALTER TABLE '. $v .' ALTER COLUMN id RESTART WITH '. $m);
+		}
+	} else if (__dbtype__ == 'oracle') {
 		foreach(db_all('SELECT sequence_name FROM user_sequences WHERE sequence_name LIKE upper(\''. addcslashes($GLOBALS['DBHOST_TBL_PREFIX'], '_') .'%\_id\_seq\') ESCAPE \'\\\'') as $v) {
 			if (!($m = q_singleval('SELECT MAX(id)+1 FROM '. basename($v, '_ID_SEQ')))) {
 				$m = 1;

@@ -1,6 +1,6 @@
 <?php
 /***************************************************************************
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -24,7 +24,7 @@ function fud_ini_set($opt, $val)
 function modules_enabled()
 {
 	$status = array();
-	foreach (array('mysql', 'oci8', 'pdo_mysql', 'pdo_pgsql', 'pdo_sqlite', 'pgsql',
+	foreach (array('ibm_db2', 'mysql', 'oci8', 'pdo_mysql', 'pdo_pgsql', 'pdo_sqlite', 'pgsql', 'sqlsrv',
 		           'mbstring', 'pcre', 'pspell', 'posix', 'zlib') as $m) {
 		$status[$m] = extension_loaded($m);
 	}
@@ -38,11 +38,11 @@ function modules_enabled()
 function databases_enabled() 
 {
 	$module_status = modules_enabled();
-	$supported_databases = array('mysql'=>'MySQL', 'mysqli'=>'MySQL Improved', 'oci8'=>'Oracle', 'pgsql'=>'PostgreSQL', 'pdo_mysql'=>'PDO: MySQL', 'pdo_pgsql'=>'PDO: PostgreSQL', 'pdo_sqlite'=>'PDO: SQLite');
+	$supported_databases = array('ibm_db2'=>'IBM DB2', 'mysql'=>'MySQL', 'mysqli'=>'MySQL Improved', 'oci8'=>'Oracle', 'pgsql'=>'PostgreSQL', 'sqlsrv' => 'SQL Server (Microsoft)', 'pdo_mysql'=>'PDO: MySQL', 'pdo_pgsql'=>'PDO: PostgreSQL', 'pdo_sqlite'=>'PDO: SQLite');
 
-	foreach ($supported_databases as $k => $v) {
-		if (!$module_status[$k]) {
-			unset($supported_databases[$k]);	// Remove DBs that's not available.
+	foreach ($supported_databases as $driver => $name) {
+		if (!$module_status[$driver]) {
+			unset($supported_databases[$driver]);	// Remove DBs that's not available.
 		}
 	}
 
@@ -116,7 +116,6 @@ function decompress_archive($data_root, $web_root)
 	/* Install from './fudforum_archive' file. */
 	// $GLOBALS['no_mem_limit'] may look strange in this context, but it is actually $no_mem_limit defined earlier.
 	if ($GLOBALS['no_mem_limit']) {	
-		$size = filesize('./fudforum_archive');
 		$fp = fopen('./fudforum_archive', 'rb');
 		$checksum = fread($fp, 32);
 		$tmp = fread($fp, 20000);
@@ -529,12 +528,14 @@ being security and performance.');
 	}
 
 	/* Database check. */
-	if (!$module_status['mysql'] && !$module_status['pdo_mysql'] &&
+	if (!$module_status['ibm_db2'] &&
+		!$module_status['mysql'] && !$module_status['mysqli'] && !$module_status['pdo_mysql'] &&
 		!$module_status['oci8'] &&
 		!$module_status['pgsql'] && !$module_status['pdo_pgsql'] &&
-		!$module_status['pdo_sqlite'])
+		!$module_status['pdo_sqlite'] &&
+		!$module_status['sqlsrv'])
 	{
-		seterr('NODB', 'FUDforum can utilize either a MySQL, Oracle, PosgreSQL or SQLite databases to store it\'s data, unfortunately, your PHP installation does not have support for any of these databases. Please install or load the appropriate database extension and then re-run the install script.');
+		seterr('NODB', 'FUDforum can utilize either a IBM DB2, MySQL, Oracle, PosgreSQL, SQLite or MS-SQL Server database to store it\'s data, unfortunately, your PHP installation does not have support for any of these databases. Please install or load the appropriate database extension and then re-run the install script.');
 	}
 
 	/* PCRE check. */
@@ -626,24 +627,25 @@ being security and performance.');
 if (php_sapi_name() == 'cli') {
 	/* Config file settings. */
 	$_POST = array(
-		'WWW_ROOT' => '',
-		'SERVER_ROOT' => '',
-		'SERVER_DATA_ROOT' => '',
-		'DBHOST' => '',
-		'DBHOST_USER' => '',
-		'DBHOST_PASSWORD' => '',
-		'DBHOST_DBNAME' => '',
+		'WWW_ROOT'          => '',
+		'SERVER_ROOT'       => '',
+		'SERVER_DATA_ROOT'  => '',
+		'DBHOST'            => '',
+		'DBHOST_USER'       => '',
+		'DBHOST_PASSWORD'   => '',
+		'DBHOST_DBNAME'     => '',
 		'DBHOST_TBL_PREFIX' => '',
-		'DBHOST_DBTYPE' => '',
-		'COOKIE_DOMAIN' => '',
-		'LANGUAGE' => '',
-		'TEMPLATE' => '',
-		'ROOT_LOGIN' => get_current_user(),
-		'ROOT_PASS' => '',
-		'ADMIN_EMAIL' => ''
+		'DBHOST_DBTYPE'     => '',
+		'COOKIE_DOMAIN'     => '',
+		'LANGUAGE'          => '',
+		'TEMPLATE'          => '',
+		'ROOT_LOGIN'        => get_current_user(),
+		'ROOT_PASS'         => '',
+		'ADMIN_EMAIL'       => '',
+		'PHP_CLI'           => ''
 	);
 
-	/* Read config file. */	
+	/* Read config file. */
 	if (isset($_SERVER['argv'][1]) && !is_numeric($_SERVER['argv'][1]) && @file_exists($_SERVER['argv'][1])) {
 		$_POST = array_merge($_POST, parse_ini_file($_SERVER['argv'][1]));
 		echo 'Reading config file '. $_SERVER['argv'][1] .".\n";
@@ -701,7 +703,7 @@ if ($section == 'stor_path' || php_sapi_name() == 'cli') {
 		echo "Copying forum files.\n";
 	}
 
-	if (isset($_GET['sfh'])) {
+	if (isset($_GET['sfh'])) {	// Safe mode.
 		$_POST['SERVER_ROOT'] 	   = $_GET['SERVER_ROOT'];
 		$_POST['SERVER_DATA_ROOT'] = $_GET['SERVER_DATA_ROOT'];
 		$_POST['WWW_ROOT']         = $_GET['WWW_ROOT'];
@@ -935,6 +937,8 @@ if ($section == 'db' || php_sapi_name() == 'cli') {
 			seterr('DBHOST_DBNAME', 'PostgreSQL version '. $dbver .' is to too old. Please upgrade to version 8.1.0 or higher.');
 		} else if (__dbtype__ == 'oracle' && version_compare($dbver, '9.2.0', '<')) {
 			seterr('DBHOST_DBNAME', 'Oracle version '. $dbver .' is to too old. Please upgrade to version 9.2.0 or higher.');
+		} else if (__dbtype__ == 'sqlsrv' && version_compare($dbver, '10.00.00', '<')) {
+			seterr('DBHOST_DBNAME', 'SQL Server version '. $dbver .' is to too old. Please upgrade to version 11.00.0000 or higher.');
 		}
 	}
 
@@ -968,9 +972,16 @@ if ($section == 'db' || php_sapi_name() == 'cli') {
 	}
 
 	/* Drop and create tables and indexes. */
+	$spin_phases = array('|', '/', '-', '\\');
+	$spin_phase  = 0;
 	if (!isset($GLOBALS['errors'])) {
 		foreach ($tbl as $t) {
 			foreach (explode(';', preg_replace('!#.*?\n!s', '', file_get_contents($t))) as $q) {
+				if (php_sapi_name() == 'cli') {
+					if($spin_phase == 4) $spin_phase = 0;
+					printf('%s%s', chr(8), $spin_phases[$spin_phase++]);
+				}
+
 				$q = trim($q);
 				if (preg_match('/^DROP TABLE IF EXISTS (.*)$/si', $q, $m)) {
 					drop_table($m[1], true);
@@ -983,6 +994,9 @@ if ($section == 'db' || php_sapi_name() == 'cli') {
 				}
 			}
 		}
+	}
+	if (php_sapi_name() == 'cli') {
+		printf('%s%s', chr(8), ' ');	// Remove spinner.
 	}
 
 	/* Import seed data. */
@@ -1093,7 +1107,7 @@ if ($section == 'theme' || php_sapi_name() == 'cli') {
 		require_once($DATA_DIR .'sql/'. $DBHOST_DBTYPE .'/db.inc');
 
 		q('DELETE FROM '. $DBHOST_TBL_PREFIX .'themes');
-		q('INSERT INTO '. $DBHOST_TBL_PREFIX .'themes(id, name, theme, lang, locale, theme_opt, pspell_lang) VALUES(1, \'default\', \''. addslashes($tmpl) .'\', \''. addslashes($lang) .'\', \''. addslashes($loc) .'\', 3, \''. addslashes($lang) .'\')');
+		q('INSERT INTO '. $DBHOST_TBL_PREFIX .'themes(name, theme, lang, locale, theme_opt, pspell_lang) VALUES(\'default\', \''. addslashes($tmpl) .'\', \''. addslashes($lang) .'\', \''. addslashes($loc) .'\', 3, \''. addslashes($lang) .'\')');
 
 		$display_section = 'admin';
 	}
@@ -1146,7 +1160,9 @@ if ($section == 'admin' || php_sapi_name() == 'cli') {
 		q('DELETE FROM '. $DBHOST_TBL_PREFIX .'users');
 		$anon_id = db_li('INSERT INTO '. $DBHOST_TBL_PREFIX .'users (login, alias, theme, email, passwd, name, users_opt, join_date, time_zone) VALUES(\'Anonymous Coward\', \'Anonymous Coward\', 1, \'dev@null\', \'1\', \'Anonymous Coward\', '. (1|4|16|32|128|256|512|2048|4096|8192|16384|262144|4194304) .', '. time() .', \''. $SERVER_TZ .'\')', $ef, 1);
 		if ($anon_id != 1) {
-			die('FATAL ERROR: anonymous user\'s ID must be 1!');
+			echo 'WARNING: Anonymous user\'s ID is not 1! Trying to fix it...';
+			q('UPDATE '. $DBHOST_TBL_PREFIX .'users SET id = 1');
+			echo 'Done, we\re OK again.';
 		}
 
 		/* Add admin user. */
@@ -1161,9 +1177,13 @@ if ($section == 'admin' || php_sapi_name() == 'cli') {
 
 		/* Build theme. */
 		require($INCLUDE .'compiler.inc');
-		$lang = strtok($_POST['LANGUAGE'], '::');
-		$templ = $_POST['TEMPLATE'];
-		compile_all($templ, $lang);
+		try {
+			$lang  = strtok($_POST['LANGUAGE'], '::');
+			$templ = $_POST['TEMPLATE'];
+			compile_all($templ, $lang);
+		} catch (Exception $e) {
+			die('Unable to compile theme '. $templ .' ('. $lang .'): '.  $e->getMessage());
+		}
 
 		/* Remove the install_safe for safe_mode users, because they will not be able to remove it themselves. */
 		if (SAFE_MODE) {
@@ -1179,6 +1199,10 @@ if ($section == 'admin' || php_sapi_name() == 'cli') {
 
 /* End of command line installation. */
 if (php_sapi_name() == 'cli') {
+	/* Additional command line settings that's not in GUI. */
+	require_once($INCLUDE .'glob.inc');	// Load glob.inc for change_global_settings().
+	change_global_settings(array('PHP_CLI' => $_POST['PHP_CLI']));
+
 	echo "\nCongratulations! Your FUDforum installation is now complete.\n";
 	echo 'You may access your new forum at: '. $WWW_ROOT ."index.php\n\n";
 	exit;
@@ -1197,7 +1221,7 @@ if (isset($display_section)) {
 switch ($section) {
 	case 'welcome':
 		/* Display some system information on the 1st page of the installer. */
-		dialog_start('WELCOME TO FUDFORUM!', '<p>Thanks for choosing FUDforum, one of the world\'s fastest, most secure, and most feature rich PHP based discussion forums.</p><p>This wizard will guide you through installing your forum. For more information, we encourage you to read the <a href="http://cvs.prohost.org/index.php/Installation">installation guide</a>. Please review your system information below and click on <b>Start installer</b> if you system meets the minimum requirements. If you encounter any problems, please report them on the <a href="http://fudforum.org/forum">support website</a>.</p><p><i>This program is free software; you can redistribute it and/or modify it under the terms of the <a href="http://www.gnu.org/licenses/gpl-2.0.html">GNU General Public License version 2</a> as published by the Free Software Foundation. This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.</i></p>');
+		dialog_start('WELCOME TO FUDFORUM!', '<p>Thanks for choosing FUDforum, one of the fastest, most secure, and most feature rich PHP based discussion forums.</p><p>This wizard will guide you through installing your forum. For more information, we encourage you to read the <a href="http://cvs.prohost.org/index.php/Installation">installation guide</a>. Please review your system information below and click on <b>Start installer</b> if you system meets the minimum requirements. If you encounter any problems, please report them on the <a href="http://fudforum.org/forum">support website</a>.</p><p><i>This program is free software; you can redistribute it and/or modify it under the terms of the <a href="http://www.gnu.org/licenses/gpl-2.0.html">GNU General Public License version 2</a> as published by the Free Software Foundation. This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.</i></p>');
 		dialog_end($section);
 
 		dialog_start('System information:', '');
@@ -1230,12 +1254,16 @@ switch ($section) {
 			($module_status['pdo_mysql'] ? 'enabled' : 'disabled'), ($module_status['pdo_mysql'] ? 'green' : 'orange'));
 	prereq_row('Oracle OCI8 Extension:', 'Interface to Oracle database server (oci8).', 
 			($module_status['oci8'] ? 'enabled' : 'disabled'), ($module_status['oci8'] ? 'green' : 'orange'));
+	prereq_row('IBM DB2 Extension:', 'Interface to IBM DB2 database server (ibm_db2).', 
+			($module_status['ibm_db2'] ? 'enabled' : 'disabled'), ($module_status['ibm_db2'] ? 'green' : 'orange'));
 	prereq_row('PostgreSQL Extension:', 'Interface to the PostgreSQL server.', 
 			($module_status['pgsql'] ? 'enabled' : 'disabled'), ($module_status['pgsql'] ? 'green' : 'orange'));
 	prereq_row('PostgreSQL PDO Extension:', 'PDO interface to the PostgreSQL server (pdo_pgsql).', 
 			($module_status['pdo_pgsql'] ? 'enabled' : 'disabled'), ($module_status['pdo_pgsql'] ? 'green' : 'orange'));
 	prereq_row('SQLite PDO Extension:', 'PDO interface to the SQLite server (pdo_sqlite).', 
 			($module_status['pdo_sqlite'] ? 'enabled' : 'disabled'), ($module_status['pdo_sqlite'] ? 'green' : 'orange'));
+	prereq_row('SQL Server Extention:', 'Interface to Microsoft SQL Server (sqlsrv).', 
+			($module_status['sqlsrv'] ? 'enabled' : 'disabled'), ($module_status['sqlsrv'] ? 'green' : 'orange'));			
 	dialog_end('prereq');
 	break;
 
@@ -1342,7 +1370,11 @@ switch ($section) {
 				$("select").change(function() {
 					$("#DBHOST,#DBHOST_USER,#DBHOST_PASSWORD,#DBHOST_DBNAME").show();
 					var db = $("option:selected", this).val();
-					if (db == "mysql" || db == "mysqli" || db == "pdo_mysql") {
+					if (db == "ibm_db2") {
+						$("#DBHOST").val("127.0.0.1");
+						$("#DBHOST_USER").val("db2inst1");
+						$("#DBHOST_DBNAME").val("SAMPLE");
+					} else if (db == "mysql" || db == "mysqli" || db == "pdo_mysql") {
 						$("#DBHOST").val("127.0.0.1");
 						$("#DBHOST_USER").val("root");
 					} else if (db == "pgsql" || db == "pdo_pgsql") {
@@ -1354,6 +1386,8 @@ switch ($section) {
 						$("#DBHOST_DBNAME").val("XE");
 					} else if (db == "pdo_sqlite") {
 						$("#DBHOST,#DBHOST_USER,#DBHOST_PASSWORD,#DBHOST_DBNAME").hide().val("");
+					} else if (db == "sqlsrv") {
+						$("#DBHOST_USER").val("se");
 					}
 				});
 			});
@@ -1380,6 +1414,9 @@ switch ($section) {
 		// List available template sets.
 		$tmpl_names = '';
 		foreach (glob($_POST['SERVER_DATA_ROOT'] .'thm/*', GLOB_ONLYDIR) as $f) {
+			if (file_exists($f .'/.path_info')) {
+				continue;		// Skip path_info themes.
+			}
 			$tmpl_names .= basename($f) ."\n";
 		}
 		sel_row('Template set', 'TEMPLATE', rtrim($tmpl_names), rtrim($tmpl_names), 'The template set (style and layout) for your forum.', 'default');

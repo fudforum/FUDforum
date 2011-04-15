@@ -12,8 +12,8 @@
 /* Uncomment and fix the lines below if you wish to import data without authentication.
  * This is useful if the previous import failed resulting in the loss of old SQL data.
 **/
-// define('recovery_mode', 1);
-// $_POST['path'] = '/path/to/your/forum/dump';
+# define('recovery_mode', 1);
+# $_POST['path'] = '/path/to/your/forum/dump';
 
 function resolve_dest_path($path)
 {
@@ -223,7 +223,7 @@ function resolve_dest_path($path)
 				create_index($m[3], $m[2], (strtoupper($m[1]) == 'UNIQUE') ? true : false, $m[4], false);
 			}
 
-			/* Manually reset database sequences for databases like Oracle & PgSQL. */
+			/* Manually reset database sequences for databases like DB2, Oracle & PgSQL. */
 			reset_fud_sequences();
 
 			/* Handle importing of GLOBAL options. */
