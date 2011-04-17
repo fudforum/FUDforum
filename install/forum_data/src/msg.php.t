@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -210,17 +210,3 @@
 /*{POST_PAGE_PHP_CODE}*/
 ?>
 {TEMPLATE: MSG_PAGE}
-<?php
-	while (ob_get_level() > 0) ob_end_flush();
-	if (!isset($_GET['prevloaded'])) {
-		th_inc_view_count($frm->id);
-	}
-	if (_uid && $obj2) {
-		if ($frm->last_forum_view < $obj2->post_stamp) {
-			user_register_forum_view($frm->forum_id);
-		}
-		if ($frm->last_view < $obj2->post_stamp) {
-			user_register_thread_view($frm->id, $obj2->post_stamp, $obj2->id);
-		}
-	}
-?>

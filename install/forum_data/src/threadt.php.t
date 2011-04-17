@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -133,9 +133,3 @@
 /*{POST_PAGE_PHP_CODE}*/
 ?>
 {TEMPLATE: THREAD_PAGE}
-<?php
-	if (_uid) {
-		while (ob_get_level() > 0) ob_end_flush();
-		user_register_forum_view($frm->id);
-	}
-?>

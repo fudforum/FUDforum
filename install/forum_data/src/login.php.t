@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -136,8 +136,8 @@ function error_check()
 
 	/* Deal with quicklogin from if needed. */
 	if (isset($_POST['quick_login']) && isset($_POST['quick_password'])) {
-		$_POST['login'] = $_POST['quick_login'];
-		$_POST['password'] = $_POST['quick_password'];
+		$_POST['login']      = $_POST['quick_login'];
+		$_POST['password']   = $_POST['quick_password'];
 		$_POST['use_cookie'] = isset($_POST['quick_use_cookies']);
 	}
 
@@ -244,8 +244,3 @@ function error_check()
 /*{POST_PAGE_PHP_CODE}*/
 ?>
 {TEMPLATE: LOGIN_PAGE}
-<?php
-	while (ob_get_level() > 0) ob_end_flush();
-	/* Clear expired sessions AND anonymous sessions older than 1 day. */
-	q('DELETE FROM {SQL_TABLE_PREFIX}ses WHERE time_sec<'. (__request_timestamp__- ($FUD_OPT_3 & 1 ? $SESSION_TIMEOUT : $COOKIE_TIMEOUT)) .' OR (user_id>2000000000 AND time_sec<'. (__request_timestamp__- 86400) .')');
-?>

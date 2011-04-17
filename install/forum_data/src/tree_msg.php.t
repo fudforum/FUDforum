@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -54,9 +54,9 @@ WHERE
 
 	$n = 0;
 	$pn = array(
-		q_singleval('SELECT m.id FROM {SQL_TABLE_PREFIX}thread t INNER JOIN {SQL_TABLE_PREFIX}msg m ON m.thread_id=t.id WHERE t.id='. $msg_obj->thread_id .' AND m.apr=1 AND m.post_stamp < '. $msg_obj->post_stamp .' ORDER BY m.post_stamp DESC LIMIT 1')
+		q_singleval(q_limit('SELECT m.id FROM {SQL_TABLE_PREFIX}thread t INNER JOIN {SQL_TABLE_PREFIX}msg m ON m.thread_id=t.id WHERE t.id='. $msg_obj->thread_id .' AND m.apr=1 AND m.post_stamp < '. $msg_obj->post_stamp .' ORDER BY m.post_stamp DESC', 1))
 		,
-		q_singleval('SELECT m.id FROM {SQL_TABLE_PREFIX}thread t INNER JOIN {SQL_TABLE_PREFIX}msg m ON m.thread_id=t.id WHERE t.id='. $msg_obj->thread_id .' AND m.apr=1 AND m.post_stamp > '. $msg_obj->post_stamp .' ORDER BY m.post_stamp ASC LIMIT 1') 
+		q_singleval(q_limit('SELECT m.id FROM {SQL_TABLE_PREFIX}thread t INNER JOIN {SQL_TABLE_PREFIX}msg m ON m.thread_id=t.id WHERE t.id='. $msg_obj->thread_id .' AND m.apr=1 AND m.post_stamp > '. $msg_obj->post_stamp .' ORDER BY m.post_stamp ASC', 1)) 
 	);
 	$usr->md = $msg_obj->md;
 
@@ -66,15 +66,3 @@ WHERE
 /*{POST_PAGE_PHP_CODE}*/
 ?>
 {TEMPLATE: TREE_MSG_PAGE}
-<?php
-	while (ob_get_level() > 0) ob_end_flush();
-	th_inc_view_count($msg_obj->thread_id);
-	if (_uid && $msg_obj) {
-		if ($msg_obj->last_forum_view < $msg_obj->post_stamp) {
-			user_register_forum_view($msg_obj->forum_id);
-		}
-		if ($msg_obj->last_view < $msg_obj->post_stamp) {
-			user_register_thread_view($msg_obj->thread_id, $msg_obj->post_stamp, $msg_obj->id);
-		}
-	}
-?>
