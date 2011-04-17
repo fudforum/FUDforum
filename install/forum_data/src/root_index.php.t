@@ -58,14 +58,14 @@
 		$t = 'index';
 	}
 
-	/* Call theme. */
+	/* Call themed template. */
 	if (defined('plugins')) {
-		$t = plugin_call_hook('PRE_THEME', $t);
+		$t = plugin_call_hook('PRE_TEMPLATE', $t);
 	}
 	require($WWW_ROOT_DISK . fud_theme .'language.inc');	// Initialize theme's language helper functions.
 	require($WWW_ROOT_DISK . fud_theme . $t .'.php');
 	if (defined('plugins')) {
-		plugin_call_hook('POST_THEME');
+		plugin_call_hook('POST_TEMPLATE');
 	}
 
 	/* Housekeeping. */
