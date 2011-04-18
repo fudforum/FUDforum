@@ -61,11 +61,16 @@
 	/* Call themed template. */
 	if (defined('plugins')) {
 		$t = plugin_call_hook('PRE_TEMPLATE', $t);
+		if (isset($plugin_hooks['POST_TEMPLATE'])) {
+			ob_start();	// Start capturing output for POST_TEMPLATE plugins.
+		}
 	}
 	require($WWW_ROOT_DISK . fud_theme .'language.inc');	// Initialize theme's language helper functions.
 	require($WWW_ROOT_DISK . fud_theme . $t .'.php');
-	if (defined('plugins')) {
-		plugin_call_hook('POST_TEMPLATE');
+	if (defined('plugins') && isset($plugin_hooks['POST_TEMPLATE'])) {
+		$template_data = ob_get_contents();
+		ob_end_clean();
+		echo plugin_call_hook('POST_TEMPLATE', $template_data);
 	}
 
 	/* Housekeeping. */
