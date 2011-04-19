@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -733,7 +733,7 @@ function poll_cache_rebuild($poll_id)
 	}
 
 	$data = array();
-	$c = uq('SELECT id, name, count FROM {SQL_TABLE_PREFIX}poll_opt WHERE poll_id='. $poll_id);
+	$c = uq('SELECT id, name, votes FROM {SQL_TABLE_PREFIX}poll_opt WHERE poll_id='. $poll_id);
 	while ($r = db_rowarr($c)) {
 		$data[$r[0]] = array($r[1], $r[2]);
 	}

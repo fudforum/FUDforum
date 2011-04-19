@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -18,7 +18,7 @@ function register_vote(&$options, $poll_id, $opt_id, $mid)
 	}
 
 	if (db_li('INSERT INTO {SQL_TABLE_PREFIX}poll_opt_track(poll_id, user_id, ip_addr, poll_opt) VALUES('. $poll_id .', '. _uid .', '. (!_uid ? ip2long(get_ip()) : 'null') .', '. $opt_id .')', $a)) {
-		q('UPDATE {SQL_TABLE_PREFIX}poll_opt SET count=count+1 WHERE id='. $opt_id);
+		q('UPDATE {SQL_TABLE_PREFIX}poll_opt SET votes=votes+1 WHERE id='. $opt_id);
 		q('UPDATE {SQL_TABLE_PREFIX}poll SET total_votes=total_votes+1 WHERE id='. $poll_id);
 		$options[$opt_id][1] += 1;
 		q('UPDATE {SQL_TABLE_PREFIX}msg SET poll_cache='. _esc(serialize($options)) .' WHERE id='. $mid);

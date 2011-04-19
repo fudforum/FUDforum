@@ -1,4 +1,4 @@
-#   copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+#   copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 #   email                : forum@prohost.org
 #
 #   $Id$
@@ -11,10 +11,10 @@ DROP TABLE IF EXISTS {SQL_TABLE_PREFIX}poll_opt;
 
 CREATE TABLE {SQL_TABLE_PREFIX}poll_opt
 (
-	id		INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	poll_id		INT NOT NULL DEFAULT 0,
-	name		VARCHAR(255) NOT NULL DEFAULT '',
-	count		INT NOT NULL DEFAULT 0
+	id	INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	poll_id	INT NOT NULL DEFAULT 0,
+	name	VARCHAR(255) NOT NULL DEFAULT '',
+	votes	INT NOT NULL DEFAULT 0
 );
 
 CREATE INDEX {SQL_TABLE_PREFIX}poll_opt_i_p ON {SQL_TABLE_PREFIX}poll_opt (poll_id);

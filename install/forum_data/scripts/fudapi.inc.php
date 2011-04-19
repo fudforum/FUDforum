@@ -5,7 +5,7 @@
  */
 // require_once('/path/to/GLOBALS.php');
 
-/* 
+/*
 General Information
 --------------------------------------------
  * Most function accept 'id' arguments that allows you to specify
@@ -25,7 +25,7 @@ General Information
  * in the proto by being inside [], all other arguments must be 
  * considered as required.
 
- * If you intend to use FUD API from a non-webserver environment,
+ * If you intend to use FUDAPI from a non-webserver environment,
  * make sure that GLOBALS.php, db.inc & err.inc are world readable.
  * The GLOBALS.php can be found inside the forum's DATA_DIR/include/
  * directory and the inc files can be found inside
@@ -290,7 +290,7 @@ function fud_fetch_poll($arg)
 			WHERE p.id IN('. implode(',', $arg) .')');
 	while ($row = db_rowobj($r)) {
 		$opts = array();
-		$r2 = uq('SELECT name, count FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'poll_opt WHERE poll_id='. $row->id .' ORDER BY id');
+		$r2 = uq('SELECT name, votes FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'poll_opt WHERE poll_id='. $row->id .' ORDER BY id');
 		while ($row2 = db_rowobj($r2)) {
 			$opts[] = $row2;
 		}
@@ -523,7 +523,7 @@ function fud_fetch_random_user()
  */
 function fud_fetch_top_poster()
 {
-	return _fud_simple_fetch_query(0, 'SELECT * FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'users ORDER BY posted_msg_count DESC LIMIT 1');
+	return _fud_simple_fetch_query(0, q_limit('SELECT * FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'users ORDER BY posted_msg_count DESC', 1));
 }
 
 /* {{{ proto: user_id fud_add_user($vals, &$err) }}}
@@ -590,14 +590,14 @@ function fud_add_user($vals, &$err)
 	// Some fields must be unique, check them.
 	foreach (array('login', 'email', 'alias') as $v) {
 		if (q_singleval('SELECT id FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'users WHERE '. $v .'='. _esc($vals[$v]))) {
-			$err = 'value for '. $v .' must be unique, specified value of '. $vals[$v] '. already exists.';
+			$err = 'value for '. $v .' must be unique, specified value of '. $vals[$v] .' already exists.';
 			return 0;
 		}
 	}
 
 	$o2 =& $GLOBALS['FUD_OPT_2'];
 	$users_opt = 4|16|32|128|256|512|2048|4096|8192|16384|131072|4194304;
-	$theme = q_singleval('SELECT id FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'themes WHERE theme_opt>=2 AND '. q_bitand('theme_opt', 2) .' > 0 LIMIT 1');
+	$theme = q_singleval(q_limit('SELECT id FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'themes WHERE theme_opt>=2 AND '. q_bitand('theme_opt', 2) .' > 0', 1));
 	$time_zone =& $GLOBALS['SERVER_TZ'];
 	$posts_ppg =& $GLOBALS['POSTS_PER_PAGE'];
 	if (!($o2 & 4)) {
@@ -1036,7 +1036,7 @@ function _fud_message_post($subject, $body, $mode, $author, $icon, $id, $forum, 
 		$GLOBALS['FUD_OPT_1'] ^= 268435456;
 	}
 
-	$GLOBALS['good_locale'] = setlocale(LC_ALL, q_singleval('SELECT locale FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'themes WHERE theme_opt='. (1|2) .' LIMIT 1'));
+	$GLOBALS['good_locale'] = setlocale(LC_ALL, q_singleval(q_limit('SELECT locale FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'themes WHERE theme_opt='. (1|2), 1)));
 	list($forum_opt, $message_threshold) = db_saq('SELECT forum_opt, message_threshold FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'forum WHERE id='. $forum);
 	if ($rep_id) {
 		$th_id = q_singleval('SELECT thread_id FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'msg WHERE id='. $rep_id);
