@@ -24,7 +24,7 @@ function fud_ini_set($opt, $val)
 function modules_enabled()
 {
 	$status = array();
-	foreach (array('ibm_db2', 'mysql', 'oci8', 'pdo_mysql', 'pdo_pgsql', 'pdo_sqlite', 'pgsql', 'sqlsrv',
+	foreach (array('ibm_db2', 'interbase', 'mysql', 'oci8', 'pdo_mysql', 'pdo_pgsql', 'pdo_sqlite', 'pgsql', 'sqlsrv',
 		           'mbstring', 'pcre', 'pspell', 'posix', 'zlib') as $m) {
 		$status[$m] = extension_loaded($m);
 	}
@@ -38,7 +38,7 @@ function modules_enabled()
 function databases_enabled() 
 {
 	$module_status = modules_enabled();
-	$supported_databases = array('ibm_db2'=>'IBM DB2', 'mysql'=>'MySQL', 'mysqli'=>'MySQL Improved', 'oci8'=>'Oracle', 'pgsql'=>'PostgreSQL', 'sqlsrv' => 'SQL Server (Microsoft)', 'pdo_mysql'=>'PDO: MySQL', 'pdo_pgsql'=>'PDO: PostgreSQL', 'pdo_sqlite'=>'PDO: SQLite');
+	$supported_databases = array('ibm_db2'=>'IBM DB2', 'interbase'=>'Firebird', 'mysql'=>'MySQL', 'mysqli'=>'MySQL Improved', 'oci8'=>'Oracle', 'pgsql'=>'PostgreSQL', 'sqlsrv' => 'SQL Server (Microsoft)', 'pdo_mysql'=>'PDO: MySQL', 'pdo_pgsql'=>'PDO: PostgreSQL', 'pdo_sqlite'=>'PDO: SQLite');
 
 	foreach ($supported_databases as $driver => $name) {
 		if (!$module_status[$driver]) {
@@ -529,13 +529,14 @@ being security and performance.');
 
 	/* Database check. */
 	if (!$module_status['ibm_db2'] &&
+		!$module_status['interbase'] &&
 		!$module_status['mysql'] && !$module_status['mysqli'] && !$module_status['pdo_mysql'] &&
 		!$module_status['oci8'] &&
 		!$module_status['pgsql'] && !$module_status['pdo_pgsql'] &&
 		!$module_status['pdo_sqlite'] &&
 		!$module_status['sqlsrv'])
 	{
-		seterr('NODB', 'FUDforum can utilize either a IBM DB2, MySQL, Oracle, PosgreSQL, SQLite or MS-SQL Server database to store it\'s data, unfortunately, your PHP installation does not have support for any of these databases. Please install or load the appropriate database extension and then re-run the install script.');
+		seterr('NODB', 'FUDforum can utilize either a IBM DB2, Firebird, MySQL, Oracle, PosgreSQL, SQLite or MS-SQL Server database to store it\'s data, unfortunately, your PHP installation does not have support for any of these databases. Please install or load the appropriate database extension and then re-run the install script.');
 	}
 
 	/* PCRE check. */
@@ -1252,6 +1253,8 @@ switch ($section) {
 			($module_status['mysql'] ? 'enabled' : 'disabled'), ($module_status['mysql'] ? 'green' : 'orange'));
 	prereq_row('MySQL PDO Extension:', 'PDO interface to the MySQL server (pdo_mysql).', 
 			($module_status['pdo_mysql'] ? 'enabled' : 'disabled'), ($module_status['pdo_mysql'] ? 'green' : 'orange'));
+	prereq_row('Firebird Extension:', 'Interface to Firebird/Interbase database (ibase).', 
+			($module_status['interbase'] ? 'enabled' : 'disabled'), ($module_status['interbase'] ? 'green' : 'orange'));
 	prereq_row('Oracle OCI8 Extension:', 'Interface to Oracle database server (oci8).', 
 			($module_status['oci8'] ? 'enabled' : 'disabled'), ($module_status['oci8'] ? 'green' : 'orange'));
 	prereq_row('IBM DB2 Extension:', 'Interface to IBM DB2 database server (ibm_db2).', 
@@ -1374,6 +1377,9 @@ switch ($section) {
 						$("#DBHOST").val("127.0.0.1");
 						$("#DBHOST_USER").val("db2inst1");
 						$("#DBHOST_DBNAME").val("SAMPLE");
+					} else if (db == "interbase") {
+						$("#DBHOST").val("127.0.0.1");
+						$("#DBHOST_USER").val("SYSDBA");
 					} else if (db == "mysql" || db == "mysqli" || db == "pdo_mysql") {
 						$("#DBHOST").val("127.0.0.1");
 						$("#DBHOST_USER").val("root");

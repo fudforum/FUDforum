@@ -15,7 +15,7 @@ function get_stbl_from_file($file)
 	$data = str_replace('{SQL_TABLE_PREFIX}', $GLOBALS['DBHOST_TBL_PREFIX'], file_get_contents($file));
 	$tbl = array('name'=>'', 'index'=>array(), 'flds'=>array());
 
-	/* Fetch table name. */
+	/* Extract table name. */
 	if (!preg_match('!CREATE TABLE '. $GLOBALS['DBHOST_TBL_PREFIX'] .'([a-z_]+)!', $data, $m)) {
 		return;
 	}
@@ -94,9 +94,9 @@ function get_fud_table_list($tbl=null)
 		return db_all('SELECT lower(tabname) FROM syscat.tables WHERE tabname LIKE \''. strtoupper($GLOBALS['DBHOST_TBL_PREFIX'] .'%\''));
 	} else if (__dbtype__ == 'firebird') {
 		if ($tbl) {
-			return db_all('SELECT rdb$relation_name FROM rdb$relations WHERE rdb$view_blr is null AND(rdb$system_flag is null or rdb$system_flag = 0) AND rdb$relation_name LIKE \''. $tbl .'\'');
+			return db_all('SELECT lower(trim(rdb$relation_name)) FROM rdb$relations WHERE rdb$relation_name LIKE \''. strtoupper($tbl) .'%\'');
 		}
-		return db_all('SELECT rdb$relation_name FROM rdb$relations WHERE rdb$view_blr is null AND(rdb$system_flag is null or rdb$system_flag = 0) AND rdb$relation_name LIKE \''. $GLOBALS['DBHOST_TBL_PREFIX'] .'%\'');
+		return db_all('SELECT lower(trim(rdb$relation_name)) FROM rdb$relations WHERE rdb$relation_name LIKE \''. strtoupper($GLOBALS['DBHOST_TBL_PREFIX']) .'%\'');
 	} else if (__dbtype__ == 'mssql') {
 		if ($tbl) {
 			return db_all('SELECT table_name FROM information_schema.tables WHERE table_name LIKE \''. $tbl .'\'');
@@ -155,9 +155,44 @@ function get_fud_col_list($table)
 			$auto = $r[6] == 'Y' ? 1 : 0;
 			$ret[$colname] = array('type'=>$type, 'not_null'=>$not_null, 'primary'=>$key, 'default'=>$default, 'auto'=>$auto);
 		}
+	} else if (__dbtype__ == 'firebird') {
+		$c = q('SELECT r.rdb$field_name,
+					CASE f.rdb$field_type
+						WHEN   8 THEN \'INT\'
+						WHEN  14 THEN \'CHAR\'
+						WHEN  16 THEN \'BIGINT\'
+						WHEN  37 THEN \'VARCHAR\'
+						WHEN 261 THEN \'TEXT\'
+						ELSE \'UNKNOWN\'
+					END AS field_type,
+					r.rdb$null_flag,
+					r.rdb$default_source,
+					f.rdb$field_length
+				FROM rdb$relation_fields r
+				LEFT JOIN rdb$fields f ON r.rdb$field_source = f.rdb$field_name
+				LEFT JOIN rdb$indices i ON i.rdb$relation_name = r.rdb$relation_name
+				LEFT JOIN rdb$relation_constraints c ON c.rdb$index_name = i.rdb$index_name
+				WHERE r.rdb$relation_name=UPPER(\''. $table .'\')
+				ORDER BY r.rdb$field_position');
+		while ($r = db_rowarr($c)) {
+			$colname = strtolower($r[0]);
+			$type = trim($r[1]);	// Get rid of spaces.
+			$type = ($type=='CHAR' || $type=='VARCHAR') ? $type .'('. $r[4] .')' : $type;	// Append type length.
+			$not_null = $r[2] == '1' ? 1 : 0;
+			$key = (int)q_singleval('SELECT 1 FROM rdb$relation_constraints c, rdb$index_segments i WHERE i.rdb$index_name = c.rdb$index_name AND c.rdb$relation_name = UPPER(\''. $table .'\') AND i.rdb$field_name = \''. $r[0] .'\' AND c.rdb$constraint_type = \'PRIMARY KEY\'');
+			$default = trim(str_replace(array("'", 'DEFAULT '), '', $r[3]));
+
+			// Check if PK is AUTO GENERATED (i.e. has a sequence).
+			$auto = 0;
+			if ($type == 'INT' && $key) {
+				// The extra % at the end is not a bug. There is a space at teh end of the col.
+				$auto = (int)q_singleval('SELECT 1 FROM rdb$generators WHERE rdb$generator_name LIKE UPPER(\''. $table .'%_SEQ%\')');
+			}
+
+			$ret[$colname] = array('type'=>$type, 'not_null'=>$not_null, 'primary'=>$key, 'default'=>$default, 'auto'=>$auto);
+		}
 	} else if (__dbtype__ == 'mssql') {
-		// @TODO: Implement for MS-SQL.
-		die("TODO: not yet implemented!!!<br>");
+		die('@TODO: get_fud_col_list not implemented for MS-SQL!');
 		$c = q('SELECT column_name, data_type, is_nullable, column_default FROM INFORMATION_SCHEMA.columns WHERE table_name LIKE \''. $table .'\' ORDER BY ordinal_position');
 		while ($r = db_rowarr($c)) {
 			$colname = $r[0];
@@ -295,20 +330,20 @@ function optimize_fud_tables($tbl_list=null)
 {
 	if (__dbtype__ == 'sqlite') {	// DB level.
 		uq('VACUUM');
-	} else if (__dbtype__ == 'firebird') {	// Not implemented.
-		die('Not yet implemented');
 	}
 
 	if (!$tbl_list) {
 		$tbl_list = get_fud_table_list();
 	}
 
-	foreach ($tbl_list as $t)
+	foreach ($tbl_list as $t) {
 		if (__dbtype__ == 'db2') {
 			uq('CALL SYSPROC.ADMIN_CMD(\'RUNSTATS ON TABLE '. $GLOBALS['DBHOST_USER'] .'.'. $t .' ON KEY COLUMNS and INDEXES ALL\');');
+		} else if (__dbtype__ == 'firebird') {
+			return;	// Automated garbage collection, no intervention required.
 		} else if (__dbtype__ == 'mssql') {
 			uq('UPDATE STATISTICS '. $t);
-		if (__dbtype__ == 'mysql') {
+		} else if (__dbtype__ == 'mysql') {
 			uq('OPTIMIZE TABLE '. $t);
 		} else if (__dbtype__ == 'oracle') {
 			uq('ANALYZE TABLE '. $t .' COMPUTE STATISTICS;');
@@ -325,6 +360,8 @@ function get_sql_disk_usage()
 {
 	if (__dbtype__ == 'db2') {
 		return q_singleval('SELECT SUM(t.npages*ts.pagesize) AS size FROM SYSCAT.TABLES t, SYSCAT.TABLESPACES ts WHERE t.tbspace = ts.tbspace AND T.tabname LIKE UPPER(\''. $GLOBALS['DBHOST_TBL_PREFIX'] .'%\')');
+	} else if (__dbtype__ == 'firebird') {
+		return filesize($GLOBALS['DBHOST_DBNAME']);
 	} else if (__dbtype__ == 'mssql') {
 		return q_singleval('SELECT SUM(a.used_pages)*8 FROM sys.objects o JOIN sys.partitions p ON p.object_id = o.object_id JOIN sys.allocation_units a ON p.partition_id = a.container_id WHERE o.type = \'U\' AND o.name LIKE \''. $GLOBALS['DBHOST_TBL_PREFIX'] .'%\'');
 	} else if (__dbtype__ == 'mysql') {
@@ -366,14 +403,21 @@ See http://dba.fyicenter.com/faq/sql_server_2/PHP_MSSQL_Making_Columns_to_Take_N
 			$q .= ' DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci';
 		}		
 
-		// Queue extra statements to create Oracle sequence and trigger later.
+		// Queue extra statements to create Firebird and Oracle sequences and triggers later.
 		$extra_stmts = array();
-		if (__dbtype__ == 'oracle' && preg_match('/^\s*CREATE\s*TABLE\s*([\{\}\w]*)/i', $q, $m)) {
+		if (preg_match('/^\s*CREATE\s*TABLE\s*([\{\}\w]*)/i', $q, $m)) {
 			$tbl = $m[1];				
 			preg_match_all('/\s*(\w*)\s*INT NOT NULL AUTO_INCREMENT/i', $q, $m, PREG_PATTERN_ORDER);
-			foreach ($m[1] as $c) {
-				array_push($extra_stmts, 'CREATE SEQUENCE '. $tbl .'_'. $c .'_seq');
-				array_push($extra_stmts, 'CREATE OR REPLACE TRIGGER  '. $tbl .'_'. $c .'_trg BEFORE INSERT ON '. $tbl .' FOR EACH ROW BEGIN SELECT '. $tbl .'_'. $c .'_seq.nextval INTO :new.'. $c .' FROM dual; END;');
+			if (__dbtype__ == 'firebird') {
+				foreach ($m[1] as $c) {
+					array_push($extra_stmts, 'CREATE SEQUENCE '. $tbl .'_'. $c .'_seq');
+					array_push($extra_stmts, 'CREATE OR ALTER TRIGGER '. $tbl .'_'. $c .'_trg FOR '. $tbl .' active before insert position 0 AS BEGIN if (new.'. $c .' is null) then begin new.'. $c .' = gen_id('. $tbl .'_'. $c .'_seq, 1); end end');
+				}
+			} else if (__dbtype__ == 'oracle') {
+				foreach ($m[1] as $c) {
+					array_push($extra_stmts, 'CREATE SEQUENCE '. $tbl .'_'. $c .'_seq');
+					array_push($extra_stmts, 'CREATE OR REPLACE TRIGGER '. $tbl .'_'. $c .'_trg BEFORE INSERT ON '. $tbl .' FOR EACH ROW BEGIN SELECT '. $tbl .'_'. $c .'_seq.nextval INTO :new.'. $c .' FROM dual; END;');
+				}
 			}
 		}
 
@@ -383,6 +427,10 @@ See http://dba.fyicenter.com/faq/sql_server_2/PHP_MSSQL_Making_Columns_to_Take_N
 		if (__dbtype__ == 'db2') { 
 			array_push($src, '!TEXT!',      '!BINARY!', '!INT NOT NULL AUTO_INCREMENT!');
 			array_push($dst, 'CLOB(65535)', '',         'INTEGER GENERATED BY DEFAULT AS IDENTITY');
+		} else if (__dbtype__ == 'firebird') {
+			// 'NOT NULL' for Firebird must be specified last.
+			array_push($src, '!BINARY!', '!INT NOT NULL AUTO_INCREMENT!', '!TEXT!',             '/NOT NULL DEFAULT (.+?)([,\s$])/');
+			array_push($dst, '',          'INT',                          'BLOB SUB_TYPE TEXT', 'DEFAULT \\1 NOT NULL\\2');
 		} else if (__dbtype__ == 'mssql') {
 			array_push($src, '!BINARY!', '!INT NOT NULL AUTO_INCREMENT!');
 			array_push($dst, '',          'INT IDENTITY');
@@ -413,7 +461,7 @@ See http://dba.fyicenter.com/faq/sql_server_2/PHP_MSSQL_Making_Columns_to_Take_N
 		// echo "<pre>DEBUG: Run $q</pre>";
 		$rc = q($q);
 	}
-
+	
 	return $rc;
 }
 
@@ -422,8 +470,17 @@ function drop_table($tbl, $ifexists=false)
 {
 	$tbl = str_replace('{SQL_TABLE_PREFIX}', $GLOBALS['DBHOST_TBL_PREFIX'], $tbl);
 
-	// Drop Orace sequences.
-	if (__dbtype__ == 'oracle') {
+	// Drop Firebird and Oracle sequences.
+	if (__dbtype__ == 'firebird') {
+		q('COMMIT');	// Try to prevent "unsuccessful metadata update object... is in use".
+		$c = q('SELECT rdb$generator_name FROM rdb$generators WHERE rdb$system_flag=0 AND rdb$generator_name LIKE \''. strtoupper($tbl .'%\''));
+		while ($r = db_rowarr($c)) {
+			// echo 'DEBUG: Drop firebird seq '. $r[0] .'<hr>';
+			$trg_name = str_replace('_SEQ', '_TRG', $r[0]);
+			q('DROP TRIGGER '. $trg_name);
+			q('DROP SEQUENCE '. $r[0]);
+		}
+	} else if (__dbtype__ == 'oracle') {
 		$c = q('SELECT sequence_name FROM user_sequences WHERE sequence_name LIKE \''. strtoupper($tbl .'%\''));
 		while ($r = db_rowarr($c)) {
 			// echo 'DEBUG: Drop oracle seq '. $r[0] .'<hr>';
@@ -432,12 +489,16 @@ function drop_table($tbl, $ifexists=false)
 	}
 
 	if ($ifexists) {
-		if (__dbtype__ == 'mssql') {
+		if (__dbtype__ == 'db2') {
+			q('BEGIN IF EXISTS (SELECT name FROM sysibm.systables WHERE name = \''. strtoupper($tbl) .'\') THEN EXECUTE IMMEDIATE \'DROP TABLE '. $tbl .'\'; END IF; END');
+		} else if (__dbtype__ == 'firebird') {
+			if (q_singleval('SELECT rdb$relation_name FROM rdb$relations WHERE rdb$relation_name = \''. strtoupper($tbl) .'\'')) {
+				drop_table($tbl);
+			}
+		} else if (__dbtype__ == 'mssql') {
 			q('IF EXISTS(SELECT table_name FROM information_schema.tables WHERE table_name = \''. $tbl .'\') DROP TABLE '. $tbl);
 		} else if (__dbtype__ == 'oracle') {
 			q('BEGIN execute immediate \'DROP TABLE '. $tbl .'\'; EXCEPTION when others then null; END;');
-		} else if (__dbtype__ == 'db2') {
-			q('BEGIN IF EXISTS (SELECT name FROM sysibm.systables WHERE name = \''. strtoupper($tbl) .'\') THEN EXECUTE IMMEDIATE \'DROP TABLE '. $tbl .'\'; END IF; END');
 		} else {
 			q('DROP TABLE IF EXISTS '. $tbl);
 		}
@@ -464,8 +525,8 @@ function delete_duplicate_rows($tbl, $flds)
 	$n = count($f);
 
 	// Databases with an internal row identifier.
-	if (__dbtype__ == 'pgsql' || __dbtype__ == 'sqlite' || __dbtype__ == 'oracle') {
-		$idcol = (__dbtype__ == 'pgsql') ? 'oid' : 'rowid';
+	if (__dbtype__ == 'firebird' || __dbtype__ == 'pgsql' || __dbtype__ == 'sqlite' || __dbtype__ == 'oracle') {
+		$idcol = (__dbtype__ == 'firebird') ? 'rdb$db_key' : ((__dbtype__ == 'pgsql') ? 'oid' : 'rowid');
 		$where = '';
 		foreach ($f as $v) {
 			$cond   = 'i.'. $v .' = '. $tbl .'.'. $v;
@@ -553,20 +614,34 @@ function get_fud_index_list($table)
 				AND user_defined = 1');
 		while ($r = db_rowobj($c)) {
 			$tbl[$r->index_name] = array('unique' => $r->uniq, 'cols' => array());
-		
 			$c2 = q('SELECT LOWER(colname) as column_name FROM syscat.indexcoluse WHERE indname = UPPER(\''. $r->index_name .'\') ORDER BY colorder');
 			while ($r2 = db_rowobj($c2)) {
 				$tbl[$r->index_name]['cols'][] = $r2->column_name;
 			}
 		}
 		unset($c);
-
+		foreach ($tbl as $k => $v) {
+			$tbl[$k]['cols'] = implode(',', $v['cols']);
+		}
+	} else if (__dbtype__ == 'firebird') {
+		$c = q('SELECT LOWER(rdb$index_name) AS index_name, COALESCE(rdb$unique_flag,0) AS uniq 
+				FROM rdb$indices
+				WHERE rdb$relation_name = UPPER(\''. $table .'\')
+				AND   rdb$index_name    LIKE UPPER(\''. $table .'%\')
+				AND   rdb$system_flag = 0');
+		while ($r = db_rowobj($c)) {
+			$tbl[$r->index_name] = array('unique' => $r->uniq, 'cols' => array());
+			$c2 = q('SELECT LOWER(rdb$field_name) as column_name FROM rdb$index_segments WHERE rdb$index_name = UPPER(\''. $r->index_name .'\') ORDER BY rdb$field_position');
+			while ($r2 = db_rowobj($c2)) {
+				$tbl[$r->index_name]['cols'][] = $r2->column_name;
+			}
+		}
+		unset($c);
 		foreach ($tbl as $k => $v) {
 			$tbl[$k]['cols'] = implode(',', $v['cols']);
 		}
 	} else if (__dbtype__ == 'mssql') {
-		// @TODO: Implement for MS-SQL.
-		die("TODO: not yet implemented!!!<br>");
+		die('@TODO: not yet implemented for MS-SQL!');
 	} else if (__dbtype__ == 'mysql') {
 		$c = q('SHOW INDEX FROM '. $table);
 		while ($r = db_rowobj($c)) {
@@ -580,7 +655,6 @@ function get_fud_index_list($table)
 			}
 		}
 		unset($c);
-
 		foreach ($tbl as $k => $v) {
 			$tbl[$k]['cols'] = implode(',', $v['cols']);
 		}
@@ -591,14 +665,12 @@ function get_fud_index_list($table)
 				AND index_type = \'NORMAL\' AND generated = \'N\'');
 		while ($r = db_rowobj($c)) {
 			$tbl[$r->index_name] = array('unique' => $r->uniq, 'cols' => array());
-
 			$c2 = q('SELECT LOWER(column_name) as column_name FROM user_ind_columns WHERE index_name = UPPER(\''. $r->index_name .'\') ORDER BY column_position');
 			while ($r2 = db_rowobj($c2)) {
 				$tbl[$r->index_name]['cols'][] = $r2->column_name;
 			}
 		}
 		unset($c);
-
 		foreach ($tbl as $k => $v) {
 			$tbl[$k]['cols'] = implode(',', $v['cols']);
 		}
@@ -631,7 +703,6 @@ function get_fud_index_list($table)
 			}
 		}
 		unset($c);
-
 		foreach ($tbl as $k => $v) {
 			$tbl[$k]['cols'] = implode(',', $v['cols']);
 		}
@@ -723,6 +794,9 @@ function make_table_row($col, $prop)
 	if (__dbtype__ == 'db2') { 
 		array_push($src, '!TEXT!',      '!BINARY!', '!INT NOT NULL AUTO_INCREMENT!');
 		array_push($dst, 'CLOB(65535)', '',         'INTEGER GENERATED BY DEFAULT AS IDENTITY');
+	} else if (__dbtype__ == 'firebird') {
+		array_push($src, '!BINARY!', '!INT NOT NULL AUTO_INCREMENT!', '!TEXT!');
+		array_push($dst, '',          'INT',                          'BLOB SUB_TYPE TEXT');
 	} else if (__dbtype__ == 'mssql') {
 		array_push($src, '!BINARY!', '!INT NOT NULL AUTO_INCREMENT!');
 		array_push($dst, '',          'INT IDENTITY');
@@ -776,6 +850,13 @@ function reset_fud_sequences()
 			}
 			echo 'Reset DB2 sequence '. $v .'.id to '. $m .'.<br />';
 			q('ALTER TABLE '. $v .' ALTER COLUMN id RESTART WITH '. $m);
+		}
+	} else if (__dbtype__ == 'firebird') {
+		foreach(db_all('SELECT rdb$generator_name FROM rdb$generators WHERE rdb$system_flag=0 AND rdb$generator_name LIKE LIKE upper(\''. addcslashes($GLOBALS['DBHOST_TBL_PREFIX'], '_') .'%\') ESCAPE \'\\\'') as $v) {
+			if (!($m = q_singleval('SELECT MAX(id)+1 FROM '. basename($v, '_ID_SEQ')))) {
+				$m = 1;
+			}
+			q('ALTER SEQUENCE '. $v .' RESTART WITH '. $m);
 		}
 	} else if (__dbtype__ == 'oracle') {
 		foreach(db_all('SELECT sequence_name FROM user_sequences WHERE sequence_name LIKE upper(\''. addcslashes($GLOBALS['DBHOST_TBL_PREFIX'], '_') .'%\_id\_seq\') ESCAPE \'\\\'') as $v) {
