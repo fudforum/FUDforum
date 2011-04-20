@@ -651,8 +651,7 @@ forumsel_goto_forum:Đến diễn đàn:
 minimsg_thread_view:Xem chủ đề
 # Fuzzy
 quicklogin_login:Tên Đăng Nhập
-# Fuzzy
-quicklogin_password:Mật Khẩu
+quicklogin_password:Mật khẩu:
 quicklogin_use_cookies:Sử dụng Cookie?
 # Fuzzy
 quicklogin_login_btn:Đăng Nhập

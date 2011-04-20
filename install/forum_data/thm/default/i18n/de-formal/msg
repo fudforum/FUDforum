@@ -413,6 +413,7 @@ post_title:Titel:
 post_body:Inhalt:
 post_options:Optionen:
 post_preview_btn:Beitragsvorschau
+post_cancel_btn:Abbrechen
 ignore_users:Ignorierte Benutzer
 add_ignore:Benutzer zur Ignorierliste hinzufügen
 forum_terms:Forumsregeln
@@ -717,8 +718,7 @@ post_opt_html_off:<b>HTML</b> Code ist <b>AUS</b>
 post_opt_fud_off:<b>BBcode</b> ist <b>AUS</b>
 post_opt_images_off:<b>Bilder</b> sind <b>AUS</b>
 post_opt_smilies_off:<b>Smileys</b> sind <b>AUS</b>
-# Fuzzy
-post_opt:Forumseinstellungen
+post_opt:Forumseinstellungen:
 register_change_passwd:Passwort ändern
 register_change_login:Benutzernamen ändern
 approved_avatar_title:Ihr persönlicher Avatar wurde genehmigt.
@@ -805,6 +805,7 @@ th_expr_two_month:2 Monate
 th_expr_four_month:4 Monate
 th_expr_one_year:1 Jahr
 thread_mod_delete:Löschen
+action_ip:IP
 action_latest_post:Letzter Beitrag
 online_today_last_visit:Letzter Besuch
 online_today_update:Die Liste der Leute ansehen, die heute zu Besuch im Forum waren.
@@ -1055,13 +1056,9 @@ mmd_abort_move:Abbrechen
 mmd_move:Thema verschieben
 pmsg_pdf_btn:PDF-Archiv erzeugen
 search_results_hdr:{VAR: total} Suchergebnisse gefunden
-# Fuzzy
 thread_del_all:Alle markierten löschen
-# Fuzzy
 thread_mov_all:Alle markierten verschieben
-# Fuzzy
 thread_merge_all:Alle markierten zusammenführen
-# Fuzzy
 thread_loc_all:Alle markierten sperren/entsperren
 dmsg_ip:IP:
 err_blockedaccnt_title:FEHLER: Ihr Konto wurde ausgefiltert.
@@ -1077,7 +1074,7 @@ sml_code:Code
 mnav_sub_only:Nur in abonnierten Foren suchen
 register_topics_per_page:Themen pro Seite:
 login_min_time:Das Forum erlaubt Anmeldeversuche alle {VAR: MIN_TIME_BETWEEN_LOGIN} Sekunden, bitte warten Sie {FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)} Sekunden vor Ihrem nächsten Versuch.
-post_not_logged_in:Sie sind zur Zeit nicht angemeldet, der Beitrag wird anonym gepostet.
+post_not_logged_in:Sie sind zurzeit nicht angemeldet, der Beitrag wird anonym gepostet.
 post_common_bold:Fett
 post_common_italics:Kursiv
 post_common_underline:Unterstrichen
@@ -1085,8 +1082,11 @@ post_common_align_left:Linksbündig
 post_common_align_center:Zentriert
 post_common_align_right:Rechtsbündig
 post_common_link:Link einfügen
+post_common_link_popup:Link-Adresse:
 post_common_email:E-Mail-Addresse einfügen
+post_common_email_popup:E-Mail-Adresse:
 post_common_image:Bild einfügen
+post_common_image_popup:Bild-URL:
 post_common_nlist:Nummerierte Liste einfügen
 post_common_blist:Aufzählung einfügen
 post_common_quote:Zitat einfügen
@@ -1133,3 +1133,5 @@ feed_rss:RSS2-Feed
 feed_atom:ATOM-Feed
 ip_whois_connect_err:Verbindung zu WHOIS-Server ({VAR: whois_server}) fehlgeschlagen: {VAR: errstr}
 custom_filed_required:Dies ist ein Pflichtfeld.
+page_list_heading:Verfügbare Seiten
+page_list_total:{PLURAL: i|$1 Seite|$1 Seiten} aufgeführt.

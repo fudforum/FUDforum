@@ -24,8 +24,7 @@ download_counter:Заредено {VAR: v[3]} пъти
 email:Email:
 email_to_friend:Изпрати по e-mail на приятел
 email_to_friend_desc:Изпрати адреса на това съобщение по e-mail
-# Fuzzy
-email_user:Натисни тук за изпращане на e-mail
+email_user:Изпращане на писмо на потребителя
 faq:F.A.Q.
 first_unread_msg:Отиди към непрочетените съобщения
 first_unread_msg_desc:Отиди към първото непрочетено съобщение по тази тема
@@ -463,6 +462,7 @@ rpasswd_login:Потребителско име:
 rpasswd_cur_pass:Текущата парола:
 rpasswd_new_pass:Нова парола:
 rpasswd_conf_pass:Въведи пак (за проверка):
+ruser_cur_pass:Текуща парола:
 login_passwd:Парола:
 reset_email:Е-поща:
 reset_reset_button:Изчисти паролата
@@ -799,6 +799,7 @@ th_expr_two_month:2 Месеца
 th_expr_four_month:4 Месеца
 th_expr_one_year:1 Година
 thread_mod_delete:Изтрий
+action_ip:IP
 action_latest_post:Последно съобщение
 online_today_last_visit:Последно посещение
 online_today_update:Преглед на листата на хората, които са посетили форума днес.
@@ -881,6 +882,7 @@ search_desc_order:мХГУНДЪЫ ПЕД
 search_asc_order:Възходящ ред
 search_logic:Търси Логически:
 search_sorting:Сортиране на резултатите по дата:
+search_attach:Прикачени файлове:
 post_proceed:Обработва се
 post_moderated_forum:Изпрати съобщение в модериран форум. Това означава,че то няма да бъде публикувано, докато не го одобрят модераторите и/или администраторите на форума.
 post_moderated_forum_ttl:Бележка на модерирания форум

@@ -301,7 +301,7 @@ register_email:Email
 edit_time_limit:<b>Limite de tempo de edição</b>: {GVAR: EDIT_TIME_LIMIT} minutos
 no_edit_time_limit:<b>Limite de tempo de edição</b>: Ilimitado
 pmuserloc_login:Utilizador:
-pmuserloc_submit:Submeter
+pmuserloc_submit:Enviar
 pmuserloc_user:Utilizador
 pmuserloc_no_result:Sem resultado
 register_builtin:Embutido
@@ -742,7 +742,7 @@ thr_exch_orig_forum:Forum original:
 thr_exch_dest_forum:Forum de destino:
 thr_exch_no_threads:Não há tópicos á espera de aprovação.
 thr_exch_decl_reason:Razão para recusa de tópico <b>{VAR: data->subject}</b> no fórum <b>{VAR: data->f2_name}</b>
-thr_exch_submit:Submeter
+thr_exch_submit:Enviar
 exch_decline_ttl:A mudança do tópico {VAR: data->subject} para o fórum {VAR: data->f2_name} foi recusada.
 ppost_original_msg:mensagem que está a encaminhar ou a responder a
 split_thread:Dividir Tópico

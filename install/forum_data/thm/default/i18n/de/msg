@@ -1079,7 +1079,7 @@ sml_code:Code
 mnav_sub_only:Nur in abonnierten Foren suchen
 register_topics_per_page:Themen pro Seite:
 login_min_time:Das Forum erlaubt Anmeldeversuche alle {VAR: MIN_TIME_BETWEEN_LOGIN} Sekunden, bitte warte {FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)} Sekunden vor deinem nächsten Versuch.
-post_not_logged_in:Du bist zur Zeit nicht angemeldet, der Beitrag wird anonym gepostet.
+post_not_logged_in:Du bist zurzeit nicht angemeldet, der Beitrag wird anonym gepostet.
 post_common_bold:Fett
 post_common_italics:Kursiv
 post_common_underline:Unterstrichen
@@ -1087,9 +1087,9 @@ post_common_align_left:Linksbündig
 post_common_align_center:Zentriert
 post_common_align_right:Rechtsbündig
 post_common_link:Link einfügen
-post_common_link_popup:Link-Ort:
+post_common_link_popup:Link-Adresse:
 post_common_email:E-Mail-Adresse einfügen
-post_common_email_popup:E-Mail-Adressen:
+post_common_email_popup:E-Mail-Adresse:
 post_common_image:Bild einfügen
 post_common_image_popup:Bild-URL:
 post_common_nlist:Nummerierte Liste einfügen
