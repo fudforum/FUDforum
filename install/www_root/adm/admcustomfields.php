@@ -13,6 +13,7 @@
 	fud_use('adm.inc', true);
 	fud_use('custom_field_adm.inc', true);
 	fud_use('widgets.inc', true);
+	fud_use('logaction.inc');
 
 	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
 
@@ -27,7 +28,7 @@
 	if (isset($_POST['frm_submit']) && !empty($_POST['custom_field_name'])) {
 		$error = 0;
 
-		// OR values together - stored in one DB field.
+		// OR settings together - stored in one DB field.
 		$_POST['custom_field_field_opt'] = $_POST['custom_field_field_opt_1'] | $_POST['custom_field_field_opt_2'];
 
 		if ($edit && !$error) {
@@ -35,18 +36,22 @@
 			$cfield->sync($edit);
 			$edit = '';	
 			echo successify('Field was successfully updated.');
+			logaction(_uid, 'Update custom field', 0, $_POST['custom_field_name']);
 		} else if (!$error) {
 			$cfield = new fud_custom_field;
 			$cfield->add();
 			echo successify('Field was successfully added.');
+			logaction(_uid, 'Add custom field', 0, $_POST['custom_field_name']);
 		}
 	}
 
 	/* Remove a profile field. */
 	if (isset($_GET['del'])) {
+		$id = (int)$_GET['del'];
 		$cfield = new fud_custom_field();
-		$cfield->delete($_GET['del']);
+		$cfield->delete($id);
 		echo successify('Field was successfully deleted.');
+		logaction(_uid, 'Delete custom field', 0, $id);
 	}
 
 	if (isset($_GET['chpos'], $_GET['chdest'])) {

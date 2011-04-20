@@ -112,7 +112,7 @@
 {IF: $u->interests}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: interests}</td><td class="GenText">{VAR: u->interests}</td></tr>{ENDIF}
 {IF: $u->bio}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: biography}</td><td class="GenText">{VAR: u->bio}</td></tr>{ENDIF}
 {TEMPLATE-DATA: birth_date}
-{TEMPLATE-DATA: custom_fields}
+{TEMPLATE-DATA: custom_fields_disp}
 {IF: $u->icq}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw vt GenText"><a name="icq_msg">{MSG: icq_message_form}</a></td><td class="GenText">
 		{VAR: u->icq} <img src="http://web.icq.com/whitepages/online?icq={VAR: u->icq}&amp;img=5" /><br />
 			<table class="icqCP">

@@ -123,16 +123,18 @@
 	}
 
 	// Setup custom fields for display.
-	$custom_fields = null;
+	$custom_fields_disp = '';
 	if ($u->custom_fields) {
-		$custom_field_vals = unserialize($u->custom_fields);
-		$c = uq('SELECT id, name, choice, field_opt FROM {SQL_TABLE_PREFIX}custom_fields ORDER BY vieworder');
-		while ($r = db_rowobj($c)) {
-			if (!empty($custom_field_vals[$r->id])) {	// Have a value to display?
-				$custom_field_name = $r->name;
-				$custom_field_val  = $custom_field_vals[$r->id];
-				if ($r->field_opt & 2 || ($r->field_opt & 4) && _uid) {
-					$custom_fields .= '{TEMPLATE: ui_custom_field}';
+		require $GLOBALS['FORUM_SETTINGS_PATH'] .'custom_field_cache';
+		if (!empty($custom_fields)) {
+			$custom_field_vals = unserialize($u->custom_fields);
+			foreach ($custom_fields as $k => $r) {
+				if (!empty($custom_field_vals[$k])) {	// Have a value to display?
+					$custom_field_name = $r['name'];
+					$custom_field_val  = $custom_field_vals[$k];
+					if ($r['field_opt'] & 2 || ($r['field_opt'] & 4) && _uid) {
+						$custom_fields_disp .= '{TEMPLATE: ui_custom_field}';
+					}
 				}
 			}
 		}
