@@ -1,5 +1,5 @@
 /***************************************************************************
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -25,11 +25,6 @@ function insertTag(obj, stag, etag)
 		insertTagMoz(obj, stag, etag);
 	}
 	obj.focus();
-}
-
-function insertTagNS(obj, stag, etag)
-{
-	obj.value = obj.value+stag+etag;
 }
 
 function insertTagMoz(obj, stag, etag)
@@ -81,12 +76,26 @@ function dialogTag(obj, qst, def, stag, etag)
 	insertTag(obj, stag, etag);
 }
 
-function url_insert()
+function url_insert(prompt)
 {
 	if ( check_selection() )
-		dialogTag(document.post_form.msg_body, 'Location:', 'http://', '[url=%s]', '[/url]');
+		dialogTag(document.post_form.msg_body, prompt, 'http://', '[url=%s]', '[/url]');
 	else
-		dialogTag(document.post_form.msg_body, 'Location:', 'http://', '[url]%s[/url]', '');
+		dialogTag(document.post_form.msg_body, prompt, 'http://', '[url]%s[/url]', '');
+}
+
+function email_insert(prompt)
+{
+	if ( check_selection() ) {
+		dialogTag(document.post_form.msg_body, prompt, '', '[email=%s]', '[/email]');
+	} else {
+		dialogTag(document.post_form.msg_body, prompt, '', '[email]%s[/email]', '');
+	}
+}
+
+function image_insert(prompt)
+{
+	dialogTag(document.post_form.msg_body, prompt, 'http://', '[img]%s[/img]', '');
 }
 
 function check_selection()
@@ -137,20 +146,6 @@ function insertAtCaret(textEl, text)
 		textEl.value  =  textEl.value + text;
 }
 
-function email_insert()
-{
-	if ( check_selection() ) {
-		dialogTag(document.post_form.msg_body, 'Email:', '', '[email=%s]', '[/email]');
-	} else {
-		dialogTag(document.post_form.msg_body, 'Email:', '', '[email]%s[/email]', '');
-	}
-}
-
-function image_insert()
-{
-	dialogTag(document.post_form.msg_body, 'Image URL:', 'http://', '[img]%s[/img]', '');
-}
-
 function window_open(url,winName,width,height)
 {
 	xpos = (screen.width-width)/2;
@@ -171,6 +166,13 @@ function layerVis(layer, on)
 	}
 }
 
+/* Jump page to specified anchor. */
+function chng_focus(phash)
+{
+	window.location.hash = phash;
+}
+
+/* Bring message into view. */
 function fud_msg_focus(mid_hash)
 {
 	if (!window.location.hash) {
@@ -178,9 +180,42 @@ function fud_msg_focus(mid_hash)
 	}
 }
 
-function chng_focus(phash)
+/* AJAX call to replace message with next in tree view. */
+function fud_tree_msg_focus(mid, s, CHARSET)
 {
-	window.location.hash = phash;
+	$('body').css('cursor', 'progress');
+	$('#msgTbl').fadeTo('fast', 0.33);
+
+	$.ajax({
+		url: 'index.php?t=tree_msg&id='+mid+'&S='+s,
+		dataType: 'html',
+		contentType: 'text/html; charset='+CHARSET,
+		beforeSend: function(xhr) {
+			if (xhr.overrideMimeType) {	// IE doesn't have this
+			    xhr.overrideMimeType('text/html; charset='+CHARSET);
+			}
+		},
+		success: function(data){
+			// Put new message on page.
+			$('#msgTbl').empty().append('<tbody><tr><td>'+data+'</td></tr></tbody>').fadeTo('fast', 1);
+
+			// Mark message as read (unread.png -> read.png).
+			var read_img = $('#b' + cur_msg).find('img');
+			read_img.attr('src', read_img.attr('src').replace('unread', 'read'));
+
+			// Change row color.
+			$('#b' + mid).removeClass().addClass('RowStyleC');
+			$('#b' + cur_msg).removeClass().addClass( (cur_msg % 2 ? 'RowStyleA' : 'RowStyleB') );
+			cur_msg = mid;
+		},
+		error: function(xhr, desc, e) {
+			alert('Failed to submit: ' + desc);
+		},
+		complete: function() {
+			chng_focus('page_top');
+			$('body').css('cursor', 'auto');
+		}
+	});
 }
 
 function highlightWord(node,word,Wno)
@@ -442,9 +477,22 @@ function passwords_match(password1, password2) {
 }
 
 /* Code that will run on each page. */
-
 $(function init() {
-	/* Attach grippie to textareas. */
+	/* Open external links in a new window. */
+	// $('a[href^="http://"]').attr({
+	//	target: "_blank", 
+	//	title: "Opens in a new window"
+	// });
+
+	/* Add rel="nofollow" to external links. */
+	// $('a[href^="http"]').attr('rel','nofollow');
+
+	/* Make textareas's resizable. */
+	$("textarea:visible").resizable({
+		handles: "se"
+	});
+
+/*
 	$('textarea:not(.textarea-processed)').each(function() {
 	var textarea = $(this).addClass('textarea-processed'), staticOffset = null;
 
@@ -471,8 +519,14 @@ $(function init() {
 	  textarea.css('opacity', 1);
 	}
 	});
-
+*/
+	
 	/* Syntax highlighting for code blocks. */
 	// $.SyntaxHighlighter.init();
+	
+	/* Start TimeAgo plugin. */
+	// $('.DateText').timeago();
+	$("time").timeago();
+	// <time class="DateText" datetime="2008-07-17T09:24:17Z">July 17, 2008</time>
 
 });
