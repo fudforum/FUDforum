@@ -57,15 +57,18 @@ The domain of the cookie that will be used by the forum. For example, if your si
 The name of the cookie that will be used by the forum. Use different cookies if you have multiple forums on one site.}}}
 
 {{{SESSION_USE_URL	FUD_OPT_1	128
-Allow session ids to be passed not only via cookies but, via URL variables.}}}
+Allow session ids to be passed not only via cookies but, via URL variables. Enable to allow users with cookies disabled to use the forum.}}}
 
 #DATABASE SETTINGS
 
 {{{DBHOST
-This setting can either be an Internet IP address in a form of AAA.BBB.CCC.DDD:PORT, or it can point to a valid Unix domain socket (such as :/tmp/mysql.sock). It is highly recommended that you use Unix domain sockets to communicate with the database (due to faster performance).}}}
+The name or IP address of the system where the database is located, or a Unix domain socket (such as :/tmp/mysql.sock). An optional port number can be appended, for example dbhost:3306. When specifying a numerical IPv6 address, you must enclose the IP in square brackets - for example, [fe80::1]:5432.}}}
+
+{{{DBHOST_SLAVE_HOST
+Optional slave database hostname or IP address. It is assumed that the slave database is replicated from the master, and that the same username, password and table prefix is used.}}}
 
 {{{DBHOST_USER
-The username for the database you intend to use the system with.}}}
+The username for the database that contains the database tables.}}}
 
 {{{DBHOST_PASSWORD
 The password for the username.}}}
@@ -74,10 +77,13 @@ The password for the username.}}}
 Database name for the forum.}}}
 
 {{{DBHOST_PERSIST	FUD_OPT_1	256
-Whether or not to use persistent connections. Slight performance increase, but may cause problems.}}}
+Whether or not to use persistent connections. Slight performance increase, but may cause problems on some systems.}}}
 
 {{{DBHOST_TBL_PREFIX
-The prefix for the FUDforum's database tables. Do not modify this option.}}}
+Prefix for the forum's database tables. Do not modify this option (unless you manually renamed all your tables).}}}
+
+{{{DBHOST_DBTYPE
+Database driver to load.}}}
 
 # SMTP SETTINGS
 
@@ -85,7 +91,7 @@ The prefix for the FUDforum's database tables. Do not modify this option.}}}
 Whether or not to use FUDforum SMTP gateway to send email instead of standard PHP mail() function. Not recommended, unless you need SMTP AUTH or wish to use alternate SMTP server on UNIX systems.}}}
 
 {{{FUD_SMTP_SERVER
-The IP adres or host name of the SMTP server.}}}
+The IP address or host name of the SMTP server.}}}
 
 {{{FUD_SMTP_PORT
 The port to use to connect to the SMTP server.}}}
@@ -462,10 +468,10 @@ Hostname or IP address of the WHOIS server to use for IP address analysis.}}}
 Minimum time between login attempts in seconds. This option is intended as a throttle mechanism against dictionary attacks on forum passwords.}}}
 
 {{{NO_ANON_ACTION_LIST	FUD_OPT_3	131072
-Disable displaying of the action list to the anonymous users.}}}
+Disable displaying of the action list to anonymous users.}}}
 
 {{{NO_ANON_WHO_ONLINE	FUD_OPT_3	262144
-Disable displaying of who's online to the anonymous users.}}}
+Disable displaying of who's online to anonymous users.}}}
 
 {{{ENABLE_GEO_LOCATION	FUD_OPT_3	524288
 Enable country identifier flags beside each message poster, requires import of Geolocation database, see the Geolocation Management control panel for more details.}}}

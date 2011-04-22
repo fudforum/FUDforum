@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -8,21 +8,43 @@
 * under the terms of the GNU General Public License as published by the 
 * Free Software Foundation; version 2 of the License. 
 **/
-// define('fud_query_stats', 1);
+# define('fud_query_stats', 1);
 
 if (!defined('fud_sql_lnk')) {
 	$connect_func = $GLOBALS['FUD_OPT_1'] & 256 ? 'mysql_pconnect' : 'mysql_connect';
 
-	$conn = @$connect_func($GLOBALS['DBHOST'], $GLOBALS['DBHOST_USER'], $GLOBALS['DBHOST_PASSWORD']) or fud_sql_error_handler('Initiating '. $connect_func, mysql_error(), mysql_errno(), 'Unknown');
+	/* Connect to master database. */
+	$conn = @$connect_func($GLOBALS['DBHOST'], $GLOBALS['DBHOST_USER'], $GLOBALS['DBHOST_PASSWORD']) or fud_sql_error_handler('Initiating MasterDB '. $connect_func, mysql_error(), mysql_errno(), 'Unknown');
 	define('fud_sql_lnk', $conn);
-	@mysql_select_db($GLOBALS['DBHOST_DBNAME'], fud_sql_lnk) or fud_sql_error_handler('Opening database '. $GLOBALS['DBHOST_DBNAME'], mysql_error(fud_sql_lnk), mysql_errno(fud_sql_lnk), db_version());
+	@mysql_select_db($GLOBALS['DBHOST_DBNAME'], fud_sql_lnk) or fud_sql_error_handler('Opening MasterDB '. $GLOBALS['DBHOST_DBNAME'], mysql_error(fud_sql_lnk), mysql_errno(fud_sql_lnk), db_version());
 	if (function_exists('mysql_set_charset')) {	// Requires PHP 5.2.3 and MySQL 5.0.7 or later.
 		mysql_set_charset('utf8');
 	} else {
 		mysql_query('SET NAMES \'utf8\' COLLATE \'utf8_unicode_ci\'');
 	}
 
+	/* Connect to slave, if specified. */
+	if (!empty($GLOBALS['DBHOST_SLAVE_HOST'])) {
+		$conn = @$connect_func($GLOBALS['DBHOST_SLAVE_HOST'], $GLOBALS['DBHOST_USER'], $GLOBALS['DBHOST_PASSWORD']);
+		if (!$conn) {
+			fud_logerror('Unable to init SlaveDB, fallback to MasterDB: '. mysql_error(), 'sql_errors');
+		} else {
+			define('fud_sql_slave_lnk', $conn);
+			@mysql_select_db($GLOBALS['DBHOST_DBNAME'], fud_sql_slave_lnk) or fud_sql_error_handler('Opening SlaveDB '. $GLOBALS['DBHOST_DBNAME'], mysql_error(fud_sql_slave_lnk), mysql_errno(fud_sql_slave_lnk), db_version());
+			if (function_exists('mysql_set_charset')) {	// Requires PHP 5.2.3 and MySQL 5.0.7 or later.
+				mysql_set_charset('utf8');
+			} else {
+				mysql_query('SET NAMES \'utf8\' COLLATE \'utf8_unicode_ci\'', $conn);
+			}
+		}
+	}
+
 	define('__dbtype__', 'mysql');
+}
+
+function db_close()
+{
+	mysql_close(fud_sql_lnk);
 }
 
 function db_version()
@@ -72,9 +94,17 @@ function db_affected()
 if (!defined('fud_query_stats')) {
 	function q($query)
 	{
-		$r = mysql_query($query, fud_sql_lnk) or fud_sql_error_handler($query, mysql_error(fud_sql_lnk), mysql_errno(fud_sql_lnk), db_version());
+		// Assume master DB, route SELECT's to slave DB.
+		// Force master if DB is locked (in transaction) or 'SELECT /* USE MASTER */'.
+		$db = fud_sql_lnk;
+		if (defined('fud_sql_slave_lnk') && !db_locked() && !strncasecmp($query, 'SELECT', 6) && strncasecmp($query, 'SELECT /* USE MASTER */', 23)) {
+			$db = fud_sql_slave_lnk;
+		}
+
+		$r = mysql_query($query, $db) or fud_sql_error_handler($query, mysql_error($db), mysql_errno($db), db_version());
 		return $r;
 	}
+
 	function uq($query)
 	{
 		$r = mysql_unbuffered_query($query,fud_sql_lnk) or fud_sql_error_handler($query, mysql_error(fud_sql_lnk), mysql_errno(fud_sql_lnk), db_version());
@@ -93,18 +123,25 @@ if (!defined('fud_query_stats')) {
 			$GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'] = 0;
 		}
 
+		// Assume master DB, route SELECT's to slave DB.
+		// Force master if DB is locked (in transaction) or 'SELECT /* USE MASTER */'.
+		$db = fud_sql_lnk;
+		if (defined('fud_sql_slave_lnk') && !db_locked() && !strncasecmp($query, 'SELECT', 6) && strncasecmp($query, 'SELECT /* USE MASTER */', 23)) {
+			$db = fud_sql_slave_lnk;
+		}
+
 		$s = microtime(true);
-		$result = mysql_query($query, fud_sql_lnk) or fud_sql_error_handler($query, mysql_error(fud_sql_lnk), mysql_errno(fud_sql_lnk), db_version());
+		$result = mysql_query($query, $db) or fud_sql_error_handler($query, mysql_error($db), mysql_errno($db), db_version());
 		$e = microtime(true);
 
 		$GLOBALS['__DB_INC_INTERNALS__']['last_time'] = ($e - $s);
 		$GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'] += $GLOBALS['__DB_INC_INTERNALS__']['last_time'];
-		$GLOBALS['__DB_INC_INTERNALS__']['last_query'] = $query;
 
-		echo '<pre>'. preg_replace('!\s+!', ' ', $query) .'</pre>';
-		echo '<pre>query count: '. $GLOBALS['__DB_INC_INTERNALS__']['query_count'] .' time taken: '. $GLOBALS['__DB_INC_INTERNALS__']['last_time'] .'</pre>';
-		echo '<pre>Affected rows: '. db_affected() .'</pre>';
-		echo '<pre>total sql time: '. $GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'] .'</pre>';
+		echo '<hr><b>Query #'. $GLOBALS['__DB_INC_INTERNALS__']['query_count'] .' on '. (($db==fud_sql_lnk) ? 'MasterDB' : 'SlaveDB') .'</b><small>';
+		echo ': time taken:     <i>'. number_format($GLOBALS['__DB_INC_INTERNALS__']['last_time'], 4) .'</i>';
+		echo ', affected rows:  <i>'. db_affected() .'</i>';
+		echo ', total sql time: <i>'.  number_format($GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'], 4) .'</i>';
+		echo '<pre>'. preg_replace('!\s+!', ' ', htmlspecialchars($query)) .'</pre></small>';
 
 		return $result; 
 	}
@@ -134,7 +171,6 @@ function q_singleval($query)
 
 function q_limit($query, $limit, $off=0)
 {
-	// OLD SYNTAX: return $query .' LIMIT '. $off .','. $limit;
 	return $query .' LIMIT '. $limit .' OFFSET '. $off;
 }
 
@@ -155,7 +191,7 @@ function q_bitand($fieldLeft, $fieldRight) {
 }
 
 function q_bitor($fieldLeft, $fieldRight) {
-	return $fieldLeft .' | '. $fieldRight;
+	return '('. $fieldLeft .' | '. $fieldRight .')';
 }
 
 function q_bitnot($bitField) {

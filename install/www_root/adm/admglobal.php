@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -8,13 +8,6 @@
 * under the terms of the GNU General Public License as published by the
 * Free Software Foundation; version 2 of the License.
 **/
-
-	require('./GLOBALS.php');
-	fud_use('adm.inc', true);
-	fud_use('glob.inc', true);
-	fud_use('widgets.inc', true);
-	fud_use('draw_select_opt.inc');
-	fud_use('users_reg.inc');
 
 function get_max_upload_size()
 {
@@ -27,6 +20,14 @@ function get_max_upload_size()
 	}
 	return $size;
 }
+
+/* main */
+	require('./GLOBALS.php');
+	fud_use('adm.inc', true);
+	fud_use('glob.inc', true);
+	fud_use('widgets.inc', true);
+	fud_use('draw_select_opt.inc');
+	fud_use('users_reg.inc');
 
 	require($WWW_ROOT_DISK .'adm/header.php');
 
@@ -43,7 +44,7 @@ function get_max_upload_size()
 
 	if (isset($_POST['form_posted'])) {
 		for ($i = 1; $i < 10; $i++) {
-			if (isset($GLOBALS['FUD_OPT_'.$i])) {
+			if (isset($GLOBALS['FUD_OPT_'. $i])) {
 				$GLOBALS['NEW_FUD_OPT_'. $i] = 0;
 			} else {
 				break;
@@ -202,7 +203,8 @@ $(document).ready(function() {
 	$msg = ($GLOBALS['FUD_OPT_1'] & 1) ? '' : '<font color="red">NOTE: </font>';
 	print_bit_field($msg .'Forum Enabled', 'FORUM_ENABLED');
 	print_txt_field('Reason for Disabling', 'DISABLED_REASON');
-	print_bit_field('Debug Forum', 'FORUM_DEBUG');
+	$msg = ($GLOBALS['FUD_OPT_3'] & 1073741824) ? '<font color="red">NOTE: </font>' : '';
+	print_bit_field($msg .'Debug Forum', 'FORUM_DEBUG');
 ?>
 <tr class="fieldaction"><td align="left"><input type="submit" name="btn_submit" value="Set" /></td><td align="right">[ <a href="#top">top</a> ]</td></tr>
 </tbody>
@@ -222,6 +224,10 @@ $(document).ready(function() {
 <tr class="fieldtopic"><td colspan="2"><a name="3" /><br /><b>Database Settings</b> </td></tr>
 <?php
 	print_reg_field('Database Server', 'DBHOST');
+	if ($DBHOST_DBTYPE == 'mysql') {
+		// Slave support is only implemented for mysql (other db's will follow later).
+		print_reg_field('Database Slave Server', 'DBHOST_SLAVE_HOST');
+	}
 	print_reg_field('Database Login', 'DBHOST_USER');
 	print_reg_field('Database Password', 'DBHOST_PASSWORD', 0, 1);
 	print_reg_field('Database Name', 'DBHOST_DBNAME');
@@ -417,14 +423,29 @@ $(document).ready(function() {
 	print_bit_field('Disable Welcome E-mail', 'DISABLE_WELCOME_EMAIL');
 	print_bit_field('Disable E-mail notifications', 'DISABLE_NOTIFICATION_EMAIL');
 	print_bit_field('Moderator Notification', 'MODERATED_POST_NOTIFY');
+	print_bit_field('E-mail Confirmation', 'EMAIL_CONFIRMATION');
 	print_bit_field('Use SMTP To Send E-mail', 'USE_SMTP');
 	print_reg_field('SMTP Server', 'FUD_SMTP_SERVER');
 	print_reg_field('SMTP Server Port', 'FUD_SMTP_PORT', 1);
 	print_reg_field('SMTP Server Timeout', 'FUD_SMTP_TIMEOUT', 1);
 	print_reg_field('SMTP Server Login', 'FUD_SMTP_LOGIN');
 	print_reg_field('SMTP Server Password', 'FUD_SMTP_PASS');
-	print_bit_field('E-mail Confirmation', 'EMAIL_CONFIRMATION');
 ?>
+<script type="text/javascript">
+/* <![CDATA[ */
+$(document).ready(function() {
+	/* Hide SMTP fields if SMTP is not active. */
+	$('#FUD_OPT_1_USE_SMTP').change(function() {
+		if ( $('#FUD_OPT_1_USE_SMTP option:selected').val() > 0 ) {
+			$('input[name^="CF_FUD_SMTP_"]').parent().parent().show('slow');
+		} else {
+			$('input[name^="CF_FUD_SMTP_"]').parent().parent().hide('slow');
+		}
+	});
+	$('#FUD_OPT_1_USE_SMTP').change();
+});
+/* ]]> */
+</script>
 <tr class="fieldaction"><td align="left"><input type="submit" name="btn_submit" value="Set" /></td><td align="right">[ <a href="#top">top</a> ]</td></tr>
 </tbody>
 
@@ -444,7 +465,8 @@ $(document).ready(function() {
 	print_bit_field('Disable Captcha Test', 'DISABLE_TURING_TEST');
 	print_bit_field('Anonymous User Captcha Test', 'USE_ANON_TURING');
 	print_bit_field('Use Captcha images', 'GRAPHICAL_TURING');
-	print_bit_field('Obfuscate e-mails in NNTP posts', 'NNTP_OBFUSCATE_EMAIL');
+	print_bit_field('MIME encode NNTP posts', 'NNTP_MIME_POSTS');
+	print_bit_field('Obfuscate E-mails in NNTP posts', 'NNTP_OBFUSCATE_EMAIL');
 	print_bit_field('MIME encode NNTP posts', 'NNTP_MIME_POSTS');
 	if (extension_loaded('zlib')) {
 		print_bit_field('Use PHP compression', 'PHP_COMPRESSION_ENABLE');

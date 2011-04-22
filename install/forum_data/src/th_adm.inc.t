@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -69,7 +69,7 @@ function __th_cron_emu($forum_id, $run=1)
 	$exp = db_all('SELECT {SQL_TABLE_PREFIX}thread.id FROM {SQL_TABLE_PREFIX}tv_'. $forum_id .'
 			INNER JOIN {SQL_TABLE_PREFIX}thread ON {SQL_TABLE_PREFIX}thread.id={SQL_TABLE_PREFIX}tv_'. $forum_id .'.thread_id
 			INNER JOIN {SQL_TABLE_PREFIX}msg ON {SQL_TABLE_PREFIX}thread.root_msg_id={SQL_TABLE_PREFIX}msg.id
-			WHERE {SQL_TABLE_PREFIX}tv_'. $forum_id .'.id>'. (q_singleval('SELECT seq FROM {SQL_TABLE_PREFIX}tv_'. $forum_id .' ORDER BY seq DESC LIMIT 1') - 50).' 
+			WHERE {SQL_TABLE_PREFIX}tv_'. $forum_id .'.seq>'. (q_singleval(q_limit('SELECT seq FROM {SQL_TABLE_PREFIX}tv_'. $forum_id .' ORDER BY seq DESC', 1)) - 50).' 
 				AND {SQL_TABLE_PREFIX}tv_'. $forum_id .'.iss>0
 				AND {SQL_TABLE_PREFIX}thread.thread_opt>=2 
 				AND ({SQL_TABLE_PREFIX}msg.post_stamp+{SQL_TABLE_PREFIX}thread.orderexpiry)<='. __request_timestamp__);
@@ -107,17 +107,33 @@ function rebuild_forum_view_ttl($forum_id, $skip_cron=0)
 
 	q('DELETE FROM {SQL_TABLE_PREFIX}tv_'. $forum_id);
 
-	q('INSERT INTO {SQL_TABLE_PREFIX}tv_'. $forum_id .' (thread_id,iss,seq) SELECT id, iss, '. q_rownum() .' FROM
-		(SELECT {SQL_TABLE_PREFIX}thread.id AS id, '. q_bitand('thread_opt', (2|4|8)) .' AS iss FROM {SQL_TABLE_PREFIX}thread 
-		INNER JOIN {SQL_TABLE_PREFIX}msg ON {SQL_TABLE_PREFIX}thread.root_msg_id={SQL_TABLE_PREFIX}msg.id 
-		WHERE forum_id='. $forum_id .' AND {SQL_TABLE_PREFIX}msg.apr=1 
-		ORDER BY (CASE WHEN thread_opt>=2 THEN (4294967294 + (('. q_bitand('thread_opt', 8) .') * 100000000) + {SQL_TABLE_PREFIX}thread.last_post_date) ELSE {SQL_TABLE_PREFIX}thread.last_post_date END) ASC) q1');
-
-	if (__dbtype__ == 'sqlite') {
-		// q_rownum() is not implemented for SQLite.
-		// If we empty a table (the DELETE above), the ID (internal sequence) will be reset to 0. We will misuse it as the ROWNUM.
-		q('UPDATE {SQL_TABLE_PREFIX}tv_'. $forum_id .' SET seq=id');
+	if (__dbtype__ == 'mssql') {
+		// Guess what DB is the cappiest and least standards compliant of all those we support.
+		q('INSERT INTO {SQL_TABLE_PREFIX}tv_'. $forum_id .' (seq, thread_id, iss)
+			SELECT ROW_NUMBER() OVER(ORDER BY (CASE WHEN thread_opt>=2 THEN (4294967294 + (('. q_bitand('thread_opt', 8) .') * 100000000) + last_post_date) ELSE last_post_date END)), thread_id, '. q_bitand('thread_opt', (2|4|8)) .'
+			FROM
+			(SELECT {SQL_TABLE_PREFIX}thread.id AS thread_id, thread_opt, last_post_date FROM {SQL_TABLE_PREFIX}thread 
+				INNER JOIN {SQL_TABLE_PREFIX}msg ON {SQL_TABLE_PREFIX}thread.root_msg_id={SQL_TABLE_PREFIX}msg.id 
+				WHERE forum_id='. $forum_id .' AND {SQL_TABLE_PREFIX}msg.apr=1 
+				ORDER BY (CASE WHEN thread_opt>=2 THEN (4294967294 + (('. q_bitand('thread_opt', 8) .') * 100000000) + {SQL_TABLE_PREFIX}thread.last_post_date) ELSE {SQL_TABLE_PREFIX}thread.last_post_date END)
+				OFFSET 0 ROWS
+			) q1');
+	} else {
+		q('INSERT INTO {SQL_TABLE_PREFIX}tv_'. $forum_id .' (seq, thread_id, iss) SELECT '. q_rownum() .', id, iss FROM
+			(SELECT {SQL_TABLE_PREFIX}thread.id AS id, '. q_bitand('thread_opt', (2|4|8)) .' AS iss FROM {SQL_TABLE_PREFIX}thread 
+			INNER JOIN {SQL_TABLE_PREFIX}msg ON {SQL_TABLE_PREFIX}thread.root_msg_id={SQL_TABLE_PREFIX}msg.id 
+			WHERE forum_id='. $forum_id .' AND {SQL_TABLE_PREFIX}msg.apr=1 
+			ORDER BY (CASE WHEN thread_opt>=2 THEN (4294967294 + (('. q_bitand('thread_opt', 8) .') * 100000000) + {SQL_TABLE_PREFIX}thread.last_post_date) ELSE {SQL_TABLE_PREFIX}thread.last_post_date END) ASC) q1');
 	}
+
+/* BAD ATTEMPT - MSSQL CANNOT UPDATE/INSERT INTO IDENTITY COLS.
+	q('INSERT INTO {SQL_TABLE_PREFIX}tv_'. $forum_id .' (thread_id, iss) 
+	   SELECT {SQL_TABLE_PREFIX}thread.id, '. q_bitand('thread_opt', (2|4|8)) .' AS iss 
+	   FROM {SQL_TABLE_PREFIX}thread
+	   INNER JOIN {SQL_TABLE_PREFIX}msg ON {SQL_TABLE_PREFIX}thread.root_msg_id={SQL_TABLE_PREFIX}msg.id 
+	   WHERE forum_id='. $forum_id .' AND apr=1
+	   ORDER BY (CASE WHEN thread_opt>=2 THEN (4294967294 + (('. q_bitand('thread_opt', 8) .') * 100000000) + last_post_date) ELSE last_post_date END) ASC');
+*/
 
 	if (isset($ll)) {
 		db_unlock();
@@ -132,7 +148,7 @@ function th_delete_rebuild($forum_id, $th)
 	}
 
 	/* Get position. */
-	if (($pos = q_singleval('SELECT seq FROM {SQL_TABLE_PREFIX}tv_'. $forum_id .' WHERE thread_id='. $th))) {
+	if (($pos = q_singleval('SELECT /* USE MASTER */ seq FROM {SQL_TABLE_PREFIX}tv_'. $forum_id .' WHERE thread_id='. $th))) {
 		q('DELETE FROM {SQL_TABLE_PREFIX}tv_'. $forum_id .' WHERE thread_id='. $th);
 		/* Move every one down one, if placed after removed topic. */
 		q('UPDATE {SQL_TABLE_PREFIX}tv_'. $forum_id .' SET seq=seq-1 WHERE seq>'. $pos);
@@ -154,13 +170,13 @@ function th_new_rebuild($forum_id, $th, $sticky)
 		db_lock('{SQL_TABLE_PREFIX}tv_'. $forum_id .' WRITE');
 	}
 
-	list($max,$iss) = db_saq('SELECT seq,iss FROM {SQL_TABLE_PREFIX}tv_'. $forum_id .' ORDER BY seq DESC LIMIT 1');
-	if ((!$sticky && $iss) || $iss >=8) { /* Sub-optimal case, non-sticky topic and thre are stickies in the forum. */
+	list($max,$iss) = db_saq(q_limit('SELECT /* USE MASTER */ seq, iss FROM {SQL_TABLE_PREFIX}tv_'. $forum_id .' ORDER BY seq DESC', 1));
+	if ((!$sticky && $iss) || $iss >= 8) { /* Sub-optimal case, non-sticky topic and thre are stickies in the forum. */
 		/* Find oldest sticky message. */
 		if ($sticky && $iss >= 8) {
-			$iss = q_singleval('SELECT seq FROM {SQL_TABLE_PREFIX}tv_'. $forum_id .' WHERE seq>'. ($max - 50) .' AND iss>=8 ORDER BY seq ASC LIMIT 1');
+			$iss = q_singleval(q_limit('SELECT /* USE MASTER */ seq FROM {SQL_TABLE_PREFIX}tv_'. $forum_id .' WHERE seq>'. ($max - 50) .' AND iss>=8 ORDER BY seq ASC', 1));
 		} else {
-			$iss = q_singleval('SELECT seq FROM {SQL_TABLE_PREFIX}tv_'. $forum_id .' WHERE seq>'. ($max - 50) .' AND iss>0 ORDER BY seq ASC LIMIT 1');
+			$iss = q_singleval(q_limit('SELECT /* USE MASTER */ seq FROM {SQL_TABLE_PREFIX}tv_'. $forum_id .' WHERE seq>'. ($max - 50) .' AND iss>0 ORDER BY seq ASC', 1));
 		}
 		/* Move all stickies up one. */
 		q('UPDATE {SQL_TABLE_PREFIX}tv_'. $forum_id .' SET seq=seq+1 WHERE seq>='. $iss);
@@ -181,22 +197,22 @@ function th_reply_rebuild($forum_id, $th, $sticky)
 		db_lock('{SQL_TABLE_PREFIX}tv_'. $forum_id .' WRITE');
 	}
 
-	list($max,$tid,$iss) = db_saq('SELECT seq,thread_id,iss FROM {SQL_TABLE_PREFIX}tv_'. $forum_id .' ORDER BY seq DESC LIMIT 1');
+	list($max,$tid,$iss) = db_saq(q_limit('SELECT /* USE MASTER */ seq,thread_id,iss FROM {SQL_TABLE_PREFIX}tv_'. $forum_id .' ORDER BY seq DESC', 1));
 
 	if ($tid == $th) {
 		/* NOOP: quick elimination, topic is already 1st. */
 	} else if (!$iss || ($sticky && $iss < 8)) { /* Moving to the very top. */
 		/* Get position. */
-		$pos = q_singleval('SELECT seq FROM {SQL_TABLE_PREFIX}tv_'. $forum_id .' WHERE thread_id='. $th);
+		$pos = q_singleval('SELECT /* USE MASTER */ seq FROM {SQL_TABLE_PREFIX}tv_'. $forum_id .' WHERE thread_id='. $th);
 		/* Move everyone ahead, 1 down. */
 		q('UPDATE {SQL_TABLE_PREFIX}tv_'. $forum_id .' SET seq=seq-1 WHERE seq>'. $pos);
 		/* Move to top of the stack. */
 		q('UPDATE {SQL_TABLE_PREFIX}tv_'. $forum_id .' SET seq='. $max .' WHERE thread_id='. $th);
 	} else {
 		/* Get position. */
-		$pos = q_singleval('SELECT seq FROM {SQL_TABLE_PREFIX}tv_'. $forum_id .' WHERE thread_id='. $th);
+		$pos = q_singleval('SELECT /* USE MASTER */ seq FROM {SQL_TABLE_PREFIX}tv_'. $forum_id .' WHERE thread_id='. $th);
 		/* Find oldest sticky message. */
-		$iss = q_singleval('SELECT seq FROM {SQL_TABLE_PREFIX}tv_'. $forum_id .' WHERE seq>'. ($max - 50) .' AND iss>'. ($sticky && $iss >= 8 ? '=8' : '0') .' ORDER BY seq ASC LIMIT 1');
+		$iss = q_singleval(q_limit('SELECT /* USE MASTER */ seq FROM {SQL_TABLE_PREFIX}tv_'. $forum_id .' WHERE seq>'. ($max - 50) .' AND iss>'. ($sticky && $iss >= 8 ? '=8' : '0') .' ORDER BY seq ASC', 1));
 		/* Move everyone ahead, unless sticky, 1 down. */
 		q('UPDATE {SQL_TABLE_PREFIX}tv_'. $forum_id .' SET seq=seq-1 WHERE seq BETWEEN '. ($pos + 1) .' AND '. ($iss - 1));
 		/* Move to top of the stack. */
