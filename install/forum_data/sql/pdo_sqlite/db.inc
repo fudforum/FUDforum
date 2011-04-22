@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -8,27 +8,13 @@
 * under the terms of the GNU General Public License as published by the 
 * Free Software Foundation; version 2 of the License. 
 **/
-// define('fud_query_stats', 1);
+# define('fud_query_stats', 1);
 
-class db { public static $db, $ar, $res, $buf; }
+class db { public static $db, $affected_rows, $res, $buf; }
 
-if (empty(db::$db)) {
-	$dsn = 'sqlite:'. $GLOBALS['DBHOST'];
-	$opts = $GLOBALS['FUD_OPT_1'] & 256 ? array(PDO::ATTR_PERSISTENT=>true) : array();
-
-	try {
-		db::$db = new PDO($dsn, $GLOBALS['DBHOST_USER'], $GLOBALS['DBHOST_PASSWORD'], $opts);
-	} catch (PDOException $e) {
-		fud_sql_error_handler('Failed to establish database connection', 'PDO says: '. $e->getMessage(), '', '');
-	}
-
-	define('__dbtype__', substr($GLOBALS['DBHOST_DBTYPE'], 4));
-
-	// SQLite optimization (dangerous, but very fast!).
-	if (defined('SQLITE_FAST_BUT_WRECKLESS')) {
-                q('PRAGMA temp_store = MEMORY');
-                q('PRAGMA synchronous = OFF');
-	}
+function db_close()
+{
+	 db::$db = null;
 }
 
 function db_version()
@@ -78,7 +64,7 @@ function db_locked()
 
 function db_affected()
 {
-	return db::$ar;
+	return db::$affected_rows;
 }
 
 function __enifo($a)
@@ -86,21 +72,62 @@ function __enifo($a)
 	return end($a);	// Return last element of error array.
 }
 
-function uq($query, $buf=0)
-{
-	if (!strncasecmp($query, 'SELECT', 6) || !strncasecmp($query, 'PRAGMA', 6)) {
-		db::$res = null;
-		db::$buf = $buf;
-		db::$res = db::$db->query($query) or fud_sql_error_handler($query, __enifo(db::$db->errorInfo()), db::$db->errorCode(), db_version());
-		return db::$res;
+if (!defined('fud_query_stats')) {
+	function uq($query, $buf=0)
+	{
+		if (!strncasecmp($query, 'SELECT', 6) || !strncasecmp($query, 'PRAGMA', 6)) {
+			db::$res = null;
+			db::$buf = $buf;
+			db::$res = db::$db->query($query) or fud_sql_error_handler($query, __enifo(db::$db->errorInfo()), db::$db->errorCode(), db_version());
+			return db::$res;
+		}
+		if (!db::$buf) {
+			db::$res = null;
+		}
+		if ((db::$affected_rows = db::$db->exec($query)) === FALSE) {
+			fud_sql_error_handler($query, __enifo(db::$db->errorInfo()), db::$db->errorCode(), db_version());
+		}
+		return db::$affected_rows;
 	}
-	if (!db::$buf) {
-		db::$res = null;
+} else {
+	function uq($query, $buf=0)
+	{
+		if (!strncasecmp($query, 'SELECT', 6) || !strncasecmp($query, 'PRAGMA', 6)) {
+			if (!isset($GLOBALS['__DB_INC_INTERNALS__']['query_count'])) {
+				$GLOBALS['__DB_INC_INTERNALS__']['query_count'] = 1;
+			} else {
+				++$GLOBALS['__DB_INC_INTERNALS__']['query_count'];
+			}
+
+			if (!isset($GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'])) {
+				$GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'] = 0;
+			}
+
+			$s = microtime(true);
+			db::$res = null;
+			db::$buf = $buf;
+			db::$res = db::$db->query($query) or fud_sql_error_handler($query, __enifo(db::$db->errorInfo()), db::$db->errorCode(), db_version());
+			$e = gettimeofday(true);
+
+			$GLOBALS['__DB_INC_INTERNALS__']['last_time'] = ($e - $s);
+			$GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'] += $GLOBALS['__DB_INC_INTERNALS__']['last_time'];
+
+			echo '<hr><b>Query #'. $GLOBALS['__DB_INC_INTERNALS__']['query_count'] .'</b><small>';
+			echo ': time taken:     <i>'. number_format($GLOBALS['__DB_INC_INTERNALS__']['last_time'], 4) .'</i>';
+			echo ', affected rows:  <i>'. db_affected() .'</i>';
+			echo ', total sql time: <i>'.  number_format($GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'], 4) .'</i>';
+			echo '<pre>'. preg_replace('!\s+!', ' ', htmlspecialchars($query)) .'</pre></small>';
+
+			return db::$res;
+		}
+		if (!db::$buf) {
+			db::$res = null;
+		}
+		if ((db::$affected_rows = db::$db->exec($query)) === FALSE) {
+			fud_sql_error_handler($query, __enifo(db::$db->errorInfo()), db::$db->errorCode(), db_version());
+		}
+		return db::$affected_rows;
 	}
-	if ((db::$ar = db::$db->exec($query)) === FALSE) {
-		fud_sql_error_handler($query, __enifo(db::$db->errorInfo()), db::$db->errorCode(), db_version());
-	}
-	return db::$ar;
 }
 
 function q($query)
@@ -135,19 +162,14 @@ function q_concat($arg)
 }
 
 function q_rownum() {
-	// if (!function_exists('sqlite_rownum')) {
-	// 	function sqlite_rownum() {
-	//		return ++$GLOBALS['SQLITE_ROWNUM'];
-	//	}
-	//	db::$db->sqliteCreateFunction('rownum', 'sqlite_rownum');
-	// }
-	// $GLOBALS['SQLITE_ROWNUM'] = 0;
-	// return 'rownum()';
-
-	// Cannot be done. SQLite's subquery flattening will apply count before ORDER BY (probably a bug).
-	return 'id';
-
-//TODO: Test return 'ROW_NUMBER() OVER (ORDER BY id)';
+	if (!function_exists('sqlite_rownum')) {
+	 	function sqlite_rownum() {
+			return ++$_SESSION['SQLITE_ROWNUM'];
+		}
+		db::$db->sqliteCreateFunction('rownum', 'sqlite_rownum');
+	}
+	$_SESSION['SQLITE_ROWNUM'] = 0;
+	return 'rownum()';
 }
 
 function q_bitand($fieldLeft, $fieldRight) {
@@ -155,7 +177,7 @@ function q_bitand($fieldLeft, $fieldRight) {
 }
 
 function q_bitor($fieldLeft, $fieldRight) {
-	return $fieldLeft .' | '. $fieldRight;
+	return '('. $fieldLeft .' | '. $fieldRight .')';
 }
 
 function q_bitnot($bitField) {
@@ -230,4 +252,27 @@ function _esc($s)
 {
 	return db::$db->quote($s);
 }
+
+/* Connect to DB. */
+if (empty(db::$db)) {
+	$dsn = 'sqlite:'. $GLOBALS['DBHOST'];
+	$opts = $GLOBALS['FUD_OPT_1'] & 256 ? array(PDO::ATTR_PERSISTENT=>true) : array();
+
+	try {
+		db::$db = new PDO($dsn, $GLOBALS['DBHOST_USER'], $GLOBALS['DBHOST_PASSWORD'], $opts);
+	} catch (PDOException $e) {
+		fud_sql_error_handler('Failed to establish database connection', 'PDO says: '. $e->getMessage(), '', '');
+	}
+
+	define('__dbtype__', substr($GLOBALS['DBHOST_DBTYPE'], 4));
+
+	// SQLite optimization (dangerous, but very fast!).
+	if (defined('SQLITE_FAST_BUT_WRECKLESS')) {
+		q('PRAGMA temp_store=MEMORY');
+		q('PRAGMA journal_mode=MEMORY');
+		q('PRAGMA synchronous=OFF');
+		q('PRAGMA count_changes=OFF');
+	}
+}
+
 ?>

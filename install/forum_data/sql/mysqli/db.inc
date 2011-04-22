@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -8,7 +8,7 @@
 * under the terms of the GNU General Public License as published by the 
 * Free Software Foundation; version 2 of the License. 
 **/
-// define('fud_query_stats', 1);
+# define('fud_query_stats', 1);
 
 class db { public static $db, $ar, $res, $buf; }
 
@@ -33,6 +33,11 @@ if (empty(db::$db)) {
 	define('__dbtype__', 'mysql');
 }
 
+function db_close()
+{
+	 db::$db->close();
+}
+
 function db_version()
 {
 	if (!defined('__FUD_SQL_VERSION__')) {
@@ -48,7 +53,7 @@ function db_lock($tables)
 	if (!empty($GLOBALS['__DB_INC_INTERNALS__']['db_locked'])) {
 		fud_sql_error_handler('Recursive Lock', 'internal', 'internal', db_version());
 	} else {
-		q('LOCK TABLES '.$tables);
+		q('LOCK TABLES '. $tables);
 		$GLOBALS['__DB_INC_INTERNALS__']['db_locked'] = 1;
 	}
 }
@@ -78,6 +83,11 @@ function db_affected()
 	return db::$db-> affected_rows;
 }
 
+function uq($query)
+{
+	return q($query);
+}
+
 if (!defined('fud_query_stats')) {
 	function q($query)
 	{
@@ -86,10 +96,6 @@ if (!defined('fud_query_stats')) {
 			fud_sql_error_handler($query, db::$db->error, db::$db->errno, db_version());
 		}
 		return $r;
-	}
-	function uq($query)
-	{
-		return q($query);
 	}
 } else {
 	function q($query)
@@ -113,19 +119,14 @@ if (!defined('fud_query_stats')) {
 
 		$GLOBALS['__DB_INC_INTERNALS__']['last_time'] = ($e - $s);
 		$GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'] += $GLOBALS['__DB_INC_INTERNALS__']['last_time'];
-		$GLOBALS['__DB_INC_INTERNALS__']['last_query'] = $query;
 
-		echo '<pre>'. preg_replace('!\s+!', ' ', $query) .'</pre>';
-		echo '<pre>query count: '. $GLOBALS['__DB_INC_INTERNALS__']['query_count'] .' time taken: '. $GLOBALS['__DB_INC_INTERNALS__']['last_time'] .'</pre>';
-		echo '<pre>Affected rows: '. db_affected() .'</pre>';
-		echo '<pre>total sql time: '. $GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'] .'</pre>';
+		echo '<hr><b>Query #'. $GLOBALS['__DB_INC_INTERNALS__']['query_count'] .'</b><small>';
+		echo ': time taken:     <i>'. number_format($GLOBALS['__DB_INC_INTERNALS__']['last_time'], 4) .'</i>';
+		echo ', affected rows:  <i>'. db_affected() .'</i>';
+		echo ', total sql time: <i>'.  number_format($GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'], 4) .'</i>';
+		echo '<pre>'. preg_replace('!\s+!', ' ', htmlspecialchars($query)) .'</pre></small>';
 
 		return $result; 
-	}
-
-	function uq($query)
-	{
-		return q($query);
 	}
 }
 
@@ -149,7 +150,6 @@ function q_singleval($query)
 
 function q_limit($query, $limit, $off=0)
 {
-	// OLD SYNTAX: return $query .' LIMIT '. $off .','. $limit;
 	return $query .' LIMIT '. $limit .' OFFSET '. $off;
 }
 
@@ -170,7 +170,7 @@ function q_bitand($fieldLeft, $fieldRight) {
 }
 
 function q_bitor($fieldLeft, $fieldRight) {
-	return $fieldLeft .' | '. $fieldRight;
+	return '('. $fieldLeft .' | '. $fieldRight .')';
 }
 
 function q_bitnot($bitField) {

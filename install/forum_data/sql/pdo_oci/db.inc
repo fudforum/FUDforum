@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -8,25 +8,21 @@
 * under the terms of the GNU General Public License as published by the 
 * Free Software Foundation; version 2 of the License. 
 **/
-// define('fud_query_stats', 1);
+# define('fud_query_stats', 1);
 
-// NOTE: THIS DRIVER IS EXPERIMENTAL AND DOESN'T WORK 100%!!!
-// PROBLEM IS THAT PDO_OCI DOESN'T HAVE AN EQUIVALENT FOR "OCI_RETURN_LOBS".
-// HENCE, LOBS ARE RETURNED AS STREAMS.
+/* ---------------------------------------------------------------------------------------------------
+ * THIS DRIVER IS EXPERIMENTAL AND DOESN'T WORK PROPERLY!!!
+ *
+ * PROBLEM IS THAT PDO_OCI DOESN'T HAVE AN EQUIVALENT FOR "OCI_RETURN_LOBS".
+ * HENCE, LOBS ARE RETURNED AS STREAMS.
+ * ---------------------------------------------------------------------------------------------------
+ */
 
-class db { public static $db, $ar, $res, $buf; }
+class db { public static $db, $affected_rows, $res, $buf; }
 
-if (empty(db::$db)) {
-	$dsn = 'oci:dbname='. $GLOBALS['DBHOST_DBNAME'];
-	$opts = $GLOBALS['FUD_OPT_1'] & 256 ? array(PDO::ATTR_PERSISTENT=>true) : array();
-
-	try {
-		db::$db = new PDO($dsn, $GLOBALS['DBHOST_USER'], $GLOBALS['DBHOST_PASSWORD'], $opts);
-	} catch (PDOException $e) {
-		fud_sql_error_handler('Failed to establish database connection', 'PDO says: '. $e->getMessage(), '', '');
-	}
-
-	define('__dbtype__', 'oracle');
+function db_close()
+{
+	 db::$db = null;
 }
 
 function db_version()
@@ -74,7 +70,7 @@ function db_locked()
 
 function db_affected()
 {
-	return db::$ar;
+	return db::$affected_rows;
 }
 
 function __enifo($a)
@@ -82,21 +78,74 @@ function __enifo($a)
 	return end($a);	// Return last element of error array.
 }
 
-function uq($query, $buf=0)
-{
-	if (!strncasecmp($query, 'SELECT', 6)) {
-		db::$res = null;
-		db::$buf = $buf;
-		db::$res = db::$db->query(_ora_syntax($query)) or fud_sql_error_handler($query, __enifo(db::$db->errorInfo()), db::$db->errorCode(), db_version());
-		return db::$res;
+if (!defined('fud_query_stats')) {
+	function uq($query, $buf=0)
+	{
+		if (!strncasecmp($query, 'SELECT', 6)) {
+			db::$res = null;
+			db::$buf = $buf;
+			db::$res = db::$db->query(_ora_syntax($query)) or fud_sql_error_handler($query, __enifo(db::$db->errorInfo()), db::$db->errorCode(), db_version());
+			return db::$res;
+		}
+		if (!db::$buf) {
+			db::$res = null;
+		}
+		if ((db::$affected_rows = db::$db->exec($query)) === FALSE) {
+			fud_sql_error_handler($query, __enifo(db::$db->errorInfo()), db::$db->errorCode(), db_version());
+		}
+		return db::$affected_rows;
 	}
-	if (!db::$buf) {
-		db::$res = null;
+} else {
+	function uq($query, $buf=0)
+	{
+		if (!strncasecmp($query, 'SELECT', 6)) {
+			if (!isset($GLOBALS['__DB_INC_INTERNALS__']['query_count'])) {
+				$GLOBALS['__DB_INC_INTERNALS__']['query_count'] = 1;
+			} else {
+				++$GLOBALS['__DB_INC_INTERNALS__']['query_count'];
+			}
+
+			if (!isset($GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'])) {
+				$GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'] = 0;
+			}
+
+			$s = microtime(true);
+			db::$res = null;
+			db::$buf = $buf;
+			db::$res = db::$db->query(_ora_syntax($query)) or fud_sql_error_handler($query, __enifo(db::$db->errorInfo()), db::$db->errorCode(), db_version());
+			$e = gettimeofday(true);
+
+			$GLOBALS['__DB_INC_INTERNALS__']['last_time'] = ($e - $s);
+			$GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'] += $GLOBALS['__DB_INC_INTERNALS__']['last_time'];
+
+			echo '<hr><b>Query #'. $GLOBALS['__DB_INC_INTERNALS__']['query_count'] .'</b><small>';
+			echo ': time taken:     <i>'. number_format($GLOBALS['__DB_INC_INTERNALS__']['last_time'], 4) .'</i>';
+			echo ', affected rows:  <i>'. db_affected() .'</i>';
+			echo ', total sql time: <i>'.  number_format($GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'], 4) .'</i>';
+			echo '<pre>'. preg_replace('!\s+!', ' ', htmlspecialchars($query)) .'</pre></small>';
+
+			return db::$res;
+		}
+		if (!db::$buf) {
+			db::$res = null;
+		}
+		if ((db::$affected_rows = db::$db->exec($query)) === FALSE) {
+			fud_sql_error_handler($query, __enifo(db::$db->errorInfo()), db::$db->errorCode(), db_version());
+		}
+
+		$e = gettimeofday(true);
+
+		$GLOBALS['__DB_INC_INTERNALS__']['last_time'] = ($e - $s);
+		$GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'] += $GLOBALS['__DB_INC_INTERNALS__']['last_time'];
+
+		echo '<hr><b>Query #'. $GLOBALS['__DB_INC_INTERNALS__']['query_count'] .'</b><small>';
+		echo ': time taken:     <i>'. number_format($GLOBALS['__DB_INC_INTERNALS__']['last_time'], 4) .'</i>';
+		echo ', affected rows:  <i>'. db_affected() .'</i>';
+		echo ', total sql time: <i>'.  number_format($GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'], 4) .'</i>';
+		echo '<pre>'. preg_replace('!\s+!', ' ', htmlspecialchars($query)) .'</pre></small>';
+
+		return db::$affected_rows;
 	}
-	if ((db::$ar = db::$db->exec($query)) === FALSE) {
-		fud_sql_error_handler($query, __enifo(db::$db->errorInfo()), db::$db->errorCode(), db_version());
-	}
-	return db::$ar;
 }
 
 function q($query)
@@ -150,7 +199,7 @@ function q_bitand($fieldLeft, $fieldRight) {
 }
 
 function q_bitor($fieldLeft, $fieldRight) {
-	return $fieldLeft .' + '. $fieldRight .' - BITAND('. $fieldLeft .', '. $fieldRight .')';
+	return '('. $fieldLeft .' + '. $fieldRight .' - BITAND('. $fieldLeft .', '. $fieldRight .'))';
 }
 
 function q_bitnot($bitField) {
@@ -245,20 +294,26 @@ function _esc($s)
 
 function _ora_syntax($q)
 {
-	// Change LIMIT to Oracle's ROWNUM.
-	if (preg_match('/LIMIT (\d+)/', $q, $res)) {
-		$off = 0;
-		$limit = $res[1];
-		$q = substr($q, 0, strpos($q, 'LIMIT '));
-		$q = 'SELECT * FROM (SELECT /*+ FIRST_ROWS */ a.*, rownum AS xrownum FROM ('. $q .') a WHERE rownum <= '. ($off + $limit) .') WHERE xrownum >= '. ($off+1);
-	}
-
 	// SELECT without FROM, we need to append 'FROM dual'.
 	if (preg_match('/^SELECT /i', $q) && !preg_match('/FROM/i', $q)) {
 		$q .= ' FROM dual';
 	}
 
 	return $q;
+}
+
+/* Connect to DB. */
+if (empty(db::$db)) {
+	$dsn = 'oci:dbname='. $GLOBALS['DBHOST_DBNAME'];
+	$opts = $GLOBALS['FUD_OPT_1'] & 256 ? array(PDO::ATTR_PERSISTENT=>true) : array();
+
+	try {
+		db::$db = new PDO($dsn, $GLOBALS['DBHOST_USER'], $GLOBALS['DBHOST_PASSWORD'], $opts);
+	} catch (PDOException $e) {
+		fud_sql_error_handler('Failed to establish database connection', 'PDO says: '. $e->getMessage(), '', '');
+	}
+
+	define('__dbtype__', 'oracle');
 }
 
 ?>

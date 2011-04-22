@@ -137,12 +137,12 @@ if (!defined('fud_query_stats')) {
 
 		$GLOBALS['__DB_INC_INTERNALS__']['last_time'] = ($e - $s);
 		$GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'] += $GLOBALS['__DB_INC_INTERNALS__']['last_time'];
-		$GLOBALS['__DB_INC_INTERNALS__']['last_query'] = $q;
 
-		echo '<pre>'. preg_replace('!\s+!', ' ', $q) .'</pre>';
-		echo '<pre>query count: '. $GLOBALS['__DB_INC_INTERNALS__']['query_count'] .' time taken: '. $GLOBALS['__DB_INC_INTERNALS__']['last_time'] .'</pre>';
-		echo '<pre>Affected rows: '. db_affected() .'</pre>';
-		echo '<pre>total sql time: '. $GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'] .'</pre>';
+		echo '<hr><b>Query #'. $GLOBALS['__DB_INC_INTERNALS__']['query_count'] .'</b><small>';
+		echo ': time taken:     <i>'. number_format($GLOBALS['__DB_INC_INTERNALS__']['last_time'], 4) .'</i>';
+		echo ', affected rows:  <i>'. db_affected() .'</i>';
+		echo ', total sql time: <i>'.  number_format($GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'], 4) .'</i>';
+		echo '<pre>'. preg_replace('!\s+!', ' ', htmlspecialchars($q)) .'</pre></small>';
 
 		return $GLOBALS['__FLPG__'];
 	}

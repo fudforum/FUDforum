@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -8,12 +8,12 @@
 * under the terms of the GNU General Public License as published by the 
 * Free Software Foundation; version 2 of the License. 
 **/
-// define('fud_query_stats', 1);
+# define('fud_query_stats', 1);
 
 if (!defined('fud_sql_lnk')) {
 	$connect_func = $GLOBALS['FUD_OPT_1'] & 256 ? 'oci_pconnect' : 'oci_connect';	
 
-	if (! extension_loaded('oci8')) {
+	if (!extension_loaded('oci8')) {
 		fud_sql_error_handler('Loading driver', 'We were unable to use an Oracle database because the OCI8 extension for PHP is not installed. Check your PHP.ini to see how it can be enabled', '', 'Unknown');
 	}
 
@@ -25,6 +25,11 @@ if (!defined('fud_sql_lnk')) {
 
 	define('fud_sql_lnk', $conn);
 	define('__dbtype__', 'oracle');
+}
+
+function db_close()
+{
+	 oci_close(fud_sql_lnk);
 }
 
 function db_version()
@@ -122,12 +127,12 @@ if (!defined('fud_query_stats')) {
 
 		$GLOBALS['__DB_INC_INTERNALS__']['last_time'] = ($e - $s);
 		$GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'] += $GLOBALS['__DB_INC_INTERNALS__']['last_time'];
-		$GLOBALS['__DB_INC_INTERNALS__']['last_query'] = $q;
 
-		echo '<pre>'. preg_replace('!\s+!', ' ', $q) .'</pre>';
-		echo '<pre>query count: '. $GLOBALS['__DB_INC_INTERNALS__']['query_count'] .' time taken: '. $GLOBALS['__DB_INC_INTERNALS__']['last_time'] .'</pre>';
-		echo '<pre>Affected rows: '. db_affected() .'</pre>';
-		echo '<pre>total sql time: '. $GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'] .'</pre>';
+		echo '<hr><b>Query #'. $GLOBALS['__DB_INC_INTERNALS__']['query_count'] .'</b><small>';
+		echo ': time taken:     <i>'. number_format($GLOBALS['__DB_INC_INTERNALS__']['last_time'], 4) .'</i>';
+		echo ', affected rows:  <i>'. db_affected() .'</i>';
+		echo ', total sql time: <i>'.  number_format($GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'], 4) .'</i>';
+		echo '<pre>'. preg_replace('!\s+!', ' ', htmlspecialchars($q)) .'</pre></small>';
 
 		return $GLOBALS['__FLPG__'];
 	}
@@ -180,7 +185,7 @@ function q_bitand($fieldLeft, $fieldRight) {
 }
 
 function q_bitor($fieldLeft, $fieldRight) {
-	return $fieldLeft .' + '. $fieldRight .' - BITAND('. $fieldLeft .', '. $fieldRight .')';
+	return '('. $fieldLeft .' + '. $fieldRight .' - BITAND('. $fieldLeft .', '. $fieldRight .'))';
 }
 
 function q_bitnot($bitField) {
@@ -287,14 +292,6 @@ function _esc($s)
 
 function _ora_syntax($q)
 {
-	// Change LIMIT to Oracle's ROWNUM.
-	if (preg_match('/LIMIT (\d+)/', $q, $res)) {
-		$off = 0;
-		$limit = $res[1];
-		$q = substr($q, 0, strpos($q, 'LIMIT '));
-		$q = 'SELECT * FROM (SELECT /*+ FIRST_ROWS */ a.*, rownum AS xrownum FROM ('. $q .') a WHERE rownum <= '. ($off + $limit) .') WHERE xrownum >= '. ($off+1);
-	}
-
 	// SELECT without FROM, we need to append 'FROM dual'.
 	if (preg_match('/^SELECT /i', $q) && !preg_match('/FROM/i', $q)) {
 		$q .= ' FROM dual';

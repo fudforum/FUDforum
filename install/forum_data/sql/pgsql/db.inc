@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -8,7 +8,7 @@
 * under the terms of the GNU General Public License as published by the 
 * Free Software Foundation; version 2 of the License. 
 **/
-// define('fud_query_stats', 1);
+# define('fud_query_stats', 1);
 
 if (!defined('fud_sql_lnk')) {
 	$connect_func = $GLOBALS['FUD_OPT_1'] & 256 ? 'pg_pconnect' : 'pg_connect';
@@ -40,6 +40,11 @@ if (!defined('fud_sql_lnk')) {
 
 	define('fud_sql_lnk', $conn);
 	define('__dbtype__', 'pgsql');
+}
+
+function db_close()
+{
+	 pg_close(fud_sql_lnk);
 }
 
 function db_version()
@@ -122,12 +127,12 @@ if (!defined('fud_query_stats')) {
 	
 		$GLOBALS['__DB_INC_INTERNALS__']['last_time'] = ($e - $s);;
 		$GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'] += $GLOBALS['__DB_INC_INTERNALS__']['last_time'];
-		$GLOBALS['__DB_INC_INTERNALS__']['last_query'] = $q;
 
-		echo '<pre>'. preg_replace('!\s+!', ' ', $q) .'</pre>';
-		echo '<pre>query count: '. $GLOBALS['__DB_INC_INTERNALS__']['query_count'] .' time taken: '. $GLOBALS['__DB_INC_INTERNALS__']['last_time'] .'</pre>';
-		echo '<pre>Affected rows: '. db_affected() .'</pre>';
-		echo '<pre>total sql time: '. $GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'] .'</pre>';
+		echo '<hr><b>Query #'. $GLOBALS['__DB_INC_INTERNALS__']['query_count'] .'</b><small>';
+		echo ': time taken:     <i>'. number_format($GLOBALS['__DB_INC_INTERNALS__']['last_time'], 4) .'</i>';
+		echo ', affected rows:  <i>'. db_affected() .'</i>';
+		echo ', total sql time: <i>'.  number_format($GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'], 4) .'</i>';
+		echo '<pre>'. preg_replace('!\s+!', ' ', htmlspecialchars($q)) .'</pre></small>';
 
 		return $GLOBALS['__FLPG__'];
 	}
@@ -154,18 +159,10 @@ function q_limit($query, $limit, $off=0)
 	return $query .' LIMIT '. $limit .' OFFSET '. $off;
 }
 
-function q_concat($arg)
+function q_concat($args)
 {
 	$args = func_get_args();
-	$sql  = '';
-	foreach ($args as $arg) {
-		if (is_numeric($arg)) {
-			$sql .= (empty($sql)) ? 'cast('. $arg .' as text)' : '|| cast('. $arg .' as text)';
-		} else {
-			$sql .= (empty($sql)) ? $arg : '|| '. $arg;
-		}
-	}
-	return $sql;
+	return implode('::text ||', $args); 
 }
 
 function q_rownum() {
@@ -179,7 +176,7 @@ function q_bitand($fieldLeft, $fieldRight) {
 }
 
 function q_bitor($fieldLeft, $fieldRight) {
-	return $fieldLeft .' | '. $fieldRight;
+	return '('. $fieldLeft .' | '. $fieldRight .')';
 }
 
 function q_bitnot($bitField) {

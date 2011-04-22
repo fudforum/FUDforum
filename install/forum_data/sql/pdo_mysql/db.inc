@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -8,28 +8,13 @@
 * under the terms of the GNU General Public License as published by the 
 * Free Software Foundation; version 2 of the License. 
 **/
-// define('fud_query_stats', 1);
+# define('fud_query_stats', 1);
 
-class db { public static $db, $ar, $res, $buf; }
+class db { public static $db, $affected_rows, $res, $buf; }
 
-if (empty(db::$db)) {
-	if ($GLOBALS['DBHOST']{0} == ':') {
-		$host = 'unix_socket='. substr($GLOBALS['DBHOST'], 1);
-	} else {
-		$host = 'host='. $GLOBALS['DBHOST'];
-	}
-
-	$dsn = 'mysql:'.$host.';dbname='.$GLOBALS['DBHOST_DBNAME'];
-	$opts = $GLOBALS['FUD_OPT_1'] & 256 ? array(PDO::ATTR_PERSISTENT=>true) : array();
-	$opts[] = array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8 COLLATE utf8_unicode_ci');
-
-	try {
-		db::$db = new PDO($dsn, $GLOBALS['DBHOST_USER'], $GLOBALS['DBHOST_PASSWORD'], $opts);
-	} catch (PDOException $e) {
-		fud_sql_error_handler('Failed to establish database connection', 'PDO says: '. $e->getMessage(), '', '');
-	}
-
-	define('__dbtype__', substr($GLOBALS['DBHOST_DBTYPE'], 4));
+function db_close()
+{
+	 db::$db = null;
 }
 
 function db_version()
@@ -77,7 +62,7 @@ function db_locked()
 
 function db_affected()
 {
-	return db::$ar;
+	return db::$affected_rows;
 }
 
 function __enifo($a)
@@ -99,10 +84,10 @@ if (!defined('fud_query_stats')) {
 		if (!db::$buf) {
 			db::$res = null;
 		}
-		if ((db::$ar = db::$db->exec($query)) === FALSE) {
+		if ((db::$affected_rows = db::$db->exec($query)) === FALSE) {
 			fud_sql_error_handler($query, __enifo(db::$db->errorInfo()), db::$db->errorCode(), db_version());
 		}
-		return db::$ar;
+		return db::$affected_rows;
 	}
 
 	function q($query)
@@ -133,33 +118,33 @@ if (!defined('fud_query_stats')) {
 
 			$GLOBALS['__DB_INC_INTERNALS__']['last_time'] = ($e - $s);
 			$GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'] += $GLOBALS['__DB_INC_INTERNALS__']['last_time'];
-			$GLOBALS['__DB_INC_INTERNALS__']['last_query'] = $query;
 
-			echo '<pre>'. preg_replace('!\s+!', ' ', $query) .'</pre>';
-			echo '<pre>query count: '. $GLOBALS['__DB_INC_INTERNALS__']['query_count'] .' time taken: '. $GLOBALS['__DB_INC_INTERNALS__']['last_time'] .'</pre>';
-			echo '<pre>Affected rows: '. db_affected() .'</pre>';
-			echo '<pre>total sql time: '. $GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'] .'</pre>';
+			echo '<hr><b>Query #'. $GLOBALS['__DB_INC_INTERNALS__']['query_count'] .'</b><small>';
+			echo ': time taken:     <i>'. number_format($GLOBALS['__DB_INC_INTERNALS__']['last_time'], 4) .'</i>';
+			echo ', affected rows:  <i>'. db_affected() .'</i>';
+			echo ', total sql time: <i>'.  number_format($GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'], 4) .'</i>';
+			echo '<pre>'. preg_replace('!\s+!', ' ', htmlspecialchars($query)) .'</pre></small>';
 
 			return db::$res;
 		}
 		if (!db::$buf) {
 			db::$res = null;
 		}
-		if ((db::$ar = db::$db->exec($query)) === FALSE) {
+		if ((db::$affected_rows = db::$db->exec($query)) === FALSE) {
 			fud_sql_error_handler($query, __enifo(db::$db->errorInfo()), db::$db->errorCode(), db_version());
 		}
 		$e = microtime(true);
 
 		$GLOBALS['__DB_INC_INTERNALS__']['last_time'] = ($e - $s);
 		$GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'] += $GLOBALS['__DB_INC_INTERNALS__']['last_time'];
-		$GLOBALS['__DB_INC_INTERNALS__']['last_query'] = $query;
 
-		echo '<pre>'. preg_replace('!\s+!', ' ', $query) .'</pre>';
-		echo '<pre>query count: '. $GLOBALS['__DB_INC_INTERNALS__']['query_count'] .' time taken: '. $GLOBALS['__DB_INC_INTERNALS__']['last_time'] .'</pre>';
-		echo '<pre>Affected rows: '. db_affected() .'</pre>';
-		echo '<pre>total sql time: '. $GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'] .'</pre>';
+		echo '<hr><b>Query #'. $GLOBALS['__DB_INC_INTERNALS__']['query_count'] .'</b><small>';
+		echo ': time taken:     <i>'. number_format($GLOBALS['__DB_INC_INTERNALS__']['last_time'], 4) .'</i>';
+		echo ', affected rows:  <i>'. db_affected() .'</i>';
+		echo ', total sql time: <i>'.  number_format($GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'], 4) .'</i>';
+		echo '<pre>'. preg_replace('!\s+!', ' ', htmlspecialchars($query)) .'</pre></small>';
 
-		return db::$ar;
+		return db::$affected_rows;
 	}
 
 	function q($query)
@@ -185,7 +170,6 @@ function q_singleval($query)
 
 function q_limit($query, $limit, $off=0)
 {
-	// OLD SYNTAX: return $query .' LIMIT '. $off .','. $limit;
 	return $query .' LIMIT '. $limit .' OFFSET '. $off;
 }
 
@@ -206,7 +190,7 @@ function q_bitand($fieldLeft, $fieldRight) {
 }
 
 function q_bitor($fieldLeft, $fieldRight) {
-	return $fieldLeft .' | '. $fieldRight;
+	return '('. $fieldLeft .' | '. $fieldRight .')';
 }
 
 function q_bitnot($bitField) {
@@ -275,4 +259,26 @@ function _esc($s)
 {
 	return db::$db->quote($s);
 }
+
+/* Connect to DB. */
+if (empty(db::$db)) {
+	if ($GLOBALS['DBHOST']{0} == ':') {
+		$host = 'unix_socket='. substr($GLOBALS['DBHOST'], 1);
+	} else {
+		$host = 'host='. $GLOBALS['DBHOST'];
+	}
+
+	$dsn = 'mysql:'. $host .';dbname='. $GLOBALS['DBHOST_DBNAME'];
+	$opts = $GLOBALS['FUD_OPT_1'] & 256 ? array(PDO::ATTR_PERSISTENT=>true) : array();
+	$opts[] = array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8 COLLATE utf8_unicode_ci');
+
+	try {
+		db::$db = new PDO($dsn, $GLOBALS['DBHOST_USER'], $GLOBALS['DBHOST_PASSWORD'], $opts);
+	} catch (PDOException $e) {
+		fud_sql_error_handler('Failed to establish database connection', 'PDO says: '. $e->getMessage(), '', '');
+	}
+
+	define('__dbtype__', substr($GLOBALS['DBHOST_DBTYPE'], 4));
+}
+
 ?>

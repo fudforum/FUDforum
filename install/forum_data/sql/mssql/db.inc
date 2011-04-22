@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -8,10 +8,18 @@
 * under the terms of the GNU General Public License as published by the 
 * Free Software Foundation; version 2 of the License. 
 **/
-// define('fud_query_stats', 1);
+# define('fud_query_stats', 1);
 
-/* This is an experimantal driver for SQL Server "Denali".
- * Do not try to use it with SQL Server 2008 or older releases.
+/* ---------------------------------------------------------------------------------------------------
+ * Driver for Microsoft SQL Server "Denali".
+ * Do not use it with SQL Server 2008 or older releases.
+ *
+ * THIS DRIVER IS EXPERIMENTAL AND DOESN'T WORK PROPERLY!!!
+ *
+ * This driver doesn't work because of a PHP bug that will create tables with "NULL"
+ * columns as "NOT NULL". The problem is described at -
+ * http://dba.fyicenter.com/faq/sql_server_2/PHP_MSSQL_Making_Columns_to_Take_NULL.html
+ * ---------------------------------------------------------------------------------------------------
  */
 
 if (!defined('fud_sql_lnk')) {
@@ -26,6 +34,11 @@ if (!defined('fud_sql_lnk')) {
 	@ini_set('mssql.textsize', 2147483647);
 
 	define('__dbtype__', 'mssql');
+}
+
+function db_close()
+{
+	 mssql_close(fud_sql_lnk);
 }
 
 function db_version()
@@ -73,15 +86,15 @@ function db_affected()
 	return mssql_affected_rows(fud_sql_lnk);	
 }
 
+function uq($query)
+{
+	return q($query);
+}
+
 if (!defined('fud_query_stats')) {
 	function q($query)
 	{
 		$r = mssql_query($query, fud_sql_lnk) or fud_sql_error_handler($query, mssql_get_last_message(), null, db_version());
-		return $r;
-	}
-	function uq($query)
-	{
-		$r = mssql_query($query,fud_sql_lnk) or fud_sql_error_handler($query, mssql_get_last_message(), null, db_version());
 		return $r;
 	}
 } else {
@@ -98,24 +111,19 @@ if (!defined('fud_query_stats')) {
 		}
 	
 		$s = microtime(true);
-		$result = mssql_query($query, fud_sql_lnk) or fud_sql_error_handler($query, mssql_get_last_message(), null, db_version());
+		$r = mssql_query($query, fud_sql_lnk) or fud_sql_error_handler($query, mssql_get_last_message(), null, db_version());
 		$e = microtime(true);
 
 		$GLOBALS['__DB_INC_INTERNALS__']['last_time'] = ($e - $s);
 		$GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'] += $GLOBALS['__DB_INC_INTERNALS__']['last_time'];
-		$GLOBALS['__DB_INC_INTERNALS__']['last_query'] = $query;
 
-		echo '<pre>'. preg_replace('!\s+!', ' ', $query) .'</pre>';
-		echo '<pre>query count: '. $GLOBALS['__DB_INC_INTERNALS__']['query_count'] .' time taken: '. $GLOBALS['__DB_INC_INTERNALS__']['last_time'] .'</pre>';
-		echo '<pre>Affected rows: '. db_affected() .'</pre>';
-		echo '<pre>total sql time: '. $GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'] .'</pre>';
+		echo '<hr><b>Query #'. $GLOBALS['__DB_INC_INTERNALS__']['query_count'] .'</b><small>';
+		echo ': time taken:     <i>'. number_format($GLOBALS['__DB_INC_INTERNALS__']['last_time'], 4) .'</i>';
+		echo ', affected rows:  <i>'. db_affected() .'</i>';
+		echo ', total sql time: <i>'.  number_format($GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'], 4) .'</i>';
+		echo '<pre>'. preg_replace('!\s+!', ' ', htmlspecialchars($query)) .'</pre></small>';
 
-		return $result; 
-	}
-
-	function uq($query)
-	{
-		return q($query);
+		return $r; 
 	}
 }
 
@@ -168,7 +176,7 @@ function q_bitand($fieldLeft, $fieldRight) {
 }
 
 function q_bitor($fieldLeft, $fieldRight) {
-	return $fieldLeft .' | '. $fieldRight;
+	return '('. $fieldLeft .' | '. $fieldRight .')';
 }
 
 function q_bitnot($bitField) {

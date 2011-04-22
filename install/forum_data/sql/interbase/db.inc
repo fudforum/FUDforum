@@ -16,6 +16,7 @@ if (!defined('fud_sql_lnk')) {
 	$conn = $connect_func($GLOBALS['DBHOST'] .':'. $GLOBALS['DBHOST_DBNAME'], $GLOBALS['DBHOST_USER'], $GLOBALS['DBHOST_PASSWORD'], 'UTF-8') or fud_sql_error_handler('Initiating '. $connect_func, ibase_errmsg(), ibase_errcode(), 'Unknown');
 	define('fud_sql_lnk', $conn);
 
+	// Interbase driver used to implement Firebird access.
 	define('__dbtype__', 'firebird');
 }
 
@@ -68,6 +69,11 @@ function db_affected()
 	return ibase_affected_rows(fud_sql_lnk);	
 }
 
+function uq($query)
+{
+	return q($query);
+}
+
 if (!defined('fud_query_stats')) {
 	function q($query)
 	{
@@ -77,10 +83,6 @@ if (!defined('fud_query_stats')) {
 			@ibase_commit_ret();	// If not a SELECT or COMMIT, commit the tran without closing it.
 		}
 		return $r;
-	}
-	function uq($query)
-	{
-		return q($query);
 	}
 } else {
 	function q($query)
@@ -104,19 +106,14 @@ if (!defined('fud_query_stats')) {
 
 		$GLOBALS['__DB_INC_INTERNALS__']['last_time'] = ($e - $s);
 		$GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'] += $GLOBALS['__DB_INC_INTERNALS__']['last_time'];
-		$GLOBALS['__DB_INC_INTERNALS__']['last_query'] = $query;
 
-		echo '<pre>'. preg_replace('!\s+!', ' ', $query) .'</pre>';
-		echo '<pre>query count: '. $GLOBALS['__DB_INC_INTERNALS__']['query_count'] .' time taken: '. $GLOBALS['__DB_INC_INTERNALS__']['last_time'] .'</pre>';
-		echo '<pre>Affected rows: '. db_affected() .'</pre>';
-		echo '<pre>total sql time: '. $GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'] .'</pre>';
+		echo '<hr><b>Query #'. $GLOBALS['__DB_INC_INTERNALS__']['query_count'] .'</b><small>';
+		echo ': time taken:     <i>'. number_format($GLOBALS['__DB_INC_INTERNALS__']['last_time'], 4) .'</i>';
+		echo ', affected rows:  <i>'. db_affected() .'</i>';
+		echo ', total sql time: <i>'.  number_format($GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'], 4) .'</i>';
+		echo '<pre>'. preg_replace('!\s+!', ' ', htmlspecialchars($query)) .'</pre></small>';
 
 		return $result; 
-	}
-
-	function uq($query)
-	{
-		return q($query);
 	}
 }
 
