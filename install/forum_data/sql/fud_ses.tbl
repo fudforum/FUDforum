@@ -19,6 +19,7 @@ CREATE TABLE {SQL_TABLE_PREFIX}ses
 	forum_id        INT NOT NULL DEFAULT 0,
 
 	time_sec	BIGINT NOT NULL DEFAULT 0,
+	ip_addr		BIGINT NOT NULL DEFAULT 0,
 
 	data		TEXT,
 	returnto	VARCHAR(255)

@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -12,6 +12,7 @@
 /*{PRE_HTML_PHP}*/
 
 	if (!($FUD_OPT_1 & 536870912) || (!_uid && $FUD_OPT_3 & 131072)) {
+		// Test ACTION_LIST_ENABLED and NO_ANON_ACTION_LIST.
 		std_error('disabled');
 	}
 
@@ -21,10 +22,11 @@
 
 	if (isset($_GET['o'])) {
 		switch ($_GET['o']) {
-			case 'alias':		$o = 'u.alias'; break;
+			case 'alias':	$o = 'u.alias'; break;
+			case 'ip':	$o = 's.ip_addr'; break;
 			case 'time':
-			default:		$o = 's.time_sec';
-		}	
+			default:	$o = 's.time_sec';
+		}
 	} else {
 		$o = 'u.alias';
 	}
@@ -39,7 +41,7 @@
 
 	$c = uq('SELECT
 			s.action, s.user_id, s.forum_id,
-			u.alias, u.custom_color, s.time_sec, u.users_opt,
+			u.alias, u.custom_color, s.time_sec, s.ip_addr, u.users_opt,
 			m.id, m.subject, m.post_stamp,
 			t.forum_id,
 			mm1.id, mm2.id
@@ -56,24 +58,24 @@
 	while ($r = db_rowarr($c)) {
 		++$uc; // Update loggedin user count.
 
-		if ($r[6] & 32768 && !$is_a) {
+		if ($r[7] & 32768 && !$is_a) {	// Hide invisible_mode users.
 			continue;
 		}
 
 		if ($r[3]) {
 			$user_login = '{TEMPLATE: reg_user_link}';
 
-			if (!$r[9]) {
+			if (!$r[10]) {
 				$last_post = '{TEMPLATE: last_post_na}';
 			} else {
-				$last_post = (!$is_a && !$r[11] && empty($limit[$r[10]])) ? '{TEMPLATE: no_view_perm}' : '{TEMPLATE: last_post}';
+				$last_post = (!$is_a && !$r[12] && empty($limit[$r[11]])) ? '{TEMPLATE: no_view_perm}' : '{TEMPLATE: last_post}';
 			}
 		} else {
 			$user_login = '{TEMPLATE: anon_user}';
 			$last_post = '{TEMPLATE: last_post_na}';
 		}
 
-		if (!$r[2] || ($is_a || !empty($limit[$r[2]]) || $r[12])) {
+		if (!$r[2] || ($is_a || !empty($limit[$r[2]]) || $r[13])) {
 			if ($FUD_OPT_2 & 32768) {	// USE_PATH_INFO
 				if (($p = strpos($r[0], 'href="')) !== false) {
 					$p += 6;
@@ -109,8 +111,9 @@
 			$action = '{TEMPLATE: no_view_perm}';
 		}
 
+		$ip_addr = long2ip($r[6]);
 		$action_data .= '{TEMPLATE: action_entry}';
-	}
+			}
 	unset($c);
 
 /*{POST_PAGE_PHP_CODE}*/

@@ -22,7 +22,7 @@
 
 {SECTION: last_post last by a user}
 {TEMPLATE: last_post_date}<br />
-<a href="{TEMPLATE: last_post_lnk}">{VAR: r[8]}</a>
+<a href="{TEMPLATE: last_post_lnk}">{VAR: r[9]}</a>
 {SECTION: END}
 
 {SECTION: last_post_na no last post}
@@ -33,6 +33,7 @@
 <tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}">
 	<td class="GenText">{VAR: user_login}</td>
 	<td class="GenText">{VAR: action}</td>
+	{IF: $is_a}<td class="GenText">{VAR: ip_addr}</td>{ENDIF}
 	<td class="DateText">{TEMPLATE: action_entry_date}</td>
 	<td class="SmallText">{TEMPLATE-DATA: last_post}</td>
 </tr>
@@ -56,6 +57,7 @@
 <tr>
 	<th><a href="{TEMPLATE: action_sort_alias_lnk}" class="thLnk" rel="nofollow">{MSG: user}</a></th>
 	<th>{MSG: action}</th>
+	{IF: $is_a}<th><a href="{TEMPLATE: action_sort_ip_lnk}" class="thLnk" rel="nofollow">{MSG: action_ip}</a></th>{ENDIFI}
 	<th><a href="{TEMPLATE: action_sort_time_lnk}" class="thLnk" rel="nofollow">{MSG: time}</a></th>
 	<th>{MSG: action_latest_post}</th>
 </tr>
@@ -80,7 +82,7 @@
 {SECTION: END}
 
 {SECTION: last_post_lnk}
-{ROOT}?t={DEF: d_thread_view}&goto={VAR: r[7]}&{DEF: _rsid}#msg_{VAR: r[7]}
+{ROOT}?t={DEF: d_thread_view}&goto={VAR: r[8]}&{DEF: _rsid}#msg_{VAR: r[8]}
 {SECTION: END}
 
 {SECTION: ACTION_PAGE_lnk}
@@ -93,4 +95,8 @@
 
 {SECTION: action_sort_time_lnk}
 {ROOT}?t=actions&amp;o=time&amp;s={IF: $o=='s.time_sec' && $s=='ASC'}d{ELSE}a{END}&amp;{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: action_sort_ip_lnk}
+{ROOT}?t=actions&amp;o=ip&amp;s={IF: $o=='s.time_sec' && $s=='ASC'}d{ELSE}a{ENDI}&amp;{DEF: _rsid}
 {SECTION: END}

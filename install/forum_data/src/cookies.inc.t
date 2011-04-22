@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -86,10 +86,11 @@ function ses_get($id=0)
 
 function ses_anon_make()
 {
+	$ip = ip2long(get_ip());
 	do {
 		$uid = 2000000000 + mt_rand(1, 147483647);
 		$ses_id = md5($uid . __request_timestamp__ . getmypid());
-	} while (!($id = db_li('INSERT INTO {SQL_TABLE_PREFIX}ses (ses_id, time_sec, sys_id, user_id) VALUES (\''. $ses_id .'\', '. __request_timestamp__ .', \''. ses_make_sysid() .'\', '. $uid .')', $ef, 1)));
+	} while (!($id = db_li('INSERT INTO {SQL_TABLE_PREFIX}ses (ses_id, time_sec, sys_id, ip_addr, user_id) VALUES (\''. $ses_id .'\', '. __request_timestamp__ .', \''. ses_make_sysid() .'\', '. $ip .', '. $uid .')', $ef, 1)));
 
 	/* When we have an anon user, we set a special cookie allowing us to see who referred this user. */
 	if (isset($_GET['rid']) && !isset($_COOKIE['frm_referer_id']) && $GLOBALS['FUD_OPT_2'] & 8192) {
