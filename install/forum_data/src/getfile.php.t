@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -19,7 +19,9 @@ function get_preview_img($id)
 
 /* main */
 	if (!isset($_GET['id']) || !($id = (int)$_GET['id'])) {
-		invl_inp_err();
+		// Previously: invl_inp_err();
+		header('HTTP/1.0 400 Bad Request');
+		exit;
 	}
 	if (empty($_GET['private'])) { /* Non-private upload. */
 		$r = db_saq('SELECT mm.mime_hdr, a.original_name, a.location, m.id, mo.id,
@@ -35,10 +37,14 @@ function get_preview_img($id)
 			WHERE a.id='. $id);
 		if (!$r) {
 			if (!($r = get_preview_img($id))) {
-				invl_inp_err();
+				// Previously: invl_inp_err();
+				header('HTTP/1.0 404 Not Found');
+				exit;
 			}
 		} else if (!$is_a && !$r[4] && !$r[5]) {
-			std_error('access');
+			// Previously: std_error('access');
+			header('HTTP/1.0 401 Unauthorized');
+			exit;
 		}
 	} else {
 		$r = db_saq('SELECT mm.mime_hdr, a.original_name, a.location, pm.id, a.owner, a.fsize
@@ -48,20 +54,25 @@ function get_preview_img($id)
 			WHERE a.attach_opt=1 AND a.id='. $id);
 		if (!$r) {
 			if (!($r = get_preview_img($id))) {
-				invl_inp_err();
+				// Previously: invl_inp_err();
+				header('HTTP/1.0 404 Not Found');
+				exit;
 			}
 		} else if (!$is_a && $r[4] != _uid) {
-			std_error('access');
+			// Previously: std_error('access');
+			header('HTTP/1.0 401 Unauthorized');
+			exit;
 		}
 	}
 
+	// DWLND_REF_CHK
 	if ($FUD_OPT_2 & 4194304 && !empty($_SERVER['HTTP_REFERER']) && strpos($_SERVER['HTTP_REFERER'], $WWW_ROOT) === false) {
-		header('HTTP/1.0 404 Not Found');
+		header('HTTP/1.0 403 Forbidden');
 		exit;
 	}
 
 	$r[1] = reverse_fmt($r[1]);
-	if (!$r[2]) {
+	if (!$r[2]) {	// Empty location means we are previewing a message with an attachement.
 		$r[2] = $GLOBALS['FILE_STORE'] . $id .'.atch';
 	}
 
@@ -110,5 +121,10 @@ function get_preview_img($id)
 	header('Connection: close');
 
 	attach_inc_dl_count($id, $r[3]);
+
+	// Disconnect DB to prevent long opens while data is transferred.
+	db_close();
+
+	// Spool file to browser.
 	@readfile($r[2]);
 ?>
