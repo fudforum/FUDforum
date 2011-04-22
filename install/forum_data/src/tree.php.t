@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -37,7 +37,7 @@
 		invl_inp_err();
 	}
 	if (!$mid && isset($_GET['unread']) && _uid) {
-		$mid = q_singleval('SELECT m.id FROM {SQL_TABLE_PREFIX}msg m LEFT JOIN {SQL_TABLE_PREFIX}read r ON r.thread_id=m.thread_id AND r.user_id='. _uid .' WHERE m.thread_id='. $th .' AND m.apr=1 AND m.post_stamp > r.last_view AND m.post_stamp > '. $usr->last_read .' ORDER BY m.post_stamp ASC LIMIT 1');
+		$mid = q_singleval(q_limit('SELECT m.id FROM {SQL_TABLE_PREFIX}msg m LEFT JOIN {SQL_TABLE_PREFIX}read r ON r.thread_id=m.thread_id AND r.user_id='. _uid .' WHERE m.thread_id='. $th .' AND m.apr=1 AND m.post_stamp > r.last_view AND m.post_stamp > '. $usr->last_read .' ORDER BY m.post_stamp ASC', 1));
 		if (!$mid) {
 			$mid = q_singleval('SELECT root_msg_id FROM {SQL_TABLE_PREFIX}thread WHERE id='. $th);
 		}

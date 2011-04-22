@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -45,14 +45,14 @@
 	ses_update_status($usr->sid, '{TEMPLATE: pm_update}');
 
 	/* Next Msg */
-	if (($nid = q_singleval('SELECT p.id FROM {SQL_TABLE_PREFIX}pmsg p INNER JOIN {SQL_TABLE_PREFIX}users u ON u.id=p.ouser_id WHERE p.duser_id='. _uid .' AND p.fldr='. $m->fldr .' AND post_stamp>'. $m->post_stamp .' ORDER BY p.post_stamp ASC LIMIT 1'))) {
+	if (($nid = q_singleval(q_limit('SELECT p.id FROM {SQL_TABLE_PREFIX}pmsg p INNER JOIN {SQL_TABLE_PREFIX}users u ON u.id=p.ouser_id WHERE p.duser_id='. _uid .' AND p.fldr='. $m->fldr .' AND post_stamp>'. $m->post_stamp .' ORDER BY p.post_stamp ASC', 1)))) {
 		$dpmsg_next_message = '{TEMPLATE: dpmsg_next_message}';
 	} else {
 		$dpmsg_next_message = '';
 	}
 
 	/* Prev Msg */
-	if (($pid = q_singleval('SELECT p.id FROM {SQL_TABLE_PREFIX}pmsg p INNER JOIN {SQL_TABLE_PREFIX}users u ON u.id=p.ouser_id WHERE p.duser_id='. _uid .' AND p.fldr='. $m->fldr .' AND p.post_stamp<'. $m->post_stamp .' ORDER BY p.post_stamp DESC LIMIT 1'))) {
+	if (($pid = q_singleval(q_limit('SELECT p.id FROM {SQL_TABLE_PREFIX}pmsg p INNER JOIN {SQL_TABLE_PREFIX}users u ON u.id=p.ouser_id WHERE p.duser_id='. _uid .' AND p.fldr='. $m->fldr .' AND p.post_stamp<'. $m->post_stamp .' ORDER BY p.post_stamp DESC', 1)))) {
 		$dpmsg_prev_message = '{TEMPLATE: dpmsg_prev_message}';
 	} else {
 		$dpmsg_prev_message = '';

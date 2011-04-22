@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -45,7 +45,7 @@
 	}
 
 	if ($FUD_OPT_2 & 16384) {
-		ob_start(array('ob_gzhandler', $PHP_COMPRESSION_LEVEL));
+		ob_start(array('ob_gzhandler', (int)$PHP_COMPRESSION_LEVEL));
 	}
 
 function sp($data)

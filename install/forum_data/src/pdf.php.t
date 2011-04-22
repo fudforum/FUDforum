@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -135,7 +135,7 @@ class fud_pdf extends FPDF
 		$this->draw_line();
 		$this->Write(5, 'Page '. $this->page .' of {fnb} ---- Generated from ');
 		$this->add_link($GLOBALS['WWW_ROOT'] .'index.php', $GLOBALS['FORUM_TITLE']);
-		$this->Write(5, ' by FUDforum '. $GLOBALS['FORUM_VERSION']);
+		// $this->Write(5, ' by FUDforum '. $GLOBALS['FORUM_VERSION']);
 	}
 
 	function Bookmark($txt, $level=0)
@@ -223,7 +223,7 @@ class fud_pdf extends FPDF
 	}
 
 	if ($FUD_OPT_2 & 16384) {		// PHP_COMPRESSION_ENABLE
-		ob_start(array('ob_gzhandler', $PHP_COMPRESSION_LEVEL));
+		ob_start(array('ob_gzhandler', (int)$PHP_COMPRESSION_LEVEL));
 	}
 
 	$forum	= isset($_GET['frm']) ? (int)$_GET['frm'] : 0;
@@ -245,7 +245,7 @@ class fud_pdf extends FPDF
 			if (!q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}forum WHERE id='. $forum)) {
 				invl_inp_err();
 			}
-			$lwi = q_singleval('SELECT seq FROM {SQL_TABLE_PREFIX}tv_'. $forum .' ORDER BY seq DESC LIMIT 1');
+			$lwi = q_singleval(q_limit('SELECT seq FROM {SQL_TABLE_PREFIX}tv_'. $forum .' ORDER BY seq DESC', 1));
 			if ($lwi === NULL || $lwi === FALSE) {
 				invl_inp_err();
 			}

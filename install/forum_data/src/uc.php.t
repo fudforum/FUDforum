@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -43,7 +43,7 @@
 	unset($c);
 
 	$uc_new_pms = '';
-	$c = uq('SELECT m.ouser_id, u.alias, m.post_stamp, m.subject, m.id FROM {SQL_TABLE_PREFIX}pmsg m INNER JOIN {SQL_TABLE_PREFIX}users u ON u.id=m.ouser_id WHERE m.duser_id='. _uid .' AND fldr=1 AND read_stamp=0 ORDER BY post_stamp DESC LIMIT '. ($usr->posts_ppg ? $usr->posts_ppg : $POSTS_PER_PAGE));
+	$c = uq(q_limit('SELECT m.ouser_id, u.alias, m.post_stamp, m.subject, m.id FROM {SQL_TABLE_PREFIX}pmsg m INNER JOIN {SQL_TABLE_PREFIX}users u ON u.id=m.ouser_id WHERE m.duser_id='. _uid .' AND fldr=1 AND read_stamp=0 ORDER BY post_stamp DESC', ($usr->posts_ppg ? $usr->posts_ppg : $POSTS_PER_PAGE)));
 	while ($r = db_rowarr($c)) {
 		$uc_new_pms .= '{TEMPLATE: uc_new_pm_ent}';
 	}
@@ -81,7 +81,7 @@
 
 	$uc_sub_topic = '';
 	$ppg = $usr->posts_ppg ? $usr->posts_ppg : $POSTS_PER_PAGE;
-	$c = uq('SELECT
+	$c = uq(q_limit('SELECT
 			m2.subject, m.post_stamp, m.poster_id,
 			u.alias,
 			t.replies, t.views, t.thread_opt, t.id, t.last_post_id
@@ -96,7 +96,7 @@
 		LEFT JOIN {SQL_TABLE_PREFIX}mod mo ON mo.user_id='. _uid .' AND mo.forum_id=t.forum_id
 		WHERE tn.user_id='. _uid .' AND m.post_stamp > '. $usr->last_read .' AND m.post_stamp > r.last_view '.
 		($is_a ? '' : ' AND (mo.id IS NOT NULL OR '. q_bitand('COALESCE(g2.group_cache_opt, g1.group_cache_opt)', 1) .'> 0)').
-		'ORDER BY m.post_stamp DESC LIMIT '. ($usr->posts_ppg ? $usr->posts_ppg : $POSTS_PER_PAGE));
+		'ORDER BY m.post_stamp DESC', ($usr->posts_ppg ? $usr->posts_ppg : $POSTS_PER_PAGE)));
 	while ($r = db_rowobj($c)) {
 		$msg_count = $r->replies + 1;
 		if ($msg_count > $ppg && $usr->users_opt & 256) {

@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -17,7 +17,7 @@ function grp_delete_member($id, $user_id)
 
 	q('DELETE FROM {SQL_TABLE_PREFIX}group_members WHERE group_id='. $id .' AND user_id='. $user_id);
 
-	if (q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}group_members WHERE user_id='. $user_id .' LIMIT 1')) {
+	if (q_singleval(q_limit('SELECT id FROM {SQL_TABLE_PREFIX}group_members WHERE user_id='. $user_id, 1))) {
 		/* We rebuild cache, since this user's permission for a particular resource are controled by
 		 * more the one group. */
 		grp_rebuild_cache(array($user_id));

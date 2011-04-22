@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -48,7 +48,7 @@
 	/* For sanity sake, we only select up to POSTS_PER_PAGE messages, simply because otherwise the form will
 	 * become unmanageable.
 	 */
-	$r = q('SELECT
+	$r = q(q_limit('SELECT
 		m.*, COALESCE(m.flag_cc, u.flag_cc) AS disp_flag_cc, COALESCE(m.flag_country, u.flag_country) AS disp_flag_country,
 		t.thread_opt, t.root_msg_id, t.last_post_id, t.forum_id,
 		f.message_threshold, f.name AS frm_name,
@@ -70,7 +70,7 @@
 	LEFT JOIN {SQL_TABLE_PREFIX}poll p ON m.poll_id=p.id
 	LEFT JOIN {SQL_TABLE_PREFIX}poll_opt_track pot ON pot.poll_id=p.id AND pot.user_id='. _uid .'
 	WHERE f.forum_opt>=2 AND m.apr=0
-	ORDER BY v.id, m.post_stamp DESC LIMIT '. $POSTS_PER_PAGE);
+	ORDER BY v.id, m.post_stamp DESC', $POSTS_PER_PAGE));
 
 	$modque_message = '';
 	$m_num = 0;

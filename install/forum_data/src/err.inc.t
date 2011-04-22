@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -15,7 +15,7 @@ function error_dialog($title, $msg, $level='WARN', $ses=null)
 		$ses = (int) $GLOBALS['usr']->sid;
 	}
 
-	$error_msg = '[Error] '.$title.'<br />';
+	$error_msg = '[Error] '. $title .'<br />';
 	$error_msg .= '[Message Sent to User] '. trim($msg) .'<br />';
 	$error_msg .= '[User IP] '. get_ip() .'<br />';
 	$error_msg .= '[Requested URL] http://';

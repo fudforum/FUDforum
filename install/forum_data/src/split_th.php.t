@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -14,7 +14,7 @@
 
 function th_frm_last_post_id($id, $th)
 {
-	return (int) q_singleval('SELECT t.last_post_id FROM {SQL_TABLE_PREFIX}thread t INNER JOIN {SQL_TABLE_PREFIX}msg m ON t.root_msg_id=m.id WHERE t.forum_id='. $id .' AND t.id!='. $th .' AND t.moved_to=0 AND m.apr=1 ORDER BY t.last_post_date DESC LIMIT 1');
+	return (int) q_singleval(q_limit('SELECT t.last_post_id FROM {SQL_TABLE_PREFIX}thread t INNER JOIN {SQL_TABLE_PREFIX}msg m ON t.root_msg_id=m.id WHERE t.forum_id='. $id .' AND t.id!='. $th .' AND t.moved_to=0 AND m.apr=1 ORDER BY t.last_post_date DESC', 1));
 }
 
 	$th = isset($_GET['th']) ? (int)$_GET['th'] : (isset($_POST['th']) ? (int)$_POST['th'] : 0);
@@ -128,8 +128,8 @@ function th_frm_last_post_id($id, $th)
 			q('UPDATE {SQL_TABLE_PREFIX}msg SET reply_to=0, subject='. _esc(htmlspecialchars($_POST['new_title'])) .' WHERE id='. $start);
 
 			/* Deal with the old thread. */
-			list($lpi, $lpd) = db_saq('SELECT id, post_stamp FROM {SQL_TABLE_PREFIX}msg WHERE thread_id='. $data->id .' AND apr=1 ORDER BY post_stamp DESC LIMIT 1');
-			$old_root_msg_id = q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}msg WHERE thread_id='. $data->id .' AND apr=1 ORDER BY post_stamp ASC LIMIT 1');
+			list($lpi, $lpd) = db_saq(q_limit('SELECT id, post_stamp FROM {SQL_TABLE_PREFIX}msg WHERE thread_id='. $data->id .' AND apr=1 ORDER BY post_stamp DESC', 1));
+			$old_root_msg_id = q_singleval(q_limit('SELECT id FROM {SQL_TABLE_PREFIX}msg WHERE thread_id='. $data->id .' AND apr=1 ORDER BY post_stamp ASC', 1));
 			q('UPDATE {SQL_TABLE_PREFIX}msg SET reply_to='. $old_root_msg_id .' WHERE thread_id='. $data->id .' AND reply_to IN('. $mids .')');
 			q('UPDATE {SQL_TABLE_PREFIX}msg SET reply_to=0 WHERE id='. $old_root_msg_id);
 			q('UPDATE {SQL_TABLE_PREFIX}thread SET root_msg_id='. $old_root_msg_id .', replies=replies-'. $mc .', last_post_date='. $lpd .', last_post_id='. $lpi .' WHERE id='. $data->id);
@@ -216,7 +216,7 @@ function th_frm_last_post_id($id, $th)
 	$anon_alias = htmlspecialchars($ANON_NICK);
 	$msg_entry = '';
 
-	$c = uq('SELECT m.id, m.foff, m.length, m.file_id, m.subject, m.post_stamp, u.alias FROM {SQL_TABLE_PREFIX}msg m LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id WHERE m.thread_id='. $th .' AND m.apr=1 ORDER BY m.post_stamp ASC');
+	$c = q('SELECT m.id, m.foff, m.length, m.file_id, m.subject, m.post_stamp, u.alias FROM {SQL_TABLE_PREFIX}msg m LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id WHERE m.thread_id='. $th .' AND m.apr=1 ORDER BY m.post_stamp ASC');
 	while ($r = db_rowobj($c)) {
 		$msg_entry .= '{TEMPLATE: msg_entry}';
 	}

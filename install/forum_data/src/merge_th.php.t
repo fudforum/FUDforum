@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -78,7 +78,7 @@
 
 			list($start, $replies, $views) = db_saq('SELECT MIN(root_msg_id), SUM(replies), SUM(views) FROM {SQL_TABLE_PREFIX}thread WHERE id IN('. $tl .')');
 			$replies += count($_POST['sel_th']) - 1;
-			list($lpi, $lpd, $tdescr) = db_saq('SELECT last_post_id, last_post_date, tdescr FROM {SQL_TABLE_PREFIX}thread WHERE id IN('. $tl .') ORDER BY last_post_date DESC LIMIT 1');
+			list($lpi, $lpd, $tdescr) = db_saq(q_limit('SELECT last_post_id, last_post_date, tdescr FROM {SQL_TABLE_PREFIX}thread WHERE id IN('. $tl .') ORDER BY last_post_date DESC', 1));
 
 			$new_th = th_add($start, $forum, $lpd, 0, 0, $replies, $views, $lpi, $tdescr);
 			q('UPDATE {SQL_TABLE_PREFIX}msg SET reply_to=0, subject='. _esc(htmlspecialchars($_POST['new_title'])) .' WHERE id='. $start);
@@ -159,7 +159,7 @@
 		++$page;
 	}
 
-	$lwi = q_singleval('SELECT seq FROM {SQL_TABLE_PREFIX}tv_'. $frm .' ORDER BY seq DESC LIMIT 1');
+	$lwi = q_singleval(q_limit('SELECT seq FROM {SQL_TABLE_PREFIX}tv_'. $frm .' ORDER BY seq DESC', 1));
 	$max_p = ceil($lwi / $THREADS_PER_PAGE);
 	if ($page > $max_p || $page < 1) {
 		$page = 1;

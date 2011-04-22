@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -19,7 +19,7 @@ function &rebuild_stats_cache($last_msg_id)
 	$obj->online_users_anon	= q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}ses s WHERE time_sec>'. $tm_expire .' AND user_id>2000000000');
 	$obj->online_users_hidden = q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}ses s INNER JOIN {SQL_TABLE_PREFIX}users u ON u.id=s.user_id WHERE s.time_sec>'. $tm_expire .' AND '. q_bitand('u.users_opt', 32768) .'>0');
 	$obj->online_users_reg = q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}ses s INNER JOIN {SQL_TABLE_PREFIX}users u ON u.id=s.user_id WHERE s.time_sec>'. $tm_expire .' AND '. q_bitand('u.users_opt', 32768) .'=0');
-	$c = uq('SELECT u.id, u.alias, u.users_opt, u.custom_color FROM {SQL_TABLE_PREFIX}ses s INNER JOIN {SQL_TABLE_PREFIX}users u ON u.id=s.user_id WHERE s.time_sec>'. $tm_expire .' AND '. q_bitand('u.users_opt', 32768) .'=0 ORDER BY s.time_sec DESC LIMIT '. $GLOBALS['MAX_LOGGEDIN_USERS']);
+	$c = uq(q_limit('SELECT u.id, u.alias, u.users_opt, u.custom_color FROM {SQL_TABLE_PREFIX}ses s INNER JOIN {SQL_TABLE_PREFIX}users u ON u.id=s.user_id WHERE s.time_sec>'. $tm_expire .' AND '. q_bitand('u.users_opt', 32768) .'=0 ORDER BY s.time_sec DESC', $GLOBALS['MAX_LOGGEDIN_USERS']));
 	$obj->online_users_text = array();
 	while ($r = db_rowarr($c)) {
 		$obj->online_users_text[$r[0]] = draw_user_link($r[1], $r[2], $r[3]);

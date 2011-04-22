@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -63,7 +63,7 @@ function attach_finalize($attach_list, $mid, $attach_opt=0)
 		$id_list = '';
 	}
 
-	/* delete any unneeded (removed, temporary) attachments */
+	/* Delete any unneeded (removed, temporary) attachments. */
 	q('DELETE FROM {SQL_TABLE_PREFIX}attach WHERE message_id='. $mid .' '. $id_list);
 
 	if (!$attach_opt && ($atl = attach_rebuild_cache($mid))) {
@@ -86,6 +86,7 @@ function attach_rebuild_cache($id)
 	return $ret;
 }
 
+/* Increment download counter for an attachment. */
 function attach_inc_dl_count($id, $mid)
 {
 	q('UPDATE {SQL_TABLE_PREFIX}attach SET dlcount=dlcount+1 WHERE id='. $id);

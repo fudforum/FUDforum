@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -36,11 +36,11 @@ function get_prev_next_th_id($frm_id, $th, &$prev, &$next)
 	unset($c);
 
 	if ($np) {
-		$r = db_saq('SELECT m.id, m.subject FROM {SQL_TABLE_PREFIX}tv_'. $frm_id .' tv INNER JOIN {SQL_TABLE_PREFIX}thread t ON tv.thread_id=t.id INNER JOIN {SQL_TABLE_PREFIX}msg m ON t.root_msg_id=m.id WHERE tv.seq IN('. ($id - 10) .', '. ($id - 2) .') ORDER BY tv.seq ASC  LIMIT 1');
+		$r = db_saq(q_limit('SELECT m.id, m.subject FROM {SQL_TABLE_PREFIX}tv_'. $frm_id .' tv INNER JOIN {SQL_TABLE_PREFIX}thread t ON tv.thread_id=t.id INNER JOIN {SQL_TABLE_PREFIX}msg m ON t.root_msg_id=m.id WHERE tv.seq IN('. ($id - 10) .', '. ($id - 2) .') ORDER BY tv.seq ASC', 1));
 		$prev = '{TEMPLATE: prev_thread_link}';
 	}
 	if ($nn) {
-		$r = db_saq('SELECT m.id, m.subject FROM {SQL_TABLE_PREFIX}tv_'. $frm_id .' tv INNER JOIN {SQL_TABLE_PREFIX}thread t ON tv.thread_id=t.id INNER JOIN {SQL_TABLE_PREFIX}msg m ON t.root_msg_id=m.id WHERE tv.seq IN('. ($id + 2) .', '. ($id + 10) .') ORDER BY tv.seq DESC LIMIT 1');
+		$r = db_saq(q_limit('SELECT m.id, m.subject FROM {SQL_TABLE_PREFIX}tv_'. $frm_id .' tv INNER JOIN {SQL_TABLE_PREFIX}thread t ON tv.thread_id=t.id INNER JOIN {SQL_TABLE_PREFIX}msg m ON t.root_msg_id=m.id WHERE tv.seq IN('. ($id + 2) .', '. ($id + 10) .') ORDER BY tv.seq DESC', 1));
 		$next = '{TEMPLATE: next_thread_link}';
 	}
 }

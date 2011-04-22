@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -83,14 +83,14 @@
 			q('UPDATE {SQL_TABLE_PREFIX}msg SET reply_to='. $th_info['root_msg_id'] .' WHERE id IN('. $mstr .') AND reply_to NOT IN('. $mstr .')');
 
 			// Determine if we need to update last_post_* in destination thread.
-			$minfo = db_saq('SELECT id, post_stamp FROM {SQL_TABLE_PREFIX}msg WHERE id IN('. $mstr .') ORDER BY post_stamp DESC LIMIT 1');
+			$minfo = db_saq(q_limit('SELECT id, post_stamp FROM {SQL_TABLE_PREFIX}msg WHERE id IN('. $mstr .') ORDER BY post_stamp DESC', 1));
 			if ($minfo[1] > $th_info['last_post_date']) {
 				$pfx = ', last_post_date='. $minfo[1] .', last_post_id='. $minfo[0];
 				rebuild_forum_view_ttl($th_info['forum_id']);
 			} else {
 				$pfx = '';
 			}
-			
+
 			q('UPDATE {SQL_TABLE_PREFIX}thread SET replies=replies+'. $c_mids . $pfx .' WHERE id='. $dth);
 			if (q_singleval('SELECT last_post_id FROM {SQL_TABLE_PREFIX}forum WHERE id='. $dth) == $th_info['last_post_id']) {
 				$pfx = ', last_post_id='.$minfo[0];
@@ -105,7 +105,7 @@
 				$del->delete(1, q_singleval('SELECT root_msg_id FROM {SQL_TABLE_PREFIX}thread WHERE id='. $th), 1);
 			} else {
 				if (in_array($sth_info['last_post_id'], $mids)) {
-					$sinfo = db_saq('SELECT id, post_stamp FROM {SQL_TABLE_PREFIX}msg WHERE thread_id='. $th .' ORDER BY post_stamp DESC LIMIT 1');
+					$sinfo = db_saq(q_limit('SELECT id, post_stamp FROM {SQL_TABLE_PREFIX}msg WHERE thread_id='. $th .' ORDER BY post_stamp DESC', 1));
 					q('UPDATE {SQL_TABLE_PREFIX}thread SET replies=replies-'. $c_mids .', last_post_date='. $sinfo[1] .', last_post_id='. $sinfo[0] .' WHERE id='. $th);
 					rebuild_forum_view_ttl($sth_info['forum_id']);
 					$lp = q_singleval('SELECT t.last_post_id FROM {SQL_TABLE_PREFIX}tv_'. $sth_info['forum_id'] .' v 

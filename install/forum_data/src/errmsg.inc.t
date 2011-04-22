@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -9,8 +9,8 @@
 * Free Software Foundation; version 2 of the License.
 **/
 
-if (!defined('_hs'))   define('_hs', '');
-if (!defined('_rsid')) define('_rsid', '');
+defined('_hs')   or  define('_hs', '');
+defined('_rsid') or define('_rsid', '');
 
 function exit_forum_disabled($format='html')
 {
