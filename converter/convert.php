@@ -556,7 +556,7 @@ function target_load_calendar_event($event)
 {
 	if ($GLOBALS['VERBOSE']) pf('...'. $event['descr']);
 
-	q('INSERT INTO '. $GLOBALS['DBHOST_TBL_PREFIX'] .'calendar (day, month, year, link, descr)
+	q('INSERT INTO '. $GLOBALS['DBHOST_TBL_PREFIX'] .'calendar (event_day, event_month, event_year, link, descr)
 	VALUES(
 		'. _esc($poll['day']) .',
 		'. _esc($poll['month']) .',

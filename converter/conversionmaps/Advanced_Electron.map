@@ -1,0 +1,128 @@
+<?php
+/***************************************************************************
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* email                : forum@prohost.org
+* $Id: Advanced_Electron.php 5054 2010-10-23 00:47:24Z naudefj $
+*
+* This program is free software; you can redistribute it and/or modify it 
+* under the terms of the GNU General Public License as published by the 
+* Free Software Foundation; version 2 of the License. 
+***************************************************************************/
+
+function source_read_config($dir) {
+	config_file_include('universal.php');
+}
+
+function source_db_connect() {
+	bbconn(	$GLOBALS['globals']['server'], 
+		$GLOBALS['globals']['database'],
+		$GLOBALS['globals']['user'],
+		$GLOBALS['globals']['password'],
+		$GLOBALS['globals']['dbprefix']	);
+}
+
+function source_load_users() {
+	$c = bbq('SELECT * FROM '. dbpref .'users WHERE id>0 ORDER BY id');
+	while ($r = bbfetch($c)) {
+		// Hack for user id of 1, since this id is reserved for anon user in FUDforum.
+		if ($r->id == 1) $r->id = $GLOBALS['hack_id'] = bbfetch(bbq('SELECT MAX(id) AS cnt FROM '. dbpref .'users'))->cnt + 1;
+		$user = array(
+			'id'        => $r->id,
+			'login'     => $r->username,
+			'name'      => $r->realname,
+			'passwd'    => $r->password,
+			'salt'      => $r->salt,
+			'last_visit'=> $r->lastlogin,
+			'last_read' => 0,
+			'join_date' => $r->r_time,
+			'reg_ip'    => $r->r_ip,
+			'email'     => $r->email,
+			'home_page' => $r->www,
+			'location'  => $r->location,
+			'interests' => '',
+			'occupation'=> '',
+			'time_zone' => $r->timezone,
+			'sig'       => $r->sig,
+			'avatar'    => $r->avatar,
+			'icq'       => $r->icq,
+			'aim'       => $r->aim,
+			'yahoo'     => $r->yim,
+			'msn'       => $r->msn,
+			'users_opt' => 0
+		);
+		$c2 = bbq('SELECT * FROM '. dbpref .'user_groups WHERE member_group ='. $r->u_member_group);
+		while ($r2 = bbfetch($c2)) {
+			$user['users_opt'] |= ($r2->mem_gr_name == 'Moderator'          ) ? 524288 : 0;		// Moderator.
+			$user['users_opt'] |= ($r2->mem_gr_name == 'Universal Moderator') ? 268435456 : 0;	// Account moderator.
+		}
+		target_add_user($user);
+	}
+}
+
+function source_load_cats() {
+	$c = bbq('SELECT * FROM '. dbpref .'categories');
+	while ($r = bbfetch($c)) {
+		$cat = array(
+			'id'          => $r->cid,
+			'name'        => $r->name,
+			'description' => '',
+			'view_order'  => $r->order
+		);
+		target_add_cat($cat);
+	}
+}
+
+function source_load_forums() {
+	$c = bbq('SELECT * FROM '. dbpref .'forums');
+	while ($r = bbfetch($c)) {
+		$forum = array(
+			'id'          => $r->fid,
+			'cat_id'      => $r->cat_id,
+			'name'        => $r->fname,
+			'description' => $r->description,
+			'view_order'  => $r->forum_order,
+			'post_passwd' => '',
+			'url_redirect'=> $r->fredirect
+		);
+		target_add_forum($forum);
+	}
+}
+
+function source_load_topics() {
+	$c = bbq('SELECT * FROM '. dbpref .'topics');
+	while ($r = bbfetch($c)) {
+		$topic = array(
+			'id'          => $r->tid,
+			'forum_id'    => $r->t_bid,
+			'root_msg_id' => $r->first_post_id,
+			'views'       => $r->n_views,
+			'replies'     => $r->n_posts,
+			'thread_opt'  => 0
+		);
+		$topic['thread_opt'] |= ($r->t_sticky == 2) ? 4 : 0;	// Sticky topic.
+		target_add_topic($topic);
+	}
+}
+
+function source_load_messages() {
+	$c = bbq('SELECT * FROM '. dbpref .'posts p INNER JOIN '. dbpref .'topics t ON t.tid = p.post_tid');
+	while ($r = bbfetch($c)) {
+		$message = array(
+			'id'           => $r->pid,
+			'thread_id'    => $r->post_tid,
+			'poster_id'    => $r->poster_id,
+			'forum_id'     => $r->post_fid,
+			'post_stamp'   => $r->ptime,
+			'update_stamp' => $r->modtime,
+			'updated_by'   => $r->modifiers_id,
+			'subject'      => $r->topic,
+			'ip_addr'      => $r->poster_ip,
+			'msg_opt'      => 0,
+			'body'         => $r->post
+		);
+		$message['msg_opt'] |= ($r->use_smileys == 1) ? 0 : 2;	// Smileys.
+		target_add_message($message);
+	}
+}
+
+?>
