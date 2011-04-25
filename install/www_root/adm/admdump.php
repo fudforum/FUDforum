@@ -188,6 +188,11 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir, $p=0)
 				continue;
 			}
 
+			if (!isset($sql_col_list[$tbl_name])) {
+				pf(errorify('Skip '. $tbl_name .' is not a FUDforum table! Create a "sql/*.tbl" file for it to include it in the backup.'));
+				continue;
+			}
+
 			$num_entries = q_singleval('SELECT count(*) FROM '. $tbl_name);
 
 			pf('... process table: '. $tbl_name .' ('. $num_entries .' rows)');
@@ -248,6 +253,12 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir, $p=0)
 			pf('<div align="right">[ <a href="admbrowse.php?down=1&amp;cur='. urlencode(dirname($datadump)) .'&amp;dest='. urlencode(basename($datadump)) .'&amp;'. __adm_rsid .'">Download</a> ] [ <a href="admbrowse.php?cur='. urlencode(dirname($datadump)) .'&amp;'. __adm_rsid .'">Open Directory</a> ]</div>');
 		}
 		pf('<div class="tutor">The dump file can be found at: <b>'. $datadump .'</b>. It is occupying '. filesize($_POST['path']) .' bytes.</div>');
+
+		/* Call POST_BACKUP plugins. */
+		if (defined('plugins')) {
+			plugin_call_hook('POST_BACKUP', $datadump);
+		}
+
 	} else {
 		$gz = extension_loaded('zlib');
 		if (!isset($path_error)) {
