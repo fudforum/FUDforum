@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -62,17 +62,17 @@
 	// Add or edit a calendar entry.
 	if (isset($_POST['frm_submit'])) {
 		$error = 0;
-		$day = $_POST['cal_day'];
+		$day = $_POST['cal_event_day'];
 		if ( (int)$day < 1 || (int)$day > 31) {
 			$error = 1;
 			echo errorify('Invalid day specified.');
 		}
-		$month = $_POST['cal_month'];
+		$month = $_POST['cal_event_month'];
 		if ( $month != '*' && ((int)$month < 1 || (int)$month > 12)) {
 			$error = 1;
 			echo errorify('Invalid month specified.');
 		}
-		$year = $_POST['cal_year'];
+		$year = $_POST['cal_event_year'];
 		if ( $year != '*' && ((int)$year <= 0 || (int)$year > 3000)) {
 			$error = 1;
 			echo errorify('Invalid year specified.');
@@ -115,9 +115,9 @@
 		foreach ($c as $k => $v) {
 			${'cal_'.$k} = '';
 		}
-		$cal_year = (int)date('Y');
-		$cal_month = (int)date('m');
-		$cal_day = (int)date('d');
+		$cal_event_year = (int)date('Y');
+		$cal_event_month = (int)date('m');
+		$cal_event_day = (int)date('d');
 	}
 ?>
 <h2>Calendar Manager</h2>
@@ -141,17 +141,17 @@ echo '<h3>'. ($edit ? '<a name="edit">Edit Event:</a>' : 'Add New Event:') .'</h
 <table class="datatable">
 	<tr class="field">
 		<td>Year:<br /><font size="-2">Enter '*' for every year (recurring event).</font></td>
-		<td><input type="text" name="cal_year" value="<?php echo $cal_year; ?>" /></td>
+		<td><input type="text" name="cal_event_year" value="<?php echo $cal_event_year; ?>" /></td>
 	</tr>
 
 	<tr class="field">
 		<td>Month:<br /><font size="-2">Enter '*' for every month (recurring event).</font></td>
-		<td><input type="text" name="cal_month" value="<?php echo $cal_month; ?>" /></td>
+		<td><input type="text" name="cal_event_month" value="<?php echo $cal_event_month; ?>" /></td>
 	</tr>
 
 	<tr class="field">
 		<td>Day:<br /><font size="-2"></font></td>
-		<td><input type="text" name="cal_day" value="<?php echo $cal_day; ?>" /></td>
+		<td><input type="text" name="cal_event_day" value="<?php echo $cal_event_day; ?>" /></td>
 	</tr>
 
 	<tr class="field">
@@ -185,7 +185,7 @@ echo '<h3>'. ($edit ? '<a name="edit">Edit Event:</a>' : 'Add New Event:') .'</h
 </tr></thead>
 <?php
 	$i = 0;
-	$c = uq('SELECT id, year, month, day, descr, link FROM '.$tbl.'calendar LIMIT 100');
+	$c = uq(q_limit('SELECT id, event_year, event_month, event_day, descr, link FROM '. $tbl .'calendar', 100));
 	while ($r = db_rowarr($c)) {
 		$i++;
 		$bgcolor = ($edit == $r[0]) ? ' class="resultrow3"' : (($i%2) ? ' class="resultrow1"' : ' class="resultrow2"');

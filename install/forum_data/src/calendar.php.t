@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -124,7 +124,7 @@ function get_events($year, $month, $day = 0) {
 	}
 
 	/* Defined events. */
-	$c = uq('SELECT day, descr, link FROM {SQL_TABLE_PREFIX}calendar WHERE (month=\''. $month .'\' AND year=\''. $year .'\') OR (month=\'*\' AND year=\''. $year .'\') OR (month=\''. $month .'\' AND year=\'*\') OR (month=\'*\' AND year=\'*\')');
+	$c = uq('SELECT event_day, descr, link FROM {SQL_TABLE_PREFIX}calendar WHERE (event_month=\''. $month .'\' AND event_year=\''. $year .'\') OR (event_month=\'*\' AND event_year=\''. $year .'\') OR (event_month=\''. $month .'\' AND event_year=\'*\') OR (event_month=\'*\' AND event_year=\'*\')');
 	while ($r = db_rowarr($c)) {
 		if (empty($r[2])) {
 			$events[ sprintf('%04d%02d%02d', $year, $month, $r[0]) ][] = $r[1];

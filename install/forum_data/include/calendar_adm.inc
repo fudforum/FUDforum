@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -11,7 +11,7 @@
 
 class fud_calendar
 {
-	var	$id, $day, $month, $year, $descr, $link;
+	var	$id, $event_day, $event_month, $event_year, $descr, $link;
 
 	function fud_calendar()
 	{
@@ -27,15 +27,15 @@ class fud_calendar
 		$tbl =& $GLOBALS['DBHOST_TBL_PREFIX'];
 
 		$this->id = db_qid('INSERT INTO '. $tbl .'calendar (
-			year,
-			month,
-			day,
+			event_year,
+			event_month,
+			event_day,
 			descr,
 			link
 		) VALUES (
-			'. ssn($this->year) .',
-			'. ssn($this->month) .',
-			'. ssn($this->day) .',
+			'. ssn($this->event_year) .',
+			'. ssn($this->event_month) .',
+			'. ssn($this->event_day) .',
 			'. ssn($this->descr) .',
 			'. ssn($this->link) .'
 		)');
@@ -48,9 +48,9 @@ class fud_calendar
 		$tbl =& $GLOBALS['DBHOST_TBL_PREFIX'];
 
 		q('UPDATE '. $tbl.'calendar SET
-			year='. ssn($this->year) .',
-			month='. ssn($this->month) .',
-			day='. ssn($this->day) .',
+			event_year='. ssn($this->event_year) .',
+			event_month='. ssn($this->event_month) .',
+			event_day='. ssn($this->event_day) .',
 			descr='. ssn($this->descr) .',
 			link='. ssn($this->link) .'
 		WHERE id='. (int)$id);
@@ -68,15 +68,15 @@ class fud_calendar
 		$tbl =& $GLOBALS['DBHOST_TBL_PREFIX'];
 
 		$where = '';
-		$where = empty($year) ? '' : 'WHERE year = '._esc($year);
-		$where .= empty($month) ? '' : (empty($where) ? 'WHERE' : ' AND') .' month = '. _esc($month);
+		$where = empty($year) ? '' : 'WHERE event_year = '._esc($year);
+		$where .= empty($month) ? '' : (empty($where) ? 'WHERE' : ' AND') .' event_month = '. _esc($month);
 
 		$buffer = "BEGIN:VCALENDAR\n".	// Add vCalendar header.
 			"VERSION:2.0\n".
 			"PRODID:". $GLOBALS['FORUM_TITLE'] ."\n";
 
 		// Loop through applicable calendar entries.
-		$c = q('SELECT id, year, month, day, descr FROM '. $tbl .'calendar '. $where);
+		$c = q('SELECT id, event_year, event_month, event_day, descr FROM '. $tbl .'calendar '. $where);
 		while ($r = db_rowarr($c)) {
 			$buffer .= "BEGIN:VEVENT\n".
 				'UID:'. $r[0] .'@'. $_SERVER['HTTP_HOST'] ."\n".
