@@ -1,0 +1,76 @@
+<?php
+/**
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* email                : forum@prohost.org
+* $Id$
+*
+* This program is free software; you can redistribute it and/or modify it
+* under the terms of the GNU General Public License as published by the
+* Free Software Foundation; version 2 of the License.
+**/
+
+// Initialize plugin,
+plugin_add_hook('POST_BACKUP', 'plugin_ftp_backup');
+
+function plugin_ftp_backup($dumpfile) {
+	if ((@include $GLOBALS['PLUGIN_PATH'] .'ftp_backup.ini') === false) {
+		die('ERROR: Please configure the ftp plugin from the Plugin Manager Control panel.');
+	}
+
+	pf('Initiating FTP of dumpfile '. basename($dumpfile));
+	$conn_id = ftp_connect($ini['FTP_SERVER']);
+	if (!$conn_id) {
+		pf(errorify('Unable to connect to '. $ini['FTP_SERVER']));
+		return;
+	}
+	$login_result = ftp_login($conn_id, $ini['FTP_USER'], $ini['FTP_PASS']);
+	if (!$login_result) {
+		pf(errorify('Unable to authenticate user '. $ini['FTP_USER']));
+		return;
+	}
+	pf('Connected to '. $ini['FTP_USER'] .'@'. $ini['FTP_SERVER']);
+	$upload = ftp_put($conn_id, basename($dumpfile), $dumpfile, FTP_BINARY);
+	if (!$upload) {
+		pf(errorify('FTP upload has failed!'));
+	} else {
+		pf(successify('File successfully uploaded!'));
+	}
+	ftp_close($conn_id); 
+}
+
+function ftp_backup_info() {
+	return array('name' => 'FTP Backup',
+		     'desc' => 'FTP forum dumps to a backup server. Handy for storing backups off-site.',
+		     'version' => '1.0');
+}
+
+function ftp_backup_config() {
+	if((@include_once $GLOBALS['PLUGIN_PATH'] .'ftp_backup.ini') === false) {
+		$ini = NULL;
+	}
+
+	if (isset($_POST['Set'])) {
+		foreach (array_keys($_POST) as $key) {
+			if (substr($key,0,4) == 'FTP_') {
+				$ini[$key] = $_POST[$key];
+			}
+		}
+		$fp = fopen($GLOBALS['PLUGIN_PATH'] .'ftp.ini', 'w');
+		fwrite($fp, '<?php $ini = '. var_export($ini, 1).'; ?>');
+		fclose($fp);
+		pf(successify('Settings successfully saved.'));
+	}
+	?>
+<p>FTP server:<br />
+<input name="FTP_SERVER" value="<?php echo $ini['FTP_SERVER'] ?>" size="60" /></p>
+
+<p>FTP server's user:<br />
+<input name="FTP_USER" value="<?php echo $ini['FTP_USER'] ?>" size="30" /></p>
+
+
+<p>FTP server's password:<br />
+<input name="FTP_PASS" value="<?php echo $ini['FTP_PASS'] ?>" size="30" /></p>
+	<?php
+}
+
+?>
