@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -11,7 +11,7 @@
 
 class fud_job
 {
-	var $id, $name, $minute, $hour, $dom, $month, $dow, $cmd, $job_opt=0;
+	var $id, $name, $start_minute, $start_hour, $start_dom, $start_month, $start_dow, $cmd, $job_opt=0;
 
 	function fud_job()
 	{
@@ -28,20 +28,20 @@ class fud_job
 
 		$this->id = db_qid('INSERT INTO '. $tbl .'jobs (
 			name,
-			minute,
-			hour,
-			dom,
-			month,
-			dow,
+			start_minute,
+			start_hour,
+			start_dom,
+			start_month,
+			start_dow,
 			cmd,
 			job_opt
 		) VALUES (
 			'. ssn($this->name) .',
-			'. ssn($this->minute) .',
-			'. ssn($this->hour) .',
-			'. ssn($this->dom) .',
-			'. ssn($this->month) .',
-			'. ssn($this->dow) .',
+			'. ssn($this->start_minute) .',
+			'. ssn($this->start_hour) .',
+			'. ssn($this->start_dom) .',
+			'. ssn($this->start_month) .',
+			'. ssn($this->start_dow) .',
 			'. ssn($this->cmd) .',
 			'. ssn($this->job_opt) .'
 		)');
@@ -55,11 +55,11 @@ class fud_job
 
 		q('UPDATE '. $tbl .'jobs SET
 			name='. ssn($this->name) .',
-			minute='. ssn($this->minute) .',
-			hour='. ssn($this->hour) .',
-			dom='. ssn($this->dom) .',
-			month='. ssn($this->month) .',
-			dow='. ssn($this->dow) .',
+			start_minute='. ssn($this->start_minute) .',
+			start_hour='. ssn($this->start_hour) .',
+			start_dom='. ssn($this->start_dom) .',
+			start_month='. ssn($this->start_month) .',
+			start_dow='. ssn($this->start_dow) .',
 			cmd='. ssn($this->cmd) .',
 			job_opt='. ssn($this->job_opt) .'
 		WHERE id='. (int)$id);
@@ -121,57 +121,57 @@ class fud_job
 		$next_month   = $current_month   = date('m', __request_timestamp__);
 		$next_year    = $current_year    = date('Y', __request_timestamp__);
 
-		if ($job->minute == '*') {
+		if ($job->start_minute == '*') {
 			++$next_minute;
 			if ($next_minute > 59) {
 				$reset_hour  = 1;
 				$next_minute = 0;
 			}
 		} else {
-			if ($this->next_run_bit($job->minute, $current_minute) != false) {
-				$next_minute = $this->next_run_bit($job->minute, $current_minute);
+			if ($this->next_run_bit($job->start_minute, $current_minute) != false) {
+				$next_minute = $this->next_run_bit($job->start_minute, $current_minute);
 			} else {
-				$next_minute = $this->first_run_time($job->minute);
+				$next_minute = $this->first_run_time($job->start_minute);
 			}
 			if ($next_minute <= $current_minute) {
 				$reset_hour = 1;
 			}
 		}
 
-		if ($reset_hour || !$this->run_time_exists($job->hour, $current_hour)) {
-			if ($job->hour == '*') {
+		if ($reset_hour || !$this->run_time_exists($job->start_hour, $current_hour)) {
+			if ($job->start_hour == '*') {
 				++$next_hour;
 				if ($next_hour > 23) {
 					$reset_day = 1;
 					$next_hour = 0;
 				}
 			} else {
-				if ($this->next_run_bit($job->hour, $current_hour) != false) {
-					$next_hour = $this->next_run_bit($job->hour, $current_hour);
+				if ($this->next_run_bit($job->start_hour, $current_hour) != false) {
+					$next_hour = $this->next_run_bit($job->start_hour, $current_hour);
 				} else {
-					$next_hour = $this->first_run_time($job->hour);
+					$next_hour = $this->first_run_time($job->start_hour);
 					$reset_day = 1;
 				}
 				if ($next_hour < $current_hour) {
 					$reset_day = 1;
 				}
 			}
-			$next_minute = $this->first_run_time($job->minute);
+			$next_minute = $this->first_run_time($job->start_minute);
 		}
 
-		if ($reset_day || ($job->dow == '*' && !$this->run_time_exists($job->dom, $current_day) || $job->dom == '*' && !$this->run_time_exists($job->dow, $current_weekday))) {
-			if ($job->dow == '*')	{
-				if ($job->dom == '*')	{
+		if ($reset_day || ($job->start_dow == '*' && !$this->run_time_exists($job->start_dom, $current_day) || $job->start_dom == '*' && !$this->run_time_exists($job->start_dow, $current_weekday))) {
+			if ($job->start_dow == '*')	{
+				if ($job->start_dom == '*')	{
 					++$next_day;
 					if ($next_day > date('t', __request_timestamp__)) {
 						$reset_month = 1;
 						$next_day    = 1;
 					}
 				} else {
-					if ($this->next_run_bit($job->dom, $current_day) != false) {
-						$next_day = $this->next_run_bit($job->dom, $current_day);
+					if ($this->next_run_bit($job->start_dom, $current_day) != false) {
+						$next_day = $this->next_run_bit($job->start_dom, $current_day);
 					} else {
-						$next_day    = $this->first_run_time($job->dom);
+						$next_day    = $this->first_run_time($job->start_dom);
 						$reset_month = 1;
 					}
 					if ($next_day < $current_day) {
@@ -179,10 +179,10 @@ class fud_job
 					}
 				}
 			} else {
-				if ($this->next_run_bit($job->dow, $current_weekday) != false) {
-					$next_weekday = $this->next_run_bit($job->dow, $current_weekday);
+				if ($this->next_run_bit($job->start_dow, $current_weekday) != false) {
+					$next_weekday = $this->next_run_bit($job->start_dow, $current_weekday);
 				} else {
-					$next_weekday = $this->first_run_time($job->dow);
+					$next_weekday = $this->first_run_time($job->start_dow);
 				}
 				$next_day = $current_day + ($next_weekday-$current_weekday);
 				if ($next_day <= $current_day) {
@@ -193,38 +193,38 @@ class fud_job
 					$reset_month = 1;
 				}
 			}
-			$next_minute = $this->first_run_time($job->minute);
-			$next_hour   = $this->first_run_time($job->hour);
+			$next_minute = $this->first_run_time($job->start_minute);
+			$next_hour   = $this->first_run_time($job->start_hour);
 			if ($next_day == $current_day && $next_hour < $current_hour) {
 				$reset_month = 1;
 			}
 		}
 
-		if ($reset_month || !$this->run_time_exists($job->month, $current_month)) {
-			if ($job->month == '*') {
+		if ($reset_month || !$this->run_time_exists($job->start_month, $current_month)) {
+			if ($job->start_month == '*') {
 				$next_month++;
 				if ($next_month > 12) {
 					$reset_year = 1;
 					$next_month = 1;
 				}
 			} else {
-				if (next_run_bit($job->month, $current_month) != false)	{
-					$next_month = $this->next_run_bit($job->month, $current_month);
+				if (next_run_bit($job->start_month, $current_month) != false)	{
+					$next_month = $this->next_run_bit($job->start_month, $current_month);
 				} else {
-					$next_month = $this->first_run_time($job->month);
+					$next_month = $this->first_run_time($job->start_month);
 					$reset_year = 1;
 				}
 				if ($next_month < $current_month) {
 					$reset_year = 1;
 				}
 			}
-			$next_minute = $this->first_run_time($job->minute);
-			$next_hour = $this->first_run_time($job->hour);
-			if ($job->dow == '*') {
-				$next_day = $this->first_run_time($job->dom);
+			$next_minute = $this->first_run_time($job->start_minute);
+			$next_hour = $this->first_run_time($job->start_hour);
+			if ($job->start_dow == '*') {
+				$next_day = $this->first_run_time($job->start_dom);
 				if ($next_day == 0) $next_day = 1;
 			} else {
-				$next_weekday = $this->first_run_time($job->dow);
+				$next_weekday = $this->first_run_time($job->start_dow);
 				$new_weekday = date('w', mktime($next_hour, $next_minute, 0, $next_month, 1, $next_year));
 				$next_day = 1 + ($next_weekday - $new_weekday);
 				if ($next_weekday < $new_weekday) {
@@ -238,15 +238,15 @@ class fud_job
 
 		if ($reset_year) {
 			$next_year++;
-			$next_minute = $this->first_run_time($job->minute);
-			$next_hour   = $this->first_run_time($job->hour);
-			$next_month  = $this->first_run_time($job->month);
+			$next_minute = $this->first_run_time($job->start_minute);
+			$next_hour   = $this->first_run_time($job->start_hour);
+			$next_month  = $this->first_run_time($job->start_month);
 			if ($next_month == 0) $next_month = 1;
-			if ($job->dow == '*') {
-				$next_day = $this->first_run_time($job->dom);
+			if ($job->start_dow == '*') {
+				$next_day = $this->first_run_time($job->start_dom);
 				if ($next_day == 0) $next_day = 1;
 			} else {
-				$next_weekday = $this->first_run_time($job->dow);
+				$next_weekday = $this->first_run_time($job->start_dow);
 				$new_weekday  = date('w', mktime($next_hour, $next_minute, 0, $next_month, 1, $next_year));
 				$next_day     = 1 + ($next_weekday-$new_weekday);
 				if ($next_weekday < $new_weekday) {

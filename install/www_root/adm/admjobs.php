@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -62,7 +62,7 @@
 		echo successify('Job was successfully unscheduled.');
 	}
 
-	// Submit job to run in background.
+	/* Submit job to run in background. */
 	if (!empty($_GET['run'])) {
 		$job = new fud_job();
 		try {
@@ -94,7 +94,7 @@
 			${'job_'. $k} = '';
 		}
 		$job_def = '';
-		$job_minute = $job_hour = $job_dom = $job_month = $job_dow = '*';
+		$job_start_minute = $job_start_hour = $job_start_dom = $job_start_month = $job_start_dow = '*';
 	}
 ?>
 
@@ -116,9 +116,9 @@
         if (file_exists($jobfile)) {
 		$last = filemtime($jobfile);
 		if ($last < __request_timestamp__ - (24*60*60)) {	// Longer than 1 day ago?
-			echo errorify( date('d M Y H:i', $last) );
+			echo errorify(fdate($last));
 		} else {
-			echo successify( date('d M Y H:i', $last) );
+			echo successify(fdate($last));
 		}
 	} else {
 		echo errorify('Never! Please schedule <i>cron.php</i> to run periodic jobs.');
@@ -141,23 +141,23 @@
 	</tr>
 	<tr class="field">
 		<td>Minute (0 - 59):</td>
-		<td><input type="text" name="job_minute" value="<?php echo $job_minute; ?>" maxlength="50" /></td>
+		<td><input type="text" name="job_start_minute" value="<?php echo $job_start_minute; ?>" maxlength="50" /></td>
 	</tr>
 	<tr class="field">
 		<td>Hour (0 - 23):</td>
-		<td><input type="text" name="job_hour" value="<?php echo $job_hour; ?>" maxlength="50" /></td>
+		<td><input type="text" name="job_start_hour" value="<?php echo $job_start_hour; ?>" maxlength="50" /></td>
 	</tr>
 	<tr class="field">
 		<td>Day of month (1 - 31):</td>
-		<td><input type="text" name="job_dom" value="<?php echo $job_dom; ?>" maxlength="50" /></td>
+		<td><input type="text" name="job_start_dom" value="<?php echo $job_start_dom; ?>" maxlength="50" /></td>
 	</tr>
 	<tr class="field">
 		<td>Month (1 - 12):</td>
-		<td><input type="text" name="job_month" value="<?php echo $job_month; ?>" maxlength="50" /></td>
+		<td><input type="text" name="job_start_month" value="<?php echo $job_start_month; ?>" maxlength="50" /></td>
 	</tr>
 	<tr class="field">
 		<td>Day of week (0 - 7, Sunday=0 or 7):</td>
-		<td><input type="text" name="job_dow" value="<?php echo $job_dow; ?>" maxlength="50" /></td>
+		<td><input type="text" name="job_start_dow" value="<?php echo $job_start_dow; ?>" maxlength="50" /></td>
 	</tr>
 	<tr class="field">
 		<td>Status:</td>
@@ -168,7 +168,7 @@
 		<td colspan="2" align="right">
 <?php
 	if ($edit) {
-		echo '<input type="hidden" value="'.$edit.'" name="edit" />';
+		echo '<input type="hidden" value="'. $edit .'" name="edit" />';
 		echo '<input type="submit" name="btn_cancel" value="Cancel" />&nbsp;';
 	}
 ?>
@@ -188,7 +188,7 @@
 	<th align="center">Action</th>
 </tr></thead>
 <?php
-	$c = uq('SELECT id, name, lastrun, nextrun, locked FROM '. $tbl .'jobs');
+	$c = uq('SELECT id, name, lastrun, nextrun, locked, job_opt FROM '. $tbl .'jobs');
 	$i = 0;
 	while ($r = db_rowobj($c)) {
 		$i++;
@@ -201,8 +201,8 @@
 		}
 
 		echo '<tr'. $bgcolor .'><td>'. htmlspecialchars($r->name) .'</td>
-			<td nowrap="nowrap">'. ($r->lastrun ? date('d M Y H:i', $r->lastrun) : 'Never') .'</td>
-			<td nowrap="nowrap">'. ($r->nextrun ? date('d M Y H:i', $r->nextrun) : 'n/a') .'</td>
+			<td nowrap="nowrap">'. ($r->lastrun ? fdate($r->lastrun, 'd M Y H:i') : 'Never') .'</td>
+			<td nowrap="nowrap">'. ( ($r->job_opt &1) ? 'Disabled' : ($r->nextrun ? fdate($r->nextrun, 'd M Y H:i') : 'n/a')) .'</td>
 			<td nowrap="nowrap">'. ($r->locked  ? 'Yes ('. (__request_timestamp__ - $r->locked) .' sec)' : 'No') .'</td>
 			<td><small>
 				[<a href="admjobs.php?edit='. $r->id .'&amp;'. __adm_rsid .'#edit">Edit</a>]
@@ -235,7 +235,7 @@
 		$output = $path . $script .'_'. $job .'.log';
 		if (file_exists($output)) {
 			echo 'Job log: <i>'. $output .'</i><br />';
-			echo '<pre><code>';
+			echo '<pre style="white-space: pre-wrap;"><code>';
 			$fh = @fopen($output, 'r');
 			do {
 				echo(fgets($fh));
