@@ -10,7 +10,7 @@
 **/
 # define('fud_query_stats', 1);
 
-class db { public static $db, $ar, $res, $buf; }
+class db { public static $db, $slave; }
 
 if (empty(db::$db)) {
 	if (substr($GLOBALS['DBHOST'], 0, 1) == ':') {	// Socket connection.
@@ -26,9 +26,19 @@ if (empty(db::$db)) {
 
 	db::$db = new mysqli($GLOBALS['DBHOST'], $GLOBALS['DBHOST_USER'], $GLOBALS['DBHOST_PASSWORD'], $GLOBALS['DBHOST_DBNAME'], NULL, $socket);
 	if (mysqli_connect_errno()) {
-		fud_sql_error_handler('Failed to establish database connection', 'MySQLi says: '. mysqli_connect_error(), '', '');
+		fud_sql_error_handler('Failed to establish database connection', 'MySQLi says: '. mysqli_connect_error(), mysqli_connect_errno(), '');
 	}
 	db::$db->set_charset('utf8');
+
+	/* Connect to slave, if specified. */
+	if (!empty($GLOBALS['DBHOST_SLAVE_HOST'])) {
+		db::$slave = new mysqli($GLOBALS['DBHOST'], $GLOBALS['DBHOST_USER'], $GLOBALS['DBHOST_PASSWORD'], $GLOBALS['DBHOST_DBNAME'], NULL, $socket);
+		if (mysqli_connect_errno()) {
+			fud_logerror('Unable to init SlaveDB, fallback to MasterDB: '. mysqli_connect_error(), 'sql_errors');
+		} else {
+			db::$db->set_charset('utf8');
+		}
+	}
 
 	define('__dbtype__', 'mysql');
 }
@@ -41,9 +51,8 @@ function db_close()
 function db_version()
 {
 	if (!defined('__FUD_SQL_VERSION__')) {
-		$r = db::$db->query('SELECT VERSION()');
-		$ver = $r->fetch_row();
-		define('__FUD_SQL_VERSION__', $ver[0]);
+		$ver = q_singleval('SELECT VERSION()');
+		define('__FUD_SQL_VERSION__', $ver);
 	}
 	return __FUD_SQL_VERSION__;
 }
@@ -80,7 +89,7 @@ function db_locked()
 
 function db_affected()
 {
-	return db::$db-> affected_rows;
+	return db::$db->affected_rows;
 }
 
 function uq($query)
@@ -91,9 +100,16 @@ function uq($query)
 if (!defined('fud_query_stats')) {
 	function q($query)
 	{
-		$r = db::$db->query($query);
-		if (db::$db->error) {
-			fud_sql_error_handler($query, db::$db->error, db::$db->errno, db_version());
+		// Assume master DB, route SELECT's to slave DB.
+		// Force master if DB is locked (in transaction) or 'SELECT /* USE MASTER */'.
+		$db = db::$db;
+		if (!empty(db::$slave) && !db_locked() && !strncasecmp($query, 'SELECT', 6) && strncasecmp($query, 'SELECT /* USE MASTER */', 23)) {
+			$db = db::$slave;
+		}
+
+		$r = $db->query($query);
+		if ($db->error) {
+			fud_sql_error_handler($query, $db->error, $db->errno, db_version());
 		}
 		return $r;
 	}
@@ -109,11 +125,18 @@ if (!defined('fud_query_stats')) {
 		if (!isset($GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'])) {
 			$GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'] = 0;
 		}
-	
+
+		// Assume master DB, route SELECT's to slave DB.
+		// Force master if DB is locked (in transaction) or 'SELECT /* USE MASTER */'.
+		$db = db::$db;
+		if (!empty(db::$slave) && !db_locked() && !strncasecmp($query, 'SELECT', 6) && strncasecmp($query, 'SELECT /* USE MASTER */', 23)) {
+			$db = db::$slave;
+		}
+
 		$s = microtime(true);
-		$result = db::$db->query($query);
-		if (db::$db->error) {
-			fud_sql_error_handler($query, db::$db->error, db::$db->errno, db_version());
+		$result = $db->query($query);
+		if ($db->error) {
+			fud_sql_error_handler($query, $db->error, $db->errno, db_version());
 		}
 		$e = microtime(true);
 
@@ -143,8 +166,8 @@ function db_rowarr($result)
 function q_singleval($query)
 {
 	$r = q($query);
-	if (($res = $r->fetch_row()) !== false) {
-		return $res[0];
+	if (($result = $r->fetch_row()) !== false) {
+		return $result[0];
 	}
 }
 

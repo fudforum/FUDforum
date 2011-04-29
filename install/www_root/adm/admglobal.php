@@ -224,8 +224,8 @@ $(document).ready(function() {
 <tr class="fieldtopic"><td colspan="2"><a name="3" /><br /><b>Database Settings</b> </td></tr>
 <?php
 	print_reg_field('Database Server', 'DBHOST');
-	if ($DBHOST_DBTYPE == 'mysql') {
-		// Slave support is only implemented for mysql (other db's will follow later).
+	if (__dbtype__ == 'mysql') {
+		// Slave support is only implemented for MySQL drivers.
 		print_reg_field('Database Slave Server', 'DBHOST_SLAVE_HOST');
 	}
 	print_reg_field('Database Login', 'DBHOST_USER');

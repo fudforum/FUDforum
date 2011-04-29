@@ -50,8 +50,8 @@ function db_close()
 function db_version()
 {
 	if (!defined('__FUD_SQL_VERSION__')) {
-		$ver = mysql_fetch_row(mysql_query('SELECT VERSION()', fud_sql_lnk));
-		define('__FUD_SQL_VERSION__', $ver[0]);
+		$ver = q_singleval('SELECT VERSION()');
+		define('__FUD_SQL_VERSION__', $ver);
 	}
 	return __FUD_SQL_VERSION__;
 }
