@@ -10,15 +10,6 @@
 **/
 # define('fud_query_stats', 1);
 
-/* ---------------------------------------------------------------------------------------------------
- * This is an experimental driver for SQL Server "Denali".
- * Do not try to use it with SQL Server 2008 or older releases.
- *
- * NOTE: The is driver requires Microsoft's PHP Driver for SQL Server 
- * (separate install).
- * --------------------------------------------------------------------------------------------------- 
- */
-
 if (!defined('fud_sql_lnk')) {
 	if (!extension_loaded('sqlsrv')) {
 		die('ERROR: sqlsrv extension not loaded!');
@@ -30,11 +21,10 @@ if (!defined('fud_sql_lnk')) {
 	if ($GLOBALS['FUD_OPT_1'] & 256) {
 		$connInfo['ConnectionPooling'] = 1;
 	}
-
 	$conn = sqlsrv_connect($GLOBALS['DBHOST'], $connInfo);
 	if ($conn === false ) {
 		$err = sqlsrv_errors();
-		fud_sql_error_handler('Initiating '. $connect_func, $err['message'], $err['code'], 'Unknown');
+		fud_sql_error_handler('Initiating SQLSRV driver', $err[0]['message'], $err[0]['code'], 'Unknown');
 	}
 	define('fud_sql_lnk', $conn);
 
@@ -51,8 +41,6 @@ function db_version()
 	if (!defined('__FUD_SQL_VERSION__')) {
 		$ver = sqlsrv_server_info(fud_sql_lnk);
 		define('__FUD_SQL_VERSION__', $ver['SQLServerVersion']);
-		// $ver = sqlsrv_fetch_array(sqlsrv_query(fud_sql_lnk, 'SELECT CONVERT(VARCHAR, SERVERPROPERTY(\'productversion\'))'), SQLSRV_FETCH_NUMERIC);
-		// define('__FUD_SQL_VERSION__', $ver[0]);
 	}
 	return __FUD_SQL_VERSION__;
 }
@@ -62,7 +50,7 @@ function db_lock($tables)
 	if (!empty($GLOBALS['__DB_INC_INTERNALS__']['db_locked'])) {
 		fud_sql_error_handler('Recursive Lock', 'internal', 'internal', db_version());
 	} else {
-		// q('LOCK '.$tables.' in exclusive mode');
+		// q('LOCK '. $tables .' in exclusive mode');
 		$GLOBALS['__DB_INC_INTERNALS__']['db_locked'] = 1;
 	}
 	sqlsrv_begin_transaction(fud_sql_lnk);
@@ -102,7 +90,7 @@ function uq($query)
 if (!defined('fud_query_stats')) {
 	function q($query)
 	{
-		$r = sqlsrv_query(fud_sql_lnk, $query);
+		$r = sqlsrv_query(fud_sql_lnk, _mssql_syntax($query));
 		if ($r === false) {
 			$err = sqlsrv_errors();
 			fud_sql_error_handler($query, $err[0]['message'], $err[0]['code'], db_version());
@@ -125,7 +113,7 @@ if (!defined('fud_query_stats')) {
 		}
 
 		$s = microtime(true);
-		$r = sqlsrv_query(fud_sql_lnk, $query);
+		$r = sqlsrv_query(fud_sql_lnk, _mssql_syntax($query));
 		$e = microtime(true);
 		if ($r === false) {
 			$err = sqlsrv_errors();
@@ -165,8 +153,19 @@ function q_singleval($query)
 function q_limit($query, $limit, $off=0)
 {
 	if ($off) {
-		// return 'SELECT TOP '. $limit .' FROM (SELECT TOP '. ($limit/$off)*$limit . substr($query, 6) .')';
-		return $query . ' OFFSET '. $off .' ROWS FETCH NEXT '. $limit .' ROWS ONLY';
+		// For SQL Server 11 (denali), simply:
+		// return $query . ' OFFSET '. $off .' ROWS FETCH NEXT '. $limit .' ROWS ONLY';
+
+		$query = preg_replace('/SELECT(\s*DISTINCT)?/Dsi', 'SELECT$1 TOP(10000000) ', $query);
+		$query = 'SELECT *
+				FROM (SELECT sub2.*, ROW_NUMBER() OVER(ORDER BY sub2.line2) AS line3
+				FROM (SELECT 1 AS line2, sub1.* FROM ('. $query .') AS sub1) as sub2) AS sub3';
+		if ($limit > 0)	{
+			$query .= ' WHERE line3 BETWEEN '. ($off+1) .' AND '. ($off + $limit);
+		} else {
+			$query .= ' WHERE line3 > '. $off;
+		}
+		return $query;
 	} else {
 		return 'SELECT TOP '. $limit . substr($query, 6);
 	}
@@ -186,11 +185,7 @@ function q_concat($arg)
 }
 
 function q_rownum() {
-    return 'NOT IMPLEMENTED, SEE HACK IN th_adm.inc.t';
-// TODO: Maybe the DB2 aproach will word ::: return 'row_number() OVER ()';
-// Or the Sybase aproach: select identity(10) as "rownum"... or select rownum = identity(10) , 
-// SELECT RowNum = identity(int,1,1),
-// ALSO TEST:  ROW_NUMBER() OVER(ORDER BY (SELECT 1)) 
+    return 'ROW_NUMBER() OVER(ORDER BY (SELECT 1))';
 }
 
 function q_bitand($fieldLeft, $fieldRight) {
@@ -278,6 +273,14 @@ function _esc($s)
 {
 	// There is no sqlsrv_real_escape_string().
 	return '\''. stripslashes(str_replace("'", "''", $s)) .'\'';
+}
+
+function _mssql_syntax($q)
+{
+	// Workaround for error: 'LENGTH' is not a recognized built-in function name.
+	$q = preg_replace('/LENGTH\(/i', 'DataLength(', $q);
+	
+	return $q;
 }
 
 ?>

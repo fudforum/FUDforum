@@ -185,22 +185,27 @@ function get_fud_col_list($table)
 			// Check if PK is AUTO GENERATED (i.e. has a sequence).
 			$auto = 0;
 			if ($type == 'INT' && $key) {
-				// The extra % at the end is not a bug. There is a space at teh end of the col.
+				// The extra % at the end is not a bug. There is a space at the end of the col.
 				$auto = (int)q_singleval('SELECT 1 FROM rdb$generators WHERE rdb$generator_name LIKE UPPER(\''. $table .'%_SEQ%\')');
 			}
 
 			$ret[$colname] = array('type'=>$type, 'not_null'=>$not_null, 'primary'=>$key, 'default'=>$default, 'auto'=>$auto);
 		}
 	} else if (__dbtype__ == 'mssql') {
-		die('@TODO: get_fud_col_list not implemented for MS-SQL!');
-		$c = q('SELECT column_name, data_type, is_nullable, column_default FROM INFORMATION_SCHEMA.columns WHERE table_name LIKE \''. $table .'\' ORDER BY ordinal_position');
+		$c = q('SELECT column_name, data_type, is_nullable, column_default, character_maximum_length FROM INFORMATION_SCHEMA.Columns WHERE table_name = \''. $table .'\' ORDER BY ordinal_position');
 		while ($r = db_rowarr($c)) {
 			$colname = $r[0];
-			$type = $r[1];
+			$type = strtoupper($r[1]);
+			$type = ($type=='CHAR' || $type=='VARCHAR') ? $type .'('. $r[4] .')' : $type;	// Append type length.
 			$not_null = $r[2];
-			// $key = 
-			$default = $r[3];
-			// $auto = 
+			$key = (int)q_singleval('SELECT 1 FROM INFORMATION_SCHEMA.Key_Column_Usage WHERE table_name = \''. $table .'\' AND column_name = \''. $r[0] .'\' AND constraint_name LIKE \'PK%\'');
+			$default = str_replace(array('\'',')','('), '', $r[3]);
+
+			$auto = 0;
+			if ($type == 'INT' && $key) {
+				$auto = (int)q_singleval('SELECT 1 FROM syscolumns WHERE COLUMNPROPERTY(id, name, \'IsIdentity\') = 1 AND OBJECT_NAME(id) =  \''. $table .'\' AND name = \''. $r[0] .'\'');
+			}
+
 			$ret[$colname] = array('type'=>$type, 'not_null'=>$not_null, 'primary'=>$key, 'default'=>$default, 'auto'=>$auto);
 		}
 	} else if (__dbtype__ == 'mysql') {
@@ -329,7 +334,7 @@ function create_primary_key($table, $col_list)
 function optimize_fud_tables($tbl_list=null)
 {
 	if (__dbtype__ == 'sqlite') {	// DB level.
-		uq('VACUUM');
+		q('VACUUM');
 	}
 
 	if (!$tbl_list) {
@@ -338,19 +343,19 @@ function optimize_fud_tables($tbl_list=null)
 
 	foreach ($tbl_list as $t) {
 		if (__dbtype__ == 'db2') {
-			uq('CALL SYSPROC.ADMIN_CMD(\'RUNSTATS ON TABLE '. $GLOBALS['DBHOST_USER'] .'.'. $t .' ON KEY COLUMNS and INDEXES ALL\');');
+			q('CALL SYSPROC.ADMIN_CMD(\'RUNSTATS ON TABLE '. $GLOBALS['DBHOST_USER'] .'.'. $t .' ON KEY COLUMNS and INDEXES ALL\');');
 		} else if (__dbtype__ == 'firebird') {
 			return;	// Automated garbage collection, no intervention required.
 		} else if (__dbtype__ == 'mssql') {
-			uq('UPDATE STATISTICS '. $t);
+			q('UPDATE STATISTICS '. $t);
 		} else if (__dbtype__ == 'mysql') {
-			uq('OPTIMIZE TABLE '. $t);
+			q('OPTIMIZE TABLE '. $t);
 		} else if (__dbtype__ == 'oracle') {
-			uq('ANALYZE TABLE '. $t .' COMPUTE STATISTICS;');
+			q('ANALYZE TABLE '. $t .' COMPUTE STATISTICS;');
 		} else if (__dbtype__ == 'pgsql') {
-			uq('VACUUM ANALYZE '. $t);
+			q('VACUUM ANALYZE '. $t);
 		} else if (__dbtype__ == 'sqlite') {
-			uq('ANALYZE '. $t);
+			q('ANALYZE '. $t);
 		}
 	}
 }
@@ -641,7 +646,28 @@ function get_fud_index_list($table)
 			$tbl[$k]['cols'] = implode(',', $v['cols']);
 		}
 	} else if (__dbtype__ == 'mssql') {
-		die('@TODO: not yet implemented for MS-SQL!');
+		$c = q('SELECT i.name AS index_name, is_unique AS uniq 
+				FROM   sys.indexes i
+				INNER JOIN sys.tables t ON i.object_id = t.object_id
+				WHERE t.name = \''. $table .'\'
+				AND   i.name LIKE \''. $table .'%\'');
+		while ($r = db_rowobj($c)) {
+			$tbl[$r->index_name] = array('unique' => $r->uniq, 'cols' => array());
+			$c2 = q('SELECT col.name AS column_name
+						FROM sys.indexes ind
+						INNER JOIN sys.index_columns ic ON ind.object_id = ic.object_id AND ind.index_id = ic.index_id
+						INNER JOIN sys.columns col ON ic.object_id = col.object_id AND ic.column_id = col.column_id 
+						INNER JOIN sys.tables t ON ind.object_id = t.object_id
+						WHERE ind.name = \''. $r->index_name .'\'
+						ORDER BY ic.index_column_id');
+			while ($r2 = db_rowobj($c2)) {
+				$tbl[$r->index_name]['cols'][] = $r2->column_name;
+			}
+		}
+		unset($c);
+		foreach ($tbl as $k => $v) {
+			$tbl[$k]['cols'] = implode(',', $v['cols']);
+		}
 	} else if (__dbtype__ == 'mysql') {
 		$c = q('SHOW INDEX FROM '. $table);
 		while ($r = db_rowobj($c)) {

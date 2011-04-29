@@ -108,16 +108,12 @@ function rebuild_forum_view_ttl($forum_id, $skip_cron=0)
 	q('DELETE FROM {SQL_TABLE_PREFIX}tv_'. $forum_id);
 
 	if (__dbtype__ == 'mssql') {
-		// Guess what DB is the cappiest and least standards compliant of all those we support.
-		q('INSERT INTO {SQL_TABLE_PREFIX}tv_'. $forum_id .' (seq, thread_id, iss)
-			SELECT ROW_NUMBER() OVER(ORDER BY (CASE WHEN thread_opt>=2 THEN (4294967294 + (('. q_bitand('thread_opt', 8) .') * 100000000) + last_post_date) ELSE last_post_date END)), thread_id, '. q_bitand('thread_opt', (2|4|8)) .'
-			FROM
-			(SELECT {SQL_TABLE_PREFIX}thread.id AS thread_id, thread_opt, last_post_date FROM {SQL_TABLE_PREFIX}thread 
-				INNER JOIN {SQL_TABLE_PREFIX}msg ON {SQL_TABLE_PREFIX}thread.root_msg_id={SQL_TABLE_PREFIX}msg.id 
-				WHERE forum_id='. $forum_id .' AND {SQL_TABLE_PREFIX}msg.apr=1 
-				ORDER BY (CASE WHEN thread_opt>=2 THEN (4294967294 + (('. q_bitand('thread_opt', 8) .') * 100000000) + {SQL_TABLE_PREFIX}thread.last_post_date) ELSE {SQL_TABLE_PREFIX}thread.last_post_date END)
-				OFFSET 0 ROWS
-			) q1');
+		// Workaround for: The ORDER BY clause is invalid in views, inline functions, derived tables, subqueries, and common table expressions, unless TOP or FOR XML is also specified.
+		q('INSERT INTO {SQL_TABLE_PREFIX}tv_'. $forum_id .' (seq, thread_id, iss) SELECT '. q_rownum() .', id, iss FROM
+			(SELECT TOP(1000000000) {SQL_TABLE_PREFIX}thread.id AS id, '. q_bitand('thread_opt', (2|4|8)) .' AS iss FROM {SQL_TABLE_PREFIX}thread 
+			INNER JOIN {SQL_TABLE_PREFIX}msg ON {SQL_TABLE_PREFIX}thread.root_msg_id={SQL_TABLE_PREFIX}msg.id 
+			WHERE forum_id='. $forum_id .' AND {SQL_TABLE_PREFIX}msg.apr=1 
+			ORDER BY (CASE WHEN thread_opt>=2 THEN (4294967294 + (('. q_bitand('thread_opt', 8) .') * 100000000) + {SQL_TABLE_PREFIX}thread.last_post_date) ELSE {SQL_TABLE_PREFIX}thread.last_post_date END) ASC) q1');
 	} else {
 		q('INSERT INTO {SQL_TABLE_PREFIX}tv_'. $forum_id .' (seq, thread_id, iss) SELECT '. q_rownum() .', id, iss FROM
 			(SELECT {SQL_TABLE_PREFIX}thread.id AS id, '. q_bitand('thread_opt', (2|4|8)) .' AS iss FROM {SQL_TABLE_PREFIX}thread 
@@ -125,15 +121,6 @@ function rebuild_forum_view_ttl($forum_id, $skip_cron=0)
 			WHERE forum_id='. $forum_id .' AND {SQL_TABLE_PREFIX}msg.apr=1 
 			ORDER BY (CASE WHEN thread_opt>=2 THEN (4294967294 + (('. q_bitand('thread_opt', 8) .') * 100000000) + {SQL_TABLE_PREFIX}thread.last_post_date) ELSE {SQL_TABLE_PREFIX}thread.last_post_date END) ASC) q1');
 	}
-
-/* BAD ATTEMPT - MSSQL CANNOT UPDATE/INSERT INTO IDENTITY COLS.
-	q('INSERT INTO {SQL_TABLE_PREFIX}tv_'. $forum_id .' (thread_id, iss) 
-	   SELECT {SQL_TABLE_PREFIX}thread.id, '. q_bitand('thread_opt', (2|4|8)) .' AS iss 
-	   FROM {SQL_TABLE_PREFIX}thread
-	   INNER JOIN {SQL_TABLE_PREFIX}msg ON {SQL_TABLE_PREFIX}thread.root_msg_id={SQL_TABLE_PREFIX}msg.id 
-	   WHERE forum_id='. $forum_id .' AND apr=1
-	   ORDER BY (CASE WHEN thread_opt>=2 THEN (4294967294 + (('. q_bitand('thread_opt', 8) .') * 100000000) + last_post_date) ELSE last_post_date END) ASC');
-*/
 
 	if (isset($ll)) {
 		db_unlock();

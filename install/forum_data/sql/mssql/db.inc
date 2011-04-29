@@ -11,9 +11,6 @@
 # define('fud_query_stats', 1);
 
 /* ---------------------------------------------------------------------------------------------------
- * Driver for Microsoft SQL Server "Denali".
- * Do not use it with SQL Server 2008 or older releases.
- *
  * THIS DRIVER IS EXPERIMENTAL AND DOESN'T WORK PROPERLY!!!
  *
  * This driver doesn't work because of a PHP bug that will create tables with "NULL"
@@ -44,8 +41,8 @@ function db_close()
 function db_version()
 {
 	if (!defined('__FUD_SQL_VERSION__')) {
-		$ver = mssql_fetch_row(mssql_query('SELECT SERVERPROPERTY(\'productversion\')', fud_sql_lnk));
-		define('__FUD_SQL_VERSION__', $ver[0]);
+		$ver = q_singleval('SELECT SERVERPROPERTY(\'productversion\')');
+		define('__FUD_SQL_VERSION__', $ver);
 	}
 	return __FUD_SQL_VERSION__;
 }
@@ -94,7 +91,7 @@ function uq($query)
 if (!defined('fud_query_stats')) {
 	function q($query)
 	{
-		$r = mssql_query($query, fud_sql_lnk) or fud_sql_error_handler($query, mssql_get_last_message(), null, db_version());
+		$r = mssql_query(_mssql_syntax($query), fud_sql_lnk) or fud_sql_error_handler($query, mssql_get_last_message(), null, db_version());
 		return $r;
 	}
 } else {
@@ -111,7 +108,7 @@ if (!defined('fud_query_stats')) {
 		}
 	
 		$s = microtime(true);
-		$r = mssql_query($query, fud_sql_lnk) or fud_sql_error_handler($query, mssql_get_last_message(), null, db_version());
+		$r = mssql_query(_mssql_syntax($query), fud_sql_lnk) or fud_sql_error_handler($query, mssql_get_last_message(), null, db_version());
 		$e = microtime(true);
 
 		$GLOBALS['__DB_INC_INTERNALS__']['last_time'] = ($e - $s);
@@ -147,8 +144,19 @@ function q_singleval($query)
 function q_limit($query, $limit, $off=0)
 {
 	if ($off) {
-		// return 'SELECT TOP '. $limit .' FROM (SELECT TOP '. ($limit/$off)*$limit . substr($query, 6) .')';
-		return $query . ' OFFSET '. $off .' ROWS FETCH NEXT '. $limit .' ROWS ONLY';
+		// For SQL Server 11 (denali), simply:
+		// return $query . ' OFFSET '. $off .' ROWS FETCH NEXT '. $limit .' ROWS ONLY';
+
+		$query = preg_replace('/SELECT(\s*DISTINCT)?/Dsi', 'SELECT$1 TOP(10000000) ', $query);
+		$query = 'SELECT *
+				FROM (SELECT sub2.*, ROW_NUMBER() OVER(ORDER BY sub2.line2) AS line3
+				FROM (SELECT 1 AS line2, sub1.* FROM ('. $query .') AS sub1) as sub2) AS sub3';
+		if ($limit > 0)	{
+			$query .= ' WHERE line3 BETWEEN '. ($off+1) .' AND '. ($off + $limit);
+		} else {
+			$query .= ' WHERE line3 > '. $off;
+		}
+		return $query;
 	} else {
 		return 'SELECT TOP '. $limit . substr($query, 6);
 	}
@@ -168,7 +176,7 @@ function q_concat($arg)
 }
 
 function q_rownum() {
-    return 'ROW_NUMBER () OVER (ORDER BY id)';
+	return 'ROW_NUMBER() OVER(ORDER BY (SELECT 1))';
 }
 
 function q_bitand($fieldLeft, $fieldRight) {
@@ -247,6 +255,15 @@ function _esc($s)
 {
 	// There is no mssql_real_escape_string().
 	return '\''. stripslashes(str_replace("'", "''", $s)) .'\'';
+}
+
+function _mssql_syntax($q)
+{
+	// Difficult to belief, but there is still a database that doesn't support LENGTH()!
+	// Workaround for error: 'LENGTH' is not a recognized built-in function name.
+	$q = preg_replace('/LENGTH\(/i', 'DataLength(', $q);
+	
+	return $q;
 }
 
 ?>

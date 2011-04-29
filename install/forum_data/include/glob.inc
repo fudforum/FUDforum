@@ -104,7 +104,7 @@ function change_global_settings($list)
 	$settings = file_get_contents($GLOBALS['INCLUDE'] .'GLOBALS.php');
 	foreach ($list as $k => $v) {
 		$v = str_replace("\n", '<br />', $v);	// Get rid of newlines (they will break this function).
-		$v = addcslashes($v, '\\\'');
+		$v = addcslashes($v, '\'');
 
 		if (($p = strpos($settings, '$'. $k)) === false) {	// Find it. New or existing setting?
 			$p = strpos($settings, '$ADMIN_EMAIL');			// Insert position for new settings.
