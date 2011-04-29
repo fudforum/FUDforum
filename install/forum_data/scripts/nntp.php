@@ -1,7 +1,7 @@
 #!/usr/bin/php -q
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -160,6 +160,13 @@ function add_attachment($name, $data, $pid)
 
 		$msg_post = new fud_msg_edit;
 
+		/* Check if message was already imported. */
+		if ($emsg->msg_id && q_singleval('SELECT m.id FROM '. sql_p .'msg m
+						INNER JOIN '. sql_p .'thread t ON t.id=m.thread_id
+						WHERE mlist_msg_id='. _esc($emsg->msg_id) .' AND t.forum_id='. $frm->id)) {
+			continue;
+		}
+
 		// Handler for our own messages, which do not need to be imported.
 		if (isset($emsg->headers['x-fudforum']) && preg_match('!([A-Za-z0-9]{32}) <([0-9]+)>!', $emsg->headers['x-fudforum'], $m)) {
 			if ($m[1] == md5($GLOBALS['WWW_ROOT'])) {
@@ -173,7 +180,7 @@ function add_attachment($name, $data, $pid)
 		// Handle NNTP cancellation messages.
 		if (isset($emsg->headers['control']) && preg_match('!cancel!', $emsg->headers['control'])) {
 			log_script_error('Ignore NNTP cancellation message (not yet implemented).', $emsg->raw_msg);
-/*TODO
+/* @TODO
 			// For future implementation. Anyone brave enough to test it for us?
 			q('DELETE FROM '. sql_p .'msg WHERE mlist_msg_id='. _esc($emsg->msg_id));
 			if (db_affected()) {
