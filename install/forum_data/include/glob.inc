@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -39,6 +39,7 @@ function read_help()
 	return (isset($help_ar) ? $help_ar : null);
 }
 
+/* Print a bit selection field (used in ACP). */
 function print_bit_field($descr, $field)
 {
 	$h =& $GLOBALS['help_ar'][$field];
@@ -64,6 +65,7 @@ function print_bit_field($descr, $field)
 	echo '</td></tr>';
 }
 
+/* Print a regular field (used in ACP). */
 function print_reg_field($descr, $field, $is_int=0, $pass=0)
 {
 	if (!isset($GLOBALS[$field])) {
@@ -75,6 +77,7 @@ function print_reg_field($descr, $field, $is_int=0, $pass=0)
 	echo '<tr class="field"><td><label for="CF_'. $field .'">'. $descr .': <br /><font size="-1">'. $GLOBALS['help_ar'][$field][0] .'</font></label></td><td valign="top"><input type="'. (!$pass ? 'text' : 'password') .'" name="CF_'. $field .'" id="CF_'. $field .'" value="'. $val .'" size="30" autocomplete="off" '. $extra .'/></td></tr>';
 }
 
+/* Print a text field (used in ACP). */
 function print_txt_field($descr, $field, $rows=2, $cols=30)
 {
 	if (!isset($GLOBALS[$field])) {
@@ -148,20 +151,16 @@ function maintenance_status($reason, $status)
 /* Create symbolic links to the forum's GLOBALS.php file. */
 function fud_symlink($src, $dest)
 {
-	$WINDOWS = DIRECTORY_SEPARATOR != '/';
-
 	/* Ensure we don't have any bogus symlinks (i.e. re-installing over old forum). */
 	@unlink($dest);
 
 	/* Older windows systems doesn't have symlinks and some hosts disable them - use crude emulation. */	
-	if ($WINDOWS || !function_exists('symlink')) {
+	if (!function_exists('symlink') || (function_exists('symlink') && @symlink($src, $dest) === FALSE)) {
 		if (!($fp = fopen($dest, 'wb'))) {
 			return FALSE;
 		}
 		fwrite($fp, '<?php include_once \''. $src .'\'; ?>');
 		fclose($fp);
-	} else {
-		symlink($src, $dest);
 	}
 }
 
