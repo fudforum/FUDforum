@@ -1,7 +1,7 @@
 #!/usr/local/bin/php -q
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -16,7 +16,7 @@ function make_lang_arr($path)
 	foreach ($eng as $v) {
 		$key = strtok($v, ':');
 		$p = strlen($key);
-		while ($v[++$p] == "\t");
+		// while ($v[++$p] == "\t");
 		$lang[$key] = substr($v, $p);
 	}
 
