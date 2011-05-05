@@ -412,6 +412,7 @@ post_title:Título:
 post_body:Corpo:
 post_options:Opções:
 post_preview_btn:Visualizar mensagem
+post_cancel_btn:Cancelar
 ignore_users:Usuários ignorados
 add_ignore:Adicionar ignorados
 forum_terms:Termos de uso do Fórum
@@ -716,8 +717,7 @@ post_opt_html_off:<b>Codigo</b> HTML está <b>Desligado</b>
 post_opt_fud_off:<b>O BBcode</b> está <b>Desligado</b>
 post_opt_images_off:<b>As imagens</b> estão <b>Desligadas</b>
 post_opt_smilies_off:<b>Os smilies</b> estão <b>Desligados</b>
-# Fuzzy
-post_opt:Opções do Fórum
+post_opt:Opções do Fórum:
 register_change_passwd:Alterar Senha
 register_change_login:mudar identificação
 approved_avatar_title:O seu avatar foi aprovado.
@@ -804,6 +804,7 @@ th_expr_two_month:2 Mêses
 th_expr_four_month:4 Mêses
 th_expr_one_year:1 Ano
 thread_mod_delete:Apagar
+action_ip:IP
 action_latest_post:Última mensagem colocada
 online_today_last_visit:Último Visitado
 online_today_update:Ver a lista de pessoas que estiveram no fórum hoje.
@@ -1054,14 +1055,10 @@ mmd_abort_move:Cancelar
 mmd_move:Mover Tópicos
 pmsg_pdf_btn:Criar arquivo PDF
 search_results_hdr:{VAR: total} Resultados encontrados
-# Fuzzy
-thread_del_all:Apagar Todos os selecionados
-# Fuzzy
-thread_mov_all:Mover Todos os selecionados
-# Fuzzy
-thread_merge_all:Unificar todos os selecionados
-# Fuzzy
-thread_loc_all:Bloquear/desbloquear todos os selecionados
+thread_del_all:Apagar os selecionados
+thread_mov_all:Mover os selecionados
+thread_merge_all:Fundir os selecionados
+thread_loc_all:Bloquear/desbloquear os selecionados
 dmsg_ip:IP:
 err_blockedaccnt_title:ERRO: Sua conta foi filtrada.
 err_blockedaccnt_msg:Sua conta  foi bloqueada por um dos filtros de usuários instalados e, por isso, não poderá acessar o fórum.
@@ -1084,8 +1081,11 @@ post_common_align_left:Alinhar à esquerda
 post_common_align_center:Centralizar
 post_common_align_right:Alinhar à direita
 post_common_link:Inserir um Link
+post_common_link_popup:Destino do link:
 post_common_email:Inserir um endereço de e-mail
+post_common_email_popup:Endereço de e-mail:
 post_common_image:Inserir uma imagem
+post_common_image_popup:URL da imagem:
 post_common_nlist:Adicionar uma lista numerada
 post_common_blist:Adicionar uma lista com marcadores
 post_common_quote:Adicionar uma citação
@@ -1132,3 +1132,5 @@ feed_rss:feed RSS2
 feed_atom:feed ATOM
 ip_whois_connect_err:Não foi possível conectar-se ao servidor WHOIS ({VAR: whois_server}): {VAR: errstr}
 custom_filed_required:Este campo é obrigatório.
+page_list_heading:Páginas disponíveis
+page_list_total:{PLURAL: i|$1 página|$1 páginas} listadas.

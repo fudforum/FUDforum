@@ -1,5 +1,6 @@
 # Messages for Korean (한국어)
 # Exported from translatewiki.net
+# Author: Changwoo
 # Author: ToePeu
 
 admin:관리자
@@ -413,7 +414,7 @@ reset_remind_pass:패스워드 힌트
 reset_reset_conf:패스워드 분실시 힌트를 통해 찾을 수 있으며, 등록한 이메일로 발송됩니다
 reset_error:이메일 주소를 찾을 수 없습니다
 rpasswd_change_pass:패스워드 변경
-rpasswd_login:로그임
+rpasswd_login:로그인
 rpasswd_cur_pass:현재 패스워드:
 rpasswd_new_pass:새 패스워드:
 rpasswd_conf_pass:패스워드 확인:

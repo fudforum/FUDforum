@@ -3,6 +3,7 @@
 # Author: Crazymadlover
 # Author: Locos epraix
 # Author: McDutchie
+# Author: Od1n
 # Author: Peter17
 # Author: Translationista
 
@@ -470,7 +471,7 @@ ruser_change_user:Cambiar tu identificación en el foro
 ruser_cur_login:Identificación actual:
 ruser_new_login:Nueva identificación:
 ruser_cur_pass:Contraseña actual:
-login_passwd:Contraseña
+login_passwd:Contraseña:
 reset_email:Correo electrónico:
 reset_reset_button:Actualizar contraseña
 rate_this_thread:Evaluar

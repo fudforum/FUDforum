@@ -1090,7 +1090,7 @@ post_common_quote:Voeg 'n aanhaling by
 post_common_code:Voeg kode by
 rating_delete:Skrap
 post_always_on_top:Vertoon die onderwerp altyd boaan die onderwerpslys.
-topic_rating:{VAR: frm->rating} van {PLURAL: frm->n_rating|$1 stem|$1 stemme}
+topic_rating:{VAR: frm->rating} na {PLURAL: frm->n_rating|$1 stem|$1 stemme}
 topic_list_rating:{VAR: r[17]} van {PLURAL: r[21]|$1 stem|$1 stemme}
 tabs_notifications:Kennisgewings
 finduser_flag:Vlag

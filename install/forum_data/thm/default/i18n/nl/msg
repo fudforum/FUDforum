@@ -670,7 +670,7 @@ report_err_nosuchmsg_title:Fout
 report_err_nosuchmsg_msg:onbekend bericht
 reset_err_invalidkey_title:Fout
 reset_err_invalidkey_msg:Er is een ongeldige sleutel voor het opnieuw instellen van het wachtwoord opgegeven. Het is mogelijk dat uw e-mailprogramma deze pagina al automatisch heeft geopend, waardoor de sleutel ongeldig is geworden. Als dit het geval is, dan ontvangt u snel een e-mail met uw nieuwe wachtwoord. Als u zo'n e-mail niet ontvangt, probeer dan opnieuw het wachtwoord opnieuw in te stellen.
-reset_err_rstconf_title:Informatie
+reset_err_rstconf_title:Gegevens
 reset_err_rstconf_msg:U ontvangt meestal binnen enkele minuten een e-mail met instructies.
 reset_newpass_title:Wachtwoord opnieuw instellen
 reset_newpass_msg:Hallo.\n\nZoals gevraagd zijn uw aanmeldgegevens naar u verzonden.\nHier zijn uw gegevens:\n\nGebruikersnaam: {VAR: ui[1]}\nWachtwoord: {VAR: passwd}\n\nLet op: uw wachtwoord is opnieuw ingesteld naar de bovenstaande waarde. Als u toch een ander wachtwoord wilt instellen, kunt u dat via uit gebruikersinstellingen doen:\n{FULL_ROOT}{ROOT}?t=register
@@ -1093,7 +1093,7 @@ post_common_quote:Een citaat toevoegen
 post_common_code:Code toevoegen
 rating_delete:Verwijderen
 post_always_on_top:Het onderwerp altijd bovenaan de onderwerpenlijst weergeven
-topic_rating:{VAR: frm->rating} van {PLURAL: frm->n_rating|$1 stem|$1 stemmen}
+topic_rating:{VAR: frm->rating} na {PLURAL: frm->n_rating|$1 stem|$1 stemmen}
 topic_list_rating:{VAR: r[17]} van {PLURAL: r[21]|$1 stem|$1 stemmen}
 tabs_notifications:Waarschuwingen
 finduser_flag:Vlag

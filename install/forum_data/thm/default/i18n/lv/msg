@@ -19,8 +19,7 @@ current_time:Tekošais laiks
 custom_avatar_queue:Citas bildītes
 date_posted:Nosūtīšanas datums
 date_registered:Reģistrācijas datums:
-# Fuzzy
-download_counter:{VAR: v[3]} reizes ielādēts
+download_counter:Lejupielādēts {PLURAL: v[3]|$1 reizi|$1 reizes}
 email:E-pasts:
 email_to_friend:Nosūtīt E-pastu
 email_to_friend_desc:Nosūtīt URL-saiti par šo ierakstu pa E-pastu
@@ -62,16 +61,20 @@ logged_in_list:Pieslēgušos lietotāju saraksts
 login:Ieiet
 login_header:Lietotājs:
 logout:Iziet
-# Fuzzy
-mark_all_read:Visus ierakstus iezīmēt kā lasītus
+mark_all_read:Visus ziņojumus atzīmēt kā lasītus
 mark_all_read_desc:Visi ieraksti iezīmēti kā lasīti
 members:Lietotāji
+calendar:Kalendārs
+cal_goto_date:Pārlēkt uz:
+cal_day_heading:Dienas notikumi
 message:Ieraksts
 # Fuzzy
 message_counter:Mūsu lietotājiem nosūtīti <b>{VAR: post_count}</b> paziņojumi pa <b>{VAR: thread_count}</b> tēmām.
 message_index:Ierakstu saraksts
 message_index_desc:Saraksta pārskats
 minimize_category:Sakļaut kategoriju
+minimize_message:Minimizēt ziņojumu
+moderation_queue:Moderācijas rinda
 moderator:Moderātors
 moderator_of:Moderējamie forumi:
 moderator_options:Moderātora funkcijas
@@ -86,7 +89,7 @@ new_posts:Jaunie ieraksti
 new_private_messages:Saņemti un nelasīti<span class="GenText" style="color: #ff0000">({VAR: c})</span> ieraksti
 new_thread:Izveidot jaunu tēmu
 newest_user:Pēdējais reģistrētais lietotājs:
-next_page:Nākošā lapa
+next_page:Nākamā lapa
 next_thread:Nākošā tēma:
 no_messages:Šajā forumā nav jaunu ierakstu.
 no_msg_body:Nav teksta ieraksta
@@ -98,8 +101,7 @@ no_unread_locked:Šī tēma ir slēgta
 no_unread_msg:Šajā tēmā nav nelasītu ierakstu
 no_unread_msg_unreg:Lasītu vai nelasītu ierakstu pārskats pieejams tikai reģistrētiem lietotājiem
 num_pages:({VAR: ttl_pg})lapas:
-# Fuzzy
-num_votes:{VAR: obj->total_votes} balsis:
+num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|balss|balsis}
 occupation:Nodarbošanās:
 # Fuzzy
 page_timings:{VAR: page_gen_time} sekundes patērētas lapas ģenerēšanai
@@ -170,12 +172,12 @@ unread_posts:Nelasītie ieraksti
 unread_posts_desc:Rādīt visus nelasītos ierakstus
 unsub_from_thread:Atteikties no tēmas
 unsub_from_thread_desc:Pārtraukt paziņojumu nosūtīšanu par jaunumiem šajā tēmā
+unbookmark_thread:Noņemt no grāmatzīmēm
 unsubscribe:Atteikties no foruma
 unsubscribe_desc:Pārtraukt paziņojumu nosūtīšanu par jaunumiem šajā forumā
 updated_on:Jauninājumi:
 user:Lietotājs:
-# Fuzzy
-user_counter:<b>{VAR: st_obj->user_count}</b> reģistrētie lietotāji.
+user_counter:Mums ir <b>{VAR: st_obj->user_count}</b> {PLURAL: st_obj->user_count|reģistrēts lietotājs|reģistrēti lietotāji}.
 user_info:Info par lietotāju
 user_info_l:Info par {VAR: u->alias}
 user_offline:{VAR: obj->login} šobrīd nav On-Line režīmā
@@ -395,6 +397,7 @@ post_title:Nosaukums:
 post_body:Teksts:
 post_options:Parametri:
 post_preview_btn:Priekšapskate
+post_cancel_btn:Atcelt
 ignore_users:Ignorējamie lietotāji
 add_ignore:Pievienot ignorējamo
 forum_terms:Foruma noteikumi
@@ -417,7 +420,10 @@ coppa_fax_reg_form:Reģistrācijas forma
 coppa_fax_sign:Lūdzu izdrukājiet un aizpildiet šo formu, parakstiet to un nosūtiet mums
 coppa_fax_conf:I have reviewed the information my child has supplied and I have read the Privacy Policy for the web site. I understand that the profile information may be changed by a using a password. I understand that I may ask for this registration profile be removed entirely.
 coppa_fax_relation:Relation to child:
-coppa_fax_email:Email address:
+coppa_fax_telephone:Tālrunis:
+coppa_fax_email:E-pasta adrese:
+coppa_fax_date:Datums:
+coppa_fax_passwd:Parole
 coppa_fax_remail:E-pasts
 login_not_logedin:Jūs neiekļuvāt forumā. Par iemeslu tam var būt sekojoši apstākļi:
 login_cookie_expired:Jūsu Web pārlūka cookie darbības laiks ir beidzies, lai to atjaunotu vēlreiz ielogojieties.
@@ -530,6 +536,7 @@ poll_year:gads
 poll_week:nedēļa
 tabs_register:Uzstādījumi
 tabs_subscriptions:Parakstīšanās
+tabs_bookmarkes:Grāmatzīmes
 tabs_referrals:Uzaicinātie
 tabs_buddy_list:Kontaktu saraksts
 tabs_ignore_list:Ignorēto saraksts
@@ -564,8 +571,7 @@ email_error_namerequired:Vārds ir obligāts
 email_error_invaliduser:Neatļauts lietotājs
 emailconf_err_invkey_title:Kļūda
 emailconf_err_invkey_msg:Neatļauta apstiprinājuma atslēga. Lūdzu `vēlreiz pārbaudiet savu E-pastu un pārliecinieties vai pareizi ievadījāt apstiprinājuma atslēgu.
-# Fuzzy
-err_inc_criticaltitle:KRITISKA KĻŪDA
+err_inc_criticaltitle:Kritiska kļūda
 err_inc_criticalmsg:Jūs konstatējāt problēmu. Diemžēl kļūdu paziņojumu sistēmas darbs patreiz nestrādā korekti.
 finduser_update:Lietotāju meklēšana
 # Fuzzy
@@ -780,6 +786,7 @@ th_expr_two_month:2 mēnešus
 th_expr_four_month:4 mēnešus
 th_expr_one_year:1 gadu
 thread_mod_delete:Dzēst
+action_ip:IP
 action_latest_post:Pēdējā publikācija
 online_today_last_visit:Pēdējais apmeklējums
 online_today_update:Šodienas apmeklētāju saraksts.
@@ -800,15 +807,14 @@ split_th_split_unsel:Sadalīt neiezīmētās publikācijas
 split_th_messages:Publikācijas
 split_th_select:Izvēle
 report_report_post:Paziņojumi
-# Fuzzy
-quicklogin_login:Vārds
-# Fuzzy
-quicklogin_password:Parole
+quicklogin_login:Lietotājs:
+quicklogin_password:Parole:
 quicklogin_use_cookies:Izmantot Cookies?
 # Fuzzy
 quicklogin_login_btn:Ieiet
 post_notification_desc:Paziņot man par ienākošajām atbildēm uz publikāciju.
 maximize_category:Izplest kategoriju
+maximize_message:Maksimizēt ziņojumu
 no_view_perm:Jums nav piekļuves tiesību šai tēmai.
 report_empty_report:Tukšumu nav vērts un arī nevar nosūtīt.
 report_already_reported_title:Paziņojums nosūtīts
@@ -818,17 +824,22 @@ pmsg_next_msg:Nākošā publikācija
 pmsg_prev_msg:Iepriekšējā publikācija
 post_proc_reveal_spoiler:Norādiet traucēkļus
 register_jabber:Tīkla Jabber pseidonīms:
+register_skype:Skype lietotājvārds:
+register_twitter:Twitter lietotājvārds:
+register_google:Google Chat/IM lietotājvārds:
+im_jabber:Jabber:
+im_google:Google Talk:
+im_skype:Skype:
+im_twitter:Twitter:
 forum_contact:Webmaster
 forum_home:Sākums
-# Fuzzy
-post_cur_attached:{VAR: i} pievienotie faili
+post_cur_attached:šobrīd pievienoti: {VAR: i} {PLURAL: i|fails|faili}
 ignored_anon_post:{GVAR: ANON_NICK} ignorēts
 ignored_user_post:Ziņojums no <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> ignorēts
 smladd_close_window:aizvērt logu
 post_list_smilies:rādīt visus smaidiņus
 p_VISIBLE:Redzams
-# Fuzzy
-reported_in_thread:No Tēmas
+reported_in_thread:Tēmā:
 help_back_to_top:atgriezt uz augšu
 help_return_to_index:Atgriezties uz galveno HELP lapu
 imsg_err_message_title:Nepieļaujama publikācija
@@ -856,6 +867,9 @@ search_desc_order:Dilstoši
 search_asc_order:Augoši
 search_logic:Loģiskie argumenti:
 search_sorting:Pēc datuma:
+search_attach:Pielikumi:
+search_attach_all:Ar vai bez
+search_attach_with:Ar pielikumiem
 post_proceed:Turpināt
 post_moderated_forum:Publikācija nosūtīta modērējamajai tēmai, līdz ar to tā tiks publicēta tikai pēc moderātora akcepta.
 post_moderated_forum_ttl:Moderējamais forums
@@ -872,5 +886,9 @@ threadt_disabled_desc:Publikāciju hierarhijas koka pārlūks izslēgts. Izmanto
 threadt_update:Koka pārlūks <a href="{TEMPLATE: threadt_update_lnk}">{VAR-HTML: frm->name}</a>
 mmod_delete_cofirm_ttl:Tēmas/Publikācijas dzēšanas apstiprinājums
 spell_alts:variantu nav
+back_to_top:Atpakaļ uz augšu
 pm_err_disabled_title:Privātā sarakste atslēgta
+err_mod_acc_ttl:Neapstiprināts konts
+saved:Saglabāts
+findu_delete:Dzēst
 usrinfo_last_visit:Pēdējais apmeklējums:

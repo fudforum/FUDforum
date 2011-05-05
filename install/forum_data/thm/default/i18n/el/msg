@@ -2,6 +2,7 @@
 # Exported from translatewiki.net
 # Author: Crazymadlover
 # Author: Evropi
+# Author: Glavkos
 # Author: Omnipaedista
 # Author: ZaDiak
 
@@ -23,10 +24,12 @@ download_counter:Λήφθηκε {PLURAL: v[3]|$1 φορά |$1 φορές}
 pmsg_download_counter:Λήφθηκε {PLURAL: r->dlcount|$1 φορά |$1 φορές} φορές
 email:Ηλεκτρονική διεύθυνση:
 email_to_friend:E-mail σε έναν φίλο
+email_to_friend_desc:Στείλτε τη διεύθυνση URL γι' αυτήν τη σελίδα στον φίλο/ους σας μέσω ηλεκτρονικού ταχυδρομείου
 email_user:Στείλτε e-mail σε αυτόν τον χρήστη
 faq:Βοήθεια
 first_unread_msg:Πήγαινε στα αδιάβαστα μηνύματα
 first_unread_msg_desc:Πηγαίνετε στο 1o μη αναγνωσμένο μήνυμα σε αυτό το θέμα
+flat_view:Επιστροφή στην προεπιλεγμένη επίπεδη προβολή
 forum:Φόρουμ:
 forum_icon:Εικονίδιο Φόρουμ
 forum_new_messages:Νέα μηνύματα
@@ -61,12 +64,16 @@ logged_in_list:Λίστα συνδεδεμένων χρηστών
 login:Είσοδος
 login_header:Είσοδος:
 logout:Έξοδος
-# Fuzzy
-mark_all_read:σήμανση όλων των μηνυμάτων ως διαβασμένων
+mark_all_read:Σημάνετε όλα τα μηνύματα ως αναγνωσμένα
 mark_all_read_desc:Όλα τα μη αναγνωσμένα μηνύματα θα σημανθούν ως αναγνωσμένα
 members:Μέλη
 calendar:Ημερολόγιο
 cal_goto_date:Μετάβαση σε:
+cal_day_heading:Εκδηλώσεις της ημέρας
+cal_no_events:Δεν συμβάντα για την ημέρα.
+cal_update:Περιήγηση στο ημερολόγιο φόρουμ
+cal_birthday:Ημερομηνία γέννησης:{VAR: user}
+cal_birthday_age:({PLURAL: age|$1 year|$1 years} ηλικία).
 message:Μήνυμα
 message_index:Δείκτης μηνύματος
 message_index_desc:Εμφάνιση της λίστας μηνυμάτων
@@ -78,6 +85,7 @@ moderator_of:Συντονιστής του:
 moderator_options:Επιλογές Συντονιστή
 moderators:{PLURAL: modcount|$1 Συντονιστης|$1 Συντονιστές}
 more_unread_messages:περισσότερα μη αναγνωσμένα μηνύματα
+more_unread_messages_desc:Εμφάνιση περισσότερων μη αναγνωσμένων μηνυμάτων και σήμανση των τρεχόντων ορατών μηνυμάτων ως διαβασθέντων
 move_thread:Μετακίνηση
 moved:Μετακινήθηκε σε άλλο φόρουμ
 moved_thread_message:Το θέμα έχει μετακινηθεί σε άλλο φόρουμ
@@ -117,6 +125,7 @@ rating:Βαθμολογία
 refresh_list:Ανανέωση Λίστας
 register:Εγγραφή
 registered:Εγγεγραμμένοι:
+registered_on:Εγγεγραμμένοι στο {TEMPLATE: registered_on_date}
 replies:Απαντήσεις
 report_to_mod:Αναφορά του μηνύματος σε έναν συντονιστή
 reported_messages:Αναφερμένα Μηνύματα
@@ -150,14 +159,20 @@ thread_thread:Θέμα
 threads:Θέματα
 time:Ώρα
 todays_posts:Σημερινά Μηνύματα
+un_ignore_user:σταματήστε να αγνοείτε  τα μηνύματα αυτού του  χρήστη
 unanswered_posts:Μη Απαντημένα Μηνύματα
+unanswered_posts_desc:Εμφάνιση όλων των μηνυμάτων, που δεν έχουν  απαντήσεις
 unlock_thread:Ξεκλείδωμα Θέματος
+unread_msg:Αυτό το θέμα περιέχει μηνύματα που δεν έχετε  ακόμη διαβάσει
+unread_msg_locked:Κλειδωμένο θέμα με μη αναγνωσμένα μηνύματα
 unread_posts:Μη Αναγνωσμένα Μηνύματα
 unread_posts_desc:Εμφάνιση όλων των μη διαβασμένων μηνυμάτων
 unsub_from_thread:Μη παρακολούθηση θέματος
+unsub_from_thread_desc:Σταματήσετε να λαμβάνετε ειδοποιήσεις για νέα μηνύματα σχετικά με αυτό το θέμα
 unbookmark_thread:Αφαίρεση από σελιδοδείκτες
 unbookmark_thread_desc:Αφαίρεση αυτού του θέματος από τη λίστα σελιδοδεικτών σας
 unsubscribe:Αποπαρακολούθηση
+unsubscribe_desc:Σταματήσετε να λαμβάνετε ειδοποιήσεις για νέα θέματα στο φόρουμ
 updated_on:Ενημερώθηκε στις:
 user:Χρήστης
 user_info:Πληροφορίες Χρήστη
@@ -190,6 +205,7 @@ list_referes_referrals:Παραπομπές
 list_referes_members:Παραπομπόμενα μέλη
 list_referes_member:Μέλος
 referals_none:Καθόλου παραπομπές ακόμα.
+referals_refered_by:Τα μέλη του φόρουμ που αναφέρονται από:<b><a href="{TEMPLATE: referals_refered_by_lnk}" class="thLnk">{VAR: p_user[1]}</a></b>
 referals_post_count:Καταμέτρηση Μηνύματων
 referals_registered_on:Εγγεγραμμένες Στο
 referals_action:Ενέργεια
@@ -205,6 +221,7 @@ pmsg_selected:Επιλεγμένα
 pmsg_delete:Διαγραφή
 cur_ppage_pm:Προσωπικά Μηνύματα
 writing_pm:Γράφοντας ένα Προσωπικό Μήνυμα
+browsing_folder:Περιήγηση <b>{VAR: folders[$folder_id]}</b> φακέλου
 inbox:Εισερχόμενα
 draft:Πρόταση
 sent:Απεστάλη
@@ -253,6 +270,8 @@ finduser_action:Ενέργεια
 yes:Ναι
 no:Όχι
 register_email:Ηλεκτρονική διεύθυνση
+edit_time_limit:<b>Χρονικό Όριο Επεξεργασίας</b>: {GVAR: EDIT_TIME_LIMIT} λεπτά
+no_edit_time_limit:<b>Χρονικό Όριο Επεξεργασίας</b>: Απεριόριστη
 pmuserloc_login:Είσοδος:
 pmuserloc_submit:Καταχώρηση
 pmuserloc_user:Χρήστης
@@ -263,6 +282,7 @@ register_uploaded:Φόρτωση Άβαταρ
 register_login:Είσοδος:
 register_password:Κωδικός:
 register_conf_pass:Επιβεβαίωση Κωδικού:
+register_email_desc:Παρακαλώ εισάγετε μια έγκυρη διεύθυνση e-mail. Μπορείτε να επιλέξετε να την αποκρύψετε παρακάτω, στην ενότητα Προτιμήσεις.
 register_name:Όνομα:
 register_your_pass:Ο Κωδικός Σας:
 register_update:Ενημέρωση
@@ -275,6 +295,7 @@ register_preview:Προεπισκόπηση
 register_custom_avatar_upload:Σύνηθες Αρχείο Άβαταρ:
 register_register:Εγγραφή
 register_required:Απαραίτητες Πληροφορίες
+register_required_desc:Απαιτούνται όλα τα πεδία. Παρακαλώ σημειώστε ότι στους κωδικούς πρόσβασης γίνεται διάκριση πεζών-κεφαλαίων.
 register_optional:Προαιρετικές Πληροφορίες
 register_location:Τοποθεσία:
 register_occupation:Απασχόληση:
@@ -286,6 +307,7 @@ register_yahoo:Αγγελιοφόρος Yahoo:
 register_msnm:Αγγελιοφόρος MSN:
 register_homepage:Κεντρική σελίδα:
 register_bday:Ημερομηνία Γέννησης:
+register_bday_desc:Εάν εισαγάγετε μια ημερομηνία γέννησης, τότε  άλλα μέλη του φόρουμ θα είναι σε θέση να το δουν το προφίλ σας.
 register_day:Ημέρα
 register_month:Μήνας
 register_year:Χρόνος

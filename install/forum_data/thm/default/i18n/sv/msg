@@ -3,6 +3,7 @@
 # Author: Ernesto
 # Author: McDutchie
 # Author: Nghtwlkr
+# Author: Poxnar
 # Author: Tobulos1
 
 action:Handling
@@ -413,6 +414,7 @@ post_title:Rubrik:
 post_body:Text:
 post_options:Alternativ:
 post_preview_btn:Förhandsgranska meddelande
+post_cancel_btn:Avbryt
 ignore_users:Ignorerade medlemmar
 add_ignore:Ignorera medlem
 forum_terms:Villkor för forumet
@@ -1005,6 +1007,7 @@ adm_account_rejected_s:Din kontoförfrågan på '{GVAR: FORUM_TITLE}' nekades.
 thread_on:på
 userinfo_buddy:Vän:
 register_email_addr:E-postadress:
+reset_suffix:Om du har fått detta meddelande av misstag, vänligen ignorera det. Om du får flera oönskade kopior av detta e-postmeddelande, ta kontakt med forumets administratör på {GVAR: ADMIN_EMAIL}\n\nDenna begäran inleddes från: {VAR: _SERVER['REMOTE_ADDR']}.
 usrinfo_last_visit:Senaste besök:
 mnav_newer:nyare än
 mnav_older:äldre än
@@ -1071,6 +1074,7 @@ sml_emoticon:Emotikon
 sml_code:Kod
 mnav_sub_only:Sök endast i prenumererade forum
 register_topics_per_page:Ämnen per sida:
+login_min_time:Detta forum tillåter ett inloggningsförsök var {VAR: MIN_TIME_BETWEEN_LOGIN}:e sekund, var god vänta {FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)} sekunder innan du försöker igen.
 post_not_logged_in:Du är inte inloggad, medellandet kommer bli postat anonymt.
 post_common_bold:Fet
 post_common_italics:Kursiv

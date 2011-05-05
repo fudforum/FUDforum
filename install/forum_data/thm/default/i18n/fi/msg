@@ -427,6 +427,7 @@ coppa:<p>Vanhempasi tai huoltajasi täytyy postittaa tai faksata allekirjoitettu
 prereg_info:Foorumin käyttöehdot
 prereg_agree:Hyväksyn
 prereg_disagree:En hyväksy
+prereg_update:Lukee keskustelualueen sääntöjä
 coppa_fax_instructions:Ohjeet vanhemmille tai huoltajille
 coppa_fax_instructions2:Tulostakaa tämä sivu, allekirjoittakaa ja faksatkaa tänne:
 coppa_fax_reg_form:Rekisteröityminen
@@ -448,7 +449,7 @@ login_not_logedin:Et ole sisäänkirjautunut. Tämä voi johtua monista syistä:
 login_cookie_expired:Eväste on vanhentunut. Päivitä eväste kirjautumalla sisään.
 login_perm_denied:Sinulla ei ole oikeuksia käyttää pyydettyä resurssia anonyyminä käyttäjänä.
 login_want_to_register:Haluatko rekisteröityä?
-login_forgot_passwd:Salasana unohtunut
+login_forgot_passwd:Unohditko salasanasi?
 login_use_cookie:Käytä evästeitä.<br /><span class="SmallText">Jos käytät yhteiskäytössä olevaa tietokonetta, kuten kirjastossa, koulussa tai Internet-kahvilassa on suositeltavaa, että poistat valinnan tästä paremman tietoturvan takia.<br />Jättämällä tämän valinnan päälle kirjaudut automaattisesti foorumille.</span>
 login_login:Käyttäjätunnus
 login_login_btn:Kirjaudu sisään
@@ -468,6 +469,11 @@ rpasswd_login:Käyttäjätunnus:
 rpasswd_cur_pass:Nykyinen salasana:
 rpasswd_new_pass:Uusi salasana:
 rpasswd_conf_pass:Vahvista salasana:
+ruser_title:Muuta kirjautumislomaketta
+ruser_change_user:Muuta keskustelualueen kirjautumista
+ruser_cur_login:Nykyinen tunnus:
+ruser_new_login:Uusi tunnus:
+ruser_cur_pass:Nykyinen salasana:
 login_passwd:Salasana:
 reset_email:Sähköpostiosoite:
 reset_reset_button:Vaihda salasana
@@ -613,6 +619,7 @@ post_err_lockedthread_msg:Tämä aihe on lukittu, uusia viestejä ei sallita
 err_coppa_title:Virhe: Käyttäjätiliä ei ole vielä hyväksytty
 err_coppa_msg:Emme ole vastaanottaneet varmistusta vanhemmiltasi tai lailliselta huoltajaltasi, joten et voi vielä lähettää viestejä foorumille. Jos olet hukannut COPPA-lomakkeen – <a href="{TEMPLATE: err_coppa_msg_lnk}">voit hakea sen uudelleen</a>.
 err_banned_acct_title:Virhe: Olet estetty.
+err_banned_acct_msg:Tunnuksesi oli {IF: $ban_expiry}väliaikaisesti estettynä {DATE: ban_expiry %e %Bta %Y kello %H.%M} saakka{ELSE}pysyvästi estettynä{ENDI} johtuen keskustelualueen sääntöjen rikkomisesta.
 post_err_edttimelimit_title:Virhe
 post_err_edttimelimit_msg:Et voi enää muokata tätä viestiä.
 post_err_noannontopics_msg2:<legend>Virhe: Riittämättömät käyttöoikeudet</legend>Anonyymit käyttäjät eivät ole oikeutettuja luomaan aiheita.
@@ -713,6 +720,7 @@ post_opt_images_off:<b>Kuvat</b>: <b>Ei käytössä</b>
 post_opt_smilies_off:<b>Hymiöt</b>: <b>Ei käytössä</b>
 post_opt:Foorumin asetukset:
 register_change_passwd:vaihda salasana
+register_change_login:vaihda tunnusta
 approved_avatar_title:Oma avatarisi on hyväksytty.
 approved_avatar_msg:Ylläpitäjän on hyväksynyt oman avatarisi. Sen pitäisi nyt näkyä kaikissa viesteissäsi. Jos et näe sitä tai näet vanhan avatarisi, se johtuu siitä että selaimesi on tallentanut sivun välimuistiin. Päivitä sivu kerran tai pari ja oikean kuvan pitäisi näkyä.
 unapproved_avatar_title:Oma avatarisi on hylätty.
@@ -837,8 +845,7 @@ report_already_reported_msg:Tämä viesti on jo ilmiannettu ja on tällä hetkel
 register_err_toomanyimages:Yritit käyttää enemmän kuin sallitut {GVAR: FORUM_IMG_CNT_SIG} kuvaa allekirjoituksessasi.
 pmsg_next_msg:Seuraava viesti
 pmsg_prev_msg:Edellinen viesti
-# Fuzzy
-post_proc_reveal_spoiler:Näytä spoiler
+post_proc_reveal_spoiler:Näytä piilotettu teksti
 register_jabber:Jabber-tunnus:
 register_skype:Skype-tunnus:
 register_twitter:Twitter-tunnus:
@@ -886,6 +893,8 @@ search_asc_order:Vanhin ensin
 search_logic:Hakulogiikka:
 search_sorting:Järjestä tulokset päivämäärän mukaan:
 search_attach:Liitteet:
+search_attach_all:Kanssa tai ilman
+search_attach_with:Liitteiden kanssa
 post_proceed:Jatka
 post_moderated_forum:Lähetit viestin moderoidulle foorumille. Viestisi ei näy foorumilla ennen kuin joku foorumin moderaattoreista tai ylläpidosta hyväksyy sen.
 post_moderated_forum_ttl:Moderoitu foorumi
@@ -994,14 +1003,18 @@ adm_account_accepted:Ylläpitäjä on hyväksynyt ja aktivoinut tunnuksen '{VAR:
 adm_account_accepted_s:Tunnusanomuksesi foorumille '{GVAR: FORUM_TITLE}' on hyväksytty.
 adm_account_rejected:Ylläpitäjä on hylännyt tunnuksen '{VAR: login}'.\nJos haluat tietää syyn tähän päätökseen, ota yhteyttä ylläpitäjään: '{GVAR: ADMIN_EMAIL}'.
 adm_account_rejected_s:Tunnusanomuksesi foorumille '{GVAR: FORUM_TITLE}' on hylätty.
+thread_on:päivänä
 userinfo_buddy:Kaveri:
 register_email_addr:Sähköpostiosoite:
+reset_suffix:Jos vastaanotit tämän viestin virheellisesti, jätä se huomiotta. Jos saat useita kopioita tästä viestistä, ja jos et ole asiaa pyytänyt, ota yhteyttä keskustelualueen ylläpitäjään sähköpostiosoitteella {GVAR: ADMIN_EMAIL}\n\nTämä pyyntö tehtiin IP-osoitteesta: {VAR: _SERVER['REMOTE_ADDR']}.
 usrinfo_last_visit:Käytti viimeksi:
 mnav_newer:uudempia kuin
 mnav_older:vanhempia kuin
+ip_search_by_ip:Etsi käyttäjiä IP-osoitteen perusteella
 ip_search_syntax:Tuettu syntaksi: 1.2.3.4, 1.2.3, 1.2, 1
 ip_search:Etsi
 ip_analyze_usage:Analysoi IP-käyttöä
+ip_analyze_usage_descr:Ilmoita käyttäjän tarkka tunnus.
 ip_users_using:Käyttäjät, jotka käyttävät IP-osoitetta {VAR: ip}
 ip_all_ips:Kaikki IP-osoitteet, joita '{VAR: user}' on käyttänyt
 ip_title:IP-selain
@@ -1012,6 +1025,7 @@ post_err_mod_forum_edit_msg:Et voi muokata moderoidun foorumin viestejä.
 dmsg_num:viesti nro {VAR: obj->id}
 postcheck_session_invalid:Istuntosi oli päättynyt, syötä lomakkeen tiedot uudelleen.
 delete_message_extra_desc:<b>Valinnainen</b><br />Määritä syy viestin poistoon, joka lähetetään yksityisviestinä viestin aloittajalle.
+delete_message_extra_body:Liitä mukaan poistettu viesti, joka lähetetään tekijälle.
 delete_msg_removed_ttl:Ylläpito on poistanut viestisi.
 delete_msg_pm_body:Alkuperäinen viesti
 delete_msg_pm_subject:Otsikko: {VAR: data[15]}
@@ -1024,6 +1038,7 @@ uc_new_topic:Uusi aihe
 uc_new_cat_forum:Tilattujen foorumien uudet viestit
 uc_cat_forum:Luokka &raquo; Foorumi
 uc_sub_topics:Tilattujen aiheiden uudet viestit
+uc_page_title:Tarkastelee henkilökohtaista hallintapaneelia.
 search_options:Hakuasetukset
 search_user_filter:Suodata käyttäjän mukaan:
 register_none:Älä ilmoita minulle
@@ -1046,12 +1061,17 @@ thread_mov_all:Siirrä valitut
 thread_merge_all:Yhdistä valitut
 thread_loc_all:Lukitse tai avaa valitut
 dmsg_ip:IP:
+err_blockedaccnt_title:Virhe: Tunnuksesi on suodatettu pois.
+err_blockedaccnt_msg:Tätä sivustoa ei voi käyttää tunnuksellasi johtuen käyttäjäsuodattimista.
 merge_th_page_list:Aihesivun valinta
 most_users_online:Eniten yhtaikaisia käyttäjiä (<b>{VAR: st_obj->most_online}</b>) oli <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
+sub_unsub_all_forums:Peruuta liittyminen kaikille foorumeille
+sub_unsub_all_topics:Peruuta kaikkiin ketjuihin liittyminen
 unbookmark_all_topics:Poista kaikki kirjanmerkit
 tabs_own_posts:Näytä omat viestit
 sml_emoticon:Hymiö
 sml_code:Koodi
+mnav_sub_only:Etsi vain foorumeista, joihin olen liittynyt
 register_topics_per_page:Aiheita sivua kohti:
 login_min_time:Tämä foorumi sallii yhden kirjautumisyrityksen {VAR: MIN_TIME_BETWEEN_LOGIN} sekunnin välein. Odota {FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)} sekuntia ennen kuin yrität uudelleen.
 post_not_logged_in:Et ole kirjautuneena sisään, joten viesti lähetetään anonyyminä.
@@ -1062,20 +1082,27 @@ post_common_align_left:Tasaa vasemmalle
 post_common_align_center:Keskitä
 post_common_align_right:Tasaa oikealle
 post_common_link:Lisää linkki
+post_common_link_popup:Linkin sijainti:
 post_common_email:Lisää sähköpostiosoite
 post_common_email_popup:Sähköpostiosoite:
 post_common_image:Lisää kuva
+post_common_image_popup:Kuvan osoite:
 post_common_nlist:Lisää numeroitu lista
 post_common_blist:Lisää luettelomerkitty lista
 post_common_quote:Lisää lainaus
 post_common_code:Lisää koodi
 rating_delete:Poista
+post_always_on_top:Laita aihe näkymään aina aihelistauksen ylimmäisenä
+topic_rating:{VAR: frm->rating} {PLURAL: frm->n_rating|$1 äänestä|$1 äänestä}
+topic_list_rating:{VAR: r[17]} {PLURAL: r[21]|$1 äänestä|$1 äänestä}
 tabs_notifications:Ilmoitukset
 finduser_flag:Lippu
 post_descr:Aiheen kuvaus:
+pmsg_on:Päivämäärä:
 pmsg_download_dump:Lataa viestivedos
 move_messages:Siirrä viestit
 move_msg_btn:Siirrä valitut viestit
+move_msg_th_expl:Ilmoita kohdeaiheen tunnusnumero (voi olla toisella foorumilla)
 captcha_img_alt:Captcha-varmistus: Sinun täytyy tunnistaa teksti tästä kuvasta.
 captcha_img_help:Kuvassa ei ole nollaa tai ykköstä.
 powered-by:Palvelun mahdollistaa: FUDforum {GVAR: FORUM_VERSION}.<br />Copyright &copy;2001-2011 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
@@ -1106,3 +1133,5 @@ feed_rss:RSS2-syöte
 feed_atom:Atom-syöte
 ip_whois_connect_err:WHOIS-palvelimeen ({VAR: whois_server}) ei saada yhteyttä: {VAR: errstr}
 custom_filed_required:Tämä kenttä on pakollinen.
+page_list_heading:Saatavilla olevat sivut
+page_list_total:Näytetään {PLURAL: i|$1 sivu|$1 sivua}.

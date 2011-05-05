@@ -339,7 +339,7 @@ register_bio_desc:Sedikit butiran mengenai anda, seperti minat, pekerjaan anda d
 register_prefs:Keutamaan
 register_sig:Tandatangan:
 register_sig_desc:Tandatangan tak wajib yang akan muncul di bawah sekali pesanan anda.
-register_reset:Reset
+register_reset:Set semula
 register_def_thread_view:Pandangan Topik Tersedia:
 register_msg_per_page:Pesanan Per Halaman:
 register_show_sig:Tunjukkan Tandatangan:
@@ -858,6 +858,7 @@ ignored_anon_post:{GVAR: ANON_NICK} diabaikan
 ignored_user_post:Pesanan oleh <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> diabaikan
 smladd_close_window:tutup tetingkap
 post_list_smilies:senaraikan semua emotikon
+p_VISIBLE:Boleh lihat
 reported_in_thread:Di:
 help_back_to_top:kembali ke atas
 help_return_to_index:Kembali ke Indeks Bantuan
@@ -886,6 +887,7 @@ search_and:DAN
 search_or:ATAU
 search_desc_order:Urutan Menurun
 search_asc_order:Urutan Menaik
+search_logic:Logik Carian:
 search_sorting:Susun Hasil mengikut Tarikh di:
 search_attach:Lampiran:
 search_attach_all:Dengan atau tanpa
@@ -961,6 +963,7 @@ mnav_all_forums:Cari semua forum
 mnav_submit:Mula Mencari
 mnav_no_range:Anda mesti mengisikan julat tarikh yang sah. Nilai ini boleh mengandungi tanda perpuluhan (cth. 0.12), tetapi ia mestilah lebih daripada sifar.
 mnav_invalid_unit:Anda mesti menyatakan unit waktu yang sah.
+mnav_invalid_date:Julat tarikh yang anda berikan itu lebih besar daripada yang dibenarkan oleh pentadbir. Sila cuba lagi dengan julat tarikh yang lebih kecil.
 mnav_no_results:Tiada pesanan yang sepadan dengan pertanyaan.
 mnav_posted_by:Dikirim Oleh:
 mnav_more:Lagi &raquo;&raquo;

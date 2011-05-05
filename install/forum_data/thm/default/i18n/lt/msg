@@ -1,5 +1,8 @@
 # Messages for Lithuanian (Lietuvių)
 # Exported from translatewiki.net
+# Author: Cyklopas
+# Author: Eitvys200
+# Author: Ignas693
 
 action:Veiksmas
 add_to_buddy_list:įdėti į bičiulių sąrašą
@@ -15,17 +18,15 @@ birth_date:Gimimo data:
 by:Parašė:
 by_mod:Moderuota
 current_time:Dabar:
+custom_avatar_queue:Individualizuotos avataras eilės
 date_posted:Rašymo data
 date_registered:Prisiregistravo:
-# Fuzzy
-download_counter:Atsisiųsta {VAR: v[3]} kartą(-ų).
-# Fuzzy
-pmsg_download_counter:Atsisiųsta {VAR: r->dlcount} kartą(-ų).
+download_counter:Parsisiųsti {PLURAL: v[3]| $1 laikas | $1 kartų}
+pmsg_download_counter:Parsisiųsti {PLURAL: v[3]| $1 laikas | $1 kartų}
 email:Email:
 email_to_friend:Siųsti email draugui
 email_to_friend_desc:Siųsti šio puslapio URL nuorodą draugui email paštu.
-# Fuzzy
-email_user:Spausk čia norėdamas nusiusti email.
+email_user:Siųsti vartotojui e-mail žinutę
 faq:D.U.K.
 first_unread_msg:Pereiti prie neskaitytų pranešimų
 first_unread_msg_desc:Pereiti prie pirmos neskaitytos šios temos žinutės.
@@ -33,6 +34,7 @@ flat_view:Grižti į įprastą vaizdą.
 forum:Forumas:
 forum_icon:Forumo ženklas
 forum_new_messages:Naujos žinutės
+forum_none_messages:Tik registruoti vartotojai gali sekti ir skaityti & neskaitytų pranešimų
 forum_old_messages:Nėra naujų pranešimų
 from:Nuo:
 gender:Lytis:
@@ -41,12 +43,17 @@ goto_next_msg:Sekanti žinutė
 goto_prev_msg:Praeita žinutė
 home:Į forumo pradžią
 homepage:Namų puslapis:
+icq_control_panel:ICQ-Online žinutę pultas
 icq_message_form:ICQ Message Message Form:
 ignore_user:ignoruoti visus šio nario pranešimus
+im_aim:AIM Rankenėlės:
+im_msnm:MSN Messenger:
+im_yahoo:"Yahoo Messenger":
 image:Paveiksliukas:
 index_forum:Forumas
 index_new_posts:Naujos žinutės po paskutinio apsilankymo
 index_no_new_posts:Nėra naujų pranešimų po paskutinio apsilankymo
+index_url_redirection:Peradresavimas
 interests:Pomėgiai:
 last_post:Paskutinė žinutė
 last_thread_msg:Į paskutinę žinutę
@@ -59,25 +66,35 @@ logged_in_list:Prisijungusių narių sąrašas
 login:Prisijungti
 login_header:Prisijungimas:
 logout:Atsijungti
-# Fuzzy
-mark_all_read:pažymėti visas žinutes kaip skaitytas
+mark_all_read:Pažymėti visas žinutes skaityti
+mark_all_read_desc:Visi neskaityti laiškai bus pažymėti kaip skaityti
 members:Nariai
+calendar:Kalendorius
+cal_goto_date:Peršokti į:
+cal_day_heading:Dienos renginiai
+cal_no_events:Nėra įvykių šiai dienai.
+cal_update:Naršomas forumas kalendorius
+cal_birthday:Gimtadienis:{VAR: user}
+cal_birthday_age:( {PLURAL: age| $1 metų | $1 metai} amžiaus).
 message:Žinutė
-# Fuzzy
-message_counter:Mūsų nariai parašė viso <b>{VAR: post_count}</b> žinutes, <b>{VAR: thread_count}</b> temose.
+message_counter:Mūsų vartotojai dar neparašė viso <b>{PLURAL: post_count| $1 pranešimas | $1 pranešimų}</b> viduje <b>{PLURAL: thread_count| $1 tema | $1 temos}.</b>
+message_index:Pranešimas indeksas
 message_index_desc:Žinučių sąrašo peržiūra
+minimize_category:Sumažinti Kategorija
+minimize_message:Sumažinti pranešimas
+moderation_queue:Laukiančių
 moderator:Moderatorius
+moderator_of:Moderatorius:
 moderator_options:Moderatoriaus veiksmai
-# Fuzzy
-moderators:Moderatorius(-iai)
+moderators:{PLURAL: modcount| Moderatorius | Moderatorius}
 more_unread_messages:daugiau neskaitytų žinučių
 more_unread_messages_desc:Rodyti daugiau neskaitytų žinučių ir pažymėti jas kaip skaitytas
 move_thread:Perkelti
 moved:Perkelta į kitą forumą
 moved_thread_message:Ši tema perkelta į kitą forumą
+na:n/a
 new_posts:Yra naujų pranešimų
-# Fuzzy
-new_private_messages:Jūs turite <span class="GenText" style="color: #ff0000">({VAR: c})</span> neskaitytų privačių žinučių.
+new_private_messages:Turite <span class="GenTextRed">( {VAR: c} )</span> neskaitytų {PLURAL: c| privačią žinutę | asmeninius pranešimus}
 new_thread:Sukurti naują temą
 newest_user:Naujausias registruotas narys yra
 next_page:Sekantis puslapis
@@ -88,17 +105,16 @@ no_new_posts:Nėra naujų pranešimų
 no_posts:Nėra pranešimų
 no_subscribed_forums:Nėra prenumeruotų forumų
 no_subscribed_threads:Nėra prenumeruotų temų
+no_bookmarked_threads:Nėrar pažymėtu temų
 no_unread_locked:Ši tema uždaryta
 no_unread_msg:Šioje temoje nėra neskaitytų pranešimų
 no_unread_msg_unreg:Skaitytų &amp; neskaitytų pranešimų paslauga pateikiamą tik užsiregistravusiems nariams.
 num_pages:Puslapių ({VAR: ttl_pg}):
-# Fuzzy
-num_votes:{VAR: obj->total_votes} balsų
+num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes| balsavimas | Balsavimo}
 occupation:Pareigos:
 off:IŠJUNGTA
 on:ĮJUNGTA
-# Fuzzy
-page_timings:Puslapis sugeneruotas per: {VAR: page_gen_time} sekundžių.
+page_timings:Bendras laikas imtis kurti puslapis: {PLURAL: page_gen_time| $1 sekundės}
 pm:Asmeninės žinutės
 poll:Apklausa:
 post_count:Viso pranešimų {VAR: u_pcount}
@@ -108,9 +124,10 @@ posts_c:Parašė pranešimų:
 prev_thread:Preita tema:
 usrinfo_private_message:Asmeninė žinutė:
 profile:Profilis
-# Fuzzy
-profile_desc:Spausk čia, norėdamas patekti į nario nustatymų puslapį
+profile_desc:Prisijunkite Vartotojo valdymo pultas
 rate_thread:Vertinti temą
+rating:Reitingas
+rating_track:Valdymas reitingai tema <b>{VAR: thr->subject}</b> :
 refresh_list:Atnaujinti sąrašą
 register:Registruotis
 registered:Užsiregistravęs:
@@ -134,12 +151,13 @@ sender_name:Siuntėjo vardas:
 show_posts_by:Rodyti: {VAR: u_alias} pranešimus
 size:Dydis:
 status:Būklė:
-# Fuzzy
-status_line:Šiuo metu prisijungę <b>{VAR: st_obj->online_users_reg}</b> narys(-iai), <b>{VAR: st_obj->online_users_hidden}</b> nematomi nariai ir <b>{VAR: st_obj->online_users_anon}</b> svečias(-iai).
+status_line:Yra <b>{PLURAL: st_obj->online_users_reg| $1 narys | $1 nariai}, {PLURAL: st_obj->online_users_hidden| $1 nematomas narys | $1 nematomas nariai}</b> ir <b>{PLURAL: st_obj->online_users_anon| $1 svečias | $1 svečių}</b> lankotės šioje lentoje.
 sticky:lipnus:
 stop_ignoring:nustoti ignoruoti vartotoją
 sub_to_thread:Užsiprenumeruoti temą.
 sub_to_thread_desc:Gauti žinutes apie šios temos naujus pranešimus.
+bookmark_thread:Pažymėti temą
+bookmark_thread_desc:Pridėti šia temą į tavo mėgstamiausių sarašą
 subject:Tema
 subscribe:Užsiprenumeruoti
 subscribe_desc:Gauti pranešimus kai kas nors sukrs naują temą šiame forume.
@@ -147,8 +165,11 @@ subscribed_forums:Prenumeruoti forumai
 subscribed_forums_desc:Toggle the subscribed forums filter (will only show posts from the forums you are subscribed to)
 subscribed_threads:Prenumeruotos temos
 subscribed_threads_desc:Toggle the subscribed topics filter (will only show posts from the topics you are subscribed to)
+bookmarked_threads:Pažymėtos Temos
+switch_to_thread_view:Perjungti į sriegiais Atsižvelgiant į šią temą
 thread:Tema:
 thread_announcement:Skelbimas:
+thread_first_unread_msg:Pereiti prie pirmos neskaitytos šios temos žinutės
 thread_thread:Tema
 threads:Temos
 time:Laikas
@@ -156,28 +177,45 @@ todays_posts:Šiandienos žinutes
 todays_posts_desc:Rodyti visas šiandien parašytas žinutes
 un_ignore_user:nebeignoruoti šio nario
 unanswered_posts:Neatsakytus pranešimus
+unanswered_posts_desc:Rodyti visus pranešimus, kurie neturi atsakymų
 unlock_thread:Atrakinti temą
+unread_msg:Šioje temoje yra žinutės, kurių jus dar neskaitėte
+unread_msg_locked:Užrakinta tema su neskaitytais pranešimais
 unread_posts:Neskaitytas žinutes
 unread_posts_desc:Rodyti visas neskatytas žinutes
 unsub_from_thread:Nutraukti šios temos prenumeratą
 unsub_from_thread_desc:Stop receiving notifications about new posts in this topic
+unbookmark_thread:Šalinti iš mėgstamiausių
+unbookmark_thread_desc:Pašalinti šia temą iš tavo mėgstamiausių sarašo
 unsubscribe:Nutraukti prenumeratą
+unsubscribe_desc:Nebegaučiau pranešimus apie naujus pranešimus forume
 updated_on:Atnaujinta:
 user:Vartotojas
-# Fuzzy
-user_counter:Iš viso yra <b>{VAR: st_obj->user_count}</b> prisiregistravusių narių.
+user_counter:Mes <b>{VAR: st_obj->user_count}</b> registruotas {PLURAL: st_obj->user_count| Vartotojas | vartotojai}.
 user_info:Nario informacija
 user_info_l:Nario inforcija {VAR: u->alias}
+user_offline:{VAR: obj->login} šiuo metu neprisijungęs
+user_online:{VAR: obj->login} yra šiuo metu prisijunges
 usrinfo_last_post:Paskutinė žinutė:
+view_results:Peržiūrėti rezultatus
 views:Peržiūrėta
+vote:{PLURAL: frm->n_rating| $1 Balsuoti | $1 Balsavo}
 vote_button:Balsuoti
 vote_for_thread:Balsuoti
 was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> perkelta moderatoriaus į <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a>.
 welcome_message:Labas <b>{VAR: usr->alias}</b>, paskutinį kartą buvai {TEMPLATE: welcome_message_date}
 what_ppl_doing:rodyti ką veikia prisijungę žmonės
+reported_del_report:Pašalinti Pranešimą
 reported_reason:Priežastis:
+reported_on:Dėl:
+reported_reported_by:Pranešėjas
+reported_reported_msg:Pranešė Žinutės
+modque_pending_approval:Žinutės laukiama patvirtinimo
 modque_approve:Patvirtinti
 modque_delete:Ištrinti
+pmsg_new_messages:Neperskaitytas asmeninį pranešimą
+pmsg_old_messages:Skaityti asmeninį pranešimą
+deny_recipt_desc:Nesiųsti patvirtinimo, kad jūs perskaitėte šį pranešimą
 restore_to:Atkurti:
 move_to:Perkelti į:
 list_referes_referrals:Rekomenduoti
@@ -220,9 +258,28 @@ month_9:Rugsėjis
 month_10:Spalis
 month_11:Lapkritis
 month_12:Gruodis
+sunday:Sekmadienis
+sunday_short:S
+monday:Pirmadienis
+monday_short:Pr
+tuesday:Antradienis
+tuesday_short:A
+wednesday:Trečiadienis
+wednesday_short:T
+thursday:Ketvirtadienis
+thursday_short:K
+friday:Penktadienis
+friday_short:Pe
+saturday:Šeštadienis
+saturday_short:Š
 male:Vyras
 female:Moteris
 unspecified:NENURODYTA
+register_tree_view:Medis Peržiūrėti žinutę ir temą sąrašo
+register_msg_tree_view:Flat topic listing/Tree message listing
+register_tree_msg_view:Medis tema sąrašas / Butas pranešimą, kuriame
+register_flat_view:Plokščias vaizdas pranešimą ir temą sąrašo
+use_forum_default:Naudokite forumas nutylėjimą
 finduser_user_info:Nario informacija
 finduser_by_login:Pagal prisijungimo vardą:
 finduser_submit:Rasti
@@ -268,6 +325,9 @@ register_occupation:Užsiėmimas:
 register_interests:Pomėgiai:
 register_image:Paveikslėlis:
 register_icq:ICQ
+register_aim:AIM Rankenėlės:
+register_yahoo:"Yahoo Messenger":
+register_msnm:MSN Messenger:
 register_homepage:Namų puslapio adresas:
 register_bday:Gimimo data:
 register_bday_desc:Jei įvesite gimimo datą ją galės matyti kiti nariai.
@@ -296,12 +356,16 @@ register_show_email_desc:Galite pasirinkti rodyti ar ne viešai jūsų email adr
 register_notification:Pasirinkti perspėjimus pagal nutylėjimą:
 register_notification_desc:Jei perspėjimai įjungti pagal nutylėjimą, juos galite išjungtii ir rašydami žinutę.
 register_notify_method:Pasirinkite perspėjimo būdą:
+register_notify_method_desc:Nustatykite pageidaujamą pranešimo būdą arba išjungti pranešimai (pavyzdžiui, kai jūs einate į atostogas).
 register_allow_email_msg:Leisti email laiškų siuntimą:
 register_allow_email_msg_desc:Leisti kitiems nariams Siųsti jums email laiškus STREETRACE.lt forumo pagalba.
 buddy_status:Būklė
 my_buddies:Mano draugai
 add_buddy:Įrašyti naują draugą
 add:Irašyti
+buddy_search:Įveskite vartotojo, kuriam norite pridėti prisijungti.
+member_search:Arba naudokite <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&{DEF: _rsid}&js_redr=buddy_add.add_login&overwrite=1', 'user_list', 400,250);">Ieškoti vartotojo</a> funkcija surasti asmenį.
+buddy_remove:pašalinti
 post_normal:Paprasta
 post_sticky:Lipni
 post_annoncement:Skelbimas
@@ -311,9 +375,11 @@ post_font:Šriftas
 create_thread:Sukurti temą
 submit_reply:Siųsti atsakymą
 edit_message:Atlikti žinutės pakeitimus
+apply_spell_changes:Taikyti Rašyba keitimai
 post_preview:Žinutės peržiūra
 post_logedin_user:Prisijungęs narys:
 post_logout:atsijungti
+post_passwd:Siunčiamos Slaptažodis:
 post_poll:Apklausa:
 post_create_poll:SUKURTI APKLAUSĄ
 post_poll_delete:IŠTRINTI
@@ -338,18 +404,43 @@ post_notification:Atsakymų patvirtinimas
 include_sig:Naudoti parašą
 include_sig_desc:Naudoti profilyje nustatytą parašą.
 disable_smilies:Deaktyvuoti šypsenėles šioje žinutėje
+spell_check_msg:Rašybos tikrinimo pranešimas
 post_form:Rašymo forma
 post_forum:Forumas:
 post_title:Pavadinimas:
 post_body:Žinutės tekstas:
 post_options:Nustatymai:
 post_preview_btn:Peržiūrėti žinutę
+post_cancel_btn:Atšaukti
+ignore_users:Nepaisomi Vartotojai
+add_ignore:Pridėti nemokša
+forum_terms:Forumas sąlygos
+forum_rules:<p> Registracija šiame forume yra nemokama! Mes reikalaujame, kad jūs laikytis taisyklių ir politikos, nurodyta toliau. Jei sutinkate su sąlygomis, spauskite <b>Sutinku</b> mygtuką puslapio pabaigoje. Pastaba: Paspaudus mygtuką galite pripažinti, kad esate vyresnis nei 13 metų amžiaus. Jei yra 13 arba, prašome naudoti šią registracijos formą. </p><p> Nors administratoriai ir moderatoriai bandys išsaugoti visus nepageidaujamų pranešimų iš forumo, tai yra neįmanoma mums peržiūrėti visus pranešimus. Visos žinutės išreiškia autoriaus požiūrį ir nei iš forumo savininkai ar kūrėjai bus atsakinga už bet kokio turinio žinutės. </p><p> Paspaudę Sutinku mygtuką, Jūs patvirtinate, kad Jums nereikės siųsti jokių laiškų, kurie nešvankių, vulgarių, seksualiai orientuotų, bjaurių, grasinančių, ar kitaip pažeidžia bet kokius įstatymus. </p><p> Šio forumo savininkai turi teisę ištrinti, redaguoti, perkelti arba uždaryti bet kurią temą dėl bet kokios priežasties. </p>
+forum_rules_13:<p> Visi pagal 13 metų amžiaus vartotojai turi gauti leidimą iš savo tėvų ar globėjų, siekiant įgyti narystę forumuose. Nors mes sveikiname dalyvavimą narių pagal 13, mes reikalaujame, kad tėvų ar globėjų faksu arba elektroniniu paštu atgal pasirašė leidimo forma, kol mes suteikti narystės. </p><p> Jei norite pradėti registraciją iki mums gauti leidimo forma, paspauskite <b>Sutinku</b> žemiau esantį mygtuką. Jei norite nutraukti registraciją, paspauskite <b>nesutinku</b> grįžti į forumų indeksas. </p><p> Apie leidimo formos kopiją galite atsisiųsti iš čia. Norėdami gauti daugiau informacijos apie registracijos procesą, prašome siųsti e-mail <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> . </p>
+coppa_conf:COPPA patvirtinimas
+coppa_before:Prieš {Šablonas: coppa_date}
+coppa_after:Po {Šablonas: coppa_date}
+coppa_link:Spustelėkite nuorodą, kuri atitinka jūsų gimimo data
+coppa:<p> Tėvų ar globėjų turi paštu arba faksu pasirašytą leidimo forma šio forumo administratorius, prieš jaunesnius nei 13 metų amžiaus vartotojai gali baigti registracijos. </p><p> Dėl papildomos informacijos kreipkitės <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> </p>
 prereg_info:informacija
 prereg_agree:Sutinku
 prereg_disagree:Nesutinku
+prereg_update:Skaitomos forumo taisykles
+coppa_fax_instructions:Nurodymai dėl tėvų ar globėjų
+coppa_fax_instructions2:Prašome atspausdinti šį puslapį, jį pasirašyti, ir nusiųsti faksu:
 coppa_fax_reg_form:Registracijos forma
+coppa_fax_sign:Prašome prisijungti žemiau esančią formą ir išsiųsti ją mums
+coppa_fax_conf:Aš peržiūrėjau informacija mano vaikas turi pateikti, ir Aš perskaičiau privatumo politika svetainę. Aš suprantu, kad profilis informacija gali būti pakeista naudojant slaptažodį. Aš suprantu, kad gali paprašyti, kad ši registracijos anketą bus visiškai pašalintas iš forumo.
+coppa_fax_permission:Pasirašyti čia, jei norite duoti leidimą
+coppa_fax_no_permission:Pasirašyti čia, jei norite panaikinti sąskaitą
+coppa_fax_parent_name:Tėvams / globėjų  pilnas vardas:
+coppa_fax_relation:Ryšys su vaikų:
 coppa_fax_telephone:Telefonas:
+coppa_fax_email:E-pašto adresas:
 coppa_fax_date:Data:
+coppa_fax_questions:Prašome susisiekti su <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> visais klausimais
+coppa_fax_login:Prisijungti
+coppa_fax_passwd:Slaptažodis
 coppa_fax_remail:Email
 coppa_fax_name:Vardas
 login_not_logedin:Jūs neprisijungę. Tai galėjo įvykti dėl sekančių priežasčių:
@@ -357,8 +448,7 @@ login_cookie_expired:Jūs buvote seniai prisijungę ir jums reikia iš naujo pri
 login_perm_denied:Jūs neturite teisių kaip anonimas prieiti prie srities, kurią bandėte pasiekti. Prisiregistruokite ir prisijunkite norėdami ten patekti.
 login_want_to_register:Norite užsiregistruoti?
 login_forgot_passwd:Pamiršau slaptažodį
-# Fuzzy
-login_use_cookie:Use cookies<br /><font class="SmallText">If you're using a public terminal such as a computer in a library, school, or Internet cafe, it is recommended that you uncheck this option for greater security.<br />If you leave this option selected then you will be automatically logedin into the forum.
+login_use_cookie:Use cookies <br /> <span class="SmallText">Jei naudojate viešojo terminalo, pvz kavinė kompiuterį bibliotekoje, mokykloje ar interneto, tai rekomenduojama, kad jūs nuimkite šį saugumo galimybė didesnė. Jei paliekate šį parinktis, tada Jums bus automatiškai atjungtas-į forumo kitą kartą apsilankyti.</span>
 login_login:Vardas
 login_login_btn:Prisijungti
 login_name_required:Vardas turi būti įvestas
@@ -370,17 +460,28 @@ rpasswd_invalid_passwd:Neteisingas slaptažodis
 rpasswd_passwd_nomatch:Slaptažodžiai nesutampa
 rpasswd_passwd_length:Slaptažodis turi būti sudarytas iš mažiausiai 6 simbolių
 reset_remind_pass:Slaptažodžio priminimas
+reset_reset_conf:Jūsų slaptažodis bus anuliuoti ir išsiųstas jums. Jei dar nepateikėte savo e-pašto adresas, patvirtinimo prašymas bus pakartotinai išsiųstas jums.
 reset_error:Email adresas nerastas duomenų bazėje
 rpasswd_change_pass:Keisti slaptažodį
 rpasswd_login:Vardas
 rpasswd_cur_pass:Dabartinis slaptažodis:
 rpasswd_new_pass:Naujas slaptažodis:
 rpasswd_conf_pass:Patvirtinti slaptažodį:
+ruser_title:Pakeisti Login Form
+ruser_change_user:Pakeiskite savo Forumas Vartotojo vardas
+ruser_cur_login:Dabartinis vartotojas:
+ruser_new_login:Naujas Vartotojas:
+ruser_cur_pass:Dabartinis slaptažodis:
 login_passwd:Slaptažodis:
 reset_email:Email:
+reset_reset_button:Atstatyti slaptažodį
 rate_this_thread:Vertinti
+report_reporting_about:Pranešimas Apie:
 report_subject:Tema:
+report_by:Parašė:
 report_posted_on:Parašyta:
+report_give_reason:Prašome pateikti priežastis, kodėl pranešate apie šį pranešimą:
+report_submit_report:Siųsti pranešimą
 search_entire_msg:Visuose pranešimuose
 search_subject_only:Tik pranešimų temose
 search_forum:Forumas
@@ -399,12 +500,24 @@ remail_required:būtina užpildyti
 remail_subject:Tema:
 remail_message:Žinutė:
 remail_send_now:Siųsti laišką dabar
+remail_anon_opt:Nukopijuokite šį į pašto kliento pasirinktą žinutę ir išsiųsti ją savo draugui (-ai).
 remail_done:Atlikta
+remail_sent_conf:E-mail jūsų draugas {var-HTML: _POST ['femail']} apie {VAR: data->subject} tema buvo sėkmingai išsiųsta.
+remail_error:Įvyko klaida
+mklist_type:Tipas:
+mklist_option:Nustatymai:
+mklist_additem:Pridėti punktą
+mklist_apply:Taikyti
 mklist_delete:Ištrinti
 qbud_nick_name:Nario vardas
 qbud_add_selected:Įdėti pažymėtus
 qbud_selected:Pažymėti
 qbud_no_buddies:Nėra pasirinkta draugų
+mklist_numerical:Skaitmeninis
+mklist_aplha:Alpha
+mklist_square:Kvadratas
+mklist_disc:Diskas
+mklist_circle:Ratas
 mklist_close:Uždaryti
 email_to:Kam:
 email_pg_title:Email
@@ -420,17 +533,20 @@ ppost_track_msg:Stebėti šią žinutę
 ppost_track_msg_desc:Informuoti mane (privačia žinute) kai ši žinutė bus perskaityta.
 ppost_send:Siųsti
 ppost_save_draft:Išsaugoti ruošiniuose
+poll_blank_option:Jūs negalite pridėti tuščią variantą.
+poll_del_conf:Jei norite ištrinti šią parinktį, paspauskite OK
 poll_name:Apklausos pavadinimas:
-# Fuzzy
-poll_timelimit:Laiko limitas
-# Fuzzy
-poll_maxiumvotes:Maksimalus balsų skaičius
+poll_timelimit:Terminas:
+poll_maxiumvotes:Didžiausias Balsavo:
 poll_create:Sukurti
 poll_update:Atnaujinti
 poll_disablesmilies:Deaktyvuoti šypsenėles
 poll_create_poll:Sukurti apklausą
 poll_update_poll:Atnaujinti apklausą
 poll_delete:Ištrinti
+poll_updateoption:Atnaujinti variantas
+poll_addoption:Pridėti variantas
+poll_unlimited:Neribotas
 poll_day:diena
 poll_days:dienos
 poll_hour:valanda
@@ -440,14 +556,13 @@ poll_year:metai
 poll_week:savaitė
 tabs_register:Nustatymai
 tabs_subscriptions:Prenumeratos
+tabs_bookmarkes:Žymės
 tabs_referrals:Rekomenduotų narių sąrašas
 tabs_buddy_list:Draugų sąrašas
 tabs_ignore_list:Juodasis sąrašas
 tabs_private_messaging:Asmeninės žinutės
-# Fuzzy
-single_msg_delete:Ar tikrai jūs norite <font color="#ff0000" size="4">IŠTRINTI</font> žinutę, kuri vadinasi: <b>{VAR: data[3]}</b>
-# Fuzzy
-thread_delete:Ar tikrai jūs norite <font color="#ff0000" size="4">IŠTRINTI</font> visą <font color="#ff0000" size="4">TEMĄ</font>, kru vadinasi: <b>{VAR: data[3]}</b>
+single_msg_delete:Jūs ruošiatės <span class="ErrorText">ištrinti</span> pranešimą pavadinimu: <b>{VAR: data[3]}</b>
+thread_delete:Jūs ruošiatės <span class="ErrorText">ištrinti visą temą</span> pavadinimu: <b>{VAR: data[3]}</b>
 delete_proceed:<font size="3"><b>Vykdyti?</b></font>
 delete_yes:Taip
 delete_no:Ne
@@ -455,21 +570,119 @@ error_invalidurl:Neteisingas URL adresas
 error_error:Klaida
 usrinfo_profile:{VAR: u->alias} profilis
 usrinfo_show_all_posts:Rodyti visas {VAR: u->alias} rašytas žinutes
+actions_update:Snooping nuo kitų žmonių, kaip jūs
+err_info:Informacija
+buddy_list_err_cantadd:Jūs negalite pridėti save į saves į savo draugų sąrašą
+buddy_list_err_dup:Šis vartotojas jau jūsų draugų sąraše
+buddy_list_err_nouser:Vartotojo kuri bandėte įtraukti į savo draugų sąrašą nerastas.
+buddy_list_err_nouser_title:Neįmanoma pridėti vartotojo
+buddy_list_err_ignore:Negalima pridėti naudotojų, kurie nepaiso jūsu į jūsų draugų sąrašą.
+buddy_list_update:Naršyti savo draugų sąrašą
+core_err_invinp_title:Invalid Input
+core_err_invinp_err:Jūs patekote negalioja. Prašome pranešti <a href="mailto:{GVAR: ADMIN_EMAIL}">administratoriui</a> , kaip jūs čia patekome.
+core_adm_login_msg:Administratoriai gali prisijungti <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">čia</a>.
+email_err_unabletoemail_title:KLAIDA: nepavyko į e-mail
+email_err_unabletoemail_msg:Elektroninio pašto sistema buvo išjungta administratoriaus.
+email_error_unabletolocaddr:Atsiprašome, sistema negalėjo el-paštas {var-HTML: _POST ['tx_name']}, nes ji negalėjo nustatyti e-pašto adresą
+email_error_body:Įstaigos dalyvavimas yra būtinas
+email_error_subject:Tema yra reikalinga
+email_error_namerequired:Vardas reikalingas
+email_error_invaliduser:Negaliojantis vartotojas
+emailconf_err_invkey_title:Klaida
+emailconf_err_invkey_msg:Neteisingas patvirtinimo raktas. Prašome patikrinti savo e-mail įsitikinti, kad įvedėte teisingą URL. Jei Jūs paspaudėte nuorodą du kartus, jūsų sąskaita gali būti jau patvirtinta. Prisijungti prie forumo prašyti kitos klavišą.
+err_inc_criticaltitle:Kritinė klaida
+err_inc_criticalmsg:Įvyko klaida. Deja, yra taip pat su klaida atskaitomybės sistemos problema.
+finduser_update:Ieškomi vartotojai
+help_index_update:Skaitymas <a href="{TEMPLATE: help_index_update_lnk}">Pagalba</a>
+iemail_thr_subject:Naują atsakymą į {VAR: thr_subject} iki {VAR: poster_login}
+iemail_thr_bodyemail:Norėdami peržiūrėti neskaitytus atsakymus į {VAR: goto_url['email']} ! N!! N! Jei nenorite gauti daugiau pranešimų apie atsakymus šioje temoje, eikite čia {VAR: unsub_url['email']}
+iemail_frm_subject:Nauja tema forume {VAR: frm_name} , vadinasi {VAR: thr_subject} , sukurta {VAR: poster_login}
+iemail_frm_bodyemail:Norėdami peržiūrėti temą, eikite į:! N! {VAR: goto_url['email']} čia!: N!! N! Norėdami nebegauti pranešimus apie naujus žinutes šiame forumą, apsilankykite {VAR: unsub_url['email']}
+iemail_participate:Norėdami dalyvauti diskusijoje, eikite čia:
+ignore_list_err_info_title:Informacija
+ignore_list_err_dup_msg:Šis vartotojas jau jūsų priešų sąraše
+ignore_list_err_nu_title:Vartotojas nerastas.
+ignore_list_err_nu_msg:Vartotojo kuri bandėte įtraukti į savo priešų sąrašą nerastas.
+ignore_list_cantign_msg:Jūs negalite ignoruoti šio vartotojo
+ignore_list_update:Naršomas nuosavas priešų sąrašas
+index_update:Naršomas <a href="{TEMPLATE: index_update_lnk}">forumo sąrašas</a>
+list_referers_update:Naršymas referalų
 login_update:Prisijungimo langas
+msg_update:Peržiūrima temą <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
+pm_err_nopm_title:KLAIDA: Asmeninės žinutės neįgaliems
+pm_err_nopm_msg:Jūs negalite naudotis privačių žinučių sistema. Ji buvo išjungta administratorius.
+pm_update:Naudojamos privačios žinutės
 post_err_lockedthread_title:KLAIDA: Tema uždaryta
+post_err_lockedthread_msg:Ši tema užrakinta. Rašymas nebeleidžiamas.
+err_coppa_title:KLAIDA: jūsų sąskaita dar nepatvirtinta
+err_coppa_msg:Mes negavome iš jūsų tėvų ir / ar teisėtų globėjų, patvirtinimo kuris leistų jums rašyti žinutes. Jei Jūs pametėte savo COPPA forma, <a href="{TEMPLATE: err_coppa_msg_lnk}">peržiūrėkit ją vėl</a> .
+err_banned_acct_title:KLAIDA: Jūs buvote užblokuotas.
+err_banned_acct_msg:Jūsų paskyra buvo {JEI: $ ban_expiry} laikinai uždrausta, kol {DATE: ban_expiry%, %d % B% Y %H:% M} {DAR} visam laikui uždrausta {Endi} kreiptis į svetainę, nes pažeidimas forumo taisykles.
+post_err_edttimelimit_title:KLAIDA
+post_err_edttimelimit_msg:Nebegalite redaguoti šios žinutės
+post_err_floodtrig_msg:Bandykite dar kartą {PLURAL: tm| $1 sekundė | $1 sekundės}
+post_err_attach_size:Prisegtas failas per didelis (viršija leidžiama limitą {VAR: MAX_F_SIZE} bytes)
+post_err_attach_ext:Failai kurious bandote įkelti neatitinka leistinų failų tipų.
+post_err_attach_filelimit:Jūs bandote įkelti daugiau failų, nei leidžiama.
+post_err_passwd:Neteisingas slaptažodis.
+post_reply_update:Rašote į <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> į {VAR: frm->name}
+post_topic_update:Rašote nauja temą <a href="{TEMPLATE: post_topic_update_lnk}">{VAR: frm->name}</a>
+post_error_generic:Įvyko klaida
+postcheck_max_images_err:Ne daugiau kaip {GVAR: MAX_IMAGE_COUNT} vaizdų leidžiama žinutėje. Prašome sumažinti vaizdų skaičių.
+postcheck_subj_needed:Tema privaloma
+postcheck_no_such_user:Nėra vartotojo vardu "{FUNC: char_fix (funkciją htmlspecialchars ($ v))}" šiame forume.
+postcheck_ignored:Jūs negalite rašyti privačios žinutės "{FUNC: char_fix (funkciją htmlspecialchars ($ v ))}", nes šis vartotojas ignoruoja jus.
+register_err_short_login:Prisijungimo vardas kuri pasirinkote, yra per trumpas. Prisijungimo vardas turi būti ne trumpesnis kaip 4 simbolių.
+register_err_login_notallowed:Šis prisijungimo vardas yra neleidžiamas.
+register_err_loginunique:Forumo vartotojų vardai turi būti unikalus. Jau yra vartotojas su tokiu vardu vartotojui.
+register_err_emailexists:Šis el.pašto adresas jau yra susietas su paskyra. Jei pamiršote slaptažodį, prašome naudoti atkūrimą, vietoj registravimosi iš naujo.
+register_err_shortpasswd:Slaptažodžiai turi būti bent 6 simbolių ilgio.
+register_err_passwdnomatch:Jūsų slaptažodžiai nesutampa, bandykite dar kartą.
+register_err_invalidemail:E-pašto adresas, kurį nurodėte negalioja.
+register_err_needname:Norint sėkmingai užbaigti šią registraciją turite įvesti savo vardą.
+register_err_enterpasswd:Jūs turite įvesti savo dabartinį slaptažodį kad užbaigtumėte pakeitimus.
+register_err_notyouremail:Kažkas kitas jau užsiregistraves šį e-pašto adresą.
+register_err_avatartobig:Failas, kurį bandote įkelti, yra per didelis, daugiau nei {GVAR: CUSTOM_AVATAR_MAX_SIZE} baitai.
+register_err_avatarnotallowed:Avataras kuri bandote įkelti neleidžiamas. Patikrinkite leistinų failų tipus.
+register_conf_subject:Registracijos patvirtinimas
+register_welcome_subject:Forumo registracijos patvirtinimas
+register_err_cantreg_title:KLAIDA: nepavyko užsiregistruoti
+regsiter_err_cantreg_msg:Nepavyko sukurti naudotojo sąskaitos, prašome susisiekti su administratoriu <a href="mailto:{var: ADMIN_EMAIL} "> <span class="notranslate">{VAR: ADMIN_EMAIL}</a>
+register_profile_update:Peržiūrimas savo profilis
+register_register_update:Registracijos puslapis
+report_err_nosuchmsg_title:KLAIDA
+report_err_nosuchmsg_msg:Nėra tokio pranešimo
+reset_err_invalidkey_title:KLAIDA
+reset_err_rstconf_title:Informacija
+reset_err_rstconf_msg:Turėtumėte gauti nurodymus į savo e-paštą per ateinančias keletą minučių.
 reset_newpass_msg:Hello,\n\nAs per your request your login name are being sent to you.\nHere is your login information:\n\nLogin: {VAR: ui[1]}\nPassword: {VAR: passwd}\n\nPlease not that your password has been reset the the value above, if you wish\nto change your password you may do so via the user info control panel at:\n{FULL_ROOT}{ROOT}?t=register
+reset_login_notify:Jūsų slaptažodis buvo išsiųstas elektroniniu paštu Jums. Turėtumėte gauti per ateinančias keletą minučių. <br />
+search_update:Pranešimų paieška
+selmsg_update:Naršymos <a href="{TEMPLATE: selmsg_update_lnk}">Šiandienos Žinutės</a>
+showposts_update:Peržiūrimos <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a> žinutės
+thread_update:Peržiūrimas forumas <a href="{TEMPLATE: thread_update_lnk}">{VAR: frm->name}</a>
+userinfo_update:Žiūrima į <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}'s</a> profilį
+ERR_disabled_ttl:Išjungta funkcija
 ERR_access_ttl:KLAIDA: Nepakanka teisių
 ERR_emailconf_ttl:KLAIDA: Your account is not yet confirmed
+ERR_emailconf_msg:Jūs nesate patvirtinę savo sąskaitos per e-paštą. <br /><table border="0"><tr><td><ol><li> Jei negavote patvirtinimo laiško, <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">prašykite dar kartą</a> . </li><li> Jei {VAR: usr_d->email} nėra teisingas savo elektroninio pašto adresą, <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">nurodykite teisingai</a> . </li></ol></td></tr></table>
 ERR_user_ttl:KLAIDA: Nėra tokio nario
 ERR_systemerr_ttl:KLAIDA: Sistemos klaida
-# Fuzzy
-ERR_systemerr_msg:System error has occurred, please report it to the <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a>.
+ERR_systemerr_msg:Įvyko sistemos klaida. Prašome pranešti apie tai <a href="mailto:{GVAR: ADMIN_EMAIL}">administratoriui</a> .
 email_title:Email'o forma
 finduser_title:Rasti narį
 help_title:F.A.Q.
 login_title:Prisijungimo forma:
+poll_title:Apklausos redaktorius
 register_title:Registravimosi forma
+reset_title:Iš naujo nustatyti slaptažodį
+rpasswd_title:Slaptažodžio keitimo forma
+error_title:Klaida forma
 index_title:Sveiki forume
+search_title:Ieškoti {var-HTML: srch}
+remail_emailsent:Laiškas buvo išsiųstas
+remail_email:,! Sveiki N! apie! N! Yra įdomi tema " {VAR: data->subject} "apie {GVAR: FORUM_TITLE} forumas, galbūt norėsite skaityti. Jūs galite pamatyti temą:! N! {FULL_ROOT} {ŠAKNIAVAISIAI} =? T = rview & th {VAR: data->id} & atsikratyti = DEF: _uid}! {N! N!! N! Jūsų draugui!, N!! {VAR: usr->alias}
+poll_add_option:Pridėti varianta
 post_opt_html_on:<b>HTML</b> kodas <b>ĮJUNGTAS</b>
 post_opt_fud_on:<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>BBcode</b> <b>ĮJUNGTAS</b></a>
 post_opt_images_on:<b>Paveikslėliai</b> <b>ĮJUNGTI</b>
@@ -478,28 +691,75 @@ post_opt_html_off:<b>HTML</b> kodas <b>IŠJUNGTAS</b>
 post_opt_fud_off:<b>BBcode</b> <b>IŠJUNGTA</b>
 post_opt_images_off:<b>Paveikslėliai</b> <b>IŠJUNGTI</b>
 post_opt_smilies_off:<b>Šypsenėlės</b> <b>IŠJUNGTOS</b>
-# Fuzzy
 post_opt:Forumo nustatymai
 register_change_passwd:keisti slaptažodį
+register_change_login:pakeisti prisijungimo
+approved_avatar_title:Jūsų užsakymą avatar buvo patvirtintas.
+approved_avatar_msg:Jūsų avataras buvo patvirtintas administratoriaus. Tai dabar turėtų atrodyti kaip savo avatar visas savo žinutes. Jei jūs nematote jo, ar žiūrėti savo seną avatarą, tai yra, nes Jūsų naršyklė talpyklos puslapį. Pabandykite atnaujinti ją vieną ar du kartus. Daugeliu atvejų tai bus išspręsti spartinimo problemos.
+unapproved_avatar_title:Jūsų užsakymą avatar buvo atmestas.
+unapproved_avatar_msg:Administratorius nepatvirtino jūsų personažas. Dažniausia priežastis yra tai, kad jūsų personažas buvo per didelis (dydis ir / arba matmenimis) arba jis yra netinkamas dalykas. Jeigu norėtumėte gauti daugiau informacijos apie tai, kodėl jūsų personažas buvo atmestas, kreipkitės į administratorių.
+mvthread_request_move:prašyti perkelimą
+move_request_reason:Kodėl jūs norite kad tema butu perkelta?
+mvthread_submit_req:Pateikti prašymą
+thread_exchange:Tema birža
+move_request_by:Tema perkelti prašo:
+move_reason:Temos perkelimo prižastis:
 thr_exch_accept:patvirtinti temą
 thr_exch_decline:atmesti temą
+thr_exch_orig_forum:Originalus Forumas:
+thr_exch_dest_forum:Paskirtis Forumas:
+thr_exch_no_threads:Nėra temų laukia patvirtinimo.
+thr_exch_decl_reason:Priežastis, dėl mažėjančios tema <b>{VAR: data->subject}</b> į forumą <b>{VAR: data->f2_name}</b>
 thr_exch_submit:Siųsti
+exch_decline_ttl:Temos perkelimas {VAR: data->subject} į forumą {VAR: data->f2_name} buvo atmestas.
+ppost_original_msg:laišką, ekspedijavimo arba atsakote į
 split_thread:Padalinti temą
+groupmgr_no_user:Nėra vartotoju su prisijungimo cardu "{FUNC: char_fix (funkciją htmlspecialchars ($ gr_member))}"
+groupmgr_already_exists:Vartotojas "{FUNC: char_fix (funkciją htmlspecialchars ($ gr_member))}" jau yra šioje grupėje.
 groupmgr_yes:Taip
 groupmgr_no:Ne
+groupmgr_action:Veiksmas
 groupmgr_member:Narys
+groupmgr_cancel:Atšaukti
+groupmgr_add_member:Pridėti narį
+groupmgr_update_member:Atnaujinti narį
 groupmgr_edit:Redaguoti
 groupmgr_delete:Ištrinti
+group_mgr_anon:Anonimas
+group_mgr_reged:Visi registruoti vartotojai
 show_show:Rodyti:
 group_mgr:Grupių administravimas
+group_mgr_edit_btn:Redaguoti grupę
+group_mgr_heading:Grupės redaktorius atranka
+group_mgr_group:Grupė:
+permission_denied_title:Leidimas uždraustas!
+permission_denied_msg:Jūsų vartotojo teises neleidžia jums atlikti veiksmus bandote.
+p_READ:Skaityti
+p_POST:Rašyti
+p_REPLY:Atsakyti
+p_EDIT:Redaguoti
 p_DEL:Ištrinti
 p_STICKY:Lipnios temos
+p_POLL:Sukurti apklausą
+p_FILE:Prisegti failus
+p_VOTE:Balsuoti
+p_RATE:Vertinti temas
+p_SPLIT:Splitas temos
+p_LOCK:Uždaryti temą
+p_MOVE:Perkelti temas
+p_SML:Naudoti šypseneles
+p_IMG:Naudoti atvaizdą žodžius
 p_SEARCH:Ieskoti
-# Fuzzy
-group_mgr_search:Find User
+group_mgr_search:Rasti narį
+group_mgr_indicator:Šiuo metu redagavimas: <b>{VAR: grp->name}</b>
 rate_worst:Blogiausiai
 rate_best:Geriausiai
 post_quote_msg:{VAR: msg->login} parašė {TEMPLATE: make_report_date}
+post_quote:Cituoti:
+post_quote_selected:Cituoti pasirinktą tekstą
+userinfo_referals:Minima vartotojai:
+userinfo_referals_count:{VAR: referals} nariai
+pm_no_space_title:Nr paliekamas!
 pm_no_space_msg:Your private message folders exceed the allowed storage size of <b>{GVAR: MAX_PMSG_FLDR_SIZE} bytes</b>, as they currently contain <b>{VAR: fldr_size} bytes</b> worth of messages.<br /><br /><font class="ErrorText">Remove some old messages to clear up space</font>.
 pm_space_indct_msg:Jūsų privačių žinučių katalogai užpildyti {VAR: percent_full}%.
 th_expr_never:Be pabaigos
@@ -518,16 +778,35 @@ th_expr_two_month:2 mėnesiai
 th_expr_four_month:4 mėnesiai
 th_expr_one_year:1 metai
 thread_mod_delete:Ištrinti
+action_ip:IP
 action_latest_post:Paskutinis pranešimas
 online_today_last_visit:Paskutinį kartą buvo
+online_today_update:Peržiūrimas vartotojų sąrašas, kurie buvo forume šiandien.
 logedin_todays_visitors:Šiandienos lankytojai
 logedin_latest_post:Paskutinė žinutė forumuose:
+register_show_avatar:Rodyti Avatarus:
+register_show_avatar_desc:Leidžia paslėpti avataros kitų vartotojų žiūrint savo žinutes.
+drawmsg_view_rest_post:Rodyti pranešimo poilsio
+post_re:Re:
 forumsel_goto_forum:Pereiti į forumą:
 minimsg_thread_view:Suglausta peržiūra
-# Fuzzy
-quicklogin_login:Vardas
-# Fuzzy
-quicklogin_password:Slaptažodis
+split_th_post_by:Pranešimas Autorius:
+split_th_posted_on:Paskelbta:
+split_th_subject:Tema:
+split_th_new_thread_title:Naujos temos pavadinimo:
+split_th_forum:Forumas:
+split_th_split_sel:Splitas pasirinktus laiškus
+split_th_split_unsel:Splitas nepažymėtą pranešimus
+split_th_messages:Žinutės
+split_th_select:Pasirinkti
+report_report_post:Pranešimas Pranešimas
+quicklogin_login:Prisijungimas:
+quicklogin_password:Slaptažodis:
+quicklogin_use_cookies:Naudoti slapukus?
+quicklogin_login_btn:Prisijungti
+quick_reply:Greitas atsakymas
+quick_reply_post:Rašyti Greitas atsakymas
+quick_reply_preview:Peržiūrėti Greitas atsakymas
 post_all_ext_allowed:(nėra apribojimų)
 forum_contact:Susisiekti su admistratoriumi
 forum_home:Į forumo pradžią
@@ -557,13 +836,19 @@ saved:Išsaugoti
 register_affero:Affero Username:<br /><font class="SmallText">If you have an <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">Affero</a> username enter it here.</font>
 register_err_avatardimtobig:Avatar dimensions of <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> exceed the allowed dimensions of <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
 remove_from_buddy_list:panaikinti iš draugų sarašo
+iemail_msg_view:Peržiūrėti temą / žinutę
 threadt_sticky:lipnus
 threadt_announce:skelbimas
 no_unread_messages:Nėra žinučių atitinkančių jūsų užklausą.
 thread_mark_all_read:visus neskaitytus forumo pranešimus pažymėti kaip skaitytus
+register_email_change_subject:E-pašto pakeitimo patvirtinimas
 thread_printable_pdf:Generuoti PDF spausdinimui
 thread_syndicate:Syndikuoti šį forumą (XML)
+reg_conf_title:Registracijos patvirtinimas
 mnav_description:Žinučių atranka
+mnav_forum_limit:Ieškoti tik:
+mnav_all_forums:Ieškoti visuose forumuose
+mnav_submit:Pradėti paieška
 mnav_minute:Minutė(s)
 mnav_hour:Valanda(-os)
 mnav_day:Diena(-os)
@@ -577,7 +862,109 @@ findu_ban:Blokuoti
 findu_edit:Redaguoti
 findu_delete:Naikinti
 merge_topics:Apjungti temas
+merge_topics_tpl:Pasirinkite temas suliejimui <span class="SmallText">(Jūs turite pasirinkti daugiau nei vieną temą)</span>
+merge_merge:Sujungti pasirinktas temas
 merge_next:Sekanti tema
 merge_prev:Praeita tema
 split_cp:Thread Split Control Panel
+thread_on:data
+register_email_addr:E-pašto adresas:
 usrinfo_last_visit:Paskutinį kartą buvo:
+mnav_newer:Ankščiau nei
+mnav_older:seniau nei
+ip_search_by_ip:Ieškoti vartotojų pagal IP
+ip_search:Ieškoti
+ip_analyze_usage:Analizuoti IP naudojima
+ip_all_ips:Visi IP, naudojama ' {VAR: user} "
+ip_title:IP naršyklė
+userinfo_real_name:Tikras vardas:
+post_err_mod_forum_edit_ttl:KLAIDA
+dmsg_num:žinutė # {VAR: obj->id}
+delete_msg_removed_ttl:Jūsų žinutė buvo pašalinta administracijos.
+delete_msg_pm_body:Originalus pranešimas
+delete_msg_pm_subject:Objektas:{VAR: data[15]}
+ip_whois_title:ISP Informacija
+register_theme:Tema:
+uc_new_pm:Nauja Asmeninė žinutė
+uc_new_topic:Naują temą
+uc_new_cat_forum:Prenumeruoti forumus su naujais pranešimais
+uc_sub_topics:Prenumeruoti temas su naujais pranešimais
+uc_page_title:Peržiūrimas asmeninis valdymo pultas.
+search_options:Paieškos nustatymai
+register_none:Neperspėti manęs
+findu_no_conf:nepatvirtintas vartotojas
+register_max_sig_len:Maksimalus ilgis:
+register_turing:Įveskite kodą, parodytą žemiau:
+register_err_turing:Neteisingas patvirtinimo kodas.
+modque_cat:Kategorija
+modque_forum:Forumas
+idx_compact_forum_row:Galimi Forumai:
+mmd_del_title:Naikinti temas
+mmd_mov_title:Perkelti temas
+mmd_abort_move:Atšaukti
+mmd_move:Perkelti temas
+pmsg_pdf_btn:Sukurti PDF archyvą
+thread_del_all:Ištrinti pasirinktus(ą)
+thread_mov_all:Perkelti pasirinktą
+thread_merge_all:Sujungti pažymėtus
+thread_loc_all:Užrakinti / Atrakinti Pasirinktą
+dmsg_ip:IP:
+most_users_online:Daugiausia vartotojų buvo <b>{VAR: st_obj->most_online} {DATE: st_obj-> most_online_time%, %d % B% Y %H:% M}</b>
+sub_unsub_all_forums:Nebeprenumeruoti visu forumų
+sub_unsub_all_topics:Nebeprenumeruoti visu temų
+unbookmark_all_topics:Šalinti visas žymes
+tabs_own_posts:Rodyti savo žinutes
+sml_emoticon:Šypsenėlė
+sml_code:Kodas
+register_topics_per_page:Temų skaičius puslapyje:
+post_not_logged_in:Jūs nesate šiuo metu prisijungęs, pranešimas bus paskelbtas anonimiškai.
+post_common_bold:Paryškinti
+post_common_italics:Pasvirasis
+post_common_underline:Pabraukti
+post_common_align_left:Lygiuoti kairėje
+post_common_align_center:Lygiuoti centre
+post_common_align_right:Lygiuoti dešinėje
+post_common_link:Įterpti nuorodą
+post_common_email:Įterpti el. pašto adresą
+post_common_email_popup:E-pašto adresas:
+post_common_image:Įterpti paveikslėlį
+post_common_image_popup:Paveikslėlio URL:
+post_common_quote:Pridėti citata
+post_common_code:Pridėti kodą
+rating_delete:Ištrinti
+post_always_on_top:Sukurta temą visada atsiras temų sąrašo viršuje
+topic_rating:{VAR: frm->rating} iš {PLURAL: frm->n_rating| $1 balsavimas | $1 balsų}
+topic_list_rating:{VAR: r[17]} iš {PLURAL: r[21]| $1 balsavimas | $1 balsų}
+tabs_notifications:Pranešimai
+finduser_flag:Vėliava
+post_descr:Temos aprašymas:
+pmsg_on:data
+move_messages:Perkelti žinutes
+move_msg_btn:Perkelti pasirinktas Žžnutes
+move_msg_th_expl:Nurodykite paskirties temą (gali būti kituose forumuose) ID.
+captcha_img_alt:Captcha patikrinimas: jums reikia atpažinti tekstą paveikslėlije.
+powered-by:Pagal: FUDforum {GVAR: FORUM_VERSION}. <br /> Teisės © 2001-2011 <a href="http://fudforum.org/">FUDforum forumų Programinė įranga</a>
+code_title:Kodas
+code_select_all:Pasirinkti visus
+code_show_hide:Rodyti / slėpti
+social_sites:Socialinių tinklų svetaines:
+postcheck_min_len_err:Jūsų žinutė per trumpa. Mažiausias ilgis yra {PLURAL: post_min_len|$1 character|$1 characters}.
+postcheck_dup_err:Prašome nekurti pasikartojančių temų.
+btn_new_topic:Naują temą
+btn_new_pm:Nauja P. žinutė
+btn_post_reply:Atsakyti
+btn_about:Profilis
+btn_small_pm:AŽ
+btn_delete:ištrinti
+btn_edit:redaguoti
+btn_reply:Atsakyti
+btn_forward:Pirmyn
+btn_quote:citata
+btn_email:E-paštas
+btn_show_posts:pranešimai
+btn_homepage:www
+feed_no_data:Atitinkančių duomenų nerasta.
+ip_whois_connect_err:Nepavyko prisijungti prie WHOIS serverio ( {VAR: whois_server} ): {VAR: errstr}
+custom_filed_required:Šis laukas būtinas.
+page_list_heading:Galimi puslapiai
+page_list_total:{PLURAL: i| $1 puslapis | $1 puslapių} sąraše.

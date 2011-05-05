@@ -235,7 +235,7 @@ pmsg_forwarded:plusenditaj
 pmsg_subject:Temo
 pmsg_author:Aŭtoro
 pmsg_time:Tempo
-pmsg_selected:Selektitaj
+pmsg_selected:Elektita
 pmsg_delete:Forigi
 cur_ppage_pm:Privata Mesaĝado
 writing_pm:Skribante Privatan Mesaĝon
@@ -711,8 +711,7 @@ post_opt_html_off:<b>HTML</b> estas <b>malŝalta</b>
 post_opt_fud_off:<b>BBcode</b> estas <b>malŝalta</b>
 post_opt_images_off:<b>Bildoj</b> estas <b>malŝalta</b>
 post_opt_smilies_off:<b>Miensimboloj</b> estas <b>malŝaltaj</b>
-# Fuzzy
-post_opt:Forumaj Agordoj
+post_opt:Forumaj Agordoj:
 register_change_passwd:ŝanĝi pasvorton
 approved_avatar_title:Via memprovizita avataro estis aprobita.
 approved_avatar_msg:Via avataro estis aprobita de la administranto. Ĝi nun aperos kiel avataro en ĉiuj viaj mesaĝoj. Se vi ne vidas ĝin, aŭ vidas vian malnovan avataron, tiel via retumilo havas malfreŝan informon en kaŝmemoro. Refreŝigu la paĝon unu aŭ du fojojn. Plej ofte ĉi tiel solvos la kaŝmemoran problemon.
