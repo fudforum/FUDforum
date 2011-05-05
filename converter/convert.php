@@ -702,7 +702,7 @@ if (!is_dir($CONVERT_FROM_DIR)) {
 
 /* Prevent session initialization. */
 unset($_SERVER['REMOTE_ADDR']);
-define('forum_debug', 1);
+define('no_session', 1);
 
 /* Include all the necessary FUDforum includes. */
 // include './scripts/fudapi.inc.php';

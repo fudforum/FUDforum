@@ -21,6 +21,19 @@ function source_db_connect() {
 		$GLOBALS['globals']['dbprefix']	);
 }
 
+function source_load_smilies() {
+	$c = bbq('SELECT * FROM '. dbpref .'smileys');
+	while ($r = bbfetch($c)) {
+		$smiley = array(
+			'file'      => 'smileys/'. $r->smfolder .'/'. $r->smfile,
+			'code'      => $r->smcode,
+			'descr'     => $r->smtitle,
+			'vieworder' => $r->smorder
+		);
+		target_add_smiley($smiley);
+	}
+}
+
 function source_load_users() {
 	$c = bbq('SELECT * FROM '. dbpref .'users WHERE id>0 ORDER BY id');
 	while ($r = bbfetch($c)) {
@@ -52,7 +65,8 @@ function source_load_users() {
 		);
 		$c2 = bbq('SELECT * FROM '. dbpref .'user_groups WHERE member_group ='. $r->u_member_group);
 		while ($r2 = bbfetch($c2)) {
-			$user['users_opt'] |= ($r2->mem_gr_name == 'Moderator'          ) ? 524288 : 0;		// Moderator.
+			$user['users_opt'] |= ($r2->mem_gr_name == 'Administrator'      ) ?   1048576 : 0;	// is_admin
+			$user['users_opt'] |= ($r2->mem_gr_name == 'Moderator'          ) ?    524288 : 0;		// Moderator.
 			$user['users_opt'] |= ($r2->mem_gr_name == 'Universal Moderator') ? 268435456 : 0;	// Account moderator.
 		}
 		target_add_user($user);
@@ -123,6 +137,36 @@ function source_load_messages() {
 		$message['msg_opt'] |= ($r->use_smileys == 1) ? 0 : 2;	// Smileys.
 		target_add_message($message);
 	}
+}
+
+function source_load_attachments() {
+	$c = bbq('SELECT * FROM '. dbpref .'attachments');
+	while ($r = bbfetch($c)) {
+		$att = array(
+			'file'           => 'uploads/attachments/'. $r->at_file,
+			'original_name'  => $r->at_original_file,
+			'user_id'        => $r->at_mid,
+			'post_id'        => $r->at_pid,
+			'download_count' => $r->at_downloads
+
+		);
+		target_add_attachment($att);
+	}
+}
+
+function source_load_topic_subscriptions() {
+	$c = bbq('SELECT * FROM '. dbpref .'notify_topic');
+	while ($r = bbfetch($c)) {
+		$sub = array(
+			'user_id'  => $r->notify_mid,
+			'topic_id' => $r->notify_tid
+		);
+		target_add_topic_subscription($sub);
+	}
+}
+
+function source_auth_function() {
+	return '$u->passwd == md5($u->salt.$password)';
 }
 
 ?>
