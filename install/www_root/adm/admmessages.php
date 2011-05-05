@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -23,45 +23,26 @@
 		$tlang = $_POST['tlang'];
 		pf(successify('Downloading '. $tlang .' messages from translatewiki.net...'));
 
+		fud_use('url.inc', true);	// For get_remote_file().
 		$url = 'http://translatewiki.net/w/i.php?title=Special%3ATranslate&task=export-to-file&group=out-fudforum&language='. $tlang .'&limit=2500';
-		$url_stuff = parse_url($url);
+		$messages = get_remote_file($url);
 
-		$fp = fsockopen($url_stuff['host'], 80, $errno, $errstr);
-		if (!$fp) {
-			echo errorify('ERROR: '. $errstr .' ('. $errno .')');
+		if (!strlen($messages)) {
+			echo errorify('Download failed. Your connection might be down or a firewall or proxy is blocking access.');
+		} elseif ( substr($messages, 0, 15) != '# Messages for ' ) {
+			echo errorify('Corrupted download. Please try again.');
 		} else {
-			$query = 'GET '. $url_stuff['path'] .'?'. $url_stuff['query'] ." HTTP/1.0\r\n";
-			$query .= "User-Agent: FUDforum\r\n";
-			$query .= "Connection: close\r\n";
-			$query .= "\r\n\r\n";
-			fwrite($fp, $query);
-
-			$header   = 1;	// First part is headers.
-			$messages = '';
-			while( !feof( $fp ) ) { 
-				$line = fgets($fp);
-				if (!$header) $messages .= $line;
-				if ($line == "\r\n" && $header) $header = 0;
-			}
-			fclose($fp);
-
-			if (!strlen($messages)) {
-				echo errorify('Download failed. Your connection might be down or a firewall or proxy is blocking access.');
-			} elseif ( substr($messages, 0, 15) != '# Messages for ' ) {
-				echo errorify('Corrupted download. Please try again.');
-			} else {
-				$msgfile = $GLOBALS['DATA_DIR'] .'thm/default/i18n/'. $tlang .'/msg';
-				file_put_contents($msgfile, $messages);
+			$msgfile = $GLOBALS['DATA_DIR'] .'thm/default/i18n/'. $tlang .'/msg';
+			file_put_contents($msgfile, $messages);
 		
-				// Rebuild themes based on this language.
-				fud_use('compiler.inc', true);
-				$c = q('SELECT theme, name FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'themes WHERE lang='. _esc($tlang));
-				while ($r = db_rowarr($c)) {
-					compile_all($r[0], $tlang, $r[1]);
-					echo successify('Theme '. $r[0] .' ('. $tlang .') was successfully rebuilt.');
-				}
-				unset($c);
+			// Rebuild themes based on this language.
+			fud_use('compiler.inc', true);
+			$c = q('SELECT theme, name FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'themes WHERE lang='. _esc($tlang));
+			while ($r = db_rowarr($c)) {
+				compile_all($r[0], $tlang, $r[1]);
+				echo successify('Theme '. $r[0] .' ('. $tlang .') was successfully rebuilt.');
 			}
+			unset($c);
 		}
 	}
 
