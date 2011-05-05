@@ -522,8 +522,8 @@ if (strncmp(PHP_SAPI, 'apache', 6)) {
 /* Perform various sanity checks, which check for required components. */
 if (!count($_POST)) {
 	/* PHP version check. */
-	if (!version_compare(PHP_VERSION, '5.1.0', '>=')) {
-		seterr('PHPVER', 'Your PHP version <b>(<?php echo PHP_VERSION; ?>)</b> is older then the minimum required version <b>(5.1.0)</b>. Please install a newer version and try again.<br />The reasons for this restriction are numerous, most important ones
+	if (!version_compare(PHP_VERSION, '5.2.3', '>=')) {
+		seterr('PHPVER', 'Your PHP version <b>(<?php echo PHP_VERSION; ?>)</b> is older then the minimum required version <b>(5.2.3)</b>. Please install a newer version and try again.<br />The reasons for this restriction are numerous, most important ones
 being security and performance.');
 	}
 

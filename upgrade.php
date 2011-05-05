@@ -1,6 +1,6 @@
 <?php
 /***************************************************************************
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -10,7 +10,7 @@
 ***************************************************************************/
 //TODO: Do we still need extract_archive()???
 
-$__UPGRADE_SCRIPT_VERSION = 5302.4;
+$__UPGRADE_SCRIPT_VERSION = 5303.1;
 
 /*
   * SQL Upgrade Functions - format is tablename_colname():
@@ -155,7 +155,6 @@ function upgrade_decompress_archive($data_root, $web_root)
 	/* Install from './fudforum_archive' file. */
 	// $GLOBALS['no_mem_limit'] may look strange in this context, but it is actually $no_mem_limit defined earlier.
 	if ($GLOBALS['no_mem_limit']) {	
-		$size = filesize('./fudforum_archive');
 		$fp = fopen('./fudforum_archive', 'rb');
 		$checksum = fread($fp, 32);
 		$tmp = fread($fp, 20000);
@@ -539,8 +538,8 @@ $(document).ready(function() {
 	}
 
 	// PHP version check.
-	if (!version_compare(PHP_VERSION, '5.1.0', '>=')) {
-		seterr('The upgrade script requires that you have PHP version 5.1.0 or higher.');
+	if (!version_compare(PHP_VERSION, '5.2.3', '>=')) {
+		seterr('The upgrade script requires that you have PHP version 5.2.3 or higher.');
 	}
 
 	/* Mbstring hackery, necessary if function overload is enabled. */
@@ -580,15 +579,6 @@ $(document).ready(function() {
 	/* Determine if this upgrade script was previously ran. */
 	if (@file_exists($GLOBALS['ERROR_PATH'] .'UPGRADE_STATUS') && (int) trim(file_get_contents($ERROR_PATH .'UPGRADE_STATUS')) >= $__UPGRADE_SCRIPT_VERSION) {
 		seterr('THIS UPGRADE SCRIPT HAS ALREADY BEEN RUN, IF YOU WISH TO RUN IT AGAIN USE THE FILE MANAGER TO REMOVE THE "'. $GLOBALS['ERROR_PATH'] .'UPGRADE_STATUS" FILE.');
-	}
-
-	/* If not set, try to guess the DBTYPE. This check should be removed from future versions. */
-	if (empty($GLOBALS['DBHOST_DBTYPE'])) {
-		if (strpos(@file_get_contents($GLOBALS['DATA_DIR'] .'include/theme/default/db.inc'), 'pg_connect') === false) {
-			$GLOBALS['DBHOST_DBTYPE'] = 'mysql';
-		} else {
-			$GLOBALS['DBHOST_DBTYPE'] = 'pgsql';
-		}
 	}
 
 	/* Include appropriate database functions. */
@@ -938,7 +928,7 @@ pf('<h2>Step 1: Admin login</h2>', true);
 
 	pf('SQL Upgrades Complete.<br />');
 
-	if (!q_singleval('SELECT id FROM '. $DBHOST_TBL_PREFIX .'themes WHERE '. q_bitand('theme_opt', 3) .' > 0 LIMIT 1')) {
+	if (!q_singleval(q_limit('SELECT id FROM '. $DBHOST_TBL_PREFIX .'themes WHERE '. q_bitand('theme_opt', 3) .' > 0', 1))) {
 		pf('Setting default theme');
 		if (!q_singleval('SELECT id FROM '. $DBHOST_TBL_PREFIX .'themes WHERE id=1')) {
 			q('INSERT INTO '. $DBHOST_TBL_PREFIX .'themes (id, name, theme, lang, locale, theme_opt, pspell_lang) VALUES(1, \'default\', \'default\', \'en\', \'C\', 3, \'en\')');
@@ -951,7 +941,7 @@ pf('<h2>Step 1: Admin login</h2>', true);
 	/* Theme fixer upper for the admin users lacking a proper theme.
 	 * this is essential to ensure the admin user can login.
 	 */
-	$df_theme = q_singleval('SELECT id FROM '. $DBHOST_TBL_PREFIX .'themes WHERE '. q_bitand('theme_opt', 3) .' > 0 LIMIT 1');
+	$df_theme = q_singleval(q_limit('SELECT id FROM '. $DBHOST_TBL_PREFIX .'themes WHERE '. q_bitand('theme_opt', 3) .' > 0', 1));
 	$c = q('SELECT u.id FROM '. $DBHOST_TBL_PREFIX .'users u LEFT JOIN '. $DBHOST_TBL_PREFIX .'themes t ON t.id=u.theme WHERE '. q_bitand('u.users_opt', 1048576) .' > 0 AND t.id IS NULL');
 	while ($r = db_rowarr($c)) {
 		$bt[] = $r[0];
@@ -1047,6 +1037,12 @@ pf('<h2>Step 1: Admin login</h2>', true);
  		if (file_exists($GLOBALS['ERROR_PATH'] . $f)) {
 			unlink($GLOBALS['ERROR_PATH'] . $f);
 		}
+	}
+
+	/* Remove 'firebird' directory. Renamed to 'interbase' in 3.0.3. */
+	if (file_exists($GLOBALS['DATA_DIR'] .'sql/firebird/db.inc')) {
+		@unlink($GLOBALS['DATA_DIR'] .'sql/firebird/db.inc');
+		@rmdir($GLOBALS['DATA_DIR'] .'sql/firebird');
 	}
 
 	/* Avatar validator. */
