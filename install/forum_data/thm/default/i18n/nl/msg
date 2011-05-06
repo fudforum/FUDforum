@@ -1135,3 +1135,4 @@ ip_whois_connect_err:Het was niet mogelijk verbinding te maken met de WHOIS-serv
 custom_filed_required:Dit veld is verplicht.
 page_list_heading:Beschikbare pagina's
 page_list_total:{PLURAL: i|$1 weergegeven pagina|$1 weergegeven pagina's}.
+page_update:Pagina aan het bekijken

@@ -1133,3 +1133,4 @@ ip_whois_connect_err:Немагчыма далучыцца да сэрвэра W
 custom_filed_required:Гэтае поле — абавязковае.
 page_list_heading:Даступныя старонкі
 page_list_total:{PLURAL: i|Пералічаная $1 старонка|Пералічаныя $1 старонкі|Пералічаныя $1 старонак}.
+page_update:Прагляд старонкі

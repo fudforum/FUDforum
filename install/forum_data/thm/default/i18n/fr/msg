@@ -1141,3 +1141,4 @@ ip_whois_connect_err:Impossible de se connecter au serveur WHOIS ({VAR: whois_se
 custom_filed_required:Ce champ est obligatoire.
 page_list_heading:Pages disponibles
 page_list_total:{PLURAL: i|$1 page listée|$1 pages listées}.
+page_update:Page de navigation.

@@ -1132,3 +1132,4 @@ ip_whois_connect_err:Kon nie 'n verbinding met die WHOIS-bediener ({VAR: whois_s
 custom_filed_required:Die veld is verpligtend.
 page_list_heading:Beskikbare bladsye
 page_list_total:{PLURAL: i|$1 bladsy|$1 bladsye} gelys.
+page_update:Lees 'n bladsy

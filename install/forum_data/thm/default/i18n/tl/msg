@@ -1,0 +1,1094 @@
+# Messages for Tagalog (Tagalog)
+# Exported from translatewiki.net
+# Author: AnakngAraw
+
+action:Galaw
+add_to_buddy_list:idagdag sa talaan ng katoto
+admin:Tagapangasiwa
+admin_control_panel:Kahong-Pantaban ng Tagapangasiwa
+administrator:Tagapangasiwa
+attachment:Kalakip:
+avatar:Huwaran:
+average_post_count:{PLURAL: u->posted_msg_count|$1 Mensahe|$1 Mga mensahe} ({PLURAL: avg|$1 karaniwang mensahe|$1 karaniwang mga mensahe} bawat araw)
+biography:Talambuhay:
+birth_date:Petsa ng Kapanganakan:
+by:Ni:
+by_mod:ng Tagapamagitan
+current_time:Kasalukuyang Oras
+custom_avatar_queue:Pasadyang Pila ng Huwaran
+date_posted:Petsa ng Pagpapaskil
+date_registered:Petsa ng Pagpapatala:
+download_counter:Ikinargang paibaba nang {PLURAL: v[3]|$1 ulit|$1 mga ulit}
+pmsg_download_counter:Ikinargang paibaba nang {PLURAL: r_>dlcount|$1 ulit|$1 mga ulit}
+email:E-liham:
+email_to_friend:Ipadala sa e-liham ng kaibigan
+email_to_friend_desc:Ipadala ang URL ng pahinang ito sa iyong (mga) kaibigan sa pamamagitan ng e-liham
+email_user:Padalhan ang tagagamit ng isang mensahe sa e-liham
+faq:Tulong
+first_unread_msg:Pumunta sa hindi pa nababasang mga mensahe
+first_unread_msg_desc:Pumunta sa unang hindi pa nababasang mensahe na nasa loob ng paksang ito
+flat_view:Bumalik sa likas na nakatakdang patag na tanawin
+forum:Poro:
+forum_icon:Kinatawang Larawan ng Poro
+forum_new_messages:Bagong mga mensahe
+forum_none_messages:Tanging nagpatalang mga kasapi sa poro lang ang makasusubaybay sa nabasa &amp; at hindi pa nababasang mga mensahe
+forum_old_messages:Walang bagong mga mensahe
+from:Mula kay:
+gender:Kasarian:
+go:Gawin
+goto_next_msg:Pumunta sa susunod na mensahe
+goto_prev_msg:Pumunta sa nakaraang mensahe
+home:Tahanan
+homepage:Bahay-pahina:
+icq_control_panel:Kahong Pantaban ng Nasa Internet na Mensahe ng ICQ
+icq_message_form:Pormularyo ng Mensahe ng ICQ:
+ignore_user:huwag pansinin ang lahat ng mga mensahe ng tagagamit na ito
+im_aim:Hawakan ng AIM:
+im_msnm:Mensahero ng MSN:
+im_yahoo:Mensahero ng Yahoo:
+image:Larawan:
+index_forum:Poro
+index_new_posts:Bagong mga mensahe magmula noong huling pagbasa
+index_no_new_posts:Walang bagong mga mensahe magmula noong huling pagbasa
+index_url_redirection:Pagpapapunta sa iba
+interests:Mga hilig:
+last_post:Huling mensahe
+last_thread_msg:Pumunta sa huling mensahe sa loob ng paksang ito
+legend:Alamat
+location:Pook (lokasyon):
+lock_thread:Ikandado ang Paksa
+locked:Nakakandado
+locked_with_new_posts:Ikinandado (may hindi pa nababasang mga mensahe)
+logged_in_list:Talaan ng nakalagdang mga tagagamit
+login:Lumagda
+login_header:Lumagda:
+logout:Umalis sa pagkakalagda
+mark_all_read:Markahang nabasa na ang lahat ng mga mensahe
+mark_all_read_desc:Mamarkahang nabasa na ang lahat ng hindi mo pa nababasang mga mensahe
+members:Mga kasapi
+calendar:Kalendaryo
+cal_goto_date:Tumalon sa:
+cal_day_heading:Mga kaganapan para sa araw
+cal_no_events:Walang mga kaganapan para sa araw.
+cal_update:Tinitingnan-tingnan ang kalendaryo ng poro
+cal_birthday:Kaarawan: {VAR: user}
+cal_birthday_age:({PLURAL: age| $1 taong|$1 mga taong} gulang).
+message:Mensahe
+message_counter:Ang mga tagagamit namin ay nagpaskil ng isang kabuuan ng <b>{PLURAL: post_count|$1 mensahe|$1 mga mensahe}</b>  sa loob ng <b>{PLURAL: thread_count|$1 paksa|$1 mga paksa}</b>.
+message_index:Talatuntunan ng mensahe
+message_index_desc:Tingnan ang talaan ng mensahe
+minimize_category:Paliitin ang Kategorya
+minimize_message:Paliitin ang Mensahe
+moderation_queue:Pila ng Pamamagitan
+moderator:Tagapamagitan
+moderator_of:Tagapamagitan ng:
+moderator_options:Mga Mapapagpilian ng Tagapamagitan
+moderators:{PLURAL: modcount|Tagapamagitan|Mga tagapamagitan}
+more_unread_messages:marami pang hindi pa nababasang mga mensahe
+more_unread_messages_desc:Magpakita ng mas marami pang hindi pa nababasang mga mensahe at markahan ang pangkasalukuyang makikita na mga mensahe nabasa na
+move_thread:Ilipat
+moved:Inilipat sa ibang poro
+moved_thread_message:Ang paksang ito ay inilipat sa ibang poro
+na:hindi naaangkop
+new_posts:Bagong mga mensahe
+new_private_messages:Mayroon kang <span class="GenTextRed">({VAR: c})</span> hindi pa nababasang {PLURAL: c|pribadong mensahe|pribadong mga mensahe}
+new_thread:Lumikha ng isang bagong paksa
+newest_user:Ang pinakabagong nakapagpatalang tagagamit ay si
+next_page:Susunod na pahina
+next_thread:Susunod na Paksa:
+no_messages:Walang mga mensahe sa loob ng porong ito.
+no_msg_body:Walang Katawan ng Mensahe
+no_new_posts:Walang Bagong mga mensahe
+no_posts:Walang mga mensahe
+no_subscribed_forums:Walang sinisipiang mga porum
+no_subscribed_threads:Walang sinisipiang mga paksa
+no_bookmarked_threads:Walang tinandaang mga paksa
+no_unread_locked:Ikinandado ang paksang ito
+no_unread_msg:Ang paksang ito ay walang mga mensaheng hindi pa nababasa
+no_unread_msg_unreg:Ang mga mensaheng nabasa na at hindi nababasa ay binabakas lamang para sa nagpatalang mga tagagamit
+num_pages:Mga pahina ({VAR: ttl_pg}):
+num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|boto|mga boto}
+occupation:Hanapbuhay:
+off:nakapatay
+on:buhay
+page_timings:Kabuuang oras na nagamit upang mabuo ang pahina: {PLURAL: page_gen_time| $1 mga segundo}
+pm:Pribadong Pagmemensahe
+poll:Botohan:
+post_count:Bilang ng Mensahe {VAR: u_pcount}
+post_count_l:Bilang ng Mensahe:
+posts:Mga mensahe
+posts_c:Mga mensahe:
+prev_thread:Nakaraang Paksa:
+usrinfo_private_message:Pribadong Mensahe:
+profile:Kahong Pantaban
+profile_desc:Puntahan ang kahong pantaban ng tagagamit
+rate_thread:Antasan ang Paksa
+rating:Kaantasan
+rating_track:Pamahalaan ang mga antas para sa paksang <b>{VAR: thr->subject}</b>:
+refresh_list:Talaan ng pagsasariwa
+register:Magpatala
+registered:Nakatala:
+registered_on:Nagpatala noong {TEMPLATE: registered_on_date}
+replies:Mga tugon
+report_to_mod:Iulat ang mensahe sa isang tagapamagitan
+reported_messages:Iniulat na mga Mensahe
+reveal_all_posts:ibunyag ang lahat ng mga mensahe ni {VAR: user_login}
+reveal_post:ibunyag ang mensahe
+search:Maghanap
+sel_todays_posts:Mga Mensahe sa Araw na ito
+sel_todays_posts_desc:Paghalinhinang buhayin at patayin ang pansala ng mga mensahe sa araw na ito (magpapakita lamang ng mga mensaheng ginawa sa araw na ito)
+sel_unanswered_posts:Mga Mensaheng Hindi Pa Nasasagot
+sel_unanswered_posts_desc:Paghalinhinang buhayin at patayin ang pansala ng mga mensahe (magpapakita lamang ng mga mensaheng walang mga katugunan)
+sel_unread_messages:Mga Mensaheng Hindi Pa Nababasa
+sel_unread_messages_desc:Paghalinhinang buhay at patayin ang pansala ng hindi pa nababasang mga mensahe (magpapakita lamang ng hindi pa nababasang mga mensahe)
+send:Ipadala
+send_pm_desc:Magpadala ng isang pribadong mensahe sa tagagamit na ito
+sender_email:E-liham ng Nagpadala:
+sender_name:Pangalan ng Nagpadala:
+show_posts_by:Ipakita ang mga Mensahe ni: {VAR: u_alias}
+size:Sukat:
+status:Kalagayan:
+status_line:Mayroong <b>{PLURAL: st_obj->online_users_reg|$1 kasapi|$1 mga kasapi}</b>, <b>{PLURAL: st_obj->online_users_hidden|$1 hindi nagpapakitang kasapi|$1 hindi nagpapakitang mga kasapi}</b> and <b>{PLURAL: st_obj->online_users_anon|$1 panauhin|$1 mga panauhin}</b> na dumadalaw sa pisarang ito.
+sticky:malagkit:
+stop_ignoring:ihinto ang hindi pagpansin sa tagagamit na ito
+sub_to_thread:Magpasipi sa paksa
+sub_to_thread_desc:Tumanggap ng pabatid tungkol sa bagong mga mensaheng nasa loob ng paksang ito
+bookmark_thread:Tandaan ang paksa
+bookmark_thread_desc:Idagdag ang paksang ito sa iyong talaan ng mga pananda
+subject:Paksa
+subscribe:Pumayag na tumanggap ng sipi
+subscribe_desc:Tumanggap ng mga pabatid kapat may isang tao na lumikha ng isang bagong paksa sa loob ng porong ito
+subscribed_forums:Sinisipiang mga Porum
+subscribed_forums_desc:Ipaghalinhinang buhayin at patayin ang pansala ng pinagpapasipiang mga poro (magpapakita lamang ng mga mensahe mula sa mga porong pinagpapasipian mo)
+subscribed_threads:Sinisipiang mga Paksa
+subscribed_threads_desc:Ipaghalinhinang buhayin at patayin ang pansala ng pinagpapasipiang mga paksa (magpapakita lamang ng mga mensahe mula sa mga paksang pinagpapasipian mo)
+bookmarked_threads:Tinandaang mga Paksa
+switch_to_thread_view:Lumipat sa tanawing may sinulid ng paksang ito
+thread:Paksa:
+thread_announcement:Pabatid-Bayan:
+thread_first_unread_msg:Pumunta sa unang hindi pa nababasang mensahe na nasa loob ng paksang ito
+thread_thread:Paksa
+threads:Mga paksa
+time:Oras
+todays_posts:Mga Mensahe sa Araw na ito
+todays_posts_desc:Ipakita ang lahat ng mga mensaheng ipinaskil ngayong araw na ito
+un_ignore_user:huminto sa hindi pagpansin sa mga mensahe ng tagagamit na ito
+unanswered_posts:Mga Mensaheng Hindi Pa Nasasagot
+unanswered_posts_desc:Ipakita ang lahat ng mga mensahe, na wala pang mga tugon
+unlock_thread:Huwak ikandado ang Paksa
+unread_msg:Ang paksang ito ay naglalaman ng mga mensaheng hindi mo pa nababasa
+unread_msg_locked:Nakakandaong paksa na may mga mensaheng hindi pa nababasa
+unread_posts:Mga Mensaheng Hindi Pa Nababasa
+unread_posts_desc:Ipakita ang lahat ng hindi pa nababasang mga mensahe
+unsub_from_thread:Huwag nang magpasipi mula sa paksa
+unsub_from_thread_desc:Huminto sa pagtanggap ng mga pabatid tungkol sa bagong mga mensahe sa paksang ito
+unbookmark_thread:Tanggalin mula sa mga pananda
+unbookmark_thread_desc:Tanggalin ang paksang ito mula sa talaan mo ng mga pananda
+unsubscribe:Pahintuin na ang pagtanggap ng sipi
+unsubscribe_desc:Huminto sa pagtanggap ng mga pagpapabatid tungkol sa bagong mga paksang nasa loob ng poro
+updated_on:Isinapanahon noong:
+user:Tagagamit
+user_counter:Mayroon kaming <b>{VAR: st_obj->user_count}</b> nakapagpatalang {PLURAL: st_obj->user_count|tagagamit|mga tagagamit}.
+user_info:Kabatiran ukol sa Tagagamit
+user_info_l:Kabatiran ng Tagagamit {VAR: u->alias}
+user_offline:Pangkasalukuyang hindi nakaugnay ang {VAR: obj->login}
+user_online:Pangkasalukuyang nakaugnay ang {VAR: obj->login}
+usrinfo_last_post:Huling Mensahe:
+view_results:Tingnan ang mga kinalabasan (resulta)
+views:Mga anyo
+vote:{PLURAL: frm->n_rating|$1 Boto|$1 Mga boto}
+vote_button:Bumoto
+vote_for_thread:Bumoto
+was_moved_msg:Ang <a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> ay inilipat ng tagapamagitan papunta sa <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a>.
+welcome_message:Maligayang pagdating <b>{VAR: usr->alias}</b> , ang huli mong pagdalaw ay noong {TEMPLATE: welcome_message_date}
+what_ppl_doing:Ipakita kung ano ang ginagawa ng mga tao
+reported_del_report:Burahin ang Ulat
+reported_reason:Dahilan:
+reported_on:Noong:
+reported_reported_by:Iniulat Ni:
+reported_reported_msg:Iniulat na mga Mensahe
+modque_pending_approval:Mga mensaheng naghihintay ng pagpayag
+modque_approve:Payagan
+modque_delete:Burahin
+modque_no_message:Walang mga mensaheng naghihintay ng pagpayag
+pmsg_new_messages:Pribadong mensahe na hindi pa nababasa
+pmsg_old_messages:Pribadong mensaheng nabasa na
+deny_recipt:itanggi ang pagkakatanggap
+deny_recipt_desc:Huwag magpadala ng katiyakan na nabasa mo na ang mensaheng ito
+restore_to:Ibalik Sa:
+move_to:Ilipat sa:
+list_referes_referrals:Mga Pagpapadulog
+list_referes_members:Dinulog na mga Kasapi
+list_referes_member:Kasapi
+referals_none:Wala pang mga pagpapadulog.
+referals_refered_by:Mga kasapi ng poro na pinalugod ni: <b><a href="{TEMPLATE: referals_refered_by_lnk}" class="thLnk">{VAR: p_user[1]}</a></b>
+referals_post_count:Bilang ng Mensahe
+referals_registered_on:Nakatala sa:
+referals_action:Galaw
+pmsg_all:lahat
+pmsg_none:wala
+folder:Tupian:
+pmsg_replied:natugunan
+pmsg_forwarded:isinulong
+pmsg_subject:Paksa
+pmsg_author:May-akda
+pmsg_time:Oras
+pmsg_selected:Napili na
+pmsg_delete:Burahin
+cur_ppage_pm:Pribadong Pagmemensahe
+writing_pm:Pagsusulat ng isang Pribadong Mensahe
+browsing_folder:Tinitingnan-tingnan ang pantuping <b>{VAR: folders[$folder_id]}</b>
+inbox:Kahon ng pumapasok
+draft:Balangkas
+sent:Ipadala
+trash:Basura
+msg_author:May-akda
+avatar_sel_form:Pormularyo ng Pilian ng Huwaran
+no_avatars:Walang makukuhang mga Huwaran
+month_1:Enero
+month_2:Pebrero
+month_3:Marso
+month_4:Abril
+month_5:Mayo
+month_6:Hunyo
+month_7:Hulyo
+month_8:Agosto
+month_9:Setyembre
+month_10:Oktubre
+month_11:Nobyembre
+month_12:Disyembre
+sunday:Linggo
+sunday_short:Li
+monday:Lunes
+monday_short:Lu
+tuesday:Martes
+tuesday_short:Ma
+wednesday:Miyerkules
+wednesday_short:Mi
+thursday:Huwebes
+thursday_short:Hu
+friday:Biyernes
+friday_short:Bi
+saturday:Sabado
+saturday_short:Sa
+male:Lalaki
+female:Babae
+unspecified:HINDI NATUKOY
+register_tree_view:Mensahe ng Tanawing Puno at talaan ng paksa
+register_msg_tree_view:Talaan ng paksang patag/Talaan ng mensaheng puno
+register_tree_msg_view:Talaan ng paksang puno/Talaan ng mensaheng patag
+register_flat_view:Mensahe ng Tanawing Patag at talaan ng paksa
+use_forum_default:Gamitin ang likas na katakdaan ng poro
+finduser_user_info:Kabatiran ukol sa Tagagamit
+finduser_by_login:Ayon sa Paglagda:
+finduser_submit:Hanapin
+finduser_no_such_user:Walang ganyang tagagamit
+finduser_user:Tagagamit
+finduser_postcount:Bilang ng Mensahe
+finduser_joindate:Petsa ng Pagsali
+finduser_action:Galaw
+yes:Oo
+no:Hindi
+register_email:E-liham
+edit_time_limit:<b>Hangganan ng Oras ng Pamamatnugot</b>: {GVAR: EDIT_TIME_LIMIT} mga minuto
+no_edit_time_limit:<b>Hangganan ng Oras ng Pamamatnugot</b>: Walang Hangganan
+pmuserloc_login:Lumagda:
+pmuserloc_submit:Ipasa
+pmuserloc_user:Tagagamit
+pmuserloc_no_result:Walang kinalabasan
+register_builtin:Itinayo Sa
+register_specify_url:Tukuyin ang URL
+register_uploaded:Ikarga ang huwaran (abatar)
+register_login:Lumagda:
+register_password:Hudyat:
+register_conf_pass:Tiyakin ang hudyat:
+register_email_desc:Mangyaring magpasok ng isang katanggap-tanggap na tirahan ng e-liham. Maaari mong piliin na itago ito sa ibaba, sa loob ng seksyon ng Mga Nais.
+register_name:Pangalan:
+register_your_pass:Hudyat Mo:
+register_update:Isapanahon
+register_avatar_type:Uri ng Huwaran:
+register_del_avatar:Burahin ang Huwaran
+register_avatar:Huwaran:
+register_sel_avatar:Piliin ang Huwaran
+register_custom_avatar_rules:Ang pinasadyang huwaran ay hindi lilitaw maliban kung pinayagan na ng tagapangasiwa.<br /><span class="SmallText">Ang huwaran ay hindi dapat mas malaki kaysa sa <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} mga piksel</b> at dapat na nasa anyong <b>jpg</b>, <b>gif</b> or <b>png</b>.</span>
+register_custom_avatar_url:URL ng Pasadyang Huwaran:
+register_preview:Paunang tingin
+register_custom_avatar_upload:Talaksan ng Pasadyang Huwaran:
+register_register:Magpatala
+register_required:Kailangang Kabatiran
+register_required_desc:Kailangan ang lahat ng mga hanay.  Pakitandaan na maselan ang pagmamakinilya ng mga hudyat.
+register_optional:Kabatirang Maaari Namang Wala
+register_optional_desc:Iminumungkahi na huwag mong ibubunyag ang anumang kabatirang pansarili o nakapagpapakilala sa loob ng balangkas mo. Ang lahat ng mga kabatiran ay magiging nakikita ng ibang mga kasapi sa poro.
+register_location:Kinalalagyan:
+register_occupation:Hanapbuhay:
+register_interests:Mga hilig:
+register_image:Larawan:
+register_icq:ICQ:
+register_aim:Panghawak ng AIM:
+register_yahoo:Mensahero ng Yahoo:
+register_msnm:Mensahero ng MSN:
+register_homepage:Bahay-pahina:
+register_bday:Petsa ng Kapanganakan:
+register_bday_desc:Kapag nagpasok ka ng isang petsa ng kapanganakan, makikita ito kung gayon ng ibang mga kasapi sa poro sa loob ng balangkas mo.
+register_day:Araw
+register_month:Buwan
+register_year:Taon
+register_gender:Kasarian:
+register_bio:Talambuhay:
+register_bio_desc:Ilang mga detalye tungkol sa sarili mo, katulad ng mga hilig mo, hanapbuhay, atbp...
+register_prefs:Mga nais
+register_sig:Lagda:
+register_sig_desc:Lagda na maaari namang wala, na lilitaw sa ilalim ng mga mensahe mo.
+register_reset:Muling itakda
+register_def_thread_view:Likas na Nakatakdang Tanawin ng Paksa:
+register_msg_per_page:Mga Mensahe sa Bawat Pahina:
+register_show_sig:Ipakita ang mga Lagda:
+register_show_sig_desc:Nagbibigay-daan sa iyo na maitago o maipakita ang iba mga lagda ng mga kasapi sa poro.
+register_use_sig_default:Gamitin ang Lagda ayon sa Likas na Pagtatakda:
+register_use_sig_default_desc:Kusang idugtong ang lagda mo sa bawat isang mensaheng ipinapaskil mo.
+register_timezone:Sona ng Oras:
+register_ignore_admin:Huwag Pansanin ang mga Mensaheng Pampangangasiwa:
+register_invisible_mode:Pamamaraang Hindi Nakikita:
+register_invisible_mode_desc:Nagtatago ng katayuan mong nasa Internet.
+register_show_email:Ipakita ang Tirahan ng E-liham:
+register_show_email_desc:Piliin ang mapagpipiliang ito kung nais mong ipakita sa madla ang iyong tirahan ng e-liham.
+register_notification:Piliin ang Pagpapabatid ayon sa Likas na Katakdaan:
+register_notification_desc:Kapag ang pagpapabatid ay pinagana ayon sa likas na katakdaan, maaari itong huwag paganahin kapag nagpapaskil.
+register_notify_method:Piliin ang Pamamaraan ng Pagpapabatid:
+register_notify_method_desc:Itakda ang nais mong pamamaraang ng pagpapabatid o huwag paganahin ang mga pagpapabatid (bilang halimbawa ang kapag nagbakasyon ka).
+register_allow_email_msg:Payagan ang mga Mensahe ng E-liham:
+register_allow_email_msg_desc:Pahintulutan ang ibang mga tagagamit na padalhan ka ng mga e-liham sa pamamagitan ng porong ito.
+buddy_status:Katayuan
+my_buddies:Mga Katoto Ko
+add_buddy:Magdagdag ng Katoto
+add:Idagdag
+buddy_search:Ipasok ang paglagdang papasok ng tagagamit na nais mong idagdag.
+member_search:O gamitin ang tampok na <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Hanapin ang Tagagamit</a> upang hanapin ang isang tao.
+buddy_remove:tanggalin
+post_normal:Karaniwan
+post_sticky:Malagkit
+post_annoncement:Pabatid-Bayan
+post_size:Sukat
+post_color:Kulay
+post_font:Estilo ng titik
+create_thread:Lumikha ng Paksa
+submit_reply:Ipasa ang Tugon
+edit_message:Ilapat ang mga Pagbabago ng Mensahe
+apply_spell_changes:Ilapat ang mga Pagbabago ng Banghay
+post_preview:Paunang Tanaw ng Mensahe
+post_logedin_user:Nakalagdang tagagamit:
+post_logout:umalis mula sa pagkakalagda
+post_passwd:Hudyat sa Pagpapakil:
+post_poll:Botohan:
+post_create_poll:LIKHAIN ANG BOTOHAN
+post_poll_delete:BURAHIN
+post_poll_edit:BAGUHIN
+post_mod_opt:Mga Mapapagpilian ng Tagapamagitan:
+post_thread_type:Uri ng Paksa:
+post_thread_expiry:Pagwawakas ng Paksa:
+post_locked:Ikinandado ang Paksa
+post_icons:Kinatawang Larawan ng Mensahe:
+post_no_icon:Walang Kinatawang Larawan
+post_smiley:Maiikling mga Daan ng Tagangiti:
+post_format_tools:Mga Kasangkapang Pangkaanyuan:
+post_upload_file:Ikarga ang Talaksan
+post_file_del:Burahin
+post_file_name:Pangalan
+post_file_size:Sukat
+file_attachments:Mga Kalakip sa Talaksan:
+allowed_files:Pinapayagang mga Dugtong ng Talaksan:
+max_file_size:Pinakamataas na Sukat ng Talaksan:
+max_files_per_msg:Pinakamaraming mga Talaksan Bawat Mensahe:
+post_notification:Pagpapabatid ng Pagpaskil
+include_sig:Isama ang Lagda
+include_sig_desc:Isama ang iyong lagda ng balangkas.
+disable_smilies:Huwag paganahin ang mga pampangiti sa loob ng mensaheng ito
+spell_check_msg:Suriin ang Baybay ng Mensahe
+post_form:Pormularyo ng Pagpaskil
+post_forum:Poro:
+post_title:Pamagat:
+post_body:Katawan:
+post_options:Mga mapagpipilian:
+post_preview_btn:Paunang Tingnan ang Mensahe
+post_cancel_btn:Huwag ituloy
+ignore_users:Mga Tagagamit na Hindi Pinapansin
+add_ignore:Idagdag ang Taong Ignorante
+forum_terms:Mga Tuntunin sa Poro
+forum_rules:<p>Walang bayad ang pagpapatala sa porong ito! Iginigiit namin na sumunod ka sa mga alituntunin at mga patakaran na nakadetalye sa ibaba. Kung sumasang-ayon ka sa mga tuntunin, mangyaring pindutin ang pindutang <b>Sumang-ayon</b> na nasa hulihan ng pahina. Tandaan: Sa pamamagitan ng pagpindot sa pindutan, ipinapahayag mong ikaw ay lampas na sa gulang na 13. Kung ikaw ay 13 o mababa pa, mangyaring gamitin ang pormularyong ito ng pagpapatal.</p><p>Bagaman tatangkain ng mga tagapangasiwa at mga tagapamagitan na panatilihing wala sa porong ito ang hindi kanais-nais na mga mensahe, hindi namin magagawang masuring muli ang lahat ng mga mensahe. Ang lahat ng mga mensahe ay nagpapahayag ng mga pananaw ng may-akda, at hindi mapananagutan ng mga may-ari ng poro at ng mga tapagpaunlad ang nilalaman ng anumang mensahe.</p><p>Sa pamamagitan ng pagpindot sa pindutang Sumang-ayon, tinitiyak mong hindi ka magpapaskil ng anumang mga mensaheng malaswa, mahalay, nakaayon sa seksuwalidad, nakakamuhi, nagbabanta, o kaya lumalabag sa anumang mga batas.<p></p>Ang mga may-ari ng porong ito ay may karapatang tanggalin, ilipat o isara ang anumang paksa para sa anumang kadahilanan.</p>
+forum_rules_13:<p>Ang lahat ng mga tagagamit na nasa ilalim ng gulang na 13 ay dapat na humingi ng pahintulot mula sa kanilang magulang o tagapag-alaga upang makakamit ng pagiging kasapi sa mga poro. Habang malugod naming tinatanggap ang pakikilahok mula sa mga kasaping mas mababa ang edad kaysa sa 13, nangangailangan kami ng isang nilagdaang pahintulot mula sa isang magulang o tagapag-alaga na ipinadala sa pamamagitan ng fax o liham.</p><p>Kung nais mo nang simulan ang pagsasagawa ng pagpapatala, pindutin ang pindutang <b>Sumang-ayon</p> na nasa ibaba. Kung nais mong huwag ituloy ang pagpapatala, pindutin ang <p>Huwag sumang-ayon</p> upang bumalik sa mga talatuntunan ng mga poro.</p><p>Isang sipi ng pormularyo ng kapahintulutan ay maaaring ikargang paibaba rito. Para sa mas marami pang mga kabatiran hinggil sa proseso ng rehistrasyon, mangyaring magpadala ng isang e-liham sa <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
+coppa_conf:Pagtitiyak ng COPPA
+coppa_before:Bago ang {TEMPLATE: coppa_date}
+coppa_after:Pagkalipas ng {TEMPLATE: coppa_date}
+coppa_link:Pindutin ang kawing na umaakma sa petsa mo ng kaarawan
+coppa:<p>Iang magulang o tagapag-alaga ang dapat na magpadala ng liham o mag-fax ng isang nilagdang pormularyo ng pahintulot sa tagapangasiwa ng pormularyong ito bago mabuo ng isang tagagamit na mababa ang edad kaysa 13 ang pagpapatala.</p><p>Para sa karagdagang kabatiran makipag-ugnayan <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a></p>
+prereg_info:Panuntunan ng Poro
+prereg_agree:Sumang-ayon
+prereg_disagree:Huwag sumang-ayon
+prereg_update:Binabasa ang mga panuntunan ng poro
+coppa_fax_instructions:Mga tagubilin para sa isang Magulang o Tagapag-alaga
+coppa_fax_instructions2:Mangyaring ilimbag ang pahinang ito, lagdaan ito, at i-fax ito sa:
+coppa_fax_reg_form:Pormularyo ng Pagpapatala
+coppa_fax_sign:Mangyaring lagdaan ang pormularyong nasa ibaba at ipadala ito sa amin
+coppa_fax_conf:Muli ko nang nasuri ang kabatirang ibinigay ng aking anak at nabasa ko na ang Patakaran sa Paglilihim para sa pook ng web. Nauunawaan ko na ang kabatiran sa balangkas ay maaaring baguhin sa pamamagitan ng isang hudyat. Nauunawaan kong maaaring kong hilingin na tanggalin ng buo ang balangkas na ito ng pagpapatala magmula sa poro.
+coppa_fax_permission:Lumagda rito kung nagbibigay ka ng pahintulot
+coppa_fax_no_permission:Lumagda rito kung nais mong burahin ang akawnt
+coppa_fax_parent_name:Buong Pangalan ng Magulang/Tagapag-alaga:
+coppa_fax_relation:Kaugnayan sa Bata:
+coppa_fax_telephone:Telepono:
+coppa_fax_email:Tirahan ng E-liham:
+coppa_fax_date:Petsa:
+coppa_fax_questions:Mangyaring makipag-ugnayan sa <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> kapag may anumang mga katanungan
+coppa_fax_login:Lumagda
+coppa_fax_passwd:Hudyat
+coppa_fax_remail:E-liham
+coppa_fax_name:Pangalan
+login_not_logedin:Hindi ka nakalagda. Maaaring ito ay dahil sa isa sa ilang mga kadahilanan:
+login_cookie_expired:Napaso na ang otap mo, at kailangan mong lumagda upang ipanibagong muli ang otap mo.
+login_perm_denied:Wala kang pahintulot na puntahan ang hiniling na kuhanan bilang isang hindi nagpapakilalang tagagamit. Dapat kang lumagda upang makakamit ng pahintulot.
+login_want_to_register:Nais mong magpatala?
+login_forgot_passwd:Nakalimutan ang hudyat
+login_use_cookie:Gumamit ng mga otap<br /><span class="SmallText">Kung gumagamit ka ng isang pangmadlang terminal na katulad ng isang kompyuter sa loob ng isang aklatan, paaralan, o kapihan ng Internet, iminumungkahi na huwag mong lagyan ng tsek ang mapagpipiliang ito para sa mas mahigit na kaligtasan. Kapag iniwan mong hindi pinili ang mapagpipiliang ito kung gayon ay kusa kang ilalagdang papasok sa poro sa susunod na panahon ng pagdalaw mo.</span>
+login_login:Lumagda:
+login_login_btn:Lumagda
+login_name_required:Kailangan ang pangalang panglagda
+login_passwd_required:Kailangan ang hudyat
+login_invalid_radius:Hindi katanggap-tanggap na tambalan ng paglagda/hudyat
+rpasswd_invalid_passwd:Hindi Katanggap-tanggap na Hudyat
+rpasswd_passwd_nomatch:Hindi nagtutugma ang mga hudyat
+rpasswd_passwd_length:Ang hudyat ay dapat na hindi bababa sa 6 mga panitik ang haba
+reset_remind_pass:Pampaalala ng Hudyat
+reset_reset_conf:Itatakdang muli ang hudyat mo at ipapadala sa iyo. Kung hindi mo pa tinitiyak ang tirahan mo ng e-liham, ipapadalang muli sa iyo ang kahilingan ng paniniyak.
+reset_error:Hindi natagpuan sa kalipunan ng dato ang tirahan ng e-liham
+rpasswd_change_pass:Baguhin ang Hudyat
+rpasswd_login:Lumagda
+rpasswd_cur_pass:Pangkasalukuyang Hudyat:
+rpasswd_new_pass:Bagong Hudyat:
+rpasswd_conf_pass:Tiyakin ang Hudyat:
+ruser_title:Pormularyo ng Pagbago ng Panglagda
+ruser_change_user:Baguhin ang Panglagda mo Sa Poro
+ruser_cur_login:Pangkasalukuyang Panglagda:
+ruser_new_login:Bagong Panglagda:
+ruser_cur_pass:Pangkasalukuyang Hudyat:
+login_passwd:Hudyat:
+reset_email:E-liham:
+reset_reset_button:Muling Itakda ang Hudyat
+rate_this_thread:Antas
+report_reporting_about:Nag-uulat Tungkol Sa:
+report_subject:Paksa:
+report_by:Ni:
+report_posted_on:Ipinaskil noong:
+report_give_reason:Mangyaring magbigay ng isang dahil kung bakit mo iniuulat ang mensaheng ito:
+report_submit_report:Ipasa ang Ulat
+search_entire_msg:Buong Mensahe
+search_subject_only:Paksa Lamang
+search_forum:Poro
+search_posted_on:Ipinaskil noong
+search_no_results:Walang mga Kinalabasan
+search_all_forums:Maghanap sa Lahat ng mga Poro
+search_in_forum:Maghanap sa loob ng Poro:
+search_forum_search:Paghahanap ng Poro
+move_thread_to:Ilipat ang paksa <b>{VAR: thr->subject}</b> sa:
+remail_email_topic:Ipadala ang Paksang Ito sa isang Kaibigan sa pamamagitan ng E-liham
+remail_your_name:Pangalan Mo:
+remail_your_email:E-liham Mo:
+remail_friends_name:Pangalan ng Kaibigan:
+remail_friends_email:E-liham ng Kaibigan:
+remail_required:kinakailangan
+remail_subject:Paksa:
+remail_message:Mensahe:
+remail_send_now:Ipadala na Ngayon ang E-liham
+remail_anon_opt:Kopyahin ang mensaheng ito sa isang kliyente ng liham na napili mo upang ipadala ito sa iyong (mga) kaibigan.
+remail_done:Nagawa na
+remail_sent_conf:Matagumpay na naipadala ang e-liham sa iyong kaibigan na nandoon sa {VAR-HTML: _POST['femail']} tungkol sa paksang {VAR: data->subject}.
+remail_error:Nagkaroon ng isang kamalian
+mklist_type:Uri:
+mklist_option:Mapagpipilian:
+mklist_additem:Magdagdag ng Bagay
+mklist_apply:Ilapat
+mklist_delete:Burahin
+qbud_nick_name:Palayaw
+qbud_add_selected:Idagdag ang Napili
+qbud_selected:Napili na
+qbud_no_buddies:Walang katoto na mapagpipilian
+mklist_numerical:Nasa pambilang
+mklist_aplha:Alpha
+mklist_square:Parisukat
+mklist_disc:Dalipay
+mklist_circle:Bilog
+mklist_close:Isara
+email_to:Para kay:
+email_pg_title:E-liham
+email_subject:Paksa:
+email_body:Katawan:
+email_submit:E-liham
+ppost_quote_msg:Si {VAR: msg_to_list} ay sumulat sa {TEMPLATE: ppost_quote_msg_date}
+ppost_quote:Sipi:
+ppost_to:Para kay:
+ppost_from_buddy_list:Pumili mula sa Talaan ng Katoto
+ppost_find_User:Hanapin ang Tagagamit
+ppost_track_msg:Subaybayan Ang Mensaheng Ito
+ppost_track_msg_desc:Pabatiran ako (sa pamamagitan ng pribadong mensahe) kapag nabasa na ang mensaheng ito.
+ppost_send:Ipadala
+ppost_save_draft:Sagipin ang Balangkas
+poll_blank_option:Hindi ka maaaring magdagdag ng isang mapagpipiliang walang laman.
+poll_del_conf:Kung nais mong burahin ang mapagpipiliang ito, pindutin ang Sige
+poll_name:Pangalan ng Botohan:
+poll_timelimit:Hangganan ng Oras:
+poll_maxiumvotes:Pinakamaraming mga Boto:
+poll_create:Likhain
+poll_update:Isapanahon
+poll_disablesmilies:Huwag paganahin ang mga pampangiti
+poll_create_poll:Likhain ang Botohan
+poll_update_poll:Isapanahon ang Botohan
+poll_delete:Burahin
+poll_updateoption:Isapanahon ang Pilian
+poll_addoption:Idagdag ang Mapagpipilian
+poll_unlimited:Walang hangganan
+poll_day:araw
+poll_days:mga araw
+poll_hour:oras
+poll_hours:mga oras
+poll_month:buwan
+poll_year:taon
+poll_week:linggo
+tabs_register:Mga Katakdaan ng Akawnt
+tabs_subscriptions:Mga pagpapasipi
+tabs_bookmarkes:Mga pananda
+tabs_referrals:Mga pagpapadulog
+tabs_buddy_list:Talaan ng Katoto
+tabs_ignore_list:Huwag Pansinin ang Talaan
+tabs_private_messaging:Pribadong Pagmemensahe
+single_msg_delete:<span class="ErrorText">Buburahin</span> mo na ang mensaheng pinamagatang: <b>{VAR: data[3]}</b>
+thread_delete:<span class="ErrorText">Buburahin</span> mo na ang <span class="ErrorText">buong paksa</span> na pinamagatang: <b>{VAR: data[3]}</b>
+delete_proceed:<span class="fb">Nais mo bang magpatuloy?</span>
+delete_yes:Oo
+delete_no:Hindi
+error_invalidurl:Hindi katanggap-tanggap na URL.
+error_error:Kamalian
+usrinfo_profile:Balangkas ni {VAR: u->alias}
+usrinfo_show_all_posts:Ipakita ang lahat ng mga mensahe ni {VAR: u->alias}
+actions_update:Naniniktik ng ibang tao, katulad mo
+err_info:Kabatiran
+buddy_list_err_cantadd:Hindi mo maaaring idagdag ang sarili mo sa iyong talaan ng katoto
+buddy_list_err_dup:Nasa talaan mo na ng talaan ng katoto ang tagagamit na ito
+buddy_list_err_nouser:Hindi natagpuan ang tagagamit na sinubukan mong idagdag sa iyong talaan ng katoto.
+buddy_list_err_nouser_title:Hindi nagawang idagdag ang tagagamit
+buddy_list_err_ignore:Hindi maaaring idagdag sa talaan mo ng katoto ang mga tagagamit na hindi pumapansin sa iyo.
+buddy_list_update:Tinitingnan-tingnan ang sariling talaan ng katoto
+core_err_invinp_title:Hindi Katanggap-tanggap na Pagpapasok
+core_err_invinp_err:Sinundan mo ang isang hindi katanggap-tanggap na kawing. Mangyaring ipagbigay-alam sa <a href="mailto:{GVAR: ADMIN_EMAIL}">panginoon ng sapot</a> kung paano ka napunta rito.
+core_adm_login_msg:Maaaring lumagda ang mga tagapangasiwa <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">rito</a>.
+email_err_unabletoemail_title:KAMALIAN: Hindi nagawang padalhan ng e-liham
+email_err_unabletoemail_msg:Hindi pinagagana ng tagagapangasiwa ang sistema ng e-liham.
+email_error_unabletolocaddr:Paumanhin, hindi nagawa ng sistema na ipadala sa pamamagitan ng e-liham ang {VAR-HTML: _POST['tx_name']} dahil hindi nito nagawang tukuyin ang tirahan ng e-liham
+email_error_body:Kailangan ang katawan
+email_error_subject:Kailangan ang Paksa
+email_error_namerequired:Kailangan ang isang Pangalan
+email_error_invaliduser:Hindi katanggap-tanggap na tagagamit
+emailconf_err_invkey_title:Kamalian
+emailconf_err_invkey_msg:Hindi katanggap-tanggap na susi ng pagtitiyak. Mangyaring suriin ang iyong e-liham upang matiyak kung naipasok mo ang tamang URL. Kung pinindot mo ng dalawang ulit ang kawing, maaaring natiyak na ang akawnt mo. Lumagda sa poro umang humiling  ng ibang susi.
+err_inc_criticaltitle:Malubhang kamalian
+err_inc_criticalmsg:Naganap ang isang kamalian. Sa kasamaang palad, mayroon ding isang suliranin sa sistema ng pag-uulat ng kamalian.
+finduser_update:Naghahanap ng mga tagagamit
+help_index_update:Pagbabasa ng <a href="{TEMPLATE: help_index_update_lnk}">Tulong</a>
+iemail_thr_subject:Bagong tugon sa {VAR: thr_subject} ni {VAR: poster_login}
+iemail_thr_bodyemail:Upang matingnan ang hindi pa nababasang mga katugunan magpunta sa {VAR: goto_url['email']}\n\nKung hindi mo nais makatanggap ng pangkaragdagan pang mga pagpapabatid hinggil sa mga tugon sa paksang ito, mangyaring pumunta rito: {VAR: unsub_url['email']}
+iemail_frm_subject:Bagong paksa sa loob ng porong {VAR: frm_name}, tinatawag na {VAR: thr_subject}, ni {VAR: poster_login}
+iemail_participate:Upang makilahok sa talakayan, pumunta rito:
+ignore_list_err_info_title:Kabatiran
+ignore_list_err_dup_msg:Nasa talaan mo na ng talaan ng huwag pansinin ang tagagamit na ito
+ignore_list_err_nu_title:Hindi natagpuan ang tagagamit
+ignore_list_err_nu_msg:Hindi natagpuan ang tagagamit na sinubukan mong idagdag sa iyong talaan ng huwag pansinin.
+ignore_list_cantign_msg:Hindi mo maaaring huwag pansinin ang tagagamit na ito
+ignore_list_update:Tinitingnan-tingnan ang sariling talaan ng huwag pansinin
+index_update:Tinitingnan-tingnan ang <a href="{TEMPLATE: index_update_lnk}">talaan ng poro</a>
+list_referers_update:Tinitingnan-tingnan ang mga pagpapalugod
+login_update:Pormularyo ng Paglagda
+msg_update:Tinitingnan-tingnan ang paksang <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
+pm_err_nopm_title:KAMALIAN:Hindi Pinagagana ang Pribadong Pagmemensahe
+pm_err_nopm_msg:Hindi mo maaaring gamitin ang sistema ng pribadong pagmemensahe. Hindi ito pinagagana ng tagapangasiwa.
+pm_update:Gumagamit ng pribadong pagmemensahe
+post_err_lockedthread_title:KAMALIAN: Nakakandadong Paksa
+post_err_lockedthread_msg:Nakakandado ang paksang ito. Hindi na pinapayagan ang pagpapaskil.
+err_coppa_title:KAMALIAN: Hindi pa natitiyak ang akawnt mo
+post_err_edttimelimit_title:KAMALIAN
+post_err_edttimelimit_msg:Hindi mo na maaaring baguhin ang mensaheng ito
+post_error_generic:Nagkaroon ng isang kamalian
+postcheck_subj_needed:Kailangan ang paksa
+postcheck_no_recepient:Hindi makapagpapadala ng isang mensahe, kulang ng tatanggap
+postcheck_invalid_email:Mangyaring magpasok ng isang katanggap-tanggap na tirahan ng e-liham para sa kaibigan mo.
+postcheck_email_subject:Hindi ka maaaring magpadala ng isang e-liham na wala ang isang paksa.
+postcheck_email_body:Hindi ka maaaring magpadala ng isang e-liham na wala ang katawan ng mensahe.
+private_msg_notify_subj:Basahin ang Pagpapabatid Para sa: {VAR: m->subject}
+referals_update:Tinitingnan-tingnan ang mga pagpapalugod
+register_err_short_login:Masyadong maikli ang Panglagdang napili mo. Ang mga pangalan ng panglagda ay dapat na hindi bababa sa 4 na mga panitik ang haba.
+register_err_login_notallowed:Hindi pinapahintulutan ang pangalang panglagda.
+register_err_loginunique:Kailangang kakaiba ang mga pangalang panglagda. Mayroon nang isang tagagamit na may ganitong pangalan.
+register_err_emailexists:May kaugnayan na ang tirahan ng e-liham na ito sa isang akawnt. Kung nakalimutan mo ang iyong hudyat mangyaring gamitin ang pagpipiliang Ibalik sa Dati, sa halip na muling pagpapatala.
+register_err_shortpasswd:Ang mga hudyat ay dapat na hindi bababa sa 6 na mga panitik ang haba.
+register_err_passwdnomatch:Hindi tugma ang mga hudyat mo, mangyaring subukan ulit.
+register_err_invalidemail:Tila hindi yata katanggap-tanggap ang tinukoy mong tirahan ng e-liham.
+register_err_needname:Upang matagumpay na mabuo ang pagpapatalang ito dapat mong ipasok ang pangalan mo.
+register_err_enterpasswd:Dapat mong ipasok ang iyong pangkasalukuyang hudyat upang mabuo ang mga pagbabago.
+register_err_adminpasswd:Dapat mong ipasok ang hudyat mo ng <b>tagapangasiwa</b> upang mabuo ang mga pagbabagong ito.
+register_err_notyouremail:Mayroon nang ibang tao na nagpatalang may ganitong tirahan ng e-liham.
+register_err_avatartobig:Masyadong malaki ang talaksang sinusubukan mong ikargang papaitaas, mas mahigit kaysa sa {GVAR: CUSTOM_AVATAR_MAX_SIZE} mga bayt.
+register_err_avatarnotallowed:Hindi pinapahintulutan ang huwarang sinusubukan mong ikargang papaitaas. Suriin ang pinapayagang mga uri ng talaksan.
+register_conf_subject:Pagtitiyak ng Pagpapatala
+register_conf_msg:Salamata sa pagpapatala mo.\nUpang buhayin ang akawnt mo mangyaring pumunta sa URL na nasa ibaba:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nKapag nabuhay na ang akawnt mo ilalagda kang papasok sa poro at\npapupuntahin sa pangunahing pahina.
+register_welcome_subject:Pagtitiyak ng Pagpapatala
+register_welcome_msg:Salamat sa pagpapatala mo,\n\nNarito ang mga detalye mo ng paglagdang papasok para sa poro:\n\nURL ng Poro: {TEMPLATE: index_update_lnk}\nPaglagda: {VAR: uent->login}\nHudyat: {VAR: _POST['reg_plaintext_passwd']}\n\nMangyaring tandaan na ang mga hudyat ay maselan kapag minamakinilya!\nUpang baguhin ang mga pagtatakda mo o balangkas, pumunta sa pahinang ito:\n{FULL_ROOT}{ROOT}?t=register
+register_err_cantreg_title:KAMALIAN: hindi nagawang ipatala
+regsiter_err_cantreg_msg:Hindi nagawang likhain ang akawnt ng tagagamit, mangyring makipag-ugnayan sa tagapangasiwa doon sa <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
+register_profile_update:Tinitingnan ang sariling balangkas
+register_register_update:Pahina ng Pagpapatala
+report_err_nosuchmsg_title:KAMALIAN
+report_err_nosuchmsg_msg:Walang Ganyang Mensahe
+reset_err_invalidkey_title:KAMALIAN
+reset_err_invalidkey_msg:Hindi katanggap-tanggap na susi ng muling pagtatakda. Maaaring ang kliyente mo ng e-liham ay kusa nang binuksan ang pahinang ito, na nagdulot ng pagiging hindi katanggap-tanggap ng susi ng muling pagtatakda. Kung ganito ang pangyayari, dapat kang makatanggap ng isang e-liham sa loob ng ilang sandali na may bagong hudyat mo. Kapag hindi dumating ang ganyang e-liham, mangyaring muling subukang itakdang muli ang hudyat.
+reset_err_rstconf_title:Kabatiran
+reset_err_rstconf_msg:Dapat na makatanggap ka ng mga tagubilin sa loob ng e-liham mo sa loob ng susunod na ilang mga minuto.
+reset_newpass_title:Itakdang Muli ang Hudyat
+reset_login_notify:Naipadala na sa iyo ang hudyat mo. Dapat mong matanggap ito sa loob ng susunod na mangilan-ngilang mga minuto.<br />
+search_update:Hinahanap ang mga mensahe
+selmsg_update:Tinitingnan-tingnan ang <a href="{TEMPLATE: selmsg_update_lnk}">Mga Pagpapaskil sa Araw na Ito</a>
+showposts_update:Tinitingnan ang mga pagpapaskil ni: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
+subscribed_update:Tinitingnan-tingnan ang sariling mga pagpapasipi
+bookmarked_update:Tinitingnan ang sariling mga talaan ng pananda
+thread_update:Tinitingnan ang porong <a href="{TEMPLATE: thread_update_lnk}">{VAR: frm->name}</a>
+tree_update:Tinitingnan ang paksang (tree view) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
+userinfo_update:Tinitingnan ang balangkas na <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}'s</a>
+ERR_login_msg2:<legend>KAMALIAN: Hindi ka nakalagda</legend>Upang mapuntahan ang pahinang ito dapat na kasapi ka sa porong ito.
+ERR_disabled_ttl:Hindi pinagaganang tampok
+ERR_disabled_msg:Hindi pinagagana ng tagapangasiwa ng sistema ang tampok na ito.
+ERR_access_ttl:KAMALIAN: Hindi Sapat na mga Kapahintulutan
+ERR_access_msg:Wala ka ng kinakailangang mga kapahintulutan upang isagawa ang galaw na ito.
+ERR_registration_disabled_ttl:Hindi Pinapagana ang Pagpapatala
+ERR_registration_disabled_msg:Hindi pinagagana ng tagapangasiwa ang pagpapatala. Mangyring subukan ulit mamaya.
+ERR_emailconf_ttl:KAMALIAN: Hindi pa natitiyak ang akawnt mo
+ERR_emailconf_msg:Hindi mo pa tinitiyak ang akawnt mo sa pamamagitan ng e-liham.<br /><table border="0"><tr><td><ol><li>Kung hindi ka pa nakakatanggap ng isang e-liham ng paniniyak, <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">hilingin ulit ito</a>.</li><li>Kung ang {VAR: usr_d->email} ay hindi ang iyong tamang tirahan ng e-liham, <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">tukuyin ang tamang tirahan</a>.</li></ol></td></tr></table>
+ERR_user_ttl:KAMALIAN: Walang ganyang tagagamit
+ERR_user_msg:Walang ganyang tagagamit
+ERR_systemerr_ttl:KAMALIAN: Kamalian ng Sistema
+ERR_systemerr_msg:Naganap ang isang kamalian ng sistema. Mangyaring iulat ito sa <a href="mailto:{GVAR: ADMIN_EMAIL}">panginoot ng kasaputan</a>.
+email_title:Pormularyo ng E-liham
+finduser_title:Hanapin ang Tagagamit
+help_title:Tulong
+login_title:Pormularyo ng Paglagda
+poll_title:Patnugot ng Botohan
+register_title:Pormularyo ng Pagpapatala
+reset_title:Itakdang Muli ang Hudyat
+rpasswd_title:Pormularyo ng Pagpapalit ng Hudyat
+error_title:Pormularyo ng Kamalian
+index_title:Maligayang pagdating sa poro
+search_title:Hanapin ang {VAR-HTML: srch}
+remail_emailsent:Naipadala na ang e-liham
+remail_email:Kumusta,\n\nMayroong nakawiwiling paksa tungkol sa "{VAR: data->subject}" na nasa porong {GVAR: FORUM_TITLE} na maaaring nais mong basahin. Maaari mong makita ang paksa doon sa:\n {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nAng iyong kaibigan,\n\n {VAR: usr->alias}
+poll_add_option:Idagdag ang Mapagpipilian:
+post_opt_html_on:<b>Buhay</b> ang <b>HTML</b>
+post_opt_fud_on:<b>Buhay</b> ang <a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>Kodigong BB</b>
+post_opt_images_on:<b>Buhay</b> ang <b>Mga Larawan</b>
+post_opt_smilies_on:<b>Buhay</b> ang <a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank"><b>Mga Pampangiti</b>
+post_opt_html_off:<b>Nakapatay</b> ang kodigong <b>HTML</b>
+post_opt_fud_off:<b>Nakapatay</b> ang <b>Kodigong BB</b>
+post_opt_images_off:<b>Nakapatay</b> ang <b>Mga Larawan</b>
+post_opt_smilies_off:<b>Nakapatay</b> ang <b>Mga Pampangiti</b>
+post_opt:Mga Mapagpapalian ng Poro:
+register_change_passwd:palitan ang hudyat
+register_change_login:palitan ang panglagda
+approved_avatar_title:Pinayagan ang pinasadya mong huwaran.
+approved_avatar_msg:Pinayagan ng tagapangasiwa ang huwaran mo. Dapat na itong lumitaw bilang huwaran mo sa ibabaw ng lahat ng mga mensahe mo. Kung hindi mo ito makita, o nakikita mo ang luma mong huwaran, dahil ito sa iniligpit ng pantingin-tingin mo ang pahina. Subukang sariwain ito ng isa o dalawang mga ulit. Sa karamihan ng mga pagkakataon lulunasan nito ang suliranin ng pagliligpit.
+unapproved_avatar_title:Tinanggihan ang pinasadya mong huwaran.
+unapproved_avatar_msg:Hindi pinayagan ng tagapangasiwa ang huwaran mo. Ang pinaka pangkaraniwang mga kadahilanan ay masyadong makalaki ang huwaran mo (sukat at/o mga tabas) o naglalaman ito ng hindi nararapat na paksang bagay. Kung nais mo ng marami pang kabatiran hinggil sa kung bakit tinanggihan ang huwaran mo, makipag-ugnayan sa tagapangasiwa.
+mvthread_request_move:hilingin ang isang paglipat
+move_request_reason:Bakit ba nais mong ilipat ang paksa?
+mvthread_submit_req:Ipasa ang Kahilingan
+thread_exchange:Pagpapalitan ng Paksa
+move_request_by:Ang paglipat ng paksa ay kahilingan ni:
+move_reason:Dahilan para sa paglipat ng paksa:
+thr_exch_accept:tanggapin ang paksa
+thr_exch_decline:tanggihan ang paksa
+thr_exch_orig_forum:Orihinal na Poro:
+thr_exch_dest_forum:Kapupuntahang Poro:
+thr_exch_no_threads:Walang mga paksa na naghihintay ng pagpayag.
+thr_exch_decl_reason:Dahilan sa pagtanggi sa paksang <b>{VAR: data->subject}</b> papaloob sa porong <b>{VAR: data->f2_name}</b>
+thr_exch_submit:Ipasa
+exch_decline_ttl:Tinanggihan ang paglipat ng paksang {VAR: data->subject} papaloob sa porong {VAR: data->f2_name}
+ppost_original_msg:ang mensaheng pinasusulong  mo o tinutugunan
+split_thread:Hatiin ang Paksa
+groupmgr_no_user:Walang tagagamit na may isang panglagdang "{FUNC: char_fix(htmlspecialchars($gr_member))}"
+groupmgr_already_exists:Umiiral na sa pangkat na ito ang tagagamit na si "{FUNC: char_fix(htmlspecialchars($gr_member))}"
+groupmgr_yes:Oo
+groupmgr_no:Hindi
+groupmgr_action:Galaw
+groupmgr_member:Kasapi
+groupmgr_cancel:Huwag ituloy
+groupmgr_add_member:Magdagdag ng Kasapi
+groupmgr_update_member:Isapanahon ang Kasapi
+groupmgr_edit:Baguhin
+groupmgr_delete:Burahin
+group_mgr_anon:Hindi nagpapakilala
+group_mgr_reged:Lahat ng Nagpatalang mga Tagagamit
+show_show:Ipakita:
+group_mgr:Tagapamahala ng Pangkat
+group_mgr_edit_btn:Baguhin ang Pangkat
+group_mgr_heading:Pilian ng Patnugot ng Pangkat
+group_mgr_group:Pangkat:
+permission_denied_title:Tinanggihan ang Pahintulot!
+permission_denied_msg:Ang mga kapahintulutan mo ng tagagamit ay hindi nagpapahintulot sa iyo na isagawa ang galaw na sinusubukan mo.
+p_READ:Basahin
+p_POST:Ipaskil
+p_REPLY:Tumugon
+p_EDIT:Baguhin
+p_DEL:Burahin
+p_STICKY:Malalagkit na mga mensahe
+p_POLL:Likhain ang mga botohan
+p_FILE:Maglakip ng mga talaksan
+p_VOTE:Bumoto
+p_RATE:Antasan ang mga paksa
+p_SPLIT:Hatiin ang mga paksa
+p_LOCK:Ikandado ang mga paksa
+p_MOVE:Ilipat ang mga paksa
+p_SML:Gamitin ang mga pampangiti
+p_IMG:Gamitin ang mga tatak ng larawan
+p_SEARCH:Maaaring Maghanap
+group_mgr_search:Hanapin ang Tagagamit
+group_mgr_indicator:Pangkasalukuyang Binabago: <b>{VAR: grp->name}</b>
+rate_worst:Pinakamasama
+rate_best:Pinakamabuti
+post_quote_msg:Si {VAR: msg->login} ay nagsulat noong {TEMPLATE: make_report_date}
+post_quote:Sipi:
+post_quote_selected:Sipiin ang Napiling Teksto
+userinfo_referals:Pinadulog na mga Tagagamit:
+userinfo_referals_count:{VAR: referals} Mga kasapi
+pm_no_space_title:Wala nang natitirang puwang!
+th_expr_never:Hindi magpakailanman
+th_expr_one_hr:1 Oras
+th_expr_three_hr:3 Mga oras
+th_expr_four_hr:4 Mga oras
+th_expr_eight_hr:8 Mga oras
+th_expr_sixteen_hr:16 Mga oras
+th_expr_one_day:1 Araw
+th_expr_two_day:2 Mga araw
+th_expr_four_day:4 Mga araw
+th_expr_one_week:1 Linggo
+th_expr_two_week:2 Mga linggo
+th_expr_one_month:1 Buwan
+th_expr_two_month:2 Mga buwan
+th_expr_four_month:4 Mga buwan
+th_expr_one_year:1 Taon
+thread_mod_delete:Burahin
+action_ip:IP
+action_latest_post:Huling Mensahe
+online_today_last_visit:Huling Pagdalaw
+online_today_update:Tinitingnan ang talaan ng mga tagagamit na nasa poro ngayong araw na ito.
+logedin_todays_visitors:Mga Panauhin sa Araw na Ito
+logedin_latest_post:Huling mensahe sa poro:
+register_show_avatar:Ipakita ang mga Huwaran:
+register_show_avatar_desc:Nagpapahintulot sa iyong maitago ang mga huwaran ng ibang mga tagagamit kapag tinitingnan ang mga mensahe nila.
+drawmsg_view_rest_post:Ipakita ang natitira pa ng mensahe
+post_re:Hinggil sa:
+forumsel_goto_forum:Pumunta sa Poro:
+minimsg_thread_view:Tanawin ng Paksa
+split_th_post_by:Mensahe Ni:
+split_th_posted_on:Ipinaskil Noong:
+split_th_subject:Paksa:
+split_th_new_thread_title:Bagong pamagat ng paksa:
+split_th_forum:Poro:
+split_th_split_sel:Hatiin ang napiling mga mensahe
+split_th_split_unsel:Hatiin ang hindi napiling mga mensahe
+split_th_messages:Mga mensahe
+split_th_select:Piliin
+report_report_post:Iulat ang Mensahe
+quicklogin_login:Lumagda:
+quicklogin_password:Hudyat:
+quicklogin_use_cookies:Gamitin ang mga Otap?
+quicklogin_login_btn:Lumagda
+quick_reply:Mabilisang Tugon
+quick_reply_post:Ipaskil ang Mabilisang Tugon
+quick_reply_preview:Paunang Tingnan ang Mabilisang Tugon
+post_notification_desc:Ipaalam sa akin kapag may isang taong tumugon sa mensaheng ito.
+post_all_ext_allowed:(hindi ipinagbabawal)
+maximize_category:Palakihin ang Kategorya
+maximize_message:Palakihin ang Mensahe
+no_view_perm:Wala kang naaangkop na kinakailangang mga pahintulot upang makita ang paksang ito.
+report_empty_report:Hindi ka maaaring magpadala ng isang ulat na walang laman. Mangyaring magpasok ng isang dahilan para sa ulat mo.
+report_already_reported_title:Naiulat Na
+pmsg_next_msg:Susunod na mensahe
+pmsg_prev_msg:Nakaraang mensahe
+post_proc_reveal_spoiler:Pang-unsiyami ng Panghalinhinan
+register_jabber:Panghawak ng Jabber:
+register_skype:Panghawak ng Skype:
+register_twitter:Panghawak ng Twitter:
+register_google:Panghawak ng Satsatan ng Google/IM:
+im_jabber:Jabber:
+im_google:Usapan ng Google:
+im_skype:Skype:
+im_twitter:Twitter:
+forum_contact:Makipag-ugnayan
+forum_home:Tahanan
+ignored_user_post:Hindi pinapansin ang mensahe ni <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a>
+smladd_close_window:isara ang bintana
+post_list_smilies:itala ang lahat ng mga pampangiti
+p_VISIBLE:Nakikita
+reported_in_thread:Sa:
+help_back_to_top:bumalik sa ibabaw
+help_return_to_index:Bumalik sa Talatuntunan ng Tulong
+imsg_err_message_title:Hindi Katanggap-tanggap na Mensahe
+imsg_err_message_msg:Hindi umiiral ang mensaheng sinusubukan mong tingnan.
+poll_edit:Baguhin
+register_err_not_valid_img:Ang tinukoy na URL ay hindi naglalaman ng isang katanggap-tanggap na larawan.
+pmsg_recepient:Tumatanggap
+register_err_taken_alias:Ang taguri na sinusubukan mong gamitin ay ginagamit na ng ibang kasapi sa poro. Mangyaring pumili ng iba.
+register_alias:Taguri:
+register_alias_desc:Kung nais mo ang isang palayaw na naiiba sa iyong panglagda na ipapakita sa loob ng poro, ipasok ito rito.
+register_allow_pm_msg:Payagan ang Pribadong mga Mensahe:
+register_allow_pm_msg_desc:Pahintulutan ang ibang mga tagagamit na padalhan ka ng pribadong mga mensahe sa pamamagitan ng porong ito.
+postcheck_pm_disabled:Hindi ka maaaring magpadala ng isang pribadong mensahe sa "{VAR-HTML: v}", dahil ang taong ito ay hindi tumatanggap ng pribadong mga mensahe.
+polllist_vote:Bumoto
+polllist_view_results:Tingnan Ang Mga Kinalabasan
+polllist_name:Pangalan ng Botohan
+polllist_date:Nilikha Noong
+polllist_owner:Nilikha Ni
+polllist_votes:Kabuuang mga Boto
+polllist_action:Galaw
+polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">Sinusuring Muli ang Makukuhang mga Botohan</a>
+userinfo_polls:Mga botohan:
+show_pollist:Ipakita ang mga Botohan
+search_and:AT
+search_or:O
+search_desc_order:Pababang pagkakaayos
+search_asc_order:Pataas na pagkakaayos
+search_logic:Lohika ng Paghahanap:
+search_sorting:Paguri-uriin ang mga Kinalabasan ayon sa Petsa sa loob ng:
+search_attach:Mga kalakip:
+search_attach_all:Mayroon o wala
+search_attach_with:May mga kalakip
+post_proceed:Magpatuloy
+post_moderated_forum:Gumawa ka ng isang pagpaskil sa loob ng isang poro may pamamagitan. Ang mensahe mo ay hindi magiging nakikita ng iba hanggang sa mapayagan ito ng isa sa mga tagapamagitan o mga tagapangasiwa ng poro.
+post_moderated_forum_ttl:Pabatid ng Porong may Pamamagitan
+buddy_list_bday:Ngayon si {VAR: r[2]} ay naging {VAR: age}
+email_warning_msg:Kapag binago mo ang pangkasalukuyan mong tirahan ng e-liham, ang akawnt mo ay mamarkahang hindi natiyak hanggang sa tiyakan mo ito sa pamamagitan ng e-liham.
+register_show_im:Ipakita ang mga pampahiwatig ng IM:
+register_show_im_desc:Kung ipapakita ba o hindi ang mga pampahiwatig ng IM ng may-akda sa tabi ng mga mensahe nila.
+unread_message:Mensaheng Hindi Pa Nababasa
+read_message:Mensaheng Nabasa Na
+threadt_more:&lt;marami pa&gt;
+threadt_disabled_ttl:Hindi pinagagana ang tanawing puno ng talaan ng paksa.
+threadt_disabled_desc:Hindi pinagana ng tagapangasiwa ang tanawing puno ng talaan ng paksa. Sa halip mangyaring gamitin ang tanawing patag.
+threadt_update:Tinitingnan-tingnan ang poro (tanawing puno) na <a href="{TEMPLATE: threadt_update_lnk}">{VAR: frm->name}</a>
+mmod_delete_cofirm_ttl:Tiyakin ang Pagbubura ng Paksa/Mensahe
+spell_alts:walang mga pamalit
+insert_uploaded_image:Isingit ang larawan papaloob sa katawan ng mensahe
+back_to_top:Bumalik sa Ibabaw
+pm_err_disabled_title:Hindi Pinagagana ang Pribadong Pagmemensahe
+pm_err_disabled_msg:Hindi ka maaaring magpadala ng pribadong mga mensahe hanggang sa paganahin mo ang pagpipilian ng 'Payagan ang Pribadong mga Mensahe' sa loob ng balangkas mo.
+err_mod_acc_ttl:Akawnt Na Hindi Pa Napapatunayan
+accounts_pending_approval:Mga Akawnt Na Naghihintay Pa Ng Pagpayag
+saved:Nasagip na
+im_affero:Pangalan ng tagagamit sa Affero
+buddy_offline:Kasalukuyang nakapatay ang linya ng {VAR: r[2]}
+buddy_online:Kasalukuyang nasa ibabaw ng linya ang {VAR: r[2]}
+sml_no_smilies:Walang makuhang mga emotikon.
+login_unapproved_account_ttl:Hindi Pinayagang Akawnt
+remove_from_buddy_list:tanggalin mula sa talaan ng katoto
+iemail_msg_author:<b>May-akda:</b> {VAR: obj->alias}
+iemail_msg_subject:<b>Paksa:</b> {VAR: obj->subject}
+iemail_msg_date:<b>Petsa:</b> {TEMPLATE: dmsg_post_date}
+iemail_msg_reply:Tugon
+iemail_msg_quote:Sipi
+iemail_msg_view:Tingnan ang Paksa/Mensahe
+threadt_sticky:malagkit
+threadt_announce:pabatid-bayan
+reported_no_messages:Walang naiulat na mga mensahe.
+poll_no_polls:Walang mapupuntahang mga botohan.
+no_unread_messages:Walang hindi pa nababasang mga mensaheng tumutugma sa katanungan mo.
+thread_mark_all_read:Markahang nabasa na ang lahat ng hindi pa nababasang mga mensahe ng poro
+thread_mark_all_read_desc:Ang lahat ng mga hindi pa nababasang mga mensahe na nasa loob ng porong ito ay mamarkahang nabasa na
+private_no_messages:Walang mga mensahe sa loob ng pantuping ito.
+register_email_change_subject:Pagtitiyak ng pagpapalit ng e-liham
+iemail_thread_unsub:Huwag nang magpasipi mula sa paksang ito
+iemail_forum_unsub:Huwag nang magpasipi mula sa porong ito
+primary_group_prefix:Pangunahing pangkat para sa poro:
+group_resources:Ang pangkat na ito ang nagtataban ng mga kapahintulutan ng sumusunod na mga poro
+register_admin_newuser_title:Isang bagong tagagamit ang nagpatala at naghihintay ng katiyakan ang kanilang akawnt
+post_mod_msg_notify_title:Bagong mensahe sa loob ng porong "{VAR: frm->name}" na naghihintay ng pagpayag
+thread_printable_pdf:Lumikha ng malilimbag na PDF
+thread_syndicate:Isindikato ang porong ito (XML)
+reg_conf_title:Pagtitiyak ng Pagpapatala
+forum_banned_user:Ang nauna mong mga pagkilos ay nagresulta sa pagiging pampalagian nang pagbabawal sa iyo magmula sa porong ito. Paalam.
+mnav_description:Panlibot sa Mensahe
+mnav_date_limit:Sakop na petsa:
+mnav_forum_limit:Maghanap lamang sa:
+mnav_all_forums:Maghanap sa lahat ng mga poro
+mnav_submit:Simulan ang Paghahanap
+mnav_no_range:Kailangan mong magpasok ng isang katanggap-tanggap na saklaw ng petsa. Ang halagang ito ay maaaring maglaman ng isang tuldok ng desimal, (0.12) ngunit dapat itong mas mahigit kaysa sa sero.
+mnav_invalid_unit:Dapat kang tumukoy ng isang katanggap-tanggap na yunit ng oras.
+mnav_invalid_date:Ang tinukoy mong saklaw ng petsa ay mas mahigit kaysa sa isang pinapayagan ng tagapangasiwa. Sumubok ng isang mas maliit na saklaw ng mga petsa.
+mnav_no_results:Walang mga mensaheng tumutugma sa katanungan.
+mnav_posted_by:Ipinaskil Ni:
+mnav_more:Marami pa &raquo;&raquo;
+mnav_minute:(Mga) minuto
+mnav_hour:(Mga) oras
+mnav_day:(Mga) araw
+mnav_week:(Mga) linggo
+mnav_month:(Mga) buwan
+mnav_title:Panlibot sa mensahe
+mnav_update:Tumitingin-tingin ng mga Mensahe na ginagamit ang <a href="{TEMPLATE: mnav_update_lnk}">Panlibuto sa Mensahe</a>
+pm_notify_subject:[{GVAR: FORUM_TITLE}] Pagpapabatid ng Bagong Pribadong Mensahe
+register_pm_notification:Pagpapabatid ng Pribadong Mensahe:
+register_pm_notification_desc:Kapag pinagana, pababatiran ka tuwing may ipinadala sa iyong isang pribadong mensahe.
+findu_admin_opts_header:Mga Mapagpipilian ng Tagapangasiwa
+findu_unban:Huwag Pagbawalan
+findu_ban:Pagbawalan
+findu_edit:Baguhin
+findu_delete:Burahin
+dmsg_reply_to:ay isang tugon sa
+dmsg_reply_num:message #{VAR: obj->reply_to}
+merge_topics:Pagsanibin ang mga Paksa
+merge_topics_cp:Pagsanibin ang Kahong Pantaban ng Paksa
+merge_topics_tpl:Piliin ang mga Paksang Pagsasanibin <span class="SmallText">(dapat kang pumili ng mahigit sa isang paksa)</span>
+merge_merge:Pagsanibin ang Napiling mga Paksa
+merge_next:Susunod na mga Paksa
+merge_prev:Nakaraang mga Paksa
+merge_another:Pumunta sa <a href="{TEMPLATE: merge_another_lnk}">pinakahuling paksang isinanib</a> o magsanib ng iba pa:
+split_cp:Kahong Pantaban ng Pinaghiwalay na Paksa
+groups_perms_header:Mga kapahintulutan <span class="small">(ilipat ang daga-dagaan sa ibabaw ng pahintulot upang makita ang uri nito)</span>
+register_err_sig_too_long:Lumampas ang lagda mo sa pinakamataas na pinapahintulutang haba ng {GVAR: FORUM_SIG_ML} mga panitik.
+register_sig_limit:{GVAR: FORUM_SIG_ML} mga panitik <a href="javascript: alert('Ang Lagda mo ay '+document.forms['fud_register'].reg_sig.value.length+' ang kahabaan ng mga panitik. Ang pinakamataas na pinapayagang haba ng lagda ay {GVAR: FORUM_SIG_ML} mga panitik.');" class="SmallText">Suriin ang Haba ng Lagda</a>
+adm_account_accepted:Pinayagan na ng tagapangasiwa ang akawnt mong '{VAR: login}' at masigla na ngayon. Maaaring mo na ngayong puntahan ang porong {GVAR: FORUM_TITLE}' bilang isang natiyak, nakapagpatalang tagagamit.
+adm_account_accepted_s:Tinanggap ang kahilingan mo ng akawnt para sa '{GVAR: FORUM_TITLE}'.
+adm_account_rejected:Tinanggihan ng tagapangasiwa ang akawnt mong '{VAR: login}'. Kung nais mong malaman ang dahilan sa likod ng kapasyahang ito, maging malaya na makipag-ugnayan sa tagapangasiwa roon sa '{GVAR: ADMIN_EMAIL}'.
+adm_account_rejected_s:Tinanggihan ang kahilingan mo ng akawnt para sa '{GVAR: FORUM_TITLE}'.
+thread_on:noong
+userinfo_buddy:Katoto:
+register_email_addr:Tirahan ng E-liham:
+reset_suffix:Kung natanggap mo ang mensaheng ito dahil sa kamalian, mangyaring huwag itong pansinin. Kung nakakatanggap ka ng maramihang mga sipi ng e-liham na ito, na hindi mo naman hiniling, mangyaring makipag-ugnayan sa tagapangasiwa ng poro roon sa {GVAR: ADMIN_EMAIL}\n\nAng kahilingang ito ay nagbuhat mula sa: {VAR: _SERVER['REMOTE_ADDR']}.
+usrinfo_last_visit:Huling Dumalaw:
+mnav_newer:mas bago kaysa
+mnav_older:mas luma kaysa
+ip_search_by_ip:Maghanap ng mga tagagamit ayon sa IP
+ip_search_syntax:Tinatangkilik na palaugnayan: 1.2.3.4, 1.2.3, 1.2, 1
+ip_search:Hanapin
+ip_analyze_usage:Suriin ang paggamit ng IP
+ip_analyze_usage_descr:Mangyaring tukuyin ang tumpak na paglagda ng tagagamit.
+ip_users_using:Mga tagagamit na gumagamit ng tirahan ng IP na '{VAR: ip}'
+ip_all_ips:Lahat ng mga IP na ginagamit ni '{VAR: user}'
+ip_title:Pantingin-tingin ng IP
+userinfo_real_name:Tunay na Pangalan:
+register_err_alias_notallowed:Hindi pinapayagan ang ganitong taguri
+post_err_mod_forum_edit_ttl:KAMALIAN
+post_err_mod_forum_edit_msg:Hindi ka maaaring magbago ng mga mensahe sa loob ng isang porong may namamagitan.
+dmsg_num:mensahe #{VAR: obj->id}
+postcheck_session_invalid:Nagwakas na ang iyong laang panahon. Mangyaring ipasang muli ang pormularyo. Paumanhin sa abala.
+delete_message_extra_desc:<b>Maaaring wala ito</b><br />Tumukoy ng isang dahilan para sa pagbura ng mensahe, na ipapadala sa may-akda sa pamamagitan ng isang pribadong mensahe.
+delete_message_extra_body:Isama ang katawan ng tinanggal na mensaheng ipapadala sa may-akda.
+delete_msg_removed_ttl:Ang mensahe mo ay tinanggal ng tauhang nangangasiwa.
+delete_msg_pm_body:Orihinal na mensahe
+delete_msg_pm_subject:Paksa: {VAR: data[15]}
+ip_no_whois:Hindi makukuha ang kabatirang Whois para sa <b>{VAR: ip}</b>
+ip_whois_title:Kabatiran sa ISP
+register_theme:Tema:
+pmsg_trash:Tanggalin ang Laman ng Basurahan
+uc_new_pm:Bagong Pribadong Mga Mensahe
+uc_new_topic:Bagong Paksa
+uc_new_cat_forum:Pinagsisipiang Mga Poro Na May Bagong Mga Mensahe
+uc_cat_forum:Kategorya &raquo; Poro
+uc_sub_topics:Pinagsisipiang Mga Paksa Na May Bagong Mga Mensahe
+uc_page_title:Pagtingin sa pansariling kahong pantaban.
+search_options:Mga Mapagpipilian Para Sa Paghahanap
+search_user_filter:Salain ayon sa tagagamit:
+register_none:Huwag akong pabatiran
+findu_no_conf:hindi natiyak na tagagamit
+register_max_sig_len:Pinakamataas na Haba:
+register_turing:Mangyaring pakipasok ang kodigong ipinapakita sa ibaba:
+register_err_turing:Hindi katanggap-tanggap na kodigo ng pagpapatunay.
+modque_cat:Kategorya
+modque_forum:Poro
+idx_compact_forum_row:Makukuhang mga Poro:
+mmd_del_title:Burahin ang mga Paksa
+mmd_mov_title:Ilipat ang mga Paksa
+mmd_move_threads_to:Kapupuntahang Poro:
+mmd_abort_move:Huwag ituloy
+mmd_move:Ilipat ang mga Paksa
+pmsg_pdf_btn:Gumawa ng Supnayan ng PDF
+search_results_hdr:{VAR: total} Natagpuang mga Kinalabasan ng Paghahanap
+thread_del_all:Burahin ang napili
+thread_mov_all:Ilipat ang Napili
+thread_merge_all:Pagsanibin ang Napili
+thread_loc_all:Ikandado/Huwag Ikandado ang Napili
+dmsg_ip:IP:
+err_blockedaccnt_title:KAMALIAN: Ang akawnt mo ay nasalang palabas.
+err_blockedaccnt_msg:Hinarang ang akawnt mo mula sa pagpunta sa poro dahil sa isa sa iniluklok na mga pansala ng tagagamit.
+merge_th_page_list:Pilian ng Pahina ng Paksa
+most_users_online:Karamihang mga tagagamit na palagiang nasa linya ng Internet ay <b>{VAR: st_obj->most_online}</b> on <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
+sub_unsub_all_forums:Huwag Nang Magpasipi MulaSa Lahat Ng Mga Poro
+sub_unsub_all_topics:Huwag Nang Magpasipi Mula Sa Lahat Ng Mga Paksa
+unbookmark_all_topics:Tanggalin ang lahat ng mga pananda
+tabs_own_posts:Ipakita Ang Sariling Mga Pagpapaskil
+sml_emoticon:Emotikon
+sml_code:Kodigo
+mnav_sub_only:Maghanap sa loob lamang ng pinagsisipiang mga poro
+register_topics_per_page:Mga Paksa Bawat Pahina:
+login_min_time:Ang porong ito ay nagpapahintulot ng isang pagtatangka ng paglagda tuwing {VAR: MIN_TIME_BETWEEN_LOGIN} mga segundo, mangyaring maghintay ng {FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)} mga segundo bago ang susunod mong pagtatangka.
+post_not_logged_in:Kasalukuyang hindi ka nakalagda, ang mensahe ay ipapaskil na hindi nagpapakilala.
+post_common_bold:Makapal
+post_common_italics:Nakapahilis
+post_common_underline:Salungguhitan
+post_common_align_left:Ipantay sa Kaliwa
+post_common_align_center:Ipantay sa Gitna
+post_common_align_right:Ipantay sa Kanan
+post_common_link:Magsingit ng isang Kawing
+post_common_link_popup:Kinalalagyan ng kawing:
+post_common_email:Magsingit ng isang tirahan ng E-liham
+post_common_email_popup:Tirahan ng e-liham:
+post_common_image:Magsingit ng isang larawan
+post_common_image_popup:URL ng larawan:
+post_common_nlist:Magdagdag ng talaang may bilang
+post_common_blist:Magdagdag ng pinungluang talaan
+post_common_quote:Magdagdag ng Sipi
+post_common_code:Magdagdag ng Kodigo
+rating_delete:Burahin
+post_always_on_top:Gawing palaging lumilitaw ang paksa doon sa itaas ng talaan ng paksa
+topic_rating:{VAR: frm->rating} mula sa {PLURAL: frm->n_rating|$1 boto|$1 mga boto}
+topic_list_rating:{VAR: r[17]} mula sa {PLURAL: r[21]|$1 boto|$1 mga boto}
+tabs_notifications:Mga pagpapabatid
+finduser_flag:Watawat
+post_descr:Paglalarawan ng Paksa:
+pmsg_on:buhay
+pmsg_download_dump:Ikargang Paibaba ang Tambakan ng Mensahe
+move_messages:Ilipat ang mga mensahe
+move_msg_btn:Ilipat ang Napiling mga Mensahe
+move_msg_th_expl:Tukuyin ang ID ng kapupuntahang paksa (maaari nasa ibang mga poro)
+captcha_img_alt:Pagpapatunay ng Captcha: kakailanganin mong makilala ang tekstong nasa loob ng larawang ito.
+captcha_img_help:Walang sero o isa sa loob ng larawan.
+powered-by:Binibigyang kapangyarihan ng: FUDforum {GVAR: FORUM_VERSION}.<br />Karapatang-ari &copy;2001-2011 <a href="http://fudforum.org/">Sopwer ng Paskilan ng FUDforum</a>
+code_title:Kodigo:
+code_select_all:Piliin lahat
+code_show_hide:Ipakita/itago
+social_sites:Mga lugar ng kalambatang panlipunan:
+postcheck_min_len_err:Masyadong maikli ang mensahe mo. Ang pinakamaliit na haba ay {PLURAL: post_min_len|$1 panitik|$1 mga panitik}.
+postcheck_dup_err:Mangyaring huwag lumikha ng kakambal na mga paksa.
+btn_new_topic:Bagong Paksa
+btn_new_pm:Bagong P.Mensahe
+btn_post_reply:Ipaskil ang Tugon
+btn_tree_view:Tanawin ang puno
+btn_flat_view:Tanawing patag
+btn_about:Balangkas
+btn_small_pm:ng gabi
+btn_delete:burahin
+btn_edit:baguhin
+btn_reply:tumugon
+btn_forward:isulong
+btn_quote:sipiin
+btn_email:E-liham
+btn_show_posts:mga pagpapaskil
+btn_homepage:www
+feed_no_data:Walang natagpuang tumutugmang dato.
+feed_rdf:Pasubong RDF
+feed_rss:Pasubong RSS2
+feed_atom:Pasubong ATOM
+ip_whois_connect_err:Hindi nagawang umugnay sa tagapaghain ng WHOIS ({VAR: whois_server}): {VAR: errstr}
+custom_filed_required:Kailangan ang kahanayang ito.
+page_list_heading:Makukuhang mga pahina
+page_list_total:Nakatalang {PLURAL: i|$1 pahina|$1 mga pahina}.

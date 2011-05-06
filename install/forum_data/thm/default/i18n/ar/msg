@@ -737,7 +737,7 @@ groupmgr_member:عضو
 groupmgr_cancel:ألغِ
 groupmgr_add_member:أضف عضوًا
 groupmgr_update_member:حدّث عضوًا
-groupmgr_edit:حرّر
+groupmgr_edit:عدل
 groupmgr_delete:حذف
 group_mgr_anon:مجهول
 group_mgr_reged:كل المستخدمين المسجلين
@@ -853,7 +853,7 @@ help_back_to_top:ارجع إلى الأعلى
 help_return_to_index:ارجع إلى فهرس المساعدة
 imsg_err_message_title:رسالة غير صالحة
 imsg_err_message_msg:الرسالة التي تحاول عرضها غير موجودة.
-poll_edit:حرّر
+poll_edit:عدل
 register_err_not_valid_img:لا يحتوي المسار المُحدّد صورة صالحة.
 pmsg_recepient:المستلم
 register_err_taken_alias:الكنية التي تحاول استخدامها يستخدمها عضو منتدى آخر بالفعل. من فضلك اختر كنية أخرى.
