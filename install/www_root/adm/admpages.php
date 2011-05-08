@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -49,8 +49,9 @@
 	/* Set defaults. */
 	if ($edit && ($c = db_arr_assoc('SELECT * FROM '. $tbl .'pages WHERE id='. $edit))) {
 		foreach ($c as $k => $v) {
-			${'page_'.$k} = $v;
+			${'page_'. $k} = $v;
 		}
+		$page_body = fud_page::read_page_body($page_foff, $page_length);
 	} else {
 		$c = get_class_vars('fud_page');
 		foreach ($c as $k => $v) {
@@ -59,6 +60,8 @@
 	}
 ?>
 <h2>Static pages</h2>
+<div class="tutor">
+This control panel allows admins to create static pages, for example, to quickly add a "Contacts" or "About Us" page. For a list of your pages, see <a href="../<?php echo __fud_index_name__;?>?t=page&amp;<?php echo __adm_rsid; ?>">static pages</a>.</div>
 
 <?php
 echo '<h3>'. ($edit ? '<a name="edit">Edit Page:</a>' : 'Add New Page:') .'</h3>';
@@ -67,23 +70,28 @@ echo '<h3>'. ($edit ? '<a name="edit">Edit Page:</a>' : 'Add New Page:') .'</h3>
 <?php echo _hs; ?>
 <table class="datatable">
 	<tr class="field">
-		<td>Page slug:<br /><font size="-2">The page slug is used in the URL of the page.</font></td>
-		<td><input type="text" name="page_slug" value="<?php echo $page_slug; ?>" /></td>
+		<td>Page slug:<br /><font size="-2">The page slug is used in the URL of the page and should typically be all lower-case.</font></td>
+		<td><input type="text" name="page_slug" size="30" maxlength="32" value="<?php echo $page_slug; ?>" /></td>
 	</tr>
 
 	<tr class="field">
 		<td>Page title:<br /><font size="-2">Title of the page.</font></td>
-		<td><input type="text" name="page_title" value="<?php echo $page_title; ?>" /></td>
+		<td><input type="text" name="page_title" size="50" maxlength="255" value="<?php echo $page_title; ?>" /></td>
 	</tr>
 
 	<tr class="field">
-		<td>Page body:<br /><font size="-2">Text to display on the page.</font></td>
-		<td><textarea name="page_body" cols="60" rows="7"><?php echo $page_body; ?></textarea></td>
+		<td>Page body:<br /><font size="-2">Text to display on the page<br />(can contain HTML).</font></td>
+		<td><textarea name="page_body" cols="50" rows="7"><?php echo $page_body; ?></textarea></td>
 	</tr>
 
 	<tr class="field">
-		<td>Options:<br /><font size="-2">Page options.</font></td>
-		<td><?php draw_select('page_page_opt', "Optional\nMandatory", "0\n1", ($page_page_opt & (1))); ?></td>
+		<td>Published:<br /><font size="-2">Is the page visible on your site?</font></td>
+		<td><?php draw_select('page_page_opt[]', "Yes\nNo", "1\n0", ($page_page_opt & (1))); ?></td>
+	</tr>
+
+	<tr class="field">
+		<td>List page:<br /><font size="-2">List this page in the list of pages.</font></td>
+		<td><?php draw_select('page_page_opt[]', "Yes\nNo", "0\n2", ($page_page_opt & (2))); ?></td>
 	</tr>
 
 	<tr class="fieldaction">
@@ -103,16 +111,16 @@ echo '<h3>'. ($edit ? '<a name="edit">Edit Page:</a>' : 'Add New Page:') .'</h3>
 <h3>Defined pages:</h3>
 <table class="resulttable fulltable">
 <thead><tr class="resulttopic">
-	<th>Slug</th><th>Title</th><th>Body</th><th>Action</th>
+	<th>Slug</th><th>Title</th><th>Action</th>
 </tr></thead>
 <?php
 	$i = 0;
-	$c = uq('SELECT id, slug, title, body FROM '. $tbl .'pages LIMIT 100');
+	$c = uq(q_limit('SELECT id, slug, title FROM '. $tbl .'pages', 100));
 	while ($r = db_rowobj($c)) {
 		$i++;
 		$bgcolor = ($edit == $r->id) ? ' class="resultrow3"' : (($i%2) ? ' class="resultrow1"' : ' class="resultrow2"');
 
-		echo '<tr'. $bgcolor .'><td>'. $r->slug .'</td><td>'. $r->title .'</td><td><font size="-1">'. htmlspecialchars(substr($r->body, 0, 100)) .'...</font></td>';
+		echo '<tr'. $bgcolor .'><td><a href="../'. __fud_index_name__ .'?t=page&amp;id='. $r->slug .'&amp;'. __adm_rsid .'" title="Go to page">'. $r->slug .'</a></td><td>'. $r->title .'</td>';
 		echo '<td><a href="admpages.php?edit='. $r->id .'&amp;'. __adm_rsid .'#edit">Edit</a> | <a href="admpages.php?del='. $r->id .'&amp;'. __adm_rsid .'">Delete</a></td></tr>';
 	}
 	unset($c);

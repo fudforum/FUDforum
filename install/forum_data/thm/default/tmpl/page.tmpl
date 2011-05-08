@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -19,16 +19,21 @@
 {PAGE: PAGE_PAGE // Display a static forum page.}
 {TEMPLATE: header}
 {TEMPLATE: usercp}
+<div class="breadcrumbs">
+	<a href="{TEMPLATE: dfp_home_lnk}">{MSG: home}</a> &nbsp;&raquo; {MSG: page_list_heading}
+<div>
 <table cellspacing="1" cellpadding="2" class="ContentTable"><tr><td>
 {IF: !empty($page->title)}
 	<h2>{VAR: page->title}</h2>
-	{VAR: page->body}
+	<div class="page-content">
+		{VAR: page->body}
+	</div>
 {ELSE}
-	<h2>Available pages</h2>
+	<h2>{MSG: page_list_heading}</h2>
 	<ul>
 		{TEMPLATE-DATA: page_list}
 	</ul>
-	<i>{VAR: i} pages listed.</i>
+	<i>{MSG: page_list_total}</i>
 {END}
 </td></tr></table>
 {TEMPLATE: curtime}
@@ -36,6 +41,14 @@
 {TEMPLATE: footer}
 {PAGE: END}
 
-{SECTION: PAGE_LIST_ENTRY}
-<li><a href="{ROOT}?t=page&page={VAR: r->id}">{VAR: r->title}</a>
+{SECTION: page_list_entry}
+<li><a href="{TEMPLATE: page_list_entry_lnk}">{VAR: r->title}</a>
+{SECTION: END}
+
+{SECTION: page_list_entry_lnk}
+{ROOT}?t=page&id={VAR: r->slug}&amp;{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: page_update}
+{MSG: page_update}
 {SECTION: END}
