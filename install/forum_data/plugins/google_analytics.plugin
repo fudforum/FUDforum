@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -13,14 +13,14 @@
 plugin_add_hook('COMPILER_FINALIZE_PAGE', 'plugin_google_analytics');
 
 function plugin_google_analytics($array) {
-	list($html) = $array;
+	list($html, $page) = $array;
 
 	if ((@include $GLOBALS['PLUGIN_PATH'] .'google_analytics.ini') === false) {
 		die('ERROR: Please configure the google_analytics plugin from the Plugin Manager Control panel.');
 	}
 
 	$google_code = '
-<script type="text/javascript">
+<script>
 // Google analytics.
   var _gaq = _gaq || [];
   _gaq.push(["_setAccount", "'. $ini['GOOGLE_ANALYTICS_CODE'] .'"]);
@@ -36,7 +36,7 @@ function plugin_google_analytics($array) {
 	// Change HTML and send it back to the compiler.
 	$html = str_replace('</body>', $google_code .'</body>', $html);
 
-	return array($html);
+	return array($html, $page);
 }
 
 function google_analytics_info() {
@@ -49,6 +49,11 @@ function google_analytics_enable() {
 	if((@include_once $GLOBALS['PLUGIN_PATH'] .'google_analytics.ini') === false) {
 		return array(null, 'Please configure the google_analytics plugin before enabling it.');	// OK, Err.
 	}
+	@define('REBUILD_THEMES', 1);
+}
+
+function google_analytics_disable() {
+	@define('REBUILD_THEMES', 1);
 }
 
 function google_analytics_config() {
@@ -65,8 +70,8 @@ function google_analytics_config() {
 		$fp = fopen($GLOBALS['PLUGIN_PATH'] .'google_analytics.ini', 'w');
 		fwrite($fp, '<?php $ini = '. var_export($ini, 1) .'; ?>');
 		fclose($fp);
-		echo '<font color="green">Settings successfully saved.</font><br />';
-		echo '<font color="orange">Please ensure the plugin is active and rebuild your themes to insert the tracking code into your pages.</font>';
+		pf(successify('Settings successfully saved.'));
+		@define('REBUILD_THEMES', 1);
 	}
 	?>
 <p>Your site's tracking code (get one from <a href="http://www.google.com/analytics/">google.com/analytics</a>):<br />

@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -9,7 +9,7 @@
 * Free Software Foundation; version 2 of the License.
 **/
 
-// Initialize plugin
+// Initialize plugin.
 plugin_add_hook('PREREGISTRATION', 'plugin_gravatar');
 
 // Assign gravatar when user registers.
@@ -32,8 +32,9 @@ function plugin_gravatar($uent) {
 
 function gravatar_info() {
 	return array('name' => 'Gravatar',
-		     'desc' => 'Assign users a Globally Recognized Avatar from <a href="http://en.gravatar.com/">gravatar.com</a> when they register.<br />If the user doesn\'t have a gravatar, he/she will get a default mystery-man avatar.',
-		     'version' => '1.0');
+		     'desc' => '<p>Assign users a Globally Recognized Avatar from <a href="http://en.gravatar.com/">gravatar.com</a> when they register.</p>
+				<p>If the user doesn\'t have a gravatar, he/she will get a default mystery-man avatar. To get bigger or smaller avatars, adjust "Custom Avatar Max Dimensions" in the Global Settings Manager.</p>',
+		     'version' => '1.1');
 }
 
 ?>

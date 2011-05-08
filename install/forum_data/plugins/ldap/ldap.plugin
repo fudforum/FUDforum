@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -26,7 +26,7 @@ function plugin_ldap_auth() {
 		return 0;
 	}
 
-	if (defined('forum_debug')) {
+	if (defined('fud_debug')) {
 		ldap_set_option(NULL, LDAP_OPT_DEBUG_LEVEL, 7);
 	}
 	$connection = ldap_connect($ini['LDAP_HOST'], $ini['LDAP_PORT']);
@@ -145,7 +145,7 @@ function ldap_config() {
 		$fp = fopen($GLOBALS['PLUGIN_PATH'] .'ldap/ldap.ini', 'w');
 		fwrite($fp, '<?php $ini = '. var_export($ini, 1) .'; ?>');
 		fclose($fp);
-		echo '<font color="green">Settings successfully saved.</font>';
+		pf(successify('Settings successfully saved.'));
 	}
 	?>
 <p>Space-separated list of LDAP server names:<br />

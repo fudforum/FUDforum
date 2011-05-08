@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -24,7 +24,6 @@ function plugin_google_adsense($array) {
 	} else if ($name == 'header' && $ini['GOOGLE_ADSENSE_POS'] == 1) {
 		$tmpl = $ini['GOOGLE_ADSENSE_CODE'] . $tmpl;
 	} else if ($name == 'header' && $ini['GOOGLE_ADSENSE_POS'] == 2) {
-		return array($tmpl . $ini['GOOGLE_ADSENSE_CODE']);
 		$tmpl = $tmpl . $ini['GOOGLE_ADSENSE_CODE'];
 	} else if ($name == 'curtime' && $ini['GOOGLE_ADSENSE_POS'] == 3) {
 		$tmpl = $ini['GOOGLE_ADSENSE_CODE'] . $tmpl;
@@ -49,6 +48,11 @@ function google_adsense_enable() {
 	if((@include_once $GLOBALS['PLUGIN_PATH'] .'google_adsense.ini') === false) {
 		return array(null, 'Please configure the google_adsense plugin before enabling it.');	// OK, Err.
 	}
+	@define('REBUILD_THEMES', 1);
+}
+
+function google_adsense_disable() {
+	@define('REBUILD_THEMES', 1);
 }
 
 function google_adsense_config() {
@@ -65,8 +69,8 @@ function google_adsense_config() {
 		$fp = fopen($GLOBALS['PLUGIN_PATH'] .'google_adsense.ini', 'w');
 		fwrite($fp, '<?php $ini = '. var_export($ini, 1) .'; ?>');
 		fclose($fp);
-		echo '<font color="green">Settings successfully saved.</font><br />';
-		echo '<font color="orange">Please ensure the plugin is active and rebuild your themes to display the ad on your forum.</font>';
+		pf(successify('Settings successfully saved.'));
+		@define('REBUILD_THEMES', 1);
 	}
 	?>
 <p>Where should it be displayed:<br />

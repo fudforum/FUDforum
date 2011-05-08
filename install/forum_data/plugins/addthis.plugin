@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -20,7 +20,7 @@ function plugin_addthis($array) {
 	}
 
 	$addthis_code = '
-<div class="addthis_toolbox addthis_default_style '. ($ini['ADDTHIS_BUTTON_SIZE'] ? 'addthis_32x32_style' : '') .'" style="'. $ini['ADDTHIS_ALIGN'] .'">';
+<div class="addthis_toolbox addthis_default_style '. ($ini['ADDTHIS_BUTTON_SIZE'] ? 'addthis_32x32_style' : '') .'" style="'. $ini['ADDTHIS_ALIGN'] .' clear:right;">';
 
 	for ($i = 1; $i < $ini['ADDTHIS_BUTTON_CNT']; $i++) {
 		$addthis_code .= '<a class="addthis_button_preferred_'. $i .'"></a>';
@@ -28,7 +28,8 @@ function plugin_addthis($array) {
 
 	$addthis_code .= '<a class="addthis_button_compact"></a>
 </div>
-<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#username=xa-4cd3dd3733013045"></script>
+<script async="async" src="http://s7.addthis.com/js/250/addthis_widget.js#username=xa-4cd3dd3733013045"></script>
+<script>var addthis_config = {ui_delay: 200}</script>
 ';
 
 	if ($name == $ini['ADDTHIS_POS']) {
@@ -39,20 +40,24 @@ function plugin_addthis($array) {
 }
 
 function addthis_enable() {
-	if((@include_once $GLOBALS['PLUGIN_PATH'] .'addthis.ini') === false) {
-		return array(null, 'Please configure the wikilinks plugin before enabling it.');	// OK, Err.
+	if((@include $GLOBALS['PLUGIN_PATH'] .'addthis.ini') === false) {
+		return array(null, 'Please configure the addthis plugin before enabling it.');	// OK, Err.
 	}
-	return array('Please rebuild your themes to display the adthis widget on your forum.', null);	// OK, Err.
+	@define('REBUILD_THEMES', 1);
+}
+
+function addthis_disable() {
+	@define('REBUILD_THEMES', 1);
 }
 
 function addthis_info() {
 	return array('name' => 'AddThis',
 				'desc' => 'Show Social Bookmarking Widgets from AddThis.com next to forum posts. This will allow visitors to bookmark and share your site easily with several popular services.',
-				'version' => '1.0');
+				'version' => '1.1');
 }
 
 function addthis_config() {
-	if((@include_once $GLOBALS['PLUGIN_PATH'] .'addthis.ini') === false) {
+	if((@include $GLOBALS['PLUGIN_PATH'] .'addthis.ini') === false) {
 		$ini = NULL;
 	}
 
@@ -65,8 +70,8 @@ function addthis_config() {
 		$fp = fopen($GLOBALS['PLUGIN_PATH'] .'addthis.ini', 'w');
 		fwrite($fp, '<?php $ini = '. var_export($ini, 1) .'; ?>');
 		fclose($fp);
-		echo '<font color="green">Saved. Rebuild your themes to see changes.</font><br />';
-		echo '<font color="orange">Please ensure the plugin is active and rebuild your themes to see changes.</font>';
+		pf(successify('Settings successfully saved.'));
+		@define('REBUILD_THEMES', 1);
 	}
 	?>
 <p>Display position:<br />

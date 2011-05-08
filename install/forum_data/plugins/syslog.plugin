@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -9,14 +9,22 @@
 * Free Software Foundation; version 2 of the License.
 **/
 
-// Initialize plugin
+// Initialize plugin.
 plugin_add_hook('LOGERR', 'plugin_syslog');
 
 // Write forum errors to the system log.
 function plugin_syslog($error_msg) {
+	if (defined('MAILED')) {
+		return;		// Prevent recursive mailing errors.
+	}
+
 	openlog('FUDforum', LOG_CONS, LOG_USER);
 	syslog(LOG_ERR, preg_replace('/\<br(\s*)?\/?\>/i', "\n", $error_msg));
-	closelog();	
+	closelog();
+
+	fud_use('iemail.inc');
+	send_email($GLOBALS['NOTIFY_FROM'], $GLOBALS['ADMIN_EMAIL'], $GLOBALS['FORUM_TITLE'] .' message', $error_msg);
+	define('MAILED', 1);	
 
 	return null;	// Don't log to default error_log.
 }
@@ -25,7 +33,7 @@ function syslog_info() {
 	return array('name' => 'Syslog',
 	             'desc' => '<p>Write errors to the system log instead of FUDforum\'s log file.</p>'.
 			       '<p>This will typically be the <i>Event Log</i> on Windows systems or syslog (/var/log/messages file) on Linux/Unix systems.</p>',
-	             'version' => '1.0');
+	             'version' => '1.1');
 }
 
 ?>
