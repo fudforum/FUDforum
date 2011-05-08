@@ -28,8 +28,8 @@ function db_close()
 function db_version()
 {
 	if (!defined('__FUD_SQL_VERSION__')) {
-		$ver = ibase_fetch_row(ibase_query('SELECT rdb$get_context(\'SYSTEM\', \'ENGINE_VERSION\') from rdb$database'));
-		define('__FUD_SQL_VERSION__', $ver[0]);
+		$ver = q_singleval('SELECT rdb$get_context(\'SYSTEM\', \'ENGINE_VERSION\') from rdb$database'));
+		define('__FUD_SQL_VERSION__', $ver);
 	}
 	return __FUD_SQL_VERSION__;
 }
@@ -79,8 +79,8 @@ if (!defined('fud_query_stats')) {
 	{
 		// echo "DEBUG: RUN Q=[$query]<HR>";
 		$r = @ibase_query(_firebird_syntax($query)) or fud_sql_error_handler($query, ibase_errmsg(), ibase_errcode(), db_version());
-		if (strncasecmp($query, 'SELECT', 6) && strncasecmp($query, 'COMMIT', 6)) {
-			@ibase_commit_ret();	// If not a SELECT or COMMIT, commit the tran without closing it.
+		if (!db_locked() && strncasecmp($query, 'SELECT', 6) && strncasecmp($query, 'COMMIT', 6)) {
+			@ibase_commit();	// DB not locked and not a SELECT or COMMIT, autocommit.
 		}
 		return $r;
 	}
@@ -99,8 +99,8 @@ if (!defined('fud_query_stats')) {
 
 		$s = microtime(true);
 		$result = @ibase_query(_firebird_syntax($query)) or fud_sql_error_handler($query, ibase_errmsg(), ibase_errcode(), db_version());
-		if (strncasecmp($query, 'SELECT', 6) && strncasecmp($query, 'COMMIT', 6)) {
-			@ibase_commit_ret();	// If not a SELECT or COMMIT, commit the tran without closing it.
+		if (!db_locked() && strncasecmp($query, 'SELECT', 6) && strncasecmp($query, 'COMMIT', 6)) {
+			@ibase_commit();	// DB not locked and not a SELECT or COMMIT, autocommit.
 		}
 		$e = microtime(true);
 
@@ -251,7 +251,6 @@ function _esc($s)
 
 	return '\''. $s .'\'';
 }
-
 
 function _firebird_syntax($q)
 {

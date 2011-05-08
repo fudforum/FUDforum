@@ -10,7 +10,7 @@
 **/
 # define('fud_query_stats', 1);
 
-class db { public static $db, $affected_rows, $res, $buf; }
+class db { public static $db, $affected_rows, $res; }
 
 function db_close()
 {
@@ -77,24 +77,22 @@ function __enifo($a)
 }
 
 if (!defined('fud_query_stats')) {
-	function uq($query, $buf=0)
+	function uq($query)
 	{
 		if (!strncasecmp($query, 'SELECT', 6)) {
 			db::$res = null;
-			db::$buf = $buf;
 			db::$res = db::$db->query($query) or fud_sql_error_handler($query, __enifo(db::$db->errorInfo()), db::$db->errorCode(), db_version());
 			return db::$res;
 		}
-		if (!db::$buf) {
-			db::$res = null;
-		}
+
+		db::$res = null;
 		if ((db::$affected_rows = db::$db->exec($query)) === FALSE) {
 			fud_sql_error_handler($query, __enifo(db::$db->errorInfo()), db::$db->errorCode(), db_version());
 		}
 		return db::$affected_rows;
 	}
 } else {
-	function uq($query, $buf=0)
+	function uq($query)
 	{
 		if (!strncasecmp($query, 'SELECT', 6)) {
 			if (!isset($GLOBALS['__DB_INC_INTERNALS__']['query_count'])) {
@@ -109,7 +107,6 @@ if (!defined('fud_query_stats')) {
 
 			$s = microtime(true);
 			db::$res = null;
-			db::$buf = $buf;
 			db::$res = db::$db->query($query) or fud_sql_error_handler($query, __enifo(db::$db->errorInfo()), db::$db->errorCode(), db_version());
 			$e = gettimeofday(true);
 
@@ -124,9 +121,8 @@ if (!defined('fud_query_stats')) {
 
 			return db::$res;
 		}
-		if (!db::$buf) {
-			db::$res = null;
-		}
+
+		db::$res = null;
 		if ((db::$affected_rows = db::$db->exec($query)) === FALSE) {
 			fud_sql_error_handler($query, __enifo(db::$db->errorInfo()), db::$db->errorCode(), db_version());
 		}
@@ -148,7 +144,7 @@ if (!defined('fud_query_stats')) {
 
 function q($query)
 {
-	return uq($query, 1);
+	return uq($query);
 }
 
 function db_rowobj($result)
@@ -163,7 +159,7 @@ function db_rowarr($result)
 
 function q_singleval($query)
 {
-	return uq($query)->fetchColumn();
+	return q($query)->fetchColumn();
 }
 
 function q_limit($query, $limit, $off=0)
@@ -196,17 +192,17 @@ function q_bitnot($bitField) {
 
 function db_saq($q)
 {
-	return uq($q)->fetch(PDO::FETCH_NUM);
+	return q($q)->fetch(PDO::FETCH_NUM);
 }
 
 function db_sab($q)
 {
-	return uq($q)->fetch(PDO::FETCH_OBJ);
+	return q($q)->fetch(PDO::FETCH_OBJ);
 }
 
 function db_qid($q)
 {
-	uq($q);
+	q($q);
 	$p = strpos($q, $GLOBALS['DBHOST_TBL_PREFIX']);
 	$e = strcspn($q, "\r\n\t (", $p);
 	return q_singleval('SELECT currval(\''. substr($q, $p, $e) .'_id_seq\')');
@@ -214,7 +210,7 @@ function db_qid($q)
 
 function db_arr_assoc($q)
 {
-	return uq($q)->fetch(PDO::FETCH_ASSOC);
+	return q($q)->fetch(PDO::FETCH_ASSOC);
 }
 
 function db_fetch_array($q)
@@ -229,7 +225,6 @@ function db_li($q, &$ef, $li=0)
 	      db::$db->exec('SAVEPOINT pre_db_li');
 	}
 
-	db::$buf = db::$res = null;
 	$r = db::$db->exec($q);
 
 	if ($r !== false) {
@@ -267,7 +262,6 @@ function ins_m($tbl, $flds, $types, $vals)
 
 function db_all($q)
 {
-	db::$buf = db::$res = null;
 	return db::$db->query($q)->fetchAll(PDO::FETCH_COLUMN);
 }
 
