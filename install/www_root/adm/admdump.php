@@ -29,9 +29,15 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir, $p=0)
 			continue;
 		}
 
-		// Remove DATA_DIR/ WWW_ROOT_DISK from the path.
-		$v = str_replace('\\', '/', $v);	// See fix_slashes() in install.php.
-		$dpath = trim(str_replace($repl, $keep_dir, $v), '/') .'/';
+		// Abstracting path by replacing directory prefix with either DATA_DIR or WWW_ROOT_DISK.
+		$v = str_replace('\\', '/', $v) .'/';   // See fix_slashes() in install.php.
+		$v = rtrim($v, '/') .'/';       // Ensure it's terminated by a slash.
+		$dpath = str_replace($repl, $keep_dir, $v);
+
+		// Just a quick check to ensure we haven't messed it up.
+		if (!(substr($dpath,0,8) == 'DATA_DIR' || substr($dpath,0,13) == 'WWW_ROOT_DISK')) {
+			die('Path not correctly abstracted, dpath=['. $dpath .'].');
+		}
 
 		if ($p) {
 			$write_func($fp, '||WWW_ROOT_DISK/blank.gif||'. filesize($GLOBALS['WWW_ROOT_DISK'] .'blank.gif') ."||\n". file_get_contents($GLOBALS['WWW_ROOT_DISK' ] .'blank.gif') ."\n");
@@ -78,8 +84,6 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir, $p=0)
 }
 
 /* main */
-	error_reporting(E_ALL);
-	@ini_set('display_errors', '1');
 	@ini_set('memory_limit', '256M');
 	@set_time_limit(0);
 
@@ -147,8 +151,8 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir, $p=0)
 		pf('Backup forum files:');
 		$write_func($fp, "\n----FILES_START----\n");
 		backup_dir($DATA_DIR, $fp, $write_func, 'DATA_DIR');
-		backup_dir($WWW_ROOT_DISK.'images/', $fp, $write_func, 'WWW_ROOT_DISK', 1);
-		backup_dir($WWW_ROOT_DISK.'adm/', $fp, $write_func, 'WWW_ROOT_DISK');
+		backup_dir($WWW_ROOT_DISK .'images/', $fp, $write_func, 'WWW_ROOT_DISK', 1);
+		backup_dir($WWW_ROOT_DISK .'adm/',    $fp, $write_func, 'WWW_ROOT_DISK');
 
 		$write_func($fp, "\n----FILES_END----\n");
 
@@ -229,7 +233,7 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir, $p=0)
 		$skip = array_flip(array('WWW_ROOT','COOKIE_PATH','COOKIE_DOMAIN','COOKIE_NAME',
 			'DBHOST','DBHOST_USER','DBHOST_PASSWORD','DBHOST_DBNAME','DBHOST_TBL_PREFIX',
 			'ADMIN_EMAIL','DATA_DIR','WWW_ROOT_DISK','INCLUDE','ERROR_PATH',
-			'MSG_STORE_DIR','TMP','FILE_STORE','FORUM_SETTINGS_PATH'));
+			'MSG_STORE_DIR','TMP','FILE_STORE','FORUM_SETTINGS_PATH', 'PLUGIN_PATH'));
 		$vars = array();
 		foreach (read_help() as $k => $v) {
 			if ($v[1] != NULL || isset($skip[$k])) {
