@@ -22,7 +22,7 @@ class db { public static $db, $affected_rows, $res; }
 
 function db_close()
 {
-	 db::$db = null;
+	db::$db = null;
 }
 
 function db_version()

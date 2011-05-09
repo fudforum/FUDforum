@@ -24,7 +24,7 @@ function fud_ini_set($opt, $val)
 function modules_enabled()
 {
 	$status = array();
-	foreach (array('ibm_db2', 'interbase', 'mysql', 'oci8', 'pdo_mysql', 'pdo_pgsql', 'pdo_sqlite', 'pgsql', 'sqlsrv',
+	foreach (array('ibm_db2', 'interbase', 'mysql', 'oci8', 'pdo_mysql', 'pdo_pgsql', 'pdo_sqlite', 'pdo_sqlsrv', 'pgsql', 'sqlsrv',
 		           'mbstring', 'pcre', 'pspell', 'posix', 'zlib') as $m) {
 		$status[$m] = extension_loaded($m);
 	}
@@ -38,7 +38,7 @@ function modules_enabled()
 function databases_enabled() 
 {
 	$module_status = modules_enabled();
-	$supported_databases = array('ibm_db2'=>'IBM DB2', 'interbase'=>'Firebird', 'mysql'=>'MySQL', 'mysqli'=>'MySQL Improved', 'oci8'=>'Oracle', 'pgsql'=>'PostgreSQL', 'sqlsrv' => 'SQL Server (Microsoft)', 'pdo_mysql'=>'PDO: MySQL', 'pdo_pgsql'=>'PDO: PostgreSQL', 'pdo_sqlite'=>'PDO: SQLite');
+	$supported_databases = array('ibm_db2'=>'IBM DB2', 'interbase'=>'Firebird', 'mysql'=>'MySQL', 'mysqli'=>'MySQL Improved', 'oci8'=>'Oracle', 'pgsql'=>'PostgreSQL', 'sqlsrv' => 'SQL Server (Microsoft)', 'pdo_mysql'=>'PDO: MySQL', 'pdo_pgsql'=>'PDO: PostgreSQL', 'pdo_sqlite'=>'PDO: SQLite', 'pdo_sqlsrv'=>'PDO: SQL Server (Microsoft)');
 
 	foreach ($supported_databases as $driver => $name) {
 		if (!$module_status[$driver]) {
@@ -534,7 +534,7 @@ being security and performance.');
 		!$module_status['oci8'] &&
 		!$module_status['pgsql'] && !$module_status['pdo_pgsql'] &&
 		!$module_status['pdo_sqlite'] &&
-		!$module_status['sqlsrv'])
+		!$module_status['sqlsrv']) && !$module_status['pdo_sqlsrv']
 	{
 		seterr('NODB', 'FUDforum can utilize either a IBM DB2, Firebird, MySQL, Oracle, PosgreSQL, SQLite or MS-SQL Server database to store it\'s data, unfortunately, your PHP installation does not have support for any of these databases. Please install or load the appropriate database extension and then re-run the install script.');
 	}
@@ -1266,7 +1266,10 @@ switch ($section) {
 	prereq_row('SQLite PDO Extension:', 'PDO interface to the SQLite server (pdo_sqlite).', 
 			($module_status['pdo_sqlite'] ? 'enabled' : 'disabled'), ($module_status['pdo_sqlite'] ? 'green' : 'orange'));
 	prereq_row('SQL Server Extention:', 'Interface to Microsoft SQL Server (sqlsrv).', 
-			($module_status['sqlsrv'] ? 'enabled' : 'disabled'), ($module_status['sqlsrv'] ? 'green' : 'orange'));			
+			($module_status['sqlsrv'] ? 'enabled' : 'disabled'), ($module_status['sqlsrv'] ? 'green' : 'orange'));
+	prereq_row('SQL Serber PDO Extension:', 'PDO interface to Microsoft SQL Server (sqlsrv).', 
+			($module_status['pdo_sqlsrv'] ? 'enabled' : 'disabled'), ($module_status['pdo_sqlsrv'] ? 'green' : 'orange'));
+
 	dialog_end('prereq');
 	break;
 
@@ -1392,7 +1395,7 @@ switch ($section) {
 						$("#DBHOST_DBNAME").val("XE");
 					} else if (db == "pdo_sqlite") {
 						$("#DBHOST,#DBHOST_USER,#DBHOST_PASSWORD,#DBHOST_DBNAME").hide().val("");
-					} else if (db == "sqlsrv") {
+					} else if (db == "sqlsrv" || db == "pdo_sqlsrv") {
 						$("#DBHOST_USER").val("se");
 					}
 				});

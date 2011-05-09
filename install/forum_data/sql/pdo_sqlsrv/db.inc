@@ -18,7 +18,7 @@ function db_close()
 }
 
 function db_version()
-{
+{	
 	if (!defined('__FUD_SQL_VERSION__')) {
 		define('__FUD_SQL_VERSION__', db::$db->getAttribute(PDO::ATTR_SERVER_VERSION));
 	}
@@ -30,7 +30,14 @@ function db_lock($tables)
 	if (!empty($GLOBALS['__DB_INC_INTERNALS__']['db_locked'])) {
 		fud_sql_error_handler('Recursive Lock', 'internal', 'internal', db_version());
 	}
-	
+
+	// Need this because pgsql can't handle lock aliases.
+	$tbl = array();
+	foreach (explode(',', str_replace(' WRITE', '', $tables)) as $v) {
+		if (!($v = trim($v))) continue;
+		$tbl[] = strtok($v, ' ');
+	}
+
 	db::$db->beginTransaction();
 
 	$GLOBALS['__DB_INC_INTERNALS__']['db_locked'] = 1;
@@ -42,15 +49,11 @@ function db_unlock()
 		unset($GLOBALS['__DB_INC_INTERNALS__']['db_locked']);
 		fud_sql_error_handler('DB_UNLOCK: no previous lock established', 'internal', 'internal', db_version());
 	}
-	
+
 	if (--$GLOBALS['__DB_INC_INTERNALS__']['db_locked'] < 0) {
 		unset($GLOBALS['__DB_INC_INTERNALS__']['db_locked']);
 		fud_sql_error_handler('DB_UNLOCK: unlock overcalled', 'internal', 'internal', db_version());
 	}
-
-	// Clear result set to prevent COMMIT from failing with "There is already an active transaction".
-	// To simulate, remove below line and post a reply to any existing topic.
-	db::$res = null;
 
 	db::$db->commit();
 
@@ -72,10 +75,15 @@ function __enifo($a)
 	return end($a);	// Return last element of error array.
 }
 
+function uq($query)
+{
+	return q($query);
+}
+
 if (!defined('fud_query_stats')) {
-	function uq($query)
+	function q($query)
 	{
-		if (!strncasecmp($query, 'SELECT', 6) || !strncasecmp($query, 'PRAGMA', 6)) {
+		if (!strncasecmp($query, 'SELECT', 6)) {
 			db::$res = null;
 			db::$res = db::$db->query($query) or fud_sql_error_handler($query, __enifo(db::$db->errorInfo()), db::$db->errorCode(), db_version());
 			return db::$res;
@@ -88,9 +96,9 @@ if (!defined('fud_query_stats')) {
 		return db::$affected_rows;
 	}
 } else {
-	function uq($query)
+	function q($query)
 	{
-		if (!strncasecmp($query, 'SELECT', 6) || !strncasecmp($query, 'PRAGMA', 6)) {
+		if (!strncasecmp($query, 'SELECT', 6)) {
 			if (!isset($GLOBALS['__DB_INC_INTERNALS__']['query_count'])) {
 				$GLOBALS['__DB_INC_INTERNALS__']['query_count'] = 1;
 			} else {
@@ -122,13 +130,20 @@ if (!defined('fud_query_stats')) {
 		if ((db::$affected_rows = db::$db->exec($query)) === FALSE) {
 			fud_sql_error_handler($query, __enifo(db::$db->errorInfo()), db::$db->errorCode(), db_version());
 		}
+
+		$e = gettimeofday(true);
+
+		$GLOBALS['__DB_INC_INTERNALS__']['last_time'] = ($e - $s);
+		$GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'] += $GLOBALS['__DB_INC_INTERNALS__']['last_time'];
+
+		echo '<hr><b>Query #'. $GLOBALS['__DB_INC_INTERNALS__']['query_count'] .'</b><small>';
+		echo ': time taken:     <i>'. number_format($GLOBALS['__DB_INC_INTERNALS__']['last_time'], 4) .'</i>';
+		echo ', affected rows:  <i>'. db_affected() .'</i>';
+		echo ', total sql time: <i>'.  number_format($GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'], 4) .'</i>';
+		echo '<pre>'. preg_replace('!\s+!', ' ', htmlspecialchars($query)) .'</pre></small>';
+
 		return db::$affected_rows;
 	}
-}
-
-function q($query)
-{
-	return uq($query);
 }
 
 function db_rowobj($result)
@@ -148,24 +163,40 @@ function q_singleval($query)
 
 function q_limit($query, $limit, $off=0)
 {
-	return $query .' LIMIT '. $limit .' OFFSET '. $off;
+	if ($off) {
+		// For SQL Server 11 (denali), simply:
+		// return $query . ' OFFSET '. $off .' ROWS FETCH NEXT '. $limit .' ROWS ONLY';
+
+		$query = preg_replace('/SELECT(\s*DISTINCT)?/Dsi', 'SELECT$1 TOP(10000000) ', $query);
+		$query = 'SELECT *
+				FROM (SELECT sub2.*, ROW_NUMBER() OVER(ORDER BY sub2.line2) AS line3
+				FROM (SELECT 1 AS line2, sub1.* FROM ('. $query .') AS sub1) as sub2) AS sub3';
+		if ($limit > 0)	{
+			$query .= ' WHERE line3 BETWEEN '. ($off+1) .' AND '. ($off + $limit);
+		} else {
+			$query .= ' WHERE line3 > '. $off;
+		}
+		return $query;
+	} else {
+		return 'SELECT TOP '. $limit . substr($query, 6);
+	}
 }
 
 function q_concat($arg)
 {
+	// Breaks the standard by using the '+' operator instead of '||'. 
 	$tmp = func_get_args();
-	return implode('||', $tmp);
+	$val = null;
+
+	foreach($tmp as $str) {
+		$val .= empty($val) ? 'CAST('. $str .' AS VARCHAR)' : ' + CAST('. $str .' AS VARCHAR)';
+	}
+
+	return $val;
 }
 
 function q_rownum() {
-	if (!function_exists('sqlite_rownum')) {
-	 	function sqlite_rownum() {
-			return ++$_SESSION['SQLITE_ROWNUM'];
-		}
-		db::$db->sqliteCreateFunction('rownum', 'sqlite_rownum');
-	}
-	$_SESSION['SQLITE_ROWNUM'] = 0;
-	return 'rownum()';
+    return 'ROW_NUMBER() OVER(ORDER BY (SELECT 1))';
 }
 
 function q_bitand($fieldLeft, $fieldRight) {
@@ -203,13 +234,13 @@ function db_arr_assoc($q)
 
 function db_fetch_array($q)
 {
-	return is_object($q) ? $q->fetch(PDO::FETCH_ASSOC) : null;
+		return is_object($q) ? $q->fetch(PDO::FETCH_ASSOC) : null;
 }
 
 function db_li($q, &$ef, $li=0)
 {
 	$r = db::$db->exec($q);
-	
+
 	if ($r !== false) {
 		if (!$li) {
 			return $r;
@@ -219,7 +250,7 @@ function db_li($q, &$ef, $li=0)
 
 	/* Duplicate key. */
 	if (($c = db::$db->errorCode()) == '23000' || $c == '23505') {
-		/* XXX unknown?? */
+		$ef = ltrim(strrchr(__enifo(db::$db->errorInfo()), ' '));
 		return null;
 	} else {
 		fud_sql_error_handler($q, __enifo(db::$db->errorInfo()), db::$db->errorCode(), db_version());
@@ -228,18 +259,22 @@ function db_li($q, &$ef, $li=0)
 
 function ins_m($tbl, $flds, $types, $vals)
 {
-	$sth = db::$db->prepare('INSERT OR IGNORE INTO '. $tbl .' ('. $flds .') VALUES(?'. str_repeat(',?',substr_count($flds, ',')) .')');
-	foreach ($vals as $v) {
-		if (!$sth->execute(explode(',', trim($v,'\'')))) {
-			// Note the use of undocumented $sth->queryString.
-			fud_sql_error_handler($sth->queryString, __enifo(db::$db->errorInfo()), db::$db->errorCode(), db_version());
+	// MS-SQL 2008 and higher supports multiple value pairs.
+	$r = db::$db->exec('INSERT INTO '. $tbl .' ('. $flds .') VALUES ('. implode('),(', $vals). ')');
+
+	/* Ignore error 23000: Cannot insert duplicate key row in object. */
+	if ($err = sqlsrv_errors()) {
+		if ($err[0]['code'] == 23000) {
+			return null;
+		} else {
+			fud_sql_error_handler($q, __enifo(db::$db->errorInfo()), db::$db->errorCode(), db_version());
 		}
 	}
 }
 
 function db_all($q)
 {
-	return db::$db->query($q)->fetchAll(PDO::FETCH_COLUMN);
+	return uq($q)->fetchAll(PDO::FETCH_COLUMN);
 }
 
 function _esc($s)
@@ -247,10 +282,26 @@ function _esc($s)
 	return db::$db->quote($s);
 }
 
+function _mssql_syntax($q)
+{
+	// Workaround for error: 'LENGTH' is not a recognized built-in function name.
+	$q = preg_replace('/LENGTH\(/i', 'DataLength(', $q);
+	
+	return $q;
+}
+
 /* Connect to DB. */
 if (empty(db::$db)) {
-	$dsn = 'sqlite:'. $GLOBALS['DBHOST'];
-	$opts = $GLOBALS['FUD_OPT_1'] & 256 ? array(PDO::ATTR_PERSISTENT=>true) : array();
+	if (!extension_loaded('sqlsrv')) {
+		die('ERROR: sqlsrv extension not loaded!');
+	}
+	
+	$dsn = 'sqlsrv:server='. $GLOBALS['DBHOST'] .'; Database='. $GLOBALS['DBHOST_DBNAME'];
+	$opts = array(PDO::SQLSRV_ATTR_ENCODING => PDO::SQLSRV_ENCODING_UTF8);
+	if (!($GLOBALS['FUD_OPT_1'] & 256)) {
+		// Connection pooling is enabled by default.
+		$opts[] = array('ConnectionPooling' => 0);
+	}
 
 	try {
 		db::$db = new PDO($dsn, $GLOBALS['DBHOST_USER'], $GLOBALS['DBHOST_PASSWORD'], $opts);
@@ -258,15 +309,8 @@ if (empty(db::$db)) {
 		fud_sql_error_handler('Failed to establish database connection', 'PDO says: '. $e->getMessage(), '', '');
 	}
 
-	define('__dbtype__', substr($GLOBALS['DBHOST_DBTYPE'], 4));
-
-	// SQLite optimization (dangerous, but very fast!).
-	if (defined('SQLITE_FAST_BUT_WRECKLESS')) {
-		q('PRAGMA temp_store=MEMORY');
-		q('PRAGMA journal_mode=MEMORY');
-		q('PRAGMA synchronous=OFF');
-		q('PRAGMA count_changes=OFF');
-	}
+	define('__dbtype__', 'mssql');
 }
+
 
 ?>
