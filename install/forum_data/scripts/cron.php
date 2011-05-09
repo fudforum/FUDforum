@@ -1,7 +1,7 @@
 #!/usr/bin/php -q
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -9,13 +9,19 @@
 * under the terms of the GNU General Public License as published by the
 * Free Software Foundation; version 2 of the License.
 **/
-	ob_clean();
+
+	@ob_clean();	// Delete prior output in case we run from web.
 
 	@ini_set('memory_limit', '128M');
 	@set_time_limit(0);
 
-	define('forum_debug', 1);
+	define('no_session', 1);
 	unset($_SERVER['REMOTE_ADDR']);
+
+	$disabled = explode(', ', ini_get('disable_functions'));
+	if (in_array('exec', $disabled)) {
+		exit('The PHP function exec() is disabled on your system. You need to enable it to use this script.');
+	}
 
 	if (file_exists('./GLOBALS.php')) {
 		require('GLOBALS.php');
@@ -23,11 +29,6 @@
 		require (dirname($_SERVER['argv'][0]) .'/GLOBALS.php');
 	} else {
 		require (getcwd() .'/GLOBALS.php');
-	}
-
-	$disabled = explode(', ', ini_get('disable_functions'));
-	if (in_array('exec', $disabled)) {
-		exit('The PHP function exec() is disabled on your system. You need to enable it to use this script.');
 	}
 
 	fud_use('err.inc');

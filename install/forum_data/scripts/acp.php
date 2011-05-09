@@ -1,7 +1,7 @@
 #!/usr/bin/php -q
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -11,7 +11,7 @@
 **/
 
 	ini_set('memory_limit', '128M');
-	define('forum_debug', 1);
+	define('no_session', 1);
 	unset($_SERVER['REMOTE_ADDR']);
 
 	if (!ini_get('register_argc_argv')) {
@@ -28,7 +28,7 @@
 	}
 
 	$php  = escapeshellcmd($GLOBALS['PHP_CLI']);
-	if (empty($php)) {
+	if (empty($php) || !is_executable($php)) {
 		throw new Exception('PHP CLI Executable not set.');
 	}
 

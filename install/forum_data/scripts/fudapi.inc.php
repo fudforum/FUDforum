@@ -834,7 +834,7 @@ function fud_delete_msg($arg)
 	fud_use('th_adm.inc');
 
 	$bak = isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : NULL;
-	define('forum_debug', 1);
+	define('no_session', 1);
 	unset($_SERVER['REMOTE_ADDR']);
 
 	fud_use('users.inc');
@@ -1026,7 +1026,7 @@ function _fud_message_post($subject, $body, $mode, $author, $icon, $id, $forum, 
 	fud_use('th.inc');
 
 	$bak = isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : NULL;
-	define('forum_debug', 1);
+	define('no_session', 1);
 	unset($_SERVER['REMOTE_ADDR']);
 
 	fud_use('users.inc');

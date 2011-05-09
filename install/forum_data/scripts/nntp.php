@@ -46,7 +46,7 @@ function add_attachment($name, $data, $pid)
 
 /* main */
 	ini_set('memory_limit', '128M');
-	define('forum_debug', 1);
+	define('no_session', 1);
 	unset($_SERVER['REMOTE_ADDR']);
 
 	if (!ini_get('register_argc_argv')) {
@@ -260,7 +260,7 @@ function add_attachment($name, $data, $pid)
 		}
 
 		fud_wordwrap($msg_post->body);
-		$msg_post->subject = htmlspecialchars(apply_custom_replace($emsg->subject));
+		$msg_post->subject = apply_custom_replace($emsg->subject);
 		if (!strlen($msg_post->subject)) {
 			log_script_error('Blank subject', $emsg->raw_msg);
 			$msg_post->subject = '(no subject)';

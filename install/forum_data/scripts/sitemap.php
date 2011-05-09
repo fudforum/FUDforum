@@ -1,7 +1,7 @@
 #!/usr/bin/php -q
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -16,7 +16,7 @@
 	$auth_as_user = 0;	// User 0 == anonymous.
 
 	ini_set('memory_limit', '128M');
-	define('forum_debug', 1);
+	define('no_session', 1);
 	unset($_SERVER['REMOTE_ADDR']);
 
 	if (strncmp($_SERVER['argv'][0], '.', 1)) {
@@ -39,7 +39,7 @@
 		$lmt  = q_bitand('g1.group_cache_opt', 2) .' > 0';
 	}
 
-	$c = uq('SELECT t.id, t.last_post_date, m.subject FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'thread t '. $join .'INNER JOIN '. $GLOBALS['DBHOST_TBL_PREFIX'] .'msg m ON t.root_msg_id = m.id WHERE '. $lmt .' ORDER BY t.last_post_date DESC LIMIT 50000');
+	$c = uq(q_limit('SELECT t.id, t.last_post_date, m.subject FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'thread t '. $join .'INNER JOIN '. $GLOBALS['DBHOST_TBL_PREFIX'] .'msg m ON t.root_msg_id = m.id WHERE '. $lmt .' ORDER BY t.last_post_date DESC', 50000));
 
 	echo "Writing sitemap.xml file to ${GLOBALS['WWW_ROOT_DISK']}\n";
 	$fh = fopen($GLOBALS['WWW_ROOT_DISK'].'/sitemap.xml', 'w');

@@ -1,7 +1,7 @@
 #!/usr/bin/php -q
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -45,7 +45,7 @@ function add_attachment($name, $data, $pid)
 }
 
 /* main */
-	define('forum_debug', 1);
+	define('no_session', 1);
 	unset($_SERVER['REMOTE_ADDR']);
 
 	if (!ini_get('register_argc_argv')) {
@@ -83,6 +83,7 @@ function add_attachment($name, $data, $pid)
 	fud_use('rhost.inc');
 	fud_use('smiley.inc');
 	fud_use('fileio.inc');
+	fud_use('forum_notify.inc');
 	fud_use('mime_decode.inc', true);
 	fud_use('scripts_common.inc', true);
 
@@ -107,7 +108,7 @@ function add_attachment($name, $data, $pid)
 	$GLOBALS['good_locale'] = setlocale(LC_ALL, $locale);
 	date_default_timezone_set($GLOBALS['SERVER_TZ']);
 
-	$frm = db_sab('SELECT id, forum_opt, message_threshold, (max_attach_size * 1024) AS max_attach_size, max_file_attachments FROM '. sql_p .'forum WHERE id='. $config->forum_id);
+	$frm = db_sab('SELECT id, name, forum_opt, message_threshold, (max_attach_size * 1024) AS max_attach_size, max_file_attachments FROM '. sql_p .'forum WHERE id='. $config->forum_id);
 
 	/* Fetch messaged form IMAP of POP3 inbox. */
 	if ($config->mbox_server && $config->mbox_user) {
@@ -221,24 +222,41 @@ function add_attachment($name, $data, $pid)
 		if (!$emsg->from_email || !$emsg->from_name) {
 			$msg_post->poster_id = 0;
 		} else {
+			// Get or create new forum user.
 			$msg_post->poster_id = match_user_to_post($emsg->from_email, $emsg->from_name, $config->mlist_opt & 64, $emsg->user_id, $msg_post->post_stamp);
 		}
 
-		/* Handle E-mail subscribe/unsubscribe requests. */
-/*TODO
-		if (preg_match('!subscribe!i', $msg_post->subject)) {
-			die('Yes, we have a subscription request!');
-		}
-*/
+		/* Mail sent to control address (*-admin) by a known forum user. */
+		if ($msg_post->poster_id && preg_match('!-admin!i', $emsg->headers['to'])) {
+			$alias = q_singleval('SELECT alias FROM '. sql_p .'users WHERE id='. $msg_post->poster_id);
 
-		/* Check if matching user and if not, skip if necessary. */
-		if (!$msg_post->poster_id && $config->mlist_opt & 128) {
-			continue;
+			/* Handle E-mail unsubscribe requests. */
+			if (preg_match('!unsubscribe!i', $emsg->subject)) {
+				if (is_forum_notified($msg_post->poster_id, $frm->id)) {
+					forum_notify_del($msg_post->poster_id, $frm->id);
+					log_script_error('Unsubscribe '. $alias .' from '. $frm->name);
+					echo('Unsubscribe '. $alias .' from forum '. $frm->name .".\n");
+				} else {
+					echo('User '. $alias .' is not subscribed and can hence not be unsubscribed from forum '. $frm->name .".\n");
+				}
+				continue;
+			}
+			/* Handle E-mail subscribe requests. */
+			if (preg_match('!subscribe!i', $emsg->subject)) {
+				if (!is_forum_notified($msg_post->poster_id, $frm->id)) {
+					forum_notify_add($msg_post->poster_id, $frm->id);
+					log_script_error('Subscribe '. $alias .' to '. $frm->name);
+					echo('Subscribe '. $alias .' to forum '. $frm->name .".\n");
+				} else {
+					echo('User '. $alias .' is already subscribed to forum '. $frm->name .".\n");
+				}
+				continue;
+			}
 		}
 
 		$attach_list = array();
 		/* Handle inlined attachments. */
-		if ($config->mlist_opt & 8) {
+		if ($config->mlist_opt & 8) {	// allow_mlist_attch
 			foreach ($emsg->inline_files as $k => $v) {
 				if (strpos($emsg->body, 'cid:'. $v) !== false) {
 					$id = add_attachment($k, $emsg->attachments[$k], $msg_post->poster_id);
@@ -253,7 +271,7 @@ function add_attachment($name, $data, $pid)
 
 		/* For anonymous users prefix 'contact' link. */
 		if (!$msg_post->poster_id) {
-			if ($frm->forum_opt & 16) {
+			if ($frm->forum_opt & 16) {	// BBCode tag style.
 				$msg_post->body = '[b]Originally posted by:[/b] [email='. $emsg->from_email .']'. (!empty($emsg->from_name) ? $emsg->from_name : $emsg->from_email) ."[/email]\n\n". $msg_post->body;
 			} else {
 				$msg_post->body = 'Originally posted by: '. str_replace('@', '&#64', $emsg->from_email) ."\n\n". $msg_post->body;
@@ -264,8 +282,8 @@ function add_attachment($name, $data, $pid)
 		$msg_post->body = color_quotes($msg_post->body, $frm->forum_opt);
 
 		$msg_post->body = apply_custom_replace($msg_post->body);
-		if (!($config->mlist_opt & 16)) {
-			if ($frm->forum_opt & 16) {
+		if (!($config->mlist_opt & 16)) {	// allow_mlist_html
+			if ($frm->forum_opt & 16) {	// BBCode tag style.
 				$msg_post->body = tags_to_html($msg_post->body, 0);
 			} else {
 				$msg_post->body = nl2br($msg_post->body);
@@ -273,10 +291,15 @@ function add_attachment($name, $data, $pid)
 		}
 
 		fud_wordwrap($msg_post->body);
-		$msg_post->subject = htmlspecialchars(apply_custom_replace($emsg->subject));
+		$msg_post->subject = apply_custom_replace($emsg->subject);
 		if (!strlen($msg_post->subject)) {
 			log_script_error('Blank subject', $emsg->raw_msg);
 			$msg_post->subject = '(no subject)';
+		}
+
+		/* Check if matching user and if not, skip if necessary. */
+		if (!$msg_post->poster_id && $config->mlist_opt & 128) {
+			continue;
 		}
 
 		$msg_post->ip_addr = $emsg->ip;

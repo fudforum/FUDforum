@@ -1,7 +1,7 @@
 #!/usr/bin/php -q
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -11,7 +11,7 @@
 **/
 
  	/* Prevent session initialization. */
- 	define('forum_debug', 1);
+ 	define('no_session', 1);
  	unset($_SERVER['REMOTE_ADDR']);
 
 	if (!ini_get('register_argc_argv')) {
@@ -43,6 +43,8 @@
 	fud_use('fileio.inc');
 	fud_use('isearch.inc');
 	fud_use('replace.inc');
+	fud_use('post_proc.inc');
+	fud_use('rev_fmt.inc');
 	fud_use('forum_adm.inc', true);
 	fud_use('scripts_common.inc', true);
 
@@ -59,12 +61,11 @@
 
 	/* Set language, locale and time zone. */
 	$GLOBALS['usr'] = new stdClass();
-	list($GLOBALS['usr']->lang, $locale) = db_saq('SELECT lang, locale FROM '. sql_p .'themes WHERE theme_opt='. (1|2) .' LIMIT 1');
+	list($GLOBALS['usr']->lang, $locale) = db_saq(q_limit('SELECT lang, locale FROM '. sql_p .'themes WHERE theme_opt='. (1|2), 1));
 	$GLOBALS['good_locale'] = setlocale(LC_ALL, $locale);
 	date_default_timezone_set($GLOBALS['SERVER_TZ']);
 
-	$frm = new fud_forum;
-	$frm->id = $config->forum_id;		// Load into forum.
+	$frm = db_sab('SELECT id, forum_opt, message_threshold FROM '. sql_p .'forum WHERE id='. $config->forum_id);
 
 	$opts = array(
 		'http' => array(
@@ -115,6 +116,9 @@
 			$date = __request_timestamp__;
 		}
 
+		// Each article must have a unique date.
+		while (isset($articles[$date])) $date++;
+
  		$subject = $node->getElementsByTagName('title')->item(0)->nodeValue;
 		if (isset($subject)) {
 			$articles[$date]['subject'] = apply_custom_replace($subject);
@@ -130,13 +134,15 @@
 			$body = $node->getElementsByTagName('description')->item(0)->nodeValue;
 		}
 		if (isset($body)) {
-			$articles[$date]['body'] = apply_custom_replace($body);
+			$articles[$date]['body'] = $body;
 		} else {
 			$articles[$date]['body'] = '(no body)';
 		}
 
 		if ( isset($node->getElementsByTagName('creator')->item(0)->nodeValue)) {
 			$poster = $node->getElementsByTagName('creator')->item(0)->nodeValue;
+		} else if ( isset($node->getElementsByTagName('name')->item(0)->nodeValue)) {
+			$poster = $node->getElementsByTagName('name')->item(0)->nodeValue;
 		} else if ( isset($node->getElementsByTagName('author')->item(0)->nodeValue)) {
 			$poster = $node->getElementsByTagName('author')->item(0)->nodeValue;
 		} else if ( isset($node->getElementsByTagName('contributor')->item(0)->nodeValue)) {
@@ -144,7 +150,7 @@
 		}
 		if (isset($poster)) {
 			$articles[$date]['poster'] = $poster;
-			$email = $poster.'@'.$server;	// Generate dummy email address.
+			$email = $poster .'@'. $server;	// Generate dummy email address.
 			$poster_id = 0;
 			$articles[$date]['poster_id'] = match_user_to_post($email, $poster, $config->xmlagg_opt & 2, $poster_id, $date);
 		} else {
@@ -152,7 +158,7 @@
 			$articles[$date]['poster_id'] = 0;
 		}
 
-		if ( isset($node->getElementsByTagName('link')->item(0)->nodeValue)) {
+		if ( !empty($node->getElementsByTagName('link')->item(0)->nodeValue)) {
 			$articles[$date]['link'] = $node->getElementsByTagName('link')->item(0)->nodeValue;
 		} else if ( $node->getElementsByTagName('link')->length > 0) {
 			$articles[$date]['link'] = $node->getElementsByTagName('link')->item(0)->getAttribute('href');
@@ -177,8 +183,24 @@
 		$m->poster     = $articles[$date]['poster'];
 		$m->poster_id  = $articles[$date]['poster_id'];
 
-		// Apply custom signature, may contain {link} tags.
-		$m->body .= str_ireplace('{link}', $articles[$date]['link'], $config->custom_sig);
+		// Apply custom signature, may contain special {tags} that needs to be expanded.
+		$sig = str_ireplace(array('{link}', '{author}', '{subject}', '{date}'),
+				    array($articles[$date]['link'], $m->poster, $m->subject, date(DATE_RSS, $date)),
+				    $config->custom_sig);
+		$m->body .= $sig;
+
+		if (!($config->xmlagg_opt & 16)) {
+			$m->body = strip_tags($m->body);
+		}
+
+		$m->body = apply_custom_replace($m->body);
+		if ($frm->forum_opt & 16) {
+			$m->body = tags_to_html($m->body, 0);
+/*
+		} else {
+			$m->body = nl2br($m->body);
+*/
+		}
 
 		// Track articles already loaded.
 		if ($m->post_stamp > $config->last_load_date) {
@@ -199,7 +221,7 @@
 			// Try to determine whether this message is a reply.
 			list($m->reply_to, $m->thread_id) = get_fud_reply_id(($config->xmlagg_opt & 8), $frm->id, $m->subject, null);
 
-			$m->add($frm->id, 0, 2, 0, 0, $config->name);
+			$m->add($frm->id, $frm->message_threshold, 2, 0, 0, $config->name);
 			if (!($config->xmlagg_opt & 1)) {	// Manual approval not required.
 				$m->approve($m->id);
 			}
