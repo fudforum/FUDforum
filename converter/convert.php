@@ -577,7 +577,7 @@ set_time_limit(0);
 /* Load GLOBALS.php. */
 $gl = @include('./GLOBALS.php');
 if ($gl === FALSE) {
-	seterr('Please install FUDforum and copy this script into the forum\'s main web directory.');
+	seterr('Please install FUDforum and copy this script into FUDforum\'s main web directory.');
 }
 
 /* Check if forum must be un-locked. */
@@ -642,7 +642,8 @@ $(document).ready(function() {
 <form name="convert" action="<?php echo basename(__FILE__); ?>" method="post">
 <table class="datatable solidtable">
 <tr class="fieldtopic"><td colspan="2">
-	This converter will clear the target forum (remove all users, posts, etc) and load the content of the source forum into it. The conversion process will not harm the source database and if there is a problem with this conversion, you can still use the source forum software as you did before while the situation is resolved. <br /><br /></td>
+	This converter will clear the <abbr title="This is your FUDforum installation.">target forum<sup><small>?</small></sup></abbr> (remove all users, posts, etc) and load the content of the <abbr title="This is the forum you want to convert to FUDforum.">source forum<sup><small>?</small></sup></abbr> into it.
+	The conversion process will not harm the source forum and if there is a problem, you can still use the source forum software as you did before while the situation is resolved. <br /><br /></td>
 </tr>
 <tr class="field">
 	<td><b>Convert from:</b><br /><small>Convert from this forum type to FUDforum.</small></td>
@@ -703,6 +704,7 @@ if (!is_dir($CONVERT_FROM_DIR)) {
 /* Prevent session initialization. */
 unset($_SERVER['REMOTE_ADDR']);
 define('no_session', 1);
+define('forum_debug', 1);	// Old pre-3.0.3 forums use 'forum_debug' instead of 'no_session'.
 
 /* Include all the necessary FUDforum includes. */
 // include './scripts/fudapi.inc.php';
