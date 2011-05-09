@@ -13,7 +13,7 @@ function flood_check()
 {
 	$check_time = __request_timestamp__-$GLOBALS['FLOOD_CHECK_TIME'];
 
-	if (($v = q_singleval(q_limit('SELECT post_stamp FROM {SQL_TABLE_PREFIX}msg WHERE ip_addr=\''. get_ip() .'\' AND poster_id='. _uid .' AND post_stamp>'. $check_time .' ORDER BY post_stamp DESC', 1)))) {
+	if (($v = q_singleval(q_limit('SELECT /* USE MASTER */ post_stamp FROM {SQL_TABLE_PREFIX}msg WHERE ip_addr=\''. get_ip() .'\' AND poster_id='. _uid .' AND post_stamp>'. $check_time .' ORDER BY post_stamp DESC', 1)))) {
 		return ($v - $check_time);
 	}
 
@@ -38,7 +38,7 @@ function flood_check()
 
 	/* Replying or editing a message. */
 	if ($reply_to || $msg_id) {
-		if (($msg = db_sab('SELECT * FROM {SQL_TABLE_PREFIX}msg WHERE id='.($reply_to ? $reply_to : $msg_id)))) {
+		if (($msg = db_sab('SELECT /* USE MASTER */ * FROM {SQL_TABLE_PREFIX}msg WHERE id='. ($reply_to ? $reply_to : $msg_id)))) {
 			$msg->body = read_msg_body($msg->foff, $msg->length, $msg->file_id);
 		} else {
 			error_dialog('{TEMPLATE: imsg_err_message_title}', '{TEMPLATE: imsg_err_message_msg}');
@@ -48,7 +48,7 @@ function flood_check()
 	}
 
 	if ($th_id) {
-		$thr = db_sab('SELECT t.forum_id, t.replies, t.thread_opt, t.root_msg_id, t.orderexpiry, t.tdescr, m.subject FROM {SQL_TABLE_PREFIX}thread t INNER JOIN {SQL_TABLE_PREFIX}msg m ON t.root_msg_id=m.id WHERE t.id='. $th_id);
+		$thr = db_sab('SELECT /* USE MASTER */ t.forum_id, t.replies, t.thread_opt, t.root_msg_id, t.orderexpiry, t.tdescr, m.subject FROM {SQL_TABLE_PREFIX}thread t INNER JOIN {SQL_TABLE_PREFIX}msg m ON t.root_msg_id=m.id WHERE t.id='. $th_id);
 		if (!$thr) {
 			invl_inp_err();
 		}
@@ -58,7 +58,7 @@ function flood_check()
 	} else {
 		std_error('systemerr');
 	}
-	$frm = db_sab('SELECT id, cat_id, name, max_attach_size, forum_opt, max_file_attachments, post_passwd, message_threshold FROM {SQL_TABLE_PREFIX}forum WHERE id='. $frm_id);
+	$frm = db_sab('SELECT /* USE MASTER */ id, cat_id, name, max_attach_size, forum_opt, max_file_attachments, post_passwd, message_threshold FROM {SQL_TABLE_PREFIX}forum WHERE id='. $frm_id);
 	if (!$frm) {
 		std_error('systemerr');
 	}
@@ -116,7 +116,7 @@ function flood_check()
 			$msg_show_sig = !$msg_id ? ($usr->users_opt & 2048) : ($msg->msg_opt & 1);
 
 			if ($msg_id || $reply_to) {
-				$msg_poster_notif = (($usr->users_opt & 2) && !q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}msg WHERE thread_id='. $msg->thread_id .' AND poster_id='. _uid)) || is_notified(_uid, $msg->thread_id);
+				$msg_poster_notif = (($usr->users_opt & 2) && !q_singleval('SELECT /* USE MASTER */ id FROM {SQL_TABLE_PREFIX}msg WHERE thread_id='. $msg->thread_id .' AND poster_id='. _uid)) || is_notified(_uid, $msg->thread_id);
 			} else {
 				$msg_poster_notif = ($usr->users_opt & 2);
 			}
@@ -138,7 +138,7 @@ function flood_check()
 			$_POST['msg_icon'] = $msg->icon;
 
 	 		if ($msg->attach_cnt) {
-	 			$r = q('SELECT id FROM {SQL_TABLE_PREFIX}attach WHERE message_id='. $msg->id .' AND attach_opt=0');
+	 			$r = q('SELECT /* USE MASTER */ id FROM {SQL_TABLE_PREFIX}attach WHERE message_id='. $msg->id .' AND attach_opt=0');
 	 			while ($fa_id = db_rowarr($r)) {
 	 				$attach_list[$fa_id[0]] = $fa_id[0];
 	 			}
@@ -207,7 +207,7 @@ function flood_check()
 						}
 					}
 				} else if ($msg_id) { /* If checksum fails and we're editing a message, get attachment data from db. */
-					$r = q('SELECT id FROM {SQL_TABLE_PREFIX}attach WHERE message_id='. $msg_id .' AND attach_opt=0');
+					$r = q('SELECT /* USE MASTER */ id FROM {SQL_TABLE_PREFIX}attach WHERE message_id='. $msg_id .' AND attach_opt=0');
 		 			while ($fa_id = db_rowarr($r)) {
 		 				$attach_list[$fa_id[0]] = $fa_id[0];
 	 				}
@@ -446,7 +446,7 @@ function flood_check()
 			} else {
 				$t = d_thread_view;
 
-				if ($msg_id && ($frm->forum_opt & 2) && !q_singleval('SELECT apr FROM {SQL_TABLE_PREFIX}msg WHERE id='. $msg_id)) { /* Editing unapproved message in moderated forum. */
+				if ($msg_id && ($frm->forum_opt & 2) && !q_singleval('SELECT /* USE MASTER */ apr FROM {SQL_TABLE_PREFIX}msg WHERE id='. $msg_id)) { /* Editing unapproved message in moderated forum. */
 					check_return($usr->returnto);
 				}
 
@@ -551,7 +551,7 @@ function flood_check()
 	if ($perms & 128) {
 		if (!$pl_id) {
 			$poll = '{TEMPLATE: create_poll}';
-		} else if (($poll = db_saq('SELECT id, name FROM {SQL_TABLE_PREFIX}poll WHERE id='. $pl_id))) {
+		} else if (($poll = db_saq('SELECT /* USE MASTER */ id, name FROM {SQL_TABLE_PREFIX}poll WHERE id='. $pl_id))) {
 			$poll = '{TEMPLATE: edit_poll}';
 		}
 	}

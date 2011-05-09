@@ -35,14 +35,14 @@
 
 	if (!empty($_GET['goto'])) {
 		if ($_GET['goto'] === 'end' && $th) {
-			list($pos, $mid) = db_saq('SELECT replies+1,last_post_id FROM {SQL_TABLE_PREFIX}thread WHERE id='. $th);
+			list($pos, $mid) = db_saq('SELECT /* USE MASTER */ replies+1,last_post_id FROM {SQL_TABLE_PREFIX}thread WHERE id='. $th);
 			$mid = '#msg_'. $mid;
 			$msg_page_focus = 1;
 		} else if ($_GET['goto']) { /* Verify that the thread & msg id are valid. */
 			if (!$th) {
-				$th = (int) q_singleval('SELECT thread_id FROM {SQL_TABLE_PREFIX}msg WHERE id='. $_GET['goto']);
+				$th = (int) q_singleval('SELECT /* USE MASTER */ thread_id FROM {SQL_TABLE_PREFIX}msg WHERE id='. $_GET['goto']);
 			}
-			if (!($pos = q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}msg WHERE thread_id='. $th .' AND id<='. $_GET['goto'] .' AND apr=1'))) {
+			if (!($pos = q_singleval('SELECT /* USE MASTER */ count(*) FROM {SQL_TABLE_PREFIX}msg WHERE thread_id='. $th .' AND id<='. $_GET['goto'] .' AND apr=1'))) {
 				invl_inp_err();
 			}
 			if ($msg_page_focus !== null) {
@@ -176,7 +176,7 @@
 		LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id
 		LEFT JOIN {SQL_TABLE_PREFIX}level l ON u.level_id=l.id
 		LEFT JOIN {SQL_TABLE_PREFIX}poll p ON m.poll_id=p.id'.
-		($perms & 512 ? ' LEFT JOIN {SQL_TABLE_PREFIX}poll_opt_track pot ON pot.poll_id=p.id AND pot.user_id='. _uid . (!_uid ? ' AND pot.ip_addr='. ip2long(get_ip()) : '') : '');
+		($perms & 512 ? ' LEFT JOIN {SQL_TABLE_PREFIX}poll_opt_track pot ON pot.poll_id=p.id AND pot.user_id='. _uid . (!_uid ? ' AND pot.ip_addr='. get_ip() : '') : '');
 	if ($use_tmp) {
 		$q .= ' ORDER BY m.id ASC';
 	} else {

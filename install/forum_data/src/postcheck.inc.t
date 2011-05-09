@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -65,7 +65,7 @@ function check_post_form()
 
 	/* Check for duplicate topics (exclude replies and edits). */
 	if (($GLOBALS['FUD_OPT_3'] & 67108864) && $_POST['reply_to'] == 0 && $_POST['msg_id'] == 0) {
-		$c = q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}msg WHERE subject='. _esc($_POST['msg_subject']) .' AND reply_to=0 AND poster_id='. _uid .' AND post_stamp >= '. (__request_timestamp__ - 86400));
+		$c = q_singleval('SELECT /* USE MASTER */ count(*) FROM {SQL_TABLE_PREFIX}msg WHERE subject='. _esc($_POST['msg_subject']) .' AND reply_to=0 AND poster_id='. _uid .' AND post_stamp >= '. (__request_timestamp__ - 86400));
 		if ( $c > 0 ) {
 			set_err('msg_body', '{TEMPLATE: postcheck_dup_err}');
 		}
