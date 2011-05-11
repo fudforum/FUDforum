@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -8,12 +8,35 @@
 * under the terms of the GNU General Public License as published by the 
 * Free Software Foundation; version 2 of the License. 
 **/
+// @TODO: Rename file_adm.inc to fs.inc?
 
-/* Calculate space used by a given directory and it's subdirectories. */
-function dir_space_usage($dirp)
+/**
+ * Replacement for PHP's readfile() to workaround memory and timeout problems
+ * when downloading large files via slow connections.
+ */
+function fud_readfile($filename)
+{
+	$chunksize = 10*1024*1024; // How many bytes per chunk?
+	
+	if (($fh = fopen($filename, 'rb')) === FALSE) {
+		return false;
+	}
+
+	while (!feof($fh)) {
+		echo fread($fh, $chunksize);
+		ob_flush();
+		flush();
+		sleep(0);
+	}
+
+	return fclose($fh);
+}
+
+/** Calculate space used by a given directory and its subdirectories. */
+function fud_dir_space_usage($dir)
 {
 	$disk_space = 0;
-	$dirs = array(realpath($dirp));
+	$dirs = array(realpath($dir));
 
 	while (list(,$v) = each($dirs)) {
 		if (!($files = glob($v.'/*', GLOB_NOSORT))) {
@@ -34,8 +57,8 @@ function dir_space_usage($dirp)
 	return $disk_space;
 }
 
-/* Recursively create a given directory path. */
-function fud_mkdir($path)
+/** Recursively create a given directory path. */
+function fud_mkdir($path, $perms=0755)
 {
 	$dirs = array();
 	while (!is_dir($path)) {
@@ -46,13 +69,13 @@ function fud_mkdir($path)
 		}
 	}
 	foreach (array_reverse($dirs) as $dir) {
-		if (!mkdir($dir, 0755)) {
-			fe('Failed to create "'. $dir .'" directory.');	
+		if (!mkdir($dir, $perms)) {
+			throw new Exception('Unable to create directory "'. $dir .'".');
 		}
 	}
 }
 
-/* Recursively delete a given directory. */
+/** Recursively delete a given directory. */
 function fud_rmdir($dir, $deleteRootToo=false)
 {
 	if(!$dh = @opendir($dir)) {
@@ -62,18 +85,81 @@ function fud_rmdir($dir, $deleteRootToo=false)
 		if($obj == '.' || $obj == '..') {
 			continue;
 		}
-		if (!@unlink($dir .'/'. $obj)) {
-			fud_rmdir($dir .'/'. $obj, true);
+		$file = $dir .'/'. $obj;
+		if (is_dir($file) && !is_link($file)) {
+			fud_rmdir($file, true);
+		} else if (!unlink($file)) {
+			return false;
 		}
 	}
 	closedir($dh);
+
 	if ($deleteRootToo) {
 		@rmdir($dir);
 	}
-	return;
+
+	return true;
 }
 
-/* Unlock forum files. */
+/** Recursively copy directory or individual files. */
+function fud_copy($src, $dest, $mask='*', $recur=false)
+{
+	$src  = preg_replace('!/*$!', '', $src);
+	$dest = preg_replace('!/*$!', '', $dest);
+
+	$perms = $GLOBALS['FUD_OPT_2'] & 8388608 ? 0600 : 0666;
+	if (strncmp(PHP_SAPI, 'apache', 6) && $perms == 0600) {
+		$perms = 0644;
+	}
+	$dperm = $perms == 0600 ? 0700 : 0755;
+
+	$dirs = array($src);
+	while (list(,$v) = each($dirs)) {
+		if (is_link($v)) {	// Don't copy symlinks.
+			continue;
+		}
+
+		if (!is_readable($v)) {
+			throw new Exception('Cannot open directory "'. $v .'".');
+			return;
+		}
+
+		if (defined('GLOB_BRACE')) {		
+			if (!($files = glob($v .'/'. $mask, GLOB_BRACE|GLOB_NOSORT))) {
+				continue;
+			}
+		} else {
+			$files = array();
+			foreach (explode(',', trim($mask, '{}')) as $m) {
+				$files = array_merge($files, (array)glob($v .'/'. $m, GLOB_NOSORT));
+			}
+			if (!$files) {
+				continue;
+			}
+		}
+		foreach ($files as $file) {
+			$d = $dest .'/'. str_replace($src, '', $v) .'/'. basename($file);
+		
+			if (is_dir($file)) {
+				if (!is_dir($d) && !mkdir($d)) {
+					throw new Exception('Cannot create directory "'. $d .'".');
+					return;
+				}
+				chmod($d, $dperm);
+				$dirs[] = $file;
+				continue;
+			}
+
+			if (!@copy($file, $d) && !@file_exists($d)) {
+				throw new Exception('Cannot copy "'. $file .'" to "'. $d .'".');
+			} else {
+				@chmod($d, $perms);
+			}
+		}		
+	}
+}
+
+/** Unlock forum files. */
 function fud_unlock($dir)
 {
 	$dirs = array(realpath($dir));

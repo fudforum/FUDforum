@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -17,7 +17,7 @@ class fud_xmlagg_adm
 	// General Settings.
 	var $forum_id, $id, $xmlagg_opt=2, $custom_sig;
 
-	function fud_xmlagg_adm()
+	function __construct()
 	{
 		if (isset($_POST) && count($_POST)) {
 			foreach (array_keys(get_object_vars($this)) as $v) {
@@ -28,8 +28,8 @@ class fud_xmlagg_adm
 			$this->custom_sig = trim($this->custom_sig);
 
 			$this->xmlagg_opt = 0;
-			foreach (array('skip_non_forum_users', 'xmlagg_post_apr', 'create_users', 'complex_reply_match') as $v) {
-				if (isset($_POST['xmlagg_'.$v])) {
+			foreach (array('skip_non_forum_users', 'post_apr', 'create_users', 'complex_reply_match', 'allow_html') as $v) {
+				if (isset($_POST['xmlagg_'. $v])) {
 					$this->xmlagg_opt |= (int) $_POST['xmlagg_'. $v];
 				}
 			}

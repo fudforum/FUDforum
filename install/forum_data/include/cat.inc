@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -13,7 +13,7 @@ class fud_cat
 {
 	var $id, $name, $description, $view_order, $cat_opt, $parent;
 
-	function fud_cat()
+	function __construct()
 	{
 		foreach ($this as $k => $v) {
 			if (isset($_POST['cat_'. $k])) {

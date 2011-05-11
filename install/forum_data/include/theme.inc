@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -13,7 +13,7 @@ class fud_theme
 {
 	var $id, $name, $theme, $lang, $locale, $pspell_lang, $theme_opt;
 
-	function fud_theme()
+	function __construct()
 	{
 		foreach ($this as $k => $v) {
 			if (isset($_POST['thm_'. $k])) {

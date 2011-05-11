@@ -13,7 +13,7 @@ class fud_job
 {
 	var $id, $name, $start_minute, $start_hour, $start_dom, $start_month, $start_dow, $cmd, $job_opt=0;
 
-	function fud_job()
+	function __construct()
 	{
 		foreach ($this as $k => $v) {
 			if (isset($_POST['job_'. $k])) {
@@ -72,7 +72,7 @@ class fud_job
 		q('DELETE FROM '. $tbl .'jobs WHERE id = '. (int)$id);
 	}
 
-	/* Call cron.php to run job in background (transition from sync to async). Called from admjobs.php. */
+	/** Call cron.php to run job in background (transition from sync to async). Called from admjobs.php. */
 	function submit($id)
 	{
 		$php  = escapeshellcmd($GLOBALS['PHP_CLI']);
@@ -96,20 +96,20 @@ class fud_job
 		}
 	}
 
-	/* Lock job before execution. */
+	/** Lock job before execution. */
 	function lock($job)
 	{
 		$nextrun = $this->next_run_time($job);
 		q('UPDATE '. $GLOBALS['DBHOST_TBL_PREFIX'] .'jobs SET locked = '. __request_timestamp__ .', nextrun = '. $nextrun .' WHERE id = '. $job->id);
 	}
 
-	/* Unlock job after execution. */
+	/** Unlock job after execution. */
 	function unlock($id)
 	{
 		q('UPDATE '. $GLOBALS['DBHOST_TBL_PREFIX'] .'jobs SET lastrun = '. __request_timestamp__ .', locked = 0 WHERE id = '. $id);
 	}
 
-	/* Calculate the next run time for a particular job. */
+	/** Calculate the next run time for a particular job. */
 	private function next_run_time($job)
 	{
 		$reset_hour = $reset_day = $reset_month = $reset_year = null;
@@ -258,8 +258,9 @@ class fud_job
 		return mktime($next_hour, $next_minute, 0, $next_month, $next_day, $next_year);
 	}
 
-	/* Return the next run time bit for a cron field. Used by next_run_time(). */
-	/* For example: build_next_run_bit('0,15,30,45', 20) will return 30. */
+	/** Return the next run time bit for a cron field. Used by next_run_time().
+	 *  For example: build_next_run_bit('0,15,30,45', 20) will return 30.
+	 */
 	private function next_run_bit($data, $bit)
 	{
 		if ($data == '*') return $bit;
@@ -272,7 +273,7 @@ class fud_job
 		return false;
 	}
 
-	/* Checks if a run time exists for a cron field. Used by next_run_time(). */
+	/** Checks if a run time exists for a cron field. Used by next_run_time(). */
 	private function run_time_exists($data, $bit)
 	{
 		if ($data == '*') return true;
@@ -283,7 +284,7 @@ class fud_job
 		return false;
 	}
 
-	/* Fetches the first run bit for a cron field. Used by next_run_time(). */
+	/** Fetches the first run bit for a cron field. Used by next_run_time(). */
 	private function first_run_time($data)
 	{
 		if ($data == '*') return '0';

@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -140,7 +140,7 @@ function decode_header_value($val)
 
 	// Better to let PHP do it as it will also deal with non-UTF-8 characters.
 	if (function_exists('iconv_mime_decode')) {
-		return iconv_mime_decode(trim($val), 2);
+		return iconv_mime_decode(trim($val), 2, $GLOBALS['CHARSET']);
 	}
 
 	// Decode string.

@@ -392,15 +392,6 @@ function create_table($script)
 	foreach ($statements as $q) {
 		$q = str_replace('{SQL_TABLE_PREFIX}', $GLOBALS['DBHOST_TBL_PREFIX'], $q);
 
-/* TODO:
-See http://dba.fyicenter.com/faq/sql_server_2/PHP_MSSQL_Making_Columns_to_Take_NULL.html
-		// We need to explistitely add NULL for MS-SQL.
-		// If CREATE TABLE is executed through mssql_query() and "NULL/NOT NULL" keyword is omitted in column definition, mssql_query() will assume NOT NULL.
-		if (__dbtype__ == 'mssql' && preg_match('/^\s*CREATE\s*TABLE\s+/i', $q)) {
-			echo "SQL Server create table: $q<hr>";
-		}
-*/
-
 		/* Because mysql with InnoDB table refuses to resolve indexes correctly, we need to force MyISAM table type. */
 		if (__dbtype__ == 'mysql' && preg_match('/^\s*CREATE\s*TABLE\s*/i', $q)) {
 			$q .= ' ENGINE=MyISAM ';

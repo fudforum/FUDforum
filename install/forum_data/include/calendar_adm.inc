@@ -13,7 +13,7 @@ class fud_calendar
 {
 	var	$id, $event_day, $event_month, $event_year, $descr, $link;
 
-	function fud_calendar()
+	function __construct()
 	{
 		foreach ($this as $k => $v) {
 			if (isset($_POST['cal_'. $k])) {

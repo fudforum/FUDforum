@@ -17,7 +17,7 @@ class fud_nntp_adm
 	// General Settings.
 	var $forum_id, $id, $nntp_opt=108, $custom_sig;
 
-	function fud_nntp_adm()
+	function __construct()
 	{
 		if (isset($_POST) && count($_POST)) {
 			foreach (array_keys(get_object_vars($this)) as $v) {

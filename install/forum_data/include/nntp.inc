@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -157,7 +157,11 @@ class fud_nntp
 	function exit_handler($exit=1)
 	{
 		if (!empty($this->error)) {
-			log_script_error($this->error, null, 'LOG');
+			if (function_exists('log_script_error')) {
+				log_script_error($this->error, null, 'LOG');	// Called from nntp.php.
+			} else {
+				fud_logerror($this->error, 'nntp_errors');		// Called from imsg_edt.inc.t.
+			}
 		}
 		$this->close_connection();
 		if ($exit) {
@@ -209,8 +213,10 @@ class fud_nntp
 
 			$final_body = "\r\n--". $boundry ."\r\nContent-Type: text/plain;\r\n  charset=\"". $GLOBALS['CHARSET'] ."\"\nContent-Transfer-Encoding: 8bit\r\n\r\n". $body ."\r\n";
 
-			foreach ($attch as $file_name => $file_data) {
-				$final_body .= "\r\n--". $boundry ."\r\nContent-Type: ". $attach_mime[$file_name] ."; name=\"$file_name\"\nContent-Transfer-Encoding: base64\nContent-Disposition: attachment; filename=\"". $file_name ."\"\n\n". chunk_split(base64_encode($file_data)) ."\r\n\r\n";
+			if (!empty($attch)) {
+				foreach ($attch as $file_name => $file_data) {
+					$final_body .= "\r\n--". $boundry ."\r\nContent-Type: ". $attach_mime[$file_name] ."; name=\"$file_name\"\nContent-Transfer-Encoding: base64\nContent-Disposition: attachment; filename=\"". $file_name ."\"\n\n". chunk_split(base64_encode($file_data)) ."\r\n\r\n";
+				}
 			}
 			$final_body .= "\r\n--". $boundry ."--\r\n";
 		} else {
@@ -294,11 +300,12 @@ class fud_nntp
 		$this->close_connection();
 		return true;
 	}
-	
+
 	/* UUencoded an attachement. Used by post_message(). */
 	function uuencode($in, $file_name)
 	{
 		$out = 'begin 644 '. $file_name ."\r\n";
+
 		if (function_exists('convert_uuencode')) {
 			return $out . convert_uuencode($in) ."end\r\n";
 		}

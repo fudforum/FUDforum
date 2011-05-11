@@ -9,7 +9,7 @@
 * Free Software Foundation; version 2 of the License.
 **/
 
-/* Read forum settings and descriptions from GLOBALS_HELP. */
+/** Read forum settings and descriptions from GLOBALS_HELP (used in ACP). */
 function read_help()
 {
 	$data = file_get_contents($GLOBALS['INCLUDE'] .'GLOBALS_HELP');
@@ -39,7 +39,7 @@ function read_help()
 	return (isset($help_ar) ? $help_ar : null);
 }
 
-/* Print a bit selection field (used in ACP). */
+/** Print a bit selection field (used in ACP). */
 function print_bit_field($descr, $field)
 {
 	$h =& $GLOBALS['help_ar'][$field];
@@ -65,7 +65,7 @@ function print_bit_field($descr, $field)
 	echo '</td></tr>';
 }
 
-/* Print a regular field (used in ACP). */
+/** Print a regular field (used in ACP). */
 function print_reg_field($descr, $field, $is_int=0, $pass=0)
 {
 	if (!isset($GLOBALS[$field])) {
@@ -77,7 +77,7 @@ function print_reg_field($descr, $field, $is_int=0, $pass=0)
 	echo '<tr class="field"><td><label for="CF_'. $field .'">'. $descr .': <br /><font size="-1">'. $GLOBALS['help_ar'][$field][0] .'</font></label></td><td valign="top"><input type="'. (!$pass ? 'text' : 'password') .'" name="CF_'. $field .'" id="CF_'. $field .'" value="'. $val .'" size="30" autocomplete="off" '. $extra .'/></td></tr>';
 }
 
-/* Print a text field (used in ACP). */
+/** Print a text field (used in ACP). */
 function print_txt_field($descr, $field, $rows=2, $cols=30)
 {
 	if (!isset($GLOBALS[$field])) {
@@ -89,7 +89,7 @@ function print_txt_field($descr, $field, $rows=2, $cols=30)
 	echo '<tr class="field"><td><label for="CF_'. $field .'">'. $descr .': <br /><font size="-1">'. $GLOBALS['help_ar'][$field][0] .'</font></label></td><td valign="top"><textarea rows="'. $rows .'" cols="'. $cols .'" id="CF_'. $field .'" name="CF_'. $field .'">'. $val .'</textarea></td></tr>';
 }
 
-/* Read settings from GLOBALS.php without invoking core.inc. */
+/** Read settings from GLOBALS.php without invoking core.inc. */
 function read_global_settings()
 {
 	$settings_path = dirname(__FILE__) .'/GLOBALS.php';
@@ -101,7 +101,7 @@ function read_global_settings()
 	}
 }
 
-/* Change forum settings in GLOBALS.php. */
+/** Change forum settings in GLOBALS.php. */
 function change_global_settings($list)
 {
 	$settings = file_get_contents($GLOBALS['INCLUDE'] .'GLOBALS.php');
@@ -134,7 +134,7 @@ function change_global_settings($list)
 	fclose($fp);
 }
 
-/* Enable (status=1) or disable (status=0) maintenace mode. */
+/** Enable (status=1) or disable (status=0) maintenace mode. */
 function maintenance_status($reason, $status)
 {
 	if ($status) {
@@ -148,13 +148,13 @@ function maintenance_status($reason, $status)
 	}
 }
 
-/* Create symbolic links to the forum's GLOBALS.php file. */
+/** Create symbolic links to the forum's GLOBALS.php file. */
 function fud_symlink($src, $dest)
 {
 	/* Ensure we don't have any bogus symlinks (i.e. re-installing over old forum). */
 	@unlink($dest);
 
-	/* Older windows systems doesn't have symlinks and some hosts disable them - use crude emulation. */	
+	/* Older windows systems doesn't have symlinks and some hosts disable them - use crude emulation. */
 	if (!function_exists('symlink') || (function_exists('symlink') && @symlink($src, $dest) === FALSE)) {
 		if (!($fp = fopen($dest, 'wb'))) {
 			return FALSE;

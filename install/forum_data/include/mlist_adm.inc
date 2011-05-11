@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -17,7 +17,7 @@ class fud_mlist
 	var $mbox_server, $mbox_user, $mbox_pass, $mbox_type=0;
 	var $fixed_from_address;
 
-	function fud_mlist()
+	function __construct()
 	{
 		if (isset($_POST) && count($_POST)) {
 			$el = array_keys(get_object_vars($this));
