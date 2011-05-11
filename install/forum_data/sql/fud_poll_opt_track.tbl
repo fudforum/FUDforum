@@ -1,4 +1,4 @@
-#   copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+#   copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 #   email                : forum@prohost.org
 #
 #   $Id$
@@ -14,7 +14,7 @@ CREATE TABLE {SQL_TABLE_PREFIX}poll_opt_track
 	id		INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	poll_id		INT NOT NULL DEFAULT 0,
 	user_id		INT NOT NULL DEFAULT 0,
-	ip_addr		BIGINT,
+	ip_addr		VARCHAR(46),
 	poll_opt	INT NOT NULL DEFAULT 0
 );
 

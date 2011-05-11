@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -141,10 +141,10 @@ class fud_pmsg
 	function sync()
 	{
 		$this->post_stamp = __request_timestamp__;
-		$this->ip_addr = get_ip();
-		$this->host_name = $GLOBALS['FUD_OPT_1'] & 268435456 ? _esc(get_host($this->ip_addr)) : 'NULL';
+		$this->ip_addr    = get_ip();
+		$this->host_name  = $GLOBALS['FUD_OPT_1'] & 268435456 ? _esc(get_host($this->ip_addr)) : 'NULL';
 
-		if ($GLOBALS['FUD_OPT_3'] & 32768) {
+		if ($GLOBALS['FUD_OPT_3'] & 32768) {	// DB_MESSAGE_STORAGE
 			if ($fid = q_singleval('SELECT length FROM {SQL_TABLE_PREFIX}pmsg WHERE id='. $this->id .' AND foff!=-1')) {
 				q('DELETE FROM {SQL_TABLE_PREFIX}msg_store WHERE id='. $this->length);
 			}
@@ -178,11 +178,6 @@ class fud_pmsg
 			$this->send_pmsg();
 		}
 	}
-}
-
-function set_nrf($nrf, $id)
-{
-	q('UPDATE {SQL_TABLE_PREFIX}pmsg SET pmsg_opt='. q_bitor( q_bitand('pmsg_opt', ~96), $nrf) .' WHERE id='. $id);
 }
 
 function write_pmsg_body($text)

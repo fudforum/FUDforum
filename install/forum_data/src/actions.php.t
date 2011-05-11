@@ -111,9 +111,9 @@
 			$action = '{TEMPLATE: no_view_perm}';
 		}
 
-		$ip_addr = long2ip($r[6]);
+		$ip_addr = $r[6];
 		$action_data .= '{TEMPLATE: action_entry}';
-			}
+	}
 	unset($c);
 
 /*{POST_PAGE_PHP_CODE}*/

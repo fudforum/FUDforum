@@ -1,4 +1,4 @@
-#   copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+#   copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 #   email                : forum@prohost.org
 #
 #   $Id$
@@ -16,7 +16,7 @@ CREATE TABLE {SQL_TABLE_PREFIX}pmsg
 	ouser_id	INT NOT NULL DEFAULT 0,
 	duser_id	INT NOT NULL DEFAULT 0,
 	pdest		INT NOT NULL DEFAULT 0,
-	ip_addr		VARCHAR(15) NOT NULL DEFAULT '0.0.0.0',
+	ip_addr		VARCHAR(46) NOT NULL DEFAULT '0.0.0.0',
 	host_name	VARCHAR(255),
 	post_stamp	BIGINT NOT NULL DEFAULT 0,
 	read_stamp	BIGINT NOT NULL DEFAULT 0,
@@ -37,6 +37,7 @@ CREATE TABLE {SQL_TABLE_PREFIX}pmsg
 CREATE INDEX {SQL_TABLE_PREFIX}pmsg_i_dfr ON {SQL_TABLE_PREFIX}pmsg (duser_id, fldr, read_stamp); # general message retrival
 CREATE INDEX {SQL_TABLE_PREFIX}pmsg_i_dfi ON {SQL_TABLE_PREFIX}pmsg (duser_id, fldr, id); # used for the previous/next links on drawpmsg
 
+# Forum lock table for PM's.
 DROP TABLE IF EXISTS {SQL_TABLE_PREFIX}fl_pm;
 CREATE TABLE {SQL_TABLE_PREFIX}fl_pm (id INT);
 
@@ -53,5 +54,5 @@ CREATE TABLE {SQL_TABLE_PREFIX}fl_pm (id INT);
 # 4 track
 # 8 track SENT
 # 16 mailed
-# 32 nrf_status N
-# 64 nrf_status R/F
+# 32 new message?
+# 64 reply/forwarded message?

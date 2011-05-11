@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -11,6 +11,7 @@
 
 /*{PRE_HTML_PHP}*/
 
+	// PM_ENABLED?
 	if (!($FUD_OPT_1 & 1024)) {
 		error_dialog('{TEMPLATE: pm_err_nopm_title}', '{TEMPLATE: pm_err_nopm_msg}');
 	}
