@@ -1,4 +1,4 @@
-#   copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+#   copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 #   email                : forum@prohost.org
 #
 #   $Id$
@@ -26,4 +26,4 @@ CREATE INDEX {SQL_TABLE_PREFIX}xmlagg_i_f ON {SQL_TABLE_PREFIX}xmlagg (forum_id)
 # 2 create_users (ON/OFF)
 # 4 skip_non_forum_users (ON/OFF)
 # 8 complex_reply_match
-
+# 16 allow_html (ON/OFF)

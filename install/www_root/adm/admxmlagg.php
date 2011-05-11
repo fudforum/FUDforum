@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -20,7 +20,7 @@
 	if (!empty($_POST['btn_cancel'])) {
 		unset($_POST);
 	}
-	
+
 	$edit = isset($_GET['edit']) ? (int)$_GET['edit'] : (isset($_POST['edit']) ? (int)$_POST['edit'] : '');
 
 	if (!empty($_POST['xmlagg_name']) && !empty($_POST['xmlagg_forum_id'])) {
@@ -110,7 +110,7 @@
 			<font size="-1">Any article from the feed would first need to be approved by moderator(s) before
 			they are made visible on the forum.</font>
 		</td>
-		<td><?php draw_select('xmlagg_xmlagg_post_apr', "No\nYes", "0\n1", ($xmlagg_xmlagg_opt & 1 ? 1 : 0)); ?></td>
+		<td><?php draw_select('xmlagg_post_apr', "No\nYes", "0\n1", ($xmlagg_xmlagg_opt & 1 ? 1 : 0)); ?></td>
 	</tr>
 
 	<tr class="field">
@@ -144,8 +144,17 @@
 	</tr>
 
 	<tr class="field">
+		<td>
+			Allow HTML in XML Feeds:<br />
+			<font size="-1">If enabled, HTML contained within XML feeds that are imported will not be
+			stripped. <b>**only recommended for trusted feeds**</b></font>
+		</td>
+		<td><?php draw_select('xmlagg_allow_html', "No\nYes", "0\n16", ($xmlagg_xmlagg_opt & 16 ? 16 : 0)); ?></td>
+	</tr>
+
+	<tr class="field">
 		<td>Post Signature:<br />
-			<font size="-1">A string of text to append to the end of every aggregated article. Use <i>{link}</i> to refer to the article's URL.</font>
+			<font size="-1">A string of text to append to the end of every aggregated article. Available tags you can include: <i>{link}</i>, <i>{subject}</i>, <i>{author}</i>, <i>{date}</i>.</font>
 		</td>
 		<td><textarea name="xmlagg_custom_sig" rows="5" cols="40"><?php echo htmlspecialchars($xmlagg_custom_sig); ?></textarea></td>
 	</tr>
