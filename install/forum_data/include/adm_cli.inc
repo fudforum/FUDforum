@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -15,13 +15,16 @@
 	}
 
 	/* Prevent session initialization. */
-	define('forum_debug', 1);
+	define('no_session', 1);
 	unset($_SERVER['REMOTE_ADDR']);
 
 	/* Instantiate as an admin users. */
 	$GLOBALS['usr'] = new stdClass();
-	$GLOBALS['usr']->users_opt = 1048576;	// is_admin
+	$GLOBALS['usr']->users_opt  = 1048576;	// is_admin
+	$GLOBALS['usr']->theme_name = 'default';
+	$GLOBALS['usr']->lang       = 'en';
 	define('__adm_rsid', 0);
 
+	/* Something to test against. */
 	define('shell_script', 1);
 ?>
