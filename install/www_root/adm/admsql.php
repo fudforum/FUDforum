@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -12,11 +12,22 @@
 	require('./GLOBALS.php');
 	fud_use('adm.inc', true);
 	fud_use('dbadmin.inc', true);	// For get_fud_table_list(), get_fud_col_list(), etc.
+	fud_use('logaction.inc');
 
 	require($WWW_ROOT_DISK .'adm/header.php');
+
+	// Load file into textarea for execution.
+	if (isset($_FILES['sql_file']) && $_FILES['sql_file']['error'] == UPLOAD_ERR_OK) {
+		if (substr($_FILES['userfile']['type'], 0, 4) != 'text') {
+			pf(errorify('Please upload a text file that contains SQL statements.'));
+		} else {
+			$_POST['txtb'] = file_get_contents($_FILES['sql_file']['tmp_name']);
+		}
+	}
+
 ?>
 <h2>SQL Manager</h2>
-<form name="admsql" method="post" action="admsql.php">
+<form name="admsql" enctype="multipart/form-data" method="post" action="admsql.php">
 <?php echo _hs; ?>
 <table class="datatable">
 <tr><td class="alert">
@@ -31,7 +42,7 @@
 	<div style="float:right; font-size:xx-small;">
 	<b>Database:</b> <?php echo __dbtype__; ?> ::
 	<b>Connection:</b> <?php echo $GLOBALS['DBHOST_USER'] .'@'. $GLOBALS['DBHOST_DBNAME'] ?> :: 
-	<select onchange="if(this.selectedIndex!=0) document.admsql.sql.value+=this.options[this.selectedIndex].value;">
+	<select onchange="if(this.selectedIndex!=0) insertTag(document.admsql.sql, this.options[this.selectedIndex].value, '');">
 	<option>Insert table name:</option>
 	<?php
 		$tables = get_fud_table_list();
@@ -42,9 +53,12 @@
 	?>
 	</select>
 	</div>
-	<textarea id="sql" name="sql" rows="7" cols="72" style="width:99%;"><?php if (isset($_POST['sql'])) { print $_POST['sql']; } else { print 'SELECT * FROM '; } ?></textarea>
+	<textarea id="txtb" name="txtb" rows="7" cols="72" style="width:99%; box-sizing: border-box;" onkeyup="storeCaret(this);" onclick="storeCaret(this);" onselect="storeCaret(this);"><?php
+		if (isset($_POST['txtb'])) { print $_POST['txtb']; } else { print 'SELECT * FROM ...'; } 
+	?></textarea>
 </td></tr>
 <tr><td>
+	<span style="float:right;">SQL from file: <input name="sql_file" type="file" /></span>
 	<input type="submit" class="submit" value="Run It" />
 </td></tr>
  </table>
@@ -52,18 +66,20 @@
 <script type="text/javascript">
 /* <![CDATA[ */
 $(document).ready(function() {
-	$('#sql').focus();
+	$('#txtb').focus();
 });
 /* ]]> */
 </script>
 
 <?php
-if (isset($_POST['sql']) && $_POST['sql'] != '') {
-	$sqlfile = str_replace("\r", '', $_POST['sql']);
+if (isset($_POST['txtb']) && $_POST['txtb'] != '') {
+	$sqlfile = str_replace("\r", '', $_POST['txtb']);
 	$sqlfile = str_replace('{SQL_TABLE_PREFIX}', $GLOBALS['DBHOST_TBL_PREFIX'], $sqlfile);
 	$sqlfile = explode(";", $sqlfile);
 
 	foreach ($sqlfile as $sql) {
+		$sql = trim($sql);
+
 		if (preg_match('/[a-zA-Z]/', $sql) and !preg_match('/^(#|--)/', $sql)) {
 			if (preg_match('/^\s*use\s+\w+\s*;?$/i', $sql)) {
 				echo '<div class="tutor">For security reasons you may not switch to another database!</div>';
@@ -91,9 +107,17 @@ if (isset($_POST['sql']) && $_POST['sql'] != '') {
 				continue;
 			}
 
+			// Log potentially dangerous SQL statements.
+			if (!preg_match('/^\s*(desc|select).*/i', $sql)) {
+				logaction(_uid, 'Executed SQL', 0, $sql);
+			}
+
 			// Execute query.
 			try {
+
+				$s = microtime(true);
 				$q = uq($sql);
+				$t = number_format(microtime(true) - $s, 6);
 
 				echo '<h2>SQL Results</h2>';
 				echo '<table class="resulttable">';
@@ -124,11 +148,11 @@ if (isset($_POST['sql']) && $_POST['sql'] != '') {
 				echo '</table>';
 
 				if ($i > 2) {
-					echo '<br /><i>'. ($i-1) .' rows returned.</i>';
+					echo '<br /><i>'. ($i-1) .' rows returned in '. $t .' secs.</i>';
 				} else if ($i > 1) {
-					echo '<br /><i>1 row returned.</i>';
+					echo '<br /><i>1 row returned in '. $t .' secs.</i>';
 				} else {
-					echo '<i>Statement executed. No rows returned.</i>';
+					echo '<i>Statement executed. No rows returned. Time taken: '. $t .' secs.</i>';
 				}
 
 			} catch(Exception $e) {
