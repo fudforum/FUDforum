@@ -1,4 +1,4 @@
-#   copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+#   copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 #   email                : forum@prohost.org
 #
 #   $Id$
@@ -16,7 +16,11 @@ CREATE TABLE {SQL_TABLE_PREFIX}announce
 	date_ended	BIGINT NOT NULL DEFAULT 0,
 
 	subject		VARCHAR(255) NOT NULL DEFAULT '',
-	text		TEXT NOT NULL
+	text		TEXT NOT NULL,
+	ann_opt		INT NOT NULL DEFAULT 0
 );
 
 CREATE INDEX {SQL_TABLE_PREFIX}announce_i_dd ON {SQL_TABLE_PREFIX}announce (date_started, date_ended);
+
+# Opts
+# 1 show on front page (ON/OFF)
