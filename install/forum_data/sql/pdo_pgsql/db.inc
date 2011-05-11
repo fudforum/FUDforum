@@ -126,18 +126,6 @@ if (!defined('fud_query_stats')) {
 		if ((db::$affected_rows = db::$db->exec($query)) === FALSE) {
 			fud_sql_error_handler($query, __enifo(db::$db->errorInfo()), db::$db->errorCode(), db_version());
 		}
-
-		$e = gettimeofday(true);
-
-		$GLOBALS['__DB_INC_INTERNALS__']['last_time'] = ($e - $s);
-		$GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'] += $GLOBALS['__DB_INC_INTERNALS__']['last_time'];
-
-		echo '<hr><b>Query #'. $GLOBALS['__DB_INC_INTERNALS__']['query_count'] .'</b><small>';
-		echo ': time taken:     <i>'. number_format($GLOBALS['__DB_INC_INTERNALS__']['last_time'], 4) .'</i>';
-		echo ', affected rows:  <i>'. db_affected() .'</i>';
-		echo ', total sql time: <i>'.  number_format($GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'], 4) .'</i>';
-		echo '<pre>'. preg_replace('!\s+!', ' ', htmlspecialchars($query)) .'</pre></small>';
-
 		return db::$affected_rows;
 	}
 }

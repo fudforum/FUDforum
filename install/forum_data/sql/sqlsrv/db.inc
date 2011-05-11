@@ -18,8 +18,9 @@ if (!defined('fud_sql_lnk')) {
 	$connInfo = array('UID'=>$GLOBALS['DBHOST_USER'], 'PWD'=>$GLOBALS['DBHOST_PASSWORD'],
                       'Database'=>$GLOBALS['DBHOST_DBNAME'], 'CharacterSet'=>'UTF-8');
 
-	if ($GLOBALS['FUD_OPT_1'] & 256) {
-		$connInfo['ConnectionPooling'] = 1;
+	if (!($GLOBALS['FUD_OPT_1'] & 256)) {
+		// Connection pooling is enabled by default.
+		$connInfo['ConnectionPooling'] = 0;
 	}
 	$conn = sqlsrv_connect($GLOBALS['DBHOST'], $connInfo);
 	if ($conn === false ) {

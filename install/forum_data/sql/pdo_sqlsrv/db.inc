@@ -85,7 +85,7 @@ if (!defined('fud_query_stats')) {
 	{
 		if (!strncasecmp($query, 'SELECT', 6)) {
 			db::$res = null;
-			db::$res = db::$db->query($query) or fud_sql_error_handler($query, __enifo(db::$db->errorInfo()), db::$db->errorCode(), db_version());
+			db::$res = db::$db->query(_mssql_syntax($query)) or fud_sql_error_handler($query, __enifo(db::$db->errorInfo()), db::$db->errorCode(), db_version());
 			return db::$res;
 		}
 
@@ -111,7 +111,7 @@ if (!defined('fud_query_stats')) {
 
 			$s = microtime(true);
 			db::$res = null;
-			db::$res = db::$db->query($query) or fud_sql_error_handler($query, __enifo(db::$db->errorInfo()), db::$db->errorCode(), db_version());
+			db::$res = db::$db->query(_mssql_syntax($query)) or fud_sql_error_handler($query, __enifo(db::$db->errorInfo()), db::$db->errorCode(), db_version());
 			$e = gettimeofday(true);
 
 			$GLOBALS['__DB_INC_INTERNALS__']['last_time'] = ($e - $s);
@@ -130,18 +130,6 @@ if (!defined('fud_query_stats')) {
 		if ((db::$affected_rows = db::$db->exec($query)) === FALSE) {
 			fud_sql_error_handler($query, __enifo(db::$db->errorInfo()), db::$db->errorCode(), db_version());
 		}
-
-		$e = gettimeofday(true);
-
-		$GLOBALS['__DB_INC_INTERNALS__']['last_time'] = ($e - $s);
-		$GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'] += $GLOBALS['__DB_INC_INTERNALS__']['last_time'];
-
-		echo '<hr><b>Query #'. $GLOBALS['__DB_INC_INTERNALS__']['query_count'] .'</b><small>';
-		echo ': time taken:     <i>'. number_format($GLOBALS['__DB_INC_INTERNALS__']['last_time'], 4) .'</i>';
-		echo ', affected rows:  <i>'. db_affected() .'</i>';
-		echo ', total sql time: <i>'.  number_format($GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'], 4) .'</i>';
-		echo '<pre>'. preg_replace('!\s+!', ' ', htmlspecialchars($query)) .'</pre></small>';
-
 		return db::$affected_rows;
 	}
 }
@@ -286,7 +274,7 @@ function _mssql_syntax($q)
 {
 	// Workaround for error: 'LENGTH' is not a recognized built-in function name.
 	$q = preg_replace('/LENGTH\(/i', 'DataLength(', $q);
-	
+
 	return $q;
 }
 
@@ -295,12 +283,12 @@ if (empty(db::$db)) {
 	if (!extension_loaded('sqlsrv')) {
 		die('ERROR: sqlsrv extension not loaded!');
 	}
-	
+
 	$dsn = 'sqlsrv:server='. $GLOBALS['DBHOST'] .'; Database='. $GLOBALS['DBHOST_DBNAME'];
 	$opts = array(PDO::SQLSRV_ATTR_ENCODING => PDO::SQLSRV_ENCODING_UTF8);
 	if (!($GLOBALS['FUD_OPT_1'] & 256)) {
 		// Connection pooling is enabled by default.
-		$opts[] = array('ConnectionPooling' => 0);
+		$opts['ConnectionPooling'] = 0;
 	}
 
 	try {
@@ -311,6 +299,5 @@ if (empty(db::$db)) {
 
 	define('__dbtype__', 'mssql');
 }
-
 
 ?>

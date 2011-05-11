@@ -143,7 +143,6 @@ if (!defined('fud_query_stats')) {
 		if ((db::$affected_rows = $db->exec($query)) === FALSE) {
 			fud_sql_error_handler($query, __enifo($db->errorInfo()), $db->errorCode(), db_version());
 		}
-
 		return db::$affected_rows;
 	}
 

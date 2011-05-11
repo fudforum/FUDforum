@@ -534,7 +534,7 @@ being security and performance.');
 		!$module_status['oci8'] &&
 		!$module_status['pgsql'] && !$module_status['pdo_pgsql'] &&
 		!$module_status['pdo_sqlite'] &&
-		!$module_status['sqlsrv']) && !$module_status['pdo_sqlsrv']
+		!$module_status['sqlsrv'] && !$module_status['pdo_sqlsrv'])
 	{
 		seterr('NODB', 'FUDforum can utilize either a IBM DB2, Firebird, MySQL, Oracle, PosgreSQL, SQLite or MS-SQL Server database to store it\'s data, unfortunately, your PHP installation does not have support for any of these databases. Please install or load the appropriate database extension and then re-run the install script.');
 	}
