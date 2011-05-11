@@ -1,0 +1,22 @@
+#   copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+#   email                : forum@prohost.org
+#
+#   $Id$
+#
+#       This program is free software; you can redistribute it and/or modify
+#       it under the terms of the GNU General Public License as published by
+#       the Free Software Foundation; version 2 of the License.
+
+DROP TABLE IF EXISTS {SQL_TABLE_PREFIX}spiders;
+
+CREATE TABLE {SQL_TABLE_PREFIX}spiders
+(
+	id		INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	botname		varchar(100) NOT NULL DEFAULT '',
+	useragent	VARCHAR(200) NOT NULL,
+	bot_ip		BIGINT NOT NULL DEFAULT 0,
+	bot_opts	INT NOT NULL DEFAULT 0
+);
+
+# Opts:
+# 1 disabled

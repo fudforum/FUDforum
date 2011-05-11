@@ -32,22 +32,43 @@ function ses_make_sysid()
 function ses_get($id=0)
 {
 	if (!$id) {
+		/* Cookie or URL session? If not, check for known bots. */
 		if (!empty($_COOKIE[$GLOBALS['COOKIE_NAME']])) {
 			$q_opt = 's.ses_id='. _esc($_COOKIE[$GLOBALS['COOKIE_NAME']]);
 		} else if ((isset($_GET['S']) || isset($_POST['S'])) && $GLOBALS['FUD_OPT_1'] & 128) {
-			$url_s = 1;
-			$q_opt = 's.ses_id='._esc((isset($_GET['S']) ? (string) $_GET['S'] : (string) $_POST['S']));
+			$url_session = 1;
+			$q_opt = 's.ses_id='. _esc((isset($_GET['S']) ? (string) $_GET['S'] : (string) $_POST['S']));
 			/* Do not validate against expired URL sessions. */
 			$q_opt .= ' AND s.time_sec > '. (__request_timestamp__ - $GLOBALS['SESSION_TIMEOUT']);
 		} else {
-			return;
+			$spider_session = 0;
+			// Auto login authorized bots.
+			// To test: wget --user-agent="Googlebot 1.2" http://127.0.0.1:8080/forum
+			include $GLOBALS['FORUM_SETTINGS_PATH'] .'spider_cache';
+			foreach ($spider_cache as $spider_id => $spider) {
+				if (preg_match('/^'. $spider['useragent'] .'/i', $_SERVER['HTTP_USER_AGENT'])) {
+					$spider_session = 1;
+					// fud_logerror('Bot '. $spider['useragent'] .' detected!', 'fud_errors');
+					$uid = 2;	// TODO: Hard coded for testing purposes!!!
+					if ($id = db_li('INSERT INTO {SQL_TABLE_PREFIX}ses (ses_id, time_sec, sys_id, ip_addr, useragent, user_id) VALUES (\''. $spider['botname'] .'\', '. __request_timestamp__ .', '. _esc(ses_make_sysid()) .', '. _esc(get_ip()) .', '. _esc(substr($_SERVER['HTTP_USER_AGENT'], 0, 32)) .', '. $uid .')', $ef, 1)) {
+						$q_opt = 's.id='. $id;
+					} else {
+						$q_opt = 's.ses_id='. _esc($spider['botname']);
+					}
+					break;
+				}
+			}
+
+			if (!$spider_session) return;
 		}
+
+		/* ENABLE_REFERRER_CHECK */
 		if ($GLOBALS['FUD_OPT_3'] & 4 && isset($_SERVER['HTTP_REFERER']) && strncmp($_SERVER['HTTP_REFERER'], $GLOBALS['WWW_ROOT'], strlen($GLOBALS['WWW_ROOT']))) {
-			/* more checks, we need those because some proxies mangle referer field */
+			/* More checks, we need those because some proxies mangle referer field. */
 			$host = isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : $_SERVER['SERVER_NAME'];
 			/* $p > 8 https:// or http:// */
 			if (($p = strpos($_SERVER['HTTP_REFERER'], $host)) === false || $p > 8) {
-				$q_opt .= ' AND s.user_id > 2000000000 ';
+				$q_opt .= ' AND s.user_id > 2000000000 ';	// Different referrer, force anonymous.
 			}
 		}
 	} else {
@@ -71,7 +92,7 @@ function ses_get($id=0)
 
 	if ($u->sys_id == ses_make_sysid()) {
 		return $u;
-	} else if ($GLOBALS['FUD_OPT_3'] & 16 || isset($url_s)) {
+	} else if ($GLOBALS['FUD_OPT_3'] & 16 || isset($url_session)) {
 		/* URL sessions must validate sys_id check and SESSION_IP_CHECK must be disabled */
 		return;
 	}
@@ -86,11 +107,10 @@ function ses_get($id=0)
 
 function ses_anon_make()
 {
-	$ip = ip2long(get_ip());
 	do {
 		$uid = 2000000000 + mt_rand(1, 147483647);
 		$ses_id = md5($uid . __request_timestamp__ . getmypid());
-	} while (!($id = db_li('INSERT INTO {SQL_TABLE_PREFIX}ses (ses_id, time_sec, sys_id, ip_addr, user_id) VALUES (\''. $ses_id .'\', '. __request_timestamp__ .', \''. ses_make_sysid() .'\', '. $ip .', '. $uid .')', $ef, 1)));
+	} while (!($id = db_li('INSERT INTO {SQL_TABLE_PREFIX}ses (ses_id, time_sec, sys_id, ip_addr, useragent, user_id) VALUES (\''. $ses_id .'\', '. __request_timestamp__ .', '. _esc(ses_make_sysid()) .', '. _esc(get_ip()) .', '. _esc(substr($_SERVER['HTTP_USER_AGENT'], 0, 32)) .', '. $uid .')', $ef, 1)));
 
 	/* When we have an anon user, we set a special cookie allowing us to see who referred this user. */
 	if (isset($_GET['rid']) && !isset($_COOKIE['frm_referer_id']) && $GLOBALS['FUD_OPT_2'] & 8192) {
@@ -104,7 +124,7 @@ function ses_anon_make()
 function ses_update_status($ses_id, $str=null, $forum_id=0, $ret='')
 {
 	if (empty($ses_id)) {
-		die('FATAL ERROR: No session, cannot update status!');
+		die('FATAL ERROR: No session, check your forum\'s URL and COOKIE settings.');
 	}
 	q('UPDATE {SQL_TABLE_PREFIX}ses SET sys_id=\''. ses_make_sysid() .'\', forum_id='. $forum_id .', time_sec='. __request_timestamp__ .', action='. ($str ? _esc($str) : 'NULL') .', returnto='. (!is_int($ret) ? (isset($_SERVER['QUERY_STRING']) ? _esc($_SERVER['QUERY_STRING']) : 'NULL') : 'returnto') .' WHERE id='. $ses_id);
 }
