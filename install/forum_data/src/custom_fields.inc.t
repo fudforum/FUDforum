@@ -13,7 +13,7 @@
 function get_custom_field_defs()
 {
 	require $GLOBALS['FORUM_SETTINGS_PATH'] .'custom_field_cache';
-	return $custom_fields;
+	return $custom_field_cache;
 }
 
 /* Validate custom field values entered by users. */

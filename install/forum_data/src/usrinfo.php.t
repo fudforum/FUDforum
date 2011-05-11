@@ -126,9 +126,9 @@
 	$custom_fields_disp = '';
 	if ($u->custom_fields) {
 		require $GLOBALS['FORUM_SETTINGS_PATH'] .'custom_field_cache';
-		if (!empty($custom_fields)) {
+		if (!empty($custom_field_cache)) {
 			$custom_field_vals = unserialize($u->custom_fields);
-			foreach ($custom_fields as $k => $r) {
+			foreach ($custom_field_cache as $k => $r) {
 				if (!empty($custom_field_vals[$k])) {	// Have a value to display?
 					$custom_field_name = $r['name'];
 					$custom_field_val  = $custom_field_vals[$k];

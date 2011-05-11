@@ -1,1 +1,1 @@
-<?php $custom_fields = array(); ?>
+<?php $custom_field_cache = array (); ?>

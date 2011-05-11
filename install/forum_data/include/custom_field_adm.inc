@@ -13,10 +13,15 @@ class fud_custom_field
 {
 	var	$name, $descr, $type_opt, $choice, $vieworder, $field_opt;
 
-	function fud_custom_field()
+	function __construct()
 	{
 		foreach ($this as $k => $v) {
 			if (isset($_POST['custom_field_'. $k])) {
+				if (is_array($_POST['custom_field_'. $k])) {	// OR options together.
+					$opts = 0;
+					foreach($_POST['custom_field_'. $k] as $tmp=>$opt) $opts |= $opt;
+					$_POST['custom_field_'. $k] = $opts;
+				}
 				$this->{$k} = $_POST['custom_field_'. $k];
 			}
 		}
@@ -74,14 +79,14 @@ class fud_custom_field
 		}
 		unset($c);
 
-        $fp = fopen($GLOBALS['TMP'] .'custom_field_cache', 'w');
-        fwrite($fp, '<?php $custom_fields = '. var_export((array)$custom_fields, 1) .'; ?>');
-        fclose($fp);
+		$fp = fopen($GLOBALS['TMP'] .'custom_field_cache', 'w');
+		fwrite($fp, '<?php $custom_field_cache = '. var_export((array)$custom_fields, 1) .'; ?>');
+		fclose($fp);
 
-        if (!strncasecmp('win', PHP_OS, 3)) {
-                @unlink($GLOBALS['FORUM_SETTINGS_PATH'] .'custom_field_cache');
-        }
-        rename($GLOBALS['TMP'] .'custom_field_cache', $GLOBALS['FORUM_SETTINGS_PATH'] .'custom_field_cache');
+		if (!strncasecmp('win', PHP_OS, 3)) {
+			@unlink($GLOBALS['FORUM_SETTINGS_PATH'] .'custom_field_cache');
+		}
+		rename($GLOBALS['TMP'] .'custom_field_cache', $GLOBALS['FORUM_SETTINGS_PATH'] .'custom_field_cache');
 	}
 
 }
