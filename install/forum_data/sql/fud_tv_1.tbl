@@ -1,4 +1,4 @@
-#   copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+#   copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 #   email                : forum@prohost.org
 #
 #   $Id$
@@ -11,11 +11,9 @@ DROP TABLE IF EXISTS {SQL_TABLE_PREFIX}tv_1;
 
 CREATE TABLE {SQL_TABLE_PREFIX}tv_1
 (
-	id		INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	thread_id	INT NOT NULL PRIMARY KEY,
 	seq		INT NOT NULL,
-	thread_id	INT NOT NULL,
 	iss		INT NOT NULL
 );
 
-CREATE UNIQUE INDEX {SQL_TABLE_PREFIX}tv_1_i_t ON {SQL_TABLE_PREFIX}tv_1 (thread_id);
 CREATE INDEX {SQL_TABLE_PREFIX}tv_1_seq ON {SQL_TABLE_PREFIX}tv_1 (seq);

@@ -184,6 +184,7 @@ function th_reply_rebuild($forum_id, $th, $sticky)
 		db_lock('{SQL_TABLE_PREFIX}tv_'. $forum_id .' WRITE');
 	}
 
+	/* Get first topic of forum (highest seq). */
 	list($max,$tid,$iss) = db_saq(q_limit('SELECT /* USE MASTER */ seq,thread_id,iss FROM {SQL_TABLE_PREFIX}tv_'. $forum_id .' ORDER BY seq DESC', 1));
 
 	if ($tid == $th) {
