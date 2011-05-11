@@ -15,7 +15,7 @@ if (isset($_GET['id'])) {
 	if (is_numeric($_GET['id'])) {
 	      $page = db_sab('SELECT id, slug, title, foff, length FROM {SQL_TABLE_PREFIX}pages WHERE id='. (int)$_GET['id'] .' AND '. q_bitand('page_opt', 1) .' = 1');
 	} else {
-	      $page = db_sab('SELECT id, slug, title, foff, length FROM {SQL_TABLE_PREFIX}pages WHERE slug='. _esc($_GET['id']) .' AND '. q_bitand('page_opt', 1) .' == 1');
+	      $page = db_sab('SELECT id, slug, title, foff, length FROM {SQL_TABLE_PREFIX}pages WHERE slug='. _esc($_GET['id']) .' AND '. q_bitand('page_opt', 1) .' = 1');
 	}
 
 	$TITLE_EXTRA = ': '. $page->title;

@@ -1,4 +1,4 @@
-#   copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+#   copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 #   email                : forum@prohost.org
 #
 #   $Id$
@@ -11,15 +11,20 @@ DROP TABLE IF EXISTS {SQL_TABLE_PREFIX}pages;
 
 CREATE TABLE {SQL_TABLE_PREFIX}pages
 (
-	id			INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	slug			VARCHAR(32) NOT NULL,
-	title			VARCHAR(255) NOT NULL,
-	body			TEXT,
-	created_by		INT NOT NULL,
-	page_opt		INT NOT NULL
+	id		INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	slug		VARCHAR(32) NOT NULL,
+	title		VARCHAR(255) NOT NULL,
+	foff		BIGINT NOT NULL DEFAULT 0,
+	length		INT NOT NULL DEFAULT 0,
+	created_by	INT NOT NULL,
+	page_opt	INT NOT NULL
 );
 
 CREATE UNIQUE INDEX {SQL_TABLE_PREFIX}pages_s ON {SQL_TABLE_PREFIX}pages (slug);
 
+# Forum lock table for pages.
+DROP TABLE IF EXISTS {SQL_TABLE_PREFIX}fl_pg;
+CREATE TABLE {SQL_TABLE_PREFIX}fl_pg (id INT);
+
 # Opts:
-# 1 ???
+# 1 Don't list in list of pages
