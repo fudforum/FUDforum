@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -12,6 +12,7 @@
 	require('./GLOBALS.php');
 	fud_use('adm.inc', true);
 	fud_use('private.inc');
+	fud_use('logaction.inc');
 
 	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
 	$folders = array(1=>'inbox', 2=>'saved', 4=>'draft', 3=>'sent', 5=>'trash');
@@ -24,6 +25,7 @@
 		while ($r2 = db_rowarr($c)) {
 			q('DELETE FROM '. $tbl .'pmsg WHERE id='. $r2[0]);
 			echo successify('Delete private message from '. $r2[2] .'\'s '. $folders[$r2[1]] .' folder.');
+			logaction(_uid, 'Deleted PM ', 0, '['. $r[1] .'] from '. $r2[2] .'\'s '. $folders[$r2[1]] .' folder.');
 		}
 		unset($r, $r2);
 	}
@@ -76,12 +78,12 @@
 		$user = '';
 		$cond = 'WHERE p.fldr=3';
 	}
-	$c = uq('SELECT p.id, p.to_list, p.fldr, p.subject, p.post_stamp, u.alias FROM '. $tbl .'pmsg p
-		INNER JOIN '. $tbl .'users u ON p.ouser_id=u.id '. $cond .' ORDER BY p.post_stamp DESC LIMIT 100');
+	$c = uq(q_limit('SELECT p.id, p.to_list, p.fldr, p.subject, p.post_stamp, u.alias FROM '. $tbl .'pmsg p
+		INNER JOIN '. $tbl .'users u ON p.ouser_id=u.id '. $cond .' ORDER BY p.post_stamp DESC', 100));
 	while ($r = db_rowarr($c)) {
 		$bgcolor = ($i++%2) ? ' class="resultrow2"' : ' class="resultrow1"';
 		echo '<tr'. $bgcolor .'">';
-		echo '<td><a href="admpmspy.php?user='. $user .'&amp;'. __adm_rsid .'">'. $r[5] .'</a></td>';
+		echo '<td><a href="admpmspy.php?user='. $r[5] .'&amp;'. __adm_rsid .'">'. $r[5] .'</a></td>';
 		echo '<td>'. $r[1] .'</td>';
 		echo '<td>'. $folders[$r[2]] .'</td>';
 		echo '<td><a href="admpmspy.php?msg='. $r[0] .'&amp;user='. $user .'&amp;'. __adm_rsid .'">'. $r[3] .'</a></td>';

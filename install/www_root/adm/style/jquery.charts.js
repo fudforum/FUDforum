@@ -3,7 +3,7 @@
 	// This script was written by Steve Fenton
 	// http://www.stevefenton.co.uk/Content/Jquery-Side-Content/
 	// Feel free to use this jQuery Plugin
-	// Version: 1.0.5
+	// Version: 1.1.0
 	
 	$.fn.charts = function (settings) {
 	
@@ -35,7 +35,7 @@
 			return number;
 		}
 		
-		function GetHorizontalBarsOutput(groupArray, labelArray, valueArray, totalValue, largestValue) {
+		function GetHorizontalBarsOutput(groupArray, labelArray, valueArray, totalValue, largestValue, labelTextArray) {
 			var output = "";
 			var colourIndex = 0;
 			
@@ -55,7 +55,7 @@
 					displayLabel = labelArray[i] + "<br>";
 				}
 				
-				output += "<li>" + displayLabel + "<span class=\"" + config.classmodifier + "bar\" style=\"display: block; width: 0%; background-color: " + config.chartbgcolours[colourIndex] + "; color: " + config.chartfgcolours[colourIndex] + "; padding: " + config.chartpadding + "px 0; text-align: right;\" rel=\"" + barWidth + "\" title=\"" + labelArray[i] + " - " + valueArray[i] + " (" + percent + "%)" + "\">" + valueArray[i] + "&nbsp;</span></li>";
+				output += "<li>" + displayLabel + "<span class=\"" + config.classmodifier + "bar\" style=\"display: block; width: 0%; background-color: " + config.chartbgcolours[colourIndex] + "; color: " + config.chartfgcolours[colourIndex] + "; padding: " + config.chartpadding + "px 0; text-align: right;\" rel=\"" + barWidth + "\" title=\"" + labelTextArray[i] + " - " + valueArray[i] + " (" + percent + "%)" + "\">" + valueArray[i] + "&nbsp;</span></li>";
 				
 				colourIndex++;
 			}
@@ -65,7 +65,7 @@
 			return output;
 		}
 		
-		function GetVerticalBarsOutput(groupArray, labelArray, valueArray, totalValue, largestValue) {
+		function GetVerticalBarsOutput(groupArray, labelArray, valueArray, totalValue, largestValue, labelTextArray) {
 			var output = "";
 			var colourIndex = 0;
 			var leftShim = 0;
@@ -87,6 +87,11 @@
 				}
 			
 				var percent = Math.round((valueArray[i] / totalValue) * 100);
+				// Fix suggested by Jaime Casto
+				if (isNaN(percent)) {
+					percent = 0;
+				}
+				
 				var barHeight = Math.round((valueArray[i] / largestValue) * 100);
 
 				// Group headings
@@ -111,11 +116,70 @@
 				}
 				
 				// Column
-				output += "<div class=\"" + config.classmodifier + "bar\" style=\"position: absolute; bottom: 0; left: " + leftShim + "%; display: block; height: 0%; background-color: " + config.chartbgcolours[colourIndex] + "; color: " + config.chartfgcolours[colourIndex] + "; width: " + widthAdjustment + "%; text-align: center;\" rel=\"" + barHeight + "\" title=\"" + labelArray[i] + " - " + valueArray[i] + " (" + percent + "%)" + "\">" + valueArray[i] + displayLabel + "</div>"
+				output += "<div class=\"" + config.classmodifier + "bar\" style=\"position: absolute; bottom: 0; left: " + leftShim + "%; display: block; height: 0%; background-color: " + config.chartbgcolours[colourIndex] + "; color: " + config.chartfgcolours[colourIndex] + "; width: " + widthAdjustment + "%; text-align: center;\" rel=\"" + barHeight + "\" title=\"" + labelTextArray[i] + " - " + valueArray[i] + " (" + percent + "%)" + "\">" + valueArray[i] + displayLabel + "</div>"
 
 				leftShim = leftShim + shimAdjustment;
 				
 				colourIndex++;
+			}
+			
+			output += "</div>";
+			
+			return output;
+		}
+		
+		function GetWaterfallOutput(labelArray, valueArray, totalValue, largestValue, labelTextArray) {
+			var output = "";
+			var colourIndex = 0;
+			var leftShim = 0;
+			var shimAdjustment = RoundToTwoDecimalPlaces(100 / labelArray.length);
+			var widthAdjustment = shimAdjustment - 1;
+			
+			output += "<div style=\"height: " + config.chartheight + "px; position: relative;\">";
+			
+			var runningTotal = 0;
+			
+			for (var i = 0; i < valueArray.length; i++) {
+				
+				var positiveValue = valueArray[i];
+				var isPositive = true;
+				var colourIndex = 1;
+				
+				if (positiveValue < 0) {
+					positiveValue = positiveValue * -1;
+					isPositive = false;
+					if (config.chartbgcolours.length > 2) {
+						colourIndex = 2;
+					}
+				}
+			
+				var percent = RoundToTwoDecimalPlaces((positiveValue / totalValue) * 100);
+				var barHeight = RoundToTwoDecimalPlaces((positiveValue / largestValue) * 100);
+				
+				var bottomPosition = runningTotal - barHeight; // Negative column
+				if (i == 0 || i == (valueArray.length - 1)) {
+					bottomPosition = 0; // first or last column
+					colourIndex = 0;
+				} else if (isPositive) {
+					bottomPosition = runningTotal;
+				}
+
+				// Labels
+				var displayLabel = "";
+				if (config.showlabels) {
+					displayLabel = "<span style=\"display: block; width: 100%; position: absolute; bottom: 0; text-align: center; background-color: " + config.chartbgcolours[colourIndex] + ";\">" + labelArray[i] + "</span>"
+				}
+				
+				// Column
+				output += "<div class=\"" + config.classmodifier + "bar\" style=\"position: absolute; bottom: " + bottomPosition + "%; left: " + leftShim + "%; display: block; height: 0%; background-color: " + config.chartbgcolours[colourIndex] + "; color: " + config.chartfgcolours[colourIndex] + "; width: " + widthAdjustment + "%; text-align: center;\" rel=\"" + barHeight + "\" title=\"" + labelTextArray[i] + " - " + valueArray[i] + " (" + percent + "%)" + "\">" + valueArray[i] + displayLabel + "</div>"
+
+				leftShim = leftShim + shimAdjustment;
+				
+				if (isPositive) {
+					runningTotal = runningTotal + barHeight;
+				} else {
+					runningTotal = runningTotal - barHeight;
+				}
 			}
 			
 			output += "</div>";
@@ -133,19 +197,20 @@
 			var $table = $(this);
 			
 			// Caption
-			var caption = $(this).children("caption").text();
+			var caption = $table.children("caption").text();
 			
 			// Headers
 			var maxColumn = Math.max(config.valuecolumn, config.labelcolumn, config.groupcolumn);
-			var headers = $(this).find("thead th");
+			var headers = $table.find("thead th");
 			if (headers.length <= maxColumn) {
 				alert("Header count doesn't match settings");
 			}
 			
 			// Values
-			var values = $(this).find("tbody tr");
+			var values = $table.find("tbody tr");
 			
 			var labelArray = new Array();
+			var labelTextArray = new Array();
 			var valueArray = new Array();
 			var groupArray = new Array();
 			
@@ -156,12 +221,13 @@
 			// Creates a list of values and a total (and sets groups if required)
 			for (var i = 0; i < values.length; i++) {
 				if (config.groupcolumn > -1) {
-					groupArray[groupArray.length] = $(values[i]).children("td").eq(config.groupcolumn).text();
+					groupArray[groupArray.length] = $(values[i]).children("td").eq(config.groupcolumn).html();
 				}
 				var valueString = $(values[i]).children("td").eq(config.valuecolumn).text();
 				if (valueString.length > 0) {
-					var valueAmount = parseInt(valueString, 10);
-					labelArray[labelArray.length] = $(values[i]).children("td").eq(config.labelcolumn).text();
+					var valueAmount = parseFloat(valueString, 10);
+					labelArray[labelArray.length] = $(values[i]).children("td").eq(config.labelcolumn).html();
+					labelTextArray[labelTextArray.length] = $(values[i]).children("td").eq(config.labelcolumn).text();
 					valueArray[valueArray.length] = valueAmount;
 					totalValue = totalValue + valueAmount;
 					if (valueAmount > largestValue) {
@@ -184,14 +250,30 @@
 						
 						case 'horizontal':
 							// Horizontal Bars
-							output += GetHorizontalBarsOutput(groupArray, labelArray, valueArray, totalValue, largestValue);
+							output += GetHorizontalBarsOutput(groupArray, labelArray, valueArray, totalValue, largestValue, labelTextArray);
 							break;
 							
 						case 'vertical':
 							// Vertical Bars
-							output += GetVerticalBarsOutput(groupArray, labelArray, valueArray, totalValue, largestValue);
+							output += GetVerticalBarsOutput(groupArray, labelArray, valueArray, totalValue, largestValue, labelTextArray);
 							break;
 
+					}
+					break;
+					
+				case 'waterfall':
+				
+					switch (config.direction) {
+					
+						case 'horizontal':
+							// Horizontal Bars
+							alert("Horizontal waterfall charts not yet supported!");
+							break;
+
+						case 'vertical':
+							// Waterfall chart
+							output += GetWaterfallOutput(labelArray, valueArray, totalValue, largestValue, labelTextArray);
+							break;
 					}
 					break;
 			

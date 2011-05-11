@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -37,7 +37,7 @@ function validate_input()
 }
 
 	if (isset($_POST['usr_add']) && !($error = validate_input())) {
-		$default_theme = q_singleval('SELECT id FROM '. $DBHOST_TBL_PREFIX .'themes WHERE theme_opt>=2 AND '. q_bitand('theme_opt', 2) .' > 0 LIMIT 1');
+		$default_theme = q_singleval(q_limit('SELECT id FROM '. $DBHOST_TBL_PREFIX .'themes WHERE theme_opt>=2 AND '. q_bitand('theme_opt', 2) .' > 0', 1));
 		if (strlen($_POST['login']) > $MAX_LOGIN_SHOW) {
 			$alias = substr($_POST['login'], 0, $MAX_LOGIN_SHOW);
 		} else {

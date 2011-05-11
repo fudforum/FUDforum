@@ -33,7 +33,6 @@ function delete_zero($tbl, $q)
 /* main */
 	@set_time_limit(600);
 	@ini_set('memory_limit', '128M');
-	@ini_set('display_errors', '1');
 	require('./GLOBALS.php');
 
 	// Run from command line.
@@ -76,6 +75,8 @@ function delete_zero($tbl, $q)
 	fud_use('th_adm.inc');
 	fud_use('users_reg.inc');
 	fud_use('custom_field_adm.inc', true);
+	fud_use('announce_adm.inc', true);
+	fud_use('spider_adm.inc', true);
 
 	if (isset($_POST['btn_cancel'])) {
 		header('Location: '. $WWW_ROOT .'adm/index.php?'. __adm_rsidl);
@@ -131,12 +132,12 @@ While it is running, your forum will be disabled!
 	draw_stat('Validating lock and view tables');
 	$forums = db_all('SELECT id FROM '. $tbl .'forum');
 	foreach ($tbls as $k => $v) {
-		if (preg_match('/^'. $tbl .'tv_(\d)+$/', $v, $m) && !in_array($m[1], $forums)) {
+		if (preg_match('/^'. $tbl .'tv_(\d+)+$/', $v, $m) && !in_array($m[1], $forums)) {
 			pf('Drop unused thread view table: '. $v);
 			drop_table($v);
 			unset($tbls[$k]);
 		}
-		if (preg_match('/^'. $tbl .'fl_(\d)+$/', $v, $m) && !in_array($m[1], $forums)) {
+		if (preg_match('/^'. $tbl .'fl_(\d+)+$/', $v, $m) && !in_array($m[1], $forums)) {
 			pf('Drop unused forum lock table: '. $v);
 			drop_table($v);
 			unset($tbls[$k]);
@@ -157,14 +158,17 @@ While it is running, your forum will be disabled!
 		frm_add_lock_tbl($fl_tbl);
 	}
 
-
 	/* Add private message lock table. */
 	if (!in_array($tbl .'fl_pm', $tbls)) {
 		frm_add_lock_tbl($tbl .'fl_pm');
 	}
 	unset($tmp);
+	/* Add page lock table. */
+	if (!in_array($tbl .'fl_pg', $tbls)) {
+		frm_add_lock_tbl($tbl .'fl_pg');
+	}
+	unset($tmp);
 	draw_stat('Done: Validating lock and view tables');
-
 
 	// Add the various table aliases.
 	array_push($tbls, $tbl .'users u', $tbl .'forum f', $tbl .'thread t', $tbl .'poll p', $tbl .'poll_opt po', $tbl .'poll_opt_track pot',
@@ -362,7 +366,7 @@ While it is running, your forum will be disabled!
 	draw_stat('Done: Rebuild attachment cache for private messages');
 
 	draw_stat('Correcting Attachment Paths...');
-	$c = uq('SELECT id, location FROM '. $tbl .'attach WHERE location IS NOT NULL AND location NOT LIKE '. _esc($FILE_STORE .'%'));
+	$c = q('SELECT id, location FROM '. $tbl .'attach WHERE location IS NOT NULL AND location NOT LIKE '. _esc($FILE_STORE .'%'));
 	while ($r = db_rowobj($c)) {
 		draw_stat(' - fix path for: '. $r->location);
 		preg_match('!(.*)/!', $r->location, $m);
@@ -488,7 +492,13 @@ While it is running, your forum will be disabled!
 
 	draw_stat('Rebuild Custom Field Cache');
 	fud_custom_field::rebuild_cache();
+
+	draw_stat('Rebuild Announcement Cache');
+	fud_announce::rebuild_cache();
 	
+	draw_stat('Rebuild Spider Cache');
+	fud_spider::rebuild_cache();
+
 	draw_stat('Checking topic notification');
 	q('DELETE FROM '. $tbl .'thread_notify WHERE NOT EXISTS (SELECT id FROM '. $tbl .'users  WHERE '. $tbl .'thread_notify.user_id = id)');
 	q('DELETE FROM '. $tbl .'thread_notify WHERE NOT EXISTS (SELECT id FROM '. $tbl .'thread WHERE '. $tbl .'thread_notify.thread_id = id)');
@@ -811,7 +821,7 @@ While it is running, your forum will be disabled!
 		maintenance_status($DISABLED_REASON, 0);
 	} else {
 		pf('<font size="+1" color="red">Your forum is currently disabled, to re-enable it go to the <a href="admglobal.php?'.__adm_rsid.'">Global Settings Manager</a> and re-enable it.</font>');
-}
+	}
 
 	draw_stat('DONE!');
 

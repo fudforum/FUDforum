@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -41,7 +41,7 @@
 			$c = q('SELECT id, alias FROM '. $DBHOST_TBL_PREFIX .'users WHERE alias='. _esc($srch));
 		} else if (($cnt = q_singleval('SELECT count(*) FROM '. $DBHOST_TBL_PREFIX .'users WHERE alias LIKE '. _esc(addcslashes($srch,'\\').'%')))) {
 			if ($cnt > 50) $cnt = 50;
-			$c = q('SELECT id, alias FROM '. $DBHOST_TBL_PREFIX .'users WHERE alias LIKE '. _esc(addcslashes($srch,'\\').'%') .' LIMIT 50');
+			$c = q(q_limit('SELECT id, alias FROM '. $DBHOST_TBL_PREFIX .'users WHERE alias LIKE '. _esc(addcslashes($srch,'\\').'%'), 50));
 		}
 
 		switch ($cnt) {

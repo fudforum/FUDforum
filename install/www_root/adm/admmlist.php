@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -188,10 +188,10 @@ function format_regex(&$regex)
 	<tr class="field">
 		<td>
 			Slow Reply Match:<br />
-			<font size="-1">Certain mail client do sent send necessary headers needed to determine if a message is
-			a reply to an existing message. If this option is enabled and normally available reply headers are not there,
-			the forum will try to determine if message is a reply by comparing the message's subject to subjects of existing
-			messages in the forum.</font>
+			<font size="-1">Certain mail clients do not send the necessary headers to determine if a message is a 
+			reply to an existing message. If this option is enabled, and the normal reply headers are absent, 
+			the forum will try to determine if the message is a reply by comparing its subject to subjects of messages 
+			in the forum.</font>
 		</td>
 		<td><?php draw_select('ml_complex_reply_match', "No\nYes", "0\n32", ($ml_mlist_opt & 32 ? 32 : 0)); ?></td>
 	</tr>

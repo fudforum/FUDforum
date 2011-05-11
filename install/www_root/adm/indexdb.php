@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -34,7 +34,7 @@
 	fud_use('rev_fmt.inc'); // index_text() needs strip_tags().
 
 	if (isset($_POST['btn_cancel'])) {
-		header('Location: '. $WWW_ROOT .'adm/index.php?'. __adm_rsid);
+		header('Location: '. $WWW_ROOT .'adm/index.php?'. __adm_rsidl);
 		exit;
 	}
 
@@ -52,7 +52,7 @@
 		$start_time = time();
 
 		if (defined('shell_script')) {
-			list($locale, $GLOBALS['usr']->lang) = db_saq('SELECT locale, lang FROM '. $tbl .'themes WHERE '. q_bitand(theme_opt, (1|2)) .' > 0 LIMIT 1');
+			list($locale, $GLOBALS['usr']->lang) = db_saq(q_limit('SELECT locale, lang FROM '. $tbl .'themes WHERE '. q_bitand(theme_opt, (1|2)) .' > 0', 1));
 			$GLOBALS['good_locale'] = setlocale(LC_ALL, $locale);
 		}
 
@@ -62,13 +62,14 @@
 		q('DELETE FROM '. $tbl .'title_index');
 		q('DELETE FROM '. $tbl .'search_cache');
 
-		$i = 0;
+		$i = 1;
 		$i_count = q_singleval('SELECT count(*) FROM '. $tbl .'msg WHERE apr=1');
+		$i_commit = ($i_count > 10000) ? 1000 : 100;
 		$c = q('SELECT id, subject, foff, length, file_id FROM '. $tbl .'msg WHERE apr=1');
 		while ($r = db_rowarr($c)) {
 			index_text($r[1], read_msg_body($r[2], $r[3], $r[4]), $r[0]);
 
-			if ($i && !($i % ceil($i_count/10))) {
+			if (($i % $i_commit) == 0) {
 				/* Commit and re-acquire locks. */
 				db_unlock();
 				eta_calc($start_time, $i, $i_count);

@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -39,32 +39,32 @@
 		if ($_POST['copy_mode'] == 'headfoot') {	// Sparse theme - header & footer.
 			mkdir($root_nn.'/tmpl', 0777);
 			if ($_POST['base_template_set'] == 'path_info') {
-				fudcopy($root .'path_info/tmpl/', $root_nn .'/tmpl', '{header.tmpl,footer.tmpl}', true);
+				fud_copy($root .'path_info/tmpl/', $root_nn .'/tmpl', '{header.tmpl,footer.tmpl}', true);
 		    } else {
-				fudcopy($root .'default/tmpl/', $root_nn .'/tmpl', '{header.tmpl,footer.tmpl}', true);
+				fud_copy($root .'default/tmpl/', $root_nn .'/tmpl', '{header.tmpl,footer.tmpl}', true);
 			}
 		} else if ($_POST['copy_mode'] == 'headfootcss') {	// sparse theme - header, footer & css
 			mkdir($root_nn.'/tmpl', 0777);
-			fudcopy($root .'default/tmpl/', $root_nn .'/tmpl', 'forum.css.tmpl', true);
+			fud_copy($root .'default/tmpl/', $root_nn .'/tmpl', 'forum.css.tmpl', true);
 			if ($_POST['base_template_set'] == 'path_info') {
-				fudcopy($root .'path_info/tmpl/', $root_nn .'/tmpl', '{header.tmpl,footer.tmpl}', true);
+				fud_copy($root .'path_info/tmpl/', $root_nn .'/tmpl', '{header.tmpl,footer.tmpl}', true);
 		    } else {
-				fudcopy($root .'default/tmpl/', $root_nn .'/tmpl', '{header.tmpl,footer.tmpl}', true);
+				fud_copy($root .'default/tmpl/', $root_nn .'/tmpl', '{header.tmpl,footer.tmpl}', true);
 			}
 		} else if ($_POST['copy_mode'] == 'all') {	// Full theme with all files - not recommended!
-			fudcopy($root .'default/', $root_nn, '*', true);
+			fud_copy($root .'default/', $root_nn, '*', true);
 			if ($_POST['base_template_set'] == 'path_info') {
-				fudcopy($root .'path_info/', $root_nn, '*', true);
+				fud_copy($root .'path_info/', $root_nn, '*', true);
 		    }
 		}
 
 		if ($_POST['base_template_set'] == 'path_info') {	// Copy the PATH_INFO pointer.
-			fudcopy($root .'path_info/', $root_nn, '.path_info', true);
+			fud_copy($root .'path_info/', $root_nn, '.path_info', true);
 		}
 		umask($u);
 		echo successify('Template set '. $_POST['newname'] .' was successfully created.');
 	}
-	
+
 	list($def_thm, $def_tmpl) = db_saq('SELECT name, lang FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'themes WHERE theme_opt=3');
 ?>
 <h2>Template Editor</h2>

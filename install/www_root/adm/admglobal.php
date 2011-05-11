@@ -79,6 +79,12 @@ function get_max_upload_size()
 			$GLOBALS['NEW_FUD_OPT_3'] ^= 512;
 		}
 
+		/* Check if we can use the spell checker. */
+		if ($NEW_FUD_OPT_1 & 2097152 && !extension_loaded('pspell')) {
+			echo errorify('PHP\'s pspell module is currently disabled.');
+			$NEW_FUD_OPT_1 ^= 2097152;
+		}
+		
 		/* Check if we can use TEMP tables. */
 		if ($NEW_FUD_OPT_3 & 4096) {
 			try {
@@ -177,26 +183,34 @@ function get_max_upload_size()
 <a href="#15" class="seclink">E-mail</a> |
 <a href="#16" class="seclink">General</a>
 ]</div>
+<br />
 
 <script type="text/javascript">
 /* <![CDATA[ */
+function show_section(sec) {
+	$("fieldset.section").hide();
+	$("."+sec).slideDown("slow").find(":text:visible:enabled:first").focus();
+	$("#settings-form").attr("action", "admglobal.php#"+sec);
+}
+
 $(document).ready(function() {
-  $('.seclink').click(function () {
-    $('tbody.section').hide();
-    $sec = $(this).attr('href').substr(1);
-    $('.'+$sec).slideDown('slow');
-    $('.'+$sec).slideDown('slow').find(':text:visible:enabled:first').focus();
-  }); 
+	$(".seclink").click(function () {	// Click on section link.
+		sec = $(this).attr('href').substr(1);
+		show_section(sec);
+	}); 
+	if (window.location.hash) {	// Settings changed.
+		sec = window.location.hash.substr(1);
+		show_section(sec);
+	}
 });
 /* ]]> */
 </script>
 
-<form method="post" action="admglobal.php" autocomplete="off">
+<form id="settings-form" method="post" action="admglobal.php" autocomplete="off">
 <?php echo _hs ?>
-<table class="datatable solidtable">
 
-<tbody class="section 1">
-<tr class="fieldtopic"><td colspan="2"><a name="1" /><br /><b>Primary Forum Options</b></td></tr>
+<fieldset class="section 1"><legend>Primary Forum Options</legend>
+<table class="datatable solidtable"><col width="50%" /><col width="50%" />
 <?php
 	print_reg_field('Forum Title', 'FORUM_TITLE');
 	print_txt_field('Forum Description', 'FORUM_DESCR');
@@ -207,10 +221,11 @@ $(document).ready(function() {
 	print_bit_field($msg .'Debug Forum', 'FORUM_DEBUG');
 ?>
 <tr class="fieldaction"><td align="left"><input type="submit" name="btn_submit" value="Set" /></td><td align="right">[ <a href="#top">top</a> ]</td></tr>
-</tbody>
+</table>
+</fieldset>
 
-<tbody class="section 2">
-<tr class="fieldtopic"><td colspan="2"><a name="2" /><br /><b>URL &amp; directories</b></td></tr>
+<fieldset class="section 2"><legend>URL &amp; directories</legend>
+<table class="datatable solidtable"><col width="50%" /><col width="50%" />
 <?php
 	print_reg_field('WWW Root', 'WWW_ROOT');
 	print_reg_field('WWW Root (disk path)', 'WWW_ROOT_DISK');
@@ -218,10 +233,11 @@ $(document).ready(function() {
 	print_bit_field('Use PATH_INFO style URLs<br /><a href="'.$WWW_ROOT.'index.php/a/b/c" target="_blank">Test Link</a>', 'USE_PATH_INFO');
 ?>
 <tr class="fieldaction"><td align="left"><input type="submit" name="btn_submit" value="Set" /></td><td align="right">[ <a href="#top">top</a> ]</td></tr>
-</tbody>
+</table>
+</fieldset>
 
-<tbody class="section 3">
-<tr class="fieldtopic"><td colspan="2"><a name="3" /><br /><b>Database Settings</b> </td></tr>
+<fieldset class="section 3"><legend>Database Settings</legend>
+<table class="datatable solidtable"><col width="50%" /><col width="50%" />
 <?php
 	print_reg_field('Database Server', 'DBHOST');
 	if (__dbtype__ == 'mysql') {
@@ -236,10 +252,11 @@ $(document).ready(function() {
 	print_bit_field('Use Database for message storage', 'DB_MESSAGE_STORAGE');
 	?>
 <tr class="fieldaction"><td align="left"><input type="submit" name="btn_submit" value="Set" /></td><td align="right">[ <a href="#top">top</a> ]</td></tr>
-</tbody>
+</table>
+</fieldset>
 
-<tbody class="section 4">
-<tr class="fieldtopic"><td colspan="2"><a name="4" /><br /><b>Interface Look &amp; Feel</b> </td></tr>
+<fieldset class="section 4"><legend>Interface Look &amp; Feel</legend>
+<table class="datatable solidtable"><col width="50%" /><col width="50%" />
 <?php
 	print_reg_field('General Pager Link Count', 'GENERAL_PAGER_COUNT', 1);
 	print_reg_field('Quick Pager Link Count', 'THREAD_MSG_PAGER', 1);
@@ -250,10 +267,11 @@ $(document).ready(function() {
 	print_bit_field('Disable AutoComplete', 'DISABLE_AUTOCOMPLETE');
 ?>
 <tr class="fieldaction"><td align="left"><input type="submit" name="btn_submit" value="Set" /></td><td align="right">[ <a href="#top">top</a> ]</td></tr>
-</tbody>
+</table>
+</fieldset>
 
-<tbody class="section 5">
-<tr class="fieldtopic"><td colspan="2"><a name="5" /><br /><b>Front Page Settings</b></td></tr>
+<fieldset class="section 5"><legend>Front Page Settings</legend>
+<table class="datatable solidtable"><col width="50%" /><col width="50%" />
 <?php
 	print_reg_field('Number Of Moderators To Show', 'SHOW_N_MODS', 1);
 	print_bit_field('Forum Info', 'FORUM_INFO');
@@ -264,10 +282,11 @@ $(document).ready(function() {
 	print_bit_field('Allow Action List', 'ACTION_LIST_ENABLED');
 ?>
 <tr class="fieldaction"><td align="left"><input type="submit" name="btn_submit" value="Set" /></td><td align="right">[ <a href="#top">top</a> ]</td></tr>
-</tbody>
+</table>
+</fieldset>
 
-<tbody class="section 6">
-<tr class="fieldtopic"><td colspan="2"><a name="6" /><br /><b>Topic Settings</b></td></tr>
+<fieldset class="section 6"><legend>Topic Settings</legend>
+<table class="datatable solidtable"><col width="50%" /><col width="50%" />
 <?php
 	print_reg_field('Topics Per Page', 'THREADS_PER_PAGE', 1);
 	print_reg_field('Moved Topic Pointer Expiry', 'MOVED_THR_PTR_EXPIRY', 1);
@@ -279,10 +298,11 @@ $(document).ready(function() {
 	print_bit_field('Topic Rating', 'ENABLE_THREAD_RATING');
 ?>
 <tr class="fieldaction"><td align="left"><input type="submit" name="btn_submit" value="Set" /></td><td align="right">[ <a href="#top">top</a> ]</td></tr>
-</tbody>
+</table>
+</fieldset>
 
-<tbody class="section 7">
-<tr class="fieldtopic"><td colspan="2"><a name="7" /><br /><b>Message Settings</b></td></tr>
+<fieldset class="section 7"><legend>Message Settings</legend>
+<table class="datatable solidtable"><col width="50%" /><col width="50%" />
 <?php
 	print_reg_field('Messages Per Page', 'POSTS_PER_PAGE', 1);
 	print_bit_field('Disable Tree View of Message Listing', 'DISABLE_TREE_MSG');
@@ -303,10 +323,11 @@ $(document).ready(function() {
 	print_bit_field('Enable Affero<br /><a href="http://www.affero.net/bbsteps.html">Click here for details</a>', 'ENABLE_AFFERO');
 ?>
 <tr class="fieldaction"><td align="left"><input type="submit" name="btn_submit" value="Set" /></td><td align="right">[ <a href="#top">top</a> ]</td></tr>
-</tbody>
+</table>
+</fieldset>
 
-<tbody class="section 8">
-<tr class="fieldtopic"><td colspan="2"><a name="8" /><br /><b>Private Messaging</b></td></tr>
+<fieldset class="section 8"><legend>Private Messaging</legend>
+<table class="datatable solidtable"><col width="50%" /><col width="50%" />
 <?php
 	print_bit_field('Allow Private Messaging', 'PM_ENABLED');
 	print_reg_field('File Attachments in Private Messages', 'PRIVATE_ATTACHMENTS', 1);
@@ -319,10 +340,11 @@ $(document).ready(function() {
 	print_reg_field('Maximum Private Messages Folder Size (for administrators)', 'MAX_PMSG_FLDR_SIZE_AD', 1);
 ?>
 <tr class="fieldaction"><td align="left"><input type="submit" name="btn_submit" value="Set" /></td><td align="right">[ <a href="#top">top</a> ]</td></tr>
-</tbody>
+</table>
+</fieldset>
 
-<tbody class="section 9">
-<tr class="fieldtopic"><td colspan="2"><a name="9" /><br /><b>User Account Settings</b></td></tr>
+<fieldset class="section 9"><legend>User Account Settings</legend>
+<table class="datatable solidtable"><col width="50%" /><col width="50%" />
 <?php
 	print_bit_field('Allow Registration', 'ALLOW_REGISTRATION');
 	print_bit_field('Allow Userid Changes', 'ALLOW_USERID_CHANGES');
@@ -343,10 +365,11 @@ $(document).ready(function() {
 	print_bit_field('Disable who\'s online for anonymous users', 'NO_ANON_WHO_ONLINE');
 ?>
 <tr class="fieldaction"><td align="left"><input type="submit" name="btn_submit" value="Set" /></td><td align="right">[ <a href="#top">top</a> ]</td></tr>
-</tbody>
+</table>
+</fieldset>
 
-<tbody class="section 10">
-<tr class="fieldtopic"><td colspan="2"><a name="10" /><br /><b>Cookie &amp; Session Settings</b> </td></tr>
+<fieldset class="section 10"><legend>Cookie &amp; Session Settings</legend>
+<table class="datatable solidtable"><col width="50%" /><col width="50%" />
 <?php
 	print_reg_field('Cookie Path', 'COOKIE_PATH');
 	print_reg_field('Cookie Domain', 'COOKIE_DOMAIN');
@@ -361,10 +384,11 @@ $(document).ready(function() {
 	print_bit_field('Multiple Host Login', 'MULTI_HOST_LOGIN');
 ?>
 <tr class="fieldaction"><td align="left"><input type="submit" name="btn_submit" value="Set" /></td><td align="right">[ <a href="#top">top</a> ]</td></tr>
-</tbody>
+</table>
+</fieldset>
 
-<tbody class="section 11">
-<tr class="fieldtopic"><td colspan="2"><a name="11" /><br /><b>Avatar Settings</b> </td></tr>
+<fieldset class="section 11"><legend>Avatar Settings</legend>
+<table class="datatable solidtable"><col width="50%" /><col width="50%" />
 <?php
 	print_bit_field('Avatar Approval', 'CUSTOM_AVATAR_APPROVAL');
 	print_bit_field('Allow Flash (swf) avatars', 'CUSTOM_AVATAR_ALLOW_SWF');
@@ -373,10 +397,11 @@ $(document).ready(function() {
 	print_reg_field('Custom Avatar Max Dimensions', 'CUSTOM_AVATAR_MAX_DIM');
 ?>
 <tr class="fieldaction"><td align="left"><input type="submit" name="btn_submit" value="Set" /></td><td align="right">[ <a href="#top">top</a> ]</td></tr>
-</tbody>
+</table>
+</fieldset>
 
-<tbody class="section 12">
-<tr class="fieldtopic"><td colspan="2"><a name="12" /><br /><b>Signature Settings</b> </td></tr>
+<fieldset class="section 12"><legend>Signature Settings</legend>
+<table class="datatable solidtable"><col width="50%" /><col width="50%" />
 <?php
 	print_bit_field('Allow Signatures', 'ALLOW_SIGS');
 	print_bit_field('Tag Style', 'FORUM_CODE_SIG');
@@ -386,10 +411,11 @@ $(document).ready(function() {
 	print_reg_field('Maximum signature length', 'FORUM_SIG_ML', 1);
 ?>
 <tr class="fieldaction"><td align="left"><input type="submit" name="btn_submit" value="Set" /></td><td align="right">[ <a href="#top">top</a> ]</td></tr>
-</tbody>
+</table>
+</fieldset>
 
-<tbody class="section 13">
-<tr class="fieldtopic"><td colspan="2"><a name="13" /><br /><b>Search Settings</b> </td></tr>
+<fieldset class="section 13"><legend>Search Settings</legend>
+<table class="datatable solidtable"><col width="50%" /><col width="50%" />
 <?php
 	print_bit_field('Forum Search Engine', 'FORUM_SEARCH');
 	print_reg_field('Search results cache', 'SEARCH_CACHE_EXPIRY', 1);
@@ -397,10 +423,11 @@ $(document).ready(function() {
 	print_reg_field('Members Per Page', 'MEMBERS_PER_PAGE', 1);
 ?>
 <tr class="fieldaction"><td align="left"><input type="submit" name="btn_submit" value="Set" /></td><td align="right">[ <a href="#top">top</a> ]</td></tr>
-</tbody>
+</table>
+</fieldset>
 
-<tbody class="section 14">
-<tr class="fieldtopic"><td colspan="2"><a name="14" /><br /><b>Spell Checker</b> </td></tr>
+<fieldset class="section 14"><legend>Spell Checker</legend>
+<table class="datatable solidtable"><col width="50%" /><col width="50%" />
 <?php
 	if (!extension_loaded('pspell')) {
 		echo '<tr class="field"><td colspan="2">You cannot use the spell checker as PHP\'s pspell module is currently <span style="color:red">disabled</span>. Please ask your administrator to enable "pspell" support.</td></tr>';
@@ -409,10 +436,11 @@ $(document).ready(function() {
 ?>
 </td></tr>
 <tr class="fieldaction"><td align="left"><input type="submit" name="btn_submit" value="Set" /></td><td align="right">[ <a href="#top">top</a> ]</td></tr>
-</tbody>
+</table>
+</fieldset>
 
-<tbody class="section 15">
-<tr class="fieldtopic"><td colspan="2"><a name="15" /><br /><b>E-mail Settings</b> </td></tr>
+<fieldset class="section 15"><legend>E-mail Settings</legend>
+<table class="datatable solidtable"><col width="50%" /><col width="50%" />
 <?php
 	print_bit_field('Allow E-mail', 'ALLOW_EMAIL');
 	print_reg_field('Administrator E-mail', 'ADMIN_EMAIL');
@@ -447,10 +475,11 @@ $(document).ready(function() {
 /* ]]> */
 </script>
 <tr class="fieldaction"><td align="left"><input type="submit" name="btn_submit" value="Set" /></td><td align="right">[ <a href="#top">top</a> ]</td></tr>
-</tbody>
+</table>
+</fieldset>
 
-<tbody class="section 16">
-<tr class="fieldtopic"><td colspan="2"><a name="16" /><br /><b>General Settings</b> </td></tr>
+<fieldset class="section 16"><legend>General Settings</legend>
+<table class="datatable solidtable"><col width="50%" /><col width="50%" />
 <?php
 	// Get list of timezones to display.
 	$tz_names = implode("\n", timezone_identifiers_list());
@@ -477,7 +506,8 @@ $(document).ready(function() {
 	print_reg_field('Polls Per Page', 'POLLS_PER_PAGE', 1);
 ?>
 <tr class="fieldaction"><td align="left"><input type="submit" name="btn_submit" value="Set" /></td><td align="right">[ <a href="#top">top</a> ]</td></tr>
-</tbody>
+</table>
+</fieldset>
 
 </table>
 <input type="hidden" name="form_posted" value="1" />

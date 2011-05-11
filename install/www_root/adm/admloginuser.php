@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -18,7 +18,7 @@
 	fud_use('users_reg.inc');
 
 	if (!empty($_POST['login']) && !empty($_POST['passwd'])) {
-		$r = db_sab('SELECT id, passwd, salt FROM '. $DBHOST_TBL_PREFIX .'users WHERE login='. _esc($_POST['login']) .' AND users_opt>=1048576 AND '. q_bitand('users_opt', 1048576) .' > 0 AND (last_login + '.$MIN_TIME_BETWEEN_LOGIN.') < '.__request_timestamp__);
+		$r = db_sab('SELECT id, passwd, salt FROM '. $DBHOST_TBL_PREFIX .'users WHERE login='. _esc($_POST['login']) .' AND users_opt>=1048576 AND '. q_bitand('users_opt', 1048576) .' > 0 AND (last_login + '. $MIN_TIME_BETWEEN_LOGIN .') < '. __request_timestamp__);
 		if ($r && (empty($r->salt) && $r->passwd == md5($_POST['passwd']) || $r->passwd == sha1($r->salt . sha1($_POST['passwd'])))) {
 			$sid = user_login($r->id, $usr->ses_id, true);
 			$GLOBALS['new_sq'] = regen_sq($r->id);
@@ -27,7 +27,7 @@
 		} else {
 			q('UPDATE '. $DBHOST_TBL_PREFIX .'users SET last_login='. __request_timestamp__ .' WHERE login='. _esc($_POST['login']));
 			logaction(0, 'WRONGPASSWD', 0, 'Invalid ACP user/password for login '. htmlspecialchars($_POST['login'], ENT_QUOTES) .'/'. preg_replace('/./', '*', $_POST['passwd']) .' from IP '. get_ip() .'.');
-			$err = 'Only administrators with proper access credentials can login via this control panel.<br />Incorrect username/password or flood check triggered.';
+			$err = 'Incorrect username/password or flood check triggered.<br />If you accidentally entered the wrong username or password, please wait '. $MIN_TIME_BETWEEN_LOGIN .' minutes before retrying.';
 		}
 	} else {
 		$err = '';

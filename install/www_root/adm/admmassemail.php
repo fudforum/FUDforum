@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -8,6 +8,8 @@
 * under the terms of the GNU General Public License as published by the
 * Free Software Foundation; version 2 of the License.
 **/
+// TODO: Rewrite to use send_email() in iemail.inc.t. We should have a single mail sending routine.
+// send_email($from, $to, $subj, $body, $header='', $munge_newlines=1)
 
 	require('./GLOBALS.php');
 	fud_use('adm.inc', true);
@@ -18,12 +20,12 @@
 	require($WWW_ROOT_DISK .'adm/header.php');
 
 	/* Special user groups. */
-	$all_mods = -1000000000;
+	$all_mods     = -1000000000;
 	$all_grp_lead = -1000000001;	
 
 	/* Find groups with members. */
 	$groups = array();
-	$c = uq('select count(*), g.id, g.name from '. $DBHOST_TBL_PREFIX .'group_members gm INNER JOIN '. $DBHOST_TBL_PREFIX .'groups g ON g.id=gm.group_id WHERE gm.user_id NOT IN(0,2147483647) GROUP BY g.id, g.name');
+	$c = uq('SELECT count(*), g.id, g.name FROM '. $DBHOST_TBL_PREFIX .'group_members gm INNER JOIN '. $DBHOST_TBL_PREFIX .'groups g ON g.id=gm.group_id WHERE gm.user_id NOT IN(0,2147483647) GROUP BY g.id, g.name');
 	while (list($cnt, $gid, $gname) = db_rowarr($c)) {
 		$groups[$gid] = array($gname, $cnt);
 	}
@@ -51,9 +53,9 @@
 			}
 		}
 
-		$mails_sent = 0;
+		$mails_sent   = 0;
 		$mails_failed = 0;
-		if (!empty($_POST['pm'])) {
+		if (!empty($_POST['pm'])) {	// Send private messages.
 			define('no_inline', 1);
 			fud_use('ssu.inc');
 			$to = array();
@@ -64,20 +66,20 @@
 			if ($to) {
 				send_status_update($to, '', '', $_POST['subject'], $_POST['body']);
 			}
-		} else {
-			$email_block = 50;
-			$email_block_stat = 0;
+		} else {	// Send via E-mail.
+			$email_batch     = 50;
+			$email_batch_cnt = 0;
 			$to = array();
 
-			if (!($FUD_OPT_1 & 512)) {	// USE_SMTP
+			if (!($FUD_OPT_1 & 512)) {	// Not USE_SMTP.
 				$header = 'From: '. $ADMIN_EMAIL. "\r\nErrors-To: ". $ADMIN_EMAIL. "\r\nReply-To: ". $ADMIN_EMAIL. "\r\nX-Mailer: FUDforum v". $GLOBALS['FORUM_VERSION']. "\r\nMIME-Version: 1.0\r\nContent-Type: text/plain; charset=". $charset. "\r\nContent-Transfer-Encoding: 8bit";
 			
 				$_POST['body'] = str_replace("\n.", "\n..", $_POST['body']);
 
 				while ($r = db_rowarr($c)) {
 					$to[] = $r[0];
-					if (!(++$email_block_stat % $email_block)) {
-						$email_block_stat = 0;
+					if (!(++$email_batch_cnt % $email_batch)) {
+						$email_batch_cnt = 0;
 						$bcc = implode(', ', $to) . "\r\n";
 						$mail_success = @mail(' ', encode_subject($_POST['subject']), $_POST['body'], $header.'\nBcc: '.$bcc);
 						if ($mail_success) {
@@ -102,7 +104,7 @@
 				}
 			} else {
 				$header = 'Errors-To: '. $ADMIN_EMAIL. "\r\nReply-To: ". $ADMIN_EMAIL. "\r\nMIME-Version: 1.0\r\nContent-Type: text/plain; charset=". $charset. "\r\nContent-Transfer-Encoding: 8bit";
-			
+
 				$smtp = new fud_smtp;
 				$smtp->msg = str_replace("\n.", "\n..", $_POST['body']);
 				$smtp->subject = encode_subject($_POST['subject']);
@@ -111,8 +113,8 @@
 
 				while ($r = db_rowarr($c)) {
 					$to[] = $r[0];
-					if (!(++$email_block_stat % $email_block)) {
-						$email_block_stat = 0;
+					if (!(++$email_batch_cnt % $email_batch)) {
+						$email_batch_cnt = 0;
 
 						$smtp->to = $to;
 						$mail_success = $smtp->send_smtp_email();

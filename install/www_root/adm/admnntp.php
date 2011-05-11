@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -91,13 +91,29 @@
 
 	<tr class="field">
 		<td>Login:<br /><font size="-1">Not needed if authentication is not being used.</font></td>
-		<td><input type="text" name="nntp_login" value="<?php echo htmlspecialchars($nntp_login); ?>" size="30" maxlength="255" /></td>
+		<td><input type="text" id="nntp_login" name="nntp_login" value="<?php echo htmlspecialchars($nntp_login); ?>" size="30" maxlength="255" /></td>
 	</tr>
 
 	<tr class="field">
 		<td>Password:<br /><font size="-1">Not needed if authentication is not being used.</font></td>
-		<td><input type="text" name="nntp_pass" value="<?php echo htmlspecialchars($nntp_pass); ?>" size="30" maxlength="255" /></td>
+		<td><input type="text" id="nntp_pass" name="nntp_pass" value="<?php echo htmlspecialchars($nntp_pass); ?>" size="30" maxlength="255" /></td>
 	</tr>
+
+	<script type="text/javascript">
+	/* <![CDATA[ */
+	$(document).ready(function() {
+		/* Hide 'Login' & 'Password' fields if 'Authentication Method' is NONE. */
+		$('#nntp_auth').change(function() {
+			if ( $('#nntp_auth option:selected').val() == 64 ) {
+				$('#nntp_login, #nntp_pass').parent().parent().hide('slow');
+			} else {
+				$('#nntp_login, #nntp_pass').parent().parent().show('slow');
+			}
+		});
+		$('#nntp_auth').change();
+	});
+	/* ]]> */
+	</script>
 
 	<tr>
 		<td colspan="2"><br /></td>

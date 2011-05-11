@@ -18,8 +18,9 @@
 
 	// Load file into textarea for execution.
 	if (isset($_FILES['sql_file']) && $_FILES['sql_file']['error'] == UPLOAD_ERR_OK) {
-		if (substr($_FILES['userfile']['type'], 0, 4) != 'text') {
+		if (substr($_FILES['sql_file']['type'], 0, 4) != 'text') {
 			pf(errorify('Please upload a text file that contains SQL statements.'));
+			$_POST['txtb'] = '';
 		} else {
 			$_POST['txtb'] = file_get_contents($_FILES['sql_file']['tmp_name']);
 		}

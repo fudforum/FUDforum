@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -64,26 +64,105 @@ Welcome to your forum's Admin Control Panel. From here you can control how your 
 
 <table border="0"><tr><td width="50%" valign="top">
 
-<h4>Getting help:</h4>
-FUDforum's documentation is available on our <b><a href="http://cvs.prohost.org/">development and documentation wiki</a></b>. Please report any problems on the support forum at <b><a href="http://fudforum.org">fudforum.org</a></b>.
+	<h4>Getting help:</h4>
+	FUDforum's documentation is available on our <b><a href="http://cvs.prohost.org/">development and documentation wiki</a></b>. Please report any problems on the support forum at <b><a href="http://fudforum.org">fudforum.org</a></b>.
 
 </td><td width="50%" valign="top">
 
-<h4>Versions:</h4>
-<?php if (!isset($display_ver)) { ?>
-	<b>FUDforum</b>: <?php echo $FORUM_VERSION; ?><br />
-<?php } elseif (version_compare($display_ver, $FORUM_VERSION, '>')) { ?>
-	<b>FUDforum</b>: <?php echo $FORUM_VERSION; ?> <span style="color:red">please upgrade ASAP!</span><br />
-<?php } else { ?>
-	<b>FUDforum</b>: <?php echo $FORUM_VERSION; ?> (<span style="color:green">latest version</span>)<br />
-<?php } ?>
-<b>PHP</b>: <?php echo PHP_VERSION; ?><br />
-<b>Database</b>: <?php echo __dbtype__ .' '. db_version() .' ('. $GLOBALS['DBHOST_DBTYPE'] .')'; ?><br />
-<b>Operating system</b>: <?php echo (@php_uname() ? php_uname('s') .' '. php_uname('r') : 'n/a') ?><br />
+	<h4>Versions:</h4>
+	<?php if (!isset($display_ver)) { ?>
+		<b>FUDforum</b>: <?php echo $FORUM_VERSION; ?><br />
+	<?php } elseif (version_compare($display_ver, $FORUM_VERSION, '>')) { ?>
+		<b>FUDforum</b>: <?php echo $FORUM_VERSION; ?> <span style="color:red">please upgrade ASAP!</span><br />
+	<?php } else { ?>
+		<b>FUDforum</b>: <?php echo $FORUM_VERSION; ?> (<span style="color:green">latest version</span>)<br />
+	<?php } ?>
+	<b>PHP</b>: <?php echo PHP_VERSION; ?><br />
+	<b>Database</b>: <?php echo __dbtype__ .' '. db_version() .' ('. $GLOBALS['DBHOST_DBTYPE'] .')'; ?><br />
+	<b>Operating system</b>: <?php echo (@php_uname() ? php_uname('s') .' '. php_uname('r') : 'n/a') ?><br />
 
-<span style="float:right;"><a href="admsysinfo.php?<?php echo __adm_rsid; ?>">More... &raquo;</a></span>
+	<span style="float:right;"><a href="admsysinfo.php?<?php echo __adm_rsid; ?>">More... &raquo;</a></span>
+
+</td></tr><tr><td width="50%" valign="top">
+
+	<div id="chart_div1" style="width: 400px; height: 300px;"></div>
+
+</td><td width="50%" valign="top">
+
+	<div id="chart_div2" style="width: 400px; height: 300px;"></div>
 
 </td></tr></table>
+
+<?php
+$day_list = array(date('D', strtotime('today'))   => 0, 
+		date('D', strtotime('-1 day'))  => 0,
+		date('D', strtotime('-2 days')) => 0,
+		date('D', strtotime('-3 days')) => 0,
+		date('D', strtotime('-4 days')) => 0,
+		date('D', strtotime('-5 days')) => 0,
+		date('D', strtotime('-6 days')) => 0);
+
+$messages_per_day = $day_list;	// Copy.
+$c = uq('SELECT post_stamp FROM '. $tbl .'msg WHERE post_stamp > '. (__request_timestamp__ - 86400*7)); // Last 7 days.
+while ($r = db_rowarr($c)) {
+	$messages_per_day[ date('D', $r[0]) ] += 1;
+}
+$messages_per_day = array_values($messages_per_day);
+
+$registrations_per_day = $day_list;	// Copy again.
+$c = uq('SELECT join_date FROM '. $tbl .'users WHERE id!=1 AND join_date > '. (__request_timestamp__ - 86400*7)); // Last 7 days.
+while ($r = db_rowarr($c)) {
+	$registrations_per_day[ date('D', $r[0]) ] += 1;
+}
+$registrations_per_day = array_values($registrations_per_day); 
+?>
+
+<script src="https://www.google.com/jsapi"></script>
+<script async="async" type="text/javascript">
+// $(document).ready(function () {
+	google.load("visualization", "1", {packages:["corechart"]});
+	google.setOnLoadCallback(drawChart);
+	function drawChart() {
+		var data = new google.visualization.DataTable();
+		data.addColumn('string', 'Days ago');
+		data.addColumn('number', 'Messages');
+		data.addRows([
+			['today',     <?php echo $messages_per_day[0] ?>],
+			['yesterday', <?php echo $messages_per_day[1] ?>],
+			['-2 days',   <?php echo $messages_per_day[2] ?>],
+			['-3 days',   <?php echo $messages_per_day[3] ?>],
+			['-4 days',   <?php echo $messages_per_day[4] ?>],
+			['-5 days',   <?php echo $messages_per_day[5] ?>],
+		]);
+		var chart = new google.visualization.ColumnChart(document.getElementById('chart_div1'));
+		chart.draw(data, {
+			width: 400, height: 300, title: 'Recent messages', legend: 'none',
+			colors: ['#A2C180','#004411'],
+			chartArea: {left:30,top:30},
+			hAxis: {title: 'Days ago', titleTextStyle: {color: 'darkgreen'}}
+		});
+
+		var data = new google.visualization.DataTable();
+		data.addColumn('string', 'Days ago');
+		data.addColumn('number', 'Users');
+		data.addRows([
+			['today',     <?php echo $registrations_per_day[0] ?>],
+			['yesterday', <?php echo $registrations_per_day[1] ?>],
+			['-2 days',   <?php echo $registrations_per_day[2] ?>],
+			['-3 days',   <?php echo $registrations_per_day[3] ?>],
+			['-4 days',   <?php echo $registrations_per_day[4] ?>],
+			['-5 days',   <?php echo $registrations_per_day[5] ?>],
+		]);
+		var chart = new google.visualization.ColumnChart(document.getElementById('chart_div2'));
+		chart.draw(data, {
+			width: 400, height: 300, title: 'Recent registrations', legend: 'none',
+			colors: ['#A2C180','#004411'],
+			chartArea: {left:30,top:30},
+			hAxis: {title: 'Days ago', titleTextStyle: {color: 'darkgreen'}}
+		});
+	}
+// });
+</script>
 
 <?php
 	$forum_stats['MESSAGES']         = q_singleval('SELECT count(*) FROM '. $tbl .'msg');
@@ -167,7 +246,7 @@ FUDforum's documentation is available on our <b><a href="http://cvs.prohost.org/
 	<td valign="top"><b>Administrators:</b></td>
 	<td align="right" valign="top"><?php echo $forum_stats['ADMINS']; ?></td>
 	<td width="100">&nbsp;</td>
-	<td><font size="-1"><b><?php echo @sprintf('%.2f', $forum_stats['ADMINS']/$forum_stats['MEMBERS']); ?>%</b> of all users</font></td>
+	<td><font size="-1"><b><?php echo @sprintf('%.2f', $forum_stats['ADMINS']/$forum_stats['MEMBERS']*100); ?>%</b> of all users</font></td>
 </tr>
 
 <tr class="field">
@@ -182,8 +261,8 @@ FUDforum's documentation is available on our <b><a href="http://cvs.prohost.org/
 
 <hr />
 <form method="post" action="index.php"><?php echo _hs; ?>
-<input type="submit" name="btn_clear_online" class="button" value="Reset the 'most online users' counter" />
-<input type="submit" name="btn_clear_sessions" class="button" value="Clear ALL Forum Sessions" />
+<button name="btn_clear_online">Reset the 'most online users' counter</button>
+<button name="btn_clear_sessions">Clear ALL Forum Sessions</button>
 </form>
 <br />
 

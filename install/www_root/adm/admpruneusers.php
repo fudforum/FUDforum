@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -43,7 +43,7 @@
 			$user_count = q_singleval('SELECT count(*) FROM '. $DBHOST_TBL_PREFIX .'users WHERE id > 1 AND posted_msg_count = 0 AND last_visit < '. $back .' AND join_date < '. $back);
 ?>
 <div align="center">You are about to delete <font color="red"><?php echo $user_count; ?></font> users,
-which haven't logged on since <font color="red"><?php echo fdate('%d %B %Y %H:%M:%S', $back); ?></font><br /><br />
+which haven't logged on since <font color="red"><?php echo fdate($back, 'd M Y H:i'); ?></font><br /><br />
 			Are you sure you want to do this?<br />
 			<form method="post" action="">
 			<input type="hidden" name="btn_prune" value="1" />

@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -13,8 +13,8 @@
 
 	require('./GLOBALS.php');
 	fud_use('adm.inc', true);
-	fud_use('users_adm.inc', true);
-	fud_use('ssu.inc');
+	fud_use('users_adm.inc', true);	// For usr_adm_avatar().
+	fud_use('ssu.inc');	// For send_status_update().
 
 	require($WWW_ROOT_DISK .'adm/header.php');
 

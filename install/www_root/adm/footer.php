@@ -1,4 +1,14 @@
 <?php
+/**
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* email                : forum@prohost.org
+* $Id: footer.php 5075 2010-11-15 17:59:45Z naudefj $
+*
+* This program is free software; you can redistribute it and/or modify it
+* under the terms of the GNU General Public License as published by the
+* Free Software Foundation; version 2 of the License.
+**/
+
 	if (!isset($FORUM_TITLE, $DATA_DIR)) die('Go away!');	// Hacking attempt?
 	if (defined('shell_script') ) return;	// Command line execution.
 
@@ -8,7 +18,24 @@
 <div id="wikilink" style="text-align:right;">
 <script type="text/javascript">
 /* <![CDATA[ */
-$(document).ready(function() {
+$(function() {
+
+	// Collapsabile fieldsets.
+	$(function(){
+		$('legend').click(function(){
+			$(this).siblings().slideToggle("fast");
+			$(this).parent().toggleClass("collapsed");
+		});
+	});
+
+	// Start TimeAgo plugin.
+ 	// $("time").timeago();
+
+	// jQuery UI Buttons.
+	$("button, input:submit, #button").button({
+                icons: { primary: "ui-icon-gear", secondary: "ui-icon-triangle-1-s" }
+    });
+
 	// Make tables sortable.
 	$('.resulttable').tablesorter();
 

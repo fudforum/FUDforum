@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -8,11 +8,6 @@
 * under the terms of the GNU General Public License as published by the
 * Free Software Foundation; version 2 of the License.
 **/
-
-	@set_time_limit(6000);
-
-	require('./GLOBALS.php');
-	fud_use('adm.inc', true);
 
 function minimize($file, $maxl)
 {
@@ -82,9 +77,15 @@ function goto_tmpl($tmpl)
 	return $max_list .'#'. $tmpl;
 }
 
+/* main */
+	@set_time_limit(6000);
+
+	require('./GLOBALS.php');
+	fud_use('adm.inc', true);
+
 	$tname = isset($_POST['tname']) ? $_POST['tname'] : (isset($_GET['tname']) ? $_GET['tname'] : '');
 	$tlang = isset($_POST['tlang']) ? $_POST['tlang'] : (isset($_GET['tlang']) ? $_GET['tlang'] : '');
-	$edit = isset($_POST['edit']) ? $_POST['edit'] : (isset($_GET['edit']) ? $_GET['edit'] : '');
+	$edit  = isset($_POST['edit'])  ? $_POST['edit']  : (isset($_GET['edit'])  ? $_GET['edit']  : '');
 
 	if (!$tname || !$tlang) {
 		header('Location: '. $WWW_ROOT .'adm/admtemplates.php?'. __adm_rsidl);
@@ -176,29 +177,7 @@ function goto_tmpl($tmpl)
 	}
 	foreach ($files as $f) {
 		$data = file_get_contents($f);
-//		$n = basename($f);
 		$file = basename($f);
-
-/* REMOVE - we are reading the template file, why look for its name elsewere?!
-		if ($n == 'footer.tmpl' || $n == 'header.tmpl') {
-			$file = $n;
-		} else {
-			// Fetch file name.
-			if (($p = strpos($data, '{PHP_FILE: input: ')) === false) {
-				$file = $n;
-			} else {
-				$p = strpos($data, '; output: ', $p) + 10;
-				if ($data[$p] == '@' || $data[$p] == '!' || $data[$p] == '#') {
-					++$p;
-				}
-				$file = substr($data, $p, (strpos($data, ';', $p) - $p));
-				if ($file != 'forum.css') {
-					$file = substr($file, 0, strrpos($file, '.'));
-				}
-				$file .= '.tmpl';
-			}
-		}
-*/
 
 		/* Build dependency list. */
 		$p = 0;

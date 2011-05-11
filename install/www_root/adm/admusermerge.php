@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -30,15 +30,21 @@
 		} else if (!($id2 = q_singleval('SELECT id FROM '. $DBHOST_TBL_PREFIX .'users WHERE id > 1 AND login='. _esc($u2)))) {
 				echo errorify('To user ('. $u2 .') not found or is an anonymous user.');
 		} else {
-			q('UPDATE '. $DBHOST_TBL_PREFIX .'msg SET poster_id = '. $id2 .' WHERE poster_id = '. $id1);
-			q('UPDATE '. $DBHOST_TBL_PREFIX .'pmsg SET ouser_id = '. $id2 .' WHERE ouser_id = '. $id1);
-			q('UPDATE '. $DBHOST_TBL_PREFIX .'pmsg SET duser_id = '. $id2 .' WHERE duser_id = '. $id1);
+			// Reassign messages and private messages.
+			q('UPDATE '. $DBHOST_TBL_PREFIX .'msg  SET poster_id = '. $id2 .' WHERE poster_id = '. $id1);
+			q('UPDATE '. $DBHOST_TBL_PREFIX .'pmsg SET ouser_id  = '. $id2 .' WHERE ouser_id  = '. $id1);
+			q('UPDATE '. $DBHOST_TBL_PREFIX .'pmsg SET duser_id  = '. $id2 .' WHERE duser_id  = '. $id1);
+
+			// Update user with oldest stats.
+			$join_date = q_singleval('SELECT min(join_date) FROM '. $DBHOST_TBL_PREFIX .'users WHERE id IN ('. $id1 .','. $id2 .')');
+			q('UPDATE '. $DBHOST_TBL_PREFIX .'users SET join_date = '. $join_date .' WHERE id = '. $id2);
 
 			// Remove user!
 			usr_delete($id1);
 
 			logaction(_uid, 'MERGE_USER', 0, $u1);
-			echo successify('Users '. $u1 .' and '. $u2 .' were successfully merged.');
+			echo successify('Users '. $u1 .' and '. $u2 .' were successfully merged. [ <a href="admuser.php?act=1&amp;usr_id='. $id2 .'&amp;'. __adm_rsid .'">Edit user '. $u2 .'</a> ]');
+
 			$u1 = $u2 = '';
 		}
 	}

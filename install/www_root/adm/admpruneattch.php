@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -48,7 +48,7 @@
 			}
 ?>
 <div align="center">You are about to delete <font color="red"><?php echo $a_cnt; ?></font> public file attachments AND <font color="red"><?php echo $pa_cnt; ?></font> private file attachments.
-<br />That were posted before <font color="red"><?php echo fdate('%d %B %Y %H:%M:%S', $back); ?></font> <?php echo $msg; ?><br /><br />
+<br />That were posted before <font color="red"><?php echo fdate($back, 'd M Y H:i'); ?></font> <?php echo $msg; ?><br /><br />
 			Are you sure you want to do this?<br />
 			<form id="post" method="post" action="">
 			<input type="hidden" name="btn_prune" value="1" />
