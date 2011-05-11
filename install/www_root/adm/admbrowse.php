@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -9,15 +9,6 @@
 * Free Software Foundation; version 2 of the License.
 **/
 
-	if (isset($_POST['btn_mini_cancel']) || isset($_GET['btn_mini_cancel'])) {
-		exit('<html><script type="text/javascript">window.close();</script></html>');
-	}
-
-	require('./GLOBALS.php');
-	fud_use('adm.inc', true);
-	fud_use('widgets.inc', true);
-	fud_use('tar.inc', true);
-	
 function bit_test($val, $mask)
 {
 	return (($val & $mask) == $mask) ? $mask : 0;
@@ -71,34 +62,6 @@ function mode_string($mode, $de)
 	return $mode_str;
 }
 
-function fud_rmdir($dir)
-{
-	$dirs = array(realpath($dir));
-
-	while (list(,$v) = each($dirs)) {
-		if (!($files = glob($v .'/*', GLOB_NOSORT))) {
-			continue;
-		}
-		foreach ($files as $file) {
-			if (is_dir($file) && !is_link($file)) {
-				$dirs[] = $file;
-			} else if (!unlink($file)) {
-				return false;
-			}
-		}
-	}
-
-	$dirs = array_reverse($dirs);
-
-	foreach ($dirs as $dir) {
-		if (!rmdir($dir)) {
-			return false;
-		}
-	}
-
-	return true;
-}
-
 if (!extension_loaded('posix')) {
 	function posix_getpwuid($id)
 	{
@@ -112,6 +75,17 @@ if (!extension_loaded('posix')) {
 }
 
 /* main */
+	if (isset($_POST['btn_mini_cancel']) || isset($_GET['btn_mini_cancel'])) {
+		exit('<html><script type="text/javascript">window.close();</script></html>');
+	}
+
+	require('./GLOBALS.php');
+	fud_use('adm.inc', true);
+	fud_use('widgets.inc', true);
+	fud_use('tar.inc', true);
+	fud_use('file_adm.inc', true);
+	fud_use('logaction.inc');
+
 	/* Figure out the ROOT paths based on the location of web browseable dir & data dir. */
 	$ROOT_PATH[0] = realpath($GLOBALS['WWW_ROOT_DISK']);
 	$ROOT_PATH[1] = realpath($GLOBALS['DATA_DIR']);
@@ -130,10 +104,13 @@ if (!extension_loaded('posix')) {
 		if (is_file($cur_dir .'/'. $dest)) {
 			header('Content-type: application/octet-stream');
 			header('Content-Disposition: attachment; filename='. $dest);
-			readfile($cur_dir .'/'. $dest);
+			header('Content-Length: '. filesize($cur_dir .'/'. $dest));
+			header('Connection: close');
+			fud_readfile($cur_dir .'/'. $dest);
 		} else {
 			header('Content-type: application/x-tar');
 			header('Content-Disposition: attachment; filename='. $dest .'.tar');
+			header('Connection: close');
 			echo make_tar($cur_dir .'/'. $dest);
 		}
 		exit;
@@ -150,7 +127,7 @@ if (!extension_loaded('posix')) {
 			exit;
 		}
 		if (isset($_GET['del_confirmed'])) {
-			if (@is_dir($cur_dir .'/'. $dest) && !fud_rmdir($cur_dir .'/'. $dest)) {
+			if (@is_dir($cur_dir .'/'. $dest) && !fud_rmdir($cur_dir .'/'. $dest, true)) {
 				define('popup', 1);
 				echo '<h2>File/Directory Deletion</h2>';
 				require($WWW_ROOT_DISK .'adm/header.php');
@@ -165,6 +142,7 @@ if (!extension_loaded('posix')) {
 				require($WWW_ROOT_DISK .'adm/footer.php');
 				exit;
 			} else {
+				logaction(_uid, 'Deleted file/directory', 0, $cur_dir .'/'. $dest);
 				exit('<html><script type="text/javascript"> window.opener.location = \'admbrowse.php?'. __adm_rsidl .'&cur='. urlencode($cur_dir) .'\'; window.close();</script></html>');
 			}
 		} else {
@@ -209,6 +187,7 @@ if (!extension_loaded('posix')) {
 				require($WWW_ROOT_DISK .'adm/footer.php');
 				exit;
 			} else {
+				logaction(_uid, 'Renamed file/directory to '. $new_dest, 0, $dest);
 				exit('<html><script type="text/javascript"> window.opener.location = \'admbrowse.php?'.__adm_rsidl.'&cur='.urlencode($cur_dir).'\'; window.close();</script></html>');
 			}
 		} else {
@@ -257,17 +236,17 @@ if (!extension_loaded('posix')) {
 		<table border="0">
 		<tr><td>Group:</td><td>Read</td><td>Write</td><td>Execute</td></tr>
 		<tr><td>Owner:</td>
-			<td><?php draw_checkbox('oread', 0400, bit_test($st[2], 0400)); ?></td>
+			<td><?php draw_checkbox('oread',  0400, bit_test($st[2], 0400)); ?></td>
 			<td><?php draw_checkbox('owrite', 0200, bit_test($st[2], 0200)); ?></td>
-			<td><?php draw_checkbox('oexec', 0100, bit_test($st[2], 0100)); ?></td></tr>
+			<td><?php draw_checkbox('oexec',  0100, bit_test($st[2], 0100)); ?></td></tr>
 		<tr><td>Group:</td>
-			<td><?php draw_checkbox('gread', 0040, bit_test($st[2], 0040)); ?></td>
+			<td><?php draw_checkbox('gread',  0040, bit_test($st[2], 0040)); ?></td>
 			<td><?php draw_checkbox('gwrite', 0020, bit_test($st[2], 0020)); ?></td>
-			<td><?php draw_checkbox('gexec', 0010, bit_test($st[2], 0010)); ?></td></tr>
+			<td><?php draw_checkbox('gexec',  0010, bit_test($st[2], 0010)); ?></td></tr>
 		<tr><td>World:</td>
-			<td><?php draw_checkbox('wread', 0004, bit_test($st[2], 0004)); ?></td>
+			<td><?php draw_checkbox('wread',  0004, bit_test($st[2], 0004)); ?></td>
 			<td><?php draw_checkbox('wwrite', 0002, bit_test($st[2], 0002)); ?></td>
-			<td><?php draw_checkbox('wexec', 0001, bit_test($st[2], 0001)); ?></td></tr>
+			<td><?php draw_checkbox('wexec',  0001, bit_test($st[2], 0001)); ?></td></tr>
 		<tr><td colspan="4"><?php draw_checkbox('setuid', 0004000, bit_test($st[2], 0004000)); ?> setuid</td></tr>
 		<tr><td colspan="4"><?php draw_checkbox('setgid', 0002000, bit_test($st[2], 0002000)); ?> setgid</td></tr>
 		<tr><td colspan="4"><?php draw_checkbox('sticky', 0001000, bit_test($st[2], 0001000)); ?> sticky</td></tr>
@@ -279,7 +258,7 @@ if (!extension_loaded('posix')) {
 		exit;
 	}
 	if (isset($_POST['chmod']) && $dest && @file_exists($cur_dir .'/'. $dest)) {
-		$file = $cur_dir.'/'.$dest;
+		$file = $cur_dir .'/'. $dest;
 		$perm_bits = array('oread', 'owrite', 'oexec', 'gread', 'gwrite', 'gexec', 'wread', 'wwrite', 'wexec', 'setuid', 'setgid', 'sticky');
 		$new_mode = 0;
 		foreach ($perm_bits as $v) {
@@ -288,21 +267,23 @@ if (!extension_loaded('posix')) {
 			}
 		}
 		if (!@chmod($file, $new_mode)) {
-			exit('<html>Unable to chmod <b>'.$file.'</b><br /><a href="#" onclick="window.close();">close</a></html>');
+			exit('<html>Unable to chmod <b>'. $file .'</b><br /><a href="#" onclick="window.close();">close</a></html>');
 		} else {
+			logaction(_uid, 'Changed file mode to '. $new_mode, 0, $file);
 			exit('<html><script type="text/javascript"> window.opener.location = \'admbrowse.php?'. __adm_rsidl .'&cur='. urlencode($cur_dir) .'\'; window.close();</script></html>');
 		}
 	}
 
 	/* Print header & menu. No code for popup windows beyond this point. */
 	require($WWW_ROOT_DISK .'adm/header.php');
-		
+
 	/* Directory creation code. */
 	if (isset($_GET['btn_mkdir']) && !empty($_GET['mkdir'])) {
 		$u = umask(0);
 		if (!@mkdir($cur_dir .'/'. basename($_GET['mkdir']), ($FUD_OPT_2 & 8388608 ? 0700 : 0777))) {
 			echo errorify('ERROR: failed to create '. $cur_dir .'/'. basename($_GET['mkdir']) .'.');
 		} else {
+			logaction(_uid, 'Created directory', 0, $cur_dir .'/'. basename($_GET['mkdir']));
 			echo successify('Directory '. $cur_dir .'/'. basename($_GET['mkdir']) .' successfully created.');
 		}
 		umask($u);
@@ -315,8 +296,13 @@ if (!extension_loaded('posix')) {
 			$fdest = $cur_dir .'/'. basename($fdest);
 			if (move_uploaded_file($_FILES['fname']['tmp_name'], $fdest)) {
 				@chmod($fdest, ($FUD_OPT_2 & 8388608 ? 0600 : 0666));
-				echo successify('File <i>'. basename($fdest) .'</i> was successfully uploaded.'.
-			                ((preg_match('/src|thm/', $fdest)) ? '<br />Rebuild your themes from the <a href="admthemes.php?'.__adm_rsid .'">Theme Manager</a> to see the changes.' : ''));
+				logaction(_uid, 'Uploaded file', 0, $fdest);
+				echo successify('File <i>'. basename($fdest) .'</i> ('. number_format($_FILES['fname']['size'] / 1024, 2) .'KB) was successfully uploaded.');
+				if (preg_match('/src|thm/', $fdest)) {
+					echo successify('Rebuild your themes from the <a href="admthemes.php?'.__adm_rsid .'">Theme Manager</a> to see the changes.');
+				} else if (preg_match('/theme|cache/', $fdest)) {
+					echo errorify('WARNING: This is a cache directory. Your upload will be removed/overwritten if you rebuild or apply theme changes.');
+				}
 			} else {
 				echo errorify('Unable to move file.');
 			}
@@ -353,8 +339,8 @@ if (!extension_loaded('posix')) {
 	if (isset($_GET['view']) && $dest && @file_exists($cur_dir .'/'. $dest)) {
 		$file = str_replace('\\', '/', $cur_dir .'/'. $dest);
 		$ext = pathinfo($file, PATHINFO_EXTENSION);
-		if ($dest == 'fudforum_archive' || in_array($ext, array('gz', 'zip', 'tar', 'db'))) {
-			echo errorify('Cannot view binary file.');
+		if ($dest == 'fudforum_archive' || in_array($ext, array('atch', 'gz', 'zip', 'tar', 'db'))) {
+			echo errorify('Cannot view binary file. Do you want to <a href="admbrowse.php?down=1&amp;cur='. $cur_dir .'&amp;dest='. $dest .'&amp;'. __adm_rsid .'">download</a> it?');
 		} elseif (in_array($ext, array('gif', 'jpg', 'jpeg', 'png')) && strpos($file, $WWW_ROOT_DISK) !== FALSE) {
 			echo '<h2>View image: '. $dest .'</h2>';
 			echo '<table border="1" cellpadding="25"><tr><td>';
@@ -411,8 +397,8 @@ if (!extension_loaded('posix')) {
 <br />
 
 <form method="get" action="admbrowse.php"><input type="hidden" name="cur" value="<?php echo $cur_dir; ?>" /><?php echo _hs; ?>
-<fieldset class="field">
-        <legend><b>Create directory</b></legend>
+<fieldset>
+        <legend>Create directory</legend>
 <table class="datatable">
 	<tr class="tiny">
 		<td>New directory name:</td>
@@ -422,11 +408,11 @@ if (!extension_loaded('posix')) {
 </table>
 </fieldset>
 </form>
-<br />
 
-<form method="post" action="admbrowse.php" enctype="multipart/form-data"><input type="hidden" name="cur" value="<?php echo $cur_dir; ?>" /><?php echo _hs; ?>
-<fieldset class="field">
-        <legend><b>Upload a file</b></legend>
+<form method="post" action="admbrowse.php" enctype="multipart/form-data">
+<input type="hidden" name="cur" value="<?php echo $cur_dir; ?>" /><?php echo _hs; ?>
+<fieldset>
+        <legend>Upload a file</legend>
 <table cellspacing="2" cellpadding="2" border="0">
 	<tr class="tiny">
 		<td>File to upload:</td>
@@ -446,7 +432,7 @@ if (!extension_loaded('posix')) {
 
 <table class="resulttable fulltable">
 <thead><tr class="resulttopic">
-	<th>Name</th><?php if (!preg_match('/WIN/', PHP_OS)) echo '<th>Owner</th><th>Group</th>'; ?><th>Size</th><th>Date</th><th>Time</th><th>Mode</th><th align="center">Action</th>	
+	<th>Name</th><?php if (!preg_match('/WIN/', PHP_OS)) echo '<th>Owner</th><th>Group</th>'; ?><th>Size</th><th>Date/Time</th><th>Mode</th><th align="center">Action</th>	
 </tr></thead>
 <?php
 	$dir_list = $file_list = array();
@@ -490,13 +476,12 @@ if (!extension_loaded('posix')) {
 		$de_enc = urlencode($de);
 
 		$passwdent = posix_getpwuid((isset($st[4])?$st[4]:$st['uid']));
-		$owner = $passwdent['name'];
+		$owner     = $passwdent['name'];
 		$groupsent = posix_getgrgid((isset($st[5])?$st[5]:$st['gid']));
-		$group = $groupsent['name'];
+		$group     = $groupsent['name'];
 
-		$date_str = fdate('%d %b %Y', (isset($st[9])?$st[9]:$st['mtime']));
-		$time_str = fdate('%H:%M:%S', (isset($st[9])?$st[9]:$st['mtime']));
-		$mode_o = sprintf('%o', 0x0FFF&$mode);
+		$time_str = fdate((isset($st[9]) ? $st[9] : $st['mtime']), 'd M Y H:i');
+		$mode_o   = sprintf('%o', 0x0FFF&$mode);
 
 		$size = round((isset($st[7])?$st[7]:$st['size'])/1024);
 
@@ -509,11 +494,13 @@ if (!extension_loaded('posix')) {
 			echo '<td nowrap="nowrap">';
 		}
 
+		if (@is_dir($fpath)) echo '<img src="style/folder.png" style="float:left;" />';
 		echo $name .'</td>';
+
 		if (!preg_match('/WIN/', PHP_OS)) {	// No onwer & group on Windows.
 			echo '<td>'. $owner .'</td><td>'. $group .'</td>';
 		}
-		echo '<td nowrap="nowrap">'. $size .' KB</td><td nowrap="nowrap">'. $date_str .'</td><td>'. $time_str .'</td>';
+		echo '<td nowrap="nowrap">'. $size .' KB</td><td>'. $time_str .'</td>';
 		echo '<td>'. $mode_str.' ('. $mode_o .')</td>';
 
 		echo '<td>';
