@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -20,7 +20,7 @@
 	$FORUM_SETTINGS_PATH 	= '';
 	$PLUGIN_PATH 		= '';
 
-	$FUD_OPT_1		= 1743713471;
+	$FUD_OPT_1		= 1743713343;
 	$FUD_OPT_2		= 1769345087;
 	$FUD_OPT_3		= 578813952;
 	$FUD_OPT_4		= 3;
@@ -35,6 +35,7 @@
 	$SESSION_TIMEOUT 	= 1800;		/* seconds */
 
 	$DBHOST 		= '';
+	$DBHOST_SLAVE_HOST	= '';
 	$DBHOST_USER		= '';
 	$DBHOST_PASSWORD	= '';
 	$DBHOST_DBNAME		= '';

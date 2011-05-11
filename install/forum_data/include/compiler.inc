@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -9,7 +9,10 @@
 * Free Software Foundation; version 2 of the License.
 **/
 
-	@set_time_limit(6000);
+@set_time_limit(6000);
+include 'file_adm.inc';
+
+$GLOBALS['__FUD_SECTIONS__'] = array('MAIN_SECTION' => '{MAIN_SECTION: ', 'PAGE' => '{PAGE: ', 'SECTION' => '{SECTION: ');
 
 function resolve_refs($file_name)
 {
@@ -73,8 +76,6 @@ function resolve_refs($file_name)
 		$p = $e + 1;
 	}
 }
-
-$GLOBALS['__FUD_SECTIONS__'] = array('MAIN_SECTION' => '{MAIN_SECTION: ', 'PAGE' => '{PAGE: ', 'SECTION' => '{SECTION: ');
 
 function parse_sections($str, $file, $sl=0)
 {
@@ -169,6 +170,7 @@ function resolve_sections($str)
 				$ret .= $GLOBALS['MSG'][$name]['data'];
 				//DEBUG: $ret .= $name .':'. $GLOBALS['MSG'][$name]['data'];
 				break;
+
 			case 'PLURAL':	// Pluralize messages at runtime.
 				list($var, $forms) = explode('|', $name, 2);
 				$forms_arr = str_replace('\'', '&#39;', $forms);	// Encode single quotes.
@@ -176,48 +178,58 @@ function resolve_sections($str)
 				$forms_arr = preg_replace('/\$\d/', "'.$". $var .".'", $forms_arr);	// $1, $2, etc. refers to the count ($var).
 				$ret .= "'.convertPlural($". $var .", array('". $forms_arr ."')).'";
 				break;
+
 			case 'VAR':
 			case 'TEMPLATE-DATA':
 				$ret .= '\'.$'. $name .'.\'';
 				break;
+
 			case 'GVAR':
 				$ret .= '\'.$GLOBALS[\''. $name .'\'].\'';
 				break;
+
 			case 'DEF':
 				$ret .= '\'.'. $name .'.\'';
 				break;
+
 			case 'VAR-URL':
 				$ret .= '\'.urlencode($'. $name .').\'';
 				break;
+
 			case 'VAR-HTML':
 				$ret .= '\'.htmlspecialchars($'. $name .').\'';
 				break;
+
 			case 'VAR-UH':
 				$ret .= '\'.htmlspecialchars(urldecode($'. $name .')).\'';
 				break;
+
 			case 'VAR-FORM':
 				$ret .= '\'.stripslashes($'. $name .').\'';
 				break;
+
 			case 'ALT-VAR':
 				list($name, $class1, $class2) = explode(' ', $name, 3);
 				$ret .= '\'.alt_var(\''. $name .'\',\''.$class1.'\',\''.$class2.'\').\'';
 				break;
+
 			case 'DATE':
 				if (stristr($GLOBALS['char_set'], 'utf-8') !== false && substr(PHP_OS, 0, 3) == 'WIN') {
 					// Windows doesn't have UTF-8 locales
-					$func = '\'.utf8_encode(strftime("';
+					$func = '\'.utf8_encode(strftime(\'';
 					$close = ')).\'';
 				} else {
-					$func = '\'.strftime("';
+					$func = '\'.strftime(\'';
 					$close = ').\'';
 				}
 				list($var, $format) = explode(' ', $name, 2);
 				if ($var[0] != '!') {
-					$ret .= $func . $format .'", $'. $var . $close;
+					$ret .= $func . $format .'\', $'. $var . $close;
 				} else {
-					$ret .= $func . $format .'", '. substr($var,1) . $close;
+					$ret .= $func . $format .'\', '. substr($var,1) . $close;
 				}
 				break;
+
 			case 'TEMPLATE':
 				if (isset($GLOBALS['TC']['SECTION'][$name])) {
 					$sec = 'SECTION';
@@ -233,11 +245,12 @@ function resolve_sections($str)
 
 				// Give all COMPILER_EXPAND_TEMPLATE plugins the opportunity to modify the template.
 				if (defined('plugins')) {
-					list($tmpl_resolved) = plugin_call_hook('COMPILER_EXPAND_TEMPLATE', array($tmpl_resolved, $tag, $sec, $name, $GLOBALS['TC'][$sec][$name]['file']));
+					list($tmpl_resolved) = plugin_call_hook('COMPILER_EXPAND_TEMPLATE', array($tmpl_resolved, $tag, $sec, $name, basename($GLOBALS['TC'][$sec][$name]['file'])));
 				}
 				$ret .= $tmpl_resolved;
 
 				break;
+
 			case 'INJECTION_POINT':
 				// Give all COMPILER_INJECT plugins the opportunity to add code to the template.
 				if (defined('plugins')) {
@@ -247,17 +260,22 @@ function resolve_sections($str)
 						$ret .= $code_to_add;
 					}
 				}
+				$GLOBALS['injection_points'][] = $name;
 				break;
+
 			case 'META-CONTENT-LANGUAGE':
 				echo 'WARNING: {META-CONTENT-LANGUAGE} is deprecated, please remove it from your templates.<br />';
 				$ret .= '<meta http-equiv="Content-Type" content="text/html; charset='. $GLOBALS['char_set'] .'" />';
 				break;
+
 			case 'CHARSET':	// Character set name.
 				$ret .= $GLOBALS['char_set'];
 				break;
+
 			case 'DIR':	// Text direction (LTR or RTL).
 				$ret .= $GLOBALS['text_dir'];
 				break;
+
 			case 'LANG':	// Language code.
 				$ret .= $GLOBALS['__COMPILER__']['lang'];
 				break;
@@ -273,7 +291,7 @@ function resolve_sections($str)
 			case 'ELSE':
 				$ret .= "' : '";
 				break;
-		
+
 			case 'END':
 				$ret .= "' ) .'";
 				break;
@@ -465,19 +483,22 @@ function generate_file($php_file)
 				if (empty($v['compiled']) && !isset($v['inline'])) {
 					$v['compiled'] = compile_file($v['src']);
 				}
-	        		if (isset($v['inline'])) {
+				if (isset($v['inline'])) {
 					continue;
-	        		}
+				}
 
-				$s = strpos($v['compiled'], '*/') + 2;
+				$s = strpos($v['compiled'],  '*/') + 2;		// Skip comments.
+				$e = strrpos($v['compiled'], '?>');		// EOF
+				if (empty($s) || empty($e)) {
+					throw new Exception('File  '. $v2 .' is incomplete.');
+				}
+
 				$k = $v['dst'][0];
 				if (!isset($ins[$k])) {
 					$k = 0;
 				}
-
-				$ins[$k] .= str_replace(array(" ''.", ".'';", ".''"), array(' ', ';', ''), trim(substr($v['compiled'], $s, (strrpos($v['compiled'], '?>') - $s))));
+				$ins[$k] .= str_replace(array(" ''.", ".'';", ".''"), array(' ', ';', ''), trim(substr($v['compiled'], $s, $e-$s)));
 			}
-
 			if (!ini_get('memory_limit')) {
 				$file_data = str_replace(array('/*{PRE_HTML_PHP}*/', '/*{POST_HTML_PHP}*/', '/*{POST_PAGE_PHP_CODE}*/'), array($ins[0], $ins['@'], $ins['!']), $file_data);
 			} else {
@@ -511,7 +532,7 @@ function generate_file($php_file)
 		$dir = $GLOBALS['WWW_ROOT_DISK'];
 	}
 
-	if (!($fp = fopen($dir.$dst, 'wb'))) {
+	if (!($fp = fopen($dir . $dst, 'wb'))) {
 		throw new Exception('Couldn\'t write to '. $dir . $dst .'.');
 	}
 
@@ -520,7 +541,7 @@ function generate_file($php_file)
 
 	// Call all COMPILER_FINALIZE_PAGE plugins.
 	if (defined('plugins')) {
-		list($file_data) = plugin_call_hook('COMPILER_FINALIZE_PAGE', array($file_data));
+		list($file_data) = plugin_call_hook('COMPILER_FINALIZE_PAGE', array($file_data, $dst));
 	}
 
 	fwrite($fp, $file_data);
@@ -655,23 +676,16 @@ function resolve_compile($file)
 	$GLOBALS['file_cache'][$file]['compiled'] = compile_file($GLOBALS['file_cache'][$file]['src']);
 }
 
-function fud_mkdir($dir, $perms=0700)
-{
-	if (!@is_dir($dir) && !@mkdir($dir, $perms)) {
-		throw new Exception('Unable to make directory (<b>'. $dir .'</b>).<br />');
-	}
-}
-
 function compile_all($tset='default', $lang='en', $tname='default')
 {
 	$oldmask = umask(0133);
 
 	/* Make sure we can use the specified values to make 'nice' directory names. */
 	$tname = preg_replace('![^A-Za-z0-9-]!', '_', $tname);
-	$tset = preg_replace('![^A-Za-z0-9-]!', '_', $tset);
-	$lang = preg_replace('![^A-Za-z0-9-]!', '_', $lang);
+	$tset = preg_replace('![^A-Za-z0-9-]!',  '_', $tset);
+	$lang = preg_replace('![^A-Za-z0-9-]!',  '_', $lang);
 
-	$GLOBALS['__COMPILER__'] 	= array();
+	$GLOBALS['__COMPILER__']        = array();
 	$GLOBALS['MSG']                 = array();
 	$GLOBALS['MSG_FILES']           = array();
 	$GLOBALS['TC']                  = array();
@@ -683,8 +697,9 @@ function compile_all($tset='default', $lang='en', $tname='default')
 	$GLOBALS['__COMPILER__'] = array('tset' => $tset, 'lang' => $lang, 'tname' => $tname);
 	$cmpl =& $GLOBALS['__COMPILER__'];
 
+	// Define constants to expand in template files, i.e. {ROOT}.
 	$cmpl['ROOT'] = 'index.php';
-	$cmpl['FULL_ROOT'] = $GLOBALS['WWW_ROOT']{strlen($GLOBALS['WWW_ROOT']) - 1} == '/' ? $GLOBALS['WWW_ROOT'] : $GLOBALS['WWW_ROOT'].'/';
+	$cmpl['FULL_ROOT'] = $GLOBALS['WWW_ROOT']{strlen($GLOBALS['WWW_ROOT']) - 1} == '/' ? $GLOBALS['WWW_ROOT'] : $GLOBALS['WWW_ROOT'] .'/';
 	$cmpl['THEME_ROOT'] = 'theme/'. $tname;
 
 	$cmpl['THEME_ROOT_DISK'] = $GLOBALS['WWW_ROOT_DISK'] .'theme/'. $tname;
@@ -725,7 +740,7 @@ function compile_all($tset='default', $lang='en', $tname='default')
 	$GLOBALS['CMP_LOC_S'] = array('{ROOT}', '{FULL_ROOT}', '{THEME_ROOT}', '{THEME_ROOT_DISK}', ".'';", ".''.");
 	$GLOBALS['CMP_LOC_K'] = array($cmpl['ROOT'], "'.\$GLOBALS['WWW_ROOT'].'", $cmpl['THEME_ROOT'], $cmpl['THEME_ROOT_DISK'], ';', '.');
 
-	/*	
+	/*
 	 * Build the message array.
 	 */
 	$prim_msg_file = $GLOBALS['DATA_DIR'] .'thm/'. $cmpl['tset'] .'/i18n/'. $cmpl['lang'] .'/msg';
@@ -763,108 +778,41 @@ function compile_all($tset='default', $lang='en', $tname='default')
 		unset($GLOBALS['INCLUDE_LIST']);
 	}
 
+	// Cache injection points.
+	$fp = fopen($GLOBALS['FORUM_SETTINGS_PATH'] .'theme_injection_points', 'w');
+	fwrite($fp, '<?php $injection_points = '. var_export(array_unique($GLOBALS['injection_points']), 1) .'; ?>');
+	fclose($fp);
+	
+	copyimages($tname, $tset, $lang);
+	copyhelp($tname, $tset, $lang);
+	copylangfuncs($tname, $tset, $lang);
+	
 	@umask($oldmask);
-	$thm = new cmpl_local_theme;
-	$thm->name = $tname;
-	$thm->theme = $tset;
-	$thm->lang = $lang;
-	copyimages($thm);
-	copyhelp($thm);
-	copylangfuncs($thm);
-}
-
-class cmpl_local_theme
-{
-	var $name;
-	var $theme;
-	var $lang;
-}
-
-function fudcopy($src, $dest, $mask='*', $recur=false)
-{
-	$src = preg_replace('!/*$!', '', $src);
-	$dest = preg_replace('!/*$!', '', $dest);
-
-	$perms = $GLOBALS['FUD_OPT_2'] & 8388608 ? 0600 : 0666;
-	if (strncmp(PHP_SAPI, 'apache', 6) && $perms == 0600) {
-		$perms = 0644;
-	}
-	$dperm = $perms == 0600 ? 0700 : 0755;
-
-	$dirs = array($src);
-	while (list(,$v) = each($dirs)) {
-		if (is_link($v)) {
-			continue;
-		}
-	
-		if (!is_readable($v)) {
-			echo 'Cannot open directory "'. $v .'"<br />';
-			return;
-		}
-
-		if (defined('GLOB_BRACE')) {		
-			if (!($files = glob($v .'/'. $mask, GLOB_BRACE|GLOB_NOSORT))) {
-				continue;
-			}
-		} else {
-			$files = array();
-			foreach (explode(',', trim($mask, '{}')) as $m) {
-				$files = array_merge($files, (array)glob($v .'/'. $m, GLOB_NOSORT));
-			}
-			if (!$files) {
-				continue;
-			}
-		}
-		foreach ($files as $file) {
-			$d = $dest .'/'. str_replace($src, '', $v) .'/'. basename($file);
-		
-			if (is_dir($file)) {
-				if (!is_dir($d) && !mkdir($d)) {
-					echo "Cannot create directory '". $d ."'<br />";
-					return;
-				}
-				chmod($d, $dperm);
-				$dirs[] = $file;
-				continue;
-			}
-	
-			if (!@copy($file, $d) && !@file_exists($d)) {
-				echo 'cannot copy "'. $file .'" to "'. $d .'"<br />';
-			} else {
-				@chmod($d, $perms);
-			}
-		}		
-	}
-
-	/* Copy .path_info marker */
-	if (is_readable($src .'/.path_info')) {
-		@copy($src .'/.path_info', $dest .'/.path_info');
-	}
 }
 
 /* Copy localized image files to the theme's image directory. */
-function copyimages($thm)
+function copyimages($tname, $tset, $lang)
 {
-	$path = $GLOBALS['WWW_ROOT_DISK'] .'theme/'. $thm->name .'/images';
+	$path = $GLOBALS['WWW_ROOT_DISK'] .'theme/'. $tname .'/images';
 
 	$u = umask(0);
 	if (!@is_dir($path) && !@mkdir($path, 0777)) {
 		throw new Exception('ERROR: Unable to create directory: '. $path .'.<br />');
 	}
 
-	fudcopy($GLOBALS['DATA_DIR'].'thm/default/images', $path, '{*.jpg,*.gif,*.png,*.jpeg}');
+	fud_copy($GLOBALS['DATA_DIR'].'thm/default/images', $path, '{*.jpg,*.gif,*.png,*.jpeg}');
 	// some translations don't have customized image buttons
-	if (file_exists($GLOBALS['DATA_DIR'] .'thm/default/i18n/'. $thm->lang .'/img/flat_view.gif')) {
-		fudcopy($GLOBALS['DATA_DIR'] .'thm/default/i18n/'. $thm->lang .'/img', $path, '{*.jpg,*.gif,*.png,*.jpeg}');
+	if (file_exists($GLOBALS['DATA_DIR'] .'thm/default/i18n/'. $lang .'/img/flat_view.gif')) {
+		fud_copy($GLOBALS['DATA_DIR'] .'thm/default/i18n/'. $lang .'/img', $path, '{*.jpg,*.gif,*.png,*.jpeg}');
 	} else {
-		fudcopy($GLOBALS['DATA_DIR'] .'thm/default/i18n/en/img', $path, '{*.jpg,*.gif,*.png,*.jpeg}');
+		fud_copy($GLOBALS['DATA_DIR'] .'thm/default/i18n/en/img', $path, '{*.jpg,*.gif,*.png,*.jpeg}');
 	}
-	if ($thm->theme != 'default') {
-		if (@file_exists($GLOBALS['DATA_DIR'] .'thm/'. $thm->theme .'/images')) {
-			fudcopy($GLOBALS['DATA_DIR'] .'thm/'. $thm->theme .'/images', $path, '{*.jpg,*.gif,*.png,*.jpeg}');
+	if ($tset != 'default') {
+		if (@file_exists($GLOBALS['DATA_DIR'] .'thm/'. $tset .'/images')) {
+			fud_copy($GLOBALS['DATA_DIR'] .'thm/'. $tset .'/images', $path, '{*.jpg,*.gif,*.png,*.jpeg}');
 		}
-		if (@file_exists($GLOBALS['DATA_DIR'] .'thm/'. $thm->theme .'/i18n/'. $thm->lang .'/img')) {
-			fudcopy($GLOBALS['DATA_DIR'] .'thm/'. $thm->theme .'/i18n/'. $thm->lang .'/img', $path, '{*.jpg,*.gif,*.png,*.jpeg}');
+		if (@file_exists($GLOBALS['DATA_DIR'] .'thm/'. $tset .'/i18n/'. $lang .'/img')) {
+			fud_copy($GLOBALS['DATA_DIR'] .'thm/'. $tset .'/i18n/'. $lang .'/img', $path, '{*.jpg,*.gif,*.png,*.jpeg}');
 		}
 	}
 
@@ -872,12 +820,12 @@ function copyimages($thm)
 }
 
 /* Copy help files to the theme's help directory. */
-function copyhelp($thm)
+function copyhelp($tname, $tset, $lang)
 {
-	$path = $GLOBALS['WWW_ROOT_DISK'] .'theme/'. $thm->name .'/help';
-	$src = $GLOBALS['DATA_DIR'] .'thm/'. $thm->theme .'/i18n/'. $thm->lang .'/help';
+	$path = $GLOBALS['WWW_ROOT_DISK'] .'theme/'. $tname .'/help';
+	$src = $GLOBALS['DATA_DIR'] .'thm/'. $tset .'/i18n/'. $lang .'/help';
 	if (!@file_exists($src)) {
-		$src = $GLOBALS['DATA_DIR'] .'thm/default/i18n/'. $thm->lang .'/help';
+		$src = $GLOBALS['DATA_DIR'] .'thm/default/i18n/'. $lang .'/help';
 		if (!@file_exists($src)) {
 			$src = $GLOBALS['DATA_DIR'] .'thm/default/i18n/en/help';
 		}
@@ -918,11 +866,12 @@ function copyhelp($thm)
 }
 
 /* Copy langauge helper functions (language.inc) to the theme's directory. */
-function copylangfuncs($thm) {
-	$path = $GLOBALS['WWW_ROOT_DISK'] .'theme/'. $thm->name .'/';
-	$src = $GLOBALS['DATA_DIR'] .'thm/'. $thm->theme .'/i18n/'. $thm->lang .'/language.inc';
+function copylangfuncs($tname, $tset, $lang)
+{
+	$path = $GLOBALS['WWW_ROOT_DISK'] .'theme/'. $tname .'/';
+	$src = $GLOBALS['DATA_DIR'] .'thm/'. $tset .'/i18n/'. $lang .'/language.inc';
 	if (!@file_exists($src)) {
-		$src = $GLOBALS['DATA_DIR'] .'thm/default/i18n/'. $thm->lang .'/language.inc';
+		$src = $GLOBALS['DATA_DIR'] .'thm/default/i18n/'. $lang .'/language.inc';
 		if (!@file_exists($src)) {
 			$src = $GLOBALS['DATA_DIR'] .'thm/default/i18n/en/language.inc';
 		}
@@ -934,7 +883,7 @@ function copylangfuncs($thm) {
 		throw new Exception('ERROR: Unable to create directory: '. $path .'.<br />');
 	}
 
-	fudcopy(dirname($src), $path, '{language.inc}');
+	fud_copy(dirname($src), $path, '{language.inc}');
 	umask($u);
 }
 
