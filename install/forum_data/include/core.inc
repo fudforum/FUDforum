@@ -66,10 +66,9 @@ if ($GLOBALS['FUD_OPT_3'] & 1073741824) {
 	define('fud_query_stats', 1);
 }
 
-// Load and initialize the plugin handler.
+// Load and initialize the plugin system.
 if ($GLOBALS['FUD_OPT_3'] & 4194304) {	// Plugins enabled.
 	include_once $GLOBALS['INCLUDE'] .'plugins.inc';
-	plugin_activate_all_enbled();
 }
 
 function fud_use($file, $static=0)

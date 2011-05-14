@@ -76,6 +76,7 @@ function delete_zero($tbl, $q)
 	fud_use('users_reg.inc');
 	fud_use('custom_field_adm.inc', true);
 	fud_use('announce_adm.inc', true);
+	fud_use('plugin_adm.inc', true);
 	fud_use('spider_adm.inc', true);
 
 	if (isset($_POST['btn_cancel'])) {
@@ -495,7 +496,10 @@ While it is running, your forum will be disabled!
 
 	draw_stat('Rebuild Announcement Cache');
 	fud_announce::rebuild_cache();
-	
+
+	draw_stat('Rebuild Plugin Cache');
+	fud_plugin::rebuild_cache();
+
 	draw_stat('Rebuild Spider Cache');
 	fud_spider::rebuild_cache();
 
