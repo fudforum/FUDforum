@@ -21,6 +21,7 @@
 {REF: show.tmpl}
 {REF: forum_notify.tmpl}
 {REF: thread_view_common.tmpl}
+{REF: draw_forum_list.tmpl}
 
 {SECTION: mini_thread_pager}
 <span class="SmallText">(<img src="{THEME_IMAGE_ROOT}/pager.gif" alt="" />{TEMPLATE-DATA: mini_pager_data})</span>
@@ -67,7 +68,7 @@
 {SECTION: END}
 
 {SECTION: thread_row}
-<tr>
+<tr class="row">
 <td class="RowStyleB wo">{TEMPLATE-DATA: thread_read_status}</td>
 <td class="RowStyleB wo ac">{IF: $r[3]}<img src="images/message_icons/{VAR: r[3]}" alt="{VAR: r[3]}" />{ELSE}&nbsp;{END}</td>
 <td class="RowStyleA">{IF: ($r[18] > 1)}{IF: $r[18] & 4}<span class="StClr">{MSG: sticky}&nbsp;</span>{ELSE}<span class="AnClr">{MSG: thread_announcement}&nbsp;</span>{ENDI}{ENDIF}{TEMPLATE-DATA: first_unread_msg_link}{IF: $r[1]}{TEMPLATE: thread_poll_indicator}{ENDIF}{IF: $r[0]}{TEMPLATE: thread_attach_indicator}{ENDIF}<a class="big" href="{TEMPLATE: thread_row_lnk}">{VAR: r[2]}</a>{IF: $r[22]}<br /><span class="small">{VAR: r[22]}</span>{ENDIFI} {IF: (($FUD_OPT_2 & 4096) && $r[17])}{TEMPLATE: thread_rating}{ENDIF} {TEMPLATE-DATA: mini_thread_pager} <div class="TopBy">{MSG: by} {IF: $r[5]}{TEMPLATE: first_post_reg_user_link}{ELSE}{TEMPLATE: first_post_unreg_user_link}{END} {MSG: thread_on} <span class="DateText">{TEMPLATE: thread_first_post_date}</span></div>{TEMPLATE-DATA: admin_control_row}</td>
@@ -140,6 +141,7 @@
 <td class="al wa">{FUNC: draw_forum_path($frm->cat_id, $frm->name)}<br />{TEMPLATE: show_links}<br />{IF: _uid}{IF: $frm->subscribed}{TEMPLATE: unsubscribe_link}{ELSE}{TEMPLATE: subscribe_link}{ENDI}{ENDIF}{IF: (_uid && ($MOD || $frm->group_cache_opt & 2048))}{TEMPLATE: thread_merge_t}{ENDIF}</td>
 <td class="GenText nw vb ar">{IF: $FUD_OPT_2 & 512}{TEMPLATE: threaded_view}{ENDIF}{TEMPLATE: new_thread_link}</td>
 </tr></table>
+{TEMPLATE: forum_list}
 {TEMPLATE: thread_list}
 <table border="0" cellspacing="0" cellpadding="0" class="wa">
 <tr>

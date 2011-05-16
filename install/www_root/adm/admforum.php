@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -9,6 +9,7 @@
 * Free Software Foundation; version 2 of the License.
 **/
 
+/** Return PHP's maximum upload size in bytes. */
 function get_max_upload_size()
 {
 	$us = strtolower(ini_get('upload_max_filesize'));
@@ -21,7 +22,7 @@ function get_max_upload_size()
 	return $size;
 }
 
-/* main program */
+/* main */
 	require('./GLOBALS.php');
 	fud_use('adm.inc', true);
 	fud_use('forum_adm.inc', true);
@@ -29,20 +30,21 @@ function get_max_upload_size()
 	fud_use('widgets.inc', true);
 	fud_use('logaction.inc');
 
-	/* This is here so we get the cat_id when cancel button is clicked. */
-	$cat_id = isset($_GET['cat_id']) ? (int)$_GET['cat_id'] : (isset($_POST['cat_id']) ? (int)$_POST['cat_id'] : '');
-	
-	if (!empty($_POST['btn_cancel'])) {
-		unset($_POST);
-	}
-
+	require($WWW_ROOT_DISK .'adm/header.php');
 	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
 	$max_upload_size = get_max_upload_size();
 
-	require($WWW_ROOT_DISK .'adm/header.php');
-	
-	if (!$cat_id || ($cat_name = q_singleval('SELECT name FROM '. $tbl .'cat WHERE id='. $cat_id)) === NULL) {
-		exit('No such category.');
+	/* This is here so we get the cat_id parameter when cancel button is clicked. */
+	$cat_id = isset($_GET['cat_id']) ? (int)$_GET['cat_id'] : (isset($_POST['cat_id']) ? (int)$_POST['cat_id'] : '');
+	if (empty($cat_id)) {	// Or get it from DB.
+		$cat_id = q_singleval('SELECT MIN(id) FROM '. $tbl .'cat');
+	}
+	if (empty($cat_id) || ($cat_name = q_singleval('SELECT name FROM '. $tbl .'cat WHERE id='. $cat_id)) === NULL) {
+		exit(errorify('Your forum doesn\'t have any categories. Please use the Category Manager to create some before returning to this screen.'));
+	}
+
+	if (!empty($_POST['btn_cancel'])) {
+		unset($_POST);
 	}
 
 	$edit = isset($_GET['edit']) ? (int)$_GET['edit'] : (isset($_POST['edit']) ? (int)$_POST['edit'] : '');
@@ -51,7 +53,6 @@ function get_max_upload_size()
 		if ($_POST['frm_max_attach_size'] > $max_upload_size) {
 			$_POST['frm_max_attach_size'] = floor($max_upload_size / 1024);
 		}
-		/* (int) $_POST['frm_anon_forum']  is unused */
 		$_POST['frm_forum_opt'] = (int) $_POST['frm_mod_notify'] | (int) $_POST['frm_mod_attach'] | (int) $_POST['frm_moderated'] | (int) $_POST['frm_passwd_posting'] | (int) $_POST['frm_tag_style'];
 
 		$frm = new fud_forum;
@@ -121,12 +122,24 @@ function get_max_upload_size()
 			rebuild_forum_cat_order();
 		}
 	}
+	
+	// Get list of categories.
+	$cat_sel = create_cat_select('cat_id', $cat_id, 0);
 ?>
 <h2>Forum Management System</h2>
 
+<fieldset class="fieldtopic">
+<legend><b>Change category:</b></legend>
+	<form method="post" action="admforum.php">
+		Manage forums in catagory:
+		<?php echo _hs; echo $cat_sel; ?>&nbsp;
+		<input type="submit" name="frm_submit" value="Change" />
+	</form>
+</fieldset>
+
 <?php
 if (!isset($_GET['chpos'])) {	// Hide this if we are changing forum order.
-	echo '<h3>'. ($edit ? '<a name="edit">Edit Forum:</a>' : 'Add Forum to '. $cat_name .':') .'</h3>';
+	echo '<h3>'. ($edit ? '<a name="edit">Edit forum:</a>' : 'Add forum to <i>'. $cat_name .'</i>:') .'</h3>';
 ?>
 
 <form method="post" id="frm_forum" action="admforum.php">
@@ -140,6 +153,20 @@ if (!isset($_GET['chpos'])) {	// Hide this if we are changing forum order.
 	<tr class="field">
 		<td valign="top">Description:<br /><font size="-2">Description that will be shown on the forums main index page.</font></td>
 		<td><textarea nowrap="nowrap" name="frm_descr" cols="28" rows="5"><?php echo htmlspecialchars($frm_descr); ?></textarea></td>
+	</tr>
+
+<?php
+	$forum_names = "forum index\ndon't display it";
+	$forum_ids   = "0\n-1";
+	$c = uq('SELECT id, name FROM '. $tbl .'forum WHERE cat_id='. $cat_id .' AND id != '. (empty($edit) ? 0 : $edit) .' ORDER BY name');
+	while ($r = db_rowobj($c)) {
+		$forum_names .= "\n". $r->name;
+		$forum_ids   .= "\n". $r->id;
+	}
+?>
+	<tr class="field">
+		<td valign="top">Display forum in:<br /><font size="-2">Indicate if this is a subforum (not shown on main index, but in the context of another forum).</font></td>
+		<td><?php draw_select('frm_parent', $forum_names, $forum_ids, $frm_parent); ?></td>
 	</tr>
 
 	<tr class="field">
@@ -220,7 +247,7 @@ if (!isset($_GET['chpos'])) {	// Hide this if we are changing forum order.
 <input type="hidden" name="cat_id" value="<?php echo $cat_id; ?>" />
 </form>
 
-<h3>Forums in Category: <a name="forumlist"><?php echo $cat_name; ?></a></h3>
+<h3>Forums in <i><a name="forumlist"><?php echo $cat_name; ?></a></i>:</h3>
 <?php
 } else {	// Busy changing position.
 	echo '<a href="admforum.php?cat_id='.$cat_id.'&amp;'.__adm_rsid.'">Cancel reorder operation</a>';
@@ -231,16 +258,14 @@ if (!isset($_GET['chpos'])) {	// Hide this if we are changing forum order.
 <thead><tr class="resulttopic">
 	<th nowrap="nowrap">Forum name</th>
 	<th>Description</th>
-	<th nowrap="nowrap">Password Posting</th>
 	<th align="center">Action</th>
-	<th>Category</th>
 	<th>Position</th>
 </tr></thead>
 <?php
 	$move_ct = create_cat_select('dest_cat', '', $cat_id);
 
 	$i = 0;
-	$c = uq('SELECT id, name, descr, forum_opt, view_order FROM '.$tbl.'forum WHERE cat_id='.$cat_id.' ORDER BY view_order');
+	$c = uq('SELECT id, name, descr, forum_opt, view_order FROM '. $tbl .'forum WHERE cat_id='. $cat_id .' ORDER BY view_order');
 	while ($r = db_rowobj($c)) {
 		$i++;
 		$bgcolor = ($edit == $r->id) ? ' class="resultrow3"' : (($i%2) ? ' class="resultrow1"' : ' class="resultrow2"');
@@ -256,9 +281,7 @@ if (!isset($_GET['chpos'])) {	// Hide this if we are changing forum order.
 		echo '<tr'. $bgcolor .'  title="'. htmlspecialchars($r->descr) .'">
 			<td>'. $r->name .'</td>
 			<td><font size="-1">'. htmlspecialchars(substr($r->descr, 0, 30)) .'...</font></td>
-			<td>'. ($r->forum_opt & 4 ? 'Yes' : 'No') .'</td>
 			<td nowrap="nowrap">[<a href="admforum.php?cat_id='. $cat_id .'&amp;edit='. $r->id .'&amp;'. __adm_rsid .'#edit">Edit</a>] [<a href="admforum.php?cat_id='. $cat_id .'&amp;del='. $r->id .'&amp;'. __adm_rsid .'">Delete</a>]</td>
-			<td nowrap="nowrap">'. $cat_name .'</td>
 			<td nowrap="nowrap">[<a href="admforum.php?chpos='. $r->view_order .'&amp;cat_id='. $cat_id .'&amp;'. __adm_rsid .'">Change</a>]</td></tr>';
 	}
 	unset($c);
@@ -272,8 +295,6 @@ if (!isset($_GET['chpos'])) {	// Hide this if we are changing forum order.
 </table>
 
 <br />
-<a href="admcat.php?<?php echo __adm_rsid; ?>">&laquo; Back to categories</a>
-
 <table class="datatable" align="right">
 <tr class="fieldtopic"><td valign="top" nowrap="nowrap">Reorder All Forums by:</td></tr>
 <tr><td class="field"><font size="-2">

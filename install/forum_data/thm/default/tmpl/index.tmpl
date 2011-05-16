@@ -19,74 +19,7 @@
 {REF: stats.tmpl}
 {REF: show.tmpl}
 {REF: quicklogin.tmpl}
-
-{SECTION: index_cat_up_down_arrows up/down arrows for navigating category list}
-<td class="CatDesc">
-	{IF: key($cidxc)}<a href="javascript://" onclick=\'nextCat("c{VAR: k}")\'><img src="{THEME_IMAGE_ROOT}/down{DEF: img_ext}" alt="" border="0" style="vertical-align: top; float: right;" /></a>{ENDIFI}
-	{IF: $cat}<a href="javascript://" onclick=\'prevCat("c{VAR: k}")\'><img src="{THEME_IMAGE_ROOT}/up{DEF: img_ext}" border="0" alt="" style="vertical-align: top; float: right;" /></a>{ENDIFI}
-</td>
-{SECTION: END}
-
-{SECTION: index_category_allow_collapse_Y collapsable category entry}
-<tr id="c{VAR: r[5]}" style="display: {IF: empty($collapse[$i[4]])}table-row{ELSE}none{ENDI};">
-<td class="CatDesc {IF: empty($collapse[$cid])}expanded{ELSE}collapsed{ENDI}" colspan="5" style="padding-left: {FUNC: ($i[0] ? $i[0] * 20 : '0')}px;">
-<a href="{TEMPLATE: index_to_cat_lnk}" class="CatLink">{VAR: i[1]}</a> {VAR: i[2]}</td>{TEMPLATE: index_cat_up_down_arrows}</tr>
-{SECTION: END}
-
-{SECTION: index_category_allow_collapse_N uncollapsable category entry}
-<tr id="c{VAR: r[5]}" style="display: {IF: empty($collapse[$i[4]])}table-row{ELSE}none{ENDI};">
-<td class="CatDesc CatLockPad" colspan="5" style="padding-left: {FUNC: ($i[0] ? $i[0] * 20 : '0')}px;">
-<span class="CatLockedName"><a href="{TEMPLATE: index_to_cat_lnk}" class="CatLink">{VAR: i[1]}</a></span> {VAR: i[2]}</td>{TEMPLATE: index_cat_up_down_arrows}</tr>
-{SECTION: END}
-
-{SECTION: moderators moderator list}
-<div class="TopBy"><b>{MSG: moderators}:</b> {VAR: moderators}</div>
-{SECTION: END}
-
-{SECTION: index_forum_entry forum entry row}
-<tr style="display: {IF: empty($collapse[$cid])}table-row{ELSE}none{ENDI}" class="child-c{VAR: r[5]}">
-	<td class="RowStyleA wo">{IF: $r[6]}<img src="images/forum_icons/{VAR: r[6]}" alt="{MSG: forum_icon}" />{ELSE}&nbsp;{END}</td>
-	<td class="RowStyleB ac wo">{IF: empty($r[12])}{VAR: forum_read_indicator}{ELSE}<img title="{MSG: index_url_redirection}" src="{THEME_IMAGE_ROOT}/moved{DEF: img_ext}" alt="" />{ENDI}</td>
-	<td class="RowStyleA wa"><a href="{TEMPLATE: index_forum_entry_lnk}" class="big">{VAR: r[10]}</a>{FUNC: ($r[11] ? '<br />'.$r[11] : '')}{VAR: moderators}</td>
-	<td class="RowStyleB ac">{IF: empty($r[12])}{VAR: r[13]}{ELSE}--{ENDI}</td>
-	<td class="RowStyleB ac">{IF: empty($r[12])}{VAR: r[14]}{ELSE}--{ENDI}</td>
-	<td class="RowStyleA ac nw">{IF: empty($r[12])}{IF: $r[8]}<span class="DateText">{TEMPLATE: index_last_post_date}</span><br />{MSG: by} {IF: $r[3]}{TEMPLATE: profile_link_user}{ELSE}{TEMPLATE: profile_link_anon}{END} <a href="{TEMPLATE: last_post_lnk}"><img title="{VAR: r[0]}" src="{THEME_IMAGE_ROOT}/goto.gif" alt="{VAR: r[0]}" /></a>{ELSE}{MSG: na}{END}{ELSE}--{ENDI}</td>
-</tr>
-{SECTION: END}
-
-{SECTION: forum_with_no_view_perms}
-<tr style="display: {IF: empty($collapse[$cid])}table-row{ELSE}none{ENDI}" class="child-c{VAR: r[5]}">
-	<td class="RowStyleA" colspan="6">{VAR: r[10]}{FUNC: ($r[11] ? '<br />'.$r[11] : '')}</td>
-</tr>
-{SECTION: END}
-
-{SECTION: forum_read}
-<img title="{MSG: forum_old_messages}" src="{THEME_IMAGE_ROOT}/existing_content{DEF: img_ext}" alt="{MSG: forum_old_messages}" />
-{SECTION: END}
-
-{SECTION: forum_unread}
-<img title="{MSG: forum_new_messages}" src="{THEME_IMAGE_ROOT}/new_content{DEF: img_ext}" alt="{MSG: forum_new_messages}" />
-{SECTION: END}
-
-{SECTION: forum_no_indicator no new message indicator}
-<img title="{MSG: forum_none_messages}" src="{THEME_IMAGE_ROOT}/existing_content{DEF: img_ext}" alt="{MSG: forum_none_messages}" />
-{SECTION: END}
-
-{SECTION: profile_link_user}
-<a href="{TEMPLATE: profile_link_user_lnk}">{VAR: r[4]}</a>
-{SECTION: END}
-
-{SECTION: profile_link_mod}
-<a href="{TEMPLATE: profile_link_mod_lnk}">{VAR: v}</a> &nbsp;
-{SECTION: END}
-
-{SECTION: no_mod}
-&nbsp;
-{SECTION: END}
-
-{SECTION: profile_link_anon}
-{GVAR: ANON_NICK}
-{SECTION: END}
+{REF: draw_forum_list.tmpl}
 
 {PAGE: INDEX_PAGE}
 {TEMPLATE: header}
@@ -94,19 +27,13 @@
 {IF: _uid}<span class="GenText">{MSG: welcome_message}</span><br />{ENDIF}
 {TEMPLATE: show_links}{TEMPLATE-DATA: admin_cp}
 {TEMPLATE-DATA: cat_path}
-<table cellspacing="1" cellpadding="2" class="ContentTable">
-<tr>
-	<th colspan="3" class="wa">{MSG: index_forum}</th>
-	<th style="white-space: nowrap">{MSG: posts}</th>
-	<th style="white-space: nowrap">{MSG: threads}</th>
-	<th style="white-space: nowrap">{MSG: last_post}</th>
-</tr>
-{TEMPLATE-DATA: forum_list_table_data}
-</table>
+{INJECTION_POINT: before_index}
+{TEMPLATE-DATA: announcements}
+{TEMPLATE: forum_list}
 {IF: _uid}<div class="SmallText ar">[ <a href="{TEMPLATE: mark_all_read_lnk}" title="{MSG: mark_all_read_desc}">{MSG: mark_all_read}</a> ]
 {IF: $FUD_OPT_2 & 1048576}[ <a href="feed.php?mode=m&amp;l=1&amp;basic=1"><img src="{THEME_IMAGE_ROOT}/rss.gif" title="{MSG: thread_syndicate}" alt="{MSG: thread_syndicate}"/></a> ]{ENDIFI}
 </div>{ENDIF}
-{IF: __fud_real_user__}{TEMPLATE: quick_login_loged_in}{ELSE}{TEMPLATE: quick_login_on}{END}
+{IF: __fud_real_user__}{TEMPLATE: quick_login_logged_in}{ELSE}{TEMPLATE: quick_login_logged_out}{END}
 {IF: $logedin || $forum_info}{TEMPLATE: loged_in_list}{ENDIF}
 <br /><fieldset>
 <legend>{MSG: legend}</legend>
@@ -114,6 +41,7 @@
 <img src="{THEME_IMAGE_ROOT}/existing_content{DEF: img_ext}" alt="{MSG: index_no_new_posts}" /> {MSG: index_no_new_posts}&nbsp;&nbsp;
 <img src="{THEME_IMAGE_ROOT}/moved{DEF: img_ext}" alt="{MSG: index_url_redirection}" /> {MSG: index_url_redirection}
 </fieldset>
+<div><br />{INJECTION_POINT: after_index}</div>
 {TEMPLATE: curtime}
 {TEMPLATE-DATA: page_stats}
 <script type="text/javascript">
@@ -138,50 +66,10 @@ min_max_cats("{THEME_IMAGE_ROOT}", "{DEF: img_ext}", "{MSG: minimize_category}",
 {MSG: index_title}
 {SECTION: END}
 
-{SECTION: last_post_lnk}
-{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: r[8]}&amp;{DEF: _rsid}#msg_{VAR: r[8]}
-{SECTION: END}
-
-{SECTION: profile_link_user_lnk}
-{ROOT}?t=usrinfo&amp;id={VAR: r[3]}&amp;{DEF: _rsid}
-{SECTION: END}
-
-{SECTION: profile_link_mod_lnk}
-{ROOT}?t=usrinfo&amp;id={VAR: k}&amp;{DEF: _rsid}
-{SECTION: END}
-
 {SECTION: mark_all_read_lnk}
 {ROOT}?t=markread&amp;{DEF: _rsid}&amp;SQ={GVAR: sq}&amp;cat={VAR: cat_id}
 {SECTION: END}
 
-{SECTION: index_to_cat_lnk}
-{ROOT}?t=index&amp;cat={VAR: k}&amp;{DEF: _rsid}
-{SECTION: END}
-
-{SECTION: index_forum_entry_lnk}
-{IF: empty($r[12])}{ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: r[7]}&amp;{DEF: _rsid}{ELSE}{VAR: r[12]}{ENDI}
-{SECTION: END}
-
-{SECTION: idx_forum_path}
-&nbsp;&raquo; <a href="{TEMPLATE: idx_forum_path_lnk}">{VAR: cidxc[$cid][1]}</a>
-{SECTION: END}
-
-{SECTION: idx_forum_path_lnk}
-{ROOT}?t=i&amp;cat={VAR: cid}&amp;{DEF: _rsid}
-{SECTION: END}
-
-{SECTION: idx_cat_path}
-<br/><a href="{TEMPLATE: idx_cat_path_lnk}">{MSG: home}</a>{TEMPLATE-DATA: cat_path}&nbsp;&raquo; <b>{VAR: cidxc[$cat_id][1]}</b>
-{SECTION: END}
-
-{SECTION: idx_cat_path_lnk}
-{ROOT}?t=i&amp;{DEF: _rsid}
-{SECTION: END}
-
-{SECTION: idx_compact_forum_entry}
-&nbsp; {IF: _uid && $r[15] < $r[2] && $usr->last_read < $r[2]}**{ENDIFI}<a href="{TEMPLATE: index_forum_entry_lnk}">{VAR: r[10]}</a>
-{SECTION: END}
-
-{SECTION: idx_compact_forum_row}
-<tr class="RowStyleB"><td colspan="6">{MSG: idx_compact_forum_row}{VAR: cbuf}</td></tr>
+{SECTION: announce_entry Announcement row}
+<div class="AnnText"><span class="AnnSubjText">{VAR: announce_subj}</span><br />{VAR: announce_body}</div>
 {SECTION: END}

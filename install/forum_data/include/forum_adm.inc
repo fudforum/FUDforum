@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -11,10 +11,10 @@
 
 class fud_forum
 {
-	var	$id, $cat_id, $name, $descr, $url_redirect, $post_passwd, $forum_icon, $forum_opt, $date_created,
+	var	$id, $cat_id, $name, $descr, $parent, $url_redirect, $post_passwd, $forum_icon, $forum_opt, $date_created,
 		$view_order, $message_threshold, $max_attach_size, $max_file_attachments;
 
-	function fud_forum()
+	function __construct()
 	{
 		foreach ($this as $k => $v) {
 			if (isset($_POST['frm_'. $k])) {
@@ -38,6 +38,7 @@ class fud_forum
 			cat_id,
 			name,
 			descr,
+			parent,
 			url_redirect,
 			post_passwd,
 			date_created,
@@ -51,6 +52,7 @@ class fud_forum
 			'. $this->cat_id .',
 			'. _esc(htmlspecialchars($this->name)) .',
 			'. ssn($this->descr) .',
+			'. (int)$this->parent .',
 			'. ssn($this->url_redirect) .',
 			'. ssn($this->post_passwd) .',
 			'. __request_timestamp__ .',
@@ -62,19 +64,15 @@ class fud_forum
 			'. (int)$this->forum_opt .'
 		)');
 
-		fud_use('dbadmin.inc', true);	// For get_fud_table_list() and create_table().
+		fud_use('dbadmin.inc', true);	// For drop_table() and create_table().
 
-		$lck_tbl = $tbl .'fl_'. $this->id;
-		/* Only create lock table if it does not already exist. */
-		if (!get_fud_table_list($lck_tbl)) {
-			create_table('CREATE TABLE '. $lck_tbl .' (id INT)');
-		}
-		
-		$view_tbl = $tbl .'tv_'. $this->id;
-		/* Only view lock table if it does not already exist. */
-		if (!get_fud_table_list($view_tbl)) {
-			frm_add_view_tbl($view_tbl);
-		}
+		/* Create Forum Lock (fl_) table. */
+		$fl_tbl = $tbl .'fl_'. $this->id;
+		frm_add_lock_tbl($fl_tbl);
+
+		/* Create Thread View (tv_) table. */
+		$tv_tbl = $tbl .'tv_'. $this->id;
+		frm_add_view_tbl($tv_tbl);
 
 		if (($gid = group_add($this->id, $this->name, 2))) {
 			grp_rebuild_cache(array(0, 2147483647));
@@ -93,6 +91,7 @@ class fud_forum
 			cat_id='. $cat_id .',
 			name='. _esc(htmlspecialchars($this->name)) .',
 			descr='. ssn($this->descr) .',
+			parent='. (int)$this->parent .',
 			url_redirect='. ssn($this->url_redirect) .',
 			post_passwd='. ssn($this->post_passwd) .',
 			forum_icon='. ssn($this->forum_icon) .',
@@ -167,13 +166,26 @@ function frm_move_forum($id, $dest_cat, $src_cat)
 	return;
 }
 
-function frm_add_view_tbl($view_tbl)
+/* Create Forum Lock table for a forum (drop if exists, may be old format). */
+function frm_add_lock_tbl($fl_tbl)
 {
-	fud_use('dbadmin.inc', true);	// For create_table().
+	fud_use('dbadmin.inc', true);	// For drop_table() and create_table().
+
+	drop_table($fl_tbl, true);	// If exists.
+
+	create_table('CREATE TABLE '. $fl_tbl .' (id INT)');
+}
+
+/* Create Thread View table for a forum (drop if exists, may be old format). */
+function frm_add_view_tbl($tv_tbl)
+{
+	fud_use('dbadmin.inc', true);	// For drop_table() and create_table().
+
+	drop_table($tv_tbl, true);	// If exists.
 
 	foreach (explode(';', file_get_contents($GLOBALS['DATA_DIR'] .'/sql/fud_tv_1.tbl')) as $v) {
 		if (!strncmp(($v = trim($v)), 'CREATE', 6)) {
-			create_table(str_replace('{SQL_TABLE_PREFIX}tv_1', $view_tbl, $v));
+			create_table(str_replace('{SQL_TABLE_PREFIX}tv_1', $tv_tbl, $v));
 		}
 	}
 }

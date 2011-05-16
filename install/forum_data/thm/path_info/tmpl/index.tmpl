@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -19,35 +19,8 @@
 {REF: stats.tmpl}
 {REF: show.tmpl}
 {REF: quicklogin.tmpl}
-
-{SECTION: index_to_cat_lnk}
-{ROOT}/i/{VAR: k}/{DEF: _rsid}
-{SECTION: END}
-
-{SECTION: index_forum_entry_lnk}
-{IF: empty($r[12])}{ROOT}/f/{VAR: r[7]}/{DEF: _rsid}{ELSE}{VAR: r[12]}{ENDI}
-{SECTION: END}
-
-{SECTION: last_post_lnk}
-{ROOT}/m/{VAR: r[8]}/{DEF: _rsid}#msg_{VAR: r[8]}
-{SECTION: END}
-
-{SECTION: profile_link_user_lnk}
-{ROOT}/u/{VAR: r[3]}/{DEF: _rsid}
-{SECTION: END}
-
-{SECTION: profile_link_mod_lnk}
-{ROOT}/u/{VAR: k}/{DEF: _rsid}
-{SECTION: END}
+{REF: draw_forum_list.tmpl}
 
 {SECTION: mark_all_read_lnk}
 {ROOT}/mar/0/{VAR: cat_id}/{DEF: _rsid}?SQ={GVAR: sq}
-{SECTION: END}
-
-{SECTION: idx_cat_path_lnk}
-{ROOT}/i/{DEF: _rsid}
-{SECTION: END}
-
-{SECTION: idx_forum_path_lnk}
-{ROOT}/i/{VAR: cid}/{DEF: _rsid}
 {SECTION: END}
