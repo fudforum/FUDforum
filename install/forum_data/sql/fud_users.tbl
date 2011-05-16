@@ -118,6 +118,7 @@ CREATE INDEX {SQL_TABLE_PREFIX}users_i_bd ON {SQL_TABLE_PREFIX}users (birthday);
 # 134217728 do not send e-mail notifications (ON/OFF)
 # 268435456 account moderator (ON/OFF)
 # 536870912 always moderate user's posts (ON/OFF)
+# 1073741824 is_spider
 
 # Notes
 # 'passwd' is a sha1() hash if we have a 'salt', else it will be md5() encoded.

@@ -41,25 +41,43 @@ function ses_get($id=0)
 			/* Do not validate against expired URL sessions. */
 			$q_opt .= ' AND s.time_sec > '. (__request_timestamp__ - $GLOBALS['SESSION_TIMEOUT']);
 		} else {
-			$spider_session = 0;
 			// Auto login authorized bots.
 			// To test: wget --user-agent="Googlebot 1.2" http://127.0.0.1:8080/forum
+			$spider_session = 0;
+			$my_ip = get_ip();
+
 			include $GLOBALS['FORUM_SETTINGS_PATH'] .'spider_cache';
 			foreach ($spider_cache as $spider_id => $spider) {
 				if (preg_match('/^'. $spider['useragent'] .'/i', $_SERVER['HTTP_USER_AGENT'])) {
-					$spider_session = 1;
-					// fud_logerror('Bot '. $spider['useragent'] .' detected!', 'fud_errors');
-					$uid = 2;	// TODO: Hard coded for testing purposes!!!
-					if ($id = db_li('INSERT INTO {SQL_TABLE_PREFIX}ses (ses_id, time_sec, sys_id, ip_addr, useragent, user_id) VALUES (\''. $spider['botname'] .'\', '. __request_timestamp__ .', '. _esc(ses_make_sysid()) .', '. _esc(get_ip()) .', '. _esc(substr($_SERVER['HTTP_USER_AGENT'], 0, 32)) .', '. $uid .')', $ef, 1)) {
-						$q_opt = 's.id='. $id;
+					if (empty($spider['bot_ip'])) {
+						$spider_session = 1;	// Agent matched.
+						break; 
 					} else {
-						$q_opt = 's.ses_id='. _esc($spider['botname']);
+						foreach (explode(',', $spider['bot_ip']) as $bot_ip) {
+							if (!($bot_ip = trim($bot_ip))) {
+								continue;
+							}
+							if (strpos($bot_ip, $my_ip) === 0)	{
+								$spider_session = 1;	// Agent and IP matched.
+								break;
+							}
+						}
 					}
-					break;
 				}
 			}
-
-			if (!$spider_session) return;
+			if ($spider_session) {
+				if ($spider['bot_opts'] & 2) {	// Access blocked.
+					die('Go away!');
+				}
+				if ($id = db_li('INSERT INTO {SQL_TABLE_PREFIX}ses (ses_id, time_sec, sys_id, ip_addr, useragent, user_id) VALUES (\''. $spider['botname'] .'\', '. __request_timestamp__ .', '. _esc(ses_make_sysid()) .', '. _esc($my_ip) .', '. _esc(substr($_SERVER['HTTP_USER_AGENT'], 0, 32)) .', '. $spider['user_id'] .')', $ef, 1)) {
+					$q_opt = 's.id='. $id;
+				} else {
+					$q_opt = 's.ses_id='. _esc($spider['botname']);
+				}
+				$GLOBALS['FUD_OPT_1'] ^= 128;	// Disable URL sessions for user.
+			} else {
+				return;
+			}
 		}
 
 		/* ENABLE_REFERRER_CHECK */

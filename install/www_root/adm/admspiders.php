@@ -30,15 +30,23 @@
 
 		if ($edit && !$error) {
 			$spider = new fud_spider;
-			$spider->sync($edit);
-			$edit = '';	
-			echo successify('Spider was successfully updated.');
-			logaction(_uid, 'Update spider', 0, $_POST['spider_botname']);
+			$id = $spider->sync($edit);
+			if ($id > 0) {
+				pf(successify('Spider was successfully updated.'));
+				logaction(_uid, 'Update spider', 0, $_POST['spider_botname']);
+				$edit = '';	
+			} else {
+				pf(errorify('Unable to edit spider, base user may already be in use.'));
+			}
 		} else if (!$error) {
 			$spider = new fud_spider;
-			$spider->add();
-			echo successify('Spider was successfully added.');
-			logaction(_uid, 'Add spider', 0, $_POST['spider_botname']);
+			$id = $spider->add();
+			if ($id > 0) {
+				pf(successify('Spider was successfully added.'));
+				logaction(_uid, 'Add spider', 0, $_POST['spider_botname']);
+			} else {
+				pf(errorify('Unable to add spider, base user may already be in use.'));
+			}
 		}
 	}
 
@@ -47,7 +55,7 @@
 		$id = (int)$_GET['del'];
 		$spider = new fud_spider();
 		$spider->delete($id);
-		echo successify('Spider was successfully deleted.');
+		pf(successify('Spider was successfully deleted.'));
 		logaction(_uid, 'Delete spider', 0, $id);
 	}
 
@@ -76,7 +84,7 @@ echo '<h3>'. ($edit ? '<a name="edit">Edit Spider:</a>' : 'Add New Spider:') .'<
 <?php echo _hs; ?>
 <table class="datatable">
 	<tr class="field">
-		<td>Bot name:<br /><font size="-2">Name of the spider.</font></td>
+		<td>Bot name:<br /><font size="-2">User defined name for the spider.</font></td>
 		<td><input type="text" name="spider_botname" value="<?php echo $spider_botname; ?>" /></td>
 	</tr>
 
@@ -86,13 +94,12 @@ echo '<h3>'. ($edit ? '<a name="edit">Edit Spider:</a>' : 'Add New Spider:') .'<
 	</tr>
 
 	<tr class="field">
-		<td>Bot's IP Address:<br /><font size="-2">IP Address of the spider.</font></td>
+		<td>Bot's IP Addresses:<br /><font size="-2">Comma separated list of IP Addresses used by the spider.</font></td>
 		<td><input type="text" name="spider_bot_ip" value="<?php echo $spider_bot_ip; ?>" /></td>
 	</tr>
 
-<!-- TODO: Remove?
 	<tr class="field">
-		<td>Theme:<br /><font size="-2">What theme should the spider see when they visit your site.</font></td>
+		<td>Theme:<br /><font size="-2">What theme should the spider see when it visits your site.</font></td>
 		<td><select name="spider_theme">
 		<?php
 			$c = uq('SELECT id, name FROM '. $tbl .'themes ORDER BY name');
@@ -103,11 +110,10 @@ echo '<h3>'. ($edit ? '<a name="edit">Edit Spider:</a>' : 'Add New Spider:') .'<
 		?>
 		</select></td>
 	</tr>
--->
 
 	<tr class="field">
-		<td>Enabled:<br /><font size="-2">Enable or disable detection of this bot.</font></td>
-		<td><?php draw_select('spider_bot_opts', "Disabled\nEnabled", "1\n0", ($spider_bot_opts & (1))); ?></td>
+		<td>Action:<br /><font size="-2">Action to take if this bot visits your site.</font></td>
+		<td><?php draw_select('spider_bot_opts', "Ignore it\nAuto-login\nBlock access", "1\n0\n2", ($spider_bot_opts & (1|2))); ?></td>
 	</tr>
 
 	<tr class="fieldaction">
@@ -127,15 +133,15 @@ echo '<h3>'. ($edit ? '<a name="edit">Edit Spider:</a>' : 'Add New Spider:') .'<
 <h3>Defined spiders:</h3>
 <table class="resulttable fulltable">
 <thead><tr class="resulttopic">
-	<th>Bot Name</th><th>Useragent</th><th>IP Address</th><th>Action</th>
+	<th>Bot Name</th><th>Useragent</th><th>IP address</th><th>Last visit</th><th>Action</th>
 </tr></thead>
 <?php
 	$i = 0;
-	$c = uq(q_limit('SELECT * FROM '. $tbl .'spiders ORDER BY botname', 100));
+	$c = uq(q_limit('SELECT s.*, u.last_visit FROM '. $tbl .'spiders s LEFT JOIN '. $tbl .'users u ON s.user_id = u.id ORDER BY botname', 100));
 	while ($r = db_rowobj($c)) {
 		$i++;
 		$bgcolor = ($edit == $r->id) ? ' class="resultrow3"' : (($i%2) ? ' class="resultrow1"' : ' class="resultrow2"');
-		echo '<tr'. $bgcolor .'><td>'. $r->botname .'</td><td>'. $r->useragent .'</td><td>'. $r->bot_ip .'</td>';
+		echo '<tr'. $bgcolor .'><td>'. $r->botname .'</td><td>'. $r->useragent .'</td><td>'. $r->bot_ip .'</td><td>'. fdate($r->last_visit) .'</td>';
 		echo '<td><a href="admspiders.php?edit='. $r->id .'&amp;'. __adm_rsid .'#edit">Edit</a> | <a href="admspiders.php?del='. $r->id .'&amp;'. __adm_rsid .'">Delete</a></td></tr>';
 	}
 	unset($c);

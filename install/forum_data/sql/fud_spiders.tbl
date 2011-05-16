@@ -12,11 +12,14 @@ DROP TABLE IF EXISTS {SQL_TABLE_PREFIX}spiders;
 CREATE TABLE {SQL_TABLE_PREFIX}spiders
 (
 	id		INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	botname		varchar(100) NOT NULL DEFAULT '',
+	botname		VARCHAR(100) NOT NULL,
 	useragent	VARCHAR(200) NOT NULL,
-	bot_ip		BIGINT NOT NULL DEFAULT 0,
+	bot_ip		VARCHAR(200),
+	user_id		INT NOT NULL,
+	theme		INT NOT NULL,
 	bot_opts	INT NOT NULL DEFAULT 0
 );
 
 # Opts:
 # 1 disabled
+# 2 block access

@@ -1176,6 +1176,15 @@ if ($section == 'admin' || php_sapi_name() == 'cli') {
 			'NOTIFY_FROM' => $_POST['ADMIN_EMAIL']
 		));
 
+		/* Add default web crawlers. */
+		$bot_opts = 1|4|16|32|128|256|512|2048|4096|8192|16384|262144|4194304|1073741824;
+		$uid = db_li('INSERT INTO '. $DBHOST_TBL_PREFIX .'users (login, alias, name, email, users_opt, join_date, theme, time_zone) VALUES(\'Google\', \'Google\', \'Googlebot\', \'Google@fud_spiders\', '. $bot_opts .', '. time() .', 1, \''. $SERVER_TZ .'\')', $ef, 1);
+		q('INSERT INTO '. $DBHOST_TBL_PREFIX .'spiders (botname, useragent, theme, user_id) VALUES (\'Google\', \'Googlebot\', 1, '. $uid .')');
+		$uid = db_li('INSERT INTO '. $DBHOST_TBL_PREFIX .'users (login, alias, name, email, users_opt, join_date, theme, time_zone) VALUES(\'Yahoo\', \'Yahoo\', \'Yahoo!\', \'Yahoo@fud_spiders\', '. $bot_opts .', '. time() .', 1, \''. $SERVER_TZ .'\')', $ef, 1);
+		q('INSERT INTO '. $DBHOST_TBL_PREFIX .'spiders (botname, useragent, theme, user_id) VALUES (\'Yahoo!\', \'Slurp\', 1, '. $uid .')');
+		$uid = db_li('INSERT INTO '. $DBHOST_TBL_PREFIX .'users (login, alias, name, email, users_opt, join_date, theme, time_zone) VALUES(\'Bing\', \'Bing\', \'Bing\', \'Bing@fud_spiders\', '. $bot_opts .', '. time() .', 1, \''. $SERVER_TZ .'\')', $ef, 1);
+		q('INSERT INTO '. $DBHOST_TBL_PREFIX .'spiders (botname, useragent, theme, user_id) VALUES (\'Bing\', \'msnbot\', 1, '. $uid .')');
+
 		/* Build theme. */
 		require($INCLUDE .'compiler.inc');
 		try {
