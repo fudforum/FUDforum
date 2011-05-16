@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -13,9 +13,6 @@
 	@ini_set('memory_limit', '128M');
 
 	require('./GLOBALS.php');
-	if ($FUD_OPT_3 & 32768) {
-		exit('Unnecessary if messages are stored in a database.');
-	}
 
 	// Run from command line.
 	if (php_sapi_name() == 'cli') {
@@ -32,11 +29,13 @@
 	fud_use('fileio.inc');
 	fud_use('adm.inc', true);
 	fud_use('private.inc');
+	fud_use('page_adm.inc', true);
 	fud_use('glob.inc', true);
+	fud_use('dbadmin.inc', true);
 	fud_use('imsg_edt.inc');
 
 	if (isset($_POST['btn_cancel'])) {
-		header('Location: '. $WWW_ROOT .'adm/index.php?'. __adm_rsid);
+		header('Location: '. $WWW_ROOT .'adm/index.php?'. __adm_rsidl);
 		exit;
 	}
 
@@ -44,17 +43,16 @@
 
 	if (!isset($_POST['conf'])) {
 ?>
-<h2>Compact Messages</h2>
+<h2>Message Rebuilder</h2>
 <div class="alert">
-The compactor will rebuild the storage files were the message bodies are kept. 
-While the compactor is running your forum will be temporarily inaccessible. 
+The rebuilder can be used to cleanup message bodies, apply text changes or to move messages between file and database based storage.
+While the rebuilder is running your forum will be temporarily inaccessible. 
 This process may take a while to run, depending on your hard drive speed and the amount of messages your forum has. 
 Please <a href="admdump.php?<?php echo __adm_rsid; ?>">backup</a> all files before proceeding!
 </div><br />
 <form method="post" action="compact.php">
 
-<!-- REMOVE
-<?php if (@extension_loaded('iconv')) { 
+<?php if (defined('fud_debug') && @extension_loaded('iconv')) { 
 $charsets = ARRAY(
 	'big5','euc-jp','gb2312',
 	'iso-8859-1','iso-8859-2','iso-8859-3','iso-8859-4','iso-8859-5','iso-8859-6','iso-8859-7',
@@ -63,8 +61,8 @@ $charsets = ARRAY(
 	'windows-1251','windows-1252','windows-1253','windows-1254','windows-1255','windows-1256',
 	'windows-1257','windows-1258');
 ?>
-<fieldset class="tutor">
-	<legend><b>Optional character set conversion:</b></legend>
+<fieldset>
+	<legend>Character set conversion:</legend>
 	<p>Non-English forums that are not using UTF-8 might want to convert their messages to UTF-8. Converting twice will <u>corrupt your messages</u>. Please leave empty if you don't require a character set conversion or if you are unsure:</p>
 	<table class="datatable">
     <tr class="field"><td>From character set:</td>
@@ -83,9 +81,16 @@ $charsets = ARRAY(
 	</tr></table>
 </fieldset>
 <?php } ?>
--->
-<b>Do you wish to proceed?</b>
-<p><label>Permanently apply <a href="admreplace.php?<?php echo __adm_rsid; ?>">Replacement and Censorship</a> rules to message bodies: <input name="replace" value="1" type="checkbox"></label></p>
+
+<fieldset>
+	<legend>Search and replace text:</legend>
+	<label><p>
+		Permanently apply <a href="admreplace.php?<?php echo __adm_rsid; ?>">Replacement and Censorship</a> rules to message bodies:
+		<input name="replace" value="1" type="checkbox">
+	</p></label>
+</fieldset>
+
+<p>Do you wish to proceed?</p>
 <input type="submit" name="btn_cancel" value="No" />&nbsp;&nbsp;&nbsp;<input type="submit" name="conf" value="Yes" />
 <?php echo _hs; ?>
 </form>
@@ -96,26 +101,14 @@ $charsets = ARRAY(
 ?>
 <?php
 
+// List of temporary message files.
 $GLOBALS['__FUD_TMP_F__'] = array();
-set_error_handler('error_handler');
 
-function error_handler ($level, $message, $file, $line, $context) {
-	if (error_reporting() != 0) {
-		echo <<<_END_
-<p>An error was generated in file $file on line $line.</p>
-<p><font color="red">The error message was: $message</font></p>
-_END_;
-		exit;
-	} else {
-		return;
-	}
-} 
-
-function write_body_c($data, &$len, &$offset, $fid)
+function write_body_copy($data, &$len, &$offset, $file_id, $forum_id)
 {
 	$MAX_FILE_SIZE = 2140000000;
 
-	// Character set conversion.
+	// Convert between character sets.
 	if (!empty($_POST['fromcharset']) && !empty($_POST['tocharset'])) {
 		$newdata = iconv($_POST['fromcharset'], $_POST['tocharset'], $data);
 		$data = $newdata;
@@ -141,25 +134,33 @@ function write_body_c($data, &$len, &$offset, $fid)
 		$data = preg_replace($GLOBALS['__FUD_REPL__']['pattern'], $GLOBALS['__FUD_REPL__']['replace'], $data);
 	}
 
-	$len = strlen($data);
+	$prev_len = $len;
+	$len      = strlen($data);
 
-	$s = $fid * 10000;
+	if ($GLOBALS['FUD_OPT_3'] & 32768) {	// DB_MESSAGE_STORAGE
+		if ($offset == -1) {	// Already in DB.
+			q('DELETE FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'msg_store WHERE id='. $file_id);
+		}
+		$s = db_qid('INSERT INTO '. $GLOBALS['DBHOST_TBL_PREFIX'] .'msg_store (data) VALUES ('. _esc($data) .')');
+		$offset = -1;
+	} else {
+		$s = $forum_id * 10000;
+		$f =& $GLOBALS['__FUD_TMP_F__'];
 
-	$f =& $GLOBALS['__FUD_TMP_F__'];
+		while (!isset($f[$s]) || $f[$s][1] + $len > $MAX_FILE_SIZE) {
+			if (isset($f[$s])) ++$s;
 
-	while (!isset($f[$s]) || $f[$s][1] + $len > $MAX_FILE_SIZE) {
-		if (isset($f[$s])) ++$s;
+			$f[$s][0] = fopen($GLOBALS['MSG_STORE_DIR'] .'tmp_msg_'. $s, 'ab');
+			flock($f[$s][0], LOCK_EX);
+			$f[$s][1] = __ffilesize($f[$s][0]);
+		}
 
-		$f[$s][0] = fopen($GLOBALS['MSG_STORE_DIR'] .'tmp_msg_'. $s, 'ab');
-		flock($f[$s][0], LOCK_EX);
-		$f[$s][1] = __ffilesize($f[$s][0]);
+		if (fwrite($f[$s][0], $data) != $len) {
+			exit('FATAL ERROR: system has ran out of disk space.');
+		}
+		$offset = $f[$s][1];
+		$f[$s][1] += $len;
 	}
-
-	if (fwrite($f[$s][0], $data) != $len) {
-		exit('FATAL ERROR: system has ran out of disk space.');
-	}
-	$offset = $f[$s][1];
-	$f[$s][1] += $len;
 
 	return $s;
 }
@@ -169,33 +170,38 @@ function write_body_c($data, &$len, &$offset, $fid)
 		maintenance_status('Undergoing maintenance, please come back later.', 1);
 	}
 
-	pf('Please wait while the forum is being compacted. This may take a while depending on the size of your forum.');
+	pf('Please wait while we rebuild the forum\'s messages. This may take a while depending on the size of your forum.');
 
 	$mode = ($FUD_OPT_2 & 8388608 ? 0600 : 0666);
 	$tbl =& $DBHOST_TBL_PREFIX;
 	$start_time = time();
 
-	/* Compact normal messages. */
-	pf('Compacting normal messages...');
+	/* Rebuild normal messages. */
+	pf('<br />');
+	pf('<b>Rebuilding normal messages:</b>');
 
 	$i = 0;
 	$i_count = q_singleval('SELECT count(*) FROM '. $tbl .'msg WHERE file_id>0');
+	$i_commit = ($i_count > 10000) ? 1000 : 100;
 	if ($i_count) {
 		db_lock($tbl .'msg m WRITE, '. $tbl .'thread t WRITE, '. $tbl .'forum f WRITE, '. $tbl .'msg WRITE, '. $tbl .'msg_store WRITE');
 
 		while (1) {
 			$j = $i;
-			$c = q('SELECT m.id, m.foff, m.length, m.file_id, f.message_threshold, f.id as fid FROM '. $tbl .'msg m INNER JOIN '. $tbl .'thread t ON m.thread_id=t.id INNER JOIN '. $tbl .'forum f ON t.forum_id=f.id WHERE m.file_id>0 LIMIT 100');
-			while ($r = db_rowarr($c)) {
-				if ($r[4] && $r[2] > $r[4]) {
-					$m2 = write_body_c(trim_html(read_msg_body($r[1], $r[2], $r[3]), $r[4]), $len2, $off2, $r[5]);
+			$c = q(q_limit('SELECT m.id, m.foff, m.length, m.file_id, f.message_threshold, f.id as forum_id FROM '. $tbl .'msg m INNER JOIN '. $tbl .'thread t ON m.thread_id=t.id INNER JOIN '. $tbl .'forum f ON t.forum_id=f.id WHERE m.file_id>0', 100));
+			while ($r = db_rowobj($c)) {
+				if ($r->message_threshold && $r->length > $r->message_threshold) {	// Body longer than threshold.
+					$len2 = $r->length; $off2 = $r->foff;	// Pass in, function will change them.
+					$m2 = write_body_copy(trim_html(read_msg_body($r->foff, $r->length, $r->file_id), $r->message_threshold), $len2, $off2, $r->file_id, $r->forum_id);
 				} else {
 					$m2 = $len2 = $off2 = 0;
 				}
-				$m1 = write_body_c(read_msg_body($r[1], $r[2], $r[3]), $len, $off, $r[5]);
-				q('UPDATE '. $tbl .'msg SET foff='. $off .', length='. $len .', file_id='. (-$m1) .', file_id_preview='. (-$m2) .', offset_preview='. $off2 .', length_preview='. $len2 .' WHERE id='. $r[0]);
+				$len = $r->length; $off = $r->foff;	// Pass in, function will change them.
+				$m1 = write_body_copy(read_msg_body($r->foff, $r->length, $r->file_id), $len, $off, $r->file_id, $r->forum_id);
+				// Minus on -$m1 / -m2 to mark message as rebuilt.
+				q('UPDATE '. $tbl .'msg SET foff='. $off .', length='. $len .', file_id='. (-$m1) .', file_id_preview='. (-$m2) .', offset_preview='. $off2 .', length_preview='. $len2 .' WHERE id='. $r->id);
 
-				if ($i && !($i % ceil($i_count/10))) {
+				if ((($i+1) % $i_commit) == 0) {
 					eta_calc($start_time, $i, $i_count);
 				}
 				$i++;
@@ -232,13 +238,13 @@ function write_body_c($data, &$len, &$offset, $fid)
 
 		db_unlock();
 	}
-	pf('100% Done.');
+	pf('100% Done.<br /><br />');
 
-	/* Compact private messages. */
-	pf('Compacting private messages...');
+	/* Rebuild private messages. */
+	pf('<b>Rebuilding private messages:</b>');
 
-	//TODO: Use create_index()
-	q('CREATE INDEX '. $tbl .'pmsg_foff_idx ON '. $tbl .'pmsg (foff)');
+	// Index messages offsets for faster processing.
+	create_index($tbl .'pmsg', $tbl .'pmsg_foff_idx', false, 'foff');
 
 	db_lock($tbl .'pmsg WRITE');
 	$i = $off = $len = 0;
@@ -249,24 +255,31 @@ function write_body_c($data, &$len, &$offset, $fid)
 	}
 	$i_count = q_singleval('SELECT count(*) FROM '. $tbl .'pmsg');
 	if ($i_count) {
-		$c = q('SELECT distinct(foff), length FROM '. $tbl .'pmsg');
+		$c = q('SELECT id, foff, length FROM '. $tbl .'pmsg');
 
-		while ($r = db_rowarr($c)) {
-			$data = read_pmsg_body($r[0], $r[1]);
-/* REMOVE
+		while ($r = db_rowonj($c)) {
+			$data = fud_page::read_pmsg_body($r->foff, $r->length);
+
 			if (!empty($_POST['fromcharset']) || !empty($_POST['tocharset'])) {
 				$newdata = iconv($_POST['fromcharset'], $_POST['tocharset'], $data);
 				$data = $newdata;
 			}
-*/
 
-			if (($len = fwrite($fp, $data)) === FALSE || !fflush($fp)) {
-				exit('FATAL ERROR: system has ran out of disk space.');
+			if ($FUD_OPT_3 & 32768) {	// Write message body into the DB.
+				if ($r->foff == -1) {	// Already in DB.
+					q('DELETE FROM '. $tbl .'msg_store WHERE id='. $r->length);
+				}
+				$len = db_qid('INSERT INTO '. $GLOBALS['DBHOST_TBL_PREFIX'] .'msg_store (data) VALUES ('. _esc($data) .')');
+				$off = -1;
+			} else {
+				if (($len = fwrite($fp, $data)) === FALSE || !fflush($fp)) {
+					exit('FATAL ERROR: system has ran out of disk space.');
+				}
 			}
-			q('UPDATE '. $tbl .'pmsg SET foff='. $off .', length='. $len .' WHERE foff='. $r[0]);
+			q('UPDATE '. $tbl .'pmsg SET foff='. $off .', length='. $len .' WHERE id = '. $r->id);
 			$off += $len;
 
-			if ($i && !($i % ceil($i_count/10))) {
+			if ((($i+1) % $i_commit) == 0) {
 				eta_calc($start_time2, $i, $i_count);
 			}
 			$i++;
@@ -274,10 +287,6 @@ function write_body_c($data, &$len, &$offset, $fid)
 		unset($c);
 	}
 	fclose($fp);
-
-	q('DROP INDEX '. $tbl .'pmsg_foff_idx'. (__dbtype__ == 'mysql' ? ' ON '. $tbl .'pmsg' : ''));
-
-	pf('100% Done.');
 
 	@unlink($MSG_STORE_DIR .'private');
 	if (!$i) {
@@ -288,6 +297,69 @@ function write_body_c($data, &$len, &$offset, $fid)
 	}
 
 	db_unlock();
+	drop_index($tbl .'pmsg', $tbl .'pmsg_foff_idx');
+	pf('100% Done.<br /><br />');
+
+	/* Rebuild private messages. */
+	pf('<b>Rebuilding static pages:</b>');
+
+	db_lock($tbl .'pages WRITE');
+	$i = $off = $len = 0;
+	$start_time2 = time();
+	$fp = fopen($MSG_STORE_DIR .'pages_tmp', 'wb');
+	if (!$fp) {
+		exit('Failed to open temporary file for storing pages.');
+	}
+	$i_count = q_singleval('SELECT count(*) FROM '. $tbl .'pages');
+	if ($i_count) {
+		$c = q('SELECT id, foff, length FROM '. $tbl .'pages');
+
+		while ($r = db_rowobj($c)) {
+			$data = fud_page::read_page_body($r->foff, $r->length);
+
+			if (!empty($_POST['fromcharset']) || !empty($_POST['tocharset'])) {
+				$newdata = iconv($_POST['fromcharset'], $_POST['tocharset'], $data);
+				$data = $newdata;
+			}
+
+			if ($FUD_OPT_3 & 32768) {	// Write page body into the DB.
+				if ($r->foff == -1) {	// Already in DB.
+					q('DELETE FROM '. $tbl .'msg_store WHERE id='. $r->length);
+				}
+				$len = db_qid('INSERT INTO '. $GLOBALS['DBHOST_TBL_PREFIX'] .'msg_store (data) VALUES ('. _esc($data) .')');
+				$off = -1;
+			} else {
+				if (($len = fwrite($fp, $data)) === FALSE || !fflush($fp)) {
+					exit('FATAL ERROR: system has ran out of disk space.');
+				}
+			}
+			q('UPDATE '. $tbl .'pages SET foff='. $off .', length='. $len .' WHERE id = '. $r->id);
+			$off += $len;
+
+			if ((($i+1) % $i_commit) == 0) {
+				eta_calc($start_time2, $i, $i_count);
+			}
+			$i++;
+		}
+		unset($c);
+	}
+	fclose($fp);
+
+	@unlink($MSG_STORE_DIR .'pages');
+	if (!$i) {
+		@unlink($MSG_STORE_DIR .'pages_tmp');
+	} else {
+		rename($MSG_STORE_DIR .'pages_tmp', $MSG_STORE_DIR .'pages');
+		chmod($MSG_STORE_DIR .'pages', $mode);
+	}
+
+	db_unlock();
+	pf('100% Done.<br /><br />');
+
+	/* Remove any messages that may be left in DB. */
+	if (!($GLOBALS['FUD_OPT_3'] & 32768)) {	// Not DB_MESSAGE_STORAGE.
+		q('DELETE FROM '. $tbl .'msg_store');
+	}
 
 	pf(sprintf('All done in %.2f minutes.', (time() - $start_time) / 60));
 
@@ -298,6 +370,6 @@ function write_body_c($data, &$len, &$offset, $fid)
 		echo '<br /><font size="+1" color="red">Your forum is currently disabled, to re-enable it go to the <a href="admglobal.php?'. __adm_rsid .'">Global Settings Manager</a> and re-enable it.</font>';
 	}
 
-	pf('<br /><div class="tutor">Messages successfully compacted.</div>');
+	pf('<br /><div class="tutor">Messages successfully rebuilt.</div>');
 	require($WWW_ROOT_DISK .'adm/footer.php');
 ?>
