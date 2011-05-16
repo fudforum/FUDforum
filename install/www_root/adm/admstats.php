@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -13,7 +13,7 @@
 	fud_use('adm.inc', true);
 	fud_use('draw_select_opt.inc');
 	fud_use('dbadmin.inc', true);	// For get_sql_disk_usage().
-	fud_use('file_adm.inc', true);	// For dir_space_usage().
+	fud_use('file_adm.inc', true);	// For fud_dir_space_usage().
 
 	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
 
@@ -157,10 +157,10 @@
 		$disk_usage_array = array();
 		$total_disk_usage = 0;
 
-		$total_disk_usage += $disk_usage_array['DATA_DIR'] = dir_space_usage($DATA_DIR);
+		$total_disk_usage += $disk_usage_array['DATA_DIR'] = fud_dir_space_usage($DATA_DIR);
 
 		if (!$same_dir) {
-			$total_disk_usage += $disk_usage_array['WWW_ROOT_DISK'] = dir_space_usage($WWW_ROOT_DISK);
+			$total_disk_usage += $disk_usage_array['WWW_ROOT_DISK'] = fud_dir_space_usage($WWW_ROOT_DISK);
 		} else {
 			$disk_usage_array['WWW_ROOT_DISK'] = $disk_usage_array['DATA_DIR'];
 		}
@@ -215,8 +215,15 @@
 <input type="hidden" name="submitted" value="1" /></td></tr>
 </table>
 </form>
+
 <?php
-	if (isset($total_disk_usage)) {
+// Calculate values for pie chart.
+if (isset($total_disk_usage)) {
+	$tot = $sql_disk_usage + (int)$total_disk_usage;
+	$db  = $sql_disk_usage / $tot *100;
+	$web  = $disk_usage_array['DATA_DIR']      / $tot *100;
+	$data = $disk_usage_array['WWW_ROOT_DISK'] / $tot *100;
+	if ($db < 1) $db = 1;
 ?>
 <h4>Disk Usage:</h4>
 <table class="resulttable fulltable">
@@ -224,31 +231,33 @@
 	if (!$same_dir) {
 ?>
 <tr class="field">
-	<td><b>Web Dir:</b><br /><span style="font-size: x-small;"><?php echo $WWW_ROOT_DISK; ?><br />This is where all the forum's web browseable files are stored</span></td>
+	<td><b>Web directories:</b><br /><span style="font-size: x-small;"><?php echo $WWW_ROOT_DISK; ?><br />This is where all the forum's web browseable files are stored</span></td>
 	<td align="right" valign="top"><?php echo number_format($disk_usage_array['WWW_ROOT_DISK']/1024); ?> KB</td>
+	<td rowspan="3" width="250px"> <img src="https://chart.googleapis.com/chart?cht=p3&amp;chs=250x100&amp;chd=t:<?php echo (int)$db .','. (int)$web .','. (int)$date; ?>&amp;chl=DB|Web files|Data files" align="right" /> <td>
 </tr>
 
 <tr class="field">
-	<td><b>Data Directories:</b><br /><span style="font-size: x-small;"><?php echo $DATA_DIR; ?><br />This is where the forum's internal data files are stored.</span></td>
+	<td><b>Data directories:</b><br /><span style="font-size: x-small;"><?php echo $DATA_DIR; ?><br />This is where the forum's internal data files are stored.</span></td>
 	<td align="right" valign="top"><?php echo number_format($disk_usage_array['DATA_DIR']/1024); ?> KB</td>
 </tr>
 <?php
 	} else { /* $same_dir */
 ?>
 <tr class="field">
-	<td><b>Forum Directories:</b><br /><span style="font-size: x-small;"><?php echo $WWW_ROOT_DISK; ?><br />This is where the forum's files are stored.</span></td>
+	<td><b>Forum directories:</b><br /><span style="font-size: x-small;"><?php echo $WWW_ROOT_DISK; ?><br />This is where the forum's files are stored.</span></td>
 	<td align="right" valign="top"><?php echo number_format($total_disk_usage/1024); ?> KB</td>
+	<td rowspan="3" width="250px"> <img src="https://chart.googleapis.com/chart?cht=p3&amp;chs=250x100&amp;chd=t:<?php echo (int)$db .','. (int)$web; ?>&amp;chl=DB|Files" align="right" /> <td>
 </tr>
 <?php
 	}
 	if ($sql_disk_usage) { ?>
 <tr class="field">
-        <td><b>Database Disk Usage:</b><br /><span style="font-size: x-small;">Estimated size of the forum's tables and indexes.</span></td>
+        <td><b>Database space:</b><br /><span style="font-size: x-small;">Estimated size of the forum's tables and indexes.</span></td>
 	<td align="right" valign="top"><?php echo number_format($sql_disk_usage/1024); ?> KB</td>
 </tr>
 <?php	} ?>
 	<tr class="fieldtopic">
-	<td><b>Total Disk Usage:</b></td>
+	<td><b>Total disk space:</b></td>
 	<td align="right" valign="top"><?php echo number_format(($total_disk_usage+$sql_disk_usage)/1024); ?> KB</td>
 </tr>
 </table>
@@ -322,7 +331,7 @@
 	<td valign="top"><b>Administrators:</b></td>
 	<td align="right" valign="top"><?php echo $forum_stats['ADMINS']; ?></td>
 	<td width="100">&nbsp;</td>
-	<td><font size="-1"><b><?php echo @sprintf('%.2f', $forum_stats['ADMINS']/$forum_stats['MEMBERS']); ?>%</b> of all users</font></td>
+	<td><font size="-1"><b><?php echo @sprintf('%.2f', $forum_stats['ADMINS']/$forum_stats['MEMBERS']*100); ?>%</b> of all users</font></td>
 </tr>
 
 <tr class="field">

@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -70,9 +70,13 @@ function get_server_software()
 </tr>
 <?php
 	if (extension_loaded('posix')) {
+		$uid      = posix_getuid();
+		$gid      = posix_getgid();
+		$gid_info = posix_getgrgid($gid);
+		$uid_info = posix_getpwuid($uid);
 echo '<tr class="field">
 	<td><b>WebServer User/Group:</b></td>
-	<td>'. posix_getgid().' / '.posix_getuid().'</td>
+	<td>'. $uid_info['name'] .' / '.$gid_info['name'] .' ('. $uid .'/'. $gid .')</td>
 </tr>';
 	}
 ?>
@@ -131,5 +135,8 @@ echo '<tr class="field">
 </table>
 
 [ <a href="admphpinfo.php?<?php echo __adm_rsid; ?>">Detailed PHP info &raquo;</a> ]
+<?php if (defined('fud_debug')) { ?>
+	[ <a href="admsqltest.php?<?php echo __adm_rsid; ?>">Test SQL driver &raquo;</a> ]
+<?php } ?>
 
 <?php require($WWW_ROOT_DISK .'adm/footer.php'); ?>

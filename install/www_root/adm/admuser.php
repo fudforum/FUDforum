@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -61,28 +61,28 @@
 			if ($act == 'accmod' && $acc_mod_only) {
 				break;
 			}
-			if ($act == 'block' && $GLOBALS['usr']->id == $usr_id) {
-				echo errorify('Sorry, you cannot ban or unban yourself!');
-				break;
-			}
 
-			if ($act == 'block' && isset($_POST['ban_duration'])) {
-				/* For post requests involving ban, do not act as a toggle. */
-				if (!isset($_POST['block'])) {
-					$u->users_opt |= $keys[$act];
+			if ($act == 'block') {	// Ban/ UnBan user.
+				if ($GLOBALS['usr']->id == $usr_id) {
+					echo errorify('Sorry, you cannot ban or unban yourself!');
+					break;
+				}
+				if ($u->users_opt & $keys[$act]) {	// Is currently banned.
 					$u->ban_expiry = 0;
+					logaction(_uid, 'User unbanned', 0, $u->login);
 				} else {
-					$u->users_opt &= ~$keys[$act];
-					$u->ban_expiry = floatval($_POST['ban_duration']) * 86400;
+					$duration = (isset($_POST['ban_duration'])) ? $_POST['ban_duration'] : 0;
+					$u->ban_expiry = floatval($duration) * 86400;
 					if ($u->ban_expiry) {
 						$u->ban_expiry += __request_timestamp__;
 					}
+					logaction(_uid, 'User banned', 0, $u->login);
 				}
 				$block = $u->ban_expiry;
-			} else {
-				$block = 'ban_expiry';
 			}
 
+			// Toggele setting.
+			if (empty($block)) $block = 'ban_expiry';
 			if ($u->users_opt & $keys[$act]) {
 				q('UPDATE '. $DBHOST_TBL_PREFIX .'users SET ban_expiry='. $block .', users_opt='. q_bitand('users_opt', q_bitnot($keys[$act])) .' WHERE id='. $usr_id);
 				$u->users_opt ^= $keys[$act];
@@ -281,7 +281,8 @@ administration permissions to the forum. This individual will be able to do anyt
 	}
 } ?>
 <form id="frm_usr" method="GET" action="admuser.php">
-<fieldset class="tutor">
+
+<fieldset class="fieldtopic">
 <legend><b>Search for user:</b></legend>
 <?php echo _hs . $search_error; ?>
 <table width="100%">
@@ -289,18 +290,34 @@ administration permissions to the forum. This individual will be able to do anyt
 	<table class="datatable solidtable">
 	<tr class="field">
 		<td>By <?php echo ($FUD_OPT_2 & 128 ? 'Alias' : 'Login'); ?>:</td>
-		<td><input tabindex="1" type="text" name="usr_login" /></td>
+		<td><input tabindex="1" type="text" id="usr_login" name="usr_login" /></td>
 	</tr>
 
 	<tr class="field">
 		<td>By E-mail:</td>
-		<td><input tabindex="2" type="text" name="usr_email" /></td>
+		<td><input tabindex="2" type="text" id="usr_email" name="usr_email" /></td>
 	</tr>
 
 	<tr class="fieldaction">
 		<td colspan="2" align="right"><input tabindex="3" type="submit" value="Search" name="usr_search" /></td>
 	</tr>
 	</table>
+
+
+<style>
+	.ui-autocomplete-loading { background: white url('../js/jquery/images/ui-anim_basic_16x16.gif') right center no-repeat; }
+</style>
+<script>
+	$(function() {
+		$("#usr_login").autocomplete({
+			source: "../index.php?t=autocomplete&lookup=alias", minLength: 1
+		});
+		$("#usr_email").autocomplete({
+			source: "../index.php?t=autocomplete&lookup=email", minLength: 1
+		});
+	});
+</script>
+
 </td><td>
 	<!-- Links to control panels that Account Moderators can access. -->
 	<b>Account moderation:</b><br />
@@ -360,7 +377,7 @@ administration permissions to the forum. This individual will be able to do anyt
 				$i = 0;
 				while ($r = db_rowarr($c)) {
 					$bgcolor = ($i++%2) ? ' class="resultrow2"' : ' class="resultrow1"';
-					echo '<tr'. $bgcolor .'><td>'. $r[1] .'</td><td>'. htmlspecialchars($r[2]) .'</td><td>'. fdate('%d %b %Y', $r[3]) .'</td><td>'. long2ip($r[4]) .'</td><td>'. $r[5] .'</td><td><a href="admuser.php?usr_id='. $r[0] .'&amp;act=m&amp;'. __adm_rsid .'">Edit</a> | <a href="admuser.php?act=del&amp;usr_id='. $r[0] .'&amp;'. __adm_rsid .'">Delete</a></td></tr>';
+					echo '<tr'. $bgcolor .'><td>'. $r[1] .'</td><td>'. htmlspecialchars($r[2]) .'</td><td>'. fdate($r[3], 'd M Y') .'</td><td>'. long2ip($r[4]) .'</td><td>'. $r[5] .'</td><td><a href="admuser.php?usr_id='. $r[0] .'&amp;act=m&amp;'. __adm_rsid .'">Edit</a> | <a href="admuser.php?act=del&amp;usr_id='. $r[0] .'&amp;'. __adm_rsid .'">Delete</a></td></tr>';
 				}
 				echo '</table>';
 				unset($c);
@@ -401,13 +418,13 @@ administration permissions to the forum. This individual will be able to do anyt
 		echo '<tr class="field"><td>Signature:</td><td>'. $u->sig .'</td></tr>';
 	}
 	if ($u->reg_ip) {
-		echo '<tr class="field"><td>Registration:</td><td>'. fdate('%d %B %Y', $u->join_date) .' from <a href="../'. __fud_index_name__ .'?t=ip&amp;ip='. long2ip($u->reg_ip) .'&amp;'. __adm_rsid .'" title="Analyse IP usage">'. long2ip($u->reg_ip) .'</td></tr>';
+		echo '<tr class="field"><td>Registration:</td><td>'. fdate($u->join_date, 'd M Y') .' from <a href="../'. __fud_index_name__ .'?t=ip&amp;ip='. long2ip($u->reg_ip) .'&amp;'. __adm_rsid .'" title="Analyse IP usage">'. long2ip($u->reg_ip) .'</td></tr>';
 	}
 	if ($u->last_known_ip) {
-		echo '<tr class="field"><td>Last visit:</td><td>'. fdate('%d %B %Y', $u->last_visit) .' from <a href="../'. __fud_index_name__ .'?t=ip&amp;ip='. long2ip($u->last_known_ip) .'&amp;'. __adm_rsid .'" title="Analyse IP usage">'. long2ip($u->last_known_ip) .'</a></td></tr>';
+		echo '<tr class="field"><td>Last visit:</td><td>'. fdate($u->last_visit, 'd M Y') .' from <a href="../'. __fud_index_name__ .'?t=ip&amp;ip='. long2ip($u->last_known_ip) .'&amp;'. __adm_rsid .'" title="Analyse IP usage">'. long2ip($u->last_known_ip) .'</a></td></tr>';
 	}
 	if ($u->posted_msg_count) {
-		echo '<tr class="field"><td>Post count:</td><td>'. $u->posted_msg_count .' [ <a href="../'.__fud_index_name__.'?t=showposts&amp;id='.$usr_id.'&amp;'.__adm_rsid.'" title="View user\'s messages on the forum">See Messages</a> ]</td></tr>';
+		echo '<tr class="field"><td>Post count:</td><td>'. $u->posted_msg_count .' [ <a href="../'.__fud_index_name__.'?t=showposts&amp;id='.$usr_id.'&amp;'.__adm_rsid.'" title="View user\'s messages on the forum">View Messages</a> ]</td></tr>';
 	}
 
 	echo '<tr class="field"><td>E-mail address confirmed:</td><td>'.($u->users_opt & 131072 ? 'Yes' : '<font size="+1" color="red">No</font>').' [<a href="admuser.php?act=econf&amp;usr_id='. $usr_id .'&amp;'. __adm_rsidl .'">Toggle</a>]</td></tr>';
@@ -480,7 +497,7 @@ if ($acc_mod_only) {
 <br />
 
 	<table cellspacing="0" border="0" cellpadding="0">
-	<tr class="field" align="center"><td colspan="2"><b>Ban User</b><br />
+	<tr class="field"><td colspan="2"><b>Ban user:</b><br />
 	<div class="tiny">
 		To set a temporary ban, specify the duration of the ban in number of days. 
 		For permanent bans, leave duration value at 0.
@@ -538,10 +555,10 @@ if ($acc_mod_only) {
 
 	echo '  <a href="admuser.php?act=reset&amp;usr_id='. $usr_id .'&amp;'. __adm_rsid .'">Reset Password</a> |';
 	echo '  <a href="admuser.php?act=del&amp;usr_id='. $usr_id .'&amp;'. __adm_rsid .'">Delete User</a> |';
-	echo '	<a href="../'. __fud_index_name__ .'?t=showposts&amp;id='. $usr_id .'&amp;'. __adm_rsid .'">See Messages</a>';	
+	echo '	<a href="../'. __fud_index_name__ .'?t=showposts&amp;id='. $usr_id .'&amp;'. __adm_rsid .'">View Messages</a>';	
 	if ($is_a) {
 		if ($FUD_OPT_1 & 1024) {	// PM_ENABLED
-			echo ' | <a href="admpmspy.php?user='. htmlspecialchars($u->login) .'&amp;'. __adm_rsid .'">See Private Messages</a>';
+			echo ' | <a href="admpmspy.php?user='. htmlspecialchars($u->login) .'&amp;'. __adm_rsid .'">View Private Messages</a>';
 		}
 		echo ' | <a href="admprune.php?usr_id='. $usr_id .'&amp;'. __adm_rsid .'">Delete ALL messages by this user</a>';
 	}

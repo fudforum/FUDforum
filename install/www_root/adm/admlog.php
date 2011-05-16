@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -8,18 +8,6 @@
 * under the terms of the GNU General Public License as published by the
 * Free Software Foundation; version 2 of the License.
 **/
-
-	require('./GLOBALS.php');
-	fud_use('adm.inc', true);
-	fud_use('logaction.inc');
-
-	require($WWW_ROOT_DISK .'adm/header.php');
-
-	if (isset($_GET['clear'])) {
-		q('DELETE FROM '. $DBHOST_TBL_PREFIX .'action_log');
-		logaction(_uid, 'Cleared action log');
-		echo successify('Action log was successfully cleared.');
-	}
 
 function check_data_avl($data)
 {
@@ -46,6 +34,29 @@ function return_forum_name($id)
 {
 	return check_data_avl(q_singleval('SELECT name FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'forum WHERE id='. $id));
 }
+
+function return_cat_name($id)
+{
+	return check_data_avl(q_singleval('SELECT name FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'cat WHERE id='. $id));
+}
+
+function return_group_name($id)
+{
+	return check_data_avl(q_singleval('SELECT name FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'groups WHERE id='. $id));
+}
+
+/* main */
+	require('./GLOBALS.php');
+	fud_use('adm.inc', true);
+
+	require($WWW_ROOT_DISK .'adm/header.php');
+
+	if (isset($_GET['clear'])) {
+		q('DELETE FROM '. $DBHOST_TBL_PREFIX .'action_log');
+		fud_use('logaction.inc');
+		logaction(_uid, 'Cleared action log');
+		echo successify('Action log was successfully cleared.');
+	}
 
 ?>
 <h2>Action Log Viewer</h2>
@@ -80,16 +91,16 @@ function return_forum_name($id)
 
 		if ($obj->users_opt == null) {
 			if ($obj->a_res == 'WRONGPASSWD') {
-				$user_info = 'Unauthenticated User';
+				$user_info = 'Unauthenticated user';
 			} else {
 				$user_info = 'User is no longer in the system.';
 			}
 		} else if ($obj->users_opt & 1048576) {
-			$user_info = '<a href="admuser.php?usr_id='. $obj->user_id .'&amp;act=m&amp;'. __adm_rsid .'">'. $obj->alias .'</a> <font size="-2">[Administrator]</font>';
+			$user_info = '<a href="admuser.php?usr_id='. $obj->user_id .'&amp;act=m&amp;'. __adm_rsid .'">'. $obj->alias .'</a> <span class="tiny">[Administrator]</span>';
 		} else if ($obj->users_opt & 524288) {
-			$user_info = '<a href="admuser.php?usr_id='. $obj->user_id .'&amp;act=m&amp;'. __adm_rsid .'">'. $obj->alias .'</a> <font size="-2">[Moderator]</font>';
+			$user_info = '<a href="admuser.php?usr_id='. $obj->user_id .'&amp;act=m&amp;'. __adm_rsid .'">'. $obj->alias .'</a> <span class="tiny">[Moderator]</span>';
 		} else {
-			$user_info = '<a href="admuser.php?usr_id='. $obj->user_id .'&amp;act=m&amp;'. __adm_rsid .'">'. $obj->alias .'</a> <font size="-2">[Priveleged User]</font>';
+			$user_info = '<a href="admuser.php?usr_id='. $obj->user_id .'&amp;act=m&amp;'. __adm_rsid .'">'. $obj->alias .'</a> <span class="tiny">[Priveleged User]</span>';
 		}
 		echo '<tr class="field"><td>'. $user_info .'</td>';
 
@@ -148,6 +159,21 @@ function return_forum_name($id)
 			case 'CHCATFORUM':
 				echo '<td>Changed Forum Category</td><td>forum: '. return_forum_name($obj->a_res_id) .'</td>';
 				break;
+			case 'ADDCAT':
+				echo '<td>Created Category</td><td>cat: '. return_cat_name($obj->a_res_id) .'</td>';
+				break;
+			case 'DELCAT':
+				echo '<td>Deleted Category</td><td>cat: '. return_cat_name($obj->a_res_id) .'</td>';
+				break;
+			case 'ADDGRP':
+				echo '<td>Added member</td><td>"'. $obj->logaction .'" in group "'. return_group_name($obj->a_res_id) .'"</td>';
+				break;
+			case 'DELGRP':
+				echo '<td>Deleted member</td><td>"'. $obj->logaction .'" in group "'. return_group_name($obj->a_res_id) .'"</td>';
+				break;
+			case 'EDITGRP':
+				echo '<td>Edited member</td><td>"'. $obj->logaction .'" in group "'. return_group_name($obj->a_res_id) .'"</td>';
+				break;
 			case 'WRONGPASSWD':
 				echo '<td>Failed login attempt</td><td>'. $obj->logaction .'</td>';
 				break;
@@ -184,8 +210,7 @@ function return_forum_name($id)
 		$i++;
 	}
 	unset($c);
-?>
-<?php
+
 	if (!$i) {
 		echo '<tr class="field"><td colspan="4"><center>No records found.</center></td></tr>';
 	}

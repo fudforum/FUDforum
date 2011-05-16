@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -14,8 +14,19 @@
 	fud_use('adm.inc', true);
 	fud_use('cat.inc', true);
 	fud_use('widgets.inc', true);
+	fud_use('logaction.inc');
 
 	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
+
+	// AJAX call to reorder categories.
+	if (!empty($_POST['ajax']) && $_POST['ajax'] == 'reorder') {
+		$new_order = 1;
+		foreach ($_POST['order'] as $id) {
+			q('UPDATE '. $tbl .'cat SET view_order = '. $new_order++ .' WHERE id = '. $id);
+		}
+		exit('Categories successfully reordered.');	// End AJAX call.
+	}
+
 	require($WWW_ROOT_DISK .'adm/header.php');
 
 	if (!empty($_POST['btn_cancel'])) {
@@ -39,7 +50,8 @@
 			$edit = '';
 			echo successify('Category successfully updated.');
 		} else {
-			$cat->add($_POST['cat_pos']);
+			$cat_id = $cat->add($_POST['cat_pos']);
+			logaction(_uid, 'ADDCAT', $cat_id);
 			echo successify('Category successfully added.');
 		}
 		rebuild_forum_cat_order();
@@ -80,6 +92,7 @@
 		}
 		db_unlock();
 		echo successify('Category was deleted. Forums assigned to this category were moved to the <b><a href="admdelfrm.php?'. __adm_rsid .'">recycle bin</a></b>.');
+		logaction(_uid, 'DELCAT', 0, $del);
 	}
 	if (isset($_GET['chpos'], $_GET['newpos'], $_GET['par'])) {
 		cat_change_pos((int)$_GET['chpos'], (int)$_GET['newpos'], (int)$_GET['par']);
@@ -126,9 +139,9 @@
 ?>
 
 <div class="tutor">
-	The <i>Category Management System</i> is displayed below. To navigate to the 
-	<i>Forum Management System</i>, click on one of the '<i>Edit Forums</i>' links
-	next to one of the available categories.
+	A catagory is an organizational container that holds related forums.
+	Categories are displayed on the forum's front page and can be nested.
+	You must create at least one category before you can create a new forum.
 </div>
 <?php
 echo '<h3>'. ($edit ? '<a name="edit">Edit Category:</a>' : 'Add New Category:') .'</h3>';
@@ -157,7 +170,7 @@ function imposeMaxLength(Object, len)
 
 	<tr class="field">
 		<td>Description:</td>
-		<td><textarea name="cat_description" cols="30" rows="2" onkeypress="return imposeMaxLength(this, 255);"><?php echo htmlspecialchars($cat_description); ?></textarea></td>
+		<td><textarea name="cat_description" cols="40" rows="3" onkeypress="return imposeMaxLength(this, 255);"><?php echo htmlspecialchars($cat_description); ?></textarea></td>
 	</tr>
 
 	<tr class="field">
@@ -219,6 +232,26 @@ function imposeMaxLength(Object, len)
 	}
 ?>
 
+<style>
+	#sortable td { margin: 0 3px 3px 3px; padding: 0.4em; padding-left: 1.5em; }
+	#sortable td span { position: absolute; margin-left: -1.3em; }
+</style>
+<script>
+$(document).ready(function () {
+	$(function() {
+		$("#sortable").sortable({
+			opacity: 0.6, 
+			cursor: 'move',
+			update: function() {
+				var order = $("#sortable").sortable("serialize") + '&ajax=reorder&<?php echo __adm_rsidl ?>';
+				$.ajax({type: 'post', url: self.location, data: order,
+					complete: function(request) { alert(request.responseText); } })
+			}
+		});
+	});
+});
+</script>
+
 <table class="resulttable fulltable">
 <thead><tr class="resulttopic">
 	<th>Name</th>
@@ -228,6 +261,7 @@ function imposeMaxLength(Object, len)
 	<th align="center">Action</th>
 	<th>Position</th>
 </tr></thead>
+<tbody id="sortable">
 <?php
 	$cpid = empty($_GET['chpos']) ? -1 : (int)q_singleval('SELECT parent FROM '. $tbl .'cat WHERE id='. (int)$_GET['cpid']);
 	$lp = '';
@@ -255,13 +289,13 @@ function imposeMaxLength(Object, len)
 			$r->description = substr($r->description, 3);
 		}
 
-		echo '<tr'. $bgcolor .' title="'. htmlspecialchars($r->description) .'">
-			<td>'. str_repeat('-', $r->lvl) .' '. $r->name .'</td>
+		echo '<tr id="order_'. $r->id .'"'. $bgcolor .' title="'. htmlspecialchars($r->description) .'">
+			<td><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>'. str_repeat('-', $r->lvl) .' '. $r->name .'</td>
 			<td><font size="-1">'. htmlspecialchars(substr($r->description, 0, 30)) .'...</font></td>
 			<td>'. ($r->cat_opt & 1 ? 'Yes' : 'No') .'</td>
 			<td>'. $stat[($r->cat_opt & (2|4))] .'</td>
-			<td nowrap="nowrap">[<a href="admforum.php?cat_id='. $r->id .'&amp;'. __adm_rsid .'">Edit Forums</a>] [<a href="admcat.php?edit='. $r->id .'&amp;'. __adm_rsid .'#edit">Edit Category</a>] [<a href="admcat.php?del='. $r->id .'&amp;'. __adm_rsid .'">Delete</a>]</td>
-			<td>[<a href="admcat.php?chpos='. $r->view_order .'&amp;cpid='. $r->id .'&amp;'. __adm_rsid .'">Change</a>]</td></tr>';
+			<td nowrap="nowrap">[<a href="admcat.php?edit='. $r->id .'&amp;'. __adm_rsid .'#edit" title="Edit category">Edit</a> | <a href="admcat.php?del='. $r->id .'&amp;'. __adm_rsid .'" title="Delete category">Delete</a> | <a href="admforum.php?cat_id='. $r->id .'&amp;'. __adm_rsid .'" title="Add/edit this category\'s forums">Manage Forums</a>]</td>
+			<td>[<a href="admcat.php?chpos='. $r->view_order .'&amp;cpid='. $r->id .'&amp;'. __adm_rsid .'" title="Change display position">Change</a>]</td></tr>';
 	}
 	if ($lp && $parent == $cpid) {
 		echo '<tr class="field"><td align="center" colspan="6"><font size="-1"><a href="admcat.php?chpos='. $_GET['chpos'] .'&amp;newpos='. ($lp + 1) .'&amp;par='. $parent .'&amp;'. __adm_rsid .'">Place Here</a></font></td></tr>';
@@ -270,5 +304,6 @@ function imposeMaxLength(Object, len)
 		echo '<tr class="field"><td colspan="6"><center>No categories found. Define some above.</center></td></tr>';
 	}
 ?>
+</tbody>
 </table>
-<?php readfile($WWW_ROOT_DISK .'adm/footer.php'); ?>
+<?php require($WWW_ROOT_DISK .'adm/footer.php'); ?>

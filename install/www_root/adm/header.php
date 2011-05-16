@@ -105,9 +105,10 @@ $(document).ready(function() {
 	</ul>
 	<br />
 
-	<span class="linkgroup">Forum Management</span>
+	<span class="linkgroup">Categories & Forums</span>
 	<ul class="menu">
-	<li><a title="Setup categories and forums" href="admcat.php?<?php echo __adm_rsid; ?>">Category &amp; Forum Manager</a></li>
+	<li><a title="Setup forum categories" href="admcat.php?<?php echo __adm_rsid; ?>">Category Manager</a></li>
+	<li><a title="Setup forums and subforums" href="admforum.php?<?php echo __adm_rsid; ?>">Forum Manager</a></li>
 	<li><a title="List forums in the recycle bin" href="admdelfrm.php?<?php echo __adm_rsid; ?>">Deleted Forums</a></li>
 	<li><a title="Announce important news" href="admannounce.php?<?php echo __adm_rsid; ?>">Announcement Manager</a></li>
 	<li><a title="Remove old forum topics" href="admprune.php?<?php echo __adm_rsid; ?>">Topic Pruning</a></li>
@@ -120,7 +121,7 @@ $(document).ready(function() {
 	</ul>
 	<br />
 
-	<span class="linkgroup">User Management</span>
+	<span class="linkgroup">Users & Groups</span>
 	<ul class="menu">
 	<li><a title="Manage user accounts" href="admuser.php?<?php echo __adm_rsid; ?>">User Manager</a></li>
 	<li><a title="Setup groups and group permisions" href="admgroups.php?<?php echo __adm_rsid; ?>">Groups Manager</a></li>
@@ -132,7 +133,7 @@ $(document).ready(function() {
 	</ul>
 	<br />
 
-	<span class="linkgroup">Template Management</span>
+	<span class="linkgroup">Templates & Messages</span>
 	<ul class="menu">
 	<li><a title="Manage themes" href="admthemes.php?<?php echo __adm_rsid; ?>">Theme Manager</a></li>
 	<li><a title="Change your forum's look and feel" href="admtemplates.php?<?php echo __adm_rsid; ?>">Template Editor</a></li>
@@ -141,19 +142,14 @@ $(document).ready(function() {
 	</ul>
 	<br />
 
-	<span class="linkgroup">Icon Management</span>
+	<span class="linkgroup">Avatars & Icons</span>
 	<ul class="menu">
+	<li><a title="Approve avatars" href="admapprove_avatar.php?<?php echo __adm_rsid; ?>">Avatar Approval</a></li>
+	<li><a title="Manage avatars" href="admavatar.php?<?php echo __adm_rsid; ?>">Avatar Manager</a></li>
 	<li><a title="Define MIME types andicons" href="admmime.php?<?php echo __adm_rsid; ?>">MIME Manager</a></li>
 	<li><a title="Manage smilys" href="admsmiley.php?<?php echo __adm_rsid; ?>">Smiley Manager</a></li>
 	<li><a title="Manage forum icons" href="admforumicons.php?<?php echo __adm_rsid; ?>">Forum Icon Manager</a></li>
 	<li><a title="Manage messages icons" href="admforumicons.php?<?php echo __adm_rsid; ?>&amp;which_dir=1">Message Icon Manager</a></li>
-	</ul>
-	<br />
-
-	<span class="linkgroup">Avatar Management</span>
-	<ul class="menu">
-	<li><a title="Approve avatars" href="admapprove_avatar.php?<?php echo __adm_rsid; ?>">Avatar Approval</a></li>
-	<li><a title="Manage avatars" href="admavatar.php?<?php echo __adm_rsid; ?>">Avatar Manager</a></li>
 	</ul>
 	<br />
 
@@ -185,6 +181,7 @@ $(document).ready(function() {
 	<ul class="menu">
 	<li><a title="Backup your forum" href="admdump.php?<?php echo __adm_rsid; ?>">Make forum datadump</a></li>
 	<li><a title="Restore a forum backup" href="admimport.php?<?php echo __adm_rsid; ?>">Import forum data</a></li>
+	<!-- li><a title="Convert from another form type to FUDforum" href="convert.php?<?php echo __adm_rsid; ?>">Convert forum</a></li -->
 	</ul>
 	<br />
 </td></tr>
