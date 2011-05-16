@@ -8,6 +8,7 @@
 * under the terms of the GNU General Public License as published by the
 * Free Software Foundation; version 2 of the License.
 **/
+// @TODO: Maybe add sFTP support (http://php.net/manual/en/function.ssh2-sftp.php)?
 
 // Initialize plugin,
 plugin_add_hook('POST_BACKUP', 'plugin_ftp_backup');
@@ -28,7 +29,11 @@ function plugin_ftp_backup($dumpfile) {
 		pf(errorify('Unable to authenticate user '. $ini['FTP_USER']));
 		return;
 	}
+	// ftp_pasv($conn_id, true);
 	pf('Connected to '. $ini['FTP_USER'] .'@'. $ini['FTP_SERVER']);
+	if (!empty($ini['FTP_DIR']) && !ftp_chdir($conn_id, $ini['FTP_SERVER'])) {
+		pf(errorify('Could not change directory to '. $ini['FTP_SERVER']));
+	}
 	$upload = ftp_put($conn_id, basename($dumpfile), $dumpfile, FTP_BINARY);
 	if (!$upload) {
 		pf(errorify('FTP upload has failed!'));
@@ -38,6 +43,12 @@ function plugin_ftp_backup($dumpfile) {
 	ftp_close($conn_id); 
 }
 
+function ftp_backup_enable() {
+	if((@include $GLOBALS['PLUGIN_PATH'] .'ftp_backup.ini') === false) {
+		return array(null, 'Please configure the FTP Backup plugin before enabling it.');	// OK, Err.
+	}
+}
+
 function ftp_backup_info() {
 	return array('name' => 'FTP Backup',
 		     'desc' => 'FTP forum dumps to a backup server. Handy for storing backups off-site.',
@@ -45,7 +56,7 @@ function ftp_backup_info() {
 }
 
 function ftp_backup_config() {
-	if((@include_once $GLOBALS['PLUGIN_PATH'] .'ftp_backup.ini') === false) {
+	if((@include $GLOBALS['PLUGIN_PATH'] .'ftp_backup.ini') === false) {
 		$ini = NULL;
 	}
 
@@ -55,7 +66,7 @@ function ftp_backup_config() {
 				$ini[$key] = $_POST[$key];
 			}
 		}
-		$fp = fopen($GLOBALS['PLUGIN_PATH'] .'ftp.ini', 'w');
+		$fp = fopen($GLOBALS['PLUGIN_PATH'] .'ftp_backup.ini', 'w');
 		fwrite($fp, '<?php $ini = '. var_export($ini, 1).'; ?>');
 		fclose($fp);
 		pf(successify('Settings successfully saved.'));
@@ -67,9 +78,11 @@ function ftp_backup_config() {
 <p>FTP server's user:<br />
 <input name="FTP_USER" value="<?php echo $ini['FTP_USER'] ?>" size="30" /></p>
 
-
 <p>FTP server's password:<br />
 <input name="FTP_PASS" value="<?php echo $ini['FTP_PASS'] ?>" size="30" /></p>
+
+<p>Directory on FTP server (leave blank if not requried):<br />
+<input name="FTP_DIR" value="<?php echo $ini['FTP_DIR'] ?>" size="30" /></p>
 	<?php
 }
 

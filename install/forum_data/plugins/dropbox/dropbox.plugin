@@ -24,7 +24,7 @@ function plugin_dropbox($dumpfile) {
 
 	pf('Copy backup '. basename($dumpfile) .' to DropBox (will take a while).');
 	try {
-		$uploader->upload($dumpfile);
+		$uploader->upload($dumpfile, $ini['DROPBOX_DIR']);
 		pf(successify('Successfully uploaded!'));
 	} catch (Exception $e) {
 		pf(errorify($e->getMessage()));
@@ -56,10 +56,13 @@ function dropbox_config() {
 	}
 	?>
 <p>The E-Mail address of your <a href="http://dropbox.com/">dropbox.com</a> account:<br />
-<input name="DROPBOX_EMAIL" value="<?php echo $ini['DROPBOX_EMAIL'] ?>" size="60" /></p>
+<input name="DROPBOX_EMAIL" value="<?php echo $ini['DROPBOX_EMAIL'] ?>" size="40" /></p>
 
 <p>The password of your dropbox account:<br />
-<input name="DROPBOX_PASSWORD" value="<?php echo $ini['DROPBOX_PASSWORD'] ?>" size="60" /></p>
+<input name="DROPBOX_PASSWORD" value="<?php echo $ini['DROPBOX_PASSWORD'] ?>" size="40" /></p>
+
+<p>Destination directory (default is /):<br />
+<input name="DROPBOX_DIR" value="<?php echo $ini['DROPBOX_DIR'] ?>" size="60" /></p>
 	<?php
 }
 
