@@ -8,6 +8,7 @@
 * under the terms of the GNU General Public License as published by the
 * Free Software Foundation; version 2 of the License.
 **/
+// @TODO: Move these functions to src/users_reg.inc.t or vice versa?
 
 function usr_delete($id)
 {
@@ -30,6 +31,7 @@ function usr_delete($id)
 	q('DELETE FROM '. $tbl .'custom_tags WHERE user_id IN('. implode(',', $id) .')');
 	q('DELETE FROM '. $tbl .'thread_notify WHERE user_id IN('. implode(',', $id) .')');
 	q('DELETE FROM '. $tbl .'forum_notify WHERE user_id IN('. implode(',', $id) .')');
+	q('DELETE FROM '. $tbl .'bookmarks WHERE user_id IN('. implode(',', $id) .')');
 	q('DELETE FROM '. $tbl .'read WHERE user_id IN('. implode(',', $id) .')');
 	q('DELETE FROM '. $tbl .'forum_read WHERE user_id IN('. implode(',', $id) .')');
 	q('DELETE FROM '. $tbl .'thread_rate_track WHERE user_id IN('. implode(',', $id) .')');

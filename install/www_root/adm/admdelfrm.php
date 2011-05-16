@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -61,9 +61,9 @@
 	$c = uq('SELECT id, name, descr FROM '. $tbl .'forum WHERE cat_id=0');
 	while ($r = db_rowarr($c)) {
 		$bgcolor = ($i++%2) ? ' class="resultrow1"' : ' class="resultrow2"';
-		echo '<tr '.$bgcolor.'><td>'. $r[1] .'<br /><font size="-2">'. $r[2] .'</font></td><td valign="top" nowrap="nowrap"><a href="admdelfrm.php?del='. $r[0] .'&amp;'. __adm_rsid .'">Delete</a></td><td valign="top" nowrap="nowrap">';
+		echo '<tr '. $bgcolor .'><td>'. $r[1] .'<br /><font size="-2">'. $r[2] .'</font></td><td valign="top" nowrap="nowrap"><a href="admdelfrm.php?del='. $r[0] .'&amp;'. __adm_rsid .'">Delete</a></td><td valign="top" nowrap="nowrap">';
 		if ($cat_sel) {
-			echo '<form method="post" action="admdelfrm.php">'. _hs.$cat_sel .' <input type="submit" name="frm_submit" value="Reassign" /><input type="hidden" name="frm_id" value="'. $r[0] .'" /></form>';
+			echo '<form method="post" action="admdelfrm.php">'. _hs . $cat_sel .' <input type="submit" name="frm_submit" value="Reassign" /><input type="hidden" name="frm_id" value="'. $r[0] .'" /></form>';
 		} else {
 			echo 'No categories defined.';
 		}

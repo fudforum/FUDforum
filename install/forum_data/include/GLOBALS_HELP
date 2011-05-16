@@ -335,7 +335,7 @@ Whether or not to use PHP to compress forum's output. By turning this option you
 If PHP's compression is used, this indicates how extensively should the data be compressed, the values can range from 1-9.}}}
 
 {{{USE_PATH_INFO	FUD_OPT_2	32768
-Whether or not to use PATH_INFO based URLs that looks like http://a.com/index.php/a/b/c/. This makes the URLs easier to remember and more search engine friendly. Unfortunately this feature mostly works with Apache based servers and may not work with other webservers. To see if your webserver supports this feature, click on the test link above. If you see the forum's front page, you can enable it. Note that you will also need to enable a theme based on the 'path_info' template set.}}}
+Use PATH_INFO based URLs that looks like http://forum.com/index.php/a/b/c/. This makes the URLs easier to remember and more search engine friendly. Unfortunately this feature does not work with all web servers. Check if your web server supports it by clicking on the above test link. If you see the forum's front page, you can enable it. Note that you also need to enable a theme based on the 'path_info' template set.}}}
 
 {{{ALLOW_PROFILE_IMAGE	FUD_OPT_2	65536
 Whether or not to allow users to enter a URL to an image in their profile that will be displayed on the user info page for that user. The danger of this feature is that the user could potentially link to a page other then an image and insecure browsers like Internet Explorer will parse that page executing any potentially hostile Javascript that may be present.}}}
@@ -402,7 +402,7 @@ Number of pixels to reserve for white space at the right & left side of the page
 Number of pixels to reserve for white space at the top &amp; bottom of the page.}}}
 
 {{{PDF_MAX_CPU
-PDF generation process can be fairly CPU intensive process. This setting allows you to limit the number of seconds the PHP script may spend trying to generate the PDF document.}}}
+The PDF generation process can be fairly CPU intensive. This setting allows you to limit the number of seconds the PHP script may spend trying to generate the PDF document.}}}
 
 {{{SHOW_REPL_LNK	FUD_OPT_2	536870912
 Whether or not to show a link (beside the message subject) to the message that the current message is a reply to.}}}

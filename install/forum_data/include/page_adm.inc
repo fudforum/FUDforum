@@ -14,7 +14,7 @@ class fud_page
 	var	$id, $slug, $title, $foff, $length, $body, $created_by, $page_opt;
 
 	function __construct()
-	{		
+	{
 		foreach ($this as $k => $v) {
 			if (isset($_POST['page_'. $k])) {
 				if (is_array($_POST['page_'. $k])) {	// OR options together.

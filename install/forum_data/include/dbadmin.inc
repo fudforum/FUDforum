@@ -197,7 +197,7 @@ function get_fud_col_list($table)
 			$colname = $r[0];
 			$type = strtoupper($r[1]);
 			$type = ($type=='CHAR' || $type=='VARCHAR') ? $type .'('. $r[4] .')' : $type;	// Append type length.
-			$not_null = $r[2];
+			$not_null = ($r[2] == 'NO') ? 1 : 0;
 			$key = (int)q_singleval('SELECT 1 FROM INFORMATION_SCHEMA.Key_Column_Usage WHERE table_name = \''. $table .'\' AND column_name = \''. $r[0] .'\' AND constraint_name LIKE \'PK%\'');
 			$default = str_replace(array('\'',')','('), '', $r[3]);
 

@@ -266,7 +266,7 @@ function import_avatars($path)
 		$i++;
 		$bgcolor = ($edit == $r[0]) ? ' class="resultrow3"' : (($i%2) ? ' class="resultrow1"' : ' class="resultrow2"');
 
-		echo '<tr'.$bgcolor.'>
+		echo '<tr'. $bgcolor .'>
 				<td><img src="'. $GLOBALS['WWW_ROOT'] .'images/avatars/'. $r[1] .'" alt="'. $r[2] .'" border="0" /></td>
 				<td>'.$r[2].'</td>
 				<td>[<a href="admavatar.php?edit='. $r[0] .'&amp;avt_gal_sw='. $avt_gal .'&amp'. __adm_rsid .'#edit">Edit</a>] [<a href="admavatar.php?del='. $r[0] .'&amp;'. __adm_rsid .'">Delete</a>]</td>

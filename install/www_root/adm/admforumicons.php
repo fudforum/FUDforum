@@ -87,7 +87,7 @@
 		foreach ($files as $file) {
 			$de = basename($file);
 			$bgcolor = ($i++%2) ? ' class="resultrow1"' : ' class="resultrow2"';
-			echo '<tr'.$bgcolor.'><td><img src="'. $WWW_ROOT . $ICONS_DIR .'/'. $de .'" alt="Icon" /></td><td><a href="admforumicons.php?del='. urlencode($de) .'&amp;'. __adm_rsid .'&amp;which_dir='. $which_dir .'">Delete</a></td></tr>';
+			echo '<tr'. $bgcolor .'><td><img src="'. $WWW_ROOT . $ICONS_DIR .'/'. $de .'" alt="Icon" /></td><td><a href="admforumicons.php?del='. urlencode($de) .'&amp;'. __adm_rsid .'&amp;which_dir='. $which_dir .'">Delete</a></td></tr>';
 		}
 	} else if ($files === FALSE && !is_readable($WWW_ROOT_DISK . $ICONS_DIR)) {
 		echo '<tr colspan="3"><td>Unable to open '. $WWW_ROOT_DISK . $ICONS_DIR .' for reading.</td></tr>';

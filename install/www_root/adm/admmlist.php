@@ -318,7 +318,7 @@ function format_regex(&$regex)
 		$i++;
 		$bgcolor = ($edit == $r[0]) ? ' class="resultrow3"' : (($i%2) ? ' class="resultrow1"' : ' class="resultrow2"');
 
-		echo '<tr'.$bgcolor.'><td>'. htmlspecialchars($r[1]) .'</td><td>'. $r[2] .'</td>
+		echo '<tr'. $bgcolor .'><td>'. htmlspecialchars($r[1]) .'</td><td>'. $r[2] .'</td>
 		<td nowrap="nowrap">maillist.php '. $r[0] .'</td>
 		<td>[<a href="admmlist.php?edit='. $r[0] .'&amp;'. __adm_rsid .'#edit">Edit</a>] [<a href="admmlist.php?del='. $r[0] .'&amp;'. __adm_rsid .'">Delete</a>]</td></tr>';
 	}

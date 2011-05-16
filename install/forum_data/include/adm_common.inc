@@ -29,6 +29,10 @@ function pf($str='', $webonly=false)
 /** Format date. */
 function fdate($date, $format='d F Y H:i')
 {
+	if (empty($date)) {
+		return 'Never';
+	}
+
 	if (stristr($GLOBALS['charset'], 'utf-8') !== false && substr(PHP_OS, 0, 3) == 'WIN') {
 		// Windows doesn't have UTF-8 locales.
 		$disp = utf8_encode(date($format, $date));

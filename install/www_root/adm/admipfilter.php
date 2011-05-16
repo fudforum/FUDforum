@@ -94,7 +94,7 @@ A range of IP addresses can be blocked by entering a mask (.*).</p>
 		$bgcolor = ($edit == $r[0]) ? ' class="resultrow3"' : (($i%2) ? ' class="resultrow1"' : ' class="resultrow2"');
 
 		$r[1] = str_replace('256', '*', $r[1]);
-		echo '<tr'.$bgcolor.'><td>'. $r[1] .'</td><td>[<a href="admipfilter.php?edit='. $r[0] .'&amp;'. __adm_rsid .'#edit">Edit</a>] [<a href="admipfilter.php?del='. $r[0] .'&amp;'. __adm_rsid .'">Delete</a>]</td></tr>';
+		echo '<tr'. $bgcolor .'><td>'. $r[1] .'</td><td>[<a href="admipfilter.php?edit='. $r[0] .'&amp;'. __adm_rsid .'#edit">Edit</a>] [<a href="admipfilter.php?del='. $r[0] .'&amp;'. __adm_rsid .'">Delete</a>]</td></tr>';
 	}
 	unset($c);
 	if (!$i) {

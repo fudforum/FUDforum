@@ -71,7 +71,7 @@ function send_email($from, $to, $subj, $body, $header='', $munge_newlines=1)
 	}
 	$subj = encode_subject($subj);
 
-	if (defined('forum_debug')) {
+	if (defined('fud_debug')) {
 		if (!function_exists('logaction')) {
 			fud_use('logaction.inc');
 		}

@@ -46,6 +46,7 @@ function compile_themes()
 		foreach ($_POST['order'] as $id) {
 			q('UPDATE '. $tbl .'plugins SET priority = '. $new_order++ .' WHERE id = '. $id);
 		}
+		fud_plugin::rebuild_cache();
 		exit('Plugins successfully reordered.');	// End AJAX call.
 	}
 

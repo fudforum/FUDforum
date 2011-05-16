@@ -78,7 +78,6 @@ class fud_announce
 			}
 
 			// Unset what we don't need.
-			unset($r->id);
 			unset($r->date_started);
 			unset($r->date_ended);
 			unset($r->ann_opt);

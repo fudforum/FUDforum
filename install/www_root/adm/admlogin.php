@@ -82,7 +82,7 @@
 		$i++;
 		$bgcolor = ($edit == $r[0]) ? ' class="resultrow3"' : (($i%2) ? ' class="resultrow1"' : ' class="resultrow2"');
 
-		echo '<tr'.$bgcolor.'><td>'. char_fix(htmlspecialchars($r[1])) .'</td><td>[<a href="admlogin.php?edit='. $r[0] .'&amp;'. __adm_rsid .'#edit">Edit</a>] [<a href="admlogin.php?del='. $r[0] .'&amp;'.__adm_rsid.'">Delete</a>]</td></tr>';
+		echo '<tr'. $bgcolor .'><td>'. char_fix(htmlspecialchars($r[1])) .'</td><td>[<a href="admlogin.php?edit='. $r[0] .'&amp;'. __adm_rsid .'#edit">Edit</a>] [<a href="admlogin.php?del='. $r[0] .'&amp;'.__adm_rsid.'">Delete</a>]</td></tr>';
 	}
 	unset($c);
 	if (!$i) {

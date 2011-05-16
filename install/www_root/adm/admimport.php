@@ -37,8 +37,6 @@ function resolve_dest_path($path)
 }
 
 /* main */
-	error_reporting(E_ALL);
-	@ini_set('display_errors', 1);
 	@ini_set('memory_limit', '256M');
 	@set_time_limit(0);
 
@@ -108,7 +106,7 @@ function resolve_dest_path($path)
 				}
 
 				$path = resolve_dest_path($path);
-				if (defined('forum_debug')) pf('... '. $path);
+				if (defined('fud_debug')) pf('... '. $path);
 				if (!($fd = fopen($path, 'wb'))) {
 					pf('WARNING: couldn\'t create '. $path);
 					if ($readf == 'gzread') {

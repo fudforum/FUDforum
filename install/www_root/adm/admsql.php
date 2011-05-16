@@ -118,7 +118,7 @@ if (isset($_POST['txtb']) && $_POST['txtb'] != '') {
 
 				$s = microtime(true);
 				$q = uq($sql);
-				$t = number_format(microtime(true) - $s, 6);
+				$t = number_format(microtime(true) - $s, 4);
 
 				echo '<h2>SQL Results</h2>';
 				echo '<table class="resulttable">';
@@ -153,7 +153,7 @@ if (isset($_POST['txtb']) && $_POST['txtb'] != '') {
 				} else if ($i > 1) {
 					echo '<br /><i>1 row returned in '. $t .' secs.</i>';
 				} else {
-					echo '<i>Statement executed. No rows returned. Time taken: '. $t .' secs.</i>';
+					echo '<i>Statement executed. Affected rows: '. db_affected() .'. Time taken: '. $t .' secs.</i>';
 				}
 
 			} catch(Exception $e) {
