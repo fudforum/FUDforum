@@ -213,26 +213,6 @@ Plugins are stored in: <?php echo realpath($PLUGIN_PATH); ?><br />
 <?php if ($FUD_OPT_3 & 4194304) { /* Hide if plugin system is disabled. */ ?>
 <h3>Enabled plugins:</h3>
 <p>The below plugins are active and listed in firing order. Drag and drop them to change the order.</p>
-<style>
-	#sortable td { margin: 0 3px 3px 3px; padding: 0.4em; padding-left: 1.5em; }
-	#sortable td span { position: absolute; margin-left: -1.3em; }
-</style>
-<script>
-$(document).ready(function () {
-	$(function() {
-		$("#sortable").sortable({
-			opacity: 0.6, 
-			cursor: 'move',
-			update: function() {
-				var order = $("#sortable").sortable("serialize") + '&ajax=reorder&<?php echo __adm_rsidl ?>';
-				$.ajax({type: 'post', url: self.location, data: order,
-					complete: function(request) { alert(request.responseText); },
-				})
-			}
-		});
-	});
-});
-</script>
 <table class="resulttable fulltable">
 <thead><tr class="resulttopic">
 	<th>Plugin</th><th>Action</th>

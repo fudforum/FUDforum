@@ -351,3 +351,7 @@ th.headerSortDown {
 .ui-resizable-se {
 	bottom: 14px;
 }
+
+/* jQuery UI Sortable: Drag and drop to reorder items. */
+#sortable td { margin: 0 3px 3px 3px; padding: 0.4em; padding-left: 1.5em; cursor:move; }
+#sortable td span { position: absolute; margin-left: -1.3em; }

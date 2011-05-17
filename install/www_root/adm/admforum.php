@@ -30,8 +30,19 @@ function get_max_upload_size()
 	fud_use('widgets.inc', true);
 	fud_use('logaction.inc');
 
-	require($WWW_ROOT_DISK .'adm/header.php');
 	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
+		
+	// AJAX call to reorder forums.
+	if (!empty($_POST['ajax']) && $_POST['ajax'] == 'reorder') {
+		$new_order = 1;
+		foreach ($_POST['order'] as $id) {
+			q('UPDATE '. $tbl .'forum SET view_order = '. $new_order++ .' WHERE id = '. $id);
+		}
+		rebuild_forum_cat_order();
+		exit('Forums successfully reordered.');	// End AJAX call.
+	}
+	
+	require($WWW_ROOT_DISK .'adm/header.php');
 	$max_upload_size = get_max_upload_size();
 
 	/* This is here so we get the cat_id parameter when cancel button is clicked. */
@@ -261,6 +272,7 @@ if (!isset($_GET['chpos'])) {	// Hide this if we are changing forum order.
 	<th align="center">Action</th>
 	<th>Position</th>
 </tr></thead>
+<tbody id="sortable">
 <?php
 	$move_ct = create_cat_select('dest_cat', '', $cat_id);
 
@@ -278,8 +290,8 @@ if (!isset($_GET['chpos'])) {	// Hide this if we are changing forum order.
 			$lp = $r->view_order;
 		}
 		$cat_name = !$move_ct ? $cat_name : '<form method="post" action="admforum.php">'. _hs .'<input type="hidden" name="frm_id" value="'.$r->id.'" /><input type="hidden" name="cat_id" value="'.$cat_id.'" /><input type="submit" name="btn_chcat" value="Move To: " /> '.$move_ct.'</form>';
-		echo '<tr'. $bgcolor .'  title="'. htmlspecialchars($r->descr) .'">
-			<td>'. $r->name .'</td>
+		echo '<tr id="order_'. $r->id .'"'. $bgcolor .' title="'. htmlspecialchars($r->descr) .'">
+			<td><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>'. $r->name .'</td>
 			<td><font size="-1">'. htmlspecialchars(substr($r->descr, 0, 30)) .'...</font></td>
 			<td nowrap="nowrap">[<a href="admforum.php?cat_id='. $cat_id .'&amp;edit='. $r->id .'&amp;'. __adm_rsid .'#edit">Edit</a>] [<a href="admforum.php?cat_id='. $cat_id .'&amp;del='. $r->id .'&amp;'. __adm_rsid .'">Delete</a>]</td>
 			<td nowrap="nowrap">[<a href="admforum.php?chpos='. $r->view_order .'&amp;cat_id='. $cat_id .'&amp;'. __adm_rsid .'">Change</a>]</td></tr>';
@@ -292,7 +304,7 @@ if (!isset($_GET['chpos'])) {	// Hide this if we are changing forum order.
 		echo '<tr class="field"><td colspan="6"><center>No forums found. Define some above.</center></td></tr>';
 	}
 ?>
-</table>
+</tbody></table>
 
 <br />
 <table class="datatable" align="right">

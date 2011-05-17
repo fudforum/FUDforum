@@ -74,7 +74,7 @@
 <h2>Spiders, Bots and Crawlers</h2>
 
 <div class="tutor">
-Detect and auto-login the spiders, bots and crawlers that are typically used by search engines to index your site.
+Detect and auto-login or block the spiders, bots and crawlers that are typically used by search engines to index your site.
 </div>
 
 <?php

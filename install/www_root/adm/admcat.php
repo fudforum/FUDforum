@@ -24,6 +24,7 @@
 		foreach ($_POST['order'] as $id) {
 			q('UPDATE '. $tbl .'cat SET view_order = '. $new_order++ .' WHERE id = '. $id);
 		}
+		rebuild_forum_cat_order();
 		exit('Categories successfully reordered.');	// End AJAX call.
 	}
 
@@ -231,26 +232,6 @@ function imposeMaxLength(Object, len)
 		echo '<a href="admcat.php?'. __adm_rsid .'">Cancel reorder operation</a><br />';
 	}
 ?>
-
-<style>
-	#sortable td { margin: 0 3px 3px 3px; padding: 0.4em; padding-left: 1.5em; }
-	#sortable td span { position: absolute; margin-left: -1.3em; }
-</style>
-<script>
-$(document).ready(function () {
-	$(function() {
-		$("#sortable").sortable({
-			opacity: 0.6, 
-			cursor: 'move',
-			update: function() {
-				var order = $("#sortable").sortable("serialize") + '&ajax=reorder&<?php echo __adm_rsidl ?>';
-				$.ajax({type: 'post', url: self.location, data: order,
-					complete: function(request) { alert(request.responseText); } })
-			}
-		});
-	});
-});
-</script>
 
 <table class="resulttable fulltable">
 <thead><tr class="resulttopic">

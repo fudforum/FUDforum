@@ -124,12 +124,12 @@ $(document).ready(function() {
 	<span class="linkgroup">Users & Groups</span>
 	<ul class="menu">
 	<li><a title="Manage user accounts" href="admuser.php?<?php echo __adm_rsid; ?>">User Manager</a></li>
+	<li><a title="Manage bots and spiders" href="admspiders.php?<?php echo __adm_rsid; ?>">Spiders / Bots</a></li>
 	<li><a title="Setup groups and group permisions" href="admgroups.php?<?php echo __adm_rsid; ?>">Groups Manager</a></li>
 	<li><a title="Manage user ranks" href="admlevel.php?<?php echo __adm_rsid; ?>">Rank Manager</a></li>
-	<li><a title="Define custom porfile fields" href="admcustomfields.php?<?php echo __adm_rsid; ?>">Profile fields</a></li>
+	<li><a title="Define custom profile fields" href="admcustomfields.php?<?php echo __adm_rsid; ?>">Profile fields</a></li>
 	<li><a title="Send E-mail to your forum memebers" href="admmassemail.php?<?php echo __adm_rsid; ?>">Mass E-mail</a></li>
 	<li><a title="Delete old users without messages" href="admpruneusers.php?<?php echo __adm_rsid; ?>">Prune users</a></li>
-	<li><a title="Manage bots and spiders" href="admspiders.php?<?php echo __adm_rsid; ?>">Spiders / Bots</a></li>
 	</ul>
 	<br />
 

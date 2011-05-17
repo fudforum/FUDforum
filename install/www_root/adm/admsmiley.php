@@ -15,9 +15,19 @@
 	fud_use('sml_rcache.inc', true);
 
 	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
-	require($WWW_ROOT_DISK .'adm/header.php');
-
 	$smiley_dir = '../images/smiley_icons/';
+
+	// AJAX call to reorder smilies.
+	if (!empty($_POST['ajax']) && $_POST['ajax'] == 'reorder') {
+		$new_order = 1;
+		foreach ($_POST['order'] as $id) {
+			q('UPDATE '. $tbl .'smiley SET vieworder = '. $new_order++ .' WHERE id = '. $id);
+		}
+		smiley_rebuild_cache();
+		exit('Smilies successfully reordered.');	// End AJAX call.
+	}
+
+	require($WWW_ROOT_DISK .'adm/header.php');
 
 	if (isset($_GET['del'])) {
 		db_lock($tbl.'smiley WRITE');
@@ -178,6 +188,7 @@ function sml_form_check()
 	<th>Description</th>
 	<th>Action</th>
 </tr></thead>
+<tbody id="sortable">
 <?php
 	$c = uq('SELECT id, img, code, descr, vieworder FROM '. $tbl .'smiley ORDER BY vieworder');
 	$i = 0;
@@ -195,7 +206,7 @@ function sml_form_check()
 			}
 			$lp = $r->vieworder;
 		}
-		echo '<tr'. $bgcolor .'><td><img src="'. $GLOBALS['WWW_ROOT'] .'images/smiley_icons/'. $r->img .'" border="0" alt="'. $r->descr .'" /></td><td>'. $r->code .'</td><td>'. $r->descr .'</td>
+		echo '<tr id="order_'. $r->id .'"'. $bgcolor .'><td><span class="ui-icon ui-icon-arrowthick-2-n-s"></span> <img src="'. $GLOBALS['WWW_ROOT'] .'images/smiley_icons/'. $r->img .'" border="0" alt="'. $r->descr .'" /></td><td>'. $r->code .'</td><td>'. $r->descr .'</td>
 			<td nowrap="nowrap">[<a href="admsmiley.php?edit='. $r->id .'&amp;'. __adm_rsid .'#edit">Edit</a>] [<a href="admsmiley.php?del='. $r->id .'&amp;'. __adm_rsid .'">Delete</a>] [<a href="admsmiley.php?chpos='. $r->vieworder .'&amp;'. __adm_rsid .'">Change Position</a>]</td>
 			</tr>';
 	}
@@ -207,5 +218,5 @@ function sml_form_check()
 		echo '<tr class="field"><td colspan="4"><center>No smileys found. Define some above.</center></td></tr>';
 	}
 ?>
-</table>
+</tbody></table>
 <?php require($WWW_ROOT_DISK .'adm/footer.php'); ?>

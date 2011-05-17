@@ -17,6 +17,16 @@
 
 	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
 
+	// AJAX call to reorder fields.
+	if (!empty($_POST['ajax']) && $_POST['ajax'] == 'reorder') {
+		$new_order = 1;
+		foreach ($_POST['order'] as $id) {
+			q('UPDATE '. $tbl .'custom_fields SET vieworder = '. $new_order++ .' WHERE id = '. $id);
+		}
+		fud_custom_field::rebuild_cache();
+		exit('Profile fields successfully reordered.');	// End AJAX call.
+	}
+
 	require($WWW_ROOT_DISK .'adm/header.php');
 	if (!empty($_POST['btn_cancel'])) {
 		unset($_POST);
@@ -69,6 +79,7 @@
 			q('UPDATE '. $GLOBALS['DBHOST_TBL_PREFIX'] .'custom_fields SET vieworder='. $newp .' WHERE vieworder=2147483647');
 			db_unlock();
 			$_GET['chpos'] = null;
+			fud_custom_field::rebuild_cache();
 			echo successify('The field\'s position was succesfully changed.');
 		}
 	}
@@ -142,6 +153,7 @@ echo '<h3>'. ($edit ? '<a name="edit">Edit Field:</a>' : 'Add New Field:') .'</h
 <thead><tr class="resulttopic">
 	<th>Name</th><th>Description</th><th>Value(s)</th><th>Action</th>
 </tr></thead>
+<tbody id="sortable">
 <?php
 	$i = 0;
 	$c = uq(q_limit('SELECT id, name, descr, choice, vieworder FROM '. $tbl .'custom_fields ORDER BY vieworder', 100));
@@ -158,7 +170,7 @@ echo '<h3>'. ($edit ? '<a name="edit">Edit Field:</a>' : 'Add New Field:') .'</h
 			$lp = $r->vieworder;
 		}
 
-		echo '<tr'. $bgcolor .'><td>'. $r->name .'</td><td>'. $r->descr .'</td><td>'. $r->choice .'</td>';
+		echo '<tr id="order_'. $r->id .'"'. $bgcolor .'><td><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>'. $r->name .'</td><td>'. $r->descr .'</td><td>'. $r->choice .'</td>';
 		echo '<td><a href="admcustomfields.php?edit='. $r->id .'&amp;'. __adm_rsid .'#edit">Edit</a> | <a href="admcustomfields.php?del='. $r->id .'&amp;'. __adm_rsid .'">Delete</a> | <a href="admcustomfields.php?chpos='. $r->vieworder .'&amp;cpid='. $r->id .'&amp;'. __adm_rsid .'">Change Position</a></td></tr>';
 	}
 	unset($c);
@@ -166,6 +178,6 @@ echo '<h3>'. ($edit ? '<a name="edit">Edit Field:</a>' : 'Add New Field:') .'</h
 		echo '<tr class="field"><td colspan="4"><center>No fields found. Define some above.</center></td></tr>';
 	}
 ?>
-</table>
+</tbody></table>
 
 <?php require($WWW_ROOT_DISK .'adm/footer.php'); ?>

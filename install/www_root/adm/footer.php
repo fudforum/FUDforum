@@ -27,7 +27,7 @@ $(function() {
 			$(this).parent().toggleClass("collapsed");
 		});
 	});
-
+	
 	// Start TimeAgo plugin.
  	// $("time").timeago();
 
@@ -35,6 +35,20 @@ $(function() {
 	$("button, input:submit, #button").button({
                 icons: { primary: "ui-icon-gear", secondary: "ui-icon-triangle-1-s" }
     });
+
+	// jQuery UI Sortable: Drag and drop to reorder items.
+	$(function() {
+		$("#sortable").sortable({
+			opacity: 0.6, 
+			cursor: 'move',
+			update: function() {
+				var order = $("#sortable").sortable("serialize") + '&ajax=reorder&<?php echo __adm_rsidl ?>';
+				$.ajax({type: 'post', url: self.location, data: order,
+					complete: function(request) { alert(request.responseText); },
+				})
+			}
+		});
+	});
 
 	// Make tables sortable.
 	$('.resulttable').tablesorter();
