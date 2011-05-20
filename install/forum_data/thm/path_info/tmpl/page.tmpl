@@ -1,0 +1,21 @@
+/**
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* email                : forum@prohost.org
+* $Id$
+*
+* This program is free software; you can redistribute it and/or modify it
+* under the terms of the GNU General Public License as published by the
+* Free Software Foundation; version 2 of the License.
+**/
+
+{PHP_FILE: input: page.php.t; output: page.php;}
+{REF: security.tmpl}
+{REF: header.tmpl}
+{REF: usercp.tmpl}
+{REF: curtime.tmpl}
+{REF: stats.tmpl}
+{REF: footer.tmpl}
+
+{SECTION: page_list_entry_lnk}
+{ROOT}/page/{VAR: r->slug}/{DEF: _rsid}
+{SECTION: END}

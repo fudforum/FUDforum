@@ -69,7 +69,7 @@
 <br /><br />
 <form id="buddy_add" action="{TEMPLATE: BUDDYLIST_PAGE_lnk3}" method="post">{DEF: _hs}<div class="ctb">
 <table cellspacing="1" cellpadding="2" class="MiniTable">
-<tr><th style="white-space: nowrap">{MSG: add_buddy}</th></tr>
+<tr><th class="nw">{MSG: add_buddy}</th></tr>
 <tr class="RowStyleA">
 <td class="GenText nw Smalltext">{MSG: buddy_search}{IF: ($FUD_OPT_1 & 8388608 || (_uid && $FUD_OPT_1 & 4194304))}{TEMPLATE: buddy_member_search}{ENDIF}<br /><br />
 <input type="text" tabindex="1" name="add_login" value="" maxlength="100" size="25" /> <input tabindex="2" type="submit" class="button" name="submit" value="{MSG: add}" /></td></tr>

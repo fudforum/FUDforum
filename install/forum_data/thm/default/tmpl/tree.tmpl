@@ -130,14 +130,14 @@
 
 {SECTION: rate_thread rate thread select}
 <form id="RateFrm" action="post">
-<select class="SmallText" onchange="if (this.value) topicVote(this.value, {VAR: frm->id}, \'{DEF: s}\', \'{VAR: usr->sq}\');">
-<option>{MSG: rate_thread}</option>
-<option value="1">1 {MSG: rate_worst}</option>
-<option value="2">2</option>
-<option value="3">3</option>
-<option value="4">4</option>
-<option value="5">5 {MSG: rate_best}</option>
-</select>
+	<select class="SmallText" onchange="if (this.value) topicVote(this.value, {VAR: frm->id}, \'{DEF: s}\', \'{VAR: usr->sq}\');">
+		<option>{MSG: rate_thread}</option>
+		<option value="1">1 {MSG: rate_worst}</option>
+		<option value="2">2</option>
+		<option value="3">3</option>
+		<option value="4">4</option>
+		<option value="5">5 {MSG: rate_best}</option>
+	</select>
 </form>
 {SECTION: END}
 
@@ -159,11 +159,12 @@
 
 {SECTION: tree_branch message with replies}
 <tr class="{IF: $cur->id % 2}RowStyleA{ELSE}RowStyleB{ENDI}" id="b{VAR: cur->id}">
-<td>{IF: (_uid && $cur->post_stamp > $usr->last_read && $cur->post_stamp > $frm->last_view)}{TEMPLATE: tree_unread_message}{ELSE}{TEMPLATE: tree_read_message}{END}</td>
-<td>{IF: $cur->icon}{TEMPLATE: thread_icon}{ENDIF}</td>
-<td class="Gentext nw wa vt" style="padding-left: {FUNC: (15 * ($lev - 1))}px">
-<a href="{TEMPLATE: tree_branch_lnk}" onclick="fud_tree_msg_focus({VAR: cur->id}, \'{DEF: s}\', \'{CHARSET}\'); return false;" class="big">{VAR: cur->subject}</a>
-<div class="TopBy">{MSG: by} {IF: $cur->poster_id}{TEMPLATE: reg_user_link}{ELSE}{TEMPLATE: anon_user}{END} {MSG: thread_on} {TEMPLATE: tree_msg_post_date}</div></td>
+	<td>{IF: (_uid && $cur->post_stamp > $usr->last_read && $cur->post_stamp > $frm->last_view)}{TEMPLATE: tree_unread_message}{ELSE}{TEMPLATE: tree_read_message}{END}</td>
+	<td>{IF: $cur->icon}{TEMPLATE: thread_icon}{ENDIF}</td>
+	<td class="Gentext nw wa vt" style="padding-left: {FUNC: (15 * ($lev - 1))}px">
+		<a href="{TEMPLATE: tree_branch_lnk}" onclick="fud_tree_msg_focus({VAR: cur->id}, \'{DEF: s}\', \'{CHARSET}\'); return false;" class="big">{VAR: cur->subject}</a>
+		<div class="TopBy">{MSG: by} {IF: $cur->poster_id}{TEMPLATE: reg_user_link}{ELSE}{TEMPLATE: anon_user}{END} {MSG: thread_on} {TEMPLATE: tree_msg_post_date}</div>
+	</td>
 </tr>
 {SECTION: END}
 
@@ -203,15 +204,15 @@
 <div class="ar SmallText">{IF: $FUD_OPT_2 & 1048576}{TEMPLATE: tree_xml_link}{ENDIF} {IF: $FUD_OPT_2 & 2097152}{TEMPLATE: tree_pdf_link}{ENDIF}</div>
 {TEMPLATE: curtime}
 {TEMPLATE-DATA: page_stats}
-<script type="text/javascript">
+<script defer="defer" type="text/javascript">
 /* <![CDATA[ */
-var cur_msg = {VAR: mid};
-$('#b' + cur_msg).removeClass().addClass('RowStyleC');
+	var cur_msg = {VAR: mid};
+	$('#b' + cur_msg).removeClass().addClass('RowStyleC');
 /* ]]> */
 </script>
 {IF: !empty($_GET['srch'])}
-<script type="text/javascript">
-highlightSearchTerms("{VAR-HTML: _GET['srch']}");
+<script defer="defer" type="text/javascript">
+	highlightSearchTerms("{VAR-HTML: _GET['srch']}");
 </script>
 {ENDIF}
 {TEMPLATE: footer}

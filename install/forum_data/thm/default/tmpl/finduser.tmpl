@@ -34,8 +34,8 @@
 <tr>
 {IF: $GLOBALS['FUD_OPT_3'] & 524288}<th width="1"><a class="thLnk" href="{TEMPLATE: FINDUSER_PAGE_lnk4}" rel="nofollow">{MSG: finduser_flag}</a></th>{ENDIF}
 <th class="wa"><a class="thLnk" href="{TEMPLATE: FINDUSER_PAGE_lnk}" rel="nofollow">{MSG: finduser_user}</a></th>
-<th style="white-space: nowrap"><a href="{TEMPLATE: FINDUSER_PAGE_lnk1}" class="thLnk" rel="nofollow">{MSG: finduser_postcount}</a></th>
-<th style="white-space: nowrap"><div class="ac"><a href="{TEMPLATE: FINDUSER_PAGE_lnk2}" class="thLnk" rel="nofollow">{MSG: finduser_joindate}</a></div></th>
+<th class="nw"><a href="{TEMPLATE: FINDUSER_PAGE_lnk1}" class="thLnk" rel="nofollow">{MSG: finduser_postcount}</a></th>
+<th class="nw"><div class="ac"><a href="{TEMPLATE: FINDUSER_PAGE_lnk2}" class="thLnk" rel="nofollow">{MSG: finduser_joindate}</a></div></th>
 <th class="ac">{MSG: finduser_action}</th>
 {IF: $is_a}{TEMPLATE: findu_admin_opts_header}{ENDIF}</tr>
 {TEMPLATE-DATA: find_user_data}
@@ -89,7 +89,7 @@ document.forms['fufrm'].usr_login.focus();
 {SECTION: END}
 
 {SECTION: findu_admin_opts_header}
-<th style="white-space: nowrap">{MSG: findu_admin_opts_header}</th>
+<th class="nw">{MSG: findu_admin_opts_header}</th>
 {SECTION: END}
 
 {SECTION: findu_unban}

@@ -21,7 +21,7 @@
 
 {SECTION: last_post last by a user}
 {TEMPLATE: online_today_last_post_date}<br />
-<a href="{TEMPLATE: last_post_lnk}">{VAR: r[6]}</a>
+<a href="{TEMPLATE: online_today_last_post_lnk}">{VAR: r[6]}</a>
 {SECTION: END}
 
 {SECTION: last_post_na no last post}
@@ -44,6 +44,7 @@
 {TEMPLATE: header}
 {TEMPLATE: usercp}
 <br />{TEMPLATE-DATA: admin_cp}
+<div class="GenText ac">[ <a href="{TEMPLATE: online_today_lnk}" rel="nofollow">{MSG: refresh_list}</a> ]</div>
 <br />
 <table cellspacing="1" cellpadding="2" class="ContentTable">
 <tr>
@@ -63,6 +64,10 @@
 {MSG: online_today_update}
 {SECTION: END}
 
+{SECTION: online_today_lnk}
+{ROOT}?t=online_today&rand={FUNC: get_random_value()}&{DEF: _rsid}
+{SECTION: END}
+
 {SECTION: no_view_perm}
 {MSG: no_view_perm}
 {SECTION: END}
@@ -71,7 +76,7 @@
 {ROOT}?t=usrinfo&amp;id={VAR: r[2]}&amp;{DEF: _rsid}
 {SECTION: END}
 
-{SECTION: last_post_lnk}
+{SECTION: online_today_last_post_lnk}
 {ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: r[5]}&amp;{DEF: _rsid}#msg_{VAR: r[5]}
 {SECTION: END}
 

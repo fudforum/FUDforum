@@ -80,7 +80,7 @@
 {TEMPLATE-DATA: admin_cp}
 <a name="page_top"> </a>
 {FUNC: draw_forum_path($frm->cat_id, $frm->name, $frm->forum_id, $frm->subject)}
-{IF: $frm->tdescr}<span class="small">({VAR: frm->tdescr})</span>{ENDIF} 
+{IF: $frm->tdescr} <span class="small">({VAR: frm->tdescr})</span>{ENDIF} 
 <span id="threadRating">{IF: $FUD_OPT_2 & 4096 && $frm->rating}{TEMPLATE: thread_rating}{ENDIF}</span>
 <table cellspacing="0" cellpadding="0" border="0" class="wa">
 <tr>

@@ -8,9 +8,9 @@
 * Free Software Foundation; version 2 of the License.
 **/
 
-{MAIN_SECTION: quick_login_on}
-<table class="wa" border="0" cellspacing="0" cellpadding="0"><tr><td align="right">
-<form id="quick_login_form" method="post" action="{TEMPLATE: quick_login_on_lnk3}"{FUNC: ($GLOBALS['FUD_OPT_3'] & 256 ? ' autocomplete="off"' : '')}>{DEF: _hs}
+{MAIN_SECTION: quick_login_logged_out}
+<div class="fr">
+<form id="quick_login_form" method="post" action="{TEMPLATE: quick_login_logged_out_lnk}"{FUNC: ($GLOBALS['FUD_OPT_3'] & 256 ? ' autocomplete="off"' : '')}>{DEF: _hs}
 <table border="0" cellspacing="0" cellpadding="3">
 <tr class="SmallText">
 	<td><label>{MSG: quicklogin_login}<br /><input class="SmallText" type="text" name="quick_login" size="18" /></label></td>
@@ -18,16 +18,18 @@
 	{IF: $FUD_OPT_1 & 128}{TEMPLATE: quick_login_cookie}{ENDIFI}
 	<td>&nbsp;<br /><input type="submit" class="button" name="quick_login_submit" value="{MSG: quicklogin_login_btn}" /></td>
 </tr>
-</table></form></td></tr></table>
+</table></form>
+</div>
 {MAIN_SECTION: END}
 
 {SECTION: quick_login_cookie}
 <td>&nbsp;<br /><label><input type="checkbox" checked="checked" name="quick_use_cookies" value="1" /> {MSG: quicklogin_use_cookies}</label></td>
 {SECTION: END}
 
-{MAIN_SECTION: quick_login_loged_in}
-{MAIN_SECTION: END}
-
-{SECTION: quick_login_on_lnk3}
+{SECTION: quick_login_logged_out_lnk}
 {ROOT}?t=login
 {SECTION: END}
+
+{MAIN_SECTION: quick_login_logged_in}
+{MAIN_SECTION: END}
+
