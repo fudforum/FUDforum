@@ -16,6 +16,10 @@ class fud_plugin
 	{
 		$ok = $err = null;
 
+		if (fud_plugin::is_active($name)) {
+			return;
+		}
+		
 		// Call the plugin's enable function.
 		$plugin_file = basename($name);
 		$enable_func = substr($plugin_file, 0, strrpos($plugin_file, '.')) .'_enable';

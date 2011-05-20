@@ -128,6 +128,9 @@
 			if ($GLOBALS['usr']->id == $usr_id) {
 				echo errorify('Sorry, you cannot delete your own account!');
 				break;
+			} else if ($u->users_opt & 1073741824) {
+				echo errorify('This is a supporting user for a web crawler. Please remove the crawler instead!');
+				break;
 			}
 
 			if (!isset($_POST['del_confirm'])) {

@@ -132,6 +132,9 @@ function compile_themes()
 		}
 
 		echo '<fieldset><legend>Meta-information:</legend>';
+		if (isset($info['desc'])) {
+			echo '<p>'. $info['desc'] .'</p>';
+		}
 		echo '<table>';
 		echo '<tr><td><b>Plugin file:</b></td><td>'. $plugin .'</td></tr>';
 		echo '<tr><td><b>Last modified:</b></td><td>'. date('d F Y H:i:s', filemtime($PLUGIN_PATH .'/'. $plugin)) .'</td></tr>';
@@ -150,17 +153,15 @@ function compile_themes()
 			echo '<font color="red">Plugin system is disabled!</font>';
 		}
 		echo '</td></tr>';
-		if (isset($info['desc'])) {
-			echo '<tr><td valign="top"><b>Description:</b></td><td>'. $info['desc'] .'</td></tr>';
-		}
-		echo '<tr><td colspan="2"><div style="font-size:small; float:right;">';
+		echo '</table>';
+		echo '<span style="font-size:small; float:right;">';
 		echo '[ <a href="admbrowse.php?view=1&amp;dest='. $func_base .'.plugin&amp;cur='. urlencode(dirname($PLUGIN_PATH.$plugin)) .'&amp;'. __adm_rsid .'">View code</a> ]';
 		if (isset($info['help'])) {
 			echo ' [ <a href="'. $info['help'] .'">Plugin documentation</a> ]';
 		} else {
 			echo ' [ <a href="http://cvs.prohost.org/index.php/'. $func_base .'.plugin">Documentation on Wiki</a> ]';
 		}
-		echo '</div></td></tr></table>';
+		echo '</span><br />';
 		echo '</fieldset>';
 
 		// Process config hook.

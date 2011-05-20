@@ -25,6 +25,11 @@ class fud_spider
 	/** Add a new spider. */
 	function add()
 	{
+		// Set default theme.
+		if (empty($this->theme)) {
+			$this->theme = q_singleval(q_limit('SELECT id FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'themes WHERE theme_opt>=2 AND '. q_bitand('theme_opt', 2) .' > 0', 1));
+		}
+
 		// We need to create a FUDforum user for this bot.
 		fud_use('users_reg.inc');
 		if (get_id_by_login($this->botname)) {
@@ -35,11 +40,8 @@ class fud_spider
 		$user->name      = $this->botname;
 		$user->email     = $this->botname .'@fud_spiders';
 		$user->theme     = (int)$this->theme;
-		$user->users_opt = -1;
+		$user->users_opt = 1|4|16|128|256|512|4096|8192|16384|131072|262144|4194304|33554432|67108864|536870912|1073741824;
 		$user_id = $user->add();
-
-		// Set 'is_spider' for the user.
-		q('UPDATE '. $GLOBALS['DBHOST_TBL_PREFIX'] .'users SET users_opt = '. q_bitand('users_opt', 1073741824) .' WHERE id = '. $user_id);
 
 		// Tag the user as a spider.
 		q('INSERT INTO '. $GLOBALS['DBHOST_TBL_PREFIX'] .'custom_tags (name, user_id) VALUES(\'Web crawler\', '. $user_id .')');

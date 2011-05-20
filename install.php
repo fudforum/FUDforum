@@ -1177,7 +1177,7 @@ if ($section == 'admin' || php_sapi_name() == 'cli') {
 		));
 
 		/* Add default web crawlers. */
-		$bot_opts = 1|4|16|32|128|256|512|2048|4096|8192|16384|262144|4194304|1073741824;
+		$bot_opts = 1|4|16|128|256|512|4096|8192|16384|131072|262144|4194304|33554432|67108864|536870912|1073741824;
 		$uid = db_li('INSERT INTO '. $DBHOST_TBL_PREFIX .'users (login, alias, name, email, users_opt, join_date, theme, time_zone) VALUES(\'Google\', \'Google\', \'Googlebot\', \'Google@fud_spiders\', '. $bot_opts .', '. time() .', 1, \''. $SERVER_TZ .'\')', $ef, 1);
 		q('INSERT INTO '. $DBHOST_TBL_PREFIX .'spiders (botname, useragent, theme, user_id) VALUES (\'Google\', \'Googlebot\', 1, '. $uid .')');
 		$uid = db_li('INSERT INTO '. $DBHOST_TBL_PREFIX .'users (login, alias, name, email, users_opt, join_date, theme, time_zone) VALUES(\'Yahoo\', \'Yahoo\', \'Yahoo!\', \'Yahoo@fud_spiders\', '. $bot_opts .', '. time() .', 1, \''. $SERVER_TZ .'\')', $ef, 1);
