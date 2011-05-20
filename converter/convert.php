@@ -40,6 +40,7 @@ function bbconn($host, $dbname, $dbuser, $dbpass, $prefix, $dbtype='mysql') {
 		}
 		define('dbtype', 'mysql');
 		define('dbpref', $dbname .'.'. $prefix);
+		define('dbconn', $conn);
 	} else if (preg_match('/pgsql/i', $dbtype) || preg_match('/postgres/i', $dbtype)) {
 		$dsn = 'host='. $host .' dbname='. $dbname .' user='. $dbuser .' password='. $dbpass;
 		if (!($conn = pg_connect($dsn))) {
@@ -47,32 +48,46 @@ function bbconn($host, $dbname, $dbuser, $dbpass, $prefix, $dbtype='mysql') {
 		}
 		define('dbtype', 'pgsql');
 		define('dbpref', $prefix);
+		define('dbconn', $conn);
+	} else if (preg_match('/sqlite/i', $dbtype)) {
+		class db2 { public static $db; }
+		$dsn = 'sqlite:'. $host;	// NOTE: May need to change this to 'sqlite2:' (for older v2 databases).
+		try {
+			db2::$db = new PDO($dsn, $dbuser, $dbpass);
+		} catch (PDOException $e) {
+			seterr('Unable to connect to the source forum\'s SQLite database: '. $e->getMessage());
+		}
+		define('dbtype', 'sqlite');
+		define('dbpref', $prefix);
 	} else {
 		seterr('Unsupported database type ['. $dbtype .']');
 	}
-
-	define('dbconn', $conn);
 }
 
 /** Perform query against source forum's DB. */
 function bbq($q, $err=0)
 {
-	if (dbtype == 'mysql') $r = mysql_query($q, dbconn);
-	if (dbtype == 'pgsql') $r = pg_query(dbconn, $q);
+	if (dbtype == 'mysql')  $r = mysql_query($q, dbconn);
+	if (dbtype == 'pgsql')  $r = pg_query(dbconn, $q);
+	if (dbtype == 'sqlite') $r = db2::$db->query($q);
+
 	if ($r) {
 		return $r;
 	}
 	if (!$err) {
-		if (dbtype == 'mysql') die(mysql_error(  dbconn));
-		if (dbtype == 'pgsql') die(pg_last_error(dbconn));
+		pf('SQL statement: '. $q);
+		if (dbtype == 'mysql')  seterr('MySQL error: '. mysql_error(  dbconn));
+		if (dbtype == 'pgsql')  seterr('PostgreSQL error: '. pg_last_error(dbconn));
+		if (dbtype == 'sqlite') seterr('SQLite error: '. end(db2::$db->errorInfo()));
 	}
 }
 
 /** Fetch a row from the source forum's DB. */
 function bbfetch($r)
 {
-	if (dbtype == 'mysql') return mysql_fetch_object($r);
-	if (dbtype == 'pgsql') return pg_fetch_object(   $r);
+	if (dbtype == 'mysql')  return mysql_fetch_object($r);
+	if (dbtype == 'pgsql')  return pg_fetch_object(   $r);
+	if (dbtype == 'sqlite') return $r->fetch(PDO::FETCH_OBJ);
 }
 
 /** BBCode cleanup and convertion. */
@@ -702,9 +717,7 @@ if (!is_dir($CONVERT_FROM_DIR)) {
 }
 
 /* Prevent session initialization. */
-unset($_SERVER['REMOTE_ADDR']);
 define('no_session', 1);
-define('forum_debug', 1);	// Old pre-3.0.3 forums use 'forum_debug' instead of 'no_session'.
 
 /* Include all the necessary FUDforum includes. */
 // include './scripts/fudapi.inc.php';
@@ -847,7 +860,8 @@ if (function_exists('source_auth_function')) {
 	fclose($fp);
 	// Enable plugin.
 	fud_use('plugins.inc', true);
-	plugin_rebuild_cache(array('convert_auth.plugin'));
+	fud_use('plugin_adm.inc', true);
+	fud_plugin::activate('convert_auth.plugin');
 }
 
 // Check if we have an admin user. If not, create one.

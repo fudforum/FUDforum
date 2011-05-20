@@ -26,7 +26,7 @@ INSTRUCTIONS:
 -------------
 
 1. Install FUDforum or identify an existing installation where the messages must be
-   imported into.
+   imported into (the target forum).
 
 2. Download and copy the conversion script to your forum's WWW_ROOT directory.
 
@@ -52,8 +52,11 @@ Best of luck!
 KNOWN PROBLEMS AND RESTRICTIONS:
 --------------------------------
 
-1. The source forum must use MySQL or PostgreSQL.
+1. The source forum must use MySQL, PostgreSQL or SQLite.
    It is, however, quite easy to add support for additional databases.
+   
+2. The target forum cannot use Micrososft SQL Server. Will get error: 
+	Cannot insert explicit value for identity column in table 'tablename' when IDENTITY_INSERT is set to OFF.
 
 2. After conversion, login to the forum (not the ACP!).
    The ACP will not invoke authentication plugins and may not allow you to
