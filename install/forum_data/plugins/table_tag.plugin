@@ -1,0 +1,55 @@
+<?php
+/**
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* email                : forum@prohost.org
+* $Id$
+*
+* This program is free software; you can redistribute it and/or modify it
+* under the terms of the GNU General Public License as published by the
+* Free Software Foundation; version 2 of the License.
+**/
+
+// Initialize plugin.
+plugin_add_hook('BBCODE2HTML', 'plugin_table_tag_to_html');
+plugin_add_hook('HTML2BBCODE', 'plugin_table_html_to_tag');
+
+// Convert [TABLE] tags to html code (post message).
+function plugin_table_tag_to_html($array) {
+	list($bbcode) = $array;
+
+	$preg = array(
+		'#\[table\](.+?)\[/table\]#si'             => '<table class="bb-table">\\1</table>',
+		'#\[(row|r|tr)\](.+?)\[/(row|r|tr)\]#si'   => '<tr>\\2</tr>',
+		'#\[(head|h|th)\](.+?)\[/(head|h|th)\]#si' => '<th>\\2</th>',
+		'#\[(col|c|td)\](.+?)\[/(col|c|td)\]#si'   => '<td>\\2</td>',
+		// Cleanup table output (line breaks in td, th and tr tags).
+		'#<([\/]?)t([dhr])><br />#si' => '<\\1t\\2>',
+		'#<table(.+?)><br />#si'      => '<table\\1>',
+	);
+	$bbcode = preg_replace(array_keys($preg), array_values($preg), $bbcode);
+
+	return array($bbcode);
+}
+
+// Convert html back to [TABLE] tag (edit message).
+function plugin_table_html_to_tag($array) {
+	list($bbcode) = $array;
+
+	$preg = array(
+		'#<table class="bb-table">(.+?)</table>#si' => '[table]\\1[/table]',
+		'#<tr>(.+?)</tr>#si' => '[tr]\\1[/tr]',
+		'#<th>(.+?)</th>#si' => '[th]\\1[/th]',
+		'#<td>(.+?)</td>#si' => '[td]\\1[/td]',
+	);
+	$bbcode = preg_replace(array_keys($preg), array_values($preg), $bbcode);
+
+	return array($bbcode);
+}
+
+function table_tag_info() {
+	return array('name' => 'Table Tag',
+	             'desc' => 'Allow forum users to use spacial [table] BBcode tags for embedding HTML tables into forum posts.',
+		     'version' => '1.0');
+}
+
+?>
