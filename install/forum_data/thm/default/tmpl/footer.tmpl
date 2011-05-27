@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -9,21 +9,22 @@
 **/
 
 {MAIN_SECTION: footer // The forum's footer.}
-</td>
-<!-- <td class="ForumBackground" valign="top">{INJECTION_POINT: right_block}</td> -->
-</tr></table>
-
-<div class="ForumBackground ac foot">
-<b>.::</b> <a href="mailto:{GVAR: ADMIN_EMAIL}">{MSG: forum_contact}</a> <b>::</b> <a href="{TEMPLATE: footer_lnk}">{MSG: forum_home}</a> <b>::.</b>
-<p>
-<span class="SmallText">{MSG: powered-by}</span>
-</p>
 </div>
+<div class="footer ac">
+	<b>.::</b>
+	<a href="mailto:{GVAR: ADMIN_EMAIL}">{MSG: forum_contact}</a>
+	<b>::</b>
+	<a href="{TEMPLATE: footer_lnk}">{MSG: forum_home}</a>
+	<b>::.</b>
+	<p class="SmallText">{MSG: powered-by} {MSG: copyright}</p>
+</div>
+{INJECTION_POINT: right_block}
 </body></html>
 {MAIN_SECTION: END}
 
 {MAIN_SECTION: footer_plain // Yet another footer for plain pages such as popups.}
-</td></tr></table></body></html>
+</div>
+</body></html>
 {MAIN_SECTION: END}
 
 {SECTION: footer_lnk // Link to forum's Home Page.}
