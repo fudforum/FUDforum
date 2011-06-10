@@ -74,7 +74,8 @@ function fud_ini_set($opt, $val)
 	}
 }
 
-function pf($msg, $webonly=false)
+/** Print message to web browser or command line. */
+function pf($msg='', $webonly=false)
 {
 	if (php_sapi_name() == 'cli') {
 		if ($webonly) return;
@@ -85,6 +86,7 @@ function pf($msg, $webonly=false)
 	}
 }
 
+/** Print error and exit. */
 function seterr($msg)
 {
 	if (php_sapi_name() == 'cli') {
@@ -492,20 +494,20 @@ function extract_archive($memory_limit)
 	
 	if (php_sapi_name() != 'cli') {
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<title>FUDforum Upgrade Wizard</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="styleSheet" href="adm/adm.css" type="text/css" />
-<link rel="styleSheet" href="adm/style/adm.css" type="text/css" />
-<style type="text/css">html, body { height: 95%; }</style>
-<script type="text/javascript" src="js/jquery.js"></script>
-<script type="text/javascript">
-$(document).ready(function() {
-        $(':text:visible:enabled:first').focus();
-});
-</script>
+	<meta charset="utf-8">
+	<title>FUDforum Upgrade Wizard</title>
+	<link rel="styleSheet" href="adm/adm.css" />
+	<link rel="styleSheet" href="adm/style/adm.css" />
+	<style>html, body { height: 95%; }</style>
+	<script src="js/jquery.js"></script>
+	<script>
+	$(document).ready(function() {
+		$(':text:visible:enabled:first').focus();
+	});
+	</script>
 </head>
 <body>
 <table class="headtable"><tr>
@@ -928,6 +930,10 @@ pf('<h2>Step 1: Admin login</h2>', true);
 
 	pf('SQL Upgrades Complete.<br />');
 
+	// FUDforum 3.0.3 refedined FUD_OPT_3=536870912 as PAGES_ENABLED.
+	require($GLOBALS['DATA_DIR'] .'include/page_adm.inc');
+	fud_page::enable_disable_pages_icon();
+
 	if (!q_singleval(q_limit('SELECT id FROM '. $DBHOST_TBL_PREFIX .'themes WHERE '. q_bitand('theme_opt', 3) .' > 0', 1))) {
 		pf('Setting default theme');
 		if (!q_singleval('SELECT id FROM '. $DBHOST_TBL_PREFIX .'themes WHERE id=1')) {
@@ -962,9 +968,6 @@ pf('<h2>Step 1: Admin login</h2>', true);
 			change_global_settings(array($k => $v));
 		}
 	}
-
-	/* Compile the forum. */
-	require($GLOBALS['DATA_DIR'] .'include/compiler.inc');
 
 	/* List of obsolete files in WWW_ROOT_DISK that should be removed. */
 	// JavaScript files moved to '/js' directory in 3.0.2.
@@ -1067,6 +1070,7 @@ pf('<h2>Step 1: Admin login</h2>', true);
 	}
 
 	// Loop through themes for maintenance.
+	require($GLOBALS['DATA_DIR'] .'include/compiler.inc');
 	$c = q('SELECT theme, lang, name FROM '. $DBHOST_TBL_PREFIX .'themes WHERE '. q_bitand('theme_opt', 1) .' > 0 OR id=1');
 	while ($r = db_rowarr($c)) {
 		// See if custom themes need to have their files updated.
@@ -1133,10 +1137,8 @@ pf('<h2>Step 1: Admin login</h2>', true);
 <p>Trying to launching the <b>Consistency Checker...</b></p>
 
 <p><b>IMPORTANT NOTE:</b> If the popup with the consistency checker doesn't appear, please <span style="white-space:nowrap">&gt;&gt; <a href="adm/consist.php?enable_forum=1<?php echo $pfxs; ?>"><b>click here</b></a> &lt;&lt;</span> or navigate to the <i>Admin Control Panel</i> -&gt; <i>Forum Consistency</i> to run it.</p>
-<script type="text/javascript">
-/* <![CDATA[ */
+<script>
 	window.open('adm/consist.php?enable_forum=1<?php echo $pfxs; ?>');
-/* ]]> */
 </script>
 
 <p>Done!</p>

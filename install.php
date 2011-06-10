@@ -86,11 +86,12 @@ function validate_url($url)
 		if (substr($_POST['WWW_ROOT'], -1) != '/') {
 			$_POST['WWW_ROOT'] .= '/';
 		}
-		if ($u['host'] != 'localhost' && ip2long($u['host']) < 1) {
+		$u['host'] = preg_replace('/[\[\]]/', '', $u['host']);   // Remove IPv6 brackets. i.e. [::1]
+		if ($u['host'] != 'localhost' && !filter_var($u['host'], FILTER_VALIDATE_IP)) {
 			$_POST['COOKIE_DOMAIN'] = preg_replace('!^www\.!i', '.', $u['host']);
-			$_POST['COOKIE_PATH'] = $u['path'];
+			$_POST['COOKIE_PATH']   = $u['path'];
 		} else {
-			$_POST['COOKIE_PATH'] = '/';
+			$_POST['COOKIE_PATH']   = '/';
 		}
 		return 1;
 	}
@@ -288,18 +289,18 @@ function page_header()
 {
 	if (php_sapi_name() == 'cli') return;
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<title>FUDforum Installation Wizard</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta charset="utf-8">
+	<title>FUDforum Installation Wizard</title>
 <?php
 if (isset($_POST['WWW_ROOT'])) {
-	echo '<script type="text/javascript" src="'. $_POST['WWW_ROOT'] .'/js/jquery.js"></script>';
-	echo '<script type="text/javascript" src="'. $_POST['WWW_ROOT'] .'/js/lib.js"></script>';
+	echo '<script src="'. $_POST['WWW_ROOT'] .'/js/jquery.js"></script>';
+	echo '<script src="'. $_POST['WWW_ROOT'] .'/js/lib.js"></script>';
 }
 ?>
-<style type="text/css">
+<style>
 body {color: #272323; background: #eaf6f0;}
 img {-webkit-transform: rotate(-5deg); -moz-transform: rotate(-5deg); transform: rotate(-5deg); }
 table.maintable {
@@ -342,7 +343,7 @@ span.linkhead {color: #fff; font-weight: bold; font-size: xx-large;}
 a:visited, a:link { color: #242; }
 a:active, a:hover { color: red; }
 </style>
-<script type="text/javascript">
+<script>
 $(document).ready(function() {
 	$(':text:visible:enabled:first').focus();
 });
@@ -433,7 +434,7 @@ function seterr($name, $text)
 		echo $text ."\n\n";
 		exit(-1);
 	} else {
-		$GLOBALS['errors'][$name] = '<span style="color:red">'. $text .'</span><br />';
+		$GLOBALS['errors'][$name] = '<span style="color:darkred">'. $text .'</span><br />';
 	}
 }
 
@@ -536,7 +537,7 @@ being security and performance.');
 		!$module_status['pdo_sqlite'] &&
 		!$module_status['sqlsrv'] && !$module_status['pdo_sqlsrv'])
 	{
-		seterr('NODB', 'FUDforum can utilize either a IBM DB2, Firebird, MySQL, Oracle, PosgreSQL, SQLite or MS-SQL Server database to store it\'s data, unfortunately, your PHP installation does not have support for any of these databases. Please install or load the appropriate database extension and then re-run the install script.');
+		seterr('NODB', 'FUDforum can utilize either a IBM DB2, Firebird, MySQL, Oracle, PosgreSQL, SQLite or MS-SQL Server database to store it\'s data. However, your PHP installation does not have support for any of these databases. Please install or load the appropriate database extension and then re-run the install script.');
 	}
 
 	/* PCRE check. */
@@ -790,12 +791,12 @@ if ($section == 'stor_path' || php_sapi_name() == 'cli') {
 		fud_symlink($INCLUDE .'GLOBALS.php', $SERVER_DATA_ROOT .'scripts/GLOBALS.php');
 
 		$url_parts = parse_url($WWW_ROOT);
+
 		/* Default bitmask values. */
-		$FUD_OPT_1 = 1743713471;
+		$FUD_OPT_1 = 1743713343;	// From default GLOBALS.php.
 		if (!$module_status['pspell']) {
-			$FUD_OPT_1 ^= 2097152;
+			$FUD_OPT_1 ^= 2097152;	// Disable spell checker.
 		}
-		$FUD_OPT_2 = 1769345087 | 8388608 /* FILE_LOCK */;
 
 		/* Update GLOBALS.php. */
 		change_global_settings(array(
@@ -809,7 +810,6 @@ if ($section == 'stor_path' || php_sapi_name() == 'cli') {
 			'FORUM_SETTINGS_PATH'	=> $FORUM_SETTINGS_PATH,
 			'PLUGIN_PATH'		=> $PLUGIN_PATH,
 			'COOKIE_NAME'		=> 'fud_session_'. time(),
-			'FUD_OPT_2'		=> $FUD_OPT_2,
 			'FUD_OPT_1'		=> $FUD_OPT_1,
 			'COOKIE_PATH'		=> $url_parts['path'],
 			'DATA_DIR'		=> $SERVER_DATA_ROOT,
@@ -1036,7 +1036,7 @@ if ($section == 'cookies' || php_sapi_name() == 'cli') {
 	if (empty($_POST['COOKIE_DOMAIN'])) {
 		seterr('COOKIE_DOMAIN', 'You must enter a cookie domain in order for cookies to work properly.');
 	} else {
-		if ($_POST['COOKIE_DOMAIN'] == 'localhost' || ip2long($_POST['COOKIE_DOMAIN']) > 0) {
+		if ($_POST['COOKIE_DOMAIN'] == 'localhost' || filter_var($_POST['COOKIE_DOMAIN'], FILTER_VALIDATE_IP)) {
 			$_POST['COOKIE_DOMAIN'] = '';
 		}
 
@@ -1157,7 +1157,7 @@ if ($section == 'admin' || php_sapi_name() == 'cli') {
 		/* Swap in the DB driver. */
 		require_once($DATA_DIR .'sql/'. $DBHOST_DBTYPE .'/db.inc');
 
-		/* Add anonymous user. */
+		/* Add anonymous user (must be id=1). */
 		q('DELETE FROM '. $DBHOST_TBL_PREFIX .'users');
 		$anon_id = db_li('INSERT INTO '. $DBHOST_TBL_PREFIX .'users (login, alias, theme, email, passwd, name, users_opt, join_date, time_zone) VALUES(\'Anonymous Coward\', \'Anonymous Coward\', 1, \'dev@null\', \'1\', \'Anonymous Coward\', '. (1|4|16|32|128|256|512|2048|4096|8192|16384|262144|4194304) .', '. time() .', \''. $SERVER_TZ .'\')', $ef, 1);
 		if ($anon_id != 1) {
@@ -1171,12 +1171,7 @@ if ($section == 'admin' || php_sapi_name() == 'cli') {
 		$passwd = sha1($salt . sha1($_POST['ROOT_PASS']));
 		q('INSERT INTO '. $DBHOST_TBL_PREFIX .'users (login, alias, passwd, salt, name, email, avatar, avatar_loc, users_opt, join_date, theme, posted_msg_count, u_last_post_id, level_id, custom_status, time_zone) VALUES(\''. addslashes($_POST['ROOT_LOGIN']) .'\', \''. addslashes(htmlspecialchars($_POST['ROOT_LOGIN'])) .'\', \''. $passwd .'\', \''. $salt .'\', \'Administrator\', \''. addslashes($_POST['ADMIN_EMAIL']) .'\', 3, \'<img src="images/avatars/smiley03.jpg" alt="" width="64" height="64" />\', 13777910, '. time() .', 1, 1, 1, 3, \'Administrator\', \''. $SERVER_TZ .'\')');
 
-		change_global_settings(array(
-			'ADMIN_EMAIL' => $_POST['ADMIN_EMAIL'],
-			'NOTIFY_FROM' => $_POST['ADMIN_EMAIL']
-		));
-
-		/* Add default web crawlers. */
+		/* Add web crawler users. */
 		$bot_opts = 1|4|16|128|256|512|4096|8192|16384|131072|262144|4194304|33554432|67108864|536870912|1073741824;
 		$uid = db_li('INSERT INTO '. $DBHOST_TBL_PREFIX .'users (login, alias, name, email, users_opt, join_date, theme, time_zone) VALUES(\'Google\', \'Google\', \'Googlebot\', \'Google@fud_spiders\', '. $bot_opts .', '. time() .', 1, \''. $SERVER_TZ .'\')', $ef, 1);
 		q('INSERT INTO '. $DBHOST_TBL_PREFIX .'spiders (botname, useragent, theme, user_id) VALUES (\'Google\', \'Googlebot\', 1, '. $uid .')');
@@ -1184,6 +1179,11 @@ if ($section == 'admin' || php_sapi_name() == 'cli') {
 		q('INSERT INTO '. $DBHOST_TBL_PREFIX .'spiders (botname, useragent, theme, user_id) VALUES (\'Yahoo!\', \'Slurp\', 1, '. $uid .')');
 		$uid = db_li('INSERT INTO '. $DBHOST_TBL_PREFIX .'users (login, alias, name, email, users_opt, join_date, theme, time_zone) VALUES(\'Bing\', \'Bing\', \'Bing\', \'Bing@fud_spiders\', '. $bot_opts .', '. time() .', 1, \''. $SERVER_TZ .'\')', $ef, 1);
 		q('INSERT INTO '. $DBHOST_TBL_PREFIX .'spiders (botname, useragent, theme, user_id) VALUES (\'Bing\', \'msnbot\', 1, '. $uid .')');
+
+		change_global_settings(array(
+			'ADMIN_EMAIL' => $_POST['ADMIN_EMAIL'],
+			'NOTIFY_FROM' => $_POST['ADMIN_EMAIL']
+		));
 
 		/* Build theme. */
 		require($INCLUDE .'compiler.inc');
@@ -1380,7 +1380,7 @@ switch ($section) {
 		input_row('FUDforum SQL Table Prefix', 'DBHOST_TBL_PREFIX', $DBHOST_TBL_PREFIX, 'A string of text that will be appended to each table name to identify FUDforum\'s tables from tables belonging to other applications.');
 
 		// jQuery to set database defaults & disable non-relavent input fields.
-		echo '<script type="text/javascript">/*<![CDATA[*/
+		echo '<script type="text/javascript">
 			$(document).ready(function() {
 				$("select").change(function() {
 					$("#DBHOST,#DBHOST_USER,#DBHOST_PASSWORD,#DBHOST_DBNAME").show();
@@ -1409,7 +1409,7 @@ switch ($section) {
 					}
 				});
 			});
-		/*]]>*/</script>';
+		</script>';
 		dialog_end($section);
 		break;
 

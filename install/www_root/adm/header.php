@@ -21,18 +21,17 @@
 
 	if (defined('shell_script') ) return;	// Command line execution.
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<?php echo '<title>'. $FORUM_TITLE .': Admin Control Panel</title>' ?>
-<link rel="styleSheet" href="style/adm.css" type="text/css" />
-<link rel="styleSheet" href="../js/jquery/jquery-ui.css" type="text/css" />
-<script type="text/javascript" src="../js/jquery.js"></script>
-<script type="text/javascript" src="../js/jquery.timeago.js"></script>
-<script type="text/javascript" src="style/jquery.tablesorter.min.js"></script>
-<script type="text/javascript" src="../js/jquery/jquery-ui.js"></script>
-<script type="text/javascript" src="../js/lib.js"></script>
-<meta http-equiv="Content-Type" content="text/html; charset=<?php echo $charset; ?>" />
+	<meta charset="<?php echo $charset; ?>">
+	<title><?php echo $FORUM_TITLE; ?>: Admin Control Panel</title>
+	<link rel="styleSheet" href="style/adm.css" />
+	<link rel="styleSheet" href="../js/ui/jquery-ui.css" />
+	<script src="../js/jquery.js"></script>
+	<script src="../js/ui/jquery-ui.js"></script>
+	<script src="../js/lib.js"></script>
+	<script src="style/jquery.tablesorter.min.js"></script>
 </head>
 <?php
 
@@ -44,6 +43,7 @@ if (defined('popup') ) {	/* Special header for popup pages. */
 
 ?>
 <body>
+<div style="display: none;" id="dialogHolder"><p id="dialogContent"><!-- Placeholder for jQuery UI Dialog --></p></div>
 <table class="headtable"><tr>
   <td><a href="index.php<?php if (defined('__adm_rsid')) echo '?'. __adm_rsid; ?>" title="Return to the Admin Control Panel Dashboard"><img src="../images/fudlogo.gif" alt="" style="float:left;" border="0" /></a>
   </td>
@@ -72,8 +72,7 @@ ul {list-style-type:none; padding: 0px; margin: 0px;}
 li {position: relative; padding: 2px 0; }
 span.ui-icon {float: left; margin: 0 -2px;}
 </style>
-<script type="text/javascript">
-/* <![CDATA[ */
+<script>
 $(document).ready(function() {
 	$(".menu li a").each(function() {
 		var url = this.href.substring(0, this.href.lastIndexOf("?"));
@@ -83,7 +82,6 @@ $(document).ready(function() {
 		}
 	});
 });
-/* ]]> */
 </script>
 
 	<span class="linkgroup">General Management</span>
@@ -163,7 +161,7 @@ $(document).ready(function() {
 	</ul>
 	<br />
 
-	<span class="linkgroup">Checks/Consistency</span>
+	<span class="linkgroup">Maintenance</span>
 	<ul class="menu">
 	<li><a title="Perform consistency check" href="consist.php?<?php echo __adm_rsid; ?>">Forum Consistency</a></li>
 	<li><a title="Reindex your forum messages" href="indexdb.php?<?php echo __adm_rsid; ?>">Rebuild Search Index</a></li>

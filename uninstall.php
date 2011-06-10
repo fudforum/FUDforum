@@ -2,7 +2,7 @@
 exit('<h2>To run the uninstaller, comment out the 2nd line of this script!</h2>');
 
 /***************************************************************************
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -16,7 +16,8 @@ function fud_ini_get($opt)
 	return (ini_get($opt) == '1' ? 1 : 0);
 }
 
-function pf($msg, $webonly=false)
+/** Print message to web browser or command line. */
+function pf($msg='', $webonly=false)
 {
 	if (php_sapi_name() == 'cli') {
 		if ($webonly) return;
@@ -27,6 +28,7 @@ function pf($msg, $webonly=false)
 	}
 }
 
+/** Print error message and exit. */
 function seterr($msg)
 {
 	if (php_sapi_name() == 'cli') {
@@ -67,13 +69,13 @@ function seterr($msg)
 
 	if (php_sapi_name() != 'cli') {
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
+	<meta charset="utf-8">
 	<title>FUDforum Uninstaller</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<link rel="stylesheet" href="adm/style/adm.css" type="text/css" />
-	<style type="text/css">html, body { height: 95%; }</style>
+	<link rel="stylesheet" href="adm/style/adm.css" />
+	<style>html, body { height: 95%; }</style>
 </head>
 <body>
 <table class="headtable"><tr>

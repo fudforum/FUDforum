@@ -1,6 +1,6 @@
 <?php
 /***************************************************************************
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -25,13 +25,13 @@ function fud_ini_get($opt)
 	require 'GLOBALS.php';
 	fud_use('file_adm.inc', true);
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
+	<meta charset="utf-8">
 	<title>FUDforum Unlock Files Script</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<link rel="stylesheet" href="<?php echo $WWW_ROOT; ?>adm/style/adm.css" type="text/css" />
-	<style type="text/css">html, body { height: 95%; }</style>
+	<link rel="stylesheet" href="<?php echo $WWW_ROOT; ?>adm/style/adm.css" />
+	<style>html, body { height: 95%; }</style>
 </head>
 <body>
 <table class="headtable"><tr>

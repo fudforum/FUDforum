@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -8,53 +8,54 @@
 * Free Software Foundation; version 2 of the License.
 **/
 
-{MAIN_SECTION: header // The forum's page header.}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" dir="{DIR}" lang="{LANG}" xml:lang="{LANG}">
+{MAIN_SECTION: header // The forum's page header.}<!DOCTYPE html>
+<html lang="{LANG}">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset={CHARSET}" />
-<title>{GVAR: FORUM_TITLE}{VAR: TITLE_EXTRA}</title>
-<meta name="description" content="{IF: !empty($META_DESCR)}{VAR: META_DESCR}{ELSE}{GVAR: FORUM_DESCR}{END}" />
-<base href="{FULL_ROOT}" />
-<script type="text/javascript" src="js/jquery.js"></script>
-<script type="text/javascript" src="js/lib.js"></script>
-<link rel="stylesheet" href="{THEME_ROOT}/forum.css" type="text/css" media="screen" title="Default Forum Theme" />
-<link rel="search" type="application/opensearchdescription+xml" title="{GVAR: FORUM_TITLE} Search" href="{FULL_ROOT}open_search.php" />
-{VAR: RSS}
+	<meta charset="{CHARSET}">
+	<meta name="description" content="{IF: !empty($META_DESCR)}{VAR: META_DESCR}{ELSE}{GVAR: FORUM_DESCR}{END}" />
+	<title>{GVAR: FORUM_TITLE}{VAR: TITLE_EXTRA}</title>
+	<base href="{FULL_ROOT}" />
+	<link rel="search" type="application/opensearchdescription+xml" title="{GVAR: FORUM_TITLE} Search" href="{FULL_ROOT}open_search.php" />
+	{VAR: RSS}
+	<link rel="stylesheet" href="js/ui/jquery-ui.css" media="screen" />
+	<link rel="stylesheet" href="{THEME_ROOT}/forum.css" media="screen" title="Default Forum Theme" />
+	<script src="js/jquery.js"></script>
+	<script src="js/ui/jquery-ui.js"></script>
+	<script src="js/lib.js"></script>
 </head>
 <body>
-<table class="wa" border="0" cellspacing="3" cellpadding="5"><tr><td class="ForumBackground" valign="top">
-<!-- {INJECTION_POINT: left_block}<td class="ForumBackground" valign="top"> -->
-<div class="ForumBackground header">
-{IF: $GLOBALS['FUD_OPT_1'] & 1 && $GLOBALS['FUD_OPT_1'] & 16777216}
+<!-- {INJECTION_POINT: left_block} -->
+<div class="header">
+  {IF: $GLOBALS['FUD_OPT_1'] & 1 && $GLOBALS['FUD_OPT_1'] & 16777216}
   <div class="headsearch">
     <form id="headsearch" method="get" action="{ROOT}">{DEF: _hs}
       <br /><label accesskey="f" title="{MSG: search_forum_search}">{MSG: search_forum_search}:<br />
-      <input type="text" name="srch" value="" size="15" placeholder="{MSG: search_forum_search}" /></label>
+      <input type="text" name="srch" value="" size="20" placeholder="{MSG: search_forum_search}" /></label>
       <input type="hidden" name="t" value="search" />
-      <input type="submit" name="btn_submit" value="{MSG: search}" class="headbutton" />&nbsp;
+      <input type="image" src="{THEME_IMAGE_ROOT}/search.png" value="{MSG: search}" alt="{MSG: search}" name="btn_submit">&nbsp;
     </form>
   </div>
-{ENDIF}
-<a href="{ROOT}" title="{MSG: home}">
-  <img src="theme/default/images/header.gif" alt="" align="left" height="80" />
-  <span class="headtitle">{GVAR: FORUM_TITLE}</span>
-</a><br />
-<span class="headdescr">{GVAR: FORUM_DESCR}<br /><br /></span>
+  {ENDIF}
+  <a href="{ROOT}" title="{MSG: home}">
+    <img src="{THEME_IMAGE_ROOT}/header.gif" alt="" align="left" height="80" />
+    <span class="headtitle">{GVAR: FORUM_TITLE}</span>
+  </a><br />
+  <span class="headdescr">{GVAR: FORUM_DESCR}<br /><br /></span>
 </div>
+<div class="content">
 {MAIN_SECTION: END}
 
-{MAIN_SECTION: header_plain // Another header for small popup forms.}
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" dir="{DIR}" lang="{LANG}" xml:lang="{LANG}">
+{MAIN_SECTION: header_plain // Another header for small popup forms.}<!DOCTYPE html>
+<html lang="{LANG}">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset={CHARSET}" />
+<meta charset="{CHARSET}">
 <title>{GVAR: FORUM_TITLE}{VAR: TITLE_EXTRA}</title>
 <base href="{FULL_ROOT}" />
-<script type="text/javascript" src="js/jquery.js"></script>
-<script type="text/javascript" src="js/lib.js"></script>
-<link rel="stylesheet" href="{THEME_ROOT}/forum.css" type="text/css" />
+<script src="js/jquery.js"></script>
+<script src="js/jquery/jquery-ui.js"></script>
+<script src="js/lib.js"></script>
+<link rel="stylesheet" href="{THEME_ROOT}/forum.css" />
 </head>
 <body>
-<table class="wa" border="0" cellspacing="3" cellpadding="5"><tr><td class="ForumBackground">
+<div class="content">
 {MAIN_SECTION: END}
-
