@@ -105,7 +105,7 @@
 </select> <input type="submit" class="button" name="sel_folder" value="{MSG: go}" />
 </td></tr>
 <tr>
-	<th class="nw">{MSG: pmsg_selected} <input type="checkbox" name="toggle" title="{TEMPLATE: pmsg_all}/{TEMPLATE: pmsg_none}" onclick="$(\'input:checkbox\').attr(\'checked\', (this.checked)?\'checked\':\'\');" /> </th>
+	<th class="nw">{MSG: pmsg_selected} <input type="checkbox" name="toggle" title="{TEMPLATE: pmsg_all}/{TEMPLATE: pmsg_none}" onclick="jQuery(\'input:checkbox\').attr(\'checked\', (this.checked)?\'checked\':\'\');" /> </th>
 	<th>&nbsp;</th>
 	<th class="wa"><a href="{ROOT}?t=pmsg&amp;folder_id={VAR: folder_id}&amp;{DEF: _rsid}&amp;o=subject&amp;s={IF: $o=='subject' && $s=='ASC'}d{ELSE}a{END}" class="thLnk">{MSG: pmsg_subject}</a></th>
 	<th class="ac"><a href="{ROOT}?t=pmsg&amp;folder_id={VAR: folder_id}&amp;{DEF: _rsid}&amp;o={IF: $folder_id == 3}alias2{ELSE}alias{ENDI}&amp;s={IF: ($o=='alias' || $o=='alias2') && $s=='ASC'}d{ELSE}a{ENDI}" class="thLnk">{IF: $folder_id == 3}{TEMPLATE: pmsg_recepient}{ELSE}{TEMPLATE: pmsg_author}{END}</a></th>
