@@ -1,5 +1,6 @@
 # Messages for Swedish (Svenska)
 # Exported from translatewiki.net
+# Author: Ainali
 # Author: Ernesto
 # Author: McDutchie
 # Author: Nghtwlkr
@@ -1136,3 +1137,4 @@ ip_whois_connect_err:Kan inte ansluta till WHOIS servern ({VAR: whois_server}): 
 custom_filed_required:Detta fält är obligatoriskt
 page_list_heading:Tillgängliga sidor
 page_list_total:{PLURAL: i|$1 sida|$1 sidor} listade.
+page_update:Visar sida

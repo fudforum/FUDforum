@@ -65,12 +65,12 @@ logged_in_list:قائمة المستخدمين الوالجين
 login:لُج
 login_header:الولوج:
 logout:اخرج
-# Fuzzy
-mark_all_read:علّم كل الرسائل مقروءة
+mark_all_read:علم على كل الرسائل كمقروءة
 mark_all_read_desc:سوف تُعلّم كل رسائلك غير المقروءة مقروءة
 members:الأعضاء
 calendar:التقويم
 cal_goto_date:اقفز إلى:
+cal_day_heading:أحداث اليوم
 cal_no_events:لا أحداث اليوم.
 cal_update:تصفح تقويم المنتدى
 cal_birthday:عيد ميلاد: {VAR: user}
@@ -113,8 +113,7 @@ num_votes:{PLURAL: obj->total_votes|صوت|{VAR: obj->total_votes} أصوات}
 occupation:المهنة:
 off:مُطفأ
 on:مُشغّل
-# Fuzzy
-page_timings:الوقت المستغرق لتوليد الصفحة: {VAR: page_gen_time} ثانية
+page_timings:الوقت الإجمالي المأخوذ لتوليد الصفحة: {PLURAL: page_gen_time|$1 ثانية}
 pm:مراسلة خاصة
 poll:اقتراع:
 post_count:عد الرسائل {VAR: u_pcount}
@@ -261,12 +260,19 @@ month_10:أكتوبر
 month_11:نوفمبر
 month_12:ديسمبر
 sunday:الأحد
+sunday_short:أح
 monday:الإثنين
+monday_short:إ
 tuesday:الثلاثاء
+tuesday_short:ث
 wednesday:الأربعاء
+wednesday_short:أر
 thursday:الخميس
+thursday_short:خ
 friday:الجمعة
+friday_short:ج
 saturday:السبت
+saturday_short:س
 male:ذكر
 female:أنثى
 unspecified:غير محدّد
@@ -420,6 +426,7 @@ coppa:<p>يجب أن يرسل الوالد أو المرشد إذنًا موقع
 prereg_info:قوانين المنتدى
 prereg_agree:أوافق
 prereg_disagree:أعارض
+prereg_update:قراءة قواعد المنتدى
 coppa_fax_instructions:تعليمات للوالد أو المرشد
 coppa_fax_instructions2:من فضلك اطبع هذه الصفحة، ووقعها وأرسلها عبر الفاكس إلى:
 coppa_fax_reg_form:نموذج التسجيل
@@ -461,6 +468,11 @@ rpasswd_login:لُج
 rpasswd_cur_pass:كلمة السر الحالية:
 rpasswd_new_pass:كلمة السر الجديدة:
 rpasswd_conf_pass:تأكيد كلمة السر:
+ruser_title:تغيير نموذج تسجيل الدخول
+ruser_change_user:تغيير تسجيل دخول المنتدى الخاص بك
+ruser_cur_login:تسجيل الدخول الحالي:
+ruser_new_login:تسجيل الدخول الجديد:
+ruser_cur_pass:كلمة السر الحالية:
 login_passwd:كلمة السر:
 reset_email:البريد الإلكتروني:
 reset_reset_button:أعد ضبط كلمة السر
@@ -705,9 +717,9 @@ post_opt_html_off:أكواد <b>HTML مُعطّلة</b>
 post_opt_fud_off:<b>BBcode مُعطّل</b>
 post_opt_images_off:<b>الصور مُعطّلة</b>
 post_opt_smilies_off:<b>الابتسامات مُعطّلة</b>
-# Fuzzy
-post_opt:خيارات المنتدى
+post_opt:خيارات المنتدى :
 register_change_passwd:غيّر كلمة السر
+register_change_login:تغيير الدخول
 approved_avatar_title:اعتمد أفاترك المُخصّص.
 approved_avatar_msg:اعتمد الإداري أفتارك. ينبغي أن تظهر الآن في جميع رسائلك. غذا لم ترها، أو إذا رأيت الأفتار القديمة، فلعل هذا بسبب اختزان متصفحك للصفحة. جرب إنعاش الصفحة مرة أو مرتين. سوف يحل هذا مشكلة الاختزان في معظم الحالات.
 unapproved_avatar_title:رُفض أفتارك المُخصّص.
@@ -792,6 +804,7 @@ th_expr_two_month:شهران
 th_expr_four_month:4 أشهر
 th_expr_one_year:سنة واحدة
 thread_mod_delete:احذف
+action_ip:أيبي
 action_latest_post:آخر رسالة
 online_today_last_visit:آخر زيارة
 online_today_update:يعرض قائمة المستخدمين الذي كانوا في المنتدى اليوم
@@ -879,6 +892,8 @@ search_asc_order:ترتيب تصاعدي
 search_logic:منطق البحث:
 search_sorting:رتّب النتائج حسب التاريخ:
 search_attach:المرفقات:
+search_attach_all:مع أو بدون
+search_attach_with:مع مرفقات
 post_proceed:تابع
 post_moderated_forum:أرسلت رسالة في منتدى مُشرف عليه. لن تكون رسائك ظاخرة للآخرين حتى يعتمدها أحد مشرفي أو إداري المنتدى.
 post_moderated_forum_ttl:إشعار منتدى مُشرف عليه
@@ -1118,3 +1133,5 @@ feed_atom:تغذية ATOM
 ip_whois_connect_err:تعذر الاتصال بخادوم whois ({VAR: whois_server}): {VAR: errstr}
 custom_filed_required:هذا الحقل مطلوب.
 page_list_heading:الصفحات المتوفرة
+page_list_total:{PLURAL: i|$1 صفحة|$1 صفحة} معروضة.
+page_update:تصفح الصفحة

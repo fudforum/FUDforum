@@ -213,8 +213,10 @@ reported_reported_msg:Pranešė Žinutės
 modque_pending_approval:Žinutės laukiama patvirtinimo
 modque_approve:Patvirtinti
 modque_delete:Ištrinti
+modque_no_message:There are no messages pending approval
 pmsg_new_messages:Neperskaitytas asmeninį pranešimą
 pmsg_old_messages:Skaityti asmeninį pranešimą
+deny_recipt:neigia gavimo
 deny_recipt_desc:Nesiųsti patvirtinimo, kad jūs perskaitėte šį pranešimą
 restore_to:Atkurti:
 move_to:Perkelti į:
@@ -620,6 +622,9 @@ err_banned_acct_title:KLAIDA: Jūs buvote užblokuotas.
 err_banned_acct_msg:Jūsų paskyra buvo {JEI: $ ban_expiry} laikinai uždrausta, kol {DATE: ban_expiry%, %d % B% Y %H:% M} {DAR} visam laikui uždrausta {Endi} kreiptis į svetainę, nes pažeidimas forumo taisykles.
 post_err_edttimelimit_title:KLAIDA
 post_err_edttimelimit_msg:Nebegalite redaguoti šios žinutės
+post_err_noannontopics_msg2:<legend> KLAIDA: Nepakanka privilegijų </legend> Anoniminiai vartotojai neleidžiama kurti temas.
+post_err_noannonposts_msg2:<legend> KLAIDA: Nepakanka privilegijų </legend> Anoniminiai vartotojai neleidžiama atsakyti.
+post_err_floodtrig_title:KLAIDA: Rašyti potvynių nuostolius.
 post_err_floodtrig_msg:Bandykite dar kartą {PLURAL: tm| $1 sekundė | $1 sekundės}
 post_err_attach_size:Prisegtas failas per didelis (viršija leidžiama limitą {VAR: MAX_F_SIZE} bytes)
 post_err_attach_ext:Failai kurious bandote įkelti neatitinka leistinų failų tipų.
@@ -629,9 +634,17 @@ post_reply_update:Rašote į <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subje
 post_topic_update:Rašote nauja temą <a href="{TEMPLATE: post_topic_update_lnk}">{VAR: frm->name}</a>
 post_error_generic:Įvyko klaida
 postcheck_max_images_err:Ne daugiau kaip {GVAR: MAX_IMAGE_COUNT} vaizdų leidžiama žinutėje. Prašome sumažinti vaizdų skaičių.
+postcheck_no_links_allowed:Jūs negalite naudoti nuorodas, kol jūs įrašėtę daugiau nei {PLURAL: posts_before_links| $1 pranešimas | $1 pranešimų}.
 postcheck_subj_needed:Tema privaloma
 postcheck_no_such_user:Nėra vartotojo vardu "{FUNC: char_fix (funkciją htmlspecialchars ($ v))}" šiame forume.
 postcheck_ignored:Jūs negalite rašyti privačios žinutės "{FUNC: char_fix (funkciją htmlspecialchars ($ v ))}", nes šis vartotojas ignoruoja jus.
+postcheck_no_recepient:Nepavyko išsiųsti pranešimą, trūksta gavėjas
+postcheck_invalid_email:Prašome įvesti galiojantį el.pašto adresą, jūsų draugas.
+postcheck_email_subject:Jūs negalite siųsti elektroniniu paštu be klausimu.
+postcheck_email_body:Jūs negalite siųsti elektroniniu paštu be pranešimo tekstą.
+private_msg_notify_subj:Skaityti pranešimo: {VAR: m->subject}
+private_msg_notify_body:Sveiki, <br /> {VAR: usr->login} atvėrė savo privačią žinutę pavadinimu " {VAR: m->subject} ". <br /> Tai automatinis pranešimas generuojami {Šablonas: private_msg_notify_body_date} <br />
+referals_update:Naršymas referalų
 register_err_short_login:Prisijungimo vardas kuri pasirinkote, yra per trumpas. Prisijungimo vardas turi būti ne trumpesnis kaip 4 simbolių.
 register_err_login_notallowed:Šis prisijungimo vardas yra neleidžiamas.
 register_err_loginunique:Forumo vartotojų vardai turi būti unikalus. Jau yra vartotojas su tokiu vardu vartotojui.
@@ -641,11 +654,14 @@ register_err_passwdnomatch:Jūsų slaptažodžiai nesutampa, bandykite dar kart�
 register_err_invalidemail:E-pašto adresas, kurį nurodėte negalioja.
 register_err_needname:Norint sėkmingai užbaigti šią registraciją turite įvesti savo vardą.
 register_err_enterpasswd:Jūs turite įvesti savo dabartinį slaptažodį kad užbaigtumėte pakeitimus.
+register_err_adminpasswd:Jūs turite įvesti <b>administratoriaus</b> slaptažodį užbaigti pakeitimus.
 register_err_notyouremail:Kažkas kitas jau užsiregistraves šį e-pašto adresą.
 register_err_avatartobig:Failas, kurį bandote įkelti, yra per didelis, daugiau nei {GVAR: CUSTOM_AVATAR_MAX_SIZE} baitai.
 register_err_avatarnotallowed:Avataras kuri bandote įkelti neleidžiamas. Patikrinkite leistinų failų tipus.
 register_conf_subject:Registracijos patvirtinimas
+register_conf_msg:jums už registraciją,! Ačiū N! Norėdami aktyvuoti savo sąskaitą eikite į URL žemiau:! N! N! {FULL_ROOT} {ŠAKNIAVAISIAI} =? t = emailconf & conf_key {VAR: uent->conf_key} ! N! N!! Kai jūsų sąskaita bus aktyvuota jūs būsite prijungtas-į forumą ir! N! nukreipti į pagrindinį puslapį.
 register_welcome_subject:Forumo registracijos patvirtinimas
+register_welcome_msg:Ačiū už registraciją, forumo!: N!! N! Čia yra jūsų prisijungimo duomenys! N!! N! Forumas URL Šablonas: index_update_lnk}! {N! Vartotojo vardas: {VAR: uent->login} N!! Slaptažodis: {VAR: _POST['reg_plaintext_passwd']} ! Prašome N! dėmesį, kad slaptažodžiai yra jautrios! N! N! Norėdami pakeisti savo nustatymus, arba profilis, eikite į šį puslapį:! N! {FULL_ROOT} {ŠAKNIAVAISIAI} ? t = registre
 register_err_cantreg_title:KLAIDA: nepavyko užsiregistruoti
 regsiter_err_cantreg_msg:Nepavyko sukurti naudotojo sąskaitos, prašome susisiekti su administratoriu <a href="mailto:{var: ADMIN_EMAIL} "> <span class="notranslate">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:Peržiūrimas savo profilis
@@ -653,20 +669,31 @@ register_register_update:Registracijos puslapis
 report_err_nosuchmsg_title:KLAIDA
 report_err_nosuchmsg_msg:Nėra tokio pranešimo
 reset_err_invalidkey_title:KLAIDA
+reset_err_invalidkey_msg:Neteisingas slaptažodžio klavišą. Gali būti, kad jūsų e-mail klientas jau automatiškai atidaryti šį puslapį, yra negaliojanti naujo raktą. Jei šiuo atveju, jūs netrukus turėtų gauti e-mail su nauju slaptažodžiu. Jei tokių el-paštas nepristatomas, pabandykite iš naujo nustatyti slaptažodį.
 reset_err_rstconf_title:Informacija
 reset_err_rstconf_msg:Turėtumėte gauti nurodymus į savo e-paštą per ateinančias keletą minučių.
+reset_newpass_title:Atstatyti slaptažodį
 reset_newpass_msg:Hello,\n\nAs per your request your login name are being sent to you.\nHere is your login information:\n\nLogin: {VAR: ui[1]}\nPassword: {VAR: passwd}\n\nPlease not that your password has been reset the the value above, if you wish\nto change your password you may do so via the user info control panel at:\n{FULL_ROOT}{ROOT}?t=register
 reset_login_notify:Jūsų slaptažodis buvo išsiųstas elektroniniu paštu Jums. Turėtumėte gauti per ateinančias keletą minučių. <br />
 search_update:Pranešimų paieška
 selmsg_update:Naršymos <a href="{TEMPLATE: selmsg_update_lnk}">Šiandienos Žinutės</a>
 showposts_update:Peržiūrimos <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a> žinutės
+subscribed_update:Peržiūrėti savo prenumeratas
+bookmarked_update:Peržiūrėti savo adresų sąrašą
 thread_update:Peržiūrimas forumas <a href="{TEMPLATE: thread_update_lnk}">{VAR: frm->name}</a>
+tree_update:Peržiūrėti temą (Medyje) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
 userinfo_update:Žiūrima į <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}'s</a> profilį
+ERR_login_msg2:<legend> KLAIDA: Jūs nesate prisijungusius </legend> Norėdami pasiekti šį puslapį reikia šio forumo narys.
 ERR_disabled_ttl:Išjungta funkcija
+ERR_disabled_msg:Ši funkcija buvo išjungta sistemos administratoriumi.
 ERR_access_ttl:KLAIDA: Nepakanka teisių
+ERR_access_msg:Jūs neturite reikiamų teisių, kad galėtumėte atlikti šį veiksmą.
+ERR_registration_disabled_ttl:Registracija neįgaliems
+ERR_registration_disabled_msg:Administratorius uždraudė registracija. Bandykite dar kartą vėliau.
 ERR_emailconf_ttl:KLAIDA: Your account is not yet confirmed
 ERR_emailconf_msg:Jūs nesate patvirtinę savo sąskaitos per e-paštą. <br /><table border="0"><tr><td><ol><li> Jei negavote patvirtinimo laiško, <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">prašykite dar kartą</a> . </li><li> Jei {VAR: usr_d->email} nėra teisingas savo elektroninio pašto adresą, <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">nurodykite teisingai</a> . </li></ol></td></tr></table>
 ERR_user_ttl:KLAIDA: Nėra tokio nario
+ERR_user_msg:Nėra tokio vartotojo
 ERR_systemerr_ttl:KLAIDA: Sistemos klaida
 ERR_systemerr_msg:Įvyko sistemos klaida. Prašome pranešti apie tai <a href="mailto:{GVAR: ADMIN_EMAIL}">administratoriui</a> .
 email_title:Email'o forma
@@ -807,16 +834,54 @@ quicklogin_login_btn:Prisijungti
 quick_reply:Greitas atsakymas
 quick_reply_post:Rašyti Greitas atsakymas
 quick_reply_preview:Peržiūrėti Greitas atsakymas
+post_notification_desc:Pranešti man, kai kas nors atsako į šį pranešimą.
 post_all_ext_allowed:(nėra apribojimų)
+maximize_category:Padidinimas Kategorija
+maximize_message:Padidinimas pranešimas
+no_view_perm:Jūs neturite pakankamai teisių, reikalingų žr. šia tema.
+report_empty_report:Jūs negalite siųsti tuščią ataskaitą. Prašome įvesti jūsų pranešimą priežasties.
+report_already_reported_title:Jau faktai
+report_already_reported_msg:Šis pranešimas buvo tai jau buvo pranešta ir ataskaitos šiuo metu yra moderatoriaus eilėje.
+register_err_toomanyimages:Jūs bandote naudoti daugiau nei leidžiama {GVAR: FORUM_IMG_CNT_SIG} nuotraukas savo parašą.
+pmsg_next_msg:Tolesnė žinutė
+pmsg_prev_msg:Ankstesnė žinutė
+post_proc_reveal_spoiler:Perjungti Spoileris
+register_jabber:Jabber Rankenėlės:
+register_skype:"Skype" Rankenėlės:
+register_twitter:Twitter Rankenėlės:
+register_google:"Google" Pokalbiai / MP Rankenėlės:
+im_jabber:Jabber:
+im_google:Google Talk:
+im_skype:Skype:
+im_twitter:Twitter:
 forum_contact:Susisiekti su admistratoriumi
 forum_home:Į forumo pradžią
+post_cur_attached:šiuo metu pridedami: {VAR: i} {PLURAL: i| failą | failus}
+ignored_anon_post:{GVAR: ANON_NICK} yra ignoruojami
+ignored_user_post:Pranešimą <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> yra ignoruojamas,
 smladd_close_window:uždaryti langą
 post_list_smilies:rodyti visas šypsenėles
+p_VISIBLE:Matomas
+reported_in_thread:Iš:
+help_back_to_top:Atgal į viršų
+help_return_to_index:Grįžti į Pagalba Rodyklė
+imsg_err_message_title:Neteisingas pranešimas
+imsg_err_message_msg:Pranešimą, kurį bandote peržiūrėti neegzistuoja.
+poll_edit:Redaguoti
+register_err_not_valid_img:URL adrese nėra galiojantis vaizdas.
+pmsg_recepient:Gavėjas
+register_err_taken_alias:Alias ​​bandote naudojimas jau yra naudojamas kito forumo narys. Prašome pasirinkti kitą.
+register_alias:Slapyvardis:
+register_alias_desc:Jei norite slapyvardį, išskyrus jūsų prisijungimo būtų rodomas forumas, jį įveskite čia.
+register_allow_pm_msg:Leisti Privačios žinutės:
+register_allow_pm_msg_desc:Leisti kitiems vartotojams siųsti jums asmenines žinutes šiame forume.
+postcheck_pm_disabled:Jūs negalite rašyti privačią žinutę "{var-HTML: prieš}", nes šis asmuo nėra priimamas asmeninius pranešimus.
 polllist_vote:Balsuoti
 polllist_view_results:Peržiūrėti rezultatus
 polllist_name:Apklausos pavadinimas
 polllist_date:Sukurta
 polllist_owner:Sukūrė
+polllist_votes:Viso balsų
 polllist_action:Veiksmas
 userinfo_polls:Apklausos:
 show_pollist:Apklausas
@@ -828,17 +893,30 @@ search_logic:Paieškos loginė sąlyga:
 search_sorting:Rodyti pagal datą:
 post_proceed:Vykdyti
 email_warning_msg:Jei pakeisite esamą email adresą, tapsite neaktyvus, kol nepatvirtinsite jums išsiųsto laiško.
+unread_message:Neatsakytos žinutės
+read_message:Skaityti pranešimą
 mmod_delete_cofirm_ttl:Temos/žinutės naikinimo patvirtinimas
+spell_alts:jokių alternatyvų
 insert_uploaded_image:Įterpti nuotrauką į žinutės turinį.
 finduser_help:Vykdant paiešką automatiškai prie jūsų parašyto žodžio bus pridėta * maskė. Pvz. Norėdami rasti visus narius kurių vardai prasideda an (Andrius, Antanas ir kt.), jums užtenka paieškos langelyje įrašyti "an".
 back_to_top:Į viršų
+pm_err_disabled_msg:Jūs negalite siųsti privačių žinučių kol neįjungsite "Leisti Privačias žinutes" funkciją savo profilije.
+err_mod_acc_ttl:Nepatvirtinta sąskaita
 saved:Išsaugoti
 register_affero:Affero Username:<br /><font class="SmallText">If you have an <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">Affero</a> username enter it here.</font>
 register_err_avatardimtobig:Avatar dimensions of <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> exceed the allowed dimensions of <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
+buddy_offline:{VAR: r[2]} yra šiuo metu neprisijungęs
+buddy_online:{VAR: r[2]} yra šiuo metu online
+login_unapproved_account_msg:Forumo administratorius nusprendė patvirtinti kiekvieną sąskaitą rankiniu būdu. Jūsų sąskaita dar nebuvo patvirtinta, todėl jūs negalėsite naudotis kai kurios funkcijomis prieinamoms tik patvirtintiems nariams.
 remove_from_buddy_list:panaikinti iš draugų sarašo
+iemail_msg_author:<b>Autorius:</b> {VAR: obj->alias}
+iemail_msg_subject:<b>Tema:</b> {VAR: obj->subject}
+iemail_msg_date:<b>Data:</b> {ŠABLONAS: dmsg_post_date}
+iemail_msg_reply:Atsakyti
 iemail_msg_view:Peržiūrėti temą / žinutę
 threadt_sticky:lipnus
 threadt_announce:skelbimas
+reported_no_messages:Nėra pranešimų.
 no_unread_messages:Nėra žinučių atitinkančių jūsų užklausą.
 thread_mark_all_read:visus neskaitytus forumo pranešimus pažymėti kaip skaitytus
 register_email_change_subject:E-pašto pakeitimo patvirtinimas

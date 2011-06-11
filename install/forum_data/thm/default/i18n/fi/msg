@@ -1135,3 +1135,4 @@ ip_whois_connect_err:WHOIS-palvelimeen ({VAR: whois_server}) ei saada yhteyttä:
 custom_filed_required:Tämä kenttä on pakollinen.
 page_list_heading:Saatavilla olevat sivut
 page_list_total:Näytetään {PLURAL: i|$1 sivu|$1 sivua}.
+page_update:Selailee sivua

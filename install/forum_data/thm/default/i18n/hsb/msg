@@ -1132,3 +1132,4 @@ ip_whois_connect_err:Njeje móžno z WHOIS-serwerom ({VAR: whois_server}) zwjaza
 custom_filed_required:Tute polo je trěbne.
 page_list_heading:K dispoziciji stejace strony
 page_list_total:{PLURAL: i|$1 strona podata|$1 stronje podatej|$1 strony podate|$1 stronow podatych}.
+page_update:Strona so čita

@@ -1,11 +1,13 @@
 # Messages for Spanish (Español)
 # Exported from translatewiki.net
 # Author: Crazymadlover
+# Author: Fitoschido
 # Author: Locos epraix
 # Author: McDutchie
 # Author: Od1n
 # Author: Peter17
 # Author: Translationista
+# Author: VegaDark
 
 action:Acción
 add_to_buddy_list:agregar a la lista de amigos
@@ -73,7 +75,11 @@ mark_all_read_desc:Todos sus mensajes no leídos serán marcados como leídos
 members:Miembros
 calendar:Calendario
 cal_goto_date:Ir la:
+cal_day_heading:Eventos por día
 cal_no_events:No hay eventos para este día.
+cal_update:Navegar en el calendario del foro
+cal_birthday:Fecha de nacimiento: {VAR: user}
+cal_birthday_age:({PLURAL: edad|$1 año|$1 años} años de edad).
 message:Mensaje
 message_counter:Nuestros usuarios han publicado un total de <b>{PLURAL: post_count|$1 mensaje|$1 mensajes}</b> dentro de <b>{PLURAL: thread_count|$1 tema|$1 temas}</b>.
 message_index:Índice de mensajes
@@ -112,8 +118,7 @@ num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|voto|votos}
 occupation:Ocupación:
 off:DESACTIVADO
 on:ACTIVADO
-# Fuzzy
-page_timings:Tiempo total que tardó la generación de la página: {VAR: page_gen_time} segundos
+page_timings:Tiempo total que tardó la generación de la página: {PLURAL: page_gen_time|$1 segundo|$1 segundos}
 pm:Mensajes privados
 poll:Encuesta:
 post_count:Total de Mensajes {VAR: u_pcount}
@@ -412,6 +417,7 @@ post_title:Título:
 post_body:Cuerpo del mensaje:
 post_options:Opciones:
 post_preview_btn:Vista previa del mensaje
+post_cancel_btn:Cancelar
 ignore_users:Usuarios ignorados
 add_ignore:Agregar ignorado
 forum_terms:Términos del foro
@@ -425,6 +431,7 @@ coppa:<p>Un padre o tutor debe enviar por correo o fax un formulario de autoriza
 prereg_info:Información
 prereg_agree:De acuerdo
 prereg_disagree:No estoy de acuerdo
+prereg_update:Leer las normas del foro
 coppa_fax_instructions:Instrucciones para padres o tutores
 coppa_fax_instructions2:Por favor, imprima esta página, fírmela y envíela por fax a:
 coppa_fax_reg_form:Formulario de registro
@@ -715,8 +722,7 @@ post_opt_html_off:El código <b>HTML</b> está <b>DESACTIVADO</b>
 post_opt_fud_off:El <b>BBcode</b> está <b>DESACTIVADO</b>
 post_opt_images_off:Las <b>imágenes</b> están <b>DESACTIVADAS</b>
 post_opt_smilies_off:Los <b>emoticonoss</b> están <b>DESACTIVADOS</b>
-# Fuzzy
-post_opt:Opciones del foro
+post_opt:Opciones del foro:
 register_change_passwd:cambiar contraseña
 register_change_login:cambiar identificación
 approved_avatar_title:Su avatar personalizado fue aprobado.
@@ -803,6 +809,7 @@ th_expr_two_month:2 meses
 th_expr_four_month:4 meses
 th_expr_one_year:1 año
 thread_mod_delete:Borrar
+action_ip:IP
 action_latest_post:Último mensaje
 online_today_last_visit:Última visita
 online_today_update:Viendo la lista de gente que estuvo en el foro hoy.
@@ -889,6 +896,9 @@ search_desc_order:Orden descendente
 search_asc_order:Orden ascendente
 search_logic:Lógica de búsqueda:
 search_sorting:Ordenar resultados por fecha en:
+search_attach:Archivos adjuntos:
+search_attach_all:Con o sin
+search_attach_with:Con archivos adjuntos
 post_proceed:Proceder
 post_moderated_forum:Ha enviado un mensaje a un foro moderado, lo que quiere decir que su mensaje no será visible en los foros hasta que sea aprobado por uno de los moderadores o administradores del foro.
 post_moderated_forum_ttl:Notificación de foro moderado
@@ -1050,14 +1060,10 @@ mmd_abort_move:Cancelar
 mmd_move:Mover hilos
 pmsg_pdf_btn:Crear archivo PDF
 search_results_hdr:Se encontraron {VAR: total} resultados para su búsqueda
-# Fuzzy
-thread_del_all:Borrar todos los seleccionados
-# Fuzzy
-thread_mov_all:Mover todos los seleccionados
-# Fuzzy
-thread_merge_all:Combinar todos los seleccionados
-# Fuzzy
-thread_loc_all:Bloquear/desbloquear todos los seleccionados
+thread_del_all:Borrar todo lo seleccionado
+thread_mov_all:Mover todo lo seleccionado
+thread_merge_all:Combinar todo lo seleccionado
+thread_loc_all:Bloquear/desbloquear todo lo seleccionado
 dmsg_ip:IP:
 err_blockedaccnt_title:ERROR: Su cuenta ha sido filtrada.
 err_blockedaccnt_msg:Su cuenta ha sido bloqueada por uno de los filtros de usuario instalados.
@@ -1080,8 +1086,11 @@ post_common_align_left:Alineación izquierda
 post_common_align_center:Alineación central
 post_common_align_right:Alineación derecha
 post_common_link:Insertar un enlace
+post_common_link_popup:Ruta del enlace:
 post_common_email:Insertar una dirección de correo electrónico
+post_common_email_popup:Dirección de correo electrónico:
 post_common_image:Insertas una imagen
+post_common_image_popup:URL de la imagen:
 post_common_nlist:Añadir lista numerada
 post_common_blist:Añadir lista
 post_common_quote:Añadir cita
@@ -1127,3 +1136,7 @@ feed_rdf:Fuente RDF
 feed_rss:fuente RSS2
 feed_atom:fuente ATOM
 ip_whois_connect_err:No se pudo conectar con el servidor WHOIS ({VAR: whois_server}): {VAR: errstr}
+custom_filed_required:Este campo es obligatorio.
+page_list_heading:Páginas disponibles
+page_list_total:{PLURAL: i|$1 págna|$1 páginas} en la lista.
+page_update:Buscar página

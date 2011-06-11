@@ -1140,3 +1140,4 @@ feed_rss:RSS2 饲料
 feed_atom:ATOM 源
 custom_filed_required:此字段是必需的。
 page_list_heading:可用页面
+page_update:浏览页面

@@ -453,6 +453,8 @@ login_login_btn:Lumagda
 login_name_required:Kailangan ang pangalang panglagda
 login_passwd_required:Kailangan ang hudyat
 login_invalid_radius:Hindi katanggap-tanggap na tambalan ng paglagda/hudyat
+reset_confirmation:Salamat sa pagpapatala.\n\nUpang buhayin ang akawnt mo mangyaring pumunta sa URL na nasa ibaba:\n\n{VAR: url}\n\nKapag nabuhay na ang akawnt mo, ilalagda kang papaloob sa poro at\n papupuntahin sa pangunahing pahina.
+reset_reset:Kumusta, \n\nHiniling mong muling itakda ang iyong hudyat. Upang mabuo ang proseso,\nmangyaring pumunta sa URL na ito:\n\n{VAR: url}\n\nPAUNAWA: Iniimbak ng porong ito ang mga hudyat sa loob ng mekanismo ng enkripsyon na isahan lamang ang daanan, na nangangahulugang\nkapag naipasok mo na ang iyong hudyat isinasakodigo ito at WALA NANG PARAAN upang makuha pa itong pabalik.\nGumagana ito sa pamamagitan ng paghahambing ng bersyong isinakodigo na nasa aming talaan sa isinakodigong bersyon na iminamakinilya mo sa pang-udyok ng Paglagda.\n(Kung nais mong malaman kung paano gumagana ang mekanismong ito, magbasa ng tungkol sa algoritmo ng HASH ng MD5)
 rpasswd_invalid_passwd:Hindi Katanggap-tanggap na Hudyat
 rpasswd_passwd_nomatch:Hindi nagtutugma ang mga hudyat
 rpasswd_passwd_length:Ang hudyat ay dapat na hindi bababa sa 6 mga panitik ang haba
@@ -594,6 +596,7 @@ help_index_update:Pagbabasa ng <a href="{TEMPLATE: help_index_update_lnk}">Tulon
 iemail_thr_subject:Bagong tugon sa {VAR: thr_subject} ni {VAR: poster_login}
 iemail_thr_bodyemail:Upang matingnan ang hindi pa nababasang mga katugunan magpunta sa {VAR: goto_url['email']}\n\nKung hindi mo nais makatanggap ng pangkaragdagan pang mga pagpapabatid hinggil sa mga tugon sa paksang ito, mangyaring pumunta rito: {VAR: unsub_url['email']}
 iemail_frm_subject:Bagong paksa sa loob ng porong {VAR: frm_name}, tinatawag na {VAR: thr_subject}, ni {VAR: poster_login}
+iemail_frm_bodyemail:Upang matingnan ang paksa pumunta sa:\n{VAR: goto_url['email']}\n\nUpang huminto sa pagtanggap ng mga pagpapabatid hinggil sa bagong mga paksa ssa loob ng porong ito, mangyaring magpunta rito: {VAR: unsub_url['email']}
 iemail_participate:Upang makilahok sa talakayan, pumunta rito:
 ignore_list_err_info_title:Kabatiran
 ignore_list_err_dup_msg:Nasa talaan mo na ng talaan ng huwag pansinin ang tagagamit na ito
@@ -611,15 +614,33 @@ pm_update:Gumagamit ng pribadong pagmemensahe
 post_err_lockedthread_title:KAMALIAN: Nakakandadong Paksa
 post_err_lockedthread_msg:Nakakandado ang paksang ito. Hindi na pinapayagan ang pagpapaskil.
 err_coppa_title:KAMALIAN: Hindi pa natitiyak ang akawnt mo
+err_coppa_msg:Hindi pa namin natatanggap ang isang katiyakan mula sa magulang mo at/o pambatas na tagapag-alaga, na makapagpapahintulot sa iyo na makapagpaskil ng mga mensahe. Kung naiwala mo ang iyong pormularyo ng COPPA, a href="{TEMPLATE: err_coppa_msg_lnk}">tingnan ulit ito</a>.
+err_banned_acct_title:KAMALIAN: Pinagbabawalan ka na.
+err_banned_acct_msg:Ang akawnt mo ay {IF: $ban_expiry}pansamantalang pinagbabawalan hanggang {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}permanently banned{ENDI}pampamalagian nang pinagbabawalan{END} mula sa pagpunta sa sityo, dahil sa iyong paglabag sa mga patakaran ng poro.
 post_err_edttimelimit_title:KAMALIAN
 post_err_edttimelimit_msg:Hindi mo na maaaring baguhin ang mensaheng ito
+post_err_noannontopics_msg2:<legend>KAMALIAN: Hindi Sapat na mga Pribilehiyo</legend>Hindi pinapayagang lumikha ng mga paksa ang hindi nagpapakilalang mga tagagamit.
+post_err_noannonposts_msg2:<legend>KAMALIAN: Hindi Sapat na mga Pribilehiyo</legend>Hindi pinapayagang tumugon ang hindi nagpapakilalang mga tagagamit.
+post_err_floodtrig_title:KAMALIAN: Napagalaw ang pagbaha ng paskil.
+post_err_floodtrig_msg:Mangyaring subukan muli sa loob ng {PLURAL:tm| $1 segundo|$1 mga segundo}
+post_err_attach_size:Masyadong malaki ang Kalakip na Talaksan (lampas sa pinapayagang hangganang {VAR: MAX_F_SIZE} mga bayt)
+post_err_attach_ext:Hindi tumutugma sa pinapayagang mga uri ng talaksan ang talaksang sinusubukan mong ikargang papaitaas.
+post_err_attach_filelimit:Sinusubukan mong magkarang papaitaas ng mas maraming mga talaksan kaysa sa pinapahintulutan.
+post_err_passwd:Hindi tamang hudyat.
+post_reply_update:Tumutugon sa <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> sa loob ng {VAR: frm->name}
+post_topic_update:Nagsusulat ng bagong paksa sa loob ng <a href="{TEMPLATE: post_topic_update_lnk}">{VAR: frm->name}</a>
 post_error_generic:Nagkaroon ng isang kamalian
+postcheck_max_images_err:Hindi hihigit kaysa sa {GVAR: MAX_IMAGE_COUNT} mga larawan ang pinapayagan sa bawat mensahe. Mangyaring bawasan ang bilang ng mga larawan.
+postcheck_no_links_allowed:Hindi ka maaaring gumamit ng mga kawing hangga't hindi ka nakapagpapaskil ng {PLURAL: posts_before_links|$1 mga mensahe|$1 mga mensahe}.
 postcheck_subj_needed:Kailangan ang paksa
+postcheck_no_such_user:Walang tagagamit na may pangalang {FUNC: char_fix(htmlspecialchars($v))}" sa loob ng porong ito.
+postcheck_ignored:Hindi ka maaaring magpadala ng isang pribadong mensahe sa "{FUNC: char_fix(htmlspecialchars($v))}", dahil hindi ka pinapansin ng tagagamit na ito.
 postcheck_no_recepient:Hindi makapagpapadala ng isang mensahe, kulang ng tatanggap
 postcheck_invalid_email:Mangyaring magpasok ng isang katanggap-tanggap na tirahan ng e-liham para sa kaibigan mo.
 postcheck_email_subject:Hindi ka maaaring magpadala ng isang e-liham na wala ang isang paksa.
 postcheck_email_body:Hindi ka maaaring magpadala ng isang e-liham na wala ang katawan ng mensahe.
 private_msg_notify_subj:Basahin ang Pagpapabatid Para sa: {VAR: m->subject}
+private_msg_notify_body:Kumusta,<br />Binuksan na ni {VAR: usr->login} ang pribado mong mensaheng pinamagatang, "{VAR: m->subject}".<br />Isa itong kusang pagpapabatid na nabuo roon sa {TEMPLATE: private_msg_notify_body_date}<br />
 referals_update:Tinitingnan-tingnan ang mga pagpapalugod
 register_err_short_login:Masyadong maikli ang Panglagdang napili mo. Ang mga pangalan ng panglagda ay dapat na hindi bababa sa 4 na mga panitik ang haba.
 register_err_login_notallowed:Hindi pinapahintulutan ang pangalang panglagda.
@@ -649,6 +670,7 @@ reset_err_invalidkey_msg:Hindi katanggap-tanggap na susi ng muling pagtatakda. M
 reset_err_rstconf_title:Kabatiran
 reset_err_rstconf_msg:Dapat na makatanggap ka ng mga tagubilin sa loob ng e-liham mo sa loob ng susunod na ilang mga minuto.
 reset_newpass_title:Itakdang Muli ang Hudyat
+reset_newpass_msg:Kumusta,\n\nAyon sa kahilingan, nakalitaw sa ibaba ang iyong kabatiran na panglagda:\n\nPanglagda: {VAR: ui[1]}\nHudyat: {VAR: passwd}\n\nMangyaring tandaan na ang hudyat mo ang itinakdang muli sa halagang nasa ibabaw. Kung nais mong\nbaguhin ang hudyat mo maaari mong gawin iyan ssa pamamagitan ng kahong-tabanan ng kabatiran na pangtagagamit na naroon sa:\n{FULL_ROOT}{ROOT}?t=register
 reset_login_notify:Naipadala na sa iyo ang hudyat mo. Dapat mong matanggap ito sa loob ng susunod na mangilan-ngilang mga minuto.<br />
 search_update:Hinahanap ang mga mensahe
 selmsg_update:Tinitingnan-tingnan ang <a href="{TEMPLATE: selmsg_update_lnk}">Mga Pagpapaskil sa Araw na Ito</a>
@@ -762,6 +784,8 @@ post_quote_selected:Sipiin ang Napiling Teksto
 userinfo_referals:Pinadulog na mga Tagagamit:
 userinfo_referals_count:{VAR: referals} Mga kasapi
 pm_no_space_title:Wala nang natitirang puwang!
+pm_no_space_msg:Ang mga tupian mo ng pribadong mensahe ay lumampas sa pinapayagan sukat ng pag-iimbak na <b>{GVAR: MAX_PMSG_FLDR_SIZE} bytes</b>. Pangkasalukuyan silang naglalaman ng <b>{VAR: fldr_size} mga bayt</b> na halaga ng mga mensahe.<br /><br /><span class="ErrorText">Magtanggal ng ilang lumang mga mensahe upang makapaghawi ng puwang.</span>
+pm_space_indct_msg:Ang mga tupian mo ng pribadong mga mensahe ay {VAR: percent_full}% puno na.
 th_expr_never:Hindi magpakailanman
 th_expr_one_hr:1 Oras
 th_expr_three_hr:3 Mga oras
@@ -814,6 +838,8 @@ maximize_message:Palakihin ang Mensahe
 no_view_perm:Wala kang naaangkop na kinakailangang mga pahintulot upang makita ang paksang ito.
 report_empty_report:Hindi ka maaaring magpadala ng isang ulat na walang laman. Mangyaring magpasok ng isang dahilan para sa ulat mo.
 report_already_reported_title:Naiulat Na
+report_already_reported_msg:Naiulat na ang mensaheng ito at ang ulat pangkasalukuyang nasa loob ng pila ng tagapamagitan.
+register_err_toomanyimages:Sinusubukan mong gamitin ang mas marami kaysa pinapayagang {GVAR: FORUM_IMG_CNT_SIG} mga larawan sa loob ng lagda mo.
 pmsg_next_msg:Susunod na mensahe
 pmsg_prev_msg:Nakaraang mensahe
 post_proc_reveal_spoiler:Pang-unsiyami ng Panghalinhinan
@@ -827,6 +853,8 @@ im_skype:Skype:
 im_twitter:Twitter:
 forum_contact:Makipag-ugnayan
 forum_home:Tahanan
+post_cur_attached:pangkasalukuyang nakalakip: {VAR: i} {PLURAL: i|talaksan|mga talaksan}
+ignored_anon_post:Hindi pinapansin ang {GVAR: ANON_NICK}
 ignored_user_post:Hindi pinapansin ang mensahe ni <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a>
 smladd_close_window:isara ang bintana
 post_list_smilies:itala ang lahat ng mga pampangiti
@@ -880,17 +908,23 @@ threadt_update:Tinitingnan-tingnan ang poro (tanawing puno) na <a href="{TEMPLAT
 mmod_delete_cofirm_ttl:Tiyakin ang Pagbubura ng Paksa/Mensahe
 spell_alts:walang mga pamalit
 insert_uploaded_image:Isingit ang larawan papaloob sa katawan ng mensahe
+finduser_help:Ang makinang panghanap ay kusang magdaragdag ng maskarang ' sa iyong tanong, ang <b>paghahanap ay maselan kapag minamakinilya</b>.<br />halimbawa, upang hanapin ang lahat ng mga tagagamit na ang panglagda ay nagsisimula sa isang 'a', ipasok ang 'a' sa loob ng kahong panghanap.
 back_to_top:Bumalik sa Ibabaw
 pm_err_disabled_title:Hindi Pinagagana ang Pribadong Pagmemensahe
 pm_err_disabled_msg:Hindi ka maaaring magpadala ng pribadong mga mensahe hanggang sa paganahin mo ang pagpipilian ng 'Payagan ang Pribadong mga Mensahe' sa loob ng balangkas mo.
 err_mod_acc_ttl:Akawnt Na Hindi Pa Napapatunayan
+err_mod_acc_msg:Pinili ng tagapangasiwa na kinakamay na suriing muli ang lahat ng mga akawnt bago ang pagbuhay. Hindi mo maaaring magamit ang buong kakayanan ng akawnt mo hangga't hindi pa napapatunayan ng tagapangasiwa ang akawnt mo.
 accounts_pending_approval:Mga Akawnt Na Naghihintay Pa Ng Pagpayag
 saved:Nasagip na
+register_err_time_limit:Naabot na ang hangganan ng isang pagpapatala sa bawat {GVAR: REG_TIME_LIMIT} mga segundo. Mangyaring maghintay ng {PLURAL: reg_limit_reached|$1 segundo|$1 mga segundo}, at pagkaraan ay subukan na magpatalang muli.
+register_affero:Pangalan ng Tagagamit ng Affero:<br /><span class="SmallText">Kung mayroon kang isang pangalan ng tagagamit na para sa <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">Affero</a>, ipasok iyon dito.</span>
 im_affero:Pangalan ng tagagamit sa Affero
+register_err_avatardimtobig:Ang mga sukat ng huwaran ng <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> ay lumampas sa pinapayagang mga sukat ng <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b> mga piksel.
 buddy_offline:Kasalukuyang nakapatay ang linya ng {VAR: r[2]}
 buddy_online:Kasalukuyang nasa ibabaw ng linya ang {VAR: r[2]}
 sml_no_smilies:Walang makuhang mga emotikon.
 login_unapproved_account_ttl:Hindi Pinayagang Akawnt
+login_unapproved_account_msg:Pinili ng tagapangasiwwa ng poro na tiyaking kinakamay ang bawat isang bagong akawnt. Hindi pa natitiyak ang akawnt mo, kaya hindi mo pa maaaring mapuntahan ang ilan sa mga tampok na makukuha ng natiyak nang mga kasapi.
 remove_from_buddy_list:tanggalin mula sa talaan ng katoto
 iemail_msg_author:<b>May-akda:</b> {VAR: obj->alias}
 iemail_msg_subject:<b>Paksa:</b> {VAR: obj->subject}
@@ -907,15 +941,20 @@ thread_mark_all_read:Markahang nabasa na ang lahat ng hindi pa nababasang mga me
 thread_mark_all_read_desc:Ang lahat ng mga hindi pa nababasang mga mensahe na nasa loob ng porong ito ay mamarkahang nabasa na
 private_no_messages:Walang mga mensahe sa loob ng pantuping ito.
 register_email_change_subject:Pagtitiyak ng pagpapalit ng e-liham
+register_email_change_msg:Mangyaring tiyakin ang bago mong akawnt ng e-liham na "{VAR: uent->email}" na kapalit ng luma mong akawnt ng e-liham na "{VAR: old_email}", sa pamamagitan ng pagpunta sa URL na nasa ibaba: {FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nKapag natiyak mo na ang bago mong tirahan ng e-liham, muli nang mabubuhay ang akawnt mo ng poro.
 iemail_thread_unsub:Huwag nang magpasipi mula sa paksang ito
 iemail_forum_unsub:Huwag nang magpasipi mula sa porong ito
 primary_group_prefix:Pangunahing pangkat para sa poro:
 group_resources:Ang pangkat na ito ang nagtataban ng mga kapahintulutan ng sumusunod na mga poro
 register_admin_newuser_title:Isang bagong tagagamit ang nagpatala at naghihintay ng katiyakan ang kanilang akawnt
+register_admin_newuser_msg:Isang bagong tagagamit ({VAR: uent->login}) ang nagpatala na, at dahil sa pinagagana ang pagtitiyak ng akawnt, ang kanilang akawnt ay hindi magiging masigla hangga't hindi mo pa ito tinitiyak o ng ibang tagapangasiwa ng poro. Upang suriing muli ang akawnt mangyaring pumunta sa: {GVAR: WWW_ROOT}adm/admaccapr.php\n\nIsa itong pagsasagawang kusa. Huwag tumugon sa mensaheng ito.\nKung nais mong huwag buhayin ang panghinaharap na mga pagpapabatid ng e-liham para sa mga pagpapatala ng bagong tagagamit, magagawa ito sa pamamagitan ng Kahong-Pangtaban ng Tagapangasiwa. Baguhin ang katakdaan ng "Pagpapabatid ng Bagong Akawnt".
 post_mod_msg_notify_title:Bagong mensahe sa loob ng porong "{VAR: frm->name}" na naghihintay ng pagpayag
+post_mod_msg_notify_msg:Ipinaskil na ang isang bagong mensahe na pinamagatang "{VAR: msg_post->subject}" sa loob ng isang porong pinamamagitanan mo. Upang suriing muli ang mensaheng ito magpunta sa: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nIsa itong pagsasagawang kusa. Huwag tumugon sa mensaheng ito.
 thread_printable_pdf:Lumikha ng malilimbag na PDF
 thread_syndicate:Isindikato ang porong ito (XML)
 reg_conf_title:Pagtitiyak ng Pagpapatala
+reg_conf_email:<b>Katiyakan ng E-liham</b><br />Isang e-liham ang naipadala na sa iyo na naglalaman ng isang natatanging URL na kakailanganin mo upang makapunta bago ang pagbuhay sa akawnt mo. Kapag hindi mo natanggap ang liham na ito sa loob ng susunod na ilang mga minuto, lumagda sa akawnt mo at tiyakin natama  ang tinukoy mong tirahan ng e-liham. Kapag tiniyak mo na ang akawnt mo, maaari mo nang mapuntahan ang mga tampok ng poro na makukuha lamang ng natiyak na nagpatalang mga tagagamit.
+reg_conf_account:<b>Katiyakan ng Akawnt</b><br />Bago magawang masigla ang akawnt mo kailangan itong mapayagan ng isang tagapangasiwa. Kapag nangyari na iyan makakatanggap ka ng isang e-liham na nagpapahayag na natiyak na ang akawnt mo. Sa pansamantala makakalagda kang papasok sa akawnt mo, subalit hindi mo maaaring mapuntahan ang partikular na mga tampok.
 forum_banned_user:Ang nauna mong mga pagkilos ay nagresulta sa pagiging pampalagian nang pagbabawal sa iyo magmula sa porong ito. Paalam.
 mnav_description:Panlibot sa Mensahe
 mnav_date_limit:Sakop na petsa:
@@ -936,6 +975,7 @@ mnav_month:(Mga) buwan
 mnav_title:Panlibot sa mensahe
 mnav_update:Tumitingin-tingin ng mga Mensahe na ginagamit ang <a href="{TEMPLATE: mnav_update_lnk}">Panlibuto sa Mensahe</a>
 pm_notify_subject:[{GVAR: FORUM_TITLE}] Pagpapabatid ng Bagong Pribadong Mensahe
+pm_notify_body_email:Mayroon kang isang pribadong mensahe na pinamagatang "{VAR: subject}", from "{VAR: from}", sa loob ng porong "{GVAR: FORUM_TITLE}".\nUpang matingnan ang mensahe, pindutin dito: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nUpang mapahinto ang panghinaharap na mga pagpapabatid, huwag paganahin ang "Pagpapabatid ng Pribadong Mensahe" sa loob ng balangkas mo.
 register_pm_notification:Pagpapabatid ng Pribadong Mensahe:
 register_pm_notification_desc:Kapag pinagana, pababatiran ka tuwing may ipinadala sa iyong isang pribadong mensahe.
 findu_admin_opts_header:Mga Mapagpipilian ng Tagapangasiwa
@@ -1092,3 +1132,4 @@ ip_whois_connect_err:Hindi nagawang umugnay sa tagapaghain ng WHOIS ({VAR: whois
 custom_filed_required:Kailangan ang kahanayang ito.
 page_list_heading:Makukuhang mga pahina
 page_list_total:Nakatalang {PLURAL: i|$1 pahina|$1 mga pahina}.
+page_update:Tinitingnan-tingnan ang pahina

@@ -31,7 +31,7 @@ first_unread_msg_desc:Ir á primeira mensaxe non lida dentro deste fío
 flat_view:Volver á vista plana por defecto
 forum:Foro:
 forum_icon:Icona do foro
-forum_new_messages:Novas mensaxes
+forum_new_messages:Mensaxes novas
 forum_none_messages:Tan só os membros rexistrados no foro poden seguir as mensaxes lidas e non lidas
 forum_old_messages:Non hai mensaxes novas
 from:De:
@@ -91,7 +91,7 @@ move_thread:Mover
 moved:Movida a outro foro
 moved_thread_message:Moveuse este fío a outro foro
 na:non dispoñible
-new_posts:Novas mensaxes
+new_posts:Mensaxes novas
 new_private_messages:Tes <span class="GenTextRed">({VAR: c})</span> {PLURAL: c|mensaxe privada non lida|mensaxes privadas non lidas}
 new_thread:Crear un novo fío
 newest_user:O último usuario rexistrado é
@@ -1133,3 +1133,4 @@ ip_whois_connect_err:Non se puido conectar co servidor WHOIS ({VAR: whois_server
 custom_filed_required:Este campo é obrigatorio.
 page_list_heading:Páxinas dispoñibles
 page_list_total:{PLURAL: i|$1 páxina listada|$1 páxinas listadas}.
+page_update:Navegando polas páxinas

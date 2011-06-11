@@ -1132,3 +1132,4 @@ ip_whois_connect_err:Povezivanje na WHOIS server nije uspelo ({VAR: whois_server
 custom_filed_required:Ovo polje je obavezno.
 page_list_heading:Dostupne stranice
 page_list_total:{PLURAL: i|Prikazana je $1 stranica|Prikazane su $1 stranice|Prikazano je $1 stranica}.
+page_update:Pregleda stranicu

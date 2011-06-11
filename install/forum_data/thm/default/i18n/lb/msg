@@ -123,10 +123,12 @@ female:Weiblech
 finduser_submit:Sichen
 finduser_no_such_user:Et gëtt keen esou Benotzer
 finduser_user:Benotzer
+finduser_action:Aktioun
 yes:Jo
 no:Neen
 pmuserloc_user:Benotzer
 pmuserloc_no_result:Kee Resultat
+register_uploaded:Avatar eroplueden
 register_password:Passwuert:
 register_conf_pass:Passwuert confirméieren:
 register_name:Numm:
@@ -171,7 +173,7 @@ login_forgot_passwd:Passwuert vergiess
 rpasswd_change_pass:Passwuert änneren
 rpasswd_cur_pass:Aktuellt Passwuert:
 rpasswd_new_pass:Neit Passwuert:
-rpasswd_conf_pass:Confirméiert d'Paswuert:
+rpasswd_conf_pass:Confirméiert d'Passwuert:
 login_passwd:Passwuert:
 reset_reset_button:Passwuert zrécksetzen
 rate_this_thread:Bewäerten
@@ -206,14 +208,18 @@ delete_yes:Jo
 delete_no:Neen
 error_error:Feeler
 emailconf_err_invkey_title:Feeler
+err_inc_criticaltitle:Kritesche Feeler
 ignore_list_err_nu_title:Benotzer net fonnt
+err_banned_acct_title:FEELER: Dir gouft gespaart.
 post_err_edttimelimit_title:FEELER
 report_err_nosuchmsg_title:FEELER
 reset_err_invalidkey_title:FEELER
 reset_err_rstconf_title:Informatioun
 reset_newpass_title:Passwuert zrécksetzen
+finduser_title:Benotzer fannen
 help_title:Hëllef
 poll_add_option:Optioun derbäisetzen:
+register_change_passwd:Passwuert änneren
 split_thread:thema opdeelen
 groupmgr_yes:Jo
 groupmgr_no:Neen
@@ -255,6 +261,7 @@ th_expr_two_month:2 Méint
 th_expr_four_month:4 Méint
 th_expr_one_year:1 Joer
 thread_mod_delete:Läschen
+action_ip:IP
 action_latest_post:Leschte Message
 online_today_last_visit:Leschte Besuch
 logedin_latest_post:Leschte Message am Forum:
@@ -308,3 +315,4 @@ btn_edit:änneren
 btn_reply:äntwerten
 btn_forward:viruleeden
 btn_homepage:www
+page_list_heading:Disponibel Säiten

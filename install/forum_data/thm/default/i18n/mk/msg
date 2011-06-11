@@ -60,7 +60,7 @@ lock_thread:Заклучи тема
 locked:Заклучена
 locked_with_new_posts:Заклучена (има непрочитани пораки)
 logged_in_list:Список на најавени корисници
-login:Влез
+login:Најава
 login_header:Корисничко име:
 logout:Излез
 mark_all_read:Означи ги сите пораки како прочитани
@@ -302,7 +302,7 @@ register_uploaded:Подигни аватар
 register_login:Корисничка сметка:
 register_password:Лозинка:
 register_conf_pass:Повторно лозинката:
-register_email_desc:Внесете важечка е-поштенска адреса. Можете да ја сокриете подолу, во делот за нагодувања.
+register_email_desc:Внесете важечка е-поштенска адреса. Можете да ја окриете подолу, во делот за нагодувања.
 register_name:Име:
 register_your_pass:Вашата лозинка:
 register_update:Поднови
@@ -343,7 +343,7 @@ register_reset:Исчисти
 register_def_thread_view:Изглед на темите по основно:
 register_msg_per_page:Пораки по страница:
 register_show_sig:Прикажувај потписи:
-register_show_sig_desc:Ви овозможува да ги сокриете/прикажете потписите на другите членови.
+register_show_sig_desc:Ви овозможува да ги скриете/прикажете потписите на другите членови.
 register_use_sig_default:Користи потпис по основно:
 register_use_sig_default_desc:Автоматски приложи ми го потписот во секоја порака што ја објавувам.
 register_timezone:Часовна зона
@@ -704,7 +704,7 @@ rpasswd_title:Образец за промена на лозинка
 error_title:Грешка
 index_title:Добредојдовте на форумот
 search_title:Пребарај {VAR-HTML: srch}
-remail_emailsent:Е-поштата е испратена
+remail_emailsent:Писмото е испратено
 remail_email:Здраво,\n\nНа форумот {GVAR: FORUM_TITLE} има интересна тема за "{VAR: data->subject}" што можеби ќе те интересира. Темата ќе ја најдеш на:\n  {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nТвојот пријател,\n\n{VAR: usr->alias}
 poll_add_option:Додај можност:
 post_opt_html_on:<b>HTML</b> е <b>вклучен</b>

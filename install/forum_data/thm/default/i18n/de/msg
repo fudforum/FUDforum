@@ -2,6 +2,7 @@
 # Exported from translatewiki.net
 # Author: Als-Holder
 # Author: George Animal
+# Author: Giftpflanze
 # Author: Hydra
 # Author: JanRei
 # Author: Kghbln
@@ -1140,3 +1141,4 @@ ip_whois_connect_err:Verbindung zu WHOIS-Server ({VAR: whois_server}) fehlgeschl
 custom_filed_required:Dies ist ein Pflichtfeld.
 page_list_heading:Verfügbare Seiten
 page_list_total:{PLURAL: i|$1 Seite|$1 Seiten} aufgeführt.
+page_update:Lese im Forum

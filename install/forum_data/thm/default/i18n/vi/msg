@@ -1,97 +1,108 @@
 # Messages for Vietnamese (Tiếng Việt)
 # Exported from translatewiki.net
 # Author: Minh Nguyen
+# Author: Trần Nguyễn Minh Huy
 
-action:Hànhđộng
+action:Tác vụ
 add_to_buddy_list:thêm vào danh sách bạn bè
-admin:Người quản lý
-admin_control_panel:Khu vực người quản lý
-administrator:Người Quản Trị Tối Cao
+admin:Quản trị viên
+admin_control_panel:Khu quản trị
+administrator:Quản trị viên
 attachment:Đính kèm:
-avatar:Hình Đại Diện:
-# Fuzzy
-average_post_count:{VAR: u->posted_msg_count} bài viết ( trung bình {VAR: avg} bài viết trong một ngày )
+avatar:Hình đại diện:
+average_post_count:{PLURAL: u->posted_msg_count|$1 Tin nhắn|$1 Tin nhắn} ({PLURAL: avg|$1 tin nhắn trung bình|$1 tin nhắn trung bình} trong một ngày)
 biography:Tự bạch:
-birth_date:Ngày sinh nhật:
+birth_date:Ngày sinh:
 by:Bởi:
-by_mod:bởi Người điều tiết
-current_time:Giờ Hiện Tại
-custom_avatar_queue:Hình đại diện quen thuộc
-date_posted:Ngày Đăng Bài
+by_mod:bởi Điều hành viên
+current_time:Giờ hiện tại
+custom_avatar_queue:Hình đại diện tùy chỉnh
+date_posted:Ngày đăng bài
 date_registered:Ngày đăng ký:
-# Fuzzy
-download_counter:Tải xuống {VAR: v[3]} lần
-# Fuzzy
-pmsg_download_counter:Tải xuống {VAR: r->dlcount} lần
-email_to_friend:E-mail đến bạn
-email_to_friend_desc:Gởi đường dẫn trang này đến bạn của bạn bằng email
-# Fuzzy
-email_user:Nhấn chuột vào đây để gửi mail cho thành viên này
-faq:Giúp Đỡ
+download_counter:Đã tải xuống {PLURAL: v[3]|$1 lần|$1 lần}
+pmsg_download_counter:Đã tải xuống {PLURAL: r->dlcount|$1 lần|$1 lần}
+email:Thư điện tử:
+email_to_friend:Gửi thư điện tử cho bạn bè
+email_to_friend_desc:Gởi URL của trang này cho bạn bè của bạn qua thư điện tử
+email_user:Gửi cho người dùng một tin nhắn thư điện tử
+faq:Hướng dẫn
 first_unread_msg:Đến tin chưa đọc
 first_unread_msg_desc:Đến tin chưa đọc đầu tiên trong chủ đề này
-flat_view:Trở lại xem dạng khối
-forum:Diễn Đàn:
-forum_icon:Biểu Tượng Diễn Đàn
-forum_new_messages:Tin mới
-forum_none_messages:Chỉ có thành viên đã đăng ký của diễn đàn mới có thể xem những bài viết chưa đọc và đã đọc
-forum_old_messages:Không có tin mới
+flat_view:Trở lại giao diện phẳng (mặc định)
+forum:Diễn đàn:
+forum_icon:Biểu tượng diễn đàn
+forum_new_messages:Tin nhắn mới
+forum_none_messages:Chỉ có thành viên đã đăng ký của diễn đàn mới có thể xem những tin nhắn chưa đọc &amp; đã đọc
+forum_old_messages:Không có tin nhắn mới
 from:Từ:
 gender:Giới tính:
-go:Thực hiện
-goto_next_msg:Đến tin kế tiếp
-goto_prev_msg:Lùi lại tin sau
-home:Trang Chủ
+go:Xem
+goto_next_msg:Đến tin nhắn kế tiếp
+goto_prev_msg:Quay lại tin nhắn trước
+home:Trang đầu
 homepage:Trang web cá nhân:
+icq_control_panel:ICQ Online-Message Panel
+icq_message_form:Tin nhắn mẫu ICQ:
 ignore_user:Từ chối tất cả bài viết bởi thành viên này
+im_aim:Bộ xử lý AIM:
+im_msnm:MSN Messenger:
+im_yahoo:Yahoo Messenger:
 image:Hình ảnh:
-index_forum:Diễn Đàn
-index_new_posts:Bài viết mới kể từ lần xem sau cùng
-index_no_new_posts:Không có bài viết mới kể từ lần xem sau cùng
-interests:Sở Thích:
-last_post:Bài Viết Cuối Cùng
-last_thread_msg:Đến bài viết cuối cùng trong chủ đề này
-legend:Ghi Chú
+index_forum:Diễn đàn
+index_new_posts:Bài viết mới kể từ lần xem cuối
+index_no_new_posts:Không có bài viết mới kể từ lần xem cuối
+index_url_redirection:Chuyển hướng
+interests:Sở thích:
+last_post:Bài viết mới nhất
+last_thread_msg:Đến bài viết mới nhất trong chủ đề này
+legend:Ghi chú
 location:Địa chỉ:
-lock_thread:Khóa chủ đề
+lock_thread:Chủ đề bị khóa
 locked:Khóa
-locked_with_new_posts:Khóa (w/ bài viết chưa đọc)
+locked_with_new_posts:Khóa (w/ bài chưa đọc)
 logged_in_list:Danh sách thành viên đã đăng nhập
 login:Đăng nhập
-login_header:Tên Đăng Nhập:
-logout:Thoát
-# Fuzzy
-mark_all_read:Đánh dấu đọc tất cả bài viết
-mark_all_read_desc:Đánh dấu đã đọc cho tất cả bài viết chưa xem của bạn
-members:Thành Viên
-# Fuzzy
-message_counter:Thành viên của chúng ta đã gửi tổng cộng <b>{VAR: post_count}</b> bài viết trong <b>{VAR: thread_count}</b> chủ đề .
-message_index:Chỉ mục bài viết
-message_index_desc:Xem danh sách bài viết
-minimize_category:Thu nhỏ danh mục
-moderator:Người Điều Tiết
-moderator_of:Người điều tiết của:
-moderator_options:Mục chọn của người điều tiết
-# Fuzzy
-moderators:Người điều tiết
-more_unread_messages:Thêm những bài viết chưa đọc
+login_header:Tên đăng nhập:
+logout:Đăng xuất
+mark_all_read:Đánh dấu đã đọc tất cả bài viết
+mark_all_read_desc:Toàn bộ các bài viết chưa xem của bạn sẽ được đánh dấu là đã đọc
+members:Thành viên
+calendar:Lịch
+cal_goto_date:Bước tới:
+cal_day_heading:Sự kiện trong ngày
+cal_no_events:Không có sự kiện trong ngày.
+cal_update:Duyệt lịch diễn đàn
+cal_birthday:Ngày sinh: {VAR: user}
+cal_birthday_age:({PLURAL: tuổi|$1 năm|$1 năm} cũ).
+message:Tin nhắn
+message_counter:Các thành viên của chúng ta đã gửi tổng cộng <b>{PLURAL: post_count|$1 bài viết|$1 bài viết}</b> trong <b>{PLURAL: thread_count|$1 đề tài|$1 đề tài}</b>.
+message_index:Danh mục bài viết
+message_index_desc:Xem danh mục bài viết
+minimize_category:Thu nhỏ thể loại
+minimize_message:Thu nhỏ tin nhắn
+moderation_queue:Kiểm duyệt Hàng đợi việc
+moderator:Điều hành viên
+moderator_of:Điều hành viên của:
+moderator_options:Tùy chọn của Điều hành viên
+moderators:{PLURAL: modcount|Điều hành viên|Các Điều hành viên}
+more_unread_messages:thêm những bài viết chưa đọc
 more_unread_messages_desc:Xem thêm những bài viết chưa đọc và đánh dấu đọc những bài viết có thể xem hiện giờ
 move_thread:Di chuyển
 moved:Chuyển đến một diễn đàn khác
 moved_thread_message:Chủ đề này đã bị chuyển sang một diễn đàn khác
-new_posts:Bài Viết Mới
-# Fuzzy
-new_private_messages:Bạn có <span class="GenTextRed">({VAR: c})</span> tin nhắn chưa đọc
+na:n/a
+new_posts:Bài viết mới
+new_private_messages:Bạn có <span class="GenTextRed">({VAR: c})</span> {PLURAL: c|tin nhắn|tin nhắn} chưa đọc
 new_thread:Tạo một chủ đề mới
 newest_user:Thành viên mới đăng ký là
 next_page:Trang kế
 next_thread:Chủ đề kế tiếp:
 no_messages:Không có bài viết trong diễn đàn này
 no_msg_body:Không có nội dung bài viết
-no_new_posts:Không Có Bài Viết Mới
+no_new_posts:Không có bài viết mới
 no_posts:Không có bài
-no_subscribed_forums:Không có diễn đàn theo dõi
-no_subscribed_threads:Không có chủ đề theo dõi
+no_subscribed_forums:Không theo dõi diễn đàn
+no_subscribed_threads:Không theo dõi chủ đề
 no_unread_locked:Chủ đề này đã bị khóa
 no_unread_msg:Chủ đề này không có bài viết chưa đọc
 no_unread_msg_unreg:Những bài viết chưa đọc và đã đọc chỉ được xem bởi thành viên đã đăng ký

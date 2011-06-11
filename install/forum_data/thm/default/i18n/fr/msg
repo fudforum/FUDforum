@@ -60,7 +60,7 @@ index_forum:Forum
 index_new_posts:Nouveaux messages depuis votre dernière visite
 index_no_new_posts:Pas de nouveau message depuis votre dernière visite
 index_url_redirection:Redirection
-interests:Centres d'intérêt :
+interests:Centres d’intérêt :
 last_post:Dernier message
 last_thread_msg:Aller au dernier message dans ce fil
 legend:Légende
@@ -443,7 +443,7 @@ coppa_fax_permission:Signez ici si vous donnez votre permission
 coppa_fax_no_permission:Signez ici si vous désirez que ce compte soit détruit
 coppa_fax_parent_name:Parent/Tuteur Nom complet :
 coppa_fax_relation:Lien de parenté par rapport à l'enfant :
-coppa_fax_telephone:Numéro de téléphone (avec préfixe international) :
+coppa_fax_telephone:Téléphone :
 coppa_fax_email:Adresse de courriel :
 coppa_fax_date:Date :
 coppa_fax_questions:Veuillez contacter <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> si vous avez des questions
@@ -713,7 +713,7 @@ rpasswd_title:Formulaire de changement de mot de passe
 error_title:Formulaire d'erreur
 index_title:Bienvenue sur le forum
 search_title:Recherche de {VAR-HTML: srch}
-remail_emailsent:L'e-mail a été envoyé
+remail_emailsent:Le courrier électronique a été envoyé
 remail_email:Bonjour,\n\nIl y a un sujet intéressant à propos de « {VAR: data->subject} » sur le forum {GVAR: FORUM_TITLE} que vous pourriez vouloir lire. Vous pouvez voir le sujet à : {FULL_ROOT}{ROOT}?t=rview&th={VAR: data->id}&rid={DEF: _uid}\n\nVotre ami,\n\n{VAR: usr->alias}
 poll_add_option:Ajouter une Option :
 post_opt_html_on:Le code <b>HTML</b> est <b>ACTIVÉ</b>

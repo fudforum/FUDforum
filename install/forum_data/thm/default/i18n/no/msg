@@ -1134,3 +1134,4 @@ ip_whois_connect_err:Kunne ikke koble til WHOIS-tjener ({VAR: whois_server}): {V
 custom_filed_required:Dette feltet er obligatorisk.
 page_list_heading:Tilgjengelige sider
 page_list_total:{PLURAL: i|$1 side|$1 sider} oppført.
+page_update:Blar gjennom en side

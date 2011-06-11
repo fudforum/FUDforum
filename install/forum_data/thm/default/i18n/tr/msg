@@ -3,6 +3,7 @@
 # Author: Emperyan
 # Author: Naudefj
 # Author: Srhat
+# Author: Stultiwikia
 # Author: Tufan
 # Author: Vito Genovese
 
@@ -1136,3 +1137,4 @@ ip_whois_connect_err:WHOIS sunucusuna ({VAR: whois_server}) bağlanamıyor: {VAR
 custom_filed_required:Bu alan gereklidir.
 page_list_heading:Mevcut sayfalar
 page_list_total:$1 sayfa listelendi.
+page_update:Sayfaya göz atıyor

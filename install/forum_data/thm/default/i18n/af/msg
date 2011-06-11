@@ -903,7 +903,7 @@ unread_message:ongeleesde boodskappe
 read_message:lees boodskappe
 threadt_more:&lt;meer&gt;
 threadt_disabled_ttl:Boomstruktuur van die reeks is uitgeschakeld.
-threadt_disabled_desc:Die administrateur het die tree view van die threads afgeskakel, gebruik asb die flat view in die plaats.
+threadt_disabled_desc:Die administrateur het die vertoon van onderwerpe in boomstruktuur afgeskakel, gebruik asseblief die plat weergawe.
 threadt_update:Blaai deur forum <a href="{TEMPLATE: threadt_update_lnk}">{VAR: frm->name}</a> (boomstruktuur).
 mmod_delete_cofirm_ttl:Onderwerp/Boodskap verwydering bevestiging
 spell_alts:geen alternatiewe

@@ -4,6 +4,7 @@
 # Author: McDutchie
 # Author: Naudefj
 # Author: Nexus
+# Author: Rippitippi
 # Author: Ubyfudder
 
 action:Azione
@@ -850,6 +851,7 @@ post_proc_reveal_spoiler:Mostra lo spoiler
 register_jabber:Jabber username:
 register_skype:Handle Skype:
 register_twitter:Handle Twitter:
+register_google:Accesso Google Chat/IM:
 im_jabber:Jabber:
 im_google:Google Talk:
 im_skype:Skype:
@@ -994,6 +996,7 @@ merge_topics_tpl:Seleziona gli argomenti da unire <font class="SmallText">(devi 
 merge_merge:Unisci gli argomenti selezionati
 merge_next:Prossimo Argomento
 merge_prev:Precedente Argomento
+merge_another:Vai all' ultima <a href="{TEMPLATE: merge_another_lnk}">discussione unita </a> oppure unisci un' altra:
 split_cp:Pannello di controllo per la suddivisione di argomenti
 groups_perms_header:Permessi <font size="-1">(muovi il mouse sui permessi per vedere il tipo di permisso)</font>
 register_err_sig_too_long:La tua firma eccede la lunghezza massima permessa pari a {GVAR: FORUM_SIG_ML} caratteri.
@@ -1057,10 +1060,12 @@ pmsg_pdf_btn:Crea PDF
 search_results_hdr:{VAR: total} Risultati Trovati
 thread_del_all:Cancella selezione
 thread_mov_all:Muovi la selezione
+thread_merge_all:Unisci selezionati
 thread_loc_all:Blocca/Sblocca i selezionati
 dmsg_ip:IP:
 err_blockedaccnt_title:ERRORE: Il tuo account e' stato scartato da un filtro.
 err_blockedaccnt_msg:L'accesso al forum per il tuo account è stato bloccato da uno dei filtri utente installati.
+merge_th_page_list:Pagina di selezione discussione
 most_users_online:Il maggior numero di utenti online è stato <b>{VAR: st_obj->most_online}</b> il <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
 sub_unsub_all_forums:Togli la sottoscrizione da Tutti i Forum
 sub_unsub_all_topics:Togli la sottoscrizione da Tutti i Topic
@@ -1132,3 +1137,4 @@ ip_whois_connect_err:Impossibile connettersi al server WHOIS ({VAR: whois_server
 custom_filed_required:Questo campo è obbligatorio.
 page_list_heading:Pagine disponibili
 page_list_total:{PLURAL: i|$1 pagina|$1 pagine} elencate.
+page_update:Pagina di navigazione
