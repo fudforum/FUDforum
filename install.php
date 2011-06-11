@@ -344,8 +344,8 @@ a:visited, a:link { color: #242; }
 a:active, a:hover { color: red; }
 </style>
 <script>
-$(document).ready(function() {
-	$(':text:visible:enabled:first').focus();
+jQuery(document).ready(function() {
+	jQuery(':text:visible:enabled:first').focus();
 });
 </script>
 </head>
@@ -1381,31 +1381,31 @@ switch ($section) {
 
 		// jQuery to set database defaults & disable non-relavent input fields.
 		echo '<script type="text/javascript">
-			$(document).ready(function() {
-				$("select").change(function() {
-					$("#DBHOST,#DBHOST_USER,#DBHOST_PASSWORD,#DBHOST_DBNAME").show();
-					var db = $("option:selected", this).val();
+			jQuery(document).ready(function() {
+				jQuery("select").change(function() {
+					jQuery("#DBHOST,#DBHOST_USER,#DBHOST_PASSWORD,#DBHOST_DBNAME").show();
+					var db = jQuery("option:selected", this).val();
 					if (db == "ibm_db2") {
-						$("#DBHOST").val("127.0.0.1");
-						$("#DBHOST_USER").val("db2inst1");
-						$("#DBHOST_DBNAME").val("SAMPLE");
+						jQuery("#DBHOST").val("127.0.0.1");
+						jQuery("#DBHOST_USER").val("db2inst1");
+						jQuery("#DBHOST_DBNAME").val("SAMPLE");
 					} else if (db == "interbase") {
-						$("#DBHOST").val("127.0.0.1");
-						$("#DBHOST_USER").val("SYSDBA");
+						jQuery("#DBHOST").val("127.0.0.1");
+						jQuery("#DBHOST_USER").val("SYSDBA");
 					} else if (db == "mysql" || db == "mysqli" || db == "pdo_mysql") {
-						$("#DBHOST").val("127.0.0.1");
-						$("#DBHOST_USER").val("root");
+						jQuery("#DBHOST").val("127.0.0.1");
+						jQuery("#DBHOST_USER").val("root");
 					} else if (db == "pgsql" || db == "pdo_pgsql") {
-						$("#DBHOST").val("127.0.0.1");
-						$("#DBHOST_USER").val("postgres");
+						jQuery("#DBHOST").val("127.0.0.1");
+						jQuery("#DBHOST_USER").val("postgres");
 					} else if (db == "oci8") {
-						$("#DBHOST").val("127.0.0.1");
-						$("#DBHOST_USER").val("scott");
-						$("#DBHOST_DBNAME").val("XE");
+						jQuery("#DBHOST").val("127.0.0.1");
+						jQuery("#DBHOST_USER").val("scott");
+						jQuery("#DBHOST_DBNAME").val("XE");
 					} else if (db == "pdo_sqlite") {
-						$("#DBHOST,#DBHOST_USER,#DBHOST_PASSWORD,#DBHOST_DBNAME").hide().val("");
+						jQuery("#DBHOST,#DBHOST_USER,#DBHOST_PASSWORD,#DBHOST_DBNAME").hide().val("");
 					} else if (db == "sqlsrv" || db == "pdo_sqlsrv") {
-						$("#DBHOST_USER").val("se");
+						jQuery("#DBHOST_USER").val("se");
 					}
 				});
 			});

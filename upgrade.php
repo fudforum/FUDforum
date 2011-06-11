@@ -504,8 +504,8 @@ function extract_archive($memory_limit)
 	<style>html, body { height: 95%; }</style>
 	<script src="js/jquery.js"></script>
 	<script>
-	$(document).ready(function() {
-		$(':text:visible:enabled:first').focus();
+	jQuery(document).ready(function() {
+		jQuery(':text:visible:enabled:first').focus();
 	});
 	</script>
 </head>
