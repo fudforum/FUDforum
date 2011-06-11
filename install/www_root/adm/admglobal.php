@@ -188,14 +188,14 @@ function get_max_upload_size()
 <script type="text/javascript">
 /* <![CDATA[ */
 function show_section(sec) {
-	$("fieldset.section").hide();
-	$("."+sec).slideDown("slow").find(":text:visible:enabled:first").focus();
-	$("#settings-form").attr("action", "admglobal.php#"+sec);
+	jQuery("fieldset.section").hide();
+	jQuery("."+sec).slideDown("slow").find(":text:visible:enabled:first").focus();
+	jQuery("#settings-form").attr("action", "admglobal.php#"+sec);
 }
 
-$(document).ready(function() {
-	$(".seclink").click(function () {	// Click on section link.
-		sec = $(this).attr('href').substr(1);
+jQuery(document).ready(function() {
+	jQuery(".seclink").click(function () {	// Click on section link.
+		sec = jQuery(this).attr('href').substr(1);
 		show_section(sec);
 	}); 
 	if (window.location.hash) {	// Settings changed.
@@ -461,16 +461,16 @@ $(document).ready(function() {
 ?>
 <script type="text/javascript">
 /* <![CDATA[ */
-$(document).ready(function() {
+jQuery(document).ready(function() {
 	/* Hide SMTP fields if SMTP is not active. */
-	$('#FUD_OPT_1_USE_SMTP').change(function() {
-		if ( $('#FUD_OPT_1_USE_SMTP option:selected').val() > 0 ) {
-			$('input[name^="CF_FUD_SMTP_"]').parent().parent().show('slow');
+	jQuery('#FUD_OPT_1_USE_SMTP').change(function() {
+		if ( jQuery('#FUD_OPT_1_USE_SMTP option:selected').val() > 0 ) {
+			jQuery('input[name^="CF_FUD_SMTP_"]').parent().parent().show('slow');
 		} else {
-			$('input[name^="CF_FUD_SMTP_"]').parent().parent().hide('slow');
+			jQuery('input[name^="CF_FUD_SMTP_"]').parent().parent().hide('slow');
 		}
 	});
-	$('#FUD_OPT_1_USE_SMTP').change();
+	jQuery('#FUD_OPT_1_USE_SMTP').change();
 });
 /* ]]> */
 </script>

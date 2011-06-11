@@ -183,10 +183,10 @@ function fud_msg_focus(mid_hash)
 /* AJAX call to replace message with next in tree view. */
 function fud_tree_msg_focus(mid, s, CHARSET)
 {
-	$('body').css('cursor', 'progress');
-	$('#msgTbl').fadeTo('fast', 0.33);
+	jQuery('body').css('cursor', 'progress');
+	jQuery('#msgTbl').fadeTo('fast', 0.33);
 
-	$.ajax({
+	jQuery.ajax({
 		url: 'index.php?t=tree_msg&id='+mid+'&S='+s,
 		dataType: 'html',
 		contentType: 'text/html; charset='+CHARSET,
@@ -197,15 +197,15 @@ function fud_tree_msg_focus(mid, s, CHARSET)
 		},
 		success: function(data){
 			// Put new message on page.
-			$('#msgTbl').empty().append('<tbody><tr><td>'+data+'</td></tr></tbody>').fadeTo('fast', 1);
+			jQuery('#msgTbl').empty().append('<tbody><tr><td>'+data+'</td></tr></tbody>').fadeTo('fast', 1);
 
 			// Mark message as read (unread.png -> read.png).
-			var read_img = $('#b' + cur_msg).find('img');
+			var read_img = jQuery('#b' + cur_msg).find('img');
 			read_img.attr('src', read_img.attr('src').replace('unread', 'read'));
 
 			// Change row color.
-			$('#b' + mid).removeClass().addClass('RowStyleC');
-			$('#b' + cur_msg).removeClass().addClass( (cur_msg % 2 ? 'RowStyleA' : 'RowStyleB') );
+			jQuery('#b' + mid).removeClass().addClass('RowStyleC');
+			jQuery('#b' + cur_msg).removeClass().addClass( (cur_msg % 2 ? 'RowStyleA' : 'RowStyleB') );
 			cur_msg = mid;
 		},
 		error: function(xhr, desc, e) {
@@ -213,7 +213,7 @@ function fud_tree_msg_focus(mid, s, CHARSET)
 		},
 		complete: function() {
 			chng_focus('page_top');
-			$('body').css('cursor', 'auto');
+			jQuery('body').css('cursor', 'auto');
 		}
 	});
 }
@@ -278,18 +278,18 @@ function highlightSearchTerms(searchText)
 
 function rs_txt_box(col_inc, row_inc)
 {
-	var obj = $('textarea');
+	var obj = jQuery('textarea');
 	obj.height( obj.height() + row_inc);
 	obj.width(obj.width() + col_inc);
 }
 
 function topicVote(rating, topic_id, ses, sq)
 {
-	$.ajax({
+	jQuery.ajax({
 		url: 'index.php?t=ratethread&sel_vote='+rating+'&rate_thread_id='+topic_id+'&S='+ses+'&SQ='+sq,
 		success: function(data){
-			$('#threadRating').html(data);
-			$('#RateFrm').empty();
+			jQuery('#threadRating').html(data);
+			jQuery('#RateFrm').empty();
 		},
 		error: function(xhr, desc, e) {
 		alert('Failed to submit: ' + desc);
@@ -327,30 +327,30 @@ function nextCat(id)
 
 function min_max_cats(theme_image_root, img_ext, minimize_category, maximize_category, sq, s)
 {
-	$(document).ready(function() {
+	jQuery(document).ready(function() {
 		var toggleMinus = theme_image_root +'/min'+ img_ext;
 		var togglePlus  = theme_image_root +'/max'+ img_ext;
 
-		$('.collapsed').prepend('<img src="'+ togglePlus +'" alt="+" title="'+ maximize_category +'" /> ')
+		jQuery('.collapsed').prepend('<img src="'+ togglePlus +'" alt="+" title="'+ maximize_category +'" /> ')
 		               .addClass('collapsable');
-		$('.expanded').prepend('<img src="'+ toggleMinus +'" alt="-" title="'+ minimize_category +'" /> ')
+		jQuery('.expanded').prepend('<img src="'+ toggleMinus +'" alt="-" title="'+ minimize_category +'" /> ')
 		              .addClass('collapsable');
 
-  $('img', $('.collapsable')).addClass('clickable')
+  jQuery('img', jQuery('.collapsable')).addClass('clickable')
   .css('cursor', 'pointer')
   .click(function() {
-    var toggleSrc = $(this).attr('src');
-    var cat = $(this).parents('tr').attr('id');
+    var toggleSrc = jQuery(this).attr('src');
+    var cat = jQuery(this).parents('tr').attr('id');
     var on;
 
     if ( toggleSrc.indexOf(toggleMinus) >= 0 ) {        /* Hide cat */
-      $(this).attr('src', togglePlus)
+      jQuery(this).attr('src', togglePlus)
              .attr('title', maximize_category)
              .attr('alt', '+')
              .parents('tr').siblings('.child-'+cat).fadeOut('slow');
       on = 1;
     } else{                             /* Show cat */
-      $(this).attr('src', toggleMinus)
+      jQuery(this).attr('src', toggleMinus)
              .attr('title', minimize_category)
              .attr('alt', '-')
              .parents('tr').siblings('.child-'+cat).fadeIn('slow');
@@ -358,7 +358,7 @@ function min_max_cats(theme_image_root, img_ext, minimize_category, maximize_cat
     };
 
     if (sq != '') {
-       $.ajax({
+       jQuery.ajax({
           type: 'POST',
           url: 'index.php?t=cat_focus',
           data: 'SQ='+ sq +'&S='+ s +'&c='+ cat.substr(1) +'&on='+ on
@@ -372,23 +372,23 @@ function min_max_cats(theme_image_root, img_ext, minimize_category, maximize_cat
 
 function min_max_posts(theme_image_root, img_ext, minimize_message, maximize_message)
 {
-$(document).ready(function() {
+jQuery(document).ready(function() {
   var toggleMinus = theme_image_root +'/min'+ img_ext;
   var togglePlus  = theme_image_root +'/max'+ img_ext;
 
-  $('td.MsgSubText').prepend('<img src="'+ toggleMinus +'" alt="-" title="'+ minimize_message +'" class="collapsable" /> ');
+  jQuery('td.MsgSubText').prepend('<img src="'+ toggleMinus +'" alt="-" title="'+ minimize_message +'" class="collapsable" /> ');
 
-  $('.collapsable').addClass('clickable').css('cursor', 'pointer')
+  jQuery('.collapsable').addClass('clickable').css('cursor', 'pointer')
   .click(function() {
-    var toggleSrc = $(this).attr('src');
+    var toggleSrc = jQuery(this).attr('src');
 
     if ( toggleSrc.indexOf(toggleMinus) >= 0 ) {        /* Hide message */
-      $(this).attr('src', togglePlus)
+      jQuery(this).attr('src', togglePlus)
              .attr('title', maximize_message)
              .attr('alt', '+')
              .parents('.MsgTable').find('td').not('.MsgR1').fadeOut('slow');
     } else {                                             /* Show message */
-      $(this).attr('src', toggleMinus)
+      jQuery(this).attr('src', toggleMinus)
              .attr('title', minimize_message)
              .attr('alt', '-')
              .parents('.MsgTable').find('td').fadeIn('slow');
@@ -429,14 +429,14 @@ function select_code(a)
 /* Add controls to code blocks. */
 function format_code(codeMsg, selMsg, hideMsg) 
 {
-	$(document).ready(function() {
-		$('div pre').each(function() {
-			// $(this).addClass('highlight');
-			var content = $(this).parent().html();
-			$(this).parent().html(
+	jQuery(document).ready(function() {
+		jQuery('div pre').each(function() {
+			// jQuery(this).addClass('highlight');
+			var content = jQuery(this).parent().html();
+			jQuery(this).parent().html(
 			  '<span><div class="codehead">'+codeMsg+' '+
 			  '[<a href="#" onclick="select_code(this); return false;">'+selMsg+'</a>] '+
-			  '[<a href="#" onclick="$(this).parent().parent().find(\'pre\').slideToggle(); return false;">'+hideMsg+'</a>]'+
+			  '[<a href="#" onclick="jQuery(this).parent().parent().find(\'pre\').slideToggle(); return false;">'+hideMsg+'</a>]'+
 			  '</div>'+content+'</span>');
 		});
 	});
@@ -445,10 +445,10 @@ function format_code(codeMsg, selMsg, hideMsg)
 /* Allow users to select text and add it as a quote to the message box. */
 function quote_selected_text(quoteButtonText) {
 	// Add "Quote selected text" button.
-	$(".miniMH").parent().parent().append('<div class="ar"><button class="button" id="quote">'+ quoteButtonText +'</button></class>');
+	jQuery(".miniMH").parent().parent().append('<div class="ar"><button class="button" id="quote">'+ quoteButtonText +'</button></class>');
 
 	// Handle button clicks.
-	$("#quote").click(function() {
+	jQuery("#quote").click(function() {
 		//  Get user selected text.
 		var selectedText = '';
 		if(window.getSelection){
@@ -461,51 +461,51 @@ function quote_selected_text(quoteButtonText) {
 
 		// Append it to the textarea as quoted text.
 		if (selectedText) {
-			var textAreaVal = $("#txtb").val();
-			$("#txtb").val(textAreaVal +"\n[quote]"+ selectedText +"[/quote]").focus();
+			var textAreaVal = jQuery("#txtb").val();
+			jQuery("#txtb").val(textAreaVal +"\n[quote]"+ selectedText +"[/quote]").focus();
 		}
 	});
 }
 
 /* Visual indication if confirmation password matches the original password. */
 function passwords_match(password1, password2) {
-	if ($(password2).attr("value") != $('#'+ password1).attr('value')) {
-		$(password2).css("color", "red");
+	if (jQuery(password2).attr("value") != jQuery('#'+ password1).attr('value')) {
+		jQuery(password2).css("color", "red");
 	} else {
-		$(password2).css("color", "green");
+		jQuery(password2).css("color", "green");
 	}
 }
 
 /* Code that will run on each page. */
-$(function init() {
+jQuery(function init() {
 	/* Open external links in a new window. */
-	// $('a[href^="http://"]').attr({
+	// jQuery('a[href^="http://"]').attr({
 	//	target: "_blank", 
 	//	title: "Opens in a new window"
 	// });
 
 	/* Add rel="nofollow" to external links. */
-	// $('a[href^="http"]').attr('rel','nofollow');
+	// jQuery('a[href^="http"]').attr('rel','nofollow');
 
 	/* Make textareas's resizable. */
-	$("textarea:visible").resizable({
+	jQuery("textarea:visible").resizable({
 		handles: "se"
 	});
 
 /*
-	$('textarea:not(.textarea-processed)').each(function() {
-	var textarea = $(this).addClass('textarea-processed'), staticOffset = null;
+	jQuery('textarea:not(.textarea-processed)').each(function() {
+	var textarea = jQuery(this).addClass('textarea-processed'), staticOffset = null;
 
-	$(this).wrap('<div class="resizable-textarea"><span></span></div>')
-	.parent().append($('<div class="grippie"></div>').mousedown(startDrag));
+	jQuery(this).wrap('<div class="resizable-textarea"><span></span></div>')
+	.parent().append(jQuery('<div class="grippie"></div>').mousedown(startDrag));
 
-	var grippie = $('div.grippie', $(this).parent())[0];
-	grippie.style.marginRight = (grippie.offsetWidth - $(this)[0].offsetWidth) +'px';
+	var grippie = jQuery('div.grippie', jQuery(this).parent())[0];
+	grippie.style.marginRight = (grippie.offsetWidth - jQuery(this)[0].offsetWidth) +'px';
 
 	function startDrag(e) {
 	  staticOffset = textarea.height() - e.pageY;
 	  textarea.css('opacity', 0.25);
-	  $(document).mousemove(performDrag).mouseup(endDrag);
+	  jQuery(document).mousemove(performDrag).mouseup(endDrag);
 	  return false;
 	}
 
@@ -515,18 +515,18 @@ $(function init() {
 	}
 
 	function endDrag(e) {
-	  $(document).unbind("mousemove", performDrag).unbind("mouseup", endDrag);
+	  jQuery(document).unbind("mousemove", performDrag).unbind("mouseup", endDrag);
 	  textarea.css('opacity', 1);
 	}
 	});
 */
 	
 	/* Syntax highlighting for code blocks. */
-	// $.SyntaxHighlighter.init();
+	// jQuery.SyntaxHighlighter.init();
 	
 	/* Start TimeAgo plugin. */
-	// $('.DateText').timeago();
-	$("time").timeago();
+	// jQuery('.DateText').timeago();
+	jQuery("time").timeago();
 	// <time class="DateText" datetime="2008-07-17T09:24:17Z">July 17, 2008</time>
 
 });

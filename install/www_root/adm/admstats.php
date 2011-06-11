@@ -144,7 +144,7 @@
 		echo '</tbody>';
 		echo '<tfoot><tr><td>Total</td><td>'. $ttl .'</td></tr></tfoot>';
 		echo '</table>';
-		echo '<script>$("#graph").charts();</script>';
+		echo '<script>jQuery("#graph").charts();</script>';
 	} else {
 		$_POST['s_year']  = $s_year;
 		$_POST['s_month'] = $s_month;

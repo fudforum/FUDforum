@@ -65,9 +65,9 @@
 
 <script type="text/javascript">
 /* <![CDATA[ */
-$(document).ready(function () {
-  $('.newEntry').click(function() {
-	$(this).parent().html('New topic:'+
+jQuery(document).ready(function () {
+  jQuery('.newEntry').click(function() {
+	jQuery(this).parent().html('New topic:'+
 				 '<input type="text" name="q[]" value="" size="60" /><br />'+
 				 '<textarea name="a[]" rows="10" cols="80"></textarea>');
   });

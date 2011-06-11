@@ -66,8 +66,8 @@
 </form>
 <script type="text/javascript">
 /* <![CDATA[ */
-$(document).ready(function() {
-	$('#txtb').focus();
+jQuery(document).ready(function() {
+	jQuery('#txtb').focus();
 });
 /* ]]> */
 </script>

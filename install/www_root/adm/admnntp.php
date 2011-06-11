@@ -101,16 +101,16 @@
 
 	<script type="text/javascript">
 	/* <![CDATA[ */
-	$(document).ready(function() {
+	jQuery(document).ready(function() {
 		/* Hide 'Login' & 'Password' fields if 'Authentication Method' is NONE. */
-		$('#nntp_auth').change(function() {
-			if ( $('#nntp_auth option:selected').val() == 64 ) {
-				$('#nntp_login, #nntp_pass').parent().parent().hide('slow');
+		jQuery('#nntp_auth').change(function() {
+			if ( jQuery('#nntp_auth option:selected').val() == 64 ) {
+				jQuery('#nntp_login, #nntp_pass').parent().parent().hide('slow');
 			} else {
-				$('#nntp_login, #nntp_pass').parent().parent().show('slow');
+				jQuery('#nntp_login, #nntp_pass').parent().parent().show('slow');
 			}
 		});
-		$('#nntp_auth').change();
+		jQuery('#nntp_auth').change();
 	});
 	/* ]]> */
 	</script>

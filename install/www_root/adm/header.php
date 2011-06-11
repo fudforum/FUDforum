@@ -73,12 +73,12 @@ li {position: relative; padding: 2px 0; }
 span.ui-icon {float: left; margin: 0 -2px;}
 </style>
 <script>
-$(document).ready(function() {
-	$(".menu li a").each(function() {
+jQuery(document).ready(function() {
+	jQuery(".menu li a").each(function() {
 		var url = this.href.substring(0, this.href.lastIndexOf("?"));
 		if( url == document.location.protocol + "//" + window.location.hostname + window.location.pathname ) {
-			$(this).before('<span class="ui-icon ui-icon-triangle-1-e"></span>');
-			//$(this).before('<img src="../blank.gif" class="ui-icon ui-icon-triangle-1-w" />');
+			jQuery(this).before('<span class="ui-icon ui-icon-triangle-1-e"></span>');
+			//jQuery(this).before('<img src="../blank.gif" class="ui-icon ui-icon-triangle-1-w" />');
 		}
 	});
 });

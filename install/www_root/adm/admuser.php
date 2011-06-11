@@ -311,11 +311,11 @@ administration permissions to the forum. This individual will be able to do anyt
 	.ui-autocomplete-loading { background: white url('../js/jquery/images/ui-anim_basic_16x16.gif') right center no-repeat; }
 </style>
 <script>
-	$(function() {
-		$("#usr_login").autocomplete({
+	jQuery(function() {
+		jQuery("#usr_login").autocomplete({
 			source: "../index.php?t=autocomplete&lookup=alias", minLength: 1
 		});
-		$("#usr_email").autocomplete({
+		jQuery("#usr_email").autocomplete({
 			source: "../index.php?t=autocomplete&lookup=email", minLength: 1
 		});
 	});
