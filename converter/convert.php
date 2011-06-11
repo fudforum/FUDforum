@@ -220,7 +220,10 @@ function target_add_user($user)
 
 	// Load avatar.
 	$avatar = 0; $avatar_loc = '';
-	if (!empty($user['avatar'])) {
+	if (empty($user['avatar'])) {
+		$user['users_opt'] |= 4194304;	// avatar_approved (No Avatar).
+	} else {
+		$user['users_opt'] |= 8388608;	// avatar_approved YES.
 		$avatar_file = preg_replace('/\?.*/', '\\1', $user['avatar']);	// Remove URL params.
 
 		if (strpos($avatar_file, '://') ) {
@@ -254,14 +257,17 @@ function target_add_user($user)
 		}
 	}
 
+	// Default user options:
+	// 2=notify; 4=notify_method EMAIL; 16=email_messages; 32=pm_messages; 128=default_topic_view (MSG);
+	// 512=gender (UNSPECIFIED); 4096=show_sigs; 8192=show_avatars; 16384=show_im; 131072=email_conf;
+	$user['users_opt'] |= 2 | 4 | 16 | 32 | 128 | 256 | 512 | 4096 | 8192 | 16384 | 131072;
+
 	// Birthday calculations.
 	if (!empty($user['birthday'])) {
 		$birthday = strftime('%m%d%Y', $user['birthday']);
 	} else {
 		$birthday = '';
 	}
-
-	$user['users_opt'] |= 2 | 4 | 4194304 | 16 | 32 | 128 | 256 | 512 | 4096 | 8192 | 16384 | 32768 | 131072;
 
 	q('INSERT INTO '. $GLOBALS['DBHOST_TBL_PREFIX'] .'users 
 		(id, login, alias, name, passwd, salt, last_visit, last_read, join_date, 
@@ -625,19 +631,19 @@ if (php_sapi_name() == 'cli') {
 } else {
 
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<title>FUDforum Migration Assistant</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="styleSheet" href="adm/style/adm.css" type="text/css" />
-<style type="text/css">html, body { height: 95%; }</style>
-<script type="text/javascript" src="js/jquery.js"></script>
-<script type="text/javascript">
-$(document).ready(function() {
-        $(':text:visible:enabled:first').focus();
-});
-</script>
+	<meta charset="utf-8">
+	<title>FUDforum Migration Assistant</title>
+	<link rel="styleSheet" href="adm/style/adm.css" />
+	<style>html, body { height: 95%; }</style>
+	<script src="js/jquery.js"></script>
+	<script>
+	$(document).ready(function() {
+		$(':text:visible:enabled:first').focus();
+	});
+	</script>
 </head>
 <body>
 <table class="headtable"><tr>
