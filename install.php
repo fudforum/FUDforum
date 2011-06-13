@@ -236,11 +236,11 @@ function get_server_uid_gid()
 function check_primary_dir($dir, $type)
 {
 	if (!__mkdir($dir)) {
-		seterr($type, 'Install script failed to create "'. $dir .'". Create it manually and chmod it 777 or make it\'s user/group same as the web-server '. get_server_uid_gid());
+		seterr($type, 'Failed to create "'. $dir .'". Please create it manually and grant read/write permissions to the web-server user '. get_server_uid_gid());
 		return 1;
 	}
 	if (!@is_writable($dir)) {
-		seterr($type, 'Directory "'. $dir .'" exist, however install script has no permission to write to this directory. Chmod it 777 or make it\'s user/group same as the '. get_server_uid_gid());
+		seterr($type, 'Directory "'. $dir .'" exists but the installation script is unable to write to the directory. Please grant read/write permissions to the web-server user '. get_server_uid_gid());
 		return 1;
 	}
 	if (SAFE_MODE) {
@@ -252,7 +252,7 @@ function check_primary_dir($dir, $type)
 			}
 		}
 		if (!$safe && basename(__FILE__) != 'install.php') {
-			seterr($type, 'Safe mode limitation prevents the install script from writing to "'. $dir .'". Please make sure that this directory is owned by the same user/group same as the web-server '. get_server_uid_gid());
+			seterr($type, 'Safe mode limitations prevent the installation script from writing to "'. $dir .'". Please grant read/write permissions to the web-server user '. get_server_uid_gid());
 			return 1;
 		}
 	}
@@ -265,7 +265,7 @@ function check_primary_dir($dir, $type)
 			}
 		}
 		if ($safe) {
-			seterr($type, 'open_basedir limitation "'. open_basedir .'" prevents the install script from writing to "'. $dir .'". Please ensure that the specified directory is inside the directories listed in the open_basedir directive');
+			seterr($type, 'open_basedir limitations "'. open_basedir .'" prevent the installation script from writing to "'. $dir .'". Please modify the open_basedir directive to include the specified directory');
 			return 1;
 		}
 	}
@@ -524,8 +524,7 @@ if (strncmp(PHP_SAPI, 'apache', 6)) {
 if (!count($_POST)) {
 	/* PHP version check. */
 	if (!version_compare(PHP_VERSION, '5.2.3', '>=')) {
-		seterr('PHPVER', 'Your PHP version <b>(<?php echo PHP_VERSION; ?>)</b> is older then the minimum required version <b>(5.2.3)</b>. Please install a newer version and try again.<br />The reasons for this restriction are numerous, most important ones
-being security and performance.');
+		seterr('PHPVER', 'FUDforum requires PHP 5.2.3 or later while you have version <?php echo PHP_VERSION; ?> Installed. Please rectify this and try again.');
 	}
 
 	/* Database check. */
@@ -537,22 +536,22 @@ being security and performance.');
 		!$module_status['pdo_sqlite'] &&
 		!$module_status['sqlsrv'] && !$module_status['pdo_sqlsrv'])
 	{
-		seterr('NODB', 'FUDforum can utilize either a IBM DB2, Firebird, MySQL, Oracle, PosgreSQL, SQLite or MS-SQL Server database to store it\'s data. However, your PHP installation does not have support for any of these databases. Please install or load the appropriate database extension and then re-run the install script.');
+		seterr('NODB', 'Your PHP installation does not appear to support any of IBM DB2, Firebird, MySQL, Oracle, PosgreSQL, SQLite or MS-SQL Server database system. Please rectify this and try again.');
 	}
 
 	/* PCRE check. */
 	if (!$module_status['pcre']) {
-		seterr('PCRE', 'The PCRE (Perl Compatible Regular Expression) extension, required for proper forum operation, is not availabled. Please load or install this extension and then re-run the installer.');
+		seterr('PCRE', 'The required PCRE extension for PHP is not available. Please rectify this and try again.');
 	}
 
 	/* Mbstring check. */
 	if (!$module_status['mbstring']) {
-		seterr('MBSTRING', 'The MBSTRING (Multibyte String) extension, required for proper forum operation, is not availabled. Please load or install this extension and then re-run the installer.');
+		seterr('MBSTRING', 'The required MBSTRING extension for PHP is not available. Please rectify this and try again.');
 	}
 
 	/* File permission check. */
 	if ($no_mem_limit && !@is_writeable(__FILE__)) {
-		seterr('PERMS', 'You need to <i>chmod</i> the <?php echo __FILE__; ?> file 666 (-rw-rw-rw-), so that the installer can modify itself. This is needed to avoid problems since your PHP installation enforces memory limit setting.');
+		seterr('PERMS', 'Please grant read/write permissions on this installation file to the web-server user to proceed.');
 	}
 
 	if (isset($GLOBALS['errors'])) {
@@ -568,14 +567,14 @@ being security and performance.');
 	$fsize = filesize(__FILE__);
 	if ($fsize < 200000 && !file_exists('./fudforum_archive')) {
 		page_header();
-		echo 'The installer is missing the data archive, append the archive to the installer and try again.';
+		echo 'The required data archive is missing from the installation package. Please rectify this and try again.';
 		page_footer();
 		exit;
 	} else if ($fsize > 200000) {
 		/* Zlib check. */
 		if (($zl = ($fsize < 3500000)) && !$module_status['zlib']) {
 			page_header();
-			echo 'The zlib extension that is required to decompress the archive is not installed. Please recompile your PHP with zlib support or load the zlib extension, if this is not possible, download the non-zlib version of the install or upgrade script from FUDforum\'s website at: <a href="http://fudforum.org/forum/">http://fudforum.org/forum/</a>.';
+			echo 'The optional ZLIB extension for PHP is not available. You may wish to rectify this or download the non-zlib version of this script from the FUDforum website at: <a href="http://fudforum.org/forum/">http://fudforum.org/forum/</a> and try again.';
 			page_footer();
 			exit;
 		}
@@ -584,9 +583,9 @@ being security and performance.');
 	if (isset($zl) && $no_mem_limit) {
 		/* Move archive to separate file. */
 		if (!($fp = @fopen('./fudforum_archive', 'wb'))) {
-			echo '<html><body>Please make sure that the intaller has permission to write to the current directory ('.getcwd().')';
+			echo '<html><body>Please grant read/write permissions on the current directory file to the web-server user ('.getcwd().')';
 			if (!SAFE_MODE) {
-				echo '<br />or create a "fudforum_archive" file inside the current directory and make it writable to the webserver.';
+				echo '<br />or create a file called "fudforum_archive" within the current directory and grant read/write permissions on this file to the web-server user to proceed.';
 			}
 			exit('</body></html>');
 		}
@@ -671,27 +670,27 @@ if ($section == 'stor_path' || php_sapi_name() == 'cli') {
 	if (php_sapi_name() == 'cli') {
 		/* Prompt for forum's URL. */
 		while (!validate_url($_POST['WWW_ROOT'])) {
-			echo 'Your forum\'s URL: ';
+			echo 'Forum URL: ';
 			$url = trim(fgets(STDIN, 1024));
 			if (validate_url($url)) {
 				break;
 			}
-			echo 'ERROR: ['. $url ."] is not a valid URL, please supply a url in the 'http://host/path/' format\n";
+			echo 'ERROR: ['. $url ."] is not a valid URL. Please supply a url in the 'http://host/path/' format\n";
 		}
 
 		/* Prompt for file system path of the forum's web files. */
 		while (!$_POST['SERVER_ROOT'] || !is_wr($_POST['SERVER_ROOT'])) {
-			echo 'Path to forum\'s web browseable files: ';
+			echo 'Path to FudForum web browseable files: ';
 			$_POST['SERVER_ROOT']  = trim(fgets(STDIN, 1024));
 			if ($_POST['SERVER_ROOT'] && is_wr($_POST['SERVER_ROOT'])) {
 				break;
 			}
-			echo 'ERROR: ['. $_POST['SERVER_ROOT'] ."] either does not exist or the installer has no permission to create it\n";
+			echo 'ERROR: ['. $_POST['SERVER_ROOT'] ."] does not exist or the installer does not have the required permissions to create it\n";
 		}
 
 		/* Prompt for file path of the forum's web files. */
 		while (!$_POST['SERVER_DATA_ROOT'] || !is_wr($_POST['SERVER_DATA_ROOT'])) {
-			echo 'Path to forum\'s data files (non-browseable) ['. $_POST['SERVER_ROOT'] .']: ';
+			echo 'Path to Fudforum data files (non-browseable) ['. $_POST['SERVER_ROOT'] .']: ';
 			$_POST['SERVER_DATA_ROOT'] = trim(fgets(STDIN, 1024));
 			if (!$_POST['SERVER_DATA_ROOT']) {
 				$_POST['SERVER_DATA_ROOT'] = $_POST['SERVER_ROOT'];
@@ -699,7 +698,7 @@ if ($section == 'stor_path' || php_sapi_name() == 'cli') {
 			} else if (is_wr($_POST['SERVER_DATA_ROOT'])) {
 				break;
 			}
-			echo 'ERROR: ['. $_POST['SERVER_DATA_ROOT'] ."] either does not exist or the installer has no permission to create it\n";
+			echo 'ERROR: ['. $_POST['SERVER_DATA_ROOT'] ."] does not exist or the installer does not have the required permissions to create it\n";
 		}
 		
 		echo "Copying forum files.\n";
@@ -749,7 +748,7 @@ if ($section == 'stor_path' || php_sapi_name() == 'cli') {
 			fclose($fp);
 
 			if (($d = @file_get_contents($WWW_ROOT .'fud_test_page.htm')) != $check_time) {
-				seterr('WWW_ROOT', 'Your Forum URL and Web Directory doesn\'t point to the same location on disk.<br /><small>Unable to load '. $SERVER_ROOT .'fud_test_page.htm as '. $WWW_ROOT .'fud_test_page.htm.<br />Error: '. $php_errormsg .'</small>');
+				seterr('WWW_ROOT', 'Your Forum URL and Web Directory do not appear to point to the same location on disk.<br /><small>Unable to load '. $SERVER_ROOT .'fud_test_page.htm as '. $WWW_ROOT .'fud_test_page.htm.<br />Error: '. $php_errormsg .'</small>');
 			}
 			unlink($SERVER_ROOT .'fud_test_page.htm');
 		}
@@ -760,7 +759,7 @@ if ($section == 'stor_path' || php_sapi_name() == 'cli') {
 		/* Verify that all the important directories exist (old php bug). */
 		foreach (array('include', 'errors', 'messages', 'files', 'thm', 'tmp', 'cache', 'errors/.nntp', 'errors/.mlist') as $v) {
 			if (!__mkdir($SERVER_DATA_ROOT . $v)) {
-				exit('FATAL ERROR: Couldn\'t create "'. $SERVER_DATA_ROOT . $v .'".<br />You can try creating it manually. If you do, be sure to chmod the directory 777.');
+				exit('FATAL ERROR: Could not create "'. $SERVER_DATA_ROOT . $v .'".<br />You can try creating it manually (remember to grant read/write permissions to the web-server user).');
 			}
 		}
 
@@ -933,13 +932,13 @@ if ($section == 'db' || php_sapi_name() == 'cli') {
 	if (!isset($GLOBALS['errors'])) {
 		$dbver = db_version();
 		if (__dbtype__ == 'mysql' && version_compare($dbver, '4.1.2', '<')) {
-			seterr('DBHOST_DBNAME', 'MySQL version '. $dbver .' is to too old. Please upgrade to version 4.1.2 or higher.');
+			seterr('DBHOST_DBNAME', 'MySQL version '. $dbver .' is not supported. Please upgrade to MySQL Version 4.1.2 or higher.');
 		} else if (__dbtype__ == 'pgsql' && version_compare($dbver, '8.1.0', '<')) {
-			seterr('DBHOST_DBNAME', 'PostgreSQL version '. $dbver .' is to too old. Please upgrade to version 8.1.0 or higher.');
+			seterr('DBHOST_DBNAME', 'PostgreSQL version '. $dbver .' is not supported. Please upgrade to PgSql Version 8.1.0 or higher.');
 		} else if (__dbtype__ == 'oracle' && version_compare($dbver, '9.2.0', '<')) {
-			seterr('DBHOST_DBNAME', 'Oracle version '. $dbver .' is to too old. Please upgrade to version 9.2.0 or higher.');
+			seterr('DBHOST_DBNAME', 'Oracle version '. $dbver .' is not supported. Please upgrade to Oracle Version 9.2.0 or higher.');
 		} else if (__dbtype__ == 'sqlsrv' && version_compare($dbver, '10.00.00', '<')) {
-			seterr('DBHOST_DBNAME', 'SQL Server version '. $dbver .' is to too old. Please upgrade to version 11.00.0000 or higher.');
+			seterr('DBHOST_DBNAME', 'SQL Server version '. $dbver .' is not supported. Please upgrade to SQL Server Version 11.00.0000 or higher.');
 		}
 	}
 
@@ -949,17 +948,17 @@ if ($section == 'db' || php_sapi_name() == 'cli') {
 		try {
 			create_table('CREATE TABLE fud_forum_install_test_table (test_val INT)');
 		} catch (Exception $e) {
-			seterr('DBHOST_DBNAME', 'Please grant your database user access to create tables and try again.');
+			seterr('DBHOST_DBNAME', 'Please grant your database user permissions to create tables and try again.');
 		}
 		try {
 			create_index('fud_forum_install_test_table', 'fud_forum_install_test_index', false, 'test_val');
 		} catch (Exception $e) {
-			seterr('DBHOST_DBNAME', 'Please grant your database user access to create indexes and try again.');
+			seterr('DBHOST_DBNAME', 'Please grant your database user permissions to create indexes and try again.');
 		}
 		try {
 			drop_table('fud_forum_install_test_table', false);
 		} catch (Exception $e) {
-			seterr('DBHOST_DBNAME', 'Please grant your database user access to drop tables and try again.');
+			seterr('DBHOST_DBNAME', 'Please grant your database user permissions to drop tables and try again.');
 		}
 	}
 
@@ -968,7 +967,7 @@ if ($section == 'db' || php_sapi_name() == 'cli') {
 		$tbl = glob($DATA_DIR .'sql/*.tbl', GLOB_NOSORT);
 		$sql = glob($DATA_DIR .'sql/*.sql', GLOB_NOSORT);
 		if (!$tbl || !$sql) {
-			seterr('DBHOST_DBNAME', 'Failed to get a list of table defenitions and/or seed data from: "'. $DATA_DIR ."sql/\"\n");
+			seterr('DBHOST_DBNAME', 'Failed to get a list of table definitions and/or seed data from: "'. $DATA_DIR ."sql/\"\n");
 		}
 	}
 
@@ -1028,13 +1027,13 @@ if ($section == 'db' || php_sapi_name() == 'cli') {
 if ($section == 'cookies' || php_sapi_name() == 'cli') {
 	if (php_sapi_name() == 'cli') {
 		while (empty($_POST['COOKIE_DOMAIN'])) {
-			echo 'Forum\'s Administrator E-mail: ';
+			echo 'Forum Administrator E-mail: ';
 			$_POST['COOKIE_DOMAIN'] = trim(fgets(STDIN, 1024));
 		}
 	}
 
 	if (empty($_POST['COOKIE_DOMAIN'])) {
-		seterr('COOKIE_DOMAIN', 'You must enter a cookie domain in order for cookies to work properly.');
+		seterr('COOKIE_DOMAIN', 'Cookie domain required for cookies to work properly.');
 	} else {
 		if ($_POST['COOKIE_DOMAIN'] == 'localhost' || filter_var($_POST['COOKIE_DOMAIN'], FILTER_VALIDATE_IP)) {
 			$_POST['COOKIE_DOMAIN'] = '';
@@ -1118,13 +1117,13 @@ if ($section == 'admin' || php_sapi_name() == 'cli') {
 	if (php_sapi_name() == 'cli') {
 		/* Prompt for Admin's E-mail address. */
 		while (empty($_POST['ADMIN_EMAIL'])) {
-			echo 'Forum\'s Administrator E-mail: ';
+			echo 'Forum Administrator E-mail: ';
 			$_POST['ADMIN_EMAIL'] = trim(fgets(STDIN, 1024));
 		}
 
 		/* Prompt Admin password. */
 		while (empty($_POST['ROOT_PASS'])) {
-			echo 'Forum\'s Administrator Password: ';
+			echo 'Forum Administrator Password: ';
 			$_POST['ROOT_PASS'] = trim(fgets(STDIN, 1024));
 			echo 'Please confirm the password: ';
 			if ($_POST['ROOT_PASS'] != trim(fgets(STDIN, 1024))) {
@@ -1137,15 +1136,15 @@ if ($section == 'admin' || php_sapi_name() == 'cli') {
 	}
 
 	if (empty($_POST['ROOT_PASS'])) {
-		seterr('ROOT_PASS', 'You must enter a password for the administrator account.');
+		seterr('ROOT_PASS', 'Please enter a password for the administrator account.');
 	} else if ($_POST['ROOT_PASS'] != $_POST['ROOT_PASS_C']) {
 		seterr('ROOT_PASS', 'Your passwords do not match.');
 	}
 	if (empty($_POST['ROOT_LOGIN'])) {
-		seterr('ROOT_LOGIN', 'You must enter a user name for the administrator account.');
+		seterr('ROOT_LOGIN', 'Please enter a user name for the administrator account.');
 	}
 	if (empty($_POST['ADMIN_EMAIL'])) {
-		seterr('ADMIN_EMAIL', 'You must enter a valid email address for the administrator account.');
+		seterr('ADMIN_EMAIL', 'Please enter a valid email address for the administrator account.');
 	}
 
 	if(!isset($GLOBALS['errors'])) {
@@ -1231,7 +1230,7 @@ if (isset($display_section)) {
 switch ($section) {
 	case 'welcome':
 		/* Display some system information on the 1st page of the installer. */
-		dialog_start('WELCOME TO FUDFORUM!', '<p>Thanks for choosing FUDforum, one of the fastest, most secure, and most feature rich PHP based discussion forums.</p><p>This wizard will guide you through installing your forum. For more information, we encourage you to read the <a href="http://cvs.prohost.org/index.php/Installation">installation guide</a>. Please review your system information below and click on <b>Start installer</b> if you system meets the minimum requirements. If you encounter any problems, please report them on the <a href="http://fudforum.org/forum">support website</a>.</p><p><i>This program is free software; you can redistribute it and/or modify it under the terms of the <a href="http://www.gnu.org/licenses/gpl-2.0.html">GNU General Public License version 2</a> as published by the Free Software Foundation. This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.</i></p>');
+		dialog_start('WELCOME TO FUDFORUM!', '<p>Thanks for choosing FUDforum, the fastest, most secure, and most feature rich PHP based discussion forum available today.</p><p>This wizard will guide you through installing your forum. For more information, please read the <a href="http://cvs.prohost.org/index.php/Installation">installation guide</a>. Kindly review your system information as set out below and click on <b>Start installer</b> if your system meets the minimum requirements. If you encounter any problems, please report them on the <a href="http://fudforum.org/forum">support website</a>.</p><p><i>This program is free software; you can redistribute it and/or modify it under the terms of the <a href="http://www.gnu.org/licenses/gpl-2.0.html">GNU General Public License version 2</a> as published by the Free Software Foundation. This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.</i></p>');
 		dialog_end($section);
 
 		dialog_start('System information:', '');
@@ -1251,12 +1250,12 @@ switch ($section) {
 			($module_status['pcre'] ? 'enabled' : 'disabled'), ($module_status['pcre'] ? 'green' : 'red'));
 		prereq_row('Zlib Extension:', 'The zlib extension is optional, however we recommend enabling it. This extension allow you to compress your forum backups as well as use zlib compression for your pages.',
 			($module_status['zlib'] ? 'enabled' : 'disabled'), ($module_status['zlib'] ? 'green' : 'orange'));
-		prereq_row('Pspell Extension:', 'Pspell extension is optional, this extension is needed by the FUDforum\'s built-in spellchecker. If you want to allow users to spell check their messages, enable this extension.',
+		prereq_row('Pspell Extension:', 'Pspell extension is optional, this extension is needed by the FUDforum spellchecker. If you want to allow users to spell check their messages, please enable this extension.',
 			($module_status['pspell'] ? 'enabled' : 'disabled'), ($module_status['pspell'] ? 'green' : 'orange'));
 	dialog_end('prereq');
 
-	dialog_start('Database information: <span class="descr">(at least one of the below database extensions must be enabled)</span>', '');
-	prereq_row('MySQL Improved Extention:', 'Improved interface to the MySQL server (mysqli), which is the recommended database for FUDforum.', 
+	dialog_start('Database information: <span class="descr">(at least one of the database extensions below must be enabled)</span>', '');
+	prereq_row('MySQL Improved Extention:', 'Improved interface to the MySQL server (mysqli), RECOMMENDED', 
 			($module_status['mysqli'] ? 'enabled' : 'disabled'), ($module_status['mysqli'] ? 'green' : 'orange'));
 	prereq_row('MySQL Extention:', 'Interface to the MySQL server, which is the recommended database for FUDforum.', 
 			($module_status['mysql'] ? 'enabled' : 'disabled'), ($module_status['mysql'] ? 'green' : 'orange'));
@@ -1309,16 +1308,16 @@ switch ($section) {
 		}
 
 		if (!SAFE_MODE) {
-			dialog_start('PATH OF SYSTEM FILES AND DIRECTORIES<span class="step">Step 1 of 5</span>', '<p>Please specify the directories where the forum\'s files will be stored. Change the permissions of the <b>Web Directory</b> and the <b>Data Directory</b> (see below) so that the web server can write to them. We suggest chmoding these directories to 777. Some suggestions:</p><ul>
+			dialog_start('SYSTEM FILE AND DIRECTORY PATH<span class="step">Step 1 of 5</span>', '<p>Please specify the directories where FudForum files will be stored. Grant read/write permissions  on both the <b>Web Directory</b> and <b>Data Directory</b> (see below) to the web-server user. Some suggestions:</p><ul>
 			<li>If you have <i>shell access</i>, you can change the directory permission by typing "<b>chmod 777 directory_name</b>";</li>
 			<li><i>CuteFTP</i> can chmod a directory by selecting it and then pressing Ctrl+Shift+A. In the  checkbox, enter 777 and press OK; and</li>
 			<li>In <i>WS_FTP</i>, right-click on the directory and choose the chmod UNIX option. In the dialog, select all the checkboxes and click OK. This will chmod the directory to 777.</li></ul>
-			<p>If you click on <b>Next</b> the forum\'s files will be unpacked to the specified directories.</p>');
+			<p>If you click on <b>Next</b> the FudForum files will be unpacked to the specified directories.</p>');
 		} else {
 			dialog_start('<div style="color:red"><b>SAFEMODE is ENABLED!</b></div><br />PATH OF SYSTEM FILES AND DIRECTORIES<span class="step">Step 1 of 5</span>',
 					'
 					Your PHP has <b><span style="color:red">SAFE MODE</span></b> enabled. Pay careful attention to the intructions below:<br /><br />
-					Due to the brain dead nature of PHP\'s safemode we <span style="color:red">can not</span> install the forum in a directory
+					Due to the nature of safe mode, we <span style="color:red">can not</span> install the forum in a directory
 					created by you. Therefore you must install the forum into a directory, which <span style="color:red">does not yet exist</span>, so that
 					the install script can be the one to create it and thus bypass the safe_mode checks.<br />For example, if you wanted to install
 					your forum to "/my/home/dir/www/forum", you will need to make sure that "/my/home/dir/www/forum" does not exist and that the
@@ -1332,21 +1331,21 @@ switch ($section) {
 			}
 		}
 
-		input_row('Web Directory', 'SERVER_ROOT', $SERVER_ROOT, 'Directory on the server where the forum\'s web browseable files (*.php, images, etc.) will be stored.');
-		input_row('Data Directory', 'SERVER_DATA_ROOT', $SERVER_DATA_ROOT, 'Directory on the server where the forum\'s <b>NON-</b>browseable (cache, backups, and other data) files will be stored. This directory should perferably NOT be accessable by your web server!');
-		input_row('Forum URL', 'WWW_ROOT', $WWW_ROOT, 'The URL of your forum. It should point to the forum\'s front page. This is also the address people will need to use to visit your forum.');
-		input_row('URL Check', 'url_check', '1', 'Turn off this check if you are getting errors pertaining to the <i>Forum URL</i> not matching the <i>Web Directory</i> and are certain that the paths indicated are correct (not recommended!)', 'checkbox', 'checked="checked"');
+		input_row('Web Directory', 'SERVER_ROOT', $SERVER_ROOT, 'Directory on the server where web browseable FudForum files (*.php, images, etc.) will be stored.');
+		input_row('Data Directory', 'SERVER_DATA_ROOT', $SERVER_DATA_ROOT, 'Directory on the server where <b>NON-</b>browseable (cache, backups, and other data) FudForum files will be stored. This directory should perferably be placed outside the document root.');
+		input_row('Forum URL', 'WWW_ROOT', $WWW_ROOT, 'The URL of your forum. It should point to the forum front page. This is the address needed to visit your forum.');
+		input_row('URL Check', 'url_check', '1', 'Turn off this check if you get errors about the <i>Forum URL</i> not matching the <i>Web Directory</i> and are certain that the paths indicated are correct (not recommended!)', 'checkbox', 'checked="checked"');
 		dialog_end($section);
 		break;
 
 	case 'db':
-		dialog_start('Database Settings<span class="step">Step 2 of 5</span>', '<p>FUDforum uses a database to store much of the data used in the forum. Please use the form below to enter information that will allow FUDforum to access the database (leave all but the table prefix empty if you are using SQLite). It is recommended you create a separate <b>UTF-8 encoded</b> database for the forum.</p>
+		dialog_start('Database Settings<span class="step">Step 2 of 5</span>', '<p>FUDforum requires a database to store data. Please enter your database details below (leave all but the table prefix empty if you are using SQLite). It is recommended you create a separate <b>UTF-8 encoded</b> database for the forum.</p>
 		<p>If you click on <b>Next</b> the installer will try to connect to the specified database to create its tables and load the seed data.</p>');
 
 		$db_types = databases_enabled();
 		reset($db_types);
 		if (count($db_types) > 1) {
-			sel_row('Database Type', 'DBHOST_DBTYPE', implode("\n", $db_types), implode("\n", array_keys($db_types)), 'Type of database to store your forum\'s data in.', (isset($_POST['DBHOST_DBTYPE']) ? $_POST['DBHOST_DBTYPE'] : 'mysql'));
+			sel_row('Database Type', 'DBHOST_DBTYPE', implode("\n", $db_types), implode("\n", array_keys($db_types)), 'Type of database to store FudForum data in.', (isset($_POST['DBHOST_DBTYPE']) ? $_POST['DBHOST_DBTYPE'] : 'mysql'));
 		} else {
 			echo '<tr class="field"><td valign="top"><b>Database Type</b></td><td><input type="hidden" name="DBHOST_DBTYPE" value="'. key($db_types) .'" />Using '. current($db_types) .'</td></tr>';
 		}
@@ -1368,16 +1367,16 @@ switch ($section) {
 
 		if (count($db_types) > 1 || !isset($db_types['pdo_sqlite'])) { // If only DB is sqlite, don't show non-relavent settings.
 			input_row('Host', 'DBHOST', $DBHOST, 'The IP address (or unix domain socket) of the database server.');
-			input_row('User', 'DBHOST_USER', $DBHOST_USER, 'The user name for the database you intend to store the data in.');
-			input_row('Password', 'DBHOST_PASSWORD', $DBHOST_PASSWORD, 'The password for the user name.', 'password');
-			input_row('Database', 'DBHOST_DBNAME', $DBHOST_DBNAME, 'The name of the database where forum data will be stored.');
+			input_row('User', 'DBHOST_USER', $DBHOST_USER, 'The database user name.');
+			input_row('Password', 'DBHOST_PASSWORD', $DBHOST_PASSWORD, 'The user name password.', 'password');
+			input_row('Database', 'DBHOST_DBNAME', $DBHOST_DBNAME, 'The database name.');
 		} else {
 			echo '<input type="hidden" name="DBHOST" value="" />
 			      <input type="hidden" name="DBHOST_USER" value="" />
 			      <input type="hidden" name="DBHOST_PASSWORD" value="" />
 			      <input type="hidden" name="DBHOST_DBNAME" value="" />';
 		}
-		input_row('FUDforum SQL Table Prefix', 'DBHOST_TBL_PREFIX', $DBHOST_TBL_PREFIX, 'A string of text that will be appended to each table name to identify FUDforum\'s tables from tables belonging to other applications.');
+		input_row('FUDforum SQL Table Prefix', 'DBHOST_TBL_PREFIX', $DBHOST_TBL_PREFIX, 'A string to append to each table name to identify FUDforum database tables.');
 
 		// jQuery to set database defaults & disable non-relavent input fields.
 		echo '<script type="text/javascript">
@@ -1427,7 +1426,7 @@ switch ($section) {
 		break;
 
 	case 'theme':
-		dialog_start('Forum Theme<span class="step">Step 4 of 5</span>', '<p>Choose the primary template set and language for your forum. Additional templates and languages can be configured after installation from the forum\'s <i>Theme Manager</i> admin control panel.</p><p>If the language you require is not available, or the translation is incomplete, please go to <a href="http://fudforum.org/forum/">FUDforum\'s website</a> and read about translating the forum to other languages.</p>');
+		dialog_start('Forum Theme<span class="step">Step 4 of 5</span>', '<p>Choose the primary template set and language for your forum. Additional templates and languages can be configured after installation from the FudForum <i>Theme Manager</i> admin control panel.</p><p>If the language you require is not available, or the translation is incomplete, please go to <a href="http://fudforum.org/forum/">FUDforum website</a> and read about translating the forum to other languages.</p>');
 
 		// List available template sets.
 		$tmpl_names = '';
