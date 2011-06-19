@@ -64,12 +64,10 @@
 </td></tr>
  </table>
 </form>
-<script type="text/javascript">
-/* <![CDATA[ */
+<script>
 jQuery(document).ready(function() {
 	jQuery('#txtb').focus();
 });
-/* ]]> */
 </script>
 
 <?php

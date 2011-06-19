@@ -99,8 +99,7 @@
 		<td><input type="text" id="nntp_pass" name="nntp_pass" value="<?php echo htmlspecialchars($nntp_pass); ?>" size="30" maxlength="255" /></td>
 	</tr>
 
-	<script type="text/javascript">
-	/* <![CDATA[ */
+	<script>
 	jQuery(document).ready(function() {
 		/* Hide 'Login' & 'Password' fields if 'Authentication Method' is NONE. */
 		jQuery('#nntp_auth').change(function() {
@@ -112,7 +111,6 @@
 		});
 		jQuery('#nntp_auth').change();
 	});
-	/* ]]> */
 	</script>
 
 	<tr>

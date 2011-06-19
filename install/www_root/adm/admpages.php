@@ -70,11 +70,6 @@ echo '<h3>'. ($edit ? '<a name="edit">Edit Page:</a>' : 'Add New Page:') .'</h3>
 <?php echo _hs; ?>
 <table class="datatable">
 	<tr class="field">
-		<td>Page slug:<br /><font size="-2">The page slug is used in the URL of the page and should typically be all lower-case.</font></td>
-		<td><input type="text" name="page_slug" size="30" maxlength="32" value="<?php echo $page_slug; ?>" /></td>
-	</tr>
-
-	<tr class="field">
 		<td>Page title:<br /><font size="-2">Title of the page.</font></td>
 		<td><input type="text" name="page_title" size="50" maxlength="255" value="<?php echo $page_title; ?>" /></td>
 	</tr>
@@ -85,13 +80,18 @@ echo '<h3>'. ($edit ? '<a name="edit">Edit Page:</a>' : 'Add New Page:') .'</h3>
 	</tr>
 
 	<tr class="field">
+		<td>Page slug:<br /><font size="-2">The page slug is used in the URL of the page and should typically be all lower-case.</font></td>
+		<td><input type="text" name="page_slug" size="30" maxlength="32" value="<?php echo $page_slug; ?>" /></td>
+	</tr>
+
+	<tr class="field">
 		<td>Published:<br /><font size="-2">Is the page visible on your site?</font></td>
 		<td><?php draw_select('page_page_opt[]', "Yes\nNo", "1\n0", ($page_page_opt & (1))); ?></td>
 	</tr>
 
 	<tr class="field">
 		<td>List page:<br /><font size="-2">List this page in the list of pages.</font></td>
-		<td><?php draw_select('page_page_opt[]', "Yes\nNo", "0\n2", ($page_page_opt & (2))); ?></td>
+		<td><?php draw_select('page_page_opt[]', "Yes\nNo", "2\n0", ($page_page_opt & (2))); ?></td>
 	</tr>
 
 	<tr class="fieldaction">

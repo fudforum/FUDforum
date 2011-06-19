@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -204,15 +204,13 @@
 			$cases .= "break;\n";
 		}
 	?>
-<script type="text/javascript">
-/* <![CDATA[ */
+<script>
 function update_locale()
 {
 	switch (document.forms['admthm'].thm_lang.value) {
 		<?php echo $cases; ?>
 	}
 }
-/* ]]> */
 </script>
 
 	<select name="thm_lang" onchange="update_locale();">

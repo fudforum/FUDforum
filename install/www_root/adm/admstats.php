@@ -131,7 +131,7 @@
 			$date_str = 'F Y';
 		}
 
-		echo '<script type="text/javascript" src="style/jquery.charts.js"></script>';
+		echo '<script src="style/jquery.charts.js"></script>';
 		echo '<table style="display: none;" id="graph">
 			<caption>'. $g_title .' ('. $g_type .')</caption>
 			<thead><tr><th>Date</th><th>Value</th></tr></thead>

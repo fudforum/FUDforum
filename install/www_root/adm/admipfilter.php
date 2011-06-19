@@ -8,6 +8,7 @@
 * under the terms of the GNU General Public License as published by the
 * Free Software Foundation; version 2 of the License.
 **/
+// TODO: IPv6 compatibility.
 
 	require('./GLOBALS.php');
 	fud_use('adm.inc', true);

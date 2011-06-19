@@ -147,8 +147,7 @@
 <?php
 echo '<h3>'. ($edit ? '<a name="edit">Edit Category:</a>' : 'Add New Category:') .'</h3>';
 ?>
-<script type="text/javascript">
-/* <![CDATA[ */
+<script>
 function imposeMaxLength(Object, len)
 {
 	if (Object.value.length > len) {
@@ -159,7 +158,6 @@ function imposeMaxLength(Object, len)
 		return true;
 	}
 }
-/* ]]> */
 </script>
 <form method="post" action="admcat.php">
 <?php echo _hs; ?>

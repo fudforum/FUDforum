@@ -16,8 +16,7 @@
 ?>
 <br />
 <div id="wikilink" style="text-align:right;">
-<script type="text/javascript">
-/* <![CDATA[ */
+<script>
 jQuery(function() {
 
 	// Collapsabile fieldsets.
@@ -44,7 +43,9 @@ jQuery(function() {
 			update: function() {
 				var order = jQuery("#sortable").sortable("serialize") + '&ajax=reorder&<?php echo __adm_rsidl ?>';
 				jQuery.ajax({type: 'post', url: self.location, data: order,
-					complete: function(request) { alert(request.responseText); },
+					complete: function(request) { $('#dialogContent').html(request.responseText);
+								      $('#dialogHolder').dialog({ autoOpen: true, title: 'Move request', modal: true});
+								    },
 				})
 			}
 		});
@@ -70,7 +71,6 @@ jQuery(function() {
 	// Open external links in new windows.
 	jQuery('a[href^="http://"]').attr({ target: "_blank", title: "Opens in a new window!" });
 });
-/* ]]> */
 </script>
 </div>
 <?php } /* Normal & popup pages. */ ?>

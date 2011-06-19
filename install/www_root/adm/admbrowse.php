@@ -76,7 +76,7 @@ if (!extension_loaded('posix')) {
 
 /* main */
 	if (isset($_POST['btn_mini_cancel']) || isset($_GET['btn_mini_cancel'])) {
-		exit('<html><script type="text/javascript">window.close();</script></html>');
+		exit('<html><script>window.close();</script></html>');
 	}
 
 	require('./GLOBALS.php');
@@ -143,7 +143,7 @@ if (!extension_loaded('posix')) {
 				exit;
 			} else {
 				logaction(_uid, 'Deleted file/directory', 0, $cur_dir .'/'. $dest);
-				exit('<html><script type="text/javascript"> window.opener.location = \'admbrowse.php?'. __adm_rsidl .'&cur='. urlencode($cur_dir) .'\'; window.close();</script></html>');
+				exit('<html><script>window.opener.location = \'admbrowse.php?'. __adm_rsidl .'&cur='. urlencode($cur_dir) .'\'; window.close();</script></html>');
 			}
 		} else {
 			$file = $cur_dir .'/'. $dest;
@@ -188,7 +188,7 @@ if (!extension_loaded('posix')) {
 				exit;
 			} else {
 				logaction(_uid, 'Renamed file/directory to '. $new_dest, 0, $dest);
-				exit('<html><script type="text/javascript"> window.opener.location = \'admbrowse.php?'.__adm_rsidl.'&cur='.urlencode($cur_dir).'\'; window.close();</script></html>');
+				exit('<html><script>window.opener.location = \'admbrowse.php?'.__adm_rsidl.'&cur='.urlencode($cur_dir).'\'; window.close();</script></html>');
 			}
 		} else {
 			$file = $cur_dir .'/'. $dest;
@@ -270,7 +270,7 @@ if (!extension_loaded('posix')) {
 			exit('<html>Unable to chmod <b>'. $file .'</b><br /><a href="#" onclick="window.close();">close</a></html>');
 		} else {
 			logaction(_uid, 'Changed file mode to '. $new_mode, 0, $file);
-			exit('<html><script type="text/javascript"> window.opener.location = \'admbrowse.php?'. __adm_rsidl .'&cur='. urlencode($cur_dir) .'\'; window.close();</script></html>');
+			exit('<html><script>window.opener.location = \'admbrowse.php?'. __adm_rsidl .'&cur='. urlencode($cur_dir) .'\'; window.close();</script></html>');
 		}
 	}
 

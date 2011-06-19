@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -134,7 +134,7 @@ function makedeps()
 		unset($c);
 
 		if (isset($_POST['NO_TREE_LIST'])) {
-			exit('<html><script type="text/javascript">window.close();</script></html>');
+			exit('<html><script>window.close();</script></html>');
 		}
 		$warn = 'Message(s) successfully saved and dependant themes were recompiled.';
 		unset($_POST);

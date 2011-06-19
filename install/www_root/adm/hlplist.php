@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -63,8 +63,7 @@
 ?>
 </table></td>
 
-<script type="text/javascript">
-/* <![CDATA[ */
+<script>
 jQuery(document).ready(function () {
   jQuery('.newEntry').click(function() {
 	jQuery(this).parent().html('New topic:'+
@@ -72,7 +71,6 @@ jQuery(document).ready(function () {
 				 '<textarea name="a[]" rows="10" cols="80"></textarea>');
   });
 });
-/* ]]> */
 </script>
 <?php
 	if (isset($_GET['file'])) {

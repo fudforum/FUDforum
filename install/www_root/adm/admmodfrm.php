@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -22,7 +22,7 @@
 		$usr_id = '';
 	}
 	if (!$usr_id || !($login = q_singleval('SELECT alias FROM '. $tbl .'users WHERE id='. $usr_id))) {
-		exit('<html><script type="text/javascript">window.close();</script></html>');
+		exit('<html><script>window.close();</script></html>');
 	}
 
 	if (isset($_POST['mod_submit'])) {
@@ -38,11 +38,9 @@
 		rebuildmodlist();
 ?>
 <html>
-<script type="text/javascript">
-/* <![CDATA[ */
+<script>
 	window.opener.location = 'admuser.php?act=1&usr_id=<?php echo $usr_id; ?>&<?php echo __adm_rsidl; ?>';
 	window.close();
-/* ]]> */
 </script>
 </html>
 <?php

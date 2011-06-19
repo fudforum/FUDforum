@@ -118,7 +118,7 @@ $registrations_per_day = array_values($registrations_per_day);
 ?>
 
 <script src="https://www.google.com/jsapi"></script>
-<script async="async" type="text/javascript">
+<script async="async">
 // jQuery(document).ready(function () {
 	google.load("visualization", "1", {packages:["corechart"]});
 	google.setOnLoadCallback(drawChart);

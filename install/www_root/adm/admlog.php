@@ -76,7 +76,7 @@ function return_group_name($id)
 
 <table class="resulttable fulltable">
 <thead><tr class="resulttopic">
-	<th>User</th><th>Action</th><th>Object</th><th>Time (<i>GMT</i>)</th>
+	<th>User</th><th>Action</th><th>Object</th><th>Time (<i>UTC</i>)</th>
 </tr></thead>
 <?php
 	$i = 0;

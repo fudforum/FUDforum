@@ -110,8 +110,7 @@ Register a new forum user:
 </table>
 </form>
 <p><a href="admuser.php?<?php echo __adm_rsid; ?>">&laquo; Back to User Administration System</a></p>
-<script type="text/javascript">
-/* <![CDATA[ */
+<script>
 function randomPassword() {
 	var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz";
 	var string_length = 8;
@@ -122,6 +121,5 @@ function randomPassword() {
 	}
 	document.forms['frm_usr'].passwd.value = randomstring;
 }
-/* ]]> */
 </script>
 <?php require($WWW_ROOT_DISK .'adm/footer.php'); ?>

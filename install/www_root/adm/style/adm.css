@@ -305,16 +305,6 @@ fieldset.collapsed legend {
 #phpinfo .vr {background-color: #eaf4e9; text-align: right; color: #000;}
 #phpinfo hr {width: 600px; background-color: #ccc; border: 0px; height: 1px; color: #000;}
 
-/* Textarea editor. */
-.resizable-textarea .grippie {
-	height: 9px;
-	background: #eaf4e9 url(../../theme/default/images/grippie.gif) no-repeat center 2px;
-	border: 1px solid #ddd;
-	border-top-width: 0;
-	cursor: s-resize;
-	overflow: hidden;
-}
-
 /* JQuery tablesorter. */
 th.header {
 	background: url(bg.gif) no-repeat center right;

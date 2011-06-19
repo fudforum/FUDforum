@@ -185,7 +185,7 @@ function mk_date($y, $m, $d)
 
 	<tr class="field">
 		<td valign="top">Message body:</td>
-		<td><textarea cols="40" rows="10" name="a_text"><?php echo htmlspecialchars($a_text); ?></textarea></td>
+		<td><textarea cols="60" rows="5" name="a_text"><?php echo htmlspecialchars($a_text); ?></textarea></td>
 	</tr>
 
 	<tr class="field">

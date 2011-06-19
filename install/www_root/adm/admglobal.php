@@ -68,6 +68,8 @@ function get_max_upload_size()
 		$GLOBALS['NEW_FUD_OPT_2'] |= $FUD_OPT_2 & (16777216|33554432|67108864|134217728|268435456|8388608);
 		/* Restore plugin settings. */
 		$GLOBALS['NEW_FUD_OPT_3'] |= $FUD_OPT_3 & (4194304);
+		/* Restore page list settings. */
+		$GLOBALS['NEW_FUD_OPT_3'] |= $FUD_OPT_3 & (536870912);
 		/* Restore calendar settings. */
 		$GLOBALS['NEW_FUD_OPT_3'] |= $FUD_OPT_3 & (134217728);
 		$GLOBALS['NEW_FUD_OPT_3'] |= $FUD_OPT_3 & (268435456);
@@ -185,8 +187,7 @@ function get_max_upload_size()
 ]</div>
 <br />
 
-<script type="text/javascript">
-/* <![CDATA[ */
+<script>
 function show_section(sec) {
 	jQuery("fieldset.section").hide();
 	jQuery("."+sec).slideDown("slow").find(":text:visible:enabled:first").focus();
@@ -203,7 +204,6 @@ jQuery(document).ready(function() {
 		show_section(sec);
 	}
 });
-/* ]]> */
 </script>
 
 <form id="settings-form" method="post" action="admglobal.php" autocomplete="off">
@@ -459,8 +459,7 @@ jQuery(document).ready(function() {
 	print_reg_field('SMTP Server Login', 'FUD_SMTP_LOGIN');
 	print_reg_field('SMTP Server Password', 'FUD_SMTP_PASS');
 ?>
-<script type="text/javascript">
-/* <![CDATA[ */
+<script>
 jQuery(document).ready(function() {
 	/* Hide SMTP fields if SMTP is not active. */
 	jQuery('#FUD_OPT_1_USE_SMTP').change(function() {
@@ -472,7 +471,6 @@ jQuery(document).ready(function() {
 	});
 	jQuery('#FUD_OPT_1_USE_SMTP').change();
 });
-/* ]]> */
 </script>
 <tr class="fieldaction"><td align="left"><input type="submit" name="btn_submit" value="Set" /></td><td align="right">[ <a href="#top">top</a> ]</td></tr>
 </table>

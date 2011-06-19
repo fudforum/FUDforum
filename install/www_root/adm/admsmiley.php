@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -94,8 +94,7 @@
 
 	if (!isset($_GET['chpos'])) {
 ?>
-<script type="text/javascript">
-/* <![CDATA[ */
+<script>
 function sml_form_check() 
 {
 	var a = document.frm_sml.sml_code.value;
@@ -105,7 +104,6 @@ function sml_form_check()
 	}
 	return true;
 }
-/* ]]> */
 </script>
 
 <h2>Smiley Management System</h2>
