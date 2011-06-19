@@ -14,9 +14,7 @@
 
 	@ini_set('memory_limit', '128M');
 	@set_time_limit(0);
-
 	define('no_session', 1);
-	unset($_SERVER['REMOTE_ADDR']);
 
 	$disabled = explode(', ', ini_get('disable_functions'));
 	if (in_array('exec', $disabled)) {

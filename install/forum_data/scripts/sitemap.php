@@ -15,9 +15,8 @@
 	$priority     = '0.5';
 	$auth_as_user = 0;	// User 0 == anonymous.
 
-	ini_set('memory_limit', '128M');
+	@ini_set('memory_limit', '128M');
 	define('no_session', 1);
-	unset($_SERVER['REMOTE_ADDR']);
 
 	if (strncmp($_SERVER['argv'][0], '.', 1)) {
 		require (dirname($_SERVER['argv'][0]) .'/GLOBALS.php');

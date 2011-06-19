@@ -12,22 +12,24 @@
 function match_user_to_post($from_email, $from_name, $create_users, &$user_id, $reg_date=0)
 {
 	/* Try to identify user by email. */
-	$user_id = q_singleval('SELECT id FROM '. sql_p .'users WHERE email='. _esc($from_email));
+	$user = db_sab('SELECT id, users_opt FROM '. sql_p .'users WHERE email='. _esc($from_email));
 
 	/* If user was not found via email, try to look the user up by login. */
-	if (empty($user_id) && !empty($from_name)) {
-		if ($GLOBALS['FUD_OPT_2'] & 128) {
-			$user_id = q_singleval('SELECT id FROM '. sql_p .'users WHERE alias='. _esc(make_alias($from_name)));
+	if (empty($user->id) && !empty($from_name)) {
+		if ($GLOBALS['FUD_OPT_2'] & 128) {	// USE_ALIASES
+			$user = db_sab('SELECT id, users_opt FROM '. sql_p .'users WHERE alias='. _esc(make_alias($from_name)));
 		} else {
-			$user_id = q_singleval('SELECT id FROM '. sql_p .'users WHERE login='. _esc($from_name));
+			$user = db_sab('SELECT id, users_opt FROM '. sql_p .'users WHERE login='. _esc($from_name));
 		}
 	}
 
-	if (empty($user_id)) {
-		$user_id = $create_users ? create_new_user($from_name, $from_email, $reg_date) : 0;
+	if (empty($user->id)) {
+		$user->id = $create_users ? create_new_user($from_name, $from_email, $reg_date) : 0;
+	} else if ($user->users_opt & 65536) {	// User is banned.
+		$user->id = -1;
 	}
 
-	return $user_id;
+	return $user->id;
 }
 
 function create_new_user($from_name, $from_email, $reg_date=0)
@@ -60,12 +62,12 @@ function create_new_user($from_name, $from_email, $reg_date=0)
 		$user->alias = $alias .'['. $i++ .']';
 	}
 
-	$user->email =& $from_email;
-	$user->name  =& $from_name;
+	$user->email     =& $from_email;
+	$user->name      =& $from_name;
 	$user->users_opt = -1;
 	$user->join_date = $reg_date;
 
-	$id = $user->add_user();
+	$id = $user->add();
 
 	return $id;
 }
@@ -169,7 +171,7 @@ function decode_header_value($val)
 	return trim($val);
 }
 
-/* Apply different colors to different levels of quoted text. */
+/** Apply different colors to different levels of quoted text. */
 function color_quotes($body, $forum_opt)
 {
 	if ($forum_opt & 16) {	// BBCode tag style.

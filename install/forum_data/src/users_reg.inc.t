@@ -49,7 +49,7 @@ class fud_user_reg extends fud_user
 	/** Deprecated: Please use add(). */
 	function add_user()
 	{
-		$this->add();
+		return $this->add();
 	}
 
 	/** Add a new user account. */
@@ -62,7 +62,7 @@ class fud_user_reg extends fud_user
 			$ref_id = 0;
 		}
 
-		// Geneate salt & password (if not supplied).
+		// Geneate password & salt (if not supplied).
 		if (empty($this->passwd) && empty($this->plaintext_passwd)) {
 			$this->plaintext_passwd = substr(md5(get_random_value()), 0, 8);
 		}
@@ -74,20 +74,17 @@ class fud_user_reg extends fud_user
 		$o2 =& $GLOBALS['FUD_OPT_2'];
 		$this->alias = make_alias((!($o2 & 128) || !$this->alias) ? $this->login : $this->alias);
 
-		if (empty($this->users_opt)) {
-			/* No user options? Initialize to sensible values.				   
-			$this->users_opt = 2|4|16|32|64|128|256|512|2048|4096|8192|16384|131072|4194304;
-		} else if ($this->users_opt == -1) {
-			/* This is used when utilities create users (aka nntp/mlist/xmlagg imports). */
+		/* This is used when utilities create users (aka nntp/mlist/xmlagg imports). */
+		if ($this->users_opt == -1) {
 			$this->users_opt = 4|16|128|256|512|2048|4096|8192|16384|131072|4194304;
-		
+
 			if (!($o2 & 4)) {	// Flat thread listing/Tree message listing.
-				$this->users_opt ^= 128;
+				$this->users_opt ^= 128;	// Unset default_topic_view=MSG.
 			}
 			if (!($o2 & 8)) {	// Tree thread listing/Flat message listing.
-				$this->users_opt ^= 256;
+				$this->users_opt ^= 256;	//  Unset default_message_view=MSG.
 			}
-			if ($o2 & 1) {	// Unset EMAIL_CONFIRMATION.
+			if ($o2 & 1) {	// Unset EMAIL_CONFIRMATION (no confirmation email now).
 				$o2 ^= 1;
 			}
 			$reg_ip = '127.0.0.1';
@@ -95,8 +92,13 @@ class fud_user_reg extends fud_user
 			$reg_ip = get_ip();
 		}
 
+		/* No user options? Initialize to sensible values. */
+		if (empty($this->users_opt)) {
+			$this->users_opt = 2|4|16|32|64|128|256|512|2048|4096|8192|16384|131072|4194304;
+		}
+
 		if (empty($this->theme)) {
-			$this->theme = q_singleval(q_limit('SELECT id FROM {SQL_TABLE_PREFIX}themes WHERE theme_opt>=2 AND '. q_bitand('theme_opt', 2) .' > 0', 1));		
+			$this->theme = q_singleval(q_limit('SELECT id FROM {SQL_TABLE_PREFIX}themes WHERE theme_opt>=2 AND '. q_bitand('theme_opt', 2) .' > 0', 1));
 		}
 		if (empty($this->topics_per_page)) {
 			$this->topics_per_page = $GLOBALS['THREADS_PER_PAGE'];
@@ -216,7 +218,7 @@ class fud_user_reg extends fud_user
 		$this->sync();
 	}
 
-	/* Change a user account. */
+	/** Change a user account. */
 	function sync()
 	{
 		if (!empty($this->plaintext_passwd)) {

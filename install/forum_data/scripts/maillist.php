@@ -46,7 +46,6 @@ function add_attachment($name, $data, $pid)
 
 /* main */
 	define('no_session', 1);
-	unset($_SERVER['REMOTE_ADDR']);
 
 	if (!ini_get('register_argc_argv')) {
 		exit("Please enable the 'register_argc_argv' php.ini directive.\n");
@@ -224,6 +223,9 @@ function add_attachment($name, $data, $pid)
 		} else {
 			// Get or create new forum user.
 			$msg_post->poster_id = match_user_to_post($emsg->from_email, $emsg->from_name, $config->mlist_opt & 64, $emsg->user_id, $msg_post->post_stamp);
+			if ($msg_post->poster_id == -1) {
+				continue;	// Skip, user is banned.
+			}
 		}
 
 		/* Mail sent to control address (*-admin) by a known forum user. */

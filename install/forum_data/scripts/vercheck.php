@@ -10,7 +10,6 @@
 **/
 
 	define('no_session', 1);
-	unset($_SERVER['REMOTE_ADDR']);
 
 	if (strncmp($_SERVER['argv'][0], '.', 1)) {
 		require (dirname($_SERVER['argv'][0]) .'/GLOBALS.php');
@@ -40,16 +39,17 @@
 		die('Lookup failed. Data returned ['. $verinfo .'].');
 	}
 
-	$display_ver = substr($verinfo, 0, strpos($verinfo, '::'));
-	echo 'Current version: '. $FORUM_VERSION .', latest version is: '. $display_ver ."\n";
+	list($latest_ver, $download_url) = explode('::', $verinfo);
+	echo 'Current version: '. $FORUM_VERSION .', latest version is: '. $latest_ver ."\n";
 
-	if (version_compare($display_ver, $FORUM_VERSION, '>')) {
-		echo 'Please upgrade to '. $display_ver ." ASAP!\n";
+	if (version_compare($latest_ver, $FORUM_VERSION, '>')) {
+		echo 'Please upgrade to '. $latest_ver ." ASAP!\n";
 		define('_uid', 1);
 		fud_use('db.inc');
 		fud_use('logaction.inc');
 		fud_use('iemail.inc');
-		send_email($NOTIFY_FROM, $ADMIN_EMAIL, 'New FUDforum version available', 'A new FUDforum version is now available. Please upgrade your site at '. $WWW_ROOT .' from '. $FORUM_VERSION .' to '. $display_ver .' ASAP.');
+		send_email($NOTIFY_FROM, $ADMIN_EMAIL, 'New FUDforum version available', 'A new FUDforum version is now available. Please upgrade your site at '. $WWW_ROOT .' from '. $FORUM_VERSION .' to '. $latest_ver .' ASAP. The upgrade script can be downloaded from '. $download_url);
+		// TODO: Download and unzip the upgrade script, ready for the admin to run.
 	} else {
 		echo "You are on the latest release.\n";
 	}

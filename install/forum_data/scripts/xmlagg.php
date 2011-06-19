@@ -12,7 +12,6 @@
 
  	/* Prevent session initialization. */
  	define('no_session', 1);
- 	unset($_SERVER['REMOTE_ADDR']);
 
 	if (!ini_get('register_argc_argv')) {
 		exit("Please enable the 'register_argc_argv' php.ini directive.\n");
@@ -209,6 +208,11 @@
 			if ($config->last_load_date != 0) {
 				continue;	// Skip already loaded.
 			}
+		}
+
+		if ($m->poster_id == -1) {
+			echo 'WARNING: Article disgarded. User is banned.';
+			continue;	// Skip, user is banned.
 		}
 
 		// 'skip_non_forum_users' is set.

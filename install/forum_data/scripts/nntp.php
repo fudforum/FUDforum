@@ -47,7 +47,6 @@ function add_attachment($name, $data, $pid)
 /* main */
 	ini_set('memory_limit', '128M');
 	define('no_session', 1);
-	unset($_SERVER['REMOTE_ADDR']);
 
 	if (!ini_get('register_argc_argv')) {
 		exit("Please enable the 'register_argc_argv' php.ini directive.\n");
@@ -131,7 +130,7 @@ function add_attachment($name, $data, $pid)
 	$nntp->nntp_opt 	= $config->nntp_opt;
 	$nntp->user 		= $config->login;
 	$nntp->pass 		= $config->pass;
-	
+
 	// Lock, connect and fetch group_first and group_last (message counters).
 	$lock = $nntp->get_lock();
 	if (!$nntp->connect()) {
@@ -146,8 +145,9 @@ function add_attachment($name, $data, $pid)
 	$counter = 1;
 
 	for ($i = $nntp->group_first; $i < $nntp->group_last; $i++) {
-		echo 'Importing '. $nntp->newsgroup .' message '. $i ."\n";
+		echo "\nImporting #". $i .' from '. $nntp->newsgroup;
 		if (!$nntp->get_message($i)) {
+			echo ' - '. $nntp->error;
 			$nntp->error = null;
 			continue;
 		}
@@ -160,33 +160,33 @@ function add_attachment($name, $data, $pid)
 
 		$msg_post = new fud_msg_edit;
 
-		/* Check if message was already imported. */
-		if ($emsg->msg_id && q_singleval('SELECT m.id FROM '. sql_p .'msg m
-						INNER JOIN '. sql_p .'thread t ON t.id=m.thread_id
-						WHERE mlist_msg_id='. _esc($emsg->msg_id) .' AND t.forum_id='. $frm->id)) {
-			continue;
-		}
-
 		// Handler for our own messages, which do not need to be imported.
 		if (isset($emsg->headers['x-fudforum']) && preg_match('!([A-Za-z0-9]{32}) <([0-9]+)>!', $emsg->headers['x-fudforum'], $m)) {
 			if ($m[1] == md5($GLOBALS['WWW_ROOT'])) {
 				q('UPDATE '. sql_p .'msg SET mlist_msg_id='. _esc($emsg->msg_id) .' WHERE id='. intval($m[2]) .' AND mlist_msg_id IS NULL');
 				if (db_affected()) {
+					echo ' - Message ID updated';
 					continue;
 				}
 			}
 		}
 
+		/* Check if message was already imported. */
+		if ($emsg->msg_id && q_singleval('SELECT m.id FROM '. sql_p .'msg m
+						INNER JOIN '. sql_p .'thread t ON t.id=m.thread_id
+						WHERE mlist_msg_id='. _esc($emsg->msg_id) .' AND t.forum_id='. $frm->id)) {
+			echo ' - previously loaded';
+			continue;
+		}
+
 		// Handle NNTP cancellation messages.
 		if (isset($emsg->headers['control']) && preg_match('!cancel!', $emsg->headers['control'])) {
 			log_script_error('Ignore NNTP cancellation message (not yet implemented).', $emsg->raw_msg);
-/* @TODO
-			// For future implementation. Anyone brave enough to test it for us?
-			q('DELETE FROM '. sql_p .'msg WHERE mlist_msg_id='. _esc($emsg->msg_id));
+			// q('DELETE FROM '. sql_p .'msg WHERE mlist_msg_id='. _esc($emsg->msg_id));
 			if (db_affected()) {
+				echo ' - cancellation ignored';
 				continue;
 			}
-*/
 		}
 
 		$msg_post->post_stamp = !empty($emsg->headers['date']) ? strtotime($emsg->headers['date']) : 0;
@@ -205,10 +205,15 @@ function add_attachment($name, $data, $pid)
 			$msg_post->poster_id = 0;
 		} else {
 			$msg_post->poster_id = match_user_to_post($emsg->from_email, $emsg->from_name, $config->nntp_opt & 32, $emsg->user_id, $msg_post->post_stamp);
+			if ($msg_post->poster_id == -1) {
+				echo ' - User banned; Message disgarded';
+				continue;
+			}
 		}
 
 		/* Check if matching user and if not, skip if necessary. */
 		if (!$msg_post->poster_id && $config->nntp_opt & 256) {
+			echo ' - No matching user';
 			continue;
 		}
 
@@ -272,12 +277,12 @@ function add_attachment($name, $data, $pid)
 		$msg_post->poll_id = 0;
 		$msg_post->msg_opt = 1|2;
 
-		// Try to determine whether this message is a reply or a new thread.
+		/* Try to determine whether this message is a reply or a new thread. */
 		list($msg_post->reply_to, $msg_post->thread_id) = get_fud_reply_id(($config->nntp_opt & 16), $frm->id, $msg_post->subject, $emsg->reply_to_msg_id);
 
 		$msg_post->add($frm->id, $frm->message_threshold, 0, 0, false);
 
-		// Handle file attachments.
+		/* Handle file attachments. */
 		if ($config->nntp_opt & 8) {
 			foreach($emsg->attachments as $key => $val) {
 				$id = add_attachment($key, $val, $msg_post->poster_id);			
@@ -303,8 +308,12 @@ function add_attachment($name, $data, $pid)
 
 	// Store current position.
 	$nntp->set_tracker_end($config->id, $i); // We use $i so we stop in the right place if limit is reached.
- 	$nntp->exit_handler();
 
-	$nntp->release_lock($lock);
-	$nntp->close_connection();
+	if ($counter++ == $config->imp_limit) {
+		echo "\nDone. Forum and Usenet Group is in sync.\n";
+	} else {
+		echo "\nImport limit reached. There are more messages to load.\n";
+	}
+
+ 	$nntp->exit_handler();
 ?>

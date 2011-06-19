@@ -12,7 +12,6 @@
 
 	ini_set('memory_limit', '128M');
 	define('no_session', 1);
-	unset($_SERVER['REMOTE_ADDR']);
 
 	if (!ini_get('register_argc_argv')) {
 		exit("Please enable the 'register_argc_argv' php.ini directive.\n");
