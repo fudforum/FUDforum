@@ -110,9 +110,6 @@ echo '<tr class="field">
 				<td><?php echo get_php_setting('magic_quotes_gpc'); ?></td>
 			</tr>
 			<tr>
-				<td>Register globals:</td>
-				<td><?php echo get_php_setting('register_globals'); ?></td>
-			</tr>
 			<tr>
 				<td>Output buffering:</td>
 				<td><?php echo (is_numeric(ini_get('output_buffering')) ? 'Yes' : 'No'); ?></td>

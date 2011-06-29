@@ -1,6 +1,7 @@
 php_value output_buffering 64000
 php_value variables_order GPCS
 php_flag implicit_flush 0
+# TODO: register_globals has been removed from PHP 5.4!
 php_flag register_globals 0
 php_flag register_argc_argv 0
 php_flag magic_quotes_gpc 0
