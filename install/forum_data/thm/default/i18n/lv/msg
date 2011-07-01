@@ -5,6 +5,7 @@
 action:Darbība
 add_to_buddy_list:pievienot kontaktu sarakstam
 admin:Admins
+# Fuzzy
 admin_control_panel:Administratīvais centrs
 administrator:Administrators
 attachment:Pielikums:

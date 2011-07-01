@@ -11,6 +11,7 @@
 action:Действие
 add_to_buddy_list:добавить в список контактов
 admin:Админ
+# Fuzzy
 admin_control_panel:Административный центр
 administrator:Администратор
 attachment:Вложение:
@@ -1108,7 +1109,8 @@ move_msg_btn:Перенести выбранные сообщения
 move_msg_th_expl:Укажите ID темы для переноса в нее сообщений (может быть в других форумах)
 captcha_img_alt:Антибот проверка. Вам нужно распознать текст на этом изображении.
 captcha_img_help:На изображении нет цифр 0 и 1.
-powered-by:При поддержке: FUDforum {GVAR: FORUM_VERSION}.<br /> Copyright © 2001-2011 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+powered-by:При поддержке: FUDforum {GVAR: FORUM_VERSION}.
+copyright:Copyright © 2001-2011 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:CODE:
 code_select_all:Выделить все
 code_show_hide:Показать / скрыть

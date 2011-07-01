@@ -8,7 +8,7 @@
 action:Ober
 add_to_buddy_list:Ouzhpennañ d'ar roll mignoned
 admin:Merañ
-admin_control_panel:Panell gontrollañ ar merour
+admin_control_panel:Mererezh
 administrator:Merour
 attachment:Pezh stag :
 avatar:Avatar :
@@ -1105,7 +1105,8 @@ move_msg_btn:Dilec'hiañ ar c'hemennadennoù diuzet
 move_msg_th_expl:Spisait anavezer ar gaoz pal (a c'hall bezañ en ur forom all)
 captcha_img_alt:Gwiriadur dre Captcha : dav eo deoc'h anavezout an destenn er skeudenn-mañ.
 captcha_img_help:N'eus ket a zero pe a unan er skeudenn.
-powered-by:Enlusket gant : FUDforum {GVAR: FORUM_VERSION}.<br />Copyright &copy;2001-2011 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+powered-by:Enlusket gant : FUDforum {GVAR: FORUM_VERSION}.
+copyright:Copyright &copy;2001-2011 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:KOD :
 code_select_all:Diuzañ pep tra
 code_show_hide:Diskouez / kuzhat
@@ -1133,5 +1134,9 @@ feed_rss:gwazh RSS2
 feed_atom:gwazh ATOM
 ip_whois_connect_err:Ne c'haller ket kevreañ ouzh ar servijer WHOIS ({VAR: whois_server}) : {VAR: errstr}
 custom_filed_required:Rekis eo leuniañ ar vaezienn-mañ.
+pages:Pajennoù
 page_list_heading:Pajennoù hegerz
 page_list_total:{PLURAL: i|$1 bajenn|$1 pajenn} rollet.
+page_update:Pajenn verdeiñ
+pm_export_header:Kemennadennoù prevez evit {VAR: usr->alias}
+pm_export_footer:Ezporzhiet :

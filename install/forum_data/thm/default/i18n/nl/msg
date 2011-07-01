@@ -8,7 +8,7 @@
 action:handeling
 add_to_buddy_list:toevoegen aan uw vriendenlijst
 admin:Beheer
-admin_control_panel:Instellingen
+admin_control_panel:Beheer
 administrator:beheerder
 attachment:Bijlage:
 avatar:Avatar:
@@ -1105,7 +1105,8 @@ move_msg_btn:Geselecteerde berichten verplaatsen
 move_msg_th_expl:Geef het nummer van het doelonderwerp (kan zich in een ander forum bevinden)
 captcha_img_alt:Captchacontrole: u moet de tekst in deze afbeelding herkennen
 captcha_img_help:Er is geen nul of een in de afbeelding.
-powered-by:Maakt gebruik van FUDforum {GVAR: FORUM_VERSION}.<br />Copyright &copy;2001-2011 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+powered-by:Maakt gebruik van FUDforum {GVAR: FORUM_VERSION}.
+copyright:Copyright &copy;2001-2011 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Code:
 code_select_all:Alles selecteren
 code_show_hide:Weergeven/verbergen
@@ -1133,6 +1134,9 @@ feed_rss:RSS2-feed
 feed_atom:Atom-feed
 ip_whois_connect_err:Het was niet mogelijk verbinding te maken met de WHOIS-server ({VAR: whois_server}): {VAR: errstr}
 custom_filed_required:Dit veld is verplicht.
+pages:Pagina's
 page_list_heading:Beschikbare pagina's
 page_list_total:{PLURAL: i|$1 weergegeven pagina|$1 weergegeven pagina's}.
 page_update:Pagina aan het bekijken
+pm_export_header:Privéberichten voor {VAR: usr->alias}
+pm_export_footer:Geëxporteerd:

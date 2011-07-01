@@ -7,7 +7,7 @@
 action:Ação
 add_to_buddy_list:Adicionar à lista de amigos
 admin:Admin
-admin_control_panel:Admin Painel de Controle
+admin_control_panel:Administração
 administrator:Administrador
 attachment:Anexo:
 avatar:Avatar:
@@ -197,7 +197,7 @@ user_offline:{VAR: obj->login}  está neste momento offline
 user_online:{VAR: obj->login} está neste momento online
 usrinfo_last_post:Último Post:
 view_results:Ver resultados
-views:Vistas
+views:Visitas
 vote:{PLURAL: frm->n_rating|$1 Voto|$1 Votos}
 vote_button:Voto
 vote_for_thread:Voto
@@ -1104,7 +1104,8 @@ move_msg_btn:Mover mensagens selecionadas
 move_msg_th_expl:Especifique a ID do tópico de destino (pode estar em outros fóruns)
 captcha_img_alt:Verificação por Captcha: você precisará reconhecer o texto nesta imagem.
 captcha_img_help:Não há zero ou um na imagem.
-powered-by:Powered by: FUDforum {GVAR: FORUM_VERSION}.<br />Direitos autorais &copy;2001-2011 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+powered-by:Powered by: FUDforum {GVAR: FORUM_VERSION}.
+copyright:Direitos autorais &copy;2001-2011 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Código:
 code_select_all:Selecionar tudo
 code_show_hide:Mostrar/esconder
@@ -1132,6 +1133,9 @@ feed_rss:feed RSS2
 feed_atom:feed ATOM
 ip_whois_connect_err:Não foi possível conectar-se ao servidor WHOIS ({VAR: whois_server}): {VAR: errstr}
 custom_filed_required:Este campo é obrigatório.
+pages:Páginas
 page_list_heading:Páginas disponíveis
 page_list_total:{PLURAL: i|$1 página|$1 páginas} listadas.
 page_update:Página de navegação
+pm_export_header:Mensagens privadas para {VAR: usr->alias}
+pm_export_footer:Exportado:

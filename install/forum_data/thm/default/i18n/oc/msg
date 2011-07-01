@@ -8,6 +8,7 @@
 action:Accion
 add_to_buddy_list:Apondre a la lista de mos amics
 admin:Admin
+# Fuzzy
 admin_control_panel:Panèl d'administracion
 administrator:Administrator
 attachment:Estacat :

@@ -5,7 +5,7 @@
 action:Tindakan
 add_to_buddy_list:tambahkan ke senarai kawan
 admin:Pentadbir
-admin_control_panel:Panel Kawalan Pentadbir
+admin_control_panel:Pentadbiran
 administrator:Pentadbir
 attachment:Lampiran:
 avatar:Avatar:
@@ -1102,7 +1102,8 @@ move_msg_btn:Pindahkan Pesanan yang Dipilih
 move_msg_th_expl:Nyatakan ID topik destinasi (termasuk topik di forum lain)
 captcha_img_alt:Pengesahan Captcha; anda perlu mengecam teks dalam imej ini.
 captcha_img_help:Dalam imej ini tiada angka sifar atau satu.
-powered-by:Dijana oleh: FUDforum {GVAR: FORUM_VERSION}.<br />Hakcipta &copy;2001-2011 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+powered-by:Dijana oleh: FUDforum {GVAR: FORUM_VERSION}.
+copyright:Hakcipta &copy;2001-2011 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Kod:
 code_select_all:Pilih semua
 code_show_hide:Tunjukkan/ sorokkan
@@ -1130,6 +1131,9 @@ feed_rss:Suapan RSS2
 feed_atom:Suapan ATOM
 ip_whois_connect_err:Tidak dapat bersambung dengan pelayan WHOIS ({VAR: whois_server}), {VAR: errstr}
 custom_filed_required:Ruangan ini wajib diisi.
+pages:Laman
 page_list_heading:Halaman yang ada
 page_list_total:{PLURAL: i|$1 halaman|$1 halaman} disenaraikan.
 page_update:Melayari laman
+pm_export_header:Pesanan peribadi untuk {VAR: usr->alias}
+pm_export_footer:Dieksport:

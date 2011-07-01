@@ -5,6 +5,7 @@
 action:Akcia
 add_to_buddy_list:pridať do zoznamu priateľov
 admin:Administrátor
+# Fuzzy
 admin_control_panel:Kontrolný Panel Administrátora
 administrator:Administrátor
 attachment:Príloha:

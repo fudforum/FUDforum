@@ -5,7 +5,7 @@
 action:Radnja
 add_to_buddy_list:dodaj na spisak prijatelja
 admin:Administrator
-admin_control_panel:Upravljački panel
+admin_control_panel:Administracija
 administrator:Administrator
 attachment:Prilog:
 avatar:Korisnička sličica:
@@ -574,13 +574,13 @@ err_info:Podaci
 buddy_list_err_cantadd:Ne možete sebe dodati na spisak prijatelja
 buddy_list_err_dup:Ovaj član se već nalazi na vašem spisku prijatelja
 buddy_list_err_nouser:Član koga ste želeli da dodate na spisak prijatelja nije pronađen.
-buddy_list_err_nouser_title:Dodavanje člana nije uspelo
-buddy_list_err_ignore:Dodavanje članova koji vas ignorišu ne možete dodati na spisak prijatelja.
+buddy_list_err_nouser_title:Ne mogu da dodam člana
+buddy_list_err_ignore:Ne možete dodati korisnike koji vas ignorišu na spisak prijatelja.
 buddy_list_update:Pregledanje spiska prijatelja
 core_err_invinp_title:Neispravan ulaz
 core_err_invinp_err:Pratili ste neispravnu vezu. Obavestite <a href="mailto:{GVAR: ADMIN_EMAIL}">administratora</a> o grešci.
 core_adm_login_msg:Administratori se mogu prijaviti <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">ovde</a>.
-email_err_unabletoemail_title:Greška: slanje e-poruke nije uspelo
+email_err_unabletoemail_title:Greška: ne mogu da pošaljem e-poruku
 email_err_unabletoemail_msg:E-pošta je onemogućena od strane administratora.
 email_error_unabletolocaddr:Sistem ne može da kontaktira {VAR-HTML: _POST['tx_name']} preko e-pošte jer e-adresa nije pronađena
 email_error_body:Tekst poruke je obavezan
@@ -659,8 +659,8 @@ register_conf_subject:Potvrda upisa
 register_conf_msg:Hvala vam što ste otvorili nalog.\nPosetite vezu ispod da biste ga potvrdili:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nKada ga omogućite, bićete prijavljeni na\nforum i preusmereni na naslovnu stranu.
 register_welcome_subject:Potvrda upisa
 register_welcome_msg:Hvala vam što ste otvorili nalog.\n\nIspod se nalaze podaci za prijavljivanje na forum:\n\nAdresa: {TEMPLATE: index_update_lnk}\nKorisničko ime: {VAR: uent->login}\nLozinka: {VAR: _POST['reg_plaintext_passwd']}\n\nUpamtite da su lozinke osetljive na mala i velika slova!\nDa biste promenili svoje postavke ili profil, posetite:\n{FULL_ROOT}{ROOT}?t=register
-register_err_cantreg_title:Greška: otvaranje naloga nije uspelo
-regsiter_err_cantreg_msg:Nalog nije napravljen. Kontaktirajte administratora <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
+register_err_cantreg_title:Greška: ne mogu da otvorim nalog
+regsiter_err_cantreg_msg:Nalog nije otvoren. Kontaktirajte administratora <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:Pregleda sopstveni profil
 register_register_update:Stranica za upis
 report_err_nosuchmsg_title:Greška
@@ -1102,7 +1102,8 @@ move_msg_btn:Premesti izabrane poruke
 move_msg_th_expl:Navedite ID odredišne teme (može biti i u drugim forumima)
 captcha_img_alt:Potvrdna slika: moraćete da prepoznate tekst na ovoj slici.
 captcha_img_help:Ne postoji nula ili jedinica na slici.
-powered-by:Pokreće FUDforum {GVAR: FORUM_VERSION}. Prevod: Rancher <br />Autorska prava &copy;2001–2011 <a href="http://fudforum.org/">FUDforum Bulletin Board softver</a>
+powered-by:Pokreće FUDforum {GVAR: FORUM_VERSION}. Prevod: Rancher
+copyright:Autorska prava &copy;2001–2011 <a href="http://fudforum.org/">FUDforum Bulletin Board softver</a>
 code_title:Kôd:
 code_select_all:Izaberi sve
 code_show_hide:Prikaži/sakrij
@@ -1128,8 +1129,11 @@ feed_no_data:Nema poklapanja.
 feed_rdf:RDF dovod
 feed_rss:RSS2 dovod
 feed_atom:Atom dovod
-ip_whois_connect_err:Povezivanje na WHOIS server nije uspelo ({VAR: whois_server}): {VAR: errstr}
+ip_whois_connect_err:Ne mogu da se povežem na WHOIS server ({VAR: whois_server}): {VAR: errstr}
 custom_filed_required:Ovo polje je obavezno.
+pages:Stranice
 page_list_heading:Dostupne stranice
 page_list_total:{PLURAL: i|Prikazana je $1 stranica|Prikazane su $1 stranice|Prikazano je $1 stranica}.
 page_update:Pregleda stranicu
+pm_export_header:Privatne poruke za {VAR: usr->alias}
+pm_export_footer:Izvezeno:

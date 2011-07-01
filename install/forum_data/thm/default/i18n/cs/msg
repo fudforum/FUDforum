@@ -3,11 +3,12 @@
 # Author: Mormegil
 # Author: Mr. Richard Bolla
 # Author: Pedobry
+# Author: Utar
 
 action:Akce
 add_to_buddy_list:přidat do seznamu přátel
 admin:Administrace
-admin_control_panel:Administrační panel
+admin_control_panel:Správa
 administrator:Administrátor
 attachment:Příloha:
 avatar:Ikona uživatele:
@@ -17,7 +18,7 @@ birth_date:Datum narození:
 by:Od:
 by_mod:od Moderátora
 current_time:Aktuální čas
-custom_avatar_queue:Zátup ikon uživatelů
+custom_avatar_queue:Fronta ikon uživatelů
 date_posted:Přidáno
 date_registered:Registrován:
 download_counter:Staženo {PLURAL: v[3]|$1 krát|$1 krát}
@@ -1104,7 +1105,8 @@ move_msg_btn:Přesunout vybrané zprávy
 move_msg_th_expl:Zadejte ID cílového téma (může být v jiných fórech)
 captcha_img_alt:Ověření Captcha: je třeba rozpoznat text v tomto obrázku.
 captcha_img_help:Na obrázku není žádná nula nebo jednička.
-powered-by:Běží na: FUDforum {GVAR: FORUM_VERSION}.<br />Copyright © 2001-2011 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+powered-by:Běží na: FUDforum {GVAR: FORUM_VERSION}.
+copyright:Copyright © 2001-2011 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Kód:
 code_select_all:Vybrat vše
 code_show_hide:Zobrazit / skrýt
@@ -1126,11 +1128,15 @@ btn_quote:citovat
 btn_email:Email
 btn_show_posts:příspěvky
 btn_homepage:www
-feed_no_data:Nalezena žádná odpovídající data.
+feed_no_data:Nenalezena žádná odpovídající data.
 feed_rdf:RDF feed
 feed_rss:RSS2 feed
 feed_atom:ATOM feed
 ip_whois_connect_err:Nelze se připojit k serveru WHOIS ({VAR: whois_server}): {VAR: errstr}
 custom_filed_required:Toto pole je povinné.
+pages:Stránky
 page_list_heading:Dostupné stránky
 page_list_total:{PLURAL: i|$1 stránka zobrazena|$1 stránky zobrazeny|$1 stránek zobrazeno}.
+page_update:Pročítá stránku fóra
+pm_export_header:Soukromé zprávy pro {VAR: usr->alias}
+pm_export_footer:Exportováno:

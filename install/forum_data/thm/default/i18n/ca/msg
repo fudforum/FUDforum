@@ -10,6 +10,7 @@
 action:Acció
 add_to_buddy_list:afegir a la llista d`amics
 admin:Admin
+# Fuzzy
 admin_control_panel:Panell de l'administrador
 administrator:Administrador
 attachment:Arxiu adjunt:

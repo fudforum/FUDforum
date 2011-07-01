@@ -9,6 +9,7 @@
 action:操作
 add_to_buddy_list:加入好友列表
 admin:管理
+# Fuzzy
 admin_control_panel:管理界面
 administrator:系统管理员
 attachment:附件：

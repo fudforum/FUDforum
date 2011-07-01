@@ -5,7 +5,7 @@
 action:Galaw
 add_to_buddy_list:idagdag sa talaan ng katoto
 admin:Tagapangasiwa
-admin_control_panel:Kahong-Pantaban ng Tagapangasiwa
+admin_control_panel:Pangangasiwa
 administrator:Tagapangasiwa
 attachment:Kalakip:
 avatar:Huwaran:
@@ -1102,7 +1102,8 @@ move_msg_btn:Ilipat ang Napiling mga Mensahe
 move_msg_th_expl:Tukuyin ang ID ng kapupuntahang paksa (maaari nasa ibang mga poro)
 captcha_img_alt:Pagpapatunay ng Captcha: kakailanganin mong makilala ang tekstong nasa loob ng larawang ito.
 captcha_img_help:Walang sero o isa sa loob ng larawan.
-powered-by:Binibigyang kapangyarihan ng: FUDforum {GVAR: FORUM_VERSION}.<br />Karapatang-ari &copy;2001-2011 <a href="http://fudforum.org/">Sopwer ng Paskilan ng FUDforum</a>
+powered-by:Binibigyang kapangyarihan ng: FUDforum {GVAR: FORUM_VERSION}.
+copyright:Karapatang-ari &copy;2001-2011 <a href="http://fudforum.org/">Sopwer ng Paskilan ng FUDforum</a>
 code_title:Kodigo:
 code_select_all:Piliin lahat
 code_show_hide:Ipakita/itago
@@ -1130,6 +1131,9 @@ feed_rss:Pasubong RSS2
 feed_atom:Pasubong ATOM
 ip_whois_connect_err:Hindi nagawang umugnay sa tagapaghain ng WHOIS ({VAR: whois_server}): {VAR: errstr}
 custom_filed_required:Kailangan ang kahanayang ito.
+pages:Mga pahina
 page_list_heading:Makukuhang mga pahina
 page_list_total:Nakatalang {PLURAL: i|$1 pahina|$1 mga pahina}.
 page_update:Tinitingnan-tingnan ang pahina
+pm_export_header:Pribadong mensahe para sa {VAR: usr->alias}
+pm_export_footer:Nailuwas na:

@@ -8,6 +8,7 @@
 action:Toiminto
 add_to_buddy_list:lisää kaverilistaan
 admin:Ylläpito
+# Fuzzy
 admin_control_panel:Ylläpidon hallintapaneeli
 administrator:Ylläpitäjä
 attachment:Liitetiedosto:
@@ -1105,7 +1106,7 @@ move_msg_btn:Siirrä valitut viestit
 move_msg_th_expl:Ilmoita kohdeaiheen tunnusnumero (voi olla toisella foorumilla)
 captcha_img_alt:Captcha-varmistus: Sinun täytyy tunnistaa teksti tästä kuvasta.
 captcha_img_help:Kuvassa ei ole nollaa tai ykköstä.
-powered-by:Palvelun mahdollistaa: FUDforum {GVAR: FORUM_VERSION}.<br />Copyright &copy;2001-2011 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+powered-by:Palvelun mahdollistaa: FUDforum {GVAR: FORUM_VERSION}.
 code_title:Koodi:
 code_select_all:Valitse kaikki
 code_show_hide:Näytä tai piilota

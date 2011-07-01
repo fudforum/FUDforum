@@ -6,6 +6,7 @@
 action:Akcja
 add_to_buddy_list:Dodaj do listy znajomych
 admin:Administrator
+# Fuzzy
 admin_control_panel:Panel administracyjny
 administrator:Administrator
 attachment:Załącznik:
@@ -1077,7 +1078,8 @@ pmsg_on:data:
 pmsg_download_dump:Pobierz zrzut wiadomości
 move_messages:Przenieś wiadomość
 move_msg_btn:Przenieś wybrane wiadomości
-powered-by:Korzysta z oprogramowania FUDforum {GVAR: FORUM_VERSION}.<br />Copyright &copy;2001-2011 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+powered-by:Korzysta z oprogramowania FUDforum {GVAR: FORUM_VERSION}.
+copyright:Copyright &copy;2001-2011 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:KOD
 code_select_all:Wybierz wszystko
 code_show_hide:Pokaż lub ukryj

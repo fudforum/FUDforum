@@ -2,6 +2,7 @@
 # Exported from translatewiki.net
 # Author: Ainali
 # Author: Ernesto
+# Author: Lokal Profil
 # Author: McDutchie
 # Author: Nghtwlkr
 # Author: Poxnar
@@ -10,7 +11,7 @@
 action:Handling
 add_to_buddy_list:lägg till kompislistan
 admin:Admin
-admin_control_panel:Administratorns kontrollpanel
+admin_control_panel:Administration
 administrator:Administratör
 attachment:Bilaga:
 avatar:Visningsbild:
@@ -1107,7 +1108,8 @@ move_msg_btn:Flytta valda meddelanden
 move_msg_th_expl:Specificera ID på destinationsämnet (kan vara i andra fora)
 captcha_img_alt:Caotcha verifiering: du måste tolka texten i denna bild.
 captcha_img_help:Det finns ingen nolla eller etta i bilden.
-powered-by:Drivs av: FUDforum {GVAR: FORUM_VERSION}.<br />Copyright &copy;2001-2011 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+powered-by:Drivs av: FUDforum {GVAR: FORUM_VERSION}.
+copyright:Copyright &copy;2001-2011 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Kod:
 code_select_all:Välj alla
 code_show_hide:Visa / dölj
@@ -1135,6 +1137,9 @@ feed_rss:RSS2-flöde
 feed_atom:ATOM-flöde
 ip_whois_connect_err:Kan inte ansluta till WHOIS servern ({VAR: whois_server}): {VAR: errstr}
 custom_filed_required:Detta fält är obligatoriskt
+pages:Sidor
 page_list_heading:Tillgängliga sidor
 page_list_total:{PLURAL: i|$1 sida|$1 sidor} listade.
 page_update:Visar sida
+pm_export_header:Privata meddelanden för {VAR: usr->alias}
+pm_export_footer:Exporterad:

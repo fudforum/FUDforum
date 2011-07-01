@@ -8,6 +8,7 @@
 action:Aktion
 add_to_buddy_list:zur Buddyliste hinzufügen
 admin:Admin
+# Fuzzy
 admin_control_panel:Administratormenü
 administrator:Administrator
 attachment:Anhang:
@@ -1105,7 +1106,8 @@ move_msg_btn:Verschiebe ausgewählte Beiträge
 move_msg_th_expl:Geben Sie die ID des Zielthemas an (kann in einem anderem Forum sein)
 captcha_img_alt:CAPTCHA-Bestätigung: Sie müssen den Text in diesem Bild erkennen.
 captcha_img_help:Das Bild enthält keine Null oder Eins.
-powered-by:Betrieben mit: FUDforum {GVAR: FORUM_VERSION}.<br />Copyright &copy;2001–2011 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+powered-by:Betrieben mit: FUDforum {GVAR: FORUM_VERSION}.
+copyright:Copyright &copy;2001–2011 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Code:
 code_select_all:alles markieren
 code_show_hide:anzeigen/verstecken

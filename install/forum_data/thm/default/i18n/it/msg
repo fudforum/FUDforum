@@ -10,7 +10,7 @@
 action:Azione
 add_to_buddy_list:aggiungi alla lista amici
 admin:Amministrazione
-admin_control_panel:Pannello di controllo Amministrazione
+admin_control_panel:Amministrazione
 administrator:Amministratore
 attachment:Allegato:
 avatar:Avatar:
@@ -565,7 +565,7 @@ tabs_referrals:Riferimenti
 tabs_buddy_list:Lista di amici
 tabs_ignore_list:Lista utenti da ignorare
 tabs_private_messaging:Messaggi privati
-single_msg_delete: Stai per  <span class="ErrorText">cancellare</span> il messaggio intitolato: <b>{VAR: data[3]}</b
+single_msg_delete:Stai per  <span class="ErrorText">cancellare</span> il messaggio intitolato: <b>{VAR: data[3]}</b
 thread_delete:Si sta per <span class="ErrorText">cancellare</span> un<span class="ErrorText">intero argomento</span> intitolato: <b>{VAR: data[3]}</b>
 delete_proceed:Vuoi procedere?
 delete_yes:Sì
@@ -1107,7 +1107,8 @@ move_msg_btn:Sposta messaggi selezionati
 move_msg_th_expl:Specifica l'ID dell'argomento di destinazione (può essere in altri forum)
 captcha_img_alt:Captcha Verification: devi riconoscere il testo che compare in questa immagine.
 captcha_img_help:Non ci sono nè zero ne uno in questa immagine.
-powered-by:Powered by: FUDforum {GVAR: FORUM_VERSION}.<br />Copyright &copy;2001-2011 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+powered-by:Powered by: FUDforum {GVAR: FORUM_VERSION}.
+copyright:Copyright &copy;2001-2011 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Codice:
 code_select_all:Seleziona tutto
 code_show_hide:mostra/nascondi
@@ -1135,6 +1136,9 @@ feed_rss:Feed RSS2
 feed_atom:Feed ATOM
 ip_whois_connect_err:Impossibile connettersi al server WHOIS ({VAR: whois_server}): {VAR: errstr}
 custom_filed_required:Questo campo è obbligatorio.
+pages:Pagine
 page_list_heading:Pagine disponibili
 page_list_total:{PLURAL: i|$1 pagina|$1 pagine} elencate.
 page_update:Pagina di navigazione
+pm_export_header:Messaggi privati per {VAR: usr->alias}
+pm_export_footer:Esportati:

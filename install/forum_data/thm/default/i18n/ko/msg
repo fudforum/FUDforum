@@ -1,9 +1,11 @@
 # Messages for Korean (한국어)
 # Exported from translatewiki.net
 # Author: Changwoo
+# Author: Klutzy
 # Author: ToePeu
 
 admin:관리자
+# Fuzzy
 admin_control_panel:제어판넬
 administrator:최고관리자
 attachment:첨부:
@@ -727,7 +729,6 @@ quicklogin_login:로그인
 # Fuzzy
 quicklogin_password:패스워드
 quicklogin_use_cookies:쿠키사용?
-# Fuzzy
 quicklogin_login_btn:로그인
 quick_reply:빠른 답변
 post_notification_desc:이 게시글에 대한 답글 통보.

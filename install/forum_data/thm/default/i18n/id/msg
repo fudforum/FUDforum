@@ -8,6 +8,7 @@
 action:Tindakan
 add_to_buddy_list:tambahkan ke daftar teman
 admin:Admin
+# Fuzzy
 admin_control_panel:Kontrol panel Admin
 administrator:Pengurus
 attachment:Sisipan:
@@ -1105,7 +1106,8 @@ move_msg_btn:Pindahkan Pesan Terpilih
 move_msg_th_expl:Penetapan ID dari tujuan topik (bisa juga terdapat di Forum lain)
 captcha_img_alt:Verifikasi Captcha: Anda harus mengenali teks dalam gambar ini.
 captcha_img_help:Tidak ada nol atau satu pada berkas.
-powered-by:Di dukung oleh: FUDforum {GVAR: FORUM_VERSION}.<br />Copyright &copy;2001-2011 <a href="http://fudforum.org/">FUDforum Perangkat lunak Bulletin Board </a>
+powered-by:Di dukung oleh: FUDforum {GVAR: FORUM_VERSION}.
+copyright:Copyright &copy;2001-2011 <a href="http://fudforum.org/">FUDforum Perangkat lunak Bulletin Board </a>
 code_title:Kode:
 code_select_all:Pilih semua
 code_show_hide:Tampil/ sembunyi

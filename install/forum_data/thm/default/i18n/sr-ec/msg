@@ -5,7 +5,7 @@
 action:Радња
 add_to_buddy_list:додај на списак пријатеља
 admin:Администратор
-admin_control_panel:Управљачки панел
+admin_control_panel:Администрација
 administrator:Администратор
 attachment:Прилог:
 avatar:Корисничка сличица:
@@ -574,13 +574,13 @@ err_info:Подаци
 buddy_list_err_cantadd:Не можете себе додати на списак пријатеља
 buddy_list_err_dup:Овај члан се већ налази на вашем списку пријатеља
 buddy_list_err_nouser:Члан кога сте желели да додате на списак пријатеља није пронађен.
-buddy_list_err_nouser_title:Додавање члана није успело
-buddy_list_err_ignore:Додавање чланова који вас игноришу не можете додати на списак пријатеља.
+buddy_list_err_nouser_title:Не могу да додам члана
+buddy_list_err_ignore:Не можете додати кориснике који вас игноришу на списак пријатеља.
 buddy_list_update:Прегледање списка пријатеља
 core_err_invinp_title:Неисправан улаз
 core_err_invinp_err:Пратили сте неисправну везу. Обавестите <a href="mailto:{GVAR: ADMIN_EMAIL}">администратора</a> о грешци.
 core_adm_login_msg:Администратори се могу пријавити <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">овде</a>.
-email_err_unabletoemail_title:Грешка: слање е-поруке није успело
+email_err_unabletoemail_title:Грешка: не могу да пошаљем е-поруку
 email_err_unabletoemail_msg:Е-пошта је онемогућена од стране администратора.
 email_error_unabletolocaddr:Систем не може да контактира {VAR-HTML: _POST['tx_name']} преко е-поште јер е-адреса није пронађена
 email_error_body:Текст поруке је обавезан
@@ -659,8 +659,8 @@ register_conf_subject:Потврда уписа
 register_conf_msg:Хвала вам што сте отворили налог.\nПосетите везу испод да бисте га потврдили:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nКада га омогућите, бићете пријављени на\nфорум и преусмерени на насловну страну.
 register_welcome_subject:Потврда уписа
 register_welcome_msg:Хвала вам што сте отворили налог.\n\nИспод се налазе подаци за пријављивање на форум:\n\nАдреса: {TEMPLATE: index_update_lnk}\nКорисничко име: {VAR: uent->login}\nЛозинка: {VAR: _POST['reg_plaintext_passwd']}\n\nУпамтите да су лозинке осетљиве на мала и велика слова!\nДа бисте променили своје поставке или профил, посетите:\n{FULL_ROOT}{ROOT}?t=register
-register_err_cantreg_title:Грешка: отварање налога није успело
-regsiter_err_cantreg_msg:Налог није направљен. Контактирајте администратора <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
+register_err_cantreg_title:Грешка: не могу да отворим налог
+regsiter_err_cantreg_msg:Налог није отворен. Контактирајте администратора <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:Прегледа сопствени профил
 register_register_update:Страница за упис
 report_err_nosuchmsg_title:Грешка
@@ -1099,10 +1099,11 @@ pmsg_on:датума
 pmsg_download_dump:Преузми скуп порука
 move_messages:Премести поруке
 move_msg_btn:Премести изабране поруке
-move_msg_th_expl:Наведите ID одредишне теме (може бити и у другим форумима)
+move_msg_th_expl:Наведите ИБ одредишне теме (може бити и у другим форумима)
 captcha_img_alt:Потврдна слика: мораћете да препознате текст на овој слици.
 captcha_img_help:Не постоји нула или јединица на слици.
-powered-by:Покреће FUDforum {GVAR: FORUM_VERSION}. Превод: Rancher <br />Ауторска права &copy;2001–2011 <a href="http://fudforum.org/">FUDforum Bulletin Board софтвер</a>
+powered-by:Покреће FUDforum {GVAR: FORUM_VERSION}. Превод: Rancher
+copyright:Ауторска права &copy;2001–2011 <a href="http://fudforum.org/">FUDforum Bulletin Board софтвер</a>
 code_title:Кôд:
 code_select_all:Изабери све
 code_show_hide:Прикажи/сакриј
@@ -1128,8 +1129,11 @@ feed_no_data:Нема поклапања.
 feed_rdf:RDF довод
 feed_rss:RSS2 довод
 feed_atom:Атом довод
-ip_whois_connect_err:Повезивање на WHOIS сервер није успело ({VAR: whois_server}): {VAR: errstr}
+ip_whois_connect_err:Не могу да се повежем на WHOIS сервер ({VAR: whois_server}): {VAR: errstr}
 custom_filed_required:Ово поље је обавезно.
+pages:Странице
 page_list_heading:Доступне странице
 page_list_total:{PLURAL: i|Приказана је $1 страница|Приказане су $1 странице|Приказано је $1 страница}.
 page_update:Прегледа страницу
+pm_export_header:Приватне поруке за {VAR: usr->alias}
+pm_export_footer:Извезено:

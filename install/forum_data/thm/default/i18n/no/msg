@@ -7,7 +7,7 @@
 action:Handling
 add_to_buddy_list:legg til kontaktlisten
 admin:Admin
-admin_control_panel:Administrators kontrollpanel
+admin_control_panel:Administrasjon
 administrator:Administrator
 attachment:Vedlegg:
 avatar:Avatar:
@@ -1104,7 +1104,8 @@ move_msg_btn:Flytt valgte meldinger
 move_msg_th_expl:Oppgi ID'en til destinasjonsemnet (kan være i andre fora)
 captcha_img_alt:Captcha-verifisering: du må kjenne igjen teksten i dette bildet.
 captcha_img_help:Det er ingen null eller en i bildet.
-powered-by:Levert av: FUDforum {GVAR: FORUM_VERSION}.<br />Copyright © 2001-2011 <a href="http://fudforum.org/">FUDforum Bulleting Board Software</a>
+powered-by:Levert av: FUDforum {GVAR: FORUM_VERSION}.
+copyright:Copyright © 2001-2011 <a href="http://fudforum.org/">FUDforum Bulleting Board Software</a>
 code_title:Kode:
 code_select_all:Velg alle
 code_show_hide:Vis/ skjul
@@ -1132,6 +1133,9 @@ feed_rss:RSS2-mating
 feed_atom:ATOM-mating
 ip_whois_connect_err:Kunne ikke koble til WHOIS-tjener ({VAR: whois_server}): {VAR: errstr}
 custom_filed_required:Dette feltet er obligatorisk.
+pages:Sider
 page_list_heading:Tilgjengelige sider
 page_list_total:{PLURAL: i|$1 side|$1 sider} oppført.
 page_update:Blar gjennom en side
+pm_export_header:Private meldinger for {VAR: usr->alias}
+pm_export_footer:Eksportert:

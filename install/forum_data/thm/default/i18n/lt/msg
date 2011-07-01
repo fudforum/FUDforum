@@ -7,6 +7,7 @@
 action:Veiksmas
 add_to_buddy_list:įdėti į bičiulių sąrašą
 admin:Administravimas
+# Fuzzy
 admin_control_panel:Administratoriaus langas
 administrator:Administratorius
 attachment:Priedas:
@@ -1021,7 +1022,8 @@ move_messages:Perkelti žinutes
 move_msg_btn:Perkelti pasirinktas Žžnutes
 move_msg_th_expl:Nurodykite paskirties temą (gali būti kituose forumuose) ID.
 captcha_img_alt:Captcha patikrinimas: jums reikia atpažinti tekstą paveikslėlije.
-powered-by:Pagal: FUDforum {GVAR: FORUM_VERSION}. <br /> Teisės © 2001-2011 <a href="http://fudforum.org/">FUDforum forumų Programinė įranga</a>
+powered-by:Pagal: FUDforum {GVAR: FORUM_VERSION}.
+copyright:Teisės © 2001-2011 <a href="http://fudforum.org/">FUDforum forumų Programinė įranga</a>
 code_title:Kodas
 code_select_all:Pasirinkti visus
 code_show_hide:Rodyti / slėpti

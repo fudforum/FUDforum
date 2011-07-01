@@ -14,7 +14,7 @@
 action:Aktion
 add_to_buddy_list:zur Buddyliste hinzufügen
 admin:Admin
-admin_control_panel:Administratormenü
+admin_control_panel:Administrierung
 administrator:Administrator
 attachment:Anhang:
 avatar:Avatar:
@@ -1111,7 +1111,8 @@ move_msg_btn:Verschiebe ausgewählte Beiträge
 move_msg_th_expl:Gib die ID des Zielthemas an (kann in einem anderem Forum sein)
 captcha_img_alt:CAPTCHA-Bestätigung: Du musst den Text in diesem Bild erkennen.
 captcha_img_help:Das Bild enthält keine Null oder Eins.
-powered-by:Betrieben mit: FUDforum {GVAR: FORUM_VERSION}.<br />Copyright &copy;2001–2011 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+powered-by:Betrieben mit: FUDforum {GVAR: FORUM_VERSION}.
+copyright:Copyright &copy;2001–2011 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Code:
 code_select_all:alles markieren
 code_show_hide:anzeigen/verstecken
@@ -1139,6 +1140,9 @@ feed_rss:RSS2-Feed
 feed_atom:ATOM-Feed
 ip_whois_connect_err:Verbindung zu WHOIS-Server ({VAR: whois_server}) fehlgeschlagen: {VAR: errstr}
 custom_filed_required:Dies ist ein Pflichtfeld.
+pages:Seiten
 page_list_heading:Verfügbare Seiten
 page_list_total:{PLURAL: i|$1 Seite|$1 Seiten} aufgeführt.
 page_update:Lese im Forum
+pm_export_header:Private Nachrichten für {VAR: usr->alias}
+pm_export_footer:Exportiert:

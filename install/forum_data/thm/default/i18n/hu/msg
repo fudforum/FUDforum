@@ -6,6 +6,7 @@
 action:Művelet
 add_to_buddy_list:hozzáadás a barátok listájához
 admin:Adminisztrátor
+# Fuzzy
 admin_control_panel:Adminisztrátori vezérlőpult
 administrator:Adminisztrátor
 attachment:Csatolmány:
@@ -1102,7 +1103,8 @@ move_msg_btn:Kiválasztott üzenetek áthelyezése
 move_msg_th_expl:Add meg a céltéma azonosítóját (lehet más fórumban is)
 captcha_img_alt:Captcha-ellenőrzés: fel kell ismerned a képen látható szöveget.
 captcha_img_help:Nincs nulla vagy egy a képen.
-powered-by:Az oldalt a FUDfórum {GVAR: FORUM_VERSION} hajtja.<br />Copyright &copy;2001-2011 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+powered-by:Az oldalt a FUDfórum {GVAR: FORUM_VERSION} hajtja.
+copyright:Copyright &copy;2001-2011 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Kód:
 code_select_all:Összes kijelölése
 code_show_hide:Megjelenítés/ elrejtés

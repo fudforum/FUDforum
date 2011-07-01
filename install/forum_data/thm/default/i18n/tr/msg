@@ -10,6 +10,7 @@
 action:Eylem
 add_to_buddy_list:Arkadaş listesine ekle
 admin:Yönetici
+# Fuzzy
 admin_control_panel:Yönetici Denetim Masası
 administrator:Yönetici
 attachment:Ek:
@@ -1107,7 +1108,8 @@ move_msg_btn:Seçili İletileri Taşı
 move_msg_th_expl:Hedef konunun ID'sini belirtin (diğer forumlarda olabilir)
 captcha_img_alt:Captcha Doğrulama: Görüntüde metni tanımanız gerekiyor.
 captcha_img_help:Görüntü içinde sıfır ya da bir bulunmuyor.
-powered-by:Destekleyen: FUDforum {GVAR: FORUM_VERSION}.<br />Telif hakkı &copy;2001-2011 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+powered-by:Destekleyen: FUDforum {GVAR: FORUM_VERSION}.
+copyright:Telif hakkı &copy;2001-2011 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Kod:
 code_select_all:Tümünü seç
 code_show_hide:Göster / gizle

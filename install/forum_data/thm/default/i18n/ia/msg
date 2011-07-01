@@ -5,7 +5,7 @@
 action:Action
 add_to_buddy_list:adder al lista de amicos
 admin:Admin
-admin_control_panel:Pannello de administration
+admin_control_panel:Administration
 administrator:Administrator
 attachment:Annexo:
 avatar:Avatar:
@@ -1102,7 +1102,8 @@ move_msg_btn:Displaciar selection
 move_msg_th_expl:Specifica le ID del topico de destination (pote esser in altere foro)
 captcha_img_alt:Verification per Captcha: tu debe recognoscer le texto in iste imagine.
 captcha_img_help:Il non ha zero o un in iste imagine.
-powered-by:Actionate per: FUDforum {GVAR: FORUM_VERSION}.<br />Copyright &copy;2001-2011 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+powered-by:Actionate per: FUDforum {GVAR: FORUM_VERSION}.
+copyright:Copyright &copy;2001-2011 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Codice:
 code_select_all:Seliger toto
 code_show_hide:Revelar/celar
@@ -1130,6 +1131,9 @@ feed_rss:Syndication RSS2
 feed_atom:Syndication ATOM
 ip_whois_connect_err:Impossibile connecter al servitor WHOIS ({VAR: whois_server}): {VAR: errstr}
 custom_filed_required:Iste campo es obligatori.
+pages:Paginas
 page_list_heading:Paginas disponibile
 page_list_total:{PLURAL: i|$1 pagina|$1 paginas} listate.
 page_update:Percurre pagina
+pm_export_header:Messages private pro {VAR: usr->alias}
+pm_export_footer:Exportate:

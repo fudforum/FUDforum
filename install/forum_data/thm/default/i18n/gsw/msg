@@ -6,6 +6,7 @@
 action:Aktion
 add_to_buddy_list:zue dr Fryndlischt zuefiege
 admin:Ammann
+# Fuzzy
 admin_control_panel:Ammannemenü
 administrator:Ammann
 attachment:Aahang:
@@ -1103,7 +1104,8 @@ move_msg_btn:Uusgwehlti Byytreg verschiebe
 move_msg_th_expl:Gib d ID vum Ziilthemas aa (cha in eme andere Forum syy)
 captcha_img_alt:Captchakontrolle: Du muesch dää Text in däm Bild wider chänne.
 captcha_img_help:S het kei Null oder Eis im Bild.
-powered-by:Mit fryndliger Unterstitzig vu.: FUDforum {GVAR: FORUM_VERSION}.<br />Copyright &copy;2001-2011 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+powered-by:Mit fryndliger Unterstitzig vu.: FUDforum {GVAR: FORUM_VERSION}.
+copyright:Copyright &copy;2001-2011 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Code:
 code_select_all:Alli uuswehle
 code_show_hide:Zeige/verstecke

@@ -5,7 +5,7 @@
 action:Дејство
 add_to_buddy_list:додај во списокот на пријатели
 admin:Админ
-admin_control_panel:Администраторска контролна табла
+admin_control_panel:Администрација
 administrator:Администратор
 attachment:Прилог:
 avatar:Аватар:
@@ -195,7 +195,7 @@ user_offline:{VAR: obj->login} е моментално исклучен(а)
 user_online:{VAR: obj->login} е моментално на линија
 usrinfo_last_post:Последна порака:
 view_results:Види резултати
-views:Прегледи
+views:Посети
 vote:{PLURAL: frm->n_rating|$1 глас|$1 гласа}
 vote_button:Гласај
 vote_for_thread:Гласај
@@ -1102,7 +1102,8 @@ move_msg_btn:Премести одбрани пораки
 move_msg_th_expl:Назначете ID на темата во која ќе се изврши преместувањето (може да биде на други форуми)
 captcha_img_alt:„Captcha“ антибот проверка: ќе треба да го препознаете текстот на сликава.
 captcha_img_help:На сликата нема нула или единица.
-powered-by:Со поддршка од: FUDforum {GVAR: FORUM_VERSION}.<br />Авторски права &copy;2001-2011 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+powered-by:Со поддршка од: FUDforum {GVAR: FORUM_VERSION}.
+copyright:Авторски права &copy;2001-2011 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Код:
 code_select_all:Избери сè
 code_show_hide:Прикажи / скриј
@@ -1130,6 +1131,9 @@ feed_rss:RSS2 канал
 feed_atom:ATOM канал
 ip_whois_connect_err:Не можам да се поврзам со WHOIS-опслужувачот ({VAR: whois_server}): {VAR: errstr}
 custom_filed_required:Ова поле е задолжително.
+pages:Страници
 page_list_heading:Страници на располагање
 page_list_total:{PLURAL: i|Наведена е $1 страница|Наведени се $1 страници}.
 page_update:Страница за преглед
+pm_export_header:Приватна порака за {VAR: usr->alias}
+pm_export_footer:Извезено:

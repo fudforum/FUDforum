@@ -1,15 +1,18 @@
 # Messages for Danish (Dansk)
 # Exported from translatewiki.net
+# Author: Emilkris33
 # Author: McDutchie
 # Author: Nghtwlkr
 
 action:Handling
 add_to_buddy_list:Føj til venneliste
 admin:Admin
-admin_control_panel:Admin panél
-attachment:Vedhæftning:
 # Fuzzy
-average_post_count:{VAR: u->posted_msg_count} besked(er) ({VAR: avg} gennemsnitlige beskeder per dag)
+admin_control_panel:Admin panél
+administrator:Administrator
+attachment:Vedhæftning:
+avatar:Avatar:
+average_post_count:{PLURAL: u->posted_msg_count|$1 Besked|$1 Beskeder} ({PLURAL: avg|$1 besked|$1 beskeder} i gennemsnit per dag)
 biography:Biografi:
 birth_date:Fødselsdato:
 by:Af:
@@ -18,18 +21,17 @@ current_time:Siden hentet:
 custom_avatar_queue:Tilpassede avatarer
 date_posted:Skrevet
 date_registered:Registréret:
-# Fuzzy
-download_counter:Nedhentet {VAR: v[3]} gange
-# Fuzzy
-pmsg_download_counter:Nedhentet {VAR: r->dlcount} gange
+download_counter:Downloadede {PLURAL: v[3]|$1 gang|$1 gange}
+pmsg_download_counter:Downloadede {PLURAL: r->dlcount| $1 gang| $1 gange}
+email:E-mail:
 email_to_friend:E-mail til en ven
 email_to_friend_desc:Send denne sides webadresse til din(e) ven(ner) via e-mail
-# Fuzzy
-email_user:Klik her for at e-maile brugeren
+email_user:Send brugeren en e-mail
 faq:Hjælp
 first_unread_msg:Gå til ulæste besked(er)
 first_unread_msg_desc:Gå til 1. ulæste besked indenfor dette emne
 flat_view:Retur til standard flad visning
+forum:Forum:
 forum_icon:Forum ikon
 forum_new_messages:Nye beskeder
 forum_none_messages:Kun registrerede forum medlemmer kan se læste & ulæste beskeder
@@ -48,8 +50,10 @@ im_aim:AIM kontaktnavn:
 im_msnm:MSN kontaktnavn:
 im_yahoo:Yahoo kontaktnavn:
 image:Billede:
+index_forum:Forum
 index_new_posts:Nye indlæg siden sidst
 index_no_new_posts:Ingen nye indlæg siden sidst
+index_url_redirection:Omdirigering
 interests:Interesser:
 last_post:Seneste indlæg
 last_thread_msg:Gå til sidste indlæg i dette emne
@@ -62,22 +66,27 @@ logged_in_list:Liste over indloggede brugere
 login:Log ind
 login_header:Logind-navn:
 logout:Log ud
-# Fuzzy
-mark_all_read:Markér alle beskeder som læste
+mark_all_read:Markér alle beskeder som læst
 mark_all_read_desc:Alle dine ulæste beskeder vil blive markeret som læste
 members:Medlemmer
+calendar:Kalender
+cal_goto_date:Gå til:
+cal_day_heading:Aktiviteter på dagen
+cal_no_events:Ingen aktiviteter på dagen.
+cal_update:Læser forum kalenderen
+cal_birthday:Fødselsdag: {VAR: user}
+cal_birthday_age:$1 år gammel.
 message:Besked
-# Fuzzy
-message_counter:Vores brugere har indsendt i alt <b>{VAR: post_count}</b> indlæg om <b>{VAR: thread_count}</b> emner.
+message_counter:Vores brugere har i alt skrevet <b>$1 indlæg</b> omkring <b>{PLURAL: thread_count|$1 emne|$1 emner}</b>.
 message_index:Besked indeks
 message_index_desc:Vis listen over beskeder
 minimize_category:Minimer kategori
 minimize_message:Minimer besked
 moderation_queue:Moderations kø
+moderator:Moderator
 moderator_of:Modereret af:
 moderator_options:Moderator valg
-# Fuzzy
-moderators:Moderator(er)
+moderators:{PLURAL: modcount|Moderator|Moderatorer}
 more_unread_messages:flere ulæste beskeder
 more_unread_messages_desc:Vis flere ulæste beskeder og markér de synlige indlæg som læste
 move_thread:Flyt
@@ -85,8 +94,7 @@ moved:Flyttet til andet forum
 moved_thread_message:Dette emne er blevet flyttet til et andet forum
 na:ikke tilgængelig
 new_posts:Nye meddelelser
-# Fuzzy
-new_private_messages:Du har <span class="GenTextRed">({VAR: c})</span> ulæste private besked(er)
+new_private_messages:Du har <span class="GenTextRed">( {VAR: c} )</span> {PLURAL: c|ulæst privat besked|ulæste private beskeder}
 new_thread:Opret et nyt emne
 newest_user:Den nyeste registrerede bruger er
 next_page:Næste side
@@ -102,8 +110,7 @@ no_unread_locked:Dette emne er blevet låst
 no_unread_msg:Dette emne har ingen ulæste indlæg
 no_unread_msg_unreg:De læste og ulæste beskeder kan kun oplyses for registrerede brugere
 num_pages:Sider ({VAR: ttl_pg}):
-# Fuzzy
-num_votes:{VAR: obj->total_votes} stemme(r)
+num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|stemme|stemmer}
 occupation:Beskæftigelse:
 off:FRA
 on:TIL
@@ -117,8 +124,7 @@ posts_c:Beskeder:
 prev_thread:Forrige emne:
 usrinfo_private_message:Privat besked:
 profile:Profil
-# Fuzzy
-profile_desc:Klik her for at få adgang til bruger kontrolpanélet
+profile_desc:Benyt bruger kontrolpanelet
 rate_thread:Bedøm emne/tråd
 rating:Bedømmelse:
 rating_track:Administrer bedømmelse af tråd <b>{VAR: thr->subject}</b>:
@@ -138,13 +144,14 @@ sel_unanswered_posts:Ubesvarede indlæg
 sel_unanswered_posts_desc:Slå ubesvarede indlæg filter til/fra (viser kun ubesvarede indlæg)
 sel_unread_messages:Ulæste beskeder
 sel_unread_messages_desc:Ulæste beskeder filter til/fra (vises kun ulæste beskeder)
+send:Send
 send_pm_desc:Send en privat besked til denne bruger
 sender_email:E-mail afsender:
 sender_name:Afsender navn:
 show_posts_by:Vis meddelelser af: {VAR: u_alias}
 size:Størrelse:
-# Fuzzy
-status_line:Der er <b>{VAR: st_obj->online_users_reg}</b> medlem(mer), <b>{VAR: st_obj->online_users_hidden}</b> usynlige medlem(mer) og <b>{VAR: st_obj->online_users_anon}</b> gæst(er) som lige nu besøger dette sted
+status:Status:
+status_line:Der er <b>{PLURAL: st_obj->online_users_reg|$1 medlem|$1 medlemmer}</b>, <b>{PLURAL: st_obj->online_users_hidden|$1 skjult medlem|$1 skjulte medlemmer}</b> og <b>{PLURAL: st_obj->online_users_anon|$1 gæst|$1 gæster}</b> online på dette forum.
 sticky:klæbrig:
 stop_ignoring:holde op med at ignorere denne bruger
 sub_to_thread:Abonnér på emne
@@ -162,8 +169,7 @@ bookmarked_threads:Emner med bogmærker
 switch_to_thread_view:Skift til trådet visning af dette emne
 thread:Emne:
 thread_announcement:Annoncering:
-# Fuzzy
-thread_first_unread_msg:Klik her for at gå til den første ulæst besked i dette emne
+thread_first_unread_msg:Gå til første ulæste besked i dette emne
 thread_thread:Emne
 threads:Emner
 time:Tid
@@ -185,8 +191,7 @@ unsubscribe:Afmeld
 unsubscribe_desc:Stop for notifikationer om nye emner i dette forum
 updated_on:Opdatéret:
 user:Bruger
-# Fuzzy
-user_counter:Vi har <b>{VAR: st_obj->user_count}</b> registrérede bruger(e).
+user_counter:Vi har <b>{VAR: st_obj->user_count}</b> registrerede {PLURAL: st_obj->user_count|bruger|brugere}.
 user_info:Brugeroplysninger
 user_info_l:Brugerinformation for {VAR: u->alias}
 user_offline:{VAR: obj->login} er i øjeblikket offline
@@ -194,8 +199,7 @@ user_online:{VAR: obj->login} er i øjeblikket online
 usrinfo_last_post:Seneste indlæg:
 view_results:Vis resultater
 views:Visninger
-# Fuzzy
-vote:{VAR: frm->n_rating} stemme(r)
+vote:{PLURAL: frm->n_rating|$1 Stemme|$1 Stemmer}
 vote_button:Stem
 vote_for_thread:Stem
 was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> er blevet flyttet til <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> af moderator
@@ -247,10 +251,29 @@ no_avatars:Ingen avatarer til rådighed
 month_1:Januar
 month_2:Februar
 month_3:Marts
+month_4:April
 month_5:Maj
 month_6:Juni
 month_7:Juli
+month_8:August
+month_9:September
 month_10:Oktober
+month_11:November
+month_12:December
+sunday:Søndag
+sunday_short:S
+monday:Mandag
+monday_short:M
+tuesday:Tirsdag
+tuesday_short:Ti
+wednesday:Onsdag
+wednesday_short:O
+thursday:Torsdag
+thursday_short:To
+friday:Fredag
+friday_short:F
+saturday:Lørdag
+saturday_short:L
 male:Hankøn
 female:Hunkøn
 unspecified:USPECIFICERET
@@ -261,6 +284,7 @@ register_flat_view:Flad oversigtsvisning af beskeder og emner
 use_forum_default:Brug forum standard
 finduser_user_info:Brugeroplysninger
 finduser_by_login:Ved logind-navn:
+finduser_submit:Find
 finduser_no_such_user:Ikke fundet
 finduser_user:Bruger
 finduser_postcount:Indlæg

@@ -5,6 +5,7 @@
 action:Действие
 add_to_buddy_list:добави в контактна листа
 admin:Админ
+# Fuzzy
 admin_control_panel:Административeн контролeн панел
 administrator:Администратор
 attachment:Прикрепен файл:

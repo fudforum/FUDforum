@@ -12,6 +12,7 @@
 action:Acción
 add_to_buddy_list:agregar a la lista de amigos
 admin:Admin
+# Fuzzy
 admin_control_panel:Panel del administrador
 administrator:Administrador
 attachment:Archivo adjunto:
@@ -1109,7 +1110,8 @@ move_msg_btn:Mover mensajes seleccionados
 move_msg_th_expl:Especificar el ID del tópico de destino (puede estar en otros foros)
 captcha_img_alt:Verificación captcha: necesitarás reconocer el texto en esta imagen.
 captcha_img_help:No hay cero o uno en la imagen
-powered-by:Impulsado por: FUDforum {GVAR: FORUM_VERSION}.<br />Copyright &copy;2001-2011 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+powered-by:Impulsado por: FUDforum {GVAR: FORUM_VERSION}.
+copyright:Copyright &copy;2001-2011 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:CODIGO:
 code_select_all:Seleccionar todo
 code_show_hide:Mostrar/ocultar
