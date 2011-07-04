@@ -33,7 +33,7 @@ function source_load_avatars() {
 	$avatar_dir = $GLOBALS['CONVERT_FROM_DIR'] .'/'. $GLOBALS['settings']['avatar_gallery_path'] .'/';
 	$dir = opendir($avatar_dir);
 	while( $file = readdir($dir) ) {
-		if( $file == '.' || $file == '..' || @is_dir($file) || @is_link($file) ) continue;
+		if( $file == '.' || $file == '..' || @is_dir($avatar_dir . $file) || @is_link($avatar_dir . $file) ) continue;
 		$avatar = array(
 			'file'      => $avatar_dir . $file,
 			'descr'     => '',

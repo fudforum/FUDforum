@@ -111,7 +111,7 @@ function bbcode2fudcode($str)
 function decode_ip($int_ip)
 {
 	if ($int_ip == '00000000') {
-		return '0.0.0.0';
+		return '127.0.0.1';
 	} else {
 		return long2ip("0x{$int_ip}");
 	}
@@ -493,6 +493,15 @@ function target_add_attachment($att)
 	umask($old_umask);
 }
 
+/** Callback to load a forum subscription into the FUDforum database. */
+function target_add_forum_subscription($sub)
+{
+	if ($sub['user_id'] == 1) {
+		$sub['user_id'] = $GLOBALS['hack_id'];
+	}
+	q('INSERT INTO '. $GLOBALS['DBHOST_TBL_PREFIX'] .'forum_notify (user_id, forum_id) VALUES('. (int)$sub['user_id'] .', '. (int)$sub['forum_id'] .')');
+}
+
 /** Callback to load a topic subscription into the FUDforum database. */
 function target_add_topic_subscription($sub)
 {
@@ -710,7 +719,7 @@ if (php_sapi_name() == 'cli') {
 	}
 }
 
-/* Load the releant converter mapping plugin. */
+/* Load the relevant converter mapping plugin. */
 $inc = @include('./conversionmaps/'. $CONVERT_FROM_FORUM .'.map');
 if ($inc === FALSE) {
 	pf('Invalid forum_type specified ['. $CONVERT_FROM_FORUM .'] specified.');
@@ -831,6 +840,12 @@ if (function_exists('source_load_polls')) {
 	q('DELETE FROM '. $DBHOST_TBL_PREFIX .'poll_opt');
 	q('DELETE FROM '. $DBHOST_TBL_PREFIX .'poll_opt_track');
 	source_load_polls();
+}
+
+if (function_exists('source_load_forum_subscriptions')) {
+	pf('Import forum subscriptions...');
+	q('DELETE FROM '. $DBHOST_TBL_PREFIX .'forum_notify');
+	source_load_forum_subscriptions();
 }
 
 if (function_exists('source_load_topic_subscriptions')) {

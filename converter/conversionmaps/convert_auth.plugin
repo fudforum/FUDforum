@@ -12,6 +12,7 @@
 plugin_add_hook('AUTHENTICATE', 'plugin_convert_auth');
 
 function plugin_convert_auth($data) {
+	if (empty($_POST['login']) || empty($_POST['login'])) return 0;
 	$login    = $_POST['login'];
 	$password = $_POST['password'];
 
