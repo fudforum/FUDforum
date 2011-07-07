@@ -101,6 +101,7 @@ function get_fud_reply_id($complex, $forum_id, $subject, $data)
 
 function parse_ip($str)
 {
+//@TODO: IPv6 compatibility.
 	if (preg_match('!([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3})!', $str, $m)) {
 		return $m[1];
 	} else {
@@ -174,6 +175,8 @@ function decode_header_value($val)
 /** Apply different colors to different levels of quoted text. */
 function color_quotes($body, $forum_opt)
 {
+	$body = str_replace("\r\n", PHP_EOL, $body);	// Get rid of carriage returns on non-Windows systems.
+
 	if ($forum_opt & 16) {	// BBCode tag style.
 		$body = preg_replace('/^>>>> (.*)$/m', '[color=skyblue]>>>> \1[/color]',  $body);
 		$body = preg_replace('/^>>> (.*)$/m',  '[color=royalblue]>>> \1[/color]', $body);
@@ -185,7 +188,7 @@ function color_quotes($body, $forum_opt)
 		$body = preg_replace('/^>> (.*)$/m',   '<font color="teal"> &gt;&gt; \1</font>',            $body);
 		$body = preg_replace('/^> (.*)$/m',    '<font color="blue"> &gt; \1</font>',                $body);
 	}
-	
+
 	return $body;
 }
 

@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -20,7 +20,7 @@ class fud_mime_msg
 	var $body_section, $body_sec_cnt;
 	var $attachments  = array(), $inline_files = array();
 
-	/* Split the message headers from the body. */
+	/** Split the message headers from the body. */
 	function split_hdr_body()
 	{
 		if (!preg_match("!^(.*?)\r?\n\r?\n(.*)!s", $this->raw_msg, $m)) {
@@ -31,7 +31,7 @@ class fud_mime_msg
 		$this->headers = $m[1];
 	}
 
-	/* Extract and format the message's headers. */
+	/** Extract and format the message's headers. */
 	function format_header()
 	{
 		$this->headers = str_replace("\r\n", "\n", $this->headers);
@@ -57,7 +57,7 @@ class fud_mime_msg
 		}
 	}
 
-	/* Get parts of multi-value headers like 'Content-Type: text/plain; charset=ISO-8859-2'. */
+	/** Get parts of multi-value headers like 'Content-Type: text/plain; charset=ISO-8859-2'. */
 	function parse_multival_headers($val, $key)
 	{
 		if (($p = strpos($val, ';')) !== false) {
@@ -74,11 +74,14 @@ class fud_mime_msg
 		}
 	}
 
-	/* This functions performs special handling needed for parsing message data. */
+	/** This functions performs special handling needed for parsing message data. */
 	function handle_content_headers()
 	{
 		if (isset($this->headers['content-type'])) {
 			$this->parse_multival_headers($this->headers['content-type'], 'content-type');
+			if (empty($this->headers['__other_hdr__']['content-type']['charset'])) {	// No charset?
+				$this->headers['__other_hdr__']['content-type']['charset'] = 'utf-8';
+			}
 		} else {
 			$this->headers['content-type'] = 'text/plain';
 			$this->headers['__other_hdr__']['content-type']['charset'] = 'utf-8';
@@ -96,7 +99,7 @@ class fud_mime_msg
 		}
 	}
 
-	/* Split message by mime boundaries. */
+	/** Split message by mime boundaries. */
 	function boundary_split($boundary, $html)
 	{
 		// Isolate boundary sections.
@@ -109,7 +112,7 @@ class fud_mime_msg
 		}
 	}
 
-	/* Decide what to do based on Content-Type. */
+	/** Decide what to do based on Content-Type. */
 	function decode_body($html=0)
 	{
 		switch ($this->headers['content-type']) {
@@ -219,13 +222,13 @@ class fud_mime_msg
 		}
 	}
 
-	/* Decode the message body based on charset. */
+	/** Decode the message body based on charset. */
 	function decode_message_body()
 	{
 		$this->body = decode_string($this->body, $this->headers['content-transfer-encoding'], $this->headers['__other_hdr__']['content-type']['charset']);
 	}
 
-	/* Main entry point for this class. May want to make it an init() in future. */
+	/** Main entry point for this class. May want to make it an init() in future. */
 	function parse_message($data, $html=0)
 	{
 		$this->raw_msg = $data;
@@ -236,7 +239,7 @@ class fud_mime_msg
 		$this->decode_body($html);
 	}
 
-	/* Extract the headers we need. */
+	/** Extract the headers we need. */
 	function fetch_useful_headers()
 	{
 		$this->subject = htmlspecialchars(decode_header_value($this->headers['subject']));
@@ -297,7 +300,7 @@ class fud_mime_msg
 		}
 	}
 
-	/* Apply regex filters for subject & body mangling. */
+	/** Apply regex filters for subject & body mangling. */
 	function clean_up_data()
 	{
 		if ($this->subject_cleanup_rgx) {

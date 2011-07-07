@@ -217,6 +217,8 @@ function add_attachment($name, $data, $pid)
 			continue;
 		}
 
+		$msg_post->body = trim($emsg->body);
+
 		$attach_list = array();
 		// Handle NNTP (UUEncoded and Base64) attachments.
 		$msg_post->body = $nntp->parse_attachments($msg_post->body);
@@ -227,7 +229,7 @@ function add_attachment($name, $data, $pid)
 				}
 				$id = add_attachment($key, $val, $msg_post->poster_id);
 				$attach_list[$id] = $id;
-				unset($nntp->attachments[$k]);
+				unset($nntp->attachments[$key]);
 			}
 		}
 
@@ -243,8 +245,6 @@ function add_attachment($name, $data, $pid)
 			}
 		}
 
-		$msg_post->body = trim($emsg->body);
-
 		/* For anonymous users prefix 'contact' link. */
 		if (!$msg_post->poster_id) {
 			if ($frm->forum_opt & 16) {
@@ -253,7 +253,7 @@ function add_attachment($name, $data, $pid)
 				$msg_post->body = 'Originally posted by: '. str_replace('@', '&#64', $emsg->from_email) ."\n\n". $msg_post->body;
 			}
 		}
-		
+
 		// Color levels of quoted text.
 		$msg_post->body = color_quotes($msg_post->body, $frm->forum_opt);
 
@@ -309,7 +309,7 @@ function add_attachment($name, $data, $pid)
 	// Store current position.
 	$nntp->set_tracker_end($config->id, $i); // We use $i so we stop in the right place if limit is reached.
 
-	if ($counter++ == $config->imp_limit) {
+	if (--$counter <= $config->imp_limit) {
 		echo "\nDone. Forum and Usenet Group is in sync.\n";
 	} else {
 		echo "\nImport limit reached. There are more messages to load.\n";
