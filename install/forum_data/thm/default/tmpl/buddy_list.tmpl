@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -56,7 +56,13 @@
 
 {SECTION: buddy_list the buddy list table}
 <table cellspacing="1" cellpadding="2" class="ContentTable">
-<tr><th>{MSG: buddy_status}</th><th>{MSG: my_buddies}</th><th class="nw ac">{MSG: referals_post_count}</th><th class="ac nw">{MSG: referals_registered_on}</th><th class="ac nw">{MSG: referals_action}</th></tr>
+<tr>
+	<th>{MSG: buddy_status}</th>
+	<th>{MSG: my_buddies}</th>
+	<th class="nw ac">{MSG: referals_post_count}</th>
+	<th class="ac nw">{MSG: referals_registered_on}</th>
+	<th class="ac nw">{MSG: referals_action}</th>
+</tr>
 {TEMPLATE-DATA: buddies}
 </table>
 {SECTION: END}
@@ -69,17 +75,32 @@
 <br /><br />
 <form id="buddy_add" action="{TEMPLATE: BUDDYLIST_PAGE_lnk3}" method="post">{DEF: _hs}<div class="ctb">
 <table cellspacing="1" cellpadding="2" class="MiniTable">
-<tr><th class="nw">{MSG: add_buddy}</th></tr>
+<tr>
+	<th class="nw">{MSG: add_buddy}</th>
+</tr>
 <tr class="RowStyleA">
-<td class="GenText nw Smalltext">{MSG: buddy_search}{IF: ($FUD_OPT_1 & 8388608 || (_uid && $FUD_OPT_1 & 4194304))}{TEMPLATE: buddy_member_search}{ENDIF}<br /><br />
-<input type="text" tabindex="1" name="add_login" value="" maxlength="100" size="25" /> <input tabindex="2" type="submit" class="button" name="submit" value="{MSG: add}" /></td></tr>
+	<td class="GenText nw Smalltext">
+		{MSG: buddy_search}{IF: ($FUD_OPT_1 & 8388608 || (_uid && $FUD_OPT_1 & 4194304))}{TEMPLATE: buddy_member_search}{ENDIF}<br /><br />
+		<input type="text" tabindex="1" name="add_login" id="add_login" value="" maxlength="100" size="25" />
+		<input tabindex="2" type="submit" class="button" name="submit" value="{MSG: add}" />
+	</td>
+</tr>
 </table></div></form>
 {TEMPLATE: curtime}
 {TEMPLATE-DATA: page_stats}
-<script type="text/javascript">
-/* <![CDATA[ */
-document.forms['buddy_add'].add_login.focus();
-/* ]]> */
+<script>
+	document.forms['buddy_add'].add_login.focus();
+</script>
+
+<style>
+	.ui-autocomplete-loading { background: white url("js/jquery/images/ui-anim_basic_16x16.gif") right center no-repeat; }
+</style>
+<script>
+	jQuery(function() {
+		jQuery("#add_login").autocomplete({
+			source: "index.php?t=autocomplete&lookup=alias", minLength: 1
+		});
+	});
 </script>
 {TEMPLATE: footer}
 {PAGE: END}

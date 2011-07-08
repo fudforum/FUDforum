@@ -57,11 +57,11 @@
 <table class="datatable solidtable">
 	<tr class="field">
 		<td>From user:<br /><font size="-1">(will be deleted)</font></td>
-		<td><input tabindex="2" type="text" name="u1" value="<?php echo $u1; ?>" size="30" /></td>
+		<td><input tabindex="2" type="text" name="u1" id="u1" value="<?php echo $u1; ?>" size="30" /></td>
 	</tr>
 	<tr class="field">
 		<td>To user:<br /><font size="-1">(target for messages, PM's, etc.)</font></td>
-		<td><input tabindex="1" type="text" name="u2" value="<?php echo $u2; ?>" size="30" /></td>
+		<td><input tabindex="1" type="text" name="u2" id="u2" value="<?php echo $u2; ?>" size="30" /></td>
 	</tr>
 	<tr class="fieldaction">
 		<td colspan="2" align="right"><input type="submit" value="Merge Users" tabindex="5" name="usr_merge" /></td>
@@ -70,4 +70,16 @@
 </form>
 
 <p><a href="admuser.php?<?php echo __adm_rsid; ?>">&laquo; Back to User Administration System</a></p>
+
+<style>
+	.ui-autocomplete-loading { background: white url("../js/ui/images/ui-anim_basic_16x16.gif") right center no-repeat; }
+</style>
+<script>
+	jQuery(function() {
+		jQuery("#u1, #u2").autocomplete({
+			source: "../index.php?t=autocomplete&lookup=alias", minLength: 1
+		});
+	});
+</script>
+
 <?php require($WWW_ROOT_DISK .'adm/footer.php'); ?>

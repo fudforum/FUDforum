@@ -306,9 +306,8 @@ administration permissions to the forum. This individual will be able to do anyt
 	</tr>
 	</table>
 
-
 <style>
-	.ui-autocomplete-loading { background: white url('../js/jquery/images/ui-anim_basic_16x16.gif') right center no-repeat; }
+	.ui-autocomplete-loading { background: white url("../js/ui/images/ui-anim_basic_16x16.gif") right center no-repeat; }
 </style>
 <script>
 	jQuery(function() {
