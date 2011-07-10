@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -52,7 +52,8 @@
 	}
 
 	$find_user_data = '';
-	$c = uq(q_limit('SELECT /*!40000 SQL_CALC_FOUND_ROWS */ flag_cc, flag_country, home_page, users_opt, alias, join_date, posted_msg_count, id, custom_color, last_visit FROM {SQL_TABLE_PREFIX}users WHERE '. $qry .' id>1 ORDER BY '. $ord,
+	// Exclude anonymous (id=0) and spider users (users_opt&1073741824).
+	$c = uq(q_limit('SELECT /*!40000 SQL_CALC_FOUND_ROWS */ flag_cc, flag_country, home_page, users_opt, alias, join_date, posted_msg_count, id, custom_color, last_visit FROM {SQL_TABLE_PREFIX}users WHERE '. $qry .' id>1 AND '. q_bitand('users_opt', 1073741824) .' = 0 ORDER BY '. $ord,
 			$MEMBERS_PER_PAGE, $start));
 	while ($r = db_rowobj($c)) {
 		$find_user_data .= '{TEMPLATE: find_user_entry}';
@@ -64,7 +65,7 @@
 
 	$pager = '';
 	if (($total = (int) q_singleval('SELECT /*!40000 FOUND_ROWS(), */ -1')) < 0) {
-		$total = q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}users WHERE '. $qry .' id > 1');
+		$total = q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}users WHERE '. $qry .' id > 1 AND '. q_bitand('users_opt', 1073741824) .' = 0');
 	}
 	if ($total > $MEMBERS_PER_PAGE) {
 		if ($FUD_OPT_2 & 32768) {
