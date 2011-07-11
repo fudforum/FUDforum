@@ -146,7 +146,7 @@ function insertAtCaret(textEl, text)
 		textEl.value  =  textEl.value + text;
 }
 
-function window_open(url,winName,width,height)
+function window_open(url, winName, width, height)
 {
 	xpos = (screen.width-width)/2;
 	ypos = (screen.height-height)/2;
@@ -218,7 +218,8 @@ function fud_tree_msg_focus(mid, s, CHARSET)
 	});
 }
 
-function highlightWord(node,word,Wno)
+/* Highlight a word in document. */
+function highlightWord(node, word, Wno)
 {
 	/* Iterate into this nodes childNodes */
 	if (node.hasChildNodes) {
@@ -252,6 +253,7 @@ function highlightWord(node,word,Wno)
 	}
 }
 
+/* Highlight search terms in document. */
 function highlightSearchTerms(searchText)
 {
 	searchText = searchText.toLowerCase();
@@ -276,6 +278,7 @@ function highlightSearchTerms(searchText)
 	}
 }
 
+/* Increase or decrease textareas size. Function is depricated, may still be used in old user themes. */
 function rs_txt_box(col_inc, row_inc)
 {
 	var obj = jQuery('textarea');
@@ -479,54 +482,30 @@ function passwords_match(password1, password2) {
 /* Code that will run on each page. */
 jQuery(function init() {
 	/* Open external links in a new window. */
-	// jQuery('a[href^="http://"]').attr({
-	//	target: "_blank", 
-	//	title: "Opens in a new window"
-	// });
+	jQuery('a[href^="http://"]').attr({
+		target: "_blank", 
+		title: "Opens in a new window"
+	});
+	// .append('<small><sup>&crarr;</sup></small>');
 
 	/* Add rel="nofollow" to external links. */
 	// jQuery('a[href^="http"]').attr('rel','nofollow');
 
-	/* Make textareas's resizable. */
+	/* Make textareas resizable (jQuery UI). */
 	jQuery("textarea:visible").resizable({
-		handles: "se"
+		minHeight: 32,	// Leave at least one line in the textarea.
+		handles: "s"	// South handle at the bottom.
 	});
 
-/*
-	jQuery('textarea:not(.textarea-processed)').each(function() {
-	var textarea = jQuery(this).addClass('textarea-processed'), staticOffset = null;
+	/* Enable jQuery UI buttons. */
+	// jQuery(".button").button();
 
-	jQuery(this).wrap('<div class="resizable-textarea"><span></span></div>')
-	.parent().append(jQuery('<div class="grippie"></div>').mousedown(startDrag));
-
-	var grippie = jQuery('div.grippie', jQuery(this).parent())[0];
-	grippie.style.marginRight = (grippie.offsetWidth - jQuery(this)[0].offsetWidth) +'px';
-
-	function startDrag(e) {
-	  staticOffset = textarea.height() - e.pageY;
-	  textarea.css('opacity', 0.25);
-	  jQuery(document).mousemove(performDrag).mouseup(endDrag);
-	  return false;
-	}
-
-	function performDrag(e) {
-	  textarea.height(Math.max(32, staticOffset + e.pageY) + 'px');
-	  return false;
-	}
-
-	function endDrag(e) {
-	  jQuery(document).unbind("mousemove", performDrag).unbind("mouseup", endDrag);
-	  textarea.css('opacity', 1);
-	}
-	});
-*/
-	
-	/* Syntax highlighting for code blocks. */
+	/* jQuery  syntax highlighting for code blocks. */
 	// jQuery.SyntaxHighlighter.init();
 	
-	/* Start TimeAgo plugin. */
+	/* jQuery TimeAgo plugin. */
 	// jQuery('.DateText').timeago();
-	jQuery("time").timeago();
-	// <time class="DateText" datetime="2008-07-17T09:24:17Z">July 17, 2008</time>
+	// jQuery("time").timeago();
+	// Example: <time class="DateText" datetime="2008-07-17T09:24:17Z">July 17, 2008</time>
 
 });
