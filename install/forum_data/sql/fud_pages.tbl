@@ -27,4 +27,6 @@ DROP TABLE IF EXISTS {SQL_TABLE_PREFIX}fl_pg;
 CREATE TABLE {SQL_TABLE_PREFIX}fl_pg (id INT);
 
 # Opts:
-# 1 Don't list in list of pages
+# 1 Published?
+# 2 Show in list of pages?
+# 4 Execute embedded PHP code?

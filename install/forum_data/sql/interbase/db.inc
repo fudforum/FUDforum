@@ -28,7 +28,7 @@ function db_close()
 function db_version()
 {
 	if (!defined('__FUD_SQL_VERSION__')) {
-		$ver = q_singleval('SELECT rdb$get_context(\'SYSTEM\', \'ENGINE_VERSION\') from rdb$database'));
+		$ver = q_singleval('SELECT rdb$get_context(\'SYSTEM\', \'ENGINE_VERSION\') from rdb$database');
 		define('__FUD_SQL_VERSION__', $ver);
 	}
 	return __FUD_SQL_VERSION__;
