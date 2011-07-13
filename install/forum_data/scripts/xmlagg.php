@@ -131,6 +131,8 @@
 			$body = $node->getElementsByTagName('content')->item(0)->nodeValue;
 		} elseif (isset($node->getElementsByTagName('description')->item(0)->nodeValue)) {
 			$body = $node->getElementsByTagName('description')->item(0)->nodeValue;
+		} elseif (isset($node->getElementsByTagName('summary')->item(0)->nodeValue)) {
+			$body = $node->getElementsByTagName('summary')->item(0)->nodeValue;
 		}
 		if (isset($body)) {
 			$articles[$date]['body'] = $body;
