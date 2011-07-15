@@ -1,7 +1,7 @@
 #!/usr/bin/php -q
 <?php
 /***************************************************************************
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -11,6 +11,7 @@
 * (at your option) any later version.
 ***************************************************************************/
 
+/** Create an archive of all files requred to install or upgrade a forum. */
 function create_file_archive($dir)
 {
 	$dirs = array(realpath($dir));
@@ -19,7 +20,7 @@ function create_file_archive($dir)
 
 	while (list(,$v) = each($dirs)) {
 		if (!($d = opendir($v))) {
-			w_err('Cannot access ['. $path .'].');
+			seterr('Cannot access ['. $path .'].');
 		}
 
 		$dd = str_replace($base, '', $v);
@@ -55,7 +56,8 @@ function create_file_archive($dir)
 	return $data;
 }
 
-function w_err($msg, $exit=true)
+/** Print error message and exit. */
+function seterr($msg)
 {
 	fwrite(STDERR, $msg ."\n"); 
 	exit;
@@ -72,13 +74,13 @@ function w_err($msg, $exit=true)
 	}
 
 	if (!isset($_SERVER['argv'][1]) ) {
-		w_err("No arguments.\n\tSyntax: create_file_archive directory_name [use compression]");
+		seterr("No arguments.\n\tSyntax: create_file_archive directory_name [use compression]");
 	} else if (!@is_dir($_SERVER['argv'][1])) {
-		w_err('ERROR: ['. $_SERVER['argv'][1] ."] is not a valid valid directory.\nPlease specify a valid directory to package.");
+		seterr('ERROR: ['. $_SERVER['argv'][1] ."] is not a valid valid directory.\nPlease specify a valid directory to package.");
 	}
 
 	if (isset($_SERVER['argv'][2]) && !extension_loaded('zlib')) {
-		w_err('The zlib extension that is required to compress the archive is not installed. Please install it or restart without compression.');
+		seterr('The zlib extension that is required to compress the archive is not installed. Please install it or restart without compression.');
 	}	
 
 	$_SERVER['argv'][1] = preg_replace('!/+$!', '', $_SERVER['argv'][1]);

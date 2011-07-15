@@ -240,7 +240,7 @@ function check_primary_dir($dir, $type)
 		return 1;
 	}
 	if (!@is_writable($dir)) {
-		seterr($type, 'Directory "'. $dir .'" exists but the installation script is unable to write to the directory. Please grant read/write permissions to the web-server user '. get_server_uid_gid());
+		seterr($type, 'Directory "'. $dir .'" exists, but the installation script is unable to write to the directory. Please grant read/write permissions to the web-server user '. get_server_uid_gid());
 		return 1;
 	}
 	if (SAFE_MODE) {
@@ -541,17 +541,17 @@ if (!count($_POST)) {
 
 	/* PCRE check. */
 	if (!$module_status['pcre']) {
-		seterr('PCRE', 'The required PCRE extension for PHP is not available. Please rectify this and try again.');
+		seterr('PCRE', 'The required PCRE (Perl Compatible Regular Expression) extension for PHP is not available. Please rectify this and try again.');
 	}
 
 	/* Mbstring check. */
 	if (!$module_status['mbstring']) {
-		seterr('MBSTRING', 'The required MBSTRING extension for PHP is not available. Please rectify this and try again.');
+		seterr('MBSTRING', 'The required MBSTRING (Multibyte String) extension for PHP is not available. Please rectify this and try again.');
 	}
 
 	/* File permission check. */
 	if ($no_mem_limit && !@is_writeable(__FILE__)) {
-		seterr('PERMS', 'Please grant read/write permissions on this installation file to the web-server user to proceed.');
+		seterr('PERMS', 'Please grant read/write permissions on this installation file (<?php echo __FILE__; ?>) to the web-server user to proceed.');
 	}
 
 	if (isset($GLOBALS['errors'])) {
@@ -583,7 +583,7 @@ if (!count($_POST)) {
 	if (isset($zl) && $no_mem_limit) {
 		/* Move archive to separate file. */
 		if (!($fp = @fopen('./fudforum_archive', 'wb'))) {
-			echo '<html><body>Please grant read/write permissions on the current directory file to the web-server user ('.getcwd().')';
+			echo '<html><body>Please grant read/write permissions on the current directory file to the web-server user ('. getcwd() .')';
 			if (!SAFE_MODE) {
 				echo '<br />or create a file called "fudforum_archive" within the current directory and grant read/write permissions on this file to the web-server user to proceed.';
 			}
@@ -675,12 +675,12 @@ if ($section == 'stor_path' || php_sapi_name() == 'cli') {
 			if (validate_url($url)) {
 				break;
 			}
-			echo 'ERROR: ['. $url ."] is not a valid URL. Please supply a url in the 'http://host/path/' format\n";
+			echo 'ERROR: ['. $url ."] is not a valid URL. Please supply a URL in the 'http://host/path/' format\n";
 		}
 
 		/* Prompt for file system path of the forum's web files. */
 		while (!$_POST['SERVER_ROOT'] || !is_wr($_POST['SERVER_ROOT'])) {
-			echo 'Path to FudForum web browseable files: ';
+			echo 'Path to FUDforum web browseable files: ';
 			$_POST['SERVER_ROOT']  = trim(fgets(STDIN, 1024));
 			if ($_POST['SERVER_ROOT'] && is_wr($_POST['SERVER_ROOT'])) {
 				break;
@@ -690,7 +690,7 @@ if ($section == 'stor_path' || php_sapi_name() == 'cli') {
 
 		/* Prompt for file path of the forum's web files. */
 		while (!$_POST['SERVER_DATA_ROOT'] || !is_wr($_POST['SERVER_DATA_ROOT'])) {
-			echo 'Path to Fudforum data files (non-browseable) ['. $_POST['SERVER_ROOT'] .']: ';
+			echo 'Path to FUDforum data files (non-browseable) ['. $_POST['SERVER_ROOT'] .']: ';
 			$_POST['SERVER_DATA_ROOT'] = trim(fgets(STDIN, 1024));
 			if (!$_POST['SERVER_DATA_ROOT']) {
 				$_POST['SERVER_DATA_ROOT'] = $_POST['SERVER_ROOT'];
@@ -930,15 +930,9 @@ if ($section == 'db' || php_sapi_name() == 'cli') {
 
 	/* Validate database version. */
 	if (!isset($GLOBALS['errors'])) {
-		$dbver = db_version();
-		if (__dbtype__ == 'mysql' && version_compare($dbver, '4.1.2', '<')) {
-			seterr('DBHOST_DBNAME', 'MySQL version '. $dbver .' is not supported. Please upgrade to MySQL Version 4.1.2 or higher.');
-		} else if (__dbtype__ == 'pgsql' && version_compare($dbver, '8.1.0', '<')) {
-			seterr('DBHOST_DBNAME', 'PostgreSQL version '. $dbver .' is not supported. Please upgrade to PgSql Version 8.1.0 or higher.');
-		} else if (__dbtype__ == 'oracle' && version_compare($dbver, '9.2.0', '<')) {
-			seterr('DBHOST_DBNAME', 'Oracle version '. $dbver .' is not supported. Please upgrade to Oracle Version 9.2.0 or higher.');
-		} else if (__dbtype__ == 'sqlsrv' && version_compare($dbver, '10.00.00', '<')) {
-			seterr('DBHOST_DBNAME', 'SQL Server version '. $dbver .' is not supported. Please upgrade to SQL Server Version 11.00.0000 or higher.');
+		$err = validate_db_version();
+		if (!empty($err)) {
+			seterr('DBHOST_DBNAME', $err);
 		}
 	}
 
@@ -1009,10 +1003,12 @@ if ($section == 'db' || php_sapi_name() == 'cli') {
 					try {
 						q($q);
 					} catch (Exception $e) {
-						seterr('DBHOST_DBNAME', 'Failed to load seed data into table '. basename($t, '.sql') .
+						if (strpos($q, 'DROP ') !== 0) {	// Skip errors on DROP statements.
+							seterr('DBHOST_DBNAME', 'Failed to load seed data into table '. basename($t, '.sql') .
 								':<br />Query: '. $q .
 								'<br />SQL error: '.  $e->getMessage());
-						break 2;
+							break 2;
+						}
 					}
 				}
 			}
@@ -1173,11 +1169,11 @@ if ($section == 'admin' || php_sapi_name() == 'cli') {
 		/* Add web crawler users. */
 		$bot_opts = 1|4|16|128|256|512|4096|8192|16384|131072|262144|4194304|33554432|67108864|536870912|1073741824;
 		$uid = db_li('INSERT INTO '. $DBHOST_TBL_PREFIX .'users (login, alias, name, email, users_opt, join_date, theme, time_zone) VALUES(\'Google\', \'Google\', \'Googlebot\', \'Google@fud_spiders\', '. $bot_opts .', '. time() .', 1, \''. $SERVER_TZ .'\')', $ef, 1);
-		q('INSERT INTO '. $DBHOST_TBL_PREFIX .'spiders (botname, useragent, theme, user_id) VALUES (\'Google\', \'Googlebot\', 1, '. $uid .')');
+		q('INSERT INTO '. $DBHOST_TBL_PREFIX .'spiders (botname, useragent, theme, user_id, bot_opts) VALUES (\'Google\', \'Googlebot\', 1, '. $uid .', 1)');
 		$uid = db_li('INSERT INTO '. $DBHOST_TBL_PREFIX .'users (login, alias, name, email, users_opt, join_date, theme, time_zone) VALUES(\'Yahoo\', \'Yahoo\', \'Yahoo!\', \'Yahoo@fud_spiders\', '. $bot_opts .', '. time() .', 1, \''. $SERVER_TZ .'\')', $ef, 1);
-		q('INSERT INTO '. $DBHOST_TBL_PREFIX .'spiders (botname, useragent, theme, user_id) VALUES (\'Yahoo!\', \'Slurp\', 1, '. $uid .')');
+		q('INSERT INTO '. $DBHOST_TBL_PREFIX .'spiders (botname, useragent, theme, user_id, bot_opts) VALUES (\'Yahoo!\', \'Slurp\', 1, '. $uid .', 1)');
 		$uid = db_li('INSERT INTO '. $DBHOST_TBL_PREFIX .'users (login, alias, name, email, users_opt, join_date, theme, time_zone) VALUES(\'Bing\', \'Bing\', \'Bing\', \'Bing@fud_spiders\', '. $bot_opts .', '. time() .', 1, \''. $SERVER_TZ .'\')', $ef, 1);
-		q('INSERT INTO '. $DBHOST_TBL_PREFIX .'spiders (botname, useragent, theme, user_id) VALUES (\'Bing\', \'msnbot\', 1, '. $uid .')');
+		q('INSERT INTO '. $DBHOST_TBL_PREFIX .'spiders (botname, useragent, theme, user_id, bot_opts) VALUES (\'Bing\', \'msnbot\', 1, '. $uid .', 1)');
 
 		change_global_settings(array(
 			'ADMIN_EMAIL' => $_POST['ADMIN_EMAIL'],
@@ -1308,11 +1304,11 @@ switch ($section) {
 		}
 
 		if (!SAFE_MODE) {
-			dialog_start('SYSTEM FILE AND DIRECTORY PATH<span class="step">Step 1 of 5</span>', '<p>Please specify the directories where FudForum files will be stored. Grant read/write permissions  on both the <b>Web Directory</b> and <b>Data Directory</b> (see below) to the web-server user. Some suggestions:</p><ul>
+			dialog_start('SYSTEM FILE AND DIRECTORY PATH<span class="step">Step 1 of 5</span>', '<p>Please specify the directories where FUDforum files will be stored. Grant read/write permissions  on both the <b>Web Directory</b> and <b>Data Directory</b> (see below) to the web-server user. Some suggestions:</p><ul>
 			<li>If you have <i>shell access</i>, you can change the directory permission by typing "<b>chmod 777 directory_name</b>";</li>
 			<li><i>CuteFTP</i> can chmod a directory by selecting it and then pressing Ctrl+Shift+A. In the  checkbox, enter 777 and press OK; and</li>
 			<li>In <i>WS_FTP</i>, right-click on the directory and choose the chmod UNIX option. In the dialog, select all the checkboxes and click OK. This will chmod the directory to 777.</li></ul>
-			<p>If you click on <b>Next</b> the FudForum files will be unpacked to the specified directories.</p>');
+			<p>If you click on <b>Next</b> the FUDforum files will be unpacked to the specified directories.</p>');
 		} else {
 			dialog_start('<div style="color:red"><b>SAFEMODE is ENABLED!</b></div><br />PATH OF SYSTEM FILES AND DIRECTORIES<span class="step">Step 1 of 5</span>',
 					'
@@ -1331,8 +1327,8 @@ switch ($section) {
 			}
 		}
 
-		input_row('Web Directory', 'SERVER_ROOT', $SERVER_ROOT, 'Directory on the server where web browseable FudForum files (*.php, images, etc.) will be stored.');
-		input_row('Data Directory', 'SERVER_DATA_ROOT', $SERVER_DATA_ROOT, 'Directory on the server where <b>NON-</b>browseable (cache, backups, and other data) FudForum files will be stored. This directory should perferably be placed outside the document root.');
+		input_row('Web Directory', 'SERVER_ROOT', $SERVER_ROOT, 'Directory on the server where web browseable FUDforum files (*.php, images, etc.) will be stored.');
+		input_row('Data Directory', 'SERVER_DATA_ROOT', $SERVER_DATA_ROOT, 'Directory on the server where <b>NON-</b>browseable (cache, backups, and other data) FUDforum files will be stored. This directory should perferably be placed outside the document root.');
 		input_row('Forum URL', 'WWW_ROOT', $WWW_ROOT, 'The URL of your forum. It should point to the forum front page. This is the address needed to visit your forum.');
 		input_row('URL Check', 'url_check', '1', 'Turn off this check if you get errors about the <i>Forum URL</i> not matching the <i>Web Directory</i> and are certain that the paths indicated are correct (not recommended!)', 'checkbox', 'checked="checked"');
 		dialog_end($section);
@@ -1345,7 +1341,7 @@ switch ($section) {
 		$db_types = databases_enabled();
 		reset($db_types);
 		if (count($db_types) > 1) {
-			sel_row('Database Type', 'DBHOST_DBTYPE', implode("\n", $db_types), implode("\n", array_keys($db_types)), 'Type of database to store FudForum data in.', (isset($_POST['DBHOST_DBTYPE']) ? $_POST['DBHOST_DBTYPE'] : 'mysql'));
+			sel_row('Database Type', 'DBHOST_DBTYPE', implode("\n", $db_types), implode("\n", array_keys($db_types)), 'Type of database to store FUDforum data in.', (isset($_POST['DBHOST_DBTYPE']) ? $_POST['DBHOST_DBTYPE'] : 'mysql'));
 		} else {
 			echo '<tr class="field"><td valign="top"><b>Database Type</b></td><td><input type="hidden" name="DBHOST_DBTYPE" value="'. key($db_types) .'" />Using '. current($db_types) .'</td></tr>';
 		}
@@ -1368,7 +1364,7 @@ switch ($section) {
 		if (count($db_types) > 1 || !isset($db_types['pdo_sqlite'])) { // If only DB is sqlite, don't show non-relavent settings.
 			input_row('Host', 'DBHOST', $DBHOST, 'The IP address (or unix domain socket) of the database server.');
 			input_row('User', 'DBHOST_USER', $DBHOST_USER, 'The database user name.');
-			input_row('Password', 'DBHOST_PASSWORD', $DBHOST_PASSWORD, 'The user name password.', 'password');
+			input_row('Password', 'DBHOST_PASSWORD', $DBHOST_PASSWORD, 'The password for the above user name.', 'password');
 			input_row('Database', 'DBHOST_DBNAME', $DBHOST_DBNAME, 'The database name.');
 		} else {
 			echo '<input type="hidden" name="DBHOST" value="" />
@@ -1426,7 +1422,7 @@ switch ($section) {
 		break;
 
 	case 'theme':
-		dialog_start('Forum Theme<span class="step">Step 4 of 5</span>', '<p>Choose the primary template set and language for your forum. Additional templates and languages can be configured after installation from the FudForum <i>Theme Manager</i> admin control panel.</p><p>If the language you require is not available, or the translation is incomplete, please go to <a href="http://fudforum.org/forum/">FUDforum website</a> and read about translating the forum to other languages.</p>');
+		dialog_start('Forum Theme<span class="step">Step 4 of 5</span>', '<p>Choose the primary template set and language for your forum. Additional templates and languages can be configured after installation from the FUDforum <i>Theme Manager</i> admin control panel.</p><p>If the language you require is not available, or the translation is incomplete, please go to <a href="http://fudforum.org/forum/">FUDforum website</a> and read about translating the forum to other languages.</p>');
 
 		// List available template sets.
 		$tmpl_names = '';

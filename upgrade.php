@@ -595,12 +595,19 @@ function extract_archive($memory_limit)
 	file_put_contents($dbinc, preg_replace('/function get_fud_table_list\(.*?function/s', 'function', file_get_contents($dbinc)));
 	include_once $dbinc;
 
-	// Another hack: Q_bitand() was introduced in 3.0.2 and is used in this script, 
-	// but the older driver we've loaded doesn't have it yet.
+	// Another hack: q_bitand() was introduced in 3.0.2 and is used in this script.
+	// but the possibly older driver we've loaded may not have it yet.
 	if (!function_exists('q_bitand')) {
 		function q_bitand($fieldLeft, $fieldRight) {
 			return $fieldLeft .' & '. $fieldRight;
 		}
+	}
+
+	// Another temp hack. Manually check MySQL DB version 
+	// Should be replaced by validate_db_version() introduced in 3.0.2 (as implemented below).
+	$dbver = db_version();
+	if (__dbtype__ == 'mysql' && version_compare($dbver, '5.0.0', '<')) {
+		seterr('DBHOST_DBNAME', 'MySQL version '. $dbver .' is not supported. Please upgrade to MySQL Version 5.0.0 or higher.');
 	}
 
 	/* Only allow the admin user to upgrade the forum. */
@@ -778,11 +785,21 @@ pf('<h2>Step 1: Admin login</h2>', true);
 	/* Update database. */
 	pf('Beginning SQL Upgrades.');
 
-	/* Check SQL permissions. */
 	// NOTE: dbadmin.inc becomes available in 3.0.2. We cannot use it until we've unpacked the new files.
 	// Checking of SQL permisions should actuallty be done BEFORE we unpack - a catch 22.
-	// Remember to move the code up in a later version again.
-	include_once $GLOBALS['DATA_DIR'] .'include/dbadmin.inc';	// 
+	//TODO: Remember to move the code up in a later version again.
+	include_once $GLOBALS['DATA_DIR'] .'include/dbadmin.inc';
+
+	//TODO: Better late than never, move version checks up in future release (with loading of dbadmin.inc).
+	/* Validate database version. */
+	if (!isset($GLOBALS['errors'])) {
+		$err = validate_db_version();
+		if (!empty($err)) {
+			seterr('DBHOST_DBNAME', $err);
+		}
+	}
+
+	/* Check SQL permissions. */
 	pf('Checking if SQL permissions to perform the upgrade are available.');
 	drop_table('fud_forum_install_test_table', true);
 	try {
@@ -857,7 +874,7 @@ pf('<h2>Step 1: Admin login</h2>', true);
 					drop_column($tbl['name'], $v);
 				}
 			} else {
-				pf('Unused database column '. $v .' in table '. $tbl['name'] .'. Unless you\'ve added it, it should be dropped!');
+				pf('WARNING: Unused database column '. $v .' in table '. $tbl['name'] .'. Unless you\'ve added it, it should be dropped!');
 			}
 
 			/* Handle indexes. */
@@ -894,8 +911,8 @@ pf('<h2>Step 1: Admin login</h2>', true);
 				// Add if it's not a PK on the DB.
 				$db_col = get_fud_col_list($tbl['name']);
 				if (! $db_col[$pk]['primary']) {
-					// Several PK's are added in 3.0.2.
-					// We will worry about removing and recreating them in a later release.
+					// Several PK's were added in 3.0.2.
+					// We will worry about removing before recreating them in a later release.
 					// q('ALTER TABLE '. $tbl['name'] .' DROP PRIMARY KEY');
 
 					$col_list = implode(',', $out_of_line_pks);
@@ -985,6 +1002,9 @@ pf('<h2>Step 1: Admin login</h2>', true);
 			  'admclose.html',	// Renamed to footer.php (3.0.1).
 			  'admaprune.php',	// Renamed to admpruneattch.php (3.0.2).
 			  'admbatch.php',	// Renamed to admjobs.php (3.0.2).
+			  'admdelfrm.php',	// Renamed to admforumdel.php (3.0.3).
+			  'admaccapr.php',	// Renamed to admuserapr.php (3.0.3).
+			  'admapprove_avatar.php',	// Renamed to admavatarapr.php (3.0.3).
 			 );
 	foreach ($rm_adm as $f) {
  		if (file_exists($GLOBALS['WWW_ROOT_DISK'] .'adm/'. $f)) {

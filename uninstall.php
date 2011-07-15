@@ -105,10 +105,13 @@ function seterr($msg)
 		}
 
 		/* Read GLOBALS.php for database settings so that the db can be cleaned up. */
-		$settings = file($SERVER_DATA_ROOT .'/include/GLOBALS.php');
-		$settings = preg_grep('/^\s+\$\w+\s+=\s+.+;/', $settings);	// Only variables.
-		$settings = implode('', $settings);
-		eval($settings);
+		$inc = $SERVER_DATA_ROOT .'/include/glob.inc';
+		if (!file_exists($inc)) {
+			seterr('Missing include file glob.inc at '. $inc);
+		} else {
+			require_once($SERVER_DATA_ROOT .'/include/glob.inc');
+			read_global_settings();
+		}
 
 		/* Check if debug mode is enabled. */
 		if ($dryrun) {
@@ -118,12 +121,12 @@ function seterr($msg)
 		}
 
 		/* Drop database tables. */
-		$dbinc = $SERVER_DATA_ROOT .'/sql/'. $DBHOST_DBTYPE .'/db.inc';
-		if (!file_exists($dbinc)) {
-			pf('No DB driver found at '. $dbinc);
+		$inc = $SERVER_DATA_ROOT .'/sql/'. $DBHOST_DBTYPE .'/db.inc';
+		if (!file_exists($inc)) {
+			pf('No DB driver found at '. $inc);
 			pf('Database tables will not be dropped!');
 		} else {
-			include_once $dbinc;
+			include_once $inc;
 			include_once $SERVER_DATA_ROOT .'/include/dbadmin.inc';
 
 			foreach(get_fud_table_list() as $tbl) {
