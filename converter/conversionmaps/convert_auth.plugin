@@ -39,7 +39,7 @@ function plugin_convert_auth($data) {
 
 function convert_auth_info() {
 	return array('name' => 'Convert authentication',
-		     'desc' => '<p>This plugin will authenticate imported users and convert their passwords to FUDforum\'s standard as they log in (without having to reset their passwords).</p><p>This plugin can be removed after a couple of weeks when all active user acconts have been converted.</p>',
+		     'desc' => 'This plugin will authenticate imported users and convert their passwords to FUDforum\'s standard as they log in (without having to reset their passwords). This plugin can be removed after a couple of weeks when all active user acconts have been converted.',
 		     'version' => '1.0');
 }
 
