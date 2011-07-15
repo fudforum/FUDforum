@@ -16,19 +16,21 @@ INSERT INTO {SQL_TABLE_PREFIX}group_resources (group_id, resource_id) VALUES(3, 
 INSERT INTO {SQL_TABLE_PREFIX}group_resources (group_id, resource_id) VALUES(4, 2);
 INSERT INTO {SQL_TABLE_PREFIX}group_resources (group_id, resource_id) VALUES(5, 3);
 
-INSERT INTO {SQL_TABLE_PREFIX}group_members (user_id, group_id, group_members_opt) VALUES (0, 3, 1|2|262144|65536);
+INSERT INTO {SQL_TABLE_PREFIX}group_members (user_id, group_id, group_members_opt) VALUES (0,          3, 1|2|262144|65536);
 INSERT INTO {SQL_TABLE_PREFIX}group_members (user_id, group_id, group_members_opt) VALUES (2147483647, 3, 1|2|4|8|128|256|512|1024|16384|32768|262144|65536);
-INSERT INTO {SQL_TABLE_PREFIX}group_members (user_id, group_id, group_members_opt) VALUES (0, 4, 1|2|262144|65536);
+INSERT INTO {SQL_TABLE_PREFIX}group_members (user_id, group_id, group_members_opt) VALUES (0,          4, 0);
 INSERT INTO {SQL_TABLE_PREFIX}group_members (user_id, group_id, group_members_opt) VALUES (2147483647, 4, 1|2|4|8|128|256|512|1024|16384|32768|262144|65536);
-INSERT INTO {SQL_TABLE_PREFIX}group_members (user_id, group_id, group_members_opt) VALUES (0, 5, 1|2|262144|65536);
-INSERT INTO {SQL_TABLE_PREFIX}group_members (user_id, group_id, group_members_opt) VALUES (2147483647, 5, 1|2|4|8|128|256|512|1024|16384|32768|262144|65536);
+INSERT INTO {SQL_TABLE_PREFIX}group_members (user_id, group_id, group_members_opt) VALUES (0,          5, 0);
+INSERT INTO {SQL_TABLE_PREFIX}group_members (user_id, group_id, group_members_opt) VALUES (2,          5, 1|2|4|8|128|256|512|1024|16384|32768|262144|65536);
+INSERT INTO {SQL_TABLE_PREFIX}group_members (user_id, group_id, group_members_opt) VALUES (2147483647, 5, 0);
 
-INSERT INTO {SQL_TABLE_PREFIX}group_cache (user_id, resource_id, group_id, group_cache_opt) VALUES (0, 1, 3, 1|2|262144);
+INSERT INTO {SQL_TABLE_PREFIX}group_cache (user_id, resource_id, group_id, group_cache_opt) VALUES (0,          1, 3, 1|2|262144);
 INSERT INTO {SQL_TABLE_PREFIX}group_cache (user_id, resource_id, group_id, group_cache_opt) VALUES (2147483647, 1, 3, 1|2|4|8|128|256|512|1024|16384|32768|262144);
-INSERT INTO {SQL_TABLE_PREFIX}group_cache (user_id, resource_id, group_id, group_cache_opt) VALUES (0, 2, 4, 0);
+INSERT INTO {SQL_TABLE_PREFIX}group_cache (user_id, resource_id, group_id, group_cache_opt) VALUES (0,          2, 4, 0);
 INSERT INTO {SQL_TABLE_PREFIX}group_cache (user_id, resource_id, group_id, group_cache_opt) VALUES (2147483647, 2, 4, 1|2|4|8|128|256|512|1024|16384|32768|262144);
-INSERT INTO {SQL_TABLE_PREFIX}group_cache (user_id, resource_id, group_id, group_cache_opt) VALUES (0, 3, 4, 0);
-INSERT INTO {SQL_TABLE_PREFIX}group_cache (user_id, resource_id, group_id, group_cache_opt) VALUES (2147483647, 3, 4, 1|2|4|8|128|256|512|1024|16384|32768|262144);
+INSERT INTO {SQL_TABLE_PREFIX}group_cache (user_id, resource_id, group_id, group_cache_opt) VALUES (0,          3, 4, 0);
+INSERT INTO {SQL_TABLE_PREFIX}group_cache (user_id, resource_id, group_id, group_cache_opt) VALUES (2,          3, 4, 1|2|4|8|128|256|512|1024|16384|32768|262144);
+INSERT INTO {SQL_TABLE_PREFIX}group_cache (user_id, resource_id, group_id, group_cache_opt) VALUES (2147483647, 3, 4, 0);
 
 # Create additional thread view tables.
 DROP TABLE {SQL_TABLE_PREFIX}tv_2;
