@@ -4,13 +4,13 @@
 # Author: Hydra
 # Author: Naudefj
 # Author: PhiLiP
+# Author: Xiaomingyan
 # Author: 阿pp
 
 action:操作
 add_to_buddy_list:加入好友列表
 admin:管理
-# Fuzzy
-admin_control_panel:管理界面
+admin_control_panel:行政管理
 administrator:系统管理员
 attachment:附件：
 avatar:头像：
@@ -40,7 +40,7 @@ forum_none_messages:只有本论坛的注册用户能够把帖子标为“已读
 forum_old_messages:没有新消息
 from:来自：
 gender:性别：
-go:跳转
+go:提交
 goto_next_msg:下一楼
 goto_prev_msg:楼上
 home:主页
@@ -1114,6 +1114,7 @@ move_msg_btn:移动所有选中的
 move_msg_th_expl:移至指定主题的ID（可以跨版块）
 captcha_img_alt:验证码： 您需要识别此图像中的文本。
 captcha_img_help:有没有为零或图像中的一个。
+powered-by:电池： FUDforum {GVAR: FORUM_VERSION}。
 code_title:代码：
 code_select_all:选择全部
 code_show_hide:显示/隐藏
@@ -1140,5 +1141,7 @@ feed_rdf:RDF 饲料
 feed_rss:RSS2 饲料
 feed_atom:ATOM 源
 custom_filed_required:此字段是必需的。
+pages:页
 page_list_heading:可用页面
 page_update:浏览页面
+pm_export_footer:出口：

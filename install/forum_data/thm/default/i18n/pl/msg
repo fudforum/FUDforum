@@ -6,8 +6,7 @@
 action:Akcja
 add_to_buddy_list:Dodaj do listy znajomych
 admin:Administrator
-# Fuzzy
-admin_control_panel:Panel administracyjny
+admin_control_panel:Administracja
 administrator:Administrator
 attachment:Załącznik:
 avatar:Portret
@@ -70,7 +69,9 @@ mark_all_read_desc:Wszystkie Twoje nieprzeczytane wiadomości zostaną zaznaczon
 members:Użytkownicy
 calendar:Kalendarz
 cal_goto_date:Przejdź do
+cal_day_heading:Zdarzenia na dzień
 cal_no_events:Brak zdarzeń w tym dniu.
+cal_update:Przeglądanie kalendarza forum
 cal_birthday:Data urodzenia: {VAR: user}
 cal_birthday_age:({PLURAL: wiek | $1 rok | $1 lat} życia).
 message:Wiadomość
@@ -409,18 +410,17 @@ post_title:Temat:
 post_body:Treść:
 post_options:Opcje:
 post_preview_btn:Podgląd wiadomości
+post_cancel_btn:Anuluj
 ignore_users:Ignorowani Użytkownicy
 add_ignore:Dodawanie ignorowanych
 forum_terms:Zasady Forum
 forum_rules:<p>Rejestracja na forum jest darmowa! Wymagamy jednak, aby przestrzegać poniżej opisane zasady. Jeśli zgadzasz się na te warunki, wciśnij przycisk <b>Zgadzam się</b> na dole strony. Uwaga – poprzez wciśnięcie tego przycisku oświadczasz, że masz ukończone 14 lat. Jeśli masz 13 lat lub mniej użyj formularza rejestracji.</p><p>Chociaż administratorzy i moderatorzy tego forum będą starać się usuwać wszelkie niepożądane wiadomości nie jest możliwym dla nas sprawdzenie ich wszystkich. Każda wiadomość przedstawia poglądy jej autora, a właściciele i operatorzy forum nie ponoszą za jej treść odpowiedzialności.</p><p>Wciskając przycisk <b>Zgadzam się</b> gwarantujesz, że nie będziesz przesyłał żadnych wiadomości obscenicznych, wulgarnych, erotycznych, nawołujących do nienawiści, napastliwych lub w inny sposób naruszających prawo.</p><p>Właściciele tego forum zastrzegają sobie prawo do usuwania, edytowania, przenoszenia lub zamykania wątków bez podania przyczyny.</p>
-# Fuzzy
-forum_rules_13:Wszyscy użytkownicy poniżej 13 roku życia muszą uzyskać zgodę od swoich rodziców lub prawnych opiekunów, jeśli chcą zarejestrować się na tym forum. Chociaż nie mamy nic przeciwko udzielaniu się na forum osób o wieku poniżej 13 lat, wymagamy, aby rodzic lub opiekun przefaksował nam lub przesłał listem podpisaną zgodę zanim założymy konto.<p>Jeśli chcesz rozpocząć proces rejestracji naciśnij przycisk "Akceptuję" umieszczony poniżej. Jeśli chcesz zrezygnować z rejestracji, naciśnij przycisk "Anuluj", a powrócisz na główną stronę forum. <p>Kopia formularza pozwolenia może być pobrana z tego miejsca. Więcej informacji o procesie rejestracji można uzyskać wysyłając list na adres <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.<p>
+forum_rules_13:<p>Wszyscy użytkownicy w wieku poniżej 13 roku życia muszą uzyskać zgodę od swoich rodziców lub prawnych opiekunów, jeśli chcą zarejestrować się na tym forum. Chociaż nie mamy nic przeciwko udzielaniu się na forum osób o wieku poniżej 13 lat, wymagamy, aby rodzic lub opiekun przefaksował nam lub przesłał listem podpisaną zgodę zanim założymy konto.</p><p>Jeśli chcesz rozpocząć proces rejestracji naciśnij przycisk „Akceptuję“ umieszczony poniżej. Jeśli chcesz zrezygnować z rejestracji, naciśnij przycisk „Anuluj“, a powrócisz na główną stronę forum. </p><p>Kopia formularza pozwolenia może być pobrana z tego miejsca. Więcej informacji o procesie rejestracji można uzyskać wysyłając list na adres <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
 coppa_conf:Potwierdzenie systemu COPPA
 coppa_before:Przed {TEMPLATE: coppa_date}
 coppa_after:Po {TEMPLATE: coppa_date}
 coppa_link:Wybierz odsyłacz, który odpowiada Twojej dacie urodzenia.
-# Fuzzy
-coppa:Rodzic lub prawny opiekun musi wysłac list lub faks z podpisaną zgodą do administratora tego forum, zanim użytkownik w wieku poniżej 13 lat może zakończyć proces rejestracji.<p>Aby uzyskać więcej informacji na ten temat, skontaktuj się z <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
+coppa:<p>Rodzic lub prawny opiekun musi wysłać list lub faks z podpisaną zgodą do administratora tego forum, zanim użytkownik w wieku poniżej 13 lat może zakończyć proces rejestracji.</p><p>Aby uzyskać więcej informacji na ten temat, skontaktuj się z <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a></p>
 prereg_info:Informacje
 prereg_agree:Akceptuję
 prereg_disagree:Nie akceptuję
@@ -446,8 +446,7 @@ login_cookie_expired:Twoje ciasteczko wygasło i musisz się zalogować, aby je 
 login_perm_denied:Nie masz uprawnień na dostęp do żądanego zasobu jako anonimowy użytkownik i musisz się zalogować, aby je otrzymać.
 login_want_to_register:Chcesz się zarejestrować?
 login_forgot_passwd:Zapomniałem hasła!
-# Fuzzy
-login_use_cookie:Używaj ciasteczek<br /><font class="SmallText">Jeśli korzystasz z publicznego dostępu do Sieci, takiego jak komputery w bibliotece, szkole lub kafejce internetowej, zalecane jest wyłączenie tej opcji w celu zwiększenia bezpieczeństwa Twojego konta.
+login_use_cookie:Korzystanie z ciasteczek<br /><span class="SmallText">Jeśli korzystasz z publicznie dostępnego komputera w bibliotece, szkole lub kawiarence internetowej, zalecane jest wyłączenie tej opcji w celu zwiększenia bezpieczeństwa. Jeśli zostawisz tę opcję zaznaczoną zostaniesz automatycznie zalogowany do forum przy następnej wizycie.</span>
 login_login:Użytkownik:
 login_login_btn:Zaloguj się
 login_name_required:Nazwa użytkownika jest wymagana
@@ -558,10 +557,8 @@ tabs_referrals:Osoby polecone
 tabs_buddy_list:Lista znajomych
 tabs_ignore_list:Lista ignorowanych
 tabs_private_messaging:Prywatne wiadomości
-# Fuzzy
-single_msg_delete:Wygląda na to że zamierzasz <font color="#ff0000" size="4">USUNĄĆ</font> wiadomość zatytułowaną: <b>{VAR: data[3]}</b>
-# Fuzzy
-thread_delete:Wygląda na to że zamierzasz <font color="#ff0000" size="4">USUNĄĆ CAŁY WĄTEK</font> zatytułowany: <b>{VAR: data[3]}</b>
+single_msg_delete:Zamierzasz <span class="ErrorText">usunąć</font> wiadomość zatytułowaną: <b>{VAR: data[3]}</b>
+thread_delete:Zamierzasz <span class="ErrorText">usunąć cały wątek</span> zatytułowany: <b>{VAR: data[3]}</b>
 delete_proceed:<font size="3"><b>Czy napewno chcesz to zrobić?</b></font>
 delete_yes:Tak
 delete_no:Nie
@@ -614,8 +611,7 @@ pm_update:Korzystanie z prywatnych wiadomości
 post_err_lockedthread_title:BŁĄD: Zablokowany wątek
 post_err_lockedthread_msg:Ten wątek jest zablokowany, więc nie wolno zamieszczać więcej wiadomości
 err_coppa_title:BŁĄD: Twoje konto nie jest jeszcze potwierdzone
-# Fuzzy
-err_coppa_msg:Nie otrzymaliśmy potwierdzenia od Twojego rodzica lub prawnego opiekuna, co pozwoliłoby ci zamieszczać wiadomości. Jeśli zgubiłeś swój formularz COPPA <a href="{TEMPLATE: err_coppa_msg_lnk}">przejdź tutaj</a>, aby go otrzymać
+err_coppa_msg:Nie otrzymaliśmy potwierdzenia od Twojego rodzica lub prawnego opiekuna, co pozwoliłoby Ci zamieszczać wiadomości. Jeśli zgubiłeś swój formularz COPPA <a href="{TEMPLATE: err_coppa_msg_lnk}">pobierz go ponownie</a>.
 err_banned_acct_title:BŁĄD - zostałeś zablokowany.
 post_err_edttimelimit_title:BŁĄD
 post_err_edttimelimit_msg:Nie możesz już edytować tej wiadomości
@@ -714,8 +710,7 @@ post_opt_html_off:<b>HTML</b> jest <b>Wyłączony</b>
 post_opt_fud_off:<b>FUD Code</b> jest <b>Wyłączony</b>
 post_opt_images_off:<b>Obrazki</b> są <b>Wyłączone</b>
 post_opt_smilies_off:<b>Uśmieszki</b> są <b>Wyłączone</b>
-# Fuzzy
-post_opt:Opcje Forum
+post_opt:Opcje forum
 register_change_passwd:zmień hasło
 register_change_login:Zmień login
 approved_avatar_title:Twój dodatkowy avatar został zatwierdzony.
@@ -885,6 +880,7 @@ search_desc_order:malejącej
 search_asc_order:rosnącej
 search_logic:Operacja logiczna:
 search_sorting:Sortuj rezultaty wg daty w kolejności:
+search_attach:Załączniki:
 post_proceed:OK
 post_moderated_forum:Wysłałeś wiadomość na forum moderowane, co oznacza, że nie będzie ona widoczna, dopóki nie zostanie zatwierdzona przez jednego z moderatorów i/lub administratorów forum.
 post_moderated_forum_ttl:Uwaga o moderowanym forum
@@ -1042,12 +1038,10 @@ mmd_move_threads_to:Forum docelowe
 mmd_abort_move:Anuluj
 mmd_move:Przenieś wątki
 pmsg_pdf_btn:Utwórz archiwum w formacie PDF
-# Fuzzy
-thread_del_all:Usuń wszystkie wybrane
-# Fuzzy
-thread_mov_all:Przenieś wszystkie wybrane
-# Fuzzy
-thread_loc_all:Zablokuj lub odblokuj wszystkie wybrane
+thread_del_all:Usuń zaznaczone
+thread_mov_all:Przenieś zaznaczone
+thread_merge_all:Dołącz zaznaczone
+thread_loc_all:Zablokuj lub odblokuj zaznaczone
 dmsg_ip:IP
 err_blockedaccnt_title:BŁĄD - Twoje konto zostało odfiltrowane.
 merge_th_page_list:Strona wyboru wątków
@@ -1065,6 +1059,7 @@ post_common_align_center:Wyśrodkowany
 post_common_align_right:Do prawej
 post_common_link:Wstaw link
 post_common_email:Wstaw adres e‐mail
+post_common_email_popup:Adres e‐mail
 post_common_image:Wstaw obrazek
 post_common_nlist:Dodaj listę numerowaną
 post_common_blist:Dodaj listę wypunktowaną
@@ -1100,4 +1095,8 @@ btn_email:e‐mail
 btn_show_posts:wiadomości
 btn_homepage:www
 feed_no_data:Nie znaleziono pasujących danych.
+feed_rdf:Kanał RDF
 custom_filed_required:To pole jest wymagane.
+pages:Strony
+page_list_heading:Dostępne strony
+page_update:Przeglądanie strony

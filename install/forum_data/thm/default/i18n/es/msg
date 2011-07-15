@@ -4,6 +4,7 @@
 # Author: Fitoschido
 # Author: Locos epraix
 # Author: McDutchie
+# Author: Mor
 # Author: Od1n
 # Author: Peter17
 # Author: Translationista
@@ -190,8 +191,8 @@ unread_posts:Mensajes no leídos
 unread_posts_desc:Mostrar todos los mensajes no leídos
 unsub_from_thread:Desuscribir del hilo de discusión
 unsub_from_thread_desc:Dejar de recibir avisos acerca de nuevos mensajes en este hilo de discusión
-unbookmark_thread:Remover de marcadores
-unbookmark_thread_desc:Remover este tópico de tu lista de marcadores
+unbookmark_thread:Quitar de favoritos
+unbookmark_thread_desc:Quitar este tema de tu lista de favoritos
 unsubscribe:Desuscribir
 unsubscribe_desc:Dejar de recibir avisos acerca de nuevos hilos de discusión en el foro
 updated_on:Actualizado el:
@@ -1072,7 +1073,7 @@ merge_th_page_list:Seleccionar la página del hilo
 most_users_online:La mayor cantidad de usuarios en línea fue <b>{VAR: st_obj->most_online}</b>, el <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
 sub_unsub_all_forums:Desuscribir de todos los foros
 sub_unsub_all_topics:Desuscribir de todos los hilos
-unbookmark_all_topics:Remover todos los marcadores
+unbookmark_all_topics:Eliminar todos los marcadores
 tabs_own_posts:Mostrar mensajes propios
 sml_emoticon:Emoticono
 sml_code:Código

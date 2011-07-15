@@ -109,8 +109,8 @@ no_unread_msg_unreg:Le messages legite e non legite es solmente traciate pro usa
 num_pages:Paginas ({VAR: ttl_pg}):
 num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|voto|votos}
 occupation:Occupation:
-off:disactivate
-on:activate
+off:inactive
+on:active
 page_timings:Tempore total pro generar le pagina: {PLURAL: page_gen_time|$1 secunda|$1 secundas}
 pm:Messageria private
 poll:Sondage:

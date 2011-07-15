@@ -3,6 +3,7 @@
 # Author: Ahonc
 # Author: Alex Khimich
 # Author: Apromix
+# Author: Microcell
 # Author: Naudefj
 # Author: Prima klasy4na
 # Author: Тест
@@ -10,8 +11,7 @@
 action:Дія
 add_to_buddy_list:додати до списку контактів
 admin:Адмін
-# Fuzzy
-admin_control_panel:Адміністративний центр
+admin_control_panel:Адміністрування
 administrator:Адміністратор
 attachment:Додаток:
 avatar:Аватар:
@@ -1137,6 +1137,9 @@ feed_rss:RSS2-канал
 feed_atom:ATOM-канал
 ip_whois_connect_err:Не вдається підключитися до WHOIS-серверут ({VAR: whois_server}): {VAR: errstr}
 custom_filed_required:Це поле є обов'язковим.
+pages:Сторінки
 page_list_heading:Доступних сторінок
 page_list_total:Показано {PLURAL: i| $1 сторінка| $1 сторінки| $1 сторінок}.
 page_update:Перегляд сторінки
+pm_export_header:Особисті повідомлення для {VAR: usr->alias}
+pm_export_footer:Експортовані:

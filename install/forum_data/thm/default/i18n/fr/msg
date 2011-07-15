@@ -6,6 +6,7 @@
 # Author: Jean-Frédéric
 # Author: McDutchie
 # Author: Naudefj
+# Author: Od1n
 # Author: Omnipaedista
 # Author: Peter17
 # Author: Robby
@@ -14,8 +15,7 @@
 action:Action
 add_to_buddy_list:Ajouter à la liste de mes amis
 admin:Administrateur
-# Fuzzy
-admin_control_panel:Panneau d'administration
+admin_control_panel:Administration
 administrator:Administrateur
 attachment:Attaché :
 avatar:Avatar :
@@ -619,7 +619,7 @@ list_referers_update:Parcourt sa liste d'utilisateurs parrainés
 login_update:Page de connexion
 msg_update:Parcourt le fil <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
 pm_err_nopm_title:ERREUR : la messagerie privée est désactivée
-pm_err_nopm_msg:Vous ne pouvez pas utiliser le système de messagerie privé car il a été désactivé par l'administrateur.
+pm_err_nopm_msg:Vous ne pouvez pas utiliser le système de messagerie privée car il a été désactivé par l'administrateur.
 pm_update:Utilise la messagerie privée
 post_err_lockedthread_title:ERREUR : Le fil est verrouillé
 post_err_lockedthread_msg:Ce fil est verrouillé, aucun nouveau message n'est autorisé
@@ -1141,6 +1141,10 @@ feed_rss:flux RSS2
 feed_atom:flux ATOM
 ip_whois_connect_err:Impossible de se connecter au serveur WHOIS ({VAR: whois_server}) : {VAR: errstr}
 custom_filed_required:Ce champ est obligatoire.
+pages:Pages
 page_list_heading:Pages disponibles
 page_list_total:{PLURAL: i|$1 page listée|$1 pages listées}.
-page_update:Page de navigation.
+page_update:Page de navigation
+pm_export_header:Messages privés pour {VAR: usr->alias}
+# Fuzzy
+pm_export_footer:Exporté:
