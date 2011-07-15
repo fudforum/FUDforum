@@ -32,7 +32,7 @@ function plugin_auto_rebuild_theme($t) {
 
 function auto_rebuild_theme_info() {
 	return array('name' => 'Auto Rebuild Theme',
-				'desc' => 'Rebuild themes when file changes are detected. This helps to speed up theme development. Please do not enable it on production forums',
+				'desc' => 'Rebuild themes when file changes are detected. This helps to speed up theme development. Please do not enable it on production forums.',
 				'version' => '1.0');
 }
 

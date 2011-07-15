@@ -70,7 +70,7 @@ function google_adsense_config() {
 		fwrite($fp, '<?php $ini = '. var_export($ini, 1) .'; ?>');
 		fclose($fp);
 		pf(successify('Settings successfully saved.'));
-		@define('REBUILD_THEMES', 1);
+		compile_themes();
 	}
 	?>
 <p>Where should it be displayed:<br />

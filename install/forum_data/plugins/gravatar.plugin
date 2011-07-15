@@ -32,8 +32,8 @@ function plugin_gravatar($uent) {
 
 function gravatar_info() {
 	return array('name' => 'Gravatar',
-		     'desc' => '<p>Assign users a Globally Recognized Avatar from <a href="http://en.gravatar.com/">gravatar.com</a> when they register.</p>
-				<p>If the user doesn\'t have a gravatar, he/she will get a default mystery-man avatar. To get bigger or smaller avatars, adjust "Custom Avatar Max Dimensions" in the Global Settings Manager.</p>',
+		     'desc' => 'Assign users a Globally Recognized Avatar from <a href="http://en.gravatar.com/">gravatar.com</a> when they register.
+				If the user doesn\'t have a gravatar, he/she will get a default mystery-man avatar. To get bigger or smaller avatars, adjust "Custom Avatar Max Dimensions" in the Global Settings Manager.',
 		     'version' => '1.1');
 }
 

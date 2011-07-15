@@ -76,7 +76,7 @@ function plugin_openid_auth()
 
 function openid_info() {
 	return array('name' => 'OpenID Authentication',
-	             'desc' => '<p>Authenticate forum users by OpenID provider.</p><p>NOTE: This plugin is provided for demonstration purposes only and will probably only work aginst Google.',
+	             'desc' => 'Authenticate forum users by OpenID provider. NOTE: This plugin is provided for demonstration purposes only and will probably only work aginst Google.',
 	             'version' => '1.0');
 }
 

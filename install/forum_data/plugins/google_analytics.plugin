@@ -71,7 +71,7 @@ function google_analytics_config() {
 		fwrite($fp, '<?php $ini = '. var_export($ini, 1) .'; ?>');
 		fclose($fp);
 		pf(successify('Settings successfully saved.'));
-		@define('REBUILD_THEMES', 1);
+		compile_themes();
 	}
 	?>
 <p>Your site's tracking code (get one from <a href="http://www.google.com/analytics/">google.com/analytics</a>):<br />

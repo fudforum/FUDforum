@@ -1,0 +1,48 @@
+<?php
+/**
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* email                : forum@prohost.org
+* $Id$
+*
+* This program is free software; you can redistribute it and/or modify it
+* under the terms of the GNU General Public License as published by the
+* Free Software Foundation; version 2 of the License.
+**/
+
+// Initialize plugin.
+plugin_add_hook('COMPILER_FINALIZE_PAGE', 'plugin_ie6_update');
+
+function plugin_ie6_update($array) {
+	list($html, $page) = $array;
+
+	$ie6_update_code = '<!--[if IE 6]>
+<script type="text/javascript">var IE6UPDATE_OPTIONS = {
+	icons_path: "http://static.ie6update.com/hosted/ie6update/images/",
+	url: "http://getfirefox.com",
+	message: "Internet Explorer is a bad, bad browser. Click here to upgrade your Internet experience..."
+}</script>
+<script type="text/javascript" src="http://static.ie6update.com/hosted/ie6update/ie6update.js"></script>
+<![endif]-->
+';
+
+	// Change HTML and send it back to the compiler.
+	$html = str_replace('</body>', $ie6_update_code .'</body>', $html);
+
+	return array($html, $page);
+}
+
+function ie6_update_info() {
+	return array('name' => 'IE6 Update',
+				'desc' => 'Help kill Internet Explorer 6 by enabling this plugin. IE6 users will see a message asking them to upgrade to a later release. For details, see <a href="http://ie6update.com/">ie6update.com</a>.',
+				'version' => '1.0');
+}
+
+function ie6_update_enable() {
+	@define('REBUILD_THEMES', 1);
+}
+
+function ie6_update_disable() {
+	@define('REBUILD_THEMES', 1);
+}
+
+?>
