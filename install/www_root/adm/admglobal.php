@@ -9,6 +9,7 @@
 * Free Software Foundation; version 2 of the License.
 **/
 
+/** Get the PHP upload_max_filesize setting. */
 function get_max_upload_size()
 {
 	$us = strtolower(ini_get('upload_max_filesize'));
@@ -507,7 +508,6 @@ jQuery(document).ready(function() {
 </table>
 </fieldset>
 
-</table>
 <input type="hidden" name="form_posted" value="1" />
 </form>
 <?php require($WWW_ROOT_DISK .'adm/footer.php'); ?>

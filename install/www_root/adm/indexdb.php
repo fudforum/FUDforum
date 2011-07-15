@@ -54,7 +54,7 @@
 		$start_time = time();
 
 		if (defined('shell_script')) {
-			list($locale, $GLOBALS['usr']->lang) = db_saq(q_limit('SELECT locale, lang FROM '. $tbl .'themes WHERE '. q_bitand(theme_opt, (1|2)) .' > 0', 1));
+			list($locale, $GLOBALS['usr']->lang) = db_saq(q_limit('SELECT locale, lang FROM '. $tbl .'themes WHERE '. q_bitand('theme_opt', (1|2)) .' > 0', 1));
 			$GLOBALS['good_locale'] = setlocale(LC_ALL, $locale);
 		}
 

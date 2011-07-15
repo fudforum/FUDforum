@@ -242,7 +242,7 @@ function resolve_dest_path($path)
 
 			pf('Recompiling Templates...');
 			fud_use('compiler.inc', true);
-			$c = uq('SELECT theme, lang, name FROM '. $DBHOST_TBL_PREFIX .'themes WHERE theme_opt>=1 AND '. q_bitand('theme_opt', 1) .' > 0');
+			$c = q('SELECT theme, lang, name FROM '. $DBHOST_TBL_PREFIX .'themes WHERE theme_opt>=1 AND '. q_bitand('theme_opt', 1) .' > 0');
 			while ($r = db_rowarr($c)) {
 				compile_all($r[0], $r[1], $r[2]);
 			}

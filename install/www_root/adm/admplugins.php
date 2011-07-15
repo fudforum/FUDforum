@@ -143,6 +143,11 @@ function undeploy_files($plugin)
 		}
 		include_once($PLUGIN_PATH .'/'. $plugin);
 
+		// Recompile themes if the plugin requested it.
+		if (defined('REBUILD_THEMES')) {
+			compile_themes();
+		}
+
 		// Process info hook.
 		$info_func = $func_base .'_info';
 		if (function_exists($info_func)) {
@@ -197,15 +202,10 @@ function undeploy_files($plugin)
 			echo '<input type="hidden" name="config" value="'.$plugin.'" />';
 			$config_func();
 
-			// Recompile themes if the plugin requested it.
-			if (defined('REBUILD_THEMES')) {
-				compile_themes();
-			}
-
 			echo '<input type="submit" name="Set" value="Configure" />';
 			echo '</fieldset></form>';
 		}
-	
+
 		echo '<br /><div style="float:right;">[ <a href="admplugins.php?'. __adm_rsid .'">Return to Plugin Manager &raquo;</a> ]</div>';
 		require($WWW_ROOT_DISK .'adm/footer.php');
 		exit;
@@ -219,8 +219,8 @@ function undeploy_files($plugin)
 ?>
 <h2>Plugin Manager</h2>
 <div class="tutor">
-	To add new plugins, <b><a href="admbrowse.php?down=1&amp;cur=<?php echo urlencode($PLUGIN_PATH); ?>&amp;<?php echo __adm_rsid; ?>">upload</a></b> them to this directory and activate them on this page. Plugins may also be placed into subdirectories.
-	Plugins are stored in: <?php echo realpath($PLUGIN_PATH); ?><br />
+	Plugins can be used to extend your forum's functionality.
+	To add new plugins, simply <b><a href="admbrowse.php?down=1&amp;cur=<?php echo urlencode($PLUGIN_PATH); ?>&amp;<?php echo __adm_rsid; ?>">upload</a></b> them to your forum and activate them on this page.
 </div>
 <br />
 
