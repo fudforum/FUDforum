@@ -109,7 +109,7 @@ function get_max_upload_size()
 			rebuild_forum_cat_order();
 			$frm_name = q_singleval('SELECT name FROM '. $tbl .'forum WHERE id='. (int)$_GET['del']);
 			logaction(_uid, 'FRMMARKDEL', (int)$_GET['del']);
-			echo successify('The <b>'. $frm_name .'</b> forum was moved to the <b><a href="admdelfrm.php?'. __adm_rsid .'">trash bin</a></b>.');
+			echo successify('The <b>'. $frm_name .'</b> forum was moved to the <b><a href="admforumdel.php?'. __adm_rsid .'">trash bin</a></b>.');
 		}
 	} else if (isset($_POST['btn_chcat'], $_POST['frm_id'], $_POST['cat_id'], $_POST['dest_cat'])) {
 		if (frm_move_forum((int)$_POST['frm_id'], (int)$_POST['dest_cat'], $cat_id)) {
@@ -153,7 +153,7 @@ function get_max_upload_size()
 		</form>
 <?php	} ?>
 </td><td>
-	<nobr>[ <a title="List forums in the recycle bin" href="admdelfrm.php?<?php echo __adm_rsid; ?>">Deleted Forums</a> ]</nobr>
+	<nobr>[ <a title="List forums in the recycle bin" href="admforumdel.php?<?php echo __adm_rsid; ?>">Deleted Forums</a> ]</nobr>
 </td></tr>
 </table>
 </fieldset>

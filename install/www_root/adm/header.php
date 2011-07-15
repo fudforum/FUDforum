@@ -145,8 +145,8 @@ jQuery(document).ready(function() {
 	
 	<span class="linkgroup">Avatars & Icons</span>
 	<ul class="menu">
-	<li><a title="Approve avatars" href="admapprove_avatar.php?<?php echo __adm_rsid; ?>">Avatar Approval</a></li>
 	<li><a title="Manage avatars" href="admavatar.php?<?php echo __adm_rsid; ?>">Avatar Manager</a></li>
+	<li><a title="Approve avatars" href="admavatarapr.php?<?php echo __adm_rsid; ?>">Avatar Approval</a></li>
 	<li><a title="Define MIME types andicons" href="admmime.php?<?php echo __adm_rsid; ?>">MIME Manager</a></li>
 	<li><a title="Manage smilys" href="admsmiley.php?<?php echo __adm_rsid; ?>">Smiley Manager</a></li>
 	<li><a title="Manage forum icons" href="admforumicons.php?<?php echo __adm_rsid; ?>">Forum Icon Manager</a></li>

@@ -324,7 +324,7 @@ administration permissions to the forum. This individual will be able to do anyt
 	<!-- Links to control panels that Account Moderators can access. -->
 	<b>Account moderation:</b><br />
 	&nbsp;[ <a href="admuseradd.php?<?php echo __adm_rsid; ?>">Create new users</a> ]<br />
-	&nbsp;[ <a href="admaccapr.php?<?php echo __adm_rsid; ?>">Approve users</a> ]<br />
+	&nbsp;[ <a href="admuserapr.php?<?php echo __adm_rsid; ?>">Approve users</a> ]<br />
 	&nbsp;[ <a href="admusermerge.php?<?php echo __adm_rsid; ?>">Merge users</a> ]<br /><br />
 	<b>Show:</b>
 	[ <a href="admslist.php?<?php echo __adm_rsid; ?>">Privileged</a> ] 

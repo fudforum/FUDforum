@@ -92,7 +92,7 @@
 			rebuild_forum_cat_order();
 		}
 		db_unlock();
-		echo successify('Category was deleted. Forums assigned to this category were moved to the <b><a href="admdelfrm.php?'. __adm_rsid .'">recycle bin</a></b>.');
+		echo successify('Category was deleted. Forums assigned to this category were moved to the <b><a href="admforumdel.php?'. __adm_rsid .'">recycle bin</a></b>.');
 		logaction(_uid, 'DELCAT', 0, $del);
 	}
 	if (isset($_GET['chpos'], $_GET['newpos'], $_GET['par'])) {
