@@ -13,17 +13,17 @@
 function validate_input()
 {
 	if (empty($_POST['login'])) {
-		$GLOBALS['err_login'] = errorify('Login cannot be blank.');
+		$GLOBALS['err_login'] = errorify('Login is required.');
 		return 1;
 	}
 
 	if (empty($_POST['passwd'])) {
-		$GLOBALS['err_passwd'] = errorify('Password cannot be blank.');
+		$GLOBALS['err_passwd'] = errorify('Password is required.');
 		return 1;
 	}
 
 	if (empty($_POST['email'])) {
-		$GLOBALS['err_email'] = errorify('E-mail address cannot be blank.');
+		$GLOBALS['err_email'] = errorify('E-mail address is required.');
 		return 1;
 	}
 

@@ -50,9 +50,7 @@ function get_max_upload_size()
 	if (empty($cat_id)) {	// Or get it from DB.
 		$cat_id = q_singleval('SELECT MIN(id) FROM '. $tbl .'cat');
 	}
-	if (empty($cat_id) || ($cat_name = q_singleval('SELECT name FROM '. $tbl .'cat WHERE id='. $cat_id)) === NULL) {
-		exit(errorify('Your forum doesn\'t have any categories. Please use the Category Manager to create some before returning to this screen.'));
-	}
+	$cat_name = q_singleval('SELECT name FROM '. $tbl .'cat WHERE id='. (int)$cat_id);
 
 	if (!empty($_POST['btn_cancel'])) {
 		unset($_POST);
@@ -141,14 +139,30 @@ function get_max_upload_size()
 
 <fieldset class="fieldtopic">
 <legend><b>Change category:</b></legend>
-	<form method="post" action="admforum.php">
-		Manage forums in catagory:
-		<?php echo _hs; echo $cat_sel; ?>&nbsp;
-		<input type="submit" name="frm_submit" value="Change" />
-	</form>
+<table width="100%">
+<tr><td>
+<?php
+	if (empty($cat_sel)) {
+		pf(errorify('Your forum doesn\'t have any categories.<br />Please use the Category Manager to create some before returning to this screen.'));
+	} else {
+?>
+		<form method="post" action="admforum.php">
+			Manage forums in catagory:
+			<?php echo _hs; echo $cat_sel; ?>&nbsp;
+			<input type="submit" name="frm_submit" value="Change" />
+		</form>
+<?php	} ?>
+</td><td>
+	<nobr>[ <a title="List forums in the recycle bin" href="admdelfrm.php?<?php echo __adm_rsid; ?>">Deleted Forums</a> ]</nobr>
+</td></tr>
+</table>
 </fieldset>
 
 <?php
+if (empty($cat_sel)) {
+	require($WWW_ROOT_DISK .'adm/footer.php');
+	exit;
+}
 if (!isset($_GET['chpos'])) {	// Hide this if we are changing forum order.
 	echo '<h3>'. ($edit ? '<a name="edit">Edit forum:</a>' : 'Add forum to <i>'. $cat_name .'</i>:') .'</h3>';
 ?>

@@ -41,6 +41,8 @@
 	require($WWW_ROOT_DISK .'adm/header.php');
 
 	if (isset($_POST['conf'])) {
+		pf('<h3>Indexer progress</h3>');
+	
 		if ($FUD_OPT_1 & 1) {
 			pf('Disabling the forum for the duration of maintenance run.');
 			maintenance_status('Undergoing maintenance, please come back later.', 1);

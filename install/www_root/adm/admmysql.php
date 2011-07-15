@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -24,6 +24,9 @@
 	sort($charsets);
 
 	if (!empty($_POST['charset']) && in_array($_POST['charset'], $charsets)) {
+	
+		pf('<h3>Charset Converter Output</h3>');
+	
 		foreach (get_fud_table_list() as $v) {
 			$res = db_saq('SHOW CREATE TABLE '. $v);
 			$charset = $collate = '';

@@ -24,9 +24,9 @@
 		list($e_year,$e_month,$e_day) = explode(' ', date('Y n j', q_singleval('SELECT MAX(post_stamp) FROM '. $tbl .'msg')));
 	} else {
 		$dt = getdate(__request_timestamp__);
-		$s_year = $e_year = $dt['year'];
+		$s_year  = $e_year  = $dt['year'];
 		$s_month = $e_month = $dt['mon'];
-		$s_day = $e_day = $dt['mday'];
+		$s_day   = $e_day   = $dt['mday'];
 	}
 
 	$vl_m = $kl_m = implode("\n", range(1, 12));
@@ -151,7 +151,7 @@
 		$_POST['s_day']   = $s_day;
 		$_POST['e_year']  = $e_year;
 		$_POST['e_month'] = $e_month;
-		$_POST['e_day']   = $e_day;
+		$_POST['e_day']   = $e_day + 1;
 		$_POST['type']    = $_POST['sep'] = '';
 
 		$disk_usage_array = array();

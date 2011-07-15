@@ -35,7 +35,10 @@
 <?php echo _hs; ?>
 <input type="hidden" name="del" value="<?php echo $f[0]; ?>" />
 <table border="0" cellspacing="0" cellpadding="2">
-<tr><td><input type="submit" name="conf" value="Yes" /></td><td><input type="submit" name="conf" value="No" /></td></tr>
+<tr>
+      <td><input type="submit" name="conf" value="Yes" /></td>
+      <td><input type="submit" name="conf" value="No" /></td>
+</tr>
 </table>
 </form>
 </div>
@@ -75,4 +78,7 @@
 	}
 ?>
 </table>
+
+<p><a href="admforum.php?<?php echo __adm_rsid; ?>">&laquo; Back to Forum Administration System</a></p>
+
 <?php require($WWW_ROOT_DISK .'adm/footer.php'); ?>

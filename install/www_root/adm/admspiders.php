@@ -72,6 +72,7 @@
 	}
 ?>
 <h2>Spiders, Bots and Crawlers</h2>
+<span style="color:red;">WARNING: Spider support is experimental and should not be enabled on production sites.</span>
 
 <div class="tutor">
 Detect and auto-login or block the spiders, bots and crawlers that are typically used by search engines to index your site.

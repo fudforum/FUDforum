@@ -103,6 +103,8 @@ While it is running, your forum will be disabled!
 		require($WWW_ROOT_DISK .'adm/footer.php');
 		exit;
 	}
+	
+	pf('<h3>Consisteny Checker progress</h3>');
 
 	if ($FUD_OPT_1 & 1) {
 		draw_stat('Disabling the forum for the duration of maintenance run.');

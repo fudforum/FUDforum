@@ -119,7 +119,7 @@ delete topics with no messages in the last 10 days.</p>
 	if ($usr_id) {
 		echo '<tr class="field">';
 		echo '<td nowrap="nowrap">By author:</td>';
-		echo '<td colspan="2">'. q_singleval('SELECT alias FROM '. $DBHOST_TBL_PREFIX .'users WHERE id='. $usr_id) .'</td>';
+		echo '<td colspan="2"><b>'. q_singleval('SELECT alias FROM '. $DBHOST_TBL_PREFIX .'users WHERE id='. $usr_id) .'</b></td>';
 		echo '</tr>';
 	}
 ?>

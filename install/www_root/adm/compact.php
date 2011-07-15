@@ -165,6 +165,8 @@ function write_body_copy($data, &$len, &$offset, $file_id, $forum_id)
 	return $s;
 }
 
+	pf('<h3>Message Rebuilder progress</h3>');
+
 	if ($FUD_OPT_1 & 1) {
 		pf('Disabling the forum for the duration of maintenance run.');
 		maintenance_status('Undergoing maintenance, please come back later.', 1);

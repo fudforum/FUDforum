@@ -66,6 +66,8 @@ function resolve_dest_path($path)
 	}
 
 	if (isset($_POST['path'])) {
+		pf('<h3>Restore progress</h3>');
+
 		if (!@is_readable($_POST['path'])) {
 			if (!@file_exists($path)) {
 				$path_error = errorify('<b>'. $_POST['path'] .'</b> file does not exist.');

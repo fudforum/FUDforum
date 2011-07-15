@@ -23,6 +23,30 @@ function compile_themes()
 	pf(successify('Themes were rebuilt.'));
 }
 
+/** Copy a plugin's 'deploy' folder to the forum's web broswable 'themes' directory. */
+function deploy_files($plugin)
+{
+	$fromdir = $GLOBALS['PLUGIN_PATH']   .'/'. $plugin .'/deploy';
+	$todir   = $GLOBALS['WWW_ROOT_DISK'] .'/theme/'. $plugin;
+	if (!is_dir($fromdir)) return;
+
+	pf(successify('Deploying '. $plugin .' files.'));
+	fud_use('file_adm.inc', true);
+	fud_mkdir($todir);
+	fud_copy($fromdir, $todir);
+}
+
+/** Remove plugin's files from the forum's web broswable 'themes' folder. */
+function undeploy_files($plugin)
+{
+	$todir   = $GLOBALS['WWW_ROOT_DISK'] .'/theme/'. $plugin;
+	if (!is_dir($todir)) return;
+
+	pf(successify('Undeploying '. $plugin .' files.'));
+	fud_use('file_adm.inc', true);
+	fud_rmdir($todir, true);
+}
+
 /* main */
 	// Enable error reporting before GLOBALS.php to show plugin errors.
 	@ini_set('display_errors', 1);
@@ -97,7 +121,7 @@ function compile_themes()
 			echo errorify('Cannot deactivate '. $plugin .': '. $msg);
 		}
 	}
-	
+
 	// Activate a group of plugins.
 	if (isset($_POST['activate_plugins'], $_POST['plugins'])) {
 		while (list($key, $plugin) = @each($_POST['plugins'])) {
@@ -177,10 +201,11 @@ function compile_themes()
 			if (defined('REBUILD_THEMES')) {
 				compile_themes();
 			}
+
 			echo '<input type="submit" name="Set" value="Configure" />';
 			echo '</fieldset></form>';
 		}
-
+	
 		echo '<br /><div style="float:right;">[ <a href="admplugins.php?'. __adm_rsid .'">Return to Plugin Manager &raquo;</a> ]</div>';
 		require($WWW_ROOT_DISK .'adm/footer.php');
 		exit;
@@ -190,11 +215,12 @@ function compile_themes()
 	if (defined('REBUILD_THEMES')) {
 		compile_themes();
 	}
+
 ?>
 <h2>Plugin Manager</h2>
 <div class="tutor">
-To add new plugins, <b><a href="admbrowse.php?down=1&amp;cur=<?php echo urlencode($PLUGIN_PATH); ?>&amp;<?php echo __adm_rsid; ?>">upload</a></b> them to this directory and activate them on this page. Plugins may also be placed into subdirectories.
-Plugins are stored in: <?php echo realpath($PLUGIN_PATH); ?><br />
+	To add new plugins, <b><a href="admbrowse.php?down=1&amp;cur=<?php echo urlencode($PLUGIN_PATH); ?>&amp;<?php echo __adm_rsid; ?>">upload</a></b> them to this directory and activate them on this page. Plugins may also be placed into subdirectories.
+	Plugins are stored in: <?php echo realpath($PLUGIN_PATH); ?><br />
 </div>
 <br />
 
@@ -211,12 +237,58 @@ Plugins are stored in: <?php echo realpath($PLUGIN_PATH); ?><br />
 <input type="hidden" name="form_posted" value="1" />
 </form>
 
-<?php if ($FUD_OPT_3 & 4194304) { /* Hide if plugin system is disabled. */ ?>
+<?php
+	if ($FUD_OPT_3 & 4194304) {	// Plugin system enabled.
+		// Look for plugin files.
+		foreach (glob("$PLUGIN_PATH/*") as $file) {
+			if (is_dir($file)) {	// Check for plugins in subdirectories.
+				$dir = basename($file);
+				foreach (glob("$PLUGIN_PATH/$dir/*") as $dirfile) {
+					if (!preg_match('/\.plugin$/', $dirfile)) continue;	// Not a plugin file.
+					$plugin_files[] = $dir .'/'. basename($dirfile);
+				}
+			}
+			if (!preg_match('/\.plugin$/', $file)) continue;	// Not a plugin file.
+			$plugin_files[] = basename($file);
+		}
+
+		// Load plugin to get meta data.
+		$have_enabled_plugins = 0;
+		foreach ($plugin_files as $plugin) {
+			if((include_once $GLOBALS['PLUGIN_PATH'] . $plugin) !== false) {
+				$func_base = substr($plugin, 0, strrpos($plugin, '.'));
+				if ( strpos($func_base, '/') ) {
+					$func_base = substr($func_base, strpos($func_base, '/')+1);
+				}
+
+				// Process info hook to get meta info.
+				$info_func = $func_base .'_info';
+				if (function_exists($info_func)) {
+					$info[$plugin] = $info_func();
+				} else {
+					$info[$plugin]['name']    = $plugin;
+					$info[$plugin]['version'] = '';
+					$info[$plugin]['desc']    = '(no description)';
+				}
+
+				// Check it is enabled.
+				if (fud_plugin::is_active($plugin)) {
+					$have_enabled_plugins = 1;
+					$info[$plugin]['enabled'] = 1;
+				} else {
+					$info[$plugin]['enabled'] = 1;
+				}
+			}
+		}
+	}
+?>
+
+<?php if (($FUD_OPT_3 & 4194304) && $have_enabled_plugins) { /* Show if plugin system enabled and we have enabled plugins. */ ?>
 <h3>Enabled plugins:</h3>
 <p>The below plugins are active and listed in firing order. Drag and drop them to change the order.</p>
 <table class="resulttable fulltable">
 <thead><tr class="resulttopic">
-	<th>Plugin</th><th>Action</th>
+	<th>Plugin name</th><th>Version</th><th>Description</th><th>Action</th>
 </tr></thead>
 <tbody id="sortable">
 <?php
@@ -226,7 +298,10 @@ Plugins are stored in: <?php echo realpath($PLUGIN_PATH); ?><br />
 		$i++;
 		$bgcolor = ($i%2) ? ' class="resultrow1"' : ' class="resultrow2"';
 		echo '<tr id="order_'. $r->id .'"'. $bgcolor .' title="'. htmlspecialchars($r->name) .'">
-		      <td><span class="ui-icon ui-icon-arrowthick-2-n-s"></span><a href="admplugins.php?config='. urlencode($r->name) .'&amp;'. __adm_rsid .'" title="Configure plugin">'. $r->name .'</a></td><td><a href="admplugins.php?deact='. $r->name .'&amp;'. __adm_rsid .'">Deactivate</a></td></tr>';
+		      <td><span class="ui-icon ui-icon-arrowthick-2-n-s"></span><a href="admplugins.php?config='. urlencode($r->name) .'&amp;'. __adm_rsid .'" title="Configure plugin">'. $info[$r->name]['name'] .'</a></td>
+			  <td>'. $info[$r->name]['version'] .'</td>
+			  <td>'. $info[$r->name]['desc'] .'</td>
+			  <td><a href="admplugins.php?deact='. $r->name .'&amp;'. __adm_rsid .'">Deactivate</a></td></tr>';
 	}
 	unset($c);
 	if (!$i) {
@@ -234,41 +309,33 @@ Plugins are stored in: <?php echo realpath($PLUGIN_PATH); ?><br />
 	}
 ?>
 </table>
-<?php } ?>
+<?php	} ?>
 
+<?php if ($FUD_OPT_3 & 4194304) { /* Hide if plugin system is disabled. */ ?>
 <h3>Available plugins:</h3>
 <p>Click on any of the below plugin names for more info and configuration options:</p>
 <form method="post" action="admplugins.php" autocomplete="off">
 <?php echo _hs ?>
-<table class="datatable solidtable">
-<thead><tr class="fieldtopic"><td><b>Plugin name</b></td><td><b>Activate?</b></td></tr></thead>
+<table class="resulttable fulltable" cellpadding="5">
+<thead><tr class="resulttopic"><th>Enable</th><th>Plugin name</th><th>Version</th><th>Description</th></tr></thead>
 <?php
-foreach (glob("$PLUGIN_PATH/*") as $file) {
-	if (is_dir($file)) {	// Check for plugins in subdirectories.
-		$dir = basename($file);
-		foreach (glob("$PLUGIN_PATH/$dir/*") as $dirfile) {
-			if (!preg_match('/\.plugin$/', $dirfile)) continue;	// Not a plugin file.
-			$plugin_files[] = $dir .'/'. basename($dirfile);
-		}
-	}
-	if (!preg_match('/\.plugin$/', $file)) continue;	// Not a plugin file.
-	$plugin_files[] = basename($file);
-}
-
-$disabled = ($FUD_OPT_3 & 4194304) ? '' : 'disabled="disabled"';
-foreach ($plugin_files as $plugin) {
-	if (fud_plugin::is_active($plugin)) continue;	// Skip, already active.
+	$i = 0;
+	foreach ($plugin_files as $plugin) {
+		if (!$info[$plugin]['enabled']) continue;	// Skip, already active.
+		$i++;
+		$bgcolor = ($i%2) ? ' class="resultrow1"' : ' class="resultrow2"';
+		echo '<tr'. $bgcolor .' valign="top">';
 ?>
-<tr class="field">
-  <td><a href="admplugins.php?config=<?php echo urlencode($plugin) .'&amp;'. __adm_rsid .'" title="Configure plugin">'. $plugin; ?></a></td>
-  <td class="center"><input type="checkbox" name="plugins[]" value="<?php echo $plugin; ?>" <?php echo $disabled; ?> /></td>
+  <td class="center"><input type="checkbox" name="plugins[]" value="<?php echo $plugin; ?>" /></td>
+  <td><a href="admplugins.php?config=<?php echo urlencode($plugin) .'&amp;'. __adm_rsid .'" title="Configure plugin">'. $info[$plugin]['name']; ?></a></td>
+  <td><?php echo $info[$plugin]['version']; ?></td>
+  <td><?php echo $info[$plugin]['desc']; ?></td>
 </tr>
 <?php } ?> 
-<tr class="fieldtopic center">
-  <td>&nbsp;</td>
-  <td><input type="submit" name="activate_plugins" value="Activate" <?php echo $disabled; ?> /></td>
-</tr>
 </table>
+<input type="submit" name="activate_plugins" value="Save configuration" />
 </form>
+
+<?php } ?>
 
 <?php require($WWW_ROOT_DISK .'adm/footer.php'); ?>

@@ -61,18 +61,19 @@ function return_group_name($id)
 ?>
 <h2>Action Log Viewer</h2>
 
-<table width="95%" class="tutor"><tr><td>
+<fieldset class="fieldtopic">
+<legend><b>Filter by user</b></legend>
+<table width="100%"><tr><td>
 <form method="post" action="admlog.php">
 	<?php echo _hs; ?>
-	Filter by user:
 	<?php $log_user = isset($_POST['log_user']) ? $_POST['log_user'] : ''; ?>
 	<input type="text" name="log_user" value="<?php echo $log_user; ?>" />
 	<input type="submit" value="Go" name="frm_submit" />
 </form>
 </td><td align="right">
-	[ <a href="admlog.php?clear=1&amp;<?php echo __adm_rsid; ?>">Clear Admin Log</a> ]
+	[ <a href="admlog.php?clear=1&amp;<?php echo __adm_rsid; ?>">Clear Action Log</a> ]
 </td></tr></table>
-<br />
+</fieldset>
 
 <table class="resulttable fulltable">
 <thead><tr class="resulttopic">

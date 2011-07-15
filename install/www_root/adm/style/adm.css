@@ -337,9 +337,22 @@ th.headerSortDown {
 /* JQuery UI. */
 .ui-widget { font-size: small !important; }
 
-/* Textarea editor. */
+/* Make textareas's resizable (jQuery UI). */
 .ui-resizable-se {
 	bottom: 14px;
+}
+.ui-resizable-s {
+	height: 9px;
+	background: #eaf4e9 url("../../theme/default/images/grippie.gif") no-repeat center 2px;
+ 	border: 1px solid #ddd;
+	border-top-width: 0;
+	height: 9px;
+	bottom: 6px;
+}
+.ui-resizable-resizing textarea {
+	opacity: 0.5;
+	filter: alpha(opacity=50);
+	zoom: 1;
 }
 
 /* jQuery UI Sortable: Drag and drop to reorder items. */

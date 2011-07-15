@@ -31,7 +31,7 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir, $p=0)
 
 		// Abstracting path by replacing directory prefix with either DATA_DIR or WWW_ROOT_DISK.
 		$v = str_replace('\\', '/', $v) .'/';   // See fix_slashes() in install.php.
-		$v = rtrim($v, '/') .'/';       // Ensure it's terminated by a slash.
+		$v = rtrim($v, '/') .'/';	// Ensure it's terminated by a slash.
 		$dpath = str_replace($repl, $keep_dir, $v);
 
 		// Just a quick check to ensure we haven't messed it up.
@@ -136,6 +136,8 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir, $p=0)
 	}
 
 	if (isset($_POST['submitted'])) {
+		pf('<h3>Backup progress</h3>');
+	
 		if (isset($_POST['compress'])) {
 			if (!$fp = gzopen($_POST['path'], 'wb9')) {
 				exit('Cannot create file.');

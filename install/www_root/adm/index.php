@@ -132,7 +132,7 @@ $registrations_per_day = array_values($registrations_per_day);
 			['-2 days',   <?php echo $messages_per_day[2] ?>],
 			['-3 days',   <?php echo $messages_per_day[3] ?>],
 			['-4 days',   <?php echo $messages_per_day[4] ?>],
-			['-5 days',   <?php echo $messages_per_day[5] ?>],
+			['-5 days',   <?php echo $messages_per_day[5] ?>]
 		]);
 		var chart = new google.visualization.ColumnChart(document.getElementById('chart_div1'));
 		chart.draw(data, {
@@ -151,7 +151,7 @@ $registrations_per_day = array_values($registrations_per_day);
 			['-2 days',   <?php echo $registrations_per_day[2] ?>],
 			['-3 days',   <?php echo $registrations_per_day[3] ?>],
 			['-4 days',   <?php echo $registrations_per_day[4] ?>],
-			['-5 days',   <?php echo $registrations_per_day[5] ?>],
+			['-5 days',   <?php echo $registrations_per_day[5] ?>]
 		]);
 		var chart = new google.visualization.ColumnChart(document.getElementById('chart_div2'));
 		chart.draw(data, {

@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -134,10 +134,11 @@ if (isset($plugin_hooks['LOGERR'])) {
 }
 
 if ($display_logs) { ?>
-<table width="95%" class="tutor"><tr><td>
+<fieldset class="fieldtopic">
+<legend><b>Search for</b></legend>
+<table width="100%"><tr><td>
 <form method="post" action="admerr.php">
 	<?php echo _hs; ?>
-	Search for:
 	<?php $search = isset($_POST['search']) ? $_POST['search'] : ''; ?>
 	<input type="text" name="search" value="<?php echo $search; ?>" />
 	<input type="submit" value="Go" name="frm_submit" />
@@ -148,6 +149,7 @@ if ($display_logs) { ?>
 		<?php foreach($display_logs as $log) echo ' [ <a href="#'. $log .'">'. $logs[$log] .'</a> ]'; ?>
 	<?php } ?>
 </td></tr></table>
+</fieldset>
 <?php } ?>
 
 <?php

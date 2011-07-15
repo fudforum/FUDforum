@@ -19,11 +19,11 @@
 	// Load file into textarea for execution.
 	if (isset($_FILES['sql_file']) && $_FILES['sql_file']['error'] == UPLOAD_ERR_OK) {
 		if (substr($_FILES['sql_file']['type'], 0, 4) != 'text') {
-			pf(errorify('Please upload a text file that contains SQL statements.'));
-			$_POST['txtb'] = '';
+			pf(errorify('Please upload a text file that contains SQL commands.'));
 		} else {
-			$_POST['txtb'] = file_get_contents($_FILES['sql_file']['tmp_name']);
+			$sql_from_file = file_get_contents($_FILES['sql_file']['tmp_name']);
 		}
+		unset($_POST['txtb']);
 	}
 
 ?>
@@ -55,11 +55,13 @@
 	</select>
 	</div>
 	<textarea id="txtb" name="txtb" rows="7" cols="72" style="width:99%; box-sizing: border-box;" onkeyup="storeCaret(this);" onclick="storeCaret(this);" onselect="storeCaret(this);"><?php
-		if (isset($_POST['txtb'])) { print $_POST['txtb']; } else { print 'SELECT * FROM ...'; } 
+		if (isset($_POST['txtb'])) print $_POST['txtb'];
+		else if (isset($sql_from_file)) print $sql_from_file; 
+		else print 'SELECT * FROM ...';
 	?></textarea>
 </td></tr>
 <tr><td>
-	<span style="float:right;">SQL from file: <input name="sql_file" type="file" /></span>
+	<span style="float:right;">SQL from file: <input name="sql_file" type="file" /><input type="submit" value="Load" /></span>
 	<input type="submit" class="submit" value="Run It" />
 </td></tr>
  </table>

@@ -26,12 +26,12 @@
 <head>
 	<meta charset="<?php echo $charset; ?>">
 	<title><?php echo $FORUM_TITLE; ?>: Admin Control Panel</title>
-	<link rel="styleSheet" href="style/adm.css" />
 	<link rel="styleSheet" href="../js/ui/jquery-ui.css" />
+	<link rel="styleSheet" href="style/adm.css" />
 	<script src="../js/jquery.js"></script>
 	<script src="../js/ui/jquery-ui.js"></script>
-	<script src="../js/lib.js"></script>
 	<script src="style/jquery.tablesorter.min.js"></script>
+	<script src="../js/lib.js"></script>
 </head>
 <?php
 
@@ -88,14 +88,6 @@ jQuery(document).ready(function() {
 	<ul class="menu">
 	<li><a title="Change forum settings" href="admglobal.php?<?php echo __adm_rsid; ?>">Global Settings Manager</a></li>
 	<li><a title="Enable and disable plugins" href="admplugins.php?<?php echo __adm_rsid; ?>">Plugin Manager</a></li>
-	<li><a title="Add, edit and remove static pages" href="admpages.php?<?php echo __adm_rsid; ?>">Page Manager</a></li>
-	<li><a title="Manage events and calendar settings" href="admcalendar.php?<?php echo __adm_rsid; ?>">Calendar Manager</a></li>
-	<li><a title="Manage RDF, RSS and ATOM feeds" href="admfeed.php?<?php echo __adm_rsid; ?>">Syndication Manager</a></li>
-	<li><a title="Define PDF page settings" href="admpdf.php?<?php echo __adm_rsid; ?>">PDF Generation Manager</a></li>
-	<li><a title="Track the location of your users" href="admgeoip.php?<?php echo __adm_rsid; ?>">Geolocation Manager</a></li>
-<?php if (extension_loaded('pspell')) { ?>
-	<li><a title="Setup spell checker" href="admspell.php?<?php echo __adm_rsid; ?>">Custom Dictionary Spell Checker</a></li>
-<?php } ?>
 	<li><a title="Review forum actions" href="admlog.php?<?php echo __adm_rsid; ?>">Action Log Viewer</a></li>
 	<li><a title="Review your forum's error logs" href="admerr.php?<?php echo __adm_rsid; ?>">Error Log Viewer</a></li>
 	<li><a title="Visualize forum statistics" href="admstats.php?<?php echo __adm_rsid; ?>">Forum Statistics</a></li>
@@ -107,8 +99,6 @@ jQuery(document).ready(function() {
 	<ul class="menu">
 	<li><a title="Setup forum categories" href="admcat.php?<?php echo __adm_rsid; ?>">Category Manager</a></li>
 	<li><a title="Setup forums and subforums" href="admforum.php?<?php echo __adm_rsid; ?>">Forum Manager</a></li>
-	<li><a title="List forums in the recycle bin" href="admdelfrm.php?<?php echo __adm_rsid; ?>">Deleted Forums</a></li>
-	<li><a title="Announce important news" href="admannounce.php?<?php echo __adm_rsid; ?>">Announcement Manager</a></li>
 	<li><a title="Remove old forum topics" href="admprune.php?<?php echo __adm_rsid; ?>">Topic Pruning</a></li>
 	<li><a title="Remove old file attachements" href="admpruneattch.php?<?php echo __adm_rsid; ?>">Attachment Pruning</a></li>
 	<li><a title="Import Mailing Lists messages into your forum" href="admmlist.php?<?php echo __adm_rsid; ?>">Mailing List Manager</a></li>
@@ -128,7 +118,6 @@ jQuery(document).ready(function() {
 	<li><a title="Define custom profile fields" href="admcustomfields.php?<?php echo __adm_rsid; ?>">Profile fields</a></li>
 	<li><a title="Send E-mail to your forum memebers" href="admmassemail.php?<?php echo __adm_rsid; ?>">Mass E-mail</a></li>
 	<li><a title="Delete old users without messages" href="admpruneusers.php?<?php echo __adm_rsid; ?>">Prune users</a></li>
-	</ul>
 	<br />
 
 	<span class="linkgroup">Templates & Messages</span>
@@ -140,6 +129,20 @@ jQuery(document).ready(function() {
 	</ul>
 	<br />
 
+	<span class="linkgroup">Content</span>
+	<ul class="menu">
+	<li><a title="Add, edit and remove static pages" href="admpages.php?<?php echo __adm_rsid; ?>">Page Manager</a></li>
+	<li><a title="Manage events and calendar settings" href="admcalendar.php?<?php echo __adm_rsid; ?>">Calendar Manager</a></li>
+	<li><a title="Announce important news" href="admannounce.php?<?php echo __adm_rsid; ?>">Announcement Manager</a></li>
+	<li><a title="Manage RDF, RSS and ATOM feeds" href="admfeed.php?<?php echo __adm_rsid; ?>">Syndication Manager</a></li>
+	<li><a title="Define PDF page settings" href="admpdf.php?<?php echo __adm_rsid; ?>">PDF Generation Manager</a></li>
+	<li><a title="Track the location of your users" href="admgeoip.php?<?php echo __adm_rsid; ?>">Geolocation Manager</a></li>
+<?php if (extension_loaded('pspell')) { ?>
+	<li><a title="Setup spell checker" href="admspell.php?<?php echo __adm_rsid; ?>">Custom Dictionary Spell Checker</a></li>
+<?php } ?>
+	</ul>
+	<br />
+	
 	<span class="linkgroup">Avatars & Icons</span>
 	<ul class="menu">
 	<li><a title="Approve avatars" href="admapprove_avatar.php?<?php echo __adm_rsid; ?>">Avatar Approval</a></li>
@@ -155,7 +158,7 @@ jQuery(document).ready(function() {
 	<ul class="menu">
 	<li><a title="Filter user entered data" href="admreplace.php?<?php echo __adm_rsid; ?>">Replacement &amp; Censorship</a></li>
 	<li><a title="Block E-mail addresses" href="admemail.php?<?php echo __adm_rsid; ?>">E-mail filter</a></li>
-	<li><a title="Block IP addresses" href="admipfilter.php?<?php echo __adm_rsid; ?>">IP filter</a></li>
+	<li><a title="Block IP addresses" href="admipfilter.php?<?php echo __adm_rsid; ?>">IP Address filter</a></li>
 	<li><a title="Block logins" href="admlogin.php?<?php echo __adm_rsid; ?>">Login filter</a></li>
 	<li><a title="Define allowed file extentions" href="admext.php?<?php echo __adm_rsid; ?>">File filter</a></li>
 	</ul>
@@ -169,7 +172,7 @@ jQuery(document).ready(function() {
 <?php if (strncasecmp('win', PHP_OS, 3)) {	/* Not for Windows. */ ?>
 		<li><a title="Secure your forum's files" href="admlock.php?<?php echo __adm_rsid; ?>">Lock/Unlock Forum Files</a></li>
 <?php } ?>
-<?php if (defined('__dbtype__') && __dbtype__ == 'mysql') { ?>
+<?php if (defined('fud_debug') && defined('__dbtype__') && __dbtype__ == 'mysql') { ?>
 	<li><a title="Change the character set of your database tables" href="admmysql.php?<?php echo __adm_rsid; ?>">MySQL Charset Changer</a></li>
 <?php } ?>
 	</ul>

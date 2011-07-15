@@ -21,11 +21,14 @@
 		unset($_POST);
 	}
 
+	$error = 0;
 	$edit = isset($_GET['edit']) ? (int)$_GET['edit'] : (isset($_POST['edit']) ? (int)$_POST['edit'] : '');
 
 	// Add or edit a static page.
-	if (isset($_POST['frm_submit']) && !empty($_POST['page_slug'])) {
-		$error = 0;
+	if (isset($_POST['frm_submit'])) {
+		if (empty($_POST['page_slug'])) {
+			$error = 'Please specify the Page Slug.';
+		}
 
 		if ($edit && !$error) {
 			$page = new fud_page;
@@ -55,13 +58,21 @@
 	} else {
 		$c = get_class_vars('fud_page');
 		foreach ($c as $k => $v) {
-			${'page_'. $k} = '';
+			${'page_'. $k} = $v;
 		}
 	}
+
+	if ($error) {
+		pf(errorify($error));
+                foreach (array('page_title', 'page_body', 'page_slug') as $v) {
+                        $$v = isset($_POST[$v]) ? htmlspecialchars($_POST[$v]) : '';
+                }
+	 }
 ?>
+
 <h2>Static pages</h2>
 <div class="tutor">
-This control panel allows admins to create static pages, for example, to quickly add a "Contacts" or "About Us" page. For a list of your pages, see <a href="../<?php echo __fud_index_name__;?>?t=page&amp;<?php echo __adm_rsid; ?>">static pages</a>.</div>
+This control panel allows admins to create static pages, for example, to quickly add a "Contacts" or "About Us" page. <!-- For a list of your pages, see <a href="../<?php echo __fud_index_name__;?>?t=page&amp;<?php echo __adm_rsid; ?>">static pages</a>. --></div>
 
 <?php
 echo '<h3>'. ($edit ? '<a name="edit">Edit Page:</a>' : 'Add New Page:') .'</h3>';
@@ -76,7 +87,7 @@ echo '<h3>'. ($edit ? '<a name="edit">Edit Page:</a>' : 'Add New Page:') .'</h3>
 
 	<tr class="field">
 		<td>Page body:<br /><font size="-2">Text to display on the page<br />(can contain HTML).</font></td>
-		<td><textarea name="page_body" cols="50" rows="7"><?php echo $page_body; ?></textarea></td>
+		<td><textarea name="page_body" cols="60" rows="7"><?php echo $page_body; ?></textarea></td>
 	</tr>
 
 	<tr class="field">
@@ -89,9 +100,14 @@ echo '<h3>'. ($edit ? '<a name="edit">Edit Page:</a>' : 'Add New Page:') .'</h3>
 		<td><?php draw_select('page_page_opt[]', "Yes\nNo", "1\n0", ($page_page_opt & (1))); ?></td>
 	</tr>
 
-	<tr class="field">
+	<!-- tr class="field">
 		<td>List page:<br /><font size="-2">List this page in the list of pages.</font></td>
 		<td><?php draw_select('page_page_opt[]', "Yes\nNo", "2\n0", ($page_page_opt & (2))); ?></td>
+	</tr -->
+
+	<tr class="field">
+		<td>Execute PHP:<br /><font size="-2">Execute embedded PHP code.</font></td>
+		<td><?php draw_select('page_page_opt[]', "Yes\nNo", "4\n0", ($page_page_opt & (4))); ?></td>
 	</tr>
 
 	<tr class="fieldaction">
