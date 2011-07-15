@@ -22,7 +22,11 @@
 {REF: tabs.tmpl}
 
 {SECTION: post_entry}
-<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="GenText"><a href="{TEMPLATE: post_entry_lnk}">{VAR: r[2]}</a></td><td class="GenText nw"><a href="{TEMPLATE: post_entry_lnk1}">{VAR: r[0]}</a></td><td class="DateText nw">{TEMPLATE: showposts_ent_date}</td></tr>
+<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}">
+	<td class="GenText"><a href="{TEMPLATE: post_entry_lnk}">{VAR: r[2]}</a></td>
+	<td class="GenText nw"><a href="{TEMPLATE: post_entry_lnk1}">{VAR: r[0]}</a></td>
+	<td class="DateText nw">{TEMPLATE: showposts_ent_date}</td>
+</tr>
 {SECTION: END}
 
 {PAGE: SHOWPOSTS_PAGE show all posts by a user}
@@ -31,10 +35,19 @@
 {IF: isset($_GET['id']) && _uid == $_GET['id']}{TEMPLATE-DATA: tabs}{ENDIF}
 {TEMPLATE-DATA: admin_cp}
 <table cellspacing="1" cellpadding="2" class="ContentTable">
-<tr><th colspan="3">{MSG: user_info}</th></tr>
-<tr class="RowStyleA"><td class="GenText wa">{MSG: login_header} <a href="{TEMPLATE: SHOWPOSTS_PAGE_lnk}">{VAR: u_alias}</a></td>
-<td class="GenText nw">{MSG: registered_on}</td><td class="GenText nw">{MSG: post_count}</td></tr>
-<tr><th class="wa">{MSG: subject}</th><th class="nw">{MSG: forum}</th><th class="nw"><a class="thLnk" href="{TEMPLATE: SHOWPOSTS_PAGE_lnk1}" rel="nofollow">{MSG: date_posted}</a></th></tr>
+<tr>
+	<th colspan="3">{MSG: user_info}</th>
+</tr>
+<tr class="RowStyleA">
+	<td class="GenText wa">{MSG: login_header} <a href="{TEMPLATE: SHOWPOSTS_PAGE_lnk}">{VAR: u_alias}</a></td>
+	<td class="GenText nw">{MSG: registered_on}</td>
+	<td class="GenText nw">{MSG: post_count}</td>
+</tr>
+<tr>
+	<th class="wa">{MSG: subject}</th>
+	<th class="nw">{MSG: forum}</th>
+	<th class="nw"><a class="thLnk" href="{TEMPLATE: SHOWPOSTS_PAGE_lnk1}" rel="nofollow">{MSG: date_posted}</a></th>
+</tr>
 {TEMPLATE-DATA: post_entry}
 </table>
 {TEMPLATE-DATA: pager}

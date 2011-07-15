@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -23,9 +23,14 @@
 {REF: smiley.tmpl}
 
 {SECTION: modque_msg_header moderator message options}
-<tr class="RowStyleB"><td>
-<b>{MSG: modque_cat}</b> {VAR: obj->cat_name} :: <b>{MSG: modque_forum}</b> {VAR: obj->frm_name} [<a href="{TEMPLATE: modque_msg_header_lnk}">{MSG: modque_approve}</a>]&nbsp;&nbsp;[<a href="{TEMPLATE: modque_msg_header_lnk1}">{MSG: modque_delete}</a>]
-</td></tr>
+<tr class="RowStyleB">
+	<td>
+		<b>{MSG: modque_cat}</b> {VAR: obj->cat_name} :: 
+		<b>{MSG: modque_forum}</b> {VAR: obj->frm_name} 
+		[<a href="{TEMPLATE: modque_msg_header_lnk}">{MSG: modque_approve}</a>]&nbsp;&nbsp;
+		[<a href="{TEMPLATE: modque_msg_header_lnk1}">{MSG: modque_delete}</a>]
+	</td>
+</tr>
 {SECTION: END}
 
 {SECTION: no_modque_msg}
@@ -42,7 +47,9 @@
 {TEMPLATE: usercp}
 <br />{TEMPLATE-DATA: admin_cp}
 <table cellspacing="0" cellpadding="2" class="ContentTable">
-<tr><th>{MSG: modque_pending_approval}</th></tr>
+<tr>
+	<th>{MSG: modque_pending_approval}</th>
+</tr>
 {TEMPLATE-DATA: modque_message}
 </table>
 {TEMPLATE: curtime}

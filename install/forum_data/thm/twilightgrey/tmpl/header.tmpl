@@ -9,7 +9,7 @@
 **/
 
 {MAIN_SECTION: header // The forum's page header.}<!DOCTYPE html>
-<html lang="{LANG}" dir="{DIR}">
+<html lang="{LANG}">
 <head>
 	<meta charset="{CHARSET}">
 	<meta name="description" content="{IF: !empty($META_DESCR)}{VAR: META_DESCR}{ELSE}{GVAR: FORUM_DESCR}{END}" />
@@ -24,6 +24,7 @@
 	<script src="js/lib.js"></script>
 </head>
 <body>
+<div class="content">
 <!-- {INJECTION_POINT: left_block} -->
 <div class="header">
   {IF: $GLOBALS['FUD_OPT_1'] & 1 && $GLOBALS['FUD_OPT_1'] & 16777216}
@@ -42,23 +43,4 @@
   </a><br />
   <span class="headdescr">{GVAR: FORUM_DESCR}<br /><br /></span>
 </div>
-<div class="content">
-
-<!-- Table for sidebars. -->
-<table width="100%"><tr><td>
-{MAIN_SECTION: END}
-
-{MAIN_SECTION: header_plain // Another header for small popup forms.}<!DOCTYPE html>
-<html lang="{LANG}" dir="{DIR}">
-<head>
-<meta charset="{CHARSET}">
-<title>{GVAR: FORUM_TITLE}{VAR: TITLE_EXTRA}</title>
-<base href="{FULL_ROOT}" />
-<script src="js/jquery.js"></script>
-<script src="js/jquery/jquery-ui.js"></script>
-<script src="js/lib.js"></script>
-<link rel="stylesheet" href="{THEME_ROOT}/forum.css" />
-</head>
-<body>
-<div class="content">
 {MAIN_SECTION: END}

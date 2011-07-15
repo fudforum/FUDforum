@@ -11,7 +11,7 @@
 {PHP_FILE: input: draw_forum_path.inc.t; output: @draw_forum_path.inc;}
 
 {SECTION: dfp_forum_no_lnk}
-&nbsp;&raquo; <b>{VAR: fn}</b>
+&nbsp;&raquo; <strong>{VAR: fn}</strong>
 {SECTION: END}
 
 {SECTION: dfp_forum_lnk}
@@ -31,7 +31,7 @@
 {SECTION: END}
 
 {MAIN_SECTION: forum_path}
-<a href="{TEMPLATE: dfp_home_lnk}">{MSG: home}</a>{TEMPLATE-DATA: data}{FUNC: ($tn ? '&nbsp;&raquo; <b>'.$tn.'</b>' : '')}
+<a href="{TEMPLATE: dfp_home_lnk}">{MSG: home}</a>{TEMPLATE-DATA: data}{FUNC: ($tn ? '&nbsp;&raquo; <strong>'.$tn.'</strong>' : '')}
 {MAIN_SECTION: END}
 
 {SECTION: dfp_home_lnk}

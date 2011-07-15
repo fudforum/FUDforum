@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -14,17 +14,23 @@
 {MAIN_SECTION: loged_in_list loggedin user list}
 <br />
 <table cellspacing="1" cellpadding="2" class="ContentTable">
-{TEMPLATE-DATA: logedin}
-{TEMPLATE-DATA: forum_info}
+	{TEMPLATE-DATA: logedin}
+	{TEMPLATE-DATA: forum_info}
 </table>
 {MAIN_SECTION: END}
 
 {SECTION: logedin}
-<tr><th class="wa">{MSG: logged_in_list} {IF: ($FUD_OPT_1 & 536870912)}{TEMPLATE: i_spy}{ENDIF}</th></tr>
-<tr><td class="RowStyleA">
-<span class="SmallText">{MSG: status_line}&nbsp;&nbsp;&nbsp;<span class="adminColor">[{MSG: administrator}]</span>&nbsp;&nbsp;<span class="modsColor">[{MSG: moderator}]</span></span><br />
-{VAR: logedin}
-</td></tr>
+<tr>
+	<th class="wa">{MSG: logged_in_list} {IF: ($FUD_OPT_1 & 536870912)}{TEMPLATE: i_spy}{ENDIF}</th>
+</tr>
+<tr>
+	<td class="RowStyleA">
+		<span class="SmallText">{MSG: status_line}&nbsp;&nbsp;&nbsp;
+		<span class="adminColor">[{MSG: administrator}]</span>&nbsp;&nbsp;
+		<span class="modsColor">[{MSG: moderator}]</span></span><br />
+		{VAR: logedin}
+	</td>
+</tr>
 {SECTION: END}
 
 {SECTION: i_spy logged in users list}
@@ -40,11 +46,15 @@
 {SECTION: END}
 
 {SECTION: forum_info}
-<tr><td class="RowStyleB SmallText">
-{MSG: message_counter}<br />
-{MSG: most_users_online}<br />
-{MSG: user_counter}<br />
-{MSG: newest_user} <a href="{TEMPLATE: forum_info_lnk}"><b>{VAR: st_obj->last_user_alias}</b></a>{IF: $last_msg_id}{TEMPLATE: last_msg}{ENDIF}</td></tr>
+<tr>
+	<td class="RowStyleB SmallText">
+		{MSG: message_counter}<br />
+		{MSG: most_users_online}<br />
+		{MSG: user_counter}<br />
+		{MSG: newest_user} <a href="{TEMPLATE: forum_info_lnk}"><b>{VAR: st_obj->last_user_alias}</b></a>
+		{IF: $last_msg_id}{TEMPLATE: last_msg}{ENDIF}
+	</td>
+</tr>
 {SECTION: END}
 
 {SECTION: i_spy_lnk}

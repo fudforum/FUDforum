@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -23,22 +23,25 @@
 {TEMPLATE: header_plain}
 </script>
 <form action="{TEMPLATE: POLL_PAGE_lnk3}" method="post" id="poll_submit">
-<input type="hidden" name="frm_id" value="{VAR: frm_id}" /><input type="hidden" name="pl_id" value="{VAR: pl_id}" />{DEF: _hs}
+<input type="hidden" name="frm_id" value="{VAR: frm_id}" />
+<input type="hidden" name="pl_id" value="{VAR: pl_id}" />
+{DEF: _hs}
 <table cellspacing="2" width="99%" cellpadding="0" class="dashed">
-	<tr>
-		<td class="GenText">{MSG: poll_name}</td>
-		<td><input tabindex="1" type="text" spellcheck="true" name="pl_name" value="{VAR-HTML: pl_name}" /></td>
-	</tr>
-	<tr>
-		<td class="GenText">{MSG: poll_timelimit}</td>
-		<td><select tabindex="2" name="pl_expiry_date">{TEMPLATE-DATA: pl_expiry_date_data}</select></td>
-	</tr>
-	<tr>
-		<td class="GenText">{MSG: poll_maxiumvotes}</td>
-		<td><select tabindex="3" name="pl_max_votes">{TEMPLATE-DATA: pl_max_votes_data}</select></td>
-	</tr>
-
-	<tr><td colspan="2" class="ar">{IF: !$pl_id}{TEMPLATE: pl_submit_create}{ELSE}{TEMPLATE: pl_submit_update}{END}</td></tr>
+<tr>
+	<td class="GenText">{MSG: poll_name}</td>
+	<td><input tabindex="1" type="text" spellcheck="true" name="pl_name" value="{VAR-HTML: pl_name}" /></td>
+</tr>
+<tr>
+	<td class="GenText">{MSG: poll_timelimit}</td>
+	<td><select tabindex="2" name="pl_expiry_date">{TEMPLATE-DATA: pl_expiry_date_data}</select></td>
+</tr>
+<tr>
+	<td class="GenText">{MSG: poll_maxiumvotes}</td>
+	<td><select tabindex="3" name="pl_max_votes">{TEMPLATE-DATA: pl_max_votes_data}</select></td>
+</tr>
+<tr>
+	<td colspan="2" class="ar">{IF: !$pl_id}{TEMPLATE: pl_submit_create}{ELSE}{TEMPLATE: pl_submit_update}{END}</td>
+</tr>
 </table>
 <br />
 {TEMPLATE-DATA: poll_editor}
@@ -47,8 +50,7 @@
 {IF: !$pl_id}{TEMPLATE: btn_submit}{ELSE}{TEMPLATE: btn_update}{END}
 </div>
 </form>
-<script type="text/javascript">
-/* <![CDATA[ */ 
+<script>
 function check_submission()
 {
 	var a;
@@ -71,7 +73,6 @@ if (document.forms['poll_submit'].pl_option) {
 } else {
 	document.forms['poll_submit'].pl_name.focus();
 }
-/* ]]> */
 </script>
 {TEMPLATE: footer_plain}
 {PAGE: END}
@@ -85,7 +86,9 @@ if (document.forms['poll_submit'].pl_option) {
 {SECTION: END}
 
 {SECTION: pl_smiley_disabled_chk disable smiliyes in the poll checkbox}
-<tr><td align="right" valign="top" colspan="2" class="GenText"><label><input type="checkbox" name="pl_smiley_disabled" value="Y" checked="{VAR: checked}" />{MSG: poll_disablesmilies}</label></td></tr>
+<tr>
+	<td align="right" valign="top" colspan="2" class="GenText"><label><input type="checkbox" name="pl_smiley_disabled" value="Y" checked="{VAR: checked}" />{MSG: poll_disablesmilies}</label></td>
+</tr>
 {SECTION: END}
 
 {SECTION: pl_submit_create create poll button}
@@ -98,18 +101,31 @@ if (document.forms['poll_submit'].pl_option) {
 
 {SECTION: poll_editor}
 <table width="99%" cellspacing="2" cellpadding="0" class="dashed">
-<tr><td class="GenText">{MSG: poll_add_option}</td><td class="ar"><input type="text" spellcheck="true" name="pl_option" value="{VAR-HTML: pl_option}" />
-{TEMPLATE-DATA: pl_smiley_disabled_chk}
-<tr><td colspan="2" class="ar">{IF: !isset($_GET['pl_optedit'])}{TEMPLATE: pl_add}{ELSE}{TEMPLATE: pl_upd}{END}</td></tr>
-<tr><td colspan="2"><table>
-{TEMPLATE-DATA: poll_option_entry_data}
-</table>
-</td></tr>
+<tr>
+	<td class="GenText">{MSG: poll_add_option}</td>
+	<td class="ar"><input type="text" spellcheck="true" name="pl_option" value="{VAR-HTML: pl_option}" />
+	{TEMPLATE-DATA: pl_smiley_disabled_chk}
+<tr>
+	<td colspan="2" class="ar">{IF: !isset($_GET['pl_optedit'])}{TEMPLATE: pl_add}{ELSE}{TEMPLATE: pl_upd}{END}</td>
+</tr>
+<tr>
+	<td colspan="2">
+		<table>
+			{TEMPLATE-DATA: poll_option_entry_data}
+		</table>
+	</td>
+</tr>
 </table>
 {SECTION: END}
 
 {SECTION: poll_option_entry}
-<tr><td class="GenText">{VAR: v}</td><td class="nw">[<a href="{TEMPLATE: poll_option_entry_lnk}">{MSG: poll_edit}</a>] [<a href="{TEMPLATE: poll_option_entry_lnk1}">{MSG: poll_delete}</a>]</td></tr>
+<tr>
+	<td class="GenText">{VAR: v}</td>
+	<td class="nw">
+		[<a href="{TEMPLATE: poll_option_entry_lnk}">{MSG: poll_edit}</a>]
+		[<a href="{TEMPLATE: poll_option_entry_lnk1}">{MSG: poll_delete}</a>]
+	</td>
+</tr>
 {SECTION: END}
 
 {SECTION: pl_upd hidden field needed for the form to work}

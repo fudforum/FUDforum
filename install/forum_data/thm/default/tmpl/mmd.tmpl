@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -27,11 +27,15 @@
 {SECTION: END}
 
 {SECTION: cat_entry category entry}
-<tr><td class="RowStyleC" style="padding-left: {FUNC: ($tabw = ($i[0] * 10 + 2))}px">{VAR: i[1]}</td></tr>
+<tr>
+	<td class="RowStyleC" style="padding-left: {FUNC: ($tabw = ($i[0] * 10 + 2))}px">{VAR: i[1]}</td>
+</tr>
 {SECTION: END}
 
 {SECTION: forum_entry}
-<tr><td class="RowStyleB" style="padding-left: {VAR: tabw}px"><label><input type="radio" name="forum_id" value="{VAR: r[1]}" />{VAR: r[0]}</label></td></tr>
+<tr>
+	<td class="RowStyleB" style="padding-left: {VAR: tabw}px"><label><input type="radio" name="forum_id" value="{VAR: r[1]}" />{VAR: r[0]}</label></td>
+</tr>
 {SECTION: END}
 
 {PAGE: MMD mass move/delete control panel}
@@ -49,7 +53,9 @@
 <input type="submit" name="del_conf" value="{MSG: delete_yes}" /> 
 {ELSE}
 <table cellspacing="0" cellpadding="3" class="DialogTable dashed">
-<tr><th>{MSG: mmd_move_threads_to}</th></tr>
+<tr>
+	<th>{MSG: mmd_move_threads_to}</th>
+</tr>
 {TEMPLATE-DATA: table_data}
 </table>
 <input type="submit" name="NO" value="{MSG: mmd_abort_move}" /> 

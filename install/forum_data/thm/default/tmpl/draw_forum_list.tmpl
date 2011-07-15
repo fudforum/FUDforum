@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -44,14 +44,20 @@
 
 {SECTION: index_category_allow_collapse_Y collapsable category entry}
 <tr id="c{VAR: r[5]}" style="display: {IF: empty($collapse[$i[4]])}table-row{ELSE}none{ENDI};">
-<td class="CatDesc {IF: empty($collapse[$cid])}expanded{ELSE}collapsed{ENDI}" colspan="5" style="padding-left: {FUNC: ($i[0] ? $i[0] * 20 : '0')}px;">
-<a href="{TEMPLATE: index_to_cat_lnk}" class="CatLink">{VAR: i[1]}</a> {VAR: i[2]}</td>{TEMPLATE: index_cat_up_down_arrows}</tr>
+	<td class="CatDesc {IF: empty($collapse[$cid])}expanded{ELSE}collapsed{ENDI}" colspan="5" style="padding-left: {FUNC: ($i[0] ? $i[0] * 20 : '0')}px;">
+		<a href="{TEMPLATE: index_to_cat_lnk}" class="CatLink">{VAR: i[1]}</a> {VAR: i[2]}
+	</td>
+	{TEMPLATE: index_cat_up_down_arrows}
+</tr>
 {SECTION: END}
 
 {SECTION: index_category_allow_collapse_N uncollapsable category entry}
 <tr id="c{VAR: r[5]}" style="display: {IF: empty($collapse[$i[4]])}table-row{ELSE}none{ENDI};">
-<td class="CatDesc CatLockPad" colspan="5" style="padding-left: {FUNC: ($i[0] ? $i[0] * 20 : '0')}px;">
-<span class="CatLockedName"><a href="{TEMPLATE: index_to_cat_lnk}" class="CatLink">{VAR: i[1]}</a></span> {VAR: i[2]}</td>{TEMPLATE: index_cat_up_down_arrows}</tr>
+	<td class="CatDesc CatLockPad" colspan="5" style="padding-left: {FUNC: ($i[0] ? $i[0] * 20 : '0')}px;">
+		<span class="CatLockedName"><a href="{TEMPLATE: index_to_cat_lnk}" class="CatLink">{VAR: i[1]}</a></span> {VAR: i[2]}
+	</td>
+	{TEMPLATE: index_cat_up_down_arrows}
+</tr>
 {SECTION: END}
 
 {SECTION: index_to_cat_lnk}
@@ -71,7 +77,9 @@
 {SECTION: END}
 
 {SECTION: idx_cat_path}
-<br/><a href="{TEMPLATE: idx_cat_path_lnk}">{MSG: home}</a>{TEMPLATE-DATA: cat_path}&nbsp;&raquo; <b>{VAR: cidxc[$cat_id][1]}</b>
+<br />
+<a href="{TEMPLATE: idx_cat_path_lnk}">{MSG: home}</a>
+{TEMPLATE-DATA: cat_path}&nbsp;&raquo; <b>{VAR: cidxc[$cat_id][1]}</b>
 {SECTION: END}
 
 {SECTION: idx_cat_path_lnk}
@@ -79,11 +87,14 @@
 {SECTION: END}
 
 {SECTION: idx_compact_forum_entry}
-&nbsp; {IF: _uid && $r[15] < $r[2] && $usr->last_read < $r[2]}**{ENDIFI}<a href="{TEMPLATE: index_forum_entry_lnk}">{VAR: r[10]}</a>
+&nbsp; {IF: _uid && $r[15] < $r[2] && $usr->last_read < $r[2]}**{ENDIFI}
+<a href="{TEMPLATE: index_forum_entry_lnk}">{VAR: r[10]}</a>
 {SECTION: END}
 
 {SECTION: idx_compact_forum_row}
-<tr class="RowStyleB"><td colspan="6">{MSG: idx_compact_forum_row}{VAR: cbuf}</td></tr>
+<tr class="RowStyleB">
+	<td colspan="6">{MSG: idx_compact_forum_row}{VAR: cbuf}</td>
+</tr>
 {SECTION: END}
 
 {SECTION: forum_with_no_view_perms}

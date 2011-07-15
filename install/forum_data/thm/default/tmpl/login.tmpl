@@ -51,17 +51,17 @@
 </tr>
 </table></div>{DEF: _hs}<input type="hidden" name="adm" value="{IF: isset($_GET['adm'])}1{ENDIF}" /></form>
 {TEMPLATE: curtime}
-<script type="text/javascript">
-/* <![CDATA[ */
-document.forms['login'].login.focus();
-/* ]]> */
+<script>
+	document.forms['login'].login.focus();
 </script>
 {TEMPLATE: footer}
 {PAGE: END}
 
 {SECTION: login_use_cookies}
 <tr class="RowStyleB">
-	<td colspan="3" class="al"><label><input type="checkbox" name="use_cookie" value="Y" checked="checked" /> {MSG: login_use_cookie}</label></td>
+	<td colspan="3" class="al">
+		<label><input type="checkbox" name="use_cookie" value="Y" checked="checked" /> {MSG: login_use_cookie}</label>
+	</td>
 </tr>
 {SECTION: END}
 

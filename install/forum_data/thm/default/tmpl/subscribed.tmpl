@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -28,19 +28,33 @@
 <form method="post" id="subscribe" action="{TEMPLATE: subscribed_action}">
 {DEF: _hs}
 <table cellspacing="1" cellpadding="2" class="ContentTable">
-<tr><th colspan="3">{MSG: subscribed_forums}<a name="fff"></a></th></tr>
+<tr>
+	<th colspan="3">{MSG: subscribed_forums}<a name="fff"></a></th>
+</tr>
 {IF: $subscribed_forum_data}
 {VAR: subscribed_forum_data}
-<tr class="RowStyleC"><td class="ac" colspan="2"><input type="submit" class="button" name="f_unsub_sel" value="{MSG: unsubscribe}" /></td><td class="ar"><input type="submit" class="button" name="f_unsub_all" value="{MSG: sub_unsub_all_forums}" /></td></tr>
+<tr class="RowStyleC">
+	<td class="ac" colspan="2"><input type="submit" class="button" name="f_unsub_sel" value="{MSG: unsubscribe}" /></td>
+	<td class="ar"><input type="submit" class="button" name="f_unsub_all" value="{MSG: sub_unsub_all_forums}" /></td>
+</tr>
 {ELSE}
-<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td colspan="3">{MSG: no_subscribed_forums}</td></tr>
+<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}">
+	<td colspan="3">{MSG: no_subscribed_forums}</td>
+</tr>
 {END}
-<tr><th colspan="3">{MSG: subscribed_threads}</th></tr>
+<tr>
+	<th colspan="3">{MSG: subscribed_threads}</th>
+</tr>
 {IF: $subscribed_thread_data}
 {VAR: subscribed_thread_data}
-<tr class="RowStyleC"><td class="ac" colspan="2"><input type="submit" class="button" name="t_unsub_sel" value="{MSG: unsubscribe}" /></td><td class="ar"><input type="submit" class="button" name="t_unsub_all" value="{MSG: sub_unsub_all_topics}" /></td></tr>
+<tr class="RowStyleC">
+	<td class="ac" colspan="2"><input type="submit" class="button" name="t_unsub_sel" value="{MSG: unsubscribe}" /></td>
+	<td class="ar"><input type="submit" class="button" name="t_unsub_all" value="{MSG: sub_unsub_all_topics}" /></td>
+</tr>
 {ELSE}
-<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td colspan="3">{MSG: no_subscribed_threads}</td></tr>
+<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}">
+	<td colspan="3">{MSG: no_subscribed_threads}</td>
+</tr>
 {END}
 </table>
 </form>
@@ -51,11 +65,19 @@
 {PAGE: END}
 
 {SECTION: subscribed_forum_entry}
-<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td><input type="checkbox" name="fe[]" value="{VAR: r[0]}" /></td><td class="nw"><a href="{TEMPLATE: subscribed_forum_entry_lnk1}">{MSG: unsubscribe}</a><td class="wa"><a href="{TEMPLATE: subscribed_forum_entry_lnk}">{VAR: r[1]}</a></td></td></tr>
+<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}">
+	<td><input type="checkbox" name="fe[]" value="{VAR: r[0]}" /></td>
+	<td class="nw"><a href="{TEMPLATE: subscribed_forum_entry_lnk1}">{MSG: unsubscribe}</a></td>
+	<td class="wa"><a href="{TEMPLATE: subscribed_forum_entry_lnk}">{VAR: r[1]}</a></td>
+</tr>
 {SECTION: END}
 
 {SECTION: subscribed_thread_entry}
-<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td><input type="checkbox" name="te[]" value="{VAR: r[0]}" /></td><td class="nw"><a href="{TEMPLATE: subscribed_thread_entry_lnk1}">{MSG: unsubscribe}</a></td><td class="wa">{VAR: r[2]} &raquo; <a href="{TEMPLATE: subscribed_thread_entry_lnk}">{VAR: r[1]}</a></td></tr>
+<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}">
+	<td><input type="checkbox" name="te[]" value="{VAR: r[0]}" /></td>
+	<td class="nw"><a href="{TEMPLATE: subscribed_thread_entry_lnk1}">{MSG: unsubscribe}</a></td>
+	<td class="wa">{VAR: r[2]} &raquo; <a href="{TEMPLATE: subscribed_thread_entry_lnk}">{VAR: r[1]}</a></td>
+</tr>
 {SECTION: END}
 
 {SECTION: subscribed_update}

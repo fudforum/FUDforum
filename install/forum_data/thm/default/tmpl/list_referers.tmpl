@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -24,7 +24,11 @@
 {SECTION: END}
 
 {SECTION: referer_entry refered users row}
-<tr class="{ALT-VAR: list_referers_alt RowStyleA RowStyleB}"><td class="nw GenText vt"><a href="{TEMPLATE: referer_entry_lnk}">{VAR: r[0]}</a></td><td class="ac GenText">{VAR: r[2]}</td><td class="GenText">{TEMPLATE-DATA: refered_entry_data}</td></tr>
+<tr class="{ALT-VAR: list_referers_alt RowStyleA RowStyleB}">
+	<td class="nw GenText vt"><a href="{TEMPLATE: referer_entry_lnk}">{VAR: r[0]}</a></td>
+	<td class="ac GenText">{VAR: r[2]}</td>
+	<td class="GenText">{TEMPLATE-DATA: refered_entry_data}</td>
+</tr>
 {SECTION: END}
 
 {PAGE: REFERALS_PAGE A list of all the users who referred people to the forum and who they referred}
@@ -32,7 +36,11 @@
 {TEMPLATE: usercp}
 {TEMPLATE-DATA: admin_cp}
 <table cellspacing="1" cellpadding="2" class="ContentTable">
-<tr><th class="ac">{MSG: list_referes_member}</th><th class="ac">{MSG: list_referes_referrals}</th><th>{MSG: list_referes_members}</th></tr>
+<tr>
+	<th class="ac">{MSG: list_referes_member}</th>
+	<th class="ac">{MSG: list_referes_referrals}</th>
+	<th>{MSG: list_referes_members}</th>
+</tr>
 {TEMPLATE-DATA: referer_entry_data}
 </table>
 {TEMPLATE-DATA: page_pager}

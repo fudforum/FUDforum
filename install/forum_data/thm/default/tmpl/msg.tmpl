@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -64,12 +64,12 @@
 {SECTION: rate_thread rate thread select}
 <form id="RateFrm" action="post">
 <select class="SmallText" onchange="if (this.value) topicVote(this.value, {VAR: frm->id}, \'{DEF: s}\', \'{VAR: usr->sq}\');">
-<option>{MSG: rate_thread}</option>
-<option value="1">1 {MSG: rate_worst}</option>
-<option value="2">2</option>
-<option value="3">3</option>
-<option value="4">4</option>
-<option value="5">5 {MSG: rate_best}</option>
+	<option>{MSG: rate_thread}</option>
+	<option value="1">1 {MSG: rate_worst}</option>
+	<option value="2">2</option>
+	<option value="3">3</option>
+	<option value="4">4</option>
+	<option value="5">5 {MSG: rate_best}</option>
 </select>
 </form>
 {SECTION: END}
@@ -84,14 +84,19 @@
 <span id="threadRating">{IF: $FUD_OPT_2 & 4096 && $frm->rating}{TEMPLATE: thread_rating}{ENDIF}</span>
 <table cellspacing="0" cellpadding="0" border="0" class="wa">
 <tr>
-<td class="GenText al">{TEMPLATE: show_links}
-{IF: ($frm->replies && $perms & 2048)}<a href="{TEMPLATE: split_thread_lnk}">{MSG: split_thread}</a>&nbsp;|&nbsp;{ENDIF}
-{IF: ($frm->replies && $perms & 8192)}<a href="{ROOT}?t=movemsg&amp;th={VAR: th}">{MSG: move_messages}</a>&nbsp;|&nbsp;{ENDIF}
-{IF: $perms & 8192}<a href="javascript://" onclick="window_open(\'{TEMPLATE: msg_mv_thread}\', \'th_move\', 300, 400);">{MSG: move_thread}</a>&nbsp;|&nbsp;{ENDIF}
-{IF: $perms & 4096}{IF: $frm->thread_opt & 1}<a href="{TEMPLATE: mod_unlock_thread_lnk}">{MSG: unlock_thread}</a>&nbsp;|&nbsp;{ELSE}<a href="{TEMPLATE: mod_lock_thread_lnk}">{MSG: lock_thread}</a>&nbsp;|&nbsp;{END}{ENDIF}
-{IF: $FUD_OPT_2 & 1073741824}{TEMPLATE: email_page_to_friend}{ENDIF}
-{TEMPLATE-DATA: first_unread_message_link}{TEMPLATE-DATA: subscribe_status}{TEMPLATE-DATA: bookmark_status}</td>
-<td class="vb ar">{IF: $FUD_OPT_3 & 2}{ELSE}{TEMPLATE: threaded_view}{END}{TEMPLATE: new_thread}{IF: (!($frm->thread_opt & 1) || $perms & 4096)}{TEMPLATE: post_reply}{ENDIF}</td>
+<td class="GenText al">
+	{TEMPLATE: show_links}
+	<br />
+	{IF: ($frm->replies && $perms & 2048)}<a href="{TEMPLATE: split_thread_lnk}">{MSG: split_thread}</a>&nbsp;|&nbsp;{ENDIF}
+	{IF: ($frm->replies && $perms & 8192)}<a href="{ROOT}?t=movemsg&amp;th={VAR: th}">{MSG: move_messages}</a>&nbsp;|&nbsp;{ENDIF}
+	{IF: $perms & 8192}<a href="javascript://" onclick="window_open(\'{TEMPLATE: msg_mv_thread}\', \'th_move\', 300, 400);">{MSG: move_thread}</a>&nbsp;|&nbsp;{ENDIF}
+	{IF: $perms & 4096}{IF: $frm->thread_opt & 1}<a href="{TEMPLATE: mod_unlock_thread_lnk}">{MSG: unlock_thread}</a>&nbsp;|&nbsp;{ELSE}<a href="{TEMPLATE: mod_lock_thread_lnk}">{MSG: lock_thread}</a>&nbsp;|&nbsp;{END}{ENDIF}
+	{IF: $FUD_OPT_2 & 1073741824}{TEMPLATE: email_page_to_friend}{ENDIF}
+	{TEMPLATE-DATA: first_unread_message_link}{TEMPLATE-DATA: subscribe_status}{TEMPLATE-DATA: bookmark_status}
+</td>
+<td class="vb ar">
+	{IF: $FUD_OPT_3 & 2}{ELSE}{TEMPLATE: threaded_view}{END}{TEMPLATE: new_thread}{IF: (!($frm->thread_opt & 1) || $perms & 4096)}{TEMPLATE: post_reply}{ENDIF}
+</td>
 </tr>
 </table>
 {INJECTION_POINT: before_topic}
@@ -99,15 +104,15 @@
 {IF: $quick_reply_enabled}{TEMPLATE: quick_reply}{ENDIFI}
 <table border="0" cellspacing="0" cellpadding="0" class="wa">
 <tr>
-<td class="vt">{TEMPLATE-DATA: page_pager}&nbsp;</td>
-<td class="GenText ar vb nw">{IF: $FUD_OPT_3 & 2}{ELSE}{TEMPLATE: threaded_view}{END}{TEMPLATE: new_thread}{IF: !$quick_reply_enabled && (!($frm->thread_opt & 1) || $perms & 4096)}{TEMPLATE: post_reply}{ENDIF}</td>
+	<td class="vt">{TEMPLATE-DATA: page_pager}&nbsp;</td>
+	<td class="GenText ar vb nw">{IF: $FUD_OPT_3 & 2}{ELSE}{TEMPLATE: threaded_view}{END}{TEMPLATE: new_thread}{IF: !$quick_reply_enabled && (!($frm->thread_opt & 1) || $perms & 4096)}{TEMPLATE: post_reply}{ENDIF}</td>
 </tr>
 </table>
 {INJECTION_POINT: after_topic}
 {IF: (!empty($prev_thread_link) || !empty($next_thread_link))}
 <table border="0" cellspacing="1" cellpadding="1" align="right">
-{TEMPLATE-DATA: prev_thread_link}
-{TEMPLATE-DATA: next_thread_link}
+	{TEMPLATE-DATA: prev_thread_link}
+	{TEMPLATE-DATA: next_thread_link}
 </table>
 {ENDIF}
 {IF: ($FUD_OPT_2 & 4096 && $perms & 1024 && !$frm->cant_rate)}{TEMPLATE: rate_thread}{ENDIF}
@@ -116,17 +121,15 @@
 <div class="ar SmallText">{IF: $FUD_OPT_2 & 1048576}{TEMPLATE: msg_xml_link}{ENDIF} {IF: $FUD_OPT_2 & 2097152}{TEMPLATE: msg_pdf_link}{ENDIF}</div>
 {TEMPLATE: curtime}
 {TEMPLATE-DATA: page_stats}
-<script type="text/javascript">
-/* <![CDATA[ */
-min_max_posts('{THEME_IMAGE_ROOT}', '{DEF: img_ext}', '{MSG: minimize_message}', '{MSG: maximize_message}');
-format_code('{MSG: code_title}', '{MSG: code_select_all}', '{MSG: code_show_hide}');
+<script>
+	min_max_posts('{THEME_IMAGE_ROOT}', '{DEF: img_ext}', '{MSG: minimize_message}', '{MSG: maximize_message}');
+	format_code('{MSG: code_title}', '{MSG: code_select_all}', '{MSG: code_show_hide}');
 {IF: $msg_page_focus}
 	fud_msg_focus("{VAR: mid}");
 {ENDIF}
 {IF: !empty($_GET['srch'])}
 	highlightSearchTerms("{VAR-HTML: _GET['srch']}");
 {ENDIF}
-/* ]]> */
 </script>
 {TEMPLATE: footer}
 {PAGE: END}
@@ -140,8 +143,7 @@ format_code('{MSG: code_title}', '{MSG: code_select_all}', '{MSG: code_show_hide
 {SECTION: END}
 
 {SECTION: msg_RSS}
-{IF: $FUD_OPT_2 & 1048576}
-<link rel="alternate" type="application/rss+xml" title="{MSG: thread_syndicate}" href="{GVAR: WWW_ROOT}feed.php?mode=m&amp;th={VAR: th}&amp;basic=1" />
+{IF: $FUD_OPT_2 & 1048576}<link rel="alternate" type="application/rss+xml" title="{MSG: thread_syndicate}" href="{GVAR: WWW_ROOT}feed.php?mode=m&amp;th={VAR: th}&amp;basic=1" />
 {ENDIFI}
 {SECTION: END}
 

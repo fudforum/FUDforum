@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -16,14 +16,25 @@
 {PAGE: RATINGTRACK_PAGE  manage thread rating track}
 {TEMPLATE: header_plain}
 <table cellspacing="0" cellpadding="3" class="wa dashed">
-<tr><td class="small" colspan="3">{MSG: rating_track}</td></tr>
-<tr><td class="mvTc">{MSG: user}</td><td class="mvTc">{MSG: rating}</td><td class="mvTc">{MSG: action}</td></tr>
+<tr>
+	<td class="small" colspan="3">{MSG: rating_track}</td>
+</tr>
+<tr>
+	<td class="mvTc">{MSG: user}</td>
+	<td class="mvTc">{MSG: rating}</td>
+	<td class="mvTc">{MSG: action}</td>
+</tr>
 {TEMPLATE-DATA: table_data}
-<tr><td class="ac RowStyleC" colspan="3">[<a href="javascript://" onclick="window.close();">{MSG: smladd_close_window}</a>]</td></tr>
+<tr>
+	<td class="ac RowStyleC" colspan="3">[<a href="javascript://" onclick="window.close();">{MSG: smladd_close_window}</a>]</td>
+</tr>
 </table>
 {TEMPLATE: footer_plain}
 {PAGE: END}
 
 {SECTION: ratingtrack_entry}
-<tr><td>{VAR: r[0]}</td><td>{VAR: r[1]}</td><td><a href="{ROOT}?t=ratingtrack&amp;th={VAR: th}&amp;ratingid={VAR: r[2]}&amp;{DEF: _rsid}&amp;SQ={GVAR: sq}">{MSG: rating_delete}</a></td></tr>
+<tr>
+	<td>{VAR: r[0]}</td><td>{VAR: r[1]}</td>
+	<td><a href="{ROOT}?t=ratingtrack&amp;th={VAR: th}&amp;ratingid={VAR: r[2]}&amp;{DEF: _rsid}&amp;SQ={GVAR: sq}">{MSG: rating_delete}</a></td>
+</tr>
 {SECTION: END}

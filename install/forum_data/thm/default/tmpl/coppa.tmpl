@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -20,15 +20,20 @@
 {TEMPLATE: usercp}
 <div class="ctb">
 <table cellspacing="1" cellpadding="2" class="DialogTable">
-<tr><th>{MSG: coppa_conf}</th></tr>
-<tr class="RowStyleA GenText ac"><td>
-{MSG: coppa_link}<br /><br />
-[<a href="{TEMPLATE: COPPA_PAGE_lnk}">{MSG: coppa_before}</a>]&nbsp;
-[<a href="{TEMPLATE: COPPA_PAGE_lnk1}">{MSG: coppa_after}</a>]
-<hr/>
-{MSG: coppa}
-</td></tr>
-</table></div>
+<tr>
+	<th>{MSG: coppa_conf}</th>
+</tr>
+<tr class="RowStyleA GenText ac">
+	<td>
+		{MSG: coppa_link}<br /><br />
+		[<a href="{TEMPLATE: COPPA_PAGE_lnk}">{MSG: coppa_before}</a>]&nbsp;
+		[<a href="{TEMPLATE: COPPA_PAGE_lnk1}">{MSG: coppa_after}</a>]
+		<hr/>
+		{MSG: coppa}
+	</td>
+</tr>
+</table>
+</div>
 {TEMPLATE: curtime}
 {TEMPLATE: footer}
 {PAGE: END}

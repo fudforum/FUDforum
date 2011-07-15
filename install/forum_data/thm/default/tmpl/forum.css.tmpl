@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -14,38 +14,42 @@
 body {
 	background: #e5e5e5;
 	color: #000;
-	margin: 2px;
+	margin: 0px;
 	font-family: Verdana,Geneva,Lucida,'Lucida Grande',Arial,Helvetica,Sans-serif;
-	font-size: 11pt;
+	font-size: 100%;
 }
 
-text,	.ForumBackground, a:link, a:visited, a:active, a.CatLink, .CatDesc, a.UserControlPanel, .CatLockedName, .GenText,
+text,	a:link, a:visited, a:active, a.CatLink, .CatDesc, .CatLockedName, .GenText,
 	.GenTextRed, .ErrorText, .SmallText, .DateText, .TopBy, th, a.thLnk:link, a.thLnk:active, a.thLnk:visited,
 	a.thLnk:active, .RowStyleA, .RowStyleB, .RowStyleC, .MsgToolBar, .PollTable, .MsgIg, td.miniMH,
 	.ContentTable, .MsgTable, .DialogTable, .PreviewTable, .AnnonTable, .AnnText, td.NoAvatar, td.Av1, td.Av2, td.tabA,
 	.AnnSubjText, a.PagerLink, .LevelText, .MsgSubText, .MsgBodyText, th.SelTS, th.SelFS, legend, td.tabH, div.tabT,
-	.FormattingToolsBG, .FormattingToolsCLR, .MiniTable, .quote, .dashed, .adminColor, .modsColor, td.tabI, td.tabA:hover,
+	.MiniTable, .quote, .dashed, .adminColor, .modsColor, td.tabI, td.tabA:hover,
 	.brdrNormal, .brdrSelected, input.button, form, img, .StClr, .AnClr, td.msgot, td.msgud, div.ctags, td.mvTc, td.pmNav,
 	.ModOpt, .MsgR1, .MsgR2, .MsgR3, .mnavMsg, .mnavWarnTbl, .mnavNoRes, font.lg, td.tt, table.tt, tr.tab, table.tab,
 	a.big:link, a.big:active, a.big:visited, .small, a.small:link, a.small:active, a.small:visited, .curtime,
-	font.anon, font.reg, td.permYES, td.permNO, td.repI, div.UserControlPanel, font.selmsgInd, fieldset
+	font.anon, font.reg, td.permYES, td.permNO, td.repI, font.selmsgInd, fieldset
 {
 	font-family: Verdana,Geneva,Lucida,'Lucida Grande',Arial,Helvetica,Sans-serif;
 	font-size: 10pt;
 }
 
-text, .GenText {
-	color: #000;
-}
-
-.ForumBackground {
+.header, .content, .footer {
+	display:block;
+	clear: both;
 	background: #fff;
 	border: 1px solid #aebdc4;
 	padding: 5px;
+	margin: 5px;
 
 	-moz-border-radius: 0.75em;
 	-webkit-border-radius: 0.75em;
 	border-radius: 0.75em;
+
+/* Uncomment for fixed width layout:
+	margin: 0 auto;
+	width: 800px;
+*/
 }
 
 a:link, a:visited, a:active, a.PagerLink {
@@ -66,16 +70,6 @@ a.CatLink {
 	background: url('images/tableHeaderbg2.png');
 }
 
-a.UserControlPanel, a.UserControlPanel:visited {
-	color: #069;
-	text-decoration: none;
-}
-
-div.UserControlPanel {
-	margin-bottom: 5px;
-	text-align: right;
-}
-
 .CatLockedName {
 	font-size: 10pt;
 	font-weight: bold;
@@ -85,7 +79,7 @@ div.UserControlPanel {
 	padding-left: 20px;
 }
 
-.GenText, .MsgIg, td.repI {
+text, .GenText, .MsgIg, td.repI {
 	color: #000;
 }
 
@@ -135,6 +129,10 @@ a.thLnk:visited {
 	background: #c2cdd6;
 }
 
+.row:hover td {
+	opacity: 0.8;
+}
+
 .MsgToolBar {
 	background: #dee2e6;
 	padding-left: 3px;
@@ -147,10 +145,11 @@ a.thLnk:visited {
 }
 
 .PollTable, .ContentTable, .MsgTable, .DialogTable, .PreviewTable, .AnnonTable {
-	background : #fff;
-	border : 0;
-	padding : 0;
-	margin : 0;
+	background: #fff;
+	border: 0;
+	padding: 0;
+	margin: 0;
+	clear: both;
 }
 
 font.ptp { /* space between poll title & number of votes */
@@ -159,7 +158,7 @@ font.ptp { /* space between poll title & number of votes */
 }
 
 .ContentTable, .AnnonTable, .MsgTable, table.pad {
-	width : 100%;
+	width: 100%;
 }
 
 .MsgTable {
@@ -169,7 +168,7 @@ font.ptp { /* space between poll title & number of votes */
 }
 
 .DialogTable {
-	width : 66%;
+	width: 66%;
 }
 
 .PreviewTable {
@@ -179,6 +178,8 @@ font.ptp { /* space between poll title & number of votes */
 .AnnText {
 	color: #000;
 	background: #f5d300;
+	margin-top: 7px;
+	margin-bottom: 7px;
 }
 
 .AnnSubjText {
@@ -196,21 +197,33 @@ a.MsgSubText, a.MsgSubText:visited {
 
 .MsgBodyText {
 	font-size: 10pt;
+	line-height: 1.4;
 }
 
 .FormattingToolsBG {
-	background: #000;
+	padding-left: 5px;
+	vertical-align: bottom;
+	background: transparent;
 }
 
 .FormattingToolsCLR {
+	-moz-border-radius: 0.15em;
+	-webkit-border-radius: 0.15em;
+	border-radius: 0.15em;
+
+	padding: 1px;
 	background: #fff;
+}
+.FormattingToolsCLR:hover {
+	border: 1px; 
+	background: #dee;
 }
 
 .MiniTable {
 	background: #fff;
-	border : 0;
-	padding : 0;
-	margin : 0;
+	border: 0;
+	padding: 0;
+	margin: 0;
 }
 
 cite {
@@ -232,6 +245,7 @@ blockquote {
 	margin: 8px 1px 0 20px;
 	overflow: hidden;
 	padding: 5px;
+	font-style: italic;
 }
 blockquote:first-letter {
 	margin: .2em .2em .1em 0;
@@ -305,8 +319,8 @@ img {
 }
 
 a[href^="mailto:"] {
-     background: url(images/email.png) no-repeat right center;
-     padding-right:17px;
+	background: url(images/email.png) no-repeat right center;
+	padding-right:17px;
 }
 
 .StClr {
@@ -355,7 +369,7 @@ a[href^="mailto:"] {
 
 .mnavMsg {
 	border-bottom: 1px dashed #eee;
-	width : 100%;
+	width: 100%;
 }
 
 .mnavWarnTbl {
@@ -628,37 +642,35 @@ img.r {
 	font-size: 8pt;
 }
 
-/* Header with rounded corners. */
-.header {color:#fff; background:#5478a4;
-	padding: 3px; margin: 3px;
-	-moz-border-radius: 0.75em;
-	-webkit-border-radius: 0.75em;
-	border-radius: 0.75em;
-}
+.header {color:#fff; background:#5478a4;}
 .header a {color:#fff; text-decoration:none;}
 .headtitle {padding: 10px; font-size:xx-large; font-weight:bold; text-decoration:none;}
-.headdescr {padding: 20px; color:#eee; font-size:small;}
-.headsearch {font-size: small; font-weight:bold; float:right; white-space: nowrap; vertical-align: top;}
-.headbutton {color:#fff; background-color: red;}
+.headdescr {padding: 20px 10px 0px 20px; color:#eee; font-size:small;}
+.headsearch {padding: 0 0 10px 20px; font-size: small; font-weight:bold; float:right; white-space: nowrap;}
 
-/* Textarea editor. */
-.resizable-textarea .grippie {
+/* Make textareas's resizable (jQuery UI). */
+.ui-resizable-s {
 	height: 9px;
-	background: #eee url('images/grippie.gif') no-repeat center 2px;
-	border: 1px solid #ddd;
+	background: #eee url("images/grippie.gif") no-repeat center 2px;
+ 	border: 1px solid #ddd;
 	border-top-width: 0;
-	cursor: s-resize;
-	overflow: hidden;
+	height: 9px;
+	bottom: 6px;
+}
+.ui-resizable-resizing textarea {
+	opacity: 0.5;
+	filter: alpha(opacity=50);
+	zoom: 1;
 }
 
 /* The following are partial elements that are used to save space. */
 .wo { width:		1px; }
 .wa { width:		100%; }
+.ac { text-align:	center; }
 .al { text-align:	left; }
 .ar { text-align:	right; }
 .fl { float: 		left; }
 .fr { float: 		right; }
-.ac { text-align:	center; }
 .vb { vertical-align:	bottom; }
 .vt { vertical-align:	top; }
 .vm { vertical-align:	middle; }
@@ -670,15 +682,15 @@ img.at { float: left; clear: left; }
 
 div.sr { float: left; padding: 5px; }
 
-div.ctb {text-align: center;}
+div.ctb {text-align: center; clear: both;}
 div.ctb table {margin: 0 auto; text-align: left;}
-div.foot { padding: 3px; margin: 3px; }
 div.ip { overflow: auto; margin: 0; padding: 2px; width: 600px; height: 400px; }
 span.vt { padding-left: 20px; }
 table.icqCP { font-family: arial, sans-serif; font-size: smaller; border: 0; }
 div.pmL { padding-top: 2px; }
 table.ucPW { width: 175px; }
 
+/* Colors for highlighting search terms. */
 .st0 { background-color: #ff6; }
 .st1 { background-color: #a0ffff; }
 .st2 { background-color: #9f9; }
@@ -690,6 +702,30 @@ table.ucPW { width: 175px; }
 .st8 { background-color: #004699; }
 .st9 { background-color: #909; }
 
+/* User Control Panel / Top Level Menu. */
+#UserControlPanel {
+	float: right;
+	width: 100%;
+	margin: 5px 0 10px 10px;
+}
+#UserControlPanel ul {
+	list-style: none;
+	float: right;
+	padding: 0;
+	margin: 0;
+	text-align:right;
+}
+#UserControlPanel li {
+	margin: 0 7px 0 0;
+	position:relative;
+	display: inline;
+	white-space: nowrap;
+}
+#UserControlPanel li a {
+	color: #069;
+	text-decoration: none;
+}
+
 /* Calendar. */
 table.calendar {border-left:1px solid #999; }
 tr.calendar-row {}
@@ -700,7 +736,7 @@ td.calendar-day-head {background:#ccc; font-weight:bold; text-align:center; widt
 div.day-number {background:#999; position:absolute; z-index:2; top:-5px; right:-25px; padding:5px; color:#fff; font-weight:bold; width:20px; text-align:center; }
 td.calendar-day, td.calendar-day-np { width:120px; padding:5px 25px 5px 5px; border-bottom:1px solid #999; border-right:1px solid #999; }
 
-/* Butttons. */
+/* Buttons. */
 input.button:link, input.button:visited, input.button {
 	background:#ddd url(images/button.png) repeat-x scroll left top;
 	border-color:#ccc #b4b2b4 #ccc #b4b2b4;

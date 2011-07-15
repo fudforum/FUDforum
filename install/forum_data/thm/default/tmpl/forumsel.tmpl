@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -14,10 +14,13 @@
 {IF: $frmcount > 1}
 <span class="SmallText fb">{MSG: forumsel_goto_forum}</span>
 <form action="{TEMPLATE: forum_select_lnk3}" id="frmquicksel" method="get">
-<input type="hidden" name="t" value="{VAR: dest}" />{DEF: _hs}
-<select class="SmallText" name="frm_id">
-{TEMPLATE-DATA: selection_options}
-</select>&nbsp;&nbsp;<input type="submit" class="button small" name="frm_goto" value="{MSG: go}" /></form>
+	<input type="hidden" name="t" value="{VAR: dest}" />
+	{DEF: _hs}
+	<select class="SmallText" name="frm_id">
+		{TEMPLATE-DATA: selection_options}
+	</select>&nbsp;&nbsp;
+	<input type="submit" class="button small" name="frm_goto" value="{MSG: go}" />
+</form>
 {ENDIF}
 {MAIN_SECTION: END}
 

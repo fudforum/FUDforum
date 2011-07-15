@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -11,11 +11,17 @@
 {PHP_FILE: input: th_nav.inc.t; output: th_nav.inc;}
 
 {SECTION: next_thread_link}
-<tr><td class="GenText ar">{MSG: next_thread}</td><td class="GenText al"><a href="{TEMPLATE: next_thread_link_lnk}">{VAR: r[1]}</a></td></tr>
+<tr>
+	<td class="GenText ar">{MSG: next_thread}</td>
+	<td class="GenText al"><a href="{TEMPLATE: next_thread_link_lnk}">{VAR: r[1]}</a></td>
+</tr>
 {SECTION: END}
 
 {SECTION: prev_thread_link}
-<tr><td class="ar GenText">{MSG: prev_thread}</td><td class="GenText al"><a href="{TEMPLATE: prev_thread_link_lnk}">{VAR: r[1]}</a></td></tr>
+<tr>
+	<td class="ar GenText">{MSG: prev_thread}</td>
+	<td class="GenText al"><a href="{TEMPLATE: prev_thread_link_lnk}">{VAR: r[1]}</a></td>
+</tr>
 {SECTION: END}
 
 {SECTION: next_thread_link_lnk}

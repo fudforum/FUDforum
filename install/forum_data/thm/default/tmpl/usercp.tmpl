@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -10,99 +10,111 @@
 
 {PHP_FILE: input: usercp.inc.t; output: @usercp.inc;}
 
-{MAIN_SECTION: usercp // Top level menu (User control panel).}
-<div class="UserControlPanel">{TEMPLATE-DATA: private_msg} 
-  {IF: ($FUD_OPT_1 & 8388608 || (_uid && $FUD_OPT_1 & 4194304) || $usr->users_opt & 1048576)}{TEMPLATE: member_search}{ENDIF}
-  {IF: $FUD_OPT_3 & 134217728}{TEMPLATE: calendar}{ENDIF}
-  {IF: $FUD_OPT_1 & 16777216}{TEMPLATE: u_forum_search}{ENDIF}
-  &nbsp;&nbsp;<a class="UserControlPanel nw" accesskey="h" href="{TEMPLATE: usercp_lnk2}" title="{MSG: faq}"><img src="{THEME_IMAGE_ROOT}/top_help{DEF: img_ext}" alt="" /> {MSG: faq}</a>
-  {IF: __fud_real_user__}{TEMPLATE: usercp_usercp}{ELSE}{IF: $FUD_OPT_1 & 2}{TEMPLATE: register}{ENDIF}{END}
-  {IF: __fud_real_user__}{TEMPLATE: logout}{ELSE}{TEMPLATE: login}{END}
-  &nbsp;&nbsp;<a class="UserControlPanel nw" href="{TEMPLATE: usercp_lnk3}" title="{MSG: home}"><img src="{THEME_IMAGE_ROOT}/top_home{DEF: img_ext}" alt="" /> {MSG: home}</a>
-  {IF: $is_a || ($usr->users_opt & 268435456)}{TEMPLATE: admin_control_panel}{ENDIF}
+{MAIN_SECTION: usercp Top level menu (User control panel).}
+<div id="UserControlPanel">
+<ul>
+	{TEMPLATE-DATA: ucp_private_msg}
+	{IF: ($FUD_OPT_1 & 8388608 || (_uid && $FUD_OPT_1 & 4194304) || $usr->users_opt & 1048576)}{TEMPLATE: ucp_member_search}{ENDIF}
+	{IF: $FUD_OPT_3 & 134217728}{TEMPLATE: ucp_calendar}{ENDIF}
+	{IF: $FUD_OPT_3 & 536870912}{TEMPLATE: ucp_pages}{ENDIF}
+	{IF: $FUD_OPT_1 & 16777216} {TEMPLATE: ucp_search}{ENDIF}
+	<li><a accesskey="h" href="{TEMPLATE: ucp_help_lnk}" title="{MSG: faq}"><img src="{THEME_IMAGE_ROOT}/top_help{DEF: img_ext}" alt="" /> {MSG: faq}</a></li>
+	{IF: __fud_real_user__}{TEMPLATE: ucp_usercp}{ELSE}{IF: $FUD_OPT_1 & 2}{TEMPLATE: ucp_register}{ENDIF}{END}
+	{IF: __fud_real_user__}{TEMPLATE: ucp_logout}{ELSE}{TEMPLATE: ucp_login}{END}
+	<li><a href="{TEMPLATE: ucp_home_lnk}" title="{MSG: home}"><img src="{THEME_IMAGE_ROOT}/top_home{DEF: img_ext}" alt="" /> {MSG: home}</a></li>
+	{IF: $is_a || ($usr->users_opt & 268435456)}{TEMPLATE: ucp_admin_control_panel}{ENDIF}
+</ul>
 </div>
 {MAIN_SECTION: END}
 
-{SECTION: usercp_lnk}
-{ROOT}?t=search{IF: isset($frm->forum_id)}&amp;forum_limiter={FUNC: (int)$frm->forum_id}{ENDIFI}&amp;{DEF: _rsid}
-{SECTION: END}
-
-{SECTION: usercp_lnk2}
-{ROOT}?t=help_index&amp;{DEF: _rsid}
-{SECTION: END}
-
-{SECTION: usercp_lnk3}
+{SECTION: ucp_home_lnk Home URL}
 {ROOT}?t=index&amp;{DEF: _rsid}
 {SECTION: END}
 
-{SECTION: u_forum_search}
-<a class="UserControlPanel nw" href="{TEMPLATE: usercp_lnk}" title="{MSG: search}"><img src="{THEME_IMAGE_ROOT}/top_search{DEF: img_ext}" alt="" /> {MSG: search}</a>&nbsp;&nbsp;
+{SECTION: ucp_help_lnk FAQ/Help URL}
+{ROOT}?t=help_index&amp;{DEF: _rsid}
 {SECTION: END}
 
-{SECTION: login_lnk}
+{SECTION: ucp_search_lnk Forum search URL}
+{ROOT}?t=search{IF: isset($frm->forum_id)}&amp;forum_limiter={FUNC: (int)$frm->forum_id}{ENDIFI}&amp;{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: ucp_search Forum search}
+<li><a href="{TEMPLATE: ucp_search_lnk}" title="{MSG: search}"><img src="{THEME_IMAGE_ROOT}/top_search{DEF: img_ext}" alt="" /> {MSG: search}</a></li>
+{SECTION: END}
+
+{SECTION: ucp_login_lnk User Login URL}
 {ROOT}?t=login&amp;{DEF: _rsid}
 {SECTION: END}
 
-{SECTION: login login link}
-&nbsp;&nbsp;<a class="UserControlPanel nw" href="{TEMPLATE: login_lnk}" title="{MSG: login}"><img src="{THEME_IMAGE_ROOT}/top_login{DEF: img_ext}" alt="" /> {MSG: login}</a>
+{SECTION: ucp_login User Login}
+<li><a href="{TEMPLATE: ucp_login_lnk}" title="{MSG: login}"><img src="{THEME_IMAGE_ROOT}/top_login{DEF: img_ext}" alt="" /> {MSG: login}</a></li>
 {SECTION: END}
 
-{SECTION: logout_lnk}
+{SECTION: ucp_logout_lnk User Logout URL}
 {ROOT}?t=login&amp;{DEF: _rsid}&amp;logout=1&amp;SQ={GVAR: sq}
 {SECTION: END}
 
-{SECTION: logout logout link}
-&nbsp;&nbsp;<a class="UserControlPanel nw" href="{TEMPLATE: logout_lnk}" title="{MSG: logout}"><img src="{THEME_IMAGE_ROOT}/top_logout{DEF: img_ext}" alt="" /> {MSG: logout} [ {VAR: usr->alias} ]</a>
+{SECTION: ucp_logout logout link User Logout}
+<li><a href="{TEMPLATE: ucp_logout_lnk}" title="{MSG: logout}"><img src="{THEME_IMAGE_ROOT}/top_logout{DEF: img_ext}" alt="" /> {MSG: logout} [ {VAR: usr->alias} ]</a></li>
 {SECTION: END}
 
-{SECTION: register_lnk}
+{SECTION: ucp_register_lnk User Registration URL}
 {ROOT}?t=register&amp;{DEF: _rsid}
 {SECTION: END}
 
-{SECTION: register register link}
-&nbsp;&nbsp;<a class="UserControlPanel nw" href="{TEMPLATE: register_lnk}" title="{MSG: register}"><img src="{THEME_IMAGE_ROOT}/top_register{DEF: img_ext}" alt="" /> {MSG: register}</a>
+{SECTION: ucp_register User Registration}
+<li><a href="{TEMPLATE: ucp_register_lnk}" title="{MSG: register}"><img src="{THEME_IMAGE_ROOT}/top_register{DEF: img_ext}" alt="" /> {MSG: register}</a></li>
 {SECTION: END}
 
-{SECTION: usercp_usercp User control panel link}
-&nbsp;&nbsp;<a class="UserControlPanel nw" href="{TEMPLATE: usercp_usercp_lnk}" title="{MSG: profile_desc}"><img src="{THEME_IMAGE_ROOT}/top_profile{DEF: img_ext}" alt="" /> {MSG: profile}</a>
+{SECTION: ucp_usercp_lnk User Contrrol Panel URL}
+{ROOT}?t=uc&amp;{DEF: _rsid}
 {SECTION: END}
 
-{SECTION: admin_control_panel admin control panel link}
-&nbsp;&nbsp;<a class="UserControlPanel nw" href="adm/index.php?S={DEF: s}&amp;SQ={GVAR: sq}" title="{MSG: admin_control_panel}"><img src="{THEME_IMAGE_ROOT}/top_admin{DEF: img_ext}" alt="" /> {MSG: admin_control_panel}</a>
+{SECTION: ucp_usercp User Control Panel}
+<li><a href="{TEMPLATE: ucp_usercp_lnk}" title="{MSG: profile_desc}"><img src="{THEME_IMAGE_ROOT}/top_profile{DEF: img_ext}" alt="" /> {MSG: profile}</a></li>
 {SECTION: END}
 
-{SECTION: private_msg_empty_lnk}
+{SECTION: ucp_admin_control_panel Admin Control Panel}
+<li><a href="adm/index.php?S={DEF: s}&amp;SQ={GVAR: sq}" title="{MSG: admin_control_panel}"><img src="{THEME_IMAGE_ROOT}/top_admin{DEF: img_ext}" alt="" /> {MSG: admin_control_panel}</a></li>
+{SECTION: END}
+
+{SECTION: ucp_private_msg_empty_lnk No PM URL}
 {ROOT}?t=pmsg&amp;{DEF: _rsid}
 {SECTION: END}
 
-{SECTION: private_msg_empty link to private msg control panel}
-<a href="{TEMPLATE: private_msg_empty_lnk}" class="UserControlPanel nw" title="{MSG: pm}"><img src="{THEME_IMAGE_ROOT}/top_pm{DEF: img_ext}" alt="" /> {MSG: pm}</a>&nbsp;&nbsp;
+{SECTION: ucp_private_msg_empty No PM messages}
+<li><a href="{TEMPLATE: ucp_private_msg_empty_lnk}" title="{MSG: pm}"><img src="{THEME_IMAGE_ROOT}/top_pm{DEF: img_ext}" alt="" /> {MSG: pm}</a></li>
 {SECTION: END}
 
-{SECTION: private_msg_unread_lnk}
+{SECTION: ucp_private_msg_unread_lnk Unread PM URL}
 {ROOT}?t=pmsg&amp;{DEF: _rsid}
 {SECTION: END}
 
-{SECTION: private_msg_unread link to private msg control panel with unread messages indicator}
-<a href="{TEMPLATE: private_msg_unread_lnk}" class="UserControlPanel nw" title="{MSG: pm}"><img src="{THEME_IMAGE_ROOT}/top_pm{DEF: img_ext}" alt="" /> {MSG: new_private_messages}</a>&nbsp;&nbsp;
+{SECTION: ucp_private_msg_unread Unread PM indicator}
+<li><a href="{TEMPLATE: ucp_private_msg_unread_lnk}" title="{MSG: pm}"><img src="{THEME_IMAGE_ROOT}/top_pm{DEF: img_ext}" alt="" /> {MSG: new_private_messages}</a></li>
 {SECTION: END}
 
-{SECTION: calendar_lnk}
+{SECTION: ucp_calendar_lnk Calendar URL}
 {ROOT}?t=cal&amp;{DEF: _rsid}
 {SECTION: END}
 
-{SECTION: calendar link to forum's calendar}
-<a class="UserControlPanel nw" href="{TEMPLATE: calendar_lnk}" title="{MSG: calendar}"><img src="{THEME_IMAGE_ROOT}/calendar{DEF: img_ext}" alt="" /> {MSG: calendar}</a>&nbsp;&nbsp;
+{SECTION: ucp_calendar Calendar}
+<li><a href="{TEMPLATE: ucp_calendar_lnk}" title="{MSG: calendar}"><img src="{THEME_IMAGE_ROOT}/calendar{DEF: img_ext}" alt="" /> {MSG: calendar}</a></li>
 {SECTION: END}
 
-{SECTION: member_search_lnk}
+{SECTION: ucp_pages_lnk Pages URL}
+{ROOT}?t=page&amp;{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: ucp_pages List of Forum Pages}
+<li><a href="{TEMPLATE: ucp_pages_lnk}" title="{MSG: pages}"><img src="{THEME_IMAGE_ROOT}/pages{DEF: img_ext}" alt="" /> {MSG: pages}</a></li>
+{SECTION: END}
+
+{SECTION: ucp_member_search_lnk Member Search URL}
 {ROOT}?t=finduser&amp;btn_submit=Find&amp;{DEF: _rsid}
 {SECTION: END}
 
-{SECTION: member_search link to member search}
-<a class="UserControlPanel nw" href="{TEMPLATE: member_search_lnk}" title="{MSG: members}"><img src="{THEME_IMAGE_ROOT}/top_members{DEF: img_ext}" alt="" /> {MSG: members}</a>&nbsp;&nbsp;
-{SECTION: END}
-
-{SECTION: usercp_usercp_lnk}
-{ROOT}?t=uc&amp;{DEF: _rsid}
+{SECTION: ucp_member_search Member Search}
+<li><a href="{TEMPLATE: ucp_member_search_lnk}" title="{MSG: members}"><img src="{THEME_IMAGE_ROOT}/top_members{DEF: img_ext}" alt="" /> {MSG: members}</a></li>
 {SECTION: END}

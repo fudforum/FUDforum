@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -44,17 +44,14 @@
 <div><br />{INJECTION_POINT: after_index}</div>
 {TEMPLATE: curtime}
 {TEMPLATE-DATA: page_stats}
-<script type="text/javascript">
-/* <![CDATA[ */
-min_max_cats("{THEME_IMAGE_ROOT}", "{DEF: img_ext}", "{MSG: minimize_category}", "{MSG: maximize_category}", "{VAR: usr->sq}", "{DEF: s}");
-/* ]]> */
+<script>
+	min_max_cats("{THEME_IMAGE_ROOT}", "{DEF: img_ext}", "{MSG: minimize_category}", "{MSG: maximize_category}", "{VAR: usr->sq}", "{DEF: s}");
 </script>
 {TEMPLATE: footer}
 {PAGE: END}
 
 {SECTION: index_RSS}
-{IF: $FUD_OPT_2 & 1048576}
-<link rel="alternate" type="application/rss+xml" title="{MSG: thread_syndicate}" href="{GVAR: WWW_ROOT}feed.php?mode=m&amp;l=1&amp;basic=1" />
+{IF: $FUD_OPT_2 & 1048576}<link rel="alternate" type="application/rss+xml" title="{MSG: thread_syndicate}" href="{GVAR: WWW_ROOT}feed.php?mode=m&amp;l=1&amp;basic=1" />
 {ENDIFI}
 {SECTION: END}
 
@@ -71,5 +68,8 @@ min_max_cats("{THEME_IMAGE_ROOT}", "{DEF: img_ext}", "{MSG: minimize_category}",
 {SECTION: END}
 
 {SECTION: announce_entry Announcement row}
-<div class="AnnText"><span class="AnnSubjText">{VAR: announce_subj}</span><br />{VAR: announce_body}</div>
+<fieldset class="AnnText">
+	<legend class="AnnSubjText">{VAR: announce_subj}</legend>
+	{VAR: announce_body}
+</fieldset>
 {SECTION: END}

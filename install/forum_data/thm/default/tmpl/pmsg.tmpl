@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -68,11 +68,12 @@
 
 {SECTION: private_msg_entry}
 <tr class="RowStyleB">
-<td class="ac GenText"><input type="checkbox" name="sel[]" value="{VAR: obj->id}" /></td>
-<td>{IF: $obj->read_stamp}{TEMPLATE: pmsg_unread}{ELSE}{TEMPLATE: pmsg_read}{END}</td><td width="100%" class="GenText">{TEMPLATE-DATA: msg_type}<a href="{VAR: goto}">{VAR: obj->subject}</a>{IF: ($obj->pmsg_opt & 4 && $obj->pmsg_opt & 16 && $obj->duser_id == _uid && $obj->ouser_id != _uid)}{TEMPLATE: deny_recipt}{ENDIF}</td>
-<td class="nw GenText">{TEMPLATE-DATA: online_indicator}<a href="{TEMPLATE: normal_msg_lnk}" title="{FUNC: char_fix(htmlspecialchars($obj->to_list))}">{VAR: obj->alias}</a></td>
-<td class="nw DateText">{TEMPLATE: dmsg_post_date}</td>
-<td class="nw ac GenText">{TEMPLATE-DATA: action}</td>
+	<td class="ac GenText"><input type="checkbox" name="sel[]" value="{VAR: obj->id}" /></td>
+	<td>{IF: $obj->read_stamp}{TEMPLATE: pmsg_unread}{ELSE}{TEMPLATE: pmsg_read}{END}</td>
+	<td width="100%" class="GenText">{TEMPLATE-DATA: msg_type}<a href="{VAR: goto}">{VAR: obj->subject}</a>{IF: ($obj->pmsg_opt & 4 && $obj->pmsg_opt & 16 && $obj->duser_id == _uid && $obj->ouser_id != _uid)}{TEMPLATE: deny_recipt}{ENDIF}</td>
+	<td class="nw GenText">{TEMPLATE-DATA: online_indicator}<a href="{TEMPLATE: normal_msg_lnk}" title="{FUNC: char_fix(htmlspecialchars($obj->to_list))}">{VAR: obj->alias}</a></td>
+	<td class="nw DateText">{TEMPLATE: dmsg_post_date}</td>
+	<td class="nw ac GenText">{TEMPLATE-DATA: action}</td>
 </tr>
 {SECTION: END}
 
@@ -98,12 +99,14 @@
 <form action="{TEMPLATE: PMSG_PAGE_lnk3}" method="post" id="priv_frm">{DEF: _hs}
 <table cellspacing="1" cellpadding="2" class="ContentTable">
 <tr class="RowStyleB">
-<td class="SmallText al" colspan="3">{IF: $private_tools}<a href="{ROOT}?t=pmsg_dump&amp;{DEF: _rsid}">{MSG: pmsg_download_dump}</a>{ELSE}&nbsp;{ENDI}</td>
-<td colspan="3" class="SmallText ar nw">
-{MSG: folder} <select name="folder_id" onchange="document.forms[\'priv_frm\'].submit();">
-{TEMPLATE-DATA: select_options_cur_folder}
-</select> <input type="submit" class="button" name="sel_folder" value="{MSG: go}" />
-</td></tr>
+	<td class="SmallText al" colspan="3">{IF: $private_tools}<a href="{ROOT}?t=pmsg_dump&amp;{DEF: _rsid}">{MSG: pmsg_download_dump}</a>{ELSE}&nbsp;{ENDI}</td>
+	<td colspan="3" class="SmallText ar nw">
+		{MSG: folder}
+		<select name="folder_id" onchange="document.forms[\'priv_frm\'].submit();">
+		{TEMPLATE-DATA: select_options_cur_folder}
+		</select> <input type="submit" class="button" name="sel_folder" value="{MSG: go}" />
+	</td>
+</tr>
 <tr>
 	<th class="nw">{MSG: pmsg_selected} <input type="checkbox" name="toggle" title="{TEMPLATE: pmsg_all}/{TEMPLATE: pmsg_none}" onclick="jQuery(\'input:checkbox\').attr(\'checked\', (this.checked)?\'checked\':\'\');" /> </th>
 	<th>&nbsp;</th>
@@ -176,12 +179,14 @@
 
 {SECTION: private_tools}
 <tr class="RowStyleB">
-<td class="SmallText al" colspan="3"><a href="{ROOT}?t=pmsg_dump&amp;{DEF: _rsid}">{MSG: pmsg_download_dump}</a></td>
-<td colspan="3" class="SmallText ar">
-<input type="submit" class="button" name="btn_move" value="{VAR: btn_action}" />
-<select name="moveto">{TEMPLATE-DATA: moveto_list}</select>
-<input type="hidden" name="old_folder_id" value="{VAR: folder_id}" />
-&nbsp;&nbsp;&nbsp;<input type="submit" class="button" name="{VAR: btn_del_name}" value="{VAR: btn_del_title}" />{IF: $FUD_OPT_2 & 2097152}&nbsp;&nbsp;&nbsp;<input type="submit" class="button" name="btn_pdf" value="{MSG: pmsg_pdf_btn}" />{ENDIFI}</td></tr>
+	<td class="SmallText al" colspan="3"><a href="{ROOT}?t=pmsg_dump&amp;{DEF: _rsid}">{MSG: pmsg_download_dump}</a></td>
+	<td colspan="3" class="SmallText ar">
+		<input type="submit" class="button" name="btn_move" value="{VAR: btn_action}" />
+		<select name="moveto">{TEMPLATE-DATA: moveto_list}</select>
+		<input type="hidden" name="old_folder_id" value="{VAR: folder_id}" />
+		&nbsp;&nbsp;&nbsp;<input type="submit" class="button" name="{VAR: btn_del_name}" value="{VAR: btn_del_title}" />{IF: $FUD_OPT_2 & 2097152}&nbsp;&nbsp;&nbsp;<input type="submit" class="button" name="btn_pdf" value="{MSG: pmsg_pdf_btn}" />{ENDIFI}
+	</td>
+</tr>
 {SECTION: END}
 
 {SECTION: action_buttons_inbox_lnk}

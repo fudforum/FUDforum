@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -20,13 +20,26 @@
 {PAGE: RESET_PAGE  reset password for an account form}
 {TEMPLATE: header}
 {TEMPLATE: usercp}
-<div class="ctb"><form method="post" action="{TEMPLATE: RESET_PAGE_lnk3}">
+<div class="ctb">
+<form method="post" action="{TEMPLATE: RESET_PAGE_lnk3}">
 <table cellspacing="1" cellpadding="2" class="DialogTable">
-<tr><th colspan="2">{MSG: reset_remind_pass}</th></tr>
-<tr><td colspan="2" class="RowStyleA GenText">{MSG: reset_reset_conf}</td></tr>
-<tr class="RowStyleB"><td class="GenText">{MSG: reset_email}</td><td>{TEMPLATE-DATA: no_such_email}<input type="text" name="email" value="{VAR-HTML: email}" /></td></tr>
-<tr class="RowStyleA"><td class="nw ar" colspan="2"><input type="submit" class="button" name="reset_passwd" value="{MSG: reset_reset_button}" /></td></tr>
-</table>{DEF: _hs}</form></div>
+<tr>
+	<th colspan="2">{MSG: reset_remind_pass}</th>
+</tr>
+<tr>
+	<td colspan="2" class="RowStyleA GenText">{MSG: reset_reset_conf}</td>
+</tr>
+<tr class="RowStyleB">
+	<td class="GenText">{MSG: reset_email}</td>
+	<td>{TEMPLATE-DATA: no_such_email}<input type="text" name="email" value="{VAR-HTML: email}" /></td>
+</tr>
+<tr class="RowStyleA">
+	<td class="nw ar" colspan="2"><input type="submit" class="button" name="reset_passwd" value="{MSG: reset_reset_button}" /></td>
+</tr>
+</table>
+{DEF: _hs}
+</form>
+</div>
 {TEMPLATE: curtime}
 {TEMPLATE: footer}
 {PAGE: END}

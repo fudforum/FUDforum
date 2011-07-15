@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -21,11 +21,21 @@
 {TEMPLATE: usercp}
 <div class="ctb">
 <table cellspacing="1" cellpadding="2" class="DialogTable">
-<tr><th>{VAR: error_title}</th></tr>
-<tr class="RowStyleA"><td class="GenText ac">{VAR: error_message}
-<br /><br /><form action="{TEMPLATE: ERROR_PAGE_lnk3}" id="error_frm" method="post">{DEF: _hs}<input type="submit" class="button" name="ok" value="OK" /></form>
-</td></tr>
-</table></div>
+<tr>
+	<th>{VAR: error_title}</th>
+</tr>
+<tr class="RowStyleA">
+	<td class="GenText ac">
+		{VAR: error_message}
+		<br /><br />
+		<form action="{TEMPLATE: ERROR_PAGE_lnk3}" id="error_frm" method="post">
+		{DEF: _hs}
+		<input type="submit" class="button" name="ok" value="OK" />
+		</form>
+	</td>
+</tr>
+</table>
+</div>
 {TEMPLATE: curtime}
 {TEMPLATE: footer}
 {PAGE: END}

@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -40,7 +40,9 @@
 {SECTION: no_search_results}
 <br />
 <table cellspacing="1" cellpadding="2" class="ContentTable">
-<tr><th class="wa ac">{MSG: search_no_results}</th></tr>
+<tr>
+	<th class="wa ac">{MSG: search_no_results}</th>
+</tr>
 </table>
 {SECTION: END}
 
@@ -80,28 +82,31 @@
 {TEMPLATE: header}
 {TEMPLATE: usercp}
 {TEMPLATE: show_links}{TEMPLATE-DATA: admin_cp}
-<form id="search" method="get" action="{TEMPLATE: SEARCH_PAGE_lnk3}">{DEF: _hs}<input type="hidden" name="t" value="search" />
+<form id="search" method="get" action="{TEMPLATE: SEARCH_PAGE_lnk3}">
+{DEF: _hs}
+<input type="hidden" name="t" value="search" />
 <table cellspacing="1" cellpadding="2" class="ContentTable">
-<tr><th>{MSG: search_forum_search}</th><th class="wa">{MSG: search_options}</th></tr>
+<tr>
+	<th>{MSG: search_forum_search}</th><th class="wa">{MSG: search_options}</th>
+</tr>
 <tr class="RowStyleA">
 	<td class="vt nw"><input spellcheck="true" type="text" name="srch" tabindex="1" value="{VAR-HTML: srch}" /> <input type="submit" tabindex="2" class="button" name="btn_submit" value="{MSG: search}" /><br /><span class="SmallText">{TEMPLATE-DATA: search_options}</span></td>
 	<td class="RowStyleB SmallText">
-<div class="sr">{MSG: search_in_forum}<br /><select class="SmallText" name="forum_limiter"><option value="">{MSG: search_all_forums}</option>{TEMPLATE-DATA: forum_limit_data}</select></div>
-<div class="sr">{MSG: search_attach}<br /><select class="SmallText" name="attach">{TEMPLATE-DATA: attach_options}</select></div>
-<div class="sr">{MSG: search_logic}<br /><select class="SmallText" name="search_logic">{TEMPLATE-DATA: logic_options}</select></div>
-<div class="sr">{MSG: search_sorting}<br /><select class="SmallText" name="sort_order">{TEMPLATE-DATA: sort_options}</select></div>
-<div class="sr">{MSG: search_user_filter}<br /><input class="SmallText" type="text" value="{VAR-HTML: author}" name="author" /></div>
-</td>
+		<div class="sr">{MSG: search_in_forum}<br /><select class="SmallText" name="forum_limiter"><option value="">{MSG: search_all_forums}</option>{TEMPLATE-DATA: forum_limit_data}</select></div>
+		<div class="sr">{MSG: search_attach}<br /><select class="SmallText" name="attach">{TEMPLATE-DATA: attach_options}</select></div>
+		<div class="sr">{MSG: search_logic}<br /><select class="SmallText" name="search_logic">{TEMPLATE-DATA: logic_options}</select></div>
+		<div class="sr">{MSG: search_sorting}<br /><select class="SmallText" name="sort_order">{TEMPLATE-DATA: sort_options}</select></div>
+		<div class="sr">{MSG: search_user_filter}<br /><input class="SmallText" type="text" value="{VAR-HTML: author}" name="author" /></div>
+	</td>
 </tr>
-</table></form>
+</table>
+</form>
 {TEMPLATE-DATA: search_data}
 <div class="al">{TEMPLATE-DATA: page_pager}</div>
 {TEMPLATE: curtime}
 {TEMPLATE-DATA: page_stats}
-<script type="text/javascript">
-/* <![CDATA[ */
-document.forms['search'].srch.focus();
-/* ]]> */
+<script>
+	document.forms['search'].srch.focus();
 </script>
 {TEMPLATE: footer}
 {PAGE: END}

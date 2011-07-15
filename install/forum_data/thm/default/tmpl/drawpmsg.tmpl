@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -75,7 +75,7 @@
 
 {SECTION: dpmsg_file_attachments the file attachments list}
 <ul class="AttachmentsList">
-{TEMPLATE-DATA: file_attachments}
+	{TEMPLATE-DATA: file_attachments}
 </ul>
 {SECTION: END}
 
@@ -84,10 +84,12 @@
 {SECTION: END}
 
 {SECTION: dpmsg_file_attachment file attachment entry row}
-<li />
-<a href="{TEMPLATE: dpmsg_file_attachment_lnk}"><img src="images/mime/{VAR: r->icon}" class="at" alt="" /></a>
-<span class="GenText fb">{MSG: attachment}</span> <a href="{TEMPLATE: dpmsg_file_attachment_lnk}">{VAR: r->original_name}</a><br />
-<span class="SmallText">({MSG: size} {VAR: sz}, {MSG: pmsg_download_counter})<br /><br /></span>
+<li>
+	<img alt="" src="images/mime/{VAR: r->icon}" class="at" />
+	<span class="GenText fb">{MSG: attachment}</span> <a href="{TEMPLATE: dpmsg_file_attachment_lnk}">{VAR: r->original_name}</a>
+	<br />
+	<span class="SmallText">({MSG: size} {VAR: sz}, {MSG: pmsg_download_counter})</span>
+</li>
 {SECTION: END}
 
 {SECTION: dpmsg_user_profile_lnk}
@@ -139,27 +141,37 @@
 {SECTION: END}
 
 {MAIN_SECTION: private_message_entry draws a single private message}
-<tr><td><table cellspacing="0" cellpadding="0" class="MsgTable">
 <tr>
-<td class="MsgR1 al vt MsgSubText">{IF: !$mini && $obj->icon}{TEMPLATE: dpmsg_msg_icon}{ENDIFI}{VAR: obj->subject}</td>
-<td class="MsgR1 vt ar DateText">{TEMPLATE: dmsg_post_date}</td>
+	<td>
+		<table cellspacing="0" cellpadding="0" class="MsgTable">
+		<tr>
+			<td class="MsgR1 al vt MsgSubText">{IF: !$mini && $obj->icon}{TEMPLATE: dpmsg_msg_icon}{ENDIFI}{VAR: obj->subject}</td>
+			<td class="MsgR1 vt ar DateText">{TEMPLATE: dmsg_post_date}</td>
+		</tr>
+		<tr class="MsgR2"><td class="MsgR2" colspan="2">
+			<table cellspacing="0" cellpadding="0" class="ContentTable">
+			<tr class="MsgR2">
+			{TEMPLATE-DATA: avatar}
+				<td class="msgud">{TEMPLATE-DATA: online_indicator}{IF: !$mini}{TEMPLATE: dpmsg_profile_link}{ELSE}{VAR: obj->alias}{ENDI}{IF: !$mini}<br /><b>{MSG: posts_c}</b> {VAR: obj->posted_msg_count}<br /><b>{MSG: registered}</b> {TEMPLATE: dmsg_join_date} {TEMPLATE-DATA: location}{ENDIFI}</td>
+				<td class="msgud">{TEMPLATE-DATA: dmsg_tags}</td>
+				<td class="msgot">{TEMPLATE-DATA: buddy_link}{TEMPLATE-DATA: dmsg_im_row}{IF: !$mini && $obj->host_name && $o1 & 268435456}<b>{MSG: from}</b> {VAR: obj->host_name}<br />{ENDIFI}</td>
+			</tr>
+			</table>
+		</tr>
+		<tr>
+			<td class="MsgR3" colspan="2">
+				{TEMPLATE-DATA: msg_body}
+				{TEMPLATE-DATA: file_attachments}
+				{IF: ($obj->sig && $o1 & 32768 && $obj->pmsg_opt & 1 && $b & 4096)}<br /><br /><div class="signature">{VAR: obj->sig}</div>{ENDIFI}
+			</td>
+		</tr>
+		{TEMPLATE-DATA: msg_toolbar}
+		<tr>
+			<td class="MsgR2 ac" colspan="2">{GVAR: dpmsg_prev_message} {GVAR: dpmsg_next_message}</td>
+		</tr>
+		</table>
+	</td>
 </tr>
-<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
-<tr class="MsgR2">
-{TEMPLATE-DATA: avatar}
-<td class="msgud">{TEMPLATE-DATA: online_indicator}{IF: !$mini}{TEMPLATE: dpmsg_profile_link}{ELSE}{VAR: obj->alias}{ENDI}{IF: !$mini}<br /><b>{MSG: posts_c}</b> {VAR: obj->posted_msg_count}<br /><b>{MSG: registered}</b> {TEMPLATE: dmsg_join_date} {TEMPLATE-DATA: location}{ENDIFI}</td>
-<td class="msgud">{TEMPLATE-DATA: dmsg_tags}</td>
-<td class="msgot">{TEMPLATE-DATA: buddy_link}{TEMPLATE-DATA: dmsg_im_row}{IF: !$mini && $obj->host_name && $o1 & 268435456}<b>{MSG: from}</b> {VAR: obj->host_name}<br />{ENDIFI}</td>
-</tr></table></td>
-</tr>
-<tr><td class="MsgR3" colspan="2">
-{TEMPLATE-DATA: msg_body}
-{TEMPLATE-DATA: file_attachments}
-{IF: ($obj->sig && $o1 & 32768 && $obj->pmsg_opt & 1 && $b & 4096)}<br /><br /><div class="signature">{VAR: obj->sig}</div>{ENDIFI}
-</td></tr>
-{TEMPLATE-DATA: msg_toolbar}
-<tr><td class="MsgR2 ac" colspan="2">{GVAR: dpmsg_prev_message} {GVAR: dpmsg_next_message}</td></tr>
-</table></td></tr>
 {MAIN_SECTION: END}
 
 {SECTION: dpmsg_no_msg_body}

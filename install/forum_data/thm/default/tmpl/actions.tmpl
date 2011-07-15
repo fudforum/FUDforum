@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -21,8 +21,9 @@
 {REF: is_perms.tmpl}
 
 {SECTION: last_post last by a user}
-{TEMPLATE: last_post_date}<br />
-<a href="{TEMPLATE: last_post_lnk}">{VAR: r[9]}</a>
+{TEMPLATE: last_post_date}
+<br />
+<a href="{TEMPLATE: last_post_lnk}">{VAR: r[10]}</a>
 {SECTION: END}
 
 {SECTION: last_post_na no last post}
@@ -50,8 +51,11 @@
 {PAGE: ACTION_PAGE iSpy User Action List}
 {TEMPLATE: header}
 {TEMPLATE: usercp}
-<br />{TEMPLATE-DATA: admin_cp}
-<div class="GenText ac">[ <a href="{TEMPLATE: ACTION_PAGE_lnk}" rel="nofollow">{MSG: refresh_list}</a> ]</div>
+<br />
+{TEMPLATE-DATA: admin_cp}
+<div class="GenText ac">
+	[ <a href="{TEMPLATE: ACTION_PAGE_lnk}" rel="nofollow">{MSG: refresh_list}</a> ]
+</div>
 <br />
 <table cellspacing="1" cellpadding="2" class="ContentTable">
 <tr>

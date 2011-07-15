@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -54,16 +54,16 @@
 {IF: _uid}&nbsp;| <a href="{TEMPLATE: subscribed_thr_lnk}" title="{MSG: subscribed_threads_desc}">{MSG: subscribed_threads} {IF: isset($_GET['sub_th_limit'])}{TEMPLATE: status_indicator_on}{ELSE}{TEMPLATE: status_indicator_off}{ENDI}</a>{ENDIF}
 &nbsp;| <a href="{TEMPLATE: unanswered_lnk}" title="{MSG: sel_unanswered_posts_desc}">{MSG: sel_unanswered_posts} {IF: isset($_GET['reply_count'])}{TEMPLATE: status_indicator_on}{ELSE}{TEMPLATE: status_indicator_off}{END}</a>
 <br />{TEMPLATE-DATA: admin_cp}<br />
-<table cellspacing="0" cellpadding="0" class="ContentTable">{TEMPLATE-DATA: message_data}</table>
+<table cellspacing="0" cellpadding="0" class="ContentTable">
+	{TEMPLATE-DATA: message_data}
+</table>
 {TEMPLATE-DATA: pager}
 <br /><br />
 {TEMPLATE: curtime}
 {TEMPLATE-DATA: page_stats}
-<script type="text/javascript">
-/* <![CDATA[ */
-min_max_posts("{THEME_IMAGE_ROOT}", "{DEF: img_ext}", "{MSG: minimize_message}", "{MSG: maximize_message}");
-format_code('{MSG: code_title}', '{MSG: code_select_all}', '{MSG: code_show_hide}');
-/* ]]> */
+<script>
+	min_max_posts("{THEME_IMAGE_ROOT}", "{DEF: img_ext}", "{MSG: minimize_message}", "{MSG: maximize_message}");
+	format_code('{MSG: code_title}', '{MSG: code_select_all}', '{MSG: code_show_hide}');
 </script>
 {TEMPLATE: footer}
 {PAGE: END}

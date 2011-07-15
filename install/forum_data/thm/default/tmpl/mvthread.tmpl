@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -19,31 +19,49 @@
 {TEMPLATE: header_plain}
 <form action="{TEMPLATE: MVTHREAD_PAGE_lnk3}" id="mvthread" method="post">
 <table cellspacing="0" cellpadding="3" class="wa dashed">
-<tr><td class="small">{MSG: move_thread_to}</td></tr>
+<tr>
+	<td class="small">{MSG: move_thread_to}</td>
+</tr>
 {TEMPLATE-DATA: table_data}
 </table>
-{DEF: _hs}<input type="hidden" name="th" value="{VAR: th}" />
+{DEF: _hs}
+<input type="hidden" name="th" value="{VAR: th}" />
 <input type="hidden" name="thx" value="{VAR: thx}" />
 </form>
 {TEMPLATE: footer_plain}
 {PAGE: END}
 
 {SECTION: cat_entry category entry}
-<tr><td class="mvTc" style="padding-left: {FUNC: ($tabw = ($i[0] * 10 + 2))}px">{VAR: i[1]}</td></tr>
+<tr>
+	<td class="mvTc" style="padding-left: {FUNC: ($tabw = ($i[0] * 10 + 2))}px">{VAR: i[1]}</td>
+</tr>
 {SECTION: END}
 
 {SECTION: forum_entry}
-<tr><td style="padding-left: {VAR: tabw}px"><a href="{TEMPLATE: forum_entry_lnk}">{VAR: r[0]}</a></td></tr>
+<tr>
+	<td style="padding-left: {VAR: tabw}px"><a href="{TEMPLATE: forum_entry_lnk}">{VAR: r[0]}</a></td>
+</tr>
 {SECTION: END}
 
 {SECTION: txc_forum_entry request that the thread be moved to a forum, of which a person is not a mod of}
-<tr><td style="padding-left: {VAR: tabw}px">{VAR: r[0]} [<a href="{TEMPLATE: txc_forum_entry_lnk}">{MSG: mvthread_request_move}</a>]</td></tr>
+<tr>
+	<td style="padding-left: {VAR: tabw}px">{VAR: r[0]} [<a href="{TEMPLATE: txc_forum_entry_lnk}">{MSG: mvthread_request_move}</a>]</td>
+</tr>
 {SECTION: END}
 
 {SECTION: move_thread_request form for giving a reason why the thread should be moved}
-<tr><td class="small fb">{VAR: thr->frm_name}</td></tr>
-<tr><td class="small">{MSG: move_request_reason}<br /><textarea name="reason_msg" rows="7" cols="30"></textarea><td></tr>
-<tr><td class="ar"><input type="submit" class="button" name="submit" value="{MSG: mvthread_submit_req}" /></td></tr>
+<tr>
+	<td class="small fb">{VAR: thr->frm_name}</td>
+</tr>
+<tr>
+	<td class="small">
+		{MSG: move_request_reason}<br />
+		<textarea name="reason_msg" rows="7" cols="30"></textarea>
+	</td>
+</tr>
+<tr>
+	<td class="ar"><input type="submit" class="button" name="submit" value="{MSG: mvthread_submit_req}" /></td>
+</tr>
 {SECTION: END}
 
 {SECTION: forum_entry_lnk}

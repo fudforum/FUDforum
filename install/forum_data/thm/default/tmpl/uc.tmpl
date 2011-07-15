@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -98,8 +98,11 @@
 {SECTION: END}
 
 {SECTION: uc_last_post}
-<a href="{TEMPLATE: uc_last_post_lnk}" title="{VAR: r->subject}">{FUNC: substr($r->subject, 0, min(25, strlen($r->subject)))}</a><br />
-<span class="DateText">{TEMPLATE: uc_last_post_date}</span><br />{MSG: by} {IF: $r->alias}{TEMPLATE: uc_link_user}{ELSE}{TEMPLATE: uc_link_anon}{END}
+<a href="{TEMPLATE: uc_last_post_lnk}" title="{VAR: r->subject}">{FUNC: substr($r->subject, 0, min(25, strlen($r->subject)))}</a>
+<br />
+<span class="DateText">{TEMPLATE: uc_last_post_date}</span>
+<br />
+{MSG: by} {IF: $r->alias}{TEMPLATE: uc_link_user}{ELSE}{TEMPLATE: uc_link_anon}{END}
 {SECTION: END}
 
 {SECTION: uc_forum_unsub}
@@ -111,7 +114,8 @@
 {SECTION: END}
 
 {SECTION: uc_forum_descr}
-<br />{VAR: r->descr}
+<br />
+{VAR: r->descr}
 {SECTION: END}
 
 {SECTION: uc_sub_forum}
@@ -200,23 +204,31 @@
 <table cellspacing="3" cellpadding="3" border="0" class="wa">
 <tr>
 	<td class="vt"><table border="0" cellspacing="1" cellpadding="2" class="ucPW">
-<tr><th colspan="3">{MSG: tabs_buddy_list}</th></tr>
+<tr>
+	<th colspan="3">{MSG: tabs_buddy_list}</th>
+</tr>
 {TEMPLATE-DATA: uc_buddy_ents}
 </table></td>
 
 	<td class="wa vt">
 <table cellspacing="1" cellpadding="2" class="ContentTable">
-<tr><th colspan="3">{MSG: uc_new_pm}</th></tr>
+<tr>
+	<th colspan="3">{MSG: uc_new_pm}</th>
+</tr>
 {TEMPLATE-DATA: uc_new_pms}
 </table>
 <br /><br />
 <table cellspacing="1" cellpadding="2" class="ContentTable">
-<tr><th colspan="4">{MSG: uc_new_cat_forum}</th></tr>
+<tr>
+	<th colspan="4">{MSG: uc_new_cat_forum}</th>
+</tr>
 {TEMPLATE-DATA: uc_sub_forum}
 </table>
 <br /><br />
 <table cellspacing="1" cellpadding="2" class="ContentTable">
-<tr><th colspan="4">{MSG: uc_sub_topics}</th></tr>
+<tr>
+	<th colspan="4">{MSG: uc_sub_topics}</th>
+</tr>
 {TEMPLATE-DATA: uc_sub_topic}
 </table></td>
 </tr>

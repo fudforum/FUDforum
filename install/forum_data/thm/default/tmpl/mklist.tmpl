@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -16,8 +16,7 @@
 
 {PAGE: MKLIST_PAGE a popup assistant for creating lists using BBcode}
 {TEMPLATE: header_plain}
-<script type="text/javascript">
-/* <![CDATA[ */ 
+<script>
 var opt_count = 0;
 function changeListType(type)
 {
@@ -30,6 +29,7 @@ function changeListType(type)
 		document.getElementById('ll').setAttribute('style', 'list-style-type: '+type);
 	}
 }
+
 function addOption()
 {
 	var li;
@@ -100,7 +100,6 @@ function updatePostForm()
 	t.focus();
 	window.close();
 }
-/* ]]> */
 </script>
 <form id="list">
 <table cellspacing="2" cellpadding="0" width="99%" class="dashed">
@@ -125,18 +124,17 @@ function updatePostForm()
 </tr>
 <tr>
 	<td colspan="2" id="example"><ul id="ll"></ul>
-<script type="text/javascript">
-/* <![CDATA[ */ 
+<script>
 	changeListType('{VAR: def_list_type}');
-/* ]]> */
 </script>	
 	</td>
 </tr>
 <tr>
-<td colspan="2" class="ar">
-<input type="button" class="button" name="go" value="{MSG: mklist_apply}" onclick="updatePostForm();" />
-<input type="button" class="button" name="close" value="{MSG: mklist_close}" onclick="window.close();" />
-</td></tr>
+	<td colspan="2" class="ar">
+		<input type="button" class="button" name="go" value="{MSG: mklist_apply}" onclick="updatePostForm();" />
+		<input type="button" class="button" name="close" value="{MSG: mklist_close}" onclick="window.close();" />
+	</td>
+</tr>
 </table>
 </form>
 {TEMPLATE: footer_plain}

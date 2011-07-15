@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -29,8 +29,9 @@
 {FUNC: tmpl_cur_ppage($m->fldr, $folders, $m->subject)}
 {TEMPLATE-DATA: tabs}
 <table cellspacing="1" cellpadding="2" class="ContentTable">
-<tr><th colspan="2">{MSG: msg_author}</th>
-{FUNC: tmpl_drawpmsg($m, $usr, false)}
+<tr>
+	<th colspan="2">{MSG: msg_author}</th>
+	{FUNC: tmpl_drawpmsg($m, $usr, false)}
 </table>
 {TEMPLATE: curtime}
 {TEMPLATE-DATA: page_stats}

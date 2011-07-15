@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -45,7 +45,9 @@
 {SECTION: END}
 
 {SECTION: no_messages}
-<tr><td class="RowStyleA ac" colspan="{VAR: ann_cols}"><span class="GenText">{MSG: no_messages}</span></td></tr>
+<tr>
+	<td class="RowStyleA ac" colspan="{VAR: ann_cols}"><span class="GenText">{MSG: no_messages}</span></td>
+</tr>
 {SECTION: END}
 
 {SECTION: thread_poll_indicator}
@@ -102,8 +104,7 @@
 {SECTION: END}
 
 {SECTION: thread_RSS}
-{IF: $FUD_OPT_2 & 1048576}
-<link rel="alternate" type="application/rss+xml" title="{MSG: thread_syndicate}" href="{GVAR: WWW_ROOT}feed.php?mode=m&amp;l=1&amp;basic=1&amp;frm={VAR: frm->id}&amp;n=10" />
+{IF: $FUD_OPT_2 & 1048576}<link rel="alternate" type="application/rss+xml" title="{MSG: thread_syndicate}" href="{GVAR: WWW_ROOT}feed.php?mode=m&amp;l=1&amp;basic=1&amp;frm={VAR: frm->id}&amp;n=10" />
 {ENDIFI}
 {SECTION: END}
 
@@ -121,15 +122,18 @@
 
 {SECTION: thread_legend}
 <fieldset>
-        <legend>{MSG: legend}</legend>
-<img src="{THEME_IMAGE_ROOT}/unread{DEF: img_ext}" alt="{MSG: new_posts}" />&nbsp;{MSG: new_posts}&nbsp;&nbsp;
-<img src="{THEME_IMAGE_ROOT}/read{DEF: img_ext}" alt="{MSG: no_new_posts}" />&nbsp;{MSG: no_new_posts}&nbsp;&nbsp;
-<img src="{THEME_IMAGE_ROOT}/unreadlocked{DEF: img_ext}" alt="{MSG: locked_with_new_posts}" />&nbsp;{MSG: locked_with_new_posts}&nbsp;&nbsp;
-<img src="{THEME_IMAGE_ROOT}/readlocked{DEF: img_ext}" alt="{MSG: locked}" />&nbsp;{MSG: locked}&nbsp;&nbsp;
-<img src="{THEME_IMAGE_ROOT}/moved{DEF: img_ext}" alt="{MSG: moved}" />&nbsp;{MSG: moved}
+	<legend>{MSG: legend}</legend>
+	<img src="{THEME_IMAGE_ROOT}/unread{DEF: img_ext}" alt="{MSG: new_posts}" />&nbsp;{MSG: new_posts}&nbsp;&nbsp;
+	<img src="{THEME_IMAGE_ROOT}/read{DEF: img_ext}" alt="{MSG: no_new_posts}" />&nbsp;{MSG: no_new_posts}&nbsp;&nbsp;
+	<img src="{THEME_IMAGE_ROOT}/unreadlocked{DEF: img_ext}" alt="{MSG: locked_with_new_posts}" />&nbsp;{MSG: locked_with_new_posts}&nbsp;&nbsp;
+	<img src="{THEME_IMAGE_ROOT}/readlocked{DEF: img_ext}" alt="{MSG: locked}" />&nbsp;{MSG: locked}&nbsp;&nbsp;
+	<img src="{THEME_IMAGE_ROOT}/moved{DEF: img_ext}" alt="{MSG: moved}" />&nbsp;{MSG: moved}
 </fieldset>
 {SECTION: END}
 
 {SECTION: announce_entry announcement row}
-<tr><td class="AnnText" colspan="{VAR: ann_cols}"><span class="AnnSubjText">{VAR: r[0]}</span><br />{VAR: r[1]}</td></tr>
+<fieldset class="AnnText">
+	<legend class="AnnSubjText">{VAR: r[0]}</legend>
+	{VAR: r[1]}
+</fieldset>
 {SECTION: END}

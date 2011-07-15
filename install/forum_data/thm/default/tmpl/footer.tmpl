@@ -9,6 +9,12 @@
 **/
 
 {MAIN_SECTION: footer // The forum's footer.}
+{IF: !empty($RIGHT_SIDEBAR)}
+</td><td width="200px" align-"right" valign="top" class="sidebar-right">
+	{VAR: RIGHT_SIDEBAR}
+{ENDIF}
+</td></tr></table>
+
 </div>
 <div class="footer ac">
 	<b>.::</b>
@@ -16,7 +22,7 @@
 	<b>::</b>
 	<a href="{TEMPLATE: footer_lnk}">{MSG: forum_home}</a>
 	<b>::.</b>
-	<p class="SmallText">{MSG: powered-by} {MSG: copyright}</p>
+	<p class="SmallText">{MSG: powered-by}<br />{MSG: copyright}</p>
 </div>
 {INJECTION_POINT: right_block}
 </body></html>

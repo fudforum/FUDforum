@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -21,14 +21,18 @@
 <form method="post" action="{TEMPLATE: PREREG_PAGE_lnk3}" id="sub">{DEF: _hs}
 <div class="ctb">
 <table cellspacing="1" cellpadding="2" class="DialogTable">
-<tr><th>{MSG: prereg_info}</th></tr>
-<tr class="RowStyleA ac GenText"><td>
-{IF: $_GET['coppa']}{TEMPLATE: forum_rules_13}{ELSE}{TEMPLATE: forum_rules}{END}
-<input type="hidden" name="coppa" value="{VAR: _GET['coppa']}" />
-<input type="submit" class="button" name="agree" value="{MSG: prereg_agree}" />
-<input type="submit" class="button" name="disagree" value="{MSG: prereg_disagree}" />
-<br /><br />
-</td></tr>
+<tr>
+	<th>{MSG: prereg_info}</th>
+</tr>
+<tr class="RowStyleA ac GenText">
+	<td>
+		{IF: $_GET['coppa']}{TEMPLATE: forum_rules_13}{ELSE}{TEMPLATE: forum_rules}{END}
+		<input type="hidden" name="coppa" value="{VAR: _GET['coppa']}" />
+		<input type="submit" class="button" name="agree" value="{MSG: prereg_agree}" />
+		<input type="submit" class="button" name="disagree" value="{MSG: prereg_disagree}" />
+		<br /><br />
+	</td>
+</tr>
 </table></div></form>
 {TEMPLATE: curtime}
 {TEMPLATE: footer}

@@ -20,12 +20,21 @@
 {TEMPLATE: header}
 {TEMPLATE: usercp}
 <div class="breadcrumbs">
-	<a href="{TEMPLATE: dfp_home_lnk}">{MSG: home}</a> &nbsp;&raquo; {MSG: page_list_heading}
+	<a href="{TEMPLATE: dfp_home_lnk}">{MSG: home}</a> &nbsp;&raquo;
+	{IF: empty($page)}
+		{MSG: page_list_heading}
+	{ELSE}
+		{IF: $page->page_opt&2}
+			<a href="{TEMPLATE: page_list_lnk}">{MSG: page_list_heading}</a> &nbsp;&raquo; {VAR: page->title}
+		{ELSE}
+			{VAR: page->title}
+		{ENDI}
+	{END}
 <div>
-<table cellspacing="1" cellpadding="2" class="ContentTable"><tr><td>
+<div class="ContentTable">
 {IF: !empty($page->title)}
 	<h2>{VAR: page->title}</h2>
-	<div class="page-content">
+	<div class="content page-content">
 		{VAR: page->body}
 	</div>
 {ELSE}
@@ -35,7 +44,7 @@
 	</ul>
 	<i>{MSG: page_list_total}</i>
 {END}
-</td></tr></table>
+</div>
 {TEMPLATE: curtime}
 {TEMPLATE-DATA: page_stats}
 {TEMPLATE: footer}
@@ -47,6 +56,10 @@
 
 {SECTION: page_list_entry_lnk}
 {ROOT}?t=page&id={VAR: r->slug}&amp;{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: page_list_lnk}
+{ROOT}?t=page&amp;{DEF: _rsid}
 {SECTION: END}
 
 {SECTION: page_update}

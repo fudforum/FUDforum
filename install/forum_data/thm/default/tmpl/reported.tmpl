@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -28,17 +28,24 @@
 {SECTION: END}
 
 {SECTION: reported_msg_header}
-<tr><td class="RowStyleC">
-<div class="MsgR1">
-  <b>{MSG: reported_reported_by}</b> {IF: $obj->report_user_id}{TEMPLATE: reported_reg_user_link}{ELSE}{TEMPLATE: reported_anon_user}{END} <b>{MSG: reported_on}</b> {TEMPLATE: reported_date}
-  <b>{MSG: reported_in_thread}</b> {FUNC: draw_path($obj->cat_id)}{VAR: obj->frm_name} &raquo; <a href="{TEMPLATE: reported_msg_header_lnk1}">{VAR: obj->thread_subject}</a>
-</div>
-<div class="MsgR2">
-  <b>{MSG: reported_reason}</b> {VAR: obj->report_reason}
-  <br />
-  [ <a href="{TEMPLATE: reported_msg_header_lnk}">{MSG: reported_del_report}</a> ]
-</div>
-</td></tr>
+<tr>
+	<td class="RowStyleC">
+		<div class="MsgR1">
+			<b>{MSG: reported_reported_by}</b>
+			{IF: $obj->report_user_id}{TEMPLATE: reported_reg_user_link}{ELSE}{TEMPLATE: reported_anon_user}{END}
+			<b>{MSG: reported_on}</b>
+			{TEMPLATE: reported_date}
+			<b>{MSG: reported_in_thread}</b>
+			{FUNC: draw_path($obj->cat_id)}{VAR: obj->frm_name} &raquo; 
+			<a href="{TEMPLATE: reported_msg_header_lnk1}">{VAR: obj->thread_subject}</a>
+		</div>
+		<div class="MsgR2">
+			<b>{MSG: reported_reason}</b> {VAR: obj->report_reason}
+			<br />
+			[ <a href="{TEMPLATE: reported_msg_header_lnk}">{MSG: reported_del_report}</a> ]
+		</div>
+	</td>
+</tr>
 {SECTION: END}
 
 {SECTION: reported_message}
@@ -49,9 +56,12 @@
 {PAGE: REPORTED_PAGE a list of the reported messages}
 {TEMPLATE: header}
 {TEMPLATE: usercp}
-<br />{TEMPLATE-DATA: admin_cp}
+<br />
+{TEMPLATE-DATA: admin_cp}
 <table cellspacing="0" cellpadding="0" class="ContentTable">
-<tr><th>{MSG: reported_reported_msg}</th></tr>
+<tr>
+	<th>{MSG: reported_reported_msg}</th>
+</tr>
 {TEMPLATE-DATA: reported_message}
 </table>
 {TEMPLATE: curtime}
@@ -60,7 +70,9 @@
 {PAGE: END}
 
 {SECTION: reported_no_messages}
-<tr><td>{MSG: reported_no_messages}</td></tr>
+<tr>
+	<td>{MSG: reported_no_messages}</td>
+</tr>
 {SECTION: END}
 
 {SECTION: reported_reg_user_link_lnk}

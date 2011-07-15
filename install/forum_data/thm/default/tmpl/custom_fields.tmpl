@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -12,33 +12,51 @@
 
 {SECTION: custom_field_single_line}
 <tr class="RowStyleA">
-	<td>{VAR: r['name']}{FUNC: draw_err('custom_field_'. $k)}
-	    <br /><span class="SmallText">{VAR: r['descr']}</span></td>
-	<td><input type="text" name="custom_field_{VAR: k}" value="{VAR: val}" maxlength="255" size="30" /></td>
+	<td>
+		{VAR: r['name']}{FUNC: draw_err('custom_field_'. $k)}
+		<br />
+		<span class="SmallText">{VAR: r['descr']}</span>
+	</td>
+	<td>
+		<input type="text" name="custom_field_{VAR: k}" value="{VAR: val}" maxlength="255" size="30" />
+	</td>
 </tr>
 {SECTION: END}
 
 {SECTION: custom_field_text}
 <tr class="RowStyleA">
-	<td valign="top">{VAR: r['name']}{FUNC: draw_err('custom_field_'. $k)}
-	                 <br /><span class="SmallText">{VAR: r['descr']}</span></td>
-	<td><textarea name="custom_field_{VAR: k}" rows="5" cols="50">{VAR: val}</textarea></td>
+	<td valign="top">
+		{VAR: r['name']}{FUNC: draw_err('custom_field_'. $k)}
+		<br /><span class="SmallText">{VAR: r['descr']}</span>
+	</td>
+	<td>
+		<textarea name="custom_field_{VAR: k}" rows="5" cols="50">{VAR: val}</textarea>
+	</td>
 </tr>
 {SECTION: END}
 
 {SECTION: custom_field_select}
 <tr class="RowStyleA">
-	<td>{VAR: r['name']}{FUNC: draw_err('custom_field_'. $k)}
-	    <br /><span class="SmallText">{VAR: r['descr']}</span></td>
-	<td><select name="custom_field_{VAR: k}">{TEMPLATE-DATA: custom_field_select}</select></td>
+	<td>
+		{VAR: r['name']}{FUNC: draw_err('custom_field_'. $k)}
+		<br /><span class="SmallText">{VAR: r['descr']}</span>
+	</td>
+	<td>
+		<select name="custom_field_{VAR: k}">{TEMPLATE-DATA: custom_field_select}</select>
+	</td>
 </tr>
 {SECTION: END}
 
 {SECTION: custom_field_radio}
 <tr class="RowStyleA">
-		<td>{VAR: r['name']}{FUNC: draw_err('custom_field_'. $k)}
-		    <br /><span class="SmallText">{VAR: r['descr']}</span></td>
-		<td>{TEMPLATE-DATA: custom_field_radio}</td>
+	<td>
+		{VAR: r['name']}{FUNC: draw_err('custom_field_'. $k)}
+		<br />
+		<span class="SmallText">{VAR: r['descr']}</span>
+	</td>
+	<td>
+		{TEMPLATE-DATA: custom_field_radio}
+	</td>
 </tr>
 {SECTION: END}
 

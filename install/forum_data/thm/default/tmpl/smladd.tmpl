@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -22,10 +22,11 @@
 	<th>{MSG: sml_code}</th>
 </tr>
 {IF: $smileys}{TEMPLATE-DATA: smileys}{ELSE}{MSG: sml_no_smilies}{END}
-<tr><td colspan="2" class="ac RowStyleC">[<a href="javascript://" onclick="window.close();">{MSG: smladd_close_window}</a>]</td></tr>
+<tr>
+	<td colspan="2" class="ac RowStyleC">[<a href="javascript://" onclick="window.close();">{MSG: smladd_close_window}</a>]</td>
+</tr>
 </table>
-<script type="text/javascript">
-/* <![CDATA[ */
+<script>
 function insertSmiley(txt)
 {
 	var t = window.opener.document.getElementById('txtb');
@@ -42,11 +43,13 @@ function insertSmiley(txt)
 		t.value = n;
 	}
 }
-/* ]]> */
 </script>
 {TEMPLATE: footer_plain}
 {PAGE: END}
 
 {SECTION: sml_smiley_row}
-<tr class="vb {ALT-VAR: sml_alt RowStyleA RowStyleB}"><td><a href="javascript: insertSmiley(\' {VAR: PS_DST[$k]} \',\'\');">{VAR: v}</a></td><td>{VAR: PS_DST[$k]}</td></tr>
+<tr class="vb {ALT-VAR: sml_alt RowStyleA RowStyleB}">
+	<td><a href="javascript: insertSmiley(\' {VAR: PS_DST[$k]} \',\'\');">{VAR: v}</a></td>
+	<td>{VAR: PS_DST[$k]}</td>
+</tr>
 {SECTION: END}

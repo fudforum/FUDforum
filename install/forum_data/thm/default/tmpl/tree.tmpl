@@ -178,24 +178,29 @@
 <span id="threadRating">{IF: $FUD_OPT_2 & 4096 && $frm->rating}{TEMPLATE: thread_rating}{ENDIF}</span>
 <table cellspacing="0" cellpadding="0" border="0" class="wa">
 <tr>
-<td class="GenText al">{TEMPLATE: show_links}
-{IF: ($frm->replies && $perms & 2048)}{TEMPLATE: split_thread}{ENDIF}
-{IF: $perms & 8192}{IF: $frm->replies}<a href="{ROOT}?t=movemsg&amp;th={VAR: th}">{MSG: move_messages}</a>&nbsp;|&nbsp;{ENDIFI}<a href="javascript://" onclick="window_open(\'{TEMPLATE: tree_mv_thread}\', \'th_move\', 300, 400);">{MSG: move_thread}</a>&nbsp;|&nbsp;{ENDIF}{TEMPLATE-DATA: lock_thread}
-{IF: $FUD_OPT_2 & 1073741824}{TEMPLATE: email_page_to_friend}{ENDIF}
-{TEMPLATE-DATA: subscribe_status}{TEMPLATE-DATA: bookmark_status}</td>
-<td class="vb ar">{TEMPLATE: flat_view}&nbsp;{TEMPLATE: new_thread}{IF: (!($frm->thread_opt & 1) || $perms & 4096)}{TEMPLATE: post_reply}{ENDIF}</td>
+	<td class="GenText al">
+		{TEMPLATE: show_links}
+		<br />
+		{IF: ($frm->replies && $perms & 2048)}{TEMPLATE: split_thread}{ENDIF}
+		{IF: $perms & 8192}{IF: $frm->replies}<a href="{ROOT}?t=movemsg&amp;th={VAR: th}">{MSG: move_messages}</a>&nbsp;|&nbsp;{ENDIFI}<a href="javascript://" onclick="window_open(\'{TEMPLATE: tree_mv_thread}\', \'th_move\', 300, 400);">{MSG: move_thread}</a>&nbsp;|&nbsp;{ENDIF}{TEMPLATE-DATA: lock_thread}
+		{IF: $FUD_OPT_2 & 1073741824}{TEMPLATE: email_page_to_friend}{ENDIF}
+		{TEMPLATE-DATA: subscribe_status}{TEMPLATE-DATA: bookmark_status}
+	</td>
+	<td class="vb ar">
+		{TEMPLATE: flat_view}&nbsp;{TEMPLATE: new_thread}{IF: (!($frm->thread_opt & 1) || $perms & 4096)}{TEMPLATE: post_reply}{ENDIF}
+	</td>
 </tr>
 </table>
 <div><table cellspacing="0" cellpadding="0" id="msgTbl" class="ContentTable">{FUNC: tmpl_drawmsg($msg_obj, $usr, $perms, false, $n, array($prev_msg, $next_msg))}</table></div>
 <div class="ac GenText">[<a href="javascript://" onclick="chng_focus('tree_view');" title="{MSG: message_index_desc}">{MSG: message_index}</a>]</div>
 <a name="tree_view">&nbsp;</a>
 <table cellspacing="1" cellpadding="2" class="MsgTable">
-{TEMPLATE-DATA: tree_data}
+	{TEMPLATE-DATA: tree_data}
 </table>
 {IF: (!empty($prev_thread_link) || !empty($next_thread_link))}
 <table border="0" cellspacing="1" cellpadding="1" align="right">
-{TEMPLATE-DATA: prev_thread_link}
-{TEMPLATE-DATA: next_thread_link}
+	{TEMPLATE-DATA: prev_thread_link}
+	{TEMPLATE-DATA: next_thread_link}
 </table>
 {ENDIF}
 {IF: ($FUD_OPT_2 & 4096 && $perms & 1024 && !$frm->cant_rate)}{TEMPLATE: rate_thread}{ENDIF}
@@ -204,14 +209,12 @@
 <div class="ar SmallText">{IF: $FUD_OPT_2 & 1048576}{TEMPLATE: tree_xml_link}{ENDIF} {IF: $FUD_OPT_2 & 2097152}{TEMPLATE: tree_pdf_link}{ENDIF}</div>
 {TEMPLATE: curtime}
 {TEMPLATE-DATA: page_stats}
-<script defer="defer" type="text/javascript">
-/* <![CDATA[ */
+<script defer="defer">
 	var cur_msg = {VAR: mid};
 	jQuery('#b' + cur_msg).removeClass().addClass('RowStyleC');
-/* ]]> */
 </script>
 {IF: !empty($_GET['srch'])}
-<script defer="defer" type="text/javascript">
+<script defer="defer">
 	highlightSearchTerms("{VAR-HTML: _GET['srch']}");
 </script>
 {ENDIF}
@@ -243,8 +246,7 @@
 {SECTION: END}
 
 {SECTION: tree_RSS}
-{IF: $FUD_OPT_2 & 1048576}
-<link rel="alternate" type="application/rss+xml" title="{MSG: thread_syndicate}" href="{GVAR: WWW_ROOT}feed.php?mode=m&amp;th={VAR: th}&amp;basic=1" />
+{IF: $FUD_OPT_2 & 1048576}<link rel="alternate" type="application/rss+xml" title="{MSG: thread_syndicate}" href="{GVAR: WWW_ROOT}feed.php?mode=m&amp;th={VAR: th}&amp;basic=1" />
 {ENDIFI}
 {SECTION: END}
 

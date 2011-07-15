@@ -25,11 +25,17 @@
 {SECTION: END}
 
 {SECTION: last_post last post link}
-<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="vt nw GenText">{MSG: usrinfo_last_post}</td><td class="GenText"><span class="DateText">{TEMPLATE: uinfo_last_post_date}</span><br /><a href="{TEMPLATE: userinfo_last_post_lnk}">{VAR: r[0]}</a></td></tr>
+<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}">
+	<td class="vt nw GenText">{MSG: usrinfo_last_post}</td>
+	<td class="GenText"><span class="DateText">{TEMPLATE: uinfo_last_post_date}</span><br /><a href="{TEMPLATE: userinfo_last_post_lnk}">{VAR: r[0]}</a></td>
+</tr>
 {SECTION: END}
 
 {SECTION: email_link}
-<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="GenText nw">{MSG: email}</td><td class="GenText"><a href="mailto:{VAR: u->email}">{VAR: u->email}</a></td></tr>
+<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}">
+	<td class="GenText nw">{MSG: email}</td>
+	<td class="GenText"><a href="mailto:{VAR: u->email}">{VAR: u->email}</a></td>
+</tr>
 {SECTION: END}
 
 {SECTION: email_form_link_lnk}
@@ -37,7 +43,10 @@
 {SECTION: END}
 
 {SECTION: email_form_link link to the email form}
-<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: email}</td><td class="GenText">[<a href="{TEMPLATE: email_form_link_lnk}" rel="nofollow">{MSG: email_user}</a>]</td></tr>
+<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}">
+	<td class="nw GenText">{MSG: email}</td>
+	<td class="GenText">[<a href="{TEMPLATE: email_form_link_lnk}" rel="nofollow">{MSG: email_user}</a>]</td>
+</tr>
 {SECTION: END}
 
 {SECTION: usrinfo_private_msg_lnk}
@@ -49,11 +58,17 @@
 {SECTION: END}
 
 {SECTION: referals an indicator of how many people this user has referred}
-<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: userinfo_referals}</td><td class="GenText"><a href="{TEMPLATE: referals_lnk}">{MSG: userinfo_referals_count}</a></td></tr>
+<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}">
+	<td class="nw GenText">{MSG: userinfo_referals}</td>
+	<td class="GenText"><a href="{TEMPLATE: referals_lnk}">{MSG: userinfo_referals_count}</a></td>
+</tr>
 {SECTION: END}
 
 {SECTION: birth_date}
-<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: birth_date}</td><td class="GenText">{TEMPLATE: uinfo_bday}</td></tr>
+<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}">
+	<td class="nw GenText">{MSG: birth_date}</td>
+	<td class="GenText">{TEMPLATE: uinfo_bday}</td>
+</tr>
 {SECTION: END}
 
 {SECTION: level_name user's level name as determined by post count}
@@ -84,65 +99,108 @@
 {TEMPLATE: header}
 {TEMPLATE: usercp}
 <table cellspacing="1" cellpadding="2" class="ContentTable">
-<tr><th colspan="2" class="wa">{IF: !($u->users_opt & 32768) && (($u->time_sec + $LOGEDIN_TIMEOUT * 60) > __request_timestamp__)}<img src="{THEME_IMAGE_ROOT}/online{DEF: img_ext}" alt="{MSG: user_online}" title="{MSG: user_online}" />{ELSE}<img src="{THEME_IMAGE_ROOT}/offline{DEF: img_ext}" alt="{MSG: user_offline}" title="{MSG: user_offline}" />{END}&nbsp;{MSG: usrinfo_profile}</th></tr>
-<tr class="RowStyleA"><td class="nw GenText">{MSG: date_registered}</td><td class="wa DateText">{TEMPLATE: uinfo_join_date}</td></tr>
-<tr class="RowStyleB"><td class="vt nw GenText">{MSG: post_count_l}</td><td class="GenText">{MSG: average_post_count}<br /><a href="{TEMPLATE: USERINFO_PAGE_lnk}">{MSG: usrinfo_show_all_posts}</a></td></tr>
-{IF: $u->users_opt & 32768}{ELSE}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: userinfo_real_name}</td><td class="GenText">{VAR: u->name}</td></tr>{END}
-{IF: ($level_name || $moderation || $level_image || $u->custom_status)}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw vt GenText">{MSG: status}</td><td class="GenText">
-<span class="LevelText">
-{TEMPLATE-DATA: level_name}
-{TEMPLATE-DATA: level_image}
-{IF: $u->custom_status}{VAR: u->custom_status}<br />{ENDIFI}
-</span>
-{TEMPLATE-DATA: moderation}
-</td></tr>{ENDIF}
-{IF: ($FUD_OPT_1 & 28 && $u->users_opt & 8388608 && !($u->level_opt & 2))}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="vt nw GenText">{MSG: avatar}</td><td class="GenText">{VAR: u->avatar_loc}</td></tr>{ENDIF}
+<tr>
+	<th colspan="2" class="wa">{IF: !($u->users_opt & 32768) && (($u->time_sec + $LOGEDIN_TIMEOUT * 60) > __request_timestamp__)}<img src="{THEME_IMAGE_ROOT}/online{DEF: img_ext}" alt="{MSG: user_online}" title="{MSG: user_online}" />{ELSE}<img src="{THEME_IMAGE_ROOT}/offline{DEF: img_ext}" alt="{MSG: user_offline}" title="{MSG: user_offline}" />{END}&nbsp;{MSG: usrinfo_profile}</th>
+</tr>
+<tr class="RowStyleA">
+	<td class="nw GenText">{MSG: date_registered}</td>
+	<td class="wa DateText">{TEMPLATE: uinfo_join_date}</td>
+</tr>
+<tr class="RowStyleB">
+	<td class="vt nw GenText">{MSG: post_count_l}</td>
+	<td class="GenText">{MSG: average_post_count}<br /><a href="{TEMPLATE: USERINFO_PAGE_lnk}">{MSG: usrinfo_show_all_posts}</a></td>
+</tr>
+{IF: $u->users_opt & 32768}{ELSE}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}">
+	<td class="nw GenText">{MSG: userinfo_real_name}</td>
+	<td class="GenText">{VAR: u->name}</td>
+</tr>{END}
+{IF: ($level_name || $moderation || $level_image || $u->custom_status)}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}">
+	<td class="nw vt GenText">{MSG: status}</td>
+	<td class="GenText">
+		<span class="LevelText">
+		{TEMPLATE-DATA: level_name}
+		{TEMPLATE-DATA: level_image}
+		{IF: $u->custom_status}{VAR: u->custom_status}<br />{ENDIFI}
+		</span>
+		{TEMPLATE-DATA: moderation}
+	</td>
+</tr>{ENDIF}
+{IF: ($FUD_OPT_1 & 28 && $u->users_opt & 8388608 && !($u->level_opt & 2))}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}">
+	<td class="vt nw GenText">{MSG: avatar}</td>
+	<td class="GenText">{VAR: u->avatar_loc}</td>
+</tr>{ENDIF}
 {TEMPLATE-DATA: last_post}
-{IF: $u->last_visit && !($u->users_opt & 32768)}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="vt nw GenText">{MSG: usrinfo_last_visit}</td><td class="GenText DateText">{TEMPLATE: uinfo_last_visit_date}</td></tr>{ENDIF}
+{IF: $u->last_visit && !($u->users_opt & 32768)}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}">
+	<td class="vt nw GenText">{MSG: usrinfo_last_visit}</td>
+	<td class="GenText DateText">{TEMPLATE: uinfo_last_visit_date}</td>
+</tr>{ENDIF}
 {TEMPLATE-DATA: polls}
-{IF: ($FUD_OPT_2 & 65536 && $u->user_image && strpos($u->user_image, '://'))}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="vt nw GenText">{MSG: image}</td><td class="GenText"><img src="{VAR: u->user_image}" alt="" /></td></tr>{ENDIF}
+{IF: ($FUD_OPT_2 & 65536 && $u->user_image && strpos($u->user_image, '://'))}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}">
+	<td class="vt nw GenText">{MSG: image}</td>
+	<td class="GenText"><img src="{VAR: u->user_image}" alt="" /></td>
+</tr>{ENDIF}
 {TEMPLATE-DATA: email_link}
-{IF: ($FUD_OPT_1 & 1024 && _uid)}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: usrinfo_private_message}</td><td class="GenText"><a href="{TEMPLATE: usrinfo_private_msg_lnk}"><img src="{THEME_IMAGE_ROOT}/msg_pm.gif" alt="" /></a></td></tr>{ENDIF}
+{IF: ($FUD_OPT_1 & 1024 && _uid)}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}">
+	<td class="nw GenText">{MSG: usrinfo_private_message}</td>
+	<td class="GenText"><a href="{TEMPLATE: usrinfo_private_msg_lnk}"><img src="{THEME_IMAGE_ROOT}/msg_pm.gif" alt="" /></a></td>
+</tr>{ENDIF}
 {TEMPLATE-DATA: buddy}
 {TEMPLATE-DATA: referals}
-{IF: $u->home_page}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: homepage}</td><td class="GenText"><a href="{VAR: u->home_page}" rel="nofollow">{VAR: u->home_page}</a></td></tr>{ENDIF}
+{IF: $u->home_page}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}">
+	<td class="nw GenText">{MSG: homepage}</td>
+	<td class="GenText"><a href="{VAR: u->home_page}" rel="nofollow">{VAR: u->home_page}</a></td>
+</tr>{ENDIF}
 {TEMPLATE-DATA: gender}
-{IF: $u->location}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: location}</td><td class="GenText">{VAR: u->location}</td></tr>{ENDIF}
-{IF: $u->occupation}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: occupation}</td><td class="GenText">{VAR: u->occupation}</td></tr>{ENDIF}
-{IF: $u->interests}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: interests}</td><td class="GenText">{VAR: u->interests}</td></tr>{ENDIF}
-{IF: $u->bio}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: biography}</td><td class="GenText">{VAR: u->bio}</td></tr>{ENDIF}
+{IF: $u->location}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}">
+	<td class="nw GenText">{MSG: location}</td>
+	<td class="GenText">{VAR: u->location}</td>
+</tr>{ENDIF}
+{IF: $u->occupation}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}">
+	<td class="nw GenText">{MSG: occupation}</td>
+	<td class="GenText">{VAR: u->occupation}</td>
+</tr>{ENDIF}
+{IF: $u->interests}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}">
+	<td class="nw GenText">{MSG: interests}</td>
+	<td class="GenText">{VAR: u->interests}</td>
+</tr>{ENDIF}
+{IF: $u->bio}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}">
+	  <td class="nw GenText">{MSG: biography}</td>
+	  <td class="GenText">{VAR: u->bio}</td>
+</tr>{ENDIF}
 {TEMPLATE-DATA: birth_date}
 {TEMPLATE-DATA: custom_fields_disp}
-{IF: $u->icq}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw vt GenText"><a name="icq_msg">{MSG: icq_message_form}</a></td><td class="GenText">
+{IF: $u->icq}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}">
+	<td class="nw vt GenText"><a name="icq_msg">{MSG: icq_message_form}</a></td>
+	<td class="GenText">
 		{VAR: u->icq} <img src="http://web.icq.com/whitepages/online?icq={VAR: u->icq}&amp;img=5" /><br />
-			<table class="icqCP">
-			<tr><td colspan="2">
-				<form action="http://wwp.icq.com/scripts/WWPMsg.dll" method="post">
-				<b>{MSG: icq_control_panel}</b>
-			</td></tr>
-			<tr>
-				<td>
-					{MSG: sender_name}<br />
-					<input type="text" name="from" value="" size="15" maxlength="40" onfocus="this.select()" />
-				</td>
-				<td>
-					{MSG: sender_email}<br />
-					<input type="text" name="fromemail" value="" size="15" maxlength="40" onfocus="this.select()" />
-				</td>
-			</tr>
-			<tr>
-				<td colspan="2">
-					{MSG: subject}<br />
-					<input type="text" spellcheck="true" name="subject" value="" size="32" /><br />
-					{MSG: message}<br />
-					<textarea name="body" rows="3" cols="32" wrap="Virtual"></textarea>
-					<input type="hidden" name="to" value="{VAR: u->icq}" /><br />
-				</td>
-			</tr>
-			<tr><td colspan="2" align="right"><input type="submit" class="button" name="Send" value="{MSG: send}" /></td></tr>
-			</form>
-			</table>
+		<table class="icqCP">
+		<tr><td colspan="2">
+			<form action="http://wwp.icq.com/scripts/WWPMsg.dll" method="post">
+			<b>{MSG: icq_control_panel}</b>
+		</td></tr>
+		<tr>
+			<td>
+				{MSG: sender_name}<br />
+				<input type="text" name="from" value="" size="15" maxlength="40" onfocus="this.select()" />
 			</td>
+			<td>
+				{MSG: sender_email}<br />
+				<input type="text" name="fromemail" value="" size="15" maxlength="40" onfocus="this.select()" />
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				{MSG: subject}<br />
+				<input type="text" spellcheck="true" name="subject" value="" size="32" /><br />
+				{MSG: message}<br />
+				<textarea name="body" rows="3" cols="32" wrap="Virtual"></textarea>
+				<input type="hidden" name="to" value="{VAR: u->icq}" /><br />
+			</td>
+		</tr>
+		<tr><td colspan="2" align="right"><input type="submit" class="button" name="Send" value="{MSG: send}" /></td></tr>
+		</form>
+		</table>
+	</td>
 </tr>{ENDIF}
 {IF: $u->aim}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: im_aim}</td><td class="GenText"><a href="aim:goim?screenname={VAR: u->aim}&amp;message=Hello+Are+you+there?"><img src="{THEME_IMAGE_ROOT}/aim{DEF: img_ext}" title="{VAR: obj->aim}" alt="" />{FUNC: htmlentities(urldecode($u->aim))}</a></td></tr>{ENDIF}
 {IF: $u->yahoo}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: im_yahoo}</td><td class="GenText"><a href="http://edit.yahoo.com/config/send_webmesg?.target={VAR: u->yahoo}&amp;.src=pg"><img src="{THEME_IMAGE_ROOT}/yahoo{DEF: img_ext}" title="{VAR: obj->yahoo}" alt="" />{FUNC: htmlentities(urldecode($u->yahoo))}</a></td></tr>{ENDIF}

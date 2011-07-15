@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -21,7 +21,10 @@
 
 {SECTION: avatar_entry single avatar entry}
 <td class="{ALT-VAR: avatarsel_cl Av1 Av2}">
-<a href="javascript: window.opener.document.forms[\'fud_register\'].reg_avatar.value=\'{VAR: r[0]}\'; window.opener.document.reg_avatar_img.src=\'images/avatars/{VAR: r[2]}\'; window.close();"><img src="images/avatars/{VAR: r[2]}" alt="" /><br /><span class="SmallText">{VAR: r[1]}</span></a></td>
+<a href="javascript: window.opener.document.forms[\'fud_register\'].reg_avatar.value=\'{VAR: r[0]}\'; window.opener.document.reg_avatar_img.src=\'images/avatars/{VAR: r[2]}\'; window.close();"><img src="images/avatars/{VAR: r[2]}" alt="" />
+<br />
+<span class="SmallText">{VAR: r[1]}</span></a>
+</td>
 {SECTION: END}
 
 {SECTION: row_separator}
@@ -31,9 +34,11 @@
 {PAGE: AVATARSEL_PAGE Built In Avatar List}
 {TEMPLATE: header_plain}
 {TEMPLATE-DATA: select}
-<table border="0" cellspacing="1" cellpadding="2"><tr>
-{TEMPLATE-DATA: avatars_data}
-</tr></table>
+<table border="0" cellspacing="1" cellpadding="2">
+<tr>
+	{TEMPLATE-DATA: avatars_data}
+</tr>
+</table>
 {TEMPLATE: footer_plain}
 {PAGE: END}
 
@@ -47,6 +52,8 @@
 
 {SECTION: avatarsel_gal_sel avatar gallery selection}
 <form id="avsel" method="post" action="{TEMPLATE: avatar_sel_lnk}">{DEF: _hs}
-<select name="gal" onchange="document.forms[\'avsel\'].submit();">{TEMPLATE-DATA: select}</select> <input type="submit" name="sbm" value="{MSG: register_update}" />
-</form><hr />
+	<select name="gal" onchange="document.forms[\'avsel\'].submit();">{TEMPLATE-DATA: select}</select>
+	<input type="submit" name="sbm" value="{MSG: register_update}" />
+</form>
+<hr />
 {SECTION: END}

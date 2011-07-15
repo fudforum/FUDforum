@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -29,10 +29,12 @@
 <br />{TEMPLATE-DATA: admin_cp}
 <form id="merge_th" action="{TEMPLATE: MERGE_TH_PAGE_lnk3}" method="post">{DEF: _hs}
 <table cellspacing="1" cellpadding="2" class="ContentTable">
-<tr><th class="wa" colspan="2">{MSG: merge_topics_cp}</th></tr>
+<tr>
+	<th class="wa" colspan="2">{MSG: merge_topics_cp}</th>
+</tr>
 {IF: isset($new_th)}<tr  class="RowStyleA">
 	<td colspan="2" class="al"><b>{MSG: merge_another}</b></td>
-	</tr>{ENDIF}
+</tr>{ENDIF}
 <tr class="RowStyleA">
 	<td class="al"><b>{MSG: split_th_new_thread_title}</b></td>
 	<td><input type="text" spellcheck="true" name="new_title" value="{VAR: new_title}" size="50" /></td>

@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -22,6 +22,59 @@
 {REF: forum_notify.tmpl}
 {REF: thread_view_common.tmpl}
 {REF: draw_forum_list.tmpl}
+
+{PAGE: THREAD_PAGE shows the threads in a particular forum}
+{TEMPLATE: header}
+{TEMPLATE: usercp}
+{TEMPLATE-DATA: admin_cp}
+{FUNC: draw_forum_path($frm->cat_id, $frm->name)}
+{TEMPLATE-DATA: announcements}
+{TEMPLATE: forum_list}
+<div class="wa">
+	<div class="rel fl" style="left:0;">
+		{TEMPLATE: show_links}
+		{IF: _uid}
+			<br />
+			{IF: $frm->subscribed}
+				{TEMPLATE: unsubscribe_link}
+			{ELSE}
+				{TEMPLATE: subscribe_link}
+			{ENDI}
+		{ENDIF}
+		{IF: (_uid && ($MOD || $frm->group_cache_opt & 2048))}
+			{TEMPLATE: thread_merge_t}
+		{ENDIF}
+	</div>
+	<div class="rel GenText nw vt fr" style="right:0;">
+		{IF: $FUD_OPT_2 & 512}{TEMPLATE: threaded_view}{ENDIF}
+		{TEMPLATE: new_thread_link}
+	</div>
+</div>
+<br />
+<!-- table class="wa" border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td class="al wa">{TEMPLATE: show_links}{IF: _uid}<br />{IF: $frm->subscribed}{TEMPLATE: unsubscribe_link}{ELSE}{TEMPLATE: subscribe_link}{ENDI}{ENDIF}{IF: (_uid && ($MOD || $frm->group_cache_opt & 2048))}{TEMPLATE: thread_merge_t}{ENDIF}</td>
+		<td class="GenText nw vb ar">{IF: $FUD_OPT_2 & 512}{TEMPLATE: threaded_view}{ENDIF}{TEMPLATE: new_thread_link}</td>
+	</tr>
+</table-->
+{TEMPLATE: thread_list}
+<table border="0" cellspacing="0" cellpadding="0" class="wa">
+<tr>
+	<td class="vt">{TEMPLATE-DATA: page_pager}&nbsp;</td>
+	<td class="GenText nw vb ar">{IF: $FUD_OPT_2 & 512}{TEMPLATE: threaded_view}{ENDIF}{TEMPLATE: new_thread_link}</td>
+</tr>
+</table>
+{FUNC: tmpl_create_forum_select((isset($frm->forum_id) ? $frm->forum_id : $frm->id), $usr->users_opt & 1048576)}
+{IF: _uid}
+	{TEMPLATE: thread_mark_all_read}
+{ELSE}
+	{TEMPLATE: thread_pdf_xml}
+{END}
+{TEMPLATE: thread_legend}
+{TEMPLATE: curtime}
+{TEMPLATE-DATA: page_stats}
+{TEMPLATE: footer}
+{PAGE: END}
 
 {SECTION: mini_thread_pager}
 <span class="SmallText">(<img src="{THEME_IMAGE_ROOT}/pager.gif" alt="" />{TEMPLATE-DATA: mini_pager_data})</span>
@@ -69,12 +122,12 @@
 
 {SECTION: thread_row}
 <tr class="row">
-<td class="RowStyleB wo">{TEMPLATE-DATA: thread_read_status}</td>
-<td class="RowStyleB wo ac">{IF: $r[3]}<img src="images/message_icons/{VAR: r[3]}" alt="{VAR: r[3]}" />{ELSE}&nbsp;{END}</td>
-<td class="RowStyleA">{IF: ($r[18] > 1)}{IF: $r[18] & 4}<span class="StClr">{MSG: sticky}&nbsp;</span>{ELSE}<span class="AnClr">{MSG: thread_announcement}&nbsp;</span>{ENDI}{ENDIF}{TEMPLATE-DATA: first_unread_msg_link}{IF: $r[1]}{TEMPLATE: thread_poll_indicator}{ENDIF}{IF: $r[0]}{TEMPLATE: thread_attach_indicator}{ENDIF}<a class="big" href="{TEMPLATE: thread_row_lnk}">{VAR: r[2]}</a>{IF: $r[22]}<br /><span class="small">{VAR: r[22]}</span>{ENDIFI} {IF: (($FUD_OPT_2 & 4096) && $r[17])}{TEMPLATE: thread_rating}{ENDIF} {TEMPLATE-DATA: mini_thread_pager} <div class="TopBy">{MSG: by} {IF: $r[5]}{TEMPLATE: first_post_reg_user_link}{ELSE}{TEMPLATE: first_post_unreg_user_link}{END} {MSG: thread_on} <span class="DateText">{TEMPLATE: thread_first_post_date}</span></div>{TEMPLATE-DATA: admin_control_row}</td>
-<td class="RowStyleB ac">{VAR: r[16]}</td>
-<td class="RowStyleB ac">{VAR: r[19]}</td>
-<td class="RowStyleC nw"><span class="DateText">{TEMPLATE: thread_last_post_date}</span><br />{MSG: by} {IF: $r[8]}<a href="{TEMPLATE: reg_user_link_lnk}">{VAR: r[8]}</a>{ELSE}{GVAR: ANON_NICK}{END} <a href="{TEMPLATE: last_msg_in_thread_lnk}"><img src="{THEME_IMAGE_ROOT}/goto.gif" title="{MSG: last_thread_msg}" alt="" /></a></td>
+	<td class="RowStyleB wo">{TEMPLATE-DATA: thread_read_status}</td>
+	<td class="RowStyleB wo ac">{IF: $r[3]}<img src="images/message_icons/{VAR: r[3]}" alt="{VAR: r[3]}" />{ELSE}&nbsp;{END}</td>
+	<td class="RowStyleA">{IF: ($r[18] > 1)}{IF: $r[18] & 4}<span class="StClr">{MSG: sticky}&nbsp;</span>{ELSE}<span class="AnClr">{MSG: thread_announcement}&nbsp;</span>{ENDI}{ENDIF}{TEMPLATE-DATA: first_unread_msg_link}{IF: $r[1]}{TEMPLATE: thread_poll_indicator}{ENDIF}{IF: $r[0]}{TEMPLATE: thread_attach_indicator}{ENDIF}<a class="big" href="{TEMPLATE: thread_row_lnk}">{VAR: r[2]}</a>{IF: $r[22]}<br /><span class="small">{VAR: r[22]}</span>{ENDIFI} {IF: (($FUD_OPT_2 & 4096) && $r[17])}{TEMPLATE: thread_rating}{ENDIF} {TEMPLATE-DATA: mini_thread_pager} <div class="TopBy">{MSG: by} {IF: $r[5]}{TEMPLATE: first_post_reg_user_link}{ELSE}{TEMPLATE: first_post_unreg_user_link}{END} {MSG: thread_on} <span class="DateText">{TEMPLATE: thread_first_post_date}</span></div>{TEMPLATE-DATA: admin_control_row}</td>
+	<td class="RowStyleB ac">{VAR: r[16]}</td>
+	<td class="RowStyleB ac">{VAR: r[19]}</td>
+	<td class="RowStyleC nw"><span class="DateText">{TEMPLATE: thread_last_post_date}</span><br />{MSG: by} {IF: $r[8]}<a href="{TEMPLATE: reg_user_link_lnk}">{VAR: r[8]}</a>{ELSE}{GVAR: ANON_NICK}{END} <a href="{TEMPLATE: last_msg_in_thread_lnk}"><img src="{THEME_IMAGE_ROOT}/goto.gif" title="{MSG: last_thread_msg}" alt="" /></a></td>
 </tr>
 {SECTION: END}
 
@@ -84,8 +137,8 @@
 
 {SECTION: thread_row_moved a row indicating that the thread has been moved}
 <tr>
-<td class="RowStyleB wo"><img src="{THEME_IMAGE_ROOT}/moved{DEF: img_ext}" title="{MSG: moved_thread_message}" alt="" /></td>
-<td class="RowStyleB ac GenText" colspan="5">{MSG: was_moved_msg}</td>
+	<td class="RowStyleB wo"><img src="{THEME_IMAGE_ROOT}/moved{DEF: img_ext}" title="{MSG: moved_thread_message}" alt="" /></td>
+	<td class="RowStyleB ac GenText" colspan="5">{MSG: was_moved_msg}</td>
 </tr>
 {SECTION: END}
 
@@ -95,7 +148,7 @@
 
 {SECTION: thread_list}
 {IF: $MOD || $mo == 8224}<form method="post" action="{TEMPLATE: thread_mod_mass_lnk}">{ENDIF}
-<table border="0" cellspacing="1" cellpadding="2" class="pad">
+<table border="0" cellspacing="1" cellpadding="2" class="clear pad">
 <tr>
 	<th>&nbsp;</th>
 	<th>&nbsp;</th>
@@ -104,7 +157,6 @@
 	<th class="wo">{MSG: views}</th>
 	<th class="nw">{MSG: last_post}</th>
 </tr>
-{TEMPLATE-DATA: announcements}
 {IF: $MOD || $mo == 8224}
 <tr>
 	<td colspan="3" class="RowStyleC ar">
@@ -132,34 +184,6 @@
 {ENDIF}
 </table>{IF: $MOD || $mo == 8224}{DEF: _hs}</form>{ENDIF}
 {SECTION: END}
-
-{PAGE: THREAD_PAGE shows the threads in a particular forum}
-{TEMPLATE: header}
-{TEMPLATE: usercp}
-{TEMPLATE-DATA: admin_cp}
-<table class="wa" border="0" cellspacing="0" cellpadding="0"><tr>
-<td class="al wa">{FUNC: draw_forum_path($frm->cat_id, $frm->name)}<br />{TEMPLATE: show_links}<br />{IF: _uid}{IF: $frm->subscribed}{TEMPLATE: unsubscribe_link}{ELSE}{TEMPLATE: subscribe_link}{ENDI}{ENDIF}{IF: (_uid && ($MOD || $frm->group_cache_opt & 2048))}{TEMPLATE: thread_merge_t}{ENDIF}</td>
-<td class="GenText nw vb ar">{IF: $FUD_OPT_2 & 512}{TEMPLATE: threaded_view}{ENDIF}{TEMPLATE: new_thread_link}</td>
-</tr></table>
-{TEMPLATE: forum_list}
-{TEMPLATE: thread_list}
-<table border="0" cellspacing="0" cellpadding="0" class="wa">
-<tr>
-<td class="vt">{TEMPLATE-DATA: page_pager}&nbsp;</td>
-<td class="GenText nw vb ar">{IF: $FUD_OPT_2 & 512}{TEMPLATE: threaded_view}{ENDIF}{TEMPLATE: new_thread_link}</td>
-</tr>
-</table>
-{FUNC: tmpl_create_forum_select((isset($frm->forum_id) ? $frm->forum_id : $frm->id), $usr->users_opt & 1048576)}
-{IF: _uid}
-	{TEMPLATE: thread_mark_all_read}
-{ELSE}
-	{TEMPLATE: thread_pdf_xml}
-{END}
-{TEMPLATE: thread_legend}
-{TEMPLATE: curtime}
-{TEMPLATE-DATA: page_stats}
-{TEMPLATE: footer}
-{PAGE: END}
 
 {SECTION: thread_update}
 {MSG: thread_update}

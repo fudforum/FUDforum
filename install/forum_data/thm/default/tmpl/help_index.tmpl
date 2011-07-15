@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -27,14 +27,19 @@
 
 {SECTION: help_section individual help section}
 <table cellspacing="1" cellpadding="2" class="ContentTable">
-<tr><th>{VAR: topic_title}</th></tr>
-<tr><td class="ForumBackground">
-	<table cellspacing="2" cellpadding="2" width="100%" class="dashed"><tr><td class="GenText">
-	{TEMPLATE-DATA: topic_help}
-	</td></tr><tr><td class="GenText ar">
-		<a href="javascript://" onclick="chng_focus(\'top\');">{MSG: help_back_to_top}</a>
-	</td></tr></table>
-</td></tr>
+<tr>
+	<th>{VAR: topic_title}</th>
+</tr>
+<tr>
+	<td class="content">
+		<div class="GenText wa">
+			{TEMPLATE-DATA: topic_help}
+		</div>
+		<div class="GenText ar">
+			<a href="javascript://" onclick="chng_focus(\'top\');">{MSG: help_back_to_top}</a>
+		</div>
+	</td>
+</tr>
 </table>
 <br />
 {SECTION: END}
@@ -42,6 +47,7 @@
 {SECTION: return_top return to top link}
 <div class="GenText ac">[ <a href="{TEMPLATE: return_top_lnk}">{MSG: help_return_to_index}</a> ]</div>
 {SECTION: END}
+
 {SECTION: help_index_update}
 {MSG: help_index_update}
 {SECTION: END}

@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -26,19 +26,21 @@
 
 {SECTION: msg_entry individual message entries}
 <tr>
-<td class="RowStyleC vt ac"><input type="checkbox" name="sel_th[]" value="{VAR: r->id}" /></td>
-<td class="RowStyleA">
-<table cellspacing="1" cellpadding="2" class="ContentTable">
-<tr class="RowStyleB">
-	<td class="SmallText">
-	<b>{MSG: split_th_post_by}</b> {IF: $r->alias}{VAR: r->alias}{ELSE}{VAR: anon_alias}{ENDI}<br />
-	<b>{MSG: split_th_posted_on}</b> {TEMPLATE: search_post_date}<br />
-	<b>{MSG: split_th_subject}</b> {VAR: r->subject}
+	<td class="RowStyleC vt ac"><input type="checkbox" name="sel_th[]" value="{VAR: r->id}" /></td>
+	<td class="RowStyleA">
+		<table cellspacing="1" cellpadding="2" class="ContentTable">
+		<tr class="RowStyleB">
+			<td class="SmallText">
+				<b>{MSG: split_th_post_by}</b> {IF: $r->alias}{VAR: r->alias}{ELSE}{VAR: anon_alias}{ENDI}<br />
+				<b>{MSG: split_th_posted_on}</b> {TEMPLATE: search_post_date}<br />
+				<b>{MSG: split_th_subject}</b> {VAR: r->subject}
+			</td>
+		</tr>
+		<tr class="RowStyleA">
+			<td>{FUNC: read_msg_body($r->foff, $r->length, $r->file_id)}</td>
+		</tr>
+		</table>
 	</td>
-</tr>
-<tr class="RowStyleA"><td>{FUNC: read_msg_body($r->foff, $r->length, $r->file_id)}</td></tr>
-</table>
-</td>
 </tr>
 {SECTION: END}
 
@@ -46,9 +48,13 @@
 {TEMPLATE: header}
 {TEMPLATE: usercp}
 <br />{TEMPLATE-DATA: admin_cp}
-<form id="split_th" action="{TEMPLATE: SPLIT_TH_PAGE_lnk3}" method="post">{DEF: _hs}<input type="hidden" name="th" value="{VAR: th}" />
+<form id="split_th" action="{TEMPLATE: SPLIT_TH_PAGE_lnk3}" method="post">
+{DEF: _hs}
+<input type="hidden" name="th" value="{VAR: th}" />
 <table cellspacing="1" cellpadding="2" class="ContentTable">
-<tr><th class="wa" colspan="2">{MSG: split_cp}</th></tr>
+<tr>
+	<th class="wa" colspan="2">{MSG: split_cp}</th>
+</tr>
 <tr class="RowStyleA">
 	<td class="al fb">{MSG: split_th_new_thread_title}</td>
 	<td ><input type="text" spellcheck="true" name="new_title" value="" size="50" /></td>
@@ -67,7 +73,10 @@
 </table>
 <br />
 <table cellspacing="1" cellpadding="2" class="ContentTable">
-<tr><th class="nw">{MSG: split_th_select}</th><th width="100%">{MSG: split_th_messages}</th></tr>
+<tr>
+	<th class="nw">{MSG: split_th_select}</th>
+	<th width="100%">{MSG: split_th_messages}</th>
+</tr>
 {TEMPLATE-DATA: msg_entry}
 </table>
 <br />

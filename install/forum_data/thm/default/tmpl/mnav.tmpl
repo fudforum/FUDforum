@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -31,7 +31,9 @@
 
 <form id="mnav" method="get" action="{TEMPLATE: MNAV_PAGE_lnk3}">{DEF: _hs}<input type="hidden" name="t" value="mnav" />
 <table cellspacing="1" cellpadding="2" class="ContentTable">
-<tr><th colspan="4" class="wa">{MSG: mnav_description}</th></tr>
+<tr>
+	<th colspan="4" class="wa">{MSG: mnav_description}</th>
+</tr>
 <tr class="{ALT-VAR: color_alt RowStyleA RowStyleB}">
 	<td class="GenText nw" width="30%">{MSG: mnav_date_limit}</td>
 	<td class="GenText SmallText">{MSG: mnav_newer}<br /><input tabindex="1" type="text" name="rng" value="{VAR: rng}" maxlength="10" size="11" /></td>
@@ -50,17 +52,17 @@
 	<td class="GenText nw">{MSG: mnav_sub_only}</td>
 	<td colspan="3" class="vt"><input type="checkbox" name="sub" value="1" {IF: $subl}checked="checked" {ENDIFI} /></td>
 {ENDIF}
-<tr class="RowStyleC"><td class="GenText ar" colspan="4"><input type="submit" tabindex="5" class="button" name="btn_submit" value="{MSG: mnav_submit}" /></td></tr>
+<tr class="RowStyleC">
+	<td class="GenText ar" colspan="4"><input type="submit" tabindex="5" class="button" name="btn_submit" value="{MSG: mnav_submit}" /></td>
+</tr>
 </table></form>
 <br />
 {TEMPLATE-DATA: mnav_data}
 <div class="al">{TEMPLATE-DATA: mnav_pager}</div>
 {TEMPLATE: curtime}
 {TEMPLATE-DATA: page_stats}
-<script type="text/javascript">
-/* <![CDATA[ */ 
-document.forms['mnav'].rng.focus();
-/* ]]> */
+<script>
+	document.forms['mnav'].rng.focus();
 </script>
 {TEMPLATE: footer}
 {PAGE: END}
@@ -137,18 +139,21 @@ document.forms['mnav'].rng.focus();
 {SECTION: END}
 
 {SECTION: mnav_msg}
-<tr><td class="RowStyleC">&nbsp;&nbsp;&nbsp;</td><td class="RowStyleC">&nbsp;&nbsp;&nbsp;</td><td>
-<table cellspacing="0" cellpadding="2" border="0" class="mnavMsg">
-<tr class="mnavH">
-	<td class="nw al"><a href="{TEMPLATE: mnav_msg_lnk}">{VAR: r->subject}</a></td>
-	<td class="TopBy wa ac">{MSG: mnav_posted_by} {IF: !empty($r->poster_id)}{TEMPLATE: mnav_user}{ELSE}{TEMPLATE: mnav_anon}{END}</td>
-	<td class="DateText nw ar">{TEMPLATE: search_post_date}</td>
+<tr>
+	<td class="RowStyleC">&nbsp;&nbsp;&nbsp;</td><td class="RowStyleC">&nbsp;&nbsp;&nbsp;</td>
+	<td>
+		<table cellspacing="0" cellpadding="2" border="0" class="mnavMsg">
+		<tr class="mnavH">
+			<td class="nw al"><a href="{TEMPLATE: mnav_msg_lnk}">{VAR: r->subject}</a></td>
+			<td class="TopBy wa ac">{MSG: mnav_posted_by} {IF: !empty($r->poster_id)}{TEMPLATE: mnav_user}{ELSE}{TEMPLATE: mnav_anon}{END}</td>
+			<td class="DateText nw ar">{TEMPLATE: search_post_date}</td>
+		</tr>
+		<tr class="mnavM SmallText">
+			<td colspan="3">{FUNC: trim_body(read_msg_body($r->foff, $r->length, $r->file_id))} <a href="{TEMPLATE: mnav_msg_lnk2}">{MSG: mnav_more}</a></td>
+		</tr>
+		</table>
+	</td>
 </tr>
-<tr class="mnavM SmallText">
-	<td colspan="3">{FUNC: trim_body(read_msg_body($r->foff, $r->length, $r->file_id))} <a href="{TEMPLATE: mnav_msg_lnk2}">{MSG: mnav_more}</a></td>
-</tr>
-</table>
-</td></tr>
 {SECTION: END}
 
 {SECTION: mnav_user_lnk}
