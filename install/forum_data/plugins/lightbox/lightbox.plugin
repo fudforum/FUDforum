@@ -1,0 +1,61 @@
+<?php
+/**
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* email                : forum@prohost.org
+* $Id$
+*
+* This program is free software; you can redistribute it and/or modify it
+* under the terms of the GNU General Public License as published by the
+* Free Software Foundation; version 2 of the License.
+**/
+
+// Initialize plugin.
+plugin_add_hook('COMPILER_FINALIZE_PAGE', 'plugin_lightbox');
+
+// Add HTML markup to initialize lightbox.
+function plugin_lightbox($array) {
+	list($html, $page) = $array;
+
+	// Only when showing messages.
+	if ($page != 'msg.php' && $page != 'tree.php') {
+		return $array;
+	}
+
+	// Add to footer.
+	$foot_add = '
+<link rel="stylesheet" href="theme/lightbox/jquery.lightbox-0.5.css" media="screen" />
+<script src="theme/lightbox/jquery.lightbox-0.5.min.js"></script>
+<script>
+    $(function() { $(".AttachmentsList a").lightBox({
+	imageLoading:  "theme/lightbox/lightbox-ico-loading.gif",
+	imageBtnClose: "theme/lightbox/lightbox-btn-close.gif",
+	imageBtnPrev:  "theme/lightbox/lightbox-btn-prev.gif",
+	imageBtnNext:  "theme/lightbox/lightbox-btn-next.gif",
+	});
+    });
+</script>';
+	$html = str_replace('</body>', $foot_add .'</body>', $html);
+
+	return array($html, $page);
+}
+
+function lightbox_info() {
+	return array('name' => 'Lightbox',
+				'desc' => 'Use <a href="http://leandrovieira.com/projects/jquery/lightbox/">lightbox</a> to present uploaded attachments as a slideshow.',
+				'version' => '1.0');
+}
+
+function lightbox_enable() {
+	fud_use('file_adm.inc', true);
+	$fromdir = $GLOBALS['PLUGIN_PATH']   .'/lightbox/deploy';
+	$todir   = $GLOBALS['WWW_ROOT_DISK'] .'/theme/lightbox';
+	fud_mkdir($todir);
+	fud_copy($fromdir, $todir);
+	@define('REBUILD_THEMES', 1);
+}
+
+function lightbox_disable() {
+	fud_use('file_adm.inc', true);
+	fud_rmdir($GLOBALS['WWW_ROOT_DISK'] .'theme/lightbox', true);
+	@define('REBUILD_THEMES', 1);
+}
