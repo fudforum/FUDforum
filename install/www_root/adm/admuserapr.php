@@ -75,7 +75,7 @@ function print_if_avail($descr, $value, $no_html=1)
 		print_if_avail('Signature', $obj->sig, 0) .
 		print_if_avail('IP Address', long2ip($obj->reg_ip), 0) .
 		'</table></td>
-		<td class="fieldaction">[ <a href="admaccapr.php?apr='. $obj->id .'&amp;'. __adm_rsid .'">Approve Account</a> | <a href="admaccapr.php?rm='. $obj->id .'&amp;'. __adm_rsid .'">Delete Account</a> ]</td></tr>';
+		<td class="fieldaction">[ <a href="admuserapr.php?apr='. $obj->id .'&amp;'. __adm_rsid .'">Approve Account</a> | <a href="admuserapr.php?rm='. $obj->id .'&amp;'. __adm_rsid .'">Delete Account</a> ]</td></tr>';
 	}
 	unset($c);
 	if (!$i) {
