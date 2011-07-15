@@ -31,7 +31,7 @@
 <h3>You have selected to <span style="color: red;">permanently delete</span> this forum</h3><br />
 "<?php echo $f[3]; ?>" which contains <?php echo $f[1]; ?> topics with <?php echo $f[2]; ?> posts<br /><br />
 <h3>Are you sure this is what you want to do?</h3>
-<form method="post" action="admdelfrm.php">
+<form method="post" action="admforumdel.php">
 <?php echo _hs; ?>
 <input type="hidden" name="del" value="<?php echo $f[0]; ?>" />
 <table border="0" cellspacing="0" cellpadding="2">
@@ -64,9 +64,9 @@
 	$c = uq('SELECT id, name, descr FROM '. $tbl .'forum WHERE cat_id=0');
 	while ($r = db_rowarr($c)) {
 		$bgcolor = ($i++%2) ? ' class="resultrow1"' : ' class="resultrow2"';
-		echo '<tr '. $bgcolor .'><td>'. $r[1] .'<br /><font size="-2">'. $r[2] .'</font></td><td valign="top" nowrap="nowrap"><a href="admdelfrm.php?del='. $r[0] .'&amp;'. __adm_rsid .'">Delete</a></td><td valign="top" nowrap="nowrap">';
+		echo '<tr '. $bgcolor .'><td>'. $r[1] .'<br /><font size="-2">'. $r[2] .'</font></td><td valign="top" nowrap="nowrap"><a href="admforumdel.php?del='. $r[0] .'&amp;'. __adm_rsid .'">Delete</a></td><td valign="top" nowrap="nowrap">';
 		if ($cat_sel) {
-			echo '<form method="post" action="admdelfrm.php">'. _hs . $cat_sel .' <input type="submit" name="frm_submit" value="Reassign" /><input type="hidden" name="frm_id" value="'. $r[0] .'" /></form>';
+			echo '<form method="post" action="admforumdel.php">'. _hs . $cat_sel .' <input type="submit" name="frm_submit" value="Reassign" /><input type="hidden" name="frm_id" value="'. $r[0] .'" /></form>';
 		} else {
 			echo 'No categories defined.';
 		}
