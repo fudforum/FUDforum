@@ -111,7 +111,7 @@ function change_global_settings($list)
 
 		if (($p = strpos($settings, '$'. $k)) === false) {	// Find it. New or existing setting?
 			$p = strpos($settings, '$ADMIN_EMAIL');			// Insert position for new settings.
-			if (is_int($v)) {
+			if (is_numeric($v)) {
 				$settings = substr_replace($settings, "\${$k}\t= {$v};\n\t", $p, 0);
 			} else {
 				$settings = substr_replace($settings, "\${$k}\t= '{$v}';\n\t", $p, 0);
@@ -120,7 +120,7 @@ function change_global_settings($list)
 			$p = strpos($settings, '=', $p) + 1;
 			$e = $p + strrpos(substr($settings, $p, (strpos($settings, "\n", $p) - $p)), ';');
 
-			if (is_int($v)) {
+			if (is_numeric($v)) {
 				$settings = substr_replace($settings, ' '. $v, $p, ($e - $p));
 			} else {
 				$v = addcslashes($v, '\\\'');

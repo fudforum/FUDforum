@@ -24,6 +24,7 @@ function match_user_to_post($from_email, $from_name, $create_users, &$user_id, $
 	}
 
 	if (empty($user->id)) {
+		$user = new stdClass();
 		$user->id = $create_users ? create_new_user($from_name, $from_email, $reg_date) : 0;
 	} else if ($user->users_opt & 65536) {	// User is banned.
 		$user->id = -1;

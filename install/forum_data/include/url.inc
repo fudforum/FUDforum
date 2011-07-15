@@ -31,7 +31,7 @@ function get_remote_file($url, $timeout=20, $head_only=false, $max_redirects=3)
 		curl_setopt($ch, CURLOPT_HEADER, true);
 		curl_setopt($ch, CURLOPT_NOBODY, $head_only);
 		curl_setopt($ch, CURLOPT_TIMEOUT, $timeout);
-		curl_setopt($ch, CURLOPT_USERAGENT, 'FUDforum'. $FORUM_VERSION);
+		curl_setopt($ch, CURLOPT_USERAGENT, 'FUDforum'. $GLOBALS['FORUM_VERSION']);
 
 		// Grab the page.
 		$content = curl_exec($ch);

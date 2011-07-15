@@ -9,7 +9,28 @@
 * Free Software Foundation; version 2 of the License. 
 **/
 
-/* Return list of indexes and columns for a given table as defined in FUDforum's SQL files. */
+/** Check DB version compatibility. */
+function validate_db_version()
+{
+	if (!function_exists('db_version')) {
+		// get_version() was renamed to db_version() in FUDforum v3.0.2.
+		function db_version() { return get_version(); }
+	}
+
+	$dbver = db_version();	// Defined in db.inc.
+
+	if (__dbtype__ == 'mysql' && version_compare($dbver, '5.0.0', '<')) {
+		return 'MySQL version '. $dbver .' is not supported. Please upgrade to MySQL Version 5.0.0 or higher.';
+	} else if (__dbtype__ == 'pgsql' && version_compare($dbver, '8.1.0', '<')) {
+		return 'PostgreSQL version '. $dbver .' is not supported. Please upgrade to PgSql Version 8.1.0 or higher.';
+	} else if (__dbtype__ == 'oracle' && version_compare($dbver, '10.2.0', '<')) {
+		return 'Oracle version '. $dbver .' is not supported. Please upgrade to Oracle Version 10.2.0 or higher.';
+	} else if (__dbtype__ == 'sqlsrv' && version_compare($dbver, '10.00.00', '<')) {
+		return 'SQL Server version '. $dbver .' is not supported. Please upgrade to SQL Server Version 11.00.0000 or higher.';
+	}
+}
+
+/** Return list of indexes and columns for a given table as defined in FUDforum's SQL files. */
 function get_stbl_from_file($file)
 {
 	$data = str_replace('{SQL_TABLE_PREFIX}', $GLOBALS['DBHOST_TBL_PREFIX'], file_get_contents($file));
@@ -84,7 +105,7 @@ function get_stbl_from_file($file)
 	return $tbl;
 }
 
-/* Return a list of FUDforum tables from the database. */
+/** Return a list of FUDforum tables from the database. */
 function get_fud_table_list($tbl=null)
 {
 	if (__dbtype__ == 'db2') {
@@ -127,7 +148,7 @@ function get_fud_table_list($tbl=null)
 	}
 }
 
-/* Return a list of colums and column properties from the database. */
+/** Return a list of colums and column properties from the database. */
 function get_fud_col_list($table)
 {
 	$ret = array();
@@ -300,7 +321,7 @@ function get_fud_col_list($table)
 	return $ret;
 }
 
-/* Add a composite primary key to a table. */
+/** Add a composite primary key to a table. */
 function create_primary_key($table, $col_list)
 {
 	if (__dbtype__ == 'mysql') {
@@ -330,7 +351,7 @@ function create_primary_key($table, $col_list)
 	}
 }
 
-/* Vacuum/Optimize/Analyze all FUDforum's database tables. */
+/** Vacuum/Optimize/Analyze all FUDforum's database tables. */
 function optimize_fud_tables($tbl_list=null)
 {
 	if (__dbtype__ == 'sqlite') {	// DB level.
@@ -360,7 +381,7 @@ function optimize_fud_tables($tbl_list=null)
 	}
 }
 
-/* Return the size of FUDforum's database tables in bytes. */
+/** Return the size of FUDforum's database tables in bytes. */
 function get_sql_disk_usage()
 {
 	if (__dbtype__ == 'db2') {
@@ -383,7 +404,7 @@ function get_sql_disk_usage()
 	return 0;	// Not implemented.
 }
 
-/* Create a new database table. */
+/** Create a new database table. */
 function create_table($script)
 {
 	$script = preg_replace('!#.*\n!', '', $script);	// Remove comments.
@@ -461,7 +482,7 @@ function create_table($script)
 	return $rc;
 }
 
-/* Drop a table. */
+/** Drop a table. */
 function drop_table($tbl, $ifexists=false)
 {
 	$tbl = str_replace('{SQL_TABLE_PREFIX}', $GLOBALS['DBHOST_TBL_PREFIX'], $tbl);
@@ -503,7 +524,7 @@ function drop_table($tbl, $ifexists=false)
 	}
 }
 
-/* Empty out a table. */
+/** Empty out a table. */
 function truncate_table($tbl)
 {
 	if (__dbtype__ == 'sqlite') {
@@ -514,7 +535,7 @@ function truncate_table($tbl)
 	}
 }
 
-/* Delete duplicate rows from a table. */
+/** Delete duplicate rows from a table. */
 function delete_duplicate_rows($tbl, $flds)
 {
 	$f = explode(',', $flds);
@@ -555,7 +576,7 @@ function delete_duplicate_rows($tbl, $flds)
 	unset($c);
 }
 
-/* Create an index on a table. */
+/** Create an index on a table. */
 function create_index($tbl, $name, $unique, $flds, $del_dups=true)
 {
 	$tbl = str_replace('{SQL_TABLE_PREFIX}', $GLOBALS['DBHOST_TBL_PREFIX'], $tbl);
@@ -575,7 +596,7 @@ function create_index($tbl, $name, $unique, $flds, $del_dups=true)
 	}
 }
 
-/* Drop a database index. */
+/** Drop a database index. */
 function drop_index($table, $index)
 {
 	if (__dbtype__ == 'mssql') {
@@ -598,7 +619,7 @@ function drop_index($table, $index)
 	}
 }
 
-/* Return a list of FUDforum's indexes from the database. */
+/** Return a list of FUDforum's indexes from the database. */
 function get_fud_index_list($table)
 {
 	$tbl = array();
@@ -728,7 +749,7 @@ function get_fud_index_list($table)
 	return $tbl;
 }
 
-/* Add a column to a database table. */
+/** Add a column to a database table. */
 function add_column($tbl, $col, $prop)
 {
 	if (__dbtype__ != 'sqlite') {
@@ -741,7 +762,7 @@ function add_column($tbl, $col, $prop)
 	}
 }
 
-/* Change the properties of a column on a database table. */
+/** Change the properties of a column on a database table. */
 function alter_column($tbl, $col, $prop)
 {
 	if (__dbtype__ == 'pgsql') {
@@ -785,6 +806,7 @@ function alter_column($tbl, $col, $prop)
 	}
 }
 
+/** Map column properties to DB syntax. */
 function make_table_row($col, $prop)
 {
 	$data = ' '. $col .' '. $prop['type'];
@@ -833,7 +855,7 @@ function make_table_row($col, $prop)
 	return $data;
 }
 
-/* Drop a column from a database table. */
+/** Drop a column from a database table. */
 function drop_column($tbl, $col)
 {
 	if (__dbtype__ == 'pgsql') {
@@ -856,7 +878,7 @@ function drop_column($tbl, $col)
 	}
 }
 
-/* Reset database sequences to the highest count based on data values. */
+/** Reset database sequences to the highest count based on data values. */
 function reset_fud_sequences()
 {
 	/* We may need to restore sequence numbers for databases like DB2, Oracle and PostgreSQL. */

@@ -13,15 +13,16 @@
  * DEFINE COMMON FUNCTIONS USED THROUGHOUT THE ACP AND OTHER SCRIPT.
  */
 
-/** Print string to web browser or command line. */
-function pf($str='', $webonly=false)
+/** Print message to web browser or command line. */
+function pf($msg='', $webonly=false)
 {
 	if (php_sapi_name() == 'cli') {
 		if ($webonly) return;
-		echo strip_tags($str) ."\n";
+		// echo strip_tags(html_entity_decode($msg, NULL, 'UTF-8')) ."\n";
+		echo strip_tags(str_replace(array('&nbsp;', '&gt;', '&lt;'), array(' ', '>', '<'), $msg)) ."\n";
 	} else {
-		if (!preg_match('#<br />#i', $str)) $str .= '<br />';
-		echo $str;
+		if (!preg_match('#<br|<h#i', $msg)) $msg .= '<br />';
+		echo $msg;
 		@ob_flush(); flush();
 	}
 }

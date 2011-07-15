@@ -46,8 +46,8 @@ if (!($GLOBALS['usr']->users_opt & 1048576)) {	// not is_admin
 	// Limit access for account moderators.
 	if ($GLOBALS['usr']->users_opt & 268435456) {	// account moderator
 		switch (basename($_SERVER['PHP_SELF'])) {
-			case 'admaccapr.php':
-			case 'admadduser.php':
+			case 'admuserapr.php':
+			case 'admuseradd.php':
 			case 'admuser.php':
 			case 'admusermerge.php':
 				break;

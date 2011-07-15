@@ -22,6 +22,7 @@ class fud_calendar
 		}
 	}
 
+	/** Add calendar entry. */
 	function add()
 	{
 		$tbl =& $GLOBALS['DBHOST_TBL_PREFIX'];
@@ -43,6 +44,7 @@ class fud_calendar
 		return $this->id;
 	}
 
+	/** Update calendar entry. */
 	function sync($id)
 	{
 		$tbl =& $GLOBALS['DBHOST_TBL_PREFIX'];
@@ -56,6 +58,7 @@ class fud_calendar
 		WHERE id='. (int)$id);
 	}
 
+	/** Remove calendar entry. */
 	function delete($id)
 	{
 		$tbl =& $GLOBALS['DBHOST_TBL_PREFIX'];
@@ -63,6 +66,7 @@ class fud_calendar
 		q('DELETE FROM '. $tbl .'calendar WHERE id = '. (int)$id);
 	}
 
+	/** Export calendar entries in vCal format. */
 	function export($year=null, $month=null)
 	{
 		$tbl =& $GLOBALS['DBHOST_TBL_PREFIX'];

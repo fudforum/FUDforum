@@ -15,7 +15,7 @@ class fud_xmlagg_adm
 	var $name, $url;
 
 	// General Settings.
-	var $forum_id, $id, $xmlagg_opt=2, $custom_sig;
+	var $forum_id, $id, $xmlagg_opt=10, $custom_sig;
 
 	function __construct()
 	{

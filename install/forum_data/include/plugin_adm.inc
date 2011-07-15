@@ -17,9 +17,9 @@ class fud_plugin
 		$ok = $err = null;
 
 		if (fud_plugin::is_active($name)) {
-			return;
+			return array(0, 'Already active!');
 		}
-		
+
 		// Call the plugin's enable function.
 		$plugin_file = basename($name);
 		$enable_func = substr($plugin_file, 0, strrpos($plugin_file, '.')) .'_enable';
@@ -51,7 +51,7 @@ class fud_plugin
 
 		// Call the plugin's disable function.
 		$plugin_file = basename($name);
-		$disable_func = substr($plugin_file, 0, strrpos($plugin_file, '.')) .'_enable';
+		$disable_func = substr($plugin_file, 0, strrpos($plugin_file, '.')) .'_disable';
 		if ((include_once($GLOBALS['PLUGIN_PATH'] .'/'. $name)) && function_exists($disable_func)) {
 				list($ok, $err) = $disable_func();
 				if ($err) return array(0, $err);

@@ -11,7 +11,7 @@
 
 class fud_page
 {
-	var	$id, $slug, $title, $foff, $length, $body, $created_by, $page_opt;
+	var	$id, $slug, $title, $foff, $length, $body, $created_by, $page_opt=1;
 
 	function __construct()
 	{
@@ -27,6 +27,7 @@ class fud_page
 		}
 	}
 
+	/** Add a static forum page. */
 	function add()
 	{
 		$tbl =& $GLOBALS['DBHOST_TBL_PREFIX'];
@@ -54,9 +55,11 @@ class fud_page
 			'. (int)$this->page_opt .'
 		)');
 
+		fud_page::enable_disable_pages_icon();
 		return $this->id;
 	}
 
+	/** Update a static forum page. */
 	function sync($id)
 	{
 		$tbl =& $GLOBALS['DBHOST_TBL_PREFIX'];
@@ -79,8 +82,11 @@ class fud_page
 			created_by='. (int)$this->created_by .',
 			page_opt='.   (int)$this->page_opt .'
 		WHERE id='. (int)$id);
+
+		fud_page::enable_disable_pages_icon();
 	}
 
+	/** Remove a static forum page. */
 	static function delete($id)
 	{
 		$tbl =& $GLOBALS['DBHOST_TBL_PREFIX'];
@@ -90,9 +96,29 @@ class fud_page
 		}
 
 		q('DELETE FROM '. $tbl .'pages WHERE id = '. (int)$id);
+
+		fud_page::enable_disable_pages_icon();
 	}
 
-	static function read_page_body($offset, $length)
+	/** Toggle PAGES_ENABLED to display 'pages icon' if we have pages that should be listed. */
+	static function enable_disable_pages_icon()
+	{
+		$FUD_OPT_3 = $GLOBALS['FUD_OPT_3'];
+		if (q_singleval('SELECT 1 FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'pages WHERE '. q_bitand('page_opt', 1) .' = 1 AND '. q_bitand('page_opt', 2) .' = 2')) {
+			$FUD_OPT_3 |= 536870912;	// Enable PAGES_ENABLED (536870912).
+		} else {
+			$FUD_OPT_3 &= ~536870912;	// Disable PAGES_ENABLED.
+		}
+
+		// Apply if setting changed.
+		if ($FUD_OPT_3 !== $GLOBALS['FUD_OPT_3']) {
+			fud_use('glob.inc', true);
+			change_global_settings(array('FUD_OPT_3' => $FUD_OPT_3));
+		}
+	}
+
+	/** Read a page from file or DB storage. */
+	static function read_page_body($offset, $length, $eval=0)
 	{
 		if ($length < 1) {
 			return;
@@ -107,9 +133,17 @@ class fud_page
 		$str = fread($fp, $length);
 		fclose($fp);
 
+		if ($eval) {	// Pages with embedded PHP code.
+			ob_start();
+			print eval('?>'. $str);
+			$str = ob_get_contents();
+			ob_end_clean();
+		}
+
 		return $str;
 	}
 
+	/** Write a page to file or DB storage. */
 	static function write_page_body($text)
 	{
 		if (($ll = !db_locked())) {

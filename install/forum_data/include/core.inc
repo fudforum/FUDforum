@@ -36,7 +36,7 @@ if (isset($_REQUEST['GLOBALS']) || isset($_FILES['GLOBALS'])) {
 // Deprecated as of PHP 5.3.0.
 if (get_magic_quotes_gpc()) {
 	$in = array(&$_GET, &$_POST, &$_COOKIE);
-	while (list($k,$v) = each($in)) {
+	while (list($k, $v) = each($in)) {
 		foreach ($v as $key => $val) {
 			if (!is_array($val)) {
 				$in[$k][$key] = stripslashes($val);
@@ -71,6 +71,7 @@ if ($GLOBALS['FUD_OPT_3'] & 4194304) {	// Plugins enabled.
 	include_once $GLOBALS['INCLUDE'] .'plugins.inc';
 }
 
+/** Explisteley include a file. */
 function fud_use($file, $static=0)
 {
 	if ($static) {
@@ -81,6 +82,12 @@ function fud_use($file, $static=0)
 	include_once $GLOBALS['INCLUDE'] . fud_theme . $file;
 }
 
+/** Auto load a class. */
+function __autoload( $className ) {
+	require_once($GLOBALS['INCLUDE'] . $className .'.inc');
+}
+
+/** Generate a random value. */
 function get_random_value($bitlength=32)
 {
 	$n = round($bitlength/32);
@@ -91,9 +98,11 @@ function get_random_value($bitlength=32)
 	return $v;
 }
 
+/** Get user's IP Address. */
 function get_ip()
 {
 	if (isset($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+		// If user is behind a proxy, this HTTP header might be added by its proxy to give you the real user IP, not the proxy one.
 		$ip = strtok($_SERVER['HTTP_X_FORWARDED_FOR'], ',');
 		do {
 			$ip = str_replace('::ffff:', '', $ip);
@@ -106,6 +115,8 @@ function get_ip()
 			 * 192.168.0.0 - 192.168.255.255
 			 * 127.0.0.1, 255.255.255.255, 0.0.0.0
 			*/
+
+			// TO DO: USE: if (filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_NO_PRIV_RANGE)) {
 			if (!$lip || (($lip >= 167772160) && ($lip <= 184549375)) || (($lip >= -1408237568) && ($lip <= -1407188993)) || (($lip >= -1062731776) && ($lip <= -1062666241)) || ($lip == 2130706433)) {
 				continue;
 			}
@@ -118,6 +129,7 @@ function get_ip()
 	return (!empty($ip) ? $ip : '0.0.0.0');
 }
 
+/** Replace empty string with NULL before DB insert. */
 function ssn($str)
 {
 	if ($str === null || $str === '') {
@@ -157,6 +169,7 @@ function __fud_cache($t)
 	return 0;
 }
 
+/** Log an error. */
 function fud_logerror($error_msg, $logfile) {
 	if (defined('plugins')) {
 		// Alter, log or block error message.
@@ -175,6 +188,7 @@ function fud_logerror($error_msg, $logfile) {
 	}
 }
 
+/** Database error handler. */
 function fud_sql_error_handler($query, $error_string, $error_number, $db_version)
 {
 	if (db_locked() && !in_array($query, array('COMMIT','COMMIT WORK','UNLOCK TABLES'))) {

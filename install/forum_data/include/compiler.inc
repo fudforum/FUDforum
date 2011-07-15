@@ -165,7 +165,7 @@ function resolve_sections($str)
 		switch ($tag) {
 			case 'MSG':
 				if (!isset($GLOBALS['MSG'][$name])) {
-					throw new Exception('Missing message entry '. $name .' inside i18n/'. $GLOBALS['__COMPILER__']['lang'].'/msg');
+					throw new Exception('Missing message entry; no "'. $name .'" inside i18n/'. $GLOBALS['__COMPILER__']['lang'] .'/msg');
 				}
 				$ret .= $GLOBALS['MSG'][$name]['data'];
 				//DEBUG: $ret .= $name .':'. $GLOBALS['MSG'][$name]['data'];

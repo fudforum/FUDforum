@@ -57,7 +57,7 @@ The domain of the cookie that will be used by the forum. For example, if your si
 The name of the cookie that will be used by the forum. Use different cookies if you have multiple forums on one site.}}}
 
 {{{SESSION_USE_URL	FUD_OPT_1	128
-Allow session ids to be passed not only via cookies but, via URL variables. Enable to allow users with cookies disabled to use the forum.}}}
+Allow session IDs to be passed via URL variables (as well as cookies). This should normally be disabled. Enable if your users cannot use cookies in their browsers, but if you do, use a small SESSION TIMEOUT value (for security).}}}
 
 #DATABASE SETTINGS
 
@@ -88,7 +88,7 @@ Database driver to load.}}}
 # SMTP SETTINGS
 
 {{{USE_SMTP	FUD_OPT_1	512
-Whether or not to use FUDforum SMTP gateway to send email instead of standard PHP mail() function. Not recommended, unless you need SMTP AUTH or wish to use alternate SMTP server on UNIX systems.}}}
+Whether or not to use FUDforum SMTP gateway to send E-mail instead of standard PHP mail() function. Not recommended, unless you need SMTP AUTH or wish to use alternate SMTP server on UNIX systems.}}}
 
 {{{FUD_SMTP_SERVER
 The IP address or host name of the SMTP server.}}}
@@ -157,7 +157,7 @@ Maximum length of the signature a user may have (0 for unlimited).}}}
 #OTHER FORUM OPTIONS 
 
 {{{ADMIN_EMAIL
-Email address of the forum administrator.}}}
+E-mail address of the forum administrator.}}}
 
 {{{COPPA	FUD_OPT_1	1048576
 Enable/disable the Children's Online Privacy Protection Act of 1998 (COPPA) check during new user registration.}}}
@@ -224,7 +224,7 @@ The length of time of non-activity before the forum considers a user no longer a
 The maximum number of images allowed per post. Set to 0 to allow unlimited images.}}}
 
 {{{NOTIFY_FROM
-The email address that all of the forum-generated email, such as notifications and welcome messages, should be sent as. This MUST be a valid email address that you have access to.}}}
+The E-mail address that all of the forum-generated email, such as notifications and welcome messages, should be sent as. This MUST be a valid E-mail address that you have access to.}}}
 
 {{{ANON_NICK
 The username that is attached to anonymous posts if anonymous posting is allowed.}}}
@@ -245,7 +245,7 @@ Enable/disable the ability for forum users to see what other forum users are doi
 Enable/disable the list of users who are currently using the forum on the front page. This option is a MUST be enabled if you want to enable the Allow Action List.}}}
 
 {{{EMAIL_CONFIRMATION	FUD_OPT_2	1
-Enable/disable email confirmation of new registered accounts. A special URL will be sent in the welcome email upon registration.}}}
+Enable/disable E-mail confirmation of new registered accounts. A special URL will be sent in the welcome E-mail upon registration.}}}
 
 {{{PUBLIC_STATS	FUD_OPT_2	2
 Enable/disable the showing of how long it took to generate the page.}}}
@@ -278,7 +278,7 @@ Up to how many moderators per forum to show on the front page.}}}
 Maximum number of smilies to display on the post forms.}}}
 
 {{{NOTIFY_WITH_BODY	FUD_OPT_2	64
-Include the message body and subject inside the email notification.}}}
+Include the message body and subject inside the E-mail notification.}}}
 
 {{{USE_ALIASES	FUD_OPT_2	128
 Allow users to specify a nick name, that will be used instead of a login name to identify those users on the forum.}}}
@@ -408,7 +408,7 @@ The PDF generation process can be fairly CPU intensive. This setting allows you 
 Whether or not to show a link (beside the message subject) to the message that the current message is a reply to.}}}
 
 {{{ALLOW_EMAIL	FUD_OPT_2	1073741824
-Enable/disable the forum's built-in email client.}}}
+Enable/disable the forum's built-in E-mail client (allowing members to send other members mail).}}}
 
 {{{SESSION_COOKIES	FUD_OPT_3	1
 Make the cookie last only for as long as the browser window is open. If a security is a major concern, turn this option on.}}}
@@ -500,8 +500,8 @@ Enable or disable the forum's built-in calendar.}}}
 {{{CALENDAR_SHOW_BIRTHDAYS	FUD_OPT_3	268435456
 Show forum member's birthdays on the built-in calendar.}}}
 
-{{{UNUSED	FUD_OPT_3	536870912
-Available for future use.}}}
+{{{PAGES_ENABLED	FUD_OPT_3	536870912
+Display pages icon on menu. This setting will automaticaaly be enaled if there are pages that should be shown in the List of Pages.}}}
 
 {{{FORUM_DEBUG	FUD_OPT_3	1073741824
 Debug the forum. Under normal conditions this should remain disabled.}}}
