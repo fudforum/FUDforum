@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -39,7 +39,7 @@ function &init_user()
 				$p[$i] = null;
 			}
 		}
-		
+
 		switch ($p[0]) {
 			case 'm': /* goto specific message */
 				$_GET['t'] = 0;
@@ -419,7 +419,7 @@ function &init_user()
 				if (!is_numeric($p[1])) {
 					$_GET[$p[1]] = $p[2];
 				} else {
-					$_GET['frm'] = $p[1];
+					$_GET['frm']  = $p[1];
 					$_GET['page'] = $p[2];
 				}
 				break;
@@ -618,7 +618,7 @@ function &init_user()
 			case 'mmd':
 				$_GET['t'] = 'mmd';
 				break;
-				
+
 			case 'cal':	/* Calendar */
 				$_GET['t'] = 'calendar';
 				break;
@@ -654,12 +654,13 @@ function &init_user()
 	if (!($u = ses_get())) {
 		/* New anon user. */
 		$u = ses_anon_make();
-	} else if ($u->id != 1 && (!$GLOBALS['is_post'] || sq_check(1, $u->sq, $u->id, $u->ses_id))) { /* Store the last visit date for registered user. */
+	} else if ($u->id != 1 && (!$GLOBALS['is_post'] || sq_check(1, $u->sq, $u->id, $u->ses_id))) {
+		/* Store the last visit date for registered user. */
 		q('UPDATE {SQL_TABLE_PREFIX}users SET last_visit='. __request_timestamp__ .' WHERE id='. $u->id);
-		if ($GLOBALS['FUD_OPT_3'] & 1) {
+		if ($GLOBALS['FUD_OPT_3'] & 1) {	// SESSION_COOKIES
 			setcookie($GLOBALS['COOKIE_NAME'], $u->ses_id, 0, $GLOBALS['COOKIE_PATH'], $GLOBALS['COOKIE_DOMAIN']);
 		}
-		if (!$u->sq || __request_timestamp__ - $u->last_visit > 180) {
+		if (!$u->sq || __request_timestamp__ - $u->last_visit > 180) {	// 3 min.
 			$u->sq = $sq = regen_sq($u->id);
 			if (!$GLOBALS['is_post']) {
 				$_GET['SQ'] = $sq;
@@ -670,6 +671,13 @@ function &init_user()
 			$sq =& $u->sq;
 		}
 	}
+
+	// Prevent spiders from doing funny stuff.
+	if (($u->users_opt & 1073741824) && $GLOBALS['is_post']) {	// is_spider
+		die('Go away!');
+	}
+
+	/* Disable caching for registered users and POST requests. */
 	if ($GLOBALS['is_post'] || $u->id > 1) {
 		header('Cache-Control: no-store, private, must-revalidate, proxy-revalidate, post-check=0, pre-check=0, max-age=0, s-maxage=0');
 		header('Expires: Mon, 21 Jan 1980 06:01:01 GMT');
@@ -679,7 +687,7 @@ function &init_user()
 	if ($u->data) {
 		$u->data = unserialize($u->data);
 	}
-	$uo = $u->users_opt = (int) $u->users_opt;
+	$uo = $u->users_opt = (int)$u->users_opt;
 
 	/* This should allow path_info & normal themes to work properly within 1 forum. */
 	if ($o2 & 32768 && !($u->theme_opt & 4)) {
@@ -713,10 +721,8 @@ function &init_user()
 		$GLOBALS['t'] = $_GET['t'] = t_thread_view;
 	}
 
-	/* Theme path. */
-	if (!defined('fud_theme')) {
-		define('fud_theme', 'theme/'. ($u->theme_name ? $u->theme_name : 'default') .'/');
-	}
+	/* Define theme path, may already be set by a plugin. */
+	defined('fud_theme') or define('fud_theme', 'theme/'. ($u->theme_name ? $u->theme_name : 'default') .'/');
 
 	/* Define _uid, which, will tell us if this is a 'real' user or not. */
 	define('__fud_real_user__', ($u->id != 1 ? $u->id : 0));
@@ -788,8 +794,8 @@ function user_register_thread_view($thread_id, $tm=__request_timestamp__, $msg_i
 
 function user_set_post_count($uid)
 {
-	$pd = db_saq('SELECT MAX(id),count(*) FROM {SQL_TABLE_PREFIX}msg WHERE poster_id='. $uid .' AND apr=1');
-	$level_id = (int) q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}level WHERE post_count <= '. $pd[1] .' ORDER BY post_count DESC LIMIT 1');
+	$pd = db_saq('SELECT MAX(id), count(*) FROM {SQL_TABLE_PREFIX}msg WHERE poster_id='. $uid .' AND apr=1');
+	$level_id = (int) q_singleval(q_limit('SELECT id FROM {SQL_TABLE_PREFIX}level WHERE post_count <= '. $pd[1] .' ORDER BY post_count DESC', 1));
 	q('UPDATE {SQL_TABLE_PREFIX}users SET u_last_post_id='. (int)$pd[0] .', posted_msg_count='. (int)$pd[1] .', level_id='. $level_id .' WHERE id='. $uid);
 }
 
@@ -849,7 +855,7 @@ function regen_sq($uid=__fud_real_user__)
 	return $sq;
 }
 
-if (isset($_SERVER['REMOTE_ADDR']) || !defined('forum_debug')) {
+if (isset($_SERVER['REMOTE_ADDR']) && !defined('no_session')) {
 	$GLOBALS['usr'] = init_user();
 }
 ?>

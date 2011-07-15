@@ -14,12 +14,12 @@
 	/* Only admins & moderators have access to this control panel. */
 	if (!_uid) {
 		std_error('login');
-	} else if (!($usr->users_opt & (1048576|524288))) {
+	} else if (!($usr->users_opt & (1048576|524288))) {	// NOT is_admin OR is_mod.
 		std_error('perms');
 	}
 
 	$appr = isset($_GET['appr']) ? (int) $_GET['appr'] : 0;
-	$del = isset($_GET['del']) ? (int) $_GET['del'] : 0;
+	$del  = isset($_GET['del'])  ? (int) $_GET['del']  : 0;
 
 	/* We need to determine wether or not the message exists & if the user has access to approve/delete it. */
 	if ($appr || $del) {
@@ -33,10 +33,12 @@
 
 		if (sq_check(0, $usr->sq)) {
 			if ($appr) {
-				logaction($usr->id, 'APPROVEMSG', $appr);
 				fud_msg_edit::approve($appr);
+				logaction($usr->id, 'APPROVEMSG', $appr);
 			} else if ($del) {
 				fud_msg_edit::delete(false, $del);
+// TODO: Create a new REJECTMSG action?
+				logaction($usr->id, 'DELMSG', $del);
 			}
 		}
 	}
@@ -73,10 +75,10 @@
 	ORDER BY v.id, m.post_stamp DESC', $POSTS_PER_PAGE));
 
 	$modque_message = '';
-	$m_num = 0;
+	$m_num          = 0;
 
 	/* Quick cheat to give us full access to the messages ;) */
-	$perms = 2147483647;
+	$perms         = 2147483647;
 	$_GET['start'] = 0;
 
 	$usr->md = 1;

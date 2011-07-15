@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -21,15 +21,13 @@
 		$names = addcslashes(implode(';', $_POST['names']), '"\\');
 ?>
 <html><body>
-<script type="text/javascript">
-/*  <![CDATA[ */
+<script>
 if (window.opener.document.forms['post_form'].msg_to_list.value.length > 0) {
 	window.opener.document.forms['post_form'].msg_to_list.value = window.opener.document.forms['post_form'].msg_to_list.value+';'+"<?php echo $names; ?>";
 } else {
 	window.opener.document.forms['post_form'].msg_to_list.value = window.opener.document.forms['post_form'].msg_to_list.value+"<?php echo $names; ?>";
 }
 window.close();
-/* ]]> */
 </script>
 </body></html>
 <?php

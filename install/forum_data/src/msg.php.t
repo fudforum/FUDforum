@@ -136,6 +136,20 @@
 			}
 		}
 
+		/* UnPublish thread. */
+		/* TODO: For future implementation.
+		if (isset($_GET['unpublish']) && $MOD && sq_check(0, $usr->sq)) {
+			echo "DEBUG: UNPUBLISH ALL MESSAGES IN THREAD [$th]<hr>";
+			q('UPDATE fud30_msg SET apr=0 WHERE thread_id='. $th);
+			if ($FUD_OPT_2 & 32768) {
+				header('Location: '. $GLOBALS['WWW_ROOT'] .'index.php/i/'. _rsidl);
+			} else {
+				header('Location: '. $GLOBALS['WWW_ROOT'] .'index.php?'. _rsidl);
+			}
+			exit;
+		}
+		*/
+
 		$first_unread_message_link = (($total - $th) > $count) ? '{TEMPLATE: first_unread_message_link}' : '';
 		$subscribe_status = $frm->subscribed ? '{TEMPLATE: unsub_to_thread}' : '{TEMPLATE: sub_from_thread}';
 		$bookmark_status  = $frm->bookmarked ? '{TEMPLATE: unbookmark_thread}' : '{TEMPLATE: bookmark_thread}';

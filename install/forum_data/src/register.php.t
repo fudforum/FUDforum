@@ -77,7 +77,7 @@ function register_form_check($user_id)
 {
 	/* New user specific checks. */
 	if (!$user_id) {
-		if (($reg_limit_reached = $GLOBALS['REG_TIME_LIMIT'] + q_singleval('SELECT join_date FROM {SQL_TABLE_PREFIX}users WHERE id='. q_singleval('SELECT MAX(id) FROM {SQL_TABLE_PREFIX}users')) - __request_timestamp__) > 0) {
+		if ($GLOBALS['REG_TIME_LIMIT'] > 0 && ($reg_limit_reached = $GLOBALS['REG_TIME_LIMIT'] + q_singleval('SELECT join_date FROM {SQL_TABLE_PREFIX}users WHERE id='. q_singleval('SELECT MAX(id) FROM {SQL_TABLE_PREFIX}users')) - __request_timestamp__) > 0) {
 			set_err('reg_time_limit', '{TEMPLATE: register_err_time_limit}');
 		}
 

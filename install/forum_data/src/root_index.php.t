@@ -92,10 +92,10 @@
 		case 'tree':
 			th_inc_view_count($msg_obj->thread_id);
 			if (_uid && $msg_obj) {
-				if ($msg_obj->last_forum_view < $msg_obj->post_stamp) {
+				if ($frm->last_forum_view < $msg_obj->post_stamp) {
 					user_register_forum_view($msg_obj->forum_id);
 				}
-				if ($msg_obj->last_view < $msg_obj->post_stamp) {
+				if ($frm->last_view < $msg_obj->post_stamp) {
 					user_register_thread_view($msg_obj->thread_id, $msg_obj->post_stamp, $msg_obj->id);
 				}
 			}

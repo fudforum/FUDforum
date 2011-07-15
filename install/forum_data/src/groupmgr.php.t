@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -129,6 +129,7 @@ function draw_tmpl_perm_table($perm, $perms, $names)
 			} else {
 				q('INSERT INTO {SQL_TABLE_PREFIX}group_members (group_members_opt, user_id, group_id) VALUES ('. $perm .', '. $usr_id .', '. $group_id .')');
 				grp_rebuild_cache(array($usr_id));
+				logaction(_uid, 'ADDGRP', $group_id, $gr_member);
 			}
 		} else if (($usr_id = q_singleval('SELECT user_id FROM {SQL_TABLE_PREFIX}group_members WHERE group_id='. $group_id .' AND id='. (int)$_POST['edit'])) !== null) {
 			if (q_singleval('SELECT user_id FROM {SQL_TABLE_PREFIX}group_members WHERE group_id='. $group_id .' AND user_id='. $usr_id .' AND group_members_opt>=131072 AND '. q_bitand('group_members_opt', 131072) .' > 0')) {
@@ -136,6 +137,9 @@ function draw_tmpl_perm_table($perm, $perms, $names)
 			}
 			q('UPDATE {SQL_TABLE_PREFIX}group_members SET group_members_opt='. $perm .' WHERE id='. (int)$_POST['edit']);
 			grp_rebuild_cache(array($usr_id));
+
+			$gr_member = q_singleval('SELECT alias FROM {SQL_TABLE_PREFIX}users WHERE id='. $usr_id);
+			logaction(_uid, 'EDITGRP', $group_id, $gr_member);
 		}
 		if (!$login_error) {
 			unset($_POST);
@@ -146,6 +150,9 @@ function draw_tmpl_perm_table($perm, $perms, $names)
 	if (isset($_GET['del']) && ($del = (int)$_GET['del']) && $group_id && sq_check(0, $usr->sq)) {
 		$is_gl = q_singleval('SELECT user_id FROM {SQL_TABLE_PREFIX}group_members WHERE group_id='. $group_id .' AND user_id='. $del .' AND group_members_opt>=131072 AND '. q_bitand('group_members_opt', 131072) .' > 0');
 		grp_delete_member($group_id, $del);
+		
+		$gr_member = q_singleval('SELECT alias FROM {SQL_TABLE_PREFIX}users WHERE id='. $del);
+		logaction(_uid, 'DELGRP', $group_id, $gr_member);
 
 		/* If the user was a group moderator, rebuild moderation cache. */
 		if ($is_gl) {

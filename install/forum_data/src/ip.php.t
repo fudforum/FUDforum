@@ -62,7 +62,8 @@ function fud_whois($ip)
 	if (isset($_POST['ip'])) {
 		$_GET['ip'] = $_POST['ip'];
 	}
-	$ip = isset($_GET['ip']) ? long2ip(ip2long($_GET['ip'])) : '';
+	$ip = isset($_GET['ip']) ? filter_var($_GET['ip'], FILTER_VALIDATE_IP) : '';
+
 	if (isset($_POST['user'])) {
 		$_GET['user'] = $_POST['user'];
 	}

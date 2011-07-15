@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -11,20 +11,21 @@
 
 /*{PRE_HTML_PHP}*/
 
+	// Check if Forum Search is enabled.
 	if (!($FUD_OPT_1 & 16777216)) {
 		std_error('disabled');
 	}
+
 	if (!isset($_GET['start']) || !($start = (int)$_GET['start'])) {
 		$start = 0;
 	}
-
-	$ppg = $usr->posts_ppg ? $usr->posts_ppg : $POSTS_PER_PAGE;
-	$srch = isset($_GET['srch']) ? trim((string)$_GET['srch']) : '';
+	$ppg           = $usr->posts_ppg ? $usr->posts_ppg : $POSTS_PER_PAGE;
+	$srch          = isset($_GET['srch']) ? trim((string)$_GET['srch']) : '';
 	$forum_limiter = isset($_GET['forum_limiter']) ? (string)$_GET['forum_limiter'] : '';
-	$field = !isset($_GET['field']) ? 'all' : ($_GET['field'] == 'subject' ? 'subject' : 'all');
-	$search_logic = (isset($_GET['search_logic']) && $_GET['search_logic'] == 'OR') ? 'OR' : 'AND';
-	$sort_order = (isset($_GET['sort_order']) && $_GET['sort_order'] == 'ASC') ? 'ASC' : 'DESC';
-	$attach = (isset($_GET['attach']) && $_GET['attach'] == '1') ? '1' : '0'; 
+	$field         = !isset($_GET['field']) ? 'all' : ($_GET['field'] == 'subject' ? 'subject' : 'all');
+	$search_logic  = (isset($_GET['search_logic']) && $_GET['search_logic'] == 'OR') ? 'OR' : 'AND';
+	$sort_order    = (isset($_GET['sort_order']) && $_GET['sort_order'] == 'ASC') ? 'ASC' : 'DESC';
+	$attach        = (isset($_GET['attach']) && $_GET['attach'] == '1') ? '1' : '0'; 
 	if (!empty($_GET['author'])) {
 		$author = (string) $_GET['author'];
 		$author_id = q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}users WHERE alias='. _esc($author));
@@ -48,14 +49,14 @@ function fetch_search_cache($qry, $start, $count, $logic, $srch_type, $order, $f
 	}
 
 	$qr = implode(',', $wa);
-	$i = count($wa);
+	$i  = count($wa);
 
 	if ($srch_type == 'all') {
 		$tbl = 'index';
-		$qt = '0';
+		$qt  = '0';
 	} else {
 		$tbl = 'title_index';
-		$qt = '1';
+		$qt  = '1';
 	}
 
 	$qry_lck = md5($qr);
@@ -135,8 +136,8 @@ function fetch_search_cache($qry, $start, $count, $logic, $srch_type, $order, $f
 /*{POST_HTML_PHP}*/
 
 	$search_options = tmpl_draw_radio_opt('field', "all\nsubject", "{TEMPLATE: search_entire_msg}\n{TEMPLATE: search_subject_only}", $field, '{TEMPLATE: radio_button_separator}');
-	$logic_options = tmpl_draw_select_opt("AND\nOR", "{TEMPLATE: search_and}\n{TEMPLATE: search_or}", $search_logic);
-	$sort_options = tmpl_draw_select_opt("DESC\nASC", "{TEMPLATE: search_desc_order}\n{TEMPLATE: search_asc_order}", $sort_order);
+	$logic_options  = tmpl_draw_select_opt("AND\nOR", "{TEMPLATE: search_and}\n{TEMPLATE: search_or}", $search_logic);
+	$sort_options   = tmpl_draw_select_opt("DESC\nASC", "{TEMPLATE: search_desc_order}\n{TEMPLATE: search_asc_order}", $sort_order);
 	$attach_options = tmpl_draw_select_opt("0\n1", "{TEMPLATE: search_attach_all}\n{TEMPLATE: search_attach_with}", $attach);
 
 	$TITLE_EXTRA = ': {TEMPLATE: search_title}';
@@ -144,7 +145,10 @@ function fetch_search_cache($qry, $start, $count, $logic, $srch_type, $order, $f
 	ses_update_status($usr->sid, '{TEMPLATE: search_update}');
 
 	if ($srch) {
-		if (!($c = fetch_search_cache($srch, $start, $ppg, $search_logic, $field, $sort_order, $forum_limiter, $total))) {
+
+		if (defined('plugins') && isset($plugin_hooks['SEARCH'])) {
+			plugin_call_hook('SEARCH', $srch);
+		} else if (!($c = fetch_search_cache($srch, $start, $ppg, $search_logic, $field, $sort_order, $forum_limiter, $total))) {
 			$search_data = '{TEMPLATE: no_search_results}';
 			$page_pager = '';
 		} else {
@@ -155,7 +159,7 @@ function fetch_search_cache($qry, $start, $count, $logic, $srch_type, $order, $f
 			}
 			unset($c);
 			$search_data = '{TEMPLATE: search_results}';
-			if ($FUD_OPT_2 & 32768) {
+			if ($FUD_OPT_2 & 32768) {	// USE_PATH_INFO?
 				$page_pager = tmpl_create_pager($start, $ppg, $total, '{ROOT}/s/'. urlencode($srch) .'/'. $field .'/'. $search_logic .'/'. $sort_order .'/'. ($forum_limiter ? $forum_limiter : 0) .'/', '/'. urlencode($author) .'/'. _rsid);
 			} else {
 				$page_pager = tmpl_create_pager($start, $ppg, $total, '{ROOT}?t=search&amp;srch='. urlencode($srch) .'&amp;field='. $field .'&amp;'. _rsid .'&amp;search_logic='. $search_logic .'&amp;sort_order='. $sort_order .'&amp;forum_limiter='. $forum_limiter .'&amp;author='. urlencode($author));

@@ -391,7 +391,7 @@ class fud_msg_edit extends fud_msg
 	static function approve($id)
 	{
 		/* Fetch info about the message, poll (if one exists), thread & forum. */
-		$mtf = db_sab('SELECT /* USE MASTER *
+		$mtf = db_sab('SELECT /* USE MASTER */
 					m.id, m.poster_id, m.apr, m.subject, m.foff, m.length, m.file_id, m.thread_id, m.poll_id, m.attach_cnt,
 					m.post_stamp, m.reply_to, m.mlist_msg_id, m.msg_opt,
 					t.forum_id, t.last_post_id, t.root_msg_id, t.last_post_date, t.thread_opt,

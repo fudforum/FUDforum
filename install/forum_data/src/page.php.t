@@ -12,20 +12,22 @@
 /*{PRE_HTML_PHP}*/
 
 if (isset($_GET['id'])) {
+	// Show a page.
 	if (is_numeric($_GET['id'])) {
-	      $page = db_sab('SELECT id, slug, title, foff, length FROM {SQL_TABLE_PREFIX}pages WHERE id='. (int)$_GET['id'] .' AND '. q_bitand('page_opt', 1) .' = 1');
+	      $page = db_sab('SELECT id, slug, title, foff, length, page_opt FROM {SQL_TABLE_PREFIX}pages WHERE id='. (int)$_GET['id'] . ($is_a ? '' : ' AND '. q_bitand('page_opt', 1) .' = 1'));
 	} else {
-	      $page = db_sab('SELECT id, slug, title, foff, length FROM {SQL_TABLE_PREFIX}pages WHERE slug='. _esc($_GET['id']) .' AND '. q_bitand('page_opt', 1) .' = 1');
+	      $page = db_sab('SELECT id, slug, title, foff, length, page_opt FROM {SQL_TABLE_PREFIX}pages WHERE slug='. _esc($_GET['id']) . ($is_a ? '' : ' AND '. q_bitand('page_opt', 1) .' = 1'));
 	}
 
 	$TITLE_EXTRA = ': '. $page->title;
 
 	fud_use('page_adm.inc', true);
-	$page->body = fud_page::read_page_body($page->foff, $page->length);
+	$page->body = fud_page::read_page_body($page->foff, $page->length, ($page->page_opt & 3));
 } else {
+	// Show a list of pages.
 	$page_list = '';
 	$i = 0;
-	$c = q('SELECT id, slug, title FROM {SQL_TABLE_PREFIX}pages WHERE '. q_bitand('page_opt', 1) .' = 1 AND '. q_bitand('page_opt', 2) .' != 2');
+	$c = q('SELECT id, slug, title FROM {SQL_TABLE_PREFIX}pages WHERE '. q_bitand('page_opt', 1) .' = 1 AND '. q_bitand('page_opt', 2) .' = 2');
 	while ($r = db_rowobj($c)) {
 		$page_list .= '{TEMPLATE: page_list_entry}';
 		$i++;
