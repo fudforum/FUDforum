@@ -20,6 +20,8 @@
 		q('UPDATE '. $tbl .'stats_cache SET most_online = (online_users_reg+online_users_anon+online_users_hidden), most_online_time ='. __request_timestamp__);
 		echo successify('The forum\'s "most online users" statistic was successfully reset.');
 	}
+
+	// Remove all forum sessions.
 	if (isset($_POST['btn_clear_sessions'])) {
 		q('DELETE FROM '. $tbl .'ses');
 		echo successify('All forum sessions were cleared.');
@@ -30,25 +32,29 @@
 <h2>Forum Dashboard</h2>
 
 <?php
+	/* Check for files that should be removed. */
 	if (@file_exists($WWW_ROOT_DISK .'install.php')) {
-		echo '<div class="alert dismiss" title="'. $WWW_ROOT_DISK .'install.php">Unless you want to <a href="../install.php">reinstall</a> your forum, please <a href="admbrowse.php?cur='. urlencode($WWW_ROOT_DISK) .'&amp;'. __adm_rsid .'#flagged">delete the install script</a> before a hacker does it for you.<br /></div>';
+		echo '<div class="alert dismiss" title="'. $WWW_ROOT_DISK .'install.php">Please <a href="../install.php">run</a> or <a href="admbrowse.php?cur='. urlencode($WWW_ROOT_DISK) .'&amp;'. __adm_rsid .'#flagged">delete</a> the <em>install</em> script before a hacker discovers it.<br /></div>';
 	}
 	if (@file_exists($WWW_ROOT_DISK .'uninstall.php')) {
-		echo '<div class="alert dismiss" title="'. $WWW_ROOT_DISK .'uninstall.php">Please <a href="../uninstall.php">run the uninstall script</a> or <a href="admbrowse.php?cur='. urlencode($WWW_ROOT_DISK) .'&amp;'. __adm_rsid .'#flagged">delete it</a> to prevent hackers from destroying your forum.<br /></div>';
+		echo '<div class="alert dismiss" title="'. $WWW_ROOT_DISK .'uninstall.php">Please <a href="../uninstall.php">run</a> or <a href="admbrowse.php?cur='. urlencode($WWW_ROOT_DISK) .'&amp;'. __adm_rsid .'#flagged">delete</a> the <em>uninstall</em> script before a hacker discovers it.<br /></div>';
 	}
 	if (@file_exists($WWW_ROOT_DISK .'upgrade.php')) {
-		echo '<div class="alert dismiss" title="'. $WWW_ROOT_DISK .'upgrade.php">Please <a href="../upgrade.php">run the upgrade script</a> and <a href="admbrowse.php?cur='. urlencode($WWW_ROOT_DISK) .'&amp;'. __adm_rsid .'#flagged">delete it</a> when you are done to prevent hackers from destroying your forum.<br /></div>';
+		echo '<div class="alert dismiss" title="'. $WWW_ROOT_DISK .'upgrade.php">Please <a href="../upgrade.php">run</a> or <a href="admbrowse.php?cur='. urlencode($WWW_ROOT_DISK) .'&amp;'. __adm_rsid .'#flagged">delete</a> the <em>upgrade</em> script before a hacker discovers it.<br /></div>';
 	}
 	if (@file_exists($WWW_ROOT_DISK .'unprotect.php')) {
-		echo '<div class="alert dismiss" title="'. $WWW_ROOT_DISK .'unprotect.php">Please <a href="admbrowse.php?cur='. urlencode($WWW_ROOT_DISK) .'&amp;'. __adm_rsid .'#flagged">delete the unprotect script</a> before a hacker destroys your forum.<br /></div>';
+		echo '<div class="alert dismiss" title="'. $WWW_ROOT_DISK .'unprotect.php">Please <a href="admbrowse.php?cur='. urlencode($WWW_ROOT_DISK) .'&amp;'. __adm_rsid .'#flagged">delete</a> the <em>unprotect</em> script before a hacker discovers it.<br /></div>';
+	}
+	if (@file_exists($WWW_ROOT_DISK .'fudforum_archive')) {
+		echo '<div class="alert dismiss" title="'. $WWW_ROOT_DISK .'forum_archive">You may <a href="admbrowse.php?cur='. urlencode($WWW_ROOT_DISK) .'&amp;'. __adm_rsid .'#flagged">delete</a> the <em>fudforum_archive</em> if you are done installing/upgrading your forum.<br /></div>';
 	}
 
-	/* Check load. */
+	/* Check server load. */
 	if (function_exists('sys_getloadavg') && ($load = sys_getloadavg()) && $load[0] > 25) {
 		echo '<div class="alert dismiss">You web server is quite busy (CPU load is '. $load[1] .'). This may impact your forum\'s performance!</div><br />';
 	}
 
-	/* Check version. */
+	/* Check forum version. */
 	if (@file_exists($FORUM_SETTINGS_PATH .'latest_version')) {
 		$verinfo = trim(file_get_contents($FORUM_SETTINGS_PATH .'latest_version'));
 		$display_ver = substr($verinfo, 0, strpos($verinfo, '::'));
@@ -91,7 +97,8 @@ Welcome to your forum's Admin Control Panel. From here you can control how your 
 
 	<div id="chart_div2" style="width: 400px; height: 300px;"></div>
 
-</td></tr></table>
+</td></tr>
+</table>
 
 <?php
 $day_list = array(date('D', strtotime('today'))   => 0, 
@@ -161,7 +168,6 @@ $registrations_per_day = array_values($registrations_per_day);
 			hAxis: {title: 'Days ago', titleTextStyle: {color: 'darkgreen'}}
 		});
 	}
-// });
 </script>
 
 <?php
