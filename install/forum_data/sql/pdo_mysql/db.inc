@@ -276,7 +276,7 @@ if (empty(db::$db)) {
 	}
 
 	/* Connect to slave, if specified. */
-	if (!empty($GLOBALS['DBHOST_SLAVE_HOST'])) {
+	if (!empty($GLOBALS['DBHOST_SLAVE_HOST']) && !$GLOBALS['is_post']) {
 		try {
 			db::$slave = new PDO($dsn, $GLOBALS['DBHOST_USER'], $GLOBALS['DBHOST_PASSWORD'], $opts);
 		} catch (PDOException $e) {

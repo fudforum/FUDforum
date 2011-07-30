@@ -16,7 +16,7 @@ if (!defined('fud_sql_lnk')) {
 	/* Connect to master database. */
 	$conn = @$connect_func($GLOBALS['DBHOST'], $GLOBALS['DBHOST_USER'], $GLOBALS['DBHOST_PASSWORD']) or fud_sql_error_handler('Initiating MasterDB '. $connect_func, mysql_error(), mysql_errno(), 'Unknown');
 	define('fud_sql_lnk', $conn);
-	@mysql_select_db($GLOBALS['DBHOST_DBNAME'], fud_sql_lnk) or fud_sql_error_handler('Opening MasterDB '. $GLOBALS['DBHOST_DBNAME'], mysql_error(fud_sql_lnk), mysql_errno(fud_sql_lnk), db_version());
+	@mysql_select_db($GLOBALS['DBHOST_DBNAME'], fud_sql_lnk) or fud_sql_error_handler('Opening MasterDB '. $GLOBALS['DBHOST_DBNAME'], mysql_error(fud_sql_lnk), mysql_errno(fud_sql_lnk), 'Unknown');
 	if (function_exists('mysql_set_charset')) {	// Requires PHP 5.2.3 and MySQL 5.0.7 or later.
 		mysql_set_charset('utf8');
 	} else {
@@ -24,7 +24,7 @@ if (!defined('fud_sql_lnk')) {
 	}
 
 	/* Connect to slave, if specified. */
-	if (!empty($GLOBALS['DBHOST_SLAVE_HOST'])) {
+	if (!empty($GLOBALS['DBHOST_SLAVE_HOST']) && !$GLOBALS['is_post']) {
 		$conn = @$connect_func($GLOBALS['DBHOST_SLAVE_HOST'], $GLOBALS['DBHOST_USER'], $GLOBALS['DBHOST_PASSWORD']);
 		if (!$conn) {
 			fud_logerror('Unable to init SlaveDB, fallback to MasterDB: '. mysql_error(), 'sql_errors');
@@ -72,7 +72,7 @@ function db_unlock()
 		unset($GLOBALS['__DB_INC_INTERNALS__']['db_locked']);
 		fud_sql_error_handler('DB_UNLOCK: no previous lock established', 'internal', 'internal', db_version());
 	}
-	
+
 	if (--$GLOBALS['__DB_INC_INTERNALS__']['db_locked'] < 0) {
 		unset($GLOBALS['__DB_INC_INTERNALS__']['db_locked']);
 		fud_sql_error_handler('DB_UNLOCK: unlock overcalled', 'internal', 'internal', db_version());

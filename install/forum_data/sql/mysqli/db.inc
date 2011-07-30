@@ -31,7 +31,7 @@ if (empty(db::$db)) {
 	db::$db->set_charset('utf8');
 
 	/* Connect to slave, if specified. */
-	if (!empty($GLOBALS['DBHOST_SLAVE_HOST'])) {
+	if (!empty($GLOBALS['DBHOST_SLAVE_HOST']) && !$GLOBALS['is_post']) {
 		db::$slave = new mysqli($GLOBALS['DBHOST'], $GLOBALS['DBHOST_USER'], $GLOBALS['DBHOST_PASSWORD'], $GLOBALS['DBHOST_DBNAME'], NULL, $socket);
 		if (mysqli_connect_errno()) {
 			fud_logerror('Unable to init SlaveDB, fallback to MasterDB: '. mysqli_connect_error(), 'sql_errors');
