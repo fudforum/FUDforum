@@ -15,6 +15,7 @@ function source_read_config($dir) {
 
 function source_db_connect() {
 	bbconn(	$GLOBALS['db_host'], 
+		null,
 		$GLOBALS['db_name'],
 		$GLOBALS['db_username'],
 		$GLOBALS['db_password'],

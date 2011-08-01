@@ -33,8 +33,9 @@ function seterr($msg)
 }
 
 /** Connect to the source forum's DB. */
-function bbconn($host, $dbname, $dbuser, $dbpass, $prefix, $dbtype='mysql') {
+function bbconn($host, $port, $dbname, $dbuser, $dbpass, $prefix, $dbtype='mysql') {
 	if (preg_match('/mysql/i', $dbtype)) {
+		if (!empty($port)) $host = $host .':'. $port;
 		if (!($conn = mysql_connect($host, $dbuser, $dbpass))) {
 			seterr('Unable to connect to the source forum\'s MySQL database.');
 		}
@@ -43,6 +44,7 @@ function bbconn($host, $dbname, $dbuser, $dbpass, $prefix, $dbtype='mysql') {
 		define('dbconn', $conn);
 	} else if (preg_match('/pgsql/i', $dbtype) || preg_match('/postgres/i', $dbtype)) {
 		$dsn = 'host='. $host .' dbname='. $dbname .' user='. $dbuser .' password='. $dbpass;
+		if (!empty($port)) $dsn .= ' port='. $port;
 		if (!($conn = pg_connect($dsn))) {
 			seterr('Unable to connect to the source forum\'s PostgreSQL database.');
 		}

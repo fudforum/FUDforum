@@ -30,6 +30,7 @@ function source_read_config($dir) {
 function source_db_connect() {
 	if (!strncmp($GLOBALS['db_pass'], 'b64:', 4)) $GLOBALS['db_pass'] = base64_decode(substr($GLOBALS['db_pass'], 4));
 	bbconn(	$GLOBALS['db_server'], 
+		null,
 		$GLOBALS['db_name'],
 		$GLOBALS['db_user'],
 		$GLOBALS['db_pass'],
