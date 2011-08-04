@@ -44,7 +44,7 @@ class fud_msg_edit extends fud_msg
 		$this->host_name = $GLOBALS['FUD_OPT_1'] & 268435456 ? _esc(get_host($this->ip_addr)) : 'NULL';
 		$this->thread_id = isset($this->thread_id) ? $this->thread_id : 0;
 		$this->reply_to = isset($this->reply_to) ? $this->reply_to : 0;
-		$this->subject = substr($this->subject, 0, 100);	// Subject col is VARCHAR(100).
+		$this->subject = substr($this->subject, 0, 255);	// Subject col is VARCHAR(255).
 
 		if ($GLOBALS['FUD_OPT_3'] & 32768) {	// DB_MESSAGE_STORAGE
 			$file_id = $file_id_preview = $length_preview = 0;
@@ -153,7 +153,7 @@ class fud_msg_edit extends fud_msg
 
 	function sync($id, $frm_id, $message_threshold, $perm, $msg_tdescr='')
 	{
-		$this->subject = substr($this->subject, 0, 100);	// Subject col is VARCHAR(100).
+		$this->subject = substr($this->subject, 0, 255);	// Subject col is VARCHAR(255).
 
 		if ($GLOBALS['FUD_OPT_3'] & 32768) {	// DB_MESSAGE_STORAGE
 			$file_id = $file_id_preview = $length_preview = 0;

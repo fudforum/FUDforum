@@ -23,7 +23,7 @@ CREATE TABLE {SQL_TABLE_PREFIX}msg
 	updated_by	INT NOT NULL DEFAULT 0,
 	icon		VARCHAR(100),
 
-	subject		VARCHAR(100) NOT NULL DEFAULT '',
+	subject		VARCHAR(255) NOT NULL DEFAULT '',
 	attach_cnt	INT NOT NULL DEFAULT 0,
 	poll_id		INT NOT NULL DEFAULT 0,
 	foff		BIGINT NOT NULL DEFAULT 0,
@@ -43,15 +43,15 @@ CREATE TABLE {SQL_TABLE_PREFIX}msg
 	flag_country		VARCHAR(50)
 );
 
-CREATE INDEX {SQL_TABLE_PREFIX}msg_i_ta ON {SQL_TABLE_PREFIX}msg (thread_id, apr);
-CREATE INDEX {SQL_TABLE_PREFIX}msg_i_ps ON {SQL_TABLE_PREFIX}msg (post_stamp);
-CREATE INDEX {SQL_TABLE_PREFIX}msg_i_pa ON {SQL_TABLE_PREFIX}msg (poster_id, apr);
-CREATE INDEX {SQL_TABLE_PREFIX}msg_i_a ON {SQL_TABLE_PREFIX}msg (apr);
-CREATE INDEX {SQL_TABLE_PREFIX}msg_i_ac ON {SQL_TABLE_PREFIX}msg (attach_cnt);
-CREATE INDEX {SQL_TABLE_PREFIX}msg_i_pi ON {SQL_TABLE_PREFIX}msg (poll_id);
-CREATE INDEX {SQL_TABLE_PREFIX}msg_i_ip ON {SQL_TABLE_PREFIX}msg (ip_addr, post_stamp);
+CREATE INDEX {SQL_TABLE_PREFIX}msg_i_ta  ON {SQL_TABLE_PREFIX}msg (thread_id, apr);
+CREATE INDEX {SQL_TABLE_PREFIX}msg_i_ps  ON {SQL_TABLE_PREFIX}msg (post_stamp);
+CREATE INDEX {SQL_TABLE_PREFIX}msg_i_pa  ON {SQL_TABLE_PREFIX}msg (poster_id, apr);
+CREATE INDEX {SQL_TABLE_PREFIX}msg_i_a   ON {SQL_TABLE_PREFIX}msg (apr);
+CREATE INDEX {SQL_TABLE_PREFIX}msg_i_ac  ON {SQL_TABLE_PREFIX}msg (attach_cnt);
+CREATE INDEX {SQL_TABLE_PREFIX}msg_i_pi  ON {SQL_TABLE_PREFIX}msg (poll_id);
+CREATE INDEX {SQL_TABLE_PREFIX}msg_i_ip  ON {SQL_TABLE_PREFIX}msg (ip_addr, post_stamp);
 CREATE INDEX {SQL_TABLE_PREFIX}msg_i_mmi ON {SQL_TABLE_PREFIX}msg (mlist_msg_id);
-CREATE INDEX {SQL_TABLE_PREFIX}msg_i_s ON {SQL_TABLE_PREFIX}msg (subject);
+CREATE INDEX {SQL_TABLE_PREFIX}msg_i_s   ON {SQL_TABLE_PREFIX}msg (subject);
 
 # 1 show_sig
 # 2 smiley_disabled
