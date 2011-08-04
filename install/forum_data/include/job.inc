@@ -259,12 +259,12 @@ class fud_job
 	}
 
 	/** Return the next run time bit for a cron field. Used by next_run_time().
-	 *  For example: build_next_run_bit('0,15,30,45', 20) will return 30.
+	 *  For example: next_run_bit('0,15,30,45', 20) will return 30.
 	 */
 	private function next_run_bit($data, $bit)
 	{
 		if ($data == '*') return $bit;
-		$data = explode(',', $data);
+		$data = explode(',', $this->expand_run_bits($data));
 		foreach($data as $thing) {
 			if ($thing > $bit) {
 				return $thing;
@@ -277,7 +277,7 @@ class fud_job
 	private function run_time_exists($data, $bit)
 	{
 		if ($data == '*') return true;
-		$data = explode(',', $data);
+		$data = explode(',', $this->expand_run_bits($data));
 		if (in_array($bit, $data)) {
 			return true;
 		}
@@ -288,8 +288,25 @@ class fud_job
 	private function first_run_time($data)
 	{
 		if ($data == '*') return '0';
-		$data = explode(',', $data);
+		$data = explode(',', $this->expand_run_bits($data));
 		return $data[0];
+	}
+
+	/** Expand "EVERY N" notation to a list of data bits.
+	 *  For example: '*'/5 => "0,5,10,15,20,25,30,35,40,45,50,55".
+	 */
+	private function expand_run_bits($data)
+	{
+		if (strpos($data, '/') !== false) {
+			$parts = array_map('trim', explode('/', $data, 2));
+			if ($parts[0] == '*' && (int)$parts[1] > 0) {
+				$data='';
+				for($i=0; $i<60; $i+=(int)$parts[1]) $data .= ','. $i;
+			}
+			$data = substr($data, 1);	// Remove leading comma.
+		}
+
+		return $data;
 	}
 
 }

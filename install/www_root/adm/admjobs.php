@@ -207,7 +207,7 @@
 			<td><small>
 				[<a href="admjobs.php?edit='. $r->id .'&amp;'. __adm_rsid .'#edit">Edit</a>]
 				[<a href="admjobs.php?del='.  $r->id .'&amp;'. __adm_rsid .'">Delete</a>] &nbsp;|&nbsp; '.
-				($running ? '' : '[<a href="admjobs.php?run='. $r->id .'&amp;'. __adm_rsid .'#list">Run now!</a>]') .'
+				(($running || empty($GLOBALS['PHP_CLI'])) ? '' : '[<a href="admjobs.php?run='. $r->id .'&amp;'. __adm_rsid .'#list">Run now!</a>]') .'
 				[<a href="admjobs.php?log='.  $r->id .'&amp;'. __adm_rsid .'&amp;rand='. rand() .'#output">View Log</a>]
 			</small></td></tr>';
 	}
