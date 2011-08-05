@@ -1,4 +1,4 @@
-#   copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+#   copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 #   email                : forum@prohost.org
 #
 #   $Id$
@@ -19,4 +19,4 @@ CREATE TABLE {SQL_TABLE_PREFIX}read
 );
 
 CREATE UNIQUE INDEX {SQL_TABLE_PREFIX}read_i_tu ON {SQL_TABLE_PREFIX}read (thread_id, user_id);
-CREATE INDEX {SQL_TABLE_PREFIX}read_i_u ON {SQL_TABLE_PREFIX}read (user_id);
+CREATE        INDEX {SQL_TABLE_PREFIX}read_i_u  ON {SQL_TABLE_PREFIX}read (user_id);

@@ -1,4 +1,4 @@
-#   copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+#   copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 #   email                : forum@prohost.org
 #
 #   $Id$
@@ -17,4 +17,4 @@ CREATE TABLE {SQL_TABLE_PREFIX}group_resources
 );
 
 CREATE INDEX {SQL_TABLE_PREFIX}group_resources_i_gr ON {SQL_TABLE_PREFIX}group_resources (group_id, resource_id);
-CREATE INDEX {SQL_TABLE_PREFIX}group_resources_i_r ON {SQL_TABLE_PREFIX}group_resources (resource_id);
+CREATE INDEX {SQL_TABLE_PREFIX}group_resources_i_r  ON {SQL_TABLE_PREFIX}group_resources (resource_id);

@@ -1,4 +1,4 @@
-#   copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+#   copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 #   email                : forum@prohost.org
 #
 #   $Id$
@@ -18,4 +18,4 @@ CREATE TABLE {SQL_TABLE_PREFIX}fc_view
 );
 
 CREATE UNIQUE INDEX {SQL_TABLE_PREFIX}fc_view_i_f ON {SQL_TABLE_PREFIX}fc_view (f);
-CREATE INDEX {SQL_TABLE_PREFIX}fc_view_i_c ON {SQL_TABLE_PREFIX}fc_view (c);
+CREATE        INDEX {SQL_TABLE_PREFIX}fc_view_i_c ON {SQL_TABLE_PREFIX}fc_view (c);

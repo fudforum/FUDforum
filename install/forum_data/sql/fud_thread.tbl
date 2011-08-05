@@ -1,4 +1,4 @@
-#   copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+#   copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 #   email                : forum@prohost.org
 #
 #   $Id$
@@ -26,10 +26,10 @@ CREATE TABLE {SQL_TABLE_PREFIX}thread
 	tdescr		VARCHAR(200)
 );
 
-CREATE INDEX {SQL_TABLE_PREFIX}thread_i_flm ON {SQL_TABLE_PREFIX}thread (forum_id,moved_to);
-CREATE INDEX {SQL_TABLE_PREFIX}thread_i_t ON {SQL_TABLE_PREFIX}thread (thread_opt);
+CREATE INDEX {SQL_TABLE_PREFIX}thread_i_flm ON {SQL_TABLE_PREFIX}thread (forum_id, moved_to);
+CREATE INDEX {SQL_TABLE_PREFIX}thread_i_t   ON {SQL_TABLE_PREFIX}thread (thread_opt);
 CREATE INDEX {SQL_TABLE_PREFIX}thread_i_rmi ON {SQL_TABLE_PREFIX}thread (root_msg_id);
-CREATE INDEX {SQL_TABLE_PREFIX}thread_i_r ON {SQL_TABLE_PREFIX}thread (replies);
+CREATE INDEX {SQL_TABLE_PREFIX}thread_i_r   ON {SQL_TABLE_PREFIX}thread (replies);
 
 # 1 locked
 # 2 is_sticky ANNOUNCE

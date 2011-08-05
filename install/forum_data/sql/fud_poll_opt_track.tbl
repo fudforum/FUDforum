@@ -20,5 +20,5 @@ CREATE TABLE {SQL_TABLE_PREFIX}poll_opt_track
 
 CREATE UNIQUE INDEX {SQL_TABLE_PREFIX}poll_opt_track_i_pu ON {SQL_TABLE_PREFIX}poll_opt_track (poll_id, user_id, ip_addr);
 
-// If user_id == 0 (anonymous), look at ip_addr.
+# If user_id == 0 (anonymous), look at ip_addr.
 

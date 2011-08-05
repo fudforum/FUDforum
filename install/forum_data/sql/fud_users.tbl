@@ -1,4 +1,4 @@
-#   copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+#   copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 #   email                : forum@prohost.org
 #
 #   $Id$
@@ -76,16 +76,16 @@ CREATE TABLE {SQL_TABLE_PREFIX}users
 	custom_fields		TEXT
 );
 
-CREATE UNIQUE INDEX {SQL_TABLE_PREFIX}users_i_l ON {SQL_TABLE_PREFIX}users (login);
-CREATE UNIQUE INDEX {SQL_TABLE_PREFIX}users_i_e ON {SQL_TABLE_PREFIX}users (email);
-CREATE UNIQUE INDEX {SQL_TABLE_PREFIX}users_i_a ON {SQL_TABLE_PREFIX}users (alias);
-CREATE INDEX {SQL_TABLE_PREFIX}users_i_rk ON {SQL_TABLE_PREFIX}users (reset_key);
-CREATE INDEX {SQL_TABLE_PREFIX}users_i_lv ON {SQL_TABLE_PREFIX}users (last_visit);
-CREATE INDEX {SQL_TABLE_PREFIX}users_i_ck ON {SQL_TABLE_PREFIX}users (conf_key);
-CREATE INDEX {SQL_TABLE_PREFIX}users_i_ri ON {SQL_TABLE_PREFIX}users (referer_id);
-CREATE INDEX {SQL_TABLE_PREFIX}users_i_uo ON {SQL_TABLE_PREFIX}users (users_opt);
-CREATE INDEX {SQL_TABLE_PREFIX}users_i_jd ON {SQL_TABLE_PREFIX}users (join_date);
-CREATE INDEX {SQL_TABLE_PREFIX}users_i_bd ON {SQL_TABLE_PREFIX}users (birthday);
+CREATE UNIQUE INDEX {SQL_TABLE_PREFIX}users_i_l  ON {SQL_TABLE_PREFIX}users (login);
+CREATE UNIQUE INDEX {SQL_TABLE_PREFIX}users_i_e  ON {SQL_TABLE_PREFIX}users (email);
+CREATE UNIQUE INDEX {SQL_TABLE_PREFIX}users_i_a  ON {SQL_TABLE_PREFIX}users (alias);
+CREATE        INDEX {SQL_TABLE_PREFIX}users_i_rk ON {SQL_TABLE_PREFIX}users (reset_key);
+CREATE        INDEX {SQL_TABLE_PREFIX}users_i_lv ON {SQL_TABLE_PREFIX}users (last_visit);
+CREATE        INDEX {SQL_TABLE_PREFIX}users_i_ck ON {SQL_TABLE_PREFIX}users (conf_key);
+CREATE        INDEX {SQL_TABLE_PREFIX}users_i_ri ON {SQL_TABLE_PREFIX}users (referer_id);
+CREATE        INDEX {SQL_TABLE_PREFIX}users_i_uo ON {SQL_TABLE_PREFIX}users (users_opt);
+CREATE        INDEX {SQL_TABLE_PREFIX}users_i_jd ON {SQL_TABLE_PREFIX}users (join_date);
+CREATE        INDEX {SQL_TABLE_PREFIX}users_i_bd ON {SQL_TABLE_PREFIX}users (birthday);
 
 # Opts
 # 1 display_email (ON/OFF)
