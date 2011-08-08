@@ -20,7 +20,7 @@ function plugin_addthis($array) {
 	}
 
 	$addthis_code = '
-<div class="addthis_toolbox addthis_default_style '. ($ini['ADDTHIS_BUTTON_SIZE'] ? 'addthis_32x32_style' : '') .'" style="'. $ini['ADDTHIS_ALIGN'] .' clear:right;">';
+<div class="addthis_toolbox addthis_default_style '. ($ini['ADDTHIS_BUTTON_SIZE'] ? 'addthis_32x32_style' : '') .'" style="'. $ini['ADDTHIS_ALIGN'] .'; clear:right;">';
 
 	for ($i = 1; $i < $ini['ADDTHIS_BUTTON_CNT']; $i++) {
 		$addthis_code .= '<a class="addthis_button_preferred_'. $i .'"></a>';
@@ -53,6 +53,7 @@ function addthis_disable() {
 function addthis_info() {
 	return array('name' => 'AddThis',
 				'desc' => 'Show Social Bookmarking Widgets from AddThis.com next to forum posts. This will allow visitors to bookmark and share your site easily with several popular services.',
+				'cat'  => 'Third-party Integration',
 				'version' => '1.1');
 }
 
@@ -76,8 +77,8 @@ function addthis_config() {
 	?>
 <p>Display position:<br />
 <select name="ADDTHIS_POS">
-<option value="before_topic" <?php if($ini['ADDTHIS_POS']=='before_topic') echo 'selected="selected"'; ?>>Before topic.</option>
-<option value="after_topic"  <?php if($ini['ADDTHIS_POS']=='after_topic' ) echo 'selected="selected"'; ?>>After topic. </option>
+<option value="before_topic" <?php if($ini['ADDTHIS_POS']=='before_topic') echo 'selected="selected"'; ?>>Before topic</option>
+<option value="after_topic"  <?php if($ini['ADDTHIS_POS']=='after_topic' ) echo 'selected="selected"'; ?>>After topic</option>
 </select>
 
 <p>Horizontal alignment:<br />
