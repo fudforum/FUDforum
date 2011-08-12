@@ -259,7 +259,7 @@ function write_body_copy($data, &$len, &$offset, $file_id, $forum_id)
 	if ($i_count) {
 		$c = q('SELECT id, foff, length FROM '. $tbl .'pmsg');
 
-		while ($r = db_rowonj($c)) {
+		while ($r = db_rowobj($c)) {
 			$data = fud_page::read_pmsg_body($r->foff, $r->length);
 
 			if (!empty($_POST['fromcharset']) || !empty($_POST['tocharset'])) {
