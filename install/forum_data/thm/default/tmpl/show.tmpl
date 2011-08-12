@@ -12,7 +12,7 @@
 
 {MAIN_SECTION: show_links the links that you see on index/thread/msg page that allow you to access selmsg}
 <span class="GenText fb">{MSG: show_show}</span>
-<a href="{TEMPLATE: show_links_lnk}" title="{MSG: todays_posts_desc}">{MSG: todays_posts}</a>&nbsp;
+<a href="{TEMPLATE: show_links_lnk}" title="{MSG: todays_posts_desc}">{MSG: todays_posts}</a>
 {IF: _uid}{TEMPLATE: unread_posts}{ENDIF}
 {IF: !$th}{TEMPLATE: unanswered_posts}{ENDIF}
 <b>::</b> <a href="{TEMPLATE: show_links_lnk1}">{MSG: show_pollist}</a>
@@ -24,7 +24,7 @@
 {SECTION: END}
 
 {SECTION: unanswered_posts}
-<b>::</b> <a href="{TEMPLATE: unanswered_posts_lnk}" title="{MSG: unanswered_posts_desc}">{MSG: unanswered_posts}</a>
+<b>::</b> <a href="{TEMPLATE: unanswered_posts_lnk}" title="{MSG: unanswered_posts_desc}">{MSG: unanswered_posts}</a>&nbsp;
 {SECTION: END}
 
 {SECTION: unread_posts_lnk}

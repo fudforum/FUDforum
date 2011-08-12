@@ -221,8 +221,8 @@
 if (isset($total_disk_usage)) {
 	$tot = $sql_disk_usage + (int)$total_disk_usage;
 	$db  = $sql_disk_usage / $tot *100;
-	$web  = $disk_usage_array['DATA_DIR']      / $tot *100;
-	$data = $disk_usage_array['WWW_ROOT_DISK'] / $tot *100;
+	$data  = $disk_usage_array['DATA_DIR']      / $tot *100;
+	$web = $disk_usage_array['WWW_ROOT_DISK'] / $tot *100;
 	if ($db < 1) $db = 1;
 ?>
 <h4>Disk Usage:</h4>
@@ -233,7 +233,7 @@ if (isset($total_disk_usage)) {
 <tr class="field">
 	<td><b>Web directories:</b><br /><span style="font-size: x-small;"><?php echo $WWW_ROOT_DISK; ?><br />This is where all the forum's web browseable files are stored</span></td>
 	<td align="right" valign="top"><?php echo number_format($disk_usage_array['WWW_ROOT_DISK']/1024); ?> KB</td>
-	<td rowspan="3" width="250px"> <img src="https://chart.googleapis.com/chart?cht=p3&amp;chs=250x100&amp;chd=t:<?php echo (int)$db .','. (int)$web .','. (int)$date; ?>&amp;chl=DB|Web files|Data files" align="right" /> <td>
+	<td rowspan="3" width="250px"> <img src="https://chart.googleapis.com/chart?cht=p3&amp;chs=250x100&amp;chd=t:<?php echo (int)$db .','. (int)$web .','. (int)$data; ?>&amp;chl=DB|Web files|Data files" align="right" /> <td>
 </tr>
 
 <tr class="field">
