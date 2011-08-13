@@ -19,7 +19,7 @@ A map consists of a series of SOURCE_* functions (for example source_load_users)
 All these functions are optional and a map file only contains the functions it
 requires. These functions will retrieve information from the source forum and map
 it into an array, which is then passed back to the converter to add to FUDforum.
-As an example, source_source_load_users() will make callbacks to target_load_user()
+As an example, source_load_users() will make callbacks to target_load_user()
 to add users to FUDforum.
 
 INSTRUCTIONS:
@@ -30,9 +30,9 @@ INSTRUCTIONS:
 
 2. Download and copy the conversion script to your forum's WWW_ROOT directory.
 
-3. Run the script from a web browser or from command line (pick one).
+3. Run the script from a web browser or from command line (pick one below).
 
-3.1. Start the script by navigating to http://your.form.com/forum/convert.php
+3.1. Start the script by navigating to http://your.forum.com/forum/convert.php
      Select the source forum type and enter the full path to where it is installed.
 
 3.2. Command line installation is preferred for large forums.
@@ -58,6 +58,6 @@ KNOWN PROBLEMS AND RESTRICTIONS:
 2. The target forum cannot use Micrososft SQL Server. Will get error: 
 	Cannot insert explicit value for identity column in table 'tablename' when IDENTITY_INSERT is set to OFF.
 
-2. After conversion, login to the forum (not the ACP!).
+2. After conversion, login via the forum (not the ACP!).
    The ACP will not invoke authentication plugins and may not allow you to
    log in (first time only).
