@@ -4,14 +4,14 @@
 # Author: Naudefj
 # Author: Srhat
 # Author: Stultiwikia
+# Author: Tarikozket
 # Author: Tufan
 # Author: Vito Genovese
 
 action:Eylem
 add_to_buddy_list:Arkadaş listesine ekle
 admin:Yönetici
-# Fuzzy
-admin_control_panel:Yönetici Denetim Masası
+admin_control_panel:Yönetim
 administrator:Yönetici
 attachment:Ek:
 avatar:Avatar:
@@ -102,6 +102,7 @@ new_thread:Konu aç
 newest_user:En son kayıt olan kullanıcı:
 next_page:Sonraki sayfa
 next_thread:Sonraki konu:
+# Fuzzy
 no_messages:Bu forumda ileti yok
 no_msg_body:İleti gövdesi yok
 no_new_posts:Yeni ileti yok
@@ -1137,6 +1138,9 @@ feed_rss:RSS2 yayını
 feed_atom:ATOM yayını
 ip_whois_connect_err:WHOIS sunucusuna ({VAR: whois_server}) bağlanamıyor: {VAR: errstr}
 custom_filed_required:Bu alan gereklidir.
+pages:Sayfalar
 page_list_heading:Mevcut sayfalar
 page_list_total:$1 sayfa listelendi.
 page_update:Sayfaya göz atıyor
+pm_export_header:Özel iletiler için: {VAR: usr->alias}
+pm_export_footer:Çıkartılan:

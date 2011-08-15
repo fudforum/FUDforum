@@ -92,6 +92,7 @@ new_thread:أنشئ موضوعًا جديدًا
 newest_user:أحدث مستخدم مُسجل هو
 next_page:الصفحه التالية
 next_thread:الموضوع التالي
+# Fuzzy
 no_messages:لا توجد رسائل فى هذا المنتدى.
 no_msg_body:لا جسم للرسالة
 no_new_posts:لا رسائل جديدة

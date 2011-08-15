@@ -98,6 +98,7 @@ new_thread:Tạo một chủ đề mới
 newest_user:Thành viên mới đăng ký là
 next_page:Trang kế
 next_thread:Chủ đề kế tiếp:
+# Fuzzy
 no_messages:Không có bài viết trong diễn đàn này
 no_msg_body:Không có nội dung bài viết
 no_new_posts:Không có bài viết mới
@@ -217,7 +218,7 @@ move_to:Chuyển đến:
 list_referes_member:Thành Viên
 referals_post_count:Số bài viết
 referals_registered_on:Đăng ký vào
-referals_action:Hànhđộng
+referals_action:Hành động
 pmsg_all:tất cả
 pmsg_none:không
 folder:Thư mục:

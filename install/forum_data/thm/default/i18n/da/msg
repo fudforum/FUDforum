@@ -99,6 +99,7 @@ new_thread:Opret et nyt emne
 newest_user:Den nyeste registrerede bruger er
 next_page:Næste side
 next_thread:Næste emne:
+# Fuzzy
 no_messages:Der er ingen indlæg i dette forum.
 no_msg_body:Ingen beskedstekst
 no_new_posts:Ingen nye indlæg

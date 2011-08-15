@@ -3,6 +3,7 @@
 # Author: Cyklopas
 # Author: Eitvys200
 # Author: Ignas693
+# Author: Naudefj
 
 action:Veiksmas
 add_to_buddy_list:įdėti į bičiulių sąrašą
@@ -100,6 +101,7 @@ new_thread:Sukurti naują temą
 newest_user:Naujausias registruotas narys yra
 next_page:Sekantis puslapis
 next_thread:Sekanti tema:
+# Fuzzy
 no_messages:Nėra naujų pranešimų šiame forume.
 no_msg_body:Tuščia žinutė
 no_new_posts:Nėra naujų pranešimų
@@ -620,6 +622,7 @@ post_err_lockedthread_msg:Ši tema užrakinta. Rašymas nebeleidžiamas.
 err_coppa_title:KLAIDA: jūsų sąskaita dar nepatvirtinta
 err_coppa_msg:Mes negavome iš jūsų tėvų ir / ar teisėtų globėjų, patvirtinimo kuris leistų jums rašyti žinutes. Jei Jūs pametėte savo COPPA forma, <a href="{TEMPLATE: err_coppa_msg_lnk}">peržiūrėkit ją vėl</a> .
 err_banned_acct_title:KLAIDA: Jūs buvote užblokuotas.
+# Fuzzy
 err_banned_acct_msg:Jūsų paskyra buvo {JEI: $ ban_expiry} laikinai uždrausta, kol {DATE: ban_expiry%, %d % B% Y %H:% M} {DAR} visam laikui uždrausta {Endi} kreiptis į svetainę, nes pažeidimas forumo taisykles.
 post_err_edttimelimit_title:KLAIDA
 post_err_edttimelimit_msg:Nebegalite redaguoti šios žinutės

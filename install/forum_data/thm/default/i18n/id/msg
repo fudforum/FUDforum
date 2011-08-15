@@ -100,6 +100,7 @@ new_thread:Buat topic baru
 newest_user:Anggota terbaru
 next_page:Halaman berikutnya
 next_thread:Topik berikutnya:
+# Fuzzy
 no_messages:Belum ada pesan di forum ini
 no_msg_body:Tidak ada isi pesan
 no_new_posts:Tidak ada pesan baru
@@ -342,7 +343,7 @@ register_bio:Biografi:
 register_bio_desc:Beberapa keterangan mengenai anda, misalkan hobi, pekerjaan, dll.
 register_prefs:Kesukaan
 register_sig:Tanda tangan:
-register_sig_desc:Tanda tangan alternatif, akan muncul dibawah semua pesan yang anda buat
+register_sig_desc:Tanda tangan alternatif, akan muncul di bawah semua pesan yang Anda buat
 register_reset:Reset
 register_def_thread_view:Tampilan topik standar:
 register_msg_per_page:Jumlah pesan per halaman:
@@ -431,7 +432,7 @@ prereg_update:Membaca aturan forum
 coppa_fax_instructions:Petunjuk untuk orang-tua / wali
 coppa_fax_instructions2:Silakan cetak dan tanda-tangani dan kirim melalui fax:
 coppa_fax_reg_form:Formulir Registrasi
-coppa_fax_sign:Silakan tanda-tangani formulir dibawah ini dan kirimkan ke kami
+coppa_fax_sign:Silakan tanda tangani formulir di bawah ini dan kirimkan ke kami
 coppa_fax_conf:Kami sudah melihat informasi yang diberikan anak kami dan kami sudah membaca&mengerti Kebijakan Kepribadian dari halaman web. Kami mengerti bahwa informasi profile bisa diubah menggunakan password. Kami mengerti bahwa data profile dapat dihapus dari forum.
 coppa_fax_permission:Tanda-tangan disini jika anda setuju/memberikan ijin
 coppa_fax_no_permission:Tanda-tangan disini jika anda ingin data pendaftaran dihapus
@@ -1044,7 +1045,7 @@ search_user_filter:Filter atas dasar pengguna:
 register_none:Jangan beritahu saya
 findu_no_conf:Pengguna belum dikonfirmasi
 register_max_sig_len:Panjang maksimum:
-register_turing:Masukkan kode terlihat dibawah ini:
+register_turing:Masukkan kode seperti terlihat di bawah ini:
 register_err_turing:Kode validasi tidak sah.
 modque_cat:Kategori
 modque_forum:Forum

@@ -5,8 +5,7 @@
 action:Akcija
 add_to_buddy_list:Lisćinje přećelow přidać
 admin:Administrator
-# Fuzzy
-admin_control_panel:Kontrolne polo administratora
+admin_control_panel:Zarjadowanje
 administrator:Administrator
 attachment:Přiwěšk:
 avatar:Awatar:
@@ -97,6 +96,7 @@ new_thread:Nowu temu załožić
 newest_user:Najnowši zregistrowany wužiwar je
 next_page:Přichodna strona
 next_thread:Přichodna tema:
+# Fuzzy
 no_messages:W tutym forumje žane powěsće njejsu.
 no_msg_body:Prózdna powěsć
 no_new_posts:Žane nowe powěsće
@@ -1132,6 +1132,9 @@ feed_rss:RSS2-kanal
 feed_atom:ATOM-kanal
 ip_whois_connect_err:Njeje móžno z WHOIS-serwerom ({VAR: whois_server}) zwjazać: {VAR: errstr}
 custom_filed_required:Tute polo je trěbne.
+pages:Strony
 page_list_heading:K dispoziciji stejace strony
 page_list_total:{PLURAL: i|$1 strona podata|$1 stronje podatej|$1 strony podate|$1 stronow podatych}.
 page_update:Strona so čita
+pm_export_header:Priwatne powěsće za {VAR: usr->alias}
+pm_export_footer:Eksportowany:

@@ -105,6 +105,7 @@ new_thread:Ein neues Thema erstellen
 newest_user:Das neueste registrierte Mitglied ist
 next_page:Nächste Seite
 next_thread:Nächstes Thema:
+# Fuzzy
 no_messages:Keine Beiträge in diesem Forum vorhanden.
 no_msg_body:leerer Beitrag
 no_new_posts:Keine neuen Beiträge

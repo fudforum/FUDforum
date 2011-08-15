@@ -31,24 +31,29 @@ faq:Ajutor
 first_unread_msg:Du-te la mesajele necitite
 first_unread_msg_desc:Du-te la primul mesaj necitit pe această temă
 flat_view:Revenire la vizualizarea implicită
-forum_icon:Iconita Forum
+forum:Forum:
+forum_icon:Pictogramă forum
 forum_new_messages:Mesaje noi
-forum_none_messages:Doar membrii inregistrati pot citi mesajele necitite
+forum_none_messages:Doar membrii înregistrați pot citi mesajele necitite
 forum_old_messages:Nici un mesaj nou
 from:De la:
 gender:Sex:
 go:Du-te
-goto_next_msg:Mesajul urmator
+goto_next_msg:Mesajul următor
 goto_prev_msg:Mesajul precedent
-home:Acasa
-homepage:Pagina personala:
+home:Acasă
+homepage:Pagina personală:
 icq_control_panel:Panoul de control mesaje ICQ
 icq_message_form:Formularul de mesaje ICQ:
 ignore_user:ignora toate mesajele trimise de acest utilizator
 im_aim:AIM:
+im_msnm:MSN Messenger:
+im_yahoo:Yahoo Messenger:
 image:Imagine:
+index_forum:Forum
 index_new_posts:Mesaje noi de la ultima citire
 index_no_new_posts:Nici un mesaj nou de la ultima citire
+index_url_redirection:Redirecționare
 interests:Interese:
 last_post:Ultima trimitere
 last_thread_msg:Du-te la ultimul mesaj din aceasta tema
@@ -61,17 +66,20 @@ logged_in_list:Logheaza in lista de utilizatori
 login:Autentifica
 login_header:Autentifica:
 logout:Iesire
-# Fuzzy
-mark_all_read:marcheaza toate mesajele ca citite
+mark_all_read:Marchează toate mesajele ca citite
 mark_all_read_desc:Toate mesajele necitite vor fi marcate ca citite
 members:Membri
+calendar:Calendar
+cal_goto_date:Salt la:
+cal_birthday:Ziua de naștere: {VAR: user}
 message:Mesaj
-# Fuzzy
-message_counter:Utilizatorii au trimis un numar de <b>{VAR: post_count}</b> mesaje in <b>{VAR: thread_count}</b> teme.
+message_counter:Utilizatorii noștri au trimis un număr de <b>{PLURAL: post_count|$1 mesaj|$1 mesaje}</b> pe marginea <b>{PLURAL: thread_count|a $1 temă|a $1 teme}</b>.
 message_index:Indexul mesajului
 message_index_desc:Vezi lista de mesaje
-minimize_category:Minimizeaza categoria
+minimize_category:Minimizează categoria
+minimize_message:Minimizează mesajul
 moderation_queue:Moderator
+moderator:Moderator
 moderator_of:Moderator la:
 moderator_options:Optiunile Moderatorului
 # Fuzzy
@@ -89,6 +97,7 @@ new_thread:Creeaza o noua tema
 newest_user:Cel mai nou utilizator este
 next_page:Pagina urmatoare
 next_thread:Urmatoarea tema:
+# Fuzzy
 no_messages:Nu sunt mesaje noi in acest forum.
 no_msg_body:Mesajul nu are continut.
 no_new_posts:Nici un mesaje nou

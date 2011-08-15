@@ -1,5 +1,6 @@
 # Messages for Italian (Italiano)
 # Exported from translatewiki.net
+# Author: Beta16
 # Author: Giallu
 # Author: McDutchie
 # Author: Naudefj
@@ -101,6 +102,7 @@ new_thread:Crea un nuovo argomento
 newest_user:L'ultimo utente ad essersi registrato è
 next_page:Pagina successiva
 next_thread:Argomento successivo:
+# Fuzzy
 no_messages:Non ci sono messaggi in questo forum... Amaro...
 no_msg_body:Non c'è il corpo del messaggio!
 no_new_posts:Non ci sono nuovi messaggi
@@ -1007,7 +1009,7 @@ adm_account_rejected:Il tuo account '{VAR: login}' è stato rifiutato dall'ammin
 adm_account_rejected_s:La tua richiesta per '{GVAR: FORUM_TITLE}' è stata rigettata.
 thread_on:attiva
 userinfo_buddy:Amico:
-register_email_addr:Indirizzo E-mail:
+register_email_addr:Indirizzo e-mail:
 reset_suffix:Se hai ricevuto questo messaggio di errore, per cortesia ignoralo. If stai ricevendo copie multiple di questa e-mail, senza averla richiesta, contatta cortesemente l'amministratore su {GVAR: ADMIN_EMAIL}\n\nQuesta richiesta è partita da: {VAR: _SERVER['REMOTE_ADDR']}.
 usrinfo_last_visit:Ultima visita:
 mnav_newer:più nuovo di

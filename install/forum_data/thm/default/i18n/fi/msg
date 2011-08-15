@@ -8,8 +8,7 @@
 action:Toiminto
 add_to_buddy_list:lisää kaverilistaan
 admin:Ylläpito
-# Fuzzy
-admin_control_panel:Ylläpidon hallintapaneeli
+admin_control_panel:Ylläpito
 administrator:Ylläpitäjä
 attachment:Liitetiedosto:
 avatar:Avatar:
@@ -100,6 +99,7 @@ new_thread:Luo uusi aihe
 newest_user:Viimeisin rekisteröitynyt käyttäjä on
 next_page:Seuraava sivu
 next_thread:Seuraava aihe:
+# Fuzzy
 no_messages:Tässä foorumissa ei ole viestejä.
 no_msg_body:Ei viestin tekstiä
 no_new_posts:Ei uusia viestejä

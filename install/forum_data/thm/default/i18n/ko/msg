@@ -83,6 +83,7 @@ new_thread:새 토픽
 newest_user:신규 등록 사용자
 next_page:다음 페이지
 next_thread:다음 토픽:
+# Fuzzy
 no_messages:이 포럼에는 게시글이 없습니다.
 no_msg_body:본문 내용이 비었습니다
 no_new_posts:새 게시글이 없습니다

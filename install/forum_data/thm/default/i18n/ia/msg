@@ -96,6 +96,7 @@ new_thread:Crear un nove topico
 newest_user:Le ultime usator registrate es
 next_page:Pagina sequente
 next_thread:Topico sequente:
+# Fuzzy
 no_messages:Il non ha messages in iste foro.
 no_msg_body:Le message non ha texto.
 no_new_posts:Il non ha nove messages.

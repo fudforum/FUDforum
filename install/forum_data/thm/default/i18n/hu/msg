@@ -97,6 +97,7 @@ new_thread:Új téma létrehozása
 newest_user:A legújabb regisztrált felhasználó:
 next_page:Következő oldal
 next_thread:Következő téma:
+# Fuzzy
 no_messages:Ebben a fórumban nincsenek üzenetek.
 no_msg_body:Az üzenetnek nincs szövege
 no_new_posts:Nincsenek új üzenetek

@@ -98,6 +98,7 @@ new_thread:Criar um novo tópico
 newest_user:O mais novo membro registado é
 next_page:Próxima Página
 next_thread:Próximo Tópico:
+# Fuzzy
 no_messages:Não há mensagens neste fórum.
 no_msg_body:mensagem vazia
 no_new_posts:Não há novos posts

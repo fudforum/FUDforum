@@ -13,8 +13,7 @@
 action:Acción
 add_to_buddy_list:agregar a la lista de amigos
 admin:Admin
-# Fuzzy
-admin_control_panel:Panel del administrador
+admin_control_panel:Administración
 administrator:Administrador
 attachment:Archivo adjunto:
 avatar:Avatar:
@@ -105,6 +104,7 @@ new_thread:Crear un nuevo hilo de discusión
 newest_user:El último usuario registrado es
 next_page:Página siguiente
 next_thread:Hilo de discusión siguiente:
+# Fuzzy
 no_messages:No hay mensajes en este foro.
 no_msg_body:No hay cuerpo del mensaje
 no_new_posts:No hay mensajes nuevos
@@ -1140,6 +1140,9 @@ feed_rss:fuente RSS2
 feed_atom:fuente ATOM
 ip_whois_connect_err:No se pudo conectar con el servidor WHOIS ({VAR: whois_server}): {VAR: errstr}
 custom_filed_required:Este campo es obligatorio.
+pages:Páginas
 page_list_heading:Páginas disponibles
 page_list_total:{PLURAL: i|$1 págna|$1 páginas} en la lista.
 page_update:Buscar página
+pm_export_header:Mensajes privados para {VAR: usr->alias}
+pm_export_footer:Exportado:

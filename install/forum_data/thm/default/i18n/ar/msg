@@ -1,5 +1,6 @@
 # Messages for Arabic (العربية)
 # Exported from translatewiki.net
+# Author: Alexknight12
 # Author: Meno25
 # Author: OsamaK
 # Author: ترجمان05
@@ -99,6 +100,7 @@ new_thread:أنشئ موضوعًا جديدًا
 newest_user:أحدث مستخدم مُسجل هو
 next_page:الصفحة التالية
 next_thread:الموضوع التالي
+# Fuzzy
 no_messages:لا توجد رسائل في هذا المنتدى.
 no_msg_body:لا جسم للرسالة
 no_new_posts:لا رسائل جديدة
@@ -262,7 +264,7 @@ month_11:نوفمبر
 month_12:ديسمبر
 sunday:الأحد
 sunday_short:أح
-monday:الإثنين
+monday:الاثنين
 monday_short:إ
 tuesday:الثلاثاء
 tuesday_short:ث
@@ -853,7 +855,7 @@ register_google:مدير Google Chat والمراسلة الفورية:
 im_jabber:Jabber:
 im_google:Google Talk:
 im_skype:Skype:
-im_twitter:Twitter:
+im_twitter:تويتر
 forum_contact:اتصل
 forum_home:المنزل
 post_cur_attached:المرفق حاليًا: {PLURAL: i|ملف واحد|{VAR: i} ملفات}

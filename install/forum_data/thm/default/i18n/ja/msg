@@ -96,6 +96,7 @@ new_thread:新規トピック作成
 newest_user:最新の登録利用者:
 next_page:次のページ
 next_thread:次のトピック:
+# Fuzzy
 no_messages:このフォーラムにはメッセージがありません。
 no_msg_body:メッセージに本文がありません。
 no_new_posts:新規メッセージなし

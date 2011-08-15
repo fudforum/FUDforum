@@ -99,6 +99,7 @@ new_thread:Vytvoř nové téma
 newest_user:Nejnovější uživatel je
 next_page:Další strana
 next_thread:Další téma:
+# Fuzzy
 no_messages:Žádné další zprávy v tomto fóru.
 no_msg_body:Zpráva nemá obsah
 no_new_posts:Žádné nové příspěvky

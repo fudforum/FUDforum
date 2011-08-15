@@ -88,6 +88,7 @@ new_thread:Crear un nou fil de discussió
 newest_user:L`últim usuari registrat és
 next_page:Pàgina següent
 next_thread:Fil de discussió següent:
+# Fuzzy
 no_messages:No hi ha missatges en aquest fòrum.
 no_msg_body:No hi ha cos del missatge
 no_new_posts:No hi ha missatges nous

@@ -1,6 +1,7 @@
 # Messages for German (formal address) (‪Deutsch (Sie-Form)‬)
 # Exported from translatewiki.net
 # Author: JanRei
+# Author: Kghbln
 # Author: McDutchie
 # Author: The Evil IP address
 # Author: Umherirrender
@@ -100,6 +101,7 @@ new_thread:Ein neues Thema erstellen
 newest_user:Das neueste registrierte Mitglied ist
 next_page:Nächste Seite
 next_thread:Nächstes Thema:
+# Fuzzy
 no_messages:Keine Beiträge in diesem Forum vorhanden.
 no_msg_body:leerer Beitrag
 no_new_posts:Keine neuen Beiträge
@@ -867,7 +869,7 @@ reported_in_thread:In:
 help_back_to_top:Zurück zum Anfang
 help_return_to_index:Zurück zum Hilfeindex
 imsg_err_message_title:Ungütiger Beitrag
-imsg_err_message_msg:Der Beitrag, den Sie versuchen anzusehen, existiert nicht.
+imsg_err_message_msg:Der Beitrag, den Sie anzusehen versuchen, existiert nicht.
 poll_edit:Bearbeiten
 register_err_not_valid_img:Die angegebene URL enthält kein gültiges Bild.
 pmsg_recepient:Empfänger

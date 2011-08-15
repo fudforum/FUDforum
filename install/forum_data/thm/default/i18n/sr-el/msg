@@ -96,6 +96,7 @@ new_thread:Napravi novu temu
 newest_user:Najnoviji član je
 next_page:Sledeća stranica
 next_thread:Sledeća tema:
+# Fuzzy
 no_messages:Nema poruka u ovom forumu.
 no_msg_body:Tekst poruke nije unet.
 no_new_posts:Nema novih poruka

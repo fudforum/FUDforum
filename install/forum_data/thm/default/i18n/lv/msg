@@ -92,6 +92,7 @@ new_thread:Izveidot jaunu tēmu
 newest_user:Pēdējais reģistrētais lietotājs:
 next_page:Nākamā lapa
 next_thread:Nākošā tēma:
+# Fuzzy
 no_messages:Šajā forumā nav jaunu ierakstu.
 no_msg_body:Nav teksta ieraksta
 no_new_posts:Nav jaunu ierakstu

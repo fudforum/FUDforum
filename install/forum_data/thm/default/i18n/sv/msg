@@ -102,6 +102,7 @@ new_thread:Börja en ny diskussion
 newest_user:Den senast registrerade medlemmen är
 next_page:Nästa sida
 next_thread:Nästa diskussion:
+# Fuzzy
 no_messages:Det finns inga inlägg i det här forumet.
 no_msg_body:Ingen text i inlägget
 no_new_posts:Inga nya inlägg

@@ -101,6 +101,7 @@ new_thread:生成新的主题
 newest_user:最新注册的用户是
 next_page:下一页
 next_thread:上一个主题：
+# Fuzzy
 no_messages:本论坛没有任何发言。
 no_msg_body:没有内容！
 no_new_posts:没有新的主题

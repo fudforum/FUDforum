@@ -96,6 +96,7 @@ new_thread:Begin 'n nuwe onderwerp
 newest_user:Die nuutste geregistreerde lid is
 next_page:Volgende bladsy
 next_thread:Volgende onderwerp:
+# Fuzzy
 no_messages:Daar is geen nuwe boodskappe in die forum
 no_msg_body:Geen teks in die boodskap nie.
 no_new_posts:Geen nuwe boodskappe

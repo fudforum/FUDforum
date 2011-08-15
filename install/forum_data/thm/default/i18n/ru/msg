@@ -11,8 +11,7 @@
 action:Действие
 add_to_buddy_list:добавить в список контактов
 admin:Админ
-# Fuzzy
-admin_control_panel:Административный центр
+admin_control_panel:Управление
 administrator:Администратор
 attachment:Вложение:
 avatar:Картинка:
@@ -103,6 +102,7 @@ new_thread:Создать новую тему
 newest_user:Последний зарегистрированный участник:
 next_page:Следующая страница
 next_thread:Следующая тема:
+# Fuzzy
 no_messages:В этом форуме нет сообщений.
 no_msg_body:Нет текста сообщения
 no_new_posts:Нет новых сообщений
@@ -1138,6 +1138,9 @@ feed_rss:RSS2-канал
 feed_atom:ATOM-канал
 ip_whois_connect_err:Не удалось подключиться к WHOIS-серверу ({VAR: whois_server}): {VAR: errstr}
 custom_filed_required:Это поле является обязательным.
+pages:Страницы
 page_list_heading:Доступные страницы
 page_list_total:{PLURAL: i|Показана $1 страница|Показаны $1 страницы|Показаны $1 страниц}.
 page_update:Просмотр страницы
+pm_export_header:Личные сообщения для {VAR: usr->alias}
+pm_export_footer:Экспортировано:

@@ -98,6 +98,7 @@ new_thread:Begynn en ny tråd
 newest_user:Siste registrerte medlem er
 next_page:Neste side
 next_thread:Neste tråd:
+# Fuzzy
 no_messages:Det fins ingen innlegg i dette forumet.
 no_msg_body:Uten tekst
 no_new_posts:Ingen nye innlegg

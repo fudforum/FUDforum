@@ -106,6 +106,7 @@ new_thread:Créer un nouveau fil
 newest_user:Le dernier utilisateur à s'être inscrit est
 next_page:Page suivante
 next_thread:Fil suivant :
+# Fuzzy
 no_messages:Il n'y a pas encore de message dans ce forum.
 no_msg_body:Le message n'a pas de contenu
 no_new_posts:Pas de nouveau message
@@ -391,7 +392,7 @@ post_logout:Déconnexion
 post_passwd:Mot de passe de message :
 post_poll:Sondage :
 post_create_poll:Créer un sondage
-post_poll_delete:Détruire
+post_poll_delete:SUPPRIMER
 post_poll_edit:Editer
 post_mod_opt:Options de modération :
 post_thread_type:Type de fil :
@@ -1146,5 +1147,4 @@ page_list_heading:Pages disponibles
 page_list_total:{PLURAL: i|$1 page listée|$1 pages listées}.
 page_update:Page de navigation
 pm_export_header:Messages privés pour {VAR: usr->alias}
-# Fuzzy
-pm_export_footer:Exporté:
+pm_export_footer:Exporté :

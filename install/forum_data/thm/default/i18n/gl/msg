@@ -97,6 +97,7 @@ new_thread:Crear un novo fío
 newest_user:O último usuario rexistrado é
 next_page:Páxina seguinte
 next_thread:Seguinte fío:
+# Fuzzy
 no_messages:Aínda non hai ningunha mensaxe neste foro.
 no_msg_body:A mensaxe non ten ningún contido
 no_new_posts:Non hai mensaxes novas

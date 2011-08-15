@@ -96,6 +96,7 @@ new_thread:Создај нова тема
 newest_user:Најновиот регистриран корисник е
 next_page:Следна страница
 next_thread:Следна тема:
+# Fuzzy
 no_messages:Нема пораки на овој форум.
 no_msg_body:Пораката нема содржина
 no_new_posts:Нема нови пораки
@@ -1080,7 +1081,7 @@ post_common_align_center:Порамни по средина
 post_common_align_right:Порамни десно
 post_common_link:Вметни врска
 post_common_link_popup:Место на врската:
-post_common_email:Вметни е-поштенска адреса
+post_common_email:Вметнување е-поштенска адреса
 post_common_email_popup:Е-пошта:
 post_common_image:Вметни слика
 post_common_image_popup:URL на сликата:
