@@ -246,6 +246,9 @@ function write_body_copy($data, &$len, &$offset, $file_id, $forum_id)
 	pf('<b>Rebuilding private messages:</b>');
 
 	// Index messages offsets for faster processing.
+	if (array_key_exists($tbl .'pmsg_foff_idx', get_fud_index_list($tbl .'pmsg'))) {
+		drop_index($tbl .'pmsg', $tbl .'pmsg_foff_idx');
+	}
 	create_index($tbl .'pmsg', $tbl .'pmsg_foff_idx', false, 'foff');
 
 	db_lock($tbl .'pmsg WRITE');
@@ -260,7 +263,7 @@ function write_body_copy($data, &$len, &$offset, $file_id, $forum_id)
 		$c = q('SELECT id, foff, length FROM '. $tbl .'pmsg');
 
 		while ($r = db_rowobj($c)) {
-			$data = fud_page::read_pmsg_body($r->foff, $r->length);
+			$data = read_pmsg_body($r->foff, $r->length);
 
 			if (!empty($_POST['fromcharset']) || !empty($_POST['tocharset'])) {
 				$newdata = iconv($_POST['fromcharset'], $_POST['tocharset'], $data);
