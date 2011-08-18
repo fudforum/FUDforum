@@ -106,7 +106,7 @@
 
 function login_php_set_err($type, $val)
 {
-	$GLOBALS['_ERROR_'] = 1;
+	$GLOBALS['_ERROR_']            = 1;
 	$GLOBALS['_ERROR_MSG_'][$type] = $val;
 }
 
@@ -159,9 +159,6 @@ function error_check()
 	}
 
 	if ($usr_d || isset($_POST['login']) && !error_check()) {
-		if ($usr->data) {
-			ses_putvar((int)$usr->sid, null);
-		}
 
 		if (!$usr_d && !($usr_d = db_sab('SELECT last_login, id, passwd, salt, login, email, users_opt, ban_expiry FROM {SQL_TABLE_PREFIX}users WHERE login='. _esc($_POST['login'])))) {
 			/* Cannot login: user not in DB. */
