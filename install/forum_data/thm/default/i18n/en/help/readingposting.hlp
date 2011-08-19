@@ -317,11 +317,11 @@ Since in most cases the admin does not permit you to use HTML inside your posts,
     <td width="300" align="center" valign="middle"><b>Result</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#f00"><b>[imgl]</b></font><br /><font color="#060">http://fudforum.org/forum/images/fudlogo.gif<br /></font><font color="#f00"><b>[/imgl]</b></font></td>
-    <td valign="middle" align="center"><img class="l" src="http://fudforum.org/forum/images/fudlogo.gif" alt="Image with text wrapped around it" width="140" height="49" />Some text to the left.</td>
+    <td valign="middle" align="center"><font color="#f00"><b>[imgr]</b></font><br /><font color="#060">http://fudforum.org/forum/images/fudlogo.gif<br /></font><font color="#f00"><b>[/imgr]</b></font><br />Some text to the left.</td>
+    <td valign="middle" align="center"><img class="r" src="http://fudforum.org/forum/images/fudlogo.gif" alt="Image with text wrapped around it" width="140" height="49" />Some text to the left.</td>
   </tr>
 </table>
-<i>Explanation:</i> You can use BBcode to wrap text smoothly around images by enclosing the image url within [imgl][/imgl] "Image Left" or [imgr][/imgr] "image right" tags, These may also be used in conjunction with other text alignment and styling tags.
+<i>Explanation:</i> You can use BBcode to wrap text smoothly around images by enclosing the image url within [imgl][/imgl] "image left" or [imgr][/imgr] "image right" tags. These may also be used in conjunction with other text alignment and styling tags.
 <br /><br />
 
 <a name="quote"><b>Quoting other messages</b></a>

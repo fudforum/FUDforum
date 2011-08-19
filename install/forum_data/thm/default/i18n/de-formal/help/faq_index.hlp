@@ -38,6 +38,7 @@ TOPIC_HELP:
 	<li><a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#align">Textausrichtung [align]</a></li>
 	<li><a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#list">Listen [list]</a></li>
 	<li><a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#img">Bilder [img]</a></li>
+	<li><a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#imglr">Textumbruch bei Bildern [imgl] und [imgr]</a></li>
 	<li><a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#url">Links [url]</a></li>
 	<li><a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#quote">Zitate [quote]</a></li>
 	<li><a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#pre">Vorformatierter Text [pre]</a></li>

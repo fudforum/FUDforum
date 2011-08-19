@@ -287,8 +287,8 @@ Donat que en alguns casos l`administrador no permet l`ús d`HTML als missatges, 
     <td width="300" align="center" valign="middle"><b>Resultat</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[img]</b></font><br /><font color="#006600">http://www.prohost.org/img/pro_logo.gif<br /></font><font color="#ff0000"><b>[/img]</b></font></td>
-    <td valign="middle" align="center"><img src="http://www.prohost.org/img/pro_logo.gif" alt="http://www.prohost.org/img/pro_logo.gif" width="204" height="31"></td>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[img]</b></font><br /><font color="#006600">http://fudforum.org/forum/images/fudlogo.gif<br /></font><font color="#ff0000"><b>[/img]</b></font></td>
+    <td valign="middle" align="center"><img src="http://fudforum.org/forum/images/fudlogo.gif" alt="http://fudforum.org/forum/images/fudlogo.gif" width="140" height="49"></td>
   </tr>
 </table>
 <br />    
@@ -299,8 +299,8 @@ Donat que en alguns casos l`administrador no permet l`ús d`HTML als missatges, 
     <td width="300" align="center" valign="middle"><b>Result</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#006600"><font color="#ff0000"><b>[url=<font color="#006600">http://www.prohost.org</font>]<br />[img]</b></font><br />http://www.prohost.org/img/pro_logo.gif<br /><b><font color="#ff0000">[/img]<br />[/url]</font></b></font></td>
-    <td valign="middle" align="center"><a href="http://www.prohost.org"><img src="http://www.prohost.org/img/pro_logo.gif" alt="image" width="204" height="31" border="0"></a></td>
+    <td valign="middle" align="center"><font color="#006600"><font color="#ff0000"><b>[url=<font color="#006600">http://www.prohost.org</font>]<br />[img]</b></font><br />http://fudforum.org/forum/images/fudlogo.gif<br /><b><font color="#ff0000">[/img]<br />[/url]</font></b></font></td>
+    <td valign="middle" align="center"><a href="http://www.prohost.org"><img src="http://fudforum.org/forum/images/fudlogo.gif" alt="image" width="140" height="49" border="0"></a></td>
   </tr>
 </table>
 <i>Explicació:</i> Pot usar BBcode per a crear imatges enllaçades posant-hi les etiquetes [img][/img] dins de les etiquetes [url][/url].

@@ -150,20 +150,20 @@ BBcode поддерживает различные способы выравни
 <p>
     Например конструкция
 <p>
-<div align="Center">&nbsp;<font color="#ff0000"><b>[img]</b></font><font color="#006600">http://www.prohost.org/img/pro_logo.gif</font><font color="#ff0000"><b>[/img]</b></font>,</div>
+<div align="Center">&nbsp;<font color="#ff0000"><b>[img]</b></font><font color="#006600">http://fudforum.org/forum/images/fudlogo.gif</font><font color="#ff0000"><b>[/img]</b></font>,</div>
 <p>
     приводит к появлению в сообщении следующего изображения:
 <p>
-<div align="Center"><img src="http://www.prohost.org/img/pro_logo.gif" alt="http://www.prohost.org/img/pro_logo.gif" width="409" height="62"></div>
+<div align="Center"><img src="http://fudforum.org/forum/images/fudlogo.gif" alt="http://fudforum.org/forum/images/fudlogo.gif" width="140" height="49"></div>
 <p>
     в дополнение к этому вы можете создавать ссылки c изображениями, заключив конструкцию в теги
 <font color="#ff0000"><b>[url][/url]</b></font>, например:
 <p>
-<div align="Center"><font color="#006600"><font color="#ff0000"><b>[url=<font color="#006600">http://www.prohost.org</font>][img]</b></font>http://www.prohost.org/img/pro_logo.gif<b><font color="#ff0000">[/img][/url]</font></b></font></div>
+<div align="Center"><font color="#006600"><font color="#ff0000"><b>[url=<font color="#006600">http://www.prohost.org</font>][img]</b></font>http://fudforum.org/forum/images/fudlogo.gif<b><font color="#ff0000">[/img][/url]</font></b></font></div>
 <p>
     результатом приведенного примера является изображение-ссылка:
 <p>
-<div align="Center"><a href="http://www.prohost.org"><img src="http://www.prohost.org/img/pro_logo.gif" alt="image" width="409" height="62" border="0"></a></div>
+<div align="Center"><a href="http://www.prohost.org"><img src="http://fudforum.org/forum/images/fudlogo.gif" alt="image" width="140" height="49" border="0"></a></div>
 <p>
 <b>Цитирование сообщение</b>
 <br />

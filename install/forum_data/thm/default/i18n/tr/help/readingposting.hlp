@@ -118,16 +118,16 @@ yazım şeklini kullandığınızda sonuç:<br />
 <br />
 Dolayısıyla, örneğin
 <br />
-<div align="Center">&nbsp;<font color="#ff0000"><b>[img]</b></font><font color="#006600">http://www.prohost.org/img/pro_logo.gif</font><font color="#ff0000"><b>[/img]</b></font>, <br /></div>
+<div align="Center">&nbsp;<font color="#ff0000"><b>[img]</b></font><font color="#006600">http://fudforum.org/forum/images/fudlogo.gif</font><font color="#ff0000"><b>[/img]</b></font>, <br /></div>
 yazdığınızda iletinin içine şu resmi eklemiş olursunuz:
 <br />
-<div align="Center"><img src="http://www.prohost.org/img/pro_logo.gif" alt="http://www.prohost.org/img/pro_logo.gif" width="409" height="62"><br /></div>
+<div align="Center"><img src="http://fudforum.org/forum/images/fudlogo.gif" alt="http://fudforum.org/forum/images/fudlogo.gif" width="140" height="49"><br /></div>
 Ek olarak resimlere link atarken
 <font color="#ff0000"><b>    [url][/url]</b></font>takılarını da kullanabilirsiniz, örneğin <br />
-<div align="Center"><font color="#006600"><font color="#ff0000"><b>[url=<font color="#006600">http://www.prohost.org</font>][img]</b></font>http://www.prohost.org/img/pro_logo.gif<b><font color="#ff0000">[/img][/url]</font></b></font><br /></div>
+<div align="Center"><font color="#006600"><font color="#ff0000"><b>[url=<font color="#006600">http://www.prohost.org</font>][img]</b></font>http://fudforum.org/forum/images/fudlogo.gif<b><font color="#ff0000">[/img][/url]</font></b></font><br /></div>
 şeklinde bir yazım da resme link atar:
 <br />
-<div align="Center"><a href="http://www.prohost.org"><img src="http://www.prohost.org/img/pro_logo.gif" alt="image" width="409" height="62" border="0"></a><br /></div><br />
+<div align="Center"><a href="http://www.prohost.org"><img src="http://fudforum.org/forum/images/fudlogo.gif" alt="image" width="140" height="49" border="0"></a><br /></div><br />
 
 <br /><b>Diğer iletileri alıntılama</b><br />
 Birisinin gönderdiği iletiyi alıntı şeklinde göstermek mümkdür, yapmanız gereken alıntı olarak göstermek istediğiniz bölümü

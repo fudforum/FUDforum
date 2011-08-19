@@ -110,14 +110,14 @@ BBcode supporte l'alignement du texte par la marque [align] ce qui vous permet d
     [img][/img]</b></font>. <br />
 <br />
     Ainsi, par exemple,<br />
-<div align="Center">&nbsp;<font color="#ff0000"><b>[img]</b></font><font color="#006600">http://www.prohost.org/img/pro_logo.gif</font><font color="#ff0000"><b>[/img]</b></font>, <br /></div>
+<div align="Center">&nbsp;<font color="#ff0000"><b>[img]</b></font><font color="#006600">http://fudforum.org/forum/images/fudlogo.gif</font><font color="#ff0000"><b>[/img]</b></font>, <br /></div>
     va insérer une image dans le message tel que&nbsp;:<br />
-<div align="Center"><img src="http://www.prohost.org/img/pro_logo.gif" alt="http://www.prohost.org/img/pro_logo.gif" width="409" height="62"><br /></div>
+<div align="Center"><img src="http://fudforum.org/forum/images/fudlogo.gif" alt="http://fudforum.org/forum/images/fudlogo.gif" width="140" height="49"><br /></div>
     De plus, vous pouvez créer des liens avec des images en les incluant dans une marque
 <font color="#ff0000"><b>    [url][/url]</b></font> tel que <br />
-<div align="Center"><font color="#006600"><font color="#ff0000"><b>[url=<font color="#006600">http://www.prohost.org</font>][img]</b></font>http://www.prohost.org/img/pro_logo.gif<b><font color="#ff0000">[/img][/url]</font></b></font><br /></div>
+<div align="Center"><font color="#006600"><font color="#ff0000"><b>[url=<font color="#006600">http://www.prohost.org</font>][img]</b></font>http://fudforum.org/forum/images/fudlogo.gif<b><font color="#ff0000">[/img][/url]</font></b></font><br /></div>
     qui va créer un lien avec image tel que <br />
-<div align="Center"><a href="http://www.prohost.org"><img src="http://www.prohost.org/img/pro_logo.gif" alt="image" width="409" height="62" border="0"></a><br /></div><br />
+<div align="Center"><a href="http://www.prohost.org"><img src="http://fudforum.org/forum/images/fudlogo.gif" alt="image" width="140" height="49" border="0"></a><br /></div><br />
 
 <br /><b>Citer d'autres messages</b><br />
   Il est possible de citer quelque chose qui a déjà été envoyé en mettant simplement des marques <font color="#ff0000"><b>[quote][/quote]</b></font> autour. 

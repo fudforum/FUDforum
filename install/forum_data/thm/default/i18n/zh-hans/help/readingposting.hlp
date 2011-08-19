@@ -112,14 +112,14 @@ FUD代码支持文本通过使用[align]标签以下列3种方式排列：
     [img][/img]</b></font> 标签，可以嵌入带有图片说明的图片。 <br />
 <br />
     比如<br />
-<div align="Center">&nbsp;<font color="#ff0000"><b>[img]</b></font><font color="#006600">http：//www.prohost.org/img/pro_logo.gif</font><font color="#ff0000"><b>[/img]</b></font>, <br /></div>
+<div align="Center">&nbsp;<font color="#ff0000"><b>[img]</b></font><font color="#006600">http://fudforum.org/forum/images/fudlogo.gif</font><font color="#ff0000"><b>[/img]</b></font>, <br /></div>
     将生成带有如下说明的图片：<br />
-<div align="Center"><img src="http://www.prohost.org/img/pro_logo.gif" alt="http://www.prohost.org/img/pro_logo.gif" width="409" height="62"><br /></div>
+<div align="Center"><img src="http://fudforum.org/forum/images/fudlogo.gif" alt="http://fudforum.org/forum/images/fudlogo.gif" width="140" height="49"><br /></div>
     此外，在下列标签
 <font color="#ff0000"><b>    [url][/url]</b></font>比如<br />
-<div align="Center"><font color="#006600"><font color="#ff0000"><b>[url=<font color="#006600">http://www.prohost.org</font>][img]</b></font>http://www.prohost.org/img/pro_logo.gif<b><font color="#ff0000">[/img][/url]</font></b></font><br /></div>
+<div align="Center"><font color="#006600"><font color="#ff0000"><b>[url=<font color="#006600">http://www.prohost.org</font>][img]</b></font>http://fudforum.org/forum/images/fudlogo.gif<b><font color="#ff0000">[/img][/url]</font></b></font><br /></div>
     中加入图片链接，就能生成带链接的图片，如<br />
-<div align="Center"><a href="http：//www.prohost.org"><img src="http://www.prohost.org/img/pro_logo.gif" alt="image" width="409" height="62" border="0"></a><br /></div><br />
+<div align="Center"><a href="http：//www.prohost.org"><img src="http://fudforum.org/forum/images/fudlogo.gif" alt="image" width="140" height="49" border="0"></a><br /></div><br />
 
 <br /><b>引用别的信息</b><br />
   引用已经提交的信息，只需要加入下列标签：<font color="#ff0000"><b>[quote][/quote]</b></font> 

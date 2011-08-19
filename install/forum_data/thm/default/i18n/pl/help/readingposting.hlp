@@ -110,13 +110,13 @@ BBcode pozwala wyrównywać tekst za pomocą znacznika [align] na trzy sposoby:
 	Istnieje możliwość dodawania wewnątrz tekstów wybranych obrazków za pomocą znaczników <font color="#ff0000"><b>[img][/img]</b></font>. <br />
 <br />
 	na przykład:<br />
-<div align="Center">&nbsp;<font color="#ff0000"><b>[img]</b></font><font color="#006600">http://www.prohost.org/img/pro_logo.gif</font><font color="#ff0000"><b>[/img]</b></font>, <br /></div>
+<div align="Center">&nbsp;<font color="#ff0000"><b>[img]</b></font><font color="#006600">http://fudforum.org/forum/images/fudlogo.gif</font><font color="#ff0000"><b>[/img]</b></font>, <br /></div>
 	umieści następujący obrazek w wiadomości:<br />
-<div align="Center"><img src="http://www.prohost.org/img/pro_logo.gif" alt="http://www.prohost.org/img/pro_logo.gif" width="409" height="62"><br /></div>
+<div align="Center"><img src="http://fudforum.org/forum/images/fudlogo.gif" alt="http://fudforum.org/forum/images/fudlogo.gif" width="140" height="49"><br /></div>
 	oprócz tego obrazek może być jednocześnie odnośnikiem do wybranego adresu po użyciu znaczników <font color="#ff0000"><b>[url][/url]</b></font> w następujący sposób<br />
-<div align="Center"><font color="#006600"><font color="#ff0000"><b>[url=<font color="#006600">http://www.prohost.org</font>][img]</b></font>http://www.prohost.org/img/pro_logo.gif<b><font color="#ff0000">[/img][/url]</font></b></font><br /></div>
+<div align="Center"><font color="#006600"><font color="#ff0000"><b>[url=<font color="#006600">http://www.prohost.org</font>][img]</b></font>http://fudforum.org/forum/images/fudlogo.gif<b><font color="#ff0000">[/img][/url]</font></b></font><br /></div>
 	który stworzy następujący obrazkowy odnośnik<br />
-<div align="Center"><a href="http://www.prohost.org"><img src="http://www.prohost.org/img/pro_logo.gif" alt="obrazek" width="409" height="62" border="0"></a><br /></div><br />
+<div align="Center"><a href="http://www.prohost.org"><img src="http://fudforum.org/forum/images/fudlogo.gif" alt="obrazek" width="140" height="49" border="0"></a><br /></div><br />
 
 <br /><b>Cytowanie innych wiadomości</b><br />
 	Istnieje możliwość zacytowania czegoś, co zostało już napisane, zaznaczająć cytowany tekst znacznikami <font color="#ff0000"><b>[quote][/quote]</b></font>. 

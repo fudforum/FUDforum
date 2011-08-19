@@ -87,13 +87,13 @@ Om een lijst te maken van A-Z:<br />
 <b>Afbeeldingen toevoegen</b><br />
 In-line afbeeldingen kunnen worden weergegeven in het bericht door gebruik te maken van de <font color="#ff0000"><b>
     [img][/img]</b></font> tags.<p>bijvoorbeeld,<br />
-<div align="Center">&nbsp;<font color="#ff0000"><b>[img]</b></font><font color="#006600">http://www.prohost.org/img/pro_logo.gif</font><font color="#ff0000"><b>[/img]</b></font>, <br /></div>
+<div align="Center">&nbsp;<font color="#ff0000"><b>[img]</b></font><font color="#006600">http://fudforum.org/forum/images/fudlogo.gif</font><font color="#ff0000"><b>[/img]</b></font>, <br /></div>
 voegt op de volgende manier een afbeelding in in het bericht:<br />
-<div align="Center"><img src="http://www.prohost.org/img/pro_logo.gif" alt="http://www.prohost.org/img/pro_logo.gif" width="409" height="62"><br /></div>
+<div align="Center"><img src="http://fudforum.org/forum/images/fudlogo.gif" alt="http://fudforum.org/forum/images/fudlogo.gif" width="140" height="49"><br /></div>
 zo kun je ook links maken van afbeeldingen door ze op te nemen binnen een paar <font color="#ff0000"><b>[url][/url]</b></font> tags zoals<br />
-<div align="Center"><font color="#006600"><font color="#ff0000"><b>[url=<font color="#006600">http://www.prohost.org</font>][img]</b></font>http://www.prohost.org/img/pro_logo.gif<b><font color="#ff0000">[/img][/url]</font></b></font><br /></div>
+<div align="Center"><font color="#006600"><font color="#ff0000"><b>[url=<font color="#006600">http://www.prohost.org</font>][img]</b></font>http://fudforum.org/forum/images/fudlogo.gif<b><font color="#ff0000">[/img][/url]</font></b></font><br /></div>
 wat zal resulteren in een afbeelding met een link zoals<br />
-<div align="Center"><a href="http://www.prohost.org"><img src="http://www.prohost.org/img/pro_logo.gif" alt="image" width="409" height="62" border="0"></a><br /></div><br />
+<div align="Center"><a href="http://www.prohost.org"><img src="http://fudforum.org/forum/images/fudlogo.gif" alt="image" width="140" height="49" border="0"></a><br /></div><br />
 
 <br /><b>Andere berichten citeren</b><br />
 Het is mogelijk om iets te citeren dat al eerder gepost is door er gewoon <font color="#ff0000"><b>[quote][/quote]</b></font> tags omheen te zetten. 
