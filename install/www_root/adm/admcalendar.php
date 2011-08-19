@@ -198,7 +198,7 @@ echo '<h3>'. ($edit ? '<a name="edit">Edit Event:</a>' : 'Add New Event:') .'</h
 ?>
 </table>
 <?php if ($GLOBALS['FUD_OPT_3'] & 134217728) { /* CALENDAR_ENABLED */ ?>
-	[ <a href="../<?php echo __fud_index_name__;?>?t=cal&amp;>?php echo __adm_rsid; ?>">View calendar</a> ]
+	[ <a href="../<?php echo __fud_index_name__;?>?t=cal&amp;<?php echo __adm_rsid; ?>">View calendar</a> ]
 <?php } ?>
 [ <a href="admcalendar.php?export=all&amp;<?php echo __adm_rsid; ?>">Export as vCal file</a> ]
 

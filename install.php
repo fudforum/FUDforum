@@ -297,7 +297,7 @@ function page_header()
 <?php
 if (isset($_POST['WWW_ROOT'])) {
 	echo '<script src="'. $_POST['WWW_ROOT'] .'/js/jquery.js"></script>';
-	echo '<script src="'. $_POST['WWW_ROOT'] .'/js/jquery-ui.js"></script>';
+	echo '<script src="'. $_POST['WWW_ROOT'] .'/js/ui/jquery-ui.js"></script>';
 	echo '<script src="'. $_POST['WWW_ROOT'] .'/js/lib.js"></script>';
 }
 ?>

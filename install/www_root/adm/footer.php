@@ -35,6 +35,7 @@ jQuery(function() {
                 icons: { primary: "ui-icon-gear", secondary: "ui-icon-triangle-1-s" }
     });
 
+	<?php if (defined('__adm_rsidl')) { ?>
 	// jQuery UI Sortable: Drag and drop to reorder items.
 	jQuery(function() {
 		jQuery("#sortable").sortable({
@@ -50,6 +51,7 @@ jQuery(function() {
 			}
 		});
 	});
+	<?php } ?>
 
 	// Make tables sortable.
 	jQuery('.resulttable').tablesorter();
