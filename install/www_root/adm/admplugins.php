@@ -267,9 +267,12 @@ function undeploy_files($plugin)
 					$info[$plugin] = $info_func();
 				} else {
 					$info[$plugin]['name']    = $plugin;
-					$info[$plugin]['version'] = '';
-					$info[$plugin]['desc']    = '(no description)';
 				}
+
+				// Fill in blanks.
+  				if (empty($info[$plugin]['version'])) $info[$plugin]['version']  = '';
+				if (empty($info[$plugin]['cat']))     $info[$plugin]['cat']      = 'Other';
+				if (empty($info[$plugin]['desc']))    $info[$plugin]['desc']     = '(no description)';
 
 				// Check it is enabled.
 				if (fud_plugin::is_active($plugin)) {
@@ -288,7 +291,7 @@ function undeploy_files($plugin)
 <p>The below plugins are active and listed in firing order. Drag and drop them to change the order.</p>
 <table class="resulttable fulltable">
 <thead><tr class="resulttopic">
-	<th>Plugin name</th><th>Version</th><th>Description</th><th>Action</th>
+	<th>Plugin name</th><th>Version</th><th>Category</th><th>Description</th><th>Action</th>
 </tr></thead>
 <tbody id="sortable">
 <?php
@@ -300,6 +303,7 @@ function undeploy_files($plugin)
 		echo '<tr id="order_'. $r->id .'"'. $bgcolor .' title="'. htmlspecialchars($r->name) .'">
 		      <td><span class="ui-icon ui-icon-arrowthick-2-n-s"></span><a href="admplugins.php?config='. urlencode($r->name) .'&amp;'. __adm_rsid .'" title="Configure plugin">'. $info[$r->name]['name'] .'</a></td>
 			  <td>'. $info[$r->name]['version'] .'</td>
+			  <td>'. $info[$r->name]['cat'] .'</td>
 			  <td>'. $info[$r->name]['desc'] .'</td>
 			  <td><a href="admplugins.php?deact='. $r->name .'&amp;'. __adm_rsid .'">Deactivate</a></td></tr>';
 	}
@@ -317,7 +321,7 @@ function undeploy_files($plugin)
 <form method="post" action="admplugins.php" autocomplete="off">
 <?php echo _hs ?>
 <table class="resulttable fulltable" cellpadding="5">
-<thead><tr class="resulttopic"><th>Enable</th><th>Plugin name</th><th>Version</th><th>Description</th></tr></thead>
+<thead><tr class="resulttopic"><th>Enable</th><th>Plugin name</th><th>Version</th><th>Category</th><th>Description</th></tr></thead>
 <?php
 	$i = 0;
 	foreach ($plugin_files as $plugin) {
@@ -329,6 +333,7 @@ function undeploy_files($plugin)
   <td class="center"><input type="checkbox" name="plugins[]" value="<?php echo $plugin; ?>" /></td>
   <td><a href="admplugins.php?config=<?php echo urlencode($plugin) .'&amp;'. __adm_rsid .'" title="Configure plugin">'. $info[$plugin]['name']; ?></a></td>
   <td><?php echo $info[$plugin]['version']; ?></td>
+  <td><?php echo $info[$plugin]['cat']; ?></td>
   <td><?php echo $info[$plugin]['desc']; ?></td>
 </tr>
 <?php } ?> 

@@ -131,7 +131,9 @@ echo '<tr class="field">
 </tr>
 </table>
 
-[ <a href="admphpinfo.php?<?php echo __adm_rsid; ?>">Detailed PHP info &raquo;</a> ]
+<?php if (function_exists('phpinfo')) {	// May be disabled. ?>
+	[ <a href="admphpinfo.php?<?php echo __adm_rsid; ?>">Detailed PHP info &raquo;</a> ]
+<?php } ?>
 <?php if (defined('fud_debug')) { ?>
 	[ <a href="admsqltest.php?<?php echo __adm_rsid; ?>">Test SQL driver &raquo;</a> ]
 <?php } ?>

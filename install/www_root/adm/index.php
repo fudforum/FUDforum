@@ -91,11 +91,11 @@ Welcome to your forum's Admin Control Panel. From here you can control how your 
 
 </td></tr><tr><td width="50%" valign="top">
 
-	<div id="chart_div1" style="width: 400px; height: 300px;"></div>
+	<div id="chart_div1" style="width:400px; height:300px; display:none;"></div>
 
 </td><td width="50%" valign="top">
 
-	<div id="chart_div2" style="width: 400px; height: 300px;"></div>
+	<div id="chart_div2" style="width:400px; height:300px; display:none;"></div>
 
 </td></tr>
 </table>
@@ -168,6 +168,7 @@ $registrations_per_day = array_values($registrations_per_day);
 			hAxis: {title: 'Days ago', titleTextStyle: {color: 'darkgreen'}}
 		});
 	}
+	jQuery("#chart_div1, #chart_div2").show();
 </script>
 
 <?php

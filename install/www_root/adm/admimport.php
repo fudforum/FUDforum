@@ -52,6 +52,9 @@ function resolve_dest_path($path)
 		fud_use('adm_cli.inc', 1);
 		define('recovery_mode', 1);
 		$_POST['path'] = $_SERVER['argv'][1];
+		if (isset($_SERVER['argv'][2])) {
+			$_POST['skipsearch'] = 'y';
+		}
 		$_POST['submitted'] = 1;
 	}
 

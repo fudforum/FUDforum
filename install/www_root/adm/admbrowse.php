@@ -159,7 +159,10 @@ if (!extension_loaded('posix')) {
 			<input type="hidden" name="dest" value="<?php echo $dest; ?>" />
 			<input type="hidden" name="del" value="1" />
 			<?php echo _hs; ?>
-			<div align="center"><input type="submit" name="btn_mini_cancel" value="No" /> <input type="submit" name="del_confirmed" value="Yes" /></div>
+			<div align="center">
+				<input type="submit" name="btn_mini_cancel" value="No" /> 
+				<input type="submit" name="del_confirmed" value="Yes" />
+			</div>
 			</form>
 		<?php
 			require($WWW_ROOT_DISK .'adm/footer.php');
@@ -188,7 +191,7 @@ if (!extension_loaded('posix')) {
 				exit;
 			} else {
 				logaction(_uid, 'Renamed file/directory to '. $new_dest, 0, $dest);
-				exit('<html><script>window.opener.location = \'admbrowse.php?'.__adm_rsidl.'&cur='.urlencode($cur_dir).'\'; window.close();</script></html>');
+				exit('<html><script>window.opener.location = \'admbrowse.php?'. __adm_rsidl .'&cur='. urlencode($cur_dir) .'\'; window.close();</script></html>');
 			}
 		} else {
 			$file = $cur_dir .'/'. $dest;
@@ -353,8 +356,11 @@ if (!extension_loaded('posix')) {
 
 			echo '<h2>View file: '. $dest .'</h2>';
 			echo '<div style="font-size: small;">';
+			echo '[ <a href="admbrowse.php?edit=1&amp;dest='. urlencode($dest) .'&amp;cur='. urlencode($cur_dir) .'&smp;'. __adm_rsid .'">Edit</a> ] ';
 			echo '[ <a href="admbrowse.php?down=1&amp;dest='. urlencode($dest) .'&amp;cur='. urlencode($cur_dir) .'&smp;'. __adm_rsid .'">Download</a> ] ';
-			echo '[ <a href="admbrowse.php?view=1&amp;raw='. ($raw ? 0 : 1) .'&amp;dest='. urlencode($dest) .'&amp;cur='. urlencode($cur_dir) .'&smp;'. __adm_rsid .'">Toggle syntax highlighting</a> ]';
+			if (function_exists('highlight_file')) {	// May be disabled.
+				echo '[ <a href="admbrowse.php?view=1&amp;raw='. ($raw ? 0 : 1) .'&amp;dest='. urlencode($dest) .'&amp;cur='. urlencode($cur_dir) .'&smp;'. __adm_rsid .'">Toggle syntax highlighting</a> ]';
+			}
 			echo '</div>';
 			echo '<code><pre>';
 			if ($raw) {
@@ -363,6 +369,48 @@ if (!extension_loaded('posix')) {
 				echo '<br />'. htmlentities(file_get_contents($file)) .'<br />&nbsp;';
 			}
 			echo '</pre></code>';
+			echo '<p><a href="admbrowse.php?'. __adm_rsid .'&amp;cur='. urlencode($cur_dir) .'">&laquo; Back to file manager</a></p>';
+			exit;
+		} else {
+			echo errorify('File not found: '. $file);
+		}
+	}
+
+	/* Save file after edit. */
+	if (isset($_POST['edit_save'], $_POST['edit_content'])) {
+		$file = str_replace('\\', '/', $cur_dir .'/'. $dest);
+		if (file_put_contents($file, $_POST['edit_content'], LOCK_EX) === false) {
+			pf(errorify('Unable to save file!'));
+		} else {
+			pf(successify('File saved.'));
+			logaction(_uid, 'Edited file', 0, $file);	
+		}
+		$_GET['edit'] = 1; // Return to the edit screen.
+	}
+	
+
+	/* Edit file. */
+	if (isset($_GET['edit']) && $dest && @file_exists($cur_dir .'/'. $dest)) {
+		$file = str_replace('\\', '/', $cur_dir .'/'. $dest);
+		$ext = pathinfo($file, PATHINFO_EXTENSION);
+		if ($dest == 'fudforum_archive' || in_array($ext, array('atch', 'gz', 'zip', 'tar', 'db'))) {
+			echo errorify('Cannot view binary file. Do you want to <a href="admbrowse.php?down=1&amp;cur='. $cur_dir .'&amp;dest='. $dest .'&amp;'. __adm_rsid .'">download</a> it?');
+		} elseif (is_file($file) && is_readable($file)) {
+			echo '<h2>Edit file: '. $dest .'</h2>';
+			echo '<div style="font-size: small;">';
+			echo '[ <a href="admbrowse.php?down=1&amp;dest='. urlencode($dest) .'&amp;cur='. urlencode($cur_dir) .'&smp;'. __adm_rsid .'">Download</a> ] ';
+			echo '[ <a href="admbrowse.php?view=1&amp;dest='. urlencode($dest) .'&amp;cur='. urlencode($cur_dir) .'&smp;'. __adm_rsid .'">View file</a> ]';
+			?>
+			</div>
+			<form method="post" action="admbrowse.php">
+			<?php echo _hs; ?>
+			<input type="hidden" name="edit" value="1" />
+			<input type="hidden" name="cur"  value="<?php echo $cur_dir; ?>" />
+			<input type="hidden" name="dest" value="<?php echo $dest; ?>" />
+			<textarea style="text-align: left; padding: 0px; overflow: auto;" name="edit_content" cols="120" rows="20" wrap="OFF"><?php echo file_get_contents($file); ?></textarea>
+			<input type="submit" name="edit_save" value="Save">
+			</form>
+			<?php
 			echo '<p><a href="admbrowse.php?'. __adm_rsid .'&amp;cur='. urlencode($cur_dir) .'">&laquo; Back to file manager</a></p>';
 			exit;
 		} else {
@@ -510,6 +558,10 @@ if (!extension_loaded('posix')) {
 			}
 
 			echo ' [<a href="admbrowse.php?down=1&amp;cur='. $cur_enc .'&amp;dest='. $de_enc .'&amp;'. __adm_rsid .'" title="Download">d/l</a>]';
+
+			if (@is_file($fpath)) {
+			      echo ' [<a href="admbrowse.php?edit=1&amp;cur='. $cur_enc .'&amp;dest='. $de_enc .'&amp;'. __adm_rsid .'" title="Edit">edt</a>]';
+			}
 
 			if (@is_writeable($fpath) && $de != '.' && $de != '..' && $de != '.htaccess') {
 				echo ' [<a href="#" onclick="window.open(\'admbrowse.php?rename=1&amp;cur='. $cur_enc .'&amp;dest='. $de_enc .'&amp;'. __adm_rsid .'\', \'rename_window\', \'width=500,height=350,menubar=no\');" title="Rename">ren</a>]';

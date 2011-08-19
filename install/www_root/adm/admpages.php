@@ -34,11 +34,11 @@
 			$page = new fud_page;
 			$page->sync($edit);
 			$edit = '';	
-			echo successify('Page was successfully updated.');
+			pf(successify('Page was successfully updated. [ <a href="../'. __fud_index_name__ .'?t=page&amp;id='. $page->slug .'&amp;'. __adm_rsid .'" title="Go to page">Visit your page</a> ]'));
 		} else if (!$error) {
 			$page = new fud_page;
 			$page->add();
-			echo successify('Page was successfully added.');
+			pf(successify('Page was successfully added. [ <a href="../'. __fud_index_name__ .'?t=page&amp;id='. $page->slug .'&amp;'. __adm_rsid .'" title="Go to page">Visit your page</a> ]'));
 		}
 	}
 
@@ -46,7 +46,7 @@
 	if (isset($_GET['del'])) {
 		$page = new fud_page();
 		$page->delete($_GET['del']);
-		echo successify('Page was successfully deleted.');
+		pf(successify('Page was successfully deleted.'));
 	}
 
 	/* Set defaults. */

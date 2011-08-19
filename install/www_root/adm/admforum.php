@@ -176,7 +176,7 @@ if (!isset($_GET['chpos'])) {	// Hide this if we are changing forum order.
 	</tr>
 
 	<tr class="field">
-		<td valign="top">Description:<br /><font size="-2">Description that will be shown on the forums main index page.</font></td>
+		<td valign="top">Description:<br /><font size="-2">Description that will be shown on the forums main index page. Can contain HTML.</font></td>
 		<td><textarea nowrap="nowrap" name="frm_descr" cols="28" rows="5"><?php echo htmlspecialchars($frm_descr); ?></textarea></td>
 	</tr>
 

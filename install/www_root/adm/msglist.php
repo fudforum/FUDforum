@@ -9,25 +9,6 @@
 * Free Software Foundation; version 2 of the License.
 **/
 
-	@set_time_limit(6000);
-
-	require('./GLOBALS.php');
-	fud_use('adm.inc', true);
-
-	$tname = isset($_POST['tname']) ? $_POST['tname'] : (isset($_GET['tname']) ? $_GET['tname'] : '');
-	$tlang = isset($_POST['tlang']) ? $_POST['tlang'] : (isset($_GET['tlang']) ? $_GET['tlang'] : '');
-
-	if (!$tname || !$tlang) {
-		header('Location: '. $WWW_ROOT .'adm/admmessages.php?'. __adm_rsidl);
-		exit;
-	}
-
-	$msgfile = $GLOBALS['DATA_DIR'] .'thm/'. $tname .'/i18n/'. $tlang .'/msg';
-	if (!@file_exists($msgfile)) {
-		$msgfile = $GLOBALS['DATA_DIR'] .'thm/default/i18n/'. $tlang .'/msg';
-		$warn = 'WARNING: EDITING DEFAULT MESSAGE FILE, BECAUSE THIS TEMPLATE DOESN\'T HAVE ONE';
-	}
-
 function makedeps()
 {
 	$path = $GLOBALS['DATA_DIR'] .'thm/'. $GLOBALS['tname'] .'/tmpl';
@@ -82,6 +63,26 @@ function makedeps()
 
 	return array($tmplmsglist, $filedeps);
 }
+
+/* main */
+	@set_time_limit(6000);
+
+	require('./GLOBALS.php');
+	fud_use('adm.inc', true);
+
+	$tname = isset($_POST['tname']) ? $_POST['tname'] : (isset($_GET['tname']) ? $_GET['tname'] : '');
+	$tlang = isset($_POST['tlang']) ? $_POST['tlang'] : (isset($_GET['tlang']) ? $_GET['tlang'] : '');
+
+	if (!$tname || !$tlang) {
+		header('Location: '. $WWW_ROOT .'adm/admmessages.php?'. __adm_rsidl);
+		exit;
+	}
+
+	$msgfile = $GLOBALS['DATA_DIR'] .'thm/'. $tname .'/i18n/'. $tlang .'/msg';
+	if (!@file_exists($msgfile)) {
+		$msgfile = $GLOBALS['DATA_DIR'] .'thm/default/i18n/'. $tlang .'/msg';
+		$warn = 'WARNING: EDITING DEFAULT MESSAGE FILE, BECAUSE THIS TEMPLATE DOESN\'T HAVE ONE';
+	}
 
 	if (isset($_POST['btn_submit'], $_POST['msglist'])) {
 		$msglist_arr[] = strtok($_POST['msglist'], ':');

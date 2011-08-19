@@ -66,7 +66,7 @@ function validate_input()
 	} else {
 		if (!empty($uid)) {
 			logaction(_uid, 'CREATE_USER', 0, $_POST['login']);
-			echo successify('User was successfully added. [ <a href="admuser.php?act=1&amp;usr_id='. $uid .'&amp;'. __adm_rsid .'">Edit user '. $_POST['login'] .'</a> ]');
+			pf(successify('User was successfully added. [ <a href="admuser.php?act=1&amp;usr_id='. $uid .'&amp;'. __adm_rsid .'">Edit user '. $_POST['login'] .'</a> ]'));
 		}
 		$login = $passwd = $email = $name = '';
 	}

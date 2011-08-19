@@ -163,22 +163,22 @@ function imposeMaxLength(Object, len)
 <?php echo _hs; ?>
 <table class="datatable">
 	<tr class="field">
-		<td>Category name:</td>
+		<td>Category name:<br /><font size="-2">The category's name.</font></td>
 		<td><input type="text" name="cat_name" value="<?php echo $cat_name; ?>" maxlength="50" /></td>
 	</tr>
 
 	<tr class="field">
-		<td>Description:</td>
+		<td>Description:<br /><font size="-2">Description to show on the forums main index page. This field can contain HTML.</font></td>
 		<td><textarea name="cat_description" cols="40" rows="3" onkeypress="return imposeMaxLength(this, 255);"><?php echo htmlspecialchars($cat_description); ?></textarea></td>
 	</tr>
 
 	<tr class="field">
-		<td>Collapsible:</td>
+		<td>Collapsible:<br /><font size="-2">Can users expand/collapse (show/hide) this category?</font></td>
 		<td><?php draw_select('cat_allow_collapse', "Yes\nNo", "1\n0", $cat_opt & 1); ?></td>
 	</tr>
 
 	<tr class="field">
-		<td>Default view: </td>
+		<td>Default view:<br /><font size="-2">Default appearance of this category.</font></td>
 		<td><?php draw_select('cat_default_view', "Open\nCollapsed\nCompact", "2\n0\n4", ($cat_opt & (2|4))); ?></td>
 	</tr>
 	

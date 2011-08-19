@@ -95,7 +95,7 @@ echo '<h3>'. ($edit ? '<a name="edit">Edit Spider:</a>' : 'Add New Spider:') .'<
 	</tr>
 
 	<tr class="field">
-		<td>Bot's IP Addresses:<br /><font size="-2">Comma separated list of IP Addresses used by the spider.</font></td>
+		<td>IP Addresses:<br /><font size="-2">Comma separated list of IP Addresses used by the spider.</font></td>
 		<td><input type="text" name="spider_bot_ip" value="<?php echo $spider_bot_ip; ?>" /></td>
 	</tr>
 
