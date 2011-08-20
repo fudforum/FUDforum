@@ -29,9 +29,9 @@ function plugin_theme_router($usr) {
 	} else {
 		if (isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
 			$lang  = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
-		}
-		if (isset($themes[$lang])) {
-			$theme = $themes[$lang];
+			if (isset($themes[$lang])) {
+				$theme = $themes[$lang];
+			}
 		}
 	}
 
@@ -68,7 +68,7 @@ function _plugin_theme_router_selection($array) {
 
 function theme_router_info() {
 	return array('name' => 'Theme Router',
-				'desc' => 'Direct users to a suitable theme based on their brower language. Also present a drop down box so users can switch to diferent themes.',
+				'desc' => 'Direct users to a suitable theme based on their browser language. Also present a drop down box so users can switch to diferent themes.',
 				'version' => '1.0');
 }
 
