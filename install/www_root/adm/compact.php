@@ -246,9 +246,6 @@ function write_body_copy($data, &$len, &$offset, $file_id, $forum_id)
 	pf('<b>Rebuilding private messages:</b>');
 
 	// Index messages offsets for faster processing.
-	if (array_key_exists($tbl .'pmsg_foff_idx', get_fud_index_list($tbl .'pmsg'))) {
-		drop_index($tbl .'pmsg', $tbl .'pmsg_foff_idx');
-	}
 	create_index($tbl .'pmsg', $tbl .'pmsg_foff_idx', false, 'foff');
 
 	db_lock($tbl .'pmsg WRITE');

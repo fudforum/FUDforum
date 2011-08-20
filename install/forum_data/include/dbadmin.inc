@@ -34,7 +34,7 @@ function validate_db_version()
 function get_stbl_from_file($file)
 {
 	$data = str_replace('{SQL_TABLE_PREFIX}', $GLOBALS['DBHOST_TBL_PREFIX'], file_get_contents($file));
-	$tbl = array('name'=>'', 'index'=>array(), 'flds'=>array());
+	$tbl  = array('name'=>'', 'index'=>array(), 'flds'=>array());
 
 	/* Extract table name. */
 	if (!preg_match('!CREATE TABLE '. $GLOBALS['DBHOST_TBL_PREFIX'] .'([a-z_]+)!', $data, $m)) {
@@ -167,13 +167,13 @@ function get_fud_col_list($table)
                 WHERE UPPER(c.tabname) = UPPER(\''. $table .'\') 
 				ORDER BY c.colno');
 		while ($r = db_rowarr($c)) {
-			$colname = strtolower($r[0]);
-			$type = preg_replace(array('!INTEGER!', '!CHARACTER!', '!CLOB\(.+?\)!'), array('INT', 'CHAR', 'TEXT'), $r[1]);
-			$type = ($type=='CHAR' || $type=='VARCHAR') ? $type .'('. $r[4] .')' : $type;	// Append type length.
+			$colname  = strtolower($r[0]);
+			$type     = preg_replace(array('!INTEGER!', '!CHARACTER!', '!CLOB\(.+?\)!'), array('INT', 'CHAR', 'TEXT'), $r[1]);
+			$type     = ($type=='CHAR' || $type=='VARCHAR') ? $type .'('. $r[4] .')' : $type;	// Append type length.
 			$not_null = $r[2] == 'Y' ? 0 : 1;
-			$key = $r[7] == 'P' ? 1 : 0;
-			$default = trim(str_replace("'", '', $r[3]));
-			$auto = $r[6] == 'Y' ? 1 : 0;
+			$key      = $r[7] == 'P' ? 1 : 0;
+			$default  = trim(str_replace("'", '', $r[3]));
+			$auto     = $r[6] == 'Y' ? 1 : 0;
 			$ret[$colname] = array('type'=>$type, 'not_null'=>$not_null, 'primary'=>$key, 'default'=>$default, 'auto'=>$auto);
 		}
 	} else if (__dbtype__ == 'firebird') {
@@ -196,12 +196,12 @@ function get_fud_col_list($table)
 				WHERE r.rdb$relation_name=UPPER(\''. $table .'\')
 				ORDER BY r.rdb$field_position');
 		while ($r = db_rowarr($c)) {
-			$colname = strtolower($r[0]);
-			$type = trim($r[1]);	// Get rid of spaces.
-			$type = ($type=='CHAR' || $type=='VARCHAR') ? $type .'('. $r[4] .')' : $type;	// Append type length.
+			$colname  = strtolower($r[0]);
+			$type     = trim($r[1]);	// Get rid of spaces.
+			$type     = ($type=='CHAR' || $type=='VARCHAR') ? $type .'('. $r[4] .')' : $type;	// Append type length.
 			$not_null = $r[2] == '1' ? 1 : 0;
-			$key = (int)q_singleval('SELECT 1 FROM rdb$relation_constraints c, rdb$index_segments i WHERE i.rdb$index_name = c.rdb$index_name AND c.rdb$relation_name = UPPER(\''. $table .'\') AND i.rdb$field_name = \''. $r[0] .'\' AND c.rdb$constraint_type = \'PRIMARY KEY\'');
-			$default = trim(str_replace(array("'", 'DEFAULT '), '', $r[3]));
+			$key      = (int)q_singleval('SELECT 1 FROM rdb$relation_constraints c, rdb$index_segments i WHERE i.rdb$index_name = c.rdb$index_name AND c.rdb$relation_name = UPPER(\''. $table .'\') AND i.rdb$field_name = \''. $r[0] .'\' AND c.rdb$constraint_type = \'PRIMARY KEY\'');
+			$default  = trim(str_replace(array("'", 'DEFAULT '), '', $r[3]));
 
 			// Check if PK is AUTO GENERATED (i.e. has a sequence).
 			$auto = 0;
@@ -233,11 +233,11 @@ function get_fud_col_list($table)
 		// We can also use: SELECT COLUMN_NAME, DATA_TYPE, IS_NULLABLE, COLUMN_DEFAULT FROM INFORMATION_SCHEMA.COLUMNS...
 		$c = q('SHOW FIELDS FROM '. $table);
 		while ($r = db_rowobj($c)) {
-			$type = strtoupper(preg_replace('!(int|bigint)\(([0-9]+)\)!', '\1', $r->Type));
+			$type     = strtoupper(preg_replace('!(int|bigint)\(([0-9]+)\)!', '\1', $r->Type));
 			$not_null = $r->Null == 'YES' ? 0 : 1;
-			$key = $r->Key == 'PRI' ? 1 : 0;
-			$default = (!is_null($r->Default) && $r->Default != 'NULL') ? $r->Default : '';
-			$auto = $r->Extra ? 1 : 0;
+			$key      = $r->Key == 'PRI' ? 1 : 0;
+			$default  = (!is_null($r->Default) && $r->Default != 'NULL') ? $r->Default : '';
+			$auto     = $r->Extra ? 1 : 0;
 
 			$ret[$r->Field] = array('type'=>$type, 'not_null'=>$not_null, 'primary'=>$key, 'default'=>$default, 'auto'=>$auto);
 		}
@@ -265,11 +265,11 @@ function get_fud_col_list($table)
 				WHERE tc.table_name = UPPER(\''. $table .'\')
 				ORDER BY tc.column_id');
 		while ($r = db_rowarr($c)) {
-			$colname = strtolower( $r[0] );
-			$type = preg_replace(array('!NUMBER!', '!VARCHAR2!', '!CLOB\(.+?\)!', '!FLOAT!'), array('INT', 'VARCHAR', 'TEXT', 'BIGINT'), $r[1]);
+			$colname  = strtolower( $r[0] );
+			$type     = preg_replace(array('!NUMBER!', '!VARCHAR2!', '!CLOB\(.+?\)!', '!FLOAT!'), array('INT', 'VARCHAR', 'TEXT', 'BIGINT'), $r[1]);
 			$not_null = $r[2] == 'N' ? 1 : 0;
-			$key = $r[3] == 'P' ? 1 : 0;
-			$default = is_null($r[4]) ? null : trim(str_replace("'", '', $r[4]));
+			$key      = $r[3] == 'P' ? 1 : 0;
+			$default  = is_null($r[4]) ? null : trim(str_replace("'", '', $r[4]));
 
 			// Check if PK is AUTO GENERATED (i.e. has a sequence).
 			$auto = 0;
@@ -295,11 +295,11 @@ function get_fud_col_list($table)
 		while ($r = db_rowarr($c)) {
 			$key = empty($r[4]) ? 0 : 1;
 			$not_null = $r[2] == 'NO' ? 1 : 0;
-			$type = strtoupper(preg_replace(array('!character varying!', '!character!', '!integer!'), array('VARCHAR', 'CHAR', 'INT'), $r[1]));
-			$type = (empty($r[5])) ? $type : $type .'('. $r[5] .')';	// Append type length.
-			$auto = !strncmp($r[3], 'nextval', 7) ? 1 : 0;
+			$type        = strtoupper(preg_replace(array('!character varying!', '!character!', '!integer!'), array('VARCHAR', 'CHAR', 'INT'), $r[1]));
+			$type        = (empty($r[5])) ? $type : $type .'('. $r[5] .')';	// Append type length.
+			$auto        = !strncmp($r[3], 'nextval', 7) ? 1 : 0;
 			$default_val = preg_replace('/::.*/', '', $r[3]);	// Remove anything after ::. I.e. '0'::character varying.
-			$default = (!$auto) ? trim(str_replace("'", '', $default_val)) : null;
+			$default     = (!$auto) ? trim(str_replace("'", '', $default_val)) : null;
 
 			$ret[$r[0]] = array('type'=>$type, 'not_null'=>$not_null, 'primary'=>$key, 'default'=>$default, 'auto'=>$auto);
 		}
@@ -307,11 +307,11 @@ function get_fud_col_list($table)
 	} else if (__dbtype__ == 'sqlite') {
 		$c = q('PRAGMA table_info(\''. $table .'\')');
 		while ($r = db_rowobj($c)) {
-			$key = $r->pk;
+			$key      = $r->pk;
 			$not_null = ($r->notnull || $r->pk) ? 1 : 0;
-			$type = ($r->type == 'INTEGER') ? 'INT' : $r->type;
-			$default = is_null($r->dflt_value) ? null : trim(str_replace("'", '', $r->dflt_value));
-			$auto = ($r->type == 'INTEGER' && $r->pk) ? 1 : 0;
+			$type     = ($r->type == 'INTEGER') ? 'INT' : $r->type;
+			$default  = is_null($r->dflt_value) ? null : trim(str_replace("'", '', $r->dflt_value));
+			$auto     = ($r->type == 'INTEGER' && $r->pk) ? 1 : 0;
 
 			$ret[$r->name] = array('type'=>$type, 'not_null'=>$not_null, 'primary'=>$key, 'default'=>$default, 'auto'=>$auto);
 		}
@@ -407,7 +407,7 @@ function get_sql_disk_usage()
 /** Create a new database table. */
 function create_table($script)
 {
-	$script = preg_replace('!#.*\n!', '', $script);	// Remove comments.
+	$script     = preg_replace('!#.*\n!', '', $script);	// Remove comments.
 	$statements = explode(';', $script);	// Script may have several statement.
 
 	foreach ($statements as $q) {
@@ -579,12 +579,17 @@ function delete_duplicate_rows($tbl, $flds)
 /** Create an index on a table. */
 function create_index($tbl, $name, $unique, $flds, $del_dups=true)
 {
-	$tbl = str_replace('{SQL_TABLE_PREFIX}', $GLOBALS['DBHOST_TBL_PREFIX'], $tbl);
+	$tbl  = str_replace('{SQL_TABLE_PREFIX}', $GLOBALS['DBHOST_TBL_PREFIX'], $tbl);
 	$name = str_replace('{SQL_TABLE_PREFIX}', $GLOBALS['DBHOST_TBL_PREFIX'], $name);
 
 	/* Before adding a unique index, we need to check & remove any duplicates. */
 	if ($unique && $del_dups) {
 		delete_duplicate_rows($tbl, $flds);
+	}
+
+	/* Check if index already exists and must be dropped first. */
+	if (array_key_exists($name, get_fud_index_list($tbl))) {
+		drop_index($tbl, $name);
 	}
 
 	if (__dbtype__ == 'mysql') {
