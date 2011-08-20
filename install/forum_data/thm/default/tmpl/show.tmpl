@@ -12,19 +12,19 @@
 
 {MAIN_SECTION: show_links the links that you see on index/thread/msg page that allow you to access selmsg}
 <span class="GenText fb">{MSG: show_show}</span>
-<a href="{TEMPLATE: show_links_lnk}" title="{MSG: todays_posts_desc}">{MSG: todays_posts}</a>
+<a href="{TEMPLATE: show_links_lnk}" title="{MSG: todays_posts_desc}" rel="nofollow">{MSG: todays_posts}</a>
 {IF: _uid}{TEMPLATE: unread_posts}{ENDIF}
 {IF: !$th}{TEMPLATE: unanswered_posts}{ENDIF}
-<b>::</b> <a href="{TEMPLATE: show_links_lnk1}">{MSG: show_pollist}</a>
-<b>::</b> <a href="{TEMPLATE: show_links_lnk2}">{MSG: mnav_title}</a>
+<b>::</b> <a href="{TEMPLATE: show_links_lnk1}" rel="nofollow">{MSG: show_pollist}</a>
+<b>::</b> <a href="{TEMPLATE: show_links_lnk2}" rel="nofollow">{MSG: mnav_title}</a>
 {MAIN_SECTION: END}
 
 {SECTION: unread_posts}
-<b>::</b> <a href="{TEMPLATE: unread_posts_lnk}" title="{MSG: unread_posts_desc}">{MSG: unread_posts}</a>&nbsp;
+<b>::</b> <a href="{TEMPLATE: unread_posts_lnk}" title="{MSG: unread_posts_desc}" rel="nofollow">{MSG: unread_posts}</a>&nbsp;
 {SECTION: END}
 
 {SECTION: unanswered_posts}
-<b>::</b> <a href="{TEMPLATE: unanswered_posts_lnk}" title="{MSG: unanswered_posts_desc}">{MSG: unanswered_posts}</a>&nbsp;
+<b>::</b> <a href="{TEMPLATE: unanswered_posts_lnk}" title="{MSG: unanswered_posts_desc}" rel="nofollow">{MSG: unanswered_posts}</a>&nbsp;
 {SECTION: END}
 
 {SECTION: unread_posts_lnk}

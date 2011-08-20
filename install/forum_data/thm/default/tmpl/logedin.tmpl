@@ -34,7 +34,8 @@
 {SECTION: END}
 
 {SECTION: i_spy logged in users list}
-{IF: _uid || !($FUD_OPT_3 & 131072)}[ <a href="{TEMPLATE: i_spy_lnk}" class="thLnk">{MSG: what_ppl_doing}</a> ]{ENDIF}{IF: _uid || !($FUD_OPT_3 & 262144)} [ <a href="{TEMPLATE: i_spy_lnk1}" class="thLnk">{MSG: logedin_todays_visitors}</a> ]{ENDIF}
+{IF: _uid || !($FUD_OPT_3 & 131072)}[ <a href="{TEMPLATE: i_spy_lnk}" class="thLnk" rel="nofollow">{MSG: what_ppl_doing}</a> ]{ENDIF}
+{IF: _uid || !($FUD_OPT_3 & 262144)}[ <a href="{TEMPLATE: i_spy_lnk1}" class="thLnk" rel="nofollow">{MSG: logedin_todays_visitors}</a> ]{ENDIF}
 {SECTION: END}
 
 {SECTION: online_user_link}

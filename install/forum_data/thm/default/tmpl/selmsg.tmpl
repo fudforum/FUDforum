@@ -34,11 +34,19 @@
 {SECTION: END}
 
 {SECTION: forum_row forum heading row}
-<tr><th class="SelFS">{MSG: forum} <a class="thLnk" href="{TEMPLATE: forum_row_lnk}"><span class="lg">{VAR: r->name}</span></a></th></tr>
+<tr>
+	<th class="SelFS">
+		{MSG: forum} <a class="thLnk" href="{TEMPLATE: forum_row_lnk}"><span class="lg">{VAR: r->name}</span></a>
+	</th>
+</tr>
 {SECTION: END}
 
 {SECTION: thread_row thread heading row}
-<tr><th class="SelTS">&nbsp;{MSG: thread} <a class="thLnk" href="{TEMPLATE: thread_row_lnk}">{VAR: r->thr_subject}</a></th></tr>
+<tr>
+	<th class="SelTS">
+		&nbsp;{MSG: thread} <a class="thLnk" href="{TEMPLATE: thread_row_lnk}">{VAR: r->thr_subject}</a>
+	</th>
+</tr>
 {SECTION: END}
 
 {SECTION: no_result}
