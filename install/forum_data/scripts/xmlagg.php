@@ -135,7 +135,7 @@
 			$body = $node->getElementsByTagName('summary')->item(0)->nodeValue;
 		}
 		if (isset($body)) {
-			$articles[$date]['body'] = $body;
+			$articles[$date]['body'] = trim($body);
 		} else {
 			$articles[$date]['body'] = '(no body)';
 		}

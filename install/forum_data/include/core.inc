@@ -170,15 +170,33 @@ function __fud_cache($t)
 }
 
 /** Log an error. */
-function fud_logerror($error_msg, $logfile) {
+function fud_logerror($error_msg, $logfile, $extra_data=null) {
+	// Log extra data to a file.
+	if(!empty($extra_data)) {
+		if (defined('script')) {	// nntp or mlist.
+			$extra_file = $GLOBALS['ERROR_PATH'] .'.'. script .'/'. time() .'_'. md5($extra_data);
+		} else {
+			$extra_file = $GLOBALS['ERROR_PATH'] . time() .'_'. md5($extra_data);
+		}
+		$u = umask(0111);
+		if (!($fp = fopen($extra_file, 'wb'))) {
+			exit('No perms to write '. $extra_file ."\n");
+		}
+		fwrite($fp, $extra_data);
+		fclose($fp);
+		umask($u);
+		$error_msg .= ' Details @ '. $extra_file;
+	 }
+
+	// Call plugins to alter, log or block error messages.
 	if (defined('plugins')) {
-		// Alter, log or block error message.
 		$error_msg = plugin_call_hook('LOGERR', $error_msg);
 		if (empty($error_msg)) {
 			return;
 		}
 	}
 
+	// Default logging.
 	$pfx = sprintf('?%-10d?%-10d?', strlen($error_msg) + 1, __request_timestamp__);
 	ini_set('log_errors_max_len', 0);
 	if (!error_log($pfx . $error_msg ."\n", 3, $GLOBALS['ERROR_PATH'] . $logfile)) {
@@ -191,7 +209,7 @@ function fud_logerror($error_msg, $logfile) {
 /** Database error handler. */
 function fud_sql_error_handler($query, $error_string, $error_number, $db_version)
 {
-	if (db_locked() && !in_array($query, array('COMMIT','COMMIT WORK','UNLOCK TABLES'))) {
+	if (db_locked() && !in_array($query, array('COMMIT', 'COMMIT WORK', 'UNLOCK TABLES'))) {
 		db_unlock();
 	}
 
@@ -227,15 +245,21 @@ function fud_sql_error_handler($query, $error_string, $error_number, $db_version
 
 	fud_logerror($error_msg, 'sql_errors');
 
+	if (empty($GLOBALS['ADMIN_EMAIL'])) {
+		$public_msg = 'SQL error has occurred, please contact the administrator of the forum and have them review the forum\'s SQL query log';
+	} else {
+		$public_msg = 'SQL error has occurred, please contact the <a href="mailto:'. $GLOBALS['ADMIN_EMAIL'] .'?subject=SQL%20Error">administrator</a> of the forum and have them review the forum\'s SQL query log';
+	}
+
 	if (isset($GLOBALS['usr']->users_opt) && $GLOBALS['usr']->users_opt & 1048576) { // Admin user.
 		// ACP may try to catch DB errors, e.g. temp table check in admglobal.php.
 		throw new Exception($error_msg);
 	} elseif (defined('fud_debug')) {	// Debug mode.
 		echo '<hr><pre>'. $error_msg .'</pre><hr>';
 	} else {
-		trigger_error('SQL Error has occurred, please contact the <a href="mailto:'. $GLOBALS['ADMIN_EMAIL'] .'?subject=SQL%20Error">administrator</a> of the forum and have them review the forum&#39;s SQL query log', E_USER_ERROR);
+		trigger_error($public_msg, E_USER_ERROR);
 		if (ini_get('display_errors') !== 1) {
-			exit('SQL Error has occurred, please contact the <a href="mailto:'. $GLOBALS['ADMIN_EMAIL'] .'?subject=SQL%20Error">administrator</a> of the forum and have them review the forum&#39;s SQL query log');
+			echo $public_msg;
 		}
 	}
 	exit;

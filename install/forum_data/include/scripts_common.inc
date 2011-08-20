@@ -9,6 +9,7 @@
 * Free Software Foundation; version 2 of the License.
 **/
 
+/** Lookup forum user. */
 function match_user_to_post($from_email, $from_name, $create_users, &$user_id, $reg_date=0)
 {
 	/* Try to identify user by email. */
@@ -33,6 +34,7 @@ function match_user_to_post($from_email, $from_name, $create_users, &$user_id, $
 	return $user->id;
 }
 
+/** Create new confirmed forum user without sending an E-mail notification. */
 function create_new_user($from_name, $from_email, $reg_date=0)
 {
 	/* Since we assume every user created from a mailing list is already 'confirmed'
@@ -73,6 +75,7 @@ function create_new_user($from_name, $from_email, $reg_date=0)
 	return $id;
 }
 
+/** Lookup parent message to add reply to. */
 function get_fud_reply_id($complex, $forum_id, $subject, $data)
 {
 	if (!empty($data)) {
@@ -100,6 +103,7 @@ function get_fud_reply_id($complex, $forum_id, $subject, $data)
 	return !empty($r) ? array((int)$r[0], (int)$r[1]) : array(0, 0);
 }
 
+/** Parse an IP address. */
 function parse_ip($str)
 {
 //@TODO: IPv6 compatibility.
@@ -118,6 +122,7 @@ if (extension_loaded('iconv')) {
 	function charset_convert($str, $from, $to) { return $str; }
 }
 
+/** Change the encoding of a string. */
 function decode_string($str, $encoding, $charset='')
 {
 	if ($encoding == 'quoted-printable') {
@@ -135,6 +140,7 @@ function decode_string($str, $encoding, $charset='')
 	return $str;
 }
 
+/** Change the encoding of a header value. */
 function decode_header_value($val)
 {
 	// Should string be decoded? If not, this function may strip accented characters.
@@ -171,6 +177,17 @@ function decode_header_value($val)
 		$val = trim($newval);
 	}
 	return trim($val);
+}
+
+/** Helper function to add attachements. */
+function add_attachment($name, $data, $pid)
+{
+	$tmpfname = tempnam($GLOBALS['TMP'], 'FUDf_');
+	$fp = fopen($tmpfname, 'wb');
+	$len = fwrite($fp, $data);
+	fclose($fp);
+
+	return attach_add(array('name' => basename($name), 'size' => $len, 'tmp_name' => $tmpfname), $pid, 0, 1);
 }
 
 /** Apply different colors to different levels of quoted text. */

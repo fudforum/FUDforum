@@ -674,7 +674,7 @@ function &init_user()
 
 	// Prevent spiders from doing funny stuff.
 	if (($u->users_opt & 1073741824) && $GLOBALS['is_post']) {	// is_spider
-		die('Go away!');
+		die('Bad bot!');
 	}
 
 	/* Disable caching for registered users and POST requests. */

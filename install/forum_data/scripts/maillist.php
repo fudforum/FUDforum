@@ -10,42 +10,9 @@
 * Free Software Foundation; version 2 of the License. 
 **/
 
-function log_script_error($error, $msg_data='', $level='WARNING')
-{
-	$err_msg_cpy = '';
-	if (!empty($msg_data) && $level != 'LOG') {
-		// Make copy of message for later investigation.
-		$err_msg_cpy = $GLOBALS['ERROR_PATH'] .'.mlist/'. time() .'_'. md5($msg_data);
-		$u = umask(0111);
-		if (!($fp = fopen($err_msg_cpy, 'wb'))) {
-			exit('No perms to write '. $err_msg_cpy ."\n");
-		}
-		fwrite($fp, $msg_data);
-		fclose($fp);
-		umask($u);
-		$err_msg_cpy = ' @ '. $err_msg_cpy;
-	}
-
-	// Log error message.
-	fud_logerror($error . $err_msg_cpy, 'mlist_errors');
-
-	if ($level == 'ERROR') {
-		exit;
-	}
-}
-
-function add_attachment($name, $data, $pid)
-{
-	$tmpfname = tempnam($GLOBALS['TMP'], 'FUDf_');
-	$fp = fopen($tmpfname, 'wb');
-	$len = fwrite($fp, $data);
-	fclose($fp);
-
-	return attach_add(array('name' => basename($name), 'size' => $len, 'tmp_name' => $tmpfname), $pid, 0, 1);
-}
-
 /* main */
 	define('no_session', 1);
+	define('script', 'mlist');
 
 	if (!ini_get('register_argc_argv')) {
 		exit("Please enable the 'register_argc_argv' php.ini directive.\n");
@@ -162,11 +129,20 @@ function add_attachment($name, $data, $pid)
 		$emsg = new fud_mime_msg();
 		$emsg->subject_cleanup_rgx = $config->subject_regex_haystack;
 		$emsg->subject_cleanup_rep = $config->subject_regex_needle;
-		$emsg->body_cleanup_rgx = $config->body_regex_haystack;
-		$emsg->body_cleanup_rep = $config->body_regex_needle;
+		$emsg->body_cleanup_rgx    = $config->body_regex_haystack;
+		$emsg->body_cleanup_rep    = $config->body_regex_needle;
 
-		if ($config->mbox_server && $config->mbox_user) {
-			/* Fetch message from mailbox and load into the forum. */
+		if (!empty($_SERVER['argv'][2])) {
+			/* Read a single message from a file and load it into the forum. */
+			$filename = $_SERVER['argv'][2];
+			if (!is_file($filename)) {
+				exit("Cannot read from file ". $filename ."\n");
+			}
+			$email_message = file_get_contents($filename);
+			$emsg->parse_message($email_message, $config->mlist_opt & 16);
+			$done = 1;
+		} else if ($config->mbox_server && $config->mbox_user) {
+			/* Fetch message from mailbox and load them into the forum. */
 			if (empty($emails)) {
 				echo "No more mails to process.\n";
 				$done = 1;
@@ -176,13 +152,14 @@ function add_attachment($name, $data, $pid)
 			$email_message = imap_fetchbody($mbox, $email_number, '');
 			echo 'Load message '. $email_number;
 			$emsg->parse_message($email_message, $config->mlist_opt & 16);
-			echo ". Done. Delete message.\n";
+			echo ". Done. Deleting message.\n";
 			imap_delete($mbox, $email_number);
 		} else {
-			/* Read single message from pipe (stdin) and load into the forum. */
+			/* Read single message from pipe (stdin) and load it into the forum. */
 			$email_message = file_get_contents('php://stdin');
 			if (empty($email_message)) {
-				log_script_error('Nothing to import! Please pipe your messages into the script or use a mailbox.', '', 'ERROR');
+				fud_logerror('Nothing to import! Please pipe your messages into the script or use a mailbox.', 'mlist_errors');
+				exit();
 			}
 			$emsg->parse_message($email_message, $config->mlist_opt & 16);
 			$done = 1;
@@ -208,7 +185,7 @@ function add_attachment($name, $data, $pid)
 
 		$msg_post->post_stamp = !empty($emsg->headers['date']) ? strtotime($emsg->headers['date']) : 0;
 		if ($msg_post->post_stamp < 1 || $msg_post->post_stamp > __request_timestamp__) {
-			log_script_error('Invalid date', $emsg->raw_msg);
+			fud_logerror('Invalid date.', 'mlist_errors', $emsg->raw_msg);
 			if (($p = strpos($emsg->headers['received'], '; ')) !== false) {
 				$p += 2;
 				$msg_post->post_stamp = strtotime(substr($emsg->headers['received'], $p, (strpos($emsg->headers['received'], '00 ', $p) + 2 - $p)));
@@ -236,7 +213,7 @@ function add_attachment($name, $data, $pid)
 			if (preg_match('!unsubscribe!i', $emsg->subject)) {
 				if (is_forum_notified($msg_post->poster_id, $frm->id)) {
 					forum_notify_del($msg_post->poster_id, $frm->id);
-					log_script_error('Unsubscribe '. $alias .' from '. $frm->name);
+					fud_logerror('Unsubscribe '. $alias .' from '. $frm->name, 'mlist_errors');
 					echo('Unsubscribe '. $alias .' from forum '. $frm->name .".\n");
 				} else {
 					echo('User '. $alias .' is not subscribed and can hence not be unsubscribed from forum '. $frm->name .".\n");
@@ -247,7 +224,7 @@ function add_attachment($name, $data, $pid)
 			if (preg_match('!subscribe!i', $emsg->subject)) {
 				if (!is_forum_notified($msg_post->poster_id, $frm->id)) {
 					forum_notify_add($msg_post->poster_id, $frm->id);
-					log_script_error('Subscribe '. $alias .' to '. $frm->name);
+					fud_logerror('Subscribe '. $alias .' to '. $frm->name, 'mlist_errors');
 					echo('Subscribe '. $alias .' to forum '. $frm->name .".\n");
 				} else {
 					echo('User '. $alias .' is already subscribed to forum '. $frm->name .".\n");
@@ -295,7 +272,7 @@ function add_attachment($name, $data, $pid)
 		fud_wordwrap($msg_post->body);
 		$msg_post->subject = apply_custom_replace($emsg->subject);
 		if (!strlen($msg_post->subject)) {
-			log_script_error('Blank subject', $emsg->raw_msg);
+			fud_logerror('Blank subject.', 'mlist_errors', $emsg->raw_msg);
 			$msg_post->subject = '(no subject)';
 		}
 
@@ -304,11 +281,11 @@ function add_attachment($name, $data, $pid)
 			continue;
 		}
 
-		$msg_post->ip_addr = $emsg->ip;
+		$msg_post->ip_addr      = $emsg->ip;
 		$msg_post->mlist_msg_id = $emsg->msg_id;
-		$msg_post->attach_cnt = 0;
-		$msg_post->poll_id = 0;
-		$msg_post->msg_opt = 1|2;
+		$msg_post->attach_cnt   = 0;
+		$msg_post->poll_id      = 0;
+		$msg_post->msg_opt      = 1|2;
 
 		// Try to determine whether this message is a reply or a new thread.
 		list($msg_post->reply_to, $msg_post->thread_id) = get_fud_reply_id($config->mlist_opt & 32, $frm->id, $msg_post->subject, $emsg->reply_to_msg_id);

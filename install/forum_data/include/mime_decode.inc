@@ -281,7 +281,7 @@ class fud_mime_msg
 		}
 
 		if (empty($this->from_email) || empty($this->from_name)) {
-			log_script_error('No name or email for '. $this->headers['from'], $this->raw_msg);
+			fud_logerror('No name or email for '. $this->headers['from'], script .'_errors', $this->raw_msg);
 		}
 
 		if (isset($this->headers['message-id'])) {
@@ -289,7 +289,7 @@ class fud_mime_msg
 		} else if (isset($this->headers['x-qmail-scanner-message-id'])) {
 			$this->msg_id = substr(trim($this->headers['x-qmail-scanner-message-id']), 1, -1);
 		} else {
-			log_script_error('No message id', $this->raw_msg);
+			fud_logerror('No message id', script .'_errors', $this->raw_msg);
 		}
 
 		// This fetches the id of the message if this is a reply to an existing message.

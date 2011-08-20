@@ -94,7 +94,7 @@ function send_email($from, $to, $subj, $body, $header='', $munge_newlines=1)
 
 	foreach ((array)$to as $email) {
 		if (!@mail($email, $subj, $body, $header)) {
-			fud_logerror('Your system didn\'t accept E-mail ['. $subj .'] to ['. $email .'] for delivery.', 'fud_errors');
+			fud_logerror('Your system didn\'t accept E-mail ['. $subj .'] to ['. $email .'] for delivery.', 'fud_errors', $header ."\n\n". $body);
 			return -1;
 		}
 	}

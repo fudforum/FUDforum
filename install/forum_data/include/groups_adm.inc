@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -9,6 +9,7 @@
 * Free Software Foundation; version 2 of the License.
 **/
 
+/** Add a new group. */
 function group_add($res_id, $name, $add_gl=0, $perm=0, $permi=2147483647, $inherit_id=2)
 {
 	$tbl =& $GLOBALS['DBHOST_TBL_PREFIX'];
@@ -31,6 +32,7 @@ function group_add($res_id, $name, $add_gl=0, $perm=0, $permi=2147483647, $inher
 	return $gid;
 }
 
+/** Update a group. */
 function group_sync($id, $name, $inherit, $perm, $permi)
 {
 	$name = is_null($name) ? '' : 'name='. _esc($name) .', ';
@@ -40,6 +42,8 @@ function group_sync($id, $name, $inherit, $perm, $permi)
 	q('UPDATE '. $GLOBALS['DBHOST_TBL_PREFIX'] .'groups SET '. $name .' inherit_id='. $inherit .', groups_opt='. $perm .', groups_opti='. $permi .' WHERE id='. $id);
 }
 
+
+/** Rebuild group inheritance. */
 function rebuild_group_ih($gid, $perm, $perma)
 {
 	$tbl =& $GLOBALS['DBHOST_TBL_PREFIX'];
@@ -79,6 +83,7 @@ function rebuild_group_ih($gid, $perm, $perma)
 	}
 }
 
+/** Remove a group. */
 function group_delete($id)
 {
 	if ($id < 3) {
@@ -107,6 +112,7 @@ function group_delete($id)
 	q('DELETE FROM '. $tbl .'groups WHERE id='. $id);
 }
 
+/** Rebuild the group leader cache. */
 function rebuild_group_ldr_cache($id)
 {
 	$tbl =& $GLOBALS['DBHOST_TBL_PREFIX'];

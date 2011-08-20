@@ -14,7 +14,7 @@ class fud_nntp
 	var $server, $port=119, $user, $pass, $timeout=25, $newsgroup;
 	var $error, $lrc;
 	var $fs;
-	var $group_na, $group_first, $group_last, $nntp_opt, $custom_sig;
+	var $group_article_cnt, $group_first, $group_last, $nntp_opt, $custom_sig;
 
 	// Per message variables.
 	var $raw_msg;
@@ -117,9 +117,9 @@ class fud_nntp
 			return false;
 		} else {
 			$tmp = explode(' ', $this->lrc);
-			$this->group_na = $tmp[1];
-			$this->group_first = $tmp[2];
-			$this->group_last = $tmp[3];
+			$this->group_article_cnt = $tmp[1];
+			$this->group_first       = $tmp[2];
+			$this->group_last        = $tmp[3];
 		}
 
 		return true;
@@ -159,11 +159,7 @@ class fud_nntp
 	function exit_handler($exit=1)
 	{
 		if (!empty($this->error)) {
-			if (function_exists('log_script_error')) {
-				log_script_error($this->error, null, 'LOG');	// Called from nntp.php.
-			} else {
-				fud_logerror($this->error, 'nntp_errors');		// Called from imsg_edt.inc.t.
-			}
+			fud_logerror($this->error, 'nntp_errors');
 		}
 		$this->close_connection();
 		if ($exit) {
@@ -175,7 +171,7 @@ class fud_nntp
 	function get_lock()
 	{
 		$u = umask(0111);
-		$fp = fopen($GLOBALS['ERROR_PATH'] .'.nntp/'. $this->server .'-'. $this->newsgroup.'. lock' , 'wb');
+		$fp = fopen($GLOBALS['ERROR_PATH'] .'.nntp/'. $this->server .'-'. $this->newsgroup .'.lock' , 'wb');
 		flock($fp, LOCK_EX);
 		umask($u);
 

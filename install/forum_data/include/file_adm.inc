@@ -39,7 +39,7 @@ function fud_dir_space_usage($dir)
 	$dirs = array(realpath($dir));
 
 	while (list(,$v) = each($dirs)) {
-		if (!($files = glob($v.'/*', GLOB_NOSORT))) {
+		if (!($files = glob($v .'/*', GLOB_NOSORT))) {
 			continue;	
 		}
 		foreach ($files as $f) {
@@ -56,6 +56,17 @@ function fud_dir_space_usage($dir)
 
 	return $disk_space;
 }
+
+/* Alternative implementation of fud_dir_space_usage(), however, it's too slow???
+function fud_dir_space_usage_ALT($dir)
+{
+	$space = 0;
+	$dir   = new RecursiveIteratorIterator( new RecursiveDirectoryIterator($dir) );
+	foreach ($dir as $file)
+		$space += $file->getSize();
+	return $space;
+}
+*/
 
 /** Recursively create a given directory path. */
 function fud_mkdir($path, $perms=0755)

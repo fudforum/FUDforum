@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -45,62 +45,62 @@ function path_info_lnk($var, $val)
 		} else {
 			$tm = __request_timestamp__;
 		}
-		$dt = getdate($tm);
+		$dt             = getdate($tm);
 		$tm_today_start = mktime(0, 0, 0, $dt['mon'], $dt['mday'], $dt['year']);
-		$tm_today_end = $tm_today_start + 86400;
-		$date_limit = ' AND m.post_stamp>'. $tm_today_start .' AND m.post_stamp<'. $tm_today_end .' ';
+		$tm_today_end   = $tm_today_start + 86400;
+		$date_limit     = ' AND m.post_stamp>'. $tm_today_start .' AND m.post_stamp<'. $tm_today_end .' ';
 	} else {
-		$date_limit = '';
+		$date_limit     = '';
 	}
 	if (!_uid) { /* These options are restricted to registered users. */
 		unset($_GET['sub_forum_limit'], $_GET['sub_th_limit'], $_GET['unread']);
 	}
 
 	$unread_limit = (isset($_GET['unread']) && _uid) ? ' AND m.post_stamp > '. $usr->last_read .' AND (r.id IS NULL OR r.last_view < m.post_stamp) ' : '';
-	$th = isset($_GET['th']) ? (int)$_GET['th'] : 0;
-	$frm_id = isset($_GET['frm_id']) ? (int)$_GET['frm_id'] : 0;
-	$perm_limit = $is_a ? '' : ' AND (mm.id IS NOT NULL OR ('. q_bitand(_uid ? 'COALESCE(g2.group_cache_opt, g1.group_cache_opt)' : '(g1.group_cache_opt)', 2) .') > 0)';
+	$th           = isset($_GET['th']) ? (int)$_GET['th'] : 0;
+	$frm_id       = isset($_GET['frm_id']) ? (int)$_GET['frm_id'] : 0;
+	$perm_limit   = $is_a ? '' : ' AND (mm.id IS NOT NULL OR ('. q_bitand(_uid ? 'COALESCE(g2.group_cache_opt, g1.group_cache_opt)' : '(g1.group_cache_opt)', 2) .') > 0)';
 
 	/* Mark messages read for registered users. */
-	if (_uid && isset($_GET['mr']) && !empty($usr->data)) {
-		foreach ($usr->data as $ti => $mi) {
-			if (!(int)$ti || !(int)$mi) {
+	if (_uid && isset($_GET['mr']) && !empty($usr->data)) {	// $mark_read is now in $usr->data.
+		foreach ($usr->data as $th_id => $msg_id) {
+			if (!(int)$th_id || !(int)$msg_id) {
 				break;
 			}
-			user_register_thread_view($ti, __request_timestamp__, $mi);
+			user_register_thread_view($th_id, __request_timestamp__, $msg_id);
 		}
 	}
 	ses_putvar((int)$usr->sid, null);
 
 	/* No other limiters are present, assume 'today' limit. */
 	if (!$unread_limit && !isset($_GET['date']) && !isset($_GET['reply_count'])) {
-		$_GET['date'] = 'today';
-		$dt = getdate(__request_timestamp__);
-		$tm_today_start =  mktime(0, 0, 0, $dt['mon'], $dt['mday'], $dt['year']);
-		$tm_today_end = $tm_today_start + 86400;
-		$date_limit = ' AND m.post_stamp>'. $tm_today_start .' AND m.post_stamp<'. $tm_today_end .' ';
+		$_GET['date']   = 'today';
+		$dt             = getdate(__request_timestamp__);
+		$tm_today_start = mktime(0, 0, 0, $dt['mon'], $dt['mday'], $dt['year']);
+		$tm_today_end   = $tm_today_start + 86400;
+		$date_limit     = ' AND m.post_stamp>'. $tm_today_start .' AND m.post_stamp<'. $tm_today_end .' ';
 	}
 
 	$_SERVER['QUERY_STRING'] = htmlspecialchars($_SERVER['QUERY_STRING'], ENT_QUOTES);
 
 	/* Date limit. */
-	if ($FUD_OPT_2 & 32768) {
-		$dt_opt = path_info_lnk('date', '1');
+	if ($FUD_OPT_2 & 32768) {	// USE_PATH_INFO
+		$dt_opt = path_info_lnk('date',        '1');
 		$rp_opt = path_info_lnk('reply_count', '0');
 	} else {
-		$dt_opt = isset($_GET['date']) ? str_replace('&amp;date='.$_GET['date'], '', $_SERVER['QUERY_STRING']) : $_SERVER['QUERY_STRING'] .'&amp;date=1';
+		$dt_opt = isset($_GET['date'])        ? str_replace('&amp;date='.$_GET['date'], '', $_SERVER['QUERY_STRING']) : $_SERVER['QUERY_STRING'] .'&amp;date=1';
 		$rp_opt = isset($_GET['reply_count']) ? str_replace('&amp;reply_count='. (int)$_GET['reply_count'], '', $_SERVER['QUERY_STRING']) : $_SERVER['QUERY_STRING'] .'&amp;reply_count=0';
 	}
 
 	if (_uid) {
 		if ($FUD_OPT_2 & 32768) {
-			$un_opt = path_info_lnk('unread', '1');
+			$un_opt  = path_info_lnk('unread',          '1');
 			$frm_opt = path_info_lnk('sub_forum_limit', '1');
-			$th_opt =path_info_lnk('sub_th_limit', '1');
+			$th_opt  = path_info_lnk('sub_th_limit',    '1');
 		} else {
-			$un_opt = isset($_GET['unread']) ? str_replace('&amp;unread='. $_GET['unread'], '', $_SERVER['QUERY_STRING']) : $_SERVER['QUERY_STRING'] .'&amp;unread=1';
+			$un_opt  = isset($_GET['unread'])          ? str_replace('&amp;unread='. $_GET['unread'], '', $_SERVER['QUERY_STRING']) : $_SERVER['QUERY_STRING'] .'&amp;unread=1';
 			$frm_opt = isset($_GET['sub_forum_limit']) ? str_replace('&amp;sub_forum_limit='. $_GET['sub_forum_limit'], '', $_SERVER['QUERY_STRING']) : $_SERVER['QUERY_STRING'] .'&amp;sub_forum_limit=1';
-			$th_opt = isset($_GET['sub_th_limit']) ? str_replace('&amp;sub_th_limit='. $_GET['sub_th_limit'], '', $_SERVER['QUERY_STRING']) : $_SERVER['QUERY_STRING'] .'&amp;sub_th_limit=1';
+			$th_opt  = isset($_GET['sub_th_limit'])    ? str_replace('&amp;sub_th_limit='. $_GET['sub_th_limit'], '', $_SERVER['QUERY_STRING']) : $_SERVER['QUERY_STRING'] .'&amp;sub_th_limit=1';
 		}
 	}
 
@@ -115,7 +115,7 @@ function path_info_lnk($var, $val)
 	if ($unread_limit || $total) {
 		$ord = isset($_GET['reply_count']) ? ' DESC ' : ' ASC ';
 
-		/* figure out the query */
+		/* Construct the query. */
 		$c = q(q_limit('SELECT
 			m.*, COALESCE(m.flag_cc, u.flag_cc) AS disp_flag_cc, COALESCE(m.flag_country, u.flag_country) AS disp_flag_country,
 			t.thread_opt, t.root_msg_id, t.last_post_id, t.forum_id,
@@ -132,23 +132,23 @@ function path_info_lnk($var, $val)
 		FROM
 			{SQL_TABLE_PREFIX}msg m
 			INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id
-			INNER JOIN {SQL_TABLE_PREFIX}msg m2 ON m2.id=t.root_msg_id
-			INNER JOIN {SQL_TABLE_PREFIX}forum f ON t.forum_id=f.id
-			INNER JOIN {SQL_TABLE_PREFIX}cat c ON f.cat_id=c.id
-			'. (isset($_GET['sub_forum_limit']) ? 'INNER JOIN {SQL_TABLE_PREFIX}forum_notify fn ON fn.forum_id=f.id AND fn.user_id='. _uid : '') .'
-			'. (isset($_GET['sub_th_limit']) ? 'INNER JOIN {SQL_TABLE_PREFIX}thread_notify tn ON tn.thread_id=t.id AND tn.user_id='. _uid : '') .'
+			INNER JOIN {SQL_TABLE_PREFIX}msg m2   ON m2.id=t.root_msg_id
+			INNER JOIN {SQL_TABLE_PREFIX}forum f  ON t.forum_id=f.id
+			INNER JOIN {SQL_TABLE_PREFIX}cat c    ON f.cat_id=c.id
+			'. (isset($_GET['sub_forum_limit']) ? 'INNER JOIN {SQL_TABLE_PREFIX}forum_notify fn  ON fn.forum_id=f.id  AND fn.user_id='. _uid : '') .'
+			'. (isset($_GET['sub_th_limit'])    ? 'INNER JOIN {SQL_TABLE_PREFIX}thread_notify tn ON tn.thread_id=t.id AND tn.user_id='. _uid : '') .'
 			'. $join .'
-			LEFT JOIN {SQL_TABLE_PREFIX}read r ON r.thread_id=t.id AND r.user_id='. _uid .'
-			LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id
-			LEFT JOIN {SQL_TABLE_PREFIX}level l ON u.level_id=l.id
-			LEFT JOIN {SQL_TABLE_PREFIX}poll p ON m.poll_id=p.id
+			LEFT JOIN {SQL_TABLE_PREFIX}read r             ON r.thread_id=t.id AND r.user_id='. _uid .'
+			LEFT JOIN {SQL_TABLE_PREFIX}users u            ON m.poster_id=u.id
+			LEFT JOIN {SQL_TABLE_PREFIX}level l            ON u.level_id=l.id
+			LEFT JOIN {SQL_TABLE_PREFIX}poll p             ON m.poll_id=p.id
 			LEFT JOIN {SQL_TABLE_PREFIX}poll_opt_track pot ON pot.poll_id=p.id AND pot.user_id='. _uid .'
-			LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=f.id AND mm.user_id='. _uid .'
+			LEFT JOIN {SQL_TABLE_PREFIX}mod mm             ON mm.forum_id=f.id AND mm.user_id='. _uid .'
 		WHERE
 			m.apr=1
 			'. $date_limit .'
-			'. ($frm_id ? ' AND f.id='. $frm_id : '') .'
-			'. ($th ? ' AND t.id='. $th : '') .'
+			'. ($frm_id                     ? ' AND f.id='.      $frm_id                   : '') .'
+			'. ($th                         ? ' AND t.id='.      $th                       : '') .'
 			'. (isset($_GET['reply_count']) ? ' AND t.replies='. (int)$_GET['reply_count'] : '') .'
 			'. $unread_limit .'
 			'. $perm_limit .'
@@ -161,19 +161,19 @@ function path_info_lnk($var, $val)
 		$thl = $mark_read = array();
 		while ($r = db_rowobj($c)) {
 			if ($prev_frm != $r->forum_id) {
-				$prev_frm = $r->forum_id;
+				$prev_frm      = $r->forum_id;
 				$message_data .= '{TEMPLATE: forum_row}';
-				$perms = perms_from_obj($r, $is_a);
+				$perms         = perms_from_obj($r, $is_a);
 			}
 			if ($prev_th != $r->thread_id) {
-				$thl[] = $r->thread_id;
-				$prev_th = $r->thread_id;
+				$thl[]         = $r->thread_id;
+				$prev_th       = $r->thread_id;
 				$message_data .= '{TEMPLATE: thread_row}';
 			}
 			if (_uid && $r->last_view < $r->post_stamp && $r->post_stamp > $usr->last_read && !isset($mark_read[$r->thread_id])) {
 				$mark_read[$r->thread_id] = $r->id;
 			}
-			$usr->md = $r->md;
+			$usr->md       = $r->md;
 			$message_data .= tmpl_drawmsg($r, $usr, $perms, false, $n, '');
 		}
 		unset($c);

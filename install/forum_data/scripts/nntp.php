@@ -10,43 +10,10 @@
 * Free Software Foundation; version 2 of the License. 
 **/
 
-function log_script_error($error, $msg_data='', $level='WARNING')
-{
-	$err_msg_cpy = '';
-	if (!empty($msg_data) && $level != 'LOG') {
-		// Make copy of message for later investigation.
-		$err_msg_cpy = $GLOBALS['ERROR_PATH'] .'.nntp/'. time() .'_'. md5($msg_data);
-		$u = umask(0111);
-		if (!($fp = fopen($err_msg_cpy, 'wb'))) {
-			exit('No perms to write '. $err_msg_cpy ."\n");
-		}
-		fwrite($fp, $msg_data);
-		fclose($fp);
-		umask($u);
-		$err_msg_cpy = ' @ '. $err_msg_cpy;
-	}
-
-	// Log error message.
-	fud_logerror($error . $err_msg_cpy, 'nntp_errors');
-
-	if ($level == 'ERROR') {
-		exit;
-	}
-}
-
-function add_attachment($name, $data, $pid)
-{
-	$tmpfname = tempnam($GLOBALS['TMP'], 'FUDf_');
-	$fp = fopen($tmpfname, 'wb');
-	$len = fwrite($fp, $data);
-	fclose($fp);
-
-	return attach_add(array('name' => basename($name), 'size' => $len, 'tmp_name' => $tmpfname), $pid, 0, 1);
-}
-
 /* main */
 	ini_set('memory_limit', '128M');
 	define('no_session', 1);
+	define('script', 'nntp');
 
 	if (!ini_get('register_argc_argv')) {
 		exit("Please enable the 'register_argc_argv' php.ini directive.\n");
@@ -100,7 +67,7 @@ function add_attachment($name, $data, $pid)
 		$config = db_sab('SELECT * FROM '. sql_p .'nntp WHERE newsgroup='. _esc($_SERVER['argv'][1]));
 	}
 	if (!$config) {
-		exit('Invalid NNTP identifier.');
+		exit("Invalid NNTP identifier.\n");
 	}
 
 	/* Set language & locale. */
@@ -123,18 +90,30 @@ function add_attachment($name, $data, $pid)
 	$FUD_OPT_2 |= 128;	// Disable USE_ALIASES.
 
 	$nntp = new fud_nntp;
-	$nntp->server 		= $config->server;
-	$nntp->newsgroup 	= $config->newsgroup;
-	$nntp->port 		= $config->port;
-	$nntp->timeout 		= $config->timeout;
-	$nntp->nntp_opt 	= $config->nntp_opt;
-	$nntp->user 		= $config->login;
-	$nntp->pass 		= $config->pass;
+	$nntp->server    = $config->server;
+	$nntp->newsgroup = $config->newsgroup;
+	$nntp->port      = $config->port;
+	$nntp->timeout   = $config->timeout;
+	$nntp->nntp_opt  = $config->nntp_opt;
+	$nntp->user      = $config->login;
+	$nntp->pass      = $config->pass;
 
-	// Lock, connect and fetch group_first and group_last (message counters).
+	/* Read single article from a file. */
+	if (!empty($_SERVER['argv'][2])) {
+		$config->filename = $_SERVER['argv'][2];
+		if (!is_file($config->filename)) {
+			exit("Cannot read from file ". $config->filename ."\n");
+		}
+		$nntp->raw_msg     = file_get_contents($config->filename);
+		$nntp->group_first = $nntp->group_last = 0;	// Go through loop once.
+	}
+
+	/* Lock, connect and fetch group_first and group_last (message counters). */
 	$lock = $nntp->get_lock();
-	if (!$nntp->connect()) {
-		$nntp->exit_handler();
+	if (empty($config->filename)) {
+		if (!$nntp->connect()) {
+			$nntp->exit_handler();
+		}
 	}
 
 	$nntp->group_last++;
@@ -145,11 +124,17 @@ function add_attachment($name, $data, $pid)
 	$counter = 1;
 
 	for ($i = $nntp->group_first; $i < $nntp->group_last; $i++) {
-		echo "\nImporting #". $i .' from '. $nntp->newsgroup;
-		if (!$nntp->get_message($i)) {
-			echo ' - '. $nntp->error;
-			$nntp->error = null;
-			continue;
+		echo $counter==1 ? '' : "\n";
+		if (!empty($config->filename)) {
+			echo "Importing article from file ". $config->filename;
+		} else {
+			echo "Importing #". $i .' from '. $nntp->newsgroup;
+
+			if (!$nntp->get_message($i)) {
+				echo ' - '. $nntp->error;
+				$nntp->error = null;
+				continue;
+			}
 		}
 
 		$emsg = new fud_mime_msg();
@@ -181,7 +166,7 @@ function add_attachment($name, $data, $pid)
 
 		// Handle NNTP cancellation messages.
 		if (isset($emsg->headers['control']) && preg_match('!cancel!', $emsg->headers['control'])) {
-			log_script_error('Ignore NNTP cancellation message (not yet implemented).', $emsg->raw_msg);
+			fud_logerror('Ignore NNTP cancellation message (not yet implemented).', 'nntp_errors', $emsg->raw_msg);
 			// q('DELETE FROM '. sql_p .'msg WHERE mlist_msg_id='. _esc($emsg->msg_id));
 			if (db_affected()) {
 				echo ' - cancellation ignored';
@@ -191,7 +176,7 @@ function add_attachment($name, $data, $pid)
 
 		$msg_post->post_stamp = !empty($emsg->headers['date']) ? strtotime($emsg->headers['date']) : 0;
 		if ($msg_post->post_stamp < 1 || $msg_post->post_stamp > __request_timestamp__) {
-			log_script_error('Invalid date', $emsg->raw_msg);
+			fud_logerror('Invalid date.', 'nntp_errors', $emsg->raw_msg);
 			if (($p = strpos($emsg->headers['received'], '; ')) !== false) {
 				$p += 2;
 				$msg_post->post_stamp = strtotime(substr($emsg->headers['received'], $p, (strpos($emsg->headers['received'], '00 ', $p) + 2 - $p)));
@@ -206,7 +191,8 @@ function add_attachment($name, $data, $pid)
 		} else {
 			$msg_post->poster_id = match_user_to_post($emsg->from_email, $emsg->from_name, $config->nntp_opt & 32, $emsg->user_id, $msg_post->post_stamp);
 			if ($msg_post->poster_id == -1) {
-				echo ' - User banned; Message disgarded';
+				echo ' - '. $emsg->from_email .' is banned; Message disgarded';
+				fud_logerror('Skip message from banned user '. $emsg->from_email .'.', 'nntp_errors', $emsg->raw_msg);
 				continue;
 			}
 		}
@@ -267,15 +253,15 @@ function add_attachment($name, $data, $pid)
 		fud_wordwrap($msg_post->body);
 		$msg_post->subject = apply_custom_replace($emsg->subject);
 		if (!strlen($msg_post->subject)) {
-			log_script_error('Blank subject', $emsg->raw_msg);
+			fud_logerror('Blank subject.', 'nntp_errors', $emsg->raw_msg);
 			$msg_post->subject = '(no subject)';
 		}
 
-		$msg_post->ip_addr = $emsg->ip;
+		$msg_post->ip_addr      = $emsg->ip;
 		$msg_post->mlist_msg_id = $emsg->msg_id;
-		$msg_post->attach_cnt = 0;
-		$msg_post->poll_id = 0;
-		$msg_post->msg_opt = 1|2;
+		$msg_post->attach_cnt   = 0;
+		$msg_post->poll_id      = 0;
+		$msg_post->msg_opt      = 1|2;
 
 		/* Try to determine whether this message is a reply or a new thread. */
 		list($msg_post->reply_to, $msg_post->thread_id) = get_fud_reply_id(($config->nntp_opt & 16), $frm->id, $msg_post->subject, $emsg->reply_to_msg_id);
@@ -306,13 +292,18 @@ function add_attachment($name, $data, $pid)
 		}
 	}
 
+	if (!empty($config->filename)) {
+		echo "\n";
+		exit;
+	}
+
 	// Store current position.
 	$nntp->set_tracker_end($config->id, $i); // We use $i so we stop in the right place if limit is reached.
 
-	if (--$counter <= $config->imp_limit) {
-		echo "\nDone. Forum and Usenet Group is in sync.\n";
+	if (--$counter < $config->imp_limit) {
+		echo "\nDone. Forum and Usenet Group are in sync.\n";
 	} else {
-		echo "\nImport limit reached. There are more messages to load.\n";
+		echo "\nImport limit of ". $config->imp_limit ." posts reached. There are more messages to load.\n";
 	}
 
  	$nntp->exit_handler();
