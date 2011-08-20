@@ -77,9 +77,12 @@ function fud_xml_encode($str)
 
 function feed_cache_cleanup()
 {
-	foreach (glob($GLOBALS['FORUM_SETTINGS_PATH'].'feed_cache_*') as $v) {
-		if (filemtime($v) + $GLOBALS['FEED_CACHE_AGE'] < __request_timestamp__) {
-			unlink($v);
+	$cache_files = glob($GLOBALS['FORUM_SETTINGS_PATH'].'feed_cache_*');
+	if (is_array($cache_files)) {
+		foreach ($cache_files as $v) {
+			if (filemtime($v) + $GLOBALS['FEED_CACHE_AGE'] < __request_timestamp__) {
+				unlink($v);
+			}
 		}
 	}
 }
@@ -239,7 +242,6 @@ function smiley_full(&$data)
 
 				if ($format == 'rdf') {
 					$feed_header .= '{TEMPLATE: rdf_message_header}';
-					$feed_data .= '{TEMPLATE: rdf_message_entry}';
 
 					$rdf_message_attachments = '';
 					if ($r->attach_cnt && $r->attach_cache) {
@@ -260,6 +262,8 @@ function smiley_full(&$data)
 							}
 						}
 					}
+					
+					$feed_data .= '{TEMPLATE: rdf_message_entry}';
 				}
 				if ($format == 'rss' ) $feed_data .= '{TEMPLATE: rss_message_entry}';
 				if ($format == 'atom') $feed_data .= '{TEMPLATE: atom_message_entry}';
