@@ -89,7 +89,7 @@ which were posted before <font color="red"><?php echo fdate($back, 'd M Y H:i');
 			} else {
 				$msg_tbl = $DBHOST_TBL_PREFIX .'msg';
 				$th_tbl = $DBHOST_TBL_PREFIX .'thread';
-				$c = q('SELECT ', $msg_tbl .'.id, '. $th_tbl .'.forum_id FROM '. $msg_tbl .' INNER JOIN '. $th_tbl .' ON '. $msg_tbl .'.thread_id='. $th_tbl .'.id WHERE poster_id='. $usr_id .' AND last_post_date<'. $back.$lmt);
+				$c = q('SELECT '. $msg_tbl .'.id, '. $th_tbl .'.forum_id FROM '. $msg_tbl .' INNER JOIN '. $th_tbl .' ON '. $msg_tbl .'.thread_id='. $th_tbl .'.id WHERE poster_id='. $usr_id .' AND last_post_date<'. $back.$lmt);
 				while ($r = db_rowarr($c)) {
 					fud_msg_edit::delete(false, $r[0]);
 					$frm_list[$r[1]] = $r[1];
