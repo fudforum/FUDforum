@@ -97,6 +97,7 @@ function plugin_wikilinks_html_to_tag($array) {
 function wikilinks_info() {
 	return array('name' => 'Wikilink tags',
 				'desc' => 'Allow forum users to use [[wikilink]] tags as shorthand to link to articles on the site\'s wiki (or any other wiki for that matter).',
+				'cat'  => 'BBcode',
 				'version' => '1.1');
 }
 

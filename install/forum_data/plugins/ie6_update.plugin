@@ -34,6 +34,7 @@ function plugin_ie6_update($array) {
 function ie6_update_info() {
 	return array('name' => 'IE6 Update',
 				'desc' => 'Help kill Internet Explorer 6 by enabling this plugin. IE6 users will see a message asking them to upgrade to a later release. For details, see <a href="http://ie6update.com/">ie6update.com</a>.',
+				'cat'  => 'Third-party Integration',
 				'version' => '1.0');
 }
 

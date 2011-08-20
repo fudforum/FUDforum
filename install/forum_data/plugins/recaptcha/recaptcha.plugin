@@ -46,7 +46,8 @@ function plugin_recaptcha_validate($array) {
 function recaptcha_info() {
 	return array('name' => 'Recaptcha',
 	             'desc' => 'This plugin, if enabled, will use the recaptcha service instead of FUDforum\'s default captcha challenge.',
-				 'version' => '1.0');
+		     'cat'  => 'Anti-spam',
+		     'version' => '1.0');
 }
 
 function recaptcha_enable() {

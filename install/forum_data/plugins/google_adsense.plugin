@@ -41,6 +41,7 @@ function plugin_google_adsense($array) {
 function google_adsense_info() {
 	return array('name' => 'Google AdSense',
 				'desc' => 'Display ads from Google AdSense on your forum\'s web pages.',
+				'cat'  => 'Third-party Integration',
 				'version' => '1.0');
 }
 

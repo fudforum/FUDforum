@@ -42,6 +42,7 @@ function plugin_botscout($uent) {
 function botscout_info() {
 	return array('name' => 'BotScout',
 		     'desc' => 'This plugin integrates with the BotScout API to screen registering users and prevent known bots from creating accounts on your forum.',
+		     'cat'  => 'Anti-spam',
 		     'version' => '1.2');
 }
 

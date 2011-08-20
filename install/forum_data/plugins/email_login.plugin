@@ -24,6 +24,7 @@ function plugin_email_login() {
 function email_login_info() {
 	return array('name' => 'E-Mail Login',
 	             'desc' => 'Allow forum users to login to the forum with either their normal username or E-mail addresses.',
+		     'cat'  => 'Authentication',
 	             'version' => '1.0');
 }
 

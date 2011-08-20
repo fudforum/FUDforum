@@ -42,6 +42,7 @@ function plugin_google_analytics($array) {
 function google_analytics_info() {
 	return array('name' => 'Google Analytics',
 				'desc' => 'Insert Google Anlytics tracking code into your forum\'s Web pages.',
+				'cat'  => 'Third-party Integration',
 				'version' => '1.0');
 }
 

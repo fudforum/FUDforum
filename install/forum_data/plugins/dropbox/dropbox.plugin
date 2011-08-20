@@ -35,6 +35,7 @@ function plugin_dropbox($dumpfile) {
 function dropbox_info() {
 	return array('name' => 'Dropbox',
 		     'desc' => 'Upload forum backups to DropBox. Handy for storing backups off-site.',
+		     'cat'  => 'Third-party Integration',
 		     'version' => '1.0');
 }
 

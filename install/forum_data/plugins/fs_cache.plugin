@@ -62,6 +62,7 @@ function plugin_fs_cache_clear($template_data) {
 function fs_cache_info() {
 	return array('name' => 'File System Cache',
 				'desc' => 'Cache output from templates on file system (only for anonymous users).',
+				'cat'  => 'Caching',
 				'version' => '1.0');
 }
 

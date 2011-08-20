@@ -37,6 +37,7 @@ function plugin_youtube_html_to_tag($array) {
 function youtube_tag_info() {
 	return array('name' => 'Youtube Video',
 	             'desc' => 'Allow forum users to use a spacial [youtube] BBcode tag for embedding videos into forum posts.',
+		     'cat'  => 'BBcode',
 		     'version' => '1.2');
 }
 

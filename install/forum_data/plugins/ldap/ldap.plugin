@@ -117,7 +117,8 @@ function plugin_ldap_auth() {
 function ldap_info() {
 	return array('name' => 'LDAP Authentication',
 	             'desc' => 'Authenticate forum users from an LDAP server. You may want to disable "<i>Allow Registration</i>" from the <i>Global Settings Manager</i> after enabling this plugin.',
-				 'version' => '1.3');
+		     'cat'  => 'Authentication',
+		     'version' => '1.3');
 }
 
 function ldap_enable() {

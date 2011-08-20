@@ -27,6 +27,7 @@ function google_cdn_info() {
 	return array('name' => 'Google CDN',
 				'desc' => 'Load <em>jQuery</em> and <em>jQuery UI</em> from Google\'s Content Delivery Network (CDN) instead of your site.
 							This will reduce the server load and bandwidth on your site, but can only be used on Internet connected sites.',
+				'cat'  => 'Third-party Integration',
 				'version' => '1.0');
 }
 

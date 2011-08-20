@@ -31,6 +31,7 @@ function apccache_info() {
 	return array('name' => 'APC Cache',
 	             'desc' => 'Use <a href="http://pecl.php.net/package/APC">APC (Alternative PHP Cache)</a> to cache forum data in-memory. This plugin should only be enabled on high-traffic sites.
 			       Currently only topic view counters are cached and will be written to the DB in batches.',
+		     'cat'  => 'Caching',
 	             'version' => '1.0');
 }
 

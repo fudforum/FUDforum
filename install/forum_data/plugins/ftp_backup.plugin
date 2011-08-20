@@ -52,6 +52,7 @@ function ftp_backup_enable() {
 function ftp_backup_info() {
 	return array('name' => 'FTP Backup',
 		     'desc' => 'FTP forum dumps to a backup server. Handy for storing backups off-site.',
+		     'cat'  => 'Third-party Integration',
 		     'version' => '1.0');
 }
 

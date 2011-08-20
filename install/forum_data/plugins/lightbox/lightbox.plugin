@@ -42,6 +42,7 @@ function plugin_lightbox($array) {
 function lightbox_info() {
 	return array('name' => 'Lightbox',
 				'desc' => 'Use <a href="http://leandrovieira.com/projects/jquery/lightbox/">lightbox</a> to present uploaded attachments as a slideshow.',
+				'cat'  => 'Third-party Integration',
 				'version' => '1.0');
 }
 

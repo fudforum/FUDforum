@@ -49,6 +49,7 @@ function plugin_table_html_to_tag($array) {
 function table_tag_info() {
 	return array('name' => 'Table Tag',
 	             'desc' => 'Allow forum users to use spacial [table] BBcode tags for embedding HTML tables into forum posts.',
+		     'cat'  => 'BBcode',
 		     'version' => '1.0');
 }
 
