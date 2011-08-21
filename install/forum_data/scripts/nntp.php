@@ -145,7 +145,7 @@
 
 		$msg_post = new fud_msg_edit;
 
-		// Handler for our own messages, which do not need to be imported.
+		/* Handler for our own messages, which do not need to be imported. */
 		if (isset($emsg->headers['x-fudforum']) && preg_match('!([A-Za-z0-9]{32}) <([0-9]+)>!', $emsg->headers['x-fudforum'], $m)) {
 			if ($m[1] == md5($GLOBALS['WWW_ROOT'])) {
 				q('UPDATE '. sql_p .'msg SET mlist_msg_id='. _esc($emsg->msg_id) .' WHERE id='. intval($m[2]) .' AND mlist_msg_id IS NULL');
@@ -156,15 +156,13 @@
 			}
 		}
 
-		/* Check if message was already imported. */
-		if ($emsg->msg_id && q_singleval('SELECT m.id FROM '. sql_p .'msg m
-						INNER JOIN '. sql_p .'thread t ON t.id=m.thread_id
-						WHERE mlist_msg_id='. _esc($emsg->msg_id) .' AND t.forum_id='. $frm->id)) {
-			echo ' - previously loaded';
+		/* Handle NNTP X-No-Archive header. */
+		if (isset($emsg->headers['x-no-archive']) && preg_match('!Yes!', $emsg->headers['x-no-archive'])) {
+			echo ' - author requested no-archive';
 			continue;
 		}
 
-		// Handle NNTP cancellation messages.
+		/* Handle NNTP cancellation messages. */
 		if (isset($emsg->headers['control']) && preg_match('!cancel!', $emsg->headers['control'])) {
 			fud_logerror('Ignore NNTP cancellation message (not yet implemented).', 'nntp_errors', $emsg->raw_msg);
 			// q('DELETE FROM '. sql_p .'msg WHERE mlist_msg_id='. _esc($emsg->msg_id));
@@ -172,6 +170,14 @@
 				echo ' - cancellation ignored';
 				continue;
 			}
+		}
+
+		/* Check if message was already imported. */
+		if ($emsg->msg_id && q_singleval('SELECT m.id FROM '. sql_p .'msg m
+						INNER JOIN '. sql_p .'thread t ON t.id=m.thread_id
+						WHERE mlist_msg_id='. _esc($emsg->msg_id) .' AND t.forum_id='. $frm->id)) {
+			echo ' - previously loaded';
+			continue;
 		}
 
 		$msg_post->post_stamp = !empty($emsg->headers['date']) ? strtotime($emsg->headers['date']) : 0;
