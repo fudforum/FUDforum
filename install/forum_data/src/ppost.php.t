@@ -232,7 +232,7 @@ function export_msg_data(&$m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smile
 			if ($error == UPLOAD_ERR_INI_SIZE || $error == UPLOAD_ERR_FORM_SIZE || $_FILES['attach_control']['size'][$i] > $PRIVATE_ATTACH_SIZE) {
 				$MAX_F_SIZE = $PRIVATE_ATTACH_SIZE;
 				$attach_control_error = '{TEMPLATE: post_err_attach_size}';
-			} else if (!($MOD && $frm->forum_opt & 32) && filter_ext($_FILES['attach_control']['name'][$i])) {
+			} else if (filter_ext($_FILES['attach_control']['name'][$i])) {
 				$attach_control_error = '{TEMPLATE: post_err_attach_ext}';
 			} else if (($attach_count+1) > $PRIVATE_ATTACHMENTS) {
 				$attach_control_error = '{TEMPLATE: post_err_attach_filelimit}';
