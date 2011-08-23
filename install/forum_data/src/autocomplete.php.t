@@ -24,6 +24,7 @@
 		$term   = _esc($_GET['term'] .'%');
 
 		$c = uq('SELECT '. $lookup .' FROM {SQL_TABLE_PREFIX}users WHERE '. $lookup .' LIKE '. $term .' LIMIT 10');
+		$rows = array();
 		while ($r = db_rowarr($c)) {
 			$rows[] = array('value' => $r[0]);
 		}
