@@ -281,7 +281,7 @@ function update_locale()
 			<td>'. ($r->theme_opt & 1 ? 'Yes' : '<font color="green">No</font>') .'</td>
 			<td>'. ($r->theme_opt & 2 ? 'Yes' : '<font color="green">No</font>') .'</td>
 			<td nowrap="nowrap"><a href="admthemes.php?'.__adm_rsid.'&amp;edit='. $r->id .'#edit">Edit</a> | '. 
-			  ($r->id != 1 ? ' | <a href="admthemes.php?'. __adm_rsid .'&amp;del='. $r->id .'">Delete</a> |' : '') .'
+			  ($r->id != 1 ? ' <a href="admthemes.php?'. __adm_rsid .'&amp;del='. $r->id .'">Delete</a> |' : '') .'
 			  <a href="admthemes.php?'. __adm_rsid .'&amp;rebuild='. $r->id .'">Rebuild</a>
 			</td>
 		</tr>';

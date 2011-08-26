@@ -303,7 +303,7 @@ if (!extension_loaded('posix')) {
 				echo successify('File <i>'. basename($fdest) .'</i> ('. number_format($_FILES['fname']['size'] / 1024, 2) .'KB) was successfully uploaded.');
 				if (preg_match('/src|thm/', $fdest)) {
 					echo successify('Rebuild your themes from the <a href="admthemes.php?'.__adm_rsid .'">Theme Manager</a> to see the changes.');
-				} else if (preg_match('/theme|cache/', $fdest)) {
+				} else if (preg_match('/theme|cache/', basename($fdest))) {
 					echo errorify('WARNING: This is a cache directory. Your upload will be removed/overwritten if you rebuild or apply theme changes.');
 				}
 			} else {

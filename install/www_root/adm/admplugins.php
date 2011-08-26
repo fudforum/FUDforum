@@ -279,7 +279,7 @@ function undeploy_files($plugin)
 					$have_enabled_plugins = 1;
 					$info[$plugin]['enabled'] = 1;
 				} else {
-					$info[$plugin]['enabled'] = 1;
+					$info[$plugin]['enabled'] = 0;
 				}
 			}
 		}
@@ -325,7 +325,7 @@ function undeploy_files($plugin)
 <?php
 	$i = 0;
 	foreach ($plugin_files as $plugin) {
-		if (!$info[$plugin]['enabled']) continue;	// Skip, already active.
+		if ($info[$plugin]['enabled']) continue;	// Skip, already active.
 		$i++;
 		$bgcolor = ($i%2) ? ' class="resultrow1"' : ' class="resultrow2"';
 		echo '<tr'. $bgcolor .' valign="top">';
