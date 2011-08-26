@@ -1,5 +1,6 @@
 # Messages for Serbian Latin ekavian (‪Srpski (latinica)‬)
 # Exported from translatewiki.net
+# Author: Naudefj
 # Author: Rancher
 
 action:Radnja
@@ -96,8 +97,7 @@ new_thread:Napravi novu temu
 newest_user:Najnoviji član je
 next_page:Sledeća stranica
 next_thread:Sledeća tema:
-# Fuzzy
-no_messages:Nema poruka u ovom forumu.
+no_messages:Nema poruka u ovom forumu.<br />Budite prvi koji će otvoriti temu.
 no_msg_body:Tekst poruke nije unet.
 no_new_posts:Nema novih poruka
 no_posts:Nema poruka.
@@ -948,7 +948,7 @@ iemail_forum_unsub:Prekini nadgledanje ovog foruma
 primary_group_prefix:Glavna grupa foruma:
 group_resources:Ova grupa upravlja dozvolama sledećih foruma
 register_admin_newuser_title:Novi korisnik je otvorio nalog koji čeka na potvrdu
-register_admin_newuser_msg:Novi korisnik ({VAR: uent->login}) je upravo napravio nalog. S obzirom na to da je potvrda naloga omogućena, nalog neće biti aktivan dok se ne proveri od strane administratora. Za pregled naloga posetite: {GVAR: WWW_ROOT}adm/admaccapr.php\n\nOvo je automatizovana poruka Ne odgovarajte na nju.\nAko želite da isključite obaveštenja u vezi s novim članovima, promenite postavku „Obaveštenje o novim nalozima“ u administrativnom upravljačkom panelu.
+register_admin_newuser_msg:Novi korisnik ({VAR: uent->login}) je upravo napravio nalog. S obzirom na to da je potvrda naloga omogućena, nalog neće biti aktivan dok se ne proveri od strane administratora. Za pregled naloga posetite: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nOvo je automatizovana poruka Ne odgovarajte na nju.\nAko želite da isključite obaveštenja u vezi s novim članovima, promenite postavku „Obaveštenje o novim nalozima“ u administrativnom upravljačkom panelu.
 post_mod_msg_notify_title:Nova poruka u forumu „{VAR: frm->name}“ čeka na odobrenje
 post_mod_msg_notify_msg:Nova poruka pod nazivom „{VAR: msg_post->subject}“ je upravo postavljena na forum koji uređujete. Za pregled ove poruke posetite: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nOvo je automatizovana poruka. Ne odgovarajte na nju.
 thread_printable_pdf:Napravi PDF dokument

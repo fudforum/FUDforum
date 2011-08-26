@@ -38,6 +38,7 @@ location:Plaz:
 locked:Gespaart
 mark_all_read:All Messagen als geliest markéieren
 members:Memberen
+calendar:Kalenner
 message:Message
 minimize_category:Kategorie minimiséieren
 minimize_message:Message minimiséieren
@@ -49,7 +50,7 @@ new_posts:Nei Messagen
 newest_user:De neiste registréierte Benotzer ass
 next_page:Nächst Säit
 next_thread:Nächst Thema:
-no_messages:Et gëtt keng Messagen an dësem Forum.
+no_messages:Et gëtt keng Messagen an dësem Forum.<br /> Sidd deen éischten deen e Sujet an dëse Forum setzt.
 no_new_posts:Keng nei Messagen
 no_posts:Keng Messagen
 num_pages:Säiten ({VAR: ttl_pg}):
@@ -118,6 +119,12 @@ month_10:Oktober
 month_11:November
 month_12:Dezember
 sunday:Sonndeg
+monday:Méindeg
+tuesday:Dënschdeg
+wednesday:Mëttwoch
+thursday:Donneschdeg
+friday:Freideg
+saturday:Samschdeg
 male:Männlech
 female:Weiblech
 finduser_submit:Sichen
@@ -166,6 +173,7 @@ post_options:Optiounen:
 ignore_users:Ignoréiert Benotzer
 coppa_before:Virum {TEMPLATE: coppa_date}
 coppa_after:Nom {TEMPLATE: coppa_date}
+coppa_fax_telephone:Telefon:
 coppa_fax_date:Datum:
 coppa_fax_passwd:Passwuert
 coppa_fax_name:Numm
@@ -174,6 +182,7 @@ rpasswd_change_pass:Passwuert änneren
 rpasswd_cur_pass:Aktuellt Passwuert:
 rpasswd_new_pass:Neit Passwuert:
 rpasswd_conf_pass:Confirméiert d'Passwuert:
+ruser_cur_pass:Aktuellt Passwuert:
 login_passwd:Passwuert:
 reset_reset_button:Passwuert zrécksetzen
 rate_this_thread:Bewäerten
@@ -212,6 +221,7 @@ err_inc_criticaltitle:Kritesche Feeler
 ignore_list_err_nu_title:Benotzer net fonnt
 err_banned_acct_title:FEELER: Dir gouft gespaart.
 post_err_edttimelimit_title:FEELER
+post_err_passwd:Falscht Passwuert.
 report_err_nosuchmsg_title:FEELER
 reset_err_invalidkey_title:FEELER
 reset_err_rstconf_title:Informatioun
@@ -227,6 +237,7 @@ groupmgr_action:Aktioun
 groupmgr_member:Member
 groupmgr_cancel:Ofbriechen
 groupmgr_add_member:Member derbäisetzen
+groupmgr_update_member:Member aktualiséieren
 groupmgr_edit:Änneren
 groupmgr_delete:Läschen
 group_mgr_anon:Anonym
@@ -282,6 +293,7 @@ search_or:ODER
 saved:Gespäichert
 iemail_msg_reply:Äntwerten
 iemail_msg_quote:Zitat
+threadt_announce:Ukënnegung
 mnav_minute:Minutt(en)
 mnav_hour:Stonn(en)
 mnav_day:Dag/Deeg
@@ -315,4 +327,5 @@ btn_edit:änneren
 btn_reply:äntwerten
 btn_forward:viruleeden
 btn_homepage:www
+pages:Säiten
 page_list_heading:Disponibel Säiten

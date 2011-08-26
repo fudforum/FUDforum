@@ -96,8 +96,7 @@ new_thread:Begin 'n nuwe onderwerp
 newest_user:Die nuutste geregistreerde lid is
 next_page:Volgende bladsy
 next_thread:Volgende onderwerp:
-# Fuzzy
-no_messages:Daar is geen nuwe boodskappe in die forum
+no_messages:Daar geen nuwe boodskappe in hierdie forum nie.<br />Wees die eerste om 'n onderwerp te plaas.
 no_msg_body:Geen teks in die boodskap nie.
 no_new_posts:Geen nuwe boodskappe
 no_posts:Geen boodskappe
@@ -948,7 +947,7 @@ iemail_forum_unsub:Afmeld van die forum
 primary_group_prefix:Primêre groep vir forum:
 group_resources:Die groep beheer die regte van die volgende forums
 register_admin_newuser_title:Nuwe gebruiker het geregistreer en sy rekening wag vir goedkeuring
-register_admin_newuser_msg:Die nuwe gebruiker {VAR: uent->login} het sopas geregistreer. Omdat gebruikersbevestiging geaktiveer is, moet die rekening deur 'n administrateur goedgekeur word. Vir bevestiging, gaan asseblief na: {GVAR: WWW_ROOT}adm/admaccapr.php\n\nDie is 'n outomaties gestuurde boodskap. Moet asseblief nie antwoord nie. As u toekomstige E-posboodskappe vir nuwe gebruikers wil deaktiveer, kan u "New Account Notification" in die kontrolepaneel afskakel.
+register_admin_newuser_msg:Die nuwe gebruiker {VAR: uent->login} het sopas geregistreer. Omdat gebruikersbevestiging geaktiveer is, moet die rekening deur 'n administrateur goedgekeur word. Vir bevestiging, gaan asseblief na: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nDie is 'n outomaties gestuurde boodskap. Moet asseblief nie antwoord nie. As u toekomstige E-posboodskappe vir nuwe gebruikers wil deaktiveer, kan u "New Account Notification" in die kontrolepaneel afskakel.
 post_mod_msg_notify_title:Nuwe boodskap in forum "{VAR: frm->name}" wag vir goedkeuring
 post_mod_msg_notify_msg:'n Nuwe boodskap met titel "{VAR: msg_post->subject}" is sopas gepos in 'n forum wat u modereer. Om die boodskap te hersien, gaan na: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nDie is 'n outomatiese boodskap. Moet asseblief nie antwoord nie.
 thread_printable_pdf:Genereer PDF-dokument

@@ -2,6 +2,7 @@
 # Exported from translatewiki.net
 # Author: Emilkris33
 # Author: McDutchie
+# Author: Naudefj
 # Author: Nghtwlkr
 
 action:Handling
@@ -935,7 +936,7 @@ iemail_forum_unsub:Afmelde dette forum
 primary_group_prefix:Primær gruppe for forum:
 group_resources:Denne gruppe kontrollerer tilladelserne for følgende fora
 register_admin_newuser_title:En ny bruger har registreret sig hvis konto mangler godkendelse
-register_admin_newuser_msg:En ny bruger ({VAR: uent->login}) har netop tilmeldt sig, og da godkendelse er aktiveret, kan vedkommende ikke tage sin konto i brug, før den er godkendt af dig eller en anden forum administrator. For at undersøge denne konto skal du gå til: {GVAR: WWW_ROOT}adm/admaccapr.php\n\nDette er en automatiseret proces. Undlad at besvare denne besked.\nHvis du ønsker at afmelde fremtidige e-mail meddelelser om nye bruger registreringer, kan du gøre det via administrationskonsollens kontrolpanel. Ændr "Ny konto notifikation" indstillingen.
+register_admin_newuser_msg:En ny bruger ({VAR: uent->login}) har netop tilmeldt sig, og da godkendelse er aktiveret, kan vedkommende ikke tage sin konto i brug, før den er godkendt af dig eller en anden forum administrator. For at undersøge denne konto skal du gå til: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nDette er en automatiseret proces. Undlad at besvare denne besked.\nHvis du ønsker at afmelde fremtidige e-mail meddelelser om nye bruger registreringer, kan du gøre det via administrationskonsollens kontrolpanel. Ændr "Ny konto notifikation" indstillingen.
 post_mod_msg_notify_title:Nyt indlæg i forum "{VAR: frm->name}" venter på godkendelse
 post_mod_msg_notify_msg:En ny meddelelse med titlen "{VAR: msg_post->subject}" er blevet lagt i et forum, som du modererer. For at se og revidere meddelelsen gå til: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nDette er en automatiseret proces. Undlad at besvare denne besked.
 thread_printable_pdf:Generer udskriftvenlig PDF

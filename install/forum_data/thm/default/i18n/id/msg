@@ -4,12 +4,12 @@
 # Author: Farras
 # Author: Irwangatot
 # Author: IvanLanin
+# Author: Naudefj
 
 action:Tindakan
 add_to_buddy_list:tambahkan ke daftar teman
 admin:Admin
-# Fuzzy
-admin_control_panel:Kontrol panel Admin
+admin_control_panel:Administrasi
 administrator:Pengurus
 attachment:Sisipan:
 avatar:Avatar:
@@ -100,8 +100,7 @@ new_thread:Buat topic baru
 newest_user:Anggota terbaru
 next_page:Halaman berikutnya
 next_thread:Topik berikutnya:
-# Fuzzy
-no_messages:Belum ada pesan di forum ini
+no_messages:Belum ada pesan di forum ini.<br />Jadilah yang pertama memulai topik di forum ini.
 no_msg_body:Tidak ada isi pesan
 no_new_posts:Tidak ada pesan baru
 no_posts:Tidak ada pesan
@@ -415,6 +414,7 @@ post_title:Judul:
 post_body:Isi pesan:
 post_options:Pilihan:
 post_preview_btn:Tampilan sementara pesan
+post_cancel_btn:Batalkan
 ignore_users:Pengguna diacuhkan
 add_ignore:Tambah diacuhkan
 forum_terms:Pernyataan Forum
@@ -719,8 +719,7 @@ post_opt_html_off:kode <b>HTML</b> di<b>NON-AKTIFKAN</b>
 post_opt_fud_off:<b>BBcode</b> di<b>NON-AKTIFKAN</b>
 post_opt_images_off:<b>Images</b> di<b>NON-AKTIFKAN</b>
 post_opt_smilies_off:<b>Smilies</b> di<b>NON-AKTIFKAN</b>
-# Fuzzy
-post_opt:Pilihan Forum
+post_opt:Pilihan Forum:
 register_change_passwd:ubah password
 register_change_login:ubah log masuk
 approved_avatar_title:Avatar kustom anda disetujui.
@@ -807,6 +806,7 @@ th_expr_two_month:2 bulan
 th_expr_four_month:4 bulan
 th_expr_one_year:1 tahun
 thread_mod_delete:Hapus
+action_ip:IP
 action_latest_post:Pesan terakhir
 online_today_last_visit:Kunjungan terakhir
 online_today_update:Melihat pengguna-pengguna yang berkuung ke forum hari ini.
@@ -951,7 +951,7 @@ iemail_forum_unsub:Stop langganan forum ini
 primary_group_prefix:Group utama forum ini:
 group_resources:Group ini memilik wewenang mengatur forum
 register_admin_newuser_title:Pengguna baru sudah mendaftar dan sedang menunggu konfirmasi
-register_admin_newuser_msg:Pengguna baru ({VAR: uent->login}), dan karena konfirmasi di aktifkan, akun tidak aktif sampai disetujui administrator. Untuk memeriksa, silakan ke: {GVAR: WWW_ROOT}adm/admaccapr.php\n\nIni proses otomatis, jangan membalas e-mail ini.\nPemberitahuan lewat e-mail bisa dinon-aktifkan melalui kontrol panel admin. Ubah seting di "Pemberitahuan Akun baru".
+register_admin_newuser_msg:Pengguna baru ({VAR: uent->login}), dan karena konfirmasi di aktifkan, akun tidak aktif sampai disetujui administrator. Untuk memeriksa, silakan ke: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nIni proses otomatis, jangan membalas e-mail ini.\nPemberitahuan lewat e-mail bisa dinon-aktifkan melalui kontrol panel admin. Ubah seting di "Pemberitahuan Akun baru".
 post_mod_msg_notify_title:Pesan baru di forum "{VAR: frm->name}" menunggu persetuhuan anda
 post_mod_msg_notify_msg:Pesan baru berjudul "{VAR: msg_post->subject}" baru saja dimasukkan di forum yang anda moderasikan. Untum memeriksa,silakan ke: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nIni proses otomatis, jangan membalas email ini.
 thread_printable_pdf:Buat PDF utk pencetakan
@@ -1057,14 +1057,10 @@ mmd_abort_move:Batalkan
 mmd_move:Pindahkan topik
 pmsg_pdf_btn:Buat PDF
 search_results_hdr:Ada: {VAR: total} hasil pencarian
-# Fuzzy
-thread_del_all:Hapus semua yang terpilih
-# Fuzzy
-thread_mov_all:Pindahkan yang terpilih
-# Fuzzy
-thread_merge_all:Gabungkan Semua yang Dipilih
-# Fuzzy
-thread_loc_all:Kunci/Buka kunci Semua Pilihan
+thread_del_all:Hapus yang dipilih
+thread_mov_all:Pindahkan yang Dipilih
+thread_merge_all:Gabungkan yang Dipilih
+thread_loc_all:Kunci/Buka yang Dipilih
 dmsg_ip:IP:
 err_blockedaccnt_title:SALAH: Akun anda sudah di-filter.
 err_blockedaccnt_msg:Akun anda sudaj diblokir dari forum karena salah satu filter dari pengguna.
@@ -1087,8 +1083,11 @@ post_common_align_left:Rata kiri
 post_common_align_center:Rata tengah
 post_common_align_right:Rata kanan
 post_common_link:Sisipkan pranala
+post_common_link_popup:Lokasi tautan:
 post_common_email:Masukan alamat Surat-e
+post_common_email_popup:Alamat surel:
 post_common_image:Masukan berkas
+post_common_image_popup:URL gambar:
 post_common_nlist:tambahkan daftar nomor
 post_common_blist:Tambahkan daftar biasa
 post_common_quote:Tambah kutipan
@@ -1136,3 +1135,9 @@ feed_rss:RSS2 asupan
 feed_atom:ATOM asupan
 ip_whois_connect_err:Tidak dapat terhubung ke server WHOIS ({VAR: whois_server}): {VAR: errstr}
 custom_filed_required:Bidang ini perlu diisi.
+pages:Halaman
+page_list_heading:Halaman tersedia
+page_list_total:{PLURAL: i|$1 halaman|$1 halaman} terdaftar.
+page_update:Halaman penelusuran
+pm_export_header:Pesan pribadi untuk {VAR: usr->alias}
+pm_export_footer:Diimpor:

@@ -954,7 +954,7 @@ iemail_forum_unsub:Віписатись від цього форуму
 primary_group_prefix:Основна група для форуму:
 group_resources:Ця група визначає права доступу в наступних форумах
 register_admin_newuser_title:Новий користувач зареєстрований, i його обліковий запис в очікуванні підтвердження
-register_admin_newuser_msg:Новий користувач ({VAR: uent->login}) тільки що пройшов реєстрацію, оскільки ввімкнено завірення облікових записів адміністратором, його обліковий запис не буде активним, якщо його не завірите ви, або інший адміністратор. Перегляд аккаунту: {GVAR: WWW_ROOT}adm/admaccapr.php\n\nThis is an automated process. Do not reply to this message.\nIf you want to turn off future e-mail notifications of new user registrations, you can do so via the Admin Control Panel. Change the "New Account Notification" setting.
+register_admin_newuser_msg:Новий користувач ({VAR: uent->login}) тільки що пройшов реєстрацію, оскільки ввімкнено завірення облікових записів адміністратором, його обліковий запис не буде активним, якщо його не завірите ви, або інший адміністратор. Перегляд аккаунту: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nThis is an automated process. Do not reply to this message.\nIf you want to turn off future e-mail notifications of new user registrations, you can do so via the Admin Control Panel. Change the "New Account Notification" setting.
 post_mod_msg_notify_title:Нове повідомлення в форум "{VAR: frm->name}" в очікуванні затвердження
 post_mod_msg_notify_msg:В форумі, де Ви є модератором, з'явилось нове повідомлення з заголовком "{VAR: msg_post->subject}". Перегляд повідомлення: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nПовідомлення створено автоматично, не відповідайте на нього.
 thread_printable_pdf:Створити PDF для друку

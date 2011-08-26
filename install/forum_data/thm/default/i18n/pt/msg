@@ -8,6 +8,7 @@
 # Author: Luckas Blade
 # Author: Malafaya
 # Author: McDutchie
+# Author: Naudefj
 # Author: Waldir
 
 action:Acção
@@ -956,7 +957,7 @@ iemail_forum_unsub:Remover subscrição deste forum
 primary_group_prefix:Grupo primário para o forum:
 group_resources:Este grupo controla as permissões dos seguintes sub-forums
 register_admin_newuser_title:Registou-se um novo utilizador e a sua conta aguarda confirmacao
-register_admin_newuser_msg:Registou-se um novo utilizador ({VAR: uent->login}) no forum e como a Confirmacao de Conta esta' Activa, esta conta nao ficara' activa ate' que que seja confirmada por si ou outro administrador do forum. Para rever a conta clique: {GVAR: WWW_ROOT}adm/admaccapr.php\n\nEste e' um processo automatico, nao responda a esta mensagem.\nSe desejar desligar futuras notificacoes por e-mail de novos registos de utilizadores/usuarios pode faze-lo via Painel de Controlo de Administracao, alterando o valor de "Notificação de Nova Conta".
+register_admin_newuser_msg:Registou-se um novo utilizador ({VAR: uent->login}) no forum e como a Confirmacao de Conta esta' Activa, esta conta nao ficara' activa ate' que que seja confirmada por si ou outro administrador do forum. Para rever a conta clique: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nEste e' um processo automatico, nao responda a esta mensagem.\nSe desejar desligar futuras notificacoes por e-mail de novos registos de utilizadores/usuarios pode faze-lo via Painel de Controlo de Administracao, alterando o valor de "Notificação de Nova Conta".
 post_mod_msg_notify_title:Nova mensagem no forum "{VAR: frm->name}" aguardando aprovacao
 post_mod_msg_notify_msg:Uma mensagem nova, intitulada "{VAR: msg_post->subject}", foi colocada agora num fórum moderado por si. Para revê-la, consulte: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nEste é um processo automático. Não responda a esta mensagem.
 thread_printable_pdf:Exportar para PDF

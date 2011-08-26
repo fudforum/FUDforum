@@ -97,8 +97,7 @@ new_thread:Creeaza o noua tema
 newest_user:Cel mai nou utilizator este
 next_page:Pagina urmatoare
 next_thread:Urmatoarea tema:
-# Fuzzy
-no_messages:Nu sunt mesaje noi in acest forum.
+no_messages:Nu sunt mesaje noi în acest forum.<br />Fiți primul care să publice un subiect pe acest forum.
 no_msg_body:Mesajul nu are continut.
 no_new_posts:Nici un mesaje nou
 no_posts:Nici un mesaj

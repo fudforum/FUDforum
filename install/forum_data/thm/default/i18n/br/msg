@@ -99,8 +99,7 @@ new_thread:Krouiñ ur gaoz nevez
 newest_user:An implijer enskrivet da ziwezhañ zo
 next_page:Pajenn da-heul
 next_thread:Kaoz da-heul :
-# Fuzzy
-no_messages:N'eus kemennadenn ebet er forom-mañ.
+no_messages:N'eus kemennadenn ebet er forom-mañ.<br />Bezit an hini gentañ o skrivañ un danvez er forom-mañ.
 no_msg_body:N'eus testenn ebet er gemennadenn
 no_new_posts:Kemennadenn nevez ebet
 no_posts:Kemennadenn ebet
@@ -951,7 +950,7 @@ iemail_forum_unsub:Paouez da evezhiañ ar forom-mañ
 primary_group_prefix:Strollad kentañ evit ar forom :
 group_resources:Ar strollad-mañ a gontroll aotreoù ar foromoù-mañ
 register_admin_newuser_title:Un implijer nevez zo en em enskrivet hag emañ e gont o c'hortoz bezañ kadarnaet
-register_admin_newuser_msg:Un implijer nevez ({VAR: uent->login}) zo o paouez en em enskrivañ. O vezañ m'eo gweredekaet kadarnadur ar c'hontoù, ne vo oberiant e gont nemet pa vo kadarnaet ganeoc'h pe gant ur merour all eus ar forom. Evit adwelet ar gont, kit da {GVAR: WWW_ROOT}adm/admaccapr.php, mar plij.\n\nUn argerzh emlusk eo hemañ. Arabat respont d'ar gemennadenn-mañ.\nMa fell deoc'h diweredekaat ar c'hemenn dre bostel evit an implijerien nevez pelloc'h, gallout a rit ober gant panell gontrollañ ar merour en ur cheñch an arventenn "Kemenn ar c'hontoù nevez".
+register_admin_newuser_msg:Un implijer nevez ({VAR: uent->login}) zo o paouez en em enskrivañ. O vezañ m'eo gweredekaet kadarnadur ar c'hontoù, ne vo oberiant e gont nemet pa vo kadarnaet ganeoc'h pe gant ur merour all eus ar forom. Evit adwelet ar gont, kit da {GVAR: WWW_ROOT}adm/admuserapr.php, mar plij.\n\nUn argerzh emlusk eo hemañ. Arabat respont d'ar gemennadenn-mañ.\nMa fell deoc'h diweredekaat ar c'hemenn dre bostel evit an implijerien nevez pelloc'h, gallout a rit ober gant panell gontrollañ ar merour en ur cheñch an arventenn "Kemenn ar c'hontoù nevez".
 post_mod_msg_notify_title:Kemennadenn nevez er forom « {VAR: frm->name} » o c'hortoz bezañ aprouet
 post_mod_msg_notify_msg:Postet ez eus bet ur gemennadenn nevez, hec'h anv « {VAR: msg_post->subject} », er forom a habaskait. Evit adwelet ar gemennadenn-mañ, kit da : {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nUn argerzh emlusk eo hemañ, arabat respont d'ar gemennadenn-mañ.
 thread_printable_pdf:Krouiñ ur PDF a c'haller moullañ

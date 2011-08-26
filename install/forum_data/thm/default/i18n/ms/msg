@@ -1,6 +1,7 @@
 # Messages for Malay (Bahasa Melayu)
 # Exported from translatewiki.net
 # Author: Anakmalaysia
+# Author: Naudefj
 
 action:Tindakan
 add_to_buddy_list:tambahkan ke senarai kawan
@@ -96,8 +97,7 @@ new_thread:Buka topik baru
 newest_user:Pengguna berdaftar yang baru ialah
 next_page:Halaman Berikutnya
 next_thread:Topik Seterusnya:
-# Fuzzy
-no_messages:Tiada pesanan dalam forum ini.
+no_messages:Tiada pesanan dalam forum ini.<br />Jadilah yang pertama untuk mengeposkan topik di forum ini.
 no_msg_body:Tiada Isi Pesanan
 no_new_posts:Tiada pesanan Baru
 no_posts:Tiada Pesanan
@@ -948,7 +948,7 @@ iemail_forum_unsub:Berhenti melanggan forum ini
 primary_group_prefix:Kumpulan utama forum:
 group_resources:Kumpulan ini mengawal kebenaran pengguna di forum-forum berikut:
 register_admin_newuser_title:Seorang pengguna baru telah berdaftar, dan akaunnya sedang menunggu pengesahan
-register_admin_newuser_msg:Seorang pengguna baru ({VAR: uent->login}) baru berdaftar; oleh sebab ciri pengesahan akaun dihidupkan, akaunnya tidak diaktifkan sehingga ia disahkan oleh anda atau seorang lagi pentadbir forum. Untuk menyemak akaun itu, sila ke: {GVAR: WWW_ROOT}adm/admaccapr.php\n\nIni ialah proses yang berautomat. Jangan balas pesanan ini.\nJika anda ingin menutup ciri pemberitahuan pendaftaran pengguna baru melalui e-mel pada masa depan, anda boleh berbuat demikian di Panel Kawalan Pentadbir, dengan menukar tetapan "Pemberitahuan Akaun Baru".
+register_admin_newuser_msg:Seorang pengguna baru ({VAR: uent->login}) baru berdaftar; oleh sebab ciri pengesahan akaun dihidupkan, akaunnya tidak diaktifkan sehingga ia disahkan oleh anda atau seorang lagi pentadbir forum. Untuk menyemak akaun itu, sila ke: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nIni ialah proses yang berautomat. Jangan balas pesanan ini.\nJika anda ingin menutup ciri pemberitahuan pendaftaran pengguna baru melalui e-mel pada masa depan, anda boleh berbuat demikian di Panel Kawalan Pentadbir, dengan menukar tetapan "Pemberitahuan Akaun Baru".
 post_mod_msg_notify_title:Pesanan baru menunggu kelulusan di forum "{VAR: frm->name}"
 post_mod_msg_notify_msg:Pesanan baru bertajuk "{VAR: msg_post->subject}" baru dikirim dalam forum yang anda kawal selia. Untuk menyemak pesanan itu, sila ke: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nIni ialah proses yang berautomat. Jangan balas pesanan ini.
 thread_printable_pdf:Jana fail PDF yang boleh dicetak

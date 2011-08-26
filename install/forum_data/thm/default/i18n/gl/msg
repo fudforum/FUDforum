@@ -1,6 +1,7 @@
 # Messages for Galician (Galego)
 # Exported from translatewiki.net
 # Author: McDutchie
+# Author: Naudefj
 # Author: Toliño
 
 action:Acción
@@ -97,8 +98,7 @@ new_thread:Crear un novo fío
 newest_user:O último usuario rexistrado é
 next_page:Páxina seguinte
 next_thread:Seguinte fío:
-# Fuzzy
-no_messages:Aínda non hai ningunha mensaxe neste foro.
+no_messages:Aínda non hai ningunha mensaxe neste foro.<br />Sé o primeiro en publicar un comentario.
 no_msg_body:A mensaxe non ten ningún contido
 no_new_posts:Non hai mensaxes novas
 no_posts:Non hai mensaxes
@@ -949,7 +949,7 @@ iemail_forum_unsub:Deixar a subscrición a este foro
 primary_group_prefix:Grupo principal para o foro:
 group_resources:Este grupo controla os permisos dos seguintes foros
 register_admin_newuser_title:Rexistrouse un novo usuario e a súa conta está á espera de confirmación
-register_admin_newuser_msg:Acaba de se rexistrar un novo usuario ({VAR: uent->login}) e, desde que a confirmación de contas está activada, a súa conta non se activará ata que sexa confirmada por ti ou outro administrador do foro. Para revisar a conta, vai a: {GVAR: WWW_ROOT}adm/admaccapr.php\n\nEste é un proceso automático. Non respondas a esta mensaxe.\nSe queres deixar de recibir notificacións por correo electrónico de novos rexistros de usuario, podes facelo a través do panel de control administrativo. Cambia a configuración do parámetro "New Account Notification".
+register_admin_newuser_msg:Acaba de se rexistrar un novo usuario ({VAR: uent->login}) e, desde que a confirmación de contas está activada, a súa conta non se activará ata que sexa confirmada por ti ou outro administrador do foro. Para revisar a conta, vai a: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nEste é un proceso automático. Non respondas a esta mensaxe.\nSe queres deixar de recibir notificacións por correo electrónico de novos rexistros de usuario, podes facelo a través do panel de control administrativo. Cambia a configuración do parámetro "New Account Notification".
 post_mod_msg_notify_title:Hai unha nova mensaxe no foro "{VAR: frm->name}" á espera de aprobación
 post_mod_msg_notify_msg:Unha nova mensaxe titulada "{VAR: msg_post->subject}" acaba de ser publicada nun foro que moderas. Para revisar esta mensaxe vai a:\n{FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nEste é un proceso automático. Non respondas a esta mensaxe.
 thread_printable_pdf:Xerar un PDF para imprimir

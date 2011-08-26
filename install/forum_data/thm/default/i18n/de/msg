@@ -14,7 +14,7 @@
 action:Aktion
 add_to_buddy_list:zur Buddyliste hinzufügen
 admin:Admin
-admin_control_panel:Administrierung
+admin_control_panel:Administration
 administrator:Administrator
 attachment:Anhang:
 avatar:Avatar:
@@ -105,8 +105,7 @@ new_thread:Ein neues Thema erstellen
 newest_user:Das neueste registrierte Mitglied ist
 next_page:Nächste Seite
 next_thread:Nächstes Thema:
-# Fuzzy
-no_messages:Keine Beiträge in diesem Forum vorhanden.
+no_messages:Keine Beiträge in diesem Forum vorhanden.<br />Du kannst das erste Thema eröffnen.
 no_msg_body:leerer Beitrag
 no_new_posts:Keine neuen Beiträge
 no_posts:Keine Beiträge
@@ -957,7 +956,7 @@ iemail_forum_unsub:Das Abonnement für dieses Forum beenden
 primary_group_prefix:Hauptgruppe für Forum:
 group_resources:Diese Gruppe kontrolliert die Berechtigungen für folgende Foren
 register_admin_newuser_title:Ein neuer Benutzer hat sich registriert und wartet auf die Bestätigung des Kontos
-register_admin_newuser_msg:Ein neuer Benutzer ({VAR: uent->login}) hat sich gerade für dieses Forum registriert und da die Bestätigung für Konten aktiviert ist, wird dieses Konto nicht eher aktiviert werden bevor es durch dich oder einem anderen Forumsadministrator bestätigt wurde. Um das Konto zu begutachten, gehe zu: {GVAR: WWW_ROOT}adm/admaccapr.php\n\nDas ist ein automatisierter Vorgang, bitte beantworte diese Nachricht nicht.\nWenn du weitere E-Mail-Benachrichtigungen über neue Benutzerregistrierungen abstellen willst, kannst du dies über das Administratormenü und durch Ändern des Wertes der Einstellung „New Account Notification“ erledigen.
+register_admin_newuser_msg:Ein neuer Benutzer ({VAR: uent->login}) hat sich gerade für dieses Forum registriert und da die Bestätigung für Konten aktiviert ist, wird dieses Konto nicht eher aktiviert werden bevor es durch dich oder einem anderen Forumsadministrator bestätigt wurde. Um das Konto zu begutachten, gehe zu: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nDas ist ein automatisierter Vorgang, bitte beantworte diese Nachricht nicht.\nWenn du weitere E-Mail-Benachrichtigungen über neue Benutzerregistrierungen abstellen willst, kannst du dies über das Administratormenü und durch Ändern des Wertes der Einstellung „New Account Notification“ erledigen.
 post_mod_msg_notify_title:Neuer Beitrag im Forum „{VAR: frm->name}“ wartet auf Bestätigung
 post_mod_msg_notify_msg:Ein neuer Beitrag mit der Überschrift „{VAR: msg_post->subject}“ wurde gerade in einem Forum erstellt, das von dir moderiert wird. Um diesen Beitrag zu begutachten, gehe zu: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nDas ist ein automatisierter Vorgang, bitte antworte nicht auf diese Nachricht.
 thread_printable_pdf:Druckbares PDF erzeugen
@@ -1144,6 +1143,6 @@ custom_filed_required:Dies ist ein Pflichtfeld.
 pages:Seiten
 page_list_heading:Verfügbare Seiten
 page_list_total:{PLURAL: i|$1 Seite|$1 Seiten} aufgeführt.
-page_update:Lese im Forum
+page_update:Liest eine Seite
 pm_export_header:Private Nachrichten für {VAR: usr->alias}
 pm_export_footer:Exportiert:

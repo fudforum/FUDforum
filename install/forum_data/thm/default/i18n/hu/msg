@@ -2,6 +2,7 @@
 # Exported from translatewiki.net
 # Author: Dani
 # Author: Glanthor Reviol
+# Author: Naudefj
 
 action:Művelet
 add_to_buddy_list:hozzáadás a barátok listájához
@@ -944,7 +945,7 @@ iemail_forum_unsub:Leiratkozás erről a fórumról
 primary_group_prefix:A fórum elsődleges csoportja:
 group_resources:Ez a csoport a következő fórum jogosultságait vezérli
 register_admin_newuser_title:Új felhasználó regisztrált, és fiókja megerősítésre vár
-register_admin_newuser_msg:Egy új felhasználó ({VAR: uent->login}) regisztrált, és mivel a fiókok megerősítése engedélyezve van, a fiókja nem lesz aktív, amíg te, vagy egy másik adminisztrátor nem erősíti meg. A fiók ellenőrzéséhez látogass el ide: {GVAR: WWW_ROOT}adm/admaccapr.php\n\nEz egy automatikusan generált üzenet, ne válaszolj rá.\nHa ki szeretnéd kapcsolni a további értesítéseket, az adminisztrátori vezérlőpulton megteheted. Módosítsd az "Értesítés új fiókregisztrációkról" beállítást.
+register_admin_newuser_msg:Egy új felhasználó ({VAR: uent->login}) regisztrált, és mivel a fiókok megerősítése engedélyezve van, a fiókja nem lesz aktív, amíg te, vagy egy másik adminisztrátor nem erősíti meg. A fiók ellenőrzéséhez látogass el ide: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nEz egy automatikusan generált üzenet, ne válaszolj rá.\nHa ki szeretnéd kapcsolni a további értesítéseket, az adminisztrátori vezérlőpulton megteheted. Módosítsd az "Értesítés új fiókregisztrációkról" beállítást.
 post_mod_msg_notify_title:Új üzenet vár elfogadásra a(z) "{VAR: frm->name}" fórumban
 post_mod_msg_notify_msg:Egy új hozzászólást írtak "{VAR: msg_post->subject}" címmel egy fórumba, amit te moderálsz. Az üzenet ellenőrzéséhez menj a következő címre: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nEz egy automatikusan generált üzenet, ne válaszolj rá.
 thread_printable_pdf:Nyomtatható PDF gererálása

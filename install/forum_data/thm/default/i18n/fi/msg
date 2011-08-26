@@ -662,7 +662,7 @@ register_err_avatarnotallowed:Lähetetyn tiedoston tyyppi ei ole sallittu. Tarki
 register_conf_subject:Rekisteröintivahvistus
 register_conf_msg:Kiitos rekisteröitymisestä.\nAktivoi käyttäjätilisi napsauttamalla alla olevaa linkkiä:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nKun käyttäjätilisi on aktivoitu, sisäänkirjautuminen tapahtuu automaattisesti ja sinut ohjataan foorumin etusivulle.
 register_welcome_subject:Rekisteröintivahvistus
-register_welcome_msg:Kiitos rekisteröitymisestä.\n\nTässä ovat kirjautumistietosi foorumille:\n\nFoorumin osoite: {TEMPLATE: index_update_lnk}\nKäyttäjätunnus: {VAR: uent->login}\nSalasana: {VAR: _POST['reg_plaintext_passwd']}\n\nSalasanojen isot ja pienet kirjaimet ovat eri merkkejä!\nVoit muuttaa asetuksia ja käyttäjätietojasi sivulla:\n{FULL_ROOT}{ROOT}?t=register
+register_welcome_msg:Kiitos rekisteröitymisestä.\n\nTässä ovat kirjautumistietosi foorumille.\n\nFoorumin osoite: {TEMPLATE: index_update_lnk}\nKäyttäjätunnus: {VAR: uent->login}\nSalasana: {VAR: _POST['reg_plaintext_passwd']}\n\nSalasanat ovat kirjainkokoherkkiä.\nVoit muuttaa asetuksia ja käyttäjätietojasi sivulla:\n{FULL_ROOT}{ROOT}?t=register
 register_err_cantreg_title:Virhe: Rekisteröityminen epäonnistui
 regsiter_err_cantreg_msg:Rekisteröityminen epäonnistui, ole hyvä ja ota yhteyttä ylläpitäjään: <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:Selaa omia käyttäjätietojaan
@@ -951,7 +951,7 @@ iemail_forum_unsub:Lopeta tämän foorumin tilaus
 primary_group_prefix:Foorumin pääryhmä:
 group_resources:Tämä ryhmä hallinnoi seuraavien foorumien käyttöoikeuksia
 register_admin_newuser_title:Uusi rekisteröitynyt käyttäjä
-register_admin_newuser_msg:Uusi käyttäjä ({VAR: uent->login}) on juuri rekisteröitynyt foorumille.\nTarkista ja hyväksy tai hylkää käyttäjätili: {GVAR: WWW_ROOT}adm/admaccapr.php\n\nTämä on automatisoitu prosessi, älä vastaa tähän sähköpostiin.\nJos et enää halua vastaanottaa sähköpostitse ilmoituksia uusista rekisteröitymisistä,\nvaihda "New Account Notification" -asetus Ylläpitäjän hallintapaneelissa.
+register_admin_newuser_msg:Uusi käyttäjä ({VAR: uent->login}) on juuri rekisteröitynyt foorumille.\nTarkista ja hyväksy tai hylkää käyttäjätunnus: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nTämä on automatisoitu prosessi. Älä vastaa tähän viestiin.\nJos et enää halua vastaanottaa sähköpostitse ilmoituksia uusista rekisteröitymisistä,\nvaihda "New Account Notification" -asetus ylläpitäjän hallintapaneelissa.
 post_mod_msg_notify_title:Uusi viesti foorumilla "{VAR: frm->name}" odottaa hyväksyntää
 post_mod_msg_notify_msg:Uusi viesti otsikolla ”{VAR: msg_post->subject}” lähetettiin foorumille, jonka moderaattori olet. Tarkistaaksesi tämän viestin siirry osoitteeseen: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nTämä on automatisoitu prosessi. Älä vastaa tähän sähköpostiin.
 thread_printable_pdf:Luo tulostettava PDF-tiedosto

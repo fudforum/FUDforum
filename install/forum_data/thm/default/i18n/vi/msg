@@ -1,6 +1,7 @@
 # Messages for Vietnamese (Tiếng Việt)
 # Exported from translatewiki.net
 # Author: Minh Nguyen
+# Author: Naudefj
 # Author: Trần Nguyễn Minh Huy
 
 action:Tác vụ
@@ -748,7 +749,7 @@ private_no_messages:Không có tin nhắn trong thư mục này.
 register_email_change_subject:Xác nhận thay đổi email
 register_email_change_msg:Xin vui lòng xác nhận tài khoản email mới của bạn "{VAR: uent->email}" để thay tài khoản email cũ của bạn "{VAR: old_email}", bằng cách đến đường dẫn :\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\n Khi tài khoản email của bạn được xác nhận , tài khoản diễn đàn của bạn sẽ được kích hoạt lại.
 register_admin_newuser_title:Một thành viên mới đã đăng ký và tài khoản của họ đang chờ được xác nhận
-register_admin_newuser_msg:Một thành viên mới ({VAR: uent->login}) vừa đăng ký,Khi việc xác nhận tài khoản có thể được, tài khoản của họ sẽ không được kích hoạt cho đến khi nó được xác nhận bởi bạn hoặc người quản trị tối cao của diễn đàn. Để xem lại tài khoản xin vui lòng vào: {GVAR: WWW_ROOT}adm/admaccapr.php\n\n Đây là một quá trình tự động. Không trả lời bài viết này.\n Nếu bạn muốn tắt chức năng thông báo bằng email khi có người đăng ký mới, bạn có thể làm được điều đó qua khu vực người quản trị. Thay đổi hiệu chỉnh "New Account Notification".
+register_admin_newuser_msg:Một thành viên mới ({VAR: uent->login}) vừa đăng ký,Khi việc xác nhận tài khoản có thể được, tài khoản của họ sẽ không được kích hoạt cho đến khi nó được xác nhận bởi bạn hoặc người quản trị tối cao của diễn đàn. Để xem lại tài khoản xin vui lòng vào: {GVAR: WWW_ROOT}adm/admuserapr.php\n\n Đây là một quá trình tự động. Không trả lời bài viết này.\n Nếu bạn muốn tắt chức năng thông báo bằng email khi có người đăng ký mới, bạn có thể làm được điều đó qua khu vực người quản trị. Thay đổi hiệu chỉnh "New Account Notification".
 post_mod_msg_notify_title:Bài viết mới trong diễn đàn "{VAR: frm->name}" đang chờ được chấp nhận
 post_mod_msg_notify_msg:Bài viết mới có tựa là "{VAR: msg_post->subject}" vừa mới được gửi trong diễn đàn mà bạn quản lý. Để xem lại bài viết này đến : {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\n Đây là một quá trình tự động. Bạn có trả lời bài viết này không.
 thread_printable_pdf:Tạo trang PDF

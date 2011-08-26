@@ -102,8 +102,7 @@ new_thread:Konu aç
 newest_user:En son kayıt olan kullanıcı:
 next_page:Sonraki sayfa
 next_thread:Sonraki konu:
-# Fuzzy
-no_messages:Bu forumda ileti yok
+no_messages:Bu forumda ileti yok.<br />Bu forumda konu açan ilk siz olun.
 no_msg_body:İleti gövdesi yok
 no_new_posts:Yeni ileti yok
 no_posts:İleti yok.
@@ -954,7 +953,7 @@ iemail_forum_unsub:Bu forum aboneliğinden çık
 primary_group_prefix:Bu forum için birincil grup:
 group_resources:Bu grup şu forumların izinlerini kontrol ediyor:
 register_admin_newuser_title:Yeni bir kullanıcı kayıt oldu ve hesabı onaylanmayı bekliyor.
-register_admin_newuser_msg:({VAR: uent->login}) kullanıcı isimli yeni bir kullanıcı foruma kayıt olmuş durumda, ve kayıt denetimi etkin durumda olduğu için yeni kullanıcının hesabı siz veya diğer forum yöneticilerinden biri tarafından onaylanmadığı sürece etkin hale getirilmeyecek. Yeni hesabı gözden geçirmek için bu adrese gidebilirsiniz: {GVAR: WWW_ROOT}adm/admaccapr.php\n\nBu otomatik bir iletidir, lütfen yanıt yazmayın.\nEğer gelecekte yeni kaydolan kullanıcılar için bu tür uyarılar almak istemiyorsanız Admin Control Panel içindeki "New Account Notification" ayarını değiştirerek bunu yapabilirsiniz.
+register_admin_newuser_msg:({VAR: uent->login}) kullanıcı isimli yeni bir kullanıcı foruma kayıt olmuş durumda, ve kayıt denetimi etkin durumda olduğu için yeni kullanıcının hesabı siz veya diğer forum yöneticilerinden biri tarafından onaylanmadığı sürece etkin hale getirilmeyecek. Yeni hesabı gözden geçirmek için bu adrese gidebilirsiniz: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nBu otomatik bir iletidir, lütfen yanıt yazmayın.\nEğer gelecekte yeni kaydolan kullanıcılar için bu tür uyarılar almak istemiyorsanız Admin Control Panel içindeki "New Account Notification" ayarını değiştirerek bunu yapabilirsiniz.
 post_mod_msg_notify_title:"{VAR: frm->name}" forumunda onay bekleyen yeni ileti
 post_mod_msg_notify_msg:"{VAR: msg_post->subject}" başlıklı yeni bir ileti denetlediğiniz forumlardan birine gönderilmiş durumda. Bu iletiyi gözden geçirmek için bu adrese gidin: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nBu otomatik bir iletidir, lütfen yanıt yazmayın.
 thread_printable_pdf:Yazdırılabilir PDF Üret

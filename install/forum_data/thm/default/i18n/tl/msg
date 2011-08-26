@@ -1,6 +1,7 @@
 # Messages for Tagalog (Tagalog)
 # Exported from translatewiki.net
 # Author: AnakngAraw
+# Author: Naudefj
 
 action:Galaw
 add_to_buddy_list:idagdag sa talaan ng katoto
@@ -948,7 +949,7 @@ iemail_forum_unsub:Huwag nang magpasipi mula sa porong ito
 primary_group_prefix:Pangunahing pangkat para sa poro:
 group_resources:Ang pangkat na ito ang nagtataban ng mga kapahintulutan ng sumusunod na mga poro
 register_admin_newuser_title:Isang bagong tagagamit ang nagpatala at naghihintay ng katiyakan ang kanilang akawnt
-register_admin_newuser_msg:Isang bagong tagagamit ({VAR: uent->login}) ang nagpatala na, at dahil sa pinagagana ang pagtitiyak ng akawnt, ang kanilang akawnt ay hindi magiging masigla hangga't hindi mo pa ito tinitiyak o ng ibang tagapangasiwa ng poro. Upang suriing muli ang akawnt mangyaring pumunta sa: {GVAR: WWW_ROOT}adm/admaccapr.php\n\nIsa itong pagsasagawang kusa. Huwag tumugon sa mensaheng ito.\nKung nais mong huwag buhayin ang panghinaharap na mga pagpapabatid ng e-liham para sa mga pagpapatala ng bagong tagagamit, magagawa ito sa pamamagitan ng Kahong-Pangtaban ng Tagapangasiwa. Baguhin ang katakdaan ng "Pagpapabatid ng Bagong Akawnt".
+register_admin_newuser_msg:Isang bagong tagagamit ({VAR: uent->login}) ang nagpatala na, at dahil sa pinagagana ang pagtitiyak ng akawnt, ang kanilang akawnt ay hindi magiging masigla hangga't hindi mo pa ito tinitiyak o ng ibang tagapangasiwa ng poro. Upang suriing muli ang akawnt mangyaring pumunta sa: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nIsa itong pagsasagawang kusa. Huwag tumugon sa mensaheng ito.\nKung nais mong huwag buhayin ang panghinaharap na mga pagpapabatid ng e-liham para sa mga pagpapatala ng bagong tagagamit, magagawa ito sa pamamagitan ng Kahong-Pangtaban ng Tagapangasiwa. Baguhin ang katakdaan ng "Pagpapabatid ng Bagong Akawnt".
 post_mod_msg_notify_title:Bagong mensahe sa loob ng porong "{VAR: frm->name}" na naghihintay ng pagpayag
 post_mod_msg_notify_msg:Ipinaskil na ang isang bagong mensahe na pinamagatang "{VAR: msg_post->subject}" sa loob ng isang porong pinamamagitanan mo. Upang suriing muli ang mensaheng ito magpunta sa: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nIsa itong pagsasagawang kusa. Huwag tumugon sa mensaheng ito.
 thread_printable_pdf:Lumikha ng malilimbag na PDF

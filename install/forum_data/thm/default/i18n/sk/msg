@@ -1,5 +1,6 @@
 # Messages for Slovak (Slovenčina)
 # Exported from translatewiki.net
+# Author: Naudefj
 # Author: Rudko
 
 action:Akcia
@@ -925,7 +926,7 @@ iemail_forum_unsub:Odhlásiť sa z tohoto fóra
 primary_group_prefix:Primárna skupina pre fórum:
 group_resources:Táto skupina kontroluje práva pre nasledujúce fóra
 register_admin_newuser_title:Nový používateľ sa zaregistroval a jeho účet čaká na schválenie
-register_admin_newuser_msg:Nový používateľ ({VAR: uent->login}) sa práve zaregistroval a keďže je zapnuté potvrdzovanie účtov, tento účet nebude aktivovaný pokým ho Vy alebo iný administrátor na  fóre nepotvrdí. Ak chcete prezrieť tento účet choďte na: {GVAR: WWW_ROOT}adm/admaccapr.php\n\nTáto správa je generovaná serverom, prosím neodpovedajte na ňu.\nAk chcete vypnúť ďalšie e-mailové oznamy nových registrácií, môžete tak urobiť cez Admin Control Panel, zmenením nastavenia "New Account Notification".
+register_admin_newuser_msg:Nový používateľ ({VAR: uent->login}) sa práve zaregistroval a keďže je zapnuté potvrdzovanie účtov, tento účet nebude aktivovaný pokým ho Vy alebo iný administrátor na  fóre nepotvrdí. Ak chcete prezrieť tento účet choďte na: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nTáto správa je generovaná serverom, prosím neodpovedajte na ňu.\nAk chcete vypnúť ďalšie e-mailové oznamy nových registrácií, môžete tak urobiť cez Admin Control Panel, zmenením nastavenia "New Account Notification".
 post_mod_msg_notify_title:Nová správa vo fóre "{VAR: frm->name}" čakajúca na schválenie
 post_mod_msg_notify_msg:Správa s predmetom "{VAR: msg_post->subject}" bola práve uverejnená na fóre ktoré moderujete. Ak chcete prezrieť túto správu choďte na: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nTáto správa je automaticky generovaná. Prosím neodpovedajte na ňu.
 thread_printable_pdf:Generovať PDF

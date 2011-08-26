@@ -5,6 +5,7 @@
 # Author: Locos epraix
 # Author: McDutchie
 # Author: Mor
+# Author: Naudefj
 # Author: Od1n
 # Author: Peter17
 # Author: Translationista
@@ -956,7 +957,7 @@ iemail_forum_unsub:Desuscribirse de este foro
 primary_group_prefix:Grupo principal para los foros:
 group_resources:Este grupo controla los permisos de los foros siguientes
 register_admin_newuser_title:Se ha registrado un usuario nuevo y su cuenta está pendiente de confirmación
-register_admin_newuser_msg:Un usuario nuevo, ({VAR: uent->login}), acaba de registrarse en los foros, y como está activada la confirmación de la cuenta, su cuenta no estará activa hasta que usted u otro administrador de los foros la confirme. Para revisar la cuenta, por favor, vaya a : {GVAR: WWW_ROOT}adm/admaccapr.php\n\nEsto es un proceso automatizado, no responda a este mensaje.\nSi desea desactivar futuras notificaciones de registro de nuevos usuarios, puede hacerlo usando el Panel de control de administración, cambiando el valor de la opción "Notificación de cuenta nueva".
+register_admin_newuser_msg:Un usuario nuevo, ({VAR: uent->login}), acaba de registrarse en los foros, y como está activada la confirmación de la cuenta, su cuenta no estará activa hasta que usted u otro administrador de los foros la confirme. Para revisar la cuenta, por favor, vaya a : {GVAR: WWW_ROOT}adm/admuserapr.php\n\nEsto es un proceso automatizado, no responda a este mensaje.\nSi desea desactivar futuras notificaciones de registro de nuevos usuarios, puede hacerlo usando el Panel de control de administración, cambiando el valor de la opción "Notificación de cuenta nueva".
 post_mod_msg_notify_title:Un nuevo mensaje en los foros con el asunto "{VAR: frm->name}" está pendiente de aprobación
 post_mod_msg_notify_msg:Un nuevo mensaje titulado "{VAR: msg_post->subject}" acaba de ser enviado a un foro que usted modera. Para revisar este mensaje, vaya a: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nEste es un proceso automático, así que no responda a este mensaje.
 thread_printable_pdf:Generar PDF imprimible

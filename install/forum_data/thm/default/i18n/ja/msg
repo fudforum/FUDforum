@@ -3,6 +3,7 @@
 # Author: Aotake
 # Author: Fryed-peach
 # Author: Iwai.masaharu
+# Author: Naudefj
 
 action:操作
 add_to_buddy_list:仲間リストに追加
@@ -944,7 +945,7 @@ iemail_forum_unsub:このフォーラムの購読停止
 primary_group_prefix:フォーラムの第一グループ:
 group_resources:このグループは次のフォーラムの権限を制御します
 register_admin_newuser_title:新規利用者が登録しました。アカウントは確認待ちです。
-register_admin_newuser_msg:新規利用者（{VAR: uent->login}）がただ今登録しました。アカウントの確認が有効になっているため、その利用者のアカウントはあなたか他のフォーラム管理者によって確認されるまで有効化されません。このアカウントを審査するには、{GVAR: WWW_ROOT}adm/admaccapr.php にアクセスしてください。\n\nこれは自動化された処理です。このメッセージに返信しないでください。\n新規利用者の登録に関する電子メール通知をこれ以降受け取りたくなければ、管理者コントロールパネルで止めることができます。「New Account Notification」設定で変更します。
+register_admin_newuser_msg:新規利用者（{VAR: uent->login}）がただ今登録しました。アカウントの確認が有効になっているため、その利用者のアカウントはあなたか他のフォーラム管理者によって確認されるまで有効化されません。このアカウントを審査するには、{GVAR: WWW_ROOT}adm/admuserapr.php にアクセスしてください。\n\nこれは自動化された処理です。このメッセージに返信しないでください。\n新規利用者の登録に関する電子メール通知をこれ以降受け取りたくなければ、管理者コントロールパネルで止めることができます。「New Account Notification」設定で変更します。
 post_mod_msg_notify_title:フォーラム「{VAR: frm->name}」で承認待ちの新規メッセージ
 post_mod_msg_notify_msg:新規メッセージ「{VAR: msg_post->subject}」が、あなたがモデレーションを担当するフォーラムにただ今投稿されました。このメッセージを検査するには、{FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id} にアクセスしてください。\n\nこれは自動化された処理です。このメッセージに返信しないでください。
 thread_printable_pdf:印刷用 PDF を生成する

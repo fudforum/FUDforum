@@ -4,6 +4,7 @@
 # Author: Ernesto
 # Author: Lokal Profil
 # Author: McDutchie
+# Author: Naudefj
 # Author: Nghtwlkr
 # Author: Poxnar
 # Author: Tobulos1
@@ -102,8 +103,7 @@ new_thread:Börja en ny diskussion
 newest_user:Den senast registrerade medlemmen är
 next_page:Nästa sida
 next_thread:Nästa diskussion:
-# Fuzzy
-no_messages:Det finns inga inlägg i det här forumet.
+no_messages:Det finns inga inlägg i det här forumet.<br />Bli den första som skriver ett inlägg i detta forumet.
 no_msg_body:Ingen text i inlägget
 no_new_posts:Inga nya inlägg
 no_posts:Inga inlägg
@@ -954,7 +954,7 @@ iemail_forum_unsub:Avbeställ detta forum
 primary_group_prefix:Primär grupp för forum:
 group_resources:Denna grupp kontrollerar rättigheterna för följande forum
 register_admin_newuser_title:En ny medlem har registrerat sig och väntar på att kontot skall bekräftas
-register_admin_newuser_msg:Den nya medlemmen {VAR: uent->login} har just registrerat sig på forumet. Eftersom kontobekräftelsefunktionen är på måste du eller någon annan av forumadministratörerna bekräfta konto innan det kan aktiveras. Gå till {GVAR: WWW_ROOT}adm/admaccapr.php för att kontrollera kontot.\n\nDet här är en automatiserad process. Svara inte på detta meddelande.\nOm du inte vill ha ytterligare meddelanden om nya medlemmar som registrerar sig kan du koppla bort dem i Administratörens kontrollpanel. Funktionen heter "New Account Notification".
+register_admin_newuser_msg:Den nya medlemmen {VAR: uent->login} har just registrerat sig på forumet. Eftersom kontobekräftelsefunktionen är på måste du eller någon annan av forumadministratörerna bekräfta konto innan det kan aktiveras. Gå till {GVAR: WWW_ROOT}adm/admuserapr.php för att kontrollera kontot.\n\nDet här är en automatiserad process. Svara inte på detta meddelande.\nOm du inte vill ha ytterligare meddelanden om nya medlemmar som registrerar sig kan du koppla bort dem i Administratörens kontrollpanel. Funktionen heter "New Account Notification".
 post_mod_msg_notify_title:Ett nytt meddelande i forumet "{VAR: frm->name}" väntar på godkännande
 post_mod_msg_notify_msg:Ett nytt meddelande med rubriken "{VAR: msg_post->subject}" har nyligen skrivits i ett forum som du modererar. Gå till: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id} för att se meddelandet.\n\nDet här är en automatiserad process. Svara inte på detta meddelande.
 thread_printable_pdf:Gör utskriftsvänlig PDF

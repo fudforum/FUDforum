@@ -1,6 +1,7 @@
 # Messages for Upper Sorbian (Hornjoserbsce)
 # Exported from translatewiki.net
 # Author: Michawiki
+# Author: Naudefj
 
 action:Akcija
 add_to_buddy_list:Lisćinje přećelow přidać
@@ -96,8 +97,7 @@ new_thread:Nowu temu załožić
 newest_user:Najnowši zregistrowany wužiwar je
 next_page:Přichodna strona
 next_thread:Přichodna tema:
-# Fuzzy
-no_messages:W tutym forumje žane powěsće njejsu.
+no_messages:W tutym forumje žane powěsće njejsu.<br />Spisaj jako prěni powěsć w tutym forumje
 no_msg_body:Prózdna powěsć
 no_new_posts:Žane nowe powěsće
 no_posts:Žane powěsće
@@ -948,7 +948,7 @@ iemail_forum_unsub:Tutón forum wotskazać
 primary_group_prefix:Hłowna skupina za forum:
 group_resources:Tuta skupina kontroluje prawa slědowacych forumow
 register_admin_newuser_title:Nowy wužiwar je so zregistrował a jeho konto čaka na wobkrućenje
-register_admin_newuser_msg:Nowy wužiwar ({VAR: uent->login}) je so runje zregistrował, a dokelž kontowe wobkrućenje je zmóžnjene, njebudźe jeho konto aktiwne, doniž so wot tebje abo druheho forumoweho administratora njewobkrući. Zo by konto přepruwował, dźi prošu k: {GVAR: WWW_ROOT}adm/admaccapr.php\n\nTo je awtomatizowany proces. Njewotmołw na tutu powěsć.\nJeli chceš přichodne e-mejlowe zdźělenja nowych wužiwarskich registrowanjow wupinyć, móžeš to přez administratowy meni činić. Změń za to nastajenje "New Account Notification".
+register_admin_newuser_msg:Nowy wužiwar ({VAR: uent->login}) je so runje zregistrował, a dokelž kontowe wobkrućenje je zmóžnjene, njebudźe jeho konto aktiwne, doniž so wot tebje abo druheho forumoweho administratora njewobkrući. Zo by konto přepruwował, dźi prošu k: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nTo je awtomatizowany proces. Njewotmołw na tutu powěsć.\nJeli chceš přichodne e-mejlowe zdźělenja nowych wužiwarskich registrowanjow wupinyć, móžeš to přez administratowy meni činić. Změń za to nastajenje "New Account Notification".
 post_mod_msg_notify_title:Nowa powěsć we forumje "{VAR: frm->name}" čaka na schwalenje
 post_mod_msg_notify_msg:Nowa powěsć z nadpismom "{VAR: msg_post->subject}" je so runje do foruma pósłała, kotryž moderěruješ. Zo by tutu powěsć přepruwował, dźi k: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nTo je awtomatizowany proces. Njewotmołw na powěsć.
 thread_printable_pdf:Ćišćomny PDF płodźić

@@ -2,6 +2,7 @@
 # Exported from translatewiki.net
 # Author: Cedric31
 # Author: Crochet.david
+# Author: Hashar
 # Author: IAlex
 # Author: Jean-Frédéric
 # Author: McDutchie
@@ -106,8 +107,7 @@ new_thread:Créer un nouveau fil
 newest_user:Le dernier utilisateur à s'être inscrit est
 next_page:Page suivante
 next_thread:Fil suivant :
-# Fuzzy
-no_messages:Il n'y a pas encore de message dans ce forum.
+no_messages:Il n'y a pas encore de message dans ce forum.<br />Soyez le premier à écrire un sujet dans ce forum.
 no_msg_body:Le message n'a pas de contenu
 no_new_posts:Pas de nouveau message
 no_posts:Pas de message
@@ -958,7 +958,7 @@ iemail_forum_unsub:Cesser la surveillance de ce forum
 primary_group_prefix:Groupe primaire pour le forum :
 group_resources:Ce groupe controle les permissions des forums suivants
 register_admin_newuser_title:Un nouvel utilisateur s'est inscrit et son compte est en attente de confirmation
-register_admin_newuser_msg:Un nouvel utilisateur ({VAR: uent->login}) vient juste de s'inscrire sur le forum et comme la confirmation des comptes est activée, son compte ne deviendra actif que lorsque vous ou l'un des administrateurs du forum l'aurez confirmé. Pour décider de ce compte, veuillez vous rendre à : {GVAR: WWW_ROOT}adm/admaccapr.php\n\nCeci est un processus automatique, ne répondez pas à ce message.\nSi vous désirez désactiver les futures notifications par courrier de l'inscription de nouveaux utilisateurs, vous pouvez le faire par le panneau de contrôle admin en changeant la valeur du paramètre « New Account Notification ».
+register_admin_newuser_msg:Un nouvel utilisateur ({VAR: uent->login}) vient juste de s'inscrire sur le forum et comme la confirmation des comptes est activée, son compte ne deviendra actif que lorsque vous ou l'un des administrateurs du forum l'aurez confirmé. Pour décider de ce compte, veuillez vous rendre à : {GVAR: WWW_ROOT}adm/admuserapr.php\n\nCeci est un processus automatique, ne répondez pas à ce message.\nSi vous désirez désactiver les futures notifications par courrier de l'inscription de nouveaux utilisateurs, vous pouvez le faire par le panneau de contrôle admin en changeant la valeur du paramètre « New Account Notification ».
 post_mod_msg_notify_title:Nouveau message dans le forum « {VAR: frm->name} » en attente d'approbation
 post_mod_msg_notify_msg:Un nouveau message intitulé « {VAR: msg_post->subject} » vient juste d'être posté dans un forum que vous modérez. Pour décider de ce message, rendez-vous à : {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nCeci est un processus automatique, ne répondez pas à ce message.
 thread_printable_pdf:Générer du PDF imprimable

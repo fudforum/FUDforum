@@ -2,6 +2,7 @@
 # Exported from translatewiki.net
 # Author: Mormegil
 # Author: Mr. Richard Bolla
+# Author: Naudefj
 # Author: Pedobry
 # Author: Utar
 
@@ -951,7 +952,7 @@ iemail_forum_unsub:Odhlásit z tohoto fóra
 primary_group_prefix:Primární skupina pro fórum:
 group_resources:Tato skupina kontroluje oprávnění pro následující fóra
 register_admin_newuser_title:Nový uživatel se zaregistroval a jeho účet čeká na potvrzení
-register_admin_newuser_msg:Nový uživatel ({VAR: uent->login}) se právě zaregistroval a protože je zapnuté potvrzování účtů, tento účet nebude aktivován dokud ho Vy nebo jiný administrátor ve  fóru nepotvrdí. Pokud chcete zobrazit tento účet jděte na: {GVAR: WWW_ROOT}adm/admaccapr.php\n\nTato zpráva je generovaná serverem, prosím neodpovídejte na ní.\nPokud chcete vypnout budoucí e-mailové oznámení o nových registracích, můžete tak udělat přes Admin Control Panel, změnou nastavení "New Account Notification".
+register_admin_newuser_msg:Nový uživatel ({VAR: uent->login}) se právě zaregistroval a protože je zapnuté potvrzování účtů, tento účet nebude aktivován dokud ho Vy nebo jiný administrátor ve  fóru nepotvrdí. Pokud chcete zobrazit tento účet jděte na: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nTato zpráva je generovaná serverem, prosím neodpovídejte na ní.\nPokud chcete vypnout budoucí e-mailové oznámení o nových registracích, můžete tak udělat přes Admin Control Panel, změnou nastavení "New Account Notification".
 post_mod_msg_notify_title:Nová zpráva ve fóru "{VAR: frm->name}" čeká na schválení
 post_mod_msg_notify_msg:Nová zpráva s předmětem "{VAR: msg_post->subject}" byla právě zaslána do fóra které moderujete. Pro zobrazení této zprávy přejděte na: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nToto je automatický proces. Neodpovídejte na tuto zprávu.
 thread_printable_pdf:Generování PDF pro tisk

@@ -3,6 +3,7 @@
 # Author: Giro720
 # Author: Luckas Blade
 # Author: McDutchie
+# Author: Naudefj
 
 action:Ação
 add_to_buddy_list:Adicionar à lista de amigos
@@ -98,8 +99,7 @@ new_thread:Criar um novo tópico
 newest_user:O mais novo membro registado é
 next_page:Próxima Página
 next_thread:Próximo Tópico:
-# Fuzzy
-no_messages:Não há mensagens neste fórum.
+no_messages:Não há mensagens neste fórum.<br />Seja o primeiro a postar um tópico neste fórum.
 no_msg_body:mensagem vazia
 no_new_posts:Não há novos posts
 no_posts:sem Posts
@@ -950,7 +950,7 @@ iemail_forum_unsub:Remover subscrição deste fórum
 primary_group_prefix:Grupo primário para o fórum:
 group_resources:Este grupo controla as permissões dos seguintes sub-fórums
 register_admin_newuser_title:Registou-se um novo usuário e a sua conta aguarda confirmacao
-register_admin_newuser_msg:Um novo usuário ({VAR: uent->login}) registrou-se no fórum e como a Confirmacao de Conta está ativa, esta conta não será ativada até que seja confirmada por você ou outro administrador do fórum. Para rever a conta clique: {GVAR: WWW_ROOT}adm/admaccapr.php\n\nEste é um processo automático, não responda a esta mensagem.\nSe desejar desligar futuras notificacoes por e-mail de novos registos de usuários através do Painel de Controle de Administracão, alterando o valor de "Notificação de Nova Conta".
+register_admin_newuser_msg:Um novo usuário ({VAR: uent->login}) registrou-se no fórum e como a Confirmacao de Conta está ativa, esta conta não será ativada até que seja confirmada por você ou outro administrador do fórum. Para rever a conta clique: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nEste é um processo automático, não responda a esta mensagem.\nSe desejar desligar futuras notificacoes por e-mail de novos registos de usuários através do Painel de Controle de Administracão, alterando o valor de "Notificação de Nova Conta".
 post_mod_msg_notify_title:Nova mensagem no fórum "{VAR: frm->name}" aguardando aprovação
 post_mod_msg_notify_msg:Uma mensagem nova intitulada "{VAR: msg_post->subject}", foi colocada agora num fórum moderado por você. Para revisá-la, consulte: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nEste é um processo automático. Não responda a esta mensagem.
 thread_printable_pdf:Exportar para PDF
