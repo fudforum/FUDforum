@@ -72,7 +72,7 @@
 <p><a href="admuser.php?<?php echo __adm_rsid; ?>">&laquo; Back to User Administration System</a></p>
 
 <style>
-	.ui-autocomplete-loading { background: white url("../js/ui/images/ui-anim_basic_16x16.gif") right center no-repeat; }
+	.ui-autocomplete-loading { background: white url("../theme/default/images/ajax-loader.gif") right center no-repeat; }
 </style>
 <script>
 	jQuery(function() {
