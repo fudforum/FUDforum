@@ -1155,7 +1155,7 @@ if ($section == 'admin' || php_sapi_name() == 'cli') {
 
 		/* Add anonymous user (must be id=1). */
 		q('DELETE FROM '. $DBHOST_TBL_PREFIX .'users');
-		$anon_id = db_li('INSERT INTO '. $DBHOST_TBL_PREFIX .'users (login, alias, theme, email, passwd, name, users_opt, join_date, time_zone) VALUES(\'Anonymous Coward\', \'Anonymous Coward\', 1, \'dev@null\', \'1\', \'Anonymous Coward\', '. (1|4|16|32|128|256|512|2048|4096|8192|16384|262144|4194304) .', '. time() .', \''. $SERVER_TZ .'\')', $ef, 1);
+		$anon_id = db_li('INSERT INTO '. $DBHOST_TBL_PREFIX .'users (login, alias, theme, email, passwd, name, users_opt, join_date, time_zone) VALUES(\'Anonymous\', \'Anonymous\', 1, \'dev@null\', \'1\', \'Anonymous\', '. (1|4|16|32|128|256|512|2048|4096|8192|16384|262144|4194304) .', '. time() .', \''. $SERVER_TZ .'\')', $ef, 1);
 		if ($anon_id != 1) {
 			echo 'WARNING: Anonymous user\'s ID is not 1! Trying to fix it...';
 			q('UPDATE '. $DBHOST_TBL_PREFIX .'users SET id = 1');

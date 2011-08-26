@@ -10,7 +10,7 @@
 ***************************************************************************/
 //TODO: Do we still need extract_archive()???
 
-$__UPGRADE_SCRIPT_VERSION = 5303.2;
+$__UPGRADE_SCRIPT_VERSION = 5303.3;
 
 /*
   * SQL Upgrade Functions - format is tablename_colname():
@@ -1014,6 +1014,7 @@ pf('<h2>Step 1: Admin login</h2>', true);
 
 	/* Remove obsolete SQL files. */
 	$rm_sql = array('def_users.sql',	// Merge into install.php (3.0.2).
+			'fud_thread_view.tbl',	// Renamed to fud_tv_1.tbl (3.0.2). 
 			'fud_style.tbl',	// Left over from an ancient release.
 			'fud_settings.tbl');	// Another old file.
 	foreach ($rm_sql as $f) {

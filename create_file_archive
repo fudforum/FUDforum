@@ -35,15 +35,17 @@ function create_file_archive($dir)
 				$fdata = file_get_contents($v .'/'. $f);
 				if ($f == 'lib.js') {
 				 	// Crude JavaScript compression.
-				 	$multiline_comment = '/\/\*(?!-)[\x00-\xff]*?\*\//';
-				 	$fdata = preg_replace($multiline_comment, '', $fdata);
-				 	$singleline_comment = '/[^:]\/\/.*/';
-				 	$fdata = preg_replace($singleline_comment, '', $fdata);
-				 	// $extra_space = '/\s+/';
-				 	// $fdata = preg_replace($extra_space, ' ', $fdata);
-				 	// $removable_space = '/\s?([\{\};\=\(\)\/\+\*-])\s?/';
-				 	// $fdata = preg_replace($removable_space, '\\1', $fdata);
-				}
+					$multiline_comment = '/\/\*(?!-)[\x00-\xff]*?\*\//';
+					$fdata = preg_replace($multiline_comment, '', $fdata);
+					$singleline_comment = '/[^:]\/\/.*/';
+					$fdata = preg_replace($singleline_comment, '', $fdata);
+					$extra_space = '/\s+/';
+					// $fdata = preg_replace($extra_space, ' ', $fdata);
+					$removable_space = '/\s?([\{\};\=\(\)\/\+\*-])\s?/';
+					$fdata = preg_replace($removable_space, "\\1", $fdata);
+					$empty_lines = '/^\n+|^[\t\s]*\n+/m';
+					$fdata = str_replace($empty_lines, '', $fdata);
+  				}
 				$data .= '//'. $f .'//0600//'. $dd .'//'. md5($fdata) .'//'. strlen($fdata) ."//\n". $fdata ."\n";
 			} else {
 				$data .= '//'. $f .'//0700//'. $dd ."//\n";
