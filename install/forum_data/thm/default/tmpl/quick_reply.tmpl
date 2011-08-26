@@ -26,7 +26,7 @@
 		<tr>
 			<td class="MsgR3" {IF: $quick_reply_collapsed}style="display:none;"{ENDIFI}>
 				<table>{TEMPLATE: fud_code_icons}</table>
-				<textarea wrap="virtual" id="txtb" cols="" rows="" name="msg_body" onkeyup="storeCaret(this);" onclick="storeCaret(this);" onselect="storeCaret(this);" style="width:99%!important; height:100px;"></textarea>
+				<textarea wrap="virtual" id="txtb" cols="" rows="" name="msg_body" onkeyup="storeCaret(this);" onclick="storeCaret(this);" onselect="storeCaret(this);" style="width:99%; height:100px;"></textarea>
 				{DEF: _hs}
 				<input type="hidden" name="submitted" value="" />
 				<input type="hidden" name="msg_subject" value="{VAR: quick_reply_subject}" />

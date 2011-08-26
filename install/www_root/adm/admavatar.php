@@ -16,7 +16,7 @@ function clean_name($name)
 
 function import_avatars($path)
 {
-	$list = array(realpath($path));
+	$list  = array(realpath($path));
 	$files = array();
 
 	while (list(,$v) = each($list)) {

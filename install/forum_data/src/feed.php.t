@@ -87,7 +87,7 @@ function feed_cache_cleanup()
 	}
 }
 
-// change relative smiley URLs to full ones
+/** Change relative smiley URLs to full ones. */
 function smiley_full(&$data)
 {
 	if (strpos($data, '<img src="images/smiley_icons/') !== false) {

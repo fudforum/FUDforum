@@ -138,7 +138,7 @@ function draw_tmpl_perm_table($perm, $perms, $names)
 			q('UPDATE {SQL_TABLE_PREFIX}group_members SET group_members_opt='. $perm .' WHERE id='. (int)$_POST['edit']);
 			grp_rebuild_cache(array($usr_id));
 
-			if ($usr_id == 0) $usr_id = 1; /* Correct log entry for Anonymous /*
+			if ($usr_id == 0) $usr_id = 1; // Correct log entry for Anonymous.
 			$gr_member = q_singleval('SELECT alias FROM {SQL_TABLE_PREFIX}users WHERE id='. $usr_id);
 			logaction(_uid, 'EDITGRP', $group_id, $gr_member);
 		}
