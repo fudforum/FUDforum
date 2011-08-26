@@ -34,7 +34,7 @@
 <tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}">
 	<td class="GenText">{VAR: user_login}</td>
 	<td class="GenText">{VAR: action}</td>
-	{IF: $is_a}<td class="GenText">{VAR: ip_addr}</td>{ENDIF}
+	{IF: $is_a}<td class="SmallText"><a href="{TEMPLATE: action_ip_entry_url}">{VAR: ip_addr}</a></td>{ENDIF}
 	<td class="DateText">{TEMPLATE: action_entry_date}</td>
 	<td class="SmallText">{TEMPLATE-DATA: last_post}</td>
 </tr>
@@ -103,4 +103,8 @@
 
 {SECTION: action_sort_ip_lnk}
 {ROOT}?t=actions&amp;o=ip&amp;s={IF: $o=='s.time_sec' && $s=='ASC'}d{ELSE}a{ENDI}&amp;{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: action_ip_entry_url}
+{ROOT}?t=ip&amp;ip={VAR: ip_addr}&amp;{DEF: _rsid}
 {SECTION: END}
