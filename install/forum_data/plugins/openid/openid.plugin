@@ -91,7 +91,7 @@ function openid_enable() {
 }
 
 function openid_config() {
-	if((@include_once $GLOBALS['PLUGIN_PATH'] .'/openid/openid.ini') === false) {
+	if((@include $GLOBALS['PLUGIN_PATH'] .'/openid/openid.ini') === false) {
 		$ini = NULL;
 	}
 

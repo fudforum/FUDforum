@@ -47,7 +47,7 @@ function botscout_info() {
 }
 
 function botscout_config() {
-	if((@include_once $GLOBALS['PLUGIN_PATH'] .'botscout.ini') === false) {
+	if((@include $GLOBALS['PLUGIN_PATH'] .'botscout.ini') === false) {
 		$ini = NULL;
 	}
 		

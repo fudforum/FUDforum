@@ -13,7 +13,7 @@
 plugin_add_hook('INITUSER', 'plugin_theme_router');
 plugin_add_hook('COMPILER_INJECT', '_plugin_theme_router_selection');
 
-// Override default theme.
+/** Override default theme. */
 function plugin_theme_router($usr) {
 	$theme = 'default';	// Fallback theme - hard coded!
 
@@ -38,6 +38,7 @@ function plugin_theme_router($usr) {
 	defined('fud_theme') or define('fud_theme', 'theme/'. $theme .'/');
 }
 
+/** Compile theme selection into the theme. */
 function _plugin_theme_router_selection($array) {
 	list($tmpl, $name) = $array;
 

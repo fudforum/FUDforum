@@ -58,7 +58,7 @@ function recaptcha_enable() {
 
 // Configuration via the Admin Control Panel
 function recaptcha_config() {
-	if((@include_once $GLOBALS['PLUGIN_PATH'] .'recaptcha/recaptcha.ini') === false) {
+	if((@include $GLOBALS['PLUGIN_PATH'] .'recaptcha/recaptcha.ini') === false) {
 		$ini = NULL;
 	}
 		

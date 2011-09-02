@@ -40,7 +40,7 @@ function dropbox_info() {
 }
 
 function dropbox_config() {
-	if((@include_once $GLOBALS['PLUGIN_PATH'] .'dropbox/dropbox.ini') === false) {
+	if((@include $GLOBALS['PLUGIN_PATH'] .'dropbox/dropbox.ini') === false) {
 		$ini = NULL;
 	}
 

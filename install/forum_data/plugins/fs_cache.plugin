@@ -14,10 +14,10 @@ plugin_add_hook('PRE_TEMPLATE',  'plugin_fs_cache_get');
 plugin_add_hook('POST_TEMPLATE', 'plugin_fs_cache_put');
 
 function plugin_fs_cache_get($t) {
-	if (!__fud_real_user__) {
-		$cache_time     = 300; // Time in seconds to keep a page cached.
+	if (!__fud_real_user__ && !$GLOBALS['is_post']) {
+		$cache_time     = 300; // Time in seconds to keep a page cached (300 secs == 1 min).
 		// $cache_filename = $GLOBALS['TMP'] .'fs_cache_'. md5($_SERVER['REQUEST_URI']);
-		$cache_filename = $GLOBALS['TMP'] .'fs_cache_'. str_replace('/', '-', $_SERVER['REQUEST_URI']);
+		$cache_filename = $GLOBALS['TMP'] .'fs_cache_'. str_replace(array('/', '\\', '?', '#', '-', '*', '&', '$'), '', $_SERVER['REQUEST_URI']);
 
 		// Check to see if this file has already been cached. If so get and store the file creation time.
 		$cache_created  = (file_exists($cache_filename)) ? filemtime($cache_filename) : 0;
@@ -26,8 +26,8 @@ function plugin_fs_cache_get($t) {
 			header('Cache-Control: public, max-age='. $cache_time);
 			echo '<!-- Cached: '. date('jS F Y H:i', $cache_created) .' -->';
 			if (defined('fud_debug')) echo 'SERVE PAGE FROM FS CACHE ['. $cache_filename .'<hr>';
-			readfile($cache_filename); // The cached copy is still valid, read it into the output buffer.
-			// echo gzuncompress(file_get_contents($cache_filename)); 
+			// readfile($cache_filename); // The cached copy is still valid, read it into the output buffer.
+			echo gzuncompress(file_get_contents($cache_filename)); 
 			if (defined('fud_debug')) echo 'ACTUAL PAGE GEN TIME: '. number_format(microtime(true) - __request_timestamp_exact__, 5);
 			die();
 		}
@@ -39,10 +39,10 @@ function plugin_fs_cache_get($t) {
 function plugin_fs_cache_put($template_data) {
 	if (!__fud_real_user__) {
 		// $cache_filename = $GLOBALS['TMP'] .'fs_cache_'. md5($_SERVER['REQUEST_URI']);
-		$cache_filename = $GLOBALS['TMP'] .'fs_cache_'. str_replace('/', '-', $_SERVER['REQUEST_URI']);
-		if (defined('fud_debug')) echo 'WRITE PAEGE TO FS CACHE ['. $cache_filename .'<hr>';
-		file_put_contents($cache_filename, $template_data);
-		// file_put_contents($cache_filename, gzcompress($template_data)); 
+		$cache_filename = $GLOBALS['TMP'] .'fs_cache_'. str_replace(array('/', '\\', '?', '#', '-', '*', '&', '$'), '', $_SERVER['REQUEST_URI']);
+		if (defined('fud_debug')) echo 'WRITE PAGE TO FS CACHE ['. $cache_filename .']<hr>';
+		// file_put_contents($cache_filename, $template_data);
+		file_put_contents($cache_filename, gzcompress($template_data)); 
 	}
 	return $template_data;
 }
@@ -61,7 +61,7 @@ function plugin_fs_cache_clear($template_data) {
 
 function fs_cache_info() {
 	return array('name' => 'File System Cache',
-				'desc' => 'Cache output from templates on file system (only for anonymous users).',
+				'desc' => 'Cache output from templates on file system (only for anonymous users). Do not use this plugin on sites with multiple themes (restriction will be lifted in a future release).',
 				'cat'  => 'Caching',
 				'version' => '1.0');
 }

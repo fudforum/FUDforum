@@ -129,7 +129,7 @@ function ldap_enable() {
 }
 
 function ldap_config() {
-	if((@include_once $GLOBALS['PLUGIN_PATH'] .'ldap/ldap.ini') === false) {
+	if((@include $GLOBALS['PLUGIN_PATH'] .'ldap/ldap.ini') === false) {
 		$ini = NULL;
 	}
 

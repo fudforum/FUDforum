@@ -49,7 +49,7 @@ function welcome_pm_enable() {
 }
 
 function welcome_pm_config() {
-	if((@include_once $GLOBALS['PLUGIN_PATH'] .'welcome_pm.ini') === false) {
+	if((@include $GLOBALS['PLUGIN_PATH'] .'welcome_pm.ini') === false) {
 	  $ini = NULL;
 	}
 		

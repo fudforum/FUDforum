@@ -108,7 +108,7 @@ function wikilinks_enable() {
 }
 
 function wikilinks_config() {
-	if((@include_once $GLOBALS['PLUGIN_PATH'] .'wikilinks.ini') === false) {
+	if((@include $GLOBALS['PLUGIN_PATH'] .'wikilinks.ini') === false) {
 		$ini = NULL;
 	}
 

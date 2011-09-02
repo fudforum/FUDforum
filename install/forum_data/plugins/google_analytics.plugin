@@ -58,7 +58,7 @@ function google_analytics_disable() {
 }
 
 function google_analytics_config() {
-	if((@include_once $GLOBALS['PLUGIN_PATH'] .'google_analytics.ini') === false) {
+	if((@include $GLOBALS['PLUGIN_PATH'] .'google_analytics.ini') === false) {
 		$ini = NULL;
 	}
 

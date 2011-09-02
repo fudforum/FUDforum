@@ -57,7 +57,7 @@ function google_adsense_disable() {
 }
 
 function google_adsense_config() {
-	if((@include_once $GLOBALS['PLUGIN_PATH'] .'google_adsense.ini') === false) {
+	if((@include $GLOBALS['PLUGIN_PATH'] .'google_adsense.ini') === false) {
 		$ini = NULL;
 	}
 
