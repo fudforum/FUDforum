@@ -190,7 +190,7 @@
 		LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id
 		LEFT JOIN {SQL_TABLE_PREFIX}level l ON u.level_id=l.id
 		LEFT JOIN {SQL_TABLE_PREFIX}poll p ON m.poll_id=p.id'.
-		($perms & 512 ? ' LEFT JOIN {SQL_TABLE_PREFIX}poll_opt_track pot ON pot.poll_id=p.id AND pot.user_id='. _uid . (!_uid ? ' AND pot.ip_addr='. get_ip() : '') : '');
+		($perms & 512 ? ' LEFT JOIN {SQL_TABLE_PREFIX}poll_opt_track pot ON pot.poll_id=p.id AND pot.user_id='. _uid . (!_uid ? ' AND pot.ip_addr='. _esc(get_ip()) : '') : '');
 	if ($use_tmp) {
 		$q .= ' ORDER BY m.id ASC';
 	} else {

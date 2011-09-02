@@ -17,7 +17,7 @@ function register_vote(&$options, $poll_id, $opt_id, $mid)
 		return;
 	}
 
-	if (db_li('INSERT INTO {SQL_TABLE_PREFIX}poll_opt_track(poll_id, user_id, ip_addr, poll_opt) VALUES('. $poll_id .', '. _uid .', '. (!_uid ? get_ip() : 'null') .', '. $opt_id .')', $a)) {
+	if (db_li('INSERT INTO {SQL_TABLE_PREFIX}poll_opt_track(poll_id, user_id, ip_addr, poll_opt) VALUES('. $poll_id .', '. _uid .', '. (!_uid ? _esc(get_ip()) : 'null') .', '. $opt_id .')', $a)) {
 		q('UPDATE {SQL_TABLE_PREFIX}poll_opt SET votes=votes+1 WHERE id='. $opt_id);
 		q('UPDATE {SQL_TABLE_PREFIX}poll SET total_votes=total_votes+1 WHERE id='. $poll_id);
 		$options[$opt_id][1] += 1;
