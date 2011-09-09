@@ -90,8 +90,8 @@
 			}
 			break;
 		case 'tree':
-			th_inc_view_count($msg_obj->thread_id);
 			if (_uid && $msg_obj) {
+				th_inc_view_count($msg_obj->thread_id);
 				if ($frm->last_forum_view < $msg_obj->post_stamp) {
 					user_register_forum_view($msg_obj->forum_id);
 				}
