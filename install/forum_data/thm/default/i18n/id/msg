@@ -4,6 +4,7 @@
 # Author: Farras
 # Author: Irwangatot
 # Author: IvanLanin
+# Author: Kenrick95
 # Author: Naudefj
 
 action:Tindakan
@@ -113,8 +114,8 @@ no_unread_msg_unreg:Hanya anggota yang bisa menelusuri pesan belum terbaca
 num_pages:Hal ({VAR: ttl_pg}):
 num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|suara|suara}
 occupation:Pekerjaan:
-off:NON-AKTIF
-on:AKTIF
+off:mati
+on:hidup
 page_timings:Waktu yang diperlukan untuk memunculkan halaman: {PLURAL: page_gen_time|$1 detik}
 pm:Pesan pribadi
 poll:Jajak:
@@ -1004,7 +1005,7 @@ adm_account_accepted:Akun anda '{VAR: login}' disetujui oleh administrator dan s
 adm_account_accepted_s:Permintaan akun Anda di '{GVAR: FORUM_TITLE}' diterima.
 adm_account_rejected:Akun Anda '{VAR: login}' ditolak oleh pengurus. Jika Anda ingin tahu alasan penolakan silakan hubungi pengurus di '{GVAR: ADMIN_EMAIL}'.
 adm_account_rejected_s:Permintaan akun Anda di '{GVAR: FORUM_TITLE}' ditolak.
-thread_on:Aktif
+thread_on:hidup
 userinfo_buddy:Teman:
 register_email_addr:Alamat E-mail:
 reset_suffix:Jika anda menerima pesan ini karena kesalahan, mohon diabaikan. Jika anda menerima beberapa e-mail yang sama, yang tidak anda minta, mohon hubungi administrator di {GVAR: ADMIN_EMAIL}\n\nPermintaan ini dipicu dari: {VAR: _SERVER['REMOTE_ADDR']}.

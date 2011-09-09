@@ -1,7 +1,7 @@
 #!/usr/local/bin/php -q
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -10,8 +10,12 @@
 * Free Software Foundation; version 2 of the License.
 **/
 
-$encount = count(file('en/msg'));
-echo "Number of English messages: $encount\n";
+require '../../../include/url.inc';
+$FORUM_VERSION = '';
+
+$en_count = count(file('en/msg'));
+echo "Number of English messages: $en_count\n";
+$not_translated = 7;	// Hard coded.
 
 $i = 0;
 $dp = opendir('.');
@@ -20,45 +24,24 @@ while ($de = readdir($dp)) {
 		continue;
 	}
 
-	echo 'Downloading '. $de .' messages from translatewiki.net...';
+	echo 'Downloading '. $de .' from translatewiki.net...';
 
 	$url = 'http://translatewiki.net/w/i.php?title=Special%3ATranslate&task=export-to-file&group=out-fudforum&language='. $de;
-	$url_stuff = parse_url($url);
+	$messages = get_remote_file($url);
 
-	$fp = fsockopen($url_stuff['host'], 80, $errno, $errstr);
-	if (!$fp) {
-		echo 'ERROR: '. $errstr .' ('. $errno .")\n";
+	if (!strlen($messages) || substr($messages,0,15) != '# Messages for ' ) {
+		echo "Unexpected data. First part: [". substr($messages,0,15) ."]\n";
 	} else {
-		// $query = 'GET '. $url_stuff['path'] .'?'. $url_stuff['query'] ." HTTP/1.0\r\n";
-		$query = 'GET '. $url ." HTTP/1.0\r\n";
-		$query .= "User-Agent: FUDforum\r\n";
-		$query .= "Connection: close\r\n";
-		$query .= "\r\n\r\n";
-		fwrite($fp, $query);
+		$msgfile = $de .'/msg';
+		file_put_contents($msgfile, $messages);
 
-		$header   = 1;	// First part is headers.
-		$messages = '';
-		while( !feof( $fp ) ) {
-			$line = fgets($fp);
-			if (!$header) $messages .= $line;
-			if ($line == "\r\n" && $header) $header = 0;
+		// Count messages.
+		$msgcount = 0;
+		foreach( explode("\n", $messages) as $msg) {
+			if (preg_match('/(^#|^\s+|^$)/', $msg)) continue;
+			$msgcount++;
 		}
-		fclose($fp);
-
-		if (!strlen($messages) || substr($messages,0,15) != '# Messages for ' ) {
-			echo "Unexpected data. First part: [". substr($messages,0,15) ."]\n";
-		} else {
-			$msgfile = $de .'/msg';
-			file_put_contents($msgfile, $messages);
-
-			// Count messages.
-			$msgcount = 0;
-			foreach( explode("\n", $messages) as $msg) {
-				if (preg_match('/(^#|^\s+|^$)/', $msg)) continue;
-				$msgcount++;
-			}
-			echo "$msgcount messages.\n";
-		}
+		echo "$msgcount messages / ". number_format(($msgcount+$not_translated)/$en_count*100, 0) ."%\n";
 	}
 
 	sleep(5);

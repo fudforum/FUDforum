@@ -105,8 +105,7 @@ new_thread:Crear un nuevo hilo de discusión
 newest_user:El último usuario registrado es
 next_page:Página siguiente
 next_thread:Hilo de discusión siguiente:
-# Fuzzy
-no_messages:No hay mensajes en este foro.
+no_messages:No hay mensajes en este foro.<br />Sé el primero en escribir un tema en este foro.
 no_msg_body:No hay cuerpo del mensaje
 no_new_posts:No hay mensajes nuevos
 no_posts:No hay mensajes

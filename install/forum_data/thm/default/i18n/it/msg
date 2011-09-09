@@ -1,6 +1,7 @@
 # Messages for Italian (Italiano)
 # Exported from translatewiki.net
 # Author: Beta16
+# Author: Danmaz74
 # Author: Giallu
 # Author: McDutchie
 # Author: Naudefj
@@ -102,8 +103,7 @@ new_thread:Crea un nuovo argomento
 newest_user:L'ultimo utente ad essersi registrato è
 next_page:Pagina successiva
 next_thread:Argomento successivo:
-# Fuzzy
-no_messages:Non ci sono messaggi in questo forum... Amaro...
+no_messages:Non ci sono messaggi in questo forum. <br/>Sii il primo a proporre un argomento in questo forum.
 no_msg_body:Non c'è il corpo del messaggio!
 no_new_posts:Non ci sono nuovi messaggi
 no_posts:Nessun messaggio

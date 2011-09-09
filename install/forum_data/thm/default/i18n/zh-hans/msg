@@ -1,5 +1,6 @@
 # Messages for Simplified Chinese (‪中文(简体)‬)
 # Exported from translatewiki.net
+# Author: Anakmalaysia
 # Author: Chenxiaoqino
 # Author: Hydra
 # Author: Naudefj
@@ -923,8 +924,7 @@ err_mod_acc_ttl:未被批准的账号
 err_mod_acc_msg:账号在被激活之前必须得到系统管理员的确认，在得到确认之前，你的账号不享有注册用户的所有功能！
 accounts_pending_approval:待审核帐号
 saved:珍藏夹
-# Fuzzy
-register_err_time_limit:每 {GVAR: REG_TIME_LIMIT} 秒限制一个用户可以注册， 请稍等 {VAR: reg_limit_reached} 秒再来注册。
+register_err_time_limit:每{GVAR: REG_TIME_LIMIT}秒限制一个用户可以注册的极限已达到， 请稍等{PLURAL: reg_limit_reached|$1|$1}秒再来注册。
 # Fuzzy
 register_affero:Affero用户名：<br /><font class="SmallText">如果你有<a href="http://www.affero.com/ca/{VAR-URL: GLOBALS['FORUM_TITLE']}" target="_blank">Affero</a>帐户，请在此处输入用户名。</font>
 im_affero:Affero用户名
@@ -1002,6 +1002,7 @@ merge_topics_tpl:选择要合并的主题<font class="SmallText">（至少需要
 merge_merge:合并所选主题
 merge_next:下一页
 merge_prev:上一页
+merge_another:转到<a href="{TEMPLATE: merge_another_lnk}">最后一个合并的话题</a>或合并另一个话题：
 split_cp:打散主题功能面板
 groups_perms_header:权限列表<font size="-1">（将鼠标指针挪至相应权限位以查看相应权限）</font>
 register_err_sig_too_long:你的签名超长了，最多只能 {GVAR: FORUM_SIG_ML} characters 个字符（一个汉子算两个字符）。
@@ -1071,8 +1072,7 @@ dmsg_ip:IP：
 err_blockedaccnt_title:错误:你的帐号已经被过滤了。
 err_blockedaccnt_msg:你的帐号因为一个已经安装的用户过滤器而被阻止了。
 merge_th_page_list:话题页面选择
-# Fuzzy
-most_users_online:最高在线人数：<b>{VAR: st_obj->most_online}</b> 在 <b>{DATE: st_obj->most_online_time 周%a, %B%d日 %Y %H:%M}</b>
+most_users_online:始终最高在线人数：<b>{VAR: st_obj->most_online}</b> 在 <b>{DATE: st_obj->most_online_time 周%a, %B%d日 %Y %H:%M}</b>
 sub_unsub_all_forums:从所有的论坛取消订阅
 sub_unsub_all_topics:从所有的话题取消订阅
 unbookmark_all_topics:删除所有书签
@@ -1116,6 +1116,7 @@ move_msg_th_expl:移至指定主题的ID（可以跨版块）
 captcha_img_alt:验证码： 您需要识别此图像中的文本。
 captcha_img_help:有没有为零或图像中的一个。
 powered-by:电池： FUDforum {GVAR: FORUM_VERSION}。
+copyright:Copyright &copy;2001年至2011年<a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>版权所有
 code_title:代码：
 code_select_all:选择全部
 code_show_hide:显示/隐藏
@@ -1141,6 +1142,7 @@ feed_no_data:找不到匹配的数据。
 feed_rdf:RDF 饲料
 feed_rss:RSS2 饲料
 feed_atom:ATOM 源
+ip_whois_connect_err:无法连接到 WHOIS 服务器 ({VAR: whois_server}): {VAR: errstr}
 custom_filed_required:此字段是必需的。
 pages:页
 page_list_heading:可用页面

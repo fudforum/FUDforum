@@ -3,6 +3,7 @@
 # Author: Byulent
 # Author: Naudefj
 # Author: Sp5uhe
+# Author: Woytecr
 
 action:Akcja
 add_to_buddy_list:Dodaj do listy znajomych
@@ -98,8 +99,7 @@ new_thread:Utwórz nowy wątek
 newest_user:Ostatnio zarejestrowany użytkownik to:
 next_page:Następna strona
 next_thread:Następny wątek:
-# Fuzzy
-no_messages:Nie ma wiadomości w tym forum.
+no_messages:Nie ma wiadomości w tym forum.<br />Bądź pierwszy!
 no_msg_body:Brak treści wiadomości
 no_new_posts:Brak nowych wiadomości
 no_posts:Brak wiadomości
@@ -358,6 +358,7 @@ register_show_email_desc:Wybierz tę opcję, jeśli chcesz, aby Twój adres e-ma
 register_notification:Wybierz domyślne powiadamianie:
 register_notification_desc:Jeśli powiadamianie jest domyślnie włączone, może być wyłączone przy zamieszczaniu wiadomości.
 register_notify_method:Wybierz metodę powiadamiania:
+register_notify_method_desc:Wybierz preferowaną metodę powiadomień lub wyłącz całkowicie powiadomienia.
 register_allow_email_msg:Zezwól na wysyłanie listów e-mail:
 register_allow_email_msg_desc:Zezwól innym użytkownikom na wysyłanie Ci listów na e-mail poprzez forum.
 buddy_status:Status
@@ -426,6 +427,7 @@ coppa:<p>Rodzic lub prawny opiekun musi wysłać list lub faks z podpisaną zgod
 prereg_info:Informacje
 prereg_agree:Akceptuję
 prereg_disagree:Nie akceptuję
+prereg_update:Czytanie zasad forum
 coppa_fax_instructions:Instrukcje dla Rodzica lub Prawnego Opiekuna
 coppa_fax_instructions2:Wydrukuj tę stronę, podpisz ją i wyślij faks do:
 coppa_fax_reg_form:Formularz rejestracji
@@ -467,6 +469,8 @@ rpasswd_login:Nazwa użytkownika
 rpasswd_cur_pass:Aktualne hasło:
 rpasswd_new_pass:Nowe hasło:
 rpasswd_conf_pass:Potwierdż hasło:
+ruser_title:Formularz zmiany loginu
+ruser_change_user:Zmień login na forum
 ruser_cur_login:Aktualny login:
 ruser_new_login:Nowy login:
 ruser_cur_pass:Aktualne hasło:
@@ -615,6 +619,7 @@ post_err_lockedthread_msg:Ten wątek jest zablokowany, więc nie wolno zamieszcz
 err_coppa_title:BŁĄD: Twoje konto nie jest jeszcze potwierdzone
 err_coppa_msg:Nie otrzymaliśmy potwierdzenia od Twojego rodzica lub prawnego opiekuna, co pozwoliłoby Ci zamieszczać wiadomości. Jeśli zgubiłeś swój formularz COPPA <a href="{TEMPLATE: err_coppa_msg_lnk}">pobierz go ponownie</a>.
 err_banned_acct_title:BŁĄD - zostałeś zablokowany.
+err_banned_acct_msg:Twoje konto zostało {IF: $ban_expiry}pozbawione dostępu na forum do czasu {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}trwale pozbawione dostępu{ENDI} na forum z powodu złamania regulaminu.
 post_err_edttimelimit_title:BŁĄD
 post_err_edttimelimit_msg:Nie możesz już edytować tej wiadomości
 post_err_noannontopics_msg2:<legend>BŁĄD: Brak Uprawnień</legend>Anonimowym użytkownikom forum nie wolno tworzyć nowych wątków. Aby to było możliwe, należy się zarejestrować.
@@ -629,6 +634,7 @@ post_reply_update:Odpowiedź na wątek <a href="{TEMPLATE: msg_post_lnk}">{VAR: 
 post_topic_update:Tworzenie nowego wątku na forum <a href="{TEMPLATE: post_topic_update_lnk}">{VAR: frm->name}</a>
 post_error_generic:Wiadomość nie została wysłana, gdyż wystąpił błąd:
 postcheck_max_images_err:Maksimum dozwolonych obrazków w wiadomości to {GVAR: MAX_IMAGE_COUNT}, dlatego musisz zmniejszyć ich liczbę.
+postcheck_no_links_allowed:Nie możesz wstawiać linków jeżeli nie masz {PLURAL: posts_before_links|napisanej przynajmniej $1|napisanych przynajmniej $1} wiadomości.
 postcheck_subj_needed:Temat jest wymagany
 postcheck_no_such_user:Nie ma użytkownika o nazwie "{FUNC: char_fix(htmlspecialchars($v))}" w tym forum
 postcheck_ignored:Nie możesz wysłać wiadomości do "{FUNC: char_fix(htmlspecialchars($v))}", ponieważ ta osoba ignoruje Cię.
@@ -673,6 +679,7 @@ search_update:Szukanie wiadomości
 selmsg_update:Przeglądanie <a href="{TEMPLATE: selmsg_update_lnk}">dzisiejszych wiadomośc</a>
 showposts_update:Przeglądanie wiadomości zamieszczonych przez użytkownika: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
 subscribed_update:Przeglądanie własnych subskrypcji
+bookmarked_update:Przeglądanie własnej listy zakładek
 thread_update:Przeglądanie forum <a href="{TEMPLATE: thread_update_lnk}">{VAR: frm->name}</a>
 tree_update:Przeglądanie wątku (widok drzewiasty) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
 userinfo_update:Przeglądanie profilu użytkownika <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}</a>
@@ -684,8 +691,7 @@ ERR_access_msg:Nie masz wymaganych uprawnień, aby wykonać tę operację.
 ERR_registration_disabled_ttl:Rejestracja jest wyłączona
 ERR_registration_disabled_msg:Administrator wyłączył rejestrację, więc spróbuj ponownie później.
 ERR_emailconf_ttl:BŁĄD: Twoje konto nie jest jeszcze potwierdzone
-# Fuzzy
-ERR_emailconf_msg:Nie potwierdziłeś jeszcze swojego konta poprzez e-mail<br /><table border="0"><tr><td><ol><li>Jeśli nie otrzymałeś potwierdzającego listu, <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">przejdź tutaj</a>.<li>Jeśli {VAR: usr_d->email} nie jest Twoim poprawnym adresem, <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">przejdź tutaj</a></ol></td></tr></table>
+ERR_emailconf_msg:Nie potwierdziłeś jeszcze swojego konta poprzez e-mail.<br /><table border="0"><tr><td><ol><li>jeżeli nie otrzymałeś e-maila potwierdzającego, <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">zażądaj ponownego wysłania</a>.</li><li>Jeżeli {VAR: usr_d->email} nie jest twoim poprawnym adresem, <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">popraw go</a>.</li></ol></td></tr></table>
 ERR_user_ttl:BŁĄD: Brak takiego użytkownika
 ERR_user_msg:Nie ma takiego użytkownika
 ERR_systemerr_ttl:BŁĄD: Błąd systemu
@@ -777,6 +783,7 @@ rate_worst:Najgorszy
 rate_best:Najlepszy
 post_quote_msg:{VAR: msg->login} napisał {TEMPLATE: make_report_date}
 post_quote:Cytuj:
+post_quote_selected:Cytuj zaznaczony tekst
 userinfo_referals:Osoby polecone:
 userinfo_referals_count:{VAR: referals} użytkowników
 pm_no_space_title:Brak miejsca!
@@ -798,6 +805,7 @@ th_expr_two_month:2 miesiące
 th_expr_four_month:4 miesiące
 th_expr_one_year:1 rok
 thread_mod_delete:Usuń
+action_ip:IP
 action_latest_post:Ostatnia wiadomość
 online_today_last_visit:Dzisiejsza ostatnia wizyta
 online_today_update:Przeglądanie listy ludzi, którzy byli dzisiaj na forum.
@@ -824,6 +832,8 @@ quicklogin_password:Hasło
 quicklogin_use_cookies:Używać ciasteczek?
 quicklogin_login_btn:Zaloguj się
 quick_reply:Szybka odpowiedź
+quick_reply_post:Wyślij Szybką Odpowiedź
+quick_reply_preview:Podgląd Szybkiej Odpowiedzi
 post_notification_desc:Powiadom mnie, gdy ktoś odpowie na tą wiadomość.
 post_all_ext_allowed:(nieograniczony)
 maximize_category:Maksymalizuje Kategorię
@@ -883,6 +893,8 @@ search_asc_order:rosnącej
 search_logic:Operacja logiczna:
 search_sorting:Sortuj rezultaty wg daty w kolejności:
 search_attach:Załączniki:
+search_attach_all:Z lub bez
+search_attach_with:Z załącznikami
 post_proceed:OK
 post_moderated_forum:Wysłałeś wiadomość na forum moderowane, co oznacza, że nie będzie ona widoczna, dopóki nie zostanie zatwierdzona przez jednego z moderatorów i/lub administratorów forum.
 post_moderated_forum_ttl:Uwaga o moderowanym forum
@@ -942,6 +954,7 @@ register_admin_newuser_msg:Nowy użytkownik ({VAR: uent->login}) właśnie zarej
 post_mod_msg_notify_title:Nowa wiadomość na forum "{VAR: frm->name}" oczekuje zatwierdzenia
 post_mod_msg_notify_msg:Nowa wiadomość zatytułowana „{VAR: msg_post->subject}” została właśnie wysłana na forum, którego jesteś moderatorem. Aby obejrzeć wiadomość wejdź na stronę {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nPowiadomienie zostało wygenerowane automatycznie. Prosimy nie odpowiadać na ten e-mail.
 thread_printable_pdf:Wygeneruj PDF do wydruku
+thread_syndicate:Śledź to forum (XML)
 reg_conf_title:Potwierdzenie Rejestracji
 reg_conf_email:<b>Potwierdzenie</b><br />Na podany adres e-mail został wysłany adres strony, na którą musisz wejść aby Twoje konto na forum zostało aktywowane. Jeśli nie otrzymasz tego e-maila w ciągu kilku minut, zaloguj się na forum i upewnij się że podany przez Ciebie adres e-mail jest poprawny. Jak tylko Twoje konto zostanie aktywowane, będzie można korzystać z przywilejów dostępnych wyłącznie dla zarejestrowanych użytkowników.
 reg_conf_account:<b>Zatwierdzenie Konta</b><br />Przed aktywacją, konto na forum musi zostać zatwierdzone przez administratora. Gdy to się stanie, wyślemy do Ciebie e-maila z powiadomieniem o zatwierdzeniu konta na forum. Do tego czasu będzie można zalogować się na to konto, jednak nie będą dostępne przywileje zarezerwowane dla zatwierdzonych użytkowników.
@@ -974,12 +987,14 @@ findu_ban:Zablokuj
 findu_edit:Edycja
 findu_delete:Usuń
 dmsg_reply_to:jest odpowiedzią na
+dmsg_reply_num:wiadomość #{VAR: obj->reply_to}
 merge_topics:Łącz Wątki
 merge_topics_cp:Panel Sterowania Łączeniem Wątków
 merge_topics_tpl:Wybierz Wątki do Połączenia <font class="SmallText">(musisz wybrać więcej niż jeden wątek)</font>
 merge_merge:Łącz Zaznaczone Wątki
 merge_next:Następny Wątek
 merge_prev:Poprzedni Wątek
+merge_another:Przejdź do <a href="{TEMPLATE: merge_another_lnk}">ostatnio łączonego tematu</a> lub połącz inny:
 split_cp:Panel Sterowania Dzieleniem Wątków
 groups_perms_header:Przywileje <font class="SmallText">(najedź myszką na przywilej aby zobaczyć opis)</font>
 register_err_sig_too_long:Twoja sygnaturka przekracza dopuszczalny limit długości {GVAR: FORUM_SIG_ML} znaków.
@@ -1040,18 +1055,23 @@ mmd_move_threads_to:Forum docelowe
 mmd_abort_move:Anuluj
 mmd_move:Przenieś wątki
 pmsg_pdf_btn:Utwórz archiwum w formacie PDF
+search_results_hdr:Znaleziono {VAR: total} wyników
 thread_del_all:Usuń zaznaczone
 thread_mov_all:Przenieś zaznaczone
 thread_merge_all:Dołącz zaznaczone
 thread_loc_all:Zablokuj lub odblokuj zaznaczone
 dmsg_ip:IP
 err_blockedaccnt_title:BŁĄD - Twoje konto zostało odfiltrowane.
+err_blockedaccnt_msg:Dostęp do tego forum został zablokowany dla twojego konta użytkownika za pomocą jednego z zainstalowanych filtrów użytkowników.
 merge_th_page_list:Strona wyboru wątków
+most_users_online:Najwięcej użytkowników online (<b>{VAR: st_obj->most_online}</b>) było dnia <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
 unbookmark_all_topics:Usuń wszystkie zakładki
 tabs_own_posts:Pokaż moje posty
 sml_emoticon:Emotikona
 sml_code:Kod
+mnav_sub_only:Wyszukuj tylko w subskrybowanych forach
 register_topics_per_page:Wątków na stronę
+login_min_time:To forum pozwala logować się raz na {VAR: MIN_TIME_BETWEEN_LOGIN} sekund, proszę odczekać {FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)} sekund przed następną próbą.
 post_not_logged_in:Nie jesteś zalogowany - wiadomość zostanie wysłana anonimowo.
 post_common_bold:Wytłuszczony
 post_common_italics:Pochylony
@@ -1060,14 +1080,19 @@ post_common_align_left:Do lewej
 post_common_align_center:Wyśrodkowany
 post_common_align_right:Do prawej
 post_common_link:Wstaw link
+post_common_link_popup:Lokalizacja docelowa:
 post_common_email:Wstaw adres e‐mail
 post_common_email_popup:Adres e‐mail
 post_common_image:Wstaw obrazek
+post_common_image_popup:URL obrazu:
 post_common_nlist:Dodaj listę numerowaną
 post_common_blist:Dodaj listę wypunktowaną
 post_common_quote:Dodaj cytat
 post_common_code:Dodaj kod
 rating_delete:Usuń
+post_always_on_top:Umieszczaj ten temat zawsze na górze listy tematów
+topic_rating:{VAR: frm->rating} z {PLURAL: frm->n_rating|$1 głosu|$1 głosów}
+topic_list_rating:{VAR: r[17]} z {PLURAL: r[21]|$1 głosu|$1 głosów}
 tabs_notifications:Powiadomienia
 finduser_flag:Flaga
 post_descr:Opis wątku
@@ -1075,12 +1100,16 @@ pmsg_on:data:
 pmsg_download_dump:Pobierz zrzut wiadomości
 move_messages:Przenieś wiadomość
 move_msg_btn:Przenieś wybrane wiadomości
+move_msg_th_expl:Określ ID tematu docelowego (może znajdować się w innym forum)
+captcha_img_help:Na zdjęciu nie występuje zero i jedynka.
 powered-by:Korzysta z oprogramowania FUDforum {GVAR: FORUM_VERSION}.
 copyright:Copyright &copy;2001-2011 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:KOD
 code_select_all:Wybierz wszystko
 code_show_hide:Pokaż lub ukryj
+social_sites:Serwisy społecznościowe:
 postcheck_min_len_err:Wiadomość jest zbyt krótka. Minimalna długość wiadomości: {PLURAL: post_min_len|$1 znak|$1 znaków}.
+postcheck_dup_err:Prosimy nie tworzyć duplikatów tematów.
 btn_new_topic:Nowy wątek
 btn_new_pm:Nowa wiadomość prywatna
 btn_post_reply:Odpowiedz
@@ -1098,7 +1127,13 @@ btn_show_posts:wiadomości
 btn_homepage:www
 feed_no_data:Nie znaleziono pasujących danych.
 feed_rdf:Kanał RDF
+feed_rss:Kanał RSS2
+feed_atom:Kanał ATOM
+ip_whois_connect_err:Nie można połączyć się z serwerem WHOIS ({VAR: whois_server}): {VAR: errstr}
 custom_filed_required:To pole jest wymagane.
 pages:Strony
 page_list_heading:Dostępne strony
+page_list_total:Wyświetlono {PLURAL: i|$1 stronę|$1 stron}.
 page_update:Przeglądanie strony
+pm_export_header:Prywatne wiadomości dla {VAR: usr->alias}
+pm_export_footer:Eksportowane:

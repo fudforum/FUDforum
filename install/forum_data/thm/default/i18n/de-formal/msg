@@ -4,6 +4,7 @@
 # Author: Kghbln
 # Author: McDutchie
 # Author: The Evil IP address
+# Author: Tiin
 # Author: Umherirrender
 
 action:Aktion
@@ -68,7 +69,7 @@ login:Anmelden
 login_header:Benutzername:
 logout:Abmelden
 mark_all_read:Alle Beiträge als gelesen kennzeichnen
-mark_all_read_desc:Alle Beiträge werden als gelesen gekenzeichnet.
+mark_all_read_desc:Alle Beiträge werden als gelesen gekennzeichnet.
 members:Mitglieder
 calendar:Kalender
 cal_goto_date:Gehe zu:

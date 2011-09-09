@@ -105,8 +105,7 @@ new_thread:Criar um novo tópico
 newest_user:O último utilizador registado é
 next_page:Página Seguinte
 next_thread:Próximo Tópico:
-# Fuzzy
-no_messages:Não há mensagens neste forum.
+no_messages:Não há mensagens neste fórum.<br />Seja o primeiro a postar um tópico neste fórum.
 no_msg_body:mensagem vazia
 no_new_posts:Não há novos posts
 no_posts:sem Posts

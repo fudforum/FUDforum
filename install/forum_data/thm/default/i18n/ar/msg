@@ -5,12 +5,12 @@
 # Author: Naudefj
 # Author: OsamaK
 # Author: ترجمان05
+# Author: زكريا
 
 action:فعل
 add_to_buddy_list:أضف إلى قائمة الأصدقاء
 admin:إداري
-# Fuzzy
-admin_control_panel:لوحة تحكم الإدارة
+admin_control_panel:الإدارة
 administrator:إداري
 attachment:المرفق:
 avatar:أفاتر:
@@ -1077,7 +1077,7 @@ mnav_sub_only:ابحث في المنتديات المُشترك فيها فقط
 register_topics_per_page:المواضيع في صفحة:
 login_min_time:يسمح هذا المنتدى بمحاولة ولوج كل {VAR: MIN_TIME_BETWEEN_LOGIN} ثانية، من فضلك انتظر {FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)}  ثوانٍ قبل المحاولة مرة أخرى.
 post_not_logged_in:لست والجًا الآن؛ سوف ترسل الرسالة بشكل مجهول.
-post_common_bold:عريض
+post_common_bold:غليظ
 post_common_italics:مائل
 post_common_underline:سطّر
 post_common_align_left:حاذِ يسارًا

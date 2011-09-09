@@ -665,7 +665,8 @@ register_err_avatarnotallowed:Avataras kuri bandote įkelti neleidžiamas. Patik
 register_conf_subject:Registracijos patvirtinimas
 register_conf_msg:jums už registraciją,! Ačiū N! Norėdami aktyvuoti savo sąskaitą eikite į URL žemiau:! N! N! {FULL_ROOT} {ŠAKNIAVAISIAI} =? t = emailconf & conf_key {VAR: uent->conf_key} ! N! N!! Kai jūsų sąskaita bus aktyvuota jūs būsite prijungtas-į forumą ir! N! nukreipti į pagrindinį puslapį.
 register_welcome_subject:Forumo registracijos patvirtinimas
-register_welcome_msg:Ačiū už registraciją, forumo!: N!! N! Čia yra jūsų prisijungimo duomenys! N!! N! Forumas URL Šablonas: index_update_lnk}! {N! Vartotojo vardas: {VAR: uent->login} N!! Slaptažodis: {VAR: _POST['reg_plaintext_passwd']} ! Prašome N! dėmesį, kad slaptažodžiai yra jautrios! N! N! Norėdami pakeisti savo nustatymus, arba profilis, eikite į šį puslapį:! N! {FULL_ROOT} {ŠAKNIAVAISIAI} ? t = registre
+# Fuzzy
+register_welcome_msg:Ačiū už registraciją, forumo!: N!! N! Čia yra jūsų prisijungimo duomenys! N!! N! Forumas URL Šablonas: {TEMPLATE: index_update_lnk}! {VAR: uent->login} N!! Slaptažodis: {VAR: _POST['reg_plaintext_passwd']} ! Prašome N! dėmesį, kad slaptažodžiai yra jautrios! N! N! Norėdami pakeisti savo nustatymus, arba profilis, eikite į šį puslapį:! N! {FULL_ROOT}{ROOT}?t=register
 register_err_cantreg_title:KLAIDA: nepavyko užsiregistruoti
 regsiter_err_cantreg_msg:Nepavyko sukurti naudotojo sąskaitos, prašome susisiekti su administratoriu <a href="mailto:{var: ADMIN_EMAIL} "> <span class="notranslate">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:Peržiūrimas savo profilis
@@ -712,7 +713,8 @@ error_title:Klaida forma
 index_title:Sveiki forume
 search_title:Ieškoti {var-HTML: srch}
 remail_emailsent:Laiškas buvo išsiųstas
-remail_email:,! Sveiki N! apie! N! Yra įdomi tema " {VAR: data->subject} "apie {GVAR: FORUM_TITLE} forumas, galbūt norėsite skaityti. Jūs galite pamatyti temą:! N! {FULL_ROOT} {ŠAKNIAVAISIAI} =? T = rview & th {VAR: data->id} & atsikratyti = DEF: _uid}! {N! N!! N! Jūsų draugui!, N!! {VAR: usr->alias}
+# Fuzzy
+remail_email:,! Sveiki N! apie! N! Yra įdomi tema "{VAR: data->subject}" apie {GVAR: FORUM_TITLE} forumas, galbūt norėsite skaityti. Jūs galite pamatyti temą:! N! {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}! N! N!! N! Jūsų draugui!, N!! {VAR: usr->alias}
 poll_add_option:Pridėti varianta
 post_opt_html_on:<b>HTML</b> kodas <b>ĮJUNGTAS</b>
 post_opt_fud_on:<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>BBcode</b> <b>ĮJUNGTAS</b></a>

@@ -1,6 +1,7 @@
 # Messages for Romanian (Română)
 # Exported from translatewiki.net
 # Author: Danutz
+# Author: Firilacroco
 # Author: McDutchie
 # Author: Minisarm
 # Author: Naudefj
@@ -279,7 +280,7 @@ no_edit_time_limit:<b>Limita timpului de editare</b>: nelimitat
 pmuserloc_login:Utilizator:
 pmuserloc_submit:OK
 pmuserloc_user:Utilizator
-pmuserloc_no_result:Nici un rezultat
+pmuserloc_no_result:Niciun rezultat
 register_builtin:Incorporat
 register_specify_url:Specifica URL
 register_uploaded:Incarca imagine
@@ -459,7 +460,7 @@ report_submit_report:Trimite raport
 search_entire_msg:Tot mesajul
 search_subject_only:Doar subiectul
 search_posted_on:Trimis la data de
-search_no_results:Nici un rezultat
+search_no_results:Niciun rezultat
 search_all_forums:Cauta in tote forumurile
 search_in_forum:Cauta in forum:
 search_forum_search:Cautare Forum

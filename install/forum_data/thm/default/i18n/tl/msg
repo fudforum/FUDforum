@@ -624,7 +624,7 @@ post_err_edttimelimit_msg:Hindi mo na maaaring baguhin ang mensaheng ito
 post_err_noannontopics_msg2:<legend>KAMALIAN: Hindi Sapat na mga Pribilehiyo</legend>Hindi pinapayagang lumikha ng mga paksa ang hindi nagpapakilalang mga tagagamit.
 post_err_noannonposts_msg2:<legend>KAMALIAN: Hindi Sapat na mga Pribilehiyo</legend>Hindi pinapayagang tumugon ang hindi nagpapakilalang mga tagagamit.
 post_err_floodtrig_title:KAMALIAN: Napagalaw ang pagbaha ng paskil.
-post_err_floodtrig_msg:Mangyaring subukan muli sa loob ng {PLURAL:tm| $1 segundo|$1 mga segundo}
+post_err_floodtrig_msg:Mangyaring subukan muli sa loob ng {PLURAL: tm| $1 segundo|$1 mga segundo}
 post_err_attach_size:Masyadong malaki ang Kalakip na Talaksan (lampas sa pinapayagang hangganang {VAR: MAX_F_SIZE} mga bayt)
 post_err_attach_ext:Hindi tumutugma sa pinapayagang mga uri ng talaksan ang talaksang sinusubukan mong ikargang papaitaas.
 post_err_attach_filelimit:Sinusubukan mong magkarang papaitaas ng mas maraming mga talaksan kaysa sa pinapahintulutan.
