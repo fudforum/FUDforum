@@ -387,15 +387,14 @@ if (!extension_loaded('posix')) {
 		}
 		$_GET['edit'] = 1; // Return to the edit screen.
 	}
-	
 
 	/* Edit file. */
 	if (isset($_GET['edit']) && $dest && @file_exists($cur_dir .'/'. $dest)) {
 		$file = str_replace('\\', '/', $cur_dir .'/'. $dest);
 		$ext = pathinfo($file, PATHINFO_EXTENSION);
-		if ($dest == 'fudforum_archive' || in_array($ext, array('atch', 'gz', 'zip', 'tar', 'db'))) {
-			echo errorify('Cannot view binary file. Do you want to <a href="admbrowse.php?down=1&amp;cur='. $cur_dir .'&amp;dest='. $dest .'&amp;'. __adm_rsid .'">download</a> it?');
-		} elseif (is_file($file) && is_readable($file)) {
+		if ($dest == 'fudforum_archive' || in_array($ext, array('gif', 'jpg', 'png', 'atch', 'gz', 'zip', 'tar', 'db'))) {
+			echo errorify('Cannot edit binary file. Do you want to <a href="admbrowse.php?down=1&amp;cur='. $cur_dir .'&amp;dest='. $dest .'&amp;'. __adm_rsid .'">download</a> it?');
+		} elseif (is_file($file) && is_writeable($file)) {
 			echo '<h2>Edit file: '. $dest .'</h2>';
 			echo '<div style="font-size: small;">';
 			echo '[ <a href="admbrowse.php?down=1&amp;dest='. urlencode($dest) .'&amp;cur='. urlencode($cur_dir) .'&smp;'. __adm_rsid .'">Download</a> ] ';
@@ -414,7 +413,7 @@ if (!extension_loaded('posix')) {
 			echo '<p><a href="admbrowse.php?'. __adm_rsid .'&amp;cur='. urlencode($cur_dir) .'">&laquo; Back to file manager</a></p>';
 			exit;
 		} else {
-			echo errorify('File not found: '. $file);
+			echo errorify('File is not writeable: '. $file);
 		}
 	}
 ?>

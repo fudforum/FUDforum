@@ -560,7 +560,7 @@ if ($acc_mod_only) {
 	echo '	<a href="../'. __fud_index_name__ .'?t=showposts&amp;id='. $usr_id .'&amp;'. __adm_rsid .'">View Messages</a>';	
 	if ($is_a) {
 		if ($FUD_OPT_1 & 1024) {	// PM_ENABLED
-			echo ' | <a href="admpmspy.php?user='. htmlspecialchars($u->login) .'&amp;'. __adm_rsid .'">View Private Messages</a>';
+			echo ' | <a href="admpmspy.php?user='. htmlspecialchars($u->alias) .'&amp;'. __adm_rsid .'">View Private Messages</a>';
 		}
 		echo ' | <a href="admprune.php?usr_id='. $usr_id .'&amp;'. __adm_rsid .'">Delete ALL messages by this user</a>';
 	}

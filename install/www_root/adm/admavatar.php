@@ -84,7 +84,7 @@ function import_avatars($path)
 	if (!empty($_POST['gallery_path'])) {
 		$gallery_import = import_avatars($_POST['gallery_path']);
 		pf(successify('Gallery imported.'));
-		logaction(_uid, 'Impoted avatars', 0, $_POST['gallery_path']);
+		logaction(_uid, 'Imported avatars', 0, $_POST['gallery_path']);
 		
 	} else {
 		$gallery_import = 0;
