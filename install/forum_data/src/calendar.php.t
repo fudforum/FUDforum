@@ -60,7 +60,7 @@ function draw_calendar($year, $month, $events = array(), $size = 'large', $highl
 		if ($year == $highlight_y && $month == $highlight_m && $day == $highlight_d) {
 			$calendar .= '<div class="day-number"><b><i>*<a href="{TEMPLATE: day_cur_lnk}">'. $day .'</a></i></b></div>';
 		} else {
-			$calendar .= '<div class="day-number"><a href="{TEMPLATE: day_cur_lnk}">'. $day .'</a></div>';
+			$calendar .= '<div class="day-number"><a href="{TEMPLATE: day_cur_lnk}" rel="nofollow">'. $day .'</a></div>';
 		}
 
 		$event_day = sprintf('%04d%02d%02d', $year, $month, $day);
