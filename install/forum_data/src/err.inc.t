@@ -26,6 +26,8 @@ function error_dialog($title, $msg, $level='WARN', $ses=null)
 
 	if (isset($_SERVER['HTTP_REFERER'])) {
 		$error_msg .= '[Referring Page] '. htmlspecialchars($_SERVER['HTTP_REFERER']) .'<br />';
+	} else if (isset($_SERVER['HTTP_USER_AGENT'])) {
+		$error_msg .= '[Spider] '. htmlspecialchars($_SERVER['HTTP_USER_AGENT']) .'<br />';
 	}
 
 	fud_logerror($error_msg, 'fud_errors');
