@@ -1042,6 +1042,7 @@ if ($section == 'cookies' || php_sapi_name() == 'cli') {
 
 		$display_section = 'theme';
 	}
+// TODO: set a test cookie & notify users of problems.
 }
 
 if ($section == 'theme' || php_sapi_name() == 'cli') {

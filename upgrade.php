@@ -10,7 +10,7 @@
 ***************************************************************************/
 //TODO: Do we still need extract_archive()???
 
-$__UPGRADE_SCRIPT_VERSION = 5303.3;
+$__UPGRADE_SCRIPT_VERSION = 5303.4;
 
 /*
   * SQL Upgrade Functions - format is tablename_colname():
@@ -96,6 +96,18 @@ function seterr($msg)
 	}
 }
 
+/** Explisteley include a file. */
+function fud_use($file, $static=0)
+{
+	if ($static) {
+		include_once $GLOBALS['INCLUDE'] . $file;
+		return;
+	}
+	defined('fud_theme') or define('fud_theme', 'theme/default/');
+	include_once $GLOBALS['INCLUDE'] . fud_theme . $file;
+}
+
+/** Error handler for DB driver. */
 function fud_sql_error_handler($query, $error_string, $error_number, $server_version)
 {
 	throw new Exception($error_number .': '. $error_string .' @ '. $query);
