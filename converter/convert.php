@@ -428,7 +428,7 @@ function target_add_message($message)
 	}
 	$file_id = write_body(bbcode2fudcode($message['body']), $len, $off, $GLOBALS['forum_map'][ (int)$message['forum_id'] ] );
 
-	if ($message['poster_id'] == 1) {
+	if ($message['poster_id'] == 1 && isset($GLOBALS['hack_id'])) {
 		$message['poster_id'] = $GLOBALS['hack_id'];
 	}
 
@@ -470,7 +470,7 @@ function target_add_attachment($att)
 		}
 	}
 
-	if ($att['user_id'] == 1) {
+	if ($att['user_id'] == 1 && isset($GLOBALS['hack_id'])) {
 		$att['user_id'] = $GLOBALS['hack_id'];
 	}
 
@@ -498,7 +498,7 @@ function target_add_attachment($att)
 /** Callback to load a forum subscription into the FUDforum database. */
 function target_add_forum_subscription($sub)
 {
-	if ($sub['user_id'] == 1) {
+	if ($sub['user_id'] == 1 && isset($GLOBALS['hack_id'])) {
 		$sub['user_id'] = $GLOBALS['hack_id'];
 	}
 	q('INSERT INTO '. $GLOBALS['DBHOST_TBL_PREFIX'] .'forum_notify (user_id, forum_id) VALUES('. (int)$sub['user_id'] .', '. (int)$sub['forum_id'] .')');
@@ -507,7 +507,7 @@ function target_add_forum_subscription($sub)
 /** Callback to load a topic subscription into the FUDforum database. */
 function target_add_topic_subscription($sub)
 {
-	if ($sub['user_id'] == 1) {
+	if ($sub['user_id'] == 1 && isset($GLOBALS['hack_id'])) {
 		$sub['user_id'] = $GLOBALS['hack_id'];
 	}
 	q('INSERT INTO '. $GLOBALS['DBHOST_TBL_PREFIX'] .'thread_notify (user_id, thread_id) VALUES('. (int)$sub['user_id'] .', '. (int)$sub['topic_id'] .')');
@@ -518,7 +518,7 @@ function target_add_poll($poll)
 {
 	if ($GLOBALS['VERBOSE']) pf('...'. $poll['name']);
 
-	if ($poll['owner'] == 1) {
+	if ($poll['owner'] == 1 && isset($GLOBALS['hack_id'])) {
 		$poll['owner'] = $GLOBALS['hack_id'];
 	}
 	q('INSERT INTO '. $GLOBALS['DBHOST_TBL_PREFIX'] .'poll (id, name, owner, creation_date, expiry_date, forum_id)
@@ -545,7 +545,7 @@ function target_add_poll_question($q)
 /** Callback to load a poll vote into the FUDforum database. */
 function target_add_poll_vote($vote)
 {
-	if ($vote['user_id'] == 1) {
+	if ($vote['user_id'] == 1 && isset($GLOBALS['hack_id'])) {
 		$vote['user_id'] = $GLOBALS['hack_id'];
 	}
 	q('INSERT INTO '. $GLOBALS['DBHOST_TBL_PREFIX'] .'poll_opt_track (poll_id, user_id, poll_opt)
@@ -559,10 +559,10 @@ function target_add_private_message($pm)
 	
 	list($off, $len) = write_pmsg_body(bbcode2fudcode($pm['body']));
 
-	if ($pm['duser_id'] == 1) {	// To address.
+	if ($pm['duser_id'] == 1 && isset($GLOBALS['hack_id'])) {	// To address.
 		$pm['duser_id'] = $GLOBALS['hack_id'];
 	}
-	if ($pm['ouser_id'] == 1) {	// Author id.
+	if ($pm['ouser_id'] == 1 && isset($GLOBALS['hack_id'])) {	// Author id.
 		$pm['ouser_id'] = $GLOBALS['hack_id'];
 	}
 
@@ -602,8 +602,8 @@ function target_load_calendar_event($event)
 error_reporting(E_ALL | E_NOTICE | E_ERROR | E_WARNING | E_PARSE | E_COMPILE_ERROR);
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
-ini_set('memory_limit', '128M');
-ini_set('default_socket_timeout', 10);
+ini_set('memory_limit', '-1');
+ini_set('default_socket_timeout', 15);
 set_time_limit(0);
 
 /* Load GLOBALS.php. */
