@@ -303,7 +303,7 @@ register_builtin:Wbudowany
 register_specify_url:Podaj adres
 register_uploaded:Załaduj
 register_login:Nazwa użytkownika:
-register_password:Hasło:
+register_password:Hasło
 register_conf_pass:Potwierdź hasło:
 register_email_desc:Prosimy o podawanie poprawnego adresu e-mail. Możesz wybrać jego ukrywanie poniżej, w sekcji preferencji.
 register_name:Imię i nazwisko:
@@ -474,7 +474,7 @@ ruser_change_user:Zmień login na forum
 ruser_cur_login:Aktualny login:
 ruser_new_login:Nowy login:
 ruser_cur_pass:Aktualne hasło:
-login_passwd:Hasło:
+login_passwd:Hasło
 reset_email:E‐mail
 reset_reset_button:Wyzeruj hasło
 rate_this_thread:Oceń
@@ -1065,6 +1065,8 @@ err_blockedaccnt_title:BŁĄD - Twoje konto zostało odfiltrowane.
 err_blockedaccnt_msg:Dostęp do tego forum został zablokowany dla twojego konta użytkownika za pomocą jednego z zainstalowanych filtrów użytkowników.
 merge_th_page_list:Strona wyboru wątków
 most_users_online:Najwięcej użytkowników online (<b>{VAR: st_obj->most_online}</b>) było dnia <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
+sub_unsub_all_forums:Wypisz ze wszystkich forów
+sub_unsub_all_topics:Wypisz ze wszystkich tematów
 unbookmark_all_topics:Usuń wszystkie zakładki
 tabs_own_posts:Pokaż moje posty
 sml_emoticon:Emotikona
@@ -1101,6 +1103,7 @@ pmsg_download_dump:Pobierz zrzut wiadomości
 move_messages:Przenieś wiadomość
 move_msg_btn:Przenieś wybrane wiadomości
 move_msg_th_expl:Określ ID tematu docelowego (może znajdować się w innym forum)
+captcha_img_alt:Weryfikacja captcha – musisz odczytać tekst z obrazka.
 captcha_img_help:Na zdjęciu nie występuje zero i jedynka.
 powered-by:Korzysta z oprogramowania FUDforum {GVAR: FORUM_VERSION}.
 copyright:Copyright &copy;2001-2011 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
