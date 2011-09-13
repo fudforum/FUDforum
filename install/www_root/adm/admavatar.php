@@ -142,6 +142,7 @@ function import_avatars($path)
 
 	// Fetch a list of available galleries.
 	$galleries = db_all('SELECT DISTINCT(gallery) FROM '. $tbl .'avatar');
+	if (empty($galleries)) $galleries = array('default');
 ?>
 <h2>Avatar Management System</h2>
 
