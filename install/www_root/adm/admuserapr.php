@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -9,26 +9,7 @@
 * Free Software Foundation; version 2 of the License.
 **/
 
-	require('./GLOBALS.php');
-	fud_use('adm.inc', true);
-	fud_use('users_adm.inc', true);
-
-	if (isset($_GET['apr'])) {
-		if (($r = db_sab('SELECT email, login FROM '. $DBHOST_TBL_PREFIX .'users WHERE id='. (int)$_GET['apr']))) {
-			fud_use('adm_acc.inc');
-			fud_use('iemail.inc');
-			q('UPDATE '. $DBHOST_TBL_PREFIX .'users SET users_opt='. q_bitand(users_opt, ~2097152) .' WHERE id='. (int)$_GET['apr']);
-			send_email($NOTIFY_FROM, $r->email, $account_accepted_s, $account_accepted);
-		}
-	} else if (isset($_GET['rm']) && (int)$_GET['rm'] != 1) {
-		if (($r = db_sab('SELECT email, login FROM '. $DBHOST_TBL_PREFIX .'users WHERE id='. (int)$_GET['rm']))) {
-			fud_use('adm_acc.inc');
-			fud_use('iemail.inc');
-			send_email($NOTIFY_FROM, $r->email, $account_rejected_s, $account_rejected);
-			usr_delete((int)$_GET['rm']);
-		}
-	}
-
+/** Print a user property if it has a value. */
 function print_if_avail($descr, $value, $no_html=1)
 {
 	if (!empty($value)) {
@@ -39,7 +20,28 @@ function print_if_avail($descr, $value, $no_html=1)
 	}
 }
 
+/* main */
+	require('./GLOBALS.php');
+	fud_use('adm.inc', true);
+	fud_use('users_adm.inc', true);
+
 	require($WWW_ROOT_DISK .'adm/header.php');
+
+	if (isset($_GET['apr'])) {
+		if (($r = db_sab('SELECT email, login FROM '. $DBHOST_TBL_PREFIX .'users WHERE id='. (int)$_GET['apr']))) {
+			fud_use('adm_acc.inc');
+			fud_use('iemail.inc');
+			q('UPDATE '. $DBHOST_TBL_PREFIX .'users SET users_opt='. q_bitand('users_opt', ~2097152) .' WHERE id='. (int)$_GET['apr']);
+			send_email($NOTIFY_FROM, $r->email, $account_accepted_s, $account_accepted);
+		}
+	} else if (isset($_GET['rm']) && (int)$_GET['rm'] != 1) {
+		if (($r = db_sab('SELECT email, login FROM '. $DBHOST_TBL_PREFIX .'users WHERE id='. (int)$_GET['rm']))) {
+			fud_use('adm_acc.inc');
+			fud_use('iemail.inc');
+			send_email($NOTIFY_FROM, $r->email, $account_rejected_s, $account_rejected);
+			usr_delete((int)$_GET['rm']);
+		}
+	}
 ?>
 <h2>Account Approval</h2>
 <p>Approve or delete users who have registered (if 'New Account Moderation' is enabled in the Global Settings Manager).</p>

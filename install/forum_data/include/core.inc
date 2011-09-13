@@ -84,7 +84,10 @@ function fud_use($file, $static=0)
 
 /** Auto load a class. */
 function __autoload( $className ) {
-	require_once($GLOBALS['INCLUDE'] . $className .'.inc');
+	$inc = $GLOBALS['INCLUDE'] . $className .'.inc';
+	if (file_exists($inc)) {
+		require_once($inc);
+	}
 }
 
 /** Generate a random value. */
