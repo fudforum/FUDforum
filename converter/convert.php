@@ -78,9 +78,9 @@ function bbq($q, $err=0)
 	}
 	if (!$err) {
 		pf('SQL statement: '. $q);
-		if (dbtype == 'mysql')  seterr('MySQL error: '. mysql_error(  dbconn));
+		if (dbtype == 'mysql')  seterr('MySQL error: '.      mysql_error(  dbconn));
 		if (dbtype == 'pgsql')  seterr('PostgreSQL error: '. pg_last_error(dbconn));
-		if (dbtype == 'sqlite') seterr('SQLite error: '. end(db2::$db->errorInfo()));
+		if (dbtype == 'sqlite') seterr('SQLite error: '.     end(db2::$db->errorInfo()));
 	}
 }
 
@@ -100,8 +100,10 @@ function bbcode2fudcode($str)
 
 	$str = preg_replace('!\[(.+?)\:([a-z0-9]+)?\]!s', '[\1]', $str);
 	$str = preg_replace('!\[quote\:([a-z0-9]+?)="(.*?)"\]!is', '[quote=\2]', $str);
-	$str = preg_replace('!\[code\:([^\]]+)\]!is', '[code]', $str);
+	$str = preg_replace('!\[code\:([^\]]+)\]!is',  '[code]',  $str);
 	$str = preg_replace('!\[/code\:([^\]]+)\]!is', '[/code]', $str);
+	$str = preg_replace('!\[list\:([^\]]+)\]!is',  '[list]',  $str);
+	$str = preg_replace('!\[/list\:([^\]]+)\]!is', '[/list]', $str);
 	$str = preg_replace("#(^|[\n ])((www|ftp)\.[\w\-]+\.[\w\-.\~]+(?:/[^ \"\t\n\r<]*)?)#is", "\\1http://\\2", $str);
 
 	$str = smiley_to_post(tags_to_html($str, 1, 1));

@@ -28,6 +28,11 @@ function source_db_connect() {
 	while ($r = bbfetch($c)) {
 		$GLOBALS['settings'][$r->config_name] = $r->config_value;
 	}
+
+	change_global_settings(array(
+		'FORUM_TITLE' => $GLOBALS['settings']['sitename'],
+		'FORUM_DESCR' => $GLOBALS['settings']['site_desc']
+	));
 }
 
 function source_load_avatars() {
@@ -173,6 +178,23 @@ function source_load_messages() {
 	}
 }
 
+function source_load_attachments() {
+	$att_mod_installed = bbq('SELECT * FROM '. dbpref .'attach_desc LIMIT 1', true);
+	if (isset($att_mod_installed)) {
+		$c = bbq('SELECT a.*, u.user_id FROM '. dbpref .'attach_desc a INNER JOIN '. dbpref .'posts p ON a.post_id=p.post_id INNER JOIN '. dbpref .'users u ON u.user_id=p.poster_id');
+		while ($r = bbfetch($c)) {
+			$att = array(
+				'file'           => $GLOBALS['settings']['upload_dir'] . $r->attach_filename,
+				'original_name'  => $r->filename,
+				'user_id'        => $r->user_id,
+				'post_id'        => $r->post_id,
+				'download_count' => $r->download_count
+			);
+			target_add_attachment($att);
+		}
+	}
+}
+
 function source_load_polls() {
 	// PhpBB attach polls to topics, FUDforum to posts.
 	$c = bbq('SELECT vd.*, p.forum_id, p.post_id, p.poster_id FROM '. dbpref .'vote_desc vd INNER JOIN '. dbpref .'topics t ON t.topic_id=vd.topic_id INNER JOIN '. dbpref .'posts p ON p.post_id=t.topic_first_post_id');
@@ -195,6 +217,7 @@ function source_load_polls() {
 				'name'  => $r2->vote_option_text
 			);
 			$qid = target_add_poll_question($question);
+			// phpBB2 doen't track who voted for what option, so votes aren't imported.
 		}
 	}
 }
@@ -219,8 +242,8 @@ function source_load_private_messages() {
 			'duser_id'   => $r->privmsgs_to_userid,
 			'ip_addr'    => $r->privmsgs_ip,
 			'post_stamp' => $r->privmsgs_date,
-			'read_stamp' => $r->privmsgs_type != PRIVMSGS_NEW_MAIL ? $r->privmsgs_date : 0,
-			'fldr'       => $r->privmsgs_type != PRIVMSGS_SENT_MAIL ? 1 : 3,
+			'read_stamp' => ($r->privmsgs_type != PRIVMSGS_NEW_MAIL ) ? $r->privmsgs_date : 0,
+			'fldr'       => ($r->privmsgs_type != PRIVMSGS_SENT_MAIL) ? 1 : 3,
 			'subject'    => $r->privmsgs_subject,
 			'pmsg_opt'   => 0,
 			'to_list'    => $r->privmsgs_to_userid,
