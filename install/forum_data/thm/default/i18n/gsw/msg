@@ -6,8 +6,7 @@
 action:Aktion
 add_to_buddy_list:zue dr Fryndlischt zuefiege
 admin:Ammann
-# Fuzzy
-admin_control_panel:Ammannemenü
+admin_control_panel:Administration
 administrator:Ammann
 attachment:Aahang:
 avatar:Avatar:
@@ -98,8 +97,7 @@ new_thread:E nej Thema aalege
 newest_user:S nejscht regischtriert Mitglid isch
 next_page:Negschti Syte
 next_thread:Negscht Thema:
-# Fuzzy
-no_messages:S het kei Byytreg in däm Forum.
+no_messages:S het kei Byytreg in däm Forum.<br />Du chasch s erscht Thema aafange.
 no_msg_body:Lääre Byytrag
 no_new_posts:Keini neje Byytreg
 no_posts:Keini Byytreg
@@ -1134,5 +1132,9 @@ feed_rss:RSS2-Feed
 feed_atom:Atom-Feed
 ip_whois_connect_err:Cha kei Verbindig härstelle zum WHOIS-Server ({VAR: whois_server}): {VAR: errstr}
 custom_filed_required:Pflichtfäld.
+pages:Syte
 page_list_heading:Verfiegbari Syte
 page_list_total:{PLURAL: i|$1 ufglischteti Syte|$1 ufglischteti Syte}.
+page_update:Am Läse vun ere Syte
+pm_export_header:Privati Nochrichte fir {VAR: usr->alias}
+pm_export_footer:Exportiert:

@@ -982,7 +982,7 @@ register_pm_notification:Notificación de mensaxe privada:
 register_pm_notification_desc:Se esta opción está activada, serás notificado cando se che envíe unha mensaxe privada.
 findu_admin_opts_header:Opcións de administración
 findu_unban:Retirar a expulsión
-findu_ban:Expulsar
+findu_ban:Vetar
 findu_edit:Editar
 findu_delete:Borrar
 dmsg_reply_to:é unha resposta á
