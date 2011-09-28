@@ -64,6 +64,7 @@ function bbconn($host, $port, $dbname, $dbuser, $dbpass, $prefix, $dbtype='mysql
 	} else {
 		seterr('Unsupported database type ['. $dbtype .']');
 	}
+	pf('... connected to '. $dbtype .' database '. $dbuser .'@'. $dbname);
 }
 
 /** Perform query against source forum's DB. */
@@ -122,12 +123,15 @@ function decode_ip($int_ip)
 }
 
 /** Include a configuration file and expose its vars as GLOBALS. */
-function config_file_include($file) 
+function config_file_include($file)
 {
 	$inc = @include($GLOBALS['CONVERT_FROM_DIR'] .'/'. $file);
 	if ($inc === FALSE) {
 		seterr('Unable to read configuration file: ['. $GLOBALS['CONVERT_FROM_DIR'] .'/'. $file .']');
+	} else {
+		pf('... reading config file '. $GLOBALS['CONVERT_FROM_DIR'] .'/'. $file);
 	}
+
 	// Export config as global vars.
 	$GLOBALS += get_defined_vars();
 	$GLOBALS += get_defined_constants();
@@ -247,7 +251,7 @@ function target_add_user($user)
 					$avatar_file = $GLOBALS['CONVERT_FROM_DIR'] .'/'. $avatar_file;
 				}
 				if (!($im = @getimagesize($avatar_file))) {
-					pf('WARNING: Cannot find custom uplaoded avatar ['. $avatar_file .']');
+					pf('WARNING: Cannot find custom uploaded avatar ['. $avatar_file .']');
 					// return;
 				}
 				$new_avatar_file = $GLOBALS['WWW_ROOT_DISK'] .'/images/custom_avatars/'. basename($avatar_file);
@@ -779,7 +783,7 @@ if (function_exists('source_read_config')) {
 
 /* Connect to source forum's database. */
 if (function_exists('source_db_connect')) {
-	pf('Connect to '. $CONVERT_FROM_FORUM .'\'s database...');
+	pf('Connecting to '. $CONVERT_FROM_FORUM .'\'s database...');
 	source_db_connect();
 }
 
@@ -929,9 +933,9 @@ if ($time_taken > 120) {
 
 pf('<hr><span style="color:darkgreen;">Conversion of '. $CONVERT_FROM_FORUM .' to FUDforum has been completed.</span>');
 pf('Time Taken: '. $time_taken);
-pf();
-pf('<span style="color:red;">Note that you will not see the loaded content on your forum yet.</span>');
-pf('You must first <a href="'. $WWW_ROOT .'">login</a> and run the consistency checker.');
+
+pf('<hr><span style="color:red;">Note that you will not see the loaded content on your forum just yet.</span>');
+pf('You must first <b><a href="'. $WWW_ROOT .'">login</a></b> and run the <b>consistency checker</b>.');
 pf('<hr>');
 
 ?>
