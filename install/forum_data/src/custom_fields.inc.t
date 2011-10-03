@@ -58,6 +58,9 @@ function serialize_custom_fields()
 		$r['choice'] = preg_replace("/\r\n/", "\n", $r['choice']);	// Strip Windows newlines.
 		$custom_field_vals[$k] = empty($custom_field_vals[$k]) ? '' : $custom_field_vals[$k];
 
+		// Can field be edited.
+		$disabled = ((($r['field_opt'] & 8) && !$is_a) || $r['field_opt'] & 16) ? 'disabled="disabled"' : '';
+
 		if ($r['type_opt'] & 1) {	// # 1 == Textarea.
 			$val = empty($custom_field_vals[$k]) ? $r['choice'] : $custom_field_vals[$k];
 			$custom_field = '{TEMPLATE: custom_field_text}';

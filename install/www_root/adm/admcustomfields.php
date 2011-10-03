@@ -115,7 +115,7 @@ echo '<h3>'. ($edit ? '<a name="edit">Edit Field:</a>' : 'Add New Field:') .'</h
 	</tr>
 
 	<tr class="field">
-		<td>Type:<br /><font size="-2">How to present the field.</font></td>
+		<td>Type:<br /><font size="-2">How to present the field?</font></td>
 		<td><?php draw_select('custom_field_type_opt', "Single line\nText box\nDrop down\nRadio buttons", "0\n1\n2\n4", ($custom_field_type_opt & (1|2|4))); ?></td>
 	</tr>
 
@@ -125,12 +125,17 @@ echo '<h3>'. ($edit ? '<a name="edit">Edit Field:</a>' : 'Add New Field:') .'</h
 	</tr>
 
 	<tr class="field">
-		<td>Visible:<br /><font size="-2">Who can see the value entered into this field.</font></td>
+		<td>Visible:<br /><font size="-2">Who can see the value entered into this field?</font></td>
 		<td><?php draw_select('custom_field_field_opt[]', "Private\nAll users\nAll logged in users", "0\n2\n4", ($custom_field_field_opt & (2|4))); ?></td>
 	</tr>
 
 	<tr class="field">
-		<td>Section:<br /><font size="-2">Is the field part of the mandatory or optional section of the profile page.</font></td>
+		<td>Editable:<br /><font size="-2">Who can edit this field?</font></td>
+		<td><?php draw_select('custom_field_field_opt[]', "User\nAdmins only\nNobody", "0\n8\n16", ($custom_field_field_opt & (8|16))); ?></td>
+	</tr>
+
+	<tr class="field">
+		<td>Section:<br /><font size="-2">Is the field part of the mandatory or optional section of the profile page?</font></td>
 		<td><?php draw_select('custom_field_field_opt[]', "Optional\nMandatory", "0\n1", ($custom_field_field_opt & (1))); ?></td>
 	</tr>
 

@@ -24,7 +24,9 @@ CREATE TABLE {SQL_TABLE_PREFIX}custom_fields
 # 0 optional
 # 1 mandatory
 # 2 visible in profile (all users)
-# 4 only visible to logged in users
+# 4 visible in profile (only to logged in users)
+# 8 only admin users can edit
+# 16 field cannot be edited
 
 # Type Opts
 # 0 single line
