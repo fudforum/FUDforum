@@ -50,7 +50,8 @@ function path_info_lnk($var, $val)
 		$tm_today_end   = $tm_today_start + 86400;
 		$date_limit     = ' AND m.post_stamp>'. $tm_today_start .' AND m.post_stamp<'. $tm_today_end .' ';
 	} else {
-		$date_limit     = '';
+		/* Limit results to the last 7 days to prevent the forum from searching the entire forum. */
+		$date_limit     = ' AND m.post_stamp > '. (__request_timestamp__ - 7*86400) .' ';
 	}
 	if (!_uid) { /* These options are restricted to registered users. */
 		unset($_GET['sub_forum_limit'], $_GET['sub_th_limit'], $_GET['unread']);
