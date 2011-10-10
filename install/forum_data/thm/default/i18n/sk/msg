@@ -342,7 +342,7 @@ register_sig:Podpis:
 register_sig_desc:Váš zvoliteľný podpis, ktorý sa bude zobrazovať na konci príspevkov.
 register_reset:Vymazať
 register_def_thread_view:Predvolené zobrazenie tém:
-register_msg_per_page:Správy na stránku:
+register_msg_per_page:Počet príspevkov na stránku:
 register_show_sig:Zobraziť podpisy:
 register_show_sig_desc:Umožňuje skryť alebo zobraziť podpisy používateľov fóra.
 register_use_sig_default:Použiť podpis v predvolenom nastavení:
@@ -708,9 +708,9 @@ search_title:Hľadať {VAR-HTML: srch}
 remail_emailsent:E-mail bol odoslaný
 remail_email:Dobrý deň,\n\nvo internetovom fóre {GVAR: FORUM_TITLE} sa nachádza zaujímavá téma "{VAR: data->subject}", ktorú by ste si možno chceli prečítať. Tému si môžete prezrieť na internetovej adrese:\n  {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nVáš priateľ,\n\n{VAR: usr->alias}
 poll_add_option:Pridať možnosť:
-post_opt_html_on:<b>HTML</b> je <b>ZAPNUTÉ</b>
+post_opt_html_on:<b>HTML</b> je <b>zapnuté</b>
 post_opt_fud_on:<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>BBcode</b> je <b>zapnutý</b></a>
-post_opt_images_on:<b>Obrázky</b> sú <b>ZAPNUTÉ</b>
+post_opt_images_on:<b>Obrázky</b> sú <b>zapnuté</b>
 post_opt_smilies_on:<a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank"><b>Smajlíci</b> sú <b>zapnutí</b></a>
 post_opt_html_off:<b>HTML</b> kód je <b>vypnutý</b>
 post_opt_fud_off:<b>BBcode</b> je <b>vypnutý</b>
@@ -1033,7 +1033,7 @@ register_theme:Téma vzhľadu:
 pmsg_trash:Vyprázdniť kôš
 uc_new_pm:Nová súkromná pošta
 uc_new_topic:Nová téma
-uc_new_cat_forum:Odoberané fóra s novými správami
+uc_new_cat_forum:Odoberané fóra s novými príspevkami
 uc_cat_forum:Kategória &raquo; Fórum
 uc_sub_topics:Odoberané témy s novými príspevkami
 uc_page_title:Náhľad osobných nastavení

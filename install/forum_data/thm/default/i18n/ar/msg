@@ -1,6 +1,7 @@
 # Messages for Arabic (العربية)
 # Exported from translatewiki.net
 # Author: Alexknight12
+# Author: Majid Al-Dharrab
 # Author: Meno25
 # Author: Naudefj
 # Author: OsamaK
@@ -669,7 +670,7 @@ regsiter_err_cantreg_msg:تعذر إنشاء حساب المستخدم، من ف
 register_profile_update:يعرض ملفه
 register_register_update:صفحة التسجيل
 report_err_nosuchmsg_title:خطأ
-report_err_nosuchmsg_msg:لا توجد رسالة كهذه
+report_err_nosuchmsg_msg:الرسالة المطلوبة غير موجودة.
 reset_err_invalidkey_title:خطأ
 reset_err_invalidkey_msg:مفتاح إعادة ضبط كلمة سر خاطئ. من الممكن أن يكون عميل بريدك الإكتروني قد فتح هذه الصفحة تلقائيًا، مما أدى إلى إبطال مفتاح إعادة الضبط. إذا كنت هذه هي الحالة، فيجب أن تتلقى رسالة بريد إلكتروني تحوي كلمة السر الجديدة. إذا لم يصل بريد كهذا، فحاول مرة إعادة ضبط كلمة السر.
 reset_err_rstconf_title:معلومات

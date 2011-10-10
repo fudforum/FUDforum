@@ -182,11 +182,11 @@ unread_msg:Este fío contén as mensaxes que aínda non liches
 unread_msg_locked:Fío bloqueado con mensaxes non lidas
 unread_posts:Mensaxes non lidas
 unread_posts_desc:Mostrar todas as mensaxes non lidas
-unsub_from_thread:Anular a subscrición ao fío
+unsub_from_thread:Cancelar a subscrición ao fío
 unsub_from_thread_desc:Deixar de recibir notificacións sobre novas mensaxes neste fío
 unbookmark_thread:Eliminar dos favoritos
 unbookmark_thread_desc:Eliminar este fío da túa lista de favoritos
-unsubscribe:Anular a subscrición
+unsubscribe:Cancelar a subscrición
 unsubscribe_desc:Deixar de recibir notificacións sobre novos fíos no foro
 updated_on:Actualizado o:
 user:Usuario
@@ -273,8 +273,8 @@ friday:Venres
 friday_short:V
 saturday:Sábado
 saturday_short:S
-male:Masculino
-female:Feminino
+male:Home
+female:Muller
 unspecified:NON ESPECIFICADO
 register_tree_view:Vista en árbore
 register_msg_tree_view:Lista chá de fíos/Lista en árbore de mensaxes
@@ -944,8 +944,8 @@ thread_mark_all_read_desc:Todas as mensaxes sen ler deste foro serán marcadas c
 private_no_messages:Non hai ningunha mensaxe neste cartafol.
 register_email_change_subject:Confirmación de cambio de correo electrónico
 register_email_change_msg:Por favor, confirma a substitución da túa antiga conta de correo electrónico "{VAR: old_email}" pola nova conta "{VAR: uent->email}" visitando o enderezo URL que aparece a continuación:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nUnha vez confirmado o teu novo enderezo de correo electrónico, a túa conta do foro será reactivada.
-iemail_thread_unsub:Deixar a subscrición a este fío
-iemail_forum_unsub:Deixar a subscrición a este foro
+iemail_thread_unsub:Cancelar a subscrición a este fío
+iemail_forum_unsub:Cancelar a subscrición a este foro
 primary_group_prefix:Grupo principal para o foro:
 group_resources:Este grupo controla os permisos dos seguintes foros
 register_admin_newuser_title:Rexistrouse un novo usuario e a súa conta está á espera de confirmación
@@ -1124,7 +1124,7 @@ btn_edit:editar
 btn_reply:responder
 btn_forward:reenviar
 btn_quote:citar
-btn_email:Correo
+btn_email:Correo electrónico
 btn_show_posts:mensaxes
 btn_homepage:www
 feed_no_data:Non se atopou ningún dato que coincidise.
