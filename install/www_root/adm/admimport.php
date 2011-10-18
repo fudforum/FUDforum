@@ -195,7 +195,9 @@ function resolve_dest_path($path)
 					}
 					if ($skip) continue;
 					if (__dbtype__ != 'mysql') {
-						$line = str_replace('\'\'', 'NULL', $line);
+						// Some DBs don't accept '' as NULL.
+						$line = str_replace( array('(\'\',', ',\'\',', ',\'\')'), array('(NULL,', ',NULL,', ',NULL)'), $line);
+
 						q($pfx . $line);
 					} else {
 						$tmp .= $line;
