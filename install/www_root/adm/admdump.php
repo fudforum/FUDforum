@@ -232,10 +232,11 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir, $p=0)
 		/* Backup GLOBALS.php. */
 		pf('Backup forum settings.');
 		fud_use('glob.inc', true);
-		$skip = array_flip(array('WWW_ROOT','COOKIE_PATH','COOKIE_DOMAIN','COOKIE_NAME',
-			'DBHOST','DBHOST_USER','DBHOST_PASSWORD','DBHOST_DBNAME','DBHOST_TBL_PREFIX',
-			'ADMIN_EMAIL','DATA_DIR','WWW_ROOT_DISK','INCLUDE','ERROR_PATH',
-			'MSG_STORE_DIR','TMP','FILE_STORE','FORUM_SETTINGS_PATH', 'PLUGIN_PATH'));
+		$skip = array_flip(array('WWW_ROOT', 'WWW_ROOT_DISK',
+			'COOKIE_PATH', 'COOKIE_DOMAIN', 'COOKIE_NAME',
+			'DBHOST', 'DBHOST_USER', 'DBHOST_PASSWORD', 'DBHOST_DBNAME', 'DBHOST_TBL_PREFIX','DBHOST_DBTYPE',
+			'DATA_DIR', 'INCLUDE', 'ADMIN_EMAIL',
+			'ERROR_PATH', 'MSG_STORE_DIR', 'TMP', 'FILE_STORE', 'FORUM_SETTINGS_PATH', 'PLUGIN_PATH'));
 		$vars = array();
 		foreach (read_help() as $k => $v) {
 			if ($v[1] != NULL || isset($skip[$k])) {
