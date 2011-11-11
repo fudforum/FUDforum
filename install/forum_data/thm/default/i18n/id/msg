@@ -435,7 +435,7 @@ coppa_fax_instructions2:Silakan cetak dan tanda-tangani dan kirim melalui fax:
 coppa_fax_reg_form:Formulir Registrasi
 coppa_fax_sign:Silakan tanda tangani formulir di bawah ini dan kirimkan ke kami
 coppa_fax_conf:Kami sudah melihat informasi yang diberikan anak kami dan kami sudah membaca&mengerti Kebijakan Kepribadian dari halaman web. Kami mengerti bahwa informasi profile bisa diubah menggunakan password. Kami mengerti bahwa data profile dapat dihapus dari forum.
-coppa_fax_permission:Tanda-tangan disini jika anda setuju/memberikan ijin
+coppa_fax_permission:Tanda tangan di sini jika anda setuju/memberikan izin
 coppa_fax_no_permission:Tanda-tangan disini jika anda ingin data pendaftaran dihapus
 coppa_fax_parent_name:Nama orang-tua/wali:
 coppa_fax_relation:Hubungan dengan anak:
@@ -761,7 +761,7 @@ group_mgr:Pengelola group
 group_mgr_edit_btn:Ubah Group
 group_mgr_heading:Pilihan editor Group
 group_mgr_group:Kelompok:
-permission_denied_title:Ijin ditolak!
+permission_denied_title:Izin ditolak!
 permission_denied_msg:Anda tidak dijinkan melkukan hal itu.
 p_READ:Baca
 p_POST:Tulis

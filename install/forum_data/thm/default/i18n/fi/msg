@@ -432,9 +432,9 @@ coppa_fax_instructions:Ohjeet vanhemmille tai huoltajille
 coppa_fax_instructions2:Tulostakaa tämä sivu, allekirjoittakaa ja faksatkaa tänne:
 coppa_fax_reg_form:Rekisteröityminen
 coppa_fax_sign:Allekirjoittakaa alla oleva lomake ja lähettäkää se meille
-coppa_fax_conf:Olen tarkistanut tiedot, jotka lapseni on antanut ja olen lukenut tämän sivuston tietosuojaperiaatteista. Ymmärrän, että käyttäjätiedot voi muuttaa salasanaa käyttämällä. Ymmärrän, että voin vaatia että tämä käyttäjätili poistetaan kokonaan.
+coppa_fax_conf:Olen tarkistanut tiedot, jotka lapseni on antanut ja olen lukenut tämän sivuston tietosuojaperiaatteista. Ymmärrän, että käyttäjätiedot voi muuttaa salasanaa käyttämällä. Ymmärrän, että voin vaatia että tämä käyttäjätunnus poistetaan kokonaan.
 coppa_fax_permission:Allekirjoitus tähän, jos annatte suostumuksenne
-coppa_fax_no_permission:Allekirjoitus tähän, jos haluatte että käyttäjätili poistetaan
+coppa_fax_no_permission:Allekirjoitus tähän, jos haluatte että käyttäjätunnus poistetaan
 coppa_fax_parent_name:Vanhemman tai huoltajan koko nimi:
 coppa_fax_relation:Suhde lapseen:
 coppa_fax_telephone:Puhelin:
@@ -456,7 +456,7 @@ login_login_btn:Kirjaudu sisään
 login_name_required:Käyttäjätunnus on pakollinen
 login_passwd_required:Salasana on pakollinen
 login_invalid_radius:Käyttäjätunnus/salasana-yhdistelmä oli virheellinen
-reset_confirmation:Kiitos rekisteröitymisestä.\n\nAktivoidaksesi käyttäjätilisi siirry alla olevaan osoitteeseen:\n\n{VAR: url}\n\nKun käyttäjätilisi on aktivoitu, sisäänkirjautuminen tapahtuu automaattisesti\nja sinut ohjataan foorumin etusivulle.
+reset_confirmation:Kiitos rekisteröitymisestä.\n\nAktivoidaksesi käyttäjätunnuksesi siirry alla olevaan osoitteeseen:\n\n{VAR: url}\n\nKun käyttäjätunnuksesi on aktivoitu, sisäänkirjautuminen tapahtuu automaattisesti\nja sinut ohjataan foorumin etusivulle.
 reset_reset:Hei, olet pyytänyt salasanasi vaihtamista. Siirry alla olevaan osoitteeseen jatkaaksesi:\n\n{VAR: url}\n\nHuomaa: Tämä foorumi tallentaa salasanat yhdensuuntaisella salausmekanismilla, eli antamasi salasana salataan menetelmällä, joka estää sen näkemisen selväkielisenä. Tämä toimii yksinkertaisuudessaan siten, että aina kun annat salasanasi – se salataan samalla salausmenetelmällä ja verrataan tietokantaan tallennettuun salattuun salasanaan. (Jos olet kiinnostunut kuinka tämä salausmenetelmä toimii, etsi tietoja MD5 HASH -algoritmista)
 rpasswd_invalid_passwd:Virheellinen salasana
 rpasswd_passwd_nomatch:Salasanat eivät täsmää
@@ -616,7 +616,7 @@ pm_err_nopm_msg:Et voi käyttää yksityisviestejä koska ylläpitäjä on poist
 pm_update:Käyttää yksityiviestintää
 post_err_lockedthread_title:Virhe: Aihe lukittu
 post_err_lockedthread_msg:Tämä aihe on lukittu, uusia viestejä ei sallita
-err_coppa_title:Virhe: Käyttäjätiliä ei ole vielä hyväksytty
+err_coppa_title:Virhe: Käyttäjätunnusta ei ole vielä hyväksytty
 err_coppa_msg:Emme ole vastaanottaneet varmistusta vanhemmiltasi tai lailliselta huoltajaltasi, joten et voi vielä lähettää viestejä foorumille. Jos olet hukannut COPPA-lomakkeen – <a href="{TEMPLATE: err_coppa_msg_lnk}">voit hakea sen uudelleen</a>.
 err_banned_acct_title:Virhe: Olet estetty.
 err_banned_acct_msg:Tunnuksesi oli {IF: $ban_expiry}väliaikaisesti estettynä {DATE: ban_expiry %e %Bta %Y kello %H.%M} saakka{ELSE}pysyvästi estettynä{ENDI} johtuen keskustelualueen sääntöjen rikkomisesta.
@@ -659,7 +659,7 @@ register_err_notyouremail:Tämä sähköpostiosoite on jo käytössä
 register_err_avatartobig:Lähetetyn tiedoston koko ylittää suurimman sallitun {GVAR: CUSTOM_AVATAR_MAX_SIZE} tavun rajan
 register_err_avatarnotallowed:Lähetetyn tiedoston tyyppi ei ole sallittu. Tarkista sallitut tiedostotyypit.
 register_conf_subject:Rekisteröintivahvistus
-register_conf_msg:Kiitos rekisteröitymisestä.\nAktivoi käyttäjätilisi napsauttamalla alla olevaa linkkiä:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nKun käyttäjätilisi on aktivoitu, sisäänkirjautuminen tapahtuu automaattisesti ja sinut ohjataan foorumin etusivulle.
+register_conf_msg:Kiitos rekisteröitymisestä.\nAktivoi käyttäjätunnuksesi napsauttamalla alla olevaa linkkiä:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nKun käyttäjätunnuksesi on aktivoitu, sisäänkirjautuminen tapahtuu automaattisesti ja sinut ohjataan foorumin etusivulle.
 register_welcome_subject:Rekisteröintivahvistus
 register_welcome_msg:Kiitos rekisteröitymisestä.\n\nTässä ovat kirjautumistietosi foorumille.\n\nFoorumin osoite: {TEMPLATE: index_update_lnk}\nKäyttäjätunnus: {VAR: uent->login}\nSalasana: {VAR: _POST['reg_plaintext_passwd']}\n\nSalasanat ovat kirjainkokoherkkiä.\nVoit muuttaa asetuksia ja käyttäjätietojasi sivulla:\n{FULL_ROOT}{ROOT}?t=register
 register_err_cantreg_title:Virhe: Rekisteröityminen epäonnistui
@@ -690,8 +690,8 @@ ERR_access_ttl:Virhe: Käyttöoikeudet riittämättömät
 ERR_access_msg:Sinulla ei ole vaadittuja käyttöoikeuksia suorittaaksesi tätä toimintoa.
 ERR_registration_disabled_ttl:Rekisteröinti ei ole käytössä
 ERR_registration_disabled_msg:Ylläpitäjä on poistanut rekisteröinnin käytöstä. Yritä myöhemmin uudelleen
-ERR_emailconf_ttl:Virhe: Käyttäjätiliäsi ei ole vahvistettu
-ERR_emailconf_msg:Et ole vahvistanut käyttäjätiliäsi vielä.<br /><table border="0"><tr><td><ol><li>Jos et ole saanut vahvistussähköpostia – <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">pyydä se uudelleen</a>.</li><li>Jos {VAR: usr_d->email} ei ole oikea sähköpostiosoitteesi – <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">määritä oikea osoite</a>.</li></ol></td></tr></table>
+ERR_emailconf_ttl:Virhe: Käyttäjätunnustasi ei ole vahvistettu
+ERR_emailconf_msg:Et ole vielä vahvistanut käyttäjätunnustasi.<br /><table border="0"><tr><td><ol><li>Jos et ole saanut vahvistussähköpostia – <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">pyydä se uudelleen</a>.</li><li>Jos {VAR: usr_d->email} ei ole oikea sähköpostiosoitteesi – <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">määritä oikea osoite</a>.</li></ol></td></tr></table>
 ERR_user_ttl:Virhe: Käyttäjää ei ole
 ERR_user_msg:Käyttäjää ei ole olemassa
 ERR_systemerr_ttl:Virhe: Järjestelmävirhe
@@ -899,7 +899,7 @@ post_proceed:Jatka
 post_moderated_forum:Lähetit viestin moderoidulle foorumille. Viestisi ei näy foorumilla ennen kuin joku foorumin moderaattoreista tai ylläpidosta hyväksyy sen.
 post_moderated_forum_ttl:Moderoitu foorumi
 buddy_list_bday:{VAR: r[2]} täyttää tänään {VAR: age}-vuotta
-email_warning_msg:Jos vaihdat nykyisen sähköpostiosoitteesi, käyttäjätilisi merkitään vahvistamattomaksi, kunnes olet vahvistanut sen sähköpostilla.
+email_warning_msg:Jos vaihdat nykyisen sähköpostiosoitteesi, käyttäjätunnuksesi merkitään vahvistamattomaksi, kunnes olet vahvistanut sen sähköpostilla.
 register_show_im:Näytä IM-ilmaisimet:
 register_show_im_desc:Määrittää näytetäänkö viesteissä kirjoittajan IM-ilmaisimet.
 unread_message:Lukematon viesti
@@ -915,8 +915,8 @@ finduser_help:Hakukone lisää automaattisesti hakuun merkin *. Esimerkiksi, jos
 back_to_top:Takaisin alkuun
 pm_err_disabled_title:Yksityisviestit poissa käytöstä
 pm_err_disabled_msg:Et voi lähettää yksityisviestejä ennenkuin otat ne käyttöön asetuksissasi.
-err_mod_acc_ttl:Vahvistamaton käyttäjätili
-err_mod_acc_msg:Ylläpitäjä tarkistaa kaikki käyttäjätilit ennen niiden aktivoimista. Et voi käyttää kaikkia foorumin toimintoja ennenkuin ylläpitäjä on tarkistanut käyttäjätilisi.
+err_mod_acc_ttl:Vahvistamaton käyttäjätunnus
+err_mod_acc_msg:Ylläpitäjä tarkistaa kaikki käyttäjätunnukset ennen niiden aktivoimista. Et voi käyttää kaikkia foorumin toimintoja ennen kuin ylläpitäjä on tarkistanut käyttäjätunnuksesi.
 accounts_pending_approval:Hyväksymättömät käyttäjät
 saved:Tallennetut
 register_err_time_limit:Rekisteröitymiset on rajoitettu {GVAR: REG_TIME_LIMIT} sekuntiin per rekisteröinti. Odota {PLURAL: reg_limit_reached|$1 sekunti|$1 sekuntia} ja yritä rekisteröityä uudelleen.
@@ -926,8 +926,8 @@ register_err_avatardimtobig:Avatarin kuvakoko <b>({VAR: img_info[0]}x{VAR: img_i
 buddy_offline:{VAR: r[2]} ei ole sisäänkirjautunut
 buddy_online:{VAR: r[2]} on sisäänkirjautunut
 sml_no_smilies:Hymiöitä ei käytettävissä.
-login_unapproved_account_ttl:Hyväksymätön käyttäjätili
-login_unapproved_account_msg:Ylläpitäjän täytyy hyväksyä kaikki käyttäjätilit ennen niiden aktivoimista. Käyttäjätiliäsi ei ole vielä hyväksytty, joten jotkin foorumin rekisteröityneille käyttäjille tarkoitetuista ominaisuuksista eivät ole vielä käytössäsi.
+login_unapproved_account_ttl:Hyväksymätön käyttäjätunnus
+login_unapproved_account_msg:Ylläpitäjän täytyy hyväksyä kaikki käyttäjätunnukset ennen niiden aktivoimista. Käyttäjätunnustasi ei ole vielä hyväksytty, joten jotkin foorumin rekisteröityneille käyttäjille tarkoitetuista ominaisuuksista eivät ole vielä käytössäsi.
 remove_from_buddy_list:poista kaverilistalta
 iemail_msg_author:<b>Lähettäjä:</b> {VAR: obj->alias}
 iemail_msg_subject:<b>Otsikko:</b> {VAR: obj->subject}
@@ -944,7 +944,7 @@ thread_mark_all_read:Merkitse lukemattomat viestit luetuiksi
 thread_mark_all_read_desc:Kaikki tämän foorumin viestit merkitään luetuiksi
 private_no_messages:Ei viestejä tässä kansiossa.
 register_email_change_subject:Sähköpostiosoitteen vaihdon vahvistus
-register_email_change_msg:Vahvista uusi sähköpostiosoitteesi {VAR: uent->email}, joka korvaa vanhan sähköpostiosoitteesi {VAR: old_email} napsauttamalla alla olevaa linkkiä:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nKäyttäjätilisi aktivoituu uudestaan, kun olet vahvistanut uuden sähköpostiosoitteesi.
+register_email_change_msg:Vahvista uusi sähköpostiosoitteesi {VAR: uent->email}, joka korvaa vanhan sähköpostiosoitteesi {VAR: old_email} napsauttamalla alla olevaa linkkiä:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nKäyttäjätunnuksesi aktivoituu uudelleen, kun olet vahvistanut uuden sähköpostiosoitteesi.
 iemail_thread_unsub:Lopeta tämän aiheen tilaus
 iemail_forum_unsub:Lopeta tämän foorumin tilaus
 primary_group_prefix:Foorumin pääryhmä:
@@ -956,8 +956,8 @@ post_mod_msg_notify_msg:Uusi viesti otsikolla ”{VAR: msg_post->subject}” lä
 thread_printable_pdf:Luo tulostettava PDF-tiedosto
 thread_syndicate:Foorumin syndikointi (XML)
 reg_conf_title:Rekisteröinnin vahvistus
-reg_conf_email:<b>Sähköpostivahvistus</b><br />Sinulle on lähetetty sähköposti sisältäen erityisen linkin, jossa sinun pitää käydä ennen kuin käyttäjätunnuksesi aktivoidaan. Jos et saa tätä sähköpostia muutaman minuutin kuluttua, kirjaudu sisään tunnuksellasi ja varmista että sähköpostiosoite, jonka annoit on oikein. Pääset käyttämään foorumin rekisteröityneille käyttäjille tarkoitettuja toimintoja vasta kun olet vahvistanut käyttäjätilisi.
-reg_conf_account:<b>Käyttäjätilin hyväksyminen</b><br />Ylläpidon täytyy hyväksyä käyttäjätilisi ennen sen aktivoitumista. Saat sähköpostitse ilmoituksen kun ylläpito on hyväksynyt käyttäjätilisi. Ennen tätä pystyt kuitenkin kirjautumaan sisään, mutta et voi käyttää toimintoja jotka on varattu hyväksytyille käyttäjille.
+reg_conf_email:<b>Sähköpostivahvistus</b><br />Sinulle on lähetetty sähköposti sisältäen erityisen linkin, jossa sinun täytyy käydä ennen kuin käyttäjätunnuksesi aktivoidaan. Jos et saa tätä sähköpostia muutaman minuutin kuluttua, kirjaudu sisään tunnuksellasi ja varmista että sähköpostiosoite, jonka annoit on oikein. Pääset käyttämään foorumin rekisteröityneille käyttäjille tarkoitettuja toimintoja vasta kun olet vahvistanut käyttäjätunnuksesi.
+reg_conf_account:<b>Käyttäjätunnuksen hyväksyminen</b><br />Ylläpidon täytyy hyväksyä käyttäjätunnuksesi ennen sen aktivoitumista. Saat sähköpostitse ilmoituksen, kun ylläpito on hyväksynyt käyttäjätunnuksesi. Ennen tätä pystyt kuitenkin kirjautumaan sisään, mutta et voi käyttää toimintoja, jotka on varattu hyväksytyille käyttäjille.
 forum_banned_user:Sinut on lopullisesti estetty tältä foorumilta aikaisemman käytöksesi perusteella. Hyvästi.
 mnav_description:Viestiselain
 mnav_date_limit:Aikarajaus:
@@ -1134,7 +1134,9 @@ feed_rss:RSS2-syöte
 feed_atom:Atom-syöte
 ip_whois_connect_err:WHOIS-palvelimeen ({VAR: whois_server}) ei saada yhteyttä: {VAR: errstr}
 custom_filed_required:Tämä kenttä on pakollinen.
+pages:Sivut
 page_list_heading:Saatavilla olevat sivut
 page_list_total:Näytetään {PLURAL: i|$1 sivu|$1 sivua}.
 page_update:Selailee sivua
 pm_export_header:Yksityisviestit käyttäjälle {VAR: usr->alias}
+pm_export_footer:Viety:

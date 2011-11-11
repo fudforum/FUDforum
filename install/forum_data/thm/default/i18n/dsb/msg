@@ -5,6 +5,7 @@
 action:Akcija
 add_to_buddy_list:lisćinje pśijaśelow dodaś
 admin:Administrator
+admin_control_panel:Administracija
 administrator:Administrator
 attachment:Dodank:
 avatar:Awatar:
@@ -81,8 +82,7 @@ new_thread:Nowu temu napóraś
 newest_user:Nejnowšy zregistrěrowany wužywaŕ jo
 next_page:Pśiducy bok
 next_thread:Pśiduca tema:
-# Fuzzy
-no_messages:W toś tom lisćinje žedne powěsći njejsu.
+no_messages:W toś tom lisćinje žedne powěsći njejsu.<br />Spiš ako prědny powěsć w toś tom forumje.
 no_msg_body:Žedno wopśimjeśe
 no_new_posts:Žedne nowe powěsći
 no_posts:Žedne powěsći
@@ -651,5 +651,7 @@ feed_rdf:RDF-kanal
 feed_rss:RSS2-kanal
 feed_atom:ATOM-kanal
 custom_filed_required:Toś to pólo jo trěbne.
+pages:Boki
 page_list_heading:K dispoziciji stojece boki
 page_list_total:{PLURAL: i|$1 bok pódany|$1 boka pódanej|$1 boki pódane|$1 bokow pódanych}.
+pm_export_footer:Eksportěrowany.

@@ -3,6 +3,7 @@
 # Author: Cyklopas
 # Author: Eitvys200
 # Author: Ignas693
+# Author: Juoand
 # Author: Naudefj
 
 action:Veiksmas
@@ -993,7 +994,7 @@ thread_mov_all:Perkelti pasirinktą
 thread_merge_all:Sujungti pažymėtus
 thread_loc_all:Užrakinti / Atrakinti Pasirinktą
 dmsg_ip:IP:
-most_users_online:Daugiausia vartotojų buvo <b>{VAR: st_obj->most_online} {DATE: st_obj-> most_online_time%, %d % B% Y %H:% M}</b>
+most_users_online:Daugiausia vartotojų buvo <b>{VAR: st_obj->most_online} ({DATE: st_obj->most_online_time %Y-%m-%d %H:%M})</b>.
 sub_unsub_all_forums:Nebeprenumeruoti visu forumų
 sub_unsub_all_topics:Nebeprenumeruoti visu temų
 unbookmark_all_topics:Šalinti visas žymes

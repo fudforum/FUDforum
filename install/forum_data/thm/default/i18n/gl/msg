@@ -409,7 +409,7 @@ spell_check_msg:Corrixir a ortografía da mensaxe
 post_form:Formulario de mensaxes
 post_forum:Foro:
 post_title:Título:
-post_body:Corpo da mensaxe:
+post_body:Corpo:
 post_options:Opcións:
 post_preview_btn:Vista previa da mensaxe
 post_cancel_btn:Cancelar
@@ -523,7 +523,7 @@ mklist_close:Pechar
 email_to:Para:
 email_pg_title:Correo electrónico
 email_subject:Asunto:
-email_body:Corpo da mensaxe:
+email_body:Corpo:
 email_submit:Correo electrónico
 ppost_quote_msg:{VAR: msg_to_list} escribiu o {TEMPLATE: ppost_quote_msg_date}
 ppost_quote:Cita:

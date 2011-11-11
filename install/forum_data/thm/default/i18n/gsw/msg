@@ -1,5 +1,6 @@
 # Messages for Swiss German (Alemannisch)
 # Exported from translatewiki.net
+# Author: Als-Chlämens
 # Author: Als-Holder
 # Author: Naudefj
 
@@ -66,7 +67,7 @@ login_header:Aamälde:
 logout:Abmälde
 mark_all_read:Alli Byytreg as gläse markiere
 mark_all_read_desc:Alli Dyyni uugläsene Byytreg wäre as gläse markiert
-members:Miglider
+members:Mitgliider
 calendar:Kaländer
 cal_goto_date:Gump zue:
 cal_day_heading:Ereignis an däm Tag

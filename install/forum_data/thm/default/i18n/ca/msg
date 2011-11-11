@@ -1,5 +1,6 @@
 # Messages for Catalan (Català)
 # Exported from translatewiki.net
+# Author: Gemmaa
 # Author: McDutchie
 # Author: Naudefj
 # Author: Paucabot
@@ -11,10 +12,10 @@
 action:Acció
 add_to_buddy_list:afegir a la llista d`amics
 admin:Admin
-# Fuzzy
-admin_control_panel:Panell de l'administrador
+admin_control_panel:L'administració
 administrator:Administrador
 attachment:Arxiu adjunt:
+avatar:Avatar:
 average_post_count:{PLURAL: u->posted_msg_count|$1 Missatge|$1 Missatges} ({PLURAL: avg|$1 missatge de mitjana|$1 missatges de mitjana} per dia)
 biography:Biografia:
 birth_date:Data de naixement:
@@ -49,10 +50,14 @@ homepage:Pàgina d`inici:
 icq_control_panel:Panell ICQ en líni-missatge
 icq_message_form:Formulari de missatge ICQ:
 ignore_user:ignorar tots els missatges publicats per aquest usuari
+im_aim:Manejador d'objectiu:
+im_msnm:Missatger de MSN:
+im_yahoo:Yahoo Messenger:
 image:Imatge:
 index_forum:Comuniat
 index_new_posts:Hi ha missatges nous des de l`última lectura
 index_no_new_posts:No hi ha missatges nous des de l`última lectura
+index_url_redirection:Redirecció
 interests:Interessos:
 last_post:Últim missatge
 last_thread_msg:Anar a l`últim missatge d`aquest fil de discussió
@@ -63,15 +68,24 @@ locked:Bloquejat
 locked_with_new_posts:Bloquejat (amb missatges no llegits)
 logged_in_list:Llista d`usuaris connectats
 login:Iniciar sessió
+login_header:Inici de sessió:
 logout:Sortir
 mark_all_read:Marca tots els missatges com a llegits
 mark_all_read_desc:Tots els seus missatges no llegits seran marcats com a llegits
 members:Membres
+calendar:Calendari
+cal_goto_date:Salta a:
+cal_day_heading:Esdeveniments per dia
+cal_no_events:No hi ha esdeveniments per dia.
+cal_update:Navegar pel calendari de fòrum
+cal_birthday:Data de naixement:{VAR: user}
+cal_birthday_age:({PLURAL: age|$1 year|$1 years} old).
 message:Missatge
 message_counter:Els nostres usuaris han publicat un total de <b>{PLURAL: post_count|$1 missatge|$1 missatges}</b>  a <b>{PLURAL: thread_count|$1 fil de discussió|$1 fils de discussió}</b>.
 message_index:Índex de missatges
 message_index_desc:Veure la llista de missatges
 minimize_category:Minimitzar categoria
+minimize_message:Minimitzar missatge
 moderation_queue:Cua de moderació
 moderator:Moderador
 moderator_of:Moderador de:
@@ -89,13 +103,13 @@ new_thread:Crear un nou fil de discussió
 newest_user:L`últim usuari registrat és
 next_page:Pàgina següent
 next_thread:Fil de discussió següent:
-# Fuzzy
-no_messages:No hi ha missatges en aquest fòrum.
+no_messages:Hi ha no hi ha missatges en aquest fòrum.<br>Sigui el primer per enviar un tema en aquest fòrum.
 no_msg_body:No hi ha cos del missatge
 no_new_posts:No hi ha missatges nous
 no_posts:No hi ha missatges
 no_subscribed_forums:No hi ha fòrums subscrits
 no_subscribed_threads:No hi ha fils de discussió subscrits
+no_bookmarked_threads:No hi ha temes favorits
 no_unread_locked:Aquest fil de discussió ha estat bloquejat
 no_unread_msg:Aquest fil de discussió no té missatges no llegits
 no_unread_msg_unreg:Tan sols els usuaris enregistrats poden fer seguiment de missatges llegits i no llegits
@@ -146,6 +160,8 @@ sticky:Fixe:
 stop_ignoring:Deixar d`ignorar a aquest usuari
 sub_to_thread:Subscriure`s al fil de discussió
 sub_to_thread_desc:Rebre una notificacio quan hi hagi nous missatges en aquest fil
+bookmark_thread:Tema d'adreça d'interès
+bookmark_thread_desc:Afegir aquest tema a la seva llista d'adreces d'interès
 subject:Assumpte
 subscribe:Subscriure
 subscribe_desc:Rebre una notificació quan s`iniciï un nou fil en aquest fòrum
@@ -153,6 +169,7 @@ subscribed_forums:Fòrums subscrits
 subscribed_forums_desc:Activar/desactivar el filtre de fòrums subscrits (solament mostrarà  missatges publicats als fòrums als que estigui subscrit)
 subscribed_threads:Fils de discussió subscrits
 subscribed_threads_desc:Activar/desactivar el filtre de fils de discussió subscrits (solament mostrarà  missatges publicats en els fils als quals estigui subscrit)
+bookmarked_threads:Temes favorits
 switch_to_thread_view:Canviar a la vista en arbre per a aquest fil
 thread:Fil de discussió:
 thread_announcement:anunci:
@@ -172,6 +189,8 @@ unread_posts:Missatges no llegits
 unread_posts_desc:Mostrar tots els missatges no llegits
 unsub_from_thread:Donar-se de baixa del fil de discussió
 unsub_from_thread_desc:Deixar de rebre avisos referents a nous missatges d`aquest fil de discussió
+unbookmark_thread:Treure d'adreces d'interès
+unbookmark_thread_desc:Suprimeix aquest tema de la seva llista d'adreces d'interès
 unsubscribe:Donar-se de baixa
 unsubscribe_desc:Deixar de rebre avisos referents a nous fils de discussió al fòrum
 updated_on:Actualitzat el:
@@ -187,8 +206,7 @@ views:Vistes
 vote:{PLURAL: frm->n_rating|$1 Vot|$1 Vots}
 vote_button:Votar
 vote_for_thread:Votar
-# Fuzzy
-was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> ha estat mogut a <a href="{TEMPLATE: was_moved_msg_lnk2}">{{VAR: r[12]}</a> pel moderador
+was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a>s'ha traslladat a <a href="{TEMPLATE: was_moved_msg_lnk2}"> {VAR: r[12]} </a> pel moderador.
 welcome_message:Benvingut <b>{VAR: usr->alias}</b>, la seva última visita fou el {TEMPLATE: welcome_message_date}
 what_ppl_doing:Mostrar el que la gent està fent
 reported_del_report:Esborrar informe
@@ -246,6 +264,20 @@ month_9:setembre
 month_10:octubre
 month_11:novembre
 month_12:desembre
+sunday:Diumenge
+sunday_short:S
+monday:Dilluns
+monday_short:M
+tuesday:Dimarts
+tuesday_short:Tu
+wednesday:Dimecres
+wednesday_short:W
+thursday:Dijous
+thursday_short:Th
+friday:Divendres
+friday_short:F
+saturday:Dissabte
+saturday_short:S
 male:Masculí­
 female:Femení­
 unspecified:SENSE ESPECIFICAR
@@ -263,9 +295,11 @@ finduser_postcount:Total de missatges
 finduser_joindate:data d`incorporació
 finduser_action:Acció
 yes:Sí­
+no:No
 register_email:Correu electrònic
 edit_time_limit:<b>Lí­mit de temps d`edició</b>: {GVAR: EDIT_TIME_LIMIT} minuts
 no_edit_time_limit:<b>Lí­mit de temps d`edició</b>: Il.limitat
+pmuserloc_login:Inici de sessió:
 pmuserloc_submit:Enviar
 pmuserloc_user:Usuari
 pmuserloc_no_result:No hi ha hagut resultats
@@ -281,6 +315,7 @@ register_your_pass:La seva contrasenya:
 register_update:Actualitzar
 register_avatar_type:Tipus d`avatar:
 register_del_avatar:Esborrar avatar
+register_avatar:Avatar:
 register_sel_avatar:Seleccionar avatar
 register_custom_avatar_rules:L`avatar a la mida no apareixerà  fins després de ser aprovat per l`administrador.<br /><font class="SmallText">L`avatar no haurà  de tenir més de <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} pÃ­xels</b> i ha d`estar en format <b>jpg</b>, <b>gif</b> o <b>png</b>.</font>
 register_custom_avatar_url:URL del avatar personalitzat:
@@ -297,6 +332,8 @@ register_interests:Interessos:
 register_image:Imatge:
 register_icq:ICQ
 register_aim:Usuari AIM:
+register_yahoo:Yahoo Messenger:
+register_msnm:MSN Messenger
 register_homepage:Pàgina personal:
 register_bday:Data de naixement:
 register_bday_desc:Si selecciona la seva data de naixement, altres membres del fòrum podran veure-la en el seu perfil
@@ -335,9 +372,11 @@ add:Afegirr
 buddy_search:Introdueixi el nom d`usuari que desitgi afegir.
 member_search:O usi la utilitat <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Cercar usuari</a> per a buscar a una persona.
 buddy_remove:eliminar
+post_normal:Normal
 post_sticky:Fixe
 post_annoncement:Anunci
 post_size:Mida
+post_color:Color
 post_font:Tipus de lletra
 create_thread:Crear fil de discussió
 submit_reply:Enviar resposta
@@ -378,22 +417,21 @@ post_title:Tí­tol:
 post_body:Cos del missatge:
 post_options:Opcions:
 post_preview_btn:Vista prèvia del missatge
+post_cancel_btn:Cancel·la
 ignore_users:Usuaris ignorats
 add_ignore:Afegir ignorat
 forum_terms:Termes del fòrum
-# Fuzzy
-forum_rules:Enregistrar-se en aquest fòrum és gratis! Si­ insistim que respecti les regles i polí­tiques detallem a continuació. Si està  d`acord amb els termes, si us plau premi el botó D`acord al final de la pàgina. Nota: si prem el botó, vostè declara tenir més de 13 anys d`edat. Si té 13 anys o menys, si us plau usi aquest formulari de registre.<p>Encara que els administradors i moderadors d`aquest fòrum provaran d`impedir la presència de missatges objectables en aquest fòrum, ens resulta impossible revisar tots els missatges. Tots els missatges expressen l`opinió del seu autor, i ni els amos del fòrum ni els desenvolupadors es fan responsables pel contingut de cap missatge.<p>Al prémer el botó D`acord, vostè es compromet a no publicar cap missatge obscè, vulgar, amb continguts sexuals, continguts d`odi, amenaçant, o que constitueixin una violació de les lleis. <p>Els amos d`aquest fòrum es reserven el dret a eliminar, editar, moure, o tancar qualsevol fil de discussió per qualsevol motiu que considerin raonable.<p>
-# Fuzzy
-forum_rules_13:Tots els usuaris menors de 13 anys han d`obtenir permí­s del seu pare o tutor per a poder ser membres dels fòrums. Per a així requerim que un pare o tutor enviï per fax o correu un formulari d`autorització signat, per a autoritzar la subscripció.<p>Si desitja iniciar el procés de registre abans que rebem un formulari d`autorització premi el botó D`acord que hi ha a continuació. Si desitja cancel.lar el procés de registre, premir Cancel.lar per a tornar a l`índex de fòrums.<p>Pot descarregar una còpia del formulari d`autorització aquí­. Per a obtenir més informació referent al procés de registre, si us plau, enviï un correu electrònic a <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.<p>
+forum_rules:<p>Inscripció a aquest fòrum és gratis! Insistim en què compleixis les regles i normes detallades sota. Si està d'acord amb els termes, si us plau, premeu <b>l'acceptar</b> botó al final de la pàgina. Nota: Prement el botó es declaren que són majors de 13 anys. Si són 13 o sota, si us plau, utilitzeu aquest formulari d'inscripció.</p><p>Encara que els administradors i moderadors d'aquest fòrum tractarà de mantenir tots els missatges inacceptables fora d'aquest fòrum, és impossible per a nosaltres el revisar tots els missatges. Tots els missatges expressen les opinions de l'autor, i ni els propietaris de fòrum o els desenvolupadors es fa responsables pel contingut de qualsevol missatge.</p><p>Fent clic l'acceptar botó, garanteixes que no escriuràs cap missatge que són obscè, vulgar, sexualment orientat, odiós, amenaçant, o en cas contrari violar qualsevol llei.</p><p>Els propietaris d'aquest fòrum té el dret a eliminar, editar, moure o tancar qualsevol tema per qualsevol raó.</p>
+forum_rules_13:<p>Tots els usuaris menors de 13 anys s'ha de buscar permís del seu pare o tutor per a obtenir els membres dels fòrums. Mentre que donem la benvinguda a la participació de membres menors de 13 anys, es requereix que un pare o guardià fax o correu nou un formulari signat permís abans que es concedeix membres.</p><p>Si li agradaria iniciar el procés de registre abans de nosaltres de rebre una forma de permís, premeu el botó <b>acceptar</b> per sota. Si voleu deixar de registre, premeu <b>Disagree</b> per tornar a l'índex del Fòrum.</p><p>Una còpia de la forma de permís es pot descarregar aquí. Per obtenir més informació sobre el procés de registre, si us plau, enviar correu electrònic a <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
 coppa_conf:Confirmació COPPA
 coppa_before:Abans de {TEMPLATE: coppa_date}
 coppa_after:Abans de {TEMPLATE: coppa_date}
 coppa_link:Premi a l`enllaç que correspon a la seva data de naixement
-# Fuzzy
-coppa:Un pare o tutor ha d`enviar per correu o fax un formular d`autorització signat a l`administrador d`aquest fòrum perquè un usuari de menys de 13 anys pugui completar el procés de registre.<p>Per a més informació contacti amb <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
+coppa:<p>Un pare o tutor ha de correu o per fax un formulari signat permís a l'administrador d'aquest fòrum abans d'un usuari menors de 13 anys pot completar la matrícula.</p><p>Per a més informació contacti amb <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a></p>
 prereg_info:Informació
 prereg_agree:D`acord
 prereg_disagree:No estic d`acord
+prereg_update:Llegir les regles del Fòrum
 coppa_fax_instructions:Instruccions per a pares o tutors
 coppa_fax_instructions2:Si us plau, imprimeixi aquesta pàgina, signi-la i enviï-la per fax a:
 coppa_fax_reg_form:Formulari de registre
@@ -416,8 +454,7 @@ login_cookie_expired:La seva cookie ha expirat, i ha d`iniciar la sessió per a 
 login_perm_denied:Vostè no té permí­s per a accedir al recurs sol.licitat com a usuari anònim, i ha d`iniciar sessió per a obtenir permí­s per a accedir a l`esmentat recurs.
 login_want_to_register:Vol enregistrar-se?
 login_forgot_passwd:Ha oblidat la seva contrasenya?
-# Fuzzy
-login_use_cookie:Usar cookies<br /><font class="SmallText">Si està  usant un terminal públic, com per exemple un ordinador en una biblioteca, escola o cibercafè, es recomana que deshabiliti aquesta opció per a una major seguretat.
+login_use_cookie:Utilitza cookies<br><span class="SmallText">Si està utilitzant un terminal públic com un ordinador en una biblioteca, escola o cafeteria d'Internet, es recomana que es desactivi aquesta opció per a més seguretat. Si deixa aquesta opció seleccionada llavors vostè serà automàticament connectat en el fòrum de la propera vegada que visiteu.</span>
 login_login:Iniciar sessió
 login_login_btn:Iniciar sessió
 login_name_required:Ha d`introduir un nom d`usuari
@@ -436,6 +473,11 @@ rpasswd_login:Usuari
 rpasswd_cur_pass:Contrasenya actual:
 rpasswd_new_pass:Contrasenya nova:
 rpasswd_conf_pass:Confirmar contrasenya:
+ruser_title:Formulari d'accés de canvi
+ruser_change_user:Canviar el teu Login Fòrum
+ruser_cur_login:Inici de sessió actual:
+ruser_new_login:Nou inici de sessió:
+ruser_cur_pass:Contrasenya actual:
 login_passwd:Contrasenya
 reset_email:Correu electrònic:
 reset_reset_button:Actualitzar contrasenya
@@ -466,8 +508,7 @@ remail_message:Missatge:
 remail_send_now:Enviar correu electrònic ara
 remail_anon_opt:Copiar aquest missatge a un programa de correu de la seva elecció, per a enviar-lo al seu(s) amic(s).
 remail_done:Fet
-# Fuzzy
-remail_sent_conf:El correu electrònic al seu amic en {VAR-HTML: _POST['femail']} referent a {{VAR: data->subject} s`ha enviat correctament.
+remail_sent_conf:El correu electrònic al seu amic a {VAR HTML: _POST [femail]} sobre el  {VAR: data->subject}  tema s'ha enviat correctament.
 remail_error:Vostè té un error
 mklist_type:Tipus:
 mklist_option:Opció:
@@ -481,6 +522,7 @@ qbud_no_buddies:No hi ha amics dels quals escollir
 mklist_numerical:Numèric
 mklist_aplha:Alfanumèric
 mklist_square:Quadrat
+mklist_disc:Disc
 mklist_circle:Cercle
 mklist_close:Tancar
 email_to:Per a:
@@ -520,21 +562,22 @@ poll_year:any
 poll_week:setmana
 tabs_register:Configuració
 tabs_subscriptions:Subcripcions
+tabs_bookmarkes:Adreces d'interès
 tabs_referrals:Referències
 tabs_buddy_list:Llista d`amics
 tabs_ignore_list:Llista d`ignorats
 tabs_private_messaging:Missatges privats
-# Fuzzy
-single_msg_delete:està  a punt de <font color="#ff0000" size="4">ESBORRAR</font> un missatge titulat: <b>{VAR: data[3]}</b>
-# Fuzzy
-thread_delete:està  a punt de <font color="#ff0000" size="4">ESBORRAR</font> el <font color="#ff0000" size="4">FIL COMPLET</font> titulat: <b>{VAR: data[3]}</b>
-# Fuzzy
-delete_proceed:<font size="3"><b>Desitja continuar?</b></font>
+single_msg_delete:Esteu a punt de <span class="ErrorText">suprimir</span> el missatge titulat:<b>{VAR: data[3]}</b>
+thread_delete:Esteu a punt de <span class="ErrorText">suprimir</span> el <span class="ErrorText">tema sencer</span> titulat:<b>{VAR: data[3]}</b>
+delete_proceed:<span class="fb">Voleu continuar?</span>
 delete_yes:Sí­
+delete_no:No
 error_invalidurl:La URL no és vàlida
+error_error:Error
 usrinfo_profile:Perfil de {VAR: u->alias}
 usrinfo_show_all_posts:Mostrar tots els missatges publicats per {VAR: u->alias}
 actions_update:Espiant a altres usuaris com Vostè
+err_info:Informació
 buddy_list_err_cantadd:No es pot afegir a si mateix a la seva llista d`amics
 buddy_list_err_dup:Vostè ja té a aquest usuari a la seva llista d`amics
 buddy_list_err_nouser:L`usuari que ha intentat afegir a la seva llista d`amics no s`ha trobat en el fòrum.
@@ -543,8 +586,7 @@ buddy_list_err_ignore:No pot afegir usuaris que l`ignoren a la seva llista d`ami
 buddy_list_update:Recorreguent la llista d`amics
 core_err_invinp_title:L`entrada no és vàlida
 core_err_invinp_err:Ha seguit un enllaç que no és vàlid. Si us plau, informi d`això al  <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a>
-# Fuzzy
-core_adm_login_msg:Els administradors poden entrar  <a href="{FULL_ROOT}{ROOT}?t={GVAR: WWW_ROOT}adm/admloginuser">aquí­</a>
+core_adm_login_msg:Els administradors poden iniciar sessió <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">aquí</a>.
 email_err_unabletoemail_title:ERROR: No ha estat possible enviar el correu
 email_err_unabletoemail_msg:El sistema de correu electrònic ha estat desactivat per l`administrador.
 email_error_unabletolocaddr:Ho sentim, el sistema no ha pogut enviar un correu a {VAR-HTML: _POST['tx_name']} perquè no ha estat capaç de trobar la seva adreça de correu electrònic
@@ -552,17 +594,18 @@ email_error_body:Es necessita un cos del missatge
 email_error_subject:Es necessita un assumpte
 email_error_namerequired:Es necessita un nom
 email_error_invaliduser:L`usuari no és vàlid
+emailconf_err_invkey_title:Error
 emailconf_err_invkey_msg:La clau de confirmació no és vàlida. Si us plau, revisi el seu correu per a assegurar-se que ha anat a la URL correcta
 err_inc_criticaltitle:Error crític
 err_inc_criticalmsg:Vostè ha  trobat un error, però desafortunadament hi ha un problema amb el sistema d`informe d`errors
 finduser_update:Buscant usuaris
 help_index_update:Llegint les <a href="{TEMPLATE: help_index_update_lnk}">Preguntes frequents</a>
 iemail_thr_subject:Nova resposta a {VAR: thr_subject} publicat per {VAR: poster_login}
-# Fuzzy
-iemail_thr_bodyemail:Per a veure les respostes no llegides vagi a {VAR: goto_url['email']}\n\nSi
+iemail_thr_bodyemail:Per veure no llegit les respostes d'anar a  {VAR: goto_url['email']} \n\nSi vostè no desitja rebre notificacions sobre les respostes més en aquest tema, si us plau, aneu aquí:{VAR: unsub_url['email']}
 iemail_frm_subject:Nou fil de discussió en el fòrum {VAR: frm_name} trucat {VAR: thr_subject}, creat per {VAR: poster_login}
 iemail_frm_bodyemail:Per a veure aquest fil de discussió vagi a:\n{VAR: goto_url['email']}\n\nPer a no rebre més notificacions referents a nous fils de discussió en aquest fòrum, si us plau vagi aquí­: {VAR: unsub_url['email']}
 iemail_participate:Per a participar a la discussió, vagi aquí­:
+ignore_list_err_info_title:Informació
 ignore_list_err_dup_msg:Ja té a aquest usuari a la seva llista d`ignorats
 ignore_list_err_nu_title:Usuari no trobat
 ignore_list_err_nu_msg:L`usuari que ha tractat d`afegir a la seva llista d`ignorats no ha estat trobat al fòrum.
@@ -578,26 +621,24 @@ pm_update:Usant missatgeria privada
 post_err_lockedthread_title:ERROR: el fil de discussió està  bloquejat
 post_err_lockedthread_msg:Aquest fil de discussió està  bloquejat, no es permeten més missatges
 err_coppa_title:ERROR: El seu compte encara no ha estat confirmat
-# Fuzzy
-err_coppa_msg:No hem rebut una confirmació del seu pare i/o tutor legal, la qual cosa li permetrà publicar missatges. Si vostè ha perdut el seu formulari COPPA <a href="{TEMPLATE: err_coppa_msg_lnk}">premi aquí­</a> per a obtenir-lo
+err_coppa_msg:No he rebut una confirmació del seu pare i/o tutor, que li permet enviar missatges. Si vostè va perdre el seu formulari COPPA, <a href="{TEMPLATE: err_coppa_msg_lnk}">veure'l altra vegada</a>.
 err_banned_acct_title:ERROR: Ha estat expulsat.
 err_banned_acct_msg:El seu compte tenia l`accés restringit {IF: $ban_expiry}temporalment fins {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}permanentement{ENDI} al lloc, degut a una violació de les regles del fòrum.
+post_err_edttimelimit_title:ERROR
 post_err_edttimelimit_msg:Ja no pot editar aquest missatge
 post_err_noannontopics_msg2:<legend>ERROR: Privilegis insuficients</legend>Els usuaris anònims no tenen permís per a crear fils.
 post_err_noannonposts_msg2:<legend>ERROR: Privilegis insuficients </legend>Els usuaris anònims no poden respondre.
 post_err_floodtrig_title:ERROR: el mecanisme contra publicació massiva està  activat.
-# Fuzzy
-post_err_floodtrig_msg:Si us plau, intenti-ho novament en {VAR: tm} segons
+post_err_floodtrig_msg:Si us plau provi una altra vegada en  {PLURAL: tm|   $1  second| $1  segons}
 post_err_attach_size:L`arxiu adjunt és massa gran (superior lí­mit permès de {VAR: MAX_F_SIZE} bytes)
 post_err_attach_ext:L`arxiu que està  tractant de pujar no es correspon amb un dels tipus d`arxius permesos.
 post_err_attach_filelimit:està  tractant de pujar més arxius dels permesos.
 post_err_passwd:La contrasenya no és correcta.
-# Fuzzy
-post_reply_update:Responent a <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> en {VAR-HTML: frm->name}
-# Fuzzy
-post_topic_update:Escrivint un nou fil a  <a href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a>
+post_reply_update:Responent a <a href="{TEMPLATE: msg_post_lnk}"> {VAR: thr->subject} </a> en{VAR: frm->name}
+post_topic_update:Nou tema en l'escriptura<a href="{TEMPLATE: post_topic_update_lnk}">{VAR: frm->name}</a>
 post_error_generic:Hi ha un error en l`enviament
 postcheck_max_images_err:Es permet un màxim de {GVAR: MAX_IMAGE_COUNT} imatges per missatge. Si us plau, redueix el nombre d`imatges
+postcheck_no_links_allowed:No podeu utilitzar enllaços fins que ha publicat més de  {PLURAL: posts_before_links|   $1  message| $1  missatges}.
 postcheck_subj_needed:Es necessita assumpte
 postcheck_no_such_user:No hi ha un usuari anomenat "{FUNC: char_fix(htmlspecialchars($v))}" en aquest fòrum
 postcheck_ignored:No pot enviar un missatge privat a "{FUNC: char_fix(htmlspecialchars($v))}", perquè aquest usuari l`està  ignorant.
@@ -617,8 +658,7 @@ register_err_passwdnomatch:Les seves contrasenyes no coincideixen.
 register_err_invalidemail:L`adreça de correu electrònic que ha especificat no sembla ser vàlida.
 register_err_needname:Per a completar aquest procés de registre, ha d`ingressar el seu nom.
 register_err_enterpasswd:Ha d`introduir la seva contrasenya actual per a completar els canvis
-# Fuzzy
-register_err_adminpasswd:Ha d`introduir la seva contrasenya d`ADMINISTRADOR per a completar els canvis
+register_err_adminpasswd:Heu d'introduir la contrasenya <b>d'administrador</b> per completar els canvis.
 register_err_notyouremail:Algú ja s`ha enregistrat amb aquest correu electrònic, i aquest algú NO ÉS VOSTÈ
 register_err_avatartobig:L`arxiu que està  tractant de pujar és massa gran, major que el lí­mit de {GVAR: CUSTOM_AVATAR_MAX_SIZE} bytes
 register_err_avatarnotallowed:L`avatar que està  tractant de pujar no està  permés. Revisi els tipus d`arxius permesos.
@@ -630,7 +670,9 @@ register_err_cantreg_title:ERROR: no es pot enregistrar
 regsiter_err_cantreg_msg:No es pot crear el compte d`usuari. Si us plau, posi`s en contacte amb l`administrador en <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:Veient el perfil propi
 register_register_update:Pàgina de registre
+report_err_nosuchmsg_title:ERROR
 report_err_nosuchmsg_msg:El missatge no existeix
+reset_err_invalidkey_title:ERROR
 reset_err_invalidkey_msg:La clau d`actualització de contrasenya no és vàlida
 reset_err_rstconf_title:Informació
 reset_err_rstconf_msg:Hauria de rebre instruccions al seu correu electrònic en els propers minuts
@@ -641,27 +683,23 @@ search_update:Buscant missatges
 selmsg_update:Recorreguent <a href="{TEMPLATE: selmsg_update_lnk}">missatges d`avui</a>
 showposts_update:Veient missatges de: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
 subscribed_update:Recorrent les subscripcions propies
-# Fuzzy
-thread_update:Recorrent fòrum <a href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a>
+bookmarked_update:Navegació llista d'adreces d'interès propi
+thread_update:Mirant Fòrum<a href="{TEMPLATE: thread_update_lnk}">{VAR: frm->name}</a>
 tree_update:Recorrent fil de discussió (vista en arbre) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
 userinfo_update:Veient el perfil de  <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}</a>
 ERR_login_msg2:<legend>ERROR: No ha iniciat sessió</legend>Per a accedir a aquesta pàgina ha de ser un membre d`aquest fòrum.
 ERR_disabled_ttl:Funció desactivada
-# Fuzzy
-ERR_disabled_msg:Aquesta funció ha estat desactivada per l`administrador del sistema
+ERR_disabled_msg:L'administrador del sistema ha inhabilitat aquesta característica.
 ERR_access_ttl:ERROR: Permisos insuficients
-# Fuzzy
-ERR_access_msg:No té els permisos necessaris per a realitzar aquesta acció
+ERR_access_msg:No teniu els permisos necessaris per dur a terme aquesta acció.
 ERR_registration_disabled_ttl:Registre desactivat
 ERR_registration_disabled_msg:L`administrador ha desactivat el registre. Si us plau, torni a intentar-ho més tard
 ERR_emailconf_ttl:ERROR: El seu compte encara no ha estat confirmat
-# Fuzzy
-ERR_emailconf_msg:Vostè encara no ha confirmat el seu compte per correu electrònic<br /><table border="0"><tr><td><ol><li>Si no ha rebut un correu de confirmació, <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">premi aquí­</a><li>Si {VAR: usr_d->email} no és la seva adreça de correu electrònic correcta <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">premi aquí</a></ol></td></tr></table>
+ERR_emailconf_msg:No han confirmat el seu compte de correu electrònic encara.<br><table border="0"><tr><td><ol><li>Si no ha rebut confirmació per correu electrònic, <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">demanar una altra vegada</a>.</li><li>Si  {VAR: usr_d->email}  no és l'adreça electrònica correcta, <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">Especifiqueu l'adreça correcta</a>.</li></ol></td></tr></table>
 ERR_user_ttl:ERROR: No existeix aquest usuari
 ERR_user_msg:No existeix aquell usuari
 ERR_systemerr_ttl:ERROR: Error de Sistema
-# Fuzzy
-ERR_systemerr_msg:S`ha produït un error de sistema, si us plau, informi d`això al <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a>.
+ERR_systemerr_msg:S'ha produït un error del sistema. Si us plau repórtelo al <a href="mailto:{GVAR: ADMIN_EMAIL}">servidor web</a>.
 email_title:Formulari de correu electrònic
 finduser_title:Trobar usuari
 help_title:Preguntes freqüents
@@ -674,8 +712,7 @@ error_title:Formulari d`error
 index_title:Benvingut al fòrum
 search_title:Cercar {VAR-HTML: srch}
 remail_emailsent:S`ha enviat el missatge de correu
-# Fuzzy
-remail_email:Hi ha una pàgina web a {GVAR: FORUM_TITLE} ( {TEMPLATE: index_update_lnk} ) que podria ser del seu interès.\nAquest és el fil de discussió que hem cregut que podria interessar-li, {VAR: data->subject} pot trobar-lo aquí­: {FULL_ROOT}{ROOT}?t=rview&th={VAR: data->id}&{DEF: _RSID}\nDe {VAR: usr->alias}
+remail_email:Hola\n\nHi ha un tema interessant sobre " {VAR: data->subject} " a {GVAR: FORUM_TITLE} fòrum que pot voler llegir. Vostè pot veure el tema a:\n {FULL_ROOT}{ARREL}? t = rview &amp; th = {VAR: data->id} &amp; lliurar = {DEF: _uid}\n\nEl seu amic\n\n{VAR: usr->alias}
 poll_add_option:Afegir opció:
 post_opt_html_on:El codi <b>HTML</b> està  <b>ACTIVAT</b>
 post_opt_fud_on:El <b><a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank">BBcode</b> està  <b>HABILITAT</a></b>
@@ -687,6 +724,7 @@ post_opt_images_off:Les <b>imatges</b> estan <b>DESACTIVADES</b>
 post_opt_smilies_off:Les <b>emoticones</b> estan <b>DESACTIVADES</b>
 post_opt:Opcions del fòrum:
 register_change_passwd:canviar contrasenya
+register_change_login:canviar l'inici de sessió
 approved_avatar_title:El seu avatar personalitzat ha estat aprovat.
 approved_avatar_msg:El seu avatar ha estat aprovat per l`administrador. A partir d`ara hauria d`aparèixer com el seu avatar en tots els seus missatges. Si no el veu, o veu el seu antic avatar, és perquè el seu navegador ha guardat la pàgina a la catxé. Provi a recarregar la pàgina un o dos cops, en la majoria dels casos això resol el problema.
 unapproved_avatar_title:El seu avatar personalitzat ha estat refusat.
@@ -702,16 +740,15 @@ thr_exch_decline:refusar fil de discussió
 thr_exch_orig_forum:Fòrum d`origen:
 thr_exch_dest_forum:Fòrum de destà­:
 thr_exch_no_threads:No hi ha fils de discussió esperant aprovació.
-# Fuzzy
-thr_exch_decl_reason:Raó per a refusar l`ingrés del fil de discussió <b>{VAR-HTML: frm->name}</b> al fòrum<b>{VAR-HTML: frm->name}</b>
+thr_exch_decl_reason:Raó de la disminució de tema <b> {VAR: data->subject} </b> en el fòrum<b>{VAR: data->f2_name}</b>
 thr_exch_submit:Tramet
-# Fuzzy
-exch_decline_ttl:Trasllat del fil de discussió {VAR: data->subject} al fòrum {VAR-HTML: data->f2_name} ha estat refusada.
+exch_decline_ttl:Movent-se de tema  {VAR: data->subject}  en fòrum de  {VAR: data->f2_name}  s'ha rebutjat.
 ppost_original_msg:missatge que està  reenviant o responent
 split_thread:Dividir el fil de discussió
 groupmgr_no_user:No existeix un usuari amb el nom "{FUNC: char_fix(htmlspecialchars($gr_member))}"
 groupmgr_already_exists:L`usuari "{FUNC: char_fix(htmlspecialchars($gr_member))}" ja existeix en aquest grup.
 groupmgr_yes:Sí­
+groupmgr_no:No
 groupmgr_action:Acció
 groupmgr_member:Membre
 groupmgr_cancel:Cancel.lar
@@ -750,6 +787,7 @@ rate_worst:Pitjor
 rate_best:Millor
 post_quote_msg:{VAR: msg->login} va escriure el {TEMPLATE: make_report_date}
 post_quote:Cita:
+post_quote_selected:Citar Text seleccionat
 userinfo_referals:Usuaris referits:
 userinfo_referals_count:{VAR: referals} Membres
 pm_no_space_title:No queda espai!
@@ -771,6 +809,7 @@ th_expr_two_month:2 mesos
 th_expr_four_month:4 mesos
 th_expr_one_year:1 any
 thread_mod_delete:Esorrar
+action_ip:IP
 action_latest_post:Últim missatge
 online_today_last_visit:Última visita
 online_today_update:Veient la llista de gent que ha estat en el fòrum avui.
@@ -792,15 +831,17 @@ split_th_split_unsel:Separar missatges no seleccionats
 split_th_messages:Missatges
 split_th_select:Seleccionar
 report_report_post:Informar de missatge
-# Fuzzy
-quicklogin_login:Usuari
+quicklogin_login:Inici de sessió:
 quicklogin_password:Contrasenya:
 quicklogin_use_cookies:Usar cookies?
-# Fuzzy
-quicklogin_login_btn:Iniciar sessió
+quicklogin_login_btn:Inici de sessió
+quick_reply:Resposta ràpida
+quick_reply_post:Publica la resposta ràpida
+quick_reply_preview:Vista prèvia resposta ràpida
 post_notification_desc:Notificar-me quan algú respongui a aquest missatge.
 post_all_ext_allowed:(sense restricció)
 maximize_category:Maximitzar categoria
+maximize_message:Maximitzar el missatge
 no_view_perm:No té permisos per a veure aquest fil de discussió.
 report_empty_report:No pot enviar un informe buit. Si us plau, introdueixi una raó per al seu informe.
 report_already_reported_title:Ja s`ha informat
@@ -811,16 +852,20 @@ pmsg_prev_msg:Missatge anterior
 post_proc_reveal_spoiler:Mostrar Spoiler
 register_jabber:Usuari Jabber:
 register_skype:Identificador Skype:
+register_twitter:Twitter maneta:
 register_google:Identificador Google Chat/IM:
 im_jabber:Jabber:
+im_google:Google Talk:
+im_skype:Skype:
+im_twitter:Twitter:
 forum_contact:Contacte
 forum_home:Principal
-# Fuzzy
-post_cur_attached:{VAR: i} arxiu(s) adjunt(s) actualment
+post_cur_attached:Actualment s'adjunta:  {VAR: i}   {PLURAL: i| fitxer | fitxers}
 ignored_anon_post:{GVAR: ANON_NICK} és ignorat
 ignored_user_post:El missatge de <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> és ignorat
 smladd_close_window:Tancar finestra
 post_list_smilies:llistar totes les emoticones
+p_VISIBLE:Visible
 reported_in_thread:A:
 help_back_to_top:Tornar a dalt
 help_return_to_index:Tornar a l`í­ndex d`ajuda
@@ -845,10 +890,15 @@ polllist_action:Acció
 polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">Revisant les enquestes disponibles</a>
 userinfo_polls:Enquestes:
 show_pollist:Mostrar enquestes
+search_and:I
+search_or:O
 search_desc_order:Ordre descendent
 search_asc_order:Ordre ascendent
 search_logic:Lògica de recerca:
 search_sorting:Ordenar resultats per data a:
+search_attach:Fitxers adjunts:
+search_attach_all:Amb o sense
+search_attach_with:Amb fitxers adjunts
 post_proceed:Procedir
 post_moderated_forum:Ha enviat un missatge a un fòrum moderat, la qual cosa vol dir que el seu missatge no serà visible en els fòrums fins que sigui aprovat per un dels moderadors o administradors del fòrum.
 post_moderated_forum_ttl:Notificació de fòrum moderat
@@ -861,8 +911,7 @@ read_message:Llegir missatge
 threadt_more:&lt;mes&gt;
 threadt_disabled_ttl:La vista en arbre dels fils de discussió ha estat desactivada.
 threadt_disabled_desc:L`administrador ha desactivat la vista en arbre del llistat de fils. Si us plau, usi la vista plana en el seu lloc.
-# Fuzzy
-threadt_update:Navegant pel fòrum (vista en arbre) <a href="{TEMPLATE: threadt_update_lnk}">{VAR-HTML: frm->name}</a>
+threadt_update:Mirant Fòrum (vista d'arbre)<a href="{TEMPLATE: threadt_update_lnk}">{VAR: frm->name}</a>
 mmod_delete_cofirm_ttl:Confirmar l`esborrat del fil o missatge
 spell_alts:no hi ha alternatives
 insert_uploaded_image:Inserir imatge en el cos del missatge
@@ -874,10 +923,8 @@ err_mod_acc_ttl:El compte no està  verificat
 err_mod_acc_msg:L`administrador ha escollit revisar tots els comptes manualment abans de la seva activació. Fins que l`administrador validi el compte, no podrà usar totes les possibilitats del seu compte.
 accounts_pending_approval:Comptes pendents d`aprovació
 saved:Guardats
-# Fuzzy
-register_err_time_limit:S`ha arribat al lí­mit d`un registre cada {GVAR: REG_TIME_LIMIT} segons. Si us plau, esperi {VAR: reg_limit_reached} segons i llavors torni a intentar el registre.
-# Fuzzy
-register_affero:Usuari Affero:<br /><font class="SmallText">Si té un usuari <a href="http://www.affero.com/ca/{VAR-URL: GLOBALS['FORUM_TITLE']}" target="_blank">Affero</a>, introdueixi`l aquí­.</font>
+register_err_time_limit:El límit d'una inscripció per {GVAR: REG_TIME_LIMIT} segons s'ha assolit. Si us plau esperi  {PLURAL: reg_limit_reached|   $1  second| $1  segons} i després tractar de registrar-se una vegada més.
+register_affero:Affero nom d'usuari:<br><span class="SmallText">Si vostè té un nom d'usuari <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">Affero</a> , introduïu aquí.</span>
 im_affero:Usuari Affero
 register_err_avatardimtobig:Les dimensions de l`avatar de <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> excedeixen les dimensions permeses de <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
 buddy_offline:{VAR: r[2]} no està  actualment en línia
@@ -909,8 +956,7 @@ group_resources:Aquest grup controla els permisos dels fòrums següents
 register_admin_newuser_title:S`ha enregistrat un usuari nou i el seu compte està  pendent de confirmació
 register_admin_newuser_msg:Un usuari nou, ({VAR: uent->login}), acaba d`enregistrar-se en els fòrums, i com està  activada la confirmació del compte, el seu compte no estarà actiu fins que Vostè o un altre administrador dels fòrums el confirmi. Per a revisar el compte, si us plau, vagi a: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nAquest és un procés automatizat, no respongui a aquest missatge.\nSi desitja desactivar futures notificacions de registre de nous usuaris, pot fer-ho usant el Panell de Control d`administració, canviant el valor de l`opció "Notificació de compte nou".
 post_mod_msg_notify_title:Un nou missatge en els fòrums amb l`assumpte "{VAR: frm->name}" està  pendent d`aprovació
-# Fuzzy
-post_mod_msg_notify_msg:Un nou missatge titulat "{VAR: msg_post->subject}" acaba de ser enviat a un fòrum que Vostè modera. Per a revisar aquest missatge vagi a: {FULL_ROOT}{ROOT}?t=modque\n\nAquest és un procés automàtic, així que no respongui a aquest missatge.
+post_mod_msg_notify_msg:Un nou missatge titulat " {VAR: msg_post->subject} " només va ser publicat en un fòrum que li moderar. Per revisar aquest missatge d'anar a: {FULL_ROOT} {arrel}? t = modque # {VAR: msg_post->id} \n\nAquest és un procés automatitzat. No respongui a aquest missatge.
 thread_printable_pdf:Generar PDF imprimible
 thread_syndicate:Llegir aquest forum amb lector un RSS (XML)
 reg_conf_title:Confirmació del registre
@@ -945,12 +991,14 @@ findu_ban:Expulsat
 findu_edit:Modificar
 findu_delete:Esborrar
 dmsg_reply_to:és una resposta a
+dmsg_reply_num:missatge #{VAR: obj->reply_to}
 merge_topics:Ajuntar fil
 merge_topics_cp:Panell per a unir fils de discussió
 merge_topics_tpl:Seleccioni els fils que s`uniran <font class="SmallText">(ha de seleccionar més d`un fil)</font>
 merge_merge:Unir els fils seleccionats
 merge_next:Fils següents
 merge_prev:Fil anterior
+merge_another:Anar a l' <a href="{TEMPLATE: merge_another_lnk}">últim tema es van fusionar</a> o combinar un altre:
 split_cp:Panell de control per a separar fils
 groups_perms_header:Permisos <font size="-1">(mogui el ratolÃ­ per sobre del permÃ­s per a veure el tipus de permÃ­s)</font>
 register_err_sig_too_long:La seva signatura supera el nombre màxim de caràcters permesos ({GVAR: FORUM_SIG_ML}) a la signatura.
@@ -959,6 +1007,7 @@ adm_account_accepted:El seu compte '{VAR: login}' ha estat aprovat per l`adminis
 adm_account_accepted_s:La seva sol.licitud per a un compte a '{GVAR: FORUM_TITLE}' ha estat acceptada.
 adm_account_rejected:El seu compte '{VAR: login}' ha estat refusat per l`administrador. Si desitja saber el motiu de la decisió, pot enviar un missatge a l`administrador a l`adreça '{GVAR: ADMIN_EMAIL}'.
 adm_account_rejected_s:La seva sol.licitud de compte a '{GVAR: FORUM_TITLE}' ha estat refusada.
+thread_on:el
 userinfo_buddy:Amic:
 register_email_addr:Correu electrònic
 reset_suffix:Si ha rebut aquest missatge per error, si us plau, ignori`l. Si està  rebent múltiples còpies d`aquest correu i no les ha sol.licitat, si us plau, posi`s en contacte amb l`administrador del fòrum a {GVAR: ADMIN_EMAIL}\n\nAquesta sol.licitud s`ha realitzat des de: {VAR: _SERVER['REMOTE_ADDR']}.
@@ -975,6 +1024,7 @@ ip_all_ips:Totes les IPs usades per '{VAR: user}'
 ip_title:Examinador d`IPs
 userinfo_real_name:Nom real:
 register_err_alias_notallowed:Aquest àlies no està  permès
+post_err_mod_forum_edit_ttl:ERROR
 post_err_mod_forum_edit_msg:No pot editar missatges en un fòrum moderat.
 dmsg_num:missatge nº{VAR: obj->id}
 postcheck_session_invalid:La seva sessió havia expirat. Si us plau, torni a enviar el formulari. Perdó per les molèsties.
@@ -995,8 +1045,7 @@ uc_sub_topics:Fils subscrits amb missatges nous
 uc_page_title:Veient el panell de control personal
 search_options:Opcions de recerca
 search_user_filter:Filtrar per usuari:
-# Fuzzy
-register_none:No notificar
+register_none:No m'avisis
 findu_no_conf:Usuari sense confirmar
 register_max_sig_len:Longitud màxima:
 register_turing:Si us plau, introdueixi el codi que es mostra a sota:
@@ -1011,18 +1060,21 @@ mmd_abort_move:Cancel.lar
 mmd_move:Moure fils
 pmsg_pdf_btn:Crear arxiu PDF
 search_results_hdr:S`han trobat {VAR: total} resultats per a la seva recerca
-# Fuzzy
-thread_del_all:Esborrar tots els seleccionats
-# Fuzzy
-thread_mov_all:Moure tots els seleccionats
+thread_del_all:Suprimeix els elements seleccionats
+thread_mov_all:Moure's seleccionats
+thread_merge_all:Fusionar seleccionats
+thread_loc_all:Pany/obrir els seleccionats
+dmsg_ip:IP:
 err_blockedaccnt_title:ERROR: el seu compte ha estat filtrat.
 err_blockedaccnt_msg:El seu compte ha estat bloquejat per un dels filtres d`usuaris instal.lats.
 merge_th_page_list:Seleccionar la pàgina del fil
 most_users_online:La major quantitat d`usuaris en línia fou <b>{VAR: st_obj->most_online}</b>, el <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
 sub_unsub_all_forums:Desubscriure de tots els fòrums
 sub_unsub_all_topics:Desubscriure de tots els fils
+unbookmark_all_topics:Suprimeix totes les adreces d'interès
 tabs_own_posts:Mostrar missatges propis
 sml_emoticon:Emoticona
+sml_code:Codi
 mnav_sub_only:Cercar solament en els fòrums subscrits
 register_topics_per_page:Fils per pàgina:
 login_min_time:Aquest fòrum permet un intent de login cada {VAR: MIN_TIME_BETWEEN_LOGIN} segons, si us plau, esperi {FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)} segons abans d`intentar-ho novament.
@@ -1034,12 +1086,61 @@ post_common_align_left:Aliniació esquerra
 post_common_align_center:Aliniació central
 post_common_align_right:Aliniació dreta
 post_common_link:Inserir un enllaç
+post_common_link_popup:Localització d'enllaç:
 post_common_email:Inserir una adreça de correu electrònic
+post_common_email_popup:Adreça de correu electrònic:
 post_common_image:Inserir una imatge
+post_common_image_popup:URL de la imatge:
 post_common_nlist:Afegir una llista enumerada
 post_common_blist:Afegir llista
 post_common_quote:Afegir cita
 post_common_code:Afegir codi
 rating_delete:Esborrar
 post_always_on_top:Fer que el fil sempre aparegui a dalt a la llista de fils
+topic_rating:{VAR: frm->rating}des de  {PLURAL: frm->n_rating|   $1  vote| $1  vots}
+topic_list_rating:{VAR: r[17]}des de  {PLURAL: r[21]|   $1  vote| $1  vots}
+tabs_notifications:Notificacions
+finduser_flag:Bandera
+post_descr:Tema descripció:
+pmsg_on:el
+pmsg_download_dump:Descarregar missatge d'abocador
+move_messages:Desplaça els missatges
+move_msg_btn:Desplaça els missatges seleccionats
+move_msg_th_expl:Especifiqueu l'IDENTIFICADOR del tema de destinació (pot ser en altres fòrums)
+captcha_img_alt:Verificació de captcha: cal reconèixer el text en aquesta imatge.
+captcha_img_help:No hi ha cap zero o en la imatge.
+powered-by:Powered by: 0.9 {GVAR: FORUM_VERSION}.
+copyright:Copyright © 2001-2011 <a href="http://fudforum.org/">0.9 butlletí Junta programari</a>
+code_title:Codi:
+code_select_all:Selecciona-ho tot
+code_show_hide:Mostra / Amaga
+social_sites:Llocs de xarxes socials:
+postcheck_min_len_err:El vostre missatge és massa curt. La longitud mínima és de  {PLURAL: post_min_len|   $1  character| $1  caràcters}.
+postcheck_dup_err:Si us plau, no crear temes duplicat.
+btn_new_topic:Tema nou
+btn_new_pm:Nova P.Message
+btn_post_reply:Publica la resposta
+btn_tree_view:Vista d'arbre
+btn_flat_view:Vista de la plana
+btn_about:Perfil
+btn_small_pm:PM
+btn_delete:eliminar
 btn_edit:modifica
+btn_reply:Resposta
+btn_forward:endavant
+btn_quote:pressupost
+btn_email:Correu electrònic
+btn_show_posts:Posts
+btn_homepage:www
+feed_no_data:No hi ha dades que s'ha trobat.
+feed_rdf:RDF de connexió
+feed_rss:RSS2 feed
+feed_atom:Menjar d'Àtom
+ip_whois_connect_err:No es pot connectar al servidor de WHOIS ( {VAR: whois_server} ):{VAR: errstr}
+custom_filed_required:Aquest camp és obligatori.
+pages:Pàgines
+page_list_heading:Pàgines disponibles
+page_list_total:{PLURAL: i|$1page| $1  pàgines} llistats.
+page_update:Pàgina de navegació
+pm_export_header:Missatges privats per a{VAR: usr->alias}
+pm_export_footer:Exportat:
