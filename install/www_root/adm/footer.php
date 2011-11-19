@@ -80,5 +80,6 @@ jQuery(function() {
 </td>
 </tr>
 </table>
+<?php if (defined('plugins')) plugin_call_hook('ACP_FOOTER'); ?>
 </body>
 </html>

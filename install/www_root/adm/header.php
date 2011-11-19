@@ -30,8 +30,8 @@
 	<link rel="styleSheet" href="style/adm.css" />
 	<script src="../js/jquery.js"></script>
 	<script src="../js/ui/jquery-ui.js"></script>
-	<script src="style/jquery.tablesorter.min.js"></script>
 	<script src="../js/lib.js"></script>
+	<script src="style/jquery.tablesorter.min.js"></script>
 </head>
 <?php
 
