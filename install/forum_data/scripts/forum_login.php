@@ -1,27 +1,33 @@
 <?php
 /* --------- CONFIG OPTIONS START (required) ----------- */
 $GLOBALS['PATH_TO_FUD_FORUM_GLOBALS_PHP'] = './GLOBALS.php';
-// This value is usually $DATA_DIR/include/theme/default/db.inc, if this is the case
-// leave the value empty.
+// This value is usually $DATA_DIR/include/theme/default/db.inc. If so, leave it empty.
 $GLOBALS['PATH_TO_FUD_FORUM_DB_INC'] = '';
 /* --------- CONFIG OPTIONS END (required) ----------- */
 
-/* The following function will take the forum's user id and log the user into the forum
-   On successful execution the return value will be the session id for the user.
-   Upon failure the return value will be NULL, this can only happen if invalid user id is specified.
-*/
+/**
+ * Lookup a user's userid from his login name.
+ */
+function external_get_user_from_login($login) {
+	__fud_login_common(1);
+	return q_singleval('SELECT id FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'users WHERE login='. _esc($login));
+}
+
+/**
+ * Autenticate/ lookup a user's userid from his login name and password.
+ */
 function external_get_user_by_auth($login, $passwd)
 {
 	__fud_login_common(1);
-
 	$r = db_sab('SELECT id, passwd, salt FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'users WHERE login='. _esc($login));
 	if ($r && (empty($r->salt) && $r->passwd == md5($passwd) || $r->passwd == sha1($r->salt . sha1($passwd)))) {
 		return $r->id;
 	}
 }
 
-/*
+/**
  * Log user in on the forum.
+ * On successful execution the return value will be the session id for the user.
  */
 function external_fud_login($user_id)
 {
@@ -40,20 +46,20 @@ function external_fud_login($user_id)
 	return $ses_id;
 }
 
-/*
- * Show what the user is busy doing in the forum's action list.
+/**
+ * Register what the user is busy doing in the forum's action list.
  */
 function external_fud_status($action='Busy somewhere outside of the forum')
 {
 	__fud_login_common(1);
-	$ses_id = $_COOKIE[$GLOBALS['COOKIE_NAME']];
-	if (!empty($ses_id)) {
+	if (!empty($_COOKIE[$GLOBALS['COOKIE_NAME']])) {
+		$ses_id = $_COOKIE[$GLOBALS['COOKIE_NAME']];
 		$sys_id = __ses_make_sysid(($GLOBALS['FUD_OPT_2'] & 256), ($GLOBALS['FUD_OPT_3'] & 16));
 		q('UPDATE '. $GLOBALS['DBHOST_TBL_PREFIX'] .'ses SET sys_id=\''. $sys_id .'\', time_sec='. __request_timestamp__ .', action='. _esc($action) .' WHERE ses_id=\''. $ses_id .'\'');
 	}
 }
 
-/*
+/**
  * Log user out of the forum.
  */
 function external_fud_logout($user_id)
@@ -68,9 +74,7 @@ function external_fud_logout($user_id)
 	setcookie($GLOBALS['COOKIE_NAME'], '', 0, $GLOBALS['COOKIE_PATH'], $GLOBALS['COOKIE_DOMAIN']);
 }
 
-/*
- * Default error handler, in case user doesn't spesified his/her own.
- */
+/* Default error handler, in case user doesn't spesified his/her own. */
 if (!function_exists('fud_sql_error_handler'))
 {
 	function fud_sql_error_handler($query, $error_string, $error_number, $server_version)
@@ -78,6 +82,8 @@ if (!function_exists('fud_sql_error_handler'))
 		exit('Query '. $query .' failed due to: '. $error_string);
 	}
 }
+
+/* Internal functions, do not modify. */
 
 function __fud_login_common($skip=0, $user_id=0)
 {
@@ -110,7 +116,6 @@ function __fud_login_common($skip=0, $user_id=0)
 	return 1;
 }
 
-/* Internal functions, do not modify. */
 function __ses_make_sysid($a, $b)
 {
 	if ($a) {
