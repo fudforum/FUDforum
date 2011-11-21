@@ -306,7 +306,7 @@
 	// Store current position.
 	$nntp->set_tracker_end($config->id, $i); // We use $i so we stop in the right place if limit is reached.
 
-	if (--$counter < $config->imp_limit) {
+	if ($config->imp_limit == 0 || --$counter < $config->imp_limit) {
 		echo "\nDone. Forum and Usenet Group are in sync.\n";
 	} else {
 		echo "\nImport limit of ". $config->imp_limit ." posts reached. There are more messages to load.\n";
