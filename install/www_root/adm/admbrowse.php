@@ -9,11 +9,13 @@
 * Free Software Foundation; version 2 of the License.
 **/
 
+/** Test if a bit is set. */
 function bit_test($val, $mask)
 {
 	return (($val & $mask) == $mask) ? $mask : 0;
 }
 
+/** Convert octal file perms into a "rwx" string. */
 function mode_string($mode, $de)
 {
 	/* Determine string mode 01234567890. */
@@ -234,8 +236,8 @@ if (!extension_loaded('posix')) {
 		<form method="post" action="admbrowse.php">
 		<?php echo _hs; ?>
 		<input type="hidden" name="chmod" value="1" />
-		<input type="hidden" name="cur" value="<?php echo $cur_dir; ?>" />
-		<input type="hidden" name="dest" value="<?php echo $dest; ?>" />
+		<input type="hidden" name="cur"   value="<?php echo $cur_dir; ?>" />
+		<input type="hidden" name="dest"  value="<?php echo $dest; ?>" />
 		<table border="0">
 		<tr><td>Group:</td><td>Read</td><td>Write</td><td>Execute</td></tr>
 		<tr><td>Owner:</td>
@@ -364,7 +366,12 @@ if (!extension_loaded('posix')) {
 			echo '</div>';
 			echo '<code><pre>';
 			if ($raw) {
-				highlight_file($file);
+				$code = highlight_file($file, true);
+				$code = explode("<br />", $code);
+				$i    = 1;
+				foreach ($code as $line => $syntax)
+					echo '<font color=\'black\'>'. $i++ .'</font> '. $syntax .'<br />';
+				// highlight_file($file);
 			} else {	
 				echo '<br />'. htmlentities(file_get_contents($file)) .'<br />&nbsp;';
 			}
@@ -379,11 +386,16 @@ if (!extension_loaded('posix')) {
 	/* Save file after edit. */
 	if (isset($_POST['edit_save'], $_POST['edit_content'])) {
 		$file = str_replace('\\', '/', $cur_dir .'/'. $dest);
-		if (file_put_contents($file, $_POST['edit_content'], LOCK_EX) === false) {
-			pf(errorify('Unable to save file!'));
+		if (!copy($file, $file .'.bak')) {
+		    pf(errorify('Unable to backup file to '. $dest .'.bak. File will not be saved!'));
 		} else {
-			pf(successify('File saved.'));
-			logaction(_uid, 'Edited file', 0, $file);	
+			pf(successify('File backed up to '. $dest .'.bak'));
+			if (file_put_contents($file, $_POST['edit_content'], LOCK_EX) === false) {
+				pf(errorify('Unable to save file!'));
+			} else {
+				pf(successify('File saved.'));
+				logaction(_uid, 'Edited file', 0, $file);	
+			}
 		}
 		$_GET['edit'] = 1; // Return to the edit screen.
 	}
