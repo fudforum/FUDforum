@@ -196,15 +196,15 @@ function color_quotes($body, $forum_opt)
 	$body = str_replace("\r\n", PHP_EOL, $body);	// Get rid of carriage returns on non-Windows systems.
 
 	if ($forum_opt & 16) {	// BBCode tag style.
-		$body = preg_replace('/^>>>> (.*)$/m', '[color=skyblue]>>>> \1[/color]',  $body);
-		$body = preg_replace('/^>>> (.*)$/m',  '[color=royalblue]>>> \1[/color]', $body);
-		$body = preg_replace('/^>> (.*)$/m',   '[color=teal]>> \1[/color]',       $body);
-		$body = preg_replace('/^> (.*)$/m',    '[color=blue]> \1[/color]',        $body);
+		$body = preg_replace('/^>\h*>\h*>\h*>(.*)$/m', '[color=skyblue]>>>> \1[/color]',  $body);
+		$body = preg_replace('/^>\h*>\h*>(.*)$/m',     '[color=royalblue]>>> \1[/color]', $body);
+		$body = preg_replace('/^>\h*>(.*)$/m',         '[color=teal]>> \1[/color]',       $body);
+		$body = preg_replace('/^>(.*)$/m',             '[color=blue]> \1[/color]',        $body);
 	} else if (!($forum_opt & 8)) {	// Tag style is not NONE (thus, HTML).
-		$body = preg_replace('/^>>>> (.*)$/m', '<font color="skyblue"> &gt;&gt;&gt;&gt; \1</font>', $body);
-		$body = preg_replace('/^>>> (.*)$/m',  '<font color="royalblue"> &gt;&gt;&gt; \1</font>',   $body);
-		$body = preg_replace('/^>> (.*)$/m',   '<font color="teal"> &gt;&gt; \1</font>',            $body);
-		$body = preg_replace('/^> (.*)$/m',    '<font color="blue"> &gt; \1</font>',                $body);
+		$body = preg_replace('/^>\h*>\h*>\h*>(.*)$/m', '<font color="skyblue"> &gt;&gt;&gt;&gt; \1</font>', $body);
+		$body = preg_replace('/^>\h*>\h*>(.*)$/m',     '<font color="royalblue"> &gt;&gt;&gt; \1</font>',   $body);
+		$body = preg_replace('/^>\h*>(.*)$/m',         '<font color="teal"> &gt;&gt; \1</font>',            $body);
+		$body = preg_replace('/^>(.*)$/m',             '<font color="blue"> &gt; \1</font>',                $body);
 	}
 
 	return $body;
