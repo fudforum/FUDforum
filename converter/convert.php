@@ -113,12 +113,25 @@ function bbcode2fudcode($str)
 }
 
 /** Format an IP address. */
-function decode_ip($int_ip)
+function decode_ip($ip)
 {
-	if ($int_ip == '00000000') {
+	if (filter_var($ip, FILTER_VALIDATE_IP)) {
+		// We have a valid IPv4 or IPv6 address, return it.
+		return $ip;
+	}
+
+	if (strlen($ip) == 8) {
+		// Convert hex IPv4 address to dotted IP form (mainly used in phpBB).
+		// For example: 7f000000 -> 127.0.0.1
+		$ip = hexdec(substr($ip, 0, 2)) .'.'. hexdec(substr($ip, 2, 2)) .'.'. hexdec(substr($ip, 4, 2)) .'.'. hexdec(substr($ip, 6, 2));
+		return $ip;
+	}
+
+	// Assume a numeric (long) encoded IP addreess.
+	if ($ip == '00000000') {
 		return '127.0.0.1';
 	} else {
-		return long2ip("0x{$int_ip}");
+		return long2ip("0x{$ip}");
 	}
 }
 
