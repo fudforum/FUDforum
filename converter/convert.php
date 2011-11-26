@@ -127,8 +127,8 @@ function decode_ip($ip)
 		return $ip;
 	}
 
-	if (is_numeric($message['ip_addr'])) {
-		// Convert a numeric (long) encoded IP addreess.
+	if (is_numeric($ip)) {
+		// Convert a numeric (long) encoded IP address.
 		return long2ip("0x{$ip}");
 	}
 
