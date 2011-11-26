@@ -127,12 +127,12 @@ function decode_ip($ip)
 		return $ip;
 	}
 
-	// Assume a numeric (long) encoded IP addreess.
-	if ($ip == '00000000') {
-		return '127.0.0.1';
-	} else {
+	if (is_numeric($message['ip_addr'])) {
+		// Convert a numeric (long) encoded IP addreess.
 		return long2ip("0x{$ip}");
 	}
+
+	return '127.0.0.1';
 }
 
 /** Include a configuration file and expose its vars as GLOBALS. */
@@ -451,10 +451,6 @@ function target_add_message($message)
 		$message['poster_id'] = $GLOBALS['hack_id'];
 	}
 
-	if (is_numeric($message['ip_addr'])) {
-		$message['ip_addr'] = decode_ip($message['ip_addr']);
-	}
-
 	q('INSERT INTO '. $GLOBALS['DBHOST_TBL_PREFIX'] .'msg
 		(id, thread_id, poster_id, post_stamp, update_stamp, updated_by, subject,
 		 ip_addr, foff, length, file_id, msg_opt, apr
@@ -466,7 +462,7 @@ function target_add_message($message)
 		'. (int)$message['update_stamp'] .',
 		'. (int)$message['updated_by'] .',
 		'. _esc($message['subject']) .',
-		'. _esc($message['ip_addr']) .',
+		'. decode_ip($message['ip_addr']) .',
 		'. $off .',
 		'. $len .',
 		'. $file_id .',
