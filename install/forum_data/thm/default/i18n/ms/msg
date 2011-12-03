@@ -28,7 +28,7 @@ email_user:Hantarkan surat e-mel kepada pengguna
 faq:Bantuan
 first_unread_msg:Pergi ke pesanan yang belum dibaca
 first_unread_msg_desc:Pergi ke pesanan belum dibaca yang pertama dalam topik ini
-flat_view:Kembali ke paparan leper sediakala
+flat_view:Kembali ke paparan leper asali
 forum:Forum:
 forum_icon:Ikon Forum
 forum_new_messages:Pesanan baru
@@ -279,7 +279,7 @@ register_tree_view:Senarai pesanan dan topik secara Paparan Pepohon
 register_msg_tree_view:Senarai topik Leper/Senarai pesanan Pepohon
 register_tree_msg_view:Senarai topik Pepohon/Senarai pesanan Leper
 register_flat_view:Senarai pesanan dan topik secara Paparan Leper
-use_forum_default:Gunakan tetapan forum yang sediakala
+use_forum_default:Gunakan tetapan forum asali
 finduser_user_info:Maklumat Pengguna
 finduser_by_login:Mengikut Log Masuk:
 finduser_submit:Cari
@@ -341,7 +341,7 @@ register_prefs:Keutamaan
 register_sig:Tandatangan:
 register_sig_desc:Tandatangan tak wajib yang akan muncul di bawah sekali pesanan anda.
 register_reset:Set semula
-register_def_thread_view:Pandangan Topik Tersedia:
+register_def_thread_view:Paparan Topik Asali:
 register_msg_per_page:Pesanan Per Halaman:
 register_show_sig:Tunjukkan Tandatangan:
 register_show_sig_desc:Membolehkan anda menyorokkan/memaparkan tandatangan ahli-ahli forum yang lain.
@@ -354,7 +354,7 @@ register_invisible_mode_desc:Menyorokkan status dalam talian anda.
 register_show_email:Tunjukkan Alamat E-mel:
 register_show_email_desc:Pilih opsyen ini jika anda ingin menunjukkan alamat e-mel anda kepada umum.
 register_notification:Sentiasa Sediakan Pemberitahuan:
-register_notification_desc:Jika pemberitahuan dihidupkan secara tersedia, ia boleh dimatikan ketika mengepos.
+register_notification_desc:Jika pemberitahuan dihidupkan secara asali, ia boleh dimatikan ketika mengepos.
 register_notify_method:Pilih Kaedah Pemberitahuan:
 register_notify_method_desc:Tetapkan kaedah pemberitahuan yang anda gemari atau matikan sahaja pemberitahuan (misalnya, apabila anda pergi bercuti).
 register_allow_email_msg:Benarkan Pesanan E-mel:

@@ -1,14 +1,14 @@
 # Messages for Hungarian (Magyar)
 # Exported from translatewiki.net
 # Author: Dani
+# Author: Dj
 # Author: Glanthor Reviol
 # Author: Naudefj
 
 action:Művelet
 add_to_buddy_list:hozzáadás a barátok listájához
 admin:Adminisztrátor
-# Fuzzy
-admin_control_panel:Adminisztrátori vezérlőpult
+admin_control_panel:Admininsztrálás
 administrator:Adminisztrátor
 attachment:Csatolmány:
 avatar:Avatár:
@@ -66,15 +66,16 @@ logged_in_list:Bejelentkezett felhasználók listája
 login:Bejelentkezés
 login_header:Bejelentkezés:
 logout:Kijelentkezés
-# Fuzzy
-mark_all_read:az összes üzenet olvasottnak jelölése
+mark_all_read:Az összes üzenet olvasottnak jelölése
 mark_all_read_desc:Az összes olvasatlan üzeneted olvasottnak lesz jelölve
 members:Tagok
 calendar:Naptár
 cal_goto_date:Ugrás dátumra:
 cal_day_heading:A nap eseményei
 cal_no_events:Nincsenek események ezen a napon.
+cal_update:Főrum naptál böngészése
 cal_birthday:Születésnap: {VAR: user}
+cal_birthday_age:({PLURAL: age|$1 éves|$1 éves}).
 message:Üzenet
 message_counter:Felhasználóink összesen <b>{PLURAL: post_count|egy|$1} üzenetet</b> írtak, <b>{PLURAL: thread_count|egy|$1} témában</b>.
 message_index:Üzenetlista
@@ -98,8 +99,7 @@ new_thread:Új téma létrehozása
 newest_user:A legújabb regisztrált felhasználó:
 next_page:Következő oldal
 next_thread:Következő téma:
-# Fuzzy
-no_messages:Ebben a fórumban nincsenek üzenetek.
+no_messages:Ebben a fórumban nincsenek üzenetek.<br />Legyél Te az első, aki üzenetet küld a fórumra.
 no_msg_body:Az üzenetnek nincs szövege
 no_new_posts:Nincsenek új üzenetek
 no_posts:Nincsenek üzenetek
@@ -114,8 +114,7 @@ num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|szavazat|szavazat}
 occupation:Foglalkozás:
 off:kikapcsolva
 on:bekapcsolva
-# Fuzzy
-page_timings:Az oldal elkészítése {VAR: page_gen_time} másodpercet vett igénybe.
+page_timings:A lap létrehozásához szükséges idő összesen:  {PLURAL: page_gen_time|   $1  másodperc}
 pm:Privát üzenetek
 poll:Szavazás:
 post_count:Üzenetek száma {VAR: u_pcount}
@@ -428,6 +427,7 @@ coppa:<p>Egy szülőnek vagy gondviselőnek el kell küldenie e-mailben vagy fax
 prereg_info:A fórum szabályai
 prereg_agree:Elfogadom
 prereg_disagree:Nem fogadom el
+prereg_update:Fórum szabályok elolvasása
 coppa_fax_instructions:Utasítások szülők vagy gondviselők számára
 coppa_fax_instructions2:Nyomtasd ki a lapot, írd alá, és faxold el ide:
 coppa_fax_reg_form:Regisztrációs űrlap
@@ -470,6 +470,9 @@ rpasswd_cur_pass:Jelenlegi jelszó:
 rpasswd_new_pass:Új jelszó:
 rpasswd_conf_pass:Új jelszó megerősítése:
 ruser_title:Bejelentkezési adatok megváltoztatása űrlap
+ruser_change_user:A fórum bejelentkezés módosítása
+ruser_cur_login:Aktuális bejelentkezés:
+ruser_new_login:Új bejelentkezés:
 ruser_cur_pass:Aktuális jelszó:
 login_passwd:Jelszó:
 reset_email:E-mail:
@@ -717,6 +720,7 @@ post_opt_images_off:<b>Képek</b> <b>letiltva</b>
 post_opt_smilies_off:<b>Hangulatjelek</b> <b>letiltva</b>
 post_opt:Fórumbeállítások:
 register_change_passwd:jelszó módosítása
+register_change_login:bejelentkezés módosítása
 approved_avatar_title:Az egyedi avatarod el lett fogadva.
 approved_avatar_msg:Az avatarodat elfogadta egy adminisztrátor. Ezután az avatar meg fog jelenni az összes üzeneted mellett. Ha nem látod, vagy a régi avatarodat látod, azért van, mert a böngésződ gyorsítótárazta a lapot. Próbáld frissíteni a lapot egyszer vagy kétszer. Ez legtöbbször megoldja a gyorsítótárazási problémát.
 unapproved_avatar_title:Az egyedi avatarod vissza lett utasítva.
@@ -889,6 +893,7 @@ search_asc_order:Növekvő sorrend
 search_logic:Összekötő logika:
 search_sorting:Eredmények rendezése dátum szerint:
 search_attach:Csatolmányok:
+search_attach_all:Vele vagy nélküle
 search_attach_with:Csatolmányokkal
 post_proceed:Folytatás
 post_moderated_forum:Hozzászólást írtál egy moderált fórumba. A hozzászólásod nem lesz látható, míg el nem fogadja a fórum egyik moderátora vagy adminisztrátora.
@@ -1036,7 +1041,6 @@ uc_sub_topics:Feliratkozott témák új üzenetekkel
 uc_page_title:Saját felhasználói vezérlőpult megtekintése.
 search_options:Keresési beállítások
 search_user_filter:Szűrés felhasználó alapján:
-# Fuzzy
 register_none:Nem kérek értesítést
 findu_no_conf:nem megerősített felhasználó
 register_max_sig_len:Maximális hossz:
@@ -1052,14 +1056,10 @@ mmd_abort_move:Mégse
 mmd_move:Témák áthelyezése
 pmsg_pdf_btn:PDF-archícvum készítése
 search_results_hdr:Összesen {VAR: total} találat van
-# Fuzzy
-thread_del_all:Az összes kiválasztott törlése
-# Fuzzy
-thread_mov_all:Az összes kiválasztott áthelyezése
-# Fuzzy
-thread_merge_all:Minden kijelölt összevonása
-# Fuzzy
-thread_loc_all:Az összes kiválasztott lezárása/feloldása
+thread_del_all:Kiválasztottak törlése
+thread_mov_all:Kiválasztottak áthelyezése
+thread_merge_all:Kijelöltek összevonása
+thread_loc_all:Kiválasztottak lezárása/feloldása
 dmsg_ip:IP-cím:
 err_blockedaccnt_title:HIBA: a fiókod ki lett szűrve.
 err_blockedaccnt_msg:A fiókod blokkolva van a fórumhoz való hozzáféréstől a telepített szűrők egyike miatt.
@@ -1134,5 +1134,9 @@ feed_rss:RSS2-hírcsatorna
 feed_atom:ATOM-hírcsatorna
 ip_whois_connect_err:Nem sikerült csatlakozni a WHOIS szerverhez ({VAR: whois_server}): {VAR: errstr}
 custom_filed_required:A mezőt kötelező kitölteni
+pages:Oldalak
 page_list_heading:Elérhető lapok
 page_list_total:{PLURAL: i|Egy|$1} lap van listázva.
+page_update:Oldal böngészése
+pm_export_header:Magánjellegű üzenetek {VAR: usr->alias} részére
+pm_export_footer:Exportált:

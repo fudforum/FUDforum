@@ -41,7 +41,7 @@ gender:Geslacht:
 go:OK
 goto_next_msg:Naar volgende bericht
 goto_prev_msg:Naar vorige bericht
-home:Home
+home:Hoofdmenu
 homepage:Startpagina:
 icq_control_panel:ICQ online-berichtenvenster
 icq_message_form:ICQ berichtenformulier:
@@ -855,7 +855,7 @@ im_google:Google Talk:
 im_skype:Skype:
 im_twitter:Twitter:
 forum_contact:Contact
-forum_home:Home
+forum_home:Hoofdmenu
 post_cur_attached:{PLURAL: i|Bijgevoegd bestand|Aantal bijgevoegde bestanden}: {VAR: i}
 ignored_anon_post:{GVAR: ANON_NICK} wordt genegeerd
 ignored_user_post:Het bericht van <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> wordt genegeerd
@@ -1133,7 +1133,7 @@ feed_rdf:RDF-feed
 feed_rss:RSS2-feed
 feed_atom:Atom-feed
 ip_whois_connect_err:Het was niet mogelijk verbinding te maken met de WHOIS-server ({VAR: whois_server}): {VAR: errstr}
-custom_filed_required:Dit veld is verplicht.
+custom_filed_required:Dit is een verplicht veld.
 pages:Pagina's
 page_list_heading:Beschikbare pagina's
 page_list_total:{PLURAL: i|$1 weergegeven pagina|$1 weergegeven pagina's}.

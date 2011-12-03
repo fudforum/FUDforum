@@ -10,6 +10,7 @@
 # Author: Peter17
 # Author: Translationista
 # Author: VegaDark
+# Author: Vivaelcelta
 
 action:Acción
 add_to_buddy_list:agregar a la lista de amigos
@@ -861,7 +862,7 @@ im_google:Google Talk:
 im_skype:Skype:
 im_twitter:Twitter:
 forum_contact:Contacto
-forum_home:Principal
+forum_home:Inicio
 post_cur_attached:actualmente adjuntos: {VAR: i} {PLURAL: i|archivo|archivos}
 ignored_anon_post:{GVAR: ANON_NICK} es ignorado
 ignored_user_post:El mensaje de <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> es ignorado

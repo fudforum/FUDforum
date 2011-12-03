@@ -556,7 +556,7 @@ poll_year:година
 poll_week:недела
 tabs_register:Нагодувања
 tabs_subscriptions:Претплати
-tabs_bookmarkes:Одбележани
+tabs_bookmarkes:Обележани
 tabs_referrals:Поканети
 tabs_buddy_list:Список на пријатели
 tabs_ignore_list:Список на игнорирани
@@ -803,7 +803,7 @@ th_expr_two_month:2 Месеца
 th_expr_four_month:4 Месеци
 th_expr_one_year:1 Година
 thread_mod_delete:Избриши
-action_ip:IP
+action_ip:IP-адреса
 action_latest_post:Последна порака
 online_today_last_visit:Последна посета
 online_today_update:Го разгледува списокот на денешните посетители на форумот.
