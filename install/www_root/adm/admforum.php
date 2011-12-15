@@ -124,7 +124,7 @@ function get_max_upload_size()
 	if (isset($_GET['o'], $_GET['ot'])) {
 		if (in_array($_GET['ot'], array('name', 'descr', 'date_created'))) {
 			$i = 0;
-			$r = q('SELECT id FROM '. $tbl .'forum WHERE cat_id='. $cat_id .' ORDER BY '. $_GET['ot'] . ((int)$_GET['o'] ? 'ASC' : 'DESC'));
+			$r = q('SELECT id FROM '. $tbl .'forum WHERE cat_id='. $cat_id .' ORDER BY '. $_GET['ot'] . ((int)$_GET['o'] ? ' ASC' : ' DESC'));
 			while ($o = db_rowarr($r)) {
 				q('UPDATE '. $tbl .'forum SET view_order='. ++$i .' WHERE id='. $o[0]);
 			}
