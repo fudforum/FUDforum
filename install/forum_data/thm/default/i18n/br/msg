@@ -441,7 +441,7 @@ coppa_fax_telephone:Pellgomz :
 coppa_fax_email:Chomlec'h postel :
 coppa_fax_date:Deiziad :
 coppa_fax_questions:Kit e darempred gant <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>, m'ho pez goulenn pe c'houlenn
-coppa_fax_login:Anv implijer
+coppa_fax_login:Kevreañ
 coppa_fax_passwd:Ger-tremen
 coppa_fax_remail:Chomlec'h postel
 coppa_fax_name:Anv

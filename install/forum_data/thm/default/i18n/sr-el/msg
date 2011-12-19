@@ -350,7 +350,7 @@ register_use_sig_default_desc:Kačenje potpisa na svaku poruku.
 register_timezone:Vremenska zona:
 register_ignore_admin:Zanemariti administrativne poruke:
 register_invisible_mode:Nevidljivi režim:
-register_invisible_mode_desc:Sakriva vaš mrežni status.
+register_invisible_mode_desc:Sakriva da li ste na mreži.
 register_show_email:Prikazati e-adresu:
 register_show_email_desc:Izaberite ovu opciju ako želite da vaša e-adresa bude dostupna svima.
 register_notification:Izabrati obaveštenje po podrazumevanom:

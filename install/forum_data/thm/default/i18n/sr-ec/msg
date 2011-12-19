@@ -60,7 +60,7 @@ location:Место:
 lock_thread:Закључај тему
 locked:Закључано
 locked_with_new_posts:Закључано (с непрочитаним порукама)
-logged_in_list:Списак пријављених чланова
+logged_in_list:Списак пријављених корисника
 login:Пријава
 login_header:Корисничко име:
 logout:Одјави ме
@@ -350,7 +350,7 @@ register_use_sig_default_desc:Качење потписа на сваку пор
 register_timezone:Временска зона:
 register_ignore_admin:Занемарити административне поруке:
 register_invisible_mode:Невидљиви режим:
-register_invisible_mode_desc:Сакрива ваш мрежни статус.
+register_invisible_mode_desc:Сакрива да ли сте на мрежи.
 register_show_email:Приказати е-адресу:
 register_show_email_desc:Изаберите ову опцију ако желите да ваша е-адреса буде доступна свима.
 register_notification:Изабрати обавештење по подразумеваном:
@@ -377,7 +377,7 @@ submit_reply:Пошаљи одговор
 edit_message:Сачувај
 apply_spell_changes:Примени правописне измене
 post_preview:Преглед поруке
-post_logedin_user:Пријављен члан:
+post_logedin_user:Пријављени корисник:
 post_logout:одјави ме
 post_passwd:Лозинка за постављање порука:
 post_poll:Анкета:
@@ -803,7 +803,7 @@ th_expr_two_month:два месеца
 th_expr_four_month:четири месеца
 th_expr_one_year:годину дана
 thread_mod_delete:Обриши
-action_ip:IP
+action_ip:ИП адреса
 action_latest_post:Последња порука
 online_today_last_visit:Последња посета
 online_today_update:Преглед списка корисника који су данас посетили форум.
