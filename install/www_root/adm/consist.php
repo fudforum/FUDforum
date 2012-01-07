@@ -822,6 +822,19 @@ While it is running, your forum will be disabled!
 	}
 	draw_stat('Done: Validating symlinks to GLOBALS.php');
 
+	// Call plugins with XXX_check() functions!
+	$c = q('SELECT name FROM '. $tbl .'plugins');	// Get all enabled.
+	while ($r = db_rowarr($c)) {
+		$func_base = substr($r[0], 0, strrpos($r[0], '.'));
+		echo "Het plugin ". $func_base ."<br />";
+		$check_func = $func_base .'_check';
+		if (function_exists($check_func)) {
+			list($ok, $err) = $check_func();
+			if ($ok)  echo successify($r[0] .': '. $ok);
+			if ($err) echo errorify(  $r[0] .': '. $err);
+		}
+	}
+
 	if ($FUD_OPT_1 & 1 || isset($_GET['enable_forum'])) {
 		draw_stat('Re-enabling the forum.');
 		maintenance_status($DISABLED_REASON, 0);

@@ -303,8 +303,8 @@ function undeploy_files($plugin)
 		echo '<tr id="order_'. $r->id .'"'. $bgcolor .' title="'. htmlspecialchars($r->name) .'">
 		      <td><span class="ui-icon ui-icon-arrowthick-2-n-s"></span><a href="admplugins.php?config='. urlencode($r->name) .'&amp;'. __adm_rsid .'" title="Configure plugin">'. $info[$r->name]['name'] .'</a></td>
 			  <td>'. $info[$r->name]['version'] .'</td>
-			  <td>'. $info[$r->name]['cat'] .'</td>
-			  <td>'. $info[$r->name]['desc'] .'</td>
+			  <td>'. $info[$r->name]['cat']     .'</td>
+			  <td>'. $info[$r->name]['desc']    .'</td>
 			  <td><a href="admplugins.php?deact='. $r->name .'&amp;'. __adm_rsid .'">Deactivate</a></td></tr>';
 	}
 	unset($c);
