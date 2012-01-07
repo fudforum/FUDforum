@@ -239,7 +239,7 @@ function source_load_polls() {
 				'name'  => $r2->vote_option_text
 			);
 			$qid = target_add_poll_question($question);
-			// phpBB2 doen't track who voted for what option, so votes aren't imported.
+			// phpBB2 doesn't track who voted for what option, so votes aren't imported.
 		}
 	}
 }
