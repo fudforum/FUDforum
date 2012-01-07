@@ -52,7 +52,7 @@ function welcome_pm_config() {
 	if((@include $GLOBALS['PLUGIN_PATH'] .'welcome_pm.ini') === false) {
 	  $ini = NULL;
 	}
-		
+
 	if (isset($_POST['Set'])) {
 		foreach (array_keys($_POST) as $key) {
 			if (substr($key,0,8) == 'WELCOME_') {

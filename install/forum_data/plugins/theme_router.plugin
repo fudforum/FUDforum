@@ -56,7 +56,11 @@ function _plugin_theme_router_selection($array) {
 <form method="GET" action="'. $GLOBALS['WWW_ROOT'] .'">
 <select name="theme" id="theme">';
 	foreach($themes as $lang => $theme) {
-		$select .= '<option value="'. $theme .'">'. str_replace('_', ' ', $theme) .'</option>';
+		if ($theme == $GLOBALS['__COMPILER__']['tname']) {
+			$select .= '<option value="'. $theme .'" selected="selected">'. str_replace('_', ' ', $theme) .'</option>';
+		} else {
+			$select .= '<option value="'. $theme .'">'. str_replace('_', ' ', $theme) .'</option>';
+		}
 	}
 	$select .= '</select>&nbsp;<input name="submit" type="submit" value="Switch Theme" /></form></div>';
 

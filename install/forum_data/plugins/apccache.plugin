@@ -43,4 +43,12 @@ function apccache_enable() {
 	return;	// Good to go.
 }
 
+function apccache_check() {
+	// if (!extension_loaded('xcache')) {
+	if (!extension_loaded('APC')) {
+		return array(null, 'You PHP installation doesn\'t support APC. Please install APC or disable the apccache.plugin.');	// OK, Err.
+	}
+	return;	// Good to go.
+}
+
 ?>
