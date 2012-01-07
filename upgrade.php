@@ -1,6 +1,6 @@
 <?php
 /***************************************************************************
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -10,7 +10,7 @@
 ***************************************************************************/
 //TODO: Do we still need extract_archive()???
 
-$__UPGRADE_SCRIPT_VERSION = 5303.4;
+$__UPGRADE_SCRIPT_VERSION = 5304.0;
 
 /*
   * SQL Upgrade Functions - format is tablename_colname():
@@ -81,7 +81,7 @@ function pf($msg='', $webonly=false)
 		if ($webonly) return;
 		echo strip_tags($msg) ."\n";
 	} else {
-		echo $msg . (stripos($msg, '<h2>') ? '' : '<br />');
+		echo $msg . (stripos($msg, '<h2>')!==FALSE ? '' : '<br />');
 		@ob_flush(); flush();
 	}
 }
@@ -113,11 +113,12 @@ function fud_sql_error_handler($query, $error_string, $error_number, $server_ver
 	throw new Exception($error_number .': '. $error_string .' @ '. $query);
 }
 
+/** Find the CVS or SVN ID property. This is used to check if a file was changed.
+  * Should eventually be moved to include/file_adm.inc.
+  */
 function fetch_cvs_id($data)
 {
-	/* Find the CVS or SVN ID property. This is used to check if a file was changed.
-	 * SVN format: $Id$
-	 */
+	// SVN format: $Id$
 	if (($s = strpos($data, '$Id: ')) === false) {
 		return;
 	}
@@ -128,12 +129,18 @@ function fetch_cvs_id($data)
 	return substr($data, $s, ($e - $s));
 }
 
+/** Backup a forum file before replacing it.
+  * Should eventually be moved to include/file_adm.inc.
+  */
 function backup_file($source, $theme='')
 {
 	$theme .= md5($source);
 	copy($source, $GLOBALS['ERROR_PATH'] .'.backup/'. basename($source) .'_'. $theme .'_'. __time__);
 }
 
+/** Recursively create a given directory.
+  * Should eventually be replaced with fud_mkdir in include/file_adm.inc.
+  */
 function __mkdir($dir)
 {
 	$perm = (($GLOBALS['FUD_OPT_2'] & 8388608) && !strncmp(PHP_SAPI, 'apache', 6)) ? 0711 : 0777;
@@ -146,6 +153,34 @@ function __mkdir($dir)
 	$ret = (mkdir($dir, $perm) || mkdir(dirname($dir), $perm));
 
 	return $ret;
+}
+
+/** Recursively delete a given directory.
+  * Copied from include/file_adm.inc. We cannot currently include it as file_adm.inc was introduced after 3.0.0 can only be included at the end of the upgrade script.
+  */
+function __rmdir($dir, $deleteRootToo=false)
+{
+	if(!$dh = @opendir($dir)) {
+		return;
+	}
+	while (false !== ($obj = readdir($dh))) {
+		if($obj == '.' || $obj == '..') {
+			continue;
+		}
+		$file = $dir .'/'. $obj;
+		if (is_dir($file) && !is_link($file)) {
+			__rmdir($file, true);
+		} else if (!unlink($file)) {
+			return false;
+		}
+	}
+	closedir($dh);
+
+	if ($deleteRootToo) {
+		@rmdir($dir);
+	}
+
+	return true;
 }
 
 function htaccess_handler($web_root, $ht_pass)
@@ -306,7 +341,6 @@ function cache_avatar_image($url, $user_id)
 	return '<img src="'. $GLOBALS['WWW_ROOT'] .'images/custom_avatars/'. $user_id .'.'. $ext[$img_info[2]] .'" '. $img_info[3] .' />';
 }
 
-/* Remove in future version - users should upgrade custom themes manually.
 function syncronize_theme_dir($theme, $dir, $src_thm)
 {
 	$path = $GLOBALS['DATA_DIR'] .'thm/'. $theme .'/'. $dir;
@@ -348,24 +382,21 @@ function syncronize_theme_dir($theme, $dir, $src_thm)
 	}
 	closedir($d);
 }
-*/
 
-/* Remove in future version - users must upgrade custom themes manually. 
 function syncronize_theme($theme)
 {
 	$t = array('default');
 
-	if ($theme == 'path_info' || @file_exists($GLOBALS['DATA_DIR'].'thm/'.$theme.'/.path_info')) {
+	if ($theme == 'path_info' || @file_exists($GLOBALS['DATA_DIR'] .'thm/'. $theme .'/.path_info')) {
 		$t[] = 'path_info';
 	}
 
 	foreach ($t as $src_thm) {
-		syncronize_theme_dir($theme, 'tmpl', $src_thm);
-		syncronize_theme_dir($theme, 'i18n', $src_thm);
+		syncronize_theme_dir($theme, 'tmpl',   $src_thm);
+		syncronize_theme_dir($theme, 'i18n',   $src_thm);
 		syncronize_theme_dir($theme, 'images', $src_thm);
 	}
 }
-*/
 
 function extract_archive($memory_limit)
 {
@@ -551,6 +582,11 @@ function extract_archive($memory_limit)
 <?php
 	}
 
+	// Check if we have a forum_archive.
+	if (!file_exists('./fudforum_archive')) {
+		seterr('The upgrade script requires a "fudforum_archive" file to run. Please download it again and retry.');
+	}
+
 	// PHP version check.
 	if (!version_compare(PHP_VERSION, '5.2.3', '>=')) {
 		seterr('The upgrade script requires that you have PHP version 5.2.3 or higher.');
@@ -598,7 +634,7 @@ function extract_archive($memory_limit)
 	/* Include appropriate database functions. */
 	$dbinc = $GLOBALS['DATA_DIR'] .'sql/'. $GLOBALS['DBHOST_DBTYPE'] .'/db.inc';
 	if (!file_exists($dbinc)) {
-		seterr('Unable to load database driver: '. $GLOBALS['DBHOST_DBTYPE'] .'.');
+		seterr('Unable to load database driver: '. $dbinc);
 	}
 
 	// Here's a good hack for ya!
@@ -625,12 +661,12 @@ function extract_archive($memory_limit)
 	/* Only allow the admin user to upgrade the forum. */
 	$auth = 0;
 	if (php_sapi_name() == 'cli' && (!empty($_SERVER['argv'][1]) || !empty($_SERVER['argv'][2]))) {
-		$_POST['login'] = $_SERVER['argv'][1];
+		$_POST['login']  = $_SERVER['argv'][1];
 		$_POST['passwd'] = $_SERVER['argv'][2];
 	}
 	if (count($_POST)) {
 		if (get_magic_quotes_gpc()) {
-			$_POST['login'] = stripslashes($_POST['login']);
+			$_POST['login']  = stripslashes($_POST['login']);
 			$_POST['passwd'] = stripslashes($_POST['passwd']);
 		}
 
@@ -646,7 +682,7 @@ function extract_archive($memory_limit)
 			$auth = $r->id;
 		} else {
 			$auth = 0;
-			pf('Authentification failed. Please try again.');
+			pf('<span style="color:red;">Authentification failed. Please try again.</span>');
 		}
 	}
 
@@ -667,21 +703,23 @@ pf('<h2>Step 1: Admin login</h2>', true);
 
 ?>
 <form name="upgrade" action="<?php echo basename(__FILE__); ?>" method="post">
+<p>Please enter the login and password of the administration account:</p>
 <table class="datatable solidtable">
-<tr class="fieldtopic">
-	<td colspan="2">Please enter the login and password of the administration account.</td>
-</tr>
 <tr class="field">
-	<td><b>Login:</b></td>
+	<td><b>Login:</b><br /><small>Your forum's admin user.<small></td>
 	<td><input type="text" name="login" value="" /></td>
 </tr>
 <tr class="field">
-	<td><b>Password:</b></td>
+	<td><b>Password:</b><br /><small>Your forum's admin password.<small></td>
 	<td><input type="password" name="passwd" value="" /></td>
 </tr>
 <tr class="field">
-	<td>Have you manually modified FUDforum's SQL structure?<br />(leave unchecked if unsure)</td>
-	<td><input type="checkbox" name="custom_sql" value="1" /></td>
+	<td><label for="custom_tmpl" title="If unsure, leave unchecked!"><b>Update custom template sets?</b><br /><small>Leave unchecked to preserve custom styling (prevent FUDforum from updating custom template sets, you will have to do it manually!)</small></label></td>
+	<td><input type="checkbox" id="custom_tmpl" name="custom_tmpl" value="1" /></td>
+</tr>
+<tr class="field">
+	<td><label for="custom_sql" title="If unsure, leave unchecked!"><b>Skip database changes?</b><br /><small>Check if you've modified FUDforum's SQL structure. You will have to apply the SQL changes yourself!</small></label></td>
+	<td><input type="checkbox" id="custom_sql" name="custom_sql" value="1" /></td>
 </tr>
 <tr class="fieldaction">
 	<td align="right" colspan="2"><input type="submit" class="button" name="submit" value="Login" /></td>
@@ -880,13 +918,13 @@ pf('<h2>Step 1: Admin login</h2>', true);
 			}
 
 			/* Remove unused columns. */
-			if (empty($_POST['custom_sql'])) {	// Standard or customized DB schema?
-				foreach (array_keys($db_col) as $v) {
+			foreach (array_keys($db_col) as $v) {
+				if (empty($_POST['custom_sql'])) {	// Standard or customized DB schema?
 					pf('Drop unused database column '. $v .' from table '. $tbl['name'] .'.');
 					drop_column($tbl['name'], $v);
+				} else {
+					pf('WARNING: Unused database column '. $v .' in table '. $tbl['name'] .'. Unless you\'ve added it, it should be dropped!');
 				}
-			} else {
-				pf('WARNING: Unused database column '. $v .' in table '. $tbl['name'] .'. Unless you\'ve added it, it should be dropped!');
 			}
 
 			/* Handle indexes. */
@@ -1077,8 +1115,12 @@ pf('<h2>Step 1: Admin login</h2>', true);
 
 	/* Remove 'firebird' directory. Renamed to 'interbase' in 3.0.3. */
 	if (file_exists($GLOBALS['DATA_DIR'] .'sql/firebird/db.inc')) {
-		@unlink($GLOBALS['DATA_DIR'] .'sql/firebird/db.inc');
-		@rmdir($GLOBALS['DATA_DIR'] .'sql/firebird');
+		__rmdir($GLOBALS['DATA_DIR'] .'sql/firebird', true);
+	}
+
+	/* Correct language code for Norwegian from no to nb in 3.0.4. */
+	if (file_exists($GLOBALS['DATA_DIR'] .'thm/default/i18n/no/msg')) {
+		__rmdir($GLOBALS['DATA_DIR'] .'thm/default/i18n/no', true);
 	}
 
 	/* Avatar validator. */
@@ -1108,20 +1150,30 @@ pf('<h2>Step 1: Admin login</h2>', true);
 	while ($r = db_rowarr($c)) {
 		// See if custom themes need to have their files updated.
 		if ($r[0] != 'default' && $r[0] != 'path_info' && $r[0] != 'user_info_left' && $r[0] != 'user_info_right' && $r[0] != 'forestgreen' && $r[0] != 'slateblue' && $r[0] != 'twilightgrey') {
-			// syncronize_theme($r[0]); -- Please remove from future versions.
-			pf('Please manually update custom theme '. $r[2] .'.');
+			if (empty($_POST['custom_tmpl'])) {
+				pf('Please manually update custom theme '. $r[2] .'.');
+			} else {
+				pf('Updating files of custom theme '. $r[2] .'.');
+				syncronize_theme($r[0]);
+			}
 		}
 		foreach ($rm_default_tmpl as $f) {
 			if (file_exists($GLOBALS['DATA_DIR'] .'thm/'. $r[0] .'/tmpl/'. $f)) {
-				// unlink($GLOBALS['DATA_DIR'] .'thm/'. $r[0] .'/tmpl/'. $f);
-				pf('File '. $GLOBALS['DATA_DIR'] .'thm/'. $r[0] .'/tmpl/'. $f .' should be removed.');
+				if (empty($_POST['custom_tmpl'])) {
+					pf('Please remove file '. $GLOBALS['DATA_DIR'] .'thm/'. $r[0] .'/tmpl/'. $f .' as it is not part of FUDforum anymore.');
+				} else {
+					unlink($GLOBALS['DATA_DIR'] .'thm/'. $r[0] .'/tmpl/'. $f);
+				}
 			}
 		}
 		if (@file_exists($GLOBALS['DATA_DIR'] .'thm/'. $r[0] .'/.path_info')) {
 			foreach ($rm_pathinfo_tmpl as $f) {
 				if (file_exists($GLOBALS['DATA_DIR'] .'thm/'. $r[0] .'/tmpl/'. $f)) {
-					// unlink($GLOBALS['DATA_DIR'] .'thm/'. $r[0] .'/tmpl/'. $f);
-					pf('File '. $GLOBALS['DATA_DIR'] .'thm/'. $r[0] .'/tmpl/'. $f .' should be removed.');
+					if (empty($_POST['custom_tmpl'])) {
+						pf('Please remove file '. $GLOBALS['DATA_DIR'] .'thm/'. $r[0] .'/tmpl/'. $f .' as it is not part of FUDforum anymore.');
+					} else {
+						unlink($GLOBALS['DATA_DIR'] .'thm/'. $r[0] .'/tmpl/'. $f);
+					}
 				}
 			}
 		}
@@ -1131,6 +1183,9 @@ pf('<h2>Step 1: Admin login</h2>', true);
 			pf('Theme '. $r[2] .' was successfuly compiled.');
 		} catch (Exception $e) {
 			pf('Unable to compile theme '. $r[2] .'. Please fix it manually: '.  $e->getMessage());
+			if ($r[2] == 'default') {
+				pf('<b>IMPORTANT: The consistency checker requires components from the default theme. You will have to fix this theme or switch it to a valid template set before you can finalize the upgrade!</b>');
+			}
 		}
 	}
 	unset($c);
@@ -1147,9 +1202,11 @@ pf('<h2>Step 1: Admin login</h2>', true);
 	if (SAFE_MODE && basename(__FILE__) == 'upgrade_safe.php') {
 		unlink(__FILE__);
 	}
+/* REMOVE?
 	if ($no_mem_limit) {
 		@unlink('./fudforum_archive');
 	}
+*/
 
 	if (php_sapi_name() == 'cli') {
 		pf('Done! Please run the consistency checker to complete the upgrade process.');
@@ -1167,7 +1224,7 @@ pf('<h2>Step 1: Admin login</h2>', true);
 
 <h2>Step 3: Consistency check</h2>
 
-<p>Trying to launching the <b>Consistency Checker...</b></p>
+<p>Launching the <b>consistency checker...</b></p>
 
 <p><b>IMPORTANT NOTE:</b> If the popup with the consistency checker doesn't appear, please <span style="white-space:nowrap">&gt;&gt; <a href="adm/consist.php?enable_forum=1<?php echo $pfxs; ?>"><b>click here</b></a> &lt;&lt;</span> or navigate to the <i>Admin Control Panel</i> -&gt; <i>Forum Consistency</i> to run it.</p>
 <script>
