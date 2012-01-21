@@ -63,6 +63,8 @@ if (!($GLOBALS['usr']->users_opt & 1048576)) {	// not is_admin
 	// Admin's should see ALL errors.
 	error_reporting(-1);
 	@ini_set('display_errors', 1);
+	// Disable buffering to see step by step prorgress.
+	@ini_set('output_buffering', 'Off'); 
 }
 
 /* Load common functions used throughout the ACP and other scripts. */

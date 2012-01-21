@@ -9,7 +9,7 @@
 * Free Software Foundation; version 2 of the License.
 **/
 
-$FORUM_VERSION = '3.0.3';
+$FORUM_VERSION = '3.0.4RC1';
 
 ignore_user_abort('1');
 @set_magic_quotes_runtime(0);	// Deprecated as of PHP 5.3.0.
@@ -249,9 +249,9 @@ function fud_sql_error_handler($query, $error_string, $error_number, $db_version
 	fud_logerror($error_msg, 'sql_errors');
 
 	if (empty($GLOBALS['ADMIN_EMAIL'])) {
-		$public_msg = 'SQL error has occurred, please contact the administrator of the forum and have them review the forum\'s SQL query log';
+		$public_msg = 'SQL error has occurred! Please contact the administrator of the forum and have them look at the forum\'s Error Log Viewer.';
 	} else {
-		$public_msg = 'SQL error has occurred, please contact the <a href="mailto:'. $GLOBALS['ADMIN_EMAIL'] .'?subject=SQL%20Error">administrator</a> of the forum and have them review the forum\'s SQL query log';
+		$public_msg = 'SQL error has occurred! Please contact the <a href="mailto:'. $GLOBALS['ADMIN_EMAIL'] .'?subject=SQL%20Error">administrator</a> of the forum and have them look at the forum\'s Error Log Viewer.';
 	}
 
 	if (isset($GLOBALS['usr']->users_opt) && $GLOBALS['usr']->users_opt & 1048576) { // Admin user.
@@ -261,7 +261,7 @@ function fud_sql_error_handler($query, $error_string, $error_number, $db_version
 		echo '<hr><pre>'. $error_msg .'</pre><hr>';
 	} else {
 		trigger_error($public_msg, E_USER_ERROR);
-		if (ini_get('display_errors') !== 1) {
+		if (ini_get('display_errors') !== '1') {
 			echo $public_msg;
 		}
 	}
