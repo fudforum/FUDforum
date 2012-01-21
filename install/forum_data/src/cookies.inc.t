@@ -48,9 +48,9 @@ function ses_get($id=0)
 
 			include $GLOBALS['FORUM_SETTINGS_PATH'] .'spider_cache';
 			foreach ($spider_cache as $spider_id => $spider) {
-				if (preg_match('/^'. $spider['useragent'] .'/i', $_SERVER['HTTP_USER_AGENT'])) {
+				if (preg_match('/'. $spider['useragent'] .'/i', $_SERVER['HTTP_USER_AGENT'])) {
 					if (empty($spider['bot_ip'])) {
-						$spider_session = 1;	// Agent matched.
+						$spider_session = 1;	// Agent matched, no IPs to check.
 						break; 
 					} else {
 						foreach (explode(',', $spider['bot_ip']) as $bot_ip) {
@@ -58,7 +58,7 @@ function ses_get($id=0)
 								continue;
 							}
 							if (strpos($bot_ip, $my_ip) === 0)	{
-								$spider_session = 1;	// Agent and IP matched.
+								$spider_session = 1;	// Agent and an IP matched.
 								break;
 							}
 						}
