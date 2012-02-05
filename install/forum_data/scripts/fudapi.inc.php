@@ -572,10 +572,19 @@ function fud_add_user($vals, &$err)
 		}
 	}
 
-	if (strncmp($vals['passwd'], 'md5', 3)) {
-		$vals['passwd'] = md5($vals['passwd']);
+	$passwd = $vals['passwd'];
+	
+	// Generate unique salt to distrupt rainow tables
+	if( !array_key_exists('salt',$vals) || empty( $vals['salt'] )  ) {
+		$vals['salt'] = sprintf( '%d',rand( 00000000001, 99999999999 ) );
+	}
+		
+	$salt = $vals['salt'];
+	
+	if (strncmp($passwd, 'sha1', 4)) {
+		$vals['passwd'] = sha1($salt . sha1($passwd));
 	} else {
-		$vals['passwd'] = substr($vals['passwd'], 3);
+		$vals['passwd'] = sha1($salt . sha1(substr($passwd, 4)));
 	}
 
 	if (empty($vals['alias'])) {
@@ -627,6 +636,7 @@ function fud_add_user($vals, &$err)
 				login,
 				alias,
 				passwd,
+				salt,
 				name,
 				email,
 				icq,
@@ -660,6 +670,7 @@ function fud_add_user($vals, &$err)
 				'. _esc($vals['login']) .',
 				'. _esc($vals['alias']) .',
 				\''. $vals['passwd'] .'\',
+				'. $vals['salt'] .',
 				'. _esc($vals['name']) .',
 				'. _esc($vals['email']) .',
 				'. (int)$vals['icq'] .',
@@ -706,6 +717,21 @@ function fud_update_user($uid, $vals, &$err)
 		$err = 'Invalid user id';
 		return 0;
 	}
+	
+	// If user wants to change password generate new salt and hash
+	if( array_key_exists('passwd',$vals) && !empty( $vals['passwd'] )  ) {
+		$vals['salt'] = sprintf( '%d',rand( 00000000001, 99999999999 ) );
+		
+		$passwd = $vals['passwd'];
+	
+		$salt = $vals['salt'];
+		
+		if (strncmp($passwd, 'sha1', 4)) {
+			$vals['passwd'] = sha1($salt . sha1($passwd));
+		} else {
+			$vals['passwd'] = sha1($salt . sha1(substr($passwd, 4)));
+		}
+	}
 
 	if (empty($vals['alias']) && !empty($vals['login'])) {
 		if (strlen($vals['login']) > $GLOBALS['MAX_LOGIN_SHOW']) {
@@ -727,7 +753,7 @@ function fud_update_user($uid, $vals, &$err)
 
 	$qry = 'UPDATE '. $GLOBALS['DBHOST_TBL_PREFIX'] .'users SET ';
 	// Apply changes.
-	foreach( array('login','alias','passwd','name','email','icq','aim','yahoo','msnm','jabber','google','skype','twitter',
+	foreach( array('login','alias','passwd', 'salt', 'name','email','icq','aim','yahoo','msnm','jabber','google','skype','twitter',
 		'affero','posts_ppg','time_zone','birthday','last_visit','conf_key','user_image',
 		'join_date','location','theme','occupation','interests','referer_id','last_read',
 		'sig','home_page','bio','users_opt','reg_ip') as $v) {
