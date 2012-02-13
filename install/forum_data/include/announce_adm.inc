@@ -61,7 +61,7 @@ class fud_announce
 	{
 		q('DELETE FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'announce WHERE id = '. (int)$id);
 		q('DELETE FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'ann_forums WHERE ann_id='. (int)$id);
-		$this->rebuild_cache();
+		fud_announce::rebuild_cache();
 	}
 
 	/** Rebuild cache of non-forum related announcements. For example, for front page. */
