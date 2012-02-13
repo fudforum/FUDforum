@@ -418,7 +418,7 @@ spell_check_msg:Appeler le correcteur orthographique
 post_form:Nouveau message
 post_forum:Forum :
 post_title:Titre :
-post_body:Contenu :
+post_body:Corps :
 post_options:Options :
 post_preview_btn:Voir le message avant de l'envoyer
 post_cancel_btn:Annuler
@@ -457,14 +457,14 @@ login_not_logedin:Vous n'êtes pas connecté. Cela peut être dû à l'une des r
 login_cookie_expired:Votre cookie a expiré et vous devez vous connecter à nouveau afin de le régénérer.
 login_perm_denied:Vous n'avez pas la permission d'accéder à la ressource que vous désirez en tant qu'utilisateur anonyme, et vous devez vous connecter (en plus de vous inscrire si ce n'est pas encore fait) afin d'y accéder.
 login_want_to_register:Voulez-vous vous inscrire ?
-login_forgot_passwd:J'ai oublié mon mot de passe
+login_forgot_passwd:J’ai oublié mon mot de passe
 login_use_cookie:Utiliser des cookies<br /><font class="SmallText">Si vous utilisez un ordinateur dans un lieu public tel qu'une bibliothèque, une école ou un cybercafé, il est recommandé de désactiver cette option pour des raisons de sécurité.<br />Si vous laissez cette option activée, vous serez automatiquement connecté au forum lorsque vous reviendrez.</span>
 login_login:Utilisateur
 login_login_btn:Connexion
 login_name_required:Veuillez saisir votre nom d'utilisateur
 login_passwd_required:Veuillez saisir votre mot de passe
 login_invalid_radius:Association nom d'utilisateur / mot de passe invalide
-reset_confirmation:Merci de vous être inscrit.\n\nAfin d'activer votre compte, veuillez visiter l'URL suivante:\n\n{VAR: url}\n\nUne fois votre compte activé, vous serez connecté sur le forum et conduit vers la page d'accueil.
+reset_confirmation:Merci de vous être inscrit.\n\nAfin d'activer votre compte, veuillez visiter l'URL suivante :\n\n{VAR: url}\n\nUne fois votre compte activé, vous serez connecté sur le forum et conduit vers la page d'accueil.
 reset_reset:Vous avez décidé de réinitialiser votre mot de passe. Afin de poursuivre cette opération,\nveuillez vous diriger vers cette URL\n\n{VAR: url}\n\nNOTE: Le forum enregistre les mots de passe dans sa base de données en utilisant un mécanisme d'encodage à sens unique, ce qui signifie qu'une fois que vous avez soumis votre mot de passe, ce dernier\nest encodé de telle sorte qu'il n'est plus possible de le décrypter.\nCeci est possible par perpétuel réencryptage de votre mot de passe. Pour plus d'information sur cette sécurité, veuillez vous référer à une documentation détaillant l'algorithme de hachage MD5.
 rpasswd_invalid_passwd:Le mot de passe est invalide
 rpasswd_passwd_nomatch:Le mot de passe et sa confirmation ne sont pas identiques
@@ -532,7 +532,7 @@ mklist_close:Fermer
 email_to:À :
 email_pg_title:Courriel
 email_subject:Sujet :
-email_body:Contenu :
+email_body:Corps :
 email_submit:Courriel
 ppost_quote_msg:{VAR: msg_to_list} a écrit le {TEMPLATE: ppost_quote_msg_date}
 ppost_quote:Citation :
@@ -735,7 +735,7 @@ unapproved_avatar_title:Votre avatar personnel a été refusé par l'administrat
 unapproved_avatar_msg:L'administrateur n'a pas approuvé votre avatar. Une raison courante pour un tel refus est que l'avatar est trop grand (taille en octets et/ou dimensions) ou qu'il contient un sujet inapproprié. Si vous désirez savoir pourquoi votre avatar a été refusé, veuillez contacter l'administrateur.
 mvthread_request_move:Requête de déplacement
 move_request_reason:Pourquoi désirez-vous que ce fil soit déplacé ?
-mvthread_submit_req:Soumettre la requête
+mvthread_submit_req:Soumettre la demande
 thread_exchange:Échange de fil
 move_request_by:Requête de déplacement du fil par :
 move_reason:Raison pour laquelle le fil devrait être déplacé :

@@ -303,7 +303,7 @@ register_uploaded:Muat Naik Avatar
 register_login:Log masuk:
 register_password:Kata laluan:
 register_conf_pass:Sahkan Kata Laluan:
-register_email_desc:Sial berikan alamat e-mel yang sah. Anda boleh memilih untuk menyorokkannya di bawah, dalam bahagian Keutamaan.
+register_email_desc:Sial berikan alamat e-mel yang sah. Anda boleh memilih untuk menyorokkan alamat e-mel itu dalam bahagian Keutamaan di bawah.
 register_name:Nama:
 register_your_pass:Kata Laluan Anda:
 register_update:Kemas kini
@@ -514,7 +514,7 @@ qbud_add_selected:Tambahkan yang Terpilih
 qbud_selected:Terpilih
 qbud_no_buddies:Tiada kawan untuk dipilih
 mklist_numerical:Bernombor
-mklist_aplha:Alfa
+mklist_aplha:Abjad
 mklist_square:Petak
 mklist_disc:Cakera
 mklist_circle:Bulatan
@@ -859,7 +859,7 @@ ignored_anon_post:{GVAR: ANON_NICK} diabaikan
 ignored_user_post:Pesanan oleh <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> diabaikan
 smladd_close_window:tutup tetingkap
 post_list_smilies:senaraikan semua emotikon
-p_VISIBLE:Boleh lihat
+p_VISIBLE:Boleh dilihat
 reported_in_thread:Di:
 help_back_to_top:kembali ke atas
 help_return_to_index:Kembali ke Indeks Bantuan
@@ -889,7 +889,7 @@ search_or:ATAU
 search_desc_order:Urutan Menurun
 search_asc_order:Urutan Menaik
 search_logic:Logik Carian:
-search_sorting:Susun Hasil mengikut Tarikh di:
+search_sorting:Susun Hasil mengikut Tarikh dalam:
 search_attach:Lampiran:
 search_attach_all:Dengan atau tanpa
 search_attach_with:Dengan lampiran

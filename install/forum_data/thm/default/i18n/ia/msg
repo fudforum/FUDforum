@@ -196,7 +196,7 @@ user_offline:{VAR: obj->login} non es in linea in iste momento
 user_online:{VAR: obj->login} es ora in linea
 usrinfo_last_post:Ultime message:
 view_results:Vider resultatos
-views:Vistas
+views:Visitas
 vote:{PLURAL: frm->n_rating|$1 voto|$1 votos}
 vote_button:Votar
 vote_for_thread:Votar

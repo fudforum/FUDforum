@@ -35,7 +35,7 @@ flat_view:Zpět k standardnímu plochému zobrazení
 forum:Fórum:
 forum_icon:Icona fóra
 forum_new_messages:Nové zprávy
-forum_none_messages:Jen registrovaní uživatelé fóra mohou číst a psát zprávy
+forum_none_messages:Číst a psát zprávy mohou jen registrovaní uživatelé fóra
 forum_old_messages:Žádné nové zprávy
 from:Od:
 gender:Pohlaví:
@@ -134,7 +134,7 @@ register:Registrovat
 registered:Registerace:
 registered_on:Registerován(a) {TEMPLATE: registered_on_date}
 replies:Reakce
-report_to_mod:Přednést příspěvek moderátorovi
+report_to_mod:Nahlásit příspěvek moderátorovi
 reported_messages:Přednesené příspěvky
 reveal_all_posts:odkrýt všechny příspěvky od uživatele {VAR: user_login}
 reveal_post:odkrýt příspěvek
@@ -175,7 +175,7 @@ thread_thread:Téma
 threads:Témata
 time:Čas
 todays_posts:Dnešní příspěvky
-todays_posts_desc:Zobrazit všechny příspšěvky odeslané dnes
+todays_posts_desc:Zobrazit všechny dnešní příspěvky
 un_ignore_user:zastavit ignorování příspěvků tohoto uživatele
 unanswered_posts:Příspěvky bez reakce
 unanswered_posts_desc:Zobrazit všechny zprávy, které nemají žádnou reakce
@@ -789,7 +789,7 @@ userinfo_referals:Přivedení uživatelé:
 userinfo_referals_count:{VAR: referals} přivedených členů
 pm_no_space_title:Žádné volné místo!
 pm_no_space_msg:Vaše pošta překročila povolenou velikost <b>{GVAR: MAX_PMSG_FLDR_SIZE} bytů</b>. Vaše pošta má <b>{VAR: fldr_size} bytů</b>.<br /><br /><font class="ErrorText">Smažte nějaké staré zprávy na uvolnění místa</font>.
-pm_space_indct_msg:Vaše poštoví schránka je z {VAR: percent_full}% plná.
+pm_space_indct_msg:Vaše poštovní schránka je z {VAR: percent_full}% plná.
 th_expr_never:Nikdy
 th_expr_one_hr:1 hodina
 th_expr_three_hr:3 hodiny

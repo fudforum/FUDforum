@@ -461,7 +461,7 @@ rpasswd_invalid_passwd:O contrasinal é inválido
 rpasswd_passwd_nomatch:Os contrasinais non coinciden
 rpasswd_passwd_length:O contrasinal debe ter, polo menos, 6 caracteres
 reset_remind_pass:Recordatorio do contrasinal
-reset_reset_conf:O teu contrasinal será restablecido e se te enviará. Se aínda non confirmaches o teu enderezo de correo electrónico, a solicitude de confirmación volverásete enviar.
+reset_reset_conf:O teu contrasinal será restablecido e enviarémoste un novo. Se aínda non confirmaches o teu enderezo de correo electrónico, a solicitude de confirmación volverásete enviar.
 reset_error:Non se atopou o enderezo de correo electrónico na base de datos
 rpasswd_change_pass:Cambiar o contrasinal
 rpasswd_login:Usuario

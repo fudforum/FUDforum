@@ -1,0 +1,1139 @@
+# Messages for Icelandic (Íslenska)
+# Exported from translatewiki.net
+# Author: Snævar
+
+action:Aðgerð
+add_to_buddy_list:bæta við á félaga lista
+admin:Stjórnandi
+admin_control_panel:Stjórn
+administrator:Stjórnandi
+attachment:Viðhengi:
+avatar:Notandamynd:
+average_post_count:{PLURAL: u->posted_msg_count|$1 skilaboð|$1 skilaboð} ({PLURAL: avg|$1 skilaboð|$1 skilaboð} að meðaltali á dag)
+biography:Sjálfsævisaga:
+birth_date:Fæðingardagur:
+by:eftir:
+by_mod:eftir vefstjóra
+current_time:núverandi tími
+custom_avatar_queue:Biðlisti sérstakra notandamynda
+date_posted:Sent inn þann
+date_registered:Skráði sig:
+download_counter:Hlaðið niður {PLURAL: v[3]|$1 sinni|$1 sinnum}
+pmsg_download_counter:Hlaðið niður {PLURAL: r->dlcount|$1 sinni|$1 sinnum}
+email:Netfang:
+email_to_friend:Senda tölvupóst til vinar
+email_to_friend_desc:Senda vefslóð síðunnar til vinar þíns með tölvupósti
+email_user:Senda notanda tölvupóst
+faq:Hjálp
+first_unread_msg:Fara á ólesin skilaboð
+first_unread_msg_desc:Fara á firstu ólesnu skilaboðin á þessum þræði
+flat_view:Fara aftur á sjálfgefna flata valmynd
+forum:Spjallþráður:
+forum_icon:Einkennismerki spjallþráðarins
+forum_new_messages:Ný skilaboð
+forum_none_messages:Aðeins skráðir notendur geta fylgst með og lesið &amp; ólesin skilaboð
+forum_old_messages:Engin ný skilaboð
+from:Frá:
+gender:Kyn:
+go:Áfram
+goto_next_msg:Fara á næstu skilaboð
+goto_prev_msg:Fara á fyrri skilaboð
+home:Heim
+homepage:Heimasíða:
+icq_control_panel:ICQ skilaboðsþjónusta
+icq_message_form:ICQ skilaboðs miði:
+ignore_user:hunsa öll skilaboð frá þessum notenda
+im_aim:AIM hald:
+im_msnm:MSN Messenger:
+im_yahoo:Yahoo Messenger:
+image:Mynd:
+index_forum:Spjallþráður
+index_new_posts:Ný skilaboð síðan frá síðusta lestri
+index_no_new_posts:Engin ný skilaboð frá síðasta lestri
+index_url_redirection:Tilvísun
+interests:Áhugamál:
+last_post:Síðustu skilaboð
+last_thread_msg:Fara á síðustu skilaboðin á þessum þræði
+legend:Mynda útskýring
+location:Staðsetning:
+lock_thread:Læsa þræði
+locked:Læstur
+locked_with_new_posts:Læstur (v/ ólesinna skilaboða)
+logged_in_list:Listi yfir innskráða notendur
+login:Innskrá
+login_header:Innskráning:
+logout:Útskrá
+mark_all_read:Merkja öll skilaboð sem lesin
+mark_all_read_desc:Öll ólesin skilaboð verða merkt sem lesin
+members:Meðlimir
+calendar:Dagatal
+cal_goto_date:Stökkva á:
+cal_day_heading:Viðburðir dagsins
+cal_no_events:Engir viðburðir fyrir daginn.
+cal_update:Leita í dagatalinu
+cal_birthday:Afmæli: {VAR: user}
+cal_birthday_age:({PLURAL: age|$1 árs|$1 ára} gamall).
+message:Skilaboð
+message_counter:Notendur okkar hafa sent inn <b>{PLURAL: post_count|$1 skilaboð|$1 skilaboð}</b> á <b>{PLURAL: thread_count|$1 þráður|$1 þráðum}</b>.
+message_index:Skilaboðaskrá
+message_index_desc:Skoða tæmandi skilaboða lista
+minimize_category:smækka flokk
+minimize_message:smækka skilaboð
+moderation_queue:Stórnenda biðlisti
+moderator:Stjórnandi
+moderator_of:Stjórnandi á:
+moderator_options:Möguleikar stjórnanda
+moderators:{PLURAL: modcount|stjórnandi|stjórnendur}
+more_unread_messages:fleiri ólesin skilaboð
+more_unread_messages_desc:Sýna fleiri ólesin skilaboð og merkja þau sem eru sýnileg sem lesin
+move_thread:Færa
+moved:Fært á aðra umræðu
+moved_thread_message:Þessi þráður hefur verið færður á aðra umræðu
+na:n/a
+new_posts:Ný skilaboð
+new_private_messages:Þú hefur <span class="GenTextRed">({VAR: c})</span> ólesin {PLURAL: c|einkaskilaboð|einkaskilaboð}
+new_thread:Búa til nýjan spjallþráð
+newest_user:Nýjasti meðlimurinn:
+next_page:Næsta síða
+next_thread:Næsta síða:
+no_messages:Það eru engin ný skilaboð í þessari umræðu.<br />Vertu sá fyrsti til að stofna þráð í þessari umræðu.
+no_msg_body:Ekkert innihald í skilaboðum
+no_new_posts:Engin ný skilaboð
+no_posts:Engin skilaboð
+no_subscribed_forums:Engin áskrift að umræðum
+no_subscribed_threads:Engin áskrift að þráðum
+no_bookmarked_threads:Engin bókarmerktur þráður
+no_unread_locked:Þessum spjallþræði hefur verið læst
+no_unread_msg:Þessi spjallþráður hefur engin ólesin skilaboð
+no_unread_msg_unreg:Lesin &amp; ólesin skilaboð er eingöngu fylgst með fyrir innskráða notendur.
+num_pages:Síður ({VAR: ttl_pg}):
+num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|atkvæði|atkvæði}
+occupation:Atvinna:
+off:af
+on:á
+page_timings:Heildartími sem tók til að búa til þessa síðu: {PLURAL: page_gen_time|$1 sekúndur}
+pm:Einkaskilaboð
+poll:Skoðunarkönnun:
+post_count:Fjöldi skilaboða {VAR: u_pcount}
+post_count_l:Fjöldi skilaboða:
+posts:Skilaboð
+posts_c:Skilaboð:
+prev_thread:Fyrri þráður:
+usrinfo_private_message:Einkaskilaboð:
+profile:Stjórnborð
+profile_desc:Skoða stjórnborð notanda
+rate_thread:Gefa þræðinum einkunn
+rating:Einkunn
+rating_track:Stjórna einkunnum fyrir þráðinn <b>{VAR: thr->subject}</b>:
+refresh_list:Endurhlaða lista
+register:Skrá
+registered:Skráð/ur:
+registered_on:Skráður {TEMPLATE: registered_on_date}
+replies:Svör
+report_to_mod:Tilkynna skilaboð til stjórnanda
+reported_messages:Tilkynnt skilaboð
+reveal_all_posts:sýna öll skilaboð eftir {VAR: user_login}
+reveal_post:sýna skilaboð
+search:leita
+sel_todays_posts:Skilaboð dagsins
+sel_todays_posts_desc:Stjórna síu yfir skilaboð dagsins (sýnir aðeins skilaboð sem voru búin til í dag)
+sel_unanswered_posts:Ósvöruð skilaboð
+sel_unanswered_posts_desc:Virkja síu fyrir ósvöruð skilaboð (sýnir eingöngu skilaboð sem hefur ekki verið svarað)
+sel_unread_messages:Ólesin skilaboð
+sel_unread_messages_desc:Virkja síu fyrir ólesin skilaboð (sýnir eingöngu ólesin skilaboð)
+send:Senda
+send_pm_desc:Senda einkaskilaboð til notandans
+sender_email:Tölvupóstfang sendanda:
+sender_name:Nafn sendanda:
+show_posts_by:Sýna skilaboð eftir: {VAR: u_alias}
+size:Stærð:
+status:Staða:
+status_line:Það eru <b>{PLURAL: st_obj->online_users_reg|$1 meðlimur|$1 meðlimir}</b>, <b>{PLURAL: st_obj->online_users_hidden|$1 falinn notandi|$1 faldir notendur}</b> og <b>{PLURAL: st_obj->online_users_anon|$1 gestur|$1 gestir}</b> á þessu spjallborði.
+sticky:límt:
+stop_ignoring:hætta að hunsa þennan notanda
+sub_to_thread:Verða áskrifandi að þræði
+sub_to_thread_desc:Fá send skilaboð um ný skilaboð á þessum spjallþræði
+bookmark_thread:Bókarmerkja spjallþráð
+bookmark_thread_desc:Bæta þessum þráð við í bókarmerki
+subject:Titill
+subscribe:Gerast áskrifandi
+subscribe_desc:Fá tilkynningu þegar einhver býr til nýjan spjallþráð í þessari umræðu
+subscribed_forums:Umræður sem þú ert áskrifandi að
+subscribed_forums_desc:Virkja síu yfir umræður sem þú ert áskrifandi að (sýnir eingöngu skilaboð í umræðum sem þú ert áskrifandi að)
+subscribed_threads:Þræðir sem þú ert áskrifandi að
+subscribed_threads_desc:Virkja síu fyrir þræði sem þú ert áskrifandi að (sýnir eingöngu skilaboð frá þeim þráðum sem þú ert áskrifandi að)
+bookmarked_threads:Bókarmerktir þræðir
+switch_to_thread_view:Skipta yfir á þráðaskipta sýn á þessum spjallþræði
+thread:Þráður:
+thread_announcement:Tilkynning:
+thread_first_unread_msg:Fara á firstu ólesnu skilaboðin á þessum þræði
+thread_thread:Þráður
+threads:Þræðir
+time:Tími
+todays_posts:Skilaboð dagsins
+todays_posts_desc:Sýna öll skilaboð sem voru send í dag
+un_ignore_user:hætta að hunsa skilaboð eftir þennan notanda
+unanswered_posts:Ósvöruð skilaboð
+unanswered_posts_desc:Sýna öll skilaboð, sem hefur ekki verið svarað
+unlock_thread:Aflæsa þræði
+unread_msg:Þessi þráður inniheldur skilaboð sem þú hefur ekki lesið
+unread_msg_locked:Læstur þráður með ólesin skilaboð
+unread_posts:Ólesin skilaboð
+unread_posts_desc:Sýna öll ólesin skilaboð
+unsub_from_thread:Hætta áskrift á þræði
+unsub_from_thread_desc:Hætta að fá skilaboð um ný skilaboð á þessum spjallþræði
+unbookmark_thread:Fjarlægja úr bókarmerkjum
+unbookmark_thread_desc:Fjarlægja þennan þráð úr bókarmerkjum
+unsubscribe:Hætta í áskrift
+unsubscribe_desc:Hætta að fá skilaboð um nýja þræði í þessari umræðu
+updated_on:Uppfært:
+user:Notandi
+user_counter:Við höfum <b>{VAR: st_obj->user_count}</b> {PLURAL: st_obj->user_count|skráðan notanda|skráða notendur}
+user_info:Notendaupplýsingar
+user_info_l:Notendaupplýsingar {VAR: u->alias}
+user_offline:{VAR: obj->login} er ótengdur
+user_online:{VAR: obj->login} er tengdur
+usrinfo_last_post:Síðustu skilaboð:
+view_results:Skoða niðurstöður
+views:Flettingar
+vote:{PLURAL: frm->n_rating|$1 atkvæði|$1 atkvæði}
+vote_button:Kjósa
+vote_for_thread:Kjósa
+was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> var færður á <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> af stjórnenda.
+welcome_message:Velkominn <b>{VAR: usr->alias}</b>, síðasta heimsókn þín var {TEMPLATE: welcome_message_date}
+what_ppl_doing:Sýna hvað fólk er að gera
+reported_del_report:Eyða skýrslu
+reported_reason:Ástæða:
+reported_on:Á:
+reported_reported_by:Tilkynnt af:
+reported_reported_msg:Tilkynnt skilaboð
+modque_pending_approval:Skilaboð sem bíða staðfestingar
+modque_approve:Staðfesta
+modque_delete:Eyða
+modque_no_message:Það eru engin skilaboð sem bíða staðfestingar
+pmsg_new_messages:Ólesin einkaskilaboð
+pmsg_old_messages:Lesa einkaskilaboð
+deny_recipt:hafna móttöku
+deny_recipt_desc:Ekki senda staðfestingu á því að þú hafir lesið þessi skilaboð
+restore_to:Endursetja í:
+move_to:Færa til:
+list_referes_referrals:Tilvísanir
+list_referes_members:Tilvísaðir meðlimir
+list_referes_member:Meðlimur
+referals_none:Engar tilvísanir enn.
+referals_refered_by:Meðlimir spjallborðsins tilvísaðir eftir: <b><a href="{TEMPLATE: referals_refered_by_lnk}" class="thLnk">{VAR: p_user[1]}</a></b>
+referals_post_count:Fjöldi skilaboða
+referals_registered_on:Skráð/ur
+referals_action:Aðgerð
+pmsg_all:allt
+pmsg_none:ekkert
+folder:Mappa:
+pmsg_replied:svarað
+pmsg_forwarded:áframsent
+pmsg_subject:Fyrirsögn
+pmsg_author:Höfundur
+pmsg_time:Tími
+pmsg_selected:Valið
+pmsg_delete:Eyða
+cur_ppage_pm:Einkaskilaboð
+writing_pm:Skrifa einkaskilaboð
+browsing_folder:Skoða <b>{VAR: folders[$folder_id]}</b> möppu
+inbox:Innhólf
+draft:Drög
+sent:Sent
+trash:Rusl
+msg_author:Höfundur
+avatar_sel_form:Valmynd til að velja notendamynd
+no_avatars:Engar notendamyndir til
+month_1:Janúar
+month_2:Febrúar
+month_3:Mars
+month_4:Apríl
+month_5:Maí
+month_6:Júní
+month_7:Júlí
+month_8:Ágúst
+month_9:September
+month_10:Október
+month_11:Nóvember
+month_12:Desember
+sunday:Sunnudagur
+sunday_short:S
+monday:Mánudagur
+monday_short:Mán
+tuesday:Þriðjudagur
+tuesday_short:Þ
+wednesday:Miðvikudagur
+wednesday_short:Mið
+thursday:Fimmtudagur
+thursday_short:Fim
+friday:Föstudagur
+friday_short:Fös
+saturday:Laugardagur
+saturday_short:L
+male:Karl
+female:Kona
+unspecified:ÓTILGREINT
+register_tree_view:Hírsluskipan skilaboða og spjallþráða
+register_msg_tree_view:Flöt skipan spjallþráða/Hírsluskipun skilaboða
+register_tree_msg_view:Hírsluskipun spjallþráða/Flöt skipun skilaboða
+register_flat_view:Flöt skipun skilaboða og spjallþráða
+use_forum_default:Nota sjálfgefna stillingu spjallborðs
+finduser_user_info:Notendaupplýsingar
+finduser_by_login:eftir innskráningu:
+finduser_submit:Finna
+finduser_no_such_user:Notandi ekki til
+finduser_user:Notandi
+finduser_postcount:Fjöldi skilaboða
+finduser_joindate:Skráður þann
+finduser_action:Aðgerð
+yes:Já
+no:Nei
+register_email:Tölvupóstur
+edit_time_limit:<b>Breytingarmörk</b>: {GVAR: EDIT_TIME_LIMIT} mínútur
+no_edit_time_limit:<b>Breytingarmörk</b>: Ótakmörkuð
+pmuserloc_login:Innskráning:
+pmuserloc_submit:Staðfesta
+pmuserloc_user:Notandi
+pmuserloc_no_result:Engar niðurstöður
+register_builtin:Innbyggt
+register_specify_url:Tilgreindu vefslóð
+register_uploaded:Hlaða inn einkennismynd
+register_login:Innskráning:
+register_password:Lykilorð:
+register_conf_pass:Staðfestu lykilorðið:
+register_email_desc:Vinsamlegast skráðu gilt tölvupóstfang. Þú getur valið að fela tölvupóstfangið í stillingunum þínum
+register_name:Nafn:
+register_your_pass:Lykilorðið þitt:
+register_update:Uppfæra
+register_avatar_type:Gerð notendamyndar
+register_del_avatar:Eyða notandamynd
+register_avatar:Notandamynd:
+register_sel_avatar:Velja notandamynd
+register_custom_avatar_rules:Notandamyndin verður ekki sýnd fyrr en hún hefur verið staðfest af stjórnendum.<br /><span class="SmallText"> Notendamyndin, má ekki vera stærri en <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} dílar</b> og verður að vera á <b>jpg</b>, <b>gif</b> eða <b>png</b> skráarsniði.</span>
+register_custom_avatar_url:Vefslóð sérstakrar notandamyndar:
+register_preview:Forskoða
+register_custom_avatar_upload:Skrá sérstakrar notandamyndar:
+register_register:Skrá
+register_required:Nauðsynlegar upplýsingar
+register_required_desc:Fylla þarf út alla reiti. Athugaðu að lykilorð þurfa að vera í réttri stafsetu.
+register_optional:Viðbótar upplýsingar
+register_optional_desc:Mælt er með því að þú gefir ekki neinar persónulegar upplýsingar á notendasíðu þinni. Allar upplýsingar verða sýnilegar öðrum notendum spjallborðsins.
+register_location:Staðsetning:
+register_occupation:Atvinna:
+register_interests:Áhugamál:
+register_image:Mynd:
+register_icq:ICQ:
+register_aim:AIM hald:
+register_yahoo:Yahoo Messenger:
+register_msnm:MSN Messenger:
+register_homepage:Heimasíða:
+register_bday:Fæðingardagur:
+register_bday_desc:Ef þú tilgreinir fæðingardagsetningu, þá munu allir meðlimir spjallborðsins sjá það á notendasíðu þinni.
+register_day:Dagur
+register_month:Mánuður
+register_year:Ár
+register_gender:Kyn:
+register_bio:Æviágrip:
+register_bio_desc:Nokkrir punktar um sjálfan þig, eins og áhugamál, vinna, o.s.frv.
+register_prefs:Stillingar
+register_sig:Undirskrift:
+register_sig_desc:Valfrjáls undirskrift, sem birtist neðst í skilaboðunum þínum
+register_reset:Endurstilla
+register_def_thread_view:Sjálfvirk skipun þráða
+register_msg_per_page:Skilaboð á síðu:
+register_show_sig:Sýna undirskriftir:
+register_show_sig_desc:Gerir þér kleift að fela eða sýna undirskriftir annara notenda.
+register_use_sig_default:Nota undirskrift sjálfvirkt:
+register_use_sig_default_desc:Bætir sjálfvirkt undirskriftinni þinni við öll skilaboð sem þú sendir.
+register_timezone:Tímabelti:
+register_ignore_admin:Hunsa skilaboð frá stjórnendum:
+register_invisible_mode:Ósýnilegur hamur:
+register_invisible_mode_desc:Felur að þú sért tengdur.
+register_show_email:Sýna netfang:
+register_show_email_desc:Veldu þennan möguleika ef þú vilt að tölvupóstfangið þitt sé birt opinberlega.
+register_notification:Virkja sjálfvirkt tilkynningar:
+register_notification_desc:Ef tilkynningar eru sjálfvirkt virkar, þá er hægt að slökkva á þeim þegar þú býrð til skilaboð.
+register_notify_method:Veldu tilkynningar aðferð:
+register_notify_method_desc:Skráðu hverskonar aðferð þú vilt að tilkynningarnar noti eða afvirkja þær (til dæmis þegar þú ferð í frí)
+register_allow_email_msg:Leyfa tölvupósta:
+register_allow_email_msg_desc:Leyfa öðrum notendum að senda þér tölvupósta frá þessu spjallborði.
+buddy_status:Staða
+my_buddies:Félagarnir mínir
+add_buddy:Bæta við félaga
+add:Bæta við
+buddy_search:Skráðu notendanafn notandans sem þú villt bæta við.
+member_search:...eða notaðu <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Leita að notanda</a> möguleikann til að finna hann.
+buddy_remove:fjarlægja
+post_normal:Venjuleg
+post_sticky:Límt
+post_annoncement:Tilkynning
+post_size:Stærð
+post_color:Litur
+post_font:Letur
+create_thread:Stofna þráð
+submit_reply:Senda svar
+edit_message:Gera breytingar á skilaboðum
+apply_spell_changes:Gera breytingar á stafsetningu
+post_preview:Forskoðun skilaboða
+post_logedin_user:Innskráður notandi:
+post_logout:útskrá
+post_passwd:Lykilorð umræðunnar:
+post_poll:Skoðunarkönnun:
+post_create_poll:BÚA TIL SKOÐUNARKÖNNUN
+post_poll_delete:EYÐA
+post_poll_edit:BREYTA
+post_mod_opt:Möguleikar stjórnanda:
+post_thread_type:Gerð spjallþráðs:
+post_thread_expiry:Spjallþráður rennur út:
+post_locked:Þráður læstur
+post_icons:Einkennismerki skilaboða:
+post_no_icon:Ekkert einkennismerki
+post_smiley:Styttri leið að brosköllum:
+post_format_tools:Forsniðs tól:
+post_upload_file:Hlaða inn skrá
+post_file_del:Eyða
+post_file_name:Nafn
+post_file_size:Stærð
+file_attachments:Skráar viðhengi:
+allowed_files:Leyfð skráarsnið:
+max_file_size:Hámarks skráarstærð:
+max_files_per_msg:Hámarksfjöldi skráa á skilaboð:
+post_notification:Senda tilkynningu
+include_sig:Innifela undirskrift
+include_sig_desc:Innifela undirskrift notendasíðu þinnar
+disable_smilies:Afvirkja broskalla í þessum skilaboðum
+spell_check_msg:Stafsetningar-athugunar skilaboð
+post_form:Senda umræðu
+post_forum:Umræða:
+post_title:Titill:
+post_body:Innihald:
+post_options:Möguleikar:
+post_preview_btn:Forskoða skilaboð
+post_cancel_btn:Hætta við
+ignore_users:Hunsaðir notendur
+add_ignore:Hunsa notanda
+forum_terms:Skilmálar spjallborðsins
+forum_rules:<p>Skráning á spjallborðið er án kostnaðar! Við gerum kröfu til þess að þú farir eftir reglunum og viðmuðunum sem eru nefnd hér á eftir. Ef þú samþykkir þessa skilmála, vinsamlegast ýttu á <b>Samþykkja</b> neðst á síðunni. Með því að ýta á takkann staðfestir þú að þú sért eldri en 13 ára. Ef þú ert yngri en 13 ára, vinsamlegast notaðu þetta skráningareyðublað.</p><p>Þrátt fyrir að stjórnendur spjallborðsins reyna að halda öllum hneykslanlegum skilaboðum af spjallborðinu, þá er ómögulegt fyrir þá að fara yfir öll skilaboð. Öll skilaboð tjá skoðun höfundar, og hvorki eigendur spjallborðsins eða kerfistjórar geta tekið ábyrgð á innihaldi skilaboða.</p><p>Með því að smella á Samþykkja, ert þú að ábyrgjast að þú eigir ekki eftir að senda inn skilaboð sem eru ruddaleg, dónaleg, fela í sér kynferðislega áreitni, hatur, ógn eða brjóta lög á einhvern hátt.</p><p>Eigendur spjallborðsins hafa rétt til þess að fjarlægja, breyta, færa eða loka hvaða spjallþræði sem er fyrir hvaða ástæðu sem er.</p>
+forum_rules_13:<p>Allir notendur yngri en 13 ára verða að fá samþykki foreldra eða forráðamanna til að geta fengið aðgang á þessu spjallborði. Þótt við tökum vel á móti meðlimum sem eru undir 13 ára aldri, þá gerum við kröfu um að foreldri eða forráðarmaður fylli út eyðublað og sendi það með símtæki eða pósti áður en við samþykkjum aðgang notandans.</p><p>Ef þú vilt skrá þig áður en eyðublaðið berst okkur, ýttu á <b>Samþykkja</b> hér fyrir neðan. Ef þú villt hætta við að skrá þig á þessum vef, ýttu á <b>Hafna</b> og þá birtist forsíða spjallborðsins.</p><p>Afrit af eyðublaðinu er hægt að hala niður hér. Fyrir frekari upplýsingar um skráninguna, sendu tölvupóst til <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
+coppa_conf:COPPA staðfesting
+coppa_before:Áður en {TEMPLATE: coppa_date}
+coppa_after:Eftir {TEMPLATE: coppa_date}
+coppa_link:Ýttu á þann tengil sem samsvarar fæðingardagsetningu þinni
+coppa:<p>Foreldri eða forráðarmaður þarf að senda eða símsenda eyðublað til stjórnanda spjallborðsins áður en að notandi undir 13 ára aldri getur lokið skráningu.</p><p>Fyrir frekari upplýsingar hafðu samband við <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a></p>
+prereg_info:Reglur spjallborðsins
+prereg_agree:Samþykkja
+prereg_disagree:Hafna
+prereg_update:Lesa reglur spjallborðsins
+coppa_fax_instructions:Leiðbeiningar fyrir foreldra og forráðarmenn
+coppa_fax_instructions2:Vinsamlegast prentaðu út þessa síðu, skrifaðu undir og símsentu það til:
+coppa_fax_reg_form:Skráningar eyðublað
+coppa_fax_sign:Vinsamlegast undirritaðu eyðublaðið og sendu okkur það
+coppa_fax_conf:Ég hef lesið upplýsingarnar sem barnið mitt hefur gefið upp og ég hef lesið reglur spjallborðsins. Ég skil að upplýsingum á notendasíðu getur verið breytt með lykilorði. Ég skil að ég hafi rétt til þess að aðgangurinn verði fjarlægður alfarið af spjallborðinu.
+coppa_fax_permission:Settu undirskrift þína hér ef þú ert samþykk/ur
+coppa_fax_no_permission:Skrifaðu undir hér ef þú vilt að aðganginum verði eytt
+coppa_fax_parent_name:Fullt nafn forráðarmanns eða foreldris:
+coppa_fax_relation:Skyldleiki við barn:
+coppa_fax_telephone:Sími:
+coppa_fax_email:Netfang:
+coppa_fax_date:Dagsetning:
+coppa_fax_questions:Vinsamlegast hafðu samband við <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> til að fá svör við spurningum
+coppa_fax_login:Innskráning
+coppa_fax_passwd:Lykilorð
+coppa_fax_remail:Netfang
+coppa_fax_name:Nafn
+login_not_logedin:Þú ert ekki innskráður. Ástæðurnar fyrir því geta verið:
+login_cookie_expired:Vefkakan þín hefur runnið út og þú þarft að innskrá þig til að endurnýja hana.
+login_perm_denied:Þú hefur ekki heimild fyrir þessari aðgerð sem óskráður notandi. Þú verður að skrá þig inn til að fá heimild.
+login_want_to_register:Vilt þú nýskrá þig?
+login_forgot_passwd:Gleymt lykilorð
+login_use_cookie:Nota vefkökur<br /><span class="SmallText">Ef þú ert að nota almennings tölvu eins og tölvu á bókasafni, skóla eða netkaffihúsi, þá er mælt með því að þú afveljir þennan möguleika vegna öryggisástæðna. Ef þú skilur þennan möguleika eftir valinn þá verður þú sjálfvirkt skráður inn næst þegar að vefsíðan er heimsótt.</span>
+login_login:Innskráning:
+login_login_btn:Innskráning
+login_name_required:Notendanafn vantar
+login_passwd_required:Lykilorð vantar
+login_invalid_radius:Vitlaus samsetning lykilorðs og notendanafns
+reset_confirmation:Takk fyrir að skrá þig.\n\nTil að virkja aðganginn, farðu á eftirfarandi vefslóð:\n\n{VAR: url}\n\nÞegar aðgangurinn þinn hefur verið virkjaður þá verður þú skráð þig inn á spjallborðið og\náframsendur á forsíðuna.
+reset_reset:Halló,\n\nÞú hefur óskað eftir því að endursetja lykilorðið þitt. Til að ljúka þeirri beiðni, vinsamlegast smelltu á eftirfarandi tengil:\n\n{VAR: url}\n\nATH: Spjallborðið geymir lykilorðið undir dulkóðun, sem þýðir að þegar þú hefur skráð lykilorðið þá er það dulkóðað og ENGIN LEIÐ er að fá það aftur. Þetta virkar með samanburði af dulkóðuðu útgáfunni sem við eigum á skrá við dulkóðaða útgáfu af því sem þú notar til þess að skrá þig inn.\n(Ef þú vilt vita enn meira um hvernig þetta virkar, flettu þá upp MD5 HASH algrím)
+rpasswd_invalid_passwd:Vitlaust lykilorð
+rpasswd_passwd_nomatch:Lykilorðin passa ekki saman.
+rpasswd_passwd_length:Lykilorðið verður að vera 6 stafa langt
+reset_remind_pass:Áminning lykilorðs
+reset_reset_conf:Búið verður til nýtt lykilorð og sent til þín. Ef þú hefur ekki staðfest netfangið þá verður staðfestingarpósturinn endursendur til þín.
+reset_error:Mistókst að finna netfang
+rpasswd_change_pass:Breyta lykilorði
+rpasswd_login:Innskráning
+rpasswd_cur_pass:Núverandi lykilorð:
+rpasswd_new_pass:Nýja lykilorðið:
+rpasswd_conf_pass:Staðfestu lykilorðið:
+ruser_title:Breyta eyðublaði fyrir innskráningu
+ruser_change_user:Breyta innskráningu á spjallborðið
+ruser_cur_login:Núverandi innskráning:
+ruser_new_login:Ný innskráning:
+ruser_cur_pass:Núverandi lykilorð:
+login_passwd:Lykilorð:
+reset_email:Netfang:
+reset_reset_button:Endurstilla lykilorð
+rate_this_thread:Gefa einkunn
+report_reporting_about:Tilkynna um:
+report_subject:Fyrirsögn:
+report_by:eftir:
+report_posted_on:Sent inn:
+report_give_reason:Vinsamlegast gefðu ástæðu fyrir því að þú sért að tilkynna þessi skilaboð:
+report_submit_report:Senda skýrslu
+search_entire_msg:Öll skilaboðin
+search_subject_only:Fyrirsögn eingöngu
+search_forum:Umræða
+search_posted_on:Sent inn
+search_no_results:Engar niðurstöður
+search_all_forums:Leita í öllum umræðum
+search_in_forum:Leita í umræðu:
+search_forum_search:Leit spjallborðsins
+move_thread_to:Færa spjallþráð <b>{VAR: thr->subject}</b> á:
+remail_email_topic:Senda þráðinn til vinar með tölvupósti
+remail_your_name:Nafnið þitt:
+remail_your_email:Netfangið þitt:
+remail_friends_name:Nafn vinar:
+remail_friends_email:Tölvupóstfang vinar:
+remail_required:þetta þarf
+remail_subject:Fyrirsögn:
+remail_message:Skilaboð:
+remail_send_now:Senda tölvupóst núna
+remail_anon_opt:Afritaðu þessi skilaboð í tölvupóstþjón og sendu það áfram til vina þinna.
+remail_done:Búið
+remail_sent_conf:Tölvupósturinn til {VAR-HTML: _POST['femail']} um þráðin {VAR: data->subject} var sendur.
+remail_error:Villa við sendingu tölvupósts.
+mklist_type:Tegund:
+mklist_option:Möguleikar:
+mklist_additem:Bæta við hlut
+mklist_apply:Virkja
+mklist_delete:Eyða
+qbud_nick_name:Notendanafn
+qbud_add_selected:Bæta við völdu
+qbud_selected:Valið
+qbud_no_buddies:Engir félagar til að velja
+mklist_numerical:töluröð
+mklist_aplha:Upphaf
+mklist_square:Rétthyrningur
+mklist_disc:Skyggður hringur
+mklist_circle:Hringur
+mklist_close:Loka
+email_to:Til:
+email_pg_title:Tölvupóstur
+email_subject:Fyrirsögn:
+email_body:Innihald:
+email_submit:Netfang
+ppost_quote_msg:{VAR: msg_to_list} skrifaði {TEMPLATE: ppost_quote_msg_date}
+ppost_quote:Tilvitnun:
+ppost_to:Til:
+ppost_from_buddy_list:Velja frá félagalista:
+ppost_find_User:Finna notanda
+ppost_track_msg:Fylgjast með þessum skilaboðum
+ppost_track_msg_desc:Tilkynna mér (með einkaskilaboðum) þegar þessi skilaboð hafa verið lesin.
+ppost_send:Senda
+ppost_save_draft:Vista drög
+poll_blank_option:Þú getur ekki bætt við tómum möguleika
+poll_del_conf:Ef þú vilt eyða þessum möguleika, ýttu á OK
+poll_name:Nafn könnunar:
+poll_timelimit:Tímamörk:
+poll_maxiumvotes:Hámarksfjöldi atkvæða:
+poll_create:Stofna
+poll_update:Uppfæra
+poll_disablesmilies:Afvirkja broskalla
+poll_create_poll:Búa til könnun
+poll_update_poll:Uppfæra könnun
+poll_delete:Eyða
+poll_updateoption:Uppfæra möguleiki
+poll_addoption:Bæta við möguleiki
+poll_unlimited:Ótakmarkað
+poll_day:dagur
+poll_days:dagar
+poll_hour:klukkutími
+poll_hours:klukkutímar
+poll_month:mánuður
+poll_year:ár
+poll_week:vika
+tabs_register:Stillingar aðgangs
+tabs_subscriptions:Áskriftir
+tabs_bookmarkes:Bókarmerki
+tabs_referrals:Tilvísanir
+tabs_buddy_list:Félagalisti
+tabs_ignore_list:Hunsunar listi
+tabs_private_messaging:Einkaskilaboð
+single_msg_delete:Þú ert í þann mund að <span class="ErrorText">eyða</span> skilaboðunum: <b>{VAR: data[3]}</b>
+thread_delete:Þú ert í þann mund að <span class="ErrorText">eyða</span> <span class="ErrorText">spjallþræðinum</span>: <b>{VAR: data[3]}</b>
+delete_proceed:<span class="fb">Viltu halda áfram?</span>
+delete_yes:Já
+delete_no:Nei
+error_invalidurl:Röng vefslóð
+error_error:Villa
+usrinfo_profile:Notendasíða {VAR: u->alias}
+usrinfo_show_all_posts:Sýna öll skilaboð eftir: {VAR: u->alias}
+actions_update:Hlera annað fólk, eins og þig
+err_info:Upplýsingar
+buddy_list_err_cantadd:Þú getur ekki bætt sjálfum þér við félaga listann
+buddy_list_err_dup:Þú ert nú þegar með þennan notanda á félaga listanum
+buddy_list_err_nouser:Notandinn sem þú reyndir að bæta við á félaga listann fannst ekki
+buddy_list_err_nouser_title:Mistókst að bæta við notanda
+buddy_list_err_ignore:Mistókst að bæta við notanda sem er að hunsa þig
+buddy_list_update:Skoða eigin félaga lista
+core_err_invinp_title:Vitlaust inntak
+core_err_invinp_err:Þú hefur fylgt ógildum tengli. Vinsamlegast tilkynntu <a href="mailto:{GVAR: ADMIN_EMAIL}">kerfistjóra</a> hvernig þú komst hingað.
+core_adm_login_msg:Stjórnendur geta skráð sig inn<a href="{GVAR: WWW_ROOT}adm/admloginuser.php">hér</a>.
+email_err_unabletoemail_title:VILLA: Mistókst að senda tölvupóst
+email_err_unabletoemail_msg:Slökkt hefur verið á tölvupóst kerfinu af stjórnanda.
+email_error_unabletolocaddr:Því miður, mistókst að senda tölvupóst á {VAR-HTML: _POST['tx_name']} því ekki var hægt að ákvarða tölvupóstfang hans
+email_error_body:Vantar innihald
+email_error_subject:Þú þarft að tilgreina fyrirsögn
+email_error_namerequired:Þú þarft að tilgreina nafn
+email_error_invaliduser:Ógildur notandi
+emailconf_err_invkey_title:Villa
+emailconf_err_invkey_msg:Vitlaus staðfestingarkóði. Vinsamlegast athugaðu tölvupóstinn og sjáðu hvort þú hafir sláð vefslóðina inn rétt. Ef þú hefur ýtt á tengilinn tvisvar þá ert þú mögulega þegar búinn að staðfesta aðganginn. Skráðu þig inn á spjallborðið til að fá nýjan staðfestingarkóða.
+err_inc_criticaltitle:Alvarleg villa
+err_inc_criticalmsg:Villa hefur átt sér stað. Svo óheppilega vill til, að kerfið til að tilkynna villur er einnig bilað.
+finduser_update:Leita að notendum
+help_index_update:Lesa <a href="{TEMPLATE: help_index_update_lnk}">Hjálpina</a>
+iemail_thr_subject:Nýtt svar við {VAR: thr_subject} eftir {VAR: poster_login}
+iemail_thr_bodyemail:Til að skoða ólesin svör farðu á {VAR: goto_url['email']}\n\nEf þú villt ekki fá fleiri tilkynningar um svör á þessum þræði, smelltu þá á þennan tengil: {VAR: unsub_url['email']}
+iemail_frm_subject:Nýr þráður {VAR: thr_subject} í umræðunni {VAR: frm_name} eftir {VAR: poster_login}
+iemail_frm_bodyemail:Til að skoða þráðinn, farðu á:\n{VAR: goto_url['email']}\n\nTil að hætta að fá tilkynningar um nýja þræði í þessari umræðu, ýttu á þennan tengil: {VAR: unsub_url['email']}
+iemail_participate:Til að taka þátt í umræðunni, smelltu hér:
+ignore_list_err_info_title:Upplýsingar
+ignore_list_err_dup_msg:Þú ert nú þegar með þennan notanda á hunsunar listanum
+ignore_list_err_nu_title:Notandi fannst ekki
+ignore_list_err_nu_msg:Notandinn sem þú reyndir að bæta við á hunsunar listann fannst ekki
+ignore_list_cantign_msg:Þú getur ekki hunsað þennan notanda
+ignore_list_update:Skoða eigin hunsunar lista
+index_update:Skoða <a href="{TEMPLATE: index_update_lnk}">umræðu listann</a>
+list_referers_update:Skoða tilvísanir
+login_update:Innskráningar eyðublað
+msg_update:Skoða þráð <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
+pm_err_nopm_title:VILLA: Einkaskilaboð óvirkjuð
+pm_err_nopm_msg:Þú getur ekki notað einkaskilaboðs kerfið. Það hefur verið óvirkjað af stjórnanda
+pm_update:Notkun einkaskilaboða
+post_err_lockedthread_title:VILLA: Læstur þráður
+post_err_lockedthread_msg:Þessi spjallþráður er læstur. Ekki er hægt að senda inn skilaboð á hann.
+err_coppa_title:VILLA: Aðgangur þinn hefur ekki enn verið staðfestur
+err_coppa_msg:Við höfum ekki fengið staðfestingu frá foreldri eða forráðarmanni sem myndi leyfa þér að senda inn skilaboð. Ef þú hefur týnt staðfestingar eyðublaðinu þá getur þú <a href="{TEMPLATE: err_coppa_msg_lnk}">skoðað það hér</a>.
+err_banned_acct_title:VILLA: Þú hefur verið bannaður.
+err_banned_acct_msg:Aðgangur þinn var {IF: $ban_expiry}tímabundið bannaður til {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}bannaður ótímabundið{ENDI} frá því að hafa aðgang að síðunni, vegna brota á reglum spjallborðsins.
+post_err_edttimelimit_title:VILLA
+post_err_edttimelimit_msg:Þú getur ekki lengur breytt þessum skilaboðum
+post_err_noannontopics_msg2:<legend>VILLA: Ónóg réttindi</legend>Óskráðir notendur hafa ekki réttindi til að búa til spjallþræði.
+post_err_noannonposts_msg2:<legend>VILLA: Ónóg réttindi</legend>Óskráðir notendur hafa ekki réttindi til að svara.
+post_err_floodtrig_title:VILLA: Hámarksfjölda skilaboða náð.
+post_err_floodtrig_msg:Reyndu aftur eftir {PLURAL: tm|$1 sekúndu|$1 sekúndur}
+post_err_attach_size:Viðhengið er of stórt (stærra en hámarkstærðin {VAR: MAX_F_SIZE} bæti)
+post_err_attach_ext:Skráarsnið skránnar sem þú ert að reyna að hlaða inn er ekki leyft.
+post_err_attach_filelimit:Þú ert að reyna að hlaða inn fleiri skrám en er leyft.
+post_err_passwd:Rangt lykilorð.
+post_reply_update:Svara <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> í {VAR: frm->name}
+post_topic_update:Skrifar nýjan þráð í <a href="{TEMPLATE: post_topic_update_lnk}">{VAR: frm->name}</a>
+post_error_generic:Villa hefur komið upp
+postcheck_max_images_err:Hámarksfjöldi mynda í einum skilaboðum eru {GVAR: MAX_IMAGE_COUNT}. Vinsamlegast fækkaðu heildarfjölda myndanna.
+postcheck_no_links_allowed:Þú getur ekki notað tengla fyrr en þú hefur sent inn fleiri en {PLURAL: posts_before_links|$1 skilaboð|$1 skilaboð}.
+postcheck_subj_needed:Fyrirsögn vantar
+postcheck_no_such_user:Notandinn "{FUNC: char_fix(htmlspecialchars($v))}" er ekki til á þessu spjallborði.
+postcheck_ignored:Þú getur ekki sent einkaskilaboð til "{FUNC: char_fix(htmlspecialchars($v))}", því hann er að hunsa þig.
+postcheck_no_recepient:Mistókst að senda skilaboð, vantar móttakanda
+postcheck_invalid_email:Vinsamlegast bættu við gildu tölvupóstfangi fyrir vin þinn.
+postcheck_email_subject:Þú getur ekki sent tölvupóst án fyrirsagnar.
+postcheck_email_body:Þú getur ekki sent tölvupóst án innihalds.
+private_msg_notify_subj:Lesa tilkynningar fyrir: {VAR: m->subject}
+private_msg_notify_body:Halló,<br />{VAR: usr->login} hefur opnað einkaskilaboðin þín, "{VAR: m->subject}".<br />Þetta eru sjálfvirk skilaboð sem voru búin til {TEMPLATE: private_msg_notify_body_date}<br />
+referals_update:Skoða tilvísanir
+register_err_short_login:Notendanafnið sem þú valdir er of stutt. Notendanöfn verða að vera í minnsta lagi 4 stafa löng.
+register_err_login_notallowed:Þetta notendanafn er ekki leyft.
+register_err_loginunique:Notendanöfn á spjallborðinu verða að vera einstök. Það er þegar til notandi með þessu nafni.
+register_err_emailexists:Netfangið er þegar notað með öðrum aðgangi. Ef þú hefur gleymt lykilorðinu, vinsamlegast notaðu þá endurvakningar möguleikann í stað þess að endurskrá þig.
+register_err_shortpasswd:Lykilorðið verður að vera að minnsta kosti 6 stafa langt
+register_err_passwdnomatch:Lykilorðin stemma ekki, reyndu aftur.
+register_err_invalidemail:Netfangið sem þú tilgreindir virðist ekki vera gilt.
+register_err_needname:Til þess að ljúka skráningunni þarft þú að tilgreina nafnið þitt.
+register_err_enterpasswd:Þú verður að skrifa niður núverandi lykilorð til að geta breytt því.
+register_err_adminpasswd:Þú verður að skrifa niður núverandi <b>stjórnenda</b> lykilorð til að geta breytt því.
+register_err_notyouremail:Einhver annar er þegar skráður með þessu netfangi.
+register_err_avatartobig:Skráin sem þú reyndir að hlaða inn er of stór, stærri en {GVAR: CUSTOM_AVATAR_MAX_SIZE} bæti.
+register_err_avatarnotallowed:Skráarsnið notendamyndarinnar sem þú reyndir að hlaða inn er óheimilt. Athugaðu hvaða skráarsnið eru leyfinleg.
+register_conf_subject:Staðfesting skráningu
+register_conf_msg:Takk fyrir að skrá þig,\nTil að virkja aðganginn, skalt þú smella á vefslóðina hér fyrir neðan:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nÞegar aðgangurinn þinn hefur verið virkjaður verður þú skráður inn á spjallborðið og þér verður vísað áfram á forsíðuna.
+register_welcome_subject:Staðfesting skráningu á spjallborði
+register_welcome_msg:Takk fyrir að skrá þig,\n\nHér eru innskráningarupplýsingarnar þínar fyrir spjallborðið:\n\nVefslóð spjallborðsins: {TEMPLATE: index_update_lnk}\nNotendanafn: {VAR: uent->login}\nLykilorð: {VAR: _POST['reg_plaintext_passwd']}\n\nVinsamlegast athugaðu að stafseta lykilorðsins skiptir máli!\nTil að breyta stillingunum þínum eða notendasíðu, smelltu á þennan tengil:\n{FULL_ROOT}{ROOT}?t=register
+register_err_cantreg_title:VILLA: Mistókst að skrá þig
+regsiter_err_cantreg_msg:Mistókst að búa til notenda aðgang, vinsamlegast hafðu samband við stjórnenda á <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
+register_profile_update:Skoða eigin notendasíðu
+register_register_update:Skráningar síða
+report_err_nosuchmsg_title:VILLA
+report_err_nosuchmsg_msg:Engin þannig skilaboð til
+reset_err_invalidkey_title:VILLA
+reset_err_invalidkey_msg:Vitlaus staðfestingarkóði til að endursetja lykilorðið. Það er möguleiki að tölvupósts forritið þitt hefur sjálfvirkt opnað þessa síðu og þannig gert tengilinn óvirkan. Ef það er tilfellið, þá ættir þú að fá tölvupóst með nýja lykilorðinu. Ef tölvupósturinn berst ekki, reyndu þá að endursetja lykilorðið þitt.
+reset_err_rstconf_title:Upplýsingar
+reset_err_rstconf_msg:Þú færð sendar leiðbeiningar í tölvupósti á næstu mínútum.
+reset_newpass_title:Endurstilla lykilorð
+reset_newpass_msg:Halló,\n\nEins og þú baðst um eru innskráningarupplýsingarnar þínar tilgreindar hér fyrir neðan:\n\nNotendanafn: {VAR: ui[1]}\nLykilorð: {VAR: passwd}\n\nVinsamlegast athugaðu að lykilorðið hefur verið endursett yfir á það sem kemur fram hér fyrir ofan. Ef þú villt breyta lykilorðinu, þá getur þú gert það í stjórnborðinu þínu á: {FULL_ROOT}{ROOT}?t=register
+reset_login_notify:Lykilorðið hefur verið sent til þín. Þú ættir að fá skilaboðin á næstu mínótum.<br />
+search_update:Leita í skilaboðum
+selmsg_update:Skoða<a href="{TEMPLATE: selmsg_update_lnk}">skilaboð dagsins</a>
+showposts_update:Skoða skilaboð frá: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
+subscribed_update:Skoða eigin áskriftir
+bookmarked_update:Skoða eigin bókamerki
+thread_update:Skoða umræðu <a href="{TEMPLATE: thread_update_lnk}">{VAR: frm->name}</a>
+tree_update:Skoða þráð (hírsluskipan) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
+userinfo_update:Skoðar notendasíðu <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}'s</a>
+ERR_login_msg2:<legend>VILLA: Þú ert ekki innskráður</legend>Til að nálgast þessa síðu þarft þú að vera skráður meðlimur spjallborðsins.
+ERR_disabled_ttl:Óvirkjaður möguleiki
+ERR_disabled_msg:Þessi möguleiki hefur verið óvirkjaður af stjórnanda.
+ERR_access_ttl:VILLA: Ónæg réttindi
+ERR_access_msg:Þú hefur ekki nægileg réttindi til að framkvæma þessa aðgerð.
+ERR_registration_disabled_ttl:Skráning óvirkjuð
+ERR_registration_disabled_msg:Stjórnandinn hefur óvirkjað skráninguna. Vinsamlegast reyndu aftur síðar.
+ERR_emailconf_ttl:VILLA: Aðgangurinn hefur ekki enn verið staðfestur
+ERR_emailconf_msg:Þú hefur ekki enn staðfest aðganginn þinn í gegnum tölvupóstinn. <br /><table border="0"><tr><td><ol><li>Ef þú hefur ekki fengið staðfestingar tölvupóst, <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">óskaðu eftir því að fá hann endursendan</a>.</li><li>Ef {VAR: usr_d->email} er ekki rétt netfang, <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">tilgreindu þá rétt netfang</a>.</li></ol></td></tr></table>
+ERR_user_ttl:VILLA: Notandi ekki til
+ERR_user_msg:Notandinn er ekki til
+ERR_systemerr_ttl:VILLA: Kerfisvilla
+ERR_systemerr_msg:Kerfisvilla átti sér stað. Vinsamlegast tilkynntu villuna til <a href="mailto:{GVAR: ADMIN_EMAIL}">vefstjóra</a>.
+email_title:Tölvupósts eyðublað
+finduser_title:Finna notanda
+help_title:Hjálp
+login_title:Innskráningar eyðublað
+poll_title:Könnunar ritill
+register_title:Innskráningar eyðublað
+reset_title:Endurstilla lykilorð
+rpasswd_title:Eyðublað fyrir breytingu lykilorðs
+error_title:Villu eyðublað
+index_title:Velkominn á spjallborðið
+search_title:Leita að {VAR-HTML: srch}
+remail_emailsent:Tölvupósturinn var sendur
+remail_email:Halló,\n\nÞað er áhugaverður þráður um "{VAR: data->subject}" á {GVAR: FORUM_TITLE} umræðunni sem þú gætir viljað lesa. Þú getur séð spjallþráðinn á: \n{FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nVinur þinn,\n{VAR: usr->alias}
+poll_add_option:Bæta við möguleika:
+post_opt_html_on:<b>HTML</b> er <b>virkt</b>
+post_opt_fud_on:<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>BBcode</b> er <b>virkt</b></a>
+post_opt_images_on:<b>Myndir</b> eru <b>virkar</b>
+post_opt_smilies_on:<a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank"><b>Broskallar</b> eru <b>virkir</b></a>
+post_opt_html_off:<b>HTML</b> er <b>óvirkt</b>
+post_opt_fud_off:<b>BBcode</b> er <b>óvirkt</b>
+post_opt_images_off:<b>Myndir</b> eru <b>óvirkar</b>
+post_opt_smilies_off:<b>Broskallar</b> eru <b>óvirkir</b>
+post_opt:Möguleikar spjallborðs:
+register_change_passwd:Breyta lykilorði
+register_change_login:breyta innskráningu
+approved_avatar_title:Notendamynd þín hefur verið samþykkt.
+approved_avatar_msg:Notendamynd þín var samþykkt af stjórnanda. Hún ætti nú að birtast í öllum skilaboðunum þínum. Ef þú sérð hana ekki, eða sérð gömlu notendamyndina þína, þá er það útaf því að vafrarinn þinn hefur síðuna í skyndimynni. Reyndu að endurhlaða síðuna einu sinni eða tvisvar. Í flestum tilfellum leysir þetta vandamálið með skyndimynnið.
+unapproved_avatar_title:Notendamyndinni þinni hefur verið hafnað.
+unapproved_avatar_msg:Stjórnandinn ákvað að hafna notendamyndinni þinni. Algengustu ástæður fyrir höfnun notendamynda er að myndin sé of stór eða að hún innihaldi óæskilegt innihald. Ef þú vilt vita meira um afhverju notendamyndinni þinni var hafnað, hafðu samband við stjórnandann.
+mvthread_request_move:óska eftir færslu
+move_request_reason:Afhverju þarf að færa spjallþráðinn?
+mvthread_submit_req:Senda beiðni
+thread_exchange:Biðlisti yfir færslur þráða
+move_request_by:Óskað eftir færslu þráðar af:
+move_reason:Ástæða fyrir færslu þráðar:
+thr_exch_accept:samþykkja færslu
+thr_exch_decline:hafna færslu
+thr_exch_orig_forum:Færa síðu:
+thr_exch_dest_forum:á nýja titilinn:
+thr_exch_no_threads:Engir þræðir eru á biðlista.
+thr_exch_decl_reason:Ástæða fyrir höfnun þráðs <b>{VAR: data->subject}</b> inní umræðu <b>{VAR: data->f2_name}</b>
+thr_exch_submit:Senda
+exch_decline_ttl:Færsla þráðarins {VAR: data->subject} inní umræðuna {VAR: data->f2_name} var hafnað.
+ppost_original_msg:skilaboð sem þú ert að áframsenda eða svara
+split_thread:skipta þræði
+groupmgr_no_user:Notendanafnið "{FUNC: char_fix(htmlspecialchars($gr_member))}" er ekki til
+groupmgr_already_exists:Notandinn "{FUNC: char_fix(htmlspecialchars($gr_member))}" er þegar í þessum hóp.
+groupmgr_yes:Já
+groupmgr_no:Nei
+groupmgr_action:Aðgerð
+groupmgr_member:Meðlimur
+groupmgr_cancel:Hætta við
+groupmgr_add_member:Bæta við meðlimi
+groupmgr_update_member:Uppfæra meðlim
+groupmgr_edit:Breyta
+groupmgr_delete:Eyða
+group_mgr_anon:Nafnlaus
+group_mgr_reged:Allir skráðir notendur
+show_show:Sýna:
+group_mgr:Stjórn notendahópa
+group_mgr_edit_btn:Breyta hóp
+group_mgr_heading:Val notendahóps
+group_mgr_group:Hópur:
+permission_denied_title:Heimild hafnað!
+permission_denied_msg:Notendaréttindi þín leyfa þér ekki að gera aðgerðina.
+p_READ:Lesa
+p_POST:Senda
+p_REPLY:Svara
+p_EDIT:Breyta
+p_DEL:Eyða
+p_STICKY:Límd skilaboð
+p_POLL:Búa til könnun
+p_FILE:Hlaða inn viðhengi
+p_VOTE:Kjósa
+p_RATE:Gefa þræðinum einkunn
+p_SPLIT:skipta þræði
+p_LOCK:Læsa þræði
+p_MOVE:Færa þræði
+p_SML:Nota broskalla
+p_IMG:Nota myndatög
+p_SEARCH:Getur leitað
+group_mgr_search:Finna notanda
+group_mgr_indicator:Þú ert að breyta: <b>{VAR: grp->name}</b>
+rate_worst:Verst
+rate_best:Best
+post_quote_msg:{VAR: msg->login} skrifaði {TEMPLATE: make_report_date}
+post_quote:Tilvitnun:
+post_quote_selected:Tilvitna valin texta
+userinfo_referals:Tilvísaðir notendur:
+userinfo_referals_count:{VAR: referals} meðlimir
+pm_no_space_title:Ekkert pláss eftir!
+pm_no_space_msg:Einka skilaboða mappa þín fór yfir hámarkstærð <b>{GVAR: MAX_PMSG_FLDR_SIZE} bæti</b>. Mappan inniheldur í augnablikinu <b>{VAR: fldr_size} bæti</b> af skilaboðum.<br /><br /><span class="ErrorText">Fjarlægðu elstu skilaboðin til að búa til rými.</span>
+pm_space_indct_msg:Einkaskilaboða mappan þín er {VAR: percent_full}% full.
+th_expr_never:Aldrei
+th_expr_one_hr:1 klukkutími
+th_expr_three_hr:3 klukkutímar
+th_expr_four_hr:4 klukkutímar
+th_expr_eight_hr:8 klukkutímar
+th_expr_sixteen_hr:16 klukkutímar
+th_expr_one_day:1 dagur
+th_expr_two_day:2 dagar
+th_expr_four_day:4 dagar
+th_expr_one_week:1 vika
+th_expr_two_week:2 vikur
+th_expr_one_month:1 mánuður
+th_expr_two_month:2 mánuðir
+th_expr_four_month:4 mánuðir
+th_expr_one_year:1 ár
+thread_mod_delete:Eyða
+action_ip:Vistfang
+action_latest_post:Síðustu skilaboð
+online_today_last_visit:Síðast heimsótt
+online_today_update:Skoða lista yfir notendur sem voru á spjallborðinu í dag.
+logedin_todays_visitors:Gestir dagsins
+logedin_latest_post:Síðustu skilaboð á spjallborðinu:
+register_show_avatar:Sýna notendamyndir:
+register_show_avatar_desc:Leyfir þér að fela notendamyndir annara notanda þegar þú skoðar skilaboð þeirra.
+drawmsg_view_rest_post:Sýna afganginn af skilaboðunum
+post_re:Sv:
+forumsel_goto_forum:Fara á umræðu:
+minimsg_thread_view:Þráðaskipan
+split_th_post_by:Skilaboð eftir:
+split_th_posted_on:Sent inn:
+split_th_subject:Fyrirsögn:
+split_th_new_thread_title:Fyrirsögn nýs þráðar:
+split_th_forum:Umræða:
+split_th_split_sel:Skipta völdum skilaboðum
+split_th_split_unsel:Skipta afvöldum skilaboðum
+split_th_messages:Skilaboð
+split_th_select:Velja
+report_report_post:Tilkynna skilaboð
+quicklogin_login:Notendanafn:
+quicklogin_password:Lykilorð:
+quicklogin_use_cookies:Nota vefkökur?
+quicklogin_login_btn:Notendanafn
+quick_reply:Snöggt svar
+quick_reply_post:Senda snöggt svar
+quick_reply_preview:forskoða snöggt svar
+post_notification_desc:Tilkynna mér þegar einhver svarar þessum skilaboðum.
+post_all_ext_allowed:(ótakmarkað)
+maximize_category:Stækka flokk
+maximize_message:Stækka skilaboð
+no_view_perm:Þú hefur ekki réttindi til að sjá þennan þráð.
+report_empty_report:Þú getur ekki sent tóma skýrslu. Vinsamlegast skrifaðu ástæðu fyrir skýrslunni.
+report_already_reported_title:Þegar skráð
+report_already_reported_msg:Þessi skilaboð hafa þegar verið skráð og skýrslan er á biðlista stjórnandans.
+register_err_toomanyimages:Þú ert að reyna að setja fleiri myndir en hámarksfjöldinn segir til um {GVAR: FORUM_IMG_CNT_SIG} í undirskrift þína.
+pmsg_next_msg:Næstu skilaboð
+pmsg_prev_msg:Fyrri skilaboð
+post_proc_reveal_spoiler:Virkja spilli
+register_jabber:Jabber hald:
+register_skype:Skype hald:
+register_twitter:Twitter hald:
+register_google:Google Chat/IM hald:
+im_jabber:Jabber:
+im_google:Google Talk:
+im_skype:Skype:
+im_twitter:Twitter:
+forum_contact:Hafa samband
+forum_home:Heim
+post_cur_attached:fjöldi viðhengja: {VAR: i} {PLURAL: i|skrá|skrár}
+ignored_anon_post:{GVAR: ANON_NICK} er hunsaður
+ignored_user_post:Skilaboð eftir <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> eru hunsuð
+smladd_close_window:loka glugga
+post_list_smilies:listi yfir alla broskalla
+p_VISIBLE:Sýnileg
+reported_in_thread:Í:
+help_back_to_top:aftur efst á síðu
+help_return_to_index:Aftur á Hjálpar yfirlit
+imsg_err_message_title:Ógild skilaboð
+imsg_err_message_msg:Skilaboðin sem þú varst að reyna að skoða eru ekki til.
+poll_edit:Breyta
+register_err_not_valid_img:Valin vefslóð inniheldur ekki gilda mynd.
+pmsg_recepient:Móttakandi
+register_err_taken_alias:Notandanafnið sem þú ert að reyna að nota er þegar í notkun. Vinsamlegast reyndu annað.
+register_alias:Gælunafn:
+register_alias_desc:Ef þú vilt annað notendanafn en það sem þú skráir þig inn með, tilgreindu það þá hér.
+register_allow_pm_msg:Leyfa einkaskilaboð:
+register_allow_pm_msg_desc:Leyfa öðrum notendum að senda þér einkaskilaboð frá þessu spjallborði.
+postcheck_pm_disabled:Þú getur ekki sent einkaskilaboð til "{VAR-HTML: v}", því hann tekur ekki á móti einkaskilaboðum.
+polllist_vote:Kjósa
+polllist_view_results:Skoða niðurstöður
+polllist_name:Nafn könnunar:
+polllist_date:Stofnað
+polllist_owner:Búið til af
+polllist_votes:Heildarfjöldi atkvæða
+polllist_action:Aðgerð
+polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">Yfirfara aðgengilegar skoðanakannanir</a>
+userinfo_polls:Kannanir:
+show_pollist:Sýna kannanir
+search_and:OG
+search_or:EÐA
+search_desc_order:Í lækkandi röð
+search_asc_order:Í hækkandi röð
+search_logic:Leitar rök:
+search_sorting:Flokka niðurstöður eftir dagsetningu í:
+search_attach:Viðhengi:
+search_attach_all:Með eða án
+search_attach_with:Með viðhengjum
+post_proceed:Halda áfram
+post_moderated_forum:Þú hefur búið til skilaboð í umræðu sem er í umsjá vefstjóra. Skilaboðin þín verða ekki birt fyrr en einn af vefstjórunum eða stjórnendunum hefur samþykkt þau.
+post_moderated_forum_ttl:Tilkynnning frá vefstjórum
+buddy_list_bday:Í dag verður {VAR: r[2]} {VAR: age}
+email_warning_msg:Ef þú breytir núverandi netfangi, þá verður aðgangurinn þinn merktur sem óstaðfestur þangað til þú staðfestir hann í gegnum netfangið.
+register_show_im:Sýna IM vísisbreytur:
+register_show_im_desc:Hvort eigi eða ekki að sýna IM vísisbreytur höfundarins við skilaboð þeirra.
+unread_message:Ólesin skilaboð
+read_message:Lesa skilaboð
+threadt_more:&lt;meira&gt;
+threadt_disabled_ttl:Hírsluskipan spjallþráðarins hefur verið óvirkjuð
+threadt_disabled_desc:Stjórnandinn hefur óvirkjað hírsluskipan þráðarins. Vinsamlegast notaðu flata skipan í staðinn.
+threadt_update:Skoða umræðu (hírsluskipan) <a href="{TEMPLATE: threadt_update_lnk}">{VAR: frm->name}</a>
+mmod_delete_cofirm_ttl:Staðfesta eyðingu þráðs/skilaboða
+spell_alts:engir valkostir
+insert_uploaded_image:Settu myndina inn í innihald skilaboðanna
+finduser_help:Leitarvélin mun sjálfvirkt bæta við * stafsíu við beiðnina, stafseta leitarorðana skiptir máli.<br />Dæmi: til að leita að öllum notendanöfnum sem byrja á 'a', skrifaðu 'a' í leitarboxið.
+back_to_top:aftur efst á síðu
+pm_err_disabled_title:Einkaskilaboð óvirkjuð
+pm_err_disabled_msg:Þú getur ekki sent einkaskilaboð fyrr en þú virkjar 'Leyfa einkaskilaboð' möguleikann í stillingunum þínum.
+err_mod_acc_ttl:Óstaðfsestur aðgangur
+err_mod_acc_msg:Stjórnandi hefur valið að fara yfir alla aðganga handvirkt áður en þeir eru staðfestir. Þangað til aðgangurinn þinn hefur verið staðfestur af stjórnandanum þá getur þú ekki notað aðganginn til fulls.
+accounts_pending_approval:Aðgangar í bið eftir að verða staðfestir
+saved:Vistað
+register_err_time_limit:Hámarksfjöldi nýskráninga á {GVAR: REG_TIME_LIMIT} sekúndu hefur verið náð. Vinsamlegast bíddu í {PLURAL: reg_limit_reached|$1 sekúndu|$1 sekúndur} og reyndu aftur að nýskrá þig.
+register_affero:Affero notendanafn:<br /><span class="SmallText">Ef þú átt <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">Affero</a> notendanafn, skrifaðu það þá hér.</span>
+im_affero:Affero notendanafn
+register_err_avatardimtobig:Stærð notendamyndarinnar <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> er stærri en hámarkstærð notendamynda <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b> dílar.
+buddy_offline:{VAR: r[2]} er ótengdur
+buddy_online:{VAR: r[2]} er tengdur
+sml_no_smilies:Engir broskallar til.
+login_unapproved_account_ttl:Óstaðfestur aðgangur
+login_unapproved_account_msg:Stjórnandi spjallborðsins hefur valið að fara yfir alla aðganga handvirkt áður en hann staðfestir þá. Aðgangurinn þinn hefur ekki verið staðfestur og því munt þú ekki geta notað suma möguleika.
+remove_from_buddy_list:fjarlægja úr félagalista
+iemail_msg_author:<b>Höfundur:</b> {VAR: obj->alias}
+iemail_msg_subject:<b>Fyrirsögn:</b> {VAR: obj->subject}
+iemail_msg_date:<b>Dagsetning:</b> {TEMPLATE: dmsg_post_date}
+iemail_msg_reply:Svara
+iemail_msg_quote:Tilvitnun
+iemail_msg_view:Skoða þráð/skilaboð
+threadt_sticky:Límt
+threadt_announce:tilkynning
+reported_no_messages:Engin tilkynnt skilaboð
+poll_no_polls:Engar aðgengilegar kannanir.
+no_unread_messages:Engin ólesin skilaboð sem passa við leitina þina.
+thread_mark_all_read:Merkja öll ólesin skilaboð sem lesin
+thread_mark_all_read_desc:Öll ólesin skilaboð á þessu spjallborði verða merkt sem lesin
+private_no_messages:Það eru engin ný skilaboð í þessari möppu.
+register_email_change_subject:Staðfesting breytingu netfangs
+register_email_change_msg:Vinsamlegast staðfestu að nýja netfangið þitt "{VAR: uent->email}" sem kemur í staðinn fyrir það gamla "{VAR: old_email}", með því að smella á eftirfarandi tengil:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nÞegar þú hefur staðfest nýja netfangið, þá verður aðgangur þinn á spjallborðinu endurvirkjaður.
+iemail_thread_unsub:Hætta áskrift á þræði
+iemail_forum_unsub:Hætta áskrift á umræðu
+primary_group_prefix:Helsti hópur spjallborðsins:
+group_resources:Þessi hópur stjórnar réttindum eftirfarandi umræðna
+register_admin_newuser_title:Nýr notandi hefur skráð sig og aðgangur hans er í bið eftir staðfestingu
+register_admin_newuser_msg:Nýr notandi ({VAR: uent->login}) hefur skráð sig og fyrst að staðfesting aðganga er virk, þá verður aðgangur þeirra ekki virkur fyrr en hann hefur verið samþykktur af þér eða öðrum stjórnanda. Til að skoða aðganginn vinsamlegast farðu á: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nÞetta eru sjálfvirk skilaboð. Ekki svara þessum skilaboðum.\nEf þú villt slökkva á þeim möguleika að fá tölvupóst yfir nýjar notendaskráningar, þá getur þú gert það í stjórnborði stjórnenda. Breyttu möguleikanum "Tilkynningar um nýja aðganga".
+post_mod_msg_notify_title:Ný skilaboð í umræðunni "{VAR: frm->name}" í bið eftir staðfestingu
+post_mod_msg_notify_msg:Ný skilaboð með fyrirsögninni "{VAR: msg_post->subject}" voru sent á umræðu sem þú stjórnar. Til þess að skoða skilaboðin farðu á: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nÞetta eru sjálfvirk skilaboð. Ekki svara þessum skilaboðum.
+thread_printable_pdf:Búa til PDF skjal
+thread_syndicate:Miðla þessari umræðu (XML)
+reg_conf_title:Staðfesting skráningu
+reg_conf_email:<b>Staðfesting netfangs</b><br />Tölvupóstur hefur verið sendur til þín sem inniheldur sérstaka vefslóð sem þú þarft að smella á áður en aðgangurinn þinn verður samþykktur. Ef þú færð ekki þessi skilaboð á næstu mínótum, skráðu þig inn og sjáðu til þess að netfangið sem þú hefur tilgreint sé rétt. Þegar þú hefur staðfest aðganginn þinn, þá getur þú notað möguleika sem aðeins staðfestir notendur geta nýtt sér.
+reg_conf_account:<b>Staðfesting aðgangs</b><br />Áður en aðgangurinn þinn hefur verið vírkjaður þá þarf hann að vera skoðaður af stjórnanda. ÞEgar það hefur gerst þá munt þú fá tölvupóst um að aðgangurinn þinn hafi verið samþykktur. Í millitíðinni getur þú skráð þig inn á aðganginn þinn, en þú átt ekki eftir að hafa aðgang að sérstökum möguleikum.
+forum_banned_user:Fyrri aðgerðir þínar hafa leitt til ótímabundins banns frá spjallborðinu. Bless.
+mnav_description:Skilaboðs vísir
+mnav_date_limit:Dagsetningar drægni:
+mnav_forum_limit:Aðeins leita í:
+mnav_all_forums:Leita í öllum umræðum
+mnav_submit:Byrja að leita
+mnav_no_range:Þú verður að tilgreina gilt tímabil. Gildið má innihalda punkt, (0.12) en það verður að vera stærra en núll.
+mnav_invalid_unit:Þú verður að tilgreina gilda tímaeiningu.
+mnav_invalid_date:Tímabilið sem þú tilgreindir er lengra en leyft er af stjórnanda. Reyndu minni tímalengd.
+mnav_no_results:Engin skilaboð pössuðu við fyrirspurnina.
+mnav_posted_by:Sent inn af:
+mnav_more:Meira &raquo;&raquo;
+mnav_minute:Mínútur
+mnav_hour:Klukkutímar
+mnav_day:Dagar
+mnav_week:Vikur
+mnav_month:Mánuðir
+mnav_title:Skilaboðs vísir
+mnav_update:Skoða skilaboð með <a href="{TEMPLATE: mnav_update_lnk}">Message Navigator</a>
+pm_notify_subject:[{GVAR: FORUM_TITLE}] Ný tilkynning um einkaskilaboð
+pm_notify_body_email:Þú hefur fengið ný einkaskilaboð "{VAR: subject}", frá "{VAR: from}", í spjallborðinu "{GVAR: FORUM_TITLE}".\nTil að skoða skilaboðin, smelltu á þennan tengil: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nTil þess að hætta að fá fleiri tilkynningar, afvirkjaðu "Tilkynning einkaskilaboða" í stillingunum þínum.
+register_pm_notification:Tilkynning einkaskilaboða:
+register_pm_notification_desc:Ef þessi möguleiki er virkjaður þá munt þú fá tilkynningar þegar þú færð einkaskilaboð.
+findu_admin_opts_header:Stjórnenda mög.
+findu_unban:Afbanna
+findu_ban:Banna
+findu_edit:Breyta
+findu_delete:Eyða
+dmsg_reply_to:er svar við
+dmsg_reply_num:skilaboðunum #{VAR: obj->reply_to}
+merge_topics:sameina þræði
+merge_topics_cp:Stjórnborð sameininga spjallþræða
+merge_topics_tpl:Veldu spjallþræði sem á að sameina <span class="SmallText">(þú verður að velja fleiri en einn spjallþráð)</span>
+merge_merge:Sameina valda þræði
+merge_next:Næstu þræðir
+merge_prev:Fyrri þræðir
+merge_another:Fara á síðasta <a href="{TEMPLATE: merge_another_lnk}">sameinaða þráðinn </a> eða sameina annan:
+split_cp:Stjórnborð skiptingu þráða
+groups_perms_header:Réttindi <span class="small">(færðu músina yfir réttindin til að sjá hver þau eru)</span>
+register_err_sig_too_long:Undirskriftin þín er stærri en leyfð hámarkslengd {GVAR: FORUM_SIG_ML} stafir.
+register_sig_limit:{GVAR: FORUM_SIG_ML} stafir <a href="javascript: alert('Undirskriftin þín er '+document.forms['fud_register'].reg_sig.value.length+' stafir að lengd. Hámarkslengd undirskrifta eru {GVAR: FORUM_SIG_ML} stafir.');" class="SmallText">Athuga lengd undirskriftar</a>
+adm_account_accepted:Aðgangurinn þinn '{VAR: login}' var samþykktur af stjórnanda og er nú virkur. Þú hefur nú aðgang að {GVAR: FORUM_TITLE}' spjallborðinu sem staðfestur og skráður notandi.
+adm_account_accepted_s:Beiðni þín um aðgang fyrir '{GVAR: FORUM_TITLE}' var samþykkt.
+adm_account_rejected:Aðgangi þínum '{VAR: login}' var hafnað af stjórnanda. Ef þú vilt vita ástæðuna á bak við þessa ákvörðun, hafðu þá samband við stjórnandann á '{GVAR: ADMIN_EMAIL}'.
+adm_account_rejected_s:Beiðni þín um aðgang fyrir '{GVAR: FORUM_TITLE}' var hafnað.
+thread_on:á
+userinfo_buddy:Félagi:
+register_email_addr:netfang:
+reset_suffix:Ef þú hefur fengið þessi skilaboð eftir að hafa fengið villu, vinsamlegast hunsaðu hana. Ef þú hefur fengið mörg eintök af þessum tölvupósti sem þú hefur ekki óskað eftir, vinsamlegast hafðu samband við stjórnanda á {GVAR: ADMIN_EMAIL}\n\nÞessi beiðni kemur upprunalega frá: {VAR: _SERVER['REMOTE_ADDR']}.
+usrinfo_last_visit:Síðast heimsótt:
+mnav_newer:nýrra en
+mnav_older:eldra en
+ip_search_by_ip:Leita eftir notendum eftir vistfangi
+ip_search_syntax:Studd málskipan: 1.2.3.4, 1.2.3, 1.2, 1
+ip_search:Leita
+ip_analyze_usage:Greina notkun vistfangs
+ip_analyze_usage_descr:Vinsamlegast tilgreindu nákvæmlega nafn notandans.
+ip_users_using:Notendur sem nota vistfangið '{VAR: ip}'
+ip_all_ips:Öll vistfang sem '{VAR: user}' hefur notað
+ip_title:Vistfang vafra
+userinfo_real_name:Raunverulegt nafn:
+register_err_alias_notallowed:Þetta gælunafn er ekki leyft
+post_err_mod_forum_edit_ttl:VILLA
+post_err_mod_forum_edit_msg:Þú getur ekki breytt skilaboðum í umræðu í umsjón stjórnenda.
+dmsg_num:skilaboð #{VAR: obj->id}
+postcheck_session_invalid:Setu þinni er lokið. Vinsamlegast endur sentu eyðublaðið. Afsakaðu óþægindin.
+delete_message_extra_desc:<b>Valfrjálst</b><br />Tilgreinu ástæðu fyrir eyðingu skilaboðana, sem verða send til höfundarins með einkaskilaboðum.
+delete_message_extra_body:Innifela innihald skilaboðana sem verða send til höfundarins.
+delete_msg_removed_ttl:Skilaboðin þín voru fjarlægð af stjórnanda.
+delete_msg_pm_body:Upphaflegu skilaboðin
+delete_msg_pm_subject:Fyrirsögn: {VAR: data[15]}
+ip_no_whois:Rétthafaupplýsingar fyrir vistfangið <b>{VAR: ip}</b> eru ekki til.
+ip_whois_title:Upplýsingar vefþjónustuaðila
+register_theme:Þema:
+pmsg_trash:Tæma ruslatunnu
+uc_new_pm:Ný einkaskilaboð
+uc_new_topic:Nýr þráður
+uc_new_cat_forum:Umræður sem þú ert áskrifandi að með ný skilaboð
+uc_cat_forum:Flokkur &raquo; Umræða
+uc_sub_topics:Þræðir sem þú ert áskrifandi að með ný skilaboð
+uc_page_title:Skoða persónulegt stjórnborð
+search_options:Leitarvalmöguleikar
+search_user_filter:Sía eftir notanda:
+register_none:Engar tilkynningar
+findu_no_conf:óstaðfestur notandi
+register_max_sig_len:Hámarks lengd:
+register_turing:Vinsamlegast settu inn kóðann sem er sýndur hér fyrir neðan:
+register_err_turing:Vitlaus staðfestingar kóði.
+modque_cat:Flokkur
+modque_forum:Umræða
+idx_compact_forum_row:Aðgengilegar umræður:
+mmd_del_title:Eyða þræði
+mmd_mov_title:Færa þræði
+mmd_move_threads_to:á nýja titilinn:
+mmd_abort_move:Hætta við
+mmd_move:Færa þræði
+pmsg_pdf_btn:Búa til PDF skjalasafn
+search_results_hdr:{VAR: total} Leitarniðurstöður fundust
+thread_del_all:Eyða völdum þráðum
+thread_mov_all:Færa valdar síður
+thread_merge_all:Sameina valdar síður
+thread_loc_all:Læsa/Aflæsa valdar síður
+dmsg_ip:Vistfang:
+err_blockedaccnt_title:VILLA: Aðgangurinn þinn hefur verið síaður út.
+err_blockedaccnt_msg:Aðgangurinn þinn hefur verið bannaður frá spjallborðinu vegna eins af þeim síum sem þú hefur sett inn.
+merge_th_page_list:Val þráða
+most_users_online:Flestu notendir voru tengdir <b>{VAR: st_obj->most_online}</b> þann <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
+sub_unsub_all_forums:Hætta áskrift á öllum umræðum
+sub_unsub_all_topics:Hætta áskrift á öllum spjallþráðum
+unbookmark_all_topics:Fjarlægja öll bókarmerki
+tabs_own_posts:Sýna eigin skilaboð
+sml_emoticon:Broskall
+sml_code:Kóði
+mnav_sub_only:Leita í umræðum sem þú ert áskrifandi að eingöngu
+register_topics_per_page:Þræðir á síðu:
+login_min_time:Þetta spjallborð leyfir eina tilraun til innskráningar á hverjum {VAR: MIN_TIME_BETWEEN_LOGIN} sekúndum, vinsamlegast bíddu í {FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)} áður en þú reynir aftur.
+post_not_logged_in:Þú ert ekki innskráður, skilaboðin verða send nafnlaus.
+post_common_bold:Feitletra
+post_common_italics:Skáletrað
+post_common_underline:Undirstrikað
+post_common_align_left:Vinstrimiðað
+post_common_align_center:Miðjumiðað
+post_common_align_right:Hægrimiðað
+post_common_link:Bæta við tengli
+post_common_link_popup:Staðsetning tengils:
+post_common_email:Skrá tölvupóstfang
+post_common_email_popup:Netfang:
+post_common_image:Setja inn mynd
+post_common_image_popup:Mynda vefslóð:
+post_common_nlist:Bæta við tölulegum lista
+post_common_blist:Bæta við díluðum lista
+post_common_quote:Bæta við tilvitnun
+post_common_code:Bæta við kóða
+rating_delete:Eyða
+post_always_on_top:Láta spjallþráðinn alltaf birtast efst í lista yfir aðra þræði
+topic_rating:{VAR: frm->rating} frá {PLURAL: frm->n_rating|$1 atkvæði|$1 atkvæðum}
+topic_list_rating:{VAR: r[17]} frá {PLURAL: r[21]|$1 atkvæði|$1 atkvæðum}
+tabs_notifications:Tilkynningar
+finduser_flag:Fáni
+post_descr:Lýsing spjallþráðs:
+pmsg_on:á
+pmsg_download_dump:Hlaða inn dembu skilaboða
+move_messages:Færa skilaboð
+move_msg_btn:Færa valin skilaboð
+move_msg_th_expl:Tilgreindu auðkenni þráðarinns sem á að færa á (má vera í annari umræðu)
+captcha_img_alt:Captcha staðfesting: Þú þarft að bera kennsl á textann á þessari mynd.
+captcha_img_help:Það er ekki núll eða einn á myndinni.
+powered-by:Knúið af: FUDforum {GVAR: FORUM_VERSION}.
+copyright:Höfundaréttur &copy;2001-2011 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+code_title:Kóði:
+code_select_all:Velja allt
+code_show_hide:sýna/fela
+social_sites:Samskiptar síður:
+postcheck_min_len_err:Skilaboðin þín eru of stutt. Lámarkslengd skilaboða eru {PLURAL: post_min_len|$1 stafur|$1 stafir}.
+postcheck_dup_err:Vinsamlegast ekki búa til eins þræði.
+btn_new_topic:Nýr þráður
+btn_new_pm:Ný E.Skilaboð
+btn_post_reply:Senda svar
+btn_tree_view:Hírsluskipan
+btn_flat_view:Flöt skipan
+btn_about:Notendasíða
+btn_small_pm:ES
+btn_delete:eyða
+btn_edit:breyta
+btn_reply:svara
+btn_forward:áframsenda
+btn_quote:tilvitnun
+btn_email:netfang
+btn_show_posts:skilaboð
+btn_homepage:www
+feed_no_data:Eingin samsvarandi göngn fundust.
+feed_rdf:RDF streymi
+feed_rss:RSS2 streymi
+feed_atom:ATOM streymi
+ip_whois_connect_err:Mistókst að tengjast WHOIS þjóni ({VAR: whois_server}): {VAR: errstr}
+custom_filed_required:Fylla þarf út þennan reit.
+pages:Síður
+page_list_heading:Aðgengilegar síður
+page_list_total:{PLURAL: i|$1 síða|$1 síður} skráðar.
+page_update:Skoða síðu
+pm_export_header:Einkaskilaboð fyrir {VAR: usr->alias}
+pm_export_footer:Flutti út:

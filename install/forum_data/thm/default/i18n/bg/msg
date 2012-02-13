@@ -917,7 +917,9 @@ usrinfo_last_visit:Последно посещение:
 ip_search:Търсене
 userinfo_real_name:Име и фамилия:
 post_err_mod_forum_edit_ttl:ГРЕШКА
+delete_msg_pm_body:Оригинално съобщение
 register_theme:Тема:
+uc_new_pm:Нови лични съобщения
 uc_new_topic:Нова тема
 modque_cat:Категория
 modque_forum:Форум

@@ -1,0 +1,1139 @@
+# Messages for Asturian (Asturianu)
+# Exported from translatewiki.net
+# Author: Xuacu
+
+action:Aición
+add_to_buddy_list:amestar a la llista de collacios
+admin:Almin
+admin_control_panel:Alministración
+administrator:Alministrador
+attachment:Axuntu:
+avatar:Avatar:
+average_post_count:{PLURAL: u->posted_msg_count|$1 mensaxe|$1 mensaxes} (una media {PLURAL: avg|d'un mensaxe|de $1 mensaxes} al día)
+biography:Biografía:
+birth_date:Data de nacimientu:
+by:Por:
+by_mod:pol Moderador
+current_time:Data y hora actual
+custom_avatar_queue:Cola d'avatares personalizaos
+date_posted:Data de publicación
+date_registered:Data de rexistru:
+download_counter:Descargao {PLURAL: v[3]|$1 vegada|$1 vegaes}
+pmsg_download_counter:Descargao {PLURAL: r->dlcount|$1 vegada|$1 vegaes}
+email:Corréu electrónicu:
+email_to_friend:Mandar per corréu a un amigu
+email_to_friend_desc:Mandar la URL d'esta páxina per corréu a un amigu
+email_user:Unviar un mensaxe per corréu al usuariu
+faq:Ayuda
+first_unread_msg:Dir a los mensaxes ensin lleer
+first_unread_msg_desc:Dir al primer mensaxe ensin lleer d'esti filu
+flat_view:Tornar a la vista plana predeterminada
+forum:Foru:
+forum_icon:Iconu del foru
+forum_new_messages:Mensaxes nuevos
+forum_none_messages:Sólo los miembros rexistraos del foru puen siguir los mensaxes lleíos y ensin lleer
+forum_old_messages:Nun hai mensaxes nuevos
+from:De:
+gender:Xéneru:
+go:Dir
+goto_next_msg:Dir al siguiente mensaxe
+goto_prev_msg:Dir al mensaxe anterior
+home:Entamu
+homepage:Páxina principal:
+icq_control_panel:ICQ en llinia-Panel de mensaxes
+icq_message_form:Formulariu de mensaxe ICQ:
+ignore_user:saltar tolos mensaxes d'esti usuariu
+im_aim:Identificador AIM:
+im_msnm:MSN Messenger:
+im_yahoo:Yahoo Messenger:
+image:Imaxe:
+index_forum:Foru
+index_new_posts:Mensaxes nuevos dende la última llectura
+index_no_new_posts:Nun hai mensaxes nuevos dende la última llectura
+index_url_redirection:Redireición
+interests:Intereses:
+last_post:Caberu mensaxe
+last_thread_msg:Dir al caberu mensaxe d'esti filu
+legend:Lleenda:
+location:Allugamientu:
+lock_thread:Candar el filu
+locked:Candáu
+locked_with_new_posts:Candáu (con mensaxes ensin lleer)
+logged_in_list:Llista d'usuarios coneutaos
+login:Entrar
+login_header:Aniciu de sesión:
+logout:Colar
+mark_all_read:Marcar tolos mensaxes como lleíos
+mark_all_read_desc:Tolos mensaxes ensin lleer se marcarán como lleíos
+members:Miembros
+calendar:Calendariu
+cal_goto_date:Saltar a:
+cal_day_heading:Acontecimientos del día
+cal_no_events:Nun hai acontecimientos para esti día.
+cal_update:Navegar pel calendariu del foru
+cal_birthday:Cumpleaños: {VAR: user}
+cal_birthday_age:({PLURAL: age|$1 añu|$1 años} d'edá).
+message:Mensaxe
+message_counter:Los nuesos usuarios publicaron un total de <b>{PLURAL: post_count|un mensaxe|$1 mensaxes}</b> <b>{PLURAL: thread_count|nún filu|en $1 filos}</b>.
+message_index:Índiz de mensaxes
+message_index_desc:Ver la llista de mensaxes
+minimize_category:Amenorgar la categoría
+minimize_message:Amenorgar el mensaxe
+moderation_queue:Cola de moderación
+moderator:Moderador
+moderator_of:Moderador de:
+moderator_options:Opciones del moderador
+moderators:{PLURAL: modcount|Moderador|Moderadores}
+more_unread_messages:más mensaxes ensin lleer
+more_unread_messages_desc:Amosar más mensaxes ensin lleer y marcar los mensaxes visibles anguaño como lleíos
+move_thread:Treslladar
+moved:Treslladáu a otru foru
+moved_thread_message:Esti filu se treslladó a otru foru
+na:n/d
+new_posts:Mensaxes nuevos
+new_private_messages:Tienes <span class="GenTextRed">({VAR: c})</span> {PLURAL: c|mensaxe priváu|mensaxes privaos} ensin lleer
+new_thread:Crear un filu nuevu
+newest_user:El caberu usuariu rexistráu ye
+next_page:Páxina siguiente
+next_thread:Filu siguiente:
+no_messages:Nun hai mensaxes nesti foru.<br />Pues ser el primeru qu'escriba d'un tema nesti foru.
+no_msg_body:El mensaxe nun tien cuerpu
+no_new_posts:Nun hai mensaxes nuevos
+no_posts:Nun hai mensaxes
+no_subscribed_forums:Nun hai foros suscritos
+no_subscribed_threads:Nun hai filos suscritos
+no_bookmarked_threads:Nun hai filos con marcadores
+no_unread_locked:Esti filu ta candáu
+no_unread_msg:Esti filu nun tien mensaxes ensin lleer
+no_unread_msg_unreg:Sólo los usuarios rexistraos puen facer el siguimientu de los mensaxes lleíos y ensin lleer
+num_pages:Páxines ({VAR: ttl_pg}):
+num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|votu|votos}
+occupation:Ocupación:
+off:inactivu
+on:activáu
+page_timings:Tiempu total emplegáu pa xenerar la páxina: {PLURAL: page_gen_time|$1 segundos}
+pm:Mensaxería privada
+poll:Encuesta:
+post_count:Total de mensaxes {VAR: u_pcount}
+post_count_l:Total de mensaxes:
+posts:Mensaxes
+posts_c:Mensaxes:
+prev_thread:Filu anterior:
+usrinfo_private_message:Mensaxe priváu:
+profile:Panel de control
+profile_desc:Entrar al panel de control del usuariu
+rate_thread:Puntuar el filu
+rating:Calificación
+rating_track:Xestionar les puntuaciones del filu <b>{VAR: thr->subject}</b>:
+refresh_list:Anovar la llista
+register:Rexistrase
+registered:Rexistráu:
+registered_on:Rexistráu el {TEMPLATE: registered_on_date}
+replies:Respuestes
+report_to_mod:Informar del mensaxe a un moderador
+reported_messages:Mensaxes de los que s'informó
+reveal_all_posts:revelar tolos mensaxes de {VAR: user_login}
+reveal_post:revelar mensaxe
+search:Guetar
+sel_todays_posts:Mensaxes de güei
+sel_todays_posts_desc:Conmutador de la peñera pa mensaxes de güei (sólo amosará los mensaxes redactaos güei)
+sel_unanswered_posts:Mensaxes ensin responder
+sel_unanswered_posts_desc:Conmutador de la peñera de mensaxes ensin responder (sólo s'amosarán los mensaxes ensin denguna respuesta)
+sel_unread_messages:Mensaxes ensin lleer
+sel_unread_messages_desc:Conmutador de la peñera de mensaxes ensin lleer (sólo s'amosarán los mensaxes ensin lleer)
+send:Unviar
+send_pm_desc:Unviar un mensaxe priváu a esti usuariu
+sender_email:Corréu electrónicu del remitente:
+sender_name:Nome del remitente:
+show_posts_by:Amosar los mensaxes de: {VAR: u_alias}
+size:Tamañu:
+status:Estáu:
+status_line:Hai <b>{PLURAL: st_obj->online_users_reg|$1 miembru|$1 miembros}</b>, <b>{PLURAL: st_obj->online_users_hidden|$1 miembru invisible|$1 miembros invisibles}</b> y <b>{PLURAL: st_obj->online_users_anon|$1 convidáu|$1 convidaos}</b> visitando esti foru.
+sticky:fixu:
+stop_ignoring:dexar de saltar a esti usuariu
+sub_to_thread:Suscribise al filu
+sub_to_thread_desc:Recibir avisu de los nuevos mensaxes d'esti filu
+bookmark_thread:Marcar esti filu
+bookmark_thread_desc:Amestar esti filu a la to llista de marcadores
+subject:Asuntu
+subscribe:Suscribir
+subscribe_desc:Recibir avisos cuando dalguién cree un filu nuevu nesti foru
+subscribed_forums:Foros suscritos
+subscribed_forums_desc:Conmutador de la peñera de foros suscritos (sólo s'amosarán los mensaxes de los foros a los que tas suscritu)
+subscribed_threads:Filos suscritos
+subscribed_threads_desc:Conmutador de la peñera de filos suscritos (sólo s'amosarán los mensaxes de los filos a los que tas suscritu)
+bookmarked_threads:Filos marcaos
+switch_to_thread_view:Cambiar a la vista n'árbol d'esti filu
+thread:Filu:
+thread_announcement:Anunciu:
+thread_first_unread_msg:Dir al primer mensaxe ensin lleer d'esti filu
+thread_thread:Filu
+threads:Filos
+time:Hora
+todays_posts:Mensaxes de güei
+todays_posts_desc:Amosar tolos mensaxes que se publicaron güei
+un_ignore_user:dexar de saltar los mensaxes d'esti usuariu
+unanswered_posts:Mensaxes ensin responder
+unanswered_posts_desc:Amosar tolos mensaxes ensin denguna respuesta
+unlock_thread:Desbloquiar el filu
+unread_msg:Esti filu contién mensaxes qu'inda nun lleísti
+unread_msg_locked:Filu candáu con mensaxes ensin lleer
+unread_posts:Mensaxes ensin lleer
+unread_posts_desc:Amosar tolos mensaxes ensin lleer
+unsub_from_thread:Quitar la suscripción al filu
+unsub_from_thread_desc:Dexar de recibir avisu de los nuevos mensaxes d'esti filu
+unbookmark_thread:Desaniciar de los marcadores
+unbookmark_thread_desc:Quitar esti filu de la to llista de marcadores
+unsubscribe:Quitar la suscripción
+unsubscribe_desc:Dexar de recibir avisos de los nuevos filos del foru
+updated_on:Anovao el:
+user:Usuariu
+user_counter:Tenemos <b>{VAR: st_obj->user_count}</b> {PLURAL: st_obj->user_count|usuariu rexistráu|usuarios rexistraos}.
+user_info:Información del usuariu
+user_info_l:Información del usuariu {VAR: u->alias}
+user_offline:{VAR: obj->login} anguaño nun ta conectáu
+user_online:{VAR: obj->login} anguaño ta conectáu
+usrinfo_last_post:Caberu mensaxe:
+view_results:Ver los resultaos
+views:Vistes
+vote:{PLURAL: frm->n_rating|$1 votu|$1 votos}
+vote_button:Votar
+vote_for_thread:Votar
+was_moved_msg:El moderador treslladó <a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> a <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a>.
+welcome_message:Bienllegáu <b>{VAR: usr->alias}</b>, la to cabera visita foi el {TEMPLATE: welcome_message_date}
+what_ppl_doing:Amosar qué ta faciendo la xente
+reported_del_report:Desaniciar informe
+reported_reason:Motivu:
+reported_on:El:
+reported_reported_by:Informao por:
+reported_reported_msg:Mensaxes de los que s'informó
+modque_pending_approval:Mensaxes pendientes d'aprobación
+modque_approve:Aprobar
+modque_delete:Desaniciar
+modque_no_message:Nun hai mensaxes pendientes d'aprobación
+pmsg_new_messages:Mensaxe priváu ensin lleer
+pmsg_old_messages:Mensaxe priváu lleíu
+deny_recipt:nun unviar acuse de recibu
+deny_recipt_desc:Nun unviar la confirmación de que lleísti esti mensaxe
+restore_to:Restaurar a:
+move_to:Treslladar a:
+list_referes_referrals:Referencies
+list_referes_members:Miembros referenciaos
+list_referes_member:Miembru
+referals_none:Inda nun hai denguna referencia.
+referals_refered_by:Miembros del foru referíos por: <b><a href="{TEMPLATE: referals_refered_by_lnk}" class="thLnk">{VAR: p_user[1]}</a></b>
+referals_post_count:Total de mensaxes
+referals_registered_on:Rexistráu el
+referals_action:Aición
+pmsg_all:toos
+pmsg_none:dengún
+folder:Cartafueyu:
+pmsg_replied:respondíu
+pmsg_forwarded:re-unviáu
+pmsg_subject:Asuntu
+pmsg_author:Autor
+pmsg_time:Hora
+pmsg_selected:Seleicionáu
+pmsg_delete:Desaniciar
+cur_ppage_pm:Mensaxería privada
+writing_pm:Escribiendo un mensaxe priváu
+browsing_folder:Navegando pola carpeta <b>{VAR: folders[$folder_id]}</b>
+inbox:Buzón
+draft:Borrador
+sent:Unviaos
+trash:Papelera
+msg_author:Autor
+avatar_sel_form:Formulariu de seleición d'avatar
+no_avatars:Nun hai avatares disponibles
+month_1:xineru
+month_2:febreru
+month_3:marzu
+month_4:abril
+month_5:mayu
+month_6:xunu
+month_7:xunetu
+month_8:agostu
+month_9:setiembre
+month_10:ochobre
+month_11:payares
+month_12:avientu
+sunday:domingu
+sunday_short:D
+monday:llunes
+monday_short:L
+tuesday:martes
+tuesday_short:Ma
+wednesday:miércoles
+wednesday_short:Mi
+thursday:xueves
+thursday_short:X
+friday:vienres
+friday_short:V
+saturday:sábadu
+saturday_short:S
+male:Home
+female:Muyer
+unspecified:NUN S'ESPECIFICA
+register_tree_view:Vista n'árbol de la llista de mensaxes y filos
+register_msg_tree_view:Llista plana de filos/Llista n'árbol de mensaxes
+register_tree_msg_view:Llista n'árbol de filos/Llista plana de mensaxes
+register_flat_view:Vista plana de la llista de mensaxes y filos
+use_forum_default:Usar el valor predetermináu del foru
+finduser_user_info:Información del usuariu
+finduser_by_login:Pol nome d'usuariu:
+finduser_submit:Alcontrar
+finduser_no_such_user:Nun esiste l'usuariu
+finduser_user:Usuariu
+finduser_postcount:Total de mensaxes
+finduser_joindate:Data de rexistru
+finduser_action:Aición
+yes:Sí
+no:Non
+register_email:Corréu
+edit_time_limit:<b>Llimite de tiempu d'edición</b>: {GVAR: EDIT_TIME_LIMIT} minutos
+no_edit_time_limit:<b>Llimite de tiempu d'edición</b>: Ensin llimite
+pmuserloc_login:Aniciu de sesión:
+pmuserloc_submit:Unviar
+pmuserloc_user:Usuariu
+pmuserloc_no_result:Nun hai resultaos
+register_builtin:Integrao
+register_specify_url:Conseñar URL
+register_uploaded:Xubir un avatar
+register_login:Aniciu de sesión:
+register_password:Conseña:
+register_conf_pass:Confirma la conseña:
+register_email_desc:Por favor, escribi una direición de corréu electrónicu válida. Pues escoyer anubrilu más abaxo, na seición de preferencies.
+register_name:Nome:
+register_your_pass:La to conseña:
+register_update:Anovar
+register_avatar_type:Triba d'avatar:
+register_del_avatar:Desaniciar l'avatar
+register_avatar:Avatar:
+register_sel_avatar:Escoyer un avatar
+register_custom_avatar_rules:L'avatar personalizáu nun apaecerá mentanto nun lu apruebe l'alministrador.<br /><span class="SmallText">L'avatar nun tendría de ser mayor de <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} píxeles</b> y tien de tar en formatu <b>jpg</b>, <b>gif</b> o <b>png</b>.</span>
+register_custom_avatar_url:URL del avatar personalizáu:
+register_preview:Vista previa
+register_custom_avatar_upload:Ficheru del avatar personalizáu:
+register_register:Rexistrase
+register_required:Información obligatoria
+register_required_desc:Tolos campos son obligatorios. Por favor, ten en cuenta que les conseñes distinguen ente mayúscules y minúscules.
+register_optional:Información opcional
+register_optional_desc:Se recomienda que nun reveles denguna información personal o que t'identifique nel to perfil. Tola información será visible pa los otros miembros del foru.
+register_location:Allugamientu:
+register_occupation:Ocupación:
+register_interests:Intereses:
+register_image:Imaxe:
+register_icq:ICQ:
+register_aim:Identificador AIM:
+register_yahoo:Yahoo Messenger:
+register_msnm:MSN Messenger:
+register_homepage:Páxina personal:
+register_bday:Data de nacimientu:
+register_bday_desc:Si escribes una data de nacimientu, los otros miembros del foru podrán vela nel to perfil.
+register_day:Día
+register_month:Mes
+register_year:Añu
+register_gender:Xéneru:
+register_bio:Biografía:
+register_bio_desc:Dellos detalles sobro ti, como los tos intereses, el to trabayu, etc...
+register_prefs:Preferencies
+register_sig:Robla:
+register_sig_desc:Robla opcional, qu'apaecerá na parte d'abaxo de los tos mensaxes.
+register_reset:Reaniciar
+register_def_thread_view:Vista predeterminada de los filos:
+register_msg_per_page:Mensaxes por páxina:
+register_show_sig:Amosar les robles:
+register_show_sig_desc:Te permite anubrir o amosar les robles d'otros miembros del foru.
+register_use_sig_default:Usar la robla predeterminada:
+register_use_sig_default_desc:Amestar automaticamente la to robla a cada mensaxe qu'unvies.
+register_timezone:Estaya horaria:
+register_ignore_admin:Saltar los mensaxes alministrativos:
+register_invisible_mode:Mou invisible:
+register_invisible_mode_desc:Anubre'l to estáu cuando te coneutes.
+register_show_email:Amosar la direición de corréu electrónicu:
+register_show_email_desc:Escueyi esta opción si quies que la to direición de corréu electrónicu se vea en público.
+register_notification:Seleicionar avisu predetermináu:
+register_notification_desc:Si ta activu l'avisu de mou predetermináu, se pue desactivar al unviar mensaxes.
+register_notify_method:Escueyi'l métodu d'avisu:
+register_notify_method_desc:Configura'l métodu d'avisu que prefieras o desactiva los avisos (por exemplu, si marches de vacaciones).
+register_allow_email_msg:Permitir los mensaxes de corréu electrónicu:
+register_allow_email_msg_desc:Permitir qu'otros usuarios t'unvien correos electrónicos per esti foru.
+buddy_status:Estáu
+my_buddies:Los mios collacios
+add_buddy:Amestar un collaciu
+add:Amestar
+buddy_search:Escribi'l nome del usuariu que quies amestar.
+member_search:O usa la utilidá <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Buscar usuariu</a> p'alcontrar una persona.
+buddy_remove:desaniciar
+post_normal:Normal
+post_sticky:Fixu
+post_annoncement:Anunciu
+post_size:Tamañu
+post_color:Color
+post_font:Lletra
+create_thread:Crear un filu
+submit_reply:Unviar respuesta
+edit_message:Aplicar los cambios al mensaxe
+apply_spell_changes:Aplicar los cambios ortográficos
+post_preview:Vista previa del mensaxe
+post_logedin_user:Usuariu coneutáu:
+post_logout:colar
+post_passwd:Conseña de publicación:
+post_poll:Encuesta:
+post_create_poll:CREAR ENCUESTA
+post_poll_delete:DESANICIAR
+post_poll_edit:EDITAR
+post_mod_opt:Opciones del moderador:
+post_thread_type:Triba de filu:
+post_thread_expiry:Caducidá del filu:
+post_locked:Filu candáu
+post_icons:Iconu del mensaxe:
+post_no_icon:Ensin iconu
+post_smiley:Atayos de los fustaxes:
+post_format_tools:Ferramientes de formatu:
+post_upload_file:Xubir ficheru
+post_file_del:Desaniciar
+post_file_name:Nome
+post_file_size:Tamañu
+file_attachments:Ficheros axuntos:
+allowed_files:Estensiones de ficheru permitíes:
+max_file_size:Tamañu máximu de ficheru:
+max_files_per_msg:Máximu de ficheros por mensaxe:
+post_notification:Avisu d'unvios
+include_sig:Incluir la robla
+include_sig_desc:Incluir la robla del to perfil.
+disable_smilies:Desactivar los fustaxes nesti mensaxe
+spell_check_msg:Comprobar la ortografía del mensaxe
+post_form:Formulariu de publicación
+post_forum:Foru:
+post_title:Títulu:
+post_body:Cuerpu:
+post_options:Opciones:
+post_preview_btn:Vista previa del mensaxe
+post_cancel_btn:Encaboxar
+ignore_users:Usuarios anubríos
+add_ignore:Anubrir al usuariu
+forum_terms:Términos del foru
+forum_rules:<p>¡El rexistru nesti foru ye de baldre! Insistimos en que cumplas les regles y polítiques que se detallen darréu. Si tas d'acuerdu colos términos, por favor, calca nel botón "<b>Aceuto</b>" al final de la páxina. Nota: al calcar nel botón, declares que tienes más de 13 años d'edá. Si tienes 13 años o menos, por favor, usa esti formulariu de rexistru.</p><p>Por más que los alministradores y moderadores d'esti foru procurarán dexar tolos mensaxes inaceptables fuera del foru, ye imposible para nós revisalos toos. Tolos mensaxes espresen les opiniones del autor, y nin los propietarios del foru nin los desendolcadores son responsables del conteníu de cualquiera d'ellos.</p><p>Al calcar nel botón "Aceuto", garantices que nun publicarás dengún mensaxe con conteníu vulgar, sexual, que fomente l'odiu, amenazante o que vaya escontra cualquier llei.</p><p>Los propietarios d'esti foru tienen drechu a desaniciar, editar, treslladar o candar cualquier filu por cualquier motivu.</p>
+forum_rules_13:<p>Tolos usuarios menores de 13 años tienen de pidir permisu a los sos pas o tutores enantes de facese miembros de los foros. Mentanto qu'afalamos la participación de miembros menores de 13 años, necesitamos qu'un pa o tutor llegal devuelva per fax o corréu ordinariu un formulariu d'autorización robláu enantes d'aceutar al nuevu miembru.</p><p>Si quies principiar el procesu de rexistru enantes de que recibamos el formulariu d'autorización, calca nel botón "<b>Aceuto</b>" de más abaxo. Si quies encaboxar el rexistru, calca "<b>Nun aceuto</b>" pa volver al índiz de foros.</p><p>Pues descargar equí una copia del formulariu d'autorización. Pa más información tocante al procesu de rexistru, unvia un corréu electrónicu a <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
+coppa_conf:Confirmación COPPA
+coppa_before:Enantes de {TEMPLATE: coppa_date}
+coppa_after:Después de {TEMPLATE: coppa_date}
+coppa_link:Calca nel enllaz que case cola to data de nacimientu
+coppa:<p>Un pa o tutor tien d'unviar al alministrador del foru per corréu o per fax un formulariu d'autorización robláu enantes de qu'un usuariu menor de 13 años pueda completar el procesu rexistru.</p><p>Pa más información, ponte en contautu con <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a></p>
+prereg_info:Regles del foru
+prereg_agree:Aceutar
+prereg_disagree:Nun aceuto
+prereg_update:Lleer les regles del foru
+coppa_fax_instructions:Instrucciones pa los pas o tutores
+coppa_fax_instructions2:Por favor, imprime esta páxina, róblala y unvíala per fax a:
+coppa_fax_reg_form:Formulariu de rexistru
+coppa_fax_sign:Por favor, robla'l formulariu siguiente y mándanoslu
+coppa_fax_conf:Revisé la información que'l menor me proporcionó y lleí la política de proteición de datos del sitiu. Entiendo que la información del perfil pue cambiase utilizando una conseña. Entiendo que puedo pidir qu'esti perfil de rexistru se desanicie dafechu del foru.
+coppa_fax_permission:Robla equí si das permisu
+coppa_fax_no_permission:Robla equí si quies que la cuenta se desanicie
+coppa_fax_parent_name:Nome completu del pa o tutor:
+coppa_fax_relation:Parentescu col menor:
+coppa_fax_telephone:Teléfonu:
+coppa_fax_email:Direición de corréu electrónicu:
+coppa_fax_date:Data:
+coppa_fax_questions:Por favor, ponte en contautu con <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> pa entruga-y cualesquier dulda
+coppa_fax_login:Entrar
+coppa_fax_passwd:Conseña
+coppa_fax_remail:Corréu
+coppa_fax_name:Nome
+login_not_logedin:Nun aniciasti sesión. Esto pue ser por unu de los siguientes motivos:
+login_cookie_expired:La to cookie caducó, y necesites volver a entrar nel sistema p'anovala.
+login_perm_denied:Nun tienes permisu d'accesu al recursu solicitáu como usuariu anónimu. Tienes de volver a entrar al sistema pa tener esi permisu.
+login_want_to_register:¿Quies rexistrate?
+login_forgot_passwd:Escaecí la conseña
+login_use_cookie:Usar cookies<br /><span class="SmallText">Si tas usando un terminal públicu, como un ordenador d'una biblioteca, escuela o cibercafé, ye recomendable que desmarques esta opción pa mayor seguridá. Si dexes seleicionada esta opción te coneutarás automáticamente al foru la siguiente vegada que lu visites.</span>
+login_login:Aniciu de sesión:
+login_login_btn:Entrar
+login_name_required:Fai falta un nome d'usuariu
+login_passwd_required:Fai falta una conseña
+login_invalid_radius:Combinación inválida de nome d'usuariu/conseña
+reset_confirmation:Gracies por rexistrate.\n\nP'activar la to cuenta, por favor, visita la URL siguiente:\n\n{VAR: url}\n\nUna vez que la to cuenta s'active coneutarás col foru y te\nre-dirixirá a la páxina principal.
+reset_reset:Hola:\n\nPidisti que se reaniciara la to conseña. Para finar el procesu, por favor,\nvisita la siguiente URL:\n\n{VAR: url}\n\nNOTA: esti foru guarda les conseñes con un mecanismu de cifráu de sentíu únicu, lo que significa que\ncuando escribas la to conseña, esta se codifica de mou que NUN HAI MANERA de recuperala.\nEsto funciona comparando la versión cifrada que tenemos nel rexistru cola versión cifrada de lo qu'escribes nel campu d'entrada.\n(Si tienes interés en saber como funciona esti mecanismu, busca información sobro l'algoritmu MD5 HASH)
+rpasswd_invalid_passwd:Conseña inválida
+rpasswd_passwd_nomatch:Les conseñes nun casen
+rpasswd_passwd_length:La conseña tien de tener polo menos 6 caráuteres
+reset_remind_pass:Recordatoriu de conseña
+reset_reset_conf:La to conseña se reaniciará y te la unviaremos. Si entá nun confirmasti la to direición de corréu electrónicu, volveremos a unviate la solicitú de confirmación.
+reset_error:Nun s'alcontró la direición de corréu electrónicu na base de datos
+rpasswd_change_pass:Camudar conseña
+rpasswd_login:Usuariu
+rpasswd_cur_pass:Conseña actual:
+rpasswd_new_pass:Conseña nueva:
+rpasswd_conf_pass:Confirma la conseña:
+ruser_title:Formulariu de cambiu d'identificación
+ruser_change_user:Camudar la to identificación nel foru
+ruser_cur_login:Nome d'usuariu actual:
+ruser_new_login:Nome d'usuariu nuevu:
+ruser_cur_pass:Conseña actual:
+login_passwd:Conseña:
+reset_email:Corréu electrónicu:
+reset_reset_button:Reaniciar conseña
+rate_this_thread:Valoración
+report_reporting_about:Informando sobro:
+report_subject:Asuntu:
+report_by:Por:
+report_posted_on:Publicáu el:
+report_give_reason:Por favor, da un motivu pol que tas informando d'esti mensaxe:
+report_submit_report:Unviar informe
+search_entire_msg:El mensaxe ensembre
+search_subject_only:Sólo l'asuntu
+search_forum:Foru
+search_posted_on:Publicáu el
+search_no_results:Nun hai resultaos
+search_all_forums:Guetar en tolos foros
+search_in_forum:Guetar nel foru:
+search_forum_search:Gueta nel foru
+move_thread_to:Treslladar el filu <b>{VAR: thr->subject}</b> a:
+remail_email_topic:Unviar per corréu esti filu a un amigu
+remail_your_name:El to nome:
+remail_your_email:El to corréu electrónicu:
+remail_friends_name:Nome del to amigu:
+remail_friends_email:Corréu electrónicu del amigu:
+remail_required:obligatoriu
+remail_subject:Asuntu:
+remail_message:Mensaxe:
+remail_send_now:Unviar el corréu electrónicu agora
+remail_anon_opt:Copia esti mensaxe nel cliente de corréu electrónicu que prefieras pa unvialu al(os) to(s) amigu(os).
+remail_done:Fecho
+remail_sent_conf:El corréu electrónicu al to amigu en {VAR-HTML: _POST['femail']} tocante al filu {VAR: data->subject} s'unvió de mou correutu.
+remail_error:Hebo un error
+mklist_type:Triba:
+mklist_option:Opción:
+mklist_additem:Amestar un elementu
+mklist_apply:Aplicar
+mklist_delete:Desaniciar
+qbud_nick_name:Alcuñu
+qbud_add_selected:Amestar seleicionáu
+qbud_selected:Seleicionáu
+qbud_no_buddies:Nun hai collacios pa escoyer
+mklist_numerical:Numbérica
+mklist_aplha:Alfabética
+mklist_square:Cuadraos
+mklist_disc:Discos
+mklist_circle:Círculos
+mklist_close:Zarrar
+email_to:Pa:
+email_pg_title:Corréu
+email_subject:Asuntu:
+email_body:Cuerpu:
+email_submit:Corréu
+ppost_quote_msg:{VAR: msg_to_list} escribió el {TEMPLATE: ppost_quote_msg_date}
+ppost_quote:Cita:
+ppost_to:Pa:
+ppost_from_buddy_list:Seleicionar de la llista de collacios
+ppost_find_User:Alcontrar usuariu
+ppost_track_msg:Siguir esti mensaxe
+ppost_track_msg_desc:Avisame (per mensaxe priváu) cuando se llea esti mensaxe.
+ppost_send:Unviar
+ppost_save_draft:Guardar borrador
+poll_blank_option:Nun pues amestar una opción balera.
+poll_del_conf:Si quies desaniciar esta opción, calca "Aceutar"
+poll_name:Nome de la encuesta:
+poll_timelimit:Llimite de tiempu:
+poll_maxiumvotes:Votos máximos:
+poll_create:Crear
+poll_update:Anovar
+poll_disablesmilies:Desactivar los fustaxes
+poll_create_poll:Crear encuesta
+poll_update_poll:Anovar la encuesta
+poll_delete:Desaniciar
+poll_updateoption:Anovar opción
+poll_addoption:Amestar opción
+poll_unlimited:Ensin llimite
+poll_day:día
+poll_days:díes
+poll_hour:hora
+poll_hours:hores
+poll_month:mes
+poll_year:añu
+poll_week:selmana
+tabs_register:Configuración de la cuenta
+tabs_subscriptions:Suscripciones
+tabs_bookmarkes:Marcadores
+tabs_referrals:Referencies
+tabs_buddy_list:Llista de collacios
+tabs_ignore_list:Llista d'anubríos
+tabs_private_messaging:Mensaxería privada
+single_msg_delete:Tas a piques de <span class="ErrorText">desaniciar</span> el mensaxe tituláu: <b>{VAR: data[3]}</b>
+thread_delete:Tas a piques de <span class="ErrorText">desaniciar</span> el <span class="ErrorText">filu enteru</span> tituláu: <b>{VAR: data[3]}</b>
+delete_proceed:<span class="fb">¿Quies siguir?</span>
+delete_yes:Sí
+delete_no:Non
+error_invalidurl:URL inválida
+error_error:Error
+usrinfo_profile:Perfil de {VAR: u->alias}
+usrinfo_show_all_posts:Amosar tolos mensaxes de: {VAR: u->alias}
+actions_update:Chisbando a otra xente, como tu
+err_info:Información
+buddy_list_err_cantadd:Nun pues amestate a ti mesmu a la to llista de collacios
+buddy_list_err_dup:Yá tienes a esti usuariu na to llista de collacios
+buddy_list_err_nouser:Nun s'alcontró l'usuariu que tentasti amestar a la to llista de collacios.
+buddy_list_err_nouser_title:Nun se pudo amestar l'usuariu
+buddy_list_err_ignore:Nun se puen amestar a la to llista de collacios los usuarios que te tienen anubríu.
+buddy_list_update:Navegando pola llista de collacios propia
+core_err_invinp_title:Entrada inválida
+core_err_invinp_err:Siguisti un enllaz inválidu. Por favor, informa al <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a> de cómo llegasti equí.
+core_adm_login_msg:Los alministradores puen aniciar sesión <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">equí</a>.
+email_err_unabletoemail_title:ERROR: Nun se pudo unviar el corréu
+email_err_unabletoemail_msg:El sistema de corréu electrónicu ta desactiváu pol alministrador.
+email_error_unabletolocaddr:Lo sentimos, el sistema nun pudo unviar el corréu a {VAR-HTML: _POST['tx_name']} porque nun pudo determinar la direición de corréu electrónicu
+email_error_body:El cuerpu del mensaxe ye obligatoriu
+email_error_subject:L'asuntu ye obligatoriu
+email_error_namerequired:El nome ye obligatoriu
+email_error_invaliduser:Usuariu inválidu
+emailconf_err_invkey_title:Error
+emailconf_err_invkey_msg:Clave de confirmación inválida. Por favor, comprueba el corréu p'asegurate de qu'escribisti bien la URL. Si calcasti dos vegaes nel enllaz, la to cuenta yá pue tar confirmada. Entra nel foru pa pidir otra clave.
+err_inc_criticaltitle:Error críticu
+err_inc_criticalmsg:Hebo un error. Por desgracia, tamién hai un problema col sistema d'informe d'errores.
+finduser_update:Buscando usuarios
+help_index_update:Lleendo la <a href="{TEMPLATE: help_index_update_lnk}">Ayuda</a>
+iemail_thr_subject:Nueva respuesta a {VAR: thr_subject} fecha por {VAR: poster_login}
+iemail_thr_bodyemail:Pa ver les respuestes ensin lleer vete a {VAR: goto_url['email']}\n\nSi nun quies recibir más avisos de respuestes nesti filu, por favor, entra equí: {VAR: unsub_url['email']}
+iemail_frm_subject:Nuevu filu nel foru {VAR: frm_name}, nomáu {VAR: thr_subject}, por {VAR: poster_login}
+iemail_frm_bodyemail:Para ver el filu vete a:\n{VAR: goto_url['email']}\n\nPa dexar de recibir avisos de de nuevos filos d'esti foru, por favor vete equí: {VAR: unsub_url['email']}
+iemail_participate:P'aldericar na discusión, vete equí:
+ignore_list_err_info_title:Información
+ignore_list_err_dup_msg:Yá tienes a esti usuariu na to llista d'anubríos
+ignore_list_err_nu_title:Nun s'alcontró l'usuariu
+ignore_list_err_nu_msg:Nun s'alcontró l'usuariu que tentasti amestar a la to llista d'anubríos.
+ignore_list_cantign_msg:Nun pues anubrir a esti usuariu
+ignore_list_update:Navegando pola llista d'anubríos propia
+index_update:Navegando pola <a href="{TEMPLATE: index_update_lnk}">llista de foros</a>
+list_referers_update:Navegando poles referencies
+login_update:Formulariu d'aniciu de sesión
+msg_update:Navegando pel filu <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
+pm_err_nopm_title:ERROR: la mensaxería privada ta desactivada
+pm_err_nopm_msg:Nun pues usar el sistema de mensaxería privada. Ta desactiváu pol alministrador.
+pm_update:Usando la mensaxería privada
+post_err_lockedthread_title:ERROR: filu candáu
+post_err_lockedthread_msg:Esti filu ta candáu. Yá nun se permite la publicación.
+err_coppa_title:ERROR: La to cuenta inda nun se confirmó
+err_coppa_msg:Entá nun recibimos la confirmación del to pa y/o tutor llegal, que te permitiría publicar mensaxes. Si perdisti el to formulariu COPPA, <a href="{TEMPLATE: err_coppa_msg_lnk}">vuelvi a miralu</a>.
+err_banned_acct_title:ERROR: Fuisti espulsáu.
+err_banned_acct_msg:La to cuenta foi {IF: $ban_expiry}espulsada de mou temporal fasta'l {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}espulsada de mou permanente{ENDI} d'esti sitiu por una violación de les regles del foru.
+post_err_edttimelimit_title:ERROR
+post_err_edttimelimit_msg:Yá nun pues editar esti mensaxe
+post_err_noannontopics_msg2:<legend>ERROR: Permisos insuficientes</legend>Los usuarios anónimos nun pueden crear filos.
+post_err_noannonposts_msg2:<legend>ERROR: Permisos insuficientes</legend>Los usuarios anónimos nun pueden responder.
+post_err_floodtrig_title:ERROR: Se detectó una publicación en masa.
+post_err_floodtrig_msg:Por favor, vuelvi a intentalo {PLURAL: tm|nún segundu|en $1 segundos}
+post_err_attach_size:El ficheru axuntu ye demasiao grande (pasa del llimite permitíu de {VAR: MAX_F_SIZE} bytes)
+post_err_attach_ext:El ficheru que quies xubir nun casa colos tipos de ficheru permitíos.
+post_err_attach_filelimit:Tas intentando xubir más ficheros de los permitíos.
+post_err_passwd:Conseña incorreuta.
+post_reply_update:Respondiendo a <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> en {VAR: frm->name}
+post_topic_update:Escribiendo un nuevu filu en <a href="{TEMPLATE: post_topic_update_lnk}">{VAR: frm->name}</a>
+post_error_generic:Hebo un error
+postcheck_max_images_err:Nun se permiten más de {GVAR: MAX_IMAGE_COUNT} imaxes por mensaxe. Por favor, reduz el númberu d'imaxes.
+postcheck_no_links_allowed:Nun pues usar enllaces fasta que publiques más {PLURAL: posts_before_links|d'un mensaxe|de $1 mensaxes}.
+postcheck_subj_needed:L'asuntu ye obligatoriu
+postcheck_no_such_user:Nun hai dengún usuariu nomáu "{FUNC: char_fix(htmlspecialchars($v))}" nesti foru.
+postcheck_ignored:Nun pues unviar un mensaxe priváu a "{FUNC: char_fix(htmlspecialchars($v))}" porque esti usuariu te tien anubríu.
+postcheck_no_recepient:Nun se pue unviar un mensaxe, falta'l destinatariu
+postcheck_invalid_email:Por favor, escribi una direición de corréu electrónicu válida pal to amigu.
+postcheck_email_subject:Nun pues unviar un corréu electrónicu ensin asuntu.
+postcheck_email_body:Nun pues unviar un corréu electrónicu ensin el cuerpu del mensaxe.
+private_msg_notify_subj:Lleer el avisu pa: {VAR: m->subject}
+private_msg_notify_body:Hola, <br />{VAR: usr->login} abrió el to mensaxe priváu tituláu "{VAR: m->subject}".<br />Esti ye un avisu automáticu xeneráu el {TEMPLATE: private_msg_notify_body_date}<br />
+referals_update:Navegar poles referencies
+register_err_short_login:El nome d'usuariu qu'escoyisti ye demasiao curtiu. Los nomes d'usuariu tienen de tener polo menos 4 caráuteres
+register_err_login_notallowed:Esti nome d'usuariu nun ta permitíu.
+register_err_loginunique:Los nomes d'usuariu del foru tienen de ser únicos. Yá hai un usuariu con esti nome.
+register_err_emailexists:Esta direición de corréu electrónicu yá ta asociada con una cuenta. Si escaecisti la to conseña, por favor, emplega la opción de restauración en cuenta de volvete a rexistrar.
+register_err_shortpasswd:Les conseñes tienen de tener polo menos 6 caráuteres.
+register_err_passwdnomatch:Les conseñes nun casen; por favor, vuelvi a intentalo.
+register_err_invalidemail:La direición de corréu electrónicu qu'especificasti paez que nun ye válida.
+register_err_needname:Pa completar correutamente esti rexistru tienes d'escribir el to nome.
+register_err_enterpasswd:Tienes d'escribir la to conseña actual pa completar los cambios.
+register_err_adminpasswd:Tienes d'escribir la to conseña <b>d'alministrador</b> pa completar los cambios.
+register_err_notyouremail:Yá hai dalguién rexistráu con esta direición de corréu electrónicu.
+register_err_avatartobig:El ficheru que tas tratando de xubir ye demasiao grande, mayor que {GVAR: CUSTOM_AVATAR_MAX_SIZE} bytes.
+register_err_avatarnotallowed:L'avatar que tas tratando de xubir nun ta permitíu. Comprueba los tipos de ficheru permitíos.
+register_conf_subject:Confirmación de rexistru
+register_conf_msg:Gracies por rexistrate.\nP'activar la to cuenta entra na direición URL qu'apaez darréu:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nCuando s'active la to cuenta entrarás nel foru y t'unviará a la\npáxina principal.
+register_welcome_subject:Confirmación del rexistru nel foru
+register_welcome_msg:Gracies por rexistrate.\n\nEstos son los detalles del to aniciu de sesión nel foru:\n\nDireición URL del foru: {TEMPLATE: index_update_lnk}\nNome del usuariu: {VAR: uent->login}\nConseña: {VAR: _POST['reg_plaintext_passwd']}\n\n¡Ten en cuenta que les conseñes distinguen ente mayúscules y minúscules!\nPa camudar la to configuración o'l to perfil, entra nesta páxina:\n{FULL_ROOT}{ROOT}?t=register
+register_err_cantreg_title:ERROR: nun te pues rexistrar
+regsiter_err_cantreg_msg:Nun se pudo crear la cuenta d'usuariu; por favor, ponte en contautu col alministrador en <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
+register_profile_update:Viendo'l perfil propiu
+register_register_update:Páxina de rexistru
+report_err_nosuchmsg_title:ERROR
+report_err_nosuchmsg_msg:Esi mensaxe nun esiste
+reset_err_invalidkey_title:ERROR
+reset_err_invalidkey_msg:Clave de reaniciu de conseña inválida. Ye posible que'l to cliente de corréu electrónicu yá abriera esta páxina de mou automáticu, invalidando la clave de reaniciu. Si esti ye'l casu, tendrías de recibir ceo un corréu cola to nueva conseña. Si nun te llega esi corréu, por favor, intenta volver a reaniciar la conseña.
+reset_err_rstconf_title:Información
+reset_err_rstconf_msg:Tendríes de recibir instrucciones nel to corréu electrónicu nos próximos minutos.
+reset_newpass_title:Reaniciar conseña
+reset_newpass_msg:Hola,\n\nComo pidisti, la to información d'aniciu de sesión apaez darréu:\n\nNome d'usuariu: {VAR: ui[1]}\nConseña: {VAR: passwd}\n\nPor favor, ten en cuenta que la to conseña se reanició al valor d'arriba. Si quies camudar\nla conseña, pues facelo per aciu del panel de control d'información del usuariu en:\n{FULL_ROOT}{ROOT}?t=register
+reset_login_notify:La to conseña se mandó per corréu electrónicu. Tendríes de recibila dientro d'unos minutos.<br />
+search_update:Buscando mensaxes
+selmsg_update:Navegando pelos <a href="{TEMPLATE: selmsg_update_lnk}">mensaxes de güei</a>
+showposts_update:Viendo los mensaxes de: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
+subscribed_update:Navegando peles suscripciones propies
+bookmarked_update:Navegando pola propia llista de marcadores
+thread_update:Navegando pel foru <a href="{TEMPLATE: thread_update_lnk}">{VAR: frm->name}</a>
+tree_update:Navegando pel filu (vista n'árbol) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
+userinfo_update:Mirando pal perfil de <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}'s</a>
+ERR_login_msg2:<legend>ERROR: Nun aniciasti sesión</legend>Pa entrar nesta páxina tienes de ser miembru d'esti foru.
+ERR_disabled_ttl:Carauterística desactivada
+ERR_disabled_msg:Esta carauterística ta desactivada pol alministrador del sistema.
+ERR_access_ttl:ERROR: Permisos insuficientes
+ERR_access_msg:Nun tienes los permisos necesarios pa facer esta aición.
+ERR_registration_disabled_ttl:Rexistru desactiváu
+ERR_registration_disabled_msg:L'alministrador tien desactiváu el rexistru. Por favor, vuelvi a intentalo más sero.
+ERR_emailconf_ttl:ERROR: La to cuenta inda nun se confirmó
+ERR_emailconf_msg:Inda nun confirmasti la to cuenta per corréu electrónicu.<br /><table border="0"><tr><td><ol><li>Si nun recibisti un corréu electrónicu de confirmación, <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">pidilu otra vuelta</a>.</li><li>Si {VAR: usr_d->email} nun ye la to direición correuta de corréu electrónicu, <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">especifica la direición correuta</a>.</li></ol></td></tr></table>
+ERR_user_ttl:ERROR: Nun esiste esi usuariu
+ERR_user_msg:Esi usuariu nun esiste
+ERR_systemerr_ttl:ERROR: Error del sistema
+ERR_systemerr_msg:Hebo un error de sistema. Por favor informa al <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a>.
+email_title:Formulariu de corréu electrónicu
+finduser_title:Alcontrar usuariu
+help_title:Ayuda
+login_title:Formulariu d'aniciu de sesión
+poll_title:Editor d'encuestes
+register_title:Formulariu de rexistru
+reset_title:Reaniciar conseña
+rpasswd_title:Formulariu de cambiu de conseña
+error_title:Formulariu d'error
+index_title:Bienveníu al foru
+search_title:Guetar {VAR-HTML: srch}
+remail_emailsent:S'unvió'l corréu electrónicu
+remail_email:Hola,\n\nHai un filu interesante tocante a "{VAR: data->subject}" nel foru {GVAR: FORUM_TITLE} que pue ser que quieras lleer. Pues ver el filu en:   {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nEl to amigu,\n\n{VAR: usr->alias}
+poll_add_option:Amestar opción:
+post_opt_html_on:El <b>HTML</b> ta <b>activáu</b>
+post_opt_fud_on:El <a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>BBCode</b> ta <b>activáu</b></a>
+post_opt_images_on:Les <b>imaxes</b> tán <b>activaes</b>
+post_opt_smilies_on:Los <a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank"><b>fustaxes</b> tán <b>activaos</b></a>
+post_opt_html_off:El <b>HTML</b> ta <b>desactiváu</b>
+post_opt_fud_off:El <b>BBCode</b> ta <b>desactiváu</b>
+post_opt_images_off:Les <b>imaxes</b> tán <b>desactivaes</b>
+post_opt_smilies_off:Los <b>fustaxes</b> tán <b>desactivaos</b>
+post_opt:Opciones del foru:
+register_change_passwd:camudar conseña
+register_change_login:camudar l'aniciu de sesión
+approved_avatar_title:El to avatar personalizáu s'aprobó.
+approved_avatar_msg:L'alministrador aprobó el to avatar. Agora tendría d'apaecer como avatar tuyu en tolos mensaxes de to. Si nun lu ves o inda ves el to avatar antiguu, ye porque'l to navegador tien la páxina na caché. Intenta anovala una o dos vegaes. Na mayor parte de los casos esto igua'l problema.
+unapproved_avatar_title:El to avatar personalizáu se refugó.
+unapproved_avatar_msg:L'alministrador nun aprobó el to avatar. De vezu los motivos son o porque'l to avatar era demasiao grande (de tamañu y/o dimensiones) o porque tenía una imaxe non apropiada. Si quies tener más información tocante al motivu pol que se refugó'l to avatar, ponte en contautu col alministrador.
+mvthread_request_move:pidir un treslláu
+move_request_reason:¿Por qué quies treslladar el filu?
+mvthread_submit_req:Unviar la solicitú
+thread_exchange:Intercambiu de filos
+move_request_by:Treslláu de filu solicitáu por:
+move_reason:Motivu para treslladar el filu:
+thr_exch_accept:aceutar el filu
+thr_exch_decline:refugar el filu
+thr_exch_orig_forum:Foru orixinal:
+thr_exch_dest_forum:Foru de destín:
+thr_exch_no_threads:Nun hai dengún filu esperando aprobación.
+thr_exch_decl_reason:Motivu pa refugar el filu <b>{VAR: data->subject}</b> nel foru <b>{VAR: data->f2_name}</b>
+thr_exch_submit:Unviar
+exch_decline_ttl:El treslláu del filu {VAR: data->subject} al foru {VAR: data->f2_name} se refugó.
+ppost_original_msg:mensaxe que tas re-unviando o respondiendo
+split_thread:Dixebrar el filu
+groupmgr_no_user:Nun esiste dengún usuariu col nome "{FUNC: char_fix(htmlspecialchars($gr_member))}"
+groupmgr_already_exists:L'usuariu "{FUNC: char_fix(htmlspecialchars($gr_member))}" yá esiste nesti grupu.
+groupmgr_yes:Sí
+groupmgr_no:Non
+groupmgr_action:Aición
+groupmgr_member:Miembru
+groupmgr_cancel:Encaboxar
+groupmgr_add_member:Amestar miembru
+groupmgr_update_member:Anovar miembru
+groupmgr_edit:Editar
+groupmgr_delete:Desaniciar
+group_mgr_anon:Anónimu
+group_mgr_reged:Tolos usuarios rexistraos
+show_show:Amosar:
+group_mgr:Alministrador de grupu
+group_mgr_edit_btn:Editar grupu
+group_mgr_heading:Seleición d'editor de grupu
+group_mgr_group:Grupu:
+permission_denied_title:¡Permisu refugáu!
+permission_denied_msg:Los tos permisos d'usuariu non te permiten facer l'aición qu'intentes.
+p_READ:Lleer
+p_POST:Publicar
+p_REPLY:Contestar
+p_EDIT:Editar
+p_DEL:Desaniciar
+p_STICKY:Mensaxes fixos
+p_POLL:Crear encuestes
+p_FILE:Axuntar ficheros
+p_VOTE:Votar
+p_RATE:Puntuar filos
+p_SPLIT:Dixebrar filos
+p_LOCK:Candar filos
+p_MOVE:Treslladar filos
+p_SML:Usar fustaxes
+p_IMG:Usar etiquetes d'imaxes
+p_SEARCH:Pue guetar
+group_mgr_search:Alcontrar usuariu
+group_mgr_indicator:Anguaño editando: <b>{VAR: grp->name}</b>
+rate_worst:Peor
+rate_best:Meyor
+post_quote_msg:{VAR: msg->login} escribió el {TEMPLATE: make_report_date}
+post_quote:Cita:
+post_quote_selected:Citar el testu esbilláu
+userinfo_referals:Usuarios referíos:
+userinfo_referals_count:{VAR: referals} Miembros
+pm_no_space_title:¡Nun queda espaciu!
+pm_no_space_msg:Los tos cartafueyos de mensaxes privaos pasaron del máximo tamañu d'almacenamientu permitíu de <b>{GVAR: MAX_PMSG_FLDR_SIZE} bytes</b>. Anguaño contienen <b>{VAR: fldr_size} bytes</b> de mensaxes.<br /><br /><span class="ErrorText">Desanicia dellos mensaxes antiguos pa lliberar espaciu.</span>
+pm_space_indct_msg:Los tos cartafueyos de mensaxes privaos tan llenos nún {VAR: percent_full}%.
+th_expr_never:Nunca
+th_expr_one_hr:1 hora
+th_expr_three_hr:3 hores
+th_expr_four_hr:4 hores
+th_expr_eight_hr:8 hores
+th_expr_sixteen_hr:16 hores
+th_expr_one_day:1 día
+th_expr_two_day:2 díes
+th_expr_four_day:4 díes
+th_expr_one_week:1 selmana
+th_expr_two_week:2 selmanes
+th_expr_one_month:1 mes
+th_expr_two_month:2 meses
+th_expr_four_month:4 meses
+th_expr_one_year:1 añu
+thread_mod_delete:Desaniciar
+action_ip:IP
+action_latest_post:Caberu mensaxe
+online_today_last_visit:Cabera visita
+online_today_update:Adicando la llista d'usuarios que tuvieron güei nel foru.
+logedin_todays_visitors:Visitantes de güei
+logedin_latest_post:Caberu mensaxe del foru:
+register_show_avatar:Amosar avatares:
+register_show_avatar_desc:Te permite anubrir los avatares d'otros usuarios al ver los sos mensaxes.
+drawmsg_view_rest_post:Amosar el restu del mensaxe
+post_re:Re:
+forumsel_goto_forum:Dir al foru:
+minimsg_thread_view:Vista del filu
+split_th_post_by:Mensaxe de:
+split_th_posted_on:Publicáu el:
+split_th_subject:Asuntu:
+split_th_new_thread_title:Títulu del nuevu filu:
+split_th_forum:Foru:
+split_th_split_sel:Dixebrar los mensaxes esbillaos
+split_th_split_unsel:Dixebrar los mensaxes ensin esbillar
+split_th_messages:Mensaxes
+split_th_select:Seleicionar
+report_report_post:Informar d'un mensaxe
+quicklogin_login:Aniciu de sesión:
+quicklogin_password:Conseña:
+quicklogin_use_cookies:¿Usar cookies?
+quicklogin_login_btn:Entrar
+quick_reply:Respuesta rápida
+quick_reply_post:Publicar respuesta rápida
+quick_reply_preview:Vista previa de respuesta rápida
+post_notification_desc:Avisame cuando dalguién conteste a esti mensaxe.
+post_all_ext_allowed:(ensin torgues)
+maximize_category:Maximizar la categoría
+maximize_message:Maximizar el mensaxe
+no_view_perm:Nun tienes los permisos afayadizos pa ver esti filu.
+report_empty_report:Nun pues unviar un informe baleru. Por favor, indica un motivu pal to informe.
+report_already_reported_title:Yá s'informó
+report_already_reported_msg:Yá s'informó d'esti mensaxe y anguaño l'informe ta na cola del moderador.
+register_err_toomanyimages:Tas intentando usar más de les {GVAR: FORUM_IMG_CNT_SIG} imaxes permitíes na to robla.
+pmsg_next_msg:Siguiente mensaxe
+pmsg_prev_msg:Mensaxe anterior
+post_proc_reveal_spoiler:Conmutador de spoiler
+register_jabber:Identificador Jabber:
+register_skype:Identificador Skype:
+register_twitter:Identificador Twitter:
+register_google:Identificador Google Chat/IM:
+im_jabber:Jabber:
+im_google:Google Talk:
+im_skype:Skype:
+im_twitter:Twitter:
+forum_contact:Contautu
+forum_home:Entamu
+post_cur_attached:anguaño s'axunta:  {VAR: i} {PLURAL: i|ficheru|ficheros}
+ignored_anon_post:{GVAR: ANON_NICK} ta anubríu
+ignored_user_post:El mensaxe de <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> ta anubríu
+smladd_close_window:zarrar ventana
+post_list_smilies:llista de tolos fustaxes
+p_VISIBLE:Visible
+reported_in_thread:En:
+help_back_to_top:volver arriba
+help_return_to_index:Volver al índiz d'ayuda
+imsg_err_message_title:Mensaxe inválidu
+imsg_err_message_msg:El mensaxe qu'intentes ver nun esiste.
+poll_edit:Editar
+register_err_not_valid_img:La URL especificada nun contién una imaxe válida.
+pmsg_recepient:Destinatariu
+register_err_taken_alias:L'alcuñu que quies utilizar yá lu ta usando otru miembru del foru. Por favor, escueyi otru.
+register_alias:Alcuñu:
+register_alias_desc:Si quies que s'amuese nos foros un alcuñu distintu del nome d'usuariu, escribilu equí.
+register_allow_pm_msg:Permitir mensaxes privaos:
+register_allow_pm_msg_desc:Permitir qu'otros usuarios t'unvien mensaxes privaos per esti foru.
+postcheck_pm_disabled:Nun pues unviar un mensaxe priváu a "{VAR-HTML: v}", porque esta persona nun aceuta mensaxes privaos.
+polllist_vote:Votar
+polllist_view_results:Ver los resultaos
+polllist_name:Nome de la encuesta
+polllist_date:Creada el
+polllist_owner:Creada por
+polllist_votes:Total de votos
+polllist_action:Aición
+polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">Revisando les encuestes disponibles</a>
+userinfo_polls:Encuestes:
+show_pollist:Amosar encuestes
+search_and:Y
+search_or:O
+search_desc_order:Orde descendente
+search_asc_order:Orde ascendente
+search_logic:Llóxica de gueta:
+search_sorting:Ordenar los resultaos por data en:
+search_attach:Axuntos:
+search_attach_all:Con o ensin
+search_attach_with:Con axuntos
+post_proceed:Proceder
+post_moderated_forum:Unviasti un mensaxe a un foru moderáu. El to mensaxe nun tará visible pa otros mentanto que nun lu apruebe ún de los moderadores o alministradores del foru.
+post_moderated_forum_ttl:Avisu de foru moderáu
+buddy_list_bday:{VAR: r[2]} cumple güei {VAR: age} años
+email_warning_msg:Si cambies la to direición de corréu electrónicu actual, la to cuenta se marcará como non confirmada fasta que la confirmes per corréu.
+register_show_im:Amosar indicadores de IM:
+register_show_im_desc:Si s'amuesen o non los indicadores IM del autor xunto a los sos mensaxes.
+unread_message:Mensaxe ensin lleer
+read_message:Lleer mensaxe
+threadt_more:&lt;más&gt;
+threadt_disabled_ttl:Se desactivó la vista n'árbol de la llista de filos.
+threadt_disabled_desc:L'alministrador desactivó la vista n'árbol de la llista de filos. Por favor, usa la vista plana nel so llugar.
+threadt_update:Navegando pel foru (vista d'árbol) <a href="{TEMPLATE: threadt_update_lnk}">{VAR: frm->name}</a>
+mmod_delete_cofirm_ttl:Confirmar el desaniciu del filu/mensaxe
+spell_alts:nun hai alternatives
+insert_uploaded_image:Inxertar imaxe nel cuerpu del mensaxe
+finduser_help:El motor de gueta amestará automaticamente la mazcara * a la to consulta, la <b>gueta distingue mayúscules y minúscules</b>.<br />Por exemplu: para guetar tolos usuarios que'l so nome d'usuariu comience por "a", escribi "a" nel cuadru de gueta.
+back_to_top:Volver arriba
+pm_err_disabled_title:Mensaxería privada desactivada
+pm_err_disabled_msg:Nun pues unviar mensaxes privaos fasta qu'actives la opción "Permitir mensaxes privaos" nel to perfil.
+err_mod_acc_ttl:Cuenta ensin verificar
+err_mod_acc_msg:L'alministrador prefier revisar toles cuentes de mou manual enantes d'activales. Fasta que la to cuenta tea validada pol alministrador, nun podrás utilizar toles capacidaes de la mesma.
+accounts_pending_approval:Cuentes pendientes d'aprobación
+saved:Guardada
+register_err_time_limit:Se llegó al llimite d'un rexistru cada {GVAR: REG_TIME_LIMIT} segundos. Por favor, aguarda {PLURAL: reg_limit_reached|$1 segundu|$1 segundos} ya intenta rexistrate otra vuelta.
+register_affero:Nome d'usuariu Affero:<br /><span class="SmallText">Si tienes un nome d'usuariu <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">Affero</a>, escribilu equí.</span>
+im_affero:Nome d'usuariu Affero
+register_err_avatardimtobig:Les dimensiones del avatar de <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> pasen de les dimensiones permitíes de <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
+buddy_offline:{VAR: r[2]} anguaño ta desconectáu
+buddy_online:{VAR: r[2]} anguaño ta conectáu
+sml_no_smilies:Nun hai fustaxes disponibles.
+login_unapproved_account_ttl:Cuenta ensin aprobar
+login_unapproved_account_msg:L'alministrador del foru prefier confirmar cada cuenta nueva de mou manual enantes d'activales. La to cuenta inda nun ta confirmada, poro nun tendrás accesu a delles funciones disponibles pa los miembros confirmaos.
+remove_from_buddy_list:desaniciar de la llista de collacios
+iemail_msg_author:<b>Autor:</b> {VAR: obj->alias}
+iemail_msg_subject:<b>Asuntu:</b> {VAR: obj->subject}
+iemail_msg_date:<b>Data:</b> {TEMPLATE: dmsg_post_date}
+iemail_msg_reply:Contestar
+iemail_msg_quote:Citar
+iemail_msg_view:Ver filu/mensaxe
+threadt_sticky:fixu
+threadt_announce:anunciu
+reported_no_messages:Nun hai dengún informe de mensaxes.
+poll_no_polls:Nun hai accesu a denguna encuesta.
+no_unread_messages:Nun hai mensaxes ensin lleer que casen cola to consulta.
+thread_mark_all_read:Marcar tolos mensaxes ensin lleer del foru como lleíos
+thread_mark_all_read_desc:Tolos mensaxes ensin lleer d'esti foru se marcarán como lleíos
+private_no_messages:Nun hai mensaxes nesta carpeta.
+register_email_change_subject:Confirmación de cambiu de corréu electrónicu
+register_email_change_msg:Por favor, confirma la sustitución de la to cuenta de corréu electrónicu antigua "{VAR: old_email}" pola nueva cuenta "{VAR: uent->email}" visitando la URL darréu:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nCuando confirmes la to nueva direición de corréu electrónicu, se reactivará la to cuenta del foru.
+iemail_thread_unsub:Quitar la suscripción d'esti filu
+iemail_forum_unsub:Quitar la suscripción d'esti foru
+primary_group_prefix:Grupu primariu pal foru:
+group_resources:Esti grupu controla los permisos de los siguientes foros
+register_admin_newuser_title:Se rexistró un usuariu nuevu y la cuenta ta pendiente de confirmación
+register_admin_newuser_msg:Acaba de rexistrase un nuevu usuariu ({VAR: uent->login}) y, como la confirmación de cuentes ta activada, la so cuenta nun s'activará fasta que la confirmes tu o otru alministrador del foru. Pa revisar la cuenta, visita: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nEsti ye un procesu automáticu. Nun respuendas a esti mensaxe.\nSi quies dexar de recibir avisos per corréu de nuevos rexistros d'usuariu, pues facelo nel panel de control alministrativu. Cambia la configuración de "Avisu de cuenta nueva".
+post_mod_msg_notify_title:Un nuevu mensaxe del foru "{VAR: frm->name}" ta esperando aprobación
+post_mod_msg_notify_msg:Un nuevu mensaxe tituláu "{VAR: msg_post->subject}" vien d'apaecer nún foru que moderes. Pa revisar esti mensaxe visita: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nEsti ye un procesu automáticu. Nun respuendas a esti mensaxe.
+thread_printable_pdf:Xenerar un PDF pa imprimir
+thread_syndicate:Sindicar esti foru (XML)
+reg_conf_title:Confirmación de rexistru
+reg_conf_email:<b>Confirmación de corréu electrónicu</b><br />Se t'unvió un corréu electrónicu que contién una URL especial a la que necesites entrar antes de que s'active la to cuenta. Si nun recibes esti corréu en dellos minutos, entra na to cuenta y asegurate de que'l corréu electrónicu qu'especificasti ye correutu. Llueu que confirmes la to cuenta, tendrás accesu a les funciones del foru que sólo tán disponibles para los usuarios rexistraos y confirmaos.
+reg_conf_account:<b>Confirmación de la cuenta</b><br />Enantes de que s'active la to cuenta, tien qu'aprobala un alministrador. Cuando lo faiga, recibirás un corréu electrónicu indicando que la to cuenta se confirmó. Mentanto, pues entrar na to cuenta, pero nun podrás usar ciertes funciones.
+forum_banned_user:Les tos aiciones anteriores tienen como consecuencia la to espulsión permanente d'esti foru. Alón.
+mnav_description:Navegador de mensaxes
+mnav_date_limit:Intervalu de dates:
+mnav_forum_limit:Sólo guetar en:
+mnav_all_forums:Guetar en tolos foros
+mnav_submit:Comenzar la gueta
+mnav_no_range:Tienes d'escribir un intervalu de dates válidu. Esti valor pue contener una coma decimal (0,12); pero tien de ser mayor que cero.
+mnav_invalid_unit:Tienes d'especificar una unidá de tiempu válida.
+mnav_invalid_date:L'intervalu de dates especificáu ye mayor que'l permitíu pol alministrador. Prueba con un intervalu de dates menor.
+mnav_no_results:Nun hai resultaos que casen cola consulta.
+mnav_posted_by:Publicáu por:
+mnav_more:Más &raquo;&raquo;
+mnav_minute:Minutu(os)
+mnav_hour:Hora(es)
+mnav_day:Día(es)
+mnav_week:Selmana(es)
+mnav_month:Mes(es)
+mnav_title:Navegador de mensaxes
+mnav_update:Esaminar los mensaxes usando'l <a href="{TEMPLATE: mnav_update_lnk}">Navegador de mensaxes</a>
+pm_notify_subject:[{GVAR: FORUM_TITLE}] Avisu de nuevu mensaxe priváu
+pm_notify_body_email:Tienes un nuevu mensaxe priváu tituláu "{VAR: subject}", de "{VAR: from}", nel foru "{GVAR: FORUM_TITLE}".\nPa ver el mensaxe, calca equí: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nPa dexar de recibir avisos, desactiva "Avisu de mensaxe priváu" nel to perfil.
+register_pm_notification:Avisu de mensaxe priváu:
+register_pm_notification_desc:Si ta activáu, t'avisará cuando t'unvien un mensaxe priváu.
+findu_admin_opts_header:Opciones d'alministración
+findu_unban:Quitar espulsión
+findu_ban:Espulsar
+findu_edit:Editar
+findu_delete:Desaniciar
+dmsg_reply_to:ye una respuesta a
+dmsg_reply_num:mensaxe núm. {VAR: obj->reply_to}
+merge_topics:Fusionar filos
+merge_topics_cp:Panel de control de fusión de filos
+merge_topics_tpl:Esbilla los filos a fusionar <span class="SmallText">(tienes d'esbillar más d'un filu)</span>
+merge_merge:Fusionar los filos esbillaos
+merge_next:Filos siguientes
+merge_prev:Filos anteriores
+merge_another:Dir al <a href="{TEMPLATE: merge_another_lnk}">caberu filu fusionáu</a> o fusionar otru:
+split_cp:Panel de control de dixebra de filos
+groups_perms_header:Permisos <span class="small">(mover el mur pol permisu pa ver de que tipu ye)</span>
+register_err_sig_too_long:La to robla pasa de la llonxitú máxima permitida de {GVAR: FORUM_SIG_ML} caráuteres.
+register_sig_limit:{GVAR: FORUM_SIG_ML} caráuteres <a href="javascript: alert('La to robla tien una llonxitú de '+document.forms['fud_register'].reg_sig.value.length+' caráuteres. La llonxitú máxima permitida son {GVAR: FORUM_SIG_ML} caráuteres.');" class="SmallText">Comprobar la llonxitú de la robla</a>
+adm_account_accepted:La to cuenta "{VAR: login}" foi aprobada pol alministrador y agora ta activa. Yá pues entrar al foru {GVAR: FORUM_TITLE} como usuariu confirmáu y rexistráu.
+adm_account_accepted_s:S'aceutó la to solicitú de cuenta pa {GVAR: FORUM_TITLE}.
+adm_account_rejected:L'alministrador refugó la to cuenta {VAR: login}. Si quies saber el motivu d'esta decisión, pues ponete en contautu col alministrador en {GVAR: ADMIN_EMAIL}.
+adm_account_rejected_s:Se refugó la to solicitú de cuenta pa {GVAR: FORUM_TITLE}.
+thread_on:el
+userinfo_buddy:Collaciu:
+register_email_addr:Direición de corréu electrónicu:
+reset_suffix:Si recibisti esti mensaxe por error, por favor, saltalu. Si tas recibiendo múltiples copies d'esti corréu electrónicu ensin pidiles, ponte en contautu col alministrador del foru en {GVAR: ADMIN_EMAIL}\n\nEsta solicitú s'anició dende: {VAR: _SERVER['REMOTE_ADDR']}.
+usrinfo_last_visit:Cabera visita:
+mnav_newer:más nuevu que
+mnav_older:más antiguu que
+ip_search_by_ip:Guetar usuarios pola IP
+ip_search_syntax:Sintaxis sofitada: 1.2.3.4, 1.2.3, 1.2, 1
+ip_search:Guetar
+ip_analyze_usage:Analizar l'usu de la IP
+ip_analyze_usage_descr:Por favor, especifica el nome d'usuariu exactu.
+ip_users_using:Usuarios qu'usen la direición IP '{VAR: ip}'
+ip_all_ips:Toles IPs qu'usa '{VAR: user}'
+ip_title:Navegador d'IPs
+userinfo_real_name:Nome real:
+register_err_alias_notallowed:Esti alcuñu nun ta permitíu
+post_err_mod_forum_edit_ttl:ERROR
+post_err_mod_forum_edit_msg:Nun pues editar los mensaxes d'un foru moderáu.
+dmsg_num:mensaxe núm. {VAR: obj->id}
+postcheck_session_invalid:La to sesión caducó. Por favor, unvia'l formulariu otra vuelta. Perdón poles molesties.
+delete_message_extra_desc:<b>Opcional</b><br />Especifica un motivu pa desaniciar el mensaxe, que s'unviará al autor per un mensaxe priváu.
+delete_message_extra_body:Incluir el cuerpu del mensaxe desaniciáu que s'unviará al autor.
+delete_msg_removed_ttl:El to mensaxe lu desanició l'equipu d'alministración.
+delete_msg_pm_body:Mensaxe orixinal
+delete_msg_pm_subject:Asuntu: {VAR: data[15]}
+ip_no_whois:La información de whois pa <b>{VAR: ip}</b> nun ta disponible.
+ip_whois_title:Información del ISP
+register_theme:Tema:
+pmsg_trash:Balerar la papelera
+uc_new_pm:Mensaxes privaos nuevos
+uc_new_topic:Nuevu filu
+uc_new_cat_forum:Foros suscritos con mensaxes nuevos
+uc_cat_forum:Categoría &raquo; Foru
+uc_sub_topics:Filos suscritos con mensaxes nuevos
+uc_page_title:Viendo el panel de control personal.
+search_options:Opciones de busca
+search_user_filter:Peñerar por usuariu:
+register_none:Nun avisame
+findu_no_conf:usuariu ensin confirmar
+register_max_sig_len:Llonxitú máxima:
+register_turing:Por favor, escribi'l códigu que s'amuesa abaxo:
+register_err_turing:Códigu de comprobación inválidu.
+modque_cat:Categoría
+modque_forum:Foru
+idx_compact_forum_row:Foros disponibles:
+mmd_del_title:Desaniciar filos
+mmd_mov_title:Treslladar filos
+mmd_move_threads_to:Foru de destín:
+mmd_abort_move:Encaboxar
+mmd_move:Treslladar filos
+pmsg_pdf_btn:Crear archivu PDF
+search_results_hdr:S'alcontraron {VAR: total} resultaos pa la gueta
+thread_del_all:Desaniciar la seleición
+thread_mov_all:Treslladar la seleición
+thread_merge_all:Fusionar la seleición
+thread_loc_all:Bloquiar/desbloquiar la seleición
+dmsg_ip:IP:
+err_blockedaccnt_title:ERROR: La to cuenta ta peñerada.
+err_blockedaccnt_msg:La to cuenta tien bloquiáu l'accesu al foru por una de les peñeres d'usuarios instalaes.
+merge_th_page_list:Seleicionar la páxina del filu
+most_users_online:La mayor cantidá d'usuarios coneutaos al mesmu tiempu foi <b>{VAR: st_obj->most_online}</b>, el <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
+sub_unsub_all_forums:Quitar la suscripción a tolos foros
+sub_unsub_all_topics:Quitar la suscripción a tolos filos
+unbookmark_all_topics:Desaniciar tolos marcadores
+tabs_own_posts:Amosar los mensaxes propios
+sml_emoticon:Fustaxe
+sml_code:Códigu
+mnav_sub_only:Guetar sólo nos foros suscritos
+register_topics_per_page:Filos por páxina:
+login_min_time:Esti foru permite un intentu d'aniciu de sesión cada {VAR: MIN_TIME_BETWEEN_LOGIN} segundos; por favor, aguarda {FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)} segundos enantes del siguiente intentu.
+post_not_logged_in:Nun aniciasti sesión, el mensaxe s'unviará como anónimu.
+post_common_bold:Negrina
+post_common_italics:Cursiva
+post_common_underline:Sorrayao
+post_common_align_left:Alliniación izquierda
+post_common_align_center:Alliniación central
+post_common_align_right:Alliniación drecha
+post_common_link:Inxertar un enllaz
+post_common_link_popup:Destín del enllaz:
+post_common_email:Inxertar una direición de corréu electrónicu
+post_common_email_popup:Direición de corréu electrónicu:
+post_common_image:Inxertar una imaxe
+post_common_image_popup:URL de la imaxe:
+post_common_nlist:Amestar una llista numberada
+post_common_blist:Amestar una llista con puntos
+post_common_quote:Amestar cita
+post_common_code:Amestar códigu
+rating_delete:Desaniciar
+post_always_on_top:Facer que'l filu apaeza siempre na parte superior de la llista de filos
+topic_rating:{VAR: frm->rating} de {PLURAL: frm->n_rating|$1 votu|$1 votos}
+topic_list_rating:{VAR: r[17]} de {PLURAL: r[21]|$1 votu|$1 votos}
+tabs_notifications:Avisos
+finduser_flag:Bandera
+post_descr:Descripción del filu:
+pmsg_on:el
+pmsg_download_dump:Descargar volcáu de mensaxes
+move_messages:Mover mensaxes
+move_msg_btn:Mover los mensaxes esbillaos
+move_msg_th_expl:Especifica la ID del filu de destín (pue tar n'otros foros)
+captcha_img_alt:Comprobación por Captcha: tendrás que reconocer el testu d'esta imaxe.
+captcha_img_help:Nun hai dengún cero o unu na imaxe.
+powered-by:Movíu por: FUDforum {GVAR: FORUM_VERSION}.
+copyright:Copyright &copy;2001-2011 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+code_title:Códigu:
+code_select_all:Seleccionar too
+code_show_hide:Amosar/anubrir
+social_sites:Sitios de redes sociales:
+postcheck_min_len_err:El to mensaxe ye demasiao curtiu. La llonxitú mínima ye {PLURAL: post_min_len|d'un caráuter|de $1 caráuteres}.
+postcheck_dup_err:Por favor, nun crees filos duplicaos.
+btn_new_topic:Nuevu filu
+btn_new_pm:M. priv. nuevu
+btn_post_reply:Unviar respuesta
+btn_tree_view:Vista n'árbol
+btn_flat_view:Vista plana
+btn_about:Perfil
+btn_small_pm:MP
+btn_delete:desaniciar
+btn_edit:editar
+btn_reply:responder
+btn_forward:re-unviar
+btn_quote:citar
+btn_email:Corréu
+btn_show_posts:mensaxes
+btn_homepage:www
+feed_no_data:Nun se alcontró dengún datu que case.
+feed_rdf:Canal RDF
+feed_rss:Canal RSS2
+feed_atom:Canal ATOM
+ip_whois_connect_err:Non se pudo coneutar col sirvidor WHOIS ({VAR: whois_server}): {VAR: errstr}
+custom_filed_required:Esti campu ye obligatoriu.
+pages:Páxines
+page_list_heading:Páxines disponibles
+page_list_total:{PLURAL: i|$1 páxina|$1 páxines} na llista.
+page_update:Navegando pela páxina
+pm_export_header:Mensaxes privaos pa {VAR: usr->alias}
+pm_export_footer:Esportáu:

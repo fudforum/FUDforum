@@ -2,6 +2,7 @@
 # Exported from translatewiki.net
 # Author: JanRei
 # Author: Kghbln
+# Author: LWChris
 # Author: McDutchie
 # Author: The Evil IP address
 # Author: Tiin
@@ -1085,7 +1086,7 @@ post_common_align_center:Zentriert
 post_common_align_right:Rechtsbündig
 post_common_link:Link einfügen
 post_common_link_popup:Link-Adresse:
-post_common_email:E-Mail-Addresse einfügen
+post_common_email:E-Mail-Adresse einfügen
 post_common_email_popup:E-Mail-Adresse:
 post_common_image:Bild einfügen
 post_common_image_popup:Bild-URL:

@@ -698,7 +698,7 @@ ERR_systemerr_ttl:ERRO: Erro de sistema
 ERR_systemerr_msg:Ocorreu um erro de sistema, por favor reporte-o ao <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a>.
 email_title:Formulário de Email
 finduser_title:Procurar Usuário
-help_title:F.A.Q.
+help_title:Ajuda
 login_title:Formmulário de Login
 poll_title:Editor de votações
 register_title:Formulário de Registo

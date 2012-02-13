@@ -5,7 +5,9 @@
 action:Aktioun
 add_to_buddy_list:op d'Lëscht vun de Frënn derbäisetzen
 admin:Admin
+admin_control_panel:Administratioun
 administrator:Administrateur
+avatar:Avatar:
 biography:Biographie:
 birth_date:Gebuertsdatum:
 by:Vum:
@@ -16,8 +18,10 @@ date_registered:Ageschriwwen den:
 download_counter:{PLURAL: v[3]|eemol|$1 mol} erofgelueden
 email:E-Mail:
 email_to_friend:Engem Frënd per E-Mail schécken
+email_to_friend_desc:Schéckt d'URL vun dëser Säit per Mail un Är Frënn
 email_user:Dem Benotzer en E-Mail-Message schécken
 faq:Hëllef
+first_unread_msg:Op déi net geliest Messagen
 forum:Forum:
 forum_new_messages:Nei Messagen
 forum_old_messages:Keng nei Messagen
@@ -27,23 +31,36 @@ go:Lass
 goto_next_msg:Op den nächste Message goen
 goto_prev_msg:Op de virege Message goen
 home:Ufankssäit
+homepage:Haaptsäit:
 ignore_user:all Message vun deem Benotzer ignoréieren
+im_msnm:MSN Messenger:
 im_yahoo:Yahoo Messenger:
 image:Bild:
 index_forum:Forum
 index_url_redirection:Viruleedung
 interests:Interessen:
 last_post:Leschte Message
+legend:Erklärung
 location:Plaz:
+lock_thread:Thema spären
 locked:Gespaart
+logged_in_list:Lëscht vun den ageloggte Benotzer
+login:Aloggen
+login_header:Aloggen:
 mark_all_read:All Messagen als geliest markéieren
+mark_all_read_desc:All Är net geliest Messagen ginn als geliest markéiert
 members:Memberen
 calendar:Kalenner
+cal_day_heading:Evenementer vum Dag
+cal_no_events:Keng Evenementer fir den Dag.
+cal_birthday:Gebuertsdag: {VAR: user}
 message:Message
+message_index_desc:D'Lëscht vun de Message weisen
 minimize_category:Kategorie minimiséieren
 minimize_message:Message minimiséieren
 moderator:Moderateur
 moderator_of:Moderateur vun:
+moderators:{PLURAL: modcount|Moderateur|Moderateuren}
 more_unread_messages:méi net gelieste Messagen
 move_thread:Réckelen
 new_posts:Nei Messagen
@@ -53,13 +70,19 @@ next_thread:Nächst Thema:
 no_messages:Et gëtt keng Messagen an dësem Forum.<br /> Sidd deen éischten deen e Sujet an dëse Forum setzt.
 no_new_posts:Keng nei Messagen
 no_posts:Keng Messagen
+no_unread_locked:Dëse Sujet gouf gespaart
 num_pages:Säiten ({VAR: ttl_pg}):
-occupation:Beruf:
+occupation:Beruff:
 off:aus
 on:un
 poll:Ëmfro:
 posts:Messagen
 posts_c:Messagen:
+prev_thread:Viregt Thema:
+usrinfo_private_message:Private Message:
+rate_thread:Thema bewäerten
+rating:Bewäertung
+refresh_list:Lëscht aktualiséieren
 register:Registréieren
 replies:Äntwerten
 reveal_post:Message weisen
@@ -79,17 +102,25 @@ thread_thread:Thema
 threads:Themen
 time:Zäit
 todays_posts:Message vun haut:
+todays_posts_desc:All Message weisen déi haut geschriwwe goufen
 unanswered_posts:Net beäntwert Messagen
 unanswered_posts_desc:All Message weisen, déi keng Äntwert hunn
+unread_posts:Net gelieste Messagen
+unread_posts_desc:All Message weisen déi nach net geliest sinn
 updated_on:Aktualiséiert den:
 user:Benotzer
 user_info:Benotzerinformatiounen
+user_info_l:Benotzerinformatiounen {VAR: u->alias}
+user_offline:{VAR: obj->login} ass elo offline
+user_online:{VAR: obj->login} ass elo online
 usrinfo_last_post:Leschte Message:
 view_results:Resultater weisen
 vote:{PLURAL: frm->n_rating|$1 Stëmm|$1 Stëmmen}
 vote_button:Ofstëmmen
 vote_for_thread:Ofsstëmmen
+what_ppl_doing:Weise wat d'Leit maachen
 reported_reason:Grond:
+modque_approve:Zoustëmmen
 modque_delete:Läschen
 pmsg_old_messages:Private Message liesen
 move_to:Réckelen op:
@@ -119,20 +150,29 @@ month_10:Oktober
 month_11:November
 month_12:Dezember
 sunday:Sonndeg
+sunday_short:So
 monday:Méindeg
+monday_short:Mé
 tuesday:Dënschdeg
+tuesday_short:Dë
 wednesday:Mëttwoch
+wednesday_short:Më
 thursday:Donneschdeg
+thursday_short:Do
 friday:Freideg
+friday_short:Fr
 saturday:Samschdeg
+saturday_short:Sa
 male:Männlech
 female:Weiblech
+finduser_user_info:Benotzerinformatioun
 finduser_submit:Sichen
 finduser_no_such_user:Et gëtt keen esou Benotzer
 finduser_user:Benotzer
 finduser_action:Aktioun
 yes:Jo
 no:Neen
+register_email:Mail
 pmuserloc_user:Benotzer
 pmuserloc_no_result:Kee Resultat
 register_uploaded:Avatar eroplueden
@@ -143,47 +183,75 @@ register_your_pass:Ärt Passwuert:
 register_update:Aktualiséieren
 register_del_avatar:Avatar läschen
 register_avatar:Avatar:
+register_sel_avatar:Avatar eraussichen
+register_preview:Kucken ouni ofzespäicheren
+register_register:Registréieren
 register_required:Obligatoresch Informatioun
+register_occupation:Beruff:
 register_interests:iInteressen:
 register_image:Bild:
+register_icq:ICQ:
+register_yahoo:Yahoo Messenger:
+register_msnm:MSN Messenger:
+register_homepage:Haaptsäit:
 register_bday:Gebuertsdatum:
 register_day:Dag
 register_month:Mount
 register_year:Joer
 register_gender:Geschlecht:
 register_bio:Biographie:
+register_prefs:Astellungen
 register_sig:Ënnerschrëft:
 register_reset:Zrécksetzen
+register_msg_per_page:Message pro Säit:
 register_show_sig:Ënnerschrëfte weisen
+register_use_sig_default:Standard-Ënnerschrëft benotzen:
 register_timezone:Zäitzon:
+register_allow_email_msg:E-Mail Messagen erlaben:
 add:Derbäisetzen
 buddy_remove:ewechhuelen
 post_normal:Normal
+post_annoncement:Ukënnegung
 post_size:Gréisst
 post_color:Faarf
+post_logedin_user:Ageloggte Benotzer:
+post_poll:Ëmfro:
 post_poll_delete:LÄSCHEN
 post_poll_edit:ÄNNEREN
 post_upload_file:Fichier eroplueden
 post_file_del:Läschen
 post_file_name:Numm
 post_file_size:Gréisst
+max_file_size:Maximal Fichiersgréisst:
+max_files_per_msg:Maximal Zuel vu Fichiere pro Message:
 post_forum:Forum:
 post_title:Titel:
 post_options:Optiounen:
+post_preview_btn:Message kucken ouni ze späicheren
+post_cancel_btn:Ofbriechen
 ignore_users:Ignoréiert Benotzer
 coppa_before:Virum {TEMPLATE: coppa_date}
 coppa_after:Nom {TEMPLATE: coppa_date}
+prereg_agree:Akzeptéieren
+prereg_disagree:Refuséieren
+coppa_fax_reg_form:Umeldungsformulaire
 coppa_fax_telephone:Telefon:
+coppa_fax_email:Mailadress:
 coppa_fax_date:Datum:
 coppa_fax_passwd:Passwuert
+coppa_fax_remail:Mail
 coppa_fax_name:Numm
+login_want_to_register:Wëllt Dir Iech umellen?
 login_forgot_passwd:Passwuert vergiess
+login_passwd_required:D'Passwuert ass obligatoresch
+rpasswd_passwd_nomatch:Déi Passwierder déi Dir aginn hutt sinn net identesch
 rpasswd_change_pass:Passwuert änneren
 rpasswd_cur_pass:Aktuellt Passwuert:
 rpasswd_new_pass:Neit Passwuert:
 rpasswd_conf_pass:Confirméiert d'Passwuert:
 ruser_cur_pass:Aktuellt Passwuert:
 login_passwd:Passwuert:
+reset_email:Mail:
 reset_reset_button:Passwuert zrécksetzen
 rate_this_thread:Bewäerten
 report_subject:Sujet:
@@ -191,21 +259,38 @@ report_by:Vum:
 search_entire_msg:Ganze Message
 search_forum:Forum
 search_no_results:Keng Resultater
+search_in_forum:Am Forum sichen:
 remail_your_name:Ären Numm:
 remail_your_email:Är E-Mail:
+remail_required:obligatoresch
+remail_subject:Sujet:
 remail_message:Message:
+remail_done:Fäerdeg
+remail_error:Et ass e Feeler geschitt
+mklist_type:Typ:
 mklist_option:Optioun:
 mklist_delete:Läschen
 qbud_nick_name:Spëtznumm
 qbud_selected:Erausgesicht
+mklist_numerical:Numeresch
+mklist_aplha:Alphabetesch
 mklist_disc:Scheif
 mklist_circle:Krees
 mklist_close:Zoumaachen
 email_subject:Sujet:
+email_submit:Mail
+ppost_quote:Zitat:
 ppost_find_User:Benotzer fannen
+ppost_send:Schécken
+ppost_save_draft:Brouillon späicheren
+poll_name:Numm vun der Ëmfro:
 poll_create:Uleeën
 poll_update:Aktualiséieren
+poll_create_poll:Ëmfro uleeën
+poll_update_poll:Ëmfro aktualiséieren
 poll_delete:Läschen
+poll_updateoption:Optioun aktualiséieren
+poll_addoption:Optioun derbäisetzen
 poll_day:Dag
 poll_days:Deeg
 poll_hour:Stonn
@@ -213,23 +298,46 @@ poll_hours:Stonnen
 poll_month:Mount
 poll_year:Joer
 poll_week:Woch
+tabs_register:Astellunge vum Benotzerkont
 delete_yes:Jo
 delete_no:Neen
 error_error:Feeler
+usrinfo_show_all_posts:All Message vum {VAR: u->alias} weisen
+err_info:Informatioun
+email_error_subject:De Sujet ass obligatoresch
+email_error_namerequired:En Numm ass obligatoresch.
 emailconf_err_invkey_title:Feeler
 err_inc_criticaltitle:Kritesche Feeler
+finduser_update:Sicht no Benotzer
+iemail_participate:Fir bäi der Diskussioun matzemaache gitt dohinner:
+ignore_list_err_info_title:Informatioun
 ignore_list_err_nu_title:Benotzer net fonnt
+ignore_list_cantign_msg:Dir däerft dëse Benotzer net ignoréieren
 err_banned_acct_title:FEELER: Dir gouft gespaart.
 post_err_edttimelimit_title:FEELER
+post_err_edttimelimit_msg:Dir kënnt dëse Message net méi änneren
 post_err_passwd:Falscht Passwuert.
+post_error_generic:Et ass e Feeler geschitt
+postcheck_subj_needed:De Sujet ass obligatoresch
+register_err_notyouremail:Et huet schonn een Anere sech mat dëser Mail-Adress ugemellt.
+register_profile_update:Kuckt den eegene Profil
+register_register_update:Umeldungssäit
 report_err_nosuchmsg_title:FEELER
 reset_err_invalidkey_title:FEELER
 reset_err_rstconf_title:Informatioun
 reset_newpass_title:Passwuert zrécksetzen
+ERR_access_ttl:FEELER: Net genuch Rechter
 finduser_title:Benotzer fannen
 help_title:Hëllef
+reset_title:Passwuert zrécksetzen
+index_title:Wëllkomm am Forum
 poll_add_option:Optioun derbäisetzen:
+post_opt_html_on:<b>HTML</b> ass <b>aktivéiert</b>
+post_opt_images_on:<b>Biller</b> sinn <b>aktivéiert</b>
+post_opt_html_off:<b>HTML</b> ass <b>desaktivéiert</b>
+post_opt_images_off:<b>Biller</b> sinn <b>DESAKTIVÉIERT</b>
 register_change_passwd:Passwuert änneren
+move_reason:Grond fir d'Thema ze réckelen:
 split_thread:thema opdeelen
 groupmgr_yes:Jo
 groupmgr_no:Neen
@@ -241,6 +349,7 @@ groupmgr_update_member:Member aktualiséieren
 groupmgr_edit:Änneren
 groupmgr_delete:Läschen
 group_mgr_anon:Anonym
+group_mgr_reged:All registréiert Benotzer
 show_show:Weisen:
 group_mgr_group:Grupp:
 p_READ:Liesen
@@ -280,20 +389,34 @@ split_th_post_by:Message vum:
 split_th_subject:Sujet:
 split_th_forum:Forum:
 split_th_messages:Messagen
+split_th_select:Eraussichen
 quicklogin_password:Passwuert:
+quicklogin_use_cookies:Cookieë benotzen?
 pmsg_next_msg:Nächste Message
 pmsg_prev_msg:Virege Message
+im_skype:Skype:
+im_twitter:Twitter :
+forum_contact:Kontakt
+ignored_anon_post:{GVAR: ANON_NICK} gëtt ignoréiert
 smladd_close_window:Fënster zoumaachen
+help_back_to_top:Zréck uewen op d'Säit
 poll_edit:Änneren
+register_alias:Alias:
+polllist_vote:Ofstëmmen
 polllist_view_results:Resultater kucken
 polllist_name:Numm vun der Ëmfro
+polllist_action:Aktioun
 userinfo_polls:Ëmfroen:
 search_and:AN
 search_or:ODER
 saved:Gespäichert
+buddy_offline:{VAR: r[2]} ass elo offline
+buddy_online:{VAR: r[2]} ass elo online
+iemail_msg_author:<b>Auteur:</b> {VAR: obj->alias}
 iemail_msg_reply:Äntwerten
 iemail_msg_quote:Zitat
 threadt_announce:Ukënnegung
+mnav_submit:Ufänke mat sichen
 mnav_minute:Minutt(en)
 mnav_hour:Stonn(en)
 mnav_day:Dag/Deeg
@@ -301,31 +424,44 @@ mnav_week:Woch(en)
 mnav_month:Mount/Méint
 findu_edit:Änneren
 findu_delete:Läschen
+merge_topics:Themen zesummeleeën
 mnav_newer:méi nei wéi
 mnav_older:méi al wéi
 ip_search:Sichen
 userinfo_real_name:Richtegen Numm:
 register_err_alias_notallowed:Dësen Alias ass net erlaabt
 post_err_mod_forum_edit_ttl:FEELER
+dmsg_num:Message #{VAR: obj->id}
+delete_msg_pm_subject:Sujet: {VAR: data[15]}
 uc_new_topic:Neit Thema
 search_options:Sichoptiounen
 search_user_filter:Nom Benotzer filteren:
+findu_no_conf:net-confirméierte Benotzer
+register_max_sig_len:Maximal Längt:
 modque_cat:Kategorie
 modque_forum:Forum
 mmd_abort_move:Ofbriechen
+pmsg_pdf_btn:PDF-Archiv maachen
 dmsg_ip:IP:
 register_topics_per_page:Theme pro Säit:
 post_common_link:E Link drasetzen
+post_common_image:E Bild drasetzen
 post_common_quote:Zitat derbäisetzen
 rating_delete:Läschen
 finduser_flag:Fändel
 post_descr:Beschreiwung vum Thema:
+move_messages:Message réckelen
+code_title:Code:
 code_show_hide:Weisen / Verstoppen
+btn_new_topic:Neie Sujet
 btn_about:Profil
 btn_delete:läschen
 btn_edit:änneren
 btn_reply:äntwerten
 btn_forward:viruleeden
+btn_email:Mail
 btn_homepage:www
+custom_filed_required:Dëst Feld ass obligatoresch.
 pages:Säiten
 page_list_heading:Disponibel Säiten
+pm_export_header:Privat Message fir {VAR: usr->alias}

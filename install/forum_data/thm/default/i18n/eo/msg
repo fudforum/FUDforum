@@ -7,7 +7,6 @@
 action:Ago
 add_to_buddy_list:aldoni al amika listo
 admin:Administranto
-# Fuzzy
 admin_control_panel:Administrilo
 administrator:Administranto
 attachment:Afiŝo
@@ -99,8 +98,7 @@ new_thread:Krei novan fadenon
 newest_user:La plej nova registrita uzanto estas
 next_page:Posta Paĝo
 next_thread:Posta Fadeno:
-# Fuzzy
-no_messages:Estas neniuj mesaĝoj en ĉi tiu forumo.
+no_messages:Estas neniuj mesaĝoj en ĉi tiu forumo.<br />Afiŝu la unuan temon en ĉi tiu forumo.
 no_msg_body:Neniu Mesaĝkorpo
 no_new_posts:Neniuj Novaj Mesaĝoj
 no_posts:Neniuj Mesaĝoj
@@ -414,6 +412,7 @@ post_title:Titolo:
 post_body:Korpo:
 post_options:Agordoj
 post_preview_btn:Antaŭvidi Mesaĝon
+post_cancel_btn:Nuligi
 ignore_users:Ignoritaj Uzantoj
 add_ignore:Aldoni Ignoranton
 forum_terms:Foruma Regularo
@@ -469,6 +468,11 @@ rpasswd_login:Ensaluti
 rpasswd_cur_pass:Nuna Pasvorto:
 rpasswd_new_pass:Nova Pasvorto:
 rpasswd_conf_pass:Konfirmu Pasvorton:
+ruser_title:Formularo pri uzanto
+ruser_change_user:Ŝanĝi la uzantonomon
+ruser_cur_login:Nuna uzantonomo:
+ruser_new_login:Nova uzantonomo:
+ruser_cur_pass:Nuna pasvorto:
 login_passwd:Pasvorto:
 reset_email:Retadreso:
 reset_reset_button:Restarigi Pasvorton
@@ -715,6 +719,7 @@ post_opt_images_off:<b>Bildoj</b> estas <b>malŝalta</b>
 post_opt_smilies_off:<b>Miensimboloj</b> estas <b>malŝaltaj</b>
 post_opt:Forumaj Agordoj:
 register_change_passwd:ŝanĝi pasvorton
+register_change_login:Ŝanĝi uzantonomon
 approved_avatar_title:Via memprovizita avataro estis aprobita.
 approved_avatar_msg:Via avataro estis aprobita de la administranto. Ĝi nun aperos kiel avataro en ĉiuj viaj mesaĝoj. Se vi ne vidas ĝin, aŭ vidas vian malnovan avataron, tiel via retumilo havas malfreŝan informon en kaŝmemoro. Refreŝigu la paĝon unu aŭ du fojojn. Plej ofte ĉi tiel solvos la kaŝmemoran problemon.
 unapproved_avatar_title:Via memprovizita avataro estis malaprobita.
@@ -777,6 +782,7 @@ rate_worst:Plej malbona
 rate_best:Plej bona
 post_quote_msg:{VAR: msg->login} skribis en {TEMPLATE: make_report_date}
 post_quote:Cito:
+post_quote_selected:Citi selektitan tekston
 userinfo_referals:Referencitaj Uzantoj:
 userinfo_referals_count:{VAR: referals} Forumanoj
 pm_no_space_title:Neniu spaco cetere!
@@ -798,6 +804,7 @@ th_expr_two_month:2 Monatoj
 th_expr_four_month:4 Monatoj
 th_expr_one_year:1 Jaro
 thread_mod_delete:Forigi
+action_ip:IP-adreso
 action_latest_post:Lasta Mesaĝo
 online_today_last_visit:Laste Vizitita
 online_today_update:Vidante la liston de uzantoj kiu estis en la forumo hodiaŭ.
@@ -824,6 +831,8 @@ quicklogin_password:Pasvorto:
 quicklogin_use_cookies:Ĉu uzi kuketojn?
 quicklogin_login_btn:Ensaluti
 quick_reply:Rapida Respondo
+quick_reply_post:Afiŝi rapidan respondon
+quick_reply_preview:Antaŭmontri respondon
 post_notification_desc:Sciigi min kiam iu respondas al ĉi tiu mesaĝo.
 post_all_ext_allowed:(senlimigita)
 maximize_category:Maksimumigi Kategorion
@@ -882,6 +891,9 @@ search_desc_order:Malkreskanta Ordo
 search_asc_order:Kreskanta Ordo
 search_logic:Serĉlogiko:
 search_sorting:Ordigi Rezultojn laŭ Dato en:
+search_attach:Aldonaĵoj:
+search_attach_all:Kun aŭ sen
+search_attach_with:Kun aldonaĵoj
 post_proceed:Kontinui
 post_moderated_forum:Vi faris afiŝon en kontrolata forumo. Via mesaĝo ne estos videbla al aliaj ĝis ĝi estas aprobita de unu el la forumaj administrantoj aŭ kontrolantoj.
 post_moderated_forum_ttl:Sciigo pri Kontrolata Forumo
@@ -937,6 +949,7 @@ iemail_forum_unsub:Malaboni ĉi tiun forumon
 primary_group_prefix:Ĉefa grupo por forumo:
 group_resources:Ĉi tiu grupo rajtigas la jenajn forumojn
 register_admin_newuser_title:Nova uzanto registris kaj ties konto atendas konfirmado
+register_admin_newuser_msg:Nova uzanto ({VAR: uent->login}) ĵus estas registrita, kaj ĉar konfirmado de kontoj estas aktiva , ĝia konto ne estos uzebla ĝis ĝi estos konfirmita de vi aŭ de aliaj forumestro. Por kontroli la konton bonvolu iri al: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nĈi tio estas rezulto de aŭtoma proceso. Ne reagu je tiu ĉi mesaĝo.\nSe vi deziras malŝalti ontajn ret-poŝtajn sciigojn pri novaj konto-kreoj, tiam vi povas tion aranĝi per la stirpanelo por administranto. Tie ŝanĝeblas la agardo pri 'sciigoj pri novaj kontoj'.
 thread_printable_pdf:Generi printeblan PDF-on
 mnav_date_limit:Datintervalo:
 mnav_forum_limit:Nur serĉi en:
@@ -948,6 +961,11 @@ mnav_month:Monato(j)
 findu_ban:Forbari
 findu_edit:Redakti
 findu_delete:Forigi
+ip_search:Serĉi
+userinfo_real_name:Vera nomo:
 register_err_alias_notallowed:Ĉi tiu kromnomo ne estas permesita
 post_err_mod_forum_edit_ttl:ERARO
+delete_msg_pm_body:Origina mesaĝo
+register_theme:Etoso:
+dmsg_ip:IP-adreso:
 btn_edit:redakti

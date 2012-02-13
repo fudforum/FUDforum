@@ -1,0 +1,1139 @@
+# Messages for Basa Banyumasan (Basa Banyumasan)
+# Exported from translatewiki.net
+# Author: StefanusRA
+
+action:Tindakan
+add_to_buddy_list:tambahna maring daftar kanca
+admin:Admin
+admin_control_panel:Administrasi
+administrator:Pangurus
+attachment:Sisipan:
+avatar:Avatar:
+average_post_count:{PLURAL: u->posted_msg_count|$1 Pesen|$1 Pesen} ({PLURAL: avg|$1 rata-rata pesen|$1 rata-rata pesen} se dina)
+biography:Biografi:
+birth_date:Tgl.Lair:
+by:Oleh:
+by_mod:Neng Moderator
+current_time:Wektu sekiye
+custom_avatar_queue:Antrean avatar kustom
+date_posted:Tgl dilebokna
+date_registered:Tgl kedaftar:
+download_counter:Diunduh {PLURAL: v[3]| ping $1|ping $1}
+pmsg_download_counter:Diunduh {PLURAL: r->dlcount|ping $1|ping $1}
+email:Imel:
+email_to_friend:Imel maring kanca
+email_to_friend_desc:Kirimna URL kaca kiye maring kancane Rika nganggo imel
+email_user:Kirimna pesen imel maring panganggo
+faq:Pitulung
+first_unread_msg:Nuju maring pesen sing durung diwaca
+first_unread_msg_desc:Nuju maring pesen pertama sing durung diwaca nang jerone topik kiye
+flat_view:Bali maring tampilan rata sing baku
+forum:Forum:
+forum_icon:Ikon forum
+forum_new_messages:Pesen anyar
+forum_none_messages:Mung anggota forum sing kedaftar sing teyeng nelusuri pesen sing durung kewaca
+forum_old_messages:Ora ana pesen anyar
+from:Sekang:
+gender:Jinis kelamin:
+go:Goleti
+goto_next_msg:Nuju maring pesen terusane
+goto_prev_msg:Nuju maring pesen sedurunge
+home:Kaca Utama
+homepage:Homepage:
+icq_control_panel:Panel pesen ICQ
+icq_message_form:Formulir pesen ICQ:
+ignore_user:jorna baen kabeh pesen sekang panganggo kiye
+im_aim:AIM Handle:
+im_msnm:MSN Messenger:
+im_yahoo:Yahoo Messenger:
+image:Gambar:
+index_forum:Forum
+index_new_posts:Pesen anyar wiwit bacaan pungkasan
+index_no_new_posts:Ora ana pesen anyar wiwit bacaan pungkasan
+index_url_redirection:Pengalihan
+interests:''Interests:''
+last_post:Pesen pungkasan
+last_thread_msg:Nuju maring pesen pungkasan nang topik kiye
+legend:Keterangan
+location:Lokasi:
+lock_thread:Ngunci Topik
+locked:Dikunci
+locked_with_new_posts:Dikunci (karo pesen sing durung kewaca)
+logged_in_list:Daftar panganggo sing mlebu log
+login:Mlebu log
+login_header:Mlebu log:
+logout:Metu Log
+mark_all_read:Tandani kabeh pesen dadi "wis-diwaca"
+mark_all_read_desc:Kabeh pesene Rika sing durung kewaca sekiye arep ditandani dadi "wis-diwaca"
+members:Anggota
+calendar:Tanggalan
+cal_goto_date:Mlumpat maring:
+cal_day_heading:Kegiatan dina kiye
+cal_no_events:Ora ana kegiatan nggo dina kiye.
+cal_update:Njelajaih tanggalan forum
+cal_birthday:Ulang taun: {VAR: user}
+cal_birthday_age:umure ({PLURAL: age|$1 taun|$1 taun}).
+message:Pesen
+message_counter:Pangganggo nang kene wis ngirim totale <b>{PLURAL: post_count|$1 pesen|$1 pesen}</b> nang jero <b>{PLURAL: thread_count|$1 topik|$1 topik}</b>.
+message_index:Daftar pesen
+message_index_desc:Deleng daftar pesen
+minimize_category:Cilikna Kategori
+minimize_message:Cilikna Pesen
+moderation_queue:Antrean Moderasi
+moderator:Moderator
+moderator_of:Moderator sekang:
+moderator_options:Pilhan Moderator
+moderators:{PLURAL: modcount|Moderator|Moderator}
+more_unread_messages:pesen sing durung-kewaca liyane
+more_unread_messages_desc:Tidokna pesen sing durung-kewaca liyane, lan banjur ditandani sekiye dadi pesen sing "wis-kewaca"
+move_thread:Pindahna
+moved:Uwis dipindahna maring forum liyane
+moved_thread_message:Topik kiye uwis dipindahna maring forum liyane
+na:o/a
+new_posts:Pesen Anyar
+new_private_messages:Rika nduwe <span class="GenTextRed">({VAR: c})</span> {PLURAL: c|private message|private messages} sing durung-kewaca
+new_thread:Gawe topik anyar
+newest_user:Panganggo kedaftar sing paling anyar yakuwe
+next_page:Kaca terusane
+next_thread:Topik terusane:
+no_messages:Durung ana pesen nang forum kiye. <br />Mayuh dadi sing pertama dhewek nggo molai topik nang forum kiye.
+no_msg_body:Ora ana isi pesene
+no_new_posts:Ora ana pesen anyar
+no_posts:Ora ana pesen
+no_subscribed_forums:Ora ana forum berlangganan
+no_subscribed_threads:Ora ana topik berlangganan
+no_bookmarked_threads:Ora ana topik sing ditandani
+no_unread_locked:Topik kiye wis dikunci
+no_unread_msg:Topik kiye ora duwe pesen sing durung-kewaca
+no_unread_msg_unreg:Mung panganggo sing kedaftar thok sing teyeng nelurusi pesen sing durung-kewaca
+num_pages:Halaman ({VAR: ttl_pg}):
+num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|suara|suara}
+occupation:Pegawean:
+off:mati
+on:urip
+page_timings:Wektu sing diperlokna nggo munculna kaca: {PLURAL: page_gen_time|$1 detik}
+pm:Pesen pribadi (japri)
+poll:Jajak:
+post_count:Jumlah Pesen {VAR: u_pcount}
+post_count_l:Jumlah Pesen:
+posts:Pesen
+posts_c:Pesen:
+prev_thread:Topik sedurunge:
+usrinfo_private_message:Pesen pribadi (japri):
+profile:Panel kontrol
+profile_desc:Akses panel kontrol panganggo
+rate_thread:Nilai Topik
+rating:Rating
+rating_track:Ngatur ''rating'' nggo topik <b>{VAR: thr->subject}</b>:
+refresh_list:Perbaharui daftar
+register:Ndaftar
+registered:Kedaftar:
+registered_on:Kedaftar nang {TEMPLATE: registered_on_date}
+replies:Balesan
+report_to_mod:Laporna maring moderator
+reported_messages:Pesen sing dilaporna
+reveal_all_posts:tidokna kabeh pesen sekang {VAR: user_login}
+reveal_post:tidokna pesen
+search:Goleti
+sel_todays_posts:Pesen-pesen dina kiye
+sel_todays_posts_desc:Atur saringan pesen dina kiye (mung nidokna pesen sing digawe dina kiye thok)
+sel_unanswered_posts:Pesen durung dibales
+sel_unanswered_posts_desc:Atur saringan pesen sing durung-dibales (mung nidokna pesen-pesen sing durung-dibales thok)
+sel_unread_messages:Pesen-pesen sing durung-kewaca
+sel_unread_messages_desc:Atur saringan pesen-pesen sing durung kewaca (mung nidokna pesen-pesen sing durung kewaca thok)
+send:Kirim
+send_pm_desc:Kirim pesen pribadi (japri) maring panganggo kiye
+sender_email:Imel pengirim:
+sender_name:Jeneng pengirim:
+show_posts_by:Tidokna pesen-pesen sekang: {VAR: u_alias}
+size:Ukurane:
+status:Status:
+status_line:Sekiye lagi ana <b>{PLURAL: st_obj->online_users_reg|$1 anggota|$1 anggota}</b>, <b>{PLURAL: st_obj->online_users_hidden|$1 anggota sing umpetan|$1 anggota sing umpetan}</b> and <b>{PLURAL: st_obj->online_users_anon|$1 tamu|$1 tamu}</b> sing teka ming kene.
+sticky:stiki:
+stop_ignoring:Ilangna status ''ignore'' maring panganggo kiye
+sub_to_thread:Langganan maring topik kiye
+sub_to_thread_desc:Nampani notifikasi prakara pesen anyar sajroning topik kiye
+bookmark_thread:Nandani topik
+bookmark_thread_desc:Tambahna topik kiye maring daftar penandane Rika
+subject:Subyek
+subscribe:Langganan
+subscribe_desc:Nampa notifikasi dong ana wong sing gawe topik anyar nang forum kiye
+subscribed_forums:Forum langganan
+subscribed_forums_desc:Uripna/pateni fitur forum langganan (bakal mung nidokna pesen sekang forum sing Rika langganan thok)
+subscribed_threads:Topik langganan
+subscribed_threads_desc:Uripna/pateni fitur topik langganan (bakal mung nidokna pesen sekang topik sing Rika langganan thok)
+bookmarked_threads:Topik sing ditandani
+switch_to_thread_view:Ganti dadi tampilan urut kanggo topik kiye
+thread:Topik:
+thread_announcement:Pengumuman:
+thread_first_unread_msg:Nuju maring pesen pertama sing durung diwaca nang jerone topik kiye
+thread_thread:Topik
+threads:Topik-topik
+time:Wektu
+todays_posts:Pesen-pesen dina kiye
+todays_posts_desc:Tidokna kapeh pesen sing digawe dina kiye
+un_ignore_user:mandeg gole ''ngacuhna'' pesen-pesen sekang panganggo kiye
+unanswered_posts:Pesen durung dijawab
+unanswered_posts_desc:Tidokna kabeh pesen sing durung dibales
+unlock_thread:Bukak kuncine Topik
+unread_msg:Topik kiye nduwe pesen sing Rika durung maca
+unread_msg_locked:Topik sing wis kekunci sing duwe pesen-pesen durung diwaca
+unread_posts:Pesen-pesen sing durung-kewaca
+unread_posts_desc:Tidokna kabeh pesen-pesen sing durung kewaca
+unsub_from_thread:Mandeg gole langganan topik kiye
+unsub_from_thread_desc:Mandeg gole nampa notifikasi prakara pesen anyar sajroning topik kiye
+unbookmark_thread:Busek sekang penanda
+unbookmark_thread_desc:Busek topik kiye sekang daftar penandane Rika
+unsubscribe:Mandeg gole langganan
+unsubscribe_desc:Mandeg gole nampa notifikasi prakara topik anyar sajroning forum kiye
+updated_on:Dianyari dong:
+user:Panganggo
+user_counter:Inyong duwe <b>{VAR: st_obj->user_count}</b> {PLURAL: st_obj->user_count|panganggo|panganggo} kedaftar.
+user_info:Informasi Panganggo
+user_info_l:Informasi panganggo {VAR: u->alias}
+user_offline:{VAR: obj->login} lagi ''offline''
+user_online:{VAR: obj->login} lagi ''online''
+usrinfo_last_post:Pesen pungkasan:
+view_results:Deleng hasile
+views:Tampilan
+vote:{PLURAL: frm->n_rating|$1 Vote|$1 Votes}
+vote_button:Pilih
+vote_for_thread:Aweh swara
+was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> uwis dipindahna maring <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> nang moderator.
+welcome_message:Sugeng teka <b>{VAR: usr->alias}</b>, Rika teka ming kene keri dhewek dong {TEMPLATE: welcome_message_date}
+what_ppl_doing:Tidokna aktivitase panganggo liyane
+reported_del_report:Busek laporan
+reported_reason:Alesan:
+reported_on:Dong:
+reported_reported_by:Dilaporna nang:
+reported_reported_msg:Pesen sing dilaporna
+modque_pending_approval:Pesen-pesen sing ngenteni disetujuni
+modque_approve:Setujuni
+modque_delete:Busek
+modque_no_message:Ora ana pesen sing ngenteni nggo disetujuni
+pmsg_new_messages:Pesen-pesen pribadi sing durung kewaca
+pmsg_old_messages:Pesen-pesen pribadi sing uwis kewaca
+deny_recipt:moh diweih tanda trima
+deny_recipt_desc:Aja ngirimna konfirmasi nek Rika kuwe wis maca pesen kiye
+restore_to:Balekna ming:
+move_to:Pindahna ming:
+list_referes_referrals:Referensi
+list_referes_members:Anggota direferensikna
+list_referes_member:Anggota
+referals_none:Durung ana referensi.
+referals_refered_by:Anggota forum direferensikna nang: <b><a href="{TEMPLATE: referals_refered_by_lnk}" class="thLnk">{VAR: p_user[1]}</a></b>
+referals_post_count:Jumlah Pesen
+referals_registered_on:Kedaftar nang
+referals_action:Tindakan
+pmsg_all:kabèh
+pmsg_none:ora ana
+folder:Folder:
+pmsg_replied:wis dibales
+pmsg_forwarded:diterusna
+pmsg_subject:Subyek
+pmsg_author:Penulise
+pmsg_time:Wektu
+pmsg_selected:Dipilih
+pmsg_delete:Busek
+cur_ppage_pm:Pesen pribadi (japri)
+writing_pm:Lagi nulis pesen pribadi
+browsing_folder:Lagi ndeleng folder <b>{VAR: folders[$folder_id]}</b>
+inbox:Kotak pesen-mlebu
+draft:Rancangan
+sent:Kirim
+trash:Runtah
+msg_author:Penulise
+avatar_sel_form:Formulir nggo milih Avatar
+no_avatars:Ora ana avatar sing disediakna
+month_1:Januari
+month_2:Februari
+month_3:Maret
+month_4:April
+month_5:Mei
+month_6:Juni
+month_7:Juli
+month_8:Agustus
+month_9:September
+month_10:Oktober
+month_11:November
+month_12:Desember
+sunday:Minggu
+sunday_short:M
+monday:Senen
+monday_short:S
+tuesday:Selasa
+tuesday_short:Sel
+wednesday:Rebo
+wednesday_short:R
+thursday:Kemis
+thursday_short:K
+friday:Jemuwah
+friday_short:J
+saturday:Setu
+saturday_short:S
+male:Lanang
+female:Wadon
+unspecified:ORA GENAH
+register_tree_view:Tampilan-wit daftar pesen lan topik
+register_msg_tree_view:Daftar topik rata/daftar pesen nyabang
+register_tree_msg_view:Daftar topik rata/daftar pesen nyabang
+register_flat_view:Tampilan-rata daftar pesen lan topik
+use_forum_default:Gunakna aturan bakune forum
+finduser_user_info:Informasi Panganggo
+finduser_by_login:Nang:
+finduser_submit:Goleti
+finduser_no_such_user:Panganggo ora ditemokna
+finduser_user:Panganggo
+finduser_postcount:Jumlah Pesen
+finduser_joindate:Tanggal nggabunge
+finduser_action:Lakokna
+yes:Ya
+no:Ora
+register_email:Imel
+edit_time_limit:<b>Bates wektu nggo ngowahi</b>: {GVAR: EDIT_TIME_LIMIT} menit
+no_edit_time_limit:Bates wektu nggo ngowahi: Ora dibatesi
+pmuserloc_login:Mlebu log:
+pmuserloc_submit:Kirimna
+pmuserloc_user:Panganggo
+pmuserloc_no_result:Ora ana hasile
+register_builtin:Langsung
+register_specify_url:Wenehna URL
+register_uploaded:Ngunggahna Avatar
+register_login:Mlebu log:
+register_password:Tembung sandhi:
+register_conf_pass:Konfirmasi tembung sandhi:
+register_email_desc:Monggo lebokna alamat imel sing sah. Rika teyeng milih nggo ngumpetna kuwe, nang bagiyan Preferensi.
+register_name:Jeneng:
+register_your_pass:Tembung sandhine Rika:
+register_update:Nganyari
+register_avatar_type:Tipe Avatar:
+register_del_avatar:Busek Avatar
+register_avatar:Avatar:
+register_sel_avatar:Pilih Avatar
+register_custom_avatar_rules:Avatar kustom ora bakal metu nganti disarujuki nang administrator.<br /><span class="SmallText">Avatar kuwe, kudu ora olih lewih gedhe sekang <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} piksel</b> lankudu nganggo format <b>jpg</b>, <b>gif</b> utawa <b>png</b>.</span>
+register_custom_avatar_url:URL Avatar kustom:
+register_preview:Pratayang
+register_custom_avatar_upload:Berkas avatar kustom:
+register_register:Ndaftar
+register_required:Informasi sing kudu ana
+register_required_desc:Kabeh kudu diisi. Tulung dieling-eling nek tembung sandhi kuwe sensitif karo aksara gedhe/cilik.
+register_optional:Informasi pilihan
+register_optional_desc:Kiye direkomendasikna nek Rika kuwe AJA NGANTI nidokna informasi identitas utawa pribadi nang profile Rika. Kabeh informasi kuwe bakal teyeng dideleng nang anggota forum liyane.
+register_location:Panggonan:
+register_occupation:Pegawean:
+register_interests:Kesenengane:
+register_image:Gambar:
+register_icq:ICQ:
+register_aim:AIM Handle:
+register_yahoo:Yahoo Messenger:
+register_msnm:MSN Messenger:
+register_homepage:Homepage:
+register_bday:Tgl lair:
+register_bday_desc:Angger Rika aweh tanggal lair, panganggo sejen bakal teyeng ndeleng kuwe nang profile Rika.
+register_day:Tgl
+register_month:Sasi
+register_year:Taun
+register_gender:Jinis kelamin:
+register_bio:Biografi:
+register_bio_desc:Critakna katrangan prakara awake Rika dhewek, umpamane hobi, pegawean, lan liya-liyane...
+register_prefs:Preferensi
+register_sig:Tapak asta:
+register_sig_desc:Tapak asta pilihan, bakal metu nang ngisore kabeh pesen sing degawe Rika.
+register_reset:Reset
+register_def_thread_view:Tampilan topik standar:
+register_msg_per_page:Jumlah pesen saben kaca:
+register_show_sig:Tidokna tapak asta:
+register_show_sig_desc:Ngijinaken Rika nggo ngumpetna utawa nidokna tapak astane anggota forum liyane.
+register_use_sig_default:Gunakna tapak asta sacara baku:
+register_use_sig_default_desc:Otomatis nambahna tapak astane Rika ming saben pesen sing digawe Rika.
+register_timezone:Zona wektu:
+register_ignore_admin:Acuhna pesen administratif:
+register_invisible_mode:Mode umpetan:
+register_invisible_mode_desc:Umpetna status online-e Rika.
+register_show_email:Tidokna alamat imel:
+register_show_email_desc:Pilih kiye angger Rika kepengin alamat imele Rika ditidokna maring publik.
+register_notification:Pilih notifikasi sacara baku:
+register_notification_desc:Angger notifikasi dipilih sacara baku, kuwe egin teyeng dipateni dong lagi nulis pesen.
+register_notify_method:Pilih cara notifikasi:
+register_notify_method_desc:Atur cara notifikasi sing Rika karepna utawa nonaktifna notifikasi (umpamane dong Rika lagi prei).
+register_allow_email_msg:Olih ngirim pesen imel:
+register_allow_email_msg_desc:Ngolihna panganggo sejen nggo ngirimi imel maring Rika liwat forum kiye.
+buddy_status:Status
+my_buddies:Kancane Inyong
+add_buddy:Tambahna Kanca
+add:Tambah
+buddy_search:Lebokna identifikasi panganggo sing arep Rika tambahna.
+member_search:Utawa gunakna fitur <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Goleti Panganggo</a>  nggo nemokna kancane Rika.
+buddy_remove:busek
+post_normal:Normal
+post_sticky:Stiki
+post_annoncement:Pengumuman
+post_size:Ukurane
+post_color:Werna
+post_font:Jinis Aksara
+create_thread:Gawe Topik
+submit_reply:Kirimna balesan
+edit_message:Lakokna pangowahan pesen
+apply_spell_changes:Lakokna pangowahan ejaan
+post_preview:Pratayang Pesen
+post_logedin_user:Panganggo sing lagi mlebu log:
+post_logout:metu log
+post_passwd:Tembung sandhi nggo nulis:
+post_poll:Angket:
+post_create_poll:GAWE ANGKET
+post_poll_delete:BUSEK
+post_poll_edit:SUNTING
+post_mod_opt:Pilihan Moderator:
+post_thread_type:Tipe Topik:
+post_thread_expiry:Tgl kadaluwarsane Topik:
+post_locked:Topik dikunci
+post_icons:Ikon Pesen:
+post_no_icon:Ora ana Ikon
+post_smiley:Dalan-pintas ''Smiley'':
+post_format_tools:Pekakas Format:
+post_upload_file:Ngunggahna berkas
+post_file_del:Busek
+post_file_name:Jeneng
+post_file_size:Ukurane
+file_attachments:Berkas sisipan:
+allowed_files:Jinis ekstensi berkas sing kena dinggo:
+max_file_size:Ukuran paling gedhe:
+max_files_per_msg:Bates cacahe berkas saben pesen:
+post_notification:Aweh notifikasi
+include_sig:Lebokna tapak asta
+include_sig_desc:Lebokna tapak asta profile Rika.
+disable_smilies:Nonaktifna ''smilies'' nang pesen kiye
+spell_check_msg:Priksa ejaane pesen
+post_form:Formulir nggo nulis (''posting'')
+post_forum:Forum:
+post_title:Judule:
+post_body:Isi pesen:
+post_options:Pilihan:
+post_preview_btn:Pratayang pesen
+post_cancel_btn:Ora Sida
+ignore_users:Panganggo sing diacuhna
+add_ignore:Tambahna Panganggo sing arep diacuhna
+forum_terms:Kabijakan Forum
+forum_rules:<p>Pendaftaran maring forum kiye bebas/gratis! Inyong karepe Rika sarujuk karo aturan lan kabijakan sing dirinci nang ngisor kiye. Angger Rika sarujuk karo aturan kiye, monggo pencet tombol <b>Sarujuk</b> nang ngisor kaca kiye. Cathetan: Angger Rika mencet tombol kuwe mau artine Rika wis nyatakna nek Rika kuwe umure lewih sekang 13 taun.Angger Rika umure 13 taun utawa lewih nom maning, monggo gunakna formulir pendaftaran kiye. </p><p> Senajan administrator lan moderatore forum kiye bakal njagani obyektifitas forum kiye, ora mungkin teyeng mriksa kabeh pesen. Kabeh pesen kuwe ngungkapna cara-ndelenge wong sing nulis, lan sing duwe forum utawa pengembange ora tanggungjawab karo isine pesen-pesen kuwe.</p><p> Angger Rika wis mencet tombol Sarujuk, Rika njamin nek Rika ora bakal ngirimna pesen-pesen sing saru, vulgar, ancaman, utawa nglanggar hukum.</p><p> Sing duwe forum kiye duwe hak nggo mbusek, nyunting, mindah utawa nutup topik apa baen nggo alesan apa baen.</p>
+forum_rules_13:<p>Kabeh panganggo sing umure kurang sekang 13 taun kudu olih ijin sekang wong tuwa utawa waline nggo ndaftar dadi anggotane forum kiye. Senajan inyong nyambut parsitipasine sekang anggota sing umure durung 13 taun, inyong njaluk wong tuwa utawa waline nggo ngirimna disit surat ijin sing wis ditandatangani liwat fax utawa pos sedurunge keanggotaan ditampa.</p><p> Angger Rika kepengin molai proses registrasi sedurunge inyong nampa formulir ijin, pencet tombol <b>Sarujuk</b> nang ngisor kiye. Angger Rika kepengin mbatalna registrasi, pencet <b>Ora Sarujuk</b> nggo mbalik ming indek forum.</p><p> Salinane formulir ijin teyeng diunduh nang kene. Kanggo informasi lewih lanjut prakara proses pendaftaran, monggo kirim baen imel maring <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
+coppa_conf:Konfirmasi COPPA
+coppa_before:Sedurunge {TEMPLATE: coppa_date}
+coppa_after:Seuwise {TEMPLATE: coppa_date}
+coppa_link:Klik pranala sing sesuai karo tanggal laire Rika
+coppa:<p>Wong tuwa utawa wali kudu ngirimna formulir ijin sing wis ditandatangani liwat pos utawa fax maring administratore forum kiye sedurunge panganggo sing umure kurang sekang 13 taun teyeng ngrampungna pendaftaran.</p><p> Kanggo informasi lewih lanjut hubungi <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a></p>
+prereg_info:Aturan Forum
+prereg_agree:Sarujuk
+prereg_disagree:Ora Sarujuk
+prereg_update:Maca aturan forum
+coppa_fax_instructions:Instruksi kanggo wong tuwa utawa wali panganggo
+coppa_fax_instructions2:Monggo dicetak kaca kiye, aweh tapak asta, lan kirimna nganggo fax ming:
+coppa_fax_reg_form:Formulir Registrasi
+coppa_fax_sign:Monggo aweh tapak asta nang formulir kiye lan kirimna maring inyong
+coppa_fax_conf:Inyong uwis ndeleng informasi sing diwenehi nang anake inyong lan inyong wis maca ''Privacy Policy''-ne situs kiye. Inyong ngerti nek informasi profil teyeng diowahi nganggo tembung sandhi. Inyong ngerti nek inyong olih njaluk data profil kiye dibusek sakabehe sekang forum kiye.
+coppa_fax_permission:Aweh tapak asta nang kene angger Rika sarujuk/aweh ijin
+coppa_fax_no_permission:Aweh tapak asta nang kene angger Rika kepengin data pendaftaran dibusek
+coppa_fax_parent_name:Jeneng kumplite wongtuwa/wali:
+coppa_fax_relation:Hubungane karo anak:
+coppa_fax_telephone:Tilpun:
+coppa_fax_email:Alamat imel:
+coppa_fax_date:Tanggal:
+coppa_fax_questions:Monggo hubungi <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> angger Rika duwe pitakonan
+coppa_fax_login:Mlebu log
+coppa_fax_passwd:Tembung sandhi
+coppa_fax_remail:Imel
+coppa_fax_name:Jeneng
+login_not_logedin:Rika durung mlebu log. Ana sawetara alesan sing maraih kedadian kiye:
+login_cookie_expired:''Cookie''-ne Rika wis kadaluwarsa, lan Rika kudu mlebu log maning nggo nganyari ''cookie''-ne Rika kuwe.
+login_perm_denied:Rika ora duwe hak nggo ngakses sumber daya sing dejaluk nganggo akun panganggo tamu/anon. Rika kudu mlebu log disit ben olih ijin akses.
+login_want_to_register:Arep ndaftar?
+login_forgot_passwd:Kelalen tembung sandhi-ne
+login_use_cookie:Gunakna ''cookie'' <br /><span class="SmallText"> Angger Rika nganggo terminal publik kaya umpamane komputer nang perpustakaan, sekolah, utawa warnet, direkomendasikna maring Rika kon aja nyentang pilihan kiye ben lewih aman. Angger Rika ngejorna baen pilihan kiye dicentang mengkone Rika bakal otomatis uwis mlebu log maring forum angger teka maning ming forum kiye.</span>
+login_login:Mlebu log:
+login_login_btn:Mlebu log
+login_name_required:Jeneng nggo mlebu log diperlokna
+login_passwd_required:Tembung sandhi diperlokna
+login_invalid_radius:Kombinasi data mlebu log/tembung sandhi ora sah
+reset_confirmation:Matur nuwun nggo pendaftarane Rika.\n\nKanggo ngaktifna akune Rika, monggo buka pranala kiye:\n\n{VAR: url}\n\nAngger akune Rika wis diaktifna Rika bakal teyeng mlebu log maring forum lan\notomatis bakal diarahna ming kaca utama.
+reset_reset:Halo,\n\nRika njaluk tembung sandhine di setel maning. Kanggo ngrampungna proses kiye,,\nmonggo buka URL kiye:\n\n{VAR: url}\n\nCATHETAN: Forum kiye nyimpen tembung sandhi nganggo mekanisme enkripsi ''one-way'', sing artine yakuwe\nangger Rika wis nglebokna tembung sandhine Rika kuwe bakal langsung dienkripsi dadi ORA TEYENG dijikot maning.\nCara kerjane yakuwe mbandingna versi enkripsi sing wis kecathet karo versi enkrispi sing Rika ketikna dong lagi arep mlebu log.\n(Nek Rika kepengin weruh lewih lanjut prakara cara kerjane mekanisme kiye, waca baen nang algoritma MD5 HASH)
+rpasswd_invalid_passwd:Tembung sandhi salah
+rpasswd_passwd_nomatch:Tembung sandhi ora cocog
+rpasswd_passwd_length:Tembung sandhi kudu sekurang-kurange 6 karakter dhawane
+reset_remind_pass:Nggo ngemutna tembung sandhi
+reset_reset_conf:Tembung sandi bakal disetel maning lan dikirimna maring Rika. Angger Rika durung ndhedhes (konfirmasi) alamat imele Rika, panjalukan konfirmasi bakal dikirim maning maring Rika.
+reset_error:Alamat imel ora ditemokna nang basis data
+rpasswd_change_pass:Ganti tembung sandhi
+rpasswd_login:Mlebu log
+rpasswd_cur_pass:Tembung sandhi sekiye:
+rpasswd_new_pass:Tembung sandi anyar:
+rpasswd_conf_pass:Konfirmasi tembung sandhi:
+ruser_title:Ngowaih formulir mlebu log
+ruser_change_user:Ngowaih mlebu-log forume Rika
+ruser_cur_login:Mlebu log sekiye:
+ruser_new_login:Mlebu log sing anyar:
+ruser_cur_pass:Tembung sandhi sekiye:
+login_passwd:Tembung sandhi:
+reset_email:Imel:
+reset_reset_button:nge-''reset'' tembung sandhi
+rate_this_thread:Nilai
+report_reporting_about:Nglaporna prakara:
+report_subject:Subyek:
+report_by:Sing nglaporna:
+report_posted_on:Dilebokna dong:
+report_give_reason:Monggo aweh alesan kenang apa Rika nglaporna pesen kiye:
+report_submit_report:Kirimna laporan
+search_entire_msg:Kabeh pesen
+search_subject_only:Mung Subyek thok
+search_forum:Forum
+search_posted_on:Dilebokna dong
+search_no_results:Ora ana hasile
+search_all_forums:Goleti nang kabeh forum
+search_in_forum:Goleti nang forum:
+search_forum_search:Panggoletan Forum
+move_thread_to:Mindahna topik <b>{VAR: thr->subject}</b> ming:
+remail_email_topic:Imelna topik kiye ming kanca
+remail_your_name:Jenenge Rika:
+remail_your_email:Imele Rika:
+remail_friends_name:Jenenge Kanca:
+remail_friends_email:Imele Kanca:
+remail_required:kudu ana
+remail_subject:Subyek:
+remail_message:Pesen:
+remail_send_now:Kirim imel sekiye
+remail_anon_opt:Salin pesen kiye ming aplikasi imel pilihane Rika kanggo ngirimna ming kancane Rika.
+remail_done:Rampung
+remail_sent_conf:Imel nggo kancane Rika nang {VAR-HTML: _POST['femail']} prakara topik {VAR: data->subject} wis sukses dikirimna.
+remail_error:Ana kesalahan
+mklist_type:Tipe:
+mklist_option:Pilihan:
+mklist_additem:Tambahna
+mklist_apply:Sida
+mklist_delete:Busek
+qbud_nick_name:Jeneng samaran
+qbud_add_selected:Tambahna sing dipilih
+qbud_selected:Dipilih
+qbud_no_buddies:Ora ana kanca sing teyeng dipilih
+mklist_numerical:Daftar Angka
+mklist_aplha:Nganggo Aksara
+mklist_square:Kothak
+mklist_disc:Liya-liya
+mklist_circle:Nganggo ondhol-ondhol
+mklist_close:Tutup
+email_to:Maring:
+email_pg_title:Imel
+email_subject:Subyek:
+email_body:Isi pesen:
+email_submit:Imel
+ppost_quote_msg:{VAR: msg_to_list} ditulis dong tanggal {TEMPLATE: ppost_quote_msg_date}
+ppost_quote:Petikan:
+ppost_to:Nggo:
+ppost_from_buddy_list:Pilih sekang daftar kanca
+ppost_find_User:Goleti panganggo
+ppost_track_msg:Tutna pesen kiye
+ppost_track_msg_desc:Kabari inyong (nganggo pesen privat) angger pesen kiye wis diwaca.
+ppost_send:Kirim
+ppost_save_draft:Simpen rancangan pesen kiye
+poll_blank_option:Rika ora teyeng nambahna pilihan kosong.
+poll_del_conf:Nek Rika kepengin mbusek pilihan kiye, pencet OK
+poll_name:Jeneng ''polling'':
+poll_timelimit:Bates wektu:
+poll_maxiumvotes:Maksimal Pemilih:
+poll_create:Gawe
+poll_update:Nganyari
+poll_disablesmilies:Non-aktifna smilies
+poll_create_poll:Gawe polling
+poll_update_poll:Nganyari polling
+poll_delete:Busek
+poll_updateoption:Nganyari pilihan
+poll_addoption:Tambahna pilihan
+poll_unlimited:Ora dibatesi
+poll_day:dina
+poll_days:dina
+poll_hour:jam
+poll_hours:jam
+poll_month:sasi
+poll_year:taun
+poll_week:minggu
+tabs_register:Pengaturan akun
+tabs_subscriptions:Langganan
+tabs_bookmarkes:Ditandani
+tabs_referrals:Referensi
+tabs_buddy_list:Daftar kanca
+tabs_ignore_list:Daftar sing diacuhna
+tabs_private_messaging:Pesen pribadi (japri)
+single_msg_delete:Rika arep <span class="ErrorText">MBUSEK</span> pesen sing judule: <b>{VAR: data[3]}</b>
+thread_delete:Rika arep<span class="ErrorText">MBUSEK</span> <span class="ErrorText">kabeh topik</span> sing judule: <b>{VAR: data[3]}</b>
+delete_proceed:<span class="fb">Apa Rika arep nerusna proses kiye?</span>
+delete_yes:Ya
+delete_no:Ora
+error_invalidurl:URL ora sah
+error_error:Kasalahan
+usrinfo_profile:Profil sekang {VAR: u->alias}
+usrinfo_show_all_posts:Tidokna kabeh pesen sekang {VAR: u->alias}
+actions_update:Ndeleng aktifitase wong sejen, kaya Rika
+err_info:Info
+buddy_list_err_cantadd:Rika ora teyeng nambahna jenenge Rika dhewek maring daftar kancane Rika
+buddy_list_err_dup:Panganggo kuwe uwis mlebu nang daftar kancane Rika
+buddy_list_err_nouser:Panganggo sing arep Rika lebokna maring daftar kancane Rika kuwe ora ditemokna.
+buddy_list_err_nouser_title:Ora teyeng nambah kanca
+buddy_list_err_ignore:Ora teyeng nambahna kanca sing wis ngacuhna Rika maring daftar kancane Rika.
+buddy_list_update:Ndeleng daftar kancane dhewek
+core_err_invinp_title:Input ora sah
+core_err_invinp_err:Rika ngetutna pranala sing ora sah. Tulung tidokna ming <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a> kepriwe jalarane Rika bisa gutul kene.
+core_adm_login_msg:Administrators teyeng mlebu log <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">nang kene</a>.
+email_err_unabletoemail_title:ERROR: Ora teyeng ngirim imel
+email_err_unabletoemail_msg:Imel wis dinonaktfna nang administrator.
+email_error_unabletolocaddr:Nyuwun ngapura, sistem kiye ora teyeng ngirimna imel {VAR-HTML: _POST['tx_name']} jalaran ora teyeng nemokna alamat imel sing dituju.
+email_error_body:Isi pesen kudu ana
+email_error_subject:Subyek kudu ana
+email_error_namerequired:Jeneng kudu ana
+email_error_invaliduser:Panganggo ora sah
+emailconf_err_invkey_title:Salah
+emailconf_err_invkey_msg:Kode konfirmasi salah. Tulung priksa imele Rika nggo mastekna nek Rika wis nglebokna URL sing bener. Angger Rika ngeklik pranala ping pindho, akune Rika ndeyane wis dikonfirmasi. Mlebu log ming forum nggo njaluk kunci liyane.
+err_inc_criticaltitle:Kesalahan kritis
+err_inc_criticalmsg:Ana kesalahan. Apese, kiye uga ana masalah karo sistem pelaporan kesalahan.
+finduser_update:Nggoleti panganggo
+help_index_update:Lagi maca <a href="{TEMPLATE: help_index_update_lnk}">Pitulung</a>
+iemail_thr_subject:Balesan anyar maring {VAR: thr_subject} sekang {VAR: poster_login}
+iemail_thr_bodyemail:Nggo ndeleng balesan anyar bukak baen {VAR: goto_url['email']}\n\nAngger Rika ora kepengin nampa notifikasi maning prakara balesan nang topik kiye, monggo klik: {VAR: unsub_url['email']}
+iemail_frm_subject:Topik anyar nang forum {VAR: frm_name}, judule {VAR: thr_subject}, sing nulis {VAR: poster_login}
+iemail_frm_bodyemail:Nggo ndeleng topik bukak:\n{VAR: goto_url['email']}\n\nNggo mandeg gole nampa notifikasi prakara topik anyar nang forum kiye, klik nang kene: {VAR: unsub_url['email']}
+iemail_participate:Nggo melu nimbrung nang dhiskusi kiye, mlebu nang kene:
+ignore_list_err_info_title:Info
+ignore_list_err_dup_msg:Rika wis nglebokna panganggo kiye nang daftar sing diacuhna
+ignore_list_err_nu_title:Panganggo ora ditemokna
+ignore_list_err_nu_msg:Panganggo sing arep Rika tambahna ming daftar sing diacuhna kuwe ora ketemu.
+ignore_list_cantign_msg:Rika ora teyeng ngacuhna panganggo kiye
+ignore_list_update:Ndeleng daftar sing diacuhna duweke Rika dhewek
+index_update:Lagi ndeleng <a href="{TEMPLATE: index_update_lnk}">daftar forum</a>
+list_referers_update:Ndeleng ''referrals''
+login_update:Formulir mlebu log
+msg_update:Ndeleng topik <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
+pm_err_nopm_title:SALAH: Pesen Pribadi dinon-aktifna
+pm_err_nopm_msg:Rika ora teyeng nganggo sistem pesen pribadi. Kiye wis dinon-aktifna nang administrator.
+pm_update:Nganggo pesen pribadi
+post_err_lockedthread_title:SALAH: Topik dikunci
+post_err_lockedthread_msg:Topik kiye wis dikunci, ora teyeng ditulisi maning.
+err_coppa_title:SALAH: Akune Rika durung dikonfirmasi
+err_coppa_msg:Inyong durung nampa konfirmasi sekang wong tuwane Rika lan/utawa waline Rika sing sah, sing bakal ngijina Rika nggo ngirim pesen. Angger Rika kelangan formulir COPPA, <a href="{TEMPLATE: err_coppa_msg_lnk}">deleng maning nang kene</a>.
+err_banned_acct_title:SALAH: Rika wis dicekal.
+err_banned_acct_msg:Akune Rika wis {IF: $ban_expiry}dicekal sawetara wektu nganti {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}dicekal selawase{ENDI} ora olih mlebu situs kiye jalaran nglanggar aturane forum kiye.
+post_err_edttimelimit_title:SALAH
+post_err_edttimelimit_msg:Rika wis ora teyeng nyunting pesen kiye maning
+post_err_noannontopics_msg2:<legend>SALAH: Kewenangan ora cukup</legend>Panganggo anon/tamu ora olih gawe topik anyar.
+post_err_noannonposts_msg2:<legend>SALAH: Kewenangan ora cukup</legend>Panganggo anon/tamu ora olih mbales pesen.
+post_err_floodtrig_title:SALAH: Ora olih mbanjiri pesen.
+post_err_floodtrig_msg:Monggo dijajal maning seuwise {PLURAL: tm|$1 detik|$1 detik}
+post_err_attach_size:Berkas lampirane kegedhen (nglewihi batese yakuwe {VAR: MAX_F_SIZE} bita)
+post_err_attach_ext:Berkas sing Rika arep unggahna kuwe jinise ora cocog karo sing diijina.
+post_err_attach_filelimit:Rika njajal ngunggahna berkas sing cacahe lewih akeh sekang sing diijina.
+post_err_passwd:Tembung sandhi ora bener.
+post_reply_update:Lagi mbales <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> nang {VAR: frm->name}
+post_topic_update:Lagi nulis topik anyar nang <a href="{TEMPLATE: post_topic_update_lnk}">{VAR: frm->name}</a>
+post_error_generic:Ana kesalahan
+postcheck_max_images_err:Ora lewih sekang {GVAR: MAX_IMAGE_COUNT} gambar sing teyeng dilebokna nang saben pesene. Tulung di-long maning gambare.
+postcheck_no_links_allowed:Rika ora teyeng nganggo pranala nganti Rika wis ngirimna lewih sekang {PLURAL: posts_before_links|$1 pesen|$1 pesen}.
+postcheck_subj_needed:Subyek kudu ana
+postcheck_no_such_user:Ora ana panganggo sing jenenge  "{FUNC: char_fix(htmlspecialchars($v))}" nang forum kiye.
+postcheck_ignored:Rika ora teyeng ngirim pesen pribadi ming "{FUNC: char_fix(htmlspecialchars($v))}", jalaran panganggo kiye wis ngacuhna Rika.
+postcheck_no_recepient:Ora teyeng ngirimna pesen, jeneng sing dituju kosong
+postcheck_invalid_email:Tulung lebokna alamat imele kancane Rika sing valid.
+postcheck_email_subject:Ora teyeng ngirimna imel sing ora ana subyek-e.
+postcheck_email_body:Rika ora teyeng ngirimna imel sing ora ana isine.
+private_msg_notify_subj:Waca notifikasi kanggo: {VAR: m->subject}
+private_msg_notify_body:Halo,<br />{VAR: usr->login} uwis mbukak pesen pribadine Rika sing judule, "{VAR: m->subject}".<br />Kiye kuwe notifikasi otomatis sing digawe nang {TEMPLATE: private_msg_notify_body_date}<br />
+referals_update:Ndeleng ''referrals''
+register_err_short_login:Jeneng login sing Rika pilih kecindheken. Jeneng login seora-orane kudu dawane 4 karakter.
+register_err_login_notallowed:Jeneng login kuwe ora olih dienggo.
+register_err_loginunique:Jeneng login kudu unik, ora kena kembar. Uwis ana panganggo sing nganggo jeneng kuwe.
+register_err_emailexists:Alamat imel kiye wis nggandeng maring sawijining akun. Anggere Rika anu kelalen karo tembung sandhine Rika tulung gunakna baen pilihan ''restore'', aja ndaftar maning.
+register_err_shortpasswd:Tembung sandhi kudu sekurang-kurange 6 karakter dhawane.
+register_err_passwdnomatch:Tembung sandhine Rika ora cocog, monggo dijajal maning.
+register_err_invalidemail:Alamat imel sing Rika lebokna ketone anu ora valid.
+register_err_needname:Ben teyeng ngrampungna pendaftaran kiye Rika kudu nglebokna jenenge Rika.
+register_err_enterpasswd:Rika kudu nglebokna tembung sandhi nggo ngrampungna owahan kiye.
+register_err_adminpasswd:Rika kudu nglebokna tembung sandhi <b>administrator</b> nggo ngrampungna owahan kiye.
+register_err_notyouremail:Wis ana wong sejen sing kedaftar nganggo alamat imel kiye.
+register_err_avatartobig:Berkas sing arep Rika unggahna kegedhen, lewih sekang  {GVAR: CUSTOM_AVATAR_MAX_SIZE} bita.
+register_err_avatarnotallowed:Avatar sing Rika unggahna ora sah. Tulung dipriksa maning jinis sing olih dienggo.
+register_conf_subject:Konfirmasi Registrasi
+register_conf_msg:Matur nuwun Rika wis gelem ndaftar,\nKanggo ngaktifna akune Rika monggo di-klik URL nang ngisor kiye:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nSeuwise diaktifna Rika bakal mlebu log maring forum lan\ndiarahna ming kaca utama.
+register_welcome_subject:Konfirmasi Registrasi Forum
+register_welcome_msg:Matur nuwun Rika wis gelem ndaftar,\n\nKiye rincian data logine Rika nggo forum:\n\nForum URL: {TEMPLATE: index_update_lnk}\nLogin: {VAR: uent->login}\nPassword: {VAR: _POST['reg_plaintext_passwd']}\n\nTulung dieling-eling nek tembung sandhi kuwe sensitif karu aksara gedhe/cilik!\nKanggo ngowaih settingan utawa profile Rika, mlebu ming kaca kiye:\n{FULL_ROOT}{ROOT}?t=register
+register_err_cantreg_title:SALAH: Ora teyeng ndaftar
+regsiter_err_cantreg_msg:Ora teyeng gawe akun panganggo, tulung hubungi administrator nang <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
+register_profile_update:Ndeleng profile dhewek
+register_register_update:Kaca Registrasi
+report_err_nosuchmsg_title:SALAH
+report_err_nosuchmsg_msg:Ora ana pesen
+reset_err_invalidkey_title:SALAH
+reset_err_invalidkey_msg:Kunci nggo nge-reset tembung sandhi ora bener. Ndeyane aplikasi imele Rika wis otomatis mbukak kaca kiye, sing maraih kuncine dadi ora valid maning. Angger pancen kaya kuwe, ora let suwe, Rika bakal nampa imel sing isine tembung sandhine Rika sing anyar. Angger nyatane imel kuwe ora tekan-tekan, monggo jajal maning gole nge-reset tembung sandhine Rika.
+reset_err_rstconf_title:Informasi
+reset_err_rstconf_msg:Rika bakal nampa instruksi nang imele Rika sedela maning.
+reset_newpass_title:nge-''reset'' tembung sandhi
+reset_newpass_msg:Halo,\n\nManut karo panjalukane Rika, kiye informasi logine Rika:\n\nLogin: {VAR: ui[1]}\nPassword: {VAR: passwd}\n\nTulung dieling-eling anggere tembung sandhine Rika kuwe wis diganti dadi sing nang dhuwur kuwe mau. Anggere Rika kepengin\nngganti maning tembung sandhine Rika, Rika teyeng nglakokna kuwe nang panel kendaline Rika kiye:\n{FULL_ROOT}{ROOT}?t=register
+reset_login_notify:Tembung sandhine Rika wis dikirim ming imele Rika. Rika bakal nampa kuwe sedela maning.<br />
+search_update:Ngoleti pesen
+selmsg_update:Ndeleng <a href="{TEMPLATE: selmsg_update_lnk}">Pesen dina kiye</a>
+showposts_update:Ndeleng pesen sekang: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
+subscribed_update:Ndeleng daftar langganane dhewek
+bookmarked_update:Ndeleng daftar sing ditandani duweke dhewek
+thread_update:Ndeleng forum <a href="{TEMPLATE: thread_update_lnk}">{VAR: frm->name}</a>
+tree_update:Ndeleng topik (tree view) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
+userinfo_update:Ndeleng profile <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}'s</a>
+ERR_login_msg2:<legend>SALAH: Rika ora mlebu log</legend> Kanggo ndeleng kaca kiye, Rika kudu dadi anggota forum kiye.
+ERR_disabled_ttl:Fitur dinon-aktifna
+ERR_disabled_msg:Fitur kiye wis dinon-aktifna nang administrator.
+ERR_access_ttl:SALAH: Ora duwe hak akses
+ERR_access_msg:Rika ora duwe ijin sing diperlokna nggo nglakokna tindakan kiye.
+ERR_registration_disabled_ttl:Registrasi dinon-aktifna
+ERR_registration_disabled_msg:Adminstrator wis non-aktifna registrasi. Monggo dijajal sawetara wektu maning.
+ERR_emailconf_ttl:SALAH: Akune Rika durung dikonfirmasi
+ERR_emailconf_msg:Rika durung ndhedes (konfirmasi) akune Rika liwat imel. <br /><table border="0"><tr><td><ol><li>Angger Rika durung nampa imel konfirmasi, <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">njaluk maning baen</a>.</li><li>Angger {VAR: usr_d->email} dudu alamat imele Rika sing bener, <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">lebokna alamat imel sing bener nang kene</a>.</li></ol></td></tr></table>
+ERR_user_ttl:SALAH: Panganggo ora ana
+ERR_user_msg:Panganggo ora ana
+ERR_systemerr_ttl:SALAH: Kesalahan sistem
+ERR_systemerr_msg:Kesalahan sistem wis kedaden. Tulung laporna kiye ming <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a>.
+email_title:Formulir imel
+finduser_title:Goleti panganggo
+help_title:Pitulung
+login_title:Formulir mlebu log
+poll_title:Editor Poling
+register_title:Formulir Registrasi
+reset_title:nge-''reset'' tembung sandhi
+rpasswd_title:Formulir ganti tembung sandhi
+error_title:Formulir Kesalahan
+index_title:Sugeng teka ming forum kiye
+search_title:Nggoleti {VAR-HTML: srch}
+remail_emailsent:Imel wis dikirim
+remail_email:Halo,\n\nKiye ana topik apik prakara "{VAR: data->subject}" nang forum {GVAR: FORUM_TITLE} mbok menawa Rika kepengin maca. Rika teyeng ndeleng topik kuwe nang:\n {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nKancane Rika,\n\n{VAR: usr->alias}
+poll_add_option:Tambahna pilihan:
+post_opt_html_on:kode <b>HTML</b> wis <b>Aktif</b>
+post_opt_fud_on:<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>BBcode</b> wis <b>Aktif</b></a>
+post_opt_images_on:<b>Gambar</b> wis <b>Aktif</b>
+post_opt_smilies_on:<a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank"><b>Smilies</b> wis <b>Aktif</b></a>
+post_opt_html_off:kode <b>HTML</b> wis <b>Ora-Aktif</b>
+post_opt_fud_off:<b>BBcode</b> wis <b>Ora-Aktif</b>
+post_opt_images_off:<b>Gambar</b> wis <b>Ora-Aktif</b>
+post_opt_smilies_off:<b>Smilies</b> wis <b>Ora-Aktif</b>
+post_opt:Pilihan Forum:
+register_change_passwd:ganti tembung sandhi
+register_change_login:ganti tembung mlebu log
+approved_avatar_title:Avatar kustome Rika wis disarujuki.
+approved_avatar_msg:Avatare Rika wis disarujuki nang administrator. Sekiye kudune wis keton nggo avatare Rika nang kabeh pesene Rika. Angger Rika ora teyeng ndeleng kuwe, utawa ndelenge avatar sing lawas, kuwe jalaran sekang ''cache'' nang browsere Rika. Jajal di-''refresh'' sepisan utawa pindho maning. Kaya kuwe biasane teyeng ngrampungna masalah kiye.
+unapproved_avatar_title:Avatar kustome Rika ora disarujuki.
+unapproved_avatar_msg:Administrator ora sarujuk karo avatare Rika. Biasane kuwe jalaran avatare Rika kegedhen (ukuran lan/utawa dimensine) utawa kuwe ngandhut isi sing ora olih ana. Angger Rika kepengin informasi sing pas, monggo hubungi baen administrator.
+mvthread_request_move:njaluk dipindahna
+move_request_reason:Kenang apa Rika njaluk topik kiye kon dipindah?
+mvthread_submit_req:Kirimna panjalukan
+thread_exchange:Ijolan Topik
+move_request_by:Pemindahan topik dijaluk nang:
+move_reason:Alesan topike dipindah:
+thr_exch_accept:pindahna topik
+thr_exch_decline:topik ora usah dipindah
+thr_exch_orig_forum:Forum asale:
+thr_exch_dest_forum:Forum sing dituju:
+thr_exch_no_threads:Ora ana topik sing arep diproses.
+thr_exch_decl_reason:Alesane ora sarujuk nek topik <b>{VAR: data->subject}</b> dilebokna nang forum <b>{VAR: data->f2_name}</b>
+thr_exch_submit:Kirimna
+exch_decline_ttl:Pamindahane topik {VAR: data->subject} maring forum {VAR: data->f2_name} wis ditolak.
+ppost_original_msg:pesen sing rika terusna utawa bales
+split_thread:Mecah Topik
+groupmgr_no_user:Ora ana panganggo sing nganggo jeneng mlebu log "{FUNC: char_fix(htmlspecialchars($gr_member))}"
+groupmgr_already_exists:Panganggo "{FUNC: char_fix(htmlspecialchars($gr_member))}" wis ana nang grup kiye.
+groupmgr_yes:Ya
+groupmgr_no:Ora
+groupmgr_action:Tindakan
+groupmgr_member:Anggota
+groupmgr_cancel:Ora Sida
+groupmgr_add_member:Tambahna Anggota
+groupmgr_update_member:Nganyari Anggota
+groupmgr_edit:Nyunting
+groupmgr_delete:Busek
+group_mgr_anon:Ora duwe jeneng (''anon'')
+group_mgr_reged:Kabeh panganggo sing kedaftar
+show_show:Tidokna:
+group_mgr:Menejer Grup
+group_mgr_edit_btn:Ngowaih Grup
+group_mgr_heading:Pilihan Editor Grup
+group_mgr_group:Grup:
+permission_denied_title:Izin ditolak!
+permission_denied_msg:Hak aksese Rika ora ngijina Rika nglakokna tindakan kuwe.
+p_READ:Waca
+p_POST:Tulis
+p_REPLY:Bales
+p_EDIT:Sunting
+p_DEL:Busek
+p_STICKY:Pesen tetep
+p_POLL:Gawe polling
+p_FILE:Sisipna berkas
+p_VOTE:Aweh swara
+p_RATE:Nilai Topik
+p_SPLIT:Mecah Topik
+p_LOCK:Ngunci Topik
+p_MOVE:Pindahna topik
+p_SML:Gunakna ''smilies''
+p_IMG:Gunakna tanda ('tag'') gambar
+p_SEARCH:Teyeng digoleti
+group_mgr_search:Goleti panganggo
+group_mgr_indicator:Sekiye lagi nyunting: <b>{VAR: grp->name}</b>
+rate_worst:Paling elek
+rate_best:Paling apik
+post_quote_msg:{VAR: msg->login} ditulis tanggal {TEMPLATE: make_report_date}
+post_quote:Petikan:
+post_quote_selected:Kutip teks sing dipilih
+userinfo_referals:Panganggo direferensikna:
+userinfo_referals_count:{VAR: referals} anggota
+pm_no_space_title:Ora ana turahan ruang maning!
+pm_no_space_msg:Pesen pribadine Rika wis nglewihi bates ukuran sing diijina yakuwe <b>{GVAR: MAX_PMSG_FLDR_SIZE} bita</b>. Pesene Rika sekiye isine <b>{VAR: fldr_size} bita</b> pesen.<br /><br /><span class="ErrorText">Busek pesen-pesen lawas sing ora dienggo maning ben aweh ruang nggo nyimpen maning.</span>
+pm_space_indct_msg:Kapasitas pesen pribadine Rika sekiye wis gutul {VAR: percent_full}%.
+th_expr_never:Ora tau
+th_expr_one_hr:1 jam
+th_expr_three_hr:3 jam
+th_expr_four_hr:4 jam
+th_expr_eight_hr:8 jam
+th_expr_sixteen_hr:16 jam
+th_expr_one_day:1 dina
+th_expr_two_day:2 dina
+th_expr_four_day:4 dina
+th_expr_one_week:1 minggu
+th_expr_two_week:2 minggu
+th_expr_one_month:1 sasi
+th_expr_two_month:2 sasi
+th_expr_four_month:4 sasi
+th_expr_one_year:1 taun
+thread_mod_delete:Busek
+action_ip:IP
+action_latest_post:Pesen pungkasan
+online_today_last_visit:Kunjungan pungkasan
+online_today_update:Ndeleng daftar panganggo sing mlebu forum dina kiye.
+logedin_todays_visitors:Pengunjung dina kiye
+logedin_latest_post:Pesen pungkasan nang forum kiye:
+register_show_avatar:Tidokna avatar:
+register_show_avatar_desc:Ngolihna Rika nggo ngumpetna avatare panganggo sejen dong ndeleng pesene panganggo kuwe.
+drawmsg_view_rest_post:Tidokna kabeh pesen turahane
+post_re:Bls:
+forumsel_goto_forum:Maring Forum:
+minimsg_thread_view:Tampilan Topik
+split_th_post_by:Pesen sekang:
+split_th_posted_on:Digawe dong:
+split_th_subject:Subyek:
+split_th_new_thread_title:Judul topik anyar:
+split_th_forum:Forum:
+split_th_split_sel:Pisahna pesen sing dipilih
+split_th_split_unsel:Pisahna pesen sing ora dipilih
+split_th_messages:Pesen
+split_th_select:Pilih
+report_report_post:Laporna pesen
+quicklogin_login:Mlebu log:
+quicklogin_password:Tembung sandhi:
+quicklogin_use_cookies:Nggunakna ''Cookies''?
+quicklogin_login_btn:Mlebu log
+quick_reply:Balesan Cepet
+quick_reply_post:Kirim balesan cepet
+quick_reply_preview:Pratayang Balasan Cepet
+post_notification_desc:Kabari inyong angger ana sing mbales pesen kiye.
+post_all_ext_allowed:(ora dibatesi)
+maximize_category:Gedhekna Kategori
+maximize_message:Pesen digedhekna
+no_view_perm:Rika ora duwe hak sing cukup nggo ndeleng topik kiye.
+report_empty_report:Rika ora teyeng ngirim laporan kosong. Tulung lebokna alesan laporane Rika.
+report_already_reported_title:Uwis dilaporna
+report_already_reported_msg:Pesen kiye uwis dilaporna lan sekiye lagi ngenteni antrian nang moderator.
+register_err_toomanyimages:Rika njajal nganggo lewih sekang {GVAR: FORUM_IMG_CNT_SIG} gambar nang tapak astane Rika.
+pmsg_next_msg:Pesen seuwise
+pmsg_prev_msg:Pesen sedurunge
+post_proc_reveal_spoiler:Aktifna/Non-Aktifna ''spoiler''
+register_jabber:Identitas ''Jabber'':
+register_skype:''Skype Handle'':
+register_twitter:''Twitter Handle'':
+register_google:''Google Chat/IM Handle'':
+im_jabber:Jabber:
+im_google:Google Talk:
+im_skype:Skype:
+im_twitter:Twitter:
+forum_contact:Kontek
+forum_home:Kaca Utama
+post_cur_attached:sekiye ana: {VAR: i} {PLURAL: i|berkas|berkas}
+ignored_anon_post:{GVAR: ANON_NICK} diacuhna
+ignored_user_post:Pesen sekang <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> diacuhna
+smladd_close_window:Tutup jendela
+post_list_smilies:tidokna kabeh smilies
+p_VISIBLE:Keton
+reported_in_thread:Nang:
+help_back_to_top:balik ming dhuwur
+help_return_to_index:Balik ming daftar Pitulung
+imsg_err_message_title:Pesen ora sah
+imsg_err_message_msg:Pesen sing Rika arep deleng kuwe ora nana.
+poll_edit:Nyunting
+register_err_not_valid_img:URL sing dilebokna ora duwe gambar sing valid.
+pmsg_recepient:Sing nampa
+register_err_taken_alias:Alias sing Rika arep enggo kuwe wis digunakna nang anggota forum liyane. Monggo pilih sing liyane.
+register_alias:Alias:
+register_alias_desc:Nek Rika kepengin jeneng samaran liyane sing sejen karo logine Rika nggo ditidokna nang forum, lebokna kuwe nang kene.
+register_allow_pm_msg:Ijina pesen privat:
+register_allow_pm_msg_desc:Ngolihna panganggo sejen nggo ngirimi pesen pribadi maring Rika liwat forum kiye.
+postcheck_pm_disabled:Rika ora teyeng ngirim pesen pribadi ming "{VAR-HTML: v}", jalaran panganggo kiye ora gelem nampa pesen pribadi.
+polllist_vote:Aweh swara
+polllist_view_results:Deleng hasile
+polllist_name:Jeneng ''polling''
+polllist_date:Digawe dong
+polllist_owner:Digawe nang
+polllist_votes:Total suara
+polllist_action:Tindakan
+polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">Ndeleng polling sing ana</a>
+userinfo_polls:Polling:
+show_pollist:Tidokna Polling
+search_and:LAN
+search_or:UTAWA
+search_desc_order:Urutan Mudun (Z-A)
+search_asc_order:Urutan Munggah (A-Z)
+search_logic:Logika Penggoletan:
+search_sorting:Urutna hasile miturut tanggal nang:
+search_attach:Lampiran:
+search_attach_all:Nganggo utawa ora nganggo
+search_attach_with:Nganggo lampiran
+post_proceed:Diproses
+post_moderated_forum:Rika uwis nulis nang forum sing dimoderasi. Pesene Rika ora gadang kewaca nang panganggo liyane nganti disarujuki nang sawijining moderator forum utawa administrator.
+post_moderated_forum_ttl:Cathetan forum sing dimoderasi
+buddy_list_bday:Dina kiye {VAR: r[2]} umure {VAR: age}
+email_warning_msg:Nek Rika ngganti alamat imele Rika, akune Rika bakal ditandani dadi durung dikonfirmasi nganti Rika nglakokna konfirmasi maning liwat imel.
+register_show_im:Tidokna indikator IM:
+register_show_im_desc:Arep nidokna apa ora indikator IM-e sing nulis nang jejere pesen-pesene.
+unread_message:Pesen-pesen sing durung-kewaca
+read_message:Maca pesen
+threadt_more:&lt;maning&gt;
+threadt_disabled_ttl:Tampilan nyabang nggo daftar topik wis dinonaktifna.
+threadt_disabled_desc:Administrator wis non-aktifna tampilan nyabang nggo daftar topik. Monggo gunakna tampilan datar baen.
+threadt_update:Ndeleng forum (tampilan nyabang) <a href="{TEMPLATE: threadt_update_lnk}">{VAR: frm->name}</a>
+mmod_delete_cofirm_ttl:Konfirmasi mbusek Topik/Pesen
+spell_alts:Ora ana alternatif
+insert_uploaded_image:Sisipna gambar nang jroning isi pesen
+finduser_help:Mesin-penggoletan bakal otomatis nambahna "*" ming tembung sing digoleti, <b> penggoletan kuwe mbedakna aksara gedhe/cilik</b>.<br /> Umpamane Rika arep nggoleti kabeh panganggo sing jenenge dimolai karo aksara 'a', ketikna 'a' nang kotak penggoletan.
+back_to_top:Balik ming Dhuwur
+pm_err_disabled_title:Pesen Pribadi dinon-aktifna
+pm_err_disabled_msg:Rika ora teyeng ngirimna pesen pribadi nganti Rika ngaktifna disit pilihan 'Olih Ngirim Pesen Pribadi' nang profile Rika.
+err_mod_acc_ttl:Akun durung diverifikasi
+err_mod_acc_msg:Administrator wis milih nggo mriksa kabeh akun sacara manual sedurunge diaktifna. Sedurunge akune Rika divalidasi nang administrator Rika durung teyeng nggunakna kabeh fasilitas sing janjane disediakna nggo akune Rika.
+accounts_pending_approval:Akun-akun sing ngenteni disarujuki
+saved:Disimpen
+register_err_time_limit:Batese nggo sepisan pendaftaran saben {GVAR: REG_TIME_LIMIT} detik wis dilewati. Monggo ngenteni {PLURAL: reg_limit_reached|$1 detik|$1 detik}, lan banjur jajalen ndaftar sepisan maning.
+register_affero:Jeneng panganggo Affero:<br /><span class="SmallText"> Angger Rika duwe <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">akun Affero</a>, lebokna nang kene.</span>
+im_affero:Jeneng panganggo Affero
+register_err_avatardimtobig:Dimensi avatare Rika <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> nglewihi bates dimensi yakuwe <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b> piksel.
+buddy_offline:{VAR: r[2]} sekiye lagi offline
+buddy_online:{VAR: r[2]} sekiye lagi online
+sml_no_smilies:Emotikon ora disediakna.
+login_unapproved_account_ttl:Akun durung disarujuki
+login_unapproved_account_msg:Administrator forum wis milih nggo konfirmasi kabeh akun anyar sacara manual sedurunge diakvitasi. Akune Rika durung dikonfirmasi, mulane kuwe Rika ora bakal teyeng ngakses maring fiitur-fitur sing disediakna kanggo anggota sing wis dikonfirmasi.
+remove_from_buddy_list:busek sekang daftar kanca
+iemail_msg_author:<b>Penulis:</b> {VAR: obj->alias}
+iemail_msg_subject:<b>Subyek:</b> {VAR: obj->subject}
+iemail_msg_date:<b>Tanggal:</b> {TEMPLATE: dmsg_post_date}
+iemail_msg_reply:Bales
+iemail_msg_quote:Petikan
+iemail_msg_view:Deleng Topik/Pesen
+threadt_sticky:stiki
+threadt_announce:pengumuman
+reported_no_messages:Ora ana pesen sing dilaporna.
+poll_no_polls:Sekiye ora ana polling sing teyeng diakses.
+no_unread_messages:Sekiye ora ana pesen durung kewaca sing pas karo ''query''-ne Rika.
+thread_mark_all_read:Tandani kabeh pesen sing durung kewaca nang forum dadi "wis-kewaca"
+thread_mark_all_read_desc:Kabeh pesen nang forum kiye bakal ditandani dadi wis-kewaca
+private_no_messages:Sekiye ora ana pesen nang folder kiye.
+register_email_change_subject:Konfirmasi pangowahan imel
+register_email_change_msg:Tulung konfirmasi imel anyare Rika "{VAR: uent->email}" sing nggantikna imel lawase Rika "{VAR: old_email}", karo mbukak URL kiye:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nAngger Rika wis konfirmasi alamat imele Rika sing anyar,akun forume Rika bakal diaktifna maning.
+iemail_thread_unsub:Mandeg gole langganan topik kiye
+iemail_forum_unsub:Mandeg gole langganan forum kiye
+primary_group_prefix:Grup utama forum kiye:
+group_resources:Kelompok kiye ngontrol ijin nang forum-forum kiye
+register_admin_newuser_title:Panganggo anyar wis ndaftar lan sekiye lagi ngenteni konfirmasi
+register_admin_newuser_msg:Panganggo anyar ({VAR: uent->login}) tembeke ndaftar, lan jalaran konfirmasi akun diaktifna, akun kuwe ora bakal aktif sedurung dikonfirmasi nang Rika utawa administrator forum liyane. Kanggo mriksa akun monggo ming: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nKiye proses otomatis. Aja mbales pesen kiye.\nNek Rika kepengin non-aktifna notifikasi imel nggo registrasi panganggo anyar, Rika teyeng ngowaih settingan nang panel kontrol Admin. Ganti baen settingan "Notifikasi akun anyar".
+post_mod_msg_notify_title:Pesen anyar nang forum "{VAR: frm->name}" ngenteni disarujuki
+post_mod_msg_notify_msg:Pesen anyar sing judule "{VAR: msg_post->subject}" tembe baen dilebokna nang forum sing Rika moderasi. Nggo mriksa pesen kuwe lunga baen ming: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nKiye proses otomatis. Aja mbales pesen kiye.
+thread_printable_pdf:Nggawe PDF nggo dicetak
+thread_syndicate:Sindikasikan forum kiye (XML)
+reg_conf_title:Konfirmasi Registrasi
+reg_conf_email:<b>Konfirmasi Imel</b><br /> Sawijining imel wis dikirimna ming Rika sing isine URL sing kudu dibukak nggo ngaktifna akune Rika. Nek Rika ora nampa imel kuwe sedela maning, mlebu log ming akune Rika lan priksa maning apa alamat imel sing Rika lebokna wis bener. Seuwise Rika konfirmasi akune Rika, Rika bakal teyeng mbukak fitur-fitur forum sing disediakna mung nggo panganggo kedaftar sing wis dikonfirmasi.
+reg_conf_account:<b>Konfirmasi Akun</b><br />Sedurunge akune Rika aktif, kudu disarujuki disit nang administrator. Mengko Rika bakal nampa imel sing nidokna nek akune Rika wis dikonfirmasi. Sawetara kiye, Rika teyeng mlebu log,ningen durung teyeng ngakses maring fitur tertentu.
+forum_banned_user:Aksine Rika sedurunge wis maraih Rika dadi dicekal sekang forum kiye. Goodbye.
+mnav_description:Navigasi Pesen
+mnav_date_limit:Bates tanggal:
+mnav_forum_limit:Mung digoleti nang:
+mnav_all_forums:Goleti nang kabeh forum
+mnav_submit:Molai penggoletan
+mnav_no_range:Rika kudu nglebokna bates tanggal sing valid. Isine olih nganggo angka desimal (umpamane 0.12) ningen kudu lewih gedhe sekang nol.
+mnav_invalid_unit:Rika kudu nglebokna satuan wektu sing valid.
+mnav_invalid_date:Bates tanggal sing Rika lebokna lewih gedhe sekang sing wis diatur nang administrator. Jajal diciliki maning bates tanggale.
+mnav_no_results:Sekiye ora ana pesen sing pas karo ''query''-ne Rika.
+mnav_posted_by:Digawe nang:
+mnav_more:Liyané &raquo;&raquo;
+mnav_minute:Menit
+mnav_hour:Jam
+mnav_day:Dina
+mnav_week:Minggu
+mnav_month:Sasi
+mnav_title:Navigasi Pesen
+mnav_update:Mriksa peseng nganggo <a href="{TEMPLATE: mnav_update_lnk}">Navigasi Pesen</a>
+pm_notify_subject:[{GVAR: FORUM_TITLE}] Notifikasi Pesen Pribadi Anyar
+pm_notify_body_email:Rika olih pesen pribadi anyar sing judule "{VAR: subject}", sekang "{VAR: from}", nang forum "{GVAR: FORUM_TITLE}".\nNggo ndeleng pesen kuwe, klik nang kene: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nKanggo ngendhegna notifikasi mbesuk-mbesuk, nnaktifna baen "Notifikasi Pesen Pribadi" nang profile Rika.
+register_pm_notification:Notifikasi Pesen Pribadi:
+register_pm_notification_desc:Angger diaktifna, Rika bakal nampa notifikasi saben ana pesen pribadi sing dikirimna nggo Rika.
+findu_admin_opts_header:Pilihan Admin.
+findu_unban:Batalna Cekal
+findu_ban:Cekal
+findu_edit:Sunting
+findu_delete:Busek
+dmsg_reply_to:kuwe balesan nggo
+dmsg_reply_num:pesen #{VAR: obj->reply_to}
+merge_topics:Gabungna Topik
+merge_topics_cp:Panel kontrol penggabungan topik
+merge_topics_tpl:Pilih topik sing arep digabung <span class="SmallText">(Rika kudu milih lewih sekang siji topik)</span>
+merge_merge:Gabungna topik-topik sing dipilih
+merge_next:Topik terusane:
+merge_prev:Topik sedurunge
+merge_another:Lunga ming <a href="{TEMPLATE: merge_another_lnk}">topik sing tembe digabung</a> utawa arep nggabungna sing liyane:
+split_cp:Panel kontrol pemisah topik
+groups_perms_header:Wewenang <span class="small">(liwatna mouse nang wewenang nggo ndeleng tipene)</span>
+register_err_sig_too_long:Tapak astane Rika dawane nglewihi bates yakuwe {GVAR: FORUM_SIG_ML} karakter.
+register_sig_limit:{GVAR: FORUM_SIG_ML} karakter<a href="javascript: alert('Tapak astane Rika kuwe dawane '+document.forms['fud_register'].reg_sig.value.length+' karakter. Bates maksimum dawane tapakasta kuwe {GVAR: FORUM_SIG_ML} karakter.');" class="SmallText">Priksa dawane tapak asta</a>
+adm_account_accepted:Akune Rika '{VAR: login}' wis disarujuki nang administrator lan sekiye wis aktif. Rika siki teyeng ngakses forum {GVAR: FORUM_TITLE}' nganggo status anggota kedaftar sing wis dikonfirmasi.
+adm_account_accepted_s:Penjalukan akun Rika nggo '{GVAR: FORUM_TITLE}' wis ditampa.
+adm_account_rejected:Akune Rika '{VAR: login}' wis ditolak nang administrator. Angger Rika pengin weruh alesane,monggo hubungi baen administrator nang '{GVAR: ADMIN_EMAIL}'.
+adm_account_rejected_s:Penjalukan akun Rika nggo '{GVAR: FORUM_TITLE}' wis ditolak.
+thread_on:urip
+userinfo_buddy:Kanca:
+register_email_addr:Alamat imel:
+reset_suffix:Angger Rika ora nguja nampa pesen kiye, jorna baen. Angger Rika bola-bali nampa imel kiye, sing Rika ora njaluk, hubungi administrator forum nang  {GVAR: ADMIN_EMAIL}\n\nPenjalukan kiye dipicu sekang: {VAR: _SERVER['REMOTE_ADDR']}.
+usrinfo_last_visit:Kunjungan pungkasan:
+mnav_newer:lewih anyar sekang
+mnav_older:lewih tua sekang
+ip_search_by_ip:Goleti panganggo nganggo IP-ne
+ip_search_syntax:Sintaksis sing didukung: 1.2.3.4, 1.2.3, 1.2, 1
+ip_search:Goleti
+ip_analyze_usage:Analisa panganggoan IP
+ip_analyze_usage_descr:Tulung spesikifasikna panganggo sing pas.
+ip_users_using:Panganggo nggunakna alamat IP '{VAR: ip}'
+ip_all_ips:Kabeh IP sing dinggo nang '{VAR: user}'
+ip_title:Peramban IP
+userinfo_real_name:Jeneng asli:
+register_err_alias_notallowed:Alias kiye ora olih dinggo
+post_err_mod_forum_edit_ttl:SALAH
+post_err_mod_forum_edit_msg:Rika ora teyeng nyunting pesen nang forum sing dimoderasi.
+dmsg_num:pesen #{VAR: obj->id}
+postcheck_session_invalid:Sesine Rika wis kadaluwarsa. Monggo dibaleni gole ngirimna formulir. Nuwun sewu wis ngrepotna Rika.
+delete_message_extra_desc:<b>Pilhan</b><br />Aweh alesan nggo pambusakan pesen, sing bakal dikirimna maring sing nulis nganggo pesen pribadi.
+delete_message_extra_body:Lebokna isi pesen sing dibusek nggo melu dikirimna maring sing nulis.
+delete_msg_removed_ttl:Pesene Rika wis dibusek nang staf administrasi.
+delete_msg_pm_body:Pesen asli
+delete_msg_pm_subject:Subyek: {VAR: data[15]}
+ip_no_whois:Informasi Whois kanggo <b>{VAR: ip}</b> ora disediakna.
+ip_whois_title:Informasi ISP
+register_theme:Tema:
+pmsg_trash:Kosongna wadah runtah
+uc_new_pm:Pesen pribadi (japri) anyar
+uc_new_topic:Topik Anyar
+uc_new_cat_forum:Forum sing dilangganani sing duwe pesen anyar
+uc_cat_forum:Kategori &raquo; Forum
+uc_sub_topics:Topik sing dilangganani sing duwe pesen anyar
+uc_page_title:Ndeleng panel kontrol personal
+search_options:Pilihan panggoletan
+search_user_filter:Saring miturut panganggo:
+register_none:Aja nidokna inyong
+findu_no_conf:panganggo durung dikonfirmasi
+register_max_sig_len:Dawane maksimum:
+register_turing:Tulung lebokna kode sing keton nang ngisor kuwe:
+register_err_turing:Kode validasine ora sah.
+modque_cat:Kategori
+modque_forum:Forum
+idx_compact_forum_row:Forum tersedia:
+mmd_del_title:Busek Topik
+mmd_mov_title:Pindahna topik
+mmd_move_threads_to:Forum sing dituju:
+mmd_abort_move:Ora Sida
+mmd_move:Pindahna topik
+pmsg_pdf_btn:Gawe PDF
+search_results_hdr:Ana {VAR: total} hasil penggoletan
+thread_del_all:Busek sing dipilih
+thread_mov_all:Pindahna sing dipilih
+thread_merge_all:Gabungna sing dipilih
+thread_loc_all:Kunci/Bukak sing dipilih
+dmsg_ip:IP:
+err_blockedaccnt_title:SALAH: Akune Rika wis disaring.
+err_blockedaccnt_msg:Akune Rika wis diblokir sekang forum jalaran ana sawijining penyaringan sekang panganggo.
+merge_th_page_list:Pamilihan kaca topik
+most_users_online:Panganggo sing lagi online paling akeh <b>{VAR: st_obj->most_online}</b> yakuwe dong tanggal <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
+sub_unsub_all_forums:Mandeg gole langganan sekang kabeh forum
+sub_unsub_all_topics:Mandeg gole langganan sekang kabeh topik
+unbookmark_all_topics:Busek kabeh tanda
+tabs_own_posts:Tidokna tulisane dhewek
+sml_emoticon:Emotikon
+sml_code:Kode
+mnav_sub_only:Goleti nang forum sing dilangganani thok
+register_topics_per_page:Topik saben kaca:
+login_min_time:Forum kiye ngatur sepisan login saben {VAR: MIN_TIME_BETWEEN_LOGIN} detik, mongo dienteni {FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)} detik sedurunge rika njajal maning.
+post_not_logged_in:Rika durung mlebu log, pesen bakal dikirim sacara anonim.
+post_common_bold:Cithak Kandhel
+post_common_italics:Cithak miring
+post_common_underline:Garis ngisor
+post_common_align_left:Rata kiwe
+post_common_align_center:Rata tengah
+post_common_align_right:Rata tengen
+post_common_link:Sisipna pranala
+post_common_link_popup:Lokasi pranala:
+post_common_email:Lebokna alamat imel
+post_common_email_popup:Alamat imel:
+post_common_image:lebokna gambar
+post_common_image_popup:URL gambar:
+post_common_nlist:Tambahna daftar sing dinomeri
+post_common_blist:Tambahna daftar biasa
+post_common_quote:Tambahna kutipan
+post_common_code:Tambahna kode
+rating_delete:Busek
+post_always_on_top:Gawe ben topik kiye saben-saben mesti keton nang dhuwur daftar topik
+topic_rating:{VAR: frm->rating} sekang totale {PLURAL: frm->n_rating|$1 suara|$1 suara}
+topic_list_rating:{VAR: r[17]} sekang totale {PLURAL: r[21]|$1 suara|$1 suara}
+tabs_notifications:Notifikasi
+finduser_flag:Bendera
+post_descr:Keterangan Topik:
+pmsg_on:tanggal
+pmsg_download_dump:Unduh tumpukan pesen
+move_messages:Pindahna pesen
+move_msg_btn:Pindahna pesen sing dipilih
+move_msg_th_expl:Tetepna ID-ne sekang topik sing dituju (olih nang forum liyane)
+captcha_img_alt:Verifikasi Captcha: rika kudu teyeng maca teks nang gambar kiye.
+captcha_img_help:Ora ana nol utawa siji nang gambar.
+powered-by:Didukung nang: FUDforum {GVAR: FORUM_VERSION}.
+copyright:Copyright &copy;2001-2011 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+code_title:Kode:
+code_select_all:Pilih kabeh
+code_show_hide:Tidokna/ umpetna
+social_sites:Situs jejaring sosial:
+postcheck_min_len_err:Pesene Rika kecindheken. Dawane paling ora kudu {PLURAL: post_min_len|$1 karakter|$1 karakter}.
+postcheck_dup_err:Tulung aja nggawe pesen dobel.
+btn_new_topic:Topik anyar
+btn_new_pm:Pesen Pribadi Anyar
+btn_post_reply:Kirimna balesan
+btn_tree_view:Tampilan nyabang
+btn_flat_view:Tayangan datar
+btn_about:Profil
+btn_small_pm:PP
+btn_delete:busek
+btn_edit:sunting
+btn_reply:bales
+btn_forward:diterusna
+btn_quote:kutipan
+btn_email:Imel
+btn_show_posts:pesen
+btn_homepage:www
+feed_no_data:Ora nemokna data sing pas.
+feed_rdf:Umpan RDF
+feed_rss:Umpan RSS2
+feed_atom:Umpan ATOM
+ip_whois_connect_err:Ora teyeng nyambung ming server WHOIS ({VAR: whois_server}): {VAR: errstr}
+custom_filed_required:Bidang kiye kudu diisi.
+pages:Kaca
+page_list_heading:Kaca disediakna
+page_list_total:{PLURAL: i|$1 kaca|$1 kaca} kedaftar.
+page_update:Ndeleng kaca
+pm_export_header:Pesen Pribadi nggo {VAR: usr->alias}
+pm_export_footer:Diekspor:

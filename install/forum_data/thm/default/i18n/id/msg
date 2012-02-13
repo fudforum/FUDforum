@@ -1,11 +1,13 @@
 # Messages for Indonesian (Bahasa Indonesia)
 # Exported from translatewiki.net
+# Author: Anakmalaysia
 # Author: Bennylin
 # Author: Farras
 # Author: Irwangatot
 # Author: IvanLanin
 # Author: Kenrick95
 # Author: Naudefj
+# Author: StefanusRA
 
 action:Tindakan
 add_to_buddy_list:tambahkan ke daftar teman
@@ -123,7 +125,7 @@ post_count:Jumlah Pesan {VAR: u_pcount}
 post_count_l:Jumlah Pesan:
 posts:Pesan
 posts_c:Pesan:
-prev_thread:Topik seblumnya:
+prev_thread:Topik sebelumnya:
 usrinfo_private_message:Pesan pribadi:
 profile:Panel pengguna
 profile_desc:Akses kontrol panel pengguna
@@ -149,7 +151,7 @@ sel_unread_messages_desc:Hidup/matikan filter pesan belum terbaca (hanya menampi
 send:Kirim
 send_pm_desc:Kirim pesan pribadi ke pengguna ini
 sender_email:E-mail pengirim:
-sender_name:Nama perngirim:
+sender_name:Nama pengirim:
 show_posts_by:Tampilkan pesan-pesan dari: {VAR: u_alias}
 size:Ukuran:
 status:Status:
@@ -162,21 +164,21 @@ bookmark_thread:Tandai topik
 bookmark_thread_desc:Tambahkan topik ini pada daftar penanda anda
 subject:Subyek
 subscribe:Berlangganan
-subscribe_desc:Terima pemberitahuan satt seseorang membuat topic baru di forum ini
+subscribe_desc:Terima pemberitahuan ketika seseorang membuat topik baru di forum ini
 subscribed_forums:Forum langganan
 subscribed_forums_desc:Hidup/matikan filter forum langganan (hanya tampilkan forum berlangganan)
 subscribed_threads:Topik langganan
-subscribed_threads_desc:Hidup/matikan filter topik langganan (hanya tampilankan topik berlangganan)
-bookmarked_threads:Tandai Topik
+subscribed_threads_desc:Hidup/matikan filter topik langganan (hanya tampilkan topik berlangganan)
+bookmarked_threads:Topik yang ditandai
 switch_to_thread_view:Ubah tampilan berurutan untuk topik ini
 thread:berurutan:
 thread_announcement:Pengumuman:
-thread_first_unread_msg:Menuju pesan pertama belum terbaca dalam topic ini
+thread_first_unread_msg:Menuju ke pesan pertama yang belum terbaca dalam topik ini
 thread_thread:Topik
 threads:Topik-topik
 time:Waktu
 todays_posts:Pesan hari ini
-todays_posts_desc:Tampilkan semua pesan yng dibuat hari ini
+todays_posts_desc:Tampilkan semua pesan yang dibuat hari ini
 un_ignore_user:Hentikan pengacuhan pesan dari pengguna ini
 unanswered_posts:Pesan belum terjawab
 unanswered_posts_desc:Tampilkan semua pesan yang belum terbalas
@@ -217,7 +219,7 @@ modque_approve:Setujui
 modque_delete:Hapus
 modque_no_message:Tidak ada pesan menunggu untuk disetujui
 pmsg_new_messages:Pesan pribadi belum terbaca
-pmsg_old_messages:Baca pesan pribadi
+pmsg_old_messages:Pesan pribadi terbaca
 deny_recipt:Tolak bukti penerimaan
 deny_recipt_desc:Jangan kirim bukti bahwa anda sudah membaca pesan ini
 restore_to:Kembalikan ke:
@@ -295,7 +297,7 @@ finduser_action:LAkukan
 yes:Ya
 no:Tidak
 register_email:Surat-e
-edit_time_limit:<b>diubah pada</b>: {GVAR: EDIT_TIME_LIMIT} minutes
+edit_time_limit:<b>Batas waktu menyunting</b>: {GVAR: EDIT_TIME_LIMIT} menit
 no_edit_time_limit:<b>Batas waktu perbaikan</b>: Unlimited
 pmuserloc_login:Masuk log
 pmuserloc_submit:Masukkan
@@ -380,7 +382,7 @@ create_thread:Buat topik
 submit_reply:Kirim balasan
 edit_message:Lakukan pengubahan pesan
 apply_spell_changes:Lakukan pengubahan ejaan
-post_preview:Tampilan pesan semantara
+post_preview:Pratayang pesan
 post_logedin_user:Pengguna sedang Aktif:
 post_logout:keluar log
 post_passwd:Password untuk menulis:
@@ -396,7 +398,7 @@ post_icons:Ikon pesan:
 post_no_icon:Tidak ada ikon
 post_smiley:jln pintas Smiley:
 post_format_tools:Alat pemformat:
-post_upload_file:Kirim file
+post_upload_file:Unggah berkas
 post_file_del:Hapus
 post_file_name:Nama
 post_file_size:Ukuran
@@ -419,14 +421,14 @@ post_cancel_btn:Batalkan
 ignore_users:Pengguna diacuhkan
 add_ignore:Tambah diacuhkan
 forum_terms:Pernyataan Forum
-forum_rules:<p>Pendaftaran untuk forum ini bebas! Kami bersikeras bahwa anda mematuhi peraturan dan kebijakan yang rinci di bawah ini. Jika Anda setuju dengan persyaratan, silahkan tekan tombol <b>Setuju</b> di akhir halaman. Catatan: Dengan menekan tombol Anda menyatakan bahwa Anda berusia lebih dari 13. Jika Anda berusia 13 atau kurang, silakan gunakan formulir registrasi ini. </p> <p> Meskipun para administrator dan moderator forum ini akan berusaha untuk menyimpan semua pesan keberatan dari forum ini, tidak mungkin bagi kami untuk memeriksa semua pesan. Semua pesan mengungkapkan pandangan dari penulis, dan baik pemilik forum atau para pengembang akan bertanggung jawab atas isi dari setiap pesan. </p> <p> Setuju Dengan mengklik tombol, Anda menjamin bahwa Anda tidak akan Posting segala pesan yang cabul, vulgar, berorientasi seksual, kebencian, mengancam, atau melanggar hukum. </p> <p> pemilik forum ini memiliki hak untuk menghapus, mengedit, memindahkan atau menutup topik apapun untuk alasan apapun. </p>
+forum_rules:<p>Pendaftaran untuk forum ini bebas! Kami bersikeras bahwa anda mematuhi peraturan dan kebijakan yang rinci di bawah ini. Jika Anda setuju dengan persyaratan, silahkan tekan tombol <b>Setuju</b> di akhir halaman. Catatan: Dengan menekan tombol Anda menyatakan bahwa Anda berusia lebih dari 13. Jika Anda berusia 13 atau kurang, silakan gunakan formulir registrasi ini. </p> <p> Meskipun para administrator dan moderator forum ini akan selalu berusaha untuk menjaga obyektivitas semua pesan dalam forum ini, tidak mungkin bagi kami untuk memeriksa semua pesan. Semua pesan yang ada mengungkapkan sudut pandang dari penulisnya masing-masing, dan baik pemilik forum atau para pengembang tidak bertanggung jawab atas isi dari setiap pesan tersebut. </p> <p> Dengan mengklik tombol Setuju, Anda menjamin bahwa Anda tidak akan memasukkan segala pesan yang cabul, vulgar, berorientasi seksual, kebencian, mengancam, atau melanggar hukum. </p> <p> Pemilik forum ini memiliki hak untuk menghapus, mengedit, memindahkan atau menutup topik apapun untuk alasan apapun. </p>
 forum_rules_13:<p>Semua pengguna di bawah umur 13 tahun harus meminta izin dari orang tua atau wali mereka untuk mendapatkan keanggotaan  forum. Sementara kami menyambut partisipasi dari anggota di bawah 13, kami meminta orang tua atau wali mengirim faks atau surat formulir izin yang telah ditandatangani sebelum kami memberikan keanggotaan.</p><p>Jika Anda ingin memulai proses registrasi sebelum kami menerima bentuk izin, tekan tombol <b>Setuju</b> di bawah ini. Jika Anda ingin membatalkan registrasi, tekan <b>Tidak setuju</b> untuk kembali ke indeks forum. </p><p>Salinan formulir izin dapat didownload di sini. Untuk informasi lebih lanjut tentang proses pendaftaran, silakan kirim e-mail ke <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
 coppa_conf:Konfirmasi COPPA
 coppa_before:Sebelum {TEMPLATE: coppa_date}
 coppa_after:Sesudah {TEMPLATE: coppa_date}
 coppa_link:Klik tujuan sesuai tanggal lahir anda
 coppa:<p>Orang tua atau wali harus mengirim surat atau fax formulir izin masuk administrator forum ini sebelum pengguna di bawah usia 13 tahun bisa menyelesaikan pendaftaran. </p><p>Untuk informasi lebih lanjut hubungi <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a></p>
-prereg_info:Informasi
+prereg_info:Aturan Forum
 prereg_agree:Setuju
 prereg_disagree:Tidak setuju
 prereg_update:Membaca aturan forum
@@ -434,7 +436,7 @@ coppa_fax_instructions:Petunjuk untuk orang-tua / wali
 coppa_fax_instructions2:Silakan cetak dan tanda-tangani dan kirim melalui fax:
 coppa_fax_reg_form:Formulir Registrasi
 coppa_fax_sign:Silakan tanda tangani formulir di bawah ini dan kirimkan ke kami
-coppa_fax_conf:Kami sudah melihat informasi yang diberikan anak kami dan kami sudah membaca&mengerti Kebijakan Kepribadian dari halaman web. Kami mengerti bahwa informasi profile bisa diubah menggunakan password. Kami mengerti bahwa data profile dapat dihapus dari forum.
+coppa_fax_conf:Kami sudah melihat informasi yang diberikan anak kami dan kami sudah membaca&mengerti Kebijakan Kepribadian dari halaman web. Kami mengerti bahwa informasi profile bisa diubah menggunakan password. Kami mengerti bahwa kami dapat meminta agar data profile pendaftaran ini dihapus seluruhnya dari forum.
 coppa_fax_permission:Tanda tangan di sini jika anda setuju/memberikan izin
 coppa_fax_no_permission:Tanda-tangan disini jika anda ingin data pendaftaran dihapus
 coppa_fax_parent_name:Nama orang-tua/wali:
@@ -445,7 +447,7 @@ coppa_fax_date:Tanggal:
 coppa_fax_questions:Silakan hubungi <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> jika ada pertanyaan
 coppa_fax_login:Masuk log
 coppa_fax_passwd:Kata sandi
-coppa_fax_remail:Surat-e
+coppa_fax_remail:Surel
 coppa_fax_name:Nama
 login_not_logedin:Anda belum login. Ada beberapa kemungkinan sebab:
 login_cookie_expired:Cookie sudah kedaluwarsa, dan anda harus login ulang untuk memperbaharuinya.
@@ -477,7 +479,7 @@ ruser_cur_login:Log Masuk Sekarang:
 ruser_new_login:Log Masuk Baru:
 ruser_cur_pass:Sandi Sekarang:
 login_passwd:Kata sandi:
-reset_email:Surat-e:
+reset_email:Surel:
 reset_reset_button:Timpa Password
 rate_this_thread:Nilai
 report_reporting_about:Melaporkan mengenai:
@@ -524,14 +526,14 @@ mklist_disc:Lain-lain
 mklist_circle:Lingkaran
 mklist_close:Tutup
 email_to:Ke:
-email_pg_title:Surat-e
+email_pg_title:Surel
 email_subject:subyek:
 email_body:Isi:
 email_submit:Surat-e
 ppost_quote_msg:{VAR: msg_to_list} ditulis pada {TEMPLATE: ppost_quote_msg_date}
 ppost_quote:Petikan:
 ppost_to:Ke:
-ppost_from_buddy_list:Pilih teman
+ppost_from_buddy_list:Pilih dari daftar teman
 ppost_find_User:Cari pengguna
 ppost_track_msg:Telusuri pesan ini
 ppost_track_msg_desc:Beritahu (melalui pesan pribadi) bila pesan ini dibaca.
@@ -659,14 +661,14 @@ register_err_enterpasswd:Password diperlukan untuk melakukan perubahan
 register_err_adminpasswd:Anda harus memasukkan katakunci <b>pengurus</b> untuk melakukan perubahan.
 register_err_notyouremail:Seseorang sudah memakai alamat e-mail tsb.
 register_err_avatartobig:Berkas yang anda kirimkan terlalu besar, lebih dari {GVAR: CUSTOM_AVATAR_MAX_SIZE} bytes
-register_err_avatarnotallowed:Avatar yang anda kirimkan tidak sah. Mohon perika jenis berkan yang diijinkan.
+register_err_avatarnotallowed:Avatar yang anda kirimkan tidak sah. Mohon periksa lagi jenis berkas yang diijinkan.
 register_conf_subject:Konfirmasi Registrasi
 register_conf_msg:Terima-kasih atas registrasi anda,\nUntuk mengaktifkan akun anda, silakan ke:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nSesudah aktif, anda bisa login&\nsecara otomatis akan diarahkan ke halaman utama.
 register_welcome_subject:Konfirmasi Registrasi Forum
 register_welcome_msg:Terima-kasih telah mendaftar,\n\nBerikut adalah keterangan lengkap anda:\n\nURL Forum: {TEMPLATE: index_update_lnk}\nLogin: {VAR: uent->login}\nPassword: {VAR: _POST['reg_plaintext_passwd']}\n\nMohon diingat password merupakan ''case sensitive''!\nUntuk mengubah pengesetan atau profile, tuju halaman ini:\n{FULL_ROOT}{ROOT}?t=register
-register_err_cantreg_title:SALAH: tidak besa mendaftar
+register_err_cantreg_title:SALAH: tidak dapat mendaftar
 regsiter_err_cantreg_msg:Tidak bisa membuat akun pengguna, mohon hubungi administrator di <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
-register_profile_update:Melihat profil probadi
+register_profile_update:Melihat profil pribadi
 register_register_update:Halaman Registrasi
 report_err_nosuchmsg_title:GALAT
 report_err_nosuchmsg_msg:Pesan tidak ada
@@ -675,7 +677,7 @@ reset_err_invalidkey_msg:Kunci penimpaan password tidak benar. Mungkin aplikasi 
 reset_err_rstconf_title:Informasi
 reset_err_rstconf_msg:Dalam beberapa menit, anda akan menerima petunjuk di e-mail.
 reset_newpass_title:Timpa password
-reset_newpass_msg:Halo,\n\nSesuai permintaan anda, informasi login anda adalah:\n\nLogin: {VAR: ui[1]}\nPassword: {VAR: passwd}\n\nHarap diingat baik-baik. Jika anda ingin merubah password\nbisa andalakukan di panel kontrol pengguna di:\n{FULL_ROOT}{ROOT}?t=register
+reset_newpass_msg:Halo,\n\nSesuai permintaan anda, informasi login anda adalah:\n\nLogin: {VAR: ui[1]}\nPassword: {VAR: passwd}\n\nHarap diingat baik-baik bahwa password anda telah disetel ulang menjadi seperti di atas. Jika anda ingin merubah kembali password Anda\nbisa andalakukan di panel kontrol pengguna di:\n{FULL_ROOT}{ROOT}?t=register
 reset_login_notify:Password anda sudah dikirim melalui e-mail, dalam beberapa saat anda akan menerimanya<br />
 search_update:Mencari pesan
 selmsg_update:Melihat <a href="{TEMPLATE: selmsg_update_lnk}">pesan hari ini</a>
@@ -691,7 +693,7 @@ ERR_disabled_msg:Fitur ini telah dinonaktifkan oleh pengurus sistem.
 ERR_access_ttl:SALAH: Wewenang tidak mencukupi
 ERR_access_msg:Anda tidak memiliki izin yang diperlukan untuk melakukan tindakan ini.
 ERR_registration_disabled_ttl:Registrasi di non-aktifkan
-ERR_registration_disabled_msg:Administrator sudah menon-aktifkan proses registrasi, coba laha beberapa saat lagi.
+ERR_registration_disabled_msg:Administrator sudah menon-aktifkan proses registrasi, cobalah beberapa saat lagi.
 ERR_emailconf_ttl:SALAH: Akun anda belum dikonfirmasi
 ERR_emailconf_msg:Anda belum mengkonfirmasi akun Anda melalui surat-e.<br /><table border="0"><tr><td><ol><li>Jika Anda belum menerima konfirmasi surat-e,<a href="{TEMPLATE: ERR_emailconf_msg_lnk}"> minta lagi disini</a>.</li><li>Jika {VAR: usr_d->email} bukan surat-e Anda yang benar, <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">isi alamat yang benar disini</a>.</li></ol></td></tr></table>
 ERR_user_ttl:SALAH: Pengguna tidak ada
@@ -730,11 +732,11 @@ unapproved_avatar_msg:Administrator tidak menyetujui avatar anda. Alasan yang pa
 mvthread_request_move:Permintaan pemindahan
 move_request_reason:Alasan mengapa and minta dipindahkan?
 mvthread_submit_req:Kirimkan permintaan
-thread_exchange:Pertukan topik
+thread_exchange:Pertukaran topik
 move_request_by:Pemindahan topik diminta oleh:
 move_reason:Dengan alasan pemindahan:
 thr_exch_accept:terima topic
-thr_exch_decline:tolak topic
+thr_exch_decline:tolak pemindahan topik
 thr_exch_orig_forum:Forum semula:
 thr_exch_dest_forum:Forum tujuan:
 thr_exch_no_threads:Tidak ada topik menunggu persetujuan.
@@ -762,7 +764,7 @@ group_mgr_edit_btn:Ubah Group
 group_mgr_heading:Pilihan editor Group
 group_mgr_group:Kelompok:
 permission_denied_title:Izin ditolak!
-permission_denied_msg:Anda tidak dijinkan melkukan hal itu.
+permission_denied_msg:Kewenangan yang Anda miliki tidak memungkinkan Anda untuk melaksanakan tindakan yang Anda coba lakukan itu.
 p_READ:Baca
 p_POST:Tulis
 p_REPLY:Balas
@@ -782,7 +784,7 @@ p_SEARCH:Bisa dicari
 group_mgr_search:Cari Pengguna
 group_mgr_indicator:Sedang memperbaiki: <b>{VAR: grp->name}</b>
 rate_worst:Paling Jelek
-rate_best:Bagus
+rate_best:Terbaik
 post_quote_msg:{VAR: msg->login} ditulis pada {TEMPLATE: make_report_date}
 post_quote:Petikan:
 post_quote_selected:Kutip Teks Terpilih
@@ -810,11 +812,11 @@ thread_mod_delete:Hapus
 action_ip:IP
 action_latest_post:Pesan terakhir
 online_today_last_visit:Kunjungan terakhir
-online_today_update:Melihat pengguna-pengguna yang berkuung ke forum hari ini.
+online_today_update:Melihat pengguna-pengguna yang berkunjung ke forum hari ini.
 logedin_todays_visitors:Pengunjung hari ini
 logedin_latest_post:Pesan terkahir di forum:
 register_show_avatar:Perlihatkan avatar:
-register_show_avatar_desc:Memungkin anda melihat avatar pengguna lain saat anda melihat pesan mereka
+register_show_avatar_desc:Memungkinkan anda untuk menyembunyikan avatar pengguna lain ketika anda melihat pesan mereka.
 drawmsg_view_rest_post:Perlihatkan sisa pesan yang lain
 post_re:Balasan:
 forumsel_goto_forum:Ke Forum:
@@ -859,7 +861,7 @@ im_twitter:Twitter:
 forum_contact:Kontek
 forum_home:Utama
 post_cur_attached:Saat ini ada {VAR: i} {PLURAL: i|berkas|berkas}
-ignored_anon_post:{GVAR: ANON_NICK} si acuhkan
+ignored_anon_post:{GVAR: ANON_NICK} diacuhkan
 ignored_user_post:Pesan-pesan dari <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> diacuhkan
 smladd_close_window:Tutup jendela
 post_list_smilies:Perlihatkan semua smilies
@@ -870,7 +872,7 @@ help_return_to_index:Kembali ke daftar bantuan
 imsg_err_message_title:Pesan tidak sah
 imsg_err_message_msg:Pesan yang anda akan lihat tidak ada
 poll_edit:Sunting
-register_err_not_valid_img:Alamat URL yang dimasukkan tidak memilik gambar yang sah
+register_err_not_valid_img:Alamat URL yang dimasukkan tidak memiliki gambar yang sah
 pmsg_recepient:Penerima
 register_err_taken_alias:Alias yang hendak anda pakai sudah dipergunakan pengguna lain, silakan pilih yg lain.
 register_alias:Samaran:
@@ -918,14 +920,14 @@ back_to_top:Kembali ke Atas
 pm_err_disabled_title:Pesan pribadi nonaktif
 pm_err_disabled_msg:Anda tidak bisa mengirim pesan pribadi sampai mengaktifkan pilihan 'mekanisme Pesan Pribadi' di profile anda.
 err_mod_acc_ttl:Akun belum diverifikasi
-err_mod_acc_msg:Administrator sudah mentntukan bahwa semua akun baru harus diperiksa secara manual sebelum diaktifkan. Sebelum akun anda divalidasi oleh administrator, anda belum memperoleh semua fasilitas yang tersedia untuk akun anda.
+err_mod_acc_msg:Administrator sudah menentukan bahwa semua akun baru harus diperiksa secara manual sebelum diaktifkan. Sebelum akun anda divalidasi oleh administrator, anda belum memperoleh semua fasilitas yang tersedia untuk akun anda.
 accounts_pending_approval:Akun menunggu persetujuan
 saved:Tersimpan
 register_err_time_limit:Batas pendaftaran selama {GVAR: REG_TIME_LIMIT} detik terlampaui. Mohon tunggu {PLURAL: reg_limit_reached|$1 detik|$1 detik}, dan cobalah lagi.
-register_affero:Nama pengguna Affero:<br /><span class="SmallText">If you have an <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">Affero</a> username, enter it here.</span>
+register_affero:Nama pengguna Affero:<br /><span class="SmallText">Jika anda memiliki <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">akun Affero</a>, masukkan di sini.</span>
 im_affero:Nama pengguna Affero
 register_err_avatardimtobig:Dimensi Avatar anda: <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> melampaui batas sebesar <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
-buddy_offline:{VAR: r[2]} pengguna sedah offline
+buddy_offline:{VAR: r[2]} pengguna sedang offline
 buddy_online:{VAR: r[2]} pengguna sedang online
 sml_no_smilies:Emoticons tidak tersedia
 login_unapproved_account_ttl:Akun belum disetujui
@@ -950,10 +952,10 @@ register_email_change_msg:Mohon konfirmasikan e-mail baru "{VAR: uent->email}" y
 iemail_thread_unsub:Stop langganan topik ini
 iemail_forum_unsub:Stop langganan forum ini
 primary_group_prefix:Group utama forum ini:
-group_resources:Group ini memilik wewenang mengatur forum
+group_resources:Kelompok ini mengontrol perizinan Forum berikut
 register_admin_newuser_title:Pengguna baru sudah mendaftar dan sedang menunggu konfirmasi
 register_admin_newuser_msg:Pengguna baru ({VAR: uent->login}), dan karena konfirmasi di aktifkan, akun tidak aktif sampai disetujui administrator. Untuk memeriksa, silakan ke: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nIni proses otomatis, jangan membalas e-mail ini.\nPemberitahuan lewat e-mail bisa dinon-aktifkan melalui kontrol panel admin. Ubah seting di "Pemberitahuan Akun baru".
-post_mod_msg_notify_title:Pesan baru di forum "{VAR: frm->name}" menunggu persetuhuan anda
+post_mod_msg_notify_title:Pesan baru di forum "{VAR: frm->name}" menunggu persetujuan anda
 post_mod_msg_notify_msg:Pesan baru berjudul "{VAR: msg_post->subject}" baru saja dimasukkan di forum yang anda moderasikan. Untum memeriksa,silakan ke: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nIni proses otomatis, jangan membalas email ini.
 thread_printable_pdf:Buat PDF utk pencetakan
 thread_syndicate:Sindikasikan forum ini (XML)
@@ -1000,7 +1002,7 @@ merge_another:Pergi ke <a href="{TEMPLATE: merge_another_lnk}">topik yang terakh
 split_cp:Panel kontrol pemisah topik
 groups_perms_header:Wewenang <span class="small">(gerakkan mouse anda untuk melihat tipe wewenang)</span>
 register_err_sig_too_long:Tanda-tangan anda melebihi batas yang diijinkan sebesar {GVAR: FORUM_SIG_ML} karakter.
-register_sig_limit:{GVAR: FORUM_SIG_ML} karakter <a href="javascript: alert('Tanda-tangan anda '+document.forms['fud_register'].reg_sig.value.length+' karakter. Maksimum diijinkan adalah sebesar {GVAR: FORUM_SIG_ML} karakter.');" class="SmallText">Perksa panjang tanda-tangan</a>
+register_sig_limit:{GVAR: FORUM_SIG_ML} karakter <a href="javascript: alert('Tanda-tangan anda '+document.forms['fud_register'].reg_sig.value.length+' karakter. Maksimum diijinkan adalah sebesar {GVAR: FORUM_SIG_ML} karakter.');" class="SmallText">Periksa panjang tanda-tangan</a>
 adm_account_accepted:Akun anda '{VAR: login}' disetujui oleh administrator dan sekarang sudah aktif. Anda bisa mengakses forum '{GVAR: FORUM_TITLE}' sebagai anggota terdaftar penuh.
 adm_account_accepted_s:Permintaan akun Anda di '{GVAR: FORUM_TITLE}' diterima.
 adm_account_rejected:Akun Anda '{VAR: login}' ditolak oleh pengurus. Jika Anda ingin tahu alasan penolakan silakan hubungi pengurus di '{GVAR: ADMIN_EMAIL}'.
@@ -1037,9 +1039,9 @@ register_theme:Tema:
 pmsg_trash:Kosongkan tempat sampah
 uc_new_pm:Pesan pribadi baru
 uc_new_topic:Topik baru
-uc_new_cat_forum:Forum berlangganan untuk pesan-pesan baru
+uc_new_cat_forum:Forum berlangganan yang memiliki pesan baru
 uc_cat_forum:Forum kategori
-uc_sub_topics:Topik berlangganan untuk pesan baru
+uc_sub_topics:Topik berlangganan yang memiliki pesan baru
 uc_page_title:Melihat panel kontrol pribadi
 search_options:Opsi pencarian
 search_user_filter:Filter atas dasar pengguna:
@@ -1127,7 +1129,7 @@ btn_edit:sunting
 btn_reply:balas
 btn_forward:teruskan
 btn_quote:kutipan
-btn_email:SuratE
+btn_email:Surel
 btn_show_posts:pesan
 btn_homepage:www
 feed_no_data:Tidak ada data sesuai ditemukan.
@@ -1141,4 +1143,4 @@ page_list_heading:Halaman tersedia
 page_list_total:{PLURAL: i|$1 halaman|$1 halaman} terdaftar.
 page_update:Halaman penelusuran
 pm_export_header:Pesan pribadi untuk {VAR: usr->alias}
-pm_export_footer:Diimpor:
+pm_export_footer:Diekspor:

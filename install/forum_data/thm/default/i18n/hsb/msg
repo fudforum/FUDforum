@@ -32,7 +32,7 @@ flat_view:WRóćo k płonemu standardnemu napohladej
 forum:Forum:
 forum_icon:Forumowy symbol
 forum_new_messages:Nowe powěsće
-forum_none_messages:Jenož zregistrowani forumowi čłonojo  móžeja přečitane &amp; njepřečitane powěsće slědować
+forum_none_messages:Jenož zregistrowani forumowi čłonojo  móžeja přečitane a njepřečitane powěsće slědować
 forum_old_messages:Žane nowe powěsće
 from:Wot:
 gender:Splah:
@@ -41,8 +41,8 @@ goto_next_msg:K přichodnej powěsći
 goto_prev_msg:K předchadnej powěsći
 home:K startowej stronje
 homepage:Startowa strona:
-icq_control_panel:Meni ICQ online
-icq_message_form:Formular powěsće ICQ:
+icq_control_panel:ICQ-meni online
+icq_message_form:Formular ICQ-powěsće:
 ignore_user:Wšě powěsće tutoho wužiwarja ignorować
 im_aim:Wužiwarske mjeno AIM:
 im_msnm:MSN Messenger:
@@ -106,13 +106,13 @@ no_subscribed_threads:Žane abonowane temy
 no_bookmarked_threads:Žane temy jako zapołožki
 no_unread_locked:Tuta tema bu zawrjena
 no_unread_msg:Tuta tema žane njepřečitane powěsće njewobsahuje
-no_unread_msg_unreg:Přečitane &amp; njepřečitane powěsće so jenož za zregistrowanych wužiwarjow slěduja.
+no_unread_msg_unreg:Přečitane a njepřečitane powěsće so jenož za zregistrowanych wužiwarjow slěduja.
 num_pages:Strony ({VAR: ttl_pg}):
 num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|hłós|hłosaj|hłosy|hłosow}
 occupation:Powołanje:
 off:wupinjeny
 on:zapinjeny
-page_timings:Dohromady trěbny čas, zo by so strona spłodźiła: {PLURAL: page_gen_time|$1 secosekundownds}
+page_timings:Dohromady trěbny čas, zo by so strona spłodźiła: {PLURAL: page_gen_time|$1 sekunda|$1 sekundźe|$1 sekundy|$1 sekundow}
 pm:Priwatne powěsće
 poll:Wothłosowanje:
 post_count:Ličba powěsćow {VAR: u_pcount}
@@ -149,7 +149,7 @@ sender_name:Mjeno wotpósłarja:
 show_posts_by:Powěsće wot {VAR: u_alias} pokazać
 size:Wulkosć:
 status:Status:
-status_line:<b>{PLURAL: st_obj->online_users_reg|Je $1 čłon|Staj $1 čłonaj|Su $1 čłonojo}</b>, <b>{PLURAL: st_obj->online_users_hidden|$1 njewidźomny čłon|$1 njewidźomnaj čłonaj|$1 njewidźomni čłonojo|$1 njewidźomnych čłonow}</b> a <b>{PLURAL: st_obj->online_users_anon|$1 hósć|$1 hosćej|$1 hosćojo|$1 hosćow}</b> w tutej forumje.
+status_line:<b>{PLURAL: st_obj->online_users_reg|Je $1 čłon|Staj $1 čłonaj|Su $1 čłonojo|Su $1 čłonojo}</b>, <b>{PLURAL: st_obj->online_users_hidden|$1 njewidźomny čłon|$1 njewidźomnaj čłonaj|$1 njewidźomni čłonojo|$1 njewidźomnych čłonow}</b> a <b>{PLURAL: st_obj->online_users_anon|$1 hósć|$1 hosćej|$1 hosćojo|$1 hosćow}</b> w tutym forumje.
 sticky:Přilěpjeny:
 stop_ignoring:Tutoho wužiwarja hižo njeignorować
 sub_to_thread:Tutu temu abonować
@@ -164,7 +164,7 @@ subscribed_forums_desc:Filter za abonowane forumy zapinać (pokaza jenož powěs
 subscribed_threads:Abonowane temy
 subscribed_threads_desc:Filter za abonowane temy zapinać (pokaza jenož powěsće z temow, kotrež sy abonował)
 bookmarked_threads:Temy składowane jako zapołožki
-switch_to_thread_view:Do nitkoweho napohlad tuteje temy přeńć
+switch_to_thread_view:Do nitkoweho napohlada tuteje temy přeńć
 thread:Tema:
 thread_announcement:Připowědźenje:
 thread_first_unread_msg:K prěnjej njepřečitanej powěsći w tutej temje
@@ -364,7 +364,7 @@ my_buddies:Moji přećeljo
 add_buddy:Přećela přidać
 add:Přidać
 buddy_search:Zapodaj mjeno wužiwarja, kotrehož chceš přidać.
-member_search:Abo wužij funkciju  <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Wužiwarja namakać</a>, zo by wosobu namakał.
+member_search:Abo wužij funkciju  <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Wužiwarja namakać</a>, funkcija, zo by wosobu namakał.
 buddy_remove:wotstronić
 post_normal:Normalny
 post_sticky:Přilěpjeny

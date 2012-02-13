@@ -46,7 +46,7 @@ home:Acasă
 homepage:Pagina personală:
 icq_control_panel:Panoul de control mesaje ICQ
 icq_message_form:Formularul de mesaje ICQ:
-ignore_user:ignora toate mesajele trimise de acest utilizator
+ignore_user:ignoră toate mesajele trimise de acest utilizator
 im_aim:AIM:
 im_msnm:MSN Messenger:
 im_yahoo:Yahoo Messenger:
@@ -73,6 +73,7 @@ members:Membri
 calendar:Calendar
 cal_goto_date:Salt la:
 cal_birthday:Ziua de naștere: {VAR: user}
+cal_birthday_age:({PLURAL: age|$1 an|$1 ani}).
 message:Mesaj
 message_counter:Utilizatorii noștri au trimis un număr de <b>{PLURAL: post_count|$1 mesaj|$1 mesaje}</b> pe marginea <b>{PLURAL: thread_count|a $1 temă|a $1 teme}</b>.
 message_index:Indexul mesajului
@@ -83,8 +84,7 @@ moderation_queue:Moderator
 moderator:Moderator
 moderator_of:Moderator la:
 moderator_options:Optiunile Moderatorului
-# Fuzzy
-moderators:Moderator(i)
+moderators:{PLURAL: modcount|Moderator|Moderatori}
 more_unread_messages:mai multe mesaje necitite
 more_unread_messages_desc:Arata mai multe mesaje necitite si marcheaza mesajele citite
 move_thread:Muta
@@ -92,8 +92,7 @@ moved:Mutat in alt forum
 moved_thread_message:Aceasta tema a fost mutata in alt forum
 na:nedisponibil
 new_posts:Mesaje noi
-# Fuzzy
-new_private_messages:Aveti <span class="GenText" style="color: #ff0000">({VAR: c})</span> mesaje personale necitite
+new_private_messages:Aveți <span class="GenTextRed">({VAR: c})</span> {PLURAL: c|un mesaj privat necitit|mesaje private necitite}
 new_thread:Creeaza o noua tema
 newest_user:Cel mai nou utilizator este
 next_page:Pagina urmatoare
@@ -108,8 +107,7 @@ no_unread_locked:Aceasta tema a fost blocata
 no_unread_msg:Aceasta tema nu are mesaje necitite
 no_unread_msg_unreg:Mesajele necitite pot fi urmarite doar de utiliozatorii inregistrati
 num_pages:Pagini ({VAR: ttl_pg}):
-# Fuzzy
-num_votes:{VAR: obj->total_votes} vot(uri)
+num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|vot|voturi}
 occupation:Ocupatia:
 off:OPRIT
 on:PORNIT
@@ -124,8 +122,7 @@ posts_c:Trimise:
 prev_thread:Tema precedenta:
 usrinfo_private_message:Mesaje personale:
 profile:Profil
-# Fuzzy
-profile_desc:Apasati aici pentru a accesa panoul de control
+profile_desc:Accesați panoul de control al utilizatorului
 rate_thread:Voteaza tema
 refresh_list:Lista de reimprospatare
 register:Inregistreaza
@@ -165,8 +162,7 @@ subscribed_threads_desc:Schimba filtrul de teme la care sunteti inscris
 switch_to_thread_view:Schimba la vedere avansata a acestui forum
 thread:Tema:
 thread_announcement:Anunt:
-# Fuzzy
-thread_first_unread_msg:Apasati aici pentru a merge la primul mesaj din aceasta tema
+thread_first_unread_msg:Mergeți la primul mesaj din această temă
 thread_thread:Tema
 threads:Teme
 time:Ora
@@ -252,10 +248,25 @@ month_4:Aprilie
 month_5:Mai
 month_6:Junie
 month_7:Julie
+month_8:august
 month_9:Septembrie
 month_10:Octombrie
 month_11:Noiembrie
 month_12:Decembrie
+sunday:duminică
+sunday_short:D
+monday:luni
+monday_short:L
+tuesday:marți
+tuesday_short:Ma
+wednesday:miercuri
+wednesday_short:Mi
+thursday:joi
+thursday_short:J
+friday:vineri
+friday_short:V
+saturday:sâmbătă
+saturday_short:S
 male:Masculin
 female:Feminin
 unspecified:NESPECIFICAT
@@ -310,6 +321,8 @@ register_interests:Interese:
 register_image:Imagine:
 register_icq:Numar ICQ:
 register_aim:AIM:
+register_yahoo:Yahoo Messenger:
+register_msnm:MSN Messenger:
 register_homepage:Pagina personala:
 register_bday:Data nasterii:
 register_bday_desc:Daca selectati data nasterii atunci ceilati membri o vor putea vedea.
@@ -347,9 +360,11 @@ add:Adauga
 buddy_search:Introduceti numele celui pe care doriti sa il cautati.
 member_search:Sau foloseste optiunea <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Cauta persoana</a> pentru a gasi o persoana.
 buddy_remove:sterge
+post_normal:Normal
 post_annoncement:Anunt
 post_size:Marime
 post_color:Culoare
+post_font:Font
 create_thread:Creeaza Tema
 submit_reply:Trimite raspuns
 edit_message:Aplica modificarile mesajului
@@ -385,10 +400,12 @@ disable_smilies:Dezactiveaza smilies
 spell_check_msg:Verifica limba mesajului
 # Fuzzy
 post_form:Trimite Forum
+post_forum:Forum:
 post_title:Titlu:
 post_body:Corpul mesajului:
 post_options:Optiuni:
 post_preview_btn:Previzualizeaza mesaj
+post_cancel_btn:Revocare
 ignore_users:Utilizatori ignorati
 add_ignore:Adauga ingorare
 forum_terms:Termenii Forumului
@@ -529,6 +546,7 @@ poll_year:an
 poll_week:saptamana
 tabs_register:Setari
 tabs_subscriptions:Inscrieri
+tabs_bookmarkes:Semne de carte
 tabs_referrals:Referinte
 tabs_buddy_list:Lista prieteni
 tabs_ignore_list:Lista ignonari
@@ -597,8 +615,7 @@ post_err_edttimelimit_msg:Nu mai puteti modifica acest mesaj
 post_err_noannontopics_msg2:<legend>ERROR: Insufficient Privileges</legend>Anonymous users aren't allowed to create topics.
 post_err_noannonposts_msg2:<legend>ERROR: Insufficient Privileges</legend>Anonymous users aren't allowed to reply.
 post_err_floodtrig_title:EROARE: Incercare de flood prin intermediul mesajului trimis.
-# Fuzzy
-post_err_floodtrig_msg:Va rugam sa incercati din nou in {VAR: tm} secunde
+post_err_floodtrig_msg:Vă rugăm să încercați din nou {PLURAL: tm|într-o secundă|în $1 secunde}
 post_err_attach_size:Fisierul atasat este prea mare (peste limita de {VAR: MAX_F_SIZE} bytes)
 post_err_attach_ext:Extensia fișierului pe care încercați să-l încărcați nu se potrivește cu tipurile de fișiere acceptate.
 post_err_attach_filelimit:Incercati sa incarcati mai multe fisiere decat este permis
@@ -629,8 +646,7 @@ register_err_passwdnomatch:Parolele dumneavoastra nu se potrivesc
 register_err_invalidemail:Adresa de email nu este valida
 register_err_needname:Pentru a completa cu succces inregisatrarea trebuie sa va introduceti numele
 register_err_enterpasswd:Trebuie sa introduceti parola pentru a salva modificarile
-# Fuzzy
-register_err_adminpasswd:Trebuie sa introduceti parola de ADMINISTRATOR pentru a salva modificarile
+register_err_adminpasswd:Trebuie să introduceți parola dumneavoastră de <b>administrator</b> pentru a finaliza modificările.
 register_err_notyouremail:Cineva este deja inregistrat cu aceasta adresa de email
 register_err_avatartobig:Fisierul pe care incercati sa-l incarcati este prea mare, peste {GVAR: CUSTOM_AVATAR_MAX_SIZE}
 register_err_avatarnotallowed:Imaginea pe care doriti sa o incarcati nu are extensia corecta
@@ -662,11 +678,9 @@ thread_update:Navigare in forumul <a href="{TEMPLATE: thread_update_lnk}">{VAR-H
 tree_update:Navigare teme <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
 userinfo_update:Vizualizati profilul utilizatorului <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}'s</a>
 ERR_disabled_ttl:Optiune dezactivata
-# Fuzzy
-ERR_disabled_msg:Optiune dezactivata de administratorul sistemului
+ERR_disabled_msg:Această opțiunea a fost dezactivată de către administratorul sistemului.
 ERR_access_ttl:EROARE: Permisiune insuficienta
-# Fuzzy
-ERR_access_msg:Nu aveti permisiune pentru a executa aceasta actiune
+ERR_access_msg:Nu aveți permisiunile necesare pentru a executa această acțiune.
 ERR_registration_disabled_ttl:Inregistrarea dezactivata
 ERR_registration_disabled_msg:Administratorul a dezactivat inregistrarea, va rugam sa reveniti mai tarziu
 ERR_emailconf_ttl:EROARE: Contul dumneavoastra nu este inca confirmat
@@ -679,7 +693,7 @@ ERR_systemerr_ttl:EROARE: Eroare de sistem
 ERR_systemerr_msg:Eroare de sistem, va rugam sa o raportati la <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a>.
 email_title:Formular de trimitere email
 finduser_title:Cauta utilizator
-help_title:Intrebari frecvente
+help_title:Ajutor
 login_title:Formular de autentificare
 poll_title:Editor de sondaje
 register_title:Formular de inregistrare
@@ -765,6 +779,7 @@ rate_worst:Slab
 rate_best:Foarte Bun
 post_quote_msg:{VAR: msg->login} scris la data de {TEMPLATE: make_report_date}
 post_quote:Citare:
+post_quote_selected:Citează textul selectat
 userinfo_referals:Informatii referinta:
 userinfo_referals_count:{VAR: referals} Membri
 pm_no_space_title:Nu mai este spatiu!
@@ -786,6 +801,7 @@ th_expr_two_month:2 Luni
 th_expr_four_month:4 Luni
 th_expr_one_year:1 An
 thread_mod_delete:Sterge
+action_ip:IP
 action_latest_post:Ultimul mesaj trimis
 online_today_last_visit:Ultima pagina vizitata
 online_today_update:Lista cu persoane care au vizitat astazi forumul.
@@ -794,23 +810,23 @@ logedin_latest_post:Ultimul mesaj trimis:
 register_show_avatar:Arata imagini:
 register_show_avatar_desc:Permite ascunderea si afisarea mesajelor
 drawmsg_view_rest_post:Arata restul mesajelor
+post_re:Re:
 forumsel_goto_forum:Mergi la forum:
 minimsg_thread_view:Vizualizare Forum
 split_th_post_by:Trimis de:
 split_th_posted_on:Trimis la:
 split_th_subject:Subiect:
 split_th_new_thread_title:Noul titlu al temei:
+split_th_forum:Forum:
 split_th_split_sel:Imparte mesajele selectate
 split_th_split_unsel:Imparte mesajele neselectate
 split_th_messages:Mesaje
 split_th_select:Selecteaza
 report_report_post:Trimite raport
-# Fuzzy
-quicklogin_login:Autentifica
+quicklogin_login:Autentificare:
 quicklogin_password:Parolă:
 quicklogin_use_cookies:Foloseste cookies?
-# Fuzzy
-quicklogin_login_btn:Autentifica
+quicklogin_login_btn:Autentificare
 quick_reply:Răspuns rapid
 post_notification_desc:Anunta-ma cand cineva raspunde la acest mesaj.
 post_all_ext_allowed:(nerestrictionat)
@@ -824,18 +840,18 @@ pmsg_next_msg:Urmatorul mesaj
 pmsg_prev_msg:Mesaj precedent
 post_proc_reveal_spoiler:Arata spoiler
 register_jabber:Numele pentru Jabber:
+im_google:Google Talk:
+im_skype:Skype:
+im_twitter:Twitter:
 forum_contact:Contactare
 forum_home:Prima Pagina
-# Fuzzy
-post_cur_attached:fisiere atasate {VAR: i}
-# Fuzzy
-ignored_anon_post:{VAR: user_login} este ignorat
+post_cur_attached:atașate în acest moment: {VAR: i} {PLURAL: i|fișier|fișiere}
+ignored_anon_post:{GVAR: ANON_NICK} este ignorat
 ignored_user_post:Trimis de <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> este ignorat
 smladd_close_window:inchide fereastra
 post_list_smilies:arata toate smilies
 p_VISIBLE:Visibil
-# Fuzzy
-reported_in_thread:In tema
+reported_in_thread:În:
 help_back_to_top:Inceputul paginii
 help_return_to_index:Intoarcere la ajutor
 imsg_err_message_title:Mesaj incorect
@@ -865,6 +881,9 @@ search_desc_order:Ordine descendenta
 search_asc_order:Ordine ascendenta
 search_logic:Cautare logica:
 search_sorting:Sorteaza rezultatele dupa data:
+search_attach:Atașamente:
+search_attach_all:Cu sau fără
+search_attach_with:Cu atașamente
 post_proceed:OK
 post_moderated_forum:Ati trimis un mesaj intr-un forum moderat
 post_moderated_forum_ttl:Atentionare Forum moderat
@@ -958,8 +977,7 @@ findu_admin_opts_header:Optiuni Admin.
 findu_unban:DeBlocheaza
 findu_ban:Blocheaza
 findu_delete:Sterge
-# Fuzzy
-dmsg_reply_to:este un raspuns la mesajul #{VAR: obj->reply_to}
+dmsg_reply_to:este un răspuns la
 merge_topics:Combina Temele
 merge_topics_cp:Panoul de Control pentru Combinarea Temelor
 merge_topics_tpl:Selectati Temele pentru Combinat <font class="SmallText">(trebuie sa selectati cel putin 1 tema)</font>
@@ -981,12 +999,17 @@ reset_suffix:Daca ati primit acest mesaj din greseala, va rugam sa il ignorati. 
 usrinfo_last_visit:Ultima pagina vizitata:
 mnav_newer:mai nou decat
 mnav_older:mai vechi decat
+ip_search_by_ip:Căutare utilizatori după IP
+ip_search:Căutare
 ip_all_ips:Toate IP(urile) sunt folosite de '{VAR: user}'
 userinfo_real_name:Nume real:
+post_err_mod_forum_edit_ttl:EROARE
 post_err_mod_forum_edit_msg:Mesajele intr'un forum moderat nu pot fi editate.
 postcheck_session_invalid:Your session had expired, please re-submit the form. Sorry for the inconvenience.
+delete_message_extra_desc:<b>Opțional</b><br>Specificați un motiv pentru ștergerea mesajului, care va fi trimis autorului printr-un mesaj privat.
 delete_msg_removed_ttl:Mesajul dumneavoastra a fost sters de catre administrator.
 delete_msg_pm_body:Mesaj original
+delete_msg_pm_subject:Subiect: {VAR: data[15]}
 ip_whois_title:Informatii despre ISP
 register_theme:Tema:
 pmsg_trash:Goleste Cosul
@@ -996,13 +1019,13 @@ uc_cat_forum:&raquo; Forum Categorie
 uc_page_title:Vizualizare panou de control personal.
 search_options:Optiuni de cautare
 search_user_filter:Filtrat de utilizator:
-# Fuzzy
-register_none:Fara Notificare
+register_none:Nu mă notifica
 findu_no_conf:Utilizator neconfirmat
 register_max_sig_len:Lungimea Maxima:
 register_turing:Va rog sa introduceti codul afisat mai jos:
 register_err_turing:Cod de validare incorect.
 modque_cat:Categorie
+modque_forum:Forum
 idx_compact_forum_row:Forumuri Disponibile:
 mmd_del_title:Sterge Temele
 mmd_mov_title:Muta Temele
@@ -1013,3 +1036,54 @@ pmsg_pdf_btn:Creeaza Arhiva PDF
 search_results_hdr:{VAR: total} Rezultate Gasite
 thread_del_all:Șterge selecția
 thread_mov_all:Mută selecția
+dmsg_ip:IP:
+err_blockedaccnt_title:EROARE: Contul dumneavoastră a fost filtrat.
+unbookmark_all_topics:Elimină toate marcajele
+sml_emoticon:Emoticon
+sml_code:Cod
+post_not_logged_in:În prezent nu sunteți autentificat, iar mesajul va fi publicat ca anonim.
+post_common_bold:Aldin
+post_common_italics:Cursiv
+post_common_underline:Subliniat
+post_common_align_left:Aliniere la stânga
+post_common_align_center:Aliniere la centru
+post_common_align_right:Aliniere la dreapta
+post_common_link:Inserează un link
+post_common_link_popup:Locație link:
+post_common_email:Inserează o adresă de e-mail
+post_common_email_popup:Adresă de e-mail:
+post_common_image:Inserează o imagine
+post_common_image_popup:URL imagine:
+post_common_nlist:Adaugă listă numerotată
+post_common_blist:Adaugă listă cu puncte
+post_common_quote:Adaugă citat
+post_common_code:Adaugă cod
+rating_delete:Șterge
+tabs_notifications:Notificări
+finduser_flag:Drapel
+move_messages:Mută mesajele
+captcha_img_alt:Verificare CAPTCHA: va trebui să recunoașteți textul din imagine.
+powered-by:Propulsat de: FUDforum {GVAR: FORUM_VERSION}.
+copyright:Drepturi de autor &copy;2001-2011 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+code_title:Cod:
+code_select_all:Selectează tot
+code_show_hide:Arată / ascunde
+social_sites:Site-uri de rețele sociale:
+postcheck_min_len_err:Mesajul dumneavoastră este prea scurt. Lungimea minimă este de {PLURAL: post_min_len|$1 caracter|$1 caractere}.
+btn_about:Profil
+btn_delete:șterge
+btn_edit:modificare
+btn_reply:răspunde
+btn_forward:redirecționează
+btn_quote:citat
+btn_email:E-mail
+btn_show_posts:postări
+btn_homepage:www
+feed_rdf:Flux RDF
+feed_rss:Flux RSS2
+feed_atom:Flux ATOM
+custom_filed_required:Acest câmp este obligatoriu.
+pages:Pagini
+page_list_heading:Pagini disponibile
+page_list_total:{PLURAL: i|o pagină listată|$1 pagini listate}.
+pm_export_header:Mesaje private pentru {VAR: usr->alias}

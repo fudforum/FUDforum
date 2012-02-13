@@ -1,14 +1,14 @@
 # Messages for Egyptian Spoken Arabic (مصرى)
 # Exported from translatewiki.net
 # Author: Dudi
+# Author: Ghaly
 # Author: Meno25
 # Author: Naudefj
 
 action:فعل
 add_to_buddy_list:أضف إلى قائمه الأصدقاء
 admin:إداري
-# Fuzzy
-admin_control_panel:لوحه تحكم الإدارة
+admin_control_panel:الإداره
 administrator:إداري
 attachment:المرفق:
 avatar:أفاتر:
@@ -66,10 +66,14 @@ logged_in_list:قائمه المستخدمين الوالجين
 login:لُج
 login_header:الولوج:
 logout:اخرج
-# Fuzzy
-mark_all_read:علّم كل الرسائل مقروءة
+mark_all_read:علم على كل الرسايل انها إتقرت
 mark_all_read_desc:سوف تُعلّم كل رسائلك غير المقروءه مقروءة
 members:الأعضاء
+calendar:كالندر
+cal_goto_date:روح على:
+cal_day_heading:أحداث اليوم
+cal_no_events:مافيش حاجه مهمه حصلت اليوم ده
+cal_birthday:عيد ميلاد: {VAR: user}
 message:رسالة
 message_counter:أرسل مستخدمونا <b>{PLURAL: post_count|رساله واحدة|$1 رسائل}</b> فى <b>{PLURAL: thread_count|موضوع واحد|$1 مواضيع}</b>.
 message_index:فهرس الرسائل
@@ -93,8 +97,7 @@ new_thread:أنشئ موضوعًا جديدًا
 newest_user:أحدث مستخدم مُسجل هو
 next_page:الصفحه التالية
 next_thread:الموضوع التالي
-# Fuzzy
-no_messages:لا توجد رسائل فى هذا المنتدى.
+no_messages:مافيش رسايل فى  المنتدى  ده.<br />ابقى أول حد ينشر موضوع.
 no_msg_body:لا جسم للرسالة
 no_new_posts:لا رسائل جديدة
 no_posts:لا رسائل
@@ -256,6 +259,13 @@ month_9:سبتمبر
 month_10:أكتوبر
 month_11:نوفمبر
 month_12:ديسمبر
+sunday:الحد
+sunday_short:ح
+monday:الاتنين
+monday_short:إت
+friday:الجمعه
+saturday:السبت
+saturday_short:س
 male:ذكر
 female:أنثى
 unspecified:غير محدّد
@@ -449,6 +459,7 @@ rpasswd_login:لُج
 rpasswd_cur_pass:كلمه السر الحالية:
 rpasswd_new_pass:كلمه السر الجديدة:
 rpasswd_conf_pass:تأكيد كلمه السر:
+ruser_cur_pass:كلمه السر دلوقتى:
 login_passwd:كلمه السر:
 reset_email:البريد الإلكتروني:
 reset_reset_button:أعد ضبط كلمه السر
@@ -693,9 +704,9 @@ post_opt_html_off:أكواد <b>HTML مُعطّلة</b>
 post_opt_fud_off:<b>BBcode مُعطّل</b>
 post_opt_images_off:<b>الصور مُعطّلة</b>
 post_opt_smilies_off:<b>الابتسامات مُعطّلة</b>
-# Fuzzy
-post_opt:خيارات المنتدى
+post_opt:اختيارات المنتدى :
 register_change_passwd:غيّر كلمه السر
+register_change_login:غيّر الدخول
 approved_avatar_title:اعتمد أفاترك المُخصّص.
 approved_avatar_msg:اعتمد الإدارى أفتارك. ينبغى أن تظهر الآن فى جميع رسائلك. غذا لم ترها، أو إذا رأيت الأفتار القديمه، فلعل هذا بسبب اختزان متصفحك للصفحه. جرب إنعاش الصفحه مره أو مرتين. سوف يحل هذا مشكله الاختزان فى معظم الحالات.
 unapproved_avatar_title:رُفض أفتارك المُخصّص.

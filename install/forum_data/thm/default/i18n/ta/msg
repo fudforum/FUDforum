@@ -1,0 +1,1140 @@
+# Messages for Tamil (தமிழ்)
+# Exported from translatewiki.net
+# Author: Shanmugamp7
+# Author: TRYPPN
+
+action:செயல்
+add_to_buddy_list:நண்பர் பட்டியலில் சேர்
+admin:நிர்வாகி
+admin_control_panel:நிர்வாகம்
+administrator:நிர்வாகி
+attachment:இணைப்பு:
+avatar:சின்னம்:
+average_post_count:{PLURAL: u->posted_msg_count|$1 செய்தி|$1 செய்திகள்} ({PLURAL: avg|$1 சராசரி செய்தி |$1 சராசரி செய்திகள்} நாளொன்றுக்கு)
+biography:வாழ்க்கை வரலாறு:
+birth_date:பிறந்த நாள்:
+by:மூலம்(By):
+by_mod:நடுவரால்
+current_time:நடப்பு நேரம்
+custom_avatar_queue:தனிபயன் சின்ன  வரிசை
+date_posted:வெளியிட்ட தேதி
+date_registered:பதிவு செய்யப்பட்ட தேதி:
+download_counter:தகவலிறக்கம்  செய்யப்பட்டது {PLURAL: v[3]|   $1  முறை| $1  முறைகள்}
+pmsg_download_counter:தகவலிறக்கம்  செய்யப்பட்டது {PLURAL:r->dlcount|   $1  முறை| $1  முறைகள்}
+email:மின்னஞ்சல்:
+email_to_friend:நண்பருக்கு மின்னஞ்சல் அனுப்புதல்
+email_to_friend_desc:இப்பக்கத்துக்கான இணைய முகவரியை உங்கள் நண்பரின் பக்கத்துக்கு மின்னஞ்சல் மூலம் அனுப்பு
+email_user:பயனருக்கு  ஒரு மின்னஞ்சல் தகவல் அனுப்பு
+faq:உதவி
+first_unread_msg:வாசிக்கப்படாத தகவல்களுக்கு செல்லவும்
+first_unread_msg_desc:இந்த தலைப்பினுள் முதல் வாசிக்கப்பாடாத தகவலுக்கு செல்லவும்
+flat_view:இயல்புநிலை தட்டையான(Flat) காட்சிக்கு திரும்பவும்
+forum:கருத்துக்களம்:
+forum_icon:கருத்துக்கள சின்னம்
+forum_new_messages:புதிய செய்திகள்
+forum_none_messages:பதிவு செய்யப்பட்ட கருத்துக்கள உறுப்பினர்கள் மட்டும்  அறிய வாசிக்க &amp முடியும்; வாசிக்கப்படாத தகவல்கள்
+forum_old_messages:புதிய செய்திகள் இல்லை
+from:அனுப்புனர்:
+gender:பால்:
+go:செல்
+goto_next_msg:அடுத்த செய்திக்குச் செல்லுங்கள்
+goto_prev_msg:முந்தய செய்திக்குச் செல்லுங்கள்
+home:முதல் பக்கம்
+homepage:முதல் பக்கம்:
+icq_control_panel:ICQ இணைப்பு-செய்தி பலகை
+icq_message_form:ICQ செய்தி படிவம்:
+ignore_user:இந்த பயனரின்  அனைத்து தகவல்களையும் புறக்கணி
+im_aim:AIM கையாள்:
+im_msnm:MSN செய்தியனுப்பி(Messenger):
+im_yahoo:யாஹூ செய்தியனுப்பி(messenger):
+image:படம்:
+index_forum:கருத்துக்களம்
+index_new_posts:கடைசியாக வாசித்ததிலிருந்து புதிய செய்திகள்
+index_no_new_posts:கடைசியாக வாசித்ததிலிருந்து புதிய செய்திகள் எதுவுமில்லை
+index_url_redirection:மீள்வழிப்படுத்தல்
+interests:விருப்பங்கள்:
+last_post:கடைசி தகவல்
+last_thread_msg:இந்த தலைப்பினுள் கடைசி தகவலுக்கு செல்லவும்
+legend:உள்பட்டியல்
+location:இடம்:
+lock_thread:தலைப்பை பூட்டு
+locked:பூட்டப்பட்டுள்ளது
+locked_with_new_posts:பூட்டப்பட்டுள்ளது (W/ வாசிக்கப்படாத தகவல்கள்)
+logged_in_list:புகுபதிகை செய்த பயனர்கள் பட்டியல்
+login:புகுபதிகை
+login_header:புகுபதிகை:
+logout:விடுபதிகை
+mark_all_read:எல்லா தகவல்களையும் படித்ததாக குறியிடு
+mark_all_read_desc:வாசிக்கப்படாத அனைத்து தகவல்களும் வாசித்ததாக குறியிடப்படும்
+members:உறுப்பினர்கள்
+calendar:நாட்காட்டி
+cal_goto_date:தாவிச் செல்ல:
+cal_day_heading:நாளுக்கான நிகழ்வுகள்
+cal_no_events:நாளுக்கு நிகழ்வுகள் ஏதுமில்லை.
+cal_update:கருத்துக்கள நாட்காட்டியில் உலாவுகிறது,
+cal_birthday:பிறந்தநாள்:{VAR: user}
+cal_birthday_age:({PLURAL: age|$1 ஆண்டு|$1 ஆண்டுகள்} வயதானவர்).
+message:தகவல்
+message_counter:நமது பதிந்த மொத்த தொகுப்புகளின் எண்ணிக்கை <b>{PLURAL: post_count|$1 தகவல்|$1 தகவல்கள்}</b> உள்ளே<b>{PLURAL: thread_count|$1 தலைப்பு|$1 தலைப்புகள்}</b>.
+message_index:செய்தி குறியீடு
+message_index_desc:தகவல் பட்டியலை காண்
+minimize_category:வகைப்பாட்டை சிறிதாக்கு
+minimize_message:தகவலை சிறிதாக்கு
+moderation_queue:மதிப்பீட்டு வரிசை
+moderator:நடுவர்
+moderator_of:இதன் நடுவர்:
+moderator_options:நடுவர் (Moderator) விருப்பத்தேர்வுகள்
+moderators:{PLURAL: modcount|நடுவர்|நடுவர்கள்}
+more_unread_messages:மேலும் வாசிக்கப்படாத தகவல்கள்
+more_unread_messages_desc:மேலும் வாசிக்கப்படாத தகவல்களை காண்பி மற்றும் தற்போது பார்க்கக்கூடிய தகவல்களை வாசித்ததாக குறியிடு
+move_thread:நகர்த்தவும்
+moved:மற்றொரு கருத்துக்களத்துக்கு நகர்த்தப்பட்டது
+moved_thread_message:இந்த தலைப்பு மற்றொரு கருத்துக்களத்துக்கு நகர்த்தப்பட்டது
+na:இல்லை
+new_posts:புதிய செய்திகள்
+new_private_messages:உங்களுக்கு <span class="GenTextRed">({VAR: c})</span> வாசிக்கப்படாத {PLURAL: c|தனிப்பட்ட தகவல்|தனிப்பட்ட தகவல்கள்} உள்ளது.
+new_thread:ஒரு புதிய தலைப்பை உருவாக்கு
+newest_user:மிகப்புதிதாக பதிவு செய்யப்பட்ட பயனர்
+next_page:அடுத்த பக்கம்
+next_thread:அடுத்த தலைப்பு:
+no_messages:இந்த கருத்துக்களத்தில்  தகவல்கள் இல்லை.<br> ஒரு தலைப்பை முதன்முதலாக இந்த கருத்துக்களத்தில் உள்ளிடுபவராக இருங்கள்.
+no_msg_body:செய்தியின் மூல பகுதி இல்லை
+no_new_posts:புதிய தகவல் ஏதுமில்லை
+no_posts:தகவல்கள் எதுவும் இல்லை
+no_subscribed_forums:சந்தாப்படுத்தப்பட கருத்துக்களம் எதுவும்  இல்லை
+no_subscribed_threads:சந்தாப்படுத்தப்பட தலைப்புகள் எதுவும்  இல்லை
+no_bookmarked_threads:புத்தகக்குறியிடப்பட்ட தலைப்புகள் எதுவும் இல்லை
+no_unread_locked:இந்த தலைப்பு பூட்டப்பட்டுள்ளது
+no_unread_msg:இந்த தலைப்பிற்க்கு  வாசிக்கப்படாத தகவல்கள் எதுவும் இல்லை
+no_unread_msg_unreg:வாசித்த &amp; வாசிக்கப்படாத தகவல்கள் பதிவு செய்யப்பட்ட பயனீட்டாளர்களுக்கு மட்டுமே கண்காணிக்கப்படும்.
+num_pages:பக்கங்கள் ( {VAR: ttl_pg} ):
+num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|வாக்கு|வாக்குகள்}
+occupation:தொழில்:
+off:அணை
+on:அன்று
+page_timings:இந்த பக்கத்தை உருவாக்க எடுத்த மொத்தநேரம்:  {PLURAL: page_gen_time|   $1  விநாடிகள்}
+pm:தனிப்பட்ட செய்தியனுப்புதல்
+poll:கருத்து கணிப்பு:
+post_count:தகவல் எண்ணிக்கை{VAR: u_pcount}
+post_count_l:தகவல் எண்ணிக்கை:
+posts:தகவல்கள்
+posts_c:தகவல்கள்:
+prev_thread:முந்திய தலைப்பு:
+usrinfo_private_message:தனிப்பட்ட தகவல்:
+profile:கட்டுப்பாட்டு பலகம்
+profile_desc:பயனர் கட்டுப்பாட்டு பலகத்தை அணுகு
+rate_thread:தலைப்பை மதிப்பிடு
+rating:மதிப்பீடு
+rating_track:<b> {VAR: thr->subject} </b> தலைப்பிற்க்கான மதிப்பீடுகளை நிர்வகி :
+refresh_list:பட்டியலை புதுப்பிக்கவும்
+register:பதிவு செய்
+registered:பதிவுசெய்யப்பட்டது:
+registered_on:{TEMPLATE: registered_on_date} அன்று பதிவுசெய்யப்பட்டது
+replies:பதில்கள்
+report_to_mod:தகவலை ஒரு நடுவருக்கு அறிக்கையிடு
+reported_messages:தெரிவிக்கப்பட்ட தகவல்கள்
+reveal_all_posts:{VAR: user_login} மூலம் அனைத்து தகவல்களையும் வெளிப்படுத்தவும்
+reveal_post:தகவலை வெளிப்படுத்தவும்
+search:தேடு
+sel_todays_posts:இன்றைய தகவல்கள்
+sel_todays_posts_desc:இன்றைய தகவல்கள் வடிகட்டிக்கு நிலைமாற்று (இன்று உருவாக்கப்பட்ட தகவல்கள் மட்டுமே காண்பிக்கப்படும்)
+sel_unanswered_posts:பதிலளிக்கப்படாத  தகவல்கள்
+sel_unanswered_posts_desc:பலளிக்கப்படாத தகவல்கள் வடிகட்டிக்கு நிலைமாற்று (பதிலளிக்கப்படாத தகவல்கள் மட்டுமே காண்பிக்கப்படும்)
+sel_unread_messages:வாசிக்கப்படாத தகவல்கள்
+sel_unread_messages_desc:வாசிக்கப்படாத தகவல்கள் வடிகட்டிக்கு நிலைமாற்று (வாசிக்கப்படாத தகவல்கள் மட்டுமே காண்பிக்கப்படும்)
+send:அனுப்பு
+send_pm_desc:இந்த பயனருக்கு ஒரு தனிப்பட்ட  தகவல் அனுப்பவும்
+sender_email:அனுப்புநர் மின்னஞ்சல்:
+sender_name:அனுப்புநர் பெயர்:
+show_posts_by:{VAR: u_alias} மூலம் தகவல்களை காண்பி:
+size:அளவு:
+status:நிலை:
+status_line:இங்கு  <b>{PLURAL: st_obj->online_users_reg|$1 உறுப்பினர்|$1 உறுப்பினர்கள்}</b>, <b>{PLURAL: st_obj->online_users_hidden|$1 மறைந்துள்ள உறுப்பினர் |$1 மறைந்துள்ள உறுப்பினர்கள்}</b> மற்றும் <b>{PLURAL: st_obj->online_users_anon|$1 விருந்தினர்|$1 விருந்தினர்கள்}</b>இந்த குழுவை பார்வையிடுகிறார்கள்..
+sticky:ஒட்டக்கூடிய:
+stop_ignoring:இந்த பயனரை புறக்கணிப்பதை நிறுத்து
+sub_to_thread:தலைப்புக்கு பதிவுசெய்
+sub_to_thread_desc:இந்த தலைப்பினுள் உள்ள புதிய தகவல்களை  பற்றிய அறிவிப்புகளை பெறு
+bookmark_thread:தலைப்பை புத்தகக்குறியிடு
+bookmark_thread_desc:இந்த தலைப்பை உங்கள் புத்தககுறி பட்டியலில் சேர்
+subject:பொருள்
+subscribe:பதிவுசெய்
+subscribe_desc:ஒரு புதிய தலைப்பை யாராவது இந்த கருத்துக்களத்தில்  உருவாக்கினால்  அறிவிக்கைகளை பெறு
+subscribed_forums:பதிவுசெய்யப்பட்ட கருத்துக்களங்கள்
+subscribed_forums_desc:பதிவுசெய்யப்பட்ட கருத்துக்களங்கள் வடிகட்டிக்கு நிலைமாற்று (நீங்கள் பதிவுசெய்த  கருத்துக்கள தகவல்கள் மட்டுமே காண்பிக்கப்படும்)
+subscribed_threads:சந்தாப்படுத்தப்பட தலைப்புகள்
+subscribed_threads_desc:பதிவுசெய்யப்பட்ட தலைப்புகள் வடிகட்டிக்கு நிலைமாற்று (நீங்கள் பதிவுசெய்த  தலைப்பினுள் உள்ள தகவல்கள் மட்டுமே காண்பிக்கப்படும்)
+bookmarked_threads:புத்தகக்குறியிடப்பட்ட தலைப்புகள்
+switch_to_thread_view:இந்த தலைப்பின் திரிக்கப்பட்ட காட்சிக்கு  மாறவும்
+thread:தலைப்பு:
+thread_announcement:அறிவிப்பு:
+thread_first_unread_msg:இந்த தலைப்பினுள் முதல் வாசிக்கப்பாடாத தகவலுக்கு செல்லவும்
+thread_thread:தலைப்பு
+threads:தலைப்புகள்
+time:நேரம்
+todays_posts:இன்றைய தகவல்கள்
+todays_posts_desc:இன்று பதிவுசெய்யப்பட்ட அனைத்து தகவல்களையும் காண்பி
+un_ignore_user:இந்த பயனீட்டாளர் தகவல்களை புறக்கணிப்பதை நிறுத்து
+unanswered_posts:பதிலளிக்கப்படாத  தகவல்கள்
+unanswered_posts_desc:பதிலளிக்கப்படாத அனைத்து தகவல்களையும் காண்பி
+unlock_thread:தலைப்பை பூட்டுநீக்கு
+unread_msg:நீங்கள் இதுவரை படிக்காத தகவல்களை இந்த தலைப்பு கொண்டுள்ளது.
+unread_msg_locked:வாசிக்கப்படாத தகவல்கள் கொண்டுள்ள பூட்டப்பட்ட தலைப்புகள்
+unread_posts:வாசிக்கப்படாத தகவல்கள்
+unread_posts_desc:எல்லா வாசிக்கப்படாத தகவல்களையும் காண்பி
+unsub_from_thread:தலைப்பிலிருந்து பதிவுநீக்கு
+unsub_from_thread_desc:இந்த தலைப்பினுள் உள்ள புதிய தகவல்களை  பற்றிய அறிவிப்புகளை பெறுவதை நிறுத்து
+unbookmark_thread:புத்தககுறியிலிருந்து நீக்கு
+unbookmark_thread_desc:இந்த தலைப்பை உங்கள் புத்தககுறி பட்டியலிலிருந்து நீக்கு
+unsubscribe:பதிவுநீக்கு
+unsubscribe_desc:இந்த கருத்துக்களத்தில்  உள்ள புதிய தலைப்புகள் பற்றிய அறிவிப்புகளை பெறுவதை நிறுத்தவும்
+updated_on:அன்று புதுப்பிக்கப்பட்டது:
+user:பயனர்
+user_counter:எங்களிடம் <b>{VAR: st_obj->user_count}</b> பதிவுசெய்யப்பட்ட {PLURAL: st_obj->user_count|பயனர் |பயனர்கள்} உள்ளனர்.
+user_info:பயனீட்டாளர் தகவல்
+user_info_l:பயனீட்டாளர் தகவல்{VAR: u->alias}
+user_offline:{VAR: obj->login}தற்போது இணைப்பில் இல்லை
+user_online:{VAR: obj->login}தற்போது இணைப்பில் உள்ளது
+usrinfo_last_post:கடைசி தகவல்:
+view_results:முடிவுகளை காண்
+views:பார்வைகள்
+vote:{PLURAL: frm->n_rating|$1வாக்கு| $1  வாக்குகள்}
+vote_button:வாக்கு
+vote_for_thread:வாக்கு
+was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> ஆனது  <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a>க்கு நடுவரால் நகர்த்தப்பட்டது.
+welcome_message:வரவேற்பு <b> {VAR: usr->alias} </b>, உங்கள் கடைசி வருகை {TEMPLATE: welcome_message_date}
+what_ppl_doing:மக்கள் என்ன செய்கிறார்கள் என்பதை காண்பி
+reported_del_report:அறிக்கையை  நீக்கு
+reported_reason:காரணம்:
+reported_on:அன்று :
+reported_reported_by:ஆல் தெரிவிக்கப்பட்டது:
+reported_reported_msg:தெரிவிக்கப்பட்ட தகவல்கள்
+modque_pending_approval: ஒப்புதலுக்கு நிலுவையில் உள்ள  தகவல்கள்
+modque_approve:ஒப்புதல் அளி
+modque_delete:நீக்கவும்
+modque_no_message: ஒப்புதலுக்கு நிலுவையில் தகவல்கள் எதுவுமில்லை
+pmsg_new_messages:வாசிக்கப்படாத தனிப்பட்ட  தகவல்
+pmsg_old_messages:தனிப்பட்ட  தகவலை வாசி
+deny_recipt:பெறுவதை தடு
+deny_recipt_desc:நீங்கள் இந்த தகவலை படித்ததாக உறுதிப்படுத்தலை அனுப்பாதே.
+restore_to:மீட்டமைக்க:
+move_to:நகர்த்து:
+list_referes_referrals:பரிந்துரைகள்
+list_referes_members:குறிக்கப்பட்டுள்ள உறுப்பினர்கள்
+list_referes_member:உறுப்பினர்
+referals_none:பரிந்துரைகள் எதுவுமில்லை
+referals_refered_by:கருத்துக்கள உறுப்பினர்கள் இவரால் பரிந்துரைக்கப்பட்டது: <b><a href="{TEMPLATE: referals_refered_by_lnk}" class="thLnk">{VAR: p_user[1]}</a></b>
+referals_post_count:தகவல் எண்ணிக்கை
+referals_registered_on:அன்று பதிவுசெய்யப்பட்டது:
+referals_action:செயல்
+pmsg_all:அனைத்தும்
+pmsg_none:ஏதுமில்லை
+folder:கோப்புறை:
+pmsg_replied:பதில் அளிக்கப்பட்டது
+pmsg_forwarded:திருப்பி அனுப்பப்பட்டது
+pmsg_subject:பொருள்
+pmsg_author:ஆசிரியர்
+pmsg_time:நேரம்
+pmsg_selected:தேர்ந்தெடுக்கப்பட்டது
+pmsg_delete:நீக்கு
+cur_ppage_pm:தனிப்பட்ட செய்தியனுப்புதல்
+writing_pm:ஒரு தனிப்பட்ட செய்தியை எழுது
+browsing_folder:உலாவும்  <b> {VAR: folders[$folder_id]} </b> கோப்புறை
+inbox:உள்பெட்டி
+draft:வரைவு
+sent:அனுப்பப்பட்டது
+trash:குப்பை
+msg_author:ஆசிரியர்
+avatar_sel_form:சின்ன  தேர்வு படிவம்
+no_avatars:எந்த சின்னமும்  கிடைக்கப்பெறவில்லை
+month_1:ஜனவரி
+month_2:பிப்ரவரி
+month_3:மார்ச்
+month_4:ஏப்ரல்
+month_5:மே
+month_6:ஜூன்
+month_7:ஜூலை
+month_8:ஆகஸ்ட்
+month_9:செப்டம்பர்
+month_10:அக்டோபர்
+month_11:நவம்பர்
+month_12:டிசம்பர்
+sunday:ஞாயிறு
+sunday_short:ஞா
+monday:திங்கள்
+monday_short:தி
+tuesday:செவ்வாய்
+tuesday_short:செ
+wednesday:புதன்
+wednesday_short:பு
+thursday:வியாழன்
+thursday_short:வி
+friday:வெள்ளி
+friday_short:வெ
+saturday:சனி
+saturday_short:ச
+male:ஆண்
+female:பெண்
+unspecified:குறிப்பிடப்படாதது
+register_tree_view:கிளைக்காட்சி தகவல் மற்றும் தலைப்பு பட்டியலிடுதல்
+register_msg_tree_view:தட்டையான தலைப்பு பட்டியலிடுதல் / கிளை தகவல் பட்டியலிடுதல்
+register_tree_msg_view:கிளை தலைப்பு பட்டியலிடுதல் / தட்டையான தகவல் பட்டியலிடுதல்
+register_flat_view:காலவரிசைப்படி காட்சி தகவல்  மற்றும் தலைப்பு பட்டியலிடுதல்
+use_forum_default:கருத்துக்கள இயல்புநிலையை பயன்படுத்தவும்
+finduser_user_info:பயனீட்டாளர் தகவல்
+finduser_by_login:புகுபதிகை மூலம்
+finduser_submit:கண்டுபிடி
+finduser_no_such_user:அப்படியொரு பயனர் இல்லை.
+finduser_user:பயனர்
+finduser_postcount:தகவல் எண்ணிக்கை
+finduser_joindate:இணைந்த தேதி
+finduser_action:செயல்
+yes:ஆம்
+no:இல்லை
+register_email:மின்னஞ்சல்
+edit_time_limit:<b>நேர வரம்பை திருத்துகிறது</b>: {GVAR: EDIT_TIME_LIMIT} நிமிடங்கள்
+no_edit_time_limit:<b>நேர வரம்பை திருத்துகிறது</b>: வரம்பற்றது
+pmuserloc_login:புகுபதிகை:
+pmuserloc_submit:சமர்ப்பி
+pmuserloc_user:பயனர்
+pmuserloc_no_result:முடிவுகள் ஏதுமில்லை
+register_builtin:உருவாக்கப்பட்ட
+register_specify_url:இணைய முகவரி (URL) குறிப்பிடவும்
+register_uploaded:சின்னம் (அ) படத்தை பதிவேற்று
+register_login:புகுபதிகை:
+register_password:கடவுச்சொல்:
+register_conf_pass:கடவுச்சொல்லை உறுதிசெய்
+register_email_desc:தயவுகூர்ந்து செல்லத்தக்க மின்னஞ்சல் முகவரியை உள்ளிடவும்.  அதை விருப்பத்தேர்வுகள் பகுதியில் கீழே  மறையுமாறு தேர்ந்தெடுக்கலாம்.
+register_name:பெயர்:
+register_your_pass:உங்கள் கடவுச்சொல்:
+register_update:புதுப்பி
+register_avatar_type:பட வகை:
+register_del_avatar:சின்னத்தை நீக்கு
+register_avatar:சின்னம்:
+register_sel_avatar:சின்னத்தை தேர்ந்தெடு
+register_custom_avatar_rules:தனிப்பயன் படம் நிர்வாகி ஒப்புதல் வழங்கும் வரை தெரியாது.<br /><span class="SmallText">படம் (சின்னம்)  <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} pixels</b>க்கு மேல் பெரிதாக இருக்கக்கூடாது மற்றும் கண்டிப்பாக <b>jpg</b>, <b>gif</b> or <b>png</b> வடிவத்தில் இருக்கவேண்டும்.</span>
+register_custom_avatar_url:தனிப்பயன்  சின்ன இணையமுகவரி:
+register_preview:முன்னோட்டம்
+register_custom_avatar_upload:தனிப்பயன்  சின்ன கோப்பு:
+register_register:பதிவுசெய்
+register_required:தேவையான தகவல்
+register_required_desc:எல்லா புலங்களும் தேவைப்படுகின்றது. தயவுகூர்ந்து கடவுச்சொற்கள் எழுத்துவகை உணரக்கூடியது என்பதை குறித்துக்கொள்ளுங்கள்.
+register_optional:விருப்ப தகவல்
+register_optional_desc:உங்கள் சுயகுறிப்பில் தனிப்பட்ட அல்லது அடையாளங்காணும் தகவலை  வெளிப்படுத்த வேண்டாம் என பரிந்துரைக்கப்படுகிறது. எல்லா தகவல்களும்  மற்ற கருத்துகள உறுப்பினர்களுக்கு தெரியுமாறு இருக்கும்.
+register_location:இடம்:
+register_occupation:தொழில்:
+register_interests:விருப்பங்கள்:
+register_image:படம்:
+register_icq:ஐசிக்யு (ICQ):
+register_aim:AIM கையாளவும்:
+register_yahoo:யாஹூ செய்தியனுப்பி(messenger):
+register_msnm:MSN செய்தியனுப்பி(Messenger):
+register_homepage:முகப்பு பக்கம்:
+register_bday:பிறந்த தேதி:
+register_bday_desc:நீங்கள் பிறந்த நாளை உள்ளிட்டால், பின்னர் மற்ற அமைப்பின் உறுப்பினர்கள் உங்கள் சுயகுறிப்பில் அதனை பார்க்க முடியும்.
+register_day:நாள்
+register_month:மாதம்
+register_year:ஆண்டு
+register_gender:பாலினம்:
+register_bio:வாழ்க்கை வரலாறு:
+register_bio_desc:உங்களைப்பற்றி ஒரு சில  விவரங்கள், உங்கள் ஆர்வம், வேலை, ஆகியன போன்ற...
+register_prefs:விருப்பத்தேர்வுகள்
+register_sig:கையொப்பம்:
+register_sig_desc:விருப்ப கையொப்பம்,  உங்கள் தகவல்களின்  கீழ் தோன்றும்.
+register_reset:மீட்டமை
+register_def_thread_view:இயல்புநிலை தலைப்பு காட்சி:
+register_msg_per_page:ஒரு பக்கத்துக்கு தகவல்கள் :
+register_show_sig:கையொப்பங்களை காண்பி:
+register_show_sig_desc:மற்ற கருத்துகள உறுப்பினர்கள் கையொப்பங்களை மறைக்க அல்லது காண்பிக்க உங்களை அனுமதிக்கும்
+register_use_sig_default:கையொப்பத்தை இயல்பாக பயன்படுத்தவும்:
+register_use_sig_default_desc:தானாக உங்கள் கையொப்பத்தை நீங்கள் பதிவுசெய்யும் ஒவ்வொரு தகவலிலும் இணை.
+register_timezone:நேர வலயம்:
+register_ignore_admin:நிர்வாக தகவல்களை புறக்கணி:
+register_invisible_mode:புலப்படாத முறை:
+register_invisible_mode_desc:உங்கள் ஆன்லைன் நிலையை மறைக்கும்.
+register_show_email:மின்னஞ்சல் முகவரியை காண்பி:
+register_show_email_desc:உங்கள் மின்னஞ்சல் முகவரியை பொதுவாக காண்பிக்க விரும்பினால் இந்த விருப்பத்தேர்வை தேர்ந்தெடுக்கவும்.
+register_notification:இயல்புநிலையாக அறிவிக்கையை தேர்ந்தெடு:
+register_notification_desc:இயல்புநிலையாக அறிவிக்கைகள் இயங்கச்செய்யப்பட்டிருந்தால், அது  பதியும்போது (posting) செயலிழக்க செய்யப்படும்.
+register_notify_method:அறிவிப்பு முறையை தேர்வுசெய்:
+register_notify_method_desc:உங்கள் விருப்பப்பட்ட அறிவிக்கை முறையை அமைக்கவும் அல்லது செயலிழக்கம் செய்யவும் (உதாரணமாக விடுமுறை நாட்களில் நீங்கள் செல்லும்போது).
+register_allow_email_msg:மின்னஞ்சல் தகவல்களை அனுமதி:
+register_allow_email_msg_desc:மற்ற பயனர்கள் உங்களுக்கு இந்த கருத்துக்களம் வழியாக மின்னஞ்சல்கள் அனுப்ப அனுமதிக்கவும்.
+buddy_status:நிலை
+my_buddies:எனது நண்பர்கள்
+add_buddy:நண்பரை சேர்
+add:சேர்
+buddy_search:நீங்கள் சேர்க்க விரும்பும் பயனரின் உள்நுழைவு பெயரை உள்ளிடவும்.
+member_search:அல்லது<a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">பயனரை கண்டுபிடித்தல்</a> அம்சத்தை ஒருவரை கண்டுபிடிக்க உபயோகப்படுத்தவும்.
+buddy_remove:நீக்கு
+post_normal:சாதரணம்
+post_sticky:ஒட்டக்கூடிய
+post_annoncement:அறிவிப்பு
+post_size:அளவு
+post_color:நிறம்
+post_font:எழுத்துரு
+create_thread:தலைப்பை உருவாக்கு
+submit_reply:பதிலை சமர்ப்பிக்கவும்
+edit_message:தகவல் மாற்றங்களை பயன்படுத்து
+apply_spell_changes:எழுத்துப்பிழை மாற்றங்களை பயன்படுத்து
+post_preview:தகவல் முன்னோட்டம்
+post_logedin_user:புகுபதிகை செய்த பயனர்
+post_logout:விடுபதிகை
+post_passwd:பதிதல் கடவுச்சொல்:
+post_poll:கருத்து கணிப்பு:
+post_create_poll:கருத்துக்கணிப்பை உருவாக்கு
+post_poll_delete:நீக்கு
+post_poll_edit:திருத்து
+post_mod_opt:நடுவர் (Moderator) விருப்பத்தேர்வுகள்:
+post_thread_type:தலைப்பு வகை:
+post_thread_expiry:தலைப்பு காலாவதியாகும்:
+post_locked:தலைப்பு பூட்டப்பட்டுள்ளது
+post_icons:தகவல் சிறுஉருவபடம்:
+post_no_icon:படவுரு இல்லை
+post_smiley:சிரிப்புசின்ன (smiley)  சுருக்குவழிகள்:
+post_format_tools:வடிவமைப்பு கருவிகள்:
+post_upload_file:கோப்பைப் பதிவேற்று
+post_file_del:நீக்கு
+post_file_name:பெயர்
+post_file_size:அளவு
+file_attachments:கோப்பு இணைப்புகள்:
+allowed_files:அனுமதிக்கப்பட்ட கோப்பு விரிவாக்கங்கள்
+max_file_size:அதிகபட்ச கோப்பு அளவு:
+max_files_per_msg:ஒரு தகவலுக்கான அதிகபட்ச கோப்புகள்:
+post_notification:அறிவிக்கையை பதிவுசெய்
+include_sig:கையொப்பத்தை சேர்
+include_sig_desc:உங்கள் சுயவிவர கையொப்பத்தை சேர்க்கவும்.
+disable_smilies:இந்த தகவலில் உள்ள உணர்வுசின்னங்களை செயலிழக்க செய்
+spell_check_msg:தகவலை எழுத்துப்பிழை சரிபார்
+post_form:பதிதல்  படிவம்
+post_forum:கருத்துக்களம்:
+post_title:தலைப்பு:
+post_body:உள்ளடக்கம்
+post_options:விருப்பதேர்வுகள்:
+post_preview_btn:தகவலை முன்னோட்டமிடு
+post_cancel_btn:ரத்து செய்
+ignore_users:புறக்கணிக்கப்பட்ட  பயனர்கள்
+add_ignore:அறிவிலியை சேர்
+forum_terms:கருத்துக்கள விதிமுறைகள்
+forum_rules:<p>இந்த கருத்துக்களத்தில் பதிவுசெய்தல் இலவசம்! நாங்கள் உங்களை கீழேயுள்ள விதிகள் மற்றும் கொள்கைகளின் படி நடக்க வேண்டுகிறோம். நீங்கள் விதிமுறைகளுக்கு ஒத்துக்கொண்டால் தயவுசெய்து இந்தப்பக்கத்தின் இறுதியில் உள்ள <b>ஒத்துக்கொள்</b> பொத்தானை  அழுத்தவும். குறிப்பு: பொத்தனை அழுத்துவதன் மூலம் நீங்கள் 13வயதிற்கு மேற்பட்டவர் என உறுதிசெய்கிறீர்கள். நீங்கள் 13 வயதோ அல்லது அதற்குட்பட்டோ இருந்தால் தயவுசெய்து இந்த பதிவுசெய்தல் படிவத்தை உபயோகிக்கவும்.</p><p> இந்த களத்தின் தகவல்களை நிர்வாகிகள் மற்றும் நடுவர்கள் பரிசீலித்தாலும் அனைத்து தகவல்களையும் கண்காணிப்பது என்பது எங்களால் இயலாதது.அனைத்து செய்திகளும் ஆசிரியர் கருத்துக்களை வெளிப்படுத்துகின்றன மற்றும் கருத்துக்கள உரிமையாளர்கள் அல்லது உருவாக்குநர்கள் தகவல் உள்ளடக்கத்திற்கு பொறுப்பேற்பார்கள்.</p><p> ஒத்துக்கொள் பொத்தானை அழுத்துவதன் மூலம் நீங்கள் ஆபாசமான, மோசமான, இல்லையெனில் பால்-சார்ந்த, வெறுப்பான அச்சுறுத்தும், அல்லது  சட்டங்களை மீறுகின்ற தகவல்களை  பதிவுசெய்ய மாட்டேன் என உறுதியளிக்கிறீர்கள்.</p><p>இந்த கள உரிமையாளர்கள் எந்த தலைப்பை வேண்டுமானாலும் எந்த காரணத்திற்காகவும் நீக்க, திருத்த, நகர்த்த, மூட உரிமையுள்ளவர்கள் ஆவர்.</p>
+forum_rules_13:<p>பதிமூன்று வயதிற்கு உட்பட்ட அனைத்து பயனர்களும் இந்த கருத்துக்களத்தில் உறுப்பினராக தங்கள் பெற்றோர் அலலது பாதுகாவலரிடம் கண்டிப்பாக அனுமதி பெற வேண்டும். நாங்கள் 13 வயதிற்க்குட்பட்டவர்களிடம் இருந்து பங்களிப்பை வரவேற்கும்போது நாங்கள் அனுமதி வழங்கும்முன்  அவர்களின் பெற்றோர் அல்லது பாதுகாவலரின் கையொப்பமிட்ட படிவத்தை எங்களுக்கு தொலைநகலி அல்லது மின்னஞ்சலில் ணைப்ப வேண்டும்.</p><p>நீங்கள் பதிவுசெய்தலை நாங்கள் அனுமதி படிவத்தை பெரும்முன் செய்யவிரும்பினால் கீழேயுள்ள <b>ஒத்துக்கொள்</b> பொத்தானை அழுத்தவும். நீங்கள் பதிவுசெய்தலை ரத்துசெய்ய விரும்பினால் கருத்துக்கள அடைவுக்கு திரும்ப<b>ஒத்துக்கொள்ளதே</b>பொத்தானை அழுத்தவும்..</p><p> அனுமதி படிவத்தின் நகலை இங்கு பதிவிறக்கம் செய்யலாம். பதிவுசெய்தல் பற்றி மேலும் தகவல்களுக்கு தயவுசெய்து மின்னஞ்சலை <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>க்கு அனுப்பவும்.</p>
+coppa_conf:குழந்தைகளின் ஆன்லைன் தனியுரிமை பாதுகாப்பு சட்ட உறுதிப்படுத்தல்
+coppa_before:முன்பு {TEMPLATE: coppa_date}
+coppa_after:பிறகு {TEMPLATE: coppa_date}
+coppa_link:உங்கள் பிறந்த நாளுக்கு  ஏற்புடைய இணைப்பை கிளிக் செய்யவும்
+coppa:<p>பெற்றோர் அல்லது பாதுகாவலர் கண்டிப்பாக அஞ்சல் அல்லது தொலைநகல் மூலம் கையொப்பமிட்ட அனுமதி படிவத்தை இந்த கருத்துக்கள நிர்வாகியிடம்  சமர்பித்தால் தான் 13 வயதுக்குட்பட்ட  பயனீட்டாளர் பதிவுசெய்தலை  முடிக்க முடியும். .</p><p>மேலும் தகவல்களுக்கு தொடர்பு கொள்ளவும் <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a></p>
+prereg_info:கருத்துக்கள  விதிகள்
+prereg_agree:ஏற்றுக் கொள்
+prereg_disagree:ஏற்றுக் கொள்ள முடியாது
+prereg_update:கருத்துக்கள விதிகளை வாசித்தல்
+coppa_fax_instructions:பெற்றோர் அல்லது பாதுகாப்பாளருக்கான நெறிமுறைகள்
+coppa_fax_instructions2:தயவுகூர்ந்து இந்த பக்கத்தை அச்சிட்டு, அதில் கையெழுத்திட்டு மேலும் அதை இதற்கு  தொலைநகல் அனுப்பவும் :
+coppa_fax_reg_form:பதிவுப் படிவம்
+coppa_fax_sign:தயவுகூர்ந்து கீழேயுள்ள படிவத்தை  கையெழுத்திட்டு  எங்களுக்கு அனுப்பவும்
+coppa_fax_conf:நான் என்னுடைய குழந்தை அளித்துள்ள தகவலை பரிசீலித்துள்ளேன் மற்றும் வலைதளத்தின் தனியுரிமை கொள்கையை  நான் வாசித்தேன். சுயகுறிப்பு தகவலை ஒரு கடவுச்சொல் மூலம் மாற்றிவிடலாம் என்பதை புரிந்துகொண்டேன். நான் இந்த பதிவுசெய்த சுயகுறிப்பை இந்த களத்திலிருந்து முழுவதும் நீக்க கோருவேன் என்பதை புரிந்துகொண்டேன்.
+coppa_fax_permission:நீங்கள் அனுமதி அளித்தால் இங்கே ஒப்பமிடவும்
+coppa_fax_no_permission:நீங்கள் கணக்கு நீக்கப்படுவதை விரும்பினால் இங்கே ஒப்பமிடவும்
+coppa_fax_parent_name:பெற்றோர்/பாதுகாப்பாளரின் முழு பெயர்:
+coppa_fax_relation:குழந்தைக்கு உறவுமுறை:
+coppa_fax_telephone:தொலைபேசி:
+coppa_fax_email:மின்னஞ்சல் முகவரி:
+coppa_fax_date:தேதி:
+coppa_fax_questions:ஏதேனும் கேள்விகள் இருந்தால் தயவுகூர்ந்து தொடர்பு கொள்ளவும்<a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
+coppa_fax_login:புகுபதிகை
+coppa_fax_passwd:கடவுச்சொல்
+coppa_fax_remail:மின்னஞ்சல்
+coppa_fax_name:பெயர்
+login_not_logedin:நீங்கள் புகுபதிகை செய்யவில்லை. இது பல காரணங்களில் ஒன்றின் காரணமாக இருக்கலாம்.
+login_cookie_expired:உங்கள் அமர்வுகள் காலாவதியாகிவிட்டது, மேலும் உங்கள் அமர்வுகளை புதுப்பிக்க நீங்கள் புகுபதிகை செய்ய வேண்டும்.
+login_perm_denied:இவ்வாறு அறியாப்பயனராக கோரிய மூலத்தை அணுக உங்களுக்கு அனுமதி இல்லை. நீங்கள் அனுமதிபெற கண்டிப்பாக புகுபதிகை செய்யவேண்டும்.
+login_want_to_register:பதிவு செய்ய விரும்புகிறீர்களா?
+login_forgot_passwd:கடவுச்சொல் மறந்துவிட்டதா?
+login_use_cookie:அமர்வுகளை (cookies) உபயோகப்படுத்தவும்<br /><span class="SmallText"> நூலகம், பள்ளி, இணைய மையம் போன்ற ஒரு பொது முனையத்தை நீங்கள்  உபயோகப்படுத்திக் கொண்டிருந்தால் பாதுகாப்பு காரணங்களுக்காக இந்த விருப்பத்தேர்வை தேர்வு செய்யவேண்டாம் என பரிந்துரைக்கப்படுகிறது.இதனை தேர்வுசெய்திருந்தால் அடுத்தமுறை நீங்கள் பார்க்கும்பொது தானாக புகுபதிகை செய்யபப்டுவீர்கள்.</span>
+login_login:புகுபதிகை:
+login_login_btn:புகுபதிகை
+login_name_required:புகுபதிகை பெயர் தேவைப்படுகிறது
+login_passwd_required:கடவுச்சொல் தேவைப்படுகிறது
+login_invalid_radius:செல்லாத புகுபதிகை/கடவுச்சொல் சேர்மானம்
+reset_confirmation:பதிவுசெய்தமைக்கு நன்றி.\n \nஉங்கள் கணக்கை செயல்படுத்த தயவுசெய்து கீழேயுள்ள இணைய முகவரிக்கு செல்லவும்:\n\n{VAR: url}\n\nஉங்கள் கணக்கு செயல்படுத்தப்பட்டால் நீங்கள் கருத்துக்களத்தில் புகுபதிகை செய்யப்படுவீர்கள் மேலும் முதல் பக்கத்திற்கு வழிமாற்றப்படுவீர்கள்.
+reset_reset:வணக்கம்,\n\nநீங்கள் உங்கள் கடவுச்சொல்லை மீட்டமைக்க கோரியுள்ளீர்கள். இந்த செயலை முடிக்க தயவுசெய்து இந்த இணைய முகவரிக்கு செல்லவும்:\n\n{VAR: url}\n\nகுறிப்பு:இந்த அமைப்பு கடவுச்சொற்களை ஒருவழி குறியாக்க நுட்பத்தை பயன்படுத்தி சேமிக்கிறது. அப்படியெனில் ஒருதடவை நீங்கள் ஒருதடவை கடவுச்சொல்லை உள்ளிட்டால் அது குறியாக்கம் செய்யப்படும், எனவே அதை திரும்பபெற எந்த வழியும் இல்லை.\nஇது எங்களிடம் உள்ள குறியாக்கம் செய்யப்பட்ட பதிப்பு கடவுச்சொல்லுடன் நீங்கள் உள்ளிட்ட குறியாக்கம் செய்யப்பட்ட கடவுச்சொல்லுடன் ஒப்பிட்டு செயல்படுத்தப்படுகிறது.( எவ்வாறு இந்த முறை இயங்குகிறது எனபதில் ஆர்வம் இருந்தால் MD5 ஹாஷ் வழிமுறையை வாசிக்கவும்)
+rpasswd_invalid_passwd:செல்லாத கடவுச்சொல்
+rpasswd_passwd_nomatch:கடவுச் சொற்கள் பொருந்தவில்லை
+rpasswd_passwd_length:கடவுச்சொல் குறைந்தது 6 எழுத்துகள் நீளமாவது இருக்க வேண்டும்
+reset_remind_pass:கடவுச்சொல் நினைவுபடுத்தி
+reset_reset_conf:உங்கள் கடவுச்சொல் மீட்டமைக்கப்பட்டது மற்றும் உங்களுக்கு அனுப்பப்பட்டது. நீங்கள் இதுவரை  உங்கள் மின்னஞ்சல் முகவரியை உறுதி செய்யவில்லை எனில், உறுதிசெய்தல் கோரிக்கை உங்களுக்கு மீண்டும் அனுப்பப்பட்டுள்ளது.
+reset_error:மின்னஞ்சல் முகவரி தரவுதளத்தில் காணப்படவில்லை
+rpasswd_change_pass:கடவுச்சொல்லை மாற்று
+rpasswd_login:புகுபதிகை
+rpasswd_cur_pass:நடப்பு கடவுச்சொல்:
+rpasswd_new_pass:புதிய கடவுச்சொல்:
+rpasswd_conf_pass:கடவுச்சொல்லை உறுதிசெய்
+ruser_title:புகுபதிகை படிவத்தை மாற்று
+ruser_change_user:உங்கள் கருத்துக்கள புகுபதிகையை மாற்றவும்
+ruser_cur_login:நடப்பு புகுபதிகை:
+ruser_new_login:புதிய புகுபதிகை:
+ruser_cur_pass:நடப்பு கடவுச்சொல்:
+login_passwd:கடவுச்சொல்:
+reset_email:மின்னஞ்சல்:
+reset_reset_button:கடவுச்சொல்லை மீட்டமை
+rate_this_thread:விகிதம்
+report_reporting_about:பற்றி அறிவித்தல்:
+report_subject:பொருள்:
+report_by:மூலம்(By):
+report_posted_on:அன்று பதியப்பட்டது:
+report_give_reason:தயவுசெய்து ஏன் நீங்கள் இந்த தகவலை அறிக்கையிடுகிறீர்கள் என்ற காரணத்தை  அளிக்கவும்:
+report_submit_report:அறிக்கையை  சமர்ப்பிக்கவும்
+search_entire_msg:முழு தகவல்
+search_subject_only:பொருள் மட்டும்
+search_forum:கருத்துக்களம்
+search_posted_on:அன்று பதியப்பட்டது:
+search_no_results:முடிவுகள் ஏதுமில்லை
+search_all_forums:எல்லா கருத்துக்களங்களையும் தேடு
+search_in_forum:கருத்துக்களத்தில் தேடு
+search_forum_search:கருத்துக்கள  தேடல்
+move_thread_to:<b> {VAR: thr->subject} </b> க்கு தலைப்பை நகர்த்தவும் :
+remail_email_topic:இந்த தலைப்பை ஒரு நண்பருக்கு மின்னஞ்சல் அனுப்பு
+remail_your_name:உங்கள் பெயர்:
+remail_your_email:உங்கள் மின்னஞ்சல்:
+remail_friends_name:நண்பரின் பெயர்:
+remail_friends_email:நண்பரின் மின்னஞ்சல்:
+remail_required:தேவைப்படும்
+remail_subject:பொருள்:
+remail_message:தகவல்:
+remail_send_now:மின்னஞ்சலை இப்போது அனுப்பு
+remail_anon_opt:இந்த தகவலை உங்கள் விருப்பப்படி உங்கள் நண்பர்களுக்கு அனுப்ப இந்த தகவலை ஒரு மின்னஞ்சல் வழங்கியில் (client) நகலெடு
+remail_done:முடிந்தது
+remail_sent_conf:{VAR-HTML: _POST['femail']} ல் உங்கள் நண்பருக்கான மின்னஞ்சல் {VAR: data->subject} ஐ பற்றிய தலைப்பு வெற்றிகரமாக அனுப்பப்பட்டது.
+remail_error:அங்கே ஒரு  பிழை ஏற்பட்டுள்ளது
+mklist_type:வகை:
+mklist_option:விருப்பத் தேர்வு:
+mklist_additem:உருப்படியை சேர்
+mklist_apply:பயன்பாட்டிற்கு கொண்டுவா
+mklist_delete:நீக்கு
+qbud_nick_name:புனைப்பெயர்
+qbud_add_selected:தேர்ந்தெடுத்ததை சேர்
+qbud_selected:தேர்ந்தெடுக்கப்பட்டது
+qbud_no_buddies:தேர்ந்தெடுக்க இதில் நண்பர்கள் யாரும் இல்லை
+mklist_numerical:எண்ணியல்
+mklist_aplha:அகரவரிசை
+mklist_square:சதுரம்
+mklist_disc:வட்டு
+mklist_circle:வட்டம்
+mklist_close:மூடு
+email_to:பெறுநர்:
+email_pg_title:மின்னஞ்சல்
+email_subject:பொருள்:
+email_body:உள்ளடக்கம்:
+email_submit:மின்னஞ்சல்
+ppost_quote_msg:{VAR: msg_to_list} எழுதப்பட்ட நாள் {TEMPLATE: ppost_quote_msg_date}
+ppost_quote:மேற்கோள்:
+ppost_to:பெறுநர்:
+ppost_from_buddy_list:நண்பர்கள்  பட்டியலிலிருந்து தேர்ந்தெடு
+ppost_find_User:பயனரை கண்டுபிடி
+ppost_track_msg:இந்த தகவலை கண்காணிக்கவும்
+ppost_track_msg_desc:இந்த தகவல் படிக்கப்பட்டால் எனக்கு தெரிவி (தனிப்பட்ட செய்தி மூலமாக).
+ppost_send:அனுப்பு
+ppost_save_draft:வரைவை சேமி
+poll_blank_option:வெற்று விருப்பத்தேர்வை நீங்கள் சேர்க்க முடியாது.
+poll_del_conf:இந்த விருப்பத்தேர்வை நீக்க வேண்டுமானால், சரி என்பதை அழுத்தவும்
+poll_name:தேர்தல் பெயர்:
+poll_timelimit:நேர வரம்பு:
+poll_maxiumvotes:அதிகபட்ச வாக்குகள்:
+poll_create:உருவாக்கு
+poll_update:புதுப்பி
+poll_disablesmilies:உணர்வுச்சின்னங்களை செயலிழக்க செய்
+poll_create_poll:கருத்து கணிப்பை உருவாக்கு
+poll_update_poll:கருத்துக்கணிப்பை புதுப்பி
+poll_delete:நீக்கு
+poll_updateoption:விருப்பத் தேர்வை புதுப்பி
+poll_addoption:விருப்பத்தேர்வை  சேர்
+poll_unlimited:வரம்பற்றது
+poll_day:நாள்
+poll_days:நாட்கள்
+poll_hour:மணி
+poll_hours:மணிகள்
+poll_month:மாதம்
+poll_year:ஆண்டு
+poll_week:வாரம்
+tabs_register:கணக்கு அமைப்புகள்
+tabs_subscriptions:சந்தாக்கள்
+tabs_bookmarkes:புத்தகக்குறிகள்
+tabs_referrals:பரிந்துரைகள்
+tabs_buddy_list:நண்பர் பட்டியல்
+tabs_ignore_list: புறக்கணிப்பு பட்டியல்
+tabs_private_messaging:தனிப்பட்ட செய்தியனுப்புதல்
+single_msg_delete:நீங்கள் இதை <span class="ErrorText">நீக்க இருக்கிறீர்கள்</span> இந்த தலைப்பிடப்பட்ட செய்தி : <b>{VAR: data[3]}</b>
+thread_delete:நீங்கள்  <span class="ErrorText">  நீக்க </span> இந்த <span class="ErrorText">முழு தலைப்பை முயல்கிறீர்கள்</span> தலைப்பிடப்பட்டது: <b>{VAR: data[3]}</b>
+delete_proceed:<span class="fb">நீங்கள் தொடர விரும்புகிறீர்களா?</span>
+delete_yes:ஆம்
+delete_no:இல்லை
+error_invalidurl:செல்லாத இணைய முகவரி (URL)
+error_error:பிழை
+usrinfo_profile:{VAR: u->alias}ன் சுயவிவரம்
+usrinfo_show_all_posts:{VAR: u->alias}மூலமான அனைத்து தகவல்களையும் காண்பி
+actions_update:மற்றவர்களை அவர்களுக்கு தெரியாமல் பார்த்துக்கொண்டுள்ளது,உங்களைப்போல
+err_info:தகவல்
+buddy_list_err_cantadd:உங்களை நீங்களே உங்கள் நண்பர் பட்டியலில் சேர்க்க இயலாது.
+buddy_list_err_dup:நீங்கள் இந்த பயனரை உங்கள் நண்பர்கள் பட்டியலில் ஏற்கனவே வைத்துள்ளீர்கள்
+buddy_list_err_nouser:நீங்கள் உங்கள் நண்பர்கள் பட்டியலில் சேர்க்க முயன்ற பயனர் காணப்படவில்லை.
+buddy_list_err_nouser_title:பயனரை சேர்க்க இயலவில்லை
+buddy_list_err_ignore:உங்கள் நண்பர்கள் பட்டியலில் சேர்ப்பதை புறக்கணிக்கும் பயனர்களை சேர்க்க இயலாது.
+buddy_list_update:உங்களுடைய நண்பர்கள்  பட்டியலில் உலாவுகிறீர்கள்
+core_err_invinp_title:செல்லாத உள்ளீடு
+core_err_invinp_err:செல்லாத இணைப்பை தொடர்ந்து வந்துள்ளீர்கள்.எவ்வாறு இங்கு வந்தீர்கள் என்பதை  <a href="mailto:{GVAR: ADMIN_EMAIL}">வெப்மாஸ்டர்</a> தயவுசெய்து இங்கு தெரிவிக்கவும்.
+core_adm_login_msg:நிர்வாகிகள் <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">இங்கு</a>புகுபதிகை செய்யலாம்.
+email_err_unabletoemail_title:பிழை:மின்னஞ்சல் அனுப்ப இயலவில்லை
+email_err_unabletoemail_msg:மின்னஞ்சல் முறைமை, நிர்வாகியால் செயலிழக்கம் செய்யப்பட்டுள்ளது.
+email_error_unabletolocaddr:மன்னிக்கவும், அமைப்பால் மின்னஞ்சல் அனுப்ப முடியவில்லை {VAR-HTML: _POST['tx_name']}ஏனெனில் அதனால் மின்னஞ்சல் முகவரியை தீர்மானிக்க இயலவில்லை
+email_error_body:உள்ளடக்கம் தேவைப்படுகிறது
+email_error_subject:பொருள் தேவைப்படுகிறது
+email_error_namerequired:ஒரு பெயர் தேவைப்படுகிறது
+email_error_invaliduser:செல்லாத பயனர்
+emailconf_err_invkey_title:பிழை
+emailconf_err_invkey_msg:செல்லாத உறுதிசெய்தல் விசை. தயவுசெய்து நீங்கள் சரியான இணைய முகவரியை உள்ளிட்டுள்ளீர்கள் என்பதற்கு உங்கள் மின்னஞ்சலை சரிபார்க்கவும். நீங்கள் இருமுறை சொடுக்கியிருந்தால் உங்கள் கணக்கு ஏற்கனவே உறுதிசெய்யப்பட்டிருக்கும். வேறொரு விசையை கோர கருத்துக்களத்தில் புகுபதிகை செய்யவும்.\
+err_inc_criticaltitle:சிக்கலான பிழை
+err_inc_criticalmsg:ஒரு பிழை ஏற்பட்டுள்ளது. துரதிருஷ்டவசமாக,பிழை அறிவிப்பு அமைப்பிலும் பிரச்சினை உள்ளது.
+finduser_update:பயனர்களை  தேடுகிறது
+help_index_update:வாசித்தல், <a href="{TEMPLATE: help_index_update_lnk}">உதவி</a>
+iemail_thr_subject:புதிய பதில் {VAR: thr_subject}க்கு {VAR: poster_login}ஆல்
+iemail_thr_bodyemail:வாசிக்கப்படாத பதிலளிப்புகளை காண செல்லவும் {VAR: goto_url['email']}\nநீங்கள் மேலும் இந்த தலைப்புக்கான பதிலளிப்புகள் பற்றிய  அறிவிப்புகளை பெற விரும்பவில்லை எனில், தயவுசெய்து இங்கு செல்லவும்:{VAR: unsub_url['email']}
+iemail_frm_subject:புதிய தலைப்பு கருத்துக்களம்  {VAR: frm_name}ல் ,  {VAR: thr_subject}  எனப்படும், {VAR: poster_login}மூலம்.
+iemail_frm_bodyemail:இந்த தலைப்பை காண செல்லவும்:\n{VAR: goto_url['email']}\nஇந்த கருத்துக்களத்தில் புதிய தலைப்புகள் பற்றிய அறிவிக்கைகள் பெறுவதை நிறுத்த செல்லவும்: {VAR: unsub_url['email']}
+iemail_participate:விவாதத்தில் கலந்து கொள்ள இங்கு செல்லவும் :
+ignore_list_err_info_title:தகவல்
+ignore_list_err_dup_msg:நீங்கள் இந்த பயனரை உங்கள் புறக்கணிப்பு பட்டியலில் ஏற்கனவே வைத்துள்ளீர்கள்
+ignore_list_err_nu_title:பயனர் காணப்படவில்லை
+ignore_list_err_nu_msg:நீங்கள் உங்கள் புறக்கணிப்பு பட்டியலில் சேர்க்க முயன்ற பயனர் காணப்படவில்லை.
+ignore_list_cantign_msg:இந்த பயனரை புறக்கணிக்க இயலாது
+ignore_list_update:உங்களுடைய சொந்த புறக்கணிப்பு  பட்டியலில் உலாவுகிறீர்கள்
+index_update:<a href="{TEMPLATE: index_update_lnk}">கருத்துக்கள பட்டியலில்</a> உலாவுகிறது
+list_referers_update:உலாவுதல் பரிந்துரைகள்
+login_update:புகுபதிகை படிவம்
+msg_update:உலாவுகிற தலைப்பு <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
+pm_err_nopm_title:பிழை: தனிப்பட்ட தகவலனுப்புதல் செயலிழக்கம் செய்யப்பட்டுள்ளது
+pm_err_nopm_msg:தனிப்பட்ட தகவலனுப்புதல்  அமைப்பை நீங்கள்  பயன்படுத்த முடியாது. அது, நிர்வாகியால் செயலிழக்கம் செய்யப்பட்டுள்ளது.
+pm_update:தனிப்பட்ட தகவலனுப்புவதை பயன்படுத்தி
+post_err_lockedthread_title:பிழை: பூட்டப்பட்ட தலைப்பு
+post_err_lockedthread_msg:இந்த தலைப்பு பூட்டப்பட்டுள்ளது. பதிதல் இனி அனுமதிக்கப்படாது.
+err_coppa_title:பிழை: உங்கள் கணக்கு இதுவரை உறுதிசெய்யப்படவில்லை
+err_coppa_msg:நாங்கள் உங்கள் பெற்றோர் அல்லது பாதுகாவலரிடமிருந்து எந்த உறுதியும் பெறவில்லை. அதைப்பெற்றால் மட்டுமே உங்களால் பதிய இயலும். நீங்கள் அதை தொலைத்திருந்தால், <a href="{TEMPLATE: err_coppa_msg_lnk}">மீண்டும் பாருங்கள்</a>.
+err_banned_acct_title:பிழை: நீங்கள் தடுக்கப்பட்டுள்ளீர்கள்.
+err_banned_acct_msg:கருத்துக்கள விதிகளை மீறியமைக்காக இந்த தளத்தை அணுகுவதிலிருந்து  உங்கள் கணக்கு {IF: $ban_expiry} {DATE: ban_expiry %a, %d %B %Y %H:%M}வரை தற்காலிகமாக தடுக்கப்பட்டுள்ளது {ELSE}நிரந்தரமாக தடைசெய்யப்பட்டுள்ளது{ENDI}.
+post_err_edttimelimit_title:பிழை
+post_err_edttimelimit_msg:நீங்கள் இனி இந்த தகவலை திருத்த இயலாது
+post_err_noannontopics_msg2:<legend>பிழை: போதுமான உரிமைகள் இல்லை </legend>அறியாப்பயனர் தலைப்புகளை உருவாக்க அனுமதிக்கப்படாது.
+post_err_noannonposts_msg2:<legend>பிழை: போதுமான உரிமைகள் இல்லை </legend>அறியாப்பயனர் பதிலளிக்க அனுமதிக்கப்படாது.
+post_err_floodtrig_title:பிழை: பதிவு வெள்ளம் தூண்டப்பட்டது.
+post_err_floodtrig_msg:தயவுகூர்ந்து மீண்டும் முயற்சிக்கவும்  {PLURAL: tm|   $1  விநாடி| $1  விநாடிகள்}
+post_err_attach_size:இணைப்பு கோப்பு  மிக பெரிதாக உள்ளது (அனுமதிக்கப்பட்ட வரம்பு {VAR: MAX_F_SIZE}  பைட்கள்)
+post_err_attach_ext:நீங்கள் தகவலேற்ற  முயற்சிக்கும் கோப்பு, அனுமதிக்கப்பட்ட கோப்பு வகைகளுடன் பொருந்தவில்லை.
+post_err_attach_filelimit:அனுமதிக்கப்பட்டதைவிட நீங்கள் அதிகமாக கோப்புகளை  பதிவேற்ற முயல்கிறீர்கள்.
+post_err_passwd:தவறான கடவுச்சொல்.
+post_reply_update:பதில்  அனுப்பப்படுகிறது இதற்கு'<a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> in {VAR: frm->name}
+post_topic_update:புதிய தலைப்பு எழுதப்படுகிறது<a href="{TEMPLATE: post_topic_update_lnk}">{VAR: frm->name}</a>
+post_error_generic:அங்கே ஒரு  பிழை ஏற்பட்டுள்ளது
+postcheck_max_images_err:{GVAR: MAX_IMAGE_COUNT}க்கு மேல் படங்கள்  ஒரு தகவலில் அனுமதிக்கப்படாது. தயவுகூர்ந்து படங்களின் எண்ணிக்கையை குறைக்கவும்.
+postcheck_no_links_allowed:நீங்கள் {PLURAL: posts_before_links|   $1 தகவல்| $1  தகவல்களை}பதியும் வரை இணைப்புகளை நீங்கள் பயன்படுத்த இயலாது.
+postcheck_subj_needed:பொருள் தேவைப்படுகிறது.
+postcheck_no_such_user:இந்த கருத்துக்களத்தில்  "{FUNC: char_fix(htmlspecialchars($v))}" என பெயர் கொண்ட பயனர் யாருமில்லை.
+postcheck_ignored:நீங்கள்  "{FUNC: char_fix(htmlspecialchars($v))}"க்கு தனிப்பட்ட தகவல் அனுப்ப முடியாது , ஏனென்றால் இந்த பயனீட்டாளர் உங்களை புறக்கணிகிறார்.
+postcheck_no_recepient:தகவல் அனுப்பஇயலாது,பெறுநர் காணப்படவில்லை
+postcheck_invalid_email:தயவுசெய்து உங்கள் நண்பரின் செல்லத்தக்க மின்னஞ்சல் முகவரியை  உள்ளிடுங்கள் .
+postcheck_email_subject:நீங்கள்  பொருள் இல்லாமல் ஒரு மின்னஞ்சல் அனுப்ப இயலாது.
+postcheck_email_body:நீங்கள் தகவல் உள்ளடக்கம் இல்லாமல் ஒரு மின்னஞ்சல் அனுப்ப இயலாது.
+private_msg_notify_subj:{VAR: m->subject}க்கான அறிவிக்கையை படிக்கவும்:
+private_msg_notify_body:வணக்கம்,<br />{VAR: usr->login} தனிப்பட்ட தகவலை திறந்துள்ளார்,தலைப்பு "{VAR: m->subject}".<br />இது ஒரு தானியங்கு அறிவிக்கை {TEMPLATE: private_msg_notify_body_date}ல் உருவாக்கப்பட்டது<br />
+referals_update:உலாவுதல் பரிந்துரைகள்
+register_err_short_login:நீங்கள் தேர்ந்தெடுத்த புகுபதிகை பெயர் மிக குறுகியதாக உள்ளது. புகுபதிகை பெயர்கள் குறைந்தது 4எழுத்துகள் நீளமாவது இருக்க வேண்டும்
+register_err_login_notallowed:இந்த புகுபதிகை பெயர் அனுமதிக்கப்படாது.
+register_err_loginunique:கருத்துக்கள புகுபதிகை பெயர்கள் பிரத்யேகமாக இருக்க வேண்டும். இந்த பெயரில் ஒரு பயனர் ஏற்கனவே உள்ளார்.
+register_err_emailexists:இந்த மின்னஞ்சல் முகவரி ஏற்கனவே ஒரு கணக்குடன் தொடர்புபடுத்தப்பட்டுள்ளது. நீங்கள் கடவுச்சொல்லை மறந்திருந்தால் மறுபடியும் பதிவுசெய்வதற்கு பதிலாக தயவுசெய்து கடவுச்சொல் மீட்டமைப்பு விருப்பத்தேர்வை பயன்படுத்தவும்.
+register_err_shortpasswd:கடவுச்சொற்கள் குறைந்தது 6 எழுத்துகள் நீளமாவது இருக்க வேண்டும்
+register_err_passwdnomatch:உங்கள் கடவுச்சொற்கள் ஒரேமாதிரியாக இல்லை, தயவுசெய்து மீண்டும் முயற்சிக்கவும்.
+register_err_invalidemail:நீங்கள் குறிப்பிட்ட மின்னஞ்சல் முகவரி செல்லத்தக்கதாக தெரியவில்லை .
+register_err_needname:இந்த பதிவை வெற்றிகரமாக நிறைவு செய்ய நீங்கள் கண்டிப்பாக உங்கள் பெயரை உள்ளிட வேண்டும்.
+register_err_enterpasswd:நீங்கள் மாற்றங்களை பூர்த்தி செய்ய உங்கள் நடப்பு கடவுச்சொல்லை உள்ளிட வேண்டும்.
+register_err_adminpasswd:நீங்கள் மாற்றங்களை பூர்த்தி செய்ய உங்கள் <b>நிர்வாகிக்கான</b> கடவுச்சொல்லை உள்ளிட வேண்டும்.
+register_err_notyouremail:இந்த மின்னஞ்சல் முகவரியைக் கொண்டு வேறொருவர் ஏற்கனவே பதிவுசெய்துள்ளார்.
+register_err_avatartobig:நீங்கள் தகவலேற்ற  முயற்சிக்கும் கோப்பு மிக பெரிதாக  உள்ளது,மேலும் {GVAR: CUSTOM_AVATAR_MAX_SIZE}க்கு அதிகமான பைட்கள்.
+register_err_avatarnotallowed:நீங்கள் தகவலேற்ற முயற்சிக்கும் படம் அனுமதிக்கப்படாதது. அனுமதிக்கப்பட்ட கோப்பு வகைகளை பார்க்கவும்.
+register_conf_subject:பதிவு உறுதிசெய்தல்
+register_conf_msg:பதிவுசெய்தமைக்கு நன்றி,\nஉங்கள் கணக்கை செயல்படுத்த கீழேயுள்ள இணைய முகவரிக்கு செல்லவும்:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nஉங்கள் கணக்கு செயலாக்கப்பட்டால் நீங்கள் கருத்துக்களத்தில் புகுபதிகை செய்யப்படுவீர்கள்.மேலும் முதல் பக்கத்திற்கு வழிமாற்றப்படுவீர்கள்.
+register_welcome_subject:கருத்துக்கள பதிவு உறுதிசெய்தல்
+register_welcome_msg:பதிவுசெய்தமைக்கு நன்றி,\n\nஇங்கு கருத்துக்களத்திற்கான உங்கள் புகுபதிகை விவரங்கள்:\n\nகருத்துக்கள இணையமுகவரி: {TEMPLATE: index_update_lnk}\nபுகுபதிகை பெயர்: {VAR: uent->login}\nகடவுச்சொல்: {VAR: _POST['reg_plaintext_passwd']}\n\nதயவுசெய்து குறித்துக்கொள்ளுங்கள் கடவுச்சொற்கள் எழுத்துஉணர்வு கொண்டவை.\nஉங்கள் அமைவுகள் அல்லது சுயகுறிப்பை மாற்ற, இந்த பக்கத்திற்கு செல்லுங்கள்:\n{FULL_ROOT}{ROOT}?t=register
+register_err_cantreg_title:பிழை: பதிவு செய்ய இயலவில்லை
+regsiter_err_cantreg_msg:பயனர் கணக்கை உருவாக்க இயலவில்லை. தயவுசெய்து நிர்வாகியை இதில் தொடர்புகொள்ளவும்<a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
+register_profile_update:சொந்த சுயகுறிப்பை பார்க்கிறீர்கள்
+register_register_update:பதிவுப் பக்கம்
+report_err_nosuchmsg_title:பிழை
+report_err_nosuchmsg_msg:அப்படியொரு தகவல் இல்லை
+reset_err_invalidkey_title:பிழை
+reset_err_invalidkey_msg:செல்லாத கடவுச்சொல் மீட்டமை விசை. உங்கள் மின்னஞ்சல் கிளயண்ட் தானாக ஏற்கனவே இந்த பக்கத்தை திறந்து, கடவுச்சொல் மீட்டமை விசையை செல்லாததாக்க வாய்ப்புள்ளது. அப்படியானால் உடன் நீங்கள்  உங்கள் புதிய கடவுச்சொல் மின்னஞ்சலை பெறுவீர்கள். இத்தகைய மின்னஞ்சல் வரவில்லை எனில்,  தயவுகூர்ந்து கடவுச்சொல் மீட்டமைப்பை மறுபடியும் முயற்சிக்கவும்.
+reset_err_rstconf_title:தகவல்
+reset_err_rstconf_msg:நீங்கள் நெறிமுறைகளை உங்கள் மின்னஞ்சலில் அடுத்த சில நிமிடங்களில் பெற வேண்டும்.
+reset_newpass_title:கடவுச்சொல்லை மீட்டமை
+reset_newpass_msg:வணக்கம்,\n\nகோரியபடி, உங்கள் புகுபதிகை விவரங்கள் கீழே காண்பிக்கப்பட்டுள்ளன:\nபுகுபதிகை: {VAR: ui[1]}\nகடவுச்சொல்: {VAR: passwd}\n\nதயவுசெய்து குறித்துக்கொள்ளுங்கள் உங்கள் கடவுச்சொல் மேலேயுள்ள மதிப்பிற்கு மீட்டமைக்கப்பட்டுள்ளது. நீங்கள் உங்கள் கடவுச்சொல்லை மாற்ற  விரும்பினால் அதை {FULL_ROOT}{ROOT}?t=register இங்குள்ள பயனர் விவர கட்டுப்பாட்டு பலகத்தில் மாற்றலாம்.
+reset_login_notify:உங்கள் கடவுச்சொல் உங்களுக்கு மின்னஞ்சல் அனுப்பப்பட்டுவிட்டது. நீங்கள் அதை அடுத்த சில நிமிடங்களுக்குள் பெற வேண்டும்.<br>
+search_update:தகவல்களை தேடுகிறது
+selmsg_update:<a href="{TEMPLATE: selmsg_update_lnk}">இன்றைய பதிவுகளை</a> உலாவுகிறது.
+showposts_update:பதிவுகளை பார்த்தல் மூலம்: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
+subscribed_update:சொந்த சந்தாக்களில் உலாவுதல்
+bookmarked_update:சொந்த புத்தகக்குறி பட்டியலில் உலாவுதல்
+thread_update:உலாவுகிற கருத்துக்களம்<a href="{TEMPLATE: thread_update_lnk}">{VAR: frm->name}</a>
+tree_update:உலாவுகிற தலைப்பு (கிளைக் காட்சி)<a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
+userinfo_update: <a href="{TEMPLATE: userinfo_update_lnk}">  {VAR: u->alias} என்ற</a> சுயகுறிப்பில் காண்கையில்
+ERR_login_msg2:<legend>பிழை: நீங்கள் புகுபதிகை செய்யவில்லை</legend>இப்பக்கத்தை அணுக நீங்கள்  இந்த அமைப்பின் உறுப்பினராக இருக்க வேண்டும்.
+ERR_disabled_ttl:செயலிழக்கம் செய்யப்பட்ட அம்சம்
+ERR_disabled_msg:இந்த அம்சம் அமைப்பு நிர்வாகியால் செயலிழக்கம் செய்யப்பட்டுள்ளது.
+ERR_access_ttl:பிழை: போதுமான அனுமதிகள் இல்லை
+ERR_access_msg:இந்த செயலை நிகழ்த்த தேவையான அனுமதியை நீங்கள் கொண்டிருக்கவில்லை
+ERR_registration_disabled_ttl:பதிவுசெய்தல் செயலிழக்கம் செய்யப்பட்டுள்ளது
+ERR_registration_disabled_msg:பதிவு செய்தல், நிர்வாகியால் செயலிழக்கம் செய்யப்பட்டுள்ளது. தயவுகூர்ந்து பிறகு மீண்டும் முயற்சிக்கவும்.
+ERR_emailconf_ttl:பிழை: உங்கள் கணக்கு இதுவரை உறுதிசெய்யப்படவில்லை
+ERR_emailconf_msg:நீங்கள் உங்கள் கணக்கை மின்னஞ்சல் வழியாக இதுவரை உறுதிசெய்யவில்லை.<br /><table border="0"><tr><td><ol><li>நீங்கள் ஒரு உறுதிப்படுத்தல் மினஞ்சலை பெறவில்லையெனில், <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">request it again</a>.</li><li>If {VAR: usr_d->email} ஆனது உங்கள் சரியான  மின்னஞ்சல் இல்லை, <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">சரியான முகவரியை குறிப்பிடவும்</a>.</li></ol></td></tr></table>
+ERR_user_ttl:பிழை:அப்படியொரு பயனர் இல்லை
+ERR_user_msg:அப்படியொரு பயனர் யாரும் இல்லை
+ERR_systemerr_ttl:பிழை: அமைப்பு பிழை
+ERR_systemerr_msg:அமைப்பு பிழை ஏற்பட்டுள்ளது. தயவுகூர்ந்து<a href="mailto:{GVAR: ADMIN_EMAIL}">வெப்மாஸ்டர்</a>ல் அறிக்கை அளிக்கவும்.
+email_title:மின்னஞ்சல் படிவம்
+finduser_title:பயனரை கண்டுபிடி
+help_title:உதவி
+login_title:புகுபதிகை படிவம்
+poll_title:தேர்தல் திருத்துனர்
+register_title:பதிவு படிவம்
+reset_title:கடவுச்சொல்லை மீட்டமை
+rpasswd_title:கடவுச்சொல் மாற்று படிவம்
+error_title:பிழை படிவம்
+index_title:இந்த கருத்துக்களத்திற்கு நல்வரவு
+search_title:{VAR-HTML: srch}க்கு தேடு
+remail_emailsent:மின்னஞ்சல் அனுப்பப்பட்டது
+remail_email:வணக்கம்,\n\nஅங்கு ஒரு சுவாரசியமான தலைப்பு"{VAR: data->subject}" {GVAR: FORUM_TITLE}ல் உள்ளது இதை நீங்கள் படிக்க விரும்பலாம்.\n நீங்கள் இந்த தலைப்பை இங்கு காணலாம்:\n {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nஉங்கள் நண்பன்,\n\n{VAR: usr->alias}
+poll_add_option:விருப்பத்தேர்வை  சேர்:
+post_opt_html_on:<b>எச்டிஎம்எல்</b>ஆனது <b>இதில் </b>
+post_opt_fud_on:<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>பிபிகுறியீடு</b> ஆனது <b>இதில்</b></a>
+post_opt_images_on:<b>படங்கள் இதில்</b>
+post_opt_smilies_on:<a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank"><b>உணர்வுச்சின்னங்கள் இதில்</b></a>
+post_opt_html_off:<b>எச்டிஎம்எல்</b> குறியீடு <b>ஆனது  </b>
+post_opt_fud_off:<b>பிபிகுறியீடு ஆனது</b>
+post_opt_images_off:<b>படங்கள் ஆனது</b>
+post_opt_smilies_off:<b>உணர்வுச்சின்னங்கள் ஆனது</b>
+post_opt:கருத்துக்கள விருப்பத்தேர்வுகள்:
+register_change_passwd:கடவுச்சொல்லை மாற்று
+register_change_login:புகுபதிகை பெயரை மாற்று
+approved_avatar_title:உங்கள் விருப்ப படம் ஒப்புதல் அளிக்கப்பட்டது.
+approved_avatar_msg:உங்கள் சிறுபடத்திற்கு நிர்வாகியால் ஒப்புதல் அளிக்கப்பட்டது. அது இப்போது உங்கள் தகவல்கள் அனைத்திலும்  தோன்றும். தோன்றவில்லை அல்லது பழைய படம் தெரிந்தால் உங்கள் உலாவி அந்த பக்கத்தை நினைவில் வைத்திருக்கும். ஒன்று அல்லது இரண்டு முறை  நீங்கள் பக்கத்தை புதுப்பிக்கவும். பெரும்பாலும் இந்த பிரச்சினையை இது தீர்த்து வைக்கும்.
+unapproved_avatar_title:உங்கள் விருப்ப படத்திற்கு ஒப்புதல் மறுக்கப்பட்டது.
+unapproved_avatar_msg:உங்கள் படத்தை நிர்வாகி ஏற்றுக்கொள்ளவில்லை. இதற்கு பொதுவான காரணங்கள் உங்கள் படம் மிக பெரிதாக (அளவு அல்லது பரிமாணங்கள்) இருக்கலாம் அல்லது தகாத பொருள் விவகாரத்தை கொண்டிருக்கலாம். நீங்கள் உங்கள் படம் நிராகரிக்கப்பட்டது பற்றி மேலும் அறிய விரும்பினால், நிர்வாகியை தொடர்பு கொள்ளவும்.
+mvthread_request_move:ஒரு நகர்த்தலை கோரு
+move_request_reason:ஏன்  இந்த தலைப்பை நீங்கள் நகர்த்த விரும்புகிறீர்கள்?
+mvthread_submit_req:வேண்டுகோளை சமர்ப்பிக்கவும்
+thread_exchange:தலைப்பு பரிமாற்றம்
+move_request_by:தலைப்பு நகர்த்தல் கோரியது:
+move_reason:தலைப்பு நகர்த்தலுக்கான காரணம்:
+thr_exch_accept:தலைப்பை ஏற்றுக்கொள்
+thr_exch_decline:தலைப்பை நிராகரி
+thr_exch_orig_forum:அசல் கருத்துக்களம்:
+thr_exch_dest_forum:இலக்கு கருத்துக்களம்:
+thr_exch_no_threads:ஒப்புதலுக்கு காத்திருக்கும் தகவல்கள் ஏதுமில்லை
+thr_exch_decl_reason:தலைப்பு நிராகரிக்கப்பட்ட காரணம் <b> {VAR: data->subject} </b> இந்த கருத்துக்களத்துள் <b>{VAR: data->f2_name}</b>
+thr_exch_submit:சமர்ப்பி
+exch_decline_ttl:தலைப்பு நகர்த்தப்படுவது {VAR: data->subject}  -இந்த கருத்துக்களத்திற்கு  {VAR: data->f2_name} நிராகரிக்கப்பட்டது.
+ppost_original_msg:நீங்கள் மேலனுப்பும் அல்லது பதிலளிக்கும்  தகவல்
+split_thread:தலைப்பை பிரி
+groupmgr_no_user:இந்த புகுபதிகை பெயருடன் பயனர் யாரும் இல்லை "{FUNC: char_fix(htmlspecialchars($gr_member))}"
+groupmgr_already_exists:பயனர் ' {FUNC: char_fix(htmlspecialchars($gr_member))} ' ஏற்கனவே இந்த குழுவில் உள்ளார்.
+groupmgr_yes:ஆம்
+groupmgr_no:இல்லை
+groupmgr_action:செயல்
+groupmgr_member:உறுப்பினர்
+groupmgr_cancel:ரத்து செய்
+groupmgr_add_member:உறுப்பினரை சேர்
+groupmgr_update_member:உறுப்பினரை புதுப்பி
+groupmgr_edit:தொகு
+groupmgr_delete:நீக்கு
+group_mgr_anon:அடையாளமற்றவர்
+group_mgr_reged:எல்லா பதிவு செய்யப்பட்ட பயனர்களும்
+show_show:காண்பி:
+group_mgr:குழு மேலாளர்
+group_mgr_edit_btn:குழுவை தொகு
+group_mgr_heading:குழு திருத்துனர் தேர்வு
+group_mgr_group:குழு:
+permission_denied_title:அனுமதி மறுக்கப்பட்டது!
+permission_denied_msg:உங்கள் பயனீட்டாளர் அனுமதிகள் நீங்கள் செய்ய முயற்சிக்கும் செயலை அனுமதிக்காது.
+p_READ:படி
+p_POST:பதியவும்
+p_REPLY:பதில் அளி
+p_EDIT:தொகு
+p_DEL:நீக்கு
+p_STICKY:ஒட்டக்கூடிய தகவல்கள்
+p_POLL:கருத்து கணிப்பை உருவாக்கு
+p_FILE:கோப்புகளை இணை
+p_VOTE:வாக்கு
+p_RATE:தலைப்புகளை மதிப்பிடு
+p_SPLIT:தலைப்புகளை பிரி
+p_LOCK:தலைப்புகளை பூட்டு
+p_MOVE:தலைப்புகளை நகர்த்து
+p_SML:உணர்வுச்சின்னங்களை பயன்படுத்தவும்
+p_IMG:பட குறிச்சொல்லை பயன்படுத்தவும்
+p_SEARCH:தேட முடியும்
+group_mgr_search:பயனரை கண்டுபிடி
+group_mgr_indicator:தற்போது தொகுப்பது:<b>{VAR: grp->name}</b>
+rate_worst:மிக மோசமான
+rate_best:சிறந்தது
+post_quote_msg:{VAR: msg->login}அன்று எழுதப்பட்டது {TEMPLATE: make_report_date}
+post_quote:மேற்கோள்:
+post_quote_selected:தேர்ந்தெடுத்த உரையை மேற்கோளாக காட்டு
+userinfo_referals:குறிப்பிடப்படும் பயனர்கள்:
+userinfo_referals_count:{VAR: referals}உறுப்பினர்கள்
+pm_no_space_title:இடைவெளி ஏதும் விடப்படவில்லை!
+pm_no_space_msg:உங்கள் தனிப்பட்ட  தகவல் கோப்புறை அனுமதிக்கப்பட்ட அளவான<b>{GVAR: MAX_PMSG_FLDR_SIZE} பைட்களை</b> தாண்டிவிட்டது. அவை இப்போது<b>{VAR: fldr_size} பைட்கள்</b> அளவுள்ள தகவல்களை கொண்டுள்ளன.<br /><br /><span class="ErrorText">சில பழைய தகவல்களை காலி இடத்தை பெற நீக்கவும்..</span>
+pm_space_indct_msg:உங்கள் தனிப்பட்ட  தகவல் கோப்புறைகள்  {VAR: percent_full} % முழுமையாக உள்ளன.
+th_expr_never:எப்போதுமில்லை
+th_expr_one_hr:1 மணி நேரம்
+th_expr_three_hr:3 மணிநேரம்
+th_expr_four_hr:4 மணிநேரம்
+th_expr_eight_hr:8 மணி நேரம்
+th_expr_sixteen_hr:16 மணி நேரம்
+th_expr_one_day:1 நாள்
+th_expr_two_day:2 நாட்கள்
+th_expr_four_day:4 நாட்கள்
+th_expr_one_week:1 வாரம்
+th_expr_two_week:2 வாரங்கள்
+th_expr_one_month:1 மாதம்
+th_expr_two_month:2 மாதங்கள்
+th_expr_four_month:4 மாதங்கள்
+th_expr_one_year:1 வருடம்
+thread_mod_delete:நீக்கு
+action_ip:IP
+action_latest_post:கடைசி தகவல்
+online_today_last_visit:கடைசியாக பார்வையிட்டது
+online_today_update:இன்று கருத்துக்களத்தை பார்வையிட்ட பயனர்கள் பட்டியலை பார்த்துக்கொண்டிருக்கிறீர்கள்.
+logedin_todays_visitors:இன்றைய பார்வையாளர்கள்
+logedin_latest_post:இந்த கருத்துக்களத்தில் கடைசி தகவல்:
+register_show_avatar:படங்களை (Avatars) காண்பி:
+register_show_avatar_desc:மற்ற பயனர்களின் படங்களை அவர்களின் தகவல்களை காண்கையில் மறைக்க உங்களை அனுமதிக்கும்.
+drawmsg_view_rest_post:தகவலில் மீதியுள்ளவற்றையும் காண்பி
+post_re:பதில்:
+forumsel_goto_forum:கருத்துக்களத்திற்கு செல்:
+minimsg_thread_view:தலைப்பு காட்சி
+split_th_post_by:தகவல் மூலம்:
+split_th_posted_on:அன்று பதியப்பட்டது:
+split_th_subject:பொருள்:
+split_th_new_thread_title:புதிய தொகுப்பு தலைப்பு:
+split_th_forum:கருத்துக்களம்:
+split_th_split_sel:தேர்ந்தெடுத்த தகவல்களை பிரி
+split_th_split_unsel:தேர்ந்தெடுக்காத தகவல்களை பிரி
+split_th_messages:தகவல்கள்
+split_th_select:தேர்ந்தெடு
+report_report_post:அறிக்கை தகவல்
+quicklogin_login:புகுபதிகை:
+quicklogin_password:கடவுச்சொல்:
+quicklogin_use_cookies:குக்கிகள் பயன்படுத்த வேண்டுமா?
+quicklogin_login_btn:புகுபதிகை
+quick_reply:துரித பதில்
+quick_reply_post:துரித பதிலை பதியவும்
+quick_reply_preview: துரித பதிலை முன்னோட்டமிடு
+post_notification_desc:யாராவது இந்த தகவலுக்கு பதிலளிக்கையில் எனக்கு தெரிவி.
+post_all_ext_allowed:(கட்டுப்படுத்தப்படாத)
+maximize_category:வகைப்பாட்டை பெரிதாக்கு
+maximize_message:தகவலை பெரிதாக்கு
+no_view_perm:இந்த தலைப்பை  காண தேவைப்படும் முறையான அனுமதி உங்களுக்கு இல்லை.
+report_empty_report:காலி அறிக்கையை நீங்கள் அனுப்ப இயலாது. உங்கள் அறிக்கைக்கான காரணத்தை உள்ளிடவும்.
+report_already_reported_title:ஏற்கனவே தெரிவிக்கப்பட்டுள்ளது
+report_already_reported_msg:இந்த தகவல்  ஏற்கனவே அறிக்கையிடப்பட்டுள்ளது மற்றும் அறிக்கை தற்போது நடுவரின் வரிசையில் உள்ளது.
+register_err_toomanyimages:நீங்கள் அனுமதிக்கப்பட்டதை விட அதிக {GVAR: FORUM_IMG_CNT_SIG} படங்களை உங்கள் கையொப்பத்தில் பயன்படுத்த முயல்கிறீர்கள்.
+pmsg_next_msg:அடுத்த தகவல்
+pmsg_prev_msg:முந்தைய தகவல்
+post_proc_reveal_spoiler:ஸ்பாய்லருக்கு நிலைமாற்று
+register_jabber:ஜாப்பர் கையாளுதல்:
+register_skype:ஸ்கைப் கையாளுதல்:
+register_twitter:டிவிட்டர் கையாளுதல்:
+register_google:கூகிள் அரட்டை/ஐஎம் கையாளுதல்:
+im_jabber:ஜாப்பர்:
+im_google:கூகிள் டாக்:
+im_skype:ஸ்கைப்:
+im_twitter:ட்விட்டர்:
+forum_contact:தொடர்பு கொள்
+forum_home:முகப்பு
+post_cur_attached:தற்போது இணைக்கப்பட்டுள்ள:  {VAR: i}   {PLURAL: i| கோப்பு|கோப்புகள்}
+ignored_anon_post:{GVAR: ANON_NICK} புறக்கணிக்கப்பட்டது
+ignored_user_post:தகவல்  <a href="{TEMPLATE: ignored_user_post_lnk}"> {VAR: obj->login} </a> மூலம் புறக்கணிக்கப்பட்டது
+smladd_close_window:சாளரத்தை மூடு
+post_list_smilies:அனைத்து உணர்வுச்சின்னங்களையும் பட்டியலிடு
+p_VISIBLE:காணக்கூடியது
+reported_in_thread:உள்:
+help_back_to_top:மேலே செல்லவும்
+help_return_to_index:உதவி அடைவுக்கு திரும்பு
+imsg_err_message_title:செல்லாத தகவல்
+imsg_err_message_msg:நீங்கள் காண விரும்பும் தகவல் இல்லை.
+poll_edit:தொகு
+register_err_not_valid_img:குறிப்பிடப்பட்ட இணையமுகவரி செல்லத்தக்க படத்தை பெற்றிருக்கவில்லை.
+pmsg_recepient:பெறுநர்
+register_err_taken_alias:நீங்கள் பயன்படுத்த முயற்சிக்கும் மறுபெயரை ஏற்கனவே மற்றொரு கருத்துக்கள உறுப்பினர் உபயோகிக்கிறார். தயவுகூர்ந்து வேறொன்றை தேர்ந்தெடுக்கவும்.
+register_alias:மறுபெயர்:
+register_alias_desc:உங்கள் புகுபதிகை பெயரைத் தவிர வேறு ஒரு பெயரை கருத்துக்களத்தில் காண்பிக்க விரும்பினால் இங்கு உள்ளிடவும்.
+register_allow_pm_msg:தனிப்பட்ட தகவல்களை அனுமதி:
+register_allow_pm_msg_desc:மற்ற பயனர்கள் உங்களுக்கு இந்த கருத்துக்களம் வழியாக தனிப்பட்ட  தகவல்கள் அனுப்ப அனுமதிக்கவும்.
+postcheck_pm_disabled:"{VAR-HTML: v}"க்கு நீங்கள் ஒரு தனிப்பட்ட தகவல் அனுப்ப முடியாது, ஏனென்றால் இந்த நபர் தனிப்பட்ட தகவல்களை ஏற்பதில்லை.
+polllist_vote:வாக்கு
+polllist_view_results:முடிவுகளை காண்
+polllist_name:தேர்தல் பெயர்
+polllist_date:உருவாக்கப்பட்டது:
+polllist_owner:உருவாக்கியது
+polllist_votes:மொத்த வாக்குகள்
+polllist_action:செயல்
+polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">கிடைக்கப்பெறும் தேர்தல்களை பரிசீலித்தல்</a>
+userinfo_polls:கருத்து கணிப்புகள்:
+show_pollist:தேர்தலை காண்பி
+search_and:மற்றும்
+search_or:அல்லது
+search_desc_order:இறங்கு வரிசை
+search_asc_order:ஏறு வரிசை
+search_logic:தேடல் அடிப்படை:
+search_sorting:தேதியை பொறுத்து முடிவுகளை வரிசைப்படுத்து:
+search_attach:இணைப்புகள்:
+search_attach_all:உடன் அல்லது உடனில்லாமல்
+search_attach_with:இணைப்புகளை காண்
+post_proceed:தொடர்
+post_moderated_forum:நீங்கள் நடுவர் கருத்துக்களத்தில் ஒரு பதிவை உருவாக்கியுள்ளீர்கள். அது நடுவர் அல்லது நிர்வாகியால் ஒப்புதல் பெறப்படும்வரை மற்றவர்களுக்கு தெரியாது.
+post_moderated_forum_ttl:திருத்தப்பட்ட கருத்துக்கள பதாகை
+buddy_list_bday:இன்று  {VAR: r[2]}க்கு  {VAR: age}ஆகிறது
+email_warning_msg:உங்கள் நடப்பு மின்னஞ்சல் முகவரியை நீங்கள் மாற்றினால், உங்கள் கணக்கு நீங்கள் மின்னஞ்சல் வழியாக உறுதிசெய்யும் வரை உறுதிப்படுத்தப்படாத கணக்காக குறிக்கப்படும்.
+register_show_im:IM சுட்டிகளை காண்பி:
+register_show_im_desc:எழுத்தாளர்களின் IM சுட்டிகளை அவர்களின் தகவல்களுக்கு அடியில் காண்பிக்க வேண்டுமா அல்லது வேண்டாமா?
+unread_message:வாசிக்கப்படாத தகவல்
+read_message:தகவலை வாசிக்கவும்
+threadt_more:&lt;அதிக&gt;
+threadt_disabled_ttl:தலைப்பு பட்டியலிடுதல் கிளைக்காட்சி செயலிழக்கம் செய்யப்பட்டுள்ளது.
+threadt_disabled_desc:தலைப்பு பட்டியலிடுதலின் கிளைக்காட்சி நிர்வாகியில் செயலிழக்கம் செய்யப்பட்டுள்ளது.தயவுசெய்து அதற்கு பதிலாக தட்டை காட்சியை உபயோகிக்கவும்.
+threadt_update:கருத்துக்களத்தில் உலாவுதல் (கிளைக்காட்சி) <a href="{TEMPLATE: threadt_update_lnk}">{VAR: frm->name}</a>
+mmod_delete_cofirm_ttl:தலைப்பு/தகவல் நீக்குதலை உறுதிசெய்
+spell_alts:மாற்று எதுவுமில்லை
+insert_uploaded_image:தகவல் உள்ளடக்கத்தில் படத்தை செருகு
+finduser_help:தேடல் இயந்திரம் தானாக *மூடியை உங்கள் கேள்வியில் சேர்க்கும், <b>தேடல் எழுத்துஉணர்வுடையது</b>.<br> ex. 'அ' வில் பயனர்பெயர் தொடங்கும் அனைத்து பயனர்களையும் தேட தேடல் பெட்டியில் 'அ' என என உள்ளிடவும்.
+back_to_top:மேலே செல்லவும்
+pm_err_disabled_title:தனிப்பட்ட தகவலனுப்புதல் செயலிழக்கம் செய்யப்பட்டுள்ளது
+pm_err_disabled_msg:நீங்கள் 'தனிப்பட்ட தகவல்களை அனுமதி ' விருப்பத்தேர்வை உங்கள் சுயகுறிப்பில் தேர்ந்தேடுக்கும்வரை உங்களால் தனிப்பட்ட தகவல் அனுப்ப இயலாது.
+err_mod_acc_ttl:சரிபார்க்கப்படாத கணக்கு
+err_mod_acc_msg:அனைத்து கணக்குகளையும் செயல்படுத்தும்முன் நிர்வாகி கைமுறையாக பரிசீலிக்க தேர்வுசெய்துள்ளார்.உங்கள் கணக்கு நிர்வாகியால் சரிபார்க்கப்படும்  வரை உங்கள் கணக்கின் முழு திறன்களை உங்களால் உபயோகிக்க இயலாது.
+accounts_pending_approval:ஒப்புதலுக்காக நிலுவையில் உள்ள கணக்குகள்
+saved:சேமிக்கப்பட்டது
+register_err_time_limit:ஒரு பதிவிற்கான நேர வரம்பான {GVAR: REG_TIME_LIMIT}விநாடிகள் எட்டப்பட்டது.தயவுசெய்து{PLURAL: reg_limit_reached|$1 விநாடி|$1 விநாடிகள்}, காத்திருந்து பிறகு மீண்டுமொருமுறை பதிவுசெய்யவும்.
+register_affero:Affero பயனர் பெயர்:<br><span class="SmallText"> உங்களுக்கு ஒரு <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">Affero</a> பயனர்பெயர் இருந்தால் இங்கு உள்ளிடவும்.</span>
+im_affero:Affero பயனர்பெயர்
+register_err_avatardimtobig:பட பரிமாணங்கள்<b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> அனுமதிக்கப்பட்ட அளவான <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>படவணுக்களை தாண்டிவிட்டது.
+buddy_offline:{VAR: r[2]}தற்போது இணைப்பில் இல்லை
+buddy_online:{VAR: r[2]}தற்போது இணைப்பில் உள்ளார்
+sml_no_smilies:பொழுதுபோக்குகள் ஏதுமில்லை
+login_unapproved_account_ttl:அனுமதிபெறாத கணக்கு
+login_unapproved_account_msg:ஒவ்வொரு புதிய கணக்கையும் செயல்படுத்தும் முன்பு கைமுறையாக  உறுதி செய்ய அமைப்பு நிர்வாகி தேர்வுசெய்துள்ளார். உங்கள் கணக்கு இதுவரை உறுதி செய்யப்படவில்லை, எனவே உறுதிசெய்யப்பட்ட பயனருக்கான சில அம்சங்களை உங்களால் அணுக இயலாது.
+remove_from_buddy_list:நன்பர்கள் பட்டியலில் இருந்து நீக்கவும்
+iemail_msg_author:<b>எழுத்தாளர்:</b> {VAR: obj->alias}
+iemail_msg_subject:<b>பொருள்:</b> {VAR: obj->subject}
+iemail_msg_date:<b>தேதி:</b> {TEMPLATE: dmsg_post_date}
+iemail_msg_reply:பதில் அளி
+iemail_msg_quote:மேற்கோள்
+iemail_msg_view:தலைப்பு/தகவலை காண்
+threadt_sticky:ஒட்டக்கூடிய
+threadt_announce:அறிவிப்பு
+reported_no_messages:அறிக்கையிட்ட தகவல்கள் ஏதுமில்லை
+poll_no_polls:அணுகக்கூடிய தேர்தல்கள் ஏதுமில்லை.
+no_unread_messages:உங்கள் கேள்வியுடன் பொருத்தமான வாசிக்கப்படாத தகவல்கள் எதுவும் இல்லை.
+thread_mark_all_read:எல்லா வாசிக்கப்படாத கள தகவல்களையும் வாசித்ததாக குறியிடு
+thread_mark_all_read_desc:இந்த கருத்துக்களத்தில் உள்ள அனைத்து  வாசிக்கப்படாத தகவல்களும் வசித்ததாக குறிக்கப்படும்.
+private_no_messages:இந்த கோப்புறையில் தகவல்கள் எதுவும் இல்லை.
+register_email_change_subject:மின்னஞ்சல் மாற்றல் உறுதிசெய்தல்
+register_email_change_msg:தயவுகூர்ந்து உங்கள் புதிய மின்னஞ்சல் கணக்கு உறுதி செய்யவும் "{VAR: uent->email}" அது பழைய மின்னஞ்சல் கணக்கை மாற்றிவிடும்  "{VAR: old_email}", கீழேயுள்ள இணையமுகவரிக்கு செல்வதன் மூலமாக:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nநீங்கள் உங்கள் மின்னஞ்சல் முகவரியை உறுதிசெய்தால் உங்கள் கணக்கு மறுபடியும் செயல்படுத்தப்படும்.
+iemail_thread_unsub:இந்த தலைப்பிலிருந்து பதிவுநீக்கு
+iemail_forum_unsub:இந்த கருத்துக்களத்திலிருந்து பதிவுநீக்கு
+primary_group_prefix:கருத்துக்களத்திற்கான முதன்மை குழு:
+group_resources:இந்த குழு கீழ்க்கண்ட கருத்துக்களங்களின் அனுமதிகளை கட்டுப்படுத்தும்.
+register_admin_newuser_title:ஒரு புதிய பயனீட்டாளர் பதிவுசெய்துள்ளார்  மற்றும் அவரின் கணக்கு உறுதிப்படுத்த நிலுவையில் உள்ளது
+register_admin_newuser_msg:ஒரு புதிய பயனீட்டாளர் ( {VAR: uent->login} ) தற்போது பதிவுசெய்யப்பட்டது, மற்றும் கணக்கு உறுதிசெய்தல் செயலாக்கப்பட்டுள்ளதால்,அவர்களின் கணக்கு மற்றொரு நிர்வாகி உறுதிப்படுத்தும் வரை செயல்பாட்டில் இருக்காது. கணக்கை பரிசீலனை செய்ய தயவுசெய்து இங்கு செல்லவும்: {GVAR: WWW_ROOT}adm/admuserapr.php\nஇது ஒரு தானியக்கபட்ட செயல். இந்த தகவலுக்கு பதிலளிக்க வேண்டாம்.\nபுதிய பயனீட்டாளர் பற்றிய  எதிர்கால மின்னஞ்சல் அறிவிக்கைகள் நிறுத்த வேண்டுமானால் நீங்கள் நிர்வாகி கட்டுப்பாட்டு பலகம் வழியாக அதை செய்யலாம்."புதிய கணக்கு அறிவிப்பு" அமைப்பை மாற்றவும்.
+post_mod_msg_notify_title: புதிய தகவல் கருத்துக்களம் " {VAR: frm->name} "ல் ஒப்புதலுக்கு நிலுவையில் உள்ளது.
+post_mod_msg_notify_msg:" {VAR: msg_post->subject} "  தலைப்பிடப்பட்ட ஒரு புதிய தகவல் நீங்கள் நடுவராக உள்ள கருத்துக்களத்தில் பதிவு செய்யப்பட்டது. இந்த தகவலை பரிசீலிக்க செல்லவும்:{FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nஇது ஒரு தானியக்கபட்ட செயல். இந்த தகவலுக்கு பதிலளிக்க வேண்டாம்.
+thread_printable_pdf:அச்சுக்குகந்த PDF உருவாக்கவும்
+thread_syndicate:இந்த கருத்துக்களத்தை ஆலோசனை செய்யவும் (XML)
+reg_conf_title:பதிவுசெய்தல் உறுதிப்படுத்தல்
+reg_conf_email:<b>மின்னஞ்சல் உறுதிப்படுத்தல்</b><br /> உங்கள் கணக்கை செயலாக்க தேவைப்படும் ஒரு சிறப்பு இணைய முகவரியை கொண்ட உங்களுக்கு அனுப்பப்பட்டுள்ளது. உங்கள் கணக்கை செயலாக்க நீங்கள் அதை அணுக வேண்டும். அடுத்து வரும் சில நிமிடங்களில் நீங்கள் இந்த மின்னஞ்சலை பெறவில்லையெனில் தயவுசெய்து உங்கள் கணக்கில் புகுபதிகை செய்து நீங்கள் குறிப்பட்ட மின்னஞ்சல் சரியாக உள்ளது என்பதை உறுதிசெய்துகொள்ளவும். உங்கள் கணக்கை நீங்கள் உறுதிசெய்தால் உறுதிசெய்யப்பட்ட, பதிவுசெய்யப்பட்ட பயனருக்கான அம்சங்களை நீங்கள் இந்த கருத்துக்களத்தில் அணுக இயலும்.
+reg_conf_account:<b>கணக்கு உறுதிசெய்தல்</b><br />உங்கள் கணக்கை செயல்படுத்தும் முன் அது நிர்வாகியால் ஒப்புதல் அளிக்கப்பட்டிருக்கவேண்டும். அது நடந்தால் உங்கள் கணக்கு உறுதிசெய்யப்பட்டதாக உங்களுக்கு ஒரு மின்னஞ்சல் வரும். அதேநேரம் நீங்கள் இப்போது உங்கள் கணக்கில் புகுபதிகை செய்யலாம்.ஆனால்  சில அம்சங்களை உங்களால் அணுக இயலாது.
+forum_banned_user:உங்கள் முன் செயல்களின்  விளைவாக நீங்கள் இந்த கருத்துக்களத்திலிருந்து நிரந்தரமாக தடை செய்யப்பட்டுள்ளீர்கள். போய்வாருங்கள்.
+mnav_description:தகவல் ஊடாடி
+mnav_date_limit:தேதி வரம்பு:
+mnav_forum_limit: இதில் மட்டும் தேடு:
+mnav_all_forums:எல்லா கருத்துக்களங்களையும் தேடு
+mnav_submit:தேடலை தொடங்கு
+mnav_no_range:நீங்கள் செல்லத்தக்க தேதி வரம்பை உள்ளிட வேண்டும். இந்த மதிப்பு ஒரு தசமம் புள்ளியை கொண்டிருக்கலாம், (0.12) ஆனால் அது பூஜ்யத்திற்கு அதிகமாக இருக்க வேண்டும்.
+mnav_invalid_unit:செல்லத்தக்க நேர அலகை நீங்கள் குறிப்பிட வேண்டும்.
+mnav_invalid_date:நீங்கள் குறிப்பிட்ட தேதி வரம்பு நிர்வாகி அனுமதித்ததைவிட பெரியதாக உள்ளது.சிறிய தேதி வரம்புகளை முயற்சிக்கவும்.
+mnav_no_results:உங்கள் வினவலுடன் பொருந்தும் தகவல்கள் எதுவும் இல்லை
+mnav_posted_by:பதியப்பட்டது இவர்மூலம்:
+mnav_more:மேலும் &raquo;&raquo;
+mnav_minute:நிமிடம்(கள்)
+mnav_hour:மணி(கள்)
+mnav_day:நாள்(கள்)
+mnav_week:வாரம்(கள்)
+mnav_month:மாதம்(கள்)
+mnav_title:தகவல் ஊடாடி
+mnav_update:<a href="{TEMPLATE: mnav_update_lnk}">தகவல் ஊடாடி</a> பயன்படுத்தி தகவல்களில் உலாவுதல்
+pm_notify_subject:[{GVAR: FORUM_TITLE}] புதிய தனிப்பட்ட தகவல் அறிவிக்கை
+pm_notify_body_email:உங்களுக்கு  ஒரு தனிப்பட்ட தகவல் உள்ளது. தலைப்பு "{VAR: subject}", "{VAR: from}"இடமிருந்து, கருத்துக்களம் "{GVAR: FORUM_TITLE}".\nதகவலை காண இங்கே சொடுக்கவும்: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nஎதிர்கால அறிவிக்கைகளை நிறுத்த உங்கள் சுயகுறிப்பில் "தனிப்பட்ட தகவல் அறிவிப்பு" செயலிழக்க செய்யவும்.
+register_pm_notification:தனிப்பட்ட தகவல் அறிவிக்கை:
+register_pm_notification_desc:செயலாக்கப்பட்டிருந்தால், எப்போது உங்களுக்கு தனிப்பட்ட தகவல் அனுப்பப்பட்டாலும் உங்களுக்கு அறிவிக்கப்படும்.
+findu_admin_opts_header:நிர்வாகி விருப்பத்தேர்வுகள்
+findu_unban:தடை நீக்கு
+findu_ban:தடை செய்
+findu_edit:தொகு
+findu_delete:நீக்கு
+dmsg_reply_to:இது ஒரு பதில்
+dmsg_reply_num:தகவல் #{VAR: obj->reply_to}
+merge_topics:தலைப்புகளை ஒன்றுசேர்
+merge_topics_cp:தலைப்பு கட்டுப்பாட்டு பகுதியை ஒன்றுசேர்
+merge_topics_tpl:தலைப்புகளை  ஒன்றுசேர்க்க தேர்ந்தெடு<span class="SmallText">(நீங்கள் கண்டிப்பாக ஒன்றுக்கு மேற்பட்ட தலைப்புகளை தேர்ந்தெடுக்க வேண்டும்)</span>
+merge_merge:தேர்ந்தெடுத்த தலைப்புகளை ஒன்றுசேர்
+merge_next:அடுத்த தலைப்புகள்
+merge_prev:முந்திய தலைப்புகள்
+merge_another:இங்கு செல்லவும்<a href="{TEMPLATE: merge_another_lnk}">கடைசியாக ஒன்றுசேர்க்கப்பட்ட தகவல்</a>அல்லது மற்றொன்றை ஒன்றுசேர்:
+split_cp:தலைப்பு பிரித்தல் கட்டுப்பாட்டு பலகம்
+groups_perms_header: அனுமதிகள்<span class="small">( அதன் வகையை காண  சுட்டியை அனுமதியின் மேல் நகர்த்தவும்)</span>
+register_err_sig_too_long:உங்கள் கையொப்பம் அதிகபட்ச அனுமதிக்கப்பட்ட நீள அளவான {GVAR: FORUM_SIG_ML} எழுத்துகளை தாண்டிவிட்டது.
+register_sig_limit:{GVAR: FORUM_SIG_ML} எழுத்துகள்<a href="javascript: alert('Your Signature is '+document.forms['fud_register'].reg_sig.value.length+' எழுத்துகள் நீளமுடையது. அதிகபட்ச அனுமதிக்கப்பட்ட கையொப்ப நீளம் {GVAR: FORUM_SIG_ML} characters.');" class="SmallText">கையொப்ப நீளத்தை சரிபார்க்கவும்</a>
+adm_account_accepted:உங்கள் கணக்கு ' {VAR: login} ' நிர்வாகியால் ஒப்புதல் அளிக்கப்பட்டது மற்றும் தற்போது செயலில் உள்ளது. நீங்கள் இப்போது  {GVAR: FORUM_TITLE}' கருத்துக்களத்தை உறுதிசெய்யப்பட்ட , பதிவு செய்யப்பட்ட பயனராக அணுகலாம்.
+adm_account_accepted_s:உங்கள் கணக்கு கோரிக்கை ' {GVAR: FORUM_TITLE}'க்கு  ஏற்கப்பட்டது.
+adm_account_rejected:உங்கள் கணக்கு ' {VAR: login} ' நிர்வாகியால் நிராகரிக்கப்பட்டது. இந்த முடிவை பற்றிய காரணம் அறிய விரும்பினால், நிர்வாகியை ' {GVAR: ADMIN_EMAIL}' இதில் தொடர்பு கொள்ளுங்கள்.
+adm_account_rejected_s:உங்கள் கணக்கு கோரிக்கை ' {GVAR: FORUM_TITLE}'க்கு  நிராகரிக்கப்பட்டது.
+thread_on:அன்று
+userinfo_buddy:நண்பர்:
+register_email_addr:மின்னஞ்சல் முகவரி:
+reset_suffix:நீங்கள் இந்த தகவலை பிழையாக பெற்றிருந்தால், தயவுகூர்ந்து புறக்கணிக்கவும். நீங்கள் கோராமல் இந்த மின்னஞ்சலின் பல நகல்களை நீங்கள் பெற்றால் தயவுகூர்ந்து கருத்துக்கள நிர்வாகியை தொடர்பு கொள்ளவும் at {GVAR: ADMIN_EMAIL}\n {VAR: _SERVER['REMOTE_ADDR']} .லிருந்து இந்த கோரிக்கை துவங்கப்பட்டது.
+usrinfo_last_visit:கடைசியாக பார்வையிட்டது:
+mnav_newer:மிகப் புதியது
+mnav_older:மிக முந்தையது
+ip_search_by_ip:IP மூலம் பயனர்களை  தேடு
+ip_search_syntax:ஆதரவான தொடரியல்: 1.2.3.4, 1.2.3, 1.2, 1
+ip_search:தேடு
+ip_analyze_usage:IP உபயோகத்தை ஆராயவும்
+ip_analyze_usage_descr:தயவுகூர்ந்து பயனரின் சரியான புகுபதிகையை குறிப்பிடவும்.
+ip_users_using:' {VAR: ip} ' IP முகவரியை பயன்படுத்தும் பயனர்கள்
+ip_all_ips:' {VAR: user} 'ஆல் பயன்படுத்தப்பட்ட IPமுகவரிகள்
+ip_title:IP உலாவி
+userinfo_real_name:உண்மைப் பெயர்:
+register_err_alias_notallowed:இந்த மறுபெயர் அனுமதிக்கப்படாதது
+post_err_mod_forum_edit_ttl:பிழை
+post_err_mod_forum_edit_msg:மட்டுறுத்தப்பட்ட கருத்துக்களத்தின் தகவல்களை நீங்கள் திருத்த முடியாது.
+dmsg_num:தகவல் #{VAR: obj->id}
+postcheck_session_invalid:உங்கள் அமர்வு காலாவதியாகிவிட்டது. தயவுகூர்ந்து படிவத்தை மறுபடியும் சமர்ப்பிக்கவும். குறைபாட்டிற்கு வருந்துகிறோம்.
+delete_message_extra_desc:<b>விருப்பப்படி</b><br>நீக்குதலுக்கான காரணத்தை குறிப்பிடவும் அது தனிப்பட்ட தகவலில்,எழுத்தாளருக்கு அனுப்பப்படும் .
+delete_message_extra_body:நீக்கப்பட்ட தகவலின் உள்ளடக்கத்தை இணைக்கவும், அது ஆசிரியருக்கு தனிப்பட்ட தகவலில் அனுப்பப்படும்.
+delete_msg_removed_ttl:உங்கள் தகவல் நிர்வாக பணியாளரால் நீக்கப்பட்டது.
+delete_msg_pm_body:மூல தகவல்
+delete_msg_pm_subject:பொருள்:{VAR: data[15]}
+ip_no_whois:Whois தகவல்  <b> {VAR: ip} </b>க்கு கிடைக்கப்பெறவில்லை.
+ip_whois_title:ஐஎஸ்பி தகவல்
+register_theme:கருப்பொருள்:
+pmsg_trash:குப்பைத்தொட்டியை காலிசெய்
+uc_new_pm:புதிய தனிப்பட்ட தகவல்கள்
+uc_new_topic:புதிய தலைப்பு
+uc_new_cat_forum:புதிய தகவல்களை கொண்டுள்ள  பதிவுசெய்யப்பட்ட கருத்துக்களங்கள்
+uc_cat_forum:வகைப்பாடு &raquo; கருத்துக்களம்
+uc_sub_topics:புதிய தகவல்களை கொண்டுள்ள  பதிவுசெய்யப்பட்ட தலைப்புகள்
+uc_page_title:சுய கட்டுப்பாடு பலகத்தை பார்த்தல்.
+search_options:தேடல் விருப்பத் தேர்வுகள்
+search_user_filter:பயனரை  கொண்டு வடிகட்டு:
+register_none:எனக்கு தெரிவிக்க வேண்டாம்
+findu_no_conf:உறுதிப்படுத்தப்படாத பயனர்
+register_max_sig_len:அதிக பட்ச நீளம்:
+register_turing:கீழே காண்பிக்கப்படும் குறியீட்டை உள்ளிடவும்:
+register_err_turing:செல்லாத சரிபார்த்தல் குறியீடு.
+modque_cat:பகுப்பு
+modque_forum:கருத்துக்களம்
+idx_compact_forum_row:கிடைக்கப்பெறும் கருத்துக்களங்கள்:
+mmd_del_title:தலைப்புகளை நீக்கு
+mmd_mov_title:தலைப்புகளை நகர்த்து
+mmd_move_threads_to:இலக்கு கருத்துக்களம்:
+mmd_abort_move:ரத்து செய்
+mmd_move:தலைப்புகளை நகர்த்து
+pmsg_pdf_btn:PDF காப்பகத்தை உருவாக்கவும்
+search_results_hdr:{VAR: total}தேடல் முடிவுகள் கிடைத்துள்ளது
+thread_del_all:தேர்ந்தெடுத்ததை நீக்கு
+thread_mov_all:தேர்ந்தெடுத்ததை நகர்த்து
+thread_merge_all:தேர்ந்தெடுத்தவற்றை ஒன்றுசேர்
+thread_loc_all: தேர்ந்தெடுத்ததை பூட்டு/பூட்டாதே
+dmsg_ip:ஐபி:
+err_blockedaccnt_title:பிழை: உங்கள் கணக்கு வடிகட்டல் செய்யப்பட்டுள்ளது.
+err_blockedaccnt_msg:உங்கள் கணக்கு நிறுவப்பட்டுள்ள பயனர் வடிப்பான்  காரணமாக கருத்துகளத்தை அணுகுவதில் இருந்து தடை செய்யப்பட்டுள்ளது.
+merge_th_page_list:தலைப்பு பக்க தேர்வு
+most_users_online:பெரும்பாலான பயனர்கள் எப்போதும் இணைப்பில் இல்லாதவர்கள் <b>{VAR: st_obj->most_online}</b> on <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
+sub_unsub_all_forums:எல்லா கருத்துகளங்களில் இருந்து பதிவுநீக்கு
+sub_unsub_all_topics:எல்லா தலைப்புகளில் இருந்து பதிவுநீக்கு
+unbookmark_all_topics:எல்லா புத்தககுறிகளையும் நீக்கு
+tabs_own_posts:சொந்த பதிவுகளை காண்பி
+sml_emoticon:உணர்ச்சித்திரங்கள்
+sml_code:குறியீடு
+mnav_sub_only:பதிவுசெய்யப்பட்ட கருத்துக்களங்களில் மட்டும் தேடு
+register_topics_per_page:பக்கத்திற்கான தலைப்புகள்:
+login_min_time:இந்த கருத்துக்களம் ஒவ்வொரு {VAR: MIN_TIME_BETWEEN_LOGIN} நொடிக்கும் ஒரு புகுபதிகை முயற்சியை அனுமதிக்கும், தயவுசெய்து காத்திருக்கவும் {FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)} நொடிகள் உங்கள் அடுத்த முயற்சிக்கு முன்.
+post_not_logged_in:நீங்கள் தற்போது புகுபதிகை செய்யவில்லை. எனவே உங்கள் தகவல்கள் அறியப்படாத பயனருடையதாக பதிவு செய்யப்படும்.
+post_common_bold:தடித்த
+post_common_italics:சாய்வெழுத்துகள்
+post_common_underline:அடிக்கோடு
+post_common_align_left:இடப்பக்கம் ஒழுங்கமை
+post_common_align_center:நடுவில் ஒழுங்கமை
+post_common_align_right:வலப்பக்கம் ஒழுங்கமை
+post_common_link:ஒரு இணைப்பை நுழை
+post_common_link_popup:இணைப்பு இடம்:
+post_common_email:மின்னஞ்சல் முகவரியை நுழை
+post_common_email_popup:மின்னஞ்சல் முகவரி:
+post_common_image:ஒரு படத்தை உள்ளிடவும்
+post_common_image_popup:பட இணையமுகவரி:
+post_common_nlist:எண்ணிட்ட பட்டியலை சேர்
+post_common_blist:புல்லட் குறியிடப்பட்ட பட்டியலை சேர்
+post_common_quote:மேற்கோள் சேர்
+post_common_code:குறியீட்டை சேர்
+rating_delete:நீக்கு
+post_always_on_top:தலைப்பு எப்போதும் தலைப்பு பட்டியலில் மேலாக தெரியுமாறு அமைக்கவும்
+topic_rating:{VAR: frm->rating} லிருந்து {PLURAL: frm->n_rating|$1வாக்கு|$1 வாக்குகள்}
+topic_list_rating:{VAR: r[17]}லிருந்து {PLURAL: r[21]|$1 வாக்கு|$1வாக்குகள்}
+tabs_notifications:அறிவிப்புகள்
+finduser_flag:கொடி
+post_descr:தலைப்பு விளக்கம்:
+pmsg_on:அன்று
+pmsg_download_dump:தகவல் அடைவை பதிவிறக்கவும்
+move_messages:தகவல்களை நகர்த்தவும்
+move_msg_btn:தேர்ந்தெடுத்த தகவல்களை நகர்த்தவும்
+move_msg_th_expl:இலக்கு தலைப்பு ID குறிப்பிடவும்(மற்ற கருத்துக்களங்களிலும் இருக்கலாம் )
+captcha_img_alt:Captcha உறுதிப்படுத்துவதற்காக: நீங்கள் படத்தில் உள்ள உரையை அடையாளம் காண வேண்டும்.
+captcha_img_help:அந்த படத்தில் பூஜ்யம் அல்லது ஒன்று எதுவும் இல்லை.
+powered-by:வழங்குவது: FUDforum {GVAR: FORUM_VERSION}.
+copyright:பதிப்புரிமை © 2001-2011 <a href="http://fudforum.org/">FUDforum செய்தி குழுமங்கள் வாரிய மென்பொருள்</a>
+code_title:குறியீடு:
+code_select_all:எல்லாவற்றையும் தேர்வுசெய்யவும்
+code_show_hide:காண்பி / மறை
+social_sites:சமூக வலையமைப்பு தளங்கள்:
+postcheck_min_len_err:உங்கள் தகவல் மிக குறுகியயதாக உள்ளது. குறைந்த பட்ச நீளம் {PLURAL: post_min_len|   $1  எழுத்து| $1 எழுத்துகள்}.
+postcheck_dup_err:தயவுகூர்ந்து  நகல் தலைப்புகளை உருவாக்க வேண்டாம்.
+btn_new_topic:புதிய தலைப்பு
+btn_new_pm:புதியதனிப்பட்ட தகவல்
+btn_post_reply:பதிலை பதியவும்
+btn_tree_view:கிளைக் காட்சி
+btn_flat_view:தட்டையான காட்சி
+btn_about:சுயகுறிப்பு
+btn_small_pm:த.தகவல்
+btn_delete:நீக்கு
+btn_edit:தொகு
+btn_reply:பதில் அளி
+btn_forward:முன் செல்
+btn_quote:மேற்கோள்
+btn_email:மின்னஞ்சல்
+btn_show_posts:பதிவுகள்
+btn_homepage:www
+feed_no_data:எந்த பொருத்தமான தரவும் கண்டுபிடிக்கப்படவில்லை.
+feed_rdf:ஆர்டிஎப் உள்ளீடு
+feed_rss:RSS2 உள்ளீடு
+feed_atom:ATOM உள்ளீடு
+ip_whois_connect_err:WHOIS சேவகனுடன் இணைக்க இயலவில்லை ( {VAR: whois_server} ):{VAR: errstr}
+custom_filed_required:இந்த புலம் தேவைப்படுகிறது
+pages:பக்கங்கள்
+page_list_heading:கிடைக்கப்பெறும் பக்கங்கள்
+page_list_total:{PLURAL: i|$1 பக்கம்|$1 பக்கங்கள்} பட்டியலிடப்பட்டுள்ளது.
+page_update:உலாவும் பக்கம்
+pm_export_header:தனிப்பட்ட தகவல்கள்{VAR: usr->alias}
+pm_export_footer:ஏற்றுமதி செய்யப்பட்டது:

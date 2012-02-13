@@ -5,6 +5,7 @@
 # Author: Giallu
 # Author: McDutchie
 # Author: Naudefj
+# Author: Nemo bis
 # Author: Nexus
 # Author: Rippitippi
 # Author: Ubyfudder
@@ -718,10 +719,10 @@ post_opt_html_on:L'<b>HTML</b> è <b>Attivo</b>
 post_opt_fud_on:<b><a href="{TEMPLATE: post_opt_fud_on_lnk}" target=_new>BBcode</b> è <b>ON</a></b>
 post_opt_images_on:Le <b>immagini</b> sono <b>Attive</b>
 post_opt_smilies_on:<a href="{TEMPLATE: post_opt_smilies_on_lnk}" target=_new>Gli <b>smiley</b> sono <b>ON</b></a>
-post_opt_html_off:L'<b>HTML</b> è <b>Disattivo</b>
-post_opt_fud_off:<b>BBcode</b> è <b>Disattivo</b>
-post_opt_images_off:Le <b>immagini</b> sono <b>Disattivo</b>
-post_opt_smilies_off:Gli <b>smiley</b> sono <b>Disattivo</b>
+post_opt_html_off:L'<b>HTML</b> è <b>Disattivato</b>
+post_opt_fud_off:<b>BBcode</b> è <b>Disattivato</b>
+post_opt_images_off:Le <b>immagini</b> sono <b>Disattivato</b>
+post_opt_smilies_off:Gli <b>smiley</b> sono <b>Disattivato</b>
 post_opt:Opzioni del Forum:
 register_change_passwd:cambia password
 register_change_login:cambia login

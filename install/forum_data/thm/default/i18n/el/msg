@@ -9,8 +9,7 @@
 action:Ενέργεια
 add_to_buddy_list:προσθήκη στη λίστα φίλων
 admin:Διαχειριστής
-# Fuzzy
-admin_control_panel:Πίνακας Ελέγχου Διαχειριστή
+admin_control_panel:Διαχείριση
 administrator:Διαχειριστής
 attachment:Σύνδεση:
 avatar:Άβαταρ:
@@ -97,8 +96,7 @@ new_thread:Δημιουργία νέου θέματος
 newest_user:Ο νεότερος εγγεγραμμένος χρήστη είναι ο
 next_page:Επόμενη Σελίδα
 next_thread:Επόμενο Θέμα:
-# Fuzzy
-no_messages:Δεν υπάρχουν καθόλου μηνύματα σε αυτό το φόρουμ.
+no_messages:Δεν υπάρχουν καθόλου μηνύματα σε αυτό το φόρουμ. <br />Γίνε ο πρώτος που θα δημοσιεύσει ένα θέμα σε αυτό το φόρουμ.
 no_msg_body:Κανένα Σώμα Μηνύματος
 no_new_posts:Καθόλου Νέα μηνύματα
 no_posts:Καθόλου Μηνύματα
@@ -348,12 +346,15 @@ post_poll:Κάλπη:
 post_poll_delete:ΔΙΑΓΡΑΦΗ
 post_poll_edit:ΕΠΕΞΕΡΓΑΣΙΑ
 post_mod_opt:Επιλογές συντονιστή:
+post_no_icon:Απουσία Εικονιδίου
 post_file_del:Διαγραφή
 post_file_name:Όνομα
 post_file_size:Μέγεθος
 post_forum:Φόρουμ:
 post_title:Τίτλος:
 post_options:Επιλογές:
+post_preview_btn:Προεπισκόπηση Μηνύματος
+post_cancel_btn:Ακύρωση
 ignore_users:Αγνοημένοι χρήστες
 prereg_info:Κανόνες του Φόρουμ
 prereg_agree:Συμφωνώ
@@ -365,8 +366,12 @@ coppa_fax_login:Είσοδος
 coppa_fax_passwd:Κωδικός
 coppa_fax_remail:Email
 coppa_fax_name:Όνομα
+login_forgot_passwd:Ξεχάσατε τον κωδικό πρόσβασης;
 login_login:Είσοδος:
 login_login_btn:Είσοδος
+login_passwd_required:Απαιτείται κωδικός πρόσβασης
+rpasswd_invalid_passwd:Λανθασμένος Κωδικός
+rpasswd_change_pass:Αλλαγή Κωδικού πρόσβασης
 rpasswd_login:Είσοδος
 rpasswd_new_pass:Νέος κωδικός πρόσβασης:
 login_passwd:Κωδικός:
