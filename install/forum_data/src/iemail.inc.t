@@ -71,6 +71,11 @@ function send_email($from, $to, $subj, $body, $header='', $munge_newlines=1)
 	}
 	$subj = encode_subject($subj);
 
+	// Call PRE mail plugins.
+	if (defined('plugins')) {
+		list($to, $subj, $body, $header) = plugin_call_hook('PRE_MAIL', array($to, $subj, $body, $header));
+	}
+
 	if (defined('fud_debug')) {
 		if (!function_exists('logaction')) {
 			fud_use('logaction.inc');
