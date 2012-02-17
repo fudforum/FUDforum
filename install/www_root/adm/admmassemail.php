@@ -49,7 +49,7 @@
 			} else if ($gid == $all_grp_lead) {
 				$c = uq('SELECT '. $fld .' FROM '. $DBHOST_TBL_PREFIX .'group_members gm INNER JOIN '. $DBHOST_TBL_PREFIX .'users u ON u.id=gm.user_id WHERE u.id > 1 AND (gm.group_members_opt & 131072) '.(isset($_POST['ignore_override']) ? '' : ' AND '. q_bitand('users_opt', 8) .'=0'));
 			} else {
-				$c = uq('SELECT '. $fld .' FROM '. $DBHOST_TBL_PREFIX .'users u WHERE u.id > 1 AND level_id='.($gid * -1).(isset($_POST['ignore_override']) ? '' : ' AND id > 1 AND (users_opt & 8)=0'));
+				$c = uq('SELECT '. $fld .' FROM '. $DBHOST_TBL_PREFIX .'users u WHERE u.id > 1 AND level_id='.($gid * -1).(isset($_POST['ignore_override']) ? '' : ' AND id > 1 AND .' q_bitand('users_opt', 8) .'=0'));
 			}
 		}
 
