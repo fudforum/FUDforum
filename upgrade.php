@@ -197,6 +197,27 @@ function htaccess_handler($web_root, $ht_pass)
 	}
 }
 
+
+/** 
+ * Upgrade GLOBALS.php to new format 
+ */
+function upgrade_globals_php()
+{
+
+	pf('Upgrading GLOBALS.php');
+	$core = file_get_contents($GLOBALS['DATA_DIR'] .'include/core.inc');
+	$FORUM_VERSION = preg_replace('/.*FORUM_VERSION = \'(.*?)\';.*/s', '\1', $core);
+	if (version_compare($FORUM_VERSION, '3.0.4', '<')) {
+		$new = '';
+		$f = fopen($GLOBALS['INCLUDE'].'GLOBALS.php','r');
+		while($s=fgets($f)) {
+			$new .= preg_replace('/(\t)\$([A-Z_1-9]*)([\s\t]*)/i','$1$GLOBALS[\'$2\']$3',$s);
+		}
+		fclose( $f );
+		file_put_contents($GLOBALS['INCLUDE'].'GLOBALS.php',$new);
+	}
+}
+
 function upgrade_decompress_archive($data_root, $web_root)
 {
 	$clean = array('PHP_OPEN_TAG'=>'<?', 'PHP_OPEN_ASP_TAG'=>'<%');
@@ -816,6 +837,9 @@ pf('<h2>Step 1: Admin login</h2>', true);
 		closedir($lp);
 	}
 	closedir($tp);
+
+	/* Upgrade globals variable to $_GLOBALS["xxx"] style */
+	upgrade_globals_php();
 
 	/* Upgrade files. */
 	pf('Beginning the file upgrade process.');

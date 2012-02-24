@@ -93,12 +93,14 @@ function print_txt_field($descr, $field, $rows=2, $cols=30)
 function read_global_settings()
 {
 	$settings_path = dirname(__FILE__) .'/GLOBALS.php';
-	$settings = file($settings_path);
-	$settings = preg_grep('/^\s+\$\w+\s+=\s+.+;/', $settings);      // Filter out variables.
-	foreach($settings as $setting) {
-		preg_match('/\s+\$(\w+)\s*=\s+(.*);/', $setting, $m);
-		eval('$GLOBALS[\''. $m[1] .'\'] = '. $m[2] .';');	// Export them to GLOBAL scope.
-	}
+	$globals = file_get_contents($settings_path);	
+	$stripped_globals = str_replace( 'require($INCLUDE .\'core.inc\');', '', $globals );
+	$tmpfname = tempnam('.','fud_');
+	$handle = fopen($tmpfname, "w");
+	fwrite($handle, $stripped_globals);
+	fclose($handle);
+	include_once($tmpfname);
+	unlink($tmpfname);
 }
 
 /** Change forum settings in GLOBALS.php. */
@@ -108,13 +110,14 @@ function change_global_settings($list)
 	foreach ($list as $k => $v) {
 		$v = str_replace("\n", '<br />', $v);	// Get rid of newlines (they will break this function).
 		$v = addcslashes($v, '\'');
-
-		if (($p = strpos($settings, '$'. $k)) === false) {	// Find it. New or existing setting?
-			$p = strpos($settings, '$ADMIN_EMAIL');			// Insert position for new settings.
+		$str = "\$GLOBALS['". $k ."']";
+		
+		if (($p = strpos($settings, $str)) === false) {	// Find it. New or existing setting?
+			$p = strpos($settings, "\$GLOBALS['ADMIN_EMAIL']");			// Insert position for new settings.
 			if (is_numeric($v)) {
-				$settings = substr_replace($settings, "\${$k}\t= {$v};\n\t", $p, 0);
+				$settings = substr_replace($settings, "{$str}\t= {$v};\n\t", $p, 0);
 			} else {
-				$settings = substr_replace($settings, "\${$k}\t= '{$v}';\n\t", $p, 0);
+				$settings = substr_replace($settings, "{$str}\t= '{$v}';\n\t", $p, 0);
 			}
 		} else {	// Update existing setting.
 			$p = strpos($settings, '=', $p) + 1;
