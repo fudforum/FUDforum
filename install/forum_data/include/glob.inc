@@ -97,10 +97,19 @@ function read_global_settings()
 	$stripped_globals = str_replace( 'require($INCLUDE .\'core.inc\');', '', $globals );
 	$tmpfname = tempnam('.','fud_');
 	$handle = fopen($tmpfname, "w");
-	fwrite($handle, $stripped_globals);
+	
+	if( !$handle )
+		return false;
+	
+	$bytes = 0;
+	$len = strlen($stripped_globals);
+	for(; $bytes<$len; $bytes += fwrite($handle, substr($stripped_globals,$bytes)));
 	fclose($handle);
+	
 	include_once($tmpfname);
-	unlink($tmpfname);
+	unlink($tmpfname); // Delete temp file;
+	
+	return true;
 }
 
 /** Change forum settings in GLOBALS.php. */
