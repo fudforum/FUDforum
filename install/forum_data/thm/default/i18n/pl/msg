@@ -1,5 +1,6 @@
 # Messages for Polish (Polski)
 # Exported from translatewiki.net
+# Author: BeginaFelicysym
 # Author: Byulent
 # Author: Naudefj
 # Author: Sp5uhe
@@ -918,7 +919,7 @@ pm_err_disabled_msg:Nie możesz wysyłać prywatnych wiadomości, dopóki nie ua
 err_mod_acc_ttl:Niezatwierdzone konto
 err_mod_acc_msg:Administrator zdecydował się zatwierdzać ręcznie wszystkie konta przed ich aktywacją. Zanim nie zatwierdzi Twojego konta, nie możesz korzystać ze wszystkich jego możliwości.
 accounts_pending_approval:Konta oczekujące na zatwierdzenie
-saved:Zachowane
+saved:Zapisane
 register_err_time_limit:Zostało przekroczone ograniczenie jednej rejestracji na {GVAR: REG_TIME_LIMIT} sekund. Odczekaj {PLURAL: reg_limit_reached|$1 sekundę|$1 sekundy|$1 sekund} zanim spróbujesz ponownie.
 register_affero:Nazwa użytkownika systemu Affero <br /><font class="SmallText">Jeśli posiadasz konto w <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">Affero</a>, określ je tutaj.</font>
 im_affero:Nazwa użytkownika systemu Affero

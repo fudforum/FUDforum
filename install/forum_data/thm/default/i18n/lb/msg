@@ -169,6 +169,7 @@ finduser_user_info:Benotzerinformatioun
 finduser_submit:Sichen
 finduser_no_such_user:Et gëtt keen esou Benotzer
 finduser_user:Benotzer
+finduser_postcount:Zuel vun de Messagen
 finduser_action:Aktioun
 yes:Jo
 no:Neen
@@ -301,6 +302,7 @@ poll_week:Woch
 tabs_register:Astellunge vum Benotzerkont
 delete_yes:Jo
 delete_no:Neen
+error_invalidurl:Net valabel URL
 error_error:Feeler
 usrinfo_show_all_posts:All Message vum {VAR: u->alias} weisen
 err_info:Informatioun
@@ -323,6 +325,7 @@ register_err_notyouremail:Et huet schonn een Anere sech mat dëser Mail-Adress u
 register_profile_update:Kuckt den eegene Profil
 register_register_update:Umeldungssäit
 report_err_nosuchmsg_title:FEELER
+report_err_nosuchmsg_msg:Esou ee Message gëtt et net
 reset_err_invalidkey_title:FEELER
 reset_err_rstconf_title:Informatioun
 reset_newpass_title:Passwuert zrécksetzen

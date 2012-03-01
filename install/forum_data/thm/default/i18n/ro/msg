@@ -111,8 +111,7 @@ num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|vot|voturi}
 occupation:Ocupatia:
 off:OPRIT
 on:PORNIT
-# Fuzzy
-page_timings:Timp total pentru a genera pagina: {VAR: page_gen_time} secunde
+page_timings:Timpul total necesar generării paginii: {PLURAL: page_gen_time|$1 secunde}
 pm:Mesaje personale
 poll:Sondaj:
 post_count:Mesaje trimise {VAR: u_pcount}
@@ -125,7 +124,7 @@ profile:Profil
 profile_desc:Accesați panoul de control al utilizatorului
 rate_thread:Voteaza tema
 refresh_list:Lista de reimprospatare
-register:Inregistreaza
+register:Înregistrare
 registered:Inregistrat:
 registered_on:Inregistrat la {TEMPLATE: registered_on_date}
 replies:Raspunsuri
@@ -133,7 +132,7 @@ report_to_mod:Raporteaza mesajul la moderator
 reported_messages:Mesaje raportate
 reveal_all_posts:arata toate mesajele trimise de {VAR: user_login}
 reveal_post:arata mesaje trimise
-search:Cauta
+search:Caută
 sel_todays_posts:Mesaje trimise astazi
 sel_todays_posts_desc:Schimba filtrul de mesaje trimise astazi
 sel_unanswered_posts:Mesaje trimise astazi
@@ -182,8 +181,7 @@ unsubscribe:Anuleaza inregistrarea
 unsubscribe_desc:Nu mai primi notificari despre noi teme in forum
 updated_on:Updatat la data de:
 user:Utilizator
-# Fuzzy
-user_counter:Sunt <b>{VAR: st_obj->user_count}</b> utilizator(i) inregistrati.
+user_counter:Avem <b>{VAR: st_obj->user_count}</b> {PLURAL: st_obj->user_count|utilizator înregistrat|utilizatori înregistrați}.
 user_info:Informatii utilizator
 user_info_l:Informatii utilizator {VAR: u->alias}
 user_offline:{VAR: obj->login}  este offline
@@ -191,8 +189,7 @@ user_online:{VAR: obj->login} este online
 usrinfo_last_post:Ultimul mesaj trimis:
 view_results:Vezi rezultate
 views:Vizualizari
-# Fuzzy
-vote:{VAR: frm->n_rating} Vot(uri)
+vote:{PLURAL: frm->n_rating|$1 vot|$1 voturi}
 vote_button:Voteaza
 vote_for_thread:Voteaza
 was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> a fost mutat la <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> de moderator
@@ -310,7 +307,7 @@ register_custom_avatar_rules:Imaginea dumneavoastra nu va aparea fara aprobarea 
 register_custom_avatar_url:Adresa URL a imaginii:
 register_preview:Previzualizare
 register_custom_avatar_upload:Fisier imagine:
-register_register:Inregistrare
+register_register:Înregistrare
 register_required:Informatii necesare
 register_required_desc:Toate campurile
 register_optional:Informatii optionale
@@ -356,7 +353,7 @@ register_allow_email_msg_desc:Permite celorlalti utilizatori sa trimita adresa d
 buddy_status:Statut
 my_buddies:Prietenii mei
 add_buddy:Adauga prieteni
-add:Adauga
+add:Adaugă
 buddy_search:Introduceti numele celui pe care doriti sa il cautati.
 member_search:Sau foloseste optiunea <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Cauta persoana</a> pentru a gasi o persoana.
 buddy_remove:sterge
@@ -464,6 +461,7 @@ rpasswd_login:Utilizator
 rpasswd_cur_pass:Parola curenta:
 rpasswd_new_pass:Parola noua:
 rpasswd_conf_pass:Confirma Parola:
+ruser_cur_pass:Parolă curentă:
 login_passwd:Parola:
 reset_email:Email:
 reset_reset_button:Reseteaza Parola
@@ -609,6 +607,7 @@ post_err_lockedthread_msg:Aceasta tema a fost blocata, nu se mai pot trimite mes
 err_coppa_title:EROARE: Contul dumneavoastra nu este inca confirmat
 # Fuzzy
 err_coppa_msg:Nu s-a primit confirmarea de la un parinte/tutore. Daca ati pierdut formularul <a href="{TEMPLATE: err_coppa_msg_lnk}">apasati aici</a> pentru a-l descarca
+err_banned_acct_title:EROARE: Ați fost blocat.
 post_err_edttimelimit_title:EROARE
 post_err_edttimelimit_msg:Nu mai puteti modifica acest mesaj
 # Fuzzy
@@ -634,8 +633,7 @@ postcheck_invalid_email:Va rugam sa introduceti o adresa de email valida.
 postcheck_email_subject:Nu puteti trimite un email fara subiect.
 postcheck_email_body:Nu puteti trimite un email fara continut
 private_msg_notify_subj:Citeste anunt pentru: {VAR: m->subject}
-# Fuzzy
-private_msg_notify_body:Buna,<br />utilizatorul {VAR: usr->login} a citit mesajul dumneavoastra
+private_msg_notify_body:Bună,<br />{VAR: usr->login} a deschis mesajul dumneavoastră privat intitulat „{VAR: m->subject}”.<br />Aceasta este o notificare automată generată la {TEMPLATE: private_msg_notify_body_date}<br />
 referals_update:Navigare referinte
 register_err_short_login:Numele de utilizator ales este prea scurt, trebuie sa aiba minimum 4 caractere.
 register_err_login_notallowed:Acest nume de utilizator nu este permis
@@ -733,8 +731,7 @@ thr_exch_no_threads:Nici o tema care asteapta aprobare
 # Fuzzy
 thr_exch_decl_reason:Motivul respingerii mutarii temei <b>{VAR: data->subject}</b> in forumul <b>{VAR-HTML: data->f2_namename}</b>
 thr_exch_submit:OK
-# Fuzzy
-exch_decline_ttl:Mutarea temei {VAR: data->subject} in forumul {VAR-HTML: data->f2_name} a fost respinsa.
+exch_decline_ttl:Mutarea temei {VAR: data->subject} în forumul {VAR: data->f2_name} a fost respinsă.
 ppost_original_msg:mesaj care il trimiteti mai departe sau la care raspundeti
 split_thread:Imparte Tema
 groupmgr_no_user:Nu este nici un utilizator numit "{FUNC: char_fix(htmlspecialchars($gr_member))}"
@@ -759,7 +756,7 @@ permission_denied_title:Permisiune respinsa!
 permission_denied_msg:Permisiunile nu va permit sa executati aceasta actiune.
 p_READ:Citeste
 p_POST:Trimite
-p_REPLY:Raspunde
+p_REPLY:Răspunde
 p_EDIT:Editare
 p_DEL:Stregere
 p_STICKY:Trimite Sticky
@@ -828,9 +825,12 @@ quicklogin_password:Parolă:
 quicklogin_use_cookies:Foloseste cookies?
 quicklogin_login_btn:Autentificare
 quick_reply:Răspuns rapid
+quick_reply_post:Publicare răspuns rapid
+quick_reply_preview:Previzualizare răspuns rapid
 post_notification_desc:Anunta-ma cand cineva raspunde la acest mesaj.
 post_all_ext_allowed:(nerestrictionat)
 maximize_category:Maximizeaza Categorie
+maximize_message:Maximizează mesajul
 no_view_perm:Nu aveti permisiune pentru a vedea aceasta tema
 report_empty_report:Nu puteti trimite un raport gol, introduceti motivul trimiterii raportului
 report_already_reported_title:Deja raportat
@@ -923,7 +923,7 @@ remove_from_buddy_list:serge din lista cu prieteni
 iemail_msg_author:<b>Autor:</b> {VAR: obj->alias}
 iemail_msg_subject:<b>Subiect:</b> {VAR: obj->subject}
 iemail_msg_date:<b>Data:</b> {TEMPLATE: dmsg_post_date}
-iemail_msg_reply:Raspunde
+iemail_msg_reply:Răspunde
 iemail_msg_quote:Citeaza
 iemail_msg_view:Vizualizare Tema
 threadt_announce:anunt
@@ -976,8 +976,10 @@ register_pm_notification_desc:Daca este activata aceasta optiune veti fi notific
 findu_admin_opts_header:Optiuni Admin.
 findu_unban:DeBlocheaza
 findu_ban:Blocheaza
+findu_edit:Modificare
 findu_delete:Sterge
 dmsg_reply_to:este un răspuns la
+dmsg_reply_num:mesajul #{VAR: obj->reply_to}
 merge_topics:Combina Temele
 merge_topics_cp:Panoul de Control pentru Combinarea Temelor
 merge_topics_tpl:Selectati Temele pentru Combinat <font class="SmallText">(trebuie sa selectati cel putin 1 tema)</font>
@@ -1001,8 +1003,12 @@ mnav_newer:mai nou decat
 mnav_older:mai vechi decat
 ip_search_by_ip:Căutare utilizatori după IP
 ip_search:Căutare
+ip_analyze_usage:Analizează utilizarea IP-ului
+ip_users_using:Utilizatori folosind adresa IP „{VAR: ip}”
 ip_all_ips:Toate IP(urile) sunt folosite de '{VAR: user}'
+ip_title:Navigator de IP-uri
 userinfo_real_name:Nume real:
+register_err_alias_notallowed:Această poreclă nu este permisă
 post_err_mod_forum_edit_ttl:EROARE
 post_err_mod_forum_edit_msg:Mesajele intr'un forum moderat nu pot fi editate.
 postcheck_session_invalid:Your session had expired, please re-submit the form. Sorry for the inconvenience.
@@ -1041,6 +1047,7 @@ err_blockedaccnt_title:EROARE: Contul dumneavoastră a fost filtrat.
 unbookmark_all_topics:Elimină toate marcajele
 sml_emoticon:Emoticon
 sml_code:Cod
+register_topics_per_page:Subiecte per pagină:
 post_not_logged_in:În prezent nu sunteți autentificat, iar mesajul va fi publicat ca anonim.
 post_common_bold:Aldin
 post_common_italics:Cursiv
@@ -1059,9 +1066,13 @@ post_common_blist:Adaugă listă cu puncte
 post_common_quote:Adaugă citat
 post_common_code:Adaugă cod
 rating_delete:Șterge
+topic_rating:{VAR: frm->rating} din {PLURAL: frm->n_rating|$1 vot|$1 voturi}
+topic_list_rating:{VAR: r[17]} din {PLURAL: r[21]|$1 vot|$1 voturi}
 tabs_notifications:Notificări
 finduser_flag:Drapel
+post_descr:Descriere subiect:
 move_messages:Mută mesajele
+move_msg_btn:Mută mesajele selectate
 captcha_img_alt:Verificare CAPTCHA: va trebui să recunoașteți textul din imagine.
 powered-by:Propulsat de: FUDforum {GVAR: FORUM_VERSION}.
 copyright:Drepturi de autor &copy;2001-2011 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
@@ -1070,7 +1081,11 @@ code_select_all:Selectează tot
 code_show_hide:Arată / ascunde
 social_sites:Site-uri de rețele sociale:
 postcheck_min_len_err:Mesajul dumneavoastră este prea scurt. Lungimea minimă este de {PLURAL: post_min_len|$1 caracter|$1 caractere}.
+btn_new_topic:Subiect nou
+btn_new_pm:Mes. privat nou
+btn_post_reply:Publică răsp.
 btn_about:Profil
+btn_small_pm:M. priv.
 btn_delete:șterge
 btn_edit:modificare
 btn_reply:răspunde
@@ -1082,8 +1097,10 @@ btn_homepage:www
 feed_rdf:Flux RDF
 feed_rss:Flux RSS2
 feed_atom:Flux ATOM
+ip_whois_connect_err:Imposibil de conectat la serverul WHOIS ({VAR: whois_server}): {VAR: errstr}
 custom_filed_required:Acest câmp este obligatoriu.
 pages:Pagini
 page_list_heading:Pagini disponibile
 page_list_total:{PLURAL: i|o pagină listată|$1 pagini listate}.
+page_update:Răsfoind pagina
 pm_export_header:Mesaje private pentru {VAR: usr->alias}

@@ -426,6 +426,7 @@ coppa_fax_instructions2:Pšosym śišć toś ten bok, pódpiš jen a faksuj jen 
 coppa_fax_reg_form:Registěrowański formular
 coppa_fax_sign:Pšosym pódpiš slědujucy formular a pósćel jen nam
 coppa_fax_permission:Pódpišćo how, aby dał dowólnosć
+coppa_fax_relation:Póśěg ku góleśeju:
 coppa_fax_telephone:Telefon:
 coppa_fax_email:E-mailowa adresa:
 coppa_fax_date:Datum:
@@ -433,6 +434,7 @@ coppa_fax_login:Pśizjawjenje
 coppa_fax_passwd:Gronidło
 coppa_fax_remail:E-mail
 coppa_fax_name:Mě
+login_not_logedin:Njejsy pśizjawjony. To by mógło jadnu ze slědujucych pśicynow měś:
 login_want_to_register:Coš se registrěrowaś?
 login_forgot_passwd:Gronidło zabyte
 login_login:Wužywarske mě:
@@ -443,12 +445,15 @@ login_invalid_radius:Njepłaśiwa kombinacija wužywarske mě/gronidło
 rpasswd_invalid_passwd:Njepłaśiwe gronidło
 rpasswd_passwd_nomatch:Gronidle se njemakatej
 rpasswd_passwd_length:Gronidło musy nanejmjenjej 6 znamuškow dłujke byś
+reset_remind_pass:Dopomnjeśe na gronidło
 reset_error:E-mailowa adresa njejo se namakała w datowej bance
 rpasswd_change_pass:Gronidło změniś
 rpasswd_login:Wužywarske mě
 rpasswd_cur_pass:Aktualne gronidło:
 rpasswd_new_pass:Nowe gronidło:
 rpasswd_conf_pass:Gronidło wobkšuśiś:
+ruser_title:Pśizjawjeński formular změniś
+ruser_change_user:Twójo forumowe pśizjawjenje změniś
 ruser_cur_login:aktualne wužywarske mě:
 ruser_new_login:Nowe wužywarske mě:
 ruser_cur_pass:Aktualne gronidło:
@@ -456,10 +461,15 @@ login_passwd:Gronidło:
 reset_email:E-mail:
 reset_reset_button:Gronidło slědk stajiś
 rate_this_thread:Pógódnośiś
+report_reporting_about:Zdźělenje wó:
 report_subject:Tema:
 report_by:wót:
+report_give_reason:Pšosym pódajśo pśicynu, cogodla dajoš toś tu powěźeńku k wěsći:
+report_submit_report:Powěźeńku wótpósłaś
 search_entire_msg:Cełe gronidło
+search_subject_only:Jano tema
 search_forum:Forum
+search_posted_on:Pósłany dnja
 search_no_results:Žedne wuslědki
 search_all_forums:We wšyknych forumach pytaś
 search_in_forum:We forumje pytaś:
@@ -474,7 +484,9 @@ remail_required:trěbny
 remail_subject:Tema:
 remail_message:Powěsć:
 remail_send_now:E-mail něnto pósłaś
+remail_anon_opt:Kopěrujśo toś tu powěsć do e-mailowego programo pó swójom žycenju, aby ju na swójich pśijaśelow pósłał.
 remail_done:Dokóńcony
+remail_sent_conf:E-mail wašomu pśijaśeloju na {VAR-HTML: _POST['femail']} wó temje {VAR: data->subject} jo se wuspěšnje rozpósłała.
 remail_error:Zmólka jo nastała
 mklist_type:Typ:
 mklist_option:Opcija:
@@ -504,11 +516,15 @@ ppost_track_msg:Toś tej powěsći slědowaś
 ppost_send:Wótpósłaś
 ppost_save_draft:Nacerjenje składowaś
 poll_blank_option:Njamóžoš proznu opciju pśidaś.
+poll_del_conf:Jolic cośo toś tu opciju wulašowaś, klikni na W pórěźe
 poll_name:Mě wótgłosowanja:
 poll_timelimit:Casowy limit:
 poll_maxiumvotes:Maksimalne głose:
 poll_create:Napóraś
 poll_update:Aktualizěrowaś
+poll_disablesmilies:Smileyje znjemóžniś
+poll_create_poll:Wótgłosowanje napóraś
+poll_update_poll:Wótgłosowanje aktualizěrowaś
 poll_delete:Wulašowaś
 poll_updateoption:Opciju aktualizěrowaś
 poll_addoption:Opciju pśidaś
@@ -581,6 +597,7 @@ reset_newpass_title:Gronidło slědk stajiś
 search_update:Pyta powěsći
 ERR_disabled_ttl:Znjemóžnjona funkcija
 ERR_disabled_msg:Toś ta funkcija jo se wót systemowego administratora znjemóžniła.
+ERR_access_ttl:ZMÓLKA: Njedosegajuce pšawa
 ERR_registration_disabled_ttl:Registrěrowanje znjemóžnjone
 ERR_registration_disabled_msg:Administrator jo registrěrowanje znjemóžnił. Pšosym wopytaj pózdźej hyšći raz.
 ERR_emailconf_ttl:ZMÓLKA: Twójo konto hyšći njejo wobkšuśone
@@ -590,16 +607,25 @@ ERR_systemerr_ttl:ZMÓLKA: Systemowa zmólka
 email_title:E-mailowy formular
 finduser_title:Wužywarja pytaś
 help_title:Pomoc
+login_title:Pśizjawjeński formular
+poll_title:Wótgłosowański editor
 register_title:Registrěrowański formular
+reset_title:Gronidło slědk stajiś
+rpasswd_title:Formular za změnjenje gronidła
 error_title:Zmólkowy formular
 index_title:Witaj do foruma
 search_title:Za {VAR-HTML: srch} pytaś
 remail_emailsent:E-mail jo se wótpósłała
 poll_add_option:Opciju pśidaś:
+post_opt_images_on:<b>Wobraze</b> su <b>zašaltowane</b>
 post_opt:Forumowe opcije:
 register_change_passwd:gronidło změniś
 register_change_login:wužywarske mě změniś
 approved_avatar_title:Twój swójski awatar jo se pśizwólił.
+unapproved_avatar_title:Waš swójski awatar jo se wótpokazał.
+mvthread_request_move:wó pśesunjenje pšosyś
+move_request_reason:Cogodla cośo temu pśesunuś?
+mvthread_submit_req:Napšašowanje wótpósłaś
 thr_exch_accept:temu akceptěrowaś
 thr_exch_decline:temu wótpokazaś
 thr_exch_orig_forum:Spócetny forum:
@@ -620,12 +646,24 @@ show_show:Pokazaś:
 group_mgr:Kupkowy zastojnik
 group_mgr_edit_btn:Kupku wobźěłaś
 group_mgr_group:Kupka:
+permission_denied_title:Pšawo wótpokazane!
 p_READ:Cytaś
+p_POST:Powěsć
 p_REPLY:Wótegroniś
 p_EDIT:Wobźěłaś
 p_DEL:Wulašowaś
+p_STICKY:Pśilipnjone powěsći
+p_POLL:Wótgłosowanja napóraś
+p_FILE:Dataje pśipowjesyś
+p_VOTE:Wótgłosowaś
 p_MOVE:Temy pśesunuś
+p_SML:Smileyje wužywaś
+p_SEARCH:Móžo pytaś
 group_mgr_search:Wužywarja pytaś
+rate_worst:Nejšpatnjejšy
+rate_best:Nejlěpšy
+post_quote:Citat:
+post_quote_selected:Wubrany tekst citěrowaś
 th_expr_never:Nigda
 th_expr_one_hr:1 góźina
 th_expr_three_hr:3 góźiny
@@ -649,7 +687,10 @@ logedin_todays_visitors:Źinsajšne woglědarje
 logedin_latest_post:Slědna powěsć we forumje:
 register_show_avatar:Awatary pokazaś:
 drawmsg_view_rest_post:Wušk powěsći pokazaś
+post_re:Re:
 split_th_post_by:Powěsć wót:
+split_th_posted_on:Pósłany dnja:
+split_th_subject:Tema:
 split_th_new_thread_title:Titel noweje temy:
 split_th_forum:Forum:
 split_th_messages:Powěsći
@@ -659,8 +700,10 @@ quicklogin_password:Gronidło:
 quicklogin_use_cookies:Cookieje wužywaś?
 quicklogin_login_btn:Pśizjawiś
 quick_reply:Malsne wótegrono
+post_all_ext_allowed:(njewobgranicowany)
 maximize_category:Kategoriju maksiměrowaś
 maximize_message:Powěsć maksiměrowaś
+report_already_reported_title:Južo k wěsći dany
 pmsg_next_msg:Pśiduca powěsć
 pmsg_prev_msg:Pjerwjejšna powěsć
 im_jabber:Jabber:
@@ -670,19 +713,24 @@ im_twitter:Twitter:
 forum_contact:Kontakt
 forum_home:Startowy bok
 smladd_close_window:wokno zacyniś
+post_list_smilies:wšykne smileyje nalicyś
 p_VISIBLE:Widobny
 reported_in_thread:W:
+help_back_to_top:slědk do zachopjeńka
 imsg_err_message_title:Njepłaśiwa powěsć
+imsg_err_message_msg:Powěsć, kótaraž cośo se woglědaś, njeeksistěrujo.
 poll_edit:Wobźěłaś
 register_err_not_valid_img:Pódany URL njewopśimujo płaśiwy wobraz.
 pmsg_recepient:Dostawaŕ
 register_alias:Alias:
 register_allow_pm_msg:Priwatne powěsći dowóliś:
 register_allow_pm_msg_desc:Drugim wužywarjam dowóliś śi prwiatne powěsći w toś tom forumje pósłaś.
+polllist_vote:Wótgłosowaś
 polllist_view_results:Wuslědki pokazaś
 polllist_name:Mě wótgłosowanja
 polllist_date:Napórany:
 polllist_owner:Napórany wót
+polllist_votes:Głose dogromady
 polllist_action:Akcija
 userinfo_polls:Wótglosowanja:
 show_pollist:Wótgłosowanja pokazaś
@@ -691,6 +739,7 @@ search_or:ABO
 search_attach:Dodanki:
 search_attach_all:Z abo bźez
 search_attach_with:Z dodankami
+post_proceed:Pókšacowaś
 unread_message:Njecytana powěsć
 read_message:Pśecytana powěsć
 threadt_more:&lt;wěcej&gt;
@@ -698,11 +747,14 @@ spell_alts:žedne alternatiwy
 saved:Skłaźony
 buddy_offline:{VAR: r[2]} jo tuchylu offline
 buddy_online:{VAR: r[2]} jo tuchylu online
+sml_no_smilies:Žedne smileyje k dispoziciji.
 login_unapproved_account_ttl:Njewobkšuśone konto
 iemail_msg_author:<b>Awtor:</b> {VAR: obj->alias}
 iemail_msg_subject:<b>Tema:</b> {VAR: obj->subject}
 iemail_msg_date:<b>Datum:</b> {TEMPLATE: dmsg_post_date}
 iemail_msg_reply:Wótegrono
+iemail_msg_quote:Citat
+threadt_sticky:pśilipnjony
 thread_mark_all_read:Wšykne njepśecytane powěsći foruma ako pśecytane markěrowaś
 thread_mark_all_read_desc:Wšykne njepśecytane powěsći w toś tom forumje budu se ako pśecytane markěrowaś
 private_no_messages:W toś tom zarědniku žedne powěsći njejsu.
@@ -747,6 +799,8 @@ post_err_mod_forum_edit_msg:Njamóžoš powěsći w moderěrowanem forumje wobź
 dmsg_num:powěsć #{VAR: obj->id}
 delete_msg_pm_body:Spócetna powěsć
 delete_msg_pm_subject:Tema: {VAR: data[15]}
+ip_whois_title:ISP-informacije
+register_theme:Drastwa:
 uc_new_pm:Nowe priwatne powěsći
 uc_new_topic:Nowa tema
 search_options:Pytańske opcije
@@ -768,10 +822,13 @@ dmsg_ip:IP:
 err_blockedaccnt_title:ZMÓLKA: Twójo konto jo se wufiltrowało.
 sub_unsub_all_forums:Wšykne forumy wótskazaś
 sub_unsub_all_topics:Wšykne temy wótskazaś
+unbookmark_all_topics:Wšykne załožki wótpóraś
 tabs_own_posts:Swójske powěsći pokazaś
+sml_emoticon:Smiley
 sml_code:Kod
 mnav_sub_only:Jano w aboněrowanych forumach pytaś
 register_topics_per_page:Temy na bok:
+post_not_logged_in:Njejsy tuchylu pśizjawjony, powěsć buźo se anonymnje wótpósćełaś.
 post_common_bold:Tucny
 post_common_italics:Kursiwny
 post_common_underline:Pódšmarnjony
@@ -790,6 +847,7 @@ pmsg_on:dnja
 move_messages:Powěsći pśesunuś
 move_msg_btn:Wubrane powěsći pśesunuś
 move_msg_th_expl:Pódaj ID celoweje temy (móžo teke w drugich forumach byś)
+captcha_img_help:Njejo nula abo jadenka we wobrazu.
 code_title:Kod:
 code_select_all:Wše wubraś
 code_show_hide:Pokazaś/schowaś
@@ -804,8 +862,10 @@ btn_small_pm:PP
 btn_delete:lašowaś
 btn_edit:wobźěłaś
 btn_reply:wótegroniś
+btn_forward:dalej pósrědniś
 btn_quote:citěrowaś
 btn_email:E-mail
+btn_show_posts:powěsći
 btn_homepage:www
 feed_no_data:Žedne wótpwědujuce daty namakane.
 feed_rdf:RDF-kanal
