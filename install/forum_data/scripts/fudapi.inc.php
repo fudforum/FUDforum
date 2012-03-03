@@ -329,7 +329,7 @@ stdClass Object
     [icon] => // mime icon
     [download_url] => // download URL
 )
-*/ 
+*/
 function fud_fetch_attachment($arg)
 {
 	$res = _fud_simple_fetch_query($arg, 'SELECT 
@@ -573,18 +573,23 @@ function fud_add_user($vals, &$err)
 	}
 
 	$passwd = $vals['passwd'];
-	
+
 	// Generate unique salt to distrupt rainow tables
-	if( !array_key_exists('salt',$vals) || empty( $vals['salt'] )  ) {
-		$vals['salt'] = sprintf( '%d',rand( 00000000001, 99999999999 ) );
+	if( !array_key_exists('salt', $vals) || empty( $vals['salt'] ) ) {
+		$vals['salt'] = substr(md5(uniqid(mt_rand(), true)), 0, 9);
 	}
-		
+
 	$salt = $vals['salt'];
-	
-	if (strncmp($passwd, 'sha1', 4)) {
-		$vals['passwd'] = sha1($salt . sha1($passwd));
+
+	// Password may already be encrypted (prefixed with 'MD5' or 'SHA1').
+	if (!strncmp($passwd, 'SHA1:', 5)) {
+		$vals['passwd'] = substr($passwd, 5);
+	} else if (!strncmp($vals['passwd'], 'MD5:', 4)) {
+		$vals['passwd'] = substr($passwd, 4);
+		$vals['salt']   = '';
 	} else {
-		$vals['passwd'] = sha1($salt . sha1(substr($passwd, 4)));
+		// Probably a plain text password.
+		$vals['passwd'] = sha1($salt . sha1($passwd));
 	}
 
 	if (empty($vals['alias'])) {
@@ -670,7 +675,7 @@ function fud_add_user($vals, &$err)
 				'. _esc($vals['login']) .',
 				'. _esc($vals['alias']) .',
 				\''. $vals['passwd'] .'\',
-				'. $vals['salt'] .',
+				\''. $vals['salt'] .'\',
 				'. _esc($vals['name']) .',
 				'. _esc($vals['email']) .',
 				'. (int)$vals['icq'] .',
@@ -717,19 +722,27 @@ function fud_update_user($uid, $vals, &$err)
 		$err = 'Invalid user id';
 		return 0;
 	}
-	
+
 	// If user wants to change password generate new salt and hash
-	if( array_key_exists('passwd',$vals) && !empty( $vals['passwd'] )  ) {
-		$vals['salt'] = sprintf( '%d',rand( 00000000001, 99999999999 ) );
-		
+	if( array_key_exists('passwd', $vals) && !empty($vals['passwd'])) {
 		$passwd = $vals['passwd'];
-	
-		$salt = $vals['salt'];
-		
-		if (strncmp($passwd, 'sha1', 4)) {
-			$vals['passwd'] = sha1($salt . sha1($passwd));
+
+		// Generate unique salt to distrupt rainow tables
+		if( !array_key_exists('salt', $vals) || empty( $vals['salt'] ) ) {
+			$vals['salt'] = substr(md5(uniqid(mt_rand(), true)), 0, 9);
+		}
+
+		$salt   = $vals['salt'];
+
+		// Password may already be encrypted (prefixed with 'MD5' or 'SHA1').
+		if (!strncmp($passwd, 'SHA1:', 5)) {
+			$vals['passwd'] = substr($passwd, 5);
+		} else if (!strncmp($vals['passwd'], 'MD5:', 4)) {
+			$vals['passwd'] = substr($passwd, 4);
+			$vals['salt']   = '';
 		} else {
-			$vals['passwd'] = sha1($salt . sha1(substr($passwd, 4)));
+			// Probably a plain text password.
+			$vals['passwd'] = sha1($salt . sha1($passwd));
 		}
 	}
 
