@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -11,6 +11,7 @@
 
 /*{PRE_HTML_PHP}*/
 
+	// User is logged in, redirect to forum index.
 	if (_uid) {
 		if ($FUD_OPT_2 & 32768) {
 			header('Location: {FULL_ROOT}{ROOT}/i/'. _rsidl);
@@ -19,6 +20,11 @@
 		}
 		exit;
 	}
+
+	// Password resets are disabled.
+	if (!($FUD_OPT_4 & 2)) {
+                std_error('disabled');
+        }
 
 	if (isset($_GET['reset_key'])) {
 		if (($ui = db_saq('SELECT email, login, id FROM {SQL_TABLE_PREFIX}users WHERE reset_key='. _esc((string)$_GET['reset_key'])))) {
