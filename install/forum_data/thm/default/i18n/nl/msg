@@ -762,7 +762,7 @@ group_mgr_group:Groep:
 permission_denied_title:U hebt geen toegang!
 permission_denied_msg:Uw gebruikersrechten staan u niet toe deze actie uit te voeren.
 p_READ:Lezen
-p_POST:Schrijven
+p_POST:Opslaan
 p_REPLY:Antwoorden
 p_EDIT:Bewerken
 p_DEL:Verwijderen

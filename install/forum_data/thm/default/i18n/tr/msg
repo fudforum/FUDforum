@@ -4,6 +4,7 @@
 # Author: Naudefj
 # Author: Srhat
 # Author: Stultiwikia
+# Author: Suelnur
 # Author: Tarikozket
 # Author: Tufan
 # Author: Vito Genovese
@@ -572,7 +573,7 @@ delete_proceed:<font size="3"><b>Devam etmek istiyor musunuz?</b></font>
 delete_yes:Evet
 delete_no:Hayır
 error_invalidurl:Geçersiz URL
-error_error:Gata
+error_error:Hata
 usrinfo_profile:{VAR: u->alias} Kullanıcısının Kişisel Bilgileri
 usrinfo_show_all_posts:{VAR: u->alias} tarafından gönderilen tüm iletileri göster
 actions_update:Diğer kullanıcılara bakıyor
