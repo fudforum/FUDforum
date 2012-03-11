@@ -2,6 +2,7 @@
 # Exported from translatewiki.net
 # Author: Aotake
 # Author: Fryed-peach
+# Author: Hina
 # Author: Iwai.masaharu
 # Author: Naudefj
 
@@ -1083,6 +1084,7 @@ post_common_align_center:中央寄せ
 post_common_align_right:右寄せ
 post_common_link:リンクを挿入
 post_common_email:メールアドレスを挿入
+post_common_email_popup:メールアドレス
 post_common_image:画像を挿入
 post_common_image_popup:画像URL:
 post_common_nlist:番号付き箇条書きを追加
@@ -1131,3 +1133,6 @@ feed_rdf:RDF フィード
 feed_rss:RSS2 フィード
 feed_atom:ATOM フィード
 ip_whois_connect_err:whois サーバーに接続できません ({VAR: whois_server}): {VAR: errstr}
+custom_filed_required:必須項目
+pages:ページ
+page_list_heading:利用可能なページ
