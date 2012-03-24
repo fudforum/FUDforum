@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -238,7 +238,6 @@ function imposeMaxLength(Object, len)
 	<th>Collapsible</th>
 	<th>Default View</th>
 	<th align="center">Action</th>
-	<th>Position</th>
 </tr></thead>
 <tbody id="sortable">
 <?php
@@ -273,8 +272,12 @@ function imposeMaxLength(Object, len)
 			<td><font size="-1">'. htmlspecialchars(substr($r->description, 0, 30)) .'...</font></td>
 			<td>'. ($r->cat_opt & 1 ? 'Yes' : 'No') .'</td>
 			<td>'. $stat[($r->cat_opt & (2|4))] .'</td>
-			<td nowrap="nowrap">[<a href="admcat.php?edit='. $r->id .'&amp;'. __adm_rsid .'#edit" title="Edit category">Edit</a> | <a href="admcat.php?del='. $r->id .'&amp;'. __adm_rsid .'" title="Delete category">Delete</a> | <a href="admforum.php?cat_id='. $r->id .'&amp;'. __adm_rsid .'" title="Add/edit this category\'s forums">Manage Forums</a>]</td>
-			<td>[<a href="admcat.php?chpos='. $r->view_order .'&amp;cpid='. $r->id .'&amp;'. __adm_rsid .'" title="Change display position">Change</a>]</td></tr>';
+			<td nowrap="nowrap">
+				[<a href="admcat.php?edit='. $r->id .'&amp;'. __adm_rsid .'#edit" title="Edit category">Edit</a>]
+				[<a href="admcat.php?del='. $r->id .'&amp;'. __adm_rsid .'" title="Delete category">Delete</a>]
+				[<a href="admcat.php?chpos='. $r->view_order .'&amp;cpid='. $r->id .'&amp;'. __adm_rsid .'" title="Change display position">Change Position</a>]
+				[<a href="admforum.php?cat_id='. $r->id .'&amp;'. __adm_rsid .'" title="Add/edit this category\'s forums">Manage Forums</a>]
+			</td></tr>';
 	}
 	if ($lp && $parent == $cpid) {
 		echo '<tr class="field"><td align="center" colspan="6"><font size="-1"><a href="admcat.php?chpos='. $_GET['chpos'] .'&amp;newpos='. ($lp + 1) .'&amp;par='. $parent .'&amp;'. __adm_rsid .'">Place Here</a></font></td></tr>';
