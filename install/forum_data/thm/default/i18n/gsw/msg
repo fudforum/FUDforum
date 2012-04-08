@@ -421,7 +421,7 @@ forum_rules_13:<p>Alli Benutzer unter 13 Johr mien ihri Eltere oder ihre Vormund
 coppa_conf:COPPA Bstetigung
 coppa_before:Vor em {TEMPLATE: coppa_date}
 coppa_after:Noch em {TEMPLATE: coppa_date}
-coppa_link:Klick uf s Gleich, wu zue Dyym Geburtsdatum passt
+coppa_link:Drugg uf de Link, wu zue Dyym Geburtsdatum passt
 coppa:<p>E Elteredeil oder Vormund muess e unterschribeni Yywilligungserklärig an dr Administrator vum Forum schicke oder faxe, voreb e Benutzer unter 13 d Regischtrierig cha abschließe.</p><p>Fir meh Informatione kontaktier <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a></p>
 prereg_info:Forumsregle
 prereg_agree:Zuestimme
@@ -580,7 +580,7 @@ buddy_list_err_nouser_title:Cha dr Benutzer nit zuefiege
 buddy_list_err_ignore:Du chasch kei Benutzer in Dyy Fryndlischt yyfiege, wu Di ignoriere.
 buddy_list_update:Dursuecht di eige Fryndlischt
 core_err_invinp_title:Nit giltigi Yygab
-core_err_invinp_err:Du bisch eme tote Gleich gfolgt, bitte benochrichtig dr <a href="mailto:{GVAR: ADMIN_EMAIL}">Webmaster</a> driber, wie Du dohär chuu bisch.
+core_err_invinp_err:Du bisch eme tote Link gfolgt, bitte benochrichtig dr <a href="mailto:{GVAR: ADMIN_EMAIL}">Webmaster</a> driber, wie Du dohär chuu bisch.
 core_adm_login_msg:Adminischtratore chenne sich <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">doo</a> aamälde.
 email_err_unabletoemail_title:FÄHLER: Cha E-Mail nit verschicke
 email_err_unabletoemail_msg:S E-Mail-Syschtem isch vum Administrator deaktiviert wore.
@@ -633,7 +633,7 @@ post_reply_update:Git e Antwort uf <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr-
 post_topic_update:Leit e nej Thema in <a href="{TEMPLATE: post_topic_update_lnk}">{VAR: frm->name}</a> aa
 post_error_generic:S het e Fähler gee
 postcheck_max_images_err:Maximal {GVAR: MAX_IMAGE_COUNT} Bilder pro Byytrag sin erlaubt, bitte verringere d Aazahl vu dr Bilder.
-postcheck_no_links_allowed:Du chasch kei Gleicher (Links) bruche, bis Du meh wie {PLURAL: posts_before_links|$1 Beitrag|$1 Beitreg} gschribe hesch.
+postcheck_no_links_allowed:Du chasch kei Links bruche, bis Du meh wie {PLURAL: posts_before_links|$1 Beitrag|$1 Beitreg} gschribe hesch.
 postcheck_subj_needed:S brucht e Beträff
 postcheck_no_such_user:S git kei Benutzer mit em Name "{FUNC: char_fix(htmlspecialchars($v))}" in däm Forum.
 postcheck_ignored:Du chasch kei privati Nochricht an "{FUNC: char_fix(htmlspecialchars($v))}" verschicke, wel die Person Di uf d Ignorierlischt gsetzt het.
@@ -1080,7 +1080,7 @@ post_common_underline:Unterstryyche
 post_common_align_left:Linksbindig
 post_common_align_center:Zäntriert
 post_common_align_right:Rächtsbindig
-post_common_link:Gleich (Link) yyfiege
+post_common_link:Link yyfiege
 post_common_link_popup:Linkort
 post_common_email:E-Mail-Adräss yyfiege
 post_common_email_popup:E-Mail-Adräss:

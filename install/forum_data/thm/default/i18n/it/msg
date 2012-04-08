@@ -22,7 +22,7 @@ biography:Bio:
 birth_date:Data di nascita:
 by:Da:
 by_mod:dal moderatore
-current_time:Ora corrente
+current_time:Ora attuale
 custom_avatar_queue:Coda di Avatar personalizzati
 date_posted:Data del messaggio
 date_registered:Data di registrazione:
@@ -476,9 +476,9 @@ rpasswd_new_pass:Nuova password:
 rpasswd_conf_pass:Conferma password:
 ruser_title:Form per il cambio di Login
 ruser_change_user:Cambia la Login al Forum
-ruser_cur_login:Login corrente:
+ruser_cur_login:Login attuale:
 ruser_new_login:Nuova Login:
-ruser_cur_pass:Password corrente:
+ruser_cur_pass:Password attuale:
 login_passwd:Password:
 reset_email:Email:
 reset_reset_button:Reimposta Password
@@ -904,7 +904,7 @@ post_proceed:Procedi
 post_moderated_forum:Hai scritto un messaggio in un forum moderato, il che vuol dire che il tuo messaggio non sarà reso pubblico fino a quando uno dei moderatori non l'avrà approvato.
 post_moderated_forum_ttl:Avviso: forum moderato
 buddy_list_bday:Oggi {VAR: r[2]} compie {VAR: age} anni!!! AUGURI!!!
-email_warning_msg:Se cambi il tuo indirizzo email corrente, il tuo account verrà marcato come non confermato dino a quando non effettuerai una sua conferma via e-mail.
+email_warning_msg:Se cambi il tuo indirizzo email attuale, il tuo account verrà marcato come non confermato fino a quando non lo confermi via e-mail.
 register_show_im:Mostra gli indicatori IM
 register_show_im_desc:se mostrare o no gli indicatori IM degli autori accanto ai loro messaggi.
 unread_message:Messaggio non letto

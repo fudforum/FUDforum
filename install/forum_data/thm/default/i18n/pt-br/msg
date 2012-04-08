@@ -4,6 +4,7 @@
 # Author: Luckas Blade
 # Author: McDutchie
 # Author: Naudefj
+# Author: 555
 
 action:Ação
 add_to_buddy_list:Adicionar à lista de amigos
@@ -754,7 +755,7 @@ groupmgr_edit:Editar
 groupmgr_delete:Apagar
 group_mgr_anon:Anônimo
 group_mgr_reged:Todos os usuários registados
-show_show:Mostar:
+show_show:Exibir:
 group_mgr:Gerenciador de Grupos
 group_mgr_edit_btn:Editar Grupo
 group_mgr_heading:Seleção de Editor de Grupo
