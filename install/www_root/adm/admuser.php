@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -185,7 +185,7 @@ Are you sure you want to do this?<br />
 					exit;
 				} else if (isset($_POST['btn_yes'])) {
 					if ($GLOBALS['usr']->id == $usr_id) {
-						echo errorify('Sorry, you cannot abdicate from being and administrator!');
+						echo errorify('Sorry, you cannot abdicate from being and administrator. Ask another administrator to remove your account.');
 						break;
 					}
 					if (q_singleval('SELECT count(*) FROM '. $DBHOST_TBL_PREFIX .'mod WHERE user_id='. $u->id)) {
@@ -354,7 +354,7 @@ administration permissions to the forum. This individual will be able to do anyt
 		$item_s = _esc($item_s);
 
 		if (($cnt = q_singleval('SELECT count(*) FROM '. $DBHOST_TBL_PREFIX .'users WHERE '. $field . ($like ? ' LIKE ' : '=') . $item_s))) {
-			$c = uq(q_limit('SELECT id, alias, email, last_login, last_known_ip, posted_msg_count FROM '. $DBHOST_TBL_PREFIX .'users WHERE '. $field . ($like ? ' LIKE ' : '=') . $item_s, 40, $start));
+			$c = uq(q_limit('SELECT id, alias, email, last_login, last_known_ip, posted_msg_count FROM '. $DBHOST_TBL_PREFIX .'users WHERE '. $field . ($like ? ' LIKE ' : '=') . $item_s . ' ORDER BY last_visit', 40, $start));
 		}
 		switch ($cnt) {
 			case 0:
