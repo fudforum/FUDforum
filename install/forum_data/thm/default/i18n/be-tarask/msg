@@ -3,6 +3,7 @@
 # Author: EugeneZelenko
 # Author: Jim-by
 # Author: Naudefj
+# Author: Wizardist
 
 action:Дзеяньне
 add_to_buddy_list:дадаць да сьпісу сяброў
@@ -1074,7 +1075,7 @@ mnav_sub_only:Пошук толькі ў форумах, на якія падп�
 register_topics_per_page:Тэмаў на старонцы:
 login_min_time:Гэты форум дазваляе толькі адну спробу ўваходу кожныя {VAR: MIN_TIME_BETWEEN_LOGIN} сэкундаў, калі ласка, пачакайце {FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)} сэкундаў перад наступнай спробай.
 post_not_logged_in:Вы не ўвайшлі на форум, паведамленьне будзе разьмешчанае ананімна.
-post_common_bold:Тлусты
+post_common_bold:Тоўсты
 post_common_italics:Курсіў
 post_common_underline:Падкрэсьлены
 post_common_align_left:Па леваму боку
