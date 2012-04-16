@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -22,11 +22,13 @@
 	if (!empty($_GET['which_dir']) || !empty($_POST['which_dir'])) {
 		$which_dir = '1';
 		$ICONS_DIR = 'images/message_icons';
-		$form_descr = 'Message Icons';
+		$form_header = 'Message Icons';
+		$form_descr = 'Images users can select from to display next to their posts.';
 	} else {
 		$which_dir = '';
 		$ICONS_DIR = 'images/forum_icons';
-		$form_descr = 'Forum Icons';
+		$form_header = 'Forum Icons';
+		$form_descr = 'Images that can be assigned to forums in the <a href="admforum.php?'. __adm_rsid .'">Forum Manager</a>.';
 	}
 
 	if (isset($_FILES['iconfile']) && $_FILES['iconfile']['size'] && preg_match('!\.(gif|png|jpg|jpeg)$!i', $_FILES['iconfile']['name'])) {
@@ -49,7 +51,8 @@
 	}
 
 ?>
-<h2><?php echo $form_descr; ?> Administration System</h2>
+<h2><?php echo $form_header; ?> Administration System</h2>
+<p><?php echo $form_descr; ?></p>
 <?php
 	if (@is_writeable($WWW_ROOT_DISK . $ICONS_DIR)) {
 ?>

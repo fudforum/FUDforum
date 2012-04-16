@@ -354,7 +354,7 @@ administration permissions to the forum. This individual will be able to do anyt
 		$item_s = _esc($item_s);
 
 		if (($cnt = q_singleval('SELECT count(*) FROM '. $DBHOST_TBL_PREFIX .'users WHERE '. $field . ($like ? ' LIKE ' : '=') . $item_s))) {
-			$c = uq(q_limit('SELECT id, alias, email, last_login, last_known_ip, posted_msg_count FROM '. $DBHOST_TBL_PREFIX .'users WHERE '. $field . ($like ? ' LIKE ' : '=') . $item_s . ' ORDER BY last_visit', 40, $start));
+			$c = uq(q_limit('SELECT id, alias, email, last_visit, last_known_ip, posted_msg_count FROM '. $DBHOST_TBL_PREFIX .'users WHERE '. $field . ($like ? ' LIKE ' : '=') . $item_s . ' ORDER BY last_login DESC', 40, $start));
 		}
 		switch ($cnt) {
 			case 0:
@@ -374,12 +374,12 @@ administration permissions to the forum. This individual will be able to do anyt
 				echo '<p>There are '. $cnt .' users that match this '. $field .' mask:</p>';
 				echo '<table class="resulttable fulltable">';
 				echo '<thead><tr class="resulttopic">';
-				echo '	<th>User Login</th><th>E-mail</th><th>Last online</th><th>Last IP</th><th>Posts</th><th>Action</th>';
+				echo '	<th>User Login</th><th>E-mail</th><th>Last visit</th><th>Last IP</th><th>Posts</th><th>Action</th>';
 				echo '</tr></thead>';
 				$i = 0;
 				while ($r = db_rowarr($c)) {
 					$bgcolor = ($i++%2) ? ' class="resultrow2"' : ' class="resultrow1"';
-					echo '<tr'. $bgcolor .'><td>'. $r[1] .'</td><td>'. htmlspecialchars($r[2]) .'</td><td>'. fdate($r[3], 'd M Y') .'</td><td>'. long2ip($r[4]) .'</td><td>'. $r[5] .'</td><td><a href="admuser.php?usr_id='. $r[0] .'&amp;act=m&amp;'. __adm_rsid .'">Edit</a> | <a href="admuser.php?act=del&amp;usr_id='. $r[0] .'&amp;'. __adm_rsid .'">Delete</a></td></tr>';
+					echo '<tr'. $bgcolor .'><td>'. $r[1] .'</td><td>'. htmlspecialchars($r[2]) .'</td><td>'. fdate($r[3], 'd M Y H:i:s') .'</td><td>'. long2ip($r[4]) .'</td><td>'. $r[5] .'</td><td><a href="admuser.php?usr_id='. $r[0] .'&amp;act=m&amp;'. __adm_rsid .'">Edit</a> | <a href="admuser.php?act=del&amp;usr_id='. $r[0] .'&amp;'. __adm_rsid .'">Delete</a></td></tr>';
 				}
 				echo '</table>';
 				unset($c);
