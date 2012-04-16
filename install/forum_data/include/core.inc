@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -249,9 +249,9 @@ function fud_sql_error_handler($query, $error_string, $error_number, $db_version
 	fud_logerror($error_msg, 'sql_errors');
 
 	if (empty($GLOBALS['ADMIN_EMAIL'])) {
-		$public_msg = 'SQL error has occurred! Please contact the administrator of the forum and have them look at the forum\'s Error Log Viewer.';
+		$public_msg = 'SQL error has occurred! Please contact the administrator and have them look at the Error Log Viewer in the forum\'s Admin Control Panel.';
 	} else {
-		$public_msg = 'SQL error has occurred! Please contact the <a href="mailto:'. $GLOBALS['ADMIN_EMAIL'] .'?subject=SQL%20Error">administrator</a> of the forum and have them look at the forum\'s Error Log Viewer.';
+		$public_msg = 'SQL error has occurred! Please contact the <a href="mailto:'. $GLOBALS['ADMIN_EMAIL'] .'?subject=SQL%20Error">administrator</a> and have them look at the Error Log Viewer in the forum\'s Admin Control Panel.';
 	}
 
 	if (isset($GLOBALS['usr']->users_opt) && $GLOBALS['usr']->users_opt & 1048576) { // Admin user.

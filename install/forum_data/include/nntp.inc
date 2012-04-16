@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -76,11 +76,16 @@ class fud_nntp
 		return false;
 	}
 
-	/** Send NNTP command to the server. */
+	/** Send NNTP command to the server and autehticate if required. */
 	function cmd($cmd, $auth=true)
 	{
 		fputs($this->fs, $cmd ."\r\n");
 		$code = $this->get_return_code();
+
+		// Reissue command if authentication is required. Check for:
+		// - 450 Authorization required for this command
+		// - 480 Authentication required (old)
+		// Tip: If server wronlly responds "440 Posting not permitted", add check for it below.
 		if ($auth && ($code == 450 || $code == 480)) {
 			if (!$this->auth_cmd()) {
 				return false;
