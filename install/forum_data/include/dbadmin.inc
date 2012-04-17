@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -95,8 +95,8 @@ function get_stbl_from_file($file)
 	}
 
 	/* Indexes. */
-	if (preg_match_all('!CREATE ?(UNIQUE|) INDEX ([^\s]+) ON '. $tbl['name'] .' \(([^;]+)\);!', $data, $m)) {
-		$c = count($m[0]);
+	if (preg_match_all('!CREATE\s+?(UNIQUE |)INDEX\s+([^\s]+)\s+ON\s+'. $tbl['name'] .' \(([^;]+)\);!', $data, $m)) {
+			$c = count($m[0]);
 		for ($i = 0; $i < $c; $i++) {
 			$tbl['index'][$m[2][$i]] = array('unique'=>(empty($m[1][$i]) ? 0 : 1), 'cols'=>str_replace(' ', '', $m[3][$i]));
 		}
