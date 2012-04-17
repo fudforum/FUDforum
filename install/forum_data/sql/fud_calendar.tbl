@@ -1,4 +1,4 @@
-#   copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+#   copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
 #   email                : forum@prohost.org
 #
 #   $Id$
@@ -12,9 +12,9 @@ DROP TABLE IF EXISTS {SQL_TABLE_PREFIX}calendar;
 CREATE TABLE {SQL_TABLE_PREFIX}calendar
 (
 	id		INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	event_day	VARCHAR(2) NOT NULL,
-	event_month	VARCHAR(2) NOT NULL,
-	event_year	VARCHAR(4) NOT NULL,
+	event_day	VARCHAR(2) NOT NULL DEFAULT '*',
+	event_month	VARCHAR(2) NOT NULL DEFAULT '*',
+	event_year	VARCHAR(4) NOT NULL DEFAULT '*',
 	link		VARCHAR(255),
 	descr		TEXT NOT NULL
 );
