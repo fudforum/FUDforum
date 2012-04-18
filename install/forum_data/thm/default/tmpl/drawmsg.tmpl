@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -271,7 +271,7 @@
 {SECTION: dmsg_drawmsg_file_attachment file attachment entry row}
 <li>
 	<img alt="" src="images/mime/{VAR: v[4]}" class="at" />
-	<span class="GenText fb">{MSG: attachment}</span> <a href="{TEMPLATE: dmsg_drawmsg_file_attachment_lnk}">{VAR: v[1]}</a>
+	<span class="GenText fb">{MSG: attachment}</span> <a href="{TEMPLATE: dmsg_drawmsg_file_attachment_lnk}" title="{VAR: v[1]}">{VAR: v[1]}</a>
 	<br />
 	<span class="SmallText">({MSG: size} {FUNC: ($sz < 1000 ? number_format($sz, 2).'KB' : number_format($sz/1024, 2).'MB')}, {MSG: download_counter})</span>
 </li>
