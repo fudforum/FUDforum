@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -10,7 +10,31 @@
 **/
 // TODO: IPv6 compatibility.
 
+/* main */
+	@ini_set('memory_limit', '256M');
+	@set_time_limit(0);
+
 	require('./GLOBALS.php');
+
+	// Run from command line.
+	if (php_sapi_name() == 'cli') {
+		fud_use('adm_cli.inc', 1);
+		if ($_SERVER['argv'][1] == 'rebuilduser') {
+			$_POST['rebuild_user_geoip'] = 1;
+		} else if ($_SERVER['argv'][1] == 'rebuildmsg') {
+			$_POST['rebuild_msg_geoip'] = 1;
+		} else if (($_SERVER['argv'][1] == 'GEO' || $_SERVER['argv'][1] == 'IP2C') && !empty($_SERVER['argv'][2])) {
+			$_POST['format'] = $_SERVER['argv'][1];
+			$_FILES['file'] = array(
+				'tmp_name'	=> $_SERVER['argv'][2]
+			);
+		} else {
+			echo "Usage: php admgeoip.php [GEO|IP2C] /path/to/geo_ip.csv\n";
+			echo "       php admgeoip.php [rebuilduser|rebuildmsg]\n";
+			die();
+		}
+	}
+
 	fud_use('adm.inc', true);
 	fud_use('glob.inc', true);
 	fud_use('widgets.inc', true);
