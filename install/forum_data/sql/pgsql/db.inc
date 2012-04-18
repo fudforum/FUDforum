@@ -254,10 +254,8 @@ function ins_m($tbl, $flds, $types, $vals)
 	}
 	error_reporting($err);
 
-	/* If persistent connections are used de-allocte the prepared statement to prevent query failures. */
-	if ($GLOBALS['FUD_OPT_1'] & 256) {
-		pg_query(fud_sql_lnk, 'DEALLOCATE '. $pid);
-	}
+	/* De-allocte the prepared statement to prevent query failures. */
+	pg_query(fud_sql_lnk, 'DEALLOCATE '. $pid);
 }
 
 function db_all($q)
