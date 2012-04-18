@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -248,7 +248,7 @@ function write_body_copy($data, &$len, &$offset, $file_id, $forum_id)
 	// Index messages offsets for faster processing.
 	create_index($tbl .'pmsg', $tbl .'pmsg_foff_idx', false, 'foff');
 
-	db_lock($tbl .'pmsg WRITE');
+	db_lock($tbl .'pmsg WRITE, '. $tbl .'msg_store WRITE');
 	$i = $off = $len = 0;
 	$start_time2 = time();
 	$fp = fopen($MSG_STORE_DIR .'private_tmp', 'wb');
