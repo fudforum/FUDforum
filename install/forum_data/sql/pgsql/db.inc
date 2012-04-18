@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -248,6 +248,8 @@ function ins_m($tbl, $flds, $types, $vals)
 		// pg_execute(fud_sql_lnk, $pid,  explode(',', $v));	// $v must be unquoted before we can use this method.
 		if (pg_last_error(fud_sql_lnk)) {
 			if (!empty($GLOBALS['__DB_INC_INTERNALS__']['db_locked'])) pg_exec('ROLLBACK TO pre_ins_m');
+		} else {
+			if (!empty($GLOBALS['__DB_INC_INTERNALS__']['db_locked'])) pg_exec('RELEASE pre_ins_m');
 		}
 	}
 	error_reporting($err);

@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -238,12 +238,14 @@ function db_li($q, &$ef, $li=0)
 
 function ins_m($tbl, $flds, $types, $vals)
 {
-	$sth = db::$db->prepare('INSERT INTO '. $tbl .' ('. $flds .') VALUES(?'.str_repeat(',?',substr_count($flds, ',')) .')');
+	$sth = db::$db->prepare('INSERT INTO '. $tbl .' ('. $flds .') VALUES(?'. str_repeat(',?',substr_count($flds, ',')) .')');
 	foreach ($vals as $v) {
 		if (!empty($GLOBALS['__DB_INC_INTERNALS__']['db_locked'])) db::$db->exec('SAVEPOINT pre_ins_m');
 		if (!$sth->execute(explode(',', trim($v, '\'')))) {
 			if (!empty($GLOBALS['__DB_INC_INTERNALS__']['db_locked'])) db::$db->exec('ROLLBACK TO pre_ins_m');
 			continue;
+		} else {
+			if (!empty($GLOBALS['__DB_INC_INTERNALS__']['db_locked'])) pg_exec('RELEASE pre_ins_m');
 		}
 	}
 }
