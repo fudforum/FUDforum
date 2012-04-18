@@ -1,0 +1,6 @@
+This directory contains jQuery UI as downloaded from http://jqueryui.com/download
+Default theme included: Smoothness
+
+Feel free to replace it with the latest version or a custom theme.
+
+Please remember to also update the Google CDN plugin.
