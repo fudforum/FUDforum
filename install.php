@@ -1,6 +1,6 @@
 <?php
 /***************************************************************************
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -8,6 +8,8 @@
 * under the terms of the GNU General Public License as published by the 
 * Free Software Foundation; version 2 of the License. 
 ***************************************************************************/
+
+// define('fud_debfud_debug', 1);
 
 function fud_ini_get($opt)
 {
@@ -441,14 +443,16 @@ function seterr($name, $text)
 
 function fud_sql_error_handler($query, $error_string, $error_number, $server_version)
 {
-	// echo $query ."\n";
+	if (defined('fud_debug')) echo $query ."\n";
 	throw new Exception($error_number .': '. $error_string .' @ '. $query);
 }
 
 function make_into_query($data)
 {
+	// Remove trailing ';' in case last line in SQL is ';' and not ';\n'.
+	$q = str_replace(';', '', $data);
 	// Remove comments.
-	$q = preg_replace('%/\*[\s\S]+?\*/|^(?://|#).*(?:\r\n|\n)%m', '', $data);
+	$q = preg_replace('%/\*[\s\S]+?\*/|^(?://|#).*(?:\r\n|\n)%m', '', $q);
 	// Expand table prefix.
 	$q = str_replace('{SQL_TABLE_PREFIX}', $_POST['DBHOST_TBL_PREFIX'], $q);
 	// Expand date.

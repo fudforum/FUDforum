@@ -11,6 +11,7 @@
 //TODO: Do we still need extract_archive()???
 
 $__UPGRADE_SCRIPT_VERSION = 5304.0;
+// define('fud_debfud_debug', 1);
 
 /*
   * SQL Upgrade Functions - format is tablename_colname():
@@ -54,7 +55,6 @@ function users_birthday($flds)
 		$mm   = ($mm   == '00')   ? '  '   : $mm;
 		$dd   = ($dd   == '00')   ? '  '   : $dd;
 
-		// echo('UPDATE '. $GLOBALS['DBHOST_TBL_PREFIX'] .'users SET birthday=\''. $mm . $dd . $yyyy .'\' WHERE id='. $r[0] ."\n");
 		q('UPDATE '. $GLOBALS['DBHOST_TBL_PREFIX'] .'users SET birthday=\''. $mm . $dd . $yyyy .'\' WHERE id='. $r[0]);
 	}
 	pf('Birthday format change completed.');
@@ -96,7 +96,7 @@ function seterr($msg)
 	}
 }
 
-/** Explisteley include a file. */
+/** Explicitly include a file. */
 function fud_use($file, $static=0)
 {
 	if ($static) {
@@ -110,6 +110,7 @@ function fud_use($file, $static=0)
 /** Error handler for DB driver. */
 function fud_sql_error_handler($query, $error_string, $error_number, $server_version)
 {
+	if (defined('fud_debug')) pf($query);
 	throw new Exception($error_number .': '. $error_string .' @ '. $query);
 }
 
@@ -199,22 +200,24 @@ function htaccess_handler($web_root, $ht_pass)
 
 
 /** 
- * Upgrade GLOBALS.php to new format 
+ * Upgrade GLOBALS.php to new format (3.0.3->3.0.4).
  */
 function upgrade_globals_php()
 {
-
 	pf('Upgrading GLOBALS.php');
 	$core = file_get_contents($GLOBALS['DATA_DIR'] .'include/core.inc');
 	$FORUM_VERSION = preg_replace('/.*FORUM_VERSION = \'(.*?)\';.*/s', '\1', $core);
 	if (version_compare($FORUM_VERSION, '3.0.4', '<')) {
 		$new = '';
-		$f = fopen($GLOBALS['INCLUDE'].'GLOBALS.php','r');
+		$f = fopen($GLOBALS['INCLUDE'] .'GLOBALS.php', 'r');
 		while($s=fgets($f)) {
-			$new .= preg_replace('/(\t)\$([A-Z_1-9]*)([\s\t]*)/i','$1$GLOBALS[\'$2\']$3',$s);
+			if (strpos($s, '$GLOBALS[') !== false) {
+				return;		// Already converted, bail out!
+			}
+			$new .= preg_replace('/(\t)\$([A-Z_1-9]*)([\s\t]*)/i','$1$GLOBALS[\'$2\']$3', $s);
 		}
-		fclose( $f );
-		file_put_contents($GLOBALS['INCLUDE'].'GLOBALS.php',$new);
+		fclose($f);
+		file_put_contents($GLOBALS['INCLUDE'] .'GLOBALS.php', $new);
 	}
 }
 
@@ -274,7 +277,10 @@ function upgrade_decompress_archive($data_root, $web_root)
 	}
 
 	$pos = 0;
-	$perm = ((($GLOBALS['FUD_OPT_2'] & 8388608) && !strncmp(PHP_SAPI, 'apache', 6)) ? 0177 : 0111);
+//TODO: This is probably wrong!
+//	$perm = ((($GLOBALS['FUD_OPT_2'] & 8388608) && !strncmp(PHP_SAPI, 'apache', 6)) ? 0177 : 0111);
+// Should be 0600 : 0644 ???
+	$perm = ((($GLOBALS['FUD_OPT_2'] & 8388608) && !strncmp(PHP_SAPI, 'apache', 6)) ? 0600 : 0644);
 
 	do  {
 		$end = strpos($data, "\n", $pos+1);
@@ -292,7 +298,7 @@ function upgrade_decompress_archive($data_root, $web_root)
 		} else {
 			continue;
 		}
-		$path .= '/' . $meta_data[1];
+		$path .= '/'. $meta_data[1];
 
 		$path = str_replace('//', '/', $path);
 
@@ -326,7 +332,18 @@ function upgrade_decompress_archive($data_root, $web_root)
 			}	
 			fwrite($fp, $file);
 			fclose($fp);
-			@chmod($file, $perm);
+if (defined('fud_debug')) {
+	$curperm = substr(sprintf('%o', $perm), -4);
+	$oldperm = substr(sprintf('%o', fileperms($path)), -4);
+}
+			// This never worked since it was added in revision 2334 on Mon Dec 1 11:03:28 2003 UTC.
+			// @chmod($file, $perm);
+			// MUST BE PATH!!!
+			@chmod($path, $perm);
+if (defined('fud_debug')) {
+	$newperm = substr(sprintf('%o', fileperms($path)), -4);
+	pf("CHMOD FILE $path FROM $oldperm TO $curperm, RESULT IN $newperm\n");
+}
 		} else {
 			if (!__mkdir(preg_replace('!/+$!', '', $path))) {
 				seterr('failed creating "'. $path .'" directory');
@@ -672,8 +689,13 @@ function extract_archive($memory_limit)
 		}
 	}
 
-	// Another temp hack. Manually check MySQL DB version 
-	// Should be replaced by validate_db_version() introduced in 3.0.2 (as implemented below).
+	// Another temp hack. Manually check MySQL DB version .
+	// Should be replaced by validate_db_version() in dbadmin.inc.
+	// This file may not be present yet (introduced in 3.0.2), and cannot be included yet.
+	if (!function_exists('db_version')) {
+		// get_version() was renamed to db_version() in FUDforum v3.0.2.
+		function db_version() { return get_version(); }
+	}
 	$dbver = db_version();
 	if (__dbtype__ == 'mysql' && version_compare($dbver, '5.0.0', '<')) {
 		seterr('DBHOST_DBNAME', 'MySQL version '. $dbver .' is not supported. Please upgrade to MySQL Version 5.0.0 or higher.');
@@ -838,7 +860,7 @@ pf('<h2>Step 1: Admin login</h2>', true);
 	}
 	closedir($tp);
 
-	/* Upgrade globals variable to $_GLOBALS["xxx"] style */
+	/* Upgrade globals variable to $_GLOBALS["xxx"] style (3.0.3->3.0.4). */
 	upgrade_globals_php();
 
 	/* Upgrade files. */
@@ -892,11 +914,11 @@ pf('<h2>Step 1: Admin login</h2>', true);
 		seterr('Please grant your database user access to drop tables and try again.');
 	}
 
-	/* Compare table definitions with what's on the DB and make corrections. */
+	/* Compare table definitions with what's in the DB and make corrections. */
 	$db_tables = array_flip(get_fud_table_list());
 	foreach (glob($GLOBALS['DATA_DIR'] .'/sql/*.tbl', GLOB_NOSORT) as $v) {
 		$tbl = get_stbl_from_file($v);
-		// echo 'Check table: '. $tbl['name'] ."\n";
+		if (defined('fud_debug')) echo 'Check table: '. $tbl['name'] ."\n";
 		$out_of_line_pks = array();
 
 		// Skip thread view tables.
@@ -911,7 +933,7 @@ pf('<h2>Step 1: Admin login</h2>', true);
 			/* Handle DB columns. */
 			$db_col = get_fud_col_list($tbl['name']);
 			foreach ($tbl['flds'] as $k => $v2) {
-				// echo ' - check column: '. $k ."\n";
+				if (defined('fud_debug')) echo ' - check column: '. $k ."\n";
 
 				// Queue "out of line PK's" for later processing.
 				if ($v2['primary'] && !$v2['auto'] ) {	// Primary, but not auto number.
@@ -926,28 +948,32 @@ pf('<h2>Step 1: Admin login</h2>', true);
 					add_column($tbl['name'], $k, $v2);
 
 					$f = substr("{$tbl['name']}_{$k}", strlen($DBHOST_TBL_PREFIX));
-					if (function_exists($f)) {
+					if (function_exists($f)) {	// Run SQL conversion after add.
 						$f($db_col);
 					}
 				} else if (array_diff_assoc($db_col[$k], $v2)) {
 					/* Column definition has changed. */
 					pf('Alter database column '. $k .' in table '. $tbl['name'] .'.');
-					alter_column($tbl['name'], $k, $v2);
 					$f = substr("{$tbl['name']}_{$k}", strlen($DBHOST_TBL_PREFIX));
-					if (function_exists($f)) {
+					if (function_exists($f)) {	// Run SQL conversion before alter.
 						$f($db_col);
 					}
+					alter_column($tbl['name'], $k, $v2);
 				}
 				unset($db_col[$k]);	// Column still in use, no need to drop it.
 			}
 
 			/* Remove unused columns. */
 			foreach (array_keys($db_col) as $v) {
+				$f = substr("{$tbl['name']}_{$v}", strlen($DBHOST_TBL_PREFIX));
+				if (function_exists($f)) {	// Run SQL conversion before drop.
+					$f($db_col);
+				}
 				if (empty($_POST['custom_sql'])) {	// Standard or customized DB schema?
 					pf('Drop unused database column '. $v .' from table '. $tbl['name'] .'.');
 					drop_column($tbl['name'], $v);
 				} else {
-					pf('WARNING: Unused database column '. $v .' in table '. $tbl['name'] .'. Unless you\'ve added it, it should be dropped!');
+					pf('WARNING: Unused database column '. $v .' in table '. $tbl['name'] .'. Unless you\'ve added it, it should now be dropped!');
 				}
 			}
 
@@ -965,6 +991,8 @@ pf('<h2>Step 1: Admin login</h2>', true);
 						drop_index($tbl['name'], $k);
 						create_index($tbl['name'], $k, $v['unique'], $v['cols']);
 					}
+
+					/* Remove from list so it doesn't get dropped. */
 					unset($idx_l[$k]);
 				}
 			}
