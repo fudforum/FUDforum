@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -185,12 +185,25 @@ function register_form_check($user_id)
 		set_err('reg_sig', '{TEMPLATE: register_err_sig_too_long}');
 	}
 
-	/* Check if user is allowed to post links. */
+	/* Check if user is allowed to post links in signature. */
 	if (preg_match('?(\[url)|(http://)|(https://)?i', $_POST['reg_sig'])) {
-		$c = q_singleval('SELECT posted_msg_count FROM {SQL_TABLE_PREFIX}users WHERE id='. _uid);
-		if ( $GLOBALS['POSTS_BEFORE_LINKS'] > $c ) {
-			$posts_before_links = $GLOBALS['POSTS_BEFORE_LINKS'];
-			set_err('reg_sig', '{TEMPLATE: postcheck_no_links_allowed}');
+		if ( $GLOBALS['POSTS_BEFORE_LINKS'] > 0 ) {
+			$c = q_singleval('SELECT posted_msg_count FROM {SQL_TABLE_PREFIX}users WHERE id='. _uid);
+			if ( $GLOBALS['POSTS_BEFORE_LINKS'] > $c ) {
+				$posts_before_links = $GLOBALS['POSTS_BEFORE_LINKS'];
+				set_err('reg_sig', '{TEMPLATE: postcheck_no_links_allowed}');
+			}
+		}
+	}
+
+	/* Check if user is allowed to post a home_page link. */
+	if (preg_match('?(\[url)|(http://)|(https://)?i', $_POST['reg_home_page'])) {
+		if ( $GLOBALS['POSTS_BEFORE_LINKS'] > 0 ) {
+			$c = q_singleval('SELECT posted_msg_count FROM {SQL_TABLE_PREFIX}users WHERE id='. _uid);
+			if ( $GLOBALS['POSTS_BEFORE_LINKS'] > $c ) {
+				$posts_before_links = $GLOBALS['POSTS_BEFORE_LINKS'];
+				set_err('reg_home_page', '{TEMPLATE: postcheck_no_links_allowed}');
+			}
 		}
 	}
 
@@ -254,16 +267,16 @@ function remove_old_avatar($avatar_str)
 
 function decode_uent(&$uent)
 {
-	$uent->home_page = reverse_fmt($uent->home_page);
+	$uent->home_page  = reverse_fmt($uent->home_page);
 	$uent->user_image = reverse_fmt($uent->user_image);
-	$uent->jabber = reverse_fmt($uent->jabber);
-	$uent->aim = urldecode($uent->aim);
-	$uent->yahoo = urldecode($uent->yahoo);
-	$uent->msnm = urldecode($uent->msnm);
-	$uent->affero = urldecode($uent->affero);
-	$uent->google = urldecode($uent->google);
-	$uent->skype = urldecode($uent->skype);
-	$uent->twitter = urldecode($uent->twitter);
+	$uent->jabber     = reverse_fmt($uent->jabber);
+	$uent->aim        = urldecode($uent->aim);
+	$uent->yahoo      = urldecode($uent->yahoo);
+	$uent->msnm       = urldecode($uent->msnm);
+	$uent->affero     = urldecode($uent->affero);
+	$uent->google     = urldecode($uent->google);
+	$uent->skype      = urldecode($uent->skype);
+	$uent->twitter    = urldecode($uent->twitter);
 }
 
 function email_encode($val)

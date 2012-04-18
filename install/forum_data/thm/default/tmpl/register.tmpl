@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -245,7 +245,7 @@
 </tr>
 {IF: $FUD_OPT_2 & 65536}{TEMPLATE: reg_user_image}{ENDIF}
 <tr class="RowStyleA">
-	<td>{MSG: register_homepage}</td>
+	<td>{MSG: register_homepage}{FUNC: draw_err('reg_home_page')}</td>
 	<td><input type="text" name="reg_home_page" value="{VAR: reg_home_page}" maxlength="255" /></td>
 </tr>
 <tr class="RowStyleA">

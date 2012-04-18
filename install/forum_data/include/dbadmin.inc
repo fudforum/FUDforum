@@ -96,7 +96,7 @@ function get_stbl_from_file($file)
 
 	/* Indexes. */
 	if (preg_match_all('!CREATE\s+?(UNIQUE |)INDEX\s+([^\s]+)\s+ON\s+'. $tbl['name'] .' \(([^;]+)\);!', $data, $m)) {
-			$c = count($m[0]);
+		$c = count($m[0]);
 		for ($i = 0; $i < $c; $i++) {
 			$tbl['index'][$m[2][$i]] = array('unique'=>(empty($m[1][$i]) ? 0 : 1), 'cols'=>str_replace(' ', '', $m[3][$i]));
 		}

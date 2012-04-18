@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -552,13 +552,13 @@ class fud_msg_edit extends fud_msg
 				}
 
 				$nntp = new fud_nntp;
-				$nntp->server = $nntp_adm->server;
+				$nntp->server    = $nntp_adm->server;
 				$nntp->newsgroup = $nntp_adm->newsgroup;
-				$nntp->port = $nntp_adm->port;
-				$nntp->timeout = $nntp_adm->timeout;
-				$nntp->nntp_opt = $nntp_adm->nntp_opt;
-				$nntp->user = $nntp_adm->login;
-				$nntp->pass = $nntp_adm->pass;
+				$nntp->port      = $nntp_adm->port;
+				$nntp->timeout   = $nntp_adm->timeout;
+				$nntp->nntp_opt  = $nntp_adm->nntp_opt;
+				$nntp->user      = $nntp_adm->login;
+				$nntp->pass      = $nntp_adm->pass;
 
 				define('sql_p', '{SQL_TABLE_PREFIX}');
 
