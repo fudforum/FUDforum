@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -28,7 +28,7 @@ function attach_add($at, $owner, $attach_opt=0, $ext=0)
 {
 	$id = db_qid('INSERT INTO {SQL_TABLE_PREFIX}attach (location, message_id, original_name, owner, attach_opt, mime_type,fsize) '.
 		q_limit('SELECT null AS location, 0 AS message_id, '. _esc($at['name']) .' AS original_name, '. $owner .' AS owner, '. $attach_opt .' AS attach_opt, id AS mime_type, '. $at['size'] .' AS fsize 
-			FROM {SQL_TABLE_PREFIX}mime WHERE fl_ext IN(\'*\', '. _esc(substr(strrchr($at['name'], '.'), 1)) .')
+			FROM {SQL_TABLE_PREFIX}mime WHERE fl_ext IN(\'*\', '. _esc(strtolower(substr(strrchr($at['name'], '.'), 1))) .')
 			ORDER BY fl_ext DESC'
 		, 1)
 	);
