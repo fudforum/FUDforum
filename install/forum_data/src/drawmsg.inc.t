@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -125,6 +125,7 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 	$o2 =& $GLOBALS['FUD_OPT_2'];
 	$a = (int) $obj->users_opt;
 	$b =& $usr->users_opt;
+	$MOD =& $GLOBALS['MOD'];
 
 	$next_page = $next_message = $prev_message = '';
 	/* Draw next/prev message controls. */

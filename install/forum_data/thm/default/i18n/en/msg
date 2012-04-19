@@ -1140,3 +1140,7 @@ page_list_total:{PLURAL: i|$1 page|$1 pages} listed.
 page_update:Browsing page
 pm_export_header:Private messages for {VAR: usr->alias}
 pm_export_footer:Exported:
+karma:Karma
+karma_track:Manage reputation for user:
+karma_delete:Delete
+rate_author:Rate author:

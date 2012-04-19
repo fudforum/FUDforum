@@ -1,4 +1,4 @@
-#   copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+#   copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
 #   email                : forum@prohost.org
 #
 #   $Id$
@@ -53,6 +53,7 @@ CREATE TABLE {SQL_TABLE_PREFIX}users
 	sig			TEXT,
 
 	level_id 		INT NOT NULL DEFAULT 0,
+	karma			INT NOT NULL DEFAULT 0,
 	reset_key		VARCHAR(32) NOT NULL DEFAULT '0',
 	u_last_post_id 		INT NOT NULL DEFAULT 0,
 	home_page		VARCHAR(255),

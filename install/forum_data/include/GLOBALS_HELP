@@ -511,3 +511,6 @@ Allow users to change their own logins. Disable if you authenticate users extern
 
 {{{ALLOW_PASSWORD_RESET	FUD_OPT_4	2
 Allow users to reset their own passwords.}}}
+
+{{{ENABLE_USER_RATING	FUD_OPT_4	4
+Enable karma (user reputation system).}}}

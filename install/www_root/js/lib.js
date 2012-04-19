@@ -1,5 +1,5 @@
 /***************************************************************************
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -295,9 +295,22 @@ function topicVote(rating, topic_id, ses, sq)
 			jQuery('#RateFrm').empty();
 		},
 		error: function(xhr, desc, e) {
-		alert('Failed to submit: ' + desc);
+			alert('Failed to submit: ' + desc);
 		}
 	});
+}
+
+function changeKarma(msg_id, user_id, updown, ses, sq)
+{
+	jQuery.ajax({
+		url: 'index.php?t=karma_change&karma_msg_id='+msg_id+'&sel_number='+updown+'&S='+ses+'&SQ='+sq,
+		success: function(data){
+			jQuery('.karma_usr_'+user_id).html(data);
+			jQuery('#karma_link_'+msg_id).hide();
+		},
+		error: function(xhr, desc, e) {
+			alert('Failed to submit: ' + desc);	}
+		});
 }
 
 function prevCat(id)
