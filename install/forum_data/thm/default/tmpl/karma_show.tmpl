@@ -1,0 +1,15 @@
+/**
+* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
+* email                : forum@prohost.org
+* $Id: karma_show.tmpl 5026 2010-10-08 17:54:10Z naudefj $
+*
+* This program is free software; you can redistribute it and/or modify it
+* under the terms of the GNU General Public License as published by the
+* Free Software Foundation; version 2 of the License.
+**/
+
+{MAIN_SECTION: karma_show}
+{IF: $MOD}<a href="javascript://" onclick="window_open(\'{FULL_ROOT}{ROOT}?t=karma_track&amp;{DEF: _rsid}&amp;msgid={VAR: obj->id}\', \'karma_rating_track\', 300, 400);" class="karma">{ENDIFI}
+	<b>{MSG: karma}:</b> {VAR: obj->karma}
+{IF: $MOD}</a>{ENDIFI}
+{MAIN_SECTION: END}
