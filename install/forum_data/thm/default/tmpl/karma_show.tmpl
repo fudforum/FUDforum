@@ -8,8 +8,17 @@
 * Free Software Foundation; version 2 of the License.
 **/
 
-{MAIN_SECTION: karma_show}
+{MAIN_SECTION: karma_show Show user's karma}
 {IF: $MOD}<a href="javascript://" onclick="window_open(\'{FULL_ROOT}{ROOT}?t=karma_track&amp;{DEF: _rsid}&amp;msgid={VAR: obj->id}\', \'karma_rating_track\', 300, 400);" class="karma">{ENDIFI}
 	<b>{MSG: karma}:</b> {VAR: obj->karma}
 {IF: $MOD}</a>{ENDIFI}
+{MAIN_SECTION: END}
+
+{MAIN_SECTION: karma_change Links/buttons to change user's karma}
+{IF: ($GLOBALS['FUD_OPT_4'] & 4 && $perms & 1024 && !$obj->cant_karma && $obj->poster_id != $usr->id)}
+    <span id=karma_link_{VAR: obj->id} class="SmallText">{MSG: rate_author}
+	<a href="javascript://" onclick="changeKarma({VAR: obj->id},{VAR: obj->poster_id},\'up\',\'{DEF: s}\',\'{VAR: usr->sq}\');" class="karma up">+1</a>
+	<a href="javascript://" onclick="changeKarma({VAR: obj->id},{VAR: obj->poster_id},\'down\',\'{DEF: s}\',\'{VAR: usr->sq}\');" class="karma down">-1</a>
+    </span>
+{ENDIFI}
 {MAIN_SECTION: END}

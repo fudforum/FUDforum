@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -354,6 +354,7 @@ jQuery(document).ready(function() {
 	print_reg_field('Registration Time Limit', 'REG_TIME_LIMIT', 1);
 	print_reg_field('Unconfirmed User Expiry', 'UNCONF_USER_EXPIRY', 1);
 	print_bit_field('COPPA', 'COPPA');
+	print_bit_field('Karma', 'ENABLE_USER_RATING');
 	print_reg_field('Maximum Shown Login Length', 'MAX_LOGIN_SHOW', 1);
 	print_reg_field('Maximum Shown Location Length', 'MAX_LOCATION_SHOW', 1);
 	print_bit_field('Hide user profiles', 'HIDE_PROFILES_FROM_ANON');

@@ -10,6 +10,14 @@
 **/
 
 /*{PRE_HTML_PHP}*/
+
+	if (!_uid) {			// User must be logged in.
+		std_error('login');
+	}
+	if (!($FUD_OPT_4 & 4)) {	// Karma must be enabled.
+		std_error('access');
+	}
+
 /*{POST_HTML_PHP}*/
 
 	if (isset($_GET['karma_msg_id'], $_GET['sel_number'])) {

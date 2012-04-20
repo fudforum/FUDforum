@@ -513,4 +513,4 @@ Allow users to change their own logins. Disable if you authenticate users extern
 Allow users to reset their own passwords.}}}
 
 {{{ENABLE_USER_RATING	FUD_OPT_4	4
-Enable karma (user reputation system).}}}
+Enable karma (user reputation system). If enabled, member can upvote or downvote other members.}}}

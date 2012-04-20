@@ -770,7 +770,7 @@ p_STICKY:Sticky messages
 p_POLL:Create polls
 p_FILE:Attach files
 p_VOTE:Vote
-p_RATE:Rate topics
+p_RATE:Rate topics/members
 p_SPLIT:Split topics
 p_LOCK:Lock topics
 p_MOVE:Move topics
