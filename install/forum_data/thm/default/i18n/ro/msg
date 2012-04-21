@@ -763,6 +763,7 @@ p_STICKY:Trimite Sticky
 p_POLL:Creeaza sondaj
 p_FILE:Ataseaza fisier
 p_VOTE:Voteaza
+# Fuzzy
 p_RATE:Voteaza Teme
 p_SPLIT:Imparte Teme
 p_LOCK:Blocheaza Tema

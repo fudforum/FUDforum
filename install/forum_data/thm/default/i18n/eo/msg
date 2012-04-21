@@ -769,6 +769,7 @@ p_STICKY:Fiksi mesaĝojn
 p_POLL:Krei opiniosondojn
 p_FILE:Aldoni dosierojn
 p_VOTE:Voĉdoni
+# Fuzzy
 p_RATE:Taksi fadenojn
 p_SPLIT:Dividi fadenojn
 p_LOCK:Ŝlosi fadenojn

@@ -678,6 +678,7 @@ p_STICKY:끈끈이 게시글
 p_POLL:투표 생성
 p_FILE:파일 첨부
 p_VOTE:투표
+# Fuzzy
 p_RATE:토픽 평가
 p_SPLIT:토픽 분리
 p_LOCK:토픽 잠금

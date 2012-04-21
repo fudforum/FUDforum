@@ -774,6 +774,7 @@ p_STICKY:Yapışkan İletiler
 p_POLL:Anket Oluştur
 p_FILE:Dosya Ekle
 p_VOTE:Oyla
+# Fuzzy
 p_RATE:Konuyu Değerlendir
 p_SPLIT:Konuyu Böl
 p_LOCK:Konuyu Kilitle

@@ -749,6 +749,7 @@ p_STICKY:Messatges espingolats
 p_POLL:Crear un sondatge
 p_FILE:Estacar un fichièr
 p_VOTE:Votar
+# Fuzzy
 p_RATE:Notar los fials
 p_SPLIT:Decopar los fials
 p_LOCK:Varrolhar los fials

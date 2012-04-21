@@ -767,6 +767,7 @@ p_STICKY:Límd skilaboð
 p_POLL:Búa til könnun
 p_FILE:Hlaða inn viðhengi
 p_VOTE:Kjósa
+# Fuzzy
 p_RATE:Gefa þræðinum einkunn
 p_SPLIT:skipta þræði
 p_LOCK:Læsa þræði

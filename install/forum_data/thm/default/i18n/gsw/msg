@@ -769,6 +769,7 @@ p_STICKY:Aaghefteti Byytreg
 p_POLL:Umfroge aalege
 p_FILE:Dateie aahänke
 p_VOTE:Abstimme
+# Fuzzy
 p_RATE:Themene bewärte
 p_SPLIT:Themene ufteile
 p_LOCK:Themene sperre

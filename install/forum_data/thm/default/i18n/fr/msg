@@ -11,6 +11,7 @@
 # Author: Omnipaedista
 # Author: Peter17
 # Author: Robby
+# Author: Urhixidur
 # Author: Verdy p
 
 action:Action
@@ -642,7 +643,7 @@ post_reply_update:Répond à <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subje
 post_topic_update:Écrit un nouveau sujet dans <a href="{TEMPLATE: post_topic_update_lnk}">{VAR: frm->name}</a>
 post_error_generic:Une erreur s'est produite
 postcheck_max_images_err:Un maximum de {GVAR: MAX_IMAGE_COUNT} images est autorisé par message, veuillez réduire le nombre d'images
-postcheck_no_links_allowed:Vous ne pouvez pas utiliser de liens avant d'avoir posté plus de {PLURAL: posts_before_links|$1 message|$1 messages}.
+postcheck_no_links_allowed:Vous ne pouvez pas utiliser de liens avant d’avoir posté plus de {PLURAL: posts_before_links|$1 message|$1 messages}.
 postcheck_subj_needed:Le champ sujet est obligatoire
 postcheck_no_such_user:Il n'y a pas d'utilisateur nommé « {FUNC: char_fix(htmlspecialchars($v))} » dans ce forum
 postcheck_ignored:Vous ne pouvez pas envoyer de message privé à « {FUNC: char_fix(htmlspecialchars($v))} » car cet utilisateur a décidé de vous ignorer.
@@ -778,6 +779,7 @@ p_STICKY:Messages épinglés
 p_POLL:Créer un sondage
 p_FILE:Joindre des fichiers
 p_VOTE:Voter
+# Fuzzy
 p_RATE:Noter les fils
 p_SPLIT:Découper les fils
 p_LOCK:Verrouiller les fils

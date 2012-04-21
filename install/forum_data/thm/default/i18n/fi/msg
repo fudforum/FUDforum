@@ -770,6 +770,7 @@ p_STICKY:Luoda kiinnitettyjä aiheita
 p_POLL:Luoda galluppeja
 p_FILE:Liittää tiedostoja
 p_VOTE:Äänestää
+# Fuzzy
 p_RATE:Arvioida aiheita
 p_SPLIT:Jakaa aiheita
 p_LOCK:Lukita/avata aiheita

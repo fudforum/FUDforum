@@ -776,6 +776,7 @@ p_STICKY:posts persistentes
 p_POLL:Criar mensagens
 p_FILE:adiccionar ficheiros
 p_VOTE:Votar
+# Fuzzy
 p_RATE:Votar tópicos
 p_SPLIT:Dividir tópicos
 p_LOCK:Trancar tópicos

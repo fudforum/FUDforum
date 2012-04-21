@@ -774,6 +774,7 @@ p_STICKY:Pesan tetap
 p_POLL:Buat poling
 p_FILE:Sisipkan berkas
 p_VOTE:Beri suara
+# Fuzzy
 p_RATE:Nilai topik
 p_SPLIT:Pecahkan topik
 p_LOCK:Kunci topik

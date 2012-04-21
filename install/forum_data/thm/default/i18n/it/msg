@@ -775,6 +775,7 @@ p_STICKY:Messaggi in evidenza
 p_POLL:Crea sondaggi
 p_FILE:Allega file
 p_VOTE:Vota
+# Fuzzy
 p_RATE:Vota gli argomenti
 p_SPLIT:Spezza gli argomenti
 p_LOCK:Chiudi argomenti

@@ -768,6 +768,7 @@ p_STICKY:Pesanan lekit
 p_POLL:Buka tinjauan
 p_FILE:Lampirkan fail
 p_VOTE:Undi
+# Fuzzy
 p_RATE:Nilai topik
 p_SPLIT:Pecahkan topik
 p_LOCK:Kunci topik

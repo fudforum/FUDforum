@@ -770,6 +770,7 @@ p_STICKY:Kiemelt üzenetek
 p_POLL:Szavazás létrehozása
 p_FILE:Fájlok csatolása
 p_VOTE:Szavazás
+# Fuzzy
 p_RATE:Témák értékelése
 p_SPLIT:Témák szétválasztása
 p_LOCK:Témák lezárása

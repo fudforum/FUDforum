@@ -770,6 +770,7 @@ p_STICKY:Sticky berichten
 p_POLL:Stemmingen aanmaken
 p_FILE:Bestanden toevoegen
 p_VOTE:Stemmen
+# Fuzzy
 p_RATE:Onderwerpen beoordelen
 p_SPLIT:Onderwerpen splitsen
 p_LOCK:Onderwerpen sluiten

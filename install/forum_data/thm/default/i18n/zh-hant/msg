@@ -772,6 +772,7 @@ p_STICKY:置頂帖子
 p_POLL:創建投票
 p_FILE:附加文件
 p_VOTE:投票
+# Fuzzy
 p_RATE:率主題
 p_SPLIT:拆分主題
 p_LOCK:鎖定的主題

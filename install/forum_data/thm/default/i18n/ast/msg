@@ -767,6 +767,7 @@ p_STICKY:Mensaxes fixos
 p_POLL:Crear encuestes
 p_FILE:Axuntar ficheros
 p_VOTE:Votar
+# Fuzzy
 p_RATE:Puntuar filos
 p_SPLIT:Dixebrar filos
 p_LOCK:Candar filos

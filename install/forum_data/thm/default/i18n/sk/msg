@@ -768,6 +768,7 @@ p_STICKY:Výveska
 p_POLL:Vytvoriť anketu
 p_FILE:Priložiť súbor
 p_VOTE:Hlasovať
+# Fuzzy
 p_RATE:Ohodnotiť tému
 p_SPLIT:Rozdeliť tému
 p_LOCK:Uzamknúť tému

@@ -767,6 +767,7 @@ p_STICKY:Plakkerpos
 p_POLL:Skep stemming
 p_FILE:Heg lêer aan
 p_VOTE:Stem
+# Fuzzy
 p_RATE:Beoordeel onderwerpe
 p_SPLIT:Split onderwerpe
 p_LOCK:Sluit onderwerpe

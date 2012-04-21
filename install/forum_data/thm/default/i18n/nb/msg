@@ -769,6 +769,7 @@ p_STICKY:Klebrige innlegg
 p_POLL:Lag en avstemning
 p_FILE:Legg ved filer
 p_VOTE:Stem
+# Fuzzy
 p_RATE:Bedøm tråder
 p_SPLIT:Splitt tråder
 p_LOCK:Lås trådar

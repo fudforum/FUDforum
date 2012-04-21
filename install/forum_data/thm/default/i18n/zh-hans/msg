@@ -775,6 +775,7 @@ p_STICKY:置顶帖子
 p_POLL:发起调查
 p_FILE:添加附件
 p_VOTE:投票
+# Fuzzy
 p_RATE:评价帖子
 p_SPLIT:分开主题
 p_LOCK:封闭帖子

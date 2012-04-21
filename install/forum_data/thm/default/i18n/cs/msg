@@ -771,6 +771,7 @@ p_STICKY:Vývěsky
 p_POLL:Vytvoř ankety
 p_FILE:Přilož soubory
 p_VOTE:Hlasovat
+# Fuzzy
 p_RATE:Ohodnotit témata
 p_SPLIT:Rozdělit témata
 p_LOCK:Uzamknout témata

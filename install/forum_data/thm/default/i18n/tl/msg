@@ -769,6 +769,7 @@ p_STICKY:Malalagkit na mga mensahe
 p_POLL:Likhain ang mga botohan
 p_FILE:Maglakip ng mga talaksan
 p_VOTE:Bumoto
+# Fuzzy
 p_RATE:Antasan ang mga paksa
 p_SPLIT:Hatiin ang mga paksa
 p_LOCK:Ikandado ang mga paksa

@@ -768,6 +768,7 @@ p_STICKY:Lepljive poruke
 p_POLL:Napravi ankete
 p_FILE:Zakači datoteke
 p_VOTE:Glasaj
+# Fuzzy
 p_RATE:Oceni teme
 p_SPLIT:Razdvoji teme
 p_LOCK:Zaključaj teme

@@ -768,6 +768,7 @@ p_STICKY:Přilěpjene powěsće
 p_POLL:Woprašowanja załožić
 p_FILE:Dataje připowěsnyć
 p_VOTE:Wothłosować
+# Fuzzy
 p_RATE:Temy pohódnoćić
 p_SPLIT:Temy rozdźělić
 p_LOCK:Temy zawrěć

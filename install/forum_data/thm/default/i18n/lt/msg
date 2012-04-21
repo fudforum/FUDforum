@@ -771,6 +771,7 @@ p_STICKY:Lipnios temos
 p_POLL:Sukurti apklausą
 p_FILE:Prisegti failus
 p_VOTE:Balsuoti
+# Fuzzy
 p_RATE:Vertinti temas
 p_SPLIT:Splitas temos
 p_LOCK:Uždaryti temą

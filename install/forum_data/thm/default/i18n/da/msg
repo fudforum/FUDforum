@@ -778,6 +778,7 @@ p_STICKY:"Klæbende"  beskeder
 p_POLL:Opret meningsmålinger
 p_FILE:Vedhæft filer
 p_VOTE:Afstemning
+# Fuzzy
 p_RATE:Bedøm emner
 p_SPLIT:Opdel emner
 p_LOCK:Lås emner

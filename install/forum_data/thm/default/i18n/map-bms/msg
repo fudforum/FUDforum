@@ -767,6 +767,7 @@ p_STICKY:Pesen tetep
 p_POLL:Gawe polling
 p_FILE:Sisipna berkas
 p_VOTE:Aweh swara
+# Fuzzy
 p_RATE:Nilai Topik
 p_SPLIT:Mecah Topik
 p_LOCK:Ngunci Topik

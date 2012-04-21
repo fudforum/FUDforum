@@ -773,6 +773,7 @@ p_STICKY:Angeheftete Beiträge
 p_POLL:Umfragen erstellen
 p_FILE:Dateien anhängen
 p_VOTE:Abstimmen
+# Fuzzy
 p_RATE:Themen bewerten
 p_SPLIT:Themen aufteilen
 p_LOCK:Themen sperren

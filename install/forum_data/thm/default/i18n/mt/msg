@@ -770,6 +770,7 @@ p_STICKY:Messaġġi mwaħħlin
 p_POLL:Oħloq sondaġġi
 p_FILE:Ehmeż fajls
 p_VOTE:Ivvota
+# Fuzzy
 p_RATE:Iġġudika s-suġġetti
 p_SPLIT:Aqsam is-suġġetti
 p_LOCK:Agħlaq is-suġġetti

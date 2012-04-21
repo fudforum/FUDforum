@@ -774,6 +774,7 @@ p_STICKY:Klibbiga inlägg
 p_POLL:Gör en gallup
 p_FILE:Bifoga filer
 p_VOTE:Rösta
+# Fuzzy
 p_RATE:Bedöm diskussioner
 p_SPLIT:Splittra diskussioner
 p_LOCK:Lås diskussioner

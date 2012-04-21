@@ -5,12 +5,12 @@
 # Author: Hina
 # Author: Iwai.masaharu
 # Author: Naudefj
+# Author: Shirayuki
 
 action:操作
 add_to_buddy_list:仲間リストに追加
 admin:管理
-# Fuzzy
-admin_control_panel:管理コントロールパネル
+admin_control_panel:管理
 administrator:管理者
 attachment:添付:
 avatar:アバター:
@@ -68,14 +68,15 @@ logged_in_list:ログイン済み利用者一覧
 login:ログイン
 login_header:ログイン:
 logout:ログアウト
-# Fuzzy
-mark_all_read:すべてのメッセージを既読とする
+mark_all_read:すべてのメッセージを既読にする
 mark_all_read_desc:すべての未読メッセージを既に読んだことにします
 members:メンバー一覧
 calendar:カレンダー
 cal_goto_date:移動:
 cal_no_events:この日のイベントはありません。
-message:メンバー
+cal_birthday:誕生日：{VAR: user}
+cal_birthday_age:({PLURAL: age|$1 歳})。
+message:メッセージ
 message_counter:<b>{PLURAL: thread_count|$1 件}のトピック</b>内に合計で<b>{PLURAL: post_count|$1 通}のメッセージ</b>が投稿されました。
 message_index:メッセージ索引
 message_index_desc:メッセージ一覧を表示します
@@ -98,8 +99,7 @@ new_thread:新規トピック作成
 newest_user:最新の登録利用者:
 next_page:次のページ
 next_thread:次のトピック:
-# Fuzzy
-no_messages:このフォーラムにはメッセージがありません。
+no_messages:このフォーラムにはメッセージはありません。<br />このフォーラムで最初のトピックを投稿してください。
 no_msg_body:メッセージに本文がありません。
 no_new_posts:新規メッセージなし
 no_posts:メッセージなし
@@ -114,8 +114,7 @@ num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|票}
 occupation:職業:
 off:切
 on:入
-# Fuzzy
-page_timings:このページを生成するのにかかった時間: {VAR: page_gen_time} 秒
+page_timings:ページの生成にかかった合計時間：{PLURAL: page_gen_time|$1 秒}
 pm:プライベートメッセージ
 poll:投票:
 post_count:メッセージ数 {VAR: u_pcount}
@@ -414,6 +413,7 @@ post_title:表題:
 post_body:本文:
 post_options:オプション:
 post_preview_btn:メッセージをプレビュー
+post_cancel_btn:キャンセル
 ignore_users:無視している利用者の一覧
 add_ignore:無視する利用者を追加する
 forum_terms:フォーラム用語
@@ -769,6 +769,7 @@ p_STICKY:常に先頭に表示するメッセージ
 p_POLL:投票作成
 p_FILE:ファイル添付
 p_VOTE:投票
+# Fuzzy
 p_RATE:トピックレート
 p_SPLIT:トピック分割
 p_LOCK:トピックロック
@@ -891,6 +892,9 @@ search_desc_order:降順
 search_asc_order:昇順
 search_logic:検索ロジック:
 search_sorting:日付で次の結果をソート:
+search_attach:添付：
+search_attach_all:あり/なし
+search_attach_with:添付あり
 post_proceed:続行
 post_moderated_forum:あなたはモデレーションがあるフォーラムに投稿をしました。あなたのメッセージはフォーラムのモデレーターあるいは管理者の誰か1人によって承認されるまで、他の利用者に公開されません。
 post_moderated_forum_ttl:モデレーション済フォーラムの通知
@@ -1037,7 +1041,6 @@ uc_sub_topics:購読中トピックの新規メッセージ一覧
 uc_page_title:個人コントロールパネルを表示中
 search_options:検索オプション
 search_user_filter:利用者で絞り込み:
-# Fuzzy
 register_none:通知しない
 findu_no_conf:未確認利用者
 register_max_sig_len:最大長:
@@ -1053,14 +1056,10 @@ mmd_abort_move:中止
 mmd_move:トピックを移動
 pmsg_pdf_btn:PDF アーカイブを作成
 search_results_hdr:{VAR: total} 個の検索結果が見つかりました。
-# Fuzzy
-thread_del_all:選択したものをすべて削除
-# Fuzzy
-thread_mov_all:選択したものをすべて移動
-# Fuzzy
-thread_merge_all:選択したものをすべて統合
-# Fuzzy
-thread_loc_all:選択したものをすべてロックもしくはロック解除
+thread_del_all:選択したものを削除
+thread_mov_all:選択したものを移動
+thread_merge_all:選択したものを統合
+thread_loc_all:選択したものをロックまたはロック解除
 dmsg_ip:IP:
 err_blockedaccnt_title:エラー: あなたのアカウントは排除されています。
 err_blockedaccnt_msg:あなたのアカウントは、インストールされた利用者フィルターの 1つにより、フォーラムへのアクセスを遮断されました。
@@ -1083,6 +1082,7 @@ post_common_align_left:左寄せ
 post_common_align_center:中央寄せ
 post_common_align_right:右寄せ
 post_common_link:リンクを挿入
+post_common_link_popup:リンクの場所：
 post_common_email:メールアドレスを挿入
 post_common_email_popup:メールアドレス
 post_common_image:画像を挿入
@@ -1136,3 +1136,6 @@ ip_whois_connect_err:whois サーバーに接続できません ({VAR: whois_ser
 custom_filed_required:必須項目
 pages:ページ
 page_list_heading:利用可能なページ
+page_list_total:一覧には {PLURAL: i|$1 ページ}あります。
+page_update:ページを参照
+pm_export_header:{VAR: usr->alias} の非公開メッセージ

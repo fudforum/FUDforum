@@ -755,6 +755,7 @@ p_STICKY:Stycky
 p_POLL:Izveidot<br />balsojumu
 p_FILE:Failu<br />ievietošana
 p_VOTE:Balsot
+# Fuzzy
 p_RATE:Tēmu<br />novērtējums
 p_SPLIT:Tēmu<br />sadalīšana
 p_LOCK:Tēmu<br />slēgšana
