@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -10,6 +10,11 @@
 **/
 
 /*{PRE_HTML_PHP}*/
+
+	if (!($FUD_OPT_2 & 4096)) {	// ENABLE_THREAD_RATING must be enabled.
+		std_error('access');
+	}
+
 /*{POST_HTML_PHP}*/
 
 	if (isset($_GET['rate_thread_id'], $_GET['sel_vote']) && ($rt = (int) $_GET['sel_vote'])) {

@@ -17,7 +17,7 @@ class fud_user
 	    $avatar, $avatar_loc, $posts_ppg, $time_zone, $birthday, $home_page,
 	    $sig, $bio, $posted_msg_count, $last_visit, $last_event, $conf_key,
 	    $user_image, $join_date, $theme, $last_read,
-	    $mod_list, $mod_cur, $level_id, $u_last_post_id, $users_opt, $cat_collapse_status,
+	    $mod_list, $mod_cur, $level_id, $karma, $u_last_post_id, $users_opt, $cat_collapse_status,
 	    $ignore_list, $buddy_list,
 	    $custom_fields;
 }

@@ -14,7 +14,7 @@
 	if (!_uid) {			// User must be logged in.
 		std_error('login');
 	}
-	if (!($FUD_OPT_4 & 4)) {	// Karma must be enabled.
+	if (!($FUD_OPT_4 & 4)) {	// KARMA must be enabled.
 		std_error('access');
 	}
 

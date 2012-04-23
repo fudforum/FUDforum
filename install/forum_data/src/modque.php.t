@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -56,9 +56,10 @@
 		f.message_threshold, f.name AS frm_name,
 		c.name AS cat_name,
 		u.id AS user_id, u.alias AS login, u.avatar_loc, u.email, u.posted_msg_count, u.join_date, u.location,
-		u.sig, u.custom_status, u.icq, u.jabber, u.affero, u.aim, u.msnm, u.yahoo, u.google, u.skype, u.twitter, u.last_visit AS time_sec, u.users_opt,
+		u.sig, u.custom_status, u.icq, u.jabber, u.affero, u.aim, u.msnm, u.yahoo, u.google, u.skype, u.twitter, u.last_visit AS time_sec, u.karma, u.users_opt,
 		l.name AS level_name, l.level_opt, l.img AS level_img,
 		p.max_votes, p.expiry_date, p.creation_date, p.name AS poll_name, p.total_votes,
+		karma.id AS cant_karma,
 		pot.id AS cant_vote
 	FROM
 		{SQL_TABLE_PREFIX}msg m
@@ -69,6 +70,7 @@
 	INNER JOIN {SQL_TABLE_PREFIX}cat c ON f.cat_id=c.id
 	LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id
 	LEFT JOIN {SQL_TABLE_PREFIX}level l ON u.level_id=l.id
+	LEFT JOIN {SQL_TABLE_PREFIX}karma_rate_track karma ON karma.msg_id=m.id AND karma.user_id='. _uid . '
 	LEFT JOIN {SQL_TABLE_PREFIX}poll p ON m.poll_id=p.id
 	LEFT JOIN {SQL_TABLE_PREFIX}poll_opt_track pot ON pot.poll_id=p.id AND pot.user_id='. _uid .'
 	WHERE f.forum_opt>=2 AND m.apr=0

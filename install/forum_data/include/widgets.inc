@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -8,7 +8,8 @@
 * under the terms of the GNU General Public License as published by the
 * Free Software Foundation; version 2 of the License.
 **/
-	fud_use('rev_fmt.inc');
+
+fud_use('rev_fmt.inc');
 
 function create_select($name, $options, $opt_val, $def_val, $js='', $extraval='')
 {
@@ -22,10 +23,13 @@ function create_select($name, $options, $opt_val, $def_val, $js='', $extraval=''
 	$opt_tag = explode("\n", $extraval);
 
 	if (($c = count($opt_nam)) != count($opt_val) ) {
-		exit('option count doesn\'t match value count');
+		echo '<h3>Internal Error: option count doesn\'t match value count</h3><pre>';
+		var_dump($opt_nam); 
+		var_dump($opt_val);
+		exit;
 	}
 
-	if ( $js ) $js = ' '.$js;
+	if ( $js ) $js = ' '. $js;
 
 	$rval = '<select id="'. $name .'" name="'. $name .'"'. $js .'>';
 	for ( $i=0; $i<$c; $i++ ) {
