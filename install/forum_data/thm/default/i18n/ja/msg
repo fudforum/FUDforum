@@ -25,11 +25,11 @@ date_posted:投稿日
 date_registered:登録日:
 download_counter:{PLURAL: v[3]|$1 回}ダウンロード
 pmsg_download_counter:{PLURAL: r->dlcount|$1 回}ダウンロード
-email:電子メール:
-email_to_friend:友達に電子メール
-email_to_friend_desc:このページの URL を友達に電子メールで送信します
-email_user:利用者に電子メールを送る
-faq:FAQ
+email:メール:
+email_to_friend:友達にメールを送信
+email_to_friend_desc:このページの URL を友達にメールで送信
+email_user:利用者にメールを送信
+faq:ヘルプ
 first_unread_msg:未読メッセージに移動
 first_unread_msg_desc:このトピックの一つ目の未読メッセージに移動します
 flat_view:デフォルトのフラット表示に戻る
@@ -146,7 +146,7 @@ sel_unread_messages:未読メッセージ
 sel_unread_messages_desc:未読メッセージフィルターの切り替え（未読メッセージのみ表示します）
 send:送信
 send_pm_desc:この利用者にプライベートメッセージを送信します
-sender_email:送信者電子メール:
+sender_email:送信者のメール：
 sender_name:送信者名:
 show_posts_by:{VAR: u_alias} が書いたメッセージを見る
 size:サイズ:
@@ -292,8 +292,8 @@ finduser_joindate:参加日
 finduser_action:操作
 yes:はい
 no:いいえ
-register_email:電子メール
-edit_time_limit:<b>編集時間制限</b>: {GVAR: EDIT_TIME_LIMIT} 分です
+register_email:メール
+edit_time_limit:<b>編集時間制限</b>: {GVAR: EDIT_TIME_LIMIT} 分
 no_edit_time_limit:<b>編集時間制限</b>: 無制限
 pmuserloc_login:ログイン:
 pmuserloc_submit:送信
@@ -305,7 +305,7 @@ register_uploaded:アバターをアップロード
 register_login:ログイン:
 register_password:パスワード:
 register_conf_pass:パスワード確認:
-register_email_desc:正しい電子メールアドレスを入力してください。下の設定セクションでこれを隠す選択ができます。
+register_email_desc:正しいメールアドレスを入力してください。下の設定セクションでこれを非公開にできます。
 register_name:名前:
 register_your_pass:あなたのパスワード:
 register_update:更新
@@ -348,18 +348,18 @@ register_msg_per_page:ページ毎のメッセージ数:
 register_show_sig:署名を表示:
 register_show_sig_desc:フォーラムの他のメンバーの署名を表示するかどうか選択することができます
 register_use_sig_default:署名を既定で使う:
-register_use_sig_default_desc:あなたが投稿するメッセージに自動的に署名を追加します。
+register_use_sig_default_desc:あなたの投稿に毎回自動的に署名を追加します。
 register_timezone:タイムゾーン:
 register_ignore_admin:管理メッセージを無視する:
 register_invisible_mode:非可視モード:
 register_invisible_mode_desc:オンライン状況を隠します
-register_show_email:電子メールアドレスを表示:
-register_show_email_desc:電子メールアドレスを公開表示するならこのオプションを選びます。
+register_show_email:メールアドレスを表示：
+register_show_email_desc:メールアドレスを公開表示する場合はこのオプションを選択します。
 register_notification:通知を既定で選択:
-register_notification_desc:通知が既定で有効になっている場合でも、投稿の際に無効にすることができます。
+register_notification_desc:通知が既定で有効の場合も、投稿の際に無効にできます。
 register_notify_method:通知方法を選択:
 register_notify_method_desc:通知の方式を設定するか、通知を無効にしてください（長期休暇の際など）。
-register_allow_email_msg:電子メールメッセージを許可:
+register_allow_email_msg:メールメッセージを許可：
 register_allow_email_msg_desc:このフォーラムを通して他の利用者からのメールを受け取ります。
 buddy_status:状況
 my_buddies:自分の仲間
@@ -418,7 +418,7 @@ ignore_users:無視している利用者の一覧
 add_ignore:無視する利用者を追加する
 forum_terms:フォーラム用語
 forum_rules:<p>このフォーラムへの登録は自由です！利用者には下記の規則と方針に従うことが要求されます。利用規約に同意する場合は、ページの終わりの「<b>同意する</b>」ボタンを押してください。注: ボタンを押すことによって、あなたは自分が14歳以上であることを宣言します。あなたが13歳以下である場合は、この登録用紙を使用してください。</p><p>フォーラム管理者およびモデレーターは、フォーラム内に不適切なメッセージが掲載されないように努力しますが、メッセージすべてを監視することはできません。各メッセージはすべて投稿者の意見を表現したものであり、フォーラム所有者および開発者は、いかなるメッセージの内容にも責任を負いません。</p><p>「同意する」ボタンをクリックすることで、あなたは、卑猥、性的、差別的、脅迫的、そのほか法に違反するメッセージを投稿しないと保証したことになります。</p><p>フォーラム所有者は、任意の理由でいかなるトピックも削除、編集、移動、あるいは閉鎖する権利を保持します。</p>
-forum_rules_13:<p>13歳以下の利用者はフォーラムへの参加資格を得るために保護者からの許可が必要です。13歳以下の参加者を歓迎しますが、参加資格を与えるためには、保護者が許可証用紙に署名してファックスか郵便にて送付する必要があります。</p><p>当方に許可証が届く前に登録手続きを始めたい場合は、下の「<b>同意する</b>」ボタンを押してください。登録を取り止めたい場合は、「<b>同意しない</b>」ボタンを押してフォーラムの一覧に戻ってください。</p><p>許可証用紙はここでダウンロードできます。登録手続きについてさらに詳しく知りたい場合は、<a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> に電子メールを送ってください。</p>
+forum_rules_13:<p>13歳以下の利用者はフォーラムへの参加資格を得るために保護者からの許可が必要です。13歳以下の参加者を歓迎しますが、参加資格を与えるためには、保護者が許可証用紙に署名してファックスか郵便にて送付する必要があります。</p><p>当方に許可証が届く前に登録手続きを始めたい場合は、下の「<b>同意する</b>」ボタンを押してください。登録を取り止めたい場合は、「<b>同意しない</b>」ボタンを押してフォーラムの一覧に戻ってください。</p><p>許可証用紙はここでダウンロードできます。登録手続きについてさらに詳しく知りたい場合は、<a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> にメールを送信してください。</p>
 coppa_conf:COPPA 確認
 coppa_before:{TEMPLATE: coppa_date} 以前
 coppa_after:{TEMPLATE: coppa_date} 以後
@@ -437,12 +437,12 @@ coppa_fax_no_permission:アカウントを削除してほしい場合、ここ�
 coppa_fax_parent_name:親か保護者のフルネーム:
 coppa_fax_relation:子供との関係:
 coppa_fax_telephone:電話番号:
-coppa_fax_email:電子メールアドレス:
+coppa_fax_email:メールアドレス：
 coppa_fax_date:日付:
 coppa_fax_questions:質問があれば、<a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> に問い合わせてください
 coppa_fax_login:ログイン
 coppa_fax_passwd:パスワード
-coppa_fax_remail:電子メール
+coppa_fax_remail:メール
 coppa_fax_name:名前
 login_not_logedin:あなたはログインしていません。いくつかの理由が考えられます:
 login_cookie_expired:cookie が期限切れしています。cookie を更新するためにログインする必要があります。
@@ -450,7 +450,7 @@ login_perm_denied:匿名利用者であるため、あなたは要求された�
 login_want_to_register:登録しませんか？
 login_forgot_passwd:パスワードを忘れました
 login_use_cookie:cookie を使用する<br /><span class="SmallText">図書館や学校、インターネットカフェにあるコンピューターなど、公衆端末を使用している場合、セキュリティーを高めるためにこのオプションは選択しないことを勧めます。<br />このオプションを選択しておくと、次回の訪問時にフォーラムに自動的にログインされます。</span>
-login_login:ログイン
+login_login:ログイン：
 login_login_btn:ログイン
 login_name_required:ログイン名が必要です。
 login_passwd_required:パスワードが必要です。
@@ -461,9 +461,9 @@ rpasswd_invalid_passwd:無効なパスワードです。
 rpasswd_passwd_nomatch:パスワードが一致しません。
 rpasswd_passwd_length:パスワードは 6文字以上の長さが必要です
 reset_remind_pass:パスワード・リマインダー
-reset_reset_conf:パスワードは再設定され、あなたの元へ送られるます。もしまだ電子メールアドレスを確認していなければ、確認請求が再度送られるでしょう。
-reset_error:データベース中に電子メールアドレスが見つかりません。
-rpasswd_change_pass:パスワード変更
+reset_reset_conf:パスワードを再設定してあなたに送信します。もしまだメールアドレスを確認していなければ、確認請求を再度お送りすることになります。
+reset_error:メールアドレスがデータベース内にありません。
+rpasswd_change_pass:パスワードを変更
 rpasswd_login:ログイン
 rpasswd_cur_pass:現在のパスワード:
 rpasswd_new_pass:新規パスワード:
@@ -474,7 +474,7 @@ ruser_cur_login:現在のログイン名:
 ruser_new_login:新しいログイン名:
 ruser_cur_pass:現在のパスワード:
 login_passwd:パスワード:
-reset_email:電子メール:
+reset_email:メール：
 reset_reset_button:パスワードを再設定
 rate_this_thread:評価
 report_reporting_about:報告内容:
@@ -492,15 +492,15 @@ search_all_forums:すべてのフォーラムを検索
 search_in_forum:このフォーラムを検索:
 search_forum_search:フォーラム検索
 move_thread_to:トピック「<b>{VAR: thr->subject}</b>」を次へ移動:
-remail_email_topic:このトピックを友達に電子メールで送る
+remail_email_topic:友達にこのトピックをメールで送信
 remail_your_name:あなたの名前:
-remail_your_email:あなたの電子メール:
+remail_your_email:あなたのメール：
 remail_friends_name:友達の名前:
-remail_friends_email:友達の電子メール:
+remail_friends_email:友達のメール：
 remail_required:必須
 remail_subject:件名:
 remail_message:メッセージ:
-remail_send_now:今電子メールを送る
+remail_send_now:今すぐメールを送信
 remail_anon_opt:友人に送るためにはこのメッセージをご使用のメールクライアントにコピーしてください。
 remail_done:完了
 remail_sent_conf:トピック「{VAR: data->subject}」に関する {VAR-HTML: _POST['femail']} のご友人あてのメールは正しく送信されました。
@@ -513,7 +513,7 @@ mklist_delete:削除
 qbud_nick_name:ニックネーム
 qbud_add_selected:選択済みのものを追加
 qbud_selected:選択済み
-qbud_no_buddies:選択できるお友達はいません
+qbud_no_buddies:選択できる友達はいません
 mklist_numerical:数字
 mklist_aplha:英字
 mklist_square:四角
@@ -521,10 +521,10 @@ mklist_disc:丸
 mklist_circle:円
 mklist_close:閉じる
 email_to:宛先:
-email_pg_title:電子メール
+email_pg_title:メール
 email_subject:件名:
 email_body:本文:
-email_submit:電子メール
+email_submit:メール
 ppost_quote_msg:{VAR: msg_to_list} が {TEMPLATE: ppost_quote_msg_date} に書きました
 ppost_quote:引用:
 ppost_to:宛先:
@@ -583,7 +583,7 @@ core_err_invinp_title:無効な入力
 core_err_invinp_err:無効なリンクを辿りました。どうやってここに着いたか<a href="mailto:{GVAR: ADMIN_EMAIL}">サイト管理者</a>に知らせてください。
 core_adm_login_msg:管理者は<a href="{GVAR: WWW_ROOT}adm/admloginuser.php">ここ</a>でログインできます。
 email_err_unabletoemail_title:エラー: メールを送信できません
-email_err_unabletoemail_msg:管理者により電子メールシステムが無効にされています。
+email_err_unabletoemail_msg:管理者がメールシステムを無効にしています。
 email_error_unabletolocaddr:申し訳ありません。メールアドレスを確定できなかったため、システムから {VAR-HTML: _POST['tx_name']} さんへメールを送信することができませんでした。
 email_error_body:本文が必要です。
 email_error_subject:件名が必要です。
@@ -638,19 +638,19 @@ postcheck_subj_needed:件名が必要です。
 postcheck_no_such_user:このフォーラムに "{FUNC: char_fix(htmlspecialchars($v))}" という名前の利用者はいません。
 postcheck_ignored:この人はあなたを無視しているので、プライベートメッセージを "{FUNC: char_fix(htmlspecialchars($v))}" に送信できませんでした。
 postcheck_no_recepient:メッセージを送信できません。受取人が見当たりません。
-postcheck_invalid_email:友達の有効な電子メールアドレスを入力してください。
-postcheck_email_subject:件名がなければ電子メールを送信できません。
-postcheck_email_body:メッセージ本文がなければ電子メールを送信できません。
+postcheck_invalid_email:友達の有効なメールアドレスを入力してください。
+postcheck_email_subject:件名がないメールは送信できません。
+postcheck_email_body:メッセージ本文がないメールは送信できません。
 private_msg_notify_subj:既読通知: {VAR: m->subject}
 private_msg_notify_body:こんにちは。<br />{VAR: usr->login} さんがあなたのプライベートメッセージ「{VAR: m->subject}」を読みました。<br />これは{TEMPLATE: private_msg_notify_body_date}に生成された自動通知です。
 referals_update:推薦人をみています。
 register_err_short_login:選択したログイン名は短すぎます。ログイン名は少なくとも 4 文字なければいけません。
 register_err_login_notallowed:このログイン名は許可していません。
 register_err_loginunique:フォーラムのログイン名は一意でなければなりません。この名前を持った利用者が既にいます。
-register_err_emailexists:この電子メールアドレスに対応したアカウントが既に存在します。パスワードを忘れた場合、再登録する代わりにパスワード再発行オプションを使用してください。
+register_err_emailexists:このメールアドレスに関連付けられたアカウントが既に存在します。パスワードを忘れた場合は、再登録の代わりにパスワード再発行オプションを使用してください。
 register_err_shortpasswd:パスワードは 6 文字以上必要です。
 register_err_passwdnomatch:パスワードが一致しません。もう一度試してください。
-register_err_invalidemail:指定した電子メールアドレスは有効ではありません。
+register_err_invalidemail:指定したメールアドレスは有効ではないようです。
 register_err_needname:この登録を完了するには、あなたの名前を入力しなければなりません。
 register_err_enterpasswd:現在のパスワードを入力しなければ変更は完了しません。
 register_err_adminpasswd:変更を完了するには<b>管理者</b>パスワードの入力が必要です。
@@ -697,7 +697,7 @@ ERR_systemerr_ttl:エラー: システムエラー
 ERR_systemerr_msg:システムエラーが発生しました。<a href="mailto:{GVAR: ADMIN_EMAIL}">ウェブ管理者</a>に報告してください。
 email_title:電子メールフォーム
 finduser_title:利用者検索
-help_title:FAQ
+help_title:ヘルプ
 login_title:ログインフォーム
 poll_title:投票エディター
 register_title:登録フォーム
@@ -718,7 +718,7 @@ post_opt_fud_off:<b>FUDコード</b>は<b>無効</b>です
 post_opt_images_off:<b>画像</b>は<b>無効</b>です
 post_opt_smilies_off:<b>絵文字</b>は<b>無効</b>です
 post_opt:フォーラムオプション:
-register_change_passwd:パスワード変更
+register_change_passwd:パスワードを変更
 register_change_login:ログイン名変更
 approved_avatar_title:カスタムアバターは承認されました。
 approved_avatar_msg:あなたのアバターは管理者に承認されました。それはあなたのすべてのメッセージにアバターとして表示されるはずです。それが見えないか、古いアバターが見えるのは、ブラウザーがページをキャッシュしているからです。ページを1・2回再読み込みしてみてください。ほとんどの場合、これでキャッシュ問題が解決するでしょう。
@@ -1005,7 +1005,7 @@ adm_account_rejected:あなたのアカウント「{VAR: login}」は管理者�
 adm_account_rejected_s:「{GVAR: FORUM_TITLE}」におけるあなたのアカウントの申請は却下されました。
 thread_on:日付
 userinfo_buddy:仲間:
-register_email_addr:電子メールアドレス:
+register_email_addr:メール アドレス：
 reset_suffix:このメッセージを間違って受信した場合は無視してください。要求していないのにこのメールを複数回受け取った場合、フォーラム管理者に {GVAR: ADMIN_EMAIL} で連絡をとってください。\n\nこの申請は {VAR: _SERVER['REMOTE_ADDR']} から起動されました。
 usrinfo_last_visit:最終訪問日時:
 mnav_newer:より新しい
@@ -1125,7 +1125,7 @@ btn_edit:編集
 btn_reply:返信
 btn_forward:転送
 btn_quote:引用
-btn_email:電子メール
+btn_email:メール
 btn_show_posts:投稿表示
 btn_homepage:ウェブ
 feed_no_data:一致するデータは見つかりません。

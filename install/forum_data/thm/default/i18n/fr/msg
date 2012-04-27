@@ -2,6 +2,7 @@
 # Exported from translatewiki.net
 # Author: Cedric31
 # Author: Crochet.david
+# Author: Gomoko
 # Author: Hashar
 # Author: IAlex
 # Author: Jean-Frédéric
@@ -779,8 +780,7 @@ p_STICKY:Messages épinglés
 p_POLL:Créer un sondage
 p_FILE:Joindre des fichiers
 p_VOTE:Voter
-# Fuzzy
-p_RATE:Noter les fils
+p_RATE:Ratio sujets/membres
 p_SPLIT:Découper les fils
 p_LOCK:Verrouiller les fils
 p_MOVE:Déplacer des fils
@@ -1150,3 +1150,7 @@ page_list_total:{PLURAL: i|$1 page listée|$1 pages listées}.
 page_update:Page de navigation
 pm_export_header:Messages privés pour {VAR: usr->alias}
 pm_export_footer:Exporté :
+karma:Karma
+karma_track:Gérer la réputation de l'utilisateur:
+karma_delete:Supprimer
+rate_author:Ratio de l'auteur:

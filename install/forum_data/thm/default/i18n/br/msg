@@ -19,7 +19,7 @@ by:Gant :
 by_mod:Gant an habasker
 current_time:Deiziad hag eur a-vremañ
 custom_avatar_queue:Roll gortoz an avataroù personelaet
-date_posted:Deiziad postañ
+date_posted:Deiziad embann
 date_registered:Enskrivet d'an :
 download_counter:Pellgarget {PLURAL: v[3]|$1 wech|$1 gwech}
 pmsg_download_counter:Pellgarget {PLURAL: r->dlcount|$1 wech|$1 gwech}
@@ -770,8 +770,7 @@ p_STICKY:Kemennadennoù pegus
 p_POLL:Krouiñ sontadegoù
 p_FILE:Stagañ restroù
 p_VOTE:Votiñ
-# Fuzzy
-p_RATE:Notennañ ar c'haozioù
+p_RATE:Notenniñ an danvezioù/izili
 p_SPLIT:Rannañ ar c'haozioù
 p_LOCK:Prennañ ar c'haozioù
 p_MOVE:Dilec'hiañ kaozioù
@@ -1141,3 +1140,5 @@ page_list_total:{PLURAL: i|$1 bajenn|$1 pajenn} rollet.
 page_update:Pajenn verdeiñ
 pm_export_header:Kemennadennoù prevez evit {VAR: usr->alias}
 pm_export_footer:Ezporzhiet :
+karma_delete:Diverkañ
+rate_author:Priziañ an aozer :

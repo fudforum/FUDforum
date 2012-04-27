@@ -774,8 +774,7 @@ p_STICKY:Yapışkan İletiler
 p_POLL:Anket Oluştur
 p_FILE:Dosya Ekle
 p_VOTE:Oyla
-# Fuzzy
-p_RATE:Konuyu Değerlendir
+p_RATE:Konuyu/üyeyi değerlendir
 p_SPLIT:Konuyu Böl
 p_LOCK:Konuyu Kilitle
 p_MOVE:Konuyu Taşı
@@ -1145,3 +1144,4 @@ page_list_total:$1 sayfa listelendi.
 page_update:Sayfaya göz atıyor
 pm_export_header:Özel iletiler için: {VAR: usr->alias}
 pm_export_footer:Çıkartılan:
+karma_delete:Sil

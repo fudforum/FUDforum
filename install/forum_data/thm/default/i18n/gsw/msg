@@ -769,8 +769,7 @@ p_STICKY:Aaghefteti Byytreg
 p_POLL:Umfroge aalege
 p_FILE:Dateie aahänke
 p_VOTE:Abstimme
-# Fuzzy
-p_RATE:Themene bewärte
+p_RATE:Themene/Mitglider bewärte
 p_SPLIT:Themene ufteile
 p_LOCK:Themene sperre
 p_MOVE:Themene verschiebe
@@ -1140,3 +1139,7 @@ page_list_total:{PLURAL: i|$1 ufglischteti Syte|$1 ufglischteti Syte}.
 page_update:Am Läse vun ere Syte
 pm_export_header:Privati Nochrichte fir {VAR: usr->alias}
 pm_export_footer:Exportiert:
+karma:Karma
+karma_track:Reputation fir dää Benutzer verwalte:
+karma_delete:Lesche
+rate_author:Autor bewärte:

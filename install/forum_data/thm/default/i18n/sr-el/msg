@@ -768,8 +768,7 @@ p_STICKY:Lepljive poruke
 p_POLL:Napravi ankete
 p_FILE:Zakači datoteke
 p_VOTE:Glasaj
-# Fuzzy
-p_RATE:Oceni teme
+p_RATE:Oceni teme/članove
 p_SPLIT:Razdvoji teme
 p_LOCK:Zaključaj teme
 p_MOVE:Premesti teme
@@ -1139,3 +1138,7 @@ page_list_total:{PLURAL: i|Prikazana je $1 stranica|Prikazane su $1 stranice|Pri
 page_update:Pregleda stranicu
 pm_export_header:Privatne poruke za {VAR: usr->alias}
 pm_export_footer:Izvezeno:
+karma:Karma
+karma_track:Upravljanje ugledom korisnika:
+karma_delete:Obriši
+rate_author:Ocena autora:

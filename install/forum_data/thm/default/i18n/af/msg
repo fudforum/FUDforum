@@ -767,8 +767,7 @@ p_STICKY:Plakkerpos
 p_POLL:Skep stemming
 p_FILE:Heg lêer aan
 p_VOTE:Stem
-# Fuzzy
-p_RATE:Beoordeel onderwerpe
+p_RATE:Beoordeel onderwerpe/gebruikers
 p_SPLIT:Split onderwerpe
 p_LOCK:Sluit onderwerpe
 p_MOVE:Skuif onderwerpe
@@ -1138,3 +1137,7 @@ page_list_total:{PLURAL: i|$1 bladsy|$1 bladsye} gelys.
 page_update:Lees 'n bladsy
 pm_export_header:Privaatboodskappe vir {VAR: usr->alias}
 pm_export_footer:Uitgevoer:
+karma:Karma
+karma_track:Bestuur reputasie van gebruikers
+karma_delete:Skrap
+rate_author:Beoordeel outeur:

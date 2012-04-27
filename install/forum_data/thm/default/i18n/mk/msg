@@ -347,7 +347,7 @@ register_show_sig:Прикажувај потписи:
 register_show_sig_desc:Ви овозможува да ги скриете/прикажете потписите на другите членови.
 register_use_sig_default:Користи потпис по основно:
 register_use_sig_default_desc:Автоматски приложи ми го потписот во секоја порака што ја објавувам.
-register_timezone:Часовна зона
+register_timezone:Часовен појас:
 register_ignore_admin:Занемари административни пораки:
 register_invisible_mode:Невидлив режим
 register_invisible_mode_desc:Крие дека сте на линија.

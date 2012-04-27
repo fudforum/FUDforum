@@ -664,6 +664,7 @@ rate_worst:Nejšpatnjejšy
 rate_best:Nejlěpšy
 post_quote:Citat:
 post_quote_selected:Wubrany tekst citěrowaś
+pm_no_space_title:Žeden rum wušej!
 th_expr_never:Nigda
 th_expr_one_hr:1 góźina
 th_expr_three_hr:3 góźiny
@@ -736,6 +737,9 @@ userinfo_polls:Wótglosowanja:
 show_pollist:Wótgłosowanja pokazaś
 search_and:A
 search_or:ABO
+search_desc_order:Wóstupujucy slěd
+search_asc_order:Póstupujucy slěd
+search_sorting:Wuslědki pó datumje sortěrowaś w:
 search_attach:Dodanki:
 search_attach_all:Z abo bźez
 search_attach_with:Z dodankami
@@ -744,6 +748,7 @@ unread_message:Njecytana powěsć
 read_message:Pśecytana powěsć
 threadt_more:&lt;wěcej&gt;
 spell_alts:žedne alternatiwy
+back_to_top:Slědk do zachopjeńka
 saved:Skłaźony
 buddy_offline:{VAR: r[2]} jo tuchylu offline
 buddy_online:{VAR: r[2]} jo tuchylu online
@@ -755,14 +760,17 @@ iemail_msg_date:<b>Datum:</b> {TEMPLATE: dmsg_post_date}
 iemail_msg_reply:Wótegrono
 iemail_msg_quote:Citat
 threadt_sticky:pśilipnjony
+threadt_announce:Pśipowěźenje
 thread_mark_all_read:Wšykne njepśecytane powěsći foruma ako pśecytane markěrowaś
 thread_mark_all_read_desc:Wšykne njepśecytane powěsći w toś tom forumje budu se ako pśecytane markěrowaś
 private_no_messages:W toś tom zarědniku žedne powěsći njejsu.
 iemail_thread_unsub:Toś tu temu wótskazaś
 iemail_forum_unsub:Toś ten forum wótskazaś
+primary_group_prefix:Głowna kupka za forum:
 register_admin_newuser_title:Nowy wužywaŕ jo se zregistrěrował a jogo konto caka na wobkšuśenje
 post_mod_msg_notify_title:Nowa powěźeńka we forumje "{VAR: frm->name}", kótaraž caka na wobkšuśenje
 reg_conf_title:Wobkšuśenje registrěrowanja
+mnav_date_limit:Datumowy wobcerk:
 mnav_forum_limit:Jano pytaś w:
 mnav_all_forums:Wšykne forumy pśepytaś
 mnav_submit:Pytanje zachopiś
@@ -774,6 +782,8 @@ mnav_day:dny
 mnav_week:tyźenje
 mnav_month:mjasece
 findu_admin_opts_header:Opcije administratora
+findu_unban:Wugnanje wótpóraś
+findu_ban:Wugnaś
 findu_edit:Wobźěłaś
 findu_delete:Wulašowaś
 dmsg_reply_to:jo wótegrono na
@@ -801,10 +811,14 @@ delete_msg_pm_body:Spócetna powěsć
 delete_msg_pm_subject:Tema: {VAR: data[15]}
 ip_whois_title:ISP-informacije
 register_theme:Drastwa:
+pmsg_trash:Papjernik wuprozniś
 uc_new_pm:Nowe priwatne powěsći
 uc_new_topic:Nowa tema
+uc_new_cat_forum:Aboněrowane forumy z nowymi powěsćami
+uc_sub_topics:Aboněrowane temy z nowymi powěsćami
 search_options:Pytańske opcije
 search_user_filter:Pó wužywarju filtrowaś
+register_none:Njeinforměrowaś
 findu_no_conf:njewobkšuśony wužywaŕ
 register_max_sig_len:Maksimalna dłujkosć:
 register_turing:Pšosym zapódaj slědujucy code:
@@ -833,6 +847,7 @@ post_common_bold:Tucny
 post_common_italics:Kursiwny
 post_common_underline:Pódšmarnjony
 post_common_link:Wótkaz zasunuś
+post_common_link_popup:Wótkazowa adresa:
 post_common_email:E-mailowu adresu zasunuś
 post_common_email_popup:E-mailowa adresa:
 post_common_image:Wobraz zasunuś
@@ -877,3 +892,7 @@ page_list_heading:K dispoziciji stojece boki
 page_list_total:{PLURAL: i|$1 bok pódany|$1 boka pódanej|$1 boki pódane|$1 bokow pódanych}.
 pm_export_header:Priwatne powěsći za {VAR: usr->alias}
 pm_export_footer:Eksportěrowany.
+karma:Karma
+karma_track:Reputaciju za wužywarja zastojaś:
+karma_delete:Wulašowaś
+rate_author:Awtora pogódnośiś:

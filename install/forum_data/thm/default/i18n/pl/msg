@@ -771,8 +771,7 @@ p_STICKY:Przyczepiona wiadomość
 p_POLL:Utwórz ankietę
 p_FILE:Dołącz pliki
 p_VOTE:Głosuj
-# Fuzzy
-p_RATE:Oceń wątki
+p_RATE:Oceń wątki/osoby
 p_SPLIT:Podziel wątki
 p_LOCK:Zablokuj wątki
 p_MOVE:Przenieś wątki

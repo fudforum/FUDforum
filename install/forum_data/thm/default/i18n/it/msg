@@ -1146,3 +1146,4 @@ page_list_total:{PLURAL: i|$1 pagina|$1 pagine} elencate.
 page_update:Pagina di navigazione
 pm_export_header:Messaggi privati per {VAR: usr->alias}
 pm_export_footer:Esportati:
+karma_delete:Cancella

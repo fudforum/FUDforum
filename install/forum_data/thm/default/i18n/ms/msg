@@ -768,8 +768,7 @@ p_STICKY:Pesanan lekit
 p_POLL:Buka tinjauan
 p_FILE:Lampirkan fail
 p_VOTE:Undi
-# Fuzzy
-p_RATE:Nilai topik
+p_RATE:Nilai topik/ahli
 p_SPLIT:Pecahkan topik
 p_LOCK:Kunci topik
 p_MOVE:Alihkan topik
@@ -1139,3 +1138,7 @@ page_list_total:{PLURAL: i|$1 halaman|$1 halaman} disenaraikan.
 page_update:Melayari laman
 pm_export_header:Pesanan peribadi untuk {VAR: usr->alias}
 pm_export_footer:Dieksport:
+karma:Karma
+karma_track:Urus reputasi pengguna:
+karma_delete:Hapuskan
+rate_author:Nilai pengarang:

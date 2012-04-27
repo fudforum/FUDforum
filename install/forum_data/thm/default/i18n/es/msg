@@ -1,5 +1,6 @@
 # Messages for Spanish (Español)
 # Exported from translatewiki.net
+# Author: Armando-Martin
 # Author: Crazymadlover
 # Author: Fitoschido
 # Author: Locos epraix
@@ -777,8 +778,7 @@ p_STICKY:Mensajes fijos
 p_POLL:Crear encuestas
 p_FILE:Adjuntar archivos
 p_VOTE:Votar
-# Fuzzy
-p_RATE:Evaluar hilos de discusión
+p_RATE:Evaluar hilos/miembros
 p_SPLIT:Dividir hilos de discusión
 p_LOCK:Bloquear hilos de discusión
 p_MOVE:Mover hilos de discusión
@@ -1148,3 +1148,7 @@ page_list_total:{PLURAL: i|$1 págna|$1 páginas} en la lista.
 page_update:Buscar página
 pm_export_header:Mensajes privados para {VAR: usr->alias}
 pm_export_footer:Exportado:
+karma:Karma
+karma_track:Administrar la reputación del usuario:
+karma_delete:Eliminar
+rate_author:Evaluar al autor:

@@ -770,8 +770,7 @@ p_STICKY:Sticky berichten
 p_POLL:Stemmingen aanmaken
 p_FILE:Bestanden toevoegen
 p_VOTE:Stemmen
-# Fuzzy
-p_RATE:Onderwerpen beoordelen
+p_RATE:Onderwerpen/leden beoordelen
 p_SPLIT:Onderwerpen splitsen
 p_LOCK:Onderwerpen sluiten
 p_MOVE:Onderwerpen verplaatsen
@@ -1141,3 +1140,7 @@ page_list_total:{PLURAL: i|$1 weergegeven pagina|$1 weergegeven pagina's}.
 page_update:Pagina aan het bekijken
 pm_export_header:Privéberichten voor {VAR: usr->alias}
 pm_export_footer:Geëxporteerd:
+karma:Karma
+karma_track:Reputatie voor deze gebruiker beheren:
+karma_delete:Verwijderen
+rate_author:Auteurs beoordelen:

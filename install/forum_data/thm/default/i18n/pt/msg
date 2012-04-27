@@ -776,8 +776,7 @@ p_STICKY:posts persistentes
 p_POLL:Criar mensagens
 p_FILE:adiccionar ficheiros
 p_VOTE:Votar
-# Fuzzy
-p_RATE:Votar tópicos
+p_RATE:Votar tópicos/membros
 p_SPLIT:Dividir tópicos
 p_LOCK:Trancar tópicos
 p_MOVE:Mover tópicos
@@ -1147,3 +1146,7 @@ page_list_total:{PLURAL: i|$1 página|$1 páginas} listadas.
 page_update:Página de navegação
 pm_export_header:Mensagens privadas para {VAR: usr->alias}
 pm_export_footer:Exportado:
+karma:Karma
+karma_track:Gerir reputação para o utilizador:
+karma_delete:Eliminar
+rate_author:Classificar autor:

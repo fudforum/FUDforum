@@ -775,8 +775,7 @@ p_STICKY:تثبيت رسائل
 p_POLL:إنشاء اقتراعات
 p_FILE:إرفاق ملفات
 p_VOTE:تصويت
-# Fuzzy
-p_RATE:تقييم المواضيع
+p_RATE:قيم المواضيع/الأعضاء
 p_SPLIT:فصل المواضيع
 p_LOCK:قفل المواضيع
 p_MOVE:نقل المواضيع
@@ -1146,3 +1145,7 @@ page_list_total:{PLURAL: i|$1 صفحة|$1 صفحة} معروضة.
 page_update:تصفح الصفحة
 pm_export_header:رسائل خاصة من أجل {VAR: usr->alias}
 pm_export_footer:تصدير:
+karma:كارما
+karma_track:إدارة السمعة للمستخدم:
+karma_delete:احذف
+rate_author:قيم الكاتب:

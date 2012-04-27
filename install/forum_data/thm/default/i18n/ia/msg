@@ -768,8 +768,7 @@ p_STICKY:Messages fixe
 p_POLL:Crear sondages
 p_FILE:Annexar files
 p_VOTE:Votar
-# Fuzzy
-p_RATE:Evalutar topicos
+p_RATE:Evalutar topicos/membros
 p_SPLIT:Divider topicos
 p_LOCK:Serrar topicos
 p_MOVE:Displaciar topicos
@@ -1139,3 +1138,7 @@ page_list_total:{PLURAL: i|$1 pagina|$1 paginas} listate.
 page_update:Percurre pagina
 pm_export_header:Messages private pro {VAR: usr->alias}
 pm_export_footer:Exportate:
+karma:Karma
+karma_track:Gerer le reputation del usator:
+karma_delete:Deler
+rate_author:Evalutar autor:

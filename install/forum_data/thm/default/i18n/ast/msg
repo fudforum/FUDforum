@@ -767,8 +767,7 @@ p_STICKY:Mensaxes fixos
 p_POLL:Crear encuestes
 p_FILE:Axuntar ficheros
 p_VOTE:Votar
-# Fuzzy
-p_RATE:Puntuar filos
+p_RATE:Puntuar filos/miembros
 p_SPLIT:Dixebrar filos
 p_LOCK:Candar filos
 p_MOVE:Treslladar filos
@@ -1138,3 +1137,7 @@ page_list_total:{PLURAL: i|$1 páxina|$1 páxines} na llista.
 page_update:Navegando pela páxina
 pm_export_header:Mensaxes privaos pa {VAR: usr->alias}
 pm_export_footer:Esportáu:
+karma:Karma
+karma_track:Xestionar la reputación del usuariu:
+karma_delete:Desaniciar
+rate_author:Puntuar al autor:
