@@ -10,7 +10,7 @@
 ***************************************************************************/
 //TODO: Do we still need extract_archive()???
 
-$__UPGRADE_SCRIPT_VERSION = 5304.0;
+$__UPGRADE_SCRIPT_VERSION = 5304.1;
 // define('fud_debfud_debug', 1);
 
 /*
