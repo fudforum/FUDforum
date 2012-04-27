@@ -10,7 +10,7 @@
 ***************************************************************************/
 //TODO: Do we still need extract_archive()???
 
-$__UPGRADE_SCRIPT_VERSION = 5304.1;
+$__UPGRADE_SCRIPT_VERSION = 5304.2;
 // define('fud_debfud_debug', 1);
 
 /*
@@ -198,27 +198,24 @@ function htaccess_handler($web_root, $ht_pass)
 	}
 }
 
-
 /** 
  * Upgrade GLOBALS.php to new format (3.0.3->3.0.4).
  */
 function upgrade_globals_php()
 {
-	pf('Upgrading GLOBALS.php');
-	$core = file_get_contents($GLOBALS['DATA_DIR'] .'include/core.inc');
-	$FORUM_VERSION = preg_replace('/.*FORUM_VERSION = \'(.*?)\';.*/s', '\1', $core);
-	if (version_compare($FORUM_VERSION, '3.0.4', '<')) {
-		$new = '';
-		$f = fopen($GLOBALS['INCLUDE'] .'GLOBALS.php', 'r');
-		while($s=fgets($f)) {
-			if (strpos($s, '$GLOBALS[') !== false) {
-				return;		// Already converted, bail out!
-			}
-			$new .= preg_replace('/(\t)\$([A-Z_1-9]*)([\s\t]*)/i','$1$GLOBALS[\'$2\']$3', $s);
+	$new = '';
+	$f = fopen($GLOBALS['INCLUDE'] .'GLOBALS.php', 'r');
+	while($s=fgets($f)) {
+		if (strpos($s, '$GLOBALS[') !== false) {
+			pf('GLOBALS.php already upgraded.');
+			return;		// Already converted, bail out!
 		}
-		fclose($f);
-		file_put_contents($GLOBALS['INCLUDE'] .'GLOBALS.php', $new);
+		$new .= preg_replace('/(\s)\$([A-Z_1-9]*)([\s]*)/i', '$1$GLOBALS[\'$2\']$3', $s);
 	}
+	fclose($f);
+
+	pf('Upgrading GLOBALS.php');
+	file_put_contents($GLOBALS['INCLUDE'] .'GLOBALS.php', $new);
 }
 
 function upgrade_decompress_archive($data_root, $web_root)
@@ -815,11 +812,13 @@ pf('<h2>Step 1: Admin login</h2>', true);
 	require($INCLUDE .'glob.inc');
 
 	/* Disable the forum. */
-	pf('Disabling the forum.');
-	// We would normally do this with maintenance_status(). However, since we will not re-enable 
-	// the forum (done in consist.php), we will not be able to restore the disable reason.
-	change_global_settings(array('FUD_OPT_1' => ($GLOBALS['FUD_OPT_1'] &~ 1)));
-	pf('Forum is now disabled.<br />');
+	if ($GLOBALS['FUD_OPT_1'] & 1) {
+		pf('Disabling the forum.');
+		// We would normally do this with maintenance_status(). However, since we will not re-enable 
+		// the forum (done in consist.php), we will not be able to restore the disable reason.
+		change_global_settings(array('FUD_OPT_1' => ($GLOBALS['FUD_OPT_1'] &~ 1)));
+		pf('Forum is now disabled.<br />');
+	}
 
 	/* Rename old language name directories to language codes (3.0.0->3.0.1). */
 	$langmap = array('afrikaans' => 'af', 'arabic' => 'ar', 'breton' => 'br',
@@ -1172,6 +1171,7 @@ pf('<h2>Step 1: Admin login</h2>', true);
 
 	/* Correct language code for Norwegian from no to nb in 3.0.4. */
 	if (file_exists($GLOBALS['DATA_DIR'] .'thm/default/i18n/no/msg')) {
+		q('UPDATE '. $DBHOST_TBL_PREFIX. 'themes SET lang = \'nb\' WHERE lang = \'no\''));
 		__rmdir($GLOBALS['DATA_DIR'] .'thm/default/i18n/no', true);
 	}
 
@@ -1196,7 +1196,7 @@ pf('<h2>Step 1: Admin login</h2>', true);
 		q('UPDATE '. $DBHOST_TBL_PREFIX .'forum SET forum_icon=\''. addslashes($v) .'\' WHERE id='. $k);
 	}
 
-	// Loop through themes for maintenance.
+	/* Loop through themes for maintenance. */
 	require($GLOBALS['DATA_DIR'] .'include/compiler.inc');
 	$c = q('SELECT theme, lang, name FROM '. $DBHOST_TBL_PREFIX .'themes WHERE '. q_bitand('theme_opt', 1) .' > 0 OR id=1');
 	while ($r = db_rowarr($c)) {
