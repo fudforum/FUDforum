@@ -508,7 +508,7 @@ remail_message:Missatge:
 remail_send_now:Enviar correu electrònic ara
 remail_anon_opt:Copiar aquest missatge a un programa de correu de la seva elecció, per a enviar-lo al seu(s) amic(s).
 remail_done:Fet
-remail_sent_conf:El correu electrònic al seu amic a {VAR HTML: _POST [femail]} sobre el  {VAR: data->subject}  tema s'ha enviat correctament.
+remail_sent_conf:El correu electrònic al seu amic a {VAR-HTML: _POST['femail']} sobre el {VAR: data->subject} tema s'ha enviat correctament.
 remail_error:Vostè té un error
 mklist_type:Tipus:
 mklist_option:Opció:
@@ -712,7 +712,7 @@ error_title:Formulari d`error
 index_title:Benvingut al fòrum
 search_title:Cercar {VAR-HTML: srch}
 remail_emailsent:S`ha enviat el missatge de correu
-remail_email:Hola\n\nHi ha un tema interessant sobre " {VAR: data->subject} " a {GVAR: FORUM_TITLE} fòrum que pot voler llegir. Vostè pot veure el tema a:\n {FULL_ROOT}{ARREL}? t = rview &amp; th = {VAR: data->id} &amp; lliurar = {DEF: _uid}\n\nEl seu amic\n\n{VAR: usr->alias}
+remail_email:Hola\n\nHi ha un tema interessant sobre "{VAR: data->subject}" a {GVAR: FORUM_TITLE} fòrum que pot voler llegir. Vostè pot veure el tema a:\n {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nEl seu amic\n\n{VAR: usr->alias}
 poll_add_option:Afegir opció:
 post_opt_html_on:El codi <b>HTML</b> està  <b>ACTIVAT</b>
 post_opt_fud_on:El <b><a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank">BBcode</b> està  <b>HABILITAT</a></b>
@@ -957,7 +957,7 @@ group_resources:Aquest grup controla els permisos dels fòrums següents
 register_admin_newuser_title:S`ha enregistrat un usuari nou i el seu compte està  pendent de confirmació
 register_admin_newuser_msg:Un usuari nou, ({VAR: uent->login}), acaba d`enregistrar-se en els fòrums, i com està  activada la confirmació del compte, el seu compte no estarà actiu fins que Vostè o un altre administrador dels fòrums el confirmi. Per a revisar el compte, si us plau, vagi a: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nAquest és un procés automatizat, no respongui a aquest missatge.\nSi desitja desactivar futures notificacions de registre de nous usuaris, pot fer-ho usant el Panell de Control d`administració, canviant el valor de l`opció "Notificació de compte nou".
 post_mod_msg_notify_title:Un nou missatge en els fòrums amb l`assumpte "{VAR: frm->name}" està  pendent d`aprovació
-post_mod_msg_notify_msg:Un nou missatge titulat " {VAR: msg_post->subject} " només va ser publicat en un fòrum que li moderar. Per revisar aquest missatge d'anar a: {FULL_ROOT} {arrel}? t = modque # {VAR: msg_post->id} \n\nAquest és un procés automatitzat. No respongui a aquest missatge.
+post_mod_msg_notify_msg:Un nou missatge titulat "{VAR: msg_post->subject}" només va ser publicat en un fòrum que li moderar. Per revisar aquest missatge d'anar a: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id} \n\nAquest és un procés automatitzat. No respongui a aquest missatge.
 thread_printable_pdf:Generar PDF imprimible
 thread_syndicate:Llegir aquest forum amb lector un RSS (XML)
 reg_conf_title:Confirmació del registre
