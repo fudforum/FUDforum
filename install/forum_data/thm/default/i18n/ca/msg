@@ -508,7 +508,7 @@ remail_message:Missatge:
 remail_send_now:Enviar correu electrònic ara
 remail_anon_opt:Copiar aquest missatge a un programa de correu de la seva elecció, per a enviar-lo al seu(s) amic(s).
 remail_done:Fet
-remail_sent_conf:El correu electrònic al seu amic a {VAR HTML: _POST [femail]} sobre el  {VAR: data->subject}  tema s'ha enviat correctament.
+remail_sent_conf:El correu electrònic al seu amic a {VAR-HTML: _POST['femail']} sobre el {VAR: data->subject} tema s'ha enviat correctament.
 remail_error:Vostè té un error
 mklist_type:Tipus:
 mklist_option:Opció:
