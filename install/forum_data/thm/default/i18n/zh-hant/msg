@@ -5,6 +5,7 @@
 # Author: Lauhenry
 # Author: Liangent
 # Author: Mark85296341
+# Author: Naudefj
 # Author: Oapbtommy
 
 action:操作
@@ -506,7 +507,7 @@ remail_message:訊息：
 remail_send_now:立即發送電子郵件
 remail_anon_opt:將此郵件複製到您的選擇，將其發送給您的賭場的郵件用戶端。
 remail_done:完成
-remail_sent_conf:你的朋友在電子郵件 {VAR HTML： _POST [femail]} 關於 {VAR: data->subject} 主題已成功發送。
+remail_sent_conf:你的朋友在電子郵件 {VAR-HTML: _POST['femail']} 關於 {VAR: data->subject} 主題已成功發送。
 remail_error:有一個錯誤
 mklist_type:類型：
 mklist_option:選項：
@@ -587,7 +588,7 @@ core_err_invinp_err:您已按照無效的連結。請通知<a href="mailto:{GVAR
 core_adm_login_msg:管理員可以登錄<a href="{GVAR: WWW_ROOT}adm/admloginuser.php">在這裡</a>。
 email_err_unabletoemail_title:錯誤: 無法發送電子郵件
 email_err_unabletoemail_msg:電子郵件系統已被管理員禁用。
-email_error_unabletolocaddr:對不起，系統無法通過電子郵件發送 {VAR HTML： _POST [tx_name]} 因為它無法確定電子郵寄地址
+email_error_unabletolocaddr:對不起，系統無法通過電子郵件發送 {VAR-HTML: _POST['tx_name']} 因為它無法確定電子郵寄地址
 email_error_body:身體是必需
 email_error_subject:這個問題是需要
 email_error_namerequired:名稱是必需的
@@ -665,7 +666,7 @@ register_conf_msg:感謝您的註冊，\n要激活您的帳戶，請去下面的
 register_welcome_subject:報名確認
 register_welcome_msg:謝謝註冊，\n\n這是您註冊的詳細資料：\n\n論壇地址：{TEMPLATE: index_update_lnk}\n帳號：{VAR: uent->login}\n密碼：{VAR: _POST['reg_plaintext_passwd']}\n\n請注意密碼區分大小寫！\n要更改您的設定或者個人資料，請點擊：\n{FULL_ROOT}{ROOT}?t=register
 register_err_cantreg_title:錯誤：無法註冊
-regsiter_err_cantreg_msg:無法創建使用者帳戶，請聯繫管理員在<a href="mailto:<span class=" notranslate"="">{VAR： ADMIN_EMAIL}"大於 {VAR: ADMIN_EMAIL}  </a>
+regsiter_err_cantreg_msg:無法創建使用者帳戶，請聯繫管理員在<a href="mailto:<span class=" notranslate"="">{VAR: ADMIN_EMAIL}"大於 {VAR: ADMIN_EMAIL}  </a>
 register_profile_update:查看自己的個人資料
 register_register_update:註冊時間:
 report_err_nosuchmsg_title:錯誤
@@ -708,9 +709,9 @@ reset_title:重設密碼
 rpasswd_title:更改密碼的表單
 error_title:錯誤的表單
 index_title:歡迎來到論壇
-search_title:搜索 {VAR HTML： srch}
+search_title:搜索 {VAR-HTML: srch}
 remail_emailsent:電子郵件的發送
-remail_email:你好\n!N ！關於有一個有趣的話題" {VAR: data->subject} "上 {GVAR: FORUM_TITLE} 要閱讀的論壇。你可以看到在主題： ！N ！{FULL_ROOT}{根} 嗎？ t = rview &amp; th = {VAR: data->id} &amp; rid = {DEF： _uid} ！N!!N ！你的朋友！N!!N ！{VAR: usr->alias}
+remail_email:你好\n!N ！關於有一個有趣的話題" {VAR: data->subject} "上 {GVAR: FORUM_TITLE} 要閱讀的論壇。你可以看到在主題： ！N ！{FULL_ROOT}{根} 嗎？t=rview&amp;th={VAR: data->id}&amp;rid ={DEF: _uid} ！N!!N ！你的朋友！N!!N ！{VAR: usr->alias}
 poll_add_option:添加選項：
 post_opt_html_on:<b>HTML</b>代碼：<b>開放</b>
 post_opt_fud_on:<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>BBcode</b>：<b>開放</b></a>
@@ -743,8 +744,8 @@ thr_exch_submit:提交
 exch_decline_ttl:移動主題的 {VAR: data->subject} 進入論壇 {VAR: data->f2_name} 被拒絕。
 ppost_original_msg:你是轉發或答覆的郵件
 split_thread:拆分主題
-groupmgr_no_user:沒有使用者的登錄資訊"{FUNC： char_fix(htmlspecialchars($gr_member))}"
-groupmgr_already_exists:使用者"{FUNC： char_fix(htmlspecialchars($gr_member))}"在此組中已存在。
+groupmgr_no_user:沒有使用者的登錄資訊"{FUNC: char_fix(htmlspecialchars($gr_member))}"
+groupmgr_already_exists:使用者"{FUNC: char_fix(htmlspecialchars($gr_member))}"在此組中已存在。
 groupmgr_yes:是
 groupmgr_no:否
 groupmgr_action:操作
@@ -878,7 +879,7 @@ register_alias:暱稱：
 register_alias_desc:如果您希望您要顯示在論壇中的登錄名以外的其他的昵稱，請在這裡輸入。
 register_allow_pm_msg:允許私有消息：
 register_allow_pm_msg_desc:允許其他使用者在本論壇中向您發送私人消息。
-postcheck_pm_disabled:您不能發送到私有消息"{VAR HTML： v}"，因為這個人不會接受私人郵件。
+postcheck_pm_disabled:您不能發送到私有消息"{VAR-HTML: v}"，因為這個人不會接受私人郵件。
 polllist_vote:投票
 polllist_view_results:查看結果
 polllist_name:輪詢名稱

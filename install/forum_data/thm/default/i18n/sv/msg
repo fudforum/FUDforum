@@ -8,6 +8,7 @@
 # Author: Nghtwlkr
 # Author: Poxnar
 # Author: Tobulos1
+# Author: WikiPhoenix
 
 action:Handling
 add_to_buddy_list:lägg till kompislistan
@@ -774,8 +775,7 @@ p_STICKY:Klibbiga inlägg
 p_POLL:Gör en gallup
 p_FILE:Bifoga filer
 p_VOTE:Rösta
-# Fuzzy
-p_RATE:Bedöm diskussioner
+p_RATE:Betygsätt ämnen/medlemmar
 p_SPLIT:Splittra diskussioner
 p_LOCK:Lås diskussioner
 p_MOVE:Flytta diskussioner
@@ -1145,3 +1145,7 @@ page_list_total:{PLURAL: i|$1 sida|$1 sidor} listade.
 page_update:Visar sida
 pm_export_header:Privata meddelanden för {VAR: usr->alias}
 pm_export_footer:Exporterad:
+karma:Karma
+karma_track:Hantera rykte för användare:
+karma_delete:Radera
+rate_author:Betygsätt författare:

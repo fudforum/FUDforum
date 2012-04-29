@@ -775,8 +775,7 @@ p_STICKY:置顶帖子
 p_POLL:发起调查
 p_FILE:添加附件
 p_VOTE:投票
-# Fuzzy
-p_RATE:评价帖子
+p_RATE:评价帖子/用户
 p_SPLIT:分开主题
 p_LOCK:封闭帖子
 p_MOVE:转移帖子
@@ -1146,3 +1145,4 @@ page_list_total:列出{PLURAL: i|$1 个页面|$1 个页面}。
 page_update:浏览页面
 pm_export_header:对于{VAR: usr->alias}的私人信息
 pm_export_footer:导出：
+karma_delete:删除
