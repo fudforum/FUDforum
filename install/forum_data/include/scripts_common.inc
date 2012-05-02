@@ -55,13 +55,13 @@ function create_new_user($from_name, $from_email, $reg_date=0)
 	 * This code ensures that creation of user does not fail in the event another user on the forum
 	 * is already signed up under the same login name and/or alias.
 	 */
-	while (q_singleval('SELECT id FROM '. sql_p .'users WHERE login='. _esc($user->login))) {
+	while ($login = q_singleval('SELECT id FROM '. sql_p .'users WHERE login='. _esc($user->login))) {
 		$user->login = $login .'['. $i++ .']';
 	}
 
 	$alias = $user->alias = htmlspecialchars($user->login);
 
-	while (q_singleval('SELECT id FROM '. sql_p .'users WHERE alias='. _esc($user->alias))) {
+	while ($alias = q_singleval('SELECT id FROM '. sql_p .'users WHERE alias='. _esc($user->alias))) {
 		$user->alias = $alias .'['. $i++ .']';
 	}
 
