@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -339,15 +339,15 @@ function flood_check()
 			$msg_post = new fud_msg_edit;
 
 			/* Process Message Data. */
-			$msg_post->poster_id = _uid;
-			$msg_post->poll_id = $pl_id;
-			$msg_post->subject = $msg_subject;
-			$msg_post->body = $msg_body;
-			$msg_post->icon = (isset($_POST['msg_icon']) && is_string($_POST['msg_icon']) && basename($_POST['msg_icon']) == $_POST['msg_icon'] && @file_exists($WWW_ROOT_DISK.'images/message_icons/'.$_POST['msg_icon'])) ? $_POST['msg_icon'] : '';
-		 	$msg_post->msg_opt =  $msg_smiley_disabled ? 2 : 0;
-		 	$msg_post->msg_opt |= $msg_show_sig ? 1 : 0;
+			$msg_post->poster_id  = _uid;
+			$msg_post->poll_id    = $pl_id;
+			$msg_post->subject    = $msg_subject;
+			$msg_post->body       = $msg_body;
+			$msg_post->icon       = (isset($_POST['msg_icon']) && is_string($_POST['msg_icon']) && basename($_POST['msg_icon']) == $_POST['msg_icon'] && @file_exists($WWW_ROOT_DISK.'images/message_icons/'.$_POST['msg_icon'])) ? $_POST['msg_icon'] : '';
+		 	$msg_post->msg_opt    =  $msg_smiley_disabled ? 2 : 0;
+		 	$msg_post->msg_opt   |= $msg_show_sig ? 1 : 0;
 		 	$msg_post->attach_cnt = (int) $attach_cnt;
-			$msg_post->body = apply_custom_replace($msg_post->body);
+			$msg_post->body       = apply_custom_replace($msg_post->body);
 
 			if ($frm->forum_opt & 16) {
 				$msg_post->body = char_fix(tags_to_html($msg_post->body, $perms & 32768));
@@ -370,10 +370,10 @@ function flood_check()
 
 			// PREPOST plugins.
 			if (defined('plugins')) {
-				$msg_post = plugin_call_hook('PREPOST', $msg_post);
+				$msg_post = plugin_call_hook('PRE_POST', $msg_post);
 			}
 
-		 	/* Chose to create thread OR add message OR update message. */
+		 	/* Choose to create thread OR add message OR update message. */
 		 	if (!$th_id) {
 		 		$create_thread = 1;
 		 		$msg_post->add($frm->id, $frm->message_threshold, $frm->forum_opt, ($perms & (64|4096)), 0, $msg_tdescr);
@@ -381,11 +381,11 @@ function flood_check()
 				$msg_post->thread_id = $th_id;
 		 		$msg_post->add_reply($reply_to, $th_id, ($perms & (64|4096)), 0);
 			} else if ($msg_id) {
-				$msg_post->id = $msg_id;
-				$msg_post->thread_id = $th_id;
-				$msg_post->post_stamp = $msg->post_stamp;
-				$msg_post->mlist_msg_id = $msg->mlist_msg_id;
-				$msg_post->file_id = $msg->file_id;
+				$msg_post->id              = $msg_id;
+				$msg_post->thread_id       = $th_id;
+				$msg_post->post_stamp      = $msg->post_stamp;
+				$msg_post->mlist_msg_id    = $msg->mlist_msg_id;
+				$msg_post->file_id         = $msg->file_id;
 				$msg_post->file_id_preview = $msg->file_id_preview;
 				$msg_post->sync(_uid, $frm->id, $frm->message_threshold, ($perms & (64|4096)), $msg_tdescr);
 				/* Log moderator edit. */
@@ -419,6 +419,11 @@ function flood_check()
 
 				/* Register a view, so the forum marked as read. */
 				user_register_forum_view($frm->id);
+			}
+
+			// POST_POST plugins.
+			if (defined('plugins')) {
+				plugin_call_hook('POST_POST', $msg_post);
 			}
 
 			/* Where to redirect, to the tree view or the flat view and consider what to do for a moderated forum or post-only forum. */
