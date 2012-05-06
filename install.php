@@ -9,7 +9,7 @@
 * Free Software Foundation; version 2 of the License. 
 ***************************************************************************/
 
-// define('fud_debfud_debug', 1);
+// define('fud_debug', 1);
 
 function fud_ini_get($opt)
 {
@@ -116,56 +116,29 @@ function decompress_archive($data_root, $web_root)
 {
 	$clean = array('PHP_OPEN_TAG'=>'<?', 'PHP_OPEN_ASP_TAG'=>'<%');
 
+	// CLI doesn't automatically change the CWD to the one the started script resides in.
+	chdir(dirname(__FILE__));
+
 	/* Install from './fudforum_archive' file. */
-	// $GLOBALS['no_mem_limit'] may look strange in this context, but it is actually $no_mem_limit defined earlier.
-	if ($GLOBALS['no_mem_limit']) {	
-		$fp = fopen('./fudforum_archive', 'rb');
-		$checksum = fread($fp, 32);
-		$tmp = fread($fp, 20000);
-		fseek($fp, (ftell($fp) - 20000), SEEK_SET);
-		if (strpos($tmp, 'RAW_PHP_OPEN_TAG') !== FALSE) {	/* No compression. */
-			unset($clean['PHP_OPEN_TAG']); $clean['RAW_PHP_OPEN_TAG'] = '<?';
-			$data = '';
-			while (($tmp = fgets($fp))) {
-				$data .= strtr($tmp, $clean);
-			}
-		} else {
-			$data_len = (int) fread($fp, 10);
-			// Data should be @ least 100k.
-			if ($data_len < 100000) {
-				exit('Failed getting archive size from '. htmlentities(fread($fp, 10)));
-			}
-			$data = gzuncompress(strtr(fread($fp, $data_len), $clean), $data_len);
+	$fp = fopen('./fudforum_archive', 'rb');
+	$checksum = fread($fp, 32);
+	$tmp = fread($fp, 20000);
+	fseek($fp, (ftell($fp) - 20000), SEEK_SET);
+	if (strpos($tmp, 'RAW_PHP_OPEN_TAG') !== FALSE) {	/* No compression. */
+		unset($clean['PHP_OPEN_TAG']); $clean['RAW_PHP_OPEN_TAG'] = '<?';
+		$data = '';
+		while (($tmp = fgets($fp))) {
+			$data .= strtr($tmp, $clean);
 		}
-		fclose($fp);
-
-	/* Install from embedded file archive. */
 	} else {
-		if (DIRECTORY_SEPARATOR == '/' && defined('__COMPILER_HALT_OFFSET__')) {
-			$data = stream_get_contents(fopen(__FILE__, 'r'), max_a_len, __COMPILER_HALT_OFFSET__ + 4); /* 4 = " ?>\n" */
-			$p = 0;
-		} else { 
-			$data = file_get_contents(__FILE__);
-			$p = strpos($data, '<?php __HALT_'.'COMPILER(); ?>') + strlen('<?php __HALT_'.'COMPILER(); ?>') + 1;
+		$data_len = (int) fread($fp, 10);
+		// Data should be @ least 100k.
+		if ($data_len < 100000) {
+			exit('Failed getting archive size from '. htmlentities(fread($fp, 10)));
 		}
-		$checksum = substr($data, $p, 32);
-		$data = substr($data, $p + 32);
-		if (strpos($data, 'RAW_PHP_OPEN_TAG') !== FALSE) {	/* No compression. */
-			unset($clean['PHP_OPEN_TAG']); $clean['RAW_PHP_OPEN_TAG'] = '<?';
-			$data = strtr($data, $clean);
-		} else {
-			$data_len = (int) substr($data, 0, 10);
-			// Data should be @ least 100k.
-			if ($data_len < 100000) {
-				exit('Failed getting archive size from '. htmlentities(substr($data, 0, 10)));
-			}
-			$data = strtr(substr($data, 10), $clean);
-
-			if (!($data = gzuncompress($data, $data_len))) {	/* Compression. */
-				exit('Failed decompressing the archive.');
-			}
-		}
+		$data = gzuncompress(strtr(fread($fp, $data_len), $clean), $data_len);
 	}
+	fclose($fp);
 
 	if (md5($data) != $checksum) {
 		exit("Archive did not pass the checksum test, it is corrupt!<br />\nIf you've encountered this error it means that you've:<ul><li>downloaded a corrupt archive</li><li>uploaded the archive to your server in ASCII and not BINARY mode</li><li>your FTP Server/Decompression software/Operating System added un-needed cartrige return ('\r') characters to the archive, resulting in archive corruption.</li></ul>\n");
@@ -204,6 +177,7 @@ function decompress_archive($data_root, $web_root)
 				continue;
 			}
 
+			if (defined('fud_debug')) echo "Extracting $path\n";
 			$fp = @fopen($path, 'wb');
 			if (!$fp) {
 				if (basename($path) != '.htaccess') {
@@ -480,16 +454,6 @@ if (!fud_ini_get('display_errors')) {
 }
 
 fud_ini_set('memory_limit', '128M');	// PHP 5.3's default, old defaults too small.
-$no_mem_limit = ini_get('memory_limit');
-if ($no_mem_limit) {
-	$no_mem_limit = (int) str_replace(array('k', 'm', 'g'), array('000', '000000', '000000000'), strtolower($no_mem_limit));
-	if ($no_mem_limit < 1 || $no_mem_limit > 50000000) {
-		$no_mem_limit = 0;
-	}
-}
-
-/* Force install from external "fudforum_archive" file for FUDforum 3.0.2 and later releases. */
-$no_mem_limit = 1;
 
 define('max_a_len', filesize(__FILE__)); // Needed for offsets.
 
@@ -554,11 +518,6 @@ if (!count($_POST)) {
 		seterr('MBSTRING', 'The required MBSTRING (Multibyte String) extension for PHP is not available. Please rectify this and try again.');
 	}
 
-	/* File permission check. */
-	if ($no_mem_limit && !@is_writeable(__FILE__)) {
-		seterr('PERMS', 'Please grant read/write permissions on this installation file (<?php echo __FILE__; ?>) to the web-server user to proceed.');
-	}
-
 	if (isset($GLOBALS['errors'])) {
 		page_header();
 		foreach($GLOBALS['errors'] as $err) {
@@ -583,47 +542,6 @@ if (!count($_POST)) {
 			page_footer();
 			exit;
 		}
-	}
-
-	if (isset($zl) && $no_mem_limit) {
-		/* Move archive to separate file. */
-		if (!($fp = @fopen('./fudforum_archive', 'wb'))) {
-			echo '<html><body>Please grant read/write permissions on the current directory file to the web-server user ('. getcwd() .')';
-			if (!SAFE_MODE) {
-				echo '<br />or create a file called "fudforum_archive" within the current directory and grant read/write permissions on this file to the web-server user to proceed.';
-			}
-			exit('</body></html>');
-		}
-
-		if (defined('__COMPILER_HALT_OFFSET__')) {	/* PHP 5.1 with halt support. */
-			$fp2 = fopen(__FILE__, 'rb');
-			$main = stream_get_contents($fp2, __COMPILER_HALT_OFFSET__ + 4); /* 4 == " ?>\n" */
-			fwrite($fp, stream_get_contents($fp2, max_a_len, __COMPILER_HALT_OFFSET__ + 4));
-		} else {
-			$main = '';
-
-			$l = strlen('<?php __HALT_'.'COMPILER(); ?>');
-
-			$fp2 = fopen(__FILE__, 'rb');
-			while (($line = fgets($fp2))) {
-				$main .= $line;
-				if (!strncmp($line, '<?php __HALT_'.'COMPILER(); ?>', $l)) {
-					break;
-				}
-			}
-
-			while (($tmp = fread($fp2, 20000))) {
-				fwrite($fp, $tmp);
-			}
-		}
-		fclose($fp);
-		fclose($fp2);
-
-		$fp = fopen(__FILE__, 'wb');
-		fwrite($fp, $main);
-		fclose($fp);
-
-		unset($main, $tmp);
 	}
 }
 
@@ -1195,14 +1113,6 @@ if ($section == 'admin' || php_sapi_name() == 'cli') {
 		} catch (Exception $e) {
 			die('Unable to compile theme '. $templ .' ('. $lang .'): '.  $e->getMessage());
 		}
-
-		/* Remove the install_safe for safe_mode users, because they will not be able to remove it themselves. */
-		if (SAFE_MODE) {
-			unlink(__FILE__);
-		}
-
-		// We're done with the archive.
-		@unlink('./fudforum_archive');
 
 		$display_section = 'done';
 	}

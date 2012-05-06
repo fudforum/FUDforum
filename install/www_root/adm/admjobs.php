@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -74,8 +74,8 @@
 	}
 
 	/* Set defaults. */
-	$jobs = "Backup forum\nCheck for new forum versions\nCheck forum consistency\nGenerate sitemap\nOptimize database tables";
-	$defs = "Backup forum::acp.php backup\nCheck for new forum versions::vercheck.php\nCheck forum consistency::acp.php consist\nGenerate sitemap::sitemap.php\nOptimize database tables::acp.php dbcheck";
+	$jobs = "Backup forum\nCheck for new forum versions\nCheck forum consistency\nIRC bot\nGenerate sitemap\nOptimize database tables";
+	$defs = "Backup forum::acp.php backup\nCheck for new forum versions::vercheck.php\nCheck forum consistency::acp.php consist\nRun IRC robot::ircbot.php\nGenerate sitemap::sitemap.php\nOptimize database tables::acp.php dbcheck";
 	$c = uq('SELECT id, name, \'xmlagg\' FROM '. $tbl .'xmlagg UNION 
 			 SELECT id, name, \'maillist\' FROM '. $tbl .'mlist WHERE mbox_server != \'\' AND mbox_server IS NOT NULL UNION 
 			 SELECT id, newsgroup, \'nntp\' FROM '. $tbl .'nntp');

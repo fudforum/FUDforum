@@ -8,7 +8,6 @@
 * under the terms of the GNU General Public License as published by the 
 * Free Software Foundation; either version 2 of the License. 
 ***************************************************************************/
-//TODO: Do we still need extract_archive()???
 
 $__UPGRADE_SCRIPT_VERSION = 5304.2;
 // define('fud_debfud_debug', 1);
@@ -222,55 +221,32 @@ function upgrade_decompress_archive($data_root, $web_root)
 {
 	$clean = array('PHP_OPEN_TAG'=>'<?', 'PHP_OPEN_ASP_TAG'=>'<%');
 
+	// CLI doesn't automatically change the CWD to the one the started script resides in.
+	chdir(dirname(__FILE__));
+
 	/* Install from './fudforum_archive' file. */
-	// $GLOBALS['no_mem_limit'] may look strange in this context, but it is actually $no_mem_limit defined earlier.
-	if ($GLOBALS['no_mem_limit']) {	
-		$fp = fopen('./fudforum_archive', 'rb');
-		$checksum = fread($fp, 32);
-		$tmp = fread($fp, 20000);
-		fseek($fp, (ftell($fp) - 20000), SEEK_SET);
-		if (strpos($tmp, 'RAW_PHP_OPEN_TAG') !== FALSE) {	/* No compression. */
-			unset($clean['PHP_OPEN_TAG']); $clean['RAW_PHP_OPEN_TAG'] = '<?';
-			$data = '';
-			while (($tmp = fgets($fp))) {
-				$data .= strtr($tmp, $clean);
-			}
-		} else {
-			$data_len = (int) fread($fp, 10);
-			// Data should be @ least 100k.
-			if ($data_len < 100000) {
-				exit('Failed getting archive size from '. htmlentities(fread($fp, 10)));
-			}
-			$data = gzuncompress(strtr(fread($fp, $data_len), $clean), $data_len);
+	$fp = fopen('./fudforum_archive', 'rb');
+	$checksum = fread($fp, 32);
+	$tmp = fread($fp, 20000);
+	fseek($fp, (ftell($fp) - 20000), SEEK_SET);
+	if (strpos($tmp, 'RAW_PHP_OPEN_TAG') !== FALSE) {	/* No compression. */
+		unset($clean['PHP_OPEN_TAG']); $clean['RAW_PHP_OPEN_TAG'] = '<?';
+		$data = '';
+		while (($tmp = fgets($fp))) {
+			$data .= strtr($tmp, $clean);
 		}
-		fclose($fp);
-
-	/* Install from embedded file archive. */
 	} else {
-		if (DIRECTORY_SEPARATOR == '/' && defined('__COMPILER_HALT_OFFSET__')) {
-			$data = stream_get_contents(fopen(__FILE__, 'r'), max_a_len, __COMPILER_HALT_OFFSET__ + 4); /* 4 = " ?>\n" */
-			$p = 0;
-		} else { 
-			$data = file_get_contents(__FILE__);
-			$p = strpos($data, '<?php __HALT_'.'COMPILER(); ?>') + strlen('<?php __HALT_'.'COMPILER(); ?>') + 1;
+		$data_len = (int) fread($fp, 10);
+		// Data should be @ least 100k.
+		if ($data_len < 100000) {
+			exit('Failed getting archive size from '. htmlentities(fread($fp, 10)));
 		}
-		$checksum = substr($data, $p, 32);
-		$data = substr($data, $p + 32);
-		if (strpos($data, 'RAW_PHP_OPEN_TAG') !== FALSE) {	/* No compression. */
-			unset($clean['PHP_OPEN_TAG']); $clean['RAW_PHP_OPEN_TAG'] = '<?';
-			$data = strtr($data, $clean);
-		} else {
-			$data_len = (int) substr($data, 0, 10);
-			// Data should be @ least 100k.
-			if ($data_len < 100000) {
-				exit('Failed getting archive size from '. htmlentities(substr($data, 0, 10)));
-			}
-			$data = strtr(substr($data, 10), $clean);
+		$data = gzuncompress(strtr(fread($fp, $data_len), $clean), $data_len);
+	}
+	fclose($fp);
 
-			if (!($data = gzuncompress($data, $data_len))) {	/* Compression. */
-				exit('Failed decompressing the archive.');
-			}
-		}
+	if (md5($data) != $checksum) {
+		exit("Archive did not pass the checksum test, it is corrupt!<br />\nIf you've encountered this error it means that you've:<ul><li>downloaded a corrupt archive</li><li>uploaded the archive to your server in ASCII and not BINARY mode</li><li>your FTP Server/Decompression software/Operating System added un-needed cartrige return ('\r') characters to the archive, resulting in archive corruption.</li></ul>\n");
 	}
 
 	$pos = 0;
@@ -322,11 +298,12 @@ function upgrade_decompress_archive($data_root, $web_root)
 				continue;
 			}
 
+			if (defined('fud_debug')) pf('Extracting '. $path);
 			if (!($fp = @fopen($path, 'wb'))) {
 				if (basename($path) != '.htaccess') {
 					seterr('Couldn\'t open "'. $path .'" for write');
 				}
-			}	
+			}
 			fwrite($fp, $file);
 			fclose($fp);
 if (defined('fud_debug')) {
@@ -433,99 +410,6 @@ function syncronize_theme($theme)
 	}
 }
 
-function extract_archive($memory_limit)
-{
-	$fsize = filesize(__FILE__);
-
-	if ($fsize < 200000 && !@file_exists('./fudforum_archive')) {
-		seterr('The upgrade script is missing the data archive and cannot run. Please download it again and retry.');
-	} else if ($fsize > 200000 || !$memory_limit) {
-		$clean = array('PHP_OPEN_TAG'=>'<?', 'PHP_OPEN_ASP_TAG'=>'<%');
-		if ($memory_limit) {
-			if (!($fp = fopen('./fudforum_archive', 'wb'))) {
-				$err = 'Please make sure that the intaller has permission to write to the current directory ('. getcwd() .')';
-				if (!SAFE_MODE) {
-					$err .= '<br />or create a "fudforum_archive" file inside the current directory and make it writable to the webserver.';
-				}
-				seterr($err);
-			}
-
-			$fp2 = fopen(__FILE__, 'rb');
-
-			if (defined('__COMPILER_HALT_OFFSET__')) { /*  PHP 5.1 with halt support. */
-				$main = stream_get_contents($fp2, __COMPILER_HALT_OFFSET__ + 4); /* 4 == " ?>\n" */
-				fseek($fp2, __COMPILER_HALT_OFFSET__ + 4, SEEK_SET);
-			} else {
-				$main = '';
-
-				$l = strlen('<?php __HALT_' . 'COMPILER(); ?>');
-
-				while (($line = fgets($fp2))) {
-					$main .= $line;
-					if (!strncmp($line, '<?php __HALT_' . 'COMPILER(); ?>', $l)) {
-						break;
-					}
-				}
-			}
-			$checksum = fread($fp2, 32);
-			$pos = ftell($fp2);
-
-			if (($zl = strpos(fread($fp2, 20000), 'RAW_PHP_OPEN_TAG')) === FALSE && !extension_loaded('zlib')) {
-				seterr('The upgrade script uses zlib compression, however your PHP was not compiled with zlib support or the zlib extension is not loaded. In order to get the upgrade script to work you\'ll need to enable the zlib extension or download a non compressed upgrade script from <a href="http://fudforum.org/forum/">http://fudforum.org/forum/</a>');
-			}
-			fseek($fp2, $pos, SEEK_SET);
-			if ($zl) {
-				$rep = array('RAW_PHP_OPEN_TAG', 'PHP_OPEN_ASP_TAG');
-				$rept = array('<?', '<%');
-
-				while (($line = fgets($fp2))) {
-					fwrite($fp, str_replace($rep, $rept, $line));
-				}
-			} else {
-				$data_len = (int) fread($fp2, 10);
-				fwrite($fp, gzuncompress(strtr(fread($fp2, $data_len), $clean), $data_len));
-			}
-			fclose($fp);
-			fclose($fp2);
-
-			if (md5_file('./fudforum_archive') != $checksum) {
-				seterr('Archive did not pass checksum test, CORRUPT ARCHIVE!<br />If you\'ve encountered this error it means that you\'ve:<br />&nbsp;&nbsp;&nbsp;&nbsp;downloaded a corrupt archive<br />&nbsp;&nbsp;&nbsp;&nbsp;uploaded the archive in BINARY and not ASCII mode<br />&nbsp;&nbsp;&nbsp;&nbsp;your FTP Server/Decompression software/Operating System added un-needed cartrige return (\'\r\') characters to the archive, resulting in archive corruption.');	
-			}
-
-			/* Move the data archive from upgrade script. */
-			$fp2 = fopen(__FILE__, 'wb');
-			fwrite($fp2, $main);
-			fclose($fp2);
-			unset($main);
-		} else {
-			if (DIRECTORY_SEPARATOR == '/' && defined('__COMPILER_HALT_OFFSET__')) {
-				$data = stream_get_contents(fopen(__FILE__, 'r'), max_a_len, __COMPILER_HALT_OFFSET__ + 4); /* 4 = " ?>\n" */
-				$p = 0;
-			} else { 
-				$data = file_get_contents(__FILE__);
-				$p = strpos($data, '<?php __HALT_'.'COMPILER(); ?>') + strlen('<?php __HALT_'.'COMPILER(); ?>') + 1;
-			}
-			if (($zl = strpos($data, 'RAW_PHP_OPEN_TAG', $p)) === FALSE && !extension_loaded('zlib')) {
-				seterr('The upgrade script uses zlib compression, however your PHP was not compiled with zlib support or the zlib extension is not loaded. In order to get the upgrade script to work you\'ll need to enable the zlib extension.');
-			}
-			$checksum = substr($data, $p, 32);
-			$p += 32;
-			if (!$zl) {
-				$data_len = (int) substr($data, $p, 10);
-				$p += 10;
-				$data = gzuncompress(strtr(substr($data, $p), $clean), $data_len);
-			} else {
-				unset($clean['PHP_OPEN_TAG']); $clean['RAW_PHP_OPEN_TAG'] = '<?';
-				$data = strtr(substr($data, $p), $clean);
-			}
-			if (md5($data) != $checksum) {
-				seterr('Archive did not pass checksum test, CORRUPT ARCHIVE!<br />If you\'ve encountered this error it means that you\'ve:<br />&nbsp;&nbsp;&nbsp;&nbsp;downloaded a corrupt archive<br />&nbsp;&nbsp;&nbsp;&nbsp;uploaded the archive in ASCII and not BINARY mode<br />&nbsp;&nbsp;&nbsp;&nbsp;your FTP Server/Decompression software/Operating System added un-needed cartrige return (\'\r\') characters to the archive, resulting in archive corruption.');
-			}
-			return $data;
-		}
-	}	
-}
-
 /* main program */
 	error_reporting(E_ALL);
 	ignore_user_abort(true);
@@ -534,16 +418,6 @@ function extract_archive($memory_limit)
 
 	error_reporting(E_ALL);
 	fud_ini_set('memory_limit', '128M');	// PHP 5.3's default, old defaults too small.
-	$no_mem_limit = ini_get('memory_limit');
-	if ($no_mem_limit) {
-		$no_mem_limit = (int) str_replace(array('k', 'm', 'g'), array('000', '000000', '000000000'), strtolower($no_mem_limit));
-		if ($no_mem_limit < 1 || $no_mem_limit > 50000000) {
-			$no_mem_limit = 0;
-		}
-	}
-
-	/* Force install from external "fudforum_archive" file for FUDforum 3.0.2 and later releases. */
-	$no_mem_limit = 1;
 
 	define('max_a_len', filesize(__FILE__)); // Needed for offsets.
 
@@ -556,20 +430,17 @@ function extract_archive($memory_limit)
 	if (!fud_ini_get('track_errors')) {
 		fud_ini_set('track_errors', 1);
 	}
-	
+
 	// Determine SafeMode limitations.
 	define('SAFE_MODE', fud_ini_get('safe_mode'));
 	if (SAFE_MODE && basename(__FILE__) != 'upgrade_safe.php') {
-		if ($no_mem_limit) {
-			extract_archive($no_mem_limit);
-		}
 		$c = getcwd();
 		if (copy($c .'/upgrade.php', $c .'/upgrade_safe.php')) {
 			header('Location: '. dirname($_SERVER['SCRIPT_NAME']) .'/upgrade_safe.php');
 		}
 		exit;
 	}
-	
+
 	if (php_sapi_name() != 'cli') {
 ?>
 <!DOCTYPE html>
@@ -727,14 +598,7 @@ function extract_archive($memory_limit)
 	}
 
 	if (!$auth) {
-/* REMOVE
-		if ($no_mem_limit && !@is_writeable(__FILE__)) {
-			seterr('You need to chmod the '. __FILE__ .' file 666 (-rw-rw-rw-), so that the upgrade script can modify itself.');
-		}
-*/
-		if ($no_mem_limit) {
-			extract_archive($no_mem_limit);
-		}
+
 		if (php_sapi_name() == 'cli') {
 			seterr('Usage: upgrade.php admin_user admin_password');
 		}
@@ -837,6 +701,7 @@ pf('<h2>Step 1: Admin login</h2>', true);
 	$tp = opendir($GLOBALS['DATA_DIR'] .'thm/');
 	while ($te = readdir($tp)) {
 		$tdir = $GLOBALS['DATA_DIR'] .'thm/'. $te .'/i18n/';
+//TODO: Warning: is_dir(): open_basedir restriction in effect. File(/vhosts/nomad-forum.com/httpdocs/fudforum/data/thm/.htaccess/i18n/) is not within the allowed path(s): (/vhosts/nomad-forum.com:/tmp) in /vhosts/nomad-forum.com/httpdocs/fudforum/upgrade.php on line 840 GLOBALS.php already upgraded.
 		if (!is_dir($tdir)) {
 			continue;
 		}
@@ -847,8 +712,8 @@ pf('<h2>Step 1: Admin login</h2>', true);
 			}
 
 			// Remove old unused 'pspell_lang' files (3.0.0->3.0.1).
-			if (file_exists($tdir.$le .'/pspell_lang')) {
-				@unlink($tdir.$le .'/pspell_lang');
+			if (file_exists($tdir . $le .'/pspell_lang')) {
+				@unlink($tdir . $le .'/pspell_lang');
 			}
 
 			pf('Rename directory '. $te .'/i18n/'. $le .' to '. $langmap[$le]);
@@ -1171,7 +1036,7 @@ pf('<h2>Step 1: Admin login</h2>', true);
 
 	/* Correct language code for Norwegian from no to nb in 3.0.4. */
 	if (file_exists($GLOBALS['DATA_DIR'] .'thm/default/i18n/no/msg')) {
-		q('UPDATE '. $DBHOST_TBL_PREFIX. 'themes SET lang = \'nb\' WHERE lang = \'no\''));
+		q('UPDATE '. $DBHOST_TBL_PREFIX .'themes SET lang = \'nb\' WHERE lang = \'no\'');
 		__rmdir($GLOBALS['DATA_DIR'] .'thm/default/i18n/no', true);
 	}
 
@@ -1249,16 +1114,6 @@ pf('<h2>Step 1: Admin login</h2>', true);
 
 	/* Log upgrade action. */
 	q('INSERT INTO '. $DBHOST_TBL_PREFIX .'action_log (logtime, logaction, user_id, a_res) VALUES ('. __time__ .', \'Forum\', '. $auth .', \'Upgraded from '. $FORUM_VERSION .'\')');
-
-	/* Remove UPGRADE script if the user won't be able to do it himself. */
-	if (SAFE_MODE && basename(__FILE__) == 'upgrade_safe.php') {
-		unlink(__FILE__);
-	}
-/* REMOVE?
-	if ($no_mem_limit) {
-		@unlink('./fudforum_archive');
-	}
-*/
 
 	if (php_sapi_name() == 'cli') {
 		pf('Done! Please run the consistency checker to complete the upgrade process.');

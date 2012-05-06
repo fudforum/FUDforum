@@ -1,7 +1,7 @@
 #!/usr/bin/php -q
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -54,19 +54,13 @@ function sig_handler($signo)
 		require (getcwd() .'/GLOBALS.php');
 	}
 
-	fud_use('err.inc');
-	fud_use('db.inc');
-
-	define('sql_p', $DBHOST_TBL_PREFIX);
-
 	declare(ticks=1);
 
 	$host    = 'chat.freenode.net';
 	$port    = 6667;
 	$nick    = 'fudbot';
 	$ident   = 'fudbot';
-	$channel = '#frank'; // '#FUDforum';
-	$logfile = './ircbot.log';
+	$channel = '#FUDforum';
 
 	$pid = pcntl_fork();
 	if ($pid == -1) {
@@ -102,6 +96,11 @@ function sig_handler($signo)
 	send_command('USER '. $ident .' '. $host .' bla :'. $FORUM_TITLE);
 	send_command('JOIN '. $channel); // Join the chanel.
 
+	// Include DB driver.
+	fud_use('err.inc');
+	fud_use('db.inc');
+	define('sql_p', $DBHOST_TBL_PREFIX);
+
 	// While we are connected to the server.
 	while(!feof($server['SOCKET'])) {
 		// Get line of data from server.
@@ -115,12 +114,12 @@ function sig_handler($signo)
 		}
 
 		// Check if we have pending announcements.
-		if (file_exists('ircannounce.txt')) {
+		if (file_exists($GLOBALS['PLUGIN_PATH'] .'irc.out')) {
 			$anns = file('ircannounce.txt');
 			foreach ($anns as $ann) {
 				send_command('PRIVMSG '. $channel .' :'. $ann);
 			}
-			@unlink('ircannounce.txt');
+			@unlink($GLOBALS['PLUGIN_PATH'] .'irc.out');
 		}
 
 		// See if we received a command.
@@ -155,11 +154,15 @@ function sig_handler($signo)
 			send_command('PRIVMSG '. $channel .' :Date and time now is '. date('F j, Y, g:i a'));
 			break;
 		case ':!help':
+/* TODO: Cannot exec SQL, get "MySQL server has gone away".
 		case ':!status':
 			$stat = db_sab('SELECT * FROM '. sql_p .'stats_cache');
 			send_command('PRIVMSG '. $channel .' :Users online: '. $stat->user_count);
 			break;
+*/
+		case ':!exit':
 		case ':!die':
+		case ':!quit':
 		case ':!shutdown':
 			send_command('QUIT');
 			exit;

@@ -1,0 +1,43 @@
+<?php
+/**
+* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
+* email                : forum@prohost.org
+* $Id: irc.plugin 5354 2011-08-20 08:42:41Z naudefj $
+*
+* This program is free software; you can redistribute it and/or modify it
+* under the terms of the GNU General Public License as published by the
+* Free Software Foundation; version 2 of the License.
+**/
+
+// Initialize plugin.
+plugin_add_hook('POST_POST',     'plugin_irc_post');
+plugin_add_hook('POST_REGISTER', 'plugin_irc_register');
+
+// Announce new forum post on IRC channel.
+function plugin_irc_post($msg_post) {
+	$user = q_singleval('SELECT alias FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'users WHERE id ='. $msg_post->poster_id);
+
+	$fh = fopen($GLOBALS['DATA_DIR'] . 'irc.out', 'a');
+	fwrite($fh, $msg_post->subject .' by '. $user ."\n");
+	fclose($fh);
+
+	return($msg_post);
+}
+
+// Announce new user registration on IRC channel.
+function plugin_irc_register($uent) {
+	$fh = fopen($GLOBALS['DATA_DIR'] . 'irc.out', 'a');
+	fwrite($fh, $uent->alias ." registered on forum\n");
+	fclose($fh);
+
+	return($uent);
+}
+
+function irc_info() {
+	return array('name' => 'IRC Notification',
+	             'desc' => 'This plugin will not by itself announce messages on the IRC channel. It mearly logged the messages that ircbot.php (when it runs) should announce on IRC.',
+		     'cat'  => 'Third-party Integration',
+	             'version' => '1.0');
+}
+
+?>
