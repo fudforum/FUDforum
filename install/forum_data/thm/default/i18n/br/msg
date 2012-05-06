@@ -1140,5 +1140,7 @@ page_list_total:{PLURAL: i|$1 bajenn|$1 pajenn} rollet.
 page_update:Pajenn verdeiñ
 pm_export_header:Kemennadennoù prevez evit {VAR: usr->alias}
 pm_export_footer:Ezporzhiet :
+karma:Karma
+karma_track:Merañ brud an implijer :
 karma_delete:Diverkañ
 rate_author:Priziañ an aozer :

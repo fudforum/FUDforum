@@ -1105,7 +1105,7 @@ post_descr:主題說明：
 pmsg_on:在
 pmsg_download_dump:下載郵件轉儲
 move_messages:移動消息
-move_msg_btn: 移動選定的郵件
+move_msg_btn:移動選定的郵件
 move_msg_th_expl:指定的 ID （可以在其他論壇） 的目標主題的
 captcha_img_alt:驗證碼： 您需要認識到此圖像中的文本。
 captcha_img_help:有沒有零或圖像中的一個。

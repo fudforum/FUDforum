@@ -774,8 +774,7 @@ p_STICKY:Стикер
 p_POLL:Создание голосований
 p_FILE:Вложение файлов
 p_VOTE:Голосовать
-# Fuzzy
-p_RATE:Оценка тем
+p_RATE:Оценка тем/участников
 p_SPLIT:Разбивка тем
 p_LOCK:Закрытие тем
 p_MOVE:Перенос тем
@@ -1145,3 +1144,7 @@ page_list_total:{PLURAL: i|Показана $1 страница|Показаны
 page_update:Просмотр страницы
 pm_export_header:Личные сообщения для {VAR: usr->alias}
 pm_export_footer:Экспортировано:
+karma:Карма
+karma_track:Управление репутацией пользователя:
+karma_delete:Удалить
+rate_author:Оценить автора:

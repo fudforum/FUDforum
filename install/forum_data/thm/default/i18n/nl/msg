@@ -646,7 +646,7 @@ private_msg_notify_subj:{VAR: m->subject} is gelezen
 private_msg_notify_body:Hallo,<br />{VAR: usr->login} heeft uw privébericht "{VAR: m->subject}" gelezen op {TEMPLATE: private_msg_notify_body_date}<br />
 referals_update:Ingebrachte leden aan het bekijken
 register_err_short_login:De gebruikersnaam die u hebt opgegeven is te kort. Gebruikersnamen moeten minstens vier tekens lang zijn.
-register_err_login_notallowed:Deze gebruikersnaam is niet toegelaten.
+register_err_login_notallowed:Deze gebruikersnaam is niet toegestaan.
 register_err_loginunique:Gebruikersnamen op het forum moeten uniek zijn. Er is al een gebruikers met deze naam.
 register_err_emailexists:Er is al een gebruiker met dit e-mailadres. Als u uw wachtwoord vergeten bent, gebruik dan de optie "Wachtwoord e-mailen" in plaats van u opnieuw te registreren.
 register_err_shortpasswd:Wachtwoorden moeten minstens zes tekens lang zijn.
