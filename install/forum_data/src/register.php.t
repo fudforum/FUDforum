@@ -480,10 +480,15 @@ function email_encode($val)
 
 			// Pre-registration plugins.
 			if (defined('plugins')) {
-				$uent = plugin_call_hook('PREREGISTRATION', $uent);
+				$uent = plugin_call_hook('PRE_REGISTER', $uent);
 			}
 
 			$uent->add_user();
+
+			// Post-registration plugins.
+			if (defined('plugins')) {
+				$uent = plugin_call_hook('POST_REGISTER', $uent);
+			}
 
 			if ($FUD_OPT_2 & 1) {
 				send_email($NOTIFY_FROM, $uent->email, '{TEMPLATE: register_conf_subject}', '{TEMPLATE: register_conf_msg}', '');
