@@ -1148,3 +1148,4 @@ page_list_total:{PLURAL: i|$1 Seite|$1 Seiten} aufgeführt.
 page_update:Liest eine Seite
 pm_export_header:Private Nachrichten für {VAR: usr->alias}
 pm_export_footer:Exportiert:
+karma_delete:Löschen

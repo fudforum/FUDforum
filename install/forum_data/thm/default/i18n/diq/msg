@@ -1,0 +1,429 @@
+# Messages for Zazaki (Zazaki)
+# Exported from translatewiki.net
+# Author: Erdemaslancan
+# Author: Mirzali
+
+action:Hereket
+add_to_buddy_list:Peyey defi
+admin:Admin
+admin_control_panel:İdarekari
+administrator:İdarekari
+attachment:Çol
+avatar:Avatar:
+average_post_count:Pêro piya {PLURAL: u->posted_msg_count|$1 Message|$1 Mesaci} ({PLURAL: avg|$1 Mesaci|$1 mesaci} herg roc)
+biography:Biyografiye:
+birth_date:Rocbiyayış
+by:Rışten:
+by_mod:Moderator
+current_time:Tarix
+custom_avatar_queue:Pocıqa Avatar dê xususi
+date_posted:Tarixê Rıştışi
+date_registered:Tarixê Qeydi
+download_counter:Ronayış {PLURAL: r->dlcount|$1 time|$1 mend}
+pmsg_download_counter:Ronayış {PLURAL: r->dlcount|$1 time|$1 mend}
+email:E-mail
+email_to_friend:E-mailê embazi
+faq:Peşti
+forum:Forum
+forum_icon:Forum Icon
+forum_new_messages:Mesaco newe
+forum_old_messages:Mesaco newe çıno
+from:Kê ra
+gender:Cınsiyetê to:
+go:So
+goto_next_msg:Şo Mesac dê peyêni
+goto_prev_msg:Şo Mesac dê verêni
+home:Keye
+homepage:Keyepel
+icq_control_panel:Panela ICQ Miyande-Mesaci
+icq_message_form:ICQ Mesac Formi:
+im_aim:AIM Handle:
+im_msnm:MSN Messenger:
+im_yahoo:Yahoo Messenger:
+image:Resım
+index_forum:Forum
+index_url_redirection:Hetekerdış
+interests:Keyfine
+last_post:Mesaco peyên
+legend:Rehber:
+location:Ca
+lock_thread:Meseler qılit ke
+locked:Kilit biya
+locked_with_new_posts:Kılit kerdeyo
+logged_in_list:Listeya karberanê ke cıqewtış kerda
+login:Cikewtîş
+login_header:Namey karberi
+logout:Bıvci
+mark_all_read:Mesaca pêrın wende deye mor ke
+mark_all_read_desc:Mesaci pêro wende deye êdê mor bê
+members:Ezay
+calendar:Teqwim
+cal_goto_date:Şo:
+cal_day_heading:Weqey Roceki
+cal_no_events:Ewroy rê zad Çıno
+cal_update:Teqwimê Forumi rat nı
+cal_birthday:Rocbiyayış: {VAR: user}
+cal_birthday_age:({PLURAL: age|$1 serre|$1 serri} verêne).
+message:Mesac
+message_counter:Karberi <b>{PLURAL: thread_count|$1 Mesel|$1 mesel}</b> dı pêro piya <b>{PLURAL: post_count|$1 mesac|$1 mesac}</b> rışto.
+message_index:İndeksê mesaca
+message_index_desc:Listey mesaca bıvin
+minimize_category:Kategoriye Werdı ke
+minimize_message:Mesaci Werdı ke
+moderator:Weset
+moderator_of:Wesetê Forumi
+moderator_options:Wesetin Weçiney
+moderators:{PLURAL: modcount|Wesetber|Wesetber}
+na:n/a
+new_posts:Mesaco newe esto
+new_thread:Topiko newe vıraze
+next_page:Pela badê cû
+next_thread:Topiko Peyên:
+no_posts:Mesac Çıno
+num_pages:Peley ({VAR: ttl_pg}):
+off:Racıne
+on:Akerde
+pm:Mesacê Xususi
+poll:Reydayış
+post_count:Amariya Mesaca {VAR: u_pcount}
+posts:Mesaci
+posts_c:Mesaci:
+profile:Panela Cerbnayışi
+search:Cı geyre
+send:Bırş
+status:Weziyet:
+thread:Topik:
+threads:Topik:
+time:Wext
+updated_on:Wextê newekeredışi:
+user:Karber
+user_info:Zanışiya Karberi
+user_info_l:Zanışiya Karberi {VAR: u->alias}
+user_offline:{VAR: obj->login} newe ke racanayeyo
+user_online:{VAR: obj->login} newe akerdeyo
+usrinfo_last_post:Mesaco Bohdeyên:
+view_results:Qedyayışa Bıvin
+views:Vinayışin
+vote_button:Rey Bıdê
+vote_for_thread:Rey Bıdê
+reported_del_report:Xeberdarin besterne
+reported_reason:Sebeb:
+reported_on:Tarixê xeberdarin
+reported_reported_by:Xeberdar:
+reported_reported_msg:Masacê ke Xeberdar biyê
+modque_approve:Tesdiq bı
+modque_delete:Besterne
+deny_recipt:Webdışin merışe
+restore_to:Vece Tiya:
+move_to:Biya Tiya:
+list_referes_referrals:Şınasiye
+list_referes_members:Şınasiya Ezayana ke Biya
+list_referes_member:Eza
+referals_none:Hona şıma şınasiye nê kerdo.
+referals_post_count:Amariya Mesaca
+referals_registered_on:Tarixê Qeydi:
+referals_action:Hereket
+pmsg_all:pêro
+pmsg_none:Hêçjew
+folder:Klasor
+pmsg_replied:cewab deya
+pmsg_forwarded:Hetikerdo
+pmsg_subject:Mesela
+pmsg_author:Rıştener
+pmsg_time:Wext
+pmsg_selected:Weçiner
+pmsg_delete:Bestere
+cur_ppage_pm:Sistemê Mesacan dê Xususiya
+writing_pm:Xususi Mesac Bınusne
+browsing_folder:<b>Klasorê {VAR: folders[$folder_id]}</b>
+inbox:Dora ameya
+draft:Vernuşte
+sent:Şınen
+trash:Sılo
+msg_author:Nuskar
+avatar_sel_form:Weçine Formê Avatari
+month_1:Çele
+month_2:Şıbat
+month_3:Adar
+month_4:Nisane
+month_5:Gulane
+month_6:Heziran
+month_7:Temuz
+month_8:Tebaxe
+month_9:Keşkelun
+month_10:Tışrino Verên
+month_11:Tışrino Peyên
+month_12:Kanun
+sunday:Kırê
+sunday_short:K
+monday:Dışeme
+monday_short:D
+tuesday:Sêşeme
+tuesday_short:S
+wednesday:Çarşeme
+wednesday_short:Ç
+thursday:Pancşeme
+thursday_short:P
+friday:Êne
+friday_short:Ê
+saturday:Şeme
+saturday_short:Ş
+male:cıwamêrd
+female:Cenıke
+unspecified:MOR NÊBİYO
+finduser_submit:Karberi Bıvin
+finduser_no_such_user:Wına Karber Çıno
+finduser_user:Karber
+finduser_postcount:Amariya Mesaca
+finduser_joindate:Tarixê Tewrbiyayışi
+finduser_action:Hereket
+yes:E
+no:Nê
+register_email:E-mail
+edit_time_limit:<b>Wextê Vurnayışê sinori</b>: {GVAR: EDIT_TIME_LIMIT} daqiqe
+no_edit_time_limit:<b>Wextê Timar dê sinori</b>: Bê sinor
+pmuserloc_login:Namey karberi
+pmuserloc_submit:Bıvin
+pmuserloc_user:Karber
+pmuserloc_no_result:Nê vineya
+register_builtin:Sazine
+register_specify_url:Url'i Cake
+register_login:Namey karberi
+register_password:Parola:
+register_conf_pass:Parolay Morke
+register_name:Name:
+register_your_pass:Parolay Şıma:
+register_update:Newekerdış
+register_avatar_type:Tipê Avatari
+register_del_avatar:Avatari Hewa dê
+register_avatar:Avatar:
+register_sel_avatar:Avatar weçine
+register_custom_avatar_url:Gıreya Avatar dı Xususi
+register_register:Qeyd Be
+register_icq:ICQ:
+register_aim:AIM Handle:
+register_yahoo:Yahoo Messenger:
+register_msnm:MSN Messenger:
+register_homepage:Pelaseri:
+register_bday:Demê biyayışi:
+register_day:Roce
+register_month:Menge
+register_year:Serre
+register_gender:Cınsiyetê to:
+register_bio:Biyografiye:
+register_reset:Reset kerê
+buddy_status:Weziyet
+my_buddies:Embazê me
+add_buddy:Embaz deke
+add:Deke
+post_normal:Normal
+post_color:Dawte
+post_font:Tipê nusni
+post_poll:Anket:
+post_file_name:Name
+post_forum:Forum:
+post_cancel_btn:Bıterkne
+prereg_agree:Qebul kena
+prereg_disagree:Qebul nêkena
+coppa_fax_telephone:Telefun:
+coppa_fax_email:Adresê emaili
+coppa_fax_date:Tarix
+coppa_fax_remail:E-mail
+coppa_fax_name:Name
+login_login:Namey karberi
+login_login_btn:Deqew de
+ruser_cur_pass:Parolaya newkên
+login_passwd:Parola:
+reset_email:E-posta:
+reset_reset_button:Parola ancia bınuse
+search_forum:Forum
+remail_your_name:Namey Şıma:
+remail_your_email:E-Maila Şıma:
+remail_friends_name:Namey Embaz dê Şıma:
+remail_friends_email:E Mailê Embaz dê Şıma:
+remail_message:Mesac
+remail_done:Qeyd kerd
+mklist_apply:Dezge ke
+mklist_delete:Besterne
+mklist_square:Qare
+mklist_close:Racnê
+email_pg_title:E-posta
+email_submit:E-posta
+poll_create:Vıraze
+poll_update:Rocaniye
+poll_day:roc
+poll_days:roci
+poll_hour:saat
+poll_hours:saat
+poll_month:Menge
+poll_year:Serre
+poll_week:hefte
+tabs_register:Sazê Hesabi
+delete_yes:E
+delete_no:Nê
+error_error:Xırab
+emailconf_err_invkey_title:Xırab
+ignore_list_err_info_title:Zanışe
+register_register_update:Pelay Qeydbiyayışi
+report_err_nosuchmsg_title:XIRAB
+report_err_nosuchmsg_msg:Mesaco wuna çıno
+reset_err_invalidkey_title:XIRAB
+reset_err_rstconf_title:Zanışe
+reset_newpass_title:Parolayer fına saz ke
+email_title:Formê E-maili
+help_title:Peşti
+login_title:Formê Cı qewtışi
+register_title:Formê Cı qewtışi
+error_title:Formê Xırabin
+poll_add_option:Weçine defi de
+post_opt_html_on:<b>HTML</b> akerde <b>yo</b>
+post_opt_fud_on:<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>BBcode</b> ê <b>akerdeyo</b></a>
+post_opt_images_on:<b>Resımi akerdeyê</b>
+thr_exch_submit:Bırşe
+groupmgr_yes:E
+groupmgr_no:Nê
+groupmgr_action:Hereket
+groupmgr_member:Eza
+groupmgr_cancel:Xırab qı
+groupmgr_add_member:Eza Defi
+groupmgr_update_member:Eza Neweke
+groupmgr_edit:Bıvurne
+groupmgr_delete:Bestere
+show_show:Bımocne
+group_mgr_group:Grube
+p_READ:Bıwane
+p_POST:Bırş
+p_REPLY:Cewab bıde
+p_EDIT:Bıvurne
+p_DEL:Besterne
+p_STICKY:Mesacê dışkiyayıni
+p_POLL:Anket Vırazê
+p_FILE:Dosya Dekerê de
+p_VOTE:Rey Bıdê
+# Fuzzy
+p_RATE:Meseler rê vatış bıde
+p_SPLIT:Meseli abırne
+p_LOCK:Meseler qılit ke
+p_MOVE:Merseli Ber:
+p_SML:Huwatış Cıwine
+p_IMG:Taganê resımi cıwine
+p_SEARCH:Şeno cı geyre
+group_mgr_search:Karber bıvine
+rate_worst:Hol niyo
+rate_best:Tewr
+post_quote:Gırewte
+th_expr_one_hr:1 Sehat
+th_expr_three_hr:3 Sehata
+th_expr_four_hr:4 Sehata
+th_expr_eight_hr:8 Sehata
+th_expr_sixteen_hr:16 sehata
+th_expr_one_day:1 Roc
+th_expr_one_week:1 Hefti
+th_expr_one_month:1 Meng
+th_expr_one_year:1 Ser
+thread_mod_delete:Besterne
+action_ip:IP
+action_latest_post:Mesaco Bohdeyên:
+post_re:Cwb:
+split_th_forum:Forum
+quicklogin_login:Namey karberi
+quicklogin_password:Parola:
+im_google:Google Talk:
+im_skype:Skype:
+im_twitter:Twitter:
+forum_contact:İrtibat
+forum_home:Keye
+poll_edit:Bıvurne
+polllist_name:Namey Anketi
+polllist_votes:Rey Heme
+polllist_action:Hereket
+userinfo_polls:Reydayış
+show_pollist:Anketi Bımocne
+search_and:U
+search_or:YA NA
+iemail_msg_author:<b>Nuskar:</b> {VAR: obj->alias}
+mnav_minute:Deqe(y)
+mnav_hour:Sehat(i)
+mnav_day:Roc(i)
+mnav_week:Hefte(y)
+mnav_month:Meng(i)
+findu_ban:Wedarnê
+findu_edit:Timar ke
+findu_delete:Besterne
+userinfo_buddy:Embaz:
+userinfo_real_name:Nameyo raştay
+delete_msg_pm_body:Mesaco Orcinal
+register_theme:Tema:
+uc_new_topic:Meseleyo newe
+register_none:Mı Xeberdar meke
+findu_no_conf:Karberê ke otomatikmen tesdiq biy
+register_max_sig_len:En Vêşi Dergey:
+register_turing:Kerem ke, Qodê cêrêni defiye de:
+register_err_turing:Ravyayışê qodi xırabo.
+modque_cat:Kategori
+modque_forum:Forum
+idx_compact_forum_row:Forumi:
+mmd_del_title:MErseli Besterne
+mmd_mov_title:Merseli Ber:
+mmd_move_threads_to:Hedefê Forumi:
+mmd_abort_move:Xırab qı
+thread_merge_all:Weçineya biya apê
+dmsg_ip:IP:
+sml_emoticon:İfade
+sml_code:Qod
+mnav_sub_only:Forumê ke ez aboneya ênan dı cıgeyre
+register_topics_per_page:Sernuşti rê Mesele:
+login_min_time:{VAR: MIN_TIME_BETWEEN_LOGIN} saniya miyandı şıma şenê deqewtış bıkerê, Kerem ke verdê Cerbnayışê bahdoni {FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)} saniye pıpawê.
+post_not_logged_in:Şıam cıqewtış nê kerdo, Mesacê şıma do bêname şıro.
+post_common_bold:Honqe
+post_common_italics:İtalik
+post_common_underline:Bınê cı xızine
+post_common_align_left:Hizada çep fi
+post_common_align_center:Miyan fi
+post_common_align_right:Hizada Raşt fi
+post_common_link:Gıre defi
+post_common_link_popup:Cayê Linki:
+post_common_email:E-mail adresi defi de
+post_common_email_popup:Adresê emaili
+post_common_image:Resım defi de
+post_common_image_popup:Url'ey Resımi:
+post_common_nlist:Listeyo Nımreyın Defi de
+post_common_blist:Madde Morkerdış Defi de
+post_common_quote:Gırewte Defi de
+post_common_code:Kod Defi de
+rating_delete:Bestere
+post_always_on_top:Merseler Tım u tım liste dı en ser fi
+topic_rating:{VAR: frm->rating} from {PLURAL: frm->n_rating|$1 rey|$1 reyi}
+topic_list_rating:{VAR: r[17]} u {PLURAL: r[21]|$1 rey|$1 reyi}
+tabs_notifications:Xeberdareni
+finduser_flag:Desmal
+pmsg_on:Akerde
+powered-by:Destegdaren: FUDforum {GVAR: FORUM_VERSION}.
+copyright:Telif &copy;2001-2011 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+code_select_all:Pêrın Weçin fi
+code_show_hide:bımocne/bınımne
+social_sites:Steyê Sosyal Toran:
+btn_new_topic:Meseleyo newe
+btn_new_pm:MX newe
+btn_post_reply:Cıwab bırşê
+btn_tree_view:Asayışê darer
+btn_flat_view:Asayışo duz
+btn_about:Profile
+btn_small_pm:MX
+btn_delete:Bestere
+btn_edit:Bıvurne
+btn_reply:Cewab bıde
+btn_forward:Hetana fi
+btn_quote:gırewte
+btn_email:E-mail
+btn_show_posts:Rıştışi
+btn_homepage:www
+feed_rdf:RDF Şexsi
+feed_rss:RSS2 Şexsi
+feed_atom:ATOM Şexsi
+pages:Peley
+page_list_heading:Peleyê ke estê
+page_update:Oyo çım şıkneno pele
+pm_export_header:Qan dê xususi mesaca: {VAR: usr->alias}
+pm_export_footer:Êk Vetê:
+karma_delete:Besterne

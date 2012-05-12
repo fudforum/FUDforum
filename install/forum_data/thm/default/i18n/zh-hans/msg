@@ -8,6 +8,7 @@
 # Author: Naudefj
 # Author: PhiLiP
 # Author: Xiaomingyan
+# Author: Yanmiao liu
 # Author: 阿pp
 
 action:操作
@@ -1145,4 +1146,7 @@ page_list_total:列出{PLURAL: i|$1 个页面|$1 个页面}。
 page_update:浏览页面
 pm_export_header:对于{VAR: usr->alias}的私人信息
 pm_export_footer:导出：
+karma:业障
+karma_track:管理用户的声誉：
 karma_delete:删除
+rate_author:给作者评分：

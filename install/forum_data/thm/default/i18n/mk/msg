@@ -917,7 +917,7 @@ err_mod_acc_ttl:Незаверена сметка
 err_mod_acc_msg:Администраторот реши да ги прегледува сите сметки рачно пред активирање. Сè додека администраторот не ви ја завери сметката, нема да можете да ги користите сите можности на вашата сметка.
 accounts_pending_approval:Сметки кои чекаат одобрување
 saved:Зачувано
-register_err_time_limit:Надминато е ограничувањето од една регистрација на {GVAR: REG_TIME_LIMIT} секунди. Почекајте {PLURAL: reg_limit_reached|$1 секунда|$1 секунди}, и обидете се да се регистрирате повторно.
+register_err_time_limit:Пречекорено е ограничувањето од една регистрација на {GVAR: REG_TIME_LIMIT} секунди. Почекајте {PLURAL: reg_limit_reached|$1 секунда|$1 секунди}, и обидете се да се регистрирате повторно.
 register_affero:Корисничко име на Affero:<br /><span class="SmallText">Ако имате корисничко име на<a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">Affero</a>, внесете го тука.</span>
 im_affero:Корисничко име на Affero
 register_err_avatardimtobig:Големината на аватарот <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> ги надминува максималните дозволени димензии од <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b> pixels.

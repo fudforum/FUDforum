@@ -1141,3 +1141,7 @@ page_list_total:Wyświetlono {PLURAL: i|$1 stronę|$1 stron}.
 page_update:Przeglądanie strony
 pm_export_header:Prywatne wiadomości dla {VAR: usr->alias}
 pm_export_footer:Eksportowane:
+karma:Karma
+karma_track:Zarządzaj reputacją dla użytkownika:
+karma_delete:Usuń
+rate_author:Oceń autora:
