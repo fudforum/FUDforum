@@ -48,12 +48,6 @@ function sig_handler($signo)
 	@set_time_limit(0);
 	define('no_session', 1);
 
-	if (strncmp($_SERVER['argv'][0], '.', 1)) {
-		require (dirname($_SERVER['argv'][0]) .'/GLOBALS.php');
-	} else {
-		require (getcwd() .'/GLOBALS.php');
-	}
-
 	declare(ticks=1);
 
 	$host    = 'chat.freenode.net';
@@ -66,6 +60,7 @@ function sig_handler($signo)
 	if ($pid == -1) {
 		die('Could not fork!');
 	} else if ($pid) {
+		pcntl_wait($status);	// Protect against Zombie children.
 		exit(); // we are the parent
 	} else {
 		// we are the child
@@ -90,16 +85,22 @@ function sig_handler($signo)
 		die("IRC ERROR: $errstr ($errno)<br />");
 	}
 
+	// Load GLOBALS.php.
+	if (strncmp($_SERVER['argv'][0], '.', 1)) {
+		require (dirname($_SERVER['argv'][0]) .'/GLOBALS.php');
+	} else {
+		require (getcwd() .'/GLOBALS.php');
+	}
+
+	// Include DB driver.
+	fud_use('err.inc');
+	fud_use('db.inc');
+
 	// Join channel.
 	send_command('PASS NOPASS');
 	send_command('NICK '. $nick);
 	send_command('USER '. $ident .' '. $host .' bla :'. $FORUM_TITLE);
 	send_command('JOIN '. $channel); // Join the chanel.
-
-	// Include DB driver.
-	fud_use('err.inc');
-	fud_use('db.inc');
-	define('sql_p', $DBHOST_TBL_PREFIX);
 
 	// While we are connected to the server.
 	while(!feof($server['SOCKET'])) {
@@ -154,12 +155,17 @@ function sig_handler($signo)
 			send_command('PRIVMSG '. $channel .' :Date and time now is '. date('F j, Y, g:i a'));
 			break;
 		case ':!help':
-/* TODO: Cannot exec SQL, get "MySQL server has gone away".
 		case ':!status':
-			$stat = db_sab('SELECT * FROM '. sql_p .'stats_cache');
-			send_command('PRIVMSG '. $channel .' :Users online: '. $stat->user_count);
+			$stat = db_sab('SELECT * FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'stats_cache');
+			$user = q_singleval('SELECT alias FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'users WHERE id = (SELECT MAX(id) FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'users)');
+			$subj = q_singleval('SELECT subject FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'msg WHERE id = (SELECT MAX(id) FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'msg)');
+			send_command('PRIVMSG '. $channel ." :$FORUM_TITLE");
+			send_command('PRIVMSG '. $channel ." :There are {$stat->online_users_reg} members, {$stat->online_users_hidden} invisible members and {$stat->online_users_anon} guests visiting this board.");
+			send_command('PRIVMSG '. $channel ." :Most users ever online was {$stat->most_online} on ". strftime('%a, %d %B %Y %H:%M', $stat->most_online_time));
+			send_command('PRIVMSG '. $channel ." :We have {$stat->user_count} registered users.");
+			send_command('PRIVMSG '. $channel ." :The newest registered user is {$user}");
+			send_command('PRIVMSG '. $channel ." :Last message on the forum: {$subj}");
 			break;
-*/
 		case ':!exit':
 		case ':!die':
 		case ':!quit':

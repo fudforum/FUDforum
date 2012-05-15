@@ -35,7 +35,7 @@ function plugin_irc_register($uent) {
 
 function irc_info() {
 	return array('name' => 'IRC Notification',
-	             'desc' => 'This plugin will not by itself announce messages on the IRC channel. It mearly logged the messages that ircbot.php (when it runs) should announce on IRC.',
+	             'desc' => 'This plugin will not by itself announce messages on the IRC channel. It mearly logs the messages that ircbot.php (when it runs) should announce on IRC.',
 		     'cat'  => 'Third-party Integration',
 	             'version' => '1.0');
 }
