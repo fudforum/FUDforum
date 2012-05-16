@@ -9,7 +9,7 @@
 * Free Software Foundation; either version 2 of the License. 
 ***************************************************************************/
 
-$__UPGRADE_SCRIPT_VERSION = 5304.2;
+$__UPGRADE_SCRIPT_VERSION = 5304.3;
 // define('fud_debfud_debug', 1);
 
 /*
@@ -1097,11 +1097,12 @@ pf('<h2>Step 1: Admin login</h2>', true);
 
 		try {
 			compile_all($r[0], $r[1], $r[2]);
-			pf('Theme '. $r[2] .' was successfuly compiled.');
+			pf('Theme '. $r[2] .' was successfully compiled.');
 		} catch (Exception $e) {
-			pf('Unable to compile theme '. $r[2] .'. Please fix it manually: '.  $e->getMessage());
+			pf('Unable to compile theme '. $r[2] .'. Please fix it manually: <span style="color:red;">'.  $e->getMessage() .'</span>');
 			if ($r[2] == 'default') {
-				pf('<b>IMPORTANT: The consistency checker requires components from the default theme. You will have to fix this theme or switch it to a valid template set before you can finalize the upgrade!</b>');
+				pf('<b>FATAL ERROR: The consistency checker requires components from the default theme. You will have to fix this theme or switch to a valid template set before you can finalize the upgrade!</b>');
+				die();
 			}
 		}
 	}

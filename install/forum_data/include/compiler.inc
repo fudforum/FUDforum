@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -49,7 +49,7 @@ function resolve_refs($file_name)
 		$fc['src'] = substr($st, 7, (strpos($st, ';', 7) - 7));
 		$fc['dst'] = substr($st, (strrpos($st, ' ') + 1));
 		if (!$fc['src'] || !$fc['dst']) {
-			throw new Exception('Invalid PHP_FILE directive inside (<b>'. $file_name .'</b>).');
+			throw new Exception('Invalid PHP_FILE directive in file '. $file_name);
 		}
 		parse_sections($str, $fc['dst']);
 	} else {
@@ -102,7 +102,7 @@ function parse_sections($str, $file, $sl=0)
 					throw new Exception('Duplicate section: '. $k .' -> '. $name .' found in '. $tr[$name]['file'] .' (now parsing '. $GLOBALS['CURFILE'] .').');
 				} else {
 					if (($e2 = strpos($str, $v .'END}', $e)) === false) {
-						throw new Exception('Unterminated tag '. $k .' inside '. $file .'.');
+						throw new Exception('Unterminated tag '. $k .' in file '. $file);
 					}
 					$p = $e2 + strlen($v) + 4;
 					continue;
@@ -110,7 +110,7 @@ function parse_sections($str, $file, $sl=0)
 			}
 
 			if (($e2 = strpos($str, $v .'END}', $e)) === false) {
-				throw new Exception('Unterminated tag '. $k .' inside '. $file .'.');
+				throw new Exception('Unterminated tag '. $k .' in file '. $file);
 			}
 			if ($PHP_FILE) {
 				$GLOBALS['PHP_FILE_SEC'][$k][$name] = 1;
@@ -126,7 +126,7 @@ function parse_sections($str, $file, $sl=0)
 	}
 }
 
-function resolve_sections($str)
+function resolve_sections($file, $secname, $str)
 {
 	if (($p = strpos($str, '{')) === false) {
 		return $str;
@@ -165,7 +165,7 @@ function resolve_sections($str)
 		switch ($tag) {
 			case 'MSG':
 				if (!isset($GLOBALS['MSG'][$name])) {
-					throw new Exception('Missing message entry; no "'. $name .'" inside i18n/'. $GLOBALS['__COMPILER__']['lang'] .'/msg');
+					throw new Exception('Invalid message "'. $name .'" in "'. $secname .'" in file '. $file .".\n Please fix or define it in ../i18n/". $GLOBALS['__COMPILER__']['lang'] .'/msg');
 				}
 				$ret .= $GLOBALS['MSG'][$name]['data'];
 				//DEBUG: $ret .= $name .':'. $GLOBALS['MSG'][$name]['data'];
@@ -238,10 +238,10 @@ function resolve_sections($str)
 				} else if (isset($GLOBALS['TC']['PAGE'][$name])) {
 					$sec = 'PAGE';
 				} else {
-					throw new Exception('Undefined template: "'. $tag .'" inside "'. $name .'".');
+					throw new Exception('Undefined template: "'. $name .'" inside "'. $secname .'" in file '. $file);
 				}
 
-				$tmpl_resolved = $GLOBALS['TC'][$sec][$name]['data'] = resolve_sections($GLOBALS['TC'][$sec][$name]['data']);
+				$tmpl_resolved = $GLOBALS['TC'][$sec][$name]['data'] = resolve_sections($file, $name, $GLOBALS['TC'][$sec][$name]['data']);
 
 				// Give all COMPILER_EXPAND_TEMPLATE plugins the opportunity to modify the template.
 				if (defined('plugins')) {
@@ -318,14 +318,14 @@ function resolve_sections($str)
 				$ret .= $GLOBALS['__COMPILER__'][$tag];
 				break;
 			default:
-				throw new Exception('No such tag: '. htmlspecialchars($tag) .' -> '. htmlspecialchars($name) .'.');
+				throw new Exception('No such tag: "'. htmlspecialchars($tag) .'" in "'. $secname .'" in file '. $file);
 		}
 	} while (($p = strpos($str, '{', $p)) !== false);
 
 	return $ret . substr($str, $op, (strlen($str) - $op));
 }
 
-/* Process a src (.t) file. */
+/* Process a src (*.t) file. */
 function compile_file($source)
 {
 	$l = strlen('<?php echo (');
@@ -334,7 +334,7 @@ function compile_file($source)
 		throw new Exception('No file passed to compile, fatal error.');
 	}
 	if (($file_data = file_get_contents($GLOBALS['DATA_DIR'] .'src/'. $source)) === false) {
-		throw new Exception('Unable to open file '. $GLOBALS['DATA_DIR'] .'src/'. $source .'.');
+		throw new Exception('Unable to open file '. $GLOBALS['DATA_DIR'] .'src/'. $source);
 	}
 
 	if (($p = strpos($file_data, '{TEMPLATE: ')) === false) {
@@ -366,11 +366,11 @@ function compile_file($source)
 		} else if (isset($GLOBALS['TC']['PAGE'][$name])) {
 			$sec = 'PAGE';
 		} else {
-			throw new Exception('Undefined template: "'. $name .'" inside "'. $source .'".');
+			throw new Exception('Undefined template: "'. $name .'" in file '. $source);
 		}
 
 		$ref =& $GLOBALS['TC'][$sec][$name]['data'];
-		$ref = resolve_sections($ref);
+		$ref = resolve_sections($t, $name, $ref);
 
 		if ($sec == 'PAGE') {
 			$new = '';
@@ -441,7 +441,7 @@ function compile_file($source)
 		$ret .= $ref;
 
 		if (($e = strpos($file_data, '}', $p)) === false) {
-			throw new Exception('Unterminated tag "'. $name .'" inside "'. $source .'".');
+			throw new Exception('Unterminated tag "'. $name .'" in file '. $source);
 		}
 		$op = $p = $e + 1;
 	} while (($p = strpos($file_data, '{TEMPLATE: ', $p)) !== false);
@@ -533,7 +533,7 @@ function generate_file($php_file)
 	}
 
 	if (!($fp = fopen($dir . $dst, 'wb'))) {
-		throw new Exception('Couldn\'t write to '. $dir . $dst .'.');
+		throw new Exception('Couldn\'t write to '. $dir . $dst);
 	}
 
 	// Inject debug info to help with theme development.
@@ -584,10 +584,10 @@ function parse_msgs($file)
 			if ($GLOBALS['MSG'][$mid]['file'] != $file) {
 				continue;
 			}
-			throw new Exception('Duplicated message: '. $mid .' in '. $file .' on line #'. ($k + 1) .', previous entry found on line #'. $GLOBALS['MSG'][$mid]['line'] .' in '. $GLOBALS['MSG'][$mid]['file'] .'.');
+			throw new Exception('Duplicated message: '. $mid .' in '. $file .' on line #'. ($k + 1) .', previous entry found on line #'. $GLOBALS['MSG'][$mid]['line'] .' in '. $GLOBALS['MSG'][$mid]['file']);
 		}
 
-		$GLOBALS['MSG'][$mid] = array('data' => resolve_sections($msg), 'file' => $file, 'line'=> $k);
+		$GLOBALS['MSG'][$mid] = array('data' => resolve_sections($file, $mid, $msg), 'file' => $file, 'line'=> $k);
 	}
 }
 
@@ -670,7 +670,7 @@ function resolve_compile($file)
 	}
 
 	if (empty($GLOBALS['file_cache'][$file]['src'])) {
-		throw new Exception('No source for '. $file .'.');
+		throw new Exception('No source for file '. $file);
 	}
 
 	$GLOBALS['file_cache'][$file]['compiled'] = compile_file($GLOBALS['file_cache'][$file]['src']);

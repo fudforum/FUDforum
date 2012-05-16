@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -43,7 +43,7 @@
 				compile_all($data[0], $data[1], $data[2]);
 				pf(successify('Theme '. $data[2] .' ('. $data[1] .') was successfully rebuilt.'));
 			} catch (Exception $e) {
-				pf(errorify('Please fix theme '. $data[2] .': '. $e->getMessage()));
+				pf(errorify('Please fix theme '. $data[2] .': '. htmlentities($e->getMessage())));
 			}
 		}
 		unset($r);
