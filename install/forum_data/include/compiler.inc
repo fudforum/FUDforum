@@ -58,6 +58,13 @@ function resolve_refs($file_name)
 	}
 
 	if (strpos($GLOBALS['CURFILE'], 'thm/default/tmpl') === false) {
+		// For undefined sections of a path_info theme, look first in the PATH_INFO template set.
+		if (file_exists($GLOBALS['DATA_DIR'] .'thm/'. $tset .'/.path_info')) {
+			if (($tmp = @file_get_contents($GLOBALS['DATA_DIR'] .'thm/path_info/tmpl/'. $file_name)) !== false) {
+				parse_sections($tmp, ($st !== false ? $fc['dst'] : ''), 1);
+			}
+		}
+		// If all else fails, get it from the default template set.
 		if (($tmp = @file_get_contents($GLOBALS['DATA_DIR'] .'thm/default/tmpl/'. $file_name)) !== false) {
 			parse_sections($tmp, ($st !== false ? $fc['dst'] : ''), 1);
 		}
