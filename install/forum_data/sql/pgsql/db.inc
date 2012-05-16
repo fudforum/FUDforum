@@ -219,9 +219,8 @@ function db_li($q, &$ef, $li=0)
 	$r = @pg_query(fud_sql_lnk, $q);
 	if ($r) {
 		if ($li) {
-			return q_singleval('SELECT lastval()');
+			$r = q_singleval('SELECT lastval()');
 		}
-		return $r;
 	}
 
 	/* Ignore duplicate key errors. */
@@ -230,9 +229,13 @@ function db_li($q, &$ef, $li=0)
 			pg_exec('ROLLBACK TO pre_db_li');
 		}
 		$ef = ltrim(strrchr($err, ' '));
+	} else {
+		if (pg_transaction_status(fud_sql_lnk) === PGSQL_TRANSACTION_INTRANS) {
+			pg_exec('RELEASE pre_db_li');
+		}
 	}
 
-	return null;
+	return $r;
 }
 
 function ins_m($tbl, $flds, $types, $vals)
