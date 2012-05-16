@@ -99,6 +99,10 @@ function bbcode2fudcode($str)
 	// Replace [center] with [align=center].
 	$str = preg_replace('!\[center\](.*)\[/center\]!i', '[align=center]\1[/align]', $str);
 
+	// Convert [strike] to FUDforum's [del] or [s] tags.
+	// <strike> is not valid HTML5 and will probably never be implemented in FUDforum.
+	$str = preg_replace('!\[strike\](.*)\[/strike\]!i', '[del]\1[/del]', $str);
+
 	$str = preg_replace('!\[(.+?)\:([a-z0-9]+)?\]!s', '[\1]', $str);
 	$str = preg_replace('!\[quote\:([a-z0-9]+?)="(.*?)"\]!is', '[quote=\2]', $str);
 	$str = preg_replace('!\[code\:([^\]]+)\]!is',  '[code]',  $str);
