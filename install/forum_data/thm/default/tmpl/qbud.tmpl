@@ -30,7 +30,7 @@
 {SECTION: buddy_list}
 <tr>
 	<th class="wa">{MSG: qbud_nick_name}</th>
-	<th class="nw">{MSG: qbud_selected} <input type="checkbox" name="toggle" title="{MSG: pmsg_all}/{MSG: pmsg_none}" onclick="jQuery(\'input:checkbox\').attr(\'checked\', (this.checked)?\'checked\':\'\');" /> </th>
+	<th class="nw">{MSG: qbud_selected} <input type="checkbox" name="toggle" title="{MSG: pmsg_all}/{MSG: pmsg_none}" onclick="jQuery(\'input:checkbox\').attr(\'checked\', this.checked);" /> </th>
 </tr>
 {TEMPLATE-DATA: buddies}
 <tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}">
