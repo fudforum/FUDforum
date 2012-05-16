@@ -200,7 +200,7 @@ function fud_tree_msg_focus(mid, s, CHARSET)
 			jQuery('#msgTbl').empty().append('<tbody><tr><td>'+data+'</td></tr></tbody>').fadeTo('fast', 1);
 
 			// Mark message as read (unread.png -> read.png).
-			var read_img = jQuery('#b' + cur_msg).find('img');
+			var read_img = jQuery('#b' + cur_msg).find('img').first();
 			read_img.attr('src', read_img.attr('src').replace('unread', 'read'));
 
 			// Change row color.
