@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -25,7 +25,8 @@
 		m2.id, m2.post_stamp,
 		f.id, f.name,
 		t.id, t.moved_to, t.root_msg_id, t.replies, t.rating, t.thread_opt, t.views, 
-		r.last_view, t.n_rating, t.tdescr
+		r.last_view, t.n_rating, t.tdescr,
+		m.foff, m.length, m.file_id
 		FROM {SQL_TABLE_PREFIX}tv_'. $frm_id .' tv
 			INNER JOIN {SQL_TABLE_PREFIX}thread	t	ON tv.thread_id=t.id
 			INNER JOIN {SQL_TABLE_PREFIX}msg	m	ON t.root_msg_id=m.id
@@ -60,6 +61,9 @@
 	 * 20 read.last_view
 	 * 21 thread.n_rating
 	 * 22 thread.tdescr
+	 * 23 msg.foff
+	 * 24 msg.length
+	 * 25 msg.file_id
 	 */
 
 	if (!($r = db_rowarr($result))) {

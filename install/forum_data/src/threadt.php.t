@@ -25,7 +25,8 @@
 	$r = q('SELECT
 			t.tdescr, t.moved_to, t.thread_opt, t.root_msg_id, r.last_view,
 			m.subject, m.reply_to, m.poll_id, m.attach_cnt, m.icon, m.poster_id, m.post_stamp, m.thread_id, m.id,
-			u.alias
+			u.alias,
+			m.foff, m.length, m.file_id
 		FROM {SQL_TABLE_PREFIX}tv_'. $frm->id .' tv
 		INNER JOIN {SQL_TABLE_PREFIX}thread t ON tv.thread_id=t.id
 		INNER JOIN {SQL_TABLE_PREFIX}msg m ON t.id=m.thread_id AND m.apr=1
