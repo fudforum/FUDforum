@@ -253,7 +253,9 @@ function flood_check()
 					);
 				}
 				foreach ($_FILES['attach_control']['error'] as $i => $error) {
-					if ($error == UPLOAD_ERR_INI_SIZE || $error == UPLOAD_ERR_FORM_SIZE || $_FILES['attach_control']['size'][$i] > $MAX_F_SIZE) {
+					if ($error == UPLOAD_ERR_NO_FILE) {
+						// No file uploaded, so no errors.
+					} else if ($error == UPLOAD_ERR_INI_SIZE || $error == UPLOAD_ERR_FORM_SIZE || $_FILES['attach_control']['size'][$i] > $MAX_F_SIZE) {
 						$attach_control_error = '{TEMPLATE: post_err_attach_size}';
 					} else if (!($MOD && $frm->forum_opt & 32) && filter_ext($_FILES['attach_control']['name'][$i])) {
 						$attach_control_error = '{TEMPLATE: post_err_attach_ext}';
