@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -104,7 +104,11 @@ While it is running, your forum will be disabled!
 		exit;
 	}
 	
-	pf('<h3>Consisteny Checker progress</h3>');
+	if (isset($_GET['opt'])) {
+		pf('<h3>Database Optimizer progress</h3>'); 
+	} else {
+		pf('<h3>Consisteny Checker progress</h3>'); 
+	}
 
 	if ($FUD_OPT_1 & 1) {
 		draw_stat('Disabling the forum for the duration of maintenance run.');
@@ -808,15 +812,15 @@ While it is running, your forum will be disabled!
 	draw_stat('Done: Validate GLOBALS.php');
 
 	draw_stat('Validating symlinks to GLOBALS.php');
-	if ( is_link($WWW_ROOT_DISK .'adm/GLOBALS.php') && @readlink($WWW_ROOT_DISK .'adm/GLOBALS.php') != $INCLUDE .'GLOBALS.php' ) { 
-		pf('Recreate symlink to adm/GLOBALS.php');
-		fud_symlink($INCLUDE .'GLOBALS.php',  $WWW_ROOT_DISK .'adm/GLOBALS.php');
-	}
-	if ( is_link($WWW_ROOT_DISK .'GLOBALS.php') && @readlink($WWW_ROOT_DISK .'GLOBALS.php') != $INCLUDE .'GLOBALS.php' ) { 
+	if ( !file_exists($WWW_ROOT_DISK .'GLOBALS.php') || md5_file($WWW_ROOT_DISK .'GLOBALS.php') != md5_file($INCLUDE .'GLOBALS.php') ) { 
 		pf('Recreate symlink to GLOBALS.php');
 		fud_symlink($INCLUDE .'GLOBALS.php',  $WWW_ROOT_DISK .'GLOBALS.php');
 	}
-	if ( is_link($DATA_DIR .'scripts/GLOBALS.php') && @readlink($DATA_DIR .'scripts/GLOBALS.php') != $INCLUDE .'GLOBALS.php' ) { 
+	if ( !file_exists($WWW_ROOT_DISK .'adm/GLOBALS.php') || md5_file($WWW_ROOT_DISK .'adm/GLOBALS.php') != md5_file($INCLUDE .'GLOBALS.php') ) { 
+		pf('Recreate symlink to adm/GLOBALS.php');
+		fud_symlink($INCLUDE .'GLOBALS.php',  $WWW_ROOT_DISK .'adm/GLOBALS.php');
+	}
+	if ( !file_exists($DATA_DIR .'scripts/GLOBALS.php') || md5_file($DATA_DIR .'scripts/GLOBALS.php') != md5_file($INCLUDE .'GLOBALS.php') ) { 
 		pf('Recreate symlink to scripts/GLOBALS.php');
 		fud_symlink($INCLUDE .'GLOBALS.php',  $DATA_DIR .'scripts/GLOBALS.php');
 	}
@@ -826,7 +830,7 @@ While it is running, your forum will be disabled!
 	$c = q('SELECT name FROM '. $tbl .'plugins');	// Get all enabled.
 	while ($r = db_rowarr($c)) {
 		$func_base = substr($r[0], 0, strrpos($r[0], '.'));
-		echo "Het plugin ". $func_base ."<br />";
+		if (defined('fud_debug')) echo 'Call hook for plugin '. $func_base .'<br />';
 		$check_func = $func_base .'_check';
 		if (function_exists($check_func)) {
 			list($ok, $err) = $check_func();
@@ -845,7 +849,7 @@ While it is running, your forum will be disabled!
 	draw_stat('DONE!');
 
 	if (!defined('shell_script')) {
-		pf('<hr /><div class="tutor">It is recommended that you run SQL table optimizer after completing the consistency check.<br />To do so now, <span style="white-space:nowrap">&gt;&gt; <b><a href="consist.php?opt=1&amp;'.__adm_rsid.'">click here</a></b> &lt;&lt;</span>, keep in mind that this process may take several minutes to perform.</div>');
+		pf('<hr /><div class="tutor">It is recommended that you run the Database Optimizer after completing the consistency check.<br />To do so now, <span style="white-space:nowrap">&gt;&gt; <b><a href="consist.php?opt=1&amp;'.__adm_rsid.'">click here</a></b> &lt;&lt;</span>, keep in mind that this process may take several minutes to perform.</div>');
 	}
 	require($WWW_ROOT_DISK .'adm/footer.php');
 ?>
