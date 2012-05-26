@@ -769,8 +769,7 @@ p_STICKY:Klebrige innlegg
 p_POLL:Lag en avstemning
 p_FILE:Legg ved filer
 p_VOTE:Stem
-# Fuzzy
-p_RATE:Bedøm tråder
+p_RATE:Bedøm tråder/medlemmer
 p_SPLIT:Splitt tråder
 p_LOCK:Lås trådar
 p_MOVE:Flytt tråder
@@ -1140,3 +1139,7 @@ page_list_total:{PLURAL: i|$1 side|$1 sider} oppført.
 page_update:Blar gjennom en side
 pm_export_header:Private meldinger for {VAR: usr->alias}
 pm_export_footer:Eksportert:
+karma:Karma
+karma_track:Håndter omdømme for brukere:
+karma_delete:Slett
+rate_author:Bedøm forfatter:

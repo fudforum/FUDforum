@@ -770,8 +770,7 @@ p_STICKY:Kiemelt üzenetek
 p_POLL:Szavazás létrehozása
 p_FILE:Fájlok csatolása
 p_VOTE:Szavazás
-# Fuzzy
-p_RATE:Témák értékelése
+p_RATE:Témák/tagok értékelése
 p_SPLIT:Témák szétválasztása
 p_LOCK:Témák lezárása
 p_MOVE:Témák áthelyezése
@@ -1141,3 +1140,5 @@ page_list_total:{PLURAL: i|Egy|$1} lap van listázva.
 page_update:Oldal böngészése
 pm_export_header:Magánjellegű üzenetek {VAR: usr->alias} részére
 pm_export_footer:Exportált:
+karma_delete:Törlés
+rate_author:Szerző értékelése:

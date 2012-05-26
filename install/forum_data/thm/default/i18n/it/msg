@@ -133,7 +133,7 @@ profile_desc:Accedi al pannello di controllo utente
 rate_thread:Esprimi un giudizio sull'argomento
 rating:Rating
 rating_track:Gestici il rating per l'argomento <b>{VAR: thr->subject}</b>:
-refresh_list:Aggiorna l'elenco
+refresh_list:Aggiorna elenco
 register:Registrati
 registered:Registrato:
 registered_on:Registrato il {TEMPLATE: registered_on_date}
@@ -247,7 +247,7 @@ cur_ppage_pm:Messaggi personali
 writing_pm:Scrivi un messaggio personale
 browsing_folder:Sfoglia <b>{VAR: folders[$folder_id]}</b> cartella
 inbox:Posta ricevuta
-draft:Bozze
+draft:Bozza
 sent:Posta inviata
 trash:Cestino
 msg_author:Mittente

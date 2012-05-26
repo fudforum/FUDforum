@@ -1,6 +1,7 @@
 # Messages for Finnish (Suomi)
 # Exported from translatewiki.net
 # Author: Crt
+# Author: Lliehu
 # Author: Nike
 # Author: Olli
 # Author: Silvonen
@@ -1141,3 +1142,4 @@ page_list_total:Näytetään {PLURAL: i|$1 sivu|$1 sivua}.
 page_update:Selailee sivua
 pm_export_header:Yksityisviestit käyttäjälle {VAR: usr->alias}
 pm_export_footer:Viety:
+karma_delete:Poista

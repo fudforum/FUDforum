@@ -29,7 +29,7 @@ forum_icon:Forum Icon
 forum_new_messages:Mesaco newe
 forum_old_messages:Mesaco newe çıno
 from:Rışten:
-gender:Cınsiyetê to:
+gender:Neri makey:
 go:So
 goto_next_msg:Şo Mesac dê peyêni
 goto_prev_msg:Şo Mesac dê verêni
@@ -43,7 +43,7 @@ im_yahoo:Yahoo Messenger:
 image:Resım
 index_forum:Forum
 index_url_redirection:Hetekerdış
-interests:Keyfine
+interests:Eleqe:
 last_post:Mesaco peyên
 legend:Rehber:
 location:Ca
@@ -51,7 +51,7 @@ lock_thread:Meseler qılit ke
 locked:Kilit biya
 locked_with_new_posts:Kılit kerdeyo
 logged_in_list:Listeya karberanê ke cıqewtış kerda
-login:Cikewtîş
+login:Dekewtış
 login_header:Namey karberi
 logout:Bıvci
 mark_all_read:Mesaca pêrın wende deye mor ke
@@ -132,7 +132,7 @@ pmsg_subject:Mesela
 pmsg_author:Rıştener
 pmsg_time:Wext
 pmsg_selected:Weçiner
-pmsg_delete:Bestere
+pmsg_delete:Besterne
 cur_ppage_pm:Sistemê Mesacan dê Xususiya
 writing_pm:Xususi Mesac Bınusne
 browsing_folder:<b>Klasorê {VAR: folders[$folder_id]}</b>
@@ -179,7 +179,7 @@ finduser_joindate:Tarixê Tewrbiyayışi
 finduser_action:Hereket
 yes:E
 no:Nê
-register_email:E-mail
+register_email:E-posta
 edit_time_limit:<b>Wextê Vurnayışê sinori</b>: {GVAR: EDIT_TIME_LIMIT} daqiqe
 no_edit_time_limit:<b>Wextê Timar dê sinori</b>: Bê sinor
 pmuserloc_login:Namey karberi
@@ -209,7 +209,7 @@ register_bday:Demê biyayışi:
 register_day:Roce
 register_month:Menge
 register_year:Serre
-register_gender:Cınsiyetê to:
+register_gender:Neri makey:
 register_bio:Biyografiye:
 register_reset:Reset kerê
 buddy_status:Weziyet
@@ -227,11 +227,11 @@ prereg_agree:Qebul kena
 prereg_disagree:Qebul nêkena
 coppa_fax_telephone:Telefun:
 coppa_fax_email:Adresê emaili
-coppa_fax_date:Tarix
-coppa_fax_remail:E-mail
+coppa_fax_date:Deme:
+coppa_fax_remail:E-posta
 coppa_fax_name:Name
 login_login:Namey karberi
-login_login_btn:Deqew de
+login_login_btn:Dekewtış
 ruser_cur_pass:Parolaya newkên
 login_passwd:Parola:
 reset_email:E-posta:
@@ -250,7 +250,7 @@ mklist_close:Racnê
 email_pg_title:E-posta
 email_submit:E-posta
 poll_create:Vıraze
-poll_update:Rocaniye
+poll_update:Demeye
 poll_day:roc
 poll_days:roci
 poll_hour:saat
@@ -288,7 +288,7 @@ groupmgr_cancel:Xırab qı
 groupmgr_add_member:Eza Defi
 groupmgr_update_member:Eza Neweke
 groupmgr_edit:Bıvurne
-groupmgr_delete:Bestere
+groupmgr_delete:Besterne
 show_show:Bımocne
 group_mgr_group:Grube
 p_READ:Bıwane
@@ -346,7 +346,7 @@ mnav_minute:Deqe(y)
 mnav_hour:Sehat(i)
 mnav_day:Roc(i)
 mnav_week:Hefte(y)
-mnav_month:Meng(i)
+mnav_month:Aşm(i)
 findu_ban:Wedarnê
 findu_edit:Timar ke
 findu_delete:Besterne
@@ -389,9 +389,9 @@ post_common_image:Resım defi de
 post_common_image_popup:Url'ey Resımi:
 post_common_nlist:Listeyo Nımreyın Defi de
 post_common_blist:Madde Morkerdış Defi de
-post_common_quote:Gırewte Defi de
+post_common_quote:Vatış Deke
 post_common_code:Kod Defi de
-rating_delete:Bestere
+rating_delete:Besterne
 post_always_on_top:Merseler Tım u tım liste dı en ser fi
 topic_rating:{VAR: frm->rating} from {PLURAL: frm->n_rating|$1 rey|$1 reyi}
 topic_list_rating:{VAR: r[17]} u {PLURAL: r[21]|$1 rey|$1 reyi}
@@ -410,12 +410,12 @@ btn_tree_view:Asayışê darer
 btn_flat_view:Asayışo duz
 btn_about:Profile
 btn_small_pm:MX
-btn_delete:Bestere
+btn_delete:besterne
 btn_edit:Bıvurne
 btn_reply:Cewab bıde
 btn_forward:Hetana fi
 btn_quote:gırewte
-btn_email:E-mail
+btn_email:E-posta
 btn_show_posts:Rıştışi
 btn_homepage:www
 feed_rdf:RDF Şexsi
