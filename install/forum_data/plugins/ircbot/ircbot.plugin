@@ -1,0 +1,92 @@
+<?php
+/**
+* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
+* email                : forum@prohost.org
+* $Id: irc.plugin 5354 2011-08-20 08:42:41Z naudefj $
+*
+* This program is free software; you can redistribute it and/or modify it
+* under the terms of the GNU General Public License as published by the
+* Free Software Foundation; version 2 of the License.
+**/
+
+// Initialize plugin.
+plugin_add_hook('POST_POST',     'plugin_ircbot_post');
+plugin_add_hook('POST_REGISTER', 'plugin_ircbot_register');
+
+// Announce new forum post on IRC channel.
+function plugin_ircbot_post($msg_post) {
+// echo "<pre>";
+// var_dump( $msg_post );
+// exit;
+	$user = q_singleval('SELECT alias FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'users WHERE id ='. $msg_post->poster_id);
+	$url = $GLOBALS['WWW_ROOT'] .'index.php?t=msg&goto='. $msg_post->id .'#msg_'. $msg_post->id;
+
+	$fh = fopen($GLOBALS['PLUGIN_PATH'] . 'ircbot/ircbot.pending', 'a');
+	if ($msg_post->reply_to == 0) {
+		fwrite($fh, "New topic by \00304". $user ."\003 at ". $url .":\n");
+	} else {
+		fwrite($fh, "New reply by \002". $user ."\002 at ". $url .":\n");
+	}
+	fwrite($fh, "\00303". $msg_post->subject ."\003\n");
+	fclose($fh);
+	return($msg_post);
+}
+
+// Announce new user registration on IRC channel.
+function plugin_ircbot_register($uent) {
+	$url = $GLOBALS['WWW_ROOT'] .'index.php?t=usrinfo&id='. $uent->id;
+
+	$fh = fopen($GLOBALS['PLUGIN_PATH'] . 'ircbot/ircbot.pending', 'a');
+	fwrite($fh, "\002". $uent->alias ."\002 registered at ". $url ."\n");
+	fclose($fh);
+
+	return($uent);
+}
+
+function ircbot_enable() {
+	if((@include $GLOBALS['PLUGIN_PATH'] .'/ircbot/ircbot.ini') === false) {
+		return array(null, 'Please configure the IRCbot plugin before enabling it.');	// OK, Err.
+	}
+	return array('Done. Remember to schedule IRC bot from the Job Manager ACP.', null);	// OK, Err.
+}
+
+function ircbot_info() {
+	return array('name' => 'IRCbot',
+	             'desc' => '<p>This plugin is used to announce new topics and replies on an IRC channel.</p>
+				<p>NOTE: This plugin does not work in isolation, but requires you to also schedule "ircbot.php" to run from the Job Manager (say once a day, just to restart it when terminated).</p>',
+		     'cat'  => 'Third-party Integration',
+	             'version' => '1.0');
+}
+
+function ircbot_config() {
+	if((@include $GLOBALS['PLUGIN_PATH'] .'/ircbot/ircbot.ini') === false) {
+		$ini = NULL;
+	}
+
+	if (isset($_POST['Set'])) {
+		foreach (array_keys($_POST) as $key) {
+			if (substr($key,0,7) == 'IRCBOT_') {
+				$ini[$key] = $_POST[$key];
+			}
+		}
+		$fp = fopen($GLOBALS['PLUGIN_PATH'] .'/ircbot/ircbot.ini', 'w');
+		fwrite($fp, '<?php $ini = '. var_export($ini, 1) .'; ?>');
+		fclose($fp);
+		pf(successify('Settings successfully saved.'));
+	}
+	?>
+<p>IRC server name:<br />
+<input name="IRCBOT_HOST" value="<?php echo $ini['IRCBOT_HOST'] ?>" size="50" /></p>
+
+<p>IRC port:<br />
+<input name="IRCBOT_PORT" value="<?php echo $ini['IRCBOT_PORT'] ?>" size="5" /></p>
+
+<p>Bot's nick:<br />
+<input name="IRCBOT_NICK" value="<?php echo $ini['IRCBOT_NICK'] ?>" size="20" /></p>
+
+<p>Channel to join:<br />
+<input name="IRCBOT_CHANNEL" value="<?php echo $ini['IRCBOT_CHANNEL'] ?>" size="20" /></p>
+
+	<?php
+}
+
