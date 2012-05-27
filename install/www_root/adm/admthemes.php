@@ -175,17 +175,17 @@
 	<td>
 	<?php
 		$selopt = '';
-		foreach (glob($DATA_DIR .'/thm/default/i18n/*', GLOB_ONLYDIR) as $file) {
-			if (!file_exists($file .'/msg')) {
+		foreach (glob($DATA_DIR .'/thm/default/i18n/*', GLOB_ONLYDIR) as $f) {
+			if (!file_exists($f .'/msg')) {
 				continue;
 			}
-			$langcode = $langname = basename($file);
-			if (file_exists($file .'/name')) {
-				$langname = trim(file_get_contents($file .'/name'));
+			$langcode = $langname = basename($f);
+			if (file_exists($f .'/name')) {
+				$langname = trim(file_get_contents($f .'/name'));
 			}
 			$selopt .= '<option value="'. $langcode .'"'. ($thm_lang == $langcode ? ' selected="selected"' : '') .'>'. $langname .'</option>';
 
-			$tryloc = file($file .'/locale', FILE_IGNORE_NEW_LINES);
+			$tryloc = file($f .'/locale', FILE_IGNORE_NEW_LINES);
 			$tryloc[] = '';	// Also consider the system's default locale.
 			$loc = setlocale(LC_ALL, $tryloc);
 			$loc = preg_match('/WIN/', PHP_OS) ? utf8_encode($loc) : $loc;	// Windows silliness.

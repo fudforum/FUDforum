@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -97,6 +97,13 @@ class fud_spider
 		// Remove bot definition.
 		q('DELETE FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'spiders WHERE id = '. (int)$id);
 
+		fud_spider::rebuild_cache();
+	}
+
+	/* Update status of all spiders. */
+	static function set_status_all($newstatus)
+	{
+		q('UPDATE '.  $GLOBALS['DBHOST_TBL_PREFIX'] .'spiders SET bot_opts='. (int)$newstatus);
 		fud_spider::rebuild_cache();
 	}
 

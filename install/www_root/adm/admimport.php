@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -9,11 +9,13 @@
 * Free Software Foundation; version 2 of the License.
 **/
 
-/* Uncomment and fix the lines below if you wish to import data without authentication.
- * This is useful if the previous import failed resulting in the loss of old SQL data.
-**/
+/* ------------------------------------------------------------------------------------*/
+// Uncomment and fix the lines below if you wish to import data without authentication.
+// This is useful if the previous import failed resulting in the loss of old SQL data.
+
 # define('recovery_mode', 1);
 # $_POST['path'] = '/path/to/your/forum/dump';
+/* ------------------------------------------------------------------------------------*/
 
 function resolve_dest_path($path)
 {
@@ -80,6 +82,13 @@ function resolve_dest_path($path)
 		} else if (($gz_file = preg_match('!\.gz$!', $_POST['path'])) && !extension_loaded('zlib')) {
 			$path_error = errorify('The file <b>'. $_POST['path'] .'</b> is compressed using gzip & your PHP does not have gzip extension install. Please decompress the file yourself and try again.');
 		} else {
+			/* Remove files that cause compilation errors with cross version restors. */
+			pf('Cleanup old files...');
+			foreach(glob($GLOBALS['DATA_DIR'] .'thm/default/tmpl/*.tmpl') as $fn) unlink($fn);
+			foreach(glob($GLOBALS['DATA_DIR'] .'thm/path_info/tmpl/*.tmpl') as $fn) unlink($fn);
+			foreach(glob($GLOBALS['DATA_DIR'] .'sql/*.tbl') as $fn) unlink($fn);
+
+			/* Skip to the start of data files. */
 			if (!$gz_file) {
 				$fp     = fopen($_POST['path'], 'rb');
 				$getf   = 'fgets';
@@ -93,11 +102,10 @@ function resolve_dest_path($path)
 				$closef = 'gzclose';
 				$feoff  = 'gzeof';
 			}
-			/* Skip to the start of data files. */
 			while ($getf($fp, 1024) != "----FILES_START----\n" && !$feoff($fp));
 
 			/* Handle data files. */
-			pf('Restore forum files...');
+			pf('Restore files from backup...');
 			while (($line = $getf($fp, 1000000)) && $line != "----FILES_END----\n") {
 				/* Each file is preceeded by a header ||path||size|| */
 				if (strncmp($line, '||', 2)) {
@@ -253,7 +261,7 @@ function resolve_dest_path($path)
 			}
 			unset($c);
 
-			pf('<b>Restore successfully completed.</b><br /><br />');
+			pf('<b>All good so far, but you are not done yet!</b><br /><br />');
 			if (defined('__adm_rsid')) {
 				pf('<div class="tutor">To finalize the process you should now run the <span style="white-space:nowrap">&gt;&gt; <b><a href="consist.php?'. __adm_rsid .'">consistency checker</a></b> &lt;&lt;</span>.</div>');
 			} else {

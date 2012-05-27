@@ -1,7 +1,7 @@
 #!/usr/bin/php -q
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -52,7 +52,7 @@
 		if ($sleep) sleep($sleep);
 
 		/* Mark CRON execution. */
-		$jobfile = $GLOBALS['ERROR_PATH'] .'LAST_CRON_RUN';
+		$jobfile = $GLOBALS['TMP'] .'LAST_CRON_RUN';
 		touch($jobfile);
 
 		/* Specific job or next in line. */

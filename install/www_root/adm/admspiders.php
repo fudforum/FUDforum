@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -59,6 +59,25 @@
 		logaction(_uid, 'Delete spider', 0, $id);
 	}
 
+	// Group actions: Enable, disable all.
+	if (isset($_GET['act'])) {
+		if ($_GET['act'] == 'ignoreall') {
+			pf(successify('All spiders set to ignore (disabled).'));
+			logaction(_uid, 'Ignore all spiders', 0);
+			fud_spider::set_status_all(1);
+		}
+		if ($_GET['act'] == 'loginall') {
+			pf(successify('All spiders set to auto-login.'));
+			logaction(_uid, 'Auto-login all spiders', 0);
+			fud_spider::set_status_all(0);
+		}
+		if ($_GET['act'] == 'blockall') {
+			pf(successify('All spiders set to blocked.'));
+			logaction(_uid, 'Block all spiders', 0);
+			fud_spider::set_status_all(2);
+		}
+	}
+
 	/* Set defaults. */
 	if ($edit && ($c = db_arr_assoc('SELECT * FROM '. $tbl .'spiders WHERE id='. $edit))) {
 		foreach ($c as $k => $v) {
@@ -72,7 +91,6 @@
 	}
 ?>
 <h2>Spiders, Bots and Crawlers</h2>
-<span style="color:red;">WARNING: Spider support is experimental and should not be enabled on production sites.</span>
 
 <div class="tutor">
 Detect and auto-login or block the spiders, bots and crawlers that are typically used by search engines to index your site.
@@ -134,7 +152,7 @@ echo '<h3>'. ($edit ? '<a name="edit">Edit Spider:</a>' : 'Add New Spider:') .'<
 <h3>Defined spiders:</h3>
 <table class="resulttable fulltable">
 <thead><tr class="resulttopic">
-	<th>Bot Name</th><th>Useragent</th><th>IP address</th><th>Last visit</th><th>Action</th>
+	<th>Bot Name</th><th>Useragent</th><th>IP address</th><th>Status</th><th>Last visit</th><th>Action</th>
 </tr></thead>
 <?php
 	$i = 0;
@@ -142,7 +160,12 @@ echo '<h3>'. ($edit ? '<a name="edit">Edit Spider:</a>' : 'Add New Spider:') .'<
 	while ($r = db_rowobj($c)) {
 		$i++;
 		$bgcolor = ($edit == $r->id) ? ' class="resultrow3"' : (($i%2) ? ' class="resultrow1"' : ' class="resultrow2"');
-		echo '<tr'. $bgcolor .'><td>'. $r->botname .'</td><td>'. $r->useragent .'</td><td>'. $r->bot_ip .'</td><td>'. fdate($r->last_visit) .'</td>';
+
+		$status = 'Auto-login';
+		if ($r->bot_opts & 1) $status = 'Ignore';
+		if ($r->bot_opts & 2) $status = 'Blocked';
+
+		echo '<tr'. $bgcolor .'><td>'. $r->botname .'</td><td>'. $r->useragent .'</td><td>'. $r->bot_ip .'</td><td>'. $status .'</td><td>'. fdate($r->last_visit) .'</td>';
 		echo '<td><a href="admspiders.php?edit='. $r->id .'&amp;'. __adm_rsid .'#edit">Edit</a> | <a href="admspiders.php?del='. $r->id .'&amp;'. __adm_rsid .'">Delete</a></td></tr>';
 	}
 	unset($c);
@@ -151,5 +174,11 @@ echo '<h3>'. ($edit ? '<a name="edit">Edit Spider:</a>' : 'Add New Spider:') .'<
 	}
 ?>
 </table>
+
+<p>
+[ <a href="admspiders.php?act=ignoreall&amp;<?php echo __adm_rsid; ?>">Ignore all</a> ]
+[ <a href="admspiders.php?act=loginall&amp;<?php echo __adm_rsid; ?>">Auto-login all</a> ]
+[ <a href="admspiders.php?act=blockall&amp;<?php echo __adm_rsid; ?>">Block all</a> ]
+</p>
 
 <?php require($WWW_ROOT_DISK .'adm/footer.php'); ?>

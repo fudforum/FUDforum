@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -13,7 +13,7 @@
 
 	// Run from command line.
 	if (php_sapi_name() == 'cli') {
-		if (strcasecmp($_SERVER['argv'][1], 'lock') != 0 && strcasecmp($_SERVER['argv'][1], 'unlock') != 0 || empty($_SERVER['argv'][2]) || empty($_SERVER['argv'][3])) {
+		if ($_SERVER['argc'] != 4 || (strcasecmp($_SERVER['argv'][1], 'lock') != 0 && strcasecmp($_SERVER['argv'][1], 'unlock') != 0)) {
 			echo "Usage: php admlock.php [lock|unlock] userid password\n";
 			die();
 		}
@@ -94,20 +94,26 @@
 	}
 ?>
 <h2>Lock/Unlock Forum Files</h2>
+
 <?php if ($status == 'UNLOCKED' ) echo '<div class="alert">For security reasons, please remember to lock your forum\'s files when you are done editing them.</div>'; ?>
 <form method="post" action="">
 <p>The forum's files appear to be: 
-<?php echo '<font size="+2" color="'. ($status=='LOCKED' ? 'green' : 'red') .'">'. $status .'</font>.<br />'; ?>
-If this test claims that the forum is unlocked, but you still cannot modify your files click on the "Unlock Files" button.
+<?php 
+	echo ($status=='LOCKED') ? successify($status) : errorify($status);
+	if ($status == 'UNLOCKED' ) echo 'If you still cannot modify your files, "Lock" and "Unlock" them again.';
+?>
 </p>
+
 <table border="0" cellspacing="0" cellpadding="3">
 <tr><td>Login:</td><td><input type="text" name="usr_login" value="<?php echo $usr->alias; ?>" /></td></tr>
 <tr><td>Password:</td><td><input type="password" name="usr_passwd" /></td></tr>
-<tr><td colspan="2" align="center">
-	<input type="submit" name="btn_lock" value="Lock Files" />
-	<input type="submit" name="btn_unlock" value="Unlock Files" />
+<tr><td colspan="2" align="right">
+<?php 
+	echo ($status=='LOCKED') ? '<input type="submit" name="btn_unlock" value="Unlock Files" />' : '<input type="submit" name="btn_lock" value="Lock Files" />'
+?>
 </td></tr>
 </table>
 <?php echo _hs; ?>
 </form>
 <?php require($WWW_ROOT_DISK .'adm/footer.php'); ?>
+

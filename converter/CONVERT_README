@@ -11,7 +11,7 @@ converters. As a result it's often necessary to tweak and enhance the converter
 for best results.
 
 To make it easier to focus on the mapping of the source forum to FUDforum, we've
-separated the conversion rules into "map" files. To add a new converter,
+separated the conversion rules into "map" files. To add a new converter, you
 simply add a new *.map file to the "conversionmaps/" directory or tweak the rules
 in the exiting map files.
 
@@ -42,9 +42,11 @@ INSTRUCTIONS:
 
 4. After running the converter, login to the forum and run the Consistency Checker.
    You will not see any messages nor users on the target forum until you do the
-   consistency check.
+   consistency check (please read that again!)
 
-If you run into problems, please report them on the support forum at fudforum.org.
+If you run into problems, please report them on the support forum at fudforum.org
+and if you write new map files, please donate them to the project so others may 
+benefit from your work.
 
 Best of luck!
 
@@ -61,3 +63,4 @@ KNOWN PROBLEMS AND RESTRICTIONS:
 2. After conversion, login via the forum (not the ACP!).
    The ACP will not invoke authentication plugins and may not allow you to
    log in (first time only).
+

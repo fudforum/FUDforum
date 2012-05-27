@@ -24,6 +24,19 @@
 	$help_ar = read_help();
 	require($WWW_ROOT_DISK .'adm/header.php');
 
+	// Try to guess path to PHP_CLI binary if not set.
+	if (empty($GLOBALS['PHP_CLI'])) {
+		$paths = explode(PATH_SEPARATOR, getenv('PATH'));
+		foreach ($paths as $path) {
+			$php = $path . DIRECTORY_SEPARATOR .'php'. (isset($_SERVER['WINDIR']) ? '.exe' : '');
+			if (file_exists($php) && is_file($php)) {
+				change_global_settings(array('PHP_CLI' => $php));
+				$GLOBALS['PHP_CLI'] = $php;
+				break;
+			}
+		}
+	}
+
 	$tbl  = $GLOBALS['DBHOST_TBL_PREFIX'];
 	$path = $GLOBALS['DATA_DIR'] .'scripts/';
 	$php  = escapeshellcmd($GLOBALS['PHP_CLI']);
@@ -74,7 +87,7 @@
 	}
 
 	/* Set defaults. */
-	$jobs = "Backup forum\nCheck for new forum versions\nCheck forum consistency\nIRC bot\nGenerate sitemap\nOptimize database tables";
+	$jobs = "Backup forum\nCheck for new forum versions\nCheck forum consistency\nIRC bot (if plugin configured)\nGenerate sitemap\nOptimize database tables";
 	$defs = "Backup forum::acp.php backup\nCheck for new forum versions::vercheck.php\nCheck forum consistency::acp.php consist\nRun IRC robot::ircbot.php\nGenerate sitemap::sitemap.php\nOptimize database tables::acp.php dbcheck";
 	$c = uq('SELECT id, name, \'xmlagg\' FROM '. $tbl .'xmlagg UNION 
 			 SELECT id, name, \'maillist\' FROM '. $tbl .'mlist WHERE mbox_server != \'\' AND mbox_server IS NOT NULL UNION 
@@ -112,7 +125,7 @@
 ?>
 <tr class="field"><td>Last cron run:<br /><font size="-1">Last time cron.php was executed.</font></td><td>
 <?php
-        $jobfile = $GLOBALS['ERROR_PATH'] .'LAST_CRON_RUN';
+        $jobfile = $GLOBALS['TMP'] .'LAST_CRON_RUN';
         if (file_exists($jobfile)) {
 		$last = filemtime($jobfile);
 		if ($last < __request_timestamp__ - (24*60*60)) {	// Longer than 1 day ago?

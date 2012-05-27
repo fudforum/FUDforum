@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -46,7 +46,12 @@
 		echo '<div class="alert dismiss" title="'. $WWW_ROOT_DISK .'unprotect.php">Please <a href="admbrowse.php?cur='. urlencode($WWW_ROOT_DISK) .'&amp;'. __adm_rsid .'#flagged">delete</a> the <em>unprotect</em> script before a hacker discovers it.<br /></div>';
 	}
 	if (@file_exists($WWW_ROOT_DISK .'fudforum_archive')) {
-		echo '<div class="alert dismiss" title="'. $WWW_ROOT_DISK .'forum_archive">You may <a href="admbrowse.php?cur='. urlencode($WWW_ROOT_DISK) .'&amp;'. __adm_rsid .'#flagged">delete</a> the <em>fudforum_archive</em> if you are done installing/upgrading your forum.<br /></div>';
+		echo '<div class="alert dismiss" title="'. $WWW_ROOT_DISK .'forum_archive">You should <a href="admbrowse.php?cur='. urlencode($WWW_ROOT_DISK) .'&amp;'. __adm_rsid .'#flagged">delete</a> the <em>fudforum_archive</em> when you are done installing/upgrading your forum.<br /></div>';
+	}
+
+	/* Forum files locked? */
+	if (strncasecmp('win', PHP_OS, 3) && !($FUD_OPT_2 & 8388608)) {	// Not Windows and files not locked.
+		echo '<div class="alert dismiss" title="Secure your forum files">You may want to <a href="admlock.php?'. __adm_rsid .'">lock</a> your forum files for improved security.<br /></div>';
 	}
 
 	/* Check server load. */
@@ -117,7 +122,7 @@ while ($r = db_rowarr($c)) {
 $messages_per_day = array_values($messages_per_day);
 
 $registrations_per_day = $day_list;	// Copy again.
-$c = uq('SELECT join_date FROM '. $tbl .'users WHERE id!=1 AND join_date > '. (__request_timestamp__ - 86400*7)); // Last 7 days.
+$c = uq('SELECT join_date FROM '. $tbl .'users WHERE id!=1 AND '. q_bitand('users_opt', 1073741824) .'= 0 AND join_date > '. (__request_timestamp__ - 86400*7)); // Last 7 days, exclude Anon & spider users.
 while ($r = db_rowarr($c)) {
 	$registrations_per_day[ date('D', $r[0]) ] += 1;
 }
