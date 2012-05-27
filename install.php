@@ -141,7 +141,7 @@ function decompress_archive($data_root, $web_root)
 	fclose($fp);
 
 	if (md5($data) != $checksum) {
-		exit("Archive did not pass the checksum test, it is corrupt!<br />\nIf you've encountered this error it means that you've:<ul><li>downloaded a corrupt archive</li><li>uploaded the archive to your server in ASCII and not BINARY mode</li><li>your FTP Server/Decompression software/Operating System added un-needed cartrige return ('\r') characters to the archive, resulting in archive corruption.</li></ul>\n");
+		exit("Archive did not pass the checksum test, it is corrupt!<br />\nIf you've encountered this error it means that you've:<ul><li>downloaded a corrupt 'fudforum_archive' file</li><li>uploaded the archive to your server in ASCII and not BINARY mode</li><li>your FTP Server/Decompression software/Operating System added un-needed cartrige return ('\r') characters to the archive, resulting in archive corruption.</li></ul>\n");
 	}
 
 	$pos = 0;
@@ -455,8 +455,6 @@ if (!fud_ini_get('display_errors')) {
 
 fud_ini_set('memory_limit', '128M');	// PHP 5.3's default, old defaults too small.
 
-define('max_a_len', filesize(__FILE__)); // Needed for offsets.
-
 $url_test = fud_ini_get('allow_url_fopen');
 /* Uncomment the line below if the installer stalls after the 1st page. */
 //$url_test = 0;
@@ -527,21 +525,9 @@ if (!count($_POST)) {
 		exit;
 	}
 
-	/* Check for installer validatity. */
-	$fsize = filesize(__FILE__);
-	if ($fsize < 200000 && !file_exists('./fudforum_archive')) {
-		page_header();
-		echo 'The required data archive is missing from the installation package. Please rectify this and try again.';
-		page_footer();
-		exit;
-	} else if ($fsize > 200000) {
-		/* Zlib check. */
-		if (($zl = ($fsize < 3500000)) && !$module_status['zlib']) {
-			page_header();
-			echo 'The optional ZLIB extension for PHP is not available. You may wish to rectify this or download the non-zlib version of this script from the FUDforum website at: <a href="http://fudforum.org/forum/">http://fudforum.org/forum/</a> and try again.';
-			page_footer();
-			exit;
-		}
+	// Check if we have a forum_archive.
+	if (!file_exists('./fudforum_archive')) {
+		seterr('The install script requires a "fudforum_archive" file to run. Please download it and retry again.');
 	}
 }
 
@@ -624,7 +610,7 @@ if ($section == 'stor_path' || php_sapi_name() == 'cli') {
 			echo 'ERROR: ['. $_POST['SERVER_DATA_ROOT'] ."] does not exist or the installer does not have the required permissions to create it\n";
 		}
 		
-		echo "Copying forum files.\n";
+		echo "Copy forum files.\n";
 	}
 
 	if (isset($_GET['sfh'])) {	// Safe mode.
@@ -1092,11 +1078,11 @@ if ($section == 'admin' || php_sapi_name() == 'cli') {
 
 		/* Add web crawler users. */
 		$bot_opts = 1|4|16|128|256|512|4096|8192|16384|131072|262144|4194304|33554432|67108864|536870912|1073741824;
-		$uid = db_li('INSERT INTO '. $DBHOST_TBL_PREFIX .'users (login, alias, name, email, users_opt, join_date, theme, time_zone) VALUES(\'Google\', \'Google\', \'Googlebot\', \'Google@fud_spiders\', '. $bot_opts .', '. time() .', 1, \''. $SERVER_TZ .'\')', $ef, 1);
+		$uid = db_li('INSERT INTO '. $DBHOST_TBL_PREFIX .'users (login, alias, passwd, salt, name, email, users_opt, join_date, theme, time_zone) VALUES(\'Google\', \'Google\', \''. $passwd .'\', \''. $salt .'\', \'Googlebot\', \'Google@fud_spiders\', '. $bot_opts .', '. time() .', 1, \''. $SERVER_TZ .'\')', $ef, 1);
 		q('INSERT INTO '. $DBHOST_TBL_PREFIX .'spiders (botname, useragent, theme, user_id, bot_opts) VALUES (\'Google\', \'Googlebot\', 1, '. $uid .', 1)');
-		$uid = db_li('INSERT INTO '. $DBHOST_TBL_PREFIX .'users (login, alias, name, email, users_opt, join_date, theme, time_zone) VALUES(\'Yahoo\', \'Yahoo\', \'Yahoo!\', \'Yahoo@fud_spiders\', '. $bot_opts .', '. time() .', 1, \''. $SERVER_TZ .'\')', $ef, 1);
+		$uid = db_li('INSERT INTO '. $DBHOST_TBL_PREFIX .'users (login, alias, passwd, salt, name, email, users_opt, join_date, theme, time_zone) VALUES(\'Yahoo\', \'Yahoo\', \''. $passwd .'\', \''. $salt .'\', \'Yahoo!\', \'Yahoo@fud_spiders\', '. $bot_opts .', '. time() .', 1, \''. $SERVER_TZ .'\')', $ef, 1);
 		q('INSERT INTO '. $DBHOST_TBL_PREFIX .'spiders (botname, useragent, theme, user_id, bot_opts) VALUES (\'Yahoo!\', \'Slurp\', 1, '. $uid .', 1)');
-		$uid = db_li('INSERT INTO '. $DBHOST_TBL_PREFIX .'users (login, alias, name, email, users_opt, join_date, theme, time_zone) VALUES(\'Bing\', \'Bing\', \'Bing\', \'Bing@fud_spiders\', '. $bot_opts .', '. time() .', 1, \''. $SERVER_TZ .'\')', $ef, 1);
+		$uid = db_li('INSERT INTO '. $DBHOST_TBL_PREFIX .'users (login, alias, passwd, salt, name, email, users_opt, join_date, theme, time_zone) VALUES(\'Bing\', \'Bing\', \''. $passwd .'\', \''. $salt .'\', \'Bing\', \'Bing@fud_spiders\', '. $bot_opts .', '. time() .', 1, \''. $SERVER_TZ .'\')', $ef, 1);
 		q('INSERT INTO '. $DBHOST_TBL_PREFIX .'spiders (botname, useragent, theme, user_id, bot_opts) VALUES (\'Bing\', \'msnbot\', 1, '. $uid .', 1)');
 
 		change_global_settings(array(
@@ -1166,7 +1152,7 @@ switch ($section) {
 			($module_status['pspell'] ? 'enabled' : 'disabled'), ($module_status['pspell'] ? 'green' : 'orange'));
 	dialog_end('prereq');
 
-	dialog_start('Database information: <span class="descr">(at least one of the database extensions below must be enabled)</span>', '');
+	dialog_start('Database information: <span class="descr">(at least <u>one</u> of the database extensions below must be enabled)</span>', '');
 	prereq_row('MySQL Improved Extention:', 'Improved interface to the MySQL server (mysqli), RECOMMENDED', 
 			($module_status['mysqli'] ? 'enabled' : 'disabled'), ($module_status['mysqli'] ? 'green' : 'orange'));
 	prereq_row('MySQL Extention:', 'Interface to the MySQL server, which is the recommended database for FUDforum.', 
@@ -1187,7 +1173,7 @@ switch ($section) {
 			($module_status['pdo_sqlite'] ? 'enabled' : 'disabled'), ($module_status['pdo_sqlite'] ? 'green' : 'orange'));
 	prereq_row('SQL Server Extention:', 'Interface to Microsoft SQL Server (sqlsrv).', 
 			($module_status['sqlsrv'] ? 'enabled' : 'disabled'), ($module_status['sqlsrv'] ? 'green' : 'orange'));
-	prereq_row('SQL Serber PDO Extension:', 'PDO interface to Microsoft SQL Server (sqlsrv).', 
+	prereq_row('SQL Server PDO Extension:', 'PDO interface to Microsoft SQL Server (sqlsrv).', 
 			($module_status['pdo_sqlsrv'] ? 'enabled' : 'disabled'), ($module_status['pdo_sqlsrv'] ? 'green' : 'orange'));
 
 	dialog_end('prereq');
@@ -1224,7 +1210,7 @@ switch ($section) {
 			<li>If you have <i>shell access</i>, you can change the directory permission by typing "<b>chmod 777 directory_name</b>";</li>
 			<li><i>CuteFTP</i> can chmod a directory by selecting it and then pressing Ctrl+Shift+A. In the  checkbox, enter 777 and press OK; and</li>
 			<li>In <i>WS_FTP</i>, right-click on the directory and choose the chmod UNIX option. In the dialog, select all the checkboxes and click OK. This will chmod the directory to 777.</li></ul>
-			<p>If you click on <b>Next</b> the FUDforum files will be unpacked to the specified directories.</p>');
+			<p>If you click on <b>Next</b>, the FUDforum files will be unpacked to the specified directories.</p>');
 		} else {
 			dialog_start('<div style="color:red"><b>SAFEMODE is ENABLED!</b></div><br />PATH OF SYSTEM FILES AND DIRECTORIES<span class="step">Step 1 of 5</span>',
 					'
@@ -1243,16 +1229,16 @@ switch ($section) {
 			}
 		}
 
-		input_row('Web Directory', 'SERVER_ROOT', $SERVER_ROOT, 'Directory on the server where web browseable FUDforum files (*.php, images, etc.) will be stored.');
-		input_row('Data Directory', 'SERVER_DATA_ROOT', $SERVER_DATA_ROOT, 'Directory on the server where <b>NON-</b>browseable (cache, backups, and other data) FUDforum files will be stored. This directory should perferably be placed outside the document root.');
+		input_row('Web Directory', 'SERVER_ROOT', $SERVER_ROOT, 'Directory on the server where web browseable files (*.php, images, etc.) will be stored.');
+		input_row('Data Directory', 'SERVER_DATA_ROOT', $SERVER_DATA_ROOT, 'Directory on the server where <b>NON-</b>browseable (cache, backups, and other data) files will be stored. This directory should perferably be placed outside the webserver\'s document root.');
 		input_row('Forum URL', 'WWW_ROOT', $WWW_ROOT, 'The URL of your forum. It should point to the forum front page. This is the address needed to visit your forum.');
-		input_row('URL Check', 'url_check', '1', 'Turn off this check if you get errors about the <i>Forum URL</i> not matching the <i>Web Directory</i> and are certain that the paths indicated are correct (not recommended!)', 'checkbox', 'checked="checked"');
+		input_row('URL Check', 'url_check', '1', 'Turn off this check if you get errors about the <i>Forum URL</i> not matching the <i>Web Directory</i> and are certain that the paths indicated are correct. We recommend you leave this checked!', 'checkbox', 'checked="checked"');
 		dialog_end($section);
 		break;
 
 	case 'db':
 		dialog_start('Database Settings<span class="step">Step 2 of 5</span>', '<p>FUDforum requires a database to store data. Please enter your database details below (leave all but the table prefix empty if you are using SQLite). It is recommended you create a separate <b>UTF-8 encoded</b> database for the forum.</p>
-		<p>If you click on <b>Next</b> the installer will try to connect to the specified database to create its tables and load the seed data.</p>');
+		<p>If you click on <b>Next</b>, the installer will try to connect to the specified database to create its tables and load the seed data.</p>');
 
 		$db_types = databases_enabled();
 		reset($db_types);
@@ -1332,13 +1318,13 @@ switch ($section) {
 			$COOKIE_DOMAIN = preg_replace('!^www\.!i', '.', $url_parts['host']);
 		}
 
-		dialog_start('Cookie Domain<span class="step">Step 3 of 5</span>', '<p>Enter a Fully Qualified Domain Name (FQDN) of the host itself, or one of its subdomains, or domain it belongs to. Browsers will ignore all cookies that do not satisfy this requirement. For example, if your forum is at http://www.mysite.com/forum, your cookie domain should be <b><i>.mysite.com</i></b>.</p>');
+		dialog_start('Cookie Domain<span class="step">Step 3 of 5</span>', '<p>Enter a Fully Qualified Domain Name (FQDN) of the host itself, or one of its subdomains, or domain it belongs to. Browsers will ignore all cookies that do not satisfy this requirement. For example, if your forum is at http://www.mysite.com/forum, your cookie domain should be <b><i>.mysite.com</i></b>. If you don\'t have a domain yet, enter the servers IP address.</p>');
 		input_row('Cookie Domain', 'COOKIE_DOMAIN', $COOKIE_DOMAIN, 'The domain of the cookie that will be used by the forum.');
 		dialog_end($section);
 		break;
 
 	case 'theme':
-		dialog_start('Forum Theme<span class="step">Step 4 of 5</span>', '<p>Choose the primary template set and language for your forum. Additional templates and languages can be configured after installation from the FUDforum <i>Theme Manager</i> admin control panel.</p><p>If the language you require is not available, or the translation is incomplete, please go to <a href="http://fudforum.org/forum/">FUDforum website</a> and read about translating the forum to other languages.</p>');
+		dialog_start('Forum Theme<span class="step">Step 4 of 5</span>', '<p>Choose the primary template set and language for your forum. Additional templates and languages can be configured after installation from the FUDforum <i>Theme Manager</i> admin control panel.</p><p>If the language you require is not available, or the translation is incomplete, please go to <a href="http://cvs.prohost.org/index.php/Translate">FUDforum Wiki</a> to and read about translating the forum to other languages.</p>');
 
 		// List available template sets.
 		$tmpl_names = '';
@@ -1351,24 +1337,30 @@ switch ($section) {
 		sel_row('Template set', 'TEMPLATE', rtrim($tmpl_names), rtrim($tmpl_names), 'The template set (style and layout) for your forum.', 'default');
 
 		// List available languages.
-		$lang_names = $deflang = '';
+		$lang_codes = $lang_names = '';
+		$deflang = 'en';
 		$browser_lang = isset($_SERVER['HTTP_ACCEPT_LANGUAGE']) ? substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2) : 'en';
 		foreach (glob($_POST['SERVER_DATA_ROOT'] .'thm/default/i18n/*', GLOB_ONLYDIR) as $f) {
-			if (file_exists($f .'/msg')) {
-				$langname = basename($f);
-				$lang_names .= $langname ."\n";
+			if (!file_exists($f .'/msg')) {
+				continue;
+			}
+			$langcode = $langname = basename($f);
+			if (file_exists($f .'/name')) {
+				$langname = trim(file_get_contents($f .'/name'));
+			}
+			$lang_codes .= $langcode ."\n";
+			$lang_names .= $langname ."\n";
 
-				if ($langname == $browser_lang) {
-					$deflang = $langname;
-				}
+			if ($langcode == $browser_lang) {
+				$deflang = $langcode;
 			}
 		}
-		sel_row('Language', 'LANGUAGE', rtrim($lang_names), rtrim($lang_names), 'The primary language for your forum.', $deflang);
+		sel_row('Language', 'LANGUAGE', rtrim($lang_names), rtrim($lang_codes), 'The primary language for your forum.', $deflang);
 		dialog_end($section);
 		break;
 
 	case 'admin':
-		dialog_start('Admin Account<span class="step">Step 5 of 5</span>', '<p>This step creates the "root" user account, which is an unrestricted account that can do anything on the forum. You must use this account to edit and customize the forum. For security reasons, avoid predictable login names like "admin" and do not enter the password you use all over the Internet.</p>');
+		dialog_start('Admin Account<span class="step">Step 5 of 5</span>', '<p>This step creates the master user account, which is an unrestricted account that can do anything on the forum. You must use this account to edit and customize the forum. For security reasons, avoid predictable login names like "admin" and do not enter the password you use all over the Internet.</p>');
 
 		if (!isset($_POST['ROOT_LOGIN'])) {
 			$ROOT_LOGIN  = 'admin';
@@ -1390,7 +1382,7 @@ switch ($section) {
 
 	case 'done':
 		dialog_start('Installation Complete', '<p style="color:darkgreen;">Congratulations, you have now completed the basic installation of your forum. To continue configuring your forum, you must login and use the administrator control panel.
-			Clicking "Finished" will take you to the login form. After you login, you will be taken to the administrator control panel.</p>
+			Clicking "Finished" will take you to the login screen. After you login, you will be taken to the administrator control panel.</p>
 			<p style="text-align: center; color:red;">Before you continue, please delete this <b>install.php</b> script as it can be used to overwrite your forum.</p>
 		');
 
@@ -1431,5 +1423,3 @@ switch ($section) {
 page_footer();
 ?>
 
-<?php exit; ?>
-<?php __HALT_COMPILER(); ?>

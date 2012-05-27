@@ -80,7 +80,7 @@ function pf($msg='', $webonly=false)
 		if ($webonly) return;
 		echo strip_tags($msg) ."\n";
 	} else {
-		echo $msg . (stripos($msg, '<h2>')!==FALSE ? '' : '<br />');
+		echo $msg . (stripos($msg, '<h')!==FALSE ? '' : '<br />');
 		@ob_flush(); flush();
 	}
 }
@@ -206,14 +206,14 @@ function upgrade_globals_php()
 	$f = fopen($GLOBALS['INCLUDE'] .'GLOBALS.php', 'r');
 	while($s=fgets($f)) {
 		if (strpos($s, '$GLOBALS[') !== false) {
-			pf('GLOBALS.php already upgraded.');
+			pf('GLOBALS.php already converted to new format.');
 			return;		// Already converted, bail out!
 		}
 		$new .= preg_replace('/(\s)\$([A-Z_1-9]*)([\s]*)/i', '$1$GLOBALS[\'$2\']$3', $s);
 	}
 	fclose($f);
 
-	pf('Upgrading GLOBALS.php');
+	pf('Convert GLOBALS.php to new format.');
 	file_put_contents($GLOBALS['INCLUDE'] .'GLOBALS.php', $new);
 }
 
@@ -419,8 +419,6 @@ function syncronize_theme($theme)
 	error_reporting(E_ALL);
 	fud_ini_set('memory_limit', '128M');	// PHP 5.3's default, old defaults too small.
 
-	define('max_a_len', filesize(__FILE__)); // Needed for offsets.
-
 	if (ini_get('error_log')) {
 		@fud_ini_set('error_log', '');
 	}
@@ -490,7 +488,7 @@ function syncronize_theme($theme)
 
 	// Check if we have a forum_archive.
 	if (!file_exists('./fudforum_archive')) {
-		seterr('The upgrade script requires a "fudforum_archive" file to run. Please download it again and retry.');
+		seterr('The upgrade script requires a "fudforum_archive" file to run. Please download it and retry again.');
 	}
 
 	// PHP version check.
@@ -610,19 +608,19 @@ pf('<h2>Step 1: Admin login</h2>', true);
 <p>Please enter the login and password of the administration account:</p>
 <table class="datatable solidtable">
 <tr class="field">
-	<td><b>Login:</b><br /><small>Your forum's admin user.<small></td>
-	<td><input type="text" name="login" value="" /></td>
+	<td><label for="login"><b>Login:</b><br /><small>Your forum's admin user.<small></label></td>
+	<td><input type="text" id="login" name="login" value="" /></td>
 </tr>
 <tr class="field">
-	<td><b>Password:</b><br /><small>Your forum's admin password.<small></td>
-	<td><input type="password" name="passwd" value="" /></td>
+	<td><label for="passwd"><b>Password:</b><br /><small>Your forum's admin password.<small></label></td>
+	<td><input type="password" id="passwd" name="passwd" value="" /></td>
 </tr>
 <tr class="field">
-	<td><label for="custom_tmpl" title="If unsure, leave unchecked!"><b>Update custom template sets?</b><br /><small>Leave unchecked to preserve custom styling (prevent FUDforum from updating custom template sets, you will have to do it manually!)</small></label></td>
+	<td><label for="custom_tmpl" title="If unsure, leave unchecked!"><b>Update custom template sets?</b><br /><small>Leave unchecked to preserve custom styling. FUDforum will not update custom template sets and you will have to do it manually! If checked, the upgrade may overwrite custom themes.</small></label></td>
 	<td><input type="checkbox" id="custom_tmpl" name="custom_tmpl" value="1" /></td>
 </tr>
 <tr class="field">
-	<td><label for="custom_sql" title="If unsure, leave unchecked!"><b>Skip database changes?</b><br /><small>Check if you've modified FUDforum's SQL structure. You will have to apply the SQL changes yourself!</small></label></td>
+	<td><label for="custom_sql" title="If unsure, leave unchecked!"><b>Skip database changes?</b><br /><small>Check if you've modified FUDforum's SQL structure. You will have to apply the SQL changes yourself! Unless you know what you're doing, you should leave this unchecked!</small></label></td>
 	<td><input type="checkbox" id="custom_sql" name="custom_sql" value="1" /></td>
 </tr>
 <tr class="fieldaction">
@@ -636,7 +634,29 @@ pf('<h2>Step 1: Admin login</h2>', true);
 </html>
 <?php
 		exit;
+	} else if (isset($_POST['step']) && $_POST['step'] == 3) {
+		pf('<h2>Step 3: Consistency check</h2>', true);
+
+		/* Get session details to construct link to consistency checker. */
+		$pfx = db_sab('SELECT u.sq, s.ses_id FROM '. $DBHOST_TBL_PREFIX .'users u INNER JOIN '. $DBHOST_TBL_PREFIX .'ses s ON u.id=s.user_id WHERE u.id='. $auth);
+		if ($pfx && $pfx->sq) {
+			$pfxs = '&S='. $pfx->ses_id .'&SQ='. $pfx->sq;
+		} else {
+			$pfxs = '';
+		}
+?>
+
+<p>The last and most important step is to run the consistency checker. To continue, click on the link below or navigate to your forum's <i>Admin Control Panel</i> -&gt; <i>Forum Consistency</i> to run it.</p>
+
+<ul><a href="adm/consist.php?enable_forum=1<?php echo $pfxs; ?>"  class="button"><b>Run consistency checker now!</b></a></ul><br />
+<div class="tutor">When done, please remove the upgrade script to prevent hackers from running it. The script is located at <?php echo realpath('./upgrade.php'); ?></div>
+</td></tr></table>
+</body>
+</html>
+<?php
+		exit;
 	}
+
 
 	pf('<h2>Step 2: Perform upgrade</h2>', true);
 
@@ -678,10 +698,10 @@ pf('<h2>Step 1: Admin login</h2>', true);
 	/* Disable the forum. */
 	if ($GLOBALS['FUD_OPT_1'] & 1) {
 		pf('Disabling the forum.');
-		// We would normally do this with maintenance_status(). However, since we will not re-enable 
+		// We normally diable the forum with maintenance_status(). However, since we will not re-enable 
 		// the forum (done in consist.php), we will not be able to restore the disable reason.
 		change_global_settings(array('FUD_OPT_1' => ($GLOBALS['FUD_OPT_1'] &~ 1)));
-		pf('Forum is now disabled.<br />');
+		pf('Forum is now disabled.');
 	}
 
 	/* Rename old language name directories to language codes (3.0.0->3.0.1). */
@@ -701,8 +721,7 @@ pf('<h2>Step 1: Admin login</h2>', true);
 	$tp = opendir($GLOBALS['DATA_DIR'] .'thm/');
 	while ($te = readdir($tp)) {
 		$tdir = $GLOBALS['DATA_DIR'] .'thm/'. $te .'/i18n/';
-//TODO: Warning: is_dir(): open_basedir restriction in effect. File(/vhosts/nomad-forum.com/httpdocs/fudforum/data/thm/.htaccess/i18n/) is not within the allowed path(s): (/vhosts/nomad-forum.com:/tmp) in /vhosts/nomad-forum.com/httpdocs/fudforum/upgrade.php on line 840 GLOBALS.php already upgraded.
-		if (!is_dir($tdir)) {
+		if (!@is_dir($tdir)) {
 			continue;
 		}
 		$lp = opendir($tdir);
@@ -728,7 +747,6 @@ pf('<h2>Step 1: Admin login</h2>', true);
 	upgrade_globals_php();
 
 	/* Upgrade files. */
-	pf('Beginning the file upgrade process.');
 	__mkdir($GLOBALS['ERROR_PATH'] .'.backup');
 	define('__time__', time());
 	pf('Beginning to decompress the archive.');
@@ -739,12 +757,10 @@ pf('<h2>Step 1: Admin login</h2>', true);
 		htaccess_handler($GLOBALS['WWW_ROOT'], $GLOBALS['WWW_ROOT_DISK'] .'.htaccess');
 	}
 	pf('Finished decompressing the archive.');
-	pf('File Upgrade Complete.');
-	pf('<div class="tutor">All changed files were backed up to: "'. $GLOBALS['ERROR_PATH'] .'.backup/".</div>');
+	pf('File upgrade completed.');
 
 	/* Update database. */
-	pf('Beginning SQL Upgrades.');
-
+	
 	// NOTE: dbadmin.inc becomes available in 3.0.2. We cannot use it until we've unpacked the new files.
 	// Checking of SQL permisions should actuallty be done BEFORE we unpack - a catch 22.
 	//TODO: Remember to move the code up in a later version again.
@@ -755,12 +771,12 @@ pf('<h2>Step 1: Admin login</h2>', true);
 	if (!isset($GLOBALS['errors'])) {
 		$err = validate_db_version();
 		if (!empty($err)) {
-			seterr('DBHOST_DBNAME', $err);
+			seterr($err);
 		}
 	}
 
 	/* Check SQL permissions. */
-	pf('Checking if SQL permissions to perform the upgrade are available.');
+	pf('Checking SQL permissions.');
 	drop_table('fud_forum_install_test_table', true);
 	try {
 		create_table('CREATE TABLE fud_forum_install_test_table (test_val INT)');
@@ -911,7 +927,7 @@ pf('<h2>Step 1: Admin login</h2>', true);
 		}
 	}
 
-	pf('SQL Upgrades Complete.<br />');
+	pf('SQL upgrades completed.');
 
 	// FUDforum 3.0.3 refedined FUD_OPT_3=536870912 as PAGES_ENABLED.
 	require($GLOBALS['DATA_DIR'] .'include/page_adm.inc');
@@ -940,7 +956,7 @@ pf('<h2>Step 1: Admin login</h2>', true);
 		q('UPDATE '. $DBHOST_TBL_PREFIX .'users SET theme='. $df_theme .' WHERE id IN('. implode(',', $bt) .')');
 	}
 
-	pf('Checking GLOBAL Variables.');
+	pf('Checking GLOBAL variables.');
 	// New GLOBALS.php settings to add.
 	$default = array(
 		'FUD_OPT_4'	=> 3,	// New in 3.0.2.
@@ -990,7 +1006,8 @@ pf('<h2>Step 1: Admin login</h2>', true);
 	}
 
 	/* Remove obsolete plugin files. */
-	$rm_plugins = array('apc_cache.plugin');	// Renamed to apccache.plugin (3.0.2).
+	$rm_plugins = array('apc_cache.plugin',	// Renamed to apccache.plugin (3.0.2).
+			    'irc.plugin');	// Renamed to ircbot/ircbot.plugin (3.0.4RC2).
 	foreach ($rm_plugins as $f) {
 		if (file_exists($GLOBALS['DATA_DIR'] .'plugins/'. $f)) {
 			unlink($GLOBALS['DATA_DIR'] .'plugins/'. $f);
@@ -1117,34 +1134,27 @@ pf('<h2>Step 1: Admin login</h2>', true);
 	q('INSERT INTO '. $DBHOST_TBL_PREFIX .'action_log (logtime, logaction, user_id, a_res) VALUES ('. __time__ .', \'Forum\', '. $auth .', \'Upgraded from '. $FORUM_VERSION .'\')');
 
 	if (php_sapi_name() == 'cli') {
-		pf('Done! Please run the consistency checker to complete the upgrade process.');
+		pf('Almost done! Please run the consistency checker to complete the upgrade process.');
 		exit;
-	}
-
-	/* Get session details to construct link to consistency checker. */
-	$pfx = db_sab('SELECT u.sq, s.ses_id FROM '. $DBHOST_TBL_PREFIX .'users u INNER JOIN '. $DBHOST_TBL_PREFIX .'ses s ON u.id=s.user_id WHERE u.id='. $auth);
-	if ($pfx && $pfx->sq) {
-		$pfxs = '&S='. $pfx->ses_id .'&SQ='. $pfx->sq;
-	} else {
-		$pfxs = '';
 	}
 ?>
 
-<h2>Step 3: Consistency check</h2>
+<div class="tutor">All changed files were backed up to: <small><?php echo $GLOBALS['ERROR_PATH'] .'.backup/'; ?></small>.</div>
+<div class="tutor">If everything went well, you may click on the button below to continiue to step 3.</div>
 
-<p>Launching the <b>consistency checker...</b></p>
-
-<p><b>IMPORTANT NOTE:</b> If the popup with the consistency checker doesn't appear, please <span style="white-space:nowrap">&gt;&gt; <a href="adm/consist.php?enable_forum=1<?php echo $pfxs; ?>"><b>click here</b></a> &lt;&lt;</span> or navigate to the <i>Admin Control Panel</i> -&gt; <i>Forum Consistency</i> to run it.</p>
-<script>
-	window.open('adm/consist.php?enable_forum=1<?php echo $pfxs; ?>');
-</script>
-
-<p>Done!</p>
-
-<div class="tutor">Please remove the upgrade script to prevent hackers from running it. The script is located at <?php echo realpath('./upgrade.php'); ?></div>
+<br />
+<form name="upgrade" action="<?php echo basename(__FILE__); ?>" method="post">
+<table width="100%" class="datatable solidtable">
+<input type="hidden" name="login" value="<?php echo $_POST['login'] ?>" />
+<input type="hidden" name="passwd" value="<?php echo $_POST['passwd'] ?>" />
+<input type="hidden" name="step" value="3" />
+<tr class="fieldaction">
+	<td align="right"><input type="submit" class="button" name="submit" value="Continue to Step 3 >>" /></td>
+</tr>
+</table>
+</form>
 
 </td></tr></table>
 </body>
 </html>
-<?php exit; ?>
-<?php __HALT_COMPILER(); ?>
+
