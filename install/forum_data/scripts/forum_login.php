@@ -122,7 +122,7 @@ function __ses_make_sysid($a, $b)
 		return;
 	}
 
-	$keys = array('HTTP_USER_AGENT', 'SERVER_PROTOCOL', 'HTTP_ACCEPT_CHARSET', 'HTTP_ACCEPT_ENCODING', 'HTTP_ACCEPT_LANGUAGE');
+	$keys = array('HTTP_USER_AGENT', 'SERVER_PROTOCOL', 'HTTP_ACCEPT_CHARSET', 'HTTP_ACCEPT_LANGUAGE');
 	if ($b && strpos($_SERVER['HTTP_USER_AGENT'], 'AOL') === false) {
 		$keys[] = 'HTTP_X_FORWARDED_FOR';
 		$keys[] = 'REMOTE_ADDR';
