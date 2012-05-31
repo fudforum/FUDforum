@@ -310,6 +310,8 @@ jQuery(document).ready(function() {
 	print_bit_field('Show Reply Reference', 'SHOW_REPL_LNK');
 	print_bit_field('Show Edited By', 'SHOW_EDITED_BY');
 	print_bit_field('Show Edited By Moderator', 'EDITED_BY_MOD');
+	print_bit_field('Allow editing after reply', 'EDIT_AFTER_REPLY');	
+	print_reg_field('Edit Time Limit (minutes)', 'EDIT_TIME_LIMIT', 1);
 	print_bit_field('Display IP Publicly', 'DISPLAY_IP');
 	print_bit_field('Quick Reply', 'QUICK_REPLY');
 	print_reg_field('Flood Trigger (seconds)', 'FLOOD_CHECK_TIME', 1);
@@ -317,7 +319,6 @@ jQuery(document).ready(function() {
 	print_reg_field('Moderate user\'s first N messages', 'MOD_FIRST_N_POSTS', 1);
 	print_reg_field('Messages Before Allowing Links', 'POSTS_BEFORE_LINKS', 1);
 	print_reg_field('Word Wrap', 'WORD_WRAP', 1);
-	print_reg_field('Edit Time Limit (minutes)', 'EDIT_TIME_LIMIT', 1);
 	print_reg_field('Max Image Count', 'MAX_IMAGE_COUNT', 1);
 	print_reg_field('Max Smilies Shown', 'MAX_SMILIES_SHOWN', 1);
 	print_reg_field('Message icons per row', 'POST_ICONS_PER_ROW', 1);

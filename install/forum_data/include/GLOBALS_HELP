@@ -210,6 +210,9 @@ Enable/disable the text that will reveal if a post was edited.}}}
 {{{EDITED_BY_MOD	FUD_OPT_1	67108864
 Enable/disable the text that will reveal if an edited post was edited by a moderator.}}}
 
+{{{EDIT_AFTER_REPLY	FUD_OPT_3	1024
+If enabled, users will be able to edit their own posts, even after someone replied to it. Disable to prevent users from changing questions that are already answered.}}}
+
 {{{EDIT_TIME_LIMIT
 This sets the length of time a message can be edited before message editing is disabled.
 Set the value to 0 to allow unlimited editing time or -1 to disable.}}}

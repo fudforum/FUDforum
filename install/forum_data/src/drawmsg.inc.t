@@ -383,7 +383,14 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 
 		// Edit button if editing is enabled, EDIT_TIME_LIMIT has not transpired, and there are no replies.
 		if (_uid && 
-			($perms & 16 || (_uid == $obj->poster_id && (!$GLOBALS['EDIT_TIME_LIMIT'] || __request_timestamp__ - $obj->post_stamp < $GLOBALS['EDIT_TIME_LIMIT'] * 60) && $obj->id == $obj->last_post_id)))
+			($perms & 16 ||
+				(_uid == $obj->poster_id && 
+					(!$GLOBALS['EDIT_TIME_LIMIT'] ||
+					__request_timestamp__ - $obj->post_stamp < $GLOBALS['EDIT_TIME_LIMIT'] * 60
+					) &&
+				(($GLOBALS['FUD_OPT_3'] & 1024) || $obj->id == $obj->last_post_id))
+			)
+		   )
 		{
 			$edit_link = '{TEMPLATE: dmsg_edit_link}';
 		} else {
