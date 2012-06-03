@@ -423,11 +423,6 @@ function flood_check()
 				user_register_forum_view($frm->id);
 			}
 
-			// POST_POST plugins.
-			if (defined('plugins')) {
-				plugin_call_hook('POST_POST', $msg_post);
-			}
-
 			/* Where to redirect, to the tree view or the flat view and consider what to do for a moderated forum or post-only forum. */
 			if (!$MOD && 		// Not a moderator.
 			    !($perms & 2))	// p_READ (cannot read forum)

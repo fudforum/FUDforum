@@ -916,6 +916,8 @@ pf('<h2>Step 1: Admin login</h2>', true);
 
 	// Change catch-all mime extention to '*'. To use '' in a NOT NULL column is wrong (FUDforum 3.0.1 -> 3.0.2).
 	q('UPDATE '. $DBHOST_TBL_PREFIX .'mime SET fl_ext=\'*\' WHERE fl_ext=\'\'');
+	// Password is NOT NULL. We should not use '' is a NOT NULL column (FUDforum 3.0.4).
+	q('UPDATE '. $DBHOST_TBL_PREFIX .'users SET passwd=\'*\' WHERE passwd=\'\'');
 
 	// Ensure all search terms are lowercase (bug in releases prior to 3.0.2).
 	$c = q('SELECT id FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'search WHERE lower(word) <> word');

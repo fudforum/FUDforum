@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -54,7 +54,7 @@ function _plugin_theme_router_selection($array) {
 	// Insert selection into the forum's HTML.
 	$select = '<div id="theme_selection">
 <form method="GET" action="'. $GLOBALS['WWW_ROOT'] .'">
-<select name="theme" id="theme">';
+<select name="theme" id="theme" onchange="this.form.submit()">';
 	foreach($themes as $lang => $theme) {
 		if ($theme == $GLOBALS['__COMPILER__']['tname']) {
 			$select .= '<option value="'. $theme .'" selected="selected">'. str_replace('_', ' ', $theme) .'</option>';
@@ -62,7 +62,7 @@ function _plugin_theme_router_selection($array) {
 			$select .= '<option value="'. $theme .'">'. str_replace('_', ' ', $theme) .'</option>';
 		}
 	}
-	$select .= '</select>&nbsp;<input name="submit" type="submit" value="Switch Theme" /></form></div>';
+	$select .= '</select>&nbsp;<input name="themeSubmit" type="submit" value="Switch Theme" /></form></div>';
 
 	if ($name == 'after_index') {
 		$tmpl .= $select;

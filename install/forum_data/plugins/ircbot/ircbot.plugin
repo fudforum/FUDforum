@@ -10,14 +10,11 @@
 **/
 
 // Initialize plugin.
-plugin_add_hook('POST_POST',     'plugin_ircbot_post');
+plugin_add_hook('POST_APPROVE',  'plugin_ircbot_post');
 plugin_add_hook('POST_REGISTER', 'plugin_ircbot_register');
 
 // Announce new forum post on IRC channel.
 function plugin_ircbot_post($msg_post) {
-// echo "<pre>";
-// var_dump( $msg_post );
-// exit;
 	$user = q_singleval('SELECT alias FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'users WHERE id ='. $msg_post->poster_id);
 	$url = $GLOBALS['WWW_ROOT'] .'index.php?t=msg&goto='. $msg_post->id .'#msg_'. $msg_post->id;
 
@@ -44,10 +41,13 @@ function plugin_ircbot_register($uent) {
 }
 
 function ircbot_enable() {
-	if((@include $GLOBALS['PLUGIN_PATH'] .'/ircbot/ircbot.ini') === false) {
+	if ((@include $GLOBALS['PLUGIN_PATH'] .'/ircbot/ircbot.ini') === false) {
 		return array(null, 'Please configure the IRCbot plugin before enabling it.');	// OK, Err.
 	}
-	return array('Done. Remember to schedule IRC bot from the Job Manager ACP.', null);	// OK, Err.
+	if (preg_match('/WIN/', PHP_OS)) {
+		return array(null, 'Sorry, but this plugin cannot be used on Windows systems.');	// OK, Err.
+	}
+	return array('Done. Remember to schedule the IRC bot from the Job Manager ACP.', null);	// OK, Err.
 }
 
 function ircbot_info() {
@@ -69,16 +69,20 @@ function ircbot_config() {
 				$ini[$key] = $_POST[$key];
 			}
 		}
-		$fp = fopen($GLOBALS['PLUGIN_PATH'] .'/ircbot/ircbot.ini', 'w');
-		fwrite($fp, '<?php $ini = '. var_export($ini, 1) .'; ?>');
-		fclose($fp);
-		pf(successify('Settings successfully saved.'));
+		if (substr($ini['IRCBOT_CHANNEL'], 0, 1) == '#') {
+			$fp = fopen($GLOBALS['PLUGIN_PATH'] .'/ircbot/ircbot.ini', 'w');
+			fwrite($fp, '<?php $ini = '. var_export($ini, 1) .'; ?>');
+			fclose($fp);
+			pf(successify('Settings successfully saved.'));
+		} else {
+			pf(errorify('Please enter a valid channel name, like #fudforum'));
+		}
 	}
 	?>
 <p>IRC server name:<br />
 <input name="IRCBOT_HOST" value="<?php echo $ini['IRCBOT_HOST'] ?>" size="50" /></p>
 
-<p>IRC port:<br />
+<p>IRC port (normally 6667):<br />
 <input name="IRCBOT_PORT" value="<?php echo $ini['IRCBOT_PORT'] ?>" size="5" /></p>
 
 <p>Bot's nick:<br />

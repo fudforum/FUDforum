@@ -583,6 +583,11 @@ class fud_msg_edit extends fud_msg
 				}
 			}
 		}
+
+		// Message Approved plugins.
+		if (defined('plugins')) {
+			plugin_call_hook('POST_APPROVE', $mtf);
+		}
 	}
 }
 

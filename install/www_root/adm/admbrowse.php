@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -303,9 +303,9 @@ if (!extension_loaded('posix')) {
 				@chmod($fdest, ($FUD_OPT_2 & 8388608 ? 0600 : 0666));
 				logaction(_uid, 'Uploaded file', 0, $fdest);
 				echo successify('File <i>'. basename($fdest) .'</i> ('. number_format($_FILES['fname']['size'] / 1024, 2) .'KB) was successfully uploaded.');
-				if (preg_match('/src|thm/', $fdest)) {
+				if (preg_match('/src|thm/', $cur_dir)) {
 					echo successify('Rebuild your themes from the <a href="admthemes.php?'.__adm_rsid .'">Theme Manager</a> to see the changes.');
-				} else if (preg_match('/theme|cache/', basename($fdest))) {
+				} else if (preg_match('/theme|cache/', $cur_dir)) {
 					echo errorify('WARNING: This is a cache directory. Your upload will be removed/overwritten if you rebuild or apply theme changes.');
 				}
 			} else {
