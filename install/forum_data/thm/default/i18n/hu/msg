@@ -1,4 +1,4 @@
-# Messages for Hungarian (Magyar)
+# Messages for Hungarian (magyar)
 # Exported from translatewiki.net
 # Author: Dani
 # Author: Dj
@@ -1140,5 +1140,7 @@ page_list_total:{PLURAL: i|Egy|$1} lap van listázva.
 page_update:Oldal böngészése
 pm_export_header:Magánjellegű üzenetek {VAR: usr->alias} részére
 pm_export_footer:Exportált:
+karma:Karma
+karma_track:Felhasználó tekintélyének kezelése:
 karma_delete:Törlés
 rate_author:Szerző értékelése:

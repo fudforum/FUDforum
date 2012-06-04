@@ -1,5 +1,6 @@
-# Messages for Catalan (Català)
+# Messages for Catalan (català)
 # Exported from translatewiki.net
+# Author: BroOk
 # Author: Gemmaa
 # Author: McDutchie
 # Author: Naudefj
@@ -774,8 +775,7 @@ p_STICKY:Missatges fixos
 p_POLL:Crear enquestes
 p_FILE:Adjuntar arxius
 p_VOTE:Votar
-# Fuzzy
-p_RATE:Avaluar fils de discussió
+p_RATE:Avaluar fils de discussió/membres
 p_SPLIT:Dividir fils de discussió
 p_LOCK:Bloquejar fils de discussió
 p_MOVE:Moure fils de discussió
@@ -1145,3 +1145,7 @@ page_list_total:{PLURAL: i|$1page| $1  pàgines} llistats.
 page_update:Pàgina de navegació
 pm_export_header:Missatges privats per a{VAR: usr->alias}
 pm_export_footer:Exportat:
+karma:Karma
+karma_track:Administrar la reputació de l'usuari:
+karma_delete:Eliminar
+rate_author:Avaluar a l'autor:

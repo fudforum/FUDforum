@@ -1,4 +1,4 @@
-# Messages for Italian (Italiano)
+# Messages for Italian (italiano)
 # Exported from translatewiki.net
 # Author: Beta16
 # Author: Danmaz74
@@ -28,7 +28,7 @@ date_posted:Data del messaggio
 date_registered:Data di registrazione:
 download_counter:Scaricato {PLURAL: v[3]|$1 volta|$1 volte}
 pmsg_download_counter:Scaricato {PLURAL: r->dlcount|$1 volta|$1 volte}
-email:E-mail:
+email:Email:
 email_to_friend:E-mail ad un amico
 email_to_friend_desc:Invia l'indirizzo di questa pagina ai tuoi amici via email
 email_user:Manda una e-mail all'utente
@@ -989,7 +989,7 @@ register_pm_notification_desc:Se abilitato, verrai notificato con il metodo di n
 findu_admin_opts_header:Opz. Admin
 findu_unban:De-Banna
 findu_ban:Banna
-findu_edit:Edita
+findu_edit:Modifica
 findu_delete:Cancella
 dmsg_reply_to:è una risposta a
 dmsg_reply_num:messaggio #{VAR: obj->reply_to}

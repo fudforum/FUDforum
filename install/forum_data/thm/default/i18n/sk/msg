@@ -1,4 +1,4 @@
-# Messages for Slovak (Slovenčina)
+# Messages for Slovak (slovenčina)
 # Exported from translatewiki.net
 # Author: Naudefj
 # Author: Rudko
@@ -768,8 +768,7 @@ p_STICKY:Výveska
 p_POLL:Vytvoriť anketu
 p_FILE:Priložiť súbor
 p_VOTE:Hlasovať
-# Fuzzy
-p_RATE:Ohodnotiť tému
+p_RATE:Ohodnotiť témy/členov
 p_SPLIT:Rozdeliť tému
 p_LOCK:Uzamknúť tému
 p_MOVE:Presunúť tému
@@ -1139,3 +1138,7 @@ page_list_total:{PLURAL: i|$1Page| $1  stránky} uvedené.
 page_update:Prehliadanie stránky
 pm_export_header:Súkromné ​​pošta pre {VAR: usr->alias}
 pm_export_footer:Exportované:
+karma:Karma
+karma_track:Správa karmy používateľa:
+karma_delete:Zmazať
+rate_author:Ohodnotiť autora:

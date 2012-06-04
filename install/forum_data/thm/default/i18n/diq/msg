@@ -193,7 +193,7 @@ register_password:Parola:
 register_conf_pass:Parolay Morke
 register_name:Name:
 register_your_pass:Parolay Şıma:
-register_update:Newekerdış
+register_update:Newen ke
 register_avatar_type:Tipê Avatari
 register_del_avatar:Avatari Hewa dê
 register_avatar:Avatar:
@@ -250,7 +250,7 @@ mklist_close:Racnê
 email_pg_title:E-posta
 email_submit:E-posta
 poll_create:Vıraze
-poll_update:Demeye
+poll_update:Newen ke
 poll_day:roc
 poll_days:roci
 poll_hour:saat
@@ -350,6 +350,7 @@ mnav_month:Aşm(i)
 findu_ban:Wedarnê
 findu_edit:Timar ke
 findu_delete:Besterne
+dmsg_reply_to:no cıwabê mesaciyo
 userinfo_buddy:Embaz:
 userinfo_real_name:Nameyo raştay
 delete_msg_pm_body:Mesaco Orcinal
@@ -358,7 +359,7 @@ uc_new_topic:Meseleyo newe
 register_none:Mı Xeberdar meke
 findu_no_conf:Karberê ke otomatikmen tesdiq biy
 register_max_sig_len:En Vêşi Dergey:
-register_turing:Kerem ke, Qodê cêrêni defiye de:
+register_turing:Şıma ra reca, Qodê cêrêni defiye de:
 register_err_turing:Ravyayışê qodi xırabo.
 modque_cat:Kategori
 modque_forum:Forum
@@ -373,7 +374,7 @@ sml_emoticon:İfade
 sml_code:Qod
 mnav_sub_only:Forumê ke ez aboneya ênan dı cıgeyre
 register_topics_per_page:Sernuşti rê Mesele:
-login_min_time:{VAR: MIN_TIME_BETWEEN_LOGIN} saniya miyandı şıma şenê deqewtış bıkerê, Kerem ke verdê Cerbnayışê bahdoni {FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)} saniye pıpawê.
+login_min_time:{VAR: MIN_TIME_BETWEEN_LOGIN} saniya zerre de şıma şenê dekewtış bı kerê, Şıma ra reca verdê Cerbnayışê bahdoyeni {FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)} saniye pıpawê.
 post_not_logged_in:Şıam cıqewtış nê kerdo, Mesacê şıma do bêname şıro.
 post_common_bold:Honqe
 post_common_italics:İtalik

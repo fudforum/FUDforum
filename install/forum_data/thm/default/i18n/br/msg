@@ -1,4 +1,4 @@
-# Messages for Breton (Brezhoneg)
+# Messages for Breton (brezhoneg)
 # Exported from translatewiki.net
 # Author: Fohanno
 # Author: Fulup
@@ -41,7 +41,7 @@ gender:Reizh :
 go:Mont
 goto_next_msg:Mont d'ar gemennadenn da-heul
 goto_prev_msg:Mont d'ar gemennadenn gent
-home:Pajenn degemer
+home:Degemer
 homepage:Lec'hienn Web :
 icq_control_panel:Kemennadenn enlinenn ICQ
 icq_message_form:Furmskrid kemennadenn ICQ :
@@ -855,7 +855,7 @@ im_google:Google Talk :
 im_skype:Skype :
 im_twitter:Twitter :
 forum_contact:Dont e darempred ganimp
-forum_home:Pajenn degemer
+forum_home:Degemer
 post_cur_attached:{VAR: i} {PLURAL: i|restr|restr} stag
 ignored_anon_post:{GVAR: ANON_NICK} zo dianavezet
 ignored_user_post:Ar gemennadenn gant <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> zo bet dianavezet
