@@ -345,7 +345,7 @@ if (!extension_loaded('posix')) {
 		$file = str_replace('\\', '/', $cur_dir .'/'. $dest);
 		$ext = pathinfo($file, PATHINFO_EXTENSION);
 		if ($dest == 'fudforum_archive' || in_array($ext, array('atch', 'gz', 'zip', 'tar', 'db'))) {
-			echo errorify('Cannot view binary file. Do you want to <a href="admbrowse.php?down=1&amp;cur='. $cur_dir .'&amp;dest='. $dest .'&amp;'. __adm_rsid .'">download</a> it?');
+			echo errorify('Cannot view binary file. Do you want to <a href="admbrowse.php?down=1&amp;cur='. $cur_dir .'&amp;dest='. $dest .'&amp;'. __adm_rsid .'">download</a> or <a href="#" onclick="window.open(\'admbrowse.php?del=1&amp;cur='. urlencode($cur_dir) .'&amp;dest='. urlencode($dest) .'&amp;'. __adm_rsid .'\', \'delete_window\', \'width=500,height=350,menubar=no\');">delete</a> it?');
 		} elseif (in_array($ext, array('gif', 'jpg', 'jpeg', 'png')) && strpos($file, $WWW_ROOT_DISK) !== FALSE) {
 			echo '<h2>View image: '. $dest .'</h2>';
 			echo '<table border="1" cellpadding="25"><tr><td>';
@@ -545,7 +545,7 @@ if (!extension_loaded('posix')) {
 		$size = round((isset($st[7])?$st[7]:$st['size'])/1024);
 
 		if (preg_match('/(install.php|upgrade.php|unprotect.php|fudforum_archive)$/i', $fpath)) {
-			echo '<tr class="field admin_fixed" style="color:red;" title="Please delete this file!">';
+			echo '<tr class="field admin_fixed" style="color:red;background-color:#ffe6cc;" title="Please delete this file!">';
 			echo '<td nowrap="nowrap">';
 			echo '<a name="flagged"></a>';
 		} else {

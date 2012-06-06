@@ -8,7 +8,8 @@
 * under the terms of the GNU General Public License as published by the
 * Free Software Foundation; version 2 of the License.
 **/
-// TODO: IPv6 compatibility.
+
+// TODO: This ACP is not IPv6 compatibile!
 
 /* main */
 	@ini_set('memory_limit', '256M');
@@ -85,7 +86,7 @@ function changeCaption(txt)
 	document.getElementById('progress').firstChild.nodeValue = txt;
 }
 </script>
-<span id="progress" style="font-color: green;"> </span>
+<span id="progress" style="color:green;"> </span>
 
 <h2>Geolocation Configuration</h2>
 <p class="tutor">
@@ -178,7 +179,7 @@ hours on a large forum.
 	} else if (!empty($_POST['rebuild_user_geoip'])) {
 		while (ob_get_level() > 0) ob_end_flush();
 		flush();
-		$c = q('SELECT id, COALESCE(last_known_ip, reg_ip) FROM '. $DBHOST_TBL_PREFIX .'users');
+		$c = q('SELECT id, COALESCE(last_used_ip, registration_ip) FROM '. $DBHOST_TBL_PREFIX .'users');
 		while ($r = db_rowarr($c)) {
 			++$i;
 			if (!$r[1] || (!$flag = db_saq('SELECT cc, country FROM '. $DBHOST_TBL_PREFIX .'geoip WHERE '. sprintf('%u', $r[1]) .' BETWEEN ips AND ipe'))) {

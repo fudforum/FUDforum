@@ -9,7 +9,7 @@
 * Free Software Foundation; version 2 of the License.
 **/
 
-$FORUM_VERSION = '3.0.4RC2';
+$FORUM_VERSION = '3.0.4RC3';
 
 ignore_user_abort('1');
 @set_magic_quotes_runtime(0);	// Deprecated as of PHP 5.3.0.
@@ -105,31 +105,20 @@ function get_random_value($bitlength=32)
 function get_ip()
 {
 	if (isset($_SERVER['HTTP_X_FORWARDED_FOR'])) {
-		// If user is behind a proxy, this HTTP header might be added by its proxy to give you the real user IP, not the proxy one.
+		// IP address added by proxy server that gives the real user IP, not the proxy one.
 		$ip = strtok($_SERVER['HTTP_X_FORWARDED_FOR'], ',');
 		do {
 			$ip = str_replace('::ffff:', '', $ip);
-			if (($lip = ip2long($ip)) === -1) {
-				continue;
+			// Disallowed ip ranges that are normally used for private networks.
+			if (filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_NO_PRIV_RANGE)) {
+				return $ip;
 			}
-			/* Some disallowed ip ranges, that are normally used for private networks:
-			 * 10.0.0.0 - 10.255.255.255
-			 * 172.16.0.0 - 172.31.255.255
-			 * 192.168.0.0 - 192.168.255.255
-			 * 127.0.0.1, 255.255.255.255, 0.0.0.0
-			*/
-
-			// TO DO: USE: if (filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_NO_PRIV_RANGE)) {
-			if (!$lip || (($lip >= 167772160) && ($lip <= 184549375)) || (($lip >= -1408237568) && ($lip <= -1407188993)) || (($lip >= -1062731776) && ($lip <= -1062666241)) || ($lip == 2130706433)) {
-				continue;
-			}
-			return long2ip($lip);
 		} while (($ip = strtok(',')));
 	}
 
 	$ip = isset($_SERVER['HTTP_CLIENT_IP']) ? $_SERVER['HTTP_CLIENT_IP'] : (isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : '0.0.0.0');
 	$ip = str_replace('::ffff:', '', $ip);
-	return (!empty($ip) ? $ip : '0.0.0.0');
+	return (filter_var($ip, FILTER_VALIDATE_IP) ? $ip : '0.0.0.0');
 }
 
 /** Replace empty string with NULL before DB insert. */

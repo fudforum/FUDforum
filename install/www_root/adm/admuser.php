@@ -354,7 +354,7 @@ administration permissions to the forum. This individual will be able to do anyt
 		$item_s = _esc($item_s);
 
 		if (($cnt = q_singleval('SELECT count(*) FROM '. $DBHOST_TBL_PREFIX .'users WHERE '. $field . ($like ? ' LIKE ' : '=') . $item_s))) {
-			$c = uq(q_limit('SELECT id, alias, email, last_visit, last_known_ip, posted_msg_count FROM '. $DBHOST_TBL_PREFIX .'users WHERE '. $field . ($like ? ' LIKE ' : '=') . $item_s . ' ORDER BY last_login DESC', 40, $start));
+			$c = uq(q_limit('SELECT id, alias, email, last_visit, last_used_ip, posted_msg_count FROM '. $DBHOST_TBL_PREFIX .'users WHERE '. $field . ($like ? ' LIKE ' : '=') . $item_s . ' ORDER BY last_login DESC', 40, $start));
 		}
 		switch ($cnt) {
 			case 0:
@@ -379,7 +379,7 @@ administration permissions to the forum. This individual will be able to do anyt
 				$i = 0;
 				while ($r = db_rowarr($c)) {
 					$bgcolor = ($i++%2) ? ' class="resultrow2"' : ' class="resultrow1"';
-					echo '<tr'. $bgcolor .'><td>'. $r[1] .'</td><td>'. htmlspecialchars($r[2]) .'</td><td>'. fdate($r[3], 'd M Y H:i:s') .'</td><td>'. long2ip($r[4]) .'</td><td>'. $r[5] .'</td><td><a href="admuser.php?usr_id='. $r[0] .'&amp;act=m&amp;'. __adm_rsid .'">Edit</a> | <a href="admuser.php?act=del&amp;usr_id='. $r[0] .'&amp;'. __adm_rsid .'">Delete</a></td></tr>';
+					echo '<tr'. $bgcolor .'><td>'. $r[1] .'</td><td>'. htmlspecialchars($r[2]) .'</td><td>'. fdate($r[3], 'd M Y H:i:s') .'</td><td>'. $r[4] .'</td><td>'. $r[5] .'</td><td><a href="admuser.php?usr_id='. $r[0] .'&amp;act=m&amp;'. __adm_rsid .'">Edit</a> | <a href="admuser.php?act=del&amp;usr_id='. $r[0] .'&amp;'. __adm_rsid .'">Delete</a></td></tr>';
 				}
 				echo '</table>';
 				unset($c);
@@ -419,11 +419,11 @@ administration permissions to the forum. This individual will be able to do anyt
 	if ($u->sig) {
 		echo '<tr class="field"><td>Signature:</td><td>'. $u->sig .'</td></tr>';
 	}
-	if ($u->reg_ip) {
-		echo '<tr class="field"><td>Registration:</td><td>'. fdate($u->join_date, 'd M Y') .' from <a href="../'. __fud_index_name__ .'?t=ip&amp;ip='. long2ip($u->reg_ip) .'&amp;'. __adm_rsid .'" title="Analyse IP usage">'. long2ip($u->reg_ip) .'</td></tr>';
+	if ($u->registration_ip) {
+		echo '<tr class="field"><td>Registration:</td><td>'. fdate($u->join_date, 'd M Y') .' from <a href="../'. __fud_index_name__ .'?t=ip&amp;ip='. $u->registration_ip .'&amp;'. __adm_rsid .'" title="Analyse IP usage">'. $u->registration_ip .'</a></td></tr>';
 	}
-	if ($u->last_known_ip) {
-		echo '<tr class="field"><td>Last visit:</td><td>'. fdate($u->last_visit, 'd M Y') .' from <a href="../'. __fud_index_name__ .'?t=ip&amp;ip='. long2ip($u->last_known_ip) .'&amp;'. __adm_rsid .'" title="Analyse IP usage">'. long2ip($u->last_known_ip) .'</a></td></tr>';
+	if ($u->last_used_ip) {
+		echo '<tr class="field"><td>Last visit:</td><td>'. fdate($u->last_visit, 'd M Y') .' from <a href="../'. __fud_index_name__ .'?t=ip&amp;ip='. $u->last_used_ip .'&amp;'. __adm_rsid .'" title="Analyse IP usage">'. $u->last_used_ip .'</a></td></tr>';
 	}
 	if ($u->posted_msg_count) {
 		echo '<tr class="field"><td>Post count:</td><td>'. $u->posted_msg_count .' [ <a href="../'.__fud_index_name__.'?t=showposts&amp;id='.$usr_id.'&amp;'.__adm_rsid.'" title="View user\'s messages on the forum">View Messages</a> ]</td></tr>';

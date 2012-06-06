@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -93,7 +93,7 @@ function fud_whois($ip)
 			$user_list .= '{TEMPLATE: ip_user_entry}';
 		}
 		unset($o);
-		$o = uq('SELECT id, alias FROM {SQL_TABLE_PREFIX}users WHERE reg_ip='. ip2long($ip));
+		$o = uq('SELECT id, alias FROM {SQL_TABLE_PREFIX}users WHERE registration_ip='. _esc($ip));
 		while ($r = db_rowarr($o)) {
 			$user_list .= '{TEMPLATE: ip_user_entry}';
 		}
@@ -108,9 +108,8 @@ function fud_whois($ip)
 		}
 		unset($o);
 		
-		$o = uq('SELECT reg_ip FROM {SQL_TABLE_PREFIX}users WHERE id='. $user_id);
+		$o = uq('SELECT registration_ip FROM {SQL_TABLE_PREFIX}users WHERE id='. $user_id);
 		while ($r = db_rowarr($o)) {
-			$r[0] = long2ip($r[0]);
 			$ip_list .= '{TEMPLATE: ip_ip_entry}';
 		}
 		unset($o);

@@ -9,7 +9,7 @@
 * Free Software Foundation; either version 2 of the License. 
 ***************************************************************************/
 
-$__UPGRADE_SCRIPT_VERSION = 5304.3;
+$__UPGRADE_SCRIPT_VERSION = 5304.4;
 // define('fud_debfud_debug', 1);
 
 /*
@@ -18,7 +18,7 @@ $__UPGRADE_SCRIPT_VERSION = 5304.3;
   * Old columns can still be referenced (they will be dropped after all new columns were added).
   */
 
-// Move Usenet trackers into the database (3.0.0->3.0.1).
+/** Move Usenet trackers into the database (3.0.0->3.0.1). */
 function nntp_tracker($flds)
 {
 	$c = q('SELECT id, server, newsgroup FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'nntp');
@@ -34,9 +34,10 @@ function nntp_tracker($flds)
 	}
 }
 
-// Change birthday from NUMBER to CHAR(8) (3.0.1->3.0.2).
-// New format is MMDDYYYY.
-// Requred for index lookups on leading string. I.e: WHERE birthday LIKE 'mmdd%';
+/** Change birthday from NUMBER to CHAR(8) (3.0.1->3.0.2).
+ * New format is MMDDYYYY.
+ * Requred for index lookups on leading string. I.e: WHERE birthday LIKE 'mmdd%';
+ */ 
 function users_birthday($flds)
 {
 	pf('About to change birthday format. This may take a while...');
@@ -58,6 +59,50 @@ function users_birthday($flds)
 	}
 	pf('Birthday format change completed.');
 }
+
+/** Change reg_ip (encoded IPv4 address) to registration_ip (IPv6 address) (3.0.4RC2 -> 3.0.4RC3). */
+function users_registration_ip($flds)
+{
+	pf('Convert reg_ip to registration_ip for IPv6 compatibility');
+	$c = q('SELECT id, reg_ip FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'users');
+	while ($r = db_rowarr($c)) {
+		q('UPDATE '. $GLOBALS['DBHOST_TBL_PREFIX'] .'users SET registration_ip=\''. long2ip($r[1]) .'\' WHERE id='. $r[0]);
+	}
+}
+
+/** Change last_known_ip (encoded IPv4 address) to last_used_ip (IPv6 address) (3.0.4RC2 -> 3.0.4RC3). */
+function users_last_used_ip($flds)
+{
+	pf('Convert last_known_ip to last_used_ip IPv6 compatibility');
+	$c = q('SELECT id, last_known_ip FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'users');
+	while ($r = db_rowarr($c)) {
+		q('UPDATE '. $GLOBALS['DBHOST_TBL_PREFIX'] .'users SET last_used_ip=\''. long2ip($r[1]) .'\' WHERE id='. $r[0]);
+	}
+}
+
+/* For future implementation -
+// Convert location to a Custom Profile Field.
+function users_location($flds)
+{
+	fud_use('custom_field_adm.inc', true);
+
+	$cfield = new fud_custom_field;
+	$cfield->name      = 'Location';
+	$cfield->descr     = NULL;
+	$cfield->type_opt  = 0; // Single line.
+	$cfield->choice    = NULL;
+	$cfield->vieworder = NULL;
+	$cfield->field_opt = 2; // Optional, only user can edit, everyone can see value.
+	$locid = $cfield->add();
+
+	$c = q('SELECT id, custom_fields, location FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'users WHERE location IS NOT NULL and location <> \'\'');
+	while ($r = db_rowarr($c)) {
+		$x = isset($r[1]) ? unserialize($r[1]) : array();
+		$x[$locid] = $r[2];
+		q('UPDATE '. $GLOBALS['DBHOST_TBL_PREFIX'] .'users SET custom_fields = '. _esc(serialize($x)) .' WHERE id = '. $r[0]);
+	}
+}
+*/
 
 /* END: SQL Upgrade Functions */
 

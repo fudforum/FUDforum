@@ -560,7 +560,7 @@ function fud_fetch_top_poster()
  *	home_page - Home Page URL
  *	bio - Biography
  *	users_opt - Account settings, consult fud_users.sql inside the sql/ directory for details.
- *	reg_ip - Registration IP, will default to 127.0.0.1
+ *	registration_ip - Registration IP, will default to ::1 (127.0.0.1)
  */
 function fud_add_user($vals, &$err)
 {
@@ -623,14 +623,14 @@ function fud_add_user($vals, &$err)
 	if ($o2 & 1) {
 		$o2 ^= 1;
 	}
-	$reg_ip = '127.0.0.1';
+	$registration_ip = '::1';
 	$last_visit = $last_read = $join_date = __request_timestamp__;
 
 	// Make sure all fields are set.
 	foreach( array('login','alias','passwd','name','email','icq','aim','yahoo','msnm','jabber','google','skype','twitter',
 		'affero','posts_ppg','time_zone','birthday','last_visit','conf_key','user_image',
 		'join_date','location','theme','occupation','interests','referer_id','last_read',
-		'sig','home_page','bio','users_opt','reg_ip') as $v) {
+		'sig','home_page','bio','users_opt','registration_ip') as $v) {
 		if (empty($vals[$v])) {
 			$vals[$v] = isset($$v) ? $$v : '';
 		}
@@ -670,7 +670,7 @@ function fud_add_user($vals, &$err)
 				home_page,
 				bio,
 				users_opt,
-				reg_ip
+				registration_ip
 			) VALUES (
 				'. _esc($vals['login']) .',
 				'. _esc($vals['alias']) .',
@@ -704,7 +704,7 @@ function fud_add_user($vals, &$err)
 				'. ssn(htmlspecialchars($vals['home_page'])) .',
 				'. ssn($vals['bio']) .',
 				'. (int)$vals['users_opt'] .',
-				'. ip2long($vals['reg_ip']) .'
+				'. $vals['registration_ip'] .'
 			)
 		');
 }
@@ -769,7 +769,7 @@ function fud_update_user($uid, $vals, &$err)
 	foreach( array('login','alias','passwd', 'salt', 'name','email','icq','aim','yahoo','msnm','jabber','google','skype','twitter',
 		'affero','posts_ppg','time_zone','birthday','last_visit','conf_key','user_image',
 		'join_date','location','theme','occupation','interests','referer_id','last_read',
-		'sig','home_page','bio','users_opt','reg_ip') as $v) {
+		'sig','home_page','bio','users_opt','registration_ip') as $v) {
 		if (isset($vals[$v])) {
 			$qry .= $v .'='. _esc($vals[$v]) .',';
 		}

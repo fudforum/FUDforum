@@ -466,7 +466,7 @@ function target_add_message($message)
 		'. (int)$message['update_stamp'] .',
 		'. (int)$message['updated_by'] .',
 		'. _esc($message['subject']) .',
-		'. decode_ip($message['ip_addr']) .',
+		'. _esc(decode_ip($message['ip_addr'])) .',
 		'. $off .',
 		'. $len .',
 		'. $file_id .',

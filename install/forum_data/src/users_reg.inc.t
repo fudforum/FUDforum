@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -87,9 +87,9 @@ class fud_user_reg extends fud_user
 			if ($o2 & 1) {	// Unset EMAIL_CONFIRMATION (no confirmation email now).
 				$o2 ^= 1;
 			}
-			$reg_ip = '127.0.0.1';
+			$registration_ip = '::1';
 		} else {
-			$reg_ip = get_ip();
+			$registration_ip = get_ip();
 		}
 
 		/* No user options? Initialize to sensible values. */
@@ -123,7 +123,7 @@ class fud_user_reg extends fud_user
 
 		$this->html_fields();
 
-		$flag = ret_flag($reg_ip);
+		$flag = ret_flag($registration_ip);
 
 		$this->id = db_qid('INSERT INTO
 			{SQL_TABLE_PREFIX}users (
@@ -161,7 +161,7 @@ class fud_user_reg extends fud_user
 				home_page,
 				bio,
 				users_opt,
-				reg_ip,
+				registration_ip,
 				topics_per_page,
 				flag_cc,
 				flag_country,
@@ -201,7 +201,7 @@ class fud_user_reg extends fud_user
 				'. ssn(htmlspecialchars($this->home_page)) .',
 				'. ssn($this->bio) .',
 				'. $this->users_opt .',
-				'. ip2long($reg_ip) .',
+				'. _esc($registration_ip) .',
 				'. (int)$this->topics_per_page .',
 				'. ssn($flag[0]) .',
 				'. ssn($flag[1]) .',
@@ -339,7 +339,7 @@ function user_login($id, $cur_ses_id, $use_cookies)
 	} else {
 		$flag = '';	
 	}
-	q('UPDATE {SQL_TABLE_PREFIX}users SET last_known_ip='. ip2long(get_ip()) .', '. $flag .' sq=\''. $GLOBALS['new_sq'] .'\' WHERE id='. $id);
+	q('UPDATE {SQL_TABLE_PREFIX}users SET last_used_ip=\''. get_ip() .'\', '. $flag .' sq=\''. $GLOBALS['new_sq'] .'\' WHERE id='. $id);
 
 	return $cur_ses_id;
 }
@@ -370,6 +370,7 @@ function rebuildmodlist()
 	}
 }
 
+/** Lookup geoip info (if enabled) and return SQL UPDATE fragment. */
 function ret_flag($raw=0)
 {
 	if ($raw) {

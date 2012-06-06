@@ -1,6 +1,6 @@
 /* Add initial welcome message. */
 INSERT INTO {SQL_TABLE_PREFIX}msg (thread_id, poster_id, reply_to, ip_addr, host_name, post_stamp, update_stamp, updated_by, icon, subject, attach_cnt, poll_id, foff, length, file_id, offset_preview, length_preview, file_id_preview, attach_cache, poll_cache, mlist_msg_id, msg_opt, apr) 
-VALUES (1, 2, 0, '127.0.0.1', NULL, {UNIX_TIMESTAMP}, 0, 0, NULL, 'Welcome to FUDforum', 0, 0 /*1*/, -1, 459, 1, -1, 0, 0, NULL, NULL /*'a:2:{i:1;a:2:{i:0;s:3:"Yes";i:1;s:1:"0";}i:2;a:2:{i:0;s:2:"No";i:1;s:1:"0";}}' */, NULL, 1, 1);
+VALUES (1, 2, 0, '::1', NULL, {UNIX_TIMESTAMP}, 0, 0, NULL, 'Welcome to FUDforum', 0, 0 /*1*/, -1, 459, 1, -1, 0, 0, NULL, NULL /*'a:2:{i:1;a:2:{i:0;s:3:"Yes";i:1;s:1:"0";}i:2;a:2:{i:0;s:2:"No";i:1;s:1:"0";}}' */, NULL, 1, 1);
 
 INSERT INTO {SQL_TABLE_PREFIX}msg_store (data)
 VALUES ('<b>Congratulations!</b> You have successfully installed FUDforum and are well on your way to creating a vibrant community that you and your members can enjoy for years to come.<br />\r\n<br />\r\nTo get you started, please read the documentation on our <a href="http://cvs.prohost.org/">wiki</a> and report any problems on the support forum at <a href="http://fudforum.org">http://fudforum.org</a>. You are also welcome to join us on <i>irc.freenode.net</i> in the <i>FUDforum</i> channel.<br />\r\n<br />\r\nLogin and head over to the Admin Control Panel to start configuring your forum.<br />\r\n<br />\r\nThanks for using our software.<br />\r\n<br />\r\nEnjoy!<br />\r\nThe FUDforum team<br />\r\n');

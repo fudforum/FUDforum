@@ -42,7 +42,7 @@ class fud_smtp
 
 		$es = strpos($this->last_ret, 'ESMTP') !== false;
 		$smtp_srv = $_SERVER['SERVER_NAME'];
-		if ($smtp_srv == 'localhost' || $smtp_srv == '127.0.0.1') {
+		if ($smtp_srv == 'localhost' || $smtp_srv == '127.0.0.1' || $smtp_srv == '::1') {
 			$smtp_srv = 'FUDforum SMTP server';
 		}
 

@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -62,7 +62,7 @@ function print_if_avail($descr, $value, $no_html=1)
 		print_if_avail('Occupation', $obj->occupation) .
 		print_if_avail('Interests', $obj->interests) .
 		print_if_avail('Avatar', ($obj->avatar_loc), 0) .
-		print_if_avail('Gender', ($obj->users_opt & 1024 ? 'Male' : ($obj->users_opt & 512 ? 'Unspecified' : 'Female'))) .
+		print_if_avail('Gender', ($obj->users_opt & 1024 ? 'Male' : ($obj->users_opt & 512 ? '' : 'Female'))) .
 		print_if_avail('Homepage', $obj->home_page) .
 		print_if_avail('Image', $obj->user_image) .
 		print_if_avail('Biography', $obj->bio) .
@@ -75,7 +75,7 @@ function print_if_avail($descr, $value, $no_html=1)
 		print_if_avail('Skype Handle', $obj->skype) .
 		print_if_avail('Twitter Handle', $obj->twitter) .
 		print_if_avail('Signature', $obj->sig, 0) .
-		print_if_avail('IP Address', long2ip($obj->reg_ip), 0) .
+		print_if_avail('IP Address', '<a href="../'. __fud_index_name__ .'?t=ip&amp;ip='. $obj->registration_ip .'&amp;'. __adm_rsid .'" title="Analyse IP usage">'. $obj->registration_ip, 0) .'</a>' .
 		'</table></td>
 		<td class="fieldaction">[ <a href="admuserapr.php?apr='. $obj->id .'&amp;'. __adm_rsid .'">Approve Account</a> | <a href="admuserapr.php?rm='. $obj->id .'&amp;'. __adm_rsid .'">Delete Account</a> ]</td></tr>';
 	}
