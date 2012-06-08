@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -98,22 +98,26 @@
 		$full_indicator = '{TEMPLATE: full_full_indicator}';
 	}
 
+	// Sort field.
 	if (isset($_GET['o'])) {
 		switch ($_GET['o']) {
 			case 'subject':
 				$o = 'p.subject';
+				break;
 			case 'alias':
 				$o = 'u.alias';
+				break;
 			case 'alias2':
 				$o = 'u2.alias';
 				break;
 			default:
 				$o = 'p.post_stamp';
-		}	
+		}
 	} else {
 		$o = 'post_stamp';
 	}
 
+	// Sort order.
 	if (isset($_GET['s']) && $_GET['s'] == 'a') {
 		$s = 'ASC';
 	} else {

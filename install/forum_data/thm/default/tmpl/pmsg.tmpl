@@ -110,9 +110,9 @@
 <tr>
 	<th class="nw">{MSG: pmsg_selected} <input type="checkbox" name="toggle" title="{TEMPLATE: pmsg_all}/{TEMPLATE: pmsg_none}" onclick="jQuery(\'input:checkbox\').attr(\'checked\', this.checked);" /> </th>
 	<th>&nbsp;</th>
-	<th class="wa"><a href="{ROOT}?t=pmsg&amp;folder_id={VAR: folder_id}&amp;{DEF: _rsid}&amp;o=subject&amp;s={IF: $o=='subject' && $s=='ASC'}d{ELSE}a{END}" class="thLnk">{MSG: pmsg_subject}</a></th>
-	<th class="ac"><a href="{ROOT}?t=pmsg&amp;folder_id={VAR: folder_id}&amp;{DEF: _rsid}&amp;o={IF: $folder_id == 3}alias2{ELSE}alias{ENDI}&amp;s={IF: ($o=='alias' || $o=='alias2') && $s=='ASC'}d{ELSE}a{ENDI}" class="thLnk">{IF: $folder_id == 3}{TEMPLATE: pmsg_recepient}{ELSE}{TEMPLATE: pmsg_author}{END}</a></th>
-	<th class="ac"><a href="{ROOT}?t=pmsg&amp;folder_id={VAR: folder_id}&amp;{DEF: _rsid}&amp;o=post_stamp&amp;s={IF: $o=='post_stamp' && $s=='ASC'}d{ELSE}a{END}" class="thLnk">{MSG: pmsg_time}</a></th>
+	<th class="wa"><a href="{ROOT}?t=pmsg&amp;folder_id={VAR: folder_id}&amp;{DEF: _rsid}&amp;o=subject&amp;s={IF: $o=='p.subject' && $s=='ASC'}d{ELSE}a{END}" class="thLnk">{MSG: pmsg_subject}</a></th>
+	<th class="ac"><a href="{ROOT}?t=pmsg&amp;folder_id={VAR: folder_id}&amp;{DEF: _rsid}&amp;o={IF: $folder_id == 3}alias2{ELSE}alias{ENDI}&amp;s={IF: ($o=='u.alias' || $o=='u2.alias') && $s=='ASC'}d{ELSE}a{ENDI}" class="thLnk">{IF: $folder_id == 3}{TEMPLATE: pmsg_recepient}{ELSE}{TEMPLATE: pmsg_author}{END}</a></th>
+	<th class="ac"><a href="{ROOT}?t=pmsg&amp;folder_id={VAR: folder_id}&amp;{DEF: _rsid}&amp;o=post_stamp&amp;s={IF: $o=='p.post_stamp' && $s=='ASC'}d{ELSE}a{END}" class="thLnk">{MSG: pmsg_time}</a></th>
 	<th class="ac">{MSG: action}</th>
 </tr>
 {TEMPLATE-DATA: private_msg_entry}
