@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -17,6 +17,17 @@ class fud_pdf extends FPDF
 {
 	var $outlines = array();
 	var $OutlineRoot;
+
+	/** Override Cell() function to render special characters (FPDF doesn't support UTF-8).
+	 *  Details at http://fudforum.org/forum/index.php?t=msg&goto=167344
+	 */
+	function Cell($w, $h=0, $txt='', $border=0, $ln=0, $align='', $fill=false, $link='')
+	{
+		if (extension_loaded('iconv')) {
+			$txt = iconv('utf-8', 'cp1252', $txt);
+		}
+		parent::Cell($w, $h, $txt, $border, $ln, $align, $fill, $link);
+	}
 
 	function begin_page($title)
 	{
