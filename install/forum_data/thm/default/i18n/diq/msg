@@ -193,7 +193,7 @@ register_password:Parola:
 register_conf_pass:Parolay Morke
 register_name:Name:
 register_your_pass:Parolay Şıma:
-register_update:Newen ke
+register_update:Anewen ke
 register_avatar_type:Tipê Avatari
 register_del_avatar:Avatari Hewa dê
 register_avatar:Avatar:
@@ -250,7 +250,7 @@ mklist_close:Racnê
 email_pg_title:E-posta
 email_submit:E-posta
 poll_create:Vıraze
-poll_update:Newen ke
+poll_update:Anewen ke
 poll_day:roc
 poll_days:roci
 poll_hour:saat
@@ -291,7 +291,7 @@ groupmgr_edit:Bıvurne
 groupmgr_delete:Besterne
 show_show:Bımocne
 group_mgr_group:Grube
-p_READ:Bıwane
+p_READ:Bıwanê
 p_POST:Bırş
 p_REPLY:Cewab bıde
 p_EDIT:Bıvurne
@@ -371,7 +371,7 @@ mmd_abort_move:Xırab qı
 thread_merge_all:Weçineya biya apê
 dmsg_ip:IP:
 sml_emoticon:İfade
-sml_code:Qod
+sml_code:Kod
 mnav_sub_only:Forumê ke ez aboneya ênan dı cıgeyre
 register_topics_per_page:Sernuşti rê Mesele:
 login_min_time:{VAR: MIN_TIME_BETWEEN_LOGIN} saniya zerre de şıma şenê dekewtış bı kerê, Şıma ra reca verdê Cerbnayışê bahdoyeni {FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)} saniye pıpawê.
@@ -400,6 +400,7 @@ tabs_notifications:Xeberdareni
 finduser_flag:Desmal
 pmsg_on:Akerde
 powered-by:Destegdaren: FUDforum {GVAR: FORUM_VERSION}.
+# Fuzzy
 copyright:Telif &copy;2001-2011 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_select_all:Pêrın Weçin fi
 code_show_hide:bımocne/bınımne
@@ -427,4 +428,5 @@ page_list_heading:Peleyê ke estê
 page_update:Oyo çım şıkneno pele
 pm_export_header:Qan dê xususi mesaca: {VAR: usr->alias}
 pm_export_footer:Êk Vetê:
+karma:Karma
 karma_delete:Besterne

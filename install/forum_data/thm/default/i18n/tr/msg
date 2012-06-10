@@ -1,6 +1,7 @@
 # Messages for Turkish (Türkçe)
 # Exported from translatewiki.net
 # Author: Emperyan
+# Author: Erdemaslancan
 # Author: Naudefj
 # Author: Srhat
 # Author: Stultiwikia
@@ -1110,6 +1111,7 @@ move_msg_th_expl:Hedef konunun ID'sini belirtin (diğer forumlarda olabilir)
 captcha_img_alt:Captcha Doğrulama: Görüntüde metni tanımanız gerekiyor.
 captcha_img_help:Görüntü içinde sıfır ya da bir bulunmuyor.
 powered-by:Destekleyen: FUDforum {GVAR: FORUM_VERSION}.
+# Fuzzy
 copyright:Telif hakkı &copy;2001-2011 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Kod:
 code_select_all:Tümünü seç
@@ -1144,4 +1146,5 @@ page_list_total:$1 sayfa listelendi.
 page_update:Sayfaya göz atıyor
 pm_export_header:Özel iletiler için: {VAR: usr->alias}
 pm_export_footer:Çıkartılan:
+karma:Karma
 karma_delete:Sil

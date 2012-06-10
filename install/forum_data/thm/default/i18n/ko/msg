@@ -3,6 +3,7 @@
 # Author: Changwoo
 # Author: Klutzy
 # Author: ToePeu
+# Author: 아라
 
 admin:관리자
 # Fuzzy
@@ -295,7 +296,7 @@ register_bio_desc:자신의 세부정보, 관심분야, 직업, 취미 등...
 register_prefs:선택사항
 register_sig:서명:
 register_sig_desc:서명은 선택 사항이며 서명을 할 경우 게시글 밑에 표시됩니다
-register_reset:리셋
+register_reset:초기화
 register_def_thread_view:토픽 보기:
 register_msg_per_page:페이지당 게시글:
 register_show_sig:서명 보기:

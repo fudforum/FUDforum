@@ -466,7 +466,7 @@ reset_error:メールアドレスがデータベース内にありません。
 rpasswd_change_pass:パスワードを変更
 rpasswd_login:ログイン
 rpasswd_cur_pass:現在のパスワード:
-rpasswd_new_pass:新規パスワード:
+rpasswd_new_pass:新しいパスワード:
 rpasswd_conf_pass:パスワード確認:
 ruser_title:ログイン名変更フォーム
 ruser_change_user:フォーラムでのログイン名を変更します
@@ -1105,6 +1105,7 @@ move_msg_th_expl:移動先トピックのIDを指定してください（他の�
 captcha_img_alt:CAPTCHA検証: この画像中の文字列を認識する必要があります。
 captcha_img_help:画像中には 0 も 1 もありません。
 powered-by:提供: FUDforum {GVAR: FORUM_VERSION}
+# Fuzzy
 copyright:Copyright &copy;2001-2011 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:コード:
 code_select_all:すべて選択
@@ -1132,7 +1133,7 @@ feed_rdf:RDF フィード
 feed_rss:RSS2 フィード
 feed_atom:ATOM フィード
 ip_whois_connect_err:whois サーバーに接続できません ({VAR: whois_server}): {VAR: errstr}
-custom_filed_required:必須項目
+custom_filed_required:この欄は必須です。
 pages:ページ
 page_list_heading:利用可能なページ
 page_list_total:一覧には {PLURAL: i|$1 ページ}あります。

@@ -97,8 +97,7 @@ new_thread:Lumikha ng isang bagong paksa
 newest_user:Ang pinakabagong nakapagpatalang tagagamit ay si
 next_page:Susunod na pahina
 next_thread:Susunod na Paksa:
-# Fuzzy
-no_messages:Walang mga mensahe sa loob ng porong ito.
+no_messages:Walang mga mensahe sa loob ng porong ito.<br />Manguna sa pagpaskil ng isang paksa sa porong ito.
 no_msg_body:Walang Katawan ng Mensahe
 no_new_posts:Walang Bagong mga mensahe
 no_posts:Walang mga mensahe
@@ -769,8 +768,7 @@ p_STICKY:Malalagkit na mga mensahe
 p_POLL:Likhain ang mga botohan
 p_FILE:Maglakip ng mga talaksan
 p_VOTE:Bumoto
-# Fuzzy
-p_RATE:Antasan ang mga paksa
+p_RATE:Antasan ang mga paksa/mga kasapi
 p_SPLIT:Hatiin ang mga paksa
 p_LOCK:Ikandado ang mga paksa
 p_MOVE:Ilipat ang mga paksa
@@ -1106,6 +1104,7 @@ move_msg_th_expl:Tukuyin ang ID ng kapupuntahang paksa (maaari nasa ibang mga po
 captcha_img_alt:Pagpapatunay ng Captcha: kakailanganin mong makilala ang tekstong nasa loob ng larawang ito.
 captcha_img_help:Walang sero o isa sa loob ng larawan.
 powered-by:Binibigyang kapangyarihan ng: FUDforum {GVAR: FORUM_VERSION}.
+# Fuzzy
 copyright:Karapatang-ari &copy;2001-2011 <a href="http://fudforum.org/">Sopwer ng Paskilan ng FUDforum</a>
 code_title:Kodigo:
 code_select_all:Piliin lahat
@@ -1140,3 +1139,7 @@ page_list_total:Nakatalang {PLURAL: i|$1 pahina|$1 mga pahina}.
 page_update:Tinitingnan-tingnan ang pahina
 pm_export_header:Pribadong mensahe para sa {VAR: usr->alias}
 pm_export_footer:Nailuwas na:
+karma:Karma
+karma_track:Pamahalaan ang repustasyon para sa tagagamit:
+karma_delete:Burahin
+rate_author:Antasan ang may-akda:

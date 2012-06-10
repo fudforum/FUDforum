@@ -1111,6 +1111,7 @@ move_msg_th_expl:حدد هوية الموضوع الهدف (يمكن أن يكو
 captcha_img_alt:تحقق كابتشا: سوف تحتاج إلى التعرف على نص هذه الصورة.
 captcha_img_help:لا يوجد صفر ولا واحد في الصورة.
 powered-by:يشغله: FUDforum {GVAR: FORUM_VERSION}.
+# Fuzzy
 copyright:حقوق النشر &copy;2001-2011 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:الكود
 code_select_all:اختر الكل

@@ -1104,6 +1104,7 @@ move_msg_th_expl:Podaj ID ciloweje temy (móže w druhich forumach być)
 captcha_img_alt:Pruwowanje captcha: dyrbiš tekst we wobrazu spóznać.
 captcha_img_help:Njeje nula abo jedynka we wobrazu.
 powered-by:Pohonjeny přez: FUDforum {GVAR: FORUM_VERSION}.
+# Fuzzy
 copyright:Copyright &copy;2001-2011 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Kod:
 code_select_all:Wšě wubrać

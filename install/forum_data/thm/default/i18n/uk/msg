@@ -6,6 +6,7 @@
 # Author: Dim Grits
 # Author: Microcell
 # Author: Naudefj
+# Author: Olvin
 # Author: Prima klasy4na
 # Author: Тест
 
@@ -1110,6 +1111,7 @@ move_msg_th_expl:Вкажіть ідентифікатор (ID) теми рец�
 captcha_img_alt:Перевірка на те що ви людина: вам необхідно ввести розпізнаний текст на зображенні.
 captcha_img_help:На зображенні відсутні нулі (0) та одиниці (1).
 powered-by:Розробка: FUDforum {GVAR: FORUM_VERSION}.
+# Fuzzy
 copyright:Copyright &copy;2001-2011 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Код:
 code_select_all:Виділити всі
@@ -1146,5 +1148,5 @@ pm_export_header:Особисті повідомлення для {VAR: usr->ali
 pm_export_footer:Експортовані:
 karma:Карма
 karma_track:Управління репутацією для користувача:
-karma_delete:Видалити
+karma_delete:Вилучити
 rate_author:Оцінити автора:
