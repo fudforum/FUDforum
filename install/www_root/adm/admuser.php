@@ -104,21 +104,23 @@
 			break;
 		case 'reset':
 			$user_theme_name = q_singleval('SELECT name FROM '. $DBHOST_TBL_PREFIX .'themes WHERE '. (!$u->theme ? 'theme_opt>=2 AND '. q_bitand('theme_opt', 2) .' > 0' : 'id='. $u->theme));
-			if ($FUD_OPT_2 & 1 && !($u->users_opt & 131072)) {
+			if ($FUD_OPT_2 & 1 && !($u->users_opt & 131072)) {	// EMAIL_CONFIRMATION enabled, but user's e-mail is not yet confirmed.
 				$conf_key = usr_email_unconfirm($u->id);
 				$url = $WWW_ROOT . __fud_index_name__ .'?t=emailconf&conf_key='. $conf_key;
+				include_once($INCLUDE .'theme/'. $user_theme_name .'/rst.inc');	// Message variables.
 				send_email($NOTIFY_FROM, $u->email, $register_conf_subject, $reset_confirmation, '');
 				logaction(_uid, 'SEND_ECONF', 0, char_fix(htmlspecialchars($u->login)));
+				echo successify('Registration confirmation was e-mailed to the user.');
 			} else {
-				$user_theme_name = q_singleval('SELECT name FROM '. $DBHOST_TBL_PREFIX .'themes WHERE '. (!$u->theme ? 'theme_opt=3' : 'id='. $u->theme));
 				q('UPDATE '. $DBHOST_TBL_PREFIX .'users SET reset_key=\''. ($reset_key = md5(get_random_value(128))) .'\' WHERE id='. $u->id);
 
 				$url = $WWW_ROOT . __fud_index_name__ .'?t=reset&reset_key='. $reset_key;
-				include_once($INCLUDE .'theme/'. $user_theme_name .'/rst.inc');
+				include_once($INCLUDE .'theme/'. $user_theme_name .'/rst.inc');	// Message variables.
 				send_email($NOTIFY_FROM, $u->email, $reset_newpass_title, $reset_reset, '');
 				logaction(_uid, 'ADM_RESET_PASSWD', 0, char_fix(htmlspecialchars($u->login)));
+				echo successify('A password reset key was generated and mailed to the user.');
+
 			}
-			echo successify('Password was successfully reset and e-mailed to the user.');
 			break;
 		case 'del':
 			if ($usr_id == 1) {
@@ -323,7 +325,7 @@ administration permissions to the forum. This individual will be able to do anyt
 </td><td>
 	<!-- Links to control panels that Account Moderators can access. -->
 	<b>Account moderation:</b><br />
-	&nbsp;[ <a href="admuseradd.php?<?php echo __adm_rsid; ?>">Create new users</a> ]<br />
+	&nbsp;[ <a href="admuseradd.php?<?php echo __adm_rsid; ?>">Create users</a> ]<br />
 	&nbsp;[ <a href="admuserapr.php?<?php echo __adm_rsid; ?>">Approve users</a> ]<br />
 	&nbsp;[ <a href="admusermerge.php?<?php echo __adm_rsid; ?>">Merge users</a> ]<br /><br />
 	<b>Show:</b>
