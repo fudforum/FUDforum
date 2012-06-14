@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -8,8 +8,17 @@
 * under the terms of the GNU General Public License as published by the
 * Free Software Foundation; version 2 of the License.
 **/
+
+// This file contains user management functions used in the ACP.
 // @TODO: Move these functions to src/users_reg.inc.t or vice versa?
 
+/** Set user status to approved. */
+function usr_approve($id)
+{
+	q('UPDATE '. $GLOBALS['DBHOST_TBL_PREFIX'] .'users SET users_opt='. q_bitand('users_opt', ~2097152) .' WHERE id='. (int)$id);
+}
+
+/** Remove user and its dependancies from the database. */
 function usr_delete($id)
 {
 	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
@@ -66,6 +75,7 @@ function usr_delete($id)
 	}
 }
 
+/** Approve/reject user avatars. */
 function usr_adm_avatar($id, $del=0)
 {
 	if (!($ud = db_sab('SELECT u.login, u.email, t.name FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'users u INNER JOIN '. $GLOBALS['DBHOST_TBL_PREFIX'] .'themes t ON t.id=u.theme WHERE u.id='. $id))) {

@@ -1,0 +1,89 @@
+<?php
+/**
+* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
+* email                : forum@prohost.org
+* $Id: ckeditor.plugin 5354 2011-08-20 08:42:41Z naudefj $
+*
+* This program is free software; you can redistribute it and/or modify it
+* under the terms of the GNU General Public License as published by the
+* Free Software Foundation; version 2 of the License.
+**/
+
+// Initialize plugin.
+plugin_add_hook('COMPILER_FINALIZE_PAGE', 'plugin_ckeditor');
+
+// Add HTML markup to initialize ckeditor.
+function plugin_ckeditor($array) {
+	list($html, $page) = $array;
+
+	// Only when showing messages.
+	if ($page != 'post.php' && $page != 'msg.php') {
+		return $array;
+	}
+
+	// Add to footer.
+	$foot_add = '
+<script type="text/javascript" src="http://ckeditor.com/apps/ckeditor/3.6.3/ckeditor.js?1316349976"></script>
+<script type="text/javascript" src="http://ckeditor.com/apps/ckeditor/3.6.3/_source/lang/_languages.js?1316349976"></script>
+<script type="text/javascript">
+CKEDITOR.replace("txtb", {
+	extraPlugins : "bbcode",
+	// Remove unused plugins.
+	removePlugins : "bidi,button,dialogadvtab,div,filebrowser,flash,format,forms,horizontalrule,iframe,indent,justify,liststyle,pagebreak,showborders,stylescombo,table,tabletools,templates",
+	// Width and height are not supported in the BBCode format, so object resizing is disabled.
+	disableObjectResizing : true,
+	// Define font sizes in percent values.
+	fontSize_sizes : "30/30%;50/50%;100/100%;120/120%;150/150%;200/200%;300/300%",
+	toolbar :
+	[
+		["Source", "-", "Undo", "Redo"],
+		["Bold", "Italic", "Underline"],
+// HIERDIE WERK NIE!!!!		["JustifyLeft", "JustifyCenter", "JustifyRight"],
+		["Link", "Unlink", "Image", "Smiley", "SpecialChar"],
+		["FontSize"],
+		["TextColor"],
+		["NumberedList", "BulletedList", "-", "Blockquote"],
+		["Maximize"]
+	],
+	// Strip CKEditor smileys to those commonly used in BBCode.
+	smiley_images :
+	[
+		"regular_smile.gif","sad_smile.gif","wink_smile.gif","teeth_smile.gif","tounge_smile.gif",
+		"embaressed_smile.gif","omg_smile.gif","whatchutalkingabout_smile.gif","angel_smile.gif","shades_smile.gif",
+		"cry_smile.gif","kiss.gif"
+	],
+	smiley_descriptions :
+	[
+		"smiley", "sad", "wink", "laugh", "cheeky", "blush", "surprise",
+		"indecision", "angel", "cool", "crying", "kiss"
+	]
+} );
+</script>
+';
+	$html = str_replace('</body>', $foot_add .'</body>', $html);
+
+	return array($html, $page);
+}
+		
+function ckeditor_info() {
+	return array('name' => 'CKEditor',
+				'desc' => 'Allow WYSIWYG editing with <a href="http://ckeditor.com/">CKEditor</a>.',
+				'cat'  => 'Third-party Integration',
+				'version' => '1.0');
+}
+
+function ckeditor_enable() {
+	// fud_use('file_adm.inc', true);
+	// $fromdir = $GLOBALS['PLUGIN_PATH']   .'/ckeditor/deploy';
+	// $todir   = $GLOBALS['WWW_ROOT_DISK'] .'/theme/ckeditor';
+	// fud_mkdir($todir);
+	// fud_copy($fromdir, $todir);
+	@define('REBUILD_THEMES', 1);
+}
+
+function ckeditor_disable() {
+	// fud_use('file_adm.inc', true);
+	// fud_rmdir($GLOBALS['WWW_ROOT_DISK'] .'theme/ckeditor', true);
+	@define('REBUILD_THEMES', 1);
+}
+

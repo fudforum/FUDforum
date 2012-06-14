@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -15,7 +15,7 @@ plugin_add_hook('POST_TEMPLATE', 'plugin_fs_cache_put');
 
 function plugin_fs_cache_get($t) {
 	if (!__fud_real_user__ && !$GLOBALS['is_post']) {
-		$cache_time     = 300; // Time in seconds to keep a page cached (300 secs == 1 min).
+		$cache_time     = 300; // Time in seconds to keep a page cached (300 secs == 5 min).
 		// $cache_filename = $GLOBALS['TMP'] .'fs_cache_'. md5($_SERVER['REQUEST_URI']);
 		$cache_filename = $GLOBALS['TMP'] .'fs_cache_'. str_replace(array('/', '\\', '?', '#', '-', '*', '&', '$'), '', $_SERVER['REQUEST_URI']);
 
@@ -47,23 +47,27 @@ function plugin_fs_cache_put($template_data) {
 	return $template_data;
 }
 
-function plugin_fs_cache_clear($template_data) {
+function  fs_cache_disable() {
+	__plugin_fs_cache_clear();
+}
+
+function fs_cache_info() {
+	return array('name' => 'Extreme File System Cache',
+				'desc' => 'Cache output from templates on file system (only for anonymous users). Users may see stale data. Do not use this plugin on sites with multiple themes (restriction will be lifted in a future release).',
+				'cat'  => 'Caching',
+				'version' => '1.0');
+}
+
+function __plugin_fs_cache_clear() {
 	if ($handle = @opendir($GLOBALS['TMP'])) {
 		while (false !== ($file = @readdir($handle))) {
-			if ($file != '.' and $file != '..') {
-				echo $file . ' deleted.<br>';
+			if (substr($file, 0, 8) == 'fs_cache') {
 				@unlink($GLOBALS['TMP'] . $file);
+				if (defined('fud_debug')) echo 'Cache file '. $file . ' deleted.<br>';
 			}
 		}
 		@closedir($handle);
 	} 
-}
-
-function fs_cache_info() {
-	return array('name' => 'File System Cache',
-				'desc' => 'Cache output from templates on file system (only for anonymous users). Do not use this plugin on sites with multiple themes (restriction will be lifted in a future release).',
-				'cat'  => 'Caching',
-				'version' => '1.0');
 }
 
 ?>
