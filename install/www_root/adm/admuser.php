@@ -187,7 +187,7 @@ Are you sure you want to do this?<br />
 					exit;
 				} else if (isset($_POST['btn_yes'])) {
 					if ($GLOBALS['usr']->id == $usr_id) {
-						echo errorify('Sorry, you cannot abdicate from being and administrator. Ask another administrator to remove your account.');
+						echo errorify('Sorry, you cannot abdicate from being an administrator. Ask another administrator to remove your account.');
 						break;
 					}
 					if (q_singleval('SELECT count(*) FROM '. $DBHOST_TBL_PREFIX .'mod WHERE user_id='. $u->id)) {

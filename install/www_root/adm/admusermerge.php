@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -50,7 +50,7 @@
 	}
 ?>
 <h2>Merge users</h2>
-<p>This control panel will merge the posts from two separate user accounts into a single account. This action cannot be undone.</p>
+<p>This control panel will merge the posts from two separate user accounts into a single account. Be careful, this action cannot be undone.</p>
 
 <form id="frm_usr" method="post" action="admusermerge.php">
 <?php echo _hs; ?>

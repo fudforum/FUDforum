@@ -199,7 +199,7 @@ function undeploy_files($plugin)
 			echo '<form method="post" action="admplugins.php" autocomplete="off">';
 			echo '<fieldset><legend>Configuration:</legend>';
 			echo _hs;
-			echo '<input type="hidden" name="config" value="'.$plugin.'" />';
+			echo '<input type="hidden" name="config" value="'. $plugin .'" />';
 			$config_func();
 
 			echo '<input type="submit" name="Set" value="Configure" />';

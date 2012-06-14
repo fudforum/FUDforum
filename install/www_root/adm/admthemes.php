@@ -132,7 +132,7 @@
 ?>
 <h2>Theme Manager</h2>
 <div class="tutor">
-	Themes combine the forum's source code (logic) with <a href="admtemplates.php?<?php echo __adm_rsid; ?>">templates</a> (for layout) 
+	Themes combine the forum's source code (logic) with <a href="admtemplates.php?<?php echo __adm_rsid; ?>">templates</a> (for layout)
 	and <a href="admmessages.php?<?php echo __adm_rsid; ?>">message files</a> of a particular language.
 	The resulting files are deployed to the forum's web accessable <a href="admbrowse.php?cur=<?php echo urlencode($GLOBALS['WWW_ROOT_DISK'].'/theme'); ?>&amp;<?php echo __adm_rsid; ?>">'theme' directory</a>.
 	You can define multiple themes to support different languages and/or layouts.
@@ -158,7 +158,20 @@
 <tr class="field">
 	<td valign="top">Template Set:</td>
 	<td>
-	<select name="thm_theme">
+<!-- FOR FUTURE IMPLEMENTATION
+	<img id="thm_preview" width="150px" height="90px" src="theme/<?php echo $thm_theme; ?>.jpg">
+	<script>
+	// Change theme preview image.
+	$(document).ready(function() {
+		$('#thm_theme').change(function() {
+			var src = "theme/" + $('#thm_theme').val() + ".jpg";
+			$("#thm_preview").attr("src", src);
+		});
+	});
+	</script>
+-->
+
+	<select id="thm_theme" name="thm_theme">
 	<?php
 		foreach (glob($DATA_DIR .'/thm/*', GLOB_ONLYDIR) as $file) {
 			if (!file_exists($file .'/tmpl')) {
@@ -168,6 +181,7 @@
 			echo '<option value="'. $n .'"'. ($n == $thm_theme ? ' selected="selected"' : '') .'>'. $n .'</option>';
 		}
 	?></select>
+
 	</td>
 </tr>
 <tr class="field">

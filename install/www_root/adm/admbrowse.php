@@ -299,6 +299,14 @@ if (!extension_loaded('posix')) {
 		if ($_FILES['fname']['error'] == UPLOAD_ERR_OK) {
 			$fdest = !empty($_POST['d_name']) ? $_POST['d_name'] : $_FILES['fname']['name'];
 			$fdest = $cur_dir .'/'. basename($fdest);
+			if (file_exists($fdest)) {
+				// Backup file before we replace it.
+				if (!copy($fdest, $fdest .'.bak')) {
+					pf(errorify('Unable to backup old file to '. $fdest .'.bak.'));
+				} else {
+					pf(successify('Backup old file to '. $fdest));
+				}
+			}
 			if (move_uploaded_file($_FILES['fname']['tmp_name'], $fdest)) {
 				@chmod($fdest, ($FUD_OPT_2 & 8388608 ? 0600 : 0666));
 				logaction(_uid, 'Uploaded file', 0, $fdest);
@@ -387,9 +395,9 @@ if (!extension_loaded('posix')) {
 	if (isset($_POST['edit_save'], $_POST['edit_content'])) {
 		$file = str_replace('\\', '/', $cur_dir .'/'. $dest);
 		if (!copy($file, $file .'.bak')) {
-		    pf(errorify('Unable to backup file to '. $dest .'.bak. File will not be saved!'));
+		    pf(errorify('Unable to backup old file to '. $dest .'.bak. File will not be saved!'));
 		} else {
-			pf(successify('File backed up to '. $dest .'.bak'));
+			pf(successify('Backup old file to '. $dest .'.bak'));
 			if (file_put_contents($file, $_POST['edit_content'], LOCK_EX) === false) {
 				pf(errorify('Unable to save file!'));
 			} else {

@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -281,9 +281,25 @@ foreach( get_fud_table_list() as $tbl) {
 	pf(' > '. $tbl);
 }
 
+/* get_fud_col_list() - Return a list of columns for a spesific table. */
+pf('List columns...');
+$data = '';
+foreach( get_fud_col_list($tab) as $col => $col_details) {
+	// pf(' > ['. $col .']');
+	// var_dump($col_details);
+	$data1 .= $col .'/';
+	$data2 .= $col_details['type'] .'/';
+}
+if (strcmp($data1, 'id/msg/test_val/test_val2/') != 0) die('Wrong data returned: '. $data1);
+// if (strcmp($data2, 'id/msg/test_val/test_val2/') != 0) die('Wrong data returned: '. $data2);
+
 /* optimize_fud_tables() - Optimize database tables. */
 pf('Optimize tables...');
 optimize_fud_tables();
+
+/* get_sql_disk_usage() - Get size of database. */
+pf('Calculate database size...');
+pf('Size is: '. get_sql_disk_usage() .' bytes');
 
 pf('Drop table...');
 if (drop_table($tab) === FALSE) {

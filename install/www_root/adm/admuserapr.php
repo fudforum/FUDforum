@@ -16,7 +16,7 @@ function print_if_avail($descr, $value, $no_html=1)
 		if ($no_html) {
 			$value = htmlspecialchars($value);
 		}
-		return '<tr><td>'. $descr .':</td><td>'. $value .'</td></tr>';
+		return '<tr><td width="30%">'. $descr .':</td><td>'. $value .'</td></tr>';
 	}
 }
 
@@ -27,63 +27,111 @@ function print_if_avail($descr, $value, $no_html=1)
 
 	require($WWW_ROOT_DISK .'adm/header.php');
 
+	// Map GET (single account) to POST (selected accounts) requests.
 	if (isset($_GET['apr'])) {
-		if (($r = db_sab('SELECT email, login FROM '. $DBHOST_TBL_PREFIX .'users WHERE id='. (int)$_GET['apr']))) {
-			fud_use('adm_acc.inc');
-			fud_use('iemail.inc');
-			q('UPDATE '. $DBHOST_TBL_PREFIX .'users SET users_opt='. q_bitand('users_opt', ~2097152) .' WHERE id='. (int)$_GET['apr']);
-			send_email($NOTIFY_FROM, $r->email, $account_accepted_s, $account_accepted);
+		$_POST['approve_selected'] = 1;
+		$_POST['account'] = array($_GET['apr']);
+	} else if (isset($_GET['rm'])) {
+		$_POST['delete_selected'] = 1;
+		$_POST['account'] = array($_GET['rm']);
+	}
+
+	// Approve selected accounts.
+	if (isset($_POST['approve_selected'], $_POST['account'])) {
+		while (list($key, $account) = @each($_POST['account'])) {
+			if (($r = db_sab('SELECT email, login FROM '. $DBHOST_TBL_PREFIX .'users WHERE id='. (int)$account))) {
+				fud_use('adm_acc.inc');
+				usr_approve((int)$account);
+
+				fud_use('iemail.inc');
+				send_email($NOTIFY_FROM, $r->email, $account_accepted_s, $account_accepted);
+
+				pf(successify('Account '. $r->login .' approved and user notified.'));
+			}
 		}
-	} else if (isset($_GET['rm']) && (int)$_GET['rm'] != 1) {
-		if (($r = db_sab('SELECT email, login FROM '. $DBHOST_TBL_PREFIX .'users WHERE id='. (int)$_GET['rm']))) {
-			fud_use('adm_acc.inc');
-			fud_use('iemail.inc');
-			send_email($NOTIFY_FROM, $r->email, $account_rejected_s, $account_rejected);
-			usr_delete((int)$_GET['rm']);
+	}
+	// Delete selected accounts.
+	if (isset($_POST['delete_selected'], $_POST['account'])) {
+		while (list($key, $account) = @each($_POST['account'])) {
+			if (($r = db_sab('SELECT email, login, users_opt FROM '. $DBHOST_TBL_PREFIX .'users WHERE id='. (int)$account))) {
+				// We should never delete Anonymous, admin or spider users.
+				if ($account == 1 || ($r->users_opt & 1048576) || ($r->users_opt & 1073741824)) {
+					pf(errorify('Account '. $r->login .' cannot be deleted!'));
+					continue;
+				}
+
+				fud_use('adm_acc.inc');
+				usr_delete((int)$account);
+
+				fud_use('iemail.inc');
+				send_email($NOTIFY_FROM, $r->email, $account_rejected_s, $account_rejected);
+
+				pf(successify('Account '. $r->login .' deleted and user notified.'));
+			}
 		}
 	}
 ?>
 <h2>Account Approval</h2>
-<p>Approve or delete users who have registered (if 'New Account Moderation' is enabled in the Global Settings Manager).</p>
+<p>
+<?php
+	if (!($FUD_OPT_2 & 1024)) {
+		echo '"New Account Moderation" is disabled in the Global Settings Manager. Enable it to queue new accounts here for approval.';
+	} else {
+		echo '"New Account Moderation" is enabled. Users accounts will be queued here for approval:';
+	}
+?>
+</p>
+<form method="post" action="admuserapr.php">
 <table class="resulttable fulltable">
 <thead><tr class="resulttopic">
-	<th>Account Information</th><th align="center">Action</th>
+	<th>Account Information</th><th align="center" width="20%">Action</th>
 </tr></thead>
 <?php
 	$i = 0;
 	$c = uq('SELECT * FROM '. $DBHOST_TBL_PREFIX .'users WHERE users_opt>=2097152 AND '. q_bitand('users_opt', 2097152) .' > 0 AND id > 0');
-	while ($obj = db_rowobj($c)) {
-		$bgcolor = ($i++%2) ? ' class="resultrow2"' : ' class="resultrow1"';
-		echo '<tr'. $bgcolor .'"><td class="field"><table width="100%" '. $bgcolor .'>'.
-		print_if_avail('Login', $obj->login) .
-		print_if_avail('E-mail', $obj->email) .
-		print_if_avail('Name', $obj->name) .
-		print_if_avail('Location', $obj->location) .
-		print_if_avail('Occupation', $obj->occupation) .
-		print_if_avail('Interests', $obj->interests) .
-		print_if_avail('Avatar', ($obj->avatar_loc), 0) .
-		print_if_avail('Gender', ($obj->users_opt & 1024 ? 'Male' : ($obj->users_opt & 512 ? '' : 'Female'))) .
-		print_if_avail('Homepage', $obj->home_page) .
-		print_if_avail('Image', $obj->user_image) .
-		print_if_avail('Biography', $obj->bio) .
-		print_if_avail('ICQ', $obj->icq) .
-		print_if_avail('AIM Handle', $obj->aim) .
-		print_if_avail('Yahoo Messenger', $obj->yahoo) .
-		print_if_avail('MSN Messenger', $obj->msnm) .
-		print_if_avail('Jabber Handle', $obj->jabber) .
-		print_if_avail('Google Chat/IM Handle', $obj->google) .
-		print_if_avail('Skype Handle', $obj->skype) .
-		print_if_avail('Twitter Handle', $obj->twitter) .
-		print_if_avail('Signature', $obj->sig, 0) .
-		print_if_avail('IP Address', '<a href="../'. __fud_index_name__ .'?t=ip&amp;ip='. $obj->registration_ip .'&amp;'. __adm_rsid .'" title="Analyse IP usage">'. $obj->registration_ip, 0) .'</a>' .
+	while ($r = db_rowobj($c)) {
+		$i++;
+		echo '<tr class="field"><td><table width="100%">' .
+		print_if_avail('Login',                 $r->login) .
+		print_if_avail('E-mail',                $r->email) .
+		print_if_avail('Name',                  $r->name) .
+		print_if_avail('Location',              $r->location) .
+		print_if_avail('Occupation',            $r->occupation) .
+		print_if_avail('Interests',             $r->interests) .
+		print_if_avail('Avatar',               ($r->avatar_loc), 0) .
+		print_if_avail('Gender',               ($r->users_opt & 1024 ? 'Male' : ($r->users_opt & 512 ? '' : 'Female'))) .
+		print_if_avail('Homepage',              $r->home_page) .
+		print_if_avail('Image',                 $r->user_image) .
+		print_if_avail('Biography',             $r->bio) .
+		print_if_avail('ICQ',                   $r->icq) .
+		print_if_avail('AIM Handle',            $r->aim) .
+		print_if_avail('Yahoo Messenger',       $r->yahoo) .
+		print_if_avail('MSN Messenger',         $r->msnm) .
+		print_if_avail('Jabber Handle',         $r->jabber) .
+		print_if_avail('Google Chat/IM Handle', $r->google) .
+		print_if_avail('Skype Handle',          $r->skype) .
+		print_if_avail('Twitter Handle',        $r->twitter) .
+		print_if_avail('Signature',             $r->sig, 0) .
+		print_if_avail('IP Address', '<a href="../'. __fud_index_name__ .'?t=ip&amp;ip='. $r->registration_ip .'&amp;'. __adm_rsid .'" title="Analyse IP usage">'.              $r->registration_ip, 0) .'</a>' .
 		'</table></td>
-		<td class="fieldaction">[ <a href="admuserapr.php?apr='. $obj->id .'&amp;'. __adm_rsid .'">Approve Account</a> | <a href="admuserapr.php?rm='. $obj->id .'&amp;'. __adm_rsid .'">Delete Account</a> ]</td></tr>';
+		<td>
+			<input type="checkbox" id="account[]" name="account[]" value="'. $r->id .'" /><br />
+			[ <a href="admuserapr.php?apr='. $r->id .'&amp;'. __adm_rsid .'">Approve</a> ]<br />
+			[ <a href="admuserapr.php?rm='.  $r->id .'&amp;'. __adm_rsid .'">Delete</a> ]
+		</td></tr>';
 	}
-	unset($c);
+	echo '<tr><td colspan="2" align="center">';
 	if (!$i) {
-		echo '<tr><td colspan="2" align="center">No pending accounts found.</td></tr>';
+		echo 'No pending accounts found.';
+	} else {
+		echo '<input type="submit" name="approve_selected" value="Approve selected" /> &nbsp; ';
+		echo '<input type="submit" name="delete_selected"  value="Delete selected"  />';
+		echo _hs;
 	}
 ?>
+	</td></tr>
 </table>
+</form>
+<br />
 <p><a href="admuser.php?<?php echo __adm_rsid; ?>">&laquo; Back to User Administration System</a></p>
 <?php require($WWW_ROOT_DISK .'adm/footer.php'); ?>

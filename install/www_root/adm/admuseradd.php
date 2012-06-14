@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -16,6 +16,10 @@ function validate_input()
 		$GLOBALS['err_login'] = errorify('Login is required.');
 		return 1;
 	}
+	if (q_singleval('SELECT 1 FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'users WHERE login='. _esc($_POST['login']))) {
+		$GLOBALS['err_login'] = errorify('Login already in use.');
+		return 1;
+	}
 
 	if (empty($_POST['passwd'])) {
 		$GLOBALS['err_passwd'] = errorify('Password is required.');
@@ -24,6 +28,10 @@ function validate_input()
 
 	if (empty($_POST['email'])) {
 		$GLOBALS['err_email'] = errorify('E-mail address is required.');
+		return 1;
+	}
+	if (q_singleval('SELECT 1 FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'users WHERE email='. _esc($_POST['email']))) {
+		$GLOBALS['err_email'] = errorify('E-mail address already in use.');
 		return 1;
 	}
 
@@ -56,7 +64,7 @@ function validate_input()
 
 	if ($error) {
 		if ($error == 1) {
-			pf(errorify('Error adding user.'));
+			pf(errorify('Unable to add user.'));
 		} else {
 			pf(errorify($error));
 		}
@@ -87,7 +95,7 @@ Register a new forum user:
 		<td>Password:</td>
 		<td>
 			<?php if ($error && isset($err_passwd)) { echo $err_passwd; } ?>
-			<input tabindex="2" type="text" name="passwd" value="<?php echo $passwd; ?>" size="30" /> 
+			<input tabindex="2" type="text" id="passwd" name="passwd" value="<?php echo $passwd; ?>" size="30" /> 
 			<font size="-1">[ <a href="#" onclick="randomPassword();">Generate</a> ]</font>
 		</td>
 	</tr>
@@ -112,14 +120,14 @@ Register a new forum user:
 <p><a href="admuser.php?<?php echo __adm_rsid; ?>">&laquo; Back to User Administration System</a></p>
 <script>
 function randomPassword() {
-	var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz";
+	var chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz';
 	var string_length = 8;
 	var randomstring = '';
 	for (var i=0; i<string_length; i++) {
 		var rnum = Math.floor(Math.random() * chars.length);
 		randomstring += chars.substring(rnum, rnum+1);
 	}
-	document.forms['frm_usr'].passwd.value = randomstring;
+	$('#passwd').val(randomstring);
 }
 </script>
 <?php require($WWW_ROOT_DISK .'adm/footer.php'); ?>
