@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -16,10 +16,12 @@ function text_to_worda($text)
 	$lang = $GLOBALS['usr']->lang;
 
 	if (@preg_match('/\p{L}/u', 'a') == 1) {	// PCRE unicode support is turned on
-		// Match utf-8 words (remove the \p{N} if you don't want to index words with numbers).
+		// Match utf-8 words to index:
+		// - If you also want to index numbers, use regex "/[\p{N}\p{L}][\p{L}\p{N}\p{Mn}\p{Pd}'\x{2019}]*/u".
+		// - Remove the \p{N} if you don't want to index words with numbers in them.
 		preg_match_all("/\p{L}[\p{L}\p{N}\p{Mn}\p{Pd}'\x{2019}]*/u", $text, $t1);
 		foreach ($t1[0] as $v) {
-			if ($lang != 'chinese' && $lang != 'japanese' && $lang != 'korean') {
+			if ($lang != 'zh-hans' && $lang != 'zh-hant' && $lang != 'ja' && $lang != 'ko') {	// Not Chinese, Japanese nor Korean.
 				if (isset($v[51]) || !isset($v[2])) continue;   // Word too short or long.
 			}
 			$a[] = _esc($v);

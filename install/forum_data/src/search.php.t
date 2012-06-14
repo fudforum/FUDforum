@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -42,7 +42,7 @@ function fetch_search_cache($qry, $start, $count, $logic, $srch_type, $order, $f
 	}
 	$lang =& $GLOBALS['usr']->lang;
 	
-	if ($lang != 'chinese' && $lang != 'japanese') {
+	if ($lang != 'zh-hans' && $lang != 'zh-hant' && $lang != 'ja' && $lang != 'ko') {	// Not Chinese, Japanese nor Korean.
 		if (count($wa) > 10) {
 			$wa = array_slice($wa, 0, 10);
 		}
