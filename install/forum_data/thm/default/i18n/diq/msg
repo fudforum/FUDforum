@@ -53,7 +53,7 @@ locked_with_new_posts:Kılit kerdeyo
 logged_in_list:Listeya karberanê ke cıqewtış kerda
 login:Dekewtış
 login_header:Namey karberi
-logout:Bıvci
+logout:Bıveciyên
 mark_all_read:Mesaca pêrın wende deye mor ke
 mark_all_read_desc:Mesaci pêro wende deye êdê mor bê
 members:Ezay
@@ -219,6 +219,7 @@ add:Deke
 post_normal:Normal
 post_color:Dawte
 post_font:Tipê nusni
+post_logout:bıveciyên
 post_poll:Anket:
 post_file_name:Name
 post_forum:Forum:
@@ -396,12 +397,11 @@ rating_delete:Besterne
 post_always_on_top:Merseler Tım u tım liste dı en ser fi
 topic_rating:{VAR: frm->rating} from {PLURAL: frm->n_rating|$1 rey|$1 reyi}
 topic_list_rating:{VAR: r[17]} u {PLURAL: r[21]|$1 rey|$1 reyi}
-tabs_notifications:Xeberdareni
+tabs_notifications:Tebliği
 finduser_flag:Desmal
 pmsg_on:Akerde
 powered-by:Destegdaren: FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:Telif &copy;2001-2011 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Telif &copy;2001-2012 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_select_all:Pêrın Weçin fi
 code_show_hide:bımocne/bınımne
 social_sites:Steyê Sosyal Toran:

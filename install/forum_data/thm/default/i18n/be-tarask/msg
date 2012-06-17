@@ -770,8 +770,7 @@ p_STICKY:Далучаныя паведамленьні
 p_POLL:Стварыць галасаваньні
 p_FILE:Далучыць файлы
 p_VOTE:Прагаласаваць
-# Fuzzy
-p_RATE:Адзначыць тэмы
+p_RATE:Адзначыць тэмы/удзельнікаў
 p_SPLIT:Падзяліць тэмы
 p_LOCK:Заблякаваць тэмы
 p_MOVE:Перанесьці тэмы
@@ -1107,8 +1106,7 @@ move_msg_th_expl:Пазначце ідэнтыфікатар мэтавай тэ
 captcha_img_alt:Праверка Captcha: Вам неабходна распазнаць тэкст на гэтай выяве.
 captcha_img_help:На выяве няма лічбаў 0 ці 1.
 powered-by:Падтрымліваецца з дапамогай FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:Copyright &copy;2001-2011 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Copyright &copy;2001-2012 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Код:
 code_select_all:Выбраць усё
 code_show_hide:Паказаць/схаваць
@@ -1142,3 +1140,7 @@ page_list_total:{PLURAL: i|Пералічаная $1 старонка|Перал
 page_update:Прагляд старонкі
 pm_export_header:Асабістыя паведамленьні для {VAR: usr->alias}
 pm_export_footer:Экспартаваныя:
+karma:Карма
+karma_track:Кіраваньне рэпутацыяй для ўдзельнікаў:
+karma_delete:Выдаліць
+rate_author:Адзначыць аўтара:

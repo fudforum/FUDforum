@@ -126,7 +126,7 @@ profile_desc:Puntahan ang kahong pantaban ng tagagamit
 rate_thread:Antasan ang Paksa
 rating:Kaantasan
 rating_track:Pamahalaan ang mga antas para sa paksang <b>{VAR: thr->subject}</b>:
-refresh_list:Talaan ng pagsasariwa
+refresh_list:Sariwain ang tala
 register:Magpatala
 registered:Nakatala:
 registered_on:Nagpatala noong {TEMPLATE: registered_on_date}
@@ -1104,8 +1104,7 @@ move_msg_th_expl:Tukuyin ang ID ng kapupuntahang paksa (maaari nasa ibang mga po
 captcha_img_alt:Pagpapatunay ng Captcha: kakailanganin mong makilala ang tekstong nasa loob ng larawang ito.
 captcha_img_help:Walang sero o isa sa loob ng larawan.
 powered-by:Binibigyang kapangyarihan ng: FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:Karapatang-ari &copy;2001-2011 <a href="http://fudforum.org/">Sopwer ng Paskilan ng FUDforum</a>
+copyright:Karapatang-ari &copy;2001-2012 <a href="http://fudforum.org/">Sopwer ng Paskilan ng Patalastas ng FUDforum</a>
 code_title:Kodigo:
 code_select_all:Piliin lahat
 code_show_hide:Ipakita/itago
