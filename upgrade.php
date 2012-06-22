@@ -594,10 +594,41 @@ function syncronize_theme($theme)
 
 	// Another hack: q_bitand() was introduced in 3.0.2 and is used in this script.
 	// but the possibly older driver we've loaded may not have it yet.
-	if (!function_exists('q_bitand')) {
-		function q_bitand($fieldLeft, $fieldRight) {
-			return $fieldLeft .' & '. $fieldRight;
+	if (!function_exists('q_bitand')) 
+	{
+		$driver = $GLOBALS['DBHOST_DBTYPE'];
+		if( !stricmp( $driver, 'mysql' ) OR
+			!stricmp( $driver, 'mysqli' ) OR
+			!stricmp( $driver, 'mssql' ) OR
+			!stricmp( $driver, 'pgsql' ) OR
+			!stricmp( $driver, 'sqlsrv' ) OR
+			!stricmp( $driver, 'pdo_mysql' ) OR
+			!stricmp( $driver, 'pdo_pgsql' ) OR
+			!stricmp( $driver, 'pdo_sqlite' ) OR
+			!stricmp( $driver, 'pdo_sqlsrv' ) )
+		{
+			// mysql, mysqli, mssql, pgsql, sqlsrv
+			// pdo_mysql, pdo_pgsql, pdo_sqlite, pdo_sqlsrv
+			function q_bitand($fieldLeft, $fieldRight) {
+				return $fieldLeft .' & '. $fieldRight;
+			}
 		}
+		else if( !stricmp( $driver, 'db2' ) OR
+			!stricmp( $driver, 'interbase' ) OR
+			!stricmp( $driver, 'oci8' ) OR
+			!stricmp( $driver, 'pdo_oci' ) )                
+		{
+			// db2, interbase, oci8, pdo_oci
+			function q_bitand($fieldLeft, $fieldRight) {
+				return 'BITAND('. $fieldLeft .', '. $fieldRight .')';
+			}
+		}
+		else
+		{
+			// Unknown driver!
+			// TODO: manage error properly
+			die('Unknown database driver '. $driver .': cannot define q_bitand() properly.');			
+		}            
 	}
 
 	// Another temp hack. Manually check MySQL DB version .
