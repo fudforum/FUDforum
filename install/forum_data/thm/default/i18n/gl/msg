@@ -1,4 +1,4 @@
-# Messages for Galician (Galego)
+# Messages for Galician (galego)
 # Exported from translatewiki.net
 # Author: McDutchie
 # Author: Naudefj
@@ -81,7 +81,7 @@ message_index:Índice de mensaxes
 message_index_desc:Ver a lista de mensaxes
 minimize_category:Minimizar a categoría
 minimize_message:Minimizar a mensaxe
-moderation_queue:Fila de moderación
+moderation_queue:Cola de moderación
 moderator:Moderador
 moderator_of:Moderador de:
 moderator_options:Opcións de moderador

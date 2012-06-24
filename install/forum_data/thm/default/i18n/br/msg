@@ -1075,7 +1075,7 @@ mnav_sub_only:Klask er foromoù evezhiet hepken
 register_topics_per_page:Kaozioù dre bajenn :
 login_min_time:Ar forom-mañ a aotre un esae kevreañ bep {VAR: MIN_TIME_BETWEEN_LOGIN} eilenn. Gortozit {FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)} eilenn, mar plij, a-raok ober un esae all.
 post_not_logged_in:Noc'h ket kevreet evit poent, postet e vo ar gemennadenn ent dizanv.
-post_common_bold:Druz
+post_common_bold:Tev
 post_common_italics:Stouet
 post_common_underline:Islinennet
 post_common_align_left:Linennet a-gleiz

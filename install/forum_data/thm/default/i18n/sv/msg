@@ -8,6 +8,7 @@
 # Author: Nghtwlkr
 # Author: Poxnar
 # Author: Tobulos1
+# Author: Warrakkk
 # Author: WikiPhoenix
 
 action:Handling
@@ -1111,8 +1112,7 @@ move_msg_th_expl:Specificera ID på destinationsämnet (kan vara i andra fora)
 captcha_img_alt:Caotcha verifiering: du måste tolka texten i denna bild.
 captcha_img_help:Det finns ingen nolla eller etta i bilden.
 powered-by:Drivs av: FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:Copyright &copy;2001-2011 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Copyright &copy;2001-2012 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Kod:
 code_select_all:Välj alla
 code_show_hide:Visa / dölj

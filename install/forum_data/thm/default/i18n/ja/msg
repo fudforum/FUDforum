@@ -853,7 +853,7 @@ im_jabber:Jabber:
 im_google:Google Talk:
 im_skype:Skype:
 im_twitter:Twitter:
-forum_contact:連絡
+forum_contact:連絡先
 forum_home:ホーム
 post_cur_attached:現在 {VAR: i}{PLURAL: i|個のファイル}が添付されています
 ignored_anon_post:{GVAR: ANON_NICK} を無視しました。
