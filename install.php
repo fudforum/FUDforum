@@ -527,7 +527,7 @@ if (!count($_POST)) {
 
 	// Check if we have a forum_archive.
 	if (!file_exists('./fudforum_archive')) {
-		seterr('The install script requires a "fudforum_archive" file to run. Please download it and retry again.');
+		seterr('NOARCHIVE', 'The install script requires a "fudforum_archive" file to run. Please download it and retry again.');
 	}
 }
 

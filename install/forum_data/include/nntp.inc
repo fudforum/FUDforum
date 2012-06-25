@@ -206,7 +206,8 @@ class fud_nntp
 		$final_body = '';
 
 		if ($GLOBALS['FUD_OPT_3'] & 8) {	// NNTP_OBFUSCATE_EMAIL
-			$from = str_replace(array('.', '@'), array('[dot]', '[at]'), $from);
+			// $from = str_replace(array('.', '@'), array('[dot]', '[at]'), $from);
+			$from = str_replace('@', '@nospam.', $from);
 		}
 
 		// If we have attachements, and MIME encoding is prefered, insert attachments into body.

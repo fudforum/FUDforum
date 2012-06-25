@@ -269,7 +269,7 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir, $p=0)
 	} else {
 		$gz = extension_loaded('zlib');
 		if (!isset($path_error)) {
-			$path = $TMP.'FUDforum_'. strftime('%d_%m_%Y_%I_%M', __request_timestamp__) .'.fud';
+			$path = $TMP .'FUDforum_'. strftime('%d_%m_%Y_%I_%M', __request_timestamp__) .'.fud';
 			if ($gz) {
 				$path .= '.gz';
 				$compress = ' checked="checked"';

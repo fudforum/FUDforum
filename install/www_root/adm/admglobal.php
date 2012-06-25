@@ -495,7 +495,6 @@ jQuery(document).ready(function() {
 	print_bit_field('Disable Captcha Test', 'DISABLE_TURING_TEST');
 	print_bit_field('Anonymous User Captcha Test', 'USE_ANON_TURING');
 	print_bit_field('Use Captcha images', 'GRAPHICAL_TURING');
-	print_bit_field('MIME encode NNTP posts', 'NNTP_MIME_POSTS');
 	print_bit_field('Obfuscate E-mails in NNTP posts', 'NNTP_OBFUSCATE_EMAIL');
 	print_bit_field('MIME encode NNTP posts', 'NNTP_MIME_POSTS');
 	if (extension_loaded('zlib')) {
