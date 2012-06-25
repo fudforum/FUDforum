@@ -26,7 +26,7 @@ function fud_ini_set($opt, $val)
 function modules_enabled()
 {
 	$status = array();
-	foreach (array('ibm_db2', 'interbase', 'mysql', 'oci8', 'pdo_mysql', 'pdo_pgsql', 'pdo_sqlite', 'pdo_sqlsrv', 'pgsql', 'sqlsrv',
+	foreach (array('cubrid', 'ibm_db2', 'interbase', 'mysql', 'oci8', 'pdo_mysql', 'pdo_pgsql', 'pdo_sqlite', 'pdo_sqlsrv', 'pgsql', 'sqlsrv',
 		           'mbstring', 'pcre', 'pspell', 'posix', 'zlib') as $m) {
 		$status[$m] = extension_loaded($m);
 	}
@@ -40,7 +40,7 @@ function modules_enabled()
 function databases_enabled() 
 {
 	$module_status = modules_enabled();
-	$supported_databases = array('ibm_db2'=>'IBM DB2', 'interbase'=>'Firebird', 'mysql'=>'MySQL', 'mysqli'=>'MySQL Improved', 'oci8'=>'Oracle', 'pgsql'=>'PostgreSQL', 'sqlsrv' => 'SQL Server (Microsoft)', 'pdo_mysql'=>'PDO: MySQL', 'pdo_pgsql'=>'PDO: PostgreSQL', 'pdo_sqlite'=>'PDO: SQLite', 'pdo_sqlsrv'=>'PDO: SQL Server (Microsoft)');
+	$supported_databases = array(/*'cubrid'=>'CUBRID',*/ 'ibm_db2'=>'IBM DB2', 'interbase'=>'Firebird', 'mysql'=>'MySQL', 'mysqli'=>'MySQL Improved', 'oci8'=>'Oracle', 'pgsql'=>'PostgreSQL', 'sqlsrv' => 'SQL Server (Microsoft)', 'pdo_mysql'=>'PDO: MySQL', 'pdo_pgsql'=>'PDO: PostgreSQL', 'pdo_sqlite'=>'PDO: SQLite', 'pdo_sqlsrv'=>'PDO: SQL Server (Microsoft)');
 
 	foreach ($supported_databases as $driver => $name) {
 		if (!$module_status[$driver]) {
@@ -503,6 +503,7 @@ if (!count($_POST)) {
 		!$module_status['pdo_sqlite'] &&
 		!$module_status['sqlsrv'] && !$module_status['pdo_sqlsrv'])
 	{
+		// FUTURE: seterr('NODB', 'Your PHP installation does not appear to support any of CUBRID, IBM DB2, Firebird, MySQL, Oracle, PosgreSQL, SQLite or MS-SQL Server database system. Please rectify this and try again.');
 		seterr('NODB', 'Your PHP installation does not appear to support any of IBM DB2, Firebird, MySQL, Oracle, PosgreSQL, SQLite or MS-SQL Server database system. Please rectify this and try again.');
 	}
 
@@ -905,7 +906,7 @@ if ($section == 'db' || php_sapi_name() == 'cli') {
 	/* Import seed data. */
 	if (!isset($GLOBALS['errors'])) {					
 		foreach ($sql as $t) {
-			$file = str_replace(array('\r\n', '\r'), "\r\n", file_get_contents($t));
+			$file = str_replace(array("\r\n", "\r"), "\n", file_get_contents($t));
 			foreach (explode(";\n", $file) as $q) { 
 				$q = make_into_query($q);
 				if ($q) {
@@ -1159,6 +1160,9 @@ switch ($section) {
 			($module_status['mysql'] ? 'enabled' : 'disabled'), ($module_status['mysql'] ? 'green' : 'orange'));
 	prereq_row('MySQL PDO Extension:', 'PDO interface to the MySQL server (pdo_mysql).', 
 			($module_status['pdo_mysql'] ? 'enabled' : 'disabled'), ($module_status['pdo_mysql'] ? 'green' : 'orange'));
+	// FOR FUTURE IMPLEMENTATION:
+	// prereq_row('CUBRID Extension:', 'Interface to CUBRID database (cubrid).', 
+	// 		($module_status['cubrid'] ? 'enabled' : 'disabled'), ($module_status['cubrid'] ? 'green' : 'orange'));
 	prereq_row('Firebird Extension:', 'Interface to Firebird/Interbase database (ibase).', 
 			($module_status['interbase'] ? 'enabled' : 'disabled'), ($module_status['interbase'] ? 'green' : 'orange'));
 	prereq_row('Oracle OCI8 Extension:', 'Interface to Oracle database server (oci8).', 
@@ -1243,7 +1247,7 @@ switch ($section) {
 		$db_types = databases_enabled();
 		reset($db_types);
 		if (count($db_types) > 1) {
-			sel_row('Database Type', 'DBHOST_DBTYPE', implode("\n", $db_types), implode("\n", array_keys($db_types)), 'Type of database to store FUDforum data in.', (isset($_POST['DBHOST_DBTYPE']) ? $_POST['DBHOST_DBTYPE'] : 'mysql'));
+			sel_row('Database Type', 'DBHOST_DBTYPE', implode("\n", $db_types), implode("\n", array_keys($db_types)), 'Type of database to store FUDforum data in.', (isset($_POST['DBHOST_DBTYPE']) ? $_POST['DBHOST_DBTYPE'] : 'mysqli'));
 		} else {
 			echo '<tr class="field"><td valign="top"><b>Database Type</b></td><td><input type="hidden" name="DBHOST_DBTYPE" value="'. key($db_types) .'" />Using '. current($db_types) .'</td></tr>';
 		}
@@ -1289,7 +1293,7 @@ switch ($section) {
 					} else if (db == "interbase") {
 						jQuery("#DBHOST").val("127.0.0.1");
 						jQuery("#DBHOST_USER").val("SYSDBA");
-					} else if (db == "mysql" || db == "mysqli" || db == "pdo_mysql") {
+					} else if (db == "mysql" || db == "mysqli" || db == "pdo_mysql" || db == "cubrid") {
 						jQuery("#DBHOST").val("127.0.0.1");
 						jQuery("#DBHOST_USER").val("root");
 					} else if (db == "pgsql" || db == "pdo_pgsql") {
