@@ -379,7 +379,7 @@ function fud_fetch_forum($arg)
 	return _fud_decode_forum(_fud_simple_fetch_query($arg, 'SELECT * FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'forum WHERE id IN({ARG})'));
 }
 
-/* {{{ proto: mixed fud_fetch_cat(mixed arg) }}}
+/* {{{ proto: mixed fud_fetch_cat(mixed arg, boolean sort) }}}
  * This function returns information about the specified categories.
  * Fields:
 stdClass Object
@@ -387,20 +387,33 @@ stdClass Object
     [id] => // category id
     [name] => // category name (may contain raw html)
     [description] => // category description (may contain raw html)
+    [cat_opt] => // options for the category (see sql/fud_cat.tbl)
+    [view_order] => // category viewing order (int)
+    [parent] => // parent category id (int)
 )
  */
-function fud_fetch_cat($arg)
+function fud_fetch_cat($arg = null, $sort = FALSE)
 {
-	return _fud_simple_fetch_query($arg, 'SELECT * FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'cat WHERE id IN({ARG})');
+    $q = "SELECT * FROM {$GLOBALS['DBHOST_TBL_PREFIX']}cat";
+    if( null != $arg)
+        $q .= " WHERE id IN ({ARG})";
+    if( $sort )
+        $q .= " ORDER BY view_order";
+    return _fud_simple_fetch_query( $arg, $q );
 }
 
-/* {{{ proto: mixed fud_fetch_cat_forums(mixed arg) }}}
+/* {{{ proto: mixed fud_fetch_cat_forums(mixed arg, boolean sort) }}}
  * This function returns information about forum(s) inside specified categories.
  * The output is identical to that of the fud_fetch_forum() function.
  */
-function fud_fetch_cat_forums($arg)
+function fud_fetch_cat_forums( $arg = null, $sort = FALSE )
 {
-	return _fud_decode_forum(_fud_simple_fetch_query($arg, 'SELECT * FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'forum WHERE cat_id IN({ARG})'));
+    $q = "SELECT * FROM {$GLOBALS['DBHOST_TBL_PREFIX']}forum";
+    if( null != $arg)
+        $q .= " WHERE cat_id IN ({ARG})";
+    if( $sort )
+        $q .= " ORDER BY view_order";
+    return _fud_simple_fetch_query( $arg, $q );
 }
 
 /* {{{ proto: mixed fud_forum_stats() }}}
@@ -983,28 +996,29 @@ function _fud_msg_multi($arg, $query)
 
 function _fud_simple_fetch_query($arg, $query)
 {
-        if ($arg) {    
+	if ($arg) {    
 		$arg = is_numeric($arg) ? array($arg) : $arg;
 	} else {
 		$arg = array();
 	}
 	$result = array();
-
-	$r = uq(str_replace('{ARG}', implode(',', $arg), $query));
+        
+        $r = uq(str_replace('{ARG}', implode(',', $arg), $query));
 	while ($row = db_rowobj($r)) {
-		$result[] = $row;
+		$result[] = $row;    
 	}
-	unset($r);
+        unset($r);
 
-	if ($arg && count($result) != count($arg)) {
-		return FALSE;
-	} else {
-		if (count($result) == 1) {
-			return array_pop($result);
-		} else {
-			return $result;
-		}
-	}
+// NeXuS: this breaks fud_fetch_cat_forums!
+//	if ($arg && count($result) != count($arg)) {      
+//		//return FALSE;
+//	} 
+        
+        if (count($result) == 1) {
+            return array_pop($result);
+        } else {
+            return $result;
+        }
 }
 
 function _fud_decode_forum($data)
