@@ -351,7 +351,7 @@ function fud_fetch_attachment($arg)
 	return $res;
 }
 
-/* {{{ proto: mixed fud_fetch_forum(mixed arg) }}}
+/* {{{ proto: mixed fud_fetch_forum(mixed arg, boolean sort) }}}
  * This function returns information about specified forum(s).
  * Fields:
 stdClass Object
@@ -374,9 +374,14 @@ stdClass Object
         )
 )
 */
-function fud_fetch_forum($arg)
+function fud_fetch_forum( $arg = null, $sort = FALSE )
 {
-	return _fud_decode_forum(_fud_simple_fetch_query($arg, 'SELECT * FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'forum WHERE id IN({ARG})'));
+    $q = "SELECT * FROM {$GLOBALS['DBHOST_TBL_PREFIX']}forum";
+    if( null != $arg)
+        $q .= " WHERE id IN ({ARG})";
+    if( $sort )
+        $q .= " ORDER BY view_order";
+    return _fud_simple_fetch_query( $arg, $q );
 }
 
 /* {{{ proto: mixed fud_fetch_cat(mixed arg, boolean sort) }}}
