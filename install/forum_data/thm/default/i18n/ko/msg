@@ -112,7 +112,7 @@ profile:사용자 제어판
 # Fuzzy
 profile_desc:여기를 클릭하면 사용자 제어판으로 이동합니다
 rate_thread:토픽 평가
-refresh_list:목록 새로고침
+refresh_list:목록 새로 고침
 register:등록
 registered:등록완료:
 registered_on:등록완료 {TEMPLATE: registered_on_date}
@@ -366,6 +366,7 @@ post_title:제목:
 post_body:본문:
 post_options:옵션:
 post_preview_btn:쪽지
+post_cancel_btn:취소
 ignore_users:차단 멤버
 add_ignore:차단 멤버 추가
 forum_terms:포럼 기간
