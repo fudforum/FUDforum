@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -143,7 +143,7 @@
 {IF: $perms & 64 && (!$th_id || $msg_id == $thr->root_msg_id)}
 <tr>
 	<td><input type="checkbox" name="thr_always_on_top" id="thr_always_on_top" value="Y"{IF: $thr_always_on_top} checked="checked"{ENDIFI} /></td>
-	<td class="GenText fb"><label for="thr_always_on_top">{MSG: post_always_on_top}</label</td>
+	<td class="GenText fb"><label for="thr_always_on_top">{MSG: post_always_on_top}</label></td>
 </tr>
 {ENDIFI}
 {SECTION: END}

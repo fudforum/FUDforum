@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -101,15 +101,19 @@
 {SECTION: END}
 
 {SECTION: post_icons}
-<tr class="RowStyleA"><td class="vt GenText">{MSG: post_icons}</td><td>
-<table border="0" cellspacing="0" cellpadding="2">
-<tr>
-	<td class="GenText" colspan="{GVAR: POST_ICONS_PER_ROW}">
-		<input type="radio" name="msg_icon" value=""{IF: !$msg_icon} checked="checked"{ENDIF} />{MSG: post_no_icon}</td></tr>
+<tr class="RowStyleA">
+	<td class="vt GenText">{MSG: post_icons}</td>
+	<td>
+		<table border="0" cellspacing="0" cellpadding="2">
+		<tr>
+			<td class="GenText" colspan="{GVAR: POST_ICONS_PER_ROW}">
+				<input type="radio" name="msg_icon" value=""{IF: !$msg_icon} checked="checked"{ENDIF} />{MSG: post_no_icon}
+			</td>
+		</tr>
 		{TEMPLATE-DATA: data}
+		</table>
 	</td>
 </tr>
-</table>
 {SECTION: END}
 
 {SECTION: common_javascript}
