@@ -59,7 +59,14 @@
 {SECTION: register_turing_test}
 <tr class="RowStyleA">
 	<td>{MSG: register_turing}{FUNC: draw_err('reg_turing')}<br /><div style="white-space: pre; font-family: Courier, monospace; color: black; background-color: #C0C0C0;">{FUNC: generate_turing_val($turing_res)}<input type="hidden" name="turing_res" value="{VAR: turing_res}" /></div></td>
-	<td class="vb"><input type="text" name="turing_test" value="" /></td>
+	<td class="vb">
+		<input type="text" name="turing_test" value="" />
+		<span class="dn" style="display:none; visibility:hidden;">
+		<input type="text" name="turing_test1" value="{DEF: __request_timestamp__}" />
+		<input type="text" name="turing_test2" value="{FUNC: md5($GLOBALS['FORUM_TITLE'])}" />
+		<input type="text" name="turing_test3" value="" />
+		</span>
+	</td>
 </tr>
 {SECTION: END}
 
