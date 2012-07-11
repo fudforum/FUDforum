@@ -999,7 +999,7 @@ function _fud_msg_multi($arg, $query)
 	return fud_fetch_msg($ids);
 }
 
-function _fud_simple_fetch_query($arg, $query)
+function _fud_simple_fetch_query($arg, $query, $check_count = TRUE)
 {
 	if ($arg) {    
 		$arg = is_numeric($arg) ? array($arg) : $arg;
@@ -1008,22 +1008,23 @@ function _fud_simple_fetch_query($arg, $query)
 	}
 	$result = array();
         
-        $r = uq(str_replace('{ARG}', implode(',', $arg), $query));
+    $r = uq(str_replace('{ARG}', implode(',', $arg), $query));
 	while ($row = db_rowobj($r)) {
 		$result[] = $row;    
 	}
-        unset($r);
+	unset($r);
 
-// NeXuS: this breaks fud_fetch_cat_forums!
-//	if ($arg && count($result) != count($arg)) {      
-//		//return FALSE;
-//	} 
-        
-        if (count($result) == 1) {
-            return array_pop($result);
-        } else {
-            return $result;
-        }
+	if( $check_count ) {
+		if ($arg && count($result) != count($arg)) {      
+				return FALSE;
+		} 
+	}
+	
+	if (count($result) == 1) {
+		return array_pop($result);
+	} else {
+		return $result;
+	}
 }
 
 function _fud_decode_forum($data)
