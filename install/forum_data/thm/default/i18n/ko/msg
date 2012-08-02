@@ -78,8 +78,7 @@ move_thread:이동
 moved:다른 포럼으로 이동
 moved_thread_message:이 토픽을 다른 포럼으로 이동시킵니다
 new_posts:새 메시지
-# Fuzzy
-new_private_messages:<span class="GenTextRed">({VAR: c})</span>개의 읽지 않은 쪽지가 있습니다
+new_private_messages:읽지 않은 {PLURAL: c|개인 쪽지|개인 쪽지} <span class="GenTextRed">({VAR: c})</span>개가 있습니다
 new_thread:새 토픽
 newest_user:신규 등록 사용자
 next_page:다음 페이지

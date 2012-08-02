@@ -3,7 +3,7 @@
 # Author: Erdemaslancan
 # Author: Mirzali
 
-action:Hereket
+action:Kerden
 add_to_buddy_list:Peyey defi
 admin:Admin
 admin_control_panel:İdarekari
@@ -24,6 +24,7 @@ pmsg_download_counter:Ronayış {PLURAL: r->dlcount|$1 time|$1 mend}
 email:E-mail
 email_to_friend:E-mailê embazi
 faq:Peşti
+flat_view:Hesıbyaye asayış dê raşti rê peyd şo
 forum:Forum
 forum_icon:Forum Icon
 forum_new_messages:Mesaco newe
@@ -70,7 +71,7 @@ message_index:İndeksê mesaca
 message_index_desc:Listey mesaca bıvin
 minimize_category:Kategoriye Werdı ke
 minimize_message:Mesaci Werdı ke
-moderator:Weset
+moderator:Cerbener
 moderator_of:Wesetê Forumi
 moderator_options:Wesetin Weçiney
 moderators:{PLURAL: modcount|Wesetber|Wesetber}
@@ -122,7 +123,7 @@ list_referes_member:Eza
 referals_none:Hona şıma şınasiye nê kerdo.
 referals_post_count:Amariya Mesaca
 referals_registered_on:Tarixê Qeydi:
-referals_action:Hereket
+referals_action:Kerden
 pmsg_all:pêro
 pmsg_none:Hêçjew
 folder:Klasor
@@ -137,7 +138,7 @@ cur_ppage_pm:Sistemê Mesacan dê Xususiya
 writing_pm:Xususi Mesac Bınusne
 browsing_folder:<b>Klasorê {VAR: folders[$folder_id]}</b>
 inbox:Dora ameya
-draft:Vernuşte
+draft:Taslax
 sent:Şınen
 trash:Sılo
 msg_author:Nuskar
@@ -172,11 +173,11 @@ male:cıwamêrd
 female:Cenıke
 unspecified:MOR NÊBİYO
 finduser_submit:Karberi Bıvin
-finduser_no_such_user:Wına Karber Çıno
+finduser_no_such_user:Karbero do Wuna Çıniyo
 finduser_user:Karber
 finduser_postcount:Amariya Mesaca
 finduser_joindate:Tarixê Tewrbiyayışi
-finduser_action:Hereket
+finduser_action:Kerden
 yes:E
 no:Nê
 register_email:E-posta
@@ -190,10 +191,10 @@ register_builtin:Sazine
 register_specify_url:Url'i Cake
 register_login:Namey karberi
 register_password:Parola:
-register_conf_pass:Parolay Morke
+register_conf_pass:Parolay tesdiq ke:
 register_name:Name:
 register_your_pass:Parolay Şıma:
-register_update:Anewen ke
+register_update:Noroc resn
 register_avatar_type:Tipê Avatari
 register_del_avatar:Avatari Hewa dê
 register_avatar:Avatar:
@@ -212,6 +213,9 @@ register_year:Serre
 register_gender:Neri makey:
 register_bio:Biyografiye:
 register_reset:Reset kerê
+register_def_thread_view:Hesıbyaye asayışe mersel:
+register_use_sig_default:Hesıbyaye deye imzay bımocne:
+register_notification:Hesıbyaye yo deye ikaz bırşiyo:
 buddy_status:Weziyet
 my_buddies:Embazê me
 add_buddy:Embaz deke
@@ -251,7 +255,7 @@ mklist_close:Racnê
 email_pg_title:E-posta
 email_submit:E-posta
 poll_create:Vıraze
-poll_update:Anewen ke
+poll_update:Noroc resn
 poll_day:roc
 poll_days:roci
 poll_hour:saat
@@ -270,7 +274,7 @@ report_err_nosuchmsg_title:XIRAB
 report_err_nosuchmsg_msg:Mesaco wuna çıno
 reset_err_invalidkey_title:XIRAB
 reset_err_rstconf_title:Zanışe
-reset_newpass_title:Parolayer fına saz ke
+reset_newpass_title:Parola reset ke
 email_title:Formê E-maili
 help_title:Peşti
 login_title:Formê Cı qewtışi
@@ -283,7 +287,7 @@ post_opt_images_on:<b>Resımi akerdeyê</b>
 thr_exch_submit:Bırşe
 groupmgr_yes:E
 groupmgr_no:Nê
-groupmgr_action:Hereket
+groupmgr_action:Kerden
 groupmgr_member:Eza
 groupmgr_cancel:Xırab qı
 groupmgr_add_member:Eza Defi
@@ -337,7 +341,7 @@ forum_home:Keye
 poll_edit:Bıvurne
 polllist_name:Namey Anketi
 polllist_votes:Rey Heme
-polllist_action:Hereket
+polllist_action:Kerden
 userinfo_polls:Reydayış
 show_pollist:Anketi Bımocne
 search_and:U
@@ -362,7 +366,7 @@ findu_no_conf:Karberê ke otomatikmen tesdiq biy
 register_max_sig_len:En Vêşi Dergey:
 register_turing:Şıma ra reca, Qodê cêrêni defiye de:
 register_err_turing:Ravyayışê qodi xırabo.
-modque_cat:Kategori
+modque_cat:Kategoriye
 modque_forum:Forum
 idx_compact_forum_row:Forumi:
 mmd_del_title:MErseli Besterne

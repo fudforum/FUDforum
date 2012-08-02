@@ -771,8 +771,7 @@ p_STICKY:Lipnios temos
 p_POLL:Sukurti apklausą
 p_FILE:Prisegti failus
 p_VOTE:Balsuoti
-# Fuzzy
-p_RATE:Vertinti temas
+p_RATE:Vertinti temas/narius
 p_SPLIT:Splitas temos
 p_LOCK:Uždaryti temą
 p_MOVE:Perkelti temas
@@ -1108,8 +1107,7 @@ move_msg_th_expl:Nurodykite paskirties temą (gali būti kituose forumuose) ID.
 captcha_img_alt:Captcha patikrinimas: jums reikia atpažinti tekstą paveikslėlije.
 captcha_img_help:Nėra nulio ar vieno šiame vaizde.
 powered-by:Pagal: FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:Teisės © 2001-2011 <a href="http://fudforum.org/">FUDforum forumų Programinė įranga</a>
+copyright:Autorinės teisės &copy;2001-2012 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Kodas
 code_select_all:Pasirinkti visus
 code_show_hide:Rodyti / slėpti
@@ -1143,3 +1141,7 @@ page_list_total:{PLURAL: i| $1 puslapis | $1 puslapių} sąraše.
 page_update:Naršomas puslapis
 pm_export_header:Asmeninis pranešimas {VAR: usr->alias}
 pm_export_footer:Eksportuota:
+karma:Reputacija
+karma_track:Valdyti reputaciją vartotojui:
+karma_delete:Ištrinti
+rate_author:Įvertinti autorių:

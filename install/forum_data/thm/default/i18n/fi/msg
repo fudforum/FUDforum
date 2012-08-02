@@ -1,7 +1,9 @@
 # Messages for Finnish (suomi)
 # Exported from translatewiki.net
 # Author: Crt
+# Author: ElmA
 # Author: Lliehu
+# Author: Nedergard
 # Author: Nike
 # Author: Olli
 # Author: Silvonen
@@ -771,8 +773,7 @@ p_STICKY:Luoda kiinnitettyjä aiheita
 p_POLL:Luoda galluppeja
 p_FILE:Liittää tiedostoja
 p_VOTE:Äänestää
-# Fuzzy
-p_RATE:Arvioida aiheita
+p_RATE:Arvioi aiheita/jäseniä
 p_SPLIT:Jakaa aiheita
 p_LOCK:Lukita/avata aiheita
 p_MOVE:Siirtää aiheita
@@ -1108,8 +1109,7 @@ move_msg_th_expl:Ilmoita kohdeaiheen tunnusnumero (voi olla toisella foorumilla)
 captcha_img_alt:Captcha-varmistus: Sinun täytyy tunnistaa teksti tästä kuvasta.
 captcha_img_help:Kuvassa ei ole nollaa tai ykköstä.
 powered-by:Palvelun mahdollistaa: FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:Copyright &copy; 2001–2011 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Copyright &copy;2001-2012 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Koodi:
 code_select_all:Valitse kaikki
 code_show_hide:Näytä tai piilota
@@ -1143,4 +1143,5 @@ page_list_total:Näytetään {PLURAL: i|$1 sivu|$1 sivua}.
 page_update:Selailee sivua
 pm_export_header:Yksityisviestit käyttäjälle {VAR: usr->alias}
 pm_export_footer:Viety:
+karma:Karma
 karma_delete:Poista

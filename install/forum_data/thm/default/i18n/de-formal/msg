@@ -773,8 +773,7 @@ p_STICKY:Angeheftete Beiträge
 p_POLL:Umfragen erstellen
 p_FILE:Dateien anhängen
 p_VOTE:Abstimmen
-# Fuzzy
-p_RATE:Themen bewerten
+p_RATE:Themen/Mitglieder bewerten
 p_SPLIT:Themen aufteilen
 p_LOCK:Themen sperren
 p_MOVE:Themen verschieben
@@ -1144,3 +1143,7 @@ page_list_total:{PLURAL: i|$1 Seite|$1 Seiten} aufgeführt.
 page_update:Liest eine Seite
 pm_export_header:Private Nachrichten für {VAR: usr->alias}
 pm_export_footer:Exportiert:
+karma:Reputation
+karma_track:Reputation für folgenden Nutzer verwalten:
+karma_delete:Löschen
+rate_author:Autor bewerten:
