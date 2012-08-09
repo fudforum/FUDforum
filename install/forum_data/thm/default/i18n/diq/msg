@@ -90,6 +90,7 @@ post_count:Amariya Mesaca {VAR: u_pcount}
 posts:Mesaci
 posts_c:Mesaci:
 profile:Panela Cerbnayışi
+rate_thread:Meseler ercenê
 search:Cı geyre
 send:Bırş
 status:Weziyet:
@@ -208,7 +209,7 @@ register_msnm:MSN Messenger:
 register_homepage:Pelaseri:
 register_bday:Demê biyayışi:
 register_day:Roce
-register_month:Menge
+register_month:Aşme
 register_year:Serre
 register_gender:Neri makey:
 register_bio:Biyografiye:
@@ -260,7 +261,7 @@ poll_day:roc
 poll_days:roci
 poll_hour:saat
 poll_hours:saat
-poll_month:Menge
+poll_month:Aşme
 poll_year:Serre
 poll_week:hefte
 tabs_register:Sazê Hesabi
@@ -305,8 +306,7 @@ p_STICKY:Mesacê dışkiyayıni
 p_POLL:Anket Vırazê
 p_FILE:Dosya Dekerê de
 p_VOTE:Rey Bıdê
-# Fuzzy
-p_RATE:Meseler rê vatış bıde
+p_RATE:Meseler/ezay bercıne
 p_SPLIT:Meseli abırne
 p_LOCK:Meseler qılit ke
 p_MOVE:Merseli Ber:
@@ -338,6 +338,7 @@ im_skype:Skype:
 im_twitter:Twitter:
 forum_contact:İrtibat
 forum_home:Keye
+p_VISIBLE:Mocnerey
 poll_edit:Bıvurne
 polllist_name:Namey Anketi
 polllist_votes:Rey Heme
@@ -419,7 +420,7 @@ btn_small_pm:MX
 btn_delete:besterne
 btn_edit:Bıvurne
 btn_reply:Cewab bıde
-btn_forward:Hetana fi
+btn_forward:Aser ke
 btn_quote:gırewte
 btn_email:E-posta
 btn_show_posts:Rıştışi

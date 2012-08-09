@@ -182,7 +182,7 @@ unsubscribe_desc:Nu mai primi notificari despre noi teme in forum
 updated_on:Updatat la data de:
 user:Utilizator
 user_counter:Avem <b>{VAR: st_obj->user_count}</b> {PLURAL: st_obj->user_count|utilizator înregistrat|utilizatori înregistrați}.
-user_info:Informatii utilizator
+user_info:Informații despre utilizator
 user_info_l:Informatii utilizator {VAR: u->alias}
 user_offline:{VAR: obj->login}  este offline
 user_online:{VAR: obj->login} este online
@@ -272,7 +272,7 @@ register_msg_tree_view:Vedere a mesajelor normala/Listare arborescenta
 register_tree_msg_view:Listare arborescenta/Listare normala
 register_flat_view:Vizualizare normala
 use_forum_default:Foloseste standardele forumului
-finduser_user_info:Informatii utlizator
+finduser_user_info:Informații despre utilizator
 finduser_by_login:Dupa numele de utilizator:
 finduser_submit:Cauta
 finduser_no_such_user:Nici un utilizator gasit

@@ -7,6 +7,7 @@
 # Author: Mark85296341
 # Author: Naudefj
 # Author: Oapbtommy
+# Author: Simon Shek
 
 action:操作
 add_to_buddy_list:加入好友列表
@@ -68,7 +69,7 @@ locked_with_new_posts:鎖定（且未讀）
 logged_in_list:登錄用戶列表
 login:登入
 login_header:帳號：
-logout:注銷
+logout:登出
 mark_all_read:標記所有信息為已讀
 mark_all_read_desc:所有未讀的信息都將被標為已讀
 members:成員
@@ -1016,7 +1017,7 @@ mnav_newer:比新
 mnav_older:早於
 ip_search_by_ip:搜索使用者的 IP
 ip_search_syntax:支援語法： 1.2.3.4、 1.2.3、 1.2、 1
-ip_search:搜 尋
+ip_search:搜尋
 ip_analyze_usage:分析 IP 使用情況
 ip_analyze_usage_descr:請指定使用者的確切登錄。
 ip_users_using:使用者使用 ' {VAR: ip} ' 的 IP 位址

@@ -1,5 +1,6 @@
 # Messages for Slovak (slovenčina)
 # Exported from translatewiki.net
+# Author: Kusavica
 # Author: Naudefj
 # Author: Rudko
 
@@ -1104,8 +1105,7 @@ move_msg_th_expl:Zadajte číslo cieľovej témy (môže byť na iných fórach)
 captcha_img_alt:Overenie kódu (captcha): Rozpoznajte text v obrázku.
 captcha_img_help:V obrázku sa nula alebo jeden nenachádza.
 powered-by:Prevádzkuje: FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:Copyright © 2001-2011 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Copyright &copy;2001-2012 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Kód:
 code_select_all:Vybrať všetko
 code_show_hide:Zobraziť/ skryť

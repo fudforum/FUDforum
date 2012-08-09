@@ -854,7 +854,7 @@ im_jabber:Jabber:
 im_google:Google Talk:
 im_skype:Skype:
 im_twitter:Twitter:
-forum_contact:Kontakti
+forum_contact:Kontaktigi
 forum_home:Hejmo
 post_cur_attached:nune alkroĉis: {VAR: i} {PLURAL: i|dosieron|dosierojn}
 ignored_anon_post:{GVAR: ANON_NICK} estas ignorita
