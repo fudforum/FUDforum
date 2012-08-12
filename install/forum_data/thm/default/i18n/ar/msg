@@ -131,7 +131,7 @@ usrinfo_private_message:رسالة خاصة:
 profile:لوحة التحكم
 profile_desc:الوصول إلى لوحة تحكم المستخدم
 rate_thread:قيّم الموضوع
-rating:التقييم
+rating:تقييم
 rating_track:أدر تقييمات موضوع <b>{VAR: thr->subject}</b>:
 refresh_list:أنعش القائمة
 register:سجّل
@@ -142,7 +142,7 @@ report_to_mod:بلّغ هذه الرسالة إلى مشرف
 reported_messages:الرسائل المُبلغ عنها
 reveal_all_posts:استخرج كل رسائل {VAR: user_login}
 reveal_post:استخرج رسالة
-search:ابحث
+search:بحث
 sel_todays_posts:رسائل اليوم
 sel_todays_posts_desc:بدّل مُرشِّح رسائل اليوم (سوف يُظهر الرسائل المكتوبة اليوم فقط)
 sel_unanswered_posts:الرسائل غير المُجاب عليها
@@ -217,7 +217,7 @@ reported_reported_by:بلّغ عنها:
 reported_reported_msg:الرسائل المبلغ عنها
 modque_pending_approval:رسائل تنتظر الاعتماد
 modque_approve:اعتمد
-modque_delete:احذف
+modque_delete:حذف
 modque_no_message:لا توجد رسائل تنتظر الاعتماد
 pmsg_new_messages:رسالة خاصة غير مقروءة
 pmsg_old_messages:رسالة خاصة مقروءة
@@ -242,7 +242,7 @@ pmsg_subject:الموضوع
 pmsg_author:المؤلف
 pmsg_time:الوقت
 pmsg_selected:مُختار
-pmsg_delete:احذف
+pmsg_delete:حذف
 cur_ppage_pm:مراسلة خاصة
 writing_pm:اكتب رسالة خاصة
 browsing_folder:تصفح المجلد <b>{VAR: folders[$folder_id]}</b>
@@ -301,7 +301,7 @@ register_email:البريد الإلكتروني
 edit_time_limit:<bحد وقت التحرير></b>: {GVAR: EDIT_TIME_LIMIT} دقيقة
 no_edit_time_limit:<b>حد وقت التحرير</b>: غير محدود
 pmuserloc_login:الولوج:
-pmuserloc_submit:أرسل
+pmuserloc_submit:إرسال
 pmuserloc_user:مستخدم
 pmuserloc_no_result:لا نتائج
 register_builtin:المُضمّنة
@@ -320,7 +320,7 @@ register_avatar:الأفتار:
 register_sel_avatar:اختر أفتارًا
 register_custom_avatar_rules:لن يظهر الأفتار المُخصّص حتى يعتمده إداري.<br /><span class="SmallText">يجب ألا يكون الأفتار أكبر من <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} بسكل</b> ويجب أن يكون بهيئة <b>jpg</b> أو <b>gif</b> أو <b>png</b></span
 register_custom_avatar_url:مسار أفتار مُخصّص:
-register_preview:عاين
+register_preview:عرض مسبق
 register_custom_avatar_upload:ملف أفتار مُخصّص:
 register_register:سجّل
 register_required:معلومات مطلوبة
@@ -400,7 +400,7 @@ post_no_icon:لا أيقونة
 post_smiley:اختصارات الابتسامات:
 post_format_tools:أدوات التنسيق:
 post_upload_file:ارفع ملفًا
-post_file_del:احذف
+post_file_del:حذف
 post_file_name:الاسم
 post_file_size:الحجم
 file_attachments:مرفقات الملفات:
@@ -515,7 +515,7 @@ mklist_type:النوع:
 mklist_option:الخيار:
 mklist_additem:أضف عنصرًا
 mklist_apply:طبّق
-mklist_delete:احذف
+mklist_delete:حذف
 qbud_nick_name:الاسم المستعار
 qbud_add_selected:أِضف المختار
 qbud_selected:مختار
@@ -550,7 +550,7 @@ poll_update:حدّث
 poll_disablesmilies:عطّل الابتسامات
 poll_create_poll:أنشئ اقتراعًا
 poll_update_poll:حدّث الاقتراع
-poll_delete:احذف
+poll_delete:حذف
 poll_updateoption:حدّث الخيار
 poll_addoption:أضف خيارًا
 poll_unlimited:غير محدود
@@ -742,7 +742,7 @@ thr_exch_orig_forum:المنتدى الأصلي:
 thr_exch_dest_forum:المنتدى الهدف:
 thr_exch_no_threads:لا مواضيع تنتظر الاعتماد.
 thr_exch_decl_reason:سبب رفض نقل الموضوع <b>{VAR: data->subject}</b> إلى منتدى <b>{VAR: data->f2_name}</b>
-thr_exch_submit:أرسل
+thr_exch_submit:إرسال
 exch_decline_ttl:رُفض نقل الموضوع {VAR: data->subject} إلى منتدى {VAR: data->f2_name}.
 ppost_original_msg:الرسالة التي تُمرّرها أو ترد عليها
 split_thread:افصل الموضوع
@@ -755,7 +755,7 @@ groupmgr_member:عضو
 groupmgr_cancel:ألغِ
 groupmgr_add_member:أضف عضوًا
 groupmgr_update_member:حدّث عضوًا
-groupmgr_edit:عدل
+groupmgr_edit:تعديل
 groupmgr_delete:حذف
 group_mgr_anon:مجهول
 group_mgr_reged:كل المستخدمين المسجلين
@@ -769,8 +769,8 @@ permission_denied_msg:لا تسمح أذونات مستخدمك بتنفيذ ه�
 p_READ:قراءة
 p_POST:إرسال
 p_REPLY:رد
-p_EDIT:عدل
-p_DEL:احذف
+p_EDIT:تعديل
+p_DEL:حذف
 p_STICKY:تثبيت رسائل
 p_POLL:إنشاء اقتراعات
 p_FILE:إرفاق ملفات
@@ -809,7 +809,7 @@ th_expr_one_month:شهر واحد
 th_expr_two_month:شهران
 th_expr_four_month:4 أشهر
 th_expr_one_year:سنة واحدة
-thread_mod_delete:احذف
+thread_mod_delete:حذف
 action_ip:أيبي
 action_latest_post:آخر رسالة
 online_today_last_visit:آخر زيارة
@@ -872,7 +872,7 @@ help_back_to_top:ارجع إلى الأعلى
 help_return_to_index:ارجع إلى فهرس المساعدة
 imsg_err_message_title:رسالة غير صالحة
 imsg_err_message_msg:الرسالة التي تحاول عرضها غير موجودة.
-poll_edit:عدل
+poll_edit:تعديل
 register_err_not_valid_img:لا يحتوي المسار المُحدّد صورة صالحة.
 pmsg_recepient:المستلم
 register_err_taken_alias:الكنية التي تحاول استخدامها يستخدمها عضو منتدى آخر بالفعل. من فضلك اختر كنية أخرى.
@@ -989,8 +989,8 @@ register_pm_notification_desc:إذا مُكن فسوف تُشعر كلما تر�
 findu_admin_opts_header:اختيارات الإداريين.
 findu_unban:ألغ الطرد
 findu_ban:اطرد
-findu_edit:عدل
-findu_delete:احذف
+findu_edit:تعديل
+findu_delete:حذف
 dmsg_reply_to:رد على
 dmsg_reply_num:الرسالة #{VAR: obj->reply_to}
 merge_topics:ادمج المواضيع
@@ -1017,7 +1017,7 @@ mnav_newer:الأحدث من
 mnav_older:الأقدم من
 ip_search_by_ip:ابحث عن المستخدمين عبر الآيبي
 ip_search_syntax:الصياغة المدعومة: 1.2.3.4، 1.2.3، 1.2، 1
-ip_search:ابحث
+ip_search:بحث
 ip_analyze_usage:أحصِ استخدام الآيبي
 ip_analyze_usage_descr:من فضلك حدّد بالضبط اسم ولوج المستخدم.
 ip_users_using:المستخدمون الذي يستخدمون عنوان الآيبي '{VAR: ip}'
@@ -1096,11 +1096,11 @@ post_common_nlist:أَضف قائمة مُرقّمة
 post_common_blist:أضف قائمة مُنقّطة
 post_common_quote:أضف اقتباسًا
 post_common_code:أضف كودًا
-rating_delete:احذف
+rating_delete:حذف
 post_always_on_top:أظهر الموضوع دومًا في أعلى قائمة المواضيع
 topic_rating:{VAR: frm->rating} من {PLURAL: frm->n_rating|صوت واحد|$1 أصوات}
 topic_list_rating:{VAR: r[17]} من {PLURAL: r[21]|صوت واحد|$1 أصوات}
-tabs_notifications:الإشعارات
+tabs_notifications:إخطارات
 finduser_flag:العلم
 post_descr:وصف الموضوع:
 pmsg_on:في
@@ -1123,7 +1123,7 @@ btn_new_pm:ر. خ. جديدة
 btn_post_reply:أرسل ردًا
 btn_tree_view:عرض الشجرة
 btn_flat_view:العرض المسطح
-btn_about:ملف
+btn_about:الملف
 btn_small_pm:ر.خ
 btn_delete:حذف
 btn_edit:تعديل
@@ -1147,5 +1147,5 @@ pm_export_header:رسائل خاصة من أجل {VAR: usr->alias}
 pm_export_footer:تصدير:
 karma:كارما
 karma_track:إدارة السمعة للمستخدم:
-karma_delete:احذف
+karma_delete:حذف
 rate_author:قيم الكاتب:

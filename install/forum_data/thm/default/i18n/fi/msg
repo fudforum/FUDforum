@@ -1144,4 +1144,5 @@ page_update:Selailee sivua
 pm_export_header:Yksityisviestit käyttäjälle {VAR: usr->alias}
 pm_export_footer:Viety:
 karma:Karma
+karma_track:Hallitse käyttäjän mainetta:
 karma_delete:Poista

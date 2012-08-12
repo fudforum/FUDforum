@@ -1135,7 +1135,7 @@ feed_rdf:Feed RDF
 feed_rss:Feed RSS2
 feed_atom:Feed ATOM
 ip_whois_connect_err:Il-konnessjoni mas-server WHOIS ({VAR: whois_server}) ma tistax isseħħ: {VAR: errstr}
-custom_filed_required:Dan il-qasam huwa neċessarju.
+custom_filed_required:Dan il-qasam huwa obbligatorju.
 pages:Paġni
 page_list_heading:Paġni disponibbli
 page_list_total:{PLURAL: i|$1 paġna|$1 paġni} elenkati.

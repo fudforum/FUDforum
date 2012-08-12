@@ -94,6 +94,7 @@ rate_thread:Meseler ercenê
 search:Cı geyre
 send:Bırş
 status:Weziyet:
+subject:Mersel
 thread:Topik:
 threads:Topik:
 time:Wext
@@ -130,7 +131,7 @@ pmsg_none:Hêçjew
 folder:Klasor
 pmsg_replied:cewab deya
 pmsg_forwarded:Hetikerdo
-pmsg_subject:Mesela
+pmsg_subject:Mersel
 pmsg_author:Rıştener
 pmsg_time:Wext
 pmsg_selected:Weçiner
@@ -222,12 +223,28 @@ my_buddies:Embazê me
 add_buddy:Embaz deke
 add:Deke
 post_normal:Normal
+post_annoncement:Elan
+post_size:Gırdiye
 post_color:Dawte
 post_font:Tipê nusni
+create_thread:Mersel Vırazê
+submit_reply:Cewab Bırışê
+edit_message:Mesaca Timar ke
+apply_spell_changes:Vurnayışê Nuşta Dezge ke
+post_preview:Verqaytê Mesaci
 post_logout:bıveciyên
 post_poll:Anket:
+post_create_poll:ANKET VIRAZE
+post_poll_delete:BESTERE
+post_poll_edit:BIVURNE
+post_file_del:Besterne
 post_file_name:Name
+post_file_size:Gırdiye
 post_forum:Forum:
+post_title:Sername:
+post_body:Verê:
+post_options:Weçinegi:
+post_preview_btn:Verqaytê Mesaci
 post_cancel_btn:Bıterkne
 prereg_agree:Qebul kena
 prereg_disagree:Qebul nêkena
@@ -242,11 +259,13 @@ ruser_cur_pass:Parolaya newkên
 login_passwd:Parola:
 reset_email:E-posta:
 reset_reset_button:Parola ancia bınuse
+report_subject:Mersel:
 search_forum:Forum
 remail_your_name:Namey Şıma:
 remail_your_email:E-Maila Şıma:
 remail_friends_name:Namey Embaz dê Şıma:
 remail_friends_email:E Mailê Embaz dê Şıma:
+remail_subject:Mersel:
 remail_message:Mesac
 remail_done:Qeyd kerd
 mklist_apply:Dezge ke
@@ -254,6 +273,8 @@ mklist_delete:Besterne
 mklist_square:Qare
 mklist_close:Racnê
 email_pg_title:E-posta
+email_subject:Mersel:
+email_body:Verê:
 email_submit:E-posta
 poll_create:Vıraze
 poll_update:Noroc resn
@@ -270,6 +291,7 @@ delete_no:Nê
 error_error:Xırab
 emailconf_err_invkey_title:Xırab
 ignore_list_err_info_title:Zanışe
+post_err_edttimelimit_title:XIRAB
 register_register_update:Pelay Qeydbiyayışi
 report_err_nosuchmsg_title:XIRAB
 report_err_nosuchmsg_msg:Mesaco wuna çıno
@@ -309,7 +331,7 @@ p_VOTE:Rey Bıdê
 p_RATE:Meseler/ezay bercıne
 p_SPLIT:Meseli abırne
 p_LOCK:Meseler qılit ke
-p_MOVE:Merseli Ber:
+p_MOVE:Mersela Ahûlne
 p_SML:Huwatış Cıwine
 p_IMG:Taganê resımi cıwine
 p_SEARCH:Şeno cı geyre
@@ -317,22 +339,41 @@ group_mgr_search:Karber bıvine
 rate_worst:Hol niyo
 rate_best:Tewr
 post_quote:Gırewte
+th_expr_never:Qet
 th_expr_one_hr:1 Sehat
 th_expr_three_hr:3 Sehata
 th_expr_four_hr:4 Sehata
 th_expr_eight_hr:8 Sehata
 th_expr_sixteen_hr:16 sehata
 th_expr_one_day:1 Roc
+th_expr_two_day:2 Roci
+th_expr_four_day:4 Roci
 th_expr_one_week:1 Hefti
+th_expr_two_week:2 Heftey
 th_expr_one_month:1 Meng
+th_expr_two_month:2 Aşmi
+th_expr_four_month:4 Aşmi
 th_expr_one_year:1 Ser
 thread_mod_delete:Besterne
 action_ip:IP
 action_latest_post:Mesaco Bohdeyên:
+online_today_last_visit:Ziyareto Peyên
 post_re:Cwb:
+forumsel_goto_forum:Şo ri Forum:
+minimsg_thread_view:Asayışê de MErsel
+split_th_posted_on:Deme rıştışi:
 split_th_forum:Forum
+split_th_messages:Mesaci
+split_th_select:Weçine
 quicklogin_login:Namey karberi
 quicklogin_password:Parola:
+quicklogin_login_btn:Dekewtış
+post_proc_reveal_spoiler:Toggle Spoiler
+register_jabber:Destkarê Jabber:
+register_skype:Destkarê Skype:
+register_twitter:Destkarê Twitter:
+register_google:Destkarê Google Chat/IM:
+im_jabber:Jabber:
 im_google:Google Talk:
 im_skype:Skype:
 im_twitter:Twitter:
@@ -358,10 +399,28 @@ findu_edit:Timar ke
 findu_delete:Besterne
 dmsg_reply_to:no cıwabê mesaciyo
 userinfo_buddy:Embaz:
+ip_title:IP Rovıter
 userinfo_real_name:Nameyo raştay
+post_err_mod_forum_edit_ttl:XIRAB
+dmsg_num:mesac #{VAR: obj->id}
+postcheck_session_invalid:Ravêrdaya ronıştış de şıma qedyayai. Reca kem formi fına bırışê. Qısur dê ma meweyne.
+delete_message_extra_desc:<b>Wazayışi deye</b><br />Nuskari rê mesac qan dê çıçi besterneyayo deye cı rê malumat bırışê.
+delete_message_extra_body:Nuskari rê vêrey mesac dv besternayi bırışê.
+delete_msg_removed_ttl:Xızmetkari mesacê şıma besterna.
 delete_msg_pm_body:Mesaco Orcinal
+delete_msg_pm_subject:Mersel: {VAR: data[15]}
+ip_no_whois:Qan dê <b>{VAR: ip}</b> whois malumat çıniyo.
+ip_whois_title:Zanışaya ISS
 register_theme:Tema:
+pmsg_trash:Çopi veng ke
+uc_new_pm:Xısusi Mesacê Newey
 uc_new_topic:Meseleyo newe
+uc_new_cat_forum:Forumê ke şıma aboneyê êna ra mesacê ke estê.
+uc_cat_forum:Kategoriye &raquo; Forum
+uc_sub_topics:Merselê ke şıma aboneyê êna ra mesacê ke estê.
+uc_page_title:Kontrol panliya merdumi.
+search_options:Tercihê Cı geyrayışi
+search_user_filter:Karberi heta avrêc ke:
 register_none:Mı Xeberdar meke
 findu_no_conf:Karberê ke otomatikmen tesdiq biy
 register_max_sig_len:En Vêşi Dergey:
@@ -371,11 +430,25 @@ modque_cat:Kategoriye
 modque_forum:Forum
 idx_compact_forum_row:Forumi:
 mmd_del_title:MErseli Besterne
-mmd_mov_title:Merseli Ber:
+mmd_mov_title:Mersela Ahûlne
 mmd_move_threads_to:Hedefê Forumi:
 mmd_abort_move:Xırab qı
+mmd_move:Mersela Ahûlne
+pmsg_pdf_btn:Arşivê PDF bıke
+search_results_hdr:Cı geyrayış dı {VAR: total} neticey vineyaye.
+thread_del_all:Weçineya esterne
+thread_mov_all:Weçineya Ahûlne
 thread_merge_all:Weçineya biya apê
+thread_loc_all:Weçineya kılit ke/Kıliti ake
 dmsg_ip:IP:
+err_blockedaccnt_title:XIRAB: Hesabê şıma avrêcyaye weziyet deyo.
+err_blockedaccnt_msg:Poxta avrêc da karberi yewi ra forum dı resnayışê hesabi vındarnayo.
+merge_th_page_list:Pela Mersel Weçinayış
+most_users_online:Amariya karberan de grebiyaya tewr zaf tarixê cı, <b>{VAR: st_obj->most_online}</b> Karberana <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b> dı biyo.
+sub_unsub_all_forums:Abeneyanê foruman dê mı pêron bıterkne
+sub_unsub_all_topics:Aboneyanê merselan de mı pêron bıterkne
+unbookmark_all_topics:Nışana pêron wedarne
+tabs_own_posts:Rıştayışanê mı bımocne
 sml_emoticon:İfade
 sml_code:Kod
 mnav_sub_only:Forumê ke ez aboneya ênan dı cıgeyre
@@ -404,12 +477,22 @@ topic_rating:{VAR: frm->rating} from {PLURAL: frm->n_rating|$1 rey|$1 reyi}
 topic_list_rating:{VAR: r[17]} u {PLURAL: r[21]|$1 rey|$1 reyi}
 tabs_notifications:Tebliği
 finduser_flag:Desmal
+post_descr:Şınasiya Mersel:
 pmsg_on:Akerde
+pmsg_download_dump:Quça Mesaca Ron
+move_messages:Mesaca ahûlne
+move_msg_btn:Weçinaye Mesaca Ahûlne
+move_msg_th_expl:IDa hedef cay nışan kerê (belki foruman dê binana deya)
+captcha_img_alt:Captcha Araştkerdış: Asayış dı metni şınasnayış icab keno.
+captcha_img_help:Asengi miyan dı sıfır yana yew tede esto.
 powered-by:Destegdaren: FUDforum {GVAR: FORUM_VERSION}.
 copyright:Telif &copy;2001-2012 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+code_title:Kod:
 code_select_all:Pêrın Weçin fi
 code_show_hide:bımocne/bınımne
 social_sites:Steyê Sosyal Toran:
+postcheck_min_len_err:Mesacê şıma zaf kılmo. Tewr tayn dergeya cı wa {PLURAL: post_min_len|$1 karakter|$1 karakter} bo.
+postcheck_dup_err:Reca kem eyni merseler yew ra zaf merışê.
 btn_new_topic:Meseleyo newe
 btn_new_pm:MX newe
 btn_post_reply:Cıwab bırşê
@@ -425,13 +508,18 @@ btn_quote:gırewte
 btn_email:E-posta
 btn_show_posts:Rıştışi
 btn_homepage:www
+feed_no_data:Zey cı malumat nêvineya.
 feed_rdf:RDF Şexsi
 feed_rss:RSS2 Şexsi
 feed_atom:ATOM Şexsi
+ip_whois_connect_err:Arden dê WHOIS ({VAR: whois_server}) nêgredeyêno: {VAR: errstr}
+custom_filed_required:No cab icab keno.
 pages:Peley
 page_list_heading:Peleyê ke estê
+page_list_total:{PLURAL: i|$1 pele|$1 peley} liste bi.
 page_update:Oyo çım şıkneno pele
 pm_export_header:Qan dê xususi mesaca: {VAR: usr->alias}
 pm_export_footer:Êk Vetê:
 karma:Karma
+karma_track:İdariya ercen dê karberi:
 karma_delete:Besterne
