@@ -317,7 +317,7 @@ register_custom_avatar_upload:Fajl tal-<i>avatar</i> personalizzat:
 register_register:Irreġistra
 register_required:Informazzjoni neċessarja
 register_required_desc:L-oqsma kollha huma neċessarji. Kun af li l-passwords huma sensittivi għal kif jinkitbu.
-register_optional:Informazzjoni addizjonali
+register_optional:Informazzjoni addizzjonali
 register_optional_desc:Huwa ta' parir li ma turi l-ebda informazzjoni personali jew identifikabbli fil-profil tiegħek. Kull informazzjoni tista' tinqara minn kwalunkwe membru tal-forum.
 register_location:Lokalità:
 register_occupation:Okkupazzjoni:
@@ -1092,7 +1092,7 @@ post_common_nlist:Żid lista numerata
 post_common_blist:Żid lista bil-punti
 post_common_quote:Żid kwotazzjoni
 post_common_code:Żid kodiċi
-rating_delete:Ħassarr
+rating_delete:Ħassar
 post_always_on_top:Uri s-suġġett dejjem fl-ewwel post fil-lista ta' suġġetti
 topic_rating:{VAR: frm->rating} minn {PLURAL: frm->n_rating|$1 vot|$1 voti}
 topic_list_rating:{VAR: r[17]} minn {PLURAL: r[21]|$1 vot|$1 voti}

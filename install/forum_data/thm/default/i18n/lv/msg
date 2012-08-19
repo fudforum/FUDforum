@@ -46,7 +46,7 @@ ignore_user:ignorēt visus paziņojumus<br /> no šī lietotāja
 im_aim:AIM tīkls:
 im_msnm:MSN tīkls:
 im_yahoo:Yahoo tīkls:
-image:Bildīte:
+image:Attēls:
 index_forum:Forums
 index_new_posts:Saņemti jauni ieraksti
 index_no_new_posts:Jaunu ierakstu nav
@@ -59,7 +59,7 @@ lock_thread:Slēgt tēmu
 locked:Tēma slēgta
 locked_with_new_posts:Ir nelasīti ieraksti slēgtajā tēmā
 logged_in_list:Pieslēgušos lietotāju saraksts
-login:Ieiet
+login:Pieslēgties
 login_header:Lietotājs:
 logout:Iziet
 mark_all_read:Visus ziņojumus atzīmēt kā lasītus
@@ -315,7 +315,7 @@ register_optional_desc:Nav vēlams pārlieki izplūst.
 register_location:Dzīves vieta:
 register_occupation:Nodarbošanās:
 register_interests:Intereses:
-register_image:Nozīmīte:
+register_image:Attēls:
 register_icq:ICQ
 register_aim:AIM pseidonīms:
 register_yahoo:Yahoo tīkls:
@@ -435,7 +435,7 @@ login_forgot_passwd:Esmu aizmirsis paroli.
 # Fuzzy
 login_use_cookie:Izmantot cookies<br /><font class="SmallText">Gadījumos ja strādājat no publiskajām darbstacijām, skolas, interneta kafejnīcas, vai citiem publiskajiem termināliem, drošības apsvērumu pēc ieteicams šo opciju atslēgt.<br />Atstājot cookies ieslēgtus, nākošais savienojums automātiski atvērs forumu bez nika un parojes ievadīšanas.
 login_login:Niks
-login_login_btn:Ieiet
+login_login_btn:Pieslēgties
 login_name_required:Nav norādīts Niks!
 login_passwd_required:Nav norādīta parole!
 login_invalid_radius:Neprecīza Nika/Paroles kombinācija!
@@ -721,7 +721,7 @@ thr_exch_dest_forum:Forums pārvietošanai:
 thr_exch_no_threads:Nav tēmu uz apstiprināšanu.
 # Fuzzy
 thr_exch_decl_reason:Tēmas <b>{VAR-HTML: frm->name}</b> pārvietošanas uz <b>{VAR-HTML: frm->name}</b>forumu iemesls
-thr_exch_submit:Turpināt
+thr_exch_submit:Iesniegt
 # Fuzzy
 exch_decline_ttl:Tēmas {VAR: data->subject} pārvietošana uz {VAR-HTML: data->f2_name} forumu noraidīta.
 ppost_original_msg:publicējums kuru pārsūtat vai uz kuru atbildat

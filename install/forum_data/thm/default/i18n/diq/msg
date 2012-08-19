@@ -91,6 +91,7 @@ posts:Mesaci
 posts_c:Mesaci:
 profile:Panela Cerbnayışi
 rate_thread:Meseler ercenê
+rating:Nısbetkerden
 search:Cı geyre
 send:Bırş
 status:Weziyet:
@@ -202,6 +203,7 @@ register_del_avatar:Avatari Hewa dê
 register_avatar:Avatar:
 register_sel_avatar:Avatar weçine
 register_custom_avatar_url:Gıreya Avatar dı Xususi
+register_preview:Verqayt
 register_register:Qeyd Be
 register_icq:ICQ:
 register_aim:AIM Handle:
@@ -249,7 +251,7 @@ post_cancel_btn:Bıterkne
 prereg_agree:Qebul kena
 prereg_disagree:Qebul nêkena
 coppa_fax_telephone:Telefun:
-coppa_fax_email:Adresê emaili
+coppa_fax_email:Adresê E-posta:
 coppa_fax_date:Deme:
 coppa_fax_remail:E-posta
 coppa_fax_name:Name
@@ -259,6 +261,7 @@ ruser_cur_pass:Parolaya newkên
 login_passwd:Parola:
 reset_email:E-posta:
 reset_reset_button:Parola ancia bınuse
+rate_this_thread:Nısbet ke
 report_subject:Mersel:
 search_forum:Forum
 remail_your_name:Namey Şıma:
@@ -464,7 +467,7 @@ post_common_align_right:Hizada Raşt fi
 post_common_link:Gıre defi
 post_common_link_popup:Cayê Linki:
 post_common_email:E-mail adresi defi de
-post_common_email_popup:Adresê emaili
+post_common_email_popup:Adresê e-posta:
 post_common_image:Resım defi de
 post_common_image_popup:Url'ey Resımi:
 post_common_nlist:Listeyo Nımreyın Defi de

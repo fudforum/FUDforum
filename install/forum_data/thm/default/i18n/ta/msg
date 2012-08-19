@@ -2,6 +2,7 @@
 # Exported from translatewiki.net
 # Author: Shanmugamp7
 # Author: TRYPPN
+# Author: மதனாஹரன்
 
 action:செயல்
 add_to_buddy_list:நண்பர் பட்டியலில் சேர்
@@ -1140,3 +1141,4 @@ page_list_total:{PLURAL: i|$1 பக்கம்|$1 பக்கங்கள்}
 page_update:உலாவும் பக்கம்
 pm_export_header:தனிப்பட்ட தகவல்கள்{VAR: usr->alias}
 pm_export_footer:ஏற்றுமதி செய்யப்பட்டது:
+karma_delete:அழிக்கவும்

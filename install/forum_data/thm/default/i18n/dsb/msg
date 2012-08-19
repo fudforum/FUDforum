@@ -787,6 +787,7 @@ findu_ban:Wugnaś
 findu_edit:Wobźěłaś
 findu_delete:Wulašowaś
 dmsg_reply_to:jo wótegrono na
+merge_merge:Wubrane temy zjadnośiś
 merge_next:Pśiduce temy
 merge_prev:Pjerwjejšne temy
 thread_on:dnja
@@ -815,6 +816,7 @@ pmsg_trash:Papjernik wuprozniś
 uc_new_pm:Nowe priwatne powěsći
 uc_new_topic:Nowa tema
 uc_new_cat_forum:Aboněrowane forumy z nowymi powěsćami
+uc_cat_forum:Kategorija &raquo; forum
 uc_sub_topics:Aboněrowane temy z nowymi powěsćami
 search_options:Pytańske opcije
 search_user_filter:Pó wužywarju filtrowaś
@@ -846,6 +848,9 @@ post_not_logged_in:Njejsy tuchylu pśizjawjony, powěsć buźo se anonymnje wót
 post_common_bold:Tucny
 post_common_italics:Kursiwny
 post_common_underline:Pódšmarnjony
+post_common_align_left:Nalěwo wusměrjony
+post_common_align_center:Centrěrowany
+post_common_align_right:Napšawo wusměrjony
 post_common_link:Wótkaz zasunuś
 post_common_link_popup:Wótkazowa adresa:
 post_common_email:E-mailowu adresu zasunuś
@@ -853,6 +858,7 @@ post_common_email_popup:E-mailowa adresa:
 post_common_image:Wobraz zasunuś
 post_common_image_popup:URL wobraza:
 post_common_nlist:Numerěrowanu lisćinu pśidaś
+post_common_blist:Nalicenje pśidaś
 post_common_quote:Citat dodaś
 post_common_code:Kod dodaś
 rating_delete:Lašowaś

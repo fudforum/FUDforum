@@ -16,10 +16,10 @@ attachment:添付:
 avatar:アバター:
 average_post_count:{PLURAL: u->posted_msg_count|$1 通のメッセージ } (平均一日{PLURAL: avg|$1 通})
 biography:自己紹介:
-birth_date:誕生日:
+birth_date:生年月日:
 by:投稿者:
 by_mod:モデレーターによる
-current_time:現在時間
+current_time:現在日時
 custom_avatar_queue:カスタムアバターの待ち
 date_posted:投稿日
 date_registered:登録日:
@@ -74,6 +74,7 @@ members:メンバー一覧
 calendar:カレンダー
 cal_goto_date:移動:
 cal_no_events:この日のイベントはありません。
+cal_update:フォーラムカレンダーの参照
 cal_birthday:誕生日：{VAR: user}
 cal_birthday_age:({PLURAL: age|$1 歳})。
 message:メッセージ
@@ -128,7 +129,7 @@ profile_desc:利用者コントロールパネルにアクセス
 rate_thread:トピックの評価
 rating:レーティング
 rating_track:トピック「<b>{VAR: thr->subject}</b>」のレーティングを管理する:
-refresh_list:一覧の再描画
+refresh_list:一覧を更新
 register:登録
 registered:登録日:
 registered_on:登録日：{TEMPLATE: registered_on_date}
@@ -361,7 +362,7 @@ register_notify_method:通知方法を選択:
 register_notify_method_desc:通知の方式を設定するか、通知を無効にしてください（長期休暇の際など）。
 register_allow_email_msg:メールメッセージを許可：
 register_allow_email_msg_desc:このフォーラムを通して他の利用者からのメールを受け取ります。
-buddy_status:状況
+buddy_status:状態
 my_buddies:自分の仲間
 add_buddy:仲間を追加
 add:追加
@@ -427,6 +428,7 @@ coppa:<p>13歳以下の利用者は、登録を完了するために、保護者
 prereg_info:情報
 prereg_agree:同意する
 prereg_disagree:同意しない
+prereg_update:フォーラム規則の閲覧
 coppa_fax_instructions:親や保護者のための手順説明
 coppa_fax_instructions2:このページを印刷し、署名し、それを次の宛先にファックスしてください:
 coppa_fax_reg_form:登録用紙
@@ -436,7 +438,7 @@ coppa_fax_permission:許可を与える場合、ここに署名します
 coppa_fax_no_permission:アカウントを削除してほしい場合、ここに署名します
 coppa_fax_parent_name:親か保護者のフルネーム:
 coppa_fax_relation:子供との関係:
-coppa_fax_telephone:電話番号:
+coppa_fax_telephone:電話:
 coppa_fax_email:メールアドレス：
 coppa_fax_date:日付:
 coppa_fax_questions:質問があれば、<a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> に問い合わせてください
@@ -1045,7 +1047,7 @@ findu_no_conf:未確認利用者
 register_max_sig_len:最大長:
 register_turing:下記に表示されているコードを入力してください:
 register_err_turing:確認コードが正しくありません。
-modque_cat:カテゴリー
+modque_cat:カテゴリ
 modque_forum:フォーラム
 idx_compact_forum_row:利用可能なフォーラム:
 mmd_del_title:トピックを削除
@@ -1078,7 +1080,7 @@ post_common_bold:太字
 post_common_italics:斜体
 post_common_underline:下線
 post_common_align_left:左寄せ
-post_common_align_center:中央寄せ
+post_common_align_center:中央揃え
 post_common_align_right:右寄せ
 post_common_link:リンクを挿入
 post_common_link_popup:リンクの場所：
@@ -1105,8 +1107,7 @@ move_msg_th_expl:移動先トピックのIDを指定してください（他の�
 captcha_img_alt:CAPTCHA検証: この画像中の文字列を認識する必要があります。
 captcha_img_help:画像中には 0 も 1 もありません。
 powered-by:提供: FUDforum {GVAR: FORUM_VERSION}
-# Fuzzy
-copyright:Copyright &copy;2001-2011 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Copyright &copy;2001-2012 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:コード:
 code_select_all:すべて選択
 code_show_hide:表示/非表示

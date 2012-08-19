@@ -300,14 +300,14 @@ no:لا
 register_email:البريد الإلكتروني
 edit_time_limit:<bحد وقت التحرير></b>: {GVAR: EDIT_TIME_LIMIT} دقيقة
 no_edit_time_limit:<b>حد وقت التحرير</b>: غير محدود
-pmuserloc_login:الولوج:
+pmuserloc_login:تسجيل الدخول:
 pmuserloc_submit:إرسال
 pmuserloc_user:مستخدم
 pmuserloc_no_result:لا نتائج
 register_builtin:المُضمّنة
 register_specify_url:حدّد مسارًا
 register_uploaded:ارفع الأفتار
-register_login:الولوج:
+register_login:تسجيل الدخول:
 register_password:كلمة السر:
 register_conf_pass:تأكيد كلمة السر:
 register_email_desc:من فضلك أدخل عنوان بريد إلكتروني صالح. تستطيع اختيار اخفائه أدناه، في قسم التفضيلات.
@@ -327,7 +327,7 @@ register_required:معلومات مطلوبة
 register_required_desc:كل الحقول مطلوبة. من فضلك لاحظ أن كلمات السر حساسة لحالة الأحرف.
 register_optional:معلومات اختيارية
 register_optional_desc:من الموصى به ألا تكشف عن أي معلومات شخصية في ملفك الشخصي. كل المعلومات ستكون ظاهرة لمستخدمي المنتدى الآخرين.
-register_location:المكان:
+register_location:الموقع:
 register_occupation:المهنة:
 register_interests:الاهتمامات:
 register_image:الصورة:
@@ -418,7 +418,7 @@ post_title:العنوان:
 post_body:الجسم:
 post_options:خيارات:
 post_preview_btn:عاين الرسالة
-post_cancel_btn:ألغِ
+post_cancel_btn:إلغاء
 ignore_users:المستخدمون المتَجاهَلون
 add_ignore:أضف تجاهلًا
 forum_terms:شروط المنتدى
@@ -446,7 +446,7 @@ coppa_fax_telephone:الهاتف:
 coppa_fax_email:عنوان البريد الإلكتروني:
 coppa_fax_date:التاريخ:
 coppa_fax_questions:من فضلك اتصل ب<a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> لأي سؤال
-coppa_fax_login:لُج
+coppa_fax_login:تسجيل الدخول
 coppa_fax_passwd:كلمة السر
 coppa_fax_remail:البريد الإلكتروني
 coppa_fax_name:الاسم
@@ -456,8 +456,8 @@ login_perm_denied:ليس لديك الإذن بالوصول إلى المورد 
 login_want_to_register:أتريد التسجيل؟
 login_forgot_passwd:نسيتُ كلمة السر
 login_use_cookie:استخدام الكعكات<br /><span class="SmallText">إذا كنت تستخدم طرفية عامة كحاسوب في مكتبة أو مدرسة أو مقهى إنترنت، فإننا نوصي بإلغتء اختيار هذا الخيار لأمان أفضل.<br />إذا تركت هذا الخيار مختارًا فسوف تلج تلقائيًا إلى المنتدى في المرة القادمة التي تزوره فيها.</span>
-login_login:الولوج:
-login_login_btn:لُج
+login_login:تسجيل الدخول:
+login_login_btn:تسجيل الدخول
 login_name_required:اسم الولوج مطلوب
 login_passwd_required:كلمة السر مطلوبة
 login_invalid_radius:الحمع بين الولوج وكلمة السر غير صالح.
@@ -470,7 +470,7 @@ reset_remind_pass:مُذكر كلمة السر
 reset_reset_conf:سيعاد ضبط كلمة سرك وسترسل إليك. إذا لم تؤكد بريدك إلى الآن، فإن طلب التأكيد سيرسل إليك مرة أخرى.
 reset_error:لو يوجد عنوان البريد الإكتروني في قاعدة البيانات
 rpasswd_change_pass:غيّر كلمة السر
-rpasswd_login:لُج
+rpasswd_login:تسجيل الدخول
 rpasswd_cur_pass:كلمة السر الحالية:
 rpasswd_new_pass:كلمة السر الجديدة:
 rpasswd_conf_pass:تأكيد كلمة السر:
@@ -752,7 +752,7 @@ groupmgr_yes:نعم
 groupmgr_no:لا
 groupmgr_action:فعل
 groupmgr_member:عضو
-groupmgr_cancel:ألغِ
+groupmgr_cancel:إلغاء
 groupmgr_add_member:أضف عضوًا
 groupmgr_update_member:حدّث عضوًا
 groupmgr_edit:تعديل
@@ -832,10 +832,10 @@ split_th_split_unsel:افصل الرسائل غير المُختارة
 split_th_messages:رسائل
 split_th_select:اختر
 report_report_post:بلّغ عن الرسالة
-quicklogin_login:الولوج:
+quicklogin_login:تسجيل الدخول:
 quicklogin_password:كلمة السر:
 quicklogin_use_cookies:أأستخدم الكعكات؟
-quicklogin_login_btn:لُج
+quicklogin_login_btn:تسجيل الدخول
 quick_reply:رد سريع
 quick_reply_post:أرسل ردًا سريعًا
 quick_reply_preview:عاين الرد السريع
@@ -1057,7 +1057,7 @@ idx_compact_forum_row:المنتديات المتوفرة:
 mmd_del_title:احذف المواضيع
 mmd_mov_title:انقل المواضيع
 mmd_move_threads_to:المنتدى الهدف:
-mmd_abort_move:ألغِ
+mmd_abort_move:إلغاء
 mmd_move:انقل مواضيع
 pmsg_pdf_btn:أنشئ أرشيف PDF
 search_results_hdr:وُجدت {VAR: total} نتيجة بحث
