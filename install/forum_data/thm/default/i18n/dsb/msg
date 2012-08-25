@@ -543,6 +543,7 @@ tabs_referrals:Pórucenja
 tabs_buddy_list:Lisćina pśijaśelow
 tabs_ignore_list:Lisćina ignorěrowanjow
 tabs_private_messaging:Priwatne powěsći
+delete_proceed:<span class="fb">Coš pókšacowaś?</span>
 delete_yes:Jo
 delete_no:Ně
 error_invalidurl:Njepłaśiwy URL
@@ -565,6 +566,7 @@ email_error_invaliduser:Njepłaśiwy wužywaŕ
 emailconf_err_invkey_title:Zmólka
 err_inc_criticaltitle:Kritiska zmólka
 finduser_update:Pytanje za wužywarjami
+help_index_update:Cyta <a href="{TEMPLATE: help_index_update_lnk}">Pomoc</a>
 iemail_thr_subject:Nowe wótegrono wó {VAR: thr_subject} wót {VAR: poster_login}
 ignore_list_err_info_title:Informacije
 ignore_list_err_nu_title:Wužywaŕ njenamakany
@@ -572,6 +574,7 @@ ignore_list_cantign_msg:Njamóžoš toś togo wužywarja ignorěrowaś
 login_update:Pśizjawjeński formular
 post_err_lockedthread_title:Zmólka: Zastajona tema
 err_coppa_title:ZMÓLKA: Twójo konto hyšći njejo wobkšuśone
+err_banned_acct_title:ZMÓLKA: Sy wugnany.
 post_err_edttimelimit_title:ZMÓLKA
 post_err_edttimelimit_msg:Njamóžoš wěcej toś tu powěsć wobźěłaś
 post_err_floodtrig_msg:Pšosym wopytaj za {PLURAL: tm|$1 sekundu|$1 sekunźe|$1 sekundy|$1 sekundow} hyšći raz
@@ -579,6 +582,7 @@ post_err_passwd:Wopacne gronidło.
 post_error_generic:Zmólka jo nastała
 postcheck_subj_needed:Tema trěbna
 postcheck_ignored:Njamóžoš "{FUNC: char_fix(htmlspecialchars($v))}" priwatnu powěsć pósłaś, dokulaž toś ten wužywaŕ śi ignorěrujo.
+postcheck_no_recepient:Powěsć njedajo se pósłaś, dostawar felujo.
 postcheck_invalid_email:Pšosym zapódaj płaśiwu e-mailowu adresu za swójogo pśijaśela.
 postcheck_email_subject:Njamóžoš e-mail bźez temowego nadpisma pósłaś.
 postcheck_email_body:Njamóžoš e-mail bźez powěsćowego śěla pósłaś.
@@ -587,6 +591,8 @@ register_err_shortpasswd:Gronidła muse nanejmjenjej 6 znamuškow dłujke byś
 register_err_passwdnomatch:Twójej gronidle se njemakatej, pšosym wopytaj hyšći raz.
 register_err_invalidemail:Zda se, až e-mailowa adresa, kótaruž sy pódał, njejo płaśiwa.
 register_err_notyouremail:Něchten drugi jo južo z toś teju e-mejloweju adresu zregistrěrowany.
+register_conf_subject:Wobkšuśenje registrěrowanja
+register_welcome_subject:Wobkšuśenje forumowego registrěrowanja
 register_err_cantreg_title:ZMÓLKA: registrěrowanje njejo móžno
 register_register_update:Registěrowański bok
 report_err_nosuchmsg_title:ZMÓLKA
@@ -664,6 +670,8 @@ rate_worst:Nejšpatnjejšy
 rate_best:Nejlěpšy
 post_quote:Citat:
 post_quote_selected:Wubrany tekst citěrowaś
+userinfo_referals:Nawabjone wužywarje:
+userinfo_referals_count:{VAR: referals} cłonkow
 pm_no_space_title:Žeden rum wušej!
 th_expr_never:Nigda
 th_expr_one_hr:1 góźina
@@ -689,6 +697,7 @@ logedin_latest_post:Slědna powěsć we forumje:
 register_show_avatar:Awatary pokazaś:
 drawmsg_view_rest_post:Wušk powěsći pokazaś
 post_re:Re:
+minimsg_thread_view:Temowy naglěd
 split_th_post_by:Powěsć wót:
 split_th_posted_on:Pósłany dnja:
 split_th_subject:Tema:
@@ -696,6 +705,7 @@ split_th_new_thread_title:Titel noweje temy:
 split_th_forum:Forum:
 split_th_messages:Powěsći
 split_th_select:Wubraś
+report_report_post:Pśinosk k wěsći daś
 quicklogin_login:Wužywarske mě:
 quicklogin_password:Gronidło:
 quicklogin_use_cookies:Cookieje wužywaś?
@@ -713,11 +723,13 @@ im_skype:Skype:
 im_twitter:Twitter:
 forum_contact:Kontakt
 forum_home:Startowy bok
+ignored_anon_post:{GVAR: ANON_NICK} se ignorěrujo
 smladd_close_window:wokno zacyniś
 post_list_smilies:wšykne smileyje nalicyś
 p_VISIBLE:Widobny
 reported_in_thread:W:
 help_back_to_top:slědk do zachopjeńka
+help_return_to_index:Slědk k indeksoju pomocy
 imsg_err_message_title:Njepłaśiwa powěsć
 imsg_err_message_msg:Powěsć, kótaraž cośo se woglědaś, njeeksistěrujo.
 poll_edit:Wobźěłaś
@@ -749,7 +761,9 @@ read_message:Pśecytana powěsć
 threadt_more:&lt;wěcej&gt;
 spell_alts:žedne alternatiwy
 back_to_top:Slědk do zachopjeńka
+err_mod_acc_ttl:Njepśeglědane konto
 saved:Skłaźony
+im_affero:Wužywarske mě za Affero
 buddy_offline:{VAR: r[2]} jo tuchylu offline
 buddy_online:{VAR: r[2]} jo tuchylu online
 sml_no_smilies:Žedne smileyje k dispoziciji.
@@ -764,6 +778,7 @@ threadt_announce:Pśipowěźenje
 thread_mark_all_read:Wšykne njepśecytane powěsći foruma ako pśecytane markěrowaś
 thread_mark_all_read_desc:Wšykne njepśecytane powěsći w toś tom forumje budu se ako pśecytane markěrowaś
 private_no_messages:W toś tom zarědniku žedne powěsći njejsu.
+register_email_change_subject:Wobkšuśenje změnjoneje e-mailoweje adrese
 iemail_thread_unsub:Toś tu temu wótskazaś
 iemail_forum_unsub:Toś ten forum wótskazaś
 primary_group_prefix:Głowna kupka za forum:
@@ -776,6 +791,7 @@ mnav_all_forums:Wšykne forumy pśepytaś
 mnav_submit:Pytanje zachopiś
 mnav_invalid_unit:Musyš płaśiwu casowu jadnotku pódaś.
 mnav_posted_by:Pósłany wót:
+mnav_more:Wěcej &raquo;&raquo;
 mnav_minute:minuty
 mnav_hour:góźiny
 mnav_day:dny
@@ -787,6 +803,8 @@ findu_ban:Wugnaś
 findu_edit:Wobźěłaś
 findu_delete:Wulašowaś
 dmsg_reply_to:jo wótegrono na
+dmsg_reply_num:pśinosk #{VAR: obj->reply_to}
+merge_topics:Temy zjadnośiś
 merge_merge:Wubrane temy zjadnośiś
 merge_next:Pśiduce temy
 merge_prev:Pjerwjejšne temy
@@ -824,6 +842,7 @@ register_none:Njeinforměrowaś
 findu_no_conf:njewobkšuśony wužywaŕ
 register_max_sig_len:Maksimalna dłujkosć:
 register_turing:Pšosym zapódaj slědujucy code:
+register_err_turing:Njepłaśiwy kod.
 modque_cat:Kategorija
 modque_forum:Forum
 idx_compact_forum_row:K dispoziciji stojece forumy:

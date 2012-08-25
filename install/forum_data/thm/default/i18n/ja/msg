@@ -1105,13 +1105,13 @@ move_messages:メッセージを移動
 move_msg_btn:選択したメッセージを移動
 move_msg_th_expl:移動先トピックのIDを指定してください（他のフォーラムのものも可です）
 captcha_img_alt:CAPTCHA検証: この画像中の文字列を認識する必要があります。
-captcha_img_help:画像中には 0 も 1 もありません。
+captcha_img_help:画像内には 0 も 1 もありません。
 powered-by:提供: FUDforum {GVAR: FORUM_VERSION}
 copyright:Copyright &copy;2001-2012 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:コード:
 code_select_all:すべて選択
 code_show_hide:表示/非表示
-social_sites:ソーシャル・ネットワーキングサイト:
+social_sites:ソーシャルネットワークのサイト:
 postcheck_min_len_err:メッセージが短すぎます。最低の長さは {PLURAL: post_min_len|$1文字}です。
 postcheck_dup_err:重複したトピックは作らないでください。
 btn_new_topic:新規トピック
@@ -1136,7 +1136,7 @@ feed_atom:ATOM フィード
 ip_whois_connect_err:whois サーバーに接続できません ({VAR: whois_server}): {VAR: errstr}
 custom_filed_required:この欄は必須です。
 pages:ページ
-page_list_heading:利用可能なページ
+page_list_heading:利用できるページ
 page_list_total:一覧には {PLURAL: i|$1 ページ}あります。
 page_update:ページを参照
 pm_export_header:{VAR: usr->alias} の非公開メッセージ
