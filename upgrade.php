@@ -4,9 +4,9 @@
 * email                : forum@prohost.org
 * $Id$
 *
-* This program is free software; you can redistribute it and/or modify it 
-* under the terms of the GNU General Public License as published by the 
-* Free Software Foundation; either version 2 of the License. 
+* This program is free software; you can redistribute it and/or modify it
+* under the terms of the GNU General Public License as published by the
+* Free Software Foundation; either version 2 of the License.
 ***************************************************************************/
 
 $__UPGRADE_SCRIPT_VERSION = 5304.5;
@@ -37,7 +37,7 @@ function nntp_tracker($flds)
 /** Change birthday from NUMBER to CHAR(8) (3.0.1->3.0.2).
  * New format is MMDDYYYY.
  * Requred for index lookups on leading string. I.e: WHERE birthday LIKE 'mmdd%';
- */ 
+ */
 function users_birthday($flds)
 {
 	pf('About to change birthday format. This may take a while...');
@@ -242,7 +242,7 @@ function htaccess_handler($web_root, $ht_pass)
 	}
 }
 
-/** 
+/**
  * Upgrade GLOBALS.php to new format (3.0.3->3.0.4).
  */
 function upgrade_globals_php()
@@ -366,7 +366,7 @@ if (defined('fud_debug')) {
 		} else {
 			if (!__mkdir(preg_replace('!/+$!', '', $path))) {
 				seterr('failed creating "'. $path .'" directory');
-			}	
+			}
 		}
 	} while (($pos = strpos($data, "\n//", $pos)) !== false);
 }
@@ -404,7 +404,7 @@ function syncronize_theme_dir($theme, $dir, $src_thm)
 	$spath = $GLOBALS['DATA_DIR'] .'thm/'. $src_thm .'/'. $dir;
 
 	if (!__mkdir($path)) {
-		seterr('Directory "'. $path .'" does not exist, and the upgrade script failed to create it.');	
+		seterr('Directory "'. $path .'" does not exist, and the upgrade script failed to create it.');
 	}
 	if (!($d = opendir($spath))) {
 		seterr('Failed to open "'. $spath .'"');
@@ -419,7 +419,7 @@ function syncronize_theme_dir($theme, $dir, $src_thm)
 		if (@is_dir($spath . $f) && !is_link($spath . $f)) {
 			syncronize_theme_dir($theme, $dir .'/'. $f, $src_thm);
 			continue;
-		}	
+		}
 		if (!@file_exists($path . $f) && !copy($spath . $f, $path . $f)) {
 			seterr('Failed to copy "'. $spath . $f .'" to "'. $path . $f .'", check permissions then run this scripts again.');
 		} else {
@@ -435,7 +435,7 @@ function syncronize_theme_dir($theme, $dir, $src_thm)
 				}
 			}
 		}
-			
+
 	}
 	closedir($d);
 }
@@ -565,7 +565,7 @@ function syncronize_theme($theme)
 
 	/* This check is here to ensure the data from GLOBALS.php was parsed correctly. */
 	if (!isset($GLOBALS['COOKIE_NAME'])) {
-		seterr('Failed to parse GLOBALS.php at "'. $gpath .'" correctly');	
+		seterr('Failed to parse GLOBALS.php at "'. $gpath .'" correctly');
 	}
 
 	/* Check FUDforum version. */
@@ -594,18 +594,18 @@ function syncronize_theme($theme)
 
 	// Another hack: q_bitand() was introduced in 3.0.2 and is used in this script.
 	// but the possibly older driver we've loaded may not have it yet.
-	if (!function_exists('q_bitand')) 
+	if (!function_exists('q_bitand'))
 	{
 		$driver = $GLOBALS['DBHOST_DBTYPE'];
-		if( !stricmp( $driver, 'mysql' ) OR
-			!stricmp( $driver, 'mysqli' ) OR
-			!stricmp( $driver, 'mssql' ) OR
-			!stricmp( $driver, 'pgsql' ) OR
-			!stricmp( $driver, 'sqlsrv' ) OR
-			!stricmp( $driver, 'pdo_mysql' ) OR
-			!stricmp( $driver, 'pdo_pgsql' ) OR
-			!stricmp( $driver, 'pdo_sqlite' ) OR
-			!stricmp( $driver, 'pdo_sqlsrv' ) )
+		if( !strcasecmp( $driver, 'mysql' ) OR
+			!strcasecmp( $driver, 'mysqli' ) OR
+			!strcasecmp( $driver, 'mssql' ) OR
+			!strcasecmp( $driver, 'pgsql' ) OR
+			!strcasecmp( $driver, 'sqlsrv' ) OR
+			!strcasecmp( $driver, 'pdo_mysql' ) OR
+			!strcasecmp( $driver, 'pdo_pgsql' ) OR
+			!strcasecmp( $driver, 'pdo_sqlite' ) OR
+			!strcasecmp( $driver, 'pdo_sqlsrv' ) )
 		{
 			// mysql, mysqli, mssql, pgsql, sqlsrv
 			// pdo_mysql, pdo_pgsql, pdo_sqlite, pdo_sqlsrv
@@ -613,10 +613,10 @@ function syncronize_theme($theme)
 				return $fieldLeft .' & '. $fieldRight;
 			}
 		}
-		else if( !stricmp( $driver, 'db2' ) OR
-			!stricmp( $driver, 'interbase' ) OR
-			!stricmp( $driver, 'oci8' ) OR
-			!stricmp( $driver, 'pdo_oci' ) )                
+		else if( !strcasecmp( $driver, 'db2' ) OR
+			!strcasecmp( $driver, 'interbase' ) OR
+			!strcasecmp( $driver, 'oci8' ) OR
+			!strcasecmp( $driver, 'pdo_oci' ) )
 		{
 			// db2, interbase, oci8, pdo_oci
 			function q_bitand($fieldLeft, $fieldRight) {
@@ -627,8 +627,8 @@ function syncronize_theme($theme)
 		{
 			// Unknown driver!
 			// TODO: manage error properly
-			die('Unknown database driver '. $driver .': cannot define q_bitand() properly.');			
-		}            
+			die('Unknown database driver '. $driver .': cannot define q_bitand() properly.');
+		}
 	}
 
 	// Another temp hack. Manually check MySQL DB version .
@@ -774,7 +774,7 @@ pf('<h2>Step 1: Admin login</h2>', true);
 	/* Disable the forum. */
 	if ($GLOBALS['FUD_OPT_1'] & 1) {
 		pf('Disabling the forum.');
-		// We normally diable the forum with maintenance_status(). However, since we will not re-enable 
+		// We normally diable the forum with maintenance_status(). However, since we will not re-enable
 		// the forum (done in consist.php), we will not be able to restore the disable reason.
 		change_global_settings(array('FUD_OPT_1' => ($GLOBALS['FUD_OPT_1'] &~ 1)));
 		pf('Forum is now disabled.');
@@ -836,7 +836,7 @@ pf('<h2>Step 1: Admin login</h2>', true);
 	pf('File upgrade completed.');
 
 	/* Update database. */
-	
+
 	// NOTE: dbadmin.inc becomes available in 3.0.2. We cannot use it until we've unpacked the new files.
 	// Checking of SQL permisions should actuallty be done BEFORE we unpack - a catch 22.
 	//TODO: Remember to move the code up in a later version again.
@@ -1074,7 +1074,7 @@ pf('<h2>Step 1: Admin login</h2>', true);
 
 	/* Remove obsolete SQL files. */
 	$rm_sql = array('def_users.sql',	// Merge into install.php (3.0.2).
-			'fud_thread_view.tbl',	// Renamed to fud_tv_1.tbl (3.0.2). 
+			'fud_thread_view.tbl',	// Renamed to fud_tv_1.tbl (3.0.2).
 			'fud_style.tbl',	// Left over from an ancient release.
 			'fud_settings.tbl');	// Another old file.
 	foreach ($rm_sql as $f) {
