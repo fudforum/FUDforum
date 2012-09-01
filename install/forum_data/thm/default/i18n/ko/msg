@@ -27,7 +27,7 @@ email_to_friend:친구에게 이메일 발송
 email_to_friend_desc:이 사이트의 주소를 친구에게 보냅니다
 # Fuzzy
 email_user:여기를 클릭하면 이메일이 발송됩니다
-faq:FAQ
+faq:도움말
 first_unread_msg:읽지 않은 메시지로 이동
 first_unread_msg_desc:현재 토픽안에 첫번째 읽지 않은 메시지로 이동
 flat_view:기본 플랫뷰로 돌아갑니다
@@ -501,6 +501,7 @@ poll_year:년
 poll_week:주
 tabs_register:설정
 tabs_subscriptions:설명
+tabs_bookmarkes:책갈피
 tabs_referrals:추천
 tabs_buddy_list:친구 목록
 tabs_ignore_list:차단 목록
@@ -628,7 +629,7 @@ ERR_systemerr_ttl:오류: 시스템 오류
 ERR_systemerr_msg:시스템 오류 발생. <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a>에게 이메일 발송.
 email_title:이메일 양식
 finduser_title:사용자 찾기
-help_title:FAQ
+help_title:도움말
 poll_title:투표 편집
 register_title:등록 형식
 reset_title:패스워드 초기화

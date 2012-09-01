@@ -74,6 +74,7 @@ cal_goto_date:روح على:
 cal_day_heading:أحداث اليوم
 cal_no_events:مافيش حاجه مهمه حصلت اليوم ده
 cal_birthday:عيد ميلاد: {VAR: user}
+cal_birthday_age:({PLURAL: age||سنه واحهة|سنتين|$1 سنه|$1 سنه}).
 message:رسالة
 message_counter:أرسل مستخدمونا <b>{PLURAL: post_count|رساله واحدة|$1 رسائل}</b> فى <b>{PLURAL: thread_count|موضوع واحد|$1 مواضيع}</b>.
 message_index:فهرس الرسائل
@@ -112,8 +113,7 @@ num_votes:{PLURAL: obj->total_votes|صوت|{VAR: obj->total_votes} أصوات}
 occupation:المهنة:
 off:مُطفأ
 on:مُشغّل
-# Fuzzy
-page_timings:الوقت المستغرق لتوليد الصفحة: {VAR: page_gen_time} ثانية
+page_timings:الوقت الإجمالي  لتوليد الصفحة: {PLURAL: page_gen_time|$1 ثانية}
 pm:مراسله خاصة
 poll:اقتراع:
 post_count:عد الرسائل {VAR: u_pcount}
@@ -263,7 +263,11 @@ sunday:الحد
 sunday_short:ح
 monday:الاتنين
 monday_short:إت
+tuesday_short:ت
+wednesday_short:أر
+thursday_short:خ
 friday:الجمعه
+friday_short:ج
 saturday:السبت
 saturday_short:س
 male:ذكر
@@ -405,6 +409,7 @@ post_title:العنوان:
 post_body:الجسم:
 post_options:خيارات:
 post_preview_btn:عاين الرسالة
+post_cancel_btn:إلغا
 ignore_users:المستخدمون المتَجاهَلون
 add_ignore:أضف تجاهلًا
 forum_terms:شروط المنتدى
