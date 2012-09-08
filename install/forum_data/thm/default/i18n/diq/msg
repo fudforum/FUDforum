@@ -31,7 +31,7 @@ forum_new_messages:Mesaco newe
 forum_old_messages:Mesaco newe çıno
 from:Rışten:
 gender:Neri makey:
-go:So
+go:Şo
 goto_next_msg:Şo Mesac dê peyêni
 goto_prev_msg:Şo Mesac dê verêni
 home:Keye
@@ -517,7 +517,7 @@ feed_rss:RSS2 Şexsi
 feed_atom:ATOM Şexsi
 ip_whois_connect_err:Arden dê WHOIS ({VAR: whois_server}) nêgredeyêno: {VAR: errstr}
 custom_filed_required:No cab icab keno.
-pages:Peley
+pages:Peri
 page_list_heading:Peleyê ke estê
 page_list_total:{PLURAL: i|$1 pele|$1 peley} liste bi.
 page_update:Oyo çım şıkneno pele
