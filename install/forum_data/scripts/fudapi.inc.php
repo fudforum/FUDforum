@@ -722,7 +722,7 @@ function fud_add_user($vals, &$err)
 				'. ssn(htmlspecialchars($vals['home_page'])) .',
 				'. ssn($vals['bio']) .',
 				'. (int)$vals['users_opt'] .',
-				'. $vals['registration_ip'] .'
+				\''. $vals['registration_ip'] .'\'
 			)
 		');
 }
