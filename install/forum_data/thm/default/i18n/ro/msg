@@ -474,6 +474,7 @@ report_give_reason:Va rugam sa introduceti un motiv pentru care ati raportat ace
 report_submit_report:Trimite raport
 search_entire_msg:Tot mesajul
 search_subject_only:Doar subiectul
+search_forum:Forum
 search_posted_on:Trimis la data de
 search_no_results:Niciun rezultat
 search_all_forums:Cauta in tote forumurile
@@ -671,10 +672,10 @@ search_update:Cautare mesaje trimise
 selmsg_update:Navigeaza <a href="{TEMPLATE: selmsg_update_lnk}">mesaje trimise astazi</a>
 showposts_update:Vizualizare mesaje trimise de: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
 subscribed_update:Navigare in inscrieri
-# Fuzzy
-thread_update:Navigare in forumul <a href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a>
+thread_update:Navigare în forumul <a href="{TEMPLATE: thread_update_lnk}">{VAR: frm->name}</a>
 tree_update:Navigare teme <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
 userinfo_update:Vizualizati profilul utilizatorului <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}'s</a>
+ERR_login_msg2:<legend>EROARE: Nu sunteți autentificat</legend>Pentru a accesa această pagină trebuie să fiți membru al acestui forum.
 ERR_disabled_ttl:Optiune dezactivata
 ERR_disabled_msg:Această opțiunea a fost dezactivată de către administratorul sistemului.
 ERR_access_ttl:EROARE: Permisiune insuficienta
@@ -1104,3 +1105,4 @@ page_list_heading:Pagini disponibile
 page_list_total:{PLURAL: i|o pagină listată|$1 pagini listate}.
 page_update:Răsfoind pagina
 pm_export_header:Mesaje private pentru {VAR: usr->alias}
+karma_delete:Șterge

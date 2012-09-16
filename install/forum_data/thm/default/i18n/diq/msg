@@ -43,7 +43,7 @@ im_msnm:MSN Messenger:
 im_yahoo:Yahoo Messenger:
 image:Resım
 index_forum:Forum
-index_url_redirection:Hetekerdış
+index_url_redirection:Hetanayışê cı
 interests:Eleqe:
 last_post:Mesaco peyên
 legend:Rehber:
@@ -315,7 +315,7 @@ groupmgr_yes:E
 groupmgr_no:Nê
 groupmgr_action:Kerden
 groupmgr_member:Eza
-groupmgr_cancel:Xırab qı
+groupmgr_cancel:Bıterkne
 groupmgr_add_member:Eza Defi
 groupmgr_update_member:Eza Neweke
 groupmgr_edit:Bıvurne
@@ -435,7 +435,7 @@ idx_compact_forum_row:Forumi:
 mmd_del_title:MErseli Besterne
 mmd_mov_title:Mersela Ahûlne
 mmd_move_threads_to:Hedefê Forumi:
-mmd_abort_move:Xırab qı
+mmd_abort_move:Bıterkne
 mmd_move:Mersela Ahûlne
 pmsg_pdf_btn:Arşivê PDF bıke
 search_results_hdr:Cı geyrayış dı {VAR: total} neticey vineyaye.

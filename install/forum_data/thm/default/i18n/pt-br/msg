@@ -771,8 +771,7 @@ p_STICKY:posts persistentes
 p_POLL:Criar mensagens
 p_FILE:adicionar arquivos
 p_VOTE:Votar
-# Fuzzy
-p_RATE:Votar tópicos
+p_RATE:Avaliar tópicos/membros
 p_SPLIT:Dividir tópicos
 p_LOCK:Trancar tópicos
 p_MOVE:Mover tópicos
@@ -1108,8 +1107,7 @@ move_msg_th_expl:Especifique a ID do tópico de destino (pode estar em outros f�
 captcha_img_alt:Verificação por Captcha: você precisará reconhecer o texto nesta imagem.
 captcha_img_help:Não há zero ou um na imagem.
 powered-by:Powered by: FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:Direitos autorais &copy;2001-2011 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Copyright &copy;2001-2012 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Código:
 code_select_all:Selecionar tudo
 code_show_hide:Mostrar/esconder
@@ -1143,3 +1141,7 @@ page_list_total:{PLURAL: i|$1 página|$1 páginas} listadas.
 page_update:Página de navegação
 pm_export_header:Mensagens privadas para {VAR: usr->alias}
 pm_export_footer:Exportado:
+karma:Karma
+karma_track:Gerir reputação para o usuário:
+karma_delete:Apagar
+rate_author:Avaliar autor:
