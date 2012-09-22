@@ -1,5 +1,6 @@
 # Messages for Danish (dansk)
 # Exported from translatewiki.net
+# Author: Christian List
 # Author: Emilkris33
 # Author: McDutchie
 # Author: Naudefj
@@ -64,9 +65,9 @@ lock_thread:Lås emne
 locked:Låst
 locked_with_new_posts:Låst (m/ ulæste beskeder)
 logged_in_list:Liste over indloggede brugere
-login:Log ind
-login_header:Logind-navn:
-logout:Log ud
+login:Log på
+login_header:Brugernavn:
+logout:Log af
 mark_all_read:Markér alle beskeder som læst
 mark_all_read_desc:Alle dine ulæste beskeder vil blive markeret som læste
 members:Medlemmer
@@ -284,7 +285,7 @@ register_tree_msg_view:Trævisning af emner/Flad beskedsoversigt
 register_flat_view:Flad oversigtsvisning af beskeder og emner
 use_forum_default:Brug forum standard
 finduser_user_info:Brugeroplysninger
-finduser_by_login:Ved logind-navn:
+finduser_by_login:Ved brugernavn:
 finduser_submit:Find
 finduser_no_such_user:Ikke fundet
 finduser_user:Bruger
@@ -296,14 +297,14 @@ no:Nej
 register_email:Email
 edit_time_limit:<b>Redigerings tidsbegrænsning</b>: {GVAR: EDIT_TIME_LIMIT} minutter
 no_edit_time_limit:<b>Redigerings tidsbegrænsning</b>: Ingen
-pmuserloc_login:Logind:
+pmuserloc_login:Brugernavn:
 pmuserloc_submit:Indsende
 pmuserloc_user:Bruger
 pmuserloc_no_result:Ingen Resultat
 register_builtin:Indbygget
 register_specify_url:Angiv URL
 register_uploaded:Læg avatar op
-register_login:Logind-navn:
+register_login:Brugernavn:
 register_password:Adgangskode:
 register_conf_pass:Bekræft adgangskode:
 register_email_desc:Angiv en gyldig e-mail-adresse. Du kan vælge at skjule den nedenfor i præferencer sektionen.
@@ -366,7 +367,7 @@ buddy_status:Status
 my_buddies:Mine venner
 add_buddy:Tilføj kammerat
 add:Tilføj
-buddy_search:Indtast logind-navn på den bruger du ønsker at tilføje.
+buddy_search:Indtast brugernavnet på den bruger du ønsker at tilføje.
 member_search:Eller brug <a href="javascript://" onclIck="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Find Bruger</a> funktionen for at søge efter brugere.
 buddy_remove:fjerne
 post_normal:Normal
@@ -438,26 +439,26 @@ coppa_fax_sign:Du bedes underskrive formularen nedenfor og sende den til os
 coppa_fax_conf:Jeg har gennemgået de oplysninger, mit barn har fremvist, og jeg har læst "Privacy Policy" for webstedet. Jeg har forstået, at profil oplysningerne kan ændres ved hjælp af en adgangskode. Jeg har forstået, at jeg eventuelt selv må bede om, at denne registrerings-profil bliver fjernet helt fra forum.
 coppa_fax_permission:Skriv under her, hvis du giver tilladelse
 coppa_fax_no_permission:Skriv under her, hvis du ønsker kontoen skal slettes
-coppa_fax_parent_name:Forælder/Værge fulde navn:
+coppa_fax_parent_name:Forælders/Værges fulde navn:
 coppa_fax_relation:Relation til barn:
 coppa_fax_telephone:Telefon:
 coppa_fax_email:E-mail-adresse:
 coppa_fax_date:Dato:
 coppa_fax_questions:Du bedes kontakte <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> angående eventuelle spørgsmål
-coppa_fax_login:Login-navn
+coppa_fax_login:Brugernavn
 coppa_fax_passwd:Kodeord
 coppa_fax_remail:E-mail
 coppa_fax_name:Navn
-login_not_logedin:Du er ikke logget ind. Dette kan skyldes én af flere årsager:
-login_cookie_expired:Din cookie er udløbet, og du skal logge ind igen for at forny din cookie.
-login_perm_denied:Du har ikke tilladelse til den anmodede resource som anonym bruger. Du skal logge ind for at komme videre.
+login_not_logedin:Du er ikke logget på. Dette kan skyldes én af flere årsager:
+login_cookie_expired:Din cookie er udløbet, og du skal logge på igen for at forny din cookie.
+login_perm_denied:Du har ikke tilladelse til den anmodede resource som anonym bruger. Du skal logge på for at komme videre.
 login_want_to_register:Ønskes registrering?
 login_forgot_passwd:Glemt kodeord?
 # Fuzzy
 login_use_cookie:Brug cookies<br /><span class="SmallText">Hvis du bruger en offentlig terminal såsom en computer på et bibliotek, skole, eller Internet cafe, anbefales det at du fravælger denne mulighed for at opnå større sikkerhed.<br />Hvis du bibeholder valget af cookies, vil du automatisk blive logget ind i forum, næste gang du besøger stedet.
-login_login:Logind-navn:
-login_login_btn:Log ind
-login_name_required:Logind-navn påkrævet
+login_login:Brugernavn:
+login_login_btn:Log på
+login_name_required:Brugernavn påkrævet
 login_passwd_required:Kodeord er påkrævet
 login_invalid_radius:Ugyldigt login/kodeord kombination
 reset_confirmation:Tak for din registrering.\n\nFor at aktivere din konto skal du gå til webadressen nedenfor:\n\n{VAR: url}\n\nNår først din konto er aktiveret vil du være indlogget på forum og\nvidereledes til forsiden.
@@ -473,6 +474,8 @@ rpasswd_login:Log ind
 rpasswd_cur_pass:Nuværende adgangskode:
 rpasswd_new_pass:Ny adgangskode:
 rpasswd_conf_pass:Bekræft adgangskode:
+ruser_new_login:Nyt login:
+ruser_cur_pass:Nuværende adgangskode:
 login_passwd:Adgangskode:
 reset_email:E-mail:
 reset_reset_button:Nulstil adgangskoden:
@@ -538,8 +541,7 @@ poll_blank_option:Du kan ikke tilføje en tom valgmulighed.
 poll_del_conf:Hvis du vil slette denne mulighed, skal du trykke på OK
 poll_name:Meningsmåling navn:
 poll_timelimit:Tidsfrist:
-# Fuzzy
-poll_maxiumvotes:Største antal stemmer
+poll_maxiumvotes:Største antal stemmer:
 poll_create:Opret
 poll_update:Opdatér
 poll_disablesmilies:Forhindr smilies
@@ -564,8 +566,7 @@ tabs_buddy_list:Venneliste
 tabs_ignore_list:Ignorer liste
 tabs_private_messaging:Private beskeder
 single_msg_delete:Du er ved at <span class="ErrorText">SLETTE</span> meddelelsen med titlen: <b>{VAR: data[3]}</b>
-# Fuzzy
-thread_delete:Du er ved at <span class="ErrorText">SLETTE</span> <span class="ErrorText">HELE EMNET</span> med titlen: <b>{VAR: data[3]}</b>
+thread_delete:Du er ved at <span class="ErrorText">slette</span> <span class="ErrorText">hele emnet</span> med titlen: <b>{VAR: data[3]}</b>
 delete_proceed:<span class="fb">Vil du fortsætte?</span>
 delete_yes:Ja
 delete_no:Nej
@@ -618,8 +619,7 @@ pm_update:Brug af private beskeder
 post_err_lockedthread_title:FEJL: Låst emne
 post_err_lockedthread_msg:Dette emne er låst. Nye indlæg er ikke længere tilladt.
 err_coppa_title:FEJL: Din konto er endnu ikke bekræftet
-# Fuzzy
-err_coppa_msg:Vi har ikke modtaget en bekræftelse fra din moder og/eller værge, som vil give dig mulighed for at sende indlæg. Hvis du har mistet din COPPA formular, <a href="{TEMPLATE: err_coppa_msg_lnk}">så klik her</a> for at se den igen.
+err_coppa_msg:Vi har ikke modtaget en bekræftelse fra en af dine forældre og/eller værge, som vil give dig mulighed for at skrive indlæg. Hvis du har mistet din COPPA formular, så <a href="{TEMPLATE: err_coppa_msg_lnk}">se den her</a>.
 err_banned_acct_title:FEJL: Du er blevet udelukket.
 err_banned_acct_msg:Din konto blev {IF: $ban_expiry}midlertidigt lukket indtil {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}permanent lukket{ENDI} for adgang til webstedet, som følge af en overtrædelse af forumets regler.
 post_err_edttimelimit_title:FEJL
@@ -627,8 +627,7 @@ post_err_edttimelimit_msg:Du kan ikke længere redigere denne besked
 post_err_noannontopics_msg2:<legend>FEJL: Utilstrækkelige privilegier</legend>anonyme brugere har ikke tilladelse til at oprette emner.
 post_err_noannonposts_msg2:<legend>FEJL: Utilstrækkelige privilegier</legend>anonyme brugere har ikke tilladelse til at svare.
 post_err_floodtrig_title:FEJL: Post oversvømmelse udløst.
-# Fuzzy
-post_err_floodtrig_msg:Prøv igen om {VAR: tm} sekunder
+post_err_floodtrig_msg:Prøv igen om {PLURAL: tm|$1 sekund|$1 sekunder}
 post_err_attach_size:vedhæftet fil er for stor (over den tilladte grænse på {VAR: MAX_F_SIZE} bytes)
 post_err_attach_ext:Den fil, du forsøger at overføre, svarer ikke til de tilladte filtyper.
 post_err_attach_filelimit:Du forsøger at overføre flere filer end tilladt.
@@ -637,8 +636,7 @@ post_reply_update:Besvarelse af <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->su
 post_topic_update:Skriver nyt emne i <a href="{TEMPLATE: post_topic_update_lnk}">{VAR: frm->name}</a>
 post_error_generic:Der opstod en fejl
 postcheck_max_images_err:Ikke flere end {GVAR: MAX_IMAGE_COUNT} billeder er tilladt per besked. Reducer venligst antallet af billeder.
-# Fuzzy
-postcheck_no_links_allowed:Du kan ikke bruge links, før du har indsendt mere end {GVAR: POSTS_BEFORE_LINKS} beskeder.
+postcheck_no_links_allowed:Du kan ikke bruge links, før du har indsendt mere end {PLURAL: posts_before_links|$1 besked|$1 beskeder}.
 postcheck_subj_needed:Emne skal udfyldes
 postcheck_no_such_user:Der er ingen bruger ved navn "{FUNC: char_fix(htmlspecialchars($v))}" i dette forum.
 postcheck_ignored:Du kan ikke sende en privat besked til "{FUNC: char_fix(htmlspecialchars($v))}"fordi denne person har valgt at ignorere dig.
@@ -658,8 +656,7 @@ register_err_passwdnomatch:Dine adgangskoder stemmer ikke overens, prøv igen.
 register_err_invalidemail:E-mail-adressen, du har angivet, forekommer ikke at være gyldig.
 register_err_needname:For at færdiggøre denne registrering skal du indtaste dit navn.
 register_err_enterpasswd:Du skal indtaste din nuværende adgangskode for at fuldføre ændringerne.
-# Fuzzy
-register_err_adminpasswd:Du skal indtaste ADMINISTRATOR adgangskoden for at fuldføre ændringerne.
+register_err_adminpasswd:Du skal indtaste <b>administrator</b> adgangskoden for at fuldføre ændringerne.
 register_err_notyouremail:En anden er allerede registreret med denne e-mail-adresse.
 register_err_avatartobig:Den fil, du forsøger at overføre, er for stor, mere end {GVAR: CUSTOM_AVATAR_MAX_SIZE} bytes
 register_err_avatarnotallowed:Den avatar, du forsøger at uploade er ikke tilladt. Check de tilladte filtyper.
@@ -690,21 +687,17 @@ tree_update:Gennemse emne (trævisning) <a href="{TEMPLATE: tree_update_lnk}">{V
 userinfo_update:Ser på <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}s</a> profil
 ERR_login_msg2:<legend>FEJL: Du er ikke logget ind</legend> For at få adgang til denne side skal du være medlem af dette forum.
 ERR_disabled_ttl:Deaktiveret funktion
-# Fuzzy
-ERR_disabled_msg:Denne funktion er blevet deaktiveret af systemadministratoren
+ERR_disabled_msg:Denne funktion er deaktiveret af systemadministratoren.
 ERR_access_ttl:FEJL: Utilstrækkelige tilladelser
-# Fuzzy
-ERR_access_msg:Du har ikke de nødvendige tilladelser til at udføre denne handling
+ERR_access_msg:Du har ikke tilstrækkelige rettigheder til at udføre denne handling.
 ERR_registration_disabled_ttl:Registrering deaktiveret
 ERR_registration_disabled_msg:Administratoren har deaktiveret registrering. Prøv igen senere.
 ERR_emailconf_ttl:FEJL: Din konto er endnu ikke bekræftet
-# Fuzzy
-ERR_emailconf_msg:Du har ikke bekræftet din konto via e-mail endnu<br /><table border=0><tr><td><ol><li>Hvis du ikke har modtaget en bekræftelses-e-mail, <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">klik her</a><li>Hvis {VAR: usr_d->email} ikke er din korrekte e-mail addresse, <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">så klik her</a></ol></td></tr></table>
+ERR_emailconf_msg:Du har ikke bekræftet din konto via e-mail endnu.<br /><table border="0"><tr><td><ol><li>Hvis du ikke har modtaget en bekræftelses-e-mail, så <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">bed om en ny her</a>,</li><li>Hvis {VAR: usr_d->email} ikke er din korrekte e-mail addresse, så <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">skal du angive den korrekte adresse</a>.</li></ol></td></tr></table>
 ERR_user_ttl:FEJL: Ingen sådan bruger
 ERR_user_msg:Der er ingen sådan bruger
 ERR_systemerr_ttl:FEJL: systemfejl
-# Fuzzy
-ERR_systemerr_msg:Der opstod en systemfejl. Du bedes rapportere det til <a href="mailto:{GVAR: ADMIN_EMAIL}">admin</a>.
+ERR_systemerr_msg:Der opstod en systemfejl. Du bedes rapportere det til <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a>.
 email_title:E-mail formular
 finduser_title:Find bruger
 help_title:Hjælp
@@ -729,6 +722,7 @@ post_opt_images_off:<b>Billeder</b> er <b>FRA</b>
 post_opt_smilies_off:<b>Smilies</b> er <b>FRA</b>
 post_opt:Forum indstillinger:
 register_change_passwd:Skift adgangskode
+register_change_login:ændre login
 approved_avatar_title:Din brugerdefinerede avatar blev godkendt.
 approved_avatar_msg:Din avatar blev godkendt af administrator. Den vil nu ses som din avatar på alle dine indlæg. Hvis du ikke kan se den, eller set din gamle avatar, er det fordi din browser har cachet siden. Prøv slette (genopfrisk) det en eller to gange. I de fleste tilfælde vil det løse cachelagrings problemet.
 unapproved_avatar_title:Din brugerdefinerede avatar blev afvist.
@@ -778,8 +772,7 @@ p_STICKY:"Klæbende"  beskeder
 p_POLL:Opret meningsmålinger
 p_FILE:Vedhæft filer
 p_VOTE:Afstemning
-# Fuzzy
-p_RATE:Bedøm emner
+p_RATE:Bedøm emner/medlemmer
 p_SPLIT:Opdel emner
 p_LOCK:Lås emner
 p_MOVE:Flyt emner
@@ -792,6 +785,7 @@ rate_worst:Dårligste
 rate_best:Bedste
 post_quote_msg:{VAR: msg->login} skrev den {TEMPLATE: make_report_date}
 post_quote:Citat:
+post_quote_selected:Citér den markerede tekst
 userinfo_referals:Nævnte brugere:
 userinfo_referals_count:{VAR: referals} medlemmer henvist
 pm_no_space_title:Ingen plads tilbage!
@@ -835,13 +829,13 @@ split_th_split_unsel:Opdel ikke valgte indlæg
 split_th_messages:Indlæg
 split_th_select:Vælg
 report_report_post:Indrapporter besked
-# Fuzzy
-quicklogin_login:Logind-navn
+quicklogin_login:Logind-navn:
 quicklogin_password:Adgangskode:
 quicklogin_use_cookies:Brug Cookies?
-# Fuzzy
-quicklogin_login_btn:Log ind
+quicklogin_login_btn:Log på
 quick_reply:Kvik-svar
+quick_reply_post:Send hurtigt svar
+quick_reply_preview:Forhåndsvis hurtigt svar
 post_notification_desc:Giv mig besked, når nogen svarer på dette indlæg.
 post_all_ext_allowed:(ubegrænset)
 maximize_category:Maksimer kategori
@@ -856,6 +850,7 @@ pmsg_prev_msg:Forrige besked
 post_proc_reveal_spoiler:Skjult tekst fra/til
 register_jabber:Jabber identifikation:
 register_skype:Skype identifikation:
+register_twitter:Twitter-brugernavn:
 register_google:Google Chat/IM navn:
 im_jabber:Jabber:
 im_google:Google Talk:
@@ -926,8 +921,7 @@ err_mod_acc_ttl:Ubekræftet konto
 err_mod_acc_msg:Administratoren har valgt at gennemgå alle konti manuelt før aktivering. Indtil din konto er blevet godkendt af administrator vil du ikke være i stand til at udnytte din kontos fulde kapacitet.
 accounts_pending_approval:Konti der venter på godkendelse
 saved:Gemte
-# Fuzzy
-register_err_time_limit:Grænsen for én registrering per {GVAR: REG_TIME_LIMIT} sekunder er nået. Vent venligst {VAR: reg_limit_reached} sekund(er), og forsøg derefter at registrere igen.
+register_err_time_limit:Grænsen for én registrering per {GVAR: REG_TIME_LIMIT} sekunder er nået. Vent venligst {PLURAL: reg_limit_reached|$1 sekund|$1 sekunder}, og forsøg derefter at registrere igen.
 register_affero:Affero brugernavn:<br /><span class="SmallText">Hvis du har et <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">Affero</a> brugernavn, skal du indtaste det her.</span>
 im_affero:Affero brugernavn
 register_err_avatardimtobig:Avatar dimensionerne på <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> overstiger den tilladte størrelse på <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b> pixels.
@@ -1049,8 +1043,7 @@ uc_sub_topics:abonnerede emner med nye beskeder
 uc_page_title:Visning af personligt kontrolpanel.
 search_options:Søgeindstillinger
 search_user_filter:Filtrer efter bruger:
-# Fuzzy
-register_none:Advisér ikke
+register_none:Advisér mig ikke
 findu_no_conf:ubekræftet bruger
 register_max_sig_len:Største længde:
 register_turing:Indtast koden vist nedenfor:
@@ -1068,6 +1061,7 @@ search_results_hdr:{VAR: total}  søgeresultater fundet
 thread_del_all:Slet valgte
 thread_mov_all:Flyt valgte
 thread_merge_all:Sammenslå valgte
+thread_loc_all:Låse/åbne valgte
 dmsg_ip:IP:
 err_blockedaccnt_title:FEJLMEDDELELSE: Din konto er blevet spærret.
 err_blockedaccnt_msg:Din konto er blevet spærret for adgang til dette forum på grund af et af de installerede bruger filtre.
@@ -1111,12 +1105,21 @@ pmsg_download_dump:Nedhent besked som tekst
 move_messages:Flyt indlæg
 move_msg_btn:Flyt valgte beskeder
 move_msg_th_expl:Specificer ID af destinations emne (kan være i andre fora)
+captcha_img_alt:Captcha verifikation: du skal genkende teksten i dette billede.
+captcha_img_help:Der er ingen nul eller én i billedet.
+powered-by:Drevet af: FUDforum {GVAR: FORUM_VERSION}.
+copyright:Copyright &copy;2001-2012 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Kode:
 code_select_all:Vælg alle
 code_show_hide:Vis/ skjul
 social_sites:Sociale netværkssider:
+postcheck_min_len_err:Din meddelelse er for kort. Den minimale længde er {PLURAL: post_min_len|et tegn|$1 tegn}.
+postcheck_dup_err:Vær venlig ikke at oprette dupplikater af emner.
 btn_new_topic:Nyt emne
+btn_new_pm:Ny privat besked
 btn_post_reply:Svar
+btn_tree_view:Trævisning
+btn_flat_view:Flad visning
 btn_about:Profil
 btn_small_pm:PM
 btn_delete:slet
@@ -1127,8 +1130,19 @@ btn_quote:Citér
 btn_email:Email
 btn_show_posts:Indlæg
 btn_homepage:www
+feed_no_data:Ingen matchende data blev fundet.
+feed_rdf:RDF-feed
+feed_rss:RSS2-feed
+feed_atom:ATOM-feed
+ip_whois_connect_err:Kunne ikke oprette forbindelse til WHOIS-server ({VAR: whois_server}): {VAR: errstr}
 custom_filed_required:Dette felt skal udfyldes.
 pages:Sider
 page_list_heading:Tilgængelige sider
 page_list_total:{PLURAL: i|$1 side|$1 sider} angivet.
+page_update:Viser side
+pm_export_header:Private beskeder for {VAR: usr->alias}
 pm_export_footer:Eksporteret:
+karma:Karma
+karma_track:Administrere ry for brugeren:
+karma_delete:Slet
+rate_author:Bedøm forfatter:

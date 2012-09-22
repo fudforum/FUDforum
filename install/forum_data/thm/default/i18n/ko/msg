@@ -452,7 +452,7 @@ remail_send_now:지금 이메일 발송
 remail_anon_opt:이 게시글을 이메일 클라이언트에 복사한 후, 전송할 친구를 선택하십시오.
 remail_done:완료
 remail_error:오류
-mklist_type:형식:
+mklist_type:유형:
 mklist_option:옵션:
 mklist_additem:항목 추가
 mklist_apply:적용

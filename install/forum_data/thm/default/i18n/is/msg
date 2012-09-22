@@ -1,5 +1,6 @@
 # Messages for Icelandic (íslenska)
 # Exported from translatewiki.net
+# Author: S.Örvarr.S
 # Author: Snævar
 
 action:Aðgerð
@@ -767,8 +768,7 @@ p_STICKY:Límd skilaboð
 p_POLL:Búa til könnun
 p_FILE:Hlaða inn viðhengi
 p_VOTE:Kjósa
-# Fuzzy
-p_RATE:Gefa þræðinum einkunn
+p_RATE:Meta umræðuefnum/meðlimum
 p_SPLIT:skipta þræði
 p_LOCK:Læsa þræði
 p_MOVE:Færa þræði
@@ -1104,8 +1104,7 @@ move_msg_th_expl:Tilgreindu auðkenni þráðarinns sem á að færa á (má ver
 captcha_img_alt:Captcha staðfesting: Þú þarft að bera kennsl á textann á þessari mynd.
 captcha_img_help:Það er ekki núll eða einn á myndinni.
 powered-by:Knúið af: FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:Höfundaréttur &copy;2001-2011 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Höfundarréttur &copy;2001-2012 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Kóði:
 code_select_all:Velja allt
 code_show_hide:sýna/fela
@@ -1139,3 +1138,7 @@ page_list_total:{PLURAL: i|$1 síða|$1 síður} skráðar.
 page_update:Skoða síðu
 pm_export_header:Einkaskilaboð fyrir {VAR: usr->alias}
 pm_export_footer:Flutti út:
+karma:Karma
+karma_track:Stýra mannorði notanda:
+karma_delete:Eyða
+rate_author:Meta höfund:

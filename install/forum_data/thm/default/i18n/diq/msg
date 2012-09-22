@@ -75,6 +75,7 @@ moderator:Cerbener
 moderator_of:Wesetê Forumi
 moderator_options:Wesetin Weçiney
 moderators:{PLURAL: modcount|Wesetber|Wesetber}
+move_thread:Berê
 na:n/a
 new_posts:Mesaco newe esto
 new_thread:Topiko newe vıraze
@@ -507,7 +508,7 @@ btn_delete:besterne
 btn_edit:Bıvurne
 btn_reply:Cewab bıde
 btn_forward:Aser ke
-btn_quote:gırewte
+btn_quote:groteko
 btn_email:E-posta
 btn_show_posts:Rıştışi
 btn_homepage:www
