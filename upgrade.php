@@ -9,7 +9,7 @@
 * Free Software Foundation; either version 2 of the License.
 ***************************************************************************/
 
-$__UPGRADE_SCRIPT_VERSION = 5304.5;
+$__UPGRADE_SCRIPT_VERSION = 5304.6;
 // define('fud_debfud_debug', 1);
 
 /*

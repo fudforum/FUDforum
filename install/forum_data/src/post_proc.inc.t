@@ -163,7 +163,8 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 
 					if (!strncasecmp($url, 'www.', 4)) {
 						$url = 'http&#58;&#47;&#47;'. $url;
-					} else if (strpos(strtolower($url), 'script:') !== false) {
+					} else if (!filter_var($url, FILTER_VALIDATE_URL) || !preg_match('/^(http|ftp)/i', $url)) {
+						// Skip invalid or bad URL (like 'script:' or 'data:').
 						$ostr .= substr($str, $pos, $cepos - $pos + 1);
 						$epos = $cepos;
 						$str[$cpos] = '<';
@@ -257,15 +258,17 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 						$class = ($tag == 'img') ? '' : 'class="'. $tag{3} .'" ';
 
 						if (!$parms) {
-							$parms = substr($str, $epos+1, ($cpos-$epos)-1);
-							if (strpos(strtolower(url_check($parms)), 'script:') === false) {
-								$ostr .= '<img '. $class .'src="'. $parms .'" border="0" alt="'. $parms .'" />';
+							// Relative URLs or physical with http/https/ftp.
+							$url = url_check(substr($str, $epos+1, ($cpos-$epos)-1));
+							if (preg_match('/^\.\//', $url) || (filter_var($url, FILTER_VALIDATE_URL) && preg_match('/^(http|ftp)/i', $url))) {
+								$ostr .= '<img '. $class .'src="'. $url .'" border="0" alt="'. $url .'" />';
 							} else {
 								$ostr .= substr($str, $pos, ($cepos-$pos)+1);
 							}
 						} else {
-							if (strpos(strtolower(url_check($parms)), 'script:') === false) {
-								$ostr .= '<img '. $class .'src="'. $parms .'" border="0" alt="'. substr($str, $epos+1, ($cpos-$epos)-1) .'" />';
+							$url = url_check($parms);
+							if (preg_match('/^\.\//', $url) || (filter_var($url, FILTER_VALIDATE_URL) && preg_match('/^(http|ftp)/i', $url))) {
+								$ostr .= '<img '. $class .'src="'. $url .'" border="0" alt="'. substr($str, $epos+1, ($cpos-$epos)-1) .'" />';
 							} else {
 								$ostr .= substr($str, $pos, ($cepos-$pos)+1);
 							}
@@ -398,7 +401,7 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 			continue;
 		}
 
-		// Check if it's inside the SPAN tag
+		// Check if it's inside the SPAN tag.
 		if (($ts = strpos($ostr, '<span>', $pos)) === false) {
 			$ts = strlen($ostr);
 		}
@@ -444,7 +447,8 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 		$GLOBALS['seps']['='] = '=';
 
 		$url = url_check(substr($ostr, $us+1, $ue-$us-1));
-		if (strpos($url, 'script', strlen('script')) !== false || ($ue - $us - 1) < 9) {
+		if (!filter_var($url, FILTER_VALIDATE_URL) || !preg_match('/^(http|ftp)/i', $url) || ($ue - $us - 1) < 9) {
+			// Skip invalid or bad URL (like 'script:' or 'data:').
 			$pos = $ue;
 			continue;
 		}
@@ -477,7 +481,6 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 			++$pos;
 			continue;
 		}
-
 
 		// Check if it's inside the a tag.
 		if (($ts = strpos($ostr, '<a ', $pos)) === false) {
@@ -525,10 +528,11 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 			continue;
 		}
 
-		$email = str_replace('@', '&#64;', substr($ostr, $es, $ee-$es));
-		if (strpos( substr($email, 1, -1), '.') === false) {	// E-mail mostly have dots in them.
+		$email = substr($ostr, $es, $ee-$es);
+		if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 			$ppos = $pos += 1; continue;
 		}
+		$email = str_replace('@', '&#64;', $email);
 		$email_url = '<a href="mailto:'. $email .'">'. $email .'</a>';
 		$email_url_l = strlen($email_url);
 		$ostr = fud_substr_replace($ostr, $email_url, $es, $ee-$es);
@@ -676,3 +680,4 @@ function reverse_nl2br($data)
 	return $data;
 }
 ?>
+

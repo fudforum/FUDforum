@@ -497,7 +497,7 @@ function generate_file($php_file)
 				$s = strpos($v['compiled'],  '*/') + 2;		// Skip comments.
 				$e = strrpos($v['compiled'], '?>');		// EOF
 				if (empty($s) || empty($e)) {
-					throw new Exception('File  '. $v2 .' is incomplete.');
+					throw new Exception('File  '. $v2 .' is incomplete. It must start with comments and end with \'?>\').');
 				}
 
 				$k = $v['dst'][0];

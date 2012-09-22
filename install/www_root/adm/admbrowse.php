@@ -304,7 +304,7 @@ if (!extension_loaded('posix')) {
 				if (!copy($fdest, $fdest .'.bak')) {
 					pf(errorify('Unable to backup old file to '. $fdest .'.bak.'));
 				} else {
-					pf(successify('Backup old file to '. $fdest));
+					pf(successify('Backup old file to '. $fdest .'.bak.'));
 				}
 			}
 			if (move_uploaded_file($_FILES['fname']['tmp_name'], $fdest)) {
