@@ -309,7 +309,7 @@ register_password:Adgangskode:
 register_conf_pass:Bekræft adgangskode:
 register_email_desc:Angiv en gyldig e-mail-adresse. Du kan vælge at skjule den nedenfor i præferencer sektionen.
 register_name:Navn:
-register_your_pass:Dit kodeord:
+register_your_pass:Din adgangskode:
 register_update:Opdatér
 register_avatar_type:Avatar type:
 register_del_avatar:Slet avatar
@@ -432,6 +432,7 @@ coppa:En forælder eller værge skal maile eller faxe en underskrevet tilladelse
 prereg_info:Information
 prereg_agree:Enig
 prereg_disagree:Uenig
+prereg_update:Læsning af forumreglerne
 coppa_fax_instructions:Instruktioner til en forælder eller værge
 coppa_fax_instructions2:Udskriv venligst denne side, underskriv den, og fax den til:
 coppa_fax_reg_form:Registrerings formular
@@ -446,35 +447,38 @@ coppa_fax_email:E-mail-adresse:
 coppa_fax_date:Dato:
 coppa_fax_questions:Du bedes kontakte <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> angående eventuelle spørgsmål
 coppa_fax_login:Brugernavn
-coppa_fax_passwd:Kodeord
+coppa_fax_passwd:Adgangskode
 coppa_fax_remail:E-mail
 coppa_fax_name:Navn
 login_not_logedin:Du er ikke logget på. Dette kan skyldes én af flere årsager:
 login_cookie_expired:Din cookie er udløbet, og du skal logge på igen for at forny din cookie.
 login_perm_denied:Du har ikke tilladelse til den anmodede resource som anonym bruger. Du skal logge på for at komme videre.
-login_want_to_register:Ønskes registrering?
-login_forgot_passwd:Glemt kodeord?
+login_want_to_register:Vil du registrere dig?
+login_forgot_passwd:Glemt adgangskode
 # Fuzzy
 login_use_cookie:Brug cookies<br /><span class="SmallText">Hvis du bruger en offentlig terminal såsom en computer på et bibliotek, skole, eller Internet cafe, anbefales det at du fravælger denne mulighed for at opnå større sikkerhed.<br />Hvis du bibeholder valget af cookies, vil du automatisk blive logget ind i forum, næste gang du besøger stedet.
 login_login:Brugernavn:
 login_login_btn:Log på
 login_name_required:Brugernavn påkrævet
-login_passwd_required:Kodeord er påkrævet
-login_invalid_radius:Ugyldigt login/kodeord kombination
+login_passwd_required:Adgangskode er påkrævet
+login_invalid_radius:Ugyldig brugernavn/adgangskode kombination
 reset_confirmation:Tak for din registrering.\n\nFor at aktivere din konto skal du gå til webadressen nedenfor:\n\n{VAR: url}\n\nNår først din konto er aktiveret vil du være indlogget på forum og\nvidereledes til forsiden.
-reset_reset:Hej,\n\ndu har bedt om at få en ny adgangskode. For at afslutte processen,\ngå venligst til denne webadresse:\n\n{VAR: url}\n\nBEMÆRK: Dette forum gemmer kodeord ved hjælp af en envejs-kryptering mekanisme, hvilket betyder, at\nnår du først har indtastet din adgangskode, bliver den gemt, så det er UMULIGT at få den tilbage til klartekst.\nDette virker ved at sammenligne den kodede version vi har registreret med den kodede version af, hvad du skriver i log-ind feltet.\n(Hvis du er interesseret i, hvordan denne mekanisme virker, læs om MD5 hash-algoritmen)
+reset_reset:Hej,\n\ndu har bedt om at få en ny adgangskode. For at afslutte processen,\ngå venligst til denne webadresse:\n\n{VAR: url}\n\nBEMÆRK: Dette forum gemmer adgangskoder ved hjælp af en envejs-kryptering mekanisme, hvilket betyder, at\nnår du først har indtastet din adgangskode, bliver den gemt, så det er UMULIGT at få den tilbage til klartekst.\nDette virker ved at sammenligne den kodede version vi har registreret med den kodede version af, hvad du skriver i log på feltet.\n(Hvis du er interesseret i, hvordan denne mekanisme virker, læs om MD5 hash-algoritmen)
 rpasswd_invalid_passwd:Ugyldig adgangskode
 rpasswd_passwd_nomatch:Adgangskoderne stemmer ikke overens
 rpasswd_passwd_length:Adgangskoden skal være på mindst 6 tegn
-reset_remind_pass:kodeord påmindelse
+reset_remind_pass:Påmindelse om adgangskode
 reset_reset_conf:Din gamle adgangskode slettes og en ny sendes til dig. Hvis du endnu ikke har bekræftet din e-mailadresse, sendes istedet en bekræftelsesmail igen!
 reset_error:E-mail-adressen blev ikke fundet i databasen
 rpasswd_change_pass:Skift adgangskode
-rpasswd_login:Log ind
+rpasswd_login:Brugernavn
 rpasswd_cur_pass:Nuværende adgangskode:
 rpasswd_new_pass:Ny adgangskode:
 rpasswd_conf_pass:Bekræft adgangskode:
-ruser_new_login:Nyt login:
+ruser_title:Formular til ændring af brugernavn
+ruser_change_user:Ændre dit brugernavn for forum
+ruser_cur_login:Nuværende brugernavn:
+ruser_new_login:Nyt brugernavn:
 ruser_cur_pass:Nuværende adgangskode:
 login_passwd:Adgangskode:
 reset_email:E-mail:
@@ -584,7 +588,7 @@ buddy_list_err_ignore:Kan ikke tilføje brugere, der ignorere dig, til din venne
 buddy_list_update:Gennemse egen venneliste
 core_err_invinp_title:Ugyldig indtastning
 core_err_invinp_err:Du har fulgt et ugyldigt link. Meddel venligst <a href="mailto:{GVAR: ADMIN_EMAIL}">admin</a> hvordan du kom hertil.
-core_adm_login_msg:Administratorer kan indlogge <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">her</a>.
+core_adm_login_msg:Administratorer kan logge på <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">her</a>.
 email_err_unabletoemail_title:FEJL: Kunne ikke sende e-mail
 email_err_unabletoemail_msg:E-mail systemet er blevet deaktiveret af administratoren.
 email_error_unabletolocaddr:Beklager, men systemet var ude af stand til at e-maile  {VAR-HTML: _POST['tx_name']}, fordi det ikke var i stand til at bestemme e-mail adressen
@@ -611,7 +615,7 @@ ignore_list_cantign_msg:Du kan ikke se bort fra denne bruger
 ignore_list_update:Gennemse egen ignoreringsliste
 index_update:Gennemse <a href="{TEMPLATE: index_update_lnk}">forum listen</a>
 list_referers_update:Gennemse henvisninger
-login_update:Login billede
+login_update:Logge på
 msg_update:Gennemse emne <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
 pm_err_nopm_title:FEJL: Private beskeder deaktiveret
 pm_err_nopm_msg:Du kan ikke bruge det private beskeds system. Det er blevet deaktiveret af administratoren.
@@ -647,11 +651,11 @@ postcheck_email_body:Du kan ikke sende en e-mail uden besked tekst.
 private_msg_notify_subj:Læs anmeldelse af: {VAR: m->subject}
 private_msg_notify_body:Hej,<br />{VAR: usr->login} har åbnet din private besked med titlen "{VAR: m->subject}".<br />Dette er en automatisk meddelelse genereret den {TEMPLATE: private_msg_notify_body_date}<br />
 referals_update:Gennemse henvisninger
-register_err_short_login:Det login, du har valgt, er for kort. Login-navne skal være mindst 4 tegn langt.
-register_err_login_notallowed:Dette login-navn er ikke tilladt.
-register_err_loginunique:Forum login-navne skal være entydige. Der findes allerede en bruger med dette navn.
+register_err_short_login:Det brugernavn, du har valgt, er for kort. Brugernavne skal være mindst 4 tegn lange.
+register_err_login_notallowed:Dette brugernavn er ikke tilladt.
+register_err_loginunique:Forum brugernavne skal være entydige. Der findes allerede en bruger med dette navn.
 register_err_emailexists:Denne e-mailadresse er allerede knyttet til en konto. Hvis du har glemt din adgangskode, kan du bruge gendannelsesmuligheden i stedet for at registrere igen.
-register_err_shortpasswd:Kodeord skal være på mindst 6 tegn.
+register_err_shortpasswd:Adgangskoden skal være på mindst 6 tegn.
 register_err_passwdnomatch:Dine adgangskoder stemmer ikke overens, prøv igen.
 register_err_invalidemail:E-mail-adressen, du har angivet, forekommer ikke at være gyldig.
 register_err_needname:For at færdiggøre denne registrering skal du indtaste dit navn.
@@ -663,7 +667,7 @@ register_err_avatarnotallowed:Den avatar, du forsøger at uploade er ikke tillad
 register_conf_subject:Bekræftelse af registrering
 register_conf_msg:Tak for din registrering,\nFor at aktivere din konto skal du gå til webadressen nedenfor:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nNår din konto er aktiveret vil du være logget ind i forumet og \nviderestilles til hovedsiden.
 register_welcome_subject:Bekræftelse af registrering i forum
-register_welcome_msg:Tak for din registrering,\n\nHer er dine login oplysninger for forumet:\n\nForum URL: {TEMPLATE: index_update_lnk}\nLogin: {VAR: uent->login}\nKodeord: {VAR: _POST['reg_plaintext_passwd']}\n\nBemærk, at der i adgangskoder skelnes mellem store og små bogstaver!\nFor at ændre dine personlige indstillinger skal du gå til følgende side:\n{FULL_ROOT}{ROOT}?t=register
+register_welcome_msg:Tak for din registrering,\n\nHer er dine brugerinformationer for forumet:\n\nForum URL: {TEMPLATE: index_update_lnk}\nBrugernavn: {VAR: uent->login}\nAdgangskode: {VAR: _POST['reg_plaintext_passwd']}\n\nBemærk, at der i adgangskoder skelnes mellem store og små bogstaver!\nFor at ændre dine personlige indstillinger eller profil skal du gå til følgende side:\n{FULL_ROOT}{ROOT}?t=register
 register_err_cantreg_title:FEJL: ude af stand til at registrere
 regsiter_err_cantreg_msg:Ude af stand til at oprette brugerkonto, du bedes kontakte administratoren på <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:Visning af egen profil
@@ -675,7 +679,7 @@ reset_err_invalidkey_msg:Ugyldig link for ændret adgangskode. Det er muligt, at
 reset_err_rstconf_title:Information
 reset_err_rstconf_msg:Du burde modtage instruktioner per e-mail i løbet af de næste par minutter.
 reset_newpass_title:Få ny adgangskode
-reset_newpass_msg:Hallo,\n\nSom ønsket fremsendes hermed dine nye dine logind-oplysninger:\n\nLogind-navn: {VAR: ui[1]}\nKodeord: {VAR: passwd}\n\nBemærk venligst at din adgangskode er blevet ændret til den ovennævnte værdi. Hvis du ønsker\n at ændre din adgangskode igen, kan du gøre det via kontrolpanelet på:\n{FULL_ROOT}{ROOT}?t=register\n\n.
+reset_newpass_msg:Hej\n\nSom ønsket fremsendes hermed dine nye dine brugeroplysninger:\n\nBrugernavn: {VAR: ui[1]}\nAdgangskode: {VAR: passwd}\n\nBemærk venligst at din adgangskode er blevet ændret til den ovennævnte værdi. Hvis du ønsker\n at ændre din adgangskode igen, kan du gøre det via kontrolpanelet på:\n{FULL_ROOT}{ROOT}?t=register\n\n.
 reset_login_notify:Din nye adgangskode er blevet sendt til dig pr e-mail. Du vil modtage den inden for de næste par minutter.<br />
 search_update:Søg i beskeder
 selmsg_update:Gennemse <a href="{TEMPLATE: selmsg_update_lnk}">dagens indlæg</a>
@@ -685,7 +689,7 @@ bookmarked_update:Gennemse egen liste
 thread_update:Gennemse forum <a href="{TEMPLATE: thread_update_lnk}">{VAR: frm->name}</a>
 tree_update:Gennemse emne (trævisning) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
 userinfo_update:Ser på <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}s</a> profil
-ERR_login_msg2:<legend>FEJL: Du er ikke logget ind</legend> For at få adgang til denne side skal du være medlem af dette forum.
+ERR_login_msg2:<legend>FEJL: Du er ikke logget på</legend> For at få adgang til denne side skal du være medlem af dette forum.
 ERR_disabled_ttl:Deaktiveret funktion
 ERR_disabled_msg:Denne funktion er deaktiveret af systemadministratoren.
 ERR_access_ttl:FEJL: Utilstrækkelige tilladelser
@@ -701,7 +705,7 @@ ERR_systemerr_msg:Der opstod en systemfejl. Du bedes rapportere det til <a href=
 email_title:E-mail formular
 finduser_title:Find bruger
 help_title:Hjælp
-login_title:Login formular
+login_title:Logge på
 poll_title:Afstemnings Editor
 register_title:Registrerings formular
 reset_title:Nulstil adgangskode
@@ -722,7 +726,7 @@ post_opt_images_off:<b>Billeder</b> er <b>FRA</b>
 post_opt_smilies_off:<b>Smilies</b> er <b>FRA</b>
 post_opt:Forum indstillinger:
 register_change_passwd:Skift adgangskode
-register_change_login:ændre login
+register_change_login:ændre brugernavn
 approved_avatar_title:Din brugerdefinerede avatar blev godkendt.
 approved_avatar_msg:Din avatar blev godkendt af administrator. Den vil nu ses som din avatar på alle dine indlæg. Hvis du ikke kan se den, eller set din gamle avatar, er det fordi din browser har cachet siden. Prøv slette (genopfrisk) det en eller to gange. I de fleste tilfælde vil det løse cachelagrings problemet.
 unapproved_avatar_title:Din brugerdefinerede avatar blev afvist.
@@ -743,7 +747,7 @@ thr_exch_submit:Indsend
 exch_decline_ttl:Flytning af emne {VAR: data->subject} til forum {VAR: data->f2_name} blev afvist.
 ppost_original_msg:Besked, du videresender eller besvarer
 split_thread:Opdel emne
-groupmgr_no_user:Der er ingen bruger med login "{FUNC: char_fix(htmlspecialchars($gr_member))}"
+groupmgr_no_user:Der er ingen bruger med brugernavn "{FUNC: char_fix(htmlspecialchars($gr_member))}"
 groupmgr_already_exists:Bruger "{FUNC: char_fix(htmlspecialchars($gr_member))}" eksisterer allerede i denne gruppe.
 groupmgr_yes:Ja
 groupmgr_no:Nej
@@ -829,7 +833,7 @@ split_th_split_unsel:Opdel ikke valgte indlæg
 split_th_messages:Indlæg
 split_th_select:Vælg
 report_report_post:Indrapporter besked
-quicklogin_login:Logind-navn:
+quicklogin_login:Brugernavn:
 quicklogin_password:Adgangskode:
 quicklogin_use_cookies:Brug Cookies?
 quicklogin_login_btn:Log på
@@ -874,7 +878,7 @@ register_err_not_valid_img:Den angivne webadresse indeholder ikke et gyldigt bil
 pmsg_recepient:Modtager
 register_err_taken_alias:Aliaset (kaldenavnet) du prøver at bruge, er allerede i brug af et andet forum medlem. Vælg et andet.
 register_alias:Alias:
-register_alias_desc:Hvis du ønsker at et andet kaldenavn end dit login skal vises i dette forum, skal du indtaste det her.
+register_alias_desc:Hvis du ønsker at et andet kaldenavn end dit brugernavn skal vises i dette forum, skal du indtaste det her.
 register_allow_pm_msg:Tillad private beskeder
 register_allow_pm_msg_desc:Tillad andre brugere at sende dig private beskeder i dette forum.
 postcheck_pm_disabled:Du kan ikke sende en privat besked til "{VAR-HTML: v}", fordi denne person ikke accepterer private beskeder.
@@ -913,7 +917,7 @@ threadt_update:Gennemse forum (trævisning) <a href="{TEMPLATE: threadt_update_l
 mmod_delete_cofirm_ttl:Bekræft sletning af emne/besked
 spell_alts:ingen alternativer
 insert_uploaded_image:Indsæt billede i besked teksten
-finduser_help:Søgemaskinen vil automatisk tilføje * masken til din forespørgsel, <b>søgningen er afhængig af store og små bogstaver</b>.<br />Ex. for at søge efter alle brugere, hvis login begynder med et 'a', indtast 'a' i søgefeltet.
+finduser_help:Søgemaskinen vil automatisk tilføje * masken til din forespørgsel, <b>søgningen er afhængig af store og små bogstaver</b>.<br />F.eks. for at søge efter alle brugere, med et brugernavn som begynder med et 'a', indtast 'a' i søgefeltet.
 back_to_top:Tilbage til toppen
 pm_err_disabled_title:Privat beskedgivning ikke indstillet
 pm_err_disabled_msg:Du kan ikke sende private beskeder, før du aktiverer 'Tillad private beskeder' i din profil.
@@ -928,7 +932,7 @@ register_err_avatardimtobig:Avatar dimensionerne på <b>({VAR: img_info[0]}x{VAR
 buddy_offline:{VAR: r[2]} er i øjeblikket offline
 buddy_online:{VAR: r[2]} er i øjeblikket online
 sml_no_smilies:Ingen humørikoner til rådighed.
-login_unapproved_account_ttl:Ikke-godkendte konto
+login_unapproved_account_ttl:Ikke-godkendt konto
 login_unapproved_account_msg:Administratoren af forumet har valgt at godkende hver ny konto manuelt før aktivering. Din konto er endnu ikke blevet godkendt, derfor vil du ikke kunne få adgang til de funktioner, som kun er til rådighed for aktiverede medlemmer.
 remove_from_buddy_list:Fjern fra kammerat-liste
 iemail_msg_author:<b>Forfatter:</b> {VAR: obj->alias}
@@ -1016,7 +1020,7 @@ ip_search_by_ip:Søg brugere af givet IP-nummer
 ip_search_syntax:Understøttet syntaks: 1.2.3.4, 1.2.3, 1.2, 1
 ip_search:IP søgning
 ip_analyze_usage:Analyser IP brug
-ip_analyze_usage_descr:Angiv brugerens nøjagtige login.
+ip_analyze_usage_descr:Angiv brugerens nøjagtige brugernavn.
 ip_users_using:Bruger(e) som anvender '{VAR: ip}' IP addressen
 ip_all_ips:Alle IP(r), der benyttes af '{VAR: user}'
 ip_title:IP browser
@@ -1075,7 +1079,7 @@ sml_emoticon:Humørikon
 sml_code:Kode
 mnav_sub_only:Søg kun i tilmeldte fora
 register_topics_per_page:Emner per side:
-login_min_time:Dette forum giver mulighed for et login forsøg hver {VAR: MIN_TIME_BETWEEN_LOGIN}-ende sekund, vent venligst {FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)} sekunder før dit næste forsøg.
+login_min_time:Dette forum giver mulighed for at man kan forsøge at logge på hvert {VAR: MIN_TIME_BETWEEN_LOGIN}-ende sekund, vent venligst {FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)} sekunder før dit næste forsøg.
 post_not_logged_in:Du er i øjeblikket ikke logget på, meddelelsen vil blive indsendt anonymt.
 post_common_bold:Fed
 post_common_italics:Kursiv
