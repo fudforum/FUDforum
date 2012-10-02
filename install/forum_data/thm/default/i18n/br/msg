@@ -1114,7 +1114,7 @@ social_sites:Lec'hiennoù rouedadoù sokial :
 postcheck_min_len_err:Re verr eo ho kemennadenn. An hirded a rank bezañ  {PLURAL: post_min_len|$1 arouezenn|$1 arouezenn} da nebeutañ.
 postcheck_dup_err:Arabat krouiñ kaozioù doublet, mar plij.
 btn_new_topic:Kaoz nevez
-btn_new_pm:Kemenadenn brevez nevez
+btn_new_pm:Kemennadenn brevez nevez
 btn_post_reply:Postañ ur respont
 btn_tree_view:Diskwel gwezennadur
 btn_flat_view:Diskwel plaen

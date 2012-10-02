@@ -1,6 +1,7 @@
 # Messages for German (Deutsch)
 # Exported from translatewiki.net
 # Author: Als-Holder
+# Author: Das Schäfchen
 # Author: George Animal
 # Author: Giftpflanze
 # Author: Hydra
@@ -20,7 +21,7 @@ administrator:Administrator
 attachment:Anhang:
 avatar:Avatar:
 average_post_count:{PLURAL: u->posted_msg_count|$1 Nachricht|$1 Nachrichten} (durchschnittlich {PLURAL: avg|$1 Nachricht|$1 Nachrichten} pro Tag)
-biography:Biographie:
+biography:Biografie:
 birth_date:Geburtsdatum:
 by:Von:
 by_mod:vom Moderator
