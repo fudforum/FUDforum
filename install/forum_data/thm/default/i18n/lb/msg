@@ -117,7 +117,7 @@ usrinfo_last_post:Leschte Message:
 view_results:Resultater weisen
 vote:{PLURAL: frm->n_rating|$1 Stëmm|$1 Stëmmen}
 vote_button:Ofstëmmen
-vote_for_thread:Ofsstëmmen
+vote_for_thread:Ofstëmmen
 what_ppl_doing:Weise wat d'Leit maachen
 reported_reason:Grond:
 modque_approve:Zoustëmmen

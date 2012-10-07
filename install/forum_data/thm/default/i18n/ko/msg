@@ -8,7 +8,7 @@
 admin:관리자
 # Fuzzy
 admin_control_panel:제어판넬
-administrator:최고관리자
+administrator:관리자
 attachment:첨부:
 avatar:아바타:
 biography:추가정보:
@@ -270,7 +270,7 @@ register_avatar:아바타:
 register_sel_avatar:아바타 선택
 register_custom_avatar_rules:사용자가 설정한 아바타는 관리자의 승인후에 나타납니다.<br /><span class="SmallText">The avatar, should be no larger than <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} pixels</b> and must be in <b>jpg</b>, <b>gif</b> or <b>png</b> format.</span>
 register_custom_avatar_url:사용자 지정 아바타 URL:
-register_preview:미리보기
+register_preview:미리 보기
 register_custom_avatar_upload:아바타 파일:
 register_register:등록
 register_required:필수 입력

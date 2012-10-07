@@ -759,7 +759,7 @@ p_READ:Citeste
 p_POST:Trimite
 p_REPLY:Răspunde
 p_EDIT:Editare
-p_DEL:Stregere
+p_DEL:Șterge
 p_STICKY:Trimite Sticky
 p_POLL:Creeaza sondaj
 p_FILE:Ataseaza fisier

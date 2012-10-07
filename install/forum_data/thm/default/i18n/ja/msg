@@ -496,9 +496,9 @@ search_forum_search:フォーラム検索
 move_thread_to:トピック「<b>{VAR: thr->subject}</b>」を次へ移動:
 remail_email_topic:友達にこのトピックをメールで送信
 remail_your_name:あなたの名前:
-remail_your_email:あなたのメール：
+remail_your_email:あなたのメール:
 remail_friends_name:友達の名前:
-remail_friends_email:友達のメール：
+remail_friends_email:友達のメール:
 remail_required:必須
 remail_subject:件名:
 remail_message:メッセージ:

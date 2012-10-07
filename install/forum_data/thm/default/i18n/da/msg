@@ -633,19 +633,19 @@ post_err_attach_size:Vedhæftet fil er for stor (over den tilladte grænse på {
 post_err_attach_ext:Den fil, du forsøger at overføre, er ikke en tilladt filtype.
 post_err_attach_filelimit:Du forsøger at overføre flere filer end tilladt.
 post_err_passwd:Forkert adgangskode.
-post_reply_update:Besvarelse af <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> i {VAR: frm->name}
+post_reply_update:Svarer på <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> i {VAR: frm->name}
 post_topic_update:Skriver nyt emne i <a href="{TEMPLATE: post_topic_update_lnk}">{VAR: frm->name}</a>
 post_error_generic:Der opstod en fejl
 postcheck_max_images_err:Ikke flere end {GVAR: MAX_IMAGE_COUNT} billeder er tilladt per besked. Reducer venligst antallet af billeder.
 postcheck_no_links_allowed:Du kan ikke bruge links, før du har indsendt mere end {PLURAL: posts_before_links|$1 besked|$1 beskeder}.
 postcheck_subj_needed:Emne skal udfyldes
 postcheck_no_such_user:Der er ingen bruger ved navn "{FUNC: char_fix(htmlspecialchars($v))}" i dette forum.
-postcheck_ignored:Du kan ikke sende en privat besked til "{FUNC: char_fix(htmlspecialchars($v))}"fordi denne person har valgt at ignorere dig.
+postcheck_ignored:Du kan ikke sende en privat besked til "{FUNC: char_fix(htmlspecialchars($v))}", fordi denne bruger har valgt at ignorere dig.
 postcheck_no_recepient:Kan ikke sende beskeden, modtageren mangler
 postcheck_invalid_email:Angiv en gyldig e-mail-adresse på din ven.
 postcheck_email_subject:Du kan ikke sende en e-mail uden et emne.
-postcheck_email_body:Du kan ikke sende en e-mail uden besked tekst.
-private_msg_notify_subj:Læs anmeldelse af: {VAR: m->subject}
+postcheck_email_body:Du kan ikke sende en e-mail uden tekst.
+private_msg_notify_subj:Læs notifikation for: {VAR: m->subject}
 private_msg_notify_body:Hej,<br />{VAR: usr->login} har åbnet din private besked med titlen "{VAR: m->subject}".<br />Dette er en automatisk meddelelse genereret den {TEMPLATE: private_msg_notify_body_date}<br />
 referals_update:Gennemse henvisninger
 register_err_short_login:Det brugernavn, du har valgt, er for kort. Brugernavne skal være mindst 4 tegn lange.
@@ -659,10 +659,10 @@ register_err_needname:For at færdiggøre denne registrering skal du indtaste di
 register_err_enterpasswd:Du skal indtaste din nuværende adgangskode for at fuldføre ændringerne.
 register_err_adminpasswd:Du skal indtaste <b>administrator</b> adgangskoden for at fuldføre ændringerne.
 register_err_notyouremail:En anden er allerede registreret med denne e-mail-adresse.
-register_err_avatartobig:Den fil, du forsøger at overføre, er for stor, mere end {GVAR: CUSTOM_AVATAR_MAX_SIZE} bytes
+register_err_avatartobig:Den fil, du forsøger at overføre, er for stor, mere end {GVAR: CUSTOM_AVATAR_MAX_SIZE} bytes.
 register_err_avatarnotallowed:Den avatar, du forsøger at uploade er ikke tilladt. Check de tilladte filtyper.
 register_conf_subject:Bekræftelse af registrering
-register_conf_msg:Tak for din registrering,\nFor at aktivere din konto skal du gå til webadressen nedenfor:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nNår din konto er aktiveret vil du være logget ind i forumet og \nviderestilles til hovedsiden.
+register_conf_msg:Tak for din registrering,\nFor at aktivere din konto skal du gå til webadressen nedenfor:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nNår din konto er aktiveret vil du blive logget på forumet og \nviderestillet til hovedsiden.
 register_welcome_subject:Bekræftelse af registrering i forum
 register_welcome_msg:Tak for din registrering,\n\nHer er dine brugerinformationer for forumet:\n\nForum URL: {TEMPLATE: index_update_lnk}\nBrugernavn: {VAR: uent->login}\nAdgangskode: {VAR: _POST['reg_plaintext_passwd']}\n\nBemærk, at der i adgangskoder skelnes mellem store og små bogstaver!\nFor at ændre dine personlige indstillinger eller profil skal du gå til følgende side:\n{FULL_ROOT}{ROOT}?t=register
 register_err_cantreg_title:FEJL: ude af stand til at registrere
@@ -670,7 +670,7 @@ regsiter_err_cantreg_msg:Ude af stand til at oprette brugerkonto, du bedes konta
 register_profile_update:Visning af egen profil
 register_register_update:Registreringsside
 report_err_nosuchmsg_title:FEJL
-report_err_nosuchmsg_msg:Ingen sådan besked
+report_err_nosuchmsg_msg:Intet sådant indlæg
 reset_err_invalidkey_title:FEJL
 reset_err_invalidkey_msg:Ugyldig link for ændret adgangskode. Det er muligt, at din e-mail klient allerede automatisk har åbnet denne side og dermed gjort denne webadresse ugyldig. Hvis dette er tilfældet, burde du snarest modtage en e-mail med din nye adgangskode. Hvis denne alligevel ikke når frem, prøv én gang til at få tildelt ny adgangskode.
 reset_err_rstconf_title:Information
@@ -678,11 +678,11 @@ reset_err_rstconf_msg:Du burde modtage instruktioner per e-mail i løbet af de n
 reset_newpass_title:Få ny adgangskode
 reset_newpass_msg:Hej\n\nSom ønsket fremsendes hermed dine nye dine brugeroplysninger:\n\nBrugernavn: {VAR: ui[1]}\nAdgangskode: {VAR: passwd}\n\nBemærk venligst at din adgangskode er blevet ændret til den ovennævnte værdi. Hvis du ønsker\n at ændre din adgangskode igen, kan du gøre det via kontrolpanelet på:\n{FULL_ROOT}{ROOT}?t=register\n\n.
 reset_login_notify:Din nye adgangskode er blevet sendt til dig pr e-mail. Du vil modtage den inden for de næste par minutter.<br />
-search_update:Søg i beskeder
+search_update:Søger blandt indlæggene
 selmsg_update:Gennemse <a href="{TEMPLATE: selmsg_update_lnk}">dagens indlæg</a>
 showposts_update:Vis indlæg af: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
 subscribed_update:Gennemse egne abonnementer
-bookmarked_update:Gennemse egen liste
+bookmarked_update:Gennemse egen liste af bogmærker
 thread_update:Gennemse forum <a href="{TEMPLATE: thread_update_lnk}">{VAR: frm->name}</a>
 tree_update:Gennemse emne (trævisning) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
 userinfo_update:Ser på <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}s</a> profil
@@ -703,31 +703,31 @@ email_title:E-mail formular
 finduser_title:Find bruger
 help_title:Hjælp
 login_title:Logge på
-poll_title:Afstemnings Editor
-register_title:Registrerings formular
+poll_title:Afstemningseditor
+register_title:Registrering
 reset_title:Nulstil adgangskode
-rpasswd_title:Skift adgangskode indtastningsskema
-error_title:Fejl formular
+rpasswd_title:Skift adgangskode
+error_title:Fejl
 index_title:Velkommen til forumet
 search_title:Søg efter {VAR-HTML: srch}
 remail_emailsent:Mail blev afsendt
-remail_email:Hej,\n\nder er et interessant emne om "{VAR: data->subject}" on {GVAR: FORUM_TITLE} forum, som du muligvis vil læse. Du kan se emnet på:\n {FULL_ROOT}{ROOT}?t=rview&th={VAR: data->id}&rid={DEF: _uid}\n\nDin ven,\n\n{VAR: usr->alias}
+remail_email:Hej\n\nDer er et interessant emne om "{VAR: data->subject}" på forumet {GVAR: FORUM_TITLE}, som du muligvis vil læse. Du kan se emnet på:\n {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nDin ven\n\n{VAR: usr->alias}
 poll_add_option:Tilføj valgmulighed:
-post_opt_html_on:<b>HTML</b> er <b>TIL</b>
-post_opt_fud_on:<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>BBcode</b> er <b>TIL</b></a>
-post_opt_images_on:<b>Billeder</b> er <b>TIL</b>
-post_opt_smilies_on:<a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank"><b>Humørikoner</b> er <b>TIL</b></a>
-post_opt_html_off:<b>HTML</b> kode er <b>FRA</b>
-post_opt_fud_off:<b>BBcode</b> er <b>FRA</b>
-post_opt_images_off:<b>Billeder</b> er <b>FRA</b>
-post_opt_smilies_off:<b>Smilies</b> er <b>FRA</b>
+post_opt_html_on:<b>HTML</b> kode er slået <b>til</b>
+post_opt_fud_on:<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>Humørikoner</b> er slået <b>til</b></a>
+post_opt_images_on:<b>Billeder</b> er slået <b>til</b>
+post_opt_smilies_on:<a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank"><b>Smilies</b> er slået <b>til</b></a>
+post_opt_html_off:<b>HTML</b> kode er slået <b>fra</b>
+post_opt_fud_off:<b>Humørikoner</b> er slået <b>fra</b>
+post_opt_images_off:<b>Billeder</b> er slået <b>fra</b>
+post_opt_smilies_off:<b>Smilies</b> er slået <b>fra</b>
 post_opt:Forum indstillinger:
 register_change_passwd:Skift adgangskode
 register_change_login:ændre brugernavn
 approved_avatar_title:Din brugerdefinerede avatar blev godkendt.
 approved_avatar_msg:Din avatar blev godkendt af administrator. Den vil nu ses som din avatar på alle dine indlæg. Hvis du ikke kan se den, eller set din gamle avatar, er det fordi din browser har cachet siden. Prøv slette (genopfrisk) det en eller to gange. I de fleste tilfælde vil det løse cachelagrings problemet.
 unapproved_avatar_title:Din brugerdefinerede avatar blev afvist.
-unapproved_avatar_msg:Administratoren har ikke godkende din avatar. De mest almindelige årsager er, at din avatar var for stor (størrelse og/eller dimensioner) eller at indeholdet er upassende. Hvis du ønsker flere oplysninger om, hvorfor din avatar blev afvist, kontakt administratoren.
+unapproved_avatar_msg:Administratoren har ikke godkendt din avatar. De mest almindelige årsager er, at din avatar var for stor (størrelse og/eller dimensioner) eller at indholdet er upassende. Hvis du ønsker flere oplysninger om, hvorfor din avatar blev afvist, så kontakt administratoren.
 mvthread_request_move:Anmod om en flytning
 move_request_reason:Hvorfor ønsker du at emnet skal flyttes?
 mvthread_submit_req:Send anmodning
@@ -742,7 +742,7 @@ thr_exch_no_threads:Ingen emner venter på godkendelse.
 thr_exch_decl_reason:Grunden til at afvise emne <b>{VAR: data->subject}</b> i forum <b>{VAR: data->f2_name}</b>
 thr_exch_submit:Indsend
 exch_decline_ttl:Flytning af emne {VAR: data->subject} til forum {VAR: data->f2_name} blev afvist.
-ppost_original_msg:Besked, du videresender eller besvarer
+ppost_original_msg:besked, du videresender eller besvarer
 split_thread:Opdel emne
 groupmgr_no_user:Der er ingen bruger med brugernavn "{FUNC: char_fix(htmlspecialchars($gr_member))}"
 groupmgr_already_exists:Bruger "{FUNC: char_fix(htmlspecialchars($gr_member))}" eksisterer allerede i denne gruppe.
@@ -760,7 +760,7 @@ group_mgr_reged:Alle registrerede brugere
 show_show:Vis:
 group_mgr:Gruppe(r) manager
 group_mgr_edit_btn:Rediger gruppe
-group_mgr_heading:Valg af gruppe editor
+group_mgr_heading:Valg af gruppe til redigering
 group_mgr_group:Gruppe:
 permission_denied_title:Tilladelse nægtet!
 permission_denied_msg:Dine brugertilladelser giver dig ikke ret til at udføre det, du forsøger.
@@ -769,7 +769,7 @@ p_POST:Skriv
 p_REPLY:Besvar
 p_EDIT:Redigér
 p_DEL:Slet
-p_STICKY:"Klæbende"  beskeder
+p_STICKY:"Klæbrige"  indlæg
 p_POLL:Opret meningsmålinger
 p_FILE:Vedhæft filer
 p_VOTE:Afstemning
@@ -778,7 +778,7 @@ p_SPLIT:Opdel emner
 p_LOCK:Lås emner
 p_MOVE:Flyt emner
 p_SML:Brug smilies
-p_IMG:Brug billed-mærke
+p_IMG:Tillad billede-tags
 p_SEARCH:Kan søge
 group_mgr_search:Find bruger
 group_mgr_indicator:Redigerer nu: <b>{VAR: grp->name}</b>
@@ -787,7 +787,7 @@ rate_best:Bedste
 post_quote_msg:{VAR: msg->login} skrev den {TEMPLATE: make_report_date}
 post_quote:Citat:
 post_quote_selected:Citér den markerede tekst
-userinfo_referals:Nævnte brugere:
+userinfo_referals:Henviste brugere:
 userinfo_referals_count:{VAR: referals} medlemmer henvist
 pm_no_space_title:Ingen plads tilbage!
 pm_no_space_msg:Dine private beskedmapper overstiger den tilladte størrelse på ialt <b>{GVAR: MAX_PMSG_FLDR_SIZE} bytes</b>. Lige nu indeholder de <b>{VAR: fldr_size} bytes</b> med beskeder.<br /><br /><span class="ErrorText">Fjern nogle gamle beskeder for at få mere plads.</span>
@@ -816,20 +816,20 @@ logedin_todays_visitors:Dagens besøgende
 logedin_latest_post:Seneste indlæg på forumet:
 register_show_avatar:Vis avatars:
 register_show_avatar_desc:Giver dig mulighed for at skjule andre brugeres avatarer, når du ser deres indlæg
-drawmsg_view_rest_post:Vis resten af beskeden
+drawmsg_view_rest_post:Vis resten af indlægget
 post_re:Re:
 forumsel_goto_forum:Gå til forum:
 minimsg_thread_view:Emne oversigt
-split_th_post_by:Besked af:
+split_th_post_by:Skrevet af:
 split_th_posted_on:Afsendt den:
 split_th_subject:Emne:
-split_th_new_thread_title:Nyt opdelt emne titel:
+split_th_new_thread_title:Nyt titel for emnet:
 split_th_forum:Forum:
-split_th_split_sel:Opdel valgte meddelelser
-split_th_split_unsel:Opdel ikke valgte indlæg
+split_th_split_sel:Opdel valgte indlæg
+split_th_split_unsel:Opdel de indlæg der ikke er valgt
 split_th_messages:Indlæg
 split_th_select:Vælg
-report_report_post:Indrapporter besked
+report_report_post:Rapportére indlæg
 quicklogin_login:Brugernavn:
 quicklogin_password:Adgangskode:
 quicklogin_use_cookies:Brug Cookies?
@@ -840,41 +840,41 @@ quick_reply_preview:Forhåndsvis hurtigt svar
 post_notification_desc:Giv mig besked, når nogen svarer på dette indlæg.
 post_all_ext_allowed:(ubegrænset)
 maximize_category:Maksimer kategori
-maximize_message:Maksimer besked
+maximize_message:Maksimer indlæg
 no_view_perm:Du har ikke de relevante tilladelser til at se dette emne.
 report_empty_report:Du kan ikke sende en tom rapport. Angiv en årsag til din rapport.
 report_already_reported_title:Er allerede indberettet
-report_already_reported_msg:Dette indlæg blev allerede indrapporteret og er i øjeblikket i moderators kø.
+report_already_reported_msg:Dette indlæg er allerede blevet indberettet og er i øjeblikket i moderatorens kø.
 register_err_toomanyimages:Du forsøger at bruge flere end de tilladte {GVAR: FORUM_IMG_CNT_SIG} billeder i din signatur.
 pmsg_next_msg:Næste besked
 pmsg_prev_msg:Forrige besked
 post_proc_reveal_spoiler:Skjult tekst fra/til
-register_jabber:Jabber identifikation:
-register_skype:Skype identifikation:
+register_jabber:Jabber Handle:
+register_skype:Skype Handle:
 register_twitter:Twitter-brugernavn:
-register_google:Google Chat/IM navn:
+register_google:Google Chat/IM Handle:
 im_jabber:Jabber:
 im_google:Google Talk:
 im_skype:Skype:
 im_twitter:Twitter:
 forum_contact:Kontakt
 forum_home:Hjem
-post_cur_attached:vedhæftet: {VAR: i} {PLURAL: i|file|filer}
+post_cur_attached:vedhæftet i øjeblikket: {VAR: i} {PLURAL: i|fil|filer}
 ignored_anon_post:{GVAR: ANON_NICK} ignoreres
-ignored_user_post:Beskeden fra <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> ignoreres
-smladd_close_window:Luk vindue
-post_list_smilies:Vis liste med alle smilies
+ignored_user_post:Indlæg fra <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> ignoreres
+smladd_close_window:luk vinduet
+post_list_smilies:vis liste med alle smilies
 p_VISIBLE:Synlig
 reported_in_thread:I:
 help_back_to_top:tilbage til toppen
-help_return_to_index:Retur til hjælpeindex
-imsg_err_message_title:Ugyldig besked
-imsg_err_message_msg:Den meddelelse, du forsøger at se, findes ikke.
+help_return_to_index:Tilbage til hjælpeindeks
+imsg_err_message_title:Ugyldigt indlæg
+imsg_err_message_msg:Indlægget, du forsøger at se, findes ikke.
 poll_edit:Redigér
 register_err_not_valid_img:Den angivne webadresse indeholder ikke et gyldigt billede.
 pmsg_recepient:Modtager
 register_err_taken_alias:Aliaset (kaldenavnet) du prøver at bruge, er allerede i brug af et andet forum medlem. Vælg et andet.
-register_alias:Alias:
+register_alias:Alias (kaldenavn):
 register_alias_desc:Hvis du ønsker at et andet kaldenavn end dit brugernavn skal vises i dette forum, skal du indtaste det her.
 register_allow_pm_msg:Tillad private beskeder
 register_allow_pm_msg_desc:Tillad andre brugere at sende dig private beskeder i dette forum.
@@ -887,7 +887,7 @@ polllist_owner:Oprettet af
 polllist_votes:Stemmer i alt
 polllist_action:Gennemfør
 polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">Gennemse igangværende afstemninger</a>
-userinfo_polls:dine afsteminger:
+userinfo_polls:Afstemninger:
 show_pollist:Vis afstemninger
 search_and:OG
 search_or:ELLER
@@ -901,22 +901,22 @@ search_attach_with:Med vedhæftninger
 post_proceed:Fortsæt
 post_moderated_forum:Du har kommenteret i et modereret forum. Dit indlæg vil ikke være synligt for andre, før det er godkendt af en af forumets moderator(er) eller administrator(er).
 post_moderated_forum_ttl:Modereret forum besked
-buddy_list_bday:Idag bliver {VAR: r[2]} {VAR: age} år
+buddy_list_bday:I dag bliver {VAR: r[2]} {VAR: age} år
 email_warning_msg:Hvis du ændrer din nuværende e-mail-adresse, vil din konto stå som ubekræftet indtil du bekræfter den via e-mail.
-register_show_im:Vis IM indikatorer
+register_show_im:Vis IM indikatorer:
 register_show_im_desc:Vælg om du vil have vist forfatternes IM indikatorer ved siden af deres indlæg.
-unread_message:Ulæst besked
-read_message:Læs besked
-threadt_more:»»flere»»
+unread_message:Ulæst indlæg
+read_message:Læs indlæg
+threadt_more:&lt;flere&gt;
 threadt_disabled_ttl:Trævisningen for emne oversigten er blevet deaktiveret.
 threadt_disabled_desc:Administratoren har deaktiveret trævisningen af emner. Brug venligst flad visning istedet.
 threadt_update:Gennemse forum (trævisning) <a href="{TEMPLATE: threadt_update_lnk}">{VAR: frm->name}</a>
-mmod_delete_cofirm_ttl:Bekræft sletning af emne/besked
+mmod_delete_cofirm_ttl:Bekræft sletning af emne/indlæg
 spell_alts:ingen alternativer
-insert_uploaded_image:Indsæt billede i besked teksten
+insert_uploaded_image:Indsæt billede i teksten
 finduser_help:Søgemaskinen vil automatisk tilføje * masken til din forespørgsel, <b>søgningen er afhængig af store og små bogstaver</b>.<br />F.eks. for at søge efter alle brugere, med et brugernavn som begynder med et 'a', indtast 'a' i søgefeltet.
 back_to_top:Tilbage til toppen
-pm_err_disabled_title:Privat beskedgivning ikke indstillet
+pm_err_disabled_title:Private beskeder er deaktiveret
 pm_err_disabled_msg:Du kan ikke sende private beskeder, før du aktiverer 'Tillad private beskeder' i din profil.
 err_mod_acc_ttl:Ubekræftet konto
 err_mod_acc_msg:Administratoren har valgt at gennemgå alle konti manuelt før aktivering. Indtil din konto er blevet godkendt af administrator vil du ikke være i stand til at udnytte din kontos fulde kapacitet.
@@ -931,7 +931,7 @@ buddy_online:{VAR: r[2]} er i øjeblikket online
 sml_no_smilies:Ingen humørikoner til rådighed.
 login_unapproved_account_ttl:Ikke-godkendt konto
 login_unapproved_account_msg:Administratoren af forumet har valgt at godkende hver ny konto manuelt før aktivering. Din konto er endnu ikke blevet godkendt, derfor vil du ikke kunne få adgang til de funktioner, som kun er til rådighed for aktiverede medlemmer.
-remove_from_buddy_list:Fjern fra kammerat-liste
+remove_from_buddy_list:fjern fra venneliste
 iemail_msg_author:<b>Forfatter:</b> {VAR: obj->alias}
 iemail_msg_subject:<b>Emne:</b> {VAR: obj->subject}
 iemail_msg_date:<b>Dato:</b> {TEMPLATE: dmsg_post_date}
@@ -939,30 +939,30 @@ iemail_msg_reply:Besvar
 iemail_msg_quote:Citér
 iemail_msg_view:Se emne/besked
 threadt_sticky:klæbende
-threadt_announce:Annoncér ny tråd
-reported_no_messages:Der er ingen anmeldte beskeder
-poll_no_polls:Der er ingen tilgængelige afstemninger
-no_unread_messages:Der er ingen ulæste beskeder der matcher din søgning
+threadt_announce:bekendtgørelse
+reported_no_messages:Der er ingen anmeldte beskeder.
+poll_no_polls:Der er ingen tilgængelige afstemninger.
+no_unread_messages:Der er ingen ulæste beskeder der matcher din søgning.
 thread_mark_all_read:Markér alle ulæste indlæg som læste
 thread_mark_all_read_desc:Alle ulæste beskeder i dette forum vil blive markeret som læste
-private_no_messages:Der er ingen indlæg i denne mappe
+private_no_messages:Der er ingen indlæg i denne mappe.
 register_email_change_subject:Bekræftelse af ændret E-mail
 register_email_change_msg:Bekræft din nye e-mail konto "{VAR: uent->email}" som erstatter din gamle e-mail konto "{VAR: old_email}", ved  at gå til nedenstående webadresse:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nNår du har bekræftet din nye e-mail-adresse, vil din forum konto blive aktiveret igen.
-iemail_thread_unsub:Afmelde denne tråd
-iemail_forum_unsub:Afmelde dette forum
+iemail_thread_unsub:Stop abonnement på dette emne
+iemail_forum_unsub:Stop abonnement på dette forum
 primary_group_prefix:Primær gruppe for forum:
 group_resources:Denne gruppe kontrollerer tilladelserne for følgende fora
 register_admin_newuser_title:En ny bruger har registreret sig hvis konto mangler godkendelse
 register_admin_newuser_msg:En ny bruger ({VAR: uent->login}) har netop tilmeldt sig, og da godkendelse er aktiveret, kan vedkommende ikke tage sin konto i brug, før den er godkendt af dig eller en anden forum administrator. For at undersøge denne konto skal du gå til: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nDette er en automatiseret proces. Undlad at besvare denne besked.\nHvis du ønsker at afmelde fremtidige e-mail meddelelser om nye bruger registreringer, kan du gøre det via administrationskonsollens kontrolpanel. Ændr "Ny konto notifikation" indstillingen.
 post_mod_msg_notify_title:Nyt indlæg i forum "{VAR: frm->name}" venter på godkendelse
-post_mod_msg_notify_msg:En ny meddelelse med titlen "{VAR: msg_post->subject}" er blevet lagt i et forum, som du modererer. For at se og revidere meddelelsen gå til: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nDette er en automatiseret proces. Undlad at besvare denne besked.
-thread_printable_pdf:Generer udskriftvenlig PDF
+post_mod_msg_notify_msg:Et nyt indlæg med titlen "{VAR: msg_post->subject}" er blevet postet i et forum, som du modererer. For at se og revidere indlægget gå til: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nDette er en automatiseret proces.  Svar ikke på denne meddelelse.
+thread_printable_pdf:Generer udskriftsvenlig PDF
 thread_syndicate:Syndiker dette forum (XML)
 reg_conf_title:Bekræftelse af registrering
-reg_conf_email:<b>bekræftende e-mail</b><br />En e-mail er blevet sendt til dig indeholdende et link, som du skal anvende før din konto bliver aktiveret. Hvis du ikke modtager denne e-mail i løbet af de næste par minutter, log ind på din konto igen og sørg for, at e-mail-adressen, du har angivet, er korrekt. Når du har bekræftet din konto, vil du kunne få adgang til de forum funktioner der kun er tilgængelige for bekræftede, registrerede brugere.
-reg_conf_account:<b>konto bekræftelse</b><br />Før din konto gøres aktiv skal den godkendes af administrator(erne). Når det sker, vil du modtage en e-mail besked om, at din konto er blevet bekræftet. I mellemtiden kan du logge ind på din konto, men du vil ikke kunne få adgang til visse funktioner.
-forum_banned_user:Dine forudgående handlinger har medført, at du permanent bliver udelukket fra dette forum. Farvel.
-mnav_description:Besked navigator
+reg_conf_email:<b>bekræftende e-mail</b><br />En e-mail er blevet sendt til dig indeholdende et link, som du skal anvende før din konto bliver aktiveret. Hvis du ikke modtager denne e-mail i løbet af de næste par minutter, så log på din konto igen og sørg for, at e-mail-adressen, du har angivet, er korrekt. Når du har bekræftet din konto, vil du kunne få adgang til de forum funktioner der kun er tilgængelige for bekræftede, registrerede brugere.
+reg_conf_account:<b>konto bekræftelse</b><br />Før din konto gøres aktiv skal den godkendes af administrator(erne). Når det sker, vil du modtage en e-mail besked om, at din konto er blevet bekræftet. I mellemtiden kan du logge på din konto, men du vil ikke kunne få adgang til visse funktioner.
+forum_banned_user:Dine forudgående handlinger har medført, at du permanent er udelukket fra dette forum. Farvel.
+mnav_description:Beskedsnavigatør
 mnav_date_limit:Datointerval:
 mnav_forum_limit:Søg kun i:
 mnav_all_forums:Søg i alle fora
@@ -972,42 +972,42 @@ mnav_invalid_unit:Du skal anvende en gyldigt tidsangivelse.
 mnav_invalid_date:Det datointerval, du har angivet, er større en tilladt af administratoren. Prøv et mindre datointerval.
 mnav_no_results:Der er ingen indlæg der matcher forespørgslen.
 mnav_posted_by:Indsendt af:
-mnav_more:Mere »»
+mnav_more:Mere &raquo;&raquo;
 mnav_minute:Minut(ter)
 mnav_hour:Time(r)
 mnav_day:Dag(e)
 mnav_week:Uge(r)
 mnav_month:Måned(er)
-mnav_title:Besked navigator
-mnav_update:Gennemse beskeder med <a href="{TEMPLATE: mnav_update_lnk}">Besked navigator</a>
-pm_notify_subject:[{GVAR: FORUM_TITLE}] Notifaktion af ny privat besked
-pm_notify_body_email:Du har en ny privat besked med titlen "{VAR: subject}", fra "{VAR: from}", i forumet "{GVAR: FORUM_TITLE}".\nFor at se beskeden, skal du klikke her: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nFor at undgå fremtidige notifikationer, deaktiver "Notifikation af private beskeder" i din profil
-register_pm_notification:Notifikation af private beskeder
+mnav_title:Beskedsnavigatør
+mnav_update:Gennemse beskeder med <a href="{TEMPLATE: mnav_update_lnk}">Beskedsnavigatør</a>
+pm_notify_subject:[{GVAR: FORUM_TITLE}] Notifikation om ny privat besked
+pm_notify_body_email:Du har en ny privat besked med titlen "{VAR: subject}", fra "{VAR: from}", i forumet "{GVAR: FORUM_TITLE}".\nFor at se beskeden, skal du klikke her: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nFor at undgå fremtidige notifikationer, deaktiver "Notifikation om private beskeder" i din profil.
+register_pm_notification:Notifikation om private beskeder:
 register_pm_notification_desc:Hvis aktiveret, vil du blive adviseret, når der sendes en privat besked til dig.
 findu_admin_opts_header:Admin valgmuligheder.
-findu_unban:Luk ind igen
-findu_ban:Udeluk
+findu_unban:Ophæv bandlysning
+findu_ban:Bandlys
 findu_edit:Redigér
 findu_delete:Slet
 dmsg_reply_to:er et svar på
 dmsg_reply_num:besked #{VAR: obj->reply_to}
 merge_topics:Sammenføj emner
-merge_topics_cp:Sammenflet emner kontrolpanel
-merge_topics_tpl:Vælg emner til sammenflet <span class="SmallText">(du skal vælge mere end et emne)</span>
-merge_merge:Læg udvalgte emner sammen
+merge_topics_cp:Kontrolpanel for sammenfletning af emner
+merge_topics_tpl:Vælg emner til sammenfletning <span class="SmallText">(du skal vælge mere end et emne)</span>
+merge_merge:Sammenflet udvalgte emner
 merge_next:Efterfølgende emner
 merge_prev:Forrige emner
-merge_another:Gå til <a href="{TEMPLATE: merge_another_lnk}">seneste sammenslåede emne</a> eller sammenslå et andet:
-split_cp:Kontrolpanel split tråde
+merge_another:Gå til <a href="{TEMPLATE: merge_another_lnk}">seneste sammenflettede emne</a> eller sammenflet et andet:
+split_cp:Kontrolpanel for opsplitning af emner
 groups_perms_header:Tilladelser <span class="small">(flyt musen hen over tilladelsen for at se dens type)</span>
 register_err_sig_too_long:Din signatur overskrider den maksimalt tilladte længde på {GVAR: FORUM_SIG_ML} tegn.
-register_sig_limit:{GVAR: FORUM_SIG_ML} characters <a href="javascript: alert('Din signatur har en længde på '+document.fud_register.reg_sig.value.length+' tegn. Den maximalt tilladte signatur længde er {GVAR: FORUM_SIG_ML} characters.');" class="SmallText">Check signatur længden</a>
+register_sig_limit:{GVAR: FORUM_SIG_ML} tegn <a href="javascript: alert('Din signatur har en længde på '+document.forms['fud_register'].reg_sig.value.length+' tegn. Den maksimalt tilladte signatur længde er {GVAR: FORUM_SIG_ML} tegn.');" class="SmallText">Check længden af signatur</a>
 adm_account_accepted:Din konto '{VAR: login}' blev godkendt af administrator og er nu aktiv. Du kan nu få adgang til {GVAR: FORUM_TITLE}' forum som bekræftet, registreret bruger.
 adm_account_accepted_s:Din konto anmodning på '{GVAR: FORUM_TITLE}' blev accepteret.
 adm_account_rejected:Din konto '{VAR: login}' blev afvist af administratoren. Hvis du gerne vil kende grunden til denne afgørelse, er du velkommen til at kontakte administratoren på '{GVAR: ADMIN_EMAIL}'.
 adm_account_rejected_s:Din konto anmodning på '{GVAR: FORUM_TITLE}' blev afvist.
 thread_on:til
-userinfo_buddy:Kammerat:
+userinfo_buddy:Ven:
 register_email_addr:E-mail-adresse:
 reset_suffix:Hvis du har modtaget denne meddelelse ved en fejl, bedes du ignorere den. Hvis du modtager flere uønskede kopier af denne e-mail, kan du kontakte forumets administrator på {GVAR: ADMIN_EMAIL}\n\nDenne anmodning blev sendt fra: {VAR: _SERVER['REMOTE_ADDR']}.
 usrinfo_last_visit:Sidst besøgt:
@@ -1015,22 +1015,22 @@ mnav_newer:nyere end
 mnav_older:ældre end
 ip_search_by_ip:Søg brugere af givet IP-nummer
 ip_search_syntax:Understøttet syntaks: 1.2.3.4, 1.2.3, 1.2, 1
-ip_search:IP søgning
+ip_search:Søg
 ip_analyze_usage:Analyser IP brug
 ip_analyze_usage_descr:Angiv brugerens nøjagtige brugernavn.
 ip_users_using:Bruger(e) som anvender '{VAR: ip}' IP addressen
-ip_all_ips:Alle IP(r), der benyttes af '{VAR: user}'
+ip_all_ips:Alle IP-adresser, der benyttes af '{VAR: user}'
 ip_title:IP browser
 userinfo_real_name:Rigtige navn:
 register_err_alias_notallowed:Dette alias er ikke tilladt
 post_err_mod_forum_edit_ttl:FEJL
-post_err_mod_forum_edit_msg:Du kan ikke redigere beskeder i et modereret forum.
-dmsg_num:besked #{VAR: obj->id}
+post_err_mod_forum_edit_msg:Du kan ikke redigere indlæg i et modereret forum.
+dmsg_num:indlæg #{VAR: obj->id}
 postcheck_session_invalid:Din session er udløbet. Vær venlig at sende formularen igen. Undskyld ulejligheden.
-delete_message_extra_desc:<b>Valgfri</b><br /> Angiv en begrundelse for sletning af denne besked, som derefter vil blive sendt til forfatteren via en privat e-mail.
+delete_message_extra_desc:<b>Valgfri</b><br /> Angiv en begrundelse for sletning af dette indlæg, som derefter vil blive sendt til forfatteren via en privat e-mail.
 delete_message_extra_body:Inkluder den slettede tekst i beskeden der sendes til forfatteren.
 delete_msg_removed_ttl:Dit indlæg blev fjernet af det administrative personale.
-delete_msg_pm_body:Original besked
+delete_msg_pm_body:Originalt indlæg
 delete_msg_pm_subject:Emne: {VAR: data[15]}
 ip_no_whois:Whois oplysninger for <b>{VAR: ip}</b> er ikke tilgængelig.
 ip_whois_title:ISP information
@@ -1038,9 +1038,9 @@ register_theme:Tema:
 pmsg_trash:Tøm papirkurv
 uc_new_pm:Nye private beskeder
 uc_new_topic:Nyt emne
-uc_new_cat_forum:Abonnerede fora med nye beskeder
-uc_cat_forum:Kategori »Forum
-uc_sub_topics:abonnerede emner med nye beskeder
+uc_new_cat_forum:Abonnerede fora med nye indlæg
+uc_cat_forum:Kategori &raquo; Forum
+uc_sub_topics:Abonnerede emner med nye indlæg
 uc_page_title:Visning af personligt kontrolpanel.
 search_options:Søgeindstillinger
 search_user_filter:Filtrer efter bruger:
@@ -1052,38 +1052,38 @@ register_err_turing:Ugyldig validerings-kode.
 modque_cat:Kategori
 modque_forum:Forum
 idx_compact_forum_row:Tilgængelige fora:
-mmd_del_title:Slet emnetitler
-mmd_mov_title:Flyt emnetitler
-mmd_move_threads_to:Destinations forum:
+mmd_del_title:Slet emner
+mmd_mov_title:Flyt emner
+mmd_move_threads_to:Destinationsforum:
 mmd_abort_move:Annuller
 mmd_move:Flyt emner
-pmsg_pdf_btn:Arkiver i PDF
+pmsg_pdf_btn:Arkiver som PDF
 search_results_hdr:{VAR: total}  søgeresultater fundet
 thread_del_all:Slet valgte
 thread_mov_all:Flyt valgte
-thread_merge_all:Sammenslå valgte
+thread_merge_all:Sammenflet valgte
 thread_loc_all:Låse/åbne valgte
 dmsg_ip:IP:
-err_blockedaccnt_title:FEJLMEDDELELSE: Din konto er blevet spærret.
-err_blockedaccnt_msg:Din konto er blevet spærret for adgang til dette forum på grund af et af de installerede bruger filtre.
-merge_th_page_list:Emnevalg oversigts side
-most_users_online:Flest online på samme tid nogensinde var <b>{VAR: st_obj->most_online}</b> bruger(e) <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
-sub_unsub_all_forums:Afmeld alle fora
-sub_unsub_all_topics:Afmeld fra alle tilmeldte emner
-unbookmark_all_topics:fjern alle bogmærker
-tabs_own_posts:Egne beskeder
+err_blockedaccnt_title:FEJL: Din konto er blevet filtreret væk.
+err_blockedaccnt_msg:Din konto er blevet spærret for adgang til dette forum på grund af et af de installerede brugerfiltre.
+merge_th_page_list:Oversigtsside til valg af emner
+most_users_online:Flest online på samme tid nogensinde var <b>{VAR: st_obj->most_online}</b> bruger(e) den <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
+sub_unsub_all_forums:Stop abonnement på alle fora
+sub_unsub_all_topics:Stop abonnement på alle emner
+unbookmark_all_topics:Fjern alle bogmærker
+tabs_own_posts:Vis egne indlæg
 sml_emoticon:Humørikon
 sml_code:Kode
-mnav_sub_only:Søg kun i tilmeldte fora
+mnav_sub_only:Søg kun i abonnerede fora
 register_topics_per_page:Emner per side:
 login_min_time:Dette forum giver mulighed for at man kan forsøge at logge på hvert {VAR: MIN_TIME_BETWEEN_LOGIN}-ende sekund, vent venligst {FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)} sekunder før dit næste forsøg.
-post_not_logged_in:Du er i øjeblikket ikke logget på, meddelelsen vil blive indsendt anonymt.
+post_not_logged_in:Du er i øjeblikket ikke logget på, indlægget vil blive sendt anonymt.
 post_common_bold:Fed
 post_common_italics:Kursiv
 post_common_underline:Understreget
 post_common_align_left:Venstrestillet
-post_common_align_center:Centrer tekst
-post_common_align_right:Højrestil tekst
+post_common_align_center:Centrer
+post_common_align_right:Højrestil
 post_common_link:Indsæt et link
 post_common_link_popup:Linkadresse:
 post_common_email:Indsæt en E-mail-adresse
@@ -1102,10 +1102,10 @@ tabs_notifications:Notifikation
 finduser_flag:Flag
 post_descr:Emne beskrivelse:
 pmsg_on:til
-pmsg_download_dump:Nedhent besked som tekst
+pmsg_download_dump:Hent indlægget som tekst
 move_messages:Flyt indlæg
-move_msg_btn:Flyt valgte beskeder
-move_msg_th_expl:Specificer ID af destinations emne (kan være i andre fora)
+move_msg_btn:Flyt valgte indlæg
+move_msg_th_expl:Angiv ID for destinationsemnet (kan være i andre fora)
 captcha_img_alt:Captcha verifikation: du skal genkende teksten i dette billede.
 captcha_img_help:Der er ingen nul eller én i billedet.
 powered-by:Drevet af: FUDforum {GVAR: FORUM_VERSION}.
@@ -1122,14 +1122,14 @@ btn_post_reply:Svar
 btn_tree_view:Trævisning
 btn_flat_view:Flad visning
 btn_about:Profil
-btn_small_pm:PM
+btn_small_pm:PB
 btn_delete:slet
 btn_edit:rediger
 btn_reply:svar
 btn_forward:videresend
-btn_quote:Citér
+btn_quote:citér
 btn_email:Email
-btn_show_posts:Indlæg
+btn_show_posts:indlæg
 btn_homepage:www
 feed_no_data:Ingen matchende data blev fundet.
 feed_rdf:RDF-feed
