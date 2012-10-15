@@ -439,7 +439,7 @@ coppa_fax_no_permission:アカウントを削除してほしい場合、ここ�
 coppa_fax_parent_name:親か保護者のフルネーム:
 coppa_fax_relation:子供との関係:
 coppa_fax_telephone:電話:
-coppa_fax_email:メールアドレス：
+coppa_fax_email:メールアドレス:
 coppa_fax_date:日付:
 coppa_fax_questions:質問があれば、<a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> に問い合わせてください
 coppa_fax_login:ログイン
@@ -452,7 +452,7 @@ login_perm_denied:匿名利用者であるため、あなたは要求された�
 login_want_to_register:登録しませんか？
 login_forgot_passwd:パスワードを忘れました
 login_use_cookie:cookie を使用する<br /><span class="SmallText">図書館や学校、インターネットカフェにあるコンピューターなど、公衆端末を使用している場合、セキュリティーを高めるためにこのオプションは選択しないことを勧めます。<br />このオプションを選択しておくと、次回の訪問時にフォーラムに自動的にログインされます。</span>
-login_login:ログイン：
+login_login:ログイン:
 login_login_btn:ログイン
 login_name_required:ログイン名が必要です。
 login_passwd_required:パスワードが必要です。
@@ -476,7 +476,7 @@ ruser_cur_login:現在のログイン名:
 ruser_new_login:新しいログイン名:
 ruser_cur_pass:現在のパスワード:
 login_passwd:パスワード:
-reset_email:メール：
+reset_email:メールアドレス:
 reset_reset_button:パスワードを再設定
 rate_this_thread:評価
 report_reporting_about:報告内容:
@@ -595,7 +595,7 @@ emailconf_err_invkey_title:エラー
 emailconf_err_invkey_msg:確認キーが無効です。あなたが URL を正しく入力したか、メールを確認してください。
 err_inc_criticaltitle:致命的エラー
 err_inc_criticalmsg:エラーが発生しました。残念ながらエラー報告システムにも問題が発生したためエラー内容はお伝えできません。
-finduser_update:ユーザーの検索中
+finduser_update:利用者の検索中
 help_index_update:<a href="{TEMPLATE: help_index_update_lnk}">FAQ</a> を読んでいます
 iemail_thr_subject:{VAR: thr_subject} へ {VAR: poster_login} から新しい返信が来ました
 iemail_thr_bodyemail:未読メッセージを読むには {VAR: goto_url['email']} にアクセスしてください。\n\nこのトピックに関する投稿についての通知を今後受け取らない場合は、{VAR: unsub_url['email']} にアクセスしてください。
@@ -668,7 +668,7 @@ regsiter_err_cantreg_msg:利用者アカウントを作成できませんでし�
 register_profile_update:自分のプロフィールを閲覧中
 register_register_update:登録ページ
 report_err_nosuchmsg_title:エラー
-report_err_nosuchmsg_msg:メッセージはありません
+report_err_nosuchmsg_msg:存在しないメッセージです
 reset_err_invalidkey_title:エラー
 reset_err_invalidkey_msg:パスワード再設定キーが無効です。メールクライアントが既にこのページを自動的に開いてしまい再設定キーを無効にしてしまった可能性があります。この場合、新しいパスワードを書いたメールがあなたに間もなく届くはずです。そのようなメールが届かない場合は、パスワードの再設定をもう一度試してください。
 reset_err_rstconf_title:情報
@@ -828,7 +828,7 @@ split_th_split_unsel:未選択メッセージを分割
 split_th_messages:メッセージ数
 split_th_select:選択
 report_report_post:メッセージ報告
-quicklogin_login:利用者名:
+quicklogin_login:ログイン:
 quicklogin_password:パスワード:
 quicklogin_use_cookies:cookie を使用しますか？
 quicklogin_login_btn:ログイン
@@ -1006,7 +1006,7 @@ adm_account_rejected:あなたのアカウント「{VAR: login}」は管理者�
 adm_account_rejected_s:「{GVAR: FORUM_TITLE}」におけるあなたのアカウントの申請は却下されました。
 thread_on:日付
 userinfo_buddy:仲間:
-register_email_addr:メール アドレス：
+register_email_addr:メールアドレス:
 reset_suffix:このメッセージを間違って受信した場合は無視してください。要求していないのにこのメールを複数回受け取った場合、フォーラム管理者に {GVAR: ADMIN_EMAIL} で連絡をとってください。\n\nこの申請は {VAR: _SERVER['REMOTE_ADDR']} から起動されました。
 usrinfo_last_visit:最終訪問日時:
 mnav_newer:より新しい

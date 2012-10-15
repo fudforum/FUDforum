@@ -408,7 +408,7 @@ max_files_per_msg:Maksimalt antal filer pr. indlæg:
 post_notification:Send notifikation
 include_sig:Medtag signatur
 include_sig_desc:Medtag signatur fra din profil.
-disable_smilies:Brug ikke humørikoner i dette indlæg.
+disable_smilies:Brug ikke smilies i dette indlæg
 spell_check_msg:Undersøg tekst for stavefejl
 post_form:Sende formular
 post_forum:Forum:
@@ -714,11 +714,11 @@ remail_emailsent:Mail blev afsendt
 remail_email:Hej\n\nDer er et interessant emne om "{VAR: data->subject}" på forumet {GVAR: FORUM_TITLE}, som du muligvis vil læse. Du kan se emnet på:\n {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nDin ven\n\n{VAR: usr->alias}
 poll_add_option:Tilføj valgmulighed:
 post_opt_html_on:<b>HTML</b> kode er slået <b>til</b>
-post_opt_fud_on:<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>Humørikoner</b> er slået <b>til</b></a>
+post_opt_fud_on:<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>BBcode</b> er slået <b>til</b></a>
 post_opt_images_on:<b>Billeder</b> er slået <b>til</b>
 post_opt_smilies_on:<a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank"><b>Smilies</b> er slået <b>til</b></a>
 post_opt_html_off:<b>HTML</b> kode er slået <b>fra</b>
-post_opt_fud_off:<b>Humørikoner</b> er slået <b>fra</b>
+post_opt_fud_off:<b>BBcode</b> er slået <b>fra</b>
 post_opt_images_off:<b>Billeder</b> er slået <b>fra</b>
 post_opt_smilies_off:<b>Smilies</b> er slået <b>fra</b>
 post_opt:Forum indstillinger:
@@ -938,13 +938,13 @@ iemail_msg_date:<b>Dato:</b> {TEMPLATE: dmsg_post_date}
 iemail_msg_reply:Besvar
 iemail_msg_quote:Citér
 iemail_msg_view:Se emne/besked
-threadt_sticky:klæbende
+threadt_sticky:klæbrig
 threadt_announce:bekendtgørelse
 reported_no_messages:Der er ingen anmeldte beskeder.
 poll_no_polls:Der er ingen tilgængelige afstemninger.
 no_unread_messages:Der er ingen ulæste beskeder der matcher din søgning.
 thread_mark_all_read:Markér alle ulæste indlæg som læste
-thread_mark_all_read_desc:Alle ulæste beskeder i dette forum vil blive markeret som læste
+thread_mark_all_read_desc:Alle ulæste indlæg i dette forum vil blive markeret som læste
 private_no_messages:Der er ingen indlæg i denne mappe.
 register_email_change_subject:Bekræftelse af ændret E-mail
 register_email_change_msg:Bekræft din nye e-mail konto "{VAR: uent->email}" som erstatter din gamle e-mail konto "{VAR: old_email}", ved  at gå til nedenstående webadresse:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nNår du har bekræftet din nye e-mail-adresse, vil din forum konto blive aktiveret igen.
