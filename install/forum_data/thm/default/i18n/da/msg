@@ -2,6 +2,7 @@
 # Exported from translatewiki.net
 # Author: Christian List
 # Author: Emilkris33
+# Author: Kaare
 # Author: McDutchie
 # Author: Naudefj
 # Author: Nghtwlkr
@@ -453,7 +454,7 @@ login_cookie_expired:Din cookie er udløbet, og du skal logge på igen for at fo
 login_perm_denied:Du har ikke tilladelse til den anmodede resource som anonym bruger. Du skal logge på for at komme videre.
 login_want_to_register:Vil du registrere dig?
 login_forgot_passwd:Glemt adgangskode
-login_use_cookie:Brug cookies<br /><span class="SmallText">Hvis du bruger en offentlig terminal såsom en computer på et bibliotek, skole, eller Internet cafe, anbefales det at du fravælger denne mulighed for at opnå større sikkerhed.<br />Hvis du bibeholder valget af cookies, vil du automatisk blive logget på forummet, næste gang du besøger stedet.</span>
+login_use_cookie:Brug cookies<br /><span class="SmallText">Hvis du bruger en offentlig terminal så som en computer på et bibliotek, skole, eller internetcafe, anbefales det at du fravælger denne mulighed for at opnå større sikkerhed.<br />Hvis du bibeholder valget af cookies, vil du automatisk blive logget på forummet, næste gang du besøger det.</span>
 login_login:Brugernavn:
 login_login_btn:Log på
 login_name_required:Brugernavn påkrævet
@@ -713,11 +714,11 @@ search_title:Søg efter {VAR-HTML: srch}
 remail_emailsent:Mail blev afsendt
 remail_email:Hej\n\nDer er et interessant emne om "{VAR: data->subject}" på forumet {GVAR: FORUM_TITLE}, som du muligvis vil læse. Du kan se emnet på:\n {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nDin ven\n\n{VAR: usr->alias}
 poll_add_option:Tilføj valgmulighed:
-post_opt_html_on:<b>HTML</b> kode er slået <b>til</b>
+post_opt_html_on:<b>HTML</b>-kode er slået <b>til</b>
 post_opt_fud_on:<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>BBcode</b> er slået <b>til</b></a>
 post_opt_images_on:<b>Billeder</b> er slået <b>til</b>
 post_opt_smilies_on:<a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank"><b>Smilies</b> er slået <b>til</b></a>
-post_opt_html_off:<b>HTML</b> kode er slået <b>fra</b>
+post_opt_html_off:<b>HTML</b>-kode er slået <b>fra</b>
 post_opt_fud_off:<b>BBcode</b> er slået <b>fra</b>
 post_opt_images_off:<b>Billeder</b> er slået <b>fra</b>
 post_opt_smilies_off:<b>Smilies</b> er slået <b>fra</b>
@@ -829,7 +830,7 @@ split_th_split_sel:Opdel valgte indlæg
 split_th_split_unsel:Opdel de indlæg der ikke er valgt
 split_th_messages:Indlæg
 split_th_select:Vælg
-report_report_post:Rapportére indlæg
+report_report_post:Rapportér indlæg
 quicklogin_login:Brugernavn:
 quicklogin_password:Adgangskode:
 quicklogin_use_cookies:Brug Cookies?
@@ -844,7 +845,7 @@ maximize_message:Maksimer indlæg
 no_view_perm:Du har ikke de relevante tilladelser til at se dette emne.
 report_empty_report:Du kan ikke sende en tom rapport. Angiv en årsag til din rapport.
 report_already_reported_title:Er allerede indberettet
-report_already_reported_msg:Dette indlæg er allerede blevet indberettet og er i øjeblikket i moderatorens kø.
+report_already_reported_msg:Dette indlæg er allerede blevet rapporteret og er i øjeblikket i moderatorens kø.
 register_err_toomanyimages:Du forsøger at bruge flere end de tilladte {GVAR: FORUM_IMG_CNT_SIG} billeder i din signatur.
 pmsg_next_msg:Næste besked
 pmsg_prev_msg:Forrige besked
@@ -903,9 +904,9 @@ post_moderated_forum:Du har kommenteret i et modereret forum. Dit indlæg vil ik
 post_moderated_forum_ttl:Modereret forum besked
 buddy_list_bday:I dag bliver {VAR: r[2]} {VAR: age} år
 email_warning_msg:Hvis du ændrer din nuværende e-mail-adresse, vil din konto stå som ubekræftet indtil du bekræfter den via e-mail.
-register_show_im:Vis IM indikatorer:
+register_show_im:Vis IM-indikatorer:
 register_show_im_desc:Vælg om du vil have vist forfatternes IM indikatorer ved siden af deres indlæg.
-unread_message:Ulæst indlæg
+unread_message:Ulæs indlæg
 read_message:Læs indlæg
 threadt_more:&lt;flere&gt;
 threadt_disabled_ttl:Trævisningen for emne oversigten er blevet deaktiveret.
@@ -940,7 +941,7 @@ iemail_msg_quote:Citér
 iemail_msg_view:Se emne/besked
 threadt_sticky:klæbrig
 threadt_announce:bekendtgørelse
-reported_no_messages:Der er ingen anmeldte beskeder.
+reported_no_messages:Der er ingen rapporterede beskeder.
 poll_no_polls:Der er ingen tilgængelige afstemninger.
 no_unread_messages:Der er ingen ulæste beskeder der matcher din søgning.
 thread_mark_all_read:Markér alle ulæste indlæg som læste
@@ -959,7 +960,7 @@ post_mod_msg_notify_msg:Et nyt indlæg med titlen "{VAR: msg_post->subject}" er 
 thread_printable_pdf:Generer udskriftsvenlig PDF
 thread_syndicate:Syndiker dette forum (XML)
 reg_conf_title:Bekræftelse af registrering
-reg_conf_email:<b>bekræftende e-mail</b><br />En e-mail er blevet sendt til dig indeholdende et link, som du skal anvende før din konto bliver aktiveret. Hvis du ikke modtager denne e-mail i løbet af de næste par minutter, så log på din konto igen og sørg for, at e-mail-adressen, du har angivet, er korrekt. Når du har bekræftet din konto, vil du kunne få adgang til de forum funktioner der kun er tilgængelige for bekræftede, registrerede brugere.
+reg_conf_email:<b>E-mail-bekræftelse</b><br />En e-mail er blevet sendt til dig, indeholdende en særlig URL, som du skal anvende før din konto bliver aktiveret. Hvis du ikke modtager denne e-mail i løbet af de næste minutter, så log på din konto igen og sørg for din angivne e-mail-adresse er korrekt. Når du har bekræftet kontoen, vil du kunne få adgang til de forumfunktioner, der kun er tilgængelige for bekræftede, registrerede brugere.
 reg_conf_account:<b>konto bekræftelse</b><br />Før din konto gøres aktiv skal den godkendes af administrator(erne). Når det sker, vil du modtage en e-mail besked om, at din konto er blevet bekræftet. I mellemtiden kan du logge på din konto, men du vil ikke kunne få adgang til visse funktioner.
 forum_banned_user:Dine forudgående handlinger har medført, at du permanent er udelukket fra dette forum. Farvel.
 mnav_description:Beskedsnavigatør

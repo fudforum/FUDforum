@@ -582,7 +582,7 @@ buddy_list_update:Navegando pola miña lista de amigos
 core_err_invinp_title:A entrada non é válida
 core_err_invinp_err:Seguiches unha ligazón non válida. Por favor, informa ao <a href="mailto:{GVAR: ADMIN_EMAIL}">administrador</a> sobre isto.
 core_adm_login_msg:Os administradores poden acceder ao sistema <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">aquí</a>.
-email_err_unabletoemail_title:Erro: non se pode enviar o correo electrónico
+email_err_unabletoemail_title:Erro: Non se pode enviar o correo electrónico
 email_err_unabletoemail_msg:O sistema de correo electrónico foi desactivado polo administrador.
 email_error_unabletolocaddr:Sentímolo, o sistema non foi capaz de enviar por correo {VAR-HTML: _POST['tx_name']} porque non puido determinar o enderezo de correo electrónico
 email_error_body:O corpo da mensaxe é obrigatorio
@@ -610,20 +610,20 @@ index_update:Navegando pola <a href="{TEMPLATE: index_update_lnk}">lista de foro
 list_referers_update:Navegando polos usuarios referenciados
 login_update:Formulario de rexistro
 msg_update:Navegando polo fío <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
-pm_err_nopm_title:ERRO: as mensaxes privadas están desactivadas
+pm_err_nopm_title:ERRO: As mensaxes privadas están desactivadas
 pm_err_nopm_msg:Non podes usar o sistema de mensaxes privadas porque foi desactivado polo administrador.
 pm_update:Usando as mensaxes privadas
-post_err_lockedthread_title:ERRO: o fío está bloqueado
+post_err_lockedthread_title:ERRO: O fío está bloqueado
 post_err_lockedthread_msg:Este fío está bloqueado; non se permite a publicación de máis mensaxes.
-err_coppa_title:ERRO: a túa conta aínda non está confirmada
+err_coppa_title:ERRO: A túa conta aínda non está confirmada
 err_coppa_msg:Aínda non recibimos a confirmación do teu pai e/ou titor legal que te permitirá publicar mensaxes. Se perdiches o formulario COPPA, <a href="{TEMPLATE: err_coppa_msg_lnk}">telo aquí de novo</a>.
-err_banned_acct_title:ERRO: fuches expulsado.
+err_banned_acct_title:ERRO: Fuches expulsado.
 err_banned_acct_msg:A túa conta foi {IF: $ban_expiry}temporalmente expulsada do foro ata {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}permanentemente expulsada do foro{ENDI} debido a unha violación do regras do mesmo.
 post_err_edttimelimit_title:ERRO
 post_err_edttimelimit_msg:Xa non podes editar máis esta mensaxe
-post_err_noannontopics_msg2:<legend>ERRO: os teus privilexios son insuficientes</legend>Os usuarios anónimos non teñen os permisos necesarios para crear fíos.
-post_err_noannonposts_msg2:<legend>ERRO: os teus privilexios son insuficientes</legend>Os usuarios anónimos non teñen os permisos necesarios para responder.
-post_err_floodtrig_title:ERRO: activouse o sistema contra a publicación masiva de mensaxes.
+post_err_noannontopics_msg2:<legend>ERRO: Os teus privilexios son insuficientes</legend>Os usuarios anónimos non teñen os permisos necesarios para crear fíos.
+post_err_noannonposts_msg2:<legend>ERRO: Os teus privilexios son insuficientes</legend>Os usuarios anónimos non teñen os permisos necesarios para responder.
+post_err_floodtrig_title:ERRO: Activouse o sistema contra a publicación masiva de mensaxes.
 post_err_floodtrig_msg:Por favor, inténtao de novo {PLURAL: tm|nun segundo|en $1 segundos}
 post_err_attach_size:O ficheiro adxunto é moi grande (supera o límite permitido de {VAR: MAX_F_SIZE} bytes)
 post_err_attach_ext:O ficheiro que estás intentando cargar non coincide cun dos tipos permitidos.
@@ -661,7 +661,7 @@ register_conf_subject:Confirmación de rexistro
 register_conf_msg:Grazas por te rexistrares.\nPara activar a túa conta vai ao enderezo URL que aparece a continuación:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nUnha vez que a túa conta estea activada, accederás ao sistema do foro e\nserás redirixido cara á páxina principal.
 register_welcome_subject:Confirmación de rexistro no foro
 register_welcome_msg:Grazas por te rexistrares.\n\nAquí están os detalles para o inicio de sesión no foro:\n\nEnderezo URL do foro: {TEMPLATE: index_update_lnk}\nNome de usuario: {VAR: uent->login}\nContrasinal: {VAR: _POST['reg_plaintext_passwd']}\n\nPor favor, ten en conta que os contrasinais distinguen entre maiúsculas e minúsculas!\nPara modificar as túas configuracións ou o teu perfil, vai a esta páxina:\n{FULL_ROOT}{ROOT}?t=register
-register_err_cantreg_title:ERRO: non te podes rexistrar
+register_err_cantreg_title:ERRO: Non te podes rexistrar
 regsiter_err_cantreg_msg:Non se puido crear a túa conta de usuario, por favor, ponte en contacto co administrador en <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:Vendo o meu perfil
 register_register_update:Páxina de rexistro
@@ -682,18 +682,18 @@ bookmarked_update:Navegando pola miña lista de favoritos
 thread_update:Navegando polo foro <a href="{TEMPLATE: thread_update_lnk}">{VAR: frm->name}</a>
 tree_update:Navegando polo fío (vista en árbore) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
 userinfo_update:Ollando o perfil de <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}'s</a>
-ERR_login_msg2:<legend>ERRO: non accediches ao sistema</legend>Para visitar esta páxina debes ser un membro deste foro.
+ERR_login_msg2:<legend>ERRO: Non accediches ao sistema</legend>Para visitar esta páxina debes ser un membro deste foro.
 ERR_disabled_ttl:Característica desactivada
 ERR_disabled_msg:Esta característica foi desactivada polo administrador do sistema.
-ERR_access_ttl:ERRO: permisos insuficientes
+ERR_access_ttl:ERRO: Permisos insuficientes
 ERR_access_msg:Non tes os permisos necesarios para levar a cabo esta acción.
 ERR_registration_disabled_ttl:Rexistro desactivado
 ERR_registration_disabled_msg:O administrador desactivou o rexistro. Por favor, inténtao de novo máis tarde.
-ERR_emailconf_ttl:ERRO: a túa conta aínda non está confirmada
+ERR_emailconf_ttl:ERRO: A túa conta aínda non está confirmada
 ERR_emailconf_msg:Aínda non confirmaches a túa conta a través do correo electrónico.<br /><table border="0"><tr><td><ol><li>Se non recibiches un correo electrónico de confirmación, <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">solicítao de novo</a>.</li><li>Se {VAR: usr_d->email} non é o teu enderezo de correo electrónico correcto, <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">indica o enderezo correcto</a>.</li></ol></td></tr></table>
-ERR_user_ttl:ERRO: non existe tal usuario
+ERR_user_ttl:ERRO: Non existe tal usuario
 ERR_user_msg:Non existe ningún usuario con ese nome
-ERR_systemerr_ttl:ERRO: erro do sistema
+ERR_systemerr_ttl:ERRO: Erro do sistema
 ERR_systemerr_msg:Produciuse un erro do sistema. Por favor, informa del ao <a href="mailto:{GVAR: ADMIN_EMAIL}">administrador</a>.
 email_title:Formulario de correo electrónico
 finduser_title:Atopar un usuario
@@ -1060,7 +1060,7 @@ thread_mov_all:Mover o seleccionado
 thread_merge_all:Fusionar o seleccionado
 thread_loc_all:Bloquear/Desbloquear o seleccionado
 dmsg_ip:Enderezo IP:
-err_blockedaccnt_title:ERRO: a túa conta foi filtrada.
+err_blockedaccnt_title:ERRO: A túa conta foi filtrada.
 err_blockedaccnt_msg:A túa conta foi bloqueada fronte ao acceso ao foro debido a un dos filtros de usuario instalados.
 merge_th_page_list:Selección da páxina do fío
 most_users_online:O número máximo de usuarios conectados á vez foi <b>{VAR: st_obj->most_online}</b> o <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>

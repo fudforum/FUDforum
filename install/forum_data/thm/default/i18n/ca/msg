@@ -5,6 +5,7 @@
 # Author: McDutchie
 # Author: Naudefj
 # Author: Paucabot
+# Author: Pginer
 # Author: Qllach
 # Author: SMP
 # Author: Ssola
@@ -752,7 +753,7 @@ groupmgr_yes:Sí­
 groupmgr_no:No
 groupmgr_action:Acció
 groupmgr_member:Membre
-groupmgr_cancel:Cancel.lar
+groupmgr_cancel:Cancel·lar
 groupmgr_add_member:Afegir membre
 groupmgr_update_member:Actualitzar membre
 groupmgr_edit:Modificar
@@ -1057,7 +1058,7 @@ idx_compact_forum_row:Fòrums disponibles:
 mmd_del_title:Esborrar fils
 mmd_mov_title:Moure fils
 mmd_move_threads_to:Fòrum de destà­:
-mmd_abort_move:Cancel.lar
+mmd_abort_move:Cancel·lar
 mmd_move:Moure fils
 pmsg_pdf_btn:Crear arxiu PDF
 search_results_hdr:S`han trobat {VAR: total} resultats per a la seva recerca
