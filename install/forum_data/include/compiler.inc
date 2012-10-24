@@ -333,7 +333,7 @@ function resolve_sections($file, $secname, $str)
 }
 
 /* Process a src (*.t) file. */
-function compile_file($source)
+function compile_file($source, $from_tmpl)
 {
 	$l = strlen('<?php echo (');
 
@@ -373,7 +373,7 @@ function compile_file($source)
 		} else if (isset($GLOBALS['TC']['PAGE'][$name])) {
 			$sec = 'PAGE';
 		} else {
-			throw new Exception('Undefined template: "'. $name .'" in file '. $source);
+			throw new Exception('Error compiling '. $from_tmpl .' - cannot find template \''. $name .'\' used in file '. $source);
 		}
 
 		$ref =& $GLOBALS['TC'][$sec][$name]['data'];
@@ -460,7 +460,7 @@ function compile_file($source)
 function generate_file($php_file)
 {
 	if (!isset($GLOBALS['file_cache'][$php_file]['compiled']) && !isset($GLOBALS['file_cache'][$php_file]['inline'])) {
-		$GLOBALS['file_cache'][$php_file]['compiled'] = compile_file($GLOBALS['file_cache'][$php_file]['src']);
+		$GLOBALS['file_cache'][$php_file]['compiled'] = compile_file($GLOBALS['file_cache'][$php_file]['src'], $php_file);
 	}
 	if (isset($GLOBALS['file_cache'][$php_file]['inline'])) {
 		$GLOBALS['file_cache'][$php_file]['compiled'] = '';
@@ -488,7 +488,7 @@ function generate_file($php_file)
 				$v =& $GLOBALS['file_cache'][$v2];
 
 				if (empty($v['compiled']) && !isset($v['inline'])) {
-					$v['compiled'] = compile_file($v['src']);
+					$v['compiled'] = compile_file($v['src'], $php_file);
 				}
 				if (isset($v['inline'])) {
 					continue;
@@ -680,7 +680,7 @@ function resolve_compile($file)
 		throw new Exception('No source for file '. $file);
 	}
 
-	$GLOBALS['file_cache'][$file]['compiled'] = compile_file($GLOBALS['file_cache'][$file]['src']);
+	$GLOBALS['file_cache'][$file]['compiled'] = compile_file($GLOBALS['file_cache'][$file]['src'], $file);
 }
 
 function compile_all($tset='default', $lang='en', $tname='default')
