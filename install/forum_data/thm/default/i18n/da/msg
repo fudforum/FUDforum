@@ -48,9 +48,9 @@ goto_prev_msg:Gå til forrige besked
 home:Hjem
 homepage:Hjemmeside:
 icq_control_panel:ICQ Online-meddelelsespanel
-icq_message_form:ICQ meddelelsesformular:
+icq_message_form:ICQ-meddelelsesformular:
 ignore_user:Ignorer alle indlæg fra denne bruger
-im_aim:AIM brugernavn:
+im_aim:AIM-brugernavn:
 im_msnm:MSN Messenger:
 im_yahoo:Yahoo Messenger:
 image:Billede:
@@ -76,7 +76,7 @@ members:Medlemmer
 calendar:Kalender
 cal_goto_date:Gå til:
 cal_day_heading:Dagens aktiviteter
-cal_no_events:Ingen aktiviteter for dagen.
+cal_no_events:Ingen aktiviteter i dag.
 cal_update:Læser forum kalenderen
 cal_birthday:Fødselsdag: {VAR: user}
 cal_birthday_age:$1 år gammel.
@@ -168,7 +168,7 @@ subscribe_desc:Modtag meddelelse, når nogen opretter et nyt emne i dette forum
 subscribed_forums:Abonnerede fora
 subscribed_forums_desc:Vis kun abonnerede fora til/fra (viser kun beskeder fra de fora du abonnerer på)
 subscribed_threads:Abonnerede emner
-subscribed_threads_desc:Vis kun abonnerede emner til/fra (viser kun indlæg fra de emner du er tilmeldt)
+subscribed_threads_desc:Skift visning af abonnerede emner (viser kun indlæg fra de emner, du er tilmeldt)
 bookmarked_threads:Emner med bogmærker
 switch_to_thread_view:Skift til trådet visning af dette emne
 thread:Emne:
@@ -285,7 +285,7 @@ register_tree_view:Trævisning af indlæg og emner
 register_msg_tree_view:Flad emneoversigt/Trævisning af indlæg
 register_tree_msg_view:Trævisning af emner/Flad visning af indlæg
 register_flat_view:Flad visning af indlæg og emner
-use_forum_default:Brug forumets standard indstilling
+use_forum_default:Brug forummets standardindstilling
 finduser_user_info:Brugeroplysninger
 finduser_by_login:Ved brugernavn:
 finduser_submit:Find
@@ -331,7 +331,7 @@ register_occupation:Beskæftigelse:
 register_interests:Interesser:
 register_image:Billede:
 register_icq:ICQ
-register_aim:AIM brugernavn:
+register_aim:AIM-brugernavn:
 register_yahoo:Yahoo Messenger:
 register_msnm:MSN Messenger:
 register_homepage:Hjemmeside:
@@ -428,7 +428,7 @@ coppa_before:Før {TEMPLATE: coppa_date}
 coppa_after:Efter {TEMPLATE: coppa_date}
 coppa_link:Klik på linket, som svarer til din fødselsdato
 coppa:<p>En forælder eller værge skal maile eller faxe en underskrevet tilladelses-formular til administratoren af dette forum, før en bruger under 13 år kan fuldføre registreringen.</p><p>For yderligere information kontakt <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a></p>
-prereg_info:Forum reglerne
+prereg_info:Forumregler
 prereg_agree:Enig
 prereg_disagree:Uenig
 prereg_update:Læsning af forumreglerne
@@ -460,7 +460,7 @@ login_login_btn:Log på
 login_name_required:Brugernavn påkrævet
 login_passwd_required:Adgangskode er påkrævet
 login_invalid_radius:Ugyldig brugernavn/adgangskode kombination
-reset_confirmation:Tak for din registrering.\n\nFor at aktivere din konto skal du gå til webadressen nedenfor:\n\n{VAR: url}\n\nNår først din konto er aktiveret bliver du logget på forum og\nvideresendes til forsiden.
+reset_confirmation:Tak for din registrering.\n\nFor at aktivere din konto skal du gå til webadressen nedenfor:\n\n{VAR: url}\n\nNår din konto er aktiveret, vil du blive logget på forummet og\nviderestillet til forsiden.
 reset_reset:Hej,\n\ndu har bedt om at få en ny adgangskode. For at afslutte processen,\ngå venligst til denne webadresse:\n\n{VAR: url}\n\nBEMÆRK: Dette forum gemmer adgangskoder ved hjælp af en envejs-kryptering mekanisme, hvilket betyder, at\nnår du først har indtastet din adgangskode, bliver den gemt, så det er UMULIGT at få den tilbage til klartekst.\nDette virker ved at sammenligne den kodede version vi har registreret med den kodede version af, hvad du skriver i log på feltet.\n(Hvis du er interesseret i, hvordan denne mekanisme virker, læs om MD5 hash-algoritmen)
 rpasswd_invalid_passwd:Ugyldig adgangskode
 rpasswd_passwd_nomatch:Adgangskoderne stemmer ikke overens
@@ -495,7 +495,7 @@ search_posted_on:Postet dato
 search_no_results:Ingen resultater
 search_all_forums:Søg i alle fora
 search_in_forum:Søg i forum:
-search_forum_search:Søg
+search_forum_search:Forumsøgning
 move_thread_to:Flyt emne <b>{VAR: thr->subject}</b> til:
 remail_email_topic:E-mail dette emne til en ven
 remail_your_name:Dit navn:
@@ -508,7 +508,7 @@ remail_message:Besked:
 remail_send_now:Send E-mail nu
 remail_anon_opt:Kopier denne besked over i et e-mail-program efter eget valg for at sende den til din ven(ner).
 remail_done:Udført
-remail_sent_conf:E-mailen til din ven på {VAR-HTML: _POST['femail']} om emnet {VAR: data->subject} blev afsendt med succes.
+remail_sent_conf:E-mailen til din ven på {VAR-HTML: _POST['femail']} om emnet {VAR: data->subject} er afsendt.
 remail_error:Der opstod en fejl
 mklist_type:Type:
 mklist_option:Valgmulighed:
@@ -585,7 +585,7 @@ buddy_list_err_nouser_title:Kan ikke tilføje brugeren
 buddy_list_err_ignore:Kan ikke tilføje brugere, der ignorere dig, til din venneliste.
 buddy_list_update:Gennemse egen venneliste
 core_err_invinp_title:Ugyldig indtastning
-core_err_invinp_err:Du har fulgt et ugyldigt link. Meddel venligst <a href="mailto:{GVAR: ADMIN_EMAIL}">webmasteren</a> hvordan du kom hertil.
+core_err_invinp_err:Du har fulgt et ugyldigt link. Giv venligst <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a> besked om hvordan du kom hertil.
 core_adm_login_msg:Administratorer kan logge på <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">her</a>.
 email_err_unabletoemail_title:FEJL: Kunne ikke sende e-mail
 email_err_unabletoemail_msg:E-mail systemet er blevet deaktiveret af administratoren.
@@ -602,8 +602,8 @@ finduser_update:Søg efter brugere
 help_index_update:Læs om <a href="{TEMPLATE: help_index_update_lnk}">hjælpen</a>
 iemail_thr_subject:Nyt svar på {VAR: thr_subject} af {VAR: poster_login}
 iemail_thr_bodyemail:For at se ulæste svar gå til {VAR: goto_url['email']}\n\nHvis du ikke ønsker at modtage flere meddelelser om svar på dette emne, kan du gå hertil: {VAR: unsub_url['email']}
-iemail_frm_subject:Nyt emne {VAR: thr_subject}, skrevet af {VAR: poster_login}, i forumet {VAR: frm_name}
-iemail_frm_bodyemail:For at få vist emnet gå til {VAR: goto_url['email']}\n\nFor at stoppe med at modtage meddelelser om nye emner i dette forum, skal du gå hertil: {VAR: unsub_url['email']}
+iemail_frm_subject:Nyt emne {VAR: thr_subject}, skrevet af {VAR: poster_login}, i forummet {VAR: frm_name}
+iemail_frm_bodyemail:For at få vist emnet gå til:\n{VAR: goto_url['email']}\n\nFor ikke længere at modtage meddelelser om nye emner i dette forum, skal du gå hertil: {VAR: unsub_url['email']}
 iemail_participate:For at deltage i debatten, skal du gå hertil:
 ignore_list_err_info_title:Info
 ignore_list_err_dup_msg:Du har allerede denne bruger på din ignoreringsliste
@@ -660,10 +660,10 @@ register_err_needname:For at færdiggøre denne registrering skal du indtaste di
 register_err_enterpasswd:Du skal indtaste din nuværende adgangskode for at fuldføre ændringerne.
 register_err_adminpasswd:Du skal indtaste <b>administrator</b> adgangskoden for at fuldføre ændringerne.
 register_err_notyouremail:En anden er allerede registreret med denne e-mail-adresse.
-register_err_avatartobig:Den fil, du forsøger at overføre, er for stor, mere end {GVAR: CUSTOM_AVATAR_MAX_SIZE} bytes.
+register_err_avatartobig:Den fil, du forsøger at overføre, er for stor, over grænsen på {GVAR: CUSTOM_AVATAR_MAX_SIZE} bytes.
 register_err_avatarnotallowed:Den avatar, du forsøger at uploade er ikke tilladt. Check de tilladte filtyper.
 register_conf_subject:Bekræftelse af registrering
-register_conf_msg:Tak for din registrering,\nFor at aktivere din konto skal du gå til webadressen nedenfor:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nNår din konto er aktiveret vil du blive logget på forumet og \nviderestillet til hovedsiden.
+register_conf_msg:Tak for din registrering.\nFor at aktivere din konto skal du gå til webadressen nedenfor:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nNår din konto er aktiveret, vil du blive logget på forummet og \nviderestillet til forsiden.
 register_welcome_subject:Bekræftelse af registrering i forum
 register_welcome_msg:Tak for din registrering,\n\nHer er dine brugerinformationer for forumet:\n\nForum URL: {TEMPLATE: index_update_lnk}\nBrugernavn: {VAR: uent->login}\nAdgangskode: {VAR: _POST['reg_plaintext_passwd']}\n\nBemærk, at der i adgangskoder skelnes mellem store og små bogstaver!\nFor at ændre dine personlige indstillinger eller profil skal du gå til følgende side:\n{FULL_ROOT}{ROOT}?t=register
 register_err_cantreg_title:FEJL: ude af stand til at registrere
@@ -683,7 +683,7 @@ search_update:Søger blandt indlæggene
 selmsg_update:Gennemse <a href="{TEMPLATE: selmsg_update_lnk}">dagens indlæg</a>
 showposts_update:Vis indlæg af: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
 subscribed_update:Gennemse egne abonnementer
-bookmarked_update:Gennemse egen liste af bogmærker
+bookmarked_update:Gennemse egen bogmærkeliste
 thread_update:Gennemse forum <a href="{TEMPLATE: thread_update_lnk}">{VAR: frm->name}</a>
 tree_update:Gennemse emne (trævisning) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
 userinfo_update:Ser på <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}s</a> profil
@@ -712,7 +712,7 @@ error_title:Fejl
 index_title:Velkommen til forumet
 search_title:Søg efter {VAR-HTML: srch}
 remail_emailsent:Mail blev afsendt
-remail_email:Hej\n\nDer er et interessant emne om "{VAR: data->subject}" på forumet {GVAR: FORUM_TITLE}, som du muligvis vil læse. Du kan se emnet på:\n {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nDin ven\n\n{VAR: usr->alias}
+remail_email:Hej\n\nDer er et interessant emne om "{VAR: data->subject}" i forummet {GVAR: FORUM_TITLE}, som du måske vil være interesseret i at læse. Du kan se emnet på:\n {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nDin ven\n\n{VAR: usr->alias}
 poll_add_option:Tilføj valgmulighed:
 post_opt_html_on:<b>HTML</b>-kode er slået <b>til</b>
 post_opt_fud_on:<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>BBcode</b> er slået <b>til</b></a>
@@ -728,7 +728,7 @@ register_change_login:ændre brugernavn
 approved_avatar_title:Din brugerdefinerede avatar blev godkendt.
 approved_avatar_msg:Din avatar blev godkendt af administrator. Den vil nu ses som din avatar på alle dine indlæg. Hvis du ikke kan se den, eller set din gamle avatar, er det fordi din browser har cachet siden. Prøv slette (genopfrisk) det en eller to gange. I de fleste tilfælde vil det løse cachelagrings problemet.
 unapproved_avatar_title:Din brugerdefinerede avatar blev afvist.
-unapproved_avatar_msg:Administratoren har ikke godkendt din avatar. De mest almindelige årsager er, at din avatar var for stor (størrelse og/eller dimensioner) eller at indholdet er upassende. Hvis du ønsker flere oplysninger om, hvorfor din avatar blev afvist, så kontakt administratoren.
+unapproved_avatar_msg:Administratoren har ikke godkendt din avatar. De hyppigste årsager er, at avataren var for stor (størrelse og/eller dimensioner) eller at indholdet er upassende. Hvis du ønsker flere oplysninger om, hvorfor din avatar blev afvist, så kontakt administratoren.
 mvthread_request_move:Anmod om en flytning
 move_request_reason:Hvorfor ønsker du at emnet skal flyttes?
 mvthread_submit_req:Send anmodning
@@ -737,7 +737,7 @@ move_request_by:Emne flytning anmodet af:
 move_reason:Begrundelse for at flytte emne:
 thr_exch_accept:accepter emne
 thr_exch_decline:afvis emne
-thr_exch_orig_forum:Oprindelige forum:
+thr_exch_orig_forum:Oprindeligt forum:
 thr_exch_dest_forum:Destinations forum:
 thr_exch_no_threads:Ingen emner venter på godkendelse.
 thr_exch_decl_reason:Grunden til at afvise emne <b>{VAR: data->subject}</b> i forum <b>{VAR: data->f2_name}</b>
@@ -779,7 +779,7 @@ p_SPLIT:Opdel emner
 p_LOCK:Lås emner
 p_MOVE:Flyt emner
 p_SML:Brug smilies
-p_IMG:Tillad billede-tags
+p_IMG:Tillad billedtags
 p_SEARCH:Kan søge
 group_mgr_search:Find bruger
 group_mgr_indicator:Redigerer nu: <b>{VAR: grp->name}</b>
@@ -824,7 +824,7 @@ minimsg_thread_view:Emne oversigt
 split_th_post_by:Skrevet af:
 split_th_posted_on:Afsendt den:
 split_th_subject:Emne:
-split_th_new_thread_title:Nyt titel for emnet:
+split_th_new_thread_title:Ny emnetitel:
 split_th_forum:Forum:
 split_th_split_sel:Opdel valgte indlæg
 split_th_split_unsel:Opdel de indlæg der ikke er valgt
@@ -961,8 +961,8 @@ thread_printable_pdf:Generer udskriftsvenlig PDF
 thread_syndicate:Syndiker dette forum (XML)
 reg_conf_title:Bekræftelse af registrering
 reg_conf_email:<b>E-mail-bekræftelse</b><br />En e-mail er blevet sendt til dig, indeholdende en særlig URL, som du skal anvende før din konto bliver aktiveret. Hvis du ikke modtager denne e-mail i løbet af de næste minutter, så log på din konto igen og sørg for din angivne e-mail-adresse er korrekt. Når du har bekræftet kontoen, vil du kunne få adgang til de forumfunktioner, der kun er tilgængelige for bekræftede, registrerede brugere.
-reg_conf_account:<b>konto bekræftelse</b><br />Før din konto gøres aktiv skal den godkendes af administrator(erne). Når det sker, vil du modtage en e-mail besked om, at din konto er blevet bekræftet. I mellemtiden kan du logge på din konto, men du vil ikke kunne få adgang til visse funktioner.
-forum_banned_user:Dine forudgående handlinger har medført, at du permanent er udelukket fra dette forum. Farvel.
+reg_conf_account:<b>Kontobekræftelse</b><br />Før din konto aktiveres, skal den godkendes af en administrator. Når det er sket, vil du modtage en e-mail med besked om, at kontoen er blevet bekræftet. I mellemtiden kan du logge på din konto, men du vil ikke have adgang til visse funktioner.
+forum_banned_user:Dine tidligere handlinger har medført, at du permanent er udelukket fra dette forum. Farvel.
 mnav_description:Beskedsnavigatør
 mnav_date_limit:Datointerval:
 mnav_forum_limit:Søg kun i:
@@ -982,7 +982,7 @@ mnav_month:Måned(er)
 mnav_title:Beskedsnavigatør
 mnav_update:Gennemse beskeder med <a href="{TEMPLATE: mnav_update_lnk}">Beskedsnavigatør</a>
 pm_notify_subject:[{GVAR: FORUM_TITLE}] Notifikation om ny privat besked
-pm_notify_body_email:Du har en ny privat besked med titlen "{VAR: subject}", fra "{VAR: from}", i forumet "{GVAR: FORUM_TITLE}".\nFor at se beskeden, skal du klikke her: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nFor at undgå fremtidige notifikationer, deaktiver "Notifikation om private beskeder" i din profil.
+pm_notify_body_email:Du har en ny privat besked med titlen "{VAR: subject}", fra "{VAR: from}", i forummet "{GVAR: FORUM_TITLE}".\nFor at se beskeden, skal du klikke her: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nFor at undgå fremtidige notifikationer, kan du deaktivere "Notifikation om private beskeder" i din profil.
 register_pm_notification:Notifikation om private beskeder:
 register_pm_notification_desc:Hvis aktiveret, vil du blive adviseret, når der sendes en privat besked til dig.
 findu_admin_opts_header:Admin valgmuligheder.
@@ -993,16 +993,16 @@ findu_delete:Slet
 dmsg_reply_to:er et svar på
 dmsg_reply_num:besked #{VAR: obj->reply_to}
 merge_topics:Sammenføj emner
-merge_topics_cp:Kontrolpanel for sammenfletning af emner
+merge_topics_cp:Kontrolpanel til sammenfletning af emner
 merge_topics_tpl:Vælg emner til sammenfletning <span class="SmallText">(du skal vælge mere end et emne)</span>
 merge_merge:Sammenflet udvalgte emner
 merge_next:Efterfølgende emner
 merge_prev:Forrige emner
 merge_another:Gå til <a href="{TEMPLATE: merge_another_lnk}">seneste sammenflettede emne</a> eller sammenflet et andet:
-split_cp:Kontrolpanel for opsplitning af emner
+split_cp:Kontrolpanel til opsplitning af emner
 groups_perms_header:Tilladelser <span class="small">(flyt musen hen over tilladelsen for at se dens type)</span>
 register_err_sig_too_long:Din signatur overskrider den maksimalt tilladte længde på {GVAR: FORUM_SIG_ML} tegn.
-register_sig_limit:{GVAR: FORUM_SIG_ML} tegn <a href="javascript: alert('Din signatur har en længde på '+document.forms['fud_register'].reg_sig.value.length+' tegn. Den maksimalt tilladte signatur længde er {GVAR: FORUM_SIG_ML} tegn.');" class="SmallText">Check længden af signatur</a>
+register_sig_limit:{GVAR: FORUM_SIG_ML} tegn <a href="javascript: alert('Din signatur har en længde på '+document.forms['fud_register'].reg_sig.value.length+' tegn. Den maksimalt tilladte signaturlængde er {GVAR: FORUM_SIG_ML} tegn.');" class="SmallText">Check signaturlængden</a>
 adm_account_accepted:Din konto '{VAR: login}' blev godkendt af administrator og er nu aktiv. Du kan nu få adgang til {GVAR: FORUM_TITLE}' forum som bekræftet, registreret bruger.
 adm_account_accepted_s:Din konto anmodning på '{GVAR: FORUM_TITLE}' blev accepteret.
 adm_account_rejected:Din konto '{VAR: login}' blev afvist af administratoren. Hvis du gerne vil kende grunden til denne afgørelse, er du velkommen til at kontakte administratoren på '{GVAR: ADMIN_EMAIL}'.
@@ -1028,7 +1028,7 @@ post_err_mod_forum_edit_ttl:FEJL
 post_err_mod_forum_edit_msg:Du kan ikke redigere indlæg i et modereret forum.
 dmsg_num:indlæg #{VAR: obj->id}
 postcheck_session_invalid:Din session er udløbet. Vær venlig at sende formularen igen. Undskyld ulejligheden.
-delete_message_extra_desc:<b>Valgfri</b><br /> Angiv en begrundelse for sletning af dette indlæg, som derefter vil blive sendt til forfatteren via en privat e-mail.
+delete_message_extra_desc:<b>Valgfri</b><br /> Angiv en begrundelse for sletning af dette indlæg, som derefter vil blive sendt til forfatteren via en privat meddelelse.
 delete_message_extra_body:Inkluder den slettede tekst i beskeden der sendes til forfatteren.
 delete_msg_removed_ttl:Dit indlæg blev fjernet af det administrative personale.
 delete_msg_pm_body:Originalt indlæg

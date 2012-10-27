@@ -3,7 +3,7 @@
 # Author: Erdemaslancan
 # Author: Mirzali
 
-action:Kerden
+action:Kerdış
 add_to_buddy_list:Peyey defi
 admin:Admin
 admin_control_panel:İdarekari
@@ -53,7 +53,7 @@ locked:Kilit biya
 locked_with_new_posts:Kılit kerdeyo
 logged_in_list:Listeya karberanê ke cıqewtış kerda
 login:Dekewtış
-login_header:Namey karberi
+login_header:Dekewtış:
 logout:Bıveciyên
 mark_all_read:Mesaca pêrın wende deye mor ke
 mark_all_read_desc:Mesaci pêro wende deye êdê mor bê
@@ -79,7 +79,7 @@ move_thread:Berê
 na:n/a
 new_posts:Mesaco newe esto
 new_thread:Topiko newe vıraze
-next_page:Pela Peyên
+next_page:Pela Peyêne
 next_thread:Topiko Peyên:
 no_posts:Mesac Çıno
 num_pages:Peley ({VAR: ttl_pg}):
@@ -127,7 +127,7 @@ list_referes_member:Eza
 referals_none:Hona şıma şınasiye nê kerdo.
 referals_post_count:Amariya Mesaca
 referals_registered_on:Tarixê Qeydi:
-referals_action:Kerden
+referals_action:Kerdış
 pmsg_all:pêro
 pmsg_none:Hêçjew
 folder:Klasor
@@ -181,19 +181,19 @@ finduser_no_such_user:Karbero do Wuna Çıniyo
 finduser_user:Karber
 finduser_postcount:Amariya Mesaca
 finduser_joindate:Tarixê Tewrbiyayışi
-finduser_action:Kerden
+finduser_action:Kerdış
 yes:E
 no:Nê
 register_email:E-posta
 edit_time_limit:<b>Wextê Vurnayışê sinori</b>: {GVAR: EDIT_TIME_LIMIT} daqiqe
 no_edit_time_limit:<b>Wextê Timar dê sinori</b>: Bê sinor
-pmuserloc_login:Namey karberi
+pmuserloc_login:Dekewtış:
 pmuserloc_submit:Bıvin
 pmuserloc_user:Karber
 pmuserloc_no_result:Nê vineya
 register_builtin:Sazine
 register_specify_url:Url'i Cake
-register_login:Namey karberi
+register_login:Dekewtış:
 register_password:Parola:
 register_conf_pass:Parolay tesdiq ke:
 register_name:Name:
@@ -256,7 +256,7 @@ coppa_fax_email:Adresê E-posta:
 coppa_fax_date:Deme:
 coppa_fax_remail:E-posta
 coppa_fax_name:Name
-login_login:Namey karberi
+login_login:Dekewtış:
 login_login_btn:Dekewtış
 ruser_cur_pass:Parolaya newkên
 login_passwd:Parola:
@@ -314,7 +314,7 @@ post_opt_images_on:<b>Resımi akerdeyê</b>
 thr_exch_submit:Bırşe
 groupmgr_yes:E
 groupmgr_no:Nê
-groupmgr_action:Kerden
+groupmgr_action:Kerdış
 groupmgr_member:Eza
 groupmgr_cancel:Bıterkne
 groupmgr_add_member:Eza Defi
@@ -369,7 +369,7 @@ split_th_posted_on:Deme rıştışi:
 split_th_forum:Forum
 split_th_messages:Mesaci
 split_th_select:Weçine
-quicklogin_login:Namey karberi
+quicklogin_login:Dekewtış:
 quicklogin_password:Parola:
 quicklogin_login_btn:Dekewtış
 post_proc_reveal_spoiler:Toggle Spoiler
@@ -387,7 +387,7 @@ p_VISIBLE:Mocnerey
 poll_edit:Bıvurne
 polllist_name:Namey Anketi
 polllist_votes:Rey Heme
-polllist_action:Kerden
+polllist_action:Kerdış
 userinfo_polls:Reydayış
 show_pollist:Anketi Bımocne
 search_and:U
@@ -518,7 +518,7 @@ feed_rss:RSS2 Şexsi
 feed_atom:ATOM Şexsi
 ip_whois_connect_err:Arden dê WHOIS ({VAR: whois_server}) nêgredeyêno: {VAR: errstr}
 custom_filed_required:No cab icab keno.
-pages:Peri
+pages:Peli
 page_list_heading:Peleyê ke estê
 page_list_total:{PLURAL: i|$1 pele|$1 peley} liste bi.
 page_update:Oyo çım şıkneno pele
