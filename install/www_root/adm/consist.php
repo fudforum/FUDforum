@@ -93,8 +93,17 @@ function delete_zero($tbl, $q)
 <div class="alert">
 Consistency check is a complex process which may take several minutes to run.
 While it is running, your forum will be disabled!
-</div>
+</div><br />
 <form method="post" action="consist.php">
+
+<fieldset>
+	<legend>Thoroughness:</legend>
+	<label><p>
+		Perform a quick check:
+		<input name="mode" value="1" type="checkbox">
+	</p></label>
+</fieldset>
+
 <p>Do you wish to proceed?</p>
 <input type="submit" name="btn_cancel" value="No" />&nbsp;&nbsp;&nbsp;<input type="submit" name="conf" value="Yes" />
 <?php echo _hs; ?>
@@ -108,6 +117,7 @@ While it is running, your forum will be disabled!
 		pf('<h3>Database Optimizer progress</h3>'); 
 	} else {
 		pf('<h3>Consisteny Checker progress</h3>'); 
+		$thorough = empty($_POST['mode']) ? 1 : 0;
 	}
 
 	if ($FUD_OPT_1 & 1) {
@@ -524,12 +534,14 @@ While it is running, your forum will be disabled!
 	q('DELETE FROM '. $tbl .'forum_notify WHERE NOT EXISTS (SELECT id FROM '. $tbl .'forum WHERE '. $tbl .'forum_notify.forum_id = id)');
 	// delete_zero($tbl .'forum_notify', 'SELECT fn.id FROM '. $tbl .'forum_notify fn LEFT JOIN '. $tbl .'forum f ON f.id=fn.forum_id LEFT JOIN '. $tbl .'users u ON u.id=fn.user_id WHERE u.id IS NULL OR f.id IS NULL');
 
-	draw_stat('Checking search indexes');
-	q('DELETE FROM '. $tbl .'index WHERE NOT EXISTS (SELECT id FROM '. $tbl .'search WHERE '. $tbl .'index.word_id = id)');
-	q('DELETE FROM '. $tbl .'index WHERE NOT EXISTS (SELECT id FROM '. $tbl .'msg    WHERE '. $tbl .'index.msg_id = id)');
-	q('DELETE FROM '. $tbl .'title_index WHERE NOT EXISTS (SELECT id FROM '. $tbl .'search WHERE '. $tbl .'title_index.word_id = id)');
-	q('DELETE FROM '. $tbl .'title_index WHERE NOT EXISTS (SELECT id FROM '. $tbl .'msg    WHERE '. $tbl .'title_index.msg_id = id)');
-	q('DELETE FROM '. $tbl .'search WHERE NOT EXISTS (SELECT * FROM '. $tbl .'index WHERE '. $tbl .'search.id = word_id) AND NOT EXISTS (SELECT * FROM '. $tbl .'title_index WHERE '. $tbl .'search.id = word_id)');
+	if ($thorough) {
+		draw_stat('Checking search indexes');
+		q('DELETE FROM '. $tbl .'index WHERE NOT EXISTS (SELECT id FROM '. $tbl .'search WHERE '. $tbl .'index.word_id = id)');
+		q('DELETE FROM '. $tbl .'index WHERE NOT EXISTS (SELECT id FROM '. $tbl .'msg    WHERE '. $tbl .'index.msg_id = id)');
+		q('DELETE FROM '. $tbl .'title_index WHERE NOT EXISTS (SELECT id FROM '. $tbl .'search WHERE '. $tbl .'title_index.word_id = id)');
+		q('DELETE FROM '. $tbl .'title_index WHERE NOT EXISTS (SELECT id FROM '. $tbl .'msg    WHERE '. $tbl .'title_index.msg_id = id)');
+		q('DELETE FROM '. $tbl .'search WHERE NOT EXISTS (SELECT * FROM '. $tbl .'index WHERE '. $tbl .'search.id = word_id) AND NOT EXISTS (SELECT * FROM '. $tbl .'title_index WHERE '. $tbl .'search.id = word_id)');
+	}
 
 	draw_stat('Checking topic votes against topics');
 	delete_zero($tbl.'thread_rate_track', 'SELECT trt.id FROM '. $tbl .'thread_rate_track trt LEFT JOIN '. $tbl .'thread t ON t.id=trt.thread_id LEFT JOIN '. $tbl .'users u ON u.id=trt.user_id WHERE u.id IS NULL OR t.id IS NULL');
