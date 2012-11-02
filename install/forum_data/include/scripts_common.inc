@@ -44,6 +44,9 @@ function create_new_user($from_name, $from_email, $reg_date=0)
 	$login = empty($from_name) ? preg_replace('/[^a-zA-Z0-9-\s]/', '', $from_email) : $from_name;
 	$i = 1;
 
+	/* Remove all non-ASCII characters from login */
+	$login = preg_replace('/[^(\x00-\x7F)]*/','', $login);
+
 	$user = new fud_user_reg;
 	if (strlen(htmlspecialchars($login)) + 4 > $GLOBALS['MAX_LOGIN_SHOW']) {
 		$login = $user->login = reverse_fmt(substr(htmlspecialchars($login), 0, $GLOBALS['MAX_LOGIN_SHOW'] - 4));
@@ -55,13 +58,13 @@ function create_new_user($from_name, $from_email, $reg_date=0)
 	 * This code ensures that creation of user does not fail in the event another user on the forum
 	 * is already signed up under the same login name and/or alias.
 	 */
-	while ($login = q_singleval('SELECT login FROM '. sql_p .'users WHERE login='. _esc($user->login))) {
+	while (q_singleval('SELECT id FROM '. sql_p .'users WHERE login='. _esc($user->login))) {
 		$user->login = $login .'['. $i++ .']';
 	}
 
 	$alias = $user->alias = htmlspecialchars($user->login);
 
-	while ($alias = q_singleval('SELECT alias FROM '. sql_p .'users WHERE alias='. _esc($user->alias))) {
+	while (q_singleval('SELECT id FROM '. sql_p .'users WHERE alias='. _esc($user->alias))) {
 		$user->alias = $alias .'['. $i++ .']';
 	}
 
