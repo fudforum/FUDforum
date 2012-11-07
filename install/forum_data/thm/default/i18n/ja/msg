@@ -96,7 +96,7 @@ moved_thread_message:このトピックは別のフォーラムに移動しま�
 na:該当なし
 new_posts:新規メッセージ
 new_private_messages:<span class="GenTextRed">({VAR: c})</span>件の未読{PLURAL: c|プライベートメッセージ}があります。
-new_thread:新規トピック作成
+new_thread:トピックを新規作成
 newest_user:最新の登録利用者:
 next_page:次のページ
 next_thread:次のトピック:
@@ -375,7 +375,7 @@ post_annoncement:告知
 post_size:サイズ
 post_color:色
 post_font:フォント
-create_thread:トピック作成
+create_thread:トピックを作成
 submit_reply:返信を送信
 edit_message:メッセージ変更を適用する
 apply_spell_changes:スペル変更を適用する
@@ -384,7 +384,7 @@ post_logedin_user:ログイン利用者:
 post_logout:ログアウト
 post_passwd:投稿パスワード:
 post_poll:投票:
-post_create_poll:投票作成
+post_create_poll:投票を作成
 post_poll_delete:削除
 post_poll_edit:編集
 post_mod_opt:モデレーター用設定:

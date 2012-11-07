@@ -5,13 +5,14 @@
 # Author: Farras
 # Author: Irwangatot
 # Author: IvanLanin
+# Author: Iwan Novirion
 # Author: Kenrick95
 # Author: Naudefj
 # Author: StefanusRA
 
 action:Tindakan
 add_to_buddy_list:tambahkan ke daftar teman
-admin:Admin
+admin:Pengurus
 admin_control_panel:Administrasi
 administrator:Pengurus
 attachment:Sisipan:
@@ -30,15 +31,15 @@ pmsg_download_counter:Diunduh {PLURAL: r->dlcount|$1 time|$1 times}
 email:Surat-e:
 email_to_friend:E-mail ke teman
 email_to_friend_desc:Kirim URL halaman ini ke teman melalui e-mail
-email_user:Kirim pengguna pesan surat-e
-faq:FAQ
+email_user:Kirim pengguna pesan e-mail
+faq:Bantuan
 first_unread_msg:Menuju ke pesan blm terbaca
-first_unread_msg_desc:Menuju ke pesan perta di topik ini
-flat_view:Kembali ke tampilan rata awal
+first_unread_msg_desc:Menuju ke pesan pertama di topik ini
+flat_view:Kembali ke tampilan awal rata
 forum:Forum:
 forum_icon:Ikon forum
 forum_new_messages:Pesan baru
-forum_none_messages:Hanya anggota yang bisa menelusuri pesan blm terbaca
+forum_none_messages:Hanya anggota forum terdaftar yang bisa menelusuri pesan terbaca &amp; blm terbaca
 forum_old_messages:Tidak ada pesan baru
 from:Dari:
 gender:Jns.Kelamin:

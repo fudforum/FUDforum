@@ -52,9 +52,9 @@ lock_thread:Meseler qılit ke
 locked:Kilit biya
 locked_with_new_posts:Kılit kerdeyo
 logged_in_list:Listeya karberanê ke cıqewtış kerda
-login:Dekewtış
-login_header:Dekewtış:
-logout:Bıveciyên
+login:Cıkewtış
+login_header:Cıkewtış:
+logout:Veciyayış
 mark_all_read:Mesaca pêrın wende deye mor ke
 mark_all_read_desc:Mesaci pêro wende deye êdê mor bê
 members:Ezay
@@ -173,8 +173,8 @@ friday:Êne
 friday_short:Ê
 saturday:Bahdê êni
 saturday_short:Ş
-male:cıwamêrd
-female:Cenıke
+male:Camêrd
+female:Cıniye
 unspecified:MOR NÊBİYO
 finduser_submit:Karberi Bıvin
 finduser_no_such_user:Karbero do Wuna Çıniyo
@@ -187,13 +187,13 @@ no:Nê
 register_email:E-posta
 edit_time_limit:<b>Wextê Vurnayışê sinori</b>: {GVAR: EDIT_TIME_LIMIT} daqiqe
 no_edit_time_limit:<b>Wextê Timar dê sinori</b>: Bê sinor
-pmuserloc_login:Dekewtış:
+pmuserloc_login:Cıkewtış:
 pmuserloc_submit:Bıvin
 pmuserloc_user:Karber
 pmuserloc_no_result:Nê vineya
 register_builtin:Sazine
 register_specify_url:Url'i Cake
-register_login:Dekewtış:
+register_login:Cıkewtış:
 register_password:Parola:
 register_conf_pass:Parolay tesdiq ke:
 register_name:Name:
@@ -235,7 +235,7 @@ submit_reply:Cewab Bırışê
 edit_message:Mesaca Timar ke
 apply_spell_changes:Vurnayışê Nuşta Dezge ke
 post_preview:Verqaytê Mesaci
-post_logout:bıveciyên
+post_logout:veciyayış
 post_poll:Anket:
 post_create_poll:ANKET VIRAZE
 post_poll_delete:BESTERE
@@ -254,10 +254,12 @@ prereg_disagree:Qebul nêkena
 coppa_fax_telephone:Telefun:
 coppa_fax_email:Adresê E-posta:
 coppa_fax_date:Deme:
+coppa_fax_login:Cıkewtış
 coppa_fax_remail:E-posta
 coppa_fax_name:Name
-login_login:Dekewtış:
-login_login_btn:Dekewtış
+login_login:Cıkewtış:
+login_login_btn:Cıkewtış
+rpasswd_login:Cıkewtış
 ruser_cur_pass:Parolaya newkên
 login_passwd:Parola:
 reset_email:E-posta:
@@ -323,7 +325,7 @@ groupmgr_edit:Bıvurne
 groupmgr_delete:Besterne
 show_show:Bımocne
 group_mgr_group:Grube
-p_READ:Bıwanê
+p_READ:Bıwane
 p_POST:Bırş
 p_REPLY:Cewab bıde
 p_EDIT:Bıvurne
@@ -371,7 +373,7 @@ split_th_messages:Mesaci
 split_th_select:Weçine
 quicklogin_login:Dekewtış:
 quicklogin_password:Parola:
-quicklogin_login_btn:Dekewtış
+quicklogin_login_btn:Cıkewtış
 post_proc_reveal_spoiler:Toggle Spoiler
 register_jabber:Destkarê Jabber:
 register_skype:Destkarê Skype:
@@ -391,7 +393,7 @@ polllist_action:Kerdış
 userinfo_polls:Reydayış
 show_pollist:Anketi Bımocne
 search_and:U
-search_or:YA NA
+search_or:YA Zİ
 iemail_msg_author:<b>Nuskar:</b> {VAR: obj->alias}
 mnav_minute:Deqe(y)
 mnav_hour:Sehat(i)
@@ -399,7 +401,7 @@ mnav_day:Roc(i)
 mnav_week:Hefte(y)
 mnav_month:Aşm(i)
 findu_ban:Wedarnê
-findu_edit:Timar ke
+findu_edit:Bıvurne
 findu_delete:Besterne
 dmsg_reply_to:no cıwabê mesaciyo
 userinfo_buddy:Embaz:
