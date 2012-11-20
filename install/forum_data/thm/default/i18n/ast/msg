@@ -461,7 +461,7 @@ rpasswd_passwd_length:La conseña tien de tener polo menos 6 caráuteres
 reset_remind_pass:Recordatoriu de conseña
 reset_reset_conf:La to conseña se reaniciará y te la unviaremos. Si entá nun confirmasti la to direición de corréu electrónicu, volveremos a unviate la solicitú de confirmación.
 reset_error:Nun s'alcontró la direición de corréu electrónicu na base de datos
-rpasswd_change_pass:Camudar conseña
+rpasswd_change_pass:Camudar contraseña
 rpasswd_login:Usuariu
 rpasswd_cur_pass:Conseña actual:
 rpasswd_new_pass:Conseña nueva:

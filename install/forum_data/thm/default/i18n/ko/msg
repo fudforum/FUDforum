@@ -292,7 +292,7 @@ register_year:년
 register_gender:성별:
 register_bio:추가정보:
 register_bio_desc:자신의 세부정보, 관심분야, 직업, 취미 등...
-register_prefs:선택사항
+register_prefs:환경 설정
 register_sig:서명:
 register_sig_desc:서명은 선택 사항이며 서명을 할 경우 게시글 밑에 표시됩니다
 register_reset:초기화
@@ -324,7 +324,7 @@ post_normal:일반
 post_sticky:끈끈이
 post_annoncement:알림
 post_size:사이즈
-post_color:색깔
+post_color:색상
 post_font:폰트
 create_thread:토픽제출
 submit_reply:답글제출

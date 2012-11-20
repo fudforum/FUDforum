@@ -329,7 +329,7 @@ register_year:Anul
 register_gender:Sex:
 register_bio:Biografie:
 register_bio_desc:Cateva detalii despre dumneavoastra:
-register_prefs:Preferinte:
+register_prefs:Preferințe
 register_sig:Semnatura:
 register_sig_desc:Semnatura este optionala si va aparea la mesajele trimise de dumneavoastra.
 register_reset:Reseteaza
