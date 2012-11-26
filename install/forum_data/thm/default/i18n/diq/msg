@@ -248,11 +248,11 @@ post_title:Sername:
 post_body:Verê:
 post_options:Weçinegi:
 post_preview_btn:Verqaytê Mesaci
-post_cancel_btn:Bıterkne
+post_cancel_btn:Bıtexelne
 prereg_agree:Qebul kena
 prereg_disagree:Qebul nêkena
 coppa_fax_telephone:Telefun:
-coppa_fax_email:Adresê E-posta:
+coppa_fax_email:Adresa E-postey:
 coppa_fax_date:Deme:
 coppa_fax_login:Cıkewtış
 coppa_fax_remail:E-posta
@@ -319,7 +319,7 @@ groupmgr_yes:E
 groupmgr_no:Nê
 groupmgr_action:Kerdış
 groupmgr_member:Eza
-groupmgr_cancel:Bıterkne
+groupmgr_cancel:Bıtexelne
 groupmgr_add_member:Eza Defi
 groupmgr_update_member:Eza Neweke
 groupmgr_edit:Bıvurne
@@ -406,6 +406,7 @@ findu_edit:Bıvurne
 findu_delete:Besterne
 dmsg_reply_to:no cıwabê mesaciyo
 userinfo_buddy:Embaz:
+register_email_addr:Adresa E-postey:
 ip_title:IP Rovıter
 userinfo_real_name:Nameyo raştay
 post_err_mod_forum_edit_ttl:XIRAB
@@ -439,7 +440,7 @@ idx_compact_forum_row:Forumi:
 mmd_del_title:MErseli Besterne
 mmd_mov_title:Mersela Ahûlne
 mmd_move_threads_to:Hedefê Forumi:
-mmd_abort_move:Bıterkne
+mmd_abort_move:Bıtexelne
 mmd_move:Mersela Ahûlne
 pmsg_pdf_btn:Arşivê PDF bıke
 search_results_hdr:Cı geyrayış dı {VAR: total} neticey vineyaye.
@@ -471,7 +472,7 @@ post_common_align_right:Hizada Raşt fi
 post_common_link:Gıre defi
 post_common_link_popup:Cayê Linki:
 post_common_email:E-mail adresi defi de
-post_common_email_popup:Adresê e-posta:
+post_common_email_popup:Adresa e-postey:
 post_common_image:Resım defi de
 post_common_image_popup:Url'ey Resımi:
 post_common_nlist:Listeyo Nımreyın Defi de

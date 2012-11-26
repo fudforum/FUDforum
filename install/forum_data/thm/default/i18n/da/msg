@@ -296,7 +296,7 @@ finduser_joindate:Registreringsdato
 finduser_action:Handling
 yes:Ja
 no:Nej
-register_email:Email
+register_email:E-mail
 edit_time_limit:<b>Tidsbegrænsning for redigering</b>: {GVAR: EDIT_TIME_LIMIT} minutter
 no_edit_time_limit:<b>Tidsbegrænsning for redigering</b>: Ubegrænset
 pmuserloc_login:Brugernavn:
@@ -526,10 +526,10 @@ mklist_disc:Disk
 mklist_circle:Cirkel
 mklist_close:Luk
 email_to:Til:
-email_pg_title:Email
+email_pg_title:E-mail
 email_subject:Emne:
 email_body:Indhold:
-email_submit:Email
+email_submit:E-mail
 ppost_quote_msg:{VAR: msg_to_list} skrevet den {TEMPLATE: ppost_quote_msg_date}
 ppost_quote:Citat:
 ppost_to:Til:

@@ -669,7 +669,7 @@ register_welcome_msg:謝謝註冊，\n\n這是您註冊的詳細資料：\n\n論
 register_err_cantreg_title:錯誤：無法註冊
 regsiter_err_cantreg_msg:無法創建使用者帳戶，請聯繫管理員在<a href="mailto:<span class=" notranslate"="">{VAR: ADMIN_EMAIL}"大於 {VAR: ADMIN_EMAIL}  </a>
 register_profile_update:查看自己的個人資料
-register_register_update:註冊時間:
+register_register_update:註冊頁
 report_err_nosuchmsg_title:錯誤
 report_err_nosuchmsg_msg:沒有此類消息
 reset_err_invalidkey_title:錯誤
