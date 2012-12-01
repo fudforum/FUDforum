@@ -456,7 +456,7 @@ login_invalid_radius:Combinación inválida de nome d'usuariu/conseña
 reset_confirmation:Gracies por rexistrate.\n\nP'activar la to cuenta, por favor, visita la URL siguiente:\n\n{VAR: url}\n\nUna vez que la to cuenta s'active coneutarás col foru y te\nre-dirixirá a la páxina principal.
 reset_reset:Hola:\n\nPidisti que se reaniciara la to conseña. Para finar el procesu, por favor,\nvisita la siguiente URL:\n\n{VAR: url}\n\nNOTA: esti foru guarda les conseñes con un mecanismu de cifráu de sentíu únicu, lo que significa que\ncuando escribas la to conseña, esta se codifica de mou que NUN HAI MANERA de recuperala.\nEsto funciona comparando la versión cifrada que tenemos nel rexistru cola versión cifrada de lo qu'escribes nel campu d'entrada.\n(Si tienes interés en saber como funciona esti mecanismu, busca información sobro l'algoritmu MD5 HASH)
 rpasswd_invalid_passwd:Conseña inválida
-rpasswd_passwd_nomatch:Les conseñes nun casen
+rpasswd_passwd_nomatch:Les contraseñes nun casen
 rpasswd_passwd_length:La conseña tien de tener polo menos 6 caráuteres
 reset_remind_pass:Recordatoriu de conseña
 reset_reset_conf:La to conseña se reaniciará y te la unviaremos. Si entá nun confirmasti la to direición de corréu electrónicu, volveremos a unviate la solicitú de confirmación.
@@ -464,7 +464,7 @@ reset_error:Nun s'alcontró la direición de corréu electrónicu na base de dat
 rpasswd_change_pass:Camudar contraseña
 rpasswd_login:Usuariu
 rpasswd_cur_pass:Conseña actual:
-rpasswd_new_pass:Conseña nueva:
+rpasswd_new_pass:Contraseña nueva:
 rpasswd_conf_pass:Confirma la conseña:
 ruser_title:Formulariu de cambiu d'identificación
 ruser_change_user:Camudar la to identificación nel foru
@@ -473,7 +473,7 @@ ruser_new_login:Nome d'usuariu nuevu:
 ruser_cur_pass:Conseña actual:
 login_passwd:Conseña:
 reset_email:Corréu electrónicu:
-reset_reset_button:Reaniciar conseña
+reset_reset_button:Reaniciar contraseña
 rate_this_thread:Valoración
 report_reporting_about:Informando sobro:
 report_subject:Asuntu:
@@ -669,7 +669,7 @@ reset_err_invalidkey_title:ERROR
 reset_err_invalidkey_msg:Clave de reaniciu de conseña inválida. Ye posible que'l to cliente de corréu electrónicu yá abriera esta páxina de mou automáticu, invalidando la clave de reaniciu. Si esti ye'l casu, tendrías de recibir ceo un corréu cola to nueva conseña. Si nun te llega esi corréu, por favor, intenta volver a reaniciar la conseña.
 reset_err_rstconf_title:Información
 reset_err_rstconf_msg:Tendríes de recibir instrucciones nel to corréu electrónicu nos próximos minutos.
-reset_newpass_title:Reaniciar conseña
+reset_newpass_title:Reaniciar contraseña
 reset_newpass_msg:Hola,\n\nComo pidisti, la to información d'aniciu de sesión apaez darréu:\n\nNome d'usuariu: {VAR: ui[1]}\nConseña: {VAR: passwd}\n\nPor favor, ten en cuenta que la to conseña se reanició al valor d'arriba. Si quies camudar\nla conseña, pues facelo per aciu del panel de control d'información del usuariu en:\n{FULL_ROOT}{ROOT}?t=register
 reset_login_notify:La to conseña se mandó per corréu electrónicu. Tendríes de recibila dientro d'unos minutos.<br />
 search_update:Buscando mensaxes
@@ -699,7 +699,7 @@ help_title:Ayuda
 login_title:Formulariu d'aniciu de sesión
 poll_title:Editor d'encuestes
 register_title:Formulariu de rexistru
-reset_title:Reaniciar conseña
+reset_title:Reaniciar contraseña
 rpasswd_title:Formulariu de cambiu de conseña
 error_title:Formulariu d'error
 index_title:Bienveníu al foru
