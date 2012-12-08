@@ -6,8 +6,7 @@
 # Author: 아라
 
 admin:관리자
-# Fuzzy
-admin_control_panel:제어판넬
+admin_control_panel:관리
 administrator:관리자
 attachment:첨부:
 avatar:아바타:
@@ -58,8 +57,7 @@ logged_in_list:로그인 사용자
 login:로그인
 login_header:로그인:
 logout:로그아웃
-# Fuzzy
-mark_all_read:읽은 메시지로 표시
+mark_all_read:모든 메시지를 읽음으로 표시
 mark_all_read_desc:읽지 않은 모든 메시지가 읽음으로 표시됩니다
 members:멤버
 message:메시지
@@ -70,8 +68,7 @@ moderation_queue:중재 제출
 moderator:중재자
 moderator_of:중재자:
 moderator_options:중재자 옵션
-# Fuzzy
-moderators:중재자
+moderators:{PLURAL: modcount|중재자|중재자}
 more_unread_messages:읽지 않은 메시지
 more_unread_messages_desc:읽지 않은 메시지를 보여주며 읽은 메시지로 표시합니다
 move_thread:이동
@@ -234,6 +231,20 @@ month_9:9월
 month_10:10월
 month_11:11월
 month_12:12월
+sunday:일요일
+sunday_short:일
+monday:월요일
+monday_short:월
+tuesday:화요일
+tuesday_short:화
+wednesday:수요일
+wednesday_short:수
+thursday:목요일
+thursday_short:목
+friday:금요일
+friday_short:금
+saturday:토요일
+saturday_short:토
 male:남
 female:여
 unspecified:미지정
@@ -250,6 +261,8 @@ finduser_user:사용자
 finduser_postcount:게시글
 finduser_joindate:가입일
 finduser_action:활동
+yes:예
+no:아니오
 register_email:이메일
 pmuserloc_login:로그인:
 pmuserloc_submit:제출
@@ -280,10 +293,12 @@ register_optional_desc:중요한 개인정보를 입력하지 마십시오. 다�
 register_location:위치:
 register_occupation:직업:
 register_interests:관심분야:
+register_image:그림:
 register_icq:ICQ
 register_aim:AIM:
 register_yahoo:Yahoo 메신저:
 register_msnm:MSN 메신저:
+register_homepage:홈페이지:
 register_bday:생일:
 register_bday_desc:입력한 생일은 포럼 멤버에게 공개 됩니다
 register_day:일
@@ -480,10 +495,8 @@ ppost_save_draft:발췌 및 저장
 poll_blank_option:선택 항목이 없습니다.
 poll_del_conf:이 옵션을 삭제하려면 OK를 누르십시오
 poll_name:투표 이름:
-# Fuzzy
-poll_timelimit:시간 제한
-# Fuzzy
-poll_maxiumvotes:최대 투표
+poll_timelimit:시간 제한:
+poll_maxiumvotes:최대 투표:
 poll_create:생성
 poll_update:업데이트
 poll_create_poll:투표 생성
@@ -529,7 +542,6 @@ email_error_namerequired:이름을 입력하십시오
 email_error_invaliduser:확인되지 않은 사용자
 emailconf_err_invkey_title:오류
 emailconf_err_invkey_msg:확인 Key 오류.  수신된 이메일을 확인하십시오.
-# Fuzzy
 err_inc_criticaltitle:치명적 오류
 err_inc_criticalmsg:오류 발생. 보고 체계에 문제가 발생했습니다.
 finduser_update:사용자 검색
