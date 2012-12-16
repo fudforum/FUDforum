@@ -309,7 +309,7 @@ register_specify_url:Specifica URL
 register_uploaded:Carica avatar
 register_login:Login:
 register_password:Password:
-register_conf_pass:Conferma Password:
+register_conf_pass:Conferma password:
 register_email_desc:Per favore, inserisci un indirizzo email valido. Puoi decidere di renderlo non visibile nelle opzioni del tuo profilo utente.
 register_name:Nome:
 register_your_pass:Password:

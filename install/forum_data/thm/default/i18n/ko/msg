@@ -199,7 +199,7 @@ referals_refered_by:추천 멤버: <b><a href="{TEMPLATE: referals_refered_by_ln
 referals_post_count:게시글
 referals_registered_on:등록됨
 referals_action:활동
-pmsg_all:전체
+pmsg_all:모두
 pmsg_none:없음
 folder:폴더:
 pmsg_replied:답글
@@ -271,8 +271,8 @@ pmuserloc_no_result:결과 없음
 register_specify_url:URL
 register_uploaded:아바타 업로드
 register_login:로그인:
-register_password:패스워드:
-register_conf_pass:패스워드 확인:
+register_password:비밀번호:
+register_conf_pass:비밀번호 확인:
 register_email_desc:현재 사용 중인 검증된 이메일을 입력하십시오. 아래의 이메일 숨김을 선택하면 다른 사용자가 이메일 주소를 볼 수 없습니다
 register_name:이름:
 register_your_pass:패스워드:
@@ -436,8 +436,8 @@ rpasswd_change_pass:패스워드 변경
 rpasswd_login:로그인
 rpasswd_cur_pass:현재 패스워드:
 rpasswd_new_pass:새 패스워드:
-rpasswd_conf_pass:패스워드 확인:
-login_passwd:패스워드:
+rpasswd_conf_pass:비밀번호 확인:
+login_passwd:비밀번호:
 reset_email:이메일:
 reset_reset_button:패스워드 초기화
 rate_this_thread:평가

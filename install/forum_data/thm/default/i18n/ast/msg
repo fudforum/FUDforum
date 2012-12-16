@@ -300,7 +300,7 @@ register_builtin:Integrao
 register_specify_url:Conseñar URL
 register_uploaded:Xubir un avatar
 register_login:Aniciu de sesión:
-register_password:Conseña:
+register_password:Contraseña:
 register_conf_pass:Confirma la conseña:
 register_email_desc:Por favor, escribi una direición de corréu electrónicu válida. Pues escoyer anubrilu más abaxo, na seición de preferencies.
 register_name:Nome:
@@ -439,7 +439,7 @@ coppa_fax_email:Direición de corréu electrónicu:
 coppa_fax_date:Data:
 coppa_fax_questions:Por favor, ponte en contautu con <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> pa entruga-y cualesquier dulda
 coppa_fax_login:Entrar
-coppa_fax_passwd:Conseña
+coppa_fax_passwd:Contraseña
 coppa_fax_remail:Corréu
 coppa_fax_name:Nome
 login_not_logedin:Nun aniciasti sesión. Esto pue ser por unu de los siguientes motivos:
@@ -471,7 +471,7 @@ ruser_change_user:Camudar la to identificación nel foru
 ruser_cur_login:Nome d'usuariu actual:
 ruser_new_login:Nome d'usuariu nuevu:
 ruser_cur_pass:Conseña actual:
-login_passwd:Conseña:
+login_passwd:Contraseña:
 reset_email:Corréu electrónicu:
 reset_reset_button:Reaniciar contraseña
 rate_this_thread:Valoración
@@ -825,7 +825,7 @@ split_th_messages:Mensaxes
 split_th_select:Seleicionar
 report_report_post:Informar d'un mensaxe
 quicklogin_login:Aniciu de sesión:
-quicklogin_password:Conseña:
+quicklogin_password:Contraseña:
 quicklogin_use_cookies:¿Usar cookies?
 quicklogin_login_btn:Entrar
 quick_reply:Respuesta rápida
