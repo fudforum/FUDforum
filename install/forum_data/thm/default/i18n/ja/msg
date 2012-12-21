@@ -81,7 +81,7 @@ message:メッセージ
 message_counter:<b>{PLURAL: thread_count|$1 件}のトピック</b>内に合計で<b>{PLURAL: post_count|$1 通}のメッセージ</b>が投稿されました。
 message_index:メッセージ索引
 message_index_desc:メッセージ一覧を表示します
-minimize_category:カテゴリーを最小化
+minimize_category:カテゴリを最小化
 minimize_message:メッセージを最小化
 moderation_queue:モデレーション待ち
 moderator:モデレーター
@@ -836,8 +836,8 @@ quick_reply:迅速返信
 quick_reply_post:迅速返信を投稿
 quick_reply_preview:迅速返信をプレビュー
 post_notification_desc:誰かがこのメッセージに返信したとき、あなたに通知します
-post_all_ext_allowed:（無制限）
-maximize_category:カテゴリーを最大化
+post_all_ext_allowed:(無制限)
+maximize_category:カテゴリを最大化
 maximize_message:メッセージを最大化
 no_view_perm:あなたはこのトピックを見るために必要な許可をもっていません。
 report_empty_report:空の報告を送ることができません。報告の理由を入力してください。
@@ -1037,7 +1037,7 @@ pmsg_trash:ごみ箱を空に
 uc_new_pm:新規プライベートメッセージ一覧
 uc_new_topic:新規トピック
 uc_new_cat_forum:購読中フォーラムの新規メッセージ一覧
-uc_cat_forum:カテゴリー &raquo; フォーラム
+uc_cat_forum:カテゴリ &raquo; フォーラム
 uc_sub_topics:購読中トピックの新規メッセージ一覧
 uc_page_title:個人コントロールパネルを表示中
 search_options:検索オプション
