@@ -23,7 +23,7 @@ date_posted:Berichtdatum
 date_registered:Registratiedatum:
 download_counter:{PLURAL: v[3]|$1 keer|$1 keer} keer gedownload
 pmsg_download_counter:{PLURAL: r->dlcount|$1 keer|$1 keer} keer gedownload
-email:E-mail:
+email:E-mailadres:
 email_to_friend:Vriend e-mailen
 email_to_friend_desc:De URL naar deze pagina naar een of meer vrienden zenden via e-mail
 email_user:E-mail naar deze gebruiker zenden
@@ -57,7 +57,7 @@ index_url_redirection:Doorverwijzing
 interests:Interesses:
 last_post:Laatste bericht
 last_thread_msg:Naar het laatste bericht in dit onderwerp gaan
-legend:Legenda:
+legend:Legenda
 location:Locatie:
 lock_thread:Onderwerp sluiten
 locked:Gesloten
@@ -475,7 +475,7 @@ ruser_cur_login:Huidige gebruikersnaam:
 ruser_new_login:Nieuwe gebruikersnaam:
 ruser_cur_pass:Huidige wachtwoord:
 login_passwd:Wachtwoord:
-reset_email:E-mail:
+reset_email:E-mailadres:
 reset_reset_button:Wachtwoord opnieuw instellen
 rate_this_thread:Beoordelen
 report_reporting_about:Rapport over:

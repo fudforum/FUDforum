@@ -25,7 +25,7 @@ email:E-pasts:
 email_to_friend:Nosūtīt E-pastu
 email_to_friend_desc:Nosūtīt URL-saiti par šo ierakstu pa E-pastu
 email_user:Nosūtīt lietotājam e-pasta ziņojumu
-faq:F.A.Q.
+faq:Palīdzība
 first_unread_msg:Pāriet uz nelasītajiem paziņojumiem
 first_unread_msg_desc:Pāriet uz pirmo nelasīto šajā tēmā
 flat_view:Pāriet uz noklusēto izplāto skatu
@@ -681,7 +681,7 @@ ERR_systemerr_ttl:KĻŪDA: Sistēmas kļūda
 ERR_systemerr_msg:Sistēmas kļūda, paziņojiet par to <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a>'?.
 email_title:E-pasta paziņojums
 finduser_title:Lietotāju meklēšana
-help_title:F.A.Q.
+help_title:Palīdzība
 login_title:Ieeja forumā
 poll_title:Balsojumu redaktors
 register_title:Reģistrācija

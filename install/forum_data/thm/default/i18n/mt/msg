@@ -770,8 +770,7 @@ p_STICKY:Messaġġi mwaħħlin
 p_POLL:Oħloq sondaġġi
 p_FILE:Ehmeż fajls
 p_VOTE:Ivvota
-# Fuzzy
-p_RATE:Iġġudika s-suġġetti
+p_RATE:Iġġudika s-suġġetti/l-membri
 p_SPLIT:Aqsam is-suġġetti
 p_LOCK:Agħlaq is-suġġetti
 p_MOVE:Mexxi s-suġġetti
@@ -1082,7 +1081,7 @@ post_common_underline:Sottolinja
 post_common_align_left:Allinja max-xellug
 post_common_align_center:Allinja fiċ-ċentru
 post_common_align_right:Allinja mal-lemin
-post_common_link:Daħħal Ħolqa
+post_common_link:Daħħal ħolqa
 post_common_link_popup:Pożizzjoni tal-ħolqa:
 post_common_email:Daħħal indirizz elettroniku
 post_common_email_popup:Indirizz elettroniku:
@@ -1107,8 +1106,7 @@ move_msg_th_expl:Speċifika l-ID tas-suġġett ta' destinazzjoni (jista' jkun f'
 captcha_img_alt:Verifika tal-captcha: trid tagħraf it-test f'din l-istampa.
 captcha_img_help:M'hemmx żero jew wieħed fl-istampa.
 powered-by:Operata minn: FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:Copyright &copy;2001-2011 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Copyright &copy;2001-2012 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Kodiċi:
 code_select_all:Agħżel kollox
 code_show_hide:uri/aħbi
@@ -1142,3 +1140,6 @@ page_list_total:{PLURAL: i|$1 paġna|$1 paġni} elenkati.
 page_update:Paġna ta' navigazzjoni
 pm_export_header:Messaġġi privati għal {VAR: usr->alias}
 pm_export_footer:Esportati:
+karma:Karma
+karma_track:Amministra r-reputazzjoni tal-utent:
+karma_delete:Ħassar
