@@ -422,7 +422,7 @@ forum_rules_13:<p>Alle leden <b>jonger dan 13</b> moeten de toestemming van hun 
 coppa_conf:COPPA-bevestiging
 coppa_before:Voor {TEMPLATE: coppa_date}
 coppa_after:Na {TEMPLATE: coppa_date}
-coppa_link:Klik op de verwijzing die overeenstemt met uw leeftijd
+coppa_link:Klik op de koppeling die overeenstemt met uw leeftijd
 coppa:Een ouder of voogd moet via fax of post een getekend toestemmingsformulier verzenden naar de beheerder van dit forum voordat een gebruiker <b>jonger dan 13</b> de registratie kan voltooien.</p><p>Voor meer informatie kunt u contact opnemen met <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a></p>.
 prereg_info:Forumregels
 prereg_agree:Ik ga akkoord
@@ -581,7 +581,7 @@ buddy_list_err_nouser_title:Het was niet mogelijk om de gebruiker toe te voegen
 buddy_list_err_ignore:Het is niet mogelijk om gebruikers die u negeren, toe te voegen aan uw vriendenlijst.
 buddy_list_update:Eigen vriendenlijst aan het bekijken
 core_err_invinp_title:Ongeldige invoer
-core_err_invinp_err:U hebt een ongeldige verwijzing gevolgd. Neem alstublieft contact op met de <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a> en geef aan hoe u hier bent gekomen.
+core_err_invinp_err:U hebt een ongeldige koppeling gevolgd. Neem alstublieft contact op met de <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a> en geef aan hoe u hier bent gekomen.
 core_adm_login_msg:<a href="{GVAR: WWW_ROOT}adm/admloginuser.php">Aanmelden als beheerder</a>
 email_err_unabletoemail_title:FOUT: het was niet mogelijk om een e-mail te verzenden
 email_err_unabletoemail_msg:Het e-mailsysteem is uitgeschakeld door de beheerder.
@@ -597,10 +597,10 @@ err_inc_criticalmsg:Er is een fout opgetreden. Helaas is er ook een probleem met
 finduser_update:Bezig met het zoeken naar gebruikers
 help_index_update:De <a href="{TEMPLATE: help_index_update_lnk}">F.A.Q.</a> lezen
 iemail_thr_subject:Nieuw antwoord op {VAR: thr_subject} door {VAR: poster_login}
-iemail_thr_bodyemail:Ga naar {VAR: goto_url['email']} om ongelezen antwoorden te lezen.\n\nAls u geen verdere waarschuwingen over dit onderwerp wilt ontvangen, volg dan de volgende verwijzing: {VAR: unsub_url['email']}
+iemail_thr_bodyemail:Ga naar {VAR: goto_url['email']} om ongelezen antwoorden te lezen.\n\nAls u geen verdere waarschuwingen over dit onderwerp wilt ontvangen, volg dan de volgende koppeling: {VAR: unsub_url['email']}
 iemail_frm_subject:Nieuw onderwerp {VAR: thr_subject} door {VAR: poster_login} in forum {VAR: frm_name}
-iemail_frm_bodyemail:Volg de volgende verwijzing om het onderwerp te bekijken:\n{VAR: goto_url['email']}\n\nAls u geen verdere waarschuwingen over nieuwe onderwerpen in dit forum wilt ontvangen, volg dan de volgende verwijzing: {VAR: unsub_url['email']}
-iemail_participate:Volg de volgende verwijzing om deel te nemen in de discussie:
+iemail_frm_bodyemail:Volg de volgende koppeling om het onderwerp te bekijken:\n{VAR: goto_url['email']}\n\nAls u geen verdere waarschuwingen over nieuwe onderwerpen in dit forum wilt ontvangen, volg dan de volgende koppeling: {VAR: unsub_url['email']}
+iemail_participate:Volg de volgende koppeling om deel te nemen in de discussie:
 ignore_list_err_info_title:Informatie
 ignore_list_err_dup_msg:Deze gebruiker staat al op uw negeerlijst
 ignore_list_err_nu_title:De gebruikers is niet gevonden
@@ -634,7 +634,7 @@ post_reply_update:<a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> in 
 post_topic_update:Nieuw onderwerp in <a href="{TEMPLATE: post_topic_update_lnk}">{VAR: frm->name}</a> aan het schrijven
 post_error_generic:Er is een fout opgetreden
 postcheck_max_images_err:Er zijn per bericht maximaal {GVAR: MAX_IMAGE_COUNT} afbeeldingen toegestaan. Verklein het aantal afbeeldingen alstublieft.
-postcheck_no_links_allowed:U kunt geen verwijzingen gebruiken totdat u meer dan {PLURAL: posts_before_links|$1 bericht|$1 berichten} hebt toegevoegd.
+postcheck_no_links_allowed:U kunt geen koppelingen gebruiken totdat u meer dan {PLURAL: posts_before_links|$1 bericht|$1 berichten} hebt geplaatst.
 postcheck_subj_needed:U moet een onderwerp opgeven
 postcheck_no_such_user:Er is geen gebruiker met de naam "{FUNC: char_fix(htmlspecialchars($v))}" in dit forum.
 postcheck_ignored:U kunt geen privéberichten verzenden naar "{FUNC: char_fix(htmlspecialchars($v))}", omdat deze gebruiker u negeert.
@@ -659,9 +659,9 @@ register_err_notyouremail:Er is al iemand geregistreerd die dit e-mailadres gebr
 register_err_avatartobig:Het bestand dat u probeert te uploaden is te groot. De limiet is {GVAR: CUSTOM_AVATAR_MAX_SIZE} bytes
 register_err_avatarnotallowed:De avatar die u probeert te uploaden is niet toegestaan. Controleer of het bestand van een toegelaten bestandstype is.
 register_conf_subject:Registratiebevestiging
-register_conf_msg:Dank u voor uw registratie.\nVolg de volgende verwijzing om uw gebruiker te activeren:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nAls uw gebruiker is geactiveerd, wordt u aangemeld bij het forum en automatisch doorverwezen naar de hoofdpagina.
+register_conf_msg:Dank u voor uw registratie.\nVolg de volgende koppeling om uw gebruiker te activeren:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nAls uw gebruiker is geactiveerd, wordt u aangemeld bij het forum en automatisch doorverwezen naar de hoofdpagina.
 register_welcome_subject:Bevestiging van forumregistratie
-register_welcome_msg:Dank u voor uw registratie.\n\nHier volgen uw aanmeldgegevens voor het forum:\n\nURL van het forum: {TEMPLATE: index_update_lnk}\nGebruikersnaam: {VAR: uent->login}\nWachtwoord: {VAR: _POST['reg_plaintext_passwd']}\n\nLet op: wachtwoorden zijn hoofdlettergevoelig!\nOm uw instellingen of profiel aan te passen, kunt u de volgende verwijzing volgen:\n{FULL_ROOT}{ROOT}?t=register
+register_welcome_msg:Dank u voor uw registratie.\n\nHier volgen uw aanmeldgegevens voor het forum:\n\nURL van het forum: {TEMPLATE: index_update_lnk}\nGebruikersnaam: {VAR: uent->login}\nWachtwoord: {VAR: _POST['reg_plaintext_passwd']}\n\nLet op: wachtwoorden zijn hoofdlettergevoelig!\nOm uw instellingen of profiel aan te passen, kunt u de volgende koppeling volgen:\n{FULL_ROOT}{ROOT}?t=register
 register_err_cantreg_title:Fout: het was niet mogelijk om te registreren
 regsiter_err_cantreg_msg:Het was niet mogelijk om uw gebruiker aan te maken. Neem alstublieft contact op met de beheerder via het e-mailadres <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:Eigen profiel bekijken
@@ -708,7 +708,7 @@ error_title:Foutformulier
 index_title:Welkom bij het forum
 search_title:Zoeken naar {VAR-HTML: srch}
 remail_emailsent:De e-mail is verzonden
-remail_email:Hallo.\n\nEr is een interessant onderwerp over "{VAR: data->subject}" op het forum {GVAR: FORUM_TITLE} dat u misschien wel wilt lezen. U kunt dit onderwerp bekijken via de volgende verwijzing:\n  {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\n Groet,\n\n {VAR: usr->alias}
+remail_email:Hallo.\n\nEr is een interessant onderwerp over "{VAR: data->subject}" op het forum {GVAR: FORUM_TITLE} dat u misschien wel wilt lezen. U kunt dit onderwerp bekijken via de volgende koppeling:\n  {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\n Groet,\n\n {VAR: usr->alias}
 poll_add_option:Optie toevoegen:
 post_opt_html_on:<b>HTML-code</b> staat <b>aan</b>
 post_opt_fud_on:<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>BBcode</b> staat <b>aan</b></a>
@@ -944,7 +944,7 @@ thread_mark_all_read:alle berichten als gelezen markeren
 thread_mark_all_read_desc:Alle ongelezen berichten in dit forum worden als gelezen gemarkeerd
 private_no_messages:Er zijn geen berichten in deze map
 register_email_change_subject:Wijziging e-mailadres bevestigen
-register_email_change_msg:Bevestig alstublieft uw nieuwe e-mailadres "{VAR: uent->email}" ter vervanging van uw oude e-mailadres "{VAR: old_email}" door de volgende verwijzing te volgen:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nAls u uw nieuwe e-mailadres bevestigt, wordt uw gebruiker weer geactiveerd.
+register_email_change_msg:Bevestig alstublieft uw nieuwe e-mailadres "{VAR: uent->email}" ter vervanging van uw oude e-mailadres "{VAR: old_email}" door de volgende koppeling te volgen:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nAls u uw nieuwe e-mailadres bevestigt, wordt uw gebruiker weer geactiveerd.
 iemail_thread_unsub:Abonnenment op dit onderwerp opheffen
 iemail_forum_unsub:Abonnement op dit forum opheffen
 primary_group_prefix:Primaire groep voor forum:
@@ -952,7 +952,7 @@ group_resources:Deze groep beheert de rechten voor de volgende forums
 register_admin_newuser_title:Een nieuwe gebruiker heeft zich geregistreerd en moet nog bevestigd worden
 register_admin_newuser_msg:De nieuwe gebruiker {VAR: uent->login} is zojuist aangemeld voor het forum. Omdat gebruikersbevestiging is ingeschakeld, is de gebruiker pas bruikbaar nadat u of een andere beheeder de gebruiker bevestigt. Ga voor bevestigen alstublieft naar: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nDit is een automatisch verzonden bericht. Antwoord hier niet op.\nE-mailberichten over nieuwe gebruikers uitschakelen is mogelijk via de instelling "Waarschuwingen nieuwe gebruikers" in de beheerdersinstellingen.
 post_mod_msg_notify_title:Nieuw bericht in het forum "{VAR: frm->name}" wacht op goedkeuring
-post_mod_msg_notify_msg:Het bericht "{VAR: msg_post->subject}" is zojuist geplaatst in een door u gemodereerd forum. Volg de volgende verwijzing om het bericht te beoordelen: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nDit is een automatisch verzonden bericht. Antwoord hier niet op.
+post_mod_msg_notify_msg:Het bericht "{VAR: msg_post->subject}" is zojuist geplaatst in een door u gemodereerd forum. Volg de volgende koppeling om het bericht te beoordelen: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nDit is een automatisch verzonden bericht. Antwoord hier niet op.
 thread_printable_pdf:PDF genereren
 thread_syndicate:Dit forum syndiceren (XML)
 reg_conf_title:Registratiebevestiging
@@ -978,7 +978,7 @@ mnav_month:Maand(en)
 mnav_title:Navigatie
 mnav_update:Met <a href="{TEMPLATE: mnav_update_lnk}">Berichtennavigator</a> door berichten bladeren
 pm_notify_subject:[{GVAR: FORUM_TITLE}] U hebt een nieuw privébericht
-pm_notify_body_email:U hebt een nieuw privébericht met het onderwerp "{VAR: subject}" van "{VAR: from}" in het forum "{GVAR: FORUM_TITLE}".\nVolg de volgende verwijzing om het bericht te bekijken: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nOm waarschuwingen on de toekomst niet meer te ontvangen, kunt u deze uitschakelen via de instelling "Waarschuwingen voor privéberichten" in uw gebruikersinstellingen.
+pm_notify_body_email:U hebt een nieuw privébericht met het onderwerp "{VAR: subject}" van "{VAR: from}" in het forum "{GVAR: FORUM_TITLE}".\nVolg de volgende koppeling om het bericht te bekijken: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nOm waarschuwingen on de toekomst niet meer te ontvangen, kunt u deze uitschakelen via de instelling "Waarschuwingen voor privéberichten" in uw gebruikersinstellingen.
 register_pm_notification:Waarschuwingen voor privéberichten:
 register_pm_notification_desc:Als deze instelling actief is, wordt u op de hoogte gesteld als u een privébericht hebt ontvangen.
 findu_admin_opts_header:Beheerdersinstellingen
@@ -1081,8 +1081,8 @@ post_common_underline:Onderstrepen
 post_common_align_left:Link uitlijnen
 post_common_align_center:Centreren
 post_common_align_right:Rechts uitlijnen
-post_common_link:Een verwijzing invoegen
-post_common_link_popup:Verwijzingslocatie:
+post_common_link:Koppeling invoegen
+post_common_link_popup:Koppelingslocatie:
 post_common_email:Een e-mailadres invoegen
 post_common_email_popup:E-mailadres:
 post_common_image:Een afbeelding invoegen
