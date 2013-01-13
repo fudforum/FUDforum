@@ -460,7 +460,7 @@ remail_your_name:이름:
 remail_your_email:이메일:
 remail_friends_name:친구's 이름:
 remail_friends_email:친구's 이메일:
-remail_required:필수입력
+remail_required:필수
 remail_subject:제목:
 remail_message:메시지:
 remail_send_now:지금 이메일 발송
@@ -497,7 +497,7 @@ poll_del_conf:이 옵션을 삭제하려면 OK를 누르십시오
 poll_name:투표 이름:
 poll_timelimit:시간 제한:
 poll_maxiumvotes:최대 투표:
-poll_create:생성
+poll_create:만들기
 poll_update:업데이트
 poll_create_poll:투표 생성
 poll_update_poll:투표 업데이트
@@ -506,7 +506,7 @@ poll_updateoption:옵션 업데이트
 poll_addoption:옵션 추가
 poll_unlimited:무제한
 poll_day:일
-poll_days:일간
+poll_days:일
 poll_hour:시
 poll_hours:시간
 poll_month:월

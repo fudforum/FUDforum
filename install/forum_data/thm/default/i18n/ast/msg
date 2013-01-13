@@ -301,7 +301,7 @@ register_specify_url:Conseñar URL
 register_uploaded:Xubir un avatar
 register_login:Aniciu de sesión:
 register_password:Contraseña:
-register_conf_pass:Confirma la conseña:
+register_conf_pass:Confirma la contraseña:
 register_email_desc:Por favor, escribi una direición de corréu electrónicu válida. Pues escoyer anubrilu más abaxo, na seición de preferencies.
 register_name:Nome:
 register_your_pass:La to conseña:
@@ -465,7 +465,7 @@ rpasswd_change_pass:Camudar contraseña
 rpasswd_login:Usuariu
 rpasswd_cur_pass:Conseña actual:
 rpasswd_new_pass:Contraseña nueva:
-rpasswd_conf_pass:Confirma la conseña:
+rpasswd_conf_pass:Confirma la contraseña:
 ruser_title:Formulariu de cambiu d'identificación
 ruser_change_user:Camudar la to identificación nel foru
 ruser_cur_login:Nome d'usuariu actual:

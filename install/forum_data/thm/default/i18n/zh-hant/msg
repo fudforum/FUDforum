@@ -18,7 +18,7 @@ attachment:附件：
 avatar:頭像：
 average_post_count:{PLURAL: u->posted_msg_count|$1個消息|$1個消息}（每日平均{PLURAL: avg|$1個消息|$1個消息}）
 biography:個人簡介：
-birth_date:生日：
+birth_date:出生日期：
 by:發帖：
 by_mod:版主
 current_time:目前時間
@@ -46,7 +46,7 @@ go:跳轉
 goto_next_msg:下一樓
 goto_prev_msg:樓上
 home:首頁
-homepage:主頁：
+homepage:首頁：
 icq_control_panel:ICQ 在線信息
 icq_message_form:ICQ 信息列表：
 ignore_user:加入黑名單
