@@ -34,13 +34,16 @@ function ses_get($id=0)
 	if (!$id) {
 		/* Cookie or URL session? If not, check for known bots. */
 		if (!empty($_COOKIE[$GLOBALS['COOKIE_NAME']])) {
+			/* Have cookie */
 			$q_opt = 's.ses_id='. _esc($_COOKIE[$GLOBALS['COOKIE_NAME']]);
 		} else if ((isset($_GET['S']) || isset($_POST['S'])) && $GLOBALS['FUD_OPT_1'] & 128) {
+			/* Have session string */
 			$url_session = 1;
 			$q_opt = 's.ses_id='. _esc((isset($_GET['S']) ? (string) $_GET['S'] : (string) $_POST['S']));
 			/* Do not validate against expired URL sessions. */
 			$q_opt .= ' AND s.time_sec > '. (__request_timestamp__ - $GLOBALS['SESSION_TIMEOUT']);
 		} else {
+			/* Unknown user, maybe bot? */
 			// Auto login authorized bots.
 			// To test: wget --user-agent="Googlebot 1.2" http://127.0.0.1:8080/forum
 			$spider_session = 0;
@@ -76,7 +79,14 @@ function ses_get($id=0)
 				}
 				$GLOBALS['FUD_OPT_1'] ^= 128;	// Disable URL sessions for user.
 			} else {
-				return;
+				/* NeXuS: What is this? Return if user unknown? Function should
+				   return only after the query is run. */
+				//return;
+				
+				// Check sys_id, ip_addr and useragent for a possible match
+				$q_opt = 's.sys_id= '._esc(ses_make_sysid()).
+				         ' AND s.ip_addr='._esc(get_ip()).
+						 ' AND s.useragent='._esc(substr($_SERVER['HTTP_USER_AGENT'], 0, 32));
 			}
 		}
 
