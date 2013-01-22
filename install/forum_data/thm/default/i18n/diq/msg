@@ -117,7 +117,7 @@ reported_on:Tarixê xeberdarin
 reported_reported_by:Xeberdar:
 reported_reported_msg:Masacê ke Xeberdar biyê
 modque_approve:Tesdiq bı
-modque_delete:Besterne
+modque_delete:Bestere
 deny_recipt:Webdışin merışe
 restore_to:Vece Tiya:
 move_to:Biya Tiya:
@@ -137,7 +137,7 @@ pmsg_subject:Mersel
 pmsg_author:Rıştener
 pmsg_time:Wext
 pmsg_selected:Weçiner
-pmsg_delete:Besterne
+pmsg_delete:Bestere
 cur_ppage_pm:Sistemê Mesacan dê Xususiya
 writing_pm:Xususi Mesac Bınusne
 browsing_folder:<b>Klasorê {VAR: folders[$folder_id]}</b>
@@ -240,7 +240,7 @@ post_poll:Anket:
 post_create_poll:ANKET VIRAZE
 post_poll_delete:BESTERE
 post_poll_edit:BIVURNE
-post_file_del:Besterne
+post_file_del:Bestere
 post_file_name:Name
 post_file_size:Gırdiye
 post_forum:Forum:
@@ -276,7 +276,7 @@ remail_subject:Mersel:
 remail_message:Mesac
 remail_done:Qeyd kerd
 mklist_apply:Dezge ke
-mklist_delete:Besterne
+mklist_delete:Bestere
 mklist_square:Qare
 mklist_close:Racnê
 email_pg_title:E-posta
@@ -285,6 +285,7 @@ email_body:Verê:
 email_submit:E-posta
 poll_create:Vıraze
 poll_update:Noroc resn
+poll_delete:Bestere
 poll_day:roc
 poll_days:roci
 poll_hour:saat
@@ -323,14 +324,14 @@ groupmgr_cancel:Bıtexelne
 groupmgr_add_member:Eza Defi
 groupmgr_update_member:Eza Neweke
 groupmgr_edit:Bıvurne
-groupmgr_delete:Besterne
+groupmgr_delete:Bestere
 show_show:Bımocne
 group_mgr_group:Grube
 p_READ:Bıwane
 p_POST:Bırş
 p_REPLY:Cewab bıde
 p_EDIT:Bıvurne
-p_DEL:Besterne
+p_DEL:Bestere
 p_STICKY:Mesacê dışkiyayıni
 p_POLL:Anket Vırazê
 p_FILE:Dosya Dekerê de
@@ -361,7 +362,7 @@ th_expr_one_month:1 Meng
 th_expr_two_month:2 Aşmi
 th_expr_four_month:4 Aşmi
 th_expr_one_year:1 Ser
-thread_mod_delete:Besterne
+thread_mod_delete:Bestere
 action_ip:IP
 action_latest_post:Mesaco Bohdeyên:
 online_today_last_visit:Ziyareto Peyên
@@ -403,7 +404,7 @@ mnav_week:Hefte(y)
 mnav_month:Aşm(i)
 findu_ban:Wedarnê
 findu_edit:Bıvurne
-findu_delete:Besterne
+findu_delete:Bestere
 dmsg_reply_to:no cıwabê mesaciyo
 userinfo_buddy:Embaz:
 register_email_addr:Adresa E-postey:
@@ -479,7 +480,7 @@ post_common_nlist:Listeyo Nımreyın Defi de
 post_common_blist:Madde Morkerdış Defi de
 post_common_quote:Vatış Deke
 post_common_code:Kod Defi de
-rating_delete:Besterne
+rating_delete:Bestere
 post_always_on_top:Merseler Tım u tım liste dı en ser fi
 topic_rating:{VAR: frm->rating} from {PLURAL: frm->n_rating|$1 rey|$1 reyi}
 topic_list_rating:{VAR: r[17]} u {PLURAL: r[21]|$1 rey|$1 reyi}
@@ -508,7 +509,7 @@ btn_tree_view:Asayışê darer
 btn_flat_view:Asayışo duz
 btn_about:Profile
 btn_small_pm:MX
-btn_delete:besterne
+btn_delete:bestere
 btn_edit:Bıvurne
 btn_reply:Cewab bıde
 btn_forward:Aser ke

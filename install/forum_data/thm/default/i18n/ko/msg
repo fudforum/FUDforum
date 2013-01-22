@@ -10,7 +10,7 @@ admin_control_panel:관리
 administrator:관리자
 attachment:첨부:
 avatar:아바타:
-biography:추가정보:
+biography:약력:
 birth_date:생일:
 by_mod:중재자
 current_time:시간대
@@ -48,7 +48,7 @@ index_no_new_posts:최근의 새 메시지 없음
 interests:관심분야:
 last_post:최근 메시지
 last_thread_msg:현재 토픽에서 최근 메시지로 이동
-legend:제목
+legend:범례
 location:위치:
 lock_thread:토픽잠금
 locked:잠금
@@ -305,7 +305,7 @@ register_day:일
 register_month:월
 register_year:년
 register_gender:성별:
-register_bio:추가정보:
+register_bio:약력:
 register_bio_desc:자신의 세부정보, 관심분야, 직업, 취미 등...
 register_prefs:환경 설정
 register_sig:서명:

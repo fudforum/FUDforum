@@ -774,8 +774,7 @@ p_STICKY:置頂帖子
 p_POLL:創建投票
 p_FILE:附加文件
 p_VOTE:投票
-# Fuzzy
-p_RATE:率主題
+p_RATE:主題評分/用戶
 p_SPLIT:拆分主題
 p_LOCK:鎖定的主題
 p_MOVE:移動主題
@@ -1111,8 +1110,7 @@ move_msg_th_expl:指定的 ID （可以在其他論壇） 的目標主題的
 captcha_img_alt:驗證碼： 您需要認識到此圖像中的文本。
 captcha_img_help:有沒有零或圖像中的一個。
 powered-by:網站： FUDforum {GVAR: FORUM_VERSION}。
-# Fuzzy
-copyright:版權所有 © 2001年-2011 年<a href="http://fudforum.org/">FUDforum 公告板軟體</a>
+copyright:版權所有 © 2001年-2012 年<a href="http://fudforum.org/">FUDforum 公告板軟體</a>
 code_title:代碼：
 code_select_all:全選
 code_show_hide:顯示/隱藏
@@ -1146,3 +1144,7 @@ page_list_total:{PLURAL: i|$1頁 | $1 頁} 列出。
 page_update:流覽的頁面
 pm_export_header:私人消息{VAR: usr->alias}
 pm_export_footer:匯出：
+karma:業
+karma_track:管理用戶的聲譽：
+karma_delete:刪除
+rate_author:給作者評分：

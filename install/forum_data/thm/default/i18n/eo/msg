@@ -2,6 +2,7 @@
 # Exported from translatewiki.net
 # Author: LyzTyphone
 # Author: Mihxil
+# Author: Objectivesea
 # Author: Yekrats
 
 action:Ago
@@ -769,8 +770,7 @@ p_STICKY:Fiksi mesaĝojn
 p_POLL:Krei opiniosondojn
 p_FILE:Aldoni dosierojn
 p_VOTE:Voĉdoni
-# Fuzzy
-p_RATE:Taksi fadenojn
+p_RATE:Taksi temojn/anojn
 p_SPLIT:Dividi fadenojn
 p_LOCK:Ŝlosi fadenojn
 p_MOVE:Movi fadenojn
@@ -952,21 +952,44 @@ group_resources:Ĉi tiu grupo rajtigas la jenajn forumojn
 register_admin_newuser_title:Nova uzanto registris kaj ties konto atendas konfirmado
 register_admin_newuser_msg:Nova uzanto ({VAR: uent->login}) ĵus estas registrita, kaj ĉar konfirmado de kontoj estas aktiva , ĝia konto ne estos uzebla ĝis ĝi estos konfirmita de vi aŭ de aliaj forumestro. Por kontroli la konton bonvolu iri al: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nĈi tio estas rezulto de aŭtoma proceso. Ne reagu je tiu ĉi mesaĝo.\nSe vi deziras malŝalti ontajn ret-poŝtajn sciigojn pri novaj konto-kreoj, tiam vi povas tion aranĝi per la stirpanelo por administranto. Tie ŝanĝeblas la agardo pri 'sciigoj pri novaj kontoj'.
 thread_printable_pdf:Generi printeblan PDF-on
+mnav_description:Mesaĝa navigilo
 mnav_date_limit:Datintervalo:
 mnav_forum_limit:Nur serĉi en:
+mnav_submit:Komenci la serĉadon
+mnav_more:Plua &raquo;&raquo;
 mnav_minute:Minuto(j)
 mnav_hour:Horo(j)
 mnav_day:Tago(j)
 mnav_week:Semajno(j)
 mnav_month:Monato(j)
+mnav_title:Mesaĝa navigilo
+pm_notify_subject:[{GVAR: FORUM_TITLE}] Avizo de nova privata mesaĝo
+register_pm_notification:Avizo de privata mesaĝo:
+findu_unban:Malekzili
 findu_ban:Forbari
 findu_edit:Redakti
 findu_delete:Forigi
+dmsg_reply_to:estas respondo al
+dmsg_reply_num:mesaĝo N-ro #{VAR: obj->reply_to}
+thread_on:je
+userinfo_buddy:Kamarado:
+register_email_addr:Retpoŝtadreso:
 ip_search:Serĉi
 userinfo_real_name:Vera nomo:
 register_err_alias_notallowed:Ĉi tiu kromnomo ne estas permesita
 post_err_mod_forum_edit_ttl:ERARO
 delete_msg_pm_body:Origina mesaĝo
+delete_msg_pm_subject:Subjekto: {VAR: data[15]}
 register_theme:Etoso:
+uc_new_pm:Novaj privataj mesaĝoj
+uc_new_topic:Nova temo
+register_none:Ne min avizu
+findu_no_conf:Nekonfirmita uzanto
+register_max_sig_len:Maksimuma longaĵo:
+register_err_turing:Nevalida validiga kodo.
+modque_cat:Kategorio
+modque_forum:Forumo
+idx_compact_forum_row:Haveblaj forumoj:
+mmd_abort_move:Nuligi
 dmsg_ip:IP-adreso:
 btn_edit:redakti
