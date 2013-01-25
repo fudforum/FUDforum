@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -48,7 +48,7 @@ Content-Type: application/{VAR: format}+xml
 <channel rdf:about="{FULL_ROOT}">
 	<title>{VAR: FORUM_TITLE} - {MSG: feed_rdf}</title>
 	<link>{FULL_ROOT}</link>
-	<description>{VAR: FORUM_DESCR}</description>
+	<description>{FUNC: sp($GLOBALS['FORUM_DESCR'])}</description>
 {IF: $basic && $feed_header}
 	<items>
 		<rdf:Seq>
@@ -198,7 +198,7 @@ Content-Type: application/{VAR: format}+xml
 <?xml version="1.0" encoding="{CHARSET}"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 	<title>{VAR: FORUM_TITLE} - {MSG: feed_atom}</title>
-	<subtitle>{GVAR: FORUM_DESCR}</subtitle>
+	<subtitle>{FUNC: sp($GLOBALS['FORUM_DESCR'])}</subtitle>
 	<link href="{FULL_ROOT}" />
 	<updated>{FUNC: gmdate('Y-m-d\TH:i:s', __request_timestamp__)}-00:00</updated>
 	<id>{FULL_ROOT}</id>
@@ -257,7 +257,7 @@ Content-Type: application/{VAR: format}+xml
 <channel>
 	<title>{VAR: FORUM_TITLE} - {MSG: feed_rss}</title>
 	<link>{FULL_ROOT}</link>
-	<description>{GVAR: FORUM_DESCR}</description>
+	<description>{FUNC: sp($GLOBALS['FORUM_DESCR'])}</description>
 	<language>{LANG}</language>
 	<pubDate>{FUNC: gmdate('Y-m-d\TH:i:s', __request_timestamp__)}-00:00</pubDate>
 	<generator>FUDforum {VAR: FORUM_VERSION}</generator>
