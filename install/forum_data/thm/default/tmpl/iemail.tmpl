@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -106,23 +106,23 @@
 {SECTION: END}
 
 {SECTION: iemail_thread_unsub_lnk}
-{ROOT}?t=rview&th={VAR: id}
+{FULL_ROOT}{ROOT}?t=rview&th={VAR: id}
 {SECTION: END}
 
 {SECTION: iemail_forum_unsub_lnk}
-{ROOT}?t=rview&frm_id={VAR: id}
+{FULL_ROOT}{ROOT}?t=rview&frm_id={VAR: id}
 {SECTION: END}
 
 {SECTION: iemail_body_lnk}
-{ROOT}?t=post&reply_to={VAR: obj->id}
+{FULL_ROOT}{ROOT}?t=post&reply_to={VAR: obj->id}
 {SECTION: END}
 
 {SECTION: iemail_body_lnk1}
-{ROOT}?t=rview&goto={VAR: obj->id}#msg_{VAR: obj->id}
+{FULL_ROOT}{ROOT}?t=rview&goto={VAR: obj->id}#msg_{VAR: obj->id}
 {SECTION: END}
 
 {SECTION: iemail_attach_entry_lnk}
-{ROOT}?t=getfile&amp;id={VAR: v[0]}
+{FULL_ROOT}{ROOT}?t=getfile&amp;id={VAR: v[0]}
 {SECTION: END}
 
 {SECTION: iemail_CHARSET}
