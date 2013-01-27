@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -499,7 +499,7 @@ if (!extension_loaded('posix')) {
 
 <table class="resulttable fulltable">
 <thead><tr class="resulttopic">
-	<th>Name</th><?php if (!preg_match('/WIN/', PHP_OS)) echo '<th>Owner</th><th>Group</th>'; ?><th>Size</th><th>Date/Time</th><th>Mode</th><th align="center">Action</th>	
+	<th>Name</th><?php if (!preg_match('/WIN/', PHP_OS)) echo '<th>Owner</th><th>Group</th>'; ?><th>Size (kB)</th><th>Date/Time</th><th>Mode</th><th align="center">Action</th>	
 </tr></thead>
 <?php
 	$dir_list = $file_list = array();
@@ -538,19 +538,19 @@ if (!extension_loaded('posix')) {
 			$st = stat($fpath);
 		}
 
-		$mode = isset($st[2]) ? $st[2] : $st['mode'];
+		$mode     = isset($st[2]) ? $st[2] : $st['mode'];
 		$mode_str = mode_string($mode, $de);
-		$de_enc = urlencode($de);
+		$de_enc   = urlencode($de);
 
 		$passwdent = posix_getpwuid((isset($st[4])?$st[4]:$st['uid']));
 		$owner     = $passwdent['name'];
 		$groupsent = posix_getgrgid((isset($st[5])?$st[5]:$st['gid']));
 		$group     = $groupsent['name'];
 
-		$time_str = fdate((isset($st[9]) ? $st[9] : $st['mtime']), 'd M Y H:i');
-		$mode_o   = sprintf('%o', 0x0FFF&$mode);
+		$time_str = fdate((isset($st[9]) ? $st[9] : $st['mtime']), 'Y-m-d H:i');
+		$mode_o   = sprintf('%o', 0x0FFF & $mode);
 
-		$size = round((isset($st[7])?$st[7]:$st['size'])/1024);
+		$size = round((isset($st[7])?$st[7]:$st['size'])/1024, 2);
 
 		if (preg_match('/(install.php|upgrade.php|unprotect.php|fudforum_archive)$/i', $fpath)) {
 			echo '<tr class="field admin_fixed" style="color:red;background-color:#ffe6cc;" title="Please delete this file!">';
@@ -567,24 +567,24 @@ if (!extension_loaded('posix')) {
 		if (!preg_match('/WIN/', PHP_OS)) {	// No onwer & group on Windows.
 			echo '<td>'. $owner .'</td><td>'. $group .'</td>';
 		}
-		echo '<td nowrap="nowrap">'. $size .' KB</td><td>'. $time_str .'</td>';
+		echo '<td nowrap="nowrap">'. $size .'</td><td>'. $time_str .'</td>';
 		echo '<td>'. $mode_str.' ('. $mode_o .')</td>';
 
 		echo '<td>';
 		if (@is_readable($fpath)) {
 			if (@is_writeable($fpath) && !preg_match('/WIN/', PHP_OS)) {
-				echo ' [<a href="#" onclick="window.open(\'admbrowse.php?chmod=1&amp;cur='. $cur_enc .'&amp;dest='. $de_enc .'&amp;'. __adm_rsid .'\', \'chmod_window\', \'width=500,height=450,menubar=no\');" title="Change mode">chmod</a>]';
+				echo '<a href="#" onclick="window.open(\'admbrowse.php?chmod=1&amp;cur='. $cur_enc .'&amp;dest='. $de_enc .'&amp;'. __adm_rsid .'\', \'chmod_window\', \'width=500,height=450,menubar=no\');" title="Change mode">chmod</a> ';
 			}
 
-			echo ' [<a href="admbrowse.php?down=1&amp;cur='. $cur_enc .'&amp;dest='. $de_enc .'&amp;'. __adm_rsid .'" title="Download">d/l</a>]';
+			echo '| <a href="admbrowse.php?down=1&amp;cur='. $cur_enc .'&amp;dest='. $de_enc .'&amp;'. __adm_rsid .'" title="Download">d/l</a>';
 
 			if (@is_file($fpath)) {
-			      echo ' [<a href="admbrowse.php?edit=1&amp;cur='. $cur_enc .'&amp;dest='. $de_enc .'&amp;'. __adm_rsid .'" title="Edit">edt</a>]';
+			      echo '| <a href="admbrowse.php?edit=1&amp;cur='. $cur_enc .'&amp;dest='. $de_enc .'&amp;'. __adm_rsid .'" title="Edit">edt</a>';
 			}
 
 			if (@is_writeable($fpath) && $de != '.' && $de != '..' && $de != '.htaccess') {
-				echo ' [<a href="#" onclick="window.open(\'admbrowse.php?rename=1&amp;cur='. $cur_enc .'&amp;dest='. $de_enc .'&amp;'. __adm_rsid .'\', \'rename_window\', \'width=500,height=350,menubar=no\');" title="Rename">ren</a>]';
-				echo ' [<a href="#" onclick="window.open(\'admbrowse.php?del=1&amp;cur='. $cur_enc .'&amp;dest='. $de_enc .'&amp;'. __adm_rsid .'\', \'delete_window\', \'width=500,height=350,menubar=no\');" title="Delete">del</a>]';
+				echo '| <a href="#" onclick="window.open(\'admbrowse.php?rename=1&amp;cur='. $cur_enc .'&amp;dest='. $de_enc .'&amp;'. __adm_rsid .'\', \'rename_window\', \'width=500,height=350,menubar=no\');" title="Rename">ren</a>';
+				echo '| <a href="#" onclick="window.open(\'admbrowse.php?del=1&amp;cur='. $cur_enc .'&amp;dest='. $de_enc .'&amp;'. __adm_rsid .'\', \'delete_window\', \'width=500,height=350,menubar=no\');" title="Delete">del</a>';
 			}
 		}
 		echo '</tr>';
