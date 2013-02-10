@@ -606,9 +606,9 @@ err_inc_criticalmsg:Usted ha encontrado un error, pero desafortunadamente hay un
 finduser_update:Buscando usuarios
 help_index_update:Leyendo las <a href="{TEMPLATE: help_index_update_lnk}">Preguntas frecuentes</a>
 iemail_thr_subject:Nueva respuesta a {VAR: thr_subject} publicado por {VAR: poster_login}
-iemail_thr_bodyemail:Para ver respuestas no leídas anda a {VAR: goto_url['email']}\n\nSi no deseas recibir notificaciones adicionales acerca de las respuestas a este tema, por favor anda aquí: {VAR: unsub_url['email']}
+iemail_thr_bodyemail:Para ver las respuestas no leídas ve a {VAR: goto_url['email']}\n\nSi no quieres recibir más notificaciones sobre las respuestas de este tema, por favor ve aquí: {VAR: unsub_url['email']}
 iemail_frm_subject:Nuevo hilo de discusión en el foro {VAR: frm_name} llamado {VAR: thr_subject}, creado por {VAR: poster_login}
-iemail_frm_bodyemail:Para ver este hilo de discusión vaya a:\n{VAR: goto_url['email']}\n\nPara no recibir más notificaciones acerca de nuevos hilos de discusión en este foro, por favor vaya aquí: {VAR: unsub_url['email']}
+iemail_frm_bodyemail:Para ver el hilo de discusión ve a:\n{VAR: goto_url['email']}\n\nPara no recibir más notificaciones sobre los nuevos hilos de discusión en este foro, por favor ve aquí: {VAR: unsub_url['email']}
 iemail_participate:Para participar en la discusión, vaya aquí:
 ignore_list_err_info_title:Información
 ignore_list_err_dup_msg:Ya tiene a este usuario en su lista de ignorados
@@ -700,7 +700,7 @@ ERR_access_msg:No tiene los permisos necesarios para realizar esta acción.
 ERR_registration_disabled_ttl:Registro desactivado
 ERR_registration_disabled_msg:El administrador ha desactivado el registro. Por favor, vuelva a intentarlo más tarde
 ERR_emailconf_ttl:ERROR: Su cuenta aún no ha sido confirmada
-ERR_emailconf_msg:Aún no has confirmado tu cuenta por correo electrónico<br /><table border="0"><tr><td><ol><li>Si no has recibido un correo de confirmación, <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">haz click aquí</a><li>Si {VAR: usr_d->email} no es tu dirección de correo electrónico correcta, <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">haz click aquí</a></ol></td></tr></table>
+ERR_emailconf_msg:Aún no has confirmado tu cuenta por correo electrónico.<br /><table border="0"><tr><td><ol><li>Si no has recibido un correo de confirmación, <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">haz clic aquí</a><li>Si {VAR: usr_d->email} no es tu dirección de correo electrónico correcta, <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">indica tu dirección de correo electrónico</a>.</ol></td></tr></table>
 ERR_user_ttl:ERROR: No existe ese usuario
 ERR_user_msg:No existe ese usuario
 ERR_systemerr_ttl:ERROR: Error de Sistema
