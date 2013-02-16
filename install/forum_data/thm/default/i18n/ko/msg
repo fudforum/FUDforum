@@ -837,6 +837,7 @@ mnav_forum_limit:지정 검색:
 mnav_all_forums:모든 포럼 검색
 mnav_submit:검색 시작
 mnav_posted_by:게시자:
+mnav_more:더 보기 &raquo;&raquo;
 mnav_minute:분
 mnav_hour:시간
 mnav_day:일

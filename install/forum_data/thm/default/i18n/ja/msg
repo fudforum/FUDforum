@@ -115,7 +115,7 @@ num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|票}
 occupation:職業:
 off:切
 on:入
-page_timings:ページの生成にかかった合計時間：{PLURAL: page_gen_time|$1 秒}
+page_timings:ページの生成にかかった合計時間: {PLURAL: page_gen_time|$1 秒}
 pm:プライベートメッセージ
 poll:投票:
 post_count:メッセージ数 {VAR: u_pcount}
@@ -124,7 +124,7 @@ posts:メッセージ数
 posts_c:メッセージ数:
 prev_thread:前のトピック:
 usrinfo_private_message:プライベートメッセージ:
-profile:コントロールパネル
+profile:コントロール パネル
 profile_desc:利用者コントロールパネルにアクセス
 rate_thread:トピックの評価
 rating:レーティング
@@ -132,7 +132,7 @@ rating_track:トピック「<b>{VAR: thr->subject}</b>」のレーティング�
 refresh_list:一覧を更新
 register:登録
 registered:登録日:
-registered_on:登録日：{TEMPLATE: registered_on_date}
+registered_on:登録日: {TEMPLATE: registered_on_date}
 replies:返信数
 report_to_mod:モデレーターにメッセージを報告する
 reported_messages:報告済みメッセージ
@@ -243,7 +243,7 @@ cur_ppage_pm:プライベートメッセージ
 writing_pm:プライベートメッセージを書く
 browsing_folder:<b>{VAR: folders[$folder_id]}</b> フォルダー閲覧中
 inbox:受信箱
-draft:草稿
+draft:下書き
 sent:送信済み
 trash:ごみ箱
 msg_author:著者
@@ -535,7 +535,7 @@ ppost_find_User:利用者検索
 ppost_track_msg:このメッセージを追跡
 ppost_track_msg_desc:このメッセージが読まれたときに、プライベートメッセージであなたに通知します。
 ppost_send:送信
-ppost_save_draft:草稿を保存
+ppost_save_draft:下書きを保存
 poll_blank_option:空の選択肢は追加できません。
 poll_del_conf:もしこの選択肢を削除してもいいなら「OK」を押してください。
 poll_name:投票名:
@@ -748,7 +748,7 @@ groupmgr_yes:はい
 groupmgr_no:いいえ
 groupmgr_action:操作
 groupmgr_member:メンバー
-groupmgr_cancel:中止
+groupmgr_cancel:キャンセル
 groupmgr_add_member:メンバー追加
 groupmgr_update_member:メンバー更新
 groupmgr_edit:編集
@@ -1053,7 +1053,7 @@ idx_compact_forum_row:利用可能なフォーラム:
 mmd_del_title:トピックを削除
 mmd_mov_title:トピックを移動
 mmd_move_threads_to:対象フォーラム:
-mmd_abort_move:中止
+mmd_abort_move:キャンセル
 mmd_move:トピックを移動
 pmsg_pdf_btn:PDF アーカイブを作成
 search_results_hdr:{VAR: total} 個の検索結果が見つかりました。
@@ -1085,7 +1085,7 @@ post_common_align_right:右寄せ
 post_common_link:リンクを挿入
 post_common_link_popup:リンクの場所：
 post_common_email:メールアドレスを挿入
-post_common_email_popup:メールアドレス
+post_common_email_popup:メールアドレス:
 post_common_image:画像を挿入
 post_common_image_popup:画像URL:
 post_common_nlist:番号付き箇条書きを追加
