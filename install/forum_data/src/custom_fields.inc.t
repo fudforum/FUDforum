@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -29,10 +29,13 @@ function validate_custom_fields()
 			}
 		}
 
-		/* Check if all required custom fields have values. */
+		// Check if all required custom fields have values.
 		if (($r['field_opt'] & 1) && empty($_POST['custom_field_'. $k])) {	// 1==required.
 				set_err('custom_field_'. $k, '{TEMPLATE: custom_field_required}');
 		}
+
+		// Validate/sanitize user input.
+		$_POST['custom_field_'. $k] = filter_var($_POST['custom_field_'. $k], FILTER_SANITIZE_STRING);
 	}
 }
 
