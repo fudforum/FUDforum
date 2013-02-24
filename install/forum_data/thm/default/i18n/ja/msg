@@ -63,7 +63,7 @@ legend:凡例
 location:地域:
 lock_thread:トピックをロック
 locked:ロック済み
-locked_with_new_posts:ロック済み（未読メッセージあり）
+locked_with_new_posts:ロック済み (未読メッセージあり)
 logged_in_list:ログイン済み利用者一覧
 login:ログイン
 login_header:ログイン:
@@ -75,7 +75,7 @@ calendar:カレンダー
 cal_goto_date:移動:
 cal_no_events:この日のイベントはありません。
 cal_update:フォーラムカレンダーの参照
-cal_birthday:誕生日：{VAR: user}
+cal_birthday:誕生日: {VAR: user}
 cal_birthday_age:({PLURAL: age|$1 歳})。
 message:メッセージ
 message_counter:<b>{PLURAL: thread_count|$1 件}のトピック</b>内に合計で<b>{PLURAL: post_count|$1 通}のメッセージ</b>が投稿されました。
@@ -140,14 +140,14 @@ reveal_all_posts:{VAR: user_login}の投稿をすべて開く
 reveal_post:メッセージを表示
 search:検索
 sel_todays_posts:今日のメッセージ
-sel_todays_posts_desc:今日のメッセージフィルターの切り替え（今日作成されたメッセージのみ表示します）
+sel_todays_posts_desc:今日のメッセージフィルターの切り替え (今日作成されたメッセージのみ表示します)
 sel_unanswered_posts:未返答メッセージ
-sel_unanswered_posts_desc:未返答メッセージフィルターの切り替え（返信していないメッセージのみ表示します）
+sel_unanswered_posts_desc:未返答メッセージフィルターの切り替え (返信していないメッセージのみ表示します)
 sel_unread_messages:未読メッセージ
-sel_unread_messages_desc:未読メッセージフィルターの切り替え（未読メッセージのみ表示します）
+sel_unread_messages_desc:未読メッセージフィルターの切り替え (未読メッセージのみ表示します)
 send:送信
 send_pm_desc:この利用者にプライベートメッセージを送信します
-sender_email:送信者のメール：
+sender_email:送信者のメール:
 sender_name:送信者名:
 show_posts_by:{VAR: u_alias} が書いたメッセージを見る
 size:サイズ:
@@ -163,9 +163,9 @@ subject:件名
 subscribe:購読
 subscribe_desc:誰かがこのフォーラムで新しいトピックを作成する場合、通知を受信します
 subscribed_forums:購読済みフォーラム一覧
-subscribed_forums_desc:購読済みフォーラムフィルターの切り替え（購読しているフォーラムのメッセージのみを表示します）
+subscribed_forums_desc:購読済みフォーラムフィルターの切り替え (購読しているフォーラムのメッセージのみを表示します)
 subscribed_threads:購読済みトピック一覧
-subscribed_threads_desc:購読済みトピックフィルターの切り替え（購読しているトピックのメッセージのみを表示します）
+subscribed_threads_desc:購読済みトピックフィルターの切り替え (購読しているトピックのメッセージのみを表示します)
 bookmarked_threads:ブックマークしたトピック
 switch_to_thread_view:このトピックをスレッド表示に切り替える
 thread:トピック:
@@ -322,7 +322,7 @@ register_register:登録
 register_required:必須情報
 register_required_desc:すべて必須項目です。パスワードは英大小文字を区別することを注意してください。
 register_optional:オプション情報
-register_optional_desc:自己紹介にはあなたの個人情報や個人を特定できる情報を載せないことを勧めます。すべての情報は他のフォーラム・メンバーから見ることができます。
+register_optional_desc:自己紹介にはあなたの個人情報や個人を特定できる情報を載せないことをお勧めします。すべての情報は他のフォーラム・メンバーから見ることができます。
 register_location:所在地:
 register_occupation:職業:
 register_interests:興味:
@@ -354,13 +354,13 @@ register_timezone:タイムゾーン:
 register_ignore_admin:管理メッセージを無視する:
 register_invisible_mode:非可視モード:
 register_invisible_mode_desc:オンライン状況を隠します
-register_show_email:メールアドレスを表示：
+register_show_email:メールアドレスを表示:
 register_show_email_desc:メールアドレスを公開表示する場合はこのオプションを選択します。
 register_notification:通知を既定で選択:
 register_notification_desc:通知が既定で有効の場合も、投稿の際に無効にできます。
 register_notify_method:通知方法を選択:
-register_notify_method_desc:通知の方式を設定するか、通知を無効にしてください（長期休暇の際など）。
-register_allow_email_msg:メールメッセージを許可：
+register_notify_method_desc:通知の方式を設定するか、通知を無効にしてください (長期休暇の際など)。
+register_allow_email_msg:メールメッセージを許可:
 register_allow_email_msg_desc:このフォーラムを通して他の利用者からのメールを受け取ります。
 buddy_status:状態
 my_buddies:自分の仲間
@@ -418,7 +418,7 @@ post_cancel_btn:キャンセル
 ignore_users:無視している利用者の一覧
 add_ignore:無視する利用者を追加する
 forum_terms:フォーラム用語
-forum_rules:<p>このフォーラムへの登録は自由です！利用者には下記の規則と方針に従うことが要求されます。利用規約に同意する場合は、ページの終わりの「<b>同意する</b>」ボタンを押してください。注: ボタンを押すことによって、あなたは自分が14歳以上であることを宣言します。あなたが13歳以下である場合は、この登録用紙を使用してください。</p><p>フォーラム管理者およびモデレーターは、フォーラム内に不適切なメッセージが掲載されないように努力しますが、メッセージすべてを監視することはできません。各メッセージはすべて投稿者の意見を表現したものであり、フォーラム所有者および開発者は、いかなるメッセージの内容にも責任を負いません。</p><p>「同意する」ボタンをクリックすることで、あなたは、卑猥、性的、差別的、脅迫的、そのほか法に違反するメッセージを投稿しないと保証したことになります。</p><p>フォーラム所有者は、任意の理由でいかなるトピックも削除、編集、移動、あるいは閉鎖する権利を保持します。</p>
+forum_rules:<p>このフォーラムへの登録は自由です! 利用者には下記の規則と方針に従うことが要求されます。利用規約に同意する場合は、ページの終わりの「<b>同意する</b>」ボタンを押してください。注: ボタンを押すことによって、あなたは自分が14歳以上であることを宣言します。あなたが13歳以下である場合は、この登録用紙を使用してください。</p><p>フォーラム管理者およびモデレーターは、フォーラム内に不適切なメッセージが掲載されないように努力しますが、メッセージすべてを監視することはできません。各メッセージはすべて投稿者の意見を表現したものであり、フォーラム所有者および開発者は、いかなるメッセージの内容にも責任を負いません。</p><p>「同意する」ボタンをクリックすることで、あなたは、卑猥、性的、差別的、脅迫的、そのほか法に違反するメッセージを投稿しないと保証したことになります。</p><p>フォーラム所有者は、任意の理由でいかなるトピックも削除、編集、移動、あるいは閉鎖する権利を保持します。</p>
 forum_rules_13:<p>13歳以下の利用者はフォーラムへの参加資格を得るために保護者からの許可が必要です。13歳以下の参加者を歓迎しますが、参加資格を与えるためには、保護者が許可証用紙に署名してファックスか郵便にて送付する必要があります。</p><p>当方に許可証が届く前に登録手続きを始めたい場合は、下の「<b>同意する</b>」ボタンを押してください。登録を取り止めたい場合は、「<b>同意しない</b>」ボタンを押してフォーラムの一覧に戻ってください。</p><p>許可証用紙はここでダウンロードできます。登録手続きについてさらに詳しく知りたい場合は、<a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> にメールを送信してください。</p>
 coppa_conf:COPPA 確認
 coppa_before:{TEMPLATE: coppa_date} 以前
@@ -447,18 +447,18 @@ coppa_fax_passwd:パスワード
 coppa_fax_remail:メール
 coppa_fax_name:名前
 login_not_logedin:あなたはログインしていません。いくつかの理由が考えられます:
-login_cookie_expired:cookie が期限切れしています。cookie を更新するためにログインする必要があります。
+login_cookie_expired:Cookie の有効期限が切れました。Cookie を更新するにはログインする必要があります。
 login_perm_denied:匿名利用者であるため、あなたは要求されたリソースにアクセスする許可がありません。許可を得るためにはログインしなければなりません。
 login_want_to_register:登録しませんか？
 login_forgot_passwd:パスワードを忘れました
-login_use_cookie:cookie を使用する<br /><span class="SmallText">図書館や学校、インターネットカフェにあるコンピューターなど、公衆端末を使用している場合、セキュリティーを高めるためにこのオプションは選択しないことを勧めます。<br />このオプションを選択しておくと、次回の訪問時にフォーラムに自動的にログインされます。</span>
+login_use_cookie:Cookie を使用する<br /><span class="SmallText">図書館や学校、インターネットカフェにあるコンピューターなど、公衆端末を使用している場合、セキュリティーを高めるためにこのオプションは選択しないことをお勧めします。<br />このオプションを選択しておくと、次回の訪問時にフォーラムに自動的にログインされます。</span>
 login_login:ログイン:
 login_login_btn:ログイン
 login_name_required:ログイン名が必要です。
 login_passwd_required:パスワードが必要です。
 login_invalid_radius:ログイン名とパスワードの組み合わせが正しくありません。
 reset_confirmation:登録ありがとうございます。\n\nあなたのアカウントを有効化するには下記の URL にアクセスしてください。\n\n{VAR: url}\n\nアカウントが有効化されると、フォーラムにログインし、\nメインページに転送されます。
-reset_reset:パスワード再発行の依頼を受け付けました。再発行手続きを完了するためには\n以下のURLにアクセスしてください。\n\n{VAR: url}\n\n付記: この掲示板では一方向暗号化の仕組みを使用してパスワードを保存しています。このため、いったん\nパスワードを入力されるとすぐに暗号化され、これを再度確認する方法は一切ありません。\nパスワードの確認は、登録パスワードの暗号化された結果と、ログイン画面に入力されるパスワードの\n暗号化の結果との比較によって行われます。\n（この暗号化の仕組みについて関心があれば、MD5 ハッシュアルゴリズムについて読まれることをおすすめいたします。）
+reset_reset:パスワード再発行の依頼を受け付けました。再発行手続きを完了するには\n以下のURLにアクセスしてください。\n\n{VAR: url}\n\n付記: この掲示板では一方向暗号化の仕組みを使用してパスワードを保存しています。このため、いったん\nパスワードを入力されるとすぐに暗号化され、これを再度確認する方法は一切ありません。\nパスワードの確認は、登録パスワードの暗号化された結果と、ログイン画面に入力されるパスワードの\n暗号化の結果との比較によって行われます。\n(この暗号化の仕組みについて関心があれば、MD5 ハッシュアルゴリズムについて読むことをお勧めします。)
 rpasswd_invalid_passwd:無効なパスワードです。
 rpasswd_passwd_nomatch:パスワードが一致しません。
 rpasswd_passwd_length:パスワードは 6文字以上の長さが必要です
@@ -566,7 +566,7 @@ tabs_ignore_list:無視リスト
 tabs_private_messaging:プライベートメッセージ
 single_msg_delete:次のタイトルのメッセージを<span class="ErrorText">削除</span>します: <b>{VAR: data[3]}</b>
 thread_delete:<b>{VAR: data[3]}</b>という題の<span class="ErrorText">トピック全体</span>を<span class="ErrorText">削除</span>しようとしています。
-delete_proceed:<span class="fb">続行しますか？</span>
+delete_proceed:<span class="fb">続行しますか?</span>
 delete_yes:はい
 delete_no:いいえ
 error_invalidurl:無効な URL
@@ -627,7 +627,7 @@ post_err_noannontopics_msg2:<legend>エラー: 特権不十分</legend>匿名利
 post_err_noannonposts_msg2:<legend>エラー: 特権不十分</legend>匿名利用者は返信を許可されていません。
 post_err_floodtrig_title:エラー: 投稿が集中しています
 post_err_floodtrig_msg:{PLURAL: tm|$1 秒}後にもう一度試してください。
-post_err_attach_size:添付ファイルが大きすぎます（許可された制限である{VAR: MAX_F_SIZE}バイトを超えています）
+post_err_attach_size:添付ファイルが大きすぎます (許可された制限である{VAR: MAX_F_SIZE}バイトを超えています)
 post_err_attach_ext:あなたがアップロードしようと試みているファイルは許可されているファイル形式に一致しません。
 post_err_attach_filelimit:許可されたファイル数より多くのファイルをアップロードしようとしています。
 post_err_passwd:パスワードが違います。
@@ -662,7 +662,7 @@ register_err_avatarnotallowed:アップロードしようとしているアバ�
 register_conf_subject:登録確認
 register_conf_msg:登録ありがとうございます。\nあなたのアカウントを有効化するには下記の URL にアクセスしてください。\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nアカウントが有効化されると、フォーラムにログインし、\nメインページに転送されます。
 register_welcome_subject:フォーラム登録確認
-register_welcome_msg:登録ありがとうございます。\n\n下記がフォーラムへのログインに関する詳細です。\n\nフォーラムの URL: {TEMPLATE: index_update_lnk}\nログイン名: {VAR: uent->login}\nパスワード: {VAR: _POST['reg_plaintext_passwd']}\n\nパスワードは大文字・小文字を区別することに注意してください！\nあなたの設定や自己紹介を変更したい場合は、次のページを使用してください：\n{FULL_ROOT}{ROOT}?t=register
+register_welcome_msg:登録ありがとうございます。\n\n下記がフォーラムへのログインに関する詳細です。\n\nフォーラムの URL: {TEMPLATE: index_update_lnk}\nログイン名: {VAR: uent->login}\nパスワード: {VAR: _POST['reg_plaintext_passwd']}\n\nパスワードは大文字・小文字を区別することに注意してください!\nあなたの設定や自己紹介を変更したい場合は、次のページを使用してください:\n{FULL_ROOT}{ROOT}?t=register
 register_err_cantreg_title:エラー: 登録できません
 regsiter_err_cantreg_msg:利用者アカウントを作成できませんでした。<a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a> で管理者に連絡してください。
 register_profile_update:自分のプロフィールを閲覧中
@@ -725,9 +725,9 @@ register_change_login:ログイン名変更
 approved_avatar_title:カスタムアバターは承認されました。
 approved_avatar_msg:あなたのアバターは管理者に承認されました。それはあなたのすべてのメッセージにアバターとして表示されるはずです。それが見えないか、古いアバターが見えるのは、ブラウザーがページをキャッシュしているからです。ページを1・2回再読み込みしてみてください。ほとんどの場合、これでキャッシュ問題が解決するでしょう。
 unapproved_avatar_title:カスタムアバターは拒否されました。
-unapproved_avatar_msg:管理者はあなたのアバターを承認しませんでした。最もよくある理由は、あなたのアバターが大きすぎる（サイズおよび寸法）か、あるいは不適当な主題を含んでいます。なぜあなたのアバターが拒否されたかについてさらに情報が欲しい場合、管理者と連絡をとってください。
+unapproved_avatar_msg:管理者はあなたのアバターを承認しませんでした。最もよくある理由は、あなたのアバターが大きすぎる (サイズおよび寸法) か、あるいは不適当な主題を含んでいます。なぜあなたのアバターが拒否されたかについてさらに情報が欲しい場合、管理者と連絡をとってください。
 mvthread_request_move:移動を要求
-move_request_reason:本当にトピックを移動しますか？
+move_request_reason:トピックを本当に移動しますか?
 mvthread_submit_req:送信要求
 thread_exchange:トピック交換
 move_request_by:トピックの移動要求を出したのは:
@@ -760,7 +760,7 @@ group_mgr:グループ管理
 group_mgr_edit_btn:グループ編集
 group_mgr_heading:グループエディタ選択
 group_mgr_group:グループ:
-permission_denied_title:許可されていません！
+permission_denied_title:許可されていません!
 permission_denied_msg:あなたの利用者権限では、あなたが試みている行為は許可されません。
 p_READ:読む
 p_POST:投稿
@@ -787,7 +787,7 @@ post_quote:引用:
 post_quote_selected:選択した文章を引用
 userinfo_referals:推薦された利用者:
 userinfo_referals_count:{VAR: referals} メンバー
-pm_no_space_title:空き領域がありません！
+pm_no_space_title:空き領域がありません!
 pm_no_space_msg:プライベートメッセージ用フォルダーが <b>{GVAR: MAX_PMSG_FLDR_SIZE}バイトの保管容量限界を超えました。現在 <b>{VAR: fldr_size}バイト</b>のメッセージが入っています。<br /><br /><span class="ErrorText">空き領域を確保するために古いメッセージをいくつか削除してください。</span>
 pm_space_indct_msg:プライベートメッセージ用フォルダーは {VAR: percent_full}% 使用しています。
 th_expr_never:永久
@@ -830,7 +830,7 @@ split_th_select:選択
 report_report_post:メッセージ報告
 quicklogin_login:ログイン:
 quicklogin_password:パスワード:
-quicklogin_use_cookies:cookie を使用しますか？
+quicklogin_use_cookies:Cookie を使用しますか?
 quicklogin_login_btn:ログイン
 quick_reply:迅速返信
 quick_reply_post:迅速返信を投稿
@@ -893,7 +893,7 @@ search_desc_order:降順
 search_asc_order:昇順
 search_logic:検索ロジック:
 search_sorting:日付で次の結果をソート:
-search_attach:添付：
+search_attach:添付:
 search_attach_all:あり/なし
 search_attach_with:添付あり
 post_proceed:続行
@@ -951,11 +951,11 @@ iemail_forum_unsub:このフォーラムの購読停止
 primary_group_prefix:フォーラムの第一グループ:
 group_resources:このグループは次のフォーラムの権限を制御します
 register_admin_newuser_title:新規利用者が登録しました。アカウントは確認待ちです。
-register_admin_newuser_msg:新規利用者（{VAR: uent->login}）がただ今登録しました。アカウントの確認が有効になっているため、その利用者のアカウントはあなたか他のフォーラム管理者によって確認されるまで有効化されません。このアカウントを審査するには、{GVAR: WWW_ROOT}adm/admuserapr.php にアクセスしてください。\n\nこれは自動化された処理です。このメッセージに返信しないでください。\n新規利用者の登録に関するメール通知をこれ以降受け取りたくなければ、管理者コントロールパネルで止めることができます。「New Account Notification」設定で変更します。
+register_admin_newuser_msg:新規利用者 ({VAR: uent->login}) がただ今登録しました。アカウントの確認が有効になっているため、その利用者のアカウントはあなたか他のフォーラム管理者によって確認されるまで有効化されません。このアカウントを審査するには、{GVAR: WWW_ROOT}adm/admuserapr.php にアクセスしてください。\n\nこれは自動化された処理です。このメッセージに返信しないでください。\n新規利用者の登録に関するメール通知を今後受け取りたくない場合は、管理者コントロールパネルで止めることができます。「New Account Notification」設定で変更します。
 post_mod_msg_notify_title:フォーラム「{VAR: frm->name}」で承認待ちの新規メッセージ
 post_mod_msg_notify_msg:新規メッセージ「{VAR: msg_post->subject}」が、あなたがモデレーションを担当するフォーラムにただ今投稿されました。このメッセージを検査するには、{FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id} にアクセスしてください。\n\nこれは自動化された処理です。このメッセージに返信しないでください。
 thread_printable_pdf:印刷用 PDF を生成する
-thread_syndicate:このフォーラムを配信する（XML）
+thread_syndicate:このフォーラムを配信する (XML)
 reg_conf_title:登録確認
 reg_conf_email:<b>メール確認</b><br />アカウントを有効化する前にアクセスする必要がある特別な URL を含んだメールが、あなたの元へ送信されました。数分でこのメールが届かない場合は、あなたのアカウントにログインして、指定したメールアドレスが正確なものであるか確認してください。一度アカウントを確認すれば、確認が完了した登録利用者にのみ利用可能なフォーラム機能を利用することができます。
 reg_conf_account:<b>アカウント確認</b><br />あなたのアカウントが有効になる前に、管理者によって承認される必要があります。それが完了すれば、あなたのアカウントが承認されたということを知らせるメールが届きます。承認の完了前でもアカウントにはログインできますが、一部に利用できない機能があります。
@@ -965,7 +965,7 @@ mnav_date_limit:日付範囲:
 mnav_forum_limit:この中だけ検索:
 mnav_all_forums:全フォーラム検索
 mnav_submit:検索開始
-mnav_no_range:正しい日付の範囲を指定しなければなりません。この値は小数点（例: 0.12）を含むことができますが、0 より大きくなければなりません。
+mnav_no_range:正しい日付の範囲を指定しなければなりません。この値は小数点を含むことができます (例: 0.12) が、0 より大きくなければなりません。
 mnav_invalid_unit:正しい時間単位を指定しなければなりません。
 mnav_invalid_date:指定された日付範囲は管理者によって許可されたものより大きくなっています。より小さな日付範囲を試してください。
 mnav_no_results:照会に一致するメッセージはありません。
@@ -991,13 +991,13 @@ dmsg_reply_to:は次のメッセージへの返信です:
 dmsg_reply_num:#{VAR: obj->reply_to}
 merge_topics:トピック統合
 merge_topics_cp:トピック統合コントロールパネル
-merge_topics_tpl:統合するトピックを選択します<span class="SmallText">（複数のトピックを選択しなければなりません）</span>
+merge_topics_tpl:統合するトピックを選択します<span class="SmallText">(複数のトピックを選択しなければなりません)</span>
 merge_merge:選択したトピックを統合
 merge_next:次のトピック一覧
 merge_prev:前のトピック一覧
 merge_another:<a href="{TEMPLATE: merge_another_lnk}">最後に統合されたトピック</a>を表示、または別のトピックを統合:
 split_cp:トピック分割コントロールパネル
-groups_perms_header:許可権限一覧<span class="small">（マウスを上に乗せるとその許可権限の種類を参照できます）</span>
+groups_perms_header:許可権限一覧 <span class="small">(マウスを上に乗せるとその許可権限の種類を参照できます)</span>
 register_err_sig_too_long:あなたの署名は許可された最大長である {GVAR: FORUM_SIG_ML}文字を超えています。
 register_sig_limit:{GVAR: FORUM_SIG_ML} 文字<a href="javascript: alert('あなたの署名の長さは '+document.forms['fud_register'].reg_sig.value.length+'文字です。許可された最大長は {GVAR: FORUM_SIG_ML}文字です。');" class="SmallText">署名の長さを検査</a>
 adm_account_accepted:あなたのアカウント「{VAR: login}」は管理者により承認され、現在有効になりました。「{GVAR: FORUM_TITLE}」フォーラムに承認された登録利用者として入室できるようになりました。
@@ -1030,7 +1030,7 @@ delete_message_extra_body:著者のもとへ送られる、削除したメッセ
 delete_msg_removed_ttl:あなたのメッセージを管理者スタッフが削除しました。
 delete_msg_pm_body:元メッセージ
 delete_msg_pm_subject:件名: {VAR: data[15]}
-ip_no_whois:<b>{VAR: ip}</b> の whois 情報は利用できません。
+ip_no_whois:<b>{VAR: ip}</b> の Whois 情報は利用できません。
 ip_whois_title:ISP 情報
 register_theme:テーマ:
 pmsg_trash:ごみ箱を空に
@@ -1083,7 +1083,7 @@ post_common_align_left:左寄せ
 post_common_align_center:中央揃え
 post_common_align_right:右寄せ
 post_common_link:リンクを挿入
-post_common_link_popup:リンクの場所：
+post_common_link_popup:リンクの場所:
 post_common_email:メールアドレスを挿入
 post_common_email_popup:メールアドレス:
 post_common_image:画像を挿入
@@ -1103,7 +1103,7 @@ pmsg_on:投稿日:
 pmsg_download_dump:メッセージ・ダンプのダウンロード
 move_messages:メッセージを移動
 move_msg_btn:選択したメッセージを移動
-move_msg_th_expl:移動先トピックのIDを指定してください（他のフォーラムのものも可です）
+move_msg_th_expl:移動先トピックのIDを指定してください (他のフォーラムのものも可です)
 captcha_img_alt:CAPTCHA検証: この画像中の文字列を認識する必要があります。
 captcha_img_help:画像内には 0 も 1 もありません。
 powered-by:提供: FUDforum {GVAR: FORUM_VERSION}
@@ -1133,7 +1133,7 @@ feed_no_data:一致するデータは見つかりません。
 feed_rdf:RDF フィード
 feed_rss:RSS2 フィード
 feed_atom:ATOM フィード
-ip_whois_connect_err:whois サーバーに接続できません ({VAR: whois_server}): {VAR: errstr}
+ip_whois_connect_err:Whois サーバーに接続できません ({VAR: whois_server}): {VAR: errstr}
 custom_filed_required:この欄は必須です。
 pages:ページ
 page_list_heading:利用できるページ
