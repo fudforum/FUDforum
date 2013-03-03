@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -16,6 +16,9 @@
 function clean_rgx()
 {
 	if (!$_POST['rpl_replace_opt']) {
+		if ($_POST['rpl_preg_opt'] = 'e') {	// Prevent code injection.
+			$_POST['rpl_preg_opt'] = 'i';
+		}
 		$_POST['rpl_replace_str'] = '/'. $_POST['rpl_replace_str'] .'/'. $_POST['rpl_preg_opt'];
 		$_POST['rpl_from_post'] = '/'. $_POST['rpl_from_post'] .'/'. $_POST['rpl_from_post_opt'];
 	} else {
@@ -175,7 +178,11 @@ function clean_rgx()
 	</tr>
 <?php
 	if (isset($_POST['btn_regex'])) {
-		$str = preg_replace('/'. $regex_str .'/'. $regex_str_opt, $regex_with, $regex_src);
+		if ($regex_str_op = 'e') {
+			$str = 'Code injection is not allowed!';
+		} else {
+			$str = preg_replace('/'. $regex_str .'/'. $regex_str_opt, $regex_with, $regex_src);
+		}
 ?>
 	<tr class="fieldresult">
 		<td valign="top">Test result:</td>
