@@ -449,7 +449,7 @@ coppa_fax_name:名前
 login_not_logedin:あなたはログインしていません。いくつかの理由が考えられます:
 login_cookie_expired:Cookie の有効期限が切れました。Cookie を更新するにはログインする必要があります。
 login_perm_denied:匿名利用者であるため、あなたは要求されたリソースにアクセスする許可がありません。許可を得るためにはログインしなければなりません。
-login_want_to_register:登録しませんか？
+login_want_to_register:登録しませんか?
 login_forgot_passwd:パスワードを忘れました
 login_use_cookie:Cookie を使用する<br /><span class="SmallText">図書館や学校、インターネットカフェにあるコンピューターなど、公衆端末を使用している場合、セキュリティーを高めるためにこのオプションは選択しないことをお勧めします。<br />このオプションを選択しておくと、次回の訪問時にフォーラムに自動的にログインされます。</span>
 login_login:ログイン:
@@ -1030,7 +1030,7 @@ delete_message_extra_body:著者のもとへ送られる、削除したメッセ
 delete_msg_removed_ttl:あなたのメッセージを管理者スタッフが削除しました。
 delete_msg_pm_body:元メッセージ
 delete_msg_pm_subject:件名: {VAR: data[15]}
-ip_no_whois:<b>{VAR: ip}</b> の Whois 情報は利用できません。
+ip_no_whois:<b>{VAR: ip}</b> の WHOIS 情報は利用できません。
 ip_whois_title:ISP 情報
 register_theme:テーマ:
 pmsg_trash:ごみ箱を空に
@@ -1133,7 +1133,7 @@ feed_no_data:一致するデータは見つかりません。
 feed_rdf:RDF フィード
 feed_rss:RSS2 フィード
 feed_atom:ATOM フィード
-ip_whois_connect_err:Whois サーバーに接続できません ({VAR: whois_server}): {VAR: errstr}
+ip_whois_connect_err:WHOIS サーバーに接続できません ({VAR: whois_server}): {VAR: errstr}
 custom_filed_required:この欄は必須です。
 pages:ページ
 page_list_heading:利用できるページ

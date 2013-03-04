@@ -159,7 +159,7 @@ sub_to_thread_desc:Resev ur c'hemenn pa vez kemennadennoù nevez e-barzh ar gaoz
 bookmark_thread:Merkañ ar gaoz-mañ
 bookmark_thread_desc:Ouzhpennañ ar gaoz-mañ d'ho roll sinedoù
 subject:Danvez
-subscribe:Evezhiañ
+subscribe:Koumanantiñ
 subscribe_desc:Resev ur c'hemenn pa vez krouet ur gaoz nevez er forom-mañ
 subscribed_forums:Foromoù evezhiet ganeoc'h
 subscribed_forums_desc:Gweredekaat/Diweredekaat ar sil evit ar foromoù evezhiet ganeoc'h (diskouez kemennadennoù eus foromoù evezhiet ganeoc'h hepken)
@@ -181,7 +181,7 @@ unanswered_posts_desc:Diskouez an holl gemennadennoù direspont
 unlock_thread:Dibrennañ ar gaoz
 unread_msg:Er gaoz-mañ ez eus kemennadennoù n'hoc'h eus ket lennet c'hoazh
 unread_msg_locked:Kaoz prennet gant kemennadennoù anlennet
-unread_posts:Kemennadennoù n'int ket bet lennet
+unread_posts:Kemennadennoù anlennet
 unread_posts_desc:Diskouez an holl gemennadennoù n'int ket bet lennet
 unsub_from_thread:Paouez da evezhiañ ar gaoz-mañ
 unsub_from_thread_desc:Paouez da resev kemennoù diwar-benn kemennadennoù nevez er gaoz-mañ
@@ -394,7 +394,7 @@ post_icons:Arlun ar gemennadenn :
 post_no_icon:Arlun ebet
 post_smiley:Berradennoù fromlunioù :
 post_format_tools:Binvioù furmaozañ :
-post_upload_file:Pellgargañ ar restr
+post_upload_file:Kargañ ar restr
 post_file_del:Dilemel
 post_file_name:Anv
 post_file_size:Ment

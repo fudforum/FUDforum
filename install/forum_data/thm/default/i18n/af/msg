@@ -1026,7 +1026,7 @@ delete_message_extra_body:Sluit die geskrapte boodskap in by die boodskap wat aa
 delete_msg_removed_ttl:Die administrateurs het u boodskap verwyder.
 delete_msg_pm_body:Oorspronklike boodskap
 delete_msg_pm_subject:Onderwerp: {VAR: data[15]}
-ip_no_whois:Whois inligting vir <b>{VAR: ip}</b> is nie beskikbaar nie.
+ip_no_whois:WHOIS-inligting vir die IP-adres <b>{VAR: ip}</b> is nie beskikbaar nie.
 ip_whois_title:ISP Inligting
 register_theme:Tema:
 pmsg_trash:Maak asblik leeg
