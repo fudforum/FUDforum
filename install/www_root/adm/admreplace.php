@@ -16,7 +16,7 @@
 function clean_rgx()
 {
 	if (!$_POST['rpl_replace_opt']) {
-		if ($_POST['rpl_preg_opt'] == 'e') {	// Prevent code injection.
+		if ($_POST['rpl_preg_opt'][0] == 'e') {	// Prevent code injection (e and e%00 with null-byte).
 			$_POST['rpl_preg_opt'] = 'i';
 		}
 		$_POST['rpl_replace_str'] = '/'. $_POST['rpl_replace_str'] .'/'. $_POST['rpl_preg_opt'];
@@ -178,7 +178,7 @@ function clean_rgx()
 	</tr>
 <?php
 	if (isset($_POST['btn_regex'])) {
-		if ($regex_str_opt == 'e') {
+		if ($regex_str_opt[0] == 'e') {
 			$str = 'Code injection is not allowed!';
 		} else {
 			$str = preg_replace('/'. $regex_str .'/'. $regex_str_opt, $regex_with, $regex_src);
