@@ -4,6 +4,7 @@
 # Author: Das Schäfchen
 # Author: George Animal
 # Author: Giftpflanze
+# Author: Hihiman
 # Author: Hydra
 # Author: JanRei
 # Author: Kghbln
@@ -384,7 +385,7 @@ post_color:Farbe
 post_font:Schriftart
 create_thread:Thema erstellen
 submit_reply:Antwort abschicken
-edit_message:Beitrag bearbeiten
+edit_message:Änderungen übernehmen
 apply_spell_changes:Rechtschreibkorrektur anwenden
 post_preview:Beitragsvorschau
 post_logedin_user:Angemeldeter Benutzer:
@@ -465,7 +466,7 @@ login_name_required:Benutzername erforderlich
 login_passwd_required:Passwort erforderlich
 login_invalid_radius:Ungültige Benutzername/Passwort-Kombination
 reset_confirmation:Danke für deine Registrierung,\n\nUm dein Konto zu aktivieren, gehe bitte auf die unten angezeigte URL:\n\n{VAR: url}\n\nSobald dein Konto aktiviert ist, wirst du am Forum angemeldet\nund zur Startseite des Forums geleitet.
-reset_reset:Hallo,\n\nDu hast darum gebeten, das Passwort zurückzusetzen, um wirklich das Passwort\nZURÜCKZUSETZEN gehe bitte zu dieser URL\n\n{VAR: url}\n\nACHTUNG: Dieses Forum verschlüsselt die Passwörter nur in eine Richtung, was\nbedeutet, dass sobald du dein Passwort eingegeben hast, es verschlüsselt\nwird, und es KEINE Möglichkeit gibt, es wiederherzustellen. Dies wird\nerreicht, in dem bei der Passworteingabe das Passwort verschlüsselt und auf\nÜbereinstimmung überprüft wird. (Bei Interesse an der\nVerschlüsselungsmethode, schlage unter MD5-Hash-Algorithmus nach.)
+reset_reset:Hallo,\n\nDu hast darum gebeten, das Passwort zurückzusetzen, um wirklich das Passwort\nZURÜCKZUSETZEN öffne bitte die nachfolgende Webseite (URL)\n\n{VAR: url}\n\nHinweis: Das Forum verschlüsselt das Passwort unidirektional. \nNach der Speicherung des Passwords im System gibt es keine Möglichkeit das\nPasswort wiederherzustellen, da nur eine verschlüsselte Prüfsumme des Passworts\ngespeichert wird. \n(Bei Interesse an der Verschlüsselungsmethode, siehe MD5-Hash-Algorithmus.)
 rpasswd_invalid_passwd:Ungültiges Passwort
 rpasswd_passwd_nomatch:Passwörter stimmen nicht überein
 rpasswd_passwd_length:Passwort muss mindestens 6 Zeichen lang sein
