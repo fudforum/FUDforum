@@ -688,7 +688,7 @@ ERR_login_msg2:<legend>CHYBA: Nejste přihlášeni</legend>Abyste získali pří
 ERR_disabled_ttl:Vypnutá vlastnost
 ERR_disabled_msg:Tato vlastnost byla vypnuta administrátorem.
 ERR_access_ttl:CHYBA: Nedostatečná oprávnění
-ERR_access_msg:Nemátě dostatečná oprávnění na provedení této akce.
+ERR_access_msg:Nemáte dostatečná oprávnění k provedení této akce.
 ERR_registration_disabled_ttl:Registrace vypnuta
 ERR_registration_disabled_msg:Administrátor vypnul registraci, prosím, zkuste to později
 ERR_emailconf_ttl:CHYBA: Váš účet ještě není potvrzen
