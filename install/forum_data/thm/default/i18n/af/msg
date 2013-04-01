@@ -62,7 +62,7 @@ locked_with_new_posts:Gesluit (m/ ongeleesde boodskappe)
 logged_in_list:Aangetekende gebruikers
 login:Teken aan
 login_header:Lid:
-logout:Teken uit
+logout:Teken af
 mark_all_read:Merk alle boodskappe as gelees
 mark_all_read_desc:Alle boodskappe wat u nog nie gelees het nie sal as gelees gemerk word
 members:Lede
@@ -377,7 +377,7 @@ edit_message:Pas wysigings toe
 apply_spell_changes:Pas spel-wysigings toe
 post_preview:Boodskap voorskou
 post_logedin_user:Aangetekende lid:
-post_logout:teken uit
+post_logout:teken af
 post_passwd:Pos Wagwoord:
 post_poll:Stemming:
 post_create_poll:SKEP STEMMING
@@ -953,7 +953,7 @@ post_mod_msg_notify_msg:'n Nuwe boodskap met titel "{VAR: msg_post->subject}" is
 thread_printable_pdf:Genereer PDF-dokument
 thread_syndicate:XML-voer
 reg_conf_title:Bevestiging van registrasie
-reg_conf_email:<b>E-posbevestiging</b><br />'n E-pos is aan u gestuur met 'n spesiale URL waarop u moet kliek voordat u rekening geaktiveer sal word. Indien u nie die e-pos binne 'n paar minute ontvang nie, teken in en maak seker dat die e-posadres wat u verskaf het geldig is. Sodra u u rekening bevestig het sal u al die funksies wat aan geregistreerde lede toegeken is kan uitvoer.
+reg_conf_email:<b>E-posbevestiging</b><br />'n E-pos is aan u gestuur met 'n spesiale URL waarop u moet kliek voordat u rekening geaktiveer sal word. Indien u nie die e-pos binne 'n paar minute ontvang nie, meld aan en maak seker dat die e-posadres wat u verskaf het geldig is. Sodra u u rekening bevestig het, sal u al die funksies wat aan geregistreerde lede toegeken is kan uitvoer.
 reg_conf_account:<b>Rekeningbevestiging</b><br />U rekening moet deur 'n administrateur goedgekeur word alvorens dit geaktiveer kan word. Sodra dit gebeur sal u 'n e-pos ter bevestiging ontvang. Tot dan sal u na u rekening kan aanteken, maar u sal nie funksies wat aan geregistreerde lede toegeken is kan uitvoer nie.
 forum_banned_user:U optrede het veroorsaak dat u permanent van die webwerf geblokkeer is. Vaarwel!
 mnav_description:Boodskapnavigasie

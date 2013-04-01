@@ -54,7 +54,7 @@ locked_with_new_posts:Kılit kerdeyo
 logged_in_list:Listeya karberanê ke cıqewtış kerda
 login:Cıkewtış
 login_header:Cıkewtış:
-logout:Bıvciyê
+logout:Veciyayış
 mark_all_read:Mesaca pêrın wende deye mor ke
 mark_all_read_desc:Mesaci pêro wende deye êdê mor bê
 members:Ezay
@@ -271,7 +271,7 @@ remail_your_name:Namey Şıma:
 remail_your_email:E-Maila Şıma:
 remail_friends_name:Namey Embaz dê Şıma:
 remail_friends_email:E Mailê Embaz dê Şıma:
-remail_required:mecburiyo
+remail_required:lazım
 remail_subject:Mersel:
 remail_message:Mesac
 remail_done:Qeyd kerd
