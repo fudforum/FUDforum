@@ -225,8 +225,8 @@ referals_refered_by:Forum lede verwys deur: <b><a href="{TEMPLATE: referals_refe
 referals_post_count:Aantal verwysings
 referals_registered_on:Geregistreer op
 referals_action:Aksie
-pmsg_all:ieder
-pmsg_none:geen
+pmsg_all:alles
+pmsg_none:niks
 folder:Vouer:
 pmsg_replied:beantwoord
 pmsg_forwarded:aangestuur

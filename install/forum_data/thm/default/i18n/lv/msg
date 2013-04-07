@@ -517,8 +517,7 @@ poll_blank_option:Tukšumu nevar pievienot.
 poll_del_conf:Lai dzēstu, spiediet OK
 poll_name:Balsojuma nosaukums:
 poll_timelimit:Termiņš:
-# Fuzzy
-poll_maxiumvotes:Maksimālais balsu skaits
+poll_maxiumvotes:Maksimālais balsu skaits:
 poll_create:Izveidot
 poll_update:Izmainīt
 poll_disablesmilies:Aizliegt smaidiņus
@@ -700,8 +699,7 @@ post_opt_html_off:<b>HTML</b>  - <b>izslēgts</b>
 post_opt_fud_off:<b>BBcode</b> - <b>izslēgts</b>
 post_opt_images_off:<b>Nozīmītes</b> - <b>izslēgtas</b>
 post_opt_smilies_off:<b>Smaidiņi</b> - <b>izslēgti</b>
-# Fuzzy
-post_opt:Foruma parametri
+post_opt:Foruma iestatījumi:
 register_change_passwd:nomainīt paroli
 approved_avatar_title:Jūsu nozīmīte apstiprināta.
 approved_avatar_msg:Jūsu nozīmīte ir apstiprināta un tai jābūt redzamai. Iespējams Jūsu Web pārlūks attēlo novecojušu lapas saturu no kešatmiņas, tādēļ atjaunojiet to.
@@ -812,8 +810,7 @@ report_report_post:Paziņojumi
 quicklogin_login:Lietotājs:
 quicklogin_password:Parole:
 quicklogin_use_cookies:Izmantot Cookies?
-# Fuzzy
-quicklogin_login_btn:Ieiet
+quicklogin_login_btn:Pieslēgties
 post_notification_desc:Paziņot man par ienākošajām atbildēm uz publikāciju.
 maximize_category:Izplest kategoriju
 maximize_message:Maksimizēt ziņojumu
