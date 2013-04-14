@@ -16,11 +16,12 @@
 function clean_rgx()
 {
 	if (!$_POST['rpl_replace_opt']) {
-		if ($_POST['rpl_preg_opt'][0] == 'e') {	// Prevent code injection (e and e%00 with null-byte).
+		if (false !== strpos($_POST['rpl_preg_opt'], 'e')) {
+			// Prevent code injection (e and e%00 with null-byte).
 			$_POST['rpl_preg_opt'] = 'i';
 		}
 		$_POST['rpl_replace_str'] = '/'. $_POST['rpl_replace_str'] .'/'. $_POST['rpl_preg_opt'];
-		$_POST['rpl_from_post'] = '/'. $_POST['rpl_from_post'] .'/'. $_POST['rpl_from_post_opt'];
+		$_POST['rpl_from_post']   = '/'. $_POST['rpl_from_post']   .'/'. $_POST['rpl_from_post_opt'];
 	} else {
 		$_POST['rpl_replace_str'] = '/'. addcslashes($_POST['rpl_replace_str'], '/') .'/';
 	}
@@ -178,10 +179,10 @@ function clean_rgx()
 	</tr>
 <?php
 	if (isset($_POST['btn_regex'])) {
-		if ($regex_str_opt[0] == 'e') {
+		if (false !== strpos($regex_str_opt, 'e')) {
 			$str = 'Code injection is not allowed!';
 		} else {
-			$str = preg_replace('/'. $regex_str .'/'. $regex_str_opt, $regex_with, $regex_src);
+			$str = preg_replace('/'. preg_quote($regex_str) .'/'. $regex_str_opt, $regex_with, $regex_src);
 		}
 ?>
 	<tr class="fieldresult">
