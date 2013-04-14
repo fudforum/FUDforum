@@ -1,5 +1,6 @@
 # Messages for German (formal address) (Deutsch (Sie-Form)‎)
 # Exported from translatewiki.net
+# Author: Geitost
 # Author: JanRei
 # Author: Kghbln
 # Author: LWChris
@@ -165,9 +166,9 @@ subject:Betreff
 subscribe:Abonnieren
 subscribe_desc:Benachrichtigungen über neue Themen in diesem Forum empfangen
 subscribed_forums:Abonnierte Foren
-subscribed_forums_desc:Den Filter für abonnierte Foren erzwingen (zeigt nur von dir abonnierte Foren an)
+subscribed_forums_desc:Den Filter für abonnierte Foren erzwingen (zeigt nur von Ihnen abonnierte Foren an)
 subscribed_threads:Abonnierte Themen
-subscribed_threads_desc:Den Filter für abonnierte Themen erzwingen (zeigt nur von dir abonnierte Themen an)
+subscribed_threads_desc:Den Filter für abonnierte Themen erzwingen (zeigt nur von Ihnen abonnierte Themen an)
 bookmarked_threads:Als Lesezeichen gespeicherte Themen
 switch_to_thread_view:Zur Baumansicht dieses Themas wechseln
 thread:Thema:
@@ -310,7 +311,7 @@ register_password:Passwort:
 register_conf_pass:Passwort bestätigen:
 register_email_desc:Bitte geben Sie eine gültige E-Mail-Adresse an. Sie können diese dann weiter unten im Menü verstecken.
 register_name:Name:
-register_your_pass:Dein Passwort:
+register_your_pass:Ihr Passwort:
 register_update:Aktualisieren
 register_avatar_type:Avatar-Typ:
 register_del_avatar:Avatar löschen
@@ -619,7 +620,7 @@ pm_err_nopm_msg:Sie können das System für private Nachrichten nicht verwenden,
 pm_update:Benutzt das System für private Nachrichten
 post_err_lockedthread_title:FEHLER: gesperrtes Thema
 post_err_lockedthread_msg:Das Thema ist gesperrt, und es sind keine weiteren Beiträge erlaubt.
-err_coppa_title:FEHLER: Dein Konto ist noch nicht bestätigt worden
+err_coppa_title:FEHLER: Ihr Konto ist noch nicht bestätigt worden
 err_coppa_msg:Wir haben noch keine Bestätigung von einem Elternteil oder einem gesetzlichen Vormund erhalten, welches Ihnen erlauben würde, Nachrichten zu erstellen. Falls Sie Ihr COPPA-Formular verloren haben, <a href="{TEMPLATE: err_coppa_msg_lnk}">schauen Sie sich es noch einmal an</a>.
 err_banned_acct_title:FEHLER: Sie wurden verbannt.
 err_banned_acct_msg:Ihr Konto wurde aufgrund von Verletzungen der Forumsregeln {IF: $ban_expiry}vorübergehend bis zum {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}permanent{ENDI} gebannt.

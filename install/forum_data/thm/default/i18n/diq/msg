@@ -182,7 +182,7 @@ finduser_user:Karber
 finduser_postcount:Amariya Mesaca
 finduser_joindate:Tarixê Tewrbiyayışi
 finduser_action:Kerdış
-yes:E
+yes:Eya
 no:Nê
 register_email:E-posta
 edit_time_limit:<b>Wextê Vurnayışê sinori</b>: {GVAR: EDIT_TIME_LIMIT} daqiqe
@@ -294,7 +294,7 @@ poll_month:Aşme
 poll_year:Serre
 poll_week:hefte
 tabs_register:Sazê Hesabi
-delete_yes:E
+delete_yes:Eya
 delete_no:Nê
 error_error:Xırab
 emailconf_err_invkey_title:Xırab
@@ -316,7 +316,7 @@ post_opt_html_on:<b>HTML</b> akerde <b>yo</b>
 post_opt_fud_on:<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>BBcode</b> ê <b>akerdeyo</b></a>
 post_opt_images_on:<b>Resımi akerdeyê</b>
 thr_exch_submit:Bırşe
-groupmgr_yes:E
+groupmgr_yes:Eya
 groupmgr_no:Nê
 groupmgr_action:Kerdış
 groupmgr_member:Eza

@@ -305,7 +305,7 @@ register_uploaded:Avatar uploaden
 register_login:Gebruikersnaam:
 register_password:Wachtwoord:
 register_conf_pass:Wachtwoord bevestigen:
-register_email_desc:Geef alstublieft een geldig e-mailadres op. U kunt bij Voorkeuren aangeven dit te verbergen voor andere gebruikers.
+register_email_desc:Geef een geldig e-mailadres op. U kunt bij Voorkeuren aangeven dit te verbergen voor andere gebruikers.
 register_name:Naam:
 register_your_pass:Uw wachtwoord:
 register_update:Bijwerken
@@ -417,7 +417,7 @@ post_cancel_btn:Annuleren
 ignore_users:Genegeerde gebruikers
 add_ignore:Gebruiker negeren
 forum_terms:Algemene Voorwaarden van dit forum
-forum_rules:<p>De registratie tot dit forum is gratis!  We staan er op dat u zich aan de onderstaande regels houdt en het onderstaande beleid volgt. Als u akkoord gaat met de algemene voorwaarden, klik dan alstublieft op de knop "<b>Ik ga akkoord</b>" onderaan de pagina. Let op: Door op de knop te drukken verklaart u dat u <b>ouder dan 13 jaar</b> bent. Als u 13 jaar of jonger bent, gebruik dan dit registratieformulier.</p><p>Alhoewel de beheerders en moderatoren van dit forum proberen om alle berichten van dit forum redelijk te houden, is het onmogelijk voor ons om alle berichten te controleren. Alle berichten drukken de visie van de auteur uit, en de eigenaren van dit forum of de ontwikkelaars kunnen niet verantwoordelijk geacht worden voor de inhoud van enig bericht.</p><p>Door op de knop "Ik ga akkoord" te klikken, verklaart u geen obscene, vulgaire, sexueel getinte, haatdragende, bedreigende berichten te plaatsen of berichten te plaatsen die enige wet overtreden.</p><p>De eigenaren van dit forum hebben het recht om ieder onderwerp te bewerken, verplaatsen, verwijderen of te sluiten zonder opgave van reden.</p>
+forum_rules:<p>De registratie tot dit forum is gratis!  We staan er op dat u zich aan de onderstaande regels houdt en het onderstaande beleid volgt. Als u akkoord gaat met de algemene voorwaarden, klik dan op de knop "<b>Ik ga akkoord</b>" onderaan de pagina. Let op: Door op de knop te drukken verklaart u dat u <b>ouder dan 13 jaar</b> bent. Als u 13 jaar of jonger bent, gebruik dan dit registratieformulier.</p><p>Alhoewel de beheerders en moderatoren van dit forum proberen om alle berichten van dit forum redelijk te houden, is het onmogelijk voor ons om alle berichten te controleren. Alle berichten drukken de visie van de auteur uit, en de eigenaren van dit forum of de ontwikkelaars kunnen niet verantwoordelijk geacht worden voor de inhoud van enig bericht.</p><p>Door op de knop "Ik ga akkoord" te klikken, verklaart u geen obscene, vulgaire, seksueel getinte, haatdragende, bedreigende berichten te plaatsen of berichten te plaatsen die enige wet overtreden.</p><p>De eigenaren van dit forum hebben het recht om ieder onderwerp te bewerken, verplaatsen, verwijderen of te sluiten zonder opgave van reden.</p>
 forum_rules_13:<p>Alle leden <b>jonger dan 13</b> moeten de toestemming van hun ouder of voogd hebben alvorens lid te kunnen worden van de forums. Hoewel we deelname van leden jonger dan 13 jaar niet ontmoedigen, vereisen we een door ouder of voogd ondertekend formulier dat per fax of post aan ons wordt verzonden voordat we het lidmaatschap toekennen.</p><p>Als u het registratieproces wilt starten voordat wij de toestemming ontvangen, klik dan op de knop "Ik ga akkoord" hieronder. Indien u de registratie wilt annuleren klik dan op "Niet Akkoord" om terug te keren naar de inhoudsopgave van het forum.</p><p>Een kopie van het toestemmingsformulier kan hier gedownload worden. Voor meer informatie over het registratieproces kunt u een e-mail zenden naar<a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
 coppa_conf:COPPA-bevestiging
 coppa_before:Voor {TEMPLATE: coppa_date}
@@ -440,7 +440,7 @@ coppa_fax_relation:Verwantschap met kind:
 coppa_fax_telephone:Telefoonnummer:
 coppa_fax_email:E-mailadres:
 coppa_fax_date:Datum:
-coppa_fax_questions:Neem bij vragen alstublieft contact op met <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
+coppa_fax_questions:Neem bij vragen contact op met <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
 coppa_fax_login:Gebruikersnaam
 coppa_fax_passwd:Wachtwoord
 coppa_fax_remail:E-mail
@@ -581,7 +581,7 @@ buddy_list_err_nouser_title:Het was niet mogelijk om de gebruiker toe te voegen
 buddy_list_err_ignore:Het is niet mogelijk om gebruikers die u negeren toe te voegen aan uw vriendenlijst.
 buddy_list_update:Eigen vriendenlijst aan het bekijken
 core_err_invinp_title:Ongeldige invoer
-core_err_invinp_err:U hebt een ongeldige koppeling gevolgd. Neem alstublieft contact op met de <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a> en geef aan hoe u hier bent gekomen.
+core_err_invinp_err:U hebt een ongeldige koppeling gevolgd. Neem contact op met de <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a> en geef aan hoe u hier bent gekomen.
 core_adm_login_msg:<a href="{GVAR: WWW_ROOT}adm/admloginuser.php">Aanmelden als beheerder</a>
 email_err_unabletoemail_title:FOUT: het was niet mogelijk om een e-mail te verzenden
 email_err_unabletoemail_msg:Het e-mailsysteem is uitgeschakeld door de beheerder.
@@ -591,7 +591,7 @@ email_error_subject:Een bericht kan pas verzonden worden als het een onderwerp h
 email_error_namerequired:Het is verplicht een naam op te geven
 email_error_invaliduser:Ongeldige gebruiker
 emailconf_err_invkey_title:Fout
-emailconf_err_invkey_msg:De bevestigingssleutel is ongeldig. Controleer uw e-mail en zorg dat u de juist URL hebt ingegeven.
+emailconf_err_invkey_msg:De bevestigingssleutel is ongeldig. Controleer uw e-mail en zorg dat u de juiste URL hebt opgegeven.
 err_inc_criticaltitle:Er is een kritieke fout opgetreden
 err_inc_criticalmsg:Er is een fout opgetreden. Helaas is er ook een probleem met het rapportagesysteem.
 finduser_update:Bezig met het zoeken naar gebruikers
@@ -633,7 +633,7 @@ post_err_passwd:Het wachtwoord is onjuist.
 post_reply_update:<a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> in {VAR: frm->name} aan het beantwoorden
 post_topic_update:Nieuw onderwerp in <a href="{TEMPLATE: post_topic_update_lnk}">{VAR: frm->name}</a> aan het schrijven
 post_error_generic:Er is een fout opgetreden
-postcheck_max_images_err:Er zijn per bericht maximaal {GVAR: MAX_IMAGE_COUNT} afbeeldingen toegestaan. Verklein het aantal afbeeldingen alstublieft.
+postcheck_max_images_err:Er zijn per bericht maximaal {GVAR: MAX_IMAGE_COUNT} afbeeldingen toegestaan. Verklein het aantal afbeeldingen.
 postcheck_no_links_allowed:U kunt geen koppelingen gebruiken totdat u meer dan {PLURAL: posts_before_links|$1 bericht|$1 berichten} hebt geplaatst.
 postcheck_subj_needed:U moet een onderwerp opgeven
 postcheck_no_such_user:Er is geen gebruiker met de naam "{FUNC: char_fix(htmlspecialchars($v))}" in dit forum.
@@ -663,7 +663,7 @@ register_conf_msg:Dank u voor uw registratie.\nVolg de volgende koppeling om uw 
 register_welcome_subject:Bevestiging van forumregistratie
 register_welcome_msg:Dank u voor uw registratie.\n\nHier volgen uw aanmeldgegevens voor het forum:\n\nURL van het forum: {TEMPLATE: index_update_lnk}\nGebruikersnaam: {VAR: uent->login}\nWachtwoord: {VAR: _POST['reg_plaintext_passwd']}\n\nLet op: wachtwoorden zijn hoofdlettergevoelig!\nOm uw instellingen of profiel aan te passen, kunt u de volgende koppeling volgen:\n{FULL_ROOT}{ROOT}?t=register
 register_err_cantreg_title:Fout: het was niet mogelijk om te registreren
-regsiter_err_cantreg_msg:Het was niet mogelijk om uw gebruiker aan te maken. Neem alstublieft contact op met de beheerder via het e-mailadres <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
+regsiter_err_cantreg_msg:Het was niet mogelijk om uw gebruiker aan te maken. Neem contact op met de beheerder via het e-mailadres <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:Eigen profiel bekijken
 register_register_update:Registratiepagina
 report_err_nosuchmsg_title:Fout
@@ -695,7 +695,7 @@ ERR_emailconf_msg:U hebt uw gebruiker nog niet via e-mail bevestigd.<br /><table
 ERR_user_ttl:Fout: gebruiker bestaat niet
 ERR_user_msg:Deze gebruiker bestaat niet
 ERR_systemerr_ttl:Fout: systeemfout
-ERR_systemerr_msg:Er is een systeemfout opgetreden. Meld dit alstublieft aan de <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a>.
+ERR_systemerr_msg:Er is een systeemfout opgetreden. Meld dit aan de <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a>.
 email_title:E-mailformulier
 finduser_title:Gebruiker zoeken
 help_title:Hulp
@@ -870,7 +870,7 @@ imsg_err_message_msg:Het bericht dat u wilt bekijken bestaat niet.
 poll_edit:Bewerken
 register_err_not_valid_img:De opgegeven URL bevat geen geldige afbeelding.
 pmsg_recepient:Ontvanger
-register_err_taken_alias:De alias die u hebt gekozen wordt al door een ander forumlid gebruikt. Kies alstublieft een andere alias.
+register_err_taken_alias:De alias die u hebt gekozen wordt al door een ander forumlid gebruikt. Geef een andere alias op.
 register_alias:Alias:
 register_alias_desc:Als u in het forum een bijnaam wilt gebruiken die afwijkt van uw gebruikersnaam, voer die dan hier in.
 register_allow_pm_msg:Privéberichten toestaan
@@ -906,7 +906,7 @@ unread_message:Ongelezen berichten
 read_message:Berichten lezen
 threadt_more:&lt;meer&gt;
 threadt_disabled_ttl:Boomstructuur voor het weergeven van onderwerpen is uitgeschakeld.
-threadt_disabled_desc:De beheerder heeft weergeven in boomstructuur voor voor onderwerpen uitgeschakeld. Gebruik alstublieft de platte weergave.
+threadt_disabled_desc:De beheerder heeft weergeven in boomstructuur voor voor onderwerpen uitgeschakeld. Gebruik de platte weergave.
 threadt_update:Forum <a href="{TEMPLATE: threadt_update_lnk}">{VAR: frm->name}</a> in boomstructuur aan het bekijken
 mmod_delete_cofirm_ttl:Bevestig verwijderen van onderwerp of bericht
 spell_alts:geen alternatieven
@@ -944,13 +944,13 @@ thread_mark_all_read:Alle berichten als gelezen markeren
 thread_mark_all_read_desc:Alle ongelezen berichten in dit forum worden als gelezen gemarkeerd
 private_no_messages:Er zijn geen berichten in deze map
 register_email_change_subject:Wijziging e-mailadres bevestigen
-register_email_change_msg:Bevestig alstublieft uw nieuwe e-mailadres "{VAR: uent->email}" ter vervanging van uw oude e-mailadres "{VAR: old_email}" door de volgende koppeling te volgen:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nAls u uw nieuwe e-mailadres bevestigt, wordt uw gebruiker weer geactiveerd.
+register_email_change_msg:Bevestig uw nieuwe e-mailadres "{VAR: uent->email}" ter vervanging van uw oude e-mailadres "{VAR: old_email}" door de volgende koppeling te volgen:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nAls u uw nieuwe e-mailadres bevestigt, wordt uw gebruiker weer geactiveerd.
 iemail_thread_unsub:Abonnement op dit onderwerp opheffen
 iemail_forum_unsub:Abonnement op dit forum opheffen
 primary_group_prefix:Primaire groep voor forum:
 group_resources:Deze groep beheert de rechten voor de volgende forums
 register_admin_newuser_title:Een nieuwe gebruiker heeft zich geregistreerd en moet nog bevestigd worden
-register_admin_newuser_msg:De nieuwe gebruiker {VAR: uent->login} is zojuist aangemeld voor het forum. Omdat gebruikersbevestiging is ingeschakeld, is de gebruiker pas bruikbaar nadat u of een andere beheeder de gebruiker bevestigt. Ga voor bevestigen alstublieft naar: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nDit is een automatisch verzonden bericht. Antwoord hier niet op.\nE-mailberichten over nieuwe gebruikers uitschakelen is mogelijk via de instelling "Waarschuwingen nieuwe gebruikers" in de beheerdersinstellingen.
+register_admin_newuser_msg:De nieuwe gebruiker {VAR: uent->login} is zojuist aangemeld voor het forum. Omdat gebruikersbevestiging is ingeschakeld, is de gebruiker pas bruikbaar nadat u of een andere beheeder de gebruiker bevestigt. Ga voor bevestigen naar: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nDit is een automatisch verzonden bericht. Antwoord hier niet op.\nE-mailberichten over nieuwe gebruikers uitschakelen is mogelijk via de instelling "Waarschuwingen nieuwe gebruikers" in de beheerdersinstellingen.
 post_mod_msg_notify_title:Nieuw bericht in het forum "{VAR: frm->name}" wacht op goedkeuring
 post_mod_msg_notify_msg:Het bericht "{VAR: msg_post->subject}" is zojuist geplaatst in een door u gemodereerd forum. Volg de volgende koppeling om het bericht te beoordelen: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nDit is een automatisch verzonden bericht. Antwoord hier niet op.
 thread_printable_pdf:PDF maken
@@ -1023,7 +1023,7 @@ register_err_alias_notallowed:Deze alias is niet toegestaan
 post_err_mod_forum_edit_ttl:Fout
 post_err_mod_forum_edit_msg:U mag geen berichten bewerken in een gemodereerd forum
 dmsg_num:bericht #{VAR: obj->id}
-postcheck_session_invalid:Uw sessie is verlopen. Sla het formulier alstublieft opnieuw op. Excuses voor het ongemak.
+postcheck_session_invalid:Uw sessie is verlopen. Sla het formulier opnieuw op. Excuses voor het ongemak.
 delete_message_extra_desc:<b>Optioneel</b><br />Geen een reden op voor het verwijderen van het bericht. Dit wordt naar de auteur verzonden via een privébericht.
 delete_message_extra_body:De inhoud van het verwijdere bericht aan het bericht aan de auteur toevoegen.
 delete_msg_removed_ttl:Uw bericht is verwijderd door een beheerder.
@@ -1073,7 +1073,7 @@ sml_emoticon:Emoticon
 sml_code:Code
 mnav_sub_only:Alleen zoeken in geabonneerde forums
 register_topics_per_page:Onderwerpen per pagina:
-login_min_time:Dit forum staat iedere {VAR: MIN_TIME_BETWEEN_LOGIN} seconden een aanmeldpoging toe. Wacht alstublieft {FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)} voor uw volgende poging.
+login_min_time:Dit forum staat iedere {VAR: MIN_TIME_BETWEEN_LOGIN} seconden een aanmeldpoging toe. Wacht {FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)} voor uw volgende poging.
 post_not_logged_in:U bent niet aangemeld. Dit bericht wordt anomien opgeslagen.
 post_common_bold:Vet
 post_common_italics:Cursief
@@ -1112,7 +1112,7 @@ code_select_all:Alles selecteren
 code_show_hide:Weergeven/verbergen
 social_sites:Sociale netwerksites:
 postcheck_min_len_err:Uw bericht is te kort. De minimale lengte is {PLURAL: post_min_len|$1 karakter|$1 karakters}.
-postcheck_dup_err:Maak alstublieft geen dubbele onderwerpen aan.
+postcheck_dup_err:Maak geen dubbele onderwerpen aan.
 btn_new_topic:Nieuw onderwerp
 btn_new_pm:Nieuw privébericht
 btn_post_reply:Reactie plaatsen
