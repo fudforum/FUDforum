@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -14,7 +14,7 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir, $p=0)
 	global $BUF_SIZE;
 
 	$dirs = array($dirp);
-	$repl = $GLOBALS[$keep_dir];
+	$repl = realpath($GLOBALS[$keep_dir]);
 
 	while (list(,$v) = each($dirs)) {
 		$v = realpath($v);
@@ -288,17 +288,25 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir, $p=0)
 <table class="datatable solidtable">
 <tr class="field">
 	<td>Backup Save Path:<br /><font size="-1">Path on the disk, where you wish the forum data dump to be saved.</font></td>
-	<td><?php echo $path_error; ?><input type="text" value="<?php echo $path; ?>" name="path" size="40" /></td>
+	<td><?php echo $path_error; ?><input type="text" value="<?php echo $path; ?>" id="path" name="path" size="40" /></td>
 </tr>
 <?php if($gz) { ?>
 <tr class="field">
 	<td>Use Gzip Compression:<br /><font size="-1">Compress the backup file using Gzip compression. This will make the backup process a little slower, but will save a lot of harddrive space.</font></td>
-	<td><label><input type="checkbox" name="compress" value="1" <?php echo $compress; ?> /> Yes</label></td>
+	<td><label><input type="checkbox" id="compress" name="compress" value="1" <?php echo $compress; ?> /> Yes</label></td>
+<script>
+$(document).ready(function(){
+	$("#compress").change(function(){
+		if ($(this).is(":checked")) $("#path").val( $("#path").val() + ".gz"); // Add .gz
+		else                        $("#path").val( $("#path").val().replace(".gz", "") ); // Remove .gz
+	});
+});
+</script>
 </tr>
 <?php } ?>
 <tr class="field">
         <td>Skip Search Index:<br /><font size="-1">Do not backup search data. You will need to reindex your forum after doing an import.</font></td>
-        <td><label><input type="checkbox" value="y" name="skipsearch" /> Yes</label></td>
+        <td><label><input type="checkbox" value="y" id="skipsearch" name="skipsearch" /> Yes</label></td>
 </tr>
 <tr class="fieldaction"><td colspan="2" align="right"><input type="submit" name="btn_submit" value="Take Backup" /><input type="hidden" name="submitted" value="1" /></td></tr>
 </table>

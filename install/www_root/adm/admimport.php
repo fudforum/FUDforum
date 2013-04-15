@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -82,12 +82,6 @@ function resolve_dest_path($path)
 		} else if (($gz_file = preg_match('!\.gz$!', $_POST['path'])) && !extension_loaded('zlib')) {
 			$path_error = errorify('The file <b>'. $_POST['path'] .'</b> is compressed using gzip & your PHP does not have gzip extension install. Please decompress the file yourself and try again.');
 		} else {
-			/* Remove files that cause compilation errors with cross version restors. */
-			pf('Cleanup old files...');
-			foreach(glob($GLOBALS['DATA_DIR'] .'thm/default/tmpl/*.tmpl') as $fn) unlink($fn);
-			foreach(glob($GLOBALS['DATA_DIR'] .'thm/path_info/tmpl/*.tmpl') as $fn) unlink($fn);
-			foreach(glob($GLOBALS['DATA_DIR'] .'sql/*.tbl') as $fn) unlink($fn);
-
 			/* Skip to the start of data files. */
 			if (!$gz_file) {
 				$fp     = fopen($_POST['path'], 'rb');
@@ -95,16 +89,46 @@ function resolve_dest_path($path)
 				$readf  = 'fread';
 				$closef = 'fclose';
 				$feoff  = 'feof';
+				$rewindf= 'rewind';
 			} else {
 				$fp     = gzopen($_POST['path'], 'rb');
 				$getf   = 'gzgets';
 				$readf  = 'gzread';
 				$closef = 'gzclose';
 				$feoff  = 'gzeof';
+				$rewindf= 'gzrewind';
 			}
-			while ($getf($fp, 1024) != "----FILES_START----\n" && !$feoff($fp));
+
+			/* Test backup file integerety before we start the restore. */
+			pf('Validate backup file integerety...');
+			$valid = 0;
+			do {
+				$line = $getf($fp, 1024);
+				if ($line == "----FILES_START----\n") $valid++;
+				if ($line == "----FILES_END----\n")   $valid++;
+				if ($line == "----SQL_START----\n")   $valid++;
+				if ($line == "----SQL_END----\n")     $valid++;
+			} while (!$feoff($fp));
+			if ($valid == 0) {
+				pf(errorify('Backup file is corrupt and doesn\'t contain the expected content.'));
+				require($WWW_ROOT_DISK .'adm/footer.php');
+				exit;
+			} else if ($valid < 4) {
+				pf(errorify('Backup file is incomplete (truncated).'));
+				require($WWW_ROOT_DISK .'adm/footer.php');
+				exit;
+			}
+
+			$rewindf($fp);
+
+			/* Remove files that cause compilation errors with cross version restors. */
+			pf('Cleanup old files...');
+			foreach(glob($GLOBALS['DATA_DIR'] .'thm/default/tmpl/*.tmpl') as $fn) unlink($fn);
+			foreach(glob($GLOBALS['DATA_DIR'] .'thm/path_info/tmpl/*.tmpl') as $fn) unlink($fn);
+			foreach(glob($GLOBALS['DATA_DIR'] .'sql/*.tbl') as $fn) unlink($fn);
 
 			/* Handle data files. */
+			while ($getf($fp, 1024) != "----FILES_START----\n" && !$feoff($fp));
 			pf('Restore files from backup...');
 			while (($line = $getf($fp, 1000000)) && $line != "----FILES_END----\n") {
 				/* Each file is preceeded by a header ||path||size|| */
