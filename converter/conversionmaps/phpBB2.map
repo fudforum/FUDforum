@@ -1,6 +1,6 @@
 <?php
 /***************************************************************************
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id: phpBB2.map 5054 2010-10-23 00:47:24Z naudefj $
 *
@@ -159,6 +159,7 @@ function source_load_topics() {
 function source_load_messages() {
 	$c = bbq('SELECT * FROM '. dbpref .'posts p INNER JOIN '. dbpref .'posts_text pt ON p.post_id=pt.post_id INNER JOIN '. dbpref .'topics t ON t.topic_id=p.topic_id');
 	while ($r = bbfetch($c)) {
+		if ($r->poster_id == ANONYMOUS) $r->poster_id = 1;
 		$message = array(
 			'id'           => $r->post_id,
 			'thread_id'    => $r->topic_id,

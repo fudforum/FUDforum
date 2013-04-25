@@ -153,6 +153,7 @@ function source_load_topics() {
 function source_load_messages() {
 	$c = bbq('SELECT * FROM '. dbpref .'posts');
 	while ($r = bbfetch($c)) {
+		if ($r->poster_id == ANONYMOUS) $r->poster_id = 1;
 		$message = array(
 			'id'           => $r->post_id,
 			'thread_id'    => $r->topic_id,
