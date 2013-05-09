@@ -1,5 +1,6 @@
 # Messages for Asturian (asturianu)
 # Exported from translatewiki.net
+# Author: Tifinaghes
 # Author: Xuacu
 
 action:Aición
@@ -883,7 +884,7 @@ polllist_action:Aición
 polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">Revisando les encuestes disponibles</a>
 userinfo_polls:Encuestes:
 show_pollist:Amosar encuestes
-search_and:Y
+search_and:ⴷ
 search_or:O
 search_desc_order:Orde descendente
 search_asc_order:Orde ascendente

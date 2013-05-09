@@ -216,7 +216,7 @@ pmsg_new_messages:Непрочитана приватна порака
 pmsg_old_messages:Прочитана приватна порака
 deny_recipt:одбиј потврда
 deny_recipt_desc:Не сакам да испратам потврда дека сум ја прочитал оваа порака
-restore_to:Поврати во:
+restore_to:Возобнови во:
 move_to:Премести во:
 list_referes_referrals:Поканети
 list_referes_members:Поканети членови

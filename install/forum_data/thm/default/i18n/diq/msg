@@ -195,9 +195,9 @@ register_builtin:Sazine
 register_specify_url:Url'i Cake
 register_login:Cıkewtış:
 register_password:Parola:
-register_conf_pass:Parolay tesdiq ke:
+register_conf_pass:Parola tesdiq ke:
 register_name:Name:
-register_your_pass:Parolay Şıma:
+register_your_pass:Parolaya Şıma:
 register_update:Noroc resn
 register_avatar_type:Tipê Avatari
 register_del_avatar:Avatari Hewa dê
@@ -255,11 +255,13 @@ coppa_fax_telephone:Telefun:
 coppa_fax_email:Adresa E-postey:
 coppa_fax_date:Deme:
 coppa_fax_login:Cıkewtış
+coppa_fax_passwd:Parola
 coppa_fax_remail:E-posta
 coppa_fax_name:Name
 login_login:Cıkewtış:
 login_login_btn:Cıkewtış
 rpasswd_login:Cıkewtış
+rpasswd_conf_pass:Parola tesdiq ke
 ruser_cur_pass:Parolaya newkên
 login_passwd:Parola:
 reset_email:E-posta:

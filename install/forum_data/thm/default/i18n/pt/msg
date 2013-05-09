@@ -5,6 +5,7 @@
 # Author: GTNS
 # Author: Giro720
 # Author: Hamilton Abreu
+# Author: Luckas
 # Author: Luckas Blade
 # Author: Malafaya
 # Author: McDutchie
@@ -23,7 +24,7 @@ biography:Biografia:
 birth_date:Data de Nascimento :
 by:Por:
 by_mod:por Moderador
-current_time:Hora Actual
+current_time:Hora atual
 custom_avatar_queue:Fila de avatares personalizados
 date_posted:Data de Publicação
 date_registered:Data do Registo:
@@ -134,7 +135,7 @@ profile_desc:Aceder ao painel de controlo de membro
 rate_thread:Votar Tópico
 rating:Avaliação
 rating_track:Gerir as avaliações do tópico <b>{VAR: thr->subject}</b>:
-refresh_list:Actualizar a lista
+refresh_list:Atualizar a lista
 register:Registar-se
 registered:Registado:
 registered_on:Registado em {TEMPLATE: registered_on_date}
@@ -195,7 +196,7 @@ unbookmark_thread:Remover dos favoritos
 unbookmark_thread_desc:Remover este tópico da sua lista de favoritos
 unsubscribe:Anular subscrição
 unsubscribe_desc:Parar de receber notificações sobre novos posts neste forum
-updated_on:Actualizado em:
+updated_on:Atualizado em:
 user:Utilizador
 user_counter:Temos <b>{VAR: st_obj->user_count}</b> {PLURAL: st_obj->user_count|utilizador registado|utilizadores registados}.
 user_info:Informação do utilizador
@@ -314,7 +315,7 @@ register_conf_pass:Confirmar Password:
 register_email_desc:Por favor tem de introduzir um endereço de E-mail válido. Pode escolher ocultar o email na secção preferências.
 register_name:Nome:
 register_your_pass:A sua Palavra-chave:
-register_update:Actualizar
+register_update:Atualizar
 register_avatar_type:Tipo de Avatar:
 register_del_avatar:Apagar Avatar
 register_avatar:Avatar:
@@ -472,7 +473,7 @@ reset_reset_conf:A sua password será restaurada e enviada, no caso de não ter 
 reset_error:O email não foi encontrado na base de dados
 rpasswd_change_pass:Alterar password
 rpasswd_login:Utilizador
-rpasswd_cur_pass:Palavra-chave Actual:
+rpasswd_cur_pass:Palavra-chave atual:
 rpasswd_new_pass:Nova Password:
 rpasswd_conf_pass:Confirma Password:
 ruser_title:Formulário de alteração de nome de utilizador
@@ -547,12 +548,12 @@ poll_name:Nome da Votação:
 poll_timelimit:Tempo limite:
 poll_maxiumvotes:Máximo de votos:
 poll_create:Criar
-poll_update:Actualizar
+poll_update:Atualizar
 poll_disablesmilies:desactivar smilies
 poll_create_poll:Criar Votação
-poll_update_poll:Actualizar Votação
+poll_update_poll:Atualizar votação
 poll_delete:Apagar
-poll_updateoption:Actualizar Opção
+poll_updateoption:Atualizar opção
 poll_addoption:Adicionar Opção
 poll_unlimited:Ilimitados
 poll_day:dia
@@ -755,7 +756,7 @@ groupmgr_action:Acção
 groupmgr_member:Membro
 groupmgr_cancel:Cancelar
 groupmgr_add_member:Adicionar Membro
-groupmgr_update_member:Actualizar Membro
+groupmgr_update_member:Atualizar membro
 groupmgr_edit:Editar
 groupmgr_delete:Apagar
 group_mgr_anon:Anónimo
@@ -831,7 +832,7 @@ split_th_forum:Fórum:
 split_th_split_sel:Dividir mensagens seleccionadas
 split_th_split_unsel:Dividir mensagens não seleccionadas
 split_th_messages:Mensagens
-split_th_select:Seleccionar
+split_th_select:Selecionar
 report_report_post:Colocar Relatório
 quicklogin_login:Utilizador:
 quicklogin_password:Senha:
@@ -1114,7 +1115,7 @@ captcha_img_help:Não há zero ou um na imagem.
 powered-by:Potenciado por: FUDforum {GVAR: FORUM_VERSION}.
 copyright:Copyright &copy;2001-2012 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Código:
-code_select_all:Seleccionar todos
+code_select_all:Selecionar tudo
 code_show_hide:Mostrar / ocultar
 social_sites:Redes sociais:
 postcheck_min_len_err:A sua mensagem é demasiado curta. O tamanho mínimo permitido é {PLURAL: post_min_len|$1 caractere|$1 caracteres}.

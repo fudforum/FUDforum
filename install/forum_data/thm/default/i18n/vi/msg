@@ -3,12 +3,12 @@
 # Author: Minh Nguyen
 # Author: Naudefj
 # Author: Trần Nguyễn Minh Huy
+# Author: Tuankiet65
 
 action:Tác vụ
 add_to_buddy_list:thêm vào danh sách bạn bè
 admin:Quản trị viên
-# Fuzzy
-admin_control_panel:Khu quản trị
+admin_control_panel:Quản trị viên
 administrator:Quản trị viên
 attachment:Đính kèm:
 avatar:Hình đại diện:
@@ -99,8 +99,7 @@ new_thread:Tạo một chủ đề mới
 newest_user:Thành viên mới đăng ký là
 next_page:Trang kế
 next_thread:Chủ đề kế tiếp:
-# Fuzzy
-no_messages:Không có bài viết trong diễn đàn này
+no_messages:Không có bài viết trong diễn đàn này.<br /> Hãy là người đầu tiên gửi bài viết trong diễn đàn này
 no_msg_body:Không có nội dung bài viết
 no_new_posts:Không có bài viết mới
 no_posts:Không có bài

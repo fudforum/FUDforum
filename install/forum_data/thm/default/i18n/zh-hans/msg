@@ -9,6 +9,7 @@
 # Author: PhiLiP
 # Author: Xiaomingyan
 # Author: Yanmiao liu
+# Author: Yfdyh000
 # Author: 阿pp
 
 action:操作
@@ -452,7 +453,7 @@ coppa_fax_passwd:密码
 coppa_fax_remail:电子邮箱
 coppa_fax_name:名称
 login_not_logedin:你尚未登录。原因是：
-login_cookie_expired:您的cookie功能已终止，需要登录以便重新开启cookie功能。
+login_cookie_expired:您的Cookie已到期，您需要登录以便重新续订您的Cookie。
 login_perm_denied:作为匿名用户，只有登录以后才有权限访问相关资源。
 login_want_to_register:先注册？
 login_forgot_passwd:密码忘了

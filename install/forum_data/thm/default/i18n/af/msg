@@ -443,8 +443,8 @@ coppa_fax_passwd:Wagwoord
 coppa_fax_remail:E-pos
 coppa_fax_name:Naam
 login_not_logedin:U is nie aangeteken nie.  Daar kan verskeie redes hiervoor wees:
-login_cookie_expired:U "kookie" het verval en u sal weer moet aanteken om die kookie te hernu.
-login_perm_denied:U sal moet aanteken om toegang tot die inligting te verkry.
+login_cookie_expired:U koekie het verval. U sal weer moet aanmeld om die koekie te hernu.
+login_perm_denied:Anonieme gebruikers het nie toegang tot die inligting nie. U sal moet aanmeld om toegang te verkry.
 login_want_to_register:Wil u registreer?
 login_forgot_passwd:Wagwoord vergeet?
 login_use_cookie:Gebruik "kookies" <br /><span class="SmallText">Indien u 'n publieke terminaal soos 'n PC in 'n biblioteek, skool of Internet-kafee gebruik, word u aangeraai om die opsie af te skakel vir beter veiligheid.<br />Indien u die opsie kies, sal u voortaan outomaties by die forum aangeteken word.</span>
@@ -579,7 +579,7 @@ buddy_list_err_ignore:U kan nie gebruikers wat u ignoreer by u vriendelys byvoeg
 buddy_list_update:Besigtig jou vriendelys
 core_err_invinp_title:Ongeldige invoer
 core_err_invinp_err:U het 'n ongeldige skakel gevolg. Laat asseblief die <a href="mailto:{GVAR: ADMIN_EMAIL}">webmeester</a> weet hoe u hier gekom het.
-core_adm_login_msg:Administrateurs kan <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">hier</a> aanteken
+core_adm_login_msg:Administrateurs kan <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">hier</a> aanmeld.
 email_err_unabletoemail_title:FOUT: nie in staat om epos te stuur nie
 email_err_unabletoemail_msg:Die administrateur het die epos-stelsel gedeaktiveer.
 email_error_unabletolocaddr:Jammer, die stelsel was nie in staat om {VAR-HTML: _POST['tx_name']} te epos nie omdat die e-posadres nie gevind kon word nie
@@ -868,7 +868,7 @@ poll_edit:Wysig
 register_err_not_valid_img:Die gespesifiseerde URL bevat nie 'n geldige foto nie.
 pmsg_recepient:ontvanger
 register_err_taken_alias:Die alias wat u gekies het word reeds deur 'n ander forumlid gebruik, kies asseblief 'n ander alias.
-register_alias:Alias
+register_alias:Alias:
 register_alias_desc:Indien u 'n bynaam eerder as u gebruikersnaam op die forum wil vertoon, vul dit dan hier in.
 register_allow_pm_msg:Laat privaatboodskappe toe
 register_allow_pm_msg_desc:Laat ander gebruikers toe om aan u privaatboodskappe deur die forum te stuur.
@@ -954,7 +954,7 @@ thread_printable_pdf:Genereer PDF-dokument
 thread_syndicate:XML-voer
 reg_conf_title:Bevestiging van registrasie
 reg_conf_email:<b>E-posbevestiging</b><br />'n E-pos is aan u gestuur met 'n spesiale URL waarop u moet kliek voordat u rekening geaktiveer sal word. Indien u nie die e-pos binne 'n paar minute ontvang nie, meld aan en maak seker dat die e-posadres wat u verskaf het geldig is. Sodra u u rekening bevestig het, sal u al die funksies wat aan geregistreerde lede toegeken is kan uitvoer.
-reg_conf_account:<b>Rekeningbevestiging</b><br />U rekening moet deur 'n administrateur goedgekeur word alvorens dit geaktiveer kan word. Sodra dit gebeur sal u 'n e-pos ter bevestiging ontvang. Tot dan sal u na u rekening kan aanteken, maar u sal nie funksies wat aan geregistreerde lede toegeken is kan uitvoer nie.
+reg_conf_account:<b>Gebruikersbevestiging</b><br />U gebruiker moet deur 'n administrateur goedgekeur word alvorens dit geaktiveer sal word. Sodra dit gebeur sal u 'n e-pos ter bevestiging ontvang. Tot dan sal u met u gebruiker kan aanmeld, maar u sal nie funksies wat aan geregistreerde lede toegeken is kan uitvoer nie.
 forum_banned_user:U optrede het veroorsaak dat u permanent van die webwerf geblokkeer is. Vaarwel!
 mnav_description:Boodskapnavigasie
 mnav_date_limit:Periode:
@@ -1070,7 +1070,7 @@ sml_emoticon:Emotikon
 sml_code:Kode
 mnav_sub_only:Soek slegs deur forums waarop ek ingeskryf het.
 register_topics_per_page:Onderwerpe per bladsy:
-login_min_time:Die forum laat slegs een aanteken elke {VAR: MIN_TIME_BETWEEN_LOGIN} sekondes toe. Wag asseblief {FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)} sekondes voor u weer probeer.
+login_min_time:Die forum laat slegs een aanmelding elke {VAR: MIN_TIME_BETWEEN_LOGIN} sekondes toe. Wag asseblief {FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)} sekondes voor u weer probeer.
 post_not_logged_in:U is nie tans aangeteken nie, die boodskap sal anoniem gepos word.
 post_common_bold:Vet
 post_common_italics:Kursief
