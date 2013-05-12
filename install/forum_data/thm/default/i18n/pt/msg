@@ -12,7 +12,7 @@
 # Author: Naudefj
 # Author: Waldir
 
-action:Acção
+action:Ação
 add_to_buddy_list:Adicionar à lista de amigos
 admin:Admin
 admin_control_panel:Administração
@@ -234,7 +234,7 @@ referals_none:Ainda sem indicações.
 referals_refered_by:Membros do forum indicados por: <b><a href="{TEMPLATE: referals_refered_by_lnk}" class="thLnk">{VAR: p_user[1]}</a></b>
 referals_post_count:Contador de posts
 referals_registered_on:Registado em
-referals_action:Acção
+referals_action:Ação
 pmsg_all:todos
 pmsg_none:nenhum
 folder:Pasta:
@@ -243,7 +243,7 @@ pmsg_forwarded:reencaminhado
 pmsg_subject:Assunto
 pmsg_author:Autor
 pmsg_time:Hora
-pmsg_selected:Seleccionado
+pmsg_selected:Selecionado
 pmsg_delete:Apagar
 cur_ppage_pm:Mensagens privadas
 writing_pm:Escrever uma mensagem privada
@@ -296,7 +296,7 @@ finduser_no_such_user:Esse utilizador não existe
 finduser_user:Utilizador
 finduser_postcount:Contador de posts
 finduser_joindate:Data de adesão
-finduser_action:Acção
+finduser_action:Ação
 yes:Sim
 no:Não
 register_email:Email
@@ -694,7 +694,7 @@ ERR_login_msg2:<legend>ERRO: Você não está autenticado</legend>Para aceder a 
 ERR_disabled_ttl:Possibilidade desabilitada
 ERR_disabled_msg:Esta funcionalidade foi desactivada pelo administrador do sistema.
 ERR_access_ttl:ERRO: Permissões insuficientes
-ERR_access_msg:Você não tem as permissões necessárias para executar esta acção.
+ERR_access_msg:Você não tem as permissões necessárias para executar esta ação.
 ERR_registration_disabled_ttl:Registo de utilizadores desabilitado
 ERR_registration_disabled_msg:O administrador desabiliotu o registo de utilizadores novos, por favor tenta mais tarde
 ERR_emailconf_ttl:ERRO: A sua conta ainda não está confirmada
@@ -752,7 +752,7 @@ groupmgr_no_user:Não há nenhum utilizador com login de "{FUNC: char_fix(htmlsp
 groupmgr_already_exists:Utilizador "{FUNC: char_fix(htmlspecialchars($gr_member))}" já existe neste grupo.
 groupmgr_yes:Sim
 groupmgr_no:Não
-groupmgr_action:Acção
+groupmgr_action:Ação
 groupmgr_member:Membro
 groupmgr_cancel:Cancelar
 groupmgr_add_member:Adicionar Membro
@@ -790,7 +790,7 @@ rate_worst:Pior
 rate_best:Melhor
 post_quote_msg:{VAR: msg->login} escreveu em {TEMPLATE: make_report_date}
 post_quote:- Disse - :
-post_quote_selected:Citar o texto seleccionado
+post_quote_selected:Citar o texto selecionado
 userinfo_referals:Utilizadores Referidos:
 userinfo_referals_count:{VAR: referals} Membros
 pm_no_space_title:Não há espaço suficiente!
@@ -889,7 +889,7 @@ polllist_name:Nome do Comentário
 polllist_date:Criado Em
 polllist_owner:Criado Por
 polllist_votes:Total de Votos
-polllist_action:Acção
+polllist_action:Ação
 polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">A ver Comentários Disponiveis</a>
 userinfo_polls:Comentários:
 show_pollist:Mostrar Comentários
