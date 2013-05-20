@@ -422,7 +422,7 @@ coppa_after:Na {TEMPLATE: coppa_date}
 coppa_link:Kliek op die skakel wat ooreenstem met u geboortedatum
 coppa:<p>U voog moet via faks of e-pos toestemming na die administrateur van die forum stuur alvorens gebruikers jonger as 13 toegelaat mag word om te registreer.</p><p>Vir meer inligting kontak <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a></p>.
 prereg_info:Informasie
-prereg_agree:Akoord
+prereg_agree:Ek gaan akkoord
 prereg_disagree:Stem nie saam nie
 prereg_update:Lees die forum se reëls
 coppa_fax_instructions:Instruksies vir die voog

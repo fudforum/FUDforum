@@ -32,7 +32,7 @@ email_user:利用者にメールを送信
 faq:ヘルプ
 first_unread_msg:未読メッセージに移動
 first_unread_msg_desc:このトピックの一つ目の未読メッセージに移動します
-flat_view:デフォルトのフラット表示に戻る
+flat_view:既定のフラット表示に戻る
 forum:フォーラム:
 forum_icon:フォーラムアイコン
 forum_new_messages:新規メッセージ
@@ -66,7 +66,7 @@ locked:ロック済み
 locked_with_new_posts:ロック済み (未読メッセージあり)
 logged_in_list:ログイン済み利用者一覧
 login:ログイン
-login_header:ログイン:
+login_header:ログイン名:
 logout:ログアウト
 mark_all_read:すべてのメッセージを既読にする
 mark_all_read_desc:すべての未読メッセージを既に読んだことにします
@@ -125,7 +125,7 @@ posts_c:メッセージ数:
 prev_thread:前のトピック:
 usrinfo_private_message:プライベートメッセージ:
 profile:コントロール パネル
-profile_desc:利用者コントロールパネルにアクセス
+profile_desc:利用者コントロール パネルにアクセス
 rate_thread:トピックの評価
 rating:レーティング
 rating_track:トピック「<b>{VAR: thr->subject}</b>」のレーティングを管理する:
@@ -282,7 +282,7 @@ register_tree_view:メッセージとトピックの一覧ともにツリー表�
 register_msg_tree_view:トピック一覧はフラット表示、メッセージ一覧はツリー表示
 register_tree_msg_view:トピック一覧はツリー表示、メッセージ一覧はフラット表示
 register_flat_view:メッセージとトピックの一覧ともにフラット表示
-use_forum_default:フォーラムのデフォルトを使用
+use_forum_default:フォーラムの既定値を使用
 finduser_user_info:利用者情報
 finduser_by_login:ログイン名:
 finduser_submit:検索
@@ -296,28 +296,28 @@ no:いいえ
 register_email:メール
 edit_time_limit:<b>編集時間制限</b>: {GVAR: EDIT_TIME_LIMIT} 分
 no_edit_time_limit:<b>編集時間制限</b>: 無制限
-pmuserloc_login:ログイン:
+pmuserloc_login:ログイン名:
 pmuserloc_submit:送信
 pmuserloc_user:利用者
 pmuserloc_no_result:結果なし
 register_builtin:組み込み
 register_specify_url:URL を指定
 register_uploaded:アバターをアップロード
-register_login:ログイン:
+register_login:ログイン名:
 register_password:パスワード:
-register_conf_pass:パスワード確認:
+register_conf_pass:パスワード (確認):
 register_email_desc:正しいメールアドレスを入力してください。下の設定セクションでこれを非公開にできます。
 register_name:名前:
-register_your_pass:あなたのパスワード:
+register_your_pass:パスワード:
 register_update:更新
 register_avatar_type:アバタータイプ:
 register_del_avatar:アバター削除
 register_avatar:アバター:
 register_sel_avatar:アバター選択
-register_custom_avatar_rules:カスタム・アバターは管理者の承認を受けるまで表示されません。<br /><span class="SmallText">アバターは<b>{GVAR: CUSTOM_AVATAR_MAX_DIM} ピクセル</b>以下の大きさで、<b>jpg</b>、 <b>gif</b> または <b>png</b> 形式である必要があります。</span>
-register_custom_avatar_url:カスタムアバター URL:
+register_custom_avatar_rules:カスタム アバターは、管理者に承認されるまで表示されません。<br /><span class="SmallText">アバターは <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} ピクセル</b>以下の大きさで、<b>jpg</b>、<b>gif</b>、<b>png</b> のいずれかの形式である必要があります。</span>
+register_custom_avatar_url:カスタム アバターの URL:
 register_preview:プレビュー
-register_custom_avatar_upload:カスタムアバターファイル:
+register_custom_avatar_upload:カスタム アバター ファイル:
 register_register:登録
 register_required:必須情報
 register_required_desc:すべて必須項目です。パスワードは英大小文字を区別することを注意してください。
@@ -344,7 +344,7 @@ register_prefs:設定
 register_sig:署名:
 register_sig_desc:署名を設定すると、あなたのメッセージの末尾に表示されるようになります。
 register_reset:リセット
-register_def_thread_view:デフォルトのトピック表示:
+register_def_thread_view:既定のトピック表示:
 register_msg_per_page:ページ毎のメッセージ数:
 register_show_sig:署名を表示:
 register_show_sig_desc:フォーラムの他のメンバーの署名を表示するかどうか選択することができます
@@ -418,7 +418,7 @@ post_cancel_btn:キャンセル
 ignore_users:無視している利用者の一覧
 add_ignore:無視する利用者を追加する
 forum_terms:フォーラム用語
-forum_rules:<p>このフォーラムへの登録は自由です! 利用者には下記の規則と方針に従うことが要求されます。利用規約に同意する場合は、ページの終わりの「<b>同意する</b>」ボタンを押してください。注: ボタンを押すことによって、あなたは自分が14歳以上であることを宣言します。あなたが13歳以下である場合は、この登録用紙を使用してください。</p><p>フォーラム管理者およびモデレーターは、フォーラム内に不適切なメッセージが掲載されないように努力しますが、メッセージすべてを監視することはできません。各メッセージはすべて投稿者の意見を表現したものであり、フォーラム所有者および開発者は、いかなるメッセージの内容にも責任を負いません。</p><p>「同意する」ボタンをクリックすることで、あなたは、卑猥、性的、差別的、脅迫的、そのほか法に違反するメッセージを投稿しないと保証したことになります。</p><p>フォーラム所有者は、任意の理由でいかなるトピックも削除、編集、移動、あるいは閉鎖する権利を保持します。</p>
+forum_rules:<p>このフォーラムへの登録は自由です! 利用者は下記の規則と方針に従う必要があります。利用規約に同意する場合は、ページの末尾の「<b>同意する</b>」ボタンを押してください。注: ボタンを押すことで、あなたは自分が14歳以上であることを宣言したと見なします。あなたが13歳以下の場合は、この登録フォームを使用してください。</p><p>フォーラム管理者およびモデレーターは、フォーラム内に不適切なメッセージが掲載されないように努力しますが、メッセージすべての監視はできません。各メッセージはすべて投稿者の意見を表現したものであり、フォーラム所有者および開発者は、いかなるメッセージの内容にも責任を負いません。</p><p>「同意する」ボタンをクリックすることで、あなたは、卑猥、性的、差別的、脅迫的、その他、法に違反するメッセージを投稿しないと保証したと見なします。</p><p>フォーラム所有者は、任意の理由でいかなるトピックも削除、編集、移動、あるいは閉鎖する権利を保持します。</p>
 forum_rules_13:<p>13歳以下の利用者はフォーラムへの参加資格を得るために保護者からの許可が必要です。13歳以下の参加者を歓迎しますが、参加資格を与えるためには、保護者が許可証用紙に署名してファックスか郵便にて送付する必要があります。</p><p>当方に許可証が届く前に登録手続きを始めたい場合は、下の「<b>同意する</b>」ボタンを押してください。登録を取り止めたい場合は、「<b>同意しない</b>」ボタンを押してフォーラムの一覧に戻ってください。</p><p>許可証用紙はここでダウンロードできます。登録手続きについてさらに詳しく知りたい場合は、<a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> にメールを送信してください。</p>
 coppa_conf:COPPA 確認
 coppa_before:{TEMPLATE: coppa_date} 以前
@@ -452,7 +452,7 @@ login_perm_denied:匿名利用者であるため、あなたは要求された�
 login_want_to_register:登録しませんか?
 login_forgot_passwd:パスワードを忘れました
 login_use_cookie:Cookie を使用する<br /><span class="SmallText">図書館や学校、インターネットカフェにあるコンピューターなど、公衆端末を使用している場合、セキュリティーを高めるためにこのオプションは選択しないことをお勧めします。<br />このオプションを選択しておくと、次回の訪問時にフォーラムに自動的にログインされます。</span>
-login_login:ログイン:
+login_login:ログイン名:
 login_login_btn:ログイン
 login_name_required:ログイン名が必要です。
 login_passwd_required:パスワードが必要です。
@@ -469,7 +469,7 @@ rpasswd_change_pass:パスワードを変更
 rpasswd_login:ログイン
 rpasswd_cur_pass:現在のパスワード:
 rpasswd_new_pass:新しいパスワード:
-rpasswd_conf_pass:パスワード確認:
+rpasswd_conf_pass:パスワード (確認):
 ruser_title:ログイン名変更フォーム
 ruser_change_user:フォーラムでのログイン名を変更します
 ruser_cur_login:現在のログイン名:
@@ -491,7 +491,7 @@ search_forum:フォーラム
 search_posted_on:投稿日
 search_no_results:結果なし
 search_all_forums:すべてのフォーラムを検索
-search_in_forum:このフォーラムを検索:
+search_in_forum:検索するフォーラム:
 search_forum_search:フォーラム検索
 move_thread_to:トピック「<b>{VAR: thr->subject}</b>」を次へ移動:
 remail_email_topic:友達にこのトピックをメールで送信
@@ -721,7 +721,7 @@ post_opt_images_off:<b>画像</b>は<b>無効</b>です
 post_opt_smilies_off:<b>絵文字</b>は<b>無効</b>です
 post_opt:フォーラムオプション:
 register_change_passwd:パスワードを変更
-register_change_login:ログイン名変更
+register_change_login:ログイン名を変更
 approved_avatar_title:カスタムアバターは承認されました。
 approved_avatar_msg:あなたのアバターは管理者に承認されました。それはあなたのすべてのメッセージにアバターとして表示されるはずです。それが見えないか、古いアバターが見えるのは、ブラウザーがページをキャッシュしているからです。ページを1・2回再読み込みしてみてください。ほとんどの場合、これでキャッシュ問題が解決するでしょう。
 unapproved_avatar_title:カスタムアバターは拒否されました。
@@ -828,7 +828,7 @@ split_th_split_unsel:未選択メッセージを分割
 split_th_messages:メッセージ数
 split_th_select:選択
 report_report_post:メッセージ報告
-quicklogin_login:ログイン:
+quicklogin_login:ログイン名:
 quicklogin_password:パスワード:
 quicklogin_use_cookies:Cookie を使用しますか?
 quicklogin_login_btn:ログイン
@@ -892,9 +892,9 @@ search_or:論理和
 search_desc_order:降順
 search_asc_order:昇順
 search_logic:検索ロジック:
-search_sorting:日付で次の結果をソート:
+search_sorting:結果の日時の並び順:
 search_attach:添付:
-search_attach_all:あり/なし
+search_attach_all:不問
 search_attach_with:添付あり
 post_proceed:続行
 post_moderated_forum:あなたはモデレーションがあるフォーラムに投稿をしました。あなたのメッセージはフォーラムのモデレーターあるいは管理者の誰か1人によって承認されるまで、他の利用者に公開されません。
@@ -957,7 +957,7 @@ post_mod_msg_notify_msg:新規メッセージ「{VAR: msg_post->subject}」が�
 thread_printable_pdf:印刷用 PDF を生成する
 thread_syndicate:このフォーラムを配信する (XML)
 reg_conf_title:登録確認
-reg_conf_email:<b>メール確認</b><br />アカウントを有効化する前にアクセスする必要がある特別な URL を含んだメールが、あなたの元へ送信されました。数分でこのメールが届かない場合は、あなたのアカウントにログインして、指定したメールアドレスが正確なものであるか確認してください。一度アカウントを確認すれば、確認が完了した登録利用者にのみ利用可能なフォーラム機能を利用することができます。
+reg_conf_email:<b>メールアドレスの確認</b><br />特別な URL を含んだメールをあなたにお送りしました。アカウントを有効にするには、メール内の URL をクリックする必要があります。数分経ってもこのメールが届かない場合は、あなたのアカウントにログインして、指定したメールアドレスが正しいか確認してください。一度アカウントを確認すれば、確認済みの登録利用者のみが利用できるフォーラム機能を利用できます。
 reg_conf_account:<b>アカウント確認</b><br />あなたのアカウントが有効になる前に、管理者によって承認される必要があります。それが完了すれば、あなたのアカウントが承認されたということを知らせるメールが届きます。承認の完了前でもアカウントにはログインできますが、一部に利用できない機能があります。
 forum_banned_user:以前の行為によって、あなたはこのフォーラムへ永久に入室禁止になるという結果になりました。さようなら。
 mnav_description:メッセージナビゲーター
@@ -990,13 +990,13 @@ findu_delete:削除
 dmsg_reply_to:は次のメッセージへの返信です:
 dmsg_reply_num:#{VAR: obj->reply_to}
 merge_topics:トピック統合
-merge_topics_cp:トピック統合コントロールパネル
+merge_topics_cp:トピック統合コントロール パネル
 merge_topics_tpl:統合するトピックを選択します<span class="SmallText">(複数のトピックを選択しなければなりません)</span>
 merge_merge:選択したトピックを統合
 merge_next:次のトピック一覧
 merge_prev:前のトピック一覧
 merge_another:<a href="{TEMPLATE: merge_another_lnk}">最後に統合されたトピック</a>を表示、または別のトピックを統合:
-split_cp:トピック分割コントロールパネル
+split_cp:トピック分割コントロール パネル
 groups_perms_header:許可権限一覧 <span class="small">(マウスを上に乗せるとその許可権限の種類を参照できます)</span>
 register_err_sig_too_long:あなたの署名は許可された最大長である {GVAR: FORUM_SIG_ML}文字を超えています。
 register_sig_limit:{GVAR: FORUM_SIG_ML} 文字<a href="javascript: alert('あなたの署名の長さは '+document.forms['fud_register'].reg_sig.value.length+'文字です。許可された最大長は {GVAR: FORUM_SIG_ML}文字です。');" class="SmallText">署名の長さを検査</a>
@@ -1034,12 +1034,12 @@ ip_no_whois:<b>{VAR: ip}</b> の WHOIS 情報は利用できません。
 ip_whois_title:ISP 情報
 register_theme:テーマ:
 pmsg_trash:ごみ箱を空に
-uc_new_pm:新規プライベートメッセージ一覧
+uc_new_pm:新着プライベート メッセージ
 uc_new_topic:新規トピック
-uc_new_cat_forum:購読中フォーラムの新規メッセージ一覧
+uc_new_cat_forum:新着メッセージがある購読中フォーラム
 uc_cat_forum:カテゴリ &raquo; フォーラム
-uc_sub_topics:購読中トピックの新規メッセージ一覧
-uc_page_title:個人コントロールパネルを表示中
+uc_sub_topics:新着メッセージがある購読中トピック
+uc_page_title:個人コントロール パネルを表示中。
 search_options:検索オプション
 search_user_filter:利用者で絞り込み:
 register_none:通知しない
@@ -1097,7 +1097,7 @@ post_always_on_top:このトピックが常にトピック一覧の先頭にく�
 topic_rating:{PLURAL: frm->n_rating|$1票}中{VAR: frm->rating}票
 topic_list_rating:{PLURAL: r[21]|$1票}中{VAR: r[17]}票
 tabs_notifications:通知
-finduser_flag:フラグ
+finduser_flag:国旗
 post_descr:トピック説明:
 pmsg_on:投稿日:
 pmsg_download_dump:メッセージ・ダンプのダウンロード
