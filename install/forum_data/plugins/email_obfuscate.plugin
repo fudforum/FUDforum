@@ -1,0 +1,127 @@
+<?php
+/** 
+* email                : info@truthinit.com
+* $Id: email_obfuscate.plugin 2013-05-21 23:42:41Z truthinit.com $
+*
+* This program is free software; you can redistribute it and/or modify it
+* under the terms of the GNU General Public License as published by the
+* Free Software Foundation; version 2 of the License.
+**/
+
+// Initialize plugin.
+plugin_add_hook('POST_TEMPLATE', 'plugin_email_obfuscate');
+
+// Prepare for obfuscate output
+function plugin_email_obfuscate($data) {
+	if( $_GET['t'] != 'post' ){
+		if ( !file_exists(@$GLOBALS['PLUGIN_PATH'] .'email_obfuscate.ini') ) {
+			die('ERROR: The Email Obfuscate plugin has not been configured.');
+		} else {
+			include @$GLOBALS['PLUGIN_PATH'] .'email_obfuscate.ini';
+	        }
+
+        	return extract_email($data, $ini['EMAIL_OBFUSCATE_AT_SYNTAX'], $ini['EMAIL_OBFUSCATE_DOT_SYNTAX'], $ini['EMAIL_OBFUSCATE_ALPHA_LENGTH_SYNTAX'] ); 
+	} else {
+		return $data;
+	}        
+}
+
+// Obfuscate email
+function extract_email($data, $at_replaceby, $dot_replaceby, $random_length) {
+
+	// Possibilities of @
+	$at_to_replace = array('&amp;#64;', '&#64;', '@');
+
+	// Pattern matching e-mail
+	$pattern = "/\b(?:[a-z0-9!#$%&'*+=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+=?^_`{|}~-]+)*|\"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*\")(@|\&amp;#64;|\&#64;)(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])\b/i";
+
+	preg_match_all($pattern, $data, $matches);
+
+	$random_string = generate_random_alphanumeric($random_length);
+
+	for($email_count=0; $email_count<count($matches[0]); $email_count++) {
+		// Replace the @ 
+		$match   = str_replace($at_to_replace, $random_string.$at_replaceby.$random_string, $matches[0][$email_count]); 
+
+		// Replace the .
+		$match   = str_replace('.', $random_string.$dot_replaceby.$random_string, $match); 
+
+		$data    = str_replace($matches[0][$email_count], $match, $data);
+	}
+
+	return $data;
+}
+
+// Generate the random aplha numeric character.
+function generate_random_alphanumeric( $string_length ) {
+	$characters = '123456789abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  
+	// Validate the string length
+	if ($string_length == 'random') $string_length = rand(1, 3);
+
+	$string = '';
+	for ($i = 0; $i<$string_length; $i++) {
+		$string .= $characters[rand(0, strlen($characters) - 1)];
+	}
+
+	return $string;
+}
+
+function email_obfuscate_info() {
+	return array('name' => 'Email Obfuscate',
+				'desc' => 'Obfuscate Email',
+				'cat'  => 'Third-party Integration',
+				'version' => '1.0.2');
+}
+
+function email_obfuscate_enable() {
+	if((@include_once $GLOBALS['PLUGIN_PATH'] .'email_obfuscate.ini') === false) {
+		return array(null, 'Please configure the email_obfuscate plugin before enabling it.');	// OK, Err.
+	}
+}
+
+function email_obfuscate_config() {
+	if((@include $GLOBALS['PLUGIN_PATH'] .'email_obfuscate.ini') === false) {
+		$ini = NULL;
+	}
+
+	if (isset($_POST['Set'])) {
+		foreach (array_keys($_POST) as $key) {
+			if (substr($key, 0 ,15) == 'EMAIL_OBFUSCATE') {
+				$ini[$key] = trim($_POST[$key]);
+			}
+		}
+		$fp = fopen($GLOBALS['PLUGIN_PATH'] .'email_obfuscate.ini', 'w');
+		fwrite($fp, '<?php $ini = '. var_export($ini, 1) .'; ?>');
+		fclose($fp);
+		pf(successify('Settings successfully saved.'));
+	}
+	?>
+
+<p>E-mail Obfuscation Syntax</p>
+<p>There are a variety of scenarios where forum users' e-mail addresses could be put into a forum post.  They tend to object to that because of spammers that like to scrape websites for e-mail addresses they can spam.  The point of this plugin is to make it much more difficult for someone to do that from your forum by obfuscating in a random way any e-mail addresses, but to allow a human to get the e-mail address if they really need to.</p>
+
+<p>Toward that end, this plugin will find e-mail addresses, replace the '@' sign and any ".' values with what you specify below, and surround both with a random string of the length you specify below. The length of the string can be a random number from 1-3, and this is the default behavior.  You can also choose no random string, or an integer from 1-3. For example, instead of displaying the e-mail address curtis@info.com, it will display curtis456-AT-456-info456-DOT-456com, where 456 is a random string that changes every time.</p>
+
+
+<p><input name="EMAIL_OBFUSCATE_AT_SYNTAX" default="at" value="<?php echo $ini['EMAIL_OBFUSCATE_AT_SYNTAX']; ?>" size="60" /><br />
+<font size="-1">Specify what to display instead of the '@' sign.</font></p>
+
+<p><input name="EMAIL_OBFUSCATE_DOT_SYNTAX" default="dot" value="<?php echo $ini['EMAIL_OBFUSCATE_DOT_SYNTAX']; ?>" size="60" /><br />
+<font size="-1">Specify what to display instead of a '.'</font></p>
+
+<p>
+<select name="EMAIL_OBFUSCATE_ALPHA_LENGTH_SYNTAX" default="random">
+    <option selected="selected" value="random">Random Length from 1-3</option>
+    <option value="0">No Random String</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+</select><br />
+<font size="-1">Length of Random String inserted around above values. (Default is to insert a random number (1-3) of random values, thus making scraping nearly impossible.) </font></p>
+
+
+<?php
+}
+
+?>
