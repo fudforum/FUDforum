@@ -311,7 +311,7 @@ register_specify_url:Especificar URL
 register_uploaded:Adicionar Avatar
 register_login:Utilizador:
 register_password:Senha:
-register_conf_pass:Confirmar Password:
+register_conf_pass:Confirmar senha:
 register_email_desc:Por favor tem de introduzir um endereço de E-mail válido. Pode escolher ocultar o email na secção preferências.
 register_name:Nome:
 register_your_pass:A sua Palavra-chave:

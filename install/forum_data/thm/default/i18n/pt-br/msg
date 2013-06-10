@@ -298,7 +298,7 @@ register_email:Email
 edit_time_limit:<b>Limite de tempo de edição</b>: {GVAR: EDIT_TIME_LIMIT} minutos
 no_edit_time_limit:<b>Limite de tempo de edição</b>: Ilimitado
 pmuserloc_login:Usuário:
-pmuserloc_submit:Submeter
+pmuserloc_submit:Enviar
 pmuserloc_user:Usuário
 pmuserloc_no_result:Sem resultado
 register_builtin:Embutido
@@ -470,7 +470,7 @@ rpasswd_change_pass:Alterar senha
 rpasswd_login:Usuário
 rpasswd_cur_pass:Senha atual:
 rpasswd_new_pass:Nova Senha:
-rpasswd_conf_pass:Confirma Senha:
+rpasswd_conf_pass:Confirmar senha:
 ruser_title:Formulário de alteração de login
 ruser_change_user:Alterar seu login no fórum
 ruser_cur_login:Identificação atual:
@@ -739,7 +739,7 @@ thr_exch_orig_forum:Fórum original:
 thr_exch_dest_forum:Fórum de destino:
 thr_exch_no_threads:Não há tópicos à espera de aprovação.
 thr_exch_decl_reason:Razão para recusa de tópico <b>{VAR: data->subject}</b> into forum <b>{VAR: data->f2_name}</b>
-thr_exch_submit:Submeter
+thr_exch_submit:Enviar
 exch_decline_ttl:A mudança de tópico {VAR: data->subject} no fórum {VAR: data->f2_name} foi recusada.
 ppost_original_msg:mensagem que está encaminhando ou repondendo a
 split_thread:Dividir Tópico
