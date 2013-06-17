@@ -63,7 +63,7 @@ locked_with_new_posts:Candáu (con mensaxes ensin lleer)
 logged_in_list:Llista d'usuarios coneutaos
 login:Entrar
 login_header:Aniciu de sesión:
-logout:Colar
+logout:Salir
 mark_all_read:Marcar tolos mensaxes como lleíos
 mark_all_read_desc:Tolos mensaxes ensin lleer se marcarán como lleíos
 members:Miembros
@@ -378,7 +378,7 @@ edit_message:Aplicar los cambios al mensaxe
 apply_spell_changes:Aplicar los cambios ortográficos
 post_preview:Vista previa del mensaxe
 post_logedin_user:Usuariu coneutáu:
-post_logout:colar
+post_logout:salir
 post_passwd:Conseña de publicación:
 post_poll:Encuesta:
 post_create_poll:CREAR ENCUESTA
