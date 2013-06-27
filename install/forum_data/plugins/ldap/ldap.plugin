@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -29,7 +29,11 @@ function plugin_ldap_auth() {
 	if (defined('fud_debug')) {
 		ldap_set_option(NULL, LDAP_OPT_DEBUG_LEVEL, 7);
 	}
-	$connection = ldap_connect($ini['LDAP_HOST'], $ini['LDAP_PORT']);
+	if ($ini['LDAP_SSL'] == '1') {
+		$connection = ldap_connect('ldaps://'. $ini['LDAP_HOST'] .':'. $ini['LDAP_PORT']);
+	} else {
+		$connection = ldap_connect($ini['LDAP_HOST'], $ini['LDAP_PORT']);
+	}
 
 	if (!$connection) {
 		echo 'Unable to connect to an LDAP server. Contact the forum administrator! (Debug 1)';
@@ -118,7 +122,7 @@ function ldap_info() {
 	return array('name' => 'LDAP Authentication',
 	             'desc' => 'Authenticate forum users from an LDAP server. You may want to disable "<i>Allow Registration</i>" from the <i>Global Settings Manager</i> after enabling this plugin.',
 		     'cat'  => 'Authentication',
-		     'version' => '1.3');
+		     'version' => '1.4');
 }
 
 function ldap_enable() {
@@ -158,6 +162,10 @@ function ldap_config() {
 <p>Enable TLS (Transport Layer Security) mode:<br />
 <label><input type="radio" name="LDAP_START_TLS" value="1" <?php echo $ini['LDAP_START_TLS'] ? 'checked="checked"' : '' ?> /> True<br /></label>
 <label><input type="radio" name="LDAP_START_TLS" value=""  <?php echo $ini['LDAP_START_TLS'] ? '' : 'checked="checked"' ?> /> False</label></p>
+
+<p>Use LDAP+SSL (LDAPS):<br />
+<label><input type="radio" name="LDAP_SSL" value="1" <?php echo $ini['LDAP_SSL'] ? 'checked="checked"' : '' ?> /> True<br /></label>
+<label><input type="radio" name="LDAP_SSL" value=""  <?php echo $ini['LDAP_SSL'] ? '' : 'checked="checked"' ?> /> False</label></p>
 
 <p>Is the LDAP server case insensitive (like Active Directory):<br />
 <label><input type="radio" name="LDAP_CASE_INSENSITIVE" value="1" <?php echo $ini['LDAP_CASE_INSENSITIVE'] ? 'checked="checked"' : '' ?> /> True<br /></label>
