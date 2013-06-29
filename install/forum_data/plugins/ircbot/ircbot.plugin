@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id: irc.plugin 5354 2011-08-20 08:42:41Z naudefj $
 *
@@ -81,17 +81,31 @@ function ircbot_config() {
 		}
 	}
 	?>
-<p>IRC server name:<br />
+<p>IRC server hostname:<br />
 <input name="IRCBOT_HOST" value="<?php echo $ini['IRCBOT_HOST'] ?>" size="50" /></p>
 
-<p>IRC port (normally 6667):<br />
+<p>Use SSL to connect to the IRC server?<br />
+<label><input type="radio" name="IRCBOT_USESSL" value="1" <?php echo $ini['IRCBOT_USESSL'] ? 'checked="checked"' : '' ?> /> True<br /></label>
+<label><input type="radio" name="IRCBOT_USESSL" value=""  <?php echo $ini['IRCBOT_USESSL'] ? '' : 'checked="checked"' ?> /> False</label></p>
+
+<p>IRC port (normally 6667, or 6697 when using SSL):<br />
 <input name="IRCBOT_PORT" value="<?php echo intval($ini['IRCBOT_PORT']) ?>" size="5" /></p>
 
 <p>Bot's nick:<br />
 <input name="IRCBOT_NICK" value="<?php echo $ini['IRCBOT_NICK'] ?>" size="20" /></p>
 
+<p>Bot's gecos (real name):<br />
+<input name="IRCBOT_GECOS" value="<?php echo $ini['IRCBOT_GECOS'] ?>" size="20" /></p>
+
 <p>Channel to join:<br />
 <input name="IRCBOT_CHANNEL" value="<?php echo $ini['IRCBOT_CHANNEL'] ?>" size="20" /></p>
+
+<p>Identify with NickServ?<br />
+<label><input type="radio" name="IRCBOT_USENICKSERV" value="1" <?php echo $ini['IRCBOT_USENICKSERV'] ? 'checked="checked"' : '' ?> /> True<br /></label>
+<label><input type="radio" name="IRCBOT_USENICKSERV" value=""  <?php echo $ini['IRCBOT_USENICKSERV'] ? '' : 'checked="checked"' ?> /> False</label></p>
+
+<p>NickServ password:<br />
+<input name="IRCBOT_NICKSERVPASS" value="<?php echo $ini['IRCBOT_NICKSERVPASS'] ?>" size="20" /></p>
 
 	<?php
 }

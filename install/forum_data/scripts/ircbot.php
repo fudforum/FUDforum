@@ -1,7 +1,7 @@
 #!/usr/bin/php -q
 <?php
 /**
-* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -14,7 +14,7 @@
  *  Standalone PHP binary must be compiled with --enable-sockets and --enable-pcntl
  */
 
-// define('fud_debfud_debug', 1);
+// define('fud_debug', 1);
 
 function send_command($cmd, $verbose=true)
 {
@@ -105,16 +105,23 @@ function sig_handler($signo)
 
 	// Connect to IRC server.
 	$server = array();
-	$server['SOCKET'] = fsockopen($ini['IRCBOT_HOST'], $ini['IRCBOT_PORT'], $errno, $errstr, 2);
+	if ($ini['IRCBOT_USESSL']) {
+		$server['SOCKET'] = fsockopen('ssl://' .  $ini['IRCBOT_HOST'], $ini['IRCBOT_PORT'], $errno, $errstr, 2);
+	} else {
+		$server['SOCKET'] = fsockopen($ini['IRCBOT_HOST'], $ini['IRCBOT_PORT'], $errno, $errstr, 2);
+	}
 	if (!$server['SOCKET']) {
 		die("IRC ERROR: $errstr ($errno)<br />");
 	}
 
-	// Login and join channel.
+	// Login, authenticate and join channel.
 	if (!empty($ini['IRCBOT_NICK'])) {
 		send_command('PASS NOPASS');
 		send_command('NICK '. $ini['IRCBOT_NICK']);
-		send_command('USER '. $ini['IRCBOT_NICK'] .' '. $ini['IRCBOT_HOST'] .' bla :'. $FORUM_TITLE);
+		send_command('USER '. $ini['IRCBOT_NICK'] .' '. $ini['IRCBOT_HOST'] .' bla :'. $ini['IRCBOT_GECOS']);
+	}
+	if ($ini['IRCBOT_USENICKSERV']) {
+		send_command('PRIVMSG NickServ :IDENTIFY '. $ini['IRCBOT_NICK'] .' '. $ini['IRCBOT_NICKSERVPASS']);
 	}
 	if (!empty($ini['IRCBOT_CHANNEL'])) {
 		send_command('JOIN '. $ini['IRCBOT_CHANNEL']); // Join the chanel.
