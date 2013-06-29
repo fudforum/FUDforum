@@ -1,7 +1,7 @@
 #!/usr/bin/php -q
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -10,25 +10,34 @@
 * Free Software Foundation; version 2 of the License. 
 **/
 
-/* main */
+ 	/* Prevent session initialization. */
 	define('no_session', 1);
 	define('script', 'mlist');
 
-	if (!ini_get('register_argc_argv')) {
-		exit("Please enable the 'register_argc_argv' php.ini directive.\n");
-	}
-	if ($_SERVER['argc'] < 2) {
-		exit("Please specify the Mailing List identifier parameter.\n");
+	if (ini_get('register_argc_argv')) {
+		// Try to get the Mailing List name/id from command line.
+		if ($_SERVER['argc'] < 2) {
+			exit("Please specify the Mailing List name or id as a command line parameter.\n");
+		}
+		$dir = $_SERVER['argv'][0];
+		$id  = $_SERVER['argv'][1];
+	} else if (isset($_GET['id'])) {
+		// Try to get it via HTTP GET.
+		$dir = '';
+		$id  = $_GET['id'];
+	} else {
+		// Give up.
+		exit("Please specify the Mailing List name or id.\n");
 	}
 
-	if (strncmp($_SERVER['argv'][0], '.', 1)) {
-		require (dirname($_SERVER['argv'][0]) .'/GLOBALS.php');
+	if (strncmp($dir, '.', 1)) {
+		require (dirname($dir) .'/GLOBALS.php');
 	} else {
 		require (getcwd() .'/GLOBALS.php');
 	}
 
 	if (!($FUD_OPT_1 & 1)) {
-		exit("Forum is currently disabled.\n");
+		exit("Forum is currently disabled. Please try again later.\n");
 	}
 
 	fud_use('err.inc');
@@ -55,13 +64,13 @@
 
 	define('sql_p', $DBHOST_TBL_PREFIX);
 
-	if (is_numeric($_SERVER['argv'][1])) {
-		$config = db_sab('SELECT * FROM '. sql_p .'mlist WHERE id='. $_SERVER['argv'][1]);
+	if (is_numeric($id)) {
+		$config = db_sab('SELECT * FROM '. sql_p .'mlist WHERE id='. $id);
 	} else {
-		$config = db_sab('SELECT * FROM '. sql_p .'mlist WHERE name='. _esc($_SERVER['argv'][1]));
+		$config = db_sab('SELECT * FROM '. sql_p .'mlist WHERE name='. _esc($id));
 	}
 	if (!$config) {
-		exit('Invalid mailing list identifier.');
+		exit("The mailing list name or id is incorrect. Please enter it as defined in the ACP.\n");
 	}
 
 	$CREATE_NEW_USERS = $config->mlist_opt & 64;

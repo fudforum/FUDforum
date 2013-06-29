@@ -12,7 +12,6 @@
 
 	@ob_clean();	// Delete prior output in case we run from web.
 
-	@ini_set('memory_limit', '128M');
 	@set_time_limit(0);
 	define('no_session', 1);
 
