@@ -1,6 +1,6 @@
 <?php
 /***************************************************************************
-* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -1322,7 +1322,7 @@ switch ($section) {
 			$COOKIE_DOMAIN = preg_replace('!^www\.!i', '.', $url_parts['host']);
 		}
 
-		dialog_start('Cookie Domain<span class="step">Step 3 of 5</span>', '<p>Enter a Fully Qualified Domain Name (FQDN) of the host itself, or one of its subdomains, or domain it belongs to. Browsers will ignore all cookies that do not satisfy this requirement. For example, if your forum is at http://www.mysite.com/forum, your cookie domain should be <b><i>.mysite.com</i></b>. If you don\'t have a domain yet, enter the servers IP address.</p>');
+		dialog_start('Cookie Domain<span class="step">Step 3 of 5</span>', '<p>Enter a Fully Qualified Domain Name (FQDN) of the host itself, or one of its subdomains, or domain it belongs to. Browsers will ignore all cookies that do not satisfy this requirement. For example, if your forum is at http://www.mysite.com/forum, your cookie domain should be <b><i>.mysite.com</i></b>. If you don\'t have a domain yet, enter the server\'s IP address.</p>');
 		input_row('Cookie Domain', 'COOKIE_DOMAIN', $COOKIE_DOMAIN, 'The domain of the cookie that will be used by the forum.');
 		dialog_end($section);
 		break;

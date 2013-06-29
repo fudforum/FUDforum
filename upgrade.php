@@ -1,6 +1,6 @@
 <?php
 /***************************************************************************
-* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -9,7 +9,7 @@
 * Free Software Foundation; either version 2 of the License.
 ***************************************************************************/
 
-$__UPGRADE_SCRIPT_VERSION = 5304.6;
+$__UPGRADE_SCRIPT_VERSION = 5305.0;
 // define('fud_debfud_debug', 1);
 
 /*
@@ -400,7 +400,7 @@ function cache_avatar_image($url, $user_id)
 
 function syncronize_theme_dir($theme, $dir, $src_thm)
 {
-	$path = $GLOBALS['DATA_DIR'] .'thm/'. $theme .'/'. $dir;
+	$path  = $GLOBALS['DATA_DIR'] .'thm/'. $theme   .'/'. $dir;
 	$spath = $GLOBALS['DATA_DIR'] .'thm/'. $src_thm .'/'. $dir;
 
 	if (!__mkdir($path)) {
@@ -410,7 +410,7 @@ function syncronize_theme_dir($theme, $dir, $src_thm)
 		seterr('Failed to open "'. $spath .'"');
 	}
 	readdir($d); readdir($d);
-	$path .= '/';
+	$path  .= '/';
 	$spath .= '/';
 	while ($f = readdir($d)) {
 		if ($f == '.' || $f == '..') {
@@ -1085,10 +1085,22 @@ pf('<h2>Step 1: Admin login</h2>', true);
 
 	/* Remove obsolete plugin files. */
 	$rm_plugins = array('apc_cache.plugin',	// Renamed to apccache.plugin (3.0.2).
-			    'irc.plugin');	// Renamed to ircbot/ircbot.plugin (3.0.4RC2).
+			    'irc.plugin',	// Renamed to ircbot/ircbot.plugin (3.0.4RC2).
+			    'google_adsense.plugin', // Moved to google/ subdir in 3.0.5
+			    'google_analytics.plugin', // Moved to google/ subdir in 3.0.5
+			    'google_cdn.plugin'); // Moved to subdir google/ in 3.0.5
 	foreach ($rm_plugins as $f) {
 		if (file_exists($GLOBALS['DATA_DIR'] .'plugins/'. $f)) {
 			unlink($GLOBALS['DATA_DIR'] .'plugins/'. $f);
+		}
+	}
+
+	/* Move plugin config files. */
+	$mv_plugins = array('google_adsense.ini', // Moved to google/ subdir in 3.0.5
+			    'google_analytics.ini'); // Moved to google/ subdir in 3.0.5
+	foreach ($mv_plugins as $f) {
+		if (file_exists($GLOBALS['DATA_DIR'] .'plugins/'. $f)) {
+			rename($GLOBALS['DATA_DIR'] .'plugins/'. $f, $GLOBALS['DATA_DIR'] .'plugins/google/'. $f);
 		}
 	}
 
