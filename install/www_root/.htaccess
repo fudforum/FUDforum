@@ -1,3 +1,5 @@
+AddDefaultCharset utf-8
+
 php_value output_buffering 64000
 php_value variables_order GPCS
 php_flag implicit_flush 0
