@@ -36,13 +36,15 @@ function generate_turing_val(&$rt)
 	$rt = md5($captcha);
 
 	if (($GLOBALS['FUD_OPT_3'] & 33554432) && extension_loaded('gd') && function_exists('imagecreate') ) {
+		// Graphical captcha.
 		ses_putvar((int)$GLOBALS['usr']->sid, $captcha);
 		return '{TEMPLATE: image_captcha_link}';
 	} else {
+		// Text based captcha.
 		$bg_fill_chars = array(' ', '.', ',', '`', '_', '\'');
-		$bg_fill = $bg_fill_chars[array_rand($bg_fill_chars)];
+		$bg_fill       = $bg_fill_chars[array_rand($bg_fill_chars)];
 		$fg_fill_chars = array('&#35;', '&#64;', '&#36;', '&#42;', '&#88;');
-		$fg_fill = $fg_fill_chars[array_rand($fg_fill_chars)];
+		$fg_fill       = $fg_fill_chars[array_rand($fg_fill_chars)];
 
 		// Generate turing text.
 		$text = '';

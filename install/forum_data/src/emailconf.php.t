@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -17,7 +17,7 @@
 	}
 
 	/* It is possible that a user may access the email confirmation URL twice, for such a 'rare' case,
-	 * we have this check to prevent a confusing error message being thrown at the hapeless user.
+	 * we have this check to prevent a confusing error message being thrown at the helpless user.
 	 */
 	if (_uid && $usr->users_opt & 131072) {
 		check_return($usr->returnto);
@@ -28,6 +28,7 @@
 		error_dialog('{TEMPLATE: emailconf_err_invkey_title}', '{TEMPLATE: emailconf_err_invkey_msg}');
 	}
 	q('UPDATE {SQL_TABLE_PREFIX}users SET users_opt='. q_bitor(users_opt, 131072) .', conf_key=NULL WHERE id='. $uid);
+//TODO	logaction($uid, 'EMAILCONFIRMED', 0, 'Key='. $_GET['conf_key']);
 
 	if (defined('plugins')) {
 		plugin_call_hook('EMAILCONFIRMED', $usr);

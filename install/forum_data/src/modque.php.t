@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -33,12 +33,13 @@
 
 		if (sq_check(0, $usr->sq)) {
 			if ($appr) {
-				fud_msg_edit::approve($appr);
 				logaction($usr->id, 'APPROVEMSG', $appr);
+				fud_msg_edit::approve($appr);
 			} else if ($del) {
-				fud_msg_edit::delete(false, $del);
 // TODO: Create a new REJECTMSG action?
-				logaction($usr->id, 'DELMSG', $del);
+				$subj = q_singleval('SELECT subject FROM {SQL_TABLE_PREFIX}msg WHERE id='. $del);
+				logaction($usr->id, 'DELMSG', $del, $subj);
+				fud_msg_edit::delete(false, $del);
 			}
 		}
 	}
