@@ -1,8 +1,8 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id$
+* $Id: google_cdn.plugin 5354 2011-08-20 08:42:41Z naudefj $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -16,9 +16,9 @@ plugin_add_hook('COMPILER_FINALIZE_PAGE', 'plugin_google_cdn');
 function plugin_google_cdn($array) {
 	list($html, $page) = $array;
 
-	$html = str_replace('href="js/ui/jquery-ui.css"', 'href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/ui-lightness/jquery-ui.css"', $html);
+	$html = str_replace('href="js/ui/jquery-ui.css"', 'href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/ui-lightness/jquery-ui.css"', $html);
 	$html = str_replace('src="js/jquery.js"', 'src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"', $html);
-	$html = str_replace('src="js/ui/jquery-ui.js"', 'src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"', $html);
+	$html = str_replace('src="js/ui/jquery-ui.js"', 'src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"', $html);
 	
 	return array($html, $page);
 }

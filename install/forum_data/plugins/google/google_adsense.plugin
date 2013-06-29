@@ -1,8 +1,8 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id$
+* $Id: google_adsense.plugin 5373 2011-09-02 18:44:54Z naudefj $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -15,7 +15,7 @@ plugin_add_hook('COMPILER_EXPAND_TEMPLATE', 'plugin_google_adsense');
 function plugin_google_adsense($array) {
 	list($tmpl, $tag, $sec, $name, $file) = $array;
 
-	if ((@include $GLOBALS['PLUGIN_PATH'] .'google_adsense.ini') === false) {
+	if ((@include $GLOBALS['PLUGIN_PATH'] .'google/google_adsense.ini') === false) {
 		die('ERROR: Please configure the google_adsense plugin from the Plugin Manager Control panel.');
 	}
 
@@ -46,7 +46,7 @@ function google_adsense_info() {
 }
 
 function google_adsense_enable() {
-	if((@include_once $GLOBALS['PLUGIN_PATH'] .'google_adsense.ini') === false) {
+	if((@include_once $GLOBALS['PLUGIN_PATH'] .'google/google_adsense.ini') === false) {
 		return array(null, 'Please configure the google_adsense plugin before enabling it.');	// OK, Err.
 	}
 	@define('REBUILD_THEMES', 1);
@@ -57,7 +57,7 @@ function google_adsense_disable() {
 }
 
 function google_adsense_config() {
-	if((@include $GLOBALS['PLUGIN_PATH'] .'google_adsense.ini') === false) {
+	if((@include $GLOBALS['PLUGIN_PATH'] .'google/google_adsense.ini') === false) {
 		$ini = NULL;
 	}
 
@@ -67,7 +67,7 @@ function google_adsense_config() {
 				$ini[$key] = trim($_POST[$key]);
 			}
 		}
-		$fp = fopen($GLOBALS['PLUGIN_PATH'] .'google_adsense.ini', 'w');
+		$fp = fopen($GLOBALS['PLUGIN_PATH'] .'google/google_adsense.ini', 'w');
 		fwrite($fp, '<?php $ini = '. var_export($ini, 1) .'; ?>');
 		fclose($fp);
 		pf(successify('Settings successfully saved.'));
