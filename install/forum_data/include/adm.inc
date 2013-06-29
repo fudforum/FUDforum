@@ -23,7 +23,7 @@ if (!defined('shell_script')) {
 		die('Sorry, cannot run from command line.');
 	}
 
-	if ($GLOBALS['FUD_OPT_2'] & 32768) {	// USE_PATH_INFO
+	if ($GLOBALS['FUD_OPT_2'] & 32768) {	// Disable USE_PATH_INFO
 		$GLOBALS['FUD_OPT_2'] ^= 32768;
 		$t = 1;
 	}

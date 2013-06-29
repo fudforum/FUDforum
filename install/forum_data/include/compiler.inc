@@ -544,7 +544,9 @@ function generate_file($php_file)
 	}
 
 	// Inject debug info to help with theme development.
-	/* $file_data = str_replace('</html>', '<?php echo "<pre>".htmlentities(print_r(get_defined_vars(), 1))."</pre>"; ?> </html>', $file_data); */
+	if (defined('fud_debug')) {
+		$file_data = str_replace('</html>', '<?php echo "<pre>".htmlentities(print_r(get_defined_vars(), 1))."</pre>"; ?> </html>', $file_data);
+	}
 
 	// Call all COMPILER_FINALIZE_PAGE plugins.
 	if (defined('plugins')) {
