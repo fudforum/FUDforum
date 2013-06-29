@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -141,9 +141,14 @@
 <input type="hidden" name="act" value="del" />
 <input type="hidden" name="usr_id" value="<?php echo $usr_id; ?>" />
 <input type="hidden" name="del_confirm" value="1" />
-<div align="center">You are about to delete <font color="red"><b><?php echo $u->alias; ?></b></font>'s account!<br /><br />
-Are you sure you want to do this, once deleted the account cannot be recovered?<br />
-<input type="submit" value="Yes" name="btn_yes" /> <input type="submit" value="No" name="btn_no" />
+<div align="center"><p>You are about to delete <font color="red"><b><?php echo $u->alias; ?></b></font>'s account!</p>
+<?php
+	if ($u->posted_msg_count > 1) {
+		echo '<p>The user\'s '. $u->posted_msg_count .' message(s) will be assigned to the anonymous user.</p>';
+	}
+?>
+<p>Are you sure you want to do this, once deleted the account cannot be recovered?<br />
+<input type="submit" value="Yes" name="btn_yes" /> <input type="submit" value="No" name="btn_no" /></p>
 </div>
 <?php
 	if (isset($_GET['f'])) {
@@ -282,25 +287,36 @@ administration permissions to the forum. This individual will be able to do anyt
 	echo '<p>Use an asterisk (*) to match multiple user accounts.</p>';
 	if ( empty($_GET['usr_login']) && empty($_GET['usr_email']) ) {
 		$_GET['usr_login'] = '*';	// Default search.
-		$_GET['usr_email']  = '';
+		$_GET['usr_email'] = '';
+	} else {
+		$_GET['usr_login'] = filter_var($_GET['usr_login'], FILTER_SANITIZE_STRING);	// Sanitize input.
+		$_GET['usr_email'] = filter_var($_GET['usr_email'], FILTER_SANITIZE_STRING);
 	}
+} else {
+	// We are looking at a spesific record. Empty variables & collapse search box.
+	$_GET['usr_login'] = '';
+	$_GET['usr_email'] = '';
+	echo '<script>jQuery(function() {
+		jQuery("legend").siblings().toggle(); 
+		jQuery("legend").parent().toggleClass("collapsed");
+	      });</script>';
 } ?>
 <form id="frm_usr" method="GET" action="admuser.php">
 
 <fieldset class="fieldtopic">
-<legend><b>Search for user:</b></legend>
+<legend><b>Search users</b></legend>
 <?php echo _hs . $search_error; ?>
 <table width="100%">
 <tr><td>
 	<table class="datatable solidtable">
 	<tr class="field">
 		<td>By <?php echo ($FUD_OPT_2 & 128 ? 'Alias' : 'Login'); ?>:</td>
-		<td><input tabindex="1" type="text" id="usr_login" name="usr_login" /></td>
+		<td><input tabindex="1" type="text" id="usr_login" name="usr_login" value="<?php echo $_GET['usr_login']; ?>" /></td>
 	</tr>
 
 	<tr class="field">
 		<td>By E-mail:</td>
-		<td><input tabindex="2" type="text" id="usr_email" name="usr_email" /></td>
+		<td><input tabindex="2" type="text" id="usr_email" name="usr_email" value="<?php echo $_GET['usr_email']; ?>" /></td>
 	</tr>
 
 	<tr class="fieldaction">
@@ -360,7 +376,7 @@ administration permissions to the forum. This individual will be able to do anyt
 		}
 		switch ($cnt) {
 			case 0:
-				$search_error = errorify('There are no users matching the specified '. $field .' mask.');
+				echo '<p>There are no users matching the specified '. $field .' mask.</p>';
 				unset($c);
 				break;
 			case 1:
