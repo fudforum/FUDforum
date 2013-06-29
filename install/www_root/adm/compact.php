@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -85,8 +85,9 @@ $charsets = ARRAY(
 <fieldset>
 	<legend>Search and replace text:</legend>
 	<label><p>
-		Permanently apply <a href="admreplace.php?<?php echo __adm_rsid; ?>">Replacement and Censorship</a> rules to message bodies:
 		<input name="replace" value="1" type="checkbox">
+		Permanently apply <a href="admreplace.php?<?php echo __adm_rsid; ?>">Replacement and Censorship</a> rules to message bodies.
+
 	</p></label>
 </fieldset>
 

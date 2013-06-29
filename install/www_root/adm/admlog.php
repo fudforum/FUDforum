@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -188,7 +188,7 @@ function return_group_name($id)
 				echo '<td>Merged and removed user account</td><td>'. $obj->logaction .'</td>';
 				break;
 			case 'CHANGE_USER':
-				echo '<td>Change user login</td><td>'. $obj->logaction .'</td>';
+				echo '<td>Changed user login</td><td>'. $obj->logaction .'</td>';
 				break;
 			case 'SEND_ECONF':
 				echo '<td>Sent E-mail Confirmation</td><td>to user: '. $obj->logaction .'</td>';
