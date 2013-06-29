@@ -25,7 +25,7 @@ to add users to FUDforum.
 INSTRUCTIONS:
 -------------
 
-1. Install FUDforum 3.0.3 (or better) or identify an existing installation where
+1. Install FUDforum 3.0.5 (or better) or identify an existing installation where
    the messages must be imported into (the target forum).
 
 2. Download and copy the conversion script to your forum's WWW_ROOT directory.

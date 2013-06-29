@@ -1,6 +1,6 @@
 <?php
 /***************************************************************************
-* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -380,7 +380,7 @@ function target_add_forum($forum)
 	$frm = new fud_forum();
 	$frm->cat_id               = $GLOBALS['cat_map'][ $forum['cat_id'] ];
 	$frm->name                 = $forum['name'];
-	$frm->description          = $forum['description'];
+	$frm->descr                = $forum['description'];
 	$frm->view_order           = $forum['view_order'];
 	$frm->post_passwd          = $forum['post_passwd'];
 	$frm->url_redirect         = $forum['url_redirect'];

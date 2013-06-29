@@ -247,7 +247,7 @@ function source_load_polls() {
 
 function source_load_topic_subscriptions() {
 	// notify_status=0 => receive emails.
-	$c = bbq('SELECT * FROM '. dbpref .'topics_watch WHERE notify_status=0');
+	$c = bbq('SELECT * FROM '. dbpref .'topics_watch GROUP BY user_id, topic_id HAVING notify_status=0'); // Use GROUP BY to eliminate duplicates.
 	while ($r = bbfetch($c)) {
 		$sub = array(
 			'user_id'   => $r->user_id,
