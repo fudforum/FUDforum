@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -18,10 +18,10 @@
 	{IF: $FUD_OPT_3 & 134217728}{TEMPLATE: ucp_calendar}{ENDIF}
 	{IF: $FUD_OPT_3 & 536870912}{TEMPLATE: ucp_pages}{ENDIF}
 	{IF: $FUD_OPT_1 & 16777216} {TEMPLATE: ucp_search}{ENDIF}
-	<li><a accesskey="h" href="{TEMPLATE: ucp_help_lnk}" title="{MSG: faq}"><img src="{THEME_IMAGE_ROOT}/top_help{DEF: img_ext}" alt="" /> {MSG: faq}</a></li>
+	<li><a accesskey="h" href="{TEMPLATE: ucp_help_lnk}" title="{MSG: faq}"><img src="{THEME_IMAGE_ROOT}/top_help.png" alt="" /> {MSG: faq}</a></li>
 	{IF: __fud_real_user__}{TEMPLATE: ucp_usercp}{ELSE}{IF: $FUD_OPT_1 & 2}{TEMPLATE: ucp_register}{ENDIF}{END}
 	{IF: __fud_real_user__}{TEMPLATE: ucp_logout}{ELSE}{TEMPLATE: ucp_login}{END}
-	<li><a href="{TEMPLATE: ucp_home_lnk}" title="{MSG: home}"><img src="{THEME_IMAGE_ROOT}/top_home{DEF: img_ext}" alt="" /> {MSG: home}</a></li>
+	<li><a href="{TEMPLATE: ucp_home_lnk}" title="{MSG: home}"><img src="{THEME_IMAGE_ROOT}/top_home.png" alt="" /> {MSG: home}</a></li>
 	{IF: $is_a || ($usr->users_opt & 268435456)}{TEMPLATE: ucp_admin_control_panel}{ENDIF}
 </ul>
 </div>
@@ -40,7 +40,7 @@
 {SECTION: END}
 
 {SECTION: ucp_search Forum search}
-<li><a href="{TEMPLATE: ucp_search_lnk}" title="{MSG: search}"><img src="{THEME_IMAGE_ROOT}/top_search{DEF: img_ext}" alt="" /> {MSG: search}</a></li>
+<li><a href="{TEMPLATE: ucp_search_lnk}" title="{MSG: search}"><img src="{THEME_IMAGE_ROOT}/top_search.png" alt="" /> {MSG: search}</a></li>
 {SECTION: END}
 
 {SECTION: ucp_login_lnk User Login URL}
@@ -48,7 +48,7 @@
 {SECTION: END}
 
 {SECTION: ucp_login User Login}
-<li><a href="{TEMPLATE: ucp_login_lnk}" title="{MSG: login}"><img src="{THEME_IMAGE_ROOT}/top_login{DEF: img_ext}" alt="" /> {MSG: login}</a></li>
+<li><a href="{TEMPLATE: ucp_login_lnk}" title="{MSG: login}"><img src="{THEME_IMAGE_ROOT}/top_login.png" alt="" /> {MSG: login}</a></li>
 {SECTION: END}
 
 {SECTION: ucp_logout_lnk User Logout URL}
@@ -56,7 +56,7 @@
 {SECTION: END}
 
 {SECTION: ucp_logout logout link User Logout}
-<li><a href="{TEMPLATE: ucp_logout_lnk}" title="{MSG: logout}"><img src="{THEME_IMAGE_ROOT}/top_logout{DEF: img_ext}" alt="" /> {MSG: logout} [ {VAR: usr->alias} ]</a></li>
+<li><a href="{TEMPLATE: ucp_logout_lnk}" title="{MSG: logout}"><img src="{THEME_IMAGE_ROOT}/top_logout.png" alt="" /> {MSG: logout} [ {VAR: usr->alias} ]</a></li>
 {SECTION: END}
 
 {SECTION: ucp_register_lnk User Registration URL}
@@ -64,7 +64,7 @@
 {SECTION: END}
 
 {SECTION: ucp_register User Registration}
-<li><a href="{TEMPLATE: ucp_register_lnk}" title="{MSG: register}"><img src="{THEME_IMAGE_ROOT}/top_register{DEF: img_ext}" alt="" /> {MSG: register}</a></li>
+<li><a href="{TEMPLATE: ucp_register_lnk}" title="{MSG: register}"><img src="{THEME_IMAGE_ROOT}/top_register.png" alt="" /> {MSG: register}</a></li>
 {SECTION: END}
 
 {SECTION: ucp_usercp_lnk User Contrrol Panel URL}
@@ -72,11 +72,11 @@
 {SECTION: END}
 
 {SECTION: ucp_usercp User Control Panel}
-<li><a href="{TEMPLATE: ucp_usercp_lnk}" title="{MSG: profile_desc}"><img src="{THEME_IMAGE_ROOT}/top_profile{DEF: img_ext}" alt="" /> {MSG: profile}</a></li>
+<li><a href="{TEMPLATE: ucp_usercp_lnk}" title="{MSG: profile_desc}"><img src="{THEME_IMAGE_ROOT}/top_profile.png" alt="" /> {MSG: profile}</a></li>
 {SECTION: END}
 
 {SECTION: ucp_admin_control_panel Admin Control Panel}
-<li><a href="adm/index.php?S={DEF: s}&amp;SQ={GVAR: sq}" title="{MSG: admin_control_panel}"><img src="{THEME_IMAGE_ROOT}/top_admin{DEF: img_ext}" alt="" /> {MSG: admin_control_panel}</a></li>
+<li><a href="adm/index.php?S={DEF: s}&amp;SQ={GVAR: sq}" title="{MSG: admin_control_panel}"><img src="{THEME_IMAGE_ROOT}/top_admin.png" alt="" /> {MSG: admin_control_panel}</a></li>
 {SECTION: END}
 
 {SECTION: ucp_private_msg_empty_lnk No PM URL}
@@ -84,7 +84,7 @@
 {SECTION: END}
 
 {SECTION: ucp_private_msg_empty No PM messages}
-<li><a href="{TEMPLATE: ucp_private_msg_empty_lnk}" title="{MSG: pm}"><img src="{THEME_IMAGE_ROOT}/top_pm{DEF: img_ext}" alt="" /> {MSG: pm}</a></li>
+<li><a href="{TEMPLATE: ucp_private_msg_empty_lnk}" title="{MSG: pm}"><img src="{THEME_IMAGE_ROOT}/top_pm.png" alt="" /> {MSG: pm}</a></li>
 {SECTION: END}
 
 {SECTION: ucp_private_msg_unread_lnk Unread PM URL}
@@ -92,7 +92,7 @@
 {SECTION: END}
 
 {SECTION: ucp_private_msg_unread Unread PM indicator}
-<li><a href="{TEMPLATE: ucp_private_msg_unread_lnk}" title="{MSG: pm}"><img src="{THEME_IMAGE_ROOT}/top_pm{DEF: img_ext}" alt="" /> {MSG: new_private_messages}</a></li>
+<li><a href="{TEMPLATE: ucp_private_msg_unread_lnk}" title="{MSG: pm}"><img src="{THEME_IMAGE_ROOT}/top_pm.png" alt="" /> {MSG: new_private_messages}</a></li>
 {SECTION: END}
 
 {SECTION: ucp_calendar_lnk Calendar URL}
@@ -100,7 +100,7 @@
 {SECTION: END}
 
 {SECTION: ucp_calendar Calendar}
-<li><a href="{TEMPLATE: ucp_calendar_lnk}" title="{MSG: calendar}"><img src="{THEME_IMAGE_ROOT}/calendar{DEF: img_ext}" alt="" /> {MSG: calendar}</a></li>
+<li><a href="{TEMPLATE: ucp_calendar_lnk}" title="{MSG: calendar}"><img src="{THEME_IMAGE_ROOT}/calendar.png" alt="" /> {MSG: calendar}</a></li>
 {SECTION: END}
 
 {SECTION: ucp_pages_lnk Pages URL}
@@ -108,7 +108,7 @@
 {SECTION: END}
 
 {SECTION: ucp_pages List of Forum Pages}
-<li><a href="{TEMPLATE: ucp_pages_lnk}" title="{MSG: pages}"><img src="{THEME_IMAGE_ROOT}/pages{DEF: img_ext}" alt="" /> {MSG: pages}</a></li>
+<li><a href="{TEMPLATE: ucp_pages_lnk}" title="{MSG: pages}"><img src="{THEME_IMAGE_ROOT}/pages.png" alt="" /> {MSG: pages}</a></li>
 {SECTION: END}
 
 {SECTION: ucp_member_search_lnk Member Search URL}
@@ -116,5 +116,5 @@
 {SECTION: END}
 
 {SECTION: ucp_member_search Member Search}
-<li><a href="{TEMPLATE: ucp_member_search_lnk}" title="{MSG: members}"><img src="{THEME_IMAGE_ROOT}/top_members{DEF: img_ext}" alt="" /> {MSG: members}</a></li>
+<li><a href="{TEMPLATE: ucp_member_search_lnk}" title="{MSG: members}"><img src="{THEME_IMAGE_ROOT}/top_members.png" alt="" /> {MSG: members}</a></li>
 {SECTION: END}

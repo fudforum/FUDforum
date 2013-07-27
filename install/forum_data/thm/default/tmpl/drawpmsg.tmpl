@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -11,11 +11,11 @@
 {PHP_FILE: input: drawpmsg.inc.t; output: drawpmsg.inc;}
 
 {SECTION: dpmsg_online_indicator}
-<img src="{THEME_IMAGE_ROOT}/online{DEF: img_ext}" alt="{MSG: user_online}" title="{MSG: user_online}" />
+<img src="{THEME_IMAGE_ROOT}/online.png" alt="{MSG: user_online}" title="{MSG: user_online}" />
 {SECTION: END}
 
 {SECTION: dpmsg_offline_indicator}
-<img src="{THEME_IMAGE_ROOT}/offline{DEF: img_ext}" alt="{MSG: user_offline}" title="{MSG: user_offline}" />
+<img src="{THEME_IMAGE_ROOT}/offline.png" alt="{MSG: user_offline}" title="{MSG: user_offline}" />
 {SECTION: END}
 
 {SECTION: dpmsg_location}
@@ -42,35 +42,35 @@
 {SECTION: END}
 
 {SECTION: dpmsg_im_icq}
-<a href="{TEMPLATE: dpmsg_im_icq_lnk}"><img src="{THEME_IMAGE_ROOT}/icq{DEF: img_ext}" alt="" title="{VAR: obj->icq}" /></a>&nbsp;
+<a href="{TEMPLATE: dpmsg_im_icq_lnk}"><img src="{THEME_IMAGE_ROOT}/icq.png" alt="" title="{VAR: obj->icq}" /></a>&nbsp;
 {SECTION: END}
 
 {SECTION: dpmsg_im_aim}
-<a href="aim:goim?screenname={VAR: obj->aim}&amp;message=Hi.+Are+you+there?"><img src="{THEME_IMAGE_ROOT}/aim{DEF: img_ext}" title="{VAR: obj->aim}" alt="" /></a>&nbsp;
+<a href="aim:goim?screenname={VAR: obj->aim}&amp;message=Hi.+Are+you+there?"><img src="{THEME_IMAGE_ROOT}/aim.png" title="{VAR: obj->aim}" alt="" /></a>&nbsp;
 {SECTION: END}
 
 {SECTION: dpmsg_im_yahoo}
-<a href="http://edit.yahoo.com/config/send_webmesg?.target={VAR: obj->yahoo}&amp;.src=pg"><img src="{THEME_IMAGE_ROOT}/yahoo{DEF: img_ext}" alt="" title="{VAR: obj->yahoo}" /></a>&nbsp;
+<a href="http://edit.yahoo.com/config/send_webmesg?.target={VAR: obj->yahoo}&amp;.src=pg"><img src="{THEME_IMAGE_ROOT}/yahoo.png" alt="" title="{VAR: obj->yahoo}" /></a>&nbsp;
 {SECTION: END}
 
 {SECTION: dpmsg_im_msnm}
-<a href="mailto:{VAR: obj->msnm}"><img src="{THEME_IMAGE_ROOT}/msnm{DEF: img_ext}" title="{VAR: obj->msnm}" alt="" /></a>
+<a href="mailto:{VAR: obj->msnm}"><img src="{THEME_IMAGE_ROOT}/msnm.png" title="{VAR: obj->msnm}" alt="" /></a>
 {SECTION: END}
 
 {SECTION: dpmsg_im_jabber}
-<img src="{THEME_IMAGE_ROOT}/jabber{DEF: img_ext}" title="{VAR: obj->jabber}" alt="" />
+<img src="{THEME_IMAGE_ROOT}/jabber.png" title="{VAR: obj->jabber}" alt="" />
 {SECTION: END}
 
 {SECTION: dpmsg_im_google}
-<img src="{THEME_IMAGE_ROOT}/google{DEF: img_ext}" title="{VAR: obj->google}" alt="" />
+<img src="{THEME_IMAGE_ROOT}/google.png" title="{VAR: obj->google}" alt="" />
 {SECTION: END}
 
 {SECTION: dpmsg_im_skype}
-<a href="callto://{VAR: obj->skype}"><img src="{THEME_IMAGE_ROOT}/skype{DEF: img_ext}" title="{VAR: obj->skype}" alt="" /></a>
+<a href="callto://{VAR: obj->skype}"><img src="{THEME_IMAGE_ROOT}/skype.png" title="{VAR: obj->skype}" alt="" /></a>
 {SECTION: END}
 
 {SECTION: dpmsg_im_twitter}
-<a href="http://twitter.com/{VAR: obj->twitter}"><img src="{THEME_IMAGE_ROOT}/twitter{DEF: img_ext}" title="{VAR: obj->twitter}" alt="" /></a>
+<a href="http://twitter.com/{VAR: obj->twitter}"><img src="{THEME_IMAGE_ROOT}/twitter.png" title="{VAR: obj->twitter}" alt="" /></a>
 {SECTION: END}
 
 {SECTION: dpmsg_file_attachments the file attachments list}

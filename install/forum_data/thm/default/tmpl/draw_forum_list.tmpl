@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -27,7 +27,7 @@
 {SECTION: index_forum_entry forum entry row}
 <tr style="display: {IF: empty($collapse[$cid])}table-row{ELSE}none{ENDI}" class="row child-c{VAR: r[5]}">
 	<td class="RowStyleA wo">{IF: $r[6]}<img src="images/forum_icons/{VAR: r[6]}" alt="{MSG: forum_icon}" />{ELSE}&nbsp;{END}</td>
-	<td class="RowStyleB ac wo">{IF: empty($r[12])}{VAR: forum_read_indicator}{ELSE}<img title="{MSG: index_url_redirection}" src="{THEME_IMAGE_ROOT}/moved{DEF: img_ext}" alt="" />{ENDI}</td>
+	<td class="RowStyleB ac wo">{IF: empty($r[12])}{VAR: forum_read_indicator}{ELSE}<img title="{MSG: index_url_redirection}" src="{THEME_IMAGE_ROOT}/moved.png" alt="" />{ENDI}</td>
 	<td class="RowStyleA wa"><a href="{TEMPLATE: index_forum_entry_lnk}" class="big">{VAR: r[10]}</a>{FUNC: ($r[11] ? '<br />'.$r[11] : '')}{VAR: moderators}</td>
 	<td class="RowStyleB ac">{IF: empty($r[12])}{VAR: r[13]}{ELSE}--{ENDI}</td>
 	<td class="RowStyleB ac">{IF: empty($r[12])}{VAR: r[14]}{ELSE}--{ENDI}</td>
@@ -37,8 +37,8 @@
 
 {SECTION: index_cat_up_down_arrows up/down arrows for navigating category list}
 <td class="CatDesc">
-	{IF: key($cidxc)}<a href="javascript://" onclick=\'nextCat("c{VAR: k}")\'><img src="{THEME_IMAGE_ROOT}/down{DEF: img_ext}" alt="" border="0" style="vertical-align: top; float: right;" /></a>{ENDIFI}
-	{IF: $cat}<a href="javascript://" onclick=\'prevCat("c{VAR: k}")\'><img src="{THEME_IMAGE_ROOT}/up{DEF: img_ext}" border="0" alt="" style="vertical-align: top; float: right;" /></a>{ENDIFI}
+	{IF: key($cidxc)}<a href="javascript://" onclick=\'nextCat("c{VAR: k}")\'><img src="{THEME_IMAGE_ROOT}/down.png" alt="" border="0" style="vertical-align: top; float: right;" /></a>{ENDIFI}
+	{IF: $cat}<a href="javascript://" onclick=\'prevCat("c{VAR: k}")\'><img src="{THEME_IMAGE_ROOT}/up.png" border="0" alt="" style="vertical-align: top; float: right;" /></a>{ENDIFI}
 </td>
 {SECTION: END}
 
@@ -104,15 +104,15 @@
 {SECTION: END}
 
 {SECTION: forum_read}
-<img title="{MSG: forum_old_messages}" src="{THEME_IMAGE_ROOT}/existing_content{DEF: img_ext}" alt="{MSG: forum_old_messages}" />
+<img title="{MSG: forum_old_messages}" src="{THEME_IMAGE_ROOT}/existing_content.png" alt="{MSG: forum_old_messages}" />
 {SECTION: END}
 
 {SECTION: forum_unread}
-<img title="{MSG: forum_new_messages}" src="{THEME_IMAGE_ROOT}/new_content{DEF: img_ext}" alt="{MSG: forum_new_messages}" />
+<img title="{MSG: forum_new_messages}" src="{THEME_IMAGE_ROOT}/new_content.png" alt="{MSG: forum_new_messages}" />
 {SECTION: END}
 
 {SECTION: forum_no_indicator no new message indicator}
-<img title="{MSG: forum_none_messages}" src="{THEME_IMAGE_ROOT}/existing_content{DEF: img_ext}" alt="{MSG: forum_none_messages}" />
+<img title="{MSG: forum_none_messages}" src="{THEME_IMAGE_ROOT}/existing_content.png" alt="{MSG: forum_none_messages}" />
 {SECTION: END}
 
 {SECTION: moderators moderator list}

@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
 * email                : forum@fudforum.org
 * $Id$
 *
@@ -100,7 +100,7 @@
 {TEMPLATE: usercp}
 <table cellspacing="1" cellpadding="2" class="ContentTable">
 <tr>
-	<th colspan="2" class="wa">{IF: !($u->users_opt & 32768) && (($u->time_sec + $LOGEDIN_TIMEOUT * 60) > __request_timestamp__)}<img src="{THEME_IMAGE_ROOT}/online{DEF: img_ext}" alt="{MSG: user_online}" title="{MSG: user_online}" />{ELSE}<img src="{THEME_IMAGE_ROOT}/offline{DEF: img_ext}" alt="{MSG: user_offline}" title="{MSG: user_offline}" />{END}&nbsp;{MSG: usrinfo_profile}</th>
+	<th colspan="2" class="wa">{IF: !($u->users_opt & 32768) && (($u->time_sec + $LOGEDIN_TIMEOUT * 60) > __request_timestamp__)}<img src="{THEME_IMAGE_ROOT}/online.png" alt="{MSG: user_online}" title="{MSG: user_online}" />{ELSE}<img src="{THEME_IMAGE_ROOT}/offline.png" alt="{MSG: user_offline}" title="{MSG: user_offline}" />{END}&nbsp;{MSG: usrinfo_profile}</th>
 </tr>
 <tr class="RowStyleA">
 	<td class="nw GenText">{MSG: date_registered}</td>
@@ -202,13 +202,13 @@
 		</table>
 	</td>
 </tr>{ENDIF}
-{IF: $u->aim}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: im_aim}</td><td class="GenText"><a href="aim:goim?screenname={VAR: u->aim}&amp;message=Hello+Are+you+there?"><img src="{THEME_IMAGE_ROOT}/aim{DEF: img_ext}" title="{VAR: obj->aim}" alt="" />{FUNC: htmlentities(urldecode($u->aim))}</a></td></tr>{ENDIF}
-{IF: $u->yahoo}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: im_yahoo}</td><td class="GenText"><a href="http://edit.yahoo.com/config/send_webmesg?.target={VAR: u->yahoo}&amp;.src=pg"><img src="{THEME_IMAGE_ROOT}/yahoo{DEF: img_ext}" title="{VAR: obj->yahoo}" alt="" />{FUNC: htmlentities(urldecode($u->yahoo))}</a></td></tr>{ENDIF}
-{IF: $u->msnm}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: im_msnm}</td><td class="GenText"><img src="{THEME_IMAGE_ROOT}/msnm{DEF: img_ext}" title="{VAR: obj->msnm}" alt="" />{FUNC: char_fix(htmlspecialchars(urldecode($u->msnm)))}</td></tr>{ENDIF}
-{IF: $u->jabber}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: im_jabber}</td><td class="GenText"><img src="{THEME_IMAGE_ROOT}/jabber{DEF: img_ext}" title="{VAR: obj->jabber}" alt="" />{VAR: u->jabber}</td></tr>{ENDIF}
-{IF: $u->google}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: im_google}</td><td class="GenText"><img src="{THEME_IMAGE_ROOT}/google{DEF: img_ext}" title="{VAR: obj->google}" alt="" />{VAR: u->google}</td></tr>{ENDIF}
-{IF: $u->skype}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: im_skype}</td><td class="GenText"><a href="callto://{VAR: u->skype}"><img src="{THEME_IMAGE_ROOT}/skype{DEF: img_ext}" title="{VAR: obj->skype}" alt="" />{VAR: u->skype}</a></td></tr>{ENDIF}
-{IF: $u->twitter}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: im_twitter}</td><td class="GenText"><a href="http://twitter.com/{VAR: u->twitter}"><img src="{THEME_IMAGE_ROOT}/twitter{DEF: img_ext}" title="{VAR: obj->twitter}" alt="" />{VAR: u->twitter}</a></td></tr>{ENDIF}
+{IF: $u->aim}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: im_aim}</td><td class="GenText"><a href="aim:goim?screenname={VAR: u->aim}&amp;message=Hello+Are+you+there?"><img src="{THEME_IMAGE_ROOT}/aim.png" title="{VAR: obj->aim}" alt="" />{FUNC: htmlentities(urldecode($u->aim))}</a></td></tr>{ENDIF}
+{IF: $u->yahoo}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: im_yahoo}</td><td class="GenText"><a href="http://edit.yahoo.com/config/send_webmesg?.target={VAR: u->yahoo}&amp;.src=pg"><img src="{THEME_IMAGE_ROOT}/yahoo.png" title="{VAR: obj->yahoo}" alt="" />{FUNC: htmlentities(urldecode($u->yahoo))}</a></td></tr>{ENDIF}
+{IF: $u->msnm}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: im_msnm}</td><td class="GenText"><img src="{THEME_IMAGE_ROOT}/msnm.png" title="{VAR: obj->msnm}" alt="" />{FUNC: char_fix(htmlspecialchars(urldecode($u->msnm)))}</td></tr>{ENDIF}
+{IF: $u->jabber}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: im_jabber}</td><td class="GenText"><img src="{THEME_IMAGE_ROOT}/jabber.png" title="{VAR: obj->jabber}" alt="" />{VAR: u->jabber}</td></tr>{ENDIF}
+{IF: $u->google}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: im_google}</td><td class="GenText"><img src="{THEME_IMAGE_ROOT}/google.png" title="{VAR: obj->google}" alt="" />{VAR: u->google}</td></tr>{ENDIF}
+{IF: $u->skype}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: im_skype}</td><td class="GenText"><a href="callto://{VAR: u->skype}"><img src="{THEME_IMAGE_ROOT}/skype.png" title="{VAR: obj->skype}" alt="" />{VAR: u->skype}</a></td></tr>{ENDIF}
+{IF: $u->twitter}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: im_twitter}</td><td class="GenText"><a href="http://twitter.com/{VAR: u->twitter}"><img src="{THEME_IMAGE_ROOT}/twitter.png" title="{VAR: obj->twitter}" alt="" />{VAR: u->twitter}</a></td></tr>{ENDIF}
 {IF: ($FUD_OPT_2 & 2048 && $u->affero)}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: im_affero}</td><td class="GenText"><a href="http://svcs.affero.net/user-history.php?u={VAR: u->affero}">{VAR-UH: u->affero}</a></td></tr>{ENDIF}
 {IF: $is_a}
 <tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: findu_admin_opts_header}</td>

@@ -1,5 +1,5 @@
 /***************************************************************************
-* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -341,11 +341,11 @@ function nextCat(id)
 	}
 }
 
-function min_max_cats(theme_image_root, img_ext, minimize_category, maximize_category, sq, s)
+function min_max_cats(theme_image_root, minimize_category, maximize_category, sq, s)
 {
 	jQuery(document).ready(function() {
-		var toggleMinus = theme_image_root +'/min'+ img_ext;
-		var togglePlus  = theme_image_root +'/max'+ img_ext;
+		var toggleMinus = theme_image_root +'/min.png';
+		var togglePlus  = theme_image_root +'/max.png';
 
 		jQuery('.collapsed').prepend('<img src="'+ togglePlus +'" alt="+" title="'+ maximize_category +'" /> ')
 		               .addClass('collapsable');
@@ -386,11 +386,11 @@ function min_max_cats(theme_image_root, img_ext, minimize_category, maximize_cat
 
 }
 
-function min_max_posts(theme_image_root, img_ext, minimize_message, maximize_message)
+function min_max_posts(theme_image_root, minimize_message, maximize_message)
 {
 jQuery(document).ready(function() {
-  var toggleMinus = theme_image_root +'/min'+ img_ext;
-  var togglePlus  = theme_image_root +'/max'+ img_ext;
+  var toggleMinus = theme_image_root +'/min.png';
+  var togglePlus  = theme_image_root +'/max.png';
 
   jQuery('td.MsgSubText').prepend('<img src="'+ toggleMinus +'" alt="-" title="'+ minimize_message +'" class="collapsable" /> ');
 

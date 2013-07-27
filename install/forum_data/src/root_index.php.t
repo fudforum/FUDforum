@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -34,16 +34,6 @@
 	/* Check PHP_COMPRESSION_ENABLE. */
 	if ($FUD_OPT_2 & 16384 && $t != 'getfile') {
 		ob_start(array('ob_gzhandler', (int)$PHP_COMPRESSION_LEVEL));
-	}
-
-	/* This is needed to determine what extension to use for alpha-transparency images. */
-	// @TODO: Remove in future. IE 7 supports PNG alpha.
-	if (!empty($_SERVER['HTTP_USER_AGENT']) && 
-		strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE') !== false && 
-		strpos($_SERVER['HTTP_USER_AGENT'], 'Opera') === false) {
-		define('img_ext', '.gif');
-	} else {
-		define('img_ext', '.png');
 	}
 
 	if ($t == 'rview') {

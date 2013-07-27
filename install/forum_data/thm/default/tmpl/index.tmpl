@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -37,15 +37,15 @@
 {IF: $logedin || $forum_info}{TEMPLATE: loged_in_list}{ENDIF}
 <br /><fieldset>
 <legend>{MSG: legend}</legend>
-<img src="{THEME_IMAGE_ROOT}/new_content{DEF: img_ext}" alt="{MSG: index_new_posts}" /> {MSG: index_new_posts}&nbsp;&nbsp;
-<img src="{THEME_IMAGE_ROOT}/existing_content{DEF: img_ext}" alt="{MSG: index_no_new_posts}" /> {MSG: index_no_new_posts}&nbsp;&nbsp;
-<img src="{THEME_IMAGE_ROOT}/moved{DEF: img_ext}" alt="{MSG: index_url_redirection}" /> {MSG: index_url_redirection}
+<img src="{THEME_IMAGE_ROOT}/new_content.png" alt="{MSG: index_new_posts}" /> {MSG: index_new_posts}&nbsp;&nbsp;
+<img src="{THEME_IMAGE_ROOT}/existing_content.png" alt="{MSG: index_no_new_posts}" /> {MSG: index_no_new_posts}&nbsp;&nbsp;
+<img src="{THEME_IMAGE_ROOT}/moved.png" alt="{MSG: index_url_redirection}" /> {MSG: index_url_redirection}
 </fieldset>
 <div><br />{INJECTION_POINT: after_index}</div>
 {TEMPLATE: curtime}
 {TEMPLATE-DATA: page_stats}
 <script>
-	min_max_cats("{THEME_IMAGE_ROOT}", "{DEF: img_ext}", "{MSG: minimize_category}", "{MSG: maximize_category}", "{VAR: usr->sq}", "{DEF: s}");
+	min_max_cats("{THEME_IMAGE_ROOT}", "{MSG: minimize_category}", "{MSG: maximize_category}", "{VAR: usr->sq}", "{DEF: s}");
 </script>
 {TEMPLATE: footer}
 {PAGE: END}

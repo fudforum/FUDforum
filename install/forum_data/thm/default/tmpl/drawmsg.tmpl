@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -14,7 +14,7 @@
 {REF: karma_show.tmpl}
 
 {SECTION: dmsg_prev_message previous page arrow drawn on the message}
-<a href="javascript://" onclick="chng_focus(\'#msg_num_{VAR: m_num}\');"><img alt="{MSG: goto_prev_msg}" title="{MSG: goto_prev_msg}" src="{THEME_IMAGE_ROOT}/up{DEF: img_ext}" width="16" height="11" /></a>
+<a href="javascript://" onclick="chng_focus(\'#msg_num_{VAR: m_num}\');"><img alt="{MSG: goto_prev_msg}" title="{MSG: goto_prev_msg}" src="{THEME_IMAGE_ROOT}/up.png" width="16" height="11" /></a>
 {SECTION: END}
 
 {SECTION: dmsg_prev_message_prev_page_lnk}
@@ -22,15 +22,15 @@
 {SECTION: END}
 
 {SECTION: dmsg_prev_message_prev_page previous page arrrow drawn on the message}
-<a href="{TEMPLATE: dmsg_prev_message_prev_page_lnk}"><img src="{THEME_IMAGE_ROOT}/up{DEF: img_ext}" title="{MSG: goto_prev_msg}" alt="{MSG: goto_prev_msg}" width="16" height="11" /></a>
+<a href="{TEMPLATE: dmsg_prev_message_prev_page_lnk}"><img src="{THEME_IMAGE_ROOT}/up.png" title="{MSG: goto_prev_msg}" alt="{MSG: goto_prev_msg}" width="16" height="11" /></a>
 {SECTION: END}
 
 {SECTION: dmsg_tree_prev_message_prev_page previous page (tree view) arrrow drawn on the message}
-<a href="javascript://" onclick="fud_tree_msg_focus({VAR: misc[0]}, \'{DEF: s}\', \'{CHARSET}\'); return false;"><img src="{THEME_IMAGE_ROOT}/up{DEF: img_ext}" title="{MSG: goto_prev_msg}" alt="{MSG: goto_prev_msg}" width="16" height="11" /></a>
+<a href="javascript://" onclick="fud_tree_msg_focus({VAR: misc[0]}, \'{DEF: s}\', \'{CHARSET}\'); return false;"><img src="{THEME_IMAGE_ROOT}/up.png" title="{MSG: goto_prev_msg}" alt="{MSG: goto_prev_msg}" width="16" height="11" /></a>
 {SECTION: END}
 
 {SECTION: dmsg_next_message next message arrow drawn on the message}
-<a href="javascript://" onclick="chng_focus(\'#msg_num_{FUNC: ($m_num + 2)}\');"><img alt="{MSG: goto_next_msg}" title="{MSG: goto_next_msg}" src="{THEME_IMAGE_ROOT}/down{DEF: img_ext}" width="16" height="11" /></a>
+<a href="javascript://" onclick="chng_focus(\'#msg_num_{FUNC: ($m_num + 2)}\');"><img alt="{MSG: goto_next_msg}" title="{MSG: goto_next_msg}" src="{THEME_IMAGE_ROOT}/down.png" width="16" height="11" /></a>
 {SECTION: END}
 
 {SECTION: dmsg_next_message_next_page_lnk}
@@ -38,11 +38,11 @@
 {SECTION: END}
 
 {SECTION: dmsg_next_message_next_page next page arrow drawn on the message}
-<a href="{TEMPLATE: dmsg_next_message_next_page_lnk}"><img alt="{MSG: goto_prev_msg}" title="{MSG: goto_next_msg}" src="{THEME_IMAGE_ROOT}/down{DEF: img_ext}" width="16" height="11" /></a>
+<a href="{TEMPLATE: dmsg_next_message_next_page_lnk}"><img alt="{MSG: goto_prev_msg}" title="{MSG: goto_next_msg}" src="{THEME_IMAGE_ROOT}/down.png" width="16" height="11" /></a>
 {SECTION: END}
 
 {SECTION: dmsg_tree_next_message_next_page next page (tree view) arrow drawn on the message}
-<a href="javascript://" onclick="fud_tree_msg_focus({VAR: misc[1]}, \'{DEF: s}\', \'{CHARSET}\'); return false;"><img alt="{MSG: goto_prev_msg}" title="{MSG: goto_next_msg}" src="{THEME_IMAGE_ROOT}/down{DEF: img_ext}" width="16" height="11" /></a>
+<a href="javascript://" onclick="fud_tree_msg_focus({VAR: misc[1]}, \'{DEF: s}\', \'{CHARSET}\'); return false;"><img alt="{MSG: goto_prev_msg}" title="{MSG: goto_next_msg}" src="{THEME_IMAGE_ROOT}/down.png" width="16" height="11" /></a>
 {SECTION: END}
 
 {SECTION: dmsg_ignored_user_message_lnk}
@@ -84,11 +84,11 @@
 {SECTION: END}
 
 {SECTION: dmsg_online_indicator}
-<img src="{THEME_IMAGE_ROOT}/online{DEF: img_ext}" alt="{MSG: user_online}" title="{MSG: user_online}" />&nbsp;
+<img src="{THEME_IMAGE_ROOT}/online.png" alt="{MSG: user_online}" title="{MSG: user_online}" />&nbsp;
 {SECTION: END}
 
 {SECTION: dmsg_offline_indicator}
-<img src="{THEME_IMAGE_ROOT}/offline{DEF: img_ext}" alt="{MSG: user_offline}" title="{MSG: user_offline}" />&nbsp;
+<img src="{THEME_IMAGE_ROOT}/offline.png" alt="{MSG: user_offline}" title="{MSG: user_offline}" />&nbsp;
 {SECTION: END}
 
 {SECTION: dmsg_level_image}
@@ -178,35 +178,35 @@
 {SECTION: END}
 
 {SECTION: dmsg_im_icq}
-<a href="{TEMPLATE: dmsg_im_icq_lnk}"><img title="{VAR: obj->icq}" src="{THEME_IMAGE_ROOT}/icq{DEF: img_ext}" alt="" /></a>
+<a href="{TEMPLATE: dmsg_im_icq_lnk}"><img title="{VAR: obj->icq}" src="{THEME_IMAGE_ROOT}/icq.png" alt="" /></a>
 {SECTION: END}
 
 {SECTION: dmsg_im_aim}
-<a href="aim:goim?screenname={VAR: obj->aim}&amp;message=Hi.+Are+you+there?"><img alt="" src="{THEME_IMAGE_ROOT}/aim{DEF: img_ext}" title="{VAR: obj->aim}" /></a>
+<a href="aim:goim?screenname={VAR: obj->aim}&amp;message=Hi.+Are+you+there?"><img alt="" src="{THEME_IMAGE_ROOT}/aim.png" title="{VAR: obj->aim}" /></a>
 {SECTION: END}
 
 {SECTION: dmsg_im_yahoo}
-<a href="http://edit.yahoo.com/config/send_webmesg?.target={VAR: obj->yahoo}&amp;.src=pg"><img alt="" src="{THEME_IMAGE_ROOT}/yahoo{DEF: img_ext}" title="{VAR: obj->yahoo}" /></a>
+<a href="http://edit.yahoo.com/config/send_webmesg?.target={VAR: obj->yahoo}&amp;.src=pg"><img alt="" src="{THEME_IMAGE_ROOT}/yahoo.png" title="{VAR: obj->yahoo}" /></a>
 {SECTION: END}
 
 {SECTION: dmsg_im_msnm}
-<a href="mailto: {VAR: obj->msnm}"><img alt="" src="{THEME_IMAGE_ROOT}/msnm{DEF: img_ext}" title="{VAR: obj->msnm}" /></a>
+<a href="mailto: {VAR: obj->msnm}"><img alt="" src="{THEME_IMAGE_ROOT}/msnm.png" title="{VAR: obj->msnm}" /></a>
 {SECTION: END}
 
 {SECTION: dmsg_im_jabber}
-<img src="{THEME_IMAGE_ROOT}/jabber{DEF: img_ext}" title="{VAR: obj->jabber}" alt="" />
+<img src="{THEME_IMAGE_ROOT}/jabber.png" title="{VAR: obj->jabber}" alt="" />
 {SECTION: END}
 
 {SECTION: dmsg_im_google}
-<img src="{THEME_IMAGE_ROOT}/google{DEF: img_ext}" title="{VAR: obj->google}" alt="" />
+<img src="{THEME_IMAGE_ROOT}/google.png" title="{VAR: obj->google}" alt="" />
 {SECTION: END}
 
 {SECTION: dmsg_im_skype}
-<a href="callto://{VAR: obj->skype}"><img src="{THEME_IMAGE_ROOT}/skype{DEF: img_ext}" title="{VAR: obj->skype}" alt="" /></a>
+<a href="callto://{VAR: obj->skype}"><img src="{THEME_IMAGE_ROOT}/skype.png" title="{VAR: obj->skype}" alt="" /></a>
 {SECTION: END}
 
 {SECTION: dmsg_im_twitter}
-<a href="http://twitter.com/{VAR: obj->twitter}"><img src="{THEME_IMAGE_ROOT}/twitter{DEF: img_ext}" title="{VAR: obj->twitter}" alt="" /></a>
+<a href="http://twitter.com/{VAR: obj->twitter}"><img src="{THEME_IMAGE_ROOT}/twitter.png" title="{VAR: obj->twitter}" alt="" /></a>
 {SECTION: END}
 
 {SECTION: dmsg_poll_option}
