@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -119,6 +119,19 @@ function get_ip()
 	$ip = isset($_SERVER['HTTP_CLIENT_IP']) ? $_SERVER['HTTP_CLIENT_IP'] : (isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : '0.0.0.0');
 	$ip = str_replace('::ffff:', '', $ip);
 	return (filter_var($ip, FILTER_VALIDATE_IP) ? $ip : '0.0.0.0');
+}
+
+/** Prepare string for use in a SEO URL. */
+function seo_url_bit($str) {
+	$str = strtolower($str);
+	$str = strip_tags($str);
+	$str = html_entity_decode($str);
+	$str = urldecode($str);
+	$str = trim($str);
+	$str = preg_replace('/ +/', ' ', $str);
+	$str = preg_replace('/[^A-Za-z0-9\s]/', '', $str);
+	$str = preg_replace('/ /', '-', $str);
+	return $str;
 }
 
 /** Replace empty string with NULL before DB insert. */

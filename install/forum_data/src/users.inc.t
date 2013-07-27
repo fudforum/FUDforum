@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -46,7 +46,7 @@ function &init_user()
 				$_GET['goto'] = $p[1];
 				if (isset($p[2])) {
 					$_GET['th'] = $p[2];
-					if (isset($p[3])) {
+					if (isset($p[3]) && is_numeric($p[3])) {
 						$_GET['start'] = $p[3];
 						if ($p[3]) {
 							$_GET['t'] = 'msg';
@@ -75,7 +75,7 @@ function &init_user()
 			case 't': /* view thread */
 				$_GET['t'] = 0;
 				$_GET['th'] = $p[1];
-				if (isset($p[2])) {
+				if (isset($p[2]) && is_numeric($p[2])) {
 					$_GET['start'] = $p[2];
 					if (!empty($p[3])) {
 						$_GET[$p[3]] = 1;

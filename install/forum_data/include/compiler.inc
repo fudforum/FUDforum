@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -210,7 +210,11 @@ function resolve_sections($file, $secname, $str)
 			case 'VAR-UH':
 				$ret .= '\'.htmlspecialchars(urldecode($'. $name .')).\'';
 				break;
-
+				
+			case 'VAR-SEO':
+				$ret .= '\'.seo_url_bit($'. $name .').\'';
+				break;
+				
 			case 'VAR-FORM':
 				$ret .= '\'.stripslashes($'. $name .').\'';
 				break;

@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -81,7 +81,7 @@ function get_max_upload_size()
 		if ($GLOBALS['NEW_FUD_OPT_3'] & 512 && !function_exists('apache_setenv')) {
 			$GLOBALS['NEW_FUD_OPT_3'] ^= 512;
 		}
-
+		
 		/* Check if we can use the spell checker. */
 		if ($NEW_FUD_OPT_1 & 2097152 && !extension_loaded('pspell')) {
 			echo errorify('PHP\'s pspell module is currently disabled.');
@@ -93,9 +93,14 @@ function get_max_upload_size()
 			try {
 				q('CREATE TEMPORARY TABLE '. $DBHOST_TBL_PREFIX .'temp_test (val INT)');
 			} catch(Exception $e) {
-				echo errorify('Unable to create temporary tables. Feature cannot be enabled on your installation.');
+				pf(errorify('Unable to create temporary tables. Feature cannot be enabled on your installation.'));
 				$GLOBALS['NEW_FUD_OPT_3'] ^= 4096;
 			}
+		}
+
+		/* Further instructions if PATH_INFO is enabled. */
+		if (($FUD_OPT_2 & 32768) == 0 && ($NEW_FUD_OPT_2 & 32768) == 32768) {
+			pf('PATH_INFO is now enabled. Next step is to enable a <a href="admthemes.php?'. __adm_rsid .'">PATH_INFO theme</a>.');
 		}
 
 		for ($i = 1; $i < 10; $i++) {
@@ -162,7 +167,7 @@ function get_max_upload_size()
 			foreach ($ch_list as $k => $v) {
 				$GLOBALS[$k] = $v;
 			}
-			echo successify('Forum settings successfully updated.');
+			pf(successify('Forum settings successfully updated.'));
 		}
 	}
 ?>
