@@ -60,9 +60,9 @@
 	define('sql_p', $GLOBALS['DBHOST_TBL_PREFIX']);
 
 	if (is_numeric($id)) {
-		$config = db_sab('SELECT * FROM '. sql_p .'xmlagg WHERE id='. $id);
+		$config = db_sab('SELECT /* USE MASTER */ * FROM '. sql_p .'xmlagg WHERE id='. $id);
 	} else {
-		$config = db_sab('SELECT * FROM '. sql_p .'xmlagg WHERE name='. _esc($id));
+		$config = db_sab('SELECT /* USE MASTER */ * FROM '. sql_p .'xmlagg WHERE name='. _esc($id));
 	}
 	if (!$config) {
 		exit("The XML feed name or id is incorrect. Please enter it as defined in the ACP.\n");
@@ -74,7 +74,7 @@
 	$GLOBALS['good_locale'] = setlocale(LC_ALL, $locale);
 	date_default_timezone_set($GLOBALS['SERVER_TZ']);
 
-	$frm = db_sab('SELECT id, forum_opt, message_threshold FROM '. sql_p .'forum WHERE id='. $config->forum_id);
+	$frm = db_sab('SELECT /* USE MASTER */ id, forum_opt, message_threshold FROM '. sql_p .'forum WHERE id='. $config->forum_id);
 
 	$opts = array(
 		'http' => array(

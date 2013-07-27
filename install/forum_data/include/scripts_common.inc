@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -13,14 +13,14 @@
 function match_user_to_post($from_email, $from_name, $create_users, &$user_id, $reg_date=0)
 {
 	/* Try to identify user by email. */
-	$user = db_sab('SELECT id, users_opt FROM '. sql_p .'users WHERE email='. _esc($from_email));
+	$user = db_sab('SELECT /* USE MASTER */ id, users_opt FROM '. sql_p .'users WHERE email='. _esc($from_email));
 
 	/* If user was not found via email, try to look the user up by login. */
 	if (empty($user->id) && !empty($from_name)) {
 		if ($GLOBALS['FUD_OPT_2'] & 128) {	// USE_ALIASES
-			$user = db_sab('SELECT id, users_opt FROM '. sql_p .'users WHERE alias='. _esc(make_alias($from_name)));
+			$user = db_sab('SELECT /* USE MASTER */ id, users_opt FROM '. sql_p .'users WHERE alias='. _esc(make_alias($from_name)));
 		} else {
-			$user = db_sab('SELECT id, users_opt FROM '. sql_p .'users WHERE login='. _esc($from_name));
+			$user = db_sab('SELECT /* USE MASTER */ id, users_opt FROM '. sql_p .'users WHERE login='. _esc($from_name));
 		}
 	}
 

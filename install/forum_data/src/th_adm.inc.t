@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -69,7 +69,7 @@ function __th_cron_emu($forum_id, $run=1)
 	$exp = db_all('SELECT {SQL_TABLE_PREFIX}thread.id FROM {SQL_TABLE_PREFIX}tv_'. $forum_id .'
 			INNER JOIN {SQL_TABLE_PREFIX}thread ON {SQL_TABLE_PREFIX}thread.id={SQL_TABLE_PREFIX}tv_'. $forum_id .'.thread_id
 			INNER JOIN {SQL_TABLE_PREFIX}msg ON {SQL_TABLE_PREFIX}thread.root_msg_id={SQL_TABLE_PREFIX}msg.id
-			WHERE {SQL_TABLE_PREFIX}tv_'. $forum_id .'.seq>'. (q_singleval(q_limit('SELECT seq FROM {SQL_TABLE_PREFIX}tv_'. $forum_id .' ORDER BY seq DESC', 1)) - 50).' 
+			WHERE {SQL_TABLE_PREFIX}tv_'. $forum_id .'.seq>'. (q_singleval(q_limit('SELECT /* USE MASTER */ seq FROM {SQL_TABLE_PREFIX}tv_'. $forum_id .' ORDER BY seq DESC', 1)) - 50).' 
 				AND {SQL_TABLE_PREFIX}tv_'. $forum_id .'.iss>0
 				AND {SQL_TABLE_PREFIX}thread.thread_opt>=2 
 				AND ({SQL_TABLE_PREFIX}msg.post_stamp+{SQL_TABLE_PREFIX}thread.orderexpiry)<='. __request_timestamp__);

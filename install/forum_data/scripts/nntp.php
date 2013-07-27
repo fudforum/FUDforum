@@ -70,9 +70,9 @@
 	define('sql_p', $GLOBALS['DBHOST_TBL_PREFIX']);
 
 	if (is_numeric($id)) {
-		$config = db_sab('SELECT * FROM '. sql_p .'nntp WHERE id='. $id);
+		$config = db_sab('SELECT /* USE MASTER */ * FROM '. sql_p .'nntp WHERE id='. $id);
 	} else {
-		$config = db_sab('SELECT * FROM '. sql_p .'nntp WHERE newsgroup='. _esc($id));
+		$config = db_sab('SELECT /* USE MASTER */ * FROM '. sql_p .'nntp WHERE newsgroup='. _esc($id));
 	}
 	if (!$config) {
 		exit("The NNTP group name or id is incorrect. Please enter it as defined in the ACP.\n");
@@ -93,7 +93,7 @@
 	}
 
 	/* Fetch forum options. */
-	$frm = db_sab('SELECT id, forum_opt, message_threshold, (max_attach_size * 1024) AS max_attach_size, max_file_attachments FROM '. sql_p .'forum WHERE id='. $config->forum_id);
+	$frm = db_sab('SELECT /* USE MASTER */ id, forum_opt, message_threshold, (max_attach_size * 1024) AS max_attach_size, max_file_attachments FROM '. sql_p .'forum WHERE id='. $config->forum_id);
 		
 	$FUD_OPT_2 |= 128;	// Disable USE_ALIASES.
 
