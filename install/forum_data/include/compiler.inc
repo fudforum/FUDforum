@@ -275,7 +275,7 @@ function resolve_sections($file, $secname, $str)
 				break;
 
 			case 'META-CONTENT-LANGUAGE':
-				echo 'WARNING: {META-CONTENT-LANGUAGE} is deprecated, please remove it from your templates.<br />';
+				echo 'WARNING: {META-CONTENT-LANGUAGE} is deprecated. Please remove it from "'. $secname .'" in '. $file .'.<br />';
 				$ret .= '<meta http-equiv="Content-Type" content="text/html; charset='. $GLOBALS['char_set'] .'" />';
 				break;
 

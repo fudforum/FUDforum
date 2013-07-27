@@ -9,7 +9,7 @@
 * Free Software Foundation; either version 2 of the License.
 ***************************************************************************/
 
-$__UPGRADE_SCRIPT_VERSION = 5305.0;
+$__UPGRADE_SCRIPT_VERSION = 5305.1;
 // define('fud_debfud_debug', 1);
 
 /*
@@ -136,7 +136,7 @@ function seterr($msg)
 	if (php_sapi_name() == 'cli') {
 		exit($msg);
 	} else {
-		exit('<p class="alert">'. $msg .'</p></body></html>');
+		exit('<div class="alert">'. $msg .'</div></body></html>');
 	}
 }
 
@@ -355,7 +355,7 @@ if (defined('fud_debug')) {
 	$curperm = substr(sprintf('%o', $perm), -4);
 	$oldperm = substr(sprintf('%o', fileperms($path)), -4);
 }
-			// This never worked since it was added in revision 2334 on Mon Dec 1 11:03:28 2003 UTC.
+			// This never worked since it was added in revision 2334 on 1 Dec 2003!
 			// @chmod($file, $perm);
 			// MUST BE PATH!!!
 			@chmod($path, $perm);
@@ -576,8 +576,8 @@ function syncronize_theme($theme)
 	}
 
 	/* Determine if this upgrade script was previously ran. */
-	if (@file_exists($GLOBALS['ERROR_PATH'] .'UPGRADE_STATUS') && (int) trim(file_get_contents($ERROR_PATH .'UPGRADE_STATUS')) >= $__UPGRADE_SCRIPT_VERSION) {
-		seterr('THIS UPGRADE SCRIPT HAS ALREADY BEEN RUN, IF YOU WISH TO RUN IT AGAIN USE THE FILE MANAGER TO REMOVE THE "'. $GLOBALS['ERROR_PATH'] .'UPGRADE_STATUS" FILE.');
+	if (@file_exists($GLOBALS['ERROR_PATH'] .'UPGRADE_STATUS') && (float) trim(file_get_contents($ERROR_PATH .'UPGRADE_STATUS')) >= $__UPGRADE_SCRIPT_VERSION) {
+		seterr('<p>THIS UPGRADE SCRIPT HAS ALREADY BEEN RUN.</p><p>If you wish to run it again, use the File Manager to remove file: '. $GLOBALS['ERROR_PATH'] .'UPGRADE_STATUS.</p><p>Alternatively, delete "upgrade.php" and "fudforum_archive"!');
 	}
 
 	/* Include appropriate database functions. */
@@ -712,6 +712,11 @@ pf('<h2>Step 1: Admin login</h2>', true);
 		exit;
 	} else if (isset($_POST['step']) && $_POST['step'] == 3) {
 		pf('<h2>Step 3: Consistency check</h2>', true);
+
+		/* Insert update script marker. */
+		$fp = fopen($GLOBALS['ERROR_PATH'] .'UPGRADE_STATUS', 'wb');
+		fwrite($fp, $__UPGRADE_SCRIPT_VERSION);
+		fclose($fp);
 
 		/* Get session details to construct link to consistency checker. */
 		$pfx = db_sab('SELECT u.sq, s.ses_id FROM '. $DBHOST_TBL_PREFIX .'users u INNER JOIN '. $DBHOST_TBL_PREFIX .'ses s ON u.id=s.user_id WHERE u.id='. $auth);
@@ -1103,6 +1108,11 @@ pf('<h2>Step 1: Admin login</h2>', true);
 			rename($GLOBALS['DATA_DIR'] .'plugins/'. $f, $GLOBALS['DATA_DIR'] .'plugins/google/'. $f);
 		}
 	}
+	
+	/* Updata DB with new plugin locations. */
+	q('UPDATE '. $DBHOST_TBL_PREFIX .'plugins SET name = \'google/google_analytics.plugin\' WHERE name = \'google_analytics.plugin\'');
+	q('UPDATE '. $DBHOST_TBL_PREFIX .'plugins SET name = \'google/google_cdn.plugin\' WHERE name = \'google_cdn.plugin\'');
+	q('UPDATE '. $DBHOST_TBL_PREFIX .'plugins SET name = \'google/google_adsense.plugin\' WHERE name = \'google_adsense.plugin\'');
 
 	/* Remove obsolete SRC files. */
 	$rm_src = array('tz.inc.t');	// Remove from 3.0.2.
@@ -1121,7 +1131,7 @@ pf('<h2>Step 1: Admin login</h2>', true);
 	}
 
  	/* Remove obsolete PATH_INFO templates. */
-	$rm_pathinfo_tmpl = array();
+	$rm_pathinfo_tmpl = array('header.tmpl');
  	foreach ($rm_pathinfo_tmpl as $f) {
  		if (file_exists($GLOBALS['DATA_DIR'] .'thm/path_info/tmpl/'. $f)) {
 			unlink($GLOBALS['DATA_DIR'] .'thm/path_info/tmpl/'. $f);
@@ -1214,11 +1224,6 @@ pf('<h2>Step 1: Admin login</h2>', true);
 		}
 	}
 	unset($c);
-
-	/* Insert update script marker. */
-	$fp = fopen($GLOBALS['ERROR_PATH'] .'UPGRADE_STATUS', 'wb');
-	fwrite($fp, $__UPGRADE_SCRIPT_VERSION);
-	fclose($fp);
 
 	/* Log upgrade action. */
 	q('INSERT INTO '. $DBHOST_TBL_PREFIX .'action_log (logtime, logaction, user_id, a_res) VALUES ('. __time__ .', \'Forum\', '. $auth .', \'Upgraded from '. $FORUM_VERSION .'\')');
