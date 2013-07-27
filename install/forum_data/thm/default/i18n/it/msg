@@ -639,7 +639,7 @@ post_reply_update:Risponde a <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subje
 post_topic_update:Scrive un nuovo argomento in <a href="{TEMPLATE: post_topic_update_lnk}">{VAR: frm->name}</a>
 post_error_generic:Si è verificato un errore
 postcheck_max_images_err:Sono consentite un massimo di {GVAR: MAX_IMAGE_COUNT} immagini per messaggio; per cortesia, riduci il numero di immagini
-postcheck_no_links_allowed:Non puoi usare i link finche' non avrai postato almeno {PLURAL: posts_before_links|$1 messaggio|$1 messaggi}.
+postcheck_no_links_allowed:Non puoi usare i link finché non avrai postato almeno {PLURAL: posts_before_links|$1 messaggio|$1 messaggi}.
 postcheck_subj_needed:Oggetto necessario
 postcheck_no_such_user:Non c'è alcun utente "{FUNC: char_fix(htmlspecialchars($v))}" in questo forum
 postcheck_ignored:Non puoi spedire un messaggio personale a "{FUNC: char_fix(htmlspecialchars($v))}", perchè questo utente ha deciso di ignorarti.

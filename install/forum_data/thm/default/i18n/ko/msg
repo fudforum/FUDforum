@@ -82,7 +82,7 @@ next_page:다음 페이지
 next_thread:다음 토픽:
 # Fuzzy
 no_messages:이 포럼에는 게시글이 없습니다.
-no_msg_body:본문 내용이 비었습니다
+no_msg_body:본문 내용이 없습니다
 no_new_posts:새 게시글이 없습니다
 no_posts:게시글 없음
 no_subscribed_forums:서명되지 않은 포럼 입니다
@@ -589,7 +589,7 @@ postcheck_ignored:차단 리스트에 등록되었기 때문에 "{FUNC: char_fix
 postcheck_no_recepient:전송불가 : 수신자 오류
 postcheck_invalid_email:올바른 이메일 주소를 입력하세요.
 postcheck_email_subject:전송 불가: 제목이 없습니다.
-postcheck_email_body:전송 불가: 본문 내용 없음.
+postcheck_email_body:본문 내용 없이 이메일을 보낼 수 없습니다.
 private_msg_notify_subj:공지사항: {VAR: m->subject}
 private_msg_notify_body:Hello,<br />{VAR: usr->login} has read your private message, "{VAR: m->subject}", on {TEMPLATE: private_msg_notify_body_date}<br />
 referals_update:추천 탐색

@@ -932,7 +932,7 @@ remove_from_buddy_list:van vriendenlijst verwijderen
 iemail_msg_author:<b>Van:</b> {VAR: obj->alias}
 iemail_msg_subject:<b>Onderwerp:</b> {VAR: obj->subject}
 iemail_msg_date:<b>Datum:</b> {TEMPLATE: dmsg_post_date}
-iemail_msg_reply:Beantwoorden
+iemail_msg_reply:Antwoorden
 iemail_msg_quote:Citeren
 iemail_msg_view:Onderwerp/bericht bekijken
 threadt_sticky:sticky
@@ -953,7 +953,7 @@ register_admin_newuser_title:Een nieuwe gebruiker heeft zich geregistreerd en mo
 register_admin_newuser_msg:De nieuwe gebruiker {VAR: uent->login} is zojuist aangemeld voor het forum. Omdat gebruikersbevestiging is ingeschakeld, is de gebruiker pas bruikbaar nadat u of een andere beheeder de gebruiker bevestigt. Ga voor bevestigen naar: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nDit is een automatisch verzonden bericht. Antwoord hier niet op.\nE-mailberichten over nieuwe gebruikers uitschakelen is mogelijk via de instelling "Waarschuwingen nieuwe gebruikers" in de beheerdersinstellingen.
 post_mod_msg_notify_title:Nieuw bericht in het forum "{VAR: frm->name}" wacht op goedkeuring
 post_mod_msg_notify_msg:Het bericht "{VAR: msg_post->subject}" is zojuist geplaatst in een door u gemodereerd forum. Volg de volgende koppeling om het bericht te beoordelen: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nDit is een automatisch verzonden bericht. Antwoord hier niet op.
-thread_printable_pdf:PDF maken
+thread_printable_pdf:Pdf maken
 thread_syndicate:Dit forum syndiceren (XML)
 reg_conf_title:Registratiebevestiging
 reg_conf_email:<b>E-mailbevestiging</b><br />Er is een e-mail naar u verzonden die een speciale URL bevat waarop u moet klikken om uw gebruiker te activeren. Als u deze e-mail niet ontvangt binnen enkele minuten, meld u zich dan aan en bevestig dat het opgegeven e-mailadres correct is. Na de bevestiging van uw gebruiker hebt u toegang hebben de functies die beperkt zijn tot bevestigde geregistreerde gebruikers.
@@ -1054,7 +1054,7 @@ mmd_mov_title:Onderwerpen verplaatsen
 mmd_move_threads_to:Doelforum:
 mmd_abort_move:Annuleren
 mmd_move:Onderwerpen verplaatsen
-pmsg_pdf_btn:PDF-archief maken
+pmsg_pdf_btn:Pdfarchief maken
 search_results_hdr:{VAR: total} resultaten gevonden
 thread_del_all:Selectie verwijderen
 thread_mov_all:Selectie verplaatsen

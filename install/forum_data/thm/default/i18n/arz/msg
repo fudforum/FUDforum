@@ -73,6 +73,7 @@ calendar:كالندر
 cal_goto_date:روح على:
 cal_day_heading:أحداث اليوم
 cal_no_events:مافيش حاجه مهمه حصلت اليوم ده
+cal_update:تصفح أجندة الفورم
 cal_birthday:عيد ميلاد: {VAR: user}
 cal_birthday_age:({PLURAL: age||سنه واحهة|سنتين|$1 سنه|$1 سنه}).
 message:رسالة
@@ -263,8 +264,11 @@ sunday:الحد
 sunday_short:ح
 monday:الاتنين
 monday_short:إت
+tuesday:التلات
 tuesday_short:ت
+wednesday:الاربع
 wednesday_short:أر
+thursday:الخميس
 thursday_short:خ
 friday:الجمعه
 friday_short:ج
@@ -423,6 +427,7 @@ coppa:<p>يجب أن يرسل الوالد أو المرشد إذنًا موقع
 prereg_info:قوانين المنتدى
 prereg_agree:أوافق
 prereg_disagree:أعارض
+prereg_update:قراية قواعد الفورم
 coppa_fax_instructions:تعليمات للوالد أو المرشد
 coppa_fax_instructions2:من فضلك اطبع هذه الصفحه، ووقعها وأرسلها عبر الفاكس إلى:
 coppa_fax_reg_form:نموذج التسجيل
@@ -464,6 +469,7 @@ rpasswd_login:لُج
 rpasswd_cur_pass:كلمه السر الحالية:
 rpasswd_new_pass:كلمه السر الجديدة:
 rpasswd_conf_pass:تأكيد كلمه السر:
+ruser_title:تغيير نموذج تسجيل اللوجين
 ruser_cur_pass:كلمه السر دلوقتى:
 login_passwd:كلمه السر:
 reset_email:البريد الإلكتروني:
@@ -761,8 +767,7 @@ p_STICKY:تثبيت رسائل
 p_POLL:إنشاء اقتراعات
 p_FILE:إرفاق ملفات
 p_VOTE:تصويت
-# Fuzzy
-p_RATE:تقييم المواضيع
+p_RATE:تقييم المواضيع/الأعضاء
 p_SPLIT:فصل المواضيع
 p_LOCK:قفل المواضيع
 p_MOVE:نقل المواضيع

@@ -8,8 +8,7 @@
 action:Accion
 add_to_buddy_list:Apondre a la lista de mos amics
 admin:Admin
-# Fuzzy
-admin_control_panel:Panèl d'administracion
+admin_control_panel:Administracion
 administrator:Administrator
 attachment:Estacat :
 avatar:Avatar :
@@ -67,10 +66,16 @@ logged_in_list:Lista dels utilizaires actualament connectats
 login:Connexion
 login_header:Connexion :
 logout:Desconnexion
-# Fuzzy
 mark_all_read:Marcar totes los messatges coma legits
 mark_all_read_desc:Totes vòstres messatges pas legits van èsser marcats coma legits
 members:Membres
+calendar:Calendièr
+cal_goto_date:Anar a :
+cal_day_heading:Eveniments per la jornada
+cal_no_events:Pas cap d'eveniment pel jorn.
+cal_update:Percórrer lo calendièr del forum
+cal_birthday:Anniversari : {VAR: user}
+cal_birthday_age:({PLURAL: atge|$1 an|$1 ans}).
 message:Messatge
 message_counter:Nòstres utilizaires an postat un total {PLURAL: post_count|d'$1 messatge|de $1 messatges}</b> dins <b>{PLURAL: thread_count|$1 fial|$1 fial}</b>.
 message_index:Indèx dels messatges
@@ -94,8 +99,7 @@ new_thread:Crear un fial novèl
 newest_user:Lo darrièr utilizaire que s'es inscrich es
 next_page:Pagina seguenta
 next_thread:Fial seguent :
-# Fuzzy
-no_messages:I a pas encara de messatge dins aqueste forum.
+no_messages:I a pas encara de messatge dins aqueste forum..<br />Siatz lo primièr a escriure un subjècte dins aqueste forum.
 no_msg_body:Lo messatge a pas de contengut
 no_new_posts:Pas de messatge novèl
 no_posts:Pas de messatge
@@ -110,8 +114,7 @@ num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|vòte|vòtes}
 occupation:Mestièr :
 off:DESACTIVAT
 on:ACTIVAT
-# Fuzzy
-page_timings:Temps total utilizat per generar la pagina : {VAR: page_gen_time} segonda(s)
+page_timings:Temps total utilizat per generar la pagina : {PLURAL: page_gen_time|$1 segonda|$1 segondas}
 pm:Messatges privats
 poll:Escandalhatge :
 post_count:Comptador de messatges : {VAR: u_pcount}
@@ -257,6 +260,20 @@ month_9:Setembre
 month_10:Octobre
 month_11:Novembre
 month_12:Decembre
+sunday:Dimenge
+sunday_short:Dim
+monday:Diluns
+monday_short:Lun
+tuesday:Dimars
+tuesday_short:Mar
+wednesday:Dimècres
+wednesday_short:Mer
+thursday:Dijòus
+thursday_short:Jòu
+friday:Divendres
+friday_short:Ven
+saturday:Dissabte
+saturday_short:Sab
 male:Òme
 female:Femna
 unspecified:Pas entresenhat
@@ -396,9 +413,9 @@ post_title:Títol :
 post_body:Contengut :
 post_options:Opcions :
 post_preview_btn:Veire lo messatge abans de lo mandar
+post_cancel_btn:Anullar
 ignore_users:Ignorar los utilizaires
 add_ignore:Ignorar qualqu'un mai
-# Fuzzy
 forum_terms:Forum
 forum_rules:<p>L'inscripcion a aqueste forum es gratuita ! Çaquelà, vos fasèm remarcar que sètz redevable de las condicions e detalhs çaijós. S'acceptatz aquelas condicions, quichatz lo boton <p> Accèpti </b> a la fin de la pagina. Nòta : En quichant lo boton « Accèpti », declaratz qu'avètz mai de 13 ans. S'avètz pas encara 13 ans, vos cal utilizar lo formulari d'autorizacion pairala.</p><p>Quitament se los administrators e moderators d'aqueste forum s'asseguran d'escartar tot messatge que seriá pas jutjat decent o apropriat sus un dels forums, nos es impossible de los legir e contrarotlar totes. Cada messatge representa las perspectivas e idèas pròprias de son autor, e podèm pas (administrators e moderators) èsser tenguts per responsables o blamables pel contengut de qualque messatge que siá.</p><p>En quichant sul boton « Accèpti », garantissètz qu'avètz pas l'intencion de postar de messatges amb un caractèr obscèn, vulgar, en relacion amb la sexualitat, de prepauses asiroses, menaças, o que viòle cap de lei en cap de biais. <p>Los responsables d'aqueste forum an lo poder e lo drech d'escafar, editar, corregir, desplaçar, o quitament tampar un fial / messatge quin que siá per quina rason que siá e sens preavís.</p>
 forum_rules_13:<p>Tot utilizaire de mens de 13 ans deu obténer la permission de sos parents o d'un tutor legal per poder venir un membre d'aqueste forum. Quitament se la participacion de las personas de mens de 13 ans es benvenguda, nos cal obténer una autorizacion signada d'un parent o tutor per fax o letra. Es solament aprèp recepcion d'aqueste document que la persona de mens de 13 ans serà efièchament inscricha e poirà interagir sul forum.</p><p> Çaquelà, se volètz començar la procedura d'inscripcion immediatament (abans que lo document signat nos pervenga), clicat sul boton « Accèpti » çaijós. Se vos agrada mai anullar la procedura d'inscripcion, clicatz sul boton « Anullar » per tornar a la pagina d'indèx dels forums. </p><p>Una còpia del formulari d'autorizacion pairala es disponibla aicí. Per mai d'entresenhas a prepaus de la procedura d'inscripcion, mandatz un e-mail a <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
@@ -410,6 +427,7 @@ coppa:<p>Un parent o tutor legal deu faxar o mandar per la pòsta una autorizaci
 prereg_info:Informacion
 prereg_agree:Accèpti
 prereg_disagree:Refusi
+prereg_update:Legir las règlas del forum
 coppa_fax_instructions:Instruccions als parents o tutor(s)
 coppa_fax_instructions2:Estampatz aquesta pagina, signatz-la e faxatz-la o mandatz-la per la pòsta a :
 coppa_fax_reg_form:Formulari d'inscripcion
@@ -451,6 +469,11 @@ rpasswd_login:Connexion
 rpasswd_cur_pass:Senhal actual :
 rpasswd_new_pass:Senhal novèl :
 rpasswd_conf_pass:Confirmatz lo senhal :
+ruser_title:Formulari de cambiament de connexion
+ruser_change_user:Modificatz vòstra connexion al forum
+ruser_cur_login:Login actual :
+ruser_new_login:Login novèl :
+ruser_cur_pass:Senhal actual :
 login_passwd:Senhal :
 reset_email:Corrièl :
 reset_reset_button:Reïnicializar lo senhal
@@ -662,11 +685,9 @@ tree_update:Percor lo fial (vista arborescenta) <a href="{TEMPLATE: tree_update_
 userinfo_update:Agach lo perfil de <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}'s</a>
 ERR_login_msg2:<legend>ERROR : sètz pas connectat</legend>Per accedir a aquesta pagina, vos cal èsser un membre d'aqueste forum
 ERR_disabled_ttl:Foncionalitat desactivada
-# Fuzzy
-ERR_disabled_msg:Aquesta foncionalitat es estada desactivada per l'administrator del forum
+ERR_disabled_msg:Aquesta foncionalitat es estada desactivada per l'administrator del forum.
 ERR_access_ttl:ERROR : Privilègis insufisents
-# Fuzzy
-ERR_access_msg:Avètz pas los privilègis necessaris per efectuar aquesta operacion
+ERR_access_msg:Avètz pas los privilègis necessaris per efectuar aquesta operacion.
 ERR_registration_disabled_ttl:Inscripcion desactivada
 ERR_registration_disabled_msg:L'administrator a desactivat l'inscripcion, tornatz ensajar mai tard
 ERR_emailconf_ttl:ERROR : Vòstre compte es pas encara estat confirmat
@@ -697,9 +718,9 @@ post_opt_html_off:Lo còde <b>HTML</b> es <b>DESACTIVAT</b>
 post_opt_fud_off:Lo <b>BBcode</b> es <b>DESACTIVAT</b>
 post_opt_images_off:Los <b>imatges</b> son <b>DESACTIVATS</b>
 post_opt_smilies_off:Los <b>smileys</b> son <b>DESACTIVATS</b>
-# Fuzzy
-post_opt:Opcions activadas sul forum :
+post_opt:Opcions del forum :
 register_change_passwd:Cambiar de senhal
+register_change_login:modificar la connexion
 approved_avatar_title:Vòstre avatar personal es estat aprovat.
 approved_avatar_msg:Vòstre avatar es estat aprovat per l'administrator. Ara, deuriá aparéisser dins totes vòstres messatges. S'es pas lo cas, es perque vòstre navigador o conten dins las paginas de sa memòria en escondedor. Ensajatz de lo refrescar qualques còps, aquò deuriá resòlvre lo problèma.
 unapproved_avatar_title:Vòstre avatar personal es estat refusat per l'administrator
@@ -749,8 +770,7 @@ p_STICKY:Messatges espingolats
 p_POLL:Crear un sondatge
 p_FILE:Estacar un fichièr
 p_VOTE:Votar
-# Fuzzy
-p_RATE:Notar los fials
+p_RATE:Ratio subjèctes/membres
 p_SPLIT:Decopar los fials
 p_LOCK:Varrolhar los fials
 p_MOVE:Desplaçar de fials
@@ -763,6 +783,7 @@ rate_worst:Marrit
 rate_best:Excellent
 post_quote_msg:{VAR: msg->login} a escrich lo {TEMPLATE: make_report_date}
 post_quote:Citacion :
+post_quote_selected:Citar lo tèxte seleccionat
 userinfo_referals:Utilizaires pairinats :
 userinfo_referals_count:{VAR: referals} Membres
 pm_no_space_title:Pas pus d'espaci !
@@ -784,6 +805,7 @@ th_expr_two_month:2 meses
 th_expr_four_month:4 meses
 th_expr_one_year:1 an
 thread_mod_delete:Escafar
+action_ip:IP
 action_latest_post:Darrièr messatge
 online_today_last_visit:Darrièra visita uèi
 online_today_update:Veire la lista de las personas qu'an visitat lo forum uèi.
@@ -810,6 +832,8 @@ quicklogin_password:Senhal :
 quicklogin_use_cookies:Utilizar un cookie ?
 quicklogin_login_btn:Connexion
 quick_reply:Responsa rapida
+quick_reply_post:Postar una responsa rapida
+quick_reply_preview:Previsualizar la responsa rapida
 post_notification_desc:Permet de recebre una notificacion tre que qualqu'un a respondut a aqueste messatge.
 post_all_ext_allowed:(pas restrench)
 maximize_category:Maximizar la categoria
@@ -868,6 +892,9 @@ search_desc_order:Òrdre descreissent
 search_asc_order:Òrdre creissent
 search_logic:Logic :
 search_sorting:Triar los resultats per data e per :
+search_attach:Pèças juntas :
+search_attach_all:Amb o sens
+search_attach_with:Amb de pèças juntas
 post_proceed:Confirmar
 post_moderated_forum:Avètz escrich dins un forum moderat, aquò significa que vòstre messatge serà pas visible dins lo forum tant que serà pas estat aprovat per un dels moderators e/o administrators del forum.
 post_moderated_forum_ttl:Moderacion del forum
@@ -894,5 +921,57 @@ accounts_pending_approval:Comptes en espèra d'aprovacion
 saved:Salvat
 register_err_time_limit:Lo limit d'1 inscripcion per periòde de {GVAR: REG_TIME_LIMIT} segondas es estada atencha. Pacientatz {PLURAL: reg_limit_reached|$1 segonda|$1 segondas} e ensajatz tornarmai.
 register_affero:Nom d'utilizaire Affero :<br /><font class="SmallText">S'avètz un nom d'utilizaire <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">Affero</a>, picatz-lo aicí.</font>
+im_affero:Identificant Affero :
+register_err_avatardimtobig:Las dimensions de l'avatar <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> excedisson lo limit autorizat de <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
+buddy_offline:{VAR: r[2]} es actualament desconnectat
+buddy_online:{VAR: r[2]} es actualament connectat
+sml_no_smilies:Cap de smiley pas disponible.
+login_unapproved_account_ttl:Compte pas aprovat
+login_unapproved_account_msg:L'administrator del forum a causit de passar en revista cada compte novèl manualament abans son activacion. Vòstre compte es pas encara estat confirmat, doncas, poiretz pas accedir a d'unas foncionalitats reservadas als membres inscriches abans que vòstre compte siá aprovat.
+remove_from_buddy_list:Levar de la lista d'amics
+iemail_msg_author:<b>Autor&nbsp;:</b> {VAR: obj->alias}
+iemail_msg_subject:<b>Subjècte&nbsp;:</b> {VAR: obj->subject}
+iemail_msg_date:<b>Data&nbsp;:</b> {TEMPLATE: dmsg_post_date}
+iemail_msg_reply:Respondre
+iemail_msg_quote:Citar
+iemail_msg_view:Veire lo messatge
+threadt_sticky:Espingolat
+threadt_announce:Anonci
+reported_no_messages:I a pas cap de messatge raportat.
+poll_no_polls:I a pas cap de sondatge accessible.
+no_unread_messages:I a pas cap de messatge pas legit que correspond a vòstra requèsta.
+thread_mark_all_read:Marcar totes los messatges del forum coma legits
+thread_mark_all_read_desc:Totes los messatges pas legits dins aqueste forum seràn marcats coma legits
+private_no_messages:I a pas cap de messatge dins aqueste dorsièr
+register_email_change_subject:Confirmacion de cambiament d'e-mail
+register_email_change_msg:Confirmatz vòstre novèl compte e-mail « {VAR: uent->email} » que remplaça vòstre ancian compte e-mail « {VAR: old_email} » en visitant l'URL çaijós :\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nUn còp qu'auretz confirmat vòstra novèla adreça e-mail, vòstre compte serà reactivat.
+iemail_thread_unsub:Arrestar la susvelhança d'aqueste fial
+iemail_forum_unsub:Arrestar la susvelhança d'aqueste forum
+primary_group_prefix:Grop primari pel forum :
+group_resources:Aqueste grop contraròtla las permissions dels forums seguents
+register_admin_newuser_title:Un novèl utilizaire s'es inscrich e son compte es en espèra de confirmacion
+thread_printable_pdf:Generar de PDF imprimible
+thread_syndicate:Publicar aqueste forum (XML)
+mnav_description:Navigador de messatges
+mnav_date_limit:Interval de datas :
+mnav_forum_limit:Cercar pas que dins :
+mnav_all_forums:Cercar dins totes los forums
+mnav_submit:Començar la recèrca
+mnav_posted_by:Mandat per :
+mnav_more:Mai &raquo;&raquo;
+mnav_minute:minuta(s)
+mnav_hour:ora(s)
+mnav_day:jorn(s)
+mnav_week:setmana(s)
+mnav_month:mes(es)
+mnav_title:Navigador de messatges
+findu_admin_opts_header:Opcions d'admin.
+findu_unban:Autorizar
+findu_ban:Bandir
+findu_edit:Modificar
+findu_delete:Suprimir
+dmsg_reply_to:es una responsa al
+dmsg_reply_num:messatge n° {VAR: obj->reply_to}
+merge_topics:Fusionar los fials
 code_select_all:Seleccionar tot
 code_show_hide:Afichar / amagar

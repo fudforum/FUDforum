@@ -22,7 +22,7 @@ by_mod:por Moderador
 current_time:Hora Atual
 custom_avatar_queue:Avatar de Costume
 date_posted:Data do Post
-date_registered:Data do Registo:
+date_registered:Data do registro:
 download_counter:Transferido {PLURAL: v[3]|$1 vez|$1 vezes}
 pmsg_download_counter:Descarregado {PLURAL: r->dlcount|$1 vez|$1 vezes}
 email:Email:
@@ -432,7 +432,7 @@ prereg_disagree:Não concordo
 prereg_update:Lendo as regras do fórum
 coppa_fax_instructions:Instruções para o encarregado de educação
 coppa_fax_instructions2:Por favor imprima esta página assine e envie para:
-coppa_fax_reg_form:Formulário de registo
+coppa_fax_reg_form:Formulário de registro
 coppa_fax_sign:Por favor assine e envie-nos o formulário abaixo
 coppa_fax_conf:Vi toda a informação que o meu filho(a) me forneceu e li a Política de Privacidade para o site. Compreendo que a informação no perfil pode ser alterada por uma pessoa que tenha a senha. Eu compreendo que posso pedir para que a informação deste perfil seja removida por completo.
 coppa_fax_permission:Assine aqui se autorizar
@@ -654,20 +654,20 @@ register_err_emailexists:Este e-mail já existe, se esqueceu a senha por favor u
 register_err_shortpasswd:A Senha deve ter pelo menos 6 caracteres de tamanho
 register_err_passwdnomatch:As Senhas não coincidem.
 register_err_invalidemail:O endereço de Email que colocou não parece ser um Email válido.
-register_err_needname:Para completar com sucesso o registo, informe o seu nome.
+register_err_needname:Para completar com sucesso o registro, informe o seu nome.
 register_err_enterpasswd:informe a sua Senha atual para completar as alterações
 register_err_adminpasswd:Você deve introduzir a sua senha de <b>administrador</b> para concluir as alterações.
 register_err_notyouremail:Alguém já se registou utilizando este Email, e esse alguem não é você.
 register_err_avatartobig:O Arquivo que está a tentar enviar para o servidor é demasiado grande, passa {GVAR: CUSTOM_AVATAR_MAX_SIZE} bytes do limite
 register_err_avatarnotallowed:O avatar que você está enviando para o servidor não é permitido, verifique os tipos de arquivos permitidos.
-register_conf_subject:Confirmação de Registo
+register_conf_subject:Confirmação de registro
 register_conf_msg:Obrigado por se registar,\nPara ativar a sua conta acesse o endereço (URL) abaixo:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nAssim que a sua conta for ativada, você estará acessando o fórum sendo enviado para sua pagina principal.
-register_welcome_subject:Confirmação de registo no fórum
-register_welcome_msg:Obrigado pelo registo,\n\nAqui estão os seus dados de login para o fórum:\n\nFórum URL: {TEMPLATE: index_update_lnk}\nLogin: {VAR: uent->login}\nSenha: {VAR: _POST['reg_plaintext_passwd']}\n\nNa Senha os caracteres maiúsculos ou minúsculos fazem diferença!\nPara modificar os seus dados, vá até esta pagina:\n{FULL_ROOT}{ROOT}?t=register
-register_err_cantreg_title:ERRO: Não foi possivel efetuar registo
+register_welcome_subject:Confirmação de registro no fórum
+register_welcome_msg:Obrigado pelo registro,\n\nAqui estão os seus dados de login para o fórum:\n\nFórum URL: {TEMPLATE: index_update_lnk}\nLogin: {VAR: uent->login}\nSenha: {VAR: _POST['reg_plaintext_passwd']}\n\nNa Senha os caracteres maiúsculos ou minúsculos fazem diferença!\nPara modificar os seus dados, vá até esta pagina:\n{FULL_ROOT}{ROOT}?t=register
+register_err_cantreg_title:ERRO: não foi possível registrar
 regsiter_err_cantreg_msg:Conta de usuário não foi criada, por favor contacte o administrador em <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:Vendo a sua ficha
-register_register_update:Página de Registo
+register_register_update:Página de registro
 report_err_nosuchmsg_title:ERRO
 report_err_nosuchmsg_msg:Não existe essa mensagem
 reset_err_invalidkey_title:ERRO
@@ -690,8 +690,8 @@ ERR_disabled_ttl:Possibilidade desabilitada
 ERR_disabled_msg:Esta funcionalidade foi desativada pelo administrador do sistema.
 ERR_access_ttl:ERRO: Permissões insuficientes
 ERR_access_msg:Você não tem as permissões necessárias para realizar esta ação.
-ERR_registration_disabled_ttl:Registo de usuários desabilitado
-ERR_registration_disabled_msg:O administrador desabiliotu o registo de usuários novos, por favor tente mais tarde
+ERR_registration_disabled_ttl:Registro desativado
+ERR_registration_disabled_msg:O administrador desabilitou o registro de usuários novos, por favor tente mais tarde
 ERR_emailconf_ttl:ERRO: A sua conta ainda não está confirmada
 ERR_emailconf_msg:Ainda não confirmou a sua conta via e-mail<br /><table border="0"><tr><td><ol><li>se não recebeu um e-mail de confirmação <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">clique aqui</a><li>se {VAR: usr_d->email} não é o endereço de e-mail correto <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">clique aqui</a></ol></td></tr></table>
 ERR_user_ttl:ERRO: Usuário inexistente
@@ -703,7 +703,7 @@ finduser_title:Procurar Usuário
 help_title:Ajuda
 login_title:Formmulário de Login
 poll_title:Editor de votações
-register_title:Formulário de Registo
+register_title:Formulário de registro
 reset_title:Cancelar Senha
 rpasswd_title:Formulário de alteração de Senha
 error_title:Formulário de erro
@@ -957,7 +957,7 @@ post_mod_msg_notify_title:Nova mensagem no fórum "{VAR: frm->name}" aguardando 
 post_mod_msg_notify_msg:Uma mensagem nova intitulada "{VAR: msg_post->subject}", foi colocada agora num fórum moderado por você. Para revisá-la, consulte: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nEste é um processo automático. Não responda a esta mensagem.
 thread_printable_pdf:Exportar para PDF
 thread_syndicate:Adicione este fórum (XML)
-reg_conf_title:Confirmação do Registo
+reg_conf_title:Confirmação do registro
 reg_conf_email:<b>Confirmação via E-mail</b><br />Um email foi enviado para você contendo uma URL especial que deverá ser acessada para que sua conta seja ativada. Se não receber essa notificação nos próximos minutos, conecte-se no fórum com sua conta e confirme se o endereço de e-mail informado está correto. Após confirmar a sua conta você terá acesso às opções do fórum disponíveis aos usuários confirmados.
 reg_conf_account:<b>Confirmação de Conta</b><br />Antes da sua conta se tornar ativa é necessário que seja aprovada pelo(s) administrador(es), assim que isso ocorrer você receberá um e-mail indicando que a mesma foi ativada. Até esse momento você poderá acessar o fórum, porém está limitado a apenas fóruns que não necessitam de conta ativada.
 forum_banned_user:As suas ações anteriores obtiveram como resultado a sua expulsão permanente deste fórum. Adeus.
