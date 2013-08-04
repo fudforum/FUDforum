@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -67,13 +67,16 @@ function print_log($logfile, $search)
 	$linecnt = 0;
 	$fp = fopen($GLOBALS['ERROR_PATH'] . $logfile, 'r');
 	while (1) {
-		// ?%-10d?%-10d?
-		if (!($pfx = fread($fp, 23))) {
+		if (!($pfx = fread($fp, 23))) {	// ?%-10d?%-10d?
 			break;
+		}
+		if (strpos($pfx, '?') === FALSE) {	// Read past bad line.
+			$garbage = fgets($fp);
+			continue;
 		}
 		list(, $s, $d,) = explode('?', $pfx);
 		$err = fread($fp, (int)$s);
-		if ($search && stripos($err, $search) === false) {	
+		if ($search && stripos($err, $search) === false) {
 			continue;	// Filter according to search criteria.
 		}
 		echo '<tr class="field"><td nowrap="nowrap" valign="top">'. gmdate('D M j G:i:s T Y', $d) .'</td><td>'. format_err($err) .'</td></tr>';
