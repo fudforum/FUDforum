@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -83,9 +83,9 @@ function plugin_wikilinks_html_to_tag($array) {
 
 	while (preg_match('!<a href="'. str_replace('://', '&#58;&#47;&#47;', $ini['WIKILINKS_URL']) .'(.+?)"( target="_blank")?>(.+?)</a>!ui', $bbcode, $res)) {
 		$m = str_replace('_', ' ', $res[1]);
-		if ( strpos($res[3], $res[1]) === 0 ) {  // start with
-			$x = substr($res[3], strlen($res[1]));
-			$bbcode = str_replace($res[0], '[['.$res[1].']]' .$x, $bbcode);
+		if ( strpos($res[3], $m) === 0 ) {  // start with
+			$x = substr($res[3], strlen($m));
+			$bbcode = str_replace($res[0], '[['. $m .']]'. $x, $bbcode);
 		} else {
 			$bbcode = str_replace($res[0], '[['. $m .'|'. $res[3] .']]', $bbcode);
 		}
@@ -98,7 +98,7 @@ function wikilinks_info() {
 	return array('name' => 'Wikilink tags',
 				'desc' => 'Allow forum users to use [[wikilink]] tags as shorthand to link to articles on the site\'s wiki (or any other wiki for that matter).',
 				'cat'  => 'BBcode',
-				'version' => '1.1');
+				'version' => '1.2');
 }
 
 function wikilinks_enable() {
