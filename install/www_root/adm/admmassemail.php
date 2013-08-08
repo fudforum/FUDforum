@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -81,7 +81,7 @@
 					if (!(++$email_batch_cnt % $email_batch)) {
 						$email_batch_cnt = 0;
 						$bcc = implode(', ', $to) . "\r\n";
-						$mail_success = @mail(' ', encode_subject($_POST['subject']), $_POST['body'], $header.'\nBcc: '.$bcc);
+						$mail_success = @mail(' ', encode_subject($_POST['subject']), $_POST['body'], $header ."\nBcc: ". $bcc);
 						if ($mail_success) {
 							$mails_sent = $mails_sent + count($to);
 						} else {
@@ -94,7 +94,7 @@
 				unset($c);
 				if ($to) {
 					$bcc = implode(', ', $to) ."\r\n";
-					$mail_success = @mail(' ', encode_subject($_POST['subject']), $_POST['body'], $header.'\nBcc: '.$bcc);
+					$mail_success = @mail(' ', encode_subject($_POST['subject']), $_POST['body'], $header ."\nBcc: ". $bcc);
 					if ($mail_success) {
 						$mails_sent = $mails_sent + count($to);
 					} else {
