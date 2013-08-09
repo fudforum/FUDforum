@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -11,18 +11,28 @@
 
 class fud_announce
 {
-	var	$date_started, $date_ended, $subject, $text, $ann_opt;
+	var	$date_started, $date_ended, $subject, $text, $opt;
+	var     $year1, $month1, $day1;
+	var     $year2, $month2, $day2;
 
 	function __construct()
 	{
 		foreach ($this as $k => $v) {
-			if (isset($_POST['annonce_'. $k])) {
+			if (isset($_POST['announce_'. $k])) {
+				if (is_array($_POST['announce_'. $k])) {	// OR options together.
+					$opts = 0;
+					foreach($_POST['announce_'. $k] as $tmp=>$opt) $opts |= $opt;
+					$_POST['announce_'. $k] = $opts;
+				}
 				$this->{$k} = $_POST['announce_'. $k];
 			}
 		}
+		
+		$this->date_started = mk_date($this->year1, $this->month1, $this->day1);
+		$this->date_ended   = mk_date($this->year2, $this->month2, $this->day2);
 	}
 
-/* TODO: TO BE IMPLEMENTED LATER...
+	/** Add an announcement. */
 	function add()
 	{
 		$this->id = db_qid('INSERT INTO '. $GLOBALS['DBHOST_TBL_PREFIX'] .'announce (
@@ -36,13 +46,14 @@ class fud_announce
 			'. ssn($this->date_ended) .',
 			'. ssn($this->subject) .',
 			'. ssn($this->text) .',
-			'. (int)$this->$ann_opt .'
+			'. (int)$this->opt .'
 		)');
 		$this->rebuild_cache();
 
 		return $this->id;
 	}
 
+	/** Update an announcement. */
 	function sync($id)
 	{
 		q('UPDATE '. $GLOBALS['DBHOST_TBL_PREFIX'] .'announce SET
@@ -50,11 +61,10 @@ class fud_announce
 			date_ended='. ssn($this->date_ended) .',
 			subject='. ssn($this->subject) .',
 			text='. ssn($this->text) .',
-			ann_opt='. (int)$this->ann_opt .'
+			ann_opt='. (int)$this->opt .'
 		WHERE id='. (int)$id);
 		$this->rebuild_cache();
 	}
-*/
 
 	/** Delete an announcement. */
 	static function delete($id)
@@ -80,7 +90,6 @@ class fud_announce
 			// Unset what we don't need.
 			unset($r->date_started);
 			unset($r->date_ended);
-			unset($r->ann_opt);
 
 			$announcements[ $r->id ] = (array)$r;
 		}
@@ -98,3 +107,4 @@ class fud_announce
 
 }
 ?>
+

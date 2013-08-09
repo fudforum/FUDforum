@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -71,10 +71,8 @@ if (!($frm->group_cache_opt & 2) && !$MOD) {
 }
 
 if ($_GET['t'] == 'threadt') {
-	$ann_cols = '5';
 	$cur_frm_page = $start + 1;
 } else {
-	$ann_cols = '6';
 	$cur_frm_page = floor($start / $THREADS_PER_PAGE) + 1;
 }
 
@@ -93,12 +91,18 @@ if (_uid) {
 
 $ppg = $usr->posts_ppg ? $usr->posts_ppg : $POSTS_PER_PAGE;
 
-/* Handling of announcements. */
+/* Handling of forum level announcements (should be merged with non-forum announcements in index.php.t). */
 $announcements = '';
 if ($frm->is_ann) {
 	$today = gmdate('Ymd', __request_timestamp__);
-	$res = uq('SELECT a.subject, a.text FROM {SQL_TABLE_PREFIX}announce a INNER JOIN {SQL_TABLE_PREFIX}ann_forums af ON a.id=af.ann_id AND af.forum_id='. $frm->id .' WHERE a.date_started<='. $today .' AND a.date_ended>='. $today);
+	$res = uq('SELECT a.subject, a.text, a.ann_opt FROM {SQL_TABLE_PREFIX}announce a INNER JOIN {SQL_TABLE_PREFIX}ann_forums af ON a.id=af.ann_id AND af.forum_id='. $frm->id .' WHERE a.date_started<='. $today .' AND a.date_ended>='. $today);
 	while ($r = db_rowarr($res)) {
+		if (!_uid && $r[2] & 2) {
+			continue;	// Only for logged in users.
+		}
+		if (_uid && $r['2'] & 4) {
+			continue;	// Only for anonomous users.
+		}
 		$announcements .= '{TEMPLATE: announce_entry}';
 	}
 	unset($res);

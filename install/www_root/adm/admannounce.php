@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -35,11 +35,11 @@ function mk_date($y, $m, $d)
 	}
 
 	if (isset($_GET['edit']) && ($an_d = db_sab('SELECT * FROM '. $tbl .'announce WHERE id='. (int)$_GET['edit']))) {
-		list($d_year, $d_month, $d_day)    = raw_date($an_d->date_started);
-		list($d2_year, $d2_month, $d2_day) = raw_date($an_d->date_ended);
-		$a_subject = $an_d->subject;
-		$a_text = $an_d->text;
-		$a_opt = $an_d->ann_opt;
+		list($announce_year1, $announce_month1, $announce_day1) = raw_date($an_d->date_started);
+		list($announce_year2, $announce_month2, $announce_day2) = raw_date($an_d->date_ended);
+		$announce_subject = $an_d->subject;
+		$announce_text = $an_d->text;
+		$announce_opt = $an_d->ann_opt;
 		$edit = (int)$_GET['edit'];
 		$c = uq('SELECT forum_id FROM '. $tbl .'ann_forums WHERE ann_id='. (int)$_GET['edit']);
 		while ($r = db_rowarr($c)) {
@@ -47,7 +47,7 @@ function mk_date($y, $m, $d)
 		}
 		unset($c);
 	} else if (isset($_POST['btn_none']) || isset($_POST['btn_all'])) {
-		$vals = array('edit', 'a_subject', 'a_text', 'd_year', 'd_month', 'd_day', 'd2_year', 'd2_month', 'd2_day', 'a_opt');
+		$vals = array('edit', 'announce_subject', 'announce_text', 'd_year', 'd_month', 'd_day', 'd2_year', 'd2_month', 'd2_day', 'announce_opt');
 		foreach ($vals as $v) {
 			${$v} = $_POST[$v];
 		}
@@ -59,25 +59,20 @@ function mk_date($y, $m, $d)
 			unset($c);
 		}
 	} else {
-		$edit = $a_subject = $a_text = '';
-		$a_opt = 0;
-		list($d_year, $d_month, $d_day)    = explode(' ', gmdate('Y m d', __request_timestamp__));
-		list($d2_year, $d2_month, $d2_day) = explode(' ', gmdate('Y m d', (__request_timestamp__ + 86400)));	// 86400 seconds in a day.
+		$edit = $announce_subject = $announce_text = '';
+		$announce_opt = 0;
+		list($announce_year1, $announce_month1, $announce_day1) = explode(' ', gmdate('Y m d', __request_timestamp__));
+		list($announce_year2, $announce_month2, $announce_day2) = explode(' ', gmdate('Y m d', (__request_timestamp__ + 86400)));	// 86400 seconds in a day.
 	}
 
 	if (isset($_POST['btn_submit'])) {
-		$id = db_qid('INSERT INTO '. $tbl .'announce (date_started, date_ended, subject, text, ann_opt) VALUES ('. mk_date($_POST['d_year'], $_POST['d_month'], $_POST['d_day']) .', '. mk_date($_POST['d2_year'], $_POST['d2_month'], $_POST['d2_day']) .', '. _esc($_POST['a_subject']) .', '. _esc($_POST['a_text']) .', '. (int)$_POST['a_opt'] .')');
-		fud_announce::rebuild_cache();
+		$ann = new fud_announce;
+		$id = $ann->add();
 		pf(successify('Announcement successfully added.'));
 	} else if (isset($_POST['btn_update'], $_POST['edit'])) {
+		$ann = new fud_announce;
 		$id = (int)$_POST['edit'];
-		q('UPDATE '. $tbl .'announce SET
-			date_started='. mk_date($_POST['d_year'], $_POST['d_month'], $_POST['d_day']) .',
-			date_ended='. mk_date($_POST['d2_year'], $_POST['d2_month'], $_POST['d2_day']) .',
-			subject='. _esc($_POST['a_subject']) .',
-			text='. _esc($_POST['a_text']) .'
-			WHERE id='. $id);
-		fud_announce::rebuild_cache();
+		$ann->sync($id);
 		pf(successify('Announcement successfully updated.'));
 	}
 
@@ -93,13 +88,21 @@ function mk_date($y, $m, $d)
 <h2>Announcement System</h2>
 
 <h3><?php echo $edit ? '<a name="edit">Edit Announcement:</a>' : 'Add New Announcement:'; ?></h3>
-<form method="post" id="a_frm" action="admannounce.php">
+<form method="post" id="announce_frm" action="admannounce.php">
 <?php echo _hs; ?>
 <table class="datatable">
+
+	<tr class="field">
+		<td>Show to:<br /><font size="-2">(who can see it)</font></td>
+		<td>
+			<?php draw_select('announce_opt[]', "All users\nAll logged in users\nAnonymous users", "0\n2\n4", ($announce_opt & (2|4))); ?>
+		</td>
+	</tr>
+
 	<tr class="field">
 		<td>Show on:<br /><font size="-2">(besides the selected forums)</font></td>
 		<td>
-			<?php draw_select('a_opt', "Selected forums only\nFront Page", "0\n1", ($a_opt & (1))); ?>
+			<?php draw_select('announce_opt[]', "Selected forums only\nFront Page", "0\n1", ($announce_opt & (1))); ?>
 		</td>
 	</tr>
 
@@ -151,9 +154,9 @@ function mk_date($y, $m, $d)
 					<td><font size="-2">Year</font></td>
 				</tr>
 				<tr>
-					<td><?php draw_month_select('d_month', 0, $d_month); ?></td>
-					<td><?php draw_day_select('d_day', 0, $d_day); ?></td>
-					<td><input type="text" name="d_year" value="<?php echo $d_year; ?>" size="5" /></td>
+					<td><?php draw_month_select('announce_month1', 0, $announce_month1); ?></td>
+					<td><?php draw_day_select('announce_day1', 0, $announce_day1); ?></td>
+					<td><input type="text" name="announce_year1" value="<?php echo $announce_year1; ?>" size="5" /></td>
 				</tr>
 			</table>
 		</td>
@@ -169,9 +172,9 @@ function mk_date($y, $m, $d)
 					<td><font size="-2">Year</font></td>
 				</tr>
 				<tr>
-					<td><?php draw_month_select('d2_month', 0, $d2_month); ?></td>
-					<td><?php draw_day_select('d2_day', 0, $d2_day); ?></td>
-					<td><input type="text" name="d2_year" value="<?php echo $d2_year; ?>" size="5" /></td>
+					<td><?php draw_month_select('announce_month2', 0, $announce_month2); ?></td>
+					<td><?php draw_day_select('announce_day2', 0, $announce_day2); ?></td>
+					<td><input type="text" name="announce_year2" value="<?php echo $announce_year2; ?>" size="5" /></td>
 				</tr>
 			</table>
 			<small>All dates are in UTC, current UTC date/time is: <?php echo gmdate('r', __request_timestamp__); ?></small>
@@ -180,12 +183,12 @@ function mk_date($y, $m, $d)
 
 	<tr class="field">
 		<td>Subject:</td>
-		<td><input type="text" name="a_subject" value="<?php echo htmlspecialchars($a_subject); ?>" size="40" /></td>
+		<td><input type="text" name="announce_subject" value="<?php echo htmlspecialchars($announce_subject); ?>" size="40" /></td>
 	</tr>
 
 	<tr class="field">
-		<td valign="top">Message body:</td>
-		<td><textarea cols="60" rows="5" name="a_text"><?php echo htmlspecialchars($a_text); ?></textarea></td>
+		<td valign="top">Message body:<br /><font size="-2">(HTML allowed)</font></td>
+		<td><textarea cols="60" rows="5" name="announce_text"><?php echo htmlspecialchars($announce_text); ?></textarea></td>
 	</tr>
 
 	<tr class="field">
@@ -234,3 +237,4 @@ function mk_date($y, $m, $d)
 ?>
 </table>
 <?php require($WWW_ROOT_DISK .'adm/footer.php'); ?>
+

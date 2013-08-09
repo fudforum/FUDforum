@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -18,11 +18,17 @@
 
 	$TITLE_EXTRA = ': {TEMPLATE: index_title}';
 
-// @TODO: Move to seperate file.
-	/* Handling of announcements. */
+// @TODO: Merge with foum level announcements in thread_view_common.inc.t.
+	/* Display non-forum related announcements. */
 	include $GLOBALS['FORUM_SETTINGS_PATH'] .'announce_cache';
 	$announcements = '';
 	foreach ($announce_cache as $a_id => $a) {
+		if (!_uid && $a['ann_opt'] & 2) {
+			continue;	// Only for logged in users.
+		}
+		if (_uid && $a['ann_opt'] & 4) {
+			continue;	// Only for anonomous users.
+		}
 		if ($a['start'] <= __request_timestamp__ && $a['end'] >= __request_timestamp__) {
 			$announce_subj = $a['subject'];
 			$announce_body = $a['text'];
