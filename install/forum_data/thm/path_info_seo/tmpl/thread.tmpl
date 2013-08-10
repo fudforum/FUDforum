@@ -1,0 +1,33 @@
+/**
+* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
+* email                : forum@prohost.org
+* $Id: thread.tmpl 5627 2013-07-27 08:32:29Z naudefj $
+*
+* This program is free software; you can redistribute it and/or modify it 
+* under the terms of the GNU General Public License as published by the 
+* Free Software Foundation; version 2 of the License. 
+**/
+
+{PHP_FILE: input: thread.php.t; output: thread.php;}
+{REF: security.tmpl}
+{REF: admincp.tmpl}
+{REF: header.tmpl}
+{REF: footer.tmpl}
+{REF: curtime.tmpl}
+{REF: usercp.tmpl}
+{REF: stats.tmpl}
+{REF: draw_pager.tmpl}
+{REF: forumsel.tmpl}
+{REF: show.tmpl}
+{REF: forum_notify.tmpl}
+{REF: thread_view_common.tmpl}
+{REF: draw_forum_list.tmpl}
+
+{SECTION: first_unread_msg_link_lnk}
+{ROOT}/t/{VAR: r[13]}-{VAR-SEO: r[2]}/0/unread/{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: thread_row_lnk}
+{ROOT}/t/{VAR: r[13]}-{VAR-SEO: r[2]}/{DEF: _rsid}
+{SECTION: END}
+

@@ -15,7 +15,7 @@
 {SECTION: END}
 
 {SECTION: index_forum_entry_lnk}
-{IF: empty($r[12])}{ROOT}/f/{VAR: r[7]}-{VAR-SEO: r[10]}{DEF: _rsid}{ELSE}{VAR: r[12]}{ENDI}
+{IF: empty($r[12])}{ROOT}/f/{VAR: r[7]}/{DEF: _rsid}{ELSE}{VAR: r[12]}{ENDI}
 {SECTION: END}
 
 {SECTION: last_post_lnk}

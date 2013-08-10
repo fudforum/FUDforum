@@ -1,0 +1,20 @@
+/**
+* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
+* email                : forum@prohost.org
+* $Id: draw_forum_list.tmpl 5627 2013-07-27 08:32:29Z naudefj $
+*
+* This program is free software; you can redistribute it and/or modify it
+* under the terms of the GNU General Public License as published by the
+* Free Software Foundation; version 2 of the License.
+**/
+
+{PHP_FILE: input: draw_forum_list.inc.t; output: draw_forum_list.inc;}
+
+{SECTION: index_forum_entry_lnk}
+{IF: empty($r[12])}{ROOT}/f/{VAR: r[7]}-{VAR-SEO: r[10]}/{DEF: _rsid}{ELSE}{VAR: r[12]}{ENDI}
+{SECTION: END}
+
+{SECTION: profile_link_user_lnk}
+{ROOT}/u/{VAR: r[3]}-{VAR-SEO: r[4]}/{DEF: _rsid}
+{SECTION: END}
+
