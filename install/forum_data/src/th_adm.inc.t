@@ -108,12 +108,22 @@ function rebuild_forum_view_ttl($forum_id, $skip_cron=0)
 	q('DELETE FROM {SQL_TABLE_PREFIX}tv_'. $forum_id);
 
 	if (__dbtype__ == 'mssql') {
-		// Workaround for: The ORDER BY clause is invalid in views, inline functions, derived tables, subqueries, and common table expressions, unless TOP or FOR XML is also specified.
+		// Add "TOP(1000000000)" as workaround for ERROR Msg 1033:
+		// "The ORDER BY clause is invalid in views, inline functions, derived tables, subqueries, and common table expressions, unless TOP or FOR XML is also specified."
+		// See http://support.microsoft.com/kb/841845/en
 		q('INSERT INTO {SQL_TABLE_PREFIX}tv_'. $forum_id .' (seq, thread_id, iss) SELECT '. q_rownum() .', id, iss FROM
 			(SELECT TOP(1000000000) {SQL_TABLE_PREFIX}thread.id AS id, '. q_bitand('thread_opt', (2|4|8)) .' AS iss FROM {SQL_TABLE_PREFIX}thread 
 			INNER JOIN {SQL_TABLE_PREFIX}msg ON {SQL_TABLE_PREFIX}thread.root_msg_id={SQL_TABLE_PREFIX}msg.id 
 			WHERE forum_id='. $forum_id .' AND {SQL_TABLE_PREFIX}msg.apr=1 
 			ORDER BY (CASE WHEN thread_opt>=2 THEN (4294967294 + (('. q_bitand('thread_opt', 8) .') * 100000000) + {SQL_TABLE_PREFIX}thread.last_post_date) ELSE {SQL_TABLE_PREFIX}thread.last_post_date END) ASC) q1');
+	} else if (__dbtype__ == 'sqlite') {
+		// Prevent subquery flattening by adding "LIMIT -1 OFFSET 0" as it will prevent the rowid() code to work.
+		// See http://stackoverflow.com/questions/17809644/how-to-disable-subquery-flattening-in-sqlite
+		q('INSERT INTO {SQL_TABLE_PREFIX}tv_'. $forum_id .' (seq, thread_id, iss) SELECT '. q_rownum() .', id, iss FROM
+			(SELECT {SQL_TABLE_PREFIX}thread.id AS id, '. q_bitand('thread_opt', (2|4|8)) .' AS iss FROM {SQL_TABLE_PREFIX}thread 
+			INNER JOIN {SQL_TABLE_PREFIX}msg ON {SQL_TABLE_PREFIX}thread.root_msg_id={SQL_TABLE_PREFIX}msg.id 
+			WHERE forum_id='. $forum_id .' AND {SQL_TABLE_PREFIX}msg.apr=1 
+			ORDER BY (CASE WHEN thread_opt>=2 THEN (4294967294 + (('. q_bitand('thread_opt', 8) .') * 100000000) + {SQL_TABLE_PREFIX}thread.last_post_date) ELSE {SQL_TABLE_PREFIX}thread.last_post_date END) ASC LIMIT -1 OFFSET 0) q1');
 	} else {
 		q('INSERT INTO {SQL_TABLE_PREFIX}tv_'. $forum_id .' (seq, thread_id, iss) SELECT '. q_rownum() .', id, iss FROM
 			(SELECT {SQL_TABLE_PREFIX}thread.id AS id, '. q_bitand('thread_opt', (2|4|8)) .' AS iss FROM {SQL_TABLE_PREFIX}thread 
