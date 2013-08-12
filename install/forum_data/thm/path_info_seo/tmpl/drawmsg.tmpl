@@ -1,0 +1,19 @@
+/**
+* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
+* email                : forum@prohost.org
+* $Id: drawmsg.tmpl 5460 2012-04-23 06:35:36Z naudefj $
+*
+* This program is free software; you can redistribute it and/or modify it 
+* under the terms of the GNU General Public License as published by the 
+* Free Software Foundation; version 2 of the License. 
+**/
+
+{PHP_FILE: input: drawmsg.inc.t; output: drawmsg.inc;}
+{REF: fileio.tmpl}
+{REF: alt_var.tmpl}
+{REF: karma_show.tmpl}
+
+{SECTION: dmsg_reg_user_link_lnk}
+{ROOT}/u/{VAR: obj->user_id}-{VAR-SEO: user_login}/{DEF: _rsid}
+{SECTION: END}
+
