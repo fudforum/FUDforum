@@ -906,7 +906,8 @@ if ($section == 'db' || php_sapi_name() == 'cli') {
 	/* Import seed data. */
 	if (!isset($GLOBALS['errors'])) {					
 		foreach ($sql as $t) {
-			$file = str_replace(array("\r\n", "\r"), "\n", file_get_contents($t));
+			// Replace hard coded newlines in seed scripts.
+			$file = str_replace(array('\r\n', '\r', '\n'), "\n", file_get_contents($t));
 			foreach (explode(";\n", $file) as $q) { 
 				$q = make_into_query($q);
 				if ($q) {

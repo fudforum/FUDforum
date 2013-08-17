@@ -55,7 +55,7 @@ include $GLOBALS['DATA_DIR'] .'include/adm_common.inc';
 pf('<h1>Test '. $DBHOST_DBTYPE .' driver</h1>', true);
 $tab = $DBHOST_TBL_PREFIX .'test_table';
 
-/* Load FUDforum's DB driver. It will attempt to connect by iteself. */
+/* Load FUDforum's DB driver. It will attempt to connect by itself. */
 pf('Loading DB driver...');
 $time_start = microtime(true);
 include $GLOBALS['DATA_DIR'] .'sql/'. $GLOBALS['DBHOST_DBTYPE'] .'/db.inc';
