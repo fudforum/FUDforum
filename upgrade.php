@@ -83,7 +83,7 @@ function users_last_used_ip($flds)
 /** Change reset/conf_key from '0' to NULL (no need to store & index a bunch of 0 values). */
 function users_conf_key($flds)
 {
-	pf('Convert reset_key & conf_key from '0' to NULL');
+	pf('Convert reset_key & conf_key from 0 to NULL');
 	q('UPDATE '. $GLOBALS['DBHOST_TBL_PREFIX'] .'users SET conf_key =NULL WHERE conf_key =0');
 	q('UPDATE '. $GLOBALS['DBHOST_TBL_PREFIX'] .'users SET reset_key=NULL WHERE reset_key=0');
 }
@@ -263,7 +263,6 @@ function upgrade_globals_php()
 	$f = fopen($GLOBALS['INCLUDE'] .'GLOBALS.php', 'r');
 	while($s=fgets($f)) {
 		if (strpos($s, '$GLOBALS[') !== false) {
-			pf('GLOBALS.php already converted to new format.');
 			return;		// Already converted, bail out!
 		}
 		$new .= preg_replace('/(\s)\$([A-Z_1-9]*)([\s]*)/i', '$1$GLOBALS[\'$2\']$3', $s);
