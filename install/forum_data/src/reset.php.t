@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -31,7 +31,7 @@
 			// Generate new password and salt for user.
 			$salt   = substr(md5(uniqid(mt_rand(), true)), 0, 9);
 			$passwd = dechex(get_random_value(32));	// New password that will be mailed to the user.
-			q('UPDATE {SQL_TABLE_PREFIX}users SET passwd=\''. sha1($salt . sha1($passwd)) .'\', salt=\''. $salt .'\', reset_key=\'0\' WHERE id='. $ui[2]);
+			q('UPDATE {SQL_TABLE_PREFIX}users SET passwd=\''. sha1($salt . sha1($passwd)) .'\', salt=\''. $salt .'\', reset_key=NULL WHERE id='. $ui[2]);
 			send_email($NOTIFY_FROM, $ui[0], '{TEMPLATE: reset_newpass_title}', '{TEMPLATE: reset_newpass_msg}');
 			ses_putvar((int)$usr->sid, '{TEMPLATE: reset_login_notify}');
 			if ($FUD_OPT_2 & 32768) {

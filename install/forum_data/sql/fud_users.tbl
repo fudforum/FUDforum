@@ -45,6 +45,7 @@ CREATE TABLE {SQL_TABLE_PREFIX}users
 	join_date		BIGINT NOT NULL DEFAULT 0,
 
 	conf_key		VARCHAR(32),
+	reset_key		VARCHAR(32),
 	user_image		VARCHAR(255),
 	theme			INT NOT NULL DEFAULT 0,
 
@@ -57,7 +58,6 @@ CREATE TABLE {SQL_TABLE_PREFIX}users
 
 	level_id 		INT NOT NULL DEFAULT 0,
 	karma			INT NOT NULL DEFAULT 0,
-	reset_key		VARCHAR(32) NOT NULL DEFAULT '0',
 	u_last_post_id 		INT NOT NULL DEFAULT 0,
 	home_page		VARCHAR(255),
 	bio			TEXT,

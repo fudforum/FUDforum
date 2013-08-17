@@ -9,7 +9,7 @@
 * Free Software Foundation; either version 2 of the License.
 ***************************************************************************/
 
-$__UPGRADE_SCRIPT_VERSION = 5305.1;
+$__UPGRADE_SCRIPT_VERSION = 5305.2;
 // define('fud_debfud_debug', 1);
 
 /*
@@ -78,6 +78,18 @@ function users_last_used_ip($flds)
 	while ($r = db_rowarr($c)) {
 		q('UPDATE '. $GLOBALS['DBHOST_TBL_PREFIX'] .'users SET last_used_ip=\''. long2ip($r[1]) .'\' WHERE id='. $r[0]);
 	}
+}
+
+/** Change reset/conf_key from '0' to NULL (no need to store & index a bunch of 0 values). */
+function users_conf_key($flds)
+{
+	pf('Convert last_known_ip to last_used_ip IPv6 compatibility');
+	q('UPDATE '. $GLOBALS['DBHOST_TBL_PREFIX'] .'users SET conf_key =NULL WHERE conf_key =0');
+	q('UPDATE '. $GLOBALS['DBHOST_TBL_PREFIX'] .'users SET reset_key=NULL WHERE reset_key=0');
+}
+function users_reset_key($flds)
+{
+	users_conf_key($flds);
 }
 
 /* For future implementation -
