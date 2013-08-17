@@ -19,30 +19,43 @@ function resolve_refs($file_name)
 	if (isset($GLOBALS['file_cache'][$file_name])) {
 		return;
 	}
-	$fc =& $GLOBALS['file_cache'][$file_name];
-
-	/* Fetch file definition. */
+	$fc   =& $GLOBALS['file_cache'][$file_name];
 	$tset = $GLOBALS['__COMPILER__']['tset'];
+	
+	/* Load file definition. First, see if the file is present in the current template set. */
 	$GLOBALS['CURFILE'] = $GLOBALS['DATA_DIR'] .'thm/'. $tset .'/tmpl/'. $file_name;
 	if (($str = @file_get_contents($GLOBALS['CURFILE'])) === false) {
-		// Not found, look in PATH_INFO theme.
-		if (file_exists($GLOBALS['DATA_DIR'] .'thm/'. $tset .'/.path_info')) {
-			$file1 = $GLOBALS['DATA_DIR'] .'thm/path_info/tmpl/'. $file_name;
-			if (($str = @file_get_contents($file1)) === false) {
-				// Not found, look in DEFAULT theme.
-				$file1 = $GLOBALS['DATA_DIR'] .'thm/default/tmpl/'. $file_name;
-				if (($str = @file_get_contents($file1)) === false) {
+
+		// Try to locate file by looking at 'based_on' chain in theme.ini files.
+		$ini['based_on'] = $tset;
+		while ($ini['based_on'] != 'default' && ($ini = @parse_ini_file($GLOBALS['DATA_DIR'] .'thm/'. $ini['based_on'] .'/theme.ini'))) {
+			$GLOBALS['CURFILE'] = $GLOBALS['DATA_DIR'] .'thm/'. $ini['based_on'] .'/tmpl/'. $file_name;
+			if (($str = @file_get_contents($GLOBALS['CURFILE'])) !== false) {
+				$file_loaded = 1;
+				break;
+			}
+		}
+
+		// Still not found, use old lookup method: PATH_INFO and DEFAULT themes.
+		if ( !isset( $file_loaded ) ) {
+			if ( file_exists($GLOBALS['DATA_DIR'] .'thm/'. $tset .'/.path_info')) {
+				$GLOBALS['CURFILE'] = $GLOBALS['DATA_DIR'] .'thm/path_info/tmpl/'. $file_name;
+				if (($str = @file_get_contents($GLOBALS['CURFILE'])) === false) {
+					// Not found, look in DEFAULT theme.
+					$GLOBALS['CURFILE'] = $GLOBALS['DATA_DIR'] .'thm/default/tmpl/'. $file_name;
+					if (($str = @file_get_contents($GLOBALS['CURFILE'])) === false) {
+						throw new Exception('Referenced file named (<b>'. $file_name .'</b>) doesn\'t exist.');
+					}
+				}
+			} else {	// Not a path_info theme.
+				$GLOBALS['CURFILE'] = $GLOBALS['DATA_DIR'] .'thm/default/tmpl/'. $file_name;
+				if (($str = @file_get_contents($GLOBALS['CURFILE'])) === false) {
 					throw new Exception('Referenced file named (<b>'. $file_name .'</b>) doesn\'t exist.');
 				}
 			}
-		} else {	// Not a path_info theme.
-			$file1 = $GLOBALS['DATA_DIR'] .'thm/default/tmpl/'. $file_name;
-			if (($str = @file_get_contents($file1)) === false) {
-				throw new Exception('Referenced file named (<b>'. $file_name .'</b>) doesn\'t exist.');
-			}
 		}
 	}
-
+	
 	if (($st = strpos($str, '{PHP_FILE: ')) !== false) {
 		$st += 11;
 		$st = substr($str, $st, (strpos($str, '}', $st) - $st - 1));
@@ -57,16 +70,27 @@ function resolve_refs($file_name)
 		parse_sections($str, '');
 	}
 
+	// Non-default templates may not conatin all sections. Parse 'based_on' chain as well.
 	if (strpos($GLOBALS['CURFILE'], 'thm/default/tmpl') === false) {
-		// For undefined sections of a path_info theme, look first in the PATH_INFO template set.
-		if (file_exists($GLOBALS['DATA_DIR'] .'thm/'. $tset .'/.path_info')) {
-			if (($tmp = @file_get_contents($GLOBALS['DATA_DIR'] .'thm/path_info/tmpl/'. $file_name)) !== false) {
+		$ini['based_on'] = $tset;
+		while ($ini['based_on'] != 'default' && ($ini = @parse_ini_file($GLOBALS['DATA_DIR'] .'thm/'. $ini['based_on'] .'/theme.ini'))) {
+			if (($tmp = @file_get_contents($GLOBALS['DATA_DIR'] .'thm/'. $ini['based_on'] .'/tmpl/'. $file_name)) !== false) {
 				parse_sections($tmp, ($st !== false ? $fc['dst'] : ''), 1);
 			}
 		}
-		// If all else fails, get it from the default template set.
-		if (($tmp = @file_get_contents($GLOBALS['DATA_DIR'] .'thm/default/tmpl/'. $file_name)) !== false) {
-			parse_sections($tmp, ($st !== false ? $fc['dst'] : ''), 1);
+		
+		// Still not found, use old lookup method: PATH_INFO and DEFAULT themes.
+		if ( $ini['based_on'] != 'default' ) {
+			// For undefined sections of a path_info theme, look first in the PATH_INFO template set.
+			if (file_exists($GLOBALS['DATA_DIR'] .'thm/'. $tset .'/.path_info')) {
+				if (($tmp = @file_get_contents($GLOBALS['DATA_DIR'] .'thm/path_info/tmpl/'. $file_name)) !== false) {
+					parse_sections($tmp, ($st !== false ? $fc['dst'] : ''), 1);
+				}
+			}
+			// If all else fails, get it from the default template set.
+			if (($tmp = @file_get_contents($GLOBALS['DATA_DIR'] .'thm/default/tmpl/'. $file_name)) !== false) {
+				parse_sections($tmp, ($st !== false ? $fc['dst'] : ''), 1);
+			}
 		}
 	}
 
