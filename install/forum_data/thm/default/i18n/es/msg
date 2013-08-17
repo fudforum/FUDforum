@@ -1031,7 +1031,7 @@ userinfo_real_name:Nombre real:
 register_err_alias_notallowed:Este alias no está permitido
 post_err_mod_forum_edit_ttl:ERROR
 post_err_mod_forum_edit_msg:No puede editar mensajes en un foro moderado.
-dmsg_num:mensaje nº{VAR: obj->id}
+dmsg_num:mensaje n.º {VAR: obj->id}
 postcheck_session_invalid:Su sesión había expirado. Por favor, vuelva a enviar el formulario. Perdón por las molestias.
 delete_message_extra_desc:<b>Opcional</b><br />Especifique una razón para borrar el mensaje, que se enviará al autor mediante un mensaje privado.
 delete_message_extra_body:Incluir el cuerpo del mensaje eliminado que se enviará al autor.

@@ -3,6 +3,7 @@
 # Author: Anakmalaysia
 # Author: Bennylin
 # Author: Farras
+# Author: Ilham151096
 # Author: Irwangatot
 # Author: IvanLanin
 # Author: Iwan Novirion
@@ -834,7 +835,7 @@ split_th_select:Pilih
 report_report_post:Laporkan pesan
 quicklogin_login:Masuk log:
 quicklogin_password:Kata sandi:
-quicklogin_use_cookies:pergunakan "Cookies"?
+quicklogin_use_cookies:Gunakan Kuki?
 quicklogin_login_btn:Masuk log
 quick_reply:Balas dengan cepat
 quick_reply_post:Kirim Balasan Cepat

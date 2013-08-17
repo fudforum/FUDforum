@@ -586,7 +586,7 @@ postcheck_max_images_err:{GVAR: MAX_IMAGE_COUNT} 이미지 갯수가 초과되�
 postcheck_subj_needed:제목을 입력하십시오
 postcheck_no_such_user:이 포럼에는 "{FUNC: char_fix(htmlspecialchars($v))}"와 일치하는 사용자가 없습니다.
 postcheck_ignored:차단 리스트에 등록되었기 때문에 "{FUNC: char_fix(htmlspecialchars($v))}"에게 쪽지를 전송할 수 없습니다.
-postcheck_no_recepient:전송불가 : 수신자 오류
+postcheck_no_recepient:수신자가 없어서, 메시지를 보낼 수 없습니다
 postcheck_invalid_email:올바른 이메일 주소를 입력하세요.
 postcheck_email_subject:전송 불가: 제목이 없습니다.
 postcheck_email_body:본문 내용 없이 이메일을 보낼 수 없습니다.

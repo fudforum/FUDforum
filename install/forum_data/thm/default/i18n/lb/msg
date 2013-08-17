@@ -1,6 +1,7 @@
 # Messages for Luxembourgish (Lëtzebuergesch)
 # Exported from translatewiki.net
 # Author: Robby
+# Author: Soued031
 
 action:Aktioun
 add_to_buddy_list:op d'Lëscht vun de Frënn derbäisetzen
@@ -180,7 +181,7 @@ register_uploaded:Avatar eroplueden
 register_password:Passwuert:
 register_conf_pass:Passwuert confirméieren:
 register_name:Numm:
-register_your_pass:Ärt Passwuert:
+register_your_pass:Äert Passwuert:
 register_update:Aktualiséieren
 register_del_avatar:Avatar läschen
 register_avatar:Avatar:
@@ -427,6 +428,7 @@ mnav_week:Woch(en)
 mnav_month:Mount/Méint
 findu_edit:Änneren
 findu_delete:Läschen
+dmsg_reply_num:Message #{VAR: obj->reply_to}
 merge_topics:Themen zesummeleeën
 mnav_newer:méi nei wéi
 mnav_older:méi al wéi

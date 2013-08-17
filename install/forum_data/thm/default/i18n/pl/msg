@@ -2,6 +2,7 @@
 # Exported from translatewiki.net
 # Author: BeginaFelicysym
 # Author: Byulent
+# Author: Chrumps
 # Author: Naudefj
 # Author: Sp5uhe
 # Author: Woytecr
@@ -345,7 +346,7 @@ register_sig:Podpis:
 register_sig_desc:Opcjonalny podpis, który może pojawiać się na dole Twoich wiadomości.
 register_reset:Zresetuj
 register_def_thread_view:Domyślny widok wątków:
-register_msg_per_page:Ilość wiadomości na stronie:
+register_msg_per_page:Liczba wiadomości na stronie:
 register_show_sig:Pokaż podpisy:
 register_show_sig_desc:Pozwala Ci zarówno ukrywać, jak i pokazywać podpisy innych użytkowników forum.
 register_use_sig_default:Używaj domyślnie podpisu:
@@ -625,7 +626,7 @@ post_err_edttimelimit_title:BŁĄD
 post_err_edttimelimit_msg:Nie możesz już edytować tej wiadomości
 post_err_noannontopics_msg2:<legend>BŁĄD: Brak Uprawnień</legend>Anonimowym użytkownikom forum nie wolno tworzyć nowych wątków. Aby to było możliwe, należy się zarejestrować.
 post_err_noannonposts_msg2:<legend>BŁĄD: Brak Uprawnień</legend>Anonimowym użytkownikom forum nie wolno odpowiadać na wiadomości. Aby to było możliwe, należy się zarejestrować.
-post_err_floodtrig_title:BŁĄD: Wykryto zbyt dużą ilość zamieszczanych wiadomości.
+post_err_floodtrig_title:BŁĄD: Wykryto zbyt dużą liczbę zamieszczanych wiadomości.
 post_err_floodtrig_msg:Spróbuj ponownie za {PLURAL: tm|$1 sekundę|$1 sekundy|$1 sekund}
 post_err_attach_size:Załącznik jest zbyt duży (ponad dozwolone ograniczenie {VAR: MAX_F_SIZE} bajtów)
 post_err_attach_ext:Plik, który próbujesz dołączyć nie pokrywa się z dozwolonymi typami plików.
@@ -882,7 +883,7 @@ polllist_view_results:Obejrzyj wyniki
 polllist_name:Nazwa ankiety
 polllist_date:Utworzona w dniu
 polllist_owner:Utworzona przez
-polllist_votes:Ilość głosów
+polllist_votes:Liczba głosów
 polllist_action:Akcja
 polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">Przeglądanie dostępnych ankiet</a>
 userinfo_polls:Ankiety:

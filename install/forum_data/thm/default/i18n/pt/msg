@@ -365,7 +365,7 @@ register_show_email_desc:Escolha esta opção se quiser que o seu endereço de e
 register_notification:Seleccionar Notificação por Omissão:
 register_notification_desc:Se a notificação estiver ativada por omissão, pode ser desativada ao publicar mensagens.
 register_notify_method:Escolher Método de Notificação:
-register_notify_method_desc:Defina o seu método de notificação preferido ou desactive as notificações (por exemplo, quando vai de férias).
+register_notify_method_desc:Defina o seu método de notificação preferido ou desative as notificações (por exemplo, quando vai de férias).
 register_allow_email_msg:Autorizar Mensagens por Correio Electrónico:
 register_allow_email_msg_desc:Autorizar que outros membros lhe enviem correio electrónico através do fórum.
 buddy_status:Estado
@@ -921,7 +921,7 @@ insert_uploaded_image:Insira uma imagem dentro da mensagem
 finduser_help:O motor de busca vai adicionar automaticamente uma * mascara a sua pesquisa. ex. Para procurar por todos os utilizadores cujo login comece com um 'a', digite 'a' na caixa de pesquisa.
 back_to_top:Voltar ao Topo
 pm_err_disabled_title:Mensagens privadas foram desabilitadas
-pm_err_disabled_msg:Não pode enviar mensagens privadas até que active a opção 'Permitir mensagens privadas' no seu perfil.
+pm_err_disabled_msg:Não pode enviar mensagens privadas até que ative a opção 'Permitir mensagens privadas' no seu perfil.
 err_mod_acc_ttl:Conta não verificada
 err_mod_acc_msg:O administrador escolheu ver todas as contas manualmente antes de as ativar. Até que a sua conta seja validada pelo administrador não vai poder utilizar todas as possibilidades do fórum.
 accounts_pending_approval:Contas á espera de aprovação
@@ -985,7 +985,7 @@ mnav_month:Mês (es)
 mnav_title:Navegador de Mensagens
 mnav_update:Consultando as mensagens usando o <a href="{TEMPLATE: mnav_update_lnk}">Navegador de Mensagens</a>
 pm_notify_subject:[{GVAR: FORUM_TITLE}] Notificação de Nova Mensagem Privada
-pm_notify_body_email:Você tem uma nova mensagem privada intitulada "{VAR: subject}", de "{VAR: from}", no fórum "{GVAR: FORUM_TITLE}".\nPara ver a mensagem clique aqui: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nPara deixar de receber notificações, desactive "Notificação de Mensagens Privadas" no seu perfil.
+pm_notify_body_email:Você tem uma nova mensagem privada intitulada "{VAR: subject}", de "{VAR: from}", no fórum "{GVAR: FORUM_TITLE}".\nPara ver a mensagem clique aqui: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nPara deixar de receber notificações, desative "Notificação de Mensagens Privadas" no seu perfil.
 register_pm_notification:Notificação de Mensagem Privada:
 register_pm_notification_desc:Se ativado, será notificado sempre que lhe for enviada uma mensagem privada.
 findu_admin_opts_header:Opções de administração
