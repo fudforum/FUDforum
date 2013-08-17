@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id: ckeditor.plugin 5354 2011-08-20 08:42:41Z naudefj $
 *
@@ -12,7 +12,7 @@
 // Initialize plugin.
 plugin_add_hook('COMPILER_FINALIZE_PAGE', 'plugin_ckeditor');
 
-// Add HTML markup to initialize ckeditor.
+// Add HTML markup to initialize CKEditor when we compile a theme.
 function plugin_ckeditor($array) {
 	list($html, $page) = $array;
 
@@ -21,45 +21,62 @@ function plugin_ckeditor($array) {
 		return $array;
 	}
 
-	// Add to footer.
-	$foot_add = '
-<script type="text/javascript" src="http://ckeditor.com/apps/ckeditor/3.6.3/ckeditor.js?1316349976"></script>
-<script type="text/javascript" src="http://ckeditor.com/apps/ckeditor/3.6.3/_source/lang/_languages.js?1316349976"></script>
-<script type="text/javascript">
-CKEDITOR.replace("txtb", {
-	extraPlugins : "bbcode",
-	// Remove unused plugins.
-	removePlugins : "bidi,button,dialogadvtab,div,filebrowser,flash,format,forms,horizontalrule,iframe,indent,justify,liststyle,pagebreak,showborders,stylescombo,table,tabletools,templates",
-	// Width and height are not supported in the BBCode format, so object resizing is disabled.
-	disableObjectResizing : true,
-	// Define font sizes in percent values.
-	fontSize_sizes : "30/30%;50/50%;100/100%;120/120%;150/150%;200/200%;300/300%",
-	toolbar :
-	[
-		["Source", "-", "Undo", "Redo"],
-		["Bold", "Italic", "Underline"],
-// HIERDIE WERK NIE!!!!		["JustifyLeft", "JustifyCenter", "JustifyRight"],
-		["Link", "Unlink", "Image", "Smiley", "SpecialChar"],
-		["FontSize"],
-		["TextColor"],
-		["NumberedList", "BulletedList", "-", "Blockquote"],
-		["Maximize"]
-	],
-	// Strip CKEditor smileys to those commonly used in BBCode.
-	smiley_images :
+	// Read plugin config.
+	if ((@include $GLOBALS['PLUGIN_PATH'] .'ckeditor/ckeditor.ini') === false) {
+		die('ERROR: Please configure the CKEditor plugin from the Plugin Manager Control panel.');
+	}
+
+	// CKEditor configuration settings.
+	if ($ini['CKEDITOR_TAGS'] == '1') {	// Use BBCode tags.
+		$ck_config = '
+// Avoiding loading external settings.
+customConfig: "",
+// Load the BBCode plugin.
+extraPlugins: "bbcode",
+// Remove unused plugins.
+removePlugins: "bidi,dialogadvtab,div,filebrowser,flash,format,forms,horizontalrule,iframe,liststyle,pagebreak,showborders,stylescombo,table,tabletools,templates",
+// Width and height are not supported in the BBCode format, so object resizing is disabled.
+disableObjectResizing: true,
+// Define font sizes in percent values.
+fontSize_sizes: "30/30%;50/50%;100/100%;120/120%;150/150%;200/200%;300/300%",
+toolbar: [
+	["Source", "-", "Undo", "Redo"],
+	["Bold", "Italic", "Underline"],
+	["JustifyLeft", "JustifyCenter", "JustifyRight"],
+	["Link", "Unlink", "Image", "Smiley", "SpecialChar"],
+	["FontSize"],
+	["TextColor"],
+	["NumberedList", "BulletedList", "-", "Blockquote"],
+	["Maximize"]
+//MAYBE ADD?	[ "Find", "Replace", "-", "SelectAll", "RemoveFormat" ],
+],
+// Strip CKEditor smileys to those commonly used in BBCode.
+smiley_images:
 	[
 		"regular_smile.gif","sad_smile.gif","wink_smile.gif","teeth_smile.gif","tounge_smile.gif",
 		"embaressed_smile.gif","omg_smile.gif","whatchutalkingabout_smile.gif","angel_smile.gif","shades_smile.gif",
 		"cry_smile.gif","kiss.gif"
 	],
-	smiley_descriptions :
+smiley_descriptions:
 	[
 		"smiley", "sad", "wink", "laugh", "cheeky", "blush", "surprise",
 		"indecision", "angel", "cool", "crying", "kiss"
-	]
-} );
+	]';
+	} else {	// Use HTML tags.
+		$ck_config = 'removePlugins: "bbcode"';
+	}
+
+	// Add to footer of HTML page.
+	$foot_add = '<script type="text/javascript">
+$(function() {
+	// Hide default formatting toolbar.
+	$(".FormattingToolsBG").parent().parent().hide();
+});
 </script>
-';
+<script src="'. $ini['CKEDITOR_PATH'] .'"></script>
+<script type="text/javascript">
+	CKEDITOR.replace("txtb", {'. $ck_config .'});
+</script>';
 	$html = str_replace('</body>', $foot_add .'</body>', $html);
 
 	return array($html, $page);
@@ -69,21 +86,47 @@ function ckeditor_info() {
 	return array('name' => 'CKEditor',
 				'desc' => 'Allow WYSIWYG editing with <a href="http://ckeditor.com/">CKEditor</a>.',
 				'cat'  => 'Third-party Integration',
-				'version' => '1.0');
+				'version' => '1.1');
 }
 
 function ckeditor_enable() {
-	// fud_use('file_adm.inc', true);
-	// $fromdir = $GLOBALS['PLUGIN_PATH']   .'/ckeditor/deploy';
-	// $todir   = $GLOBALS['WWW_ROOT_DISK'] .'/theme/ckeditor';
-	// fud_mkdir($todir);
-	// fud_copy($fromdir, $todir);
+	if((@include_once $GLOBALS['PLUGIN_PATH'] .'ckeditor/ckeditor.ini') === false) {
+		return array(null, 'Please configure the CKEditor plugin before enabling it.');	// OK, Err.
+	}
 	@define('REBUILD_THEMES', 1);
 }
 
 function ckeditor_disable() {
-	// fud_use('file_adm.inc', true);
-	// fud_rmdir($GLOBALS['WWW_ROOT_DISK'] .'theme/ckeditor', true);
 	@define('REBUILD_THEMES', 1);
 }
+
+function ckeditor_config() {
+	if ((@include $GLOBALS['PLUGIN_PATH'] .'ckeditor/ckeditor.ini') === false) {
+	  $ini = NULL;
+	}
+
+	if (isset($_POST['Set'])) {
+		foreach (array_keys($_POST) as $key) {
+			if (substr($key,0,9) == 'CKEDITOR_') {
+				$ini[$key] = $_POST[$key];
+			}
+		}
+		$fp = fopen($GLOBALS['PLUGIN_PATH'] .'ckeditor/ckeditor.ini', 'w');
+		fwrite($fp, '<?php $ini = '. var_export($ini, 1) .'; ?>');
+		fclose($fp);
+		pf(successify('Settings successfully saved.'));
+	}
+	?>
+<p>FUDforum DOES NOT ship with a copy of CKEditor! You need to <a href="http://ckeditor.com/download">download</a> and unzip it on your webservers or use a copy that's hosted on a CDN. Ensure the version you use includes CKEditor's <a href="http://ckeditor.com/addon/bbcode">BBcode plugin</a>.</p>
+
+<p>Full URL to <i>ckeditor.js</i> (on your or any other website):<br />
+<input name="CKEDITOR_PATH" value="<?php echo $ini['CKEDITOR_PATH'] ?>" size="52" /></p>
+
+<p>Tag Style (must match the tag style of your forums):<br />
+<label><input type="radio" name="CKEDITOR_TAGS" value="1" <?php echo $ini['CKEDITOR_TAGS'] ? 'checked="checked"' : '' ?> /> BBCode tags (use probably want BBCode!) <br /></label>
+<label><input type="radio" name="CKEDITOR_TAGS" value=""  <?php echo $ini['CKEDITOR_TAGS'] ? '' : 'checked="checked"' ?> /> HTML tags </label></p>
+	<?php
+}
+
+?>
 
