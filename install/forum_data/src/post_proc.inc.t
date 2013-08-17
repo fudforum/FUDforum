@@ -248,7 +248,7 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 						$param .= "\n?>";
 					}
 
-					$ostr .= '<SPAN name="php">'. trim(@highlight_string($param, true)) .'</SPAN>';
+					$ostr .= '<span name="php">'. trim(@highlight_string($param, true)) .'</span><!--php-->';
 					$epos = $cepos;
 					$str[$cpos] = '<';
 					break;
@@ -294,7 +294,7 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 				case 'list':
 					$tmp = substr($str, $epos, ($cpos-$epos));
 					$tmp_l = strlen($tmp);
-					$tmp2 = str_replace('[*]', '<li>', $tmp);
+					$tmp2 = str_replace(array('[*]', '[li]'), '<li>', $tmp);
 					$tmp2_l = strlen($tmp2);
 					$str = str_replace($tmp, $tmp2, $str);
 
@@ -349,6 +349,11 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 					}
 					$ostr .= '<a href="http://'. $parms .'wikipedia.com/wiki/'. $url .'" name="WikiPediaLink">';
 					break;
+				case 'indent':
+				case 'tab':
+					$end_tag[$cpos] = '</span><!--indent-->';
+					$ostr .= '<span class="indent">';
+					break;
 			}
 
 			$str[$pos] = '<';
@@ -378,7 +383,7 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 			continue;
 		}
 
-		// Check if it's inside the a tag.
+		// Check if it's inside the A tag.
 		if (($ts = strpos($ostr, '<a ', $pos)) === false) {
 			$ts = strlen($ostr);
 		}
@@ -483,7 +488,7 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 			continue;
 		}
 
-		// Check if it's inside the a tag.
+		// Check if it's inside the A tag.
 		if (($ts = strpos($ostr, '<a ', $pos)) === false) {
 			$ts = strlen($ostr);
 		}
@@ -541,14 +546,21 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 		$pos = $ppos;
 	}
 
+        if ( !preg_match('/^(?:<|\[)(?:table|list|ol|ul|pre|select|form|blockquote|hr)/i', $parts[$i]) ) {
+          $parts[$i] = '<p>' . $parts[$i] . '</p>';
+        }
+
 	// Remove line breaks directly following list tags.
 	$ostr = preg_replace('!(<[uo]l>)\s*<br\s*/?\s*>\s*(<li>)!is', '\\1\\2', $ostr);
 	$ostr = preg_replace('!<br\s*/?\s*>\s*(</li>|<li>|</ul>|</ol>)!is', '\\1', $ostr);
 
+	// Remove <br /> after block level HTML tags like TABLE, LIST, PRE, BLOCKQUOTE, etc.
+	$ostr = preg_replace('!</(ul|ol|table|pre|code|blockqoote)>\s*<br />!is', '</\\1>', $ostr);
+
 	return $ostr;
 }
 
-/** Convert HTML to BBCode tags. */
+/** Convert HTML back to BBCode tags. */
 function html_to_tags($fudml)
 {
 	// Call all HTML to BBcode conversion plugins.
@@ -556,8 +568,8 @@ function html_to_tags($fudml)
 		list($fudml) = plugin_call_hook('HTML2BBCODE', array($fudml));
 	}
 
-	// PHP code blocks.
-	while (preg_match('!<span name="php">(.*?)</span>!is', $fudml, $res)) {
+	// Remove PHP code blocks so they can't interfere with parsing.
+	while (preg_match('/<span name="php">(.*?)<\/span><!--php-->/is', $fudml, $res)) {
 		$tmp = trim(html_entity_decode(strip_tags(str_replace('<br />', "\n", $res[1]))));
 		$m = md5($tmp);
 		$php[$m] = $tmp;
@@ -609,25 +621,32 @@ function html_to_tags($fudml)
 	}
 
 	// List tags.
-	while (preg_match('!<(o|u)l type=".+?">.*?</\\1l>!is', $fudml)) {
-		$fudml = preg_replace('!<(o|u)l type="(.+?)">(.*?)</\\1l>!is', '[list type=\2]\3[/list]', $fudml);
+	while (preg_match('!<(o|u)l.*?</\\1l>!is', $fudml)) {
+		$fudml = preg_replace('!<(o|u)l type="(.+?)">(.*?)</\\1l>!is', "\n[list type=\\2]\\3[/list]\n", $fudml);
+		$fudml = preg_replace('!<(o|u)l>(.*?)</\\1l>!is', "\n[list]\\2[/list]\n", $fudml);
+		$fudml = str_ireplace( array('<li>', '</li>'), array("\n[*]", ''), $fudml);
 	}
 
 	$fudml = str_replace(
 	array(
 		'<b>', '</b>', '<i>', '</i>', '<u>', '</u>', '<s>', '</s>', '<sub>', '</sub>', '<sup>', '</sup>', '<del>', '</del>',
-		'<div class="pre"><pre>', '</pre></div>', '<div align="center">', '<div align="left">', '<div align="right">', '</div>',
-		'<ul>', '</ul>', '<span name="notag">', '</span>', '<li>', '&#64;', '&#58;&#47;&#47;', '<br />', '<pre>', '</pre>','<hr>',
+		'<div class="pre"><pre>', '</pre></div>', 
+		'<div align="center">', '<div align="left">', '<div align="right">', '</div>',
+		'<span class="indent">', '</span><!--indent-->',
+		'<span name="notag">', '</span>', '&#64;', '&#58;&#47;&#47;', '<br />', '<pre>', '</pre>', '<hr>',
 		'<h1>', '</h1>', '<h2>', '</h2>', '<h3>', '</h3>', '<h4>', '</h4>'
 	),
 	array(
-		'[b]', '[/b]', '[i]', '[/i]', '[u]', '[/u]', '[s]', '[/s]', '[sub]', '[/sub]', '[sup]', '[/sup]', '[del]', '[/del]', 
-		'[code]', '[/code]', '[align=center]', '[align=left]', '[align=right]', '[/align]', '[list]', '[/list]',
-		'[notag]', '[/notag]', '[*]', '@', '://', '', '[pre]', '[/pre]','[hr]',
+		'[b]', '[/b]', '[i]', '[/i]', '[u]', '[/u]', '[s]', '[/s]', '[sub]', '[/sub]', '[sup]', '[/sup]', '[del]', '[/del]',
+		'[code]', '[/code]', 
+		'[align=center]', '[align=left]', '[align=right]', '[/align]',
+		'[indent]', '[/indent]',
+		'[notag]', '[/notag]', '@', '://', '', '[pre]', '[/pre]', '[hr]',
 		'[h1]', '[/h1]', '[h2]', '[/h2]', '[h3]', '[/h3]', '[h4]', '[/h4]'
 	),
 	$fudml);
 
+	// Image, Email and URL tags/
 	while (preg_match('!<img src="(.*?)" border="?0"? alt="\\1" ?/?>!is', $fudml)) {
                 $fudml = preg_replace('!<img src="(.*?)" border="?0"? alt="\\1" ?/?>!is', '[img]\1[/img]', $fudml);
 	}
@@ -654,6 +673,7 @@ function html_to_tags($fudml)
 		$fudml = preg_replace('!<a href="(.+?)"( target="_blank")?>(.+?)</a>!is', '[url=\1]\3[/url]', $fudml);
 	}
 
+	// Re-insert PHP code blocks.
 	if (isset($php)) {
 		$fudml = str_replace(array_keys($php), array_values($php), $fudml);
 	}
