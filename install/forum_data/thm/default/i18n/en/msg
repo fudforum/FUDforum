@@ -210,6 +210,7 @@ reported_reported_msg:Reported Messages
 modque_pending_approval:Messages pending approval
 modque_approve:Approve
 modque_delete:Delete
+modque_deleteall:Delete all from user
 modque_no_message:There are no messages pending approval
 pmsg_new_messages:Unread private message
 pmsg_old_messages:Read private message

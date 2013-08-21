@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -27,5 +27,9 @@
 {SECTION: END}
 
 {SECTION: modque_msg_header_lnk1}
-{ROOT}/del/{VAR: obj->id}/{DEF: _rsid}?SQ={GVAR: sq}
+{ROOT}/mq/del/{VAR: obj->id}/{DEF: _rsid}?SQ={GVAR: sq}
+{SECTION: END}
+
+{SECTION: modque_msg_header_lnk2}
+{ROOT}/mq/delall/{VAR: obj->id}/{DEF: _rsid}?SQ={GVAR: sq}
 {SECTION: END}
