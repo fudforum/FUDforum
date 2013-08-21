@@ -262,13 +262,13 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 
 						if (!$parms) {
 							// Relative URLs or physical with http/https/ftp.
-							if (url_check(substr($str, $epos+1, ($cpos-$epos)-1))) {
+							if ($url = url_check(substr($str, $epos+1, ($cpos-$epos)-1))) {
 								$ostr .= '<img '. $class .'src="'. $url .'" border="0" alt="'. $url .'" />';
 							} else {
 								$ostr .= substr($str, $pos, ($cepos-$pos)+1);
 							}
 						} else {
-							if (url_check($parms)) {
+							if ($url = url_check($parms)) {
 								$ostr .= '<img '. $class .'src="'. $url .'" border="0" alt="'. substr($str, $epos+1, ($cpos-$epos)-1) .'" />';
 							} else {
 								$ostr .= substr($str, $pos, ($cepos-$pos)+1);
