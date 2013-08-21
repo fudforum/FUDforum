@@ -204,6 +204,10 @@ fieldset.collapsed legend {
 	background: transparent url(collapsed.gif) no-repeat center left;
 }
 
+.small {
+	font-size: small;
+}
+
 .tiny {
 	font-size: x-small;
 }

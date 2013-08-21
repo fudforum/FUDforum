@@ -144,7 +144,7 @@ if (!extension_loaded('posix')) {
 				require($WWW_ROOT_DISK .'adm/footer.php');
 				exit;
 			} else {
-				logaction(_uid, 'Deleted file/directory', 0, $cur_dir .'/'. $dest);
+				logaction(_uid, 'Deleted', 0, $cur_dir .'/'. $dest);
 				exit('<html><script>window.opener.location = \'admbrowse.php?'. __adm_rsidl .'&cur='. urlencode($cur_dir) .'\'; window.close();</script></html>');
 			}
 		} else {
@@ -192,7 +192,7 @@ if (!extension_loaded('posix')) {
 				require($WWW_ROOT_DISK .'adm/footer.php');
 				exit;
 			} else {
-				logaction(_uid, 'Renamed file/directory to '. $new_dest, 0, $dest);
+				logaction(_uid, 'Renamed to '. $new_dest, 0, $dest);
 				exit('<html><script>window.opener.location = \'admbrowse.php?'. __adm_rsidl .'&cur='. urlencode($cur_dir) .'\'; window.close();</script></html>');
 			}
 		} else {
@@ -274,7 +274,7 @@ if (!extension_loaded('posix')) {
 		if (!@chmod($file, $new_mode)) {
 			exit('<html>Unable to chmod <b>'. $file .'</b><br /><a href="#" onclick="window.close();">close</a></html>');
 		} else {
-			logaction(_uid, 'Changed file mode to '. $new_mode, 0, $file);
+			logaction(_uid, 'Changed mode to '. $new_mode, 0, $file);
 			exit('<html><script>window.opener.location = \'admbrowse.php?'. __adm_rsidl .'&cur='. urlencode($cur_dir) .'\'; window.close();</script></html>');
 		}
 	}
@@ -309,7 +309,7 @@ if (!extension_loaded('posix')) {
 			}
 			if (move_uploaded_file($_FILES['fname']['tmp_name'], $fdest)) {
 				@chmod($fdest, ($FUD_OPT_2 & 8388608 ? 0600 : 0666));
-				logaction(_uid, 'Uploaded file', 0, $fdest);
+				logaction(_uid, 'Uploaded', 0, $fdest);
 				echo successify('File <i>'. basename($fdest) .'</i> ('. number_format($_FILES['fname']['size'] / 1024, 2) .'KB) was successfully uploaded.');
 				if (preg_match('/src|thm/', $cur_dir)) {
 					echo successify('Rebuild your themes from the <a href="admthemes.php?'.__adm_rsid .'">Theme Manager</a> to see the changes.');
@@ -345,6 +345,20 @@ if (!extension_loaded('posix')) {
 				default:
 					echo errorify('Unknown upload error. Please try again.');
 			}
+		}
+	}
+
+	/* Unzip file. */
+	if (isset($_GET['unzip']) && $dest && @file_exists($cur_dir .'/'. $dest)) {
+		$zip = new ZipArchive;
+		$res = $zip->open($cur_dir .'/'. $dest);
+		if ($res === TRUE) {
+			$zip->extractTo($cur_dir);
+			$zip->close();
+			echo successify('File '. $dest .' successfully unzipped.');
+			logaction(_uid, 'Unzipped', 0, $cur_dir .'/'. $dest);
+		} else {
+			echo errorify('Unable to unzip file '. $dest);
 		}
 	}
 
@@ -402,7 +416,7 @@ if (!extension_loaded('posix')) {
 				pf(errorify('Unable to save file!'));
 			} else {
 				pf(successify('File saved.'));
-				logaction(_uid, 'Edited file', 0, $file);	
+				logaction(_uid, 'Edited', 0, $file);
 			}
 		}
 		$_GET['edit'] = 1; // Return to the edit screen.
@@ -443,7 +457,7 @@ if (!extension_loaded('posix')) {
 		$cur_dir = $ROOT_PATH[0];
 	}
 
-	echo 'Currently browsing: <b>'. htmlspecialchars($cur_dir) ."</b><br />\n";
+	echo 'Currently in: <b>'. htmlspecialchars($cur_dir) ."</b><br />\n";
 	if ($ROOT_PATH[0] == $ROOT_PATH[1]) {
 		if ($ROOT_PATH[0] != $cur_dir) {
 			echo 'Go to: ';
@@ -467,7 +481,7 @@ if (!extension_loaded('posix')) {
 <fieldset>
         <legend>Create directory</legend>
 <table class="datatable">
-	<tr class="tiny">
+	<tr class="small">
 		<td>New directory name:</td>
 		<td><input type="text" name="mkdir" value="" /></td>
 		<td align="right" colspan="2"><input type="submit" name="btn_mkdir" value="Create Directory" /></td>
@@ -481,15 +495,15 @@ if (!extension_loaded('posix')) {
 <fieldset>
         <legend>Upload a file</legend>
 <table cellspacing="2" cellpadding="2" border="0">
-	<tr class="tiny">
+	<tr class="small">
 		<td>File to upload:</td>
 		<td><input type="file" name="fname" /><input type="hidden" name="tmp_f_val" value="1" /></td>
 	</tr>
-	<tr class="tiny">
-		<td>New file name:<br />(leave blank if want the uploaded filename to remain unchanged)</td>
+	<tr class="small">
+		<td>New file name:<br />(leave blank to use the same name)</td>
 		<td><input type="text" name="d_name" value="" /></td>
 	</tr>
-	<tr class="tiny">
+	<tr class="small">
 		<td colspan="2" align="right"><input type="submit" name="file_upload" value="Upload File" /></td>
 	</tr>
 </table>
@@ -576,15 +590,19 @@ if (!extension_loaded('posix')) {
 				echo '<a href="#" onclick="window.open(\'admbrowse.php?chmod=1&amp;cur='. $cur_enc .'&amp;dest='. $de_enc .'&amp;'. __adm_rsid .'\', \'chmod_window\', \'width=500,height=450,menubar=no\');" title="Change mode">chmod</a> ';
 			}
 
-			echo '| <a href="admbrowse.php?down=1&amp;cur='. $cur_enc .'&amp;dest='. $de_enc .'&amp;'. __adm_rsid .'" title="Download">d/l</a>';
+			echo ' <a href="admbrowse.php?down=1&amp;cur='. $cur_enc .'&amp;dest='. $de_enc .'&amp;'. __adm_rsid .'" title="Download">d/l</a>';
 
 			if (@is_file($fpath)) {
-			      echo '| <a href="admbrowse.php?edit=1&amp;cur='. $cur_enc .'&amp;dest='. $de_enc .'&amp;'. __adm_rsid .'" title="Edit">edt</a>';
+				if (preg_match('/\.zip/', $fpath)) {
+					echo ' <a href="admbrowse.php?unzip=1&amp;cur='. $cur_enc .'&amp;dest='. $de_enc .'&amp;'. __adm_rsid .'" title="UnZip">unz</a>';
+				} else {
+					echo ' <a href="admbrowse.php?edit=1&amp;cur='. $cur_enc .'&amp;dest='. $de_enc .'&amp;'. __adm_rsid .'" title="Edit">edt</a>';
+				}
 			}
 
 			if (@is_writeable($fpath) && $de != '.' && $de != '..' && $de != '.htaccess') {
-				echo '| <a href="#" onclick="window.open(\'admbrowse.php?rename=1&amp;cur='. $cur_enc .'&amp;dest='. $de_enc .'&amp;'. __adm_rsid .'\', \'rename_window\', \'width=500,height=350,menubar=no\');" title="Rename">ren</a>';
-				echo '| <a href="#" onclick="window.open(\'admbrowse.php?del=1&amp;cur='. $cur_enc .'&amp;dest='. $de_enc .'&amp;'. __adm_rsid .'\', \'delete_window\', \'width=500,height=350,menubar=no\');" title="Delete">del</a>';
+				echo ' <a href="#" onclick="window.open(\'admbrowse.php?rename=1&amp;cur='. $cur_enc .'&amp;dest='. $de_enc .'&amp;'. __adm_rsid .'\', \'rename_window\', \'width=500,height=350,menubar=no\');" title="Rename">ren</a>';
+				echo ' <a href="#" onclick="window.open(\'admbrowse.php?del=1&amp;cur='. $cur_enc .'&amp;dest='. $de_enc .'&amp;'. __adm_rsid .'\', \'delete_window\', \'width=500,height=350,menubar=no\');" title="Delete">del</a>';
 			}
 		}
 		echo '</tr>';
