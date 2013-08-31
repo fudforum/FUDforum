@@ -1,0 +1,1145 @@
+# Messages for Sinhala (සිංහල)
+# Exported from translatewiki.net
+# Author: පසිඳු කාවින්ද
+# Author: බිඟුවා
+
+action:ක්‍රියාව
+add_to_buddy_list:මිතුරු ලැයිස්තුවට එක් කරන්න
+admin:පරිපාලක
+admin_control_panel:පරිපාලනය
+administrator:පරිපාලක
+attachment:ඈඳිය:
+avatar:ප්‍රාදුර්භූතය:
+average_post_count:{PLURAL: u->posted_msg_count|පණිවුඩ $1} (දිනකට {PLURAL: avg|සාමාන්‍යය පණිවුඩ $1})
+biography:ජීවන චරිතාපදානය:
+birth_date:උපන් දිනය:
+by:විසින්:
+by_mod:ප්‍රමිති කාරකයා විසින්
+current_time:දැන් වෙලාව
+custom_avatar_queue:රිසිකළ මුර්ති පෙළ
+date_posted:තැපැල් කෙරූ දිනය
+date_registered:ලියාපදිංචි වූ දිනය:
+download_counter:{PLURAL: v[3]|$1 වතාවක්|$1 වතාවක්} බාගන්නා ලදී
+pmsg_download_counter:{PLURAL: r->dlcount|$1 වතාවක්|$1 වතාවක්} බාගන්නා ලදී
+email:විද්‍යුත් තැපෑල:
+email_to_friend:මිතුරෙකුට ඊ-තැපැල් කරන්න
+email_to_friend_desc:ඊ-තැපෑල හරහා මෙම පිටුවට URL ඔබේ යහළුව(න්) ට යවන්න
+email_user:පරිශීලකට ඊ-තැපැල් පණිවුඩයක් යවන්න
+faq:උදව්
+first_unread_msg:නොකියවූ පණිවුඩ වෙත යන්න
+first_unread_msg_desc:මෙම මාතෘකාව ඇතුලත පළමු නොකියවූ පණිවුඩය වෙත යන්න
+flat_view:පෙරනිමි පැතිලි දසුන වෙත ආපසු යන්න
+forum:ෆෝරමය:
+forum_icon:ෆෝරමයේ අයිකනය
+forum_new_messages:නව පණිවුඩ
+forum_none_messages:කියවූ &amp; නොකියවූ පණිවුඩ පසුපස යෑමට හැක්කේ ලියාපදිංචි වූ ෆෝරම සාමාජිකයන් හට පමණි
+forum_old_messages:නව පණිවුඩ නැත
+from:වෙතින්:
+gender:ලිංගභේදය:
+go:යන්න
+goto_next_msg:මීළඟ පණිවුඩය වෙත යන්න
+goto_prev_msg:පෙර පණිවුඩය වෙත යන්න
+home:නිවස
+homepage:නිවස්නපිටුව:
+icq_control_panel:ICQ මාර්ගගත-පණිවුඩ පැනලය
+icq_message_form:ICQ පණිවුඩ ෆෝරමය:
+ignore_user:මෙම පරිශීලකගෙන් සියලුම පණිවුඩ නොසලකා හරින්න
+im_aim:AIM හැසිරවීම:
+im_msnm:MSN පණිවුඩකරු:
+im_yahoo:යාහූ පණිවුඩකරු:
+image:රූපය:
+index_forum:ෆෝරමය:
+index_new_posts:අන්තිම කියවීම දක්වා නව පණිවුඩ
+index_no_new_posts:අන්තිම කියවීම දක්වා නව පණිවුඩ නැත
+index_url_redirection:ප්‍රතියොමුව
+interests:ලැදිකම්:
+last_post:අවසන් පණිවුඩය
+last_thread_msg:මෙම මාතෘකාවේ අවසන් පණිවුඩය වෙත යන්න
+legend:ප්‍රබන්ධය
+location:ස්ථානය:
+lock_thread:මාතෘකාව අගුළුලන්න
+locked:අගුළුලා ඇත
+locked_with_new_posts:අගුළුදැමූ (w/ නොකියවූ පණිවුඩ)
+logged_in_list:පිවිසී ඇති පරිශීලකයන් ලැයිස්තුව
+login:පිවිසීම
+login_header:පිවිසීම:
+logout:නික්මීම
+mark_all_read:සියලුම පණිවුඩ කියවූ ලෙස සළකුණු කරන්න
+mark_all_read_desc:ඔබේ නොකියවූ පණිවුඩ සියල්ලම කියවූ ලෙස සලකුණු කෙරෙනු ඇත
+members:සාමාජිකයන්
+calendar:දිනදසුන
+cal_goto_date:වෙත පනින්න:
+cal_day_heading:දිනය සඳහා සිදුවීම්
+cal_no_events:දිනය සඳහා සිදුවීම් නැත.
+cal_update:ෆෝරම දිනදසුන ගවේෂණය කරමින්
+cal_birthday:උපන්දිනය: {VAR: user}
+cal_birthday_age:({PLURAL: age|අවුරුදු $1} යි).
+message:පණිවුඩය
+message_counter:අපගේ පරිශීලකයන් <b>{PLURAL: thread_count|මාතෘකා $1} ඇතුලත </b> <b>{PLURAL: post_count|පණිවුඩ $1} ක්</b> දමා ඇත.
+message_index:පණිවුඩ සුචිය
+message_index_desc:පණිවුඩ ලැයිස්තුව නරඹන්න
+minimize_category:ප්‍රවර්ගය අවකරණය කරන්න
+minimize_message:පණිවුඩය අවකරණය කරන්න
+moderation_queue:මධ්‍යස්ථතා පෝලිම
+moderator:ප්‍රමාණකය
+moderator_of:මෙහි ප්‍රමාණකය:
+moderator_options:ප්‍රමාණක විකල්පයන්
+moderators:{PLURAL: modcount|ප්‍රමාණකය|ප්‍රමාණක}
+more_unread_messages:තවත් නොකියවූ පණිවුඩ
+more_unread_messages_desc:තවත් නොකියවූ පණිවුඩ පෙන්වා වත්මන් දසුන්ගත පණිවුඩ කියෙවූ ලෙස සලකුණු කරන්න
+move_thread:ගෙනයන්න
+moved:වෙනත් ෆෝරමයකට ගෙනයන ලදී
+moved_thread_message:මෙම මාතෘකාව වෙනත් ෆෝරමයකට ගෙනයන ලදී
+na:අදාළ/නොවේ
+new_posts:නව පණිවුඩ
+new_private_messages:ඔබ සතුව <span class="GenTextRed">({VAR: c})</span> නොකියවූ {PLURAL: c|පුද්ගලික පණිවුඩයක්|පුද්ගලික පණිවුඩ} ඇත
+new_thread:නව මාතෘකාවක් තනන්න
+newest_user:අලුතෙන්ම ලියාපදිංචි වූ පරිශීලකයා වන්නේ
+next_page:මීළඟ පිටුව
+next_thread:මීළඟ මාතෘකාව:
+no_messages:මෙම ෆෝරමයේ පණිවුඩ නොමැත.<br />මෙම ෆෝරමයේ මාතෘකාවක් දමා පළවෙනියා වන්න.
+no_msg_body:පණිවුඩ ඇතුළතක් නොමැත
+no_new_posts:නව පණිවුඩ නොමැත
+no_posts:පණිවුඩ නැත
+no_subscribed_forums:සහභාග ෆෝරමයන් නොමැත
+no_subscribed_threads:සහභාග මාතෘකාවන් නොමැත
+no_bookmarked_threads:පොත්සලකුණු කල මාතෘකාවන් නොමැත
+no_unread_locked:මෙම මාතෘකාව අගුළුලා ඇත
+no_unread_msg:මෙම මාතෘකාවේ නොකියවූ පණිවුඩ නැත
+no_unread_msg_unreg:පණිවුඩ කියවීම &amp; නොකියවීම ලියාපදිංචි වූ පරිශීලකයන් හට පමණක් මාර්ගය වේ
+num_pages:පිටු ({VAR: ttl_pg}):
+num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|මනාපය|මනාප}
+occupation:රැකියාව:
+off:අක්‍රිය
+on:සක්‍රිය
+page_timings:මෙම පිටුව ජනිත කිරීමට ගතවූ සම්පූර්ණ කාලය: {PLURAL: page_gen_time|තත්පර $1}
+pm:පුද්ගලික පණිවුඩකරණය
+poll:ඡන්ද දීම:
+post_count:පණිවිඩ ගණනය {VAR: u_pcount}
+post_count_l:පණිවුඩ ගණන:
+posts:පණිවුඩ
+posts_c:පණිවුඩ:
+prev_thread:පෙර මාතෘකාව:
+usrinfo_private_message:පුද්ගලික පණිවුඩය:
+profile:පාලන පුවරුව
+profile_desc:පරිශීලක පාලක පුවරුව වෙත ප්‍රවේශ වන්න
+rate_thread:මාතෘකාව අගයන්න
+rating:ඇගයුම
+rating_track:මාතෘකාව සඳහා ඇගයුම් කළමනාකරණය කරන්න <b>{VAR: thr->subject}</b>:
+refresh_list:ලැයිස්තුව ප්‍රතිපූර්ණය කරන්න
+register:ලියාපදිංචි වෙන්න
+registered:ලියාපදිංචි කරන ලදී:
+registered_on:{TEMPLATE: registered_on_date} දින ලියාපදිංචි කර ඇත
+replies:පිළිතුරු
+report_to_mod:ප්‍රමාණකයෙකු වෙත පණිවුඩය වාර්තා කරන්න
+reported_messages:වාර්තා කෙරූ පණිවුඩ
+reveal_all_posts:{VAR: user_login}ගේ සියලුම පණිවුඩ හෙළි කරන්න
+reveal_post:පණිවුඩය හෙළි කරන්න
+search:සොයන්න
+sel_todays_posts:අද පණිවුඩ
+sel_todays_posts_desc:අද පණිවුඩ පෙරහන පුරුක කරන්න (අද කෙරූ පණිවුඩ පමණක් පෙන්වයි)
+sel_unanswered_posts:පිළිතුරු නොදුන් පණිවුඩ
+sel_unanswered_posts_desc:පිළිතුරු-නොදුන් පණිවුඩ පෙරහන පුරුක කරන්න (පිළිතුරු නොමැති පණිවුඩ පමණක් පෙන්වයි)
+sel_unread_messages:නොකියවූ පණිවුඩ
+sel_unread_messages_desc:නොකියවූ පණිවුඩ පෙරහන පුරුක කරන්න (නොකියවූ පණිවුඩ පමණක් පෙන්වයි)
+send:යවන්න
+send_pm_desc:මෙම පරිශීලක වෙත පුද්ගලික පණිවුඩයක් යවන්න
+sender_email:යවන්නාගේ ඊ-තැපෑල:
+sender_name:යවන්නාගේ නම:
+show_posts_by:ගේ පණිවුඩ පෙන්වන්න: {VAR: u_alias}
+size:ප්‍රමාණය:
+status:ත්ත්ත්වය:
+status_line:<b>{PLURAL: st_obj->online_users_reg|සාමාජිකයන් $1}</b>, <b>{PLURAL: st_obj->online_users_hidden|$1 invisible member|අදෘශ්‍යමාන සාමාජිකයන් $1}</b> සහ <b>{PLURAL: st_obj->online_users_anon|අමුත්තන් $1}</b> මෙම පුවරුව වෙත පිවිස ඇත.
+sticky:ඇලෙන:
+stop_ignoring:මෙම පරිශීලක නොසලකා හැරීම නවතන්න
+sub_to_thread:මාතෘකාව වෙත සහභාග වන්න
+sub_to_thread_desc:මෙම මාතෘකාව ඇතුලත නව පණිවුඩ සඳහා නිවේදන ලබා ගන්න
+bookmark_thread:මාතෘකාව පොත්සලකුණු කරන්න
+bookmark_thread_desc:මෙම කාරණය ඔබේ පොත්සලකුණු ලැයිස්තුව වෙත එක් කරන්න
+subject:මාතෘකාව
+subscribe:සහභාගවන්න
+subscribe_desc:මෙම ෆෝරමය මත කවුරුන් හෝ නව මාතෘකාවක් තැනූ විට නිවේදන ලබා ගන්න
+subscribed_forums:සහභාග වූ ෆෝරමයන්
+subscribed_forums_desc:සහභාග වූ ෆෝරමයේ පෙරහන පුරුක කරන්න (ඔබ සහභාග වූ ෆෝරමවල පණිවුඩ පමණක් පෙන්වයි)
+subscribed_threads:සහභාග වූ කාරණයන්
+subscribed_threads_desc:සහභාග වූ මාතෘකා පෙරහන පුරුක කරන්න (ඔබ සහභාග වූ මාතෘකාවල පණිවුඩ පමණක් පෙන්වයි)
+bookmarked_threads:පොත්සලකුණු කල මාතෘකාවන්
+switch_to_thread_view:මෙම මාතෘකාවේ සම්බන්ධිත දසුන වත මාරු වන්න
+thread:මාතෘකාව:
+thread_announcement:නිවේදනය:
+thread_first_unread_msg:මෙම මාතෘකාවේ පළමු නොකියවූ පණිවුඩය වෙත යන්න
+thread_thread:මාතෘකාව
+threads:මාතෘකා
+time:කාලය
+todays_posts:අද පණිවුඩ
+todays_posts_desc:අද දින දමන ලද සියලුම පණිවුඩ පෙන්වන්න
+un_ignore_user:මෙම පරිශීලකගෙන් පණිවුඩ නොසලකා හැරීම නවතන්න
+unanswered_posts:පිළිතුරු නොදුන් පණිවුඩ
+unanswered_posts_desc:පිළිතුරු නොමැති පණිවුඩ සියල්ලම පෙන්වන්න
+unlock_thread:කාරණය අඟුළුනොලන්න
+unread_msg:ඔබ විසින් තවමත් නොකියවන ලද පණිවුඩ මෙම මාතෘකාවේ අඩංගු වේ
+unread_msg_locked:නොකියවූ පණිවුඩ සමඟ අගුළුලා ඇති මාතෘකාව
+unread_posts:නොකියවූ පණිවුඩ
+unread_posts_desc:සියලුම නොකියවූ පණිවුඩ පෙන්වන්න
+unsub_from_thread:කාරණයෙන් අසහභාගවන්න
+unsub_from_thread_desc:මෙම මාතෘකාවේ නව පණිවුඩ පිළිබඳ ලැබෙන නිවේදන නවතන්න
+unbookmark_thread:පොත්සලකුණු වලින් ඉවත් කරන්න
+unbookmark_thread_desc:ඔබේ පොත්සලකුණු ලැයිස්තුවෙන් මෙම මාතෘකාව ඉවතලන්න
+unsubscribe:අසාභාගවන්න
+unsubscribe_desc:මෙම ෆෝරමයේ නව පණිවුඩ පිළිබඳ ලැබෙන නිවේදන නවතන්න
+updated_on:යාවත්කලීන කලේ:
+user:පරිශීලක
+user_counter:අප සතුව ලියාපදිංචි වූ {PLURAL: st_obj->user_count|පරිශීලකයන්} <b>{VAR: st_obj->user_count}</b> සිටී.
+user_info:පරිශීලක තොරතුරු
+user_info_l:පරිශීලක තොරතුරු {VAR: u->alias}
+user_offline:{VAR: obj->login} දැනට මාර්ගඅපගතයි
+user_online:{VAR: obj->login} දැනට මාර්ගගතයි
+usrinfo_last_post:අවසන් පණිවුඩය:
+view_results:ප්‍රතිඑල නරඹන්න
+views:නරඹන්න
+vote:{PLURAL: frm->n_rating|මනාප $1 ක්}
+vote_button:මනාප දෙන්න
+vote_for_thread:මනාප දෙන්න
+was_moved_msg:ප්‍රමාණක විසින් <a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> වෙත ගෙනයන ලදී.
+welcome_message:ආයුබෝවන් <b>{VAR: usr->alias}</b>, ඔබේ අවසන් පිවිසුම වූයේ {TEMPLATE: welcome_message_date}
+what_ppl_doing:ජනතාව කුමක් කරන්නේදැයි බලන්න
+reported_del_report:වාර්තාව මකන්න
+reported_reason:හේතුව:
+reported_on:හී:
+reported_reported_by:වාර්තා කලේ:
+reported_reported_msg:වාර්තා කෙරූ පණිවුඩ
+modque_pending_approval:අනුමත කිරීම බලාපොරොත්තු වෙන පණිවුඩ
+modque_approve:අනුමත කරන්න
+modque_delete:මකන්න
+modque_deleteall:පරිශීලකගෙන් සියල්ලම මකන්න
+modque_no_message:අනුමත කිරීම බලාපොරොත්තු වෙන පණිවුඩ කිසිවක් නැත
+pmsg_new_messages:පුද්ගලික පණිවුඩය නොකියවන්න
+pmsg_old_messages:පුද්ගලික පණිවුඩය කියවන්න
+deny_recipt:ලදුපත ප්‍රතික්ෂේප කරන්න
+deny_recipt_desc:ඔබ මෙම පණිවුඩය කියෙව්වා යයි තහවුරු කිරීමක් නොයවන්න
+restore_to:වෙත ප්‍රතිසංස්ථානය කරන්න:
+move_to:වෙත ගෙනයන්න:
+list_referes_referrals:යොමු කිරීම්
+list_referes_members:යොමු කෙරූ සාමාජිකයන්
+list_referes_member:සාමාජිකයා
+referals_none:දැනට කිසිදු යොමු කිරීමක් නැත.
+referals_refered_by:ෆෝරමයේ සාමාජිකයන් යොමු කලේ: <b><a href="{TEMPLATE: referals_refered_by_lnk}" class="thLnk">{VAR: p_user[1]}</a></b>
+referals_post_count:පණිවුඩ ගණනය
+referals_registered_on:ලියාපදිංචි කරන ලද්දේ
+referals_action:ක්‍රියාව
+pmsg_all:සියල්ල
+pmsg_none:කිසිවක් නොමැත
+folder:බහාලුම:
+pmsg_replied:පිළිතුරු දුන්
+pmsg_forwarded:ඉදිරියට යැවූ
+pmsg_subject:මාතෘකාව
+pmsg_author:කතෘ
+pmsg_time:කාලය
+pmsg_selected:තෝරාගත්
+pmsg_delete:මකන්න
+cur_ppage_pm:පුද්ගලික පණිවුඩකරණය
+writing_pm:පුද්ගලික පණිවුඩයක් ලියමින්
+browsing_folder:<b>{VAR: folders[$folder_id]}</b> බහාලුම ගවේෂණය කරමින්
+inbox:එනලිපි
+draft:කටු සටහන්
+sent:යැවු
+trash:කුණු බක්කිය
+msg_author:කතෘ
+avatar_sel_form:මුර්ති තෝරාගැනුම් ෆෝරමය
+no_avatars:මුර්ති ලබා ගත නොහැක
+month_1:ජනවාරි
+month_2:පෙබරවාරි
+month_3:මාර්තු
+month_4:අප්‍රේල්
+month_5:මැයි
+month_6:ජුනි
+month_7:ජූලි
+month_8:අගෝස්තු
+month_9:සැප්තැම්බර්
+month_10:ඔක්තෝම්බර්
+month_11:නොවැම්බර්
+month_12:දෙසැම්බර්
+sunday:ඉරිදා
+sunday_short:ඉ
+monday:සඳුදා
+monday_short:ස
+tuesday:අඟහරුවාදා
+tuesday_short:අඟ
+wednesday:බදාදා
+wednesday_short:බ
+thursday:බ්‍රහස්පතින්දා
+thursday_short:බ්‍ර
+friday:සිකුරාදා
+friday_short:සි
+saturday:සෙනසුරාදා
+saturday_short:සෙ
+male:පුරුෂ
+female:ගැහැණු
+unspecified:විශේෂණය නොකෙරූ
+register_tree_view:පණිවුඩ රුක් දසුන සහ මාතෘකා ලැයිස්තුගත කිරීම
+register_msg_tree_view:පැතිලි මාතෘකා ලැයිස්තුගත කිරීම/රුක් පණිවුඩ ලැයිස්තුගත කිරීම
+register_tree_msg_view:රුක් මාතෘකා ලැයිස්තුගත කිරීම/පැතිලි පණිවුඩ ලැයිස්තුගත කිරීම
+register_flat_view:පණිවුඩ පැතිලි දසුන සහ මාතෘකා ලැයිස්තුගත කිරීම
+use_forum_default:ෆෝරමයේ පෙරනිමිය භාවිතා කරන්න
+finduser_user_info:පරිශීලක තොරතුරු
+finduser_by_login:ප්‍රවිෂ්ටය අනුව:
+finduser_submit:සොයන්න
+finduser_no_such_user:සැබෑ පරිශීලකයෙකු නැත
+finduser_user:පරිශීලක
+finduser_postcount:පණිවුඩ ගණනය
+finduser_joindate:එක් වූ දිනය
+finduser_action:ක්‍රියාව
+yes:ඔව්
+no:නැහැ
+register_email:ඊ-තැපෑල
+edit_time_limit:<b>සංස්කරණ කාල සීමාව</b>: {GVAR: EDIT_TIME_LIMIT} මිනිත්තු
+no_edit_time_limit:<b>සංස්කරණ කාල සීමාව</b>: අසීමිතයි
+pmuserloc_login:පිවිසීම:
+pmuserloc_submit:යොමන්න
+pmuserloc_user:පරිශීලක
+pmuserloc_no_result:ප්‍රතිඑල නොමැත
+register_builtin:එකටම සෑදූ
+register_specify_url:URL විශේෂණය කරන්න
+register_uploaded:මූර්තිය උඩුගත කරන්න
+register_login:පිවිසීම:
+register_password:මුරපදය:
+register_conf_pass:මුරපදය තහවුරු කරන්න:
+register_email_desc:කරුණාකර වලංගු ඊ-තැපැල් ලිපිනයක් යොදන්න. අභිරුචි අංශයෙන්, ඔබට එය සැඟවීමට තෝරාගත හැක.
+register_name:නම:
+register_your_pass:ඔබේ මුරපදය:
+register_update:යාවත්කාලීන කරන්න
+register_avatar_type:මුර්ති වර්ගය:
+register_del_avatar:මුර්තිය මකන්න
+register_avatar:මුර්තිය:
+register_sel_avatar:මුර්තිය තෝරාගන්න
+register_custom_avatar_rules:පරිපාලක විසින් අනුමත කරන තෙක් රිසිකළ මුර්තිය දිස් නොවනු ඇති.<br /><span class="SmallText">මුර්තිය, <b>පික්සල් {GVAR: CUSTOM_AVATAR_MAX_DIM} වඩා විශාල නොවිය යුතු අතර </b><b>jpg</b>, <b>gif</b> හෝ <b>png</b> ආකෘතියෙන් යුක්ත විය යුතුය.</span>
+register_custom_avatar_url:ව්‍යවහාර මුර්ති URL:
+register_preview:පෙරදසුන
+register_custom_avatar_upload:රිසිකළ මුර්ති ගොනුව:
+register_register:ලියාපදිංචි වෙන්න
+register_required:අවශ්‍ය තොරතුරු
+register_required_desc:සියලුම ක්ෂේත්‍රයන් අවශ්‍ය වේ. කරුණාකර මුරපදයන් අක්ෂර සංවේදී බව මතක තබාගන්න.
+register_optional:අමතර තොරතුරු
+register_optional_desc:ඔබේ පැතිකඩෙහි පුද්ගලික හෝ අනන්‍යතා තොරතුරු හෙළිදරවු නොකිරීමට නිර්දේශිත කරයි. සියලුම තොරතුරු අනෙත් ෆෝරම සාමාජිකයන් විසින් නරඹයි.
+register_location:ස්ථානය:
+register_occupation:රැකියාව:
+register_interests:ලැදිකම්:
+register_image:රූපය:
+register_icq:ICQ:
+register_aim:AIM හැසිරවීම:
+register_yahoo:යාහූ පණිවුඩකරු:
+register_msnm:MSN පණිවුඩකරු:
+register_homepage:නිවස්නපිටුව:
+register_bday:උපන් දිනය:
+register_bday_desc:ඔබ උපන් දිනය යෙදුවහොත්, අනෙත් ෆෝරම සාමාජිකයන්ට එය බැලීමට අවස්ථාව ඇත.
+register_day:දිනය
+register_month:මාසය
+register_year:වර්ෂය
+register_gender:ලිංගභේදය:
+register_bio:චරිතාපදානය:
+register_bio_desc:ඔබ ගැන විස්තර ටිකක්, ඔබේ ලැදියා, රැකියාව, වැනි...
+register_prefs:අභිරුචින්
+register_sig:අත්සන:
+register_sig_desc:නියම අත්සන, ඔබේ පණිවුඩවල පහළ දිස්වේ.
+register_reset:යළි සකසන්න
+register_def_thread_view:පෙරනිමි මාතෘකා දසුන:
+register_msg_per_page:පිටුවකට පණිවුඩ:
+register_show_sig:අත්සන් පෙන්වන්න:
+register_show_sig_desc:අනෙත් ෆෝරම සාමාජිකයන්ගේ අත්සන් පෙන්වීමට හෝ සැඟවීමට ඔබට ඉඩ ලබා දේ.
+register_use_sig_default:පෙරනිමියෙන් අත්සන භාවිතා කරන්න:
+register_use_sig_default_desc:ඔබ දමන සැම පණිවුඩයකටම ඔබේ අත්සන ස්වයංක්‍රීයව පමුණුවන්න.
+register_timezone:වේලා කලාපය:
+register_ignore_admin:පරිපාලකත්ව පණිවුඩ නොසලකන්න:
+register_invisible_mode:අදෘශ්‍යමාන ක්‍රමය:
+register_invisible_mode_desc:ඔබේ මාර්ගගත තත්ත්වය සඟවයි.
+register_show_email:ඊ-තැපැල් ලිපිනය පෙන්වන්න:
+register_show_email_desc:ඔබේ ඊ-තැපැල් ලිපිනය ප්‍රසිද්ධියේ දර්ශනය වීමට කැමතිනම් මෙම විකල්පය තෝරන්න.
+register_notification:නිවේදනය පෙරනිමියෙන් තෝරාගන්න:
+register_notification_desc:පෙරනිමියෙන් නිවේදනය සක්‍රිය නම්, දැමීමේදී එය අක්‍රිය කල හැක.
+register_notify_method:නිවේදන ක්‍රමය තෝරාගන්න:
+register_notify_method_desc:ඔබගේ වරණිත නිවේදන ක්‍රමය සකසන්න හෝ නිවේදන අක්‍රිය කරන්න (නිදසුනක් ලෙස ඔබ නිවාඩුවකට ගිය විට)
+register_allow_email_msg:ඊ-තැපල් පණිවුඩවලට ඉඩදෙන්න:
+register_allow_email_msg_desc:මෙම ෆෝරමය හරහා ඔබට ඊ-තැපැල් එවීමට අනිත් පරිශීලකයන් හට ඉඩදෙන්න.
+buddy_status:තත්ත්වය
+my_buddies:මගේ මිතුරන්
+add_buddy:මිතුරෙකු එක් කරන්න
+add:එක් කරන්න
+buddy_search:ඔබ එක් කිරීමට අදහස් කරන පරිශීලකගේ පිවිසීම එක් කරන්න
+member_search:හෝ පුද්ගලයෙකු සෙවීම සඳහා <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">පරිශීලකයෙකු සොයන්න</a> ගුණාංගය භාවිතා කරන්න.
+buddy_remove:ඉවත් කරන්න
+post_normal:සාමාන්‍ය
+post_sticky:ඇලෙන
+post_annoncement:නිවේදනය
+post_size:ප්‍රමාණය
+post_color:වර්ණය
+post_font:අක්ෂරය
+create_thread:මාතෘකාව තනන්න
+submit_reply:පිළිතුර යොමන්න
+edit_message:පණිවුඩවල වෙනස්කම් යොමන්න
+apply_spell_changes:අක්ෂර වින්‍යාස වෙනස්කම් යොමන්න
+post_preview:පණිවුඩ පෙරදසුන
+post_logedin_user:පිවිසී ඇති පරිශීලක:
+post_logout:නික්මීම
+post_passwd:යොමන ලද මුරපදය:
+post_poll:ඡන්ද දීම:
+post_create_poll:ඡන්ද විමසීමක් තනන්න
+post_poll_delete:මකන්න
+post_poll_edit:සංස්කරණය
+post_mod_opt:ප්‍රමාණක විකල්පයන්:
+post_thread_type:මාතෘකාවේ වර්ගය:
+post_thread_expiry:මාතෘකාවේ ඉකුතුව:
+post_locked:මාතෘකාව අගුළුලා ඇත
+post_icons:පණිවුඩ අයිකනය:
+post_no_icon:අයිකනයක් නොමැත
+post_smiley:සිනහ කෙටිමං:
+post_format_tools:ආකෘතීකරණ මෙවලම්:
+post_upload_file:ගොනුවක් උඩුගත කරන්න
+post_file_del:මකන්න
+post_file_name:නම
+post_file_size:ප්‍රමාණය
+file_attachments:ගොනු ඇමුණුම්:
+allowed_files:ඉඩදෙන ගොනු විස්තීර්ණ:
+max_file_size:උපරිම ගොනු ප්‍රමාණය:
+max_files_per_msg:එක් පණිවුඩයකට උපරිම ගොනු:
+post_notification:තැපැල් නිවේදනය
+include_sig:අත්සන අඩංගු කරන්න
+include_sig_desc:ඔබේ පැතිකඩේ අත්සන අඩංගු කරන්න.
+disable_smilies:මෙම පණිවුඩයේ සිනහ අක්‍රිය කරන්න
+spell_check_msg:අක්ෂර-පරීක්ෂක පණිවුඩය
+post_form:තැපල් ෆෝරමය
+post_forum:ෆෝරමය:
+post_title:ශීර්ෂය:
+post_body:ඇතුළත:
+post_options:විකල්පයන්:
+post_preview_btn:පෙරදසුන් පණිවුඩය
+post_cancel_btn:අත් හරින්න
+ignore_users:නොසැලකූ පරිශීලකයන්
+add_ignore:නොසලකන්නන් එක් කරන්න
+forum_terms:ෆෝරමයේ කොන්දේසි
+forum_rules:<p>මෙම ෆෝරමය වෙත ලියාපදිංචිය නොමිලේ වේ! ඔබ විසින් පහත විස්තර කොට ඇති නීති සහ ප්‍රතිපත්තිවලට එකඟ වන ලෙස අප බලකර සිටිනවා. ඔබ කොන්දේසිවලට එකඟ වන්නේ නම්, කරුණාකර පිටුවේ අන්තිමට ඇති <b>එකඟයි</b> බොත්තම ඔබන්න. සටහන: බොත්තම එබීමෙන් ඔබගේ වයස අවුරුදු 13 වඩා වැඩි බව කියා සිටිනවා ඇත. ඔබ අවුරුදු 13 හෝ ඊට වඩා අඩු නම්, කරුණාකර මෙම ෆෝරමය භාවිතා කරන්න.</p><p>කෙසේනමුත් මෙම ෆෝරමයේ පරිපාලකවරු සහ ප්‍රමාණකවරු විසින් සියලුම ප්‍රතිරෝධ්‍ය පණිවුඩ තබා ගැනීමට කටයුතු කරන අතර, සියලුම පණිවුඩ නිරීක්ෂණය කිරීමට අප‍ට අපහසුය. සියලුම පණිවුඩයන් කතෘගේ අදහස් උදහස් කියාපාන අතර, ඕනෑම පණිවුඩයක අන්තර්ගතය පිළිබඳව  ෆෝරමයේ අයිතිකරුවන් හෝ සංවර්ධකයන් වග නොකියයි.</p><p>එකඟයි බොත්තම එබීමෙන්, අසභ්‍ය, අණක් ගුණක් නැති, ලිංගික-දිශානත,  වෛරය ඇති කරන, භය උපදවන, හෝ ඕනෑම නීතියක් උල්ලංඝනය කරන පණිවුඩ නොදමන ලෙසට ඔබ ප්‍රතිඥා දෙනු ලබයි.</p><p>මෙම ෆෝරමයේ අයිතිකරුවන් හට ඕනෑම හේතුවක් සඳහා ඕනෑම මාතෘකාවක් ඉවත් කිරීමට, සංස්කරණය කිරීමට, ගෙනයාමට, වැසීමට හිමිකම් ඇත.</p>
+forum_rules_13:<p>වයස අවුරුදු 13 අඩු සියලුම පරිශීලකයන් ෆෝරම සඳහා සාමාජිකත්වය ලබා ගැනීමට ඔවුන්ගේ දෙමව්පියන් හෝ භාරකරුවන්ගෙන් අවසර ලබා ගත යුතුය. අප විසින් 13 අඩු සාමාජිකයන් සඳහා සහභාගිත්වය දෙන අතරතුර, සාමාජිකත්වය ලබා දීමට පෙර දෙමව්පියන් හෝ භාරකරු විසින් අත්සන් කෙරූ අවසරයක් ෆැක්ස් හෝ තැපැල් කර අප වෙත එවීම අවශ්‍ය වේ.</p><p>අවසර ෆෝරමය එවීමට පෙර ලියාපදංචි ක්‍රියාවලියේ ඉදිරියට යාම සඳහා පහත දැක්වෙන <b>එකඟයි</b> බොත්තම ඔබන්න. ඔබ ලියාපදිංචිය අවලංගු කිරීමට කැමති නම් <b>එකඟ නොවේ</b> ඔබා ෆෝරමයේ සුචිය වෙත නැවත යන්න.</p><p>අවසර ෆෝරමයේ පිටපතක් මෙතනින් බාගැනීමට හැක. ලියාපදංචි ක්‍රියාවලියේ වැඩිදුර තොරතුරු සඳහා, කරුණාකර <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p> වෙත ඊ-තැපෑලක් එවන්න.
+coppa_conf:COPPA තහවුරු කිරීම
+coppa_before:{TEMPLATE: coppa_date} පෙර
+coppa_after:{TEMPLATE: coppa_date} පසු
+coppa_link:ඔබේ උපන් දිනය වෙත අනුරූප සබැඳිය ක්ලික් කරන්න
+coppa:<p>වයස 13 අඩු පරිශීලක ලියාපදිංචිය සම්පූර්ණ කිරීමට පෙර දෙමව්පියන් හෝ භාරකරු අත්සන් යෙදූ අවසරය පරිපාලක වෙත තැපැල් හෝ ෆැක්ස් කල යුතුය.</p><p>වැඩිදුර විස්තර සඳහා <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a></p> සම්බන්ධ කරගන්න
+prereg_info:ෆෝරමයේ රීති
+prereg_agree:එකඟයි
+prereg_disagree:එකඟ නොවේ
+prereg_update:ෆෝරමයේ රීති කියවමින්
+coppa_fax_instructions:දෙමව්පිය හෝ භාරකරු සඳහා උපදෙස්
+coppa_fax_instructions2:කරුණාකර මෙම පිටුව මුද්‍රණය කරන්න, එහි අත්සන් කරන්න, එය ෆැක්ස් කරන්න:
+coppa_fax_reg_form:ලියාපදිංචි කිරීමේ ෆෝරමය
+coppa_fax_sign:කරුණාකර පහත ෆෝරමයේ අත්සන් කර එය අපට එවන්න
+coppa_fax_conf:මාගේ දරුවා සැපයූ තොරතුරු මා විසින් නිරීක්ෂණය කල අතර වෙබ් අඩවිය සඳහා පුද්ගලිකත්ව ප්‍රතිපත්තිය මා විසින් කියෙව්වෙමි. මුරපදය භාවිතා කරමින් පැතිකඩේ තොරතුරු වෙනස්කල හැකි බවට මා තේරුම් ගත්තෙමි. මාගේ විමසීමෙන් මෙම ලියාපදිංචි කිරීම් පැතිකඩ ෆෝරමයෙන් සම්පූර්ණයෙන්ම ඉවත් කල හැකි බව ම වටහා ගත්තෙමි.
+coppa_fax_permission:ඔබට අවසර ලබා දී ඇතනම් මෙතනනට පිවිසෙන්න
+coppa_fax_no_permission:ගිණුම මැකීමට අදහස් කරන්නේ නම් මෙතන අත්සන් කරන්න
+coppa_fax_parent_name:දෙමව්පිය/භාරකරුගේ සම්පූර්ණ නම:
+coppa_fax_relation:ළමයාට ඇති සම්බන්ධය:
+coppa_fax_telephone:දුරකතනය:
+coppa_fax_email:ඊ-තැපැල් ලිපිනය:
+coppa_fax_date:දිනය:
+coppa_fax_questions:ඕනෑම ගැටළුවක් සඳහා කරුණාකර <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> සම්බන්ධ කරගන්න
+coppa_fax_login:පිවිසීම
+coppa_fax_passwd:මුරපදය
+coppa_fax_remail:ඊ-තැපෑල
+coppa_fax_name:නම
+login_not_logedin:ඔබ ප්‍රවිෂ්ට වී නොමැත. මෙය හේතු කිහිපයකින් එකක් වීමට පුළුවන:
+login_cookie_expired:ඔබේ කුකීස් ඉකුත් වී ඇත, එනිසා කුකීස් යළි අලුත් කිරීමට ප්‍රවිෂ්ට විය යුතුය.
+login_perm_denied:නිර්නාමික පරිශීලකයෙකු ලෙස අයදු සම්පතට ප්‍රවේශ වීමට ඔබට අවසර නැත. බලතල ලබා ගැනීමට ඔබ ප්‍රවිෂ්ට විය යුතුය.
+login_want_to_register:ලියාපදිංචි වීමට අවශ්‍යද?
+login_forgot_passwd:මුරපදය අමතකද
+login_use_cookie:කුකීස් භාවිතා කරන්න<br /><span class="SmallText">ඔබ විසින් පුස්තකාලයක පරිගණකයක්, පාසලක්, හෝ අන්තර්ජාල කැෆේ එකක්, වැනි පොදු පර්යන්තයක් භාවිතා කරනවා නම්, ඔබේ ආරක්ෂාව සඳහා මෙම විකල්පය අයින් කරන්න. ඔබ මෙම විකල්පය මෙසේ තෝරාගෙන යාමෙන් මීළඟ වතාවේ ෆෝරමය වෙත ස්වයංක්‍රීයව ඔබව ප්‍රවිෂ්ට වනු ඇත.</span>
+login_login:පිවිසීම:
+login_login_btn:පිවිසීම
+login_name_required:පිවිසුම් නාමය අවශ්‍යයි
+login_passwd_required:මුරපදය අවශ්‍යයි
+login_invalid_radius:සාවද්‍ය පිවිසුම්/මුරපද සංයෝජනය
+reset_confirmation:ලියාපදිංචි වූවාට තුති.\n\nඔබේ ගිණුම සක්‍රිය කිරීම සඳහා කරුණාකර පහත URL වෙත යන්න:\n\n{VAR: url}\n\nඔබේ ගිණුම සක්‍රිය වූ විට ඔබව ෆෝරමය වෙත ප්‍රවිෂ්ට වී මුල් පිටුව වෙත යළි යොමු කෙරේ.
+reset_reset:හලෝ,\n\nඔබ විසින් ඔබේ මුරපදය යළි සැකසීමට අයදුම් කර තිබේ. මෙම ක්‍රියාවලිය සම්පූර්ණ කිරීම සඳහා,\nමෙම URL ලිපිනය වෙත යන්න:\n\n{VAR: url}\n\nසටහන: මෙම ෆෝරමය විසින් ඒක-මාර්ගී ගුප්තකේතීකරණ යාන්ත්‍රික උපක්‍රමයක් භාවිතා කරමින් මුරපද ගබඩා කරනු ලබයි, ඒ අනුව ඔබ මුරපදය යෙදූ පසු එය කේතාංකනය වන අතර නැවත එය ලබා ගැනීමට හැකියාවක් නොමැත. මෙය ක්‍රියාකරන්නේ ඔබ පිවිසුමේදී යෙදූ දෑ සමඟ අප සතුව වාර්තාගතව ඇති කේතාංකනය කල අනුවාදය සමඟ සැසදීමෙනි.\n(මෙම යාන්ත්‍රික උපක්‍රමය ක්‍රියාකරන්නේ කෙසේදැයි බැලීමට ඔබ කැමතිනම්, MD5 HASH ඇල්ගොරිතම කියවන්න)
+rpasswd_invalid_passwd:වැරදි මුරපදය
+rpasswd_passwd_nomatch:මුරපද නොගැලපේ
+rpasswd_passwd_length:මුරපදය අක්ෂර 6 ක දිගකින් යුක්ත විය යුතුය
+reset_remind_pass:මුරපද සිහිගන්වනය
+reset_reset_conf:මුරපදය යළි සකසූ පසු ඔබට එවනු ඇත. ඔබ ඔබේ ඊ-තැපැල් ලිපිනය තවමත් තහවුරු කර නොමැති නම්, තහවුරු කිරීමේ අයදුමක් ඔබට එවනු ඇත.
+reset_error:ඊ-තැපැල් ලිපිනය දත්තසංචිතයේ හමුනොවුනි
+rpasswd_change_pass:මුරපදය වෙනස් කරන්න
+rpasswd_login:පිවිසීම
+rpasswd_cur_pass:වත්මන් මුරපදය:
+rpasswd_new_pass:නව මුරපදය:
+rpasswd_conf_pass:මුරපදය තහවුරු කරන්න:
+ruser_title:පිවිසුම් ෆෝරමය වෙනස් කරන්න
+ruser_change_user:ඔබේ ෆෝරම පිවිසුම වෙනස් කරන්න
+ruser_cur_login:වත්මන් පිවිසුම:
+ruser_new_login:නව පිවිසුම:
+ruser_cur_pass:වත්මන් මුරපදය:
+login_passwd:මුරපදය:
+reset_email:ඊ-තැපෑල:
+reset_reset_button:මුරපදය යළි පිහිටුවන්න
+rate_this_thread:තරාතිරම
+report_reporting_about:වාර්තා කරන්නේ පිළිබඳව:
+report_subject:විෂයය:
+report_by:විසින්:
+report_posted_on:තැපැල් කරේ:
+report_give_reason:ඔබ මෙම පණිවුඩය වාර්තා කරන්නේ මන්දැයි හේතුවක් ලබා දෙන්න:
+report_submit_report:වාර්තාව යොමන්න
+search_entire_msg:සම්පූර්ණ පණිවුඩය
+search_subject_only:විෂය පමණි
+search_forum:ෆෝරමය
+search_posted_on:තැපැල් කරේ
+search_no_results:ප්‍රතිඵල නොමැත
+search_all_forums:සියලු ෆොරමයන් සොයන්න
+search_in_forum:ෆෝරමයේ සොයන්න:
+search_forum_search:ෆෝරම සෙවුම
+move_thread_to:වෙත <b>{VAR: thr->subject}</b> මාතෘකාව ගෙනයන්න:
+remail_email_topic:මෙම කාරණය ඔබේ මිතුරෙකුට ඊ-තැපැල් කරන්න
+remail_your_name:ඔබේ නම:
+remail_your_email:ඔබේ ඊ-තැපෑල:
+remail_friends_name:යහළුවාගේ නම:
+remail_friends_email:යහළුවාගේ ඊ-තැපෑල:
+remail_required:අවශ්‍යයි
+remail_subject:විෂයය:
+remail_message:පණිවුඩය:
+remail_send_now:ඊ-තැපෑල දැන් යවන්න
+remail_anon_opt:මෙම පණිවුඩය ඔබේ මිතුරන් හට යැවීමට  තැපැල් සේවාදායක තුලට පිටපත් කරන්න.
+remail_done:ඉවරයි
+remail_sent_conf:{VAR-HTML: _POST['femail']} වෙත {VAR: data->subject} මාතෘකාව ගැන යවන ලද ඊ-තැපෑල සාර්ථකව යවන ලදී.
+remail_error:එහි දෝෂයක් තිබුණි
+mklist_type:වර්ගය:
+mklist_option:විකල්පය:
+mklist_additem:අයිතමය එක් කරන්න
+mklist_apply:යොමන්න
+mklist_delete:මකන්න
+qbud_nick_name:අපනාමය
+qbud_add_selected:තෝරගත්ත එක් කරන්න
+qbud_selected:තෝරගත්
+qbud_no_buddies:තෝරාගැනීමට මිතුරෙකු නොමැත
+mklist_numerical:සංඛ්‍යාත්මක
+mklist_aplha:ඇල්fපා
+mklist_square:හතරැස්
+mklist_disc:බිම්බය
+mklist_circle:රවුම
+mklist_close:වසන්න
+email_to:වෙත:
+email_pg_title:ඊ-තැපෑල
+email_subject:විෂයය:
+email_body:ඇතුළත:
+email_submit:ඊ-තැපෑල
+ppost_quote_msg:{VAR: msg_to_list} ලිව්වේ {TEMPLATE: ppost_quote_msg_date}
+ppost_quote:උද්ධරණය:
+ppost_to:වෙත:
+ppost_from_buddy_list:මිතුරු ලැයිස්තුවෙන් තෝරාගන්න
+ppost_find_User:පරිශීලක සොයන්න
+ppost_track_msg:මෙම පණිවුඩය පසුපස ලුහුබඳින්න
+ppost_track_msg_desc:මෙම පණිවුඩය කියවූ විට මට දැනුම්දෙන්න (පුද්ගලික පණිවුඩයක් හරහා).
+ppost_send:යවන්න
+ppost_save_draft:කටු සටහන සුරකින්න
+poll_blank_option:ඔබට හිස් විකල්පයක් එක් කල නොහැක.
+poll_del_conf:ඔබට මෙම විකල්පය මැකීමට අවශ්‍යය නම්, හරි ඔබන්න
+poll_name:ඡන්ද විමසීමේ නම:
+poll_timelimit:කාල සීමාව:
+poll_maxiumvotes:උපරිම මනාපයන්:
+poll_create:තනන්න
+poll_update:යාවත්කාලීන කරන්න
+poll_disablesmilies:සිනහ අක්‍රිය කරන්න
+poll_create_poll:ඡන්දය විමසීමක් තනන්න
+poll_update_poll:ඡන්දය විමසීම යාවත්කාලීන කරන්න
+poll_delete:මකන්න
+poll_updateoption:විකල්පය යාවත්කාලීන කරන්න
+poll_addoption:විකල්පයක් එක් කරන්න
+poll_unlimited:අසීමිත
+poll_day:දවස
+poll_days:දවස්
+poll_hour:පැය
+poll_hours:පැය
+poll_month:මාසය
+poll_year:වර්ෂය
+poll_week:සතිය
+tabs_register:ගිණුම් සැකසුම්
+tabs_subscriptions:සාමාජිකත්වයන්
+tabs_bookmarkes:පොත්සළකුණු
+tabs_referrals:යොමු කිරීම්
+tabs_buddy_list:මිතුරු ලැයිස්තුව
+tabs_ignore_list:නොසැලකුම් ලැයිස්තුව
+tabs_private_messaging:පුද්ගලික පණිවුඩකරණය
+single_msg_delete:ඔබ මාතෘකා ගත්: <b>{VAR: data[3]}</b> පණිවුඩය <span class="ErrorText">මකන්න</span> යමින්
+thread_delete:ඔබ මාතෘකාගත: <b>{VAR: data[3]}</b> <span class="ErrorText">සම්පූර්ණ මාතෘකාව</span> <span class="ErrorText">මකන්න</span> යමින්
+delete_proceed:<span class="fb">කරගෙන යාමට ඔබ අදහස් කරන්නෙහිද?</span>
+delete_yes:ඔව්
+delete_no:නැහැ
+error_invalidurl:සාවද්‍ය URL
+error_error:දෝෂය
+usrinfo_profile:{VAR: u->alias}'ගේ පැතිකඩ
+usrinfo_show_all_posts:{VAR: u->alias} ගේ සියලුම පණිවුඩ පෙන්වන්න
+actions_update:ඔබ වගේම, අනුන්ගේ දේවල් සොයනවා
+err_info:තොරතුරු
+buddy_list_err_cantadd:ඔබට ඔබවම ඔබේ මිතුරු ලැයිස්තුවට එක් කල නොහැක
+buddy_list_err_dup:මෙම පරිශීලක ඔබේ මිතුරු ලයිස්තුවේ දැනටමත් සිටී
+buddy_list_err_nouser:ඔබ විසින් ඔබේ මිතුරු ලැයිස්තුවට එක් කිරීමට උත්සහ කෙරූ පරිශීලකයා හමු නොවුණි.
+buddy_list_err_nouser_title:පරිශීලක එක් කල නොහැක
+buddy_list_err_ignore:ඔබේ මිතුරු ලැයිස්තුව වෙත නොසලකන ලද පරිශීලකයන් එක් කල නොහැක.
+buddy_list_update:ස්ව මිතුරන් ලැයිස්තුව ගවේෂණය කරමින්
+core_err_invinp_title:සාවද්‍ය ආදානය
+core_err_invinp_err:ඔබ වැරදි සබැඳියක් වෙත ගොස් ඇත. ඔබ එතනට යන්නේ කෙසේදැයි කරුණාකර <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a> හට දැනුම්දෙන්න.
+core_adm_login_msg:පරිපාලකවරුන්ට <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">මෙතනින්</a> පිවිසිය හැක.
+email_err_unabletoemail_title:දෝෂය: ඊ-තැපැල් කල නොහැක
+email_err_unabletoemail_msg:පරිපාලක විසින් ඊ-තැපැල් පද්ධතිය ක්‍රියාවිරහිත කොට ඇත.
+email_error_unabletolocaddr:කණගාටුයි, පද්ධතියට {VAR-HTML: _POST['tx_name']} වෙත ඊ-තැපැල් කල නොහැක, මන්ද එයට ඊ-තැපැල් ලිපිනය නිශ්චය කිරීමට නොහැකි විය
+email_error_body:ඇතුලත අවශ්‍ය වේ
+email_error_subject:මාතෘකාව අවශ්‍යයි
+email_error_namerequired:නම අවශ්‍යයි
+email_error_invaliduser:සාවද්‍ය පරිශීලක
+emailconf_err_invkey_title:දෝෂය
+emailconf_err_invkey_msg:සාවද්‍ය තහවුරු කිරීමේ යතුර. කරුණාකර ඔබ URL නිවැරදිව යොදා ඇත්දැයි ඊ-තැපෑල පරික්ෂා කොට බලන්න. ඔබ මෙම සබැඳිය දෙවරක් ක්ලික් කරේ නම්, ඔබේ ගිණුම දැනටමත් තහවුරු වී ඇත. ෆෝරමය වෙත ප්‍රවිෂ්ට වී වෙනත් යතුරක් අයදින්න.
+err_inc_criticaltitle:ඉතා බරපතල දෝෂය
+err_inc_criticalmsg:දෝෂයක් හට ගැනුනි. අවාසනාවන්ත ලෙස, දෝෂ වාර්තා කිරීමේ පද්ධතියේද ගැටලුවක් තිබුණි.
+finduser_update:පරිශීලකයන් සඳහා සොයමින්
+help_index_update:<a href="{TEMPLATE: help_index_update_lnk}">උදව්</a> කියවමින්
+iemail_thr_subject:{VAR: thr_subject} වත {VAR: poster_login} විසින් නව පිළිතුරක්
+iemail_thr_bodyemail:නොකියවූ පිළිතුරු නැරඹීමට {VAR: goto_url['email']} වෙත යන්න\n\nඔබට මෙම මාතෘකාවේ ඉදිරි නිවේදන ලබා ගැනීමට අවශ්‍ය නොවේ නම්, කරුණාකර මෙතනට යන්න: {VAR: unsub_url['email']}
+iemail_frm_subject:{VAR: frm_name} ෆෝරමයෙහි නව මාතෘකාවක්, {VAR: thr_subject} ලෙස කියන, {VAR: poster_login} විසින්
+iemail_frm_bodyemail:මාතෘකාව නැරඹීමට {VAR: goto_url['email']} වෙත යන්න\n\nමෙම ෆෝරමයේ මාතෘකා පිළිබඳ නව   නිවේදන ලබා ගැනීම නැවත්වීමට, කරුණාකර මෙතනට යන්න: {VAR: unsub_url['email']}
+iemail_participate:මෙම කතාබහට සහභාගිවීමට, මෙතනින් යන්න:
+ignore_list_err_info_title:තොරතුරු
+ignore_list_err_dup_msg:මෙම පරිශීලකයා ඔබේ නොසලකා හැරීම් ලයිස්තුවේ දැනටමත් සිටී
+ignore_list_err_nu_title:පරිශීලක හමුනොවුණි
+ignore_list_err_nu_msg:ඔබ විසින් ඔබේ නොසලකා හැරුම් ලැයිස්තුව වෙත එක් කිරීමට උත්සහ කෙරූ පරිශිලකයා හමු නොවුනි.
+ignore_list_cantign_msg:ඔබට මෙම පරිශීලක නොසලකා හරිය නොහැක
+ignore_list_update:ස්ව නොසලකා හැරීම් ලැයිස්තුව ගවේෂණය කරමින්
+index_update:<a href="{TEMPLATE: index_update_lnk}">ෆෝරම ලැයිස්තුව ගවේෂණය කරමින්</a>
+list_referers_update:යොමු කිරීම් ගවේෂණය කරමින්
+login_update:පිවිසුම් ෆෝරමය
+msg_update:<a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a> මාතෘකාව ගවේෂණය කරමින්
+pm_err_nopm_title:දෝෂය:පුද්ගලික පණිවුඩකරණය අක්‍රිය කොට ඇත
+pm_err_nopm_msg:ඔබට පුද්ගලික පණිවුඩ පද්ධතිය භාවිතා කල නොහැක. එය පරිපාලක විසින් ක්‍රියාවිරහිත කොට ඇත.
+pm_update:පුද්ගලික පණිවුඩකරණය භාවිතා කරමින්
+post_err_lockedthread_title:දෝෂය: අගුළුදැමූ කාරණය
+post_err_lockedthread_msg:මෙම මාතෘකාව අගුළුලා ඇත. දැමීම්වලට තවදුරටත් ඉඩනොදේ.
+err_coppa_title:දෝෂය: ඔබේ ගිණුම තවමත් තහවුරු කර නොමැත
+err_coppa_msg:පණිවුඩ දැමීමට ඔබට ඉඩදීම සඳහා, අපට ඔබගේ දෙමව්පිය සහ/හෝ නීතිමය භාරකරුගෙන් තහවුරු කිරීමක් ලැබුනේ නැත. ඔබට ඔබේ COPPA ෆෝරමය අහිමි වූයේ නම්, <a href="{TEMPLATE: err_coppa_msg_lnk}">එය නැවත නරඹන්න</a>.
+err_banned_acct_title:දෝෂය: ඔබව තහනම් කර ඇත.
+err_banned_acct_msg:ෆෝරමයේ නීති උල්ලංඝනය කිරීම හේතුවෙන් ඔබේ ගිණුම {IF: $ban_expiry} තාවකාලිකව {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE} දක්වා තහනම් කොට {ENDI} අඩවියට ප්‍රවේශ වීම ස්ථිරවම තහනම් කොට ඇත.
+post_err_edttimelimit_title:දෝෂය
+post_err_edttimelimit_msg:ඔබට මෙම පණිවුඩය තවදුරටත් සංස්කරණය කල නොහැක
+post_err_noannontopics_msg2:<legend>දෝෂය: ප්‍රමාණවත් නොවන බලතල</legend>නිර්නාමික පරිශීලකයන් හට මාතෘකා තැනීමට ඉඩ නොදේ.
+post_err_noannonposts_msg2:<legend>දෝෂය: ප්‍රමාණවත් නොවන බලතල</legend>නිර්නාමික පරිශීලකයන් හට පිළිතුරු දැමීමට ඉඩ නොදේ.
+post_err_floodtrig_title:දෝෂය: දැමුම් ධාරාව ක්‍රියාරම්භ කර ඇත.
+post_err_floodtrig_msg:කරුණාකර {PLURAL: tm|තත්පර $1} කින් නැවත උත්සහ කරන්න
+post_err_attach_size:ගොනු ඇමුණුම විශාල වැඩියි (බයිට්ස් {VAR: MAX_F_SIZE} ක ඉඩ ඉක්මවා)
+post_err_attach_ext:ඔබ විසින් උඩුගත කිරීමට උත්සහ කරන ගොනුව ඉඩදෙන ගොනු වර්ගවලට නොගැලපේ.
+post_err_attach_filelimit:ඔබ ඉඩදෙන ප්‍රමාණයට වඩා ගොනු උඩුගත කිරීමට උත්සහ ගෙන ඇත.
+post_err_passwd:සාවද්‍ය මුරපදය.
+post_reply_update:<a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> වෙත පිළිතුරු දෙමින් {VAR: frm->name} හී
+post_topic_update:<a href="{TEMPLATE: post_topic_update_lnk}">{VAR: frm->name}</a> හි නව මාතෘකාවක් තනමින්
+post_error_generic:එහි දෝෂයක් තිබුණි
+postcheck_max_images_err:එක් පණිවුඩයකට පින්තූර {GVAR: MAX_IMAGE_COUNT} වඩා ඉඩ ලබා නොදේ. කරුණාකර පින්තූර ගණන අඩු කරන්න.
+postcheck_no_links_allowed:{PLURAL: posts_before_links|පණිවුඩ $1} වඩා වැඩි ගණනක් දැමීම දක්වා ඔබට සබැඳි භාවිතා කල නොහැක.
+postcheck_subj_needed:විෂයය අවශ්‍යයි
+postcheck_no_such_user:මෙම ෆෝරමයේ "{FUNC: char_fix(htmlspecialchars($v))}" නමින් පරිශීලකයෙකු නැත.
+postcheck_ignored:ඔබට "{FUNC: char_fix(htmlspecialchars($v))}" වෙත පුද්ගලික පණිවුඩයක් යැවිය නොහැක, මන්ද මෙම පරිශීලකයා ඔබව නොසලකා හැර ඇත.
+postcheck_no_recepient:පණිවුඩය යැවිය නොහැක, ලබන්නා මඟහැරී ඇත
+postcheck_invalid_email:කරුණාකර ඔබේ මිතුරා සඳහා වලංගු ඊ-තැපැල් ලිපිනයක් ලබා දෙන්න.
+postcheck_email_subject:ඔබට ඊ-තැපෑලක් විෂයයකින් තොරව යැවිය නොහැක
+postcheck_email_body:ඔබට ඊ-තැපෑලක් අතුලතකින් තොරව යැවිය නොහැක
+private_msg_notify_subj:සඳහා නිවේදන කියවන්න: {VAR: m->subject}
+private_msg_notify_body:හෙලෝ,<br />{VAR: usr->login} විසින්, "{VAR: m->subject}" මාතෘකාව ඇති ඔබේ පුද්ගලික පණිවුඩයක් විවෘත කර ඇත.<br />මෙය {TEMPLATE: private_msg_notify_body_date}<br /> හිදී ජනිත කරන ලද ස්වයංක්‍රීය නිවේදනයකි.
+referals_update:යොමු කිරීම් ගවේෂණය කරමින්
+register_err_short_login:ඔබ තෝරාගත් පිවිසුම කෙටි වැඩියි. පිවිසුම් නාම අවම වශයෙන් අක්ෂර 4 ක දිගින් වත් විය යුතුයි.
+register_err_login_notallowed:පිවිසුම් නාමයට ඉඩ නොදේ.
+register_err_loginunique:ෆෝරමයේ පිවිසුම් නාමය අනන්‍ය විය යුතු. මෙම නම සහිතව දැනටමත් අයෙකු සිටී.
+register_err_emailexists:මෙම ඊ-තැපෑල දැනටමත් ගිණුමක් සමඟ එක්වී ඇත. ඔබට මුරපදය අමතක වුයේ නම් නැවත-ලියාපදිංචි වෙනවා වෙනුවට ,නැවත පිහිටුවීමේ විකල්පය භාවිතා කරන්න.
+register_err_shortpasswd:මුරපදය අක්ෂර 6 ක දිගකින් යුක්ත විය යුතුය.
+register_err_passwdnomatch:ඔබේ මුරපදයන් නොගැලපේ, කරුණාකර නැවත උත්සහ කරන්න.
+register_err_invalidemail:ඔබ විශේෂණය කෙරූ ඊ-තැපෑල වලංගු එකක් ලෙස නොපෙනේ.
+register_err_needname:මෙම ලියාපදිංචිය සාර්ථකව සිදු කිරීමට නම් ඔබ ඔබේ නම යෙදිය යුතුය.
+register_err_enterpasswd:වෙනස්කම් සම්පූර්ණ කිරීමට නම් ඔබ ඔබේ වත්මන් මුරපදය යෙදිය යුතුය.
+register_err_adminpasswd:වෙනස්කම් සම්පූර්ණ කිරීමට නම් ඔබ ඔබේ <b>පරිපාලක</b> මුරපදය යෙදිය යුතුය.
+register_err_notyouremail:මෙම ඊ-තැපැල් ලිපිනය සමඟ වෙනත් කෙනෙකු දැනටමත් ලියාපදිංචි වී ඇත.
+register_err_avatartobig:ඔබ උඩුගත කිරීමට උත්සහ කරන ගොනුව බයිට්ස් {GVAR: CUSTOM_AVATAR_MAX_SIZE} වඩා ලොකු වැඩියි.
+register_err_avatarnotallowed:ඔබ උඩුගත කිරීමට උත්සහ කෙරූ මුර්තිය ඉඩ නොදේ. ඉඩ දෙන ගොනු වර්ග පරික්ෂා කරන්න.
+register_conf_subject:ලියාපදිංචිය තහවුරු කිරීම
+register_conf_msg:ලියාපදිංචි වූවාට තුති,\nඔබේ ගිණුම සක්‍රිය කිරීමට පහත URL ලිපිනයට යන්න:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nඔබේ ගිණුම සක්‍රිය වූ පසු ඔබව ෆෝරමය වෙත ප්‍රවිෂ්ට-කර මුල් පිටුවට යළි යොමුවේ.
+register_welcome_subject:ෆෝරමයේ ලියාපදිංචි කිරීම් තහවුරු කිරීම
+register_welcome_msg:ලියාපදිංචි වූවාට තුති,\n\nමෙන්න ෆෝරමය සඳහා ඔබේ පිවිසුම් තොරතුරු:\n\nෆෝරමයේ URL: {TEMPLATE: index_update_lnk}\nපිවිසුම: {VAR: uent->login}\nමුරපදය: {VAR: _POST['reg_plaintext_passwd']}\n\nමුරපදයන් අක්ෂර සංවේදී බව සිහියේ තබාගන්න!\nඔබේ සැකසුම් හෝ පැතිකඩ වෙනස් කිරීමට, මෙම පිටුවට යන්න:\n{FULL_ROOT}{ROOT}?t=register
+register_err_cantreg_title:දෝෂය: ලියාපදිංචි විය නොහැක
+regsiter_err_cantreg_msg:පරිශීලක ගිණුම තැනිය නොහැක, කරුණාකර <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a> හිදී පරිපාලක සම්බන්ධ කරගන්න
+register_profile_update:ස්ව පැතිකඩ නරඹමින්
+register_register_update:ලියාපදිංචි පිටුව
+report_err_nosuchmsg_title:දෝෂය
+report_err_nosuchmsg_msg:සැබෑවටම පණිවුඩයක් නොමැත
+reset_err_invalidkey_title:දෝෂය
+reset_err_invalidkey_msg:සාවද්‍ය මුරපද යළි සැකසුම් යතුරකි. ඔබේ ඊ-තැපැල් සේවාදායකයා මෙම පිටුව දැනටමත් ස්වයංක්‍රීයව විවෘත කර ඇති බව පිළිගත හැක, එනිසා යතුර අවලංගුවේ. තත්වය මෙය නම්, ඔබට ඔබේ නව මුරපදය සමඟ ඊ-තැපෑලක් කෙටි වේලාවකින් ලැබෙනු ඇත. ඊ-තැපෑලක් නොලැබුණහොත්, කරුණාකර මුරපද යළි සැකසීමට නැවත උත්සහ කරන්න.
+reset_err_rstconf_title:තොරතුරු
+reset_err_rstconf_msg:ඔබට ඔබේ ඊ-තැපෑල වෙත උපදෙස් මිනිත්තු කිහිපයකින් ලැබෙනු ඇත.
+reset_newpass_title:මුරපදය යළි පිහිටුවන්න
+reset_newpass_msg:කොහොමද,\n\nඅයැදූ ලෙසින්, ඔබේ පිවිසුම් තොරතුරු පහත දිස්වේ:\n\nපිවිසුම: {VAR: ui[1]}\nමුරපදය: {VAR: passwd}\n\nඔබේ මුරපදය ඉහත අගයට යළි සකසා ඇති බව කරුණාකර මතක තබා ගන්න. ඔබ මුරපදය වෙනස් කිරීමට අදහස් කරන්නේ නම් පරිශීලක තොරතුරු පාලක පුවරුවේදී එය කල හැක:\n{FULL_ROOT}{ROOT}?t=register
+reset_login_notify:ඔබේ මුරපදය ඔබට ඊ-තැපැල් කොට ඇත. එය මීළඟ විනාඩි කිහිපය ඇතුලත ඔබට  ලැබෙනු ඇත.<br />
+search_update:පණිවුඩ සොයමින්
+selmsg_update:<a href="{TEMPLATE: selmsg_update_lnk}">අද දැමුම් ගවේෂණය කරමින්</a>
+showposts_update:විසින් දැමූ දැමුම් නරඹමින්: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
+subscribed_update:ස්ව සහභාගීවීම් ගවේෂණය කරමින්
+bookmarked_update:ස්ව පොත්සලකුණු ලැයිස්තුව ගවේෂණය කරමින්
+thread_update:<a href="{TEMPLATE: thread_update_lnk}">{VAR: frm->name}</a> ෆෝරමය ගවේෂණය කරමින්
+tree_update:<a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a> මාතෘකාව ගවේෂණය කරමින් (රුක් දසුන)
+userinfo_update:<a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}'s</a> පැතිකඩ දෙස බලමින්
+ERR_login_msg2:<legend>දෝෂය: ඔබ ප්‍රවිෂ්ට-වී නොමැත</legend>මෙම පිටුවට පිවිසීමට නම් ඔබ මෙම ෆෝරමයේ සාමාජිකයෙකු විය යුතුය.
+ERR_disabled_ttl:අක්‍රිය කල ලක්ෂණය
+ERR_disabled_msg:පද්ධති පරිපාලක විසින් මෙම ලක්ෂණය අක්‍රිය කර ඇත.
+ERR_access_ttl:දෝෂය: ප්‍රමාණවත් නොවන අවසර
+ERR_access_msg:මෙම ක්‍රියාව සිදු කිරීමට අවශ්‍ය බලතල ඔබ සතුව නැත.
+ERR_registration_disabled_ttl:ලියාපදිංචිය අක්‍රියයි
+ERR_registration_disabled_msg:පරිපාලක විසින් ලියාපදිංචිය අක්‍රිය කර ඇත. කරුණාකර පසුව නැවත උත්සහ කරන්න.
+ERR_emailconf_ttl:දෝෂය: ඔබේ ගිණුම තවමත් තහවුරු කර නොමැත
+ERR_emailconf_msg:ඊ-තැපෑල හරහා ඔබේ ගිණුම තවමත් තහවුරු කොට නොමැත.<br /><table border="0"><tr><td><ol><li>ඔබට තහවුරු කිරීමේ ඊ-තැපෑලක් නොලැබුණේ නම්, <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">එය නැවත ඉල්ලුම් කරන්න</a>.</li><li>{VAR: usr_d->email} ඔබේ නිවැරැදි ඊ-තැපැල් ලිපිනය නොවේ නම්, <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">නිවැරදි ලිපිනය විශේෂණය කරන්න</a>.</li></ol></td></tr></table>
+ERR_user_ttl:දෝෂය: සැබෑවටම පරිශීලකයෙකු නැත
+ERR_user_msg:සැබෑවටම පරිශීලකයෙකු නැත
+ERR_systemerr_ttl:දෝෂය: පද්ධති දෝෂය
+ERR_systemerr_msg:පද්ධති දෝෂයක් හට ගැනුණි. කරුණාකර එය <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a> වෙත වාර්තා කරන්න.
+email_title:ඊ-තැපැල් ෆෝරමය
+finduser_title:පරිශීලක සොයන්න
+help_title:උදව්
+login_title:පිවිසුම් ෆෝරමය
+poll_title:ඡන්දය විමසීම් සංස්කාරක
+register_title:ලියාපදිංචි ෆෝරමය
+reset_title:මුරපදය යළි පිහිටුවන්න
+rpasswd_title:මුරපදය වෙනස් කිරීමේ ෆෝරමය
+error_title:දෝෂ ෆෝරමය
+index_title:ෆෝරමය වෙත පිළිගනිමු
+search_title:{VAR-HTML: srch} සඳහා සොයන්න
+remail_emailsent:ඊ-තැපෑල යවන ලදී
+remail_email:කොහොමද,\n\n{GVAR: FORUM_TITLE} ෆෝරමය මත ඔබ කියවීමට කැමති "{VAR: data->subject}" ගැන සිත්ගන්නා මාතෘකාවක් ඇත. ඔබට එම මාතෘකාව මෙහිදී බලාගත හැක:\n {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nඔබේ මිතුරා,\n\n{VAR: usr->alias}
+poll_add_option:විකල්පයක් එක් කරන්න:
+post_opt_html_on:<b>HTML</b> යනු <b>මත</b>
+post_opt_fud_on:<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>BBcode</b> <b>සක්‍රීයයි</b></a>
+post_opt_images_on:<b>පින්තූර</b> <b>සක්‍රීයයි</b>
+post_opt_smilies_on:<a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank"><b>සිනහමුහුණු</b> <b>සක්‍රීයයි</b></a>
+post_opt_html_off:<b>HTML</b> කේතය <b>අක්‍රියයි</b>
+post_opt_fud_off:<b>BBcode</b> <b>අක්‍රියයි</b>
+post_opt_images_off:<b>පින්තූර</b> <b>අක්‍රියයි</b>
+post_opt_smilies_off:<b>පින්තූර</b> <b>අක්‍රියයි</b>
+post_opt:ෆෝරමයේ විකල්පයන්:
+register_change_passwd:මුරපදය වෙනස් කරන්න
+register_change_login:පිවිසුම වෙනස් කරන්න
+approved_avatar_title:ඔබේ රිසිකළ මුර්තිය අනුමත කරන ලදී.
+approved_avatar_msg:ඔබේ මුර්තිය පරිපාලක විසින් අනුමත කරන ලදී. එය දැන් ඔබේ සියලුම පණිවුඩවල ඔබේ මුර්තිය ලෙස දිස්වෙනු ඇත. ඔබ එය නොදැක්කේ නම්, හෝ ඔබේ පැරණි මුර්තිය දකින්නේ නම්, ඔබේ ගවේශකය පිටුව කෑශ්‍රිත කර ඇති නිසා පුළුවනි. එය එක් වරක් හෝ දෙවරක් ප්‍රතිපූරණය කිරීමෙන් උත්සහ කරන්න. ගොඩක් අවස්ථාවලදී මෙය කෑශ්‍රිත ගැටළුව විසදයි.
+unapproved_avatar_title:ඔබේ රිසිකළ මූර්තිය ප්‍රතික්ෂේප කරන ලදී.
+unapproved_avatar_msg:ඔබේ මුර්තිය පරිපාලක විසින් අනුමත කර නොමැත. ගොඩක්ම සමීප හේතු ලෙස ඔබේ මුර්තිය අති විශාල (ප්‍රමාණය සහ/ හෝ මාන) හෝ එහි නුසුදුසු විෂයය කරණක් ඇත. ඔබේ මුර්තිය ප්‍රතික්ෂේප වූයේ මක්නිසා දැයි වැඩිදුර විස්තර දැනගැනීමට, පරිපාලක සම්බන්ධ කරගන්න.
+mvthread_request_move:ගෙනයාමක් අයදින්න
+move_request_reason:මාතෘකාව ගෙනයාමට ඔබ අදහස් කරන්නේ ඇයි?
+mvthread_submit_req:අයදුම යොමන්න
+thread_exchange:මාතෘකා හුවමාරුව
+move_request_by:මාතෘකාව ගෙනයාමට ඉල්ලා සිටියේ:
+move_reason:මාතෘකාව ගෙනයාමට හේතුව:
+thr_exch_accept:මාතෘකාව පිළිගන්න
+thr_exch_decline:මාතෘකාව ප්‍රතික්ෂේප කරන්න
+thr_exch_orig_forum:මුල් ෆෝරමය:
+thr_exch_dest_forum:ගමනාන්ත ෆෝරමය:
+thr_exch_no_threads:අනුමත කිරීමට රැඳෙන මාතෘකා නොමැත
+thr_exch_decl_reason:මාතෘකාව ප්‍රතික්ෂේප කිරීමට හේතුව <b>{VAR: data->f2_name}</b> ෆෝරමය වෙත <b>{VAR: data->subject}</b>
+thr_exch_submit:යොමන්න
+exch_decline_ttl:{VAR: data->f2_name} ෆෝරමය වෙත {VAR: data->subject} මාතෘකාව ගෙනයාම ප්‍රතික්ෂේප කරන ලදී.
+ppost_original_msg:ඔබ ඉදිරියට යවන හෝ පිළිතුරු ලබා දෙන පණිවුඩය
+split_thread:මාතෘකාව බෙදන්න
+groupmgr_no_user:"{FUNC: char_fix(htmlspecialchars($gr_member))}" පිවිසුම සමඟ පරිශීලකයෙකු නැත
+groupmgr_already_exists:පරිශීලක "{FUNC: char_fix(htmlspecialchars($gr_member))}" මෙම සමූහයේ දැනටමත් සිටී.
+groupmgr_yes:ඔව්
+groupmgr_no:නැහැ
+groupmgr_action:ක්‍රියාව
+groupmgr_member:සාමාජිකයා
+groupmgr_cancel:අත් හරින්න
+groupmgr_add_member:සාමාජිකයා එක් කරන්න
+groupmgr_update_member:සාමාජිකයා යාවත්කාලීන කරන්න
+groupmgr_edit:සංස්කරණය
+groupmgr_delete:මකන්න
+group_mgr_anon:නිර්නාමික
+group_mgr_reged:සියලුම ලියාපදිංචිවූ පරිශීලකයන්
+show_show:පෙන්වන්න:
+group_mgr:සමූහ කළමනාකරු
+group_mgr_edit_btn:සමූහය සංස්කරණය කරන්න
+group_mgr_heading:කාණ්ඩ සංස්කාරක තේරීම
+group_mgr_group:කාණ්ඩය:
+permission_denied_title:අවසරය ලබා නොදේ!
+permission_denied_msg:ඔබ උත්සහ කරන ක්‍රියාව සිදු කිරීමට ඔබේ පරිශීලක බලතල විසින් ඉඩ ලබා නොදේ.
+p_READ:කියවන්න
+p_POST:තැපැල් කරන්න
+p_REPLY:පිළිතුරු දෙන්න
+p_EDIT:සංස්කරණය
+p_DEL:මකන්න
+p_STICKY:ඇලෙන පණිවුඩ
+p_POLL:ඡන්දය විමසුම් තනන්න
+p_FILE:ගොනු අමුණන්න
+p_VOTE:මනාප දෙන්න
+p_RATE:මාතෘකා/සාමාජිකයන් අගයන්න
+p_SPLIT:මාතෘකා බෙදන්න
+p_LOCK:මාතෘකා අගුළුලන්න
+p_MOVE:මාතෘකා ගෙනයන්න
+p_SML:සිනහ භාවිතා කරන්න
+p_IMG:පින්තූර ටැගයන් භාවිතා කරන්න
+p_SEARCH:සෙවීමට හැක
+group_mgr_search:පරිශීලක සොයන්න
+group_mgr_indicator:දැනට සංස්කරණය කරන්නේ: <b>{VAR: grp->name}</b>
+rate_worst:නරකම
+rate_best:හොඳම
+post_quote_msg:{VAR: msg->login} ලියන ලදී {TEMPLATE: make_report_date}
+post_quote:උද්ධරණය:
+post_quote_selected:තෝරාගත් පෙළ ගෙන හැර දක්වන්න
+userinfo_referals:යොමුකළ පරිශීලකයන්:
+userinfo_referals_count:{VAR: referals} සාමාජිකයන්
+pm_no_space_title:ඉඩක් ඉතිරි නැත!
+pm_no_space_msg:ඔබේ පුද්ගලික පණිවුඩ බහාලුම් බයිට්ස් <b>{GVAR: MAX_PMSG_FLDR_SIZE}</b> ක ඉඩදෙන ප්‍රමාණය ඉකමවා ගොස් ඇත. එහි බයිට්ස් <b>{VAR: fldr_size} ප්‍රමාණයක පණිවුඩ සංඛ්‍යාවක් දැනට පවතී</b>.<br /><br /><span class="ErrorText">සමහර පැරණි පණිවුඩ මකා දමා අවකාශය වැඩි කරගන්න.</span>
+pm_space_indct_msg:ඔබේ පුද්ගලික පණිවුඩ බහාලුම් {VAR: percent_full}% පිරී ඇත.
+th_expr_never:කවදාවත් නෑ
+th_expr_one_hr:පැය 1
+th_expr_three_hr:පැය 3
+th_expr_four_hr:පැය 4
+th_expr_eight_hr:පැය 8
+th_expr_sixteen_hr:පැය 16
+th_expr_one_day:දින 1
+th_expr_two_day:දින 2
+th_expr_four_day:දින 4
+th_expr_one_week:සති 1
+th_expr_two_week:සති 2
+th_expr_one_month:මාස 1
+th_expr_two_month:මාස 2
+th_expr_four_month:මාස 4
+th_expr_one_year:අවුරුදු 1
+thread_mod_delete:මකන්න
+action_ip:IP
+action_latest_post:අවසන් පණිවුඩය
+online_today_last_visit:අවසන් පිවිසුම
+online_today_update:අද ෆෝරමයේ සිටි පරිශීලකයන් ලැයිස්තුව නරඹමින්.
+logedin_todays_visitors:අද පිවිසුන අය
+logedin_latest_post:ෆෝරමයේ අවසන් පණිවුඩය:
+register_show_avatar:මුර්ති පෙන්වන්න:
+register_show_avatar_desc:අනෙත් පරිශීලකයන්ගේ මුර්ති ඔවුන්ගේ පණිවුඩ බලන විට සැඟවීමට ඔබට ඉඩදේ.
+drawmsg_view_rest_post:පණිවුඩයේ නිශ්චලතාව බලන්න
+post_re:පිළි:
+forumsel_goto_forum:ෆෝරමය වෙත යන්න:
+minimsg_thread_view:මාතෘකා දසුන
+split_th_post_by:පණිවුඩය එව්වේ:
+split_th_posted_on:දමන ලද්දේ:
+split_th_subject:විෂයය:
+split_th_new_thread_title:නව මාතෘකාවේ ශීර්ෂය:
+split_th_forum:ෆෝරමය:
+split_th_split_sel:තෝරාගත් පණිවුඩ බෙදන්න
+split_th_split_unsel:නොතෝරාගත් පණිවුඩ බෙදන්න
+split_th_messages:පණිවුඩ
+split_th_select:තෝරන්න
+report_report_post:පණිවුඩය වාර්තා කරන්න
+quicklogin_login:පිවිසීම:
+quicklogin_password:මුරපදය:
+quicklogin_use_cookies:කුකීස් භාවිතා කරනවද?
+quicklogin_login_btn:පිවිසෙන්න
+quick_reply:ඉක්මන් පිළිතුර
+quick_reply_post:ඉක්මන් පිළිතුර දමන්න
+quick_reply_preview:ඉක්මන් පිළිතුර පෙරදසුන් කරන්න
+post_notification_desc:මෙම පණිවිඩයට කවුරුන් හෝ පිළිතුරු දුන්නොත් මට දැනුම් දෙන්න.
+post_all_ext_allowed:(අසීම)
+maximize_category:ප්‍රවර්ගය උපරිම කරන්න
+maximize_message:පණිවුඩය උපරිම කරන්න
+no_view_perm:මෙම කාරණය බැලීම සඳහා ඔබට අවශ්‍ය නිසි අවසර නොමැත.
+report_empty_report:ඔබට හිස් වාර්තාවක් යැවිය නොහැක. කරුණාකර ඔබේ වාර්තාව සඳහා හේතුවක් දෙන්න.
+report_already_reported_title:දැනටමත් වාර්තා කර ඇත
+report_already_reported_msg:මෙම පණිවුඩය දැනටමත් වාර්තා කර ඇති අතර වාර්තාව තවමත් ප්‍රමාණක පෝලිමේ ඇත.
+register_err_toomanyimages:අත්සනේ {GVAR: FORUM_IMG_CNT_SIG} ක ඉඩදෙන පින්තූරයන්ට වැඩි ගණනක් භාවිතා කිරීමට ඔබ උත්සහ කරයි.
+pmsg_next_msg:මීළඟ පණිවුඩය
+pmsg_prev_msg:පෙර පණිවුඩය
+post_proc_reveal_spoiler:පුරුක් කොල්ලකරු
+register_jabber:ජබ්බර් හසුරවනය:
+register_skype:ස්කයිප් හසුරවනය:
+register_twitter:ටුවිටර් හසුරවනය:
+register_google:ගූගල් සංවාද/IM හසුරවනය:
+im_jabber:ජබ්බර්:
+im_google:ගූගල් ටෝක්:
+im_skype:ස්කයිප්:
+im_twitter:ටුවිටර්:
+forum_contact:සම්බන්ධ කරන්න
+forum_home:නිවස
+post_cur_attached:දැනට අමුණා ඇත්තේ: {VAR: i} {PLURAL: i|ගොනුව|ගොනු}
+ignored_anon_post:{GVAR: ANON_NICK} නොසලකා හරින ලදී
+ignored_user_post:<a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> ගේ පණිවුඩය නොසලකා හරින ලදී
+smladd_close_window:කවුළුව වසන්න
+post_list_smilies:සියලුම සිනහමුහුණු ලැයිස්තුගත කරන්න
+p_VISIBLE:දෘශ්‍යමාන
+reported_in_thread:හී:
+help_back_to_top:නැවත උඩට
+help_return_to_index:උදව් සුචිය වෙත නැවතත්
+imsg_err_message_title:සාවද්‍ය පණිවුඩය
+imsg_err_message_msg:ඔබ නැරඹීමට උත්සහ කරන පණිවුඩය නොපවතී.
+poll_edit:සංස්කරණය
+register_err_not_valid_img:විශේෂණය කෙරූ URL ලිපිනයේ වලංගු පින්තූරයක් නොතිබුණි.
+pmsg_recepient:ලබන්නා
+register_err_taken_alias:ඔබ භාවිතා කිරීමට උත්සහ කරන අන්වර්ථ නාමය ෆෝරමයේ වෙනත් සාමාජිකයෙකු දැනටමත් භාවිතා කරයි. කරුණාකර වෙනත් එකක් තෝරාගන්න.
+register_alias:අන්වර්ථ නාමය:
+register_alias_desc:ඔබේ පිවිසුමට වඩා ෆෝරමයේ දිස්වීමට සුරතල්නාමයක් අවශ්‍ය නම්, එය මෙහි යොදන්න
+register_allow_pm_msg:පුද්ගලික පණිවුඩවලට ඉඩදෙන්න:
+register_allow_pm_msg_desc:මෙම ෆෝරමය තුල ඔබට ඊ-තැපැල් එවීමට අනිත් පරිශීලකයන් හට ඉඩදෙන්න.
+postcheck_pm_disabled:ඔබට "{VAR-HTML: v}" වෙත පුද්ගලික පණිවුඩ යැවිය නොහැක, මන්ද මෙම පරිශීලකයා පුද්ගලික පණිවුඩ පිළිනොගනී.
+polllist_vote:මනාප දෙන්න
+polllist_view_results:ප්‍රතිඑල නරඹන්න
+polllist_name:ඡන්ද විමසීමේ නම
+polllist_date:තැනුවේ
+polllist_owner:තනන ලද්දේ
+polllist_votes:සමස්ත මනාපයන්
+polllist_action:ක්‍රියාව
+polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">නිරීක්ෂණ ලබා ගත හැකි ජන්ද විමසුම්</a>
+userinfo_polls:ඡන්ද විමසීම්:
+show_pollist:ඡන්ද විමසීම් පෙන්වන්න
+search_and:සහ
+search_or:හෝ
+search_desc_order:අවරෝහණ අනුපිළිවෙළ
+search_asc_order:ආරෝහණ අනුපිළිවෙළ
+search_logic:න්‍යාය සොයන්න:
+search_sorting:ප්‍රතිඑල දිනය අනුව පෙළගස්වන්න:
+search_attach:ඇමුණුම්:
+search_attach_all:සමඟ හෝ තොරව
+search_attach_with:ඇමුණුම් සමඟ
+post_proceed:කරගෙන යන්න
+post_moderated_forum:ඔබ විසින් ප්‍රමාණක ෆෝරමයක දැමුමක් කර ඇත. ඔබේ පණිවුඩය ෆෝරම ප්‍රමාණකයන් හෝ පරිපාලකවරු අනුමත කරන තෙක් අනෙත් යට නොපෙනෙනු ඇත.
+post_moderated_forum_ttl:නියන්ත්‍රිත ෆෝරම නිවේදනය
+buddy_list_bday:අද {VAR: r[2]} හැරුණා {VAR: age}
+email_warning_msg:ඔබ විසින් ඔබේ වත්මන් ඊ-තැපැල් ලිපිනය වෙනස් කලොත්, ඔබ එය තහවුරු කරන තුරු ඔබේ ගිණුම තහවුරු නොවූ ලෙස සලකුණු වනු ඇත.
+register_show_im:IM දර්ශකයන් පෙන්වන්න:
+register_show_im_desc:කතෘගේ IM දර්ශක එම පණිවුඩවල  සමීපයෙහි පෙන්වන්න හෝ නොපෙන්වන්න.
+unread_message:නොකියවූ පණිවුඩය
+read_message:පණිවුඩය කියවන්න
+threadt_more:&lt;more&gt;
+threadt_disabled_ttl:මාතෘකා ලයිස්තුවේ රුක් දසුන අක්‍රිය කොට ඇත.
+threadt_disabled_desc:පරිපාලක විසින් මාතෘකා ලැයිස්තුවේ රුක් දසුන අක්‍රිය කොට ඇත. කරුණාකර ඒ වෙනුවට පැතිලි දසුන භාවිතා කරන්න.
+threadt_update:<a href="{TEMPLATE: threadt_update_lnk}">{VAR: frm->name}</a> ෆෝරමය ගවේෂණය කරමින් (රුක් දසුන)
+mmod_delete_cofirm_ttl:මාතෘකා/පණිවුඩ මැකීම තහවුරු කරන්න
+spell_alts:විකල්ප නැත
+insert_uploaded_image:පණිවුඩයේ ඇතුලතට පින්තූරයක් ඇතුළු කරන්න
+finduser_help:සෙවුම් එන්ජිම විසින් ඔබේ ප්‍රශ්ණයට ස්වයංක්‍රීයව * ආවරණය දමනු ඇත, <b>සෙවුම අක්ෂර-සංවේදීය</b>.<br />උදා. 'a' අකුරින් පිවිසුම පටන් ගන්නා සියලුම පරිශීලකයන් සෙවීම සඳහා, සෙවුම් කොටුව තුල 'a' යොදන්න.
+back_to_top:නැවත උඩට
+pm_err_disabled_title:පුද්ගලික පණිවුඩකරණය අක්‍රිය කොට ඇත
+pm_err_disabled_msg:ඔබට ඔබේ පැතිකඩේ 'පුද්ගලික පණිවුඩවලට ඉඩදෙන්න' යන්න සක්‍රිය කරන තුරු පුද්ගලික පණිවුඩ යැවීමට හැකියාව නොමැත.
+err_mod_acc_ttl:සත්‍යවත් නොකළ ගිණුම
+err_mod_acc_msg:පරිපාලක විසින් සියලුම ගිණුම් සක්‍රිය කිරීමට පෙර හස්තීයව නිරීක්ෂණය කිරීමට තෝරාගෙන ඇත. පරිපාලක විසින් ඔබේ ගිණුම වලංගු කරන තුරු ඔබට ඔබේ ගිණුමේ සියලු හැකියාවන් වලින් ප්‍රයෝජන ගැනීමට නොහැකි වනු ඇත.
+accounts_pending_approval:අනුමත කිරීම බලාපොරොත්තුවන ගිණුම්
+saved:සුරකින ලදී
+register_err_time_limit:තත්පර {GVAR: REG_TIME_LIMIT} වරක් එක් ලියාපදිංචියක් සිදු කිරීමේ සීමාව ඉක්මවා ගොස් ඇත. කරුණාකර {PLURAL: reg_limit_reached|තත්පර $1} ක් රැඳෙන්න, ඉන්පසු නැවත වරක් ලියාපදිංචි වීමට උත්සහ ගන්න.
+register_affero:අභිවාහී පරිශීලක නාමය:<br /><span class="SmallText">ඔබ සතුව <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">අභිවාහී</a> පරිශීලක නාමයක් ඇත්නම්, එය මෙහි යොදන්න.</span>
+im_affero:අභිවාහී පරිශීලක නාමය
+register_err_avatardimtobig:මුර්තියේ මාන <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> පික්සල් <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b> මානවලට වඩා වැඩියි.
+buddy_offline:{VAR: r[2]} දැනට මාර්ගඅපගතයි
+buddy_online:{VAR: r[2]} දැනට මාර්ගගතයි
+sml_no_smilies:චිත්තවේග ලබා ගත නොහැක.
+login_unapproved_account_ttl:අනුමත නොකළ ගිණුම
+login_unapproved_account_msg:ෆෝරමයේ පරිපාලක විසින් සක්‍රිය කිරීමට පෙර සෑම නව ගිණුමක්ම හස්තීයව තහවුරු කිරීමට අදහස් කොට ඇත. ඔබේ ගිණුම තවමත් තහවුරු කොට නැත, ඒ හේතුවෙන් තහවුරු කෙරූ පරිශීලකයන් හට ලැබෙන සමහරක් ගුණාංග වෙත ඔබට ලගා වීමට නොහැකි වනු ඇත.
+remove_from_buddy_list:මිතුරු ලැයිස්තුවෙන් ඉවත් කරන්න
+iemail_msg_author:<b>කතෘ:</b> {VAR: obj->alias}
+iemail_msg_subject:<b>විෂයය:</b> {VAR: obj->subject}
+iemail_msg_date:<b>දිනය:</b> {TEMPLATE: dmsg_post_date}
+iemail_msg_reply:පිළිතුරු
+iemail_msg_quote:උද්ධරණය
+iemail_msg_view:කාරණය/පණිවුඩය නරඹන්න
+threadt_sticky:ඇලෙන
+threadt_announce:නිවේදනය
+reported_no_messages:වාර්තා කරන ලද පණිවුඩ නොමැත.
+poll_no_polls:ප්‍රවේෂණාත්මක ඡන්දය විමසුම් නොමැත.
+no_unread_messages:ඔබේ ප්‍රශ්නය සඳහා ගැලපෙන නොකියවූ පණිවුඩ නොමැත.
+thread_mark_all_read:සියලුම නොකියවූ ෆෝරම පණිවුඩයන් කියවූ ලෙස සලකුණු කරන්න
+thread_mark_all_read_desc:මෙම ෆෝරමයේ සියලුම නොකියවූ පණිවුඩයන් කියවූ ලෙස සලකුණු වෙනු ඇත
+private_no_messages:මෙම බහාලුමේ පණිවුඩ කිසිවක් නැත.
+register_email_change_subject:ඊ-තැපෑල වෙනස්කිරීමේ තහවුරු කිරීම
+register_email_change_msg:කරුණාකර ඔබේ පැරණි ඊ-තැපැල් ගිණුම වන "{VAR: old_email}" ප්‍රතිස්ථාපනය කරන ඔබේ නව ඊ-තැපැල් ගිණුම "{VAR: uent->email}" තහවුරු කරන්න, මෙම URL ලිපිනයට යන්න:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nඔබ විසින් ඔබේ නව ඊ-තැපැල් ගිණුම තහවුරු කල විට, ඔබේ ෆෝරම ගිණුම යළි-සක්‍රිය වනු ඇත.
+iemail_thread_unsub:මෙම කාරණයෙන් අසහභාගවන්න
+iemail_forum_unsub:මෙම ෆෝරමයෙන් අසහභාගවන්න
+primary_group_prefix:ෆෝරමය සඳහා ප්‍රථමික සමූහය:
+group_resources:පහත ෆෝරමයන්ගේ බලතල මෙම සමූහය විසින් පාලනය කරනු ලබයි.
+register_admin_newuser_title:නව පරිශීලකයෙකු ලියාපදිංචි වී ඇති අතර එම ගිණුම තවමත් තහවුරු කොට නොමැත
+register_admin_newuser_msg:නව පරිශීලක ({VAR: uent->login}) දැන් ලියාපදිංචි වූ අතර, ගිණුම් තහවුරු කිරීම සක්‍රිය කර ඇති නිසා, එම ගිණුම ඔබ හෝ වෙනත් ෆෝරම පරිපාලකයෙකු තහවුරු කරන තෙක් සක්‍රියව නොපවතිනු ඇත. ගිණුම නිරීක්ෂණය කිරීම සඳහා කරුණාකර මෙයට යන්න: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nමෙය ස්වයංක්‍රීයව මෙභෙයවන ක්‍රියාවලියකි. මෙම පණිවුඩයට පිළිතුරු දමන්න එපා.\nඔබට ඉදිරියේදී එන නව පරිශීලක ලියාපදිංචිවල නිවේදන අක්‍රිය කිරීම සඳහා, පරිපාලක පාලක පුවරුවේදී "නව ගිණුම් නිවේදනය" සැකසුම වෙනස් කිරීමෙන් එය සිදු කරන්න.
+post_mod_msg_notify_title:"{VAR: frm->name}" ෆෝරමයේ නව පණිවුඩය අනුමත කිරීමට ඇත
+post_mod_msg_notify_msg:ඔබ විසින් පරිමාණක කරන ෆෝරමයක  "{VAR: msg_post->subject}" ශීර්ෂය සහිත නව පණිවුඩයක් දැන් දමා ඇත. මෙම පණිවුඩය නිරීක්ෂණය කිරීම සඳහා මෙයට යන්න: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nමෙය ස්වයංක්‍රීයව මෙභෙයවන ක්‍රියාවලියකි. මෙම පණිවුඩයට පිළිතුරු දමන්න එපා.
+thread_printable_pdf:මුද්‍රිත PDF ජනිත කරන්න
+thread_syndicate:මෙම ෆෝරමය සම්මේලය කරන්න (XML)
+reg_conf_title:ලියාපදිංචිය තහවුරු කිරීම
+reg_conf_email:<b>ඊ-තැපැල් තහවුරු කිරීම</b><br />ඔබගේ ගිණුම සක්‍රිය කිරීම සඳහා අවශ්‍ය විශේෂ URL ලිපිනයක් අඩංගු ඊ-තැපෑලක්  ඔබ වෙත යවන ලදී. මීළඟ විනාඩි කිහිපය තුල ඔබට මෙම ඊ-තැපෑල නොලැබුණහොත්, ඔබේ ගිණුමට ප්‍රවිෂ්ට වී එම ඊ-තැපැල් ලිපිනය නිවැරදිදැයි බලන්න. ඔබ විසින් ගිණුම තහවුරු කල පසු, තහවුරු කල, ලියාපදිංචි පරිශීලකයන් හට පමණක් ලැබෙන ෆෝරම ලක්ෂණයන් වෙත ඔබට ලගා වීමට හැකියාව ලැබෙනු ඇත.
+reg_conf_account:<b>ගිණුම් තහවුරු කිරීම</b><br />ඔබේ ගිණුම සක්‍රිය වීමට පෙර පරිපාලක විසින් එය අනුමත කල යුතුය. එය සිදු වූ විගස ඔබේ ගිණුම තහවුරු කළා යැයි ඊ-තැපෑලක් ඔබ වෙත ලැබෙනු ඇත. මේ අතරතුර කාලයේදී ඔබට ඔබේ ගිණුමට ප්‍රවිෂ්ට-විය හැකිමුත්, ඔබට සමහරක් ගුණාංගයන් වෙත ලගා වීමට නොහැකි වනු ඇත.
+forum_banned_user:පෙර සිදුකල ක්‍රියාවන් ඔබව මෙම ෆෝරමයෙන් තහනම් කිරීමට ප්‍රතිඑල වශයෙන් ලබා දේ. සුභගමන්.
+mnav_description:පණිවුඩ යාන්ත්‍රණය
+mnav_date_limit:දින පරාසය:
+mnav_forum_limit:මෙහි පමණක් සොයන්න:
+mnav_all_forums:සියලුම ෆෝරමයන් සොයන්න
+mnav_submit:සෙවුම අරඹන්න
+mnav_no_range:ඔබ විසින් වලංගු දින පරාසයක් යෙදිය යුතු වේ. මෙම අගයේ දශමස්ථානයක් (0.12) අඩංගු විය හැක, නමුත් බිංදුවට වඩා වැඩි එකක් විය යුතුය.
+mnav_invalid_unit:ඔබ විසින් වලංගු කාල ඒකකයක් විශේෂණය කල යුතුය.
+mnav_invalid_date:ඔබ විශේෂණය කෙරූ දින පරාසය පරිපාලක විසින් ඉඩදුන් එකට වඩා වැඩි එකකි. දිනවල කුඩා පරාසයක් උත්සහ කරන්න.
+mnav_no_results:ප්‍රශ්ණයට ගැලපෙන පණිවුඩ කිසිවක් නොමැත.
+mnav_posted_by:දමන ලද්දේ:
+mnav_more:තවත් &raquo;&raquo;
+mnav_minute:මිනිත්තු(ව)
+mnav_hour:පැය
+mnav_day:දින(ය)
+mnav_week:සති(ය)
+mnav_month:මාස(ය)
+mnav_title:පණිවුඩ යාන්ත්‍රණය
+mnav_update:<a href="{TEMPLATE: mnav_update_lnk}">පණිවුඩ යාන්ත්‍රණය</a> භාවිතා කරමින් පණිවුඩ ගවේෂණය කරමින්
+pm_notify_subject:[{GVAR: FORUM_TITLE}] නව පුද්ගලික පණිවුඩ නිවේදනය
+pm_notify_body_email:"{GVAR: FORUM_TITLE}"  ෆෝරමයෙහි "{VAR: subject}" ශීර්ෂය සහිත නව පුද්ගලික පණිවුඩයක් "{VAR: from}" ගෙන් ඔබට ලැබී ඇත.\nමෙම පණිවුඩය නැරඹීමට, මෙතන ක්ලික් කරන්න: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nඉදිරි නිවේදන නවතාලීම සඳහා, ඔබේ පැතිකඩෙහි "පුද්ගලික පණිවුඩ නිවේදනය" අක්‍රිය කරන්න.
+register_pm_notification:පුද්ගලික පණිවුඩ නිවේදනය:
+register_pm_notification_desc:සක්‍රිය කල හොත්, පුද්ගලික පණිවුඩයක් ලැබුණු විට ඔබට දැනුම්දෙනු ඇත.
+findu_admin_opts_header:පරිපාලක විකල්.
+findu_unban:UnBan
+findu_ban:තහනම් කරන්න
+findu_edit:සංස්කරණය
+findu_delete:මකන්න
+dmsg_reply_to:වෙත පිළිතුරකි
+dmsg_reply_num:පණිවුඩය #{VAR: obj->reply_to}
+merge_topics:මාතෘකා ඒකාබද්ධ කරන්න
+merge_topics_cp:මාතෘකා ඒකාබද්ධ කිරීම් පාලක පුවරුව
+merge_topics_tpl:ඒකාබද්ධ කිරීම සඳහා මාතෘකා තෝරාගන්න <span class="SmallText">(ඔබ විසින් මාතෘකා එකකට වඩා තෝරාගත යුතුවේ)</span>
+merge_merge:තෝරාගත් මාතෘකා ඒකාබද්ධ කරන්න
+merge_next:මීළඟ මාතෘකා
+merge_prev:පෙර මාතෘකා
+merge_another:<a href="{TEMPLATE: merge_another_lnk}">අවසන් ඒකාබද්ධ කල මාතෘකාව වෙත යන්න</a> හෝ වෙනත් එකක් ඒකාබද්ධ කරන්න:
+split_cp:මාතෘකා බෙදුම් පාලක පුවරුව
+groups_perms_header:අවසර <span class="small">(එහි වර්ගය දැකීමට අවසර තුලින් මූසිකය ගෙනයන්න)</span>
+register_err_sig_too_long:ඔබේ අත්සන {GVAR: FORUM_SIG_ML} ක ඉඩදෙන අක්ෂරවලට වඩා වැඩියි.
+register_sig_limit:{GVAR: FORUM_SIG_ML} අක්ෂර <a href="javascript: දැනුම්දීම('ඔබේ මුරපදය අක්ෂර '+document.forms['fud_register'].reg_sig.value.length+' ක දිගකින් යුක්ත වේ. අත්සනට ඉඩදෙන උපරිම අක්ෂර ගණන {GVAR: FORUM_SIG_ML} වේ.');" class="SmallText">අත්සනේ දිග පරික්ෂා කරන්න</a>
+adm_account_accepted:ඔබේ ගිණුම '{VAR: login}' පරිපාලක විසින් අනුමත කර ඇති අතර දැන් සක්‍රියව පවතී. ඔබ දැන්  {GVAR: FORUM_TITLE}' ෆෝරමය වෙත තහවුරු වූ, ලියාපදිංචි වූ පරිශීලකයෙකු ලෙස ප්‍රවේශ විය යුතුය.
+adm_account_accepted_s:'{GVAR: FORUM_TITLE}' සඳහා ඔබේ ගිණුම් අයදුම පිළිගන්න ලදී.
+adm_account_rejected:ඔබේ ගිණුම '{VAR: login}' පරිපාලක විසින් ප්‍රතික්ෂේප කර ඇත. ඔබ තීරණයේ පසුපසින් ඇති හේතුව ගැන දැනගැනීමට ඔබ කැමති නම්, '{GVAR: ADMIN_EMAIL}' හිදී පරිපාලක සම්බන්ධ කර ගැනීමට පැකිළෙන්න එපා.
+adm_account_rejected_s:'{GVAR: FORUM_TITLE}' සඳහා ඔබේ අයදුම ප්‍රතික්ෂේප කරන ලදී.
+thread_on:මත
+userinfo_buddy:මිතුරා:
+register_email_addr:ඊ-තැපැල් ලිපිනය:
+reset_suffix:ඔබ වෙත යම් දෝෂයකින් මෙම පණිවුඩය ලැබුනා නම්, කරුණාකර එය නොසලකා හරින්න. ඔබ ඉල්ලුම් නොකළ මෙම ඊ-තැපෑලේ බහුපිටපත් ලැබෙන්නේ නම්, කරුණාකර {GVAR: ADMIN_EMAIL} හිදී ෆෝරම පරිපාලක සම්බන්ධ කරගන්න\n\nමෙම අයදුම දියත් කරේ: {VAR: _SERVER['REMOTE_ADDR']}.
+usrinfo_last_visit:අවසන් පිවිසුම:
+mnav_newer:වඩා අලුත්
+mnav_older:වඩා පැරණි
+ip_search_by_ip:IP හරහා පරිශීලකයන් සොයන්න
+ip_search_syntax:සහය දක්වන වාක්‍ය වින්‍යාස: 1.2.3.4, 1.2.3, 1.2, 1
+ip_search:සොයන්න
+ip_analyze_usage:IP භාවිතය විශ්ලේෂණය කරන්න
+ip_analyze_usage_descr:කරුණාකර පරිශීලකගේ තථ්‍ය පිවිසුම විශේෂණය කරන්න.
+ip_users_using:'{VAR: ip}' IP ලිපිනය භාවිතා කරන පරිශීලකයන්
+ip_all_ips:'{VAR: user}' විසින් භාවිත සියලුම IP
+ip_title:IP ගවේශකය
+userinfo_real_name:සැබෑ නාමය:
+register_err_alias_notallowed:මෙම අන්වර්ථ නාමයට ඉඩනොදේ
+post_err_mod_forum_edit_ttl:දෝෂය
+post_err_mod_forum_edit_msg:ඔබට ප්‍රමාණක ෆෝරමයක පණිවුඩ සංස්කරණය කල නොහැක.
+dmsg_num:පණිවුඩය #{VAR: obj->id}
+postcheck_session_invalid:ඔබේ සැසිය ඉකුත් වී ඇත. කරුණාකර ෆෝරමය යළි-යොමන්න. සිදුවූ අපහසුතාවයට අපගේ කණගාටුව.
+delete_message_extra_desc:<b>අමතර</b><br />පුද්ගලික පණිවුඩයක් ඔස්සේ කතෘ වෙත යැවීමට, පණිවුඩය මැකීමට හේතුව විශේෂණය කරන්න.
+delete_message_extra_body:කතෘ වෙත යැවීමට ඉවත් කෙරූ පණිවුඩයේ ඇතුලත අඩංගු කරන්න.
+delete_msg_removed_ttl:පරිපාලක මණ්ඩලය විසින් ඔබේ පණිවුඩය ඉවත් කරන ලදී.
+delete_msg_pm_body:මුල් පණිවුඩය
+delete_msg_pm_subject:විෂයය: {VAR: data[15]}
+ip_no_whois:<b>{VAR: ip}</b> සඳහා WHOIS  තොරතුරු ලබාගත නොහැක.
+ip_whois_title:ISP තොරතුරු
+register_theme:තේමාව:
+pmsg_trash:කුණු බක්කිය හිස් කරන්න
+uc_new_pm:නව පුද්ගලික පණිවුඩ
+uc_new_topic:නව මාතෘකාව
+uc_new_cat_forum:නව පණිවුඩ සමඟ සහභාග වූ ෆෝරමයන්
+uc_cat_forum:ප්‍රවර්ග &raquo; ෆෝරමය
+uc_sub_topics:නව පණිවුඩ සමඟ සහභාග වූ මාතෘකාවන්
+uc_page_title:පුද්ගලික පාලක පුවරුව නරඹමින්.
+search_options:සෙවුම් විකල්පයන්
+search_user_filter:පරිශීලක විසින් පෙරහන්ගත කරන්න:
+register_none:මට නිවේදනය නොකරන්න
+findu_no_conf:තහවුරු නොකරනු ලැබූ පරිශීලක
+register_max_sig_len:උපරිම දිග:
+register_turing:කරුණාකර පහත කේතය ඇතුළු කරන්න:
+register_err_turing:සාවද්‍ය සත්‍යවත් කිරීමේ කේතය.
+modque_cat:ප්‍රවර්ගය
+modque_forum:ෆෝරමය
+idx_compact_forum_row:ලබා ගත හැකි ෆෝරමයන්:
+mmd_del_title:මාතෘකා මකා දමන්න
+mmd_mov_title:මාතෘකා ගෙනයන්න
+mmd_move_threads_to:ගමනාන්ත ෆෝරමය:
+mmd_abort_move:අත් හරින්න
+mmd_move:මාතෘකා ගෙනයන්න
+pmsg_pdf_btn:PDF ලේඛනාගාරයක් තනන්න
+search_results_hdr:{VAR: total} සෙවුම් ප්‍රතිඑල හමුවුණි
+thread_del_all:තෝරාගත් දෑ මකන්න
+thread_mov_all:තෝරාගත් දෑ ගෙනයන්න
+thread_merge_all:තෝරාගත් දෑ ඒකාබද්ධ කරන්න
+thread_loc_all:තෝරගත්ත අගුළුලන්න/අනගුළුලන්න
+dmsg_ip:IP:
+err_blockedaccnt_title:දෝෂය: ඔබේ ගිණුම අපෙරහන්ගත කොට ඇත.
+err_blockedaccnt_msg:ස්ථාපිත කරන ලද පරිශීලක පෙරහන් එකක් හේතුවෙන් ඔබේ ගිණුම ෆෝරමය වෙත ප්‍රවේශ වීම වලකා ඇත.
+merge_th_page_list:මාතෘකා පිටු තේරීම
+most_users_online:පරිශීලකයන් විශාල ප්‍රමාණයක් මාර්ගතවූයේ <b>{VAR: st_obj->most_online}</b> <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b> හී
+sub_unsub_all_forums:සියලුම ෆෝරමයන්ගෙන් අසහභාගී වන්න
+sub_unsub_all_topics:සියලුම මාතෘකාවන්ගෙන් අසහභාගී වන්න
+unbookmark_all_topics:සියලුම පොත්සලකුණු ඉවත් කරන්න
+tabs_own_posts:ස්ව දැමුම් පෙන්වන්න
+sml_emoticon:චිත්තවේගය
+sml_code:කේතය
+mnav_sub_only:සහභාග ෆොරමයන් තුල පමණක් සොයන්න
+register_topics_per_page:එක් පිටුවකට මාතෘකා:
+login_min_time:මෙම ෆෝරමය තත්පර {VAR: MIN_TIME_BETWEEN_LOGIN} වරක් පිවිසුම් උත්සහයක් ලබා දේ, ඔබේ මීළඟ උත්සහය සඳහා කරුණාකර තත්පර {FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)} රැඳී සිටින්න.
+post_not_logged_in:ඔබ තවමත් ප්‍රවිෂ්ට වී නොමැත, පණිවුඩය නිර්නාමිකව දැමෙනු ඇත.
+post_common_bold:තදකුරු
+post_common_italics:ඇළ අකුරු
+post_common_underline:යට ඉරි ගසන්න
+post_common_align_left:වමට පෙළගස්වන්න
+post_common_align_center:මැදට පෙළගස්වන්න
+post_common_align_right:දකුණට පෙළගස්වන්න
+post_common_link:සබැඳියක් එක් කරන්න
+post_common_link_popup:සබැඳියේ පිහිටුම:
+post_common_email:විද්‍යුත්-තැපැල් ලිපිනයක් ඇතුළු කරන්න
+post_common_email_popup:විද්‍යුත්-තැපැල් ලිපිනය:
+post_common_image:පින්තූරයක් ඇතුළු කරන්න
+post_common_image_popup:පින්තූරයේ URL:
+post_common_nlist:අංකිත ලැයිස්තුවක් එක් කරන්න
+post_common_blist:මූනිස්සිත ලැයිස්තුවක් එක් කරන්න
+post_common_quote:උද්ධරණය එක් කරන්න
+post_common_code:කේතය එක් කරන්න
+rating_delete:මකන්න
+post_always_on_top:මාතෘකා ලයිස්තුවේ උඩින්ම මාතෘකාව පෙන්වන්න
+topic_rating:{VAR: frm->rating} වෙතින් {PLURAL: frm->n_rating|මනාප $1}
+topic_list_rating:{VAR: r[17]} ගෙන් {PLURAL: r[21]|මනාප $1}
+tabs_notifications:නිවේදන
+finduser_flag:ධජය
+post_descr:මාතෘකාවේ විස්තරය:
+pmsg_on:මත
+pmsg_download_dump:පණිවුඩ නික්ෂේපය බාගන්න
+move_messages:පණිවුඩ ගෙනයන්න
+move_msg_btn:තෝරාගත් පණිවුඩ ගෙනයන්න
+move_msg_th_expl:ගමනාන්ත මාතෘකාවේ හැඳුනුම විශේෂණය කරන්න (වෙනත් ෆෝරම තුල තිබිය හැක)
+captcha_img_alt:කැප්චා සත්‍යාපනය: ඔබ මෙම පින්තූරයේ තිබෙන පෙළ හඳුනා ගත යුතුවේ.
+captcha_img_help:පිනතුතූරයෙහි බිංදුවක් හෝ එකක් නැත.
+powered-by:බලගන්වන්නේ: FUDforum {GVAR: FORUM_VERSION}.
+copyright:කතුහිමිකම &copy;2001-2012 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+code_title:කේතය:
+code_select_all:සියල්ල තෝරාගන්න
+code_show_hide:පෙන්වන්න/සඟවන්න
+social_sites:සමාජ ජාලකරණ අඩවි:
+postcheck_min_len_err:ඔබේ පණිවුඩය කෙටි වැඩියි. අවම දිග වනුයේ {PLURAL: post_min_len|අක්ෂර $1 කි}.
+postcheck_dup_err:කරුණාකර අනුපිටපත් මාතෘකා තනන්න එපා.
+btn_new_topic:නව කාරණය
+btn_new_pm:නව පු.පණිවුඩය
+btn_post_reply:පිළිතුර දමන්න
+btn_tree_view:රුක් දසුන
+btn_flat_view:පැතිලි දසුන
+btn_about:පැතිකඩ
+btn_small_pm:PM
+btn_delete:මකන්න
+btn_edit:සංස්කරණය
+btn_reply:පිළිතුරු
+btn_forward:ඉදිරියට
+btn_quote:උද්ධරණය
+btn_email:ඊ-තැපෑල
+btn_show_posts:දැමුම්
+btn_homepage:www
+feed_no_data:ගැලපෙන දත්ත හමු නොවුනි.
+feed_rdf:RDF පෝෂකය
+feed_rss:RSS2 පෝෂකය
+feed_atom:ATOM පෝෂකය
+ip_whois_connect_err:({VAR: whois_server}): {VAR: errstr} WHOIS  සර්වරය වෙත සම්බන්ධ විය නොහැක
+custom_filed_required:මෙම ක්ෂේත්‍රය අවශ්‍ය වේ.
+pages:පිටු
+page_list_heading:ලබාගත හැකි පිටු
+page_list_total:{PLURAL: i|පිටු $1} ක් ලැයිස්තුගත කොට ඇත.
+page_update:පිටුව ගවේෂණය කරමින්
+pm_export_header:{VAR: usr->alias} සඳහා පුද්ගලික පණිවුඩ
+pm_export_footer:නිර්යාත:
+karma:කර්මය
+karma_track:පරිශීලක සඳහා කීර්තිය කළමනාකරණය කරන්න:
+karma_delete:මකන්න
+rate_author:කතෘ අගයන්න:
