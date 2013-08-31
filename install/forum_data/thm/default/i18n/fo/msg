@@ -1,0 +1,1144 @@
+# Messages for Faroese (føroyskt)
+# Exported from translatewiki.net
+# Author: EileenSanda
+
+action:Handling
+add_to_buddy_list:Legg afturat vinalista
+admin:Admin
+admin_control_panel:Administratión (leiðsla)
+administrator:Umboðsstjóri
+attachment:Viðheft:
+avatar:Avatar:
+average_post_count:{PLURAL: u->posted_msg_count|$1 Boð|$1 Boð} ({PLURAL: avg|$1 boð|$1 í meðal} fyri hvønn dag)
+biography:Ævisøga
+birth_date:Føðidagur:
+by:Av:
+by_mod:av kjakansara
+current_time:Tíðin júst nú
+custom_avatar_queue:Egnu avatarar í bíðirøð
+date_posted:Dagur har tað er sent
+date_registered:Skrásetingar dagur:
+download_counter:Heintaði {PLURAL: v[3]|$1 ferð|$1 ferðir}
+pmsg_download_counter:Heintaði {PLURAL: r->dlcount|$1 ferð|$1 ferðir}
+email:T-post:
+email_to_friend:Send t-post til vin
+email_to_friend_desc:Send URL'in til hesa síðu til tínar vinir via e-mail
+email_user:Send ein teldupost til brúkara
+faq:Hjálp
+first_unread_msg:Far til ólisin boð
+first_unread_msg_desc:Far til tað fyrsta ólisnað boði innan hetta evni
+flat_view:Vend aftur til flata sýning
+forum:Forum:
+forum_icon:Forumikon
+forum_new_messages:Nýggj boð
+forum_none_messages:Bert skrásettir forumlimir kunnu síggja lisin og ólisin boð
+forum_old_messages:Ongi nýggj boð
+from:Frá:
+gender:Kyn:
+go:Far
+goto_next_msg:Far til næstu boð
+goto_prev_msg:Far til boðini beint áðrenn
+home:Heim
+homepage:Heimasíða:
+icq_control_panel:ICQ Online-pallborðskjak
+icq_message_form:ICQ oyðublað til boð:
+ignore_user:síggj burtur frá øllum boðum frá hesum brúkaranum
+im_aim:AIM brúkaranavn:
+im_msnm:MSN Messenger (Boðberi):
+im_yahoo:Yahoo Messenger (Boðberi):
+image:Mynd:
+index_forum:Forum
+index_new_posts:Nýggj innsløg síðan seinastu vitjan
+index_no_new_posts:Ongi nýggj boð síðan seinastu vitjan
+index_url_redirection:Snarvegur
+interests:Áhugamál:
+last_post:Seinasta innslag
+last_thread_msg:Far til seinastu boðini í hesum tráðnum
+legend:Týdningurin av teknum
+location:Staður:
+lock_thread:Stong evnið
+locked:Stongt
+locked_with_new_posts:Stongt (við ólisnum boðum)
+logged_in_list:Listi yvir innritaðar brúkarar
+login:Rita inn
+login_header:Rita inn:
+logout:Útrita
+mark_all_read:Merk øll boð sum lisin
+mark_all_read_desc:Øll tíni ólisnu boð verða merkt sum lisin
+members:Limir
+calendar:Kalendari
+cal_goto_date:Far til:
+cal_day_heading:Hendingar henda dagin
+cal_no_events:Ongar hendingar henda dagin.
+cal_update:Blaða gjøgnum forum kalendaran
+cal_birthday:Føðingardagur: {VAR: user}
+cal_birthday_age:({PLURAL: age|$1 ára} gamal/gomul).
+message:Boð
+message_counter:Okkara brúkarar hava skrivað tilsamans <b>{PLURAL: post_count|$1 innslag|$1 innsløg}</b> um <b>{PLURAL: thread_count|$1 evni|$1 evnini}</b>.
+message_index:Yvirlit yvir innsløg
+message_index_desc:Vís ein lista yvir innsløg
+minimize_category:Ger bólkin minni
+minimize_message:Ger innslagið minni
+moderation_queue:Moderasjóns bíðirøðin
+moderator:Kjakansari (moderator)
+moderator_of:Kjakansari av:
+moderator_options:Valmøguleikar hjá kjakansara
+moderators:{PLURAL: modcount|Kjakansari|Kjakansarar}
+more_unread_messages:fleiri ólisin boð
+more_unread_messages_desc:Vís fleiri ólisin innsløg og merk tey vístu innsløgini sum lisin
+move_thread:Flyt
+moved:Flutt til eitt annað forum
+moved_thread_message:Hetta evnið er blivið flutt til eitt annað forum
+na:onki
+new_posts:Nýggj boð
+new_private_messages:Tú hevur <span class="GenTextRed">({VAR: c})</span>  {PLURAL: c|ólisið privat boð|ólisin privat boð}
+new_thread:Byrja eitt nýtt evni
+newest_user:Seinast skrásetti brúkarin er
+next_page:Næsta síða
+next_thread:Næsta evni:
+no_messages:Tað eru ongi innsløg í hesum forumi.<br />Blív tann fyrsti/fyrsta sum skrivar eitt innlegg í hesum forumi.
+no_msg_body:Ongin tekstur í innslagnum
+no_new_posts:Ongi nýggj innsløg
+no_posts:Ongi boð
+no_subscribed_forums:Ongi bíløgd forum
+no_subscribed_threads:Ongi bíløgd evni
+no_bookmarked_threads:Ongi bókamerkt evni
+no_unread_locked:Tráðurin er stongdur
+no_unread_msg:Hesin tráðurin hevur ongi ólisin innsløg
+no_unread_msg_unreg:Lisin og ólisin boð verða bert kunnaði fyri skrásettum brúkarum
+num_pages:Síður ({VAR: ttl_pg}):
+num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|atkvøða|atkvøður}
+occupation:Starv:
+off:óvirkið
+on:virkið
+page_timings:Tað tók tilsamans: {PLURAL: page_gen_time|$1 sekund} at skapa síðuna
+pm:Privat boð
+poll:Meiningakanning:
+post_count:Tal av boðum {VAR: u_pcount}
+post_count_l:Tal av boðum:
+posts:Boð
+posts_c:Boð:
+prev_thread:Fyrra evnið:
+usrinfo_private_message:Privat boð:
+profile:Pallborð til stýring (kontrolpanel)
+profile_desc:Fá atgongd til stýringspallborði hjá brúkaranum
+rate_thread:Døm um evnið
+rating:Døming
+rating_track:Stýr døming av tráði <b>{VAR: thr->subject}</b>:
+refresh_list:Dagfør listan
+register:Skráset
+registered:Skrásett:
+registered_on:Skrásett hin {TEMPLATE: registered_on_date}
+replies:Svar
+report_to_mod:Sig einum kjakansara frá um innslagið
+reported_messages:Fráboðað innsløg
+reveal_all_posts:vís øll innsløg av {VAR: user_login}
+reveal_post:vís innsløg
+search:Leita
+sel_todays_posts:Dagsins innsløg
+sel_todays_posts_desc:Set filtur fyri dagsins innsløg (fer bert at vísa innsløg frá í dag)
+sel_unanswered_posts:Ósvaraði boð
+sel_unanswered_posts_desc:Filtrera fyri ósvaraðum innsløgum (vísir bert ósvaraði innsløg)
+sel_unread_messages:Ólisin boð
+sel_unread_messages_desc:Set filtur fyri ólisin innsløg (vísur bara ólisin innsløg)
+send:Send
+send_pm_desc:Send privat boð til henda brúkaran
+sender_email:T-post adressa hjá sendara:
+sender_name:Navn á sendara:
+show_posts_by:Vís innsløg frá: {VAR: u_alias}
+size:Stødd:
+status:Støðan:
+status_line:Tað er/eru<b>{PLURAL: st_obj->online_users_reg|$1 limur|$1 limir}</b>, <b>{PLURAL: st_obj->online_users_hidden|$1 ósjónligur limur|$1 ósjónligir limir}</b> og <b>{PLURAL: st_obj->online_users_anon|$1 gestur|$1 gestir}</b> sum vitja hetta forumið.
+sticky:klebrut:
+stop_ignoring:halt uppat við at síggja burtur frá hesum brúkara
+sub_to_thread:Tekna hald til hetta evnið
+sub_to_thread_desc:Móttak fráboðanir um nýgg innsløg í hesum tráðnum
+bookmark_thread:Set bókamerki á evnið
+bookmark_thread_desc:Legg hetta evnið til tín lista við bókamerkjum
+subject:Evni
+subscribe:Tekna hald
+subscribe_desc:Móttak fráboðanir tá onkur upprættar eitt nýtt evni í hesum foruminum
+subscribed_forums:Bíløgd forum
+subscribed_forums_desc:Set filtur fyri forum, ið tú ert haldari av (vísur bert innsløg frá forum, ið tú hevur teknað hald til)
+subscribed_threads:Tú hevur teknað hald til hesi evni
+subscribed_threads_desc:Set filtur fyri evni, ið tú ert haldari av (vísur bert innsløg frá tráðum, ið tú hevur teknað hald til)
+bookmarked_threads:Bókamerkt evni
+switch_to_thread_view:Vís innslagið sum tráður
+thread:Evni:
+thread_announcement:Kunngerðing:
+thread_first_unread_msg:Far til tað fyrsta ólisna innslagið í hesum kjakinum
+thread_thread:Tráður
+threads:Tráðir
+time:Tíð
+todays_posts:Dagsins innsløg
+todays_posts_desc:Vís øll innsløg sum vóru postaði í dag
+un_ignore_user:halt uppat við at síggja burtur frá boðum frá hesum brúkara
+unanswered_posts:Ósvaraði innsløg
+unanswered_posts_desc:Vís øll innsløg, ið ikki hava fingið nakað svar
+unlock_thread:Læs tráðin upp
+unread_msg:Hesin tráður inniheldur innsløg, ið tú ikki hevur lisið enn
+unread_msg_locked:Stongdur tráður við ólisnum innsløgum
+unread_posts:Ólisin boð
+unread_posts_desc:Vís øll ólisin boð
+unsub_from_thread:Frámelda hald
+unsub_from_thread_desc:Halt uppat við at fáa fráboðanir um nýggj innsløg í hesum tráðnum
+unbookmark_thread:Tak bókamerki burtur
+unbookmark_thread_desc:Tak hetta evnið burtur frá tínum lista við bókamerkjum
+unsubscribe:Frámelda hald
+unsubscribe_desc:Halt uppat við at fáa fráboðanir um nýggjar tráðir í hesum foruminum
+updated_on:Dagført:
+user:Brúkari
+user_counter:Vit hava <b>{VAR: st_obj->user_count}</b> {PLURAL: st_obj->user_count|skrásettan brúkara|skrásettar brúkarar}.
+user_info:Brúkarakunning
+user_info_l:Brúkarakunning {VAR: u->alias}
+user_offline:{VAR: obj->login} er í løtuni offline
+user_online:{VAR: obj->login} er í løtuni online
+usrinfo_last_post:Síðsta innslag:
+view_results:Vís úrslit
+views:Sýningar
+vote:{PLURAL: frm->n_rating|$1 Atkvøða|$1 Atkvøður}
+vote_button:Atkvøð
+vote_for_thread:Atkvøð
+was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> varð flutt til <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> av kjakansaranum.
+welcome_message:Vælkomin <b>{VAR: usr->alias}</b>, tín seinasta vitjan var hin {TEMPLATE: welcome_message_date}
+what_ppl_doing:Vís hvat fólk takast við
+reported_del_report:Sletta frágreiðing
+reported_reason:Orsøk:
+reported_on:Hin:
+reported_reported_by:Fráboða av:
+reported_reported_msg:Fráboðaði innsløg
+modque_pending_approval:innsløg ið bíða eftir góðkenning
+modque_approve:Góðkenn
+modque_delete:Sletta
+modque_deleteall:Sletta alt frá brúkaranum
+modque_no_message:Tað eru ongi boð ið bíða eftir góðkenning
+pmsg_new_messages:Ólisið privat boð
+pmsg_old_messages:Les privat boð
+deny_recipt:nokta kvittan
+deny_recipt_desc:Ikki senda eina váttan fyri, at tú hevur lisið hesi boðini
+restore_to:Endurstovna til:
+move_to:Flyt til:
+list_referes_referrals:Ávísingar
+list_referes_members:Ávístir limir
+list_referes_member:Limur
+referals_none:Ongar ávísingar enn.
+referals_refered_by:Forum limir ávístir av: <b><a href="{TEMPLATE: referals_refered_by_lnk}" class="thLnk">{VAR: p_user[1]}</a></b>
+referals_post_count:Tal av innsløgum
+referals_registered_on:Skrásett/ur hin
+referals_action:Handling
+pmsg_all:øll
+pmsg_none:ongi
+folder:Mappa:
+pmsg_replied:svarað
+pmsg_forwarded:víðarisent
+pmsg_subject:Evni
+pmsg_author:Høvundur
+pmsg_time:Tíð
+pmsg_selected:Valt
+pmsg_delete:Sletta
+cur_ppage_pm:Privat boð
+writing_pm:Skriva eitt privat boð
+browsing_folder:Hygg í <b>{VAR: folders[$folder_id]}</b> mappuna
+inbox:Inbakki
+draft:Kladda
+sent:Sent
+trash:Skrell
+msg_author:Høvundur
+avatar_sel_form:Val av avatar
+no_avatars:Ongir avatarar tøkir
+month_1:Januar
+month_2:Februar
+month_3:Mars
+month_4:Apríl
+month_5:Mai
+month_6:Juni
+month_7:Juli
+month_8:August
+month_9:September
+month_10:Oktober
+month_11:November
+month_12:Desember
+sunday:Sunnudagur
+sunday_short:S
+monday:Mánadagur
+monday_short:Má
+tuesday:Týsdagur
+tuesday_short:Tý
+wednesday:Mikudagur
+wednesday_short:Mi
+thursday:Hósdagur
+thursday_short:H
+friday:Fríggjadagur
+friday_short:F
+saturday:Leygardagur
+saturday_short:L
+male:Kallkyn
+female:Kvennkyn
+unspecified:IKKI ÚTGREINAÐ
+register_tree_view:Træsýning av innsløgum og evnum
+register_msg_tree_view:Fløt sýning av evnum/Træsýning av lista við innsløgum
+register_tree_msg_view:Træsýning av evnum/Fløt sýning av lista við innsløgum
+register_flat_view:Fløt sýning av innsløgum og evnum
+use_forum_default:Nýt standardinnstilling hjá foruminum
+finduser_user_info:Brúkarakunning
+finduser_by_login:Sambært brúkaranavni:
+finduser_submit:Finn
+finduser_no_such_user:Ongin slíkur brúkari
+finduser_user:Brúkari
+finduser_postcount:Tal av innsløgum
+finduser_joindate:Skrásetingardagur
+finduser_action:Handling
+yes:Ja
+no:Nei
+register_email:T-postur
+edit_time_limit:<b>Tíðaravmarking fyri rættingum</b>: {GVAR: EDIT_TIME_LIMIT} minuttir
+no_edit_time_limit:<b>Tíðaravmarking fyri rættingum</b>: Óavmarkað
+pmuserloc_login:Rita inn:
+pmuserloc_submit:Send
+pmuserloc_user:Brúkari
+pmuserloc_no_result:Onki úrslit
+register_builtin:Innbygt
+register_specify_url:Skriva URL'in
+register_uploaded:Legg avatar út
+register_login:Brúkaranavn:
+register_password:Loyniorð:
+register_conf_pass:Vátta loyniorð:
+register_email_desc:Vinarliga skriva eina galdandi t-post adressu. Tú kanst velja at fjala hana fyri øðrum her niðanfyri í teiginum Innstillingar.
+register_name:Navn:
+register_your_pass:Títt loyniorð:
+register_update:Dagfør
+register_avatar_type:Avatarslag:
+register_del_avatar:Sletta avatar
+register_avatar:Avatar:
+register_sel_avatar:Vel avatar
+register_custom_avatar_rules:Tín heimagjørdi avatarurin sæst ikki fyrr enn hann er góðkendur av administrator.<br /><span class="SmallText">Avatarurin eigur ikki at vera størr enn <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} pixels</b> og má vera í <b>jpg</b>, <b>gif</b> ella <b>png</b> formati.</span>
+register_custom_avatar_url:URL'ur til tín heimagjørda avatar:
+register_preview:Forskoðan
+register_custom_avatar_upload:Fíla við egnum avatar:
+register_register:Skráset
+register_required:Kravd kunning
+register_required_desc:Allir teigur mugu útfyllast. Legg til merkis at tað er munur á stórum og lítlum bókstavum í loyniorðinum.
+register_optional:Valfrí kunning
+register_optional_desc:Vit mæla tær frá at avdúka nakrar persónligar upplýsingar á tínari vangamynd. Øll kunning verður sjónlig fyri aðrar limir í foruminum.
+register_location:Staður:
+register_occupation:Starv:
+register_interests:Áhugamál:
+register_image:Mynd:
+register_icq:ICQ:
+register_aim:AIM brúkaranavn:
+register_yahoo:Yahoo Messenger:
+register_msnm:MSN Messenger:
+register_homepage:Heimasíða:
+register_bday:Føðingardagur:
+register_bday_desc:Um tú upplýsir tín føðingardag, so kunnu aðrir limir í foruminum síggja tað á tínari vangamynd.
+register_day:Dagur
+register_month:Mánaður
+register_year:Ár
+register_gender:Kyn:
+register_bio:Ævisøga
+register_bio_desc:Nakrir fáir smálutir um teg sjálvan, sum til dømis tíni áhugamál, arbeiði osfr...
+register_prefs:Innstillingar
+register_sig:Undirskrift:
+register_sig_desc:Valfrí undirskrift sum kemur til sjóndar niðast í tínum innsløgum.
+register_reset:Afturstilla
+register_def_thread_view:Frammanundan vald sýning av tráði:
+register_msg_per_page:Innsløg per síðu:
+register_show_sig:Vís signaturar:
+register_show_sig_desc:Loyvir tær annaðhvørt at vísa ella fjala signaturin hjá øðrum limum í foruminum.
+register_use_sig_default:Innset signatur sum standard:
+register_use_sig_default_desc:Set tín signatur inn sjálvvirkandi á øll innsløg tú skrivar.
+register_timezone:Tíðarsona:
+register_ignore_admin:Síggj burtur frá administrativum boðum:
+register_invisible_mode:Ósjónlig støða:
+register_invisible_mode_desc:Vísir ikki um tú ert online.
+register_show_email:Vís t-post adressu:
+register_show_email_desc:Vel henda møguleikan, um tú ynskir at tín t-post adressa skal vísast alment.
+register_notification:Vel fráboðan sum standard:
+register_notification_desc:Um fráboðanir um nýggj innsløg frammanundan sum standardinnstilling er aktiverað, so kanst tú, um tú ikki ynskir at fáa fráboðanir, frávelja henda møguleikan, tá tú skrivar innsløg.
+register_notify_method:Vel fráboðanarmáta:
+register_notify_method_desc:Vel tann mátan ið tú ynskir at fáa fráboðanir við ella frável tað at fáa fráboðanir (til dømis tá tú fert at ferðast).
+register_allow_email_msg:Loyv teldubrøvum:
+register_allow_email_msg_desc:Loyv øðrum brúkarum at senda tær teldubrøv gjøgnum hetta forumið.
+buddy_status:Støða
+my_buddies:Mínir vinir
+add_buddy:Legg til sum vin
+add:Legg afturat
+buddy_search:Skriva brúkaranavnið hjá brúkaranum, ið tú ynskir at leggja afturat.
+member_search:Ella brúka <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Finn brúkara</a> funksjónina fyri at finna ein persón.
+buddy_remove:tak burtur
+post_normal:Vanligt
+post_sticky:Klebrut
+post_annoncement:Kunngerðing
+post_size:Stødd
+post_color:Litur
+post_font:Skriftslag
+create_thread:Byrja eitt kjak
+submit_reply:Send svar
+edit_message:Goym broytingarnar í innslagnum
+apply_spell_changes:Góðtak broytingar í stavsetingini
+post_preview:Forskoða innslagið
+post_logedin_user:Innritaður brúkari:
+post_logout:rita út
+post_passwd:Loyniorð fyri at skriva innslag:
+post_poll:Atkvøðugreiðsla:
+post_create_poll:UPPRÆTTA ATKVØÐUGREIÐSLU
+post_poll_delete:SLETTA
+post_poll_edit:RÆTTA
+post_mod_opt:Valmøguleikar hjá kjakansara:
+post_thread_type:Slag av kjaki:
+post_thread_expiry:Kjakið endar hin:
+post_locked:Kjakið er stongt
+post_icons:Ikon fyri innslag:
+post_no_icon:Ongin ikon
+post_smiley:Smiley snarvegir:
+post_format_tools:Tól til formatering:
+post_upload_file:Legg fílu út
+post_file_del:Sletta
+post_file_name:Navn
+post_file_size:Stødd
+file_attachments:Viðfesti:
+allowed_files:Loyvd fílusløg:
+max_file_size:Mest loyvda fílustødd:
+max_files_per_msg:Mest loyvda tal av fílum per innslag:
+post_notification:Fráboðan um innslag
+include_sig:Tak signaturin við
+include_sig_desc:Tak tín profilsignatur við.
+disable_smilies:Loyv ikki smilies í hesum innslagnum
+spell_check_msg:Kanna fyri stavivillur
+post_form:Send formularin
+post_forum:Forum:
+post_title:Heiti:
+post_body:Innihald:
+post_options:Valmøguleikar:
+post_preview_btn:Forskoða innslagið
+post_cancel_btn:Avbrót
+ignore_users:Ignoreraðir brúkarar
+add_ignore:Ignorera ein lim
+forum_terms:Treytir fyri forumið
+forum_rules:<p>Skráseting til hetta forumið er ókeypis! Vit krevja, at tú fylgir teimum reglum og leiðbeiningum, sum greitt verður frá niðanfyri. Um tú tekur undir við hesum treytum, trýst so á <b>Eg góðtaki</b> knøttin niðast á síðuni. Legg til merkis: Við at trýsta á knøttin sigur tú samstundis, at tú ert yvir 13 ára gamal/gomul. Um tú ert 13 ella yngri, vinarliga nýt so skrásetingar formularin.</p><p>Sjálvt um administratorar og moderatorar av hesum forumi royna at halda øll fornermandi innsløg burturi frá foruminum, so er tað ógjørligt fyri okkum at fara ígjøgnum øll innsløgini. Øll boð vísa meiningina hjá høvundunum, og hvørki eigarar av foruminum ella mennarar av skipanini kunnu ábyrgdast fyri innihaldið nøkrum av boðunum yvirhøvur.</p><p>Við at trýsta á Eg góðtaki knøttin, so lovar tú, at tú ikki fert at leggja út boð ella innsløg sum eru ósømilig, vulger, seksuelt orienteraði, hatifull, hóttandi ella á annan hátt bróta nakrar lógir.</p><p>Eigararnir av hesum forum hava rætt til at taka burtur, rætta, flyta ella stongja eitt hvørt evni við hvørjari sum helst orsøk.</p>
+forum_rules_13:<p>Allir brúkarar undir 13 ár mugu hava loyvi frá foreldrum ella verja teirra fyri at gerast limur í foruminum. Vit bjóða limum undir 13 ár vælkomnum, men vit krevja at eitt foreldur ella ein verji sendir okkum eitt undirskrivað loyvi við antin faksi ella telduposti, áðrenn vit kunnu loyva limaskapi.</p><p>Um tú ynskir at byrja skrásetingina, áðrenn vit hava móttikið loyvið, so skalt tú trýsta á <b>Samd/ur</b> knøttin niðanfyri. Um tú ynksir at ógilda skrásetingina, trýst so á <b>Ósamd/ur</b> fyri at venda aftur til innihaldsyvirlitið av formuminum.</p><p>Eitt avrit av loyvis-oyðublaðnum kann takast niður her. Um tú ynskir meira kunning um skrásetingargongdina, send so ein teldupost til <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
+coppa_conf:COPPA Váttan
+coppa_before:Áðrenn {TEMPLATE: coppa_date}
+coppa_after:Eftir {TEMPLATE: coppa_date}
+coppa_link:Trýst á leinkjuna sum samsvarar við tín føðingardag
+coppa:<p>Antin foreldur ella verji má meyla ella faksa eitt undirskrivað loyvisskema til administrator av hesum forum, áðrenn ein brúkari undir 13 kann fullføra skrásetingina.</p><p>Fyri meira kunning, set teg í samband við <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a></p>
+prereg_info:Kunning
+prereg_agree:Eg góðkenni
+prereg_disagree:Eg góðkenni ikki
+prereg_update:Les reglugerðina fyri forum
+coppa_fax_instructions:Leiðbeining fyri foreldur ella verja
+coppa_fax_instructions2:Vinarliga útskriva hesa síðu, undirskriva hana og send hana við telefaksi til:
+coppa_fax_reg_form:Skrásetingar oyðublað
+coppa_fax_sign:Vinarliga undirskriva formularin niðanfyri og send okkum hann
+coppa_fax_conf:Eg havi lisið kunningina, sum mítt barn hevur givið mær og eg havi lisið privatlívspolitikkin (Privacy Policy) fyri hesa heimasíðuna. Eg skilji, at profil upplýsingarnir kunnu broytast við nýtslu av einum loyniorði. Eg skilji, at eg kann biðja um at fáa henda skrásetta profilin tiknan heilt burtur frá hesum forumi.
+coppa_fax_permission:Skriva undir her, um tú gevur títt loyvi
+coppa_fax_no_permission:Skriva undir her, um tú ynskir at kontan verður slettað
+coppa_fax_parent_name:Fult navn hjá foreldrum/verja:
+coppa_fax_relation:Tilknýti til barnið:
+coppa_fax_telephone:Telefonnummar:
+coppa_fax_email:T-post adressa:
+coppa_fax_date:Dagur:
+coppa_fax_questions:Vinarliga set teg í samband við <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> um tú hevur spurningar
+coppa_fax_login:Brúkaranavn
+coppa_fax_passwd:Loyniorð
+coppa_fax_remail:T-postur
+coppa_fax_name:Navn
+login_not_logedin:Tú ert ikki innritað/ur. Hetta kann skyldast eina av fleiri orsøkum:
+login_cookie_expired:Tín kaka (cookie) er útgingin, og tú mást rita inn fyri at endurnýggja kakuna.
+login_perm_denied:Tú hevur ikki loyvi til at brúka tað umbidnu tænastuna sum dulnevndur brúkari. Tú mást rita inn fyri at fáa loyvi.
+login_want_to_register:Ynskir tú at skráseta teg?
+login_forgot_passwd:Eg havi gloymt mítt loyniorð
+login_use_cookie:Nýt cookies<br /><span class="SmallText">Um tú nýtir ein almennan terminal sum til dømis eina teldu á einum bókasavni, skúla ella internet kaffistovu, so verður tað viðmælt at tú frávelur henda møguleikan, fyri størri trygd. Um tú velur at seta flugubein í henda møguleikan, so verður tú sjálvvirkandi innritað/ur til forumið aftur næstu ferð ið tú vitjar frá somu teldu.</span>
+login_login:Brúkaranavn:
+login_login_btn:Rita inn
+login_name_required:Brúkaranavnið verður kravt
+login_passwd_required:Loyniorð verður kravt
+login_invalid_radius:Antin var brúkaranavnið ella loyniorðið skeivt
+reset_confirmation:Tak fyri tína skráseting.\n\nFyri at aktivera tína konto skalt tú fara til henda URL'in:\n\n{VAR: url}\n\nTá tín konto er aktiverað, so verður tú innritað/ur til hetta forum og\nsend/ur víðari til forsíðuna.
+reset_reset:Hey,\n\nTú hevur biðið um at fáa títt loyniorð nullstilla. Fyri at fullføra gondina,\nfar so vinarliga til hesa internetadressuna (URL):\n\n{VAR: url}\n\nLEGG TIL MERKIS: Hetta forumið goymir loyniorðini uppá ein einvegis kotaðan máta, sum merkir, at \ntá tú fyrst hevur inntasta títt loyniorð, so er tað ONGIN MÁTI at fáa tað aftur til kláran tekst.\nHetta virkar við at samanbera tað kotaðu versjónina, ið vit hava skrásett við tað kotaðu versjónina, ið tú tastar inn í innritanarteigin.\n(Um tú ert áhugað/ur í hvussu hetta virkar, so kanst tú lesa um MD5 HASH-algoritmuna)
+rpasswd_invalid_passwd:Skeivt loyniorð
+rpasswd_passwd_nomatch:Loyniorðini passa ikki saman
+rpasswd_passwd_length:Loyniorðið má vera í minsta lagi 6 tekn langt
+reset_remind_pass:Áminning um loyniorð
+reset_reset_conf:Tí loyniorð verður nullstilla og sent til tín. Um tú enn ikki hevur vátta tína t-post adressu, so verður umbønin um váttan send til tín enn einaferð.
+reset_error:T-post adressan varð ikki funnin í dátagrunninum
+rpasswd_change_pass:Broyt loyniorð
+rpasswd_login:Brúkaranavn
+rpasswd_cur_pass:Verandi loyniorð:
+rpasswd_new_pass:Nýtt loyniorð:
+rpasswd_conf_pass:Vátta loyniorð:
+ruser_title:Formularur til broyting av brúkaranavni
+ruser_change_user:Broyt títt brúkaranavn til forumið
+ruser_cur_login:Verandi brúkaranavn:
+ruser_new_login:Nýtt brúkaranavn:
+ruser_cur_pass:Verandi loyniorð:
+login_passwd:Loyniorð:
+reset_email:T-post:
+reset_reset_button:Nulstilla loyniorðið
+rate_this_thread:Døm
+report_reporting_about:Fráboðan um:
+report_subject:Evni:
+report_by:Av:
+report_posted_on:Postað hin:
+report_give_reason:Nevn eina orsøk til at tú meldar hetta innslagið:
+report_submit_report:Send fráboðan
+search_entire_msg:Alt innslagið
+search_subject_only:Bara evnið
+search_forum:Forum
+search_posted_on:Postað hin
+search_no_results:Ongi úrslit
+search_all_forums:Leita í øllum forum
+search_in_forum:Leita í forum:
+search_forum_search:Forum leitan
+move_thread_to:Flyt tráðin <b>{VAR: thr->subject}</b> til:
+remail_email_topic:Send hetta kjakið til ein vin við t-posti
+remail_your_name:Títt navn:
+remail_your_email:Tín t-postur:
+remail_friends_name:Navnið á vini tínum:
+remail_friends_email:T-postur hjá vini tínum:
+remail_required:krevst
+remail_subject:Evni:
+remail_message:Boð:
+remail_send_now:Send teldubræv nú
+remail_anon_opt:Avrita hesi boðini til eina valfría t-post skipan fyri at senda til tín vin / tínar vinir.
+remail_done:Liðugt
+remail_sent_conf:Teldubrævið til tín vin á {VAR-HTML: _POST['femail']} um evnið {VAR: data->subject} er nú sent.
+remail_error:Ein feilur hendi
+mklist_type:Slag:
+mklist_option:Valmøguleiki:
+mklist_additem:Legg ein lut afturat
+mklist_apply:Nýt
+mklist_delete:Sletta
+qbud_nick_name:Kelinavn
+qbud_add_selected:Legg afturat tað valda
+qbud_selected:Valdu
+qbud_no_buddies:Ongir vinir at velja ímillum
+mklist_numerical:Í talformi
+mklist_aplha:Í bókstavarøð
+mklist_square:Við fýrakantum
+mklist_disc:Pláta
+mklist_circle:Sirkul
+mklist_close:Lat aftur
+email_to:Til:
+email_pg_title:T-post:
+email_subject:Evni:
+email_body:Innihald:
+email_submit:Send
+ppost_quote_msg:{VAR: msg_to_list} skrivað hin {TEMPLATE: ppost_quote_msg_date}
+ppost_quote:Endurgeving:
+ppost_to:Til:
+ppost_from_buddy_list:Vel frá vinalistanum
+ppost_find_User:Finn brúkara
+ppost_track_msg:Fylg hesum boðunum
+ppost_track_msg_desc:Sig mær frá (við privatum boðum), tá hetta boðið verður lisið.
+ppost_send:Send
+ppost_save_draft:Goym kladdu
+poll_blank_option:Tú kanst ikki leggja afturat ein tóman valmøguleika.
+poll_del_conf:Um tú ynksir at sletta henda møguleikan, trýst so á OK
+poll_name:Heitið á meiningakanning:
+poll_timelimit:Tíðarfreist:
+poll_maxiumvotes:Mest loyvda tal av atkvøðum:
+poll_create:Upprætta
+poll_update:Dagfør
+poll_disablesmilies:Ger smilies óvirknar
+poll_create_poll:Upprætta eina meiningakanning
+poll_update_poll:Dagfør atkvøðugreiðsluna
+poll_delete:Sletta
+poll_updateoption:Dagfør valmøguleika
+poll_addoption:Legg afturat valmøguleika
+poll_unlimited:Óavmarkað
+poll_day:dagur
+poll_days:dagar
+poll_hour:tími
+poll_hours:tímar
+poll_month:mánaður
+poll_year:ár
+poll_week:vika
+tabs_register:Kontoinnstillingar
+tabs_subscriptions:Teknaði hald
+tabs_bookmarkes:Bókamerki
+tabs_referrals:Ávísingar
+tabs_buddy_list:Vinalisti
+tabs_ignore_list:Síggj burtur frá lista
+tabs_private_messaging:Privat boð
+single_msg_delete:Tú ert í ferð við at <span class="ErrorText">sletta</span> innslagið við heitinum: <b>{VAR: data[3]}</b>
+thread_delete:Tú ert í ferð við at <span class="ErrorText">sletta</span> <span class="ErrorText">alt evnið</span> við heitinum: <b>{VAR: data[3]}</b>
+delete_proceed:<span class="fb">Ynskir tú at halda fram?</span>
+delete_yes:Ja
+delete_no:Nei
+error_invalidurl:Ógyldugur URL'ur
+error_error:Feilur
+usrinfo_profile:Profilurin hjá {VAR: u->alias}
+usrinfo_show_all_posts:Vís øll innsløg frá {VAR: u->alias}
+actions_update:Lúr eftir øðrum fólkum, sum eru júst sum tú
+err_info:Kunning
+buddy_list_err_cantadd:Tú kanst ikki leggja teg sjálvan afturat til tín vinalista
+buddy_list_err_dup:Tú hevur longu henda brúkaran á tínum vinalista
+buddy_list_err_nouser:Brúkarin ið tú royndi at leggja afturat tínum vinalista varð ikki funnin.
+buddy_list_err_nouser_title:Kann ikki leggja brúkaran afturat
+buddy_list_err_ignore:Tað ber ikki til at leggja afturat brúkarar, sum ignorera teg, til tín vinalista.
+buddy_list_update:Hygg í gjøgnum tín egna vinalista
+core_err_invinp_title:Ikki loyvd inntastan
+core_err_invinp_err:Tú hevur fylgt einari skeivari leinkju. Vinarliga fortel fyri <a href="mailto:{GVAR: ADMIN_EMAIL}">netumsitaranum</a> hvussu tú komst higar.
+core_adm_login_msg:Administratorar kunnu rita inn <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">her</a>.
+email_err_unabletoemail_title:FEILUR: Tað ber ikki til at senda t-post
+email_err_unabletoemail_msg:T-post skipanin er gjørd óvirkin av administrator.
+email_error_unabletolocaddr:Skipanin kundi tíverri ikki senda t-post {VAR-HTML: _POST['tx_name']} tí hon varð ikki før fyri at finna hansara/hennara t-post adressu
+email_error_body:Tú kanst ikki senda eini tóm boð
+email_error_subject:Evnið skal útfyllast
+email_error_namerequired:Eitt navn verður kravt
+email_error_invaliduser:Ikki-galdandi brúkari
+emailconf_err_invkey_title:Feilur
+emailconf_err_invkey_msg:Váttanarlykilin er ikki í gyldi. Vinarliga eftirkanna títt teldubræv fyri at tryggja tær, at tú ert farin til tann rætta URL'in. Um tú hevur trýst á leinkjuna tvær ferðir, so kann tín konta longu vera váttað. Rita inn í forumið fyri at biðja um ein annan lykil.
+err_inc_criticaltitle:Kritiskur feilur
+err_inc_criticalmsg:Ein feilur hendi. Tíverri hava vit eisini ein trupulleika við feilfráboðanarskipaini.
+finduser_update:Leita eftir brúkarum
+help_index_update:Les um <a href="{TEMPLATE: help_index_update_lnk}">Hjálpina</a>
+iemail_thr_subject:Nýtt svar á {VAR: thr_subject} av {VAR: poster_login}
+iemail_thr_bodyemail:Fyri at lesa ólisin svar skal tú fara til {VAR: goto_url['email']}\n\nUm tú ikki ynskir at móttaka fleiri fráboðanir um svar í hesum tráðnum, far so higar: {VAR: unsub_url['email']}
+iemail_frm_subject:Nýggjur tráður av {VAR: poster_login} við heitinum {VAR: thr_subject} í foruminum {VAR: frm_name}
+iemail_frm_bodyemail:Fyri at síggja tráðin, far so til:\n{VAR: goto_url['email']}\n\nUm tú framyvir ikki ynskir at fáa fráboðanir um nýggj evni í hesum foruminum, so skalt tú fara higar: {VAR: unsub_url['email']}
+iemail_participate:Fyri at luttaka í kjakinum, skalt tú fara higar:
+ignore_list_err_info_title:Kunning
+ignore_list_err_dup_msg:Tú hevur longu henda brúkaran á tínum síggj-burtur-frá lista
+ignore_list_err_nu_title:Brúkarin varð ikki funnin
+ignore_list_err_nu_msg:Brúkarin, ið tú royndi at leggja afturat tínum ignoreringslista, varð ikki funnin.
+ignore_list_cantign_msg:Tú kanst ikki ignorera henda brúkaran
+ignore_list_update:Hygg í gjøgnum tín egna lista yvir ignoreraðar limir
+index_update:Hygg ígjøgnum <a href="{TEMPLATE: index_update_lnk}">forumlistan</a>
+list_referers_update:Hygg ígjøgnum ávísingar
+login_update:Rita inn
+msg_update:Les tráðin við evninum <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
+pm_err_nopm_title:FEILUR: Privat boð eru ikki loyvd
+pm_err_nopm_msg:Tú kanst ikki brúka skipanina til privat boð, tí administratorurin hevur gjørt henda møguleikan óvirknan.
+pm_update:Nýtsla av privatum boðum
+post_err_lockedthread_title:FEILU: Tráðurin er stongdur
+post_err_lockedthread_msg:Hesin tráðurin er stongdur. Tað er ikki longur loyvt at skriva nakað her.
+err_coppa_title:FEILUR: Tín konta er ikki váttað enn
+err_coppa_msg:Vit hava enn ikki móttikið eina váttan frá tínum foreldrum og/ella lógliga verja, sum fer at geva tær loyvi til at skriva innsløg. Um so er at tú hevur mist tín COPPA formular, so <a href="{TEMPLATE: err_coppa_msg_lnk}">kanst tú síggja hann enn einaferð</a>.
+err_banned_acct_title:FEILUR: Tú ert blivin útihýst/ur.
+err_banned_acct_msg:Tín konta varð {IF: $ban_expiry}fyribils stongd til {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}stongd fyri altíð{ENDI} fyri atgongd til hesa heimasíðuna orsakað av brot á viðtøkunum hjá hesum forumi.
+post_err_edttimelimit_title:FEILUR
+post_err_edttimelimit_msg:Tú kanst ikki longur rætta hesi boðini
+post_err_noannontopics_msg2:<legend>FEILUR: Manglandi loyvi</legend>Dulnevndir brúkarar hava ikki loyvi til at upprætta nýggj evni.
+post_err_noannonposts_msg2:<legend>Manglandi loyvi</legend>Dulnevndir brúkarar hava ikki loyvi til at svara.
+post_err_floodtrig_title:FEILUR: Flóðalda-av-innsløgum varð útloyst.
+post_err_floodtrig_msg:Royn aftur um {PLURAL: tm|$1 sekund}
+post_err_attach_size:Fíluviðfesti er ov stórt (yvir markið sum er {VAR: MAX_F_SIZE} byte)
+post_err_attach_ext:Fílan ið tú roynir at leggja út er av einum ikki loyvdum fíluslagi.
+post_err_attach_filelimit:Tú roynir at leggja fleiri fílur út enn tað er loyvi til.
+post_err_passwd:Skeivt loyniorð.
+post_reply_update:Svarar <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> í {VAR: frm->name}
+post_topic_update:Skrivar nýtt evni í <a href="{TEMPLATE: post_topic_update_lnk}">{VAR: frm->name}</a>
+post_error_generic:Ein feilur hendi
+postcheck_max_images_err:Í mesta lagi {GVAR: MAX_IMAGE_COUNT} myndir eru loyvdar per boð. Vinarliga minka um talið av myndum.
+postcheck_no_links_allowed:Tú kanst ikki brúka leinkjur fyrr enn tú hevur posta í minsta lagi {PLURAL: posts_before_links|$1 boð}.
+postcheck_subj_needed:Evnið skal útfyllast
+postcheck_no_such_user:Limurin "{FUNC: char_fix(htmlspecialchars($v))}" er ikki til í hesum foruminum.
+postcheck_ignored:Tú kanst ikki senda eini privat boð til "{FUNC: char_fix(htmlspecialchars($v))}", av tí at hesin brúkarin ignorerar teg.
+postcheck_no_recepient:Kann ikki senda boðini, tí ongin móttakari er
+postcheck_invalid_email:Skiva eina galdandi t-post adressu hjá vini tínum.
+postcheck_email_subject:Tú kanst ikki senda eitt teldubræv uttan nakað evni.
+postcheck_email_body:Tú kanst ikki senda eitt teldubræv uttan nakran tekst.
+private_msg_notify_subj:Les fráboðan viðvíkjandi: {VAR: m->subject}
+private_msg_notify_body:Hey,<br />{VAR: usr->login} hevur latið upp tíni privatu boð við heitinum, "{VAR: m->subject}".<br />Hetta er ein sjálvvirkandi fráboðan, gjørd tann {TEMPLATE: private_msg_notify_body_date}<br />
+referals_update:Hygg ígjøgnum ávísingar
+register_err_short_login:Brúkaranavnið ið tú hevur valt er ov stutt. Brúkaranøvn mugu vera í minsta lagi 4 tekn long.
+register_err_login_notallowed:Hetta brúkaranavnið er ikki loyvt.
+register_err_loginunique:Brúkaranøvn í hesum forum mugu vera serstøk. Tað er longu ein annar brúkari sum nýtir hetta navnið.
+register_err_emailexists:Henda t-post adressan er longu knýtt at einari konto. Um tú hevur gloymt títt loyniorð, vinarliga nýt so nullstillingar møguleikan í staðin fyri at skráseta teg umaftur.
+register_err_shortpasswd:Loyniorð mugu vera í minsta lagi 6 tekn long.
+register_err_passwdnomatch:Tíni loyniorð samsvara ikki, vinarliga royn aftur.
+register_err_invalidemail:T-post adressan ið tú nevndi, sær ikki út til at vera galdandi.
+register_err_needname:Fyri at fullføra hesa skrásetingina, so mást tú skriva títt navn.
+register_err_enterpasswd:Tú mást skriva títt núverandi loyniorð fyri at fullføra broytingarnar.
+register_err_adminpasswd:Tú mást skriva títt <b>administrator</b> loyniorð fyri at fullføra broytingarnar.
+register_err_notyouremail:Onkur annar er longu skrásettur við hesi t-post adressuni.
+register_err_avatartobig:Fílan ið tú roynir at leggja út er ov stór, meira enn {GVAR: CUSTOM_AVATAR_MAX_SIZE} byte.
+register_err_avatarnotallowed:Avatarurin (myndin) ið tú roynir at leggja út er ikki loyvd. Kanna eftir hvørji fílusløg ið eru loyvd.
+register_conf_subject:Váttan fyri skráseting
+register_conf_msg:Takk fyri tína skráseting,\nFyri at aktivera tína konto skalt tú fara til henda URL'in:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nTá tín konta er aktiverað, so verður tú innritað/ur til hetta forumið og send/ur víðari til høvuðssíðuna.
+register_welcome_subject:Váttan fyri skráseting til forumið
+register_welcome_msg:Takk fyri tína skráseting,\n\nHer er tín brúkarakunning til forumið:\n\nForum URL: {TEMPLATE: index_update_lnk}\nBrúkaranavn: {VAR: uent->login}\nLoyniorð: {VAR: _POST['reg_plaintext_passwd']}\n\nLegg til merkis at tað er munur á stórum og lítlum bókstavum í loyniorðunum!\nFyri at broyta tínar innstillingar ella profil, so skal tú fara til hesa síðuna:\n{FULL_ROOT}{ROOT}?t=register
+register_err_cantreg_title:FEILUR: ber ikki til at skráseta
+regsiter_err_cantreg_msg:Tað bar ikki til at upprætta brúkarakonto, vinarliga set teg í samband við administrator á <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
+register_profile_update:Sýning av egnum profili
+register_register_update:Skrásetingarsíða
+report_err_nosuchmsg_title:FEILUR
+report_err_nosuchmsg_msg:Onki slíkt innslag
+reset_err_invalidkey_title:FEILUR
+reset_err_invalidkey_msg:Skeiv kota fyri nullstillan av loyniorði. Tað er møguligt at tín t-post viðskiftari (klientur) longu hevur latið hesa síðuna upp sjálvvirkandi, og harvið hevur gjørt henda nullstillingarlykilin ógildugan. Um tað er so, so eigur tú skjótt at móttaka eitt teldubræv við tínum nýggja loyniorði. Um tú ikki móttekur eitt slíkt teldubræv, vinarliga royn so enn einaferð at nullstilla títt loyniorð.
+reset_err_rstconf_title:Kunning
+reset_err_rstconf_msg:Tú eigur at fáa leiðbeining við telduposti um eina lítla løtu.
+reset_newpass_title:Nulstilla loyniorð
+reset_newpass_msg:Hey,\n\nSambært umbøn frá tær, so hava vit sent tær títt brúkaranavn og loyniorð, sí niðanfyri:\n\nBrúkaranavn: {VAR: ui[1]}\nLoyniorð: {VAR: passwd}\n\nVinarliga legg til merkis, at títt loyniorð er blivið broytt til tað virði sum er nevnt omanfyri. Um tú ynskir\nat broyta títt loyniorð, so kanst tú gera tað á  kontrolpanelinum til brúkarakunning á:\n{FULL_ROOT}{ROOT}?t=register
+reset_login_notify:Títt loyniorð er blivið sent til tín við telduposti. Tú eigur at móttaka tað um fáar minuttir.<br />
+search_update:Leitar í innsløgunum
+selmsg_update:Hyggur ígjøgnum <a href="{TEMPLATE: selmsg_update_lnk}">Dagsins innsløg</a>
+showposts_update:Vísir innslag av: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
+subscribed_update:Hygg í gjøgnum tíni egnu hald
+bookmarked_update:Hygg í gjøgnum tín egna bókamerkislista
+thread_update:Les í forum <a href="{TEMPLATE: thread_update_lnk}">{VAR: frm->name}</a>
+tree_update:Les tráðin (træsýning) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
+userinfo_update:Hyggur at <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}'sa</a> profili
+ERR_login_msg2:<legend>FEILUR: Tú ert ikki innritað/ur</legend>Fyri at fáa atgongd til hesa síðu, so mást tú vera limur í hesum forumi.
+ERR_disabled_ttl:Ger funksjónina óvirkna
+ERR_disabled_msg:Henda funksjónin er gjørd óvirkin av systemadministratorinum.
+ERR_access_ttl:FEILUR: Ikki nokk av loyvum
+ERR_access_msg:Tú hevur ikki tey kravdu loyvini fyri at gera hesa handlingina.
+ERR_registration_disabled_ttl:Skráseting er óvirkin
+ERR_registration_disabled_msg:Administratorurin hevur stongt skrásetingina. Royn aftur seinni.
+ERR_emailconf_ttl:FEILUR: Tín konta er ikki váttað enn
+ERR_emailconf_msg:Tú hevur enn ikki váttað tína konto via t-post.<br /><table border="0"><tr><td><ol><li>Um tú ikki hevur móttikið ein váttanarteldupost, <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">bið so um at fáa ein enn einaferð</a>.</li><li>Um {VAR: usr_d->email} ikki er tín rætta teldupost adressa, <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">skriva so tað røttu adressuna</a>.</li></ol></td></tr></table>
+ERR_user_ttl:FEILUR: Ongin slíkur brúkari
+ERR_user_msg:Tað finst ongin slíkur brúkari
+ERR_systemerr_ttl:FEILUR: Feilur í skipanini
+ERR_systemerr_msg:Ein skipanarfeilur hendi. Vinarliga boða frá hesum feilinum til <a href="mailto:{GVAR: ADMIN_EMAIL}">netvørðin (webmaster)</a>.
+email_title:Send t-post
+finduser_title:Finn brúkara
+help_title:Hjálp
+login_title:Rita inn
+poll_title:Atkvøðugreiðslu-ritstjórnari
+register_title:Skráseting
+reset_title:Nulstilla loyniorð
+rpasswd_title:Broyt loyniorð
+error_title:FEILUR
+index_title:Vælkomin til forumið
+search_title:Leita eftir {VAR-HTML: srch}
+remail_emailsent:Teldubræv varð sent
+remail_email:Hey,\n\nTað er eitt áhugavert evni um "{VAR: data->subject}" í {GVAR: FORUM_TITLE} foruminum, sum tú møguliga ynskir at lesa. Tú kanst síggja evnið á:\n {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nVinur tín,\n\n{VAR: usr->alias}
+poll_add_option:Legg afturat valmøguleika:
+post_opt_html_on:<b>HTML</b> kotan er sligin <b>til (tendrað)</b>
+post_opt_fud_on:<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>BBcode</b> er sligið <b>til (tendrað)</b></a>
+post_opt_images_on:<b>Images</b> eru sligin <b>til</b>
+post_opt_smilies_on:<a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank"><b>Smilies</b> eru <b>virknir</b></a>
+post_opt_html_off:<b>HTML</b> kotan er <b>ikki virkin</b>
+post_opt_fud_off:<b>BBcode</b> er <b>sløkt</b>
+post_opt_images_off:<b>Images</b> eru <b>sligin frá</b>
+post_opt_smilies_off:<b>Smilies</b> eru <b>sligin frá</b>
+post_opt:Forum innstillingar:
+register_change_passwd:broyt loyniorð
+register_change_login:broyt brúkaranavn
+approved_avatar_title:Tín heimagjørdi avatarur var góðkendur.
+approved_avatar_msg:Tín avatar varð góðkendur av administrator. Hann eigur nú at koma til sjóndar á øllum tínum innsløgum. Um tú ikki sært hann, ella sært tín gamla avatar, so skyldast tað at tín internetkagi hevur minnist tað gomlu síðuna (cache). Royn at dagføra síðuna einaferð ella tvær ferðir. Hetta vil í sum oftast loysa cache-goymslu trupulleikan.
+unapproved_avatar_title:Tín heimagjørdi avatarur var ikki góðkendur.
+unapproved_avatar_msg:Administratorurin góðkendi ikki tín avatar. Tann vanligasta orsøkin til hetta er at avatarurin var ov stórur (stødd og/ella mát) ella inniheldur hann óhóskandi innihald. Um tú ynskir nærri frágreiðing um, hví tín avatarur ikki varð góðkendur, set teg so í samband við administrator.
+mvthread_request_move:bið um flyting
+move_request_reason:Hví ynskir tú at flyta tráðin?
+mvthread_submit_req:Send umbøn
+thread_exchange:Evnisútskifting
+move_request_by:Flyting av evni, umbøn frá:
+move_reason:Orsøk til flyting av evni:
+thr_exch_accept:góðkenn evnið
+thr_exch_decline:góðkenn ikki evnið
+thr_exch_orig_forum:Upprunaligt forum:
+thr_exch_dest_forum:Nýtt forum:
+thr_exch_no_threads:Ongi evni bíða eftir góðkenning.
+thr_exch_decl_reason:Orsøkin til at nokta evninum <b>{VAR: data->subject}</b> inn í forumið <b>{VAR: data->f2_name}</b>
+thr_exch_submit:Send
+exch_decline_ttl:Flyting av evni {VAR: data->subject} til forum {VAR: data->f2_name} varð noktað.
+ppost_original_msg:boð, sum tú víðarisendir ella svarar
+split_thread:Být tráðin sundur
+groupmgr_no_user:Tað er ongin brúkari við brúkaranavninum "{FUNC: char_fix(htmlspecialchars($gr_member))}"
+groupmgr_already_exists:Brúkari "{FUNC: char_fix(htmlspecialchars($gr_member))}" er longu í hesum bólkinum frammanundan.
+groupmgr_yes:Ja
+groupmgr_no:Nei
+groupmgr_action:Handling
+groupmgr_member:Limur
+groupmgr_cancel:Aftur
+groupmgr_add_member:Legg ein lim afturat
+groupmgr_update_member:Dagfør lim
+groupmgr_edit:Rætta
+groupmgr_delete:Sletta
+group_mgr_anon:Dulnevnd
+group_mgr_reged:Allir skrásettir brúkarar
+show_show:Vís:
+group_mgr:Bólkaleiðari
+group_mgr_edit_btn:Rætta bólk
+group_mgr_heading:Vel bólk at rætta
+group_mgr_group:Bólkur:
+permission_denied_title:Ikki loyvt!
+permission_denied_msg:Tíni brúkararættindi loyva tær ikki at gera tað sum tú júst nú royndi.
+p_READ:Les
+p_POST:Skriva
+p_REPLY:Svara
+p_EDIT:Rætta
+p_DEL:Sletta
+p_STICKY:Klebrut innsløg
+p_POLL:Upprætta meiningakanningar
+p_FILE:Viðfest fílur
+p_VOTE:Atkvøð
+p_RATE:Døm um evni/limir
+p_SPLIT:Být tráðin sundur
+p_LOCK:Stong kjak
+p_MOVE:Flyt kjak
+p_SML:Nýt smilies
+p_IMG:Nýt mynda-lyklaorð
+p_SEARCH:Kann leita
+group_mgr_search:Finn brúkara
+group_mgr_indicator:Rættar í løtuni: <b>{VAR: grp->name}</b>
+rate_worst:Vánaligasta
+rate_best:Besta
+post_quote_msg:Hin {TEMPLATE: make_report_date} skrivaði {VAR: msg->login}
+post_quote:Endurgeving:
+post_quote_selected:Endurgev valda tekstin
+userinfo_referals:Ávístir brúkarar:
+userinfo_referals_count:{VAR: referals} limir
+pm_no_space_title:Onki pláss eftir!
+pm_no_space_msg:Tínar mappur til privat boð innihalda størri mongd enn loyvdu støddina á <b>{GVAR: MAX_PMSG_FLDR_SIZE} byte</b>. Tær innihalda í løtuni <b>{VAR: fldr_size} byte</b> í boðum.<br /><br /><span class="ErrorText">Tak burtur nøkur gomul boð fyri at fáa meira pláss.</span>
+pm_space_indct_msg:Tínar mappur til privat boð eru {VAR: percent_full}% fullar.
+th_expr_never:Ongantíð
+th_expr_one_hr:1 tíma
+th_expr_three_hr:3 tímar
+th_expr_four_hr:4 tímar
+th_expr_eight_hr:8 tímar
+th_expr_sixteen_hr:16 tímar
+th_expr_one_day:1 dag
+th_expr_two_day:2 dagar
+th_expr_four_day:4 dagar
+th_expr_one_week:1 viku
+th_expr_two_week:2 vikur
+th_expr_one_month:1 mánað
+th_expr_two_month:2 mánaðar
+th_expr_four_month:4 mánaðar
+th_expr_one_year:1 ár
+thread_mod_delete:Sletta
+action_ip:IP
+action_latest_post:Seinasta innslag
+online_today_last_visit:Vitjaði seinast
+online_today_update:Sýning av listanum við brúkarum, ið vitjaðu forumið í dag.
+logedin_todays_visitors:Dagsins vitjandi
+logedin_latest_post:Síðsta innslag í foruminum:
+register_show_avatar:Vís avatarar:
+register_show_avatar_desc:Gevur tær møguleikan at fjala avatarar hjá øðrum brúkarum, meðan tú hyggur at teirra innsløgum.
+drawmsg_view_rest_post:Vís restina av innslagnum
+post_re:Re:
+forumsel_goto_forum:Far til forum:
+minimsg_thread_view:Evnisyvirlit
+split_th_post_by:Skrivað hevur:
+split_th_posted_on:Postað hin:
+split_th_subject:Evni:
+split_th_new_thread_title:Nýtt evni fyri henda tráðin:
+split_th_forum:Forum:
+split_th_split_sel:Flyt tey útvaldu innsløgini
+split_th_split_unsel:Flyt tey ikki-útvaldu innsløgini
+split_th_messages:Innsløg
+split_th_select:Vel
+report_report_post:Melda innslag
+quicklogin_login:Innritanarnavn:
+quicklogin_password:Loyniorð:
+quicklogin_use_cookies:Brúka kakur (cookies)?
+quicklogin_login_btn:Rita inn
+quick_reply:Skjótt svar
+quick_reply_post:Send skjótt-svar
+quick_reply_preview:Forskoða skjótt-svar
+post_notification_desc:Sig mær frá, tá onkur viðmerkir hetta innslagið.
+post_all_ext_allowed:(óavmarkað)
+maximize_category:Ger bólkin størri
+maximize_message:Ger innslagið størri
+no_view_perm:Tú hevur ikki tey kravdu loyvini fyri at síggja hetta evnið.
+report_empty_report:Tú kanst ikki senda eina tóma frágreiðing. Vinarliga skriva eina orsøk til tína frágreiðing.
+report_already_reported_title:Innslagið er longu fráboðað
+report_already_reported_msg:Hetta innslagið varð longu fráboðað og frágreiðingin er í løtuni í bíðirøðini hjá administratorunum.
+register_err_toomanyimages:Tú roynir at nýta fleiri myndir enn loyvda talið av {GVAR: FORUM_IMG_CNT_SIG} myndum í tínum signaturi.
+pmsg_next_msg:Næsta boð
+pmsg_prev_msg:Fyrra boð
+post_proc_reveal_spoiler:Vís fjaldan tekst
+register_jabber:Jabber-brúkaranavn:
+register_skype:Skype brúkaranavn:
+register_twitter:Twitter brúkaranavn:
+register_google:Google Chat/IM brúkaranavn:
+im_jabber:Jabber:
+im_google:Google Talk:
+im_skype:Skype:
+im_twitter:Twitter:
+forum_contact:Samband
+forum_home:Heim
+post_cur_attached:hjáheft í løtuni: {VAR: i} {PLURAL: i|fíla|fílur}
+ignored_anon_post:{GVAR: ANON_NICK} er ignorerað/ur
+ignored_user_post:Innsløg frá <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> ignorerast
+smladd_close_window:lat vindeyga aftur
+post_list_smilies:vís allir smeiliar
+p_VISIBLE:Sjónligt
+reported_in_thread:Í:
+help_back_to_top:aftur til byrjanina
+help_return_to_index:Vend aftur til hjálparyvirlitið
+imsg_err_message_title:Ógyldugt innslag
+imsg_err_message_msg:Innslagið ið tú roynir at síggja er ikki til.
+poll_edit:Rætta
+register_err_not_valid_img:Tann valdi URL'urin inniheldur ikki eina loyvda mynd.
+pmsg_recepient:Móttakari
+register_err_taken_alias:Aliasið (kallinavnið) ið tú roynir at nýta, verður longu brúkt av einum øðrum brúkara. Vinarliga vel eitt annað.
+register_alias:Alias (kallinavn):
+register_alias_desc:Um tú ynskir at eitt annað navn enn títt brúkaranavn (innritanarnavn) skal vísast í hesum forum, skriva tað so her.
+register_allow_pm_msg:Loyv privatum boðum:
+register_allow_pm_msg_desc:Loyv øðrum brúkarum at senda tær privat boð í hesum foruminum.
+postcheck_pm_disabled:Tú kanst ikki senda eini privat boð til "{VAR-HTML: v}", av tí at hesin persónurin ikki ynskir at móttaka privat boð.
+polllist_vote:Atkvøð
+polllist_view_results:Vís úrslit
+polllist_name:Heitið á atkvøðugreiðsluni
+polllist_date:Upprættað hin
+polllist_owner:Upprættað av
+polllist_votes:Atkvøður tilsamans
+polllist_action:Handling
+polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">Hyggur ígjøgnum tøkar atkvøðugreiðslur</a>
+userinfo_polls:Atkvøðugreiðslur:
+show_pollist:Vís atkvøðugreiðslur
+search_and:OG
+search_or:ELLA
+search_desc_order:Fallandi raðfylgju
+search_asc_order:Hækkandi raðfylgju
+search_logic:Leitingar logikkur:
+search_sorting:Sortera úrslitini eftir dagfesting í:
+search_attach:Viðfesti:
+search_attach_all:Við ella uttan
+search_attach_with:Við viðfesti
+post_proceed:Halt fram
+post_moderated_forum:Tú hevur skrivað eitt innslag í einum modereraðum forum. Títt innslag verður ikki sjónligt fyri øðrum fyrr enn tað er góðkent av einum av moderatorunum ella administratorunum í hesum forum.
+post_moderated_forum_ttl:Modererað forum boð
+buddy_list_bday:Í dag fyllir {VAR: r[2]} {VAR: age} ár
+email_warning_msg:Um tú broytir tína verandi t-post adressu, so verður tín konta merkt sum óváttað inntil tú hevur váttað hana gjøgnum teldupost.
+register_show_im:Vís IM indikatorar:
+register_show_im_desc:Annahvørt IM indikatorarnir hjá høvundanum skulu vísast ella ikki vísast við síðuna av innsløgum hansara/hennara.
+unread_message:Ólisin innsløg
+read_message:Lisin innsløg
+threadt_more:&lt;meira&gt;
+threadt_disabled_ttl:Træsýning av evnisyvirlitinum er ikki tøk.
+threadt_disabled_desc:Administrator hevur gjørt træsýning fyri evnisyvirlitið óvirknað. Vinarliga nýt tað flatu sýningina í staðin.
+threadt_update:Les í forum (træsýning) <a href="{TEMPLATE: threadt_update_lnk}">{VAR: frm->name}</a>
+mmod_delete_cofirm_ttl:Vátta sletting av tráði/innslagi
+spell_alts:ongin valmøguleiki
+insert_uploaded_image:Innset myndina í tekstin
+finduser_help:Leitimaskinan fer sjálvvirkandi at leggja afturat * masku til tín fyrispurning, <b>leitanin kennir mun á stórum og lítlum bókstavum</b>.<br />T.d. fyri at leita eftir øllum brúkarum hvørs brúkaranavn byrjar við einum 'a', skriva so 'a' í leititeigin.
+back_to_top:Aftur til byrjanina
+pm_err_disabled_title:Privat boð ikki loyvd
+pm_err_disabled_msg:Tú kanst ikki senda privat boð fyrr enn tú aktiverar 'Loyv privatum boðum' í tínum profili.
+err_mod_acc_ttl:Óváttað konta
+err_mod_acc_msg:Administrator hevur valt at gjøgnumganga allar kontur manuelt áðrenn aktivering. Til tín konta er blivin góðkend av administrator, so fert tú ikki at kunna brúka allar funksjónir á tínari konto til fulnar.
+accounts_pending_approval:Kontur sum bíða eftir góðkenning
+saved:Goymt
+register_err_time_limit:Markið fyri eina góðkenning per {GVAR: REG_TIME_LIMIT} sekund er nátt. Bíða {PLURAL: reg_limit_reached|$1 sekond}, og royn so aftur at skráseta teg.
+register_affero:Affero brúkaranavn:<br /><span class="SmallText">Um tú hevur eitt <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">Affero</a> brúkaranavn, skriva tað so her.</span>
+im_affero:Affero brúkaranavn
+register_err_avatardimtobig:Avatar mátini á <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> fara yvir loyvda markið fyri <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b> pikslar (pixels).
+buddy_offline:{VAR: r[2]} er í løtuni offline
+buddy_online:{VAR: r[2]} er í løtuni online
+sml_no_smilies:Ongi humørikon eru tøk.
+login_unapproved_account_ttl:Ikki-góðkend konta
+login_unapproved_account_msg:Administrator av foruminum hevur valt at vátta hvørja nýggja konto manuelt áðrenn aktivering. Tín konto er ikki blivin váttað enn, tí kanst tú ikki fáa atgongd til nakrar av funksjónunum, sum bert eru tøkar fyri váttaðir limir.
+remove_from_buddy_list:tak burtur av vinalistanum
+iemail_msg_author:<b>Høvundur:</b> {VAR: obj->alias}
+iemail_msg_subject:<b>Evni:</b> {VAR: obj->subject}
+iemail_msg_date:<b>Dagur:</b> {TEMPLATE: dmsg_post_date}
+iemail_msg_reply:Svara
+iemail_msg_quote:Endurgev
+iemail_msg_view:Vís evni/boð
+threadt_sticky:klebrut
+threadt_announce:kunngerðing
+reported_no_messages:Tað eru ongi fráboðaði boð.
+poll_no_polls:Tað eru ongar tøkar meiningakanningar.
+no_unread_messages:Tað eru ongi ólisin boð sum samsvara tínari leiting.
+thread_mark_all_read:Merk øll ólisin innsløg í forum sum lisin
+thread_mark_all_read_desc:Øll ólisin innsløg í hesum forum verða merkt sum lisin
+private_no_messages:Tað eru ongi boð í hesi mappu.
+register_email_change_subject:Váttan fyri broytta t-post adressu
+register_email_change_msg:Vinarliga vátta tína nýggju t-post konto "{VAR: uent->email}" sum kemur í staðin fyri tína gomlu t-post konto "{VAR: old_email}", við at fara til internetadressuna niðanfyri:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nTá ið tú hevur váttað tína nýggju t-post adressu, so verður tín forumkonta aktiv aftur.
+iemail_thread_unsub:Frámelda hald til henda tráðin
+iemail_forum_unsub:Frámelda hald til hetta forumið
+primary_group_prefix:Høvuðsbólkur fyri forumið:
+group_resources:Hesin bólkur stýrir loyvum hjá fylgjandi forum
+register_admin_newuser_title:Ein nýggjur brúkari hevur skrásett seg og kontan hjá viðkomandi bíðar eftir váttan
+register_admin_newuser_msg:Ein nýggjur brúkari ({VAR: uent->login}) hevur júst skrásett seg, og eftirsum kontováttan er aktiverað, so verður kontan hjá viðkomandi ikki aktiverað fyrr enn tú ella onkur annar forum administrator hevur váttað hana. Fyri at hyggja at kontuni, vinarliga far til: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nHetta er ein sjálvvirkandi gongd. Ikki svara hesum boðnum. \nUm tú ynskir at sløkkja fyri t-post fráboðanum um nýggjar brúkara skrásetingar framyvir, so kanst tú gera tað á  Admin Control Panel. Broyt innstillingina fyri "Fráboðan um nýggja konto".
+post_mod_msg_notify_title:Nýtt innslag í forum "{VAR: frm->name}" bíðar eftir góðkenning
+post_mod_msg_notify_msg:Eitt nýtt innslag við heitinum "{VAR: msg_post->subject}" varð júst postað í einum forum, sum tú umsitur (moderator). Fyri at síggja hetta innslagið, so skal tú fara til: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nHetta boðið varð sent sjálvvirkandi. Ikki svara hesum boðnum.
+thread_printable_pdf:Ger PDF til at skriva út
+thread_syndicate:Útgev (syndikera) hetta forumið (XML)
+reg_conf_title:Váttan fyri skráseting
+reg_conf_email:<b>T-post váttan</b><br />Eitt teldubræv varð sent til tín, tað inniheldur ein serligan URL (internetadressu), sum tú mást tú skalt vitja, áðrenn tín konta kann aktiverast. Um tú ikki móttekur henda t-postin um nakrar minuttir, rita so inn á tína konto og tryggja tær, at t-post adressan ið tú hevur skrivað er røtt. Tá tú hevur váttað tína konto, so fært tú atgongd til forum funksjónir, sum bert eru tøkar fyri váttaðir, skrásettir brúkarar.
+reg_conf_account:<b>Kontováttan</b><br />Áðrenn tín konta verður aktiverað, so má hon fyrst góðkennast av einum administratori. Tá tað er hent, so móttekur tú eitt teldubræv, sum sigur at tín konta er blivin váttað. Meðan tú bíðar eftir hesum, so kanst tú rita inn á tína konto, men tú fert ikki at hava atgongd til ávísar funksjónir.
+forum_banned_user:Tínar handlingar herfyri hava ført við sær, at tú ert blivin bannað/ur frá hesum forumi fyri altíð. Farvæl.
+mnav_description:Navigatørur til boðini
+mnav_date_limit:Dagfestingar økið:
+mnav_forum_limit:Leita bara í:
+mnav_all_forums:Leita í øllum forumum
+mnav_submit:Byrja leitan
+mnav_no_range:Tú mást skriva eitt galdandi dato øki. Hetta virði kann innihalda eit desimaltekn, (0.12) men tað má vera størri enn null.
+mnav_invalid_unit:Tú mást nýta eina galdandi tíðareind.
+mnav_invalid_date:Tað datointerval ið tú hevur skrivað, er størri enn tað ið administrator loyvir. Royn eitt minni datointerval.
+mnav_no_results:Tað eru ongi innsløg ið passa til fyrispurningin.
+mnav_posted_by:Postað av:
+mnav_more:Meira &raquo;&raquo;
+mnav_minute:Minuttur/ir
+mnav_hour:Tími/ar
+mnav_day:Dagur/ar
+mnav_week:Vika/ur
+mnav_month:Máðaður/ir
+mnav_title:Navigatørur til boðini
+mnav_update:Leitar í innsløgum við nýtslu av <a href="{TEMPLATE: mnav_update_lnk}">Navigatørinum til boðini</a>
+pm_notify_subject:[{GVAR: FORUM_TITLE}] Fráboðan um nýggj privat boð
+pm_notify_body_email:Tú hevur eitt nýtt privat boð við heitinum "{VAR: subject}", frá "{VAR: from}", í forum "{GVAR: FORUM_TITLE}".\nFyri at síggja boðið, trýst her: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nFyri at støðga framtíðar fráboðanum, so kanst tú broyta innstillingina í tínum profili til óvirkið í "Fráboðan um Privat boð" .
+register_pm_notification:Fráboðan um privat boð:
+register_pm_notification_desc:Um tað er aktiverað, so fert tú at fáa fráboðanir hvørja ferð eini privat boð verða send til tín.
+findu_admin_opts_header:Admin valmøguleikar
+findu_unban:Tak bann burtur
+findu_ban:Banna
+findu_edit:Rætta
+findu_delete:Sletta
+dmsg_reply_to:er eitt svar til
+dmsg_reply_num:boð #{VAR: obj->reply_to}
+merge_topics:Flætta evni
+merge_topics_cp:Innstillingar til samanflætting av evnum
+merge_topics_tpl:Vel evni at samanflætta <span class="SmallText">(tú mást velja meira enn eitt evni)</span>
+merge_merge:Samanflætta útvaldu evnini
+merge_next:Næstu evnini
+merge_prev:Fyrru evnini
+merge_another:Far til <a href="{TEMPLATE: merge_another_lnk}">seinasta samanflættaða evni</a> ella samantvinna eitt annað:
+split_cp:Innstilling til at sundurskilja evni
+groups_perms_header:Loyvi <span class="small">(koyr músina yvir loyvið fyri at síggja hvat slag av loyvi talan er um)</span>
+register_err_sig_too_long:Tín signaturur fer út um mest loyvdu longdina av {GVAR: FORUM_SIG_ML} teknum.
+register_sig_limit:{GVAR: FORUM_SIG_ML} tekn <a href="javascript: alert('Tín signaturur er '+document.forms['fud_register'].reg_sig.value.length+' tekn langur. Mest loyvda signatur longdin er {GVAR: FORUM_SIG_ML} tekn.');" class="SmallText">Kanna signaturlongdina</a>
+adm_account_accepted:Tín konta '{VAR: login}' varð góðkend av administrator og er nú aktiv. Tú hevur nú atgongd til {GVAR: FORUM_TITLE}' forum sum ein váttaður, skrásettur brúkari.
+adm_account_accepted_s:Tín konto umbøn fyri '{GVAR: FORUM_TITLE}' varð góðkend.
+adm_account_rejected:Tín konta '{VAR: login}' varð noktað av administrator. Um tú ynskir at fáa orsøkina til hetta at vita, set teg so endiliga í samband við administrator á '{GVAR: ADMIN_EMAIL}'.
+adm_account_rejected_s:Tín konto umbøn fyri '{GVAR: FORUM_TITLE}' var noktað.
+thread_on:hin
+userinfo_buddy:Vinur:
+register_email_addr:T-post adressa:
+reset_suffix:Um tú hevur fingið hesi boðini av misgáum, vinarliga síggj so burtur frá tí. Um tú móttekur fleiri avrit av hesum t-posti, sum tú ikki hevur umbiðið, vinarliga set teg so í samband við forum administrator á {GVAR: ADMIN_EMAIL}\n\nHenda umbøn varð upprunliga send frá: {VAR: _SERVER['REMOTE_ADDR']}.
+usrinfo_last_visit:Vitjaði seinast:
+mnav_newer:nýggjari enn
+mnav_older:eldri enn
+ip_search_by_ip:Leita eftir brúkarum við IP
+ip_search_syntax:Stuðlaður syntaksur: 1.2.3.4, 1.2.3, 1.2, 1
+ip_search:Leita
+ip_analyze_usage:Greina IP nýtslu
+ip_analyze_usage_descr:Skriva nágreiniligt brúkaranavn hjá brúkaranum.
+ip_users_using:Brúkarar sum nýta '{VAR: ip}' IP adressuna
+ip_all_ips:Allar IP-adressur, sum verða nýttar av '{VAR: user}'
+ip_title:IP kagi
+userinfo_real_name:Veruligt navn:
+register_err_alias_notallowed:Hetta aliasið er ikki loyvt
+post_err_mod_forum_edit_ttl:FEILUR
+post_err_mod_forum_edit_msg:Tú kanst ikki rætta boð í einum modereraðum forumi.
+dmsg_num:innslag #{VAR: obj->id}
+postcheck_session_invalid:Tín sessjón er útgingin. Vinarliga send formularin inn enn einaferð. Orsakað.
+delete_message_extra_desc:<b>Valfrítt</b><br />Gev eina orsøk til sletting av innslagnum, sum síðan verður send til høvundan við privatum boði.
+delete_message_extra_body:Tak tann burturtikna tekstin við í boðini, sum verða send til høvundan.
+delete_msg_removed_ttl:Títt innslag varð tikið burtur av fyrisitingarligum starvsfólki (administator staff).
+delete_msg_pm_body:Upprunaligt innslag
+delete_msg_pm_subject:Evni: {VAR: data[15]}
+ip_no_whois:WHOIS kunning fyri <b>{VAR: ip}</b> er ikki tøk.
+ip_whois_title:ISP kunning
+register_theme:Tema:
+pmsg_trash:Tøm pappírskurvina
+uc_new_pm:Nýggj privat boð
+uc_new_topic:Nýtt evni
+uc_new_cat_forum:Forum, har tú hevur teknað hald, við nýggjum innsløgum
+uc_cat_forum:Bólkur &raquo; Forum
+uc_sub_topics:Evni, har tú hevur teknað hald, við nýggjum innsløgum
+uc_page_title:Hyggja at persónliga kontrolpanelinum.
+search_options:Leiti møguleikar
+search_user_filter:Filtrera eftir brúkara:
+register_none:Ikki siga mær frá
+findu_no_conf:óváttaður brúkari
+register_max_sig_len:Mest loyvda longd:
+register_turing:Vinarliga tasta inn kotuna sum er víst niðanfyri:
+register_err_turing:Ógyldug váttanarkota.
+modque_cat:Bólkur
+modque_forum:Forum
+idx_compact_forum_row:Tøk forum:
+mmd_del_title:Sletta evni
+mmd_mov_title:Flyt evni
+mmd_move_threads_to:Destinasjónsforum:
+mmd_abort_move:Angra
+mmd_move:Flyt evni
+pmsg_pdf_btn:Ger PDF-savn
+search_results_hdr:{VAR: total} leitiúrslit funnin
+thread_del_all:Sletta tað útvalda
+thread_mov_all:Flyt tað útvalda
+thread_merge_all:Samanflætta tað útvalda
+thread_loc_all:Stong/læs upp tey útvaldu
+dmsg_ip:IP:
+err_blockedaccnt_title:FEILUR: Tín konta er blivin filtrerað vekk.
+err_blockedaccnt_msg:Tín konta er blivin sperrað fyri atgongd til hetta forumið orsakað av einum av teimum innstalleraðu brúkarafiltrunum.
+merge_th_page_list:Yvirlitssíða til val av evnum
+most_users_online:Flest brúkarar nakrantíð ið vóru online í senn var <b>{VAR: st_obj->most_online}</b> hin <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
+sub_unsub_all_forums:Frámelda hald frá øllum forum
+sub_unsub_all_topics:Frámelda hald frá øllum evnum
+unbookmark_all_topics:Tak øll bókamerki burtur
+tabs_own_posts:Vís egnu innsløg
+sml_emoticon:Humørikon
+sml_code:Kota
+mnav_sub_only:Leita bert í forum har hald er teknað
+register_topics_per_page:Evni per síðu:
+login_min_time:Hetta forumið loyvir eina innritanar roynd hvørt {VAR: MIN_TIME_BETWEEN_LOGIN} sekund, vinarliga bíða {FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)} sekund áðrenn tína næstu roynd.
+post_not_logged_in:Tú ert í løtuni ikki innritað/ur, innslagið verður postað dulnevnt.
+post_common_bold:Feitt
+post_common_italics:Skráskrift
+post_common_underline:Undirstrikað
+post_common_align_left:Vinstrastilla
+post_common_align_center:Miðstilla
+post_common_align_right:Høgrastilla
+post_common_link:Innset eina leinkju
+post_common_link_popup:Leinkjuadressa:
+post_common_email:Innset eina t-post adressu
+post_common_email_popup:T-post adressa:
+post_common_image:Innset eina mynd
+post_common_image_popup:Mynda-URL'ur:
+post_common_nlist:Legg afturat lista í talrøð
+post_common_blist:Legg afturat punktlista
+post_common_quote:Legg afturat endurgeving
+post_common_code:Legg eina kotu afturat
+rating_delete:Sletta
+post_always_on_top:Syrg fyri at hetta evnið altíð verður víst ovast á evnisyvirlitinum
+topic_rating:{VAR: frm->rating} from {PLURAL: frm->n_rating|$1 atkvøða|$1 atkvøður}
+topic_list_rating:{VAR: r[17]} frá {PLURAL: r[21]|$1 atkvøða|$1 atkvøður}
+tabs_notifications:Fráboðanir
+finduser_flag:Flagg
+post_descr:Evnisfrágreiðing:
+pmsg_on:hin
+pmsg_download_dump:Heinta innslagið sum tekst
+move_messages:Flyt innsløg
+move_msg_btn:Flyt útvaldu innsløgini
+move_msg_th_expl:Gev ID fyri destinasjónsevnið (kann vera í øðrum forum)
+captcha_img_alt:Captcha váttan: tú mást kenna aftur tekstin á hesi myndini.
+captcha_img_help:Tað er onki null ella eitt-tal á myndini.
+powered-by:Rikið av: FUDforum {GVAR: FORUM_VERSION}.
+copyright:Copyright &copy;2001-2012 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+code_title:Kota:
+code_select_all:Vel alt
+code_show_hide:Vís/fjal
+social_sites:Sosialar netverkssíður:
+postcheck_min_len_err:Títt innslag er ov stutt. Minsta longdin er {PLURAL: post_min_len|$1 tekn}.
+postcheck_dup_err:Vinarliga ikki upprætta sama evni tvær ferðir.
+btn_new_topic:Nýtt evni
+btn_new_pm:Nýggj priv. boð
+btn_post_reply:Send svar
+btn_tree_view:Træsýning
+btn_flat_view:Fløt sýning
+btn_about:Profilur
+btn_small_pm:PB
+btn_delete:sletta
+btn_edit:rætta
+btn_reply:svara
+btn_forward:víðarisend
+btn_quote:endurgev
+btn_email:Tpostur
+btn_show_posts:innsløg
+btn_homepage:www
+feed_no_data:Ongi samsvarandi dáta funnin.
+feed_rdf:RDF feed
+feed_rss:RSS2 feed
+feed_atom:ATOM feed
+ip_whois_connect_err:Ógjørligt at upprætta samband við WHOIS ambætaran (servaran) ({VAR: whois_server}): {VAR: errstr}
+custom_filed_required:Hesin teigur skal útfyllast.
+pages:Síður
+page_list_heading:Atkomuligar síður
+page_list_total:{PLURAL: i|$1 síða|$1 síður} á listanum.
+page_update:Brovsar síðu
+pm_export_header:Privat boð til {VAR: usr->alias}
+pm_export_footer:Útflutt:
+karma:Karma
+karma_track:Tak tær av umdøminum hjá einum brúkara:
+karma_delete:Sletta
+rate_author:Døm høvundan:
