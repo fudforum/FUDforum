@@ -1,0 +1,524 @@
+# Messages for Hebrew (עברית)
+# Exported from translatewiki.net
+# Author: Amire80
+# Author: Imneo
+# Author: Inkbug
+# Author: YaronSh
+
+action:פעולה
+add_to_buddy_list:הוספה לרשימת החברים
+admin:מנהל
+admin_control_panel:ניהול
+administrator:מנהל
+attachment:קובץ מצורף:
+avatar:סמל אישי:
+biography:קורות חיים:
+birth_date:תאריך לידה:
+by:על ידי:
+by_mod:על ידי אחראי
+current_time:השעה הנוכחית
+custom_avatar_queue:תור הסמלים האישיים להעלאה
+date_posted:תאריך הפרסום
+date_registered:תאריך ההרשמה:
+email:דוא"ל:
+email_to_friend:שליחת דוא"ל לחבר
+email_to_friend_desc:שליחת כתובת העמוד הנוכחי לחבר/ים בדוא"ל
+email_user:שליחת דוא״ל אל המשתמש
+faq:עזרה
+first_unread_msg:מעבר להודעה/ות שלא נקראה/ו
+first_unread_msg_desc:מעבר להודעה הראשונה שלא נקראה בנושא זה
+flat_view:חזרה אל מצב התצוגה השטוח ההתחלתי
+forum:פורום:
+forum_icon:סמל הפורום
+forum_new_messages:הודעות חדשות
+forum_none_messages:רק משתמשים רשומים בפורום יכולים לעקוב אחר הודעות שנקראו והודעות שלא נקראו
+forum_old_messages:אין הודעות חדשות
+from:מאת:
+gender:מין:
+go:מעבר
+goto_next_msg:מעבר להודעה הבאה
+goto_prev_msg:מעבר להודעה הקודמת
+home:דף הבית
+homepage:דף הבית:
+icq_control_panel:חלונית להודעות ICQ מקוונות
+icq_message_form:טופס הודעת ICQ:
+ignore_user:התעלמות מהודעות הנשלחות ממשתמש זה
+im_aim:כינוי ב־AIM:
+im_msnm:MSN מסנג'ר:
+im_yahoo:Yahoo מסנג'ר:
+image:תמונה:
+index_forum:פורום
+index_new_posts:הודעות חדשות מאז הקריאה האחרונה
+index_no_new_posts:אין הודעות חדשות מאז הקריאה האחרונה
+index_url_redirection:הפניה
+interests:תחומי עניין
+last_post:ההודעה האחרונה
+last_thread_msg:מעבר להודעה האחרונה בנושא זה
+legend:מקרא
+location:מיקום:
+lock_thread:נעילת נושא
+locked:נעול
+locked_with_new_posts:נעול (עם הודעות שלא נקראו)
+logged_in_list:רשימת המשתמשים שביצעו כניסה
+login:כניסה
+login_header:שם כניסה:
+logout:יציאה
+mark_all_read:סימון כל ההודעות כנקראו
+mark_all_read_desc:כל הודעותיך שלא נקראו יסומנו כאילו הם נקראו
+members:חברים
+calendar:לוח שנה
+cal_goto_date:מעבר אל:
+cal_day_heading:אירועים ליום
+cal_no_events:אין אירועים ליום זה.
+cal_update:עיון ביומן הפורום
+cal_birthday:יום הולדת: {VAR: user}
+message:הודעה
+message_counter:המשתמשים שלנו פרסמו סך הכל <b>{PLURAL: post_count|הודעה אחת|$1 הודעות}</b> תחת <b>{PLURAL: thread_count|נושא אחד|$1 נושאים}</b>.
+message_index:אינדקס ההודעות
+message_index_desc:צפייה ברשימת ההודעות
+minimize_category:מזעור קטגוריה
+minimize_message:מזעור הודעה
+moderation_queue:תור ההמתנה לאחראי
+more_unread_messages:עוד הודעות שלא נקראו
+move_thread:העברה
+moved:הועבר לפורום אחר
+moved_thread_message:נושא זה הועבר לפורום אחר
+na:לא זמין
+new_posts:הודעות חדשות
+new_thread:יצירת נושא חדש
+newest_user:המשתמש האחרון שנרשם הוא
+next_page:העמוד הבא
+next_thread:הנושא הבא:
+no_messages:אין הודעות בפורום זה.<br />\nרוצה לפתוח את הנושא הראשון בפורום הזה?
+no_msg_body:אין גוף להודעה
+no_new_posts:אין הודעות חדשות
+no_posts:אין הודעות
+no_unread_locked:נושא זה ננעל
+no_unread_msg:בנושא זה ישנן הודעות שטרם נקראו
+num_pages:עמודים ({VAR: ttl_pg}):
+occupation:עיסוק:
+off:כבוי
+on:פעיל
+pm:התכתבות אישית
+poll:סקר:
+posts:הודעות
+posts_c:הודעות:
+prev_thread:הנושא הקודם:
+usrinfo_private_message:הודעה פרטית:
+profile:לוח הבקרה
+profile_desc:גישה אל לוח הבקרת המשתמשים
+rate_thread:דירוג הנושא
+rating:דירוג
+refresh_list:רענון הרשימה
+register:הרשמה
+replies:תגובות
+reported_messages:הודעות מדווחות
+reveal_all_posts:חשיפת כל ההודעות שנכתבו על ידי {VAR: user_login}
+reveal_post:גילוי הודעה
+search:חיפוש
+sel_todays_posts:הודעות מהיום
+sel_unanswered_posts:הודעות שלא נקראו
+sel_unread_messages:הודעות שלא נקראו
+send:שליחה
+send_pm_desc:שליחת הודעה פרטית למשתמש זה
+sender_email:דוא"ל השולח:
+sender_name:שם השולח:
+show_posts_by:הצגת ההודעות של: {VAR: u_alias}
+size:נפח:
+status:מצב:
+sticky:דביק:
+stop_ignoring:הפסקת ההתעלמות ממשתמש זה
+sub_to_thread:הרשמה לנושא
+sub_to_thread_desc:קבלת התרעות אודות הודעות חדשות בנושא זה
+bookmark_thread:סימון נושא
+bookmark_thread_desc:הוספת נושא זה לרשימת הסימניות האישית
+subject:נושא
+bookmarked_threads:נושאים מסומנים
+thread:נושא:
+thread_announcement:הכרזה:
+thread_first_unread_msg:מעבר אל ההודעה הראשונה שלא נקראה בנושא הזה
+thread_thread:נושא
+threads:נושאים
+time:שעה
+todays_posts:הודעות מהיום
+unanswered_posts:הודעות שלא נקראו
+unanswered_posts_desc:הצגת כל ההודעות, שאין להן תגובות
+unlock_thread:שחרור נושא
+unread_msg:נושא זה מכיל הודעות שטרם קראת
+unread_posts:הודעות שלא נקראו
+unbookmark_thread:הסרה מהסימניות
+user:משתמש
+user_info:נתוני משתמש
+usrinfo_last_post:הודעה אחרונה:
+view_results:צפיה בתוצאות
+views:צפיות
+vote_button:הצבעה
+vote_for_thread:הצבעה
+what_ppl_doing:הצגת פעילות החברים
+reported_del_report:מחיקת דיווח
+reported_reason:סיבה:
+reported_reported_by:דווח על ידי:
+reported_reported_msg:הודעות מדווחות
+modque_approve:אישור
+modque_delete:מחיקה
+pmsg_new_messages:הודעה פרטית שטרם נקראה
+pmsg_old_messages:הודעה פרטית שנקראה
+restore_to:שחזור ל:
+move_to:העברה אל:
+list_referes_referrals:הפניות
+list_referes_members:חברים שהופנו
+referals_none:אין הפניות עדיין.
+referals_action:פעולה
+pmsg_all:הכול
+pmsg_none:כלום
+folder:תיקייה:
+pmsg_replied:הוגבו
+pmsg_forwarded:הועברו
+pmsg_subject:נושא
+pmsg_author:מחבר
+pmsg_time:שעה
+pmsg_delete:מחיקה
+cur_ppage_pm:התכתבות פרטית
+writing_pm:כתיבת הודעה פרטית
+inbox:דואר נכנס
+draft:טיוטה
+sent:פריטים שנשלחו
+trash:אשפה
+msg_author:מחבר
+month_1:ינואר
+month_2:פברואר
+month_3:מרץ
+month_4:אפריל
+month_5:מאי
+month_6:יוני
+month_7:יולי
+month_8:אוגוסט
+month_9:ספטמבר
+month_10:אוקטובר
+month_11:נובמבר
+month_12:דצמבר
+sunday:יום ראשון
+sunday_short:א
+monday:יום שני
+monday_short:ב
+tuesday:יום שלישי
+tuesday_short:ג
+wednesday:יום רביעי
+wednesday_short:ד
+thursday:יום חמישי
+thursday_short:ה
+friday:יום שישי
+friday_short:ו
+saturday:שבת
+saturday_short:ש
+male:זכר
+female:נקבה
+unspecified:בלתי מוגדר
+use_forum_default:שימוש בבררת המחדל של הפורום
+finduser_user_info:נתוני המשתמש
+finduser_submit:חיפוש
+finduser_no_such_user:אין משתמש כזה
+finduser_user:משתמש
+finduser_joindate:תאריך ההצטרפות
+finduser_action:פעולה
+yes:כן
+no:לא
+register_email:דוא"ל
+pmuserloc_login:שם משתמש:
+pmuserloc_submit:כניסה
+pmuserloc_user:משתמש
+pmuserloc_no_result:אין תוצאות
+register_builtin:מובנה
+register_specify_url:ציון כתובת
+register_uploaded:העלאת סמל
+register_password:ססמה:
+register_conf_pass:אימות הססמה:
+register_name:שם:
+register_your_pass:הססמה שלך:
+register_update:עדכון
+register_preview:תצוגה מקדימה
+register_register:הרשמה
+register_required:נתונים נחוצים
+register_required_desc:כל השדות נדרשים. בססמאות יש חשיבות לאותיות רישיות וקטנות.
+register_location:מיקום:
+register_occupation:עיסוק:
+register_interests:תחומי עניין:
+register_image:תמונה:
+register_icq:ICQ:
+register_aim:כינוי ב־AIM:
+register_homepage:דף הבית:
+register_bday:תאריך לידה:
+register_day:יום
+register_month:חודש
+register_year:שנה
+register_gender:מין:
+register_bio:ביוגרפיה:
+register_prefs:העדפות
+register_sig:חתימה:
+register_reset:איפוס
+register_def_thread_view:תצוגת התחלתית של הנושאים:
+register_show_sig:הצגת חתימות:
+register_use_sig_default:להשתמש בחתימה לפי בררת המחדל:
+register_timezone:אזור זמן:
+register_notification:בחירת ההודעה לפי בררת המחדל:
+register_notification_desc:אם ההודעה מופעלת לפי בררת המחדל, אפשר לכבות אותה בעת השליחה.
+buddy_status:מצב
+add:הוספה
+post_annoncement:הכרזה
+post_size:גודל
+post_color:צבע
+post_font:גופן
+post_passwd:ססמה לשליחה:
+post_poll:סקר:
+post_create_poll:יצירת סקר
+post_poll_delete:מחיקה
+post_poll_edit:עריכה
+post_icons:סמל ההודעה:
+post_no_icon:ללא סמל
+post_upload_file:העלאת קובץ
+post_file_del:מחיקה
+post_file_name:שם
+post_file_size:גודל
+file_attachments:קבצים מצורפים:
+max_file_size:גודל הקובץ המרבי:
+max_files_per_msg:מספר הקבצים המרבי בכל הודעה:
+post_forum:פורום:
+post_title:כותרת:
+post_body:תוכן:
+post_options:אפשרויות:
+post_cancel_btn:ביטול
+forum_terms:תנאי הפורום
+prereg_info:כללי הפורום
+coppa_fax_reg_form:טופס הרשמה
+coppa_fax_conf:קראתי את המידע שהילד שלי סיפק וקראתי את מדיניות הפרטיות לאתר הזה. הבנתי שאפשר לשנות את המידע בפרופיל ללא ססמה. הבנתי שביכולתי לבקש להסיר את הפרופיל מהפורום.
+coppa_fax_relation:יחס לצאצא:
+coppa_fax_telephone:טלפון:
+coppa_fax_email:כתובת דוא״ל:
+coppa_fax_date:תאריך:
+coppa_fax_passwd:ססמה
+coppa_fax_name:שם
+login_forgot_passwd:שכחתי את הססמה
+login_passwd_required:נדרשת ססמה
+login_invalid_radius:שילוב שגוי של חשבון וססמה
+reset_reset:שלום,\n\nביקשת לאפס את הססמה שלך. כדי להשלים את התהליך,\nנא לעבור אל הכתובת הבאה:\n\n{VAR: url}\n\nלתשובת לבך: הפורום הזה מאחסן ססמאות בהצפנה חד־כיוונית, מה שאומר\nשלאחר שהזנת את הססמה, היא מוצפנת בצורה שאינה מאפשרת לקבל אותה שוב.\nזה עובד על־ידי השוואה של הגרסה המוצפנת שרשומה אצלנו עם הגרסה המוצפנת של מה שנשלח ממך במסך הכניסה.\n(אם מעניין אותך איך זה עובד, מומלץ לקרוא על אלגוריתם MD5 HASH)
+rpasswd_invalid_passwd:ססמה בלתי־תקינה
+rpasswd_passwd_nomatch:הססמאות אינן זהות
+rpasswd_passwd_length:בססמה צריכים להיות לפחות 6 תווים.
+reset_remind_pass:תזכורת ססמה
+reset_reset_conf:הססמה שלך אופסה ונשלחה אליך. אם עוד לא אישרת את כתובת הדוא"ל שלך, בקשת האישור תישלח לכתובתך מחדש.
+rpasswd_change_pass:החלפת ססמה
+rpasswd_cur_pass:הססמה הנוכחית:
+rpasswd_new_pass:ססמה חדשה:
+rpasswd_conf_pass:אימות הססמה:
+ruser_cur_pass:הססמה הנוכחית:
+login_passwd:ססמה:
+reset_reset_button:איפוס ססמה
+report_subject:נושא:
+report_by:מאת:
+search_forum:פורום
+remail_your_name:שמך:
+remail_your_email:כתובת הדוא״ל שלך:
+remail_friends_name:שם החבר:
+remail_friends_email:כתובת הדוא״ל של החבר:
+remail_required:נדרש
+remail_subject:נושא:
+remail_message:הודעה:
+mklist_additem:הוספת פריט
+mklist_apply:החלה
+mklist_delete:מחיקה
+qbud_nick_name:כינוי
+qbud_add_selected:הוספת הנבחרים
+email_to:אל:
+email_pg_title:דוא״ל
+email_subject:נושא:
+email_body:תוכן:
+email_submit:דוא״ל
+ppost_quote:ציטוט:
+ppost_to:אל:
+ppost_find_User:חיפוש משתמש
+ppost_track_msg:מעקב אחר הודעה זו
+ppost_send:שליחה
+ppost_save_draft:שמירת טיוטה
+poll_blank_option:לא ניתן להוסיף אפשרות ריקה.
+poll_name:שם הסקר:
+poll_timelimit:מגבלת הזמן:
+poll_maxiumvotes:מס׳ קולות מרבי:
+poll_create:יצירה
+poll_update:עדכון
+poll_disablesmilies:נטרול הסמיילים
+poll_create_poll:יצירת סקר
+poll_update_poll:עדכון סקר
+poll_delete:מחיקה
+poll_updateoption:עדכון אפשרות
+poll_addoption:הוספת אפשרות
+poll_unlimited:ללא הגבלה
+poll_day:יום
+poll_days:ימים
+poll_hour:שעה
+poll_hours:שעות
+poll_month:חודש
+poll_year:שנה
+poll_week:שבוע
+tabs_register:הגדרות חשבון
+tabs_bookmarkes:סימניות
+delete_yes:כן
+delete_no:לא
+error_invalidurl:כתובת שגויה
+error_error:שגיאה
+core_err_invinp_title:קלט שגוי
+email_error_invaliduser:משתמש שגוי
+emailconf_err_invkey_title:שגיאה
+post_err_passwd:ססמה שגויה.
+register_err_emailexists:כתובת הדוא"ל הזאת כבר משויכת ללחשבון. אם שכחת את ססמתך, יש להשתמש באפשרות השחזור ולא להירשם מחדש.
+register_err_shortpasswd:בססמה צריכים להיות לפחות 6 תווים.
+register_err_passwdnomatch:הססמאות שלך אינן תואמות, נא לנסות שוב.
+register_err_enterpasswd:יש להזין את הססמה הנוכחית כדי להשלים את השינויים.
+register_err_adminpasswd:יש להסין את ססמת ה<b>מנהל</b> שלך כדי להשלים את השינויים.
+register_welcome_msg:תודה על הרישום.\n\nהיה פרטי ההרשמה שלך לפורום:\n\nכתובת הפורום: {TEMPLATE: index_update_lnk}\nשם משתמש: {VAR: uent->login}\nססמה: {VAR: _POST['reg_plaintext_passwd']}\n\nנא לשים לב לכך שבססמאות יש חשיבות לאותיות רישיות וקטנות!\nכדי לשנות את ההגדרות שלך או את הפרופיל שלך, נא לעבור לדף הזה:\n{FULL_ROOT}{ROOT}?t=register
+report_err_nosuchmsg_title:שגיאה
+report_err_nosuchmsg_msg:אין הודעה כזו
+reset_err_invalidkey_title:שגיאה
+reset_err_invalidkey_msg:מפתח איפוס ססמה בלתי־תקין. ייתכן שתכנת הדואר האלקטרוני שלך כבר פתחה אוטומטית את הדף הזה וביטלה את מפתח האיפוס. אם זה המקרה, בקרוב יגיע מכתב עם ססמה חדשה. אם מכתב כזה אינו מגיע, יש לנסות לאפס את הססמה.
+reset_newpass_title:איפוס ססמה
+reset_newpass_msg:שלום,\n\nלבקשתף, מידע על ההרשה שלך מופיע להלן:\n\nמשתמש: {VAR: ui[1]}\nססמה: {VAR: passwd}\n\nנא לשים לב לכך שססמתך אופסה לערך לעיל.\nאם ברצונך לשנות את הססמה, אפשר לעשות זאת דרך לוח הבקרה בכתובת הבאה:\n{FULL_ROOT}{ROOT}?t=register
+reset_login_notify:הססמה נשלחה אליך בדואר אלקטרוני. היא תתקבל בדקות הקרובות.<br />
+finduser_title:חיפוש משתמש
+help_title:עזרה
+login_title:טופס כניסה
+reset_title:איפוס ססמה
+rpasswd_title:טופס שינוי ססמה
+poll_add_option:הוספת אפשרות:
+post_opt:אפשרויות פורום:
+register_change_passwd:שינוי ססמה
+groupmgr_yes:כן
+groupmgr_no:לא
+groupmgr_action:פעולה
+groupmgr_cancel:ביטול
+groupmgr_edit:עריכה
+groupmgr_delete:מחיקה
+group_mgr_anon:אלמוני
+group_mgr_reged:כל המשתמשים הרשומים
+show_show:הצגה:
+group_mgr:מנהל הקבוצות
+group_mgr_edit_btn:עריכת קבוצה
+group_mgr_group:קבוצה:
+permission_denied_title:ההרשאה נדחתה!
+p_READ:קריאה
+p_POST:פרסום
+p_REPLY:תגובה
+p_EDIT:עריכה
+p_DEL:מחיקה
+p_STICKY:הודעות דביקות
+p_POLL:יצירת סקרים
+p_FILE:צירוף קבצים
+p_VOTE:הצבעה
+p_RATE:דירוג נושאים/חברים
+p_SPLIT:פיצול נושאים
+p_LOCK:נעילת נושאים
+p_MOVE:העברת נושאים
+p_SML:שימוש בסמיילים
+p_IMG:שימוש בתגיות תמונה
+p_SEARCH:יכולת חיפוש
+group_mgr_search:חיפוש משתמשים
+group_mgr_indicator:כרגע בעריכה: <b>{VAR: grp->name}</b>
+rate_worst:הגרוע ביותר
+rate_best:הטוב ביותר
+post_quote:ציטוט:
+post_quote_selected:ציטוט הטקסט הנבחר
+pm_no_space_title:לא נשאר מקום!
+th_expr_never:לעולם לאּ
+th_expr_one_hr:שעה
+th_expr_three_hr:3 שעות
+th_expr_four_hr:4 שעות
+th_expr_eight_hr:8 שעות
+th_expr_sixteen_hr:16 שעות
+th_expr_one_day:יום
+th_expr_two_day:יומיים
+th_expr_four_day:4 ימים
+th_expr_one_week:שבוע
+th_expr_two_week:שבועיים
+th_expr_one_month:חודש
+th_expr_two_month:חודשיים
+th_expr_four_month:4 חודשים
+th_expr_one_year:שנה
+thread_mod_delete:מחיקה
+action_ip:IP
+action_latest_post:ההודעה האחרונה
+online_today_last_visit:ביקור אחרון
+logedin_todays_visitors:המבקרים של היום
+drawmsg_view_rest_post:הצגת המשך ההודעה
+forumsel_goto_forum:מעבר לפורום:
+split_th_subject:נושא:
+split_th_forum:פורום:
+split_th_messages:הודעות
+split_th_select:בחירה
+report_report_post:דיווח על הודעה
+quicklogin_password:ססמה:
+quick_reply:תגובה מהירה
+quick_reply_post:פרסום תגובה מהירה
+quick_reply_preview:הצגה מקדימה של התגובה המהירה
+maximize_category:הגדלת קטגוריה
+pmsg_next_msg:ההודעה הבאה
+pmsg_prev_msg:ההודעה הקודמת
+imsg_err_message_title:הודעה שגויה
+imsg_err_message_msg:ההודעה בה ניסית לצפות אינה קיימת.
+poll_edit:עריכה
+register_err_not_valid_img:הכתובת שצוינה אינה מכילה תמונה תקנית.
+polllist_vote:הצבעה
+polllist_view_results:צפייה בתוצאות
+polllist_name:שם הסקר
+polllist_action:פעולה
+userinfo_polls:סקרים:
+show_pollist:הצגת סקרים
+search_and:וגם
+search_or:או
+spell_alts:אין חלופות
+iemail_msg_reply:תגובה
+iemail_msg_quote:ציטוט
+threadt_announce:הכרזה
+mnav_date_limit:טווח תאריכים:
+register_email_addr:כתובת דוא״ל:
+ip_search_by_ip:חיפוש משתמשים לפי IP
+ip_search_syntax:התחביר הנתמך: 1.2.3.4, 1.2.3, 1.2, 1
+ip_search:חיפוש
+ip_analyze_usage:ניתוח השימוש ב־IP
+ip_title:סייר IP
+userinfo_real_name:שם אמתי:
+delete_msg_pm_body:ההודעה המקורית
+search_options:אפשרויות חיפוש
+search_user_filter:סינון לפי משתמש:
+register_none:לא להודיע לי
+modque_cat:קטגוריה
+modque_forum:פורום
+idx_compact_forum_row:פורומים זמינים:
+mmd_del_title:מחיקת נושאים
+mmd_mov_title:העברת נושאים
+mmd_move_threads_to:פורום יעד:
+mmd_abort_move:ביטול
+mmd_move:העברת נושאים
+pmsg_pdf_btn:יצירת ארכיון PDF
+dmsg_ip:IP:
+rating_delete:מחיקה
+finduser_flag:דגל
+copyright:כל הזכויות שמורות &copy;‏2001-‎2012 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+code_title:קוד:
+code_select_all:בחר הכל
+code_show_hide:הצגה/הסתרה
+social_sites:אתרי רשתות חברתיות:
+postcheck_min_len_err:ההודעה שלך קצרה מדי. האורך המזערי הוא {PLURAL: post_min_len|$1 character|$1 characters}.
+btn_new_topic:נושא חדש
+btn_about:פרופיל
+btn_delete:מחיקה
+btn_edit:עריכה
+btn_reply:תגובה
+btn_forward:העברה
+btn_quote:ציטוט
+btn_email:דוא״ל
+feed_rdf:הזנת RDF
+feed_rss:הזנת RSS2
+feed_atom:הזנת ATOM
+ip_whois_connect_err:לא ניתן להתחבר לשרת ה־WHOIS ({VAR: whois_server}): {VAR: errstr}
+custom_filed_required:זהו שדה נדרש.
+pages:עמודים
+page_list_heading:עמודים זמינים
+karma_delete:מחיקה
