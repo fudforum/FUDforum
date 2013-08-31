@@ -1,0 +1,725 @@
+# Messages for Kirghiz (Кыргызча)
+# Exported from translatewiki.net
+# Author: Growingup
+# Author: Maksat
+
+action:Аракет
+add_to_buddy_list:Контактар тизмесине кошуу
+admin:Админ
+admin_control_panel:Башкаруу
+administrator:Администратор
+attachment:Тиркеме:
+avatar:Сүрөт:
+average_post_count:{PLURAL: u->posted_msg_count|$1 Билдирүү|$1 Билдирүүлөр} (болжол менен{PLURAL: avg|$1 average билдирүү|$1 билдирүүлөр} бир күндө)
+biography:Биография:
+birth_date:Туулган жылы:
+by:Кайдан/кимден:
+by_mod:Модератордон:
+current_time:Учурдагы убакыт
+custom_avatar_queue:Сырткы сүрөттөр катары
+date_posted:Жөнөтүлгөн күнү
+date_registered:Катталган күнү:
+download_counter:{PLURAL: v[3]|$1 жолу|$1 жолу} жүктөлдү
+pmsg_download_counter:{PLURAL: v[3]|$1 жолу|$1 жолу} жүктөлдү
+email:Электрондук дарек:
+email_to_friend:Электрондук дарек аркылуу жөнөтүү
+email_to_friend_desc:Бул билдирүүнүн URL шилтемесин электрондук дарекке жөнөтүү
+email_user:Колдонуучуга билдирүү жөнөтүү
+faq:Жардам
+first_unread_msg:Окула элек билдирүүлөргө өтүү
+first_unread_msg_desc:Бул темадагы 1-окула элек билдирүүгө өтүү
+forum:Форум:
+forum_icon:Форумдун белгиси
+forum_new_messages:Жаңы билдирмелер
+forum_none_messages:Форумга катталган гана колдонуучулар жаңы билдирүүлөрдү &amp окуй алышат
+forum_old_messages:Жаңы билдирүүлөр жок
+from:Кимден:
+gender:Жыныс:
+go:Өтүү
+goto_next_msg:Кийинки билдирүүгө өтүү
+goto_prev_msg:Мурунку билдирүүгө өтүү
+home:Башкы
+homepage:Үйбарак:
+icq_control_panel:ICQ тармагындагы онлайн панели
+icq_message_form:ICQ билдирүү жөнөтүү:
+ignore_user:Бул колдонуучунну бардык билдирүүлөрүн жокко чыгаруу
+im_aim:AIM тармагы:
+im_msnm:MSN билдирүү:
+im_yahoo:Yahoo билдирүү:
+image:Сүрөт:
+index_forum:Форум
+index_new_posts:Акыркы киргенден бери жаңы билдирүү бар
+index_no_new_posts:Акыркы киргенден бери жаңы билдирүү жок
+index_url_redirection:Өтүү
+interests:Кызыгуулар:
+last_post:Акыркы билдирүү
+last_thread_msg:Бул темадагы акыркы билдирүүгө өтүү
+legend:Тарыхы
+location:Орун:
+lock_thread:Теманы жабуу
+locked:Бөгөттөлгөн
+locked_with_new_posts:Тема жабылган (окула элек билдирүүлөр бар)
+logged_in_list:Азыр форумда
+login:Кирүү
+login_header:Эсеп жазуусу:
+logout:Чыгуу
+mark_all_read:Бардык билдирүүлөрдү окула элек деп белгилөө
+mark_all_read_desc:Бардык Сиз окуй элек билдирүүлөр окулду деп белгиленди
+members:Катышуучулар
+calendar:Жылнаама
+cal_goto_date:Өтүү:
+cal_day_heading:Күндүн окуялары
+cal_no_events:Бул күндүн окуялары жок
+cal_update:Форум жылнаамасын карап чыгуу
+cal_birthday:Туулган жылы: {VAR: user}
+cal_birthday_age:(жаш курагы{PLURAL: age|$1 жыл|$1 жылы} жашта).
+message:Билдирме
+message_counter:Биздин колдонуучулар тарабынан <b>{PLURAL: post_count|$1 билдирүү|$1 билдирүүлөр}</b> бул <b>{PLURAL: thread_count|$1 темага|$1 темаларга}</b>калтырылды.
+message_index:Билдирүүлөр тизмеси
+message_index_desc:Билдирүүлөр тизмесин карап чыгуу
+minimize_category:Түрмөктү бүктөө
+minimize_message:Билдирүүнү бүктөө
+moderation_queue:Модератор катары
+moderator:Модератор
+moderator_of:Модераторлук кылган форумдар:
+moderator_options:Модератордун иш аракеттери
+moderators:{PLURAL: modcount|Модератор|Модераторлор}
+more_unread_messages:башка окула элек билдирүүлөр
+more_unread_messages_desc:Башка окула элек билдирүүлөрдү көрсөтүү жана аларды окулду деп белгилөө
+move_thread:Ташуу
+moved:Тема башка форумга которулган
+moved_thread_message:Бул тема башка форумга которулган
+new_posts:Жаңы билдирмелер
+new_private_messages:Сизде <span class="GenTextRed">({VAR: c})</span> окула элек {PLURAL: c|жеке билдирүү|жеке билдирүүлөр} бар
+new_thread:Жаңы тема түзүү
+newest_user:Акыркы катталган колдонуучу:
+next_page:Кийинки барак
+next_thread:Кийинки тема:
+no_messages:Бул форумда билдирүүлөр жок.<br /> Бул жерде жаңы теманы талкулоого биничилерден болуңуз.
+no_msg_body:Билдирүүнүн текти жок
+no_new_posts:Жаңы билдирүүлөр жок
+no_posts:Билдирүүлөр жок
+no_subscribed_forums:Жазылууга форумдар жок
+no_subscribed_threads:Жазылууга темалар жок
+no_bookmarked_threads:Сакталган файлдарда тема жок
+no_unread_locked:Бул тема жабылган
+no_unread_msg:Бул темада окула элек билдирүүлөр жок
+no_unread_msg_unreg:Окулган жана окула элек билдирүүлөрдү кароо катталган гана колдонуучуларга жеткиликтүү
+num_pages:Барактар ({VAR: ttl_pg}):
+num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|добуш|добуштар}
+occupation:Ишмердүүлүгү:
+off:өчүк
+on:күйүк
+page_timings:Баракты түзүүдө сарпталган жалпы убакыт:{PLURAL: page_gen_time|$1 секундалар}
+pm:Жеке билдирүүлөр
+poll:Добуш берүү:
+post_count:Билдирүүлөрдүн саны {VAR: u_pcount}
+post_count_l:Билдирүүлөрдүн саны
+posts:Билдирүүлөр
+posts_c:Билдирүүлөр:
+prev_thread:Мурунку тема:
+usrinfo_private_message:Жеке билдирүүлөр:
+profile:оңдоп-түздөө аспабы
+profile_desc:Колдонуучунун башкаруу аспабына кирүүгө мүмкүнчүлүк
+rate_thread:Темага баа берүү
+rating:Рейтинги
+rating_track:Теманын рейтингин жөнгө салуу <b>{VAR: thr->subject}</b>:
+refresh_list:Тизмени жаңыртуу
+register:Каттоо
+registered:Катталган:
+registered_on:Катталган күнү:{TEMPLATE: registered_on_date}
+replies:Жооптор
+report_to_mod:Модераторго билдирүү
+reported_messages:Билдирүүлөр тууралуу билдирүү
+reveal_all_posts:{VAR: user_login} бардык билдирүүлөрдү көрсөтүү
+reveal_post:билдирүүнү көрсөтүү
+search:Издөө
+sel_todays_posts:Бүгүнкү билдирүүлөр
+sel_todays_posts_desc:Бүгүнкү билдирүүлөрдү көрсөтүүгө өтүү
+sel_unanswered_posts:Жоопсуз билдирүүлөр
+sel_unanswered_posts_desc:Жоопсуз калган билдирүүлөрдү көрсөтүүгө өтүү
+sel_unread_messages:Окула элек билдирүүлөр
+sel_unread_messages_desc:Окула элек билдирүүлөрдү көрсөтүүгө өтүү
+send:Жөнөтүү
+send_pm_desc:Бул колдонуучуга жеке билдирүү жөнөтүү
+sender_email:Автордун электрондук дареги:
+sender_name:Автордун ысымы:
+show_posts_by:{VAR: u_alias} билдирүүлөрдү көрсөтүү
+size:Өлчөм:
+status:Абал:
+status_line:Учурда форумда <b>{PLURAL: st_obj->online_users_reg|$1 колдонуучу|$1 колдонуучулар}</b>, <b>{PLURAL: st_obj->online_users_hidden|$1 көрүнбөгөн колдонуучу|$1 көрүнбөгөн колдонуучулар}</b> and <b>{PLURAL: st_obj->online_users_anon|$1 конок|$1 коноктор}</b> бар.
+sticky:стикер:
+stop_ignoring:колдонуучу этибарга албоону токтотуу
+sub_to_thread:Темага жазылуу
+sub_to_thread_desc:Бул тема боюнча жаңы билдирүүлөр тууралуу маалымат алуу
+bookmark_thread:Сакталма файлга кошуу
+bookmark_thread_desc:Бул теманы өзүңүздүн сакталма файлыңызга кошуу
+subject:Тема
+subscribe:Жазылуу
+subscribe_desc:Бул форумда ким тема түзсө, ал тууралуу маалымат алуу
+subscribed_forums:Жазылган форумдар
+subscribed_forums_desc:Сиз жазылган гана форумдардан билдирүүлөрдүү алуу
+subscribed_threads:Жазылган темалар
+subscribed_threads_desc:Сиз жазылган гана темалардан билдирүүлөрдү алуу
+bookmarked_threads:Теманын сакталма файлдары
+switch_to_thread_view:Билдирүүлөр жана жоопторду көрүүдө дарак типтүү нукка өтүү
+thread:Тема:
+thread_announcement:Кулактандыруулар:
+thread_first_unread_msg:Бул темадагы 1-окула элек билдирүүгө өтүү
+thread_thread:Тема
+threads:Темалар
+time:Убакыт
+todays_posts:Бүгүнкү билдирүүлөр
+todays_posts_desc:Бүгүн жөнөтүлгөн бардык билдирүүлөрдү көрсөтүү
+un_ignore_user:бул кодонуучуну этибарга албоону токтотуу
+unanswered_posts:Жоопсуз билдирүүлөр
+unanswered_posts_desc:Жоопсуз билдирүүлөрдүн барын көрсөтүү
+unlock_thread:Теманы ачуу
+unread_msg:Бул темада Сиз окуй элек билдирүүлөр бар
+unread_msg_locked:Окула элек билдирүүлөрү бар жабылган тема
+unread_posts:Окула элек билдирүүлөр
+unread_posts_desc:Окула элек билдирүүлөргө өтүү
+unsub_from_thread:Темада жазылуудан баш тартуу
+unsub_from_thread_desc:Бул тема боюнча жаңы билдирүүлөрдү алуудан баш тартуу
+unbookmark_thread:Сакталма файлдардан өчүрүү
+unbookmark_thread_desc:Бул теманы өзүңүздүн сакталма файлыңыздан өчүрүү
+unsubscribe:Форумда жазылуудан баш тартуу
+unsubscribe_desc:Бул тема боюнча жаңы билдирүүлөрдү алуудан баш тартуу
+updated_on:Жаңылануу:
+user:Колдонуучу
+user_counter:Бизде <b>{VAR: st_obj->user_count}</b> катталган {PLURAL: st_obj->user_count|колдонуучу|колдонуучулар}.
+user_info:Колдонуучу жөнүндө маалымат
+user_info_l:{VAR: u->alias} колдонуучу тууралуу маалымат
+user_offline:{VAR: obj->login} учурда онлайн эмес
+user_online:{VAR: obj->login} учурда онлайн
+usrinfo_last_post:Акыркы билдирүү
+view_results:Жыйынтыктарды кароо
+views:Көрүүлөр
+vote:{PLURAL: frm->n_rating|$1 Vote|$1 Votes}
+vote_button:Добуш берүү
+vote_for_thread:Баалоо
+was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> модератор тарабынан <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> көчүрүлгөн.
+welcome_message:Кош келиңиз, <b>{VAR: usr->alias}</b>, форумдагы Сиздин акыркы аракетиңиз {TEMPLATE: welcome_message_date}
+what_ppl_doing:Кимдин эмне кылып жатканын көрсөтүү
+reported_del_report:Отчетту өчүрүү
+reported_reason:Себеп:
+reported_on:Билдирүү күнү:
+reported_reported_by:Билдирүү кимден:
+reported_reported_msg:Билдирүүлөр тууралуу билдирүү
+modque_pending_approval:Билдирүүнү тастыктоону күтүүдө
+modque_approve:Тастыктоо
+modque_delete:Өчүрүү
+modque_deleteall:Колдонуучуну өчүрүү
+modque_no_message:Тастыктоону күтүп жаткан билдирүүлөр жок
+pmsg_new_messages:Окула элек жеке билдирүү
+pmsg_old_messages:Окулган жеке билдирүү
+deny_recipt:Маалымат жөнөтүүнү бөгөттөө
+deny_recipt_desc:Билдирүү окулгандыгны тууралуу анын авторуна маалымат жөнөтпөө
+restore_to:Калыбына келдирүү:
+move_to:Орун алмаштыруу:
+list_referes_referrals:Чакырылган
+list_referes_member:Катышуучулар
+referals_none:Азырынча эч ким чакырыла элек.
+referals_post_count:Билдирүүлөр
+referals_registered_on:Катталган күнү:
+referals_action:Аракет
+pmsg_all:баары
+pmsg_none:жок
+folder:Папка:
+pmsg_replied:жооп кайтарылган
+pmsg_forwarded:жооп башкага жолдонгон
+pmsg_subject:Тема
+pmsg_author:Автор
+pmsg_time:Убакыт
+pmsg_selected:Тандалды
+pmsg_delete:Өчүрүү
+cur_ppage_pm:Жеке билдирүү
+writing_pm:Жекече кат түзүү
+browsing_folder:Папканы  <b>{VAR: folders[$folder_id]}</b> көрүү
+inbox:Келген каттар
+draft:Сомолор
+sent:Жөнөтүү
+trash:Себет
+msg_author:Автор
+avatar_sel_form:Сүрөт тандоо
+no_avatars:Жеткиликтүү сүрөттөр жок
+month_1:Январь (Үчтүн айы)
+month_2:Февраль (Бирдин айы)
+month_3:Март (Жалган куран)
+month_4:Апрель (Чын куран)
+month_5:Май (Бугу)
+month_6:Июнь (Кулжа)
+month_7:Июль (Теке)
+month_8:Август (Баш оона)
+month_9:Сентябрь (Аяк оона)
+month_10:Октябрь (Тогуздун айы)
+month_11:Ноябрь (Жетинин айы)
+month_12:Декабрь (Бештин айы)
+sunday:Жекшемби
+monday:Дүйшөмбү
+tuesday:Шейшемби
+wednesday:Шаршемби
+thursday:Бейшемби
+friday:Жума
+saturday:Ишемби
+male:Мырза
+female:Айым
+unspecified:КӨРСӨТҮЛГӨН ЭМЕС
+register_tree_view:Дарак сымал
+register_msg_tree_view:Жалпак форумдар/Дарак сымал билдирүүлөр
+register_tree_msg_view:Дарак сымал форумдар/Жалпак темалар
+register_flat_view:Жалпак түр
+finduser_user_info:Колдонуучу жөнүндө маалымат
+finduser_by_login:Аты жөнү:
+finduser_submit:Издөө
+finduser_no_such_user:Жок колдонуучу
+finduser_user:Колдонуучу
+finduser_postcount:Билдирүүлөрдүн саны
+finduser_joindate:Катталган күнү
+finduser_action:Аракет
+yes:Ооба
+no:Жок
+register_email:Электрондук дарек
+edit_time_limit:<b>Оңдоп туздөө убактысы</b>: {GVAR: EDIT_TIME_LIMIT} мүнөт
+no_edit_time_limit:<b>Оңдоп туздөө убактысы</b>: Мөөнөтсүз
+pmuserloc_login:Кирүү
+pmuserloc_submit:Жөнөтүү
+pmuserloc_user:Колдонуучу
+pmuserloc_no_result:Жыйынтык чыккан жок
+register_builtin:Камтылган
+register_specify_url:URL көрсөтүү
+register_uploaded:Сүрөт жүктөө
+register_login:Кирүү:
+register_password:Сырсөз:
+register_conf_pass:Сырсөздү тастыктаңыз:
+register_email_desc:Реалдуу электрондук дарегиңизди жазыңыз. Аны жекече оңдоп-түздөөлөрдө ката аласыз.
+register_name:Ысымы:
+register_your_pass:Сиздин сырсөзүңүз:
+register_update:Жаңыртуу
+register_avatar_type:Жеке типтин сүрөтү:
+register_del_avatar:Сүрөттү өчүрүү
+register_avatar:Сүрөт:
+register_sel_avatar:Сүрөттү тандоо
+register_custom_avatar_rules:Форумдун администратору сырткы сүрөтүңүздү тастыктамайынча, сүрөтуңүз көрүнбөй турат.<br /><span class="SmallText">Сүрөттүн өлчөмү <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} чекиттен ашпаш керек</b> жана форматы <b>jpg</b>, <b>gif</b> же <b>png</b> болушу керек.</span>
+register_custom_avatar_url:Сүрөттүн URL:
+register_preview:Алдын ала көргөз
+register_custom_avatar_upload:Сүрөт менен файл:
+register_register:Каттоо
+register_required:Сөзсүз жазылуучу маалымат
+register_required_desc:Бардык талаалар сөзсүз толтурулушу абзел. Сураныч, эсиңизде болсун сырсөздөр катталуу символдоруна сезгич келет.
+register_optional:Кошумча маалымат
+register_optional_desc:Төмөндө көрсөтулгөн маалымат форумдун бардык колдонуучуларына ачык, андыктан өзгөчө жеке маалыматта жазбаңыз.
+register_location:Географиялык орду:
+register_occupation:Ишмердүүлүгү:
+register_interests:Кызыгуулар:
+register_image:Сүрөт:
+register_icq:ICQ
+register_aim:AIM тармагы:
+register_yahoo:Yahoo билдирүү:
+register_msnm:MSN билдирүү:
+register_homepage:Башбарак:
+register_bday:Туулган жылы:
+register_bday_desc:өзүңүздүн туулган жылыңызды көрсөткөнүңүздө, башка колдонуучулар Сиздин жеке баракты көрүүдө көрө алышат.
+register_day:Күн
+register_month:Ай
+register_year:Жыл
+register_gender:Жынысы:
+register_bio:Биографиясы:
+register_bio_desc:Майда тактоолор, мисалы, жумушуңуз, кызыгууңуз ж.б.
+register_prefs:Ырастоолор
+register_sig:Кол тамга
+register_sig_desc:Сиздин билдирүүлөрүңүзгө кошулуучу сөзсүз эмес кол тамга.
+register_reset:Тазала
+register_msg_per_page:Барактардагы билдирүүлөр:
+register_show_sig:Кол тамгаларды көрсөтүү
+register_show_sig_desc:Башка колдонуучулардын кол тамгаларын көрүүгө же/жана көрбөөгө мүмкүндүк берет
+register_use_sig_default:Автоматтык түрдө кол тамганы колдонуу:
+register_use_sig_default_desc:Ар бир Сиз жөнөтеөн билдирүүгө автоматтык түрдө кол тамгаңыз жазылат.
+register_timezone:Убакыт бирдиги:
+register_ignore_admin:Административдик билдирүүлөрдү этибар кылуу:
+register_invisible_mode:Көрүнгүс абал:
+register_invisible_mode_desc:Башка колдонуучулардан Сиздин иш аракетти жашыруу.
+register_show_email:Электрондук даректи көрсөтүү:
+register_show_email_desc:Эгер Сиздин электрондук дарек башка колдонуучуларга жеткиликтүү болсун десеңиз, күйгүзүңүз.
+register_notification:Маалымат алууну автоматташтыруу:
+register_notify_method:Маалыматтарды жөнөтүү методу:
+register_allow_email_msg:Электрондук дарекке билдирүү жөнөтүүнү ырастооо:
+register_allow_email_msg_desc:Башка колдонуучулар форум аркылуу Сиздин электрондук дарекке билдирүү жөнөтүшүн ырастоо.
+buddy_status:Абалы
+my_buddies:Байланыштар тизмеси
+add_buddy:Байланыштар тизмесине кошуу
+add:Кошуу
+buddy_search:Сиз кошкуңуз келген колдонуучунун ысымын жазыңыз.
+member_search:Же болбосо <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Колдонуучуну табуу</a> үчүн бул мүмкүнчүлүктү колдонуңуз.
+buddy_remove:Өчүрүү
+post_normal:Нормалдуу
+post_sticky:Стикер
+post_annoncement:Кулактандыруулар
+post_size:Өлчөм
+post_color:Түс
+post_font:Шрифттер
+create_thread:Тема түзүү
+submit_reply:Жооп кайтаруу
+edit_message:Билдирүүнү өзгөртүү
+apply_spell_changes:Туура жазуу эрежесин тастыктоо
+post_preview:Билдирүүнү алдын ала көрүү
+post_logedin_user:Колдонуучу:
+post_logout:Чыгуу
+post_passwd:Форумдун профили:
+post_poll:Добуш берүү:
+post_create_poll:ТҮЗҮҮ
+post_poll_delete:ӨЧҮРҮҮ
+post_poll_edit:ОҢДОО
+post_mod_opt:Модератордун иш аракеттери:
+post_thread_type:Теманын тиби:
+post_thread_expiry:Тема эскирүүдө:
+post_locked:Жабык тема
+post_icons:Билдирүүнүн сүрөтү:
+post_no_icon:Сүрөт жок
+post_smiley:Быйтык коюу:
+post_format_tools:Форматтоо:
+post_upload_file:Файлды жүктөө
+post_file_del:Өчүрүү
+post_file_name:Ысымы
+post_file_size:Өлчөм
+file_attachments:Файлды кыстыруу:
+allowed_files:Файлдын жеткиликтүү өлчөмү:
+max_file_size:Максималдуу файл өлчөмү:
+max_files_per_msg:Билдирүүдөгү файлдардын максималдуу саны:
+post_notification:Билдирүүлөр тууралуу маалымат
+include_sig:Билдирүүгө кол тамга кошуу
+include_sig_desc:Билдирүүлөргө Сиздин жеке баракчаңыздагы кол тамганы кошуу.
+disable_smilies:Быйтыктарды өчүрүү
+spell_check_msg:Орфографияны текшерүү
+post_form:Билдирүү жөнөтүү
+post_forum:Форум:
+post_title:Аталышы
+post_body:Текст:
+post_options:Көрсөткүчтөр:
+post_preview_btn:Алдын ала көрүү
+post_cancel_btn:Жокко чыгаруу
+ignore_users:Этибар алынбаган колдонуучулар
+add_ignore:Этибар алынган колдонуучуну кошуу
+forum_terms:Форумдун эрежелери
+coppa_conf:COPPA тастыктоо
+coppa_before:Мурда {TEMPLATE: coppa_date}
+coppa_after:Кийин {TEMPLATE: coppa_date}
+coppa_link:Туулган күнүңүздү туура көрсөткөн шилтемени тандаңыз
+prereg_info:Маалымат
+prereg_agree:Кабыл алуу
+prereg_disagree:Каршы
+prereg_update:Форумдун эрежесин окуңуз
+coppa_fax_instructions:Ата-энелер үчүн эрежелер
+coppa_fax_instructions2:Төмөнкү форманы толтуруп, басып чыгарып кол тамгаңызды кобуп, бул дарекке жөнөтүңүз:
+coppa_fax_reg_form:Катталуу формасы
+coppa_fax_sign:Сураныч. төмөнкү форманы толтуруп жана басып чыгарып бизге жөнөтүңүз
+coppa_fax_permission:Эгерди Сиз макул болсоңуз кол тамгаңызды коюуңуз
+coppa_fax_no_permission:Эгерде катталууну бөгөттөңүз келсе бул жерге кол тамгаңызды коюуңуз
+coppa_fax_parent_name:Ата-энесинин толук ысымы:
+coppa_fax_relation:Баласы менен кандай жакындыгы бар:
+coppa_fax_telephone:Телефон:
+coppa_fax_email:Электрондук дарек:
+coppa_fax_date:Дата:
+coppa_fax_questions:Түрдүү суроолор боюнча консультация <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
+coppa_fax_login:Кирүү
+coppa_fax_passwd:Сырсөз
+coppa_fax_remail:Электрондук дарек
+coppa_fax_name:Ысымы
+login_not_logedin:Сиз форумга кирген жоксуз. Анын себеби төмөндө болушу ыктымал:
+login_want_to_register:Катталгыңыз келеби?
+login_forgot_passwd:Сырсөздү унуттум
+login_login:Кирүү
+login_login_btn:Кирүү
+login_name_required:Эсеп жазууда ысымы көрсөтүлгөн жок
+login_passwd_required:Сырсөз көрсөтүлгөн эмес
+login_invalid_radius:Ысымдын/сырсөздүн жазылышы туура эмес
+reset_confirmation:Катталганыңыз үчүн ыракмат,\n\nКатталууңузду активдештирүү үчүн төмөнкү шилтемени басыңыз:\n\n{VAR: url}\n\nАктивдешкенден кийин, форумда катталасыз жана автоматтык түрдө башбаракка багытталасыз.
+rpasswd_invalid_passwd:Сырсөз туура эмес
+rpasswd_passwd_nomatch:Сырсөздөр дал келген жок
+rpasswd_passwd_length:Сырсөз минимум 6 символдон турушу абзел
+reset_remind_pass:Сырсөздү эске салуу
+rpasswd_change_pass:Сырсөздү өзгөртүү
+rpasswd_login:Кирүү
+rpasswd_cur_pass:Учурдагы сырсөз:
+rpasswd_new_pass:Жаңы сырсөз:
+rpasswd_conf_pass:Сырсөздү тастыктаңыз:
+ruser_title:Кирүү ысымын өзгөртүү формасы
+ruser_change_user:Сиздин форумдагы ысымыңызды өзгөртүү
+ruser_cur_login:Учурдагы кирүү ысымыңыз:
+ruser_new_login:Жаңы кирүү ысымыңыз:
+ruser_cur_pass:Учурдагы сырсөз:
+login_passwd:Сырсөз:
+reset_email:Электрондук дарек:
+reset_reset_button:Сырсөздү өчүрүү
+rate_this_thread:Баалоо
+report_reporting_about:Билдирүү тууралуу маалымат:
+report_subject:Тема:
+report_by:Кайдан/кимден:
+report_posted_on:Жөнөтүлгөн:
+report_give_reason:Сураныч, бул билдирүү тууралуу модераторго маалымдоо себебиңизди жазыңыз:
+report_submit_report:Маалымдоо
+search_entire_msg:Билдирүү толугу менен
+search_subject_only:Тема гана
+search_forum:Форум
+search_posted_on:Жөнөтүлгөн күн:
+search_no_results:Жыйынтык чыккан жок
+search_all_forums:Бардык форумдар
+search_in_forum:Издөө үчүн форум:
+search_forum_search:Форумдан издөө
+move_thread_to:Теманы <b>{VAR: thr->subject}</b> форумга которуу:
+remail_email_topic:Бул теманы электрондук дарек аркылуу жөнөтүү
+remail_your_name:Сиздин ысым:
+remail_your_email:Сиздин Э-дарек:
+remail_friends_name:Алуучунун ысымы:
+remail_friends_email:Алуучунун Э-дареги:
+remail_required:Сөзсүз
+remail_subject:Тема:
+remail_message:Билдирүү:
+remail_send_now:Жаңы Э-кат жөнөтүү
+remail_done:Даяр
+remail_error:Катачылык чыкты
+mklist_type:Түр:
+mklist_option:Көрсөткүчтөр:
+mklist_additem:Кошуу
+mklist_apply:Кабыл алуу
+mklist_delete:Өчүрүү
+qbud_nick_name:Кайман аты
+qbud_add_selected:Өзгөчөлөрдү кошуу
+qbud_selected:Тандалды
+qbud_no_buddies:Тандалгандар тизмесинде эч ким жок
+mklist_numerical:Сандык
+mklist_disc:Диск
+mklist_circle:Айлана
+mklist_close:Жабуу
+email_to:Кимге:
+email_pg_title:Э-дарек
+email_subject:Тема:
+email_body:Текст:
+email_submit:Э-дарек
+ppost_quote_msg:{VAR: msg_to_list} жазды {TEMPLATE: ppost_quote_msg_date}
+ppost_quote:Цитаталар
+ppost_to:Кимге:
+ppost_from_buddy_list:Байланыштар тизмесинен тандоо
+ppost_find_User:Катышуучуну табуу
+ppost_track_msg:Окулганы тууралуу маалымат
+ppost_track_msg_desc:Бул билдирүүнү алуучу окуганда мени маалымдоо
+ppost_send:Жөнөтүү
+ppost_save_draft:Сактоо
+poll_blank_option:Бош үлгүнү кошо албайсыз.
+poll_del_conf:Эгерде Сиз үлгүнү өчүргүңүз келсе, анда өчүрүү баскычы ОК
+poll_name:Добуш берүүнүн аталышы:
+poll_timelimit:Жеткиликтүү убакты:
+poll_maxiumvotes:Максимум добуш:
+poll_create:Жаратуу
+poll_update:Өзгөртүү
+poll_disablesmilies:Быйтыктарды бөгөттөө
+poll_create_poll:Добуш берүүнү түзүү
+poll_update_poll:Добуш берүүну өзгөртүү
+poll_delete:Өчүрүү
+poll_updateoption:Үлгүнү өзгөртүү
+poll_addoption:Үлгүнү кошуу
+poll_unlimited:Мезгилсиз
+poll_day:күн
+poll_days:күндөр
+poll_hour:Саат
+poll_hours:сааттар
+poll_month:Ай
+poll_year:Жыл
+poll_week:апта
+tabs_subscriptions:Жазылуу
+tabs_bookmarkes:Чөп каттар
+tabs_referrals:Чакырылган
+tabs_buddy_list:Байланыштар тизмеги
+tabs_ignore_list:Этибар алынгандар тизмеги
+tabs_private_messaging:Жеке билдирүү
+delete_proceed:<span class="fb">Андан ары улантууга макулсузбу?</span>
+delete_yes:Ооба
+delete_no:Жок
+error_invalidurl:Жеткиликсиз URL
+error_error:Ката
+usrinfo_profile:{VAR: u->alias} катышуучу тууралуу маалымат
+usrinfo_show_all_posts:{VAR: u->alias}дан бардык билдирүүлөрдү көрсөтүү
+err_info:маалыматтар
+buddy_list_err_cantadd:Сиз өзүңүздү байланыштар тизмесине кошо албайсыз
+buddy_list_err_dup:Бул колдонуучу Сиздин байланыштар тизмесине мурун киргизилген
+buddy_list_err_nouser:Байланыштар тизмесине киргизе жаткан колдонуучу табылган жок
+buddy_list_err_nouser_title:Колдонуучуну кошуу мүмкүн эмес
+buddy_list_update:Байланыштар тизмесин кароо
+core_err_invinp_err:Сиз бул баракка катачылык менен келип калдыңыз. Сураныч, ал тууралуу  <a href="mailto:{GVAR: ADMIN_EMAIL}">вебустага</a> билдириңиз.
+core_adm_login_msg:Администраторлор бул жерден <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">киришет</a>
+email_err_unabletoemail_title:КАТАЧЫЛЫК: Электрондук билдирүү жөнөтүү мүмкүн эмес
+email_error_unabletolocaddr:Кечиресиз, система э-катты жөнөтө албай жатат {VAR-HTML: _POST['tx_name']}, анткени алуучунун дареги аныкталган жок
+email_error_body:Билдирүүнүн текстин сөзсүз жазыңыз
+email_error_subject:Теманы сөзсүз жазыңыз
+email_error_namerequired:Ысымын сөзсүз жазыңыз
+email_error_invaliduser:Жеткиликсиз колдонуучу
+emailconf_err_invkey_title:Ката
+err_inc_criticaltitle:Критикалык катачылык
+finduser_update:Каиышуучуларды издөө
+help_index_update:Окуңуз <a href="{TEMPLATE: help_index_update_lnk}">Суроо/Жооп</a>
+iemail_thr_subject:Билдирүүгө {VAR: thr_subject} жаңы жооп {VAR: poster_login}
+ignore_list_err_info_title:маалыматтар
+ignore_list_err_dup_msg:Бул колдонуучу Сиздин байланыштар тизмесине мурун киргизилген
+ignore_list_err_nu_title:Колдонуучу табылган жок
+ignore_list_err_nu_msg:Байланыштар тизмесине киргизе жаткан колдонуучу табылган жок
+ignore_list_cantign_msg:Сиз бул колдонуучуну этибарга алууңуз болбойт
+ignore_list_update:Этибарга алынган колдонуучулар тизмеси
+list_referers_update:Чакырылгандарды көрүү
+login_update:Форумга кирүү
+msg_update:Теманы көрүү <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
+pm_err_nopm_title:КАТАЧЫЛЫК: Жеке билдирүүлөр системасы өчүрүлгөн
+pm_err_nopm_msg:Сиз жеке билдирүүлөр системасын колдоно албайсыз, анткени ал администратор тарабынан бөгөттөлгөн.
+pm_update:Жеке дарек
+post_err_lockedthread_title:КАТАЧЫЛЫК: Тема жабык
+post_err_lockedthread_msg:Бул тема жабылган, билдирүүлөрдү жөнөтүүгө болбойт.
+err_coppa_title:КАТАЧЫЛЫК: Сиздин катталууңуз тастыктала элек
+err_banned_acct_title:КАТАЧЫЛЫК: Сиз бан-бөгөттөлгөнсүз
+post_err_edttimelimit_title:КАТАЧЫЛЫК
+post_err_edttimelimit_msg:Сиз мындан ары бул билдирүүнү оңдоп-түздөй албайсыз
+post_err_noannontopics_msg2:<legend>КАТАЧЫЛЫК: Укугуңуз жетишсиз</legend>Аноним колдонуучулар жаңы тема түзө алышпайт.
+post_err_noannonposts_msg2:<legend>КАТАЧЫЛЫК: Укугуңуз жетишсиз</legend>Аноним колдонуучулар билдирүүлөргө жооп кайтара алышпайт.
+post_err_floodtrig_title:КАТАЧЫЛЫК: Флуд массалык жөнөтүү табылды.
+post_err_floodtrig_msg:Сураныч, карадын {PLURAL: tm|$1 секундадан|$1 секундардан} кийин кайталаңыз
+post_err_passwd:Сырсөзүңүз туура эмес
+post_reply_update:Билдирүүгө жооп <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> форумда {VAR: frm->name}
+post_topic_update:Жаңы теманы <a href="{TEMPLATE: post_topic_update_lnk}">{VAR: frm->name}</a> форумда түзүү
+post_error_generic:Катачылык чыкты
+postcheck_subj_needed:Көрсөтүлгөн темалар сөзсүз болуп саналышат
+postcheck_no_recepient:Алуучу көрсөтүлбөсө билдирүүнү жөнөтүүгө болбойт
+postcheck_invalid_email:Сураныч, туура э-дарек көрсөтүңүз
+postcheck_email_subject:Тема көрсөтүлбөсө билдирүүнү жөнөтүүгө болбойт.
+postcheck_email_body:Текст жок болсо билдирүүнү жөнөтүүгө болбойт.
+private_msg_notify_body:Салам,<br />{VAR: usr->login} Сиздин жеке билдирүүңүздү окудум, "{VAR: m->subject}", {TEMPLATE: private_msg_notify_body_date}<br />
+referals_update:Чакырылгандарды көрүү
+register_err_short_login:Эсеп жазууда өтө кыска ысым тандалды - анда минимум 4 символ болуусу зарыл.
+register_err_login_notallowed:Колдонуучунун ысымы жарабайт.
+register_err_shortpasswd:Сырсөз минимум 6 символдон турушу абзел
+register_err_passwdnomatch:Көрсөтулгөн сырсөздөр дал келбейт, сураныч, кайталаңыз.
+email_title:Э-кат билдирүүсү
+finduser_title:Катышуучуну табуу
+help_title:Жардам
+login_title:Форумга кирүү
+poll_title:Добуштарды оңдоп-түзөө
+register_title:Катталуу
+reset_title:Сырсөздү түшүрүү
+rpasswd_title:Сырсөздү өзгөртүү
+error_title:Ката
+index_title:Биздин форумга кош келиңиз
+search_title:Издөө {VAR-HTML: srch}
+remail_emailsent:Э-кат жөнөтүлдү
+post_opt_html_off:<b>HTML</b> кошулган <b>off</b>
+mvthread_submit_req:Билдирүү жөнөтүү
+move_reason:Багыттоонун себеби:
+thr_exch_accept:Тастыктоо
+thr_exch_decline:кабыл албоо
+thr_exch_no_threads:Тастыктоону күтүп жаткан темалар жок
+thr_exch_submit:Улантуу
+split_thread:Теманы бөлүү
+groupmgr_add_member:Катышуучуну кошуу
+groupmgr_update_member:Катышуучу тууралуу маалыматты жаңыртуу
+groupmgr_edit:Оңдоо
+groupmgr_delete:Өчүрүү
+group_mgr_anon:Аноним
+group_mgr_reged:Катталгандар
+show_show:Көрсөтүү
+group_mgr:Тайпалар менежери
+group_mgr_edit_btn:Тайпаны оңдоо
+group_mgr_group:Тайпа:
+permission_denied_title:Бөгөттөлдү!
+permission_denied_msg:Сиз талап кылып жаткан ишти аткарууга Сиздин укугуңуз жетишсиз.
+p_READ:Окуу
+p_POST:Жазуу
+p_REPLY:Жооп берүү
+p_EDIT:Оңдоо
+p_DEL:Өчүрүү
+p_STICKY:Стикер
+p_POLL:Добуш берүүнү түзүү
+p_FILE:Кыстырылган файлдар
+p_VOTE:Добуш
+p_SPLIT:Теманы бөлүү
+p_LOCK:Теманы жабуу
+p_MOVE:Теманы багыттоо
+p_SML:Быйтыктар
+p_IMG:Сүрөттордүн теги
+p_SEARCH:Издөөнү оңдоо
+group_mgr_search:Катышуучуну табуу
+rate_worst:Жөн гана
+rate_best:Мыкты
+post_quote_msg:{VAR: msg->login} жазды {TEMPLATE: make_report_date}
+post_quote:Цитаталар:
+post_quote_selected:Тандалган тексти цитаталоо
+userinfo_referals:Чакырылгандар:
+userinfo_referals_count:{VAR: referals} катышуучулар
+pm_no_space_title:Бош мейкиндик жетишсиз!
+th_expr_never:Эч качан
+th_expr_one_hr:1 Саат
+th_expr_three_hr:3 Саат
+th_expr_four_hr:4 Саат
+th_expr_eight_hr:8 Саат
+th_expr_sixteen_hr:16 Саат
+th_expr_one_day:1 Күн
+th_expr_two_day:2 Күн
+th_expr_four_day:4 Күн
+th_expr_one_week:1 Апта
+th_expr_two_week:2 Апта
+th_expr_one_month:1 Ай
+th_expr_two_month:2 Ай
+th_expr_four_month:4 Ай
+th_expr_one_year:1 Жыл
+thread_mod_delete:Өчүрүү
+action_ip:IP
+action_latest_post:Акыркы билдирүү
+online_today_last_visit:Акыркы жолу кирген
+logedin_todays_visitors:Бүгүн киргендер
+logedin_latest_post:Форумдагы акыркы билдирүү:
+register_show_avatar:Сүрөттү көрсөтүү:
+drawmsg_view_rest_post:Калгандарды көрсөтүү
+post_re:Re:
+forumsel_goto_forum:Форумга өтүү
+minimsg_thread_view:Теманы көрүү
+split_th_post_by:Жөнөтүүчү:
+split_th_posted_on:Жөнөтүлгөн:
+split_th_subject:Тема:
+split_th_new_thread_title:Жаңы теманын аталышы
+split_th_forum:Форум:
+split_th_split_sel:Белгиленген билдирүүлөрдү бөлүү
+split_th_split_unsel:Белгиленбеген билдирүүлөрдү бөлүү
+split_th_messages:Билдирүүлөр
+split_th_select:Тандалды
+report_report_post:Маалымат
+quicklogin_login:Кирүү
+quicklogin_password:Сырсөз:
+quicklogin_use_cookies:Cookies колдоносузбу?
+quicklogin_login_btn:Кирүү
+quick_reply:Тез жооп
+quick_reply_post:Тез жооп жөнөтүү
+quick_reply_preview:Тез жоопту алдын ала көрүү
+post_notification_desc:Бул билдирүүгө жооп келгенде мени маалымдоо.
+post_all_ext_allowed:(чектемелер жок)
+maximize_category:Түрмөктү ачуу
+maximize_message:Билдирүүнү ачуу
+no_view_perm:Көрсөтүлгөн теманы көрүү үчүн Сиздин укугуңуз жок.
+report_already_reported_title:Маалымт жөнөтүлдү
+pmsg_next_msg:Кийинки билдирүү
+pmsg_prev_msg:Мрунуку билдирүү
+post_proc_reveal_spoiler:Жашырылган тексти көрсөтүү
+register_jabber:Jabber ысымы:
+register_skype:Skype ысымы:
+register_twitter:Twitter ысымы:
+register_google:Google Chat/IM ысымы:
+im_jabber:Jabber:
+im_google:Google Talk:
+im_skype:Skype:
+im_twitter:Twitter:
+forum_contact:Байланыш
+forum_home:Башбарак
+ignored_anon_post:{GVAR: ANON_NICK} этибарга алынган
+smladd_close_window:терезени жабуу
+post_list_smilies:бардык быйтыктарды көрсөтүү
+p_VISIBLE:Көрүнүп турган
+help_back_to_top:жогоруга кайтуу
+register_err_not_valid_img:Сиз көрсөткөн URL шилтемеде сүрөттөр жок.
+pmsg_recepient:Алуучу
+register_err_taken_alias:Сиз тандаган каймана ат, башка бирөө тарабынан колдонот. Сураныч, алмаштырыңыз.
+register_alias:Каймана ат
+register_allow_pm_msg:Жеке билдирүүлөргө уруксат берүү
