@@ -1,0 +1,545 @@
+# Messages for Georgian (ქართული)
+# Exported from translatewiki.net
+# Author: David1010
+# Author: ITshnik
+
+action:ქმედება
+add_to_buddy_list:დაამატე სხეულის სიაში
+admin:ადმინი
+admin_control_panel:ადმინისტრაცია
+administrator:ადმინისტრატორი
+attachment:მიმაგრებები
+avatar:ავატარი
+average_post_count:{PLURAL: u->posted_msg_count|$1 შეტყობინება} (საშუალოდ {PLURAL: avg|$1 შეტყობინება} დღეში)
+biography:ბიოგრაფია:
+birth_date:დაბადების თარიღი:
+by:ავტორი:
+by_mod:მოდერატორის მიერ
+current_time:მიმდინარე დრო
+custom_avatar_queue:შიდა სურათების რიგი
+date_posted:განთავსების თარიღი
+date_registered:რეგისტრაციის თარიღი:
+download_counter:ჩამოტვირთულია {PLURAL: v[3]|$1 ჯერ}
+pmsg_download_counter:ჩამოტვირთულია {PLURAL: r->dlcount|$1 ჯერ}
+email:ელ. ფოსტა:
+email_to_friend:ელ.ფოსტის გაგზავნა
+email_to_friend_desc:ამ შეტყობინების URL-ბმულის გაგზავნა ელ.ფოსტით
+email_user:მომხმარებლისათვის ელ.ფოსტის გაგზავნა
+faq:დახმარება
+first_unread_msg:წაუკითხავ შეტყობინებებზე გადასვლა
+first_unread_msg_desc:ამ თემის პირველ წაუკითხავ შეტყობინებაზე გადასვლა
+flat_view:კომპაქტურ სტილზე დაბრუნება
+forum:ფორუმი:
+forum_icon:ფორუმის ხატულა
+forum_new_messages:ახალი შეტყობინებები
+forum_none_messages:მხოლოდ ფორუმის დარეგისტრირებულ მომხმარებლებს შეუძლიათ თვალი ადევნონ და იკითხონ &amp; ახალი შეტყობინებები
+forum_old_messages:ახალი შეტყობინებები არ არის
+from:გამგზავნი:
+gender:სქესი:
+go:მიდი
+goto_next_msg:შემდეგ შეტყობინებებზე გადასვლა
+goto_prev_msg:წინა შეტყობინებაზე დაბრუნება
+home:მთავარი
+homepage:მთავარი გვერდი:
+icq_control_panel:ICQ ონლაინ-შეტყობინებების პანელი
+icq_message_form:ICQ შეტყობინების ფორმა:
+ignore_user:ამ მომხმარებლის ყველა შეტყობინების იგნორირება
+im_aim:AIM-ის ქსელი:
+im_msnm:MSN-ის ქსელი:
+im_yahoo:Yahoo-ს ქსელი:
+image:სურათი:
+index_forum:ფორუმი
+index_new_posts:ახალი შეტყობინება ბოლო სტუმრობის შემდეგ
+index_no_new_posts:არ არის ახალი შეტყობინება ბოლო სტუმრობის შემდეგ
+index_url_redirection:გადამისამართება
+interests:ინტერესები:
+last_post:ბოლო შეტყობინება
+last_thread_msg:ამ თემის ბოლო შეტყობინებაზე გადასვლა
+legend:ლეგენდა
+location:მდებარეობა:
+lock_thread:თემის დახურვა
+locked:დახურულია
+locked_with_new_posts:დახურულია (არის წაუკითხვაი შეტყობინებები)
+logged_in_list:ამჟამად ფორუმზე
+login:შესვლა
+login_header:შესვლა:
+logout:გასვლა
+mark_all_read:ყველა შეტყობინების წაკითხულად მონიშვნა
+mark_all_read_desc:ყველა თქვენ მიერ წაუკითხავი შეტყობინება მოინიშნა როგორც წაკითხული
+members:წევრები
+calendar:კალენდარი
+cal_goto_date:გადასვლა:
+cal_day_heading:დღის მოვლენები
+cal_no_events:დღის მოვლენები არ არის.
+cal_update:ფორუმის კალენდრის ხილვა
+cal_birthday:დაბადების დღე: {VAR: user}
+cal_birthday_age:({PLURAL: age|$1 წლის}).
+message:შეტყობინება
+message_counter:ჩვენი მომხმარებლების მიერ დატოვებულია <b>{PLURAL: post_count|$1 შეტყობინება}</b> <b>{PLURAL: thread_count|$1 თემაში}</b>.
+message_index:შეტყობინებების სია
+message_index_desc:შეტყობინებების სიის ხილვა
+minimize_category:კატეგორიის ჩაკეცვა
+minimize_message:შეტყობინების ჩაკეცვა
+moderation_queue:მოდერატორის რიგი
+moderator:მოდერატორი
+moderator_of:მოდერატორი:
+moderator_options:მოდერატორის მოქმედებები
+moderators:{PLURAL: modcount|მოდერატორი}
+more_unread_messages:მეტი წაუკითხავი შეტყობინება
+more_unread_messages_desc:სხვა წაუკითხავი შეტყობინებების ჩვენება და მიმდინარეს წაკითხულად მონიშვნა
+move_thread:გადატანა
+moved:სხვა ფორუმზე გადატანა
+moved_thread_message:ეს თემა გადატანილია სხვა ფორუმში
+na:არ არის ხელმისაწვდომი
+new_posts:ახალი შეტყობინებები
+new_private_messages:თქვენ გაქვთ <span class="GenTextRed">{VAR: c}</span> {PLURAL: c|წაუკითხავი პირადი შეტყობინება}
+new_thread:ახალი თემის შექმნა
+newest_user:ბოლოს დარეგისტრირებული მომხმარებელია
+next_page:შემდეგი გვერდი
+next_thread:შემდეგი თემა:
+no_messages:ამ ფორუმში არ არის შეტყობინებები.<br />გახდით პირველი თემის ავტორი.
+no_msg_body:შეტყობინების ტექსტი არ არის
+no_new_posts:ახალი შეტყობინება არ არის
+no_posts:შეტყობინება არ არის
+no_subscribed_forums:არ არის გამოწერილი ფორუმი
+no_subscribed_threads:არ არის გამოწერილი თემა
+no_bookmarked_threads:ჩანიშნული თემები არ არის
+no_unread_locked:ეს თემა დაიხურა
+no_unread_msg:ამ თემაში არ არის წაუკითხავი შეტყობინება
+no_unread_msg_unreg:წაკითხული და წაუკითხავი შეტყობინებები ხელმისაწვდომია მხოლოდ დარეგისტრირებული მომხმარებლებისათვის
+num_pages:გვერდი ({VAR: ttl_pg}):
+num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|ხმა}
+occupation:საქმიანობა:
+off:გამორთული
+on:ჩართული
+page_timings:გვერდის შესაქმნელად დახარჯული საერთო დრო: {PLURAL: page_gen_time|$1 წამი}
+pm:პირადი შეტყობინება
+poll:გამოკითხვა:
+post_count:შეტყობინებების რაოდენობა {VAR: u_pcount}
+post_count_l:შეტყობინებების რაოდენობა:
+posts:შეტყობინება
+posts_c:შეტყობინება:
+prev_thread:წინა თემა:
+usrinfo_private_message:პირადი შეტყობინება:
+profile:მართვის პანელი
+profile_desc:კავშირი მომხმარებლის მართვის პანელთან
+rate_thread:თემის შეფასება
+rating:რეიტინგი
+rating_track:თემის რეიტინგის მართვა <b>{VAR: thr->subject}</b>:
+refresh_list:სიის განახლება
+register:რეგისტრაცია
+registered:დარეგისტრირდა:
+registered_on:რეგისტრაციის თარიღი: {TEMPLATE: registered_on_date}
+replies:პასუხები
+report_to_mod:მოდერატორის ანგარიშის შეტყობინება
+reported_messages:შეტობინების ანგარიში
+reveal_all_posts:ყველა შეყობინების ჩვენება მომხმარებლისაგან {VAR: user_login}
+reveal_post:შეტყობინების ჩვენება
+search:ძიება
+sel_todays_posts:დღევანდელი შეტყობინებები
+sel_todays_posts_desc:მხოლოდ დღევანდელი შეტყობინების ჩვენების ფილტრი
+sel_unanswered_posts:უპასუხო შეტყობინებები
+sel_unanswered_posts_desc:მხოლოდ უპასუხოდ დატოვებული შეტყობინების ჩვენების ფილტრი
+sel_unread_messages:წაუკითხავი შეტყობინებები
+sel_unread_messages_desc:მხოლოდ წაუკითხავი შეტყობინების ჩვენების ფილტრი
+send:გაგზავნა
+send_pm_desc:პირადი შეტყობინების გაგზავნა ამ მომხმარებელთან
+sender_email:ავტორის ელ. ფოსტა:
+sender_name:ავტორის სახელი:
+show_posts_by:შეტყობინებების ჩვენება: {VAR: u_alias}
+size:ზომა:
+status:სტატუსი:
+status_line:ამჟამად ფორუმზეა <b>{PLURAL: st_obj->online_users_reg|$1 მომხმარებელი}</b>, <b>{PLURAL: st_obj->online_users_hidden|$1 უხილავი მოხმარებელი}</b> და <b>{PLURAL: st_obj->online_users_anon|$1 სტუმარი}</b>.
+sticky:სტიკერი:
+stop_ignoring:მომხმარებლის იგნორირების შეწყვეტა
+sub_to_thread:თემის გამოწერა
+sub_to_thread_desc:ამ თემის ახალი შეტყობინებების მიღება
+bookmark_thread:თემის ჩანიშვნა
+bookmark_thread_desc:ამ თემის თქვენი სანიშნების სიაში დამატება
+subject:თემა
+subscribe:გამოწერა
+subscribe_desc:ამ ფორუმში ვინმეს მიერ ახალი თემის შექმნის შესახებ შეტყობინება
+subscribed_forums:გამოწერილი ფორუმები
+subscribed_forums_desc:მხოლოდ გამოწერილი ფორუმებიდან მიღებული შეტყობინების ჩვენების ფილტრი
+subscribed_threads:გამოწერილი თემები
+subscribed_threads_desc:მხოლოდ გამოწერილი თემებიდან მიღებული შეტყობინების ჩვენების ფილტრი
+bookmarked_threads:ჩანიშნული თემები
+switch_to_thread_view:შეტყობინებებისა და პასუხების ხილვის ხისებრი სიის რეჟიმში გადართვა
+thread:თემა:
+thread_announcement:ანონსი:
+thread_first_unread_msg:ამ თემის პირველ წაუკითხავ შეტყობინებაზე გადასვლა
+thread_thread:თემა
+threads:თემები
+time:დრო
+todays_posts:დღევანდელი შეტყობინებები
+todays_posts_desc:ყველა დღეს გაგზავნილი შეტყობინების ჩვენება
+un_ignore_user:ამ მომხმარებლის შეტყობინებების იგნორირების შეწყვეტა
+unanswered_posts:უპასუხო შეტყობინებები
+unanswered_posts_desc:ყველა უპასუხო შეტყობინების ჩვენება
+unlock_thread:თემის გახსნა
+unread_msg:ეს თემა შეიცავს თქვენ მიერ წაუკითხავ შეტყობინებებს
+unread_msg_locked:დახურული თემა წაუკითხავი შეტყობინებებით
+unread_posts:წაუკითხავი შეტყობინებები
+unread_posts_desc:ყველა წაუკითხავი შეტყობინების ჩვენება
+unsub_from_thread:თემიდან ამოწერა
+unsub_from_thread_desc:ამ თემის ახალი შეყობინებების შესახებ ინფორმაციის მიღების შეწყვეტა
+unbookmark_thread:სანიშნებიდან წაშლა
+unbookmark_thread_desc:ამ თემის წაშლა თქვენი სანიშნების სიიდან
+unsubscribe:გამოწერის გაუქმება
+unsubscribe_desc:ამ ფორუმში ახალი თემის შესახებ ინფორმაციის მიღების შეწყვეტა
+updated_on:განახლებულია:
+user:მომხმარებელი
+user_counter:ჩვენ გვყავს <b>{VAR: st_obj->user_count}</b> {PLURAL: st_obj->user_count|დარეგისტრირებული მომხმარებელი}.
+user_info:ინფორმაცია მომხმარებელზე
+user_info_l:ინფორმაცია მომხმარებელზე {VAR: u->alias}
+user_offline:{VAR: obj->login} ამჟამად არ არის ქსელში
+user_online:{VAR: obj->login} ამჟამად ქსელშია
+usrinfo_last_post:ბოლო შეტყობინება:
+view_results:შედეგების ხილვა
+views:ნახვა
+vote:{PLURAL: frm->n_rating|$1 ხმა}
+vote_button:ხმის მიცემა
+vote_for_thread:ხმის მიცემა
+was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> გადატანილია მოდერატორის მიერ <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a>
+welcome_message:მოგესალმებით, <b>{VAR: usr->alias}</b>, თქვენი ბოლო ვიზიტი იყო: {TEMPLATE: welcome_message_date}
+what_ppl_doing:მაჩვენეთ, რას აკეთებენ სხვები
+reported_del_report:ანგარიშის წაშლა
+reported_reason:მიზეზი:
+reported_on:შეტყობინების თარიღი:
+reported_reported_by:შემტყობინებელი:
+reported_reported_msg:შეტობინების ანგარიში
+modque_pending_approval:დამოწმების მომლოდინე შეტყობინებები
+modque_approve:დამოწმება
+modque_delete:წაშლა
+modque_deleteall:ყველა მომხმარებლს წაშლა
+modque_no_message:დამოწმების მომლოდინე შეტყობინებები არ არის
+pmsg_new_messages:წაუკითხავი პირადი შეტყობინება
+pmsg_old_messages:პირადი შეტყობინების კითხვა
+deny_recipt:მოხსენების აკრძალვა
+deny_recipt_desc:არ გაუგზავნოთ ავტორს მოხსენება შეტყობინების წაკითხვის შესახებ
+restore_to:აღდგენა:
+move_to:გადატანა:
+list_referes_referrals:მოწვეულები
+list_referes_members:რეფერალის ბმულით მოსულები
+list_referes_member:წევრი
+referals_none:არავინ არ არის მოწვეული.
+referals_refered_by:რეფერალის ბმულით მოსულები, რომელიც განათავსა მომხმარებელმა <b><a href="{TEMPLATE: referals_refered_by_lnk}" class="thLnk">{VAR: p_user[1]}</a></b>
+referals_post_count:შეტყობინებების რაოდენობა
+referals_registered_on:რეგისტრაციის თარიღი
+referals_action:მოქმედება
+pmsg_all:ყველა
+pmsg_none:არცერთი
+folder:საქაღალდე:
+pmsg_replied:ნაპასუხები
+pmsg_forwarded:გადამისამართებული
+pmsg_subject:თემა
+pmsg_author:ავტორი
+pmsg_time:დრო
+pmsg_selected:არჩეული
+pmsg_delete:წაშლა
+cur_ppage_pm:პირადი შეტყობინება
+writing_pm:პირადი შეტყობინების დაწერა
+browsing_folder:საქაღალდე <b>{VAR: folders[$folder_id]}</b> ხილვა
+inbox:მიღებული
+draft:ესკიზი
+sent:გაგზავნილი
+trash:ნაგავი
+msg_author:ავტორი
+avatar_sel_form:ავატარის არჩევა
+no_avatars:ხელმისაწვდომი ავატარი არ არის
+month_1:იანვარი
+month_2:თებერვალი
+month_3:მარტი
+month_4:აპრილი
+month_5:მაისი
+month_6:ივნისი
+month_7:ივლისი
+month_8:აგვისტო
+month_9:სექტემბერი
+month_10:ოქტომბერი
+month_11:ნოემბერი
+month_12:დეკემბერი
+sunday:კვირა
+sunday_short:კვ
+monday:ორშაბათი
+monday_short:ორშ
+tuesday:სამშაბათი
+tuesday_short:სამ
+wednesday:ოთხშაბათი
+wednesday_short:ოთხ
+thursday:ხუთშაბათი
+thursday_short:ხუთ
+friday:პარასკევი
+friday_short:პარ
+saturday:შაბათი
+saturday_short:შაბ
+male:მამრობითი
+female:მდედრობითი
+unspecified:არ არის მითითებული
+register_tree_view:ხისებრი
+register_msg_tree_view:ბრტყელი ფორუმები/ხისებრი თემები
+register_tree_msg_view:ხისებრი ფორუმები/ბრტყელი თემები
+register_flat_view:ბრტყელი ტიპი
+use_forum_default:ფორუმის გამოყენება საწყისად
+finduser_user_info:ინფორმაცია მომხმარებელზე
+finduser_by_login:სახელის მიხედვით:
+finduser_submit:მოძებნე
+finduser_no_such_user:არარსებული მომხმარებელი
+finduser_user:მომხმარებელი
+finduser_postcount:შეტყობინებების რაოდენობა
+finduser_joindate:რეგისტრაციის თარიღი
+finduser_action:მოქმედება
+yes:დიახ
+no:არა
+register_email:ელ. ფოსტა
+edit_time_limit:<b>რედაქტირების შესაძლებლობის პერიოდი</b>: {GVAR: EDIT_TIME_LIMIT} წუთი
+no_edit_time_limit:<b>რედაქტირების შესაძლებლობის პერიოდი</b>: განუსაზღვრელი
+pmuserloc_login:სახელი:
+pmuserloc_submit:მიღება
+pmuserloc_user:მომხმარებელი
+pmuserloc_no_result:შედეგები არ არის
+register_builtin:ჩაშენებული
+register_specify_url:URL-ის მითითება
+register_uploaded:ავატარის ატვირთვა
+register_login:სახელი:
+register_password:პაროლი:
+register_conf_pass:პაროლის დადასტურება:
+register_email_desc:მიუთითეთ თქვენი ნამდვილი ელ.ფოსტის მისამართი. მისი დამალვა შეგიძლიათ პირადი კონფიგურაციიდან.
+register_name:სახელი:
+register_your_pass:თქვენი პაროლი:
+register_update:განახლება
+register_avatar_type:ავატარის ტიპი:
+register_del_avatar:ავატარის წაშლა
+register_avatar:ავატარი:
+register_sel_avatar:ავატარის არჩევა
+register_custom_avatar_rules:გარე სურათი არ გამოჩნდება მანამ, სანამ ფორუმის ადმინისტრატორი არ დაამტკიცებს მას.<br /><font class="SmallText">სურათის ზომა არ უნდა აჭარბებდეს <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} პიქსელს</b> და უნდა იყოს ფორმატში <b>jpg</b>, <b>gif</b> ან <b>png</b>.</font>
+register_custom_avatar_url:ავატარის URL:
+register_preview:წინასწარი გადახედვა
+register_custom_avatar_upload:ავატარის ფაილი:
+register_register:რეგისტრაცია
+register_required:სავალდებულო ინფორმაცია
+register_required_desc:ყველა ველი სავალდებულოა. გთხოვთ, გაითვალისწინოთ, რომ პაროლი მგრძნობიარეა სიმბოლოების რეგისტრთან.
+register_optional:დამატებითი ინფორმაცია
+register_optional_desc:ძალიან პირადული მონაცემების გამოქვეყნება არ არის მიზანშეწონილი, რადგან ქვემოთ მოცემული მთელი ინფორმაცია ხელმისაწვდომია ფორუმის ყველა მომხმარებლისათვის.
+register_location:მდებარეობა:
+register_occupation:საქმიანობა:
+register_interests:ინტერესები:
+register_image:სურათი:
+register_icq:ICQ:
+register_aim:სახელი AIM-ის ქსელში:
+register_yahoo:სახელი Yahoo-ს ქსელში:
+register_msnm:სახელი MSN-ის ქსელში:
+register_homepage:მთავარი გვერდი:
+register_bday:დაბადების თარიღი:
+register_bday_desc:დაბადების თარიღის მითითების შემთხვევაში, სხვა მომხმარებლები<br />შეძლებენ თქვენ პროფილში მის ნახვას.
+register_day:დღე
+register_month:თვე
+register_year:წელი
+register_gender:სქესი:
+register_bio:ბიოგრაფია:
+register_bio_desc:სხვა დეტალები, როგორიცაა თქვენი ინტერესები, სამუშაო და ა.შ...
+register_prefs:პერსონალური პარამეტრები
+register_sig:ხელმოწერა:
+register_sig_desc:არასავალდებულო ხელმოწერა, რომელიც ჩაირთვება თქვენ შეტყობინებაში.
+register_reset:გაუქმება
+register_def_thread_view:თემის ნაგულისხმევი იერსახე:
+register_msg_per_page:შეტყობინება გვერდზე:
+register_show_sig:ხელმოწერის ჩვენება:
+register_show_sig_desc:საშუალებას გაძლევთ თქვენ ჩართოთ ან გამორთოთ სხვა მომხმარებლების ხელმოწერა
+register_use_sig_default:ნაგულისხმევი ხელმოწერის გამოყენება:
+register_use_sig_default_desc:ავტომატურად ამატებს ხელმოწერას თქვენ მიერ გაგზავნილ ნებისმიერ შეტყობინებას
+register_timezone:სასაათო სარტყელი:
+register_ignore_admin:ადმინისტრაციული შეტყობინებების იგნორირება:
+register_invisible_mode:უხილავი რეჟიმი:
+register_invisible_mode_desc:მალავს თქვენ ონლაინ-სტატუსს.
+register_show_email:ელ.ფოსტის მისამართის ჩვენება:
+register_show_email_desc:ჩართეთ, თუ გინდათ, რომ თქვენი ელ.ფოსტის მისამართი სხვა მომხმარებლებისათვისაც იყოს ხილული.
+buddy_status:სტატუსი
+my_buddies:ჩემი მეგობრები
+add_buddy:მეგობრის დამატება
+add:დამატება
+buddy_search:შეიყვანეთ მოხმარებლის სახელი, რომლის დამატებაც გსურთ.
+member_search:ან ისარგებლეთ <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">ძიებით</a> საჭირო მომხმარებლის მოსაძებნად.
+buddy_remove:წაშლა
+post_normal:ნორმალური
+post_sticky:სტიკერი
+post_annoncement:ანონსი
+post_size:ზომა
+post_color:ფერი
+post_font:შრიფტი
+create_thread:თემის შექმნა
+submit_reply:პასუხის მიწერა
+edit_message:შეტყობინების ცვლილების დადასტურება
+apply_spell_changes:მართლწერის ცვლილების დადასტურება
+post_preview:შეტყობინების წინასწარ გადახედვა
+post_logedin_user:მომხმარებელი:
+post_logout:გასვლა
+post_passwd:ფორუმის პაროლი:
+post_poll:გამოკითხვა:
+post_create_poll:გამოკითხვის შექმნა
+post_poll_delete:წაშლა
+post_poll_edit:რედაქტირება
+post_mod_opt:მოდერატორის მოქმედებები:
+post_thread_type:თემის ტიპი:
+post_thread_expiry:თემის დაძველება:
+post_locked:დახურული თემა
+post_icons:შეტყობინების ხატულა:
+post_no_icon:ხატულა არ არის
+post_smiley:სიცილაკების ჩასმა:
+post_format_tools:ფორმატირების ხელსაწყოები:
+post_upload_file:ფაილის ატვირთვა
+post_file_del:წაშლა
+post_file_name:სახელი
+post_file_size:ზომა
+max_file_size:ფაილის მაქსიმალური ზომა:
+max_files_per_msg:ფაილების მაქსიმალური რაოდენობა ერთ შეტყობინებაში:
+include_sig:ხელმოწერის ჩართვა
+post_form:შეტყობინების გაგზავნა
+post_forum:ფორუმი:
+post_title:სათაური:
+post_body:ტექსტი:
+post_options:პარამეტრები:
+post_preview_btn:შეტყობინების გადახედვა
+post_cancel_btn:გაუქმება
+ignore_users:იგნორირებული მომხმარებლები
+add_ignore:იგნორირებულის დამატება
+forum_terms:ფორუმის წესები
+coppa_conf:COPPA-ის დადასტურება
+coppa_before:ადრე {TEMPLATE: coppa_date}
+coppa_after:შემდეგ {TEMPLATE: coppa_date}
+prereg_agree:თანახმა ვარ
+prereg_disagree:არა ვარ თანახმა
+coppa_fax_reg_form:სარეგისტრაციო ფორმა
+coppa_fax_parent_name:მშობლის/მეურვის სრული სახელი:
+coppa_fax_relation:ბავშვთან ნათესაობის დონე:
+coppa_fax_telephone:ტელეფონი:
+coppa_fax_email:ელ. ფოსტის მისამართი:
+coppa_fax_date:თარიღი:
+coppa_fax_questions:კონსულტაცია ნებისმიერ კითხვაზე <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
+coppa_fax_login:შესვლა
+coppa_fax_passwd:პაროლი
+coppa_fax_remail:ელ. ფოსტა
+coppa_fax_name:სახელი
+login_not_logedin:თქვენ ვერ შეხვედით ფორუმზე. ამის მიზეზი შესაძლოა შემდეგია:
+login_want_to_register:გსურთ დარეგისტრირება?
+login_forgot_passwd:პაროლის აღდგენა
+login_login:სახელი:
+login_login_btn:შესვლა
+login_name_required:სახელი სავალდებულოა
+login_passwd_required:პაროლი სავალდებულოა
+login_invalid_radius:სახელისა და პაროლის არასწორი კომბინაცია
+search_forum:ფორუმი
+remail_your_name:თქვენი სახელი:
+remail_your_email:თქვენი ელ.ფოსტა:
+remail_friends_name:მეგობრის სახელი:
+remail_friends_email:მეგობრის ელ.ფოსტა:
+remail_required:სავალდებულო
+remail_subject:თემა:
+remail_message:შეტყობინება:
+remail_send_now:ელ.ფოსტის გაგზავნა
+remail_done:გაკეთდა
+remail_sent_conf:ელექტრონული წერილი თქვენ მეგობართან მისამართზე {VAR-HTML: _POST['femail']} თემაზე {VAR: data->subject} წარმატებით გაიგზავნა.
+remail_error:მოხდა შეცდომა
+mklist_type:ტიპი:
+mklist_option:პარამეტრი:
+mklist_additem:ელემენტის დამატება
+mklist_apply:გამოყენება
+mklist_delete:წაშლა
+qbud_nick_name:მეტსახელი
+qbud_add_selected:არჩეულის დამატება
+qbud_selected:არჩეულია
+mklist_numerical:რიცხვითი
+mklist_aplha:ალფა
+mklist_square:კვადრატი
+mklist_disc:დისკი
+mklist_circle:წრე
+mklist_close:დახურვა
+email_to:მიმღები:
+email_pg_title:ელ. ფოსტა
+email_subject:თემა:
+email_body:ტექსტი:
+email_submit:ელ. ფოსტა
+ppost_quote_msg:{VAR: msg_to_list} დაწერა {TEMPLATE: ppost_quote_msg_date}
+ppost_quote:ციტატა:
+ppost_to:მიმღები:
+ppost_from_buddy_list:მეგობრების სიიდან არჩევა
+ppost_find_User:მოხმარებლის ძებნა
+ppost_send:გაგზავნა
+ppost_save_draft:შეინახეთ შავი ფურცელი
+poll_name:გამოკითხვის სახელი:
+poll_timelimit:დროის ლიმიტი:
+poll_maxiumvotes:მაქსიმალური ხმა:
+poll_create:შექმნა
+poll_update:განახლება
+poll_disablesmilies:სიცილაკების აკრძალვა
+poll_create_poll:გამოკითხვის შექმნა
+poll_update_poll:გამოკითხვის განახლება
+poll_delete:წაშლა
+poll_updateoption:ვარიანტის განახლება
+poll_addoption:ვარიანტის დამატება
+poll_unlimited:შეუზღუდავი
+poll_day:დღე
+poll_days:დღე
+poll_hour:საათი
+poll_hours:საათი
+poll_month:თვე
+poll_year:წელი
+poll_week:კვირა
+tabs_register:ანგარიშის კონფიგურაცია
+tabs_subscriptions:გამოწერები
+tabs_bookmarkes:სანიშნები
+tabs_referrals:მოწვეულები
+email_error_body:ტექსტი სავალდებულოა
+email_error_subject:თემა სავალდებულოა
+email_error_namerequired:სახელი სავალდებულოა
+email_error_invaliduser:არასწორი მომხმარებლის სახელი
+emailconf_err_invkey_title:შეცდომა
+err_inc_criticaltitle:კრიტიკული შეცდომა
+finduser_update:მოხმარებლების ძიება
+help_index_update:<a href="{TEMPLATE: help_index_update_lnk}">ხდშ-ის</a> კითხვა
+ignore_list_err_info_title:ინფორმაცია
+ignore_list_err_nu_title:მოხმარებელი ვერ მოიძებნა
+login_update:შესვლის ფორმა
+pm_update:პირადი შეტყობინების გამოყენება
+post_err_lockedthread_title:შეცდომა: დახურული თემა
+post_err_lockedthread_msg:ეს თემა დახურულია. შეტყობინებების გაგზავნა აღარ არის შესაძლებელი.
+err_coppa_title:შეცდომა: თქვენი ანგარიში ჯერ არ დადასტურებულა
+err_banned_acct_title:შეცდომა:თქვენ ბანი დაგედოთ.
+post_err_edttimelimit_title:შეცდომა
+post_err_edttimelimit_msg:თქვენ აღარ შეგიძლიათ ამ შეტყობინების რედაქტირება
+post_err_floodtrig_msg:გთხოვთ, კვლავ სცადოთ {PLURAL: tm|$1 წამში}
+post_err_passwd:არასწორი პაროლი.
+post_reply_update:პასუხი შეტყობინებაზე <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> ფორუმში {VAR: frm->name}
+post_topic_update:ახალი თემის შექმნა ფორუმში <a href="{TEMPLATE: post_topic_update_lnk}">{VAR: frm->name}</a>
+post_error_generic:მოხდა შეცდომა
+postcheck_subj_needed:თემა სავალდებულოა
+report_err_nosuchmsg_title:შეცდომა
+reset_err_invalidkey_title:შეცდომა
+reset_err_rstconf_title:ინფორმაცია
+reset_newpass_title:პაროლის წაშლა
+search_update:შეტყობინებების ძიება
+ERR_registration_disabled_ttl:რეგისტრაცია გამორთულია
+ERR_emailconf_ttl:შეცდომა: თქვენი ანგარიში ჯერ არ დადასტურებულა
+ERR_user_ttl:შეცდომა: არარსებული მომხმარებელი
+ERR_user_msg:ასეთი მომხმარებელი არ არსებობს
+ERR_systemerr_ttl:შეცდომა: სისტემური შეცდომა
+email_title:ელ.ფოსტის ფორმა
+finduser_title:მოხმარებლის ძებნა
+help_title:დახმარება
+login_title:შესვლის ფორმა
+poll_title:გამოკითხვის რედაქტირება
+register_title:რეგისტრაციის ფორმა
+reset_title:პაროლის წაშლა
+rpasswd_title:პაროლის ფორმის შეცვლა
+error_title:შეცდომა
+index_title:კეთილი იყოს თქვენი მობრძანება ფორუმზე
+search_title:ძიება {VAR-HTML: srch}
+remail_emailsent:ელ.ფოსტა გაიგზავნა
+register_change_login:სახელის შეცვლა
+approved_avatar_title:თქვენი ავატარი დამტკიცდა.
+mvthread_request_move:გადატანის მოთხოვნა
+move_request_reason:რატომ გსურთ ამ თემის გადატანა?
+mvthread_submit_req:მოთხოვნის გაგზავნა
+thread_exchange:თემის ცვლილება
+move_request_by:თემის გადატანა მოითხოვა:
+move_reason:თემის გადატანის მიზეზი:
