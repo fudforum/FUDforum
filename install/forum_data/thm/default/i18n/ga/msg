@@ -1,0 +1,1144 @@
+# Messages for Irish (Gaeilge)
+# Exported from translatewiki.net
+# Author: Pksofttec
+
+action:Gníomh
+add_to_buddy_list:a chur le liosta chara
+admin:Admin
+admin_control_panel:riarachán
+administrator:riarthóir
+attachment:Attachment:
+avatar:avatar:
+average_post_count:{PLURAL: u->posted_msg_count|$1 Teachtaireacht|$1 Teachtaireachtaí} ({PLURAL: avg|1$ teachtaireacht meán|$1 meán teachtaireachtaí} in aghaidh an lae)
+biography:Beathaisnéis:
+birth_date:Dáta Breithe:
+by:By:
+by_mod:ag Modhnóir
+current_time:Am reatha
+custom_avatar_queue:Queue Avatar Saincheaptha
+date_posted:Dáta Posted
+date_registered:Dáta Cláraithe:
+download_counter:íoslódáil {PLURAL: v[3]|$1 am |$1 uair}
+pmsg_download_counter:íoslódáil {PLURAL: r->dlcount|$1 am |$1 uair}
+email:R-phost:
+email_to_friend:R-phost chuig cara
+email_to_friend_desc:Seol an URL le leathanach seo chuig do chara (í) tríd an r-phost
+email_user:Seol úsáideoir teachtaireacht ríomhphoist
+faq:Cuidiú
+first_unread_msg:Téigh go dtí teachtaireachtaí neamhléite
+first_unread_msg_desc:Téigh go dtí an 1ú teachtaireacht neamhléite taobh istigh an ábhar seo
+flat_view:Fill ar an tuairim réamhshocraithe árasán
+forum:Fóram:
+forum_icon:Fóram Deilbhín
+forum_new_messages:teachtaireachtaí nua
+forum_none_messages:Is féidir le baill fóram Amháin cláraithe rianú teachtaireachtaí léite &amp; neamhléite
+forum_old_messages:Níl aon teachtaireacht nua
+from:Seoltóir:
+gender:inscne:
+go:Gabh
+goto_next_msg:Téigh go dtí teachtaireacht chugainn
+goto_prev_msg:Téigh go dtí an teachtaireacht roimhe seo
+home:Baile
+homepage:Leathanach Baile:
+icq_control_panel:ICQ Painéal Líne-Teachtaireacht
+icq_message_form:ICQ Teachtaireacht Foirm:
+ignore_user:neamhaird a dhéanamh ar gach teachtaireacht úsáideoir seo Feicthe Le
+im_aim:AIM láimhsiú:
+im_msnm:MSN Messenger:
+im_yahoo:Yahoo Messenger:
+image:íomhá:
+index_forum:Fóram
+index_new_posts:Teachtaireachtaí nua ó léamh deireanach
+index_no_new_posts:Níl aon teachtaireacht nua ó léamh deireanach
+index_url_redirection:Athdhíriú
+interests:leasanna:
+last_post:teachtaireacht Last
+last_thread_msg:Téigh go dtí an teachtaireacht dheireanach sa topaic seo
+legend:finscéal
+location:Location:
+lock_thread:Lock Topic
+locked:Faoi Ghlas
+locked_with_new_posts:Faoi Ghlas (teachtaireachtaí w/neamhléite)
+logged_in_list:Logáilte isteach húsáideoirí liosta
+login:Logáil isteach
+login_header:Logáil isteach:
+logout:Logáil amach
+mark_all_read:Marcáil gach teachtaireacht léite
+mark_all_read_desc:Beidh gach do teachtaireachtaí gan léamh a mharcáil mar a léamh
+members:baill
+calendar:féilire
+cal_goto_date:Léim go:
+cal_day_heading:Imeachtaí don lá
+cal_no_events:Imeachtaí ar bith don lá.
+cal_update:Brabhsáil an fhóraim féilire
+cal_birthday:breithlá: {VAR: user}
+cal_birthday_age:({PLURAL: age|$1 bliain|$1 bliana d'aois}).
+message:Teachtaireacht
+message_counter:Ár n-úsáideoirí an bpost san iomlán <b>{PLURAL: post_count|$1 teachtaireacht |$1 teachtaireacht}</b> taobh istigh <b>{PLURAL: thread_count|$1 ábhar |$1 topaicí}</b>.
+message_index:innéacs na dteachtaireachtaí
+message_index_desc:Féach ar an liosta teachtaireacht
+minimize_category:Íoslaghdaigh Catagóir
+minimize_message:Íoslaghdaigh Teachtaireacht
+moderation_queue:Queue moderation
+moderator:Moderator
+moderator_of:Moderator of:
+moderator_options:Roghanna moderator
+moderators:{PLURAL: modcount|Moderator|Moderators}
+more_unread_messages:teachtaireachtaí níos neamhléite
+more_unread_messages_desc:Taispeáin teachtaireachtaí gan léamh níos mó agus na teachtaireachtaí viewable faoi láthair a léamh mharcáil
+move_thread:Athainmnigh
+moved:Bhog sé go dtí fóram eile
+moved_thread_message:Tá an topaic seo bhog sé go dtí fóram eile
+na:n/a
+new_posts:Teachtaireachtaí nua
+new_private_messages:tá tú <span class="GenTextRed">({VAR: c})</span> neamhléite {PLURAL: c|teachtaireacht phríobháideach|teachtaireacht phríobháideach}
+new_thread:Cruthaigh ábhar nua
+newest_user:Is é an t-úsáideoir cláraithe newest
+next_page:Leathanach a leanas
+next_thread:Topic Next:
+no_messages:Níl aon teachtaireacht sa bhfóram seo. <br/> Bí ar an chéad phost ábhar sa bhfóram seo.
+no_msg_body:Uimh Corp na Teachtaireachta
+no_new_posts:Níl aon teachtaireacht nua
+no_posts:Uimh Teachtaireachtaí
+no_subscribed_forums:Uimh fóraim suibscríofa
+no_subscribed_threads:Uimh topaicí suibscríofa
+no_bookmarked_threads:Uimh topaicí bookmarked
+no_unread_locked:Tá an topaic seo faoi ghlas
+no_unread_msg:Níl aon teachtaireacht gan léamh an topaic seo
+no_unread_msg_unreg:an léamh &amp; Tá teachtaireachtaí gan léamh rianú ach amháin le haghaidh úsáideoirí cláraithe
+num_pages:leathanaigh ({VAR: ttl_pg}):
+num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|vótáil|vótaí}
+occupation:Slí Bheatha:
+off:amach
+on:ar
+page_timings:Am iomlán chun ghiniúint an leathanach: {PLURAL: page_gen_time|$1 soicind}
+pm:Teachtaireachtaí príobháideacha
+poll:Poll:
+post_count:Líon teachtaireacht {VAR: u_pcount}
+post_count_l:Líon teachtaireacht:
+posts:teachtaireachtaí
+posts_c:teachtaireachtaí:
+prev_thread:Topaic Roimhe Seo:
+usrinfo_private_message:Teachtaireacht Príobháideach:
+profile:Painéal Rialúcháin
+profile_desc:Rochtain ar an bpainéal rialú úsáideora
+rate_thread:Topaic ráta
+rating:Rátáil
+rating_track:Bainistigh rátálacha le haghaidh ábhar <b>{VAR: thr->subject}</b>:
+refresh_list:Athnuaigh Liosta
+register:Cláraigh
+registered:cláraithe:
+registered_on:cláraithe ar {TEMPLATE: registered_on_date}
+replies:Freagraí
+report_to_mod:Teachtaireacht Tuairisc don moderator
+reported_messages:Teachtaireachtaí Tuairiscíodh
+reveal_all_posts:nochtann gach teachtaireacht ag {VAR: user_login}
+reveal_post:nochtann teachtaireacht
+search:Cuardaigh
+sel_todays_posts:Teachtaireachtaí an lae inniu
+sel_todays_posts_desc:Lá atá inniu ann Toggle ar teachtaireachtaí scagaire (Beidh taispeáin ach na teachtaireachtaí déanta lá atá inniu ann)
+sel_unanswered_posts:Teachtaireachtaí unanswered
+sel_unanswered_posts_desc:Scoránaigh un-freagraíodh teachtaireachtaí scagaire (a thaispeáint ach teachtaireachtaí nach bhfuil aon freagraí)
+sel_unread_messages:Teachtaireachtaí neamhléite
+sel_unread_messages_desc:Teachtaireachtaí neamhléite Toggle scagaire (Beidh taispeáin ach na teachtaireachtaí neamhléite)
+send:Seol
+send_pm_desc:Seol teachtaireacht phríobháideach a t-úsáideoir seo
+sender_email:Seoltóir R-phost:
+sender_name:Name Sender:
+show_posts_by:Taispeáin Teachtaireachtaí ag: {VAR: u_alias}
+size:méid:
+status:stádas:
+status_line:Tá <b>{PLURAL: st_obj->online_users_reg|$1 chomhalta|$1 baill}</b>, <b>{PLURAL: st_obj->online_users_hidden|$1 ball dofheicthe|$1 baill dofheicthe}</b> agus <b>{PLURAL: st_obj->online_users_anon|$1 aoi|$1 aíonna}</b> tabhairt cuairte ar an mbord.
+sticky:greamaitheach:
+stop_ignoring:stop gan aird a t-úsáideoir seo
+sub_to_thread:Liostáil le topaic
+sub_to_thread_desc:Fógra a fháil faoi theachtaireachtaí nua taobh istigh an ábhar seo
+bookmark_thread:Bookmark ábhar
+bookmark_thread_desc:Cuir an ábhar seo le do liosta de na leabharmharcanna
+subject:Ábhar
+subscribe:Liostáil
+subscribe_desc:Fógraí a fháil nuair a chruthaíonn duine éigin le topaic nua sa bhfóram seo
+subscribed_forums:Fóraim suibscríofa
+subscribed_forums_desc:Scoránaigh fóraim scagaire suibscríofa (a bheidh taispeáin ach na teachtaireachtaí ó na fóraim tú suibscríofa a)
+subscribed_threads:Ábhair suibscríofa
+subscribed_threads_desc:Scoránaigh ábhair scagaire suibscríofa (a bheidh taispeáin ach na teachtaireachtaí ó na hábhair a bhfuil tú ag suibscríofa go)
+bookmarked_threads:Ábhair bookmarked
+switch_to_thread_view:Téigh go dearcadh snáithithe ar an ábhar seo
+thread:Topic:
+thread_announcement:Fógra:
+thread_first_unread_msg:Téigh go dtí an chéad teachtaireacht neamhléite sa topaic seo
+thread_thread:Topic
+threads:Topics
+time:am
+todays_posts:Teachtaireachtaí an lae inniu
+todays_posts_desc:Taispeáin gach teachtaireacht a bhí sa phost go lá atá inniu ann
+un_ignore_user:stop teachtaireachtaí gan aird-úsáideoir seo Feicthe
+unanswered_posts:Teachtaireachtaí unanswered
+unanswered_posts_desc:Taispeáin gach teachtaireacht, nach bhfuil aon freagraí
+unlock_thread:Díghlasáil Topic
+unread_msg:Tá teachtaireachtaí nach bhfuil tú ag léamh fós an topaic seo
+unread_msg_locked:Ábhar faoi ghlas le teachtaireachtaí neamhléite
+unread_posts:Teachtaireachtaí neamhléite
+unread_posts_desc:Taispeáin gach teachtaireacht neamhléite
+unsub_from_thread:Díliostáil ó ábhar
+unsub_from_thread_desc:Stop fógraí faoi theachtaireachtaí nua a fháil san ábhar seo
+unbookmark_thread:Bain ó leabharmharcanna
+unbookmark_thread_desc:Bain an ábhar ó do liosta de na leabharmharcanna
+unsubscribe:díliostáil
+unsubscribe_desc:Stop fógraí faoi ábhair nua a fháil san fhóram
+updated_on:Nuashonraithe ar:
+user:Úsáideoir
+user_counter:Táimid tar éis <b>{VAR: st_obj->user_count}</b> cláraithe {PLURAL: st_obj->user_count|úsáideora|úsáideoirí}.
+user_info:Eolas Úsáideora
+user_info_l:Eolas Úsáideora {VAR: u->alias}
+user_offline:{VAR: obj->login} as líne faoi láthair
+user_online:{VAR: obj->login} Is ar líne faoi láthair
+usrinfo_last_post:Teachtaireacht Last:
+view_results:Féach Torthaí
+views:Radhairc
+vote:{PLURAL: frm->n_rating|$1 Vóta|$1 Vótaí}
+vote_button:Vóta
+vote_for_thread:Vóta
+was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> Tá bhog sé go dtí <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> ag an moderator.
+welcome_message:Fáilte <b>{VAR: usr->alias}</b>, do chuairt dheireanach a bhí ar {TEMPLATE: welcome_message_date}
+what_ppl_doing:Taispeáin cad iad na daoine ag déanamh
+reported_del_report:Scrios Tuarascáil
+reported_reason:Fáth:
+reported_on:ar:
+reported_reported_by:Tuairiscíodh By:
+reported_reported_msg:Teachtaireachtaí Tuairiscíodh
+modque_pending_approval:Teachtaireachtaí feitheamh ceadú
+modque_approve:cheadú
+modque_delete:Scrios
+modque_deleteall:Scrios gach ó úsáideoir
+modque_no_message:Níl aon teachtaireacht ar feitheamh ceadú
+pmsg_new_messages:Teachtaireacht phríobháideach Neamhléite
+pmsg_old_messages:Léigh teachtaireacht phríobháideach
+deny_recipt:dhiúltú admháil
+deny_recipt_desc:Ná seol deimhniú go atá tú ag léamh an teachtaireacht seo
+restore_to:Athchóirigh Do:
+move_to:Bog Do:
+list_referes_referrals:atreoruithe
+list_referes_members:baill dTagraítear
+list_referes_member:Ball
+referals_none:Uimh tarchuir fós.
+referals_refered_by:Baill Fóram dá dtagraítear ag: <b><a href="{TEMPLATE: referals_refered_by_lnk}" class="thLnk">{VAR: p_user[1]}</a></b>
+referals_post_count:Líon teachtaireacht
+referals_registered_on:cláraithe ar
+referals_action:gníomh
+pmsg_all:gach
+pmsg_none:aon cheann
+folder:fillteán:
+pmsg_replied:D'fhreagair
+pmsg_forwarded:ar aghaidh
+pmsg_subject:ábhar
+pmsg_author:Údar
+pmsg_time:am
+pmsg_selected:roghnaithe
+pmsg_delete:Scrios
+cur_ppage_pm:Teachtaireachtaí príobháideacha
+writing_pm:Scríobh Teachtaireacht Príobháideach
+browsing_folder:Brabhsáil <b>{VAR: folders[$folder_id]}</b> fillteán
+inbox:R-phost Isteach
+draft:dréacht-
+sent:seolta
+trash:bruscar
+msg_author:Údar
+avatar_sel_form:Foirm Roghnú Avatar
+no_avatars:Uimh Avatars ar fáil
+month_1:eanáir
+month_2:Feabhra
+month_3:Márta
+month_4:Aibreán
+month_5:Bealtaine
+month_6:Meitheamh
+month_7:Iúil
+month_8:Lúnasa
+month_9:Mheán Fómhair
+month_10:Deireadh Fómhair
+month_11:Samhain
+month_12:nollaig
+sunday:Dé Domhnaigh
+sunday_short:S
+monday:Dé Luain
+monday_short:M
+tuesday:Dé Máirt
+tuesday_short:Tu
+wednesday:Dé Céadaoin
+wednesday_short:W
+thursday:Déardaoin
+thursday_short:Th
+friday:Dé hAoine
+friday_short:F
+saturday:Dé Sathairn
+saturday_short:S
+male:Fireann
+female:Baineann
+unspecified:Neamhshonraithe
+register_tree_view:Crann teachtaireacht View agus liostáil ábhar
+register_msg_tree_view:Maol liostú ábhar/Crann liostú teachtaireacht
+register_tree_msg_view:Crann liostú ábhar/Maol liostú teachtaireacht
+register_flat_view:Maol teachtaireacht View agus liostáil ábhar
+use_forum_default:Bain úsáid as réamhshocraithe fóram
+finduser_user_info:Eolas Úsáideora
+finduser_by_login:Trí Logáil isteach:
+finduser_submit:Faigh
+finduser_no_such_user:Uimh Úsáideoir den sórt sin
+finduser_user:Úsáideoir
+finduser_postcount:Líon teachtaireacht
+finduser_joindate:Dáta Ballraíochta
+finduser_action:gníomh
+yes:Is ea
+no:Uimh
+register_email:R-phost
+edit_time_limit:<b>Eagarthóireacht Teorainn Ama</b>: {GVAR: EDIT_TIME_LIMIT} nóiméad
+no_edit_time_limit:<b>Eagarthóireacht Teorainn Ama</b>: Unlimited
+pmuserloc_login:Logáil isteach:
+pmuserloc_submit:Cuir
+pmuserloc_user:Úsáideoir
+pmuserloc_no_result:Uimh Toradh
+register_builtin:tógtha I
+register_specify_url:Sonraigh URL
+register_uploaded:Uasluchtaigh Avatar
+register_login:Logáil isteach:
+register_password:D'fhocal faire:
+register_conf_pass:Dearbhaigh Pasfhocal:
+register_email_desc:Cuir isteach seoladh ríomhphoist bailí. Is féidir leat a roghnú chun é a cheilt thíos, i rannóg na Roghanna.
+register_name:Ainm:
+register_your_pass:Do Pasfhocal:
+register_update:Nuashonraigh
+register_avatar_type:Cineál Avatar:
+register_del_avatar:Date Avatar:
+register_avatar:Avatar:
+register_sel_avatar:Roghnaigh Avatar
+register_custom_avatar_rules:Ní bheidh an avatar saincheaptha le feiceáil go dtí go mbeidh sé formheasta ag an riarthóir.<br /><span class="SmallText">An avatar, ba chóir a bheith níos mó ná <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} pixel</b> agus ní mór a bheith i<b>jpg</b>, <b>gif</b> nó <b>png</b> formáid.</span>
+register_custom_avatar_url:Custom Avatar URL:
+register_preview:Réamhamhairc
+register_custom_avatar_upload:Custom Comhad Avatar:
+register_register:Cláraigh
+register_required:Eolas Riachtanach
+register_required_desc:Gach réimsí atá ag teastáil. Tabhair faoi deara go bhfuil focal faire cás íogair.
+register_optional:Eolas roghnach
+register_optional_desc:Tá sé nach molta go bhfuil tú nochtann aon fhaisnéis phearsanta nó a aithint i do phróifíl. Beidh gach eolas ar viewable ag baill fóram eile.
+register_location:Location:
+register_occupation:Slí Bheatha:
+register_interests:leasanna:
+register_image:íomhá:
+register_icq:ICQ:
+register_aim:AIM láimhseáil:
+register_yahoo:Yahoo Messenger:
+register_msnm:MSN Messenger:
+register_homepage:Leathanach Baile:
+register_bday:Dáta Breithe:
+register_bday_desc:Má théann tú isteach dáta breithe, ansin beidh baill fóram eile a bheith in ann é a fheiceáil i do phróifíl.
+register_day:lá
+register_month:mí
+register_year:Bliain
+register_gender:inscne:
+register_bio:Beathaisnéis:
+register_bio_desc:Tá cúpla sonraí fút féin, mar shampla do leasanna, post, etc...
+register_prefs:roghanna
+register_sig:Síniú:
+register_sig_desc:Síniú Roghnach, a bheidh le feiceáil ag bun do chuid teachtaireachtaí.
+register_reset:Athshocraigh
+register_def_thread_view:Réamhshocrú Amharc ar na hÁbhair:
+register_msg_per_page:Teachtaireachtaí Per Leathanach:
+register_show_sig:Taispeáin Sínithe:
+register_show_sig_desc:Is féidir leat a chur i bhfolach nó sínithe baill fóram eile 'a thaispeáint.
+register_use_sig_default:Úsáid Síniú ag Athfhriotail:
+register_use_sig_default_desc:Huathoibríoch fhoscríbhinn do shíniú ar gach teachtaireacht tú sa phost.
+register_timezone:Crios Ama:
+register_ignore_admin:Déan neamhaird Teachtaireachtaí Riaracháin:
+register_invisible_mode:Mód Dofheicthe:
+register_invisible_mode_desc:Seithí do stádas ar líne.
+register_show_email:Taispeáin Seoladh R-phost:
+register_show_email_desc:Roghnaigh an rogha seo más mian leat do sheoladh r-phoist a chur ar taispeáint go poiblí.
+register_notification:Roghnaigh Fógra ó Athfhriotail:
+register_notification_desc:Má tá fógra ar chumas réir réamhshocraithe, is féidir é a bheith faoi mhíchumas nuair a fhoilsiú.
+register_notify_method:Roghnaigh Modh Fógra:
+register_notify_method_desc:Socraigh do modh is fearr fógra nó fógraí (mar shampla nuair a théann tú ar laethanta saoire) dhíchumasú.
+register_allow_email_msg:Ceadaigh Teachtaireachtaí R-phost:
+register_allow_email_msg_desc:Ceadaigh úsáideoirí eile a sheolann tú r-phoist tríd an bhfóram seo.
+buddy_status:stádas
+my_buddies:mo Buddies
+add_buddy:Cuir Buddy
+add:Cuir
+buddy_search:Cuir isteach an logáil isteach an t-úsáideoir mian leat a chur leis.
+member_search:Nó úsáid an <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Aimsigh Úsáideoir</a> gné a aimsiú duine.
+buddy_remove:bhaint
+post_normal:gnáth
+post_sticky:greamaitheach
+post_annoncement:Fógra
+post_size:méid
+post_color:dath
+post_font:Cló
+create_thread:Cruthaigh Topic
+submit_reply:Cuir Freagra
+edit_message:Cuir Athruithe Teachtaireacht
+apply_spell_changes:Cuir Athruithe i Litriú
+post_preview:teachtaireacht Réamhamhairc
+post_logedin_user:Logáilte isteach úsáideora:
+post_logout:logáil amach
+post_passwd:Postála Pasfhocal:
+post_poll:Vótaíocht:
+post_create_poll:CREATE VÓTAÍOCHT
+post_poll_delete:scriosadh
+post_poll_edit:EDIT
+post_mod_opt:Moderator Roghanna:
+post_thread_type:Cineál Topic:
+post_thread_expiry:Topaic dhul in éag:
+post_locked:Topic Faoi Ghlas
+post_icons:Teachtaireacht Icon:
+post_no_icon:Uimh Deilbhín
+post_smiley:Aicearraí Smiley:
+post_format_tools:Uirlisí Formáidiú:
+post_upload_file:Uasluchtaigh Comhad
+post_file_del:Scrios
+post_file_name:Ainm
+post_file_size:méid
+file_attachments:Ceangaltáin Comhad:
+allowed_files:Eisínteachtaí Comhad ceadaithe:
+max_file_size:File Size Uasmhéid:
+max_files_per_msg:Comhaid Uasmhéid Per Teachtaireacht:
+post_notification:Iar Fógra
+include_sig:Cuir Síniú
+include_sig_desc:Cuir do shíniú phróifíl.
+disable_smilies:Díchumasaigh smilies sa teachtaireacht seo
+spell_check_msg:Seiceálaí litrithe Teachtaireacht
+post_form:Iar Foirm
+post_forum:Fóram:
+post_title:Teideal:
+post_body:comhlacht:
+post_options:roghanna:
+post_preview_btn:Teachtaireacht Réamhamhairc
+post_cancel_btn:Cealaigh
+ignore_users:Úsáideoirí Rinneadh neamhshuim
+add_ignore:Cuir ignoramus
+forum_terms:Téarmaí Fóram
+forum_rules:<p>Clárú leis an bhfóram saor in aisce! Déanann muid go seasann tú cloí leis na rialacha agus na polasaithe mionsonraithe thíos. Má aontaíonn tú leis na téarmaí, le do thoil brúigh an <b> Aontú </b> cnaipe ag bun an leathanaigh. Nóta: De réir an cnaipe an cnaipe a dhearbhú tú go bhfuil tú os cionn aois 13. Má tá tú 13 nó faoi, bain úsáid as an bhfoirm chlárúcháin. </P> <p> Cé go mbeidh na riarthóirí agus moderators an fhóraim iarracht a choinneáil ar gach teachtaireacht objectionable as fhóram seo, go bhfuil sé dodhéanta dúinn athbhreithniú a dhéanamh ar gach teachtaireacht. Iúl gach teachtaireacht na tuairimí an údar, agus beidh ní úinéirí an fhóraim nó na forbróirí a bheith freagrach as ábhar aon teachtaireacht. </P> <p> Trí chliceáil ar an gcnaipe Chomhaontaithe, barántas tú nach mbeidh tú sa phost aon teachtaireachtaí atá gáirsiúil, vulgar, gnéasach-dhírithe, hateful, bagairt, nó ar shlí eile violate aon dlíthe. </p> <p> Tá sé de cheart a bhaint, eagar, a aistriú nó gar aon ábhar ar chúis ar bith an úinéirí an bhfóram seo. </p>
+forum_rules_13:Ní mór do gach úsáideoir <p> faoi 13 bliain d'aois chead óna tuismitheoir nó caomhnóir a lorg chun tuairiscíodh ballraíocht a fháil chun na fóraim. Cé go gcuirimid fáilte roimh rannpháirtíocht ó bhaill faoi 13, a cheangal againn go bhfuil tuismitheoir nó caomhnóir facs nó post ar ais an fhoirm cheada sínithe sula dheonú againn mballraíocht. </P> <p> Más mian leat chun tús a chur leis an bpróiseas clárúcháin roimh dúinn ag fáil fhoirm cheada seo, brúigh an <b> Aontú </b> cnaipe thíos. Más mian leat chun an clárú a chealú, brúigh <b> Ní aontaím </b> Is féidir le filleadh ar an innéacs fóraim. </P> <p> cóip den fhoirm cead a íoslódáil anseo. Chun tuilleadh eolais a fháil maidir leis an bpróiseas clárúcháin, le do thoil r-phost a sheoladh chuig <a href="mailto:{GVAR: ADMIN_EMAIL}"> {GVAR: ADMIN_EMAIL}. </A> </p>
+coppa_conf:COPPA Daingniú
+coppa_before:roimh {TEMPLATE: coppa_date}
+coppa_after:Tar éis {TEMPLATE: coppa_date}
+coppa_link:Cliceáil ar an nasc a fhreagraíonn do dháta breithe
+coppa:Ní mór <p>tuismitheoir nó caomhnóir foirm toilithe sínithe phost nó facs chuig an riarthóir an bhfóram seo os comhair úsáideoir faoi 13 bliain d'aois is féidir a chomhlánú clárúcháin.</p> <p> Le haghaidh tuilleadh eolais déan teagmháil <a href = "mailto:{GVAR: ADMIN_EMAIL} "> {GVAR: ADMIN_EMAIL} </a> </p>
+prereg_info:Rialacha Fóram
+prereg_agree:aontú
+prereg_disagree:Ní aontaím
+prereg_update:Léitheoireacht na rialacha fóram
+coppa_fax_instructions:Treoracha le haghaidh Tuismitheoir nó Caomhnóir
+coppa_fax_instructions2:Tabhair Priontáil an leathanach seo, í a shíniú, agus é a facs chuig:
+coppa_fax_reg_form:Foirm Chlárúcháin
+coppa_fax_sign:Sínigh an fhoirm thíos agus seol chugainn é le do thoil
+coppa_fax_conf:Tá athbhreithniú déanta agam an t-eolas ag mo pháiste ar fáil agus tá an Polasaí Príobháideachta le haghaidh an láithreán gréasáin léite agam. Tuigim go bhféadfaidh an t-eolas ar phróifíl a athrú ag baint úsáide as focal faire. Tuigim gur féidir liom a iarraidh go bhfuil an phróifíl clárú a bhaint go hiomlán as an bhfóram.
+coppa_fax_permission:Cláraigh anseo má thugann tú cead
+coppa_fax_no_permission:Cláraigh anseo más mian leat an cuntas a scriosadh
+coppa_fax_parent_name:Tuismitheoir/Caomhnóir Ainm Iomlán:
+coppa_fax_relation:Gaol leis an Leanbh:
+coppa_fax_telephone:Teileafón:
+coppa_fax_email:Seoladh R-phost:
+coppa_fax_date:dáta:
+coppa_fax_questions:Téigh i dteagmháil <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> le haon cheisteanna
+coppa_fax_login:Logáil isteach
+coppa_fax_passwd:Pasfhocal
+coppa_fax_remail:R-phost
+coppa_fax_name:Ainm
+login_not_logedin:Níl tú logáilte isteach é seo a bheith mar gheall ar cheann de na cúiseanna éagsúla:
+login_cookie_expired:Tá do fianán in éag, agus is gá duit a logáil isteach chun athnuachan do fianán.
+login_perm_denied:Ní gá duit cead rochtain a fháil ar an acmhainn iarrtha mar úsáideoir gan ainm. Ní mór duit logáil isteach cead a fháil.
+login_want_to_register:Want a chlárú?
+login_forgot_passwd:pasfhocal dearmadta agat?
+login_use_cookie:Bain úsáid as fianáin<br /><span class="SmallText">Má tá tú ag baint úsáide as teirminéal poiblí cosúil le ríomhaire i leabharlann, scoil, nó caife idirlín, tá sé molta go bhfuil tú Díthiceáil an rogha seo le haghaidh níos mó slándála. Má fhágann tú an rogha seo ansin beidh tú go huathoibríoch logáilte isteach-an fóram an chéad uair eile a thugann tú cuairt.</span>
+login_login:Logáil isteach:
+login_login_btn:Logáil isteach
+login_name_required:Tá ainm logáil isteach ag teastáil
+login_passwd_required:Tá Pasfhocal ag teastáil
+login_invalid_radius:Neamhbhailí login/teaglaim focal faire
+reset_confirmation:Go raibh maith agat as clárú.\n\nChun do chuntas a ghníomhachtú téigh go dtí an URL thíos le do thoil:\n\n{VAR: url}\n\nNuair atá do chuntas gníomhachtaithe a bheidh tú logáilte isteach-an fóram agus\natreorú chuig an leathanach príomh.
+reset_reset:Dia duit,\n\nA d'iarr tú ar do phasfhocal a athshocrú bheith. Chun an próiseas a chríochnú,\ntéigh go dtí an URL le do thoil:\n\n{VAR: url}\n\nTABHAIR FAOI DEARA: Stórálann an fóram an focal faire i meicníocht criptithe aon-bhealach, rud a chiallaíonn go\nnuair a bhíonn tú isteach do phasfhocal tá sé ionchódaithe ionas go bhfuil aon bhealach chun é a fháil ar ais.\nOibríonn sé seo trí chomparáid a dhéanamh leis an leagan ionchódaithe atá againn ar taifead leis an leagan ionchódaithe ar cad leat cineál isteach Logáil isteach pras.\n(Má tá suim agat i conas a oibríonn an mheicníocht, a léamh suas ar algartam MD5 Hash)
+rpasswd_invalid_passwd:Pasfhocal neamhbhailí
+rpasswd_passwd_nomatch:Ní faire mheaitseáil
+rpasswd_passwd_length:Ní mór Pasfhocal bheith ar a laghad 6 carachtair ar fad
+reset_remind_pass:Pasfhocal Meabhrúchán
+reset_reset_conf:Beidh do phasfhocal a athshocrú agus a sheoladh a thabhairt duit. Mura bhfuil tú deimhnithe go fóill do sheoladh r-phoist, an t-iarratas deimhnithe a ath-sheoladh chugat.
+reset_error:Seoladh r-phoist nach bhfuil le fáil i mbunachar sonraí
+rpasswd_change_pass:Athraigh Pasfhocal
+rpasswd_login:Logáil isteach
+rpasswd_cur_pass:Pasfhocal Reatha:
+rpasswd_new_pass:Pasfhocal Nua:
+rpasswd_conf_pass:Dearbhaigh Pasfhocal:
+ruser_title:Athraigh Foirm Logáil isteach
+ruser_change_user:Athrú Do Logáil Fóram
+ruser_cur_login:Logáil isteach Reatha:
+ruser_new_login:Logáil isteach Nua:
+ruser_cur_pass:Pasfhocal Reatha:
+login_passwd:Pasfhocal:
+reset_email:R-phost:
+reset_reset_button:Athshocraigh Pasfhocal
+rate_this_thread:ráta
+report_reporting_about:Tuairisciú About:
+report_subject:ábhar:
+report_by:By:
+report_posted_on:Posted on:
+report_give_reason:Tabhair fáth go bhfuil tú ag tuairisciú teachtaireacht seo:
+report_submit_report:Seol Tuairisc
+search_entire_msg:Teachtaireacht Entire
+search_subject_only:ábhar Amháin
+search_forum:Fóram
+search_posted_on:Posted ar
+search_no_results:Uimh Torthaí
+search_all_forums:Cuardaigh Gach Forums
+search_in_forum:Cuardaigh i Fóram:
+search_forum_search:Fóram Cuardaigh
+move_thread_to:Bog ábhar <b>{VAR: thr->subject}</b> go:
+remail_email_topic:R-phost seo Topic to a Friend
+remail_your_name:Do Ainm:
+remail_your_email:Do Ríomhphost:
+remail_friends_name:Friend Ainm:
+remail_friends_email:Friend R-phost:
+remail_required:ag teastáil
+remail_subject:ábhar:
+remail_message:teachtaireacht:
+remail_send_now:Seol r-phost Anois
+remail_anon_opt:Cóipeáil an teachtaireacht seo i cliant ríomhphoist de do rogha chun é a sheoladh chuig do chara (í).
+remail_done:Arna dhéanamh
+remail_sent_conf:An r-phost chuig do chara ag {VAR-HTML: _POST['femail']} mar gheall ar an {VAR: data->subject} Cuireadh ábhar seoladh go rathúil.
+remail_error:Tharla earráid agus
+mklist_type:cineál:
+mklist_option:rogha:
+mklist_additem:Cuir Mír
+mklist_apply:Iarratas
+mklist_delete:Scrios
+qbud_nick_name:leasainm
+qbud_add_selected:Cuir Roghnaithe
+qbud_selected:roghnaithe
+qbud_no_buddies:Uimh cairde a roghnú as
+mklist_numerical:uimhriúil
+mklist_aplha:alfa
+mklist_square:Cearnóg
+mklist_disc:diosca
+mklist_circle:ciorcal
+mklist_close:Dún
+email_to:chuig:
+email_pg_title:R-phost
+email_subject:ábhar:
+email_body:comhlacht:
+email_submit:R-phost
+ppost_quote_msg:{VAR: msg_to_list} Scríobh ar {TEMPLATE: ppost_quote_msg_date}
+ppost_quote:Athfhriotail:
+ppost_to:chuig:
+ppost_from_buddy_list:Roghnaigh ó Liosta Buddy
+ppost_find_User:Aimsigh Úsáideoir
+ppost_track_msg:Track seo Teachtaireacht
+ppost_track_msg_desc:In iúl dom (trí theachtaireacht phríobháideach) nuair a fhaigheann an teachtaireacht seo a léamh.
+ppost_send:Seol
+ppost_save_draft:Sábháil Dréacht
+poll_blank_option:Ní féidir leat add a rogha bán.
+poll_del_conf:Más mian leat a scriosadh an rogha seo, brúigh OK
+poll_name:Ainm Poll:
+poll_timelimit:Teorainn Ama:
+poll_maxiumvotes:Uasmhéid Vótaí:
+poll_create:Cruthaigh
+poll_update:Nuashonraigh
+poll_disablesmilies:Díchumasaigh smilies
+poll_create_poll:Cruthaigh Poll
+poll_update_poll:Update Poll
+poll_delete:Scrios
+poll_updateoption:Rogha Nuashonraigh
+poll_addoption:Cuir Rogha
+poll_unlimited:Unlimited
+poll_day:lá
+poll_days:laethanta
+poll_hour:uair an chloig
+poll_hours:uair an chloig
+poll_month:mhí
+poll_year:bliana
+poll_week:seachtain
+tabs_register:Socruithe Cuntais
+tabs_subscriptions:Síntiúis
+tabs_bookmarkes:Foláirimh agus Nuashonruithe
+tabs_referrals:atreoruithe
+tabs_buddy_list:Liosta Buddy
+tabs_ignore_list:Déan neamhaird Liosta
+tabs_private_messaging:Teachtaireachtaí príobháideacha
+single_msg_delete:Tá tú ar tí <span class="ErrorText">scriosadh</span> an teachtaireacht dar teideal: <b>{VAR: data[3]}</b>
+thread_delete:Tá tú ar tí <span class="ErrorText">scriosadh</span> an <span class="ErrorText">ábhar ar fad</span> dar teideal: <b>{VAR: data[3]}</b>
+delete_proceed:<span class="fb">An mian leat dul ar aghaidh?</span>
+delete_yes:Is ea
+delete_no:Ní
+error_invalidurl:URL neamhbhailí
+error_error:Earráid
+usrinfo_profile:{VAR: u->alias}'s Próifíl
+usrinfo_show_all_posts:Taispeáin gach teachtaireacht ag {VAR: u->alias}
+actions_update:Snooping ar dhaoine eile, ach is mian leat
+err_info:Eolas
+buddy_list_err_cantadd:Ní féidir leat tú féin a chur le do liosta chara
+buddy_list_err_dup:Tá tú cheana féin an t-úsáideoir ar do liosta chara
+buddy_list_err_nouser:Ní raibh an t-úsáideoir iarracht tú a chur le do liosta chara Fuarthas go raibh.
+buddy_list_err_nouser_title:Ní féidir úsáideoir a chur leis
+buddy_list_err_ignore:Ní féidir úsáideoirí atá tú neamhaird ar do liosta chara.
+buddy_list_update:Liosta chara féin Browsing
+core_err_invinp_title:Ionchur neamhbhailí
+core_err_invinp_err:Tá tú i ndiaidh nasc neamhbhailí. Le do thoil fógra a thabhairt don <a href="mailto:{GVAR: ADMIN_EMAIL}">stiúrthóir gréasáin</a> conas a fuair tú anseo.
+core_adm_login_msg:Is féidir le Riarthóirí logáil isteach <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">anseo</a>.
+email_err_unabletoemail_title:EARRÁID: Níorbh fhéidir a r-phost
+email_err_unabletoemail_msg:Tá an córas r-phost curtha faoi mhíchumas ag an riarthóir.
+email_error_unabletolocaddr:Tá brón orainn, bhí an córas in ann a r-phost {VAR-HTML: _POST['tx_name']} toisc go raibh sé in ann chun a chinneadh an seoladh r-phoist
+email_error_body:Is é an comhlacht ag teastáil
+email_error_subject:Tá an Ábhar teastáil
+email_error_namerequired:Tá Ainm teastáil
+email_error_invaliduser:úsáideoir neamhbhailí
+emailconf_err_invkey_title:Earráid
+emailconf_err_invkey_msg:Eochair deimhnithe neamh-bhailí. Déan seiceáil ar do r-phost a dhéanamh cinnte go bhfuil tú isteach an URL i gceart. Má tá tú chliceáil ar an nasc dhó, is féidir do chuntas a bheith daingnithe cheana féin. Logáil isteach chun an fóram a iarraidh eochair eile.
+err_inc_criticaltitle:earráid chriticiúil
+err_inc_criticalmsg:Tá Tharla earráid. Ar an drochuair, tá fadhb leis an gcóras tuairiscithe earráid ann freisin.
+finduser_update:Cuardach do úsáideoirí
+help_index_update:léamh an <a href="{TEMPLATE: help_index_update_lnk}">Cabhair</a>
+iemail_thr_subject:Freagra Nua le {VAR: thr_subject} ag {VAR: poster_login}
+iemail_thr_bodyemail:Chun breathnú freagraí neamhléite téigh go dtí {VAR: goto_url['email']}\n\nMás rud é nach mian leat a fháil fógraí breise maidir le freagraí san ábhar seo, téigh anseo: {VAR: unsub_url['email']}
+iemail_frm_subject:Ábhar nua i bhfóram {VAR: frm_name}, ar a dtugtar {VAR: thr_subject}, ag {VAR: poster_login}
+iemail_frm_bodyemail:Chun breathnú ar an ábhar téigh go dtí:\n{VAR: goto_url['email']}\n\nChun stop a chur fógraí faoi ábhair nua sa bhfóram seo a fháil, téigh anseo: {VAR: unsub_url['email']}
+iemail_participate:Chun páirt a ghlacadh sa phlé, téigh anseo:
+ignore_list_err_info_title:Eolas
+ignore_list_err_dup_msg:Tá tú cheana féin an t-úsáideoir ar do liosta neamhaird
+ignore_list_err_nu_title:Úsáideoir gan aimsiú
+ignore_list_err_nu_msg:Ní raibh an t-úsáideoir iarracht tú a chur le do liosta neamhaird a fuarthas.
+ignore_list_cantign_msg:Ní féidir leat neamhaird a dhéanamh an t-úsáideoir
+ignore_list_update:Brabhsáil féin liosta neamhaird a
+index_update:brabhsáil an <a href="{TEMPLATE: index_update_lnk}">liosta fóram</a>
+list_referers_update:Brabhsáil atreoruithe
+login_update:Logáil isteach Foirm
+msg_update:ábhar Brabhsáil <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
+pm_err_nopm_title:EARRÁ: Teachtaireachtaí Príobháideacha Mhíchumas
+pm_err_nopm_msg:Ní féidir leat úsáid a bhaint as an gcóras teachtaireachtaí príobháideach. Tá sé curtha faoi mhíchumas ag an riarthóir.
+pm_update:Ag baint úsáide as teachtaireachtaí príobháideach
+post_err_lockedthread_title:EARRÁ: Topaic Faoi Ghlas
+post_err_lockedthread_msg:Tá an topaic seo faoi ghlas. Postála a thuilleadh a cheadaítear.
+err_coppa_title:EARRÁ: Nach bhfuil do chuntas deimhnithe go fóill
+err_coppa_msg:Ní mór dúinn a fuarthas deimhniú ó do thuismitheoir agus/nó caomhnóir dlíthiúil, rud a cheadaíonn duit chun teachtaireachtaí a phost. Má chaill tú d'fhoirm COPPA, <a href="{TEMPLATE: err_coppa_msg_lnk}">féachaint air arís</a>.
+err_banned_acct_title:EARRÁID: Tá tú cuireadh toirmeasc.
+err_banned_acct_msg:Do chuntas a bhí {IF: $ban_expiry}toirmeasc go sealadach go dtí go {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}toirmeasc buan{ENDI} ó rochtain a fháil ar an láithreán, mar gheall ar shárú ar na rialacha an fóram ar.
+post_err_edttimelimit_title:EARRÁ
+post_err_edttimelimit_msg:Is féidir leat a thuilleadh in eagar teachtaireacht seo
+post_err_noannontopics_msg2:<legend>EARRÁ: Easpa Pribhléidí</legend>Ní úsáideoirí gan ainm Tá cead chun topaicí a chruthú.
+post_err_noannonposts_msg2:<legend>EARRÁ: Easpa Pribhléidí</legend>nach bhfuil cead ag úsáideoirí Anonymous freagra a thabhairt.
+post_err_floodtrig_title:EARRÁ: Post tuile tharraing.
+post_err_floodtrig_msg:Bain triail eile as ar {PLURAL: tm|$1 dara|$1 soicind}
+post_err_attach_size:Tá Attachment Comhad ró-mhór (os cionn teorann a cheadaítear d' {VAR: MAX_F_SIZE} bytes)
+post_err_attach_ext:Níl an comhad a bhfuil tú ag iarraidh a uaslódáil mheaitseáil leis an cineálacha comhaid ceadaithe.
+post_err_attach_filelimit:Tá tú ag iarraidh a uaslódáil comhad níos mó ná mar a cheadaítear.
+post_err_passwd:Focal faire mícheart.
+post_reply_update:Freagra a thabhairt <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> i {VAR: frm->name}
+post_topic_update:Scríobh ábhar nua i <a href="{TEMPLATE: post_topic_update_lnk}">{VAR: frm->name}</a>
+post_error_generic:Tharla earráid agus
+postcheck_max_images_err:Gan níos mó ná {GVAR: MAX_IMAGE_COUNT} íomhánna a cheadaítear in aghaidh na teachtaireachta. Le do thoil laghdú ar líon na n-íomhánna.
+postcheck_no_links_allowed:Ní féidir leat úsáid a bhaint as naisc go dtí go bhfuil tú ar fáil níos mó ná {PLURAL: posts_before_links|$1 teachtaireacht|$1 teachtaireacht}.
+postcheck_subj_needed:Faoi réir ag teastáil
+postcheck_no_such_user:Níl aon úsáideoir ann darb ainm "{FUNC: char_fix(htmlspecialchars($v))}" sa bhfóram seo.
+postcheck_ignored:Ní féidir leat teachtaireacht phríobháideach a sheoladh chuig "{FUNC: char_fix(htmlspecialchars($v))}", toisc go bhfuil an t-úsáideoir gan aird a thabhairt duit.
+postcheck_no_recepient:Ní féidir teachtaireacht a sheoladh, faighteoir ar iarraidh
+postcheck_invalid_email:Cuir isteach seoladh ríomhphoist bhailí do do chara.
+postcheck_email_subject:Ní féidir leat seol r-phost gan ábhar.
+postcheck_email_body:Ní féidir leat a sheoladh r-phoist gan an comhlacht teachtaireacht.
+private_msg_notify_subj:Léigh Fógra Do: {VAR: m->subject}
+private_msg_notify_body:Dia duit,<br />{VAR: usr->login} D'oscail do theachtaireacht phríobháideach dar teideal, "{VAR: m->subject}".<br />Is é seo an fógra uathoibrithe ginte ag {TEMPLATE: private_msg_notify_body_date}<br />
+referals_update:Brabhsáil atreoruithe
+register_err_short_login:Is é an Login a roghnaigh tú ró-ghearr. Ní mór ainm logála isteach a bheith ar a laghad 4 carachtair ar fad.
+register_err_login_notallowed:Ní hé seo an t-ainm logáil isteach a cheadaítear.
+register_err_loginunique:Ní mór Fóram ainm logála isteach a bheith ar leith. Tá cheana féin i d'úsáideoir leis an ainm seo.
+register_err_emailexists:Tá an seoladh r-phoist a bhaineann cheana féin le cuntas. Má tá dearmad déanta agat ar do phasfhocal bain úsáid as an rogha Athchóirigh, in ionad ath-chlárú.
+register_err_shortpasswd:Ní mór pasfhocail a bheith ar a laghad 6 carachtair ar fad.
+register_err_passwdnomatch:Ní gá d'fhocal faire a mheaitseáil, le do thoil bain triail eile as.
+register_err_invalidemail:Ní dhéanann an seoladh r-phoist a shonraigh tú dealraitheach a bheith bailí.
+register_err_needname:A chur i gcrích go rathúil an clárú ní mór duit dul isteach do ainm.
+register_err_enterpasswd:Ní mór duit dul isteach do phasfhocal faoi láthair chun na hathruithe.
+register_err_adminpasswd:Ní mór duit dul isteach do riarthóir <b> </b>phasfhocal a chur i gcrích na n-athruithe.
+register_err_notyouremail:Tá duine éigin eile atá cláraithe cheana féin leis an seoladh r-phoist.
+register_err_avatartobig:Tá an comhad a bhfuil tú ag iarraidh a uaslódáil ró-mhór, níos mó ná {GVAR: CUSTOM_AVATAR_MAX_SIZE} bytes.
+register_err_avatarnotallowed:Níl an avatar tú ag iarraidh a uaslódáil ceadaithe. Seiceáil na cineálacha comhaid ceadaithe.
+register_conf_subject:Deimhniú clárúcháin
+register_conf_msg:Go raibh maith agat as clárú,\nChun do chuntas a ghníomhachtú téigh go dtí an URL thíos le do thoil:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nNuair atá do chuntas gníomhachtaithe a bheidh tú logáilte isteach-an fóram agus\natreorú chuig an leathanach príomh.
+register_welcome_subject:Fóram Deimhniú Clárúcháin
+register_welcome_msg:Go raibh maith agat as clárú,\n\nSeo iad do chuid sonraí logáil isteach chun an fóram:\n\nFóram URL: {TEMPLATE: index_update_lnk}\nLogáil isteach: {VAR: uent->login}\nPasfhocal: {VAR: _POST['reg_plaintext_passwd']}\n\nTabhair faoi deara go bhfuil focal faire cás íogair!\nChun a mhodhnú do chuid socruithe nó próifíl, téigh go dtí an leathanach seo:\n{FULL_ROOT}{ROOT}?t=register
+register_err_cantreg_title:EARRÁID: ní féidir a chlárú
+regsiter_err_cantreg_msg:Níorbh fhéidir cuntas úsáideora a chruthú, téigh i dteagmháil leis an riarthóir ar <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
+register_profile_update:Ag féachaint ar phróifíl féin
+register_register_update:Leathanach Clárúcháin
+report_err_nosuchmsg_title:EARRÁ
+report_err_nosuchmsg_msg:Uimh Teachtaireacht den sórt sin
+reset_err_invalidkey_title:EARRÁ
+reset_err_invalidkey_msg:Eochair phasfhocal a athshocrú neamhbhailí. Is féidir go raibh do chliant r-phost cheana féin a oscailt go huathoibríoch an leathanach seo, invalidating an eochair a athshocrú. Más é seo an cás, ba chóir duit a fháil go luath ar r-phost le do phasfhocal nua. Más rud é nach den sórt sin a r-phost a thagann, le do thoil scríobh an resetting an focal faire.
+reset_err_rstconf_title:Eolas
+reset_err_rstconf_msg:Ba chóir duit treoracha i do r-phost a fháil i miontuairiscí amach romhainn.
+reset_newpass_title:Athshocraigh Pasfhocal
+reset_newpass_msg:Dia duit,\n\nMar a iarradh dealraitheach do chuid faisnéise logáil isteach, thíos:\n\nLogáil isteach: {VAR: ui[1]}\nPasfhocal: {VAR: passwd}\n\nTabhair faoi deara go bhfuil do phasfhocal bhí athshocrú chun an luach thuas. Más mian leat\na athrú ar do phasfhocal is féidir leat é sin a dhéanamh tríd an painéal úsáideoirí rialaithe info at:\n{FULL_ROOT}{ROOT}?t=register
+reset_login_notify:Do phasfhocal curtha r-phost a thabhairt duit. Ba chóir duit é a fháil laistigh de na miontuairiscí amach romhainn. <br/>
+search_update:teachtaireachtaí Cuardach
+selmsg_update:Brabhsáil <a href="{TEMPLATE: selmsg_update_lnk}">Inniu Poist</a>
+showposts_update:Ag féachaint ar post ag: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
+subscribed_update:Síntiúis féin Brabhsáil
+bookmarked_update:Liosta leabharmharc féin Browsing
+thread_update:fóram Brabhsáil <a href="{TEMPLATE: thread_update_lnk}">{VAR: frm->name}</a>
+tree_update:ábhar Brabhsáil (tree view) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
+userinfo_update:ag Breathnú ar an <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}'s</a> próifíl
+ERR_login_msg2:<legend>EARRÁ: Níl tú logáilte isteach-i </legend> Chun rochtain an leathanach seo ní mór duit a bheith ina chomhalta den fhóram seo.
+ERR_disabled_ttl:gné faoi Mhíchumas
+ERR_disabled_msg:Tá an gné seo díchumasaithe ag riarthóir an chórais.
+ERR_access_ttl:EARRÁ: Ceadanna neamhleor
+ERR_access_msg:Ní gá duit na ceadanna riachtanacha chun an gníomh seo.
+ERR_registration_disabled_ttl:Clárú Mhíchumas
+ERR_registration_disabled_msg:Tá an riarthóir faoi mhíchumas clárú. Déan iarracht arís ar ball.
+ERR_emailconf_ttl:EARRÁ: Nach bhfuil do chuntas deimhnithe go fóill
+ERR_emailconf_msg:Níor thug tú deimhnithe do chuntas tríd an r-phost go fóill.<br /><table border="0"><tr><td><ol><li>Más rud é nach bhfaigheann tú deimhniú r-phost, <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">iarrann é arís</a>.</li><li>Má {VAR: usr_d->email} nach bhfuil do ceart sheoladh r-phoist, <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">Sonraigh an seoladh ceart</a>.</li></ol></td></tr></table>
+ERR_user_ttl:EARRÁ: aon úsáideoir den sórt sin
+ERR_user_msg:Níl aon úsáideoir den sórt sin
+ERR_systemerr_ttl:EARRÁ: Earráid Córas
+ERR_systemerr_msg:Tá earráid chórais tharla. Le do thoil é a thuairisciú don <a href="mailto:{GVAR: ADMIN_EMAIL}">stiúrthóir gréasáin</a>.
+email_title:Foirm R-phost
+finduser_title:Aimsigh Úsáideoir
+help_title:Cuidiú
+login_title:Logáil isteach Foirm
+poll_title:Eagarthóir Poll
+register_title:Cláraigh Foirm
+reset_title:Athshocraigh Pasfhocal
+rpasswd_title:Athraigh Pasfhocal Foirm
+error_title:Foirm earráid
+index_title:Fáilte chuig an fóram
+search_title:Cuardaigh le haghaidh {VAR-HTML: srch}
+remail_emailsent:Cuireadh Ríomhphost
+remail_email:Dia duit,\n\nTá ábhar suimiúil faoi "{VAR: data->subject}" ar {GVAR: FORUM_TITLE} fóram gur b'fhéidir gur mhaith leat a léamh. Is féidir leat a fheiceáil ar an ábhar seo ag:\n {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\ndo chara,\n\n{VAR: usr->alias}
+poll_add_option:Cuir Rogha:
+post_opt_html_on:<b>HTML</b> Tá <b> ar </b>
+post_opt_fud_on:<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>BBcode</b> Tá <b>ar</b></a>
+post_opt_images_on:<b>Íomhánna</b> Tá <b>ar</b>
+post_opt_smilies_on:<a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank"><b>Smilies</b> Tá <b>ar</b> </span>
+post_opt_html_off:<b>HTML</b> Tá cód <b>thalamh</b>
+post_opt_fud_off:<b>BBCode</b> Tá <b>uaire</b>
+post_opt_images_off:<b>Íomhánna</b> Tá <b>thalamh</b>
+post_opt_smilies_off:<b>Smilies</b> Tá <b>thalamh</b>
+post_opt:Roghanna Fóram:
+register_change_passwd:Focal faire a athrú
+register_change_login:athrú login
+approved_avatar_title:Ceadaíodh do avatar saincheaptha.
+approved_avatar_msg:Cuireadh do avatar ceadaithe ag an riarthóir. Ba chóir é le feiceáil anois mar do avatar ar gach do theachtaireachtaí. Mura bhfuil tú é a fheiceáil, nó a fheiceáil do avatar d'aois, tá sé toisc go bhfuil do bhrabhsálaí taisce an leathanach. Bain triail as refreshing sé uair nó dhó. I bhformhór na gcásanna beidh sé seo an fhadhb a réiteach caching.
+unapproved_avatar_title:Diúltaíodh do avatar saincheaptha.
+unapproved_avatar_msg:Ní raibh an riarthóir a cheadú do avatar. Is iad na cúiseanna is coitianta go raibh do avatar ró-mhór (méid agus/nó toisí) nó go bhfuil ábhar mí-chuí. Más mian leat tuilleadh eolais a fháil maidir le cén fáth gur diúltaíodh do avatar, déan teagmháil leis an riarthóir.
+mvthread_request_move:iarraidh bogadh
+move_request_reason:Cén fáth a bhfuil tú ag iarraidh an t-ábhar a bhogadh?
+mvthread_submit_req:Cuir Iarratas
+thread_exchange:Malartú Topic
+move_request_by:Bogadh Topic iarr:
+move_reason:Cúis bogadh ábhar:
+thr_exch_accept:glacadh ábhar
+thr_exch_decline:ábhar meath
+thr_exch_orig_forum:Fóram information:
+thr_exch_dest_forum:Fóram Ceann Scríbe:
+thr_exch_no_threads:Uimh topaicí feithimh cheadú.
+thr_exch_decl_reason:Cúis meath ábhar <b>{VAR: data->subject}</b> i fóram <b>{VAR: data->f2_name}</b>
+thr_exch_submit:Cuir
+exch_decline_ttl:Bogadh ar ábhar {VAR: data->subject} i fóram {VAR: data->f2_name} diúltaíodh.
+ppost_original_msg:teachtaireacht go bhfuil tú ar aghaidh nó freagra a thabhairt
+split_thread:scoilt Topic
+groupmgr_no_user:Níl aon úsáideoir le logáil isteach de "{FUNC: char_fix(htmlspecialchars($gr_member))}"
+groupmgr_already_exists:Úsáideoir "{FUNC: char_fix(htmlspecialchars($gr_member))}" ann cheana féin sa ghrúpa seo.
+groupmgr_yes:Is ea
+groupmgr_no:Uimh
+groupmgr_action:gníomh
+groupmgr_member:Ball
+groupmgr_cancel:Cealaigh
+groupmgr_add_member:Cuir Ballstáit
+groupmgr_update_member:Ball Nuashonraigh
+groupmgr_edit:Cuir
+groupmgr_delete:Scrios
+group_mgr_anon:Anonymous
+group_mgr_reged:Gach Úsáideoirí Cláraithe
+show_show:Taispeáin:
+group_mgr:Bainisteoir Grúpa
+group_mgr_edit_btn:Edit Grúpa
+group_mgr_heading:Roghnú Eagarthóir Grúpa
+group_mgr_group:Grúpa:
+permission_denied_title:Cead diúltaithe!
+permission_denied_msg:Ní Do ceadanna úsáideora deis a thabhairt duit a dhéanamh ar an ngníomh a bhfuil tú ag iarraidh.
+p_READ:Léigh
+p_POST:Iar-
+p_REPLY:freagra
+p_EDIT:Cuir
+p_DEL:Scrios
+p_STICKY:teachtaireachtaí Sticky
+p_POLL:Cruthaigh pobalbhreith
+p_FILE:ceangail Comhaid
+p_VOTE:Vóta
+p_RATE:Topaicí Ráta/baill
+p_SPLIT:ábhair scoilt
+p_LOCK:topaicí Lock
+p_MOVE:topaicí Bog
+p_SML:Bain úsáid as smilies
+p_IMG:Bain úsáid as clibeanna íomhá
+p_SEARCH:An féidir Cuardaigh
+group_mgr_search:Aimsigh Úsáideoir
+group_mgr_indicator:faoi ​​láthair Eagarthóireacht: <b>{VAR: grp->name}</b>
+rate_worst:Worst
+rate_best:Fearr
+post_quote_msg:{VAR: msg->login} Scríobh ar {TEMPLATE: make_report_date}
+post_quote:Athfhriotail:
+post_quote_selected:Tosach Téacs Roghnaithe
+userinfo_referals:Úsáideoirí dá dTagraítear:
+userinfo_referals_count:{VAR: referals} baill
+pm_no_space_title:Níl spás fágtha!
+pm_no_space_msg:Do fillteáin teachtaireacht phríobháideach níos mó ná an méid a cheadaítear stóráil de <b>{GVAR: MAX_PMSG_FLDR_SIZE} bytes</b>. Iontu faoi láthair <b>{VAR: fldr_size} bytes</b> fiú na teachtaireachtaí.<br /><br /><span class="ErrorText">Bain roinnt teachtaireachtaí d'aois a ghlanadh suas spás.</span>
+pm_space_indct_msg:Tá do fillteáin teachtaireacht phríobháideach {VAR: percent_full}% iomlán.
+th_expr_never:Ná
+th_expr_one_hr:1 Uair
+th_expr_three_hr:3 Uaireanta
+th_expr_four_hr:4 uair an chloig
+th_expr_eight_hr:8 uair an chloig
+th_expr_sixteen_hr:16 uair an chloig
+th_expr_one_day:1 Lá
+th_expr_two_day:2 Laethanta
+th_expr_four_day:4 Lá
+th_expr_one_week:1 Seachtain
+th_expr_two_week:2 Seachtaine
+th_expr_one_month:1 Mí
+th_expr_two_month:2 Míonna
+th_expr_four_month:4 Míonna
+th_expr_one_year:1 Bliain
+thread_mod_delete:Scrios
+action_ip:IP
+action_latest_post:Teachtaireacht Last
+online_today_last_visit:Last Cuairt
+online_today_update:Ag féachaint ar an liosta na n-úsáideoirí a bhí ar an fóram lá atá inniu ann.
+logedin_todays_visitors:Inniu Cuairteoirí
+logedin_latest_post:Teachtaireacht seo caite ar an bhfóram:
+register_show_avatar:Taispeáin Avatars:
+register_show_avatar_desc:Is féidir leat chun avatars na n-úsáideoirí eile i bhfolach nuair a teachtaireachtaí breathnú.
+drawmsg_view_rest_post:Taispeáin an chuid eile den teachtaireacht
+post_re:Re:
+forumsel_goto_forum:Téigh Fóram:
+minimsg_thread_view:topaic View
+split_th_post_by:Teachtaireacht By:
+split_th_posted_on:Posted Ar:
+split_th_subject:ábhar:
+split_th_new_thread_title:Teideal ábhar nua:
+split_th_forum:Fóram:
+split_th_split_sel:Scoilt teachtaireachtaí roghnaithe
+split_th_split_unsel:Scoilt teachtaireachtaí unselected
+split_th_messages:teachtaireachtaí
+split_th_select:Roghnaigh
+report_report_post:Teachtaireacht Tuarascáil
+quicklogin_login:Logáil isteach:
+quicklogin_password:Pasfhocal:
+quicklogin_use_cookies:Bain úsáid as fianáin?
+quicklogin_login_btn:Logáil isteach
+quick_reply:Quick Reply
+quick_reply_post:Iar Quick Reply
+quick_reply_preview:Réamhamhairc Quick Reply
+post_notification_desc:In iúl dom nuair a freagraí duine éigin leis an teachtaireacht seo.
+post_all_ext_allowed:(neamhshrianta)
+maximize_category:Uasmhéadaigh Catagóir
+maximize_message:Uasmhéadaigh Teachtaireacht
+no_view_perm:Ní gá duit cead cuí ag teastáil chun a fheiceáil ar an ábhar seo.
+report_empty_report:Ní féidir leat a sheoladh tuarascáil folamh. Iontráil cúis le do tuarascáil.
+report_already_reported_title:cheana Tuairiscíodh
+report_already_reported_msg:Cuireadh an teachtaireacht a tuairiscíodh cheana féin agus tá an tuarascáil faoi láthair i scuaine an moderator ar.
+register_err_toomanyimages:Tá tú ag iarraidh úsáid a bhaint as níos mó ná an cead {GVAR: FORUM_IMG_CNT_SIG} íomhánna i do shíniú.
+pmsg_next_msg:Next message
+pmsg_prev_msg:Previous message
+post_proc_reveal_spoiler:Spoiler scoránaigh
+register_jabber:Jabber láimhsiú:
+register_skype:Skype Déileáil le:
+register_twitter:Twitter láimhsiú:
+register_google:Google Comhrá/IM láimhsiú:
+im_jabber:Jabber:
+im_google:Google Talk:
+im_skype:Skype:
+im_twitter:Twitter:
+forum_contact:Teagmháil
+forum_home:Baile
+post_cur_attached:ceangailte faoi láthair: {VAR: i} {PLURAL: i|comhad|Comhaid}
+ignored_anon_post:{GVAR: ANON_NICK} tá neamhaird
+ignored_user_post:teachtaireacht ag <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> tá neamhaird
+smladd_close_window:fuinneog gar
+post_list_smilies:liosta go léir smilies
+p_VISIBLE:infheicthe
+reported_in_thread:i:
+help_back_to_top:ar ais go barr
+help_return_to_index:Fill ar ais Innéacs Cabhair
+imsg_err_message_title:Teachtaireacht neamhbhailí
+imsg_err_message_msg:Ní dhéanann an teachtaireacht tú ag iarraidh a amharc ann.
+poll_edit:Cuir
+register_err_not_valid_img:Ní dhéanann an URL sonraithe mbeidh íomhá bailí.
+pmsg_recepient:faighteoir
+register_err_taken_alias:An ailias tú ag iarraidh úsáid a bhaint as in úsáid cheana ag ball fóram eile. Roghnaigh ceann eile.
+register_alias:ailias:
+register_alias_desc:Más mian leat leasainm eile seachas do logáil isteach a bheith ar taispeáint sa bhfóram, iontráil anseo.
+register_allow_pm_msg:Ceadaigh Teachtaireachtaí Príobháideacha:
+register_allow_pm_msg_desc:Ceadaigh úsáideoirí eile a sheolann tú teachtaireacht phríobháideach sa bhfóram seo.
+postcheck_pm_disabled:Ní féidir leat teachtaireacht phríobháideach a sheoladh chuig "{VAR-HTML: v}", toisc nach bhfuil an duine seo ag glacadh le teachtaireacht phríobháideach.
+polllist_vote:Vóta
+polllist_view_results:Féach Torthaí
+polllist_name:Ainm Poll
+polllist_date:cruthaithe Ar
+polllist_owner:Created By
+polllist_votes:Vótaí iomlán
+polllist_action:gníomh
+polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">Athbhreithniú Cartlann Fáil</a>
+userinfo_polls:Pobalbhreitheanna:
+show_pollist:Taispeáin Cartlann
+search_and:AGUS
+search_or:NÓ
+search_desc_order:Eagar Íslitheach
+search_asc_order:Ascending Ordú
+search_logic:Loighic Cuardaigh:
+search_sorting:Torthaí Sórtáil de réir Date in:
+search_attach:ceangaltáin:
+search_attach_all:Le nó gan
+search_attach_with:le ceangaltán
+post_proceed:Lean ar aghaidh
+post_moderated_forum:A rinne tú post i bhfóram stiúrtha. Ní bheidh do theachtaireacht a bheith le feiceáil do dhaoine eile go dtí go mbeidh sé formheasta ag ceann amháin de na moderators nó riarthóirí an fóram ar.
+post_moderated_forum_ttl:Fógra Fóram stiúrtha
+buddy_list_bday:Sa lá atá inniu {VAR: r[2]} casadh {VAR: age}
+email_warning_msg:Má athraíonn tú do sheoladh r-phoist atá ann faoi láthair, a bheidh do chuntas a mharcáil nár daingníodh go dtí go ndeimhneoidh tú é tríd an r-phost.
+register_show_im:Taispeáin táscairí IM:
+register_show_im_desc:Cibé acu atá nó nach bhfuil a thaispeáint táscairí IM an t-údar in aice a gcuid teachtaireachtaí.
+unread_message:Teachtaireacht neamhléite
+read_message:Léigh Teachtaireacht
+threadt_more:&lt;níos mó&gt;
+threadt_disabled_ttl:Tá dearcadh Crann an liosta ábhar curtha faoi mhíchumas.
+threadt_disabled_desc:Tá an riarthóir faoi mhíchumas an dearcadh crann an liosta ábhar seo. Bain úsáid as an dearcadh árasán ina ionad.
+threadt_update:fóram Brabhsáil (dearcadh crann) <a href="{TEMPLATE: threadt_update_lnk}">{VAR: frm->name}</a>
+mmod_delete_cofirm_ttl:Deimhnigh Topaic/Teachtaireacht Scriosadh
+spell_alts:níl aon roghanna eile
+insert_uploaded_image:Cuir isteach íomhá isteach chorp na teachtaireachta
+finduser_help:Beidh an t-inneall cuardaigh a chur go huathoibríoch * masc ar do cheist, tá an cuardach <b>cásíogair</b>/ <br/>Ex. chun cuardach a dhéanamh do gach úsáideoir atá ar logáil Tosaíonn le 'a', cuir isteach 'a' isteach sa bhosca cuardaigh.
+back_to_top:Ar Ais go Barr
+pm_err_disabled_title:Teachtaireachtaí Príobháideacha Mhíchumas
+pm_err_disabled_msg:Ní féidir leat a sheoladh teachtaireacht phríobháideach go dtí go tú ar chumas an rogha 'Ceadaigh Teachtaireachtaí Príobháideacha' i do phróifíl.
+err_mod_acc_ttl:Cuntas unverified
+err_mod_acc_msg:Bhí roghnaithe ag an riarthóir chun athbhreithniú a dhéanamh na cuntais go léir de láimh roimh gníomhachtaithe. Go dtí go bhfuil do chuntas a bhailíochtú ag an riarthóir ní bheidh tú in ann úsáid a bhaint as na cumais iomlán de do chuntas.
+accounts_pending_approval:Cuntais feitheamh Ceadú
+saved:Saved
+register_err_time_limit:An teorainn chlárúcháin amháin in aghaidh an {GVAR: REG_TIME_LIMIT} soicind bainte amach. fan go fóill {PLURAL: reg_limit_reached|$1 dara|$1 soicind}, agus ansin déan iarracht a chlárú arís.
+register_affero:Affero Ainm Úsáideora:<br /><span class="SmallText">Má tá tú <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">Affero</a> ainm úsáideora, iontráil anseo.</span>
+im_affero:Affero Ainm Úsáideora
+register_err_avatardimtobig:Toisí Avatar de <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> níos mó ná na gnéithe a cheadaítear de <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b> pixel.
+buddy_offline:{VAR: r[2]} as líne faoi láthair
+buddy_online:{VAR: r[2]} Is ar líne faoi láthair
+sml_no_smilies:Uimh straoiseoga ar fáil.
+login_unapproved_account_ttl:Cuntas neamhcheadaithe
+login_unapproved_account_msg:Tá an riarthóir an fhóraim roghnaithe a dheimhniú gach cuntas nua de láimh roimh gníomhachtaithe. Ní Tá do chuntas tugtha i bhfeidhm fós, dá bhrí sin, ní bheidh tú in ann rochtain a fháil ar roinnt de na gnéithe atá ar fáil do bhaill deimhnithe.
+remove_from_buddy_list:bhaint as liosta chara
+iemail_msg_author:<b>Údar:</b> {VAR: obj->alias}
+iemail_msg_subject:<b>ábhar:</b> {VAR: obj->subject}
+iemail_msg_date:<b>dáta:</b> {TEMPLATE: dmsg_post_date}
+iemail_msg_reply:freagra
+iemail_msg_quote:Tosach
+iemail_msg_view:Féach Topaic/Teachtaireacht
+threadt_sticky:greamaitheach
+threadt_announce:fógra
+reported_no_messages:Níl aon teachtaireacht tuairiscíodh.
+poll_no_polls:Níl aon pobalbhreith inrochtana.
+no_unread_messages:Níl aon teachtaireacht gan léamh a thagann le do cheist.
+thread_mark_all_read:Marcáil gach fóram teachtaireachtaí neamhléite a léamh
+thread_mark_all_read_desc:Beidh gach teachtaireacht neamhléite sa bhfóram seo a mharcáil léamh
+private_no_messages:Níl aon teachtaireacht san fhillteán seo.
+register_email_change_subject:R-phost deimhnithe athrú
+register_email_change_msg:Dearbhaigh le do thoil do chuntas nua r-phost "{VAR: uent->email}" a mbeidh a ionad do chuntas r-phoist d'aois "{VAR: old_email}", ag dul go dtí an URL thíos:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nNuair atá tú a dhaingniú do sheoladh nua r-phost, do chuntas fóram a ath-ghníomhachtú.
+iemail_thread_unsub:Díliostáil ó ábhar seo
+iemail_forum_unsub:Díliostáil ón bhfóram seo
+primary_group_prefix:Grúpa Bunscoileanna do fóram:
+group_resources:Rialaíonn an grúpa ceadanna de na fóraim seo a leanas
+register_admin_newuser_title:Tá úsáideoir nua cláraithe agus tá a gcuntas go dtí go ndeimhneofar
+register_admin_newuser_msg:A úsáideoir nua ({VAR: uent->login}) chláraigh díreach, agus ós rud é go bhfuil dearbhú cuntas ar chumas, nach mbeidh a n-chuntas a bheith gníomhach go dtí go mbeidh sé daingnithe le tú féin nó riarthóir fóram eile. Athbhreithniú a dhéanamh ar an chuntas téigh go dtí do thoil: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nIs próiseas uathoibrithe. Ná freagra don teachtaireacht seo.\nMás mian leat a mhúchadh fógraí ríomhphoist clárúcháin nua úsáideora amach anseo, is féidir leat é sin a dhéanamh tríd an Painéal Rialúcháin Riaracháin. Athraigh an "Nua Chuntas Fógra" suíomh.
+post_mod_msg_notify_title:Teachtaireacht nua i bhfóram "{VAR: frm->name}" feitheamh ceadú
+post_mod_msg_notify_msg:A teachtaireacht nua dar teideal "{VAR: msg_post->subject}" Cuireadh i bpost ach i bhfóram go bhfuil tú measartha. Athbhreithniú a dhéanamh ar an teachtaireacht seo téigh go dtí: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nIs próiseas uathoibrithe. Ná freagra don teachtaireacht seo.
+thread_printable_pdf:Gin inphriontáilte PDF
+thread_syndicate:Syndicate bhfóram seo (XML)
+reg_conf_title:Deimhniú clárúcháin
+reg_conf_email:<b>Daingniú R-phost</b> <br/> Tá r-phost a sheoladh chugat ina URL ar leith go mbeidh gá duit a rochtain roimh do chuntas a bheith i ngníomh. Más rud é nach bhfaigheann tú an r-phost i roinnt nóiméad seo chugainn, logáil isteach chun do chuntas agus a dhéanamh cinnte go bhfuil an seoladh r-phoist a shonraigh tú ceart. Nuair atá tú a dhaingniú do chuntas, beidh tú in ann rochtain a fháil ar ghnéithe fóram ar fáil ach amháin deimhnithe, úsáideoirí cláraithe.
+reg_conf_account:<b>Daingniú Cuntas</b> <br/> Sula bhfuil do chuntas déanta gníomhach ní mór é a bheith ceadaithe ag riarthóir. Nuair a tharlaíonn sé go mbeidh tú r-phost a léiríonn go bhfuil do chuntas deimhnithe. Idir an dá linn is féidir leat logáil-i do chuntas, áfach, ní bheidh tú in ann rochtain a fháil ar ghnéithe áirithe.
+forum_banned_user:Do gníomhartha roimh ré mar thoradh ar tú á toirmeasc buan ón bhfóram seo. Slán.
+mnav_description:teachtaireacht Navigator
+mnav_date_limit:Dáta réimse:
+mnav_forum_limit:Amháin cuardach a dhéanamh i:
+mnav_all_forums:Cuardaigh gach fóram
+mnav_submit:Tosaigh Cuardaigh
+mnav_no_range:Ní mór duit dul isteach ar raon dáta bailí. Is féidir an luach a bhfuil a pointe deachúil, (0.12) ach ní mór é a bheith níos mó ná náid.
+mnav_invalid_unit:Ní mór duit aonad ama bailí a shonrú.
+mnav_invalid_date:Is é an raon dáta sonraithe agat níos mó ná an ceann a cheadaíonn an riarthóir. Bain triail as raon níos lú de dátaí.
+mnav_no_results:Níl aon teachtaireachtaí atá comhoiriúnach leis an cheist.
+mnav_posted_by:Posted By:
+mnav_more:níos mó &raquo;&raquo;
+mnav_minute:Nóiméad(í)
+mnav_hour:Uair(í)
+mnav_day:Lá(í)
+mnav_week:Seachtain(í)
+mnav_month:Mí(onna)
+mnav_title:teachtaireacht Navigator
+mnav_update:Brabhsáil Teachtaireachtaí ag baint úsáide as <a href="{TEMPLATE: mnav_update_lnk}">teachtaireacht Navigator</a>
+pm_notify_subject:[{GVAR: FORUM_TITLE}] Fógra Teachtaireacht Príobháideacha Nua
+pm_notify_body_email:Tá tú teachtaireacht phríobháideach nua dar teideal "{VAR: subject}", ó "{VAR: from}", san fhóram "{GVAR: FORUM_TITLE}".\nChun breathnú ar an teachtaireacht, cliceáil anseo: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nChun stop a chur fógraí sa todhchaí, a dhíchumasú "Teachtaireacht Fógra Príobháideacha" i do phróifíl.
+register_pm_notification:Teachtaireacht Príobháideach Fógra:
+register_pm_notification_desc:Má cumasaithe, beidh tú in iúl aon uair a teachtaireacht phríobháideach a sheoladh chugat.
+findu_admin_opts_header:Roghnaíonn an admin.
+findu_unban:UnBan
+findu_ban:Cosc
+findu_edit:Cuir
+findu_delete:Scrios
+dmsg_reply_to:le freagra a fháil
+dmsg_reply_num:teachtaireacht #{VAR: obj->reply_to}
+merge_topics:Ábhair Cumaisc
+merge_topics_cp:Cumaisc Painéal Rialúcháin Topic
+merge_topics_tpl:Roghnaigh Ábhair a Cumaisc <span class="SmallText">(Ní mór duit a roghnú ábhar níos mó ná ceann amháin)</span>
+merge_merge:Cumaisc Ábhair Roghnaithe
+merge_next:Ábhair Aghaidh
+merge_prev:Ábhair roimhe Seo
+merge_another:Téigh go dtí an <a href="{TEMPLATE: merge_another_lnk}">ábhar cumaiscthe seo caite</a> nó a chumasadh eile:
+split_cp:Topaic Painéal Rialúcháin Scoilt
+groups_perms_header:ceadanna <span class="small">(luch a bhogadh thar an cead a fheiceáil ar a gcineál)</span>
+register_err_sig_too_long:Níos mó ná Do shíniú an fad uasta a cheadaítear de {GVAR: FORUM_SIG_ML} carachtair.
+register_sig_limit:{GVAR: FORUM_SIG_ML} carachtair <a href="javascript: airdeall ('Tá do Síniú '+document.forms['fud_register'].reg_sig.value.length+' carachtair fada. Is é an fad uasta a cheadaítear a shíniú {GVAR: FORUM_SIG_ML} carachtair.');" class="SmallText">Seiceáil Fad Síniú</a>
+adm_account_accepted:do chuntas '{VAR: login}' Cheadaigh an riarthóir agus tá sé anois gníomhach. Is féidir rochtain anois agat ar an {GVAR: FORUM_TITLE}' fóram mar dhaingniú, úsáidire cláraithe,.
+adm_account_accepted_s:D'iarratas ar cuntas '{GVAR: FORUM_TITLE}' glacadh.
+adm_account_rejected:do chuntas '{VAR: login}' diúltaíodh ag an riarthóir. Más mian leat a fhios ag an chúis taobh thiar de seo cinneadh, déan teagmháil leis an riarthóir ar '{GVAR: ADMIN_EMAIL}'.
+adm_account_rejected_s:D'iarratas ar cuntas '{GVAR: FORUM_TITLE}' diúltaíodh.
+thread_on:ar
+userinfo_buddy:Buddy:
+register_email_addr:Seoladh R-phost:
+reset_suffix:Má fuair tú an teachtaireacht seo i earráid, le do thoil neamhaird a dhéanamh air. Má tá tú ag fáil cóipeanna iolraí de seo r-phost, nach bhfuil tú ag iarraidh, déan teagmháil le riarthóir fóram ag {GVAR: ADMIN_EMAIL}\n\nCuireadh tús leis an iarraidh ó{VAR: _SERVER['REMOTE_ADDR']}.
+usrinfo_last_visit:Cuairt Last:
+mnav_newer:níos nuaí ná
+mnav_older:níos sine ná
+ip_search_by_ip:Úsáideoirí Cuardaigh de réir IP
+ip_search_syntax:Error Tacaithe: 1.2.3.4, 1.2.3, 1.2, 1
+ip_search:Cuardaigh
+ip_analyze_usage:Anailís a dhéanamh ar úsáid IP
+ip_analyze_usage_descr:Sonraigh an úsáideora logáil cruinn le do thoil.
+ip_users_using:úsáideoirí ag baint úsáide as '{VAR: ip}' IP seoladh
+ip_all_ips:Gach IPs úsáid ag '{VAR: user}'
+ip_title:Brabhsálaí IP
+userinfo_real_name:Fíor-Ainm:
+register_err_alias_notallowed:Ní hé seo an ailias cheadaítear
+post_err_mod_forum_edit_ttl:EARRÁ
+post_err_mod_forum_edit_msg:Ní féidir leat teachtaireachtaí in eagar i bhfóram stiúrtha.
+dmsg_num:teachtaireacht #{VAR: obj->id}
+postcheck_session_invalid:Tá do seisiún in éag. Cuir isteach arís an fhoirm. Tá brón orm cur isteach ort.
+delete_message_extra_desc:<b>roghnach</b><br />Sonraigh cúis don scriosadh an teachtaireacht, a sheoladh chuig an t-údar trí theachtaireacht phríobháideach.
+delete_message_extra_body:Cuir an gcorp an teachtaireacht bhaint a bheidh a sheoladh chuig an t-údar.
+delete_msg_removed_ttl:Baineadh Do theachtaireacht ag an bhfoireann riaracháin.
+delete_msg_pm_body:teachtaireacht bunaidh
+delete_msg_pm_subject:ábhar: {VAR: data[15]}
+ip_no_whois:Faisnéis WHOIS le haghaidh <b>{VAR: ip}</b> nach bhfuil ar fáil.
+ip_whois_title:ISP Faisnéise
+register_theme:téama:
+pmsg_trash:Folmhaigh an Bosca Bruscair
+uc_new_pm:Teachtaireachtaí Príobháideacha Nua
+uc_new_topic:Topaic nua
+uc_new_cat_forum:Fóraim Suibscríofa Le Teachtaireachtaí Nua
+uc_cat_forum:catagóir &raquo; Fóram
+uc_sub_topics:Ábhair Suibscríofa Le Teachtaireachtaí Nua
+uc_page_title:Ag féachaint ar painéal rialú pearsanta.
+search_options:Roghanna Cuardaigh
+search_user_filter:Scag de réir úsáideora:
+register_none:Ná in iúl dom
+findu_no_conf:úsáideoir nár daingníodh
+register_max_sig_len:Fad Uasmhéid:
+register_turing:Cuir isteach an cód a thaispeántar thíos:
+register_err_turing:Cód bailíochtú neamhbhailí.
+modque_cat:catagóir
+modque_forum:Fóram
+idx_compact_forum_row:Fóraim ar Fáil:
+mmd_del_title:Scrios Ábhair
+mmd_mov_title:Ábhair Bog
+mmd_move_threads_to:Fóram Ceann Scríbe:
+mmd_abort_move:Cealaigh
+mmd_move:Ábhair Bog
+pmsg_pdf_btn:Déan Cartlann PDF
+search_results_hdr:{VAR: total} Torthaí Cuardaigh Aimsíodh
+thread_del_all:Scrios roghnaithe
+thread_mov_all:Bog Roghnaithe
+thread_merge_all:Cumaisc Roghnaithe
+thread_loc_all:Lock/Díghlasáil Roghnaithe
+dmsg_ip:IP:
+err_blockedaccnt_title:EARRÁID: Tá do chuntas ndearnadh scagadh.
+err_blockedaccnt_msg:Tá do chuntas cosc curtha ó rochtain a fháil ar an fóram mar gheall ar cheann de na scagairí úsáideora suiteáilte.
+merge_th_page_list:Topaic Leathanach Roghnaithe
+most_users_online:An chuid is mó d'úsáideoirí riamh a bhí ar líne <b>{VAR: st_obj->most_online}</b> ar <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
+sub_unsub_all_forums:Díliostáil Ó Gach Fóraim
+sub_unsub_all_topics:Díliostáil Ó Gach Ábhair
+unbookmark_all_topics:Bain na leabharmharcanna
+tabs_own_posts:Taispeáin Féin Poist
+sml_emoticon:straoiseog
+sml_code:cód
+mnav_sub_only:Cuardaigh i bhfóraim suibscríofa amháin
+register_topics_per_page:Ábhair Per Leathanach:
+login_min_time:Ceadaíonn sé seo fóram logáil amháin iarracht gach {VAR: MIN_TIME_BETWEEN_LOGIN} soicind, le do thoil fanacht {FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)} soicind roimh do iarracht seo chugainn.
+post_not_logged_in:Níl tú logáilte isteach faoi láthair, beidh an teachtaireacht a sheoladh gan ainm.
+post_common_bold:Bold
+post_common_italics:gcló iodálach
+post_common_underline:Cuir líne
+post_common_align_left:Ailínigh Ar Chlé
+post_common_align_center:Ailínigh sa lár
+post_common_align_right:Ailínigh Ar Dheis
+post_common_link:Ionsáigh Nasc
+post_common_link_popup:Suíomh Nasc:
+post_common_email:Cuir isteach an seoladh r-phoist
+post_common_email_popup:Seoladh r-phoist:
+post_common_image:Ionsáigh íomhá
+post_common_image_popup:Íomhá URL:
+post_common_nlist:Cuir liosta uimhrithe
+post_common_blist:Cuir liosta le hurchair
+post_common_quote:Cuir Fógraí
+post_common_code:Cuir Cód
+rating_delete:Scrios
+post_always_on_top:Déan an t-ábhar le feiceáil i gcónaí ag barr an liosta ábhar
+topic_rating:{VAR: frm->rating} ó {PLURAL: frm->n_rating|$1 vótáil|$1 vótaí}
+topic_list_rating:{VAR: r[17]} ó {PLURAL: r[21]|$1 vótáil|$1 vótaí}
+tabs_notifications:fógraí
+finduser_flag:bratach
+post_descr:Topaic Cur síos:
+pmsg_on:ar
+pmsg_download_dump:Íosluchtaigh Dumpáil Teachtaireacht
+move_messages:teachtaireachtaí Bog
+move_msg_btn:Bog Teachtaireachtaí Roghnaithe
+move_msg_th_expl:Sonraigh an ID an ábhar scríbe (Is féidir a bheith i bhfóraim eile)
+captcha_img_alt:Fíorú Captcha: beidh ort a aithint an téacs ar an íomhá.
+captcha_img_help:Níl aon náid nó ceann san íomhá.
+powered-by:Powered by: FUDforum {GVAR: FORUM_VERSION}.
+copyright:Cóipcheart &copy;2001-2012 <a href="http://fudforum.org/">FUDforum Feasachán Bogearraí</a>
+code_title:cód:
+code_select_all:Roghnaigh gach
+code_show_hide:Taispeáin/ folaigh
+social_sites:Shuímh líonraithe sóisialta:
+postcheck_min_len_err:Tá do theachtaireacht ró-ghearr. Is é an fad íosta {PLURAL: post_min_len|$1 carachtar|$1 carachtair}.
+postcheck_dup_err:Ní le do thoil a chruthú ábhar ndúblach.
+btn_new_topic:Topaic nua
+btn_new_pm:nua P.Message
+btn_post_reply:Post Reply
+btn_tree_view:dearcadh crann
+btn_flat_view:Maol dearcadh
+btn_about:próifíl
+btn_small_pm:PM
+btn_delete:scrios
+btn_edit:cur in eagar
+btn_reply:freagair
+btn_forward:ar aghaidh
+btn_quote:ceanglófar
+btn_email:Ríomhphost
+btn_show_posts:post
+btn_homepage:www
+feed_no_data:Uimh meaitseála sonraí le fáil.
+feed_rdf:RDF beatha
+feed_rss:RSS2 beatha
+feed_atom:ATOM beatha
+ip_whois_connect_err:Ní féidir ceangal le freastalaí WHOIS ({VAR: whois_server}): {VAR: errstr}
+custom_filed_required:Tá an réimse seo riachtanach.
+pages:leathanaigh
+page_list_heading:leathanaigh atá ar Fáil
+page_list_total:{PLURAL: i|$1 leathanach|$1 leathanaigh} liostaithe.
+page_update:Brabhsáil leathanach
+pm_export_header:Teachtaireachtaí Príobháideacha do {VAR: usr->alias}
+pm_export_footer:hEasportálfar:
+karma:karma
+karma_track:Bainistigh cáil úsáideora:
+karma_delete:Scrios
+rate_author:Údar Ráta:
