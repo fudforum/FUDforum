@@ -35,7 +35,7 @@ forum:Forum concernit :
 forum_icon:Imatge associat a aqueste forum
 forum_new_messages:Messatges novèls
 forum_none_messages:Sonque los membres inscriches al forum pòdon susvelhar los messatges legits e pas legits
-forum_old_messages:Pas de messatge(s) novèl(s)
+forum_old_messages:Pas cap de messatge(s) novèl(s)
 from:De :
 gender:Sèxe :
 go:Validar
@@ -88,7 +88,7 @@ moderator_of:Moderator de :
 moderator_options:Opcions de moderacion
 moderators:{PLURAL: modcount|Moderator|Moderators}
 more_unread_messages:Autres messatges pas legits
-more_unread_messages_desc:Mostrar d'autres messatges pas legits e marcar los messatges a l'ora d'ara visibles coma legits
+more_unread_messages_desc:Mostrar d'autres messatges pas legits e marcar los messatges visibles actualament coma legits
 move_thread:Desplaçar
 moved:Desplaçat dins un autre forum
 moved_thread_message:Aqueste fial es estat desplaçat dins un autre forum
@@ -99,15 +99,15 @@ new_thread:Crear un fial novèl
 newest_user:Lo darrièr utilizaire que s'es inscrich es
 next_page:Pagina seguenta
 next_thread:Fial seguent :
-no_messages:I a pas encara de messatge dins aqueste forum..<br />Siatz lo primièr a escriure un subjècte dins aqueste forum.
-no_msg_body:Lo messatge a pas de contengut
-no_new_posts:Pas de messatge novèl
-no_posts:Pas de messatge
+no_messages:I a pas encara cap de messatge dins aqueste forum..<br />Siatz lo primièr a escriure un subjècte dins aqueste forum.
+no_msg_body:Lo messatge a pas cap de contengut
+no_new_posts:Pas cap de messatge novèl
+no_posts:Pas cap de messatge
 no_subscribed_forums:Pas cap de forum susvelhat pel moment
 no_subscribed_threads:Pas cap de fial susvelhat pel moment
 no_bookmarked_threads:Pas cap de subjècte favorit
 no_unread_locked:Aqueste fial es estat varrolhat
-no_unread_msg:Aqueste fial conten pas de messatge pas legit
+no_unread_msg:Aqueste fial conten pas cap de messatge pas legit
 no_unread_msg_unreg:La foncionalitat que permet de seguir vòstres messatge legits e pas legits es pas activada que pels utilizaires inscriches
 num_pages:Paginas ({VAR: ttl_pg}) :
 num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|vòte|vòtes}
@@ -116,7 +116,7 @@ off:DESACTIVAT
 on:ACTIVAT
 page_timings:Temps total utilizat per generar la pagina : {PLURAL: page_gen_time|$1 segonda|$1 segondas}
 pm:Messatges privats
-poll:Escandalhatge :
+poll:Sondatge :
 post_count:Comptador de messatges : {VAR: u_pcount}
 post_count_l:Comptador de messatges :
 posts:Messatges
@@ -141,9 +141,9 @@ search:Recercar
 sel_todays_posts:messatges del jorn
 sel_todays_posts_desc:Activar/Desactivar lo filtratge pels messatges del jorn (per afichar pas que los messatges creats uèi)
 sel_unanswered_posts:messatges sens responsa
-sel_unanswered_posts_desc:Activar/Desactivar lo filtratge pels messatges sens responsa (per far veire pas que los messatges qu'an pas encara recebut de responsa)
+sel_unanswered_posts_desc:Activar/Desactivar lo filtratge pels messatges sens responsa (per far veire sonque los messatges qu'an pas encara recebut cap de responsa)
 sel_unread_messages:messatges pas legits
-sel_unread_messages_desc:Activar/Desactivar lo filtratge pels messatges pas legits (per far veire pas que los messatges qu'avètz pas encara legits)
+sel_unread_messages_desc:Activar/Desactivar lo filtratge pels messatges pas legits (per far veire sonque los messatges qu'avètz pas encara legits)
 send:Mandar
 send_pm_desc:Mandar un messatge privat a aqueste utilizaire
 sender_email:Corrièl de l'autor :
@@ -152,8 +152,8 @@ show_posts_by:Far veire los messatges de : {VAR: u_alias}
 size:Talha :
 status:Estatut :
 status_line:I a <b>{PLURAL: st_obj->online_users_reg|$1 membre|$1 membres}</b>, <b>{PLURAL: st_obj->online_users_hidden|$1 membre invisible|$1 membres invisibles}</b> e <b>{PLURAL: st_obj->online_users_anon|$1 convidat|$1 convidats}</b>  actualament sul forum.
-sticky:espinglat :
-stop_ignoring:Arrestar d'ignorar aqueste utilizaire
+sticky:espingolat :
+stop_ignoring:Daissar d'ignorar aqueste utilizaire
 sub_to_thread:Susvelhar aqueste fial
 sub_to_thread_desc:Recebre de notificacions quand de messatges novèls son aponduts a aqueste fial
 bookmark_thread:Marcatz aqueste fial
@@ -175,9 +175,9 @@ threads:Fials
 time:Ora
 todays_posts:Messatges del jorn
 todays_posts_desc:Far veire totes los messatges que son estats postats uèi
-un_ignore_user:Arrestar d'ignorar los messatges d'aqueste utilizaire
+un_ignore_user:Daissar d'ignorar los messatges d'aqueste utilizaire
 unanswered_posts:Messatges sens responsa
-unanswered_posts_desc:Far veire totes los messatges qu'an pas encara recebut de responsa
+unanswered_posts_desc:Far veire totes los messatges qu'an pas encara recebut cap de responsa
 unlock_thread:Desvarrolhar lo fial
 unread_msg:Aqueste fial conten de messatges qu'avètz pas encara legits
 unread_msg_locked:Fial varrolhat que conten de messatges pas legits
@@ -205,7 +205,7 @@ vote_for_thread:Vòte
 was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> es estat desplaçat cap a <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> pel moderator
 welcome_message:Benvenguda <b>{VAR: usr->alias}</b>, vòstra darrièra visita se debanèt lo {TEMPLATE: welcome_message_date}
 what_ppl_doing:Far veire çò que los autres son a far
-reported_del_report:Destruire un rapòrt
+reported_del_report:Destrusir un rapòrt
 reported_reason:Motiu :
 reported_on:Lo :
 reported_reported_by:Raportat per :
@@ -213,11 +213,12 @@ reported_reported_msg:Messatges raportats
 modque_pending_approval:Messatges en espèra d'aprovacion
 modque_approve:Aprovar
 modque_delete:Escafar
-modque_no_message:I a pas de messatge en espèra d'aprovacion
+modque_deleteall:Suprimir tot de l’utilizaire
+modque_no_message:I a pas cap de messatge en espèra d'aprovacion
 pmsg_new_messages:Messatge privat pas legit
 pmsg_old_messages:Messatge privat legit
 deny_recipt:Acusar pas recepcion
-deny_recipt_desc:Mandar pas de notificacion qu'indica qu'ai legit aqueste messatge
+deny_recipt_desc:Mandar pas cap de notificacion qu'indica qu'ai legit aqueste messatge
 restore_to:Restablir cap a :
 move_to:Desplaçar cap a :
 list_referes_referrals:Pairinatges
@@ -247,7 +248,7 @@ sent:Mandat
 trash:Escobilhièr
 msg_author:Autor
 avatar_sel_form:Seleccion de l'avatar
-no_avatars:Pas cap d'avatar disponible
+no_avatars:Cap d'avatar pas disponible
 month_1:Genièr
 month_2:Febrièr
 month_3:Març
@@ -282,7 +283,7 @@ register_msg_tree_view:Lista de fials plana/Lista dels messatges arborescenta
 register_tree_msg_view:Lista de fials en arborescéncia/Lista dels messatges plana
 register_flat_view:Vista plana
 use_forum_default:Valor per defaut del forum
-finduser_user_info:Recèrca d'informacions sus un utilizaire :
+finduser_user_info:Informacions sus un l'utilizaire
 finduser_by_login:Per utilizaire :
 finduser_submit:Cercar
 finduser_no_such_user:Cap d'utilizaire correspond pas a aquesta requèsta
@@ -298,7 +299,7 @@ no_edit_time_limit:<b>Temps maximum alogat per l'edicion</b> : Illimitat
 pmuserloc_login:Utilizaire :
 pmuserloc_submit:Sometre
 pmuserloc_user:Utilizaire
-pmuserloc_no_result:Pas de resultat
+pmuserloc_no_result:Pas cap de resultat
 register_builtin:Per defaut sul site
 register_specify_url:Especificar una URL
 register_uploaded:Mandar un Avatar
@@ -391,7 +392,7 @@ post_thread_type:Tipe de fial :
 post_thread_expiry:Expiracion del fial :
 post_locked:Fial Varrolhat
 post_icons:Causissètz una icòna d'associar a vòstre messatge :
-post_no_icon:Pas d'icòna
+post_no_icon:Pas cap d'icòna
 post_smiley:Acorchis de smileys :
 post_format_tools:Aisinas de mesa en pagina :
 post_upload_file:Telecargar lo fichièr
@@ -446,7 +447,7 @@ coppa_fax_passwd:Senhal
 coppa_fax_remail:Adreça de corrièr electronic
 coppa_fax_name:Nom
 login_not_logedin:Sètz pas connectat. Aquò pòt èsser degut a una de las rasons seguentas :
-login_cookie_expired:Vòstre cookie a expirat e vos cal connectar tornamai per lo regenerar.
+login_cookie_expired:Vòstre cookie a expirat e vos cal vos connectar tornarmai per lo regenerar.
 login_perm_denied:Avètz pas la permission d'accedir a la ressorsa que volètz en tant qu'utilizaire anonim, e vos cal vos connectar (en mai de vos inscriure s'es pas encara fach) per i accedir.
 login_want_to_register:Vos volètz inscriure ?
 login_forgot_passwd:Ai doblidat mon senhal
@@ -457,12 +458,12 @@ login_name_required:Picatz vòstre nom d'utilizaire
 login_passwd_required:Picatz vòstre senhal
 login_invalid_radius:Associacion nom d'utilizaire / senhal invalida
 reset_confirmation:Mercés de vos èsser inscrich.\n\nPer activar vòstre compte, visitatz l'URL seguenta :\n\n{VAR: url}\n\nUn còp vòstre compte activat, seretz connectat sul forum e conduch cap a la pagina d'acuèlh.
-reset_reset:Adiu,\n\nAvètz decidit de tornar inixializar vòstre senhal. Per perseguir aquesta operacion,\ndirigissètz-vos cap a aquesta URL\n\n{VAR: url}\n\nNÒTA: Lo forum enregistra los senhals dins sa banca de donadas en utilizant un mecanisme d'encodatge de sens unic, aquò significa qu'un còp qu'avètz somés vòstre senhal, aquel\nes encodat de tal biais qu'es pas pus possible de lo desencriptar.\nAquò es possible per reencriptatge perpetual de vòstre senhal. Per mai d'entresenhas sus aquesta seguretat, referissètz-vos a una documentacion detalhant l'algoritme de hachatge MD5.
+reset_reset:Adiu,\n\nAvètz decidit de reïnicializar vòstre senhal. Per contunhar aquesta operacion,\ndirigissètz-vos cap a aquesta URL\n\n{VAR: url}\n\nNÒTA: Lo forum enregistra los senhals dins sa banca de donadas en utilizant un mecanisme d'encodatge de sens unic, aquò significa qu'un còp qu'avètz somés vòstre senhal, aquel\nes encodat de tal biais qu'es pas pus possible de lo deschifrar.\nAquò es possible per reencriptatge perpetual de vòstre senhal. Per mai d'entresenhas sus aquesta seguretat, referissètz-vos a una documentacion detalhant l'algoritme de hachatge MD5.
 rpasswd_invalid_passwd:Lo senhal es invalid
 rpasswd_passwd_nomatch:Lo senhal e sa confirmacion son pas identics
 rpasswd_passwd_length:Lo senhal deu comportar al mens 6 caractèrs
 reset_remind_pass:Avètz doblidat vòstre senhal
-reset_reset_conf:Anam generar un senhal temporar que vos serà mandat per e-mail dins qualques minutas. Dins lo cas qu'auriatz pas encara validat vòstre senhal, vos mandarem l'e-mail de confirmacion a la plaça.
+reset_reset_conf:Anam generar un senhal temporari que vos serà mandat per e-mail dins qualques minutas. Dins lo cas qu'auriatz pas encara validat vòstre senhal, vos mandarem l'e-mail de confirmacion a la plaça.
 reset_error:L'adreça e-mail especificada es pas estada trobada dins la banca de donadas
 rpasswd_change_pass:Cambiar de senhal
 rpasswd_login:Connexion
@@ -514,7 +515,7 @@ mklist_delete:Escafar
 qbud_nick_name:Escais
 qbud_add_selected:Apondre los elements seleccionats
 qbud_selected:Seleccionat(s)
-qbud_no_buddies:Pas d'amic disponible dins la lista
+qbud_no_buddies:Cap d'amic pas disponible dins la lista
 mklist_numerical:Numeric
 mklist_aplha:Alfa
 mklist_square:Cairat
@@ -576,9 +577,9 @@ actions_update:Espiona d'autras gents coma vos
 err_info:Informacion
 buddy_list_err_cantadd:Podètz pas apondre vòstra pròpria persona a vòstra lista d'amics
 buddy_list_err_dup:Aqueste utilizaire figura ja dins vòstra lista d'amics
-buddy_list_err_nouser:L'utilizaire qu'avètz ensajat d'apondre a vòstra lista d'amics sembla pas existir sul forum.
+buddy_list_err_nouser:L'utilizaire qu'avètz ensajat d'apondre a vòstra lista d'amics existís aparentament pas sul forum.
 buddy_list_err_nouser_title:Impossible d'apondre un utilizaire
-buddy_list_err_ignore:Impossible d'apondre a vòstra lista d'amics d'utilizaires que vos ignoran.
+buddy_list_err_ignore:Impossible d'apondre a vòstra lista d'amics d'utilizaires que vos ignòran.
 buddy_list_update:Percórrer ma lista d'amics
 core_err_invinp_title:Entrada invalida
 core_err_invinp_err:Avètz seguit un ligam invalid, avisatz-ne l'<a href="mailto:{GVAR: ADMIN_EMAIL}">administrator</a>
@@ -633,15 +634,15 @@ post_err_passwd:Senhal incorrècte.
 post_reply_update:Respond a <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> dins {VAR: frm->name}
 post_topic_update:Escritu un subjècte novèl dins <a href="{TEMPLATE: post_topic_update_lnk}">{VAR: frm->name}</a>
 post_error_generic:Una error s'es producha
-postcheck_max_images_err:Un maximum de {GVAR: MAX_IMAGE_COUNT} imatges es autorizat per messatge, reduissètz lo nombre d'imatges
+postcheck_max_images_err:Un maximum de {GVAR: MAX_IMAGE_COUNT} imatges es autorizat per messatge, redusissètz lo nombre d'imatges
 postcheck_no_links_allowed:Podètz pas utilizar cap de ligams abans d'aver postat mai {PLURAL: posts_before_links|d'$1 messatge|de $1 messatges}.
 postcheck_subj_needed:Lo camp subjècte es obligatòri
-postcheck_no_such_user:I a pas d'utilizaire nomenat « {FUNC: char_fix(htmlspecialchars($v))} » dins aqueste forum
+postcheck_no_such_user:I a pas cap d'utilizaire nomenat « {FUNC: char_fix(htmlspecialchars($v))} » dins aqueste forum
 postcheck_ignored:Podètz pas mandar cap de messatge privat a « {FUNC: char_fix(htmlspecialchars($v))} » perque aqueste utilizaire a decidit de vos ignorar.
 postcheck_no_recepient:Impossible de mandar lo messatge, manca lo destinatari.
 postcheck_invalid_email:Picatz una adreça electronica valida per vòstre correspondent.
 postcheck_email_subject:Podètz pas mandar d'e-mail sens subjècte.
-postcheck_email_body:Podètz pas mandar d'e-mail sens contengut.
+postcheck_email_body:Podètz pas mandar d'e-mails sens contengut.
 private_msg_notify_subj:Notificacion de lectura del messatge : {VAR: m->subject}
 private_msg_notify_body:<br />{VAR: usr->login} a legit vòstre messatge privat intitolat « {VAR: m->subject} » lo {TEMPLATE: private_msg_notify_body_date}<br />
 referals_update:Percor la lista dels utilizaires pairinats
@@ -950,13 +951,24 @@ iemail_forum_unsub:Arrestar la susvelhança d'aqueste forum
 primary_group_prefix:Grop primari pel forum :
 group_resources:Aqueste grop contraròtla las permissions dels forums seguents
 register_admin_newuser_title:Un novèl utilizaire s'es inscrich e son compte es en espèra de confirmacion
+register_admin_newuser_msg:Un novèl utilizaire ({VAR: uent->login}) ven juste de s'inscriure sul forum e coma la confirmacion dels comptes es activada, son compte vendrà pas actiu que quand vos o un dels administrators del forum l'auretz confirmat. Per decidir d'aqueste compte, rendètz-vos a : {GVAR: WWW_ROOT}adm/admuserapr.php\n\nAquò's un processus automatic, respondatz pas a aqueste messatge.\nSe volètz desactivar las notificacions venentas per corrièr de l'inscripcion de novèls utilizaires, o podètz far amb lo panèl de contraròtle admin en cambiant la valor del paramètre « New Account Notification ».
+post_mod_msg_notify_title:Novèl messatge dins lo forum « {VAR: frm->name} » en espèra d'aprovacion
+post_mod_msg_notify_msg:Un novèl messatge intitulat « {VAR: msg_post->subject} » ven juste d'èsser postat dins un forum que moderatz. Per decidir d'aqueste messatge, rendètz-vos a : {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nAquò's un processus automatic, respondatz pas a aqueste messatge.
 thread_printable_pdf:Generar de PDF imprimible
 thread_syndicate:Publicar aqueste forum (XML)
+reg_conf_title:Confirmacion d'inscripcion
+reg_conf_email:<b>E-mail de confirmacion</b><br />Un e-mail vos es estat mandat, que conten una URL especiala que vos caldrà visitar abans que vòstre compte siá activat. Se recebètz pas aquel e-mail dins las minutas que venon, connectatz-vos amb vòstre compte e asseguratz-vos que l'adreça e-mail qu'avètz especificada es corrècta. Un còp qu'auretz confirmat vòstre compte, poiretz accedir a las foncionalitats del forum disponiblas pels utilizaires qu'an confirmat lor inscripcion.
+reg_conf_account:<b>Confirmacion de vòstre compte</b><br />Abans que vòstre compte siá activat, deu èsser aprovat per lo (o los) administrator(s). Un còp aquò fach, recebretz un e-mail qu'indica que vòstre compte es estat confirmat. Abans aquò, vos podètz connectar amb vòstre compte, mas poiretz pas accedir a las foncionalitats disponiblas unicament pels utilizaires aprovats.
+forum_banned_user:Vòstras accions anterioras an provocat vòstre bandiment permanent d'aqueste forum. Al reveire.
 mnav_description:Navigador de messatges
 mnav_date_limit:Interval de datas :
 mnav_forum_limit:Cercar pas que dins :
 mnav_all_forums:Cercar dins totes los forums
 mnav_submit:Començar la recèrca
+mnav_no_range:Vos cal entrar un interval de datas valid. Aquesta valor pòt èsser decimala (0.12), mas deu èsser superiora a zèro.
+mnav_invalid_unit:Vos cal especificar una unitat de temps valida.
+mnav_invalid_date:L'interval de datas qu'avètz especificat es mai grand que lo qu'es autorizat per l'administrator, redusissètz l'interval de datas de vòstra recèrca.
+mnav_no_results:I a pas cap de resultat que corresponda a vòstra recèrca.
 mnav_posted_by:Mandat per :
 mnav_more:Mai &raquo;&raquo;
 mnav_minute:minuta(s)
@@ -965,6 +977,11 @@ mnav_day:jorn(s)
 mnav_week:setmana(s)
 mnav_month:mes(es)
 mnav_title:Navigador de messatges
+mnav_update:Percor los messatges amb l'ajuda del <a href="{TEMPLATE: mnav_update_lnk}">Navigador de messatges</a>
+pm_notify_subject:[{GVAR: FORUM_TITLE}] Notificacion de novèl messatge privat
+pm_notify_body_email:Avètz un novèl messatge privat intitulat « {VAR: subject} » de « {VAR: from} » sul forum « {GVAR: FORUM_TITLE} ».\nPer legir aqueste messatge, clicatz aicí : {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nPer recebre pas mai aquelas notificacions, desactivatz « Notificacion de novèl messatge privat » dins vòstre perfil.
+register_pm_notification:Notificacion de messatge privat
+register_pm_notification_desc:Se aquesta opcion es activada, seretz notificat per un metòde de notificacion coma l'auretz causit a cada còp qu'un messatge privat vos serà mandat.
 findu_admin_opts_header:Opcions d'admin.
 findu_unban:Autorizar
 findu_ban:Bandir
@@ -973,5 +990,158 @@ findu_delete:Suprimir
 dmsg_reply_to:es una responsa al
 dmsg_reply_num:messatge n° {VAR: obj->reply_to}
 merge_topics:Fusionar los fials
+merge_topics_cp:Panèl de contraròtle de fusion de subjèctes
+merge_topics_tpl:Seleccionatz los fials de fusionar <font class="SmallText">(vos cal seleccionar mai d'1 subjècte)</font>
+merge_merge:Fusionar los fials seleccionats
+merge_next:Fials seguents
+merge_prev:Fials precedents
+merge_another:Anar al <a href="{TEMPLATE: merge_another_lnk}">darrièr subjècte fusionat</a> o ne fusionar un autre :
+split_cp:Panèl de contraròtle de division de fials
+groups_perms_header:Permissions <font size="-1">(desplaçar la mirga en dessús de la permission per ne veire lo tipe)</font>
+register_err_sig_too_long:Vòstra signatura excedís la longor maximala autorizada de {GVAR: FORUM_SIG_ML} caractèrs.
+register_sig_limit:{GVAR: FORUM_SIG_ML} caractèrs <a href="javascript: alert('Vòstra signatura compòrta '+document.forms['fud_register'].reg_sig.value.length+' caractèrs de tròp. La longor maximala autorizada per una signatura es de {GVAR: FORUM_SIG_ML}');" class="SmallText">Verificatz la longor de la signatura</a>
+adm_account_accepted:Vòstre compte '{VAR: login}' es estat aprovat per l'administrator, e es ara actiu. D'ara enlà, podètz accedir al forum {GVAR: FORUM_TITLE}' en tant qu'utilizaire inscrich e confirmat.
+adm_account_accepted_s:Vòstra demanda de compte per '{GVAR: FORUM_TITLE}' es estada acceptada.
+adm_account_rejected:Vòstre compte '{VAR: login}' es estat refusat per l'administrator, e es ara desactivat. Se volètz saber la rason d'aquela decision, contactatz l'administrator a '{GVAR: ADMIN_EMAIL}'.
+adm_account_rejected_s:Vòstra demanda de compte per '{GVAR: FORUM_TITLE}' es estada refusada.
+thread_on:lo
+userinfo_buddy:Amic :
+register_email_addr:Adreça de corrièr electronic :
+reset_suffix:S'avètz recebut aqueste messatge per error, mercé de l'ignorar. Se recebètz mantuna còpia non sollicitadas d'aqueste mail, mercé de contactar l'administrator a {GVAR: ADMIN_EMAIL}\n\nAquesta requèsta es estada iniciada dempuèi : {VAR: _SERVER['REMOTE_ADDR']}.
+usrinfo_last_visit:Darrièra visita uèi :
+mnav_newer:mai recent que
+mnav_older:mai ancian que
+ip_search_by_ip:Recercar un utilizaire per IP
+ip_search_syntax:Sintaxis reconegudas : 1.2.3.4, 1.2.3, 1.2, 1
+ip_search:Recercar
+ip_analyze_usage:Analisar l'utilizacion d'aquesta IP
+ip_analyze_usage_descr:Especificatz lo nom d'utilizaire exacte.
+ip_users_using:Aqueste(s) utilizaire(s) utiliza(n) l'adreça IP « {VAR: ip} »
+ip_all_ips:Totas las IP utilizadas per '{VAR: user}'
+ip_title:Navigador IP
+userinfo_real_name:Nom vertadièr :
+register_err_alias_notallowed:Aqueste aliàs es pas autorizat.
+post_err_mod_forum_edit_ttl:ERROR
+post_err_mod_forum_edit_msg:Podètz pas editar los messatges d'un forum moderat.
+dmsg_num:messatge n° {VAR: obj->id}
+postcheck_session_invalid:Vòstra sesilha a expirat, vos cal tornar sometre lo formulari. Planhèm lo derengament.
+delete_message_extra_desc:<b>Opcional</b><br />Indicatz una rason que justifica l'escafament del messatge. Aquò serà mandat per messatge privat a l'autor.
+delete_message_extra_body:Inclure lo còs del messatge e lo mandar a l'autor.
+delete_msg_removed_ttl:Vòstre messatge es estat escafat per l'equipa d'administracion.
+delete_msg_pm_body:Messatge original
+delete_msg_pm_subject:Subjècte&nbsp;: {VAR: data[15]}
+ip_no_whois:Informacion Whois per <b>{VAR: ip}</b> indisponibla.
+ip_whois_title:Informacions sul FAI
+register_theme:Tèma :
+pmsg_trash:Voidar l'escobilhièr
+uc_new_pm:Novèls messatges privats
+uc_new_topic:Fial novèl
+uc_new_cat_forum:Forums susvelhats amb de messatges novèls
+uc_cat_forum:Categoria &raquo; Forum
+uc_sub_topics:Subjèctes susvelhats amb de messatges novèls
+uc_page_title:Afichatge del panèl de contraròtle personal.
+search_options:Opcions de recèrca
+search_user_filter:Filtrar per utilizaire :
+register_none:Me notificar pas
+findu_no_conf:utilizaire pas confirmat
+register_max_sig_len:Longor maximala :
+register_turing:Entratz lo còde çaijós :
+register_err_turing:Còde de validacion incorrècte.
+modque_cat:Categoria
+modque_forum:Forum
+idx_compact_forum_row:Forums disponibles :
+mmd_del_title:Escafament de subjèctes
+mmd_mov_title:Desplaçament de subjèctes
+mmd_move_threads_to:Forum de destinacion :
+mmd_abort_move:Anullar
+mmd_move:Desplaçar los subjèctes
+pmsg_pdf_btn:Constituir un archiu PDF
+search_results_hdr:{VAR: total} resultats per aquesta recèrca
+thread_del_all:Suprimir la seleccion
+thread_mov_all:Desplaçar la seleccion
+thread_merge_all:Fusionar la seleccion
+thread_loc_all:Varrolhar / Desvarrolhar la seleccion
+dmsg_ip:IP :
+err_blockedaccnt_title:ERROR : Vòstre compte es estat filtrat.
+err_blockedaccnt_msg:Vòstre compte pòt pas accedir a aqueste forum a causa d'un dels filtres d'utilizaires installats.
+merge_th_page_list:Seleccion de pagina de subjècte
+most_users_online:Lo nombre maximum d'utilizaires en linha èra de <b>{VAR: st_obj->most_online}</b> lo <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
+sub_unsub_all_forums:Daissar la susvelhança de totes los forums
+sub_unsub_all_topics:Daissar la susvelhança de totes los fials
+unbookmark_all_topics:Suprimissètz totes los favorits
+tabs_own_posts:Far veire sos pròpris messatges
+sml_emoticon:Emoticòna
+sml_code:Còde
+mnav_sub_only:Recercar dins los forums susvelhats solament
+register_topics_per_page:Subjèctes per pagina :
+login_min_time:Aqueste forum permet pas qu'una temptativa de connexion per periòde de {VAR: MIN_TIME_BETWEEN_LOGIN} segondas, pacientatz {FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)} segondas abans vòstre ensag venent.
+post_not_logged_in:Sètz pas connectat, lo messatge serà postat anonimament.
+post_common_bold:Gras
+post_common_italics:Italica
+post_common_underline:Soslinhat
+post_common_align_left:Alinhat a esquèrra
+post_common_align_center:Centrat
+post_common_align_right:Alinhat a drecha
+post_common_link:Inserir un ligam
+post_common_link_popup:Adreça del ligam :
+post_common_email:Inserir una adreça de corrièr electronic
+post_common_email_popup:Adreça de corrièr electronic :
+post_common_image:Inserir un imatge
+post_common_image_popup:URL de l'imatge :
+post_common_nlist:Apondre una lista numerotada
+post_common_blist:Apondre una lista de piuses
+post_common_quote:Apondre una citacion
+post_common_code:Apondre de còde
+rating_delete:Suprimir
+post_always_on_top:Far totjorn aparéisser lo subjècte al som de la lista dels subjèctes
+topic_rating:{VAR: frm->rating} de {PLURAL: frm->n_rating|$1 vòte|$1 vòtes}
+topic_list_rating:{VAR: r[17]} de {PLURAL: r[21]|$1 vòte|$1 vòtes}
+tabs_notifications:Notificacions
+finduser_flag:Indicator
+post_descr:Descripcion del subjècte
+pmsg_on:activat
+pmsg_download_dump:Telecargatz un salvament dels messatges
+move_messages:Desplaçatz los messatges
+move_msg_btn:Desplaçatz los messatges seleccionats
+move_msg_th_expl:Precisatz l'identificant del subjècte de destinacion (pòt èsser situat dins un autre forum)
+captcha_img_alt:Verificacion par Captcha : vos cal reconéisser lo tèxte dins aqueste imatge.
+captcha_img_help:I a pas de zèro o de un sus aqueste imatge.
+powered-by:Propulsat per : FUDforum {GVAR: FORUM_VERSION}.
+copyright:Copyright &copy; 2001-2012 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+code_title:CÒDE :
 code_select_all:Seleccionar tot
 code_show_hide:Afichar / amagar
+social_sites:Site de rets socialas :
+postcheck_min_len_err:Vòstre messatge es tròp cort. La longor minimala es {PLURAL: post_min_len|$1 caractèr|$1 caractèrs}.
+postcheck_dup_err:Mercé de crear pas de subjècte en doblon.
+btn_new_topic:Subjècte novèl
+btn_new_pm:MP novèl
+btn_post_reply:Postar una responsa
+btn_tree_view:Arborescéncia
+btn_flat_view:Lista
+btn_about:Perfil
+btn_small_pm:MP
+btn_delete:suprimir
+btn_edit:modificar
+btn_reply:respondre
+btn_forward:transferir
+btn_quote:citar
+btn_email:Corrièr electronic
+btn_show_posts:messatges
+btn_homepage:www
+feed_no_data:Cap de donada correspondenta pas trobada.
+feed_rdf:flux RDF
+feed_rss:flux RSS2
+feed_atom:flux ATOM
+ip_whois_connect_err:Impossible de se connectar al servidor WHOIS ({VAR: whois_server}) : {VAR: errstr}
+custom_filed_required:Aqueste camp es obligatòri.
+pages:Paginas
+page_list_heading:Paginas disponiblas
+page_list_total:{PLURAL: i|$1 pagina listada|$1 paginas listadas}.
+page_update:Pagina de navigacion
+pm_export_header:Messatges privats per {VAR: usr->alias}
+pm_export_footer:Exportat :
+karma:Karma
+karma_track:Gerir la reputacion de l'utilizaire :
+karma_delete:Suprimir
+rate_author:Ratio de l'autor :

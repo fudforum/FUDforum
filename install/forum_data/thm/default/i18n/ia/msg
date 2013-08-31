@@ -211,6 +211,7 @@ reported_reported_msg:Messages reportate
 modque_pending_approval:Messages attendente approbation
 modque_approve:Approbar
 modque_delete:Deler
+modque_deleteall:Deler toto del usator
 modque_no_message:Il non ha messages attendente approbation.
 pmsg_new_messages:Message private non legite
 pmsg_old_messages:Message private legite

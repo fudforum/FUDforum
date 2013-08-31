@@ -862,6 +862,8 @@ polllist_action:Darbības
 polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">Pieejamo balsojumu saraksts</a>
 userinfo_polls:Balsojumi:
 show_pollist:Parādīt balsojumus
+search_and:UN
+search_or:VAI
 search_desc_order:Dilstoši
 search_asc_order:Augoši
 search_logic:Loģiskie argumenti:
@@ -889,5 +891,8 @@ back_to_top:Atpakaļ uz augšu
 pm_err_disabled_title:Privātā sarakste atslēgta
 err_mod_acc_ttl:Neapstiprināts konts
 saved:Saglabāts
+login_unapproved_account_ttl:Neapstiprināts konts
+iemail_msg_reply:Atbildēt
+iemail_msg_quote:Citēt
 findu_delete:Dzēst
 usrinfo_last_visit:Pēdējais apmeklējums:

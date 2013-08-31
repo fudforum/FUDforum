@@ -219,6 +219,7 @@ reported_reported_msg:Rapporterade inlägg
 modque_pending_approval:Inlägg som väntar på godkännande
 modque_approve:Godkänn
 modque_delete:Radera
+modque_deleteall:Radera allting från användaren
 modque_no_message:Inga inlägg väntar på godkännande
 pmsg_new_messages:Oläst privat meddelande
 pmsg_old_messages:Läst privat meddelande

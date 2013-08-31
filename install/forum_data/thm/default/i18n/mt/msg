@@ -210,6 +210,7 @@ reported_reported_msg:Messaġġi senjalati
 modque_pending_approval:Messaġġi li qed jistennew l-approvazzjoni
 modque_approve:Approva
 modque_delete:Ħassar
+modque_deleteall:Ħassar kollox minn utent
 modque_no_message:M'hemm l-ebda messaġġ li għandu bżonn l-approvazzjoni
 pmsg_new_messages:Messaġġ privat mhux moqri
 pmsg_old_messages:Messaġġ privat moqri
@@ -1143,3 +1144,4 @@ pm_export_footer:Esportati:
 karma:Karma
 karma_track:Amministra r-reputazzjoni tal-utent:
 karma_delete:Ħassar
+rate_author:Ivvaluta lill-awtur:

@@ -9,6 +9,7 @@
 # Author: JanRei
 # Author: Kghbln
 # Author: McDutchie
+# Author: Metalhead64
 # Author: Pill
 # Author: The Evil IP address
 # Author: Tiin
@@ -222,6 +223,7 @@ reported_reported_msg:Gemeldete Beiträge
 modque_pending_approval:Noch zu genehmigende Beiträge
 modque_approve:Genehmigen
 modque_delete:Löschen
+modque_deleteall:Alle löschen von Benutzer
 modque_no_message:Es sind keine Beiträge vorhanden, die noch genehmigt werden müssen
 pmsg_new_messages:Ungelesene private Nachrichten
 pmsg_old_messages:Gelesene private Nachrichten

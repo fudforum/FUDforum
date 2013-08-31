@@ -42,7 +42,7 @@ home:Tuis
 homepage:Tuisblad:
 icq_control_panel:ICQ aan-lyn boodskappe paneel
 icq_message_form:ICQ boodskapvorm:
-ignore_user:Ignoreer boodskappe van die gebruiker
+ignore_user:ignoreer die gebruiker se boodskappe
 im_aim:AIM Handle:
 im_msnm:MSN Messenger:
 im_yahoo:Yahoo Messenger:
@@ -210,6 +210,7 @@ reported_reported_msg:Gerapporteerde boodskap
 modque_pending_approval:Boodskappe wat nog goedgekeur moet word
 modque_approve:Keur goed
 modque_delete:Skrap
+modque_deleteall:Skrap almal vir gebruiker
 modque_no_message:Daar is nie nog boodskappe wat goedgekeur moet word nie.
 pmsg_new_messages:Ongeleesde privaatboodskap
 pmsg_old_messages:Geleesde privaatboodskap

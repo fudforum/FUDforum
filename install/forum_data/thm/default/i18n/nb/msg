@@ -1,6 +1,7 @@
 # Messages for Norwegian Bokmål (norsk bokmål)
 # Exported from translatewiki.net
 # Author: Danmichaelo
+# Author: Laaknor
 # Author: McDutchie
 # Author: Naudefj
 # Author: Nghtwlkr
@@ -213,6 +214,7 @@ reported_reported_msg:Rapporterte innlegg
 modque_pending_approval:innlegg som venter på godkjenning
 modque_approve:Godkjenn
 modque_delete:Slett
+modque_deleteall:Slett alle fra bruker
 modque_no_message:Ingen innlegg ventar på godkjenning
 pmsg_new_messages:Ulest privat melding
 pmsg_old_messages:Les privat melding

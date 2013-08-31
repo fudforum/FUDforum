@@ -210,6 +210,7 @@ reported_reported_msg:Pesen sing dilaporna
 modque_pending_approval:Pesen-pesen sing ngenteni disetujuni
 modque_approve:Setujuni
 modque_delete:Busek
+modque_deleteall:Busek kabeh sekang panganggo
 modque_no_message:Ora ana pesen sing ngenteni nggo disetujuni
 pmsg_new_messages:Pesen-pesen pribadi sing durung kewaca
 pmsg_old_messages:Pesen-pesen pribadi sing uwis kewaca
@@ -767,8 +768,7 @@ p_STICKY:Pesen tetep
 p_POLL:Gawe polling
 p_FILE:Sisipna berkas
 p_VOTE:Aweh swara
-# Fuzzy
-p_RATE:Nilai Topik
+p_RATE:Mbiji Topik/anggota
 p_SPLIT:Mecah Topik
 p_LOCK:Ngunci Topik
 p_MOVE:Pindahna topik
@@ -1104,8 +1104,7 @@ move_msg_th_expl:Tetepna ID-ne sekang topik sing dituju (olih nang forum liyane)
 captcha_img_alt:Verifikasi Captcha: rika kudu teyeng maca teks nang gambar kiye.
 captcha_img_help:Ora ana nol utawa siji nang gambar.
 powered-by:Didukung nang: FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:Copyright &copy;2001-2011 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Hak Cipta &copy;2001-2011 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Kode:
 code_select_all:Pilih kabeh
 code_show_hide:Tidokna/ umpetna
@@ -1139,3 +1138,7 @@ page_list_total:{PLURAL: i|$1 kaca|$1 kaca} kedaftar.
 page_update:Ndeleng kaca
 pm_export_header:Pesen Pribadi nggo {VAR: usr->alias}
 pm_export_footer:Diekspor:
+karma:Karma
+karma_track:Ngatur reputasine pangganggo:
+karma_delete:Busek
+rate_author:Mbiji penulis:

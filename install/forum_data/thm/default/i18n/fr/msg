@@ -223,6 +223,7 @@ reported_reported_msg:Message rapporté
 modque_pending_approval:Messages en attente d'approbation
 modque_approve:Approuver
 modque_delete:Supprimer
+modque_deleteall:Tout supprimer de l’utilisateur
 modque_no_message:Il n'y a pas de message en attente d'approbation
 pmsg_new_messages:Message privé non lu
 pmsg_old_messages:Message privé lu

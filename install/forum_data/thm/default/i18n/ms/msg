@@ -211,6 +211,7 @@ reported_reported_msg:Pesanan yang Dilaporkan
 modque_pending_approval:Pesanan-pesanan yang menunggu kelulusan
 modque_approve:Luluskan
 modque_delete:Padamkan
+modque_deleteall:Hapuskan kesemua drpd pengguna ini
 modque_no_message:Tiada mesej yang menunggu kelulusan
 pmsg_new_messages:Pesanan peribadi yang belum dibaca
 pmsg_old_messages:Pesanan peribadi yang sudah dibaca

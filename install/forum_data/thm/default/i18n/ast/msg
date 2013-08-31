@@ -211,6 +211,7 @@ reported_reported_msg:Mensaxes de los que s'informó
 modque_pending_approval:Mensaxes pendientes d'aprobación
 modque_approve:Aprobar
 modque_delete:Desaniciar
+modque_deleteall:Desaniciar tolos del usuariu
 modque_no_message:Nun hai mensaxes pendientes d'aprobación
 pmsg_new_messages:Mensaxe priváu ensin lleer
 pmsg_old_messages:Mensaxe priváu lleíu

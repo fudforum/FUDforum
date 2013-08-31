@@ -1,6 +1,7 @@
 # Messages for Brazilian Portuguese (português do Brasil)
 # Exported from translatewiki.net
 # Author: Giro720
+# Author: Leosls
 # Author: Luckas
 # Author: Luckas Blade
 # Author: McDutchie
@@ -215,6 +216,7 @@ reported_reported_msg:Mensagens reportadas
 modque_pending_approval:Mensagens pendentes de aprovação
 modque_approve:Aprovar
 modque_delete:Apagar
+modque_deleteall:Apagar todos os posts do usuário
 modque_no_message:Não há mensagens pendentes de aprovação
 pmsg_new_messages:Mensagen privada não lida
 pmsg_old_messages:Mensagem privada lida

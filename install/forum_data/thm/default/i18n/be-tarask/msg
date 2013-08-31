@@ -3,6 +3,7 @@
 # Author: EugeneZelenko
 # Author: Jim-by
 # Author: Naudefj
+# Author: Renessaince
 # Author: Wizardist
 
 action:Дзеяньне
@@ -213,6 +214,7 @@ reported_reported_msg:Абвяшчэньні пра паведамленьні
 modque_pending_approval:Паведамленьні, якія чакаюць зацьверджаньня
 modque_approve:Зацьвердзіць
 modque_delete:Выдаліць
+modque_deleteall:Выдаліць усё ад карыстальніка
 modque_no_message:Няма паведамленьняў, якія чакаюць зацьверджаньня
 pmsg_new_messages:Непрачытанае асабістае паведамленьне
 pmsg_old_messages:Прачытанае асабістае паведамленьне

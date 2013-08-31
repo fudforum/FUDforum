@@ -211,6 +211,7 @@ reported_reported_msg:Пријавени пораки
 modque_pending_approval:Пораки кои чекаат на одобрение
 modque_approve:Одобри
 modque_delete:Избриши
+modque_deleteall:Бришење на сите од корисникот
 modque_no_message:Нема пораки кои чекаат на одобрение
 pmsg_new_messages:Непрочитана приватна порака
 pmsg_old_messages:Прочитана приватна порака

@@ -3,6 +3,7 @@
 # Author: Beta16
 # Author: Danmaz74
 # Author: Giallu
+# Author: Isiond
 # Author: McDutchie
 # Author: Naudefj
 # Author: Nemo bis
@@ -18,7 +19,7 @@ administrator:Amministratore
 attachment:Allegato:
 avatar:Avatar:
 average_post_count:{PLURAL: u->posted_msg_count|$1 Messaggio|$1 Messaggi} (Media di {PLURAL: avg|$1 messaggio|$1 messaggi} al giorno)
-biography:Bio:
+biography:Biografia:
 birth_date:Data di nascita:
 by:Da:
 by_mod:dal moderatore
@@ -218,6 +219,7 @@ reported_reported_msg:Messaggi segnalati
 modque_pending_approval:Messaggi in attesa di approvazione
 modque_approve:Approva
 modque_delete:Cancella
+modque_deleteall:Cancella tutto dell'utente
 modque_no_message:Non ci sono messaggi in attesa di approvazione
 pmsg_new_messages:Messaggio personale non letto
 pmsg_old_messages:Messaggio personale letto

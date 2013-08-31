@@ -5,190 +5,220 @@
 # Author: ToePeu
 # Author: 아라
 
-admin:관리자
+action:동작
+add_to_buddy_list:친구 목록에 추가
+admin:관리
 admin_control_panel:관리
 administrator:관리자
 attachment:첨부:
 avatar:아바타:
+average_post_count:{PLURAL: u->posted_msg_count|메시지 $1개} (하루에 {PLURAL: avg|평균 메시지 $1개})
 biography:약력:
-birth_date:생일:
+birth_date:생년월일:
+by:작성자:
 by_mod:중재자
-current_time:시간대
-custom_avatar_queue:사용자 아바타 제출
-date_posted:제출날짜
-date_registered:등록날짜:
-# Fuzzy
-download_counter:다운로드 {VAR: v[3]}
-# Fuzzy
-pmsg_download_counter:다운로드 {VAR: r->dlcount}
+current_time:현재 시간
+custom_avatar_queue:사용자 지정 아바타 대기시키기
+date_posted:게시한 날짜
+date_registered:등록한 날짜:
+download_counter:{PLURAL: v[3]|$1번} 다운로드됨
+pmsg_download_counter:{PLURAL: r->dlcount|$1번} 다운로드됨
 email:이메일:
-email_to_friend:친구에게 이메일 발송
-email_to_friend_desc:이 사이트의 주소를 친구에게 보냅니다
-# Fuzzy
-email_user:여기를 클릭하면 이메일이 발송됩니다
+email_to_friend:친구에게 이메일 보내기
+email_to_friend_desc:이메일을 통해 이 페이지의 URL을 친구에게 보냅니다
+email_user:사용자에게 이메일 메시지 보내기
 faq:도움말
-first_unread_msg:읽지 않은 메시지로 이동
-first_unread_msg_desc:현재 토픽안에 첫번째 읽지 않은 메시지로 이동
+first_unread_msg:읽지 않은 메시지로 가기
+first_unread_msg_desc:이 주제 안에 첫 번째로 읽지 않은 메시지로 가기
 flat_view:기본 플랫뷰로 돌아갑니다
 forum:포럼:
 forum_icon:포럼 아이콘
 forum_new_messages:새 메시지
-forum_none_messages:등록된 포럼 사용자만 게시글을 읽을 수 있습니다&amp;
+forum_none_messages:등록된 포럼 사용자만 읽었거나 읽지 않은 메시지를 추적할 수 있습니다
 forum_old_messages:새 메시지가 없습니다
+from:보내는 사람:
 gender:성별:
-goto_next_msg:다음 글
-goto_prev_msg:이전 글
-ignore_user:이 사용자의 모든 메시지 차단
-im_aim:AIM :
+go:보기
+goto_next_msg:다음 메시지로 가기
+goto_prev_msg:이전 메시지로 가기
+home:홈
+homepage:홈페이지:
+icq_control_panel:ICQ 온라인 메시지 패널
+icq_message_form:ICQ 메시지 보내기:
+ignore_user:이 사용자의 모든 메시지 무시
+im_aim:AIM 핸들:
 im_msnm:MSN 메신저:
 im_yahoo:Yahoo 메신저:
+image:그림:
 index_forum:포럼
-index_new_posts:최근 순서로 새 메시지 읽기
-index_no_new_posts:최근의 새 메시지 없음
-interests:관심분야:
-last_post:최근 메시지
-last_thread_msg:현재 토픽에서 최근 메시지로 이동
+index_new_posts:마지막으로 읽은 때부터의 새 메시지
+index_no_new_posts:마지막으로 읽은 때부터의 새 메시지가 없습니다
+index_url_redirection:리디렉션
+interests:흥미:
+last_post:마지막 메시지
+last_thread_msg:이 주제에서 마지막 메시지로 가기
 legend:범례
 location:위치:
-lock_thread:토픽잠금
-locked:잠금
-locked_with_new_posts:잠금 (w/ 읽지 않은 메시지)
-logged_in_list:로그인 사용자
+lock_thread:주제 잠금
+locked:잠김
+locked_with_new_posts:잠김 (읽지 않은 메시지)
+logged_in_list:로그인한 사용자 목록
 login:로그인
 login_header:로그인:
 logout:로그아웃
 mark_all_read:모든 메시지를 읽음으로 표시
 mark_all_read_desc:읽지 않은 모든 메시지가 읽음으로 표시됩니다
-members:멤버
+members:구성원
+calendar:캘린더
+cal_goto_date:이동:
+cal_day_heading:하루의 사건
+cal_no_events:하루의 사건이 없습니다.
+cal_update:포럼 캘린더 찾아보기
+cal_birthday:생일: {VAR: user}
+cal_birthday_age:({PLURAL: age|$1살}).
 message:메시지
+message_counter:<b>{PLURAL: thread_count|주제 $1개}</b> 안에 총 <b>{PLURAL: post_count|메시지 $1개}</b>가 게시되었습니다.
 message_index:메시지 색인
-message_index_desc:메시지 목록
-minimize_category:하위분류
-moderation_queue:중재 제출
+message_index_desc:메시지 목록 보기
+minimize_category:분류 최소화
+minimize_message:메시지 최소화
+moderation_queue:중재 대기시키기
 moderator:중재자
 moderator_of:중재자:
 moderator_options:중재자 옵션
-moderators:{PLURAL: modcount|중재자|중재자}
-more_unread_messages:읽지 않은 메시지
-more_unread_messages_desc:읽지 않은 메시지를 보여주며 읽은 메시지로 표시합니다
+moderators:{PLURAL: modcount|중재자}
+more_unread_messages:읽지 않은 메시지 더 보기
+more_unread_messages_desc:읽지 않은 메시지를 더 보여주고 현재 보여지는 메시지를 읽음으로 표시합니다
 move_thread:이동
-moved:다른 포럼으로 이동
-moved_thread_message:이 토픽을 다른 포럼으로 이동시킵니다
+moved:다른 포럼으로 이동됨
+moved_thread_message:이 주제를 다른 포럼으로 이동시킵니다
+na:해당 없음
 new_posts:새 메시지
 new_private_messages:읽지 않은 {PLURAL: c|개인 쪽지|개인 쪽지} <span class="GenTextRed">({VAR: c})</span>개가 있습니다
-new_thread:새 토픽
-newest_user:신규 등록 사용자
+new_thread:새 주제 만들기
+newest_user:새로 등록한 사용자
 next_page:다음 페이지
-next_thread:다음 토픽:
-# Fuzzy
-no_messages:이 포럼에는 게시글이 없습니다.
+next_thread:다음 주제:
+no_messages:이 포럼에 메시지가 없습니다.<br />이 포럼에 첫 번째로 주제를 게시하세요.
 no_msg_body:본문 내용이 없습니다
-no_new_posts:새 게시글이 없습니다
-no_posts:게시글 없음
-no_subscribed_forums:서명되지 않은 포럼 입니다
-no_subscribed_threads:서명되지 않은 토픽입니다
-no_unread_locked:이 토픽은 잠겨있습니다
-no_unread_msg:이 토픽에는 읽지 않은 게시글이 없습니다
-no_unread_msg_unreg:등록된 사용자만 읽을 수 있습니다
+no_new_posts:새 메시지 없음
+no_posts:메시지 없음
+no_subscribed_forums:구독된 포럼이 없습니다
+no_subscribed_threads:구독된 주제가 없습니다
+no_bookmarked_threads:북마크된 주제가 없습니다
+no_unread_locked:이 주제는 잠겨 있습니다
+no_unread_msg:이 주제에는 읽지 않은 메시지가 없습니다
+no_unread_msg_unreg:읽은 &amp; 읽지 않은 메시지는 등록된 사용자만 추적할 수 있습니다
 num_pages:페이지 ({VAR: ttl_pg}):
-# Fuzzy
-num_votes:{VAR: obj->total_votes} 투표
+num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|표}
 occupation:직업:
-# Fuzzy
-page_timings:페이지 생성 시간: {VAR: page_gen_time} 초
-pm:쪽지
+off:끄기
+on:켜기
+page_timings:페이지를 생성하는 데 걸리는 총 시간: {PLURAL: page_gen_time|$1초}
+pm:개인 메시지
 poll:투표:
-post_count:메시지 카운트 {VAR: u_pcount}
-post_count_l:메시지 카운트:
+post_count:메시지 수 {VAR: u_pcount}
+post_count_l:메시지 수:
 posts:메시지
 posts_c:메시지:
-prev_thread:이전 토픽:
-usrinfo_private_message:쪽지:
-profile:사용자 제어판
-# Fuzzy
-profile_desc:여기를 클릭하면 사용자 제어판으로 이동합니다
-rate_thread:토픽 평가
+prev_thread:이전 주제:
+usrinfo_private_message:개인 메시지:
+profile:제어판
+profile_desc:사용자 제어판에 접근
+rate_thread:주제 평가
+rating:평가
+rating_track:<b>{VAR: thr->subject}</b> 주제에 대한 평가 관리:
 refresh_list:목록 새로 고침
 register:등록
-registered:등록완료:
-registered_on:등록완료 {TEMPLATE: registered_on_date}
+registered:등록됨:
+registered_on:{TEMPLATE: registered_on_date}에 등록됨
 replies:답글
-report_to_mod:중재자에게 메시지 발송
-reported_messages:메시지 발송 완료
-reveal_all_posts:{VAR: user_login}로부터 모든 메시지 공개
+report_to_mod:중재자에게 메시지 보고
+reported_messages:보고된 메시지
+reveal_all_posts:{VAR: user_login}의 모든 메시지 공개
 reveal_post:메시지 공개
-search:검색
-sel_todays_posts:오늘의 게시글'
-sel_todays_posts_desc:오늘 등록된 게시글's 필터 전환 (오늘 등록된 게시글만 출력)
-sel_unanswered_posts:답글 없는 게시글
-sel_unanswered_posts_desc:답글이 없는 게시글 필터로 전환 (답글이 없는 게시글 출력)
-sel_unread_messages:읽지 않은 게시글
-sel_unread_messages_desc:읽지않은 게시글 필터로 전환 (일지않은 게시글 출력)
-send:전송
-send_pm_desc:이 사용자에게 쪽지 전송
-sender_email:이메일 전송:
-sender_name:이름 전송:
-show_posts_by:{VAR: u_alias} 메시지 읽음
-size:사이즈:
+search:찾기
+sel_todays_posts:오늘의 메시지
+sel_todays_posts_desc:오늘의 메시지 필터 전환 (오늘 게시된 메시지만 보여집니다)
+sel_unanswered_posts:답글이 없는 메시지
+sel_unanswered_posts_desc:답글이 없는 메시지 필터 전환 (답글이 없는 메시지만 보여줍니다)
+sel_unread_messages:읽지 않은 메시지
+sel_unread_messages_desc:읽지 않은 메시지 필터 전환 (읽지 않은 메시지만 보여줍니다)
+send:보내기
+send_pm_desc:이 사용자에게 개인 메시지 보내기
+sender_email:보내는 사람의 이메일:
+sender_name:보내는 사람의 이름:
+show_posts_by:{VAR: u_alias} 사용자가 적은 메시지 보기
+size:크기:
 status:상태:
-# Fuzzy
-status_line:There are <b>{VAR: st_obj->online_users_reg}</b> members(s), <b>{VAR: st_obj->online_users_hidden}</b> invisible members and <b>{VAR: st_obj->online_users_anon}</b> guest(s) visiting this board.
-sticky:끈끈이:
-stop_ignoring:사용자 차단 해제
-sub_to_thread:토픽에 서명
-sub_to_thread_desc:이 토픽 내의 새 게시글에 관한 통보를 받음
+status_line:이 보드에는 <b>{PLURAL: st_obj->online_users_reg|구성원 $1명}</b>, <b>{PLURAL: st_obj->online_users_hidden|보이지 않는 구성원 $1명}</b>과 <b>{PLURAL: st_obj->online_users_anon|손님 $1명}</b>이 방문하고 있습니다.
+sticky:고정:
+stop_ignoring:이 사용자의 무시를 멈춤
+sub_to_thread:주제를 구독
+sub_to_thread_desc:이 주제 안의 새 메시지에 대한 알림을 받습니다
+bookmark_thread:주제 북마크
+bookmark_thread_desc:내 북마크 목록에 이 주제 추가
 subject:제목
-subscribe:서명
-subscribe_desc:이 포럼 내의 새 토픽 생성에 대한 통보를 받음
-subscribed_forums:포럼 구독
-subscribed_forums_desc:구독하는 포럼 필터로 전환 (당신이 구독하는 포럼의 게시글만 출력)
-subscribed_threads:토픽 구독
-subscribed_threads_desc:구독하는 토픽 필터로 전환 (당신이 구독하는 토픽의 게시글만 출력)
-switch_to_thread_view:이 토픽을 계단식 배열로 전환
-thread:토픽:
+subscribe:구독
+subscribe_desc:이 포럼 안의 누군가가 새 주제가 만들 때 알림을 받습니다
+subscribed_forums:포럼 구독됨
+subscribed_forums_desc:구독하는 포럼 필터 전환 (구독하는 포럼의 메시지만 보여줍니다)
+subscribed_threads:주제 구독됨
+subscribed_threads_desc:구독하는 주제 필터 전환 (구독하는 주제의 메시지만 보여줍니다)
+bookmarked_threads:북마크된 주제
+switch_to_thread_view:이 주제를 스레드식 보기로 전환
+thread:주제:
 thread_announcement:알림:
-# Fuzzy
-thread_first_unread_msg:여기를 클릭하면 현재 토픽에서 읽지 않은 첫번째 게시글로 이동합니다
-thread_thread:토픽
-threads:토픽
+thread_first_unread_msg:이 주제에서 첫 번째로 읽지 않은 메시지로 가기
+thread_thread:주제
+threads:주제
 time:시간
-todays_posts:오늘의 게시글'
+todays_posts:오늘의 메시지
 todays_posts_desc:오늘 게시된 모든 글 출력
-un_ignore_user:이 사용자 게시글 무시 해제
-unanswered_posts:답글 없는 게시글
-unanswered_posts_desc:보이는 모든 게시글에 답글이 없습니다
-unlock_thread:토픽 잠금 해제
-unread_msg:이 토픽에는 읽지 않은 게시글이 있습니다
-unread_msg_locked:읽지 않은 게시글이 있지만 토픽이 잠겨있습니다
-unread_posts:읽지 않은 게시글
+un_ignore_user:이 사용자의 메시지 무시를 멈춤
+unanswered_posts:답글 없는 메시지
+unanswered_posts_desc:답글이 없는 모든 메시지를 보여줍니다
+unlock_thread:주제 잠금 해제
+unread_msg:이 주제에는 아직 읽지 않은 메시지를 포함합니다
+unread_msg_locked:읽지 않은 메시지가 있는 주제가 잠겨있습니다
+unread_posts:읽지 않은 메시지
 unread_posts_desc:읽지 않은 모든 메시지 보기
-unsub_from_thread:토픽 구독 해제
-unsub_from_thread_desc:이 토픽의 새 게시글 알림 중지
+unsub_from_thread:주제에서 구독 취소
+unsub_from_thread_desc:이 주제의 새 메시지에 대한 알림 받기를 멈춤
+unbookmark_thread:북마크에서 제거
+unbookmark_thread_desc:내 북마크 목록에서 이 주제 제거
 unsubscribe:구독 해지
 unsubscribe_desc:이 포럼의 새 토픽 알림 중지
 updated_on:업데이트:
 user:사용자
+user_counter:등록된 {PLURAL: st_obj->user_count|사용자} <b>{VAR: st_obj->user_count}</b>명이 있습니다.
 user_info:사용자 정보
 user_info_l:사용자 정보 {VAR: u->alias}
 user_offline:{VAR: obj->login} 오프라인
 user_online:{VAR: obj->login} 온라인
-usrinfo_last_post:최근 게시글:
+usrinfo_last_post:마지막 메시지:
 view_results:결과 보기
 views:보기
+vote:{PLURAL: frm->n_rating|$1표}
 vote_button:투표
 vote_for_thread:투표
-what_ppl_doing:사용자들이 무엇을 하는지 보여줍니다
+was_moved_msg:중재자가 <a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> 메시지를 <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> 메시지로 이동했습니다.
+welcome_message:<b>{VAR: usr->alias}</b>님 환영합니다, 마지막으로 방문한 날짜는 {TEMPLATE: welcome_message_date}입니다
+what_ppl_doing:사람들이 무엇을 하는지 보기
 reported_del_report:레포트 삭제
 reported_reason:이유:
+reported_on:날짜:
 reported_reported_by:보고자:
-reported_reported_msg:게시글 보고
-modque_pending_approval:게시글이 승인 대기중 입니다
+reported_reported_msg:보고된 메시지
+modque_pending_approval:승인을 기다리는 메시지
 modque_approve:승인
 modque_delete:삭제
-modque_no_message:승인 대기중인 게시글 없음
+modque_deleteall:사용자에서 모두 삭제
+modque_no_message:승인을 기다리는 메시지가 없습니다
 pmsg_new_messages:읽지 않은 쪽지
 pmsg_old_messages:쪽지 읽기
 deny_recipt:수신 거부
+deny_recipt_desc:이 메시지를 읽었다면 확인을 보내지 마십시오
 restore_to:복구:
 move_to:이동:
 list_referes_referrals:추천
@@ -196,7 +226,7 @@ list_referes_members:추천 멤버
 list_referes_member:멤버
 referals_none:추천 없음
 referals_refered_by:추천 멤버: <b><a href="{TEMPLATE: referals_refered_by_lnk}" class="thLnk">{VAR: p_user[1]}</a></b>
-referals_post_count:게시글
+referals_post_count:메시지 수
 referals_registered_on:등록됨
 referals_action:활동
 pmsg_all:모두
@@ -264,10 +294,13 @@ finduser_action:활동
 yes:예
 no:아니오
 register_email:이메일
+edit_time_limit:<b>편집 시간 제한</b>: {GVAR: EDIT_TIME_LIMIT}분
+no_edit_time_limit:<b>편집 시간 제한</b>: 제한 없음
 pmuserloc_login:로그인:
 pmuserloc_submit:제출
 pmuserloc_user:사용자
 pmuserloc_no_result:결과 없음
+register_builtin:내장
 register_specify_url:URL
 register_uploaded:아바타 업로드
 register_login:로그인:
@@ -311,7 +344,7 @@ register_prefs:환경 설정
 register_sig:서명:
 register_sig_desc:서명은 선택 사항이며 서명을 할 경우 게시글 밑에 표시됩니다
 register_reset:초기화
-register_def_thread_view:토픽 보기:
+register_def_thread_view:기본 주제 보기:
 register_msg_per_page:페이지당 게시글:
 register_show_sig:서명 보기:
 register_show_sig_desc:당신의 서명을 포럼 사용자에게 보이게 또는 숨길 수 있습니다'
@@ -326,6 +359,7 @@ register_show_email_desc:이 옵션을 선택하면 당신의 이메일 주소�
 register_notification:알림 기능 선택:
 register_notification_desc:알림 기능을 선택하면 게시글 제출시에 사용하지 못할 수 있습니다.
 register_notify_method:알림 수신 방법:
+register_notify_method_desc:선호하는 알림 메서드를 설정하거나 알림을 비활성화합니다. (예를 들어 휴가를 갈 때)
 register_allow_email_msg:이메일 수신 허가:
 register_allow_email_msg_desc:이 포럼에서 다른 사용자가 당신에게 이메일을 발송하는 것을 허락 합니다.
 buddy_status:상태
@@ -336,9 +370,9 @@ buddy_search:추가를 위해 로그인 하십시오.
 member_search:Or use the <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Find User</a> feature to find a person.
 buddy_remove:제거
 post_normal:일반
-post_sticky:끈끈이
+post_sticky:고정
 post_annoncement:알림
-post_size:사이즈
+post_size:크기
 post_color:색상
 post_font:폰트
 create_thread:토픽제출
@@ -354,9 +388,9 @@ post_create_poll:투표 생성
 post_poll_delete:삭제
 post_poll_edit:편집
 post_mod_opt:중재자 옵션:
-post_thread_type:토픽 형태:
-post_thread_expiry:토픽 기간 만료:
-post_locked:토픽 잠금
+post_thread_type:주제 형태:
+post_thread_expiry:주제 종료 기한:
+post_locked:주제 잠김
 post_icons:아이콘:
 post_no_icon:아이콘 없음
 post_smiley:이모티콘 바로가기:
@@ -364,7 +398,7 @@ post_format_tools:기능 설정:
 post_upload_file:업로드 파일
 post_file_del:삭제
 post_file_name:이름
-post_file_size:사이즈
+post_file_size:크기
 file_attachments:파일 첨부:
 allowed_files:허가된 확장자:
 max_file_size:최대 파일 사이즈:
@@ -397,6 +431,7 @@ coppa:13세 미만의 사용자가 멤버로 가입하기 위해선 반드시 �
 prereg_info:정보
 prereg_agree:동의
 prereg_disagree:비동의
+prereg_update:포럼 규칙 읽기
 coppa_fax_instructions:부모님을 위한 지시사항
 coppa_fax_instructions2:현 페이지를 출력하여 서명한 후, 팩스로 발송하십시오:
 coppa_fax_reg_form:등록 형식
@@ -409,6 +444,7 @@ coppa_fax_relation:관계:
 coppa_fax_telephone:전화:
 coppa_fax_email:이메일 주소:
 coppa_fax_date:날짜:
+coppa_fax_questions:어떠한 질문이 있으면 <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>(으)로 문의하시기 바랍니다
 coppa_fax_login:로그인
 coppa_fax_passwd:비밀번호
 coppa_fax_remail:이메일
@@ -437,24 +473,30 @@ rpasswd_login:로그인
 rpasswd_cur_pass:현재 패스워드:
 rpasswd_new_pass:새 패스워드:
 rpasswd_conf_pass:비밀번호 확인:
+ruser_title:로그인 바꾸기 양식
+ruser_change_user:포럼 로그인를 바꿉니다
+ruser_cur_login:현재 로그인:
+ruser_new_login:새 로그인:
+ruser_cur_pass:현재 비밀번호:
 login_passwd:비밀번호:
 reset_email:이메일:
 reset_reset_button:패스워드 초기화
 rate_this_thread:평가
 report_reporting_about:보고 대상:
 report_subject:제목:
+report_by:저쟈:
 report_posted_on:게시:
 report_give_reason:게시글 보고서 작성 이유:
 report_submit_report:보고서 제출
 search_entire_msg:전체 게시글
-search_subject_only:제목
+search_subject_only:제목만
 search_forum:포럼
 search_posted_on:게시
 search_no_results:결과 없음
 search_all_forums:모든 포럼 검색
 search_in_forum:포럼내 검색:
 search_forum_search:포럼 검색
-move_thread_to:토픽 이동 <b>{VAR: thr->subject}</b> to:
+move_thread_to:다음으로 <b>{VAR: thr->subject}</b> 주제 이동:
 remail_email_topic:이 토픽을 친구에게 전달
 remail_your_name:이름:
 remail_your_email:이메일:
@@ -481,11 +523,15 @@ mklist_aplha:알파벳
 mklist_square:사각
 mklist_disc:원통
 mklist_circle:원
+mklist_close:닫기
+email_to:받는 사람:
 email_pg_title:이메일
 email_subject:제목:
 email_body:본문:
 email_submit:이메일
+ppost_quote_msg:{VAR: msg_to_list}(이)가 {TEMPLATE: ppost_quote_msg_date}에 썼습니다
 ppost_quote:인용:
+ppost_to:받는 사람:
 ppost_from_buddy_list:친구 목록에서 선택
 ppost_find_User:사용자 찾기
 ppost_track_msg:이 메시지 추적
@@ -499,6 +545,7 @@ poll_timelimit:시간 제한:
 poll_maxiumvotes:최대 투표:
 poll_create:만들기
 poll_update:업데이트
+poll_disablesmilies:이모티콘 비활성화
 poll_create_poll:투표 생성
 poll_update_poll:투표 업데이트
 poll_delete:삭제
@@ -519,6 +566,9 @@ tabs_referrals:추천
 tabs_buddy_list:친구 목록
 tabs_ignore_list:차단 목록
 tabs_private_messaging:쪽지
+delete_proceed:<span class="fb">진행하시겠습니까?</span>
+delete_yes:예
+delete_no:아니오
 error_invalidurl:URL 오류
 error_error:오류
 usrinfo_profile:{VAR: u->alias}'의 프로파일
@@ -529,6 +579,7 @@ buddy_list_err_cantadd:본인을 친구 목록에 추가할 수 없습니다
 buddy_list_err_dup:친구 목록에 있는 사용자 입니다
 buddy_list_err_nouser:친구 목록에 없는 사용자 입니다
 buddy_list_err_nouser_title:사용자 추가를 할 수 없습니다
+buddy_list_err_ignore:내 친구 목록에 무시한 사용자는 추가할 수 없습니다.
 buddy_list_update:친구 목록 탐색
 core_err_invinp_title:입력 오류
 core_err_invinp_err:잘못된 링크 입니다. <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a>에게 통보하여 주십시오.
@@ -537,7 +588,7 @@ email_err_unabletoemail_title:오류: 이메일 발송 불가
 email_err_unabletoemail_msg:최고관리자가 이메일 발송을 금지시켰습니다.
 email_error_unabletolocaddr:죄송합니다. 이메일 발송이 금지되었습니다. {VAR-HTML: _POST['tx_name']}
 email_error_body:본문을 작성하십시오
-email_error_subject:제목을 작성하십시오
+email_error_subject:제목이 필요합니다
 email_error_namerequired:이름을 입력하십시오
 email_error_invaliduser:확인되지 않은 사용자
 emailconf_err_invkey_title:오류
@@ -556,16 +607,15 @@ ignore_list_cantign_msg:이 사용자를 차단할 수 없습니다
 ignore_list_update:차단 목록 탐색
 index_update:<a href="{TEMPLATE: index_update_lnk}">포럼목록</a> 탐색
 list_referers_update:추천 목록 탐색
-login_update:로그인 형식
-msg_update:토픽 탐색 <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
+login_update:로그인 양식
+msg_update:<a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a> 주제를 찾아보는 중
 pm_err_nopm_title:오류: 쪽지를 사용할 수 없습니다
 pm_err_nopm_msg:쪽지를 이용할 수 없습니다. 관리자가 금지 시켰습니다.
 pm_update:쪽지 사용중
-post_err_lockedthread_title:오류: 잠금 토픽
+post_err_lockedthread_title:오류: 주제가 잠김
 post_err_lockedthread_msg:이 토픽은 잠겨있습니다. 더이상 글을 올릴수 없습니다.
 err_coppa_title:오류: 당신의 계정은 인증 절차를 마치지 않았습니다
-# Fuzzy
-err_coppa_msg:부모님의 동의서가 도착하지 않았습니다. 청소년 온라인 정보보호에 대해 자세히 알고 싶다면 <a href="{TEMPLATE: err_coppa_msg_lnk}">여기</a>를 클릭 하십시오.
+err_coppa_msg:메시지를 게시할 수 있는 당신의 부모나 법적 보호자에서 확인을 받지 못했습니다. 청소년 온라인 개인 정보 보호법(COPPA) 양식을 잃었다면, <a href="{TEMPLATE: err_coppa_msg_lnk}">다시 보세요</a>.
 err_banned_acct_title:오류: 당신은 사이트 접속 차단 상태 입니다.
 err_banned_acct_msg:Your account was {IF: $ban_expiry}temporarily banned until {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}permanently{ENDI} from accessing the site, due to a violation of the forum&#39s rules.
 post_err_edttimelimit_title:오류
@@ -573,25 +623,24 @@ post_err_edttimelimit_msg:이 게시글은 더 이상 편집할 수 없습니다
 post_err_noannontopics_msg2:<legend>오류: 권한 불충분</legend>익명 사용자는 새 주제를 만들 수 없습니다.
 post_err_noannonposts_msg2:<legend>오류: Insufficient Privileges</legend>Anonymous users are not allowed to reply.
 post_err_floodtrig_title:오류: Post flood triggered.
-# Fuzzy
-post_err_floodtrig_msg:{VAR: tm}초 안에 다시시도해 주십시오.
+post_err_floodtrig_msg:{PLURAL: tm|$1초} 안에 다시 시도하세요
 post_err_attach_size:파일 크기가 너무 큽니다 (최대 크기인 {VAR: MAX_F_SIZE} bytes를 초과했습니다)
 post_err_attach_ext:승인된 파일 형식이 아닙니다. 다시한번 확인 바랍니다.
 post_err_attach_filelimit:파일 갯수가 초과 되었습니다.
 post_err_passwd:패스워드가 일치하지 않습니다.
-post_reply_update:답글 <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> in {VAR: frm->name}
+post_reply_update:{VAR: frm->name}에서 <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a>에 답변 중
 post_topic_update:<a href="{TEMPLATE: post_topic_update_lnk}">{VAR: frm->name}</a>에 새 토픽 쓰기
 post_error_generic:오류 발생
 postcheck_max_images_err:{GVAR: MAX_IMAGE_COUNT} 이미지 갯수가 초과되었습니다. 이미지 갯수를 줄이십시오.
-postcheck_subj_needed:제목을 입력하십시오
+postcheck_subj_needed:제목이 필요합니다
 postcheck_no_such_user:이 포럼에는 "{FUNC: char_fix(htmlspecialchars($v))}"와 일치하는 사용자가 없습니다.
 postcheck_ignored:차단 리스트에 등록되었기 때문에 "{FUNC: char_fix(htmlspecialchars($v))}"에게 쪽지를 전송할 수 없습니다.
 postcheck_no_recepient:수신자가 없어서, 메시지를 보낼 수 없습니다
 postcheck_invalid_email:올바른 이메일 주소를 입력하세요.
-postcheck_email_subject:전송 불가: 제목이 없습니다.
+postcheck_email_subject:제목 없이 이메일을 보낼 수 없습니다.
 postcheck_email_body:본문 내용 없이 이메일을 보낼 수 없습니다.
-private_msg_notify_subj:공지사항: {VAR: m->subject}
-private_msg_notify_body:Hello,<br />{VAR: usr->login} has read your private message, "{VAR: m->subject}", on {TEMPLATE: private_msg_notify_body_date}<br />
+private_msg_notify_subj:읽기 알림: {VAR: m->subject}
+private_msg_notify_body:안녕하세요,<br />{VAR: usr->login} 사용자가 "{VAR: m->subject}"이라는 제목의 개인 메시지를 열었습니다.<br />{TEMPLATE: private_msg_notify_body_date}에 생성된 자동적인 알림입니다<br />
 referals_update:추천 탐색
 register_err_short_login:로그인 ID는 최소한 4자 이상이어야 합니다.
 register_err_login_notallowed:허가되지 않은 사용자 이름 입니다.
@@ -602,8 +651,7 @@ register_err_passwdnomatch:패스워드가 일치하지 않습니다, 다시 시
 register_err_invalidemail:유효하지 않은 이메일 입니다.
 register_err_needname:이름을 입력하십시오.
 register_err_enterpasswd:패스워드 변경을 위해선 현재 사용중인 패스워드를 입력하십시오.
-# Fuzzy
-register_err_adminpasswd:변경을 완료하기 위해 관리자 패스워드를 입력하십시오.
+register_err_adminpasswd:바꾸기를 완료하려면 <b>관리자</b> 비밀번호를 입력해야 합니다.
 register_err_notyouremail:누군가가 이미 동일한 이메일 주소로 등록했습니다.
 register_err_avatartobig:파일 사이즈가 너무 큽니다. 최대 파일 사이즈: {GVAR: CUSTOM_AVATAR_MAX_SIZE} bytes
 register_err_avatarnotallowed:허가되지 않은 파일 형식 입니다. 파일 형식을 확인 하십시오.
@@ -623,25 +671,29 @@ reset_newpass_title:패스워드 초기화
 reset_login_notify:패스워드가 이메일로 발송되었습니다. 몇 분내로 도착될 것 입니다.<br />
 search_update:게시글 검색중
 selmsg_update:<a href="{TEMPLATE: selmsg_update_lnk}">오늘의' 게시글</a> 탐색
+showposts_update:다음의 게시물을 보는 중: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
 subscribed_update:구독자 탐색
+bookmarked_update:자신의 북마크 목록을 찾아보는 중
 thread_update:<a href="{TEMPLATE: thread_update_lnk}">{VAR: frm->name}</a> 포럼 탐색
-tree_update:<a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a> 토픽 탐색(트리구조)
+tree_update:<a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a> 주제를 찾아보는 중 (트리 보기)
+userinfo_update:<a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}</a>의 프로필을 보는 중
+ERR_login_msg2:<legend>오류: 로그인하지 않았습니다</legend>이 페이지에 접근하려면 이 포럼의 구성원이어야 합니다.
 ERR_disabled_ttl:기능 제한
-# Fuzzy
-ERR_disabled_msg:이 기능은 관리자에 의해 제한 되었습니다
+ERR_disabled_msg:이 기능은 시스템 관리자가 비활성화했습니다.
 ERR_access_ttl:오류: Insufficient Permissions
+ERR_access_msg:이 작업을 수행하는 데 필요한 권한이 없습니다.
 ERR_registration_disabled_ttl:등록불가
+ERR_registration_disabled_msg:관리자가 등록을 비활성화하고 있습니다. 나중에 다시 시도하세요.
 ERR_emailconf_ttl:오류: 계정 확인 절차를 마치지 않았습니다
-# Fuzzy
-ERR_emailconf_msg:이메일을 이용한 계정 확인 절차를 마치지 않았습니다<br /><table border="0"><tr><td><ol><li>만일 이메일을 받지 못했다면, <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">여기</a>를 클릭하십시오.<li>만일 {VAR: usr_d->email} 이메일 주소가 틀리다면 , <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">여기</a>를 클릭 하십시오.</ol></td></tr></table>
+ERR_emailconf_msg:아직 이메일을 통해 계정이 확인되지 않았습니다.<br /><table border="0"><tr><td><ol><li>확인 이메일을 받지 못했다면, <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">다시 요청하세요</a>.</li><li>{VAR: usr_d->email} 이메일이 올바른 이메일 주소가 아니라면, <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">올바른 주소를 지정하세요</a>.</li></ol></td></tr></table>
 ERR_user_ttl:오류: 일치하는 사용자가 없습니다
 ERR_user_msg:일치하는 사용자가 없습니다
 ERR_systemerr_ttl:오류: 시스템 오류
-# Fuzzy
-ERR_systemerr_msg:시스템 오류 발생. <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a>에게 이메일 발송.
+ERR_systemerr_msg:시스템 오류가 발생했습니다. <a href="mailto:{GVAR: ADMIN_EMAIL}">웹마스터</a>에게 보고하세요.
 email_title:이메일 양식
 finduser_title:사용자 찾기
 help_title:도움말
+login_title:로그인 양식
 poll_title:투표 편집
 register_title:등록 형식
 reset_title:패스워드 초기화
@@ -651,9 +703,17 @@ index_title:포럼에 오신것을 환영합니다
 search_title:{VAR-HTML: srch} 검색
 remail_emailsent:이메일 발송 완료
 poll_add_option:옵션 추가:
-# Fuzzy
-post_opt:포럼 옵션
+post_opt_html_on:<b>HTML</b>이 <b>켜져</b> 있습니다
+post_opt_fud_on:<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>BB코드</b>가 <b>켜져</b> 있습니다</a>
+post_opt_images_on:<b>그림</b>이 <b>켜져</b> 있습니다
+post_opt_smilies_on:<a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank"><b>이모티콘</b>이 <b>켜져</b> 있습니다</a>
+post_opt_html_off:<b>HTML</b>이 <b>꺼져</b> 있습니다
+post_opt_fud_off:<b>BB코드</b>가 <b>꺼져</b> 있습니다
+post_opt_images_off:<b>그림</b>이 <b>꺼져</b> 있습니다
+post_opt_smilies_off:<b>이모티콘</b>이 <b>꺼져</b> 있습니다
+post_opt:포럼 옵션:
 register_change_passwd:패스워드 변경
+register_change_login:로그인 바꾸기
 approved_avatar_title:사용자 아바타 승인.
 approved_avatar_msg:사용자 아바타가 관리자로부터 승인되었습니다. 본인이 작성한 모든 게시글에 아바타가 보일 것 입니다. 만일 보이지 않거나 이전에 사용하던 아바타가 보인다면 쿠키를 삭제한 후, 다시 확인하시기 바랍니다. 대분분의 경우 이와 같은 방법으로 해결이 가능합니다.
 unapproved_avatar_title:사용자 아바타 승인 거부.
@@ -670,7 +730,9 @@ thr_exch_orig_forum:원래 위치:
 thr_exch_dest_forum:이동 위치:
 thr_exch_no_threads:승인 대기 중인 토픽이 없습니다.
 thr_exch_submit:제출
-split_thread:토픽 분리
+split_thread:주제 분할
+groupmgr_yes:예
+groupmgr_no:아니오
 groupmgr_action:활동
 groupmgr_member:멤버
 groupmgr_cancel:취소
@@ -678,13 +740,16 @@ groupmgr_add_member:멤버 추가
 groupmgr_update_member:멤버 업데이트
 groupmgr_edit:편집
 groupmgr_delete:삭제
+group_mgr_anon:익명
 group_mgr_reged:전체 등록 사용자
+show_show:보기:
 group_mgr:그룹 관리자
 group_mgr_edit_btn:그룹 편집
 group_mgr_heading:그룹 편집자 선택
 group_mgr_group:그룹:
 permission_denied_title:권한 없음!
 p_READ:읽음
+p_POST:게시
 p_REPLY:답글
 p_EDIT:편집
 p_DEL:삭제
@@ -692,22 +757,25 @@ p_STICKY:끈끈이 게시글
 p_POLL:투표 생성
 p_FILE:파일 첨부
 p_VOTE:투표
-# Fuzzy
-p_RATE:토픽 평가
-p_SPLIT:토픽 분리
-p_LOCK:토픽 잠금
-p_MOVE:토픽 이동
+p_RATE:주제/구성원 평가
+p_SPLIT:주제 분할
+p_LOCK:주제 잠금
+p_MOVE:주제 이동
+p_SML:이모티콘 사용
 p_IMG:이미지 태그 사용
 p_SEARCH:검색가능
 group_mgr_search:사용자 찾기
 group_mgr_indicator:현재 편집중: <b>{VAR: grp->name}</b>
 rate_worst:최악
 rate_best:최고
+post_quote_msg:{VAR: msg->login} 사용자가 {TEMPLATE: make_report_date}에 적었습니다
 post_quote:인용:
+post_quote_selected:선택한 문구 인용
 userinfo_referals:추천 사용자:
 userinfo_referals_count:{VAR: referals} 멤버
 pm_no_space_title:좌측 공간 없음!
 pm_no_space_msg:쪽지함의 최대 저장 크기인 <b>{GVAR: MAX_PMSG_FLDR_SIZE} 바이트를</b> 초과하였습니다. 현재 사용 중인 크기는 <b>{VAR: fldr_size} 바이트입니다.</b> worth of messages. <br /><br /><span class="ErrorText">불필요한 파일을 정리하기 바랍니다.</span>
+pm_space_indct_msg:내 개인 메시지는 {VAR: percent_full}% 차있습니다.
 th_expr_never:무제한
 th_expr_one_hr:1 시간
 th_expr_three_hr:3 시간
@@ -724,15 +792,20 @@ th_expr_two_month:2 월
 th_expr_four_month:4 월
 th_expr_one_year:1 년
 thread_mod_delete:삭제
+action_ip:IP
 action_latest_post:최근 게시글
 online_today_last_visit:최근 방문
 online_today_update:오늘의 포럼 방문자 목록.
 logedin_todays_visitors:오늘의 방문자'
 logedin_latest_post:최근 게시글:
 register_show_avatar:아바타 보기:
+register_show_avatar_desc:다른 사용자가 메시지를 볼 때 그 아바타를 숨길 수 있습니다.
+drawmsg_view_rest_post:메시지의 나머지 보기
+post_re:답:
 forumsel_goto_forum:포럼 바로가기:
-minimsg_thread_view:토픽 보기
+minimsg_thread_view:주제 보기
 split_th_post_by:게시자:
+split_th_posted_on:게시한 날짜:
 split_th_subject:제목:
 split_th_new_thread_title:새 토픽 제목:
 split_th_forum:포럼:
@@ -740,16 +813,18 @@ split_th_split_sel:게시글 분리 선택
 split_th_split_unsel:게시글 분리 선택 해제
 split_th_messages:게시글
 split_th_select:선택
-# Fuzzy
-quicklogin_login:로그인
-# Fuzzy
-quicklogin_password:패스워드
+report_report_post:메시지 보고
+quicklogin_login:로그인:
+quicklogin_password:비밀번호:
 quicklogin_use_cookies:쿠키사용?
 quicklogin_login_btn:로그인
 quick_reply:빠른 답변
+quick_reply_post:빠른 답변 게시
+quick_reply_preview:빠른 답변 미리 보기
 post_notification_desc:이 게시글에 대한 답글 통보.
 post_all_ext_allowed:(제한 해제)
 maximize_category:최대 분류
+maximize_message:메시지 최대화
 no_view_perm:이 게시글을 보기 위해선 적당한 권한이 필요합니다.
 report_empty_report:보고 내용이 없어서 전송할 수 없습니다. 보고 내용을 작성하십시오.
 report_already_reported_title:이미 보고가 있습니다
@@ -758,15 +833,22 @@ pmsg_next_msg:다음 게시글
 pmsg_prev_msg:이전 게시글
 post_proc_reveal_spoiler:훼방꾼 전환
 register_jabber:도배꾼 제어:
+register_skype:스카이프 핸들:
+register_twitter:트위터 핸들:
+register_google:Google 채트/IM 핸들:
 im_jabber:도배꾼:
-# Fuzzy
-post_cur_attached:현재 첨부 파일 {VAR: i}
+im_google:Google 토크:
+im_skype:스카이프:
+im_twitter:트위터:
+forum_contact:연락하기
+forum_home:홈
+post_cur_attached:현재 첨부된 {PLURAL:i|파일} {VAR: i}개
 ignored_anon_post:{GVAR: ANON_NICK} 무시
 ignored_user_post:<a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a>의 게시글 무시
 smladd_close_window:윈도우 닫기
+post_list_smilies:이모티콘을 모두 나열
 p_VISIBLE:보임
-# Fuzzy
-reported_in_thread:토픽내
+reported_in_thread:주제 안:
 help_back_to_top:위로가기
 help_return_to_index:도움말로 돌아가기
 imsg_err_message_title:근거 없는 게시글
@@ -787,19 +869,27 @@ polllist_date:작성일
 polllist_owner:작성자
 polllist_votes:전체 투표
 polllist_action:활성화
+polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">사용할 수 있는 투표 검토 중</a>
 userinfo_polls:투표:
 show_pollist:투표보기
+search_and:그리고
+search_or:또는
 search_desc_order:내림차순
 search_asc_order:오름차순
 search_logic:검색 규칙:
 search_sorting:날짜별 정렬:
+search_attach:첨부:
+search_attach_all:유무에 관계 없음
+search_attach_with:첨부 있음
 post_proceed:진행
 post_moderated_forum:당신은 중재 포럼에 게시글을 작성할 수 있습니다. 작성된 게시글은 중재나 또는 관리자의 승인이 완료된 이후에 볼 수 있습니다.
 post_moderated_forum_ttl:중재 포럼 공지
+buddy_list_bday:오늘 {VAR: r[2]} 사용자는 {VAR: age}살이 됩니다
 email_warning_msg:만일 이메일 주소를 변경하면 당신의 계정은 이메일 확인 절차를 마치기 전까지 확인되지 않은 계정으로 표시됩니다.
 register_show_im:Show IM indicators
 unread_message:읽지않은 게시글
 read_message:읽은 게시글
+threadt_more:&lt;더&gt;
 threadt_disabled_ttl:토픽 목록을 계단식으로 볼 수 없습니다.
 threadt_disabled_desc:관리자가 계단식 보기를 금지 시켰습니다. 기본 모드로 이용하십시오.
 threadt_update:포럼 탐색 (계단식) <a href="{TEMPLATE: threadt_update_lnk}">{VAR: frm->name}</a>
@@ -813,15 +903,22 @@ err_mod_acc_ttl:검증되지 않은 계정
 err_mod_acc_msg:관리가 수동으로 사용자 계정을 인증 및 활성화하고 있습니다. 관리자가 계정을 인증하여 활성화 시키기전까지 일부 기능이 제한됩니다.
 accounts_pending_approval:계정 승인 제출중
 saved:저장
+register_affero:Affero 사용자 이름:<br /><span class="SmallText"><a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">Affero</a> 사용자 이름이 있으면, 여기에 입력하세요.</span>
+im_affero:Affero 사용자 이름
 register_err_avatardimtobig:아바타 사이즈는 <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b>를 초과할 수 없습니다. <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b> pixels.
+buddy_offline:{VAR: r[2]} 사용자는 현재 오프라인입니다
+buddy_online:{VAR: r[2]} 사용자는 현재 온라인입니다
 sml_no_smilies:사용 가능한 이모티콘이 없습니다.
 login_unapproved_account_ttl:승인되지 않은 계정
 login_unapproved_account_msg:관리가 수동으로 사용자 계정을 인증 및 활성화하고 있습니다. 당신의 계정은 현재까지 인증되지 않았으니 활성화될때 까지 대기하여 주시기 바랍니다.
 remove_from_buddy_list:친구 목록에서 제거
+iemail_msg_author:<b>저자:</b> {VAR: obj->alias}
+iemail_msg_subject:<b>제목:</b> {VAR: obj->subject}
+iemail_msg_date:<b>날짜:</b> {TEMPLATE: dmsg_post_date}
 iemail_msg_reply:답글
 iemail_msg_quote:인용
 iemail_msg_view:토픽/게시글 보기
-threadt_sticky:끈끈이
+threadt_sticky:고정
 threadt_announce:알림
 reported_no_messages:게시글에 대한 보고서가 없습니다.
 poll_no_polls:참여가능 투표가 없습니다.
@@ -830,12 +927,25 @@ thread_mark_all_read:읽지 않은 모든 게시글을 읽음으로 표시
 thread_mark_all_read_desc:현재 포럼 내에 있는 읽지 않은 모든 게시글이 읽음으로 표시될 것 입니다
 private_no_messages:이 폴더에는 메시지가 없습니다.
 register_email_change_subject:이메일 변경 확인
-# Fuzzy
-post_mod_msg_notify_msg:A new message titled "{VAR: msg_post->subject}" was just posted in a forum that you moderate. To review this message go to: {FULL_ROOT}{ROOT}?t=modque\n\nThis is an automated process. Do not reply to this message.
+iemail_thread_unsub:이 주제에서 구독 취소
+iemail_forum_unsub:이 포럼에서 구독 취소
+primary_group_prefix:포럼에 대한 기본 그룹:
+group_resources:이 그룹은 다음 포럼의 권한을 제어합니다
+register_admin_newuser_title:새 사용자가 등록했고 계정은 확인을 기다리고 있습니다
+post_mod_msg_notify_title:"{VAR: frm->name}" 포럼에 승인을 기다리는 새 메시지
+post_mod_msg_notify_msg:"{VAR: msg_post->subject}"이라는 제목의 새 메시지가 적절한 포럼에 게시했습니다. 이 메시지를 검토하려면 다음으로 가세요: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\n자동화된 진행입니다. 이 메시지에 답변하지 마십시오.
+thread_printable_pdf:인쇄용 PDF 생성
+thread_syndicate:이 포럼을 전달 (XML)
+reg_conf_title:등록 확인
+mnav_description:메시지 둘러보기
 mnav_date_limit:날짜 범위:
 mnav_forum_limit:지정 검색:
 mnav_all_forums:모든 포럼 검색
 mnav_submit:검색 시작
+mnav_no_range:올바른 날짜 범위를 입력해야 합니다. 이 값은 소수점을 포함할 수 있지만(0.12), 0보다 커야 합니다.
+mnav_invalid_unit:올바른 시간 단위를 지정해야 합니다.
+mnav_invalid_date:지정한 날짜 범위는 관리자가 허용하는 것보다 큽니다. 작은 날짜의 범위로 시도하세요.
+mnav_no_results:쿼리와 일치하는 메시지가 없습니다.
 mnav_posted_by:게시자:
 mnav_more:더 보기 &raquo;&raquo;
 mnav_minute:분
@@ -843,53 +953,157 @@ mnav_hour:시간
 mnav_day:일
 mnav_week:주
 mnav_month:월
+mnav_title:메시지 둘러보기
+mnav_update:<a href="{TEMPLATE: mnav_update_lnk}">메시지 둘러보기</a>를 사용해 메시지를 찾아보는 중
+pm_notify_subject:[{GVAR: FORUM_TITLE}] 새 개인 메시지 알림
 register_pm_notification:쪽지알림
 findu_admin_opts_header:관리자 옵션
 findu_unban:차단해제
 findu_ban:차단
 findu_edit:편집
 findu_delete:삭제
-merge_topics:토픽 병합
+dmsg_reply_to:(은)는 다음 메시지의 답글입니다:
+dmsg_reply_num:메시지 #{VAR: obj->reply_to}
+merge_topics:주제 병합
 merge_topics_cp:토픽 병합 제어판
 merge_merge:토픽 병합 선택
-merge_next:다음 토픽
-merge_prev:이전 토픽
+merge_next:다음 주제
+merge_prev:이전 주제
 split_cp:글타래 분리 제어판
+adm_account_accepted_s:'{GVAR: FORUM_TITLE}'에 대한 계정 요청은 받아졌습니다.
+adm_account_rejected_s:'{GVAR: FORUM_TITLE}'에 대한 계정 요청은 거부되었습니다.
+thread_on:날짜
 userinfo_buddy:친구:
 register_email_addr:이메일:
 usrinfo_last_visit:최근 방문:
+mnav_newer:다음보다 최신:
+mnav_older:다음보다 오래됨:
 ip_search_by_ip:IP로 사용자 검색
+ip_search_syntax:지원하는 구문: 1.2.3.4, 1.2.3, 1.2, 1
 ip_search:검색
 ip_analyze_usage:IP 분석
 ip_analyze_usage_descr:지정한 사용자가 로그인 하였습니다.
+ip_users_using:'{VAR: ip}' IP 주소를 사용하는 사용자
+ip_all_ips:'{VAR: user}'(이)가 사용한 모든 IP
 ip_title:IP 보기
 userinfo_real_name:실명:
 register_err_alias_notallowed:이 별명은 승인되지 않았습니다
 post_err_mod_forum_edit_ttl:오류
 post_err_mod_forum_edit_msg:중재자 및 관리자만 편집할 수 있습니다.
+dmsg_num:메시지 #{VAR: obj->id}
+postcheck_session_invalid:세션이 만료되었습니다. 양식을 다시 제출하세요. 불편을 드려 죄송합니다.
 delete_msg_removed_ttl:관리자에 의해 메시지가 제거되었습니다.
 delete_msg_pm_body:원본 메시지
 delete_msg_pm_subject:제목: {VAR: data[15]}
+ip_no_whois:<b>{VAR: ip}</b>에 대한 WHOIS 정보는 사용할 수 없습니다.
+ip_whois_title:ISP 정보
 register_theme:테마:
 pmsg_trash:휴지통 비우기
 uc_new_pm:새 쪽지
-uc_new_topic:새 토픽
+uc_new_topic:새 주제
+uc_new_cat_forum:새 메시지로 된 구독 중인 포럼
+uc_cat_forum:분류 &raquo; 포럼
+uc_sub_topics:새 메시지로 된 구독 중인 주제
+uc_page_title:개인 제어판을 보는 중입니다.
 search_options:검색옵션
+search_user_filter:사용자별 필터:
+register_none:알리지 마세요
 findu_no_conf:확인되지 않은 사용자
 register_max_sig_len:최대 길이:
+register_turing:아래에 보이는 코드를 입력하세요:
+register_err_turing:인증 코드가 잘못됐습니다.
 modque_cat:분류
 modque_forum:포럼
 idx_compact_forum_row:이용가능 포럼:
-mmd_del_title:토픽 삭제
-mmd_mov_title:토픽 이동
+mmd_del_title:주제 삭제
+mmd_mov_title:주제 이동
 mmd_move_threads_to:포럼 이동:
 mmd_abort_move:취소
-mmd_move:토픽 이동
+mmd_move:주제 이동
 pmsg_pdf_btn:PDF 생성
 search_results_hdr:{VAR: total}개 찾음
-# Fuzzy
-thread_del_all:선택한 모든것 삭제
-# Fuzzy
-thread_mov_all:선택한 모든것 이동
+thread_del_all:선택한 것을 삭제
+thread_mov_all:선택한 것을 이동
+thread_merge_all:선택한 것을 병합
+thread_loc_all:선택한 것을 잠금/잠금 해제
+dmsg_ip:IP:
 err_blockedaccnt_title:오류: 당신의 계정이 차단 당하였습니다
 merge_th_page_list:토픽 페이지 선택
+sub_unsub_all_forums:모든 포럼에서 구독 취소
+sub_unsub_all_topics:모든 주제에서 구독 취소
+unbookmark_all_topics:모든 북마크 제거
+tabs_own_posts:자신의 게시물 보기
+sml_emoticon:이모티콘
+sml_code:코드
+mnav_sub_only:구독된 포럼에서만 찾기
+register_topics_per_page:문서마다 주제 수:
+post_not_logged_in:현재 로그인하고 있지 않아, 메시지가 익명으로 게시됩니다.
+post_common_bold:굶은 글씨
+post_common_italics:기울인 글씨
+post_common_underline:밑줄
+post_common_align_left:왼쪽 정렬
+post_common_align_center:가운데 정렬
+post_common_align_right:오른쪽 정렬
+post_common_link:링크 넣기
+post_common_link_popup:링크 위치:
+post_common_email:이메일 주소 넣기
+post_common_email_popup:이메일 주소:
+post_common_image:그림 넣기
+post_common_image_popup:그림 URL:
+post_common_nlist:번호가 매겨진 목록 추가
+post_common_blist:글머리 기호 목록 추가
+post_common_quote:인용 추가
+post_common_code:코드 추가
+rating_delete:삭제
+post_always_on_top:항상 주제 목록의 위에 주제를 나타내기
+topic_rating:{PLURAL: frm->n_rating|$1표} 중 {VAR: frm->rating}표
+topic_list_rating:{PLURAL: r[21]|$1표} 중 {VAR: r[17]}표
+tabs_notifications:알림
+finduser_flag:국기
+post_descr:주제 설명:
+pmsg_on:날짜
+pmsg_download_dump:메시지 덤프 다운로드
+move_messages:메시지 이동
+move_msg_btn:선택한 메시지 이동
+move_msg_th_expl:(다른 포럼에 있을 수 있는) 대상 주제의 ID를 지정하세요
+captcha_img_alt:Captcha(캡차) 검증: 이 그림에 텍스트를 인식할 필요가 있습니다.
+captcha_img_help:그림에 0이나 1도 없습니다.
+powered-by:제공: FUDforum {GVAR: FORUM_VERSION}.
+copyright:저작권 &copy;2001-2012 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+code_title:코드:
+code_select_all:모두 선택
+code_show_hide:보이기/ 숨기기
+social_sites:소설 네트워크 사이트:
+postcheck_min_len_err:메시지가 너무 짧습니다. 최소 길이는 {PLURAL: post_min_len|$1 글자}입니다.
+postcheck_dup_err:중복된 주제를 만들지 마세요.
+btn_new_topic:새 주제
+btn_new_pm:새 개인 메시지
+btn_post_reply:답변 게시
+btn_tree_view:트기 보기
+btn_flat_view:플랫 보기
+btn_about:프로필
+btn_small_pm:개메
+btn_delete:삭제
+btn_edit:편집
+btn_reply:답변
+btn_forward:전달
+btn_quote:인용
+btn_email:이메일
+btn_show_posts:게시물
+btn_homepage:www
+feed_no_data:일치하는 데이터를 찾을 수 없습니다.
+feed_rdf:RDF 피드
+feed_rss:RSS2 피드
+feed_atom:ATOM 피드
+ip_whois_connect_err:WHOIS 서버에 연결할 수 없습니다 ({VAR: whois_server}): {VAR: errstr}
+custom_filed_required:이 칸은 반드시 입력해야 합니다.
+pages:페이지
+page_list_heading:사용할 수 있는 페이지
+page_list_total:{PLURAL: i|$1 페이지}가 나열되었습니다.
+page_update:문서 찾아보기
+pm_export_header:{VAR: usr->alias}의 개인 메시지
+pm_export_footer:내보냄:
+karma:카르마
+karma_track:사용자의 평판 관리:
+karma_delete:삭제
+rate_author:저자 평가:

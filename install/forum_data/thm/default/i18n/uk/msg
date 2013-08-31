@@ -2,6 +2,7 @@
 # Exported from translatewiki.net
 # Author: Ahonc
 # Author: Alex Khimich
+# Author: Andriykopanytsia
 # Author: Apromix
 # Author: Dim Grits
 # Author: Microcell
@@ -218,6 +219,7 @@ reported_reported_msg:Позначені повідомлення
 modque_pending_approval:Черга повідомлень на підтвердження
 modque_approve:Підтвердити
 modque_delete:Видалити
+modque_deleteall:Видалити все від користувача
 modque_no_message:Немає повідомлень для підтвердження
 pmsg_new_messages:Непрочитані приватні повідомлення
 pmsg_old_messages:Прочитати приватні повідомлення

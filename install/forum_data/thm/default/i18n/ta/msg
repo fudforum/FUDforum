@@ -214,6 +214,7 @@ reported_reported_msg:தெரிவிக்கப்பட்ட தகவல
 modque_pending_approval: ஒப்புதலுக்கு நிலுவையில் உள்ள  தகவல்கள்
 modque_approve:ஒப்புதல் அளி
 modque_delete:நீக்கவும்
+modque_deleteall:பயனரிடமிருந்து அனைத்தையும் நீக்குக
 modque_no_message: ஒப்புதலுக்கு நிலுவையில் தகவல்கள் எதுவுமில்லை
 pmsg_new_messages:வாசிக்கப்படாத தனிப்பட்ட  தகவல்
 pmsg_old_messages:தனிப்பட்ட  தகவலை வாசி

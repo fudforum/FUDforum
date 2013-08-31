@@ -214,6 +214,7 @@ reported_reported_msg:Oznámená zpráva
 modque_pending_approval:Zprávy ke schválení
 modque_approve:Schválit
 modque_delete:Smazat
+modque_deleteall:Smazat vše od uživatele
 modque_no_message:Žádné další zprávy ke schválení
 pmsg_new_messages:Nepřečtená pošta
 pmsg_old_messages:Přečtená pošta
