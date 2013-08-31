@@ -1,0 +1,1144 @@
+# Messages for Urdu (اردو)
+# Exported from translatewiki.net
+# Author: Jgaad007
+
+action:کارروائی
+add_to_buddy_list:دوستوں کی فہرست میں شامل
+admin:ایڈمن
+admin_control_panel:انتظامیہ
+administrator:ایڈمنسٹریٹر
+attachment:لف دستاویز:
+avatar:اوتار:
+average_post_count:{PLURAL: u->posted_msg_count|$1Message| $1  پیغامات} ( {PLURAL: avg|   $1  اوسط message| $1  اوسط پیغامات} فی دن)
+biography:سوانح حیات:
+birth_date:تاریخ پیدائش:
+by:کی طرف سے:
+by_mod:ناظم کی طرف سے
+current_time:موجودہ وقت
+custom_avatar_queue:اپنی مرضی کے مطابق کا اوتار قطار
+date_posted:تاریخ پوسٹ
+date_registered:تاریخ رجسٹر ہوا:
+download_counter:ڈاؤن لوڈ  {PLURAL: v[3]|   $1  time| $1  بار}
+pmsg_download_counter:ڈاؤن لوڈ  {PLURAL: r->dlcount|   $1  time| $1  بار}
+email:ای-میل:
+email_to_friend:دوست کو ای میل کریں
+email_to_friend_desc:ای میل کے ذریعے یہ صفحہ اپنے دوست (زبانیں) کرنے کے لئے یو آر ایل ارسال کریں
+email_user:صارف کو ایک ای میل پیغام ارسال کریں
+faq:مدد
+first_unread_msg:بغیر پڑھے ہوئے پیغامات دیکھیں
+first_unread_msg_desc:اس موضوع کے اندر 1st بغیر پڑھے ہوئے پیغام کو دیکھیے
+flat_view:پہلے سے طے شدہ فلیٹ کے منظر پر واپس جائیں
+forum:فورم:
+forum_icon:فورم آئکن
+forum_new_messages:نئے پیغامات
+forum_none_messages:صرف اراکین سے باخبر رہ سکتا رجسٹرڈ فورم پڑھ &amp; ناخواندہ پیغامات
+forum_old_messages:کوئی نیا پیغام نہیں
+from:سے:
+gender:جنس:
+go:دیکھیں
+goto_next_msg:اگلا پیغام کو دیکھیے
+goto_prev_msg:پچھلے پیغام کو دیکھیے
+home:ہوم
+homepage:مرکزی صفحہ
+icq_control_panel:ICQ آن لائن-پیغام پینل
+icq_message_form:کیو پیغام فارم:
+ignore_user:اس رکن کی تمام پیغامات کو نظر انداز
+im_aim:سنبھال کا مقصد:
+im_msnm:MSN میسنجر:
+im_yahoo:Yahoo میسنجر:
+image:تصویر:
+index_forum:فورم
+index_new_posts:آخری پڑھنے کے بعد نئے پیغامات
+index_no_new_posts:آخری پڑھنے کے بعد کوئی نیا پیغام نہیں
+index_url_redirection:نئ سمت
+interests:دلچسپیاں:
+last_post:آخری پیغام
+last_thread_msg:اس موضوع میں آخری پیغام کو دیکھیے
+legend:علامات
+location:مقام:
+lock_thread:موضوع بند کر دو
+locked:مقفل
+locked_with_new_posts:مقفل (w / ناخواندہ پیغامات)
+logged_in_list:صارفین کی فہرست میں کا
+login:لاگ ان کریں
+login_header:لاگ ان:
+logout:لاگ آوٹ
+mark_all_read:پڑھنے کے تمام پیغامات ھوا کریں
+mark_all_read_desc:آپ کے تمام بغیر پڑھے ہوئے پیغامات پڑھ کے طور پر نشان لگا دیا جائے گا
+members:اراکین
+calendar:کیلنڈر
+cal_goto_date::چھلانگ بطرف
+cal_day_heading:دن کے لئے واقعات
+cal_no_events:دن کے لئے کوئی واقعات.
+cal_update:فورم کیلنڈر براؤزنگ
+cal_birthday:سالگرہ:{VAR: user}
+cal_birthday_age:({PLURAL: age|$1 year|$1 years} old).
+message:پیغام
+message_counter:ہمارے صارفین کی کل تعداد تعینات کیا گیا ہے <b>  {PLURAL: post_count|   $1  message| $1  پیغامات}</b> کے اندر <b>  {PLURAL: thread_count|   $1  topic| $1  موضوعات}</b>۔
+message_index:پیغام انڈیکس
+message_index_desc:پیغام کی فہرست دیکھیں
+minimize_category:زمرہ کم سے کم
+minimize_message:پیغام کو کم سے کم
+moderation_queue:اعتدال پسندی قطار
+moderator:ناظم
+moderator_of:: کے ناظم
+moderator_options:ماڈریٹر کے اختیارات...
+moderators:{PLURAL: modcount|Moderator|منتظمین}
+more_unread_messages:زیادہ بغیر پڑھے ہوئے پیغامات
+more_unread_messages_desc:زیادہ بغیر پڑھے ہوئے پیغامات دکھائیں اور پڑھنے کے وقت دیکھا جا سکتا پیغامات کو نشان زد کر
+move_thread:منتقل
+moved:ایک اور فورم میں منتقل کر دیا
+moved_thread_message:یہ موضوع کسی دوسرے فورم پر منتقل کردیا گیا ہے
+na:لاگو نہیں
+new_posts:نئے پیغامات
+new_private_messages:آپ کے پاس <span class="GenTextRed">( {VAR: c} )</span> ناخواندہ  {PLURAL: c| نجی message|private پیغامات}
+new_thread:نیا موضوع بنائیں
+newest_user:نئے رجسٹرڈ صارف نہیں ہے
+next_page:اگلا صفحہ
+next_thread:اگلا موضوع:
+no_messages:اس فورم میں کوئی پیغام نہیں ہیں ۔<br>ایک موضوع اس فورم میں پوسٹ کرنے کے لیے سب سے پہلے ہو ۔
+no_msg_body:کوئی پیغام کی عبارت
+no_new_posts:کوئی نیا پیغام نہیں
+no_posts:کوئی پیغام نہیں
+no_subscribed_forums:کوئی رکنیت فورمز
+no_subscribed_threads:کوئی رکنیت موضوعات
+no_bookmarked_threads:کوئی بک مارک موضوعات
+no_unread_locked:یہ موضوع مقفل کر دیا گیا ہے
+no_unread_msg:یہ موضوع نہیں بغیر پڑھے ہوئے پیغامات ہیں
+no_unread_msg_unreg:خواندہ و ناخواندہ پیغامات صرف رجسٹرڈ صارفین کے لیے سراغ لگایا ہے
+num_pages:صفحات ( {VAR: ttl_pg} ):
+num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|vote|votes}
+occupation:ملازمت:
+off:بند
+on:پر
+page_timings:کل کے صفحے کو پیدا کرنے کے لئے لیا گیا وفت:  {PLURAL: page_gen_time|   $1  سیکنڈ}
+pm:ذاتی پیغام رسانی
+poll:سروے:
+post_count:پیغام کا شمار{VAR: u_pcount}
+post_count_l:پیغام شمار:
+posts:پیغامات
+posts_c:پیغامات:
+prev_thread:گزشتہ موضوع:
+usrinfo_private_message:ذاتی پیغام:
+profile:کنٹرول پینل
+profile_desc:یوزر کنٹرول پینل تک رسائی حاصل کریں
+rate_thread:موضوع کی درجہ بندی کریں
+rating:کی درجہ بندی
+rating_track:موضوع کی درجہ بندی کا انتظام <b> {VAR: thr->subject} </b>:
+refresh_list:تازہ فہرست
+register:رجسٹر
+registered:رجسٹرڈ:
+registered_on:پر رجسٹرڈ {سانچہ: registered_on_date}
+replies:جوابات
+report_to_mod:ایک ماڈریٹر پیغام کو رپورٹ کریں
+reported_messages:رپورٹ کے پیغامات
+reveal_all_posts:کی طرف سے تمام پیغامات کا انکشاف{VAR: user_login}
+reveal_post:پیغام ظاہر
+search:تلاش
+sel_todays_posts:آج کے پیغامات
+sel_todays_posts_desc:آج کے پیغامات (صرف آج بنایا پیغامات نمایش کریں گے) فلٹر ٹوگل کریں
+sel_unanswered_posts:پے پیغامات
+sel_unanswered_posts_desc:غیر جواب پیغامات فلٹر (کوئی جواب ہے کہ صرف وہ پیغامات دکھائے گا) ٹوگل
+sel_unread_messages:بغیر پڑھے ہوئے پیغامات
+sel_unread_messages_desc:فلٹر ٹوگل بغیر پڑھے ہوئے پیغامات (صرف بغیر پڑھے ہوئے پیغامات دکھائے گا)
+send: بھیجو
+send_pm_desc:اس رکن کو ذاتی پیغام ارسال کریں
+sender_email:مرسل کا ای میل ایڈریس:
+sender_name:بھیجنے والے کا نام:
+show_posts_by:کی طرف سے پیغامات کی نمایش کریں:{VAR: u_alias}
+size:کا سائز:
+status:رتبہ
+status_line:ہیں <b>  {PLURAL: st_obj->online_users_reg|   $1  member| $1  ارکان}</b>، <b>  {PLURAL: st_obj->online_users_hidden|   $1  غیر مرئی member| $1  پوشیدہ اعضا}</b> اور <b>  {PLURAL: st_obj->online_users_anon|   $1  guest| $1  مہمان}</b> یہ بورڈ کا دورہ کر ۔
+sticky:چپچپا:
+stop_ignoring:اس صارف کو نظر انداز کرنے کو روکنے کے
+sub_to_thread:موضوع کو سبسکرائب کریں ...
+sub_to_thread_desc:اس موضوع کے اندر نئے پیغامات کے بارے میں اطلاع موصول
+bookmark_thread:موضوع بک مارک
+bookmark_thread_desc:بک مارکس کی اپنی فہرست میں اس موضوع کو شامل کریں
+subject:موضوع
+subscribe:سبسکرائب کریں
+subscribe_desc:کسی کو اس فورم میں نیا موضوع پیدا جب اطلاعات موصول
+subscribed_forums:سبسکرائبڈ فورم
+subscribed_forums_desc:رکنیت فورم فلٹر (صرف آپ کے رکن بنے ہیں فورم سے پیغامات دکھائے گا) ٹوگل
+subscribed_threads:سبسکرائبڈ موضوعات
+subscribed_threads_desc:(صرف آپ کے رکن بنے ہیں موضوعات سے پیغامات دکھائے گا) رکنیت موضوعات فلٹر ٹوگل
+bookmarked_threads:بک مارک موضوعات
+switch_to_thread_view:اس موضوع کے موضوع کا منظر پر جائیں
+thread:موضوع:
+thread_announcement:اعلان:
+thread_first_unread_msg:اس موضوع میں پہلی نئی پیغام کو دیکھیے
+thread_thread:موضوع
+threads:موضوعات
+time:وقت
+todays_posts:آج کے پیغامات
+todays_posts_desc:آج پوسٹ کیا گیا تھا کہ تمام پیغامات دکھائیں
+un_ignore_user:اس صارف کی طرف سے پیغامات کو نظر انداز کرتے ہوئے کو روکنے کے
+unanswered_posts:پے پیغامات
+unanswered_posts_desc:کوئی جواب ہے جس کے تمام پیغامات، دکھائیں
+unlock_thread:موضوع انلاک
+unread_msg:یہ موضوع آپ نے ابھی تک نہیں پڑھا پیغامات پر مشتمل ہے
+unread_msg_locked:بغیر پڑھے ہوئے پیغامات کے ساتھ مقفل موضوع
+unread_posts:بغیر پڑھے ہوئے پیغامات
+unread_posts_desc:تمام بغیر پڑھے ہوئے پیغامات دکھائیں
+unsub_from_thread:موضوع سے نام خارج
+unsub_from_thread_desc:اس موضوع میں نئے پیغامات کے بارے میں اطلاعات حاصل کرنے بند کرو
+unbookmark_thread:بک مارکس سے ہٹا دیں
+unbookmark_thread_desc:بک مارکس کی فہرست سے اس موضوع کو ہٹا دیں
+unsubscribe:رکنیت ختم
+unsubscribe_desc:فورم میں نئے موضوعات کے بارے میں اطلاعات حاصل کرنے بند کرو
+updated_on:تازہ کاری:
+user:صارف
+user_counter:ہمارے پاس <b> {VAR: st_obj->user_count} </b> رجسٹرڈ  {PLURAL: st_obj->user_count| user|users} ۔
+user_info:صارف کی معلومات
+user_info_l:صارف معلومات{VAR: u->alias}
+user_offline:{VAR: obj->login}اس وقت آف لائن ہے
+user_online:{VAR: obj->login}اس وقت آن لائن ہے
+usrinfo_last_post:آخری پیغام:
+view_results:نتائج دیکھیں
+views:خیالات
+vote:{PLURAL: frm->n_rating|$1Vote| $1  ووٹ}
+vote_button:ووٹ
+vote_for_thread:ووٹ
+was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a>کو بڑھا دیا گیا ہے <a href="{TEMPLATE: was_moved_msg_lnk2}"> {VAR: r[12]} </a> کے منتظم کی طرف سے ہے ۔
+welcome_message:خوش آمدید <b> {VAR: usr->alias} </b>، اپنے آخری دورے پر گیا تھا {سانچہ: welcome_message_date}
+what_ppl_doing:لوگ کیا کر رہے ہیں دکھائیں
+reported_del_report:رپورٹ کو خارج
+reported_reason:وجہ:
+reported_on:پر:
+reported_reported_by:کی طرف سے رپورٹ:
+reported_reported_msg:رپورٹ کے پیغامات
+modque_pending_approval:پیغامات کی منظوری زیر التواء
+modque_approve:منظور
+modque_delete:حذف کریں
+modque_deleteall:صارف کی طرف سے تمام حذف کریں
+modque_no_message:منظوری زیر التواء کوئی پیغامات نہیں ہیں
+pmsg_new_messages:بغیر پڑھے ہوئے پیغام
+pmsg_old_messages:ذاتی پیغام پڑھیں
+deny_recipt:رسید سے انکار
+deny_recipt_desc:آپ کو یہ پیغام پڑھا ہے کہ ایک توثیقی نہ بھیجیں
+restore_to:بحال کرنے کے لئے:
+move_to:میں منتقل:
+list_referes_referrals:حوالہ جات
+list_referes_members:شہرت
+list_referes_member:ممبر
+referals_none:ابھی تک کوئی حوالہ جات.
+referals_refered_by:فورم کے ارکان کی طرف سے کہا جاتا ہے:<b><a href="{TEMPLATE: referals_refered_by_lnk}" class="thLnk">{VAR: p_user[1]}</a></b>
+referals_post_count:پیغام شمار
+referals_registered_on:رجسٹر
+referals_action:کارروائی
+pmsg_all:تمام
+pmsg_none:کوئی بھی نہیں
+folder:فولڈر:
+pmsg_replied:جواب دیا
+pmsg_forwarded:فارورڈ
+pmsg_subject:موضوع
+pmsg_author:مصنف
+pmsg_time:وقت
+pmsg_selected:منتخب
+pmsg_delete:حذف کریں
+cur_ppage_pm:ذاتی پیغام رسانی
+writing_pm:ذاتی پیغام لکھنا
+browsing_folder:براؤزنگ <b> {VAR: folders[$folder_id]} </b> پوشہ
+inbox:ان باکس
+draft:ڈرافٹ
+sent:بھیجا
+trash:ردی کی ٹوکری
+msg_author:مصنف
+avatar_sel_form:اوتار سلیکشن فارم
+no_avatars:دستیاب نہیں اوتار
+month_1:جنوری
+month_2:فروری
+month_3:مارچ
+month_4:اپريل
+month_5:مئی
+month_6:جون
+month_7:جولائی
+month_8:اگست
+month_9:ستمبر
+month_10:اکتوبر
+month_11:نومبر
+month_12:دسمبر
+sunday:اتوار
+sunday_short:S
+monday:پير
+monday_short:M
+tuesday:منگل
+tuesday_short:Tu
+wednesday:بدھ
+wednesday_short:W
+thursday:جمعرات
+thursday_short:Th
+friday:جمعہ
+friday_short:F
+saturday:ہفتہ
+saturday_short:S
+male:مرد
+female:عورت
+unspecified:منسوب نہیں کیا گیا
+register_tree_view:درخت دیکھیے پیغام اور موضوع کی لسٹنگ
+register_msg_tree_view:فلیٹ موضوع کی لسٹنگ / درخت پیغام کی لسٹنگ
+register_tree_msg_view:درخت موضوع کی لسٹنگ / فلیٹ پیغام کی لسٹنگ
+register_flat_view:فلیٹ دیکھیے پیغام اور موضوع کی لسٹنگ
+use_forum_default:فورم ڈیفالٹ کا استعمال کریں
+finduser_user_info:صارف کی معلومات
+finduser_by_login:لاگ ان کی طرف سے:
+finduser_submit:ڈھونڈ
+finduser_no_such_user:ایسا کوئی صارف نہیں
+finduser_user:صارف
+finduser_postcount:پیغام شمار
+finduser_joindate:تاریخ شمولیت
+finduser_action:کارروائی
+yes:جی ہاں
+no:نہیں
+register_email:ای-میل
+edit_time_limit:<b>تدوین کرنے کے لیے وقت کی حد</b>: {گوار: EDIT_TIME_LIMIT} منٹ
+no_edit_time_limit:<b>حد وقت تدوین کاری</b>: لا محدود
+pmuserloc_login:لاگ ان:
+pmuserloc_submit:جمع کرائیں
+pmuserloc_user:صارف
+pmuserloc_no_result:کوئی نتائج
+register_builtin:میں تعمیر
+register_specify_url:URL کا اختصاص کریں
+register_uploaded:اوتار اپ لوڈ کریں
+register_login:لاگ ان:
+register_password:کلمۂ شناخت
+register_conf_pass:پاس ورڈ کی توثیق کریں:
+register_email_desc:ایک درست ای میل ایڈریس درج کریں. آپ کی ترجیحات کے سیکشن میں، ذیل میں اس کو چھپانے کے لئے منتخب کر سکتے ہیں.
+register_name:نام:
+register_your_pass:آپ پاس ورڈ:
+register_update:اپ ڈیٹ
+register_avatar_type:اوتار کی قسم:
+register_del_avatar:آف لائن حذف کریں
+register_avatar:اوتار:
+register_sel_avatar:اوتار منتخب کریں
+register_custom_avatar_rules:منتظم کی طرف سے منظوری دے دی ہے یہاں تک کہ اپنی مرضی کا اوتار کی طرف ظاہر نہیں ہوگا ۔<br><span class="SmallText">کا اوتار ہونا چاہئے سے زیادہ کوئی بڑا <b>{گوار: CUSTOM_AVATAR_MAX_DIM} دانے</b> اور <b>jpg</b>، <b>گف</b> یا <b>png</b> وضع میں ہونا چاہیے ۔</span>
+register_custom_avatar_url:اپنی مرضی کا اوتار کی طرف یو آر ایل:
+register_preview:پیش منظر
+register_custom_avatar_upload:اپنی مرضی کے مطابق کا اوتار فائل:
+register_register:رجسٹر
+register_required:مطلوبہ معلومات
+register_required_desc:تمام خانوں کی ضرورت ہے. پاس ورڈ کیس حساس ہیں کہ براہ مہربانی نوٹ کریں.
+register_optional:اختیاری معلومات
+register_optional_desc:یہ آپ کو اپنے پروفائل میں کسی ذاتی یا شناختی معلومات کو ظاہر نہیں کہ سفارش کی جاتی ہے. تمام معلومات دوسرے فورم کے ارکان کی طرف سے دیکھا جا سکتا ہو جائے گا.
+register_location:مقام:
+register_occupation:ملازمت:
+register_interests:دلچسپیاں:
+register_image:تصویر:
+register_icq:ICQ:
+register_aim:سنبھال کا مقصد:
+register_yahoo:Yahoo میسنجر:
+register_msnm:MSN میسنجر:
+register_homepage:مرکزی صفحہ
+register_bday:پیدائش تاریخ:
+register_bday_desc:آپ کو ایک تاریخ پیدائش درج کریں، تو دوسرے فورم کے ارکان اپنے پروفائل میں اس کو دیکھنے کے لئے قابل ہو جائے گا.
+register_day:دن
+register_month:ماہ
+register_year:سال
+register_gender:جنس:
+register_bio:سوانح حیات:
+register_bio_desc:اس طرح آپ کی دلچسپیوں، کام، وغیرہ کے طور پر اپنے بارے میں کچھ تفصیلات، ..
+register_prefs:ترجیحات
+register_sig:دستخط:
+register_sig_desc:آپ کے پیغامات کے نچلے حصے میں دکھایا جائے گا جس اختیاری دستخط،.
+register_reset:دوبارہ مرتب کریں
+register_def_thread_view:پہلے سے طے شدہ موضوع دیکھیے:
+register_msg_per_page:فی صفحہ پیغامات:
+register_show_sig:دستخط دکھائیں:
+register_show_sig_desc:آپ کو یا تو چھپانے یا دوسرے فورم کے ارکان 'دستخط ظاہر کرنے کے لئے اجازت دیتا ہے.
+register_use_sig_default:ڈیفالٹ کی طرف سے دستخط کا استعمال کریں:
+register_use_sig_default_desc:خود کار طریقے سے آپ کے خط کا ہر پیغام آپ کے دستخط میں شامل.
+register_timezone:ٹائم زون:
+register_ignore_admin:انتظامی پیغامات کو نظر انداز:
+register_invisible_mode:غیر مرئی موڈ:
+register_invisible_mode_desc:آپ کے آن لائن کی حیثیت چھپاتا ہے.
+register_show_email:ای میل ایڈریس ظاہر کیجیے:...
+register_show_email_desc:آپ کو آپ کے ای میل ایڈریس کو عوامی سطح پر دکھایا جائے کرنا چاہتے ہیں تو اس اختیار کو منتخب.
+register_notification:ڈیفالٹ کی طرف سے نوٹیفکیشن کا انتخاب کریں:
+register_notification_desc:نوٹیفکیشن کے ڈیفالٹ کی طرف سے چالو حالت میں ہے تو شائع کرتے وقت، یہ غیر فعال کیا جا سکتا ہے.
+register_notify_method:بارے میں اہم اطلاع کا طریقہ منتخب کریں:
+register_notify_method_desc:اپنی پسند کی نوٹیفکیشن کا طریقہ مقرر کریں یا اطلاعات (اگر آپ کو چھٹی پر جانا جب مثال کے طور پر) غیر فعال.
+register_allow_email_msg:ای میل پیغامات کی اجازت دیں:
+register_allow_email_msg_desc:دوسرے صارفین کو اس فورم کے ذریعے ای میلز آپ کو بھیجنے کے لئے اجازت دیں.
+buddy_status:حیثیت
+my_buddies:میرا ساتھی
+add_buddy:بڈی کو شامل کریں
+add:شامل کریں
+buddy_search:آپ شامل کرنا چاہتے ہیں صارف کی لاگ ان درج کریں.
+member_search:یا کسی شخص کو تلاش کرنے کے لئے <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">صارف تلاش</a> کی خصوصیت استعمال کریں ۔
+buddy_remove:حذف کریں
+post_normal:عام
+post_sticky:چسپاں
+post_annoncement:اطلاح
+post_size:سائز
+post_color:رنگین
+post_font:فونٹ
+create_thread:موضوع بنائیں
+submit_reply:جواب جمع کرائیں
+edit_message:پیغام تبدیلیوں کو لاگو کریں
+apply_spell_changes:ہجے تبدیلیاں لاگو کریں
+post_preview:پیغام پیش نظارہ
+post_logedin_user:صارف لاگ ان:
+post_logout:لاگ آؤٹ کریں
+post_passwd:پاس ورڈ پوسٹنگ:
+post_poll:سروے:
+post_create_poll:سروے تخلیق
+post_poll_delete:حذف کریں
+post_poll_edit:ترمیم
+post_mod_opt:ماڈریٹر کے اختیارات:
+post_thread_type:موضوع کی قسم:
+post_thread_expiry:موضوع کی میعاد ختم ہونے:
+post_locked:موضوع مقفل
+post_icons:پیغام آئکن:
+post_no_icon:کوئی آئکن
+post_smiley:سمائلی شارٹ کٹ:
+post_format_tools:فارمیٹنگ، فورم کے اوزار:
+post_upload_file: فایل کو اپ لوڈ کرو
+post_file_del:حذف کریں
+post_file_name:نام
+post_file_size:سائز
+file_attachments:فائل منسلک:
+allowed_files:کی اجازت فائل ایکسٹنشن:
+max_file_size:زیادہ سے زیادہ فائل سائز:
+max_files_per_msg:فی پیغام زیادہ سے زیادہ فائلیں:
+post_notification:بارے میں اہم اطلاع شائع کریں
+include_sig:دستخط شامل کریں
+include_sig_desc:آپ کی پروفائل کے دستخط شامل ہیں.
+disable_smilies:اس پیغام میں مسکراھٹیں غیر فعال کریں
+spell_check_msg:ہجوں چیک پیغام
+post_form:فارم پوسٹ
+post_forum:فورم:
+post_title:عنوان:
+post_body:جسم:
+post_options:اختیارات:
+post_preview_btn:پیش نظارہ پیغام
+post_cancel_btn:منسوخ
+ignore_users:نظر انداز صارفین
+add_ignore:مورھ شامل کریں
+forum_terms:فورم کے شرائط
+forum_rules:<p>اس فورم کے لیے رجسٹریشن مفت ہے! ہم ضد کرتے ہیں کہ تم اصولوں اور پالیسیوں کو نیچے کی طرف سے قائم رہیں ۔ اگر آپ شرائط سے متفق ہوں، براہ کرم صفحہ کے آخر <b>پر اتفاق</b> کا بٹن دبائيں ۔ نوٹ: بٹن کو دبانے سے آپ ہیں کہ آپ کی عمر 13 کے ظاہر کرتے ہیں ۔ اگر آپ 13 ہیں یا ماتحت، رجسٹریشن فارم استعمال کریں ۔</p><p>اگرچہ منتظمین اور منتظمین اس فورم کے تمام قابل اعتراض پیغامات کو یہ فورم بند رکھنے کی کوشش کرے گا، یہ ہمارے لئے تمام پیغامات کا جائزہ لینے کے لیے ناممکن ہے ۔ تمام پیغامات مصنف کے خیالات کا اظہار اور فورم یا ڈویلپرز کی نہ تو مالک کسی پیغام کے مواد کے لئے ذمہ دار منعقد کی جائے گی ۔</p><p>پر اتفاق کے لیے بٹن پر کلک کر کے آپ یہ آپ ہیں خراب، بے ہودہ، جنسی طور پر مبنی، نفرت، دھمکی، یا بصورت دیگر کسی قانون کی خلاف ورزی کسی بھی پیغامات پوسٹ کریں گے نہ کہ رہے ۔</p><p>اس فورم کے مالکان ہٹائیں، تدوین، بڑھا یا کسی بھی موضوع کو کسی بھی وجہ سے بند کرنے کا حق حاصل ہے ۔</p>
+forum_rules_13:<p>تیرہ سال کی عمر کے تحت تمام صارفین اپنے والدین یا سرپرست سے اجازت فورمز کی رکنیت حاصل کرنے کے لئے آنا چاہیئے ۔ جبکہ ہم اراکین کے تحت 13 سے شمولیت کا خیر مقدم کرتے ہیں، ہم اس سے پہلے کہ ہم کی رکنیت دے والدین یا سرپرست فیکس یا ڈاک دستخط شدہ اجازت فارم واپس طلب ہے ۔</p><p>آپ ہمیں اجازت فارم وصول کرنے سے پہلے رجسٹریشن کا عمل شروع کرنا چاہتے ہیں تو نیچے <b>پر اتفاق</b> بٹن دبائیں ۔ اگر آپ رجسٹریشن منسوخ کرنا چاہتے ہیں تو فورم اشاریہ واپس جانے کے لیے <b>داسگری</b> دبائیں ۔</p><p>اجازت فارم کی ایک نقل یہاں ڈاؤن لوڈ کیا جا سکتا ۔ رجسٹریشن کے عمل کے بارے میں مزید معلومات کے لئے، براہ مہربانی ای میل بھیج <a href="mailto:{GVAR: ADMIN_EMAIL}">{گوار: ADMIN_EMAIL}</a>۔</p>
+coppa_conf:COPPA تصدیق
+coppa_before:پہلے {سانچہ: coppa_date}
+coppa_after:کے بعد {سانچہ: coppa_date}
+coppa_link:اپنی تاریخ پیدائش سے میل اس لنک پر کلک کریں
+coppa:<p>والدین یا سرپرست چاہیے ڈاک یا اس فورم کے منتظم کے لیے ایک دستخط شدہ اجازت فارم فیکس کے قبل اس کے کہ تیرہ سال کی عمر کے تحت صارف کو رجسٹریشن مکمل کر سکتے ہیں ۔</p><p>مزید معلومات رابطہ فرد کے لیے <a href="mailto:{GVAR: ADMIN_EMAIL}">{گوار: ADMIN_EMAIL}</a></p>
+prereg_info:فورم کے قوانین
+prereg_agree:اتفاق
+prereg_disagree:اختلاف
+prereg_update:فورم کے قواعد و پڑھنا
+coppa_fax_instructions:ایک والدین یا سرپرست کے لئے ہدایات
+coppa_fax_instructions2:اس پر دستخط، اور اس کو فیکس، اس صفحہ کو پرنٹ کریں:
+coppa_fax_reg_form:رجسٹریشن فارم
+coppa_fax_sign:ذیل میں دیئے گئے فارم پر دستخط اور اسے ہمارے پاس بھیج دیں
+coppa_fax_conf:میں اپنے بچے کو فراہم کر چکا ہے معلومات کا جائزہ لیا ہے اور میں ویب سائٹ کے لئے نجی معلومات کی حفاظتی پالیسی پڑھا ہے. میں پروفائل کی معلومات ایک پاس ورڈ کا استعمال کرتے ہوئے تبدیل کیا جا سکتا ہے کہ سمجھتے ہیں. مجھے یہ رجسٹریشن پروفائل فورم سے مکمل طور پر ہٹا دیا جائے کہ کہہ سکتے ہیں کہ سمجھتے ہیں.
+coppa_fax_permission:آپ کو اجازت دے دیں تو یہاں سائن ان کریں
+coppa_fax_no_permission:آپ کے اکاؤنٹ خارج کر دیا جائے کرنا چاہتے ہیں تو یہاں سائن ان کریں
+coppa_fax_parent_name:والدین / سرپرست مکمل نام:
+coppa_fax_relation:بچے کے سلسلے:
+coppa_fax_telephone:ٹیلی فون:
+coppa_fax_email:ای میل ایڈریس:
+coppa_fax_date:تاریخ:
+coppa_fax_questions:براہ مہربانی رابطہ کریں <a href="mailto:{GVAR: ADMIN_EMAIL}">{گوار: ADMIN_EMAIL}</a> ذہن میں کوئی سوالات کے ساتھ
+coppa_fax_login:لاگ ان کریں
+coppa_fax_passwd:پاس ورڈ
+coppa_fax_remail:ای-میل
+coppa_fax_name:نام
+login_not_logedin:کئی وجوہات میں سے ایک کی وجہ سے ہو سکتا ہے آپ کو اس لاگ ان نہیں ہیں:
+login_cookie_expired:آپ کوکی کی مدت ختم ہو چکی ہے، اور آپ کو آپ کی کوکیز کی تجدید لاگ ان کرنے کی ضرورت ہے.
+login_perm_denied:آپ ایک گمنام صارف کے طور پر درخواست کی وسائل تک رسائی حاصل کرنے کی اجازت نہیں ہے. آپ کو اجازت حاصل کرنے کے لئے لاگ ان ہونا ضروری ہے.
+login_want_to_register:رجسٹر کرنا چاہتے ہیں؟
+login_forgot_passwd:پاس ورڈ بھول گئے
+login_use_cookie:کوکیز کا استعمال<br><span class="SmallText">اگر آپ ایک کمپیوٹر ایک لائبریری، اسکول یا انٹرنیٹ کیفے میں جیسے ایک پبلک ٹرمینل کو استعمال کررہے ہیں تو آپ نے یہ آپشن زیادہ سیکیورٹی کے لئے ناپڑتال کریں مستحب ہے ۔ اگر آپ یہ اختیار منتخب کیا آپ خود بخود لاگ آن-میں ہوگی تو پھر اگلی مرتبہ آپ کا دورہ فورم چھوڑ.</span>
+login_login:لاگ ان:
+login_login_btn:لاگ ان کریں
+login_name_required:لاگ ان نام کی ضرورت ہے
+login_passwd_required:پاس ورڈ کی ضرورت ہے
+login_invalid_radius:جعلی لاگ ان / پاس ورڈ مجموعہ
+reset_confirmation:رجسٹریشن کے لیے شکریہ ۔!ن!!ن!چالو کرنے کے لئے آپ کا اکاؤنٹ براہ مہربانی جانا درج ذیل URL کے لیے:!ن!!ن!{VAR: url}!ن!!ن!آپ کے اکاؤنٹ کو عمل میں لایا ہے ایک بار جب آپ لاگ آن میں ہو جائے گا فورم اور!ن! مرکزی صفحے پر ہدایت ہے ۔
+reset_reset:ہیلو!ن!!ن!آپ دوبارہ سیٹ ہونے کے لیے اپنا پاس ورڈ کے لئے درخواست کی ہے ۔ یہ عمل مکمل کرنے کے لیے!ن! براہ مہربانی اس کے URL پر جائيں:!ن!!ن!{VAR: url}!ن!!ن!نوٹ: یہ فورم جس کا مطلب ہے کہ ایک طرفہ خفیہ کار میں پاس ورڈ ذخیرہ کرتا!ن! ایک بار جب آپ اپنا پاس ورڈ داخل کیا ہے تاکہ کوئی اسے واپس حاصل کرنے کے لئے راستہ اسے انکوڈ ہے ۔!ن!یہ ہم ہیں کیا آپ کو لاگ ان لقمیا قسم کے پیغامات کے انکوڈ شدہ ورژن کے ساتھ ریکارڈ پر پیغامات کے انکوڈ شدہ ورژن موازنہ کر کام کرتا ہے ۔!ن!(اگر آپ کس طرح اس طریقہ کار کو کام دلچسپی رکھتے ہیں, MD5 ہیش الگورزم پر پڑھ)
+rpasswd_invalid_passwd:ناجائز پاس ورڈ
+rpasswd_passwd_nomatch:پاس ورڈز نہیں ملتے
+rpasswd_passwd_length:پاس ورڈ کم از کم 6 حروف کا ہونا ضروری ہے
+reset_remind_pass:پاس ورڈ یاد دہانی
+reset_reset_conf:آپ کا پاس ورڈ دوبارہ ترتیب دینے کی ہو اور آپ کو بھیجا جائے گی. اگر آپ نے ابھی آپ کا ای میل ایڈریس کی تصدیق نہیں کی ہے، تو توثیق کی درخواست آپ کو کو دوبارہ بھیجا جائے گا.
+reset_error:ای میل ایڈریس ڈیٹا بیس میں نہیں ملا
+rpasswd_change_pass:پاس ورڈ تبدیل کریں
+rpasswd_login:لاگ ان کریں
+rpasswd_cur_pass:موجودہ پاس ورڈ:
+rpasswd_new_pass:نیا پاس ورڈ:
+rpasswd_conf_pass:پاس ورڈ کی توثیق کریں:
+ruser_title:لاگ ان فارم تبدیل کریں
+ruser_change_user:آپ فورم کے لاگ ان تبدیل کریں
+ruser_cur_login:موجودہ لاگ ان:
+ruser_new_login:نیا لاگ ان:
+ruser_cur_pass:موجودہ پاس ورڈ:
+login_passwd:کلمۂ شناخت
+reset_email:ای-میل:
+reset_reset_button:راذ والا لفظ دوبارہ سیٹ کرو
+rate_this_thread:شرح
+report_reporting_about:کے بارے میں رپورٹنگ:
+report_subject:موضوع:
+report_by:کی طرف سے:
+report_posted_on:پوسٹ کیا گیا پر:
+report_give_reason:اگر آپ اس پیغام کو رپورٹ کر رہے ہیں کیوں کی ایک وجہ دے کیجیے:
+report_submit_report:رپورٹ حوالے کرو
+search_entire_msg:پورا پیغام
+search_subject_only:صرف موضوع
+search_forum:فورم
+search_posted_on:پوسٹ کیا گیا پر
+search_no_results:کوئی نتائج نہیں
+search_all_forums:تمام فورم تلاش
+search_in_forum:فورم میں تلاش کریں:
+search_forum_search:فورم تلاش
+move_thread_to:موضوع میں منتقل <b> {VAR: thr->subject} </b> کو:
+remail_email_topic:کسی دوست کو ای میل کریں اس موضوع
+remail_your_name:آپ کا نام:
+remail_your_email:آپ کا ای میل:
+remail_friends_name:کے دوست کا نام:
+remail_friends_email:کے دوست کا ای میل:
+remail_required:چاھیے
+remail_subject:موضوع:
+remail_message:پیغام:
+remail_send_now:اب ای میل بھیجنے کے
+remail_anon_opt:اپنے دوست (زبانیں) کے لئے بھیجنے کے لئے آپ کی پسند کا ایک میل کلائنٹ میں اس پیغام کو کاپی کریں.
+remail_done:کیا کیا
+remail_sent_conf:ای میل پر آپ کے دوست کو {متغیر کریں-HTML: _POST ['فیمیل']} کے بارے میں  {VAR: data->subject}  موضوع میں کامیابی سے بھیجی تھی ۔
+remail_error:میں ایک خامی تھی
+mklist_type:قسم:
+mklist_option:آپشن:
+mklist_additem:آئٹم شامل کریں
+mklist_apply:اطلاق
+mklist_delete:حذف کریں
+qbud_nick_name:نک نام
+qbud_add_selected:منتخب شدہ کو شامل کریں
+qbud_selected:منتخب
+qbud_no_buddies:سے منتخب کرنے کے لئے کوئی دوستوں
+mklist_numerical:عددی
+mklist_aplha:الفا
+mklist_square:چوک
+mklist_disc:ڈسک
+mklist_circle:سرکل
+mklist_close:بند
+email_to:کرنے کے لئے:
+email_pg_title:ای-میل
+email_subject:موضوع:
+email_body:جسم:
+email_submit:ای-میل
+ppost_quote_msg:{VAR: msg_to_list}پر لکھا تھا {سانچہ: ppost_quote_msg_date}
+ppost_quote:اقتباس:
+ppost_to:کرنے کے لئے:
+ppost_from_buddy_list:دوستوں کی فہرست میں سے منتخب کریں
+ppost_find_User:صارف تلاش کریں
+ppost_track_msg:اس پیغام کا پتہ لگائیں
+ppost_track_msg_desc:اس پیغام کو پڑھ کر ہو جاتا ہے جب (ذاتی پیغام کے ذریعے) مجھے مطلع کریں.
+ppost_send: بھیجو
+ppost_save_draft:ڈرافٹ محفوظ کریں
+poll_blank_option:آپ کو ایک خالی آپشن شامل نہیں کر سکتے.
+poll_del_conf:اگر آپ اس اختیار کو حذف کرنا چاہتے ہیں تو، ٹھیک ہے دبائیں
+poll_name:سروے کا نام:
+poll_timelimit:وقت کی حد:
+poll_maxiumvotes:زیادہ سے زیادہ ووٹ:
+poll_create:تخلیق کریں
+poll_update:اپ ڈیٹ
+poll_disablesmilies:مسکراھٹیں غیر فعال کریں
+poll_create_poll:پول بنائیں
+poll_update_poll:اپ ڈیٹ سروے
+poll_delete:حذف کریں
+poll_updateoption:آپشن کو اپ ڈیٹ کریں
+poll_addoption:اختیار شامل
+poll_unlimited:لا محدود
+poll_day:دن
+poll_days:دن
+poll_hour:قیامت
+poll_hours:گھنٹے
+poll_month:ماہ
+poll_year:سال
+poll_week:ہفتے
+tabs_register:اکاؤنٹ کی ترتیبات
+tabs_subscriptions:سبسکرپشنز
+tabs_bookmarkes:بک مارک
+tabs_referrals:حوالہ جات
+tabs_buddy_list:بڈی فہرست
+tabs_ignore_list:فہرست پر توجہ نہ دیں
+tabs_private_messaging:ذاتی پیغام رسانی
+single_msg_delete:آپ کے بارے میں <span class="ErrorText">حذف</span> کرنے کے عنوان پیغام ہے:<b>{VAR: data[3]}</b>
+thread_delete:آپ کے بارے میں <span class="ErrorText">حذف</span> کرنے کے عنوان <span class="ErrorText">پورے موضوع</span> ہیں:<b>{VAR: data[3]}</b>
+delete_proceed:<span class="fb">کیا آپ آگے بڑھنا چاہتے ہیں؟</span>
+delete_yes:جی ہاں
+delete_no:نہیں
+error_invalidurl:ناجائز URL
+error_error:غلطی
+usrinfo_profile:{VAR: u->alias}کے پروفالی
+usrinfo_show_all_posts:تمام پیغامات کی نمایش کریں{VAR: u->alias}
+actions_update:صرف آپ کی طرح، دوسرے لوگوں پر Snooping
+err_info:معلومات
+buddy_list_err_cantadd:آپ اپنے دوست کی فہرست میں خود کو شامل نہیں کرسکتے ہیں
+buddy_list_err_dup:آپ نے پہلے ہی اپنے دوستوں کی فہرست پر اس رکن کی ہے
+buddy_list_err_nouser:آپ کو آپ کے دوستوں کی فہرست میں شامل کرنے کی کوشش کی صارف نہیں ملا تھا.
+buddy_list_err_nouser_title:صارف شامل کرنے سے قاصر
+buddy_list_err_ignore:اپنے دوستوں کی فہرست کرنے کے لئے آپ کو نظر انداز کرنے والے صارفین کو شامل نہیں کرسکتے.
+buddy_list_update:خود اپنے دوستوں کی فہرست براؤزنگ
+core_err_invinp_title:غلط اندراج
+core_err_invinp_err:آپ کے منتظم سے رجوع کریں بعد ہے ۔ آپ یہاں کیسے ملی <a href="mailto:{GVAR: ADMIN_EMAIL}">ویب ماسٹر</a> کو مطلع کریں ۔
+core_adm_login_msg:منتظمیں لاگ ان کر سکتے ہیں <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">یہاں</a>.
+email_err_unabletoemail_title:خرابی: ای میل کرنے سے قاصر ہے
+email_err_unabletoemail_msg:ای میل سسٹم ایڈمنسٹریٹر کی طرف سے غیر فعال کر دیا گیا ہے.
+email_error_unabletolocaddr:معاف کیجئے گا، نظام ای میل کرنے سے قاصر تھا {متغیر کریں-HTML: _POST ['tx_name']} کیونکہ یہ ای میل پتہ کا تعین کرنے میں نااہل ۔
+email_error_body:جسم کی ضرورت ہے
+email_error_subject:موضوع کی ضرورت ہے
+email_error_namerequired:ایک نام کی ضرورت ہے
+email_error_invaliduser:غلط صارف
+emailconf_err_invkey_title:غلطی
+emailconf_err_invkey_msg:باطل کی تصدیق کی چابی. آپ نے درست یو ہے کہ اس بات کو یقینی بنانے کے لئے آپ کا ای میل چیک کریں. آپ دو بار اس لنک پر کلک کیا ہے تو، آپ کا اکاؤنٹ پہلے سے ہی بات کی تصدیق کی جا سکتی ہے. ایک اہم درخواست کرنے کے لئے فورم میں لاگ ان کریں.
+err_inc_criticaltitle:سنگین غلطی
+err_inc_criticalmsg:ایک خرابی آگئی ہے. بدقسمتی سے، غلطی کی رپورٹنگ کے نظام کے ساتھ ایک مسئلہ بھی ہے.
+finduser_update:صارفین کی تلاش
+help_index_update:پڑھنے میں <a href="{TEMPLATE: help_index_update_lnk}">مدد</a>
+iemail_thr_subject:نئے جواب  {VAR: thr_subject}  کی طرف سے{VAR: poster_login}
+iemail_thr_bodyemail:بغیر پڑھے ہوئے دیکھنے کے لئے جوابات کے لئے جانا  {VAR: goto_url['email']} !ن!!ن!اگر آپ مزید اس موضوع میں جواب دیتا ہے کے بارے میں اطلاعات حاصل کرنے کی خواہش نہیں ہے, براہ مہربانی یہاں جائیں:{VAR: unsub_url['email']}
+iemail_frm_subject:فورم میں نیا مضمون  {VAR: frm_name} ، نام  {VAR: thr_subject} ، کی طرف سے{VAR: poster_login}
+iemail_frm_bodyemail:دیکھنے کے لئے اس موضوع پر جائیں:!ن!{VAR: goto_url['email']}!ن!!ن!اس فورم میں نئے موضوعات کے بارے میں اطلاعات حاصل کرنے سے روکنے کے لیے, براہ مہربانی یہاں جائیں:{VAR: unsub_url['email']}
+iemail_participate:بحث میں حصہ لینے کے لئے، یہاں جانا:
+ignore_list_err_info_title:معلومات
+ignore_list_err_dup_msg:آپ نے پہلے ہی آپ کی نظر انداز کی فہرست اس رکن کی ہے
+ignore_list_err_nu_title:صارف نہیں ملا
+ignore_list_err_nu_msg:اگر آپ اپنے کو نظر انداز فہرست میں شامل کرنے کی کوشش کی صارف نہیں ملا تھا.
+ignore_list_cantign_msg:آپ اس صارف کو نظر انداز نہیں کر سکتے ہیں
+ignore_list_update:خود کو نظر انداز فہرست براؤزنگ
+index_update:<a href="{TEMPLATE: index_update_lnk}">فورم فہرست</a> براؤزنگ
+list_referers_update:براؤزنگ کے حوالے
+login_update:لاگ ان فارم
+msg_update:موضوع میں براؤز کاری<a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
+pm_err_nopm_title:نقص: نجی پیغام رسانی معذور
+pm_err_nopm_msg:آپ کو ذاتی پیغام رسانی نظام استعمال نہیں کر سکتے. یہ ایڈمنسٹریٹر کی طرف سے غیر فعال کر دیا گیا ہے.
+pm_update:ذاتی پیغام رسانی کا استعمال کرتے ہوئے
+post_err_lockedthread_title:نقص: موضوع مقفل
+post_err_lockedthread_msg:یہ موضوع مقفل ہے. پوسٹنگ کی اجازت ہے نہیں رہ گیا.
+err_coppa_title:نقص: آپ کا اکاؤنٹ ابھی تک تصدیق نہیں
+err_coppa_msg:ہم ایک تصدیقی اپنے والدین یا قانونی سرپرست، جو آپ کے پیغامات پوسٹ کرنے کے لئے اجازت دے گا سے موصول نہیں کیا ۔ اگر آپ اپنے کاپا فارم، <a href="{TEMPLATE: err_coppa_msg_lnk}">یہ پھر دیکھنے</a>کو کھو دیا ہے ۔
+err_banned_acct_title:نقص: آپ پابندی عائد ہے ۔
+err_banned_acct_msg:آپ کے اکاؤنٹ کو تھا {اگر: $ban_expiry} تک عارضی طور پر پابندی عائد {تاریخ: ban_expiry ٪ ا،  %d  %B %Y  %H:% M} {ورنہ} مستقل طور پر پابندی {اندا} فورم کے قواعد کی خلاف ورزی کی وجہ سے سائٹ تک رسائی کرنے سے ۔
+post_err_edttimelimit_title:نقص
+post_err_edttimelimit_msg:آپ نے اس پیغام میں ترمیم کر سکتے اب کوئی
+post_err_noannontopics_msg2:<legend>نقص: ناکافی استحقاق</legend>گمنام صارفین موضوعات بنانے کے لیے اجازت نہیں ہیں ۔
+post_err_noannonposts_msg2:<legend>نقص: ناکافی استحقاق</legend>گمنام صارفین جواب دینے کی اجازت نہیں ہے ۔
+post_err_floodtrig_title:نقص: پوسٹ سیلاب شروع ہوجاتا ہے ۔
+post_err_floodtrig_msg:براہ مہربانی دوبارہ کوشش کریں  {PLURAL: tm|   $1  second| $1  سیکنڈ}
+post_err_attach_size:مسل منسلکہ میں بہت بڑی ہے (اجازت کی حد کو پار  {VAR: MAX_F_SIZE}  بائٹ)
+post_err_attach_ext:آپ اپ لوڈ کرنے کی کوشش کر رہے ہیں فائل کی اجازت فائل کی اقسام سے مماثل نہیں ہے.
+post_err_attach_filelimit:آپ کو اجازت دی جاتی ہے کے مقابلے میں زیادہ فائلوں کو اپ لوڈ کرنے کی کوشش کر رہے ہیں.
+post_err_passwd:غلط پاس ورڈ.
+post_reply_update:جواب دینے <a href="{TEMPLATE: msg_post_lnk}"> {VAR: thr->subject} </a> میں{VAR: frm->name}
+post_topic_update:نیا مضمون لکھنے میں<a href="{TEMPLATE: post_topic_update_lnk}">{VAR: frm->name}</a>
+post_error_generic:میں ایک خامی تھی
+postcheck_max_images_err:سے زیادہ نہ {گوار: MAX_IMAGE_COUNT} کی تصاویر فی پیغام کی اجازت دی جاتی ہے ۔ تصاویر کی تعداد کو کم کریں ۔
+postcheck_no_links_allowed:آپ روابط استعمال نہیں کر سکتے، جب تک کہ آپ نے پوسٹ کیا ہے سے زیادہ  {PLURAL: posts_before_links|   $1  message| $1  پیغامات} ۔
+postcheck_subj_needed:موضوع کی ضرورت
+postcheck_no_such_user:کوئی صارف کا نام ہے "{ف: char_fix(htmlspecialchars($v))}" اس فورم میں ہے ۔
+postcheck_ignored:آپ کو ذاتی پیغام نہیں بھیج سکتے ' {ف: char_fix(htmlspecialchars($v))} "، کیونکہ اس صارف آپ نظر انداز ہے ۔
+postcheck_no_recepient:ایک پیغام، وصول کنندہ غائب نہیں بھیج سکتے
+postcheck_invalid_email:آپ کے دوست کے لئے ایک درست ای میل ایڈریس درج کریں.
+postcheck_email_subject:آپ کو ایک موضوع کے بغیر ایک ای میل نہیں بھیج سکتے.
+postcheck_email_body:آپ پیغام کے متن کے بغیر ایک ای میل نہیں بھیج سکتے.
+private_msg_notify_subj:اطلاع کے لئے پڑھیں:{VAR: m->subject}
+private_msg_notify_body:خوش آمدید،<br>{VAR: usr->login}عنوان، اپنے ذاتی پیغام کھول دیا ہے " {VAR: m->subject} " ہے ۔<br>یہ ایک خود کار طریقے پر پیدا کی اطلاع ہے {سانچہ: private_msg_notify_body_date}<br>
+referals_update:براؤزنگ کے حوالے
+register_err_short_login:آپ کے منتخب کردہ لاگ ان کافی مختصر ہے. لاگ ان کے ناموں میں کم از کم 4 حروف لمبا ہونا چاہیے.
+register_err_login_notallowed:یہ لاگ ان نام اجازت نہیں ہے.
+register_err_loginunique:فورم کے لاگ ان کے نام منفرد ہونا ضروری ہے. اس نام کے ساتھ ایک صارف پہلے سے ہی موجود ہے.
+register_err_emailexists:یہ ای میل ایڈریس پہلے سے ہی ایک اکاؤنٹ کے ساتھ منسلک کیا جاتا ہے. کیا آپ بھول گئے ہیں تو آپ اپنا پاس ورڈ کے بجائے دوبارہ رجسٹر کرنے کی بحالی کا اختیار استعمال کریں.
+register_err_shortpasswd:پاسورڈس کم از کم 6 حروف کا ہونا ضروری ہے.
+register_err_passwdnomatch:آپ کے پاسورڈس میل نہیں ہے، براہ مہربانی دوبارہ کوشش.
+register_err_invalidemail:آپ نے وضاحت کی ہے ای میل ایڈریس درست ہونا ظاہر نہیں ہوتا.
+register_err_needname:کامیابی سے اس کی رجسٹریشن مکمل کرنے کے لئے آپ کو آپ کے نام درج کرنا ہوگا.
+register_err_enterpasswd:آپ تبدیلیوں کو مکمل کرنے کے لئے آپ کی موجودہ پاس ورڈ درج کرنا ہوگا.
+register_err_adminpasswd:آپ ان تبدیلیوں کو مکمل کرنے کے لیے اپنے <b>منتظم</b> پاس ورڈ داخل کریں ۔
+register_err_notyouremail:کسی اور نے پہلے ہی اس ای میل ایڈریس کے ساتھ رجسٹرڈ ہے.
+register_err_avatartobig:آپ کوشش کر رہے اپ لوڈ کرنے کے لیے مسل بہت بڑا ہے زائد {گوار: CUSTOM_AVATAR_MAX_SIZE} بائٹ ہے ۔
+register_err_avatarnotallowed:آپ اپ لوڈ کرنے کی کوشش کر رہے ہیں اوتار اجازت نہیں ہے. کی اجازت فائل کی اقسام کو چیک کریں.
+register_conf_subject:رجسٹریشن کی تصدیق
+register_conf_msg:رجسٹر کر رہا ہے کے لئے آپ کا شکریہ!ن!چالو کرنے کے لئے آپ کا اکاؤنٹ براہ مہربانی جانا درج ذیل URL کے لیے:!ن!!ن!{FULL_ROOT}{جڑ}؟ t امیلکونف & conf_key = = {VAR: uent->conf_key} !ن!!ن!آپ کے اکاؤنٹ کو عمل میں لایا ہے ایک بار جب آپ لاگ آن میں ہو جائے گا فورم اور!ن! مرکزی صفحے پر ہدایت ہے ۔
+register_welcome_subject:فورم رجسٹریشن کی تصدیق
+register_welcome_msg:رجسٹر کر رہا ہے کے لئے آپ کا شکریہ!ن!!ن!فورم کے لیے آپ لاگ ان کی تفصیلات یہ ہیں:!ن!!ن!فورم URL: {سانچہ: index_update_lnk}!ن!لاگ ان:  {VAR: uent->login} !ن!پاس ورڈ:  {VAR: _POST['reg_plaintext_passwd']} !ن!!ن!براہ مہربانی نوٹ کریں کہ پاس ورڈ حرفی شکل شناس ہوتے ہیں!!ن!آپ کی ترتیبات یا پروفائل میں ترمیم کے لیے، اس کے صفحہ پر جائیں:!ن!{FULL_ROOT}{جڑ}؟ t = رجسٹر
+register_err_cantreg_title:نقص: رجسٹر نہیں کر سکا
+regsiter_err_cantreg_msg:صارف اکاؤنٹ بنائیں، پر منتظم سے رابطہ کریں میں ناکام <a href="mailto:<span class=" notranslate"="" translate="no">{متغیر کریں: ADMIN_EMAIL} "> {VAR: ADMIN_EMAIL}  </a>
+register_profile_update:اپنی ہی پروفائل کے دیکھنے کے
+register_register_update:رجسٹریشن پیج
+report_err_nosuchmsg_title:نقص
+report_err_nosuchmsg_msg:ایسی کوئی پیغام
+reset_err_invalidkey_title:نقص
+reset_err_invalidkey_msg:ناجائز پاس ورڈ ری سیٹ کے بٹن کو. یہ آپ کے ای میل کلائنٹ کے ری سیٹ خود کار طریقے سے پہلے ہی اہم invalidating، اس صفحے کو کھولنے تھا کہ ممکن ہے. یہ معاملہ ہے، تو آپ کو جلد ہی آپ نئے پاس ورڈ کے ساتھ ایک ای میل حاصل کرنا چاہئے. اس طرح ایک ای میل پہنچ نہیں ہے، تو پاس ورڈ ری سیٹ دوبارہ کوشش کریں.
+reset_err_rstconf_title:معلومات
+reset_err_rstconf_msg:آپ کو اگلے چند منٹ میں اپنے ای میل میں دی گئی ہدایات حاصل کرنا چاہئے.
+reset_newpass_title:راذ والا لفظ دوبارہ سیٹ کرو
+reset_newpass_msg:ہیلو!ن!!ن!سے درخواست کی کہ آپ لاگ ان معلومات کے نیچے ظاہر:!ن!!ن!لاگ ان:  {VAR: ui[1]} !ن!پاس ورڈ:  {VAR: passwd} !ن!!ن!براہ مہربانی نوٹ کریں کہ آپ کے پاس ورڈ کی قدر کے لئے اوپر پھر سیٹ کیا گیا ہے ۔ اگر آپ چاہتے ہیں!ن! آپ کا پاس ورڈ تبدیل کرنے کے لیے آپ صارف معلومات پر کنٹرول پینل کے ذریعے دیتے ہیں:!ن!{FULL_ROOT}{جڑ}؟ t = رجسٹر
+reset_login_notify:آپ کا پاس ورڈ آپ کو ای میل کیا گیا ہے. آپ نے اسے اگلی چند منٹ کے اندر اندر ملنا چاہۓ ۔<br>
+search_update:تلاش پیغامات
+selmsg_update:<a href="{TEMPLATE: selmsg_update_lnk}">آج کے مراسلات</a> براؤز کاری
+showposts_update:کی طرف سے دیکھنے کی تحاریر:<a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
+subscribed_update:خود صارف براؤزنگ
+bookmarked_update:خود اپنے بک مارک کی فہرست براؤزنگ
+thread_update:براؤزنگ فورم<a href="{TEMPLATE: thread_update_lnk}">{VAR: frm->name}</a>
+tree_update:براؤزنگ موضوع (شجر منظر)<a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
+userinfo_update:میں تلاش میں <a href="{TEMPLATE: userinfo_update_lnk}">  {VAR: u->alias} کی</a> پروفائل
+ERR_login_msg2:<legend>نقص: آپ لاگ آن-میں نہیں ہیں</legend>اس صفحے تک رسائی کے لیے آپ کو اس فورم کے ایک رکن ہونا چاہیئے ۔
+ERR_disabled_ttl:غیر فعال کی خاصیت
+ERR_disabled_msg:یہ خصوصیت سسٹم ایڈمنسٹریٹر کی طرف سے غیر فعال کر دیا گیا ہے.
+ERR_access_ttl:نقص: ناکافی اجازت
+ERR_access_msg:آپ اس کاروائی کو انجام دینے کے لئے مطلوبہ اجازتیں نہیں ہیں.
+ERR_registration_disabled_ttl:رجسٹریشن غیر فعال
+ERR_registration_disabled_msg:ایڈمنسٹریٹر کے رجسٹریشن غیر فعال کردیا ہے. کچھ دیر بعد دوبارہ کوشش کریں.
+ERR_emailconf_ttl:نقص: آپ کا اکاؤنٹ ابھی تک تصدیق نہیں
+ERR_emailconf_msg:آپ ای میل کے ذریعے اپنے اکاؤنٹ ابھی تصدیق ہے نہیں ۔<br><table border="0"><tr><td><ol><li>اگر آپ ایک تصدیقی ای میل، <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">پھر اس کی درخواست</a>نہیں دی گئی ہے ۔</li><li>اگر  {VAR: usr_d->email}  آپ درست ای میل ایڈریس، <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">صحیح پتہ کا اختصاص</a>نہیں ہے ۔</li></ol></td></tr></table>
+ERR_user_ttl:نقص: کوئی ایسی صارف
+ERR_user_msg:ایسا کوئی صارف نہیں ہے
+ERR_systemerr_ttl:نقص: نظام نقص
+ERR_systemerr_msg:سسٹم کی کسی خامی واقع ہوا ہے ۔ براہ مہربانی اس <a href="mailto:{GVAR: ADMIN_EMAIL}">ویب ماسٹر</a>کے لیے کی رپورٹ ۔
+email_title:ای میل فارم
+finduser_title:صارف تلاش کریں
+help_title:مدد
+login_title:لاگ ان فارم
+poll_title:پول ایڈیٹر
+register_title:فارم رجسٹر
+reset_title:راذ والا لفظ دوبارہ سیٹ کرو
+rpasswd_title:پاس ورڈ فارم تبدیل کریں
+error_title:خرابی فارم
+index_title:فورم میں خوش آمدید
+search_title:تلاش کریں {متغیر کریں-HTML: سرکہ}
+remail_emailsent:ای میل بھیجا گیا تھا
+remail_email:ہیلو!ن!!ن!ہے ایک دلچسپ موضوع کے بارے میں " {VAR: data->subject} " پر {گوار: FORUM_TITLE} فورم جو آپ پڑھنا چاہتے ہیں ۔ آپ اس موضوع پر دیکھ سکتے ہیں:!ن! {FULL_ROOT}{جڑ}؟ t رویو &amp; ویں = = {VAR: data->id} و رد = {DEF: _uid}!ن!!ن!تمھاری دوست!ن!!ن!{VAR: usr->alias}
+poll_add_option:آپشن شامل کریں:
+post_opt_html_on:<b>HTML</b> <b>پر</b> ہے
+post_opt_fud_on:<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>پر</b> <b>کریں bbcode میں</b> ہے</a>
+post_opt_images_on:<b>تصاویر</b> <b>پر</b> ہیں
+post_opt_smilies_on:<a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank"><b>سمالیس</b> <b>پر</b> ہیں</a>
+post_opt_html_off:<b>HTML</b> کوڈ <b>آف</b> ہے
+post_opt_fud_off:<b>بند</b> <b>کریں bbcode میں</b> ہے
+post_opt_images_off:<b>تمام تصاویر</b> ہیں <b>بند</b>
+post_opt_smilies_off:<b>سمالیس</b> ہیں <b>بند</b>
+post_opt:فورم کے اختیارات:
+register_change_passwd:پاس ورڈ تبدیل کریں
+register_change_login:لاگ ان میں تبدیلی
+approved_avatar_title:آپ اپنی مرضی کے مطابق کا اوتار منظور کیا گیا تھا.
+approved_avatar_msg:آپ آف لائن منتظم کی طرف سے منظور کیا گیا تھا. اب یہ آپ کے تمام پیغامات آپ کا اوتار کے طور پر ظاہر ہو جانی چاہئے. تم نے اسے دیکھا، یا اپنے پرانے اوتار نہ دیکھیں تو اپنے براؤزر کے عارضی صفحے ہے، کیونکہ یہ ہے. یہ ایک یا دو بار کی تازہ کاری کی کوشش کریں. زیادہ تر مقدمات میں یہ کیشنگ مسئلہ حل ہو جائے گا.
+unapproved_avatar_title:آپ اپنی مرضی کے اوتار سے انکار کر دیا گیا تھا.
+unapproved_avatar_msg:منتظم کو آپ کے اوتار کو منظور نہیں کیا. سب سے عام وجوہات کی بناء پر آپ کا اوتار (سائز اور / یا طول و عرض) بہت بڑا تھا کہ رہے ہیں یا یہ غیر مناسب موضوع پر مشتمل ہے. آپ اپنے اوتار کو مسترد کر دیا گیا تھا کیوں بارے میں مزید معلومات چاہتے ہیں، تو منتظم سے رابطہ کریں.
+mvthread_request_move:ایک اقدام کی درخواست
+move_request_reason:تم کیوں موضوع منتقل کیا جائے کرنا چاہتے ہیں؟
+mvthread_submit_req:درخواست جمع کرائیں
+thread_exchange:موضوع ایکسچینج
+move_request_by:موضوع اقدام کی طرف سے درخواست کی:
+move_reason:موضوع اقدام کرنے کی وجہ:
+thr_exch_accept:موضوع قبول
+thr_exch_decline:کمی موضوع
+thr_exch_orig_forum:حقیقی فورم:
+thr_exch_dest_forum:مقصود فورم:
+thr_exch_no_threads:کوئی موضوع نہیں منظوری کا انتظار کر رہے.
+thr_exch_decl_reason:موضوع کو مسترد کرتے ہوئے کے لئے وجہ <b> {VAR: data->subject} </b> فورم میں<b>{VAR: data->f2_name}</b>
+thr_exch_submit:جمع کرائیں
+exch_decline_ttl:موضوع کی حرکت  {VAR: data->subject}  فورم میں  {VAR: data->f2_name}  رد کر دی تھی ۔
+ppost_original_msg:پیغام آپ نے منتقلی یا جواب دے رہے ہیں
+split_thread:سپلٹ موضوع
+groupmgr_no_user:کوئی صارف کو لاگ ان کے ساتھ ہے "{ف: char_fix(htmlspecialchars($gr_member))}"
+groupmgr_already_exists:صارف "{ف: char_fix(htmlspecialchars($gr_member))}" پہلے ہی اس گروپ میں موجود ہے ۔
+groupmgr_yes:جی ہاں
+groupmgr_no:نہیں
+groupmgr_action:کارروائی
+groupmgr_member:ممبر
+groupmgr_cancel:منسوخ
+groupmgr_add_member:اراکین میں شامل کریں
+groupmgr_update_member:اراکین کی تازہ کاری کریں
+groupmgr_edit:ترمیم کریں
+groupmgr_delete:حذف کریں
+group_mgr_anon:گمنام
+group_mgr_reged:تمام رجسٹرڈ صارفین
+show_show:شو:
+group_mgr:گروپ کے مینیجر
+group_mgr_edit_btn:گروپ میں ترمیم کریں
+group_mgr_heading:گروپ ایڈیٹر کا ​​انتخاب
+group_mgr_group:گروہ:
+permission_denied_title:اجازت!
+permission_denied_msg:آپ صارف کی اجازت اگر آپ کوشش کر رہے ہیں عمل انجام دینے کی اجازت نہیں دیتے.
+p_READ:پڑھیں
+p_POST:پوسٹ
+p_REPLY:جواب
+p_EDIT:ترمیم کریں
+p_DEL:حذف کریں
+p_STICKY:چسپاں پیغامات
+p_POLL:پولز بنائیں
+p_FILE:فائلوں کو منسلک کریں
+p_VOTE:ووٹ
+p_RATE:شرح موضوعات / ارکان
+p_SPLIT:سپلٹ موضوعات
+p_LOCK:موضوعات کو لاک کریں
+p_MOVE:موضوعات میں منتقل کریں
+p_SML:مسکراھٹیں استعمال کریں
+p_IMG:تصویر کے ٹیگز کا استعمال کریں
+p_SEARCH:تلاش کر سکتے ہیں
+group_mgr_search:صارف تلاش کریں
+group_mgr_indicator:اس وقت تدوین کاری:<b>{VAR: grp->name}</b>
+rate_worst:سب سے برا
+rate_best:ڈاؤن لوڈ، اتارنا
+post_quote_msg:{VAR: msg->login}پر لکھا تھا {سانچہ: make_report_date}
+post_quote:اقتباس:
+post_quote_selected:منتخب عبارت کا حوالہ
+userinfo_referals:کہا جاتا ہے صارفین:
+userinfo_referals_count:{VAR: referals}ارکان
+pm_no_space_title:کوئی جگہ نہیں چھوڑ دیا!
+pm_no_space_msg:اپنے ذاتی پیغام کے فولڈر کا اجازت یافتہ ذخیرہ سائز حد سے تجاوز <b>{گوار: MAX_PMSG_FLDR_SIZE} بائٹ</b>ہیں ۔ وہ اس وقت کا حامل <b>  {VAR: fldr_size}  بائٹ</b> مالیت کے پیغامات کا ہے ۔<br><br><span class="ErrorText">اوپر کی جگہ کو صاف کرنے کے لیے کچھ پرانے پیغامات نہیں ہٹا ۔</span>
+pm_space_indct_msg:اپنے ذاتی پیغام کے فولڈر ہیں  {VAR: percent_full} فی صد مکمل ہے ۔
+th_expr_never:کبھی نہیں
+th_expr_one_hr:1 گھنٹہ
+th_expr_three_hr:3 گھنٹے
+th_expr_four_hr:4 گھنٹے
+th_expr_eight_hr:8 گھنٹے
+th_expr_sixteen_hr:16 گھنٹے
+th_expr_one_day:1 دن
+th_expr_two_day:2 دن
+th_expr_four_day:4 دن
+th_expr_one_week:ایک ہفتہ
+th_expr_two_week:2 ہفتے
+th_expr_one_month:1 ماہ
+th_expr_two_month:2 ماہ
+th_expr_four_month:4 ماہ
+th_expr_one_year:1 سال
+thread_mod_delete:حذف کریں
+action_ip:IP
+action_latest_post:آخری پیغام
+online_today_last_visit:آخری ملاحظہ کردہ
+online_today_update:فورم پر آج ہی تھے جو صارفین کی فہرست دیکھنے کے.
+logedin_todays_visitors:آج کے وزیٹر
+logedin_latest_post:فورم کے آخری پیغام:
+register_show_avatar:اوتار دیکھائیں:
+register_show_avatar_desc:ان پیغامات دیکھنے جب آپ دوسرے صارفین کے اوتار کو چھپانے کے لئے کی اجازت دیتا ہے.
+drawmsg_view_rest_post:پیغام کے باقی دکھائیں
+post_re:Re:
+forumsel_goto_forum:روانگی بر فورم:
+minimsg_thread_view:موضوع دیکھیں
+split_th_post_by:: کی طرف سے پیغام
+split_th_posted_on:پوسٹ کیا گیا پر:
+split_th_subject:موضوع:
+split_th_new_thread_title:نیا موضوع کا عنوان:
+split_th_forum:فورم:
+split_th_split_sel:منتخب شدہ پیغامات کو سپلٹ
+split_th_split_unsel:غیر منتخب شدہ پیغامات سپلٹ
+split_th_messages:پیغامات
+split_th_select:منتخب کریں
+report_report_post:غلط استعمال کی اطلاع پیغام
+quicklogin_login:لاگ ان:
+quicklogin_password:کلمۂ شناخت
+quicklogin_use_cookies:کوکیز کا استعمال کریں؟
+quicklogin_login_btn:لاگ ان کریں
+quick_reply:فوری جواب
+quick_reply_post:فوری جواب دیجیے
+quick_reply_preview:مشاہدہ کریں فوری جواب دیں
+post_notification_desc:کسی کو اس پیغام کے جوابات جب مجھے مطلع کریں.
+post_all_ext_allowed:(امائبندت)
+maximize_category:زمرہ کو زیادہ سے زیادہ
+maximize_message:پیغام کو زیادہ سے زیادہ
+no_view_perm:آپ نے اس موضوع کو دیکھنے کے لئے کی ضرورت ہے مناسب اجازتیں نہیں ہیں.
+report_empty_report:آپ کو ایک خالی رپورٹ نہیں بھیج سکتے. اپنی رپورٹ کے لئے ایک وجہ درج کریں.
+report_already_reported_title:پہلے ہی رپورٹ
+report_already_reported_msg:یہ پیغام پہلے ہی رپورٹ کیا اور رپورٹ ماڈریٹر کی قطار میں اس وقت ہے.
+register_err_toomanyimages:آپ زیادہ سے زیادہ اجازت یافتہ استعمال کرنے کی کوشش کر رہے ہیں {گوار: FORUM_IMG_CNT_SIG} تصاویر اپنے دستخط میں.
+pmsg_next_msg:اگلا پیغام
+pmsg_prev_msg:پچھلا پیغام
+post_proc_reveal_spoiler:ٹوگل بگاڑنے
+register_jabber:ہینڈل بکبک کرنا:
+register_skype:اسکائپ ہینڈل:
+register_twitter:ٹوئٹر ہینڈل:
+register_google:Google چیٹ/IM ہینڈل:
+im_jabber:بکبک کرنا:
+im_google:گوگل ٹاک:
+im_skype:سکائپ:
+im_twitter:ٹوئٹر:
+forum_contact:رابطہ کریں
+forum_home:گھر
+post_cur_attached:اس وقت سے منسلک:  {VAR: i}   {PLURAL: i| file|files}
+ignored_anon_post:{گوار: ANON_NICK} نظرانداز کیا جاتا ہے
+ignored_user_post:کی طرف سے پیغام کی <a href="{TEMPLATE: ignored_user_post_lnk}"> {VAR: obj->login} </a> نظر انداز کر دیا ہے
+smladd_close_window:ونڈو بند کر دیں
+post_list_smilies:تمام مسکراھٹیں کی فہرست
+p_VISIBLE:مرئی
+reported_in_thread:میں:
+help_back_to_top:اوپر کی طرف واپس
+help_return_to_index:صفحہ اول مدد پر واپس جائیں
+imsg_err_message_title:باطل پیغام
+imsg_err_message_msg:آپ کو دیکھنے کے لئے کوشش کر رہے ہیں پیغام موجود نہیں ہے.
+poll_edit:ترمیم کریں
+register_err_not_valid_img:وضاحت URL ایک درست تصویر پر مشتمل نہیں ہے.
+pmsg_recepient:وصول کنندہ
+register_err_taken_alias:آپ کو استعمال کرنے کی کوشش کر رہے ہیں عرف ایک اور فورم کے رکن کی طرف سے پہلے سے استعمال میں ہے. ایک اور منتخب کریں.
+register_alias:عرف:
+register_alias_desc:آپ کو فورم میں دکھایا جا کرنے کے لئے اپنے لاگ ان کے علاوہ کسی عرفیت چاہتے ہیں تو اسے یہاں درج کریں.
+register_allow_pm_msg:ذاتی پیغامات کی اجازت دیں:
+register_allow_pm_msg_desc:دوسرے صارفین کو اس فورم میں آپ کو ذاتی پیغامات بھیجنے کے لئے اجازت دیں.
+postcheck_pm_disabled:آپ کو ذاتی پیغام نہیں بھیج سکتے ' {متغیر کریں-HTML: v} "، کیونکہ یہ شخص ذاتی پیغامات کو قبول نہیں ہے ۔
+polllist_vote:ووٹ
+polllist_view_results:نتائج دیکھیں
+polllist_name:پول نام
+polllist_date:تخلیق
+polllist_owner:کی طرف سے پیدا
+polllist_votes:کل ووٹ
+polllist_action:کارروائی
+polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">دستیاب سروے کا جائزہ لینے</a>
+userinfo_polls:پولز:
+show_pollist:پولز دکھائیں
+search_and:اور
+search_or:یا
+search_desc_order:نزولی
+search_asc_order:صعودی
+search_logic:تلاش منطق:
+search_sorting:میں تاریخ کی طرف سے ترتیب کے نتائج:
+search_attach:منسلکات:
+search_attach_all:کے ساتھ یا اس کے بغیر
+search_attach_with:اٹیچمنٹ کے ساتھ
+post_proceed:آگے بڑھنے کے
+post_moderated_forum:آپ کو ایک معتدل فورم میں پوسٹ کر دیا ہے. اس فورم کے منتظمین یا منتظمین میں سے ایک کی طرف سے منظوری دے دی ہے جب تک آپ کا پیغام دوسروں کو نظر نہیں ہو گا.
+post_moderated_forum_ttl:معتدل فورم کا نوٹس
+buddy_list_bday:آج  {VAR: r[2]}  کرتا ہے{VAR: age}
+email_warning_msg:آپ اپنے موجودہ ای میل ایڈریس تبدیل کرتے ہیں تو آپ کو ای میل کے ذریعے اس کی تصدیق تک آپ کے اکاؤنٹ میں غیر مصدقہ نشان لگا دیا جائے گا.
+register_show_im:IM اشارے دکھائیں:
+register_show_im_desc:اپنے پیغامات کے ساتھ دیئے گئے مصنف کی IM اشارے ظاہر کرنے کے لئے یا نہیں.
+unread_message:بغیر پڑھے ہوئے پیغام
+read_message:پیغام پڑھیں
+threadt_more:&lt; مزید &gt;
+threadt_disabled_ttl:موضوع کی لسٹنگ کے درخت کے نقطہ نظر کو غیر فعال کر دیا گیا ہے.
+threadt_disabled_desc:منتظم موضوع کی لسٹنگ کے درخت کے نقطہ نظر کو غیر فعال کردیا ہے. بجائے اس کے فلیٹ کے نقطہ نظر کا استعمال کریں.
+threadt_update:براؤزنگ فورم (شجر منظر)<a href="{TEMPLATE: threadt_update_lnk}">{VAR: frm->name}</a>
+mmod_delete_cofirm_ttl:موضوع / پیغام اخراج کی توثیق کریں
+spell_alts:کوئی متبادل
+insert_uploaded_image:پیغام کے متن میں تصویر داخل کریں
+finduser_help:تلاش کے انجن کو خودکار طور پر شامل کریں گے * ماسک آپ طلب، <b>تلاش بہت حساس ہے</b>۔<br>آرک تلاش کرنے کے لئے تمام صارفین جو کے لاگ ان شروع کے ساتھ 'ایک'، ایک داخل کریں 'ایک' تلاش کا خانہ میں ۔
+back_to_top:اوپر کی طرف واپس
+pm_err_disabled_title:ذاتی پیغام رسانی غیر فعال
+pm_err_disabled_msg:آپ اپنے پروفائل میں 'کی اجازت دیں ذاتی پیغامات' اختیارات کو چالو کرنے کے جب تک آپ کو ذاتی پیغامات نہیں بھیج سکتے.
+err_mod_acc_ttl:غیر توثیق شدہ اکاؤنٹ
+err_mod_acc_msg:ایڈمنسٹریٹر دستی طور پر پہلے سے چالو کرنے کے لئے تمام اکاؤنٹس کا جائزہ لینے کے لئے منتخب کیا تھا. آپ کے اکاؤنٹ کے ایڈمنسٹریٹر کی طرف سے توثیق کیا گیا ہے جب تک آپ اپنے اکاؤنٹ کی مکمل صلاحیتوں کو استعمال کرنے کے لئے نہیں کر سکیں گے.
+accounts_pending_approval:اکاؤنٹس کی منظوری زیر التواء
+saved:محفوظ کر لیا
+register_err_time_limit:The limit of one registration per {GVAR: REG_TIME_LIMIT} seconds has been reached. Please wait {PLURAL: reg_limit_reached|$1 second|$1 seconds}, and then try to register once again.
+register_affero:اففرو یوزر کا نام:<br><span class="SmallText">اگر آپ کسی <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">اففرو</a> صارف کا نام ہے، یہاں داخل نہیں ۔</span>
+im_affero:Affero صارف کا نام
+register_err_avatardimtobig:کا اوتار طول و عرض کی <b>( {VAR: img_info[0]} x {VAR: img_info[1]} )</b> کی اجازت یافتہ جہتوں سے تجاوز <b>({گوار: CUSTOM_AVATAR_MAX_DIM})</b> پکسلز.
+buddy_offline:{VAR: r[2]}اس وقت آف لائن ہے
+buddy_online:{VAR: r[2]}اس وقت آن لائن ہے
+sml_no_smilies:کوئی دستیاب جذباتیہ.
+login_unapproved_account_ttl:انخمودت اکاؤنٹ
+login_unapproved_account_msg:فورم کے منتظم کی ایکٹیویشن سے قبل دستی طور پر ہر نئے اکاؤنٹ کی تصدیق کے لئے منتخب کیا ہے. آپ کا اکاؤنٹ ابھی اس بات کی تصدیق نہیں کی گئی ہے، لہذا آپ کو اس بات کی تصدیق کے ارکان کے لئے دستیاب خصوصیات میں سے کچھ تک رسائی حاصل نہیں کر سکیں گے.
+remove_from_buddy_list:دوستوں کی فہرست سے ہٹانے
+iemail_msg_author:<b>تخلیق کار:</b> {VAR: obj->alias}
+iemail_msg_subject:<b>موضوع:</b> {VAR: obj->subject}
+iemail_msg_date:<b>تاریخ:</b> {سانچہ: dmsg_post_date}
+iemail_msg_reply:جواب
+iemail_msg_quote:اقتباس
+iemail_msg_view:موضوع / پیغام دیکھیے
+threadt_sticky:چپچپا
+threadt_announce:اعلان
+reported_no_messages:رپورٹ کے کوئی پیغامات نہیں ہیں.
+poll_no_polls:کوئی قابل رسائی پولز ہیں.
+no_unread_messages:آپ کے استفسار سے مماثل کوئی بغیر پڑھے ہوئے پیغامات ہیں.
+thread_mark_all_read:پڑھنے کے تمام بغیر پڑھا ہوا نشان زدہ کریں فورم کے پیغامات
+thread_mark_all_read_desc:اس فورم میں تمام بغیر پڑھے ہوئے پیغامات پڑھ نشان لگا دیا جائے گا
+private_no_messages:اس فولڈر میں کوئی پیغامات نہیں ہیں.
+register_email_change_subject:ای میل کی تبدیلی کی تصدیق
+register_email_change_msg:براہ مہربانی اپنے نئے ای میل اکاؤنٹ تصدیق کی " {VAR: uent->email} "جو اپنے پرانے ای میل اکاؤنٹ ہے" {VAR: old_email} "، درج ذیل URL کے لیے جانے کی طرف سے:!ن!{FULL_ROOT}{جڑ}؟ t امیلکونف & conf_key = = {VAR: conf_key} !ن!!ن!ایک بار جب آپ اپنے نئے ای میل ایڈریس کی تصدیق کریں، آپ فورم کے اکاؤنٹ دوبارہ فعال ہو جائے گا ۔
+iemail_thread_unsub:اس موضوع سے نام خارج
+iemail_forum_unsub:اس فورم سے نام خارج
+primary_group_prefix:فورم کے لئے بنیادی گروپ:
+group_resources:اس گروپ کی مندرجہ ذیل فورمز کے اجازت کو کنٹرول
+register_admin_newuser_title:ایک نیا صارف درج کی گئی ہے اور ان کے اکاؤنٹ کی توثیق زیر التواء ہے
+register_admin_newuser_msg:ایک نیا صارف ( {VAR: uent->login} ) صرف رجسٹرڈ ہے، اور چونکہ اکاؤنٹ تصدیق فعال ہے، یہ آپ کے یا کسی دوسرے فورم کے منتظم کی طرف سے تصدیق کی ہے یہاں تک کہ ان کے اکاؤنٹ فعال ہو جائیں گے نہیں ۔ کا جائزہ لینے کے لیے اکاؤنٹ براہ مہربانی جانے کے لئے: {گوار: WWW_ROOT}adm/admuserapr.php!ن!!ن!یہ ایک خود کار عمل ہے ۔ اس پیغام کا جواب نہ دیں ۔ ۔!ن!اگر آپ نئے صارف رجسٹریشن مستقبل ای میل اطلاعات بند کرنا چاہتے ہیں تو آپ ایسا منتظم کنٹرول پینل کے ذریعے کر سکتے ہیں ۔ 'نیا اکاؤنٹ اعلان' سیٹنگ تبدیل کریں ۔
+post_mod_msg_notify_title:فورم میں نئے پیغام " {VAR: frm->name} " کی منظوری زیر التوا
+post_mod_msg_notify_msg:ایک نئے پیغام کے عنوان " {VAR: msg_post->subject} " بس جو آپ معتدل ایک فورم میں پوسٹ کیا گیا تھا ۔ کا جائزہ لینے کے لیے اس پیغام پر جا سکا: {FULL_ROOT} {جڑ}؟ t مودقی # = {VAR: msg_post->id} !ن!!ن!یہ ایک خود کار عمل ہے ۔ اس پیغام کا جواب نہ دیں ۔
+thread_printable_pdf:پرنٹ ایبل پی ڈی ایف بنائیں
+thread_syndicate:سنڈیکیٹ اس فورم (XML)
+reg_conf_title:رجسٹریشن کی تصدیق
+reg_conf_email:<b>تصدیقی ای-میل</b><br>آپ ایک خاص URL جو آپ تک رسائی حاصل کرنے کی ضرورت آپ کے اکاؤنٹ سے عمل میں لایا جا رہا ہے گا پر مشتمل ایک ای میل بھیجا گیا تھا ۔ آپ کا اختصاصی ای-میل پتا صحیح ہے تو نہیں ہے اگلی کئی منٹ میں اپنے اکاؤنٹ کے لیے لاگ ان اس ای میل وصول کریں اور آپ اس بات کو یقینی بنائیں ۔ ایک بار جب آپ اپنے اکاؤنٹ کی تصدیق, آپ فورم صرف تصدیق، رجسٹرڈ صارفین کو دستیاب خصوصیات پر رسائی حاصل کرنے کے قابل ہوں گے ۔
+reg_conf_account:<b>اکاؤنٹ کی تصدیق</b><br>اس سے پہلے کہ آپ کا اکاؤنٹ فعال بنایا گیا ہے یہ ایک منتظم کی طرف سے منظور کی جائے کی ضرورت ہے ۔ آپ کا اکاؤنٹ تصدیق ہو چُکی ہے ایک بار ایسا ہوتا ہے آپ اس اندیکاٹنگ ای میل حاصل کریں گے ۔ آپ مخصوص خصوصیات پر رسائی حاصل کرنے کے قابل نہیں ہوں گے تاہم اس دوران آپ لاگ میں کر سکتے آپ کے اکاؤنٹ ہیں ۔
+forum_banned_user:آپ سے پہلے کے اعمال آپ کو مستقل طور پر اس فورم کی طرف سے پابندی عائد کر دی کیا جا رہا ہے کے نتیجے میں کیا ہے. پھر ملیں گے.
+mnav_description:پیغام نےوگیٹر
+mnav_date_limit:تاریخ کی حد:
+mnav_forum_limit:صرف میں تلاش کریں:
+mnav_all_forums:تمام فورم تلاش
+mnav_submit:تلاش شروع کریں
+mnav_no_range:آپ کو ایک درست تاریخ کی حد درج کرنا چاہیے. یہ قدر ایک اعشاریہ (0.12) پر مشتمل ہوسکتا ہے لیکن یہ صفر سے زیادہ ہونا چاہیے.
+mnav_invalid_unit:آپ کو ایک درست وقت یونٹ کی وضاحت لازمی ہے.
+mnav_invalid_date:آپ کے مخصوص تاریخ کی حد کے ایڈمنسٹریٹر کی طرف سے کی اجازت دی ایک سے زیادہ بڑی ہے. کھجور کی ایک چھوٹی رینج کرنے کی کوشش کریں.
+mnav_no_results:استفسار کے ملاپ کے کوئی پیغامات نہیں ہیں.
+mnav_posted_by:کی طرف سے پوسٹ کیا گیا:
+mnav_more:زیادہ»»
+mnav_minute:منٹ (زبانیں)
+mnav_hour:قیامت (زبانیں)
+mnav_day:(دن)
+mnav_week:ہفتہ (زبانیں)
+mnav_month:مہینے (زبانیں)
+mnav_title:پیغام نےوگیٹر
+mnav_update:<a href="{TEMPLATE: mnav_update_lnk}">پیغام گشت کار</a> استعمال کرتے ہوئے پیغامات کو براؤز کاری
+pm_notify_subject:[{GVAR: FORUM_TITLE}] New Private Message Notification
+pm_notify_body_email:آپ ایک نیا نجی پیغام جس کا عنوان ہے " {VAR: subject} "، سے " {VAR: from} "، فورم میں "{گوار: FORUM_TITLE}" ۔!ن!پیغام کو دیکھنے کے لئے یہاں کلک کریں: {FULL_ROOT} {جڑ}؟ t pmsg_view & id = = {VAR: pid} !ن!!ن!مستقبل کی اطلاعات کو روکنے کے لیے، آپ کے پروفائل میں "ذاتی پیغام کی اطلاع" نااہل بنائیں ۔
+register_pm_notification:ذاتی پیغام بارے میں اہم اطلاع:
+register_pm_notification_desc:چالو حالت میں ہے تو پیغام آپ کو بھیجا جاتا ہے جب بھی آپ کو مطلع کیا جائے گا.
+findu_admin_opts_header:ایڈمن Opts.
+findu_unban:ان بین
+findu_ban:پر پابندی عائد
+findu_edit:ترمیم کریں
+findu_delete:حذف کریں
+dmsg_reply_to:اس جواب کو اہمیت کرنے کے لئے ہے
+dmsg_reply_num:پیغام کی #{VAR: obj->reply_to}
+merge_topics:موضوعات ضم
+merge_topics_cp:موضوع کنٹرول پینل ضم
+merge_topics_tpl:ضم کے لیے <span class="SmallText">(آپ ایک سے زیادہ زمرہ منتخب کریں)</span> موضوعات منتخب کریں
+merge_merge:منتخب موضوعات ضم
+merge_next:پیچھے اگلا، دوسرا موضوعات
+merge_prev:سابقہ ​​موضوعات
+merge_another:<a href="{TEMPLATE: merge_another_lnk}">آخری ضم موضوع</a> کے لئے جائیں یا دوسرے ضم کریں:
+split_cp:موضوع سپلٹ کنٹرول پینل
+groups_perms_header:اجازت <span class="small">(اس کی قسم کو دیکھنے کے لئے کی اجازت پر ماؤس کو منتقل)</span>
+register_err_sig_too_long:اپنے دستخط کی طوالت کی اجازت تجاوز کرتی ہے {گوار: FORUM_SIG_ML} کریکٹر ہیں ۔
+register_sig_limit:{گوار: FORUM_SIG_ML} <a href="javascript: alert('Your Signature is '+document.forms['fud_register'].reg_sig.value.length+' characters long. The maximum allowed signature length is {GVAR: FORUM_SIG_ML} characters.');" class="SmallText">دستخط کی پڑتال کی لمبائی</a> کے کریکٹر
+adm_account_accepted:آپ کا اکاؤنٹ ' {VAR: login} ' کے منتظم کی طرف سے منظور کیا گیا اور اب زیر عمل ہے ۔ آپ اب تک رسائی حاصل ہو {گوار: FORUM_TITLE}' تصدیق، رجسٹرڈ صارف کے طور پر فورم ہے ۔
+adm_account_accepted_s:آپ کے اکاؤنٹ کی درخواست کے لئے ' {گوار: FORUM_TITLE}' تسلیم کر لیا گیا ہے ۔
+adm_account_rejected:آپ کا اکاؤنٹ ' {VAR: login} ' کے منتظم کی طرف سے رد کر دی تھی ۔ اگر آپ کو اس فیصلے کے پیچھے وجہ معلوم کرنا چاہیں گے تو میں منتظم سے رابطہ کریں بلا جھجھک ' {گوار: ADMIN_EMAIL}' ۔
+adm_account_rejected_s:آپ کے اکاؤنٹ کی درخواست کے لئے ' {گوار: FORUM_TITLE}' رد کر دی تھی ۔
+thread_on:پر
+userinfo_buddy:دوست:
+register_email_addr:ای میل ایڈریس:
+reset_suffix:تم گمراہی میں یہ پیغام موصول ہو تو برائے مہربانی اس کو نظر انداز. اگر آپ متعدد نسخے جو آپ درخواست نہیں ہے، یہ ای میل، وصول کرنے ہیں براہ مہربانی میں فورم کے منتظم سے رابطہ کریں {گوار: ADMIN_EMAIL}!ن!!ن!اس درخواست سے آغاز کیا گیا تھا:  {VAR: _SERVER['REMOTE_ADDR']} ۔
+usrinfo_last_visit:آخری ملاحظہ:
+mnav_newer:کے مقابلے میں جدید
+mnav_older:سے بڑی
+ip_search_by_ip:آئی پی کی طرف سے تلاش کریں صارفین
+ip_search_syntax:تائید نحو: 1.2.3.4، 1.2.3، 1.2، 1
+ip_search:تلاش
+ip_analyze_usage:آئی پی کے استعمال کا تجزیہ
+ip_analyze_usage_descr:صارف کے عین مطابق لاگ ان کی وضاحت کریں.
+ip_users_using:صارفین کو استعمال کرتے ہوئے ' {VAR: ip} ' IP پتا
+ip_all_ips:تمام آئی پی ایس کی طرف سے استعمال کیا ' {VAR: user} '
+ip_title:آئی پی براؤزر
+userinfo_real_name:اصلی نام:
+register_err_alias_notallowed:یہ عرف کی اجازت نہیں ہے
+post_err_mod_forum_edit_ttl:نقص
+post_err_mod_forum_edit_msg:آپ کو ایک معتدل فورم میں پیغامات مدون نہیں کر سکتے ہیں.
+dmsg_num:پیغام کی #{VAR: obj->id}
+postcheck_session_invalid:آپ کا سیشن ختم ہوگیا ہے. فارم دوبارہ جمع کریں. تکلیف کے لئے معذرت.
+delete_message_extra_desc:<b>اختیاری</b><br>ایک ذاتی پیغام کے ذریعے مصنف کے لئے بھیجا جائے گا پیغام حذف کی وجہ کا تعین کریں ۔
+delete_message_extra_body:مصنف کو بھیجی جائے گی کہ ہٹا دیا پیغام کے جسم میں شامل ہیں.
+delete_msg_removed_ttl:آپ کا پیغام انتظامیہ کے ملازمین کی طرف سے ہٹا دیا گیا تھا.
+delete_msg_pm_body:اصل پیغام
+delete_msg_pm_subject:موضوع:{VAR: data[15]}
+ip_no_whois:WHOIS معلومات کے لئے <b> {VAR: ip} </b> دستیاب نہیں ہے ۔
+ip_whois_title:ISP معلومات
+register_theme:تھیم:
+pmsg_trash:خالی ردی کی ٹوکری
+uc_new_pm:نیا ذاتی پیغام
+uc_new_topic:نیا موضوع
+uc_new_cat_forum:نئے پیغامات کے ساتھ سبسکرائبڈ فورم
+uc_cat_forum:زمرہ» فورم
+uc_sub_topics:نئے پیغامات کے ساتھ سبسکرائبڈ موضوعات
+uc_page_title:ذاتی کنٹرول پینل دیکھنے.
+search_options:تلاش کے اختیارات
+search_user_filter:صارف کی طرف سے فلٹر کریں:
+register_none:مجھے مطلع نہ کریں
+findu_no_conf:غیر مصدقہ صارف
+register_max_sig_len:زیادہ سے زیادہ لمبائی:
+register_turing:ذیل میں دکھایا گیا کوڈ درج کریں:
+register_err_turing:باطل کی توثیق کوڈ.
+modque_cat:قسم
+modque_forum:فورم
+idx_compact_forum_row:دستیاب فورم:
+mmd_del_title:موضوعات کو حذف کریں
+mmd_mov_title:موضوعات میں منتقل کریں
+mmd_move_threads_to:مقصود فورم:
+mmd_abort_move:منسوخ
+mmd_move:موضوعات میں منتقل کریں
+pmsg_pdf_btn:پی ڈی ایف دستاویزات بنائیں
+search_results_hdr:{VAR: total}تلاش نتائج نہیں ملے
+thread_del_all:منتخب شدہ خارج
+thread_mov_all:منتخب شدہ منتقل کریں
+thread_merge_all:منتخب شدہ ضم
+thread_loc_all:مقفل / انلاک منتخب
+dmsg_ip:IP:
+err_blockedaccnt_title:نقص: آپ کا اکاؤنٹ کیا گیا ہے ہے فلٹر کر دی ہے ۔
+err_blockedaccnt_msg:آپ کا اکاؤنٹ نصب صارف فلٹرز میں سے ایک کی وجہ سے فورم تک رسائی حاصل کرنے سے روک دیا گیا ہے.
+merge_th_page_list:موضوع پیج سلیکشن
+most_users_online:زیادہ تر صارفین نے کبھی آن لائن تھا <b> {VAR: st_obj->most_online} </b> پر <b>{تاریخ: st_obj-> most_online_time ٪ ا،  %d  %B %Y  %H:% M}</b>
+sub_unsub_all_forums:تمام فورم سے رکنیت ختم
+sub_unsub_all_topics:تمام موضوعات سے رکنیت ختم
+unbookmark_all_topics:تمام بک مارکس کو ہٹا دیں
+tabs_own_posts:خود مراسلات دکھائیں
+sml_emoticon:مورتن، بتون
+sml_code:کوڈ
+mnav_sub_only:رکنیت فورموں میں صرف تلاش
+register_topics_per_page:فی صفحہ موضوعات:
+login_min_time:اس فورم میں لاگ ان کی ایک کوشش کی اجازت دیتا ہے ہر  {VAR: MIN_TIME_BETWEEN_LOGIN}  سیکنڈ, براہ مہربانی انتظار کریں {ف: ($usr_d-> last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)} آپ اگلے کی کوشش سے پہلے سیکنڈ ہے ۔
+post_not_logged_in:آپ فی الحال لاگڈ ان نہیں ہیں، پیغام گمنام تعینات کیا جائے گا.
+post_common_bold:جلی
+post_common_italics:ترچھا
+post_common_underline:خط کشیدہ
+post_common_align_left:بائیں سیدھ کریں
+post_common_align_center:بمرکز سیدھ کریں
+post_common_align_right:دائیں سیدھ کریں
+post_common_link:ایک لنک ڈالیں
+post_common_link_popup:لنک کا محل وقوع:
+post_common_email:ایک ای میل ایڈریس داخل کریں
+post_common_email_popup:ای میل ایڈریس:
+post_common_image:ایک تصویر داخل کریں
+post_common_image_popup:نقش URL:
+post_common_nlist:نمبر کی فہرست میں شامل کریں
+post_common_blist:شق وار فہرست میں شامل کریں
+post_common_quote:جواب شامل کریں
+post_common_code:کوڈ کا اضافہ کریں
+rating_delete:حذف کریں
+post_always_on_top:موضوع بنائیں ہمیشہ موضوع کی لسٹنگ کے سب سے اوپر ظاہر ہوتے ہیں
+topic_rating:{VAR: frm->rating}سے  {PLURAL: frm->n_rating|   $1  vote| $1  ووٹ}
+topic_list_rating:{VAR: r[17]}سے  {PLURAL: r[21]|   $1  vote| $1  ووٹ}
+tabs_notifications:اطلاعات
+finduser_flag:پرچم
+post_descr:موضوع تفصیل:
+pmsg_on:پر
+pmsg_download_dump:پیغام ڈمپ کریں ڈاؤن لوڈ، اتارنا
+move_messages:پیغامات میں منتقل کریں
+move_msg_btn:منتخب شدہ پیغام میں منتقل کریں
+move_msg_th_expl:(دوسرے فورمز میں ہو سکتا ہے) مطلوبہ موضوع کے ID کی وضاحت کریں
+captcha_img_alt:کیپچا توثیق: آپ کو اس تصویر میں متن کو تسلیم کرنے کی ضرورت ہوگی.
+captcha_img_help:صفر یا تصویر میں کوئی نہیں ہے.
+powered-by:توليد: فودفاروم {گوار: FORUM_VERSION} ۔
+copyright:کاپی رائٹ © 2001-2012 <a href="http://fudforum.org/">فودفاروم بلیٹن بورڈ سافٹ ویئر</a>
+code_title:کوڈ:
+code_select_all:مکمل متن منتخب کریں
+code_show_hide:دکھائیں / چھپائیں
+social_sites:سوشل نیٹ ورکنگ سائٹس:
+postcheck_min_len_err:آپ کا پیغام بہت چھوٹا ہے ۔ کم از کم لمبائی  {PLURAL: post_min_len|   $1  character| $1  کریکٹر} ۔
+postcheck_dup_err:ڈپلیکیٹ موضوعات پیدا نہ کرو.
+btn_new_topic:نیا موضوع
+btn_new_pm:نیا P.Message
+btn_post_reply:جواب دیجیے
+btn_tree_view:درخت کے نقطہ نظر
+btn_flat_view:فلیٹ نقطہ نظر
+btn_about:جایزہ
+btn_small_pm:بجے
+btn_delete:حذف
+btn_edit:ترمیم کریں
+btn_reply:جواب دیں
+btn_forward:اگے
+btn_quote:حوالہ
+btn_email:ای میل
+btn_show_posts:خطوط
+btn_homepage:www
+feed_no_data:کوئی مماثل ڈیٹا پایا.
+feed_rdf:ردف فیڈ
+feed_rss:RSS2 فیڈ
+feed_atom:ایٹم فیڈ
+ip_whois_connect_err:WHOIS پیش کار سے جڑنے میں نااہل ( {VAR: whois_server} ):{VAR: errstr}
+custom_filed_required:یہ فیلڈ کی ضرورت ہے.
+pages:صفحات
+page_list_heading:دستیاب صفحات
+page_list_total:{PLURAL: i|$1page| $1  صفحات} درج ہوتا ہے ۔
+page_update:براؤزنگ صفحہ
+pm_export_header:ذاتی پیغامات{VAR: usr->alias}
+pm_export_footer:برآمد:
+karma:کرما
+karma_track:صارف کے لئے شہرت سیکنڈ:
+karma_delete:حذف کریں
+rate_author:شرح مصنف:
