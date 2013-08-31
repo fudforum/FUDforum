@@ -1,0 +1,1144 @@
+# Messages for Javanese (Basa Jawa)
+# Exported from translatewiki.net
+# Author: Kangit23
+
+action:Laku
+add_to_buddy_list:nambah kanggo konco dhaftar...
+admin:Pangurus
+admin_control_panel:Administrasi
+administrator:administrator
+attachment:lampiran:
+avatar:avatar:
+average_post_count:{PLURAL: u->posted_msg_count|$1 Pesen|$1 Pesen} ({PLURAL: avg|$1 Rata-rata pesen|$1 Rata-rata pesen} saben dina)
+biography:biografi:
+birth_date:Tanggal lair:
+by:dening:
+by_mod:dening Moderator
+current_time:saiki Wektu
+custom_avatar_queue:Custom Avatar antrian
+date_posted:tanggal Dikirim
+date_registered:Tanggal Didhaftar:
+download_counter:diundhuh {PLURAL: v[3]|$1 wektu|$1 kaping}
+pmsg_download_counter:diundhuh {PLURAL: r->dlcount|$1 wektu|$1 kaping}
+email:E-mail:
+email_to_friend:E-mail kanggo kanca
+email_to_friend_desc:Kirimi URL kanggo kaca iki menyang kanca (s) liwat e-mail
+email_user:Kirimi pangguna pesen email
+faq:Pitulung
+first_unread_msg:Go kanggo unread pesen
+first_unread_msg_desc:Menyang 1st unread pesen nang topik iki
+flat_view:Bali menyang gawan flat Tampilan
+forum:Category:
+forum_icon:Forum lambang
+forum_new_messages:Layang anyar
+forum_none_messages:Mung kadhaftar Category anggota bisa trek pesen diwaca & ​​unread
+forum_old_messages:Ana pesen anyar
+from:Saka:
+gender:Jenis Kelamin:
+go:Nuju
+goto_next_msg:Go kanggo sabanjuré pesen
+goto_prev_msg:Go kanggo sadurunge pesen
+home:Latar
+homepage:kaca:
+icq_control_panel:ICQ-online Pesen Panel
+icq_message_form:ICQ Formulir Pesen:
+ignore_user:ditolak lewat pesen kabeh dening pangguna
+im_aim:Yahoo nangani:
+im_msnm:MSN Messenger:
+im_yahoo:Yahoo Messenger:
+image:gambar:
+index_forum:Forum
+index_new_posts:Pesen anyar wiwit pungkasan diwaca
+index_no_new_posts:Ana pesen anyar wiwit pungkasan diwaca
+index_url_redirection:Redirection
+interests:kapentingan:
+last_post:Paling pesen
+last_thread_msg:Go kanggo pesen pungkasan ing topic
+legend:Katrangan
+location:Lokasi:
+lock_thread:kunci Topic
+locked:Dikunci
+locked_with_new_posts:Dikunci (w / unread pesen)
+logged_in_list:Mlebu ing dhaftar kedhaftar
+login:Mlebu log
+login_header:Mlebu:
+logout:Logout
+mark_all_read:Tandhani kabeh maca pesen
+mark_all_read_desc:Kabeh unread pesen bakal ditandhani minangka maca
+members:Anggota
+calendar:tanggalan
+cal_goto_date:Langsung menyang:
+cal_day_heading:Acara kanggo dina
+cal_no_events:Ana acara kanggo dina.
+cal_update:Njelajah Calendar
+cal_birthday:ulang tahun: {VAR: user}
+cal_birthday_age:({PLURAL: age|$1 taun|$1} taun lawas).
+message:Pariwara
+message_counter:Kita kedhaftar wis dikirim menyang total <b>{PLURAL: post_count|$1 pesen|$1 pesen} </b> nang <b>{PLURAL: thread_count|$1 topic|$1 topik}</b>.
+message_index:Pesen indeks
+message_index_desc:Ndeleng dhaptar pesen
+minimize_category:nyilikake Kategori
+minimize_message:nyilikake Pesen
+moderation_queue:moderat antrian
+moderator:moderator
+moderator_of:Moderator:
+moderator_options:moderator Pilihan
+moderators:{PLURAL: modcount|Moderator|Moderators}
+more_unread_messages:liyane unread pesen
+more_unread_messages_desc:Nuduhake pesen liyane unread banjur tandhani pesen ing saiki viewable maca
+move_thread:Pindhahen
+moved:Dipindhah menyang forum
+moved_thread_message:Iki topik wis dipindhah menyang forum
+na:n/a
+new_posts:anyar Pesen
+new_private_messages:sampeyan kudu <span class="GenTextRed">({VAR: c})</span> unread {PLURAL: c|pribadi pesen|pesen pribadi}
+new_thread:Nggawe topik anyar
+newest_user:Ing Newest pangguna pangguna punika
+next_page:Next Page
+next_thread:Next Topic:
+no_messages:Ora ana pesen ing forum iki. <br/>Kang pisanan kanggo ngirim topic ing forum iki.
+no_msg_body:Ana badan Pesen
+no_new_posts:Ana pesen anyar
+no_posts:Ora Pesen
+no_subscribed_forums:Ora forum subscribed
+no_subscribed_threads:Ora ana topik subscribed
+no_bookmarked_threads:Ora ana topik ditengeri
+no_unread_locked:Topic iki wis dikunci
+no_unread_msg:Topic iki wis ora pesen unread
+no_unread_msg_unreg:Pesen sing diwaca & ​​unread sing dilacak mung kanggo pangguna kedhaftar
+num_pages:kaca ({VAR: ttl_pg}):
+num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|milih|votes}
+occupation:pendhudhukan:
+off:mati
+on:ing
+page_timings:Total wektu kanggo dijupuk generate page: {PLURAL: page_gen_time|$1 detik}
+pm:Pesen pribadi
+poll:Jajak Pendapat Paling Anyar:
+post_count:Pesen Count {VAR: u_pcount}
+post_count_l:Pesen Count:
+posts:Layang
+posts_c:Pesen:
+prev_thread:Sedurunge Topic:
+usrinfo_private_message:Pesen Pribadi:
+profile:kontrol Panel
+profile_desc:Ngakses pangguna panel kontrol
+rate_thread:Rate Topic
+rating:Biji
+rating_track:Ngatur ratings kanggo topic <b>{VAR: thr->subject}</b>:
+refresh_list:Refresh Dhaftar
+register:Register
+registered:Didhaftar:
+registered_on:Didhaftar {TEMPLATE: registered_on_date}
+replies:Walesan
+report_to_mod:Report pesen kanggo moderator
+reported_messages:kacarita Pesen
+reveal_all_posts:mbukak pesen kabeh dening {VAR: user_login}
+reveal_post:mbukak pesen
+search:Golèk
+sel_todays_posts:Dina Pesen
+sel_todays_posts_desc:Toggle dina pesen yang (mung bakal nuduhake pesen digawe dina)
+sel_unanswered_posts:Unanswered Pesen
+sel_unanswered_posts_desc:Toggle PBB-wangsulane yang pesen (bakal nuduhake pesen mung sing ora balesan)
+sel_unread_messages:Unread Pesen
+sel_unread_messages_desc:Toggle unread pesen yang (mung bakal nuduhake pesen unread)
+send:Kirim
+send_pm_desc:Send a message menyang pangguna
+sender_email:Pangirim E-mail:
+sender_name:Pangirim Sandi:
+show_posts_by:Tampilake Pesen dening: {VAR: u_alias}
+size:Gedhéné:
+status:Status:
+status_line:Ana <b>{PLURAL: st_obj->online_users_reg|$1 anggota |$1anggota}</b>, <b>{PLURAL: st_obj->online_users_hidden|$1 kahuripan anggota|$1 kahuripan anggota}</b> lan <b>{PLURAL: st_obj->online_users_anon|$1 tamu|$1 tamu}</b> ngunjungi iki Papan.
+sticky:caket:
+stop_ignoring:mungkasi mboten midhangetaken pengguna
+sub_to_thread:Langganan topic
+sub_to_thread_desc:Nampa kabar bab anyar pesen nang topik iki
+bookmark_thread:Bookmark topic
+bookmark_thread_desc:Tambah topik iki menyang dhaptar tetenger
+subject:Subjek
+subscribe:langganan
+subscribe_desc:Nampa kabar yen wong nggawe topik anyar ing forum iki
+subscribed_forums:Subscribed Forum
+subscribed_forums_desc:Toggle ing subscribed yang forum (mung bakal nuduhake pesen saka forum sampeyan subscribed kanggo)
+subscribed_threads:Subscribed Pages
+subscribed_threads_desc:Toggle ing subscribed yang topik (mung bakal nuduhake pesen saka topik-topik sing subscribed kanggo)
+bookmarked_threads:ditengeri Pages
+switch_to_thread_view:Ganti Utas Tampilan iki topik
+thread:Topic:
+thread_announcement:woro-woro:
+thread_first_unread_msg:Go kanggo pisanan unread pesen ing topic
+thread_thread:topic
+threads:Pages:
+time:Wektu
+todays_posts:Dina Pesen
+todays_posts_desc:Tampilake kabeh pesen sing dikirim dina
+un_ignore_user:mungkasi mboten midhangetaken pesen iki pangguna
+unanswered_posts:Unanswered Pesen
+unanswered_posts_desc:Nuduhake pesen kabeh, kang wis ora balesan
+unlock_thread:mbukak kunci Topic
+unread_msg:Topic iki ngandhut pesen sing durung diwaca
+unread_msg_locked:Dikunci topic karo unread pesen
+unread_posts:Unread Pesen
+unread_posts_desc:Tampilake kabeh pesen unread
+unsub_from_thread:Batal saka topik
+unsub_from_thread_desc:Stop nampa kabar bab pesen anyar ing topic
+unbookmark_thread:Busak saka tetenger
+unbookmark_thread_desc:Copot topik iki saka daftar tetenger
+unsubscribe:Mandeg langganan
+unsubscribe_desc:Stop nampa kabar bab topik anyar ing forum
+updated_on:Dianyari ing:
+user:Panganggo
+user_counter:We have <b>{VAR: st_obj->user_count}</b> kadhaftar {PLURAL: st_obj->user_count|pangguna|kedhaftar}.
+user_info:Anggota Jeneng Informasi
+user_info_l:Anggota Jeneng Informasi {VAR: u->alias}
+user_offline:{VAR: obj->login} is currently offline
+user_online:{VAR: obj->login} is currently online
+usrinfo_last_post:Paling Pesen:
+view_results:Asil ndeleng
+views:Tampilan
+vote:{PLURAL: frm->n_rating|$1 Pilih|$1 Votes}
+vote_button:Swara
+vote_for_thread:Swara
+was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> wis pindhah menyang <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> dening moderator.
+welcome_message:Sugeng Rawuh <b>{VAR: usr->alias}</b>, terakhir neng ana ing {TEMPLATE: welcome_message_date}
+what_ppl_doing:Tampilake apa wong-wong mengkono
+reported_del_report:Busak Report
+reported_reason:Alesan:
+reported_on:ing:
+reported_reported_by:Kacarita By:
+reported_reported_msg:kacarita Pesen
+modque_pending_approval:Pesen ditundha disetujoni
+modque_approve:sarujuk
+modque_delete:Busak
+modque_deleteall:Busak kabeh saka pangguna
+modque_no_message:Ora ana pesen ditundha disetujoni
+pmsg_new_messages:Unread pribadi pesen
+pmsg_old_messages:Maca pesen pribadi
+deny_recipt:lali panrimo
+deny_recipt_desc:Aja ngirim konfirmasi sing wis maca pesen
+restore_to:Kanggo mulihake:
+move_to:Pindhah Kanggo:
+list_referes_referrals:pitunjuk
+list_referes_members:Log diarani
+list_referes_member:Anggota
+referals_none:Ora pitunjuk durung.
+referals_refered_by:Forum anggota diarani dening: <b><a href="{TEMPLATE: referals_refered_by_lnk}" class="thLnk">{VAR: p_user[1]}</a></b>
+referals_post_count:Pesen Count
+referals_registered_on:Didhaftar
+referals_action:Laku
+pmsg_all:kabèh
+pmsg_none:ora ana
+folder:folder:
+pmsg_replied:wangsulane
+pmsg_forwarded:diterusake
+pmsg_subject:Subjek
+pmsg_author:Pangarang
+pmsg_time:Wektu
+pmsg_selected:kapilih
+pmsg_delete:Busak
+cur_ppage_pm:Pesen pribadi
+writing_pm:Nulis pesen Private
+browsing_folder:njelajah <b>{VAR: folders[$folder_id]}</b> folder
+inbox:kothak mlebu
+draft:konsep
+sent:konsep
+trash:Trash
+msg_author:Pangarang
+avatar_sel_form:Avatar pilihan Wujud
+no_avatars:Ora Avatars kasedhiya
+month_1:Januari
+month_2:Fébruari
+month_3:Maret
+month_4:April
+month_5:Méi
+month_6:Juni
+month_7:Juli
+month_8:Agustus
+month_9:September
+month_10:Oktober
+month_11:November
+month_12:Désèmber
+sunday:Minggu
+sunday_short:Kdl
+monday:Senèn
+monday_short:M
+tuesday:Slasa
+tuesday_short:Tu
+wednesday:Rebo
+wednesday_short:W
+thursday:Kemis
+thursday_short:Th
+friday:Jemuwah
+friday_short:F
+saturday:Setu
+saturday_short:Kdl
+male:Lanang
+female:Wadon
+unspecified:UNSPECIFIED
+register_tree_view:Wit Deleng pesen lan topic listing
+register_msg_tree_view:Flat topic listing/Wit-witan pesen listing
+register_tree_msg_view:Wit topic listing/Flat Duwe pesen listing
+register_flat_view:Flat Deleng pesen lan topic listing
+use_forum_default:Gunakake gawan forum
+finduser_user_info:Anggota Jeneng Informasi
+finduser_by_login:Login dening:
+finduser_submit:Golèk
+finduser_no_such_user:Ora kaya Anggota Jeneng
+finduser_user:Panganggo
+finduser_postcount:Pesen Count
+finduser_joindate:Join Date
+finduser_action:Laku
+yes:Iya
+no:Ora
+register_email:E-mail
+edit_time_limit:<b>Pengeditan Wektu watesan</b>: {GVAR: EDIT_TIME_LIMIT} menit
+no_edit_time_limit:<b>Pengeditan Wektu watesan</b>: Unlimited
+pmuserloc_login:Mlebu:
+pmuserloc_submit:Kirim
+pmuserloc_user:Panganggo
+pmuserloc_no_result:Ora Kasil
+register_builtin:Ing dibangun
+register_specify_url:nemtokake URL
+register_uploaded:upload Avatar
+register_login:Mlebu:
+register_password:Tembung sandhi:
+register_conf_pass:Konfirmasi Pangguna:
+register_email_desc:Mangga ngetik neng alamat e-mail. Sampeyan bisa milih kanggo ndhelikake kasebut ing ngisor iki, ing bagean Preferensi.
+register_name:Jeneng:
+register_your_pass:Panjenengan Pangguna:
+register_update:Anyari
+register_avatar_type:Avatar Tipe:
+register_del_avatar:Busak Avatar
+register_avatar:avatar:
+register_sel_avatar:pilih Avatar
+register_custom_avatar_rules:Ing avatar adat bakal katon ora nganti disetujui dening administrator.<br /><span class="SmallText">Ing avatar, ngirim ora luwih gedhe saka <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} piksel</b> lan kudu ing <b>jpg</b>, <b>gif</b> utawa <b>png</b> format.</span>
+register_custom_avatar_url:Custom Avatar URL:
+register_preview:Pratayang
+register_custom_avatar_upload:Custom Avatar Gambar:
+register_register:Register
+register_required:Perangkat Informasi
+register_required_desc:Kabeh kothak sing dibutuhaké. Wigati dicathet sandhi sing cilik sensitif.
+register_optional:pilihan Informasi
+register_optional_desc:Apike sampeyan ora mbukak informasi pribadhi utawa sembarang Ngenali ing profil Panjenengan. Kabeh informasi bakal viewable dening liyane anggota forum.
+register_location:Lokasi:
+register_occupation:pendhudhukan:
+register_interests:kapentingan:
+register_image:gambar:
+register_icq:ICQ:
+register_aim:Yahoo nangani:
+register_yahoo:Yahoo Messenger:
+register_msnm:MSN Messenger:
+register_homepage:kaca:
+register_bday:Tanggal lair:
+register_bday_desc:Yen sampeyan ngetik tanggal lair, banjur liyane Category anggota bakal bisa ndeleng ing profil Panjenengan.
+register_day:Dina
+register_month:Sasi
+register_year:Taun
+register_gender:Jenis Kelamin:
+register_bio:Biografi:
+register_bio_desc:A rincian sawetara bab sampeyan dhewe, kuwi minangka kapentingan, Proyek, etc ..
+register_prefs:Pilihan
+register_sig:teken:
+register_sig_desc:Pilihan teken, kang katon ing sisih ngisor pesen.
+register_reset:Rèsèt
+register_def_thread_view:Default Topic View:
+register_msg_per_page:Pesen Per Page:
+register_show_sig:Tampilake tetandan:
+register_show_sig_desc:Ngijini sampeyan kanggo salah siji ndhelikake utawa nuduhake tetandan liyane anggota forum '.
+register_use_sig_default:Gunakake teken dening Default
+register_use_sig_default_desc:Kanthi otomatis append teken kanggo saben pesen sing ngirim.
+register_timezone:Wektu Zone:
+register_ignore_admin:Ditolak lewat Pesen administratif:
+register_invisible_mode:Kahuripan Mode:
+register_invisible_mode_desc:Kurang online status.
+register_show_email:Tampilake Alamat e-mail:
+register_show_email_desc:Pilih pilihan iki yen sampeyan pengin e-mail alamat kanggo katampil publicly.
+register_notification:Pilih Notifikasi dening Default
+register_notification_desc:Yen kabar ditindakake kanthi gawan, iku bisa ora diaktifke nalika posting.
+register_notify_method:Pilih Métode Notifikasi:
+register_notify_method_desc:Setel preferred cara kabar utawa mateni kabar (contone yen kowe ing vacation).
+register_allow_email_msg:Allow Pesen E-mail:
+register_allow_email_msg_desc:Allow kedhaftar liyane kanggo ngirim layang e-liwat forum iki.
+buddy_status:Status
+my_buddies:Kula konco
+add_buddy:Tambah Buddy
+add:Tambah
+buddy_search:Ketik mlebu log ing pangguna sing sampeyan pengin nambah.
+member_search:Utawa nggunakake <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Golek Anggota Jeneng</a> fitur kanggo nggoleki wong.
+buddy_remove:batal blokir
+post_normal:Normal
+post_sticky:caket
+post_annoncement:woro-woro
+post_size:Ukuran
+post_color:werna
+post_font:hurup
+create_thread:gawe Topic
+submit_reply:Kirim Reply
+edit_message:Aplikasi Kaca Pesen
+apply_spell_changes:Aplikasi Kaca Ejaan
+post_preview:Pesen pratinjau
+post_logedin_user:Mlebu pangguna:
+post_logout:logout
+post_passwd:Pangguna Posting:
+post_poll:Jajak Pendapat Paling Anyar:
+post_create_poll:gawe jajak pendapat
+post_poll_delete:mbusak
+post_poll_edit:sunting
+post_mod_opt:Moderator Pilihan:
+post_thread_type:Tipe Topic:
+post_thread_expiry:Topic kadalu warso:
+post_locked:Topic Dikunci
+post_icons:Pesen lambang:
+post_no_icon:Ora lambang
+post_smiley:Trabasan smiley:
+post_format_tools:Piranti format:
+post_upload_file:upload Gambar
+post_file_del:Busak
+post_file_name:Jeneng
+post_file_size:Ukuran
+file_attachments:Gambar Lampiran:
+allowed_files:Diijini Gambar ekstensi:
+max_file_size:Bukaan ukuran berkas:
+max_files_per_msg:Bukaan File Per Pesen:
+post_notification:Kirim Notifikasi
+include_sig:termasuk teken
+include_sig_desc:Termasuk Panjenengan teken profil.
+disable_smilies:Pateni Eseman ing pesen
+spell_check_msg:Nulis-priksa Pesen
+post_form:Kirim Formulir
+post_forum:Category:
+post_title:Irah-irahan (judhul):
+post_body:badan:
+post_options:Pilihan:
+post_preview_btn:pratinjau Pesen
+post_cancel_btn:Batal
+ignore_users:digathekno Pangguna
+add_ignore:Tambah Ignoramus
+forum_terms:Forum Sarat
+forum_rules:<p>Situs iki forum gratis! Aku nandheske sing abide dening aturan lan kabijakan rinci ing ngisor iki. Yen sampeyan setuju kanggo kondisi, monggo pencet<b> Setuju</b>tombol ing pungkasan ing kaca. Wigati: Kanthi menet tombol sing wara-wara sing wis luwih ing umur 13. Yen 13 utawa ing, please nggunakake wangun iki Situs.</P><p>Senajan ing Administrator lan moderator situs iki forum bakal nyoba supaya kabeh pesen objectionable mati forum iki, iku mokal kita maneh pesen kabeh. Kabeh pesen sing nyebut saka penulis, lan sanadyan ing pamilik saka forum utawa gawe bakal tanggel jawab kanggo isi apa wae sing pesen.</P><p>Kanthi nge-klik tombol setuju, sing njamin sing ora ngirim sembarang pesen sing saru, vulgar, nggawe coro sexsual-oriented, hateful, anceman, utawa digunakake nglanggar hukum wae.</p><p>kang nduweni forum iki duwé hak kanggo mbusak, ngowahi, mindhah utawa nutup topik wae ning alesan.</p>
+forum_rules_13:<p>Kabeh kedhaftar ing yuswa 13 kudu ngupaya ijin saka basa tiyang sepah utawa Guardian supaya gain kanggo anggota forum. Nalika kita welcome partisipasi saka anggota ing 13, kita perlu menawa fax tiyang sepah utawa Guardian utawa mail bali menyang wangun ijin mlebu sadurunge kita ngawèhaké anggota.</P><p>Yen arep miwiti proses registrasi sadurunge kita nampa ijin wangun, pencet<b>Setuju </b>tombol ing ngisor iki. Yen arep mbatalake Situs, pencet<b>ora setuju</b>kanggo bali menyang indeks forum.</P><p>Copy formulir ijin bisa diundhuh kene. Kanggo informasi luwih lengkap babagan proses registrasi, please send e-mail kanggo <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
+coppa_conf:COPPA Konfirmasi
+coppa_before:sadurunge {TEMPLATE: coppa_date}
+coppa_after:sawise {TEMPLATE: coppa_date}
+coppa_link:Klik link sing cocok karo tanggal lair
+coppa:<p>A tiyang sepah utawa Guardian kudu mail utawa fax sing mlebu wangun ijin kanggo administrator iki forum sadurunge pangguna ing yuswa 13 bisa ngrampungake Situs.</p><p>Kanggo luwih informasi kontak <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a></p>
+prereg_info:Forum Aturan
+prereg_agree:setuju
+prereg_disagree:ora setuju
+prereg_update:Maca aturan forum
+coppa_fax_instructions:Pandhuan kanggo tiyang sepah utawa Guardian
+coppa_fax_instructions2:Mangga print that page iki, mlebu, lan Fax menyang:
+coppa_fax_reg_form:Situs Formulir
+coppa_fax_sign:Mangga mlebu formulir ing ngisor iki kanggo ngirim lan kita
+coppa_fax_conf:Aku wis dideleng informasi sandi anak wis diwenehake aku wis maca Privacy Policy kanggo situs web. Aku sing ngerti informasi profil uga diganti nganggo Pendhaftaran. Aku ngerti aku bisa takon sing iki profil Situs bakal dibusak saka tanggung forum.
+coppa_fax_permission:Telepon Katrangan mriki menawi sampeyan menehi ijin
+coppa_fax_no_permission:Mlebu kene yen arep akun sing arep dibusak
+coppa_fax_parent_name:Tiyang sepah/Guardian Full Sandi:
+coppa_fax_relation:Hubungan kanggo Child:
+coppa_fax_telephone:Telephone:
+coppa_fax_email:Alamat e-mail:
+coppa_fax_date:Tanggal
+coppa_fax_questions:Mangga kontak <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> karo pitakonan
+coppa_fax_login:Mlebu log
+coppa_fax_passwd:Tembung sandhi
+coppa_fax_remail:E-mail
+coppa_fax_name:Jeneng
+login_not_logedin:Sampeyan ora mlebu ping iki bisa uga amarga siji sawetara alasan:
+login_cookie_expired:Panjenengan cookie wis kadaluwarsa, lan sampeyan kudu mlebet gawe anyar cookie Panjenengan.
+login_perm_denied:Sampeyan ora duwé hak aksès kanggo ngakses sumber sing dijaluk minangka pangguna anonymous. Sampeyan kudu mlebet gain ijin.
+login_want_to_register:Arep kanggo ndhaftar?
+login_forgot_passwd:kelalen Pendhaftaran
+login_use_cookie:Gunakake cookie<br /><span class="SmallText">Yen sampeyan nggunakake terminal umum kayata komputer ing perpustakaan, sekolah, utawa Internet cafe, Apike sampeyan busak opsi kanggo luwih keamanan. Yen sampeyan salah milih ninggalake iki, sampeyan bakal kanthi otomatis mlebu-menyang forum wektu yen sampeyan dibukak.</span>
+login_login:Mlebu:
+login_login_btn:Mlebu log
+login_name_required:Login jeneng dibutuhake
+login_passwd_required:Pangguna dibutuhake
+login_invalid_radius:Bener mlebu/Pendhaftaran kombinasi
+reset_confirmation:Matur nuwun kanggo ndhaftar.\n\nKanggo ngaktifake akun please menyang URL ngisor:\n\n{VAR: url}\n\nYen akun aktif, sampeyan bakal mlebu-menyang forum lan\nredirected kanggo kaca utama.
+reset_reset:Hello,\n\nSampeyan wis dijaluk kanggo sandhi kanggo bisa ngreset. Kanggo ngrampungake proses,\nplease menyang URL:\n\n{VAR: url}\n\nCATETAN: forum iki nyimpen ing sandhi ing siji-cara mekanisme enkripsi, ateges\nyen wis salah ngetik Pendhaftaran lagi encoded supaya boten wonten cara kanggo njaluk maneh.\nIki dienggo dening mbandingaken versi encoded kita kudu ing rekaman karo versi encoded apa ngetik menyang Login pituduh.\n(Yen kasengsem ing cara mekanisme iki dianggo, maca nang MD5 ngrembug algoritma)
+rpasswd_invalid_passwd:bener Pangguna
+rpasswd_passwd_nomatch:Tembung sandhiné ora padha
+rpasswd_passwd_length:Pangguna kudu paling sethithik 6 karakter
+reset_remind_pass:Pangguna Pangeling
+reset_reset_conf:Panjenengan Pendhaftaran bakal Reset lan dikirim kanggo sampeyan. Yen sampeyan durung dikonfirmasi e-mail alamat, panjaluke konfirmasi bakal dikirim menyang maneh sampeyan.
+reset_error:E-mail alamat ora ketemu database
+rpasswd_change_pass:Ganti tembung sandhiné
+rpasswd_login:Mlebu log
+rpasswd_cur_pass:Saiki Pangguna:
+rpasswd_new_pass:Pangguna anyar:
+rpasswd_conf_pass:Konfirmasi Pangguna:
+ruser_title:Ngganti Formulir Login
+ruser_change_user:Ngganti Panjenengan Login Forum
+ruser_cur_login:Saiki Login:
+ruser_new_login:Login anyar:
+ruser_cur_pass:Saiki Pangguna:
+login_passwd:Tembung sandhi:
+reset_email:E-mail:
+reset_reset_button:Reset Pangguna
+rate_this_thread:Rate
+report_reporting_about:Prakawis nglaporake:
+report_subject:Subyèk:
+report_by:dening:
+report_posted_on:Dikirim ing:
+report_give_reason:Mangga menehi alesan sing kok sampeyan nglaporake pesen iki:
+report_submit_report:Kirim Report
+search_entire_msg:saiki Pesen
+search_subject_only:Mung Subjek
+search_forum:Forum
+search_posted_on:dikirim ing
+search_no_results:Ora Asil
+search_all_forums:Telusuri Kabeh Forum
+search_in_forum:Nggoleki ing Forum:
+search_forum_search:Forum Telusuri
+move_thread_to:pindhah topic <b>{VAR: thr->subject}</b> to:
+remail_email_topic:E-mail iki Topic menyang jakwir
+remail_your_name:Panjenengan Sandi:
+remail_your_email:Alamat e-mail:
+remail_friends_name:Konco Sandi:
+remail_friends_email:Konco E-mail:
+remail_required:dibutuhake
+remail_subject:Subyèk:
+remail_message:Pesen:
+remail_send_now:Kirim E-mail Saiki
+remail_anon_opt:Copy pesen iki menyang mail client sing dipilih kanggo ngirim menyang kanca (s).
+remail_done:Rampung
+remail_sent_conf:Ing e-mail menyang kanca ing {VAR-HTML: _POST['femail']} babagan {VAR: data->subject} topik iki kasil dikirim.
+remail_error:Ana kesalahan
+mklist_type:Tipe:
+mklist_option:pilihan:
+mklist_additem:Tambah item
+mklist_apply:aplikasi
+mklist_delete:Busak
+qbud_nick_name:Nick Sandi
+qbud_add_selected:Tambah Kapilih
+qbud_selected:kapilih
+qbud_no_buddies:Ora konco kanggo milih saka
+mklist_numerical:angka
+mklist_aplha:Alpha
+mklist_square:kothak
+mklist_disc:disk
+mklist_circle:circle
+mklist_close:Tutup
+email_to:Kanggo:
+email_pg_title:E-mail
+email_subject:Subyèk:
+email_body:badan:
+email_submit:E-mail
+ppost_quote_msg:{VAR: msg_to_list} wrote on {TEMPLATE: ppost_quote_msg_date}
+ppost_quote:Quote:
+ppost_to:Kanggo:
+ppost_from_buddy_list:Pilih saka Buddy Dhaftar
+ppost_find_User:Golek Anggota Jeneng
+ppost_track_msg:Lacak Pesen iki
+ppost_track_msg_desc:Menawa pengiriman notifikasi kula (liwat pribadi pesen) nalika pesen iki bakal maca.
+ppost_send:Kirim
+ppost_save_draft:Simpen Konsep
+poll_blank_option:Sampeyan bisa nambah opsi kothong.
+poll_del_conf:Yen sampeyan pengin mbusak pilihan iki, pencet OK
+poll_name:Jajak Pendapat Paling Anyar Sandi:
+poll_timelimit:Wektu watesan:
+poll_maxiumvotes:Bukaan Votes:
+poll_create:Gawé
+poll_update:Anyari
+poll_disablesmilies:Pateni Eseman
+poll_create_poll:gawe Jajak Pendapat Paling Anyar
+poll_update_poll:Update Jajak Pendapat Paling Anyar
+poll_delete:Busak
+poll_updateoption:update pilihan
+poll_addoption:Tambah pilihan
+poll_unlimited:Unlimited
+poll_day:dina
+poll_days:dina
+poll_hour:jam
+poll_hours:jam
+poll_month:sasi
+poll_year:taun
+poll_week:minggu
+tabs_register:Setelan akun
+tabs_subscriptions:langgananku
+tabs_bookmarkes:Tenger wacan
+tabs_referrals:pitunjuk
+tabs_buddy_list:konco Dhaftar
+tabs_ignore_list:ditolak lewat Dhaftar
+tabs_private_messaging:Pesen pribadi
+single_msg_delete:Sampeyan meh <span class="ErrorText">mbusak</span> pesen judul: <b>{VAR: data[3]}</b>
+thread_delete:Sampeyan meh <span class="ErrorText">mbusak</span> ing <span class="ErrorText">kabeh topik</span> judul: <b>{VAR: data[3]}</b>
+delete_proceed:<span class="fb">Aja pengin nerusake?</span>
+delete_yes:Iya
+delete_no:Ora
+error_invalidurl:bener URL
+error_error:Kasalahan
+usrinfo_profile:{VAR: u->alias}'s Profile
+usrinfo_show_all_posts:Tampilake kabeh pesen dening {VAR: u->alias}
+actions_update:Snooping ing wong liya, kaya sing
+err_info:Info
+buddy_list_err_cantadd:Sampeyan bisa nambah dhewe kanggo dhaftar konco
+buddy_list_err_dup:Sampeyan wis duwe pangguna ing dhaftar konco
+buddy_list_err_nouser:Pangguna sampeyan nampa kanggo ditambahake menyang dhaptar konco iki ora ketemu.
+buddy_list_err_nouser_title:Iso kanggo nambah pangguna
+buddy_list_err_ignore:Bisa nambah kedhaftar sing ditolak lewat sampeyan dhaftar konco.
+buddy_list_update:Njelajah dhewe konco dhaftar
+core_err_invinp_title:bener Input
+core_err_invinp_err:Sampeyan wis ndherekake lan pranala bener. Mangga menawa pengiriman notifikasi sing <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a> carane sampeyan got dhumateng kaca punika.
+core_adm_login_msg:Pangurus bisa mlebet <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">kene</a>.
+email_err_unabletoemail_title:Kesalahan: iso e-mail
+email_err_unabletoemail_msg:Sistem e-mail wis diilangi dening administrator.
+email_error_unabletolocaddr:Nuwun sewu, sistem Tukang e-mail {VAR-HTML: _POST['tx_name']} amarga Tukang kanggo nemtokake alamat e-mail
+email_error_body:Awak dibutuhake
+email_error_subject:Subyek dibutuhake
+email_error_namerequired:A Sandi dibutuhake
+email_error_invaliduser:bener pangguna
+emailconf_err_invkey_title:Kasalahan
+emailconf_err_invkey_msg:Bener konfirmasi tombol. Mangga dipriksa e-mail kanggo priksa manawa sampeyan wis ngetik URL bener. Yen wis diklik link kaping pindho, akun uga wis dikonfirmasi. Mlebet forum kanggo nyuwun tombol liyane.
+err_inc_criticaltitle:kritis kesalahan
+err_inc_criticalmsg:Kesalahan sampun wonten. Sayange, ana uga masalah karo kesalahan sistem Reporting.
+finduser_update:Kategori kedhaftar
+help_index_update:maca <a href="{TEMPLATE: help_index_update_lnk}">bantuan</a>
+iemail_thr_subject:Anyar kiye kanggo {VAR: thr_subject} dening {VAR: poster_login}
+iemail_thr_bodyemail:Kanggo ndeleng balesan unread menyang {VAR: goto_url['email']}\n\nYen sampeyan ora pengin nampa kabar luwih bab balesan ing topic, please go kene: {VAR: unsub_url['email']}
+iemail_frm_subject:New topic ing forum {VAR: frm_name}, diarani {VAR: thr_subject}, dening {VAR: poster_login}
+iemail_frm_bodyemail:Kanggo ndeleng topik menyang:\n{VAR: goto_url['email']}\n\nKanggo mungkasi nampa kabar bab topik anyar ing forum iki, monggo menyang kene: {VAR: unsub_url['email']}
+iemail_participate:Kanggo melok diskusi, mbukak kene:
+ignore_list_err_info_title:Info
+ignore_list_err_dup_msg:Sampeyan wis duwe pangguna ing ditolak lewat dhaftar
+ignore_list_err_nu_title:Anggota Jeneng ora ketemu
+ignore_list_err_nu_msg:Pangguna sampeyan nampa kanggo ditambahake menyang dhaptar ditolak lewat ora ketemu.
+ignore_list_cantign_msg:Sampeyan ora bisa ditolak lewat pangguna iki
+ignore_list_update:Njelajah dhewe ditolak lewat dhaftar
+index_update:njelajah <a href="{TEMPLATE: index_update_lnk}">Category dhaftar</a>
+list_referers_update:njelajah pitunjuk
+login_update:Mlebu Formulir
+msg_update:njelajah topic <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
+pm_err_nopm_title:Kesalahan: Private Pesen diaktifke
+pm_err_nopm_msg:Sampeyan bisa nggunakake olahpesen pribadi sistem. Wis diilangi dening administrator.
+pm_update:Nggunakake olahpesen pribadi
+post_err_lockedthread_title:Kesalahan: Dikunci Topic
+post_err_lockedthread_msg:Topic iki dikunci. Posting ora diijini maneh.
+err_coppa_title:Kesalahan: akun durung dikonfirmasi
+err_coppa_msg:Kita ora nampa konfirmasi saka tiyang sepah lan / utawa legal Guardian, kang badhe ngijini sampeyan kanggo ngirim pesen. Yen sampeyan ilang COPPA wangun, <a href="{TEMPLATE: err_coppa_msg_lnk}">ndeleng maneh</a>.
+err_banned_acct_title:Kesalahan: Sampeyan wis begalan.
+err_banned_acct_msg:Akun iki {IF: $ban_expiry}sementara begalan nganti {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}permanen begalan{ENDI} saka ngakses situs, amarga nerak ing forum kang aturan.
+post_err_edttimelimit_title:kesalahan
+post_err_edttimelimit_msg:Sampeyan bisa maneh Ngowahi pesen iki
+post_err_noannontopics_msg2:<legend>Kesalahan: boten cecek hak istimewa</legend>Anonymous kedhaftar ora diijini kanggo nggawe topik.
+post_err_noannonposts_msg2:<legend>Kesalahan: boten cecek hak istimewa</legend>Anonymous kedhaftar ora diijini diterusake.
+post_err_floodtrig_title:Kesalahan: Posting banjir micu.
+post_err_floodtrig_msg:Mangga nyoba maneh ing {PLURAL: tm|$1 liyane|$1 detik}
+post_err_attach_size:Gambar lampiran banget amba (liwat diijini watesan saka {VAR: MAX_F_SIZE} bita)
+post_err_attach_ext:File nyoba upload ora cocog sing diijini jinis berkas.
+post_err_attach_filelimit:Nyoba upload file liyane saka sing diijini.
+post_err_passwd:Salah Pendhaftaran.
+post_reply_update:Sawetawis mbales kanggo <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> ing {VAR: frm->name}
+post_topic_update:Tulis anyar ing topic <a href="{TEMPLATE: post_topic_update_lnk}">{VAR: frm->name}</a>
+post_error_generic:Ana kesalahan
+postcheck_max_images_err:Ana luwih saka {GVAR: MAX_IMAGE_COUNT} gambar sing diijini saben pesen. Mangga ngurangi jumlah gambar.
+postcheck_no_links_allowed:Sampeyan ora bisa nganggo pranala nganti sampeyan luwih saka {PLURAL: posts_before_links|$1 pesen|$1 pesen}.
+postcheck_subj_needed:Subjek required
+postcheck_no_such_user:Ora ana panganggo jenenge "{FUNC: char_fix(htmlspecialchars($v))}" ing forum iki.
+postcheck_ignored:Sampeyan bisa ngirim pesen pribadi kanggo "{FUNC: char_fix(htmlspecialchars($v))}", amarga pangguna iki sampeyan mboten midhangetaken.
+postcheck_no_recepient:Ora bisa ngirim pesen, panampa ilang
+postcheck_invalid_email:Mangga ngetik neng alamat e-mail kanggo kanca.
+postcheck_email_subject:Sampeyan bisa ngirim e-mail tanpa subyek.
+postcheck_email_body:Sampeyan bisa ngirim e-mail tanpa awak pesen.
+private_msg_notify_subj:Waca Kanggo Notifikasi: {VAR: m->subject}
+private_msg_notify_body:Hello,<br />{VAR: usr->login} wis dibukak Panjenengan pribadi pesen judul, "{VAR: m->subject}".<br />Iki minangka kabar otomatis kui ing {TEMPLATE: private_msg_notify_body_date}<br />
+referals_update:njelajah pitunjuk
+register_err_short_login:Ing Login sampeyan wis milih banget cendhak. Login jeneng kudu paling sethithik 4 karakter.
+register_err_login_notallowed:Iki jeneng mlebu log ora diijini.
+register_err_loginunique:Forum mlebu log jeneng kudu unik. Ana wis pangguna kanthi jeneng iki.
+register_err_emailexists:Iki alamat e-mail wis sing digandhengake karo akun. Yen sampeyan wis lali sandi please nggunakake pilihan Pulihake, tinimbang ngekspor register.
+register_err_shortpasswd:Sandhi sing kudu paling sethithik 6 karakter.
+register_err_passwdnomatch:Panjenengan sandhi ora cocog, mangga nyoba maneh.
+register_err_invalidemail:Alamat e-mail sing wis kasebut ora katon bakal bener.
+register_err_needname:Kanggo kasil ngrampungake Situs iki sampeyan kudu ngetik jeneng.
+register_err_enterpasswd:Sampeyan kudu ngetik Pendhaftaran saiki kanggo ngrampungake owahan.
+register_err_adminpasswd:Sampeyan kudu ngetik administrator <b></b> Pendhaftaran kanggo ngrampungake owahan.
+register_err_notyouremail:Wong liya wis kadhaftar karo alamat e-mail.
+register_err_avatartobig:File nyoba upload amba banget, luwih saka {GVAR: CUSTOM_AVATAR_MAX_SIZE} bita.
+register_err_avatarnotallowed:Ing avatar nyoba upload ora diijini. Priksa diijini jinis berkas.
+register_conf_subject:Situs Konfirmasi
+register_conf_msg:Matur nuwun kanggo ndhaftar,\nKanggo ngaktifake akun please menyang URL ngisor:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nYen akun aktif, sampeyan bakal mlebu-menyang forum lan\nredirected kanggo kaca utama.
+register_welcome_subject:Forum Situs Konfirmasi
+register_welcome_msg:Matur nuwun kanggo ndhaftar,\n\nKene sampeyan mlebu log kanggo rincian forum:\n\nForum URL: {TEMPLATE: index_update_lnk}\nMlebu: {VAR: uent->login}\nPangguna: {VAR: _POST['reg_plaintext_passwd']}\n\nWigati dicathet sandhi sing cilik sensitif!\nKanggo ngganti setelan utawa profil, menyang kaca iki:\n{FULL_ROOT}{ROOT}?t=register
+register_err_cantreg_title:Kesalahan: Tukang ndhaftar
+regsiter_err_cantreg_msg:Iso kanggo nggawe akun pangguna, hubungi administrator ing <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
+register_profile_update:Ndeleng dhewe profil
+register_register_update:Kaca Situs
+report_err_nosuchmsg_title:kesalahan
+report_err_nosuchmsg_msg:Ora kaya Pesen
+reset_err_invalidkey_title:kesalahan
+reset_err_invalidkey_msg:Bener Pendhaftaran Reset tombol. Sampeyan bisa Alamat e-mail klien kang wis kanthi otomatis mbukak kaca iki, invalidating tombol Reset. Kadung iki mulo kasus, sampeyan kudu sakcepete lan nampa email-karo Pendhaftaran anyar. Yen email ora kasedhiya, please Coba maneh ngreset Pendhaftaran.
+reset_err_rstconf_title:Informasi
+reset_err_rstconf_msg:Sampeyan kudu nampa pandhuan ing e-mail ing sabanjure sawetara menit.
+reset_newpass_title:Reset Pangguna
+reset_newpass_msg:Hello,\n\nNalika dijaluk, sampeyan mlebu log informasi katon ing ngisor iki:\n\nMlebu: {VAR: ui[1]}\nPangguna: {VAR: passwd}\n\nWigati dicathet sandi wis Reset menyang Nilai ndhuwur. Yen sampeyan pengin\nkanggo ngganti tembung sandi sampeyan bisa ditindakake liwat pangguna info panel kontrol ing:\n{FULL_ROOT}{ROOT}?t=register
+reset_login_notify:Panjenengan Pendhaftaran wis e-sering dipun kirim kanggo sampeyan. Sampeyan kudu nampa iku ing sabanjure sawetara menit.<br/>
+search_update:Kategori pesen
+selmsg_update:njelajah <a href="{TEMPLATE: selmsg_update_lnk}">Dina Kiriman</a>
+showposts_update:Ndeleng kiriman dening: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
+subscribed_update:Njelajah dhewe langgananku
+bookmarked_update:Njelajah dhewe tetenger dhaftar
+thread_update:njelajah forum <a href="{TEMPLATE: thread_update_lnk}">{VAR: frm->name}</a>
+tree_update:Njelajah topic (wit tampilan) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
+userinfo_update:looking ing<a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}'s</a> profile
+ERR_login_msg2:<legend>Kesalahan: Sampeyan ora mlebu ing</legend>Kanggo ngakses kaca iki sampeyan kudu dadi anggota forum iki.
+ERR_disabled_ttl:diaktifke fitur
+ERR_disabled_msg:Fitur iki wis ora diaktifke dening administrator sistem.
+ERR_access_ttl:Kesalahan: boten cecek Ijin
+ERR_access_msg:Sampeyan ora duwe ijin sing dibutuhake kanggo nindakake tindakan iki.
+ERR_registration_disabled_ttl:Situs diaktifke
+ERR_registration_disabled_msg:Administrator wis diilangi Situs. Mangga dipun cobi mangke.
+ERR_emailconf_ttl:Kesalahan: akun durung dikonfirmasi
+ERR_emailconf_msg:Sampeyan wis ora dikonfirmasi akun liwat e-mail durung.<br /><table border="0"><tr><td><ol><li>Yen sampeyan durung nampa konfirmasi e-mail, <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">jaluk maneh</a>.</li><li>Yen {VAR: usr_d->email} Panjenengan ora bener e-mail alamat, <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">nemtokake alamat sing bener</a>.</li></ol></td></tr></table>
+ERR_user_ttl:Kesalahan: Ora kuwi pangguna
+ERR_user_msg:Ana kuwi pangguna
+ERR_systemerr_ttl:Kesalahan: Sistem kesalahan
+ERR_systemerr_msg:Kesalahan sistem sampun wonten. Mangga laporan menyang <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a>.
+email_title:E-mail Formulir
+finduser_title:Golek Anggota Jeneng
+help_title:Pitulung
+login_title:Mlebu Formulir
+poll_title:Jajak Pendapat Paling Anyar Editor
+register_title:Register Formulir
+reset_title:Reset Pangguna
+rpasswd_title:Ngganti Formulir Pangguna
+error_title:kesalahan Formulir
+index_title:Komunitas forum
+search_title:nelusuri {VAR-HTML: srch}
+remail_emailsent:E-mail iki Pesen dikirim
+remail_email:Hello,\n\nAna sing topik menarik babagan "{VAR: data->subject}" ing {GVAR: FORUM_TITLE} forum sing mungkin kanggo maca. Sampeyan bisa ndeleng ing topic:\n {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nPanjenengan kanca,\n\n{VAR: usr->alias}
+poll_add_option:Tambah pilihan:
+post_opt_html_on:<b>HTML</b> punika <b>ing</b>
+post_opt_fud_on:<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>BBcode</b> punika <b>ing</b></a>
+post_opt_images_on:<b>gambar</b> punika <b>ing</b>
+post_opt_smilies_on:<a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank"><b>Smilies</b> punika <b>ing</b></a>
+post_opt_html_off:<b>HTML</b> kode punika <b>mati</b>
+post_opt_fud_off:<b>BBcode</b> punika <b>mati</b>
+post_opt_images_off:<b>gambar</b> punika <b>mati</b>
+post_opt_smilies_off:<b>Smilies</b> punika <b>mati</b>
+post_opt:Forum Pilihan:
+register_change_passwd:ngganti Pendhaftaran
+register_change_login:ngganti mlebu log
+approved_avatar_title:Panjenengan adat avatar disetujui.
+approved_avatar_msg:Panjenengan avatar iki disetujoni dening administrator. Sampeyan ngirim saiki katon minangka avatar ing kabeh pesen. Yen sampeyan ora bisa ndeleng iku, utawa ndeleng Panjenengan avatar lawas, iku amarga browser wis kethok kaca. Coba sumilir sepindah utawa kaping pindho. Ing kasus paling iki bakal ngatasi masalah caching.
+unapproved_avatar_title:Panjenengan adat avatar iki nolak.
+unapproved_avatar_msg:Administrator durung sarujuk avatar sampeyan. Alasan sing paling umum ana sing avatar iki amba banget (ukuran lan / utawa dimensi) utawa ngandhut boten cecek Subject Matter. Yen arep informasi luwih lengkap babagan napa sampeyan avatar iki ditolak, hubungi administrator.
+mvthread_request_move:nyuwun pindhah menyang
+move_request_reason:Apa kowe pengin sing topik kanggo bakal dipindahaké?
+mvthread_submit_req:Kirim Request
+thread_exchange:Topic Exchange
+move_request_by:Topic pamindhahan dijaluk dening:
+move_reason:Alesan kanggo topic pamindhahan:
+thr_exch_accept:nampa topic
+thr_exch_decline:Kurangé populasi topic
+thr_exch_orig_forum:Original Forum:
+thr_exch_dest_forum:Panggonan Forum:
+thr_exch_no_threads:Ora ana topik nunggu persetujuan.
+thr_exch_decl_reason:Alesan kanggo ngasor topic <b>{VAR: data->subject}</b> menyang forum <b>{VAR: data->f2_name}</b>
+thr_exch_submit:Kirim
+exch_decline_ttl:Ngalih topik {VAR: data->subject} menyang forum {VAR: data->f2_name} iki nolak.
+ppost_original_msg:pesen sampeyan utawa terusake Sawetawis mbales kanggo
+split_thread:Topic pamisah
+groupmgr_no_user:Ana pangguna kanthi mlebu ing "{FUNC: char_fix(htmlspecialchars($gr_member))}"
+groupmgr_already_exists:Anggota Jeneng "{FUNC: char_fix(htmlspecialchars($gr_member))}" wis ana ing grup iki.
+groupmgr_yes:Iya
+groupmgr_no:Ora
+groupmgr_action:Laku
+groupmgr_member:Anggota
+groupmgr_cancel:Batal
+groupmgr_add_member:Tambah Anggota
+groupmgr_update_member:update Anggota
+groupmgr_edit:Sunting
+groupmgr_delete:Busak
+group_mgr_anon:Tanpa aran
+group_mgr_reged:Kabeh Pangguna Pangguna
+show_show:Tampilake:
+group_mgr:Group Manager
+group_mgr_edit_btn:sunting Group
+group_mgr_heading:Group Editor pilihan
+group_mgr_group:Kelompok:
+permission_denied_title:Idin rek!
+permission_denied_msg:Panjenengan ijin ora ngijini sampeyan kanggo nindakake tindakan sing wis nyoba.
+p_READ:Waca
+p_POST:Kirim
+p_REPLY:Wangsulana
+p_EDIT:Sunting
+p_DEL:Busak
+p_STICKY:caket pesen
+p_POLL:gawe Jajak Pendapat
+p_FILE:masang file
+p_VOTE:Swara
+p_RATE:Rate topik / anggota
+p_SPLIT:pamisah topik
+p_LOCK:kunci topik
+p_MOVE:pindhah topik
+p_SML:Gunakake Eseman
+p_IMG:Gunakake tags gambar
+p_SEARCH:bisa Telusuri
+group_mgr_search:Golek Anggota Jeneng
+group_mgr_indicator:saiki Pengeditan: <b>{VAR: grp->name}</b>
+rate_worst:paling awon
+rate_best:Best
+post_quote_msg:{VAR: msg->login} wrote on {TEMPLATE: make_report_date}
+post_quote:Quote:
+post_quote_selected:Kutip teks Kapilih
+userinfo_referals:Diarani Pangguna:
+userinfo_referals_count:{VAR: referals} anggota
+pm_no_space_title:Ana papan kiwa!
+pm_no_space_msg:Panjenengan pribadi pesen folder ngluwihi diijini panyimpenan ukuran <b>{GVAR: MAX_PMSG_FLDR_SIZE} bita</b>. Wong saiki ngemot <b>{VAR: fldr_size} bita</b> worth pesen.<br /><br /><span class="ErrorText">Busak pesen sawetara lawas mbusak munggah spasi.</span>
+pm_space_indct_msg:Panjenengan pribadi pesen folder sing {VAR: percent_full}% lengkap.
+th_expr_never:Ora
+th_expr_one_hr:1 jam
+th_expr_three_hr:3 hours
+th_expr_four_hr:4 Wektu Kerjo
+th_expr_eight_hr:8 Wektu Kerjo
+th_expr_sixteen_hr:16 Wektu Kerjo
+th_expr_one_day:1 Day
+th_expr_two_day:2 dina
+th_expr_four_day:4 dina
+th_expr_one_week:1 Minggu
+th_expr_two_week:2 minggu
+th_expr_one_month:1 Wulan
+th_expr_two_month:2 Months
+th_expr_four_month:4 Months
+th_expr_one_year:1 Taun
+thread_mod_delete:Busak
+action_ip:IP
+action_latest_post:Paling Pesen
+online_today_last_visit:Paling sing Dikunjungi
+online_today_update:Ndeleng dhaptar kedhaftar sing padha ing forum iki.
+logedin_todays_visitors:Dina Pengunjung
+logedin_latest_post:Paling pesen ing forum:
+register_show_avatar:Tampilake Avatars:
+register_show_avatar_desc:Ngijini sampeyan kanggo ndhelikake avatars liyane kedhaftar nalika ndeleng sing pesen.
+drawmsg_view_rest_post:Tampilake seko pesen
+post_re:Re:
+forumsel_goto_forum:Lungo menyang Forum:
+minimsg_thread_view:View topic
+split_th_post_by:Pesen By:
+split_th_posted_on:Dikirim On:
+split_th_subject:Subyèk:
+split_th_new_thread_title:New topic judhul:
+split_th_forum:Category:
+split_th_split_sel:Pamisah pesen sing dipilih
+split_th_split_unsel:Pamisah pesen unselected
+split_th_messages:Layang
+split_th_select:Pilih
+report_report_post:report Pesen
+quicklogin_login:Mlebu:
+quicklogin_password:Tembung sandhi:
+quicklogin_use_cookies:Gunakake cookies?
+quicklogin_login_btn:Mlebu log
+quick_reply:cepet Reply
+quick_reply_post:Kirim Reply cepet
+quick_reply_preview:Pratinjau cepet Reply
+post_notification_desc:Menawa pengiriman notifikasi kula nalika wong Balesan pesen iki.
+post_all_ext_allowed:(tanpo wates)
+maximize_category:nggedhekake Kategori
+maximize_message:nggedhekake Pesen
+no_view_perm:Sampeyan ora duwe ijin cocok needed kanggo ndeleng topik iki.
+report_empty_report:Sampeyan bisa ngirim laporan kothong. Mangga ketik alesan kanggo Panjenengan report.
+report_already_reported_title:wis kacarita
+report_already_reported_msg:Pesen iki wis kacarita lan report Saiki ing moderator kang saiki.
+register_err_toomanyimages:Nyoba kanggo nggunakake luwih diijini {GVAR: FORUM_IMG_CNT_SIG} gambar ing teken.
+pmsg_next_msg:sabanjure pesen
+pmsg_prev_msg:Sedurunge pesen
+post_proc_reveal_spoiler:Toggle Spoiler
+register_jabber:Jabber nangani:
+register_skype:Skype nangani:
+register_twitter:Twitter nangani:
+register_google:Google Chat/IM nangani:
+im_jabber:Jabber:
+im_google:Google Talk:
+im_skype:Skype:
+im_twitter:Twitter:
+forum_contact:Kontak
+forum_home:Latar
+post_cur_attached:saiki ditempelake: {VAR: i} {PLURAL: i|berkas|file}
+ignored_anon_post:{GVAR: ANON_NICK} wis digathekno
+ignored_user_post:Pesen dening <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> wis digathekno
+smladd_close_window:Tutup Layar
+post_list_smilies:Dhaftar Eseman kabeh
+p_VISIBLE:katon
+reported_in_thread:ing:
+help_back_to_top:bali menyang Top
+help_return_to_index:Bali menyang Bantuan Indeks
+imsg_err_message_title:bener Pesen
+imsg_err_message_msg:Pesen nyoba kanggo ndeleng ora ana.
+poll_edit:Sunting
+register_err_not_valid_img:URL kasebut ora ngemot gambar neng.
+pmsg_recepient:panampa
+register_err_taken_alias:Ing alias nyoba kanggo nggunakake wis digunakake dening liyane anggota forum. Mangga milih liyane.
+register_alias:alias:
+register_alias_desc:Yen sampeyan pengin celukan liyane saka telpon mlebu log kanggo katampil ing forum, ngetik kene.
+register_allow_pm_msg:Allow Pesen Pribadi:
+register_allow_pm_msg_desc:Allow kedhaftar liyane kanggo ngirim pesen sampeyan pribadi ing forum iki.
+postcheck_pm_disabled:Sampeyan bisa ngirim pesen pribadi kanggo "{VAR-HTML: v}", amarga wong iki ora nrima pribadi pesen.
+polllist_vote:Swara
+polllist_view_results:Asil ndeleng
+polllist_name:Jajak Pendapat Paling Anyar Sandi
+polllist_date:Digawe On
+polllist_owner:Digawe Miturut
+polllist_votes:Total Votes
+polllist_action:Laku
+polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">Reviewing Sedhiya Jajak Pendapat</a>
+userinfo_polls:Jajak Pendapat:
+show_pollist:Tampilake Jajak Pendapat
+search_and:AND
+search_or:OR
+search_desc_order:mudhun Ordo
+search_asc_order:munggah Ordo
+search_logic:Telusuri logika:
+search_sorting:Urut Asil dening Tanggal ing:
+search_attach:lampiran:
+search_attach_all:Nganggo utawa tanpa
+search_attach_with:kanthi lampiran
+post_proceed:nerusake
+post_moderated_forum:Sampeyan wis digawe kirim ing forum ngirim. Pesen ora bakal bisa ditemokake liyane nganti disetujui dening salah sijine forum kang moderator utawa Administrator.
+post_moderated_forum_ttl:Ngirim Forum Catetan
+buddy_list_bday:Dina {VAR: r[2]} dadi {VAR: age}
+email_warning_msg:Yen sampeyan ngganti saiki alamat e-mail, akun bakal ditandhani unconfirmed nganti sampeyan konfirmasi iku liwat e-mail.
+register_show_im:Tampilake pratondho IM:
+register_show_im_desc:Perduli ora kanggo nuduhake pratondho IM saka penulis jejere sing pesen.
+unread_message:Unread Pesen
+read_message:Waos Pesen
+threadt_more:&lt;more&gt;
+threadt_disabled_ttl:Wit-witan ing Tampilan listing topic wis ora diaktifke.
+threadt_disabled_desc:Administrator wis diilangi tampilan wit saka listing topic. Mangga nggunakake tampilan flat wae.
+threadt_update:Njelajah forum (wit Tampilan) <a href="{TEMPLATE: threadt_update_lnk}">{VAR: frm->name}</a>
+mmod_delete_cofirm_ttl:Konfirmasi pambusakan Topic / Pesen
+spell_alts:ora alternatives
+insert_uploaded_image:Pasang gambar menyang pesen awak
+finduser_help:Engine Panelusuran iki bakal kanthi otomatis nambah topeng * kanggo pitakonan panjenengan, golèk <b> punika cilik-sensitif</b>.<br/> Ex. kanggo nelusuri kabeh kedhaftar Sapa sing mlebu wiwit karo 'a', ketik 'a' menyang kotak.
+back_to_top:Back to Top
+pm_err_disabled_title:Pesen Pribadi diaktifke
+pm_err_disabled_msg:Sampeyan bisa ngirim pesen pribadi nganti sampeyan ngaktifake pilihan 'Allow Jawa ENEnglish Private Messages' ing profil Panjenengan.
+err_mod_acc_ttl:Unverified akun
+err_mod_acc_msg:Administrator wis milih kanggo akun maneh kabeh manual sadurunge kanggo aktifitas. Nganti akun divalidasi dening administrator sampeyan ora bakal bisa nggunakke Kapabilitas sing kebak akun.
+accounts_pending_approval:Akun sing ditundha disetujoni
+saved:disimpen
+register_err_time_limit:Watesan siji Situs saben {GVAR: REG_TIME_LIMIT} detik wis ngrambah. Mangga ngenteni {PLURAL: reg_limit_reached|$1 liyane|$1 detik}, lan banjur nyoba kanggo ndhaftar sepisan maneh.
+register_affero:Affero jeneng:<br /><span class="SmallText">Yen sampeyan nduweni <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">Affero</a> jeneng, ngetik kene.</span>
+im_affero:Affero Jeneng
+register_err_avatardimtobig:Avatar dimensi saka <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> ngluwihi dimensi sing diijini saka <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b> piksel.
+buddy_offline:{VAR: r[2]} is currently offline
+buddy_online:{VAR: r[2]} Saiki online
+sml_no_smilies:Ora emoticons kasedhiya.
+login_unapproved_account_ttl:Unapproved akun
+login_unapproved_account_msg:Administrator saka forum wis milih kanggo konfirmasi saben akun anyar kanthi manual sadurunge aktifitas. Akun durung durung wis dikonfirmasi, mila sampeyan ora bisa ngakses sawetara fitur sing kasedhiya kanggo dikonfirmasi anggota.
+remove_from_buddy_list:dibusak saka konco dhaftar
+iemail_msg_author:<b>Author:</b> {VAR: obj->alias}
+iemail_msg_subject:<b>Subjek:</b> {VAR: obj->subject}
+iemail_msg_date:<b>tanggal:</b> {TEMPLATE: dmsg_post_date}
+iemail_msg_reply:Wangsulana
+iemail_msg_quote:Quote
+iemail_msg_view:View topic/Pesen
+threadt_sticky:caket
+threadt_announce:woro-woro
+reported_no_messages:Ora ana pesen kacarita.
+poll_no_polls:Ana ora Jajak Pendapat diakses.
+no_unread_messages:Ora ana pesen unread sing cocog karo pitakonan panjenengan.
+thread_mark_all_read:Tandhani kabeh unread pesen Category maca
+thread_mark_all_read_desc:Kabeh pesen unread ing forum iki bakal ditandhani maca
+private_no_messages:Ora ana pesen ing folder.
+register_email_change_subject:E-mail konfirmasi pangowahan
+register_email_change_msg:Mangga konfirmasi anyar akun email "{VAR: uent->email}" nggantosaken sing lawas e-mail akun "{VAR: old_email}", dening arep URL ngisor:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nSawise konfirmasi anyar alamat e-mail, sampeyan Category akun bakal maneh aktif.
+iemail_thread_unsub:Batal saka topik
+iemail_forum_unsub:Batal saka forum
+primary_group_prefix:Utami grup kanggo Category:
+group_resources:Grup iki Kontrol ijin forum iki
+register_admin_newuser_title:A pangguna anyar wis pangguna lan akun ditundha konfirmasi
+register_admin_newuser_msg:A pangguna anyar ({VAR: uent->login}) wis mung kadhaftar, lan wiwit akun konfirmasi wis aktif, sing akun bakal ora dadi aktif nganti wis dikonfirmasi sampeyan utawa administrator forum. Kanggo maneh akun please menyang: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nIki minangka proses otomatis. Aja Mbales pesen iki.\nYen sampeyan arep kanggo mateni mangsa kabar e-mail anyar dhaptaran, sampeyan bisa ditindakake liwat admin Panel Kontrol. Ganti "New akun Notifikasi" setelan.
+post_mod_msg_notify_title:Pesen anyar ing forum "{VAR: frm->name}" ditundha disetujoni
+post_mod_msg_notify_msg:Pesen anyar judul "{VAR: msg_post->subject}" iki mung dikirim ing forum sing Moderate. Kanggo pesen maneh iki menyang: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nIki minangka proses otomatis. Aja Mbales pesen.
+thread_printable_pdf:Generate PDF Cetak
+thread_syndicate:Klompok iki forum (XML)
+reg_conf_title:Situs Konfirmasi
+reg_conf_email:<b>E-mail Konfirmasi</b><br/> lan e-mail wis dikirim menyang sing ngemot URL khusus sing kudu ngakses sadurunge kanggo akun kang aktif. Yen sampeyan ora bisa nampa e-mail iki ing sabanjure sawetara menit, mlebet lan priksa manawa alamat e-mail sing wis kasebut iku bener. Sawise konfirmasi akun, sampeyan bakal bisa ngaksesfitur Category mung kasedhiya kanggo dikonfirmasi, pangguna kedhaftar.
+reg_conf_account:<b>akun Konfirmasi</b><br/> Sadurunge akun digawe aktif iku perlu disetujoni dening administrator. Yen sing mengkono sampeyan bakal nampa lan e-mail sing nuduhake akun wis dikonfirmasi. Ing sawetoro wektu sampeyan bisa log-menyang akun, nanging sampeyan ora bisa ngakses fitur tartamtu.
+forum_banned_user:Panjenengan sadurunge tumindak wis ngasilaken ing sampeyan kang permanen begalan saka forum. Pamit.
+mnav_description:Pesen Navigator
+mnav_date_limit:Tanggal macem:
+mnav_forum_limit:Mung nelusuri ing:
+mnav_all_forums:Telusuri forum kabeh
+mnav_submit:Mulai Panelusuran
+mnav_no_range:Sampeyan kudu ngetik neng sawetara tanggal. Nilai iki bisa ngemot titik a desimal, (0,12) nanging kudu luwih saka nol.
+mnav_invalid_unit:Sampeyan kudu nemtokake neng unit wektu.
+mnav_invalid_date:Ing sawetara tanggal sing kasebut iku luwih saka siji diijini dening administrator. Coba sawetara cilik saka tanggal.
+mnav_no_results:Ora ana pesen sing cocog karo pitakonan.
+mnav_posted_by:Posted By:
+mnav_more:More &raquo;&raquo;
+mnav_minute:Forume(s)
+mnav_hour:Jam(s)
+mnav_day:Day(s)
+mnav_week:Minggu(s)
+mnav_month:Wulan(s)
+mnav_title:Pesen Navigator
+mnav_update:Njelajah Pesen nggunakake <a href="{TEMPLATE: mnav_update_lnk}">Pesen Navigator</a>
+pm_notify_subject:[{GVAR: FORUM_TITLE}] New Private Pesen Notifikasi
+pm_notify_body_email:Sampeyan kudu anyar pribadi pesen judul "{VAR: subject}", saka "{VAR: from}", ing forum "{GVAR: FORUM_TITLE}".\nKanggo ndeleng pesen, klik neng kene: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nKanggo mungkasi kabar mbokmenawa, mateni "Private Notifikasi Pesen" ing profil Panjenengan.
+register_pm_notification:Pesen Pribadi Notifikasi:
+register_pm_notification_desc:Yen diaktifake, sampeyan bakal dikirimi notifikasi saben pesen wis dikirim menyang pribadhi sampeyan.
+findu_admin_opts_header:Admin Opts.
+findu_unban:UnBan
+findu_ban:Ban
+findu_edit:Sunting
+findu_delete:Busak
+dmsg_reply_to:punika kiye kanggo
+dmsg_reply_num:pesen #{VAR: obj->reply_to}
+merge_topics:dados setunggal Pages
+merge_topics_cp:Dados setunggal Topic Panel Kontrol
+merge_topics_tpl:Pilih Pages kanggo dados setunggal <span class="SmallText">(sampeyan kudu milih topik liyane saka siji)</span>
+merge_merge:Dados setunggal Pages Kapilih
+merge_next:sabanjure Pages
+merge_prev:Sedurunge Pages
+merge_another:Menyang <a href="{TEMPLATE: merge_another_lnk}">pungkasan ditambahake topic</a> utawa dados setunggal liyane:
+split_cp:Topic pamisah Control Panel
+groups_perms_header:ijin <span class="small">(mindhah mouse liwat ijin kanggo ndeleng versi Tipe)</span>
+register_err_sig_too_long:Panjenengan teken exceeds maksimum sing diijini dawa {GVAR: FORUM_SIG_ML} karakter.
+register_sig_limit:{GVAR: FORUM_SIG_ML} karakter <a href="javascript: menehi tandha('Panjenengan teken punika '+document.forms['fud_register'].reg_sig.value.length+' karakter. Maksimum sing diijini teken dawa punika {GVAR: FORUM_SIG_ML} karakter.');" class="SmallText">Priksa Length teken</a>
+adm_account_accepted:akun '{VAR: login}' iki disetujoni dening administrator lan saiki aktif. Sampeyan saiki ngakses {GVAR: FORUM_TITLE}' Category minangka dikonfirmasi, pangguna pangguna.
+adm_account_accepted_s:Akun panjalukan kanggo '{GVAR: FORUM_TITLE}' Ditampa iki.
+adm_account_rejected:akun '{VAR: login}' iki nolak dening administrator. Yen arep ngerti alesan sing konco iki keputusane, aran bebas hubungi administrator ing '{GVAR: ADMIN_EMAIL}'.
+adm_account_rejected_s:Akun panjalukan kanggo '{GVAR: FORUM_TITLE}' iki nolak.
+thread_on:ing
+userinfo_buddy:konco:
+register_email_addr:Alamat e-mail:
+reset_suffix:Yen sampeyan nampa pesen kesalahan ing, please ditolak lewat iku. Yen sampeyan nampa sawetara salinan saka email, sing wis ora dijaluk, hubungi administrator forum ing {GVAR: ADMIN_EMAIL}\n\nIki panyuwunan iki milai saka: {VAR: _SERVER['REMOTE_ADDR']}.
+usrinfo_last_visit:Paling sing Dikunjungi:
+mnav_newer:anyar saka
+mnav_older:lawas saka
+ip_search_by_ip:Telusuri kedhaftar dening IP
+ip_search_syntax:Didhukung pangrinciané: 1.2.3.4, 1.2.3, 1.2, 1
+ip_search:Golèk
+ip_analyze_usage:Njelasno panggunaan IP
+ip_analyze_usage_descr:Mangga nemtokake pangguna pas mlebu log.
+ip_users_using:pangguna nggunakake '{VAR: ip}' alamat IP
+ip_all_ips:Kabeh IPS digunakake dening '{VAR: user}'
+ip_title:IP Browser
+userinfo_real_name:Nyata Sandi:
+register_err_alias_notallowed:Iki alias ora diijini
+post_err_mod_forum_edit_ttl:kesalahan
+post_err_mod_forum_edit_msg:Sampeyan bisa ngowahi pesen ing forum ngirim.
+dmsg_num:pesen #{VAR: obj->id}
+postcheck_session_invalid:Panjenengan sesi wis kadaluwarsa. Mangga maneh kangge mbentuk. Ngapunten kanggo ora nyaman.
+delete_message_extra_desc:<b>pilihan</b><br/> nemtokake alesan kanggo pambusakan saka pesen, kang bakal dikirim menyang penulis liwat pesen pribadi.
+delete_message_extra_body:Termasuk awak ing pesen sing dibusak iki bakal dikirim menyang author.
+delete_msg_removed_ttl:Pesen iki dibusak dening sampurna Staff.
+delete_msg_pm_body:original pesen
+delete_msg_pm_subject:Subjek: {VAR: data[15]}
+ip_no_whois:Sapa informasi <b>{VAR: ip}</b> ora kasedhiya.
+ip_whois_title:ISP Informasi
+register_theme:tema:
+pmsg_trash:P Trash
+uc_new_pm:New Jawa ENEnglish Private Messages
+uc_new_topic:Topic anyar
+uc_new_cat_forum:Subscribed Forum Kanthi anyar Pesen
+uc_cat_forum:Kategori » Forum
+uc_sub_topics:Subscribed Pages Kanthi anyar Pesen
+uc_page_title:Viewing personal control panel.
+search_options:Telusuri Pilihan
+search_user_filter:Saring dening pangguna:
+register_none:Aja menawa pengiriman notifikasi kula
+findu_no_conf:unconfirmed pangguna
+register_max_sig_len:Bukaan Length:
+register_turing:Mangga ketik kode ditampilake ing ngisor iki:
+register_err_turing:Bener Validation kode.
+modque_cat:Kategori
+modque_forum:Forum
+idx_compact_forum_row:Sedhiya Forum:
+mmd_del_title:Busak Pages
+mmd_mov_title:pindhah Pages
+mmd_move_threads_to:Panggonan Forum:
+mmd_abort_move:Batal
+mmd_move:pindhah Pages
+pmsg_pdf_btn:Priksa Arsip PDF
+search_results_hdr:{VAR: total} Search Results Found
+thread_del_all:Busak milih
+thread_mov_all:pindhah Kapilih
+thread_merge_all:dados setunggal Kapilih
+thread_loc_all:Kunci/Bk.kunc Kapilih
+dmsg_ip:IP:
+err_blockedaccnt_title:Kesalahan: akun wis saring metu.
+err_blockedaccnt_msg:Akun wis diblokir saka ngakses forum amarga siji saka diinstal Filter-filter pangguna.
+merge_th_page_list:Topic Page pilihan
+most_users_online:Paling kedhaftar tau online iki <b>{VAR: st_obj->most_online}</b> ing <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
+sub_unsub_all_forums:Batal Saka Kabeh Forum
+sub_unsub_all_topics:Batal Saka Kabeh Pages
+unbookmark_all_topics:Busak tetenger kabeh
+tabs_own_posts:Tampilake Kiriman Piyambak
+sml_emoticon:Emoticon
+sml_code:Kodhé
+mnav_sub_only:Nggoleki ing subscribed forum mung
+register_topics_per_page:Topics Per Page:
+login_min_time:Iki forum ngidini siji mlebu log nyoba saben {VAR: MIN_TIME_BETWEEN_LOGIN} detik, monggo dienteni {FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)} detik sadurunge nyoba sabanjuré.
+post_not_logged_in:Sampeyan saiki mlebu, pesen bakal dikirim ora kenal.
+post_common_bold:Kandel
+post_common_italics:miring
+post_common_underline:Underline
+post_common_align_left:kempal Ngiwa
+post_common_align_center:kempal Pusat
+post_common_align_right:kempal tengen
+post_common_link:Pasang link
+post_common_link_popup:Link lokasi:
+post_common_email:Pasang alamat E-mail
+post_common_email_popup:Alamat E-mail:
+post_common_image:Pasang gambar
+post_common_image_popup:Gambar URL:
+post_common_nlist:Tambah dhaftar jumlah
+post_common_blist:Tambah dhaftar bulleted
+post_common_quote:Tambah Quote
+post_common_code:Tambah Code
+rating_delete:Busak
+post_always_on_top:Priksa topik sing tansah katon ing sisih ndhuwur listing topic
+topic_rating:{VAR: frm->rating} saka {PLURAL: frm->n_rating|$1 milih|$1 votes}
+topic_list_rating:{VAR: r[17]} saka {PLURAL: r[21]|$1 milih|$1 votes}
+tabs_notifications:Wara-wara
+finduser_flag:Tenger
+post_descr:Topic Description:
+pmsg_on:ing
+pmsg_download_dump:Download mbucal Pesen
+move_messages:pindhah pesen
+move_msg_btn:Pindhah Pesen Kapilih
+move_msg_th_expl:Nemtokake ID ing topic panggonan (bisa ing forum liyane)
+captcha_img_alt:CAPTCHA Verifikasi: sampeyan kudu ngenali teks ing gambar.
+captcha_img_help:Ora ana siji utawa nul ing gambar.
+powered-by:Powered by: FUDforum {GVAR: FORUM_VERSION}.
+copyright:hak cipta &copy;2001-2012 <a href="http://fudforum.org/">FUDforum Bulletin Papan Software</a>
+code_title:Kodhé:
+code_select_all:Pilih kabèh
+code_show_hide:Tampilake / ndhelikake
+social_sites:Jaringan sosial situs:
+postcheck_min_len_err:Panjenengan pesen punika cendhak. Length minimal punika {PLURAL: post_min_len|$1 karakter|$1 karakter}.
+postcheck_dup_err:Mangga ora nggawe topik duplikat.
+btn_new_topic:Topic anyar
+btn_new_pm:New P.Message
+btn_post_reply:Kirim Reply
+btn_tree_view:wit tampilan
+btn_flat_view:flat tampilan
+btn_about:profil
+btn_small_pm:PM
+btn_delete:busak
+btn_edit:sunting
+btn_reply:wales
+btn_forward:nerusake
+btn_quote:quote
+btn_email:E-mail
+btn_show_posts:kiriman
+btn_homepage:www
+feed_no_data:Ora data sing cocog ditemokake.
+feed_rdf:RDF feed
+feed_rss:RSS2 feed
+feed_atom:ATOM feed
+ip_whois_connect_err:Iso kanggo nyambung menyang sapa server ({VAR: whois_server}): {VAR: errstr}
+custom_filed_required:Iki kolom dibutuhake.
+pages:Kaca-kaca
+page_list_heading:Sedhiya kaca
+page_list_total:{PLURAL: i|$1 kaca|$1 kaca} kadhaptar.
+page_update:njelajah kaca
+pm_export_header:Private pesen {VAR: usr->alias}
+pm_export_footer:Exported:
+karma:Karma
+karma_track:Ngatur reputasi kanggo pangguna:
+karma_delete:Busak
+rate_author:Rate Author:
