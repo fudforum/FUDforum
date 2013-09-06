@@ -39,7 +39,8 @@ function resolve_dest_path($path)
 }
 
 /* main */
-	@ini_set('memory_limit', '256M');
+	define('SQLITE_FAST_BUT_WRECKLESS', 1);
+	@ini_set('memory_limit', '-1');
 	@set_time_limit(0);
 
 	require('./GLOBALS.php');
@@ -47,7 +48,7 @@ function resolve_dest_path($path)
 	// Run from command line.
 	if (php_sapi_name() == 'cli') {
 		if (empty($_SERVER['argv'][1])) {
-			echo "Usage: php admimport.php /path/to/dump_file\n";
+			echo "Usage: php admimport.php /path/to/dump_file [skipsearch]\n";
 			die();
 		}
 
@@ -121,7 +122,7 @@ function resolve_dest_path($path)
 
 			$rewindf($fp);
 
-			/* Remove files that cause compilation errors with cross version restors. */
+			/* Remove files that cause compilation errors with cross version restores. */
 			pf('Cleanup old files...');
 			foreach(glob($GLOBALS['DATA_DIR'] .'thm/default/tmpl/*.tmpl') as $fn) unlink($fn);
 			foreach(glob($GLOBALS['DATA_DIR'] .'thm/path_info/tmpl/*.tmpl') as $fn) unlink($fn);
@@ -192,6 +193,7 @@ function resolve_dest_path($path)
 					}
 				}
 			}
+			unset($tbl);
 
 			/* Start loading the data. */
 			pf('Start loading database tables...');
@@ -259,6 +261,7 @@ function resolve_dest_path($path)
 				// Func spec: create_index($tbl, $name, $unique, $flds, $del_dups);
 				create_index($m[3], $m[2], (strtoupper($m[1]) == 'UNIQUE') ? true : false, $m[4], false);
 			}
+			unset($idx);
 
 			/* Manually reset database sequences for databases like DB2, Oracle & PgSQL. */
 			reset_fud_sequences();
@@ -266,6 +269,8 @@ function resolve_dest_path($path)
 			/* Handle importing of GLOBAL options. */
 			pf('Import GLOBAL settings...');
 			eval(trim($readf($fp, 100000))); // Should be enough to read all options in one shot.
+			fclose($fp);
+
 			change_global_settings($global_vals);
 
 			/* Try to restore the current admin account's session if he exists in the imported database. */
@@ -340,3 +345,4 @@ if ($datadumps) {
 </form>
 
 <?php require($WWW_ROOT_DISK .'adm/footer.php'); ?>
+
