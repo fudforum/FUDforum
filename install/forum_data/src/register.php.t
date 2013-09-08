@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -611,7 +611,7 @@ function email_encode($val)
 				$uent->users_opt ^= (8388608|16777216|4194304) ^ $old_opt;
 			}
 
-			$uent->sync_user();
+			$uent->sync();
 
 			/* If the user had changed their e-mail, force them re-confirm their account (unless admin). */
 			if ($FUD_OPT_2 & 1 && $old_email && $old_email != $uent->email && !($uent->users_opt & 1048576)) {
@@ -872,7 +872,7 @@ function email_encode($val)
 	$vals = implode("\n", timezone_identifiers_list());
 	$timezone_select	= tmpl_draw_select_opt($vals, $vals, $reg_time_zone);
 
-	$notification_select	= tmpl_draw_select_opt("4\n134217728", "{TEMPLATE: register_email}\n{TEMPLATE: register_none}", ($uent->users_opt & (4|134217728)));
+	$notification_select	= tmpl_draw_select_opt("4\n134217728", '{TEMPLATE: register_email}' ."\n". '{TEMPLATE: register_none}', ($uent->users_opt & (4|134217728)));
 
 	$vals = implode("\n", range(5, $THREADS_PER_PAGE_F));
 	$topics_per_page	= tmpl_draw_select_opt($vals, $vals, $uent->topics_per_page);

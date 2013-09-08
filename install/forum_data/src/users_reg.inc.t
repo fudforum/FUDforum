@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -212,7 +212,7 @@ class fud_user_reg extends fud_user
 		return $this->id;
 	}
 
-	/** Deprecated: Please use sync(). */
+	/** Deprecated: Please use sync(). Remove in FUDforum 3.1. */
 	function sync_user()
 	{
 		$this->sync();
