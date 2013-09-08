@@ -185,6 +185,12 @@
 						WHERE mlist_msg_id='. _esc($emsg->msg_id) .' AND t.forum_id='. $frm->id)) {
 			continue;
 		}
+		
+		/* Skip spam messages. */
+		if (isset($emsg->headers['x-spam-flag']) && ($emsg->headers['x-spam-flag'] == 'YES')) {
+			echo("Skip spam message.\n");
+			continue;
+		}
 
 		/* Handler for our own messages, which do not need to be imported. */
 		if (isset($emsg->headers['x-fudforum']) && preg_match('!'. md5($GLOBALS['WWW_ROOT']) .' <([0-9]+)>!', $emsg->headers['x-fudforum'], $m)) {
