@@ -14,6 +14,7 @@ include 'file_adm.inc';
 
 $GLOBALS['__FUD_SECTIONS__'] = array('MAIN_SECTION' => '{MAIN_SECTION: ', 'PAGE' => '{PAGE: ', 'SECTION' => '{SECTION: ');
 
+/** Fill-in missing template sections from parent themes. */
 function resolve_refs($file_name)
 {
 	if (isset($GLOBALS['file_cache'][$file_name])) {
@@ -157,6 +158,7 @@ function parse_sections($str, $file, $sl=0)
 	}
 }
 
+/** Expand tags in sections. */ 
 function resolve_sections($file, $secname, $str)
 {
 	if (($p = strpos($str, '{')) === false) {
@@ -360,7 +362,7 @@ function resolve_sections($file, $secname, $str)
 	return $ret . substr($str, $op, (strlen($str) - $op));
 }
 
-/* Process a src (*.t) file. */
+/** Process a src (*.t) file. */
 function compile_file($source, $from_tmpl)
 {
 	$l = strlen('<?php echo (');
@@ -484,7 +486,7 @@ function compile_file($source, $from_tmpl)
 	return str_replace('{SQL_TABLE_PREFIX}', $GLOBALS['DBHOST_TBL_PREFIX'], $ret . substr($file_data, $op, (strlen($file_data) - $op)));
 }
 
-/* Process a template (.tmpl) file. */
+/** Process a template (.tmpl) file. */
 function generate_file($php_file)
 {
 	if (!isset($GLOBALS['file_cache'][$php_file]['compiled']) && !isset($GLOBALS['file_cache'][$php_file]['inline'])) {
@@ -585,6 +587,7 @@ function generate_file($php_file)
 	fclose($fp);
 }
 
+/** Read and parse a message file. */
 function parse_msgs($file)
 {
 	// Read and process message file.
@@ -607,6 +610,7 @@ function parse_msgs($file)
 		}
 
 		// Encode message text (without sections) to ensure they don't break our templates.
+		// NOTE: DON'T ENCODE DOUBLE QUOTES (") USED IN HTML (for example <a href="">).
 		$msg = str_replace('\'', '&#39;', $msg);
 
 		// Re-insert {sections}.
@@ -628,6 +632,7 @@ function parse_msgs($file)
 	}
 }
 
+/** Fill-in missing messages from the DEFAULT theme (same lang); then from English. */
 function build_msg($file)
 {
 	if (isset($GLOBALS['MSG_FILES'][$file])) {
@@ -827,7 +832,7 @@ function compile_all($tset='default', $lang='en', $tname='default')
 	@umask($oldmask);
 }
 
-/* Copy localized image files to the theme's image directory. */
+/** Copy localized image files to the theme's image directory. */
 function copyimages($tname, $tset, $lang)
 {
 	$path = $GLOBALS['WWW_ROOT_DISK'] .'theme/'. $tname .'/images';
@@ -856,7 +861,7 @@ function copyimages($tname, $tset, $lang)
 	umask($u);
 }
 
-/* Copy help files to the theme's help directory. */
+/** Copy help files to the theme's help directory. */
 function copyhelp($tname, $tset, $lang)
 {
 	$path = $GLOBALS['WWW_ROOT_DISK'] .'theme/'. $tname .'/help';
@@ -902,7 +907,10 @@ function copyhelp($tname, $tset, $lang)
 	umask($u);
 }
 
-/* Copy langauge helper functions (language.inc) to the theme's directory. */
+/** Copy language helper functions (language.inc) to the theme's directory.
+  * This file will do last minute processing at run-time, for example to pluralize messages.
+  * I.e. Instead of saying "1 message(s)", we say "1 message", "2 messages", etc.
+  */
 function copylangfuncs($tname, $tset, $lang)
 {
 	$path = $GLOBALS['WWW_ROOT_DISK'] .'theme/'. $tname .'/';

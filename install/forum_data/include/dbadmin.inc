@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -14,6 +14,7 @@ function validate_db_version()
 {
 	if (!function_exists('db_version')) {
 		// get_version() was renamed to db_version() in FUDforum v3.0.2.
+		// TODO: Remove in FUDforum 3.1.
 		function db_version() { return get_version(); }
 	}
 
@@ -579,14 +580,21 @@ function delete_duplicate_rows($tbl, $flds)
 	$n = count($f);
 
 	// Databases with an internal row identifier.
-	if (__dbtype__ == 'firebird' || __dbtype__ == 'pgsql' || __dbtype__ == 'sqlite' || __dbtype__ == 'oracle') {
-		$idcol = (__dbtype__ == 'firebird') ? 'rdb$db_key' : ((__dbtype__ == 'pgsql') ? 'oid' : 'rowid');
+	if (__dbtype__ == 'pgsql' || __dbtype__ == 'firebird' || __dbtype__ == 'sqlite' || __dbtype__ == 'oracle') {
 		$where = '';
 		foreach ($f as $v) {
 			$cond   = 'i.'. $v .' = '. $tbl .'.'. $v;
 			$where .= (empty($where)) ? $cond : ' AND '. $cond;
 		}
-		q('DELETE FROM '. $tbl .' WHERE EXISTS (SELECT 1 FROM '. $tbl .' i WHERE '. $where .' AND i.'. $idcol .' < '. $tbl .'.'. $idcol .')');
+
+		if (__dbtype__ == 'pgsql') {
+			// Not all PostgresQL tables will have an "oid" column.
+			// Use workaround from http://postgres.cz/wiki/PostgreSQL_SQL_Tricks
+			q('DELETE FROM '. $tbl .' WHERE NOT ctid = (SELECT ctid FROM '. $tbl .' i WHERE '. $where .' LIMIT 1)');
+		} else {
+			$idcol = (__dbtype__ == 'firebird') ? 'rdb$db_key' : 'rowid';
+			q('DELETE FROM '. $tbl .' WHERE EXISTS (SELECT 1 FROM '. $tbl .' i WHERE '. $where .' AND i.'. $idcol .' < '. $tbl .'.'. $idcol .')');
+		}
 
 		return;
 	}
