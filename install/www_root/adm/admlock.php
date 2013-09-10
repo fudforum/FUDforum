@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -45,7 +45,6 @@
 		if (isset($_POST['btn_unlock'])) {
 			$dirperms = 0777;
 			$fileperms = 0666;
-			@unlink($ERROR_PATH .'FILE_LOCK');
 			$FUD_OPT_2 ^= 8388608;
 		} else {
 			if (!strncmp(PHP_SAPI, 'apache', 6)) {

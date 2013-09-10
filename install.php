@@ -689,7 +689,6 @@ if ($section == 'stor_path' || php_sapi_name() == 'cli') {
 		$PLUGIN_PATH         = $SERVER_DATA_ROOT .'plugins/';
 
 		@chmod($INCLUDE .'GLOBALS.php', file_perms);
-		touch($ERROR_PATH .'FILE_LOCK');
 
 		/* Load glob.inc for functions like fud_symlink() and read/change_global_settings(). */
 		require_once($INCLUDE .'glob.inc');
