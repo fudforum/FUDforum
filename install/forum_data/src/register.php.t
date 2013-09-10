@@ -671,6 +671,9 @@ function email_encode($val)
 
 		if ($uent->birthday) {
 			$b_year = (int) substr($uent->birthday, 4);
+			if ($b_year == 0) {
+				$b_year = '';
+			}
 			$b_month = substr($uent->birthday, 0, 2);
 			$b_day = substr($uent->birthday, 2, 2);
 		} else {

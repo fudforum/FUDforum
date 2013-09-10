@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -114,6 +114,9 @@
 	if ($u->birthday) {
 		// Convert birthday string to a date.
 		$yyyy = (int)substr($u->birthday, 4);
+		if ($yyyy == 0) {
+			$yyyy = date('Y');
+		}
 		$mm   = (int)substr($u->birthday, 0, 2);
 		$dd   = (int)substr($u->birthday, 2, 2);
 		$u->birthday = mktime(0, 0, 0, $mm, $dd, $yyyy);
