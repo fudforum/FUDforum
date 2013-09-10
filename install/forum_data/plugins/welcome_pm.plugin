@@ -43,13 +43,13 @@ function welcome_pm_info() {
 }
 
 function welcome_pm_enable() {
-	if((@include_once $GLOBALS['PLUGIN_PATH'] .'welcome_pm.ini') === false) {
+	if ((@include_once $GLOBALS['PLUGIN_PATH'] .'welcome_pm.ini') === false) {
 		return array(null, 'Please configure the welcome_pm plugin before enabling it.');	// OK, Err.
 	}
 }
 
 function welcome_pm_config() {
-	if((@include $GLOBALS['PLUGIN_PATH'] .'welcome_pm.ini') === false) {
+	if ((@include $GLOBALS['PLUGIN_PATH'] .'welcome_pm.ini') === false) {
 	  $ini = NULL;
 	}
 

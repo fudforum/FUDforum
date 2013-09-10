@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -73,8 +73,8 @@ function _plugin_theme_router_selection($array) {
 
 function theme_router_info() {
 	return array('name' => 'Theme Router',
-				'desc' => 'Direct users to a suitable theme based on their browser language. Also present a drop down box so users can switch to diferent themes.',
-				'version' => '1.0');
+				'desc' => 'Direct users to a suitable theme based on their browser language. It also shows a drop down box on the front page so users can switch between different themes. Simply enable it and create a theme for each of the languages you want to support.',
+				'version' => '1.1');
 }
 
 function theme_router_enable() {

@@ -58,13 +58,13 @@ function plugin_wikilinks_tag_to_html($array) {
 	}
 
 	// Reinsert [notag] blocks.
-	if( is_array($notag_pre)) {
+	if (is_array($notag_pre)) {
 		foreach($notag_pre as $i => $notag) {
 			$bbcode = str_replace('***nOtAg_sTrInG'. $i .'***', $notag, $bbcode);
 		}
 	}
 	// Reinsert [code] blocks.
-	if( is_array($code_pre)) {
+	if (is_array($code_pre)) {
 		foreach($code_pre as $i => $code) {
 			$bbcode = str_replace('***cOdE_sTrInG'. $i .'***', $code, $bbcode);
 		}
@@ -102,13 +102,13 @@ function wikilinks_info() {
 }
 
 function wikilinks_enable() {
-	if((@include_once $GLOBALS['PLUGIN_PATH'] .'wikilinks.ini') === false) {
+	if ((@include_once $GLOBALS['PLUGIN_PATH'] .'wikilinks.ini') === false) {
 		return array(null, 'Please configure the wikilinks plugin before enabling it.');	// OK, Err.
 	}
 }
 
 function wikilinks_config() {
-	if((@include $GLOBALS['PLUGIN_PATH'] .'wikilinks.ini') === false) {
+	if ((@include $GLOBALS['PLUGIN_PATH'] .'wikilinks.ini') === false) {
 		$ini = NULL;
 	}
 

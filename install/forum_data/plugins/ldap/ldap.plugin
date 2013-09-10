@@ -133,7 +133,7 @@ function ldap_enable() {
 }
 
 function ldap_config() {
-	if((@include $GLOBALS['PLUGIN_PATH'] .'ldap/ldap.ini') === false) {
+	if ((@include $GLOBALS['PLUGIN_PATH'] .'ldap/ldap.ini') === false) {
 		$ini = NULL;
 	}
 
@@ -157,7 +157,7 @@ function ldap_config() {
 <input name="LDAP_HOST" value="<?php echo $ini['LDAP_HOST'] ?>" /></p>
 
 <p>LDAP server port. Default is 389:<br />
-<input name="LDAP_PORT" value="<?php echo $ini['LDAP_PORT'] ?>" /></p>
+<input type="number" name="LDAP_PORT" value="<?php echo $ini['LDAP_PORT'] ?>" /></p>
 
 <p>Enable TLS (Transport Layer Security) mode:<br />
 <label><input type="radio" name="LDAP_START_TLS" value="1" <?php echo $ini['LDAP_START_TLS'] ? 'checked="checked"' : '' ?> /> True<br /></label>

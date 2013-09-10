@@ -15,7 +15,7 @@ plugin_add_hook('CAPTCHA_VALIDATE', 'plugin_recaptcha_validate');
 
 // Display recaptcha image
 function plugin_recaptcha_display() {
-	if((@include $GLOBALS['PLUGIN_PATH'] .'recaptcha/recaptcha.ini') === false) {
+	if ((@include $GLOBALS['PLUGIN_PATH'] .'recaptcha/recaptcha.ini') === false) {
 		die('ERROR: Please configure the Recaptcha plugin from the Plugin Manager Control panel.');
 	}
 
@@ -51,14 +51,14 @@ function recaptcha_info() {
 }
 
 function recaptcha_enable() {
-	if((@include_once $GLOBALS['PLUGIN_PATH'] .'recaptcha/recaptcha.ini') === false) {
+	if ((@include_once $GLOBALS['PLUGIN_PATH'] .'recaptcha/recaptcha.ini') === false) {
 		return array(null, 'Please configure the recaptcha plugin before enabling it.');	// OK, Err.
 	}
 }
 
 // Configuration via the Admin Control Panel
 function recaptcha_config() {
-	if((@include $GLOBALS['PLUGIN_PATH'] .'recaptcha/recaptcha.ini') === false) {
+	if ((@include $GLOBALS['PLUGIN_PATH'] .'recaptcha/recaptcha.ini') === false) {
 		$ini = NULL;
 	}
 		

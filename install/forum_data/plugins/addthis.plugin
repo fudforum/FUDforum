@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -40,7 +40,7 @@ function plugin_addthis($array) {
 }
 
 function addthis_enable() {
-	if((@include $GLOBALS['PLUGIN_PATH'] .'addthis.ini') === false) {
+	if ((@include $GLOBALS['PLUGIN_PATH'] .'addthis.ini') === false) {
 		return array(null, 'Please configure the addthis plugin before enabling it.');	// OK, Err.
 	}
 	@define('REBUILD_THEMES', 1);
@@ -58,7 +58,7 @@ function addthis_info() {
 }
 
 function addthis_config() {
-	if((@include $GLOBALS['PLUGIN_PATH'] .'addthis.ini') === false) {
+	if ((@include $GLOBALS['PLUGIN_PATH'] .'addthis.ini') === false) {
 		$ini = NULL;
 	}
 
@@ -89,7 +89,7 @@ function addthis_config() {
 </select>
 
 <p>Number of buttons to show:<br />
-<input name="ADDTHIS_BUTTON_CNT" value="<?php echo $ini['ADDTHIS_BUTTON_CNT'] ?>" size="10" /></p>
+<input type="number" name="ADDTHIS_BUTTON_CNT" value="<?php echo $ini['ADDTHIS_BUTTON_CNT'] ?>" size="10" /></p>
 
 <p>Button sizes:<br />
 <label><input type="radio" name="ADDTHIS_BUTTON_SIZE" value="1" <?php echo $ini['ADDTHIS_BUTTON_SIZE'] ? 'checked="checked"' : '' ?> /> Large (32x32)<br /></label>

@@ -47,7 +47,7 @@ function google_analytics_info() {
 }
 
 function google_analytics_enable() {
-	if((@include_once $GLOBALS['PLUGIN_PATH'] .'google/google_analytics.ini') === false) {
+	if ((@include_once $GLOBALS['PLUGIN_PATH'] .'google/google_analytics.ini') === false) {
 		return array(null, 'Please configure the google_analytics plugin before enabling it.');	// OK, Err.
 	}
 	@define('REBUILD_THEMES', 1);
@@ -58,7 +58,7 @@ function google_analytics_disable() {
 }
 
 function google_analytics_config() {
-	if((@include $GLOBALS['PLUGIN_PATH'] .'google/google_analytics.ini') === false) {
+	if ((@include $GLOBALS['PLUGIN_PATH'] .'google/google_analytics.ini') === false) {
 		$ini = NULL;
 	}
 

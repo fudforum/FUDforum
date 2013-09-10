@@ -46,7 +46,7 @@ function google_adsense_info() {
 }
 
 function google_adsense_enable() {
-	if((@include_once $GLOBALS['PLUGIN_PATH'] .'google/google_adsense.ini') === false) {
+	if ((@include_once $GLOBALS['PLUGIN_PATH'] .'google/google_adsense.ini') === false) {
 		return array(null, 'Please configure the google_adsense plugin before enabling it.');	// OK, Err.
 	}
 	@define('REBUILD_THEMES', 1);
@@ -57,7 +57,7 @@ function google_adsense_disable() {
 }
 
 function google_adsense_config() {
-	if((@include $GLOBALS['PLUGIN_PATH'] .'google/google_adsense.ini') === false) {
+	if ((@include $GLOBALS['PLUGIN_PATH'] .'google/google_adsense.ini') === false) {
 		$ini = NULL;
 	}
 

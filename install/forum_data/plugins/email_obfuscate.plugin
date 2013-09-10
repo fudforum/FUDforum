@@ -13,7 +13,7 @@ plugin_add_hook('POST_TEMPLATE', 'plugin_email_obfuscate');
 
 // Prepare for obfuscate output
 function plugin_email_obfuscate($data) {
-	if( $_GET['t'] != 'post' ){
+	if ($_GET['t'] != 'post') {
 		if ( !file_exists(@$GLOBALS['PLUGIN_PATH'] .'email_obfuscate.ini') ) {
 			die('ERROR: The Email Obfuscate plugin has not been configured.');
 		} else {
@@ -75,13 +75,13 @@ function email_obfuscate_info() {
 }
 
 function email_obfuscate_enable() {
-	if((@include_once $GLOBALS['PLUGIN_PATH'] .'email_obfuscate.ini') === false) {
+	if ((@include_once $GLOBALS['PLUGIN_PATH'] .'email_obfuscate.ini') === false) {
 		return array(null, 'Please configure the email_obfuscate plugin before enabling it.');	// OK, Err.
 	}
 }
 
 function email_obfuscate_config() {
-	if((@include $GLOBALS['PLUGIN_PATH'] .'email_obfuscate.ini') === false) {
+	if ((@include $GLOBALS['PLUGIN_PATH'] .'email_obfuscate.ini') === false) {
 		$ini = NULL;
 	}
 

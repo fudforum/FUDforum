@@ -55,11 +55,11 @@ function ircbot_info() {
 	             'desc' => 'This plugin is used to announce new topics and replies on an IRC channel.<br /><br />
 				NOTE: This plugin does not work on Windows! Also, it does not work in isolation, but requires you to also schedule "ircbot.php" to run from the Job Manager (say once a day, just to restart it when terminated).',
 		     'cat'  => 'Third-party Integration',
-	             'version' => '1.0');
+	             'version' => '1.1');
 }
 
 function ircbot_config() {
-	if((@include $GLOBALS['PLUGIN_PATH'] .'/ircbot/ircbot.ini') === false) {
+	if ((@include $GLOBALS['PLUGIN_PATH'] .'/ircbot/ircbot.ini') === false) {
 		$ini = NULL;
 	}
 

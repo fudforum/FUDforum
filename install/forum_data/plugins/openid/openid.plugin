@@ -85,13 +85,13 @@ function openid_enable() {
 	if (!function_exists('curl_exec')) {
 		return 'OpenID requires the PHP cURL extension.';
 	}
-	if((@include_once $GLOBALS['PLUGIN_PATH'] .'/openid/openid.ini') === false) {
+	if ((@include_once $GLOBALS['PLUGIN_PATH'] .'/openid/openid.ini') === false) {
 		return 'Please configure the plugin before enabling it.';
 	}
 }
 
 function openid_config() {
-	if((@include $GLOBALS['PLUGIN_PATH'] .'/openid/openid.ini') === false) {
+	if ((@include $GLOBALS['PLUGIN_PATH'] .'/openid/openid.ini') === false) {
 		$ini = NULL;
 	}
 

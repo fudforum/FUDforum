@@ -44,7 +44,7 @@ function plugin_ftp_backup($dumpfile) {
 }
 
 function ftp_backup_enable() {
-	if((@include $GLOBALS['PLUGIN_PATH'] .'ftp_backup.ini') === false) {
+	if ((@include $GLOBALS['PLUGIN_PATH'] .'ftp_backup.ini') === false) {
 		return array(null, 'Please configure the FTP Backup plugin before enabling it.');	// OK, Err.
 	}
 }
@@ -57,7 +57,7 @@ function ftp_backup_info() {
 }
 
 function ftp_backup_config() {
-	if((@include $GLOBALS['PLUGIN_PATH'] .'ftp_backup.ini') === false) {
+	if ((@include $GLOBALS['PLUGIN_PATH'] .'ftp_backup.ini') === false) {
 		$ini = NULL;
 	}
 
