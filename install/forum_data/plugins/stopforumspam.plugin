@@ -1,0 +1,46 @@
+<?php
+/**
+* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
+* email                : forum@prohost.org
+* $Id: stopforumspam.plugin 5473 2012-05-06 16:35:53Z naudefj $
+*
+* This program is free software; you can redistribute it and/or modify it
+* under the terms of the GNU General Public License as published by the
+* Free Software Foundation; version 2 of the License.
+**/
+
+// Initialize plugin.
+plugin_add_hook('PRE_REGISTER', 'plugin_stopforumspam');
+
+// Validate registering users with StopForumSpam
+function plugin_stopforumspam($uent) {
+	$query = 'http://www.stopforumspam.com/api?username='. urlencode($uent->login) .'&email='. urlencode($uent->email) .'&ip='. $_SERVER['REMOTE_ADDR'] .'&f=json';
+	$data = json_decode(file_get_contents($query));
+
+	if (!$data->success) {	// Error occured!
+		fud_logerror('StopForumSpam returned ['. $data->error .'] while validating '. $uent->email .' from '. $_SERVER['REMOTE_ADDR'] .'. User will be allowed to register.', 'fud_errors');
+		return $uent;
+	}
+
+	if ($data->username->appears || $data->email->appears || $data->ip->appears) { 	// Bloack listed!
+		fud_logerror('StopForumSpam blocked registration from '. $uent->email .' / '. $_SERVER['REMOTE_ADDR'], 'fud_errors');
+		echo '<h2>Sorry, you are listed on StopForumSpam.com and are not allowed to register!</h2><p>'.
+		     'Your USERNAME was found '. $data->username->frequency .' times.<br />'.
+		     'Your EMAIL was found '.    $data->email->frequency    .' times.<br />'.
+		     'Your IP was found '.       $data->ip->frequency       .' times.</p>';
+		exit;
+	} else if (defined('fud_debug')) {
+		fud_logerror('StopForumSpam allowed registration from '. $uent->email .' / '. $_SERVER['REMOTE_ADDR'], 'fud_errors');
+	}
+
+	return $uent;
+}
+
+function stopforumspam_info() {
+	return array('name' => 'Stop Forum Spam',
+		     'desc' => 'This plugin checks registering users against the spammer blacklist from <a href="http://www.stopforumspam.com">stopforumspam.com</a> to prevent known bots from creating accounts on your forum.',
+		     'cat'  => 'Anti-spam',
+		     'version' => '1.0');
+}
+
+?>
