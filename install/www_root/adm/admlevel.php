@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -71,7 +71,7 @@
 
 	<tr class="field">
 		<td>Post Count:</td>
-		<td><input type="text" name="lev_post_count" value="<?php echo $lev_post_count; ?>" size="11" maxlength="10" /></td>
+		<td><input type="number" name="lev_post_count" value="<?php echo $lev_post_count; ?>" size="11" maxlength="10" /></td>
 	</tr>
 
 	<tr>

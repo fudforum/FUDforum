@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -82,7 +82,7 @@ For example, if you enter a value of 2 and select "years" this form will offer t
 <table class="datatable">
 <tr class="field">
 	<td nowrap="nowrap">Users with last login prior to:</td>
-	<td ><input tabindex="1" type="text" name="user_age" /></td>
+	<td ><input tabindex="1" type="number" name="user_age" /></td>
 	<td nowrap="nowrap"><?php draw_select('units', "Day(s)\nWeek(s)\nMonth(s)\nYear(s)", "86400\n604800\n2635200\n31622400", '31622400'); ?>&nbsp;&nbsp;ago</td>
 </tr>
 

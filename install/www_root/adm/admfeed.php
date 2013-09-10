@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -70,10 +70,10 @@
 <?php
 	print_bit_field('XML Feed Enabled', 'FEED_ENABLED');
 	print_bit_field('Feed Authentication', 'FEED_AUTH');
-	print_reg_field('User id', 'FEED_AUTH_ID');
-	print_reg_field('Maximum number of result', 'FEED_MAX_N_RESULTS');
+	print_reg_field('User id', 'FEED_AUTH_ID', 1);
+	print_reg_field('Maximum number of result', 'FEED_MAX_N_RESULTS', 1);
 	print_bit_field('Allow user data retrieval', 'FEED_ALLOW_USER_DATA');
-	print_reg_field('Cache Control', 'FEED_CACHE_AGE');
+	print_reg_field('Cache Control', 'FEED_CACHE_AGE', 1);
 ?>
 <tr class="fieldaction"><td colspan="2" align="right"><input type="submit" name="btn_submit" value="Change Settings" /></td></tr>
 </table>

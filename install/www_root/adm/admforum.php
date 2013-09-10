@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -221,12 +221,12 @@ if (!isset($_GET['chpos'])) {	// Hide this if we are changing forum order.
 
 	<tr class="field">
 		<td>Max Attachment Size:<br /><font size="-2">Your php's maximum file upload size is <b><?php echo floor($max_upload_size / 1024); ?></b> KB.<br />You cannot set the forum's attachment size limit higher than that.</font></td>
-		<td><input type="text" name="frm_max_attach_size" value="<?php echo $frm_max_attach_size; ?>" maxlength="100" size="5" />KB</td>
+		<td><input type="number" name="frm_max_attach_size" value="<?php echo $frm_max_attach_size; ?>" maxlength="100" size="5" />KB</td>
 	</tr>
 
 	<tr class="field">
 		<td>Max Number of file Attachments:</td>
-		<td><input type="text" name="frm_max_file_attachments" value="<?php echo $frm_max_file_attachments; ?>" maxlength="100" size="5" /></td>
+		<td><input type="number" name="frm_max_file_attachments" value="<?php echo $frm_max_file_attachments; ?>" maxlength="100" size="5" /></td>
 	</tr>
 
 	<tr class="field">
@@ -241,7 +241,7 @@ if (!isset($_GET['chpos'])) {	// Hide this if we are changing forum order.
 
 	<tr class="field">
 		<td>Message Threshold:<br /><font size="-2">Maximum size of the message DISPLAYED<br />without the reveal link (0 == unlimited).</font></td>
-		<td><input type="text" name="frm_message_threshold" value="<?php echo $frm_message_threshold; ?>" size="5" /> bytes</td>
+		<td><input type="number" name="frm_message_threshold" value="<?php echo $frm_message_threshold; ?>" size="5" /> bytes</td>
 	</tr>
 
 	<tr class="field">

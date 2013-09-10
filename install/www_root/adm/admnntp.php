@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -72,12 +72,12 @@
 
 	<tr class="field">
 		<td>Newsgroup Server Port:<br /><font size="-1">Port number the server is listeneing on. Default is 119.</font></td>
-		<td><input type="text" name="nntp_port" value="<?php echo $nntp_port; ?>" size="10" maxlength="10" type="number" /></td>
+		<td><input type="number" name="nntp_port" value="<?php echo $nntp_port; ?>" size="10" maxlength="10" type="number" /></td>
 	</tr>
 
 	<tr class="field">
 		<td>Newsgroup Server Timeout:<br /><font size="-1">Number of seconds to wait for the nntp server to respond.</font></td>
-		<td><input type="text" name="nntp_timeout" value="<?php echo $nntp_timeout; ?>" size="10" maxlength="10" type="number" /></td>
+		<td><input type="number" name="nntp_timeout" value="<?php echo $nntp_timeout; ?>" size="10" maxlength="10" type="number" /></td>
 	</tr>
 
 	<tr>
@@ -217,7 +217,7 @@
 			import script from timing out.
 			</font>
 		</td>
-		<td><input type="text" name="nntp_imp_limit" value="<?php echo htmlspecialchars($nntp_imp_limit); ?>" size="10" maxlength="10" type="number" /></td>
+		<td><input type="number" name="nntp_imp_limit" value="<?php echo htmlspecialchars($nntp_imp_limit); ?>" size="10" maxlength="10" type="number" /></td>
 	</tr>
 
 	<tr class="field">

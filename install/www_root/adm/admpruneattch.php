@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -120,7 +120,7 @@ this form will offer to delete attachments older than 10 days.</p>
 <table class="datatable">
 <tr class="field">
 	<td nowrap="nowrap">Attachments Older Than:</td>
-	<td ><input type="text" name="thread_age" tabindex="1" /></td>
+	<td ><input type="number" name="thread_age" tabindex="1" /></td>
 	<td nowrap="nowrap"><?php draw_select('units', "Day(s)\nWeek(s)\nMonth(s)\nYear(s)", "86400\n604800\n2635200\n31622400", '86400'); ?>&nbsp;&nbsp;ago</td>
 </tr>
 

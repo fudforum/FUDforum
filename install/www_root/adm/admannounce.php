@@ -156,7 +156,7 @@ function mk_date($y, $m, $d)
 				<tr>
 					<td><?php draw_month_select('announce_month1', 0, $announce_month1); ?></td>
 					<td><?php draw_day_select('announce_day1', 0, $announce_day1); ?></td>
-					<td><input type="text" name="announce_year1" value="<?php echo $announce_year1; ?>" size="5" /></td>
+					<td><input type="number" name="announce_year1" value="<?php echo $announce_year1; ?>" size="5" /></td>
 				</tr>
 			</table>
 		</td>
@@ -174,7 +174,7 @@ function mk_date($y, $m, $d)
 				<tr>
 					<td><?php draw_month_select('announce_month2', 0, $announce_month2); ?></td>
 					<td><?php draw_day_select('announce_day2', 0, $announce_day2); ?></td>
-					<td><input type="text" name="announce_year2" value="<?php echo $announce_year2; ?>" size="5" /></td>
+					<td><input type="number" name="announce_year2" value="<?php echo $announce_year2; ?>" size="5" /></td>
 				</tr>
 			</table>
 			<small>All dates are in UTC, current UTC date/time is: <?php echo gmdate('r', __request_timestamp__); ?></small>
