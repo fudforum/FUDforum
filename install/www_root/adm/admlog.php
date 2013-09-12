@@ -67,7 +67,7 @@ function return_group_name($id)
 <form method="post" action="admlog.php">
 	<?php echo _hs; ?>
 	<?php $log_user = isset($_POST['log_user']) ? $_POST['log_user'] : ''; ?>
-	<input type="text" name="log_user" value="<?php echo $log_user; ?>" />
+	<input type="search" name="log_user" value="<?php echo $log_user; ?>" />
 	<input type="submit" value="Go" name="frm_submit" />
 </form>
 </td><td align="right">

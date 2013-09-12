@@ -143,7 +143,7 @@ if ($display_logs) { ?>
 <form method="post" action="admerr.php">
 	<?php echo _hs; ?>
 	<?php $search = isset($_POST['search']) ? $_POST['search'] : ''; ?>
-	<input type="text" name="search" value="<?php echo $search; ?>" />
+	<input type="search" name="search" value="<?php echo $search; ?>" />
 	<input type="submit" value="Go" name="frm_submit" />
 </form>
 </td><td align="right">

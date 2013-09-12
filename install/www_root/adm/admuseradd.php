@@ -103,7 +103,7 @@ Register a new forum user:
 		<td>E-mail:</td>
 		<td>
 			<?php if ($error && isset($err_email)) { echo $err_email; } ?>
-			<input tabindex="3" type="text" name="email" value="<?php echo $email; ?>" size="30" />
+			<input tabindex="3" type="email" name="email" value="<?php echo $email; ?>" size="30" />
 		</td>
 	</tr>
 	<tr class="field">

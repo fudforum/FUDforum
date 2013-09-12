@@ -125,7 +125,7 @@ delete topics with no messages in the last 10 days.</p>
 ?>
 <tr class="field">
 	<td nowrap="nowrap">Topics with last post made:</td>
-	<td ><input tabindex="1" type="number" name="thread_age" /></td>
+	<td><input tabindex="1" type="number" name="thread_age" /></td>
 	<td nowrap="nowrap"><?php draw_select('units', "Second(s)\nMinute(s)\nHour(s)\nDay(s)\nWeek(s)\nMonth(s)\nYear(s)", "1\n60\n3600\n86400\n604800\n2635200\n31622400", '86400'); ?>&nbsp;&nbsp;ago</td>
 </tr>
 

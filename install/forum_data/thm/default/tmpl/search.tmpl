@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -90,7 +90,7 @@
 	<th>{MSG: search_forum_search}</th><th class="wa">{MSG: search_options}</th>
 </tr>
 <tr class="RowStyleA">
-	<td class="vt nw"><input spellcheck="true" type="text" name="srch" tabindex="1" value="{VAR-HTML: srch}" /> <input type="submit" tabindex="2" class="button" name="btn_submit" value="{MSG: search}" /><br /><span class="SmallText">{TEMPLATE-DATA: search_options}</span></td>
+	<td class="vt nw"><input spellcheck="true" type="search" name="srch" tabindex="1" value="{VAR-HTML: srch}" /> <input type="submit" tabindex="2" class="button" name="btn_submit" value="{MSG: search}" /><br /><span class="SmallText">{TEMPLATE-DATA: search_options}</span></td>
 	<td class="RowStyleB SmallText">
 		<div class="sr">{MSG: search_in_forum}<br /><select class="SmallText" name="forum_limiter"><option value="">{MSG: search_all_forums}</option>{TEMPLATE-DATA: forum_limit_data}</select></div>
 		<div class="sr">{MSG: search_attach}<br /><select class="SmallText" name="attach">{TEMPLATE-DATA: attach_options}</select></div>

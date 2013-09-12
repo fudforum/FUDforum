@@ -47,7 +47,7 @@
 	<td><input type="password" name="reg_plaintext_passwd_conf" id="reg_plaintext_passwd_conf" size="25" onkeyup="passwords_match(\'reg_plaintext_passwd\', this); return false;" /></td>
 </tr>
 <tr class="RowStyleA">
-	<td>{MSG: register_email_addr}{FUNC: draw_err('reg_email')}<br /><span class="SmallText">{MSG: register_email_desc}</span></td><td><input type="text" name="reg_email" size="25" value="{VAR: reg_email}" /></td>
+	<td>{MSG: register_email_addr}{FUNC: draw_err('reg_email')}<br /><span class="SmallText">{MSG: register_email_desc}</span></td><td><input type="email" name="reg_email" size="25" value="{VAR: reg_email}" /></td>
 </tr>
 <tr class="RowStyleA">
 	<td>{MSG: register_name}{FUNC: draw_err('reg_name')}</td>
@@ -101,7 +101,7 @@
 </tr>
 <tr class="RowStyleA">
 	<td>{MSG: register_email_addr}{FUNC: draw_err('reg_email')}<br /><span class="SmallText">{MSG: register_email_desc}</span>{TEMPLATE-DATA: email_warning_msg}</td>
-	<td><input type="text" name="reg_email" size="25" value="{VAR: reg_email}" /></td>
+	<td><input type="email" name="reg_email" size="25" value="{VAR: reg_email}" /></td>
 </tr>
 <tr class="RowStyleA">
 	<td>{MSG: register_name}{FUNC: draw_err('reg_name')}</td>
@@ -253,7 +253,7 @@
 {IF: $FUD_OPT_2 & 65536}{TEMPLATE: reg_user_image}{ENDIF}
 <tr class="RowStyleA">
 	<td>{MSG: register_homepage}{FUNC: draw_err('reg_home_page')}</td>
-	<td><input type="text" name="reg_home_page" value="{VAR: reg_home_page}" maxlength="255" /></td>
+	<td><input type="url" name="reg_home_page" value="{VAR: reg_home_page}" maxlength="255" /></td>
 </tr>
 <tr class="RowStyleA">
 	<td class="RowStyleA" valign="top">{MSG: register_bio}<br /><span class="SmallText">{MSG: register_bio_desc}</span></td>
