@@ -226,8 +226,7 @@ function error_check()
 						$usr->returnto = str_replace($m[0], $ses_id, $usr->returnto);
 					}
 				}
-				$usr->returnto .= '?SQ='. $new_sq .
-				'&S='. $ses_id;
+				$usr->returnto .= '?SQ='. $new_sq .'&S='. $ses_id;
 			}
 
 			check_return($usr->returnto);

@@ -191,18 +191,21 @@ function register_form_check($user_id)
 		}
 	}
 
-	/* Check signature length. */
-	if ($GLOBALS['FORUM_SIG_ML'] && strlen($_POST['reg_sig']) > $GLOBALS['FORUM_SIG_ML']) {
-		set_err('reg_sig', '{TEMPLATE: register_err_sig_too_long}');
-	}
+	/* Signature checks. */
+	if (isset($_POST['reg_sig']) ) {
+		/* Check signature length. */
+		if ($GLOBALS['FORUM_SIG_ML'] && strlen($_POST['reg_sig']) > $GLOBALS['FORUM_SIG_ML']) {
+			set_err('reg_sig', '{TEMPLATE: register_err_sig_too_long}');
+		}
 
-	/* Check if user is allowed to post links in signature. */
-	if (isset($_POST['reg_sig']) && preg_match('?(\[url)|(http://)|(https://)?i', $_POST['reg_sig'])) {
-		if ( $GLOBALS['POSTS_BEFORE_LINKS'] > 0 ) {
-			$c = q_singleval('SELECT posted_msg_count FROM {SQL_TABLE_PREFIX}users WHERE id='. _uid);
-			if ( $GLOBALS['POSTS_BEFORE_LINKS'] > $c ) {
-				$posts_before_links = $GLOBALS['POSTS_BEFORE_LINKS'];
-				set_err('reg_sig', '{TEMPLATE: postcheck_no_links_allowed}');
+		/* Check if user is allowed to post links in signature. */
+		if (preg_match('?(\[url)|(http://)|(https://)?i', $_POST['reg_sig'])) {
+			if ( $GLOBALS['POSTS_BEFORE_LINKS'] > 0 ) {
+				$c = q_singleval('SELECT posted_msg_count FROM {SQL_TABLE_PREFIX}users WHERE id='. _uid);
+				if ( $GLOBALS['POSTS_BEFORE_LINKS'] > $c ) {
+					$posts_before_links = $GLOBALS['POSTS_BEFORE_LINKS'];
+					set_err('reg_sig', '{TEMPLATE: postcheck_no_links_allowed}');
+				}
 			}
 		}
 	}
