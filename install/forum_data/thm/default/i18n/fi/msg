@@ -6,6 +6,7 @@
 # Author: Nedergard
 # Author: Nike
 # Author: Olli
+# Author: Samoasambia
 # Author: Silvonen
 
 action:Toiminto
@@ -216,6 +217,7 @@ reported_reported_msg:Ilmoitetut viestit
 modque_pending_approval:Hyväksymättömät viestit
 modque_approve:Hyväksy
 modque_delete:Poista
+modque_deleteall:Poista kaikki käyttäjiltä
 modque_no_message:Ei hyväksymättömiä viestejä
 pmsg_new_messages:Lukematon yksityisviesti
 pmsg_old_messages:Luettu yksityisviesti

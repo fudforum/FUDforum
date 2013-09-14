@@ -25,7 +25,7 @@ average_post_count:{PLURAL: u->posted_msg_count|$1 Mensaje|$1 Mensajes} ({PLURAL
 biography:Biografía:
 birth_date:Fecha de nacimiento:
 by:Por:
-by_mod:por el Moderador
+by_mod:por el moderador
 current_time:Fecha y hora actual
 custom_avatar_queue:Cola avatares personalizados
 date_posted:Fecha de publicación
@@ -101,8 +101,8 @@ more_unread_messages_desc:Mostrar más mensajes no leídos y marcar los mensajes
 move_thread:Trasladar
 moved:Movido a otro foro
 moved_thread_message:Este hilo de discusión ha sido movido a otro foro
-na:no disponible
-new_posts:Nuevos mensajes
+na:n/d
+new_posts:Mensajes nuevos
 new_private_messages:Tienes <span class="GenTextRed">({VAR: c})</span> {PLURAL: c|mensaje privado|mensajes privados} sin leer
 new_thread:Crear un nuevo hilo de discusión
 newest_user:El último usuario registrado es
@@ -222,6 +222,7 @@ reported_reported_msg:Mensajes reportados
 modque_pending_approval:Mensajes pendientes de aprobación
 modque_approve:Aprobar
 modque_delete:Borrar
+modque_deleteall:Borrar todo del usuario
 modque_no_message:No hay mensajes pendientes de aprobar
 pmsg_new_messages:Mensaje privado no leído
 pmsg_old_messages:Mensaje privado leído

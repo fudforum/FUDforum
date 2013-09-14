@@ -144,7 +144,7 @@ report_to_mod:Informar mensagem ao moderator
 reported_messages:mensagens informadas
 reveal_all_posts:Revelar todos os posts por {VAR: user_login}
 reveal_post:revelar posts
-search:Procurar
+search:Pesquisar
 sel_todays_posts:Posts de hoje
 sel_todays_posts_desc:Filtro para posts de hoje (só serão mostrados os posts colocados hoje)
 sel_unanswered_posts:Posts não respondidos

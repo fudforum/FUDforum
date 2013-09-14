@@ -116,7 +116,7 @@ off:끄기
 on:켜기
 page_timings:페이지를 생성하는 데 걸리는 총 시간: {PLURAL: page_gen_time|$1초}
 pm:개인 메시지
-poll:투표:
+poll:설문 조사:
 post_count:메시지 수 {VAR: u_pcount}
 post_count_l:메시지 수:
 posts:메시지
@@ -306,7 +306,7 @@ register_uploaded:아바타 업로드
 register_login:로그인:
 register_password:비밀번호:
 register_conf_pass:비밀번호 확인:
-register_email_desc:현재 사용 중인 검증된 이메일을 입력하십시오. 아래의 이메일 숨김을 선택하면 다른 사용자가 이메일 주소를 볼 수 없습니다
+register_email_desc:올바른 이메일 주소를 입력하세요. 환경 설정 부분에서, 아래에 이메일 숨기기를 선택할 수 있습니다.
 register_name:이름:
 register_your_pass:패스워드:
 register_update:업데이트
@@ -383,8 +383,8 @@ post_preview:미리보기
 post_logedin_user:로그인 사용자:
 post_logout:로그아웃
 post_passwd:패스워드 제출:
-post_poll:투표:
-post_create_poll:투표 생성
+post_poll:설문 조사:
+post_create_poll:설문 조사 만들기
 post_poll_delete:삭제
 post_poll_edit:편집
 post_mod_opt:중재자 옵션:
@@ -422,7 +422,7 @@ forum_terms:포럼 기간
 forum_rules:이 포럼의 가입은 자유입니다! 아래의 규칙을 준수하십시오. 준수사항에 동의 한나면 동의 버튼을 클릭 하십시오. 주의: 버튼을 클릭하는 것은 13세 이상임을 확인하는 행위입니다. 만일 13세 이하면 이 양식을 이용하십시오.<p>관리자 및 중재자는 포럼의 규칙 준수를 위해 모든 게시글을 감시하여 포럼의 원할한 운영을 유지합니다. 모든 게시물에 대한 법적 책임은 작성자에게 있으며, 포럼의 운영자는 불법적이거나 음란한 내용의 게시물을 삭제시키거나 포럼을 폐쇄 시킬 수 있습니다.
 # Fuzzy
 forum_rules_13:만13세 이하의 사용자는 부모의 동의서를 제출하여야 멤버로 가입할 수 있습니다. 13세 미만의 멤버를 회원으로 승인하기 위해 운영자는 13세 미만 멤버 신청자의 부모에게 팩스 또는 이메일을 통해 멤버 가입 사실을 발송합니다.<p>위 사항을 준수하고 멤버에 가입하고 싶으면 아래의 동의 버튼을 클릭 하십시오 <p>허가 양식은 이곳에서 다운로드 할 수 있으며 추가의 정보를 원하시면 이메일을 통해 요청하십시오 <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.<p>
-coppa_conf:청소년 온라인 정보보호 검증
+coppa_conf:청소년 온라인 개인 정보 보호법(COPPA) 인증
 coppa_before:{TEMPLATE: coppa_date}전
 coppa_after:{TEMPLATE: coppa_date}후
 coppa_link:해당 출생일을 클릭하십시오
@@ -468,7 +468,7 @@ rpasswd_passwd_length:패스워드는 최소한 6자 이상이어야 합니다
 reset_remind_pass:패스워드 힌트
 reset_reset_conf:패스워드 분실시 힌트를 통해 찾을 수 있으며, 등록한 이메일로 발송됩니다
 reset_error:이메일 주소를 찾을 수 없습니다
-rpasswd_change_pass:패스워드 변경
+rpasswd_change_pass:비밀번호 바꾸기
 rpasswd_login:로그인
 rpasswd_cur_pass:현재 패스워드:
 rpasswd_new_pass:새 패스워드:
@@ -540,14 +540,14 @@ ppost_send:전송
 ppost_save_draft:발췌 및 저장
 poll_blank_option:선택 항목이 없습니다.
 poll_del_conf:이 옵션을 삭제하려면 OK를 누르십시오
-poll_name:투표 이름:
+poll_name:설문 조사 이름:
 poll_timelimit:시간 제한:
-poll_maxiumvotes:최대 투표:
+poll_maxiumvotes:최대 표 수:
 poll_create:만들기
 poll_update:업데이트
 poll_disablesmilies:이모티콘 비활성화
-poll_create_poll:투표 생성
-poll_update_poll:투표 업데이트
+poll_create_poll:설문 조사 만들기
+poll_update_poll:설문 조사 업데이트
 poll_delete:삭제
 poll_updateoption:옵션 업데이트
 poll_addoption:옵션 추가
@@ -658,7 +658,7 @@ register_err_avatarnotallowed:허가되지 않은 파일 형식 입니다. 파�
 register_conf_subject:등록 형식
 register_welcome_subject:포럼 등록 확인
 register_err_cantreg_title:오류: 등록불가
-regsiter_err_cantreg_msg:계정 생성 불가. 관리자에게 연락하십시오<a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
+regsiter_err_cantreg_msg:사용자 계정을 만들 수 없습니다. <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a> (으)로 관리자에게 문의하세요
 register_profile_update:내 프로파일 보기
 register_register_update:등록 페이지
 report_err_nosuchmsg_title:오류
@@ -694,7 +694,7 @@ email_title:이메일 양식
 finduser_title:사용자 찾기
 help_title:도움말
 login_title:로그인 양식
-poll_title:투표 편집
+poll_title:설문 조사 편집기
 register_title:등록 형식
 reset_title:패스워드 초기화
 rpasswd_title:패스워드 변경 형식
@@ -712,7 +712,7 @@ post_opt_fud_off:<b>BB코드</b>가 <b>꺼져</b> 있습니다
 post_opt_images_off:<b>그림</b>이 <b>꺼져</b> 있습니다
 post_opt_smilies_off:<b>이모티콘</b>이 <b>꺼져</b> 있습니다
 post_opt:포럼 옵션:
-register_change_passwd:패스워드 변경
+register_change_passwd:비밀번호 바꾸기
 register_change_login:로그인 바꾸기
 approved_avatar_title:사용자 아바타 승인.
 approved_avatar_msg:사용자 아바타가 관리자로부터 승인되었습니다. 본인이 작성한 모든 게시글에 아바타가 보일 것 입니다. 만일 보이지 않거나 이전에 사용하던 아바타가 보인다면 쿠키를 삭제한 후, 다시 확인하시기 바랍니다. 대분분의 경우 이와 같은 방법으로 해결이 가능합니다.
@@ -754,7 +754,7 @@ p_REPLY:답글
 p_EDIT:편집
 p_DEL:삭제
 p_STICKY:끈끈이 게시글
-p_POLL:투표 생성
+p_POLL:설문 조사 만들기
 p_FILE:파일 첨부
 p_VOTE:투표
 p_RATE:주제/구성원 평가
@@ -867,10 +867,10 @@ polllist_view_results:결과보기
 polllist_name:투표이름
 polllist_date:작성일
 polllist_owner:작성자
-polllist_votes:전체 투표
+polllist_votes:전체 표 수
 polllist_action:활성화
 polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">사용할 수 있는 투표 검토 중</a>
-userinfo_polls:투표:
+userinfo_polls:설문 조사:
 show_pollist:투표보기
 search_and:그리고
 search_or:또는
@@ -1020,7 +1020,7 @@ mmd_mov_title:주제 이동
 mmd_move_threads_to:포럼 이동:
 mmd_abort_move:취소
 mmd_move:주제 이동
-pmsg_pdf_btn:PDF 생성
+pmsg_pdf_btn:PDF 아카이브 만들기
 search_results_hdr:{VAR: total}개 찾음
 thread_del_all:선택한 것을 삭제
 thread_mov_all:선택한 것을 이동

@@ -1,5 +1,6 @@
 # Messages for Dutch (Nederlands)
 # Exported from translatewiki.net
+# Author: HanV
 # Author: McDutchie
 # Author: Naudefj
 # Author: SPQRobin
@@ -213,6 +214,7 @@ reported_reported_msg:Gerapporteerde berichten
 modque_pending_approval:Berichten die nog goedgekeurd moeten worden
 modque_approve:Goedkeuren
 modque_delete:Verwijderen
+modque_deleteall:Alles van gebruiker verwijderen
 modque_no_message:Er zijn geen berichten die nog goedgekeurd moeten worden
 pmsg_new_messages:Ongelezen privébericht
 pmsg_old_messages:Gelezen privébericht
@@ -691,7 +693,7 @@ ERR_access_msg:U hebt niet de vereiste rechten om deze handeling uit te voeren.
 ERR_registration_disabled_ttl:Registratie is uitgeschakeld
 ERR_registration_disabled_msg:De beheerder heeft registratie uitgeschakeld. Probeer het later opnieuw.
 ERR_emailconf_ttl:Fout: uw gebruiker is nog niet bevestigd
-ERR_emailconf_msg:U hebt uw gebruiker nog niet via e-mail bevestigd.<br /><table border="0"><tr><td><ol><li><a href="{TEMPLATE: ERR_emailconf_msg_lnk}">Hebt u nog geen bevestigingse-mail ontvangen?</a></li><li><a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">Is {VAR: usr_d->email} niet uw e-mailadres?</a></li></ol></td></tr></table>
+ERR_emailconf_msg:U hebt uw gebruiker nog niet via e-mail bevestigd.<br /><table border="0"><tr><td><ol><li><a href="{TEMPLATE: ERR_emailconf_msg_lnk}">Hebt u nog geen bevestiging per e-mail ontvangen?</a></li><li><a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">Is {VAR: usr_d->email} niet uw e-mailadres?</a></li></ol></td></tr></table>
 ERR_user_ttl:Fout: gebruiker bestaat niet
 ERR_user_msg:Deze gebruiker bestaat niet
 ERR_systemerr_ttl:Fout: systeemfout

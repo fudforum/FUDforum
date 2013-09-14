@@ -1,5 +1,6 @@
 # Messages for Catalan (català)
 # Exported from translatewiki.net
+# Author: Alvaro Vidal-Abarca
 # Author: BroOk
 # Author: Gemmaa
 # Author: McDutchie
@@ -219,6 +220,7 @@ reported_reported_msg:Missatges reportats
 modque_pending_approval:Missatges pendents d`aprovació
 modque_approve:Aprovar
 modque_delete:Esborrar
+modque_deleteall:Esborra tot el de l'usuari
 modque_no_message:No hi ha missatges pendents d`aprovar
 pmsg_new_messages:Missatge privat no llegit
 pmsg_old_messages:Missatge privat llegit
