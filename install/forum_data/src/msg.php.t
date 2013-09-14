@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -167,9 +167,8 @@
 	$TITLE_EXTRA = ': {TEMPLATE: msg_title}';
 	$META_DESCR = $frm->subject .' '. $frm->tdescr;	// Description for page header.
 
-	$use_tmp = $FUD_OPT_3 & 4096 && $frm->replies > 250;
-
 	/* This is an optimization intended for topics with many messages. */
+	$use_tmp = $FUD_OPT_3 & 4096 && $frm->replies > 250;
 	if ($use_tmp) {
 		q(q_limit('CREATE TEMPORARY TABLE {SQL_TABLE_PREFIX}_mtmp_'. __request_timestamp__ .' AS SELECT id FROM {SQL_TABLE_PREFIX}msg WHERE thread_id='. $th .' AND apr=1 ORDER BY id ASC',
 			$count, $_GET['start']));
@@ -204,7 +203,7 @@
 
 	$usr->md = $frm->md;
 
-	$m_num = 0;
+	$m_num = 0;	// Will be incremented in tmpl_drawmsg().
 	while ($obj = db_rowobj($result)) {
 		$message_data .= tmpl_drawmsg($obj, $usr, $perms, false, $m_num, array($_GET['start'], $count));
 		$obj2 = $obj;
@@ -213,6 +212,11 @@
 
 	if ($use_tmp && $FUD_OPT_1 & 256) {
 		q('DROP TEMPORARY TABLE {SQL_TABLE_PREFIX}_mtmp_'. __request_timestamp__);
+	}
+
+	/* No messages to display. Something is wrong, terminate request. */
+	if ($m_num == 0) {
+		invl_inp_err();
 	}
 
 	if ($FUD_OPT_2 & 32768) {

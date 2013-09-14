@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -25,9 +25,9 @@ function error_dialog($title, $msg, $level='WARN', $ses=null)
 	$error_msg .= '<br />';
 
 	if (isset($_SERVER['HTTP_REFERER'])) {
-		$error_msg .= '[Referring Page] '. htmlspecialchars($_SERVER['HTTP_REFERER']) .'<br />';
+		$error_msg .= '[Referring URL] '. htmlspecialchars($_SERVER['HTTP_REFERER']) .'<br />';
 	} else if (isset($_SERVER['HTTP_USER_AGENT'])) {
-		$error_msg .= '[Spider] '. htmlspecialchars($_SERVER['HTTP_USER_AGENT']) .'<br />';
+		$error_msg .= '[User Agent] '. htmlspecialchars($_SERVER['HTTP_USER_AGENT']) .'<br />';
 	}
 
 	fud_logerror($error_msg, 'fud_errors');
