@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -29,7 +29,7 @@
 		$paths = explode(PATH_SEPARATOR, getenv('PATH'));
 		foreach ($paths as $path) {
 			$php = $path . DIRECTORY_SEPARATOR .'php'. (isset($_SERVER['WINDIR']) ? '.exe' : '');
-			if (file_exists($php) && is_file($php)) {
+			if (@file_exists($php) && @is_file($php)) {
 				change_global_settings(array('PHP_CLI' => $php));
 				$GLOBALS['PHP_CLI'] = $php;
 				break;
@@ -154,23 +154,23 @@
 	</tr>
 	<tr class="field">
 		<td>Minute (0 - 59):</td>
-		<td><input type="text" name="job_start_minute" value="<?php echo $job_start_minute; ?>" maxlength="50" /></td>
+		<td><input type="text" name="job_start_minute" value="<?php echo $job_start_minute; ?>" size="5" maxlength="5" /></td>
 	</tr>
 	<tr class="field">
 		<td>Hour (0 - 23):</td>
-		<td><input type="text" name="job_start_hour" value="<?php echo $job_start_hour; ?>" maxlength="50" /></td>
+		<td><input type="text" name="job_start_hour" value="<?php echo $job_start_hour; ?>" size="5" maxlength="5" /></td>
 	</tr>
 	<tr class="field">
 		<td>Day of month (1 - 31):</td>
-		<td><input type="text" name="job_start_dom" value="<?php echo $job_start_dom; ?>" maxlength="50" /></td>
+		<td><input type="text" name="job_start_dom" value="<?php echo $job_start_dom; ?>" size="5" maxlength="5" /></td>
 	</tr>
 	<tr class="field">
 		<td>Month (1 - 12):</td>
-		<td><input type="text" name="job_start_month" value="<?php echo $job_start_month; ?>" maxlength="50" /></td>
+		<td><input type="text" name="job_start_month" value="<?php echo $job_start_month; ?>" size="5" maxlength="5" /></td>
 	</tr>
 	<tr class="field">
 		<td>Day of week (0 - 7, Sunday=0 or 7):</td>
-		<td><input type="text" name="job_start_dow" value="<?php echo $job_start_dow; ?>" maxlength="50" /></td>
+		<td><input type="text" name="job_start_dow" value="<?php echo $job_start_dow; ?>" size="5" maxlength="5" /></td>
 	</tr>
 	<tr class="field">
 		<td>Status:</td>

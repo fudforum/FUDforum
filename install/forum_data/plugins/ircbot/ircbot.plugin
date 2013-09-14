@@ -89,7 +89,7 @@ function ircbot_config() {
 <label><input type="radio" name="IRCBOT_USESSL" value=""  <?php echo $ini['IRCBOT_USESSL'] ? '' : 'checked="checked"' ?> /> False</label></p>
 
 <p>IRC port (normally 6667, or 6697 when using SSL):<br />
-<input name="IRCBOT_PORT" value="<?php echo intval($ini['IRCBOT_PORT']) ?>" size="5" /></p>
+<input type="number" name="IRCBOT_PORT" value="<?php echo intval($ini['IRCBOT_PORT']) ?>" size="5" /></p>
 
 <p>Bot's nick:<br />
 <input name="IRCBOT_NICK" value="<?php echo $ini['IRCBOT_NICK'] ?>" size="20" /></p>

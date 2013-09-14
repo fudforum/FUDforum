@@ -108,6 +108,6 @@ function openid_config() {
 	}
 	?>
 <p>OpenID provider URL:<br />
-<input name="OPENID_PROVIDER" value="<?php echo $ini['OPENID_PROVIDER'] ?>" size="50" /></p>
+<input type="url" name="OPENID_PROVIDER" value="<?php echo $ini['OPENID_PROVIDER'] ?>" size="50" /></p>
 	<?php
 }
