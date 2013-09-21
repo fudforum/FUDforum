@@ -13,7 +13,7 @@
 	fud_use('adm.inc', true);
 	fud_use('draw_select_opt.inc');
 	fud_use('dbadmin.inc', true);	// For get_sql_disk_usage().
-	fud_use('file_adm.inc', true);	// For fud_dir_space_usage().
+	fud_use('fs.inc', true);	// For fud_dir_space_usage().
 
 	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
 

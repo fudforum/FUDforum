@@ -31,7 +31,7 @@ function deploy_files($plugin)
 	if (!is_dir($fromdir)) return;
 
 	pf(successify('Deploying '. $plugin .' files.'));
-	fud_use('file_adm.inc', true);
+	fud_use('fs.inc', true);
 	fud_mkdir($todir);
 	fud_copy($fromdir, $todir);
 }
@@ -43,7 +43,7 @@ function undeploy_files($plugin)
 	if (!is_dir($todir)) return;
 
 	pf(successify('Undeploying '. $plugin .' files.'));
-	fud_use('file_adm.inc', true);
+	fud_use('fs.inc', true);
 	fud_rmdir($todir, true);
 }
 

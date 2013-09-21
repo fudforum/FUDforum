@@ -47,7 +47,7 @@ function lightbox_info() {
 }
 
 function lightbox_enable() {
-	fud_use('file_adm.inc', true);
+	fud_use('fs.inc', true);
 	$fromdir = $GLOBALS['PLUGIN_PATH']   .'/lightbox/deploy';
 	$todir   = $GLOBALS['WWW_ROOT_DISK'] .'/theme/lightbox';
 	fud_mkdir($todir);
@@ -56,7 +56,7 @@ function lightbox_enable() {
 }
 
 function lightbox_disable() {
-	fud_use('file_adm.inc', true);
+	fud_use('fs.inc', true);
 	fud_rmdir($GLOBALS['WWW_ROOT_DISK'] .'theme/lightbox', true);
 	@define('REBUILD_THEMES', 1);
 }

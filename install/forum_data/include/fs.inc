@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -8,7 +8,6 @@
 * under the terms of the GNU General Public License as published by the 
 * Free Software Foundation; version 2 of the License. 
 **/
-// @TODO: Rename file_adm.inc to fs.inc?
 
 /**
  * Replacement for PHP's readfile() to workaround memory and timeout problems
@@ -68,8 +67,10 @@ function fud_dir_space_usage_ALT($dir)
 }
 */
 
-/** Recursively create a given directory path. */
-function fud_mkdir($path, $perms=0755)
+/** Recursively create a given directory path.
+  * If the directory alredy exists, it will do nothing.
+  */
+function fud_mkdir($path)
 {
 	$dirs = array();
 	while (!is_dir($path)) {
@@ -80,7 +81,7 @@ function fud_mkdir($path, $perms=0755)
 		}
 	}
 	foreach (array_reverse($dirs) as $dir) {
-		if (!mkdir($dir, $perms)) {
+		if (!mkdir($dir)) {
 			throw new Exception('Unable to create directory "'. $dir .'".');
 		}
 	}
@@ -112,17 +113,14 @@ function fud_rmdir($dir, $deleteRootToo=false)
 	return true;
 }
 
-/** Recursively copy directory or individual files. */
+/** Recursively copy a directory or individual files.
+  * To copy a diretory:    fud_copy(srcdir, $destdir);
+  * To copy a single file: fud_copy(srcdir, $destdir, '{file.ext}');
+  */
 function fud_copy($src, $dest, $mask='*', $recur=false)
 {
 	$src  = preg_replace('!/*$!', '', $src);
 	$dest = preg_replace('!/*$!', '', $dest);
-
-	$perms = $GLOBALS['FUD_OPT_2'] & 8388608 ? 0600 : 0666;
-	if (strncmp(PHP_SAPI, 'apache', 6) && $perms == 0600) {
-		$perms = 0644;
-	}
-	$dperm = $perms == 0600 ? 0700 : 0755;
 
 	$dirs = array($src);
 	while (list(,$v) = each($dirs)) {
@@ -156,40 +154,14 @@ function fud_copy($src, $dest, $mask='*', $recur=false)
 					throw new Exception('Cannot create directory "'. $d .'".');
 					return;
 				}
-				chmod($d, $dperm);
 				$dirs[] = $file;
 				continue;
 			}
 
 			if (!@copy($file, $d) && !@file_exists($d)) {
 				throw new Exception('Cannot copy "'. $file .'" to "'. $d .'".');
-			} else {
-				@chmod($d, $perms);
 			}
 		}		
-	}
-}
-
-/** Unlock forum files. */
-function fud_unlock($dir)
-{
-	$dirs = array(realpath($dir));
-
-	while (list(,$v) = each($dirs)) {
-		if (!($files = glob($v.'/{.b*,.h*,.p*,.n*,.m*,*}', GLOB_BRACE|GLOB_NOSORT))) {
-			continue;
-		}
-		foreach ($files as $file) {
-			if (is_dir($file) && !is_link($file)) {
-				$perm = 0777;
-				$dirs[] = $file;
-			} else {
-				$perm = 0666;
-			}
-			if (!chmod($file, $perm)) {
-				echo '<b>Could not unlock path "'. $file .'"<br />';
-			}
-		}
 	}
 }
 

@@ -85,7 +85,7 @@ if (!extension_loaded('posix')) {
 	fud_use('adm.inc', true);
 	fud_use('widgets.inc', true);
 	fud_use('tar.inc', true);
-	fud_use('file_adm.inc', true);
+	fud_use('fs.inc', true);
 	fud_use('logaction.inc');
 
 	/* Figure out the ROOT paths based on the location of web browseable dir & data dir. */
