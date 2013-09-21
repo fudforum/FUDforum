@@ -107,7 +107,7 @@ function register_form_check($user_id)
 			// Try to catch submitter bots.
 			$form_completion_time = __request_timestamp__ - (int)$_POST['turing_test1'];
 			if (
-				$form_completion_time < 10 || $form_completion_time > 3600 ||	// Took 10 sec to 1 hour.
+				$form_completion_time < 7 || $form_completion_time > 3600 ||	// Took 7 sec to 1 hour.
 				!empty($_POST['turing_test2']) ||				// Must always be empty.
 				$_POST['turing_test3'] !== md5($GLOBALS['FORUM_SETTINGS_PATH'])	// No cross site submitions.
 			) {

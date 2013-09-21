@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -24,6 +24,7 @@
 		unset($list);
 	}
 
+	/* Log user out and redirect to correct page. */
 	if (!empty($_GET['logout']) && sq_check(0, $usr->sq)) {
 		if ($usr->returnto) {
 			parse_str($usr->returnto, $tmp);
@@ -95,7 +96,8 @@
 		exit;
 	}
 
-	if (_uid) { /* send logged in users to profile page if they are not logging out */
+	/* Send logged in users to profile page if they are not logging out. */
+	if (_uid) {
 		if ($FUD_OPT_2 & 32768) {
 			header('Location: {FULL_ROOT}{ROOT}/re/'. _rsidl);
 		} else {
@@ -104,12 +106,14 @@
 		exit;
 	}
 
+/** Signal error against type=login or type=password field. */
 function login_php_set_err($type, $val)
 {
 	$GLOBALS['_ERROR_']            = 1;
 	$GLOBALS['_ERROR_MSG_'][$type] = $val;
 }
 
+/** Display login error. This function is called from the login template. */
 function login_php_get_err($type)
 {
 	if (empty($GLOBALS['_ERROR_MSG_'][$type])) {
@@ -118,6 +122,7 @@ function login_php_get_err($type)
 	return '{TEMPLATE: login_error_text}';
 }
 
+/** Check for obvious username and password errors before we attempt to authenticate. */
 function error_check()
 {
 	if (empty($_POST['login']) || !strlen($_POST['login'] = trim((string)$_POST['login']))) {
@@ -159,7 +164,13 @@ function error_check()
 	}
 
 	if ($usr_d || isset($_POST['login']) && !error_check()) {
+	
+		/* Clear session variables. */
+		if ($usr->data) {
+			ses_putvar((int)$usr->sid, null);
+		}
 
+		/* Try to autenticate user. */
 		if (!$usr_d && !($usr_d = db_sab('SELECT last_login, id, passwd, salt, login, email, users_opt, ban_expiry FROM {SQL_TABLE_PREFIX}users WHERE login='. _esc($_POST['login'])))) {
 			/* Cannot login: user not in DB. */
 			login_php_set_err('login', '{TEMPLATE: login_invalid_radius}');
@@ -237,6 +248,13 @@ function error_check()
 	$TITLE_EXTRA = ': {TEMPLATE: login_title}';
 
 /*{POST_HTML_PHP}*/
+
+	/* Check if we have a 'password reset' message to display (from reset.php.t). */
+	if (!empty($usr->data) && substr($usr->data, 0, 9) == 'resetmsg=') {
+		$reset_login_notify = substr($usr->data, 9);
+	}
+
 /*{POST_PAGE_PHP_CODE}*/
 ?>
 {TEMPLATE: LOGIN_PAGE}
+

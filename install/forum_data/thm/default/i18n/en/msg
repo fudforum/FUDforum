@@ -672,7 +672,7 @@ reset_err_rstconf_title:Information
 reset_err_rstconf_msg:You should receive instructions in your e-mail in the next few minutes.
 reset_newpass_title:Reset Password
 reset_newpass_msg:Hello,\n\nAs requested, your login information appears below:\n\nLogin: {VAR: ui[1]}\nPassword: {VAR: passwd}\n\nPlease note that your password has been reset to the value above. If you wish\nto change your password you may do so via the user info control panel at:\n{FULL_ROOT}{ROOT}?t=register
-reset_login_notify:Your password has been e-mailed to you. You should receive it within the next few minutes.<br />
+reset_login_notify:Your password has been e-mailed to you. You should receive it within the next few minutes.
 search_update:Searching messages
 selmsg_update:Browsing <a href="{TEMPLATE: selmsg_update_lnk}">Today's Posts</a>
 showposts_update:Viewing posts by: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>

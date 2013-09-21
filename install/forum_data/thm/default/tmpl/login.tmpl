@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -29,11 +29,14 @@
 	<th colspan="3">{MSG: login_title}</th>
 </tr>
 <tr>
-	<td class="RowStyleA GenText" colspan="3">{MSG: login_not_logedin}
-	<ol>
-		<li class="GenText">{MSG: login_cookie_expired}</li>
-		<li class="GenText">{MSG: login_perm_denied}</li>
-	</ol></td>
+	<td class="RowStyleA GenText" colspan="3">
+		{IF: isset($reset_login_notify)}{VAR: reset_login_notify}{ELSE}
+		{MSG: login_not_logedin}
+		<ol>
+			<li class="GenText">{MSG: login_cookie_expired}</li>
+			<li class="GenText">{MSG: login_perm_denied}</li>
+		</ol>{END}
+	</td>
 </tr>
 <tr class="RowStyleB">
 	<td class="GenText">{MSG: login_login}</td>

@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -133,6 +133,7 @@ function ses_get($id=0)
 	return;
 }
 
+/** Create an anonymous session. */
 function ses_anon_make()
 {
 	do {
@@ -149,6 +150,7 @@ function ses_anon_make()
 	return ses_get($id);
 }
 
+/** Update session status to indicate last known action. */
 function ses_update_status($ses_id, $str=null, $forum_id=0, $ret='')
 {
 	if (empty($ses_id)) {
@@ -157,6 +159,7 @@ function ses_update_status($ses_id, $str=null, $forum_id=0, $ret='')
 	q('UPDATE {SQL_TABLE_PREFIX}ses SET sys_id=\''. ses_make_sysid() .'\', forum_id='. $forum_id .', time_sec='. __request_timestamp__ .', action='. ($str ? _esc($str) : 'NULL') .', returnto='. (!is_int($ret) ? (isset($_SERVER['QUERY_STRING']) ? _esc($_SERVER['QUERY_STRING']) : 'NULL') : 'returnto') .' WHERE id='. $ses_id);
 }
 
+/** Save/ clear a session variable. */
 function ses_putvar($ses_id, $data)
 {
 	$cond = is_int($ses_id) ? 'id='. (int)$ses_id : 'ses_id=\''. $ses_id .'\'';
@@ -168,6 +171,7 @@ function ses_putvar($ses_id, $data)
 	}
 }
 
+/** Destroy a session. */
 function ses_delete($ses_id)
 {
 	if (!($GLOBALS['FUD_OPT_2'] & 256)) {	// MULTI_HOST_LOGIN
