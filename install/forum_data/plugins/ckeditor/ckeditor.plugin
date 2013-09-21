@@ -42,7 +42,7 @@ fontSize_sizes: "30/30%;50/50%;100/100%;120/120%;150/150%;200/200%;300/300%",
 toolbar: [
 	["Source", "-", "Undo", "Redo"],
 	["Bold", "Italic", "Underline"],
-	["JustifyLeft", "JustifyCenter", "JustifyRight"],
+//NOT WORKING	["JustifyLeft", "JustifyCenter", "JustifyRight"],
 	["Link", "Unlink", "Image", "Smiley", "SpecialChar"],
 	["FontSize"],
 	["TextColor"],
@@ -90,7 +90,7 @@ function ckeditor_info() {
 }
 
 function ckeditor_enable() {
-	if((@include_once $GLOBALS['PLUGIN_PATH'] .'ckeditor/ckeditor.ini') === false) {
+	if ((@include_once $GLOBALS['PLUGIN_PATH'] .'ckeditor/ckeditor.ini') === false) {
 		return array(null, 'Please configure the CKEditor plugin before enabling it.');	// OK, Err.
 	}
 	@define('REBUILD_THEMES', 1);
@@ -117,7 +117,7 @@ function ckeditor_config() {
 		pf(successify('Settings successfully saved.'));
 	}
 	?>
-<p>FUDforum DOES NOT ship with a copy of CKEditor! You need to <a href="http://ckeditor.com/download">download</a> and unzip it on your webservers or use a copy that's hosted on a CDN. Ensure the version you use includes CKEditor's <a href="http://ckeditor.com/addon/bbcode">BBcode plugin</a>.</p>
+<p>FUDforum DOES NOT ship with a copy of CKEditor! You need to <a href="http://ckeditor.com/download">download</a> and unzip it on your webservers or use a copy that's hosted on a <abbr title="Content delivery network">CDN</abbr>. Ensure the version you use includes CKEditor's <a href="http://ckeditor.com/addon/bbcode">BBcode plugin</a>.</p>
 
 <p>Full URL to <i>ckeditor.js</i> (on your or any other website):<br />
 <input name="CKEDITOR_PATH" value="<?php echo $ini['CKEDITOR_PATH'] ?>" size="52" /></p>
