@@ -311,12 +311,12 @@ administration permissions to the forum. This individual will be able to do anyt
 	<table class="datatable solidtable">
 	<tr class="field">
 		<td>By <?php echo ($FUD_OPT_2 & 128 ? 'Alias' : 'Login'); ?>:</td>
-		<td><input tabindex="1" type="text" id="usr_login" name="usr_login" value="<?php echo $_GET['usr_login']; ?>" /></td>
+		<td><input tabindex="1" type="search" id="usr_login" name="usr_login" value="<?php echo $_GET['usr_login']; ?>" /></td>
 	</tr>
 
 	<tr class="field">
 		<td>By E-mail:</td>
-		<td><input tabindex="2" type="text" id="usr_email" name="usr_email" value="<?php echo $_GET['usr_email']; ?>" /></td>
+		<td><input tabindex="2" type="email" id="usr_email" name="usr_email" value="<?php echo $_GET['usr_email']; ?>" /></td>
 	</tr>
 
 	<tr class="fieldaction">
@@ -347,6 +347,7 @@ administration permissions to the forum. This individual will be able to do anyt
 	<b>Show:</b>
 	[ <a href="admslist.php?<?php echo __adm_rsid; ?>">Privileged</a> ] 
 	[ <a href="admbanlist.php?<?php echo __adm_rsid; ?>">Banned</a> ]
+	[ <a href="admsession.php?<?php echo __adm_rsid; ?>">Sessions</a> ]
 </td></tr>
 </table>
 </fieldset>
@@ -524,7 +525,7 @@ if ($acc_mod_only) {
 		The value of the duration field for non-permanent bans will show days remaining till ban expiry.
 	</div></td></tr>
 	<tr class="field"><td>Is Banned:</td><td><label><input type="checkbox" name="block" value="65536" <?php echo ($u->users_opt & 65536 ? ' checked /> <b><font color="red">Yes</font></b>' : ' /> No'); ?> </label></td></tr>
-	<tr class="field"><td>Ban Duration (days left)</td><td><input type="text" value="<?php 
+	<tr class="field"><td>Ban Duration (days left)</td><td><input type="number" value="<?php 
 	if ($u->ban_expiry) {
 		printf("%.2f", ($u->ban_expiry - __request_timestamp__) / 86400);
 	} else {
@@ -540,7 +541,6 @@ if ($acc_mod_only) {
 <tr class="field">
 	<td valign="top">Group Membership:</td>
 	<td><?php
-
 	$i = 0;
 	$c = uq('SELECT g.name FROM '. $DBHOST_TBL_PREFIX .'group_members m INNER JOIN '. $DBHOST_TBL_PREFIX .'groups g ON g.id=m.group_id WHERE m.user_id='. $usr_id);
 	while ($r = db_rowarr($c)) {
@@ -550,6 +550,31 @@ if ($acc_mod_only) {
 	unset($c);
 	if (!$i) {
 		echo 'No group membership.<br />';
+	}
+	?></td>
+</tr>
+
+<tr><td colspan="2">&nbsp;</td></tr>
+
+<tr class="field">
+	<td valign="top">Recent sessions:</td>
+	<td><?php
+	$i = 0;
+	$c = uq('SELECT time_sec, action, useragent, ip_addr FROM '. $DBHOST_TBL_PREFIX .'ses s WHERE s.user_id='. $usr_id);
+	while ($r = db_rowarr($c)) {
+		$r[1] = preg_replace('/href="/', 'href="'. $GLOBALS['WWW_ROOT'], $r[1]); // Fix URL.
+		echo fdate($r[0], 'd M Y H:i') .': '. $r[1] .' <span class="tiny">'. $r[2] .' ('. $r[3] .')</span><br />';
+		$i++;
+	}
+	unset($c);
+	$c = uq('SELECT time_sec, action, useragent FROM '. $DBHOST_TBL_PREFIX .'ses s WHERE s.ip_addr='. _esc($u->last_used_ip) .' AND s.user_id<>'. $usr_id);
+	while ($r = db_rowarr($c)) {
+		echo 'FROM SAME IP: '. fdate($r[0], 'd M Y H:i') .': '. $r[1] .' <span class="tiny">'. $r[2] .'</span><br />';
+		$i++;
+	}
+	unset($c);
+	if (!$i) {
+		echo 'No recent sessions.<br />';
 	}
 	?></td>
 </tr>
