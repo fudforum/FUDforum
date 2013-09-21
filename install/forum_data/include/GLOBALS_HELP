@@ -503,7 +503,7 @@ Show forum member's birthdays on the built-in calendar.}}}
 {{{PAGES_ENABLED	FUD_OPT_3	536870912
 Display pages icon on menu. This setting will automaticaaly be enaled if there are pages that should be shown in the List of Pages.}}}
 
-{{{FORUM_DEBUG	FUD_OPT_3	1073741824
+{{{FORUM_DEBUG	FUD_OPT_3	"Disabled\nDetailed logging\nFull debugging"	"0\n536870912\n1073741824"
 Debug the forum. Under normal conditions this should remain disabled.}}}
 
 {{{ALLOW_USERID_CHANGES	FUD_OPT_4	1

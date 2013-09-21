@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -76,7 +76,7 @@ function send_email($from, $to, $subj, $body, $header='', $munge_newlines=1)
 		list($to, $subj, $body, $header) = plugin_call_hook('PRE_MAIL', array($to, $subj, $body, $header));
 	}
 
-	if (defined('fud_debug')) {
+	if (defined('fud_logging')) {
 		if (!function_exists('logaction')) {
 			fud_use('logaction.inc');
 		}
