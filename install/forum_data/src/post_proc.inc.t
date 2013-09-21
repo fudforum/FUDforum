@@ -546,10 +546,6 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 		$pos = $ppos;
 	}
 
-        if ( !preg_match('/^(?:<|\[)(?:table|list|ol|ul|pre|select|form|blockquote|hr)/i', $parts[$i]) ) {
-          $parts[$i] = '<p>' . $parts[$i] . '</p>';
-        }
-
 	// Remove line breaks directly following list tags.
 	$ostr = preg_replace('!(<[uo]l>)\s*<br\s*/?\s*>\s*(<li>)!is', '\\1\\2', $ostr);
 	$ostr = preg_replace('!<br\s*/?\s*>\s*(</li>|<li>|</ul>|</ol>)!is', '\\1', $ostr);
