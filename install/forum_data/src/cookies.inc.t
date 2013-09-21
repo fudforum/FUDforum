@@ -72,7 +72,7 @@ function ses_get($id=0)
 				if ($spider['bot_opts'] & 2) {	// Access blocked.
 					die('Go away!');
 				}
-				if ($id = db_li('INSERT INTO {SQL_TABLE_PREFIX}ses (ses_id, time_sec, sys_id, ip_addr, useragent, user_id) VALUES (\''. $spider['botname'] .'\', '. __request_timestamp__ .', '. _esc(ses_make_sysid()) .', '. _esc($my_ip) .', '. _esc(substr($_SERVER['HTTP_USER_AGENT'], 0, 32)) .', '. $spider['user_id'] .')', $ef, 1)) {
+				if ($id = db_li('INSERT INTO {SQL_TABLE_PREFIX}ses (ses_id, time_sec, sys_id, ip_addr, useragent, user_id) VALUES (\''. $spider['botname'] .'\', '. __request_timestamp__ .', '. _esc(ses_make_sysid()) .', '. _esc($my_ip) .', '. _esc(substr($_SERVER['HTTP_USER_AGENT'], 0, 64)) .', '. $spider['user_id'] .')', $ef, 1)) {
 					$q_opt = 's.id='. $id;
 				} else {
 					$q_opt = 's.ses_id='. _esc($spider['botname']);
@@ -86,7 +86,7 @@ function ses_get($id=0)
 				// Check sys_id, ip_addr and useragent for a possible match
 				$q_opt = 's.sys_id= '._esc(ses_make_sysid()).
 				         ' AND s.ip_addr='._esc(get_ip()).
-						 ' AND s.useragent='._esc(substr($_SERVER['HTTP_USER_AGENT'], 0, 32));
+						 ' AND s.useragent='._esc(substr($_SERVER['HTTP_USER_AGENT'], 0, 64));
 			}
 		}
 
@@ -139,7 +139,7 @@ function ses_anon_make()
 	do {
 		$uid = 2000000000 + mt_rand(1, 147483647);
 		$ses_id = md5($uid . __request_timestamp__ . getmypid());
-	} while (!($id = db_li('INSERT INTO {SQL_TABLE_PREFIX}ses (ses_id, time_sec, sys_id, ip_addr, useragent, user_id) VALUES (\''. $ses_id .'\', '. __request_timestamp__ .', '. _esc(ses_make_sysid()) .', '. _esc(get_ip()) .', '. _esc(substr($_SERVER['HTTP_USER_AGENT'], 0, 32)) .', '. $uid .')', $ef, 1)));
+	} while (!($id = db_li('INSERT INTO {SQL_TABLE_PREFIX}ses (ses_id, time_sec, sys_id, ip_addr, useragent, user_id) VALUES (\''. $ses_id .'\', '. __request_timestamp__ .', '. _esc(ses_make_sysid()) .', '. _esc(get_ip()) .', '. _esc(substr($_SERVER['HTTP_USER_AGENT'], 0, 64)) .', '. $uid .')', $ef, 1)));
 
 	/* When we have an anon user, we set a special cookie allowing us to see who referred this user. */
 	if (isset($_GET['rid']) && !isset($_COOKIE['frm_referer_id']) && $GLOBALS['FUD_OPT_2'] & 8192) {

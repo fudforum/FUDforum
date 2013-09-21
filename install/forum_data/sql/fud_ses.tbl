@@ -22,7 +22,7 @@ CREATE TABLE {SQL_TABLE_PREFIX}ses
 
 	time_sec	BIGINT NOT NULL DEFAULT 0,
 	ip_addr		VARCHAR(46),
-	useragent	VARCHAR(32),
+	useragent	VARCHAR(64),
 
 	data		TEXT,
 	returnto	VARCHAR(255)
