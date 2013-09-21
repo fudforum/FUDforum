@@ -134,6 +134,7 @@
 	}
 
 	$done = 0;
+	$counter = 1;
 	while (!$done) {
 		$emsg = new fud_mime_msg();
 		$emsg->subject_cleanup_rgx = $config->subject_regex_haystack;
@@ -141,19 +142,31 @@
 		$emsg->body_cleanup_rgx    = $config->body_regex_haystack;
 		$emsg->body_cleanup_rep    = $config->body_regex_needle;
 
+		echo $counter==1 ? '' : "\n";
+
 		if (!empty($_SERVER['argv'][2])) {
-			/* Read a single message from a file and load it into the forum. */
-			$filename = $_SERVER['argv'][2];
-			if (!is_file($filename)) {
-				exit("Cannot read from file ". $filename ."\n");
+			// Get list of files we need to load.
+			if (!isset($GLOBALS['filelist'])) {
+				// Get list of files to load sorted by name.
+				$GLOBALS['filelist'] = array_reverse(glob($_SERVER['argv'][2]));
 			}
+
+			if (empty($GLOBALS['filelist'])) {
+				echo 'No more files to process.';
+				$done = 1;
+				continue;
+			}
+			
+			/* Read message from file and load it into the forum. */
+			$filename = array_pop($GLOBALS['filelist']);
+			echo "Load message from file $filename";
 			$email_message = file_get_contents($filename);
 			$emsg->parse_message($email_message, $config->mlist_opt & 16);
-			$done = 1;
+			$counter++;
 		} else if ($config->mbox_server && $config->mbox_user) {
 			/* Fetch message from mailbox and load them into the forum. */
 			if (empty($emails)) {
-				echo "No more mails to process.\n";
+				echo 'No more mails to process.';
 				$done = 1;
 				continue;
 			}
@@ -161,10 +174,12 @@
 			$email_message = imap_fetchbody($mbox, $email_number, '');
 			echo 'Load message '. $email_number;
 			$emsg->parse_message($email_message, $config->mlist_opt & 16);
-			echo ". Done. Deleting message.\n";
+			echo '. Done. Deleting message.';
 			imap_delete($mbox, $email_number);
+			$counter++;
 		} else {
 			/* Read single message from pipe (stdin) and load it into the forum. */
+			echo 'Load message from STDIN (type message)';
 			$email_message = file_get_contents('php://stdin');
 			if (empty($email_message)) {
 				fud_logerror('Nothing to import! Please pipe your messages into the script or use a mailbox.', 'mlist_errors');
@@ -183,12 +198,13 @@
 		if ($emsg->msg_id && q_singleval('SELECT m.id FROM '. sql_p .'msg m
 						INNER JOIN '. sql_p .'thread t ON t.id=m.thread_id
 						WHERE mlist_msg_id='. _esc($emsg->msg_id) .' AND t.forum_id='. $frm->id)) {
+			echo ' - previously loaded';
 			continue;
 		}
 		
 		/* Skip spam messages. */
 		if (isset($emsg->headers['x-spam-flag']) && ($emsg->headers['x-spam-flag'] == 'YES')) {
-			echo("Skip spam message.\n");
+			echo ' - skip spam message.';
 			continue;
 		}
 
@@ -273,15 +289,21 @@
 		}
 
 		// Color levels of quoted text.
+		$msg_post->body = apply_custom_replace($msg_post->body);
 		$msg_post->body = color_quotes($msg_post->body, $frm->forum_opt);
 
-		$msg_post->body = apply_custom_replace($msg_post->body);
-		if (!($config->mlist_opt & 16)) {	// allow_mlist_html
-			if ($frm->forum_opt & 16) {	// BBCode tag style.
-				$msg_post->body = tags_to_html($msg_post->body, 0);
-			} else {
-				$msg_post->body = nl2br($msg_post->body);
-			}
+		// If HTML is not allowed, strip it out.
+		if (!($config->mlist_opt & 16)) {	// NOT allow_mlist_html
+			$msg_post->body = strip_tags($msg_post->body);
+		}
+
+		if ($frm->forum_opt & 16) {	// Forum takes BBcode tags.
+			// Convert BBCode tags to HTML.
+			// tags_to_html() will do a nl2br() as well.
+			$msg_post->body = tags_to_html($msg_post->body, 0);
+		} else {
+			// Forum takes HTML tags. No need for conversion.
+			$msg_post->body = nl2br($msg_post->body);
 		}
 
 		fud_wordwrap($msg_post->body);
@@ -308,7 +330,7 @@
 		$msg_post->add($frm->id, $frm->message_threshold, 0, 0, false);
 
 		// Handle file attachments.
-		if ($config->mlist_opt & 8) {
+		if ($config->mlist_opt & 8) {	// allow_mlist_attch
 			foreach($emsg->attachments as $key => $val) {
 				$id = add_attachment($key, $val, $msg_post->poster_id);			
 				$attach_list[$id] = $id;
@@ -318,7 +340,7 @@
 			attach_finalize($attach_list, $msg_post->id);
 		}
 
-		if (!($config->mlist_opt & 1)) {
+		if (!($config->mlist_opt & 1)) {	// mlist_post_apr
 			$msg_post->approve($msg_post->id);
 		}
 	}
@@ -328,4 +350,6 @@
 		@imap_expunge($mbox);
 		@imap_close($mbox);
 	}
+
+	echo "\nDone.\n";
 ?>
