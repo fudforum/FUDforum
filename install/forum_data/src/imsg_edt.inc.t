@@ -261,6 +261,7 @@ class fud_msg_edit extends fud_msg
 		}
 	}
 
+	/**  Delete a message & cleanup. */
 	static function delete($rebuild_view=1, $mid=0, $th_rm=0)
 	{
 		if (!$mid) {
@@ -281,7 +282,7 @@ class fud_msg_edit extends fud_msg
 
 		q('DELETE FROM {SQL_TABLE_PREFIX}msg WHERE id='. $mid);
 
-		/* Attachments. */
+		/* Remove attachments. */
 		if ($del->attach_cnt) {
 			$res = q('SELECT location FROM {SQL_TABLE_PREFIX}attach WHERE message_id='. $mid .' AND attach_opt=0');
 			while ($loc = db_rowarr($res)) {
@@ -300,6 +301,7 @@ class fud_msg_edit extends fud_msg
 			q('DELETE FROM {SQL_TABLE_PREFIX}title_index WHERE msg_id='. $mid);
 		}
 
+		/* Remove poll. */
 		if ($del->poll_id) {
 			poll_delete($del->poll_id);
 		}

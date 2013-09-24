@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -13,9 +13,9 @@ function safe_attachment_copy($source, $id, $ext)
 {
 	$loc = $GLOBALS['FILE_STORE'] . $id .'.atch';
 	if (!$ext && !move_uploaded_file($source, $loc)) {
-		error_dialog('unable to move uploaded file', 'From: '. $source .' To: '. $loc, 'ATCH');
+		error_dialog('Unable to move uploaded file', 'From: '. $source .' To: '. $loc, 'LOG&RETURN');
 	} else if ($ext && !copy($source, $loc)) {
-		error_dialog('unable to handle file attachment', 'From: '. $source .' To: '. $loc, 'ATCH');
+		error_dialog('Unable to handle file attachment', 'From: '. $source .' To: '. $loc, 'LOG&RETURN');
 	}
 	@unlink($source);
 

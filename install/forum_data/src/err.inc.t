@@ -9,36 +9,47 @@
 * Free Software Foundation; version 2 of the License.
 **/
 
+/** Log error and redirect to the error template. */
 function error_dialog($title, $msg, $level='WARN', $ses=null)
 {
 	if (!$ses) {
 		$ses = (int) $GLOBALS['usr']->sid;
 	}
 
-	$error_msg = '[Error] '. $title .'<br />';
-	$error_msg .= '[Message Sent to User] '. trim($msg) .'<br />';
-	$error_msg .= '[User IP] '. get_ip() .'<br />';
-	$error_msg .= '[Requested URL] http://';
-	$error_msg .= isset($_SERVER['HTTP_HOST']) ? htmlspecialchars($_SERVER['HTTP_HOST']) : '';
-	$error_msg .= isset($_SERVER['REQUEST_URI']) ? htmlspecialchars($_SERVER['REQUEST_URI']) : '';
-	$error_msg .= !empty($_POST) ? '<br />[Post-Data] '. base64_encode(serialize($_POST)) : '';
-	$error_msg .= '<br />';
+	// Log the error.
+	if (defined('fud_logging') || $level !== 'INFO') {
+		// Build error string.
+		$error_msg  = '[Error] '. $title .'<br />';
+		$error_msg .= '[Message to User] '. trim($msg) .'<br />';
+		$error_msg .= '[User IP] '. get_ip() .'<br />';
+		$error_msg .= '[Requested URL] http://';
+		$error_msg .= isset($_SERVER['HTTP_HOST']) ? htmlspecialchars($_SERVER['HTTP_HOST']) : '';
+		$error_msg .= isset($_SERVER['REQUEST_URI']) ? htmlspecialchars($_SERVER['REQUEST_URI']) : '';
 
-	if (isset($_SERVER['HTTP_REFERER'])) {
-		$error_msg .= '[Referring URL] '. htmlspecialchars($_SERVER['HTTP_REFERER']) .'<br />';
-	} else if (isset($_SERVER['HTTP_USER_AGENT'])) {
-		$error_msg .= '[User Agent] '. htmlspecialchars($_SERVER['HTTP_USER_AGENT']) .'<br />';
+		// Mask out sensitive data.
+		unset($_POST['password']);
+		unset($_POST['quick_password']);
+		$error_msg .= !empty($_POST) ? '<br />[Post-Data] '. htmlspecialchars(serialize($_POST)) : '';
+		$error_msg .= '<br />';
+
+		if (isset($_SERVER['HTTP_REFERER'])) {
+			$error_msg .= '[Referring URL] '. htmlspecialchars($_SERVER['HTTP_REFERER']) .'<br />';
+		} else if (isset($_SERVER['HTTP_USER_AGENT'])) {
+			$error_msg .= '[User Agent] '. htmlspecialchars($_SERVER['HTTP_USER_AGENT']) .'<br />';
+		}
+
+		fud_logerror($error_msg, 'fud_errors');
 	}
 
-	fud_logerror($error_msg, 'fud_errors');
-
-	/* No need to redirect, we just want to log the error. */
-	if ($level == 'ATCH') {
+	// No need to redirect, we just want to log the error.
+	if ($level == 'LOG&RETURN') {
 		return;
 	}
 
+	// Store persistently.
 	ses_putvar($ses, array('er_msg' => $msg, 'err_t' => $title));
 
+	// Redirect to error template.
 	if (is_int($ses)) {
 		if ($GLOBALS['FUD_OPT_2'] & 32768) {
 			header('Location: {FULL_ROOT}{ROOT}/e/'. _rsidl);
@@ -55,6 +66,7 @@ function error_dialog($title, $msg, $level='WARN', $ses=null)
 	exit;
 }
 
+/** Signal standard errors. */
 function std_error($type)
 {
 	if (!isset($_SERVER['HTTP_REFERER'])) {
@@ -90,8 +102,9 @@ function std_error($type)
 	error_dialog('{TEMPLATE: err_inc_criticaltitle}', '{TEMPLATE: err_inc_criticalmsg}');
 }
 
+/** Signal an invalid input error. */
 function invl_inp_err()
 {
-	error_dialog('{TEMPLATE: core_err_invinp_title}', '{TEMPLATE: core_err_invinp_err}');
+	error_dialog('{TEMPLATE: core_err_invinp_title}', '{TEMPLATE: core_err_invinp_err}', 'INFO');
 }
 ?>

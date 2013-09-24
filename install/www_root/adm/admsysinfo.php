@@ -110,7 +110,6 @@ echo '<tr class="field">
 				<td><?php echo get_php_setting('magic_quotes_gpc'); ?></td>
 			</tr>
 			<tr>
-			<tr>
 				<td>Output buffering:</td>
 				<td><?php echo (is_numeric(ini_get('output_buffering')) ? 'Yes' : 'No'); ?></td>
 			</tr>
