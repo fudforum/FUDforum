@@ -1104,6 +1104,7 @@ move_msg_th_expl:(دوسرے فورمز میں ہو سکتا ہے) مطلوبہ 
 captcha_img_alt:کیپچا توثیق: آپ کو اس تصویر میں متن کو تسلیم کرنے کی ضرورت ہوگی.
 captcha_img_help:صفر یا تصویر میں کوئی نہیں ہے.
 powered-by:توليد: فودفاروم {گوار: FORUM_VERSION} ۔
+# Fuzzy
 copyright:کاپی رائٹ © 2001-2012 <a href="http://fudforum.org/">فودفاروم بلیٹن بورڈ سافٹ ویئر</a>
 code_title:کوڈ:
 code_select_all:مکمل متن منتخب کریں

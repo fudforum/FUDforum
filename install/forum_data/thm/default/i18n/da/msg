@@ -217,6 +217,7 @@ reported_reported_msg:Rapportérede indlæg
 modque_pending_approval:Indlæg der venter på godkendelse
 modque_approve:Godkend
 modque_delete:Slet
+modque_deleteall:Slet alle fra brugeren
 modque_no_message:Der er ingen indlæg der afventer godkendelse
 pmsg_new_messages:Ulæst privat besked
 pmsg_old_messages:Læst privat besked
@@ -1110,6 +1111,7 @@ move_msg_th_expl:Angiv ID for destinationsemnet (kan være i andre fora)
 captcha_img_alt:Captcha verifikation: du skal genkende teksten i dette billede.
 captcha_img_help:Der er ingen nul eller én i billedet.
 powered-by:Drevet af: FUDforum {GVAR: FORUM_VERSION}.
+# Fuzzy
 copyright:Copyright &copy;2001-2012 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Kode:
 code_select_all:Vælg alle

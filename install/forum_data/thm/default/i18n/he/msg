@@ -20,6 +20,7 @@ current_time:השעה הנוכחית
 custom_avatar_queue:תור הסמלים האישיים להעלאה
 date_posted:תאריך הפרסום
 date_registered:תאריך ההרשמה:
+download_counter:התבצע{PLURAL: v[3]|ה הורדה אחת|ו $1 הורדות}
 email:דוא"ל:
 email_to_friend:שליחת דוא"ל לחבר
 email_to_friend_desc:שליחת כתובת העמוד הנוכחי לחבר/ים בדוא"ל
@@ -500,6 +501,7 @@ pmsg_pdf_btn:יצירת ארכיון PDF
 dmsg_ip:IP:
 rating_delete:מחיקה
 finduser_flag:דגל
+# Fuzzy
 copyright:כל הזכויות שמורות &copy;‏2001-‎2012 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:קוד:
 code_select_all:בחר הכל

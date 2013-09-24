@@ -1107,6 +1107,7 @@ move_msg_th_expl:Precisatz l'identificant del subjècte de destinacion (pòt ès
 captcha_img_alt:Verificacion par Captcha : vos cal reconéisser lo tèxte dins aqueste imatge.
 captcha_img_help:I a pas de zèro o de un sus aqueste imatge.
 powered-by:Propulsat per : FUDforum {GVAR: FORUM_VERSION}.
+# Fuzzy
 copyright:Copyright &copy; 2001-2012 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:CÒDE :
 code_select_all:Seleccionar tot

@@ -1104,6 +1104,7 @@ move_msg_th_expl:Nemtokake ID ing topic panggonan (bisa ing forum liyane)
 captcha_img_alt:CAPTCHA Verifikasi: sampeyan kudu ngenali teks ing gambar.
 captcha_img_help:Ora ana siji utawa nul ing gambar.
 powered-by:Powered by: FUDforum {GVAR: FORUM_VERSION}.
+# Fuzzy
 copyright:hak cipta &copy;2001-2012 <a href="http://fudforum.org/">FUDforum Bulletin Papan Software</a>
 code_title:Kodhé:
 code_select_all:Pilih kabèh

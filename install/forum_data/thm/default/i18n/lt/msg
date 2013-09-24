@@ -4,6 +4,7 @@
 # Author: Eitvys200
 # Author: Ignas693
 # Author: Juoand
+# Author: Mantak111
 # Author: Naudefj
 
 action:Veiksmas
@@ -214,6 +215,7 @@ reported_reported_msg:Pranešė Žinutės
 modque_pending_approval:Žinutės laukiama patvirtinimo
 modque_approve:Patvirtinti
 modque_delete:Ištrinti
+modque_deleteall:Ištrinti viską nuo vartotojo
 modque_no_message:There are no messages pending approval
 pmsg_new_messages:Neperskaitytas asmeninį pranešimą
 pmsg_old_messages:Skaityti asmeninį pranešimą
@@ -1107,6 +1109,7 @@ move_msg_th_expl:Nurodykite paskirties temą (gali būti kituose forumuose) ID.
 captcha_img_alt:Captcha patikrinimas: jums reikia atpažinti tekstą paveikslėlije.
 captcha_img_help:Nėra nulio ar vieno šiame vaizde.
 powered-by:Pagal: FUDforum {GVAR: FORUM_VERSION}.
+# Fuzzy
 copyright:Autorinės teisės &copy;2001-2012 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Kodas
 code_select_all:Pasirinkti visus

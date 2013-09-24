@@ -1112,6 +1112,7 @@ move_msg_th_expl:Penetapan ID dari tujuan topik (bisa juga terdapat di Forum lai
 captcha_img_alt:Verifikasi Captcha: Anda harus mengenali teks dalam gambar ini.
 captcha_img_help:Tidak ada nol atau satu pada berkas.
 powered-by:Di dukung oleh: FUDforum {GVAR: FORUM_VERSION}.
+# Fuzzy
 copyright:Hak Cipta &copy;2001-2012 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Kode:
 code_select_all:Pilih semua

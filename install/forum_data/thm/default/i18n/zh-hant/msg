@@ -1110,6 +1110,7 @@ move_msg_th_expl:指定的 ID （可以在其他論壇） 的目標主題的
 captcha_img_alt:驗證碼： 您需要認識到此圖像中的文本。
 captcha_img_help:有沒有零或圖像中的一個。
 powered-by:網站： FUDforum {GVAR: FORUM_VERSION}。
+# Fuzzy
 copyright:版權所有 © 2001年-2012 年<a href="http://fudforum.org/">FUDforum 公告板軟體</a>
 code_title:代碼：
 code_select_all:全選
