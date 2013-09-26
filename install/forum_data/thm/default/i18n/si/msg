@@ -673,6 +673,7 @@ reset_err_rstconf_title:තොරතුරු
 reset_err_rstconf_msg:ඔබට ඔබේ ඊ-තැපෑල වෙත උපදෙස් මිනිත්තු කිහිපයකින් ලැබෙනු ඇත.
 reset_newpass_title:මුරපදය යළි පිහිටුවන්න
 reset_newpass_msg:කොහොමද,\n\nඅයැදූ ලෙසින්, ඔබේ පිවිසුම් තොරතුරු පහත දිස්වේ:\n\nපිවිසුම: {VAR: ui[1]}\nමුරපදය: {VAR: passwd}\n\nඔබේ මුරපදය ඉහත අගයට යළි සකසා ඇති බව කරුණාකර මතක තබා ගන්න. ඔබ මුරපදය වෙනස් කිරීමට අදහස් කරන්නේ නම් පරිශීලක තොරතුරු පාලක පුවරුවේදී එය කල හැක:\n{FULL_ROOT}{ROOT}?t=register
+# Fuzzy
 reset_login_notify:ඔබේ මුරපදය ඔබට ඊ-තැපැල් කොට ඇත. එය මීළඟ විනාඩි කිහිපය ඇතුලත ඔබට  ලැබෙනු ඇත.<br />
 search_update:පණිවුඩ සොයමින්
 selmsg_update:<a href="{TEMPLATE: selmsg_update_lnk}">අද දැමුම් ගවේෂණය කරමින්</a>

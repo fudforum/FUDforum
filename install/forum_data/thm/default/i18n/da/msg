@@ -679,6 +679,7 @@ reset_err_rstconf_title:Information
 reset_err_rstconf_msg:Du burde modtage instruktioner per e-mail i løbet af de næste par minutter.
 reset_newpass_title:Få ny adgangskode
 reset_newpass_msg:Hej\n\nSom ønsket fremsendes hermed dine nye dine brugeroplysninger:\n\nBrugernavn: {VAR: ui[1]}\nAdgangskode: {VAR: passwd}\n\nBemærk venligst at din adgangskode er blevet ændret til den ovennævnte værdi. Hvis du ønsker\n at ændre din adgangskode igen, kan du gøre det via kontrolpanelet på:\n{FULL_ROOT}{ROOT}?t=register\n\n.
+# Fuzzy
 reset_login_notify:Din nye adgangskode er blevet sendt til dig pr e-mail. Du vil modtage den inden for de næste par minutter.<br />
 search_update:Søger blandt indlæggene
 selmsg_update:Gennemse <a href="{TEMPLATE: selmsg_update_lnk}">dagens indlæg</a>

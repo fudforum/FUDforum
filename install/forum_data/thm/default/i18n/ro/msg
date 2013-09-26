@@ -667,6 +667,7 @@ reset_err_rstconf_msg:Veti primi instructiuni la adresa de email, in cateva mome
 reset_newpass_title:Reseteaza Parola
 # Fuzzy
 reset_newpass_msg:Ziua buna,\n\nLa cerere v-am trimis numele de utilizator.\nAici sunt informatiile dumneavoastra:\n\nUtilizator: {VAR: ui[1]}\nParola: {VAR: passwd}
+# Fuzzy
 reset_login_notify:Parola v-a fost trimisa la adresa de email. Va rugam sa verificati email-ul in urmatoarele momente.
 search_update:Cautare mesaje trimise
 selmsg_update:Navigeaza <a href="{TEMPLATE: selmsg_update_lnk}">mesaje trimise astazi</a>
@@ -1076,6 +1077,7 @@ move_messages:Mută mesajele
 move_msg_btn:Mută mesajele selectate
 captcha_img_alt:Verificare CAPTCHA: va trebui să recunoașteți textul din imagine.
 powered-by:Propulsat de: FUDforum {GVAR: FORUM_VERSION}.
+# Fuzzy
 copyright:Drepturi de autor &copy;2001-2012 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Cod:
 code_select_all:Selectează tot

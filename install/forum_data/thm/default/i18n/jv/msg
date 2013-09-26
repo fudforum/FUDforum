@@ -672,6 +672,7 @@ reset_err_rstconf_title:Informasi
 reset_err_rstconf_msg:Sampeyan kudu nampa pandhuan ing e-mail ing sabanjure sawetara menit.
 reset_newpass_title:Reset Pangguna
 reset_newpass_msg:Hello,\n\nNalika dijaluk, sampeyan mlebu log informasi katon ing ngisor iki:\n\nMlebu: {VAR: ui[1]}\nPangguna: {VAR: passwd}\n\nWigati dicathet sandi wis Reset menyang Nilai ndhuwur. Yen sampeyan pengin\nkanggo ngganti tembung sandi sampeyan bisa ditindakake liwat pangguna info panel kontrol ing:\n{FULL_ROOT}{ROOT}?t=register
+# Fuzzy
 reset_login_notify:Panjenengan Pendhaftaran wis e-sering dipun kirim kanggo sampeyan. Sampeyan kudu nampa iku ing sabanjure sawetara menit.<br/>
 search_update:Kategori pesen
 selmsg_update:njelajah <a href="{TEMPLATE: selmsg_update_lnk}">Dina Kiriman</a>

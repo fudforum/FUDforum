@@ -685,6 +685,7 @@ reset_err_rstconf_title:Information
 reset_err_rstconf_msg:Vous devriez recevoir des instructions par e-mail dans quelques minutes.
 reset_newpass_title:Réinitialisation du mot de passe
 reset_newpass_msg:Bonjour,\n\nveuillez trouver ci-joint les informations dont vous avez besoin pour accéder au forum :\n\n\nNom d'utilisateur: {VAR: ui[1]}\nMot de passe: {VAR: passwd}\n\nNotez que vous pouvez modifier votre mot de passe à tout moment via le panneau de configuration de votre profil sur le site du forum, également accessible à l'URL suivante:\n{FULL_ROOT}{ROOT}?t=register
+# Fuzzy
 reset_login_notify:Nous venons de vous envoyer un e-mail contenant vos informations d'inscription. Vous devriez le recevoir dans quelques instants. Cet e-mail contient votre nom d'utilisateur ainsi que votre mot de passe actuel.<br />
 search_update:Recherche des messages
 selmsg_update:Parcourt les <a href="{TEMPLATE: selmsg_update_lnk}">messages envoyés aujourd'hui</a>
@@ -1117,6 +1118,7 @@ move_msg_th_expl:Précisez l'identifiant du sujet de destination (peut être sit
 captcha_img_alt:Vérification par Captcha : vous devez reconnaître le texte dans cette image.
 captcha_img_help:Il n'y a pas de zéro ou de un sur cette image.
 powered-by:Propulsé par : FUDforum {GVAR: FORUM_VERSION}.
+# Fuzzy
 copyright:Copyright &copy;2001-2012 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:CODE :
 code_select_all:Tout sélectionner

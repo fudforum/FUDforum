@@ -675,6 +675,7 @@ reset_err_rstconf_title:Informacion
 reset_err_rstconf_msg:Deuriatz recebre d'instruccions per e-mail dins qualques minutas.
 reset_newpass_title:Reïnicializacion del senhal
 reset_newpass_msg:Bonjorn,\n\ntrobatz çaijunt las informacions que vos fan mestièr per accedir al forum :\n\n\nNom d'utilizaire : {VAR: ui[1]}\nSenhal : {VAR: passwd}\n\nNotatz que podètz modificar vòstre senhal quand volètz via lo panèl de configuracion de vòstre perfil sul site del forum, tanben accessible a l'URL seguenta :\n{FULL_ROOT}{ROOT}?t=register
+# Fuzzy
 reset_login_notify:Vos venèm de mandar un e-mail que conten vòstras entresenhas d'inscripcion. O deuriatz recebre dins qualques minutas. Aqueste e-mail conten vòstre nom d'utilizaire e tanben vòstre senhal actual.<br />
 search_update:Recèrca dels messatges
 selmsg_update:Percor los <a href="{TEMPLATE: selmsg_update_lnk}">messatges mandats uèi</a>

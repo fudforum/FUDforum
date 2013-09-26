@@ -675,7 +675,7 @@ reset_err_rstconf_title:情報
 reset_err_rstconf_msg:数分で手順説明がメールで届くはずです。
 reset_newpass_title:パスワードの再設定
 reset_newpass_msg:こんにちは。\n\n申請いただいた、あなたのログイン情報は下記となります。\n\nログイン名: {VAR: ui[1]}\nパスワード: {VAR: passwd}\n\nパスワードが上記の値に再設定されたことに注意してください。\nパスワードを変更したい場合、利用者情報コントロールパネルによって行います:\n{FULL_ROOT}{ROOT}?t=register
-reset_login_notify:パスワードをメールで送信しました。数分であなたに届くはずです。<br />
+reset_login_notify:パスワードをメールでお送りしました。数分以内に届くはずです。
 search_update:メッセージ検索中
 selmsg_update:<a href="{TEMPLATE: selmsg_update_lnk}">今日の投稿</a>を閲覧中
 showposts_update:<a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a> の投稿を表示中
@@ -1107,8 +1107,7 @@ move_msg_th_expl:移動先トピックのIDを指定してください (他の�
 captcha_img_alt:CAPTCHA検証: この画像中の文字列を認識する必要があります。
 captcha_img_help:画像内には 0 も 1 もありません。
 powered-by:提供: FUDforum {GVAR: FORUM_VERSION}
-# Fuzzy
-copyright:Copyright &copy;2001-2012 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Copyright &copy;2001-2013 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:コード:
 code_select_all:すべて選択
 code_show_hide:表示/非表示

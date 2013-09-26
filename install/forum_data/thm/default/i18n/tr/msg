@@ -681,6 +681,7 @@ reset_err_rstconf_title:Bilgi
 reset_err_rstconf_msg:Yapmanız gerekenler bir kaç dakika içinde e-posta adresinize ulaşacak.
 reset_newpass_title:Parolayı Yeniden Belirle
 reset_newpass_msg:Selam,\n\nİsteğiniz üzerine kayıt bilgileriniz gönderildi.\nGiriş bilgileriniz:\n\nKullanıcı ismi: {VAR: ui[1]}\nParola: {VAR: passwd}\n\nYukarıda belirtilen yeni parolanızı değiştirmek isterseniz, kullanıcı denetim masasından yapabilirsiniz:\n{FULL_ROOT}{ROOT}?t=register
+# Fuzzy
 reset_login_notify:Parolanız e-posta adresinize gönderildi. Bir kaç dakika içinde elinizde olmalı. Lütfen parolanızı gözden geçirin ve giriş yapın..<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
 search_update:İletileri arıyor
 selmsg_update:<a href="{TEMPLATE: selmsg_update_lnk}">Bugünkü İletilerde</a> dolaşıyor

@@ -674,6 +674,7 @@ reset_err_rstconf_title:Információ
 reset_err_rstconf_msg:Pár percen belül megkapod az utasításokat az e-mail címedre.
 reset_newpass_title:Új jelszó kérése
 reset_newpass_msg:Szia!\n\nAhogy kérted, a bejelentkezési információid alább láthatóak:\n\nBejelentkezési név: {VAR: ui[1]}\nJelszó: {VAR: passwd}\n\nA jelszavad le lett cserélve a fenn látható értékre. Ha meg szeretnéd változtatni,\na felhasználói vezérlőpulton teheted meg:\n{FULL_ROOT}{ROOT}?t=register
+# Fuzzy
 reset_login_notify:A jelszót elküldtük e-mailben. Pár percen belül meg fogod kapni.<br />
 search_update:Hozzászólásokat keres
 selmsg_update:A <a href="{TEMPLATE: selmsg_update_lnk}">mai hozzászólásokat</a> böngészi

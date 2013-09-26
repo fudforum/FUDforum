@@ -672,6 +672,7 @@ reset_err_rstconf_title:Eolas
 reset_err_rstconf_msg:Ba chóir duit treoracha i do r-phost a fháil i miontuairiscí amach romhainn.
 reset_newpass_title:Athshocraigh Pasfhocal
 reset_newpass_msg:Dia duit,\n\nMar a iarradh dealraitheach do chuid faisnéise logáil isteach, thíos:\n\nLogáil isteach: {VAR: ui[1]}\nPasfhocal: {VAR: passwd}\n\nTabhair faoi deara go bhfuil do phasfhocal bhí athshocrú chun an luach thuas. Más mian leat\na athrú ar do phasfhocal is féidir leat é sin a dhéanamh tríd an painéal úsáideoirí rialaithe info at:\n{FULL_ROOT}{ROOT}?t=register
+# Fuzzy
 reset_login_notify:Do phasfhocal curtha r-phost a thabhairt duit. Ba chóir duit é a fháil laistigh de na miontuairiscí amach romhainn. <br/>
 search_update:teachtaireachtaí Cuardach
 selmsg_update:Brabhsáil <a href="{TEMPLATE: selmsg_update_lnk}">Inniu Poist</a>

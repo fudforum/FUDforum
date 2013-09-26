@@ -678,6 +678,7 @@ reset_err_rstconf_title:Information
 reset_err_rstconf_msg:Sie sollten in den nächsten Minuten eine Anleitung per E-Mail erhalten.
 reset_newpass_title:Passwort zurücksetzen
 reset_newpass_msg:Guten Tag,\n\nWie von Ihnen gewünscht, werden Ihnen die Anmeldeinformationen zugesendet.\n\nBenutzername: {VAR: ui[1]}\nPasswort: {VAR: passwd}\n\nBitte beachten Sie, dass Ihr Passwort auf obigen angegebenen Wert zurückgesetzt\nwurde, wenn Sie es ändern möchten, so können Sie das in\nden persönlichen Einstellungen tun:\n{FULL_ROOT}{ROOT}?t=register
+# Fuzzy
 reset_login_notify:Das Passwort wurde an Sie versendet. Sie sollten es in den nächsten Minuten erhalten. Bitte überprüfen Sie die E-Mail auf Benutzername und Passwort.<br />.<br />.<br />
 search_update:Sucht nach Beiträgen
 selmsg_update:Durchsucht <a href="{TEMPLATE: selmsg_update_lnk}">die heutigen Beiträge</a>

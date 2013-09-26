@@ -681,6 +681,7 @@ reset_err_rstconf_title:Information
 reset_err_rstconf_msg:Du torde få instruktioner per e-post inom ett par minuter
 reset_newpass_title:Nollställ lösenord
 reset_newpass_msg:Hej!\n\nEnligt önskemål har ditt användarnamn och ditt lösenord skickats till dig.\nHär är dina inloggningsuppgifter:\n\nAnvändarnamn: {VAR: ui[1]}\nLösenord: {VAR: passwd}\n\nNotera att ditt lösenord har ändrats till ovanstående. Om du vill\nändra ditt lösenord kan du göra det i medlemmens kontrollpanel:\n{FULL_ROOT}{ROOT}?t=register
+# Fuzzy
 reset_login_notify:Ditt lösenord har skickats åt dig per e-post och borde komma fram inom ett par minuter. Vänligen kontrollera din e-post för ditt användarnamn och lösenord.<br />.<br />.<br />
 search_update:Söker bland inläggen
 selmsg_update:Läser <a href="{TEMPLATE: selmsg_update_lnk}">Dagens inlägg</a>

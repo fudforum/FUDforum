@@ -382,6 +382,7 @@ reset_err_invalidkey_title:שגיאה
 reset_err_invalidkey_msg:מפתח איפוס ססמה בלתי־תקין. ייתכן שתכנת הדואר האלקטרוני שלך כבר פתחה אוטומטית את הדף הזה וביטלה את מפתח האיפוס. אם זה המקרה, בקרוב יגיע מכתב עם ססמה חדשה. אם מכתב כזה אינו מגיע, יש לנסות לאפס את הססמה.
 reset_newpass_title:איפוס ססמה
 reset_newpass_msg:שלום,\n\nלבקשתף, מידע על ההרשה שלך מופיע להלן:\n\nמשתמש: {VAR: ui[1]}\nססמה: {VAR: passwd}\n\nנא לשים לב לכך שססמתך אופסה לערך לעיל.\nאם ברצונך לשנות את הססמה, אפשר לעשות זאת דרך לוח הבקרה בכתובת הבאה:\n{FULL_ROOT}{ROOT}?t=register
+# Fuzzy
 reset_login_notify:הססמה נשלחה אליך בדואר אלקטרוני. היא תתקבל בדקות הקרובות.<br />
 finduser_title:חיפוש משתמש
 help_title:עזרה
@@ -474,6 +475,7 @@ show_pollist:הצגת סקרים
 search_and:וגם
 search_or:או
 spell_alts:אין חלופות
+back_to_top:חזרה למעלה
 iemail_msg_reply:תגובה
 iemail_msg_quote:ציטוט
 threadt_announce:הכרזה
@@ -502,7 +504,7 @@ dmsg_ip:IP:
 rating_delete:מחיקה
 finduser_flag:דגל
 # Fuzzy
-copyright:כל הזכויות שמורות &copy;‏2001-‎2012 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:כל הזכויות שמורות &copy;2001‏-2012 ל־<a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:קוד:
 code_select_all:בחר הכל
 code_show_hide:הצגה/הסתרה

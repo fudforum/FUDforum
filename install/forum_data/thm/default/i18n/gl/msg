@@ -674,6 +674,7 @@ reset_err_rstconf_title:Información
 reset_err_rstconf_msg:Deberías recibir instrucións no teu correo electrónico nuns minutos.
 reset_newpass_title:Restablecer o contrasinal
 reset_newpass_msg:Ola:\n\nTal e como o solicitaches, a túa información de inicio de sesión aparece a continuación:\n\nNome de usuario: {VAR: ui[1]}\nContrasinal: {VAR: passwd}\n\nPor favor, ten en conta que o teu contrasinal foi restablecido ao valor citado enriba. Se queres\ncambiar o contrasinal, podes facelo a través do panel de control de información de usuario en:\n{FULL_ROOT}{ROOT}?t=register
+# Fuzzy
 reset_login_notify:O teu contrasinal foiche enviado por correo electrónico. Deberías recibilo nuns minutos.<br />
 search_update:Buscando mensaxes
 selmsg_update:Navegando polas <a href="{TEMPLATE: selmsg_update_lnk}">mensaxes de hoxe</a>

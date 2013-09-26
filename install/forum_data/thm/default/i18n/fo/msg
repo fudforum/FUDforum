@@ -672,6 +672,7 @@ reset_err_rstconf_title:Kunning
 reset_err_rstconf_msg:Tú eigur at fáa leiðbeining við telduposti um eina lítla løtu.
 reset_newpass_title:Nulstilla loyniorð
 reset_newpass_msg:Hey,\n\nSambært umbøn frá tær, so hava vit sent tær títt brúkaranavn og loyniorð, sí niðanfyri:\n\nBrúkaranavn: {VAR: ui[1]}\nLoyniorð: {VAR: passwd}\n\nVinarliga legg til merkis, at títt loyniorð er blivið broytt til tað virði sum er nevnt omanfyri. Um tú ynskir\nat broyta títt loyniorð, so kanst tú gera tað á  kontrolpanelinum til brúkarakunning á:\n{FULL_ROOT}{ROOT}?t=register
+# Fuzzy
 reset_login_notify:Títt loyniorð er blivið sent til tín við telduposti. Tú eigur at móttaka tað um fáar minuttir.<br />
 search_update:Leitar í innsløgunum
 selmsg_update:Hyggur ígjøgnum <a href="{TEMPLATE: selmsg_update_lnk}">Dagsins innsløg</a>
@@ -1104,6 +1105,7 @@ move_msg_th_expl:Gev ID fyri destinasjónsevnið (kann vera í øðrum forum)
 captcha_img_alt:Captcha váttan: tú mást kenna aftur tekstin á hesi myndini.
 captcha_img_help:Tað er onki null ella eitt-tal á myndini.
 powered-by:Rikið av: FUDforum {GVAR: FORUM_VERSION}.
+# Fuzzy
 copyright:Upphavsrættur &copy;2001-2012 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Kota:
 code_select_all:Vel alt

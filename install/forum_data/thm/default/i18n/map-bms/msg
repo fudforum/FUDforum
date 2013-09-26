@@ -672,6 +672,7 @@ reset_err_rstconf_title:Informasi
 reset_err_rstconf_msg:Rika bakal nampa instruksi nang imele Rika sedela maning.
 reset_newpass_title:nge-''reset'' tembung sandhi
 reset_newpass_msg:Halo,\n\nManut karo panjalukane Rika, kiye informasi logine Rika:\n\nLogin: {VAR: ui[1]}\nPassword: {VAR: passwd}\n\nTulung dieling-eling anggere tembung sandhine Rika kuwe wis diganti dadi sing nang dhuwur kuwe mau. Anggere Rika kepengin\nngganti maning tembung sandhine Rika, Rika teyeng nglakokna kuwe nang panel kendaline Rika kiye:\n{FULL_ROOT}{ROOT}?t=register
+# Fuzzy
 reset_login_notify:Tembung sandhine Rika wis dikirim ming imele Rika. Rika bakal nampa kuwe sedela maning.<br />
 search_update:Ngoleti pesen
 selmsg_update:Ndeleng <a href="{TEMPLATE: selmsg_update_lnk}">Pesen dina kiye</a>

@@ -672,6 +672,7 @@ reset_err_rstconf_title:Kabatiran
 reset_err_rstconf_msg:Dapat na makatanggap ka ng mga tagubilin sa loob ng e-liham mo sa loob ng susunod na ilang mga minuto.
 reset_newpass_title:Itakdang Muli ang Hudyat
 reset_newpass_msg:Kumusta,\n\nAyon sa kahilingan, nakalitaw sa ibaba ang iyong kabatiran na panglagda:\n\nPanglagda: {VAR: ui[1]}\nHudyat: {VAR: passwd}\n\nMangyaring tandaan na ang hudyat mo ang itinakdang muli sa halagang nasa ibabaw. Kung nais mong\nbaguhin ang hudyat mo maaari mong gawin iyan ssa pamamagitan ng kahong-tabanan ng kabatiran na pangtagagamit na naroon sa:\n{FULL_ROOT}{ROOT}?t=register
+# Fuzzy
 reset_login_notify:Naipadala na sa iyo ang hudyat mo. Dapat mong matanggap ito sa loob ng susunod na mangilan-ngilang mga minuto.<br />
 search_update:Hinahanap ang mga mensahe
 selmsg_update:Tinitingnan-tingnan ang <a href="{TEMPLATE: selmsg_update_lnk}">Mga Pagpapaskil sa Araw na Ito</a>

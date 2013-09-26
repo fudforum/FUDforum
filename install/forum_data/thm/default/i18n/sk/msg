@@ -673,6 +673,7 @@ reset_err_rstconf_title:Informácia
 reset_err_rstconf_msg:V priebehu pár minút by ste e-mailom mali obdržať ďalšie pokyny
 reset_newpass_title:Obnoviť heslo
 reset_newpass_msg:Dobrý deň,\n\nna základe Vašej žiadosti Vám posielame prihlasovacie informácie:\n\nPoužívateľské meno: {VAR: ui[1]}\nHeslo: {VAR: passwd}\n\nProsím všimnite si, že Vaše heslo bolo zmenené na horeuvedenú hodnotu.\nAk si ho prajete zmeniť, môžete tak urobiť v nastaveniach používateľa na adrese:\n{FULL_ROOT}{ROOT}?t=register
+# Fuzzy
 reset_login_notify:Vaše heslo bolo odoslané e-mailom. V priebehu niekoľkých minút by ste ho mali obdržať. Prosím, skontrolujte si vašu poštu.<br />
 search_update:Vyhľadáva správy
 selmsg_update:Prehliada <a href="{TEMPLATE: selmsg_update_lnk}">dnešné príspevky</a>

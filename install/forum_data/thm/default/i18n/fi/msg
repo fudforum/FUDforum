@@ -679,6 +679,7 @@ reset_err_rstconf_title:Tiedot
 reset_err_rstconf_msg:Ohjeiden pitäisi saapua sähköpostiisi muutaman minuutin kuluessa
 reset_newpass_title:Salasana vaihdettu
 reset_newpass_msg:Hei.\n\nSalasanasi on nyt vaihdettu uuteen:\n\nKäyttäjätunnus: {VAR: ui[1]}\nSalasana: {VAR: passwd}\n\nJos haluat vaihtaa yllä olevan salasanan toiseksi, voit tehdä sen profiilisivulla:\n{FULL_ROOT}{ROOT}?t=register
+# Fuzzy
 reset_login_notify:Uusi salasanasi on lähetetty sinulle sähköpostilla, jonka pitäisi saapua muutaman minuutin kuluessa.<br />
 search_update:Etsii viestejä
 selmsg_update:Selaa <a href="{TEMPLATE: selmsg_update_lnk}">Päivän Viestejä</a>

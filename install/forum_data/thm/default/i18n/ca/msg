@@ -682,6 +682,7 @@ reset_err_rstconf_title:Informació
 reset_err_rstconf_msg:Hauria de rebre instruccions al seu correu electrònic en els propers minuts
 reset_newpass_title:Actualitzar contrasenya
 reset_newpass_msg:Hola.\n\nTal i com ha sol.licitat, li remetem el seu nom d`usuari i contrasenya.\nAquí­ està la seva informació d`inici de sessió:\n\nUsuari: {VAR: ui[1]}\nContrasenya: {VAR: passwd}\n\nRecordi que la seva contrasenya ha estat actualitzada al valor anterior. Si desitja canviar la seva contrasenya pot fer-ho mitjançant el panell de control d`usuari a:\n{FULL_ROOT}{ROOT}?t=register
+# Fuzzy
 reset_login_notify:Se li ha enviat la contrasenya per correu electrònic. Hauria de rebre-la en uns minuts.  Recordi revisar el seu correu per a obtenir la seva contrasenya i nom d`usuari.<br />.<br />.<br />
 search_update:Buscant missatges
 selmsg_update:Recorreguent <a href="{TEMPLATE: selmsg_update_lnk}">missatges d`avui</a>

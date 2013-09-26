@@ -677,6 +677,7 @@ reset_err_rstconf_title:Informacija
 reset_err_rstconf_msg:Turėtumėte gauti nurodymus į savo e-paštą per ateinančias keletą minučių.
 reset_newpass_title:Atstatyti slaptažodį
 reset_newpass_msg:Hello,\n\nAs per your request your login name are being sent to you.\nHere is your login information:\n\nLogin: {VAR: ui[1]}\nPassword: {VAR: passwd}\n\nPlease not that your password has been reset the the value above, if you wish\nto change your password you may do so via the user info control panel at:\n{FULL_ROOT}{ROOT}?t=register
+# Fuzzy
 reset_login_notify:Jūsų slaptažodis buvo išsiųstas elektroniniu paštu Jums. Turėtumėte gauti per ateinančias keletą minučių. <br />
 search_update:Pranešimų paieška
 selmsg_update:Naršymos <a href="{TEMPLATE: selmsg_update_lnk}">Šiandienos Žinutės</a>

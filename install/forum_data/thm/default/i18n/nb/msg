@@ -676,6 +676,7 @@ reset_err_rstconf_title:Informasjon
 reset_err_rstconf_msg:Du vil motta instruksjoner per e-post innen få minutter
 reset_newpass_title:Nullstill passord
 reset_newpass_msg:Hei!\n\nDitt brukernavn og passord har blitt endret på din forespørsel.\nHer er din inloggingsinformasjon:\n\nBrukernavn: {VAR: ui[1]}\nPassord: {VAR: passwd}\n\nNoter deg at passordet ditt er endret til det overstående. Om du vil\nendre passordet ditt kan du gjøre det i kontrollpanelet:\n{FULL_ROOT}{ROOT}?t=register
+# Fuzzy
 reset_login_notify:Ditt passord har blitt sendt til deg per e-post og burde komme frem innen et par minutter. Vennligst sjekk e-posten din for ditt brukernavn og passord.<br />.<br />.<br />
 search_update:Søker blandt innleggene
 selmsg_update:Leser <a href="{TEMPLATE: selmsg_update_lnk}">Dagens innlegg</a>

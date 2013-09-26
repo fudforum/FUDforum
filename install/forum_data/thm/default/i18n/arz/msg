@@ -671,6 +671,7 @@ reset_err_rstconf_title:معلومات
 reset_err_rstconf_msg:ينبغى أن تتلقى التعليمات فى بريدك الإلكترونى فى الدقائق القليله القادمه.
 reset_newpass_title:إعاده ضبط كلمه السر
 reset_newpass_msg:مرحبًا!\n\nكما تطلب، فإن معلومات ولوجك ظاهره أدناه\n\n\nالولوج: {VAR: ui[1]}\nكلمه السر: {VAR: passwd}\n\nمن فضلك لاحظ أن كلمه السر أعيد ضبطها إلى القيمه أعلاه. تستطيع تغيير كلمه سرك عبر لوحه التحكم في: {FULL_ROOT}{ROOT}?t=register
+# Fuzzy
 reset_login_notify:أرسلت كلمه سرك إليك. يجب أن تتلقاها خلال الدقائق القليله القادمه.<br />
 search_update:يبحث عن رسائل
 selmsg_update:يتصفح <a href="{TEMPLATE: selmsg_update_lnk}">رسائل اليوم</a>

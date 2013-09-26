@@ -673,6 +673,7 @@ reset_err_rstconf_title:Information
 reset_err_rstconf_msg:Du sottsch in dr negschte Minute ne Aaleitig per E-Mail iberchuu.
 reset_newpass_title:Passwort zrucksetze
 reset_newpass_msg:Sali,\n\nWie vu Dir gwinscht, wird der dr Benutzername zueschickt.\nDo sin Dyyni Aamäldeinformatione:\n\nBenutzername: {VAR: ui[1]}\nPasswort: {VAR: passwd}\n\nBitte gib Acht, ass Dyy Passwort uf dr Wärt dobe zruckgsetzt woren isch,\nwänn Du s witt ändere, no chasch des in dr persenlige Yystellige mache:\n{FULL_ROOT}{ROOT}?t=register
+# Fuzzy
 reset_login_notify:S Passwort isch an di gschickt wore. Du sottsch s in dr negschte Minute iberchuun.<br />
 search_update:Suecht no Byytreg
 selmsg_update:Am Dursuech vu dr <a href="{TEMPLATE: selmsg_update_lnk}">hitige Byytreg</a>

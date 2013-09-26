@@ -675,6 +675,7 @@ reset_err_rstconf_title:Titouroù
 reset_err_rstconf_msg:Resev a reot displegadennoù dre bostel a-benn un nebeud munutennoù.
 reset_newpass_title:Adderaouekaat ar ger-tremen
 reset_newpass_msg:Demat deoc'h,\n\nSetu amañ an titouroù hoc'h eus ezhomm evit mont d'ar forom :\n\n\nAnv implijer : {VAR: ui[1]}\nGer-tremen : {VAR: passwd}\n\nGallout a rit kemmañ ho ker-tremen ne vern pegoulz gant ar banell da gontrollañ titouroù an implijer :\n{FULL_ROOT}{ROOT}?t=register
+# Fuzzy
 reset_login_notify:Kaset eo bet ho ker-tremen deoc'h dre bostel. Dleout a rafec'h e resev a-benn un nebeud munutennoù.<br />
 search_update:O klask kemennadennoù
 selmsg_update:O furchal ar <a href="{TEMPLATE: selmsg_update_lnk}">c'hemennadennoù kaset hiziv</a>
@@ -1107,6 +1108,7 @@ move_msg_th_expl:Spisait anavezer ar gaoz pal (a c'hall bezañ en ur forom all)
 captcha_img_alt:Gwiriadur dre Captcha : dav eo deoc'h anavezout an destenn er skeudenn-mañ.
 captcha_img_help:N'eus ket a zero pe a unan er skeudenn.
 powered-by:Enlusket gant : FUDforum {GVAR: FORUM_VERSION}.
+# Fuzzy
 copyright:Copyright &copy;2001-2012 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:KOD :
 code_select_all:Diuzañ pep tra

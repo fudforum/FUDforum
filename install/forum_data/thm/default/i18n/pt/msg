@@ -681,6 +681,7 @@ reset_err_rstconf_title:Informação
 reset_err_rstconf_msg:Deve receber instruções no seu Email nos próximos minutos
 reset_newpass_title:Cancelar Password
 reset_newpass_msg:Olá,\n\na seu pedido os seus dados de login estão a ser enviados para si.\nAqui está a sua informação de login:\n\nLogin: {VAR: ui[1]}\nPassword: {VAR: passwd}\n\nA sua Password foi alterada para o valor em baixo, se quiser altera-la pode fazê-lo através do painel de controlo do utilizador em : \n{FULL_ROOT}{ROOT}?t=register
+# Fuzzy
 reset_login_notify:A sua password foi enviada por email para si. Deve recebê-la em poucos minutos. Consulte o seu Email.<br />.<br />.<br />
 search_update:A procurar posts
 selmsg_update:A visualisar <a href="{TEMPLATE: selmsg_update_lnk}">posts de Hoje</a>

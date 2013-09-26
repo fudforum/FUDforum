@@ -668,6 +668,7 @@ reset_err_invalidkey_msg:패스워드 초기화 key가 일치하지 않습니다
 reset_err_rstconf_title:정보
 reset_err_rstconf_msg:몇분 내로 당신의 이메일로 발송될 예정입니다.
 reset_newpass_title:패스워드 초기화
+# Fuzzy
 reset_login_notify:패스워드가 이메일로 발송되었습니다. 몇 분내로 도착될 것 입니다.<br />
 search_update:게시글 검색중
 selmsg_update:<a href="{TEMPLATE: selmsg_update_lnk}">오늘의' 게시글</a> 탐색

@@ -678,6 +678,7 @@ reset_err_rstconf_title:資訊
 reset_err_rstconf_msg:在接下來的幾分鐘內，您應該會收到您的電子郵件中的指令。
 reset_newpass_title:重設密碼
 reset_newpass_msg:您好，\n\n您每次登入的帳號都將發送給您。\n以下是您的登入資料：\n\n帳號：{VAR: ui[1]}\n密碼：{VAR: passwd}\n\n注意：您的密碼已經改為上面的值字符組合，\n如果您想修改密碼，請在個人資料中修改：\n{FULL_ROOT}{ROOT}?t=register
+# Fuzzy
 reset_login_notify:您的密碼已通過電子郵件發送給你。在接下來的幾分鐘內您應該會收到。<br />
 search_update:搜索消息
 selmsg_update:瀏覽<a href="{TEMPLATE: selmsg_update_lnk}">今天的文章</a>

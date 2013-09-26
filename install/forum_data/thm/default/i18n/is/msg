@@ -672,6 +672,7 @@ reset_err_rstconf_title:Upplýsingar
 reset_err_rstconf_msg:Þú færð sendar leiðbeiningar í tölvupósti á næstu mínútum.
 reset_newpass_title:Endurstilla lykilorð
 reset_newpass_msg:Halló,\n\nEins og þú baðst um eru innskráningarupplýsingarnar þínar tilgreindar hér fyrir neðan:\n\nNotendanafn: {VAR: ui[1]}\nLykilorð: {VAR: passwd}\n\nVinsamlegast athugaðu að lykilorðið hefur verið endursett yfir á það sem kemur fram hér fyrir ofan. Ef þú villt breyta lykilorðinu, þá getur þú gert það í stjórnborðinu þínu á: {FULL_ROOT}{ROOT}?t=register
+# Fuzzy
 reset_login_notify:Lykilorðið hefur verið sent til þín. Þú ættir að fá skilaboðin á næstu mínótum.<br />
 search_update:Leita í skilaboðum
 selmsg_update:Skoða<a href="{TEMPLATE: selmsg_update_lnk}">skilaboð dagsins</a>

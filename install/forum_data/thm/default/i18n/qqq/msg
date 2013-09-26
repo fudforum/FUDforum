@@ -1,0 +1,438 @@
+# Messages for Message documentation (Message documentation)
+# Exported from translatewiki.net
+# Author: Alex Khimich
+# Author: Breawycker
+# Author: EugeneZelenko
+# Author: Fryed-peach
+# Author: McDutchie
+# Author: Naudefj
+# Author: Rancher
+# Author: Shirayuki
+# Author: Siebrand
+
+action:{{Identical|Action}}
+admin:{{Identical|Admin}}
+admin_control_panel:{{Identical|Administration}}
+attachment:{{Identical|Attachment}}
+avatar:{{Identical|Avatar}}
+average_post_count:Indication of the number of messages the user posted (shown in the user's profile). For example:\n ''Message Count: 2 Messages (1 average message per day)''\nNote that '''$1''' is used twice in this message. This is intentional as $1 refers to the ''count'' in the '''{PLURAL: ''count''|form 1|form 2|...}''' construct and not to the message variable.
+biography:{{Identical|Biography}}
+birth_date:{{Identical|Birthday}}
+current_time:Used as label.\n\nFollowed by colon (:) and timestamp (time and date).
+email:{{Identical|E-mail}}
+faq:{{Identical|Help}}
+forum:{{Identical|Forum}}
+forum_new_messages:{{Identical|New messages}}
+from:{{Identical|From}}
+gender:{{Identical|Gender}}
+go:{{Identical|Go}}
+home:{{Identical|Home}}
+homepage:{{Identical|Homepage}}
+image:{{Identical|Image}}
+index_forum:{{Identical|Forum}}
+legend:{{Identical|Legend}}
+location:{{Identical|Location}}
+login:Toolbar text shown on every page when you are logged out. Translate it as a title.\n{{Identical|Log in}}
+login_header:Username.
+logout:{{Identical|Log out}}
+members:{{Identical|Member}}
+calendar:{{Identical|Calendar}}
+cal_goto_date:{{Identical|Jump to}}
+message:{{Identical|Message}}
+move_thread:{{Identical|Move}}
+na:Indication that something is not applicable.<br />\nFor example: ''Last message: n/a'' (user haven't posted any yet).
+new_posts:{{Identical|New messages}}
+next_page:{{Identical|Next page}}
+occupation:{{Identical|Occupation}}
+off:{{Identical|Off}}\n\nStatus indicator to show if a particular filter option is enabled or not. For example:\n Today's Messages (on)  | Unread Messages (off) | Subscribed Forums (off) | Subscribed Topics (off) | Unanswered Messages (off)<br />\nAlso see {{msg-fud|On}}.
+on:{{Identical|On}}\n\nStatus indicator to show if a particular filter option is enabled or not. For example:\n Today's Messages (on)  | Unread Messages (off) | Subscribed Forums (off) | Subscribed Topics (off) | Unanswered Messages (off)<br />\nAlso see {{msg-fud|Off}}.
+page_timings:{{doc-important|The value for '''{VAR: page_gen_time}''' will never be 1, but is a number of seconds with decimals (for example "1.05"). If you need plural support for your language, translate the message as:}}\n: ''Total time taken to generate the page: {PLURAL: page_gen_time|$1 second|$1 seconds}''
+pm:Description of link to the forum's "Private Message System" where users can converse privately.
+poll:{{Identical|Poll}}
+posts:{{Identical|Message}}
+posts_c:{{Identical|Message}}
+profile:{{Identical|Control panel}}\n\nDescription of link to the "User Control Panel" (User settings page).<br />\nNot to be confused with "Admin Control Panel" ({{msg-fud|admin_control_panel}}).
+rating:{{Identical|Rating}}
+register:{{Identical|Register}}
+replies:This is a column heading. Below it the number of replies will be displayed per topic.\n\n{{Identical|Reply}}
+reveal_all_posts:{VAR: user_login} refers to the user's login id on the forum.
+search:{{Identical|Search}}
+sel_unread_messages:{{Identical|Unread message}}
+send:{{Identical|Send}}
+size:{{Identical|Size}}
+status:{{Identical|Status}}
+sticky:{{Identical|Sticky}}
+subject:{{Identical|Subject}}
+subscribe:{{Identical|Subscribe}}
+thread:{{Identical|Topic}}
+thread_thread:{{Identical|Topic}}
+threads:{{Identical|Topic}}
+time:{{Identical|Time}}
+unread_posts:{{Identical|Unread message}}
+unsubscribe:{{Identical|Unsubscribe}}
+user:{{Identical|User}}
+views:Number of times a message was viewed. This is a column heading. Below it the number of views will be displayed per topic.\n\n{{Identical|View}}
+vote_button:{{Identical|Vote}}
+vote_for_thread:{{Identical|Vote}}
+reported_reason:{{Identical|Reason}}
+reported_on:{{Identical|On}}
+modque_approve:{{Identical|Approve}}
+modque_delete:{{Identical|Delete}}
+modque_deleteall:Message shown when moderating posts to remove the indicated message, and other messages by the same user (in this case, a spammer).
+pmsg_new_messages:A private message that has not been read.\nAlso see {{msg-fud|Pmsg_old_messages}}.
+pmsg_old_messages:NOTE: "read" is past tense. Paraphrased: "A private message that has been read". \nAlso see {{msg-fud|Pmsg_new_messages}}.
+deny_recipt:Tel in details where used
+restore_to:A private message that was deleted (in trash) can be "restored" to another mailbox folder. For example, restored to your INBOX.
+list_referes_referrals:Tell more
+list_referes_members:Referrals allows you to see which forum members you (or other members of the forum) have referred. The referrals are tracked automatically. When you give someone a URL to the forum and they register you will be credited with the referral of that person. The list of people you have referred can be viewed from your profile, when you click on the "Referrals" tab.
+list_referes_member:{{Identical|Member}}
+referals_action:{{Identical|Action}}
+pmsg_all:{{Identical|All}}\n\nToggle to select "all/none" of the private messages in the list. Also see "{{msg-fud|pmsg_none}}".
+pmsg_none:{{Identical|None}}\n\nToggle to select "all/none" of the private messages in the list. Also see "{{msg-fud|pmsg_all}}".
+folder:{{Identical|Folder}}
+pmsg_subject:{{Identical|Subject}}
+pmsg_author:{{Identical|Author}}
+pmsg_time:{{Identical|Time}}
+pmsg_selected:{{Identical|Selected}}
+pmsg_delete:{{Identical|Delete}}
+writing_pm:Part of breadcrumb when writing a new private message: "Private Messaging » Writing a Private Message".
+browsing_folder:Part of breadcrumb. For example: "Private Messaging » Browsing Inbox folder"
+inbox:{{Identical|Inbox}}
+draft:{{Identical|Draft}}
+sent:{{Identical|Sent}}
+trash:{{Identical|Trash}}
+msg_author:{{Identical|Author}}
+month_1:The first month of the Gregorian calendar.\n{{Identical|January}}
+month_2:The second month of the Gregorian calendar.\n{{Identical|February}}
+month_3:The third month of the Gregorian calendar.\n{{Identical|March}}
+month_4:The fourth month of the Gregorian calendar.\n{{Identical|April}}
+month_5:The fifth month of the Gregorian calendar.\n{{Identical|May}}
+month_6:The sixth month of the Gregorian calendar.\n{{Identical|June}}
+month_7:The seventh month of the Gregorian calendar.\n{{Identical|July}}
+month_8:The eighth month of the Gregorian calendar.\n{{Identical|August}}
+month_9:The ninth month of the Gregorian calendar.\n{{Identical|September}}
+month_10:The tenth month of the Gregorian calendar.\n{{Identical|October}}
+month_11:The eleventh month of the Gregorian calendar.\n{{Identical|November}}
+month_12:The twelfth month of the Gregorian calendar.\n{{Identical|December}}
+sunday:Name of the day of the week.
+monday:Name of the day of the week.
+tuesday:Name of the day of the week.
+wednesday:Name of the day of the week.
+thursday:Name of the day of the week.
+friday:Name of the day of the week.
+saturday:Name of the day of the week.
+male:{{Identical|Male}}
+female:{{Identical|Female}}
+register_tree_view:A "Tree View" refers to a forum that uses thread ordering. Replies are ordered in a threaded view resembling a tree structure. This is done by indenting replies and putting them below their parent.
+register_flat_view:In the "flat view" all topics and all posts in a topic are simply shown in chronological order.
+finduser_submit:{{Identical|Find}}
+finduser_user:{{Identical|User}}
+finduser_action:{{Identical|Action}}
+yes:{{Identical|Yes}}
+no:{{Identical|No}}
+register_email:{{Identical|E-mail}}
+pmuserloc_login:{{Identical|Login}}
+pmuserloc_submit:{{Identical|Submit}}
+pmuserloc_user:{{Identical|User}}
+pmuserloc_no_result:{{Identical|No result}}
+register_login:{{Identical|Login}}\n\nLogin name (username) in the register form.<br />\nShould be the same as {{msg-fud|login login}} and {{msg-fud|Quicklogin login}}.
+register_password:{{Identical|Password}}
+register_conf_pass:{{Identical|Confirm password}}
+register_name:{{Identical|Name}}
+register_your_pass:Used as label for the "Password" input box in the control panel.\n{{Identical|Password}}
+register_update:{{Identical|Update}}
+register_avatar:{{Identical|Avatar}}
+register_custom_avatar_url:Used as label for the URL input box.
+register_preview:{{Identical|Preview}}
+register_register:{{Identical|Register}}
+register_location:{{Identical|Location}}
+register_occupation:{{Identical|Occupation}}
+register_image:{{Identical|Image}}
+register_homepage:{{Identical|Homepage}}
+register_day:{{Identical|Day}}
+register_month:{{Identical|Month}}
+register_year:{{Identical|Year}}
+register_gender:{{Identical|Gender}}
+register_bio:{{Identical|Biography}}
+register_prefs:{{Identical|Preferences}}
+register_sig:{{Identical|Signature}}
+register_reset:{{Identical|Reset}}
+register_def_thread_view:Used as label for the select box which has the following options:\n* {{msg-fud|Register tree view}}\n* {{msg-fud|Register msg tree view}}\n* {{msg-fud|Register tree msg view}}\n* {{msg-fud|Register flat view}}
+register_timezone:{{Identical|Time zone}}
+buddy_status:{{Identical|Status}}
+add:{{Identical|Add}}
+member_search:Sentence after {{msg-fud|Buddy search}} in the User Control Panel.
+buddy_remove:{{Identical|Remove}}
+post_normal:{{Identical|Normal}}
+post_sticky:{{Identical|Sticky}}
+post_size:{{Identical|Size}}
+post_color:{{Identical|Color}}
+post_font:{{Identical|Font}}
+edit_message:This message appears when you want to revise your review.\n\nThe message is used to confirm the acquisition of changes.
+post_logedin_user:{{Identical|Logged in user}}
+post_logout:{{Identical|Log out}}
+post_passwd:This is the password that is needed to post messages in a password protected forum.
+post_poll:{{Identical|Poll}}
+post_create_poll:{{Identical|Create poll}}
+post_poll_delete:{{Identical|Delete}}
+post_poll_edit:{{Identical|Edit}}
+post_icons:This message is shown in the post form (message editor) in front of a set of icons the user can choose from. The chosen icon will be shown in front of the particular post in the forum index.\n\nMessage icon: [ ]pic1 [X]pic2 [ ]pic3...
+post_upload_file:{{Identical|Upload file}}
+post_file_del:{{Identical|Delete}}
+post_file_name:{{Identical|Name}}
+post_file_size:{{Identical|Size}}
+max_file_size:{{Identical|Maximum file size}}
+post_notification:Notification of new posts. Translate "post" as a noun, not as a verb.
+post_form:The form for writing new posts. "Post" is a noun, not a verb.
+post_forum:{{Identical|Forum}}
+post_title:{{Identical|Title}}
+post_body:{{Identical|Body}}
+post_options:{{Identical|Options}}
+post_cancel_btn:{{Identical|Cancel}}
+add_ignore:[http://en.wiktionary.org/wiki/ignoramus Ignoramus] (noun) refers to a user you want to ignore. Can also be translated as "Ignore user".
+forum_rules:The "Agree" button refers to message {{msg-fud|Prereg_agree}}.
+forum_rules_13:The "Agree" button refers to message {{msg-fud|Prereg_agree}}.\nThe "Disagree" button refers to message {{msg-fud|Prereg_disagree}}.
+coppa_conf:'COPPA' refers to the [[wikipedia:Children's Online Privacy Protection Act|Children's Online Privacy Protection Act]].
+prereg_agree:Used as label for the Submit button.\n\nFollowed by another button which is labeled {{msg-fud|Prereg disagree}}.
+prereg_disagree:Used as label for the Submit button.\n\nPreceded by another button which is labeled {{msg-fud|Prereg agree}}.
+coppa_fax_telephone:{{Identical|Telephone}}
+coppa_fax_email:{{Identical|E-mail address}}
+coppa_fax_date:{{Identical|Date}}
+coppa_fax_login:{{Identical|Login}}
+coppa_fax_passwd:{{Identical|Password}}
+coppa_fax_remail:{{Identical|E-mail}}
+coppa_fax_name:{{Identical|Name}}
+login_forgot_passwd:Message shown on the login screen to request a new password.
+login_login:{{Identical|Login}}\n\nShould be the same as {{msg-fud|Register login}} and {{msg-fud|Quicklogin login}}.
+login_login_btn:Text for the login button.\n\n{{Identical|Login}}
+rpasswd_passwd_nomatch:{{Identical|Passwords do not match}}
+rpasswd_change_pass:{{Identical|Change password}}
+rpasswd_login:{{Identical|Login}}
+rpasswd_new_pass:{{Identical|New password}}
+rpasswd_conf_pass:{{Identical|Confirm password}}
+ruser_title:Title for the form where a user can change his nick name or user name.
+login_passwd:{{Identical|Password}}
+reset_email:{{Identical|E-mail}}
+reset_reset_button:{{Identical|Reset password}}
+report_reporting_about:A heading showing details of the message that is being reported to the moderator team. Below this heading is the subject, author, etc. of the reported message.
+report_subject:{{Identical|Subject}}
+search_forum:{{Identical|Forum}}
+search_no_results:{{Identical|No result}}
+search_in_forum:Used as label for the "Forum" select box which has a list of the forums.
+remail_your_name:{{Identical|Your name}}
+remail_required:{{Identical|Required}}
+remail_subject:{{Identical|Subject}}
+remail_message:{{Identical|Message}}
+remail_done:{{Identical|Done}}
+remail_sent_conf:{VAR-HTML: _POST['femail']} is an E-mail address.
+mklist_type:{{Identical|Type}}
+mklist_option:{{Identical|Options}}
+mklist_apply:{{Identical|Apply}}
+mklist_delete:{{Identical|Delete}}
+qbud_nick_name:{{Identical|Nickname}}
+qbud_selected:{{Identical|Selected}}
+mklist_numerical:Indicate the type of list to create for a [LIST] BBCode tag. A numeric list will be rendered as:\n\n 1. Item 1\n 2. Item 2\n ...
+mklist_aplha:Indicate the type of list to create for a [LIST] BBCode tag (items will be numbered alphabetically).
+mklist_square:Indicate the type of list to create for a [LIST] BBCode tag (items will be indicated by squares).
+mklist_disc:Indicate the type of list to create for a [LIST] BBCode tag (items will be indicated by a shaded circle).
+mklist_circle:Indicate the type of list to create for a [LIST] BBCode tag (items will be indicated by a non-shaded circle).
+mklist_close:{{Identical|Close}}
+email_to:{{Identical|To}}
+email_pg_title:{{Identical|E-mail}}\nPage title above the E-mail form.
+email_subject:{{Identical|Subject}}
+email_body:{{Identical|Body}}
+email_submit:{{Identical|E-mail}}
+ppost_quote:{{Identical|Quote}}
+ppost_to:{{Identical|To}}
+ppost_track_msg:"Track This Message" is a checkbox that can be clicked when composing a new private message. \nBelow it, the detailed description: "Notify me (via private message) when this message gets read."
+ppost_send:{{Identical|Send}}
+ppost_save_draft:{{Identical|Save draft}}
+poll_name:{{Identical|Poll name}}
+poll_create:{{Identical|Create}}
+poll_update:{{Identical|Update}}
+poll_create_poll:{{Identical|Create poll}}
+poll_delete:{{Identical|Delete}}
+poll_updateoption:"Update" is a verb.
+poll_day:{{Identical|Day}}
+poll_hour:{{Identical|Hour}}
+poll_hours:{{Identical|Hour}}
+poll_month:{{Identical|Month}}
+poll_year:{{Identical|Year}}
+poll_week:{{Identical|Week}}
+tabs_bookmarkes:{{Identical|Bookmark}}
+delete_yes:{{Identical|Yes}}
+delete_no:{{Identical|No}}
+error_error:{{Identical|Error}}
+actions_update:This message is shown in the forum's I-SPY system to indicate what this user is busy doing.
+err_info:{{Identical|Info}}
+buddy_list_update:This message is shown in the forum's I-SPY system to indicate what this user is busy doing.
+emailconf_err_invkey_title:{{Identical|Error}}
+help_index_update:Description of the user's current action (in this case, busy reading the forum's help pages) shown in the action (iSpy) log.
+ignore_list_err_info_title:{{Identical|Info}}
+ignore_list_update:This message is shown in the forum's I-SPY system to indicate what this user is busy doing.\nThe user is looking at the list of users he/she decided to ignore.
+index_update:This message is shown in the forum's I-SPY system to indicate what this user is busy doing.
+list_referers_update:This message is shown in the forum's I-SPY system to indicate what this user is busy doing.
+msg_update:This message is shown in the forum's I-SPY system to indicate what this user is busy doing.
+pm_update:This message is shown in the forum's I-SPY system to indicate what this user is busy doing.
+err_banned_acct_msg:The time format chars are documented at http://php.net/manual/en/function.strftime.php.\nFor example, ''%a, %d %B %Y %H:%M'' would expand to ''Sun, 01 January 2011 06:00''.
+post_err_edttimelimit_title:{{Identical|Error}}
+post_reply_update:This message is shown in the forum's I-SPY system to indicate what this user is busy doing.
+post_topic_update:This message is shown in the forum's I-SPY system to indicate what this user is busy doing.
+referals_update:This message is shown in the forum's I-SPY system to indicate what this user is busy doing.
+register_profile_update:This message is shown in the forum's I-SPY system to indicate what this user is busy doing.
+report_err_nosuchmsg_title:{{Identical|Error}}
+reset_err_invalidkey_title:{{Identical|Error}}
+reset_err_rstconf_title:{{Identical|Information}}
+reset_newpass_title:{{Identical|Reset password}}
+showposts_update:{VAR: u_alias} is the nickname or alias of a registered user on the forum. By default a user's username and alias will be the identical. However, some hosts prefer to keep separate usernames and aliases.
+userinfo_update:This message is shown in the forum's I-SPY system to indicate what this user is doing.
+help_title:{{Identical|Help}}
+msg_title:{{Optional}}\nThis message is used in the HTML <TITLE> tag to indicate the current forum name and message subject in the browser's title bar.
+reset_title:{{Identical|Reset password}}
+thread_title:{{Optional}}
+tree_title:{{Optional}}
+register_change_passwd:Used as action link text in the control panel.\n{{Identical|Change password}}
+register_change_login:Used as action link text.\n\n"login" stands for "username".
+thread_exchange:This is a link to a list with pending thread move requests that needs to be approved or rejected. Example: "Admin: | Topic Exchange (2) | ..."
+thr_exch_accept:This is a link that a mod/admin can click to approve a thread move request.
+thr_exch_decline:This is a link that a mod/admin can click to deny the thread move request.
+thr_exch_dest_forum:{{Identical|Destination forum}}
+thr_exch_submit:{{Identical|Submit}}
+ppost_original_msg:Indicate the start of the original message body that is displayed below the editor window.
+groupmgr_yes:{{Identical|Yes}}
+groupmgr_no:{{Identical|No}}
+groupmgr_action:{{Identical|Action}}
+groupmgr_member:{{Identical|Member}}
+groupmgr_cancel:{{Identical|Cancel}}
+groupmgr_edit:{{Identical|Edit}}
+groupmgr_delete:{{Identical|Delete}}
+group_mgr_anon:{{Identical|Anonymous}}
+show_show:{{Identical|Show}}
+group_mgr_heading:This message is a heading above a drop down (containing forum groups) that allows privileged users to load a new group into the "group editor" form for modification.\nIt can also be translated as "Load group into editor", "Group to edit", "Group selection", etc.
+group_mgr_group:{{Identical|Group}}
+permission_denied_title:{{Identical|Permission denied}}
+p_READ:{{Identical|Read}}
+p_POST:{{Identical|Post}}
+p_REPLY:{{Identical|Reply}}
+p_EDIT:{{Identical|Edit}}
+p_DEL:{{Identical|Delete}}
+p_POLL:{{Identical|Create poll}}
+p_VOTE:{{Identical|Vote}}
+post_quote:{{Identical|Quote}}
+userinfo_referals_count:The number of members a user referred to the forum.
+th_expr_never:{{Identical|Never}}
+th_expr_one_month:{{Identical|Month}}
+th_expr_two_month:{{Identical|Month}}
+th_expr_four_month:{{Identical|Month}}
+th_expr_one_year:{{Identical|Year}}
+thread_mod_delete:{{Identical|Delete}}
+post_re:{{Identical|Re}}
+forumsel_goto_forum:Navigate or jump to a particular forum.
+split_th_subject:{{Identical|Subject}}
+split_th_forum:{{Identical|Forum}}
+split_th_messages:{{Identical|Message}}
+split_th_select:{{Identical|Select}}
+report_report_post:Title message.
+quicklogin_login:Should be the same as {{msg-fud|login login}} and {{msg-fud|Register login}}.\n\nExample:\n Login:       Password:\n ____________ ___________ [X] Use Cookies? [ Login ]
+quicklogin_password:Example:\n Login:       Password:\n ____________ ___________ [X] Use Cookies? [ Login ]\n{{Identical|Password}}
+quicklogin_use_cookies:Example:\n Login:       Password:\n ____________ ___________ [X] Use Cookies? [ Login ]
+quicklogin_login_btn:Example:\n Login:       Password:\n ____________ ___________ [X] Use Cookies? [ Login ]\n\n\n{{Identical|Login}}
+forum_contact:{{Identical|Contact}}
+forum_home:{{Identical|Home}}
+post_cur_attached:{VAR: i} is the number of files currently attached to the message.
+p_VISIBLE:This is a permission in the forum's Groups Manager to indicate if a particular user/group of users can see a forum.
+reported_in_thread:Indicate category and forum of a reported message. \nExample: Reported By: admin On: Mon, 17 August 2009 16:01 In: Test Category » First Forum » Welcome to FUDforum
+help_back_to_top:{{Identical|Back to top}}
+poll_edit:{{Identical|Edit}}
+register_alias:{{Identical|Alias}}
+polllist_vote:{{Identical|Vote}}
+polllist_name:{{Identical|Poll name}}
+polllist_action:{{Identical|Action}}
+userinfo_polls:{{Identical|Poll}}
+search_and:{{Identical|And}}
+search_or:{{Identical|Or}}
+search_sorting:Used as label for the "Sort order" select box which has the following options:\n* {{msg-fud|Search desc order}}\n* {{msg-fud|Search asc order}}
+search_attach:Used as label for the select box which has the following options:\n* {{msg-fud|Search attach all}}\n* {{msg-fud|Search attach with}}\n{{Identical|Attachment}}
+search_attach_all:Used as an option in the select box which is labeled {{msg-fud|Search attach}}.\n\nThis means "With or without attachments".
+search_attach_with:Used as an option in the select box which is labeled {{msg-fud|Search attach}}.
+register_show_im_desc:{{doc-singularthey}}
+unread_message:{{Identical|Unread message}}
+back_to_top:{{Identical|Back to top}}
+saved:{{Identical|Saved}}
+iemail_msg_subject:{{Identical|Subject}}
+iemail_msg_reply:{{Identical|Reply}}\n\nDescription of link to reply a forum post (shown at the bottom of E-Mail notification messages).
+iemail_msg_quote:{{Identical|Quote}}\n\nDescription of link to quote a forum post (shown at the bottom of E-Mail notification messages).
+iemail_msg_view:Description of link to view a forum post on-line (shown at the bottom of E-Mail notification messages).
+threadt_sticky:{{Identical|Sticky}}
+register_admin_newuser_title:{{doc-singularthey}}
+register_admin_newuser_msg:{{doc-singularthey}}\nThe "New Account Notification" string should preferably remain in English. It refers to a setting in the forum's Admin Control Panel which is not localized (only available to forum administrators).
+mnav_description:{{Identical|Message navigator}}
+mnav_date_limit:{{Identical|Date_range}}
+mnav_more:{{Identical|More...}}
+mnav_minute:Used in the message navigator. For example, see http://fudforum.org/forum/index.php?t=mnav&\n{{Identical|Minute}}
+mnav_hour:Used in the message navigator. For example, see http://fudforum.org/forum/index.php?t=mnav&
+mnav_day:Used in the message navigator. For example, see http://fudforum.org/forum/index.php?t=mnav&
+mnav_week:Used in the message navigator. For example, see http://fudforum.org/forum/index.php?t=mnav&
+mnav_month:Used in the message navigator. For example, see http://fudforum.org/forum/index.php?t=mnav&
+mnav_title:{{Identical|Message navigator}}
+findu_edit:{{Identical|Edit}}
+findu_delete:{{Identical|Delete}}
+dmsg_reply_to:Continued on {{msg-fud|Dmsg_reply_num}}. The "message #xxx" part was split off so we can link it to the message number.
+dmsg_reply_num:Continued from {{msg-fud|Dmsg_reply_to}}.\n{{Identical|Message}}
+register_sig_limit:Please note the embedded message when translating this string. The end result is:\n xxx characters [url]Check Signature Length[/url]\nIf you click on the link, a messages like this will appear:\n Your Signature is yyy characters long. The maximum allowed signature length is zzz characters.
+thread_on:Message posted '''on''' a specific date.\nFor example: {{msg-fud|by}} admin {{msg-fud|Thread on}} 23 April 2011.
+register_email_addr:{{Identical|E-mail address}}
+mnav_newer:This message is used in the Forum's Message Navigator. The user needs to enter values to determine the date range: newer than ___, older than ___ [days/hours/minutes/etc].\n{{Identical|Newer}}
+mnav_older:This message is used in the Forum's Message Navigator. The user needs to enter values to determine the date range: newer than ___, older than ___ [days/hours/minutes/etc].
+ip_search:{{Identical|Search}}
+ip_title:This is a browser of visitor's IP addresses, not the IP address of a browser!
+userinfo_real_name:{{Identical|Real name}}
+post_err_mod_forum_edit_ttl:{{Identical|Error}}
+dmsg_num:{{Identical|Message}}
+delete_msg_pm_subject:{{Identical|Subject}}
+register_theme:{{Identical|Theme}}
+pmsg_trash:{{Identical|Empty trash}}
+search_options:{{Identical|Search options}}
+search_user_filter:Used as label for the "Username" input box in the Search form.
+modque_cat:{{Identical|Category}}
+modque_forum:{{Identical|Forum}}
+mmd_move_threads_to:{{Identical|Destination forum}}
+mmd_abort_move:{{Identical|Cancel}}
+most_users_online:Example: "Most users ever online was 2 on Tue, 18 August 2009 11:38"
+sml_code:{{Identical|Code}}
+post_common_bold:{{Identical|Bold}}
+post_common_italics:{{Identical|Italic}}
+post_common_underline:{{Identical|Underline}}
+post_common_link_popup:Prompt for input if the user clicks on {{msg-fud|Post common link}}.
+post_common_email_popup:Prompt for input if the user clicks on {{msg-fud|Post common email}}.\n{{Identical|E-mail address}}
+post_common_image_popup:Prompt for input if the user clicks on {{msg-fud|Post common image}}.
+post_common_nlist:{{Identical|Numbered_list}}
+post_common_blist:{{Identical/Bulleted_list}}
+rating_delete:{{Identical|Delete}}
+topic_rating:''frm->rating'' is the topic's average rating.<br />\n''frm->n_rating'' ($1) is the number of votes.<br />\nFor example: '''3 from 10 votes'''.
+topic_list_rating:Title of the image indicating a thread's rating. Example: "5 from 7 vote(s)".
+tabs_notifications:{{Identical|Notification}}
+finduser_flag:[[File:Config-language.png|left||32px]]\n'''Flag''' as in the [[:wikipedia:en:Flag|flag]] of a country.\nUsed when FUDforum's Geo-IP feature is enabled to map a user's IP-addresses to country of origin.\n{{Identical|Flag}}
+pmsg_on:This message is used when a user export his/her private messages to a file. For example: "By: admin on Tue, 18 August 2009 11:39".\nIt can also be translated as "Date:" or "Date posted:", etc.
+code_title:{{Identical|Code}}
+code_select_all:{{Identical|Select all}}
+social_sites:Heading on registration page where users can specify their twitter, skype, ICQ, etc. handles.
+btn_new_topic:This message will be used to create a graphical button. Please keep it as short as possible.
+btn_new_pm:This message will be used to create a graphical button. Keep it as short as possible.
+btn_post_reply:This message will be used to create a graphical button. Please keep it as short as possible.
+btn_tree_view:Show hierarchical view of messages.\nThis message will be used to create a graphical button.\nPlease keep it as short as possible.
+btn_flat_view:Show linear (non-hierarchical) view of messages.\nThis message will be used to create a graphical button.\nPlease keep it as short as possible.
+btn_about:This message will be used to create a graphical button. Please keep it as short as possible.\n\n{{Identical|Profile}}
+btn_small_pm:This message is used to create a graphical button: "PM" in English, for "Private Message".\nPlease keep it as short as possible.\nLong text, say more than +- 5 characters will disrupt the layout.
+btn_delete:This message will be used to create a graphical button. Please keep it as short as possible.\n\n{{Identical|Delete}}
+btn_edit:This message will be used to create a graphical button. Please keep it as short as possible.\n\n{{Identical|Edit}}
+btn_reply:This message will be used to create a graphical button. Please keep it as short as possible.\n\n{{Identical|Reply}}
+btn_forward:'''Translate as a verb'''. This refers to forwarding a message.\n\nThis message will be used to create a graphical button. Please keep it as short as possible.\n\n{{Identical|Forward}}
+btn_quote:This message will be used to create a graphical button. Please keep it as short as possible.\n{{Identical|Quote}}
+btn_email:{{Identical|Email}}
+btn_show_posts:This message will be used to create a graphical button. Please keep it as short as possible.\n{{Identical|Post}}
+btn_homepage:This message will be used to create a graphical button. Please keep it as short as possible.
+custom_filed_required:{{Identical|Required}}
+pages:{{Identical|Page}}
+page_update:Action in the forum's action list (iSpy system) indicating that the user is busy reading a static forum page.
+karma_delete:{{Identical|Delete}}

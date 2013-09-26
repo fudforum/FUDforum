@@ -676,6 +676,7 @@ reset_err_rstconf_title:Informacje
 reset_err_rstconf_msg:W ciągu paru minut powinieneś otrzymać e-mailem instrukcję co dalej robić.
 reset_newpass_title:Odzyskiwanie hasła
 reset_newpass_msg:Witaj,\n\nW związku z Twoja prośbą, wysyłamy Ci nowe hasło.\nPoniżej znajdują się Twoje informacje do logowania się:\n\nNazwa użytkownika: {VAR: ui[1]}\nHasło: {VAR: passwd}\n\nZauważ, że Twoje hasło zostało ustawione na to podane powyżej. Jeśli życzysz sobie\nzmienić swoje hasło, możesz to zrobić poprzez panel sterowania użytkownika:\n{FULL_ROOT}{ROOT}?t=register
+# Fuzzy
 reset_login_notify:Twoje hasło zostało wysłane do Ciebie pocztą elektroniczną. Powinieneś je otrzymać w ciągu kilku minut. Sprawdź pocztę i wykorzystaj zawarte tam informacje aby się zalogować...<br />&nbsp;<br />&nbsp;<br />
 search_update:Szukanie wiadomości
 selmsg_update:Przeglądanie <a href="{TEMPLATE: selmsg_update_lnk}">dzisiejszych wiadomośc</a>

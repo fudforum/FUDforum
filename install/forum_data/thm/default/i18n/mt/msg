@@ -672,6 +672,7 @@ reset_err_rstconf_title:Informazzjoni
 reset_err_rstconf_msg:Għandek tirċievi l-istruzzjonijiet fil-posta elettronika tiegħek fil-minuti li ġejjin.
 reset_newpass_title:Irrisettja l-password
 reset_newpass_msg:Merħba,\n\nKif tlabt, l-informazzjoni dwar kif tista' taċċessa l-kont tiegħek huma mniżżlin hawn taħt:\n\nIsem tal-utent: {VAR: ui[1]}\nPassword: {VAR: passwd}\n\nKun af li l-password tiegħek ġiet risettjata għal kif inhi miktuba hawn fuq. Jekk tixtieq tibdilha tista' tagħmel dan fil-pannell tal-kontroll tal-utent fuq: {FULL_ROOT}{ROOT}?t=register
+# Fuzzy
 reset_login_notify:Il-password tiegħek intbagħet fuq l-indirizz elettroniku tiegħek. Għandek tirċivieha fi ftit minuti oħra.<br />
 search_update:Ifittex fil-messaġġi
 selmsg_update:Iqalleb il-<a href="{TEMPLATE: selmsg_update_lnk}">messaġġi tal-lum</a>

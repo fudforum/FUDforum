@@ -653,6 +653,7 @@ reset_err_rstconf_title:Informācija
 reset_err_rstconf_msg:Instrukcijas nosūtītas uz Jūsu E-pastu un tās Jūs saņemsiet pēc dažām minūtēm
 reset_newpass_title:Paroles nomaiņa
 reset_newpass_msg:Sveiki,\n\nUz Jūsu pieprasījumu tiek nosūtīta informācija par Jūsu <b>Niku</b> un <b>Paroli</b>.\nJūsu reģistrācijas dati:\n\nNiks: {VAR: ui[1]}\nParole: {VAR: passwd}\n\nAtcerieties, ka Jūsu vecā parole ir nomainīta ar šeit uzrādīto un tā pašreiz nav derīga. Ja\nJūs vēlaties to nomainīt, tad to varat izdarīt vadības panelī:\n{FULL_ROOT}{ROOT}?t=register
+# Fuzzy
 reset_login_notify:Jūsu jaunā parole ir nosūtīta uz Jūsu E-pastu un to Jūs saņemsiet pēc dažām minūtēm. Lūdzu pārbaudiet savu E-pasta kastīti..<br />.<br />.<br />
 search_update:Publikāciju meklēšana
 selmsg_update:Šodienas <a href="{TEMPLATE: selmsg_update_lnk}">publikāciju pārskats</a>

@@ -672,6 +672,7 @@ reset_err_rstconf_title:Podaci
 reset_err_rstconf_msg:Trebalo bi da primite uputstva putem e-pošte u sledećih nekoliko minuta.
 reset_newpass_title:Poništavanje lozinke
 reset_newpass_msg:Zdravo,\n\nKao što ste i tražili, vaši podaci za prijavljivanje se nalaze ispod:\n\nKorisničko ime: {VAR: ui[1]}\nLozinka: {VAR: passwd}\n\nUpamtite da vam je lozinka poništena na vrednost iznad. Ako želite da je\npromenite, posetite korisnički upravljački panel preko sledeće veze:\n{FULL_ROOT}{ROOT}?t=register
+# Fuzzy
 reset_login_notify:Poslata vam je lozinka. Trebalo bi da je primite u roku od nekoliko minuta.<br />
 search_update:Traženje poruka
 selmsg_update:Pregledanje <a href="{TEMPLATE: selmsg_update_lnk}">današnjih poruka</a>

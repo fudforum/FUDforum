@@ -680,6 +680,7 @@ reset_err_rstconf_title:Informasi
 reset_err_rstconf_msg:Dalam beberapa menit, anda akan menerima petunjuk di e-mail.
 reset_newpass_title:Timpa password
 reset_newpass_msg:Halo,\n\nSesuai permintaan anda, informasi login anda adalah:\n\nLogin: {VAR: ui[1]}\nPassword: {VAR: passwd}\n\nHarap diingat baik-baik bahwa password anda telah disetel ulang menjadi seperti di atas. Jika anda ingin merubah kembali password Anda\nbisa andalakukan di panel kontrol pengguna di:\n{FULL_ROOT}{ROOT}?t=register
+# Fuzzy
 reset_login_notify:Password anda sudah dikirim melalui e-mail, dalam beberapa saat anda akan menerimanya<br />
 search_update:Mencari pesan
 selmsg_update:Melihat <a href="{TEMPLATE: selmsg_update_lnk}">pesan hari ini</a>

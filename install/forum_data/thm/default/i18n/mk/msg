@@ -673,6 +673,7 @@ reset_err_rstconf_title:Информации
 reset_err_rstconf_msg:Би требало да добиете напатствија по е-пошта во текот на следните неколку минути.
 reset_newpass_title:Смени лозинка
 reset_newpass_msg:Здраво,\n\nКако што побаравте, еве ги вашите податоци за најава:\n\nКорисничко име: {VAR: ui[1]}\nЛозинка: {VAR: passwd}\n\nИмајте предвид дека вашата лозинка е заменета со горенаведената. Ако сакате да ја смените, одете на корисничката контролна табла на:\n{FULL_ROOT}{ROOT}?t=register
+# Fuzzy
 reset_login_notify:Лозинката ви е испратена по е-пошта. Би требало да ја добиете во тек од следните неколку минути.<br />
 search_update:Пребарување на пораки
 selmsg_update:Ги разгледува <a href="{TEMPLATE: selmsg_update_lnk}">денешните пораки</a>
@@ -1105,6 +1106,7 @@ move_msg_th_expl:Назначете ID на темата во која ќе се
 captcha_img_alt:„Captcha“ антибот проверка: ќе треба да го препознаете текстот на сликава.
 captcha_img_help:На сликата нема нула или единица.
 powered-by:Со поддршка од: FUDforum {GVAR: FORUM_VERSION}.
+# Fuzzy
 copyright:Авторски права &copy;2001-2012 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Код:
 code_select_all:Избери сè

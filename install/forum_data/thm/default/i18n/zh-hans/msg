@@ -681,6 +681,7 @@ reset_err_rstconf_title:信息
 reset_err_rstconf_msg:一会你将通过邮件收到相关说明。
 reset_newpass_title:重新输入密码
 reset_newpass_msg:您好，\n\n您每次登录的账号都将发送给您。\n以下是您的登录信息：\n\n账号：{VAR: ui[1]}\n密码：{VAR: passwd}\n\n注意：您的密码已经被改为上面的值字符组合，\n如果您想修改密码，请在个人信息中修改：\n{FULL_ROOT}{ROOT}?t=register
+# Fuzzy
 reset_login_notify:一会儿，你将通过邮件收到密码。请检查你的密码并登录。.<br />.<br />.<br />
 search_update:搜索
 selmsg_update:浏览 <a href="{TEMPLATE: selmsg_update_lnk}">今天发布的主题</a>

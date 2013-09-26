@@ -681,7 +681,7 @@ reset_err_rstconf_title:Informazioni
 reset_err_rstconf_msg:Dovresti ricevere istruzioni nella tua casella di posta elettronica nel giro di pochi minuti
 reset_newpass_title:Reimposta la password
 reset_newpass_msg:Ciao,\n\nCome da te richiesto, ti sta per essere inviato il tuo .\nQui di seguito trovi le informazioni per il login:\n\nLogin: {VAR: ui[1]}\nPassword: {VAR: passwd}\n\nNota che la password è stata reimpostata con il valore che leggi qui sopra. Se desideri\nmodificarla puoi farlo utilizzando il pannello di controllo:\n{FULL_ROOT}{ROOT}?t=register
-reset_login_notify:La tua password ti è stata inviata per posta elettronica. Dovresti riceverla entro pochi minuti. Controlla la tua casella di posta elettronica per i dati di login e password.<br />.<br />.<br />
+reset_login_notify:La tua password ti è stata inviata per posta elettronica. Dovresti riceverla entro pochi minuti.
 search_update:Cerca negli argomenti
 selmsg_update:Sfoglia <a href="{TEMPLATE: selmsg_update_lnk}">Messaggi odierni</a>
 showposts_update:Stai guardando i post di: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a
@@ -1113,8 +1113,7 @@ move_msg_th_expl:Specifica l'ID dell'argomento di destinazione (può essere in a
 captcha_img_alt:Captcha Verification: devi riconoscere il testo che compare in questa immagine.
 captcha_img_help:Non ci sono nè zero ne uno in questa immagine.
 powered-by:Powered by: FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:Copyright &copy;2001-2012 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Copyright &copy;2001-2013 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Codice:
 code_select_all:Seleziona tutto
 code_show_hide:mostra/nascondi
