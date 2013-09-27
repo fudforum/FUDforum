@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -190,10 +190,10 @@
 	<?php
 		$selopt = '';
 		foreach (glob($DATA_DIR .'/thm/default/i18n/*', GLOB_ONLYDIR) as $f) {
-			if (!file_exists($f .'/msg')) {
-				continue;
-			}
 			$langcode = $langname = basename($f);
+			if (!file_exists($f .'/msg') || $langcode == 'qqq') {
+				continue;	// No messages or tranlations tips.
+			}
 			if (file_exists($f .'/name')) {
 				$langname = trim(file_get_contents($f .'/name'));
 			}

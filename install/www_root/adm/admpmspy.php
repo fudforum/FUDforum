@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -102,8 +102,8 @@ User alias:
 		$i++;
 		$bgcolor = ($msg==$r[0]) ? ' class="resultrow3"' : (($i%2) ? ' class="resultrow1"' : ' class="resultrow2"');
 		echo '<tr'. $bgcolor .'">';
-		echo '<td><a href="admpmspy.php?user='. $r[5] .'&amp;'. __adm_rsid .'">'. $r[5] .'</a></td>';
-		echo '<td>'. $r[1] .'</td>';
+		echo '<td>'. $r[5] .'</td>';
+		echo '<td><a href="admpmspy.php?user='. $r[1] .'&amp;'. __adm_rsid .'">'. $r[1] .'</a></td>';
 		echo '<td>'. $folders[$r[2]] .'</td>';
 		echo '<td><a href="admpmspy.php?msg='. $r[0] .'&amp;user='. $user .'&amp;'. __adm_rsid .'">'. $r[3] .'</a></td>';
 		echo '<td>'. gmdate('d M Y G:i', $r[4]) .'</td>';

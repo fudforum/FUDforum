@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -95,10 +95,10 @@
 <td>Language:</td><td><select name="tlang">
 <?php
 	foreach (glob($GLOBALS['DATA_DIR'] .'thm/default/i18n/*', GLOB_ONLYDIR) as $file) {
-		if (!file_exists($file .'/msg')) {
-			continue;
-		}
 		$langcode = $langname = basename($file);
+		if (!file_exists($file .'/msg') || $langcode == 'qqq') {
+			continue;	// No messages or tranlations tips.
+		}
 		if (file_exists($file .'/name')) {
 			$langname = trim(file_get_contents($file .'/name'));
 		}
