@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -10,11 +10,11 @@
 **/
 
 // Initialize plugin.
-plugin_add_hook('BBCODE2HTML', 'plugin_youtube_tag_to_html');
-plugin_add_hook('HTML2BBCODE', 'plugin_youtube_html_to_tag');
+plugin_add_hook('BBCODE2HTML', 'plugin_video_tags_to_html');
+plugin_add_hook('HTML2BBCODE', 'plugin_video_html_to_tags');
 
-// Convert [YOUTUBE] tags and links to html code (post message).
-function plugin_youtube_tag_to_html($array) {
+// Convert [YOUTUBE] and [VIMEO] tags and links to html code (post message).
+function plugin_video_tags_to_html($array) {
 	list($bbcode) = $array;
 
 	// Youtube tags.
@@ -28,8 +28,8 @@ function plugin_youtube_tag_to_html($array) {
 	return array($bbcode);
 }
 
-// Convert html to [YOUTUBE] tag (edit message)
-function plugin_youtube_html_to_tag($array) {
+// Convert html to [YOUTUBE] and [VIMEO] tags (edit message)
+function plugin_video_html_to_tags($array) {
 	list($bbcode) = $array;
 
 	$bbcode = preg_replace('#<object width="425" height="366"><param name="movie" value="http://www.youtube.com/v/([0-9a-zA-Z_\-]+)"></param><embed src="http://www.youtube.com/v/([0-9a-zA-Z_\-]+)" type="application/x-shockwave-flash" width="425" height="366"></embed></object>#si', '[YOUTUBE]\\1[/YOUTUBE]', $bbcode);
@@ -39,11 +39,11 @@ function plugin_youtube_html_to_tag($array) {
 	return array($bbcode);
 }
 
-function youtube_tag_info() {
-	return array('name' => 'Videos',
+function video_tags_info() {
+	return array('name' => 'Video tags',
 	             'desc' => 'Allow forum users to use a spacial <b>[YOUTUBE]</b> and <b>[VIMEO]</b> BBcode tags to embed videos into forum posts.',
 		     'cat'  => 'BBcode',
-		     'version' => '1.2');
+		     'version' => '1.3');
 }
 
 ?>
