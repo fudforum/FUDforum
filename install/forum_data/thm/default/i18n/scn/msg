@@ -1,0 +1,1143 @@
+# Messages for Sicilian (sicilianu)
+# Exported from translatewiki.net
+
+action:Azione
+add_to_buddy_list:aggiunge a l'elenghe de l'amice
+admin:Amministratore
+admin_control_panel:Amministrazione
+administrator:Amministratore
+attachment:Allegate:
+avatar:Immaggine:
+average_post_count:{PLURAL: u->posted_msg_count|$1 Messàgge} ({PLURAL: avg|$1 messàgge medie} pe sciurne)
+biography:Biografije:
+birth_date:Date de nascite:
+by:Da:
+by_mod:da 'nu Moderatore
+current_time:Orarie de mò
+custom_avatar_queue:Code de le Immaggine Personalizzate
+date_posted:Date de l'Invie
+date_registered:Date de Reggistrazione:
+download_counter:Scarecate {PLURAL: v[3]|$1 vote}
+pmsg_download_counter:Scarecate {PLURAL: r->dlcount|$1 vote}
+email:E-mail:
+email_to_friend:Mane 'n'email a 'n'amiche
+email_to_friend_desc:Manne l'URL a sta pàgene a le amice tune via email
+email_user:Manne a 'n'utende 'nu messàgge email
+faq:Aijute
+first_unread_msg:Vèje a le messàgge non lette
+first_unread_msg_desc:Vèje a 'u prime messàgge non lette jndr'à stu argomende
+flat_view:Tuèrne a 'a viste piane de base
+forum:Forum:
+forum_icon:Icone d'u forum
+forum_new_messages:Messàgge nuève
+forum_none_messages:Sulamende le membre d'u forum reggistrate ponne traccià le messàgge lette &amp; non lette
+forum_old_messages:Nisciune messàgge nuève
+from:Da:
+gender:Sesse:
+go:Véje
+goto_next_msg:Vèje a 'u prossime messàgge
+goto_prev_msg:Vèje a 'u messàgge precedende
+home:Pàgena Prengepàle
+homepage:Pàgena prengepàle:
+icq_control_panel:Panelle ICQ Online-Message
+icq_message_form:Module d'u Messàgge de ICQ:
+ignore_user:no scè penzanne a tutte le messàgge da stu utende
+im_aim:Gestore de AIM:
+im_msnm:MSN Messenger:
+im_yahoo:Yahoo Messenger:
+image:Immaggine:
+index_forum:Forum
+index_new_posts:Messàgge nuève da l'urtema letture
+index_no_new_posts:Nisciune messàgge da l'urtema letture
+index_url_redirection:Redirezionamende
+interests:Inderesse:
+last_post:Urtme messàgge
+last_thread_msg:Vèje a l'urteme messàgge jndr'à st'argomende
+legend:Leggende
+location:Luèche:
+lock_thread:Bluècche l'argomende
+locked:Bloccate
+locked_with_new_posts:Bloccate (w/ messàgge non lette)
+logged_in_list:Elenghe de le utinde trasute
+login:Tràse
+login_header:Tràse:
+logout:Isse
+mark_all_read:Signe tutte le messàgge cumme lette
+mark_all_read_desc:Tutte le messàgge non lette avènene signate cumme lette
+members:Membre
+calendar:Calendarije
+cal_goto_date:Zumbe a:
+cal_day_heading:Avveneminde pa sciurnate
+cal_no_events:Nisciune avvenemende pa sciurnate.
+cal_update:Sfogghie 'u calendarije d'u forum
+cal_birthday:Date de nascite: {VAR: user}
+cal_birthday_age:({PLURAL: età|$1 anne}).
+message:Messàgge
+message_counter:Le utinde nuèstre onne mannate 'nu totale de  <b>{PLURAL: post_count|$1 messàgge}</b> sus a <b>{PLURAL: thread_count|$1 argomende|$1 argumende}</b>.
+message_index:Indice de le messàgge
+message_index_desc:'Ndruche l'elenghe de le messàgge
+minimize_category:Minimizze 'a Categorije
+minimize_message:Minimizze 'u Messàgge
+moderation_queue:Code de moderazione
+moderator:Moderatore
+moderator_of:Moderatore de:
+moderator_options:Opziune d'u Moderatore
+moderators:{PLURAL: modcount|Moderatore|Moderature}
+more_unread_messages:cchiù messàgge non lette
+more_unread_messages_desc:Fà vedè cchiù messàgge non lette e signe le messaggè ca se 'ndrucane cumme lette
+move_thread:Spuèste
+moved:Spuèste jndr'à 'n'otre forum
+moved_thread_message:St'argomende ha state spustate jndr'à 'n'otre forum
+na:n/a
+new_posts:Messàgge nuève
+new_private_messages:Tu è <span class="GenTextRed">({VAR: c})</span> {PLURAL: c|messàgge private} non lette
+new_thread:Ccreje 'n'argomende nuève
+newest_user:L'urteme utende reggistrate ète
+next_page:Pàgena successive
+next_thread:Argomende successive:
+no_messages:Non ge stonne messàgge jndr'à stu forum.<br />Fà ca sì 'u prime ca face 'n'argomende jndr'à stu forum.
+no_msg_body:Nisciune cuèrpe de messàgge
+no_new_posts:Nisciune messàgge nuève
+no_posts:Nisciune messàgge
+no_subscribed_forums:Nisciune forum sottoscritte
+no_subscribed_threads:Nisciune argomende sottoscritte
+no_bookmarked_threads:Nisciune argomende signate
+no_unread_locked:St'argomende ha state bloccate
+no_unread_msg:Stu argomende non ge tène messàgge non lette
+no_unread_msg_unreg:Le messàgge lette e chidde non lette sò sulamende tracciate pe le utinde reggistrate
+num_pages:Pàggene ({VAR: ttl_pg}):
+num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|vote}
+occupation:Occupazione:
+off:stutate
+on:appezzecate
+page_timings:Tiembe totale pigghiate pe generà 'a pàgene: {PLURAL: page_gen_time|$1 seconde}
+pm:Messàgge private
+poll:Sondagge:
+post_count:Cunde de le messàgge {VAR: u_pcount}
+post_count_l:Condegge de le messàgge:
+posts:Mèssagge
+posts_c:Messàgge:
+prev_thread:Argomende precedende:
+usrinfo_private_message:Messàgge private:
+profile:Pannelle de Condrolle
+profile_desc:Accesse a 'u pannelle de condrolle de l'utende
+rate_thread:Valute l'argomende
+rating:Pundegge
+rating_track:Gestisce le pundegge pe l'argomende <b>{VAR: thr->subject}</b>:
+refresh_list:Aggiorne l'elenghe
+register:Reggìstre
+registered:Reggistrate:
+registered_on:Reggistrate sus a {TEMPLATE: registered_on_date}
+replies:Resposte
+report_to_mod:Segnale 'u messàgge a 'nu moderatore
+reported_messages:Messàgge segnalate
+reveal_all_posts:fà vedè tutte le messàgge da {VAR: user_login}
+reveal_post:fà vedè le messàgge
+search:Cirche
+sel_todays_posts:Messàgge de osce
+sel_todays_posts_desc:Live e mitte 'u filtre de le messàgge de osce (face 'ndrucà sulamende le messàgge de osce)
+sel_unanswered_posts:Messàgge non resposte
+sel_unanswered_posts_desc:Live e mitte 'u filtre pe le messàgge non resposte (face 'ndrucà sulamende le messàgge ca non ge onne resposte)
+sel_unread_messages:Messàgge non lette
+sel_unread_messages_desc:Live e mitte 'u filtre pe le messàgge non lette (face 'ndrucà sulamende le messàgge non lette)
+send:Manne
+send_pm_desc:Manne 'nu messàgge private a stu utende
+sender_email:Mittende de l'email:
+sender_name:Nome d'u mittende:
+show_posts_by:Fà vedè le messàgge de: {VAR: u_alias}
+size:Dimenzione:
+status:State:
+status_line:<b>{PLURAL: st_obj->online_users_reg|Ste $1 membre|Stonne $1 membre}</b>, <b>{PLURAL: st_obj->online_users_hidden|$1 membre invisibbile}</b> e <b>{PLURAL: st_obj->online_users_anon|$1 ospite}</b> a visità 'a tabbelle.
+sticky:adesive:
+stop_ignoring:ferme a ignorà st'utende
+sub_to_thread:Sottoscrive l'argomende
+sub_to_thread_desc:Rivece notifiche sus a messàgge nuève jndr'a l'argomende
+bookmark_thread:Signe l'argomende
+bookmark_thread_desc:Aggiunge st'argomende a l'elenghe tune de segnalibbre
+subject:Oggette
+subscribe:Sottoscrive
+subscribe_desc:Riceve notifiche quanne quacchedune ccreje 'n'argomende nuève jndr'à stu forum
+subscribed_forums:Forum sottoscritte
+subscribed_forums_desc:Live e mitte 'u filtre sus a le forum sottoscritte (face vedè sulamende le messàgge da le forum addò tu te scritte)
+subscribed_threads:Argomende sottoscritte
+subscribed_threads_desc:Live e mitte 'u filtre sus a le argumende sottoscritte (face vedè sulamende le messàgge da le argumende addò tu te scritte)
+bookmarked_threads:Argumende cu 'u segnalibbre
+switch_to_thread_view:Passe a 'na viste pe descussione de stu argomende
+thread:Argomende:
+thread_announcement:Annuge:
+thread_first_unread_msg:Vèje a 'u prime messàgge non lette jndr'à stu argomende
+thread_thread:Argomende
+threads:Argumende
+time:Orarie
+todays_posts:Messàgge de osce
+todays_posts_desc:Fà vedè tutte le messàgge ca onne state mannate osce
+un_ignore_user:ferme a ignorà le messàgge de stu utende
+unanswered_posts:Messàgge non resposte
+unanswered_posts_desc:Fà vedè tutte le messàgge, ca non ge one resposte
+unlock_thread:Sbluècche l'argomende
+unread_msg:St'argomende tène messàgge ca tu non g'è lette
+unread_msg_locked:Argomende bloccate cu messàgge non lette
+unread_posts:Messàgge non lette
+unread_posts_desc:Fà vedè tutte le messàgge non lette
+unsub_from_thread:Livete da st'argomende
+unsub_from_thread_desc:Avaste a ricevere notifiche sus a messàgge nuève jndr'a l'argomende
+unbookmark_thread:Live da le segnalibbre
+unbookmark_thread_desc:Live st'argomende da l'elenghe tune de le segnalibbre
+unsubscribe:Scangillate
+unsubscribe_desc:Avaste a ricevere notifiche sus a argumende nuève jndr'a 'u forum
+updated_on:Aggiornate 'u:
+user:Utende
+user_counter:Avime <b>{VAR: st_obj->user_count}</b> {PLURAL: st_obj->user_count|utende|utinde} reggistrate.
+user_info:'Mbormaziune de l'utende
+user_info_l:'Mbormaziune de l'utende {VAR: u->alias}
+user_offline:{VAR: obj->login} non ge ste in linèe
+user_online:{VAR: obj->login} ste in linèe
+usrinfo_last_post:Urtme messàgge:
+view_results:'Ndruche le resultate
+views:Visite
+vote:{PLURAL: frm->n_rating|$1 Vote}
+vote_button:Vote
+vote_for_thread:Vote
+was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> ha state spustate jndr'à <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> da 'u moderatore.
+welcome_message:Bovègne <b>{VAR: usr->alias}</b>, l'urtema visita toje ha state 'u {TEMPLATE: welcome_message_date}
+what_ppl_doing:Fà vedè ce stonne a fanne le crestiane
+reported_del_report:Scangìlle 'a segnalazione
+reported_reason:Mutive:
+reported_on:Sus a:
+reported_reported_by:Segnalate da:
+reported_reported_msg:Messàgge segnalate
+modque_pending_approval:Messàgge appise pe l'approvazione
+modque_approve:Approve
+modque_delete:Scangìlle
+modque_deleteall:Scangille tutte da l'utende
+modque_no_message:Non ge stonne messàgge appise da approvà
+pmsg_new_messages:Messàgge private non lette
+pmsg_old_messages:Messàgge private lette
+deny_recipt:diviete de ricevere
+deny_recipt_desc:No manà 'na conferme ca tu è lette stu messàgge
+restore_to:Repristine a:
+move_to:Spuèste jndr'à:
+list_referes_referrals:Refèreminde
+list_referes_members:Membre referenziate
+list_referes_member:Membre
+referals_none:Nisciune riferimende angore.
+referals_refered_by:Membre d'u forum referenziate da: <b><a href="{TEMPLATE: referals_refered_by_lnk}" class="thLnk">{VAR: p_user[1]}</a></b>
+referals_post_count:Condegge de le messàgge
+referals_registered_on:Reggistrate 'u
+referals_action:Azione
+pmsg_all:tutte
+pmsg_none:ninde
+folder:Cartelle:
+pmsg_replied:resposte
+pmsg_forwarded:inoltrate
+pmsg_subject:Oggette
+pmsg_author:Autore
+pmsg_time:Orarie
+pmsg_selected:Scacchiate
+pmsg_delete:Scangìlle
+cur_ppage_pm:Messàgge private
+writing_pm:Stoche a scrive 'nu messàgge private
+browsing_folder:Stoche a sfogghie 'a cartelle <b>{VAR: folders[$folder_id]}</b>
+inbox:Casscette d'a poste
+draft:Bozze
+sent:Mannate
+trash:Rummate
+msg_author:Autore
+avatar_sel_form:Module pe scacchià l'immaggine
+no_avatars:Nisciune immaggine disponibbile
+month_1:Scennáre
+month_2:Febbráre
+month_3:Màrze
+month_4:Abbríle
+month_5:Másce
+month_6:Sciúgne
+month_7:Lùglie
+month_8:Agúste
+month_9:Settèmmre
+month_10:Ottòmmre
+month_11:Novèmbre
+month_12:Decèmmre
+sunday:Dumèneche
+sunday_short:D
+monday:Lunedìe
+monday_short:L
+tuesday:Martedìe
+tuesday_short:Ma
+wednesday:Mercrudìe
+wednesday_short:Me
+thursday:Sciuvedìe
+thursday_short:Sc
+friday:Venerdìe
+friday_short:V
+saturday:Sàbbete
+saturday_short:S
+male:Maschele
+female:Femmene
+unspecified:NONE SPECIFICATE
+register_tree_view:L'arvule de le messàgge e de l'argomende da elengà
+register_msg_tree_view:Argomende lineare da elengà/Arvule de le messàgge da elengà
+register_tree_msg_view:Arvule de l'aegumende da elengà/Messàgge lineare da elengà
+register_flat_view:Viste lineare de le messàgge e l'argumende da elengà
+use_forum_default:Ause 'u module de base
+finduser_user_info:'Mbormaziune de l'utende
+finduser_by_login:Pe Utende:
+finduser_submit:Iacchie
+finduser_no_such_user:Nisciune utende
+finduser_user:Utende
+finduser_postcount:Condegge de le messàgge
+finduser_joindate:Date de collegamende
+finduser_action:Azione
+yes:Sìne
+no:None
+register_email:E-mail
+edit_time_limit:<b>Stoche a cange 'u limite orarie</b>: {GVAR: EDIT_TIME_LIMIT} minute
+no_edit_time_limit:<b>Cange 'u limite orarie</b>: Illimitate
+pmuserloc_login:Tràse:
+pmuserloc_submit:Conferme
+pmuserloc_user:Utende
+pmuserloc_no_result:Nisciune resultate
+register_builtin:Costruite jndre
+register_specify_url:Specifiche l'URL
+register_uploaded:Careche l'immaggine
+register_login:Tràse:
+register_password:Passuord:
+register_conf_pass:Conferme 'a passuord:
+register_email_desc:Pe piacere mitte 'n'indirizze email valide. Tu puè scacchià de sconnerle sotte, jndr'à selezione de le preferenze.
+register_name:Nome:
+register_your_pass:'A passuord toje:
+register_update:Aggiorne
+register_avatar_type:Tipe de immaggine:
+register_del_avatar:Scangille l'immaggine
+register_avatar:Immaggine:
+register_sel_avatar:Scacchie l'immaggine
+register_custom_avatar_rules:L'immaggine personalizzate non ge iesse fine a quanne non g'avène approvate da l'amministratore.<br /><span class="SmallText">L'immaggine, non g'avessa essere cchiù granne de <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} pixels</b> e avessa essere jndr'à 'u formate <b>jpg</b>, <b>gif</b> o <b>png</b>.</span>
+register_custom_avatar_url:URL de l'immaggine personalizzate:
+register_preview:Andeprime
+register_custom_avatar_upload:File de l'immaggine personalizzate:
+register_register:Reggìstre
+register_required:'Mbormazione obbligatorie
+register_required_desc:Tutte le cambe so obbligatorie. Pe piacere vide ca 'a passuord jè sensibbile a le maiuscole/minuscole
+register_optional:'Mbormazione facoltative
+register_optional_desc:Jè raccomandate ca non ge dice ogne 'mbormazione personale o ca te idendifiche sus a 'u profile tune. Tutte le 'mbormaziune sò visibbile da l'otre membre d'u forum.
+register_location:Luèche:
+register_occupation:Occupazione:
+register_interests:Inderesse:
+register_image:Immaggine:
+register_icq:ICQ:
+register_aim:Gestore de AIM:
+register_yahoo:Yahoo Messenger:
+register_msnm:MSN Messenger:
+register_homepage:Pàgena prengepàle:
+register_bday:Date de nascite:
+register_bday_desc:Ce mitte 'a date de nascita toje, allore l'otre membre d'u forum a ponne 'ndrucà jndr'à 'u profile tune.
+register_day:Sciúrne
+register_month:Mese
+register_year:Anne
+register_gender:Sesse:
+register_bio:Biografije:
+register_bio_desc:Quacche dettaglie sus a te, cumme le inderesse tune, 'a fatìe, ecc...
+register_prefs:Me piace accussì
+register_sig:Firme:
+register_sig_desc:Firme facoltative, quedde ca iesse sotte a le messàgge tune.
+register_reset:Azzere
+register_def_thread_view:Viste de base de l'argomende:
+register_msg_per_page:Messàgge pe pàgene:
+register_show_sig:Fà vedè le firme:
+register_show_sig_desc:Te permette de sconnere o fà vedè le firme de le otre membre d'u forum.
+register_use_sig_default:Ause 'a firme de base:
+register_use_sig_default_desc:Automaticamende appenne 'a firma toje pe ogne messàgge ca manne.
+register_timezone:Orarie d'a zone:
+register_ignore_admin:Ignore le messàgge amministrative:
+register_invisible_mode:Mode invisibbile:
+register_invisible_mode_desc:Scunne 'u state in linèe tune.
+register_show_email:Fà vedè l'indirizze email:
+register_show_email_desc:Scacchie st'opzione ce tu vuè ca l'indirizze email tune adda essere viste pubblecamende.
+register_notification:Scacchie 'a notifiche de base:
+register_notification_desc:Ce 'a notifiche jè abbilitate de base, pò essere disabbilitate quane manne le messàgge.
+register_notify_method:Scacchie 'u metode de notifiche:
+register_notify_method_desc:'Mboste 'u metode de notifiche preferite o disabbilite le notifiche (pe esembie quanne tu vè in vacanze).
+register_allow_email_msg:Permette le messàgge email:
+register_allow_email_msg_desc:Permette a tutte le utinde de mannà le email da stu forum.
+buddy_status:State
+my_buddies:L'amice mije
+add_buddy:Aggiunge 'n'amiche
+add:Aggiunge
+buddy_search:Mitte 'u nome de l'utende ca vuè aggiungere.
+member_search:O ause 'a funzione <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Iacchie Utende</a> pe acchià 'nu crestiane.
+buddy_remove:live
+post_normal:Normale
+post_sticky:Adesive
+post_annoncement:Annunge
+post_size:Dimenzione
+post_color:Culore
+post_font:Carattere
+create_thread:Ccreje l'argomende
+submit_reply:Conferme 'a resposte
+edit_message:Appliche le cangiaminde a 'u messàgge
+apply_spell_changes:Appliche le cangiaminde d'a pronunge
+post_preview:Andeprime d'u messàgge
+post_logedin_user:Utende trasute:
+post_logout:Isse
+post_passwd:Passuord mannate:
+post_poll:Sondagge:
+post_create_poll:CCREJE 'NU SONDAGGE
+post_poll_delete:SCANGILLE
+post_poll_edit:CANGE
+post_mod_opt:Opziune d'u Moderatore:
+post_thread_type:Tipe de argomende:
+post_thread_expiry:Scadenze de l'argomende:
+post_locked:Argomende bloccate
+post_icons:Icone d'u messàgge:
+post_no_icon:Nisciuna icone
+post_smiley:Scorciatoije de le facce:
+post_format_tools:Struminde de formattazzione:
+post_upload_file:Careche 'nu file
+post_file_del:Scangille
+post_file_name:Nome
+post_file_size:Dimenzione
+file_attachments:Allegate d'u file:
+allowed_files:Estenziune d'u file permesse:
+max_file_size:Dimenzione massime d'u file:
+max_files_per_msg:Numere massime de file pe messàgge:
+post_notification:Notifiche d'u messàgge
+include_sig:'Nglude 'a firme
+include_sig_desc:'nglude 'a firme d'u profile tune.
+disable_smilies:Disabbilite le facce jndr'à stu messàgge
+spell_check_msg:Messàgge de verifiche d'a pronunge
+post_form:Module de Invie
+post_forum:Forum:
+post_title:Titole:
+post_body:Cuèrpe:
+post_options:Opziune:
+post_preview_btn:Andeprime d'u messàgge
+post_cancel_btn:Annulle
+ignore_users:Utinde cacate
+add_ignore:Aggiunge le cacaminde
+forum_terms:Termine d'u forum
+forum_rules:<p>'A reggistrazione a stu forum jè libbere! Nuje insisitime ca tu respitte le regole ca stonne aqquà sotte. Ce tu sì d'accorde cu le termine, pe paicere cazze 'u buttone <b>Accette</b> a 'a fine d'a pàgene. Note: Cazzanne 'u buttone ste dichiare ca tu tìne cchiù de 13 anne. Ce ne tìne 13 o di mene, pe piacere ause 'u module de reggistrazione.</p><p>Pure ca le amministrature e le moderature de stu forum provane a tenè sotte condrolle tutte le messàgge, non g'è possibbile sta rrete a tutte. Tutte le messàgge esprimone le punde de vistre de l'autore, e nisciune de le titolare d'u forum o sveluppature ponne essere responsabbile pe le condenute de le messàgge.</p><p>Cazzanne 'u buttone Accette, tu garandisce ca non g'à mannà messàgge oscene, volgare, oriendate a 'u sesse, chine d'odie,  hateful, de minacce, o otre cose ca violane 'a legge.</p><p>Le titolare de stu forum onne 'u diritte de luà, cangià, spustà o achiudere ogne argomende pe ogne mutive.</p>
+forum_rules_13:<p>Tutte le utinde sotte a 13 anne onna cercà 'u permesse a le genitore lore o a 'nu tutore pe devendà membre d'u forum. Mendre nuje diceme bovègne a ce tène mene de 13 anne, nuje vulime ca 'nu genitore o 'nu tutore manne 'nu fax o 'na poste cu 'u permesse firmate apprime de dà 'u titole de membre.</p><p>Ce vuè ccu accuminze 'u processe de reggistrazione apprime amma ricevere 'u module de permesse, cazze 'u buttone <b>Accette</b> aqquà sotte. Ce vuè ccu scangille 'a reggistrazione, cazze <b>Non accette</b> pe turnà a l'indice d'u forum.</p><p>'Na copie d'u module de permesse pò essere scarecate aqquà. Pe cchiù 'mbormaziune sus a 'u processe de reggistrazione, pe piacere manne 'n'email a <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
+coppa_conf:Conferme d'a COPPA
+coppa_before:Apprime de {TEMPLATE: coppa_date}
+coppa_after:Apprisse {TEMPLATE: coppa_date}
+coppa_link:Cazze 'u collegamende ca corrisponne 'a date de nascita toje
+coppa:<p>'Nu genitore o 'nu tutore addà mannà 'na mail o 'nu fax cu 'u module de permesse firmate a l'amministratore de stu forum apprime ca l'utende cu mene de 13 anne pò combletà 'a reggistrazione.</p><p>Pe cchiù 'mbormaziune condatte <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a></p>
+prereg_info:Regole d'u forum
+prereg_agree:Accette
+prereg_disagree:Non accette
+prereg_update:Stoche a legge le regole d'u forum
+coppa_fax_instructions:'Struziune pu genitore o 'u tutore
+coppa_fax_instructions2:Pe piacere stambe sta pàgene, firme e mannale cu 'u fax a:
+coppa_fax_reg_form:Module de reggistrazione
+coppa_fax_sign:Pe piacere firme 'u module aqquà sotte e mannale a nuje
+coppa_fax_conf:Agghie reviste le 'mbormaziune ca figghieme m'ha date e agghie lette le regole d'a privacy pu site web. Agghie capite ca le 'mbormaziune d'u profile ponne essere cangiate ausanne 'na passuord. Agghie capite ca pozze cercà ca stu profile de reggistrazzione pò essere luate combletamende da 'u forum.
+coppa_fax_permission:Firme aqquà ce è date 'u permesse
+coppa_fax_no_permission:Firme aqquà ce vuè ca 'u cunde avène scangellate
+coppa_fax_parent_name:Nome comblete d'u genitore/tutore:
+coppa_fax_relation:Relazione cu 'u Piccine:
+coppa_fax_telephone:Telefone:
+coppa_fax_email:Indirizze e-mail:
+coppa_fax_date:Date:
+coppa_fax_questions:Pe piacere condatte <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> pe ogne domande
+coppa_fax_login:Tràse
+coppa_fax_passwd:Passuord
+coppa_fax_remail:E-mail
+coppa_fax_name:Nome
+login_not_logedin:Tu non g'è trasute. Quiste pò essere legate a diverse mutive:
+login_cookie_expired:Le cookie tune onne scadute, e tu è abbesogne de trasè arrete pe rinnovà le cookie tune.
+login_perm_denied:Non ge tìne 'u permesse de accedere sus a resorse richieste cumme 'nu utende anonime. Tu a trasè pe avè 'u permesse.
+login_want_to_register:Te vuè ccu reggistre?
+login_forgot_passwd:Passuord scurdate
+login_use_cookie:Ause le Use cookie<br /><span class="SmallText">Ce tu ste ause 'nu terminale pubbleche cumme a 'nu combiuter jndr'à 'na libbrerie, scole, o Indernettè Caféje, te consigliame de luà sta opzione pe maggiore securezze. Ce tu lasse sta opzione scacchiate allore tu trase automaticamende jndr'à 'u forum 'a prossema vote ca 'u visite.</span>
+login_login:Tràse:
+login_login_btn:Tràse
+login_name_required:Nome utende jè obbligatorie
+login_passwd_required:Passuord jè obbligatorie
+login_invalid_radius:Combinazione invalide de nome/passuord
+reset_confirmation:Grazie ca tè reggistrate.\n\nPe attivà 'u cunde tune pe piacere vejè a l'URL de sotte:\n\n{VAR: url}\n\n'Na vote ca 'u cunde jè attivate tu puè trasè jndr'à 'u forum e avìne mannate sus a pàgena prengepàle.
+reset_reset:Cià,\n\nTu vuè azzerà 'a passuord toje. Pe combletà stu processe, pe piacere vèje a sta URL:\n\n{VAR: url}\n\nNOTE: Stu forum reggistre le passuord cu 'nu meccanisme de criptazione, 'u quale significhe ca 'na vote ca è mise 'a passuord toje jedde avène codificate accussì no ste mode pe turnà rrete.\nSta fatìe de combrondà 'a versione codificate ca nuje reggistrame cu 'a versione codificate ca tu è scritte jndr'à linèe de collegamende a facime nuje.\n(Ce tu si inderessate accume funzione stu meccanisme, ligge l'algoritme MD5 HASH)
+rpasswd_invalid_passwd:Passuord invalide
+rpasswd_passwd_nomatch:Passuord non ge s'accocchie
+rpasswd_passwd_length:Passuord adda essere almene longhe 6 carattere
+reset_remind_pass:Arrecordatore de passuord
+reset_reset_conf:'A passuor toje ha state azzerate e mannate a te. Ce tu non g'è confermate a mail toje, 'a richieste de conferme t'avène mannate arrete.
+reset_error:Indirizze email non acchiate jndr'à 'u database
+rpasswd_change_pass:Cange 'a passuord
+rpasswd_login:Tràse
+rpasswd_cur_pass:Passuord de mò:
+rpasswd_new_pass:Passuord nove:
+rpasswd_conf_pass:Conferme 'a passuord:
+ruser_title:Cange 'u module pe trasè
+ruser_change_user:Cange 'u nome de collegamende d'u forum tune
+ruser_cur_login:Nome de mò:
+ruser_new_login:Nome nuève:
+ruser_cur_pass:Passuord de mò:
+login_passwd:Passuord:
+reset_email:E-mail:
+reset_reset_button:Azzere 'a passuord
+rate_this_thread:Valute
+report_reporting_about:Segnale sus a:
+report_subject:Oggette:
+report_by:Da:
+report_posted_on:Mannate 'u:
+report_give_reason:Pe piacere dèje 'nu mutive purcé ste signale stu messàgge:
+report_submit_report:Conferme 'a segnalazione
+search_entire_msg:Messàgge indere
+search_subject_only:Sulamende l'oggette
+search_forum:Forum
+search_posted_on:Mannate 'u
+search_no_results:Nisciune resultate
+search_all_forums:Cirche tutte le forum
+search_in_forum:Cirche jndr'à 'u forum:
+search_forum_search:Ricerche d'u forum
+move_thread_to:Spuèste l'argomende <b>{VAR: thr->subject}</b> jndr'à:
+remail_email_topic:Manne pe mail st'argomende a 'n'amiche
+remail_your_name:'U nome tune:
+remail_your_email:L'email toje:
+remail_friends_name:Nome de l'amiche:
+remail_friends_email:Email de l'amiche:
+remail_required:obbligatorie
+remail_subject:Oggette:
+remail_message:Messàgge:
+remail_send_now:Manne 'na mail mò
+remail_anon_opt:Copie stu messàgge jndr'à 'nu client de email ca te piace pe mannà a le amice tune.
+remail_done:Fatte
+remail_sent_conf:L'email a l'amiche tune {VAR-HTML: _POST['femail']} sus a l'agomende {VAR: data->subject} ha state mannate.
+remail_error:Stè 'n'errore
+mklist_type:Tipe:
+mklist_option:Opzione:
+mklist_additem:Aggiunge 'na vôsce
+mklist_apply:Appleche
+mklist_delete:Scangille
+qbud_nick_name:Soprannome
+qbud_add_selected:Aggiunge scacchiate
+qbud_selected:Scacchiate
+qbud_no_buddies:Nisciune amiche da scacchià
+mklist_numerical:Numeriche
+mklist_aplha:Alfa
+mklist_square:Quadrate
+mklist_disc:Dische
+mklist_circle:Cerchie
+mklist_close:Achiude
+email_to:A:
+email_pg_title:E-mail
+email_subject:Oggette:
+email_body:Cuèrpe:
+email_submit:E-mail
+ppost_quote_msg:{VAR: msg_to_list} scritte sus a {TEMPLATE: ppost_quote_msg_date}
+ppost_quote:Cite:
+ppost_to:A:
+ppost_from_buddy_list:Scacchie da 'n'elenghe de amice
+ppost_find_User:Iacchie l'utende
+ppost_track_msg:Tracce stu messàgge
+ppost_track_msg_desc:Notificame (cu 'nu messàgge private) quanne stu messàgge jè pronde.
+ppost_send:Manne
+ppost_save_draft:Salve 'a bozze
+poll_blank_option:Non ge puè aggiungere 'n'opzione vacande.
+poll_del_conf:Ce tu vuè ccu scangille sta opzione, cazze OK
+poll_name:Nome d'u sondagge:
+poll_timelimit:Orarie limite:
+poll_maxiumvotes:Vote massime:
+poll_create:Ccreje
+poll_update:Aggiorne
+poll_disablesmilies:Disabbilite le facce
+poll_create_poll:Ccreje 'nu sondagge
+poll_update_poll:Aggiorne 'u sondagge
+poll_delete:Scangille
+poll_updateoption:Opzione de aggiornamende
+poll_addoption:Aggiunge 'n'opzione
+poll_unlimited:Illimitate
+poll_day:sciurne
+poll_days:sciurne
+poll_hour:ore
+poll_hours:ore
+poll_month:mese
+poll_year:anne
+poll_week:sumáne
+tabs_register:'Mbostaziune d'u cunde
+tabs_subscriptions:Iscriziune
+tabs_bookmarkes:Segnalibbre
+tabs_referrals:Refèreminde
+tabs_buddy_list:Elenghe de Amice
+tabs_ignore_list:Elenghe de chidde ca caca
+tabs_private_messaging:Messàgge private
+single_msg_delete:Tu ste <span class="ErrorText">scangille</span> 'u messàgge cu 'u titole: <b>{VAR: data[3]}</b>
+thread_delete:Tu ste <span class="ErrorText">scangille</span> 'u <span class="ErrorText">'ndere argomende</span> cu 'u titole: <b>{VAR: data[3]}</b>
+delete_proceed:<span class="fb">Vuè ccu condinue?</span>
+delete_yes:Sìne
+delete_no:None
+error_invalidurl:URL invalide
+error_error:Errore
+usrinfo_profile:{VAR: u->alias} du profile
+usrinfo_show_all_posts:Fà vedè tutte le messàgge da {VAR: u->alias}
+actions_update:Fatte le fatte de l'otre crestiane, cumme piace a te
+err_info:'Mbormazione
+buddy_list_err_cantadd:Non ge te puè aggiungere da sule a l'elenghe de l'amice
+buddy_list_err_dup:Tu tìne ggià stu utende sus a l'elenghe de l'amice tune
+buddy_list_err_nouser:L'utende ca è pruvate a aggiungere a l'elenghe de l'amice non g'ha state acchiate.
+buddy_list_err_nouser_title:Impossibbile aggiungere l'utende
+buddy_list_err_ignore:Non ge puè aggiungere utinde ca te cacane jndr'à l'elenghe de l'amice tune.
+buddy_list_update:Stoche a sfoglie l'elenghe de l'amice
+core_err_invinp_title:Ingresse invalide
+core_err_invinp_err:E' seguite 'nu collegamende invalide. Pe piacere notifiche a 'u <a href="mailto:{GVAR: ADMIN_EMAIL}">webmestre</a> cumme tu è arrivate aqquà.
+core_adm_login_msg:L'amministrature ponne trasè <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">aqquà</a>.
+email_err_unabletoemail_title:ERRORE: Non ge pozze manna l'email
+email_err_unabletoemail_msg:'U sisteme de email ha state disabbilitate da l'amministratore.
+email_error_unabletolocaddr:Ne despiace, 'u sisteme non ge pò mannà l'email {VAR-HTML: _POST['tx_name']} purcé non ge riesce a determinà l'indirizze email
+email_error_body:'U cuèrpe jè obbligatorie
+email_error_subject:L'oggette jè obbligatorie
+email_error_namerequired:'Nu nome jè richieste
+email_error_invaliduser:Utende invalide
+emailconf_err_invkey_title:Errore
+emailconf_err_invkey_msg:Chiave de conferme invalide. Pe piacere verifiche l'email toje pe essere secure ca tu è mise l'URL satte satte. Ce tu è cazzate 'u collegamende doje vote, 'u cunde tune pò già essere state confermate. Tràse jndr'à 'u forum pe cercà 'n'otra chiave.
+err_inc_criticaltitle:Errore critiche
+err_inc_criticalmsg:Ha assute 'n'errore. Sfortunatamende, ste pure 'nu probbleme cu 'u sisteme de segnalaziune de le errore.
+finduser_update:Stoche a cerche utinde
+help_index_update:Stoche a legge l'<a href="{TEMPLATE: help_index_update_lnk}">Aijute</a>
+iemail_thr_subject:Resposta nove a {VAR: thr_subject} da {VAR: poster_login}
+iemail_thr_bodyemail:Pe 'ndrucà le resposte non lette vèje a {VAR: goto_url['email']}\n\nCe tu non ge vuè ricevere otre notifiche sus a le resposte jndr'à st'argomende, pe piacere vèje aqquà: {VAR: unsub_url['email']}
+iemail_frm_subject:Argomende nuève jndr'à 'u forum {VAR: frm_name}, chiamate {VAR: thr_subject}, da {VAR: poster_login}
+iemail_frm_bodyemail:Pe 'ndrucà l'argomende vejè:\n{VAR: goto_url['email']}\n\nPe fermà 'a ricezione de le notifiche sus a le argumende nuève jndr'à stu forum, pe piacere vèje: {VAR: unsub_url['email']}
+iemail_participate:Pe partecipà a 'u 'ngazzamende, vèje aqquà:
+ignore_list_err_info_title:'Mbormazione
+ignore_list_err_dup_msg:Tu tìne ggià stu utende sus a l'elenghe de l'amice tune
+ignore_list_err_nu_title:Utende none acchiate
+ignore_list_err_nu_msg:L'utende ca è pruvate a aggiungere a l'elenghe de l'amice non g'ha state acchiate.
+ignore_list_cantign_msg:Non ge puè cacà stu utende
+ignore_list_update:Stoche a sfoglie l'elenghe de cacaminde
+index_update:Stoche a sfoglie l'<a href="{TEMPLATE: index_update_lnk}">elenghe d'u forum</a>
+list_referers_update:Stoche a sfoglie le refèreminde
+login_update:Module pe trasè
+msg_update:Stoche a sfoglie l'argomende <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
+pm_err_nopm_title:ERRORE: Messàgge private disabbilitate
+pm_err_nopm_msg:Non ge puè ausà 'u sisteme de le messàgge private. Ha state disabbilitate da l'amministratore.
+pm_update:Stoche ause le messàgge private
+post_err_lockedthread_title:ERRORE: Argomende bloccate
+post_err_lockedthread_msg:St'argomende jè bloccate. Le messàgge non ge sò consendite.
+err_coppa_title:ERRORE: 'U cunde tune non g'e confermate
+err_coppa_msg:Nuje non g'amme ricevute 'na conferme da le genitore tune e/o 'u tutore legale, 'u quale t'avessà dà 'u permesse de mannà messàgge. Ce tu è perse 'u module COPPA, <a href="{TEMPLATE: err_coppa_msg_lnk}">'ndrucale arrete</a>.
+err_banned_acct_title:ERRORE: Tu è state cacciate.
+err_banned_acct_msg:'U cunde tune ha state {IF: $ban_expiry}temboraneamende cacciate 'nzigne a {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}cacciate pe sembre{ENDI} da l'accesse a 'u site, pu fatte ca è violate le regole d'u forum.
+post_err_edttimelimit_title:ERRORE
+post_err_edttimelimit_msg:Non ge puè cangià cchiù stu messàgge
+post_err_noannontopics_msg2:<legend>ERRORE: Privilegge insufficiende</legend>l'utinde anonime non ge ponne ccrejà argumende.
+post_err_noannonposts_msg2:<legend>ERRORE: Privilegge insufficiende</legend>utinde anonime non ge ponne responnere.
+post_err_floodtrig_title:ERRORE: Spetterramende de messàgge attivate.
+post_err_floodtrig_msg:Pe piacere pruève arrete 'mbrà {PLURAL: tm|$1 seconde}
+post_err_attach_size:L'allegate d'u file jè troppe gruèsse (otre le limite de {VAR: MAX_F_SIZE} byte)
+post_err_attach_ext:'U file ca ste pruève a carecà non ge soddisfe le tipe de file permesse.
+post_err_attach_filelimit:Ste pruève a carecà cchiù file de chidde consendite.
+post_err_passwd:Passuord incorrette.
+post_reply_update:Stoche a responne a <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> jndr'à {VAR: frm->name}
+post_topic_update:Stoche a scrive 'n'argomende nuève jndr'à <a href="{TEMPLATE: post_topic_update_lnk}">{VAR: frm->name}</a>
+post_error_generic:Stè 'n'errore
+postcheck_max_images_err:No cchiù de {GVAR: MAX_IMAGE_COUNT} immaggine so permesse pe messàgge. Pe piacere mitte mene immaggine.
+postcheck_no_links_allowed:Non ge puè ausà 'u collegamende 'nzigne ca tu è mannate cchiù de {PLURAL: posts_before_links|$1 messàgge}.
+postcheck_subj_needed:Oggette richieste
+postcheck_no_such_user:Non ge stè 'n'utende ca se chiame "{FUNC: char_fix(htmlspecialchars($v))}" jndr'à stu forum.
+postcheck_ignored:Non ge puè mannà 'nu messàgge private a "{FUNC: char_fix(htmlspecialchars($v))}", purcé stu utende te cache.
+postcheck_no_recepient:Non ge pozze mannà 'nu messàgge, recipiende mangande
+postcheck_invalid_email:Pe piacere mitte 'n'indirizze email valide pe l'miche tune.
+postcheck_email_subject:Non ge puè mannà 'n'email senze oggette.
+postcheck_email_body:Non ge puè mannà 'n'email senze 'u cuèrpe d'u messàgge.
+private_msg_notify_subj:Ligge Notifiche Pe: {VAR: m->subject}
+private_msg_notify_body:Cià,<br />{VAR: usr->login} ave apirte 'u messàgge private cu 'u titole, "{VAR: m->subject}".<br />Queste jè 'na notifiche automaticamende generate a {TEMPLATE: private_msg_notify_body_date}<br />
+referals_update:Stoche a sfoglie le refèreminde
+register_err_short_login:'U Nome ca è scacchiate jè troppe curte. Le nome pe trasè onne essere almene de 4 carattere.
+register_err_login_notallowed:Stu nome pe trasè non g'è permesse.
+register_err_loginunique:Le nome pe trasè d'u forum onne essere uniche. Stè già 'n'utende cu stu nome.
+register_err_emailexists:St'indirizze email ha state ggià assocaite cu 'n'otre cunde. Ce tu t'è scurdate 'a passuord toje pe piacere ause l'opzione Repristine, invece de 'na reggistrazziona nove.
+register_err_shortpasswd:Le passuord onna essere almene de 6 carattere.
+register_err_passwdnomatch:'A passuord toje non ge s'accocchie, pe piacere pruève arrete.
+register_err_invalidemail:L'indirizze email ca tu è specificate non ge pare giuste.
+register_err_needname:Pe combletà sta reggistrazione tu a mettere 'u nome tune.
+register_err_enterpasswd:Tu ha mettere 'a passuord de mò pe combletà le cangiaminde.
+register_err_adminpasswd:Tu a mettere 'a passuord de <b>amministratore</b> toje pe combletà le cangiaminde.
+register_err_notyouremail:Quaccheotre è ggià reggistrate cu st'indirizze email.
+register_err_avatartobig:'U file ca tu ste pruève a carecà jè troppe granne, cchiù de {GVAR: CUSTOM_AVATAR_MAX_SIZE} byte.
+register_err_avatarnotallowed:L'immaggine ca ste pruève a carecà non g'è permesse. Condrolle le tipe de file valide.
+register_conf_subject:Conferme d'a reggistrazione
+register_conf_msg:Grazie ca tè reggistrate.\n\nPe attivà 'u cunde tune pe piacere vejè a l'URL de sotte:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\n'Na vote ca 'u cunde jè attivate tu puè trasè jndr'à 'u forum e avìne mannate sus a pàgena prengepàle.
+register_welcome_subject:Conferme d'a reggistrazione d'u forum
+register_welcome_msg:Grazie ca t'è reggistrate,\n\nAqquà le dettaglie pe trasè jndr'à 'u forum:\n\nURL d'u Forum: {TEMPLATE: index_update_lnk}\nNome: {VAR: uent->login}\nPassuord: {VAR: _POST['reg_plaintext_passwd']}\n\nPe piacere vide ca le passuord so sensibbile a le maiuscole e minuscole! Pe cangià le 'mbostaziune o 'u profile, vèje sus a pàgene:\n{FULL_ROOT}{ROOT}?t=register
+register_err_cantreg_title:ERRORE: 'mbossibbile da reggistrà
+regsiter_err_cantreg_msg:'Mbossibbile da ccrejè 'u cunde utende tune, pe piacere condatte l'amministratore a <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
+register_profile_update:'Ndruche 'u profile tune
+register_register_update:Pàgene de reggistrazione
+report_err_nosuchmsg_title:ERRORE
+report_err_nosuchmsg_msg:Nisciune messàgge
+reset_err_invalidkey_title:ERRORE
+reset_err_invalidkey_msg:Chiave de azzeramende d'a passuord invalide. Jè possibbile ca 'u client de l'email tune ave apirte automaticamende sta pàgene, 'nvalidanne 'a chiave de azzeramende. Ce quiste jè 'u case, tu avissà ricevere fra picche 'n'email cu 'a passuord nova toje. Ce l'email non g'arrive, pe piacere pruève arrete a azzerà 'a passuord.
+reset_err_rstconf_title:'Mbormaziune
+reset_err_rstconf_msg:Tu avissa ricevere le 'struziune jndr'à l'email toje jndr'à le prossime minute.
+reset_newpass_title:Azzere 'a passuord
+reset_newpass_msg:Cià,\n\nCumme richieste, le 'mbormaziune pe trasè stone aqquà sotte:\n\nNome: {VAR: ui[1]}\nPassuord: {VAR: passwd}\n\nPe piacere vide ca 'a passuord toje ha state azzerate a 'u valore de suse. Ce tu vuè cangià 'a passuord puè fà accussì cu 'u pannelle de condrolle de l'utende a:\n{FULL_ROOT}{ROOT}?t=register
+reset_login_notify:'A passuord toje t'ha state mannate pe email. Tu avissa riceverle 'mbrà le prossime minute.
+search_update:Stoche a cerche messàgge
+selmsg_update:Stoche a sfoglie le <a href="{TEMPLATE: selmsg_update_lnk}">Messàgge de Osce</a>
+showposts_update:Stoche a 'ndruche le messàgge da: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
+subscribed_update:Stoche a sfoglie le iscriziune
+bookmarked_update:Stoche a sfoglie l'elenghe de le segnalibbre
+thread_update:Stoche a sfoglie 'u forum <a href="{TEMPLATE: thread_update_lnk}">{VAR: frm->name}</a>
+tree_update:Stoche a sfoglie l'argomende (viste de l'arvule) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
+userinfo_update:Stochge a cerche 'u profile de <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}</a>
+ERR_login_msg2:<legend>ERRORE: Non ge ste jndre</legend>Pe trasè jndr'à sta pàgene tu a essere 'nu membre de stu forum.
+ERR_disabled_ttl:Funzione disabbilitate
+ERR_disabled_msg:Sta funzione ha state disabbilitate da l'amministratore de sisteme.
+ERR_access_ttl:ERRORE: Permesse insufficiende
+ERR_access_msg:Non ge è le permesse richieste pe combletà st'azione.
+ERR_registration_disabled_ttl:Reggistrazzione disabbilitate
+ERR_registration_disabled_msg:L'amministratore ha disabbilitate 'a reggistrazione. Pe piacere pruève arrete.
+ERR_emailconf_ttl:ERRORE: 'U cunde tune non g'è confermate
+ERR_emailconf_msg:Non g'è confermate 'u cunde via mail.<br />table border="0"><tr><td><ol><li>Ce tu non g'è ricevute 'a mail de conferme, <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">circhele arrete</a>.</li><li>Ce {VAR: usr_d->email} non g'è l'indirizze email corrette, <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">specifiche 'u 'ndirizze corrette</a>.</li></ol></td></tr></table>
+ERR_user_ttl:ERRORE: Nisciune utende
+ERR_user_msg:Non ge ste nisciune utende
+ERR_systemerr_ttl:ERRORE: Errore de sisteme
+ERR_systemerr_msg:Ste 'n'errore de sisteme. Pe piacere segnalale a 'u <a href="mailto:{GVAR: ADMIN_EMAIL}">webmestre</a>.
+email_title:Module de l'email
+finduser_title:Iacchie l'utende
+help_title:Aijute
+login_title:Module pe trasè
+poll_title:Cangiatore d'u sondagge
+register_title:Module de reggistrazzione
+reset_title:Azzere 'a passuord
+rpasswd_title:Module pe cangià 'a passuord
+error_title:Module de errore
+index_title:Bovègne jndr'à 'u forum
+search_title:Cirche {VAR-HTML: srch}
+remail_emailsent:L'email ha state mannate
+remail_email:Cià,\n\nStè 'n'argomende inderessande sus a "{VAR: data->subject}" sus a 'u forum {GVAR: FORUM_TITLE} ca tu puè vulè leggere. Tu puè 'ndrucà l'argomende a:\n {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nL'amiche tune,\n\n{VAR: usr->alias}
+poll_add_option:Aggiunge 'n'opzione:
+post_opt_html_on:<b>HTML</b> jè <b>appezzecate</b>
+post_opt_fud_on:<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>BBcode</b> jè<b>appezzecate</b></a>
+post_opt_images_on:<b>Le immaggine</b> sò <b>appezzecate</b>
+post_opt_smilies_on:<a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank"><b>Le facce</b> sò <b>appezzecate</b></a>
+post_opt_html_off:'U codece <b>HTML</b> jè <b>stutate</b>
+post_opt_fud_off:<b>BBcode</b> jè <b>stutate</b>
+post_opt_images_off:<b>Le immaggine</b> sò <b>stutate</b>
+post_opt_smilies_off:<b>Le immaggine</b> sò <b>stutate</b>
+post_opt:Opziune d'u forum:
+register_change_passwd:cange a 'password
+register_change_login:cange 'u nome
+approved_avatar_title:L'immaggine personalizzate toje ha state approvate.
+approved_avatar_msg:L'immaggine ha state approvate da l'amministratore. Avessa mò assè cumme a 'n'immaggine pe tutte le messàgge tune. Ce non g'ha 'ndruche, o 'ndruche l'immaggine vecchie, jè purcé 'u browser tune tène 'a cache de sta pàgene. Pruève a aggiornarle une o doje vote. Jndr'à tanda case quiste resolve 'u probbleme tune de cache.
+unapproved_avatar_title:L'immaggine personalizzate toje ha state scettate.
+unapproved_avatar_msg:L'amministratore non g'approve l'immaggina toje. Le mutive cchiù comune so ca l'immaggina toje jè troppe granne (dimenziune de pixel e/o byte) o tène oggette inappropriate. Ce vuè cchiù 'mbormaziune sus a purcé st'immaggine ha state scettate, condatte l'amministratore.
+mvthread_request_move:cirche 'nu spostamende
+move_request_reason:Purcé vuè ca l'argomende addà essere spustate?
+mvthread_submit_req:Conferme 'a richieste
+thread_exchange:Scambie de argomende
+move_request_by:Spustamende de l'argomende richieste da:
+move_reason:Mutive pe spustà l'argomende:
+thr_exch_accept:accette l'argomende
+thr_exch_decline:scitte l'argomende
+thr_exch_orig_forum:Forum origgenale:
+thr_exch_dest_forum:Forum de destinazione:
+thr_exch_no_threads:Nisicune argomende in attese de approvazione.
+thr_exch_decl_reason:Mutive pe scettà l'argomende <b>{VAR: data->subject}</b> jndr'à 'u forum <b>{VAR: data->f2_name}</b>
+thr_exch_submit:Conferme
+exch_decline_ttl:Spustamende de l'argomende {VAR: data->subject} jndr'à 'u forum {VAR: data->f2_name} ha state scettate.
+ppost_original_msg:messàgge ca tu è inoltrate o resposte
+split_thread:Divide l'argomende
+groupmgr_no_user:Non ge stu 'n'utende cu 'u nome de "{FUNC: char_fix(htmlspecialchars($gr_member))}"
+groupmgr_already_exists:Utende "{FUNC: char_fix(htmlspecialchars($gr_member))}" già esiste jndr'à stu gruppe.
+groupmgr_yes:Sìne
+groupmgr_no:None
+groupmgr_action:Azione
+groupmgr_member:Membre
+groupmgr_cancel:Annulle
+groupmgr_add_member:Aggiunge 'nu membre
+groupmgr_update_member:Aggiorne 'u membre
+groupmgr_edit:Cange
+groupmgr_delete:Scangille
+group_mgr_anon:Anonime
+group_mgr_reged:Tutte le utinde reggistrate
+show_show:Fà vedè:
+group_mgr:Gestore d'u Gruppe
+group_mgr_edit_btn:Cange 'u Gruppe
+group_mgr_heading:Scacchie 'u cangiatore de gruppe
+group_mgr_group:Gruppe:
+permission_denied_title:Permesse vietate!
+permission_denied_msg:Le permesse de l'utende non ge sò permesse pe combletà l'azione ca tu vuè ccu face.
+p_READ:Ligge
+p_POST:Manne
+p_REPLY:Respunne
+p_EDIT:Cange
+p_DEL:Scangille
+p_STICKY:Messàgge adesive
+p_POLL:Ccreje le sondagge
+p_FILE:Attacche le file
+p_VOTE:Vote
+p_RATE:Valute le argumende/membre
+p_SPLIT:Divide le argumende
+p_LOCK:Bluècche le argumende
+p_MOVE:Spuèste le argumende
+p_SML:Ause le facce
+p_IMG:Ause le tag pe l'immaggine
+p_SEARCH:Puè cercà
+group_mgr_search:Iacchie l'utende
+group_mgr_indicator:Stoche a cange pe mò: <b>{VAR: grp->name}</b>
+rate_worst:'U pegge
+rate_best:'U megghie
+post_quote_msg:{VAR: msg->login} ave scritte sus a {TEMPLATE: make_report_date}
+post_quote:Cite:
+post_quote_selected:Cite 'u teste scacchiate
+userinfo_referals:Utinde referenziate:
+userinfo_referals_count:{VAR: referals} Membre
+pm_no_space_title:Nisciune spazie lassate!
+pm_no_space_msg:Le cartelle tune de le messàgge private ave sbunnate 'a dimenzione permesse de <b>{GVAR: MAX_PMSG_FLDR_SIZE} byte</b>. Lore mò tènene <b>{VAR: fldr_size} byte</b> de messàgge.<br /><br /><span class="ErrorText">Live quacche messàgge vecchie pe libberà spazie.</span>
+pm_space_indct_msg:Le cartele tune de le messàgge private sò chine pe {VAR: percent_full}%.
+th_expr_never:Maje
+th_expr_one_hr:'N'ore
+th_expr_three_hr:3 Ore
+th_expr_four_hr:4 Ore
+th_expr_eight_hr:8 Ore
+th_expr_sixteen_hr:16 Ore
+th_expr_one_day:1 Sciurne
+th_expr_two_day:2 Sciurne
+th_expr_four_day:4 Sciurne
+th_expr_one_week:1 Sumàne
+th_expr_two_week:2 Sumàne
+th_expr_one_month:1 Mese
+th_expr_two_month:2 Mise
+th_expr_four_month:4 Mise
+th_expr_one_year:'N'anne
+thread_mod_delete:Scangille
+action_ip:IP
+action_latest_post:Urteme messàgge
+online_today_last_visit:Urtema visite
+online_today_update:Stoche a 'ndruche l'elenghe de le utinde ca stavane sus a 'u forum osce.
+logedin_todays_visitors:Visitature de osce
+logedin_latest_post:Urteme messàgge sus a 'u forum:
+register_show_avatar:Fà vedè le immaggine:
+register_show_avatar_desc:Te permette de sconere le immaggine de otre utinde quanne 'ndruche le messàgge lore.
+drawmsg_view_rest_post:Fà vedè 'u reste d'u messàgge
+post_re:Re:
+forumsel_goto_forum:Vèje a 'u forum:
+minimsg_thread_view:'Ndruche l'argomende
+split_th_post_by:Messàgge da:
+split_th_posted_on:Mannate 'u:
+split_th_subject:Oggette:
+split_th_new_thread_title:Titole de l'argomende nuève:
+split_th_forum:Forum:
+split_th_split_sel:Divide le messàgge scacchiate
+split_th_split_unsel:Divide le messàgge non schiacchiate
+split_th_messages:Mèssagge
+split_th_select:Scacchie
+report_report_post:Segnale 'u messàgge
+quicklogin_login:Nome:
+quicklogin_password:Passuord:
+quicklogin_use_cookies:Ause le cookie?
+quicklogin_login_btn:Tràse
+quick_reply:Resposta veloce
+quick_reply_post:Manne 'an resposta veloce
+quick_reply_preview:Andeprime d'a resposta veloce
+post_notification_desc:Notificame quanne quacchedune respone a stu messàgge.
+post_all_ext_allowed:(non ristrette)
+maximize_category:Massimizze 'a Categorije
+maximize_message:Massimizze 'u Messàgge
+no_view_perm:Non ge tìne le permesse appropriate ca abbesògnane pe 'ndrucà st'argomende.
+report_empty_report:Non ge puè mannà 'na segnalazione vacande. Pe piacere mitte 'nu mutive pa segnalaziona toje.
+report_already_reported_title:Già segnalate
+report_already_reported_msg:Stu messàgge ha state ggià segnalate e 'a segnalazione jè pe mò jndr'à code d'u moderatore.
+register_err_toomanyimages:Tu ste pruève a ausà cchiù de {GVAR: FORUM_IMG_CNT_SIG} immaggine ca sò permesse jndrà firma toje.
+pmsg_next_msg:Messàgge successive
+pmsg_prev_msg:Messàgge precedende
+post_proc_reveal_spoiler:Live e mitte 'u spoiler
+register_jabber:Gestore de Jabber:
+register_skype:Gestore de Skype:
+register_twitter:Gestiore de Tuitter:
+register_google:Gestore de Google Chat/IM:
+im_jabber:Jabber:
+im_google:Google Talk:
+im_skype:Skype:
+im_twitter:Tuitter:
+forum_contact:Condatte
+forum_home:Pàgena Prengepàle
+post_cur_attached:allegate pe mò: {VAR: i} {PLURAL: i|file}
+ignored_anon_post:{GVAR: ANON_NICK} ha state cacate
+ignored_user_post:Messàgge da <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> ha state cacate
+smladd_close_window:achiude 'a finestre
+post_list_smilies:elenghe de le facce
+p_VISIBLE:Visibbile
+reported_in_thread:In:
+help_back_to_top:tuèrne sus
+help_return_to_index:Tuèrne a l'indice de l'aijute
+imsg_err_message_title:Messàgge invalide
+imsg_err_message_msg:'U messàgge ca ste pruève a 'ndrucà non g'esiste.
+poll_edit:Cange
+register_err_not_valid_img:L'URL specificate non ge tène 'n'immaggine valide.
+pmsg_recepient:Recipiende
+register_err_taken_alias:L'alias ca ste pruève de ausà jè ggià in use da 'n'otre membre d'u forum. Pe piacere scacchie 'n'otre.
+register_alias:Alias:
+register_alias_desc:Ce tu vuè 'n'otre soprannome ca vuè vedè quanne trase jndr'à 'u forum, mittele aqquà.
+register_allow_pm_msg:Permette le messàgge private:
+register_allow_pm_msg_desc:Permette a l'otre utinde de mannà le messàgge private jndr'à stu forum.
+postcheck_pm_disabled:Non ge puè mannà 'nu messàgge private a "{VAR-HTML: v}", purcé stu crestiane non g'accette le messàgge private.
+polllist_vote:Vote
+polllist_view_results:'Ndruche le resultate
+polllist_name:Nome d'u sondagge
+polllist_date:Ccrejate 'u
+polllist_owner:Ccrejate da
+polllist_votes:Vote totale
+polllist_action:Azione
+polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">Stoche a rivede le sondagge disponibbile</a>
+userinfo_polls:Sondagge:
+show_pollist:Fà vedè le sondagge
+search_and:E
+search_or:O
+search_desc_order:Ordine a scennere
+search_asc_order:Ordine a 'nghianà
+search_logic:Ricerca loggeche:
+search_sorting:Ordine le resultate pe date jndr'à:
+search_attach:Allegate:
+search_attach_all:Con o senze
+search_attach_with:Cu l'allegate
+post_proceed:Procede
+post_moderated_forum:Tu è mannate 'nu messàgge jndr'à 'nu forum moderate. 'U messàgge tune non g'è visibbile a l'otre 'zigne ca avène approvate da une de le moderature d'u forum o da le amministrature.
+post_moderated_forum_ttl:Notizie d'u Forum moderate
+buddy_list_bday:Osce {VAR: r[2]} passe a {VAR: age}
+email_warning_msg:Ce tu cange l'indirizze email de mò, 'u cunde tune avène signate cumme non confermate 'zigne ca tu 'u conferme via mail.
+register_show_im:Fà vedè le indicature IM:
+register_show_im_desc:Ce o mene fà vedè le indicature IM de l'autore affianghe a le messàgge lore.
+unread_message:Messàgge non lette
+read_message:Messàgge lette
+threadt_more:&lt;cchiù&gt;
+threadt_disabled_ttl:'A viste de l'arvule de l'argomende elengate ha state disabbilitate.
+threadt_disabled_desc:L'amministratore ha disabbilitate 'a viste de l'arvule de l'argomende elengate. Pe piacere ause 'a viste piatte.
+threadt_update:Stoche a sfoglie 'u forum (viste a arvule) <a href="{TEMPLATE: thread_update_lnk}">{VAR: frm->name}</a>
+mmod_delete_cofirm_ttl:Conferme l'argomende/Scangellazione d'u messàgge
+spell_alts:nisciuna alternative
+insert_uploaded_image:Mitte l'immaggine jndr'à 'u cuèrpe d'u messàgge
+finduser_help:'U motore de ricerche aggiunge automaticamende * ca maschere l'inderrogaziona toje, 'a <b>ricerche jè senssibbile a le maiuscole e minuscole</b>. <br />es. pe cercà tutte le utinde ca tènene 'u nome ca accumenze cu 'a', sckaffe 'a' jndr'à buatte de ricerche.
+back_to_top:Tuèrne sus
+pm_err_disabled_title:Messàgge private disabbilitate
+pm_err_disabled_msg:Non ge puè mannà messàgge private 'nzigne ca tu abbilite l'opzione 'Permette le messàgge private' jndr'à 'u profile tune.
+err_mod_acc_ttl:Cunde non verificate
+err_mod_acc_msg:L'amministratore ha scacchiate de revedè tutte le cunde manualmende pe l'attivazione. 'Nzigne ca 'u cunde tune ha state validate da l'amministratore tu non ge puè ausà le capacità comblete d'u cunde.
+accounts_pending_approval:Cunde appise pe l'approvazione
+saved:Reggistrate
+register_err_time_limit:'U limite de 'na reggistrazione pe {GVAR: REG_TIME_LIMIT} seconda ha state raggiunde. Pe piacere aspitte {PLURAL: reg_limit_reached|$1 seconde}, e pò pruève a reggistrarte arrete.
+register_affero:Nome utende Affero: <br /><span class="SmallText">Ce tu è 'nu <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">nome utende Affero</a>, sckaffale aqquà.</span>
+im_affero:Nome utende Affero
+register_err_avatardimtobig:Dimenziune de l'immaggine <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> sbonnane 'a diumenzione permesse de  <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b> pixel.
+buddy_offline:{VAR: r[2]} pe mò ste fore linèe
+buddy_online:{VAR: r[2]} pe mò ste in linèe
+sml_no_smilies:Nisciune emoticon disponibbile.
+login_unapproved_account_ttl:Cunde non approvate
+login_unapproved_account_msg:L'amministratore d'u forum ha scacchiate 'a conferme de ogne cunde nuève manualmende apprime de l'attivazione. 'U cunde tune non ha state angore confermate, allore non ge puè accedere a certe funziune disponibbile pe le memre confermate.
+remove_from_buddy_list:luate da l'elenghe de l'amice
+iemail_msg_author:<b>Autore:</b> {VAR: obj->alias}
+iemail_msg_subject:<b>Oggette:</b> {VAR: obj->subject}
+iemail_msg_date:<b>Date:</b> {TEMPLATE: dmsg_post_date}
+iemail_msg_reply:Respunne
+iemail_msg_quote:Cite
+iemail_msg_view:'Ndruche Argomende/Messàgge
+threadt_sticky:adesive
+threadt_announce:annunge
+reported_no_messages:Non ge stonne messàgge segnalate.
+poll_no_polls:Non ge stone sondagge accessibbile.
+no_unread_messages:Non ge stonne messàgge non lette ca soddisfane l'inderrogaziona toje.
+thread_mark_all_read:Signe tuttue le messàgge non lette d'u forum cumme lette
+thread_mark_all_read_desc:Tutte le messàgge non lette jndr'à stu forum avènene signate cumme lette
+private_no_messages:Non ge stonne messàgge jndr'à cartelle.
+register_email_change_subject:Conferme 'u cangiamende de l'email
+register_email_change_msg:Pe piacere conferme 'u cunde email nuève "{VAR: uent->email}" ca sostituisce 'u vecchie cunde email tune "{VAR: old_email}", scenne jndr'à URL aqquà sotte: {FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}
+iemail_thread_unsub:Livete da st'argomende
+iemail_forum_unsub:Livete da stu forum
+primary_group_prefix:Gruppe primarie pu forum:
+group_resources:Stu gruppe condrolle le permesse de le forum ca seguone
+register_admin_newuser_title:'N'utende nuève ha state reggistrate e 'u cunde sue stè in attese de approvazione
+register_admin_newuser_msg:'N'utende nuève ({VAR: uent->login}) s'ha appene reggistrate, e da quanne 'a conferme d'u cunde jè abbilitate, le cunde lore non ge onne devendate attive 'nzgine ca lore non g'avènene confermate da te o da 'n'otre amministratore. Pe revedè 'u cunde pe piacere vèje: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nQUiste jè 'nu processe automateche. Nò responnere a stu messàgge.\nCe tu vuè luà le notifiche de le email future de reggistraziune de utinde nuève, tu puè farle da 'u Pannelle de Controlle de l'Amministratore. Cange le 'mbostaziune de "Notifiche de cunde nuève".
+post_mod_msg_notify_title:Messàgge muève jndr'à u forum "{VAR: frm->name}" in attese de approvazione
+post_mod_msg_notify_msg:'Nu messàgge nuève cu titole "{VAR: msg_post->subject}" ha state mannate jndr'à 'u forum ca tu modere. Pe revedè stu messàgge vèje: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}
+thread_printable_pdf:Genere PDF stambabbile
+thread_syndicate:Sindache stu forum (XML)
+reg_conf_title:Conferme d'a reggistrazione
+reg_conf_email:<b>E-mail de conferme</b><br />'N'email t'ha state mannate ca tène 'nURL speciale ca tu è abbesògne de accedere apprime ca 'u cunde tune avène abbilitate. Ce tu non g'è sta mail jndr'à le prossime minute, tràse jndr'à 'u cunde tune e condrolle ca l'indirizze email ca è mise è giuste. 'Na vote ca è confermate 'u cunde tune, tu puè accedere a le funziune disponibbile d'u forum sulamende cumme utende reggistrate e confermate.
+reg_conf_account:<b>Conferme d'u cunde</b><br />Apprime ca 'u cunde tune devende attive adda essere approvate da 'n'amministratore. 'Na vote ca succede tu ave 'na mail ca indiche 'u cunde tune ha state confermate. Jndr'à 'u frattiembe tu puè trasè jndr'à 'u cunde tune, comungue tu non ge te puè collegà a certe funziune.
+forum_banned_user:Le aziune è fatte t'onne fatte caccià da stu forum. Statte bbuène.
+mnav_description:Navigatore de messàgge
+mnav_date_limit:Indervalle de date:
+mnav_forum_limit:Cirche sulamende jndr'à:
+mnav_all_forums:Cirche tutte le forum
+mnav_submit:Accuminze 'a ricerche
+mnav_no_range:Tu a mettere 'nu valide indervalle de date. Stu valore pò tenè 'nu punde decimale, (0.12) ma adda essere cchiù granne de zero.
+mnav_invalid_unit:Tu a specificà 'na unità de orarie valide.
+mnav_invalid_date:L'indervalle de le date ca è specificate jè cchiù granne de une permesse da l'amministraotre. Pruève cu 'n'indervalle cchiù piccinne de date.
+mnav_no_results:Non ge stonne messàgge ca soddisfane l'inderrogazione.
+mnav_posted_by:Mannate da:
+mnav_more:Cchiù &raquo;&raquo;
+mnav_minute:Minute
+mnav_hour:Ore
+mnav_day:Sciurne
+mnav_week:Sumàne
+mnav_month:Mese
+mnav_title:Navigatore de messàgge
+mnav_update:Stoche a sfoglie le messàgge ausanne 'u <a href="{TEMPLATE: mnav_update_lnk}">Navigatore de le messàgge</a>
+pm_notify_subject:[{GVAR: FORUM_TITLE}] Notifica nove de messàgge private
+pm_notify_body_email:Tu è 'nu messàgge private cu titole "{VAR: subject}", da "{VAR: from}", jndr'à 'u forum "{GVAR: FORUM_TITLE}".\nPe 'ndrucà 'u messàgge, cazze aqquà: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nPe no avè notifiche future, disabbilite "Notifiche de messàgge private" jndr'à 'u profile tune.
+register_pm_notification:Notifiche de messàgge private:
+register_pm_notification_desc:Ce abbilitate, t'arive 'a notifiche quanne 'nu messàgge private t'avène mannate.
+findu_admin_opts_header:Opziune de l'amministratore
+findu_unban:Nò caccià
+findu_ban:Cacce
+findu_edit:Cange
+findu_delete:Scangille
+dmsg_reply_to:jè 'na resposte a
+dmsg_reply_num:messàgge #{VAR: obj->reply_to}
+merge_topics:Scuagghie le argumende
+merge_topics_cp:Pannelle de Condrolle pu scuagghiamende de l'argomende
+merge_topics_tpl:Scacchie l'argumende da scuagghià <span class="SmallText">(tu a scacchià cchiù de n'argomende)</span>
+merge_merge:Scuagghie le argumende scacchiate
+merge_next:Argomende successive
+merge_prev:Argomende precedende
+merge_another:Vèje a l'<a href="{TEMPLATE: merge_another_lnk}">urteme argomende scuagghiate</a> o scuagghie 'n'otre:
+split_cp:Pannelle de Condrolle pa divisione de l'argomende
+groups_perms_header:Permesse <span class="small">(spuèste 'u sciorge sus a 'u permesse pe 'ndrucà 'u tipe sue)</span>
+register_err_sig_too_long:'A firma toje sbonne 'a lunghezza massime permesse de {GVAR: FORUM_SIG_ML} carattere.
+register_sig_limit:{GVAR: FORUM_SIG_ML} carattere <a href="javascript: alert('A firma toje jè de'+document.forms['fud_register'].reg_sig.value.length+' carattere. 'A lunghezza massime pa firme jè {GVAR: FORUM_SIG_ML} carattere.');" class="SmallText">Verifiche 'a lunghezze d'a firme</a>
+adm_account_accepted:'U cunde tune '{VAR: login}' ha state approvate da l'amministratore e mò jè attive. Tu puè accedere a 'u forum {GVAR: FORUM_TITLE} cumme 'n'utende confermate e reggistrate.
+adm_account_accepted_s:'U cunde richieste pe '{GVAR: FORUM_TITLE}' ha state accettate.
+adm_account_rejected:'U cunde '{VAR: login}' ha state scettate da l'amministratore. Ce vuè ccu canusce 'u mutive, sindete libbere de condattà l'amministratore sus a '{GVAR: ADMIN_EMAIL}'.
+adm_account_rejected_s:'U cunde richieste pe '{GVAR: FORUM_TITLE}' ha state scettate.
+thread_on:sus a
+userinfo_buddy:Amiche:
+register_email_addr:Indirizze e-mail:
+reset_suffix:ICe tu è ricevute stu messàgge pe errore, pe piacere cacale. Ce tu è avute cchiù copie de sta email, ca non g'è richieste, pe piacere condatte l'amministratore d'u forum sus a {GVAR: ADMIN_EMAIL}\n\nSta richieste ha state accumenzate da: {VAR: _SERVER['REMOTE_ADDR']}.
+usrinfo_last_visit:Urtema visite:
+mnav_newer:cchiù nuève de
+mnav_older:cchiù vicchie de
+ip_search_by_ip:Cirche le utinde pe IP
+ip_search_syntax:Sindasse supprotate: 1.2.3.4, 1.2.3, 1.2, 1
+ip_search:Cirche
+ip_analyze_usage:Analizze l'ause de l'IP
+ip_analyze_usage_descr:Pe piacere specifiche 'u nome satte satte pe trasè.
+ip_users_using:Utinde ca ausane l'indirizze IP '{VAR: ip}'
+ip_all_ips:Tutte le IP ausate da '{VAR: user}'
+ip_title:IP d'u browser
+userinfo_real_name:Nome vere:
+register_err_alias_notallowed:Stu alias non gè permesse
+post_err_mod_forum_edit_ttl:ERRORE
+post_err_mod_forum_edit_msg:Tu non ge puè cangià le messàgge jndr'à 'nu forum moderate.
+dmsg_num:messàgge #{VAR: obj->id}
+postcheck_session_invalid:'A sessiona toje ha scadute. Pe piacere re-conferme 'u module. Ne despiace pe l'ingonveniende.
+delete_message_extra_desc:<b>Facoltative</b><br />Specifiche 'nu mutive pa scangellazione d'u messàgge, 'u quale avène mannate a l'autore cu 'nu messàgge private.
+delete_message_extra_body:'Nglude 'u cuèrpe d'u messàgge luate ca adda essere mannate a l'autore.
+delete_msg_removed_ttl:'U messàgge tune ha state luate da 'a squadre de amministrature.
+delete_msg_pm_body:Messàgge origgenale
+delete_msg_pm_subject:Oggette: {VAR: data[15]}
+ip_no_whois:'Mbormazione de WHOIS pe <b>{VAR: ip}</b> non g'è disponibbile.
+ip_whois_title:'Mbormaziune de l'ISP
+register_theme:Teme:
+pmsg_trash:Sdevaghe 'u rummate
+uc_new_pm:Nuève messàgge private
+uc_new_topic:Argomende nuève
+uc_new_cat_forum:Forum sottoscritte cu le messàgge nuève
+uc_cat_forum:Categorije &raquo; Forum
+uc_sub_topics:Argumende sottoscritte cu messàgge nuève
+uc_page_title:Panelle de condrolle de le viste personale.
+search_options:Opziune de ricerche
+search_user_filter:Filtre pe utende:
+register_none:Non mu notificà
+findu_no_conf:utende non confermate
+register_max_sig_len:Lunghezza massime:
+register_turing:Pe piacere mitte 'u codece fatte vedè sotte:
+register_err_turing:Codece de validazione invalide.
+modque_cat:Categorije
+modque_forum:Forum
+idx_compact_forum_row:Forum disponibbile:
+mmd_del_title:Argumende scangellate
+mmd_mov_title:Spuèste le argumende
+mmd_move_threads_to:Forum de destinazione:
+mmd_abort_move:Annulle
+mmd_move:Spuèste le argumende
+pmsg_pdf_btn:Fà l'archivije PDF
+search_results_hdr:{VAR: total} Resultate de ricerche acchiate
+thread_del_all:Scangille le scacchiate
+thread_mov_all:Spuèste le scacchiate
+thread_merge_all:Scuagghie le scacchiate
+thread_loc_all:Bluècche/Sbluècche le scacchiate
+dmsg_ip:IP:
+err_blockedaccnt_title:ERRORE: 'U cunde tune ha state filtrate.
+err_blockedaccnt_msg:'U cunde tune ha state bloccate da l'accesse a 'u forum da une de le filtre utende installate.
+merge_th_page_list:Pàgene de scacchiamende de l'argomende
+most_users_online:'U numere maggiore de utinde in linèe ha state <b>{VAR: st_obj->most_online}</b> 'u <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
+sub_unsub_all_forums:Scangillate da tutte le forum
+sub_unsub_all_topics:Scangillate da tutte le argumende
+unbookmark_all_topics:Live tutte le segnalibbre
+tabs_own_posts:Fà vedè le probbie messàgge
+sml_emoticon:Emoticon
+sml_code:Codece
+mnav_sub_only:Cirche sulamende jndr'à le forum sottoscritte
+register_topics_per_page:Argumende pe pàgene:
+login_min_time:Stu forum permette 'nu tendative de trasè ogne {VAR: MIN_TIME_BETWEEN_LOGIN} seconde, pe piacere aspitte {FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)} seconde apprime d'u prossime tendative.
+post_not_logged_in:Tu non g'è trasute, 'u messàgge avène mannate anonimamende.
+post_common_bold:Grascette
+post_common_italics:Corsive
+post_common_underline:Sottolineate
+post_common_align_left:Allinèe a sinistre
+post_common_align_center:Allinèe a cendre
+post_common_align_right:Allinèe a destre
+post_common_link:'Nzerisce 'nu collegamende
+post_common_link_popup:Colleghe 'u luèche:
+post_common_email:Mitte 'n'indirizze e-mail
+post_common_email_popup:Indirizze email:
+post_common_image:Mitte 'n'immaggine
+post_common_image_popup:URL de l'immaggine:
+post_common_nlist:Aggiunge 'n'elenghe numerate
+post_common_blist:Agiiunge 'n'elenghe puntate
+post_common_quote:Aggiunge 'na citazione
+post_common_code:Aggiunge 'nu codece
+rating_delete:Scangille
+post_always_on_top:Fà assè l'argomende sembre 'ngape a l'elenghe de l'argomende
+topic_rating:{VAR: frm->rating} da {PLURAL: frm->n_rating|$1 vote}
+topic_list_rating:{VAR: r[17]} da {PLURAL: r[21]|$1 vote}
+tabs_notifications:Notifiche
+finduser_flag:Bandiere
+post_descr:Descrizione de l'argomende:
+pmsg_on:appezzecate
+pmsg_download_dump:Scareche 'u dump de le messàgge
+move_messages:Spuèste le messàgge
+move_msg_btn:Spuèste le messàgge scacchiate
+move_msg_th_expl:Specifiche l'ID de l'argomende de destinazione (pò essere jndr'à otre forum)
+captcha_img_alt:Verifiche cu captcha: tu è abbesògne de mettere 'u teste jndr'à sta immaggine.
+captcha_img_help:Non ge stonne zero o une jndr'à l'immaggine.
+powered-by:Fatte da: FUDForum {GVAR: FORUM_VERSION}.
+copyright:Copyright &copy;2001-2013 <a href="http://fudforum.org/">FUDforum Softuer de bollettine de schede</a>
+code_title:Codece:
+code_select_all:Scacchie tutte
+code_show_hide:Fa vedè/scunne
+social_sites:Site de rezze suggiale:
+postcheck_min_len_err:'U messàgge tune jè troppe curte. 'A lunghezze minime jè {PLURAL: post_min_len|$1 carattere}.
+postcheck_dup_err:Pe piacere no ccrejà argumende duplicate.
+btn_new_topic:Argomende nuève
+btn_new_pm:Messàgge private nuève
+btn_post_reply:Manne 'na resposte
+btn_tree_view:Viste a arvule
+btn_flat_view:Viste piatte
+btn_about:Profile
+btn_small_pm:MP
+btn_delete:scangille
+btn_edit:cange
+btn_reply:respunne
+btn_forward:inoltre
+btn_quote:cite
+btn_email:E-mail
+btn_show_posts:manne
+btn_homepage:www
+feed_no_data:Nisciune date acchiate.
+feed_rdf:Feed RDF
+feed_rss:Feed RSS2
+feed_atom:Feed ATOM
+ip_whois_connect_err:Non disponibbile a collegarse a 'u server WHOIS ({VAR: whois_server}): {VAR: errstr}
+custom_filed_required:Stu cambe jè obbligatorie.
+pages:Pàggene
+page_list_heading:Pàggene disponibbile
+page_list_total:{PLURAL: i|$1 pàgene|$1 pàggene} elengate.
+page_update:Stoche a sfoglie 'a pàgene
+pm_export_header:Messàgge private pe {VAR: usr->alias}
+pm_export_footer:Esportate:
+karma:Karma
+karma_track:Gestisce 'a reputazione pe utende:
+karma_delete:Scangille
+rate_author:Valute l'autore:
