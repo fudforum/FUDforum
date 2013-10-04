@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -76,7 +76,7 @@ class fud_nntp
 		return false;
 	}
 
-	/** Send NNTP command to the server and autehticate if required. */
+	/** Send NNTP command to the server and authenticate if required. */
 	function cmd($cmd, $auth=true)
 	{
 		fputs($this->fs, $cmd ."\r\n");
@@ -85,7 +85,7 @@ class fud_nntp
 		// Reissue command if authentication is required. Check for:
 		// - 450 Authorization required for this command
 		// - 480 Authentication required (old)
-		// Tip: If server wronlly responds "440 Posting not permitted", add check for it below.
+		// Tip: If server wrongly responds "440 Posting not permitted", add check for it below.
 		if ($auth && ($code == 450 || $code == 480)) {
 			if (!$this->auth_cmd()) {
 				return false;
@@ -111,7 +111,7 @@ class fud_nntp
 		$ret = $this->get_return_code();
 
 		if (!$this->compare_return_codes(200, $ret) && !$this->compare_return_codes(201, $ret)) {
-			$this->error = 'Failed to recieve proper response from NNTP Server, got '. $this->lrc ."\n";
+			$this->error = 'Failed to receive proper response from NNTP Server, got '. $this->lrc ."\n";
 			return false;
 		}
 
@@ -130,15 +130,20 @@ class fud_nntp
 		return true;
 	}
 
-	/** Fetch a sengle post from a newsgroup. */
+	/** Fetch a single post from a newsgroup. */
 	function get_message($id)
 	{
 		// Zero the vars.
 		$this->raw_msg = $this->attachments = null;
 
-		if ($this->cmd('ARTICLE '. $id) != 220) {
+		$code = $this->cmd('ARTICLE '. $id);
+		if ($code != 220) {
 			$this->error = "Cannot fetch #$id: ". $this->lrc;
-			return false;
+			if  ($code == 423) {	// No such article number in this group
+				return false;
+			} else {		// Non-resumable error.
+				$this->exit_handler();
+			}
 		}
 		while (!feof($this->fs)) {
 			$line = fgets($this->fs, 1024);
@@ -172,7 +177,7 @@ class fud_nntp
 		}
 	}
 
-	/** Acquire lock to prevent concurrent NNTP inports. */ 
+	/** Acquire lock to prevent concurrent NNTP imports. */ 
 	function get_lock()
 	{
 		$u = umask(0111);
@@ -210,7 +215,7 @@ class fud_nntp
 			$from = str_replace('@', '@nospam.', $from);
 		}
 
-		// If we have attachements, and MIME encoding is prefered, insert attachments into body.
+		// If we have attachments, and MIME encoding is preferred, insert attachments into body.
 		if ($GLOBALS['FUD_OPT_3'] & 512) {	// NNTP_MIME_POSTS
 			$multi_part = 1;
 			$boundry = md5(get_random_value());
@@ -234,7 +239,7 @@ class fud_nntp
 		}
 
 		if ($this->cmd('POST') != 340) {
-			$this->error = 'Failed to recieve proper response to POST command, NNTP server replied: '. $this->lrc ."\n";
+			$this->error = 'Failed to receive proper response to POST command, NNTP server replied: '. $this->lrc ."\n";
 			$this->exit_handler(0);
 			return;
 		}
@@ -305,7 +310,7 @@ class fud_nntp
 		return true;
 	}
 
-	/** UUencoded an attachement. Used by post_message(). */
+	/** UUencoded an attachment. Used by post_message(). */
 	function uuencode($in, $file_name)
 	{
 		$out = 'begin 644 '. $file_name ."\r\n";
@@ -347,8 +352,8 @@ class fud_nntp
 		return $out ."\r\n`\r\nend\r\n";
 	}
 
-	/** Remove attachements from post and return body. 
-	 * Attachements will be decoded and added to $this->attachments.
+	/** Remove attachments from post and return body. 
+	 * Attachments will be decoded and added to $this->attachments.
 	*/
 	function parse_attachments($body)
 	{
@@ -401,11 +406,11 @@ class fud_nntp
 			$s += 13;
 		}
 
-		// Send the body (witout attchements) back.
+		// Send the body (without attachments) back.
 		return $body;
 	}
 
-	/** Decode a BASE64 attachement and add to $this->attachments. */
+	/** Decode a BASE64 attachment and add to $this->attachments. */
 	function fud_base64decode($data)
 	{
 		if (strncmp($data, 'begin-base64', 12)) {
@@ -425,7 +430,7 @@ class fud_nntp
 		$this->attachments[$filename] = base64_decode($data);
 	}
 
-	/** Decode a UUEncoded attachement and add to $this->attachments. */
+	/** Decode a UUEncoded attachment and add to $this->attachments. */
 	function fud_uudecode($data)
 	{
 		$data = trim($data);
