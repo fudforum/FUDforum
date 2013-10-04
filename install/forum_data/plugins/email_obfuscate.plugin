@@ -13,16 +13,17 @@ plugin_add_hook('POST_TEMPLATE', 'plugin_email_obfuscate');
 
 // Prepare for obfuscate output
 function plugin_email_obfuscate($data) {
-	if ($_GET['t'] != 'post') {
-		if ( !file_exists(@$GLOBALS['PLUGIN_PATH'] .'email_obfuscate.ini') ) {
+	$t = $_GET['t'];
+	if ($t == 'post' || $t == 'ppost' || $t == 'register') {
+		return $data;
+	} else {
+		if ( !file_exists($GLOBALS['PLUGIN_PATH'] .'email_obfuscate.ini') ) {
 			die('ERROR: The Email Obfuscate plugin has not been configured.');
 		} else {
-			include @$GLOBALS['PLUGIN_PATH'] .'email_obfuscate.ini';
+			include $GLOBALS['PLUGIN_PATH'] .'email_obfuscate.ini';
 	        }
 
         	return extract_email($data, $ini['EMAIL_OBFUSCATE_AT_SYNTAX'], $ini['EMAIL_OBFUSCATE_DOT_SYNTAX'], $ini['EMAIL_OBFUSCATE_ALPHA_LENGTH_SYNTAX'] ); 
-	} else {
-		return $data;
 	}        
 }
 
@@ -40,10 +41,10 @@ function extract_email($data, $at_replaceby, $dot_replaceby, $random_length) {
 	$random_string = generate_random_alphanumeric($random_length);
 
 	for($email_count=0; $email_count<count($matches[0]); $email_count++) {
-		// Replace the @ 
+		// Replace the at (@)
 		$match   = str_replace($at_to_replace, $random_string.$at_replaceby.$random_string, $matches[0][$email_count]); 
 
-		// Replace the .
+		// Replace the dot (.)
 		$match   = str_replace('.', $random_string.$dot_replaceby.$random_string, $match); 
 
 		$data    = str_replace($matches[0][$email_count], $match, $data);
