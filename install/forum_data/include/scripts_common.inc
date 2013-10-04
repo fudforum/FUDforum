@@ -87,11 +87,13 @@ function get_fud_reply_id($complex, $forum_id, $subject, $data)
 		}
 
 		foreach ($data as $reply_id) {
+			// We have a Message ID:
 			if (($r = db_saq('SELECT m.id, m.thread_id FROM '. sql_p .'msg m INNER JOIN '. sql_p .'thread t ON m.thread_id=t.id WHERE m.mlist_msg_id='. _esc($reply_id) .' AND t.forum_id='. $forum_id .' ORDER BY m.post_stamp DESC LIMIT 1'))) {
 				break;
 			}
 		}
 	}
+
 	if (empty($r) && $complex) {
 		// This is slow, but only way to match 'rouge' replies in the event no reference fields are available.
 		// Reply prefix for most languages is "Re:",  "AW:" for German, etc.
@@ -100,17 +102,28 @@ function get_fud_reply_id($complex, $forum_id, $subject, $data)
 			if (!$r) {
 				$r = db_saq('SELECT m.id, m.thread_id FROM '. sql_p .'msg m INNER JOIN '. sql_p .'thread t ON m.thread_id=t.id WHERE t.forum_id='. $forum_id .' AND m.subject LIKE '. addcslashes(_esc(trim($matches[1]) .'%'),'_') .' ORDER BY m.post_stamp DESC LIMIT 1');
 			}
+
+			// No parent with 'Re:' prefix.
+			// At least try to group replies with the same subject together.
+			if (!$r) {
+				$r = db_saq('SELECT m.id, m.thread_id FROM '. sql_p .'msg m INNER JOIN '. sql_p .'thread t ON m.thread_id=t.id WHERE t.forum_id='. $forum_id .' AND m.subject='. _esc(trim($subject)) .' ORDER BY m.post_stamp');
+			}
 		}
 	}
 
 	return !empty($r) ? array((int)$r[0], (int)$r[1]) : array(0, 0);
 }
 
-/** Parse an IP address. */
+/** Extract IP address from a string. */
 function parse_ip($str)
 {
-//@TODO: IPv6 compatibility.
+	// Try to match an IPv4 address. 
+	// Example: Received: from EXIGE.hsc.net.ou.edu ([10.101.1.10]) by...
 	if (preg_match('!([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3})!', $str, $m)) {
+		return $m[1];
+	// Try to match an IPv6 address.
+	// Example: Received: from MAILBOXSRV.AGARIK.MUT ([fe80::7591:a37:50f3:25a5]) by...
+	} else if (preg_match('!\[([0-9a-f\:]+)\]!', $str, $m)) {
 		return $m[1];
 	} else {
 		return;
