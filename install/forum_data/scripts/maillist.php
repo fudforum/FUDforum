@@ -214,14 +214,17 @@
 			continue;
 		}
 
+		/* Parse 'Date:' header. */
 		$msg_post->post_stamp = !empty($emsg->headers['date']) ? strtotime($emsg->headers['date']) : 0;
 		if ($msg_post->post_stamp < 1 || $msg_post->post_stamp > __request_timestamp__) {
-			fud_logerror('Invalid date.', 'mlist_errors', $emsg->raw_msg);
+			// Try to extract date from 'Received:' header
 			if (($p = strpos($emsg->headers['received'], '; ')) !== false) {
 				$p += 2;
 				$msg_post->post_stamp = strtotime(substr($emsg->headers['received'], $p, (strpos($emsg->headers['received'], '00 ', $p) + 2 - $p)));
 			}
 			if ($msg_post->post_stamp < 1 || $msg_post->post_stamp > __request_timestamp__) {
+				// Last resort, use curent date.
+				fud_logerror('Invalid date.', 'mlist_errors', $emsg->raw_msg);
 				$msg_post->post_stamp = __request_timestamp__;
 			}
 		}

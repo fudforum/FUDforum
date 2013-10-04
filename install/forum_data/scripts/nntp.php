@@ -132,14 +132,14 @@
 	$counter = 1;
 
 	for ($i = $nntp->group_first; $i < $nntp->group_last; $i++) {
-		echo $counter==1 ? '' : "\n";
+		echo ($i == $nntp->group_first) ? '' : "\n";
 		if (!empty($config->filename)) {
 			echo "Importing article from file ". $config->filename;
 		} else {
 			echo "Importing #". $i .' from '. $nntp->newsgroup;
 
 			if (!$nntp->get_message($i)) {
-				echo ' - '. $nntp->error;
+				echo ' - '. trim($nntp->error);
 				$nntp->error = null;
 				continue;
 			}
@@ -188,15 +188,28 @@
 			continue;
 		}
 
+		// Cleanup extra info from date.
+		// For example: 11 Jan 2011 14:04 +0000 (GMT Standard Time)
+		if (isset($emsg->headers['date'])) {
+			$emsg->headers['date'] = preg_replace('!\(.*?\)!', '', $emsg->headers['date']);
+		}
+
+		/* Parse 'Date:' header. */
 		$msg_post->post_stamp = !empty($emsg->headers['date']) ? strtotime($emsg->headers['date']) : 0;
 		if ($msg_post->post_stamp < 1 || $msg_post->post_stamp > __request_timestamp__) {
-			fud_logerror('Invalid date.', 'nntp_errors', $emsg->raw_msg);
-			if (($p = strpos($emsg->headers['received'], '; ')) !== false) {
-				$p += 2;
-				$msg_post->post_stamp = strtotime(substr($emsg->headers['received'], $p, (strpos($emsg->headers['received'], '00 ', $p) + 2 - $p)));
-			}
+			// Try 'NNTP-Posting-Date:'.
+			$msg_post->post_stamp = !empty($emsg->headers['nntp-posting-date']) ? strtotime($emsg->headers['nntp-posting-date']) : 0;
 			if ($msg_post->post_stamp < 1 || $msg_post->post_stamp > __request_timestamp__) {
-				$msg_post->post_stamp = __request_timestamp__;
+				// Try to extract date from 'Received:'
+				if (($p = strpos($emsg->headers['received'], '; ')) !== false) {
+					$p += 2;
+					$msg_post->post_stamp = strtotime(substr($emsg->headers['received'], $p, (strpos($emsg->headers['received'], '00 ', $p) + 2 - $p)));
+				}
+				if ($msg_post->post_stamp < 1 || $msg_post->post_stamp > __request_timestamp__) {
+					// Last resort, use curent date.
+					fud_logerror('Invalid date.', 'nntp_errors', $emsg->raw_msg);
+					$msg_post->post_stamp = __request_timestamp__;
+				}
 			}
 		}
 
@@ -206,7 +219,7 @@
 			$msg_post->poster_id = match_user_to_post($emsg->from_email, $emsg->from_name, $config->nntp_opt & 32, $emsg->user_id, $msg_post->post_stamp);
 			if ($msg_post->poster_id == -1) {
 				echo ' - '. $emsg->from_email .' is banned; Message disgarded';
-				fud_logerror('Skip message from banned user '. $emsg->from_email .'.', 'nntp_errors', $emsg->raw_msg);
+				fud_logerror('Skip message #'. $i .' from banned user '. $emsg->from_email .'.', 'nntp_errors');
 				continue;
 			}
 		}
@@ -254,7 +267,7 @@
 			}
 		}
 
-		// Color levels of quoted text.
+		/* Color levels of quoted text. */
 		$msg_post->body = color_quotes($msg_post->body, $frm->forum_opt);
 
 		$msg_post->body = apply_custom_replace($msg_post->body);
@@ -311,7 +324,7 @@
 		exit;
 	}
 
-	// Store current position.
+	/* Store current position. */
 	$nntp->set_tracker_end($config->id, $i); // We use $i so we stop in the right place if limit is reached.
 
 	if ($config->imp_limit == 0 || --$counter < $config->imp_limit) {
