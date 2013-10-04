@@ -2,7 +2,7 @@
 exit('<h2>To run the uninstaller, comment out the 2nd line of this script!</h2>');
 
 /***************************************************************************
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -45,26 +45,26 @@ function seterr($msg)
 
 	/* Read command line parameters. */
 	if (php_sapi_name() == 'cli' && (!empty($_SERVER['argv'][1]))) {
-		$_POST['SERVER_DATA_ROOT'] = $_SERVER['argv'][1];
+		$_POST['DATA_DISK'] = $_SERVER['argv'][1];
 		if (!empty($_SERVER['argv'][2])) {
-			$_POST['SERVER_ROOT'] = $_SERVER['argv'][2];
+			$_POST['WWW_ROOT_DISK'] = $_SERVER['argv'][2];
 		}
 	}
 
-	if (count($_POST) && $_POST['SERVER_DATA_ROOT']) {
+	if (count($_POST) && $_POST['DATA_DISK']) {
 		$dryrun = isset($_POST['dryrun']);
 		if (SAFE_MODE && basename(__FILE__) != 'uninstall_safe.php') {
 			$c = getcwd();
 			copy($c .'/uninstall.php', $c .'/uninstall_safe.php');
-			header('Location: '. dirname($_SERVER['SCRIPT_NAME']) .'/uninstall_safe.php?SERVER_DATA_ROOT='. urlencode($_POST['SERVER_DATA_ROOT']) .'&SERVER_ROOT='. urlencode($_POST['SERVER_ROOT']). '&dryrun='. $dryrun);
+			header('Location: '. dirname($_SERVER['SCRIPT_NAME']) .'/uninstall_safe.php?DATA_DISK='. urlencode($_POST['DATA_DISK']) .'&WWW_ROOT_DISK='. urlencode($_POST['WWW_ROOT_DISK']). '&dryrun='. $dryrun);
 			exit;
 		}
-		$SERVER_DATA_ROOT = rtrim($_POST['SERVER_DATA_ROOT'], '\\/ ');
-		$SERVER_ROOT = isset($_POST['SERVER_ROOT']) ? rtrim($_POST['SERVER_ROOT'], '\\/ ') : '';
-	} else if (SAFE_MODE && !empty($_GET['SERVER_DATA_ROOT'])) {
+		$DATA_DISK = rtrim($_POST['DATA_DISK'], '\\/ ');
+		$WWW_ROOT_DISK = isset($_POST['WWW_ROOT_DISK']) ? rtrim($_POST['WWW_ROOT_DISK'], '\\/ ') : '';
+	} else if (SAFE_MODE && !empty($_GET['DATA_DISK'])) {
 		$dryrun = $_GET['dryrun'];
-		$SERVER_DATA_ROOT = rtrim($_GET['SERVER_DATA_ROOT'], '\\/ ');
-		$SERVER_ROOT = isset($_POST['SERVER_ROOT']) ? rtrim($_GET['SERVER_ROOT'], '\\/ ') : '';
+		$DATA_DISK = rtrim($_GET['DATA_DISK'], '\\/ ');
+		$WWW_ROOT_DISK = isset($_POST['WWW_ROOT_DISK']) ? rtrim($_GET['WWW_ROOT_DISK'], '\\/ ') : '';
 	}
 
 	if (php_sapi_name() != 'cli') {
@@ -89,27 +89,27 @@ function seterr($msg)
 <?php
 	}
 
-	if (isset($SERVER_DATA_ROOT)) {
+	if (isset($DATA_DISK)) {
 		/* Sanity checks. */
-		if (!is_dir($SERVER_DATA_ROOT)) {
-			seterr('The data directory "'. $SERVER_DATA_ROOT .'" does not exist!');
+		if (!is_dir($DATA_DISK)) {
+			seterr('The data directory "'. $DATA_DISK .'" does not exist!');
 		}
-		if (!empty($SERVER_ROOT) && !is_dir($SERVER_ROOT)) {
-			seterr('The web directory "'. $SERVER_ROOT .'" does not exist!');
+		if (!empty($WWW_ROOT_DISK) && !is_dir($WWW_ROOT_DISK)) {
+			seterr('The web directory "'. $WWW_ROOT_DISK .'" does not exist!');
 		}
-		if (!file_exists($SERVER_DATA_ROOT .'/include/GLOBALS.php')) {
-			seterr('Directory "'. $SERVER_DATA_ROOT .'" does not appear to be a Forum Data directory!');
+		if (!file_exists($DATA_DISK .'/include/GLOBALS.php')) {
+			seterr('Directory "'. $DATA_DISK .'" does not appear to be a Forum Data directory!');
 		}
-		if (!empty($SERVER_ROOT) && !file_exists($SERVER_ROOT .'/adm/header.php')) {
-			seterr('Directory "'. $SERVER_ROOT .'" does not appear to be a Forum Web directory!');
+		if (!empty($WWW_ROOT_DISK) && !file_exists($WWW_ROOT_DISK .'/adm/header.php')) {
+			seterr('Directory "'. $WWW_ROOT_DISK .'" does not appear to be a Forum Web directory!');
 		}
 
 		/* Read GLOBALS.php for database settings so that the db can be cleaned up. */
-		$inc = $SERVER_DATA_ROOT .'/include/glob.inc';
+		$inc = $DATA_DISK .'/include/glob.inc';
 		if (!file_exists($inc)) {
 			seterr('Missing include file glob.inc at '. $inc);
 		} else {
-			require_once($SERVER_DATA_ROOT .'/include/glob.inc');
+			require_once($DATA_DISK .'/include/glob.inc');
 			read_global_settings();
 		}
 
@@ -121,13 +121,13 @@ function seterr($msg)
 		}
 
 		/* Drop database tables. */
-		$inc = $SERVER_DATA_ROOT .'/sql/'. $DBHOST_DBTYPE .'/db.inc';
+		$inc = $DATA_DISK .'/sql/'. $DBHOST_DBTYPE .'/db.inc';
 		if (!file_exists($inc)) {
 			pf('No DB driver found at '. $inc);
 			pf('Database tables will not be dropped!');
 		} else {
 			include_once $inc;
-			include_once $SERVER_DATA_ROOT .'/include/dbadmin.inc';
+			include_once $DATA_DISK .'/include/dbadmin.inc';
 
 			foreach(get_fud_table_list() as $tbl) {
 				pf('Dropping table '. $tbl);
@@ -137,28 +137,28 @@ function seterr($msg)
 			}
 		}
 
-		if (!file_exists($INCLUDE .'file_adm.inc')) {
-			pf('Unable to load file functions.');
+		if (!file_exists($INCLUDE .'fs.inc')) {
+			pf('Unable to load fs.inc (file functions).');
 			pf('Files and directories will not be deleted!');
 		} else {
-			include_once $INCLUDE .'file_adm.inc';
+			include_once $INCLUDE .'fs.inc';
 
 			/* Remove symlinks first - unlink doesn't delete broken symlinks. */
 			if (!$dryrun) {
-				@unlink($SERVER_DATA_ROOT .'/scripts/GLOBALS.php');
-				@unlink((empty($SERVER_ROOT) ? $SERVER_DATA_ROOT : $SERVER_DATA_ROOT) .'/GLOBALS.php');
-				@unlink((empty($SERVER_ROOT) ? $SERVER_DATA_ROOT : $SERVER_DATA_ROOT) .'/adm/GLOBALS.php');
+				@unlink($DATA_DISK .'/scripts/GLOBALS.php');
+				@unlink((empty($WWW_ROOT_DISK) ? $DATA_DISK : $DATA_DISK) .'/GLOBALS.php');
+				@unlink((empty($WWW_ROOT_DISK) ? $DATA_DISK : $DATA_DISK) .'/adm/GLOBALS.php');
 			}
 
 			/* Remove files on disk. */
-			pf('Removing files in directory '. $SERVER_DATA_ROOT);
+			pf('Removing files in directory '. $DATA_DISK);
 			if (!$dryrun) {
-				fud_rmdir($SERVER_DATA_ROOT, true);
+				fud_rmdir($DATA_DISK, true);
 			}
-			if ($SERVER_ROOT != $SERVER_DATA_ROOT && $SERVER_ROOT) {
-				pf('Removing files in directory '. $SERVER_ROOT);
+			if ($WWW_ROOT_DISK != $DATA_DISK && $WWW_ROOT_DISK) {
+				pf('Removing files in directory '. $WWW_ROOT_DISK);
 				if (!$dryrun) {
-					fud_rmdir($SERVER_ROOT, true);
+					fud_rmdir($WWW_ROOT_DISK, true);
 				}
 			}
 		}
@@ -168,9 +168,15 @@ function seterr($msg)
 	}
 
 	if (php_sapi_name() == 'cli') {
-		pf('Usage: uninstall.php SERVER_DATA_ROOT SERVER_ROOT');
+		pf('Usage: uninstall.php DATA_DISK WWW_ROOT_DISK');
 		seterr('Please run a full backup of your system before continuing!');
 	} else {
+	
+		/* If available, read GLOBALS.php.  */
+		$DATA_DIR = $WWW_ROOT_DISK = '';
+		if (file_exists('GLOBALS.php')) {
+			@include('GLOBALS.php');
+		}
 ?>
 <br />
 <p class="alert">
@@ -182,8 +188,8 @@ function seterr($msg)
 <div align="center">
 <form name="uninstall" action="uninstall.php" method="post">
 <table cellspacing="1" cellpadding="4">
-	<tr class="field"><td><b>Data Directory</b><br /><font size="-1">This is the directory where you've installed the non-browseable forum files.</font></td><td><input type="text" name="SERVER_DATA_ROOT" value="" size="40" /></td></tr>
-	<tr class="field"><td><b>Web Directory</b><br /><font size="-1">This is the directory where you've installed the browseable forum files. If it is the same as the "Data Directory", you can leave this field empty.</font></td><td><input type="text" name="SERVER_ROOT" value="" size="40" /></td></tr>
+	<tr class="field"><td><b>Data Directory</b><br /><font size="-1">This is the directory where you've installed the non-browseable forum files.</font></td><td><input type="text" name="DATA_DISK" value="<?php echo $DATA_DIR; ?>" size="40" /></td></tr>
+	<tr class="field"><td><b>Web Directory</b><br /><font size="-1">This is the directory where you've installed the browseable forum files. If it is the same as the "Data Directory", you can leave this field empty.</font></td><td><input type="text" name="WWW_ROOT_DISK" value="<?php echo $WWW_ROOT_DISK; ?>" size="40" /></td></tr>
 	<tr class="field"><td><b>Dry Run</b><br /><font size="-1">Do a mock uninstall. Forum will NOT be uninstalled.</font></td><td><input type="checkbox" name="dryrun" value="1" checked="checked" /></td></tr>
 	<tr><td colspan="2" align="center"><input type="submit" name="submit" value="uninstall" class="button" style="background:red; color:white; font-size: x-large;" /></td></tr>
 </table>
