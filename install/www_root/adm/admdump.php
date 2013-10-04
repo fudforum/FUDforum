@@ -23,7 +23,7 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir, $p=0)
 			pf('Could not open "'. $v .'" for reading.');
 			return;
 		}
-		pf('... process directory: '. $v);
+		pf('... backup '. $v);
 
 		if (!($files = glob($v .'/{.h*,.p*,.n*,.m*,*}', GLOB_BRACE|GLOB_NOSORT))) {
 			continue;
@@ -201,7 +201,7 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir, $p=0)
 
 			$num_entries = q_singleval('SELECT count(*) FROM '. $tbl_name);
 
-			pf('... process table: '. $tbl_name .' ('. $num_entries .' rows)');
+			pf('... dump table '. $tbl_name .' ('. $num_entries .' rows)');
 			if ($num_entries) {
 				$db_name = preg_replace('!^'. preg_quote($DBHOST_TBL_PREFIX) .'!', '', $tbl_name);
 				$write_func($fp, "\0\0\0\0". $db_name ."\n");

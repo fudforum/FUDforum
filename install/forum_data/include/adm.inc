@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -50,6 +50,7 @@ if (!($GLOBALS['usr']->users_opt & 1048576)) {	// not is_admin
 			case 'admuseradd.php':
 			case 'admuser.php':
 			case 'admusermerge.php':
+			case 'admsession.php':
 				break;
 			default:
 				header('Location: '. $GLOBALS['WWW_ROOT'] .'adm/admuser.php?'. __adm_rsidl);

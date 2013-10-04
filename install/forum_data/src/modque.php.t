@@ -43,7 +43,7 @@
 				fud_msg_edit::delete(false, $del);
 			} else if ($delall) {
 				$poster = q_singleval('SELECT poster_id FROM {SQL_TABLE_PREFIX}msg WHERE id='. $delall);
-				$c = uq('SELECT id, subject FROM {SQL_TABLE_PREFIX}msg WHERE poster_id='. $poster .' AND apr=0');
+				$c = q('SELECT id, subject FROM {SQL_TABLE_PREFIX}msg WHERE poster_id='. $poster .' AND apr=0');
 				while ($r = db_rowarr($c)) {
 					logaction($usr->id, 'DELMSG', $r[0], $r[1]);
 					fud_msg_edit::delete(false, $r[0]);
@@ -105,3 +105,4 @@
 /*{POST_PAGE_PHP_CODE}*/
 ?>
 {TEMPLATE: MODQUE_PAGE}
+

@@ -93,7 +93,8 @@
 <h2>Spiders, Bots and Crawlers</h2>
 
 <div class="tutor">
-Detect and auto-login or block the spiders, bots and crawlers that are typically used by search engines to index your site.
+Auto-login or block the spiders, bots and crawlers that are typically used by search engines to index your site.
+Use the <a href="admsession.php?<?php echo __adm_rsid; ?>">Session Monitor</a> to see who's visiting your forum.
 </div>
 
 <?php

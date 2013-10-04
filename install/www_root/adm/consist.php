@@ -755,7 +755,7 @@ While it is running, your forum will be disabled!
 	if (($files = glob($TMP .'*', GLOB_NOSORT))) {
 		foreach ($files as $file) {
 			// Remove ALL files, except forum backup files.
-			if (is_file($file) && !preg_match("/FUDforum_.*\.fud.*/", $file)) {
+			if (is_file($file) && !preg_match("/FUDforum_.*\.fud.*|LAST_CRON_RUN/", $file)) {
 				pf('- remove file: '. $file);
 				@unlink($file);
 			}
