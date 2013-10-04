@@ -70,8 +70,10 @@ function fud_dir_space_usage_ALT($dir)
 /** Recursively create a given directory path.
   * If the directory alredy exists, it will do nothing.
   */
-function fud_mkdir($path)
+function fud_mkdir($path, $perms=0755)
 {
+	$u = umask(0);
+
 	$dirs = array();
 	while (!is_dir($path)) {
 		$dirs[] = $path;
@@ -81,10 +83,12 @@ function fud_mkdir($path)
 		}
 	}
 	foreach (array_reverse($dirs) as $dir) {
-		if (!mkdir($dir)) {
+		if (!mkdir($dir, $perms)) {
 			throw new Exception('Unable to create directory "'. $dir .'".');
 		}
 	}
+	
+	umask($u);
 }
 
 /** Recursively delete a given directory. */
@@ -122,6 +126,7 @@ function fud_copy($src, $dest, $mask='*', $recur=false)
 	$src  = preg_replace('!/*$!', '', $src);
 	$dest = preg_replace('!/*$!', '', $dest);
 
+	$u = umask(0133);	// Limit to rw-r--r--
 	$dirs = array($src);
 	while (list(,$v) = each($dirs)) {
 		if (is_link($v)) {	// Don't copy symlinks.
@@ -163,6 +168,7 @@ function fud_copy($src, $dest, $mask='*', $recur=false)
 			}
 		}		
 	}
+	umask($u);
 }
 
 ?>

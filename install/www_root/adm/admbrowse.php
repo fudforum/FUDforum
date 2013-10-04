@@ -284,14 +284,9 @@ if (!extension_loaded('posix')) {
 
 	/* Directory creation code. */
 	if (isset($_GET['btn_mkdir']) && !empty($_GET['mkdir'])) {
-		$u = umask(0);
-		if (!@mkdir($cur_dir .'/'. basename($_GET['mkdir']), ($FUD_OPT_2 & 8388608 ? 0700 : 0777))) {
-			echo errorify('ERROR: failed to create '. $cur_dir .'/'. basename($_GET['mkdir']) .'.');
-		} else {
-			logaction(_uid, 'Created directory', 0, $cur_dir .'/'. basename($_GET['mkdir']));
-			echo successify('Directory '. $cur_dir .'/'. basename($_GET['mkdir']) .' successfully created.');
-		}
-		umask($u);
+		fud_mkdir($cur_dir .'/'. basename($_GET['mkdir']));
+		logaction(_uid, 'Created directory', 0, $cur_dir .'/'. basename($_GET['mkdir']));
+		echo successify('Directory '. $cur_dir .'/'. basename($_GET['mkdir']) .' successfully created.');
 	}
 
 	/* File upload code. */
@@ -308,7 +303,7 @@ if (!extension_loaded('posix')) {
 				}
 			}
 			if (move_uploaded_file($_FILES['fname']['tmp_name'], $fdest)) {
-				@chmod($fdest, ($FUD_OPT_2 & 8388608 ? 0600 : 0666));
+				@chmod($fdest, ($FUD_OPT_2 & 8388608 ? 0600 : 0644));
 				logaction(_uid, 'Uploaded', 0, $fdest);
 				echo successify('File <i>'. basename($fdest) .'</i> ('. number_format($_FILES['fname']['size'] / 1024, 2) .'KB) was successfully uploaded.');
 				if (preg_match('/src|thm/', $cur_dir)) {

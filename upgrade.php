@@ -9,7 +9,7 @@
 * Free Software Foundation; either version 2 of the License.
 ***************************************************************************/
 
-$__UPGRADE_SCRIPT_VERSION = 5305.2;
+$__UPGRADE_SCRIPT_VERSION = 5305.3;
 // define('fud_debfud_debug', 1);
 
 /*
@@ -93,7 +93,7 @@ function users_reset_key($flds)
 }
 
 /* For future implementation -
-// Convert location to a Custom Profile Field.
+// Convert 'location' to a Custom Profile Field.
 function users_location($flds)
 {
 	fud_use('custom_field_adm.inc', true);
@@ -171,7 +171,7 @@ function fud_sql_error_handler($query, $error_string, $error_number, $server_ver
 }
 
 /** Find the CVS or SVN ID property. This is used to check if a file was changed.
-  * Should eventually be moved to include/file_adm.inc.
+  * TODO: Should eventually be moved to include/fs.inc.
   */
 function fetch_cvs_id($data)
 {
@@ -187,7 +187,7 @@ function fetch_cvs_id($data)
 }
 
 /** Backup a forum file before replacing it.
-  * Should eventually be moved to include/file_adm.inc.
+  * TODO: Should eventually be moved to include/fs.inc.
   */
 function backup_file($source, $theme='')
 {
@@ -195,25 +195,27 @@ function backup_file($source, $theme='')
 	copy($source, $GLOBALS['ERROR_PATH'] .'.backup/'. basename($source) .'_'. $theme .'_'. __time__);
 }
 
-/** Recursively create a given directory.
-  * Should eventually be replaced with fud_mkdir in include/file_adm.inc.
-  */
+/** Create a directory
+ * TODO: Use fud_mkdir() in include/fs.inc. We cannot currently include it as fs.inc was introduced after 3.0.0 (we may not have it yet).
+ */
 function __mkdir($dir)
 {
-	$perm = (($GLOBALS['FUD_OPT_2'] & 8388608) && !strncmp(PHP_SAPI, 'apache', 6)) ? 0711 : 0777;
+	$u = umask(0);
 
 	if (@is_dir($dir)) {
-		@chmod($dir, $perm);
 		return 1;
+	} else if (file_exists($dir)) {
+		unlink($dir);
 	}
 
-	$ret = (mkdir($dir, $perm) || mkdir(dirname($dir), $perm));
+	$ret = (mkdir($dir, 0755) || mkdir(dirname($dir, 0755)));
 
+	umask($u);
 	return $ret;
 }
 
 /** Recursively delete a given directory.
-  * Copied from include/file_adm.inc. We cannot currently include it as file_adm.inc was introduced after 3.0.0 can only be included at the end of the upgrade script.
+  * Copied from include/fs.inc. We cannot currently include it as fs.inc was introduced after 3.0.0 (we may not have it yet).
   */
 function __rmdir($dir, $deleteRootToo=false)
 {
@@ -306,11 +308,6 @@ function upgrade_decompress_archive($data_root, $web_root)
 	}
 
 	$pos = 0;
-//TODO: This is probably wrong!
-//	$perm = ((($GLOBALS['FUD_OPT_2'] & 8388608) && !strncmp(PHP_SAPI, 'apache', 6)) ? 0177 : 0111);
-// Should be 0600 : 0644 ???
-	$perm = ((($GLOBALS['FUD_OPT_2'] & 8388608) && !strncmp(PHP_SAPI, 'apache', 6)) ? 0600 : 0644);
-
 	do  {
 		$end = strpos($data, "\n", $pos+1);
 		$meta_data = explode('//',  substr($data, $pos, ($end-$pos)));
@@ -362,18 +359,7 @@ function upgrade_decompress_archive($data_root, $web_root)
 			}
 			fwrite($fp, $file);
 			fclose($fp);
-if (defined('fud_debug')) {
-	$curperm = substr(sprintf('%o', $perm), -4);
-	$oldperm = substr(sprintf('%o', fileperms($path)), -4);
-}
-			// This never worked since it was added in revision 2334 on 1 Dec 2003!
-			// @chmod($file, $perm);
-			// MUST BE PATH!!!
-			@chmod($path, $perm);
-if (defined('fud_debug')) {
-	$newperm = substr(sprintf('%o', fileperms($path)), -4);
-	pf("CHMOD FILE $path FROM $oldperm TO $curperm, RESULT IN $newperm\n");
-}
+			@chmod($file, 0644);
 		} else {
 			if (!__mkdir(preg_replace('!/+$!', '', $path))) {
 				seterr('failed creating "'. $path .'" directory');
@@ -927,10 +913,10 @@ pf('<h2>Step 1: Admin login</h2>', true);
 					/* Column definition has changed. */
 					pf('Alter database column '. $k .' in table '. $tbl['name'] .'.');
 					$f = substr("{$tbl['name']}_{$k}", strlen($DBHOST_TBL_PREFIX));
-					if (function_exists($f)) {	// Run SQL conversion before alter.
+					alter_column($tbl['name'], $k, $v2);
+					if (function_exists($f)) {	// Run SQL conversion after alter.
 						$f($db_col);
 					}
-					alter_column($tbl['name'], $k, $v2);
 				}
 				unset($db_col[$k]);	// Column still in use, no need to drop it.
 			}
@@ -1088,6 +1074,14 @@ pf('<h2>Step 1: Admin login</h2>', true);
 		}
  	}
 
+	/* Remove obsolete include files. */
+	$rm_inc = array('file_adm.inc');	// Renamed to fs.inc (3.0.5).
+	foreach ($rm_inc as $f) {
+		if (file_exists($GLOBALS['DATA_DIR'] .'include/'. $f)) {
+			unlink($GLOBALS['DATA_DIR'] .'include/'. $f);
+		}
+	}
+
 	/* Remove obsolete SQL files. */
 	$rm_sql = array('def_users.sql',	// Merge into install.php (3.0.2).
 			'fud_thread_view.tbl',	// Renamed to fud_tv_1.tbl (3.0.2).
@@ -1102,9 +1096,10 @@ pf('<h2>Step 1: Admin login</h2>', true);
 	/* Remove obsolete plugin files. */
 	$rm_plugins = array('apc_cache.plugin',	// Renamed to apccache.plugin (3.0.2).
 			    'irc.plugin',	// Renamed to ircbot/ircbot.plugin (3.0.4RC2).
-			    'google_adsense.plugin', // Moved to google/ subdir in 3.0.5
-			    'google_analytics.plugin', // Moved to google/ subdir in 3.0.5
-			    'google_cdn.plugin'); // Moved to subdir google/ in 3.0.5
+			    'google_adsense.plugin',   // Moved to 'google/' subdir in 3.0.5
+			    'google_analytics.plugin', // Moved to 'google/' subdir in 3.0.5
+			    'google_cdn.plugin',       // Moved to subdir 'google/' in 3.0.5
+			    'youtube_tag.plugin'); // Moved to video_tags.plugin in 3.0.5
 	foreach ($rm_plugins as $f) {
 		if (file_exists($GLOBALS['DATA_DIR'] .'plugins/'. $f)) {
 			unlink($GLOBALS['DATA_DIR'] .'plugins/'. $f);
@@ -1119,11 +1114,14 @@ pf('<h2>Step 1: Admin login</h2>', true);
 			rename($GLOBALS['DATA_DIR'] .'plugins/'. $f, $GLOBALS['DATA_DIR'] .'plugins/google/'. $f);
 		}
 	}
-	
+
 	/* Updata DB with new plugin locations. */
+	q('UPDATE '. $DBHOST_TBL_PREFIX .'plugins SET name = \'apccache.plugin\' WHERE name = \'apc_cache.plugin\'');
+	q('UPDATE '. $DBHOST_TBL_PREFIX .'plugins SET name = \'ircbot/ircbot.plugin\' WHERE name = \'irc.plugin\'');
 	q('UPDATE '. $DBHOST_TBL_PREFIX .'plugins SET name = \'google/google_analytics.plugin\' WHERE name = \'google_analytics.plugin\'');
 	q('UPDATE '. $DBHOST_TBL_PREFIX .'plugins SET name = \'google/google_cdn.plugin\' WHERE name = \'google_cdn.plugin\'');
 	q('UPDATE '. $DBHOST_TBL_PREFIX .'plugins SET name = \'google/google_adsense.plugin\' WHERE name = \'google_adsense.plugin\'');
+	q('UPDATE '. $DBHOST_TBL_PREFIX .'plugins SET name = \'video_tags.plugin\' WHERE name = \'youtube_tag.plugin\'');
 
 	/* Remove obsolete SRC files. */
 	$rm_src = array('tz.inc.t');	// Remove from 3.0.2.

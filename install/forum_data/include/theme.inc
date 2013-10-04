@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -24,6 +24,7 @@ class fud_theme
 		$this->theme_opt = !empty($_POST['thm_enabled']) | (!empty($_POST['thm_t_default']) ? 2 : 0);
 	}
 
+	/** Register a new theme. */
 	function add()
 	{
 		if (!db_locked()) {
@@ -55,6 +56,7 @@ class fud_theme
 		return $this->id;
 	}
 
+	/** Update theme properties. */
 	function sync($id)
 	{
 		if (!db_locked()) {
@@ -99,11 +101,7 @@ class fud_theme
 		}
 	}
 
-	function get($id)
-	{
-		qobj('SELECT * FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'themes WHERE id='. $id, $this);
-	}
-
+	/** Delete a theme and cleanup theme directories. */
 	static function delete($id)
 	{
 		if (!db_locked()) {
@@ -130,45 +128,12 @@ class fud_theme
 		if (isset($ll)) {
 			db_unlock();
 		}
-		if ($data[1] && $data[1] != 'default') {
-			cleandir($GLOBALS['WWW_ROOT_DISK'] .'theme/'. $data[1]);
-			cleandir($GLOBALS['INCLUDE'] .'theme/'. $data[1]);
-		}
-	}
-}
-
-function cleandir($dir)
-{
-	/* This is needed for various 'lame' systems like FreeBSOD. */
-	$dir = preg_replace('!/*$!', '', $dir);
-
-	if (!@is_dir($dir)) {
-		echo 'Couldn\'t delete "'. $dir .'", directory does not exist<br />';
-		return;
-	}
-
-	$dirs = array(realpath($dir));
-
-	while (list(,$v) = each($dirs)) {
-		if (!($files = glob($v .'/*', GLOB_NOSORT))) {
-			continue;
-		}
-		foreach ($files as $file) {
-			if (strpos($file, 'GLOBALS.php') !== false || strpos($file, 'oldfrm_upgrade.php') !== false) {
-				continue;
-			}
 		
-			if (is_dir($file) && !is_link($file)) {
-				$dirs[] = $file;
-			} else if (!unlink($file)) {
-				echo '<b>Could not delete file "'. $file .'"<br />';
-			}
-		}
-	}
-
-	foreach (array_reverse($dirs) as $dir) {
-		if (!rmdir($dir)) {
-			echo '<b>Could not delete directory "'. $dir .'"<br />';
+		// Cleanup files created by the theme compiler.
+		if ($data[1] && $data[1] != 'default') {
+			fud_use('fs.inc', true);
+			fud_rmdir($GLOBALS['WWW_ROOT_DISK'] .'theme/'. $data[1], true);
+			fud_rmdir($GLOBALS['INCLUDE'] .'theme/'. $data[1], true);
 		}
 	}
 }

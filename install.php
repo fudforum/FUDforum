@@ -51,16 +51,21 @@ function databases_enabled()
 	return $supported_databases;
 }
 
+/** Create a directory. 
+ *  Basically the same as fud_mkdir() in include/fs.inc, but we need it before it can be included.
+ */
 function __mkdir($dir)
 {
+	$u = umask(0);
+
 	if (@is_dir($dir)) {
-		@chmod($dir, dir_perms);
 		return 1;
 	} else if (file_exists($dir)) {
 		unlink($dir);
 	}
-	$ret = (mkdir($dir, dir_perms) || mkdir(dirname($dir), dir_perms));
+	$ret = (mkdir($dir, 0755) || mkdir(dirname($dir, 0755)));
 
+	umask($u);
 	return $ret;
 }
 
@@ -186,14 +191,13 @@ function decompress_archive($data_root, $web_root)
 			}
 			fwrite($fp, $file);
 			fclose($fp);
-
-			@chmod($path, file_perms);
+			@chmod($file, 0644);
 		} else {
 			if (substr($path, -1) == '/') {
 				$path = preg_replace('!/+$!', '', $path);
 			}
 			if (!__mkdir($path)) {
-				exit('ERROR: failed creating '. $path .' directory.');
+				exit('ERROR: failed creating directory '. $path);
 			}
 		}
 	} while (($pos = strpos($data, "\n//", $pos)) !== false);
@@ -367,7 +371,7 @@ function dialog_end($section)
 				echo '<td>&nbsp;</td>';
 			}
 			if ($section == 'welcome') {
-				echo '<td align="right"><input class="button forward" type="submit" title="Install FUDforum on your system." name="submit" value="Start installer &gt;&gt;" />';
+				echo '<td align="right"><input class="button forward" type="submit" title="Install FUDforum on your system." name="submit" value=" Start installer &gt;&gt; " />';
 			} else {
 				echo '<td align="right"><input class="button forward" type="submit" title="Go to the next step." name="submit" value="Next &gt;&gt;" />';		
 			}
@@ -478,14 +482,6 @@ if (!isset($_SERVER['PATH_TRANSLATED'])) {
 }
 
 $module_status = modules_enabled();
-
-if (strncmp(PHP_SAPI, 'apache', 6)) {
-	define('file_perms', 0644);
-	define('dir_perms',  0755);
-} else {
-	define('file_perms', 0600);
-	define('dir_perms',  0711);
-}
 
 /* Perform various sanity checks, which check for required components. */
 if (!count($_POST)) {
@@ -687,8 +683,6 @@ if ($section == 'stor_path' || php_sapi_name() == 'cli') {
 		$TMP                 = $SERVER_DATA_ROOT .'tmp/';
 		$FORUM_SETTINGS_PATH = $SERVER_DATA_ROOT .'cache/';
 		$PLUGIN_PATH         = $SERVER_DATA_ROOT .'plugins/';
-
-		@chmod($INCLUDE .'GLOBALS.php', file_perms);
 
 		/* Load glob.inc for functions like fud_symlink() and read/change_global_settings(). */
 		require_once($INCLUDE .'glob.inc');
@@ -1210,11 +1204,8 @@ switch ($section) {
 		}
 
 		if (!SAFE_MODE) {
-			dialog_start('SYSTEM FILE AND DIRECTORY PATH<span class="step">Step 1 of 5</span>', '<p>Please specify the directories where FUDforum files will be stored. Grant read/write permissions  on both the <b>Web Directory</b> and <b>Data Directory</b> (see below) to the web-server user. Some suggestions:</p><ul>
-			<li>If you have <i>shell access</i>, you can change the directory permission by typing "<b>chmod 777 directory_name</b>";</li>
-			<li><i>CuteFTP</i> can chmod a directory by selecting it and then pressing Ctrl+Shift+A. In the  checkbox, enter 777 and press OK; and</li>
-			<li>In <i>WS_FTP</i>, right-click on the directory and choose the chmod UNIX option. In the dialog, select all the checkboxes and click OK. This will chmod the directory to 777.</li></ul>
-			<p>If you click on <b>Next</b>, the FUDforum files will be unpacked to the specified directories.</p>');
+			dialog_start('SYSTEM FILE AND DIRECTORY PATH<span class="step">Step 1 of 5</span>', '<p>Specify the directories where FUDforum\'s files will be stored. Please ensure that your webserver has permission to read from / write to these directories.</p>
+			<p>If you click on <b>Next</b>, the forum\'s files will be unpacked to the specified directories.</p>');
 		} else {
 			dialog_start('<div style="color:red"><b>SAFEMODE is ENABLED!</b></div><br />PATH OF SYSTEM FILES AND DIRECTORIES<span class="step">Step 1 of 5</span>',
 					'
@@ -1278,7 +1269,7 @@ switch ($section) {
 			      <input type="hidden" name="DBHOST_PASSWORD" value="" />
 			      <input type="hidden" name="DBHOST_DBNAME" value="" />';
 		}
-		input_row('FUDforum SQL Table Prefix', 'DBHOST_TBL_PREFIX', $DBHOST_TBL_PREFIX, 'A string to append to each table name to identify FUDforum database tables.');
+		input_row('SQL Table Prefix', 'DBHOST_TBL_PREFIX', $DBHOST_TBL_PREFIX, 'A string to append to each table name to identify FUDforum database tables.');
 
 		// jQuery to set database defaults & disable non-relavent input fields.
 		echo '<script type="text/javascript">
@@ -1328,7 +1319,7 @@ switch ($section) {
 		break;
 
 	case 'theme':
-		dialog_start('Forum Theme<span class="step">Step 4 of 5</span>', '<p>Choose the primary template set and language for your forum. Additional templates and languages can be configured after installation from the FUDforum <i>Theme Manager</i> admin control panel.</p><p>If the language you require is not available, or the translation is incomplete, please go to <a href="http://cvs.prohost.org/index.php/Translate">FUDforum Wiki</a> to and read about translating the forum to other languages.</p>');
+		dialog_start('Forum Theme<span class="step">Step 4 of 5</span>', '<p>Choose the primary template set and language for your forum. Additional templates and languages can be configured after installation from the <i>Theme Manager</i> admin control panel.</p><p>If the language you require is not available, or the translation is incomplete, please go to <a href="http://cvs.prohost.org/index.php/Translate">FUDforum Wiki</a> to and read about translating the forum to other languages.</p>');
 
 		// List available template sets.
 		$tmpl_names = '';
@@ -1345,10 +1336,10 @@ switch ($section) {
 		$deflang = 'en';
 		$browser_lang = isset($_SERVER['HTTP_ACCEPT_LANGUAGE']) ? substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2) : 'en';
 		foreach (glob($_POST['SERVER_DATA_ROOT'] .'thm/default/i18n/*', GLOB_ONLYDIR) as $f) {
-			if (!file_exists($f .'/msg')) {
-				continue;
-			}
 			$langcode = $langname = basename($f);
+			if (!file_exists($f .'/msg') || $langcode == 'qqq') {
+				continue;	// No messages or tranlations tips.
+			}
 			if (file_exists($f .'/name')) {
 				$langname = trim(file_get_contents($f .'/name'));
 			}

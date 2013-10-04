@@ -10,7 +10,7 @@
 **/
 
 @set_time_limit(6000);
-include 'file_adm.inc';
+include 'fs.inc';
 
 $GLOBALS['__FUD_SECTIONS__'] = array('MAIN_SECTION' => '{MAIN_SECTION: ', 'PAGE' => '{PAGE: ', 'SECTION' => '{SECTION: ');
 
@@ -720,12 +720,10 @@ function resolve_compile($file)
 
 function compile_all($tset='default', $lang='en', $tname='default')
 {
-	$oldmask = umask(0133);
-
 	/* Make sure we can use the specified values to make 'nice' directory names. */
 	$tname = preg_replace('![^A-Za-z0-9-]!', '_', $tname);
-	$tset = preg_replace('![^A-Za-z0-9-]!',  '_', $tset);
-	$lang = preg_replace('![^A-Za-z0-9-]!',  '_', $lang);
+	$tset  = preg_replace('![^A-Za-z0-9-]!',  '_', $tset);
+	$lang  = preg_replace('![^A-Za-z0-9-]!',  '_', $lang);
 
 	$GLOBALS['__COMPILER__']        = array();
 	$GLOBALS['MSG']                 = array();
@@ -765,19 +763,12 @@ function compile_all($tset='default', $lang='en', $tname='default')
 	}
 	$GLOBALS['text_dir'] = trim(file_get_contents($text_dir));
 
-	$u = umask(0);
-	$perms = $GLOBALS['FUD_OPT_2'] & 8388608 ? 0700 : 0777;
-	if (strncmp(PHP_SAPI, 'apache', 6) && $perms == 0700) {
-		$perms = 0711;
-	}
-
-	fud_mkdir($GLOBALS['WWW_ROOT_DISK'].'theme', $perms);
+	fud_mkdir($GLOBALS['WWW_ROOT_DISK'].'theme');
 	file_put_contents($GLOBALS['WWW_ROOT_DISK'] .'theme/README', "Files in this directory are generated. Do not edit them.\nTo regenerate, navigate to the Theme Manager admin control panel.");
 
-	fud_mkdir($GLOBALS['WWW_ROOT_DISK'] .'theme/'. $tname, $perms);
-	fud_mkdir($GLOBALS['INCLUDE'] .'theme', $perms);
-	fud_mkdir($GLOBALS['INCLUDE'] .'theme/'. $tname, $perms);
-	umask($u);
+	fud_mkdir($GLOBALS['WWW_ROOT_DISK'] .'theme/'. $tname);
+	fud_mkdir($GLOBALS['INCLUDE'] .'theme');
+	fud_mkdir($GLOBALS['INCLUDE'] .'theme/'. $tname);
 
 	$GLOBALS['CMP_LOC_S'] = array('{ROOT}', '{FULL_ROOT}', '{THEME_ROOT}', '{THEME_ROOT_DISK}', ".'';", ".''.");
 	$GLOBALS['CMP_LOC_K'] = array($cmpl['ROOT'], "'.\$GLOBALS['WWW_ROOT'].'", $cmpl['THEME_ROOT'], $cmpl['THEME_ROOT_DISK'], ';', '.');
@@ -828,8 +819,6 @@ function compile_all($tset='default', $lang='en', $tname='default')
 	copyimages($tname, $tset, $lang);
 	copyhelp($tname, $tset, $lang);
 	copylangfuncs($tname, $tset, $lang);
-	
-	@umask($oldmask);
 }
 
 /** Copy localized image files to the theme's image directory. */
@@ -837,13 +826,10 @@ function copyimages($tname, $tset, $lang)
 {
 	$path = $GLOBALS['WWW_ROOT_DISK'] .'theme/'. $tname .'/images';
 
-	$u = umask(0);
-	if (!@is_dir($path) && !@mkdir($path, 0777)) {
-		throw new Exception('ERROR: Unable to create directory: '. $path .'.<br />');
-	}
-
+	fud_mkdir($path);
 	fud_copy($GLOBALS['DATA_DIR'].'thm/default/images', $path, '{*.jpg,*.gif,*.png,*.jpeg}');
-	// some translations don't have customized image buttons
+	
+	// Some translations don't have customized image buttons.
 	if (file_exists($GLOBALS['DATA_DIR'] .'thm/default/i18n/'. $lang .'/img/flat_view.gif')) {
 		fud_copy($GLOBALS['DATA_DIR'] .'thm/default/i18n/'. $lang .'/img', $path, '{*.jpg,*.gif,*.png,*.jpeg}');
 	} else {
@@ -857,15 +843,13 @@ function copyimages($tname, $tset, $lang)
 			fud_copy($GLOBALS['DATA_DIR'] .'thm/'. $tset .'/i18n/'. $lang .'/img', $path, '{*.jpg,*.gif,*.png,*.jpeg}');
 		}
 	}
-
-	umask($u);
 }
 
 /** Copy help files to the theme's help directory. */
 function copyhelp($tname, $tset, $lang)
 {
 	$path = $GLOBALS['WWW_ROOT_DISK'] .'theme/'. $tname .'/help';
-	$src = $GLOBALS['DATA_DIR'] .'thm/'. $tset .'/i18n/'. $lang .'/help';
+	$src  = $GLOBALS['DATA_DIR'] .'thm/'. $tset .'/i18n/'. $lang .'/help';
 	if (!@file_exists($src)) {
 		$src = $GLOBALS['DATA_DIR'] .'thm/default/i18n/'. $lang .'/help';
 		if (!@file_exists($src)) {
@@ -875,20 +859,10 @@ function copyhelp($tname, $tset, $lang)
 
 	$rp =& $GLOBALS['__COMPILER__']['ROOT'];
 
-	$u = umask(0);
-
-	$perms = $GLOBALS['FUD_OPT_2'] & 8388608 ? 0600 : 0666;
-	if (strncmp(PHP_SAPI, 'apache', 6) && $perms == 0600) {
-		$perms = 0644;
-	}
-
-	if (!@is_dir($path) && !@mkdir($path, 0777)) {
-		throw new Exception('ERROR: Unable to create directory: '. $path .'.<br />');
-	}
-
-	$path .= '/';
+	fud_mkdir($path);
 
 	$files = glob($src .'/*.hlp', GLOB_NOSORT);
+	$path .= '/';
 	if (!$files) {
 		throw new Exception('Failed to find help files inside \''. $src .'\'.');
 	}
@@ -902,9 +876,7 @@ function copyhelp($tname, $tset, $lang)
 					file_get_contents($file))
 		);
 		fclose($fp);
-		@chmod($file, $perms);
 	}
-	umask($u);
 }
 
 /** Copy language helper functions (language.inc) to the theme's directory.
@@ -914,7 +886,7 @@ function copyhelp($tname, $tset, $lang)
 function copylangfuncs($tname, $tset, $lang)
 {
 	$path = $GLOBALS['WWW_ROOT_DISK'] .'theme/'. $tname .'/';
-	$src = $GLOBALS['DATA_DIR'] .'thm/'. $tset .'/i18n/'. $lang .'/language.inc';
+	$src  = $GLOBALS['DATA_DIR'] .'thm/'. $tset .'/i18n/'. $lang .'/language.inc';
 	if (!@file_exists($src)) {
 		$src = $GLOBALS['DATA_DIR'] .'thm/default/i18n/'. $lang .'/language.inc';
 		if (!@file_exists($src)) {
@@ -922,14 +894,9 @@ function copylangfuncs($tname, $tset, $lang)
 		}
 	}
 
-	$u = umask(0);
-
-	if (!@is_dir($path) && !@mkdir($path, 0777)) {
-		throw new Exception('ERROR: Unable to create directory: '. $path .'.<br />');
-	}
-
+	fud_mkdir($path);
 	fud_copy(dirname($src), $path, '{language.inc}');
-	umask($u);
 }
 
 ?>
+

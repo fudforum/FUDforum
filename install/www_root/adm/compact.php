@@ -175,7 +175,7 @@ function write_body_copy($data, &$len, &$offset, $file_id, $forum_id)
 
 	pf('Please wait while we rebuild the forum\'s messages. This may take a while depending on the size of your forum.');
 
-	$mode = ($FUD_OPT_2 & 8388608 ? 0600 : 0666);
+	$mode = ($FUD_OPT_2 & 8388608 ? 0600 : 0644);
 	$tbl =& $DBHOST_TBL_PREFIX;
 	$start_time = time();
 

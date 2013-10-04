@@ -19,7 +19,7 @@ function safe_attachment_copy($source, $id, $ext)
 	}
 	@unlink($source);
 
-	@chmod($loc, ($GLOBALS['FUD_OPT_2'] & 8388608 ? 0600 : 0666));
+	@chmod($loc, ($GLOBALS['FUD_OPT_2'] & 8388608 ? 0600 : 0644));
 
 	return $loc;
 }

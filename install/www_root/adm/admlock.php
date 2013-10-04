@@ -43,16 +43,13 @@
 	if ($authenticated) {
 		$FUD_OPT_2 |= 8388608;
 		if (isset($_POST['btn_unlock'])) {
-			$dirperms = 0777;
-			$fileperms = 0666;
+			$dirperms = 0755;
+			$fileperms = 0644;
 			$FUD_OPT_2 ^= 8388608;
 		} else {
 			if (!strncmp(PHP_SAPI, 'apache', 6)) {
 				$dirperms = 0700;
 				$fileperms = 0600;
-			} else {
-				$dirperms = 0711;
-				$fileperms = 0644;
 			}
 		}
 
