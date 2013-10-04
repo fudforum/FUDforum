@@ -673,8 +673,7 @@ reset_err_rstconf_title:Información
 reset_err_rstconf_msg:Tendríes de recibir instrucciones nel to corréu electrónicu nos próximos minutos.
 reset_newpass_title:Reaniciar contraseña
 reset_newpass_msg:Hola,\n\nComo pidisti, la to información d'aniciu de sesión apaez darréu:\n\nNome d'usuariu: {VAR: ui[1]}\nConseña: {VAR: passwd}\n\nPor favor, ten en cuenta que la to conseña se reanició al valor d'arriba. Si quies camudar\nla conseña, pues facelo per aciu del panel de control d'información del usuariu en:\n{FULL_ROOT}{ROOT}?t=register
-# Fuzzy
-reset_login_notify:La to conseña se mandó per corréu electrónicu. Tendríes de recibila dientro d'unos minutos.<br />
+reset_login_notify:La to contraseña mandóse per corréu electrónicu. Tendríes de recibila dientro d'unos minutos.
 search_update:Buscando mensaxes
 selmsg_update:Navegando pelos <a href="{TEMPLATE: selmsg_update_lnk}">mensaxes de güei</a>
 showposts_update:Viendo los mensaxes de: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
@@ -1106,8 +1105,7 @@ move_msg_th_expl:Especifica la ID del filu de destín (pue tar n'otros foros)
 captcha_img_alt:Comprobación por Captcha: tendrás que reconocer el testu d'esta imaxe.
 captcha_img_help:Nun hai dengún cero o unu na imaxe.
 powered-by:Movíu por: FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:Copyright &copy;2001-2012 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Copyright &copy;2001-2013 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Códigu:
 code_select_all:Seleccionar too
 code_show_hide:Amosar/anubrir

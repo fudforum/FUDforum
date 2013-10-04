@@ -676,8 +676,7 @@ reset_err_rstconf_title:Gegevens
 reset_err_rstconf_msg:U ontvangt meestal binnen enkele minuten een e-mail met instructies.
 reset_newpass_title:Wachtwoord opnieuw instellen
 reset_newpass_msg:Hallo.\n\nZoals gevraagd zijn uw aanmeldgegevens naar u verzonden.\nHier zijn uw gegevens:\n\nGebruikersnaam: {VAR: ui[1]}\nWachtwoord: {VAR: passwd}\n\nLet op: uw wachtwoord is opnieuw ingesteld naar de bovenstaande waarde. Als u toch een ander wachtwoord wilt instellen, kunt u dat via uit gebruikersinstellingen doen:\n{FULL_ROOT}{ROOT}?t=register
-# Fuzzy
-reset_login_notify:Uw wachtwoord is naar u verzonden. Meestal ontvangt u de e-mail binnen enige minuten.<br />
+reset_login_notify:Uw wachtwoord is naar u verzonden. Meestal ontvangt u de e-mail binnen enige minuten.
 search_update:Berichten zoeken
 selmsg_update:<a href="{TEMPLATE: selmsg_update_lnk}">Berichten van vandaag</a> aan het bekijken
 showposts_update:Berichten van <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a> aan het bekijken
@@ -1109,8 +1108,7 @@ move_msg_th_expl:Geef het nummer van het doelonderwerp (kan zich in een ander fo
 captcha_img_alt:Captchacontrole: u moet de tekst in deze afbeelding herkennen
 captcha_img_help:Er is geen nul of een in de afbeelding.
 powered-by:Maakt gebruik van FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:Copyright &copy;2001-2012 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Copyright &copy;2001-2013 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Code:
 code_select_all:Alles selecteren
 code_show_hide:Weergeven/verbergen

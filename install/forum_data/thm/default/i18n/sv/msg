@@ -2,6 +2,7 @@
 # Exported from translatewiki.net
 # Author: Ainali
 # Author: Ernesto
+# Author: Jopparn
 # Author: Lokal Profil
 # Author: McDutchie
 # Author: Naudefj
@@ -69,7 +70,7 @@ lock_thread:Lås diskussionen
 locked:Låst
 locked_with_new_posts:Låst (med olästa inlägg)
 logged_in_list:Lista över inloggade medlemmar
-login:Användarnamn
+login:Logga in
 login_header:Logga in:
 logout:Logga ut
 mark_all_read:Markera alla meddelanden som lästa
@@ -302,14 +303,14 @@ no:Nej
 register_email:Epost
 edit_time_limit:<b>Tidsgräns för editering</b>: {GVAR: EDIT_TIME_LIMIT} minuter
 no_edit_time_limit:<b>Tidsgräns för editering</b>: Obegränsad
-pmuserloc_login:Användarnamn:
+pmuserloc_login:Logga in:
 pmuserloc_submit:Skicka
 pmuserloc_user:Medlem
 pmuserloc_no_result:Inget resultat
 register_builtin:Inbyggd
 register_specify_url:Ge URL
 register_uploaded:Skicka avatar
-register_login:Användarnamn:
+register_login:Logga in:
 register_password:Lösenord:
 register_conf_pass:Bekräfta lösenord:
 register_email_desc:Vänligen ge en verklig e-postadress. Du kan ställa in forumet så att adressen är dold för de andra användarna.
@@ -448,7 +449,7 @@ coppa_fax_telephone:Telefonnummer:
 coppa_fax_email:E-postadress:
 coppa_fax_date:Datum:
 coppa_fax_questions:Vänligen kontakta <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> om har några frågor
-coppa_fax_login:Användarnamn
+coppa_fax_login:Logga in
 coppa_fax_passwd:Lösenord
 coppa_fax_remail:E-postadress
 coppa_fax_name:Namn
@@ -458,7 +459,7 @@ login_perm_denied:Du har inte rätt att använda den efterfrågade resursen som 
 login_want_to_register:Vill du registrera dig?
 login_forgot_passwd:Jag har glömt mitt lösenord
 login_use_cookie:Använd cookies<br /><font class="SmallText">Om du använder en offentlig terminal, som t.ex. en dator i  ett bibliotek, skola eller internetkafé, rekommenderar vi att du väljer bort det här alternativet för bättre säkerhet. Om du väljer detta alternative kommer du vara automatiskt inloggad på forumet nästa gång du besöker det från den här datorn.</span>
-login_login:Logga in
+login_login:Logga in:
 login_login_btn:Logga in
 login_name_required:Användarnamnet är obligatoriskt
 login_passwd_required:Lösenordet är obligatoriskt
@@ -472,7 +473,7 @@ reset_remind_pass:Lösenordspåminnare
 reset_reset_conf:Ditt lösenord kommer att nollställas och ett nytt skickas åt dig. Om du inte har bekräftat din registrering kommer bekräftelsemeddelandet att skickas istället.
 reset_error:E-postadressen hittades inte i databasen
 rpasswd_change_pass:Byt lösenord
-rpasswd_login:Användarnamn:
+rpasswd_login:Logga in
 rpasswd_cur_pass:Nuvarande lösenord:
 rpasswd_new_pass:Nytt lösenord:
 rpasswd_conf_pass:Bekräfta lösenord:
@@ -681,8 +682,7 @@ reset_err_rstconf_title:Information
 reset_err_rstconf_msg:Du torde få instruktioner per e-post inom ett par minuter
 reset_newpass_title:Nollställ lösenord
 reset_newpass_msg:Hej!\n\nEnligt önskemål har ditt användarnamn och ditt lösenord skickats till dig.\nHär är dina inloggningsuppgifter:\n\nAnvändarnamn: {VAR: ui[1]}\nLösenord: {VAR: passwd}\n\nNotera att ditt lösenord har ändrats till ovanstående. Om du vill\nändra ditt lösenord kan du göra det i medlemmens kontrollpanel:\n{FULL_ROOT}{ROOT}?t=register
-# Fuzzy
-reset_login_notify:Ditt lösenord har skickats åt dig per e-post och borde komma fram inom ett par minuter. Vänligen kontrollera din e-post för ditt användarnamn och lösenord.<br />.<br />.<br />
+reset_login_notify:Ditt lösenord har skickats åt dig per e-post och borde komma fram inom ett par minuter.
 search_update:Söker bland inläggen
 selmsg_update:Läser <a href="{TEMPLATE: selmsg_update_lnk}">Dagens inlägg</a>
 showposts_update:Visar inlägg av: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
@@ -1114,8 +1114,7 @@ move_msg_th_expl:Specificera ID på destinationsämnet (kan vara i andra fora)
 captcha_img_alt:Caotcha verifiering: du måste tolka texten i denna bild.
 captcha_img_help:Det finns ingen nolla eller etta i bilden.
 powered-by:Drivs av: FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:Copyright &copy;2001-2012 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Copyright &copy;2001-2013 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Kod:
 code_select_all:Välj alla
 code_show_hide:Visa / dölj

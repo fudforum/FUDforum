@@ -679,8 +679,7 @@ reset_err_rstconf_title:Information
 reset_err_rstconf_msg:Du burde modtage instruktioner per e-mail i løbet af de næste par minutter.
 reset_newpass_title:Få ny adgangskode
 reset_newpass_msg:Hej\n\nSom ønsket fremsendes hermed dine nye dine brugeroplysninger:\n\nBrugernavn: {VAR: ui[1]}\nAdgangskode: {VAR: passwd}\n\nBemærk venligst at din adgangskode er blevet ændret til den ovennævnte værdi. Hvis du ønsker\n at ændre din adgangskode igen, kan du gøre det via kontrolpanelet på:\n{FULL_ROOT}{ROOT}?t=register\n\n.
-# Fuzzy
-reset_login_notify:Din nye adgangskode er blevet sendt til dig pr e-mail. Du vil modtage den inden for de næste par minutter.<br />
+reset_login_notify:Din nye adgangskode er blevet sendt til dig pr e-mail. Du bør modtage den inden for de næste par minutter.
 search_update:Søger blandt indlæggene
 selmsg_update:Gennemse <a href="{TEMPLATE: selmsg_update_lnk}">dagens indlæg</a>
 showposts_update:Vis indlæg af: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
@@ -1112,8 +1111,7 @@ move_msg_th_expl:Angiv ID for destinationsemnet (kan være i andre fora)
 captcha_img_alt:Captcha verifikation: du skal genkende teksten i dette billede.
 captcha_img_help:Der er ingen nul eller én i billedet.
 powered-by:Drevet af: FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:Copyright &copy;2001-2012 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Copyright &copy;2001-2013 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Kode:
 code_select_all:Vælg alle
 code_show_hide:Vis/ skjul

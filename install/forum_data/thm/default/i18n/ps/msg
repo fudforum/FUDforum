@@ -8,7 +8,7 @@ biography:ژوندليک:
 birth_date:زېږون نېټه
 current_time:اوسينی وخت
 email:برېښليک:
-email_to_friend:ملګري ته برېښليک لېږل
+email_to_friend:ملگري ته برېښليک لېږل
 email_user:دې کارن ته يو برېښليک لېږل
 faq:لارښود
 forum:فورم:
@@ -81,7 +81,7 @@ views:کتنې
 vote_button:رايه ورکول
 vote_for_thread:رايه ورکول
 reported_reason:سبب:
-modque_delete:ړنګول
+modque_delete:ړنگول
 list_referes_member:غړی
 pmsg_all:ټول
 pmsg_none:هېڅ
@@ -89,9 +89,9 @@ pmsg_replied:ځواب شو
 pmsg_author:ليکوال
 pmsg_time:وخت
 pmsg_selected:ټاکلی
-pmsg_delete:ړنګول
+pmsg_delete:ړنگول
 inbox:ليکبکس
-draft:ګارليک
+draft:گارليک
 sent:لېږل شوي
 msg_author:ليکوال
 month_1:جنوري
@@ -109,7 +109,7 @@ month_12:ډيسمبر
 sunday:يونۍ
 sunday_short:ا
 monday:دونۍ
-monday_short:ګ
+monday_short:د
 tuesday:درې نۍ
 wednesday_short:م
 thursday:شورو
@@ -125,7 +125,7 @@ finduser_user_info:د کارن مالومات
 finduser_submit:موندل
 finduser_no_such_user:پدې نوم کارن نشته
 finduser_user:کارن
-finduser_joindate:د ګډون نېټه
+finduser_joindate:د گډون نېټه
 yes:هو
 no:نه
 register_email:برېښليک
@@ -158,18 +158,18 @@ register_sig:لاسليک:
 register_show_sig:لاسليکونه ښکاره کول:
 register_timezone:د وخت سيمه:
 buddy_status:دريځ
-add:ورګډول
+add:ورگډول
 post_normal:نورمال
 post_annoncement:خبرتيا
 post_size:کچه
-post_color:رنګ
+post_color:رنگ
 post_font:ليکبڼه
 create_thread:سرليک جوړول
 post_preview:مخليدنه
 post_logout:وتل
-post_poll_delete:ړنګول
+post_poll_delete:ړنگول
 post_poll_edit:سمول
-post_file_del:ړنګول
+post_file_del:ړنگول
 post_file_name:نوم
 post_file_size:کچه
 post_forum:فورم:
@@ -204,24 +204,24 @@ search_all_forums:ټول فورمونه پلټل
 search_in_forum:په فورم کې پلټنه:
 remail_your_name:ستاسې نوم:
 remail_your_email:ستاسې برېښليک:
-remail_friends_name:د ملګري نوم:
-remail_friends_email:د ملګري برېښليک:
+remail_friends_name:د ملگري نوم:
+remail_friends_email:د ملگري برېښليک:
 remail_message:پيغام:
 remail_done:ترسره شو
 mklist_option:خوښنې:
-mklist_delete:ړنګول
+mklist_delete:ړنگول
 qbud_nick_name:کورنی نوم
-qbud_add_selected:ټاکلي ورګډول
+qbud_add_selected:ټاکلي ورگډول
 qbud_selected:ټاکلي
 mklist_close:تړل
 email_pg_title:برېښليک
 email_submit:برېښليک
 ppost_find_User:کارن موندل
 ppost_send:لېږل
-ppost_save_draft:ګارليک خوندي کول
+ppost_save_draft:گارليک خوندي کول
 poll_create:جوړول
 poll_update:اوسمهالول
-poll_delete:ړنګول
+poll_delete:ړنگول
 poll_day:ورځ
 poll_days:ورځې
 poll_hour:ساعت
@@ -249,16 +249,16 @@ groupmgr_yes:هو
 groupmgr_no:نه
 groupmgr_member:غړی
 groupmgr_cancel:ناګارل
-groupmgr_add_member:غړی ورګډول
+groupmgr_add_member:غړی ورگډول
 groupmgr_edit:سمول
-groupmgr_delete:ړنګول
+groupmgr_delete:ړنگول
 group_mgr_anon:ورکنومی
 show_show:ښکاره کول:
 group_mgr_group:ډله:
 p_READ:لوستل
 p_REPLY:ځوابول
 p_EDIT:سمول
-p_DEL:ړنګول
+p_DEL:ړنگول
 p_VOTE:رايه ورکول
 group_mgr_search:کارن موندل
 th_expr_never:هېڅکله
@@ -271,7 +271,7 @@ th_expr_one_month:۱ مياشت
 th_expr_two_month:۲ مياشتې
 th_expr_four_month:۴ مياشتې
 th_expr_one_year:۱ کال
-thread_mod_delete:ړنګول
+thread_mod_delete:ړنگول
 action_latest_post:وروستی پيغام
 split_th_forum:فورم:
 split_th_messages:پيغامونه
@@ -302,7 +302,7 @@ mnav_day:ورځ (ورځې)
 mnav_week:اونۍ
 mnav_month:مياشت (مياشتې)
 findu_edit:سمول
-findu_delete:ړنګول
+findu_delete:ړنگول
 merge_next:راتلونکي سرليکونه
 merge_prev:پخواني سرليکونه
 register_email_addr:برېښليک پته:
@@ -315,7 +315,7 @@ search_options:د پلټلو خوښنې
 modque_cat:وېشنيزه
 modque_forum:فورم
 pmsg_pdf_btn:د PDF خونديځ جوړول
-thread_del_all:ټاکل شوی ړنګول
+thread_del_all:ټاکل شوی ړنگول
 thread_mov_all:ټاکلي لېږدول
 dmsg_ip:آی پي:
 post_common_bold:زغرد
@@ -325,15 +325,15 @@ post_common_align_right:ښي پرليکتيا
 post_common_link:يوه تړنه ورټومبل
 post_common_email:يوه برېښليک پته ورکړۍ
 post_common_image:يو انځور ورټومبل
-post_common_blist:ګولۍ داره لړليک ورګډول
-rating_delete:ړنګول
+post_common_blist:گولۍ داره لړليک ورگډول
+rating_delete:ړنگول
 finduser_flag:رپی
 move_messages:پيغامونه لېږدول
 code_title:کوډ:
 code_select_all:ټول ټاکل
 code_show_hide:ښکاره کول/ پټول
 btn_new_topic:نوی سرليک
-btn_delete:ړنګول
+btn_delete:ړنگول
 btn_edit:سمول
 btn_reply:ځوابول
 btn_email:برېښليک

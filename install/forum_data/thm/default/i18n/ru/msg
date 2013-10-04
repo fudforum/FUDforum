@@ -681,8 +681,7 @@ reset_err_rstconf_title:Информация
 reset_err_rstconf_msg:Вы получите инструкции на ваш адрес e-mail в течение следующий нескольких минут
 reset_newpass_title:Сброс пароля
 reset_newpass_msg:Привет,\n\nПо вашему запросу вам были отправлены имя учётной записи и пароль.\nНиже приведена информация о вашей регистрации:\n\nУчётная запись: {VAR: ui[1]}\nПароль: {VAR: passwd}\n\nИмейте ввиду что ваш старый пароль был изменен на приведенный выше, и если\nвы хотите его сменить, то можете сделать это в панели управления по адресу:\n{FULL_ROOT}{ROOT}?t=register
-# Fuzzy
-reset_login_notify:Ваш пароль был отправлен вам на e-mail, и вы сможете получить его через несколько минут. Пожалуйста проверьте ваш почтовый ящик..<br />.<br />.<br />
+reset_login_notify:Ваш пароль был отправлен вам на e-mail. Вы сможете получить его через несколько минут.
 search_update:Поиск сообщений
 selmsg_update:Просмотр <a href="{TEMPLATE: selmsg_update_lnk}">сегодняшних сообщений</a>
 showposts_update:Просмотр всех сообщений от <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
@@ -1114,8 +1113,7 @@ move_msg_th_expl:Укажите ID темы для переноса в нее с
 captcha_img_alt:Антибот проверка. Вам нужно распознать текст на этом изображении.
 captcha_img_help:На изображении нет цифр 0 и 1.
 powered-by:При поддержке: FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:&copy; 2001-2012 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:&copy; 2001-2013 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:CODE:
 code_select_all:Выделить все
 code_show_hide:Показать / скрыть

@@ -380,6 +380,7 @@ report_err_nosuchmsg_msg:Esou ee Message gëtt et net
 reset_err_invalidkey_title:FEELER
 reset_err_rstconf_title:Informatioun
 reset_newpass_title:Passwuert zrécksetzen
+reset_login_notify:Är Passwuert gouf per E-Mail un Iech geschéckt. Dir misst et bannen den nächste puer Minutte kréien.
 ERR_access_ttl:FEELER: Net genuch Rechter
 ERR_systemerr_ttl:FEELER: Systemfeeler
 finduser_title:Benotzer fannen
@@ -510,6 +511,7 @@ rating_delete:Läschen
 finduser_flag:Fändel
 post_descr:Beschreiwung vum Thema:
 move_messages:Message réckelen
+copyright:Copyright &copy;2001-2013 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Code:
 code_show_hide:Weisen / Verstoppen
 btn_new_topic:Neie Sujet

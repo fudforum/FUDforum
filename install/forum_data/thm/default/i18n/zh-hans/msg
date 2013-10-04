@@ -2,9 +2,11 @@
 # Exported from translatewiki.net
 # Author: Anakmalaysia
 # Author: Chenxiaoqino
+# Author: Cwlin0416
 # Author: Hydra
 # Author: Hzy980512
 # Author: Liangent
+# Author: Liuxinyu970226
 # Author: Naudefj
 # Author: PhiLiP
 # Author: Xiaomingyan
@@ -82,7 +84,7 @@ cal_day_heading:一天的事件
 cal_no_events:本日没有事件。
 cal_update:浏览论坛日历
 cal_birthday:生日：{VAR: user}
-cal_birthday_age:（$1岁）。
+cal_birthday_age:（{PLURAL: age|$1岁|$1岁}）。
 message:信息
 message_counter:我们的用户已张贴共 <b>{PLURAL: post_count|$1 消息|$1 消息}</b> 内 <b>{PLURAL: thread_count|$1 主题|$1 主题}</b>。
 message_index:信息索引
@@ -220,6 +222,7 @@ reported_reported_msg:报告相关内容
 modque_pending_approval:等待批复的信息
 modque_approve:批复
 modque_delete:删除
+modque_deleteall:删除来自用户的一切
 modque_no_message:没有需要批复的信息
 pmsg_new_messages:未读悄悄话
 pmsg_old_messages:已读悄悄话
@@ -583,7 +586,7 @@ actions_update:查找和你的个人信息内容相匹配的用户。
 err_info:信息
 buddy_list_err_cantadd:无法把你加入好友名单
 buddy_list_err_dup:你的好友列表中已经添加了这个用户
-buddy_list_err_nouser:你要添加的用户不存在
+buddy_list_err_nouser:您要新增到好友清單的使用者不存在。
 buddy_list_err_nouser_title:无法添加
 buddy_list_err_ignore:不能增加忽略你的用户到你的朋友列表.
 buddy_list_update:浏览我的好友列表
@@ -681,8 +684,7 @@ reset_err_rstconf_title:信息
 reset_err_rstconf_msg:一会你将通过邮件收到相关说明。
 reset_newpass_title:重新输入密码
 reset_newpass_msg:您好，\n\n您每次登录的账号都将发送给您。\n以下是您的登录信息：\n\n账号：{VAR: ui[1]}\n密码：{VAR: passwd}\n\n注意：您的密码已经被改为上面的值字符组合，\n如果您想修改密码，请在个人信息中修改：\n{FULL_ROOT}{ROOT}?t=register
-# Fuzzy
-reset_login_notify:一会儿，你将通过邮件收到密码。请检查你的密码并登录。.<br />.<br />.<br />
+reset_login_notify:您的密码已通过电子邮件发送给您。接下来几分钟您应该确认它。
 search_update:搜索
 selmsg_update:浏览 <a href="{TEMPLATE: selmsg_update_lnk}">今天发布的主题</a>
 showposts_update:查看用户 <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>发布的主题
@@ -1114,8 +1116,7 @@ move_msg_th_expl:移至指定主题的ID（可以跨版块）
 captcha_img_alt:验证码： 您需要识别此图像中的文本。
 captcha_img_help:有没有为零或图像中的一个。
 powered-by:Powered by: FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:Copyright &copy;2001年至2012年<a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>版权所有
+copyright:版权所有&copy;2001~2013年<a href="http://fudforum.org/">FUD论坛公告板软件</a>
 code_title:代码：
 code_select_all:选择全部
 code_show_hide:显示/隐藏
