@@ -684,8 +684,7 @@ reset_err_rstconf_title:Información
 reset_err_rstconf_msg:Debería recibir instrucciones en su correo electrónico en los próximos minutos
 reset_newpass_title:Actualizar contraseña
 reset_newpass_msg:Hola.\n\nTal como solicitó, le remitimos su nombre de usuario y contraseña.\nAquí está su información de inicio de sesión:\n\nUsuario: {VAR: ui[1]}\nContraseña: {VAR: passwd}\n\nRecuerde que su contraseña ha sido actualizada al valor anterior. Si desea cambiar su contraseña puede hacerlo mediante el panel de control de usuario en:\n{FULL_ROOT}{ROOT}?t=register
-# Fuzzy
-reset_login_notify:Se le ha enviado su contraseña por correo electrónico. Debería recibirla en unos minutos. Recuerde revisar su correo para obtener su contraseña y nombre de usuario.<br />.<br />.<br />
+reset_login_notify:Se le ha enviado su contraseña por correo electrónico. Debería recibirla en unos minutos.
 search_update:Buscando mensajes
 selmsg_update:Recorriendo <a href="{TEMPLATE: selmsg_update_lnk}">mensajes de hoy</a>
 showposts_update:Viendo mensajes de: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
@@ -1117,8 +1116,7 @@ move_msg_th_expl:Especificar el ID del tópico de destino (puede estar en otros 
 captcha_img_alt:Verificación captcha: necesitarás reconocer el texto en esta imagen.
 captcha_img_help:No hay cero o uno en la imagen
 powered-by:Impulsado por: FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:Copyright &copy;2001-2012 <a href="http://fudforum.org/">FUDforum Software de tablón de anuncios</a>
+copyright:Copyright &copy;2001-2013 <a href="http://fudforum.org/">FUDforum Software de tablón de anuncios</a>
 code_title:CODIGO:
 code_select_all:Seleccionar todo
 code_show_hide:Mostrar/ocultar

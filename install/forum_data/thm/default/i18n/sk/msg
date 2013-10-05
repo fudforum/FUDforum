@@ -212,6 +212,7 @@ reported_reported_msg:Oznámené príspevky
 modque_pending_approval:Príspevky čakajúce na schválenie
 modque_approve:Schváliť
 modque_delete:Vymazať
+modque_deleteall:Vymazať všetky od používateľa
 modque_no_message:Žiadne príspevky na schválenie
 pmsg_new_messages:Neprečítaná súkromná pošta
 pmsg_old_messages:Prečítať súkromnú poštu
@@ -673,8 +674,7 @@ reset_err_rstconf_title:Informácia
 reset_err_rstconf_msg:V priebehu pár minút by ste e-mailom mali obdržať ďalšie pokyny
 reset_newpass_title:Obnoviť heslo
 reset_newpass_msg:Dobrý deň,\n\nna základe Vašej žiadosti Vám posielame prihlasovacie informácie:\n\nPoužívateľské meno: {VAR: ui[1]}\nHeslo: {VAR: passwd}\n\nProsím všimnite si, že Vaše heslo bolo zmenené na horeuvedenú hodnotu.\nAk si ho prajete zmeniť, môžete tak urobiť v nastaveniach používateľa na adrese:\n{FULL_ROOT}{ROOT}?t=register
-# Fuzzy
-reset_login_notify:Vaše heslo bolo odoslané e-mailom. V priebehu niekoľkých minút by ste ho mali obdržať. Prosím, skontrolujte si vašu poštu.<br />
+reset_login_notify:Tvoje heslo bolo odoslané e-mailom. Malo by ti príjsť v priebehu niekoľkých minút.
 search_update:Vyhľadáva správy
 selmsg_update:Prehliada <a href="{TEMPLATE: selmsg_update_lnk}">dnešné príspevky</a>
 showposts_update:Prezerá si príspevky od: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
@@ -1106,8 +1106,7 @@ move_msg_th_expl:Zadajte číslo cieľovej témy (môže byť na iných fórach)
 captcha_img_alt:Overenie kódu (captcha): Rozpoznajte text v obrázku.
 captcha_img_help:V obrázku sa nula alebo jeden nenachádza.
 powered-by:Prevádzkuje: FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:Copyright &copy;2001-2012 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Copyright &copy;2001-2013 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Kód:
 code_select_all:Vybrať všetko
 code_show_hide:Zobraziť/ skryť
