@@ -527,8 +527,8 @@ if (!extension_loaded('posix')) {
 
 	sort($dir_list);
 	sort($file_list);
-	$dir_data = array_merge($dir_list, $file_list);
 
+	$dir_data = array_merge($dir_list, $file_list);
 	$cur_enc = urlencode($cur_dir);
 
 	foreach($dir_data as $de) {
@@ -544,6 +544,10 @@ if (!extension_loaded('posix')) {
 			$st = stat($fpath);
 		} else if (@is_dir($fpath)) {
 			$name = '<a href="admbrowse.php?cur='. urlencode($fpath) .'&amp;'. __adm_rsid .'" title="Change directory">'. htmlspecialchars($de) .'</a>';
+			$st = stat($fpath);
+		} else {
+			// Stupid hack because PHP5 cannot stat files > 2GB on 32 bit systems.
+			$name = '<a href="admbrowse.php?view=1&dest='. htmlspecialchars($de) .'&cur='. urlencode($cur_dir) .'&amp;'. __adm_rsid .'" title="View file">'. htmlspecialchars($de) .'</a>';
 			$st = stat($fpath);
 		}
 

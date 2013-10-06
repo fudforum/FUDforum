@@ -179,7 +179,7 @@
 
 	<tr class="field">
 		<td>
-			Slow Reply Match:<br />
+			Complex Reply Matching:<br />
 			<font size="-1">Certain mail client do sent send necessary headers needed to determine if a message is
 			a reply to an existing message. If this option is enabled and normally available reply headers are not there,
 			the forum will try to determine if message is a reply by comparing the message's subject to subjects of existing

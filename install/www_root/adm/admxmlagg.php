@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -135,7 +135,7 @@
 
 	<tr class="field">
 		<td>
-			Slow Reply Match:<br />
+			Complex Reply Matching:<br />
 			<font size="-1">If this option is enabled the forum will try to determine if an article is a <b>reply</b>
 			by comparing it's subject to subjects of existing messages in the forum. Enable this when you syndicate
 			theaded discussions from a forum or mailing list.</font>

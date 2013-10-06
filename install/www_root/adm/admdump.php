@@ -23,7 +23,6 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir, $p=0)
 			pf('Could not open "'. $v .'" for reading.');
 			return;
 		}
-		pf('... backup '. $v);
 
 		if (!($files = glob($v .'/{.h*,.p*,.n*,.m*,*}', GLOB_BRACE|GLOB_NOSORT))) {
 			continue;
@@ -45,6 +44,7 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir, $p=0)
 			$p = 0;
 		}
 
+		$dir_size = 0;
 		foreach ($files as $f) {
 			if (is_link($f)) {
 				continue;
@@ -52,7 +52,7 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir, $p=0)
 			$name = basename($f);
 
 			if (is_dir($f)) {
-				if ($name == 'tmp' || $name == 'theme') {
+				if ($name == 'tmp' || $name == 'errors' || $name == 'theme') {
 					continue;
 				} else if ($keep_dir == 'DATA_DIR' && ($name == 'adm' || $name == 'images')) {
 					continue;
@@ -79,6 +79,12 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir, $p=0)
 				fclose($fp2);
 				$write_func($fp, "\n");
 			}
+			$dir_size = $dir_size + $ln;
+		}
+
+		pf('... backup '. $dpath .' ('. round($dir_size/1024/1024, 2) . ' MB)');
+		if ($dir_size > 2*1024*1024*1024) {
+			pf(errorify('Please cleanup this directory!')); 
 		}
 	}
 }

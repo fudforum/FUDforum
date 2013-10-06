@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -187,7 +187,7 @@ function format_regex(&$regex)
 
 	<tr class="field">
 		<td>
-			Slow Reply Match:<br />
+			Complex Reply Matching:<br />
 			<font size="-1">Certain mail clients do not send the necessary headers to determine if a message is a 
 			reply to an existing message. If this option is enabled, and the normal reply headers are absent, 
 			the forum will try to determine if the message is a reply by comparing its subject to subjects of messages 

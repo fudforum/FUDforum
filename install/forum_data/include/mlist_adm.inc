@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -12,7 +12,7 @@
 class fud_mlist
 {
 	var $id, $forum_id, $name, $custom_sig;
-	var $mlist_opt=72;
+	var $mlist_opt=104;
 	var $subject_regex_haystack, $subject_regex_needle, $body_regex_haystack, $body_regex_needle, $additional_headers;
 	var $mbox_server, $mbox_user, $mbox_pass, $mbox_type=0;
 	var $fixed_from_address;
@@ -52,6 +52,7 @@ class fud_mlist
 		}
 	}
 
+	/** Add new mailing list rule. */
 	function add()
 	{
 		if (!db_locked()) {
@@ -99,6 +100,7 @@ class fud_mlist
 		return $this->id;
 	}
 
+	/** Update existing mailing list rule. */
 	function sync($id)
 	{
 		if (!db_locked()) {
@@ -134,6 +136,7 @@ class fud_mlist
 		}
 	}
 
+	/** Remove a mailing list rule. */
 	function del($id)
 	{
 		q('DELETE FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'mlist WHERE id='. $id);

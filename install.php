@@ -32,8 +32,10 @@ function modules_enabled()
 	}
 
 	// MySQLi is an extension, not a module, but we add it anyway.
-	$status['mysqli'] = function_exists('mysqli_connect');
-
+	if (function_exists('mysqli_connect')) {
+		$status['mysqli'] = true;
+		$status['mysql']  = false;	// mysql is depricated and we have an alternative.
+	}
 	return $status;
 }
 
@@ -1147,32 +1149,35 @@ switch ($section) {
 			($module_status['pspell'] ? 'enabled' : 'disabled'), ($module_status['pspell'] ? 'green' : 'orange'));
 	dialog_end('prereq');
 
-	dialog_start('Database information: <span class="descr">(at least <u>one</u> of the database extensions below must be enabled)</span>', '');
-	prereq_row('MySQL Improved Extention:', 'Improved interface to the MySQL server (mysqli), RECOMMENDED', 
-			($module_status['mysqli'] ? 'enabled' : 'disabled'), ($module_status['mysqli'] ? 'green' : 'orange'));
-	prereq_row('MySQL Extention:', 'Interface to the MySQL server, which is the recommended database for FUDforum.', 
+	dialog_start('At least <u>one</u> of the following database extensions must be enabled:', '');
+	prereq_row('MySQL Improved:', 'Improved interface to the MySQL server database (mysqli) - HIGHLY RECOMMENDED!',
+		($module_status['mysqli'] ? 'enabled' : 'disabled'), ($module_status['mysqli'] ? 'green' : 'orange'));
+	if (!$module_status['mysqli']) {
+		// Depricated, don't show it if we habe an alternative.
+		prereq_row('MySQL:', 'Interface to the MySQL server, which is the recommended database for FUDforum.', 
 			($module_status['mysql'] ? 'enabled' : 'disabled'), ($module_status['mysql'] ? 'green' : 'orange'));
-	prereq_row('MySQL PDO Extension:', 'PDO interface to the MySQL server (pdo_mysql).', 
-			($module_status['pdo_mysql'] ? 'enabled' : 'disabled'), ($module_status['pdo_mysql'] ? 'green' : 'orange'));
-	// FOR FUTURE IMPLEMENTATION:
+	}
+	// TODO: FOR FUTURE IMPLEMENTATION:
 	// prereq_row('CUBRID Extension:', 'Interface to CUBRID database (cubrid).', 
-	// 		($module_status['cubrid'] ? 'enabled' : 'disabled'), ($module_status['cubrid'] ? 'green' : 'orange'));
-	prereq_row('Firebird Extension:', 'Interface to Firebird/Interbase database (ibase).', 
-			($module_status['interbase'] ? 'enabled' : 'disabled'), ($module_status['interbase'] ? 'green' : 'orange'));
-	prereq_row('Oracle OCI8 Extension:', 'Interface to Oracle database server (oci8).', 
-			($module_status['oci8'] ? 'enabled' : 'disabled'), ($module_status['oci8'] ? 'green' : 'orange'));
-	prereq_row('IBM DB2 Extension:', 'Interface to IBM DB2 database server (ibm_db2).', 
-			($module_status['ibm_db2'] ? 'enabled' : 'disabled'), ($module_status['ibm_db2'] ? 'green' : 'orange'));
-	prereq_row('PostgreSQL Extension:', 'Interface to the PostgreSQL server.', 
-			($module_status['pgsql'] ? 'enabled' : 'disabled'), ($module_status['pgsql'] ? 'green' : 'orange'));
-	prereq_row('PostgreSQL PDO Extension:', 'PDO interface to the PostgreSQL server (pdo_pgsql).', 
-			($module_status['pdo_pgsql'] ? 'enabled' : 'disabled'), ($module_status['pdo_pgsql'] ? 'green' : 'orange'));
-	prereq_row('SQLite PDO Extension:', 'PDO interface to the SQLite server (pdo_sqlite).', 
-			($module_status['pdo_sqlite'] ? 'enabled' : 'disabled'), ($module_status['pdo_sqlite'] ? 'green' : 'orange'));
-	prereq_row('SQL Server Extention:', 'Interface to Microsoft SQL Server (sqlsrv).', 
-			($module_status['sqlsrv'] ? 'enabled' : 'disabled'), ($module_status['sqlsrv'] ? 'green' : 'orange'));
-	prereq_row('SQL Server PDO Extension:', 'PDO interface to Microsoft SQL Server (sqlsrv).', 
-			($module_status['pdo_sqlsrv'] ? 'enabled' : 'disabled'), ($module_status['pdo_sqlsrv'] ? 'green' : 'orange'));
+	// 	($module_status['cubrid'] ? 'enabled' : 'disabled'), ($module_status['cubrid'] ? 'green' : 'orange'));
+	prereq_row('IBM DB2:', 'Interface to IBM DB2 database server (ibm_db2).', 
+		($module_status['ibm_db2'] ? 'enabled' : 'disabled'), ($module_status['ibm_db2'] ? 'green' : 'orange'));
+	prereq_row('Firebird:', 'Interface to Firebird/Interbase database (ibase).', 
+		($module_status['interbase'] ? 'enabled' : 'disabled'), ($module_status['interbase'] ? 'green' : 'orange'));
+	prereq_row('MySQL PDO:', 'PDO interface to the MySQL server (pdo_mysql).', 
+		($module_status['pdo_mysql'] ? 'enabled' : 'disabled'), ($module_status['pdo_mysql'] ? 'green' : 'orange'));
+	prereq_row('Oracle OCI8:', 'Interface to Oracle database server (oci8).', 
+		($module_status['oci8'] ? 'enabled' : 'disabled'), ($module_status['oci8'] ? 'green' : 'orange'));
+	prereq_row('PostgreSQL:', 'Interface to the PostgreSQL server.', 
+		($module_status['pgsql'] ? 'enabled' : 'disabled'), ($module_status['pgsql'] ? 'green' : 'orange'));
+	prereq_row('PostgreSQL PDO:', 'PDO interface to the PostgreSQL server (pdo_pgsql).', 
+		($module_status['pdo_pgsql'] ? 'enabled' : 'disabled'), ($module_status['pdo_pgsql'] ? 'green' : 'orange'));
+	prereq_row('SQLite PDO:', 'PDO interface to the SQLite server (pdo_sqlite).', 
+		($module_status['pdo_sqlite'] ? 'enabled' : 'disabled'), ($module_status['pdo_sqlite'] ? 'green' : 'orange'));
+	prereq_row('SQL Server:', 'Interface to Microsoft SQL Server (sqlsrv).', 
+		($module_status['sqlsrv'] ? 'enabled' : 'disabled'), ($module_status['sqlsrv'] ? 'green' : 'orange'));
+	prereq_row('SQL Server PDO:', 'PDO interface to Microsoft SQL Server (sqlsrv).', 
+		($module_status['pdo_sqlsrv'] ? 'enabled' : 'disabled'), ($module_status['pdo_sqlsrv'] ? 'green' : 'orange'));
 
 	dialog_end('prereq');
 	break;

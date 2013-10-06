@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -31,7 +31,7 @@ function pf($msg='', $webonly=false)
 function fdate($date, $format='d F Y H:i')
 {
 	if (empty($date)) {
-		return 'Never';
+		return 'Unknown';
 	}
 
 	if (stristr($GLOBALS['charset'], 'utf-8') !== false && substr(PHP_OS, 0, 3) == 'WIN') {

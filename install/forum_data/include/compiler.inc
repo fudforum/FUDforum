@@ -222,6 +222,11 @@ function resolve_sections($file, $secname, $str)
 				break;
 
 			case 'DEF':
+				if ($name == 'img_ext') {
+					echo 'WARNING: <b>{DEF: img_ext}</b> is deprecated. Please replace it with <b>.png</b> in '. $file .'.<br />';
+					$ret .= '\'. \'.png\' .\'';
+					break;
+				}
 				$ret .= '\'.'. $name .'.\'';
 				break;
 

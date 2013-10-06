@@ -338,16 +338,17 @@ administration permissions to the forum. This individual will be able to do anyt
 	});
 </script>
 
+<!-- Links to control panels that Account Moderators can access. -->
 </td><td>
-	<!-- Links to control panels that Account Moderators can access. -->
 	<b>Account moderation:</b><br />
-	&nbsp;[ <a href="admuseradd.php?<?php echo __adm_rsid; ?>">Create users</a> ]<br />
-	&nbsp;[ <a href="admuserapr.php?<?php echo __adm_rsid; ?>">Approve users</a> ]<br />
+	&nbsp;[ <a href="admuseradd.php?<?php   echo __adm_rsid; ?>">Create users</a> ]<br />
+	&nbsp;[ <a href="admuserapr.php?<?php   echo __adm_rsid; ?>">Approve users</a> ]<br />
 	&nbsp;[ <a href="admusermerge.php?<?php echo __adm_rsid; ?>">Merge users</a> ]<br /><br />
-	<b>Show:</b>
-	[ <a href="admslist.php?<?php echo __adm_rsid; ?>">Privileged</a> ] 
-	[ <a href="admbanlist.php?<?php echo __adm_rsid; ?>">Banned</a> ]
-	[ <a href="admsession.php?<?php echo __adm_rsid; ?>">Sessions</a> ]
+</td><td>
+	<b>Show:</b><br />
+	&nbsp;[ <a href="admprivlist.php?<?php  echo __adm_rsid; ?>">Privileged</a> ]<br />
+	&nbsp;[ <a href="admbanlist.php?<?php   echo __adm_rsid; ?>">Banned</a> ]<br />
+	&nbsp;[ <a href="admsession.php?<?php   echo __adm_rsid; ?>">Sessions</a> ]<br /><br />
 </td></tr>
 </table>
 </fieldset>

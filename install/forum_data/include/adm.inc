@@ -43,14 +43,17 @@ if (!defined('shell_script')) {
 define('__fud_index_name__', 'index.php');
 
 if (!($GLOBALS['usr']->users_opt & 1048576)) {	// not is_admin
-	// Limit access for account moderators.
+	// Limited access for account moderators.
 	if ($GLOBALS['usr']->users_opt & 268435456) {	// account moderator
 		switch (basename($_SERVER['PHP_SELF'])) {
-			case 'admuserapr.php':
-			case 'admuseradd.php':
 			case 'admuser.php':
+			case 'admuseradd.php':
+			case 'admuserapr.php':
 			case 'admusermerge.php':
+			case 'admprivlist.php':
+			case 'admbanlist.php':
 			case 'admsession.php':
+			case 'admmodfrm.php':	// Modify Moderation Permissions
 				break;
 			default:
 				header('Location: '. $GLOBALS['WWW_ROOT'] .'adm/admuser.php?'. __adm_rsidl);

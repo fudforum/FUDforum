@@ -15,7 +15,7 @@ class fud_nntp_adm
 	var $server, $port=119, $login, $pass, $timeout=25, $newsgroup, $auth, $imp_limit=10;
 
 	// General Settings.
-	var $forum_id, $id, $nntp_opt=108, $custom_sig;
+	var $forum_id, $id, $nntp_opt=124, $custom_sig;
 
 	function __construct()
 	{
@@ -36,6 +36,7 @@ class fud_nntp_adm
 		}
 	}
 
+	/** Add new newsgroup rule. */
 	function add()
 	{
 		$this->id = db_qid('INSERT INTO '. $GLOBALS['DBHOST_TBL_PREFIX'] .'nntp(
@@ -70,6 +71,7 @@ class fud_nntp_adm
 		return $this->id;
 	}
 
+	/** Update existing newsgroup rule. */
 	function sync($id)
 	{
 		list($old_frm_id, $nntp_opt) = db_saq('SELECT forum_id, nntp_opt FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'nntp WHERE id='. $id);
@@ -94,6 +96,7 @@ class fud_nntp_adm
 	}
 }
 
+/** Remove a newsgroup rule. */
 function nntp_del($id)
 {
 	if (!($d = db_saq('SELECT nntp_opt, forum_id FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'nntp WHERE id='. $id))) {
@@ -105,6 +108,7 @@ function nntp_del($id)
 	}
 }
 
+/** Reset newsgroup tracker. */
 function nntp_reset($id)
 {
 	q('UPDATE '. $GLOBALS['DBHOST_TBL_PREFIX'] .'nntp SET tracker = 0 WHERE id='. $id);

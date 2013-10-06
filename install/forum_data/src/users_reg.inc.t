@@ -334,11 +334,14 @@ function user_login($id, $cur_ses_id, $use_cookies)
 	q('DELETE FROM {SQL_TABLE_PREFIX}ses WHERE user_id='. $id .' AND ses_id!=\''. $cur_ses_id .'\'');
 	q('UPDATE {SQL_TABLE_PREFIX}ses SET user_id='. $id .', sys_id=\''. ses_make_sysid() .'\' WHERE ses_id=\''. $cur_ses_id .'\'');
 	$GLOBALS['new_sq'] = regen_sq($id);
-	if ($GLOBALS['FUD_OPT_3'] & 2097152) {
+
+	/* Lookup country and flag. */
+	if ($GLOBALS['FUD_OPT_3'] & 2097152) {	// UPDATE_GEOLOC_ON_LOGIN
 		$flag = ret_flag();
 	} else {
 		$flag = '';	
 	}
+	
 	q('UPDATE {SQL_TABLE_PREFIX}users SET last_used_ip=\''. get_ip() .'\', '. $flag .' sq=\''. $GLOBALS['new_sq'] .'\' WHERE id='. $id);
 
 	return $cur_ses_id;

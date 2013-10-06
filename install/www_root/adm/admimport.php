@@ -100,8 +100,8 @@ function resolve_dest_path($path)
 				$rewindf= 'gzrewind';
 			}
 
-			/* Test backup file integerety before we start the restore. */
-			pf('Validate backup file integerety...');
+			/* Test backup file integerity before we start the restore. */
+			pf('Validate backup file integrity...');
 			$valid = 0;
 			do {
 				$line = $getf($fp, 1024);
@@ -128,8 +128,11 @@ function resolve_dest_path($path)
 			foreach(glob($GLOBALS['DATA_DIR'] .'thm/path_info/tmpl/*.tmpl') as $fn) unlink($fn);
 			foreach(glob($GLOBALS['DATA_DIR'] .'sql/*.tbl') as $fn) unlink($fn);
 
+			/* Skip to files. */
+			while ($getf($fp, 1024) != "----FILES_START----\n" && !($eof = $feoff($fp)));
+			if ($eof) die('Unexpected end of file!');
+
 			/* Handle data files. */
-			while ($getf($fp, 1024) != "----FILES_START----\n" && !$feoff($fp));
 			pf('Restore files from backup...');
 			while (($line = $getf($fp, 1000000)) && $line != "----FILES_END----\n") {
 				/* Each file is preceeded by a header ||path||size|| */
@@ -142,6 +145,7 @@ function resolve_dest_path($path)
 					// Skip admimport.php, don't overwrite the running script.
 					continue;
 				}
+				if (defined('fud_logging')) pf('... restore '. $path .'('. $size .' bytes)');
 
 				$path = resolve_dest_path($path);
 				if (defined('fud_debug')) pf('... '. $path);
@@ -172,8 +176,9 @@ function resolve_dest_path($path)
 				}
 			}
 
-			/* Skip to the start of the SQL code. */
-			while ($getf($fp, 1024) != "----SQL_START----\n" && !$feoff($fp));
+			/* Skip to SQL code. */
+			while ($getf($fp, 1024) != "----SQL_START----\n" && !($eof = $feoff($fp)));
+			if ($eof) die('Unexpected end of file!');
 
 			/* Drop and recreate tables. */
 			pf('Drop and recreate database tables...');
@@ -270,10 +275,14 @@ function resolve_dest_path($path)
 			pf('Import GLOBAL settings...');
 			eval(trim($readf($fp, 100000))); // Should be enough to read all options in one shot.
 			fclose($fp);
-
+			if (!isset($global_vals)) {
+				pf( errorify('No settings found in dump file.') );
+				exit;
+			}
 			change_global_settings($global_vals);
 
 			/* Try to restore the current admin account's session if he exists in the imported database. */
+			q('DELETE FROM '. $DBHOST_TBL_PREFIX .'ses');
 			if (!defined('recovery_mode')) {
 				if (($uid = q_singleval('SELECT id FROM '. $DBHOST_TBL_PREFIX .'users WHERE login=\''. $usr->login .'\' AND users_opt>=1048576 AND '. q_bitand('users_opt', 1048576) .' > 0'))) {
 					q('INSERT INTO '. $DBHOST_TBL_PREFIX .'ses (ses_id, sys_id, user_id, time_sec) VALUES(\''. $usr->ses_id .'\', \''. $usr->sys_id .'\', '. $uid .', '. __request_timestamp__ .')');
@@ -320,7 +329,7 @@ if ($datadumps) {
 	<?php foreach ($datadumps as $datadump) { ?>
 		<tr class="field admin_fixed">
 			<td><?php echo basename($datadump); ?></td>
-			<td><?php echo fdate(filectime($datadump)); ?></td>
+			<td><?php echo fdate(@filectime($datadump)); ?></td>
 			<td> [ <a href="javascript://" onclick="document.admimport.path.value='<?php echo $datadump; ?>';">use</a> ]</td>
 		</tr>
 	<?php } ?>

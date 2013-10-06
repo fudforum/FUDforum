@@ -9,6 +9,7 @@
 * Free Software Foundation; version 2 of the License.
 **/
 
+/** Log action to the forum's Action Log Viewer ACP. */
 function logaction($user_id, $res, $res_id=0, $action=null)
 {
 	q('INSERT INTO {SQL_TABLE_PREFIX}action_log (logtime, logaction, user_id, a_res, a_res_id)

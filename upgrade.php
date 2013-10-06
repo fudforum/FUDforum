@@ -9,8 +9,8 @@
 * Free Software Foundation; either version 2 of the License.
 ***************************************************************************/
 
-$__UPGRADE_SCRIPT_VERSION = 5305.3;
-// define('fud_debfud_debug', 1);
+$__UPGRADE_SCRIPT_VERSION = 5305.4;
+// define('fud_debug', 1);
 
 /*
   * SQL Upgrade Functions - format is tablename_colname():
@@ -1067,6 +1067,7 @@ pf('<h2>Step 1: Admin login</h2>', true);
 			  'admdelfrm.php',	// Renamed to admforumdel.php (3.0.3).
 			  'admaccapr.php',	// Renamed to admuserapr.php (3.0.3).
 			  'admapprove_avatar.php',	// Renamed to admavatarapr.php (3.0.3).
+			  'admslist.php'	// Renamed to admprivlist.php (3.0.5).
 			 );
 	foreach ($rm_adm as $f) {
  		if (file_exists($GLOBALS['WWW_ROOT_DISK'] .'adm/'. $f)) {
