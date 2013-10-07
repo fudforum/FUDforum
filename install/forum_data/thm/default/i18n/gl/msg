@@ -674,8 +674,7 @@ reset_err_rstconf_title:Información
 reset_err_rstconf_msg:Deberías recibir instrucións no teu correo electrónico nuns minutos.
 reset_newpass_title:Restablecer o contrasinal
 reset_newpass_msg:Ola:\n\nTal e como o solicitaches, a túa información de inicio de sesión aparece a continuación:\n\nNome de usuario: {VAR: ui[1]}\nContrasinal: {VAR: passwd}\n\nPor favor, ten en conta que o teu contrasinal foi restablecido ao valor citado enriba. Se queres\ncambiar o contrasinal, podes facelo a través do panel de control de información de usuario en:\n{FULL_ROOT}{ROOT}?t=register
-# Fuzzy
-reset_login_notify:O teu contrasinal foiche enviado por correo electrónico. Deberías recibilo nuns minutos.<br />
+reset_login_notify:O teu contrasinal foiche enviado por correo electrónico. Deberías recibilo nuns minutos.
 search_update:Buscando mensaxes
 selmsg_update:Navegando polas <a href="{TEMPLATE: selmsg_update_lnk}">mensaxes de hoxe</a>
 showposts_update:Vendo as mensaxes de: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
@@ -1107,8 +1106,7 @@ move_msg_th_expl:Especifique o ID do fío de destino (pode ser noutro foro)
 captcha_img_alt:Verificación por Captcha: terás que recoñecer o texto que hai nesta imaxe.
 captcha_img_help:Non hai cero ou un na imaxe.
 powered-by:Desenvolvido por: FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:Copyright &copy;2001-2012 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Copyright &copy;2001-2013 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Código:
 code_select_all:Seleccionar todo
 code_show_hide:Mostrar/agochar
