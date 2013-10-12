@@ -903,5 +903,4 @@ function copylangfuncs($tname, $tset, $lang)
 	fud_copy(dirname($src), $path, '{language.inc}');
 }
 
-?>
-
+// Do not close PHP tag (prevent unwanted output in page header).

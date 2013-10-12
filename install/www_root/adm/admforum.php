@@ -115,7 +115,7 @@ function get_max_upload_size()
 		if (frm_move_forum((int)$_POST['frm_id'], (int)$_POST['dest_cat'], $cat_id)) {
 			rebuild_forum_cat_order();
 			$r = db_saq('SELECT f.name, c1.name, c2.name FROM '. $tbl .'forum f INNER JOIN '. $tbl .'cat c1 ON c1.id='. $cat_id .' INNER JOIN '. $tbl .'cat c2 ON c2.id='. (int)$_POST['dest_cat'] .' WHERE f.id='. (int)$_POST['frm_id']);
-			logaction(_uid, 'CHCATFORUM', 'Moved forum "'. $r[0] .'" from category: "'. $r[1] .'" to category: "'. $r[2] .'"');
+			logaction(_uid, 'CHCATFORUM', (int)$_POST['frm_id']);
 			echo successify('Forum was successfully moved.');
 		}
 	}
