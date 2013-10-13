@@ -130,14 +130,6 @@ function parse_ip($str)
 	}
 }
 
-if (extension_loaded('iconv')) {
-	function charset_convert($str, $from, $to) { return @iconv($from, $to, $str); }
-} else if (extension_loaded('recode')) {
-	function charset_convert($str, $from, $to) { return @recode_string($from .'..'. $to, $str); }
-} else {
-	function charset_convert($str, $from, $to) { return $str; }
-}
-
 /** Change the encoding of a string. */
 function decode_string($str, $encoding, $charset='')
 {
@@ -150,26 +142,40 @@ function decode_string($str, $encoding, $charset='')
 
 	/* Convert character set if possible. */
 	if ($charset && $charset != $GLOBALS['CHARSET']) {
-		$str = charset_convert($str, $charset, $GLOBALS['CHARSET']);
+		if (extension_loaded('iconv')) {
+			$str = @iconv($charset, $GLOBALS['CHARSET'], $str);
+		} else if (extension_loaded('recode')) {
+			$str = @recode_string($charset .'..'. $GLOBALS['CHARSET'], $str);
+		}
 	}
 
 	return $str;
 }
 
-/** Change the encoding of a header value. */
+/** Decode MIME-encoded header values.
+  *
+  * @test decode_header_value('=?UTF-8?B?RXVnZW4gQmFiacSH?=') == 'Eugen Babić'
+  * @test decode_header_value('=?iso-8859-1?b?THV6b26uMTQ=?= dot CoM') == 'Luzon®14 dot CoM'
+  * @test decode_header_value('Can we break it: áèíóüñ / действующая / 방점;傍點') == 'Can we break it: áèíóüñ / действующая / 방점;傍點'
+  */
 function decode_header_value($val)
 {
-	// Should string be decoded? If not, this function may strip accented characters.
-	if (strpos($val, '?') === false) {
+	// Do we need to decoded it?
+	if (!preg_match("/=\?/", $val)) {
 		return trim($val);
 	}
 
-	// Better to let PHP do it as it will also deal with non-UTF-8 characters.
-	if (function_exists('iconv_mime_decode')) {
-		return iconv_mime_decode(trim($val), 2, $GLOBALS['CHARSET']);
+	// Convert MIME-encoded text to UTF-8.
+	if (function_exists('imap_utf8')) {
+		return imap_utf8(trim($val));
 	}
 
-	// Decode string.
+	// Still not converted? Try iconv_mime_decode().
+	if (function_exists('iconv_mime_decode')) {
+		return iconv_mime_decode(trim($val), ICONV_MIME_DECODE_CONTINUE_ON_ERROR, $GLOBALS['CHARSET']);
+	}
+
+	// Still not converted? Decode it manually (may strip accented characters).
 	if (preg_match_all('!(.*?)(=\?([^?]+)\?(Q|B)\?([^?]*)\?=)([^=]*)!i', $val, $m)) {
 		$newval = '';
 
