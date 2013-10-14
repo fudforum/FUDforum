@@ -673,8 +673,7 @@ reset_err_rstconf_title:Information
 reset_err_rstconf_msg:Tu deberea reciper instructiones in e-mail in le proxime pauc minutas.
 reset_newpass_title:Reinitialisar contrasigno
 reset_newpass_msg:Salute,\n\nComo requestate, ecce le informationes de tu conto:\n\nNomine de usator: {VAR: ui[1]}\nContrasigno: {VAR: passwd}\n\nNota ben que tu contrasigno ha essite reinitialisate al valor hic supra. Si\ntu vole cambiar tu contrasigno, tu pote facer lo con le pannello de controlo\nde information de usator a:\n{FULL_ROOT}{ROOT}?t=register
-# Fuzzy
-reset_login_notify:Tu contrasigno ha essite inviate a te in e-mail. Tu deberea reciper lo intra le proxime pauc minutas.<br />
+reset_login_notify:Tu contrasigno ha essite inviate a te in e-mail. Tu deberea reciper lo intra le proxime pauc minutas.
 search_update:Cerca messages
 selmsg_update:Folia <a href="{TEMPLATE: selmsg_update_lnk}">le messages de hodie</a>
 showposts_update:Lege messages per: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
@@ -1106,8 +1105,7 @@ move_msg_th_expl:Specifica le ID del topico de destination (pote esser in altere
 captcha_img_alt:Verification per Captcha: tu debe recognoscer le texto in iste imagine.
 captcha_img_help:Il non ha zero o un in iste imagine.
 powered-by:Actionate per: FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:Copyright &copy;2001-2012 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Copyright &copy;2001-2013 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Codice:
 code_select_all:Seliger toto
 code_show_hide:Revelar/celar

@@ -5,10 +5,12 @@
 # Author: Gorizon
 # Author: Incelemeelemani
 # Author: Naudefj
+# Author: Rapsar
 # Author: Srhat
 # Author: Stultiwikia
 # Author: Suelnur
 # Author: Tarikozket
+# Author: Trockya
 # Author: Tufan
 # Author: Vito Genovese
 
@@ -220,6 +222,7 @@ reported_reported_msg:Bildirilen iletiler
 modque_pending_approval:Onay bekleyen iletiler
 modque_approve:Onayla
 modque_delete:Sil
+modque_deleteall:Kullanıcıdan gelenlerin tümünü sil
 modque_no_message:Şu anda onay bekleyen ileti yok
 pmsg_new_messages:Özel iletiyi okunmamış say
 pmsg_old_messages:Özel iletiyi oku
@@ -681,8 +684,7 @@ reset_err_rstconf_title:Bilgi
 reset_err_rstconf_msg:Yapmanız gerekenler bir kaç dakika içinde e-posta adresinize ulaşacak.
 reset_newpass_title:Parolayı Yeniden Belirle
 reset_newpass_msg:Selam,\n\nİsteğiniz üzerine kayıt bilgileriniz gönderildi.\nGiriş bilgileriniz:\n\nKullanıcı ismi: {VAR: ui[1]}\nParola: {VAR: passwd}\n\nYukarıda belirtilen yeni parolanızı değiştirmek isterseniz, kullanıcı denetim masasından yapabilirsiniz:\n{FULL_ROOT}{ROOT}?t=register
-# Fuzzy
-reset_login_notify:Parolanız e-posta adresinize gönderildi. Bir kaç dakika içinde elinizde olmalı. Lütfen parolanızı gözden geçirin ve giriş yapın..<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
+reset_login_notify:Parolanız e-posta adresinize gönderildi. İlgili postayı birkaç dakika içerisinde alacaksınız.
 search_update:İletileri arıyor
 selmsg_update:<a href="{TEMPLATE: selmsg_update_lnk}">Bugünkü İletilerde</a> dolaşıyor
 showposts_update:<a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a> tarafından gönderilen iletileri görüntülüyor.
@@ -1103,7 +1105,7 @@ rating_delete:Sil
 post_always_on_top:Konunun her zaman konu listesinin en üstünde görünmesini sağla
 topic_rating:{PLURAL: frm->n_rating|$1 oy|$1 oy} ile {VAR: frm->rating}
 topic_list_rating:{PLURAL: r[21]|$1 oy|$1 oy} ile {VAR: r[17]}
-tabs_notifications:Haber Bildirileri
+tabs_notifications:Bildirimler
 finduser_flag:Bayrak
 post_descr:Konu Açıklaması:
 pmsg_on:açık
@@ -1114,8 +1116,7 @@ move_msg_th_expl:Hedef konunun ID'sini belirtin (diğer forumlarda olabilir)
 captcha_img_alt:Captcha Doğrulama: Görüntüde metni tanımanız gerekiyor.
 captcha_img_help:Görüntü içinde sıfır ya da bir bulunmuyor.
 powered-by:Destekleyen: FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:Telif hakkı &copy;2001-2011 <a href="http://fudforum.org/">FUDforum Bulletin Board Yazılımı</a>
+copyright:Telif hakkı &copy;2001-2013 <a href="http://fudforum.org/">FUDforum Bulletin Board Yazılımı</a>
 code_title:Kod:
 code_select_all:Tümünü seç
 code_show_hide:Göster / gizle
