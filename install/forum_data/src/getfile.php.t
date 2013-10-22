@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -120,11 +120,11 @@ function get_preview_img($id)
 	header('Content-Length: '. array_pop($r));
 	header('Connection: close');
 
+	// Increment counter and disconnect to prevent long opens while data is transferred.
 	attach_inc_dl_count($id, $r[3]);
-
-	// Disconnect DB to prevent long opens while data is transferred.
 	db_close();
 
 	// Spool file to browser.
+	@ob_end_flush();	// Output buffering may cause memory issues with large files.
 	@readfile($r[2]);
 ?>
