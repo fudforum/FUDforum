@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -243,6 +243,12 @@ class fud_mime_msg
 	function fetch_useful_headers()
 	{
 		$this->subject = htmlspecialchars(decode_header_value($this->headers['subject']));
+
+		// If htmlspecialchars() truncates the subject, it's probably not UTF-8 as it's supposed to be.
+		// Try to convert subject to the message charset.
+		if (strlen($this->headers['subject']) > 0 && strlen($this->subject) == 0) {
+			$this->subject = decode_string($this->headers['subject'], $this->headers['content-transfer-encoding'], $this->headers['__other_hdr__']['content-type']['charset']);
+		}
 
 		// Attempt to Get Poster's IP from fields commonly used to store it.
 		if (isset($this->headers['x-posted-by'])) {
