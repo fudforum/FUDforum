@@ -267,7 +267,7 @@ function upgrade_globals_php()
 		if (strpos($s, '$GLOBALS[') !== false) {
 			return;		// Already converted, bail out!
 		}
-		$new .= preg_replace('/(\s)\$([A-Z_1-9]*)([\s]*)/i', '$1$GLOBALS[\'$2\']$3', $s);
+		$new .= preg_replace('/(\s*)\$([A-Z_1-9]*)(\s*)=/i', "\t\$GLOBALS['$2']$3=", $s);
 	}
 	fclose($f);
 
