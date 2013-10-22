@@ -34,18 +34,18 @@ function match_user_to_post($from_email, $from_name, $create_users, &$user_id, $
 	return $user->id;
 }
 
-/** Create new confirmed forum user without sending an E-mail notification. */
+/** Create new forum users without sending cotification.
+  *
+  * We assume every user created from a USENT group or mailing list is already 'confirmed'.
+  * This function creates users, but without sending E-mail confirmations.
+  */
 function create_new_user($from_name, $from_email, $reg_date=0)
 {
-	/* Since we assume every user created from a mailing list is already 'confirmed'
-	 * this disables sending of the email confirmation.
-	 */
+	// Set the login name.
+	$login = empty($from_name) ? $from_email : $from_name;
 
-	$login = empty($from_name) ? preg_replace('/[^a-zA-Z0-9-\s]/', '', $from_email) : $from_name;
-	$i = 1;
-
-	/* Remove all non-ASCII characters from login */
-	$login = preg_replace('/[^(\x00-\x7F)]*/','', $login);
+	// Remove all non-UTF8 characters from login.
+	$login = @iconv('UTF-8', 'UTF-8//IGNORE', $login);
 
 	$user = new fud_user_reg;
 	if (strlen(htmlspecialchars($login)) + 4 > $GLOBALS['MAX_LOGIN_SHOW']) {
@@ -58,6 +58,7 @@ function create_new_user($from_name, $from_email, $reg_date=0)
 	 * This code ensures that creation of user does not fail in the event another user on the forum
 	 * is already signed up under the same login name and/or alias.
 	 */
+	$i = 1;
 	while (q_singleval('SELECT id FROM '. sql_p .'users WHERE login='. _esc($user->login))) {
 		$user->login = $login .'['. $i++ .']';
 	}
@@ -114,15 +115,17 @@ function get_fud_reply_id($complex, $forum_id, $subject, $data)
 	return !empty($r) ? array((int)$r[0], (int)$r[1]) : array(0, 0);
 }
 
-/** Extract IP address from a string. */
+/** Extract IP address from a string.
+  * 
+  * @assert ('Received: from EXIGE.hsc.net.ou.edu ([10.101.1.10]) by...') == '10.101.1.10'
+  * @assert ('Received: from MAILBOXSRV.AGARIK.MUT ([fe80::7591:a37:50f3:25a5]) by...') == 'fe80::7591:a37:50f3:25a5'
+  */
 function parse_ip($str)
 {
 	// Try to match an IPv4 address. 
-	// Example: Received: from EXIGE.hsc.net.ou.edu ([10.101.1.10]) by...
 	if (preg_match('!([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3})!', $str, $m)) {
 		return $m[1];
 	// Try to match an IPv6 address.
-	// Example: Received: from MAILBOXSRV.AGARIK.MUT ([fe80::7591:a37:50f3:25a5]) by...
 	} else if (preg_match('!\[([0-9a-f\:]+)\]!', $str, $m)) {
 		return $m[1];
 	} else {
@@ -154,9 +157,11 @@ function decode_string($str, $encoding, $charset='')
 
 /** Decode MIME-encoded header values.
   *
-  * @test decode_header_value('=?UTF-8?B?RXVnZW4gQmFiacSH?=') == 'Eugen Babić'
-  * @test decode_header_value('=?iso-8859-1?b?THV6b26uMTQ=?= dot CoM') == 'Luzon®14 dot CoM'
-  * @test decode_header_value('Can we break it: áèíóüñ / действующая / 방점;傍點') == 'Can we break it: áèíóüñ / действующая / 방점;傍點'
+  * @param string $val Value to decode
+  * @return string Decoded value
+  * @assert ('=?UTF-8?B?RXVnZW4gQmFiacSH?=') == 'Eugen Babić'
+  * @assert ('=?iso-8859-1?b?THV6b26uMTQ=?= dot CoM') == 'Luzon®14 dot CoM'
+  * @assert ('Can we break it: áèíóüñ / действующая / 방점;傍點') == 'Can we break it: áèíóüñ / действующая / 방점;傍點'
   */
 function decode_header_value($val)
 {
