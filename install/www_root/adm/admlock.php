@@ -43,14 +43,12 @@
 	if ($authenticated) {
 		$FUD_OPT_2 |= 8388608;
 		if (isset($_POST['btn_unlock'])) {
-			$dirperms = 0755;
+			$dirperms  = 0755;
 			$fileperms = 0644;
 			$FUD_OPT_2 ^= 8388608;
 		} else {
-			if (!strncmp(PHP_SAPI, 'apache', 6)) {
-				$dirperms = 0700;
-				$fileperms = 0600;
-			}
+			$dirperms  = 0711;	// 0700 may not work for WWW_ROOT_DISK directories.
+			$fileperms = 0600;
 		}
 
 		$dirs = array(realpath($DATA_DIR));
