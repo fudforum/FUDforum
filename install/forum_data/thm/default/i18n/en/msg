@@ -72,6 +72,7 @@ cal_day_heading:Events for day
 cal_no_events:No events for day.
 cal_update:Browsing the forum calendar
 cal_birthday:Birthday: {VAR: user}
+cal_birthdays:{PLURAL: birthdays|$1 birthday|$1 birthdays}
 cal_birthday_age:({PLURAL: age|$1 year|$1 years} old).
 message:Message
 message_counter:Our users have posted a total of <b>{PLURAL: post_count|$1 message|$1 messages}</b> inside <b>{PLURAL: thread_count|$1 topic|$1 topics}</b>.
