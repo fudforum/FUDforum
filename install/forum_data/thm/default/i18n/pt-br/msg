@@ -6,6 +6,7 @@
 # Author: Luckas Blade
 # Author: McDutchie
 # Author: Naudefj
+# Author: Titoncio
 # Author: 555
 
 action:Ação
@@ -22,12 +23,12 @@ by:Por:
 by_mod:por Moderador
 current_time:Hora Atual
 custom_avatar_queue:Avatar de Costume
-date_posted:Data do Post
+date_posted:Data de Publicação
 date_registered:Data do registro:
 download_counter:Transferido {PLURAL: v[3]|$1 vez|$1 vezes}
 pmsg_download_counter:Descarregado {PLURAL: r->dlcount|$1 vez|$1 vezes}
 email:Email:
-email_to_friend:Email a um amigo
+email_to_friend:Enviar a um amigo
 email_to_friend_desc:Enviar o endereço (URL) desta pagina a um(s)amigo(s) via email
 email_user:Enviar ao usuário uma mensagem por e-mail
 faq:F.A.Q.
@@ -37,7 +38,7 @@ flat_view:Retornar para a vista padrão
 forum:Fórum:
 forum_icon:Ícone do Fórum
 forum_new_messages:Novas Mensagens
-forum_none_messages:Apenas membros registados no fórum podem ler mensagems não lidas
+forum_none_messages:Apenas membros registados no fórum podem ler mensagens não lidas
 forum_old_messages:Não há novas mensagens
 from:De:
 gender:Sexo:
@@ -45,10 +46,10 @@ go:Avançar
 goto_next_msg:Ir para a proxima mensagem
 goto_prev_msg:Ir para a mensagem anterior
 home:Início
-homepage:página início:
+homepage:Página inicial:
 icq_control_panel:Painel de mensagens do ICQ Online
 icq_message_form:Formulario de mensagem ICQ:
-ignore_user:Ignorar todos os posts deste usuário
+ignore_user:Ignorar todas mensagens deste usuário
 im_aim:Apontar manuseamento:
 im_msnm:MSN Messenger:
 im_yahoo:Yahoo Messenger:
@@ -58,14 +59,14 @@ index_new_posts:Existem novos posts desde o último lido
 index_no_new_posts:Não existem novos posts desde o último lido
 index_url_redirection:Redirecionador
 interests:Interesses:
-last_post:Último post
+last_post:Última mensagem
 last_thread_msg:Ir para a ultima mensagem neste tópico
-legend:Legenda:
+legend:Legenda
 location:Localização:
 lock_thread:Fechar Tópico
 locked:Fechado
-locked_with_new_posts:Fechado(c/ posts não lidos)
-logged_in_list:Lista de usuários visitando o fórum
+locked_with_new_posts:Fechado (c/ posts não lidos)
+logged_in_list:Lista de usuários online
 login:Entrar
 login_header:Usuário:
 logout:Sair
@@ -77,7 +78,7 @@ cal_goto_date:Ir para:
 cal_day_heading:Eventos por dia
 cal_no_events:Não há eventos para este dia.
 cal_update:Navegando no calendário do fórum
-cal_birthday:Aniversário : {VAR: user}
+cal_birthday:Aniversário: {VAR: user}
 cal_birthday_age:({PLURAL: age|$1 ano|$1 anos}).
 message:Mensagem
 message_counter:Os nossos usuários postaram um total de <b>{PLURAL: post_count|$1 mensagem|$1 mensagens}</b> em <b>{PLURAL: thread_count|$1 tópico|$1 tópicos}</b>.
@@ -87,7 +88,7 @@ minimize_category:Minimizar Categoria
 minimize_message:Minimizar Mensagem
 moderation_queue:Moderação
 moderator:Moderador
-moderator_of:Moderador ausente:
+moderator_of:Moderador de:
 moderator_options:Opções do Moderador
 moderators:{PLURAL: modcount|Moderador|Moderadores}
 more_unread_messages:mais mensagens não lidas
@@ -96,16 +97,16 @@ move_thread:Mover
 moved:Movida para outro fórum
 moved_thread_message:Este tópico foi movido para outro Fórum
 na:n/d
-new_posts:Novos Posts
+new_posts:Novas Mensagens
 new_private_messages:Você tem <span class="GenTextRed">({VAR: c})</span> {PLURAL: c|mensagem privada não lida|mensagens privadas não lidas}
 new_thread:Criar um novo tópico
 newest_user:O mais novo membro registado é
 next_page:Próxima Página
 next_thread:Próximo Tópico:
 no_messages:Não há mensagens neste fórum.<br />Seja o primeiro a postar um tópico neste fórum.
-no_msg_body:mensagem vazia
-no_new_posts:Não há novos posts
-no_posts:sem Posts
+no_msg_body:Mensagem vazia
+no_new_posts:Não há novas mensagens
+no_posts:Não há Mensagens
 no_subscribed_forums:Não há fórums subscritos
 no_subscribed_threads:Não há topicos subscritos
 no_bookmarked_threads:Não há nenhum tópico nos favoritos
@@ -678,8 +679,7 @@ reset_err_rstconf_title:Informação
 reset_err_rstconf_msg:Deve receber instruções no seu Email nos próximos minutos
 reset_newpass_title:Cancelar Senha
 reset_newpass_msg:Olá,\n\no seu pedido os seus dados de login serão enviados.\nAqui está a sua informação de login:\n\nLogin: {VAR: ui[1]}\nSenha: {VAR: passwd}\n\nA sua Senha foi alterada para o valor abaixo, se quiser alterá-la pode fazê-lo através do painel de controle do usuário em : \n{FULL_ROOT}{ROOT}?t=register
-# Fuzzy
-reset_login_notify:A sua senha foi enviada por email. Você deve estar recebendo-a em poucos minutos. Consulte o seu Email.<br />.<br />.<br />
+reset_login_notify:A sua senha foi enviada por email. Você deve estar recebendo-a em poucos minutos.
 search_update:A procurar posts
 selmsg_update:Visualizando <a href="{TEMPLATE: selmsg_update_lnk}">posts de Hoje</a>
 showposts_update:Vendo posts por: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
@@ -1111,8 +1111,7 @@ move_msg_th_expl:Especifique a ID do tópico de destino (pode estar em outros f�
 captcha_img_alt:Verificação por Captcha: você precisará reconhecer o texto nesta imagem.
 captcha_img_help:Não há zero ou um na imagem.
 powered-by:Powered by: FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:Copyright &copy;2001-2012 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Copyright &copy;2001-2013 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Código:
 code_select_all:Selecionar tudo
 code_show_hide:Mostrar/esconder

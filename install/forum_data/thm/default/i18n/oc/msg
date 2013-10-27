@@ -294,7 +294,7 @@ finduser_action:Accion
 yes:Òc
 no:Non
 register_email:Corrièl
-edit_time_limit:<b>Temps maximum alogat per l'edicion</b> : {GVAR: EDIT_TIME_LIMIT} minutas
+edit_time_limit:<b>Temps maximum atribuit per l'edicion</b> : {GVAR: EDIT_TIME_LIMIT} minutas
 no_edit_time_limit:<b>Temps maximum alogat per l'edicion</b> : Illimitat
 pmuserloc_login:Utilizaire :
 pmuserloc_submit:Sometre
@@ -675,8 +675,7 @@ reset_err_rstconf_title:Informacion
 reset_err_rstconf_msg:Deuriatz recebre d'instruccions per e-mail dins qualques minutas.
 reset_newpass_title:Reïnicializacion del senhal
 reset_newpass_msg:Bonjorn,\n\ntrobatz çaijunt las informacions que vos fan mestièr per accedir al forum :\n\n\nNom d'utilizaire : {VAR: ui[1]}\nSenhal : {VAR: passwd}\n\nNotatz que podètz modificar vòstre senhal quand volètz via lo panèl de configuracion de vòstre perfil sul site del forum, tanben accessible a l'URL seguenta :\n{FULL_ROOT}{ROOT}?t=register
-# Fuzzy
-reset_login_notify:Vos venèm de mandar un e-mail que conten vòstras entresenhas d'inscripcion. O deuriatz recebre dins qualques minutas. Aqueste e-mail conten vòstre nom d'utilizaire e tanben vòstre senhal actual.<br />
+reset_login_notify:Vòstre senhal vos es estat mandat per corrièr electronic. Vos lo caldriá recebre dins las minutas que venon.
 search_update:Recèrca dels messatges
 selmsg_update:Percor los <a href="{TEMPLATE: selmsg_update_lnk}">messatges mandats uèi</a>
 showposts_update:Classa los messatges per : <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
@@ -1108,8 +1107,7 @@ move_msg_th_expl:Precisatz l'identificant del subjècte de destinacion (pòt ès
 captcha_img_alt:Verificacion par Captcha : vos cal reconéisser lo tèxte dins aqueste imatge.
 captcha_img_help:I a pas de zèro o de un sus aqueste imatge.
 powered-by:Propulsat per : FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:Copyright &copy; 2001-2012 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Copyright &copy;2001-2013 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:CÒDE :
 code_select_all:Seleccionar tot
 code_show_hide:Afichar / amagar
