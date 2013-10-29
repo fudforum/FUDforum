@@ -17,13 +17,16 @@ plugin_add_hook('HTML2BBCODE', 'plugin_video_html_to_tags');
 function plugin_video_tags_to_html($array) {
 	list($bbcode) = $array;
 
+	// Use http:// or https://
+	$URIprotocol = isset($_SERVER['HTTPS']) ? (($_SERVER['HTTPS']==='on' || $_SERVER['HTTPS']===1 || $_SERVER['SERVER_PORT']===443) ? 'https://' : 'http://') :  (($_SERVER['SERVER_PORT']===443) ? 'https://' : 'http://');
+
 	// Youtube tags.
-	$bbcode = preg_replace('#\[YOUTUBE\]([0-9a-zA-Z_\-]+)\[/YOUTUBE\]#si', '<object width="425" height="366"><param name="movie" value="http://www.youtube.com/v/\\1"></param><embed src="http://www.youtube.com/v/\\1" type="application/x-shockwave-flash" width="425" height="366"></embed></object>', $bbcode);
+	$bbcode = preg_replace('#\[YOUTUBE\]([0-9a-zA-Z_\-]+)\[/YOUTUBE\]#si', '<object width="425" height="366"><param name="movie" value="'. $URIprotocol .'www.youtube.com/v/\\1"></param><embed src="'. $URIprotocol .'www.youtube.com/v/\\1" type="application/x-shockwave-flash" width="425" height="366"></embed></object>', $bbcode);
 	// Youtube links.
-	$bbcode = preg_replace('#http\:\/\/www\.youtube\.com\/watch\?v\=([0-9a-zA-Z_\-]+)#si', '<object width="425" height="366"><param name="movie" value="http://www.youtube.com/v/\\1"></param><embed src="http://www.youtube.com/v/\\1" type="application/x-shockwave-flash" width="425" height="366"></embed></object>', $bbcode);
+	$bbcode = preg_replace('#https?\:\/\/www\.youtube\.com\/watch\?v\=([0-9a-zA-Z_\-]+)#si', '<object width="425" height="366"><param name="movie" value="'. $URIprotocol .'www.youtube.com/v/\\1"></param><embed src="'. $URIprotocol .'www.youtube.com/v/\\1" type="application/x-shockwave-flash" width="425" height="366"></embed></object>', $bbcode);
 
 	// Vimeo tags.
-	$bbcode = preg_replace('#\[VIMEO\]([0-9a-zA-Z_\-]+)\[/VIMEO\]#si', '<iframe src="http://player.vimeo.com/video/\\1?title=1&amp;byline=1&amp;portrait=1" width="500" height="378" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>', $bbcode);
+	$bbcode = preg_replace('#\[VIMEO\]([0-9a-zA-Z_\-]+)\[/VIMEO\]#si', '<iframe src="'. $URIprotocol .'player.vimeo.com/video/\\1?title=1&amp;byline=1&amp;portrait=1" width="500" height="378" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>', $bbcode);
 
 	return array($bbcode);
 }
@@ -32,9 +35,9 @@ function plugin_video_tags_to_html($array) {
 function plugin_video_html_to_tags($array) {
 	list($bbcode) = $array;
 
-	$bbcode = preg_replace('#<object width="425" height="366"><param name="movie" value="http://www.youtube.com/v/([0-9a-zA-Z_\-]+)"></param><embed src="http://www.youtube.com/v/([0-9a-zA-Z_\-]+)" type="application/x-shockwave-flash" width="425" height="366"></embed></object>#si', '[YOUTUBE]\\1[/YOUTUBE]', $bbcode);
+	$bbcode = preg_replace('#<object width="425" height="366"><param name="movie" value="https?://www.youtube.com/v/([0-9a-zA-Z_\-]+)"></param><embed src="http://www.youtube.com/v/([0-9a-zA-Z_\-]+)" type="application/x-shockwave-flash" width="425" height="366"></embed></object>#si', '[YOUTUBE]\\1[/YOUTUBE]', $bbcode);
 
-	$bbcode = preg_replace('#<iframe src="http://player.vimeo.com/video/([0-9a-zA-Z_\-]+)\?title=1&amp;byline=1&amp;portrait=1" width="500" height="378" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>#si', '[VIMEO]\\1[/VIMEO]', $bbcode);
+	$bbcode = preg_replace('#<iframe src="https?://player.vimeo.com/video/([0-9a-zA-Z_\-]+)\?title=1&amp;byline=1&amp;portrait=1" width="500" height="378" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>#si', '[VIMEO]\\1[/VIMEO]', $bbcode);
 
 	return array($bbcode);
 }
@@ -43,7 +46,7 @@ function video_tags_info() {
 	return array('name' => 'Video tags',
 	             'desc' => 'Allow forum users to use a spacial <b>[YOUTUBE]</b> and <b>[VIMEO]</b> BBcode tags to embed videos into forum posts.',
 		     'cat'  => 'BBcode',
-		     'version' => '1.3');
+		     'version' => '1.4');
 }
 
 ?>
