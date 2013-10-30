@@ -214,6 +214,7 @@ function source_load_polls() {
 				$vote = array(
 					'poll_id'  => $r->topic_id,
 					'user_id'  => $r3->vote_user_id,
+					'ip_addr'  => null,
 					'poll_opt' => $qid
 				);
 				target_add_poll_vote($vote);

@@ -198,6 +198,7 @@ function source_load_polls() {
 				$vote = array(
 					'poll_id'  => $r->pid,
 					'user_id'  => $r3->uid,
+					'ip_addr'  => null,
 					'poll_opt' => $qid
 				);
 				target_add_poll_vote($vote);

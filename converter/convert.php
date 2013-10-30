@@ -377,6 +377,9 @@ function target_add_forum($forum)
 		$forum_opt |= 4;	// Enable passwd_posting.
 	}
 
+	// No need to have encoded HTML (like &amp;) in forum names.
+	$forum['name'] = html_entity_decode($forum['name']);
+
 	$frm = new fud_forum();
 	$frm->cat_id               = $GLOBALS['cat_map'][ $forum['cat_id'] ];
 	$frm->name                 = $forum['name'];
@@ -567,8 +570,8 @@ function target_add_poll_vote($vote)
 	if ($vote['user_id'] == 1 && isset($GLOBALS['hack_id'])) {
 		$vote['user_id'] = $GLOBALS['hack_id'];
 	}
-	q('INSERT INTO '. $GLOBALS['DBHOST_TBL_PREFIX'] .'poll_opt_track (poll_id, user_id, poll_opt)
-		VALUES('. (int)$vote['poll_id'] .', '. (int)$vote['user_id'] .', '. (int)$vote['poll_opt'] .')');
+	q('INSERT INTO '. $GLOBALS['DBHOST_TBL_PREFIX'] .'poll_opt_track (poll_id, user_id, ip_addr, poll_opt)
+		VALUES('. (int)$vote['poll_id'] .', '. (int)$vote['user_id'] .', '. _esc(decode_ip($vote['ip_addr'])) .', '. (int)$vote['poll_opt'] .')');
 }
 
 /** Callback to load a private message into the FUDforum database. */
@@ -609,11 +612,11 @@ function target_load_calendar_event($event)
 
 	q('INSERT INTO '. $GLOBALS['DBHOST_TBL_PREFIX'] .'calendar (event_day, event_month, event_year, link, descr)
 	VALUES(
-		'. _esc($poll['day']) .',
-		'. _esc($poll['month']) .',
-		'. _esc($poll['year']) .',
-		'. _esc($poll['link']) .',
-		'. _esc($poll['descr']) .')'
+		'. _esc($event['day']) .',
+		'. _esc($event['month']) .',
+		'. _esc($event['year']) .',
+		'. _esc($event['link']) .',
+		'. _esc($event['descr']) .')'
 	);
 }
 
@@ -920,6 +923,7 @@ if (!$admin || $ADD_ADMIN) {
 
 	if (!$admin) {
 		pf('<hr>There is no admin account in the database, so we took the liberty of creating one for you.');
+		$admin = q_singleval('SELECT id FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'users WHERE login = '. _esc($user) );
 	} else {
 		pf('<hr>As requested, we\'ve created an admin user for you.');
 	}
@@ -932,7 +936,10 @@ q('DELETE FROM '. $DBHOST_TBL_PREFIX .'ses');
 // Clear & log action.
 fud_use('logaction.inc');
 q('DELETE FROM '. $DBHOST_TBL_PREFIX .'action_log');
-logaction(1, 'Converted from '. $CONVERT_FROM_FORUM, 0, $CONVERT_FROM_DIR);
+logaction($admin, 'Converted from '. $CONVERT_FROM_FORUM, 0, $CONVERT_FROM_DIR);
+
+// Flag for consistency check.
+touch($GLOBALS['TMP'] .'RUN_CONSISTENCY_CHECK');
 
 // Print time taken.
 $time_taken = time() - $start_time;
