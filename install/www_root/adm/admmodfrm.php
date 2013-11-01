@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -53,6 +53,13 @@
 <h3>Allow <?php echo $login; ?> to moderate:</h3>
 <form id="frm_mod" action="admmodfrm.php" method="post">
 <?php echo _hs; ?>
+
+<span style="float:right; font-size: small;">
+	[ <a href="#" id="none" onclick="jQuery('input:checkbox').prop('checked', false);">None</a> ]
+	[ <a href="#" id="all"  onclick="jQuery('input:checkbox').prop('checked', true);" >All</a> ]
+	&nbsp;
+</span>
+
 <table class="datatable fulltable">
 <?php
 	$c = uq('SELECT COALESCE(c.name, \'DELETED FORUMS\'), f.name, f.id, mm.id FROM '. $tbl .'forum f LEFT JOIN '. $tbl .'cat c ON c.id=f.cat_id LEFT JOIN '. $tbl .'mod mm ON mm.forum_id=f.id AND mm.user_id='. $usr_id .' ORDER BY c.parent, c.view_order, f.view_order');
