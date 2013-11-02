@@ -80,12 +80,12 @@ function users_last_used_ip($flds)
 	}
 }
 
-/** Change reset/conf_key from '0' to NULL (no need to store & index a bunch of 0 values). */
+/** Change reset/conf_key from '0' (VARCHAR) to NULL (no need to store & index a bunch of 0 values). */
 function users_conf_key($flds)
 {
 	pf('Convert reset_key & conf_key from 0 to NULL');
-	q('UPDATE '. $GLOBALS['DBHOST_TBL_PREFIX'] .'users SET conf_key =NULL WHERE conf_key =0');
-	q('UPDATE '. $GLOBALS['DBHOST_TBL_PREFIX'] .'users SET reset_key=NULL WHERE reset_key=0');
+	q('UPDATE '. $GLOBALS['DBHOST_TBL_PREFIX'] .'users SET conf_key =NULL WHERE conf_key =\'0\'');
+	q('UPDATE '. $GLOBALS['DBHOST_TBL_PREFIX'] .'users SET reset_key=NULL WHERE reset_key=\'0\'');
 }
 function users_reset_key($flds)
 {
@@ -714,6 +714,9 @@ pf('<h2>Step 1: Admin login</h2>', true);
 		$fp = fopen($GLOBALS['ERROR_PATH'] .'UPGRADE_STATUS', 'wb');
 		fwrite($fp, $__UPGRADE_SCRIPT_VERSION);
 		fclose($fp);
+		
+		/* Flag for consistency check. */
+		touch($GLOBALS['TMP'] .'RUN_CONSISTENCY_CHECK');
 
 		/* Get session details to construct link to consistency checker. */
 		$pfx = db_sab('SELECT u.sq, s.ses_id FROM '. $DBHOST_TBL_PREFIX .'users u INNER JOIN '. $DBHOST_TBL_PREFIX .'ses s ON u.id=s.user_id WHERE u.id='. $auth);
