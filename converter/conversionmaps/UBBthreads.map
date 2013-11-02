@@ -28,9 +28,8 @@ function source_db_connect() {
 		$GLOBALS['config']['TABLE_PREFIX'] );
 }
 
-/*
 function source_load_avatars() {
-	$avatar_dir = $GLOBALS['CONVERT_FROM_DIR'] .'/'. $GLOBALS['settings']['avatar_gallery_path'] .'/';
+	$avatar_dir = $GLOBALS['config']['FULL_PATH'] .'/images/avatars/default/';
 	$dir = opendir($avatar_dir);
 	while( $file = readdir($dir) ) {
 		if( $file == '.' || $file == '..' || @is_dir($avatar_dir . $file) || @is_link($avatar_dir . $file) ) continue;
@@ -41,22 +40,19 @@ function source_load_avatars() {
 		target_add_avatar($avatar);
 	}
 }
-*/
 
-/*
 function source_load_smilies() {
-	$c = bbq('SELECT * FROM '. dbpref .'smilies');
+	$c = bbq('SELECT * FROM '. dbpref .'graemlins');
 	while ($r = bbfetch($c)) {
 		$smiley = array(
-			'file'      => $GLOBALS['settings']['smilies_path'] .'/'. $r->smiley_url,
-			'code'      => $r->code,
-			'descr'     => $r->emotion,
-			'vieworder' => $r->smiley_order
+			'file'      => $GLOBALS['config']['FULL_PATH'] .'/images/graemlins/default/'. $r->GRAEMLIN_IMAGE,
+			'code'      => $r->GRAEMLIN_MARKUP_CODE,
+			'descr'     => $r->GRAEMLIN_SMILEY_CODE,
+			'vieworder' => $r->GRAEMLIN_ORDER
 		);
 		target_add_smiley($smiley);
 	}
 }
-*/
 
 function source_load_users() {
 	$c = bbq('SELECT * FROM '. dbpref .'users u LEFT JOIN '. dbpref .'user_data d ON u.user_id = d.user_id LEFT JOIN '. dbpref .'user_profile p ON u.user_id = p.user_id WHERE u.user_id >1 ORDER BY u.user_id');
@@ -138,9 +134,8 @@ function source_load_topics() {
 			'replies'     => $r->TOPIC_REPLIES,
 			'thread_opt'  => 0
 		);
-//		$topic['thread_opt'] |= ($r->topic_status == ITEM_LOCKED)   ? 1 : 0;	// Topic closed.
-//		$topic['thread_opt'] |= ($r->topic_type   == POST_ANNOUNCE) ? 2 : 0;	// Announcement.
-//		$topic['thread_opt'] |= ($r->topic_type   == POST_STICKY)   ? 4 : 0;	// Sticky topic.
+		$topic['thread_opt'] |= ($r->TOPIC_STATUS == 'C') ? 1 : 0;	// Topic closed.
+		$topic['thread_opt'] |= ($r->TOPIC_IS_STICKY)     ? 4 : 0;	// Sticky topic.
 		target_add_topic($topic);
 	}
 }
@@ -150,8 +145,8 @@ function source_load_messages() {
 	while ($r = bbfetch($c)) {
 
 		// Remove unneeded BR tags.
-		$r->POST_BODY = preg_replace('/^<br>/m', '', $r->POST_BODY);
-		
+		$r->POST_DEFAULT_BODY = preg_replace('/<br>/m', "\n", $r->POST_DEFAULT_BODY);
+
 		$message = array(
 			'id'           => $r->POST_ID,
 			'thread_id'    => $r->TOPIC_ID,
@@ -163,9 +158,8 @@ function source_load_messages() {
 			'subject'      => $r->POST_SUBJECT,
 			'ip_addr'      => $r->POST_POSTER_IP,
 			'msg_opt'      => 0,
-			'body'         => $r->POST_BODY
+			'body'         => $r->POST_DEFAULT_BODY
 		);
-//		$message['msg_opt'] |= ($r->enable_smilies) ? 2 : 0;
 		target_add_message($message);
 	}
 }
@@ -242,31 +236,27 @@ function source_load_forum_subscriptions() {
 	}
 }
 
-/*
 function source_load_private_messages() {
-	$c = bbq('SELECT * FROM '. dbpref .'privmsgs p LEFT JOIN '. dbpref .'privmsgs_to t ON p.msg_id = t.msg_id');
+	$c = bbq('SELECT p.user_id as "FROM", u.user_id as "TO", p.POST_TIME, u.MESSAGE_LAST_READ, t.TOPIC_SUBJECT, p.POST_DEFAULT_BODY FROM '. dbpref .'private_message_posts p LEFT JOIN '. dbpref .'private_message_topics t ON p.TOPIC_ID = t.TOPIC_ID LEFT JOIN '. dbpref .'private_message_users u ON p.TOPIC_ID = u.TOPIC_ID');
 	while ($r = bbfetch($c)) {
-		// $folder = $r->privmsgs_type != PRIVMSGS_SENT_MAIL ? 1 : 3;
-		$folder = 3;
+		// 1 INBOX, 2 SAVED, 3 SENT, 4 DRAFT, 5 TRASH
+		$folder = ($r->FROM==$r->TO) ? 3 : 1;
+
 		$pm = array(
-			'ouser_id'   => $r->author_id,
-			'duser_id'   => $r->user_id,
-			'ip_addr'    => $r->author_ip,
+			'ouser_id'   => $r->FROM,
+			'duser_id'   => $r->TO,
+			'ip_addr'    => null,
 			'post_stamp' => $r->POST_TIME,
 			'read_stamp' => $r->MESSAGE_LAST_READ,
 			'fldr'       => $folder,
 			'subject'    => $r->TOPIC_SUBJECT,
 			'pmsg_opt'   => 0,
-			'to_list'    => $r->to_address,
-			'body'       => $r->POST_BODY
+			'to_list'    => $r->TO,
+			'body'       => $r->POST_DEFAULT_BODY
 		);
-		// if ($r->folder==2) $pm['fldr'] = 3;	// 3==SENT for FUDforum.
-		$pm['pmsg_opt'] |= $r->enable_sig     ? 1 : 0;
-		$pm['pmsg_opt'] |= $r->enable_smilies ? 0 : 2;
 		target_add_private_message($pm);
 	}
 }
-*/
 
 function source_load_calendar_events() {
 	$c = bbq('SELECT * FROM '. dbpref .'calendar_events');

@@ -577,6 +577,7 @@ function target_add_poll_vote($vote)
 /** Callback to load a private message into the FUDforum database. */
 function target_add_private_message($pm)
 {
+
 	if ($GLOBALS['VERBOSE'] && $pm['fldr']==1) pf('...'. $pm['subject']);
 	
 	list($off, $len) = write_pmsg_body(bbcode2fudcode($pm['body']));
@@ -586,6 +587,9 @@ function target_add_private_message($pm)
 	}
 	if ($pm['ouser_id'] == 1 && isset($GLOBALS['hack_id'])) {	// Author id.
 		$pm['ouser_id'] = $GLOBALS['hack_id'];
+	}
+	if (empty($pm['fldr'])) {					// Folder: INBOX=1, SENT=3
+		$pm['fldr'] = ($pm['ouser_id']==$pm['duser_id']) ? 3 : 1;
 	}
 
 	q('INSERT INTO '. $GLOBALS['DBHOST_TBL_PREFIX'] .'pmsg 
@@ -714,8 +718,8 @@ if (php_sapi_name() == 'cli') {
 	<td><input type="cfg" name="cfg" value="<?php echo $dir; ?>" size="40" /></td>
 </tr>
 <tr class="field">
-	<td><b>Verbose:</b><br /><small>Print detailed progress info.</small></td>
-	<td><input type="checkbox" name="verbose" value="1" checked="checked" /></td>
+	<td><b>Verbose:</b><br /><small>Print detailed progress info. This will produce a LOT of output and should only be enabled when debugging.</small></td>
+	<td><input type="checkbox" name="verbose" value="1" /></td>
 </tr>
 <tr class="field">
 	<td><b>Create admin user:</b><br /><small>Create an admin account after conversion. Usually not required, but handy in case you cannot log in.</small></td>
