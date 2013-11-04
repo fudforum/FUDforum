@@ -73,6 +73,7 @@ cal_day_heading:Eventos del die
 cal_no_events:Nulle eventos hodie.
 cal_update:Naviga per le calendario del foro
 cal_birthday:Anniversario: {VAR: user}
+cal_birthdays:{PLURAL: birthdays|$1 anniversario|$1 anniversarios}
 cal_birthday_age:(ha {PLURAL: age|$1 anno|$1 annos} de etate).
 message:Message
 message_counter:Nostre usatores ha publicate un total de <b>{PLURAL: post_count|$1 message|$1 messages}</b> in <b>{PLURAL: thread_count|$1 topico|$1 topicos}</b>.

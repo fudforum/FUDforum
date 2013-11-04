@@ -74,6 +74,7 @@ cal_day_heading:Acontecementos de hoxe
 cal_no_events:Non hai eventos para este día.
 cal_update:Navegando polo calendario do foro
 cal_birthday:Aniversario: {VAR: user}
+cal_birthdays:{PLURAL: birthdays|$1 aniversario|$1 aniversarios}
 cal_birthday_age:({PLURAL: age|$1 ano|$1 anos}).
 message:Mensaxe
 message_counter:Os nosos usuarios publicaron un total <b>{PLURAL: post_count|dunha mensaxe|de $1 mensaxes}</b> <b>{PLURAL: thread_count|nun fío|en $1 fíos}</b>.

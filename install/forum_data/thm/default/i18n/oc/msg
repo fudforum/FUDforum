@@ -75,6 +75,7 @@ cal_day_heading:Eveniments per la jornada
 cal_no_events:Pas cap d'eveniment pel jorn.
 cal_update:Percórrer lo calendièr del forum
 cal_birthday:Anniversari : {VAR: user}
+cal_birthdays:{PLURAL: birthdays|$1 anniversari|$1 anniversaris}
 cal_birthday_age:({PLURAL: atge|$1 an|$1 ans}).
 message:Messatge
 message_counter:Nòstres utilizaires an postat un total {PLURAL: post_count|d'$1 messatge|de $1 messatges}</b> dins <b>{PLURAL: thread_count|$1 fial|$1 fial}</b>.

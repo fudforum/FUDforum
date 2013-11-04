@@ -73,6 +73,7 @@ cal_day_heading:Настани за денот
 cal_no_events:Нема настани за тој ден.
 cal_update:Прелистување на форумскиот календар
 cal_birthday:Роденден: {VAR: user}
+cal_birthdays:{PLURAL: birthdays|$1 роденден|$1 родендени}
 cal_birthday_age:(има {PLURAL: age|$1 година|$1 години}).
 message:Порака
 message_counter:Нашите корисници имаат оставено вкупно <b>{PLURAL: post_count|$1 порака|$1 пораки}</b> во <b>{PLURAL: thread_count|$1 тема|$1 теми}</b>.

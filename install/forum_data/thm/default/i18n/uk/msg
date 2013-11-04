@@ -81,6 +81,7 @@ cal_day_heading:Події за день
 cal_no_events:Немає подій на день.
 cal_update:Перегляд форумного календаря
 cal_birthday:День народження: {VAR: user}
+cal_birthdays:{PLURAL: birthdays|$1 день народження|$1 дні народження|$1 днів народження|}
 cal_birthday_age:({PLURAL: вік|$1 рік|$1 роки |$1 років})
 message:Повідомлення
 message_counter:Користувачами форуму залишено <b>{PLURAL: post_count|$1 повідомлення|$1 повідомлень}</b> по <b>{PLURAL: thread_count|$1 темі|$1 темам|$1 темах}</b>.

@@ -340,7 +340,7 @@ quicklogin_login_btn:Example:\n Login:       Password:\n ____________ __________
 forum_contact:{{Identical|Contact}}
 forum_home:{{Identical|Home}}
 post_cur_attached:{VAR: i} is the number of files currently attached to the message.
-p_VISIBLE:This is a permission in the forum's Groups Manager to indicate if a particular user/group of users can see a forum.
+p_VISIBLE:This is a permission in the forum's Groups Manager to indicate if a particular user/group of users can see a forum.\n{{Identical|Visible}}
 reported_in_thread:Indicate category and forum of a reported message. \nExample: Reported By: admin On: Mon, 17 August 2009 16:01 In: Test Category » First Forum » Welcome to FUDforum
 help_back_to_top:{{Identical|Back to top}}
 poll_edit:{{Identical|Edit}}

@@ -73,6 +73,7 @@ cal_day_heading:Acontecimientos del día
 cal_no_events:Nun hai acontecimientos para esti día.
 cal_update:Navegar pel calendariu del foru
 cal_birthday:Cumpleaños: {VAR: user}
+cal_birthdays:{PLURAL: cumpleaños|$1 cumpleaños|$1 cumpleaños}
 cal_birthday_age:({PLURAL: age|$1 añu|$1 años} d'edá).
 message:Mensaxe
 message_counter:Los nuesos usuarios publicaron un total de <b>{PLURAL: post_count|un mensaxe|$1 mensaxes}</b> <b>{PLURAL: thread_count|nún filu|en $1 filos}</b>.

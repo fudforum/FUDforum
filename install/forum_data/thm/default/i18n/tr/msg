@@ -84,6 +84,7 @@ cal_day_heading:Günlük olaylar
 cal_no_events:Gün için etkinlik yok.
 cal_update:Forum takvimi tara
 cal_birthday:Doğum günü: {VAR: user}
+cal_birthdays:{PLURAL: doğum günü|$1 doğum günü|$1 doğum günü}
 cal_birthday_age:({PLURAL: age|$1 yıl|$1 yıllar} eski).
 message:İleti
 message_counter:Kullanıcılarımız <b>{PLURAL: thread_count|$1 konu|$1 konu}</b> içinde yer alan toplam <b>{PLURAL: post_count|$1 ileti|$1 ileti}</b> göndermiş durumda.

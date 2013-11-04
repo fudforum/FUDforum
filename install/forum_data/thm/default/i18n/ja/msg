@@ -76,6 +76,7 @@ cal_goto_date:移動:
 cal_no_events:この日のイベントはありません。
 cal_update:フォーラムカレンダーの参照
 cal_birthday:誕生日: {VAR: user}
+cal_birthdays:{PLURAL: birthdays|$1 件の誕生日}
 cal_birthday_age:({PLURAL: age|$1 歳})。
 message:メッセージ
 message_counter:<b>{PLURAL: thread_count|$1 件}のトピック</b>内に合計で<b>{PLURAL: post_count|$1 通}のメッセージ</b>が投稿されました。

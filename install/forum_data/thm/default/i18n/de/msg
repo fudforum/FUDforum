@@ -85,6 +85,7 @@ cal_day_heading:Ereignisse an diesem Tag
 cal_no_events:Keine Ereignisse an diesem Tag.
 cal_update:Durchsucht den Kalender
 cal_birthday:Geburtstag: {VAR: user}
+cal_birthdays:{PLURAL: birthdays|Ein Geburtstag|$1 Geburtstage}
 cal_birthday_age:({PLURAL: age|$1 Jahr|$1 Jahre} alt).
 message:Beitrag
 message_counter:Unsere Benutzer haben insgesamt <b>{PLURAL: post_count|$1 Nachricht|$1 Nachrichten}</b> in <b>{PLURAL: thread_count|$1 Thema|$1 Themen}</b> erstellt.

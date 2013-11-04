@@ -84,6 +84,7 @@ cal_day_heading:Eventos por día
 cal_no_events:No hay eventos para este día.
 cal_update:Navegar en el calendario del foro
 cal_birthday:Fecha de nacimiento: {VAR: user}
+cal_birthdays:{PLURAL: cumpleaños|$1 cumpleaños|$1 cumpleaños}
 cal_birthday_age:({PLURAL: edad|$1 año|$1 años} años de edad).
 message:Mensaje
 message_counter:Nuestros usuarios han publicado un total de <b>{PLURAL: post_count|$1 mensaje|$1 mensajes}</b> dentro de <b>{PLURAL: thread_count|$1 tema|$1 temas}</b>.

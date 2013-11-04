@@ -82,6 +82,7 @@ cal_day_heading:Dagens aktiviteter
 cal_no_events:Inga händelser för dagen.
 cal_update:Läser forumets kalender
 cal_birthday:Födelsedag: {VAR: user}
+cal_birthdays:{PLURAL: födelsedagar|$1 födelsedag|$1 födelsedagar}
 cal_birthday_age:({PLURAL: age|$1 år|$1 år} gammal).
 message:Inlägg
 message_counter:Våra användare har skrivit totalt <b>{PLURAL: post_count|$1 inlägg|$1 inlägg}</b> i <b>{PLURAL: thread_count|$1 ämne|$1 ämnen}</b>

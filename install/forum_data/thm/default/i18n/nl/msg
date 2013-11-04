@@ -76,6 +76,7 @@ cal_day_heading:Gebeurtenissen voor dag
 cal_no_events:Geen gebeurtenissen voor dag.
 cal_update:De forumkalender aan het bekijken
 cal_birthday:Verjaardag: {VAR: user}
+cal_birthdays:{PLURAL: birthdays|$1 verjaardag|$1 verjaardagen}
 cal_birthday_age:({PLURAL: age|$1 jaar|$1 jaar} oud).
 message:Bericht
 message_counter:Onze gebruikers hebben in totaal <b>{PLURAL: post_count|$1 bericht|$1 berichten}</b> geplaatst in <b>{PLURAL: thread_count|$1 onderwerp|$1 onderwerpen}</b>.

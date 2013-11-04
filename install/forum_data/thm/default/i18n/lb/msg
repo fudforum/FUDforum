@@ -61,6 +61,7 @@ cal_day_heading:Evenementer vum Dag
 cal_no_events:Keng Evenementer fir den Dag.
 cal_update:Am Forum Kalenner sichen
 cal_birthday:Gebuertsdag: {VAR: user}
+cal_birthdays:{PLURAL: birthdays|$1 Gebuertsdag|$1 Gebuertsdeeg}
 cal_birthday_age:({PLURAL: age|$1 Joer} al).
 message:Message
 message_index_desc:D'Lëscht vun de Message weisen
@@ -190,7 +191,7 @@ male:Männlech
 female:Weiblech
 finduser_user_info:Benotzerinformatioun
 finduser_submit:Sichen
-finduser_no_such_user:Et gëtt keen esou Benotzer
+finduser_no_such_user:Et gëtt keen sou Benotzer
 finduser_user:Benotzer
 finduser_postcount:Zuel vun de Messagen
 finduser_action:Aktioun
@@ -360,7 +361,7 @@ email_error_invaliduser:Benotzer ass net valabel
 emailconf_err_invkey_title:Feeler
 err_inc_criticaltitle:Kritesche Feeler
 finduser_update:Sicht no Benotzer
-iemail_participate:Fir bäi der Diskussioun matzemaache gitt dohinner:
+iemail_participate:Fir bei der Diskussioun matzemaache gitt dohinner:
 ignore_list_err_info_title:Informatioun
 ignore_list_err_nu_title:Benotzer net fonnt
 ignore_list_cantign_msg:Dir däerft dëse Benotzer net ignoréieren
@@ -376,7 +377,7 @@ register_err_notyouremail:Et huet schonn een Anere sech mat dëser Mail-Adress u
 register_profile_update:Kuckt den eegene Profil
 register_register_update:Umeldungssäit
 report_err_nosuchmsg_title:FEELER
-report_err_nosuchmsg_msg:Esou ee Message gëtt et net
+report_err_nosuchmsg_msg:Sou ee Message gëtt et net
 reset_err_invalidkey_title:FEELER
 reset_err_rstconf_title:Informatioun
 reset_newpass_title:Passwuert zrécksetzen

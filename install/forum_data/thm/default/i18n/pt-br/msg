@@ -1,5 +1,6 @@
 # Messages for Brazilian Portuguese (português do Brasil)
 # Exported from translatewiki.net
+# Author: Cainamarques
 # Author: Giro720
 # Author: Leosls
 # Author: Luckas
@@ -79,6 +80,7 @@ cal_day_heading:Eventos por dia
 cal_no_events:Não há eventos para este dia.
 cal_update:Navegando no calendário do fórum
 cal_birthday:Aniversário: {VAR: user}
+cal_birthdays:{PLURAL: birthdays|$1 aniversário|$1 aniversários}
 cal_birthday_age:({PLURAL: age|$1 ano|$1 anos}).
 message:Mensagem
 message_counter:Os nossos usuários postaram um total de <b>{PLURAL: post_count|$1 mensagem|$1 mensagens}</b> em <b>{PLURAL: thread_count|$1 tópico|$1 tópicos}</b>.

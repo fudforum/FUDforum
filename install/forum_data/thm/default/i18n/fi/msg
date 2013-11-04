@@ -79,6 +79,7 @@ cal_day_heading:Tapahtumat tänään
 cal_no_events:Ei tapahtumia päivälle.
 cal_update:Selataan keskustelualueen kalenteria
 cal_birthday:Syntymäpäivä: {VAR: user}
+cal_birthdays:{PLURAL: birthdays|$1 syntymäpäivä|$1 syntymäpäivää}
 cal_birthday_age:({PLURAL: age|$1 vuotta|$1 vuotta}).
 message:Viesti
 message_counter:Yhteensä <b>{PLURAL: post_count|$1 viesti|$1 viestiä}</b> <b>{PLURAL: thread_count|$1 aiheesta|$1 aiheesta}</b>.
@@ -217,7 +218,7 @@ reported_reported_msg:Ilmoitetut viestit
 modque_pending_approval:Hyväksymättömät viestit
 modque_approve:Hyväksy
 modque_delete:Poista
-modque_deleteall:Poista kaikki käyttäjiltä
+modque_deleteall:Poista kaikki käyttäjältä
 modque_no_message:Ei hyväksymättömiä viestejä
 pmsg_new_messages:Lukematon yksityisviesti
 pmsg_old_messages:Luettu yksityisviesti
@@ -1027,7 +1028,7 @@ userinfo_real_name:Oikea nimi:
 register_err_alias_notallowed:Tämä alias ei ole sallittu
 post_err_mod_forum_edit_ttl:Virhe
 post_err_mod_forum_edit_msg:Et voi muokata moderoidun foorumin viestejä.
-dmsg_num:viesti nro {VAR: obj->id}
+dmsg_num:viesti {VAR: obj->id}
 postcheck_session_invalid:Istuntosi oli päättynyt, syötä lomakkeen tiedot uudelleen.
 delete_message_extra_desc:<b>Valinnainen</b><br />Määritä syy viestin poistoon, joka lähetetään yksityisviestinä viestin aloittajalle.
 delete_message_extra_body:Liitä mukaan poistettu viesti, joka lähetetään tekijälle.
@@ -1107,7 +1108,7 @@ pmsg_on:Päivämäärä:
 pmsg_download_dump:Lataa viestivedos
 move_messages:Siirrä viestit
 move_msg_btn:Siirrä valitut viestit
-move_msg_th_expl:Ilmoita kohdeaiheen tunnusnumero (voi olla toisella foorumilla)
+move_msg_th_expl:Ilmoita kohdeaiheen tunnistenumero (voi olla toisella foorumilla)
 captcha_img_alt:Captcha-varmistus: Sinun täytyy tunnistaa teksti tästä kuvasta.
 captcha_img_help:Kuvassa ei ole nollaa tai ykköstä.
 powered-by:Palvelun mahdollistaa: FUDforum {GVAR: FORUM_VERSION}.
@@ -1146,6 +1147,6 @@ page_update:Selailee sivua
 pm_export_header:Yksityisviestit käyttäjälle {VAR: usr->alias}
 pm_export_footer:Viety:
 karma:Karma
-karma_track:Hallitse käyttäjän mainetta:
+karma_track:Hallinnoi käyttäjän mainetta:
 karma_delete:Poista
 rate_author:Arvostele tekijä:
