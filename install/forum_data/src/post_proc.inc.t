@@ -190,6 +190,9 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 				case 'sub':
 				case 'sup':
 				case 'del':
+				case 'big':
+				case 'small':
+				case 'center':
 					$end_tag[$cpos] = '</'. $tag .'>';
 					$ostr .= '<'. $tag .'>';
 					break;
@@ -625,7 +628,8 @@ function html_to_tags($fudml)
 
 	$fudml = str_replace(
 	array(
-		'<b>', '</b>', '<i>', '</i>', '<u>', '</u>', '<s>', '</s>', '<sub>', '</sub>', '<sup>', '</sup>', '<del>', '</del>',
+		'<b>', '</b>', '<i>', '</i>', '<u>', '</u>', '<s>', '</s>', '<sub>', '</sub>', '<sup>', '</sup>', 
+		'<del>', '</del>', '<big>', '</big>', '<small>', '</small>',
 		'<div class="pre"><pre>', '</pre></div>', 
 		'<div align="center">', '<div align="left">', '<div align="right">', '</div>',
 		'<span class="indent">', '</span><!--indent-->',
@@ -633,7 +637,8 @@ function html_to_tags($fudml)
 		'<h1>', '</h1>', '<h2>', '</h2>', '<h3>', '</h3>', '<h4>', '</h4>'
 	),
 	array(
-		'[b]', '[/b]', '[i]', '[/i]', '[u]', '[/u]', '[s]', '[/s]', '[sub]', '[/sub]', '[sup]', '[/sup]', '[del]', '[/del]',
+		'[b]', '[/b]', '[i]', '[/i]', '[u]', '[/u]', '[s]', '[/s]', '[sub]', '[/sub]', '[sup]', '[/sup]', 
+		'[del]', '[/del]', '[big]', '[/big]', '[small]', '[/small]', '[center]', '[/center]',
 		'[code]', '[/code]', 
 		'[align=center]', '[align=left]', '[align=right]', '[/align]',
 		'[indent]', '[/indent]',
