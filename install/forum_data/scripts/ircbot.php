@@ -25,10 +25,11 @@ function send_command($cmd, $verbose=true)
 		@fwrite($server['SOCKET'], $cmd ."\r\n");
 	}
 
-	if (defined('fud_debug')) $verbose=true;	// Force to true for debuging.
+	if (defined('fud_debug')) $verbose=true;	// Force to true for debugging.
 	if ($verbose) {
 		echo '[SEND] '. $cmd ."\n";
 	}
+	sleep(1);
 }
 
 function sig_handler($signo)
@@ -40,7 +41,6 @@ function sig_handler($signo)
 	case SIGINT:
 		// Shut down.
 		send_command('QUIT');
-		sleep(1);
 		exit;
 		break;
 	case SIGHUP:
@@ -118,12 +118,18 @@ function sig_handler($signo)
 	if (!empty($ini['IRCBOT_NICK'])) {
 		send_command('PASS NOPASS');
 		send_command('NICK '. $ini['IRCBOT_NICK']);
+		if (empty($ini['IRCBOT_GECOS'])) {
+			$ini['IRCBOT_GECOS'] = $FORUM_TITLE;
+		}
 		send_command('USER '. $ini['IRCBOT_NICK'] .' '. $ini['IRCBOT_HOST'] .' bla :'. $ini['IRCBOT_GECOS']);
 	}
-	if ($ini['IRCBOT_USENICKSERV']) {
+	if (!empty($ini['IRCBOT_NICKSERVPASS'])) {
 		send_command('PRIVMSG NickServ :IDENTIFY '. $ini['IRCBOT_NICK'] .' '. $ini['IRCBOT_NICKSERVPASS']);
 	}
 	if (!empty($ini['IRCBOT_CHANNEL'])) {
+		if ($ini['IRCBOT_CHANNEL'][0] != '#') {	// Chanel names must start with #.
+			$ini['IRCBOT_CHANNEL'] = '#'. $ini['IRCBOT_CHANNEL'];
+		}
 		send_command('JOIN '. $ini['IRCBOT_CHANNEL']); // Join the chanel.
 	}
 
@@ -143,6 +149,7 @@ function sig_handler($signo)
 	while(!feof($server['SOCKET'])) {
 		// Get line of data from server.
 		$line  = fgets($server['SOCKET'], 1024);
+		if (defined('fud_debug')) echo '[READ] '. $line;
 		$parts = explode(' ', $line);
 
 		// Play ping-pong with the server to stay connected.
@@ -177,6 +184,7 @@ function sig_handler($signo)
 
 		switch($cmd) {
 		case ':!about':
+		case ':!info':
 			send_command('PRIVMSG '. $parts[2] .' :'. $GLOBALS['FORUM_TITLE']);
 			send_command('PRIVMSG '. $parts[2] .' :'. $GLOBALS['FORUM_DESCR']);
 			send_command('PRIVMSG '. $parts[2] .' :'. $GLOBALS['WWW_ROOT']);
@@ -216,6 +224,7 @@ function sig_handler($signo)
 			send_command('PRIVMSG '. $parts[2] ." :The newest registered user is {$user}");
 			send_command('PRIVMSG '. $parts[2] ." :Last message on the forum: {$subj}");
 			break;
+		case ':!bye':
 		case ':!exit':
 		case ':!die':
 		case ':!quit':
