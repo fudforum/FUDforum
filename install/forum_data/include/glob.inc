@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -45,7 +45,7 @@ function print_bit_field($descr, $field)
 	$h =& $GLOBALS['help_ar'][$field];
 	$o =& $h[1];
 
-	echo '<tr class="field"><td><label for="'. $o[0] .'_'. $field .'">'. $descr .': <br /><font size="-1">'. $h[0] .'</font></label></td><td valign="top">';
+	echo '<tr class="field"><td><label for="'. $o[0] .'_'. $field .'">'. $descr .': <br /><font size="-2">'. $h[0] .'</font></label></td><td valign="top">';
 
 	if (!isset($o[2])) {
 		echo create_select($o[0] .'_'. $field, "Yes\nNo", "{$o[1]}\n0", ($GLOBALS[$o[0]] & (int) $o[1]));
@@ -74,7 +74,7 @@ function print_reg_field($descr, $field, $is_int=0, $pass=0)
 		$val = !$is_int ? htmlspecialchars($GLOBALS[$field]) : (int)$GLOBALS[$field];
 	}
 	$extra = ($is_int) ? 'type="number" ' : '';	// HTML5 type spec.
-	echo '<tr class="field"><td><label for="CF_'. $field .'">'. $descr .': <br /><font size="-1">'. $GLOBALS['help_ar'][$field][0] .'</font></label></td><td valign="top"><input type="'. (!$pass ? 'text' : 'password') .'" name="CF_'. $field .'" id="CF_'. $field .'" value="'. $val .'" size="30" autocomplete="off" '. $extra .'/></td></tr>';
+	echo '<tr class="field"><td><label for="CF_'. $field .'">'. $descr .': <br /><font size="-2">'. $GLOBALS['help_ar'][$field][0] .'</font></label></td><td valign="top"><input type="'. (!$pass ? 'text' : 'password') .'" name="CF_'. $field .'" id="CF_'. $field .'" value="'. $val .'" size="30" autocomplete="off" '. $extra .'/></td></tr>';
 }
 
 /** Print a text field (used in ACP). */
@@ -86,7 +86,7 @@ function print_txt_field($descr, $field, $rows=2, $cols=30)
 		$val = htmlspecialchars($GLOBALS[$field]);
 	}
 
-	echo '<tr class="field"><td><label for="CF_'. $field .'">'. $descr .': <br /><font size="-1">'. $GLOBALS['help_ar'][$field][0] .'</font></label></td><td valign="top"><textarea rows="'. $rows .'" cols="'. $cols .'" id="CF_'. $field .'" name="CF_'. $field .'">'. $val .'</textarea></td></tr>';
+	echo '<tr class="field"><td><label for="CF_'. $field .'">'. $descr .': <br /><font size="-2">'. $GLOBALS['help_ar'][$field][0] .'</font></label></td><td valign="top"><textarea rows="'. $rows .'" cols="'. $cols .'" id="CF_'. $field .'" name="CF_'. $field .'">'. $val .'</textarea></td></tr>';
 }
 
 /** Read settings from GLOBALS.php without invoking core.inc. */
@@ -110,6 +110,25 @@ function read_global_settings()
 	unlink($tmpfname); // Delete temp file;
 	
 	return true;
+}
+
+/** Toggle a binary option ON or OFF. */
+function toggle_bin_setting($field, $val)
+{
+	$h =& $GLOBALS['help_ar'][$field];
+	$o =& $h[1];
+
+	if ($val & $o[1]) {
+		// Toggle on
+		$GLOBALS[$o[0]] |= intval($o[1]);
+	} else {
+		// Toggle off
+		$GLOBALS[$o[0]] &= ~intval($o[1]);
+	}
+
+	// Make permanent.
+	change_global_settings(array($o[0] => $GLOBALS[$o[0]]));
+
 }
 
 /** Change forum settings in GLOBALS.php. */

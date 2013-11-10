@@ -41,6 +41,7 @@ if (!defined('shell_script')) {
 }
 
 define('__fud_index_name__', 'index.php');
+ses_update_status($GLOBALS['usr']->sid, 'Access ACP');
 
 if (!($GLOBALS['usr']->users_opt & 1048576)) {	// not is_admin
 	// Limited access for account moderators.

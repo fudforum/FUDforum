@@ -49,7 +49,7 @@ function fud_dir_space_usage($dir)
 				$dirs[] = $f;
 				continue;
 			}
-			$disk_space += filesize($f);
+			$disk_space += @filesize($f);
 		}
 	}
 
