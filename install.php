@@ -35,7 +35,10 @@ function modules_enabled()
 	if (function_exists('mysqli_connect')) {
 		$status['mysqli'] = true;
 		$status['mysql']  = false;	// mysql is depricated and we have an alternative.
+	} else {
+		$status['mysqli'] = false;
 	}
+
 	return $status;
 }
 
@@ -193,7 +196,7 @@ function decompress_archive($data_root, $web_root)
 			}
 			fwrite($fp, $file);
 			fclose($fp);
-			@chmod($file, 0644);
+			@chmod($path, 0644);
 		} else {
 			if (substr($path, -1) == '/') {
 				$path = preg_replace('!/+$!', '', $path);
@@ -488,8 +491,8 @@ $module_status = modules_enabled();
 /* Perform various sanity checks, which check for required components. */
 if (!count($_POST)) {
 	/* PHP version check. */
-	if (!version_compare(PHP_VERSION, '5.2.3', '>=')) {
-		seterr('PHPVER', 'FUDforum requires PHP 5.2.3 or later while you have version <?php echo PHP_VERSION; ?> Installed. Please rectify this and try again.');
+	if (!version_compare(PHP_VERSION, '5.3.0', '>=')) {
+		seterr('PHPVER', 'FUDforum requires PHP 5.3.0 or later while you have version <?php echo PHP_VERSION; ?> Installed. Please rectify this and try again.');
 	}
 
 	/* Database check. */
@@ -501,8 +504,8 @@ if (!count($_POST)) {
 		!$module_status['pdo_sqlite'] &&
 		!$module_status['sqlsrv'] && !$module_status['pdo_sqlsrv'])
 	{
-		// FUTURE: seterr('NODB', 'Your PHP installation does not appear to support any of CUBRID, IBM DB2, Firebird, MySQL, Oracle, PosgreSQL, SQLite or MS-SQL Server database system. Please rectify this and try again.');
-		seterr('NODB', 'Your PHP installation does not appear to support any of IBM DB2, Firebird, MySQL, Oracle, PosgreSQL, SQLite or MS-SQL Server database system. Please rectify this and try again.');
+		// FUTURE: seterr('NODB', 'FUDforum requires a database to function. Your PHP installation does not support any of following databases: CUBRID, IBM DB2, Firebird, MySQL, Oracle, PosgreSQL, SQLite or MS-SQL Server. Please rectify this and try again.');
+		seterr('NODB', 'FUDforum requires a database to function. Your PHP installation does not support any of following databases: IBM DB2, Firebird, MySQL, Oracle, PosgreSQL, SQLite or MS-SQL Server. Please rectify this and try again.');
 	}
 
 	/* PCRE check. */
@@ -517,8 +520,11 @@ if (!count($_POST)) {
 
 	if (isset($GLOBALS['errors'])) {
 		page_header();
+		echo '<h2>Minimum requirements</h2>';
 		foreach($GLOBALS['errors'] as $err) {
 			echo '<p>'. $err .'</p>';
+			// dialog_start('Unable to install', '<p>'. $err .'</p>');
+			// dialog_end('prereq');
 		}
 		page_footer();
 		exit;
@@ -717,7 +723,7 @@ if ($section == 'stor_path' || php_sapi_name() == 'cli') {
 			'FUD_OPT_1'		=> $FUD_OPT_1,
 			'COOKIE_PATH'		=> $url_parts['path'],
 			'DATA_DIR'		=> $SERVER_DATA_ROOT,
-			'SERVER_TZ'		=> date_default_timezone_get()
+			'SERVER_TZ'		=> @date_default_timezone_get()
 		));
 
 		$display_section = 'db';
