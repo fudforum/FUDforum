@@ -156,8 +156,8 @@
 <table class="datatable solidtable">
 <?php if($FUD_OPT_1 & 1024) { ?>
 <tr class="field">
-	<td>Send Messages via PM</td>
-	<td><input type="checkbox" name="pm" value="1" /></td>
+	<td><label for="pm">Send Messages via PM</label></td>
+	<td><input type="checkbox" id="pm" name="pm" value="1" /></td>
 </tr>
 <?php
 }

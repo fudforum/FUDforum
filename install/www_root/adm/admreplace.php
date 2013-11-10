@@ -29,15 +29,26 @@ function clean_rgx()
 
 	require($WWW_ROOT_DISK .'adm/header.php');
 
+	// Cancel form input.
 	if (!empty($_POST['btn_cancel'])) {
 		unset($_POST);
 	}
 	
+	// Scroll down to test area.
+	if (isset($_POST['btn_test'])) {
+		echo '<script>jQuery(document).ready(function() {';
+		echo '	$("html,body").animate({scrollTop: jQuery("#test").offset().top},"slow");';
+		echo '});</script>';
+	}
+
+	// Add or update a rule.
 	if (isset($_POST['btn_submit']) && !empty($_POST['rpl_replace_str']) && !empty($_POST['rpl_with_str'])) {
 		clean_rgx();
 		if (!$_POST['rpl_replace_opt']) {
+			// Add preg replacement rule.
 			q('INSERT INTO '. $DBHOST_TBL_PREFIX .'replace (replace_opt, replace_str, with_str, from_post, to_msg) VALUES(0, '. _esc($_POST['rpl_replace_str']) .', '. _esc($_POST['rpl_with_str']) .', '. _esc($_POST['rpl_from_post']) .', '. _esc($_POST['rpl_to_msg']) .')');
 		} else {
+			// Add simple replacement rule.
 			q('INSERT INTO '. $DBHOST_TBL_PREFIX .'replace (replace_opt, replace_str, with_str) VALUES(1, '. _esc($_POST['rpl_replace_str']) .', '. _esc($_POST['rpl_with_str']) .')');
 		}
 		echo successify('Replacement rule successfully added.');
@@ -56,23 +67,26 @@ function clean_rgx()
 		echo successify('Replacement rule successfully updated.');
 	}
 
+	// Delete a rule.
 	if (isset($_GET['del'])) {
 		q('DELETE FROM '. $DBHOST_TBL_PREFIX .'replace WHERE id='. (int)$_GET['del']);
 		echo successify('Replacement rule successfully deleted.');
 	}
-	if (isset($_GET['edit']) || isset($_POST['edit'])) {
+	
+	// Load a rule for editing.
+	if (isset($_GET['edit'])) {
 		$edit = isset($_GET['edit']) ? (int)$_GET['edit'] : (int)$_POST['edit'];
-		list($rpl_replace_opt, $rpl_replace_str, $rpl_with_str, $rpl_from_post, $rpl_to_msg) = db_saq('SELECT replace_opt,replace_str,with_str,from_post,to_msg FROM '. $DBHOST_TBL_PREFIX .'replace WHERE id='. $edit);
+		list($rpl_replace_opt, $rpl_replace_str, $rpl_with_str, $rpl_from_post, $rpl_to_msg) = db_saq('SELECT replace_opt, replace_str, with_str, from_post, to_msg FROM '. $DBHOST_TBL_PREFIX .'replace WHERE id='. $edit);
 		if ($rpl_replace_opt) {
 			$rpl_replace_str = str_replace('\\/', '/', substr($rpl_replace_str, 1, -1));
 		} else {
 			$p = strrpos($rpl_replace_str, '/');
-			$rpl_preg_opt = substr($rpl_replace_str, ($p + 1));
+			$rpl_preg_opt    = substr($rpl_replace_str, ($p + 1));
 			$rpl_replace_str = substr($rpl_replace_str, 1, ($p - 1));
 
 			$p = strrpos($rpl_from_post, '/');
 			$rpl_from_post_opt = substr($rpl_from_post, ($p + 1));
-			$rpl_from_post = substr($rpl_from_post, 1, ($p - 1));
+			$rpl_from_post     = substr($rpl_from_post, 1, ($p - 1));
 		}
 	} else {
 		$edit = $rpl_replace_str = $rpl_with_str = $rpl_from_post = $rpl_to_msg = $rpl_from_post_opt = $rpl_preg_opt = '';
@@ -80,7 +94,7 @@ function clean_rgx()
 	}
 ?>
 <h2>Replacement and Censorship System</h2>
-<p>Add, edit, and remove words and phrases to censor on your forums.</p>
+<p>Add, edit, and remove words and phrases to replace on your forums.</p>
 
 <h3><?php echo $edit ? '<a name="edit">Edit Replacement:</a>' : 'Add Replacement:'; ?></h3>
 <form id="frm_rpl" method="post" action="admreplace.php">
@@ -143,7 +157,7 @@ function clean_rgx()
 
 <?php
 	if (!$rpl_replace_opt) {
-		if (!isset($_POST['btn_regex'])) {
+		if (!isset($_POST['btn_test'])) {
 			$regex_str = $rpl_replace_str;
 			$regex_src = 'Some '. $rpl_replace_str .' text';
 			$regex_with = $rpl_with_str;
@@ -160,7 +174,7 @@ function clean_rgx()
 	</tr>
 
 	<tr class="fieldtopic">
-		<td colspan="2"><b><font size="-2">Test area, tryout your regex here:</font></b></td>
+		<td colspan="2"><b><font size="-2"><a id="test">Test area, tryout your regex here:</a></font></b></td>
 	</tr>
 
 	<tr class="field">
@@ -178,7 +192,7 @@ function clean_rgx()
 		<td><textarea name="regex_src" rows="2" cols="25"><?php echo htmlspecialchars($regex_src); ?></textarea></td>
 	</tr>
 <?php
-	if (isset($_POST['btn_regex'])) {
+	if (isset($_POST['btn_test'])) {
 		if (false !== strpos($regex_str_opt, 'e')) {
 			$str = 'Code injection is not allowed!';
 		} else {
@@ -200,11 +214,11 @@ function clean_rgx()
 		</td>
 	</tr>
 <?php
-	} /* isset($_POST['btn_regex']) */
+	} /* isset($_POST['btn_test']) */
 ?>
 
 	<tr class="fieldaction" align="right">
-		<td colspan="2"><input type="submit" name="btn_regex" value="Test it!" /></td>
+		<td colspan="2"><input type="submit" name="btn_test" value="Test it!" /></td>
 	</tr>
 <?php } /* !$rpl_replace_opt */ ?>
 

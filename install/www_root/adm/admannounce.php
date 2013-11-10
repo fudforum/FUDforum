@@ -46,18 +46,6 @@ function mk_date($y, $m, $d)
 			$frm_list[$r[0]] = $r[0];
 		}
 		unset($c);
-	} else if (isset($_POST['btn_none']) || isset($_POST['btn_all'])) {
-		$vals = array('edit', 'announce_subject', 'announce_text', 'd_year', 'd_month', 'd_day', 'd2_year', 'd2_month', 'd2_day', 'announce_opt');
-		foreach ($vals as $v) {
-			${$v} = $_POST[$v];
-		}
-		if (isset($_POST['btn_all'])) {
-			$c = uq('SELECT id FROM '. $tbl .'forum');
-			while ($r = db_rowarr($c)) {
-				$frm_list[$r[0]] = $r[0];
-			}
-			unset($c);
-		}
 	} else {
 		$edit = $announce_subject = $announce_text = '';
 		$announce_opt = 0;
@@ -109,9 +97,14 @@ function mk_date($y, $m, $d)
 	<tr class="field">
 		<td valign="top">Forums:<br /><font size="-2">(display announcement here)</font></td>
 		<td><table border="0" cellspacing="1" cellpadding="2">
-			<tr><td colspan="5"><input type="submit" name="btn_none" value="None" /> <input type="submit" name="btn_all" value="All" /></td></tr>
+			<tr><td colspan="5">
+				<small>
+				[ <a href="#" id="none" onclick="jQuery('input:checkbox').prop('checked', false);">None</a> ]
+				[ <a href="#" id="all"  onclick="jQuery('input:checkbox').prop('checked', true);" >All</a> ]
+				</small>
+			</td></tr>
 <?php
-	require $FORUM_SETTINGS_PATH.'cat_cache.inc';
+	require $FORUM_SETTINGS_PATH .'cat_cache.inc';
 	$pfx = $oldc = ''; $row = 0;
 	$c = uq('SELECT f.id, f.name, c.id FROM '. $tbl .'fc_view v INNER JOIN '. $tbl .'forum f ON f.id=v.f INNER JOIN '. $tbl .'cat c ON f.cat_id=c.id ORDER BY v.id');
 	while ($r = db_rowarr($c)) {

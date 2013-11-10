@@ -32,6 +32,11 @@
 <h2>Forum Dashboard</h2>
 
 <?php
+	/* Check if consistency check is required. */
+	if (@file_exists($GLOBALS['TMP'] .'RUN_CONSISTENCY_CHECK')) {
+		echo '<div class="alert dismiss" title="Conistency Check">Please run the forum\'s <a href="consist.php?'. __adm_rsid .'">consistency checker</a>.<br /></div>';
+	}
+
 	/* Check for files that should be removed. */
 	if (@file_exists($WWW_ROOT_DISK .'install.php')) {
 		echo '<div class="alert dismiss" title="'. $WWW_ROOT_DISK .'install.php">Please <a href="../install.php">run</a> or <a href="admbrowse.php?cur='. urlencode($WWW_ROOT_DISK) .'&amp;'. __adm_rsid .'#flagged">delete</a> the <em>install</em> script before a hacker discovers it.<br /></div>';

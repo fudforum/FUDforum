@@ -67,9 +67,19 @@ function return_group_name($id)
 <form method="post" action="admlog.php">
 	<?php echo _hs; ?>
 	<?php $log_user = isset($_POST['log_user']) ? $_POST['log_user'] : ''; ?>
-	<input type="search" name="log_user" value="<?php echo $log_user; ?>" />
+	<input type="search" id="log_user" name="log_user" value="<?php echo $log_user; ?>" />
 	<input type="submit" value="Go" name="frm_submit" />
 </form>
+<style>
+	.ui-autocomplete-loading { background: white url("../theme/default/images/ajax-loader.gif") right center no-repeat; }
+</style>
+<script>
+	jQuery(function() {
+		jQuery("#log_user").autocomplete({
+			source: "../index.php?t=autocomplete&lookup=alias", minLength: 1
+		});
+	});
+</script>
 </td><td align="right">
 	[ <a href="admlog.php?clear=1&amp;<?php echo __adm_rsid; ?>">Clear Action Log</a> ]
 </td></tr></table>

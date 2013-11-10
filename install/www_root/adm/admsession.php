@@ -17,6 +17,25 @@
 
 <h2>Forum Sessions</h2>
 
+<p><b>Top Actions:</b></p>
+<table class="resulttable fulltable">
+<thead><tr class="resulttopic">
+	<th width="70%">Action</th>
+	<th width="30%">Count</th>
+</tr></thead>
+<?php
+	$c = uq(q_limit('SELECT action, count(*) FROM '. $DBHOST_TBL_PREFIX .'ses s GROUP BY action ORDER BY count(*) DESC', 10));
+	$i = 0;
+	while ($r = db_rowarr($c)) {
+		$r[0] = preg_replace('/href="/', 'href="'. $WWW_ROOT, $r[0]); // Fix URL.
+		$bgcolor = ($i++%2) ? ' class="resultrow1"' : ' class="resultrow2"';
+		echo '<tr'. $bgcolor .'"><td>'. $r[0] .'</td>';
+		echo '<td>'. $r[1]  .'</td>';
+	}
+	unset($c);
+?>
+</table>
+
 <p><b>Top IP Addresses:</b></p>
 <table class="resulttable fulltable">
 <thead><tr class="resulttopic">
@@ -27,7 +46,6 @@
 	$c = uq(q_limit('SELECT ip_addr, count(*) FROM '. $DBHOST_TBL_PREFIX .'ses s GROUP BY ip_addr ORDER BY count(*) DESC', 10));
 	$i = 0;
 	while ($r = db_rowarr($c)) {
-		$r[1] = preg_replace('/href="/', 'href="'. $WWW_ROOT, $r[1]); // Fix URL.
 		$bgcolor = ($i++%2) ? ' class="resultrow1"' : ' class="resultrow2"';
 		echo '<tr'. $bgcolor .'"><td><a href="../'. __fud_index_name__ .'?t=ip&amp;ip='. $r[0] .'&amp;'. __adm_rsid .'" title="Analyse IP usage">'. $r[0] .'</a></td>';	
 		echo '<td>'. $r[1]  .'</td>';
@@ -46,7 +64,6 @@
 	$c = uq(q_limit('SELECT useragent, count(*) FROM '. $DBHOST_TBL_PREFIX .'ses s GROUP BY useragent ORDER BY count(*) DESC', 10));
 	$i = 0;
 	while ($r = db_rowarr($c)) {
-		$r[1] = preg_replace('/href="/', 'href="'. $WWW_ROOT, $r[1]); // Fix URL.
 		$bgcolor = ($i++%2) ? ' class="resultrow1"' : ' class="resultrow2"';
 		echo '<tr'. $bgcolor .'"><td>'. $r[0] .'</td>';
 		echo '<td>'. $r[1]  .'</td>';

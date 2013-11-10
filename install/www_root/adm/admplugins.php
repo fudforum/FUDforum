@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -81,7 +81,7 @@ function undeploy_files($plugin)
 		if (isset($_POST['FUD_OPT_3_PLUGINS_ENABLED'])) {
 			if ($_POST['FUD_OPT_3_PLUGINS_ENABLED'] & 4194304) {
 				$FUD_OPT_3 |= 4194304;
-				echo successify('Plugin support was successfully enabled.<br />Note that you can now activate plugins below.');
+				echo successify('Plugin support was successfully enabled.<br />You can now activate plugins below.');
 			} else {
 				$FUD_OPT_3 &= ~4194304;
 				echo successify('Plugin support was successfully disabled.');
@@ -304,7 +304,7 @@ function undeploy_files($plugin)
 		      <td><span class="ui-icon ui-icon-arrowthick-2-n-s"></span><a href="admplugins.php?config='. urlencode($r->name) .'&amp;'. __adm_rsid .'" title="Configure plugin">'. $info[$r->name]['name'] .'</a></td>
 			  <td>'. $info[$r->name]['version'] .'</td>
 			  <td>'. $info[$r->name]['cat']     .'</td>
-			  <td>'. $info[$r->name]['desc']    .'</td>
+			  <td>'. preg_replace('/^(.*)(<br|<p).*/is', '\\1', $info[$r->name]['desc']) .'</td>
 			  <td><a href="admplugins.php?deact='. $r->name .'&amp;'. __adm_rsid .'">Deactivate</a></td></tr>';
 	}
 	unset($c);
@@ -334,7 +334,7 @@ function undeploy_files($plugin)
   <td><a href="admplugins.php?config=<?php echo urlencode($plugin) .'&amp;'. __adm_rsid .'" title="Configure plugin">'. $info[$plugin]['name']; ?></a></td>
   <td><?php echo $info[$plugin]['version']; ?></td>
   <td><?php echo $info[$plugin]['cat']; ?></td>
-  <td><?php echo $info[$plugin]['desc']; ?></td>
+  <td><?php echo preg_replace('/^(.*)(<br|<p).*/is', '\\1', $info[$plugin]['desc']); ?></td>
 </tr>
 <?php } ?> 
 </table>
