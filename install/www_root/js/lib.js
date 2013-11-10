@@ -57,6 +57,7 @@ function insertTagMoz(obj, stag, etag)
 
 function insertTagIE(obj, stag, etag)
 {
+	// getSelection() works in IE 9 and above, until then use createRange().
 	var r = document.selection.createRange();
 	if( document.selection.type == 'Text' && (obj.value.indexOf(r.text) != -1) ) {
 		a = r.text;
