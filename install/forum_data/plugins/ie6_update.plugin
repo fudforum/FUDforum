@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -15,13 +15,12 @@ plugin_add_hook('COMPILER_FINALIZE_PAGE', 'plugin_ie6_update');
 function plugin_ie6_update($array) {
 	list($html, $page) = $array;
 
-	$ie6_update_code = '<!--[if IE 6]>
-<script type="text/javascript">var IE6UPDATE_OPTIONS = {
-	icons_path: "http://static.ie6update.com/hosted/ie6update/images/",
-	url: "http://getfirefox.com",
-	message: "Internet Explorer is a bad, bad browser. Click here to upgrade your Internet experience..."
-}</script>
-<script type="text/javascript" src="http://static.ie6update.com/hosted/ie6update/ie6update.js"></script>
+	$ie6_update_code = '<!--[if lt IE 7]>
+<div style=" clear: both; height: 59px; padding:0 0 0 15px; position: relative;">
+<a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+<img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." />
+</a>
+</div>
 <![endif]-->
 ';
 
@@ -33,9 +32,9 @@ function plugin_ie6_update($array) {
 
 function ie6_update_info() {
 	return array('name' => 'IE6 Update',
-				'desc' => 'Help kill Internet Explorer 6 by enabling this plugin. IE6 users will see a message asking them to upgrade to a later release. For details, see <a href="http://ie6update.com/">ie6update.com</a>.',
+				'desc' => 'Help kill Internet Explorer 6 by enabling this plugin. IE6 users will see a message asking them to upgrade to a later release. For details, see <a href="http://www.ie6countdown.com/">ie6countdown.com</a>.',
 				'cat'  => 'Third-party Integration',
-				'version' => '1.0');
+				'version' => '1.1');
 }
 
 function ie6_update_enable() {
