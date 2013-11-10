@@ -64,9 +64,13 @@ function users_birthday($flds)
 function users_registration_ip($flds)
 {
 	pf('Convert reg_ip to registration_ip for IPv6 compatibility');
-	$c = q('SELECT id, reg_ip FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'users');
-	while ($r = db_rowarr($c)) {
-		q('UPDATE '. $GLOBALS['DBHOST_TBL_PREFIX'] .'users SET registration_ip=\''. long2ip($r[1]) .'\' WHERE id='. $r[0]);
+	try {
+		$c = q('SELECT id, reg_ip FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'users');
+		while ($r = db_rowarr($c)) {
+			q('UPDATE '. $GLOBALS['DBHOST_TBL_PREFIX'] .'users SET registration_ip=\''. long2ip($r[1]) .'\' WHERE id='. $r[0]);
+		}
+	} catch (Exception $e) {
+		echo $e->getMessage(), "\n";
 	}
 }
 
@@ -74,9 +78,13 @@ function users_registration_ip($flds)
 function users_last_used_ip($flds)
 {
 	pf('Convert last_known_ip to last_used_ip IPv6 compatibility');
-	$c = q('SELECT id, last_known_ip FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'users');
-	while ($r = db_rowarr($c)) {
-		q('UPDATE '. $GLOBALS['DBHOST_TBL_PREFIX'] .'users SET last_used_ip=\''. long2ip($r[1]) .'\' WHERE id='. $r[0]);
+	try {
+		$c = q('SELECT id, last_known_ip FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'users');
+		while ($r = db_rowarr($c)) {
+			q('UPDATE '. $GLOBALS['DBHOST_TBL_PREFIX'] .'users SET last_used_ip=\''. long2ip($r[1]) .'\' WHERE id='. $r[0]);
+		}
+	} catch (Exception $e) {
+		echo $e->getMessage(), "\n";
 	}
 }
 
@@ -879,7 +887,7 @@ pf('<h2>Step 1: Admin login</h2>', true);
 	$db_tables = array_flip(get_fud_table_list());
 	foreach (glob($GLOBALS['DATA_DIR'] .'/sql/*.tbl', GLOB_NOSORT) as $v) {
 		$tbl = get_stbl_from_file($v);
-		if (defined('fud_debug')) echo 'Check table: '. $tbl['name'] ."\n";
+		if (defined('fud_debug')) pf('Check table: '. $tbl['name']);
 		$out_of_line_pks = array();
 
 		// Skip thread view tables.
@@ -894,7 +902,7 @@ pf('<h2>Step 1: Admin login</h2>', true);
 			/* Handle DB columns. */
 			$db_col = get_fud_col_list($tbl['name']);
 			foreach ($tbl['flds'] as $k => $v2) {
-				if (defined('fud_debug')) echo ' - check column: '. $k ."\n";
+				if (defined('fud_debug')) pf(' - check column: '. $k);
 
 				// Queue "out of line PK's" for later processing.
 				if ($v2['primary'] && !$v2['auto'] ) {	// Primary, but not auto number.

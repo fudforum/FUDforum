@@ -432,8 +432,7 @@ function get_sql_disk_usage()
 	} else if (__dbtype__ == 'pgsql') {
 		return q_singleval('SELECT pg_database_size(\''. $GLOBALS['DBHOST_DBNAME'] .'\')');
 	} else if (__dbtype__ == 'sqlite') {
-		// We can return filesize($DBHOST), but DB size is already accounted for in directory size.
-		return 0;
+		return filesize($DBHOST);
 	}
 
 	return 0;	// Not implemented.
@@ -828,6 +827,8 @@ function alter_column($tbl, $col, $prop)
 		}
 		if ($prop['not_null']) {
 			q('ALTER TABLE '. $tbl .' ALTER COLUMN '. $col .' SET NOT NULL');
+		} else {
+			q('ALTER TABLE '. $tbl .' ALTER COLUMN '. $col .' DROP NOT NULL');
 		}
 	} else if (__dbtype__ == 'sqlite') {
 		// SQLite cannot change columns, we need to recreate the table.
