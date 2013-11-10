@@ -629,7 +629,7 @@ function html_to_tags($fudml)
 	$fudml = str_replace(
 	array(
 		'<b>', '</b>', '<i>', '</i>', '<u>', '</u>', '<s>', '</s>', '<sub>', '</sub>', '<sup>', '</sup>', 
-		'<del>', '</del>', '<big>', '</big>', '<small>', '</small>',
+		'<del>', '</del>', '<big>', '</big>', '<small>', '</small>', '<center>', '</center>',
 		'<div class="pre"><pre>', '</pre></div>', 
 		'<div align="center">', '<div align="left">', '<div align="right">', '</div>',
 		'<span class="indent">', '</span><!--indent-->',
