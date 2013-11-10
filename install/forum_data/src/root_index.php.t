@@ -33,7 +33,8 @@
 
 	/* Check PHP_COMPRESSION_ENABLE. */
 	if ($FUD_OPT_2 & 16384 && $t != 'getfile') {
-		ob_start(array('ob_gzhandler', (int)$PHP_COMPRESSION_LEVEL));
+		ini_set('zlib.output_compression_level', (int)$PHP_COMPRESSION_LEVEL);
+		ob_start('ob_gzhandler');
 	}
 
 	if ($t == 'rview') {
