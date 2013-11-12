@@ -418,6 +418,7 @@ ignore_users:Usatores ignorate
 add_ignore:Ignorar usator
 forum_terms:Conditions d'utilisation du forum
 forum_rules:<p>Le inscription in iste foro es gratuite! Nos insiste totevia que tu seque le regulas e politicas detaliate hic infra. Si tu accepta iste conditiones, per favor preme le button <b>De accordo</b> al fin del pagina. Nota: Per premer le button tu declara que tu ha plus de 13 annos. Si tu ha 13 annos o minus, per favor usa iste formulario de inscription.</p><p>Ben que le administratores e moderatores de iste foro tentara excluder tote messages inappropriate de iste foro, il nos es impossibile revider tote le messages. Tote le messages exprime le opiniones del autor, e ni le proprietarios del foro ni le programmatores pote esser responsabile pro le contento de alcun message.</p><p>Per cliccar le button De accordo, tu garanti que tu non publicara alcun message que es obscen, vulgar, sexualmente orientate, odiose, menaciante, o alteremente in violation de alcun lege.</p><p>Le proprietarios de iste foro ha le derecto de remover, modificar, displaciar o clauder omne topico pro qualcunque motivo.</p>
+# Fuzzy
 forum_rules_13:<p>Omne usator minor de 13 annos debe cercar permission de su parente o tutor a fin de devenir membro del foros. Ben que nos da le benvenita al participantes minor de 13 annos, nos require que un parente o tutor nos invia per fax o e-mail un formulario de permission signate ante que nos concede le membrato.</p><p>Si tu vole comenciar le processo de registration ante que nos ha recipite un formulario de permission, preme le button <b>De accordo</b> hic infra. Si tu vole cancellar le registration, preme <b>Non de accordo</b> pro retornar al indice del foros.</p><p>Un copia del formulario de permission pote esser discargate hic. Pro ulterior informationes super le processo de registration, per favor invia e-mail a <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
 coppa_conf:Confirmation COPPA
 coppa_before:Ante le {TEMPLATE: coppa_date}
@@ -429,6 +430,7 @@ prereg_agree:De accordo
 prereg_disagree:Non de accordo
 prereg_update:Lege le regulas del foro
 coppa_fax_instructions:Instructiones pro un parente o tutor
+# Fuzzy
 coppa_fax_instructions2:Per favor imprime iste pagina, signa lo, e invia lo per fax a:
 coppa_fax_reg_form:Formulario de inscription
 coppa_fax_sign:Per favor signa le formulario hic infra e invia lo a nos

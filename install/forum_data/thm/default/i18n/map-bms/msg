@@ -416,6 +416,7 @@ ignore_users:Panganggo sing diacuhna
 add_ignore:Tambahna Panganggo sing arep diacuhna
 forum_terms:Kabijakan Forum
 forum_rules:<p>Pendaftaran maring forum kiye bebas/gratis! Inyong karepe Rika sarujuk karo aturan lan kabijakan sing dirinci nang ngisor kiye. Angger Rika sarujuk karo aturan kiye, monggo pencet tombol <b>Sarujuk</b> nang ngisor kaca kiye. Cathetan: Angger Rika mencet tombol kuwe mau artine Rika wis nyatakna nek Rika kuwe umure lewih sekang 13 taun.Angger Rika umure 13 taun utawa lewih nom maning, monggo gunakna formulir pendaftaran kiye. </p><p> Senajan administrator lan moderatore forum kiye bakal njagani obyektifitas forum kiye, ora mungkin teyeng mriksa kabeh pesen. Kabeh pesen kuwe ngungkapna cara-ndelenge wong sing nulis, lan sing duwe forum utawa pengembange ora tanggungjawab karo isine pesen-pesen kuwe.</p><p> Angger Rika wis mencet tombol Sarujuk, Rika njamin nek Rika ora bakal ngirimna pesen-pesen sing saru, vulgar, ancaman, utawa nglanggar hukum.</p><p> Sing duwe forum kiye duwe hak nggo mbusek, nyunting, mindah utawa nutup topik apa baen nggo alesan apa baen.</p>
+# Fuzzy
 forum_rules_13:<p>Kabeh panganggo sing umure kurang sekang 13 taun kudu olih ijin sekang wong tuwa utawa waline nggo ndaftar dadi anggotane forum kiye. Senajan inyong nyambut parsitipasine sekang anggota sing umure durung 13 taun, inyong njaluk wong tuwa utawa waline nggo ngirimna disit surat ijin sing wis ditandatangani liwat fax utawa pos sedurunge keanggotaan ditampa.</p><p> Angger Rika kepengin molai proses registrasi sedurunge inyong nampa formulir ijin, pencet tombol <b>Sarujuk</b> nang ngisor kiye. Angger Rika kepengin mbatalna registrasi, pencet <b>Ora Sarujuk</b> nggo mbalik ming indek forum.</p><p> Salinane formulir ijin teyeng diunduh nang kene. Kanggo informasi lewih lanjut prakara proses pendaftaran, monggo kirim baen imel maring <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
 coppa_conf:Konfirmasi COPPA
 coppa_before:Sedurunge {TEMPLATE: coppa_date}
@@ -427,6 +428,7 @@ prereg_agree:Sarujuk
 prereg_disagree:Ora Sarujuk
 prereg_update:Maca aturan forum
 coppa_fax_instructions:Instruksi kanggo wong tuwa utawa wali panganggo
+# Fuzzy
 coppa_fax_instructions2:Monggo dicetak kaca kiye, aweh tapak asta, lan kirimna nganggo fax ming:
 coppa_fax_reg_form:Formulir Registrasi
 coppa_fax_sign:Monggo aweh tapak asta nang formulir kiye lan kirimna maring inyong

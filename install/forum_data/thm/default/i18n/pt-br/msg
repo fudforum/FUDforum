@@ -425,6 +425,7 @@ ignore_users:Usuários ignorados
 add_ignore:Adicionar ignorados
 forum_terms:Termos de uso do Fórum
 forum_rules:O registro neste fórum é gratuito! Insistimos no respeito pelas regras e normas detalhadas abaixo. Se você concordar com estes termos, clique o botão <b>Concordo</b> no final da página, por favor. Nota: Ao clicar o botão, você declara ter mais de 13 anos. Se não tiver mais de 13 anos, use este formulário de registro, por favor.</p><p>Embora os administradores e moderadores deste fórum tentem mantê-lo livre de mensagens ofensivas, é-nos impossível fazer a revisão de todas as mensagens. Todas as mensagens expressam unicamente o ponto de vista de seu autor. Nem os proprietários do fórum, nem os programadores, poderão ser responsabilizados pelo conteúdo de qualquer mensagem.</p><p>Ao clicar o botão Concordo, garante que não colocará mensagens obscenas, vulgares, de natureza sexual, racistas ou ameaçadoras, nem que de qualquer outra forma constituam uma violação da lei.</p><p>Os proprietários deste fórum têm o direito de remover, editar, mover ou fechar qualquer tópico por qualquer motivo.<p>
+# Fuzzy
 forum_rules_13:<p>Todos os usuários de idade inferior a 13 anos necessitam da autorização dos pais ou responsável para serem membros do fórum. Apesar de acolhermos a participação de membros com idade inferior a 13 anos, é necessário que um dos pais ou responsável envie um formulário de autorização assinado, por fax ou e-mail, antes de permitirmos a sua participação.</p><p>Se quiser iniciar o processo de inscrição antes de recebermos um formulário de autorização, clique o botão <b>Concordo</b>, abaixo. Se quiser cancelar o registro, clique <b>Não concordo</b>, para voltar ao índice do fórum.</p><p>Pode fazer o download de uma cópia do formulário de autorização aqui. Para mais informações sobre o processo de registro, envie um e-mail para <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
 coppa_conf:Confirmação COPPA
 coppa_before:Antes de {TEMPLATE: coppa_date}
@@ -436,6 +437,7 @@ prereg_agree:Concordo
 prereg_disagree:Não concordo
 prereg_update:Lendo as regras do fórum
 coppa_fax_instructions:Instruções para o encarregado de educação
+# Fuzzy
 coppa_fax_instructions2:Por favor imprima esta página assine e envie para:
 coppa_fax_reg_form:Formulário de registro
 coppa_fax_sign:Por favor assine e envie-nos o formulário abaixo

@@ -419,6 +419,7 @@ ignore_users:Usuarios ignorados
 add_ignore:Ignorar o usuario
 forum_terms:Termos do foro
 forum_rules:<p>O rexistro neste foro é gratuíto! Insistimos en que cumpras as regras e políticas detalladas a continuación. Se estás de acordo cos termos, por favor, preme sobre o botón "<b>Acepto</b>" ao final da páxina. Nota: ao premer no botón, declaras que tes máis de 13 anos de idade. Se tes 13 anos ou menos, por favor, usa este formulario de rexistro.</p><p>Aínda que os administradores ou moderadores deste foro intentarán manter todas as mensaxes desagradables fóra do foro, é imposible para nós revisar todas elas. Todas as mensaxes expresan as opinións do autor, e non as dos propietarios do foro ou desenvolvedores, que non son responsables do contido de calquera delas.</p><p>Ao premer no botón "Acepto", garantes que non publicarás ningunha mensaxe con contido obsceno, vulgar, sexual, ameazante, que denote odio ou que viole calquera lei.</p><p>Os propietarios deste foro teñen o dereito de eliminar, editar, mover ou pechar calquera fío por calquera motivo.</p>
+# Fuzzy
 forum_rules_13:<p>Todos os usuarios menores de 13 anos deben pedir permiso aos seus pais ou titores legais antes de se converteren en membros do foro. Malia que damos a benvida á participación por parte de membros menores de 13 anos, necesitamos que un pai ou titor legal envíe un fax ou correo cun formulario de autorización asinado antes de aceptarmos a solicitude de conta.</p><p>Se queres comezar o proceso de rexistro antes de enviar o formulario de autorización, preme sobre o botón "<b>Aceptar</b>" que aparece embaixo. Se queres cancelar o rexistro, fai clic en "<b>Discordo</b>" para volver á páxina inicial do foro.</p><p>Podes descargar aquí unha copia do formulario de autorización. Para obter máis información sobre o proceso de rexistro, envía un correo electrónico a <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
 coppa_conf:Confirmación COPPA
 coppa_before:Antes de {TEMPLATE: coppa_date}
@@ -430,6 +431,7 @@ prereg_agree:Acepto
 prereg_disagree:Discordo
 prereg_update:Lendo as regras do foro
 coppa_fax_instructions:Instrucións para o pai ou titor legal
+# Fuzzy
 coppa_fax_instructions2:Por favor, imprime esta páxina, asínaa e envíaa por fax a:
 coppa_fax_reg_form:Formulario de rexistro
 coppa_fax_sign:Por favor, asina o seguinte formulario e envíanolo

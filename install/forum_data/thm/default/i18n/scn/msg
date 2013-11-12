@@ -1,5 +1,6 @@
 # Messages for Sicilian (sicilianu)
 # Exported from translatewiki.net
+# Author: Gmelfi
 
 action:Azione
 add_to_buddy_list:aggiunge a l'elenghe de l'amice
@@ -71,6 +72,7 @@ cal_day_heading:Avveneminde pa sciurnate
 cal_no_events:Nisciune avvenemende pa sciurnate.
 cal_update:Sfogghie 'u calendarije d'u forum
 cal_birthday:Date de nascite: {VAR: user}
+cal_birthdays:{PLURAL: birthdays|$1 cumpliannu|$1 cumplianni}
 cal_birthday_age:({PLURAL: età|$1 anne}).
 message:Messàgge
 message_counter:Le utinde nuèstre onne mannate 'nu totale de  <b>{PLURAL: post_count|$1 messàgge}</b> sus a <b>{PLURAL: thread_count|$1 argomende|$1 argumende}</b>.
@@ -415,6 +417,7 @@ ignore_users:Utinde cacate
 add_ignore:Aggiunge le cacaminde
 forum_terms:Termine d'u forum
 forum_rules:<p>'A reggistrazione a stu forum jè libbere! Nuje insisitime ca tu respitte le regole ca stonne aqquà sotte. Ce tu sì d'accorde cu le termine, pe paicere cazze 'u buttone <b>Accette</b> a 'a fine d'a pàgene. Note: Cazzanne 'u buttone ste dichiare ca tu tìne cchiù de 13 anne. Ce ne tìne 13 o di mene, pe piacere ause 'u module de reggistrazione.</p><p>Pure ca le amministrature e le moderature de stu forum provane a tenè sotte condrolle tutte le messàgge, non g'è possibbile sta rrete a tutte. Tutte le messàgge esprimone le punde de vistre de l'autore, e nisciune de le titolare d'u forum o sveluppature ponne essere responsabbile pe le condenute de le messàgge.</p><p>Cazzanne 'u buttone Accette, tu garandisce ca non g'à mannà messàgge oscene, volgare, oriendate a 'u sesse, chine d'odie,  hateful, de minacce, o otre cose ca violane 'a legge.</p><p>Le titolare de stu forum onne 'u diritte de luà, cangià, spustà o achiudere ogne argomende pe ogne mutive.</p>
+# Fuzzy
 forum_rules_13:<p>Tutte le utinde sotte a 13 anne onna cercà 'u permesse a le genitore lore o a 'nu tutore pe devendà membre d'u forum. Mendre nuje diceme bovègne a ce tène mene de 13 anne, nuje vulime ca 'nu genitore o 'nu tutore manne 'nu fax o 'na poste cu 'u permesse firmate apprime de dà 'u titole de membre.</p><p>Ce vuè ccu accuminze 'u processe de reggistrazione apprime amma ricevere 'u module de permesse, cazze 'u buttone <b>Accette</b> aqquà sotte. Ce vuè ccu scangille 'a reggistrazione, cazze <b>Non accette</b> pe turnà a l'indice d'u forum.</p><p>'Na copie d'u module de permesse pò essere scarecate aqquà. Pe cchiù 'mbormaziune sus a 'u processe de reggistrazione, pe piacere manne 'n'email a <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
 coppa_conf:Conferme d'a COPPA
 coppa_before:Apprime de {TEMPLATE: coppa_date}
@@ -426,6 +429,7 @@ prereg_agree:Accette
 prereg_disagree:Non accette
 prereg_update:Stoche a legge le regole d'u forum
 coppa_fax_instructions:'Struziune pu genitore o 'u tutore
+# Fuzzy
 coppa_fax_instructions2:Pe piacere stambe sta pàgene, firme e mannale cu 'u fax a:
 coppa_fax_reg_form:Module de reggistrazione
 coppa_fax_sign:Pe piacere firme 'u module aqquà sotte e mannale a nuje

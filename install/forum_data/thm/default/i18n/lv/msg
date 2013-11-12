@@ -416,6 +416,7 @@ prereg_info:Informācija
 prereg_agree:Piekrītu
 prereg_disagree:Nepiekrītu
 coppa_fax_instructions:Instrukcija vecākiem vai aizbildņiem
+# Fuzzy
 coppa_fax_instructions2:Lūdzu izdrukājiet un aizpildiet šo formu, parakstiet to un nosūtiet uz adresi:
 coppa_fax_reg_form:Reģistrācijas forma
 coppa_fax_sign:Lūdzu izdrukājiet un aizpildiet šo formu, parakstiet to un nosūtiet mums

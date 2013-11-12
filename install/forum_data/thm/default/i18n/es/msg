@@ -429,6 +429,7 @@ ignore_users:Usuarios ignorados
 add_ignore:Agregar ignorado
 forum_terms:Términos del foro
 forum_rules:<p>¡El registro en este foro es gratis! Es muy importante que respete las reglas y políticas detalladas a continuación. Si está de acuerdo con las condiciones, pulse por favor el botón <b>De Acuerdo</b> al final de la página. Nota: si pulsa el botón, declara tener más de 13 años de edad. Si tiene 13 años o menos, use por favor este formulario de registro.</p><p>Aunque los administradores y moderadores de este foro tratarán de impedir la presencia de mensajes objetables en este foro, nos resulta imposible revisar todos los mensajes. Todos los mensajes expresan la opinión de su autor, y ni los dueños del foro ni los desarrolladores se hacen responsables del contenido de ningún mensaje.</p><p>Al pulsar en el botón De Acuerdo, se compromete a no publicar ningún mensaje obsceno, vulgar, con contenidos sexuales, contenidos de odio, amenazante, o que constituyan una violación de la ley.</p><p>Los propietarios de este foro se reservan el derecho a eliminar, editar, trasladar o cerrar cualquier hilo de discusión por cualquier motivo que consideren razonable.</p>
+# Fuzzy
 forum_rules_13:<p>Todos los usuarios menores de 13 años deben obtener permiso de su padre o tutor para poder ser miembros de los foros. Damos la bienvenida a la participación de miembros menores de 13, para esto requerimos que un padre o tutor envíe por fax o correo un formulario de autorización firmado, para autorizar la suscripción.<p></p>Si deseas comenzar el proceso de registro antes de que recibamos un formulario de autorización pulsa el botón De <b>Acuerdo</b> que hay a continuación. Si deseas cancelar el proceso de registro, pulsa <b>Cancelar</b> para volver al índice de foros.</p><p>Puedes descargar una copia del formulario de autorización aquí. Para obtener más información acerca del proceso de registro, por favor, envía un correo electrónico a <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
 coppa_conf:Confirmación COPPA
 coppa_before:Antes de {TEMPLATE: coppa_date}
@@ -440,6 +441,7 @@ prereg_agree:De acuerdo
 prereg_disagree:No estoy de acuerdo
 prereg_update:Leer las normas del foro
 coppa_fax_instructions:Instrucciones para padres o tutores
+# Fuzzy
 coppa_fax_instructions2:Por favor, imprima esta página, fírmela y envíela por fax a:
 coppa_fax_reg_form:Formulario de registro
 coppa_fax_sign:Por favor, firme el formulario siguiente y envíenoslo

@@ -416,6 +416,7 @@ ignore_users:digathekno Pangguna
 add_ignore:Tambah Ignoramus
 forum_terms:Forum Sarat
 forum_rules:<p>Situs iki forum gratis! Aku nandheske sing abide dening aturan lan kabijakan rinci ing ngisor iki. Yen sampeyan setuju kanggo kondisi, monggo pencet<b> Setuju</b>tombol ing pungkasan ing kaca. Wigati: Kanthi menet tombol sing wara-wara sing wis luwih ing umur 13. Yen 13 utawa ing, please nggunakake wangun iki Situs.</P><p>Senajan ing Administrator lan moderator situs iki forum bakal nyoba supaya kabeh pesen objectionable mati forum iki, iku mokal kita maneh pesen kabeh. Kabeh pesen sing nyebut saka penulis, lan sanadyan ing pamilik saka forum utawa gawe bakal tanggel jawab kanggo isi apa wae sing pesen.</P><p>Kanthi nge-klik tombol setuju, sing njamin sing ora ngirim sembarang pesen sing saru, vulgar, nggawe coro sexsual-oriented, hateful, anceman, utawa digunakake nglanggar hukum wae.</p><p>kang nduweni forum iki duwé hak kanggo mbusak, ngowahi, mindhah utawa nutup topik wae ning alesan.</p>
+# Fuzzy
 forum_rules_13:<p>Kabeh kedhaftar ing yuswa 13 kudu ngupaya ijin saka basa tiyang sepah utawa Guardian supaya gain kanggo anggota forum. Nalika kita welcome partisipasi saka anggota ing 13, kita perlu menawa fax tiyang sepah utawa Guardian utawa mail bali menyang wangun ijin mlebu sadurunge kita ngawèhaké anggota.</P><p>Yen arep miwiti proses registrasi sadurunge kita nampa ijin wangun, pencet<b>Setuju </b>tombol ing ngisor iki. Yen arep mbatalake Situs, pencet<b>ora setuju</b>kanggo bali menyang indeks forum.</P><p>Copy formulir ijin bisa diundhuh kene. Kanggo informasi luwih lengkap babagan proses registrasi, please send e-mail kanggo <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
 coppa_conf:COPPA Konfirmasi
 coppa_before:sadurunge {TEMPLATE: coppa_date}
@@ -427,6 +428,7 @@ prereg_agree:setuju
 prereg_disagree:ora setuju
 prereg_update:Maca aturan forum
 coppa_fax_instructions:Pandhuan kanggo tiyang sepah utawa Guardian
+# Fuzzy
 coppa_fax_instructions2:Mangga print that page iki, mlebu, lan Fax menyang:
 coppa_fax_reg_form:Situs Formulir
 coppa_fax_sign:Mangga mlebu formulir ing ngisor iki kanggo ngirim lan kita

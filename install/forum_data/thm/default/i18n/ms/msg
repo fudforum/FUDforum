@@ -417,6 +417,7 @@ ignore_users:Pengguna yang Diabaikan
 add_ignore:Abaikan Pengguna
 forum_terms:Syarat-syarat Forum
 forum_rules:<p>Pendaftaran di forum ini adalah percuma! Kami mengehendaki supaya anda mematuhi peraturan-peraturan dan dasar-dasar yang diterangkan di bawah. Jika anda bersetuju dengan syarat-syarat ini, sila tekan butang <b>Agree</b> di akhir halaman ini. Perhatian: Dengan menekan butang tersebut, anda mengakui diri anda berumur lebih 13 tahun. Jika anda berumur 13 tahun ke bawah, sila gunakan borang pendaftaran ini.</p><p>Walaupun para pentadbir dan pengawal selia forum ini akan cuba membendung pesanan-pesanan yang menyalahi peraturan di forum ini, namun adalah mustahil bagi kami menyemak semua pesanan. Semua pesanan meluahkan pendapat pengarang masing-masing, dan pemilik mahupun pihak pembangunan forum tidak akan dipertanggungjawabkan atas isi kandungan mana-mana pesanan.</p><p>Dengan menekan butang Setuju, anda bersumpah untuk tidak mengirim sebarang pesanan yang mengandungi kata-kata lucah, kesat, berorientasikan seks, kebencian, mengugut, ataupun melanggar undang-undang sekalipun.</p><p>Para pemilik forum ini berhak untuk memadamkan, menyunting, memindahkan atau menutup mana-mana topik atas sebarang alasan.</p>
+# Fuzzy
 forum_rules_13:<p>Semua pengguna bawah umur 13 tahun mesti meminta kebenaran ibu bapa atau penjaga untuk mendapat keahlian di forum ini. Walaupun kami mengalu-alukan penyertaan aghli bawah umur 13 tahun, namun kami mewajibkan supaya ibu bapa atau penjaga mengirim borang kebenaran melalui faks atau e-mel sebelum kami meluluskan keahlian.</p><p>Jika anda hendak memulakan proses pendaftaran sebelum borang kebenaran dapat disampaikan kepada kami, tekan butang <b>Setuju</b> di bawah. Jika anda hendak membatalkan pendaftaran, tekan <b>Tidak setuju</b> untuk kembali ke indeks forum.</p><p>Salinan borang kebenaran boleh dimuat turun di sini. Untuk maklumat lanjut mengenai proses pendaftaran, sila kirim e-mel kepada <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
 coppa_conf:Pengesahan COPPA
 coppa_before:Selepas {TEMPLATE: coppa_date}
@@ -428,6 +429,7 @@ prereg_agree:Setuju
 prereg_disagree:Tidak setuju
 prereg_update:Membaca peraturan forum
 coppa_fax_instructions:Arahan untuk Ibu Bapa/Penjaga
+# Fuzzy
 coppa_fax_instructions2:Sila cetakkan, tandatangani dan fakskan laman ini ke:
 coppa_fax_reg_form:Borang Pendaftaran
 coppa_fax_sign:Sila tandatangani borang berikut lalu hantarkannya kepada kami

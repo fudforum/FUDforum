@@ -416,6 +416,7 @@ ignore_users:Úsáideoirí Rinneadh neamhshuim
 add_ignore:Cuir ignoramus
 forum_terms:Téarmaí Fóram
 forum_rules:<p>Clárú leis an bhfóram saor in aisce! Déanann muid go seasann tú cloí leis na rialacha agus na polasaithe mionsonraithe thíos. Má aontaíonn tú leis na téarmaí, le do thoil brúigh an <b> Aontú </b> cnaipe ag bun an leathanaigh. Nóta: De réir an cnaipe an cnaipe a dhearbhú tú go bhfuil tú os cionn aois 13. Má tá tú 13 nó faoi, bain úsáid as an bhfoirm chlárúcháin. </P> <p> Cé go mbeidh na riarthóirí agus moderators an fhóraim iarracht a choinneáil ar gach teachtaireacht objectionable as fhóram seo, go bhfuil sé dodhéanta dúinn athbhreithniú a dhéanamh ar gach teachtaireacht. Iúl gach teachtaireacht na tuairimí an údar, agus beidh ní úinéirí an fhóraim nó na forbróirí a bheith freagrach as ábhar aon teachtaireacht. </P> <p> Trí chliceáil ar an gcnaipe Chomhaontaithe, barántas tú nach mbeidh tú sa phost aon teachtaireachtaí atá gáirsiúil, vulgar, gnéasach-dhírithe, hateful, bagairt, nó ar shlí eile violate aon dlíthe. </p> <p> Tá sé de cheart a bhaint, eagar, a aistriú nó gar aon ábhar ar chúis ar bith an úinéirí an bhfóram seo. </p>
+# Fuzzy
 forum_rules_13:Ní mór do gach úsáideoir <p> faoi 13 bliain d'aois chead óna tuismitheoir nó caomhnóir a lorg chun tuairiscíodh ballraíocht a fháil chun na fóraim. Cé go gcuirimid fáilte roimh rannpháirtíocht ó bhaill faoi 13, a cheangal againn go bhfuil tuismitheoir nó caomhnóir facs nó post ar ais an fhoirm cheada sínithe sula dheonú againn mballraíocht. </P> <p> Más mian leat chun tús a chur leis an bpróiseas clárúcháin roimh dúinn ag fáil fhoirm cheada seo, brúigh an <b> Aontú </b> cnaipe thíos. Más mian leat chun an clárú a chealú, brúigh <b> Ní aontaím </b> Is féidir le filleadh ar an innéacs fóraim. </P> <p> cóip den fhoirm cead a íoslódáil anseo. Chun tuilleadh eolais a fháil maidir leis an bpróiseas clárúcháin, le do thoil r-phost a sheoladh chuig <a href="mailto:{GVAR: ADMIN_EMAIL}"> {GVAR: ADMIN_EMAIL}. </A> </p>
 coppa_conf:COPPA Daingniú
 coppa_before:roimh {TEMPLATE: coppa_date}
@@ -427,6 +428,7 @@ prereg_agree:aontú
 prereg_disagree:Ní aontaím
 prereg_update:Léitheoireacht na rialacha fóram
 coppa_fax_instructions:Treoracha le haghaidh Tuismitheoir nó Caomhnóir
+# Fuzzy
 coppa_fax_instructions2:Tabhair Priontáil an leathanach seo, í a shíniú, agus é a facs chuig:
 coppa_fax_reg_form:Foirm Chlárúcháin
 coppa_fax_sign:Sínigh an fhoirm thíos agus seol chugainn é le do thoil

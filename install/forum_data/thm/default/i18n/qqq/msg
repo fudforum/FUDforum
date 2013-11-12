@@ -30,6 +30,7 @@ home:{{Identical|Home}}
 homepage:{{Identical|Homepage}}
 image:{{Identical|Image}}
 index_forum:{{Identical|Forum}}
+interests:{{Identical|Interest}}
 legend:{{Identical|Legend}}
 location:{{Identical|Location}}
 login:Toolbar text shown on every page when you are logged out. Translate it as a title.\n{{Identical|Log in}}
@@ -127,6 +128,7 @@ register_tree_view:A "Tree View" refers to a forum that uses thread ordering. Re
 register_flat_view:In the "flat view" all topics and all posts in a topic are simply shown in chronological order.
 finduser_submit:{{Identical|Find}}
 finduser_user:{{Identical|User}}
+finduser_joindate:{{Identical|Join date}}
 finduser_action:{{Identical|Action}}
 yes:{{Identical|Yes}}
 no:{{Identical|No}}
@@ -147,6 +149,7 @@ register_preview:{{Identical|Preview}}
 register_register:{{Identical|Register}}
 register_location:{{Identical|Location}}
 register_occupation:{{Identical|Occupation}}
+register_interests:{{Identical|Interest}}
 register_image:{{Identical|Image}}
 register_homepage:{{Identical|Homepage}}
 register_day:{{Identical|Day}}
@@ -202,7 +205,7 @@ coppa_fax_login:{{Identical|Login}}
 coppa_fax_passwd:{{Identical|Password}}
 coppa_fax_remail:{{Identical|E-mail}}
 coppa_fax_name:{{Identical|Name}}
-login_forgot_passwd:Message shown on the login screen to request a new password.
+login_forgot_passwd:Message shown on the login screen to request a new password.\n{{Identical|Forgot password}}
 login_login:{{Identical|Login}}\n\nShould be the same as {{msg-fud|Register login}} and {{msg-fud|Quicklogin login}}.
 login_login_btn:Text for the login button.\n\n{{Identical|Login}}
 rpasswd_passwd_nomatch:{{Identical|Passwords do not match}}
@@ -304,10 +307,12 @@ groupmgr_no:{{Identical|No}}
 groupmgr_action:{{Identical|Action}}
 groupmgr_member:{{Identical|Member}}
 groupmgr_cancel:{{Identical|Cancel}}
+groupmgr_add_member:{{Identical|Add member}}
 groupmgr_edit:{{Identical|Edit}}
 groupmgr_delete:{{Identical|Delete}}
 group_mgr_anon:{{Identical|Anonymous}}
 show_show:{{Identical|Show}}
+group_mgr_edit_btn:{{Identical|Edit group}}
 group_mgr_heading:This message is a heading above a drop down (containing forum groups) that allows privileged users to load a new group into the "group editor" form for modification.\nIt can also be translated as "Load group into editor", "Group to edit", "Group selection", etc.
 group_mgr_group:{{Identical|Group}}
 permission_denied_title:{{Identical|Permission denied}}
@@ -360,7 +365,7 @@ unread_message:{{Identical|Unread message}}
 back_to_top:{{Identical|Back to top}}
 saved:{{Identical|Saved}}
 iemail_msg_subject:{{Identical|Subject}}
-iemail_msg_reply:{{Identical|Reply}}\n\nDescription of link to reply a forum post (shown at the bottom of E-Mail notification messages).
+iemail_msg_reply:Description of link to reply a forum post (shown at the bottom of E-Mail notification messages).\n{{Identical|Reply}}
 iemail_msg_quote:{{Identical|Quote}}\n\nDescription of link to quote a forum post (shown at the bottom of E-Mail notification messages).
 iemail_msg_view:Description of link to view a forum post on-line (shown at the bottom of E-Mail notification messages).
 threadt_sticky:{{Identical|Sticky}}
@@ -380,7 +385,7 @@ findu_delete:{{Identical|Delete}}
 dmsg_reply_to:Continued on {{msg-fud|Dmsg_reply_num}}. The "message #xxx" part was split off so we can link it to the message number.
 dmsg_reply_num:Continued from {{msg-fud|Dmsg_reply_to}}.\n{{Identical|Message}}
 register_sig_limit:Please note the embedded message when translating this string. The end result is:\n xxx characters [url]Check Signature Length[/url]\nIf you click on the link, a messages like this will appear:\n Your Signature is yyy characters long. The maximum allowed signature length is zzz characters.
-thread_on:Message posted '''on''' a specific date.\nFor example: {{msg-fud|by}} admin {{msg-fud|Thread on}} 23 April 2011.
+thread_on:Message posted '''on''' a specific date.\nFor example: {{msg-fud|by}} admin {{msg-fud|Thread on}} 23 April 2011.\n{{Identical|On}}
 register_email_addr:{{Identical|E-mail address}}
 mnav_newer:This message is used in the Forum's Message Navigator. The user needs to enter values to determine the date range: newer than ___, older than ___ [days/hours/minutes/etc].\n{{Identical|Newer}}
 mnav_older:This message is used in the Forum's Message Navigator. The user needs to enter values to determine the date range: newer than ___, older than ___ [days/hours/minutes/etc].
@@ -408,12 +413,13 @@ post_common_email_popup:Prompt for input if the user clicks on {{msg-fud|Post co
 post_common_image_popup:Prompt for input if the user clicks on {{msg-fud|Post common image}}.
 post_common_nlist:{{Identical|Numbered_list}}
 post_common_blist:{{Identical/Bulleted_list}}
+post_common_code:{{Identical|Add code}}
 rating_delete:{{Identical|Delete}}
 topic_rating:''frm->rating'' is the topic's average rating.<br />\n''frm->n_rating'' ($1) is the number of votes.<br />\nFor example: '''3 from 10 votes'''.
 topic_list_rating:Title of the image indicating a thread's rating. Example: "5 from 7 vote(s)".
 tabs_notifications:{{Identical|Notification}}
 finduser_flag:[[File:Config-language.png|left||32px]]\n'''Flag''' as in the [[:wikipedia:en:Flag|flag]] of a country.\nUsed when FUDforum's Geo-IP feature is enabled to map a user's IP-addresses to country of origin.\n{{Identical|Flag}}
-pmsg_on:This message is used when a user export his/her private messages to a file. For example: "By: admin on Tue, 18 August 2009 11:39".\nIt can also be translated as "Date:" or "Date posted:", etc.
+pmsg_on:This message is used when a user export his/her private messages to a file. For example: "By: admin on Tue, 18 August 2009 11:39".\nIt can also be translated as "Date:" or "Date posted:", etc.\n{{Identical|On}}
 code_title:{{Identical|Code}}
 code_select_all:{{Identical|Select all}}
 social_sites:Heading on registration page where users can specify their twitter, skype, ICQ, etc. handles.

@@ -421,6 +421,7 @@ ignore_users:Nepaisomi Vartotojai
 add_ignore:Pridėti nemokša
 forum_terms:Forumas sąlygos
 forum_rules:<p> Registracija šiame forume yra nemokama! Mes reikalaujame, kad jūs laikytis taisyklių ir politikos, nurodyta toliau. Jei sutinkate su sąlygomis, spauskite <b>Sutinku</b> mygtuką puslapio pabaigoje. Pastaba: Paspaudus mygtuką galite pripažinti, kad esate vyresnis nei 13 metų amžiaus. Jei yra 13 arba, prašome naudoti šią registracijos formą. </p><p> Nors administratoriai ir moderatoriai bandys išsaugoti visus nepageidaujamų pranešimų iš forumo, tai yra neįmanoma mums peržiūrėti visus pranešimus. Visos žinutės išreiškia autoriaus požiūrį ir nei iš forumo savininkai ar kūrėjai bus atsakinga už bet kokio turinio žinutės. </p><p> Paspaudę Sutinku mygtuką, Jūs patvirtinate, kad Jums nereikės siųsti jokių laiškų, kurie nešvankių, vulgarių, seksualiai orientuotų, bjaurių, grasinančių, ar kitaip pažeidžia bet kokius įstatymus. </p><p> Šio forumo savininkai turi teisę ištrinti, redaguoti, perkelti arba uždaryti bet kurią temą dėl bet kokios priežasties. </p>
+# Fuzzy
 forum_rules_13:<p> Visi pagal 13 metų amžiaus vartotojai turi gauti leidimą iš savo tėvų ar globėjų, siekiant įgyti narystę forumuose. Nors mes sveikiname dalyvavimą narių pagal 13, mes reikalaujame, kad tėvų ar globėjų faksu arba elektroniniu paštu atgal pasirašė leidimo forma, kol mes suteikti narystės. </p><p> Jei norite pradėti registraciją iki mums gauti leidimo forma, paspauskite <b>Sutinku</b> žemiau esantį mygtuką. Jei norite nutraukti registraciją, paspauskite <b>nesutinku</b> grįžti į forumų indeksas. </p><p> Apie leidimo formos kopiją galite atsisiųsti iš čia. Norėdami gauti daugiau informacijos apie registracijos procesą, prašome siųsti e-mail <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> . </p>
 coppa_conf:COPPA patvirtinimas
 coppa_before:Prieš {Šablonas: coppa_date}
@@ -432,6 +433,7 @@ prereg_agree:Sutinku
 prereg_disagree:Nesutinku
 prereg_update:Skaitomos forumo taisykles
 coppa_fax_instructions:Nurodymai dėl tėvų ar globėjų
+# Fuzzy
 coppa_fax_instructions2:Prašome atspausdinti šį puslapį, jį pasirašyti, ir nusiųsti faksu:
 coppa_fax_reg_form:Registracijos forma
 coppa_fax_sign:Prašome prisijungti žemiau esančią formą ir išsiųsti ją mums

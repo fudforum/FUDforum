@@ -416,6 +416,7 @@ ignore_users:Ignorowani wužiwarjo
 add_ignore:Ignorowaneho přidać
 forum_terms:Forumowe wuměnjenja
 forum_rules:<p>Registrowanje za tutón forum je swobodne! Wobstejemy na tym, zo dźeržeš so slědowacych prawidłow a zasadow. Jeli sy z wuměnjenjemi přezjedny, klikń na tłóčatko <b>Přihłosować</b> na kóncu strony. Kedźbu: Přez kliknjenje na tłóčatko deklaruješ, zo maš wjace hač 13 lět. Jeli sy 13 lět stary abo młódši, wužij prošu registrowanski formular.</p><p>Hačrunjež administratorojo a moderatorojo tutoho foruma budu pospytować, wšě njepřiměrjene powěsće wot tutoho foruma wotdźeržeć, je njemóžno za nas, wšě powěsće přepruwować. Wšě powěsće zwuraznjeja nahlady awtora a ani wobsedźerjo foruma ani jeho wuwiwarjo njemóžeja so zamołwitych za wobsah powěsće činić.</p><p>Přez kliknjenje na tłóčatko Přihłosować lubiš, zo njebudźeš žane powěsće słać, kotrež su obscene, wulgarne, seksuelnje orientowane, hidypołne, hrožace abo so na hinaše wašnje přećiwo zakonjam přeńdu.</p><p>Wobsedźerjo tutoho foruma maja prawo, temu z někajkeje přičiny wotstronić, wobdźěłać, přesunyć abo začinić.</p>
+# Fuzzy
 forum_rules_13:<p>Wšitcy wužiwarjo, kotřiž su młódši hač 13 lět, trjebaja dowolnosć jednoho ze swojeju staršeju abo předporučnika, zo bychu čłonstwo we forumach dóstali. Hačrunjež za to wuprajamy, zo čłonojo, kotřiž su młódši hač 13 lět, smědźa so we forumje wobdźělić, žadamy tola, zo jedyn ze staršeju abo předporučnik nam podpisany přizwolenski formular faksuje abo přez e-mejl wróćo sćele, prjedy hač damy čłonstwo.</p><p>Jeli chceš registrowanski proces startować, prjedy hač smy přizwolenski formular dóstali, klikń deleka na tłóčatko <b>Přihłosować</b>. Jeli chceš registrowanje přetorhnyć, klikń na <b>Wotpokazać</b>, zo by so k přehladej forumow wróćił.</p><p>Kopija přizwolenskeho formulara móžeš tu sćahnyć. Za dalše informacije wo registrowanskim procesu, pósćel prošu e-mejl administratorej <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
 coppa_conf:Wobkrućenje COPPA
 coppa_before:Do {TEMPLATE: coppa_date}
@@ -427,6 +428,7 @@ prereg_agree:Přihłosować
 prereg_disagree:Wotpokazać
 prereg_update:Forumowe prawidła so čitaja
 coppa_fax_instructions:Instrukcije za jednoho ze staršeju abo předporučnika
+# Fuzzy
 coppa_fax_instructions2:Prošu wućišć tutu stronu, podpisaj ju a faksuj ju na:
 coppa_fax_reg_form:Registrowanski formular
 coppa_fax_sign:Prošu podpisaj formular a pósćel jón nam

@@ -410,6 +410,7 @@ prereg_agree:Кабыл алуу
 prereg_disagree:Каршы
 prereg_update:Форумдун эрежесин окуңуз
 coppa_fax_instructions:Ата-энелер үчүн эрежелер
+# Fuzzy
 coppa_fax_instructions2:Төмөнкү форманы толтуруп, басып чыгарып кол тамгаңызды кобуп, бул дарекке жөнөтүңүз:
 coppa_fax_reg_form:Катталуу формасы
 coppa_fax_sign:Сураныч. төмөнкү форманы толтуруп жана басып чыгарып бизге жөнөтүңүз

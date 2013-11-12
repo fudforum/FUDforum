@@ -422,6 +422,7 @@ ignore_users:Ignorierte Benutzer
 add_ignore:Benutzer zur Ignorierliste hinzufügen
 forum_terms:Forumsregeln
 forum_rules:<p>Die Registrierung für dieses Forum ist kostenlos. Jedoch bestehen wir darauf, dass Sie sich an nachfolgende Vereinbarung halten. Wenn Sie mit diesen Regeln einverstanden sind, klicken Sie bitte auf die „Zustimmen“- Schaltfläche. Achtung: Durch das Klicken der Schaltfläche erklären Sie, dass Sie über 13 Jahre sind. Falls Sie 13 oder darunter sind, verwenden Sie bitte diese Registrierungsseite.</p><p>Auch wenn die Administratoren und Moderatoren des Forums versuchen, dieses von anstößigen Mitteilungen freizuhalten, so ist es dennoch für uns unmöglich, alle übermittelten Beiträge zu begutachten. Diese geben die Ansichten des jeweiligen Autors wieder, weswegen keiner der Forumsmitarbeiter für jene Inhalte verantwortlich gemacht werden kann.</p><p>Mit Anklicken der „Zustimmen“-Schaltfläche sichern Sie uns verbindlich zu, dass Ihre Beiträge keinerlei obzöne, vulgäre, sexistische, hasserfüllte, nötigende oder sonstwie gesetzeswidrige Inhalte haben werden.</p><p>Die Verantwortlichen dieses Forums haben das Recht, jederzeit aus jedem erdenklichen Grund Diskussionsthemen zu entfernen, bearbeiten, verschieben oder zu schließen.<p>
+# Fuzzy
 forum_rules_13:<p>Alle Benutzer unter 13 Jahre müssen ihre Eltern oder ihren Vormund um Erlaubnis bitten, um die Mitgliedschaft im Forum zu erlangen. Auch wenn wir die Teilnahme von Benutzern unter 13 befürworten, so verlangen wir dennoch, dass die Eltern oder der Vormund eine unterschriebene Einwilligungserklärung zurückschicken oder faxen, bevor wir die Mitgliedschaft gewähren können.</p><p>Wenn Sie die Registrierung einleiten möchten bevor wir die Einwilligungserklärung erhalten haben, klicken Sie auf die Zustimmen Schaltfläche unten. Falls Sie die Registrierung abbrechen möchten, klicken Sie auf Abbrechen um zum Forumsindex zurückzukehren.</p><p>Eine Kopie der zu unterschreibenden Einwilligungserklärung kann hier heruntergeladen werden. Für weitere Informationen bezüglich der Registrierung schicken Sie bitte eine E-Mail an <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.<p>
 coppa_conf:COPPA-Bestätigung
 coppa_before:Vor dem {TEMPLATE: coppa_date}
@@ -433,6 +434,7 @@ prereg_agree:Zustimmen
 prereg_disagree:Ablehnen
 prereg_update:Liest die Forenregeln
 coppa_fax_instructions:Anleitung für ein Elternteil oder Vormund
+# Fuzzy
 coppa_fax_instructions2:Bitte drucken Sie dieses Formular aus, unterschreiben und schicken es an:
 coppa_fax_reg_form:Registrierungsformular
 coppa_fax_sign:Bitte unterschreiben Sie das Formular und schicken es an uns

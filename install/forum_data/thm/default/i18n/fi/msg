@@ -424,6 +424,7 @@ ignore_users:Torjutut käyttäjät
 add_ignore:Lisää torjuttu
 forum_terms:Foorumin ehdot
 forum_rules:<p>Rekisteröityminen on ilmaista. Edellytämme, että hyväksyt alla mainitut ehdot ja säännöt. Jos hyväksyt nämä ehdot – napsauta <b>Hyväksyn</b>-nappia sivun alareunassa.</p><p>Vaikka tämän sivuston ylläpito ja moderaattorit pyrkivät poistamaan arveluttavan sisällön niin nopeasti kuin mahdollista, on kuitenkin mahdotonta tarkistaa jokaista viestiä. Kaikki viestit ilmaisevat kirjoittajiensa mielipiteitä, joten ylläpito, moderaattorit tai foorumin kehittäjät eivät ole vastuussa näistä kirjoituksista.</p><p>Napsauttamalla Hyväksyn-nappia – suostut olemaan esittämättä mitään loukkaavaa, vihamielistä, epämoraalista tai muutakaan materiaalia, joka voisi loukata voimassa olevia lakeja.</p><p>Tämän foorumin omistajat ovat oikeutettuja poistamaan, muokkaamaan, siirtämään tai sulkemaan minkä tahansa aiheen milloin tahansa.</p>
+# Fuzzy
 forum_rules_13:<p>Kaikkien alle 13-vuotiaiden täytyy hankkia lupa vanhemmaltaan tai huoltajaltaan voidakseen liittyä foorumien käyttäjäksi. Edellytämme, että vanhempi tai huoltaja faksaa tai postittaa allekirjoitetun suostumuslomakkeen ennen käyttöoikeuden myöntämistä.</p><p>Napsauta <b>Hyväksyn</b>-nappia, jos haluat aloittaa rekisteröitymisprosessin ennen kuin olemme vastaanottaneet suostumuslomakkeen. Napsauta <b>En hyväksy</b>, jos haluat peruuttaa rekisteröitymisen.</p><p>Suostumuslomake löytyy täältä. Lisätietoja rekisteröitymisprosessista saat lähettämällä ylläpidolle sähköpostia: <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
 coppa_conf:COPPA-varmistus
 coppa_before:Ennen {TEMPLATE: coppa_date}
@@ -435,6 +436,7 @@ prereg_agree:Hyväksyn
 prereg_disagree:En hyväksy
 prereg_update:Lukee keskustelualueen sääntöjä
 coppa_fax_instructions:Ohjeet vanhemmille tai huoltajille
+# Fuzzy
 coppa_fax_instructions2:Tulostakaa tämä sivu, allekirjoittakaa ja faksatkaa tänne:
 coppa_fax_reg_form:Rekisteröityminen
 coppa_fax_sign:Allekirjoittakaa alla oleva lomake ja lähettäkää se meille

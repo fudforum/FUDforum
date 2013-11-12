@@ -1,6 +1,7 @@
 # Messages for Zazaki (Zazaki)
 # Exported from translatewiki.net
 # Author: Erdemaslancan
+# Author: Gorizon
 # Author: Mirzali
 
 action:Kerdış
@@ -75,7 +76,7 @@ moderator:Cerbener
 moderator_of:Wesetê Forumi
 moderator_options:Wesetin Weçiney
 moderators:{PLURAL: modcount|Wesetber|Wesetber}
-move_thread:Berê
+move_thread:Beré
 na:n/a
 new_posts:Mesaco newe esto
 new_thread:Topiko newe vıraze
@@ -148,17 +149,17 @@ trash:Sılo
 msg_author:Nuskar
 avatar_sel_form:Weçine Formê Avatari
 month_1:Çele
-month_2:Şıbate
-month_3:Adar
-month_4:Nisane
-month_5:Gulane
+month_2:Zemherı
+month_3:Mert
+month_4:Lisan
+month_5:Gúlan
 month_6:Heziran
-month_7:Temuze
-month_8:Tebaxe
+month_7:Temuz
+month_8:Ağustos
 month_9:Keşkelun
-month_10:Tışrino Verên
-month_11:Tışrino Peyên
-month_12:Kanun
+month_10:Cetan
+month_11:Kelverdan
+month_12:Gağand
 sunday:Bazar
 sunday_short:K
 monday:Berarek
@@ -285,7 +286,7 @@ email_pg_title:E-posta
 email_subject:Mersel:
 email_body:Verê:
 email_submit:E-posta
-poll_create:Vıraze
+poll_create:İycad ke
 poll_update:Noroc resn
 poll_delete:Bestere
 poll_day:roc
@@ -329,7 +330,7 @@ groupmgr_edit:Bıvurne
 groupmgr_delete:Bestere
 show_show:Bımocne
 group_mgr_group:Grube
-p_READ:Bıwane
+p_READ:Bıwan
 p_POST:Bırş
 p_REPLY:Cewab bıde
 p_EDIT:Bıvurne
@@ -389,7 +390,7 @@ im_skype:Skype:
 im_twitter:Twitter:
 forum_contact:İrtibat
 forum_home:Keye
-p_VISIBLE:Mocnerey
+p_VISIBLE:Aseno
 poll_edit:Bıvurne
 polllist_name:Namey Anketi
 polllist_votes:Rey Heme

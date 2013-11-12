@@ -419,6 +419,7 @@ ignore_users:Implijerien dianavezet
 add_ignore:Ouzhpennañ un den dianavezet
 forum_terms:Reolennoù ar forom
 forum_rules:<p>Digoust eo en em enskrivañ er forom-mañ ! Koulskoude e tleit degemer an divizoù hag ar munudoù amañ dindan. M'o degemerit, pouezit war ar bouton <b>Aprouiñ</b> e fin ar bajenn. Notenn : Pa bouezit war ar bouton e tisklêriit ez oc'h en tu-hont da 13 vloaz. Ma n'oc'h ket trizek vloaz c'hoazh, implijit ar furmskrid en em enskrivañ-mañ. </p><p> Daoust ma vez distaolet ar c'hemennadennoù dizereat eus ar forom-mañ gant ar verourien hag an habaskerien, n'omp ket evit lenn ha kontrollañ an holl anezho. Pep kemennadenn a eztaol soñjoù an aozer anezhi, ha ne vo ket kiriek merourien ha habaskerien ar forom-mañ d'ar pezh zo er c'hemennadennoù. </p><p> Dre glikañ war ar bouton Aprouiñ e prometit chom hep postañ kemennadennoù hudur, lous, o tennañ d'ar revelezh, kasonius, gourdrouzus, pe o terriñ al lezenn e kement doare zo. </p><p> Gwir o deus perc'henned ar forom-mañ da lemel, aozañ, dilec'hiañ pe serriñ forzh peseurt kaoz evit forzh peseurt abeg.</p>
+# Fuzzy
 forum_rules_13:<p>An holl implijerien dindan 13 vloaz a rank goulenn aotre o zud pe o gward evit dont da vezañ ezel eus ar foromoù. Daoust ma'z eo digor ar forom d'ar re dindan 13 vloaz, e rankomp kaout un aotre sinet digant unan eus an dud pe ar gward, dre lizher pe dre belleilenn, a-raok enskrivañ an den dindan 13 vloaz da vat.</p><p> Ma fell deoc'h kregiñ gant an argerzh enskrivañ a-raok ma resevfemp an aotre, pouezit war ar bouton <b>Mat eo din</b> amañ dindan. Ma fell deoc'h nullañ an argerzh enskrivañ, klikit war ar bouton <b>Ne savan ket a-du</b> evit distreiñ da veneger ar foromoù.</p><p>Tu zo da bellgargañ un eilenn eus ar furmskrid aotren amañ. Evit gouzout hiroc'h diwar-benn an argerzh enskrivañ, kasit ur postel <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>, mar plij.</p>
 coppa_conf:Kadarnadur COPPA
 coppa_before:A-raok {TEMPLATE: coppa_date}
@@ -430,6 +431,7 @@ prereg_agree:Mat eo din
 prereg_disagree:Ne savan ket a-du
 prereg_update:Lenn reolennoù ar forom
 coppa_fax_instructions:Kelennoù evit tud pe gward ar vugale
+# Fuzzy
 coppa_fax_instructions2:Moullit ar bajenn-mañ, mar plij, sinit-hi ha pelleilit-hi da :
 coppa_fax_reg_form:Furmskrid enskrivañ
 coppa_fax_sign:Sinit ar furmskrid amañ dindan ha kasit-eñ dimp, mar plij.

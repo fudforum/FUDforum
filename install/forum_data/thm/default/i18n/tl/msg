@@ -416,6 +416,7 @@ ignore_users:Mga Tagagamit na Hindi Pinapansin
 add_ignore:Idagdag ang Taong Ignorante
 forum_terms:Mga Tuntunin sa Poro
 forum_rules:<p>Walang bayad ang pagpapatala sa porong ito! Iginigiit namin na sumunod ka sa mga alituntunin at mga patakaran na nakadetalye sa ibaba. Kung sumasang-ayon ka sa mga tuntunin, mangyaring pindutin ang pindutang <b>Sumang-ayon</b> na nasa hulihan ng pahina. Tandaan: Sa pamamagitan ng pagpindot sa pindutan, ipinapahayag mong ikaw ay lampas na sa gulang na 13. Kung ikaw ay 13 o mababa pa, mangyaring gamitin ang pormularyong ito ng pagpapatal.</p><p>Bagaman tatangkain ng mga tagapangasiwa at mga tagapamagitan na panatilihing wala sa porong ito ang hindi kanais-nais na mga mensahe, hindi namin magagawang masuring muli ang lahat ng mga mensahe. Ang lahat ng mga mensahe ay nagpapahayag ng mga pananaw ng may-akda, at hindi mapananagutan ng mga may-ari ng poro at ng mga tapagpaunlad ang nilalaman ng anumang mensahe.</p><p>Sa pamamagitan ng pagpindot sa pindutang Sumang-ayon, tinitiyak mong hindi ka magpapaskil ng anumang mga mensaheng malaswa, mahalay, nakaayon sa seksuwalidad, nakakamuhi, nagbabanta, o kaya lumalabag sa anumang mga batas.<p></p>Ang mga may-ari ng porong ito ay may karapatang tanggalin, ilipat o isara ang anumang paksa para sa anumang kadahilanan.</p>
+# Fuzzy
 forum_rules_13:<p>Ang lahat ng mga tagagamit na nasa ilalim ng gulang na 13 ay dapat na humingi ng pahintulot mula sa kanilang magulang o tagapag-alaga upang makakamit ng pagiging kasapi sa mga poro. Habang malugod naming tinatanggap ang pakikilahok mula sa mga kasaping mas mababa ang edad kaysa sa 13, nangangailangan kami ng isang nilagdaang pahintulot mula sa isang magulang o tagapag-alaga na ipinadala sa pamamagitan ng fax o liham.</p><p>Kung nais mo nang simulan ang pagsasagawa ng pagpapatala, pindutin ang pindutang <b>Sumang-ayon</p> na nasa ibaba. Kung nais mong huwag ituloy ang pagpapatala, pindutin ang <p>Huwag sumang-ayon</p> upang bumalik sa mga talatuntunan ng mga poro.</p><p>Isang sipi ng pormularyo ng kapahintulutan ay maaaring ikargang paibaba rito. Para sa mas marami pang mga kabatiran hinggil sa proseso ng rehistrasyon, mangyaring magpadala ng isang e-liham sa <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
 coppa_conf:Pagtitiyak ng COPPA
 coppa_before:Bago ang {TEMPLATE: coppa_date}
@@ -427,6 +428,7 @@ prereg_agree:Sumang-ayon
 prereg_disagree:Huwag sumang-ayon
 prereg_update:Binabasa ang mga panuntunan ng poro
 coppa_fax_instructions:Mga tagubilin para sa isang Magulang o Tagapag-alaga
+# Fuzzy
 coppa_fax_instructions2:Mangyaring ilimbag ang pahinang ito, lagdaan ito, at i-fax ito sa:
 coppa_fax_reg_form:Pormularyo ng Pagpapatala
 coppa_fax_sign:Mangyaring lagdaan ang pormularyong nasa ibaba at ipadala ito sa amin

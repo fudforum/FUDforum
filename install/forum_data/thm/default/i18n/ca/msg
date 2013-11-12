@@ -426,6 +426,7 @@ ignore_users:Usuaris ignorats
 add_ignore:Afegir ignorat
 forum_terms:Termes del fòrum
 forum_rules:<p>Inscripció a aquest fòrum és gratis! Insistim en què compleixis les regles i normes detallades sota. Si està d'acord amb els termes, si us plau, premeu <b>l'acceptar</b> botó al final de la pàgina. Nota: Prement el botó es declaren que són majors de 13 anys. Si són 13 o sota, si us plau, utilitzeu aquest formulari d'inscripció.</p><p>Encara que els administradors i moderadors d'aquest fòrum tractarà de mantenir tots els missatges inacceptables fora d'aquest fòrum, és impossible per a nosaltres el revisar tots els missatges. Tots els missatges expressen les opinions de l'autor, i ni els propietaris de fòrum o els desenvolupadors es fa responsables pel contingut de qualsevol missatge.</p><p>Fent clic l'acceptar botó, garanteixes que no escriuràs cap missatge que són obscè, vulgar, sexualment orientat, odiós, amenaçant, o en cas contrari violar qualsevol llei.</p><p>Els propietaris d'aquest fòrum té el dret a eliminar, editar, moure o tancar qualsevol tema per qualsevol raó.</p>
+# Fuzzy
 forum_rules_13:<p>Tots els usuaris menors de 13 anys s'ha de buscar permís del seu pare o tutor per a obtenir els membres dels fòrums. Mentre que donem la benvinguda a la participació de membres menors de 13 anys, es requereix que un pare o guardià fax o correu nou un formulari signat permís abans que es concedeix membres.</p><p>Si li agradaria iniciar el procés de registre abans de nosaltres de rebre una forma de permís, premeu el botó <b>acceptar</b> per sota. Si voleu deixar de registre, premeu <b>Disagree</b> per tornar a l'índex del Fòrum.</p><p>Una còpia de la forma de permís es pot descarregar aquí. Per obtenir més informació sobre el procés de registre, si us plau, enviar correu electrònic a <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
 coppa_conf:Confirmació COPPA
 coppa_before:Abans de {TEMPLATE: coppa_date}
@@ -437,6 +438,7 @@ prereg_agree:D`acord
 prereg_disagree:No estic d`acord
 prereg_update:Llegir les regles del Fòrum
 coppa_fax_instructions:Instruccions per a pares o tutors
+# Fuzzy
 coppa_fax_instructions2:Si us plau, imprimeixi aquesta pàgina, signi-la i enviï-la per fax a:
 coppa_fax_reg_form:Formulari de registre
 coppa_fax_sign:Si us plau, signi el formulari següent i enviï`ns-el

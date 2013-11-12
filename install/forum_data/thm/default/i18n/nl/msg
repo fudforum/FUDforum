@@ -421,6 +421,7 @@ ignore_users:Genegeerde gebruikers
 add_ignore:Gebruiker negeren
 forum_terms:Algemene Voorwaarden van dit forum
 forum_rules:<p>De registratie tot dit forum is gratis!  We staan er op dat u zich aan de onderstaande regels houdt en het onderstaande beleid volgt. Als u akkoord gaat met de algemene voorwaarden, klik dan op de knop "<b>Ik ga akkoord</b>" onderaan de pagina. Let op: Door op de knop te drukken verklaart u dat u <b>ouder dan 13 jaar</b> bent. Als u 13 jaar of jonger bent, gebruik dan dit registratieformulier.</p><p>Alhoewel de beheerders en moderatoren van dit forum proberen om alle berichten van dit forum redelijk te houden, is het onmogelijk voor ons om alle berichten te controleren. Alle berichten drukken de visie van de auteur uit, en de eigenaren van dit forum of de ontwikkelaars kunnen niet verantwoordelijk geacht worden voor de inhoud van enig bericht.</p><p>Door op de knop "Ik ga akkoord" te klikken, verklaart u geen obscene, vulgaire, seksueel getinte, haatdragende, bedreigende berichten te plaatsen of berichten te plaatsen die enige wet overtreden.</p><p>De eigenaren van dit forum hebben het recht om ieder onderwerp te bewerken, verplaatsen, verwijderen of te sluiten zonder opgave van reden.</p>
+# Fuzzy
 forum_rules_13:<p>Alle leden <b>jonger dan 13</b> moeten de toestemming van hun ouder of voogd hebben alvorens lid te kunnen worden van de forums. Hoewel we deelname van leden jonger dan 13 jaar niet ontmoedigen, vereisen we een door ouder of voogd ondertekend formulier dat per fax of post aan ons wordt verzonden voordat we het lidmaatschap toekennen.</p><p>Als u het registratieproces wilt starten voordat wij de toestemming ontvangen, klik dan op de knop "Ik ga akkoord" hieronder. Indien u de registratie wilt annuleren klik dan op "Niet Akkoord" om terug te keren naar de inhoudsopgave van het forum.</p><p>Een kopie van het toestemmingsformulier kan hier gedownload worden. Voor meer informatie over het registratieproces kunt u een e-mail zenden naar<a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
 coppa_conf:COPPA-bevestiging
 coppa_before:Voor {TEMPLATE: coppa_date}
@@ -432,6 +433,7 @@ prereg_agree:Ik ga akkoord
 prereg_disagree:Niet akkoord
 prereg_update:De forumregels aan het lezen
 coppa_fax_instructions:Instructies voor ouder of voogd
+# Fuzzy
 coppa_fax_instructions2:Druk deze pagina af en zend een fax naar:
 coppa_fax_reg_form:Registratieformulier
 coppa_fax_sign:Onderteken het onderstaande formulier en verzend het naar ons.

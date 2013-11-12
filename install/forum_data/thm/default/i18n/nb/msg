@@ -420,6 +420,7 @@ ignore_users:Ignorerte medlemmer
 add_ignore:Ignorere medlem
 forum_terms:Vilkår for forumet
 forum_rules:<p>Registrering på dette forumet er gratis! Vi insisterer på at du følger reglene og rettledningene beskrevet nedenfor. Dersom du aksepterer betingelsene, vennligst klikk på «Jeg godkjenner»-knappen på slutten av siden. Merk: Ved å trykke på knappen erklærer du at du er over 13 år. Dersom du er 13 år eller yngre, vennligst bruk dette registreringsskjemaet</p><p>Selvom administratorene og moderatorene av dette forumet vil forsøke å holde alle støtende meldinger borte fra dette forumet er det umulig for oss å gå igjennom alle meldingene. Alle meldinger uttrykker meningene til forfatteren og verken eierne av forumet eller dets utviklere vil bli holdt ansvarlig for innholdet i meldingene.</p><p>Ved å klikke på «Jeg godkjenner»-knappen garanterer du at du ikke vil poste noen meldinger som er obskøne, vulgære, seksuelt orienterte, hatefulle, truende eller på noen annen måte bryter noen lover.</p><p>Eierne av dette forumet har rettigheten til å fjerne, endre, flytte eller lukke et hvert emne for enhver grunn.</p>
+# Fuzzy
 forum_rules_13:<p>Alle brukere under 13 år må ha tillatelse fra deres foreldre eller formyndere for å kunne få medlemsskap til forumene. Mens vi ønsker deltakelse fra medlemmer under 13 år velkommen, krever vi at en forelder eller formynder faxer eller sender sender et signert tillatelsesskjema før vi innvilger medlemsskap.</p><p>Dersom du ønsker å begynne registreringsprosessen før vi mottar tillatelsesskjemaet, klikk på «Jeg godkjenner»-knappen under. Dersom du ønsker å avbryte registreringen, klikk på «Avbryt registreringen» for å gå tilbake til forumoversikten.</p><p>En kopi av tillatelsesskjemaet kan lastes ned her. For mer informasjon om registreringsprosessen, vennligst send en e-post til <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
 coppa_conf:COPPA-bekreftelse
 coppa_before:Før {TEMPLATE: coppa_date}
@@ -431,6 +432,7 @@ prereg_agree:Jeg godkjenner
 prereg_disagree:Avbryt registreringen
 prereg_update:Leser forumreglene
 coppa_fax_instructions:Instruksjoner for en forelder eller formynder
+# Fuzzy
 coppa_fax_instructions2:Vennligst skriv ut denne siden, undertegn den og fax den til:
 coppa_fax_reg_form:Registreringsformular
 coppa_fax_sign:Vennligst undertegn formularet og send det til oss

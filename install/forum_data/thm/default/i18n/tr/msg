@@ -429,6 +429,7 @@ ignore_users:Gözardı edilen kullanıcılar
 add_ignore:Ignoramus ekle
 forum_terms:Forum kuralları
 forum_rules:<p>Bu foruma üyelik serbesttir. Bununla birlikte aşağıda ayrıntıları belirtilen kurallara uymanız konusunda ısrar ediyoruz. Eğer kuralları kabul ediyorsanız, sayfanın sonundaki <b>Kabul Ediyorum</b> düğmesine basın. Dikkat: Düğmeye basarak 13 yaşından büyük olduğunuzu belirtmiş oluyorsunuz. 13 yaşında veya daha küçükseniz, lütfen bu kayıt formunu kullanın.</p> <p>Bu forumun yöneticileri istenmeyen tüm iletileri forumdan uzak tutmaya çalışacaktır. Bununla birlikte, atılan tüm iletileri gözden geçirmemiz imkansızdır. Tüm iletiler yazarın görüşünü yansıtır ve ne forumun sahibi ne de geliştiricileri herhangi bir iletinin içeriğinden sorumlu tutulamaz.</p><p>Kabul Ediyorum düğmesine tıklayarak, kaba, küfürlü, cinsel içerikli, nefret dolu, tehdit edici veya bir şekilde kanuna aykırı ileti göndermeyeceğinizi taahhüt etmiş oluyorsunuz.</p><p>Forumun sahipleri, herhangi bir konuyu, herhangi bir sebeple, kaldırma, taşıma, düzeltme veya kapatma hakkına sahiptir.</p>
+# Fuzzy
 forum_rules_13:13 yaşın altındaki tüm kullanıcılar anne-babalarından veya sorumluluğu altında oldukları kişiden foruma üye olabilmek için izin almalıdırlar. 13 yaşın altındaki kullanıcıların üye olmasında bizce herhangi bir sakınca olmamakla birlikte, üyelik vermeden önce anne-babaların veya sorumluluğu altında oldukları kişinin yazılı olarak izin verdiğini faks veya e-posta ile bize göndermelerini şart koşuyoruz.</p> <p>Eğer izin formu bize ulaşmadan önce kayıt işlemlerine başlamak istiyorsanız, aşağıdaki Kabul Ediyorum düğmesine tıklayın. Kayıt işlemini iptal etmek ve forum indeksine dönmek için aşağıdaki İptal Et düğmesine basın.</p> <p>İzin formunun bir kopyasını burdan indirebilirsiniz. Kayıt işlemleri hakkında daha fazla bilgi için  <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> adresine bir e-posta gönderin.</p>
 coppa_conf:COPPA Onayı
 coppa_before:{TEMPLATE: coppa_date} tarihinden önce
@@ -440,6 +441,7 @@ prereg_agree:Kabul Ediyorum
 prereg_disagree:Kabul Etmiyorum
 prereg_update:Forum kurallarını okuyun
 coppa_fax_instructions:Anne-Baba veya Sorumluluk sahibi olanların yapması gerekenler
+# Fuzzy
 coppa_fax_instructions2:Lütfen bu sayfayı yazdırın, imzalayın ve bu faksa gönderemiyoryollayın:
 coppa_fax_reg_form:Kayıt Formu
 coppa_fax_sign:Lütfen aşağıdaki formu imzalayıp bize gönderin.

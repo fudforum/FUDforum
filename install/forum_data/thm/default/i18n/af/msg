@@ -417,6 +417,7 @@ ignore_users:Geignoreerde Lede
 add_ignore:Ignoreer gebruiker
 forum_terms:Forum riglyne
 forum_rules:<p>Registrasie tot die forum is gratis!  Ons dring egter aan dat u die onderstaande reëls en beleid volg. Indien u akkoord gaan met die riglyne, kliek asb. op die <b>Akkoord</b> knoppie onderaan die bladsy. Nota: Deur op die knoppie te druk verklaar u dat u <b>ouder as 13 jaar</b> is.  Indien u 13 of jonger is gebruik die registrasievorm.</p><p>Alhoewel die administrateurs en moderators van die forum sal probeer om boodskappe op die forum objektief te hou is dit onmoontlik vir ons om al die boodskappe te hersien. Boodskappe druk die visie van die skrywer uit, nie die eienaars van die forum nog die ontwikkelaars sal verantwoordelik gehou word vir die inhoud van ENIGE boodskap nie.</p><p>Deur te kliek op die "akkoord" knoppie, gaan u akkoord dat u nooit obsene, vulgêre, seksueel georiënteerde, haatdraende, dreigende boodskappe of boodskappe wat die wet oortree sal pos nie.</p><p>Die eienaars van die forum het die reg om enige onderwerp te wysig, skuif, verwyder of te sluit vir welke rede ook al.<p>
+# Fuzzy
 forum_rules_13:<p>Alle lede jonger as 13 jaar moet toestemming van 'n voog verkry indien hulle lidmaatskap hier wil bekom. Hoewel die registrasie van lede onder 13 verwelkom word, vereis die webwerf dat die voog 'n faks of e-pos stuur met getekende toestemming voordat ons lidmaatskap toeken.</p><p>Indien u die registrasie proses wil begin, kliek op die <b>Akkoord</b> knop onder. Indien u die registrasie teenstaan, kliek op <b>Nie Akkoord</b> om terug te keer na die forum indeks.</p><p>'n Kopie van die toestemmingsvorm kan hier afgelaai word. Vir meer inligting oor die registrasie proses, stuur gerus 'n e-pos aan <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
 coppa_conf:COPPA-bevestiging
 coppa_before:Voor {TEMPLATE: coppa_date}
@@ -428,6 +429,7 @@ prereg_agree:Ek gaan akkoord
 prereg_disagree:Stem nie saam nie
 prereg_update:Lees die forum se reëls
 coppa_fax_instructions:Instruksies vir die voog
+# Fuzzy
 coppa_fax_instructions2:Druk hierdie bladsy en faks dit na:
 coppa_fax_reg_form:Registrasie
 coppa_fax_sign:Onderteken het onderstaande vorm en stuur dit aan ons.

@@ -420,6 +420,7 @@ prereg_info:Informatii
 prereg_agree:DE ACORD
 prereg_disagree:RENUNTA
 coppa_fax_instructions:Instructiuni pentru parinte/tutore
+# Fuzzy
 coppa_fax_instructions2:Va rugam tipariti pagina, semnati-o si trimite-ti-o prin fax la:
 coppa_fax_reg_form:Formular de inregistrare
 coppa_fax_sign:Va rugam semnati formularul inainte de a-l trimite
