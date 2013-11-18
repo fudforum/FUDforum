@@ -16,9 +16,12 @@ plugin_add_hook('COMPILER_FINALIZE_PAGE', 'plugin_google_cdn');
 function plugin_google_cdn($array) {
 	list($html, $page) = $array;
 
-	$html = str_replace('href="js/ui/jquery-ui.css"', 'href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/ui-lightness/jquery-ui.css"', $html);
-	$html = str_replace('src="js/jquery.js"', 'src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"', $html);
-	$html = str_replace('src="js/ui/jquery-ui.js"', 'src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"', $html);
+	// Use http:// or https://
+	$URIprotocol = isset($_SERVER['HTTPS']) ? (($_SERVER['HTTPS']==='on' || $_SERVER['HTTPS']===1 || $_SERVER['SERVER_PORT']===443) ? 'https://' : 'http://') :  (($_SERVER['SERVER_PORT']===443) ? 'https://' : 'http://');
+	
+	$html = str_replace('href="js/ui/jquery-ui.css"', 'href="'. $URIprotocol .'ajax.googleapis.com/ajax/libs/jqueryui/1/themes/ui-lightness/jquery-ui.css"', $html);
+	$html = str_replace('src="js/jquery.js"', 'src="'. $URIprotocol .'ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"', $html);
+	$html = str_replace('src="js/ui/jquery-ui.js"', 'src="'. $URIprotocol .'ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"', $html);
 	
 	return array($html, $page);
 }
@@ -28,7 +31,7 @@ function google_cdn_info() {
 				'desc' => 'Load <em>jQuery</em> and <em>jQuery UI</em> from Google\'s Content Delivery Network (CDN) instead of your site.
 							This will reduce the server load and bandwidth on your site, but can only be used on Internet connected sites.',
 				'cat'  => 'Third-party Integration',
-				'version' => '1.0');
+				'version' => '1.1');
 }
 
 function google_cdn_enable() {
