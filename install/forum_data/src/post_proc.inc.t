@@ -17,9 +17,12 @@ function url_check($url)
 	// Remove spaces.
 	$url = preg_replace('!\s+!', '', $url);
 
+	// Remove quotes around URLs like in [url="http://..."].
+	$url = str_replace('&quot;', '', $url);
+
 	// Fix URL encoding.
 	if (strpos($url, '&amp;#') !== false) {
-		return preg_replace('!&#([0-9]{2,3});!e', "chr(\\1)", char_fix($url));
+		$url = preg_replace('!&#([0-9]{2,3});!e', "chr(\\1)", char_fix($url));
 	}
 
 	// Bad URL's (like 'script:' or 'data:').
@@ -162,11 +165,10 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 					}
 
 					$url = url_check($url);
-					$url = str_replace('&quot;', '', $url); // Remove quotes from URL.
 
 					if (!strncasecmp($url, 'www.', 4)) {
 						$url = 'http&#58;&#47;&#47;'. $url;
-					} else if (!filter_var($url, FILTER_VALIDATE_URL) || !preg_match('/^(http|ftp)/i', $url)) {
+					} else if (!preg_match('/^(http|ftp|\.)/i', $url)) {
 						// Skip invalid or bad URL (like 'script:' or 'data:').
 						$ostr .= substr($str, $pos, $cepos - $pos + 1);
 						$epos = $cepos;
