@@ -1,6 +1,7 @@
 # Messages for Uyghur (Arabic script) (ئۇيغۇرچە)
 # Exported from translatewiki.net
 # Author: Sahran
+# Author: Tel'et
 
 action:مەشغۇلات
 add_to_buddy_list:دوستلار تىزىملىكىگە قوش
@@ -300,11 +301,11 @@ register_builtin:باش سۈرەت:
 register_specify_url:بەلگىلەنگەن URL
 register_uploaded:سىما يۈكلە
 register_login:تىزىمغا كىر:
-register_password:ئىم:
-register_conf_pass:ئىم جەزملە:
+register_password:پارول:
+register_conf_pass::پارولنى مۇقىملاشتۇرۇڭ
 register_email_desc:ئىناۋەتلىك ئېلخەت ئادرېسىنى كىرگۈزۈڭ. تۆۋەندىكى مايىللىق بۆلىكىدە مۇنبەردە ئېلخەت ئادرېسىڭىزنى كۆرسەتمەسلىكنى تاللىسىڭىز بولىدۇ.
 register_name:ئاتى:
-register_your_pass:ئىم:
+register_your_pass:پارولىڭىز:
 register_update:يېڭىلا
 register_avatar_type:سىما تىپى:
 register_del_avatar:سىما ئۆچۈر
@@ -344,17 +345,17 @@ login_login_btn:تىزىمغا كىر
 login_name_required:تىزىمغا كىرىش ئاتىنى كىرگۈزۈڭ
 login_passwd_required:ئىم كىرگۈزۈڭ
 reset_error:ئېلخەت ئادرېسنى سانداندىن تاپالمىدى
-rpasswd_change_pass:ئىم ئۆزگەرت
+rpasswd_change_pass:پارولنى ئۆزگەرتىش
 rpasswd_login:تىزىمغا كىر
-rpasswd_cur_pass:نۆۋەتتىكى ئىم:
-rpasswd_new_pass:يېڭى ئىم:
-rpasswd_conf_pass:ئىم جەزملە:
+rpasswd_cur_pass:نۆۋەتتىكى پارول:
+rpasswd_new_pass:يېڭى پارول:
+rpasswd_conf_pass::پارولنى مۇقىملاشتۇرۇڭ
 ruser_title:مۇنبەرگە تىزىمغا كىرىشنى ئۆزگەرت
 ruser_change_user:مۇنبەرگە كىرىشنى ئۆزگەرت
 ruser_cur_login:نۆۋەتتىكى تىزىمغا كىرىش
 ruser_new_login:يېڭى تىزىمغا كىر:
-ruser_cur_pass:نۆۋەتتىكى ئىم:
-login_passwd:ئىم:
+ruser_cur_pass:نۆۋەتتىكى پارول:
+login_passwd:پارول:
 reset_email:ئېلخەت:
 reset_reset_button:ئىمنى ئەسلىگە قايتۇر
 rate_this_thread:باھا

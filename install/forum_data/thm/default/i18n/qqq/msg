@@ -397,6 +397,7 @@ dmsg_num:{{Identical|Message}}
 delete_msg_pm_subject:{{Identical|Subject}}
 register_theme:{{Identical|Theme}}
 pmsg_trash:{{Identical|Empty trash}}
+uc_new_topic:{{Identical|New topic}}
 search_options:{{Identical|Search options}}
 search_user_filter:Used as label for the "Username" input box in the Search form.
 modque_cat:{{Identical|Category}}
@@ -423,7 +424,7 @@ pmsg_on:This message is used when a user export his/her private messages to a fi
 code_title:{{Identical|Code}}
 code_select_all:{{Identical|Select all}}
 social_sites:Heading on registration page where users can specify their twitter, skype, ICQ, etc. handles.
-btn_new_topic:This message will be used to create a graphical button. Please keep it as short as possible.
+btn_new_topic:This message will be used to create a graphical button. Please keep it as short as possible.\n{{Identical|New topic}}
 btn_new_pm:This message will be used to create a graphical button. Keep it as short as possible.
 btn_post_reply:This message will be used to create a graphical button. Please keep it as short as possible.
 btn_tree_view:Show hierarchical view of messages.\nThis message will be used to create a graphical button.\nPlease keep it as short as possible.

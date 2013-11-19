@@ -1,5 +1,6 @@
 # Messages for Czech (čeština)
 # Exported from translatewiki.net
+# Author: Chmee2
 # Author: Juandev
 # Author: Mormegil
 # Author: Mr. Richard Bolla
@@ -77,6 +78,7 @@ cal_day_heading:Události pro den
 cal_no_events:Žádné události pro tento den.
 cal_update:Prohlížení kalendáře
 cal_birthday:Narozeniny: {VAR: user}
+cal_birthdays:{PLURAL: narozeniny|$1 narozeniny|$1 narozenin}
 cal_birthday_age:({PLURAL: age |$1 rok|$1 roky|$1 let}).
 message:Zpráva
 message_counter:Naši uživatelé zaslali již celkem <b>{PLURAL: post_count|$1 příspěvek|$1 příspěvků}</b> k <b>{PLURAL: thread_count|$1 téma|$1 tématům}</b>.
@@ -433,8 +435,7 @@ prereg_agree:Souhlasím
 prereg_disagree:Nesouhlasím
 prereg_update:Čte pravidla fóra
 coppa_fax_instructions:Instrukce pro rodiče nebo opatrovníky
-# Fuzzy
-coppa_fax_instructions2:Prosím, vytiskněte si tuto stránku, podepište ji a nafaxujte na číslo:
+coppa_fax_instructions2:Prosím, vytiskněte si tuto stránku, podepište ji a pošlete či nafaxujte nám zpět:
 coppa_fax_reg_form:Registrační formulář
 coppa_fax_sign:Prosím, podepište následující formulář a zašlete ho nám
 coppa_fax_conf:Dostal jsme informaci, že moje dítě chce vstoupit a přečetl jsem si Zásady soukromí pro tento server. Rozumím, že profil uživatele může být změněn použitím hesla. Rozumím, že mohu požádat aby tento registrační profil byl celý odstraněn.

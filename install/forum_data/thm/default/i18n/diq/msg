@@ -2,6 +2,7 @@
 # Exported from translatewiki.net
 # Author: Erdemaslancan
 # Author: Gorizon
+# Author: Marmase
 # Author: Mirzali
 
 action:Kerdış
@@ -24,7 +25,7 @@ download_counter:Ronayış {PLURAL: r->dlcount|$1 time|$1 mend}
 pmsg_download_counter:Ronayış {PLURAL: r->dlcount|$1 time|$1 mend}
 email:E-mail
 email_to_friend:E-mailê embazi
-faq:Peşti
+faq:Desteg
 flat_view:Hesıbyaye asayış dê raşti rê peyd şo
 forum:Forum
 forum_icon:Forum Icon
@@ -310,7 +311,7 @@ reset_err_invalidkey_title:XIRAB
 reset_err_rstconf_title:Zanışe
 reset_newpass_title:Parola reset ke
 email_title:Formê E-maili
-help_title:Peşti
+help_title:Desteg
 login_title:Formê Cı qewtışi
 register_title:Formê Cı qewtışi
 error_title:Formê Xırabin
@@ -330,7 +331,7 @@ groupmgr_edit:Bıvurne
 groupmgr_delete:Bestere
 show_show:Bımocne
 group_mgr_group:Grube
-p_READ:Bıwan
+p_READ:Buwan
 p_POST:Bırş
 p_REPLY:Cewab bıde
 p_EDIT:Bıvurne
@@ -438,7 +439,7 @@ findu_no_conf:Karberê ke otomatikmen tesdiq biy
 register_max_sig_len:En Vêşi Dergey:
 register_turing:Şıma ra reca, Qodê cêrêni defiye de:
 register_err_turing:Ravyayışê qodi xırabo.
-modque_cat:Kategoriye
+modque_cat:Kategori
 modque_forum:Forum
 idx_compact_forum_row:Forumi:
 mmd_del_title:Mewzuyan Bestere
