@@ -73,6 +73,7 @@ cal_day_heading:Podawki za dźeń
 cal_no_events:Žane podawki tón dźeń.
 cal_update:Forumowa protyka so přepytuje
 cal_birthday:Narodniny: {VAR: user}
+cal_birthdays:{PLURAL: birthdays|$1 narodniny}
 cal_birthday_age:({PLURAL: age|$1 lěto|$1 lěće|$1 lěta|$1 lět} stary)
 message:Powěsć
 message_counter:Naši wužiwarjo su dohromady <b>{PLURAL: post_count|$1 powěsć|$1 powěsći|$1 powěsće|$1 powěsćow}</b> znutřka <b>{PLURAL: thread_count|$1 temy|$1 temow|$1 temow|$1 temow}</b> pósłali.
@@ -211,6 +212,7 @@ reported_reported_msg:Zdźělene powěsće
 modque_pending_approval:Powěsće, kotrež dyrbja so hišće schwalić
 modque_approve:Schwalić
 modque_delete:Zničić
+modque_deleteall:Wšě wot wužiwarja zhašeć
 modque_no_message:Njejsu powěsće, kotrež dyrbja so hišće schwalić
 pmsg_new_messages:Njepřečitana priwatna powěsć
 pmsg_old_messages:Priwatnu powěsć čitać
@@ -416,8 +418,7 @@ ignore_users:Ignorowani wužiwarjo
 add_ignore:Ignorowaneho přidać
 forum_terms:Forumowe wuměnjenja
 forum_rules:<p>Registrowanje za tutón forum je swobodne! Wobstejemy na tym, zo dźeržeš so slědowacych prawidłow a zasadow. Jeli sy z wuměnjenjemi přezjedny, klikń na tłóčatko <b>Přihłosować</b> na kóncu strony. Kedźbu: Přez kliknjenje na tłóčatko deklaruješ, zo maš wjace hač 13 lět. Jeli sy 13 lět stary abo młódši, wužij prošu registrowanski formular.</p><p>Hačrunjež administratorojo a moderatorojo tutoho foruma budu pospytować, wšě njepřiměrjene powěsće wot tutoho foruma wotdźeržeć, je njemóžno za nas, wšě powěsće přepruwować. Wšě powěsće zwuraznjeja nahlady awtora a ani wobsedźerjo foruma ani jeho wuwiwarjo njemóžeja so zamołwitych za wobsah powěsće činić.</p><p>Přez kliknjenje na tłóčatko Přihłosować lubiš, zo njebudźeš žane powěsće słać, kotrež su obscene, wulgarne, seksuelnje orientowane, hidypołne, hrožace abo so na hinaše wašnje přećiwo zakonjam přeńdu.</p><p>Wobsedźerjo tutoho foruma maja prawo, temu z někajkeje přičiny wotstronić, wobdźěłać, přesunyć abo začinić.</p>
-# Fuzzy
-forum_rules_13:<p>Wšitcy wužiwarjo, kotřiž su młódši hač 13 lět, trjebaja dowolnosć jednoho ze swojeju staršeju abo předporučnika, zo bychu čłonstwo we forumach dóstali. Hačrunjež za to wuprajamy, zo čłonojo, kotřiž su młódši hač 13 lět, smědźa so we forumje wobdźělić, žadamy tola, zo jedyn ze staršeju abo předporučnik nam podpisany přizwolenski formular faksuje abo přez e-mejl wróćo sćele, prjedy hač damy čłonstwo.</p><p>Jeli chceš registrowanski proces startować, prjedy hač smy přizwolenski formular dóstali, klikń deleka na tłóčatko <b>Přihłosować</b>. Jeli chceš registrowanje přetorhnyć, klikń na <b>Wotpokazać</b>, zo by so k přehladej forumow wróćił.</p><p>Kopija přizwolenskeho formulara móžeš tu sćahnyć. Za dalše informacije wo registrowanskim procesu, pósćel prošu e-mejl administratorej <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
+forum_rules_13:<p>Wšitcy wužiwarjo, kotřiž su młódši hač 13 lět, trjebaja dowolnosć jednoho ze swojeju staršeju abo předporučnika, zo bychu čłonstwo we forumach dóstali. Hačrunjež za to wuprajamy, zo čłonojo, kotřiž su młódši hač 13 lět, smědźa so we forumje wobdźělić, žadamy sej tola, zo jedyn ze staršeju abo předporučnik nam podpisany přizwolenski formular faksuje abo přez e-mejl wróćo sćele, prjedy hač damy čłonstwo.</p><p>Jeli chceš registrowanski proces startować, prjedy hač smy přizwolenski formular dóstali, klikń deleka na tłóčatko <b>Přihłosować</b>. Jeli chceš registrowanje přetorhnyć, klikń na <b>Wotpokazać</b>, zo by so k přehladej forumow wróćił.</p><p>Kopija přizwolenskeho formulara budźe so po registraciji pokazować. Za dalše informacije wo registrowanskim procesu, pósćel prošu e-mejl administratorej <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
 coppa_conf:Wobkrućenje COPPA
 coppa_before:Do {TEMPLATE: coppa_date}
 coppa_after:Po {TEMPLATE: coppa_date}
@@ -428,8 +429,7 @@ prereg_agree:Přihłosować
 prereg_disagree:Wotpokazać
 prereg_update:Forumowe prawidła so čitaja
 coppa_fax_instructions:Instrukcije za jednoho ze staršeju abo předporučnika
-# Fuzzy
-coppa_fax_instructions2:Prošu wućišć tutu stronu, podpisaj ju a faksuj ju na:
+coppa_fax_instructions2:Prošu wućišć tutu stronu, podpisaj ju a faksuj ju wróćo k nam abo pósćel nam e-mejl:
 coppa_fax_reg_form:Registrowanski formular
 coppa_fax_sign:Prošu podpisaj formular a pósćel jón nam
 coppa_fax_conf:Sym informacije přehladał, kotrež moje dźěćo je mi podało a sym zasady priwatnosće za websydło přečitał. Rozumju, zo profilowe informacije hodźa so z pomocu hesła změnić. Rozumju, zo móžu požadać, zo tute registrowanski profil móže so dospołnje z foruma wotstronić.
@@ -674,8 +674,7 @@ reset_err_rstconf_title:Informacije
 reset_err_rstconf_msg:Ty měł za por mjeńšin přez e-mejl instrukcije dóstać.
 reset_newpass_title:Hesło wróćo stajić
 reset_newpass_msg:Halo,\n\nkaž požadane, so přizjewjenske informacije deleka jewja:\n\nPřizjewjenske mjeno: {VAR: ui[1]}\nHesło: {VAR: passwd}\n\nProšu dźiwaj na to, zo so swoje hesło na hornju hódnotu wróćo stajiło. Jeli chceš swoje hesło změnić, móžeš to přez swoje wužiwarske nastajenja činić:\n{FULL_ROOT}{ROOT}?t=register
-# Fuzzy
-reset_login_notify:Twoje hesło bu ći přez e-mejl připósłane. Ty měł jo za por mjeńšin dóstać.<br />
+reset_login_notify:Twoje hesło bu ći přez e-mejl připósłane. Ty měł jo za por mjeńšin dóstać.
 search_update:Přepytuje powěsće
 selmsg_update:Přepytuje <a href="{TEMPLATE: selmsg_update_lnk}">dźensniše powěsće</a>
 showposts_update:Wobhladuje powěsće wot: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
@@ -1107,8 +1106,7 @@ move_msg_th_expl:Podaj ID ciloweje temy (móže w druhich forumach być)
 captcha_img_alt:Pruwowanje captcha: dyrbiš tekst we wobrazu spóznać.
 captcha_img_help:Njeje nula abo jedynka we wobrazu.
 powered-by:Pohonjeny přez: FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:Copyright &copy;2001-2012 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Copyright &copy;2001-2013 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Kod:
 code_select_all:Wšě wubrać
 code_show_hide:Pokazać/schować

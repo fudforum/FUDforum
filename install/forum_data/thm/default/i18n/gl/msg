@@ -3,6 +3,7 @@
 # Author: McDutchie
 # Author: Naudefj
 # Author: Toliño
+# Author: Vivaelcelta
 
 action:Acción
 add_to_buddy_list:engadir á lista de amigos
@@ -395,7 +396,7 @@ post_icons:Icona da mensaxe:
 post_no_icon:Sen icona
 post_smiley:Atallos das emoticonas:
 post_format_tools:Ferramentas de formato:
-post_upload_file:Cargar o ficheiro
+post_upload_file:Subir o ficheiro
 post_file_del:Borrar
 post_file_name:Nome
 post_file_size:Tamaño
