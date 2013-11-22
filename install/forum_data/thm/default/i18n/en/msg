@@ -463,6 +463,7 @@ rpasswd_passwd_length:Password must be at least 6 characters long
 reset_remind_pass:Password Reminder
 reset_reset_conf:Your password will be reset and sent to you. If you have not yet confirmed your e-mail address, the confirmation request will be re-sent to you.
 reset_error:E-mail address not found in database
+reset_update:Reset password
 rpasswd_change_pass:Change Password
 rpasswd_login:Login
 rpasswd_cur_pass:Current Password:

@@ -11,6 +11,8 @@
 
 /*{PRE_HTML_PHP}*/
 
+	ses_update_status($usr->sid, '{TEMPLATE: reset_update}');
+
 	/* User is logged in, redirect to forum index. */
 	if (_uid) {
 		if ($FUD_OPT_2 & 32768) {
