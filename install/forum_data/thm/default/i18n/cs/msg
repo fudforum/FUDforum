@@ -1,5 +1,6 @@
 # Messages for Czech (čeština)
 # Exported from translatewiki.net
+# Author: Beta16
 # Author: Chmee2
 # Author: Juandev
 # Author: Mormegil
@@ -60,7 +61,7 @@ index_url_redirection:Přesměrování
 interests:Zájmy:
 last_post:Poslední příspěvek
 last_thread_msg:Jdi na poslední zprávu tohoto tématu
-legend:Legenda:
+legend:Legenda
 location:Umístění:
 lock_thread:Zamknout téma
 locked:Zamknuto

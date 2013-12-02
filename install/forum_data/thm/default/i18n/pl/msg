@@ -5,6 +5,7 @@
 # Author: Chrumps
 # Author: Naudefj
 # Author: Rezonansowy
+# Author: Rzuwig
 # Author: Sp5uhe
 # Author: Woytecr
 
@@ -470,6 +471,7 @@ rpasswd_passwd_length:Hasło musi mieć długość co najmniej 6 znaków
 reset_remind_pass:Odzyskiwanie hasła
 reset_reset_conf:Twoje obecne hasło zostanie wyzerowane a nowe wyślemy Ci pocztą elektroniczną. Jeśli nie potwierdziłeś naszego listu, ów zostanie wysłany ponownie.
 reset_error:Adres e-mail nie został znaleziony w bazie
+reset_update:Zresetuj hasło
 rpasswd_change_pass:Zmień hasło
 rpasswd_login:Nazwa użytkownika
 rpasswd_cur_pass:Aktualne hasło:

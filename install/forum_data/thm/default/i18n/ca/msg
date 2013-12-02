@@ -2,6 +2,7 @@
 # Exported from translatewiki.net
 # Author: Alvaro Vidal-Abarca
 # Author: BroOk
+# Author: Fitoschido
 # Author: Gemmaa
 # Author: McDutchie
 # Author: Naudefj
@@ -426,8 +427,7 @@ ignore_users:Usuaris ignorats
 add_ignore:Afegir ignorat
 forum_terms:Termes del fòrum
 forum_rules:<p>Inscripció a aquest fòrum és gratis! Insistim en què compleixis les regles i normes detallades sota. Si està d'acord amb els termes, si us plau, premeu <b>l'acceptar</b> botó al final de la pàgina. Nota: Prement el botó es declaren que són majors de 13 anys. Si són 13 o sota, si us plau, utilitzeu aquest formulari d'inscripció.</p><p>Encara que els administradors i moderadors d'aquest fòrum tractarà de mantenir tots els missatges inacceptables fora d'aquest fòrum, és impossible per a nosaltres el revisar tots els missatges. Tots els missatges expressen les opinions de l'autor, i ni els propietaris de fòrum o els desenvolupadors es fa responsables pel contingut de qualsevol missatge.</p><p>Fent clic l'acceptar botó, garanteixes que no escriuràs cap missatge que són obscè, vulgar, sexualment orientat, odiós, amenaçant, o en cas contrari violar qualsevol llei.</p><p>Els propietaris d'aquest fòrum té el dret a eliminar, editar, moure o tancar qualsevol tema per qualsevol raó.</p>
-# Fuzzy
-forum_rules_13:<p>Tots els usuaris menors de 13 anys s'ha de buscar permís del seu pare o tutor per a obtenir els membres dels fòrums. Mentre que donem la benvinguda a la participació de membres menors de 13 anys, es requereix que un pare o guardià fax o correu nou un formulari signat permís abans que es concedeix membres.</p><p>Si li agradaria iniciar el procés de registre abans de nosaltres de rebre una forma de permís, premeu el botó <b>acceptar</b> per sota. Si voleu deixar de registre, premeu <b>Disagree</b> per tornar a l'índex del Fòrum.</p><p>Una còpia de la forma de permís es pot descarregar aquí. Per obtenir més informació sobre el procés de registre, si us plau, enviar correu electrònic a <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
+forum_rules_13:<p>Tots els usuaris menors de 13 anys s'ha de buscar permís del seu pare o tutor per a obtenir els membres dels fòrums. Mentre que donem la benvinguda a la participació de membres menors de 13 anys, es requereix que un pare o guardià fax o correu nou un formulari signat permís abans que es concedeix membres.</p><p>Si li agradaria iniciar el procés de registre abans de nosaltres de rebre una forma de permís, premeu el botó <b>acceptar</b> per sota. Si voleu deixar de registre, premeu <b>Disagree</b> per tornar a l'índex del Fòrum.</p><p>Es mostrarà una còpia del permís després que us registreu. Per obtenir més informació sobre el procés de registre, si us plau, enviar un correu electrònic a <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
 coppa_conf:Confirmació COPPA
 coppa_before:Abans de {TEMPLATE: coppa_date}
 coppa_after:Abans de {TEMPLATE: coppa_date}
@@ -438,8 +438,7 @@ prereg_agree:D`acord
 prereg_disagree:No estic d`acord
 prereg_update:Llegir les regles del Fòrum
 coppa_fax_instructions:Instruccions per a pares o tutors
-# Fuzzy
-coppa_fax_instructions2:Si us plau, imprimeixi aquesta pàgina, signi-la i enviï-la per fax a:
+coppa_fax_instructions2:Si us plau, imprimeixi aquesta pàgina, signi-la i enviï-nos-la per correu o fax.
 coppa_fax_reg_form:Formulari de registre
 coppa_fax_sign:Si us plau, signi el formulari següent i enviï`ns-el
 coppa_fax_conf:He revisat la informació que el menor ha subministrat i he llegit les Polítiques de Privacitat del lloc web. Entenc que la informació de perfil pot ser canviada usant una clau. Entenc que puc demanar que aquest perfil de registre sigui eliminat completament.
@@ -474,6 +473,7 @@ rpasswd_passwd_length:La contrasenya ha de tenir almenys 6 caràcters
 reset_remind_pass:Recordatori de contrasenya
 reset_reset_conf:La seva contrasenya serà actualitzada i se li enviarà, o en cas que ho hagi confirmat el seu correu electrònic, la sol.licitud de confirmació de correu electrònic li serà reenviada.
 reset_error:No s`ha trobat una adreça de correu electrònic ala base de dades
+reset_update:Restablir contrasenya
 rpasswd_change_pass:Canviar contrasenya
 rpasswd_login:Usuari
 rpasswd_cur_pass:Contrasenya actual:
@@ -684,8 +684,7 @@ reset_err_rstconf_title:Informació
 reset_err_rstconf_msg:Hauria de rebre instruccions al seu correu electrònic en els propers minuts
 reset_newpass_title:Actualitzar contrasenya
 reset_newpass_msg:Hola.\n\nTal i com ha sol.licitat, li remetem el seu nom d`usuari i contrasenya.\nAquí­ està la seva informació d`inici de sessió:\n\nUsuari: {VAR: ui[1]}\nContrasenya: {VAR: passwd}\n\nRecordi que la seva contrasenya ha estat actualitzada al valor anterior. Si desitja canviar la seva contrasenya pot fer-ho mitjançant el panell de control d`usuari a:\n{FULL_ROOT}{ROOT}?t=register
-# Fuzzy
-reset_login_notify:Se li ha enviat la contrasenya per correu electrònic. Hauria de rebre-la en uns minuts.  Recordi revisar el seu correu per a obtenir la seva contrasenya i nom d`usuari.<br />.<br />.<br />
+reset_login_notify:Se li ha enviat la contrasenya per correu electrònic. Hauria de rebre-la en uns minuts.
 search_update:Buscant missatges
 selmsg_update:Recorreguent <a href="{TEMPLATE: selmsg_update_lnk}">missatges d`avui</a>
 showposts_update:Veient missatges de: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
@@ -1025,7 +1024,7 @@ ip_search_by_ip:Cercar usuaris per IP
 ip_search_syntax:Sintaxis suportada: 1.2.3.4, 1.2.3, 1.2, 1
 ip_search:Cercar
 ip_analyze_usage:Analitzar l`ús de la IP
-ip_analyze_usage_descr:Si us plau, indiqui el nom d`usuari exacte.
+ip_analyze_usage_descr:Indiqueu el nom de l’usuari exacte.
 ip_users_using:Usuaris que usan l`adreça IP '{VAR: ip}'
 ip_all_ips:Totes les IPs usades per '{VAR: user}'
 ip_title:Examinador d`IPs
@@ -1117,8 +1116,7 @@ move_msg_th_expl:Especifiqueu l'IDENTIFICADOR del tema de destinació (pot ser e
 captcha_img_alt:Verificació de captcha: cal reconèixer el text en aquesta imatge.
 captcha_img_help:No hi ha cap zero o en la imatge.
 powered-by:Powered by: 0.9 {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:Copyright © 2001-2012 <a href="http://fudforum.org/">0.9 butlletí Junta programari</a>
+copyright:Copyright &copy;2001-2013 <a href="http://fudforum.org/">0.9 butlletí Junta programari</a>
 code_title:Codi:
 code_select_all:Selecciona-ho tot
 code_show_hide:Mostra / Amaga

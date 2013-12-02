@@ -424,8 +424,7 @@ ignore_users:Ignorerede brugere
 add_ignore:Tilføj ignoramus
 forum_terms:Forum vilkår
 forum_rules:<p>Tilmelding til dette forum er gratis! Vi insisterer på, at du overholder de regler og politikker der nærmere er beskrevet nedenfor. Hvis du accepterer vilkårene, skal du trykke på <b>Enig</b>-knappen nederst på siden. Bemærk: Ved at trykke på knappen erklærer du, at du er over 13 år. Hvis du er 13 eller under, skal du bruge indmeldelsesblanket.</p><p>Selvom administratorer og moderatorer forsøger at holde alle stødende indlæg fra forumet, er det umuligt for os at gennemse alle indlæg. Alle beskeder udtrykker den enkelte forfatters synspunkter, og hverken ejere af forum eller programudviklere kan holdes ansvarlige for indholdet af beskeden.</p><p>Ved at klikke på "Enig" knappen, forsikrer du, at du ikke fremlægger meddelelser, der er uanstændige, vulgære, seksuelt krænkende, hadefulde, truende, eller på anden vis overtræder loven.</p><p>Ejerne af dette forum har ret til at fjerne, redigere, flytte eller lukke for ethvert emne med hvilken som helst begrundelse.</p>
-# Fuzzy
-forum_rules_13:<p>Alle brugere under 13 år skal indhente tilladelse fra deres forældre eller værge for at opnå medlemskab i dette forum. Mens vi glæder os over deltagelse fra medlemmer under 13 år, kræver vi, at en forælder eller værge faxer eller e-mailer en underskrevet tilladelse til os før vi accepterer medlemskab.</p><p>Hvis du ønsker at starte registreringsprocessen inden vi har modtaget en tilladelses-formular, så tryk på <b>Enig</b> nedenfor. Hvis du vil annullere registreringen, skal du trykke på <b>Uenig</b> for at vende tilbage til forummets indeks.</p><p>En kopi af tilladelses-formularen kan hentes her. For mere information om registreringsprocessen bedes du sende e-mail til <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
+forum_rules_13:<p>Alle brugere under 13 år skal indhente tilladelse fra deres forældre eller værge for at opnå medlemskab i dette forum. Mens vi glæder os over deltagelse fra medlemmer under 13 år, kræver vi, at en forælder eller værge faxer eller e-mailer en underskrevet tilladelse til os før vi accepterer medlemskab.</p><p>Hvis du ønsker at starte registreringsprocessen inden vi har modtaget en tilladelses-formular, så tryk på <b>Enig</b> nedenfor. Hvis du vil annullere registreringen, skal du trykke på <b>Uenig</b> for at vende tilbage til forummets indeks.</p><p>En kopi af tilladelses-formularen vil blive præsenteret efter registrering. For mere information om registreringsprocessen bedes du sende en e-mail til <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
 coppa_conf:COPPA Bekræftelse
 coppa_before:Før {TEMPLATE: coppa_date}
 coppa_after:Efter {TEMPLATE: coppa_date}
@@ -436,8 +435,7 @@ prereg_agree:Enig
 prereg_disagree:Uenig
 prereg_update:Læsning af forumreglerne
 coppa_fax_instructions:Instruktioner til en forælder eller værge
-# Fuzzy
-coppa_fax_instructions2:Udskriv venligst denne side, underskriv den, og fax den til:
+coppa_fax_instructions2:Udskriv venligst denne side, underskriv den, og e-mail eller fax den tilbage til os.
 coppa_fax_reg_form:Registreringsformular
 coppa_fax_sign:Du bedes underskrive formularen nedenfor og sende den til os
 coppa_fax_conf:Jeg har gennemgået de oplysninger, mit barn har fremvist, og jeg har læst "Privacy Policy" for webstedet. Jeg har forstået, at profil oplysningerne kan ændres ved hjælp af en adgangskode. Jeg har forstået, at jeg eventuelt selv må bede om, at denne registrerings-profil bliver fjernet helt fra forum.
@@ -472,6 +470,7 @@ rpasswd_passwd_length:Adgangskoden skal være på mindst 6 tegn
 reset_remind_pass:Påmindelse om adgangskode
 reset_reset_conf:Din gamle adgangskode slettes og en ny sendes til dig. Hvis du endnu ikke har bekræftet din e-mailadresse, sendes istedet en bekræftelsesmail igen!
 reset_error:E-mailadressen blev ikke fundet i databasen
+reset_update:Nulstil adgangskode
 rpasswd_change_pass:Skift adgangskode
 rpasswd_login:Brugernavn
 rpasswd_cur_pass:Nuværende adgangskode:

@@ -469,6 +469,7 @@ rpasswd_passwd_length:パスワードは 6文字以上の長さが必要です
 reset_remind_pass:パスワード・リマインダー
 reset_reset_conf:パスワードを再設定してあなたに送信します。もしまだメールアドレスを確認していなければ、確認請求を再度お送りすることになります。
 reset_error:メールアドレスがデータベース内にありません。
+reset_update:パスワードを再設定
 rpasswd_change_pass:パスワードを変更
 rpasswd_login:ログイン
 rpasswd_cur_pass:現在のパスワード:

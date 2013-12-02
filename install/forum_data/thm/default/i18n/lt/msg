@@ -1,5 +1,6 @@
 # Messages for Lithuanian (lietuvių)
 # Exported from translatewiki.net
+# Author: Beta16
 # Author: Cyklopas
 # Author: Eitvys200
 # Author: Ignas693
@@ -59,7 +60,7 @@ index_url_redirection:Peradresavimas
 interests:Pomėgiai:
 last_post:Paskutinė žinutė
 last_thread_msg:Į paskutinę žinutę
-legend:Legenda:
+legend:Legenda
 location:Vieta:
 lock_thread:Uždaryti temą
 locked:Uždaryta

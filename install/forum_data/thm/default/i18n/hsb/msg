@@ -464,6 +464,7 @@ rpasswd_passwd_length:Hesło dyrbi znajmjeńša 6 pismikow měć
 reset_remind_pass:Hesłowe dopomnjeće
 reset_reset_conf:Twoje hesło budźe so ći připosyłać. Jeli hišće njejsy swoju e-mejlowu adresu wobkrućił, požadanje wo wobkrućenje budźe so ći wróćo słać.
 reset_error:E-mejlowa adresa njebu w datowej bance namakana
+reset_update:Hesło wróćo stajić
 rpasswd_change_pass:Hesło změnić
 rpasswd_login:Přizjewjenje
 rpasswd_cur_pass:Aktualne hesło:

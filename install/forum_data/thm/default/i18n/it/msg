@@ -32,7 +32,7 @@ pmsg_download_counter:Scaricato {PLURAL: r->dlcount|$1 volta|$1 volte}
 email:Email:
 email_to_friend:E-mail ad un amico
 email_to_friend_desc:Invia l'indirizzo di questa pagina ai tuoi amici via email
-email_user:Manda una e-mail all'utente
+email_user:Manda una email all'utente
 faq:F.A.Q.
 first_unread_msg:Vai ai messaggi non letti
 first_unread_msg_desc:Vai al primo messaggio non letto di questo argomento
@@ -426,8 +426,7 @@ ignore_users:Utenti ignorati
 add_ignore:Aggiungi utente da ignorare
 forum_terms:Regole del forum
 forum_rules:<p>La registrazione a questo forum è libera! Insistiamo affinchè si rispettino le regole e politiche sotto indicate. Se si accetano le condizioni, premere il pulsante <b>Accetto</b> situato alla fine della pagina. Nota: Premendo il pulsante si dichiara di avere più di 13 anni. Se si hanno 13 anni o meno, pregasi usare questo form di registrazione.</p><p>Sebbene gli amministratori ed i moderatori di questo forum si impegnino a mantenere tutti i messaggi sgradevoli fuori da questo forum, è impossibile per noi esaminarli tutti. Tutti i messaggi esprimono il punto di vista dell'autore, e né i proprietari del forum, né i suoi sviluppatori potranno essere ritenuti responsabili per il contenuto di qualsivoglia messaggio.</p><p>Facendo click sul pulsante "Accetto", si garantisce di non spedire alcun messaggio osceno, volgare, di carattere sessuale, odioso, minaccioso, o che violi la legge.</p><p>I propietari di questo forum hanno il diritto di rimuovere, modificare, spostare o chiudere qualsiasi argomento per qualsiasi ragione.<p>
-# Fuzzy
-forum_rules_13:<p>Tutti gli utenti sotto i 13 anni necessitano del permesso dei genitori o di un tutore per ottenere la registrazione al forum. Gli utenti sotto i 13 anni sono benvenuti, ma per completare la registrazione richiediamo che un genitore o il tutore diano il loro permesso firmato tramite mail o fax .</p><p>Se vuoi iniziare il processo di registrazine prima che noi abbiamo ricevuto il modulo di permesso firmato, premi il bottone <b>Accetto</b> sotto. Se vuoi cancellare la registrazione, premi <b>Non Acetto</b> per ritornare all'indice del forum.</p><p>Puoi scaricare qui una copia del modulo di permesso. Per maggiori informazioni sul processo di registrazione, manda una email a <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
+forum_rules_13:<p>Tutti gli utenti sotto i 13 anni necessitano del permesso dei genitori o di un tutore per ottenere la registrazione al forum. Gli utenti sotto i 13 anni sono benvenuti, ma per completare la registrazione richiediamo che un genitore o il tutore diano il loro permesso firmato tramite mail o fax.</p><p>Se vuoi iniziare il processo di registrazione prima che noi abbiamo ricevuto il modulo di permesso firmato, premi il bottone <b>Accetto</b> sotto. Se vuoi cancellare la registrazione, premi <b>Non accetto</b> per ritornare all'indice del forum.</p><p>Una copia del modulo di autorizzazione sarà presentata dopo la registrazione. Per maggiori informazioni sul processo di registrazione, manda una email a <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
 coppa_conf:Conferma del COPPA
 coppa_before:Prima del {TEMPLATE: coppa_date}
 coppa_after:Dopo {TEMPLATE: coppa_date}
@@ -438,8 +437,7 @@ prereg_agree:Accetto
 prereg_disagree:Non accetto
 prereg_update:Legge le regole del forum
 coppa_fax_instructions:Istruzioni per un Genitore o Tutore
-# Fuzzy
-coppa_fax_instructions2:Per piacere stampa questa pagina, firmala e spediscila via fax a:
+coppa_fax_instructions2:Per piacere stampa questa pagina, firmala e spediscila via email o fax a noi.
 coppa_fax_reg_form:Modulo di Registrazione
 coppa_fax_sign:Per piacere firma il modulo sotto e spediscicelo
 coppa_fax_conf:Ho esaminato le informazioni che mio figlio ha dornito ed ho letto le Regole di Privacy per questo sito web. Ho compreso che le informazioni del Profilo possono essere modificate usando una Password. Ho compreso che è nella mia facoltà di richiedere la rimozione totale di questo profilo di registrazione.
@@ -474,6 +472,7 @@ rpasswd_passwd_length:La password dev'essere di almeno 6 caratteri
 reset_remind_pass:Promemoria per Password
 reset_reset_conf:La tua password sarà reimpostata e spedita al tuo indirizzo di posta. Nel caso tu non abbia accettato l'email di conferma, essa ti sarà spedita nuovamente.
 reset_error:Email non trovata nel database
+reset_update:Reimposta password
 rpasswd_change_pass:Modifica password
 rpasswd_login:Login
 rpasswd_cur_pass:Password attuale:
@@ -486,7 +485,7 @@ ruser_new_login:Nuova Login:
 ruser_cur_pass:Password attuale:
 login_passwd:Password:
 reset_email:Email:
-reset_reset_button:Reimposta Password
+reset_reset_button:Reimposta password
 rate_this_thread:Giudizio
 report_reporting_about:Segnalazione circa:
 report_subject:Oggetto:
@@ -682,7 +681,7 @@ reset_err_invalidkey_title:ERRORE
 reset_err_invalidkey_msg:Password di reimpostazione chiave non valida
 reset_err_rstconf_title:Informazioni
 reset_err_rstconf_msg:Dovresti ricevere istruzioni nella tua casella di posta elettronica nel giro di pochi minuti
-reset_newpass_title:Reimposta la password
+reset_newpass_title:Reimposta password
 reset_newpass_msg:Ciao,\n\nCome da te richiesto, ti sta per essere inviato il tuo .\nQui di seguito trovi le informazioni per il login:\n\nLogin: {VAR: ui[1]}\nPassword: {VAR: passwd}\n\nNota che la password è stata reimpostata con il valore che leggi qui sopra. Se desideri\nmodificarla puoi farlo utilizzando il pannello di controllo:\n{FULL_ROOT}{ROOT}?t=register
 reset_login_notify:La tua password ti è stata inviata per posta elettronica. Dovresti riceverla entro pochi minuti.
 search_update:Cerca negli argomenti
@@ -922,7 +921,7 @@ mmod_delete_cofirm_ttl:Conferma Cancellazione Argomento/Messaggio
 spell_alts:nessuna alternativa
 insert_uploaded_image:Inserisci una immagine nel testo del messaggio
 finduser_help:Il motore di ricerca aggiungerà automaticamente la maschera * nella tua richiesta. es. per ricercare tutti gli utenti la cui login comincia con una 'a', scrivi 'a' nel box di ricerca.
-back_to_top:Torna sopra
+back_to_top:Torna all'inizio
 pm_err_disabled_title:Messaggi privati Disabilitati
 pm_err_disabled_msg:Non puoi inviare messaggi privati finchè non abiliti l'opzione 'Abilita Messaggi Privati' nel tuo profilo.
 err_mod_acc_ttl:Account non verificato

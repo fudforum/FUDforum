@@ -427,8 +427,7 @@ ignore_users:Ignorerade medlemmar
 add_ignore:Ignorera medlem
 forum_terms:Villkor för forumet
 forum_rules:<p>Att registrera sig till detta forum kostar ingenting! Vi insisterar att du följa de regler och principer som anges nedan. Om du accepterar villkoren, tryck på knappen <b>Godkänn</b> i slutet av sidan. Notera: Genom att trycka på knappen uppger du att du är över 13 år. Om du är 13 eller under använd denna anmälningsblankett.</p><p>Trots att administratörer och moderatorer på detta forum kommer att försöka hålla alla stötande meddelanden från detta forum, är det omöjligt för oss att granska alla meddelanden. Alla meddelanden uttrycker åsikter av författaren, och varken ägarna till forumet eller utvecklarna kommer att hållas ansvarig för innehållet i ett meddelande.</p><p>Genom att klicka på knappen Godkänn, garanterar du att du inte kommer att bokföra eventuella meddelanden som är obscent vulgärt, sexuellt orienterade, hatiskt, hotande, eller på annat sätt bryter mot några lagar.</p><p>Ägarna till detta forum har rätt att ta bort, redigera, flytta eller stänga ett ämne av någon anledning.</p>
-# Fuzzy
-forum_rules_13:<p>Alla användare som är under 13 år måste ha tillstånd från sin förälder eller målsman för att få rätt till medlemskap i detta forum. Vi välkomnar medlemmar som är under 13 år, men kräver att en förälder eller målsman faxar eller mailar tillbaka ett undertecknat godkännande innan vi beviljar medlemskap.</p><p>Om du vill påbörja registrering innan vi har fått godkännandet kan du trycka på knappen <b>Acceptera</b> nedan. Om du vill avbryta registreringen, trycker du <b>Accepterar inte</b> för att återgå till forumets första sida.</p><p>En kopia av formuläret för godkännande kan laddas ner här. För mer information om registreringen, vänligen skicka ett e-post till <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
+forum_rules_13:<p>Alla användare som är under 13 år måste ha tillstånd från sin förälder eller målsman för att få rätt till medlemskap i detta forum. Vi välkomnar medlemmar som är under 13 år, men kräver att en förälder eller målsman faxar eller mailar tillbaka ett undertecknat godkännande innan vi beviljar medlemskap.</p><p>Om du vill påbörja registrering innan vi har fått godkännandet kan du trycka på knappen <b>Acceptera</b> nedan. Om du vill avbryta registreringen, trycker du <b>Accepterar inte</b> för att återgå till forumets första sida.</p><p>En kopia av formuläret för godkännande kommer att visas efter registreringen. För mer information om registreringen, vänligen skicka ett e-postmeddelande till <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
 coppa_conf:COPPA-bekräftelse
 coppa_before:Före {TEMPLATE: coppa_date}
 coppa_after:Efter {TEMPLATE: coppa_date}
@@ -439,8 +438,7 @@ prereg_agree:Jag godkänner
 prereg_disagree:Avbryt registreringen
 prereg_update:Läser forumreglerna
 coppa_fax_instructions:Instruktioner för en förälder eller förmyndare
-# Fuzzy
-coppa_fax_instructions2:Vänligen skriv ut den här sidan, underteckna den och faxa den till:
+coppa_fax_instructions2:Vänligen skriv ut denna sida, underteckna den och faxa tillbaka den till oss.
 coppa_fax_reg_form:Registreringsformulär
 coppa_fax_sign:Vänligen underteckna formuläret och sänd det till oss
 coppa_fax_conf:Jag har läst genom den information mitt barn har gett mig och jag har läst webplatsens allmänna villkor. Jag förstår att användarprofilen kan ändras med ett lösenord. Jag förstår att jag kan begära att användarprofilen permanent raderas.
@@ -475,6 +473,7 @@ rpasswd_passwd_length:Lösenordet måste vara minst 6 tecken långt
 reset_remind_pass:Lösenordspåminnare
 reset_reset_conf:Ditt lösenord kommer att nollställas och ett nytt skickas åt dig. Om du inte har bekräftat din registrering kommer bekräftelsemeddelandet att skickas istället.
 reset_error:E-postadressen hittades inte i databasen
+reset_update:Återställ lösenord
 rpasswd_change_pass:Byt lösenord
 rpasswd_login:Logga in
 rpasswd_cur_pass:Nuvarande lösenord:

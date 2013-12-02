@@ -418,8 +418,7 @@ ignore_users:Usuarios anubríos
 add_ignore:Anubrir al usuariu
 forum_terms:Términos del foru
 forum_rules:<p>¡El rexistru nesti foru ye de baldre! Insistimos en que cumplas les regles y polítiques que se detallen darréu. Si tas d'acuerdu colos términos, por favor, calca nel botón "<b>Aceuto</b>" al final de la páxina. Nota: al calcar nel botón, declares que tienes más de 13 años d'edá. Si tienes 13 años o menos, por favor, usa esti formulariu de rexistru.</p><p>Por más que los alministradores y moderadores d'esti foru procurarán dexar tolos mensaxes inaceptables fuera del foru, ye imposible para nós revisalos toos. Tolos mensaxes espresen les opiniones del autor, y nin los propietarios del foru nin los desendolcadores son responsables del conteníu de cualquiera d'ellos.</p><p>Al calcar nel botón "Aceuto", garantices que nun publicarás dengún mensaxe con conteníu vulgar, sexual, que fomente l'odiu, amenazante o que vaya escontra cualquier llei.</p><p>Los propietarios d'esti foru tienen drechu a desaniciar, editar, treslladar o candar cualquier filu por cualquier motivu.</p>
-# Fuzzy
-forum_rules_13:<p>Tolos usuarios menores de 13 años tienen de pidir permisu a los sos pas o tutores enantes de facese miembros de los foros. Mentanto qu'afalamos la participación de miembros menores de 13 años, necesitamos qu'un pa o tutor llegal devuelva per fax o corréu ordinariu un formulariu d'autorización robláu enantes d'aceutar al nuevu miembru.</p><p>Si quies principiar el procesu de rexistru enantes de que recibamos el formulariu d'autorización, calca nel botón "<b>Aceuto</b>" de más abaxo. Si quies encaboxar el rexistru, calca "<b>Nun aceuto</b>" pa volver al índiz de foros.</p><p>Pues descargar equí una copia del formulariu d'autorización. Pa más información tocante al procesu de rexistru, unvia un corréu electrónicu a <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
+forum_rules_13:<p>Tolos usuarios menores de 13 años tienen de pidir permisu a los sos pas o tutores enantes de facese miembros de los foros. Mentanto qu'afalamos la participación de miembros menores de 13 años, necesitamos qu'un pa o tutor llegal devuelva per fax o corréu ordinariu un formulariu d'autorización robláu enantes d'aceutar al nuevu miembru.</p><p>Si quies principiar el procesu de rexistru enantes de que recibamos el formulariu d'autorización, calca nel botón "<b>Aceuto</b>" de más abaxo. Si quies encaboxar el rexistru, calca "<b>Nun aceuto</b>" pa volver al índiz de foros.</p><p>Dempués del procesu de rexistru apaecerá una copia del formulariu d'autorización. Pa más información tocante al procesu de rexistru, unvia un corréu electrónicu a <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
 coppa_conf:Confirmación COPPA
 coppa_before:Enantes de {TEMPLATE: coppa_date}
 coppa_after:Después de {TEMPLATE: coppa_date}
@@ -430,8 +429,7 @@ prereg_agree:Aceutar
 prereg_disagree:Nun aceuto
 prereg_update:Lleer les regles del foru
 coppa_fax_instructions:Instrucciones pa los pas o tutores
-# Fuzzy
-coppa_fax_instructions2:Por favor, imprime esta páxina, róblala y unvíala per fax a:
+coppa_fax_instructions2:Por favor, imprimi esta páxina, róblala y devuélvinos-la per corréu electrónicu o per fax.
 coppa_fax_reg_form:Formulariu de rexistru
 coppa_fax_sign:Por favor, robla'l formulariu siguiente y mándanoslu
 coppa_fax_conf:Revisé la información que'l menor me proporcionó y lleí la política de proteición de datos del sitiu. Entiendo que la información del perfil pue cambiase utilizando una conseña. Entiendo que puedo pidir qu'esti perfil de rexistru se desanicie dafechu del foru.
@@ -466,6 +464,7 @@ rpasswd_passwd_length:La conseña tien de tener polo menos 6 caráuteres
 reset_remind_pass:Recordatoriu de conseña
 reset_reset_conf:La to conseña se reaniciará y te la unviaremos. Si entá nun confirmasti la to direición de corréu electrónicu, volveremos a unviate la solicitú de confirmación.
 reset_error:Nun s'alcontró la direición de corréu electrónicu na base de datos
+reset_update:Reaniciar contraseña
 rpasswd_change_pass:Camudar contraseña
 rpasswd_login:Usuariu
 rpasswd_cur_pass:Conseña actual:

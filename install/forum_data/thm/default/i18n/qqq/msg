@@ -39,6 +39,7 @@ logout:{{Identical|Log out}}
 members:{{Identical|Member}}
 calendar:{{Identical|Calendar}}
 cal_goto_date:{{Identical|Jump to}}
+cal_update:Used as session status to indicate last known action.\n{{Related|Fud-status}}
 message:{{Identical|Message}}
 move_thread:{{Identical|Move}}
 na:Indication that something is not applicable.<br />\nFor example: ''Last message: n/a'' (user haven't posted any yet).
@@ -198,6 +199,7 @@ forum_rules_13:The "Agree" button refers to message {{msg-fud|Prereg_agree}}.\nT
 coppa_conf:'COPPA' refers to the [[wikipedia:Children's Online Privacy Protection Act|Children's Online Privacy Protection Act]].
 prereg_agree:Used as label for the Submit button.\n\nFollowed by another button which is labeled {{msg-fud|Prereg disagree}}.
 prereg_disagree:Used as label for the Submit button.\n\nPreceded by another button which is labeled {{msg-fud|Prereg agree}}.
+prereg_update:Used as session status to indicate last known action.\n{{Related|Fud-status}}
 coppa_fax_telephone:{{Identical|Telephone}}
 coppa_fax_email:{{Identical|E-mail address}}
 coppa_fax_date:{{Identical|Date}}
@@ -209,6 +211,7 @@ login_forgot_passwd:Message shown on the login screen to request a new password.
 login_login:{{Identical|Login}}\n\nShould be the same as {{msg-fud|Register login}} and {{msg-fud|Quicklogin login}}.
 login_login_btn:Text for the login button.\n\n{{Identical|Login}}
 rpasswd_passwd_nomatch:{{Identical|Passwords do not match}}
+reset_update:Action in the forum's action list (iSpy system) indicating that the user is resetting his/her password.\n\nUsed as session status to indicate last known action.\n{{Related|Fud-status}}\n{{Identical|Reset password}}
 rpasswd_change_pass:{{Identical|Change password}}
 rpasswd_login:{{Identical|Login}}
 rpasswd_new_pass:{{Identical|New password}}
@@ -266,29 +269,38 @@ tabs_bookmarkes:{{Identical|Bookmark}}
 delete_yes:{{Identical|Yes}}
 delete_no:{{Identical|No}}
 error_error:{{Identical|Error}}
-actions_update:This message is shown in the forum's I-SPY system to indicate what this user is busy doing.
+actions_update:This message is shown in the forum's I-SPY system to indicate what this user is busy doing.\n\nUsed as session status to indicate last known action.\n{{Related|Fud-status}}
 err_info:{{Identical|Info}}
-buddy_list_update:This message is shown in the forum's I-SPY system to indicate what this user is busy doing.
+buddy_list_update:This message is shown in the forum's I-SPY system to indicate what this user is busy doing.\n\nUsed as session status to indicate last known action.\n{{Related|Fud-status}}
 emailconf_err_invkey_title:{{Identical|Error}}
-help_index_update:Description of the user's current action (in this case, busy reading the forum's help pages) shown in the action (iSpy) log.
+finduser_update:Used as session status to indicate last known action.\n{{Related|Fud-status}}
+help_index_update:Description of the user's current action (in this case, busy reading the forum's help pages) shown in the action (iSpy) log.\n\nUsed as session status to indicate last known action.\n{{Related|Fud-status}}
 ignore_list_err_info_title:{{Identical|Info}}
-ignore_list_update:This message is shown in the forum's I-SPY system to indicate what this user is busy doing.\nThe user is looking at the list of users he/she decided to ignore.
-index_update:This message is shown in the forum's I-SPY system to indicate what this user is busy doing.
-list_referers_update:This message is shown in the forum's I-SPY system to indicate what this user is busy doing.
-msg_update:This message is shown in the forum's I-SPY system to indicate what this user is busy doing.
-pm_update:This message is shown in the forum's I-SPY system to indicate what this user is busy doing.
+ignore_list_update:This message is shown in the forum's I-SPY system to indicate what this user is busy doing.\nThe user is looking at the list of users he/she decided to ignore.\n\nUsed as session status to indicate last known action.\n{{Related|Fud-status}}
+index_update:This message is shown in the forum's I-SPY system to indicate what this user is busy doing.\n\nUsed as session status to indicate last known action.\n{{Related|Fud-status}}
+list_referers_update:This message is shown in the forum's I-SPY system to indicate what this user is busy doing.\n\nUsed as session status to indicate last known action.\n{{Related|Fud-status}}
+login_update:Used as session status to indicate last known action.\n{{Related|Fud-status}}
+msg_update:This message is shown in the forum's I-SPY system to indicate what this user is busy doing.\n\nUsed as session status to indicate last known action.\n{{Related|Fud-status}}
+pm_update:This message is shown in the forum's I-SPY system to indicate what this user is busy doing.\n\nUsed as session status to indicate last known action.\n{{Related|Fud-status}}
 err_banned_acct_msg:The time format chars are documented at http://php.net/manual/en/function.strftime.php.\nFor example, ''%a, %d %B %Y %H:%M'' would expand to ''Sun, 01 January 2011 06:00''.
 post_err_edttimelimit_title:{{Identical|Error}}
-post_reply_update:This message is shown in the forum's I-SPY system to indicate what this user is busy doing.
-post_topic_update:This message is shown in the forum's I-SPY system to indicate what this user is busy doing.
-referals_update:This message is shown in the forum's I-SPY system to indicate what this user is busy doing.
-register_profile_update:This message is shown in the forum's I-SPY system to indicate what this user is busy doing.
+post_reply_update:This message is shown in the forum's I-SPY system to indicate what this user is busy doing.\n\nUsed as session status to indicate last known action.\n{{Related|Fud-status}}
+post_topic_update:This message is shown in the forum's I-SPY system to indicate what this user is busy doing.\n\nUsed as session status to indicate last known action.\n{{Related|Fud-status}}
+referals_update:This message is shown in the forum's I-SPY system to indicate what this user is busy doing.\n\nUsed as session status to indicate last known action.\n{{Related|Fud-status}}
+register_profile_update:This message is shown in the forum's I-SPY system to indicate what this user is busy doing.\n\nUsed as session status to indicate last known action.\n{{Related|Fud-status}}
+register_register_update:Used as session status to indicate last known action.\n{{Related|Fud-status}}
 report_err_nosuchmsg_title:{{Identical|Error}}
 reset_err_invalidkey_title:{{Identical|Error}}
 reset_err_rstconf_title:{{Identical|Information}}
 reset_newpass_title:{{Identical|Reset password}}
-showposts_update:{VAR: u_alias} is the nickname or alias of a registered user on the forum. By default a user's username and alias will be the identical. However, some hosts prefer to keep separate usernames and aliases.
-userinfo_update:This message is shown in the forum's I-SPY system to indicate what this user is doing.
+search_update:Used as session status to indicate last known action.\n{{Related|Fud-status}}
+selmsg_update:Used as session status to indicate last known action.\n{{Related|Fud-status}}
+showposts_update:{VAR: u_alias} is the nickname or alias of a registered user on the forum. By default a user's username and alias will be the identical. However, some hosts prefer to keep separate usernames and aliases.\n\nUsed as session status to indicate last known action.\n{{Related|Fud-status}}
+subscribed_update:Used as session status to indicate last known action.\n{{Related|Fud-status}}
+bookmarked_update:Used as session status to indicate last known action.\n{{Related|Fud-status}}
+thread_update:Used as session status to indicate last known action.\n{{Related|Fud-status}}
+tree_update:Used as session status to indicate last known action.\n{{Related|Fud-status}}
+userinfo_update:This message is shown in the forum's I-SPY system to indicate what this user is doing.\n\nUsed as session status to indicate last known action.\n{{Related|Fud-status}}
 help_title:{{Identical|Help}}
 msg_title:{{Optional}}\nThis message is used in the HTML <TITLE> tag to indicate the current forum name and message subject in the browser's title bar.
 reset_title:{{Identical|Reset password}}
@@ -331,6 +343,7 @@ th_expr_two_month:{{Identical|Month}}
 th_expr_four_month:{{Identical|Month}}
 th_expr_one_year:{{Identical|Year}}
 thread_mod_delete:{{Identical|Delete}}
+online_today_update:Used as session status to indicate last known action.\n{{Related|Fud-status}}
 post_re:{{Identical|Re}}
 forumsel_goto_forum:Navigate or jump to a particular forum.
 split_th_subject:{{Identical|Subject}}
@@ -353,6 +366,7 @@ register_alias:{{Identical|Alias}}
 polllist_vote:{{Identical|Vote}}
 polllist_name:{{Identical|Poll name}}
 polllist_action:{{Identical|Action}}
+polllist_update:Used as session status to indicate last known action.\n{{Related|Fud-status}}
 userinfo_polls:{{Identical|Poll}}
 search_and:{{Identical|And}}
 search_or:{{Identical|Or}}
@@ -362,6 +376,7 @@ search_attach_all:Used as an option in the select box which is labeled {{msg-fud
 search_attach_with:Used as an option in the select box which is labeled {{msg-fud|Search attach}}.
 register_show_im_desc:{{doc-singularthey}}
 unread_message:{{Identical|Unread message}}
+threadt_update:Used as session status to indicate last known action.\n{{Related|Fud-status}}
 back_to_top:{{Identical|Back to top}}
 saved:{{Identical|Saved}}
 iemail_msg_subject:{{Identical|Subject}}
@@ -380,6 +395,7 @@ mnav_day:Used in the message navigator. For example, see http://fudforum.org/for
 mnav_week:Used in the message navigator. For example, see http://fudforum.org/forum/index.php?t=mnav&
 mnav_month:Used in the message navigator. For example, see http://fudforum.org/forum/index.php?t=mnav&
 mnav_title:{{Identical|Message navigator}}
+mnav_update:Used as session status to indicate last known action.\n{{Related|Fud-status}}
 findu_edit:{{Identical|Edit}}
 findu_delete:{{Identical|Delete}}
 dmsg_reply_to:Continued on {{msg-fud|Dmsg_reply_num}}. The "message #xxx" part was split off so we can link it to the message number.
@@ -398,6 +414,7 @@ delete_msg_pm_subject:{{Identical|Subject}}
 register_theme:{{Identical|Theme}}
 pmsg_trash:{{Identical|Empty trash}}
 uc_new_topic:{{Identical|New topic}}
+uc_page_title:Used as session status to indicate last known action.\n{{Related|Fud-status}}
 search_options:{{Identical|Search options}}
 search_user_filter:Used as label for the "Username" input box in the Search form.
 modque_cat:{{Identical|Category}}
@@ -441,5 +458,5 @@ btn_show_posts:This message will be used to create a graphical button. Please ke
 btn_homepage:This message will be used to create a graphical button. Please keep it as short as possible.
 custom_filed_required:{{Identical|Required}}
 pages:{{Identical|Page}}
-page_update:Action in the forum's action list (iSpy system) indicating that the user is busy reading a static forum page.
+page_update:Action in the forum's action list (iSpy system) indicating that the user is busy reading a static forum page.\n\nUsed as session status to indicate last known action.\n{{Related|Fud-status}}
 karma_delete:{{Identical|Delete}}

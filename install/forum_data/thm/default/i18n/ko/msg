@@ -139,7 +139,7 @@ report_to_mod:중재자에게 메시지 보고
 reported_messages:보고된 메시지
 reveal_all_posts:{VAR: user_login}의 모든 메시지 공개
 reveal_post:메시지 공개
-search:찾기
+search:검색
 sel_todays_posts:오늘의 메시지
 sel_todays_posts_desc:오늘의 메시지 필터 전환 (오늘 게시된 메시지만 보여집니다)
 sel_unanswered_posts:답글이 없는 메시지
@@ -669,7 +669,7 @@ reset_err_rstconf_title:정보
 reset_err_rstconf_msg:몇분 내로 당신의 이메일로 발송될 예정입니다.
 reset_newpass_title:패스워드 초기화
 reset_login_notify:비밀번호가 이메일로 보내졌습니다. 몇 분 이내에 받아야 합니다.
-search_update:게시글 검색중
+search_update:메시지 검색 중
 selmsg_update:<a href="{TEMPLATE: selmsg_update_lnk}">오늘의' 게시글</a> 탐색
 showposts_update:다음의 게시물을 보는 중: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
 subscribed_update:구독자 탐색
@@ -700,7 +700,7 @@ reset_title:패스워드 초기화
 rpasswd_title:패스워드 변경 형식
 error_title:오류 형식
 index_title:포럼에 오신것을 환영합니다
-search_title:{VAR-HTML: srch} 검색
+search_title:{VAR-HTML: srch}에 대한 검색
 remail_emailsent:이메일 발송 완료
 poll_add_option:옵션 추가:
 post_opt_html_on:<b>HTML</b>이 <b>켜져</b> 있습니다
@@ -763,7 +763,7 @@ p_LOCK:주제 잠금
 p_MOVE:주제 이동
 p_SML:이모티콘 사용
 p_IMG:이미지 태그 사용
-p_SEARCH:검색가능
+p_SEARCH:검색할 수 있음
 group_mgr_search:사용자 찾기
 group_mgr_indicator:현재 편집중: <b>{VAR: grp->name}</b>
 rate_worst:최악
@@ -939,7 +939,7 @@ thread_syndicate:이 포럼을 전달 (XML)
 reg_conf_title:등록 확인
 mnav_description:메시지 둘러보기
 mnav_date_limit:날짜 범위:
-mnav_forum_limit:지정 검색:
+mnav_forum_limit:이 중에서 검색:
 mnav_all_forums:모든 포럼 검색
 mnav_submit:검색 시작
 mnav_no_range:올바른 날짜 범위를 입력해야 합니다. 이 값은 소수점을 포함할 수 있지만(0.12), 0보다 커야 합니다.
@@ -1005,7 +1005,7 @@ uc_new_cat_forum:새 메시지로 된 구독 중인 포럼
 uc_cat_forum:분류 &raquo; 포럼
 uc_sub_topics:새 메시지로 된 구독 중인 주제
 uc_page_title:개인 제어판을 보는 중입니다.
-search_options:검색옵션
+search_options:검색 설정
 search_user_filter:사용자별 필터:
 register_none:알리지 마세요
 findu_no_conf:확인되지 않은 사용자
@@ -1021,7 +1021,7 @@ mmd_move_threads_to:포럼 이동:
 mmd_abort_move:취소
 mmd_move:주제 이동
 pmsg_pdf_btn:PDF 아카이브 만들기
-search_results_hdr:{VAR: total}개 찾음
+search_results_hdr:검색 결과 {VAR: total}개 찾음
 thread_del_all:선택한 것을 삭제
 thread_mov_all:선택한 것을 이동
 thread_merge_all:선택한 것을 병합
@@ -1035,7 +1035,7 @@ unbookmark_all_topics:모든 북마크 제거
 tabs_own_posts:자신의 게시물 보기
 sml_emoticon:이모티콘
 sml_code:코드
-mnav_sub_only:구독된 포럼에서만 찾기
+mnav_sub_only:구독된 포럼에서만 검색
 register_topics_per_page:문서마다 주제 수:
 post_not_logged_in:현재 로그인하고 있지 않아, 메시지가 익명으로 게시됩니다.
 post_common_bold:굶은 글씨

@@ -430,8 +430,7 @@ ignore_users:Ignorierte Benutzer
 add_ignore:Benutzer zur Ignorierliste hinzufügen
 forum_terms:Forumsregeln
 forum_rules:<p>Die Registrierung für dieses Forum ist kostenlos. Jedoch bestehen wir darauf, dass du dich an nachfolgende Vereinbarung hältst. Wenn du mit diesen Regeln einverstanden bist, klicke bitte auf die „Zustimmen“-Schaltfläche. Achtung: Durch das Klicken der Schaltfläche erklärst Du, dass du über 13 Jahre bist. Falls du 13 oder darunter bist, verwende bitte diese Registrierungsseite.</p><p>Auch wenn die Administratoren und Moderatoren des Forums versuchen, dieses von anstößigen Mitteilungen freizuhalten, so ist es dennoch für uns unmöglich, alle übermittelten Beiträge zu begutachten. Diese geben die Ansichten des jeweiligen Autors wieder, weswegen keiner der Forumsmitarbeiter für jene Inhalte verantwortlich gemacht werden kann.</p><p>Mit Anklicken der „Zustimmen“-Schaltfläche sicherst du uns verbindlich zu, dass deine Beiträge keinerlei obzöne, vulgäre, sexistische, hasserfüllte, nötigende oder sonstwie gesetzeswidrige Inhalte haben werden.</p><p>Die Verantwortlichen dieses Forums haben das Recht, jederzeit aus jedem erdenklichen Grund Diskussionsthemen zu entfernen, bearbeiten, verschieben oder zu schließen.</p>
-# Fuzzy
-forum_rules_13:<p>Alle Benutzer unter 13 Jahre müssen ihre Eltern oder ihren Vormund um Erlaubnis bitten, um die Mitgliedschaft im Forum zu erlangen. Auch wenn wir die Teilnahme von Benutzern unter 13 befürworten, so verlangen wir dennoch, dass die Eltern oder der Vormund eine unterschriebene Einwilligungserklärung zurückschicken oder faxen, bevor wir die Mitgliedschaft gewähren können.</p><p>Wenn du die Registrierung einleiten möchtest bevor wir die Einwilligungserklärung erhalten haben, klicke auf die Zustimmen Schaltfläche unten. Falls du die Registrierung abbrechen möchtest, klicke auf Abbrechen um zum Forumsindex zurückzukehren.</p><p>Eine Kopie der zu unterschreibenden Einwilligungserklärung kann hier heruntergeladen werden. Für weitere Informationen bezüglich der Registrierung schicke bitte eine E-Mail an <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
+forum_rules_13:<p>Alle Benutzer unter 13 Jahre müssen ihre Eltern oder ihren Vormund um Erlaubnis bitten, um die Mitgliedschaft im Forum zu erlangen. Auch wenn wir die Teilnahme von Benutzern unter 13 befürworten, so verlangen wir dennoch, dass die Eltern oder der Vormund eine unterschriebene Einwilligungserklärung zurückschicken oder faxen, bevor wir die Mitgliedschaft gewähren können.</p><p>Wenn du die Registrierung einleiten möchtest bevor wir die Einwilligungserklärung erhalten haben, klicke auf die Zustimmen Schaltfläche unten. Falls du die Registrierung abbrechen möchtest, klicke auf Abbrechen um zum Forumsindex zurückzukehren.</p><p>Eine Kopie der zu unterschreibenden Einwilligungserklärung wird nach der Registrierung angezeigt. Für weitere Informationen bezüglich der Registrierung schicke bitte eine E-Mail an <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
 coppa_conf:COPPA-Bestätigung
 coppa_before:Vor dem {TEMPLATE: coppa_date}
 coppa_after:Nach dem {TEMPLATE: coppa_date}
@@ -442,8 +441,7 @@ prereg_agree:Zustimmen
 prereg_disagree:Ablehnen
 prereg_update:Liest die Forenregeln
 coppa_fax_instructions:Anleitung für ein Elternteil oder Vormund
-# Fuzzy
-coppa_fax_instructions2:Bitte drucken Sie dieses Formular aus, unterschreiben und schicken es an:
+coppa_fax_instructions2:Bitte drucken Sie dieses Formular aus, unterschreiben und mailen oder faxen Sie es an uns zurück.
 coppa_fax_reg_form:Registrierungsformular
 coppa_fax_sign:Bitte unterschreiben Sie das Formular und schicken es an uns
 coppa_fax_conf:Ich habe die Informationen meines Kindes begutachtet und die Handhabung der Privatssphäre auf der Webseite gelesen. Mir ist bekannt, dass die Informationen im Profil durch das Benutzen eines Passwortes geändert werden können. Mir ist bekannt, dass ich um vollständige Entfernung des Benutzerprofils bitten kann.
@@ -478,6 +476,7 @@ rpasswd_passwd_length:Passwort muss mindestens 6 Zeichen lang sein
 reset_remind_pass:Passwort Hinweis
 reset_reset_conf:Dein Passwort wird zurückgesetzt und an dich verschickt, oder falls du deine E-Mail noch nicht bestätigt hast, wird diese Bestätigungsanfrage erneut an dich versendet.
 reset_error:E-Mail-Adresse nicht in der Datenbank gefunden
+reset_update:Passwort zurücksetzen
 rpasswd_change_pass:Passwort ändern
 rpasswd_login:Benutzername:
 rpasswd_cur_pass:Momentanes Passwort:

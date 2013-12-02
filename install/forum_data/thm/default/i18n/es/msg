@@ -4,6 +4,7 @@
 # Author: Crazymadlover
 # Author: Dalton2
 # Author: Fitoschido
+# Author: Larjona
 # Author: Locos epraix
 # Author: McDutchie
 # Author: Mor
@@ -360,7 +361,7 @@ register_show_sig:Mostrar firmas:
 register_show_sig_desc:Le permite ocultar o mostrar las firmas de otros miembros del foro
 register_use_sig_default:Usar la firma:
 register_use_sig_default_desc:Añade automáticamente su firma a cada mensaje que publique
-register_timezone:Zona horaria:
+register_timezone:Huso horario:
 register_ignore_admin:Ignorar los mensajes administrativos:
 register_invisible_mode:Modo invisible:
 register_invisible_mode_desc:Esconde su estado cuando está en línea.
@@ -429,7 +430,6 @@ ignore_users:Usuarios ignorados
 add_ignore:Agregar ignorado
 forum_terms:Términos del foro
 forum_rules:<p>¡El registro en este foro es gratis! Es muy importante que respete las reglas y políticas detalladas a continuación. Si está de acuerdo con las condiciones, pulse por favor el botón <b>De Acuerdo</b> al final de la página. Nota: si pulsa el botón, declara tener más de 13 años de edad. Si tiene 13 años o menos, use por favor este formulario de registro.</p><p>Aunque los administradores y moderadores de este foro tratarán de impedir la presencia de mensajes objetables en este foro, nos resulta imposible revisar todos los mensajes. Todos los mensajes expresan la opinión de su autor, y ni los dueños del foro ni los desarrolladores se hacen responsables del contenido de ningún mensaje.</p><p>Al pulsar en el botón De Acuerdo, se compromete a no publicar ningún mensaje obsceno, vulgar, con contenidos sexuales, contenidos de odio, amenazante, o que constituyan una violación de la ley.</p><p>Los propietarios de este foro se reservan el derecho a eliminar, editar, trasladar o cerrar cualquier hilo de discusión por cualquier motivo que consideren razonable.</p>
-# Fuzzy
 forum_rules_13:<p>Todos los usuarios menores de 13 años deben obtener permiso de su padre o tutor para poder ser miembros de los foros. Damos la bienvenida a la participación de miembros menores de 13, para esto requerimos que un padre o tutor envíe por fax o correo un formulario de autorización firmado, para autorizar la suscripción.<p></p>Si deseas comenzar el proceso de registro antes de que recibamos un formulario de autorización pulsa el botón De <b>Acuerdo</b> que hay a continuación. Si deseas cancelar el proceso de registro, pulsa <b>Cancelar</b> para volver al índice de foros.</p><p>Puedes descargar una copia del formulario de autorización aquí. Para obtener más información acerca del proceso de registro, por favor, envía un correo electrónico a <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
 coppa_conf:Confirmación COPPA
 coppa_before:Antes de {TEMPLATE: coppa_date}
@@ -441,8 +441,7 @@ prereg_agree:De acuerdo
 prereg_disagree:No estoy de acuerdo
 prereg_update:Leer las normas del foro
 coppa_fax_instructions:Instrucciones para padres o tutores
-# Fuzzy
-coppa_fax_instructions2:Por favor, imprima esta página, fírmela y envíela por fax a:
+coppa_fax_instructions2:Imprima esta página, fírmela y envíenosla de vuelta por fax o correo.
 coppa_fax_reg_form:Formulario de registro
 coppa_fax_sign:Por favor, firme el formulario siguiente y envíenoslo
 coppa_fax_conf:He revisado la información que el menor ha suministrado y he leído las Políticas de Privacidad del sitio web. Entiendo que la información de perfil puede ser cambiada usando una clave. Entiendo que puedo pedir que este perfil de registro sea eliminado completamente.
@@ -477,6 +476,7 @@ rpasswd_passwd_length:La contraseña debe tener al menos 6 caracteres
 reset_remind_pass:Recordatorio de contraseña
 reset_reset_conf:Su contraseña será actualizada y se le enviará, o en caso que no haya confirmado su correo electrónico, la solicitud de confirmación de correo electrónico le será reenviada.
 reset_error:No se encontró una dirección de correo electrónico en la base de datos
+reset_update:Restablecer contraseña
 rpasswd_change_pass:Cambiar contraseña
 rpasswd_login:Usuario
 rpasswd_cur_pass:Contraseña actual:

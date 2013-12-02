@@ -463,6 +463,7 @@ rpasswd_passwd_length:Wagwoord moet ten minste 6 karakters lank wees
 reset_remind_pass:Wagwoord herwinning
 reset_reset_conf:U wagwoord sal herstel word en aan u gestuur word. Indien u nog nie u epos bevestig het nie, sal die bevestiging weer aan u gestuur word.
 reset_error:Die e-posadres is nie in die databasis gevind nie
+reset_update:Kry nuwe wagwoord
 rpasswd_change_pass:Verander wagwoord
 rpasswd_login:Gebruiker
 rpasswd_cur_pass:Huidige wagwoord:

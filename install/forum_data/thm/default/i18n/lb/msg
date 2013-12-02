@@ -290,6 +290,7 @@ rpasswd_passwd_nomatch:Déi Passwierder déi Dir aginn hutt sinn net identesch
 rpasswd_passwd_length:Passwuert muss mindestens 6 Zeeche laang sinn
 reset_remind_pass:Erënnerung fir d'Passwuert
 reset_error:E-Mial-Adress gouf an der Datebank net fonnt
+reset_update:Passwuert zrécksetzen
 rpasswd_change_pass:Passwuert änneren
 rpasswd_login:Aloggen
 rpasswd_cur_pass:Aktuellt Passwuert:
