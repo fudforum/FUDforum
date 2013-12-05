@@ -18,6 +18,7 @@ avatar:{{Identical|Avatar}}
 average_post_count:Indication of the number of messages the user posted (shown in the user's profile). For example:\n ''Message Count: 2 Messages (1 average message per day)''\nNote that '''$1''' is used twice in this message. This is intentional as $1 refers to the ''count'' in the '''{PLURAL: ''count''|form 1|form 2|...}''' construct and not to the message variable.
 biography:{{Identical|Biography}}
 birth_date:{{Identical|Birthday}}
+by:{{Identical|By}}
 current_time:Used as label.\n\nFollowed by colon (:) and timestamp (time and date).
 email:{{Identical|E-mail}}
 faq:{{Identical|Help}}
@@ -222,6 +223,7 @@ reset_email:{{Identical|E-mail}}
 reset_reset_button:{{Identical|Reset password}}
 report_reporting_about:A heading showing details of the message that is being reported to the moderator team. Below this heading is the subject, author, etc. of the reported message.
 report_subject:{{Identical|Subject}}
+report_by:{{Identical|By}}
 search_forum:{{Identical|Forum}}
 search_no_results:{{Identical|No result}}
 search_in_forum:Used as label for the "Forum" select box which has a list of the forums.
