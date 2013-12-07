@@ -83,6 +83,7 @@ cal_day_heading:Esdeveniments per dia
 cal_no_events:No hi ha esdeveniments per dia.
 cal_update:Navegar pel calendari de fòrum
 cal_birthday:Data de naixement:{VAR: user}
+cal_birthdays:{PLURAL:aniversaris|$1 aniversari|$1 aniversaris}
 cal_birthday_age:({PLURAL: age|$1 year|$1 years} old).
 message:Missatge
 message_counter:Els nostres usuaris han publicat un total de <b>{PLURAL: post_count|$1 missatge|$1 missatges}</b>  a <b>{PLURAL: thread_count|$1 fil de discussió|$1 fils de discussió}</b>.
