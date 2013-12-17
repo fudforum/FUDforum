@@ -488,7 +488,7 @@ rating_delete:Bestere
 post_always_on_top:Merseler Tım u tım liste dı en ser fi
 topic_rating:{VAR: frm->rating} from {PLURAL: frm->n_rating|$1 rey|$1 reyi}
 topic_list_rating:{VAR: r[17]} u {PLURAL: r[21]|$1 rey|$1 reyi}
-tabs_notifications:Tebliği
+tabs_notifications:Mengeney
 finduser_flag:Desmal
 post_descr:Şınasiya Mersel:
 pmsg_on:Akerde

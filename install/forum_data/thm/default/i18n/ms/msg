@@ -73,6 +73,7 @@ cal_day_heading:Acara untuk hari
 cal_no_events:Tiada acara untuk hari.
 cal_update:Melayari kalendar forum
 cal_birthday:Hari lahir: {VAR: user}
+cal_birthdays:{PLURAL: hari jadi|$1 hari jadi|$1 hari jadi}
 cal_birthday_age:({PLURAL: age|setahun|$1 tahun}).
 message:Pesanan
 message_counter:Para pengguna kami telah mengirim sejumlah <b>{PLURAL: post_count|$1 pesanan|$1 pesanan}</b> dalam <b>{PLURAL: thread_count|$1 topik|$1 topik}</b>.
@@ -417,8 +418,7 @@ ignore_users:Pengguna yang Diabaikan
 add_ignore:Abaikan Pengguna
 forum_terms:Syarat-syarat Forum
 forum_rules:<p>Pendaftaran di forum ini adalah percuma! Kami mengehendaki supaya anda mematuhi peraturan-peraturan dan dasar-dasar yang diterangkan di bawah. Jika anda bersetuju dengan syarat-syarat ini, sila tekan butang <b>Agree</b> di akhir halaman ini. Perhatian: Dengan menekan butang tersebut, anda mengakui diri anda berumur lebih 13 tahun. Jika anda berumur 13 tahun ke bawah, sila gunakan borang pendaftaran ini.</p><p>Walaupun para pentadbir dan pengawal selia forum ini akan cuba membendung pesanan-pesanan yang menyalahi peraturan di forum ini, namun adalah mustahil bagi kami menyemak semua pesanan. Semua pesanan meluahkan pendapat pengarang masing-masing, dan pemilik mahupun pihak pembangunan forum tidak akan dipertanggungjawabkan atas isi kandungan mana-mana pesanan.</p><p>Dengan menekan butang Setuju, anda bersumpah untuk tidak mengirim sebarang pesanan yang mengandungi kata-kata lucah, kesat, berorientasikan seks, kebencian, mengugut, ataupun melanggar undang-undang sekalipun.</p><p>Para pemilik forum ini berhak untuk memadamkan, menyunting, memindahkan atau menutup mana-mana topik atas sebarang alasan.</p>
-# Fuzzy
-forum_rules_13:<p>Semua pengguna bawah umur 13 tahun mesti meminta kebenaran ibu bapa atau penjaga untuk mendapat keahlian di forum ini. Walaupun kami mengalu-alukan penyertaan aghli bawah umur 13 tahun, namun kami mewajibkan supaya ibu bapa atau penjaga mengirim borang kebenaran melalui faks atau e-mel sebelum kami meluluskan keahlian.</p><p>Jika anda hendak memulakan proses pendaftaran sebelum borang kebenaran dapat disampaikan kepada kami, tekan butang <b>Setuju</b> di bawah. Jika anda hendak membatalkan pendaftaran, tekan <b>Tidak setuju</b> untuk kembali ke indeks forum.</p><p>Salinan borang kebenaran boleh dimuat turun di sini. Untuk maklumat lanjut mengenai proses pendaftaran, sila kirim e-mel kepada <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
+forum_rules_13:<p>Semua pengguna bawah umur 13 tahun mesti meminta kebenaran ibu bapa atau penjaga untuk mendapat keahlian di forum ini. Walaupun kami mengalu-alukan penyertaan ahli bawah umur 13 tahun, namun kami mewajibkan supaya ibu bapa atau penjaga mengirim borang kebenaran melalui faks atau e-mel sebelum kami meluluskan keahlian.</p><p>Jika anda hendak memulakan proses pendaftaran sebelum borang kebenaran dapat disampaikan kepada kami, tekan butang <b>Setuju</b> di bawah. Jika anda hendak membatalkan pendaftaran, tekan <b>Tidak setuju</b> untuk kembali ke indeks forum.</p><p>Salinan borang kebenaran akan disampaikan selepas pendaftaran. Untuk maklumat lanjut mengenai proses pendaftaran, sila kirim e-mel kepada <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
 coppa_conf:Pengesahan COPPA
 coppa_before:Selepas {TEMPLATE: coppa_date}
 coppa_after:Selepas {TEMPLATE: coppa_date}
@@ -429,8 +429,7 @@ prereg_agree:Setuju
 prereg_disagree:Tidak setuju
 prereg_update:Membaca peraturan forum
 coppa_fax_instructions:Arahan untuk Ibu Bapa/Penjaga
-# Fuzzy
-coppa_fax_instructions2:Sila cetakkan, tandatangani dan fakskan laman ini ke:
+coppa_fax_instructions2:Sila cetakkan, tandatangani dan e-melkan atau fakskan halaman ini kepada kami.
 coppa_fax_reg_form:Borang Pendaftaran
 coppa_fax_sign:Sila tandatangani borang berikut lalu hantarkannya kepada kami
 coppa_fax_conf:Saya telah menyemak maklumat yang diberikan oleh anak saya, dan saya telah membaca Dasar Privasi tapak web ini. Saya faham bahawa maklumat profil boleh diubah dengan menggunakan kata laluan. Saya faham bahawa saya boleh meminta supaya profil pendaftaran ini boleh digugurkan sepenuhnya daripada forum.
@@ -465,6 +464,7 @@ rpasswd_passwd_length:Kata laluan mestilah 6 aksara ke atas
 reset_remind_pass:Peringatan Kata Laluan
 reset_reset_conf:Kata laluan anda akan direset dan dihantarkan kepada anda. Jika anda belum mengesahkan alamat e-mel anda, permohonan pengesahan akan dihantar semula ke anda.
 reset_error:Alamat e-mel tiada dalam pangkalan data
+reset_update:Set semula kata laluan
 rpasswd_change_pass:Tukar Kata Laluan
 rpasswd_login:Log masuk
 rpasswd_cur_pass:Kata Laluan Sekarang:

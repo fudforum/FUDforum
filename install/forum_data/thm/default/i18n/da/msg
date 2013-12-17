@@ -698,7 +698,7 @@ ERR_access_msg:Du har ikke tilstrækkelige rettigheder til at udføre denne hand
 ERR_registration_disabled_ttl:Registrering deaktiveret
 ERR_registration_disabled_msg:Administratoren har deaktiveret registrering. Prøv igen senere.
 ERR_emailconf_ttl:FEJL: Din konto er endnu ikke bekræftet
-ERR_emailconf_msg:Du har ikke bekræftet din konto via e-mail endnu.<br /><table border="0"><tr><td><ol><li>Hvis du ikke har modtaget en bekræftelses-e-mail, så <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">bed om en ny her</a>,</li><li>Hvis {VAR: usr_d->email} ikke er din korrekte e-mailadresse, så <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">skal du angive den korrekte adresse</a>.</li></ol></td></tr></table>
+ERR_emailconf_msg:Du har ikke bekræftet din konto via e-mail endnu.<br /><table border="0"><tr><td><ol><li>Hvis du ikke har modtaget en bekræftelsesmail, så <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">bed om en ny her</a>,</li><li>Hvis {VAR: usr_d->email} ikke er din korrekte e-mailadresse, så <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">skal du angive den korrekte adresse</a>.</li></ol></td></tr></table>
 ERR_user_ttl:FEJL: Ingen sådan bruger
 ERR_user_msg:Der er ingen sådan bruger
 ERR_systemerr_ttl:FEJL: systemfejl
