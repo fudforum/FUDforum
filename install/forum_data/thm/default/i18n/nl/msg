@@ -130,7 +130,7 @@ profile_desc:Gebruikersbeheer
 rate_thread:Onderwerp beoordelen
 rating:Waardering
 rating_track:Waardering beheren voor het onderwerp <b>{VAR: thr->subject}</b>:
-refresh_list:Lijst verversen
+refresh_list:Lijst vernieuwen
 register:Registreren
 registered:Geregistreerd:
 registered_on:Geregistreerd op {TEMPLATE: registered_on_date}
@@ -726,7 +726,7 @@ post_opt:Foruminstellingen:
 register_change_passwd:wachtwoord wijzigen
 register_change_login:Gebruikersnaam wijzigen
 approved_avatar_title:Uw aangepaste avatar is goedgekeurd.
-approved_avatar_msg:Uw avatar is goedgekeurd door een beheerder. Uw nieuwe avatar verschijnt nu bij al uw berichten. Als u uw nieuwe avatar niet ziet, of uw oude avatar wordt nog steeds weergegeven, dan komt daar zeer waarschuwlijk door de cache van uw browser. Ververs uw browsercache. In de meeste browsers is het probleem dan opgelost.
+approved_avatar_msg:Uw avatar is goedgekeurd door een beheerder. Uw nieuwe avatar verschijnt nu bij al uw berichten. Als u uw nieuwe avatar niet ziet, of uw oude avatar wordt nog steeds weergegeven, dan komt daar zeer waarschijnlijk door de cache van uw browser. Vernieuw uw browsercache. In de meeste browsers is het probleem dan opgelost.
 unapproved_avatar_title:Uw aangepaste avatar is afgekeurd.
 unapproved_avatar_msg:De beheerder heeft uw avatar niet goedgekeurd. Vaak komt dit doordat uw avatar te groot is (bestandsgrootte of afmetingen) of doordat de afbeelding ongewenste inhoud heeft. Neem contact op met de beheerder voor meer informatie.
 mvthread_request_move:verplaatsing aanvragen
