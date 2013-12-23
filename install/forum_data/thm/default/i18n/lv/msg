@@ -1,5 +1,6 @@
 # Messages for Latvian (latviešu)
 # Exported from translatewiki.net
+# Author: Edgars2007
 # Author: Papuass
 
 action:Darbība
@@ -52,7 +53,7 @@ index_no_new_posts:Jaunu ierakstu nav
 interests:Intereses:
 last_post:Pēdējie
 last_thread_msg:Pāriet uz šīs tēmas pēdējo ierakstu
-legend:Leģenda:
+legend:Apzīmējumi
 location:Dzīves vieta:
 lock_thread:Slēgt tēmu
 locked:Tēma slēgta

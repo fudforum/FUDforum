@@ -198,7 +198,7 @@ add_ignore:[http://en.wiktionary.org/wiki/ignoramus Ignoramus] (noun) refers to 
 forum_rules:The "Agree" button refers to message {{msg-fud|Prereg_agree}}.
 forum_rules_13:The "Agree" button refers to message {{msg-fud|Prereg_agree}}.\nThe "Disagree" button refers to message {{msg-fud|Prereg_disagree}}.
 coppa_conf:'COPPA' refers to the [[wikipedia:Children's Online Privacy Protection Act|Children's Online Privacy Protection Act]].
-prereg_agree:Used as label for the Submit button.\n\nFollowed by another button which is labeled {{msg-fud|Prereg disagree}}.
+prereg_agree:Used as label for the Submit button.\n\nFollowed by another button which is labeled {{msg-fud|Prereg disagree}}.\n{{Identical|Agree}}
 prereg_disagree:Used as label for the Submit button.\n\nPreceded by another button which is labeled {{msg-fud|Prereg agree}}.
 prereg_update:Used as session status to indicate last known action.\n{{Related|Fud-status}}
 coppa_fax_telephone:{{Identical|Telephone}}

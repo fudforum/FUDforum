@@ -6,8 +6,7 @@
 action:مەشغۇلات
 add_to_buddy_list:دوستلار تىزىملىكىگە قوش
 admin:باشقۇرغۇچى
-# Fuzzy
-admin_control_panel:باشقۇرغۇچى تىزگىن تاختا
+admin_control_panel:باشقۇرۇش
 administrator:سىستېما باشقۇرغۇچى
 attachment:قوشۇمچە:
 avatar:چىراي ئىپادە:
@@ -73,6 +72,9 @@ cal_goto_date:ئاتلا:
 cal_day_heading:كۈندىلىك پائالىيەت
 cal_no_events:.كۈندىلىك پائالىيەت يوق
 cal_update:مۇنبەر يىلنامىسىغا كۆز يۈگۈرتۈۋاتىدۇ
+cal_birthday:تۇغۇلغان كۈن: {VAR: user}
+cal_birthdays:{PLURAL: تۇغۇلغان كۈنى|$1 birthday|$1 تۇغۇلغان كۈنى}
+cal_birthday_age:({PLURAL: age|$1 ياش|$1 ياش} ).
 message:ئۇچۇر
 message_counter:ئىشلەتكۈچى <b>{PLURAL: thread_count|$1 تېما|$1 تېما}</b> دا جەمئى <b>{PLURAL: post_count|$1 ئۇچۇر|$1 ئۇچۇر}</b> يوللىدى.
 message_index:ئۇچۇر ئىندېكسى
@@ -96,8 +98,7 @@ new_thread:يېڭى تېما قۇر
 newest_user:يېڭى خەتلەتكەن ئەزا
 next_page:كېيىنكى بەت
 next_thread:كېيىنكى تېما:
-# Fuzzy
-no_messages:بۇ مۇنبەردە ھېچقانداق ئۇچۇر يوق.
+no_messages:بۇ مۇنبەردە ھېچقانداق ئۇچۇر يوق.<br />تۇنجى يازما يوللىغان كىشى بولۇڭ.
 no_msg_body:ئۇچۇر گەۋدىسى يوق
 no_new_posts:يېڭى ئۇچۇر يوق
 no_posts:ئۇچۇر يوق
@@ -211,6 +212,7 @@ reported_reported_msg:مەلۇم قىلىنغان ئۇچۇر
 modque_pending_approval:تەستىق كۈتۈۋاتقان ئۇچۇرلار
 modque_approve:تەستىق
 modque_delete:ئۆچۈر
+modque_deleteall:ئىشلەتكۈچىنىڭ ھەممە ئۇچۇرلىرىنى ئۆچۈر
 modque_no_message:تەستىقلىنىدىغان ئۇچۇر يوق
 pmsg_new_messages:ئوقۇلمىغان شەخسىي ئۇچۇر
 pmsg_old_messages:شەخسىي ئۇچۇر ئوقۇ
@@ -311,6 +313,7 @@ register_avatar_type:سىما تىپى:
 register_del_avatar:سىما ئۆچۈر
 register_avatar:سىما:
 register_sel_avatar:سىما تاللاش
+register_custom_avatar_rules:پەقەت باشقۇرغۇچى يول قويغاندىلا ئاندىن ئىختىيارىي سىما ئىشلىتەلەيسىز.<br /><span class="SmallText">سىمانىڭ چوڭلۇقى <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} پىكسېل</b>دىن ئېشىپ كەتمەيدۇ. چوقۇم <b>jpg</b>، <b>gif</b> ياكى <b>png</b> پىچىمىدا بولۇشى كېرەك.</span>
 register_custom_avatar_url:ئىختىيارى سىما URL:
 register_preview:ئالدىن كۆزەت
 register_custom_avatar_upload:ئىختىيارى سىما ھۆججەت:
@@ -335,8 +338,26 @@ register_month:ئاي
 register_year:يىل
 register_gender:جىنسى:
 register_bio:تەرجىمىھال:
+register_bio_desc:باشقا شەخسىي ئۇچۇرلىرىڭىز، مەسىلەن قىزىقىش، كەسىپ قاتارلىق…
 register_prefs:مايىللىق
 register_sig:ئىمزا:
+register_sig_desc:يازمىڭىزنىڭ ئاخىرىدا كۆرۈنىدىغان تاللاشچان ئىمزا.
+register_reset:ئەسلىگە قايتۇر
+register_def_thread_view:كۆڭۈلدىكى تېما كۆرۈنۈشى:
+register_msg_per_page:ھەر پەتتىكى ئۇچۇر سانى:
+register_show_sig:ئىمزالارنى كۆرسەت:
+register_show_sig_desc:باشقا مۇنبەر ئەزالىرىنىڭ ئىمزاسىنى كۆرسىتىغان ياكى يوشۇرىدىغانلىقىڭىزغا يول قويىدۇ.
+register_use_sig_default:كۆڭۈلدىكى ئەھۋالدا ئىمزا كۆرسەت:
+register_use_sig_default_desc:يوللىغان ھەممە ئۇچۇرلىرىڭىزغا ئىمزايىڭىزنى ئاپتوماتىك قوشىدۇ.
+register_timezone:ۋاقىت رايونى:
+register_ignore_admin:باشقۇرۇش ئۇچۇرلىرىغا پەرۋا قىلما:
+register_invisible_mode:يوشۇرۇن ھالەت:
+register_invisible_mode_desc:توردىكى ھالىتىڭىزنى يوشۇرىدۇ.
+register_show_email:تورخەت ئادرېسىنى كۆرسەت:
+register_show_email_desc:ئەگەر تورخەت ئادرېسىڭىزنى ئاشكارىلىماقچى بولسىڭىز بۇ تاللانمىنى تاللاڭ.
+register_notification:كۆڭۈلدىكى ئەھۋالدا ئۇقتۇرۇش ئىقتىدارىنى ئاچامدۇق يوق:
+register_notification_desc:كۆڭۈلدىكى ئەھۋالدا ئۇقتۇرۇش ئىقتىدارى قوزغىتىلغان بولسا، يازما يوللىغاندا ئەسكەرتىشنى تاللىيالايدۇ.
+register_notify_method:ئۇقتۇرۇش ئۇسۇلىنى تاللاڭ:
 coppa_fax_telephone:تېلېفون:
 coppa_fax_email:ئېلخەت ئادرېس:
 coppa_fax_date:چېسلا:
