@@ -358,14 +358,106 @@ register_show_email_desc:ئەگەر تورخەت ئادرېسىڭىزنى ئاش
 register_notification:كۆڭۈلدىكى ئەھۋالدا ئۇقتۇرۇش ئىقتىدارىنى ئاچامدۇق يوق:
 register_notification_desc:كۆڭۈلدىكى ئەھۋالدا ئۇقتۇرۇش ئىقتىدارى قوزغىتىلغان بولسا، يازما يوللىغاندا ئەسكەرتىشنى تاللىيالايدۇ.
 register_notify_method:ئۇقتۇرۇش ئۇسۇلىنى تاللاڭ:
+register_notify_method_desc:مايىللىق ئۇقتۇرۇش ئۇسۇلىنى تەڭشەيدۇ ياكى ئۇقتۇرۇشنى چەكلەيدۇ (مەسىلەن سىز ئارام ئېلىۋاتقاندا).
+register_allow_email_msg:تورخەت يوللاشقا يول قوي:
+register_allow_email_msg_desc:باشقا ئىشلەتكۈچىلەرنىڭ مەزكۇر مۇنبەر ئارقىلىق سىزگە تورخەت يوللىشىغا يول قويۇڭ.
+buddy_status:ھالەت
+my_buddies:دوستلارىم
+add_buddy:دوست قوش
+add:قوش
+buddy_search:قوشماقچى بولغان ئىشلەتكۈچى ئاتىنى كىرگۈزۈڭ.
+member_search:ياكى <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">ئىشلەتكۈچى ئىزدەش</a> ئىقتىدارى ئارقىلىق ئادەم ئىزدەيدۇ.
+buddy_remove:چىقىرىۋەت
+post_normal:ئادەتتىكى
+post_sticky:چوققىلا
+post_annoncement:ئۇقتۇرۇش
+post_size:چوڭلۇقى
+post_color:رەڭ
+post_font:خەت نۇسخا
+create_thread:تېما قۇر
+submit_reply:جاۋاب تاپشۇر
+edit_message:ئۇچۇر ئۆزگىرىشىنى قوللان
+apply_spell_changes:ئىملا تەكشۈرۈشتىكى ئۆزگىرىشنى قوللان
+post_preview:ئۇچۇرنى ئالدىن كۆزەت
+post_logedin_user:تىزىمغا كىرگەن ئىشلەتكۈچى:
+post_logout:تىزىمدىن چىق
+post_passwd:ئىم كىرگۈزۈش:
+post_poll:راي سىناش:
+post_create_poll:راي سىناش قۇر
+post_poll_delete:ئۆچۈر
+post_poll_edit:تەھرىر
+post_mod_opt:رىياسەتچى تاللانمىلىرى:
+post_thread_type:باش تېما تىپى:
+post_thread_expiry:باش تېما مۆھلىتى:
+post_locked:باش تېما قۇلۇپلانغان
+post_icons:ئۇچۇر سىنبەلگىسى:
+post_no_icon:سىنبەلگە يوق
+post_smiley:چىراي ئىپادە قىسقا يوللىرى:
+post_format_tools:پىچىم قوراللىرى:
+post_upload_file:ھۆججەت يۈكلە
+post_file_del:ئۆچۈر
+post_file_name:ئاتى
+post_file_size:چوڭلۇقى
+file_attachments:ھۆججەت يۈكلىمىلەر:
+allowed_files:يول قويىدىغان ھۆججەت كېڭەيتىلگەن نامى:
+max_file_size:ئەڭ چوڭ ھۆججەت چوڭلۇقى:
+max_files_per_msg:ھەر بىر ئۇچۇرغا يول قويىدىغان ئەڭ كۆپ ھۆججەت سانى:
+post_notification:ئۇقتۇرۇش تارقىتىش
+include_sig:ئىمزاسى بار
+include_sig_desc:سەپلىمە ھۆججەت ئىمزاسى بار.
+disable_smilies:بۇ ئۇچۇردا چىراي ئىپادىسى چەكلەنگەن
+spell_check_msg:ئۇچۇرنىڭ ئىملاسىنى تەكشۈرۈش
+post_form:يوللاش جەدۋىلى
+post_forum:مۇنبەر:
+post_title:ماۋزۇ:
+post_body:مەزمۇن:
+post_options:تاللانمىلار:
+post_preview_btn:ئۇچۇرنى ئالدىن كۆزەت
+post_cancel_btn:ۋاز كەچ
+ignore_users:پەرۋا قىلمىغان ئىشلەتكۈچىلەر
+add_ignore:پەرۋا قىلمىغان ئىشلەتكۈچى قوش
+forum_terms:مۇنبەر كېلىشىمى
+coppa_conf:COPPA جەزملەش
+coppa_before:{TEMPLATE: coppa_date} دىن ئىلگىرى
+coppa_after:{TEMPLATE: coppa_date}دىن كېيىن
+coppa_link:تۇغۇلغان كۈنىڭىزگە ئاساسەن ئۇلانمىنى چېكىڭ
+prereg_info:مۇنبەر قائىدىسى
+prereg_agree:قوشۇل
+prereg_disagree:قوشۇلما
+prereg_update:مۇنبەر قائىدىلىرىنى ئوقۇڭ
+coppa_fax_instructions:ئاتا-ئانا ياكى ھامىيسىنىڭ كۆرسەتمىسى
+coppa_fax_instructions2:بۇ بەتنى بېسىپ، ئىمزا قويۇپ ئاندىن بىزگە خەت ئەۋەتىڭ ياكى فاكىس يوللاڭ.
+coppa_fax_reg_form:خەتلىتىش جەدۋىلى
+coppa_fax_sign:تۆۋەندىكى جەدۋەلگە ئىمزا قويۇپ بىزگە ئەۋەتىڭ
+coppa_fax_permission:ئەگەر قوشۇلسىڭىز ئىمزا قويۇڭ
+coppa_fax_no_permission:ھېساباتنى ئۆچۈرمەكچى بولسىڭىز بۇ جايغا ئىمزا قويۇڭ
+coppa_fax_parent_name:ئاتا-ئانا/ھامىيسىنىڭ تولۇق ئىسمى:
+coppa_fax_relation:بالا بىلەن مۇناسىۋىتى:
 coppa_fax_telephone:تېلېفون:
 coppa_fax_email:ئېلخەت ئادرېس:
 coppa_fax_date:چېسلا:
+coppa_fax_questions:ھەر قانداق مەسىلە بولسا <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> ئالاقە قىلىڭ
+coppa_fax_login:تىزىمغا كىرىڭ
+coppa_fax_passwd:ئىم
+coppa_fax_remail:تورخەت
+coppa_fax_name:ئاتى
+login_not_logedin:تىزىمغا كىرمىدىڭىز. بۇنىڭ بىر قانچە سەۋەبى بولۇسى مۇمكىن:
+login_cookie_expired:سىزنىڭ cookie نىڭ ۋاقتى ئۆتكەن، قايتا تىزىمغا كىرىپ cookie نى زاكاز قىلىشنى داۋاملاشتۇرۇشىڭىز زۆرۈر.
+login_want_to_register:خەتلەتمەكچىمەن؟
+login_forgot_passwd:ئىم ئۇنۇتتۇم
 login_login:تىزىمغا كىر:
 login_login_btn:تىزىمغا كىر
 login_name_required:تىزىمغا كىرىش ئاتىنى كىرگۈزۈڭ
 login_passwd_required:ئىم كىرگۈزۈڭ
+login_invalid_radius:ئىناۋەتسىز ھېسابات/ئىم
+reset_confirmation:خەتلەتكىنىڭىزگە رەھمەت.\n\nنۆۋەتتىكى ھېساباتنى ئاكتىپلىماقچى بولسىڭىز تۆۋەندىكى ئۇلانمىنى چېكىڭ:\n\n{VAR: url}\n\nھېساباتىڭىز تۇنجى قېتىم ئاكتىپلانغاندا، مۇنبەر باش بېتىگە بىۋاستە كىرىسىز.
+rpasswd_invalid_passwd:ئىم خاتا
+rpasswd_passwd_nomatch:ئىم ماسلاشمىدى
+rpasswd_passwd_length:ئىم ئاز دېگەندە 6 ھەرپ بولۇشى زۆرۈر
+reset_remind_pass:ئىم ئەسكەرتىشى
+reset_reset_conf:ئىم ئەسلىگە قايتۇرۇلۇپ، سىزگە تورخەت ئەۋەتىپ جەزملەيدۇ. ئەگەر جەزملەنمىسە، سىستېما ئۆزلۈكىدىن قايتىدىن جەزملەيدىغان تورخەت ئەۋەتىدۇ.
 reset_error:ئېلخەت ئادرېسنى سانداندىن تاپالمىدى
+reset_update:ئىم ئەسلىگە قايتۇر
 rpasswd_change_pass:پارولنى ئۆزگەرتىش
 rpasswd_login:تىزىمغا كىر
 rpasswd_cur_pass:نۆۋەتتىكى پارول:
@@ -380,6 +472,56 @@ login_passwd:پارول:
 reset_email:ئېلخەت:
 reset_reset_button:ئىمنى ئەسلىگە قايتۇر
 rate_this_thread:باھا
+report_reporting_about:دوكلات تېمىسى:
+report_subject:تېما:
+report_by:يوللىغۇچى:
+report_posted_on:يوللىغان ۋاقىت:
+report_give_reason:بۇ تېمىنى مەلۇم قىلىشىڭىزنىڭ سەۋەبىنى يېزىڭ:
+report_submit_report:دوكلات يوللا
+search_entire_msg:پۈتكۈل ئۇچۇر
+search_subject_only:تېمىدىنلا
+search_forum:مۇنبەر
+search_posted_on:يوللىغان ۋاقىت
+search_no_results:نەتىجە يوق
+search_all_forums:ھەممە مۇنبەرنى ئىزدە
+search_in_forum:ئىزدەيدىغان مۇنبەر:
+search_forum_search:مۇنبەردىن ئىزدەش
+move_thread_to:تېمىنى <b>{VAR: thr->subject}</b> غا يۆتكە:
+remail_email_topic:بۇ تېمىنى تورخەت ئارقىلىق دوستىغا تەۋسىيە قىل
+remail_your_name:ئاتىڭىز:
+remail_your_email:تورخەت ئادرېسىڭىز:
+remail_friends_name:دوستىڭىزنىڭ ئىسمى:
+remail_friends_email:دوستىڭىزنىڭ تورخەت ئادرېسى:
+remail_required:زۆرۈر
+remail_subject:تېما:
+remail_message:ئۇچۇر:
+remail_send_now:ھازىرلا تورخەت يوللا
+remail_done:تامام
+remail_error:خاتالىق كۆرۈلدى
+mklist_type:تىپى:
+mklist_option:تاللانما:
+mklist_additem:تۈر قوش
+mklist_apply:قوللان
+mklist_delete:ئۆچۈر
+qbud_nick_name:تەخەللۇس
+qbud_add_selected:تاللانغاننى قوش
+qbud_selected:تاللانغان
+qbud_no_buddies:ھېچكىم تاللانمىدى
+mklist_numerical:سان
+mklist_aplha:ھەرپ
+mklist_square:چاسا
+mklist_circle:چەمبەر
+mklist_close:ياپ
+email_to:قوبۇللىغۇچى:
+email_pg_title:تورخەت
+email_subject:تېما:
+email_body:مەزمۇن:
+email_submit:تورخەت
+ppost_quote:نەقىل:
+ppost_to:قوبۇللىغۇچى:
+ppost_from_buddy_list:دوستلار تىزىمىدىن تاللا
+ppost_find_User:ئىشلەتكۈچى ئىزدە
+ppost_track_msg:بۇ ئۇچۇرنى ئىزلا
 groupmgr_yes:ھەئە
 groupmgr_no:ياق
 groupmgr_action:مەشغۇلات

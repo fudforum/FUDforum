@@ -432,8 +432,7 @@ prereg_agree:Accèpti
 prereg_disagree:Refusi
 prereg_update:Legir las règlas del forum
 coppa_fax_instructions:Instruccions als parents o tutor(s)
-# Fuzzy
-coppa_fax_instructions2:Estampatz aquesta pagina, signatz-la e faxatz-la o mandatz-la per la pòsta a :
+coppa_fax_instructions2:Imprimissetz aquesta pagina, signatz-la e faxatz-la o mandatz-la per corrièl.
 coppa_fax_reg_form:Formulari d'inscripcion
 coppa_fax_sign:Signatz lo formulari çaijós e mandatz-o-nos
 coppa_fax_conf:Ai verificat las informacions que mon enfant vos a provesidas e ai legit la carta sus la vida privada de vòstre site web. Compreni que las informacions relativas al perfil d'un membre pòdon èsser modificadas en utilizant un senhal. Compreni que pòdi demandar qu'aqueste perfil siá escafat definitivament de la banca de donadas.
@@ -468,6 +467,7 @@ rpasswd_passwd_length:Lo senhal deu comportar al mens 6 caractèrs
 reset_remind_pass:Avètz doblidat vòstre senhal
 reset_reset_conf:Anam generar un senhal temporari que vos serà mandat per e-mail dins qualques minutas. Dins lo cas qu'auriatz pas encara validat vòstre senhal, vos mandarem l'e-mail de confirmacion a la plaça.
 reset_error:L'adreça e-mail especificada es pas estada trobada dins la banca de donadas
+reset_update:Reïnicializar lo senhal
 rpasswd_change_pass:Cambiar de senhal
 rpasswd_login:Connexion
 rpasswd_cur_pass:Senhal actual :
