@@ -417,6 +417,7 @@ post_cancel_btn:ۋاز كەچ
 ignore_users:پەرۋا قىلمىغان ئىشلەتكۈچىلەر
 add_ignore:پەرۋا قىلمىغان ئىشلەتكۈچى قوش
 forum_terms:مۇنبەر كېلىشىمى
+forum_rules:<p>بۇ مۇنبەرگە خەتلىتىش ھەقسىز! سىزنىڭ تۆۋەندىكى قائىدە ۋە بەلگىلىمىلەرگە چوقۇم رىئايە قىلىشىڭىزنى ئۈمىد قىلىمىز. ئەگەر قوشۇلسىڭىز بەتنىڭ ئاستىدىكى <b>قوشۇل</b>ىمەن توپچىنى چېكىڭ. دىققەت: ئەگەر سىز شۇ توپچىنى چەكسىڭىز ئۆزىڭىزنىڭ 13 ياشتىن يۇقىرى پۇقرا ئىكەنلىكىڭىزنى بىلدۈرىدۇ؛ ئەگەر سىز 13 ياشقا تولمىغان بولسىڭىز، بۇ جەدۋەلنى ئىشلىتىڭ.</p><p>مۇنبەر باشقۇرغۇچى ۋە رىياسەتچىلەر ئامالنىڭ بېرىچە قانۇنسىز گەپ-سۆزلەرنى تازىلايدۇ، ئەمما نەزەردىن چۈشۈپ قالغان ئۇچۇرلاردىن ساقلانغىلى بولمايدۇ. شۇڭلاشقا بۇ جايدا شۇنى ئوچۇق جاكارلايمىزكى، بارلىق يازمىلار پەقەت شۇ يازمىنى يازغۇچىنىڭ شەخسىي كۆز قارىشىغا ۋەكىللىك قىلىدۇ، يازغۇچى يازغىنىنىڭ ئاقىۋىتىگە ئۆزى مەسئۇل بولىدۇ. مۇنبەر ئىگىسى ۋە ئىجادكارلار باشقىلارنىڭ يازمىسى ئۈچۈن ھېچقانداق مەسئۇلىيەتنى ئۈستىگە ئالمايدۇ.</p><p>سىز <b>قوشۇل</b>ىمەن توپچىنى چەكسىڭىز مۇنبەردە شەھۋانىي، سېرىق، ئەكسىيەتچى، زوراۋانلىققا ئائىت قانۇنسىز يازمىلارنى ئېلان قىلمايدىغانلىقىڭىزنى بىلدۈرىدۇ.</p><p>مۇنبەر باشقۇرغۇچىنىڭ ھەر قانداق سەۋەب بىلەن خالىغان يازمىنى ئۆچۈرۈش، تەھرىرلەش، يۆتكەش ياكى تاقاش ھوقۇقى بار.</p>
 coppa_conf:COPPA جەزملەش
 coppa_before:{TEMPLATE: coppa_date} دىن ئىلگىرى
 coppa_after:{TEMPLATE: coppa_date}دىن كېيىن
@@ -443,6 +444,7 @@ coppa_fax_remail:تورخەت
 coppa_fax_name:ئاتى
 login_not_logedin:تىزىمغا كىرمىدىڭىز. بۇنىڭ بىر قانچە سەۋەبى بولۇسى مۇمكىن:
 login_cookie_expired:سىزنىڭ cookie نىڭ ۋاقتى ئۆتكەن، قايتا تىزىمغا كىرىپ cookie نى زاكاز قىلىشنى داۋاملاشتۇرۇشىڭىز زۆرۈر.
+login_perm_denied:ئاتسىز ئىشلەتكۈچى سۈپىتىدە لازىملىق مەنبەنى زىيارەت قىلالمايسىز. تىزىمغا كىرىڭ.
 login_want_to_register:خەتلەتمەكچىمەن؟
 login_forgot_passwd:ئىم ئۇنۇتتۇم
 login_login:تىزىمغا كىر:
@@ -517,11 +519,61 @@ email_pg_title:تورخەت
 email_subject:تېما:
 email_body:مەزمۇن:
 email_submit:تورخەت
+ppost_quote_msg:{VAR: msg_to_list} ئىشلەتكۈچى، {TEMPLATE: ppost_quote_msg_date} يازغىنى:
 ppost_quote:نەقىل:
 ppost_to:قوبۇللىغۇچى:
 ppost_from_buddy_list:دوستلار تىزىمىدىن تاللا
 ppost_find_User:ئىشلەتكۈچى ئىزدە
 ppost_track_msg:بۇ ئۇچۇرنى ئىزلا
+ppost_track_msg_desc:بۇ ئۇچۇر ئوقۇلغاندا شەخسىي ئۇچۇر بىلەن مېنى خەۋەرلەندۇر.
+ppost_send:يوللا
+ppost_save_draft:دەسلەپكى نۇسخىدا ساقلا
+poll_blank_option:بو تاللانما قوشالمايسىز.
+poll_del_conf:بۇ تاللانمىنى ئۆچۈرمەكچى بولسىڭىز، جەزملە توپچىنى چېكىڭ
+poll_name:راي سىناش ئىسمى:
+poll_timelimit:ۋاقىت چەكلىمىسى:
+poll_maxiumvotes:ئەڭ كۆپ بىلەت سانى:
+poll_create:قۇر
+poll_update:يېڭىلا
+poll_disablesmilies:چىراي ئىپادىنى چەكلە
+poll_create_poll:راي سىناش قۇر
+poll_update_poll:راي سىناشنى يېڭىلا
+poll_delete:ئۆچۈر
+poll_updateoption:يېڭىلاش تاللانمىسى
+poll_addoption:تاللانما قۇر
+poll_unlimited:چەكلىمەسىز
+poll_day:كۈن
+poll_days:كۈن
+poll_hour:سائەت
+poll_hours:سائەت
+poll_month:ئاي
+poll_year:يىل
+poll_week:ھەپتە
+tabs_register:ھېسابات تەڭشەكلەر
+tabs_subscriptions:مۇشتەرىلەر
+tabs_bookmarkes:خەتكۈچلەر
+tabs_referrals:نامزاتلار
+tabs_buddy_list:دوستلار تىزىمى
+tabs_ignore_list:پەرپا قىلمايدىغان تىزىم
+tabs_private_messaging:شەخسىي ئۇچۇر
+single_msg_delete:سىز <b>{VAR: data[3]}</b> ماۋزۇلۇق يازمىنى <span class="ErrorText">ئۆچۈر</span>مەكچى.
+thread_delete:سىز <b>{VAR: data[3]}</b> ماۋزۇلۇق <span class="ErrorText">پۈتكۈل تېما</span>نى <span class="ErrorText">ئۆچۈر</span>مەكچى
+delete_proceed:<span class="fb">داۋاملاشتۇرامسىز؟</span>
+delete_yes:ھەئە
+delete_no:ياق
+error_invalidurl:ئىناۋەتسىز URL
+error_error:خاتالىق
+usrinfo_profile:{VAR: u->alias}نىڭ سەپلىمە ھۆججىتى
+usrinfo_show_all_posts:{VAR: u->alias}نىڭ ھەممە ئۇچۇرلىرىنى كۆرسەت
+actions_update:سىزنىڭ شەخسىي ئۇچۇرلىرىڭىز بىلەن ئوخشايدىغان ئىشلەتكۈچىنى ئىزدەيدۇ
+err_info: ئۇچۇر
+buddy_list_err_cantadd:سىز ئۆزىڭىزنى دوستلار تىزىمىغا قوشالمايسىز
+buddy_list_err_dup:دوستلار تىزىمىدا بۇ ئىشلەتكۈچى بار.
+buddy_list_err_nouser:سىز قوشۇشنى سىنىغان ئىشلەتكۈچى دوستلار تىزىمىدا يوق.
+buddy_list_err_nouser_title:ئىشلەتكۈچى قوشالمايدۇ
+buddy_list_err_ignore:سىزگە پەرۋا قىلمىغان ئىشلەتكۈچىنى دوستلار تىزىمىغا قوشالمايدۇ.
+buddy_list_update:ئۆزىنىڭ دوستلار تىزىمىغا كۆز يۈگۈرتۈش
+core_err_invinp_title:كىرگۈزۈش خاتا
 groupmgr_yes:ھەئە
 groupmgr_no:ياق
 groupmgr_action:مەشغۇلات
