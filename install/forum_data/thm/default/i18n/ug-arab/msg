@@ -566,7 +566,7 @@ error_error:خاتالىق
 usrinfo_profile:{VAR: u->alias}نىڭ سەپلىمە ھۆججىتى
 usrinfo_show_all_posts:{VAR: u->alias}نىڭ ھەممە ئۇچۇرلىرىنى كۆرسەت
 actions_update:سىزنىڭ شەخسىي ئۇچۇرلىرىڭىز بىلەن ئوخشايدىغان ئىشلەتكۈچىنى ئىزدەيدۇ
-err_info: ئۇچۇر
+err_info:ئۇچۇر
 buddy_list_err_cantadd:سىز ئۆزىڭىزنى دوستلار تىزىمىغا قوشالمايسىز
 buddy_list_err_dup:دوستلار تىزىمىدا بۇ ئىشلەتكۈچى بار.
 buddy_list_err_nouser:سىز قوشۇشنى سىنىغان ئىشلەتكۈچى دوستلار تىزىمىدا يوق.

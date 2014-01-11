@@ -29,8 +29,8 @@ faq:Peşti
 flat_view:Hesıbyaye asayış dê raşti rê peyd şo
 forum:Forum
 forum_icon:Forum Icon
-forum_new_messages:Mesaco newe
-forum_old_messages:Mesaco newe çıno
+forum_new_messages:Mesacê newey
+forum_old_messages:Mesacê newey çıniyê
 from:Rışten:
 gender:Neri makey:
 go:Şo
@@ -79,7 +79,7 @@ moderator_options:Wesetin Weçiney
 moderators:{PLURAL: modcount|Wesetber|Wesetber}
 move_thread:Beré
 na:n/a
-new_posts:Mesaco newe esto
+new_posts:Mesacê Newey
 new_thread:Topiko newe vıraze
 next_page:Pela Peyêne
 next_thread:Topiko Peyên:
@@ -287,7 +287,7 @@ email_pg_title:E-posta
 email_subject:Mersel:
 email_body:Verê:
 email_submit:E-posta
-poll_create:İycad ke
+poll_create:Vıraze
 poll_update:Noroc resn
 poll_delete:Bestere
 poll_day:roc
