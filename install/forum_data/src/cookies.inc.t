@@ -15,7 +15,7 @@ function ses_make_sysid()
 		return;
 	}
 
-	$keys = array('HTTP_USER_AGENT', 'SERVER_PROTOCOL', 'HTTP_ACCEPT_CHARSET', 'HTTP_ACCEPT_LANGUAGE');
+	$keys = array('REMOTE_USER', 'HTTP_USER_AGENT', 'SERVER_PROTOCOL', 'HTTP_ACCEPT_CHARSET', 'HTTP_ACCEPT_LANGUAGE');
 	if ($GLOBALS['FUD_OPT_3'] & 16) {	// SESSION_IP_CHECK
 		$keys[] = 'HTTP_X_FORWARDED_FOR';
 		$keys[] = 'REMOTE_ADDR';
