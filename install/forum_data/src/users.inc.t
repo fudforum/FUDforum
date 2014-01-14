@@ -654,7 +654,12 @@ function &init_user()
 
 	$sq = 0;
 	/* Fetch an object with the user's session, profile & theme info. */
-	if (!($u = ses_get())) {
+	if (!($u = ses_get()) && defined('plugins')) {
+		/* Call auto-login plugins. */
+		$u = plugin_call_hook('AUTO_LOGIN');
+	}
+
+	if (!$u) {
 		/* New anon user. */
 		$u = ses_anon_make();
 	} else if ($u->id != 1 && (!$GLOBALS['is_post'] || sq_check(1, $u->sq, $u->id, $u->ses_id))) {
