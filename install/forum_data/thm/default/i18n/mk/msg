@@ -979,7 +979,7 @@ mnav_month:Месеци
 mnav_title:Навигатор по пораки
 mnav_update:Прелистување на пораки со помош на <a href="{TEMPLATE: mnav_update_lnk}">Навигатор по пораки</a>
 pm_notify_subject:[{GVAR: FORUM_TITLE}] Известување за нова приватна порака
-pm_notify_body_email:Имате нова приватна порака со наслов "{VAR: subject}", од "{VAR: from}", на форумот "{GVAR: FORUM_TITLE}".\nЗа да ја видите пораката, кликнете тука: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nАко сакате повеќе да не добивате известувања, оневозможете "Известувања за приватни пораки" во вашиот профил.
+pm_notify_body_email:Имате нова приватна порака со наслов "{VAR: subject}", од "{VAR: from}", на форумот "{GVAR: FORUM_TITLE}".\nЗа да ја видите пораката, стиснете тука: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nАко сакате повеќе да не добивате известувања, оневозможете "Известувања за приватни пораки" во вашиот профил.
 register_pm_notification:Известувања за приватни пораки:
 register_pm_notification_desc:Известувај ме кога ќе ми стигне приватна порака.
 findu_admin_opts_header:Админ. можности
@@ -1063,7 +1063,7 @@ thread_merge_all:Спој одбрано
 thread_loc_all:Заклучи/Отклучи одбрано
 dmsg_ip:IP:
 err_blockedaccnt_title:ГРЕШКА: Вашата сметка е исфилтрирана како недозволена.
-err_blockedaccnt_msg:Блокирани сте од форумот поради еден од инсталираните филтри.
+err_blockedaccnt_msg:Блокирани сте од форумот поради еден од воспоставените филтри.
 merge_th_page_list:Избор на тематски страници
 most_users_online:Досега највеќе корисници на линија: <b>{VAR: st_obj->most_online}</b> на <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
 sub_unsub_all_forums:Откажи претплата од сите форуми

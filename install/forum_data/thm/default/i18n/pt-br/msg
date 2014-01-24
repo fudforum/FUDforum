@@ -6,6 +6,7 @@
 # Author: Luckas
 # Author: Luckas Blade
 # Author: McDutchie
+# Author: Mordecaista
 # Author: Naudefj
 # Author: Titoncio
 # Author: 555
@@ -425,8 +426,7 @@ ignore_users:Usuários ignorados
 add_ignore:Adicionar ignorados
 forum_terms:Termos de uso do Fórum
 forum_rules:O registro neste fórum é gratuito! Insistimos no respeito pelas regras e normas detalhadas abaixo. Se você concordar com estes termos, clique o botão <b>Concordo</b> no final da página, por favor. Nota: Ao clicar o botão, você declara ter mais de 13 anos. Se não tiver mais de 13 anos, use este formulário de registro, por favor.</p><p>Embora os administradores e moderadores deste fórum tentem mantê-lo livre de mensagens ofensivas, é-nos impossível fazer a revisão de todas as mensagens. Todas as mensagens expressam unicamente o ponto de vista de seu autor. Nem os proprietários do fórum, nem os programadores, poderão ser responsabilizados pelo conteúdo de qualquer mensagem.</p><p>Ao clicar o botão Concordo, garante que não colocará mensagens obscenas, vulgares, de natureza sexual, racistas ou ameaçadoras, nem que de qualquer outra forma constituam uma violação da lei.</p><p>Os proprietários deste fórum têm o direito de remover, editar, mover ou fechar qualquer tópico por qualquer motivo.<p>
-# Fuzzy
-forum_rules_13:<p>Todos os usuários de idade inferior a 13 anos necessitam da autorização dos pais ou responsável para serem membros do fórum. Apesar de acolhermos a participação de membros com idade inferior a 13 anos, é necessário que um dos pais ou responsável envie um formulário de autorização assinado, por fax ou e-mail, antes de permitirmos a sua participação.</p><p>Se quiser iniciar o processo de inscrição antes de recebermos um formulário de autorização, clique o botão <b>Concordo</b>, abaixo. Se quiser cancelar o registro, clique <b>Não concordo</b>, para voltar ao índice do fórum.</p><p>Pode fazer o download de uma cópia do formulário de autorização aqui. Para mais informações sobre o processo de registro, envie um e-mail para <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
+forum_rules_13:<p>Todos os usuários de idade inferior a 13 anos necessitam da autorização dos pais ou responsável para serem membros do fórum. Apesar de acolhermos a participação de membros com idade inferior a 13 anos, é necessário que um dos pais ou responsável envie um formulário de autorização assinado, por fax ou e-mail, antes de permitirmos a sua participação.</p><p>Se quiser iniciar o processo de inscrição antes de recebermos um formulário de autorização, clique o botão <b>Concordo</b>, abaixo. Se quiser cancelar o registro, clique <b>Não concordo</b>, para voltar ao índice do fórum.</p><p>Uma cópia do formulário de permissão será apresentada após o registro. Para mais informações sobre o processo de registro, por favor envie um e-mail para <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
 coppa_conf:Confirmação COPPA
 coppa_before:Antes de {TEMPLATE: coppa_date}
 coppa_after:Depois de {TEMPLATE: coppa_date}
@@ -437,8 +437,7 @@ prereg_agree:Concordo
 prereg_disagree:Não concordo
 prereg_update:Lendo as regras do fórum
 coppa_fax_instructions:Instruções para o encarregado de educação
-# Fuzzy
-coppa_fax_instructions2:Por favor imprima esta página assine e envie para:
+coppa_fax_instructions2:Por favor imprima esta página, assine e envie por email ou fax para nós.
 coppa_fax_reg_form:Formulário de registro
 coppa_fax_sign:Por favor assine e envie-nos o formulário abaixo
 coppa_fax_conf:Vi toda a informação que o meu filho(a) me forneceu e li a Política de Privacidade para o site. Compreendo que a informação no perfil pode ser alterada por uma pessoa que tenha a senha. Eu compreendo que posso pedir para que a informação deste perfil seja removida por completo.
@@ -473,6 +472,7 @@ rpasswd_passwd_length:A senha deve ter pelo menos 6 caracteres de tamanho
 reset_remind_pass:Recuperador de senha
 reset_reset_conf:A sua senha será restaurada e enviada, no caso de não ter confirmado o seu email um formulário de pedido de confirmação ser-lhe-á enviado.
 reset_error:O email não foi encontrado na base de dados
+reset_update:Redefinir senha
 rpasswd_change_pass:Alterar senha
 rpasswd_login:Usuário
 rpasswd_cur_pass:Senha atual:

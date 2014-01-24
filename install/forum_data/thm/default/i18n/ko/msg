@@ -91,7 +91,7 @@ moderator_of:중재자:
 moderator_options:중재자 옵션
 moderators:{PLURAL: modcount|중재자}
 more_unread_messages:읽지 않은 메시지 더 보기
-more_unread_messages_desc:읽지 않은 메시지를 더 보여주고 현재 보여지는 메시지를 읽음으로 표시합니다
+more_unread_messages_desc:읽지 않은 메시지를 더 보여주고 현재 보이는 메시지를 읽음으로 표시합니다
 move_thread:이동
 moved:다른 포럼으로 이동됨
 moved_thread_message:이 주제를 다른 포럼으로 이동시킵니다

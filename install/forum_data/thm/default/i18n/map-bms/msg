@@ -72,6 +72,7 @@ cal_day_heading:Kegiatan dina kiye
 cal_no_events:Ora ana kegiatan nggo dina kiye.
 cal_update:Njelajaih tanggalan forum
 cal_birthday:Ulang taun: {VAR: user}
+cal_birthdays:{PLURAL: tanggallair|$1 tanggallair}
 cal_birthday_age:umure ({PLURAL: age|$1 taun|$1 taun}).
 message:Pesen
 message_counter:Pangganggo nang kene wis ngirim totale <b>{PLURAL: post_count|$1 pesen|$1 pesen}</b> nang jero <b>{PLURAL: thread_count|$1 topik|$1 topik}</b>.
@@ -416,8 +417,7 @@ ignore_users:Panganggo sing diacuhna
 add_ignore:Tambahna Panganggo sing arep diacuhna
 forum_terms:Kabijakan Forum
 forum_rules:<p>Pendaftaran maring forum kiye bebas/gratis! Inyong karepe Rika sarujuk karo aturan lan kabijakan sing dirinci nang ngisor kiye. Angger Rika sarujuk karo aturan kiye, monggo pencet tombol <b>Sarujuk</b> nang ngisor kaca kiye. Cathetan: Angger Rika mencet tombol kuwe mau artine Rika wis nyatakna nek Rika kuwe umure lewih sekang 13 taun.Angger Rika umure 13 taun utawa lewih nom maning, monggo gunakna formulir pendaftaran kiye. </p><p> Senajan administrator lan moderatore forum kiye bakal njagani obyektifitas forum kiye, ora mungkin teyeng mriksa kabeh pesen. Kabeh pesen kuwe ngungkapna cara-ndelenge wong sing nulis, lan sing duwe forum utawa pengembange ora tanggungjawab karo isine pesen-pesen kuwe.</p><p> Angger Rika wis mencet tombol Sarujuk, Rika njamin nek Rika ora bakal ngirimna pesen-pesen sing saru, vulgar, ancaman, utawa nglanggar hukum.</p><p> Sing duwe forum kiye duwe hak nggo mbusek, nyunting, mindah utawa nutup topik apa baen nggo alesan apa baen.</p>
-# Fuzzy
-forum_rules_13:<p>Kabeh panganggo sing umure kurang sekang 13 taun kudu olih ijin sekang wong tuwa utawa waline nggo ndaftar dadi anggotane forum kiye. Senajan inyong nyambut parsitipasine sekang anggota sing umure durung 13 taun, inyong njaluk wong tuwa utawa waline nggo ngirimna disit surat ijin sing wis ditandatangani liwat fax utawa pos sedurunge keanggotaan ditampa.</p><p> Angger Rika kepengin molai proses registrasi sedurunge inyong nampa formulir ijin, pencet tombol <b>Sarujuk</b> nang ngisor kiye. Angger Rika kepengin mbatalna registrasi, pencet <b>Ora Sarujuk</b> nggo mbalik ming indek forum.</p><p> Salinane formulir ijin teyeng diunduh nang kene. Kanggo informasi lewih lanjut prakara proses pendaftaran, monggo kirim baen imel maring <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
+forum_rules_13:<p>Kabeh panganggo sing umure kurang sekang 13 taun kudu olih ijin sekang wong tuwa utawa waline nggo ndaftar dadi anggotane forum kiye. Senajan inyong nyambut parsitipasine sekang anggota sing umure durung 13 taun, inyong njaluk wong tuwa utawa waline nggo ngirimna disit surat ijin sing wis ditandatangani liwat fax utawa pos sedurunge keanggotaan ditampa.</p><p> Angger Rika kepengin molai proses registrasi sedurunge inyong nampa formulir ijin, pencet tombol <b>Sarujuk</b> nang ngisor kiye. Angger Rika kepengin mbatalna registrasi, pencet <b>Ora Sarujuk</b> nggo mbalik ming indek forum.</p><p> Salinane formulir ijin bakal ditidokna seuwise pendaptaran. Kanggo informasi lewih lanjut prakara proses pendaptaran, monggo kirim baen imel maring <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
 coppa_conf:Konfirmasi COPPA
 coppa_before:Sedurunge {TEMPLATE: coppa_date}
 coppa_after:Seuwise {TEMPLATE: coppa_date}
@@ -428,8 +428,7 @@ prereg_agree:Sarujuk
 prereg_disagree:Ora Sarujuk
 prereg_update:Maca aturan forum
 coppa_fax_instructions:Instruksi kanggo wong tuwa utawa wali panganggo
-# Fuzzy
-coppa_fax_instructions2:Monggo dicetak kaca kiye, aweh tapak asta, lan kirimna nganggo fax ming:
+coppa_fax_instructions2:Monggo dicetak kaca kiye, aweh tapak asta, lan kirimna nganggo pos utawa di-fax balik ming inyong.
 coppa_fax_reg_form:Formulir Registrasi
 coppa_fax_sign:Monggo aweh tapak asta nang formulir kiye lan kirimna maring inyong
 coppa_fax_conf:Inyong uwis ndeleng informasi sing diwenehi nang anake inyong lan inyong wis maca ''Privacy Policy''-ne situs kiye. Inyong ngerti nek informasi profil teyeng diowahi nganggo tembung sandhi. Inyong ngerti nek inyong olih njaluk data profil kiye dibusek sakabehe sekang forum kiye.
@@ -464,6 +463,7 @@ rpasswd_passwd_length:Tembung sandhi kudu sekurang-kurange 6 karakter dhawane
 reset_remind_pass:Nggo ngemutna tembung sandhi
 reset_reset_conf:Tembung sandi bakal disetel maning lan dikirimna maring Rika. Angger Rika durung ndhedhes (konfirmasi) alamat imele Rika, panjalukan konfirmasi bakal dikirim maning maring Rika.
 reset_error:Alamat imel ora ditemokna nang basis data
+reset_update:Reset tembung sandhi
 rpasswd_change_pass:Ganti tembung sandhi
 rpasswd_login:Mlebu log
 rpasswd_cur_pass:Tembung sandhi sekiye:
@@ -674,8 +674,7 @@ reset_err_rstconf_title:Informasi
 reset_err_rstconf_msg:Rika bakal nampa instruksi nang imele Rika sedela maning.
 reset_newpass_title:nge-''reset'' tembung sandhi
 reset_newpass_msg:Halo,\n\nManut karo panjalukane Rika, kiye informasi logine Rika:\n\nLogin: {VAR: ui[1]}\nPassword: {VAR: passwd}\n\nTulung dieling-eling anggere tembung sandhine Rika kuwe wis diganti dadi sing nang dhuwur kuwe mau. Anggere Rika kepengin\nngganti maning tembung sandhine Rika, Rika teyeng nglakokna kuwe nang panel kendaline Rika kiye:\n{FULL_ROOT}{ROOT}?t=register
-# Fuzzy
-reset_login_notify:Tembung sandhine Rika wis dikirim ming imele Rika. Rika bakal nampa kuwe sedela maning.<br />
+reset_login_notify:Tembung sandhine Rika wis dikirim ming imele Rika. Rika bakal nampa kuwe sedela maning.
 search_update:Ngoleti pesen
 selmsg_update:Ndeleng <a href="{TEMPLATE: selmsg_update_lnk}">Pesen dina kiye</a>
 showposts_update:Ndeleng pesen sekang: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
@@ -1107,8 +1106,7 @@ move_msg_th_expl:Tetepna ID-ne sekang topik sing dituju (olih nang forum liyane)
 captcha_img_alt:Verifikasi Captcha: rika kudu teyeng maca teks nang gambar kiye.
 captcha_img_help:Ora ana nol utawa siji nang gambar.
 powered-by:Didukung nang: FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:Hak Cipta &copy;2001-2011 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Hak Cipta &copy;2001-2013 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Kode:
 code_select_all:Pilih kabeh
 code_show_hide:Tidokna/ umpetna

@@ -17,7 +17,7 @@ attachment:{{Identical|Attachment}}
 avatar:{{Identical|Avatar}}
 average_post_count:Indication of the number of messages the user posted (shown in the user's profile). For example:\n ''Message Count: 2 Messages (1 average message per day)''\nNote that '''$1''' is used twice in this message. This is intentional as $1 refers to the ''count'' in the '''{PLURAL: ''count''|form 1|form 2|...}''' construct and not to the message variable.
 biography:{{Identical|Biography}}
-birth_date:{{Identical|Birthday}}
+birth_date:{{Identical|Date of birth}}
 by:{{Identical|By}}
 current_time:Used as label.\n\nFollowed by colon (:) and timestamp (time and date).
 email:{{Identical|E-mail}}
@@ -54,6 +54,7 @@ pm:Description of link to the forum's "Private Message System" where users can c
 poll:{{Identical|Poll}}
 posts:{{Identical|Message}}
 posts_c:{{Identical|Message}}
+usrinfo_private_message:{{Identical|Private message}}
 profile:{{Identical|Control panel}}\n\nDescription of link to the "User Control Panel" (User settings page).<br />\nNot to be confused with "Admin Control Panel" ({{msg-fud|admin_control_panel}}).
 rating:{{Identical|Rating}}
 register:{{Identical|Register}}

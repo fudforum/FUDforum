@@ -3,6 +3,7 @@
 # Author: EugeneZelenko
 # Author: Jim-by
 # Author: Naudefj
+# Author: Red Winged Duck
 # Author: Renessaince
 # Author: Wizardist
 
@@ -1111,8 +1112,7 @@ move_msg_th_expl:Пазначце ідэнтыфікатар мэтавай тэ
 captcha_img_alt:Праверка Captcha: Вам неабходна распазнаць тэкст на гэтай выяве.
 captcha_img_help:На выяве няма лічбаў 0 ці 1.
 powered-by:Падтрымліваецца з дапамогай FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:Copyright &copy;2001-2012 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Аўтарскія правы &copy; 2001—2013 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Код:
 code_select_all:Выбраць усё
 code_show_hide:Паказаць/схаваць
