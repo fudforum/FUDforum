@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2014 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -187,7 +187,7 @@ function write_body_copy($data, &$len, &$offset, $file_id, $forum_id)
 	$i_count = q_singleval('SELECT count(*) FROM '. $tbl .'msg WHERE file_id>0');
 	$i_commit = ($i_count > 10000) ? 1000 : 100;
 	if ($i_count) {
-		db_lock($tbl .'msg m WRITE, '. $tbl .'thread t WRITE, '. $tbl .'forum f WRITE, '. $tbl .'msg WRITE, '. $tbl .'msg_store WRITE');
+		db_lock($tbl .'msg m WRITE, '. $tbl .'thread t WRITE, '. $tbl .'forum f WRITE, '. $tbl .'msg WRITE, '. $tbl .'msg_store WRITE, '. $tbl .'replace WRITE');
 
 		while (1) {
 			$j = $i;
