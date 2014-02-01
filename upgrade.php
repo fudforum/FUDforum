@@ -9,7 +9,7 @@
 * Free Software Foundation; either version 2 of the License.
 ***************************************************************************/
 
-$__UPGRADE_SCRIPT_VERSION = 5306.1;
+$__UPGRADE_SCRIPT_VERSION = 5306.2;
 // define('fud_debug', 1);
 
 /*
@@ -1152,7 +1152,7 @@ pf('<h2>Step 1: Admin login</h2>', true);
 	}
 
  	/* Remove obsolete PATH_INFO templates. */
-	$rm_pathinfo_tmpl = array('header.tmpl');
+	$rm_pathinfo_tmpl = array('header.tmpl');	// PATH_INFO doesn't have a header.tmpl any more.
  	foreach ($rm_pathinfo_tmpl as $f) {
  		if (file_exists($GLOBALS['DATA_DIR'] .'thm/path_info/tmpl/'. $f)) {
 			unlink($GLOBALS['DATA_DIR'] .'thm/path_info/tmpl/'. $f);

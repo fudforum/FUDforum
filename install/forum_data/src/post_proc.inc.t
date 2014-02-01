@@ -168,7 +168,7 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 
 					if (!strncasecmp($url, 'www.', 4)) {
 						$url = 'http&#58;&#47;&#47;'. $url;
-					} else if (!preg_match('/^(http|ftp|\.)/i', $url)) {
+					} else if (!preg_match('/^(http|ftp|\.|\/)/i', $url)) {
 						// Skip invalid or bad URL (like 'script:' or 'data:').
 						$ostr .= substr($str, $pos, $cepos - $pos + 1);
 						$epos = $cepos;

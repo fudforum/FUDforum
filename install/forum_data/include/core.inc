@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2014 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -9,7 +9,7 @@
 * Free Software Foundation; version 2 of the License.
 **/
 
-$FORUM_VERSION = '3.0.6RC1';
+$FORUM_VERSION = '3.0.6RC2';
 
 ignore_user_abort('1');
 @set_magic_quotes_runtime(0);	// Deprecated as of PHP 5.3.0.
@@ -146,6 +146,9 @@ function ssn($str)
 	return _esc($str);
 }
 
+/** htmlentity support inside user names. 
+  * Added on 2005-03-05 by iliaa: http://sourceforge.net/p/fudforum/code/3417/
+  */
 function char_fix($str)
 {
         if (strpos($str, '&amp;#') === false) {

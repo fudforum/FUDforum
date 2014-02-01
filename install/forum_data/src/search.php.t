@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2014 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -147,7 +147,7 @@ function fetch_search_cache($qry, $start, $count, $logic, $srch_type, $order, $f
 	if ($srch) {
 
 		if (defined('plugins') && isset($plugin_hooks['SEARCH'])) {
-			plugin_call_hook('SEARCH', $srch);
+			list($search_data, $page_pager) = plugin_call_hook('SEARCH', $srch);
 		} else if (!($c = fetch_search_cache($srch, $start, $ppg, $search_logic, $field, $sort_order, $forum_limiter, $total))) {
 			$search_data = '{TEMPLATE: no_search_results}';
 			$page_pager = '';

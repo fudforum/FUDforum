@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2014 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -316,21 +316,24 @@ function &usr_reg_get_full($id)
 
 function user_login($id, $cur_ses_id, $use_cookies)
 {
+	/* Remove cookie so it does not confuse us. */
 	if (!$use_cookies && isset($_COOKIE[$GLOBALS['COOKIE_NAME']])) {
-		/* Remove cookie so it does not confuse us. */
 		setcookie($GLOBALS['COOKIE_NAME'], '', __request_timestamp__-100000, $GLOBALS['COOKIE_PATH'], $GLOBALS['COOKIE_DOMAIN']);
 	}
+
+	/* MULTI_HOST_LOGIN */
 	if ($GLOBALS['FUD_OPT_2'] & 256 && ($s = db_saq('SELECT ses_id, sys_id FROM {SQL_TABLE_PREFIX}ses WHERE user_id='.$id))) {
 		if ($use_cookies) {
 			setcookie($GLOBALS['COOKIE_NAME'], $s[0], __request_timestamp__+$GLOBALS['COOKIE_TIMEOUT'], $GLOBALS['COOKIE_PATH'], $GLOBALS['COOKIE_DOMAIN']);
 		}
 		if ($s[1]) {
+			// Clear system ID, we don't use it with MULTI_HOST_LOGIN's.
 			q('UPDATE {SQL_TABLE_PREFIX}ses SET sys_id=\'\' WHERE ses_id=\''. $s[0] .'\'');
 		}
 		return $s[0];
 	}
 
-	/* If we can only have 1 login per account, 'remove' all other logins. */
+	/* Only 1 login per account, 'remove' all other logins. */
 	q('DELETE FROM {SQL_TABLE_PREFIX}ses WHERE user_id='. $id .' AND ses_id!=\''. $cur_ses_id .'\'');
 	q('UPDATE {SQL_TABLE_PREFIX}ses SET user_id='. $id .', sys_id=\''. ses_make_sysid() .'\' WHERE ses_id=\''. $cur_ses_id .'\'');
 	$GLOBALS['new_sq'] = regen_sq($id);
