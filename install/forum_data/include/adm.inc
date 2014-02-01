@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2014 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -17,7 +17,7 @@ header('X-Robots-Tag: noindex, nofollow');
 
 /* Load DB driver. */
 fud_use('db.inc');
-
+	
 if (!defined('shell_script')) {
 	if (php_sapi_name() == 'cli') {	// adm_cli.inc wasn't called!
 		die('Sorry, cannot run from command line.');
@@ -38,10 +38,9 @@ if (!defined('shell_script')) {
 	if (!count($_POST)) {
 		sq_check(0, $GLOBALS['usr']->sq);
 	}
+	
+	ses_update_status($GLOBALS['usr']->sid, 'Access ACP');
 }
-
-define('__fud_index_name__', 'index.php');
-ses_update_status($GLOBALS['usr']->sid, 'Access ACP');
 
 if (!($GLOBALS['usr']->users_opt & 1048576)) {	// not is_admin
 	// Limited access for account moderators.
@@ -73,6 +72,7 @@ if (!($GLOBALS['usr']->users_opt & 1048576)) {	// not is_admin
 }
 
 /* Load common functions used throughout the ACP and other scripts. */
+define('__fud_index_name__', 'index.php');
 fud_use('adm_common.inc', true);
 
 ?>
