@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2014 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -174,9 +174,9 @@ function ses_putvar($ses_id, $data)
 /** Destroy a session. */
 function ses_delete($ses_id)
 {
-	if (!($GLOBALS['FUD_OPT_2'] & 256)) {	// MULTI_HOST_LOGIN
-		q('DELETE FROM {SQL_TABLE_PREFIX}ses WHERE id='. $ses_id);
-	}
+	// Delete all forum sessions.
+	// Regardless of MULTI_HOST_LOGIN, all sessions will be terminated.
+	q('DELETE FROM {SQL_TABLE_PREFIX}ses WHERE id='. $ses_id);
 	setcookie($GLOBALS['COOKIE_NAME'], '', __request_timestamp__-100000, $GLOBALS['COOKIE_PATH'], $GLOBALS['COOKIE_DOMAIN']);
 
 	return 1;
