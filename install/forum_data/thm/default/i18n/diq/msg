@@ -77,7 +77,7 @@ moderator:Cerbener
 moderator_of:Wesetê Forumi
 moderator_options:Wesetin Weçiney
 moderators:{PLURAL: modcount|Wesetber|Wesetber}
-move_thread:Beré
+move_thread:Bere
 na:n/a
 new_posts:Mesacê Newey
 new_thread:Topiko newe vıraze
@@ -377,7 +377,7 @@ split_th_posted_on:Deme rıştışi:
 split_th_forum:Forum
 split_th_messages:Mesaci
 split_th_select:Weçine
-quicklogin_login:Dekewtış:
+quicklogin_login:Cıkewtış:
 quicklogin_password:Parola:
 quicklogin_login_btn:Cıkewtış
 post_proc_reveal_spoiler:Toggle Spoiler

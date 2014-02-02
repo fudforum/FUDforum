@@ -79,6 +79,7 @@ cal_day_heading:Ereignisse an diesem Tag
 cal_no_events:Keine Ereignisse an diesem Tag.
 cal_update:Durchsucht den Kalender
 cal_birthday:Geburtstag: {VAR: user}
+cal_birthdays:{PLURAL: birthdays|Ein Geburtstag|$1 Geburtstage}
 cal_birthday_age:({PLURAL: age|$1 Jahr|$1 Jahre} alt).
 message:Beitrag
 message_counter:Unsere Benutzer haben insgesamt <b>{PLURAL: post_count|$1 Nachricht|$1 Nachrichten}</b> in <b>{PLURAL: thread_count|$1 Thema|$1 Themen}</b> erstellt.
@@ -217,6 +218,7 @@ reported_reported_msg:Gemeldete Beiträge
 modque_pending_approval:Noch zu genehmigende Beiträge
 modque_approve:Genehmigen
 modque_delete:Löschen
+modque_deleteall:Alle löschen von Benutzer
 modque_no_message:Es sind keine Beiträge vorhanden, die noch genehmigt werden müssen
 pmsg_new_messages:Ungelesene private Nachrichten
 pmsg_old_messages:Gelesene private Nachrichten
@@ -422,8 +424,7 @@ ignore_users:Ignorierte Benutzer
 add_ignore:Benutzer zur Ignorierliste hinzufügen
 forum_terms:Forumsregeln
 forum_rules:<p>Die Registrierung für dieses Forum ist kostenlos. Jedoch bestehen wir darauf, dass Sie sich an nachfolgende Vereinbarung halten. Wenn Sie mit diesen Regeln einverstanden sind, klicken Sie bitte auf die „Zustimmen“- Schaltfläche. Achtung: Durch das Klicken der Schaltfläche erklären Sie, dass Sie über 13 Jahre sind. Falls Sie 13 oder darunter sind, verwenden Sie bitte diese Registrierungsseite.</p><p>Auch wenn die Administratoren und Moderatoren des Forums versuchen, dieses von anstößigen Mitteilungen freizuhalten, so ist es dennoch für uns unmöglich, alle übermittelten Beiträge zu begutachten. Diese geben die Ansichten des jeweiligen Autors wieder, weswegen keiner der Forumsmitarbeiter für jene Inhalte verantwortlich gemacht werden kann.</p><p>Mit Anklicken der „Zustimmen“-Schaltfläche sichern Sie uns verbindlich zu, dass Ihre Beiträge keinerlei obzöne, vulgäre, sexistische, hasserfüllte, nötigende oder sonstwie gesetzeswidrige Inhalte haben werden.</p><p>Die Verantwortlichen dieses Forums haben das Recht, jederzeit aus jedem erdenklichen Grund Diskussionsthemen zu entfernen, bearbeiten, verschieben oder zu schließen.<p>
-# Fuzzy
-forum_rules_13:<p>Alle Benutzer unter 13 Jahre müssen ihre Eltern oder ihren Vormund um Erlaubnis bitten, um die Mitgliedschaft im Forum zu erlangen. Auch wenn wir die Teilnahme von Benutzern unter 13 befürworten, so verlangen wir dennoch, dass die Eltern oder der Vormund eine unterschriebene Einwilligungserklärung zurückschicken oder faxen, bevor wir die Mitgliedschaft gewähren können.</p><p>Wenn Sie die Registrierung einleiten möchten bevor wir die Einwilligungserklärung erhalten haben, klicken Sie auf die Zustimmen Schaltfläche unten. Falls Sie die Registrierung abbrechen möchten, klicken Sie auf Abbrechen um zum Forumsindex zurückzukehren.</p><p>Eine Kopie der zu unterschreibenden Einwilligungserklärung kann hier heruntergeladen werden. Für weitere Informationen bezüglich der Registrierung schicken Sie bitte eine E-Mail an <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.<p>
+forum_rules_13:<p>Alle Benutzer unter 13 Jahre müssen ihre Eltern oder ihren Vormund um Erlaubnis bitten, um die Mitgliedschaft im Forum zu erlangen. Auch wenn wir die Teilnahme von Benutzern unter 13 befürworten, so verlangen wir dennoch, dass die Eltern oder der Vormund eine unterschriebene Einwilligungserklärung zurückschicken oder faxen, bevor wir die Mitgliedschaft gewähren können.</p><p>Wenn Sie die Registrierung einleiten möchten, bevor wir die Einwilligungserklärung erhalten haben, klicken Sie auf die Schaltfläche <b>Zustimmen</b> unten. Falls Sie die Registrierung abbrechen möchten, klicken Sie auf <b>Ablehnen</b>, um zum Forumsindex zurückzukehren.</p><p>Eine Kopie der Einwilligungserklärung wird nach der Registrierung angezeigt. Für weitere Informationen bezüglich der Registrierung schicken Sie bitte eine E-Mail an <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.<p>
 coppa_conf:COPPA-Bestätigung
 coppa_before:Vor dem {TEMPLATE: coppa_date}
 coppa_after:Nach dem {TEMPLATE: coppa_date}
@@ -434,8 +435,7 @@ prereg_agree:Zustimmen
 prereg_disagree:Ablehnen
 prereg_update:Liest die Forenregeln
 coppa_fax_instructions:Anleitung für ein Elternteil oder Vormund
-# Fuzzy
-coppa_fax_instructions2:Bitte drucken Sie dieses Formular aus, unterschreiben und schicken es an:
+coppa_fax_instructions2:Bitte drucken Sie dieses Formular aus, unterschreiben und mailen oder faxen Sie es an uns zurück.
 coppa_fax_reg_form:Registrierungsformular
 coppa_fax_sign:Bitte unterschreiben Sie das Formular und schicken es an uns
 coppa_fax_conf:Ich habe die Informationen meines Kindes begutachtet und die Handhabung der Privatssphäre auf der Webseite gelesen. Mir ist bekannt, dass die Informationen im Profil durch das Benutzen eines Passwortes geändert werden können. Mir ist bekannt, dass ich um vollständige Entfernung des Benutzerprofils bitten kann.
@@ -470,6 +470,7 @@ rpasswd_passwd_length:Passwort muss mindestens 6 Zeichen lang sein
 reset_remind_pass:Passwort Hinweis
 reset_reset_conf:Ihr Passwort wird zurückgesetzt und an Sie verschickt, oder falls Sie Ihre E-Mail noch nicht bestätigt haben, wird diese Bestätigungsanfrage erneut an Sie versendet.
 reset_error:E-Mail-Adresse nicht in der Datenbank gefunden
+reset_update:Passwort zurücksetzen
 rpasswd_change_pass:Passwort ändern
 rpasswd_login:Benutzername:
 rpasswd_cur_pass:Momentanes Passwort:
@@ -680,8 +681,7 @@ reset_err_rstconf_title:Information
 reset_err_rstconf_msg:Sie sollten in den nächsten Minuten eine Anleitung per E-Mail erhalten.
 reset_newpass_title:Passwort zurücksetzen
 reset_newpass_msg:Guten Tag,\n\nWie von Ihnen gewünscht, werden Ihnen die Anmeldeinformationen zugesendet.\n\nBenutzername: {VAR: ui[1]}\nPasswort: {VAR: passwd}\n\nBitte beachten Sie, dass Ihr Passwort auf obigen angegebenen Wert zurückgesetzt\nwurde, wenn Sie es ändern möchten, so können Sie das in\nden persönlichen Einstellungen tun:\n{FULL_ROOT}{ROOT}?t=register
-# Fuzzy
-reset_login_notify:Das Passwort wurde an Sie versendet. Sie sollten es in den nächsten Minuten erhalten. Bitte überprüfen Sie die E-Mail auf Benutzername und Passwort.<br />.<br />.<br />
+reset_login_notify:Das Passwort wurde an Sie versandt. Sie sollten es in den nächsten Minuten erhalten.
 search_update:Sucht nach Beiträgen
 selmsg_update:Durchsucht <a href="{TEMPLATE: selmsg_update_lnk}">die heutigen Beiträge</a>
 showposts_update:Betrachtet die Beiträge von <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
@@ -1113,8 +1113,7 @@ move_msg_th_expl:Geben Sie die ID des Zielthemas an (kann in einem anderem Forum
 captcha_img_alt:CAPTCHA-Bestätigung: Sie müssen den Text in diesem Bild erkennen.
 captcha_img_help:Das Bild enthält keine Null oder Eins.
 powered-by:Betrieben mit: FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:Copyright &copy;2001–2012 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Copyright &copy;2001–2013 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Code:
 code_select_all:alles markieren
 code_show_hide:anzeigen/verstecken

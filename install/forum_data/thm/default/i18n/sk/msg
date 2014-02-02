@@ -1,5 +1,6 @@
 # Messages for Slovak (slovenčina)
 # Exported from translatewiki.net
+# Author: KuboF
 # Author: Kusavica
 # Author: Naudefj
 # Author: Rudko
@@ -466,6 +467,7 @@ rpasswd_passwd_length:Heslo musí mať aspoň 6 znakov
 reset_remind_pass:Pripomenutie hesla
 reset_reset_conf:Vaše heslo bude zmazané a odoslané na vašu e-mailovú adresu. V prípade, že ste vašu e-mailovú adresu ešte nepotvrdili, vám namiesto hesla bude poslaný e-mail so žiadosťou o potvrdenie e-mailovej adresy.
 reset_error:E-mailová adresa sa v databáze nenašla
+reset_update:Obnoviť heslo
 rpasswd_change_pass:Zmeniť heslo
 rpasswd_login:Používateľské meno
 rpasswd_cur_pass:Súčasné heslo:
