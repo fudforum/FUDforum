@@ -1,6 +1,7 @@
 # Messages for Norwegian Bokmål (norsk bokmål)
 # Exported from translatewiki.net
 # Author: Danmichaelo
+# Author: Event
 # Author: Laaknor
 # Author: McDutchie
 # Author: Naudefj
@@ -1150,3 +1151,4 @@ karma:Karma
 karma_track:Håndter omdømme for brukere:
 karma_delete:Slett
 rate_author:Bedøm forfatter:
+portal_update:Leser forumportalen

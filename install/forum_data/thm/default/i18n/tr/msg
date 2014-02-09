@@ -5,6 +5,7 @@
 # Author: Gorizon
 # Author: Incelemeelemani
 # Author: Joseph
+# Author: Meelo
 # Author: Naudefj
 # Author: Rapsar
 # Author: Srhat
@@ -1157,3 +1158,4 @@ karma:Karma
 karma_track:Kullanıcı için itibar yönetme:
 karma_delete:Sil
 rate_author:Yazar oranı:
+portal_update:Forum portalını oku

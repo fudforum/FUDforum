@@ -463,3 +463,4 @@ custom_filed_required:{{Identical|Required}}
 pages:{{Identical|Page}}
 page_update:Action in the forum's action list (iSpy system) indicating that the user is busy reading a static forum page.\n\nUsed as session status to indicate last known action.\n{{Related|Fud-status}}
 karma_delete:{{Identical|Delete}}
+portal_update:This message is shown in the forum's I-SPY system to indicate what this user is busy doing.\n\nUsed as session status to indicate last known action.\n{{Related|Fud-status}}

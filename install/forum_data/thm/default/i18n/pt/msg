@@ -5,6 +5,7 @@
 # Author: GTNS
 # Author: Giro720
 # Author: Hamilton Abreu
+# Author: Imperadeiro98
 # Author: Luckas
 # Author: Luckas Blade
 # Author: Malafaya
@@ -13,7 +14,7 @@
 # Author: Waldir
 
 action:Ação
-add_to_buddy_list:Adicionar à lista de amigos
+add_to_buddy_list:adicionar à lista de amigos
 admin:Admin
 admin_control_panel:Administração
 administrator:Administrador
@@ -475,6 +476,7 @@ rpasswd_passwd_length:A Password deve ter pelo menos 6 caracteres de tamanho
 reset_remind_pass:Recuperador de Password
 reset_reset_conf:A sua password será restaurada e enviada, no caso de não ter confirmado o seu email um formulário de pedido de confimação ser-lhe-á enviado.
 reset_error:O email não foi encontrado na base de dados
+reset_update:Reiniciar palavra-chave
 rpasswd_change_pass:Alterar password
 rpasswd_login:Utilizador
 rpasswd_cur_pass:Palavra-chave atual:
@@ -1155,3 +1157,4 @@ karma:Karma
 karma_track:Gerir reputação para o utilizador:
 karma_delete:Eliminar
 rate_author:Classificar autor:
+portal_update:A ler o portal do fórum

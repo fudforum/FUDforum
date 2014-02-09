@@ -75,6 +75,7 @@ cal_day_heading:Udalosti dňa
 cal_no_events:Žiadna udalosť dňa.
 cal_update:Prehliadanie kalendára
 cal_birthday:Narodeniny: {VAR: user}
+cal_birthdays:{PLURAL: birthdays|$1 narodeniny|$1 narodeniny}
 cal_birthday_age:( {PLURAL: vek| $1 rok | $1 rokov } ).
 message:Správa
 message_counter:Používatelia doteraz vytvorili <b>{PLURAL: post_count|$1 správu|$1 správ}</b> v <b>{PLURAL: thread_count|$1 téme|$1 témach}</b>.
@@ -419,8 +420,7 @@ ignore_users:Ignorovaní používatelia
 add_ignore:Pridať ignorovaného používateľa
 forum_terms:Pravidlá fóra
 forum_rules:<p>Registrácia a používanie tohto fóra sú bezplatné. Podmienkou je dodržiavanie pravidiel fóra, ktoré sú uvedené nižšie. Ak súhlasíte s podmienkami, prosím stlačte tlačidlo <b>Súhlasím</b> na konci tejto stránky. Poznámka: Stlačením tlačidla prehlasujete, že ste starší ako 13 rokov. Pokiaľ ste mladší ako 13 rokov použite registračný formulár pre rodiča alebo zákonného zástupcu.</p><p>Administrátori a moderátori fóra budú odstraňovať všetky neprípustné príspevky z fóra, ale všetky uverejnené príspevky sa skontrolovať nedajú. Všetky príspevky preto vyjadrujú názory ich autorov a prevádzkovatelia fóra, tak ako jeho tvorcovia, nenesú zodpovednosť za obsah ktoréhokoľvek z uverejnených príspevkov.<p>Stlačením tlačítka "Súhlasím" sa zaväzujete, že nebudete uverejňovať príspevky, ktoré by mohli byť obscénne, vulgárne, so sexuálnym podtónom, vyjadrujúce nenávisť alebo hrozbu alebo inak porušujúce zákony.</p><p>Majitelia tohto fóra majú ďalej právo na mazanie, úpravu, presunutie alebo ukončenie ktorejkoľvek témy príspevkov bez udania dôvodov.</p>
-# Fuzzy
-forum_rules_13:<p>Používatelia, ktorí majú menej ako 13 rokov sú vo fóre vítaní, avšak potrebujú na to, aby sa mohli stať používateľom fóra, povolenie rodiča alebo zákonného zástupcu. Rodič alebo zákonný zástupca môže registračný formulár poslať prostredníctvom faxu alebo poštovou cestou, ešte pred registráciou používateľa.</p><p>Ak chcete začať proces registrácie, predtým ako sme registračný formulár obdržali, stlačte tlačidlo <b>Súhlasím</b>, ktoré je nižšie. Ak chcete registračný proces prerušiť stlačte tlačidlo <b>Zrušiť</b> a vrátite sa do zoznamu fóra.</p><p>Kópiu registračného formuláru si môžete stiahnuť tu. V prípade, že o registračnom procese potrebujete viac informácií, obráte sa e-mailom na <a href="mailto:{GVAR: ADMIN_EMAIL}" class="GenLink">{GVAR: ADMIN_EMAIL}</a>.</p>
+forum_rules_13:<p>Používatelia, ktorí majú menej ako 13 rokov sú vo fóre vítaní, avšak potrebujú na to, aby sa mohli stať používateľom fóra, povolenie rodiča alebo zákonného zástupcu. Rodič alebo zákonný zástupca môže registračný formulár poslať prostredníctvom faxu alebo poštovou cestou, ešte pred registráciou používateľa.</p><p>Ak chcete začať proces registrácie, predtým ako sme registračný formulár obdržali, stlačte tlačidlo <b>Súhlasím</b>, ktoré je nižšie. Ak chcete registračný proces prerušiť stlačte tlačidlo <b>Zrušiť</b> a vrátite sa do zoznamu fóra.</p><p>Kópia registračného formulára sa Vám zobrazí po dokončení registrácie. V prípade, že o registračnom procese potrebujete viac informácií, obráťte sa e-mailom na <a href="mailto:{GVAR: ADMIN_EMAIL}" class="GenLink">{GVAR: ADMIN_EMAIL}</a>.</p>
 coppa_conf:COPPA Potvrdenie
 coppa_before:Pred {TEMPLATE: coppa_date}
 coppa_after:Po {TEMPLATE: coppa_date}
@@ -431,8 +431,7 @@ prereg_agree:Súhlasím
 prereg_disagree:Nesúhlasím
 prereg_update:Čítanie pravidiel fóra
 coppa_fax_instructions:Inštrukcie pre rodiča alebo zákonného zástupcu
-# Fuzzy
-coppa_fax_instructions2:Prosím, vytlačte túto stránku, podpíšte a odošlite/odfaxujte na:
+coppa_fax_instructions2:Prosím, vytlačte túto stránku, podpíšte ju a odošlite alebo odfaxujte späť k nám.
 coppa_fax_reg_form:Registračný formulár
 coppa_fax_sign:Prosím, podpíšte a odošlite tento formulár
 coppa_fax_conf:Overil som si všetky informácie, ktoré my dieťa o fóre poskytlo a prečítal som si pravidlá tohoto fóra. Rozumiem, že  informácie uvedené v profile môžu byť zmenené použitím hesla a rozumiem, že môžem požiadať o odstránenie registrovaného profilu.

@@ -6,6 +6,7 @@
 # Author: Red Winged Duck
 # Author: Renessaince
 # Author: Wizardist
+# Author: Zedlik
 
 action:Дзеяньне
 add_to_buddy_list:дадаць да сьпісу сяброў
@@ -864,7 +865,7 @@ forum_home:Галоўная старонка
 post_cur_attached:цяпер {VAR: i} {PLURAL: i|файл далучаны|файлы далучаныя|файлаў далучаныя}
 ignored_anon_post:{GVAR: ANON_NICK} ігнаруецца
 ignored_user_post:Паведамленьне ад <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> ігнаруецца
-smladd_close_window:зачыніць акно
+smladd_close_window:закрыць акно
 post_list_smilies:паказаць усе ўсьмешкі
 p_VISIBLE:Бачны
 reported_in_thread:У тэме:

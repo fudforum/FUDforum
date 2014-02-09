@@ -114,7 +114,7 @@ num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|atkvæði|atkvæði}
 occupation:Atvinna:
 off:af
 on:á
-page_timings:Heildartími sem tók að búa til þessa síðu: {PLURAL: page_gen_time|$1 sekúndur}
+page_timings:Heildartími sem tók að búa til þessa síðu: {PLURAL: page_gen_time|$1 sekúnda|$1 sekúndur}
 pm:Einkaskilaboð
 poll:Skoðanakönnun:
 post_count:Fjöldi skilaboða {VAR: u_pcount}
