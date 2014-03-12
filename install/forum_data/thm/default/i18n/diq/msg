@@ -26,7 +26,7 @@ pmsg_download_counter:Ronayış {PLURAL: r->dlcount|$1 time|$1 mend}
 email:E-mail
 email_to_friend:E-mailê embazi
 faq:Peşti
-flat_view:Hesıbyaye asayış dê raşti rê peyd şo
+flat_view:Peyser şo asayışê raştiê hesebiyayey
 forum:Forum
 forum_icon:Forum Icon
 forum_new_messages:Mesacê newey
@@ -458,8 +458,8 @@ err_blockedaccnt_title:XIRAB: Hesabê şıma avrêcyaye weziyet deyo.
 err_blockedaccnt_msg:Poxta avrêc da karberi yewi ra forum dı resnayışê hesabi vındarnayo.
 merge_th_page_list:Pela Mersel Weçinayış
 most_users_online:Amariya karberan de grebiyaya tewr zaf tarixê cı, <b>{VAR: st_obj->most_online}</b> Karberana <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b> dı biyo.
-sub_unsub_all_forums:Abeneyanê foruman dê mı pêron bıterkne
-sub_unsub_all_topics:Aboneyanê merselan de mı pêron bıterkne
+sub_unsub_all_forums:Aboneyiya Foruman Pêrıne Bıtexelne
+sub_unsub_all_topics:Aboneyiya Mewzuyan Pêrıne Bıtexelne
 unbookmark_all_topics:Nışana pêron wedarne
 tabs_own_posts:Rıştayışanê mı bımocne
 sml_emoticon:İfade
@@ -536,4 +536,4 @@ pm_export_header:Qan dê xususi mesaca: {VAR: usr->alias}
 pm_export_footer:Êk Vetê:
 karma:Karma
 karma_track:İdariya ercen dê karberi:
-karma_delete:Besterne
+karma_delete:Bestere

@@ -81,6 +81,7 @@ no_messages:Et gëtt keng Messagen an dësem Forum.<br /> Sidd deen éischten de
 no_new_posts:Keng nei Messagen
 no_posts:Keng Messagen
 no_unread_locked:Dëse Sujet gouf gespaart
+no_unread_msg:Dëse Sujet huet keng Messagen déi net geliest sinn
 num_pages:Säiten ({VAR: ttl_pg}):
 num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|Stëmm|Stëmmen}
 occupation:Beruff:
@@ -156,6 +157,7 @@ pmsg_forwarded:virugeschéckt
 pmsg_subject:Sujet
 pmsg_author:Auteur
 pmsg_time:Zäit
+pmsg_selected:Erausgesicht
 pmsg_delete:Läschen
 writing_pm:E private Message schreiwen
 draft:Virbereedung
@@ -251,6 +253,7 @@ post_logout:ausloggen
 post_poll:Ëmfro:
 post_poll_delete:LÄSCHEN
 post_poll_edit:ÄNNEREN
+post_no_icon:Keen Icon
 post_upload_file:Fichier eroplueden
 post_file_del:Läschen
 post_file_name:Numm
@@ -307,8 +310,10 @@ search_entire_msg:Ganze Message
 search_forum:Forum
 search_no_results:Keng Resultater
 search_in_forum:Am Forum sichen:
+remail_email_topic:Eng Frënn dëse Sujet mailen
 remail_your_name:Ären Numm:
 remail_your_email:Är E-Mail:
+remail_friends_name:Numm vum Frënd:
 remail_required:obligatoresch
 remail_subject:Sujet:
 remail_message:Message:

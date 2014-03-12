@@ -9,57 +9,57 @@ admin:Администратор
 admin_control_panel:Администрација
 administrator:Администратор
 attachment:Прилог:
-avatar:Корисничка сличица:
-average_post_count:{PLURAL: u->posted_msg_count|$1|$1|$1} (просечно {PLURAL: avg|$1 порука|$1 поруке|$1 порука} по дану)
-biography:Животопис:
+avatar:Аватар:
+average_post_count:{PLURAL: u->posted_msg_count|$1 порука|$1 поруке|$1 порука} (у просеку {PLURAL: avg|$1 порука|$1 поруке|$1 порука} по дану)
+biography:Биографија:
 birth_date:Датум рођења:
 by:Од:
-by_mod:од уредника
+by_mod:од модератора
 current_time:Тренутно време
-custom_avatar_queue:Ред корисничких сличица
+custom_avatar_queue:Ред прилагођених аватара
 date_posted:Датум постављања
-date_registered:Датум уписа:
+date_registered:Датум регистрације:
 download_counter:преузето {PLURAL: v[3]|$1 пут|$1 пута|$1 пута}
 pmsg_download_counter:преузето {PLURAL: r->dlcount|$1 пут|$1 пута|$1 пута}
-email:Е-пошта:
-email_to_friend:Пошаљи пријатељу
+email:Е-адреса:
+email_to_friend:Пошаљи пријатељу путем е-поште
 email_to_friend_desc:Пошаљи пријатељу URL адресу ове странице путем е-поште
-email_user:Пошаљи е-поруку
+email_user:Пошаљи е-поруку кориснику
 faq:Помоћ
 first_unread_msg:Иди на непрочитане поруке
-first_unread_msg_desc:Иди на прву непрочитану поруку унутар ове теме
+first_unread_msg_desc:Иди на прву непрочитану поруку у овој теми
 flat_view:Назад на подразумевани равни приказ
-forum:Форум
-forum_icon:Иконица форума
+forum:Форум:
+forum_icon:Икона форума
 forum_new_messages:Нове поруке
-forum_none_messages:Само уписани чланови форума могу да означе поруку као прочитану или непрочитану
+forum_none_messages:Само регистровани чланови форума могу да означе поруку као прочитану или непрочитану
 forum_old_messages:Нема нових порука.
 from:Од:
 gender:Пол:
 go:Иди
 goto_next_msg:Иди на следећу поруку
-goto_prev_msg:Назад на претходну поруку
+goto_prev_msg:Иди на претходну поруку
 home:Почетна
 homepage:Почетна страница:
-icq_control_panel:ICQ
-icq_message_form:ICQ поруке:
-ignore_user:занемари поруке овог члана
-im_aim:AIM:
-im_msnm:MSN месенџер:
-im_yahoo:Јаху месенџер:
+icq_control_panel:Табла присутних корисника ICQ-а
+icq_message_form:Образац за поруке са ICQ-а:
+ignore_user:игнориши све поруке овог корисника
+im_aim:AIM Handle:
+im_msnm:MSN Messenger:
+im_yahoo:Yahoo Messenger:
 image:Слика:
 index_forum:Форум
-index_new_posts:Нове поруке од претходног читања
-index_no_new_posts:Нема нових порука од претходног читања
+index_new_posts:Нове поруке од последњег читања
+index_no_new_posts:Нема нових порука од последњег читања
 index_url_redirection:Преусмерење
-interests:Хоби:
+interests:Интересовања:
 last_post:Последња порука
 last_thread_msg:Иди на последњу поруку ове теме
 legend:Легенда
 location:Место:
 lock_thread:Закључај тему
-locked:Закључано
-locked_with_new_posts:Закључано (с непрочитаним порукама)
+locked:Закључана
+locked_with_new_posts:Закључана (има непрочитаних порука)
 logged_in_list:Списак пријављених корисника
 login:Пријава
 login_header:Корисничко име:
@@ -70,35 +70,36 @@ members:Чланови
 calendar:Календар
 cal_goto_date:Иди на:
 cal_day_heading:Догађаји дана
-cal_no_events:Нема догађаја за дан.
-cal_update:Прегледање календара форума
+cal_no_events:Нема догађаја овог дана.
+cal_update:Прегледање форумског календара
 cal_birthday:Рођендан: {VAR: user}
-cal_birthday_age:(стар {PLURAL: age|$1 годину|$1 године|$1 година}).
+cal_birthdays:{PLURAL: birthdays|$1 рођендан|$1 рођендана|$1 рођендана}
+cal_birthday_age:(има {PLURAL: age|$1 годину|$1 године|$1 година}).
 message:Порука
-message_counter:Наши чланови су поставили укупно <b>{PLURAL: post_count|$1 поруку|$1 поруке|$1 порука}</b> унутар <b>{PLURAL: thread_count|$1 теме|$1 теме|$1 тема}</b>
-message_index:Попис поруке
-message_index_desc:Прикажи списак порука
-minimize_category:Смањи категорију
-minimize_message:Смањи поруку
-moderation_queue:Редослед уређивања
-moderator:Уредник
-moderator_of:Уредник:
-moderator_options:Поставке уредника
-moderators:{PLURAL: modcount|Уредник|Уредници}
+message_counter:Наши корисници су написали укупно <b>{PLURAL: post_count|$1 поруку|$1 поруке|$1 порука}</b> у <b>{PLURAL: thread_count|$1 теми|$1 теме|$1 тема}</b>
+message_index:Индекс порука
+message_index_desc:Погледај списак порука
+minimize_category:Спусти категорију
+minimize_message:Спусти поруку
+moderation_queue:Ред за модерисање
+moderator:Модератор
+moderator_of:Модератор форума:
+moderator_options:Могућности модератора
+moderators:{PLURAL: modcount|Модератор|Модератори}
 more_unread_messages:више непрочитаних порука
-more_unread_messages_desc:Прикажи више непрочитаних порука и означи поруке које тренутно читам као прочитане
+more_unread_messages_desc:Прикажи више непрочитаних порука и означи тренутно видљиве поруке као прочитане
 move_thread:Премести
 moved:Премештено у други форум
-moved_thread_message:Ова тема је премештена на други форум
+moved_thread_message:Ова тема је премештена у други форум
 na:непознато
 new_posts:Нове поруке
-new_private_messages:Имате <span class="GenTextRed">({VAR: c})</span> {PLURAL: c|непрочитану поруку|непрочитане поруке}
+new_private_messages:Имате <span class="GenTextRed">({VAR: c})</span> {PLURAL: c|непрочитану приватну поруку|непрочитане приватне поруке}
 new_thread:Направи нову тему
-newest_user:Најновији члан је
+newest_user:Најновији регистровани корисник је
 next_page:Следећа страница
 next_thread:Следећа тема:
-no_messages:Нема порука у овом форуму.<br />Будите први који ће отворити тему.
-no_msg_body:Текст поруке није унет.
+no_messages:У овом форуму нема порука.<br />Будите први који ће отворити тему.
+no_msg_body:Порука нема садржину
 no_new_posts:Нема нових порука
 no_posts:Нема порука.
 no_subscribed_forums:Нема надгледаних форума.
@@ -106,54 +107,54 @@ no_subscribed_threads:Нема надгледаних тема.
 no_bookmarked_threads:Нема забележених тема.
 no_unread_locked:Ова тема је закључана.
 no_unread_msg:Ова тема нема непрочитаних порука.
-no_unread_msg_unreg:Прочитане и непрочитане поруке доступне су само члановима.
+no_unread_msg_unreg:Право на праћење прочитаних и непрочитаних порука имају само регистровани корисници
 num_pages:Странице ({VAR: ttl_pg}):
 num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|глас|гласа|гласова}
 occupation:Занимање:
 off:искључено
 on:укључено
-page_timings:Укупно време за које је створена страница: {PLURAL: page_gen_time|$1 секунд|$1 секунде|$1 секунди}
-pm:Приватне поруке
+page_timings:Укупно време потрошено на прављење странице: {PLURAL: page_gen_time|$1 секунд|$1 секунде|$1 секунди}
+pm:Приватна пошта
 poll:Анкета:
 post_count:Број порука {VAR: u_pcount}
 post_count_l:Број порука:
-posts:Порука
+posts:Поруке
 posts_c:Порука:
 prev_thread:Претходна тема:
 usrinfo_private_message:Приватна порука:
-profile:Управљачки панел
-profile_desc:Приступите корисничком управљачком панелу
+profile:Контролна табла
+profile_desc:Приступ корисничкој контролној табли
 rate_thread:оцените тему
 rating:Оцена
 rating_track:Управљај оценама за тему <b>{VAR: thr->subject}</b>:
 refresh_list:Освежи списак
 register:Регистрација
-registered:Датум уписа:
-registered_on:Датум уписа: {TEMPLATE: registered_on_date}
+registered:Регистрован:
+registered_on:Датум регистрације: {TEMPLATE: registered_on_date}
 replies:Одговора
-report_to_mod:Пријави поруку
+report_to_mod:Пријави поруку модератору
 reported_messages:Пријављене поруке
-reveal_all_posts:откриј све поруке од {VAR: user_login}
+reveal_all_posts:откриј све поруке корисника {VAR: user_login}
 reveal_post:откриј поруку
 search:Претрага
 sel_todays_posts:Данашње поруке
-sel_todays_posts_desc:Промени филтер за данашње поруке (приказиваће само данашње поруке)
+sel_todays_posts_desc:Укључите/искључите филтер за данашње поруке (приказиваће само поруке написане данас)
 sel_unanswered_posts:Неодговорене поруке
-sel_unanswered_posts_desc:Промени филтер за неодговорене поруке (приказиваће само поруке без одговора)
+sel_unanswered_posts_desc:Укључите/искључите филтер за неодговорене поруке (приказиваће само поруке без одговора)
 sel_unread_messages:Непрочитане поруке
-sel_unread_messages_desc:Промени филтер за непрочитане поруке (приказиваће само непрочитане поруке)
+sel_unread_messages_desc:Укључите/искључите филтер за непрочитане поруке (приказиваће само непрочитане поруке)
 send:Пошаљи
-send_pm_desc:Пошаљи приватну поруку овом члану
+send_pm_desc:Пошаљи кориснику приватну поруку
 sender_email:Е-адреса пошиљаоца:
 sender_name:Име пошиљаоца:
-show_posts_by:Приказ порука од члана {VAR: u_alias}
+show_posts_by:Прикажи поруке корисника {VAR: u_alias}
 size:Величина:
 status:Статус:
-status_line:Тренутно имамо <b>{PLURAL: st_obj->online_users_reg|$1 члана|$1 члана|$1 чланова}</b>, <b>{PLURAL: st_obj->online_users_hidden|$1 невидљивог корисника|$1 невидљива корисника|$1 невидљивих корисника}</b> и <b>{PLURAL: st_obj->online_users_anon|$1 госта|$1 госта|$1 гостију}</b> на форуму.
+status_line:На форуму има <b>{PLURAL: st_obj->online_users_reg|$1 члан|$1 члана|$1 чланова}</b>, <b>{PLURAL: st_obj->online_users_hidden|$1 невидљиви корисник|$1 невидљива корисника|$1 невидљивих корисника}</b> и <b>{PLURAL: st_obj->online_users_anon|$1 гост|$1 госта|$1 гостију}</b>.
 sticky:лепљива:
-stop_ignoring:прекини игнорисање овог члана
+stop_ignoring:престани са игнорисањем корисника
 sub_to_thread:Надгледај тему
-sub_to_thread_desc:Примај обавештења о новим порукама унутар ове теме
+sub_to_thread_desc:Обавештавај ме о новим порукама у овој теми
 bookmark_thread:Забележи тему
 bookmark_thread_desc:Додај ову тему на списак забелешки
 subject:Наслов

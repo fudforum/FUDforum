@@ -430,8 +430,7 @@ prereg_agree:Elfogadom
 prereg_disagree:Nem fogadom el
 prereg_update:Fórum szabályok elolvasása
 coppa_fax_instructions:Utasítások szülők vagy gondviselők számára
-# Fuzzy
-coppa_fax_instructions2:Nyomtasd ki a lapot, írd alá, és faxold el ide:
+coppa_fax_instructions2:Nyomtasd ki a lapot, írd alá, és küldd el e-mailben vagy faxold el nekünk.
 coppa_fax_reg_form:Regisztrációs űrlap
 coppa_fax_sign:Nyomtasd ki az alábbi űrlapot, és küld el nekünk
 coppa_fax_conf:Áttekintettem a gyermekem által megadott információkat, és elolvastam az oldal jogi nyilatkozatát. Megértettem, hogy a profilinformációk módosíthatóak egy jelszó használatával. Megértettem, hogy kérhetem a regisztrált profil teljes eltávolítását a fórumból.
@@ -676,8 +675,7 @@ reset_err_rstconf_title:Információ
 reset_err_rstconf_msg:Pár percen belül megkapod az utasításokat az e-mail címedre.
 reset_newpass_title:Új jelszó kérése
 reset_newpass_msg:Szia!\n\nAhogy kérted, a bejelentkezési információid alább láthatóak:\n\nBejelentkezési név: {VAR: ui[1]}\nJelszó: {VAR: passwd}\n\nA jelszavad le lett cserélve a fenn látható értékre. Ha meg szeretnéd változtatni,\na felhasználói vezérlőpulton teheted meg:\n{FULL_ROOT}{ROOT}?t=register
-# Fuzzy
-reset_login_notify:A jelszót elküldtük e-mailben. Pár percen belül meg fogod kapni.<br />
+reset_login_notify:A jelszót elküldtük e-mailben. Pár percen belül meg fogod kapni.
 search_update:Hozzászólásokat keres
 selmsg_update:A <a href="{TEMPLATE: selmsg_update_lnk}">mai hozzászólásokat</a> böngészi
 showposts_update:<a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a> hozzászólásait nézi
@@ -1109,8 +1107,7 @@ move_msg_th_expl:Add meg a céltéma azonosítóját (lehet más fórumban is)
 captcha_img_alt:Captcha-ellenőrzés: fel kell ismerned a képen látható szöveget.
 captcha_img_help:Nincs nulla vagy egy a képen.
 powered-by:Az oldalt a FUDfórum {GVAR: FORUM_VERSION} hajtja.
-# Fuzzy
-copyright:Copyright &copy;2001-2012 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Copyright &copy;2001-2013 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Kód:
 code_select_all:Összes kijelölése
 code_show_hide:Megjelenítés/ elrejtés

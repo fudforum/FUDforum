@@ -73,7 +73,7 @@ locked:被锁定
 locked_with_new_posts:锁定（且未读）
 logged_in_list:登录用户列表
 login:登录
-login_header:账号：
+login_header:登录：
 logout:注销
 mark_all_read:将读取的所有邮件都标记
 mark_all_read_desc:所有未读的信息都将被标为已读
@@ -313,7 +313,7 @@ pmuserloc_no_result:没有结果
 register_builtin:内置
 register_specify_url:指定地址
 register_uploaded:上传头像
-register_login:账号：
+register_login:登录：
 register_password:密码：
 register_conf_pass:密码确认：
 register_email_desc:请输入有效的电子邮件地址。您可以在下面的参数选择中选择隐藏您的邮件地址。
@@ -452,7 +452,7 @@ coppa_fax_telephone:电话
 coppa_fax_email:电邮地址：
 coppa_fax_date:日期：
 coppa_fax_questions:有任何问题请联系 <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
-coppa_fax_login:账号
+coppa_fax_login:登录
 coppa_fax_passwd:密码
 coppa_fax_remail:电子邮箱
 coppa_fax_name:名称
@@ -462,7 +462,7 @@ login_perm_denied:作为匿名用户，只有登录以后才有权限访问相�
 login_want_to_register:先注册？
 login_forgot_passwd:密码忘了
 login_use_cookie:使用cookies功能<br /><font class="SmallText">如果你是在学校、图书馆、网吧等公共场合使用计算机，为安全起见，不建议你使用此功能。选择此项则下次访问时会自动登入。</span>
-login_login:账号：
+login_login:登录：
 login_login_btn:登录
 login_name_required:登录时必须输入账号
 login_passwd_required:输入密码

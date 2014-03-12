@@ -516,7 +516,7 @@ remail_subject:Assunto:
 remail_message:Mensagem:
 remail_send_now:Enviar Email agora
 remail_anon_opt:Copiar esta mensagem para um cliente de email á sua escolha e envie-o aos seus amigos
-remail_done:Feito
+remail_done:Concluído
 remail_sent_conf:O email para o seu amigo {VAR-HTML: _POST['femail']} sobre {VAR: data->subject} foi enviado com sucesso.
 remail_error:Tem um erro
 mklist_type:Tipo:

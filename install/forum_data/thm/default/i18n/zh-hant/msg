@@ -8,6 +8,7 @@
 # Author: Naudefj
 # Author: Oapbtommy
 # Author: Simon Shek
+# Author: Wehwei
 
 action:操作
 add_to_buddy_list:加入好友列表
@@ -79,6 +80,7 @@ cal_day_heading:一天的事件
 cal_no_events:本日沒有事件。
 cal_update:瀏覽論壇日曆
 cal_birthday:生日： {VAR: user}
+cal_birthdays:{PLURAL: birthdays|$1birthday| $1 生日}
 cal_birthday_age:（$1歲）。
 message:訊息
 message_counter:用戶共發布 <b>{PLURAL: post_count|$1|$1}</b>個帖子，分布在<b>{PLURAL: thread_count|$1|$1}</b>個主題裡。
@@ -217,6 +219,7 @@ reported_reported_msg:已向版主舉報的違規帖
 modque_pending_approval:等待審批的消息
 modque_approve:批复
 modque_delete:刪除
+modque_deleteall:刪除來自用戶的一切
 modque_no_message:沒有等待審批的消息
 pmsg_new_messages:未讀悄悄話
 pmsg_old_messages:已讀悄悄話
@@ -422,8 +425,7 @@ ignore_users:忽略的使用者
 add_ignore:忽略用戶
 forum_terms:論壇條款
 forum_rules:<p>本論壇免費註冊！我們希望您務必遵守下列政策和規定。如同意請點擊本頁最下面的“我同意”按鈕。注：如果您點擊了此按鈕即表明您宣告自己是13歲以上公民；如果您未滿13歲，請使用這個表格。</p><p>論壇管理員和版主將盡力清除非法言論，但疏漏在所難免。因此我們在此鄭重聲明，所有發言都僅代表作者觀點，作者言責自負。論壇所有者和開發者對此不負任何責任。</p><p>點擊“我同意”按鈕即表明您保證不在論壇上發布任何淫穢、色情、反動、暴力等非法言論。</p><p>論壇管理者有權因為任何理由刪除、編輯、移動或者關閉任何發言。</p>
-# Fuzzy
-forum_rules_13:<p>13歲以下用戶必須經過父母或者監護人允許才能成為論壇成員。我們歡迎13歲以下用戶加入，但只有在收到父母或者監護人通過傳真或電子郵件給我們的簽名授權文件以後，我們才能通過您的申請。 </p><p>如果您想在我們收到授權文件之前開始註冊程序，請點擊下面的“我同意”按鈕，如果您不想繼續註冊，請點擊“不同意”按鈕回到論壇主頁。 </p><p>您可以在這裡下載授權表格，想了解更多的信息請發郵件至<a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>。 </p>
+forum_rules_13:<p>13歲以下用戶必須有父母或監護人允許，才能成為論壇成員。我們歡迎13歲以下用戶加入，不過只有在收到父母或者監護人，透過傳真或電子郵件交給我們簽名授權文件後，才能通過您的申請。 </p><p>如果您想在我們收到授權文件之前開始註冊程序，請點擊下面的“我同意”按鈕，如果您不想繼續註冊，請點擊“不同意”按鈕回到論壇主頁。 </p><p>您可以在這裡下載授權表格，想了解更多的信息請發電子郵件至<a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>。 </p>
 coppa_conf:COPPA確認
 coppa_before:{TEMPLATE: coppa_date}之前
 coppa_after:{TEMPLATE: coppa_date}之後
@@ -434,8 +436,7 @@ prereg_agree:同意
 prereg_disagree:不同意
 prereg_update:閱讀論壇規則
 coppa_fax_instructions:對於父母或監護人的指示
-# Fuzzy
-coppa_fax_instructions2:請打印此頁，簽名，傳真至：
+coppa_fax_instructions2:請列印此頁，簽名，並郵寄或傳真給我們。
 coppa_fax_reg_form:註冊表單
 coppa_fax_sign:請登錄以下表格並將其發送給我們
 coppa_fax_conf:我已檢討我的孩子已經提供的資料，看過的 web 網站的隱私權原則。我明白使用密碼可以更改設定檔資訊。我明白請問此註冊設定檔會完全從論壇中移除。
@@ -470,6 +471,7 @@ rpasswd_passwd_length:密碼必須至少 6 個字元
 reset_remind_pass:密碼提示問題
 reset_reset_conf:將重置您的密碼，併發送給您。如果尚未確認您的電子郵寄地址，確認請求將會重新發送到你。
 reset_error:在資料庫中找不到的電子郵寄地址
+reset_update:重設密碼
 rpasswd_change_pass:修改密碼
 rpasswd_login:登入
 rpasswd_cur_pass:當前密碼：
@@ -680,8 +682,7 @@ reset_err_rstconf_title:資訊
 reset_err_rstconf_msg:在接下來的幾分鐘內，您應該會收到您的電子郵件中的指令。
 reset_newpass_title:重設密碼
 reset_newpass_msg:您好，\n\n您每次登入的帳號都將發送給您。\n以下是您的登入資料：\n\n帳號：{VAR: ui[1]}\n密碼：{VAR: passwd}\n\n注意：您的密碼已經改為上面的值字符組合，\n如果您想修改密碼，請在個人資料中修改：\n{FULL_ROOT}{ROOT}?t=register
-# Fuzzy
-reset_login_notify:您的密碼已通過電子郵件發送給你。在接下來的幾分鐘內您應該會收到。<br />
+reset_login_notify:您的密碼已透過電子郵件發送給您。您應該在接下來的幾分鐘之內確認它。
 search_update:搜索消息
 selmsg_update:瀏覽<a href="{TEMPLATE: selmsg_update_lnk}">今天的文章</a>
 showposts_update:瀏覽帖子：<a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
@@ -1113,8 +1114,7 @@ move_msg_th_expl:指定的 ID （可以在其他論壇） 的目標主題的
 captcha_img_alt:驗證碼： 您需要認識到此圖像中的文本。
 captcha_img_help:有沒有零或圖像中的一個。
 powered-by:網站： FUDforum {GVAR: FORUM_VERSION}。
-# Fuzzy
-copyright:版權所有 © 2001年-2012 年<a href="http://fudforum.org/">FUDforum 公告板軟體</a>
+copyright:版權所有 © 2001年-2013 年<a href="http://fudforum.org/">FUDforum 公告板軟體</a>
 code_title:代碼：
 code_select_all:全選
 code_show_hide:顯示/隱藏
@@ -1152,3 +1152,4 @@ karma:業
 karma_track:管理用戶的聲譽：
 karma_delete:刪除
 rate_author:給作者評分：
+portal_update:閱讀論壇規則

@@ -453,7 +453,7 @@ coppa_fax_remail:이메일
 coppa_fax_name:이름
 login_not_logedin:로그인 상태가 아닙니다. 몇가지 이유에 의해 만료될 수 있습니다:
 login_cookie_expired:쿠키가 만료되었습니다. 쿠키를 갱신하십시오.
-login_perm_denied:당신은 현재 익명사용자 상태 입니다. 로그인 하십시오.
+login_perm_denied:당신은 현재 익명 사용자 상태입니다. 로그인 하십시오.
 login_want_to_register:등록을 원하십니까?
 login_forgot_passwd:패스워드 분실
 login_use_cookie:쿠키사용<br /><span class="SmallText">만약 도서관,PC방,학교 등의 공공장소에서 로그인하고 있다면, 보안을 위해 이 체크박스를 해제하십시오. 이 옵션을 선택할 경우, 다음 접속 시 자동으로 로그인 상태가 유지됩니다.</span>
@@ -462,7 +462,7 @@ login_login_btn:로그인
 login_name_required:사용자 ID가 필요합니다
 login_passwd_required:패스워드가 필요합니다
 login_invalid_radius:패스워드가 맞지 않습니다
-reset_confirmation:등록해 주셔서 감사합니다,\n\n 계정 활성화를 위해 아래의 URL로 접속하십시오:\n\n{VAR: url}\n\n계정이 활성화되고 포럼으로 포럼 메인 페이지로 이동될 것 입니다.
+reset_confirmation:등록해 주셔서 감사합니다,\n\n 계정 활성화를 위해 아래의 URL로 접속하십시오:\n\n{VAR: url}\n\n계정이 활성화되고 포럼으로 포럼 메인 페이지로 이동될 것입니다.
 rpasswd_invalid_passwd:패스워드 틀림
 rpasswd_passwd_nomatch:패스워드가 일치하지 않습니다
 rpasswd_passwd_length:패스워드는 최소한 6자 이상이어야 합니다
@@ -577,13 +577,13 @@ usrinfo_show_all_posts:모든 게시글 보기{VAR: u->alias}
 actions_update:당신을 좋아하는 멤버 참견하기
 err_info:정보
 buddy_list_err_cantadd:본인을 친구 목록에 추가할 수 없습니다
-buddy_list_err_dup:친구 목록에 있는 사용자 입니다
-buddy_list_err_nouser:친구 목록에 없는 사용자 입니다
+buddy_list_err_dup:친구 목록에 있는 사용자입니다
+buddy_list_err_nouser:친구 목록에 없는 사용자입니다
 buddy_list_err_nouser_title:사용자 추가를 할 수 없습니다
 buddy_list_err_ignore:내 친구 목록에 무시한 사용자는 추가할 수 없습니다.
 buddy_list_update:친구 목록 탐색
 core_err_invinp_title:입력 오류
-core_err_invinp_err:잘못된 링크 입니다. <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a>에게 통보하여 주십시오.
+core_err_invinp_err:잘못된 링크입니다. <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a>에게 통보하여 주십시오.
 core_adm_login_msg:최고관리자는 <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">여기</a>로 로그인 할 수 있습니다.
 email_err_unabletoemail_title:오류: 이메일 발송 불가
 email_err_unabletoemail_msg:최고관리자가 이메일 발송을 금지시켰습니다.
@@ -644,18 +644,18 @@ private_msg_notify_subj:읽기 알림: {VAR: m->subject}
 private_msg_notify_body:안녕하세요,<br />{VAR: usr->login} 사용자가 "{VAR: m->subject}"이라는 제목의 개인 메시지를 열었습니다.<br />{TEMPLATE: private_msg_notify_body_date}에 생성된 자동적인 알림입니다<br />
 referals_update:추천 탐색
 register_err_short_login:로그인 ID는 최소한 4자 이상이어야 합니다.
-register_err_login_notallowed:허가되지 않은 사용자 이름 입니다.
+register_err_login_notallowed:허가되지 않은 사용자 이름입니다.
 register_err_loginunique:동일한 ID가 존재 합니다.
 register_err_emailexists:동일한 이메일 주소가 존재 합니다. 패스워드 분실시 이메일을 통해 복구 하오니 신중히 입력하십시오.
 register_err_shortpasswd:패스워드는 최소한 6자 이상으로 만들어야 합니다.
 register_err_passwdnomatch:패스워드가 일치하지 않습니다, 다시 시도해 주십시오.
-register_err_invalidemail:유효하지 않은 이메일 입니다.
+register_err_invalidemail:유효하지 않은 이메일입니다.
 register_err_needname:이름을 입력하십시오.
 register_err_enterpasswd:패스워드 변경을 위해선 현재 사용중인 패스워드를 입력하십시오.
 register_err_adminpasswd:바꾸기를 완료하려면 <b>관리자</b> 비밀번호를 입력해야 합니다.
 register_err_notyouremail:누군가가 이미 동일한 이메일 주소로 등록했습니다.
 register_err_avatartobig:파일 사이즈가 너무 큽니다. 최대 파일 사이즈: {GVAR: CUSTOM_AVATAR_MAX_SIZE} bytes
-register_err_avatarnotallowed:허가되지 않은 파일 형식 입니다. 파일 형식을 확인 하십시오.
+register_err_avatarnotallowed:허가되지 않은 파일 형식입니다. 파일 형식을 확인 하십시오.
 register_conf_subject:등록 형식
 register_welcome_subject:포럼 등록 확인
 register_err_cantreg_title:오류: 등록불가
@@ -716,7 +716,7 @@ post_opt:포럼 옵션:
 register_change_passwd:비밀번호 바꾸기
 register_change_login:로그인 바꾸기
 approved_avatar_title:사용자 아바타 승인.
-approved_avatar_msg:사용자 아바타가 관리자로부터 승인되었습니다. 본인이 작성한 모든 게시글에 아바타가 보일 것 입니다. 만일 보이지 않거나 이전에 사용하던 아바타가 보인다면 쿠키를 삭제한 후, 다시 확인하시기 바랍니다. 대분분의 경우 이와 같은 방법으로 해결이 가능합니다.
+approved_avatar_msg:사용자 아바타가 관리자로부터 승인되었습니다. 본인이 작성한 모든 게시글에 아바타가 보일 것입니다. 만일 보이지 않거나 이전에 사용하던 아바타가 보인다면 쿠키를 삭제한 후, 다시 확인하시기 바랍니다. 대분분의 경우 이와 같은 방법으로 해결이 가능합니다.
 unapproved_avatar_title:사용자 아바타 승인 거부.
 unapproved_avatar_msg:사용자 아바타가 관리자로부터 거승인이 거부되었습니다. 대부분의 경우 파일 사이즈 초과나 제목에 포함된 적절하지 않은 단어나 글자의 문제로 나타나는 현상입니다. 이와 같은 문제를 해결한 후에도 동일한 문제가 발생한다면 관리자에 연락하시기 바랍니다.
 mvthread_request_move:이동 요청
@@ -829,7 +829,7 @@ maximize_message:메시지 최대화
 no_view_perm:이 게시글을 보기 위해선 적당한 권한이 필요합니다.
 report_empty_report:보고 내용이 없어서 전송할 수 없습니다. 보고 내용을 작성하십시오.
 report_already_reported_title:이미 보고가 있습니다
-report_already_reported_msg:이 게시글에 대한 보고서가 제출되었으며 중재자 컴토중 입니다'.
+report_already_reported_msg:이 게시글에 대한 보고서가 제출되었으며 중재자 검토중입니다'.
 pmsg_next_msg:다음 게시글
 pmsg_prev_msg:이전 게시글
 post_proc_reveal_spoiler:훼방꾼 전환
@@ -857,7 +857,7 @@ imsg_err_message_msg:게시글이 존재하지 않습니다.
 poll_edit:편집
 register_err_not_valid_img:지정한 URL에 이미지가 포함되지 않았습니다.
 pmsg_recepient:수신
-register_err_taken_alias:동일한 별명이 사용 중 입니다. 다른 별명을 선택하십시오.
+register_err_taken_alias:동일한 별명이 사용 중입니다. 다른 별명을 선택하십시오.
 register_alias:별명:
 register_alias_desc:포럼에서도 별명이 보이게 하기 위해선 여기에 기입하십시오.
 register_allow_pm_msg:쪽지 허용
@@ -925,7 +925,7 @@ reported_no_messages:게시글에 대한 보고서가 없습니다.
 poll_no_polls:참여가능 투표가 없습니다.
 no_unread_messages:당신이 요구한 읽지 않은 게시글이 없습니다.
 thread_mark_all_read:읽지 않은 모든 게시글을 읽음으로 표시
-thread_mark_all_read_desc:현재 포럼 내에 있는 읽지 않은 모든 게시글이 읽음으로 표시될 것 입니다
+thread_mark_all_read_desc:현재 포럼 내에 있는 읽지 않은 모든 게시글이 읽음으로 표시될 것입니다
 private_no_messages:이 폴더에는 메시지가 없습니다.
 register_email_change_subject:이메일 변경 확인
 iemail_thread_unsub:이 주제에서 구독 취소
@@ -1108,3 +1108,4 @@ karma:카르마
 karma_track:사용자의 평판 관리:
 karma_delete:삭제
 rate_author:저자 평가:
+portal_update:포럼 들머리를 읽기

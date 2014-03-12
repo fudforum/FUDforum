@@ -78,6 +78,7 @@ cal_day_heading:Dienos renginiai
 cal_no_events:Nėra įvykių šiai dienai.
 cal_update:Naršomas forumas kalendorius
 cal_birthday:Gimtadienis:{VAR: user}
+cal_birthdays:{PLURAL: gimtadieniai|$1 gimtadienis|$1 gimtadienių}
 cal_birthday_age:( {PLURAL: age| $1 metų | $1 metai} amžiaus).
 message:Žinutė
 message_counter:Mūsų vartotojai dar neparašė viso <b>{PLURAL: post_count| $1 pranešimas | $1 pranešimų}</b> viduje <b>{PLURAL: thread_count| $1 tema | $1 temos}.</b>
@@ -422,8 +423,7 @@ ignore_users:Nepaisomi Vartotojai
 add_ignore:Pridėti nemokša
 forum_terms:Forumas sąlygos
 forum_rules:<p> Registracija šiame forume yra nemokama! Mes reikalaujame, kad jūs laikytis taisyklių ir politikos, nurodyta toliau. Jei sutinkate su sąlygomis, spauskite <b>Sutinku</b> mygtuką puslapio pabaigoje. Pastaba: Paspaudus mygtuką galite pripažinti, kad esate vyresnis nei 13 metų amžiaus. Jei yra 13 arba, prašome naudoti šią registracijos formą. </p><p> Nors administratoriai ir moderatoriai bandys išsaugoti visus nepageidaujamų pranešimų iš forumo, tai yra neįmanoma mums peržiūrėti visus pranešimus. Visos žinutės išreiškia autoriaus požiūrį ir nei iš forumo savininkai ar kūrėjai bus atsakinga už bet kokio turinio žinutės. </p><p> Paspaudę Sutinku mygtuką, Jūs patvirtinate, kad Jums nereikės siųsti jokių laiškų, kurie nešvankių, vulgarių, seksualiai orientuotų, bjaurių, grasinančių, ar kitaip pažeidžia bet kokius įstatymus. </p><p> Šio forumo savininkai turi teisę ištrinti, redaguoti, perkelti arba uždaryti bet kurią temą dėl bet kokios priežasties. </p>
-# Fuzzy
-forum_rules_13:<p> Visi pagal 13 metų amžiaus vartotojai turi gauti leidimą iš savo tėvų ar globėjų, siekiant įgyti narystę forumuose. Nors mes sveikiname dalyvavimą narių pagal 13, mes reikalaujame, kad tėvų ar globėjų faksu arba elektroniniu paštu atgal pasirašė leidimo forma, kol mes suteikti narystės. </p><p> Jei norite pradėti registraciją iki mums gauti leidimo forma, paspauskite <b>Sutinku</b> žemiau esantį mygtuką. Jei norite nutraukti registraciją, paspauskite <b>nesutinku</b> grįžti į forumų indeksas. </p><p> Apie leidimo formos kopiją galite atsisiųsti iš čia. Norėdami gauti daugiau informacijos apie registracijos procesą, prašome siųsti e-mail <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> . </p>
+forum_rules_13:<p>Visi pagal 13 metų amžiaus vartotojai turi gauti leidimą iš savo tėvų ar globėjų, siekiant įgyti narystę forumuose. Nors mes sveikiname dalyvavimą narių pagal 13, mes reikalaujame, kad tėvų ar globėjų faksu arba elektroniniu paštu atgal pasirašė leidimo forma, kol mes suteikti narystės.</p><p> Jei norite pradėti registraciją iki mums gauti leidimo forma, paspauskite <b>Sutinku</b> žemiau esantį mygtuką. Jei norite nutraukti registraciją, paspauskite <b>nesutinku</b> grįžti į forumų indeksas. </p><p> Apie leidimo formos kopiją galite atsisiųsti iš čia. Norėdami gauti daugiau informacijos apie registracijos procesą, prašome siųsti e-mail <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> . </p>
 coppa_conf:COPPA patvirtinimas
 coppa_before:Prieš {Šablonas: coppa_date}
 coppa_after:Po {Šablonas: coppa_date}
@@ -434,8 +434,7 @@ prereg_agree:Sutinku
 prereg_disagree:Nesutinku
 prereg_update:Skaitomos forumo taisykles
 coppa_fax_instructions:Nurodymai dėl tėvų ar globėjų
-# Fuzzy
-coppa_fax_instructions2:Prašome atspausdinti šį puslapį, jį pasirašyti, ir nusiųsti faksu:
+coppa_fax_instructions2:Prašome atspausdinti šį puslapį, jį pasirašyti, ir nusiųsti faksu jį mums.
 coppa_fax_reg_form:Registracijos forma
 coppa_fax_sign:Prašome prisijungti žemiau esančią formą ir išsiųsti ją mums
 coppa_fax_conf:Aš peržiūrėjau informacija mano vaikas turi pateikti, ir Aš perskaičiau privatumo politika svetainę. Aš suprantu, kad profilis informacija gali būti pakeista naudojant slaptažodį. Aš suprantu, kad gali paprašyti, kad ši registracijos anketą bus visiškai pašalintas iš forumo.
@@ -470,6 +469,7 @@ rpasswd_passwd_length:Slaptažodis turi būti sudarytas iš mažiausiai 6 simbol
 reset_remind_pass:Slaptažodžio priminimas
 reset_reset_conf:Jūsų slaptažodis bus anuliuoti ir išsiųstas jums. Jei dar nepateikėte savo e-pašto adresas, patvirtinimo prašymas bus pakartotinai išsiųstas jums.
 reset_error:Email adresas nerastas duomenų bazėje
+reset_update:Atstatyti slaptažodį
 rpasswd_change_pass:Keisti slaptažodį
 rpasswd_login:Vardas
 rpasswd_cur_pass:Dabartinis slaptažodis:
@@ -680,8 +680,7 @@ reset_err_rstconf_title:Informacija
 reset_err_rstconf_msg:Turėtumėte gauti nurodymus į savo e-paštą per ateinančias keletą minučių.
 reset_newpass_title:Atstatyti slaptažodį
 reset_newpass_msg:Hello,\n\nAs per your request your login name are being sent to you.\nHere is your login information:\n\nLogin: {VAR: ui[1]}\nPassword: {VAR: passwd}\n\nPlease not that your password has been reset the the value above, if you wish\nto change your password you may do so via the user info control panel at:\n{FULL_ROOT}{ROOT}?t=register
-# Fuzzy
-reset_login_notify:Jūsų slaptažodis buvo išsiųstas elektroniniu paštu Jums. Turėtumėte gauti per ateinančias keletą minučių. <br />
+reset_login_notify:Jūsų slaptažodis buvo išsiųstas elektroniniu paštu Jums. Jūs turėtumėte gauti per kelias minutes.
 search_update:Pranešimų paieška
 selmsg_update:Naršymos <a href="{TEMPLATE: selmsg_update_lnk}">Šiandienos Žinutės</a>
 showposts_update:Peržiūrimos <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a> žinutės
@@ -1113,8 +1112,7 @@ move_msg_th_expl:Nurodykite paskirties temą (gali būti kituose forumuose) ID.
 captcha_img_alt:Captcha patikrinimas: jums reikia atpažinti tekstą paveikslėlije.
 captcha_img_help:Nėra nulio ar vieno šiame vaizde.
 powered-by:Pagal: FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:Autorinės teisės &copy;2001-2012 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Autorinės teisės &copy;2001-2013 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Kodas
 code_select_all:Pasirinkti visus
 code_show_hide:Rodyti / slėpti
@@ -1152,3 +1150,4 @@ karma:Reputacija
 karma_track:Valdyti reputaciją vartotojui:
 karma_delete:Ištrinti
 rate_author:Įvertinti autorių:
+portal_update:Skaitomas forumo portalas
