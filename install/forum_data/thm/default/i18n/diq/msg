@@ -98,7 +98,7 @@ rating:Nısbetkerden
 search:Cı geyre
 send:Bırş
 status:Weziyet:
-subject:Mersel
+subject:Mewzu
 thread:Topik:
 threads:Topik:
 time:Wext
@@ -135,7 +135,7 @@ pmsg_none:Hêçjew
 folder:Klasor
 pmsg_replied:cewab deya
 pmsg_forwarded:Hetikerdo
-pmsg_subject:Mersel
+pmsg_subject:Mewzu
 pmsg_author:Rıştener
 pmsg_time:Wext
 pmsg_selected:Weçiner
@@ -220,7 +220,7 @@ register_year:Serre
 register_gender:Neri makey:
 register_bio:Biyografiye:
 register_reset:Reset kerê
-register_def_thread_view:Hesıbyaye asayışe mersel:
+register_def_thread_view:Asayışê Mewzuyê Hesabiyayey:
 register_use_sig_default:Hesıbyaye deye imzay bımocne:
 register_notification:Hesıbyaye yo deye ikaz bırşiyo:
 buddy_status:Weziyet
@@ -232,7 +232,7 @@ post_annoncement:Elan
 post_size:Gırdiye
 post_color:Dawte
 post_font:Tipê nusni
-create_thread:Mersel Vırazê
+create_thread:Mewzu Vıraze
 submit_reply:Cewab Bırışê
 edit_message:Mesaca Timar ke
 apply_spell_changes:Vurnayışê Nuşta Dezge ke
@@ -269,14 +269,14 @@ login_passwd:Parola:
 reset_email:E-posta:
 reset_reset_button:Parola ancia bınuse
 rate_this_thread:Nısbet ke
-report_subject:Mersel:
+report_subject:Mewzu:
 search_forum:Forum
 remail_your_name:Namey Şıma:
 remail_your_email:E-Maila Şıma:
 remail_friends_name:Namey Embaz dê Şıma:
 remail_friends_email:E Mailê Embaz dê Şıma:
 remail_required:lazım
-remail_subject:Mersel:
+remail_subject:Mewzu:
 remail_message:Mesac
 remail_done:Qeyd kerd
 mklist_apply:Dezge ke
@@ -284,7 +284,7 @@ mklist_delete:Bestere
 mklist_square:Qare
 mklist_close:Racnê
 email_pg_title:E-posta
-email_subject:Mersel:
+email_subject:Mewzu:
 email_body:Verê:
 email_submit:E-posta
 poll_create:Vıraze
@@ -372,7 +372,7 @@ action_latest_post:Mesaco Bohdeyên:
 online_today_last_visit:Ziyareto Peyên
 post_re:Cwb:
 forumsel_goto_forum:Şo ri Forum:
-minimsg_thread_view:Asayışê de MErsel
+minimsg_thread_view:Asayışê Mewzuy
 split_th_posted_on:Deme rıştışi:
 split_th_forum:Forum
 split_th_messages:Mesaci
@@ -420,8 +420,8 @@ postcheck_session_invalid:Ravêrdaya ronıştış de şıma qedyayai. Reca kem f
 delete_message_extra_desc:<b>Wazayışi deye</b><br />Nuskari rê mesac qan dê çıçi besterneyayo deye cı rê malumat bırışê.
 delete_message_extra_body:Nuskari rê vêrey mesac dv besternayi bırışê.
 delete_msg_removed_ttl:Xızmetkari mesacê şıma besterna.
-delete_msg_pm_body:Mesaco Orcinal
-delete_msg_pm_subject:Mersel: {VAR: data[15]}
+delete_msg_pm_body:Mesaco oricinal
+delete_msg_pm_subject:Mewzu: {VAR: data[15]}
 ip_no_whois:Qan dê <b>{VAR: ip}</b> whois malumat çıniyo.
 ip_whois_title:Zanışaya ISS
 register_theme:Tema:
@@ -456,7 +456,7 @@ thread_loc_all:Weçineya kılit ke/Kıliti ake
 dmsg_ip:IP:
 err_blockedaccnt_title:XIRAB: Hesabê şıma avrêcyaye weziyet deyo.
 err_blockedaccnt_msg:Poxta avrêc da karberi yewi ra forum dı resnayışê hesabi vındarnayo.
-merge_th_page_list:Pela Mersel Weçinayış
+merge_th_page_list:Weçinıtışê Pela Mewzuy
 most_users_online:Amariya karberan de grebiyaya tewr zaf tarixê cı, <b>{VAR: st_obj->most_online}</b> Karberana <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b> dı biyo.
 sub_unsub_all_forums:Aboneyiya Foruman Pêrıne Bıtexelne
 sub_unsub_all_topics:Aboneyiya Mewzuyan Pêrıne Bıtexelne
@@ -490,7 +490,7 @@ topic_rating:{VAR: frm->rating} from {PLURAL: frm->n_rating|$1 rey|$1 reyi}
 topic_list_rating:{VAR: r[17]} u {PLURAL: r[21]|$1 rey|$1 reyi}
 tabs_notifications:Mengeney
 finduser_flag:Desmal
-post_descr:Şınasiya Mersel:
+post_descr:Şınasiya Mewzuy:
 pmsg_on:Akerde
 pmsg_download_dump:Quça Mesaca Ron
 move_messages:Mesaca ahûlne

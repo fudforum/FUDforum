@@ -405,6 +405,7 @@ dmsg_reply_to:Continued on {{msg-fud|Dmsg_reply_num}}. The "message #xxx" part w
 dmsg_reply_num:Continued from {{msg-fud|Dmsg_reply_to}}.\n{{Identical|Message}}
 register_sig_limit:Please note the embedded message when translating this string. The end result is:\n xxx characters [url]Check Signature Length[/url]\nIf you click on the link, a messages like this will appear:\n Your Signature is yyy characters long. The maximum allowed signature length is zzz characters.
 thread_on:Message posted '''on''' a specific date.\nFor example: {{msg-fud|by}} admin {{msg-fud|Thread on}} 23 April 2011.\n{{Identical|On}}
+userinfo_buddy:{{Identical|Buddy}}
 register_email_addr:{{Identical|E-mail address}}
 mnav_newer:This message is used in the Forum's Message Navigator. The user needs to enter values to determine the date range: newer than ___, older than ___ [days/hours/minutes/etc].\n{{Identical|Newer}}
 mnav_older:This message is used in the Forum's Message Navigator. The user needs to enter values to determine the date range: newer than ___, older than ___ [days/hours/minutes/etc].\n{{Identical|Older than}}
