@@ -486,13 +486,13 @@ rate_this_thread:평가
 report_reporting_about:보고 대상:
 report_subject:제목:
 report_by:저쟈:
-report_posted_on:게시:
+report_posted_on:게시한 날짜:
 report_give_reason:게시글 보고서 작성 이유:
 report_submit_report:보고서 제출
 search_entire_msg:전체 게시글
 search_subject_only:제목만
 search_forum:포럼
-search_posted_on:게시
+search_posted_on:게시한 날짜
 search_no_results:결과 없음
 search_all_forums:모든 포럼 검색
 search_in_forum:포럼내 검색:
@@ -595,7 +595,7 @@ email_error_invaliduser:확인되지 않은 사용자
 emailconf_err_invkey_title:오류
 emailconf_err_invkey_msg:확인 Key 오류.  수신된 이메일을 확인하십시오.
 err_inc_criticaltitle:치명적 오류
-err_inc_criticalmsg:오류 발생. 보고 체계에 문제가 발생했습니다.
+err_inc_criticalmsg:오류가 발생했습니다. 불행히도 오류 보고 체제에도 문제가 있습니다.
 finduser_update:사용자 검색
 help_index_update:<a href="{TEMPLATE: help_index_update_lnk}">FAQ</a>
 iemail_thr_subject:{VAR: poster_login}의 {VAR: thr_subject}에 답글쓰기
@@ -802,7 +802,7 @@ logedin_latest_post:최근 게시글:
 register_show_avatar:아바타 보기:
 register_show_avatar_desc:다른 사용자가 메시지를 볼 때 그 아바타를 숨길 수 있습니다.
 drawmsg_view_rest_post:메시지의 나머지 보기
-post_re:답:
+post_re:답변:
 forumsel_goto_forum:포럼 바로가기:
 minimsg_thread_view:주제 보기
 split_th_post_by:게시자:

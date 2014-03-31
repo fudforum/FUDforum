@@ -1,6 +1,7 @@
 # Messages for Tagalog (Tagalog)
 # Exported from translatewiki.net
 # Author: AnakngAraw
+# Author: Jojit fb
 # Author: Naudefj
 
 action:Galaw
@@ -301,11 +302,11 @@ register_builtin:Itinayo Sa
 register_specify_url:Tukuyin ang URL
 register_uploaded:Ikarga ang huwaran (abatar)
 register_login:Lumagda:
-register_password:Hudyat:
+register_password:Password:
 register_conf_pass:Tiyakin ang hudyat:
 register_email_desc:Mangyaring magpasok ng isang katanggap-tanggap na tirahan ng e-liham. Maaari mong piliin na itago ito sa ibaba, sa loob ng seksyon ng Mga Nais.
 register_name:Pangalan:
-register_your_pass:Hudyat Mo:
+register_your_pass:Password mo:
 register_update:Isapanahon
 register_avatar_type:Uri ng Huwaran:
 register_del_avatar:Burahin ang Huwaran
@@ -442,7 +443,7 @@ coppa_fax_email:Tirahan ng E-liham:
 coppa_fax_date:Petsa:
 coppa_fax_questions:Mangyaring makipag-ugnayan sa <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> kapag may anumang mga katanungan
 coppa_fax_login:Lumagda
-coppa_fax_passwd:Hudyat
+coppa_fax_passwd:Password
 coppa_fax_remail:E-liham
 coppa_fax_name:Pangalan
 login_not_logedin:Hindi ka nakalagda. Maaaring ito ay dahil sa isa sa ilang mga kadahilanan:
@@ -466,15 +467,15 @@ reset_reset_conf:Itatakdang muli ang hudyat mo at ipapadala sa iyo. Kung hindi m
 reset_error:Hindi natagpuan sa kalipunan ng dato ang tirahan ng e-liham
 rpasswd_change_pass:Baguhin ang Hudyat
 rpasswd_login:Lumagda
-rpasswd_cur_pass:Pangkasalukuyang Hudyat:
-rpasswd_new_pass:Bagong Hudyat:
+rpasswd_cur_pass:Pangkasalukuyang Password:
+rpasswd_new_pass:Bagong Password:
 rpasswd_conf_pass:Tiyakin ang Hudyat:
 ruser_title:Pormularyo ng Pagbago ng Panglagda
 ruser_change_user:Baguhin ang Panglagda mo Sa Poro
 ruser_cur_login:Pangkasalukuyang Panglagda:
 ruser_new_login:Bagong Panglagda:
-ruser_cur_pass:Pangkasalukuyang Hudyat:
-login_passwd:Hudyat:
+ruser_cur_pass:Pangkasalukuyang Password:
+login_passwd:Password:
 reset_email:E-liham:
 reset_reset_button:Muling Itakda ang Hudyat
 rate_this_thread:Antas
@@ -829,7 +830,7 @@ split_th_messages:Mga mensahe
 split_th_select:Piliin
 report_report_post:Iulat ang Mensahe
 quicklogin_login:Lumagda:
-quicklogin_password:Hudyat:
+quicklogin_password:Password:
 quicklogin_use_cookies:Gamitin ang mga Otap?
 quicklogin_login_btn:Lumagda
 quick_reply:Mabilisang Tugon

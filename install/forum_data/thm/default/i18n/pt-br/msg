@@ -1,5 +1,6 @@
 # Messages for Brazilian Portuguese (português do Brasil)
 # Exported from translatewiki.net
+# Author: Amgauna
 # Author: Cainamarques
 # Author: Giro720
 # Author: Leosls
@@ -1153,3 +1154,4 @@ karma:Karma
 karma_track:Gerir reputação para o usuário:
 karma_delete:Apagar
 rate_author:Avaliar autor:
+portal_update:Lendo o fórum do portal

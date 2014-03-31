@@ -358,6 +358,7 @@ quicklogin_login:Should be the same as {{msg-fud|login login}} and {{msg-fud|Reg
 quicklogin_password:Example:\n Login:       Password:\n ____________ ___________ [X] Use Cookies? [ Login ]\n{{Identical|Password}}
 quicklogin_use_cookies:Example:\n Login:       Password:\n ____________ ___________ [X] Use Cookies? [ Login ]
 quicklogin_login_btn:Example:\n Login:       Password:\n ____________ ___________ [X] Use Cookies? [ Login ]\n\n\n{{Identical|Login}}
+im_twitter:{{Identical|Twitter}}
 forum_contact:{{Identical|Contact}}
 forum_home:{{Identical|Home}}
 post_cur_attached:{VAR: i} is the number of files currently attached to the message.

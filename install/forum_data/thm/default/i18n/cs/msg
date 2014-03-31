@@ -3,6 +3,7 @@
 # Author: Beta16
 # Author: Chmee2
 # Author: Juandev
+# Author: Kusavica
 # Author: Matěj Grabovský
 # Author: Mormegil
 # Author: Mr. Richard Bolla
@@ -1152,3 +1153,4 @@ karma:Karma
 karma_track:Správa reputace uživatele:
 karma_delete:Smazat
 rate_author:Ohodnotit autora:
+portal_update:Čtení pravidel fóra
