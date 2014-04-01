@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2014 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -139,9 +139,13 @@ class fud_nntp
 		$code = $this->cmd('ARTICLE '. $id);
 		if ($code != 220) {
 			$this->error = "Cannot fetch #$id: ". $this->lrc;
-			if  ($code == 423) {	// No such article number in this group
+
+			// Check for resumable errors:
+			// * 423 no such article number in this group
+			// * 430 no such article found
+			if  ($code == 423 || $code == 430) {	// Resumable errors.
 				return false;
-			} else {		// Non-resumable error.
+			} else {				// Non-resumable errors.
 				$this->exit_handler();
 			}
 		}
