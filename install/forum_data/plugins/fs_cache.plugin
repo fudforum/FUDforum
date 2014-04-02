@@ -70,4 +70,3 @@ function __plugin_fs_cache_clear() {
 	} 
 }
 
-?>

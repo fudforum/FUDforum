@@ -53,4 +53,3 @@ function table_tag_info() {
 		     'version' => '1.0');
 }
 
-?>

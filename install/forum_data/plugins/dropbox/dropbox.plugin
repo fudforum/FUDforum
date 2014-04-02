@@ -67,4 +67,3 @@ function dropbox_config() {
 	<?php
 }
 
-?>

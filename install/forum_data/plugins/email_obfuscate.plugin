@@ -125,4 +125,3 @@ function email_obfuscate_config() {
 <?php
 }
 
-?>

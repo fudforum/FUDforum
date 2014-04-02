@@ -45,4 +45,3 @@ function ie6_update_disable() {
 	@define('REBUILD_THEMES', 1);
 }
 
-?>

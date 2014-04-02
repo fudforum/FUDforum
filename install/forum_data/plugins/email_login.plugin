@@ -28,4 +28,3 @@ function email_login_info() {
 	             'version' => '1.0');
 }
 
-?>

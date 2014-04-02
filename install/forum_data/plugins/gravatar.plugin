@@ -38,4 +38,3 @@ function gravatar_info() {
 		     'version' => '1.1');
 }
 
-?>

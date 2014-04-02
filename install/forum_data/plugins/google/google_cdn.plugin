@@ -42,4 +42,3 @@ function google_cdn_disable() {
 	@define('REBUILD_THEMES', 1);
 }
 
-?>

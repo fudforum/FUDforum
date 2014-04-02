@@ -43,4 +43,3 @@ function stopforumspam_info() {
 		     'version' => '1.0');
 }
 
-?>

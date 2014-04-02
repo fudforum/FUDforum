@@ -130,4 +130,3 @@ function wikilinks_config() {
 	<?php
 }
 
-?>

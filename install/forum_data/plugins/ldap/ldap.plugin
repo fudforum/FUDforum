@@ -185,4 +185,3 @@ function ldap_config() {
 	<?php
 }
 
-?>

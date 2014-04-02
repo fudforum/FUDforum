@@ -81,4 +81,3 @@ function google_analytics_config() {
 	<?php
 }
 
-?>

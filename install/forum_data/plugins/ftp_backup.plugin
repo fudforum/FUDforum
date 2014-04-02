@@ -87,4 +87,3 @@ function ftp_backup_config() {
 	<?php
 }
 
-?>

@@ -74,4 +74,3 @@ function welcome_pm_config() {
 	<?php
 }
 
-?>

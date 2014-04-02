@@ -51,4 +51,3 @@ function apccache_check() {
 	return;	// Good to go.
 }
 
-?>

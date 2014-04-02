@@ -128,5 +128,3 @@ function ckeditor_config() {
 	<?php
 }
 
-?>
-
