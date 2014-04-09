@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2014 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -432,7 +432,7 @@ function get_sql_disk_usage()
 	} else if (__dbtype__ == 'pgsql') {
 		return q_singleval('SELECT pg_database_size(\''. $GLOBALS['DBHOST_DBNAME'] .'\')');
 	} else if (__dbtype__ == 'sqlite') {
-		return filesize($DBHOST);
+		return filesize($GLOBALS['DBHOST']);
 	}
 
 	return 0;	// Not implemented.
