@@ -852,6 +852,8 @@ function alter_column($tbl, $col, $prop)
 		q('INSERT INTO '. $tbl .' SELECT * FROM tmp');
 		drop_table('tmp');
 		q('COMMIT');
+	} else if (__dbtype__ == 'mssql') {
+		q('ALTER TABLE '. $tbl .' ALTER COLUMN '. $col .' '. make_table_row($col, $prop));
 	} else {
 		q('ALTER TABLE '. $tbl .' CHANGE '. $col .' '. make_table_row($col, $prop));
 	}
