@@ -645,8 +645,8 @@ private_msg_notify_body:안녕하세요,<br />{VAR: usr->login} 사용자가 "{V
 referals_update:추천 탐색
 register_err_short_login:로그인 ID는 최소한 4자 이상이어야 합니다.
 register_err_login_notallowed:허가되지 않은 사용자 이름입니다.
-register_err_loginunique:동일한 ID가 존재 합니다.
-register_err_emailexists:동일한 이메일 주소가 존재 합니다. 패스워드 분실시 이메일을 통해 복구 하오니 신중히 입력하십시오.
+register_err_loginunique:포럼 로그인 이름은 고유해야 합니다. 이미 이 이름으로 된 사용자가 있습니다.
+register_err_emailexists:이메일 주소가 이미 계정에 연결되어 있습니다. 비밀번호를 잊었다면 다시 등록하는 대신 복구 옵션을 사용해주세요.
 register_err_shortpasswd:패스워드는 최소한 6자 이상으로 만들어야 합니다.
 register_err_passwdnomatch:패스워드가 일치하지 않습니다, 다시 시도해 주십시오.
 register_err_invalidemail:유효하지 않은 이메일입니다.
@@ -975,7 +975,7 @@ adm_account_accepted_s:'{GVAR: FORUM_TITLE}'에 대한 계정 요청은 받아�
 adm_account_rejected_s:'{GVAR: FORUM_TITLE}'에 대한 계정 요청은 거부되었습니다.
 thread_on:날짜
 userinfo_buddy:친구:
-register_email_addr:이메일:
+register_email_addr:이메일 주소:
 usrinfo_last_visit:최근 방문:
 mnav_newer:다음보다 최신:
 mnav_older:다음보다 오래됨:

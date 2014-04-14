@@ -440,8 +440,7 @@ prereg_agree:Concordo
 prereg_disagree:Não concordo
 prereg_update:Lendo as regras do fórum
 coppa_fax_instructions:Instruções para o encarregado de educação
-# Fuzzy
-coppa_fax_instructions2:Por favor imprima esta página assine e envie para:
+coppa_fax_instructions2:Por favor imprima esta página, assine-a, e envie-a por email ou fax de volta para nós.
 coppa_fax_reg_form:Formulário de registo
 coppa_fax_sign:Por favor assine e envie-nos o formulário abaixo
 coppa_fax_conf:Vi toda a informação que o meu filho(a) me forneceu e li a Politica de Privacidade para o site. Compreendo que a informação no perfil pode ser alterada por uma pessoa que tenha a password. Eu compreendo que posso pedir para que a informação deste perfil seja removida por completo.

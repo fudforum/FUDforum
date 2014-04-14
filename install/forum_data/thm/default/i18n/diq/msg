@@ -469,7 +469,7 @@ mnav_sub_only:Forumê ke ez aboneya ênan dı cıgeyre
 register_topics_per_page:Sernuşti rê Mesele:
 login_min_time:{VAR: MIN_TIME_BETWEEN_LOGIN} saniya zerre de şıma şenê dekewtış bı kerê, Şıma ra reca verdê Cerbnayışê bahdoyeni {FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)} saniye pıpawê.
 post_not_logged_in:Şıam cıqewtış nê kerdo, Mesacê şıma do bêname şıro.
-post_common_bold:Honqe
+post_common_bold:Qalın
 post_common_italics:İtalik
 post_common_underline:Bınê cı xızine
 post_common_align_left:Hizada çep fi
