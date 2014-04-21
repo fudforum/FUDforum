@@ -164,7 +164,7 @@ size:Größe:
 status:Status:
 status_line:Es sind <b>{PLURAL: st_obj->online_users_reg|$1 Mitglied|$1 Mitglieder}</b>, <b>{PLURAL: st_obj->online_users_hidden|$1 unsichtbares Mitglied|$1 unsichtbare Mitglieder}</b> und <b>{PLURAL: st_obj->online_users_anon|$1 Besucher|$1 Besucher}</b> auf diesem Board unterwegs.
 sticky:Angeheftet:
-stop_ignoring:Das Ignorieren des Benutzers beenden
+stop_ignoring:Diesen Benutzer nicht mehr ignorieren
 sub_to_thread:Das Thema abonnieren
 sub_to_thread_desc:Benachrichtigungen über neue Beiträge zu diesem Thema empfangen
 bookmark_thread:Als Lesezeichen speichern

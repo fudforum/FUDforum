@@ -96,7 +96,7 @@ profile:Panela Cerbnayışi
 rate_thread:Meseler ercenê
 rating:Nısbetkerden
 search:Cı geyre
-send:Bırş
+send:Bırışe
 size:Gırdiye:
 status:Weziyet:
 subject:Mewzu
@@ -139,14 +139,14 @@ pmsg_forwarded:Hetikerdo
 pmsg_subject:Mewzu
 pmsg_author:Rıştener
 pmsg_time:Wext
-pmsg_selected:Weçiner
+pmsg_selected:Weçinıte
 pmsg_delete:Bestere
 cur_ppage_pm:Sistemê Mesacan dê Xususiya
 writing_pm:Xususi Mesac Bınusne
 browsing_folder:<b>Klasorê {VAR: folders[$folder_id]}</b>
 inbox:Dora ameya
 draft:Taslax
-sent:Şınen
+sent:Rışna
 trash:Sılo
 msg_author:Nuskar
 avatar_sel_form:Weçine Formê Avatari
@@ -272,9 +272,9 @@ reset_reset_button:Parola ancia bınuse
 rate_this_thread:Nısbet ke
 report_subject:Mewzu:
 search_forum:Forum
-remail_your_name:Namey Şıma:
+remail_your_name:Nameyê Şıma:
 remail_your_email:E-Maila Şıma:
-remail_friends_name:Namey Embaz dê Şıma:
+remail_friends_name:Nameyê Embazi:
 remail_friends_email:E Mailê Embaz dê Şıma:
 remail_required:lazım
 remail_subject:Mewzu:
@@ -301,8 +301,8 @@ poll_week:hefte
 tabs_register:Sazê Hesabi
 delete_yes:Eya
 delete_no:Nê
-error_error:Xırab
-emailconf_err_invkey_title:Xırab
+error_error:Xeta
+emailconf_err_invkey_title:Xeta
 ignore_list_err_info_title:Zanışe
 post_err_edttimelimit_title:XIRAB
 register_register_update:Pelay Qeydbiyayışi
@@ -333,7 +333,7 @@ groupmgr_delete:Bestere
 show_show:Bımocne
 group_mgr_group:Grube
 p_READ:Bıwane
-p_POST:Bırş
+p_POST:Bırışe
 p_REPLY:Cewab bıde
 p_EDIT:Bıvurne
 p_DEL:Bestere
@@ -503,14 +503,14 @@ powered-by:Destegdaren: FUDforum {GVAR: FORUM_VERSION}.
 # Fuzzy
 copyright:Telif &copy;2001-2012 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Kod:
-code_select_all:Pêrın Weçin fi
+code_select_all:Pêrıne weçine
 code_show_hide:bımocne/bınımne
 social_sites:Steyê Sosyal Toran:
 postcheck_min_len_err:Mesacê şıma zaf kılmo. Tewr tayn dergeya cı wa {PLURAL: post_min_len|$1 karakter|$1 karakter} bo.
 postcheck_dup_err:Reca kem eyni merseler yew ra zaf merışê.
 btn_new_topic:Meseleyo newe
 btn_new_pm:MX newe
-btn_post_reply:Cıwab bırşê
+btn_post_reply:Cewab bırışe
 btn_tree_view:Asayışê darer
 btn_flat_view:Asayışo duz
 btn_about:Profile

@@ -39,7 +39,7 @@ forum_icon:포럼 아이콘
 forum_new_messages:새 메시지
 forum_none_messages:등록된 포럼 사용자만 읽었거나 읽지 않은 메시지를 추적할 수 있습니다
 forum_old_messages:새 메시지가 없습니다
-from:보내는 사람:
+from:보내는이:
 gender:성별:
 go:보기
 goto_next_msg:다음 메시지로 가기
@@ -311,7 +311,7 @@ register_password:비밀번호:
 register_conf_pass:비밀번호 확인:
 register_email_desc:올바른 이메일 주소를 입력하세요. 환경 설정 부분에서, 아래에 이메일 숨기기를 선택할 수 있습니다.
 register_name:이름:
-register_your_pass:패스워드:
+register_your_pass:비밀번호:
 register_update:업데이트
 register_avatar_type:아바타 형태:
 register_del_avatar:아바타 삭제
@@ -385,7 +385,7 @@ apply_spell_changes:맞춤법 변경 적용
 post_preview:미리보기
 post_logedin_user:로그인 사용자:
 post_logout:로그아웃
-post_passwd:패스워드 제출:
+post_passwd:게시 비밀번호:
 post_poll:설문 조사:
 post_create_poll:설문 조사 만들기
 post_poll_delete:삭제
@@ -455,24 +455,24 @@ login_not_logedin:로그인 상태가 아닙니다. 몇가지 이유에 의해 �
 login_cookie_expired:쿠키가 만료되었습니다. 쿠키를 갱신하십시오.
 login_perm_denied:당신은 현재 익명 사용자 상태입니다. 로그인 하십시오.
 login_want_to_register:등록을 원하십니까?
-login_forgot_passwd:패스워드 분실
+login_forgot_passwd:비밀번호 잊음
 login_use_cookie:쿠키사용<br /><span class="SmallText">만약 도서관,PC방,학교 등의 공공장소에서 로그인하고 있다면, 보안을 위해 이 체크박스를 해제하십시오. 이 옵션을 선택할 경우, 다음 접속 시 자동으로 로그인 상태가 유지됩니다.</span>
 login_login:로그인
 login_login_btn:로그인
 login_name_required:사용자 ID가 필요합니다
-login_passwd_required:패스워드가 필요합니다
-login_invalid_radius:패스워드가 맞지 않습니다
+login_passwd_required:비밀번호가 필요합니다
+login_invalid_radius:로그인/비밀번호 조합이 잘못되었습니다
 reset_confirmation:등록해 주셔서 감사합니다,\n\n 계정 활성화를 위해 아래의 URL로 접속하십시오:\n\n{VAR: url}\n\n계정이 활성화되고 포럼으로 포럼 메인 페이지로 이동될 것입니다.
-rpasswd_invalid_passwd:패스워드 틀림
-rpasswd_passwd_nomatch:패스워드가 일치하지 않습니다
+rpasswd_invalid_passwd:비밀번호가 잘못됨
+rpasswd_passwd_nomatch:비밀번호가 일치하지 않습니다
 rpasswd_passwd_length:패스워드는 최소한 6자 이상이어야 합니다
-reset_remind_pass:패스워드 힌트
+reset_remind_pass:비밀번호 조언
 reset_reset_conf:패스워드 분실시 힌트를 통해 찾을 수 있으며, 등록한 이메일로 발송됩니다
 reset_error:이메일 주소를 찾을 수 없습니다
 rpasswd_change_pass:비밀번호 바꾸기
 rpasswd_login:로그인
-rpasswd_cur_pass:현재 패스워드:
-rpasswd_new_pass:새 패스워드:
+rpasswd_cur_pass:현재 비밀번호:
+rpasswd_new_pass:새 비밀번호:
 rpasswd_conf_pass:비밀번호 확인:
 ruser_title:로그인 바꾸기 양식
 ruser_change_user:포럼 로그인를 바꿉니다
@@ -481,7 +481,7 @@ ruser_new_login:새 로그인:
 ruser_cur_pass:현재 비밀번호:
 login_passwd:비밀번호:
 reset_email:이메일:
-reset_reset_button:패스워드 초기화
+reset_reset_button:비밀번호 재설정
 rate_this_thread:평가
 report_reporting_about:보고 대상:
 report_subject:제목:
@@ -525,14 +525,14 @@ mklist_square:사각
 mklist_disc:원통
 mklist_circle:원
 mklist_close:닫기
-email_to:받는 사람:
+email_to:받는이:
 email_pg_title:이메일
 email_subject:제목:
 email_body:본문:
 email_submit:이메일
 ppost_quote_msg:{VAR: msg_to_list}(이)가 {TEMPLATE: ppost_quote_msg_date}에 썼습니다
 ppost_quote:인용:
-ppost_to:받는 사람:
+ppost_to:받는이:
 ppost_from_buddy_list:친구 목록에서 선택
 ppost_find_User:사용자 찾기
 ppost_track_msg:이 메시지 추적
@@ -628,7 +628,7 @@ post_err_floodtrig_msg:{PLURAL: tm|$1초} 안에 다시 시도하세요
 post_err_attach_size:파일 크기가 너무 큽니다 (최대 크기인 {VAR: MAX_F_SIZE} bytes를 초과했습니다)
 post_err_attach_ext:승인된 파일 형식이 아닙니다. 다시한번 확인 바랍니다.
 post_err_attach_filelimit:파일 갯수가 초과 되었습니다.
-post_err_passwd:패스워드가 일치하지 않습니다.
+post_err_passwd:바밀번호가 잘못되었습니다.
 post_reply_update:{VAR: frm->name}에서 <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a>에 답변 중
 post_topic_update:<a href="{TEMPLATE: post_topic_update_lnk}">{VAR: frm->name}</a>에 새 토픽 쓰기
 post_error_generic:오류 발생
@@ -648,11 +648,11 @@ register_err_login_notallowed:허가되지 않은 사용자 이름입니다.
 register_err_loginunique:포럼 로그인 이름은 고유해야 합니다. 이미 이 이름으로 된 사용자가 있습니다.
 register_err_emailexists:이메일 주소가 이미 계정에 연결되어 있습니다. 비밀번호를 잊었다면 다시 등록하는 대신 복구 옵션을 사용해주세요.
 register_err_shortpasswd:패스워드는 최소한 6자 이상으로 만들어야 합니다.
-register_err_passwdnomatch:패스워드가 일치하지 않습니다, 다시 시도해 주십시오.
+register_err_passwdnomatch:비밀번호가 일치하지 않습니다, 다시 시도하세요.
 register_err_invalidemail:유효하지 않은 이메일입니다.
 register_err_needname:이름을 입력하십시오.
-register_err_enterpasswd:패스워드 변경을 위해선 현재 사용중인 패스워드를 입력하십시오.
-register_err_adminpasswd:바꾸기를 완료하려면 <b>관리자</b> 비밀번호를 입력해야 합니다.
+register_err_enterpasswd:바꾸려면 현재 비밀번호를 입력해야 합니다.
+register_err_adminpasswd:바꾸려면 <b>관리자</b> 비밀번호를 입력해야 합니다.
 register_err_notyouremail:누군가가 이미 동일한 이메일 주소로 등록했습니다.
 register_err_avatartobig:파일 사이즈가 너무 큽니다. 최대 파일 사이즈: {GVAR: CUSTOM_AVATAR_MAX_SIZE} bytes
 register_err_avatarnotallowed:허가되지 않은 파일 형식입니다. 파일 형식을 확인 하십시오.
@@ -668,7 +668,7 @@ reset_err_invalidkey_title:오류
 reset_err_invalidkey_msg:패스워드 초기화 key가 일치하지 않습니다. 이메일을 통해 발송된 패스워드 초기화 Key가 만료되어 발생한 문제일 수 있으니 다시 시도하여 빠른 시간 내에 초기화 하시기 바랍니다.
 reset_err_rstconf_title:정보
 reset_err_rstconf_msg:몇분 내로 당신의 이메일로 발송될 예정입니다.
-reset_newpass_title:패스워드 초기화
+reset_newpass_title:비밀번호 재설정
 reset_login_notify:비밀번호가 이메일로 보내졌습니다. 몇 분 이내에 받아야 합니다.
 search_update:메시지 검색 중
 selmsg_update:<a href="{TEMPLATE: selmsg_update_lnk}">오늘의' 게시글</a> 탐색
@@ -697,8 +697,8 @@ help_title:도움말
 login_title:로그인 양식
 poll_title:설문 조사 편집기
 register_title:등록 형식
-reset_title:패스워드 초기화
-rpasswd_title:패스워드 변경 형식
+reset_title:비밀번호 재설정
+rpasswd_title:비밀번호 바꾸기 양식
 error_title:오류 형식
 index_title:포럼에 오신것을 환영합니다
 search_title:{VAR-HTML: srch}에 대한 검색
@@ -742,7 +742,7 @@ groupmgr_update_member:멤버 업데이트
 groupmgr_edit:편집
 groupmgr_delete:삭제
 group_mgr_anon:익명
-group_mgr_reged:전체 등록 사용자
+group_mgr_reged:모든 등록된 사용자
 show_show:보기:
 group_mgr:그룹 관리자
 group_mgr_edit_btn:그룹 편집
@@ -903,7 +903,7 @@ pm_err_disabled_msg:개인 프로파일에서 쪽지 기능을 활성화시켜�
 err_mod_acc_ttl:검증되지 않은 계정
 err_mod_acc_msg:관리가 수동으로 사용자 계정을 인증 및 활성화하고 있습니다. 관리자가 계정을 인증하여 활성화 시키기전까지 일부 기능이 제한됩니다.
 accounts_pending_approval:계정 승인 제출중
-saved:저장
+saved:저장됨
 register_affero:Affero 사용자 이름:<br /><span class="SmallText"><a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">Affero</a> 사용자 이름이 있으면, 여기에 입력하세요.</span>
 im_affero:Affero 사용자 이름
 register_err_avatardimtobig:아바타 사이즈는 <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b>를 초과할 수 없습니다. <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b> pixels.
