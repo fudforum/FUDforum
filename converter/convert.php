@@ -1,6 +1,6 @@
 <?php
 /***************************************************************************
-* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2014 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -40,7 +40,7 @@ function bbconn($host, $port, $dbname, $dbuser, $dbpass, $prefix, $dbtype='mysql
 			seterr('Unable to connect to the source forum\'s MySQL database.');
 		}
 		define('dbtype', 'mysql');
-		define('dbpref', $dbname .'.'. $prefix);
+		define('dbpref', '`'. $dbname .'`.'. $prefix);
 		define('dbconn', $conn);
 	} else if (preg_match('/pgsql/i', $dbtype) || preg_match('/postgres/i', $dbtype)) {
 		$dsn = 'host='. $host .' dbname='. $dbname .' user='. $dbuser .' password='. $dbpass;
@@ -684,7 +684,7 @@ if (php_sapi_name() == 'cli') {
 </head>
 <body>
 <table class="headtable"><tr>
-  <td><img src="images/fudlogo.gif" alt="" style="float:left;" border="0" /></td>
+  <td><img src="images/fudlogo.gif" width="200px" alt="" style="float:left;" border="0" /></td>
   <td><span class="linkhead">FUDforum Migration Assistant</span></td>
   <td> &nbsp; </td>
 </tr></table>
