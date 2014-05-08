@@ -13,6 +13,7 @@
 action:{{Identical|Action}}
 admin:{{Identical|Admin}}
 admin_control_panel:{{Identical|Administration}}
+administrator:{{Identical|Administrator}}
 attachment:{{Identical|Attachment}}
 avatar:{{Identical|Avatar}}
 average_post_count:Indication of the number of messages the user posted (shown in the user's profile). For example:\n ''Message Count: 2 Messages (1 average message per day)''\nNote that '''$1''' is used twice in this message. This is intentional as $1 refers to the ''count'' in the '''{PLURAL: ''count''|form 1|form 2|...}''' construct and not to the message variable.

@@ -2,6 +2,7 @@
 # Exported from translatewiki.net
 # Author: Anakmalaysia
 # Author: Bennylin
+# Author: C5st4wr6ch
 # Author: Farras
 # Author: Ilham151096
 # Author: Irwangatot
@@ -219,6 +220,7 @@ reported_reported_msg:Pesan-pesan sudah dilaporkan
 modque_pending_approval:Pesan menunggu persetujuan
 modque_approve:Setujui
 modque_delete:Hapus
+modque_deleteall:Hapus semua dari pengguna
 modque_no_message:Tidak ada pesan menunggu untuk disetujui
 pmsg_new_messages:Pesan pribadi belum terbaca
 pmsg_old_messages:Pesan pribadi terbaca
@@ -436,8 +438,7 @@ prereg_agree:Setuju
 prereg_disagree:Tidak setuju
 prereg_update:Membaca aturan forum
 coppa_fax_instructions:Petunjuk untuk orang-tua / wali
-# Fuzzy
-coppa_fax_instructions2:Silakan cetak dan tanda-tangani dan kirim melalui fax:
+coppa_fax_instructions2:Silakan cetak halaman ini, tanda-tangani, dan kirim atau fax kembali kepada kami:
 coppa_fax_reg_form:Formulir Registrasi
 coppa_fax_sign:Silakan tanda tangani formulir di bawah ini dan kirimkan ke kami
 coppa_fax_conf:Kami sudah melihat informasi yang diberikan anak kami dan kami sudah membaca&mengerti Kebijakan Kepribadian dari halaman web. Kami mengerti bahwa informasi profile bisa diubah menggunakan password. Kami mengerti bahwa kami dapat meminta agar data profile pendaftaran ini dihapus seluruhnya dari forum.
@@ -472,6 +473,7 @@ rpasswd_passwd_length:Password minimal 6 karakter
 reset_remind_pass:Pengingat Password
 reset_reset_conf:Password akan ditimpa dan dikirimkan ke anda. Jika anda belum mengkonfirmasikan di alamat e-mail, konfirmasi akan dikirim ulang.
 reset_error:E-mail address tidak ada di database
+reset_update:Setel ulang kata sandi
 rpasswd_change_pass:Ubah Password
 rpasswd_login:Masuk log
 rpasswd_cur_pass:Sandi Sekarang:

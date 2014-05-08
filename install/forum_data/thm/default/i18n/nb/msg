@@ -1,5 +1,6 @@
 # Messages for Norwegian Bokmål (norsk bokmål)
 # Exported from translatewiki.net
+# Author: Cocu
 # Author: Danmichaelo
 # Author: Event
 # Author: Laaknor
@@ -77,6 +78,7 @@ cal_day_heading:Aktiviteter for dagen
 cal_no_events:Ingen hendelser for dag.
 cal_update:Blar igjennom forumkalenderen
 cal_birthday:Bursdag: {VAR: user}
+cal_birthdays:{PLURAL: fødselsdager|$1 fødselsdag|$1 fødselsdager}
 cal_birthday_age:({PLURAL: age|$1 år|$1 år} gammel).
 message:Innlegg
 message_counter:Våre brukere har postet totalt <b>{PLURAL: post_count|$1 melding|$1 meldinger}</b> i <b>{PLURAL: thread_count|$1 emne|$1 emner}</b>.
@@ -421,7 +423,6 @@ ignore_users:Ignorerte medlemmer
 add_ignore:Ignorere medlem
 forum_terms:Vilkår for forumet
 forum_rules:<p>Registrering på dette forumet er gratis! Vi insisterer på at du følger reglene og rettledningene beskrevet nedenfor. Dersom du aksepterer betingelsene, vennligst klikk på «Jeg godkjenner»-knappen på slutten av siden. Merk: Ved å trykke på knappen erklærer du at du er over 13 år. Dersom du er 13 år eller yngre, vennligst bruk dette registreringsskjemaet</p><p>Selvom administratorene og moderatorene av dette forumet vil forsøke å holde alle støtende meldinger borte fra dette forumet er det umulig for oss å gå igjennom alle meldingene. Alle meldinger uttrykker meningene til forfatteren og verken eierne av forumet eller dets utviklere vil bli holdt ansvarlig for innholdet i meldingene.</p><p>Ved å klikke på «Jeg godkjenner»-knappen garanterer du at du ikke vil poste noen meldinger som er obskøne, vulgære, seksuelt orienterte, hatefulle, truende eller på noen annen måte bryter noen lover.</p><p>Eierne av dette forumet har rettigheten til å fjerne, endre, flytte eller lukke et hvert emne for enhver grunn.</p>
-# Fuzzy
 forum_rules_13:<p>Alle brukere under 13 år må ha tillatelse fra deres foreldre eller formyndere for å kunne få medlemsskap til forumene. Mens vi ønsker deltakelse fra medlemmer under 13 år velkommen, krever vi at en forelder eller formynder faxer eller sender sender et signert tillatelsesskjema før vi innvilger medlemsskap.</p><p>Dersom du ønsker å begynne registreringsprosessen før vi mottar tillatelsesskjemaet, klikk på «Jeg godkjenner»-knappen under. Dersom du ønsker å avbryte registreringen, klikk på «Avbryt registreringen» for å gå tilbake til forumoversikten.</p><p>En kopi av tillatelsesskjemaet kan lastes ned her. For mer informasjon om registreringsprosessen, vennligst send en e-post til <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
 coppa_conf:COPPA-bekreftelse
 coppa_before:Før {TEMPLATE: coppa_date}
@@ -433,8 +434,7 @@ prereg_agree:Jeg godkjenner
 prereg_disagree:Avbryt registreringen
 prereg_update:Leser forumreglene
 coppa_fax_instructions:Instruksjoner for en forelder eller formynder
-# Fuzzy
-coppa_fax_instructions2:Vennligst skriv ut denne siden, undertegn den og fax den til:
+coppa_fax_instructions2:Vennligst skriv ut denne siden, undertegn den og send på e-post eller fax den tilbake til oss.
 coppa_fax_reg_form:Registreringsformular
 coppa_fax_sign:Vennligst undertegn formularet og send det til oss
 coppa_fax_conf:Jeg har lest gjennom den informasjon mitt barn har gitt meg og jeg har lest websidens allmenne vilkår. Jag forstår at brukerprofilen kan endres med et passord. Jag forstår at jeg kan begjæra at brukerprofilen slettes permanent.
@@ -469,6 +469,7 @@ rpasswd_passwd_length:Passordet må være minst 6 tegn langt
 reset_remind_pass:Passordspåminnelse
 reset_reset_conf:Ditt passord kommer å nollstellas og ett nytt skickas åt dig. Om du ikke har bekreftat din registrering kommer bekreftelsemeddelandet å skickas istellet.
 reset_error:E-postadressen finnes ikke i databasen
+reset_update:Nullstill passord
 rpasswd_change_pass:Bytt passord
 rpasswd_login:brukernavn:
 rpasswd_cur_pass:Nåværende passord:
@@ -679,8 +680,7 @@ reset_err_rstconf_title:Informasjon
 reset_err_rstconf_msg:Du vil motta instruksjoner per e-post innen få minutter
 reset_newpass_title:Nullstill passord
 reset_newpass_msg:Hei!\n\nDitt brukernavn og passord har blitt endret på din forespørsel.\nHer er din inloggingsinformasjon:\n\nBrukernavn: {VAR: ui[1]}\nPassord: {VAR: passwd}\n\nNoter deg at passordet ditt er endret til det overstående. Om du vil\nendre passordet ditt kan du gjøre det i kontrollpanelet:\n{FULL_ROOT}{ROOT}?t=register
-# Fuzzy
-reset_login_notify:Ditt passord har blitt sendt til deg per e-post og burde komme frem innen et par minutter. Vennligst sjekk e-posten din for ditt brukernavn og passord.<br />.<br />.<br />
+reset_login_notify:Ditt passord har blitt sendt til deg per e-post og burde komme frem innen et par minutter.
 search_update:Søker blandt innleggene
 selmsg_update:Leser <a href="{TEMPLATE: selmsg_update_lnk}">Dagens innlegg</a>
 showposts_update:Viser innlegg av: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
@@ -1112,7 +1112,6 @@ move_msg_th_expl:Oppgi ID'en til destinasjonsemnet (kan være i andre fora)
 captcha_img_alt:Captcha-verifisering: du må kjenne igjen teksten i dette bildet.
 captcha_img_help:Det er ingen null eller en i bildet.
 powered-by:Levert av: FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
 copyright:Copyright &copy;2001-2012 <a href="http://fudforum.org/">FUDforum Bulleting Board Software</a>
 code_title:Kode:
 code_select_all:Velg alle
