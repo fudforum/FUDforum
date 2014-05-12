@@ -1011,7 +1011,7 @@ register_err_sig_too_long:Sua assinatura excede o comprimento máximo permitido 
 register_sig_limit:{GVAR: FORUM_SIG_ML} caracteres <a href="javascript: alert('Sua assinatura possui '+document.forms['fud_register'].reg_sig.value.length+' caracteres. O comprimento máximo permitido é de {GVAR: FORUM_SIG_ML}');" class="SmallText">Veja o Tamanho da Assinatura</a>
 adm_account_accepted:Sua conta '{VAR: login}' foi aprovada pelo administrador e está ativa agora. Agora você pode acessar o Fórum {GVAR: FORUM_TITLE}' como um usuário confirmado.
 adm_account_accepted_s:Sua requisição de conta para o fórum '{GVAR: FORUM_TITLE}' foi aceita.
-adm_account_rejected:Sua conta '{VAR: login}' foi rejeitada pelo administrador e agora está ativa. Se você quiser saber a razão de tal decisão, sinta-se a vontade para contactar o administrador através do e-mail '{GVAR: ADMIN_EMAIL}'.
+adm_account_rejected:Sua conta '{VAR: login}' foi rejeitada pelo administrador e agora está ativa. Se você quiser saber a razão de tal decisão, sinta-se a vontade para contatar o administrador através do e-mail '{GVAR: ADMIN_EMAIL}'.
 adm_account_rejected_s:Sua requisição de conta para o fórum '{GVAR: FORUM_TITLE}' foi recusada.
 thread_on:em
 userinfo_buddy:Amigo:

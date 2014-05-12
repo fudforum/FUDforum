@@ -242,7 +242,7 @@ folder:Cartella:
 pmsg_replied:risposto
 pmsg_forwarded:inoltrato
 pmsg_subject:Oggetto
-pmsg_author:Mittente
+pmsg_author:Autore
 pmsg_time:Ora
 pmsg_selected:Selezionato
 pmsg_delete:Cancella
@@ -253,7 +253,7 @@ inbox:Posta ricevuta
 draft:Bozza
 sent:Posta inviata
 trash:Cestino
-msg_author:Mittente
+msg_author:Autore
 avatar_sel_form:Modulo di selezione degli avatar
 no_avatars:Nessun avatar disponibile
 month_1:Gennaio
