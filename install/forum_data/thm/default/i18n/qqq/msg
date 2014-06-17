@@ -217,9 +217,11 @@ rpasswd_passwd_nomatch:{{Identical|Passwords do not match}}
 reset_update:Action in the forum's action list (iSpy system) indicating that the user is resetting his/her password.\n\nUsed as session status to indicate last known action.\n{{Related|Fud-status}}\n{{Identical|Reset password}}
 rpasswd_change_pass:{{Identical|Change password}}
 rpasswd_login:{{Identical|Login}}
+rpasswd_cur_pass:{{Identical|Current password}}
 rpasswd_new_pass:{{Identical|New password}}
 rpasswd_conf_pass:{{Identical|Confirm password}}
 ruser_title:Title for the form where a user can change his nick name or user name.
+ruser_cur_pass:{{Identical|Current password}}
 login_passwd:{{Identical|Password}}
 reset_email:{{Identical|E-mail}}
 reset_reset_button:{{Identical|Reset password}}
@@ -432,6 +434,7 @@ sml_code:{{Identical|Code}}
 post_common_bold:{{Identical|Bold}}
 post_common_italics:{{Identical|Italic}}
 post_common_underline:{{Identical|Underline}}
+post_common_link:{{Identical|Insert link}}
 post_common_link_popup:Prompt for input if the user clicks on {{msg-fud|Post common link}}.
 post_common_email_popup:Prompt for input if the user clicks on {{msg-fud|Post common email}}.\n{{Identical|E-mail address}}
 post_common_image_popup:Prompt for input if the user clicks on {{msg-fud|Post common image}}.

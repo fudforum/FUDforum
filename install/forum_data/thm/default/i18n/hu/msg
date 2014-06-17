@@ -1,5 +1,6 @@
 # Messages for Hungarian (magyar)
 # Exported from translatewiki.net
+# Author: Csega
 # Author: Dani
 # Author: Dj
 # Author: Glanthor Reviol
@@ -75,6 +76,7 @@ cal_day_heading:A nap eseményei
 cal_no_events:Nincsenek események ezen a napon.
 cal_update:Főrum naptál böngészése
 cal_birthday:Születésnap: {VAR: user}
+cal_birthdays:{PLURAL: születésnap|$1 születésnap|$1 születésnap}
 cal_birthday_age:({PLURAL: age|$1 éves|$1 éves}).
 message:Üzenet
 message_counter:Felhasználóink összesen <b>{PLURAL: post_count|egy|$1} üzenetet</b> írtak, <b>{PLURAL: thread_count|egy|$1} témában</b>.
@@ -213,6 +215,7 @@ reported_reported_msg:Jelentett üzenet:
 modque_pending_approval:Elfogadásra váró üzenetek
 modque_approve:Elfogadás
 modque_delete:Törlés
+modque_deleteall:Minden törlése ettől a felhasználótól
 modque_no_message:Nincsenek elfogadásra váró üzenetek
 pmsg_new_messages:Olvasatlan privát üzenet
 pmsg_old_messages:Privát üzenet olvasása
@@ -418,8 +421,7 @@ ignore_users:Figyelmen kívül hagyott felhasználók
 add_ignore:Hozzáadás
 forum_terms:A fórum szabályai
 forum_rules:<p>A fórumba történő regisztráció ingyenes! Feltételezzük, hogy elfogadod az alább közölt szabályokat és irányelveket. Ha egyet értesz a feltételekkel, kattins az <b>Elfogadom</b> gombra a lap alján. Megjegyzés: a gomb megnyomásával kijelented, hogy elmúltál 13 éves. Ha fiatalabb vagy, használd ezt a regisztrációs űrlapot.</p><p>Habár az adminisztrátorok és a moderátorok megpróbálják távol tartani a fórumtól a kifogásolható hozzászólásokat, lehetetlen áttekinteni az összeset. Mindegyik hozzászólás a szerzője nézeteit takarja, és sem a fórum tulajdonosai, sem a fejlesztők nem vonhatók felelősségre annak tartalma miatt.</p><p>Az Elfogadom gombra való kattintással garanciát vállalsz arra, hogy nem küldesz obszcén, vulgáris, szexuális-orientált, fenyegető vagy más, törvénysértő tartalmú üzenetet.</p><p>A fórum tulajdonosainak megvan a joguk a témák eltávolítására, szerkesztésére, áthelyezésére, vagy bezárására bármilyen okból.</p>
-# Fuzzy
-forum_rules_13:<p>A fórum összes 13 évnél fiatalabb felhasználójának a szülője vagy gondviselője engedélyét kell kérnie a fórumtagsághoz. Várjuk a 13 évnél fiatalabb közreműködőket, de kérjük, hogy a szülő vagy a gondviselő faxolja el vagy küldje el nekünk e-mailben az aláírt engedélyező űrlapot.</p><p>Ha az engedélyező űrlap elküldése előtt szeretnéd elkezdeni a regisztrációs folyamatot, kattins alább az <b>Elfogadom</b> gombra. Ha vissza szeretnéd vonni a regisztrációt, kattins a <b>Nem fogadom el</b> gombra a fórum kezdőlapjára való visszatéréshez.</p><p>Az engedélykérő űrlap másolatát itt lehet letölteni. További információkért érdeklődjön e-mailben a(z) <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> címen.</p>
+forum_rules_13:<p>A fórum összes 13 évnél fiatalabb felhasználójának a szülője vagy gondviselője engedélyét kell kérnie a fórumtagsághoz. Várjuk a 13 évnél fiatalabb közreműködőket, de kérjük, hogy a szülő vagy a gondviselő faxolja el vagy küldje el nekünk e-mailben az aláírt engedélyező űrlapot.</p><p>Ha az engedélyező űrlap elküldése előtt szeretnéd elkezdeni a regisztrációs folyamatot, kattins alább az <b>Elfogadom</b> gombra. Ha vissza szeretnéd vonni a regisztrációt, kattins a <b>Nem fogadom el</b> gombra a fórum kezdőlapjára való visszatéréshez.</p><p>Az engedélykérő űrlap másolata regisztráció után bemutatásra kerül. További információkért érdeklődjön e-mailben a(z) <a href="mailto:{GVAR: ADADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> címen.</p>
 coppa_conf:COPPA-megerősítés
 coppa_before:{TEMPLATE: coppa_date} előtt
 coppa_after:{TEMPLATE: coppa_date} után
@@ -465,6 +467,7 @@ rpasswd_passwd_length:A jelszónak legalább 6 karakter hosszúnak kell lennie
 reset_remind_pass:Jelszóemlékeztető
 reset_reset_conf:Az új jelszavadat elküldtük. Ha még nem erősítetted meg az e-mail címedet, a megerősítési levelet újra elküldjük neked.
 reset_error:Az e-mail cím nem található az adatbázisban
+reset_update:Új jelszó kérése
 rpasswd_change_pass:Jelszó módosítása
 rpasswd_login:Bejelentkezés
 rpasswd_cur_pass:Jelenlegi jelszó:
@@ -1145,3 +1148,4 @@ karma:Karma
 karma_track:Felhasználó tekintélyének kezelése:
 karma_delete:Törlés
 rate_author:Szerző értékelése:
+portal_update:Fórum portál olvasása

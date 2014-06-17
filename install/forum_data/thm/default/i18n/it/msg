@@ -249,7 +249,7 @@ pmsg_delete:Cancella
 cur_ppage_pm:Messaggi personali
 writing_pm:Scrivi un messaggio personale
 browsing_folder:Sfoglia <b>{VAR: folders[$folder_id]}</b> cartella
-inbox:Posta ricevuta
+inbox:Posta in arrivo
 draft:Bozza
 sent:Posta inviata
 trash:Cestino
@@ -402,7 +402,7 @@ post_icons:Icona del messaggio:
 post_no_icon:Nessuna icona
 post_smiley:Abbreviazione per le faccine:
 post_format_tools:Strumenti di formattazione:
-post_upload_file:Invio file
+post_upload_file:Carica file
 post_file_del:Cancella
 post_file_name:Nome
 post_file_size:Dimensione
@@ -1027,7 +1027,7 @@ ip_analyze_usage_descr:Per cortesia, specifica la login esatta per l'utente.
 ip_users_using:Utente(i) che usano l'indirizzo IP '{VAR: ip}'
 ip_all_ips:Tutti gli IP(s) usati da '{VAR: user}'
 ip_title:IP del Browser
-userinfo_real_name:Nome Reale:
+userinfo_real_name:Nome vero:
 register_err_alias_notallowed:Questo alias non è consentito
 post_err_mod_forum_edit_ttl:ERRORE
 post_err_mod_forum_edit_msg:Non puoi editare messaggi all'interno di un forum moderato.

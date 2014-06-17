@@ -30,7 +30,7 @@ first_unread_msg_desc:Vèje a 'u prime messàgge non lette jndr'à stu argomende
 flat_view:Tuèrne a 'a viste piane de base
 forum:Forum:
 forum_icon:Icone d'u forum
-forum_new_messages:Messàgge nuève
+forum_new_messages:missaggi novi
 forum_none_messages:Sulamende le membre d'u forum reggistrate ponne traccià le messàgge lette &amp; non lette
 forum_old_messages:Nisciune messàgge nuève
 from:Da:
@@ -542,7 +542,7 @@ poll_name:Nome d'u sondagge:
 poll_timelimit:Orarie limite:
 poll_maxiumvotes:Vote massime:
 poll_create:Ccreje
-poll_update:Aggiorne
+poll_update:Agghiorna
 poll_disablesmilies:Disabbilite le facce
 poll_create_poll:Ccreje 'nu sondagge
 poll_update_poll:Aggiorne 'u sondagge

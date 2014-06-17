@@ -3,6 +3,7 @@
 # Author: BeginaFelicysym
 # Author: Byulent
 # Author: Chrumps
+# Author: Faren
 # Author: Naudefj
 # Author: Rezonansowy
 # Author: Rzuwig
@@ -435,8 +436,7 @@ prereg_agree:Akceptuję
 prereg_disagree:Nie akceptuję
 prereg_update:Czytanie zasad forum
 coppa_fax_instructions:Instrukcje dla Rodzica lub Prawnego Opiekuna
-# Fuzzy
-coppa_fax_instructions2:Wydrukuj tę stronę, podpisz ją i wyślij faks do:
+coppa_fax_instructions2:Proszę wydrukować tę stronę, podpisać i wysłać pocztą lub faksem do nas.
 coppa_fax_reg_form:Formularz rejestracji
 coppa_fax_sign:Podpisz poniższy formularz i wyślij go do nas
 coppa_fax_conf:Zapoznałem(am) się z informacjami, które dostarczyło mi moje dziecko i przeczytałem(am) zasady tego serwisu. Rozumiem, że informacje z profilu mogą być zmienione poprzez użycie hasła. Rozumiem, że mogę prosić o całkowite usunięcie tego profilu rejestracji.
@@ -1152,3 +1152,4 @@ karma:Karma
 karma_track:Zarządzaj reputacją dla użytkownika:
 karma_delete:Usuń
 rate_author:Oceń autora:
+portal_update:Czyta forumowy portal

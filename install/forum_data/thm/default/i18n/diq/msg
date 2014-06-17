@@ -226,8 +226,8 @@ register_use_sig_default:Hesıbyaye deye imzay bımocne:
 register_notification:Hesıbyaye yo deye ikaz bırşiyo:
 buddy_status:Weziyet
 my_buddies:Embazê me
-add_buddy:Embaz deke
-add:Deke
+add_buddy:Embaz cı ke
+add:Cı ke
 post_normal:Normal
 post_annoncement:Elan
 post_size:Gırdiye
@@ -326,7 +326,7 @@ groupmgr_no:Nê
 groupmgr_action:Kerdış
 groupmgr_member:Eza
 groupmgr_cancel:Bıtexelne
-groupmgr_add_member:Eza Defi
+groupmgr_add_member:Eza cı ke
 groupmgr_update_member:Eza Neweke
 groupmgr_edit:Bıvurne
 groupmgr_delete:Bestere
@@ -518,7 +518,7 @@ btn_small_pm:MX
 btn_delete:bestere
 btn_edit:Bıvurne
 btn_reply:Cewab bıde
-btn_forward:Aser ke
+btn_forward:raver
 btn_quote:groteko
 btn_email:E-posta
 btn_show_posts:Rıştışi

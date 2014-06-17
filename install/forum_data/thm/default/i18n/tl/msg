@@ -62,8 +62,8 @@ lock_thread:Ikandado ang Paksa
 locked:Nakakandado
 locked_with_new_posts:Ikinandado (may hindi pa nababasang mga mensahe)
 logged_in_list:Talaan ng nakalagdang mga tagagamit
-login:Lumagda
-login_header:Lumagda:
+login:Mag-login
+login_header:Mag-login
 logout:Umalis sa pagkakalagda
 mark_all_read:Markahang nabasa na ang lahat ng mga mensahe
 mark_all_read_desc:Mamarkahang nabasa na ang lahat ng hindi mo pa nababasang mga mensahe
@@ -294,14 +294,14 @@ no:Hindi
 register_email:E-liham
 edit_time_limit:<b>Hangganan ng Oras ng Pamamatnugot</b>: {GVAR: EDIT_TIME_LIMIT} mga minuto
 no_edit_time_limit:<b>Hangganan ng Oras ng Pamamatnugot</b>: Walang Hangganan
-pmuserloc_login:Lumagda:
+pmuserloc_login:Mag-login:
 pmuserloc_submit:Ipasa
 pmuserloc_user:Tagagamit
 pmuserloc_no_result:Walang kinalabasan
 register_builtin:Itinayo Sa
 register_specify_url:Tukuyin ang URL
 register_uploaded:Ikarga ang huwaran (abatar)
-register_login:Lumagda:
+register_login:Mag-login:
 register_password:Password:
 register_conf_pass:Tiyakin ang hudyat:
 register_email_desc:Mangyaring magpasok ng isang katanggap-tanggap na tirahan ng e-liham. Maaari mong piliin na itago ito sa ibaba, sa loob ng seksyon ng Mga Nais.
@@ -442,7 +442,7 @@ coppa_fax_telephone:Telepono:
 coppa_fax_email:Tirahan ng E-liham:
 coppa_fax_date:Petsa:
 coppa_fax_questions:Mangyaring makipag-ugnayan sa <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> kapag may anumang mga katanungan
-coppa_fax_login:Lumagda
+coppa_fax_login:Mag-login
 coppa_fax_passwd:Password
 coppa_fax_remail:E-liham
 coppa_fax_name:Pangalan
@@ -452,8 +452,8 @@ login_perm_denied:Wala kang pahintulot na puntahan ang hiniling na kuhanan bilan
 login_want_to_register:Nais mong magpatala?
 login_forgot_passwd:Nakalimutan ang hudyat
 login_use_cookie:Gumamit ng mga otap<br /><span class="SmallText">Kung gumagamit ka ng isang pangmadlang terminal na katulad ng isang kompyuter sa loob ng isang aklatan, paaralan, o kapihan ng Internet, iminumungkahi na huwag mong lagyan ng tsek ang mapagpipiliang ito para sa mas mahigit na kaligtasan. Kapag iniwan mong hindi pinili ang mapagpipiliang ito kung gayon ay kusa kang ilalagdang papasok sa poro sa susunod na panahon ng pagdalaw mo.</span>
-login_login:Lumagda:
-login_login_btn:Lumagda
+login_login:Mag-login:
+login_login_btn:Mag-login
 login_name_required:Kailangan ang pangalang panglagda
 login_passwd_required:Kailangan ang hudyat
 login_invalid_radius:Hindi katanggap-tanggap na tambalan ng paglagda/hudyat
@@ -466,7 +466,7 @@ reset_remind_pass:Pampaalala ng Hudyat
 reset_reset_conf:Itatakdang muli ang hudyat mo at ipapadala sa iyo. Kung hindi mo pa tinitiyak ang tirahan mo ng e-liham, ipapadalang muli sa iyo ang kahilingan ng paniniyak.
 reset_error:Hindi natagpuan sa kalipunan ng dato ang tirahan ng e-liham
 rpasswd_change_pass:Baguhin ang Hudyat
-rpasswd_login:Lumagda
+rpasswd_login:Mag-login
 rpasswd_cur_pass:Pangkasalukuyang Password:
 rpasswd_new_pass:Bagong Password:
 rpasswd_conf_pass:Tiyakin ang Hudyat:
@@ -829,10 +829,10 @@ split_th_split_unsel:Hatiin ang hindi napiling mga mensahe
 split_th_messages:Mga mensahe
 split_th_select:Piliin
 report_report_post:Iulat ang Mensahe
-quicklogin_login:Lumagda:
+quicklogin_login:Mag-login:
 quicklogin_password:Password:
 quicklogin_use_cookies:Gamitin ang mga Otap?
-quicklogin_login_btn:Lumagda
+quicklogin_login_btn:Mag-login
 quick_reply:Mabilisang Tugon
 quick_reply_post:Ipaskil ang Mabilisang Tugon
 quick_reply_preview:Paunang Tingnan ang Mabilisang Tugon

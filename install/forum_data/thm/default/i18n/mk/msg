@@ -594,7 +594,7 @@ email_error_invaliduser:Неважечки корисник
 emailconf_err_invkey_title:Грешка
 emailconf_err_invkey_msg:Неважечки потврден код. Проверете во вашата е-пошта дали го имате внесено правилно. Ако ја имате проверено врската двапати, сметката може веќе да ви е потврдена. Најавете се на форумот за да побарате друг клуч.
 err_inc_criticaltitle:Критична грешка
-err_inc_criticalmsg:Се појави грешка. Нажалост има проблем и во системот за пријавување грешки.
+err_inc_criticalmsg:Се појави грешка. За жал, има проблем и во системот за пријавување грешки.
 finduser_update:Пребарување на корисници
 help_index_update:Читање на <a href="{TEMPLATE: help_index_update_lnk}">Помошта</a>
 iemail_thr_subject:Нов одговор на {VAR: thr_subject} од {VAR: poster_login}

@@ -242,7 +242,7 @@ pmsg_author:작성자
 pmsg_time:시간
 pmsg_selected:선택
 pmsg_delete:삭제
-cur_ppage_pm:쪽지
+cur_ppage_pm:개인 메시지
 writing_pm:쪽지 작성
 browsing_folder:<b>{VAR: folders[$folder_id]}</b> 폴더 보기
 inbox:받은 쪽지함
@@ -566,7 +566,7 @@ tabs_bookmarkes:책갈피
 tabs_referrals:추천
 tabs_buddy_list:친구 목록
 tabs_ignore_list:차단 목록
-tabs_private_messaging:쪽지
+tabs_private_messaging:개인 메시지
 delete_proceed:<span class="fb">진행하시겠습니까?</span>
 delete_yes:예
 delete_no:아니오

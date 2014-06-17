@@ -279,6 +279,7 @@ coppa_fax_permission:Ënnerschreift hei wann Dir Ären Accord gitt
 coppa_fax_telephone:Telefon:
 coppa_fax_email:Mailadress:
 coppa_fax_date:Datum:
+coppa_fax_login:Benotzernumm
 coppa_fax_passwd:Passwuert
 coppa_fax_remail:Mail
 coppa_fax_name:Numm
@@ -515,6 +516,7 @@ post_common_link:E Link drasetzen
 post_common_image:E Bild drasetzen
 post_common_quote:Zitat derbäisetzen
 rating_delete:Läschen
+tabs_notifications:Notifikatiounen
 finduser_flag:Fändel
 post_descr:Beschreiwung vum Thema:
 move_messages:Message réckelen
