@@ -407,7 +407,7 @@ post_file_del:Hapus
 post_file_name:Nama
 post_file_size:Ukuran
 file_attachments:Berkas sisipan:
-allowed_files:Jenis berkas diijinkan:
+allowed_files:Jenis berkas yang diizinkan:
 max_file_size:Ukuran paling besar:
 max_files_per_msg:Batas berkas sisipan per pesan:
 post_notification:Berikan pemberitahuan
@@ -627,7 +627,7 @@ pm_update:Memakai pengiriman pesan pribadi
 post_err_lockedthread_title:SALAH: Topik terkunci
 post_err_lockedthread_msg:Topik ini sudah terkunci, tidak bisa menambah pembahasan lagi
 err_coppa_title:SALAH: Akun anda belum terkonfirmasi
-err_coppa_msg:Kami belum menerima konfirmasi dari orangtua dan/atau wali Anda yang sah, yang akan mengijinkan anda untuk mengirim pesan. Jika Anda kehilangan COPPA <a href="{TEMPLATE: err_coppa_msg_lnk}">lihat lagi disini</a>.
+err_coppa_msg:Kami belum menerima konfirmasi dari orangtua dan/atau wali Anda yang sah, yang akan mengizinkan Anda untuk mengirim pesan. Jika Anda kehilangan COPPA <a href="{TEMPLATE: err_coppa_msg_lnk}">lihat lagi di sini</a>.
 err_banned_acct_title:SALAH: anda sudah di cekal.
 err_banned_acct_msg:Akun anda {IF: $ban_expiry}di-cekal sementara sampai {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}permanen{ENDI} karena pelanggaran peraturan forum ini.
 post_err_edttimelimit_title:GALAT
@@ -636,14 +636,14 @@ post_err_noannontopics_msg2:<legend>ERROR: Wewenang tidak mencukupi</legend> Tam
 post_err_noannonposts_msg2:<legend>ERROR: Wewenang tidak mencukupi</legend> Tamu tidak diperkenankan memberikan tanggapan.
 post_err_floodtrig_title:SALAH: Pengiriman tertubi-tubi tidak diperkenankan.
 post_err_floodtrig_msg:Coba lagi dalam {PLURAL: tm|$1 detik|$1 detik}
-post_err_attach_size:Berkas lampiran terlalu besar(melebihi batas yang diijinkan sebesar {VAR: MAX_F_SIZE} bytes)
-post_err_attach_ext:Berkas yang anda kirimkan tidak diijinkan, jenis file tidak sesuai dengan yang diijinkan.
+post_err_attach_size:Berkas lampiran terlalu besar (melebihi batas yang diizinkan sebesar {VAR: MAX_F_SIZE} bita)
+post_err_attach_ext:Berkas yang anda kirimkan tidak diizinkan, jenis file tidak sesuai dengan yang diizinkan.
 post_err_attach_filelimit:Anda mencoba melebihi batas jumal berkas sisipan.
 post_err_passwd:Password tidak benar.
 post_reply_update:Sedang membalas <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> di {VAR: frm->name}
 post_topic_update:Sedang menulis topik baru <a href="{TEMPLATE: post_topic_update_lnk}">{VAR: frm->name}</a>
 post_error_generic:Terjadi kesalahan
-postcheck_max_images_err:Tidak lebih dari {GVAR: MAX_IMAGE_COUNT} gambar diijinkan per pesan, mohon dkurangi.
+postcheck_max_images_err:Tidak lebih dari {GVAR: MAX_IMAGE_COUNT} gambar diizinkan per pesan, mohon dikurangi.
 postcheck_no_links_allowed:Anda tidak dapat menggunakan pranala sampai Anda telah mengirim lebih dari {PLURAL: posts_before_links||}$1 pesan.
 postcheck_subj_needed:Diperlukan Subyek
 postcheck_no_such_user:Tidak ada pengguna dengan nama "{FUNC: char_fix(htmlspecialchars($v))}" di forum ini.
@@ -656,7 +656,7 @@ private_msg_notify_subj:Baca pemberitahuan tentang: {VAR: m->subject}
 private_msg_notify_body:Halo,<br />{VAR: usr->login} sudah membaca pesan pribadi anda tentang "{VAR: m->subject}", pada {TEMPLATE: private_msg_notify_body_date}<br />
 referals_update:Memeriksa pe-referensi
 register_err_short_login:Nama Login yang anda pilih terlalu singkat. Nama Login minimal 4 karakter.
-register_err_login_notallowed:Nama Login tersebut tidak diijinkan.
+register_err_login_notallowed:Nama pengguna tersebut tidak diizinkan.
 register_err_loginunique:Nama login harus unik, nama tersebut sudah terpakai.
 register_err_emailexists:alamat e-mail tersebut sudah dihubungkan dengan sebuah akun. Jika anda lupa password, pergunakan bantuan TIMPA Password, jangan mendaftar lagi.
 register_err_shortpasswd:Password minimal 6 karakter.
@@ -667,7 +667,7 @@ register_err_enterpasswd:Password diperlukan untuk melakukan perubahan
 register_err_adminpasswd:Anda harus memasukkan katakunci <b>pengurus</b> untuk melakukan perubahan.
 register_err_notyouremail:Seseorang sudah memakai alamat e-mail tsb.
 register_err_avatartobig:Berkas yang anda kirimkan terlalu besar, lebih dari {GVAR: CUSTOM_AVATAR_MAX_SIZE} bytes
-register_err_avatarnotallowed:Avatar yang anda kirimkan tidak sah. Mohon periksa lagi jenis berkas yang diijinkan.
+register_err_avatarnotallowed:Avatar yang Anda kirimkan tidak sah. Mohon periksa lagi jenis berkas yang diizinkan.
 register_conf_subject:Konfirmasi Registrasi
 register_conf_msg:Terima-kasih atas registrasi anda,\nUntuk mengaktifkan akun anda, silakan ke:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nSesudah aktif, anda bisa login&\nsecara otomatis akan diarahkan ke halaman utama.
 register_welcome_subject:Konfirmasi Registrasi Forum
@@ -977,7 +977,7 @@ mnav_all_forums:Cari di semua forum
 mnav_submit:Mulai Cari
 mnav_no_range:Anda harus memasukkan rentang tanggal yang benar. Boleh berisi angka desimal (0.12 misalnya) tapi harus lebih besar dari nol.
 mnav_invalid_unit:Anda harus memasukkan satuan waktu yang sah.
-mnav_invalid_date:Rentang tanggal yang anda masukkan lebih besar dari yang diijinkan administrator. Mohon dicoba perkecil.
+mnav_invalid_date:Rentang tanggal yang Anda masukkan lebih besar dari yang diizinkan administrator. Mohon diperkecil.
 mnav_no_results:Tidak ada pesan yang sesuai keinginan anda
 mnav_posted_by:Dibuat oleh:
 mnav_more:Lagi &raquo;&raquo;
@@ -1008,8 +1008,8 @@ merge_prev:Topik Sebelumnya
 merge_another:Pergi ke <a href="{TEMPLATE: merge_another_lnk}">topik yang terakhir digabung</a> atau gabungkan yang lain:
 split_cp:Panel kontrol pemisah topik
 groups_perms_header:Wewenang <span class="small">(gerakkan mouse anda untuk melihat tipe wewenang)</span>
-register_err_sig_too_long:Tanda-tangan anda melebihi batas yang diijinkan sebesar {GVAR: FORUM_SIG_ML} karakter.
-register_sig_limit:{GVAR: FORUM_SIG_ML} karakter <a href="javascript: alert('Tanda-tangan anda '+document.forms['fud_register'].reg_sig.value.length+' karakter. Maksimum diijinkan adalah sebesar {GVAR: FORUM_SIG_ML} karakter.');" class="SmallText">Periksa panjang tanda-tangan</a>
+register_err_sig_too_long:Tanda tangan Anda melebihi batas yang diizinkan sebesar {GVAR: FORUM_SIG_ML} karakter.
+register_sig_limit:{GVAR: FORUM_SIG_ML} karakter <a href="javascript: alert('Tanda tangan Anda '+document.forms['fud_register'].reg_sig.value.length+' karakter. Maksimum diizinkan adalah sebesar {GVAR: FORUM_SIG_ML} karakter.');" class="SmallText">Periksa panjang tanda tangan</a>
 adm_account_accepted:Akun anda '{VAR: login}' disetujui oleh administrator dan sekarang sudah aktif. Anda bisa mengakses forum '{GVAR: FORUM_TITLE}' sebagai anggota terdaftar penuh.
 adm_account_accepted_s:Permintaan akun Anda di '{GVAR: FORUM_TITLE}' diterima.
 adm_account_rejected:Akun Anda '{VAR: login}' ditolak oleh pengurus. Jika Anda ingin tahu alasan penolakan silakan hubungi pengurus di '{GVAR: ADMIN_EMAIL}'.
