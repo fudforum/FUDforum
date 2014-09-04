@@ -399,7 +399,7 @@ post_file_del:Избриши
 post_file_name:Име
 post_file_size:Големина
 file_attachments:Приложени податотеки:
-allowed_files:Дозволени податотечни наставки:
+allowed_files:Допуштени податотечни наставки:
 max_file_size:Максимална големина на податотеката:
 max_files_per_msg:Максимален број на податотеки по порака:
 post_notification:Известување за порака

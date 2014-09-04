@@ -2,8 +2,11 @@
 # Exported from translatewiki.net
 # Author: Anakmalaysia
 # Author: Breawycker
+# Author: Cwlin0416
+# Author: LNDDYL
 # Author: Lauhenry
 # Author: Liangent
+# Author: Liuxinyu970226
 # Author: Mark85296341
 # Author: Naudefj
 # Author: Oapbtommy
@@ -48,12 +51,12 @@ goto_next_msg:下一樓
 goto_prev_msg:樓上
 home:首頁
 homepage:首頁：
-icq_control_panel:ICQ 在線信息
-icq_message_form:ICQ 信息列表：
+icq_control_panel:ICQ 線上訊息台
+icq_message_form:ICQ 訊息清單：
 ignore_user:加入黑名單
 im_aim:AIM：
-im_msnm:MSN信息：
-im_yahoo:Yahoo信息：
+im_msnm:MSN信使：
+im_yahoo:Yahoo信使：
 image:照片：
 index_forum:論壇
 index_new_posts:上次瀏覽以後的新帖
@@ -72,7 +75,7 @@ login:登入
 login_header:帳號：
 logout:登出
 mark_all_read:標記所有信息為已讀
-mark_all_read_desc:所有未讀的信息都將被標為已讀
+mark_all_read_desc:所有未讀的訊息都將被標為已讀
 members:成員
 calendar:日曆
 cal_goto_date:跳轉到：
@@ -84,8 +87,8 @@ cal_birthdays:{PLURAL: birthdays|$1birthday| $1 生日}
 cal_birthday_age:（$1歲）。
 message:訊息
 message_counter:用戶共發布 <b>{PLURAL: post_count|$1|$1}</b>個帖子，分布在<b>{PLURAL: thread_count|$1|$1}</b>個主題裡。
-message_index:信息索引
-message_index_desc:查看信息列表
+message_index:訊息索引
+message_index_desc:檢視訊息清單
 minimize_category:減少目錄層次
 minimize_message:最小化消息
 moderation_queue:版主列表
@@ -114,7 +117,7 @@ no_subscribed_threads:沒有預定的主題
 no_bookmarked_threads:沒有用書簽標記的主題
 no_unread_locked:本主題已被鎖定（不可回復）。
 no_unread_msg:這個主題沒有未讀信息。
-no_unread_msg_unreg:只有注冊用戶能夠把信息標為已讀和未讀。
+no_unread_msg_unreg:只有注冊使用者能夠把訊息標為已讀和未讀。
 num_pages:頁（{VAR: ttl_pg}）：
 num_votes:{VAR: obj->total_votes} 票
 occupation:職業：
@@ -129,7 +132,7 @@ posts:帖子
 posts_c:發帖數：
 prev_thread:下一個主題：
 usrinfo_private_message:悄悄話
-profile:個人信息
+profile:控制台
 profile_desc:訪問用戶控制面板
 rate_thread:主題評價
 rating:評價
@@ -148,8 +151,8 @@ sel_todays_posts:今天的消息
 sel_todays_posts_desc:只顯示今天的主題
 sel_unanswered_posts:未回復主題
 sel_unanswered_posts_desc:只顯示未回復主題
-sel_unread_messages:未讀信息
-sel_unread_messages_desc:只顯示未讀信息
+sel_unread_messages:未讀訊息
+sel_unread_messages_desc:只顯示未讀訊息
 send:發送
 send_pm_desc:發悄悄話給這個用戶
 sender_email:發送者郵件：
@@ -167,7 +170,7 @@ bookmark_thread_desc:將本主題添加到書籤列表中
 subject:主題
 subscribe:預定
 subscribe_desc:當本論壇有人發布新的主題時，請通知我。
-subscribed_forums:預定論壇信息
+subscribed_forums:訂閱論壇
 subscribed_forums_desc:只顯示預定的論壇信息
 subscribed_threads:預定論壇主題
 subscribed_threads_desc:只顯示預定論壇主題
@@ -187,7 +190,7 @@ unanswered_posts_desc:顯示所有未回复的消息
 unlock_thread:解鎖本主題
 unread_msg:本主題包含尚未閱讀的消息
 unread_msg_locked:本主題已鎖定，卻包含未讀消息
-unread_posts:未讀信息
+unread_posts:未讀訊息
 unread_posts_desc:顯示所有未讀信息
 unsub_from_thread:取消訂閱主題
 unsub_from_thread_desc:停止接收有關本主題中最新消息通知
@@ -196,7 +199,7 @@ unbookmark_thread_desc:從您的書簽列表中刪除此主題
 unsubscribe:取消訂閱
 unsubscribe_desc:停止接收有關本論壇中最新主題通知
 updated_on:更新：
-user:用戶
+user:使用者
 user_counter:我們有<b>{VAR: st_obj->user_count}</b>個註冊{PLURAL: st_obj->user_count|用戶|用戶}。
 user_info:用戶資訊
 user_info_l:用戶資訊 {VAR: u->alias}
@@ -290,10 +293,10 @@ register_tree_msg_view:扁主題清單/樹消息清單
 register_flat_view:樹狀檢視消息和主題清單
 use_forum_default:使用論壇預設值
 finduser_user_info:用戶資訊
-finduser_by_login:按登錄名：
+finduser_by_login:依帳號：
 finduser_submit:尋找
 finduser_no_such_user:沒有這個用戶
-finduser_user:用戶
+finduser_user:使用者
 finduser_postcount:帖子數：
 finduser_joindate:加入日期
 finduser_action:操作
@@ -304,15 +307,15 @@ edit_time_limit:<b>編輯時間限制</b>：{GVAR: EDIT_TIME_LIMIT}分鐘
 no_edit_time_limit:<b>編輯時間限制</b>：不限
 pmuserloc_login:登入：
 pmuserloc_submit:提交
-pmuserloc_user:用戶
+pmuserloc_user:使用者
 pmuserloc_no_result:沒有結果
 register_builtin:內置
-register_specify_url:指定地址
+register_specify_url:指定的 URL
 register_uploaded:上傳頭像
 register_login:帳號：
 register_password:密碼：
 register_conf_pass:密碼確認：
-register_email_desc:請輸入有效的電子郵寄地址。您可以在下面的偏好設定中選擇隱藏您的郵寄地址。
+register_email_desc:請輸入有效的電子郵件位址。您可以在下面的偏好設定中選擇隱藏您的郵件位址。
 register_name:名稱：
 register_your_pass:您的密碼：
 register_update:更新
@@ -328,15 +331,15 @@ register_register:註冊
 register_required:所需的資訊
 register_required_desc:所有的欄位是必填的。請注意密碼是區分大小寫。
 register_optional:附註資訊
-register_optional_desc:由于您的資料將會被別的論壇成員看到，因此我們建議您填寫信息時不要暴露自己的個人身份。
+register_optional_desc:由于您的資料將會被別的論壇成員看到，因此我們建議您填寫資訊時不要暴露自己的個人身份。
 register_location:位置：
 register_occupation:職業：
 register_interests:興趣：
 register_image:頭像：
 register_icq:ICQ：
 register_aim:AIM：
-register_yahoo:Yahoo信息：
-register_msnm:MSN信息：
+register_yahoo:Yahoo信使：
+register_msnm:MSN信使：
 register_homepage:主頁：
 register_bday:出生日期：
 register_bday_desc:如果您輸入了出生日期，其他論壇成員將可以在您的個人資料中見到它。
@@ -361,7 +364,7 @@ register_ignore_admin:忽略管理信息：
 register_invisible_mode:隱身模式：
 register_invisible_mode_desc:隱藏您的線上狀態。
 register_show_email:新電郵地址：
-register_show_email_desc:如果您想要公開顯示電子郵寄地址，請選擇此選項。
+register_show_email_desc:如果您想要公開顯示電子郵件位址，請選擇此選項。
 register_notification:是否預設打開提醒功能：
 register_notification_desc:如果選擇“是”，在發帖時依然可以選擇是否提醒。
 register_notify_method:選擇通知方法：
@@ -405,7 +408,7 @@ post_upload_file:上傳檔案
 post_file_del:刪除
 post_file_name:名稱
 post_file_size:大小
-file_attachments:文件附件
+file_attachments:檔案附件：
 allowed_files:允許的檔副檔名:
 max_file_size:最大檔大小：
 max_files_per_msg:每封郵件的最大檔：
@@ -445,7 +448,7 @@ coppa_fax_no_permission:在這裡簽名，如果您想要刪除的帳戶
 coppa_fax_parent_name:家長／監護人的真實姓名：
 coppa_fax_relation:與孩子的關係：
 coppa_fax_telephone:電話：
-coppa_fax_email:電郵地址：
+coppa_fax_email:電郵位址：
 coppa_fax_date:日期：
 coppa_fax_questions:欲知詳情，請聯絡<a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
 coppa_fax_login:帳號
@@ -497,9 +500,9 @@ search_subject_only:只有主題
 search_forum:論壇
 search_posted_on:發佈：
 search_no_results:沒有結果
-search_all_forums:搜索所有論壇
-search_in_forum:在論壇中的搜索：
-search_forum_search:論壇搜索
+search_all_forums:搜尋所有論壇
+search_in_forum:在論壇中的搜尋：
+search_forum_search:論壇搜尋
 move_thread_to:移動主題<b> {VAR: thr->subject} </b>到：
 remail_email_topic:通過電子郵件發送給朋友本主題
 remail_your_name:您的姓名：
@@ -602,7 +605,7 @@ emailconf_err_invkey_title:錯誤
 emailconf_err_invkey_msg:無效的確認鍵。請檢查您的電子郵件，以確保您已正確輸入 URL。如果您已經兩次按一下連結，可能已經確認您的帳戶。登錄到論壇，請求另一個金鑰。
 err_inc_criticaltitle:嚴重錯誤
 err_inc_criticalmsg:出現錯誤。不幸的是，也有錯誤報告系統有問題。
-finduser_update:搜索使用者
+finduser_update:搜尋使用者
 help_index_update:閱讀的<a href="{TEMPLATE: help_index_update_lnk}">説明</a>
 iemail_thr_subject:新答覆 {VAR: thr_subject} 的{VAR: poster_login}
 iemail_thr_bodyemail:要查看未讀的答覆轉至 {VAR: goto_url['email']} ！N!!N ！如果您不希望再收到答覆有關通知，在本主題中，請轉到此處：{VAR: unsub_url['email']}
@@ -617,7 +620,7 @@ ignore_list_cantign_msg:你不能忽略此使用者
 ignore_list_update:流覽自己忽略清單
 index_update:流覽<a href="{TEMPLATE: index_update_lnk}">論壇一覽表</a>
 list_referers_update:流覽轉介
-login_update:登錄表單
+login_update:登入表單
 msg_update:流覽主題<a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
 pm_err_nopm_title:私人郵件禁用錯誤：
 pm_err_nopm_msg:您不能使用私人郵件系統。它已被管理員禁用。
@@ -663,7 +666,7 @@ register_err_invalidemail:不會出現您所指定的電子郵件地址是有效
 register_err_needname:要成功地完成這個註冊，您必須輸入你的名字。
 register_err_enterpasswd:您必須輸入當前的密碼，以完成更改。
 register_err_adminpasswd:您必須輸入當前的密碼，以完成更改。
-register_err_notyouremail:別人已經註冊的使用此電子郵件地址。
+register_err_notyouremail:別人已經註冊的使用此電子郵件位址。
 register_err_avatartobig:您要上載的檔是太大，超過 {GVAR: CUSTOM_AVATAR_MAX_SIZE} 位元組為單位）。
 register_err_avatarnotallowed:您嘗試上傳的頭像是不允許的。檢查所允許的文件類型。
 register_conf_subject:報名確認
@@ -683,7 +686,7 @@ reset_err_rstconf_msg:在接下來的幾分鐘內，您應該會收到您的電�
 reset_newpass_title:重設密碼
 reset_newpass_msg:您好，\n\n您每次登入的帳號都將發送給您。\n以下是您的登入資料：\n\n帳號：{VAR: ui[1]}\n密碼：{VAR: passwd}\n\n注意：您的密碼已經改為上面的值字符組合，\n如果您想修改密碼，請在個人資料中修改：\n{FULL_ROOT}{ROOT}?t=register
 reset_login_notify:您的密碼已透過電子郵件發送給您。您應該在接下來的幾分鐘之內確認它。
-search_update:搜索消息
+search_update:搜尋訊息
 selmsg_update:瀏覽<a href="{TEMPLATE: selmsg_update_lnk}">今天的文章</a>
 showposts_update:瀏覽帖子：<a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
 subscribed_update:瀏覽自己訂閱
@@ -714,7 +717,7 @@ reset_title:重設密碼
 rpasswd_title:更改密碼的表單
 error_title:錯誤的表單
 index_title:歡迎來到論壇
-search_title:搜索 {VAR-HTML: srch}
+search_title:搜尋 {VAR-HTML: srch}
 remail_emailsent:電子郵件的發送
 remail_email:你好\n!N ！關於有一個有趣的話題" {VAR: data->subject} "上 {GVAR: FORUM_TITLE} 要閱讀的論壇。你可以看到在主題： ！N ！{FULL_ROOT}{根} 嗎？t=rview&amp;th={VAR: data->id}&amp;rid ={DEF: _uid} ！N!!N ！你的朋友！N!!N ！{VAR: usr->alias}
 poll_add_option:添加選項：
@@ -776,7 +779,7 @@ p_EDIT:編輯
 p_DEL:刪除
 p_STICKY:置頂帖子
 p_POLL:創建投票
-p_FILE:附加文件
+p_FILE:附加檔
 p_VOTE:投票
 p_RATE:主題評分/用戶
 p_SPLIT:拆分主題
@@ -885,7 +888,7 @@ register_allow_pm_msg:允許私有消息：
 register_allow_pm_msg_desc:允許其他使用者在本論壇中向您發送私人消息。
 postcheck_pm_disabled:您不能發送到私有消息"{VAR-HTML: v}"，因為這個人不會接受私人郵件。
 polllist_vote:投票
-polllist_view_results:查看結果
+polllist_view_results:檢視結果
 polllist_name:輪詢名稱
 polllist_date:創建日期
 polllist_owner:創建日期
@@ -902,7 +905,7 @@ search_logic:搜尋方式：
 search_sorting:結果按日期：
 search_attach:附件:
 search_attach_all:有無
-search_attach_with:文件附件
+search_attach_with:帶有附件
 post_proceed:繼續
 post_moderated_forum:你在重水慢化論壇取得了一個職位。它由一個論壇的版主或管理員批准之前，不會向他人顯示您的消息。
 post_moderated_forum_ttl:首先論壇說明
@@ -919,7 +922,7 @@ threadt_update:流覽論壇 （樹狀檢視）<a href="{TEMPLATE: threadt_update
 mmod_delete_cofirm_ttl:確認刪除主題/消息
 spell_alts:別無選擇
 insert_uploaded_image:郵件正文中插入圖像
-finduser_help:搜尋引擎會自動添加 * 口罩，您的查詢，<b>搜索是區分大小寫</b>的。<br>如要搜索所有使用者他們的登錄開頭一 'a'，輸入 a 到搜索框。
+finduser_help:搜尋引擎會自動添加 * 口罩，您的查詢，<b>搜索是區分大小寫</b>的。<br>如要搜尋所有使用者他們的登入開頭一 'a'，輸入 a 到搜尋框。
 back_to_top:返回頂部
 pm_err_disabled_title:私人消息已禁用
 pm_err_disabled_msg:您無法發送私人郵件，直到您在您的設定檔中啟用允許私人郵件選項。
@@ -969,9 +972,9 @@ reg_conf_account:<b>帳戶確認</b><br>您的帳戶由活動之前，需要管�
 forum_banned_user:你事先的行動已導致你被永久禁止從這一論壇。再見。
 mnav_description:在導航消息
 mnav_date_limit:日期範圍：
-mnav_forum_limit:僅搜索：
-mnav_all_forums:搜索所有論壇
-mnav_submit:開始搜索
+mnav_forum_limit:僅搜尋：
+mnav_all_forums:搜尋所有論壇
+mnav_submit:開始搜尋
 mnav_no_range:您必須輸入一個有效的日期範圍。此值可以包含小數點，（0.12），但它必須大於零。
 mnav_invalid_unit:您必須指定一個有效的時間單位。
 mnav_invalid_date:您指定的日期範圍是較大的然後一個允許由管理員。嘗試使用較小的日期範圍。
@@ -1018,7 +1021,7 @@ reset_suffix:如果你錯誤收到此消息，請忽略它。如果您收到這�
 usrinfo_last_visit:上次訪問：
 mnav_newer:比新
 mnav_older:早於
-ip_search_by_ip:搜索使用者的 IP
+ip_search_by_ip:搜尋使用者的 IP
 ip_search_syntax:支援語法： 1.2.3.4、 1.2.3、 1.2、 1
 ip_search:搜尋
 ip_analyze_usage:分析 IP 使用情況
@@ -1091,8 +1094,8 @@ post_common_align_center:居中對齊
 post_common_align_right:右對齊
 post_common_link:插入連結
 post_common_link_popup:連結位置：
-post_common_email:設置電郵地址
-post_common_email_popup:電郵地址：
+post_common_email:插入電郵位址
+post_common_email_popup:電郵位址：
 post_common_image:插入圖片
 post_common_image_popup:圖像 URL：
 post_common_nlist:添加編號的清單

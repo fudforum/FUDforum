@@ -31,7 +31,7 @@ custom_avatar_queue:定制头像列表
 date_posted:发布时间
 date_registered:注册日期：
 download_counter:下载 {PLURAL: v[3] | $1 次|$1 次}
-pmsg_download_counter:下载 {PLURAL: r->dlcount|$1 次|$1 次}
+pmsg_download_counter:下载$1次
 email:邮件：
 email_to_friend:发送邮件给朋友
 email_to_friend_desc:发送邮件，向您的朋友推荐这个帖子
@@ -66,7 +66,7 @@ index_url_redirection:重定向
 interests:兴趣：
 last_post:最新帖子
 last_thread_msg:转入本主题最后一个帖子。
-legend:图例：
+legend:图例
 location:地区：
 lock_thread:锁定本主题
 locked:被锁定
@@ -297,7 +297,7 @@ finduser_user_info:用户信息
 finduser_by_login:账号：
 finduser_submit:查找
 finduser_no_such_user:没有这个用户
-finduser_user:用户名
+finduser_user:用户
 finduser_postcount:发帖数
 finduser_joindate:注册日期
 finduser_action:操作
@@ -1024,7 +1024,7 @@ mnav_newer:新于：
 mnav_older:旧于：
 ip_search_by_ip:根据 IP 查找使用者
 ip_search_syntax:支持的格式：1.2.3.4, 1.2.3, 1.2, 1
-ip_search:查 找
+ip_search:搜索
 ip_analyze_usage:分析 IP 使用情况
 ip_analyze_usage_descr:请输入使用者的确切登录名。
 ip_users_using:使用 IP 地址 '{VAR: ip}' 的用户

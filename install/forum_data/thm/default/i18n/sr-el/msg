@@ -1,5 +1,6 @@
 # Messages for Serbian (Latin script) (srpski (latinica)‎)
 # Exported from translatewiki.net
+# Author: KWiki
 # Author: Naudefj
 # Author: Rancher
 
@@ -655,7 +656,7 @@ register_err_invalidemail:E-adresa koju ste uneli nije ispravna.
 register_err_needname:Morate uneti svoje ime da biste otvorili nalog.
 register_err_enterpasswd:Morate uneti svoju lozinku da bi se izmene sačuvale.
 register_err_adminpasswd:Morate uneti svoju <b>administrativnu</b> lozinku da bi se izmene sačuvale.
-register_err_notyouremail:Neko drugi je već upisan preko ove e-adrese.
+register_err_notyouremail:Neko je već upisan preko ove e-adrese.
 register_err_avatartobig:Datoteka koju želite da otpremite je prevelika, veća od {GVAR: CUSTOM_AVATAR_MAX_SIZE} bajtova.
 register_err_avatarnotallowed:Otpremanje željene korisničke sličice nije dozvoljeno. Pogledajte spisak podržanih datoteka.
 register_conf_subject:Potvrda upisa

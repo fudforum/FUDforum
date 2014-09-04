@@ -421,7 +421,7 @@ post_title:Titolo:
 post_body:Testo:
 post_options:Opzioni:
 post_preview_btn:Anteprima del messaggio
-post_cancel_btn:Cancella
+post_cancel_btn:Annulla
 ignore_users:Utenti ignorati
 add_ignore:Aggiungi utente da ignorare
 forum_terms:Regole del forum
@@ -1043,7 +1043,7 @@ ip_whois_title:Informazion sul provider
 register_theme:Tema:
 pmsg_trash:Svuota Cestino
 uc_new_pm:Nuovo Messaggio Privato
-uc_new_topic:Nuovo Argomento
+uc_new_topic:Nuovo argomento
 uc_new_cat_forum:Forum sottoscritti contenenti Nuovi Messaggi
 uc_cat_forum:Categoria &raquo; Forum
 uc_sub_topics:Argomenti sottoscritti con Nuovi Messaggi
@@ -1061,7 +1061,7 @@ idx_compact_forum_row:Forum disponibili:
 mmd_del_title:Cancella degli Argomenti
 mmd_mov_title:Sposta degli Argomenti
 mmd_move_threads_to:Forum di destinazione:
-mmd_abort_move:Cancella
+mmd_abort_move:Annulla
 mmd_move:Sposta degli Argomenti
 pmsg_pdf_btn:Crea PDF
 search_results_hdr:{VAR: total} Risultati Trovati
@@ -1090,7 +1090,7 @@ post_common_underline:Sottolinea
 post_common_align_left:Alinnea a sinistra
 post_common_align_center:Allinea al centro
 post_common_align_right:Allinea a destra
-post_common_link:Inserisci un link
+post_common_link:Inserisci un collegamento
 post_common_link_popup:Posizione del collegamento:
 post_common_email:Inserisci un indirizzo e-mail
 post_common_email_popup:Indirizzo e-mail:
@@ -1122,7 +1122,7 @@ code_show_hide:mostra/nascondi
 social_sites:Siti di Social networking:
 postcheck_min_len_err:Il tuo messaggio è troppo breve. La lunghezza minima è {PLURAL: post_min_len|$1 carattere|$1 caratteri}.
 postcheck_dup_err:Si prega di non creare doppioni di argomenti.
-btn_new_topic:Nuovo Topic
+btn_new_topic:Nuovo argomento
 btn_new_pm:Nuovo Messaggio P.
 btn_post_reply:Rispondi
 btn_tree_view:Vista a struttura

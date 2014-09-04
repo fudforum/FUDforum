@@ -4,6 +4,7 @@
 # Author: Kanags
 # Author: Sank
 # Author: Shanmugamp7
+# Author: Shrikarsan
 # Author: TRYPPN
 # Author: கௌசிக் பிரபு
 # Author: மதனாஹரன்
@@ -470,6 +471,7 @@ rpasswd_passwd_length:கடவுச்சொல் குறைந்தது
 reset_remind_pass:கடவுச்சொல் நினைவுபடுத்தி
 reset_reset_conf:உங்கள் கடவுச்சொல் மீட்டமைக்கப்பட்டது மற்றும் உங்களுக்கு அனுப்பப்பட்டது. நீங்கள் இதுவரை  உங்கள் மின்னஞ்சல் முகவரியை உறுதி செய்யவில்லை எனில், உறுதிசெய்தல் கோரிக்கை உங்களுக்கு மீண்டும் அனுப்பப்பட்டுள்ளது.
 reset_error:மின்னஞ்சல் முகவரி தரவுதளத்தில் காணப்படவில்லை
+reset_update:கடவுச்சொலை மீளமை
 rpasswd_change_pass:கடவுச்சொல்லை மாற்று
 rpasswd_login:புகுபதிகை
 rpasswd_cur_pass:நடப்பு கடவுச்சொல்:

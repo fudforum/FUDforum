@@ -1,0 +1,1155 @@
+# Messages for Persian (فارسی)
+# Exported from translatewiki.net
+# Author: Alirezaaa
+# Author: Amin
+# Author: Atthar
+# Author: Ebraminio
+# Author: Huji
+# Author: Mjbmr
+# Author: Naudefj
+# Author: Reza1615
+# Author: پسر یاس
+
+action:اقدامات
+add_to_buddy_list:افزودن به لیست دوستان
+admin:ادمین
+admin_control_panel:پنل ادمین
+administrator:ادمین
+attachment:ضمیمه:
+avatar:آواتار:
+average_post_count:{PLURAL: u->posted_msg_count|$1 پست|$1 پست} (بطور متوسط {PLURAL: avg|$1 پست|$1 پست} در روز)
+biography:بیوگرافی:
+birth_date:تاریخ تولد:
+by:توسط:
+by_mod:توسط مدیر
+current_time:زمان فعلی
+custom_avatar_queue:صف آواتار انتخابی
+date_posted:تاریخ ارسال
+date_registered:تاریخ ثبت‌نام:
+download_counter:{PLURAL: v[3]|$1 بار|$1 بار} دانلود شده
+pmsg_download_counter:{PLURAL: r->dlcount|$1 بار|$1 بار} دانلود شده
+email:ایمیل:
+email_to_friend:ایمیل به دوست
+email_to_friend_desc:آدرس این صفحه را از طریق ایمیل به دوستانتان بفرستید
+email_user:فرستادن یک ایمیل به کاربر
+faq:راهنما
+first_unread_msg:رفتن به پست‌های خوانده‌نشده
+first_unread_msg_desc:رفتن به نخستین پست خوانده‌نشده در این مبحث
+flat_view:بازگشت به نمای پیش‌فرض خطی
+forum:انجمن:
+forum_icon:نماد انجمن
+forum_new_messages:پست‌های تازه
+forum_none_messages:فقط کاربران ثبت‌نام‌شده می‌توانند پست‌های خوانده‌شده و خوانده‌نشده را پیگیری نمایند.
+forum_old_messages:هیچ پست تازه‌ای وجود ندارد
+from:از:
+gender:جنسیت:
+go:رفتن
+goto_next_msg:رفتن به پست بعدی
+goto_prev_msg:رفتن به پست قبلی
+home:خانه
+homepage:صفحه‌خانگی:
+icq_control_panel:ارسال پیام ازطریق ICQ
+icq_message_form:فرم پیام ICQ:
+ignore_user:انسداد همه پست‌های این کاربر
+im_aim:AIM:
+im_msnm:MSN Messenger:
+im_yahoo:Yahoo Messenger:
+image:تصویر:
+index_forum:انجمن
+index_new_posts:پست‌های تازه از آخرین بازدید
+index_no_new_posts:عدم پست‌های تازه‌ از آخرین بازدید
+index_url_redirection:تغییر مسیر
+interests:علاقمندی‌ها:
+last_post:آخرین پست
+last_thread_msg:رفتن به آخرین پست در این مبحث
+legend:علائم
+location:محل سکونت:
+lock_thread:بستن مبحث
+locked:بسته‌شده
+locked_with_new_posts:بسته‌شده (با پست‌های خوانده‌نشده)
+logged_in_list:لیست کاربران آنلاین
+login:ورود
+login_header:نام‌کاربری:
+logout:خروج
+mark_all_read:درآوردن همه پست‌ها بصورت خوانده‌شده
+mark_all_read_desc:همه پست‌های خوانده‌نشده توسط شما بصورت خوانده‌شده درخواهند آمد
+members:کاربران
+calendar:تقویم
+cal_goto_date:پرش به:
+cal_day_heading:رویدادهای امروز
+cal_no_events:هیچ رویدادی برای امروز موجود نیست.
+cal_update:مرور تقویم انجمن
+cal_birthday:تولد: {VAR: user}
+cal_birthdays:{PLURAL: birthdays|$1 تولد|$1 تولد}
+cal_birthday_age:({PLURAL: age|$1 ساله|$1 ساله})
+message:پست
+message_counter:کاربران ما مجموعا <b>{PLURAL: post_count|$1 پست|$1 پست} در </b> inside <b>{PLURAL: thread_count|$1 مبحث|$1 مبحث}</b> ارسال کرده‌اند.
+message_index:لیست پست‌ها
+message_index_desc:مشاهده‌ لیست پست‌ها
+minimize_category:کوچک‌کردن سربرگ
+minimize_message:کوچک‌کردن پست
+moderation_queue:صف مدیریت
+moderator:مدیر
+moderator_of:مدیر بخش‌های:
+moderator_options:اختیارات مدیر
+moderators:{PLURAL: modcount|مدیر|مدیر}
+more_unread_messages:پست‌های خوانده‌نشده دیگر
+more_unread_messages_desc:نمایش پست‌های خوانده‌نشده دیگر و درآوردن پست‌های آشکار بصورت خوانده‌شده
+move_thread:انتقال
+moved:به انجمن دیگری منتقل‌شده
+moved_thread_message:این مبحث به انجمن دیگری منتقل شده‌است
+na:نامشخص
+new_posts:پست‌های تازه
+new_private_messages:شما <span class="GenTextRed">({VAR: c})</span> {PLURAL: c|پیام‌خصوصی|پیام‌خصوصی} خوانده‌نشده دارید
+new_thread:ایجاد مبحث تازه
+newest_user:تازه‌ترین کاربر ثبت‌نام‌شده
+next_page:صفحه بعد
+next_thread:مبحث بعدی:
+no_messages:هیچ پستی در این انجمن وجود ندارد.<br />اولین نفری باشید که در اینجا مبحث ارسال می‌کند.
+no_msg_body:هیچ متنی در پیام موجود نیست
+no_new_posts:هیچ پست تازه‌ای وجود ندارد
+no_posts:پستی وجود ندارد
+no_subscribed_forums:در هیچ انجمنی اشتراک ندارید
+no_subscribed_threads:در هیچ مبحثی اشتراک ندارید
+no_bookmarked_threads:هیچ مبحثی بوکمارک نشده‌است
+no_unread_locked:این مبحث بسته‌شده است
+no_unread_msg:این مبحث هیچ پست خوانده‌نشده‌ای ندارد
+no_unread_msg_unreg:پست‌های خوانده‌شده و خوانده‌نشده فقط برای کاربران ثبت‌نام‌شده قابل پیگیری است
+num_pages:صفحات ({VAR: ttl_pg}):
+num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|رای|رای}
+occupation:حرفه:
+off:خاموش
+on:روشن
+page_timings:مدت زمان صرف‌شده برای تولید این صفحه: {PLURAL: page_gen_time|$1 ثانیه}
+pm:پیام‌خصوصی
+poll:نظرسنجی:
+post_count:تعداد پست‌ها {VAR: u_pcount}
+post_count_l:تعداد پست‌ها:
+posts:پست‌ها
+posts_c:پست‌ها:
+prev_thread:مبحث قبلی:
+usrinfo_private_message:پیام‌خصوصی:
+profile:صفحه‌کنترل
+profile_desc:دسترسی به صفحه‌کنترل کاربر
+rate_thread:رتبه مبحث
+rating:امتیاز
+rating_track:مدیریت رتبه‌بندی مبحث <b>{VAR: thr->subject}</b>:
+refresh_list:تازه‌کردن فهرست
+register:ثبت‌نام
+registered:ثبت‌نام‌شده:
+registered_on:ثبت‌نام‌شده در {TEMPLATE: registered_on_date}
+replies:پاسخ‌ها
+report_to_mod:گزارش این پست به مدیر
+reported_messages:پست‌های گزارش داده‌شده
+reveal_all_posts:نمایش همه پست‌های {VAR: user_login}
+reveal_post:نشان‌دادن پست
+search:جستجو
+sel_todays_posts:پست‌های امروز
+sel_todays_posts_desc:روشن/خاموش‌کردن فیلتر پست‌های امروز (فقط پست‌های امروز را نمایش خواهد داد)
+sel_unanswered_posts:پست‌های بی‌پاسخ‌
+sel_unanswered_posts_desc:روشن/خاموش‌کردن فیلتر پست‌های بی‌پاسخ (فقط پست‌هایی که به آنها پاسخ داده نشده را نمایش خواهد داد)
+sel_unread_messages:پست‌های خوانده‌نشده
+sel_unread_messages_desc:روشن/خاموش‌کردن فیلتر پست‌های خوانده‌نشده (فقط پست‌های خوانده‌نشده را نمایش خواهد داد)
+send:ارسال
+send_pm_desc:ارسال پیام‌خصوصی به این کاربر
+sender_email:ایمیل فرستنده:
+sender_name:نام فرستنده:
+show_posts_by:نمایش پست‌های: {VAR: u_alias}
+size:اندازه:
+status:وضعیت:
+status_line:درحال‌حاضر <b>{PLURAL: st_obj->online_users_reg|$1 کاربر|$1 کاربر}</b>، <b>{PLURAL: st_obj->online_users_hidden|$1 کاربر مخفی|$1 کاربر مخفی}</b> و <b>{PLURAL: st_obj->online_users_anon|$1 مهمان|$1 مهمان}</b> درحال بازدید از سایت هستند.
+sticky:مهم:
+stop_ignoring:لغو انسداد این کاربر
+sub_to_thread:اشتراک در مبحث
+sub_to_thread_desc:دریافت آگاه‌سازی برای پست‌های تازه در این مبحث
+bookmark_thread:بوکمارک مبحث
+bookmark_thread_desc:افزودن این مبحث به فهرست بوکمارک‌هایتان
+subject:موضوع
+subscribe:اشتراک
+subscribe_desc:دریافت آگاه‌سازی برای هنگامیکه کاربری در این انجمن مبحث تازه ارسال می‌کند
+subscribed_forums:انجمن‌های مشترک‌شده
+subscribed_forums_desc:روشن/خاموش‌کردن فیلتر انجمن‌های مشترک‌شده (فقط پست‌های متعلق به انجمن‌های مشترک‌شده را نمایش خواهد داد)
+subscribed_threads:مباحث مشترک‌شده
+subscribed_threads_desc:روشن/خاموش‌کردن فیلتر مباحث مشترک‌شده (فقط پست‌های متعلق به مباحث مشترک‌شده را نمایش خواهد داد)
+bookmarked_threads:مباحث بوکمارک‌شده
+switch_to_thread_view:تغییر به نمای درختی این مبحث
+thread:مبحث:
+thread_announcement:اطلاعیه:
+thread_first_unread_msg:رفتن به نخستین پست خوانده‌نشده در این مبحث
+thread_thread:مبحث
+threads:مباحث
+time:زمان
+todays_posts:پست‌های امروز
+todays_posts_desc:نمایش همه پست‌هایی که امروز ارسال شده‌اند
+un_ignore_user:لغو انسداد پست‌های این کاربر
+unanswered_posts:پست‌های بی‌پاسخ
+unanswered_posts_desc:نمایش همه پست‌هایی که پاسخی برایشان ارسال نشده
+unlock_thread:بازکردن مبحث
+unread_msg:این مبحث شامل پست‌هایی است که شما هنوز نخوانده‌اید
+unread_msg_locked:مبحث بسته‌شده با پست‌های خوانده‌نشده
+unread_posts:پست‌های خوانده‌نشده
+unread_posts_desc:نمایش همه پست‌های خوانده‌نشده
+unsub_from_thread:لغو اشتراک از مبحث
+unsub_from_thread_desc:لغو دریافت آگاه‌سازی‌ برای پست‌های تازه در این مبحث
+unbookmark_thread:حذف از بوکمارک‌ها
+unbookmark_thread_desc:حذف این مبحث از فهرست بوکمارک‌هایتان
+unsubscribe:لغو اشتراک
+unsubscribe_desc:لغو دریافت آگاه‌سازی‌ برای مباحث تازه در این انجمن
+updated_on:بروزشده در:
+user:کاربر
+user_counter:ما <b>{VAR: st_obj->user_count}</b> نفر {PLURAL: st_obj->user_count|کاربر|کاربر} ثبت‌نام‌شده داریم.
+user_info:اطلاعات کاربر
+user_info_l:اطلاعات کاربر {VAR: u->alias}
+user_offline:{VAR: obj->login} هم‌اکنون آفلاین است
+user_online:{VAR: obj->login} هم‌اکنون آنلاین است
+usrinfo_last_post:آخرین پست:
+view_results:نمایش نتایج
+views:بازدیدها
+vote:{PLURAL: frm->n_rating|$1 رای|$1 رای}
+vote_button:رای
+vote_for_thread:رای
+was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> توسط مدیر به <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> منتقل شده‌است.
+welcome_message:<b>{VAR: usr->alias}</b> گرامی، خوش آمدی. آخرین بازدید شما: {TEMPLATE: welcome_message_date}
+what_ppl_doing:کاربران مشغول چه کاری هستند؟
+reported_del_report:حذف گزارش
+reported_reason:دلیل:
+reported_on:در:
+reported_reported_by:گزارش‌شده توسط:
+reported_reported_msg:پست‌های گزارش‌شده
+modque_pending_approval:پست‌های در انتظار تأیید
+modque_approve:تایید
+modque_delete:حذف
+modque_deleteall:حذف همه از کاربر
+modque_no_message:هیچ پست در انتظار تأییدی وجود ندارد
+pmsg_new_messages:پیام‌خصوصی خوانده‌نشده
+pmsg_old_messages:پیام‌خصوصی خوانده‌شده
+deny_recipt:انکار رسید
+deny_recipt_desc:تأییدیهٔ خوانده‌شدن این پیام را ارسال نکن
+restore_to:برگرداندن به:
+move_to:انتقال به:
+list_referes_referrals:معرفی‌ها
+list_referes_members:کاربران معرفی‌شده
+list_referes_member:کاربر
+referals_none:هیچ معرفی‌ای هنوز نیست.
+referals_refered_by:کاربران معرفی‌شده توسط: <b><a href="{TEMPLATE: referals_refered_by_lnk}" class="thLnk">{VAR: p_user[1]}</a></b>
+referals_post_count:تعداد پست‌ها
+referals_registered_on:ثبت‌نام‌شده در
+referals_action:اقدامات
+pmsg_all:همه
+pmsg_none:هیچ‌کدام
+folder:پوشه:
+pmsg_replied:پاسخ داده‌شده
+pmsg_forwarded:فوروارد‌شده
+pmsg_subject:موضوع
+pmsg_author:نویسنده
+pmsg_time:زمان
+pmsg_selected:انتخاب‌
+pmsg_delete:حذف
+cur_ppage_pm:پیام‌خصوصی
+writing_pm:نوشتن یک پیام‌خصوصی
+browsing_folder:مرور پوشه <b>{VAR: folders[$folder_id]}</b>
+inbox:دریافتی‌ها
+draft:پیش‌نویس‌ها
+sent:ارسالی‌ها
+trash:زباله‌دان
+msg_author:نویسنده
+avatar_sel_form:فرم انتخاب آواتار
+no_avatars:هیچ آواتاری موجود نیست
+month_1:ژانویه
+month_2:فوریه
+month_3:مارس
+month_4:آوریل
+month_5:می
+month_6:ژوئن
+month_7:ژوئیه
+month_8:اوت
+month_9:سپتامبر
+month_10:اکتبر
+month_11:نوامبر
+month_12:دسامبر
+sunday:یکشنبه
+sunday_short:ی
+monday:دوشنبه
+monday_short:د
+tuesday:سه‌شنبه
+tuesday_short:س
+wednesday:چهارشنبه
+wednesday_short:چ
+thursday:پنج‌شنبه
+thursday_short:پ
+friday:جمعه
+friday_short:ج
+saturday:شنبه
+saturday_short:ش
+male:مذکر
+female:مونث
+unspecified:نامشخص
+register_tree_view:نمای درختی پست و مبحث
+register_msg_tree_view:نمای مبحث خطی/نمای پست درختی
+register_tree_msg_view:نمای مبحث درختی/نمای پست خطی
+register_flat_view:نمای خطی پست و مبحث
+use_forum_default:استفاده از پیش‌فرض انجمن
+finduser_user_info:اطلاعات کاربر
+finduser_by_login:توسط نام‌کاربری:
+finduser_submit:پیداکردن
+finduser_no_such_user:چنین کاربری وجود ندارد
+finduser_user:کاربر
+finduser_postcount:تعداد پست‌ها
+finduser_joindate:تاریخ ثبت‌نام
+finduser_action:اقدامات
+yes:بله
+no:خیر
+register_email:ایمیل
+edit_time_limit:<b>محدودیت زمانی ویرایش</b>: {GVAR: EDIT_TIME_LIMIT} دقیقه
+no_edit_time_limit:<b>محدودیت زمانی ویرایش</b>: نامحدود
+pmuserloc_login:نام‌کاربری:
+pmuserloc_submit:ارسال
+pmuserloc_user:کاربر
+pmuserloc_no_result:بدون نتیجه
+register_builtin:آواتارهای داخلی
+register_specify_url:تعیین آدرس
+register_uploaded:آپلود آواتار
+register_login:نام‌کاربری:
+register_password:گذرواژه:
+register_conf_pass:تأیید گذرواژه:
+register_email_desc:لطفا یک ایمیل معتبر وارد کنید. شما بعدا می‌توانید از طریق بخش تنظیمات آن را مخفی کنید.
+register_name:نام:
+register_your_pass:گذرواژه شما:
+register_update:بروزرسانی
+register_avatar_type:نوع آواتار:
+register_del_avatar:حذف آواتار
+register_avatar:آواتار:
+register_sel_avatar:انتخاب آواتار
+register_custom_avatar_rules:آواتار دلخواه تا زمانی که توسط ادمین تأیید شود ظاهر نمی‌شود.<br /><span class="SmallText">آواتار، نباید بزرگ‌تر از <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} پیکسل</b> باشد و باید به قالب <b>jpg</b>، <b>gif</b> یا <b>png</b> باشد.</span>
+register_custom_avatar_url:آدرس آواتار انتخابی:
+register_preview:پیش‌نمایش
+register_custom_avatar_upload:فایل آواتار انتخابی:
+register_register:ثبت‌نام
+register_required:اطلاعات ضروری
+register_required_desc:همه فیلدها ضروری‌اند. دقت داشته باشید که گذرواژه به حروف بزرگ و کوچک حساس است.
+register_optional:اطلاعات اختیاری
+register_optional_desc:توصیه می‌شود که هیچ‌گونه اطلاعات خصوصی و هویتی خودتان را در پروفایلتان آشکار نسازید؛ چرا که کاربران انجمن قادر به دیدنِ همه این اطلاعات خواهند بود.
+register_location:محل سکونت:
+register_occupation:حرفه:
+register_interests:علاقمندی‌ها:
+register_image:تصویر:
+register_icq:نام‌کاربری ICQ:
+register_aim:نام‌کاربری AIM:
+register_yahoo:نام‌کاربری Yahoo:
+register_msnm:نام‌کاربری MSN:
+register_homepage:صفحه‌خانگی:
+register_bday:تاریخ تولد:
+register_bday_desc:اگر تاریخ تولد خود را وارد کنید، کاربران انجمن در پروفایلتان قادر به دیدنِ آن خواهند بود.
+register_day:روز
+register_month:ماه
+register_year:سال
+register_gender:جنسیت:
+register_bio:بیوگرافی:
+register_bio_desc:اندکی اطلاعات در مورد خودتان، مثل علایقتان، شغلتان و....
+register_prefs:تنظيمات
+register_sig:امضا:
+register_sig_desc:درج امضا اختیاری است؛ و در قسمت پایین پست‌هایتان به نمایش درخواهد آمد.
+register_reset:بازنشانی
+register_def_thread_view:نمای پیشفرض مبحث:
+register_msg_per_page:تعداد پست‌ها در هر صفحه:
+register_show_sig:نمایش امضاها:
+register_show_sig_desc:اجازه می‌دهد امضای کاربران دیگر برای شما نمایش داده شود یا مخفی باشد.
+register_use_sig_default:استفاده پیش‌فرض از امضاء:
+register_use_sig_default_desc:بطور خودکار امضای شمارا به هر پستی که ارسال می‌کنید اضافه می‌کند.
+register_timezone:منطقه زمانی:
+register_ignore_admin:نادیده‌گرفتن پیام‌های مدیریتی:
+register_invisible_mode:حالت مخفی:
+register_invisible_mode_desc:وضعیت آنلاین شما را مخفی می‌کند.
+register_show_email:نمایش آدرس ایمیل:
+register_show_email_desc:اگر می‌خواهید ایمیل شما بصورت عمومی مشاهده شود، این گزینه را انتخاب کنید.
+register_notification:آگاه‌سازی پیش‌فرض را انتخاب کنید:
+register_notification_desc:اگر آگاه‌سازی به‌صورت پیش‌فرض فعال شود، هنگام ارسال می‌تواند غیرفعال شود.
+register_notify_method:روش آگاه‌سازی را انتخاب کنید:
+register_notify_method_desc:روش دلخواهتان برای آگاه‌سازی یا عدم‌آگاه‌سازی را انتخاب کنید (مثلا برای وقتیکه به مسافرت می‌روید)
+register_allow_email_msg:مجازدانستن پیام‌های ایمیلی:
+register_allow_email_msg_desc:به کاربران دیگر اجازه می‌دهد تا ازطریق این انجمن برای شما ایمیل ارسال کنند.
+buddy_status:وضعیت
+my_buddies:دوستان من
+add_buddy:افزودن دوست
+add:افزودن
+buddy_search:نام‌کاربری فردی که می‌خواهید اضافه کنید را وارد کنید.
+member_search:یا از قابلیت <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">پیداکردن کاربر</a> برای پیداکردن یک شخص استفاده کنید.
+buddy_remove:حذف‌
+post_normal:عادی
+post_sticky:مهم
+post_annoncement:اطلاعیه
+post_size:اندازه
+post_color:رنگ
+post_font:قلم
+create_thread:ایجاد مبحث
+submit_reply:ارسال پاسخ
+edit_message:اعمال تغییرات پست
+apply_spell_changes:اعمال تغییرات املایی
+post_preview:پیشنمای پست
+post_logedin_user:کاربر وارد‌شده:
+post_logout:خروج
+post_passwd:گذرواژه ارسال:
+post_poll:نظرسنجی:
+post_create_poll:ایجاد نظرسنجی
+post_poll_delete:حذف
+post_poll_edit:ویرایش
+post_mod_opt:اختیارات مدیر:
+post_thread_type:نوع مبحث:
+post_thread_expiry:انقضای مبحث:
+post_locked:مبحث بسته‌
+post_icons:نماد پست:
+post_no_icon:بدون نماد
+post_smiley:میانبر شکلک‌ها:
+post_format_tools:ابزارهای قالب‌بندی:
+post_upload_file:آپلود فایل
+post_file_del:حذف
+post_file_name:نام
+post_file_size:اندازه
+file_attachments:مدیریت ضمیمه‌ها:
+allowed_files:پسوندهای فایل مجاز:
+max_file_size:حداکثر اندازه فایل:
+max_files_per_msg:حداکثر تعداد فایل در هر پست:
+post_notification:آگاه‌سازی ارسال
+include_sig:قراردادن امضاء
+include_sig_desc:قراردادن امضای پروفایل‌تان.
+disable_smilies:غیرفعال‌کردن شکلک‌ها
+spell_check_msg:بررسی املای پست
+post_form:فرم ارسال
+post_forum:انجمن:
+post_title:عنوان:
+post_body:متن:
+post_options:اختیارات:
+post_preview_btn:پیش‌نمای پست
+post_cancel_btn:لغو
+ignore_users:کاربران مسدود‌شده
+add_ignore:افزودن انسداد
+forum_terms:قوانین انجمن
+forum_rules:<p>ثبت‌نام در این انجمن آزاد است! از شما خواهشمندیم که قوانین و سیاست‌هایی که جزئیات آن در پایین آمده را مطالعه و رعایت فرمایید. اگر شرایط را قبول می‌کنید، لطفاً دکمه <b>می‌پذیرم</b> را در پایین صفحه کلیک کنید.</p><p>اگرچه همواره تلاش ما بر این بوده است که انجمن را بدور از پست‌های ناخوشایند نگاه داریم، بررسی همیشگی همه‌ی پست‌ها ممکن نیست. پست‌ها دیدگاه‌های شخصی نویسنده آن پست را بیان می‌کنند؛ و صاحبان انجمن یا توسعه‌دهندگان، مسئولیت محتوای پست‌ها را برعهده ندارند.</p><p>با کلیک روی دکمه "می‌پذیرم"، ضمانت می‌کنید پستی که زشت و ناپسند، مبتذل، مرتبط با گرایش‌های جنسی، نفرت‌انگیز، تهدیدآمیز، یا مواردی دیگر که به هرنحوی ناقض قوانین است را ارسال نمی‌کنید.</p><p>صاحبان این انجمن حق حذف، ویرایش، انتقال یا بستن هر مبحثی به هر علت دارند.</p>
+forum_rules_13:<p>تمام کاربرانی که سن آنها زیر 13 سال است می‌بایست برای ثبت‌نام در انجمن از والدین یا سرپرست خود کسب اجازه نمایند. حضور کاربران مشمول این گروه سنی باعث افتخار ماست، اما با اینحال طبق قوانین، والدین باید مجوز امضا‌شده را برای ما ایمیل یا فکس نمایند تا بتوانیم ثبت‌نام را انجام دهیم.</p><p>اگر مایل هستید که فرایند ثبت‌نام را آغاز کنید، کلید<b>موافقم</b> در زیر را بزنید. اگر می‌خواهید عملیات را لغو کنید، کلید <b>مخالفم</b> را بزنید تا به صفحه‌اصلی انجمن بازگردید.</p><p> درصورت پذیرفتن، یک کپی از فرم کسب اجازه ارائه خواهد شد. برای کسب اطلاعات بیشتر در مورد فرایند ثبت‌نام لطفا یک ایمیل به این آدرس ارسال کنید: <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
+coppa_conf:تأییدیه COPPA
+coppa_before:پیش از {TEMPLATE: coppa_date}
+coppa_after:پس از {TEMPLATE: coppa_date}
+coppa_link:لینکی که مربوط به تاریخ تولدتان می‌شود را کلیک کنید
+coppa:<p>ثبت‌نام کاربران زیر 13 سال منوط به ارائه‌ مجوز امضاشده ازسوی والدین یا سرپرست آنهاست.</p><p> برای اطلاعات بیشتر یک ایمیل به این آدرس ارسال کنید: <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a></p>
+prereg_info:قوانین انجمن
+prereg_agree:موافقم
+prereg_disagree:مخالفم
+prereg_update:خواندن قوانین انجمن
+coppa_fax_instructions:دستورالعمل برای والدین یا سرپرست
+coppa_fax_instructions2:لطفا این صفحه را چاپ کنید، آن را امضا کرده و سپس ازطریق ایمیل یا فکس آن را دوباره برای ما ارسال کنید.
+coppa_fax_reg_form:فرم ثبت‌نام
+coppa_fax_sign:لطفا فرم پایین را امضا کنید و برای ما ارسال کنید
+coppa_fax_conf:اطلاعاتی که فرزندم تحویلم داده را بررسی کردم و سیاست حفظ حریم خصوصی وبسایت را خوانده ام. می‌دانم که ممکن است اطلاعات پروفایل توسط یک گذرواژه می‌تواند تغییر یابد. می‌دانم که ممکن است درخواست کنم مشخصات ثبت‌نام بطور کامل ازین انجمن حذف گردد.
+coppa_fax_permission:درصورتیکه اجازه می‌دهید اینجا را امضا کنید
+coppa_fax_no_permission:درصورتیکه می‌خواهید حساب‌کاربری حذف شود اینجا را امضا کنید
+coppa_fax_parent_name:نام کامل والدین/سرپرست:
+coppa_fax_relation:نسبت با کودک:
+coppa_fax_telephone:تلفن:
+coppa_fax_email:آدرس ایمیل:
+coppa_fax_date:تاریخ:
+coppa_fax_questions:درصورتیکه سوالی دارید، با این ایمیل مکاتبه کنید: <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
+coppa_fax_login:ورود
+coppa_fax_passwd:گذرواژه
+coppa_fax_remail:ایمیل
+coppa_fax_name:نام
+login_not_logedin:شما وارد نشده‌اید. این می‌تواند به یکی از این دلایل باشد:
+login_cookie_expired:کوکی‌های شما منقضی شده است، و می‌بایست دوباره وارد شوید تا کوکی‌هایتان بازسازی و تمدید شوند.
+login_perm_denied:شما مجوز دسترسی به این قسمت را به عنوان کاربر مهمان ندارید. برای کسب مجوز، شما باید وارد انجمن شوید.
+login_want_to_register:قصد ثبت‌نام دارید؟
+login_forgot_passwd:گذرواژه‌تان را فراموش کرده‌اید؟
+login_use_cookie:استفاده از کوکی‌ها<br /><span class="SmallText">اگر از یک رایانه عمومی مثل رایانه‌ی کتابخانه، مدرسه یا کافی‌نت استفاده می‌کنید، توصیه می‌شود که برای امنیت بیشتر این گزینه را انتخاب نکنید. اگر این گزینه را انتخاب کنید، بار بعدی بطور خودکار وارد انجمن خواهید شد (بدون نیاز به وارد کردن نام‌کاربری و گذرواژه)</span>
+login_login:نام‌کاربری:
+login_login_btn:ورود
+login_name_required:نام‌کاربری ضروری است
+login_passwd_required:گذرواژه ضروری است
+login_invalid_radius:ترکیب نام‌کاربری و گذرواژه اشتباه است
+reset_confirmation:با سپاس از شما برای ثبت‌نام.\n\nبرای فعال کردن حساب کاربری تان لطفا به آدرس زیر بروید:\n\n{VAR: url}\n\nبعد از فعال شدن حساب کاربریتان، شما وارد انجمن و به صفحه ی اصلی هدایت خواهید شد.
+reset_reset:درود،\n\nشما برای بازنشانی گذرواژه خود درخواست نموده‌اید. برای کامل کردن فرآیند، به آدرس زیر بروید:\n\n{VAR: url}\n\nتوجه: نگه‌داری گذرواژه در این انجمن بصورت رمزنگاری یکطرفه می‌باشد؛ این یعنی وقتیکه شما گذرواژه خود را وارد کنید، هیچ راهی برای برگرداندن آن نیست. درواقع نحوه‌ ورود از طریق مقایسه‌ی نسخه‌ رمزنگاری شده‌ی موجود در دیتابیس با نسخه‌ی رمزنگاری شده‌ی چیزی که شما در صفحه‌ی ورود تایپ می‌کنید صورت می‌گیرد.\n(اگر علاقه‌مند هستید بیشتر در مورد مکانیزم مذکور بدانید، درمورد الگوریتم MD5 HASH مطالعه کنید.)
+rpasswd_invalid_passwd:گذرواژه نامعتبر است
+rpasswd_passwd_nomatch:گذرواژه‌ها مطابقت ندارند
+rpasswd_passwd_length:گذرواژه باید حداقل دارای 6 کاراکتر باشد.
+reset_remind_pass:پروسه بازنشانی گذرواژه
+reset_reset_conf:گذرواژه شما بازنشانی و برایتان ارسال خواهد شد. اگر شما هنوز آدرس ایمیلتان را تایید نکرده‌اید، درخواست تایید برای شما ارسال خواهد شد.
+reset_error:آدرس ایمیل در دیتابیس موجود نیست
+reset_update:بازنشانی گذرواژه
+rpasswd_change_pass:تغییر گذرواژه
+rpasswd_login:ورود
+rpasswd_cur_pass:گذرواژه فعلی:
+rpasswd_new_pass:گذرواژه تازه:
+rpasswd_conf_pass:تأیید گذرواژه:
+ruser_title:فرم تغییر نام‌کاربری
+ruser_change_user:تغییر نام‌کاربری انجمن‌تان
+ruser_cur_login:نام‌کاربری فعلی:
+ruser_new_login:نام‌کاربری تازه:
+ruser_cur_pass:گذرواژه فعلی:
+login_passwd:گذرواژه:
+reset_email:ایمیل:
+reset_reset_button:بازنشانی گذرواژه
+rate_this_thread:رتبه
+report_reporting_about:توضیحات گزارش:
+report_subject:موضوع:
+report_by:توسط:
+report_posted_on:تاریخ پست:
+report_give_reason:لطفا یک دلیل برای گزارش این پیام ارائه کنید:
+report_submit_report:ارسال گزارش
+search_entire_msg:کل پست‌ها
+search_subject_only:فقط موضوع
+search_forum:انجمن
+search_posted_on:تاریخ پست
+search_no_results:بدون نتیجه
+search_all_forums:جستجو در همه انجمن‌ها
+search_in_forum:جستجو در انجمن:
+search_forum_search:جستجوگر انجمن
+move_thread_to:انتقال مبحث <b>{VAR: thr->subject}</b> به:
+remail_email_topic:ایمیل‌کردن این مبحث به یک دوست
+remail_your_name:نام شما:
+remail_your_email:ایمیل شما:
+remail_friends_name:نام دوست:
+remail_friends_email:ایمیل دوست:
+remail_required:ضروری
+remail_subject:موضوع:
+remail_message:پیام:
+remail_send_now:ارسال ایمیل
+remail_anon_opt:این پیام را در ایمیل کلاینت دلخواهتان کپی کنید و به دوستانتان ارسال کنید.
+remail_done:انجام‌شد
+remail_sent_conf:ایمیل به دوست‌تان {VAR-HTML: _POST['femail']} درباره مبحث {VAR: data->subject} با موفقیت ارسال شده‌است.
+remail_error:این اقدام با خطا مواجه شد
+mklist_type:نوع:
+mklist_option:گزینه:
+mklist_additem:افزودن آیتم
+mklist_apply:اعمال
+mklist_delete:حذف
+qbud_nick_name:نام‌مستعار
+qbud_add_selected:افزودن انتخاب‌شده
+qbud_selected:انتخاب‌شده
+qbud_no_buddies:هیچ دوستی برای انتخاب کردن وجود ندارد
+mklist_numerical:عددی
+mklist_aplha:الفبا
+mklist_square:مربع
+mklist_disc:دایره‌توپر
+mklist_circle:دایره‌
+mklist_close:بستن
+email_to:به:
+email_pg_title:ایمیل
+email_subject:موضوع:
+email_body:متن:
+email_submit:ایمیل
+ppost_quote_msg:نوشته‌شده توسط {VAR: msg_to_list} در {TEMPLATE: ppost_quote_msg_date}
+ppost_quote:نقل‌قول:
+ppost_to:به:
+ppost_from_buddy_list:انتخاب از لیست دوستان
+ppost_find_User:پیدا‌کردن کاربر
+ppost_track_msg:پیگیری این پیام
+ppost_track_msg_desc:وقتی این پیام خوانده شد، من را از‌ طریق پیام‌خصوصی آگاه کن.
+ppost_send:ارسال
+ppost_save_draft:ذخیره پیش‌نویس
+poll_blank_option:امکان افزودن گزینه‌ی خالی وجود ندارد.
+poll_del_conf:اگر می‌خواهید این گزینه را حذف کنید، "قبول" را بزنید
+poll_name:نام نظرسنجی:
+poll_timelimit:محدودیت زمانی:
+poll_maxiumvotes:حداکثر تعداد آرا:
+poll_create:ایجاد
+poll_update:بروزرسانی
+poll_disablesmilies:غیرفعال‌کردن شکلک‌ها
+poll_create_poll:ایجاد نظرسنجی
+poll_update_poll:بروزرسانی
+poll_delete:حذف
+poll_updateoption:بروزرسانی گزینه
+poll_addoption:افزودن گزینه
+poll_unlimited:نامحدود
+poll_day:روز
+poll_days:روز
+poll_hour:ساعت
+poll_hours:ساعت
+poll_month:ماه
+poll_year:سال
+poll_week:هفته
+tabs_register:تنظیمات حساب
+tabs_subscriptions:اشتراک‌ها
+tabs_bookmarkes:بوکمارک‌ها
+tabs_referrals:معرفی‌ها
+tabs_buddy_list:لیست دوستان
+tabs_ignore_list:لیست انسداد
+tabs_private_messaging:پیام‌خصوصی
+single_msg_delete:شما دارید پستی که عنوان <b>{VAR: data[3]}</b> دارد را <span class="ErrorText">حذف</span> می‌کنید
+thread_delete:شما دارید کل مبحث که عنوان <b>{VAR: data[3]}</b> دارد را <span class="ErrorText">حذف</span> می‌کنید
+delete_proceed:<span class="fb">آیا مایلید که ادامه دهید؟</span>
+delete_yes:بله
+delete_no:خیر
+error_invalidurl:آدرس نامعتبر
+error_error:خطا
+usrinfo_profile:پروفایل {VAR: u->alias}
+usrinfo_show_all_posts:نمایش همه پست‌های {VAR: u->alias}
+actions_update:سرک کشیدن در امور دیگران، درست مثل شما!
+err_info:اطلاعات
+buddy_list_err_cantadd:شما نمی‌توانید خودتان را به لیست دوستان خود اضافه کنید
+buddy_list_err_dup:درحال‌حاضر هم شما این کاربر را در لیست دوستان خود دارید
+buddy_list_err_nouser:کاربری که شما سعی کردید به لیست دوستانتان اضافه کنید، پیدا نشد.
+buddy_list_err_nouser_title:عدم‌امکان افزودن کاربر
+buddy_list_err_ignore:امکان افزودن کاربرانی که شما را مسدود کرده‌اند، به لیست دوستانتان وجود ندارد.
+buddy_list_update:مرور لیست دوستان خود
+core_err_invinp_title:ورودی نامعتبر
+core_err_invinp_err:شما لینک نامعتبری را دنبال کرده‌اید. لطفاً <a href="mailto:{GVAR: ADMIN_EMAIL}">مدیر سایت</a> را از چگونگی رسیدن‌تان به اینجا آگاه کنید.
+core_adm_login_msg:ادمین‌ها می‌توانند <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">اینجا</a> وارد شوند.
+email_err_unabletoemail_title:خطا: عدم‌امکان ارسال ایمیل
+email_err_unabletoemail_msg:سیستم ایمیل توسط ادمین انجمن غیر فعال شده است.
+email_error_unabletolocaddr:با عرض پوزش، سیستم قادر نیست به {VAR-HTML: _POST['tx_name']} ایمیل بفرستد زیرا قادر به تشخیص آدرس ایمیل نبود
+email_error_body:متن ضروری است
+email_error_subject:موضوع ضرروی است
+email_error_namerequired:درج نام ضروری است
+email_error_invaliduser:کاربر نامعتبر
+emailconf_err_invkey_title:خطا
+emailconf_err_invkey_msg:کلید تأیید نامعتبر است. لطفاً ایمیل‌تان را برای مطمئن‌شدن از اینکه نشانی را درست وارد کرده‌اید بررسی کنید. اگر روی لینک دو بار کلیک کرده‌اید، حساب کاربری‌تان ممکن است از پیش تأیید شده‌باشد. به انجمن وارد شوید و کلید دیگری درخواست دهید.
+err_inc_criticaltitle:خطای مهلک
+err_inc_criticalmsg:یک خطا رخ داده است. متاسفانه در سیستم گزارش خطا هم مشکلی وجود دارد.
+finduser_update:جستجوی کاربران
+help_index_update:خواندن <a href="{TEMPLATE: help_index_update_lnk}">راهنما</a>
+iemail_thr_subject:پاسخ تازه به {VAR: thr_subject} توسط {VAR: poster_login}
+iemail_thr_bodyemail:برای مشاهده پاسخ‌های خوانده‌نشده به {VAR: goto_url['email']} بروید\n\nاگر نمی‌خواهید دیگر برای پاسخ‌های این مبحث اگاه‌سازی دریافت کنید، لطفاً اینجا بروید: {VAR: unsub_url['email']}
+iemail_frm_subject:مبحث تازه در انجمن {VAR: frm_name}، با موضوع {VAR: thr_subject}، توسط {VAR: poster_login}
+iemail_frm_bodyemail:برای مشاهده مبحث بروید به: {VAR: goto_url['email']}\n\nبرای جلوگیری از دریافت آگاه‌سازی برای مباحث تازه در این انجمن، لطفاً به اینجا بروید: {VAR: unsub_url['email']}
+iemail_participate:برای مشارکت در این بحث، به اینجا بروید:
+ignore_list_err_info_title:اطلاعات
+ignore_list_err_dup_msg:درحال‌حاضر شما این کاربر را در لیست انسداد خود دارید
+ignore_list_err_nu_title:کاربر پیدا نشد
+ignore_list_err_nu_msg:کاربری که شما سعی دارید به لیست انسداد اضافه کنید، پیدا نشد.
+ignore_list_cantign_msg:شما نمی‌توانید این کاربر را مسدود کنید
+ignore_list_update:مرور لیست انسداد خود
+index_update:مرور <a href="{TEMPLATE: index_update_lnk}">فهرست انجمن</a>
+list_referers_update:مرور معرفی‌ها
+login_update:مشاهده فرم ورود
+msg_update:مرور مبحث <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
+pm_err_nopm_title:خطا: پیام‌خصوصی غیرفعال است
+pm_err_nopm_msg:شما نمی‌توانید از سیستم پیام‌خصوصی استفاده کنید. این سیستم توسط ادمین غیرفعال شده است.
+pm_update:استفاده از پیام‌خصوصی
+post_err_lockedthread_title:خطا: مبحث بسته‌شده
+post_err_lockedthread_msg:این مبحث بسته‌شده است. دیگر امکان ارسال پست وجود ندارد.
+err_coppa_title:خطا: حساب شما هنوز تایید نشده است
+err_coppa_msg:ما برای ارائه مجوز پست دادن شما، تأییدیه‌ای از والدین‌تان و یا سرپرست قانونی شما دریافت نکرده‌ایم. اگر فرم درخواست خود را گم کرده‌اید, <a href="{TEMPLATE: err_coppa_msg_lnk}">دوباره مشاهده‌اش کنید</a>.
+err_banned_acct_title:خطا: شما اخراج شده اید.
+err_banned_acct_msg:شما به دلیل زیرپا گذاشتن قوانین انجمن {IF: $ban_expiry}بطور موقت اخراج شده اید تا تاریخ {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}برای همیشه اخراج شده‌اید{ENDI} و به انجمن دسترسی نخواهید داشت.
+post_err_edttimelimit_title:خطا
+post_err_edttimelimit_msg:شما دیگر نمی‌توانید این پست را ویرایش کنید
+post_err_noannontopics_msg2:<legend>خطا: دسترسی ناکافی</legend>کاربران مهمان اجازه‌ی ایجاد مبحث ندارند.
+post_err_noannonposts_msg2:<legend>خطا: دسترسی ناکافی</legend>کاربران مهمان اجازه‌ی پاسخ دادن ندارند.
+post_err_floodtrig_title:خطا: تاخیر ناکافی بین ارسال پست‌ها
+post_err_floodtrig_msg:لطفا مجددا {PLURAL: tm|$1 ثانیه|$1 ثانیه} دیگر امتحان کنید
+post_err_attach_size:حجم فایل ضمیمه خیلی زیاد است (بیشتر از حجم مجازِ {VAR: MAX_F_SIZE} بایت است)
+post_err_attach_ext:فایلی که قصد آپلود کردنش را دارید از نوع فایل‌های مجاز نیست.
+post_err_attach_filelimit:شما سعی در آپلود فایل بیش از تعداد مجاز دارید.
+post_err_passwd:گذرواژه نادرست است.
+post_reply_update:پاسخ به <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> در {VAR: frm->name}
+post_topic_update:ایجاد مبحث تازه در <a href="{TEMPLATE: post_topic_update_lnk}">{VAR: frm->name}</a>
+post_error_generic:این اقدام با خطا مواجه شد
+postcheck_max_images_err:درهر پست قراردادن بیشتر از {GVAR: MAX_IMAGE_COUNT} تصویر مجاز نیست. لطفا تعداد تصاویر را کاهش دهید.
+postcheck_no_links_allowed:تا زمانی که بیشتر از {PLURAL: posts_before_links|$1 پست|$1 پست} ارسال نکرده‌اید، نمی‌توانید از لینک‌ها استفاده کنید.
+postcheck_subj_needed:درج موضوع ضروری است
+postcheck_no_such_user:هیچ کاربری با نام "{FUNC: char_fix(htmlspecialchars($v))}" در این انجمن وجود ندارد.
+postcheck_ignored:شما نمی‌توانید برای "{FUNC: char_fix(htmlspecialchars($v))}" پیام‌خصوصی ارسال کنید، زیرا این کاربر شما را مسدود کرده‌است.
+postcheck_no_recepient:امکان ارسال پیام بدون گیرنده وجود ندارد
+postcheck_invalid_email:لطفا آدرس ایمیل معتبری از دوستتان را وارد کنید.
+postcheck_email_subject:ارسال ایمیل بدون درج موضوع امکان‌پذیر نیست.
+postcheck_email_body:ارسال ایمیل بدون درج متن‌پیام امکان‌پذیر نیست.
+private_msg_notify_subj:خواندن آگاه‌سازی برای: {VAR: m->subject}
+private_msg_notify_body:درود،<br />{VAR: usr->login} پیام‌خصوصی شما با عنوان "{VAR: m->subject}" را خوانده است.<br />این یک آگاه‌سازی خودکار است که در تاریخ {TEMPLATE: private_msg_notify_body_date} انجام شده است. <br />
+referals_update:مرور معرفی‌ها
+register_err_short_login:نام‌کاربری ای که انتخاب کرده‌اید خیلی کوتاه است. نام‌کاربری باید دارای حداقل 4 کاراکتر باشد.
+register_err_login_notallowed:این نام‌کاربری مجاز نیست.
+register_err_loginunique:نام‌کاربری انجمن باید منحصر بفرد باشد. درحال‌حاضر کاربری با این نام موجود می‌باشد.
+register_err_emailexists:این آدرس ایمیل درحال‌حاضر مرتبط به یک حساب‌کاربری دیگر است. چنانچه گذرواژه خود را فراموش کرده اید لطفا بجای ثبت‌نام مجدد، از گزینه‌ی بازیابی استفاده کنید.
+register_err_shortpasswd:گذرواژه باید دارای حداقل 6 کاراکتر باشد.
+register_err_passwdnomatch:گذرواژه‌ها با همدیگر مطابقت ندارند، لطفا بررسی کنید.
+register_err_invalidemail:بنظر می‌رسد آدرس ایمیلی که وارد کرده‌اید معتبر نیست.
+register_err_needname:برای تکمیل موفقیت‌آمیز ثبت‌نام، شما باید نام خود را وارد کنید.
+register_err_enterpasswd:برای انجام تغییرات شما باید گذرواژه فعلی خود را وارد کنید.
+register_err_adminpasswd:برای انجام تغییرات شما باید گذرواژه <b>ادمین</b> خود را وارد کنید.
+register_err_notyouremail:درحال‌حاضر شخصی دیگر با این آدرس ایمیل ثبت‌نام کرده‌است.
+register_err_avatartobig:فایلی که قصد آپلود کردنش را دارید خیلی بزرگ است، بیشتر از {GVAR: CUSTOM_AVATAR_MAX_SIZE} بایت.
+register_err_avatarnotallowed:آواتاری که قصد آپلود کردنش را دارید مجاز نمی‌باشد. نوع فایل‌های مجاز را بررسی کنید.
+register_conf_subject:تأیید ثبت‌نام
+register_conf_msg:باسپاس از شما برای ثبت‌نام،\n\nبرای فعال کردن حساب‌کاربری خود، لطفا به آدرس ذیل بروید:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nبعد از اینکه حساب شما فعال شود، شما وارد انجمن و به صفحه ی اصلی هدایت خواهید شد.
+register_welcome_subject:تایید ثبت‌نام در انجمن
+register_welcome_msg:باسپاس از شما برای ثبت‌نام،\n\nجزئیات کاربری شما جهت ورود به انجمن، به شرح ذیل می‌باشد:\n\nآدرس انجمن: {TEMPLATE: index_update_lnk}\nنام‌کاربری: {VAR: uent->login}\nگذرواژه: {VAR: _POST['reg_plaintext_passwd']}\n\nلطفا توجه داشته باشید که گذرواژه به حروف کوچک و بزرگ حساس است!\n\nبرای تغییر در تنظیمات یا پروفایلتان، به صفحه‌ی زیر بروید:\n{FULL_ROOT}{ROOT}?t=register
+register_err_cantreg_title:خطا: عدم‌امکان ثبت‌نام
+regsiter_err_cantreg_msg:امکان ایجاد حساب‌کاربری وجود ندارد، لطفا از این طریق با ادمین تماس حاصل فرمایید:\nhref="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
+register_profile_update:مشاهدهٔ پروفایل خود
+register_register_update:صفحه ثبت‌نام
+report_err_nosuchmsg_title:خطا
+report_err_nosuchmsg_msg:چنین پستی موجود نیست
+reset_err_invalidkey_title:خطا
+reset_err_invalidkey_msg:کلید بازیابی گذرواژه نامعتبر است. ممکن است کلاینت ایمیل شما بطور خودکار این صفحه را باز کرده‌ باشد، که منجر به بی‌اعتبار شدن کلید بازیابی شده باشد. اگر دلیلش این باشد، باید درظرف مدت کوتاهی یک ایمیل حاوی گذرواژه تازه‌تان را دریافت کنید. اگر چنین ایمیلی بدستتان نرسید، لطفا سعی کنید مجددا گذرواژه را بازیابی کنید.
+reset_err_rstconf_title:اطلاعات
+reset_err_rstconf_msg:در ظرف چند دقیقه باید ایمیل حاوی دستورالعمل را دریافت کنید.
+reset_newpass_title:بازنشانی گذرواژه
+reset_newpass_msg:درود،\n\nطبق درخواستتان، اطلاعات ورود به سیستم شما برایتان ارسال شد:\n\n\nنام‌کاربری: {VAR: ui[1]}\nگذرواژه: {VAR: passwd}\n\n\nتوجه داشته باشید که گذرواژه شما به مقدار بالا بازنشانی شده است. اگر تمایل به تغییر گذرواژه‌تان دارید، می‌توانید این کار را در صفحه‌کنترل اطلاعات کاربری در بخش پایین انجام دهید: \n{FULL_ROOT}{ROOT}?t=register
+reset_login_notify:گذرواژه‌تان به ایمیل شما ارسال شده است. در ظرف مدت چند دقیقه باید آن را دریافت کنید.
+search_update:جستجوی پُست‌ها
+selmsg_update:مرور <a href="{TEMPLATE: selmsg_update_lnk}">پست‌های امروز</a>
+showposts_update:مشاهده پست‌های: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
+subscribed_update:مرور اشتراک‌های خود
+bookmarked_update:مرور لیست بوکمارک‌های خود
+thread_update:مرور انجمن <a href="{TEMPLATE: thread_update_lnk}">{VAR: frm->name}</a>
+tree_update:مرور مبحث (نمای درختی) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
+userinfo_update:مشاهده پروفایل <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}'s</a>
+ERR_login_msg2:<legend>خطا: شما وارد نشده‌اید</legend>برای دسترسی به این صفحه، باید کاربر این انجمن باشید.
+ERR_disabled_ttl:ویژگی غیرفعال
+ERR_disabled_msg:این ویژگی توسط ادمین غیرفعال شده است.
+ERR_access_ttl:خطا: دسترسی‌های ناکافی
+ERR_access_msg:شما دسترسی لازم برای انجام این کار را ندارید.
+ERR_registration_disabled_ttl:ثبت‌نام غیرفعال است
+ERR_registration_disabled_msg:ادمین ثبت‌نام را غیرفعال کرده‌است. لطفاً بعداً تلاش کنید.
+ERR_emailconf_ttl:خطا: حساب کاربری‌تان هنوز تأیید نشده‌است
+ERR_emailconf_msg:شما هنوز حساب‌کاربری خود را توسط ایمیل فعال نکرده‌اید.<br /><table border="0"><tr><td><ol><li>اگر ایمیل فعالسازی را دریافت نکرده‌اید <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">دوباره درخواست بدهید</a>.</li><li>اگر {VAR: usr_d->email} شکل صحیح ایمیل شما نیست، <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">ایمیل صحیح را وارد کنید</a>.</li></ol></td></tr></table>
+ERR_user_ttl:خطا: عدم‌وجود این کاربر
+ERR_user_msg:چنین کاربری وجود ندارد
+ERR_systemerr_ttl:خطا: خطای سیستم
+ERR_systemerr_msg:یک خطای سیستمی رخ داده. لطفا آن را به <a href="mailto:{GVAR: ADMIN_EMAIL}">مدیر سایت</a> گزارش دهید.
+email_title:فرم ایمیل
+finduser_title:پیداکردن کاربر
+help_title:راهنما
+login_title:فرم ورود
+poll_title:ویرایشگر نظرسنجی
+register_title:فرم ثبت‌نام
+reset_title:بازنشانی گذرواژه
+rpasswd_title:فرم تغییر گذرواژه
+error_title:فرم خطا
+index_title:به انجمن خوش آمدید
+search_title:جستجوی {VAR-HTML: srch}
+remail_emailsent:ایمیل ارسال شد
+remail_email:درود،\n\nمبحث جالبی درباره «{VAR: data->subject}» در انجمن {GVAR: FORUM_TITLE} وجود دارد که ممکن است بخواهید بخوانید. شما می‌توانید مبحث را در اینجا ببینید: {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nدوست شما،\n\n{VAR: usr->alias}
+poll_add_option:افزودن گزینه:
+post_opt_html_on:کد اچ‌تی‌ام‌ال <b>فعال</b> است
+post_opt_fud_on:<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank">بی‌بی‌کد <b>فعال</b> است</a>
+post_opt_images_on:تصاویر <b>فعال</b> است
+post_opt_smilies_on:<a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank">شکلک‌ها <b>فعال</b> است</a>
+post_opt_html_off:کد اچ‌تی‌ام‌ال <b>غیرفعال</b> است
+post_opt_fud_off:بی‌بی‌کد <b>غیرفعال</b> است
+post_opt_images_off:تصاویر <b>غیرفعال</b> است
+post_opt_smilies_off:شکلک‌ها <b>غیرفعال</b> است
+post_opt:گزینه‌های انجمن:
+register_change_passwd:تغییر گذرواژه
+register_change_login:تغییر نام‌کاربری
+approved_avatar_title:آواتار دلخواه شما تأیید شده‌است.
+approved_avatar_msg:آواتار شما توسط ادمین تأیید شده‌است. اکنون به‌عنوان آواتار شما در همه پست‌هایتان ظاهر می‌شود. اگر آن را نمی‌بینید، یا آواتار قدیمی‌تان را می‌بینید، به این دلیل است که مرورگرتان صفحه را ذخیره کرده‌است. صفحه را یک بار یا دو بار رفرش کنید. در بیشتر موارد این کار مشکل ذخیره را برطرف می‌کند.
+unapproved_avatar_title:آواتار دلخواه‌تان رد شده‌است.
+unapproved_avatar_msg:ادمین آواتار شما را تأیید نکرد. شایع‌ترین دلایل این است که آواتارتان خیلی بزرگ بود (حجم و یا ابعاد) یا شامل موضوع نامناسب است. اگر اطلاعات بیشتر پیرامون اینکه چرا آواتارتان رد شده‌است می‌خواهید، با ادمین تماس بگیرید.
+mvthread_request_move:درخواست انتقال
+move_request_reason:چرا می‌خواهید این مبحث منتقل شود؟
+mvthread_submit_req:ارسال درخواست
+thread_exchange:تبادل مبحث
+move_request_by:انتقال مبحث درخواست شده‌است توسط:
+move_reason:دلیل انتقال مبحث:
+thr_exch_accept:قبول مبحث
+thr_exch_decline:رد مبحث
+thr_exch_orig_forum:انجمن اصلی:
+thr_exch_dest_forum:انجمن مقصد:
+thr_exch_no_threads:هیچ مبحثی در انتظار تایید نیست.
+thr_exch_decl_reason:دلیل رد مبحث <b>{VAR: data->subject}</b> به داخل انجمن <b>{VAR: data->f2_name}</b>
+thr_exch_submit:ارسال
+exch_decline_ttl:انتقال مبحث {VAR: data->subject} به داخل {VAR: data->f2_name} پذیرفته‌نشده است.
+ppost_original_msg:پیامی که دارید به آن پاسخ می‌دهید یا فوروارد می‌کنید
+split_thread:تقسیم مبحث
+groupmgr_no_user:هیچ کاربری با نام‌کاربری «{FUNC: char_fix(htmlspecialchars($gr_member))}» وجود ندارد
+groupmgr_already_exists:کاربر «{FUNC: char_fix(htmlspecialchars($gr_member))}» از پیش در این گروه وجود دارد.
+groupmgr_yes:بله
+groupmgr_no:خیر
+groupmgr_action:اقدامات
+groupmgr_member:کاربر
+groupmgr_cancel:لغو
+groupmgr_add_member:افزودن کاربر
+groupmgr_update_member:بروزرسانی کاربر
+groupmgr_edit:ویرایش
+groupmgr_delete:حذف
+group_mgr_anon:مهمان
+group_mgr_reged:همه کاربران ثبت‌نام‌کرده
+show_show:نمایش:
+group_mgr:مدیریت گروه‌ها
+group_mgr_edit_btn:ویرایش گروه
+group_mgr_heading:انتخاب گروه برای ویرایش
+group_mgr_group:گروه:
+permission_denied_title:اجازه داده نشد!
+permission_denied_msg:دسترسی‌های کاربری‌تان به شما اجازه نمی‌دهد این عمل را که برایش تلاش می‌کنید اجرا کنید.
+p_READ:خواندن
+p_POST:پست دادن
+p_REPLY:پاسخ دادن
+p_EDIT:ویرایش
+p_DEL:حذف
+p_STICKY:مهم کردن
+p_POLL:ایجاد نظرسنجی
+p_FILE:ضمیمه فایل‌ها
+p_VOTE:رای دادن
+p_RATE:امتیاز به مباحث/کاربران
+p_SPLIT:تقسیم مباحث
+p_LOCK:بستن مباحث
+p_MOVE:انتقال مباحث
+p_SML:استفاده از شکلک‌ها
+p_IMG:استفاده از تگ‌های تصویر
+p_SEARCH:امکان جستجو
+group_mgr_search:پیداکردن کاربر
+group_mgr_indicator:درحال ویرایش: <b>{VAR: grp->name}</b>
+rate_worst:بدترین
+rate_best:بهترین
+post_quote_msg:نوشته‌شده توسط {VAR: msg->login} در {TEMPLATE: make_report_date}
+post_quote:نقل‌قول:
+post_quote_selected:نقل‌قول متن انتخاب‌شده
+userinfo_referals:کاربران معرفی‌شده:
+userinfo_referals_count:{VAR: referals} کاربر
+pm_no_space_title:فضایی باقی نمانده!
+pm_no_space_msg:حجم پوشه‌ی پیام‌های‌‎خصوصی شما از حد مجاز <b>{GVAR: MAX_PMSG_FLDR_SIZE} بایت</b> بیشتر شده. این پوشه شامل <b>{VAR: fldr_size} بایت</b> فضای اشغال‌شده می‌باشد.<br /><br /><span class="ErrorText">تعدادی از پیام‌های قدیمی را حذف کنید تا مقداری فضا خالی شود</span>
+pm_space_indct_msg:پوشه‌های پیام‌خصوصی شما {VAR: percent_full}% full. اشغال شده‌است.
+th_expr_never:هرگز
+th_expr_one_hr:1 ساعت
+th_expr_three_hr:3 ساعت
+th_expr_four_hr:4 ساعت
+th_expr_eight_hr:8 ساعت
+th_expr_sixteen_hr:16 ساعت
+th_expr_one_day:1 روز
+th_expr_two_day:2 روز
+th_expr_four_day:4 روز
+th_expr_one_week:1 هفته
+th_expr_two_week:2 هفته
+th_expr_one_month:1 ماه
+th_expr_two_month:2 ماه
+th_expr_four_month:4 ماه
+th_expr_one_year:1 سال
+thread_mod_delete:حذف
+action_ip:آی‌پی
+action_latest_post:آخرین پست
+online_today_last_visit:آخرین بازدید
+online_today_update:مشاهده‌ لیست بازدیدکننده‌های امروز انجمن
+logedin_todays_visitors:بازدیدکننده‌های امروز
+logedin_latest_post:آخرین پست در انجمن
+register_show_avatar:نمایش آواتارها:
+register_show_avatar_desc:اجازه می‌دهد که در هنگام خواندن پست‌ها، آواتار کاربران دیگر مخفی باشد.
+drawmsg_view_rest_post:نمایش ادامه‌ی پست
+post_re:پاسخ:
+forumsel_goto_forum:رفتن به انجمن:
+minimsg_thread_view:مشاهده مبحث
+split_th_post_by:پست توسط:
+split_th_posted_on:تاریخ پست:
+split_th_subject:موضوع:
+split_th_new_thread_title:عنوان مبحث تازه:
+split_th_forum:انجمن:
+split_th_split_sel:تقسیم انتخاب‌شده‌ها
+split_th_split_unsel:تقسیم انتخاب‌نشده‌ها
+split_th_messages:پست‌ها
+split_th_select:انتخاب
+report_report_post:گزارش پست
+quicklogin_login:نام‌کاربری:
+quicklogin_password:گذرواژه:
+quicklogin_use_cookies:استفاده از کوکی‌ها؟
+quicklogin_login_btn:ورود
+quick_reply:پاسخ سریع
+quick_reply_post:ارسال پاسخ سریع
+quick_reply_preview:پیش‌نمای پاسخ سریع
+post_notification_desc:وقتی شخصی به این پست پاسخ داد، من را آگاه کن.
+post_all_ext_allowed:(بدون‌محدودیت)
+maximize_category:بزرگ‌کردن سربرگ
+maximize_message:بزرگ‌کردن پست
+no_view_perm:شما دسترسی‌های موردنیاز برای دیدن این مبحث را ندارید.
+report_empty_report:امکان ارسال گزارش بصورت خالی وجود ندارد. لطفا دلیل گزارش‌تان را وارد کنید.
+report_already_reported_title:قبلا گزارش‌شده
+report_already_reported_msg:این پست قبلا گزارش شده و گزارش هم‌اکنون در صف رسیدگی مدیر قرار دارد.
+register_err_toomanyimages:شما درحال قراردادن بیش از تعداد مجاز {GVAR: FORUM_IMG_CNT_SIG} تصویر در امضای خود هستید.
+pmsg_next_msg:پیام بعدی
+pmsg_prev_msg:پیام قبلی
+post_proc_reveal_spoiler:محتوای مخفی
+register_jabber:نام‌کاربری Jabber:
+register_skype:نام‌کاربری Skype:
+register_twitter:نام‌کاربری Twitter:
+register_google:نام‌کاربری چت گوگل:
+im_jabber:Jabber:
+im_google:Google Talk:
+im_skype:Skype:
+im_twitter:Twitter:
+forum_contact:تماس با ما
+forum_home:خانه
+post_cur_attached:تعداد {VAR: i} {PLURAL: i|فایل|فایل} ضمیمه شده
+ignored_anon_post:{GVAR: ANON_NICK} مسدود شده
+ignored_user_post:پست <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> مسدود شده
+smladd_close_window:بستن پنجره
+post_list_smilies:همه شکلک‌ها
+p_VISIBLE:قابل دیدن
+reported_in_thread:در:
+help_back_to_top:بازگشت به بالای صفحه
+help_return_to_index:بازگشت به فهرست راهنما
+imsg_err_message_title:پست نامعتبر
+imsg_err_message_msg:پستی که شما سعی در دیدنش دارید وجود ندارد.
+poll_edit:ویرایش
+register_err_not_valid_img:آدرس وارد‌شده شامل تصویر معتبر نمی‌باشد.
+pmsg_recepient:گیرنده
+register_err_taken_alias:نام‌مستعاری که سعی در انتخابش دارید درحال‌حاضر توسط کاربر دیگری استفاده شده. لطفا نام دیگری انتخاب کنید.
+register_alias:نام‌مستعار:
+register_alias_desc:اگر می‌خواهید به جای نام‌کاربری‌تان، یک نام‌‎مستعار به نمایش درآید، آن را اینجا وارد کنید.
+register_allow_pm_msg:مجازدانستن پیام‌های‌خصوصی:
+register_allow_pm_msg_desc:به کاربران دیگر اجازه می‌دهد که برای شما پیام‌خصوصی ارسال کنند.
+postcheck_pm_disabled:امکان ارسال پیام‌خصوصی به "{VAR-HTML: v}" وجود ندارد، زیرا این کاربر پیام‌خصوصی خود را غیرفعال کرده است.
+polllist_vote:رای
+polllist_view_results:نمایش نتایج
+polllist_name:نام نظرسنجی
+polllist_date:ایجادشده در
+polllist_owner:ایجادشده توسط
+polllist_votes:مجموع آرا
+polllist_action:اقدامات
+polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">مشاهده نظرسنجی‌های موجود</a>
+userinfo_polls:نظرسنجی‌ها:
+show_pollist:نظرسنجی‌ها
+search_and:و
+search_or:یا
+search_desc_order:ترتیب نزولی
+search_asc_order:ترتیب صعودی
+search_logic:منطق جستجو:
+search_sorting:ترتیب تاریخ نتایج:
+search_attach:ضميمه‌ها:
+search_attach_all:فاقد یا دارا
+search_attach_with:دارای ضمیمه
+post_proceed:ادامه
+post_moderated_forum:پست شما در این انجمن احتیاج به تایید دارد. تا زمانی که یکی از مدیران یا ادمین‌های انجمن پست شما را تایید نکند، پست شما برای دیگران قابل مشاهده نخواهد بود.
+post_moderated_forum_ttl:آگاه‌سازی انجمن مدیریت‌شده
+buddy_list_bday: {VAR: r[2]} امروز {VAR: age} ساله می‌شود
+email_warning_msg:درصورتیکه آدرس ایمیل فعلیتان را تغییر دهید، حساب‌کاربری شما تا وقتی که ازطریق ایمیل تایید نشود، بصورت تایید‌نشده نشان داده می‌شود.
+register_show_im:نمایش نشانگرهای IM:
+register_show_im_desc:آیا نشانگرهای IM متعلق به نویسنده در کنار پستش نمایش داده شود؟
+unread_message:پست خوانده‌نشده
+read_message:پست‌خوانده‌شده
+threadt_more:&lt;بیشتر&gt;
+threadt_disabled_ttl:نمای درختی لیست مباحث غیرفعال شده است.
+threadt_disabled_desc:حالت نمای درختی مباحث توسط ادمین غیرفعال شده است. لطفا نمای خطی را به جای آن استفاده کنید.
+threadt_update:مرور انجمن (نمای درختی) <a href="{TEMPLATE: threadt_update_lnk}">{VAR: frm->name}</a>
+mmod_delete_cofirm_ttl:تایید حذف مبحث/پست
+spell_alts:بدون جایگزین
+insert_uploaded_image:وارد‌کردن تصویر درون متن پست
+finduser_help:موتور جستجو بطور خودکار ماسک * را به درخواست شما اضافه خواهد کرد. <b>جستجو به حروف بزرگ و کوچک حساس است</b>.<br />مثلا، برای جستجوی همه کاربرانی که نام‌کاربری‌شان با یک a شروع می‌شود، a را در فیلد جستجو وارد کنید.
+back_to_top:بازگشت به بالای صفحه
+pm_err_disabled_title:پیام‌خصوصی غیرفعال است
+pm_err_disabled_msg:تا زمانیکه گزینه‌ی 'دریافت پیام‌های‌خصوصی' را در پروفایل خود فعال نکنید، قادر به ارسال پیام‌خصوصی نخواهید بود.
+err_mod_acc_ttl:حساب‌کاربری تاییدنشده
+err_mod_acc_msg:همه حسابهای‌کاربری قبل از فعال شدن باید توسط ادمین بررسی شوند. تازمانیکه حساب‌کاربری شما توسط ادمین تایید نشده، شما قادر به استفاده از همه‌ی قابلیت‌های حسابتان نخواهید بود.
+accounts_pending_approval:حساب‌های در انتظار تایید
+saved:ذخیره‌ها
+register_err_time_limit:شما با محدودیت یک ثبت‌نام در هر {GVAR: REG_TIME_LIMIT} ثانیه مواجه هستید. لطفا {PLURAL: reg_limit_reached|$1 ثانیه|$1 ثانیه} صبر کنید و سپس دوباره برای ثبت‌نام اقدام کنید.
+register_affero:نام‌کاربری افرو:<br /><span class="SmallText">اگر شما دارای نام‌کاربری <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">افرو</a> هستید، اینجا واردش کنید.</span>
+im_affero:نام‌کاربری Affero
+register_err_avatardimtobig:ابعاد آواتار <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> بزرگتر از حد مجاز <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b> پیکسل است.
+buddy_offline:{VAR: r[2]} هم‌اکنون آفلاین است
+buddy_online:{VAR: r[2]} هم‌اکنون آنلاین است
+sml_no_smilies:هیچ شکلکی موجود نیست.
+login_unapproved_account_ttl:حساب تاییدنشده
+login_unapproved_account_msg:هرحساب‌کاربری تازه قبل از فعال شدن باید توسط ادمین تایید شود. حساب‌کاربری شما هنوز تایید نشده است، لذا شما به بعضی از امکانات دسترسی نخواهید داشت.
+remove_from_buddy_list:حذف از لیست دوستان
+iemail_msg_author:<b>نویسنده:</b> {VAR: obj->alias}
+iemail_msg_subject:<b>موضوع:</b> {VAR: obj->subject}
+iemail_msg_date:<b>تاریخ:</b> {TEMPLATE: dmsg_post_date}
+iemail_msg_reply:پاسخ دادن
+iemail_msg_quote:نقل‌قول
+iemail_msg_view:مشاهده مبحث/پست
+threadt_sticky:مهم
+threadt_announce:اطلاعیه
+reported_no_messages:هیچ پست گزارش‌شده‌ای وجود ندارد.
+poll_no_polls:هیچ نظرسنجی‌ای وجود ندارد.
+no_unread_messages:هیچ پست خوانده‌نشده‌ای مطابق با شرایط شما پیدا نشد
+thread_mark_all_read:درآوردن پست‌های خوانده‌نشده بصورت خوانده‌شده
+thread_mark_all_read_desc:همه پست‌های خوانده‌نشده‌ی این انجمن بصورت خوانده‌شده در خواهند آمد
+private_no_messages:هیچ پیامی در این پوشه وجود ندارد.
+register_email_change_subject:تایید تغییر ایمیل
+register_email_change_msg:لطفا ایمیل تازه خود "{VAR: uent->email}" که جایگزین ایمیل قبلی شما می‌شود را تایید کنید. "{VAR: old_email}" ، کافیست به آدرس پایین بروید:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nپس از تایید آدرس ایمیل تازه‌تان، حساب‌کاربری انجمن شما مجددا فعال خواهد شد.
+iemail_thread_unsub:لغو اشتراک از این مبحث
+iemail_forum_unsub:لغو اشتراک از این انجمن
+primary_group_prefix:گروه اصلی برای انجمن:
+group_resources:این گروه دسترسی انجمن‌های زیر را کنترل می‌کند
+register_admin_newuser_title:یک کاربر تازه ثبت‌نام کرده و حساب‌کاربری‌اش درانتظار تایید است
+register_admin_newuser_msg:یک کاربر تازه ({VAR: uent->login}) اخیرا ثبت‌نام کرده است، اما ازآنجاییکه 'نیاز به تایید حساب‌کاربری' فعال است، حساب‌کاربری او تا زمانیکه توسط شما یا ادمین دیگری تایید نشود، فعال نخواهد شد. برای بررسی حساب‌کاربری لطفا به اینجا بروید: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nاین یک پیام خودکار است. به این پیام پاسخ ندهید.\nاگر می‌خواهید آگاه‌سازی برای ثبت‌نام‌ کاربران تازه از طریق ایمیل را غیرفعال کنید، می‌توانید به صفحه‌کنترل ادمین بروید و در بخش تنظیمات سراسری انجمن گزینه‌ی "New Account Notification" را به "No" تغییر دهید.
+post_mod_msg_notify_title:یک پست‌ تازه در انجمن "{VAR: frm->name}" در انتظار‌ تایید است
+post_mod_msg_notify_msg:یک پست تازه با موضوع "{VAR: msg_post->subject}" در انجمنی که شما مدیریت می‌کنید ارسال شده است. برای بررسی این پست به اینجا بروید: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nاین یک پیام خودکار است. به این پیام پاسخ ندهید.
+thread_printable_pdf:ایجاد پی‌دی‌اف قابل‌چاپ
+thread_syndicate:هم‌نشری این انجمن (XML)
+reg_conf_title:تایید ثبت‌نام
+reg_conf_email:<b>تایید ایمیل</b><br />یک ایمیل حاوی آدرس فعالسازی حساب‌کاربری‌تان برای شما ارسال شد. اگر این ایمیل را در ظرف چنددقیقه‌ دریافت نکردید، وارد حساب‌کاربری‌تان شوید و از درستی ایمیلی که تایین کرده‌اید اطمینان حاصل کنید. وقتی حساب‌تان فعال بشود، شما به همه ویژگی‌های مخصوص کاربران تاییدشده‌ی انجمن دسترسی خواهید داشت.
+reg_conf_account:<b>تایید حساب‌کاربری</b><br />قبل ازینکه حساب‌کاربری‌تان فعال شود باید توسط یک ادمین تایید شود. به محض تایید، ایمیلی برایتان ارسال می‌شود که می‌گوید حساب‌کاربری شما تایید شده است. با اینحال فعلا شما می‌توانید وارد حساب‌کاربری‌تان شوید گرچه به بعضی ویژگی‌های خاص دسترسی نخواهید داشت.
+forum_banned_user:رفتارهای قبلی شما منجر به اخراج همیشگی شما از این انجمن شد. بدرود.
+mnav_description:هدایتگر پست
+mnav_date_limit:محدوده زمانی:
+mnav_forum_limit:جستجو فقط در:
+mnav_all_forums:جستجو در همه انجمن‌ها
+mnav_submit:شروع جستجو
+mnav_no_range:شما باید یک محدوده‌ی زمانی معتبر وارد کنید. این مقدار ‌می‌تواند شامل ممیز اعشاری هم باشد (0.12)، اما باید از صفر بزرگتر باشد.
+mnav_invalid_unit:شما باید یک واحد زمانی معتبر تایین نمایید.
+mnav_invalid_date:محدوده زمانی‌ای که تایین کرده‌اید بزرگتر از حدمجاز است. یک محدوده‌ی زمانی کوچکتر را امتحان کنید.
+mnav_no_results:هیچ پستی مطابق با شرایط بالا پیدا نشد.
+mnav_posted_by:ارسال‌شده توسط:
+mnav_more:بیشتر &raquo;&raquo;
+mnav_minute:دقیقه
+mnav_hour:ساعت
+mnav_day:روز
+mnav_week:هفته
+mnav_month:ماه
+mnav_title:هدایتگر پست
+mnav_update:مرور پست‌ها توسط <a href="{TEMPLATE: mnav_update_lnk}">هدایتگر پست</a>
+pm_notify_subject:[{GVAR: FORUM_TITLE}] آگاه‌سازی پیام‌خصوصی تازه
+pm_notify_body_email:شما یک پیام‌خصوصی تازه با عنوان "{VAR: subject}"، از "{VAR: from}"، در "{GVAR: FORUM_TITLE}" دریافت کرده‌اید.\n\nبرای مشاهده پیام اینجا را کلیک کنید: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nجهت لغو آگاه‌سازی‌های آتی، گزینه‌ی "آگاه‌سازی برای پیام‌خصوصی" را در پروفایل خود غیرفعال کنید.
+register_pm_notification:آگاه‌‎سازی پیام‌خصوصی:
+register_pm_notification_desc:اگر فعال شود، هروقت یک پیام‎خصوصی برایتان ارسال شود، شما آگاه خواهید شد.
+findu_admin_opts_header:اختیارات ادمین
+findu_unban:لغو اخراج
+findu_ban:اخراج
+findu_edit:ویرایش
+findu_delete:حذف
+dmsg_reply_to:در پاسخ به
+dmsg_reply_num:پست #{VAR: obj->reply_to}
+merge_topics:ادغام مباحث
+merge_topics_cp:صفحه‌کنترل ادغام مباحث
+merge_topics_tpl:مباحث موردنظر برای ادغام را انتخاب کنید <span class="SmallText">(باید بیش از یک مبحث انتخاب گردد)</span>
+merge_merge:ادغام مباحث انتخاب‌شده
+merge_next:مباحث بعدی
+merge_prev:مباحث قبلی
+merge_another:رفتن به <a href="{TEMPLATE: merge_another_lnk}">آخرین مبحث ادغام شده</a> یا ادغام مباحث دیگر:
+split_cp:صفحه‌کنترل تقسیم مباحث
+groups_perms_header:دسترسی‌ها <span class="small">(برای مشاهده نوع هرکدام از دسترسی‌ها موشواره را روی آن ببرید)</span>
+register_err_sig_too_long:امضای شما طولی بیشتر از حد مجاز {GVAR: FORUM_SIG_ML} کاراکتر دارد.
+register_sig_limit:{GVAR: FORUM_SIG_ML} کاراکتر <a href="javascript: alert('امضای شما دارای '+document.forms['fud_register'].reg_sig.value.length+' کاراکتر است. حداکثر طول کاراکتر مجاز برای امضا {GVAR: FORUM_SIG_ML} کاراکتر است.');" class="SmallText">طول امضا را بررسی کنید</a>
+adm_account_accepted:حساب‌کاربری شما '{VAR: login}' توسط ادمین تایید شد و فعال است. شما هم‌اکنون می‌توانید انجمن '{GVAR: FORUM_TITLE}' را به عنوان یک کاربر تایید‌شده و ثبت‌نام شده تجربه کنید.
+adm_account_accepted_s:درخواست حساب‌کاربری شما در '{GVAR: FORUM_TITLE}' پذیرفته شد.
+adm_account_rejected:حساب‌کاربری شما '{VAR: login}' توسط ادمین پذیرفته نشد. اگر مایل هستید دلیل این تصمیم را بدانید، از طریق این ایمیل با ادمین تماس حاصل نمایید '{GVAR: ADMIN_EMAIL}'.
+adm_account_rejected_s:درخواست حساب‌کاربری شما '{GVAR: FORUM_TITLE}' پذیرفته نشد.
+thread_on:در
+userinfo_buddy:دوست:
+register_email_addr:آدرس ایمیل:
+reset_suffix:اگر بطور ناخواسته این پیام را دریافت کرده‌اید، لطفا نادیده‌اش بگیرید. اگر علی‌رغم عدم درخواست شما، چند کپی از این ایمیل برای شما ارسال شده، لطفا از این طریق {GVAR: ADMIN_EMAIL} با ادمین انجمن تماس حاصل نمایید.\n\nدرخواست فرستاده شده از: {VAR: _SERVER['REMOTE_ADDR']}.
+usrinfo_last_visit:آخرین بازدید:
+mnav_newer:تازه‌تر از
+mnav_older:قدیمی‌تر از
+ip_search_by_ip:جستجوی کاربران بوسیله آی‌پی
+ip_search_syntax:سینتکس پشتیبانی‌شده: 1.2.3.4, 1.2.3, 1.2, 1
+ip_search:جستجو
+ip_analyze_usage:بررسی آی‌پی‌ها
+ip_analyze_usage_descr:لطفا نام‌کاربری دقیق کاربر را وارد کنید.
+ip_users_using:کاربران دارای آی‌پی '{VAR: ip}'
+ip_all_ips:همه آی‌پی‌های '{VAR: user}'
+ip_title:مرورگر آی‌پی
+userinfo_real_name:نام واقعی:
+register_err_alias_notallowed:این نام‌مستعار مجاز نمی‌باشد
+post_err_mod_forum_edit_ttl:خطا
+post_err_mod_forum_edit_msg:شما نمی‌توانید در انجمن مدیریت‌شده پستی را ویرایش کنید.
+dmsg_num:پست #{VAR: obj->id}
+postcheck_session_invalid:جلسه‌ شما منقضی شده است. لطفا مجددا فرم را ارسال نمایید. برای مزاحمت پوزش می‌طلبیم.
+delete_message_extra_desc:<b>اختیاری</b><br />دلیل حذف پست را معین کنید؛ این دلیل ازطریق پیام‌خصوصی برای نویسنده ارسال خواهد شد.
+delete_message_extra_body:متن پست حذف‌شده برای نویسنده ارسال گردد
+delete_msg_removed_ttl:پست شما توسط مدیریت انجمن حذف شد.
+delete_msg_pm_body:پست اصلی
+delete_msg_pm_subject:موضوع: {VAR: data[15]}
+ip_no_whois:اطلاعات هویز برای <b>{VAR: ip}</b> موجود نیست.
+ip_whois_title:مشخصات ISP
+register_theme:پوسته:
+pmsg_trash:خالی‌کردن زباله‌دان
+uc_new_pm:پیام‌های‌خصوصی تازه
+uc_new_topic:مبحث تازه
+uc_new_cat_forum:انجمن‌های مشترک‌شده با پست‌های تازه
+uc_cat_forum:سربرگ &raquo; انجمن
+uc_sub_topics:مباحث مشترک‌شده با پست‌های تازه
+uc_page_title:مشاهده‌ صفحه‌کنترل شخصی.
+search_options:تنظیمات جستجو
+search_user_filter:محدود به کاربر:
+register_none:من را آگاه نکن
+findu_no_conf:کاربر تأیید‌نشده
+register_max_sig_len:حداکثر طول:
+register_turing:لطفا کد کپچای زیر را وارد کنید:
+register_err_turing:کد کپچا نادرست است.
+modque_cat:سربرگ
+modque_forum:انجمن
+idx_compact_forum_row:انجمن‌های موجود:
+mmd_del_title:حذف مباحث
+mmd_mov_title:انتقال مباحث
+mmd_move_threads_to:انجمن مقصد:
+mmd_abort_move:لغو
+mmd_move:انتقال مباحث
+pmsg_pdf_btn:ایجاد آرشیو پی‌دی‌اف
+search_results_hdr:{VAR: total} مورد پیدا شد
+thread_del_all:حذف مباحث
+thread_mov_all:انتقال مباحث
+thread_merge_all:ادغام مباحث
+thread_loc_all:بستن/باز‌کردن مباحث
+dmsg_ip:آی‌پی:
+err_blockedaccnt_title:خطا: حساب‌کاربری شما فیلتر شده است
+err_blockedaccnt_msg:حساب‌کاربری شما بدلیل وجود یکی از فیلترهای کاربری از دسترسی به انجمن مسدود شده است.
+merge_th_page_list:انتخاب صفحه مبحث
+most_users_online:بیشترین تعداد کاربران آنلاین <b>{VAR: st_obj->most_online}</b> نفر در <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b> بوده است.
+sub_unsub_all_forums:لغو‌ اشتراک از همه انجمن‌ها
+sub_unsub_all_topics:لغو‌ اشتراک از همه مباحث
+unbookmark_all_topics:حذف همه بوکمارک‌ها
+tabs_own_posts:پست‌های من
+sml_emoticon:شکلک‌ها
+sml_code:کد
+mnav_sub_only:جستجو فقط در انجمن‌های مشترک‌شده
+register_topics_per_page:تعداد مبحث درهر صفحه:
+login_min_time:فاصله‌زمانی مجاز بین هر سعی برای ورود {VAR: MIN_TIME_BETWEEN_LOGIN} ثانیه است، لطفا {FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)} ثانیه تا سعی بعدی صبر کنید.
+post_not_logged_in:شما وارد نشده‌اید، پست بصورت "مهمان" ارسال خواهد شد.
+post_common_bold:بولد
+post_common_italics:کج
+post_common_underline:زیرخط
+post_common_align_left:چپ‌چین
+post_common_align_center:وسط‌چین
+post_common_align_right:‌راست‌چین
+post_common_link:درج لینک
+post_common_link_popup:آدرس لینک:
+post_common_email:درج آدرس ایمیل
+post_common_email_popup:آدرس ایمیل:
+post_common_image:درج تصویر
+post_common_image_popup:آدرس تصویر:
+post_common_nlist:درج لیست شماره‌دار
+post_common_blist:درج لیست بولت‌دار
+post_common_quote:افزودن نقل‌قول
+post_common_code:افزودن کد
+rating_delete:حذف
+post_always_on_top:تبدیل به اطلاعیه شود
+topic_rating:{VAR: frm->rating} از {PLURAL: frm->n_rating|$1 رای|$1 رای}
+topic_list_rating:{VAR: r[17]} از {PLURAL: r[21]|$1 رای|$1 رای}
+tabs_notifications:آگاه‌سازی‌ها
+finduser_flag:پرچم
+post_descr:شرح مبحث:
+pmsg_on:در
+pmsg_download_dump:نمایش آرشیو همه پیام‌ها
+move_messages:انتقال پست‌ها:
+move_msg_btn:انتقال پست‌ها
+move_msg_th_expl:شناسه‌ی مبحث مقصد را وارد کنید
+captcha_img_alt:تایید کپچا: شما باید متن این تصویر را تشخیص بدهید.
+captcha_img_help:تصویر دارای صفر یا یک نمی‌باشد.
+powered-by:Powered by: FUDforum {GVAR: FORUM_VERSION}.
+copyright:Copyright &copy;2001-2013 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+code_title:کد:
+code_select_all:انتخاب همه
+code_show_hide:نمایش/مخفی‌کردن
+social_sites:شبکه‌های اجتماعی:
+postcheck_min_len_err:پست شما خیلی کوتاه است. پست باید دارای حداقل {PLURAL: post_min_len|$1 کاراکتر|$1 کاراکتر} باشد.
+postcheck_dup_err:لطفا مبحث تکراری ایجاد نکنید.
+btn_new_topic:مبحث تازه
+btn_new_pm:پیام تازه
+btn_post_reply:ارسال پاسخ
+btn_tree_view:نمای‌‌درختی
+btn_flat_view:نمای‌خطی
+btn_about:پروفایل
+btn_small_pm:پیام
+btn_delete:حذف
+btn_edit:ویرایش
+btn_reply:پاسخ
+btn_forward:فوروارد
+btn_quote:نقل‌قول
+btn_email:ایمیل
+btn_show_posts:پست‌ها
+btn_homepage:www
+feed_no_data:هیچ داده‌ی مشابهی پیدا نشد.
+feed_rdf:خوراک RDF
+feed_rss:خوراک RSS2
+feed_atom:خوراک ATOM
+ip_whois_connect_err:عدم‌امکان اتصال به سرور هویز ({VAR: whois_server}): {VAR: errstr}
+custom_filed_required:این فیلد ضروری است.
+pages:صفحات
+page_list_heading:صفحات در دسترس
+page_list_total:{PLURAL: i|$1 صفحه|$1 صفحه} لیست شده است.
+page_update:مرور صفحه
+pm_export_header:پیام‌های‌خصوصی {VAR: usr->alias}
+pm_export_footer:صدور در تاریخ:
+karma:کارما
+karma_track:مدیریت سوابق کاربر:
+karma_delete:حذف
+rate_author:امتیازدهی:
+portal_update:خواندن پرتال انجمن

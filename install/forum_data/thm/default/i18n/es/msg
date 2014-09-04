@@ -973,7 +973,7 @@ reg_conf_email:<b>Confirmation de correo electrónico</b><br />Se le ha enviado 
 reg_conf_account:<b>Confirmación de la cuenta</b><br />Antes de que su cuenta quede activada, necesita ser aprobada por los administradores. Cuando esto ocurra, recibirá un correo electrónico indicando que su cuenta ha sido confirmada. Mientras tanto, podrá usar su cuenta, pero no tendrá acceso a las opciones de los usuarios aprobados.
 forum_banned_user:Sus acciones anteriores tienen como consecuencia que ha sido expulsado de forma permanente de estos foros. Adiós.
 mnav_description:Navegador de mensajes
-mnav_date_limit:Rango para las fechas:
+mnav_date_limit:Intervalo de fechas:
 mnav_forum_limit:Buscar sólo en:
 mnav_all_forums:Buscar en todos los foros
 mnav_submit:Comenzar a buscar

@@ -1,9 +1,11 @@
 # Messages for Message documentation (Message documentation)
 # Exported from translatewiki.net
 # Author: Alex Khimich
+# Author: Amin
 # Author: Breawycker
 # Author: EugeneZelenko
 # Author: Fryed-peach
+# Author: Liuxinyu970226
 # Author: McDutchie
 # Author: Naudefj
 # Author: Rancher
@@ -35,6 +37,7 @@ index_forum:{{Identical|Forum}}
 interests:{{Identical|Interest}}
 legend:{{Identical|Legend}}
 location:{{Identical|Location}}
+locked:{{Identical|Locked}}
 login:Toolbar text shown on every page when you are logged out. Translate it as a title.\n{{Identical|Log in}}
 login_header:Username.
 logout:{{Identical|Log out}}
@@ -42,6 +45,7 @@ members:{{Identical|Member}}
 calendar:{{Identical|Calendar}}
 cal_goto_date:{{Identical|Jump to}}
 cal_update:Used as session status to indicate last known action.\n{{Related|Fud-status}}
+cal_birthday:{{Identical|Birthday}}
 message:{{Identical|Message}}
 move_thread:{{Identical|Move}}
 na:Indication that something is not applicable.<br />\nFor example: ''Last message: n/a'' (user haven't posted any yet).
@@ -352,6 +356,7 @@ thread_mod_delete:{{Identical|Delete}}
 online_today_update:Used as session status to indicate last known action.\n{{Related|Fud-status}}
 post_re:{{Identical|Re}}
 forumsel_goto_forum:Navigate or jump to a particular forum.
+minimsg_thread_view:When posting a reply in a thread, you may want to click the 'Preview quick reply', if you do it, you'll see the "topic view", below which you can see all the posts in that thread.
 split_th_subject:{{Identical|Subject}}
 split_th_forum:{{Identical|Forum}}
 split_th_messages:{{Identical|Message}}

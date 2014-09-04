@@ -2,12 +2,13 @@
 # Exported from translatewiki.net
 # Author: Anakmalaysia
 # Author: Naudefj
+# Author: Pizza1016
 
 action:Tindakan
 add_to_buddy_list:tambahkan ke senarai kawan
-admin:Pentadbir
+admin:Penyelia
 admin_control_panel:Pentadbiran
-administrator:Pentadbir
+administrator:Penyelia
 attachment:Lampiran:
 avatar:Avatar:
 average_post_count:{PLURAL: u->posted_msg_count|$1 Pesanan|$1 Pesanan} (purata {PLURAL: avg|$1 pesanan|$1 pesanan} sehari)

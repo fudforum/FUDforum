@@ -459,7 +459,7 @@ login_cookie_expired:Din kaka har gått ut, och du måste logga in på nytt för
 login_perm_denied:Du har inte rätt att använda den efterfrågade resursen som anonym användare och måste därför logga in.
 login_want_to_register:Vill du registrera dig?
 login_forgot_passwd:Jag har glömt mitt lösenord
-login_use_cookie:Använd cookies<br /><font class="SmallText">Om du använder en offentlig terminal, som t.ex. en dator i  ett bibliotek, skola eller internetkafé, rekommenderar vi att du väljer bort det här alternativet för bättre säkerhet. Om du väljer detta alternative kommer du vara automatiskt inloggad på forumet nästa gång du besöker det från den här datorn.</span>
+login_use_cookie:Använd kakor<br /><font class="SmallText">Om du använder en offentlig terminal, som t.ex. en dator i  ett bibliotek, skola eller internetkafé, rekommenderar vi att du väljer bort det här alternativet för bättre säkerhet. Om du väljer detta alternative kommer du vara automatiskt inloggad på forumet nästa gång du besöker det från den här datorn.</span>
 login_login:Logga in:
 login_login_btn:Logga in
 login_name_required:Användarnamnet är obligatoriskt

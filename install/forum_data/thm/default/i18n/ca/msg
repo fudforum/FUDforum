@@ -201,7 +201,7 @@ unsubscribe_desc:Deixar de rebre avisos referents a nous fils de discussió al f
 updated_on:Actualitzat el:
 user:Usuari
 user_counter:Tenim <b>{VAR: st_obj->user_count}</b> {PLURAL: st_obj->user_count|usuari|usuaris} registrats.
-user_info:Informació de l`usuari
+user_info:Informació de l’usuari
 user_info_l:Informació de l`usuari {VAR: u->alias}
 user_offline:{VAR: obj->login} no està  actualment al fòrum
 user_online:{VAR: obj->login} està  actualment al fòrum
@@ -600,7 +600,7 @@ email_error_unabletolocaddr:Ho sentim, el sistema no ha pogut enviar un correu a
 email_error_body:Es necessita un cos del missatge
 email_error_subject:Es necessita un assumpte
 email_error_namerequired:Es necessita un nom
-email_error_invaliduser:L`usuari no és vàlid
+email_error_invaliduser:L’usuari no és vàlid
 emailconf_err_invkey_title:Error
 emailconf_err_invkey_msg:La clau de confirmació no és vàlida. Si us plau, revisi el seu correu per a assegurar-se que ha anat a la URL correcta
 err_inc_criticaltitle:Error crític

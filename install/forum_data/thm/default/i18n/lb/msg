@@ -109,6 +109,7 @@ sel_unread_messages:Net gelieste Messagen
 send:Schécken
 send_pm_desc:Dësem Benotzer e private Message schécken
 size:Gréisst:
+status:Status:
 sub_to_thread:D'Thema abonnéieren
 subject:Sujet
 subscribe:Abonnéieren
@@ -242,6 +243,7 @@ register_timezone:Zäitzon:
 register_show_email:E-Mail-Adress weisen:
 register_allow_email_msg:E-Mail Messagen erlaben:
 register_allow_email_msg_desc:Anere Benotzer erlaben Iech iwwer dëse Forum E-Mailen ze schécken.
+buddy_status:Status
 add:Derbäisetzen
 buddy_remove:ewechhuelen
 post_normal:Normal
@@ -535,3 +537,4 @@ custom_filed_required:Dëst Feld ass obligatoresch.
 pages:Säiten
 page_list_heading:Disponibel Säiten
 pm_export_header:Privat Message fir {VAR: usr->alias}
+karma_delete:Läschen

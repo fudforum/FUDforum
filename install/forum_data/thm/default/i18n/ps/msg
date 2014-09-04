@@ -25,7 +25,7 @@ image:انځور:
 index_forum:فورم
 interests:لېوالتياوې:
 last_post:وروستی پيغام
-location:استوګنځای:
+location:استوگنځی:
 lock_thread:سرليک تړل
 locked:تړل شوی
 login:ننوتل
@@ -176,7 +176,7 @@ post_forum:فورم:
 post_title:سرليک:
 post_options:خوښنې:
 post_preview_btn:مخليدنه
-post_cancel_btn:ناګارل
+post_cancel_btn:ناگارل
 forum_terms:د فورم شرطونه
 prereg_info:د فورم قوانين
 coppa_fax_telephone:ټيليفون:
@@ -248,7 +248,7 @@ register_change_passwd:پټنوم بدلول
 groupmgr_yes:هو
 groupmgr_no:نه
 groupmgr_member:غړی
-groupmgr_cancel:ناګارل
+groupmgr_cancel:ناگارل
 groupmgr_add_member:غړی ورگډول
 groupmgr_edit:سمول
 groupmgr_delete:ړنگول

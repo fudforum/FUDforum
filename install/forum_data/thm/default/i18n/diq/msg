@@ -201,7 +201,7 @@ register_password:Parola:
 register_conf_pass:Parola tesdiq ke:
 register_name:Name:
 register_your_pass:Parolaya Şıma:
-register_update:Noroc resn
+register_update:Rocane ke
 register_avatar_type:Tipê Avatari
 register_del_avatar:Avatari Hewa dê
 register_avatar:Avatar:
@@ -289,7 +289,7 @@ email_subject:Mewzu:
 email_body:Verê:
 email_submit:E-posta
 poll_create:Vıraze
-poll_update:Noroc resn
+poll_update:Rocane ke
 poll_delete:Bestere
 poll_day:roc
 poll_days:roci

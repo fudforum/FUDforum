@@ -4,6 +4,7 @@
 # Author: Dmitriy
 # Author: Eleferen
 # Author: Fryed-peach
+# Author: Gazimagomedov
 # Author: Kaganer
 # Author: Kv75
 # Author: Lockal
@@ -566,7 +567,7 @@ poll_hours:часов
 poll_month:месяц
 poll_year:год
 poll_week:неделя
-tabs_register:Настройки
+tabs_register:Настройки учетной записи
 tabs_subscriptions:Подписка
 tabs_bookmarkes:Закладки
 tabs_referrals:Приглашенные
