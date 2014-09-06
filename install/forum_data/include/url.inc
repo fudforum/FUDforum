@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2014 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -44,7 +44,7 @@ function get_remote_file($url, $timeout=20, $head_only=false, $max_redirects=3)
 			foreach ($headers as $header)
 				if (substr($header, 0, 10) == 'Location: ') {
 					$responce = get_remote_file(substr($header, 10), $timeout, $head_only, $max_redirects - 1);
-					if ($responce !== null)
+					if ($responce !== null && isset($responce['headers']))
 						$responce['headers'] = array_merge($headers, $responce['headers']);
 					return $responce;
 				}
