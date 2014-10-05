@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: footer.php 5075 2010-11-15 17:59:45Z naudefj $
+* $Id$
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
