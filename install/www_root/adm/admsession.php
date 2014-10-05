@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admsessions.php 4994 2010-09-02 17:33:29Z naudefj $
+* $Id: admsession.php 5791 2014-10-05 10:42:16Z naudefj $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
