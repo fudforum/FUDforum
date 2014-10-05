@@ -47,6 +47,8 @@ cal_goto_date:{{Identical|Jump to}}
 cal_update:Used as session status to indicate last known action.\n{{Related|Fud-status}}
 cal_birthday:{{Identical|Birthday}}
 message:{{Identical|Message}}
+moderator:{{Identical|Moderator}}
+moderators:{{Identical|Moderator}}
 move_thread:{{Identical|Move}}
 na:Indication that something is not applicable.<br />\nFor example: ''Last message: n/a'' (user haven't posted any yet).
 new_posts:{{Identical|New messages}}

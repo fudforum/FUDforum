@@ -5,6 +5,7 @@
 # Author: Klutzy
 # Author: Naudefj
 # Author: Priviet
+# Author: Revi
 # Author: ToePeu
 # Author: 아라
 
@@ -678,7 +679,7 @@ bookmarked_update:자신의 북마크 목록을 찾아보는 중
 thread_update:<a href="{TEMPLATE: thread_update_lnk}">{VAR: frm->name}</a> 포럼 탐색
 tree_update:<a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a> 주제를 찾아보는 중 (트리 보기)
 userinfo_update:<a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}</a>의 프로필을 보는 중
-ERR_login_msg2:<legend>오류: 로그인하지 않았습니다</legend>이 페이지에 접근하려면 이 포럼의 구성원이어야 합니다.
+ERR_login_msg2:<legend>오류: 로그인하고 있지 않습니다</legend>이 페이지에 접근하려면 이 포럼의 구성원이어야 합니다.
 ERR_disabled_ttl:기능 제한
 ERR_disabled_msg:이 기능은 시스템 관리자가 비활성화했습니다.
 ERR_access_ttl:오류: Insufficient Permissions

@@ -1,6 +1,7 @@
 # Messages for Portuguese (português)
 # Exported from translatewiki.net
 # Author: Crazymadlover
+# Author: Dianakc
 # Author: Fryed-peach
 # Author: GTNS
 # Author: Giro720
@@ -945,7 +946,7 @@ iemail_msg_subject:<b>Assunto:</b> {VAR: obj->subject}
 iemail_msg_date:<b>Data:</b> {TEMPLATE: dmsg_post_date}
 iemail_msg_reply:Responder
 iemail_msg_quote:Citar
-iemail_msg_view:Vêr Tópico/Menssagem
+iemail_msg_view:Ver Tópico/Mensagem
 threadt_sticky:fixo
 threadt_announce:anúncio
 reported_no_messages:Não existem mensagens reportadas.

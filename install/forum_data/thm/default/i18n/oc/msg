@@ -668,7 +668,7 @@ register_welcome_msg:Mercés de vos èsser inscrich,\n\nVaquí un resumit de vò
 register_err_cantreg_title:ERROR : Vos avèm pas pogut inscriure
 regsiter_err_cantreg_msg:Impossible de crear un compte d'utilizaire ; fasètz part d'aqueste problèma a l'administrator : <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:Percor son perfil
-register_register_update:Es sur la pagina d'inscripcion
+register_register_update:Es sus la pagina d'inscripcion
 report_err_nosuchmsg_title:ERROR
 report_err_nosuchmsg_msg:Messatge pas trobat
 reset_err_invalidkey_title:ERROR

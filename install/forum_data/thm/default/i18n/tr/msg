@@ -719,7 +719,7 @@ register_title:Kayıt formu
 reset_title:Parolayı yeniden belirle
 rpasswd_title:Parola değiştirme formu
 error_title:Hata formu
-index_title:Hoşgeldiniz
+index_title:Hoş geldiniz
 search_title:Aranacak sözcükler {VAR-HTML: srch}
 remail_emailsent:E-posta gönderildi
 remail_email:Selam,\n\n{GVAR: FORUM_TITLE} forumunda okumak isteyebileceğin  "{VAR: data->subject}" başlıklı ilginç bir konu var.  Konuya buraya tıklayarak ulaşabilirsin:\n  {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nGönderen: {VAR: usr->alias}

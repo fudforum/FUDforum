@@ -922,7 +922,7 @@ threadt_update:流覽論壇 （樹狀檢視）<a href="{TEMPLATE: threadt_update
 mmod_delete_cofirm_ttl:確認刪除主題/消息
 spell_alts:別無選擇
 insert_uploaded_image:郵件正文中插入圖像
-finduser_help:搜尋引擎會自動添加 * 口罩，您的查詢，<b>搜索是區分大小寫</b>的。<br>如要搜尋所有使用者他們的登入開頭一 'a'，輸入 a 到搜尋框。
+finduser_help:搜尋引擎會自動添加 * 口罩，您的查詢，<b>搜尋是區分大小寫</b>的。<br>如要搜尋所有使用者他們的登入開頭一 'a'，輸入 a 到搜尋框。
 back_to_top:返回頂部
 pm_err_disabled_title:私人消息已禁用
 pm_err_disabled_msg:您無法發送私人郵件，直到您在您的設定檔中啟用允許私人郵件選項。
@@ -1082,7 +1082,7 @@ unbookmark_all_topics:刪除書籤
 tabs_own_posts:顯示自己的帖子
 sml_emoticon:圖釋
 sml_code:代碼
-mnav_sub_only:在已訂閱論壇只搜索
+mnav_sub_only:只在已訂閱論壇搜尋
 register_topics_per_page:每頁的主題：
 login_min_time:本論壇允許前後兩次登入嘗試時間間隔是{VAR: MIN_TIME_BETWEEN_LOGIN}，請等待{FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)}秒後再嘗試。
 post_not_logged_in:您當前未登錄，將以匿名方式發佈的消息。
