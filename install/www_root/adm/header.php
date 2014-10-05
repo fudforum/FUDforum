@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2014 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id: header.php 5075 2010-11-15 17:59:45Z naudefj $
 *
@@ -131,7 +131,7 @@ jQuery(document).ready(function() {
 
 	<span class="linkgroup">Content</span>
 	<ul class="menu">
-	<-- li><a title="Manage the forum's portal" href="admportal.php?<?php echo __adm_rsid; ?>">Portal Manager</a></li -->
+	<!-- li><a title="Manage the forum's portal" href="admportal.php?<?php echo __adm_rsid; ?>">Portal Manager</a></li -->
 	<li><a title="Add, edit and remove static pages" href="admpages.php?<?php echo __adm_rsid; ?>">Page Manager</a></li>
 	<li><a title="Manage events and calendar settings" href="admcalendar.php?<?php echo __adm_rsid; ?>">Calendar Manager</a></li>
 	<li><a title="Announce important news" href="admannounce.php?<?php echo __adm_rsid; ?>">Announcement Manager</a></li>
