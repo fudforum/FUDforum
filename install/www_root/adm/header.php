@@ -45,7 +45,7 @@ if (defined('popup') ) {	/* Special header for popup pages. */
 <body>
 <div style="display: none;" id="dialogHolder"><p id="dialogContent"><!-- Placeholder for jQuery UI Dialog --></p></div>
 <table class="headtable"><tr>
-  <td><a href="index.php<?php if (defined('__adm_rsid')) echo '?'. __adm_rsid; ?>" title="Return to the Admin Control Panel Dashboard"><img src="../images/fudlogo.gif" alt="" style="float:left;" border="0" /></a>
+  <td><a href="index.php<?php if (defined('__adm_rsid')) echo '?'. __adm_rsid; ?>" title="Return to the Admin Control Panel Dashboard"><img src="../images/fudlogo.gif" width="200px" alt="" style="float:left;" border="0" /></a>
   </td>
   <td><span class="linkhead">Admin Control Panel</span></td>
   <td align="right"><?php if (defined('__fud_index_name__')) { ?>
@@ -131,6 +131,7 @@ jQuery(document).ready(function() {
 
 	<span class="linkgroup">Content</span>
 	<ul class="menu">
+	<-- li><a title="Manage the forum's portal" href="admportal.php?<?php echo __adm_rsid; ?>">Portal Manager</a></li -->
 	<li><a title="Add, edit and remove static pages" href="admpages.php?<?php echo __adm_rsid; ?>">Page Manager</a></li>
 	<li><a title="Manage events and calendar settings" href="admcalendar.php?<?php echo __adm_rsid; ?>">Calendar Manager</a></li>
 	<li><a title="Announce important news" href="admannounce.php?<?php echo __adm_rsid; ?>">Announcement Manager</a></li>

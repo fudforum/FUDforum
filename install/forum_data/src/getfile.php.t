@@ -72,7 +72,7 @@ function get_preview_img($id)
 	}
 
 	$r[1] = reverse_fmt($r[1]);
-	if (!$r[2]) {	// Empty location means we are previewing a message with an attachement.
+	if (!$r[2]) {	// Empty location means we are previewing a message with an attachment.
 		$r[2] = $GLOBALS['FILE_STORE'] . $id .'.atch';
 	}
 
