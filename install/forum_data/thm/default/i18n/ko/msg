@@ -847,7 +847,7 @@ forum_home:홈
 post_cur_attached:현재 첨부된 {PLURAL: i|파일} {VAR: i}개
 ignored_anon_post:{GVAR: ANON_NICK} 무시
 ignored_user_post:<a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a>의 게시글 무시
-smladd_close_window:윈도우 닫기
+smladd_close_window:창 닫기
 post_list_smilies:이모티콘을 모두 나열
 p_VISIBLE:보임
 reported_in_thread:주제 안:

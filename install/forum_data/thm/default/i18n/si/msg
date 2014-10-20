@@ -1,5 +1,6 @@
 # Messages for Sinhala (සිංහල)
 # Exported from translatewiki.net
+# Author: Susith Chandira Gts
 # Author: පසිඳු කාවින්ද
 # Author: බිඟුවා
 # Author: හරිත
@@ -10,7 +11,7 @@ admin:පරිපාලක
 admin_control_panel:පරිපාලනය
 administrator:පරිපාලක
 attachment:ඈඳිය:
-avatar:ප්‍රාදුර්භූතය:
+avatar:මුර්තිය:
 average_post_count:{PLURAL: u->posted_msg_count|පණිවුඩ $1} (දිනකට {PLURAL: avg|සාමාන්‍යය පණිවුඩ $1})
 biography:ජීවන චරිතාපදානය:
 birth_date:උපන් දිනය:
@@ -20,8 +21,8 @@ current_time:දැන් වෙලාව
 custom_avatar_queue:රිසිකළ මුර්ති පෙළ
 date_posted:තැපැල් කෙරූ දිනය
 date_registered:ලියාපදිංචි වූ දිනය:
-download_counter:{PLURAL: v[3]|$1 වතාවක්|$1 වතාවක්} බාගන්නා ලදී
-pmsg_download_counter:{PLURAL: r->dlcount|$1 වතාවක්|$1 වතාවක්} බාගන්නා ලදී
+download_counter:{PLURAL: v[3]|$1 වතාවක්|$1 වතාවක්} බගතකරන ලදී
+pmsg_download_counter:{PLURAL: r->dlcount|$1 වතාවක්|$1 වතාවක්} බගතකරන ලදී
 email:විද්‍යුත් තැපෑල:
 email_to_friend:මිතුරෙකුට විද්‍යුත් තැපෑලක් යවන්න
 email_to_friend_desc:ඊ-තැපෑල හරහා මෙම පිටුවට URL ඔබේ යහළුව(න්) ට යවන්න
@@ -41,7 +42,7 @@ go:යන්න
 goto_next_msg:මීළඟ පණිවුඩය වෙත යන්න
 goto_prev_msg:පෙර පණිවුඩය වෙත යන්න
 home:නිවස
-homepage:නිවස්නපිටුව:
+homepage:මුල් පිටුව:
 icq_control_panel:ICQ මාර්ගගත-පණිවුඩ පැනලය
 icq_message_form:ICQ පණිවුඩ ෆෝරමය:
 ignore_user:මෙම පරිශීලකගෙන් සියලුම පණිවුඩ නොසලකා හරින්න
