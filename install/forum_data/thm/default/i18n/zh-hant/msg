@@ -1107,7 +1107,7 @@ post_always_on_top:把這個問題總是出現在主題清單的頂部
 topic_rating:{VAR: frm->rating}從 {PLURAL: frm->n_rating|   $1  vote| $1 票}
 topic_list_rating:{VAR: r[17]}從 {PLURAL: r[21]|   $1  vote| $1 票}
 tabs_notifications:通知
-finduser_flag:標記
+finduser_flag:國旗
 post_descr:主題說明：
 pmsg_on:在
 pmsg_download_dump:下載郵件轉儲

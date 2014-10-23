@@ -1108,7 +1108,7 @@ post_always_on_top:将帖子置顶
 topic_rating:{VAR: frm->rating} 得票， {PLURAL: frm->n_rating|$1 总票数|$1 总票数}
 topic_list_rating:{VAR: r[17]} 得票， {PLURAL: r[21]|$1 总票数|$1 总票数}
 tabs_notifications:通知
-finduser_flag:标识
+finduser_flag:旗帜
 post_descr:帖子简述
 pmsg_on:在日期
 pmsg_download_dump:查看所有悄悄话
