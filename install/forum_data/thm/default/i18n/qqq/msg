@@ -404,10 +404,10 @@ mnav_description:{{Identical|Message navigator}}
 mnav_date_limit:{{Identical|Date_range}}
 mnav_more:{{Identical|More...}}
 mnav_minute:Used in the message navigator. For example, see http://fudforum.org/forum/index.php?t=mnav&\n{{Identical|Minute}}
-mnav_hour:Used in the message navigator. For example, see http://fudforum.org/forum/index.php?t=mnav&
-mnav_day:Used in the message navigator. For example, see http://fudforum.org/forum/index.php?t=mnav&
+mnav_hour:Used in the message navigator. For example, see http://fudforum.org/forum/index.php?t=mnav&\n{{Identical|Hour}}
+mnav_day:Used in the message navigator. For example, see http://fudforum.org/forum/index.php?t=mnav&\n{{Identical|Day}}
 mnav_week:Used in the message navigator. For example, see http://fudforum.org/forum/index.php?t=mnav&
-mnav_month:Used in the message navigator. For example, see http://fudforum.org/forum/index.php?t=mnav&
+mnav_month:Used in the message navigator. For example, see http://fudforum.org/forum/index.php?t=mnav&\n{{Identical|Month}}
 mnav_title:{{Identical|Message navigator}}
 mnav_update:Used as session status to indicate last known action.\n{{Related|Fud-status}}
 findu_edit:{{Identical|Edit}}

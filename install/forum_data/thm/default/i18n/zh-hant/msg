@@ -814,7 +814,7 @@ th_expr_two_week:2週
 th_expr_one_month:1 個月
 th_expr_two_month:2 個月
 th_expr_four_month:4 個月
-th_expr_one_year:1年
+th_expr_one_year:1 年
 thread_mod_delete:刪除
 action_ip:IP
 action_latest_post:最後一條消息

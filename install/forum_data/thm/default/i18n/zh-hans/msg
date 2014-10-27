@@ -1058,7 +1058,7 @@ findu_no_conf:未验证Email
 register_max_sig_len:最大长度:
 register_turing:请输入下面显示的代码:
 register_err_turing:无效的验证码.
-modque_cat:类别:
+modque_cat:分类
 modque_forum:论坛
 idx_compact_forum_row:可用论坛
 mmd_del_title:删除话题

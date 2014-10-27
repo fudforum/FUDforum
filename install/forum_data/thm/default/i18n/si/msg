@@ -21,11 +21,11 @@ current_time:දැන් වෙලාව
 custom_avatar_queue:රිසිකළ මුර්ති පෙළ
 date_posted:තැපැල් කෙරූ දිනය
 date_registered:ලියාපදිංචි වූ දිනය:
-download_counter:{PLURAL: v[3]|$1 වතාවක්|$1 වතාවක්} බගතකරන ලදී
+download_counter:{PLURAL: v[3]|$1 වතාවක්|$1 වතාවක්} බාගතකරන ලදී.
 pmsg_download_counter:{PLURAL: r->dlcount|$1 වතාවක්|$1 වතාවක්} බගතකරන ලදී
 email:විද්‍යුත් තැපෑල:
 email_to_friend:මිතුරෙකුට විද්‍යුත් තැපෑලක් යවන්න
-email_to_friend_desc:ඊ-තැපෑල හරහා මෙම පිටුවට URL ඔබේ යහළුව(න්) ට යවන්න
+email_to_friend_desc:විද්‍යුත් තැපෑල හරහා මෙම පිටුවට ඇති යූආර්එල් ඔබේ යහළුව(න්) ට යවන්න.
 email_user:පරිශීලකට විද්‍යුත් තැපැල් පණිවුඩයක් යවන්න
 faq:උදව්
 first_unread_msg:නොකියවූ පණිවුඩ වෙත යන්න

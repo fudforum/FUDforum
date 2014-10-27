@@ -1082,7 +1082,7 @@ post_not_logged_in:U bent niet aangemeld. Dit bericht wordt anomien opgeslagen.
 post_common_bold:Vet
 post_common_italics:Cursief
 post_common_underline:Onderstrepen
-post_common_align_left:Link uitlijnen
+post_common_align_left:Links uitlijnen
 post_common_align_center:Centreren
 post_common_align_right:Rechts uitlijnen
 post_common_link:Koppeling invoegen
