@@ -253,7 +253,7 @@ cur_ppage_pm:悄悄话通知
 writing_pm:写悄悄话
 browsing_folder:正在浏览 <b>{VAR: folders[$folder_id]}</b> 文件夹
 inbox:收件箱
-draft:草稿箱
+draft:草稿
 sent:发件箱
 trash:垃圾箱
 msg_author:作者
@@ -405,7 +405,7 @@ post_icons:添加图标：
 post_no_icon:不用图标
 post_smiley:表情符号：
 post_format_tools:编辑工具：
-post_upload_file:上传
+post_upload_file:上传文件
 post_file_del:删除
 post_file_name:名称
 post_file_size:大小
@@ -428,7 +428,7 @@ post_cancel_btn:取消
 ignore_users:被拒绝的用户
 add_ignore:添加被拒绝的用户
 forum_terms:论坛协议
-forum_rules:<p>本论坛免费注册！我们希望您务必遵守下列政策和规定。如同意请点击本页最下面的“我同意”按钮。注：如果您点击了此按钮即表明您宣告自己是13岁以上公民；如果您未满13岁，请使用这个表格。</p><p>论坛管理员和版主将尽力清除非法言论，但疏漏在所难免。因此我们在此郑重声明，所有发言都仅代表作者观点，作者言责自负。论坛所有者和开发者对此不负任何责任。</p><p>点击“我同意”按钮即表明您保证不在论坛上发布任何淫秽、色情、反动、暴力等非法言论。</p><p>论坛管理者有权因为任何理由删除、编辑、移动或者关闭任何发言。</p>
+forum_rules:<p>本论坛免费注册！我们希望您务必遵守下列政策和规定。如同意请点击本页最下面的<b>我同意</b>按钮。</p><p>论坛管理员和版主将尽力清除非法言论，但疏漏在所难免。因此我们在此郑重声明，所有发言都仅代表作者观点，作者言责自负。论坛所有者和开发者对此不负任何责任。</p><p>点击“我同意”按钮即表明您保证不在论坛上发布任何淫秽、色情、反动、暴力等非法言论。</p><p>论坛管理者有权因为任何理由删除、编辑、移动或者关闭任何发言。</p>
 forum_rules_13:<p>13岁以下用户必须经过父母或者监护人允许才能成为论坛成员。我们欢迎13岁以下用户加入，但只有在收到父母或者监护人通过传真或电子邮件给我们的签名授权文件以后，我们才能通过您的申请。</p><p>如果您想在我们收到授权文件之前开始注册程序，请点击下面的“我同意”按钮，如果您不想继续注册，请点击“不同意”按钮回到论坛主页。</p><p>您可以在注册后获取授权表格。若想了解更多相关信息，请发邮件至<a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>。</p>
 coppa_conf:COPPA确认
 coppa_before:{TEMPLATE: coppa_date}之前
@@ -448,7 +448,7 @@ coppa_fax_permission:如果同意请签字
 coppa_fax_no_permission:如果不同意请签字
 coppa_fax_parent_name:家长／监护人的真实姓名：
 coppa_fax_relation:和孩子的关系：
-coppa_fax_telephone:电话
+coppa_fax_telephone:电话：
 coppa_fax_email:电邮地址：
 coppa_fax_date:日期：
 coppa_fax_questions:有任何问题请联系 <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
@@ -759,7 +759,7 @@ groupmgr_yes:是
 groupmgr_no:否
 groupmgr_action:操作
 groupmgr_member:成员
-groupmgr_cancel:删除
+groupmgr_cancel:取消
 groupmgr_add_member:添加成员
 groupmgr_update_member:更新成员名单
 groupmgr_edit:编辑
@@ -768,7 +768,7 @@ group_mgr_anon:匿名
 group_mgr_reged:所有注册用户
 show_show:显示：
 group_mgr:论坛板块管理
-group_mgr_edit_btn:编辑论坛
+group_mgr_edit_btn:编辑组
 group_mgr_heading:选择论坛管理员
 group_mgr_group:论坛：
 permission_denied_title:权限被拒绝！
@@ -888,7 +888,7 @@ register_alias_desc:如果你想应用昵称代替你的用户名来显示在论
 register_allow_pm_msg:接受悄悄话
 register_allow_pm_msg_desc:接受论坛其他用户向你发送的悄悄话。
 postcheck_pm_disabled:你不能给 "{VAR-HTML: v}" 发送悄悄话，因为他没有开启悄悄话功能。
-polllist_vote:参加调查
+polllist_vote:投票
 polllist_view_results:查看结果
 polllist_name:调查主题
 polllist_date:发起时间

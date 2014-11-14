@@ -1,5 +1,6 @@
 # Messages for Vietnamese (Tiếng Việt)
 # Exported from translatewiki.net
+# Author: Max20091
 # Author: Minh Nguyen
 # Author: Naudefj
 # Author: Trần Nguyễn Minh Huy
@@ -455,10 +456,8 @@ ppost_save_draft:Lưu tạm
 poll_blank_option:Bạn không thể thêm một mục chọn trống
 poll_del_conf:Nếu bạn muốn xóa mục này ,nhấn phím OK
 poll_name:Tên Bảng Khảo Sát:
-# Fuzzy
-poll_timelimit:Thời hạn
-# Fuzzy
-poll_maxiumvotes:Số phiếu tối đa
+poll_timelimit:Thời hạn:
+poll_maxiumvotes:Số vote tối đa:
 poll_create:Tạo
 poll_update:Cập nhật
 poll_disablesmilies:Vô hiệu hóa biểu tượng cười
@@ -635,8 +634,7 @@ split_thread:Cắt chủ đề
 show_show:Xem :
 group_mgr:Nhóm quản lý
 permission_denied_title:Cho phép đã bị từ chối
-# Fuzzy
-group_mgr_search:Find User
+group_mgr_search:Tìm User
 rate_worst:Tệ nhất
 rate_best:Tốt nhất
 post_quote_msg:{VAR: msg->login} được viết vào {TEMPLATE: make_report_date}
@@ -662,11 +660,9 @@ drawmsg_view_rest_post:Xem những bài viết còn lại
 post_re:Trả lời:
 forumsel_goto_forum:Đến diễn đàn:
 minimsg_thread_view:Xem chủ đề
-# Fuzzy
-quicklogin_login:Tên Đăng Nhập
+quicklogin_login:Đăng Nhập:
 quicklogin_password:Mật khẩu:
 quicklogin_use_cookies:Sử dụng Cookie?
-# Fuzzy
 quicklogin_login_btn:Đăng Nhập
 post_notification_desc:Thông báo khi một ai đó trả lời bài viết này.
 post_all_ext_allowed:(Không có giới hạn)
@@ -810,8 +806,7 @@ uc_sub_topics:Theo dõi chủ đề này với bài viết mới
 uc_page_title:Xem khu vực cá nhân.
 search_options:Chọn lựa tìm kiếm
 search_user_filter:Lọc thành viên:
-# Fuzzy
-register_none:Không thông báo
+register_none:Không thông báo cho tôi
 findu_no_conf:Thành Viên Chưa Xác Nhận
 register_max_sig_len:Độ dài tối đa:
 register_turing:Xin vui lòng nhập vào mã bên dưới:
@@ -822,10 +817,8 @@ idx_compact_forum_row:Những diễn đàn hiện có:
 mmd_del_title:Chủ đề bị xóa
 pmsg_pdf_btn:Tạo trang PDF
 search_results_hdr:Kết quả tìm kiếm được {VAR: total}
-# Fuzzy
-thread_del_all:Xóa tất cả đã được chọn
-# Fuzzy
-thread_mov_all:Di chuyển tất cả đã được chọn
+thread_del_all:Xóa tất cả được chọn
+thread_mov_all:Di chuyển tất cả được chọn
 err_blockedaccnt_title:Lỗi :Tài khoản của bạn đã bị lọc ra ngoài.
 err_blockedaccnt_msg:Tài khoản của bạn đã bị cấm truy cập vào diễn đàn vì bộ lọc người sử dụng đã được thiết lập.
 most_users_online:Thành viên online nhiều nhất là <b>{VAR: st_obj->most_online}</b> vào <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>

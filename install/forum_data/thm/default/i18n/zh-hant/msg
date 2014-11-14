@@ -70,7 +70,7 @@ location:地區：
 lock_thread:鎖定本主題
 locked:被鎖定
 locked_with_new_posts:鎖定（且未讀）
-logged_in_list:登錄用戶列表
+logged_in_list:登入用戶清單
 login:登入
 login_header:帳號：
 logout:登出
@@ -390,7 +390,7 @@ edit_message:應用更改消息
 apply_spell_changes:應用更改拼寫
 post_preview:郵件預覽
 post_logedin_user:已登入用戶
-post_logout:注銷
+post_logout:登出
 post_passwd:過帳密碼：
 post_poll:調查：
 post_create_poll:發起調查
@@ -427,7 +427,7 @@ post_cancel_btn:取消
 ignore_users:忽略的使用者
 add_ignore:忽略用戶
 forum_terms:論壇條款
-forum_rules:<p>本論壇免費註冊！我們希望您務必遵守下列政策和規定。如同意請點擊本頁最下面的“我同意”按鈕。注：如果您點擊了此按鈕即表明您宣告自己是13歲以上公民；如果您未滿13歲，請使用這個表格。</p><p>論壇管理員和版主將盡力清除非法言論，但疏漏在所難免。因此我們在此鄭重聲明，所有發言都僅代表作者觀點，作者言責自負。論壇所有者和開發者對此不負任何責任。</p><p>點擊“我同意”按鈕即表明您保證不在論壇上發布任何淫穢、色情、反動、暴力等非法言論。</p><p>論壇管理者有權因為任何理由刪除、編輯、移動或者關閉任何發言。</p>
+forum_rules:<p>本論壇免費註冊！我們希望您務必遵守下列政策和規定。如同意請點擊本頁最下面的<b>我同意</b>按鈕。</p><p>論壇管理員和版主將盡力清除非法言論，但疏漏在所難免。因此我們在此鄭重聲明，所有發言都僅代表作者觀點，作者言責自負。論壇所有者和開發者對此不負任何責任。</p><p>點擊“我同意”按鈕即表明您保證不在論壇上發布任何淫穢、色情、反動、暴力等非法言論。</p><p>論壇管理者有權因為任何理由刪除、編輯、移動或者關閉任何發言。</p>
 forum_rules_13:<p>13歲以下用戶必須有父母或監護人允許，才能成為論壇成員。我們歡迎13歲以下用戶加入，不過只有在收到父母或者監護人，透過傳真或電子郵件交給我們簽名授權文件後，才能通過您的申請。 </p><p>如果您想在我們收到授權文件之前開始註冊程序，請點擊下面的“我同意”按鈕，如果您不想繼續註冊，請點擊“不同意”按鈕回到論壇主頁。 </p><p>您可以在這裡下載授權表格，想了解更多的信息請發電子郵件至<a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>。 </p>
 coppa_conf:COPPA確認
 coppa_before:{TEMPLATE: coppa_date}之前
@@ -554,7 +554,7 @@ poll_maxiumvotes:最大的票數：
 poll_create:建立
 poll_update:更新
 poll_disablesmilies:禁用表情符號
-poll_create_poll:創建調查
+poll_create_poll:建立調查
 poll_update_poll:更新投票
 poll_delete:刪除
 poll_updateoption:更新選項
@@ -1042,7 +1042,7 @@ delete_msg_pm_body:原帖
 delete_msg_pm_subject:主題：{VAR: data[15]}
 ip_no_whois:Whois 資訊<b> {VAR: ip} </b>不可用。
 ip_whois_title:ISP 資訊
-register_theme:佈景主題
+register_theme:佈景主題：
 pmsg_trash:清空垃圾箱
 uc_new_pm:新的短消息
 uc_new_topic:新主題
@@ -1066,7 +1066,7 @@ mmd_move_threads_to:論壇目標：
 mmd_abort_move:取消
 mmd_move:移動主題
 pmsg_pdf_btn:使 PDF 歸檔
-search_results_hdr:{VAR: total}找到的搜索結果
+search_results_hdr:{VAR: total}找到的搜尋結果
 thread_del_all:刪除已選擇的
 thread_mov_all:删除已選擇的
 thread_merge_all:整合已選取的

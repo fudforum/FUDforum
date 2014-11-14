@@ -3,6 +3,7 @@
 # Author: HanV
 # Author: McDutchie
 # Author: Naudefj
+# Author: Robin0van0der0vliet
 # Author: SPQRobin
 # Author: Siebrand
 
@@ -388,7 +389,7 @@ post_passwd:Wachtwoord voor plaatsen van berichten:
 post_poll:Stemming:
 post_create_poll:Stemming aanmaken
 post_poll_delete:Verwijderen
-post_poll_edit:Bewerken
+post_poll_edit:BEWERKEN
 post_mod_opt:Moderatorinstellingen:
 post_thread_type:Onderwerptype:
 post_thread_expiry:Verlooptijd onderwerp:
