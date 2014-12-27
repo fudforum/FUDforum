@@ -150,7 +150,7 @@ sender_name:Име на испраќачот:
 show_posts_by:Прикажи пораки од: {VAR: u_alias}
 size:Големина:
 status:Статус:
-status_line:На таблата има <b>{PLURAL: st_obj->online_users_reg|$1 член|$1 члена}</b>, <b>{PLURAL: st_obj->online_users_hidden|$1 невидлив член|$1 невидливи члена}</b> и <b>{PLURAL: st_obj->online_users_anon|$1 гостин|$1 гости}</b>.
+status_line:На таблата има <b>{PLURAL: st_obj->online_users_reg|$1 член|$1 членови}</b>, <b>{PLURAL: st_obj->online_users_hidden|$1 невидлив член|$1 невидливи членови}</b> и <b>{PLURAL: st_obj->online_users_anon|$1 гостин|$1 гости}</b>.
 sticky:лепенка:
 stop_ignoring:престани со игнорирање на корисников
 sub_to_thread:Претплати се на темата

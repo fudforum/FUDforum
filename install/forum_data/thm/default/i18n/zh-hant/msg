@@ -65,7 +65,7 @@ index_url_redirection:重定向
 interests:興趣：
 last_post:最新帖子
 last_thread_msg:轉入本主題最後一個帖子。
-legend:圖例：
+legend:說明
 location:地區：
 lock_thread:鎖定本主題
 locked:被鎖定
@@ -433,7 +433,7 @@ coppa_conf:COPPA確認
 coppa_before:{TEMPLATE: coppa_date}之前
 coppa_after:{TEMPLATE: coppa_date}之後
 coppa_link:根據您的出生日期，請選擇
-coppa:對於13歲以下的用戶，只有當倫堂管理員通過電子郵件或者傳真收到了您的父母或者監護人的授權表格以後才能完成註冊。<p>欲知詳情，請聯繫<a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
+coppa:<p>對於13歲以下的用戶，只有當倫堂管理員通過電子郵件或者傳真收到了您的父母或者監護人的授權表格以後才能完成註冊。</p><p>欲知詳情，請連絡<a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a></p>
 prereg_info:論壇規則
 prereg_agree:同意
 prereg_disagree:不同意
@@ -520,7 +520,7 @@ remail_error:有一個錯誤
 mklist_type:類型：
 mklist_option:選項：
 mklist_additem:添加項
-mklist_apply:應用
+mklist_apply:套用
 mklist_delete:刪除
 qbud_nick_name:昵稱
 qbud_add_selected:添加所選
@@ -575,7 +575,7 @@ tabs_buddy_list:好友清單
 tabs_ignore_list:忽略清單
 tabs_private_messaging:悄悄話
 single_msg_delete:在要<span class="ErrorText">刪除</span>郵件標題為：<b>{VAR: data[3]}</b>
-thread_delete:在要<span class="ErrorText">刪除</span>標題為的<span class="ErrorText">整個主題</span>：<b>{VAR: data[3]}</b>
+thread_delete:您正要<span class="ErrorText">刪除</span>標題為 <b>{VAR: data[3]}</b> 的<span class="ErrorText">整個主題</span>
 delete_proceed:<span class="fb">您希望繼續嗎？</span>
 delete_yes:是
 delete_no:否
@@ -680,7 +680,7 @@ register_register_update:註冊頁
 report_err_nosuchmsg_title:錯誤
 report_err_nosuchmsg_msg:沒有此類消息
 reset_err_invalidkey_title:錯誤
-reset_err_invalidkey_msg:無效的密碼復位鍵。它是可能的，您的電子郵件客戶端已經自動打開此頁，復位鍵無效。如果是這樣的話，你應該在短期內收到您的新密碼的電子郵件。如果這樣的電子郵件沒有到達，請重試重設密碼。
+reset_err_invalidkey_msg:無效的密碼復位鍵。它是可能的，您的電子郵件客戶端已經自動開啟此頁，復位鍵無效。如果是這樣的話，你應該在短期內收到您的新密碼的電子郵件。如果這樣的電子郵件沒有到達，請重試重設密碼。
 reset_err_rstconf_title:資訊
 reset_err_rstconf_msg:在接下來的幾分鐘內，您應該會收到您的電子郵件中的指令。
 reset_newpass_title:重設密碼

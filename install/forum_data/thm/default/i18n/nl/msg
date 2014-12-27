@@ -537,7 +537,7 @@ ppost_to:Aan:
 ppost_from_buddy_list:Uit vriendenlijst selecteren
 ppost_find_User:Gebruiker zoeken
 ppost_track_msg:Dit bericht volgen
-ppost_track_msg_desc:U waarschuwen (via privé bericht) wanneer dit bericht gelezen wordt.
+ppost_track_msg_desc:U waarschuwen (via privébericht) wanneer dit bericht gelezen wordt.
 ppost_send:Verzenden
 ppost_save_draft:Concept opslaan
 poll_blank_option:U kunt geen lege optie toevoegen.

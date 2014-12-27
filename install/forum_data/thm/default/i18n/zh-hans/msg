@@ -476,7 +476,7 @@ reset_remind_pass:密码提示问题
 reset_reset_conf:你的密码已经重新设定，并将发送电子邮件给你进行确认。如果没有确认，系统将再次发送确认邮件。
 reset_error:你的个人资料中没有这个电子邮件地址。
 reset_update:重置密码
-rpasswd_change_pass:修改密码
+rpasswd_change_pass:更改密码
 rpasswd_login:登录
 rpasswd_cur_pass:当前密码：
 rpasswd_new_pass:新密码：
@@ -576,7 +576,7 @@ tabs_buddy_list:好友列表
 tabs_ignore_list:黑名单
 tabs_private_messaging:悄悄话
 single_msg_delete:你将要<span class="ErrorText">删除</span>标题为：<b>{VAR: data[3]}</b>的帖子。
-thread_delete:你正要<span class="ErrorText">删除</span>标题为<b>{VAR: data[3]}</b>的整个主题
+thread_delete:你正要<span class="ErrorText">删除</span>标题为<b>{VAR: data[3]}</b>的<span class="ErrorText">整个主题</span>
 delete_proceed:<font size="3"><b>是否继续?</b></font>
 delete_yes:是
 delete_no:否

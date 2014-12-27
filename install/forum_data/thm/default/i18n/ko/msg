@@ -318,7 +318,7 @@ register_avatar_type:아바타 형태:
 register_del_avatar:아바타 삭제
 register_avatar:아바타:
 register_sel_avatar:아바타 선택
-register_custom_avatar_rules:사용자가 설정한 아바타는 관리자의 승인후에 나타납니다.<br /><span class="SmallText">The avatar, should be no larger than <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} pixels</b> and must be in <b>jpg</b>, <b>gif</b> or <b>png</b> format.</span>
+register_custom_avatar_rules:사용자가 지정한 아바타는 관리자가 승인할 때까지 나타나지 않습니다.<br /><span class="SmallText">아바타는, <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} 픽셀</b>보다 크지 않아야 하며 <b>jpg</b>, <b>gif</b> 또는 <b>png</b> 형식이어야 합니다.</span>
 register_custom_avatar_url:사용자 지정 아바타 URL:
 register_preview:미리 보기
 register_custom_avatar_upload:아바타 파일:
@@ -633,7 +633,7 @@ post_err_passwd:바밀번호가 잘못되었습니다.
 post_reply_update:{VAR: frm->name}에서 <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a>에 답변 중
 post_topic_update:<a href="{TEMPLATE: post_topic_update_lnk}">{VAR: frm->name}</a>에 새 토픽 쓰기
 post_error_generic:오류 발생
-postcheck_max_images_err:{GVAR: MAX_IMAGE_COUNT} 이미지 갯수가 초과되었습니다. 이미지 갯수를 줄이십시오.
+postcheck_max_images_err:메시지마다 그림 {GVAR: MAX_IMAGE_COUNT}개보다 많은 것은 허용되지 않습니다. 그림 수를 줄여주세요.
 postcheck_subj_needed:제목이 필요합니다
 postcheck_no_such_user:이 포럼에는 "{FUNC: char_fix(htmlspecialchars($v))}"와 일치하는 사용자가 없습니다.
 postcheck_ignored:차단 리스트에 등록되었기 때문에 "{FUNC: char_fix(htmlspecialchars($v))}"에게 쪽지를 전송할 수 없습니다.
@@ -764,7 +764,7 @@ p_SPLIT:주제 분할
 p_LOCK:주제 잠금
 p_MOVE:주제 이동
 p_SML:이모티콘 사용
-p_IMG:이미지 태그 사용
+p_IMG:그램 태그 사용
 p_SEARCH:검색할 수 있음
 group_mgr_search:사용자 찾기
 group_mgr_indicator:현재 편집중: <b>{VAR: grp->name}</b>
@@ -897,7 +897,7 @@ threadt_disabled_desc:관리자가 계단식 보기를 금지 시켰습니다. �
 threadt_update:포럼 탐색 (계단식) <a href="{TEMPLATE: threadt_update_lnk}">{VAR: frm->name}</a>
 mmod_delete_cofirm_ttl:토픽/게시글 삭제 확인
 spell_alts:대안 없음
-insert_uploaded_image:본문에 이미지 삽입
+insert_uploaded_image:메시지 본문에 그림 넣기
 back_to_top:위로가기
 pm_err_disabled_title:쪽지 사용 불가
 pm_err_disabled_msg:개인 프로파일에서 쪽지 기능을 활성화시켜야 쪽지를 이용할 수 있습니다.

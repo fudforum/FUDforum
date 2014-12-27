@@ -168,8 +168,8 @@ sticky:fijo:
 stop_ignoring:dejar de ignorar a este usuario
 sub_to_thread:Suscribirse al hilo de discusión
 sub_to_thread_desc:Recibir una notificación cuando haya nuevos mensajes en este hilo
-bookmark_thread:Tópico de marcador
-bookmark_thread_desc:Agregar este tópico de tu lista de marcadores
+bookmark_thread:Tema de marcador
+bookmark_thread_desc:Agregar este tema a tu lista de marcadores
 subject:Asunto
 subscribe:Suscribirse
 subscribe_desc:Recibir una notificación cuando se inicie un nuevo hilo en este foro
@@ -1111,12 +1111,12 @@ topic_rating:{VAR: frm->rating} de {PLURAL: frm->n_rating|$1 voto|$1 votos}
 topic_list_rating:{VAR: r[17]} de {PLURAL: r[21]|$1 voto|$1 votos}
 tabs_notifications:Notificaciones
 finduser_flag:Bandera
-post_descr:Descripción de tópico
+post_descr:Descripción del tema:
 pmsg_on:el
 pmsg_download_dump:Descargar volcado de mensajes
 move_messages:Trasladar mensajes
 move_msg_btn:Trasladar mensajes seleccionados
-move_msg_th_expl:Especificar el ID del tópico de destino (puede estar en otros foros)
+move_msg_th_expl:Especificar el id. del tema de destino (puede estar en otros foros)
 captcha_img_alt:Verificación captcha: necesitarás reconocer el texto en esta imagen.
 captcha_img_help:No hay cero o uno en la imagen
 powered-by:Impulsado por: FUDforum {GVAR: FORUM_VERSION}.
@@ -1127,7 +1127,7 @@ code_show_hide:Mostrar/ocultar
 social_sites:Sitios de redes sociales:
 postcheck_min_len_err:Tu mensaje es demasiado corto. El tamaño mínimo es de {PLURAL: post_min_len|$1 caracter|$1 caracteres}.
 postcheck_dup_err:Por favor no crear tópicos duplicados.
-btn_new_topic:Nuevo tópico
+btn_new_topic:Tema nuevo
 btn_new_pm:Nuevo mensaje personal
 btn_post_reply:Publicar respuesta
 btn_tree_view:Vista en árbol

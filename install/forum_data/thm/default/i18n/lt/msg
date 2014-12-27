@@ -3,6 +3,7 @@
 # Author: Beta16
 # Author: Cyklopas
 # Author: Eitvys200
+# Author: Gediminas
 # Author: Ignas693
 # Author: Juoand
 # Author: Mantak111
@@ -26,11 +27,11 @@ date_posted:Rašymo data
 date_registered:Prisiregistravo:
 download_counter:Parsisiųsti {PLURAL: v[3]| $1 laikas | $1 kartų}
 pmsg_download_counter:Parsisiųsti {PLURAL: v[3]| $1 laikas | $1 kartų}
-email:Email:
+email:El. paštas:
 email_to_friend:Siųsti email draugui
 email_to_friend_desc:Siųsti šio puslapio URL nuorodą draugui email paštu.
 email_user:Siųsti vartotojui e-mail žinutę
-faq:D.U.K.
+faq:Pagalba
 first_unread_msg:Pereiti prie neskaitytų pranešimų
 first_unread_msg_desc:Pereiti prie pirmos neskaitytos šios temos žinutės.
 flat_view:Grižti į įprastą vaizdą.
@@ -101,7 +102,7 @@ new_posts:Yra naujų pranešimų
 new_private_messages:Turite <span class="GenTextRed">( {VAR: c} )</span> neskaitytų {PLURAL: c| privačią žinutę | asmeninius pranešimus}
 new_thread:Sukurti naują temą
 newest_user:Naujausias registruotas narys yra
-next_page:Sekantis puslapis
+next_page:Kitas puslapis
 next_thread:Sekanti tema:
 no_messages:Šiame forume nėra pranešimų.<br />Buk pirmas kuris parašys temą šiame forume.
 no_msg_body:Tuščia žinutė
@@ -148,13 +149,13 @@ sel_unanswered_posts:Neatsakyti pranešimai
 sel_unanswered_posts_desc:Toggle the un-answered posts filter (will show only posts that have no replies)
 sel_unread_messages:Neatsakytos žinutės
 sel_unread_messages_desc:Toggle unread message filter (will only show unread messages)
-send:Siūsti
+send:Siųsti
 send_pm_desc:Siūsti privačią žinutę šiam nariui
-sender_email:Siuntėjo email adresas:
+sender_email:Siuntėjo el. paštas:
 sender_name:Siuntėjo vardas:
 show_posts_by:Rodyti: {VAR: u_alias} pranešimus
 size:Dydis:
-status:Būklė:
+status:Būsena:
 status_line:Yra <b>{PLURAL: st_obj->online_users_reg| $1 narys | $1 nariai}, {PLURAL: st_obj->online_users_hidden| $1 nematomas narys | $1 nematomas nariai}</b> ir <b>{PLURAL: st_obj->online_users_anon| $1 svečias | $1 svečių}</b> lankotės šioje lentoje.
 sticky:lipnus:
 stop_ignoring:nustoti ignoruoti vartotoją
@@ -194,10 +195,10 @@ unbookmark_thread_desc:Pašalinti šia temą iš tavo mėgstamiausių sarašo
 unsubscribe:Nutraukti prenumeratą
 unsubscribe_desc:Nebegaučiau pranešimus apie naujus pranešimus forume
 updated_on:Atnaujinta:
-user:Vartotojas
+user:Naudotojas
 user_counter:Mes <b>{VAR: st_obj->user_count}</b> registruotas {PLURAL: st_obj->user_count| Vartotojas | vartotojai}.
-user_info:Nario informacija
-user_info_l:Nario inforcija {VAR: u->alias}
+user_info:Naudotojo informacija
+user_info_l:Naudotojo informacija {VAR: u->alias}
 user_offline:{VAR: obj->login} šiuo metu neprisijungęs
 user_online:{VAR: obj->login} yra šiuo metu prisijunges
 usrinfo_last_post:Paskutinė žinutė:
@@ -209,21 +210,21 @@ vote_for_thread:Balsuoti
 was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> perkelta moderatoriaus į <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a>.
 welcome_message:Labas <b>{VAR: usr->alias}</b>, paskutinį kartą buvai {TEMPLATE: welcome_message_date}
 what_ppl_doing:rodyti ką veikia prisijungę žmonės
-reported_del_report:Pašalinti Pranešimą
+reported_del_report:Naikinti ataskaitą
 reported_reason:Priežastis:
 reported_on:Dėl:
 reported_reported_by:Pranešėjas
 reported_reported_msg:Pranešė Žinutės
 modque_pending_approval:Žinutės laukiama patvirtinimo
 modque_approve:Patvirtinti
-modque_delete:Ištrinti
+modque_delete:Naikinti
 modque_deleteall:Ištrinti viską nuo vartotojo
 modque_no_message:There are no messages pending approval
 pmsg_new_messages:Neperskaitytas asmeninį pranešimą
 pmsg_old_messages:Skaityti asmeninį pranešimą
 deny_recipt:neigia gavimo
 deny_recipt_desc:Nesiųsti patvirtinimo, kad jūs perskaitėte šį pranešimą
-restore_to:Atkurti:
+restore_to:Atkurti į:
 move_to:Perkelti į:
 list_referes_referrals:Rekomenduoti
 list_referes_members:Rekomenduoti nariai
@@ -235,14 +236,14 @@ referals_registered_on:Prisiregistravęs
 referals_action:Veiksmas
 pmsg_all:visi
 pmsg_none:nėra
-folder:Katalogas:
-pmsg_replied:atsakyti
-pmsg_forwarded:perSiųsti
+folder:Aplankas:
+pmsg_replied:atsakyta
+pmsg_forwarded:persiųsta
 pmsg_subject:Tema
 pmsg_author:Autorius
 pmsg_time:Laikas
 pmsg_selected:Pažymėti
-pmsg_delete:Ištrinti
+pmsg_delete:Naikinti
 cur_ppage_pm:Asmeninės žinutės
 writing_pm:Asmeninės žinutės rašymas
 browsing_folder:<b>{VAR: folders[$folder_id]}</b> katalogo peržiūra
@@ -297,12 +298,12 @@ finduser_joindate:Prisijungė
 finduser_action:Veiksmas
 yes:Taip
 no:Ne
-register_email:Email
+register_email:El. paštas
 edit_time_limit:<b>Redagavimo laiko limitas</b>: {GVAR: EDIT_TIME_LIMIT} minučių
 no_edit_time_limit:<b>Redagavimo laiko limitas</b>: Nelimituota
 pmuserloc_login:Vardas:
 pmuserloc_submit:Siųsti
-pmuserloc_user:Vartotojas
+pmuserloc_user:Naudotojas
 pmuserloc_no_result:Nerasta
 register_builtin:Integruotas
 register_specify_url:Atsiųsti logotipą iš interneto
@@ -313,14 +314,14 @@ register_conf_pass:Patvirtinti slaptažodį:
 register_email_desc:Įveskite teisingą email adresą. Nenorėdami publikuoti adreso vešai galite tai nurodyti žemiau esančiuose nustatymuose.
 register_name:Vardas:
 register_your_pass:Jūsų slaptažodis:
-register_update:Atnaujinti
+register_update:Naujinti
 register_avatar_type:Logotipo tipas:
 register_del_avatar:Panaikinti logotipą
 register_avatar:Logotipas:
 register_sel_avatar:Pasirinkti logotipą
 register_custom_avatar_rules:<br /><font class="SmallText">Logotipas negali būti didesnis nei <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} pixels</b> ir turi būti <b>jpg</b>, <b>gif</b>, <b>png</b> arba <b>swf</b> formato.</font>
 register_custom_avatar_url:Jūsų logotipo URL adresas internete:
-register_preview:Peržiūrėti
+register_preview:Peržiūra
 register_custom_avatar_upload:Jūsų logotipo failas:
 register_register:Registruotis
 register_required:Būtina informacija
@@ -354,7 +355,7 @@ register_show_sig:Rodyti parašą:
 register_show_sig_desc:Galite įjungti arba išjungti kitų narių parašo rodymą žinutės teksto pabaigoje.
 register_use_sig_default:Ar naudoti parašą:
 register_use_sig_default_desc:Automatiškai pridėti parašą po jūsų žinučių teksto pabaigoje.
-register_timezone:Laiko zona:
+register_timezone:Laiko juosta:
 register_ignore_admin:Ignoruoti bendras informacines žinutes:
 register_invisible_mode:Nematomas vartotojas:
 register_invisible_mode_desc:Panaikina jūsų vardo publikavimą prisijungusių narių sąraše.
@@ -366,7 +367,7 @@ register_notify_method:Pasirinkite perspėjimo būdą:
 register_notify_method_desc:Nustatykite pageidaujamą pranešimo būdą arba išjungti pranešimai (pavyzdžiui, kai jūs einate į atostogas).
 register_allow_email_msg:Leisti email laiškų siuntimą:
 register_allow_email_msg_desc:Leisti kitiems nariams Siųsti jums email laiškus STREETRACE.lt forumo pagalba.
-buddy_status:Būklė
+buddy_status:Būsena
 my_buddies:Mano draugai
 add_buddy:Įrašyti naują draugą
 add:Irašyti
@@ -388,8 +389,8 @@ post_logedin_user:Prisijungęs narys:
 post_logout:atsijungti
 post_passwd:Siunčiamos Slaptažodis:
 post_poll:Apklausa:
-post_create_poll:SUKURTI APKLAUSĄ
-post_poll_delete:IŠTRINTI
+post_create_poll:KURTI APKLAUSĄ
+post_poll_delete:NAIKINTI
 post_poll_edit:REDAGUOTI
 post_mod_opt:Moderatoriaus veiksmai:
 post_thread_type:Temos rūšis:
@@ -400,7 +401,7 @@ post_no_icon:Be ženklo
 post_smiley:Šypsenėlės:
 post_format_tools:Tvarkymo įrankiai:
 post_upload_file:Siųsti failą
-post_file_del:Ištrinti
+post_file_del:Naikinti
 post_file_name:Pavadinimas
 post_file_size:Dydis
 file_attachments:Prisegti failai:
