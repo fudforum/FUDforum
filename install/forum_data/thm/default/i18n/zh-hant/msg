@@ -306,7 +306,7 @@ register_email:電子郵箱
 edit_time_limit:<b>編輯時間限制</b>：{GVAR: EDIT_TIME_LIMIT}分鐘
 no_edit_time_limit:<b>編輯時間限制</b>：不限
 pmuserloc_login:登入：
-pmuserloc_submit:提交
+pmuserloc_submit:送出
 pmuserloc_user:使用者
 pmuserloc_no_result:沒有結果
 register_builtin:內置
@@ -748,7 +748,7 @@ thr_exch_orig_forum:原始論壇：
 thr_exch_dest_forum:論壇目標：
 thr_exch_no_threads:沒有等待審批的主題。
 thr_exch_decl_reason:原因下降主題<b> {VAR: data->subject} </b>進入論壇<b>{VAR: data->f2_name}</b>
-thr_exch_submit:提交
+thr_exch_submit:送出
 exch_decline_ttl:移動主題的 {VAR: data->subject} 進入論壇 {VAR: data->f2_name} 被拒絕。
 ppost_original_msg:你是轉發或答覆的郵件
 split_thread:拆分主題

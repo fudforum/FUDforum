@@ -120,7 +120,7 @@ no_unread_locked:本主题已被锁定（不可回复）。
 no_unread_msg:这个主题没有未读信息。
 no_unread_msg_unreg:只有注册用户能够把信息标为已读和未读。
 num_pages:页（{VAR: ttl_pg}）：
-num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|选票|选票}
+num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|选票}
 occupation:职业：
 off:关闭
 on:打开

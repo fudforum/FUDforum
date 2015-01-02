@@ -53,6 +53,7 @@ move_thread:{{Identical|Move}}
 na:Indication that something is not applicable.<br />\nFor example: ''Last message: n/a'' (user haven't posted any yet).
 new_posts:{{Identical|New messages}}
 next_page:{{Identical|Next page}}
+num_pages:{{Identical|Page}}
 occupation:{{Identical|Occupation}}
 off:{{Identical|Off}}\n\nStatus indicator to show if a particular filter option is enabled or not. For example:\n Today's Messages (on)  | Unread Messages (off) | Subscribed Forums (off) | Subscribed Topics (off) | Unanswered Messages (off)<br />\nAlso see {{msg-fud|On}}.
 on:{{Identical|On}}\n\nStatus indicator to show if a particular filter option is enabled or not. For example:\n Today's Messages (on)  | Unread Messages (off) | Subscribed Forums (off) | Subscribed Topics (off) | Unanswered Messages (off)<br />\nAlso see {{msg-fud|Off}}.
