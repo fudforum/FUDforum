@@ -1,0 +1,87 @@
+<?php
+
+/** Print error message and exit. */
+function seterr($msg)
+{
+	if( !defined('STDERR' ) ){
+		define('STDERR', fopen('php://stderr', 'wb'));
+	}
+
+	fwrite(STDERR, $msg ."\n"); 
+	exit;
+}
+
+/** Create an archive of all files requred to install or upgrade a forum. */
+function archive($dir, $compress = FALSE)
+{
+	$dirs = array(realpath($dir));
+	$base = dirname($dirs[0]);
+	$data = '';
+
+	while (list(,$v) = each($dirs)) {
+		if (!($d = opendir($v))) {
+			seterr('Cannot access ['. $path .'].');
+		}
+
+		$dd = str_replace($base, '', $v);
+		if ($dd && ($dd{0} == '/' || $dd{0} == '\\')) {
+			$dd = substr($dd, 1);
+		}
+
+		while (($f = readdir($d))) {
+			if ($f == '.' || $f == '..' || $f == 'CVS' || $f == '.svn') continue;
+
+			if (is_file($v .'/'. $f)) {
+				$fdata = file_get_contents($v .'/'. $f);
+				if ($f == 'lib.js') {
+				 	// Crude JavaScript compression.
+					$multiline_comment = '/\/\*(?!-)[\x00-\xff]*?\*\//';
+					$fdata = preg_replace($multiline_comment, '', $fdata);
+					$singleline_comment = '/[^:]\/\/.*/';
+					$fdata = preg_replace($singleline_comment, '', $fdata);
+					$extra_space = '/\s+/';
+					// $fdata = preg_replace($extra_space, ' ', $fdata);
+					$removable_space = '/\s?([\{\};\=\(\)\/\+\*-])\s?/';
+					$fdata = preg_replace($removable_space, "\\1", $fdata);
+					$empty_lines = '/^\n+|^[\t\s]*\n+/m';
+					$fdata = str_replace($empty_lines, '', $fdata);
+  				}
+				$data .= '//'. $f .'//0600//'. $dd .'//'. md5($fdata) .'//'. strlen($fdata) ."//\n". $fdata ."\n";
+			} else {
+				$data .= '//'. $f .'//0700//'. $dd ."//\n";
+				$dirs[] = $v .'/'. $f;
+			}
+		}
+		closedir($d);
+	}
+
+	$check_sum = md5($data);
+
+	$clean = array('<?' => 'PHP_OPEN_TAG', '<%' => 'PHP_OPEN_ASP_TAG');
+
+	if( $compress ){
+		$a_len = str_pad(strlen($data), 10, '0', STR_PAD_LEFT);
+		$data = $check_sum . $a_len . strtr(gzcompress($data, 9), $clean);
+	} else {
+		$clean['<?'] = 'RAW_PHP_OPEN_TAG';
+		$data = $check_sum . strtr($data, $clean);
+	}
+
+	return $data;
+}
+
+function create_file_archive( $dir, $filename = FALSE, $compress = FALSE ) {
+	error_reporting(E_ALL);
+	@ini_set('display_errors', 1);
+	@ini_set('memory_limit', '128M');	// PHP 5.3's default, old defaults too small.
+	@set_magic_quotes_runtime(0);		// Deprecated in PHP 5.3.
+
+	$archive = archive($dir, $compress);
+
+	if( !$filename ){
+		echo $archive;
+	} else {
+		$ok = file_put_contents( $filename, $archive );
+		if( $ok === FALSE ) seterr( "Error while writing to file $$filename.");
+	}
+}
