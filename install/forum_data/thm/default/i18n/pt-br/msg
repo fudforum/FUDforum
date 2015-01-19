@@ -11,6 +11,7 @@
 # Author: Mordecaista
 # Author: Naudefj
 # Author: Titoncio
+# Author: Webysther
 # Author: 555
 
 action:Ação
@@ -666,7 +667,7 @@ register_err_invalidemail:O endereço de Email que colocou não parece ser um Em
 register_err_needname:Para completar com sucesso o registro, informe o seu nome.
 register_err_enterpasswd:informe a sua Senha atual para completar as alterações
 register_err_adminpasswd:Você deve introduzir a sua senha de <b>administrador</b> para concluir as alterações.
-register_err_notyouremail:Alguém já se registou utilizando este Email, e esse alguem não é você.
+register_err_notyouremail:Alguém já se registrou utilizando este e-mail, e esse alguém não é você.
 register_err_avatartobig:O Arquivo que está a tentar enviar para o servidor é demasiado grande, passa {GVAR: CUSTOM_AVATAR_MAX_SIZE} bytes do limite
 register_err_avatarnotallowed:O avatar que você está enviando para o servidor não é permitido, verifique os tipos de arquivos permitidos.
 register_conf_subject:Confirmação de registro
@@ -960,7 +961,7 @@ iemail_thread_unsub:Remover subscrição desta conversa
 iemail_forum_unsub:Remover subscrição deste fórum
 primary_group_prefix:Grupo primário para o fórum:
 group_resources:Este grupo controla as permissões dos seguintes sub-fórums
-register_admin_newuser_title:Registou-se um novo usuário e a sua conta aguarda confirmacao
+register_admin_newuser_title:Um novo usuário se registrou nessa conta e ela está pendente de confirmação
 register_admin_newuser_msg:Um novo usuário ({VAR: uent->login}) registrou-se no fórum e como a Confirmacao de Conta está ativa, esta conta não será ativada até que seja confirmada por você ou outro administrador do fórum. Para rever a conta clique: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nEste é um processo automático, não responda a esta mensagem.\nSe desejar desligar futuras notificacoes por e-mail de novos registos de usuários através do Painel de Controle de Administracão, alterando o valor de "Notificação de Nova Conta".
 post_mod_msg_notify_title:Nova mensagem no fórum "{VAR: frm->name}" aguardando aprovação
 post_mod_msg_notify_msg:Uma mensagem nova intitulada "{VAR: msg_post->subject}", foi colocada agora num fórum moderado por você. Para revisá-la, consulte: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nEste é um processo automático. Não responda a esta mensagem.

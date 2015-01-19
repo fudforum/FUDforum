@@ -1,12 +1,12 @@
 # Messages for Bulgarian (български)
 # Exported from translatewiki.net
 # Author: DCLXVI
+# Author: Vodnokon4e
 
 action:Действие
 add_to_buddy_list:добави в контактна листа
 admin:Админ
-# Fuzzy
-admin_control_panel:Административeн контролeн панел
+admin_control_panel:Администрация
 administrator:Администратор
 attachment:Прикрепен файл:
 avatar:Аватар:
@@ -25,8 +25,8 @@ download_counter:Заредено {VAR: v[3]} пъти
 email:Email:
 email_to_friend:Изпрати по e-mail на приятел
 email_to_friend_desc:Изпрати адреса на това съобщение по e-mail
-email_user:Изпращане на писмо на потребителя
-faq:F.A.Q.
+email_user:Изпращане на писмо до потребителя
+faq:Помощ
 first_unread_msg:Отиди към непрочетените съобщения
 first_unread_msg_desc:Отиди към първото непрочетено съобщение по тази тема
 flat_view:Върни се към плосък изглед по подразбиране
@@ -531,8 +531,7 @@ ppost_save_draft:Запази чернова
 poll_blank_option:Не можеш да добавяш празна опция.
 poll_del_conf:Натисни OK за да изтриеш опцията&nbsp;
 poll_name:Тема на гласуването:
-# Fuzzy
-poll_timelimit:Време за действие
+poll_timelimit:Време на действие:
 poll_maxiumvotes:Максимум гласове:
 poll_create:Създай
 poll_update:Обнови
@@ -561,8 +560,7 @@ tabs_private_messaging:Лична поща
 single_msg_delete:You are about to <font color="#ff0000" size="4">DELETE</font> a message titled: <b>{VAR: data[3]}</b>
 # Fuzzy
 thread_delete:You are about to <font color="#ff0000" size="4">DELETE</font> the <font color="#ff0000" size="4">ENTIRE TOPIC</font> titled: <b>{VAR: data[3]}</b>
-# Fuzzy
-delete_proceed:<font size="3"><b>Наистина ли искаш да продължиш?</b></font>
+delete_proceed:<span class="fb">Искате ли да продължите?</span>
 delete_yes:Да
 delete_no:Не
 error_invalidurl:Несъществуващ адрес
@@ -612,8 +610,7 @@ pm_update:Използване на лична поща
 post_err_lockedthread_title:ГРЕШКА: Затворена тема&nbsp;
 post_err_lockedthread_msg:Тази тема е затворена, не се допуска изпращане на повече съобщения
 err_coppa_title:ГРЕШКА: Акаунта ти още не е потвърден
-# Fuzzy
-err_coppa_msg:Все още не сме получили разрешение от твоя родител или официален настойник за да публикуваш съобщения. Ако бланката за разрешение COPPA е изгубена <a href="{TEMPLATE: err_coppa_msg_lnk}">натисни тук</a> за да я имаш отново.
+err_coppa_msg:Все още не сме получили разрешение от Вашият родител или официален настойник, което ще Ви позволи да публикувате съобщения. Ако бланката за разрешение COPPA е изгубена <a href="{TEMPLATE: err_coppa_msg_lnk}">натисни тук</a> за да я имаш отново.
 post_err_edttimelimit_title:ГРЕШКА
 post_err_edttimelimit_msg:Повече не можеш да променяш това съобщение
 post_err_floodtrig_title:ГРЕШКА: Претоварено - прекалено много желаещи да публикуват.

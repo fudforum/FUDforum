@@ -456,7 +456,7 @@ coppa_fax_login:登录
 coppa_fax_passwd:密码
 coppa_fax_remail:电子邮箱
 coppa_fax_name:名称
-login_not_logedin:你尚未登录。原因是：
+login_not_logedin:您尚未登录。这可能是因为以下原因导致的：
 login_cookie_expired:您的Cookie已到期，您需要登录以便重新续订您的Cookie。
 login_perm_denied:作为匿名用户，只有登录以后才有权限访问相关资源。
 login_want_to_register:先注册？
@@ -473,7 +473,7 @@ rpasswd_invalid_passwd:密码错误
 rpasswd_passwd_nomatch:密码不符
 rpasswd_passwd_length:密码必须至少6个字符
 reset_remind_pass:密码提示问题
-reset_reset_conf:你的密码已经重新设定，并将发送电子邮件给你进行确认。如果没有确认，系统将再次发送确认邮件。
+reset_reset_conf:您的密码已经重新设定，并将发送电子邮件给你进行确认。如果没有确认，系统将再次发送确认邮件。
 reset_error:你的个人资料中没有这个电子邮件地址。
 reset_update:重置密码
 rpasswd_change_pass:更改密码
@@ -494,7 +494,7 @@ report_reporting_about:报告主题：
 report_subject:主题：
 report_by:发布：
 report_posted_on:发帖时间：
-report_give_reason:请填写你报告这个主题的原因：
+report_give_reason:请填写您报告此条消息的原因：
 report_submit_report:完成
 search_entire_msg:全文搜索
 search_subject_only:主题搜索
@@ -738,7 +738,7 @@ approved_avatar_msg:你定制的头像已被系统管理员批准，以后你发
 unapproved_avatar_title:你定制的头像未被批准。
 unapproved_avatar_msg:系统管理员没有批准你的头像。最可能的原因是你的头像太大（字节或者尺寸），还有可能是因为包括不合适的主题文件。如果需要了解更多的相关信息，请和系统管理员联系。
 mvthread_request_move:申请移动本主题
-move_request_reason:你为什么要移动本主题
+move_request_reason:您为什么要移动本主题？
 mvthread_submit_req:提交申请
 thread_exchange:转移主题
 move_request_by:主题转移人：
@@ -748,7 +748,7 @@ thr_exch_decline:拒绝该主题
 thr_exch_orig_forum:转出的论坛：
 thr_exch_dest_forum:目标论坛：
 thr_exch_no_threads:没有需要批复的主题。
-thr_exch_decl_reason:拒绝主题 <b>{VAR: data->subject}</b> 转入<b>{VAR: data->f2_name}</b>论坛的理由。
+thr_exch_decl_reason:拒绝主题 <b>{VAR: data->subject}</b> 转入 <b>{VAR: data->f2_name}</b> 论坛的理由
 thr_exch_submit:发布
 exch_decline_ttl:把主题 {VAR: data->subject} 转移至{VAR: data->f2_name}论坛的要求被拒绝。
 ppost_original_msg:你正在发送或者回复的信息
@@ -851,7 +851,7 @@ post_all_ext_allowed:（无限制）
 maximize_category:增加目录层次
 maximize_message:最大限度地消息
 no_view_perm:很抱歉，你没有察看这个页面的权限
-report_empty_report:你不能提交空的报告，请说明推荐理由。
+report_empty_report:您不能提交空的报告。请说明推荐理由。
 report_already_reported_title:报告已经提交
 report_already_reported_msg:这条信息已被推荐，相关推荐报告在论坛管理信息列表中。
 register_err_toomanyimages:你的个人签名中使用了禁止使用的图片{GVAR: FORUM_IMG_CNT_SIG}。
@@ -1013,7 +1013,7 @@ register_err_sig_too_long:你的签名超长了，最多只能 {GVAR: FORUM_SIG_
 register_sig_limit:{GVAR: FORUM_SIG_ML} characters <a href="javascript: alert('你的签名档共 '+document.forms['fud_register'].reg_sig.value.length+' 字符长。本论坛限制长度为 {GVAR: FORUM_SIG_ML} 个字符。');" class="SmallText">检查签名档长度</a>
 adm_account_accepted:你的帐号 '{VAR: login}' 已经通过审核且已被激活。恭喜你，你现在已经是 {GVAR: FORUM_TITLE}' 论坛的正式注册用户了！
 adm_account_accepted_s:你在论坛 '{GVAR: FORUM_TITLE}' 的注册已被接受！
-adm_account_rejected:你的帐号 '{VAR: login}' 没有通过管理员的审核。请检查帐号是否符合论坛相关规定，如果不能确定问题，请联系 '{GVAR: ADMIN_EMAIL}'.
+adm_account_rejected:您的帐号“{VAR: login}”没有通过管理员的审核。请检查帐号是否符合论坛相关规定，如果不能确定问题，请联系“{GVAR: ADMIN_EMAIL}”。
 adm_account_rejected_s:你在论坛 '{GVAR: FORUM_TITLE}' 注册的帐号未通过审核，请检查是否符合论坛相关规定。
 thread_on:于
 userinfo_buddy:好友：

@@ -77,6 +77,7 @@ sticky:{{Identical|Sticky}}
 subject:{{Identical|Subject}}
 subscribe:{{Identical|Subscribe}}
 thread:{{Identical|Topic}}
+thread_announcement:{{Identical|Announcement}}
 thread_thread:{{Identical|Topic}}
 threads:{{Identical|Topic}}
 time:{{Identical|Time}}
@@ -179,6 +180,7 @@ member_search:Sentence after {{msg-fud|Buddy search}} in the User Control Panel.
 buddy_remove:{{Identical|Remove}}
 post_normal:{{Identical|Normal}}
 post_sticky:{{Identical|Sticky}}
+post_annoncement:{{Identical|Announcement}}
 post_size:{{Identical|Size}}
 post_color:{{Identical|Color}}
 post_font:{{Identical|Font}}
@@ -399,6 +401,7 @@ iemail_msg_reply:Description of link to reply a forum post (shown at the bottom 
 iemail_msg_quote:{{Identical|Quote}}\n\nDescription of link to quote a forum post (shown at the bottom of E-Mail notification messages).
 iemail_msg_view:Description of link to view a forum post on-line (shown at the bottom of E-Mail notification messages).
 threadt_sticky:{{Identical|Sticky}}
+threadt_announce:{{Identical|Announcement}}
 register_admin_newuser_title:{{doc-singularthey}}
 register_admin_newuser_msg:{{doc-singularthey}}\nThe "New Account Notification" string should preferably remain in English. It refers to a setting in the forum's Admin Control Panel which is not localized (only available to forum administrators).
 mnav_description:{{Identical|Message navigator}}

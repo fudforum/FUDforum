@@ -258,8 +258,8 @@ trash:垃圾箱
 msg_author:作者
 avatar_sel_form:頭像選擇表單
 no_avatars:沒有可用的頭像
-month_1:1月
-month_2:2月
+month_1:一月
+month_2:二月
 month_3:3月
 month_4:4月
 month_5:5月
@@ -747,7 +747,7 @@ thr_exch_decline:下降主題
 thr_exch_orig_forum:原始論壇：
 thr_exch_dest_forum:論壇目標：
 thr_exch_no_threads:沒有等待審批的主題。
-thr_exch_decl_reason:原因下降主題<b> {VAR: data->subject} </b>進入論壇<b>{VAR: data->f2_name}</b>
+thr_exch_decl_reason:回絕將話題 <b>{VAR: data->subject}</b> 移動至論壇 <b>{VAR: data->f2_name}</b> 的原因
 thr_exch_submit:送出
 exch_decline_ttl:移動主題的 {VAR: data->subject} 進入論壇 {VAR: data->f2_name} 被拒絕。
 ppost_original_msg:你是轉發或答覆的郵件

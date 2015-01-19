@@ -83,15 +83,18 @@ new_posts:Mesacê Newey
 new_thread:Topiko newe vıraze
 next_page:Pela Peyêne
 next_thread:Topiko Peyên:
+no_new_posts:Mesacê Newey Çıniyê
 no_posts:Mesac Çıno
 num_pages:Peley ({VAR: ttl_pg}):
+occupation:Kar:
 off:Racıne
 on:Akerde
-pm:Mesacê Xususi
+pm:Mesacê Xısusiyi
 poll:Reydayış
 post_count:Amariya Mesaca {VAR: u_pcount}
 posts:Mesaci
 posts_c:Mesaci:
+usrinfo_private_message:Mesaco Xısusi:
 profile:Panela Cerbnayışi
 rate_thread:Meseler ercenê
 rating:Nısbetkerden
@@ -141,7 +144,7 @@ pmsg_author:Rıştener
 pmsg_time:Wext
 pmsg_selected:Weçinıte
 pmsg_delete:Bestere
-cur_ppage_pm:Sistemê Mesacan dê Xususiya
+cur_ppage_pm:Mesacê Xısusiyi
 writing_pm:Xususi Mesac Bınusne
 browsing_folder:<b>Klasorê {VAR: folders[$folder_id]}</b>
 inbox:Dora ameya
@@ -407,7 +410,7 @@ mnav_hour:Sehat(i)
 mnav_day:Roc(i)
 mnav_week:Hefte(y)
 mnav_month:Aşm(i)
-findu_ban:Wedarnê
+findu_ban:Qedexe ke
 findu_edit:Bıvurne
 findu_delete:Bestere
 dmsg_reply_to:no cıwabê mesaciyo
