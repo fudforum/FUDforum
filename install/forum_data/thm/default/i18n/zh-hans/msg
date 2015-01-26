@@ -474,7 +474,7 @@ rpasswd_passwd_nomatch:密码不符
 rpasswd_passwd_length:密码必须至少6个字符
 reset_remind_pass:密码提示问题
 reset_reset_conf:您的密码已经重新设定，并将发送电子邮件给你进行确认。如果没有确认，系统将再次发送确认邮件。
-reset_error:你的个人资料中没有这个电子邮件地址。
+reset_error:在数据库中找不到电子邮件地址
 reset_update:重置密码
 rpasswd_change_pass:更改密码
 rpasswd_login:登录
@@ -631,7 +631,7 @@ post_err_lockedthread_msg:这个主题已被锁定，不能回复
 err_coppa_title:错误：你没有此项权限
 err_coppa_msg:我们还没有收到来自你父母或者法定监护人的关于同意你发布帖子的确认函。 如果丢失了申请表，<a href="{TEMPLATE: err_coppa_msg_lnk}">请点这里</a>。
 err_banned_acct_title:错误:你被屏蔽了.
-err_banned_acct_msg:你的帐号被暂时{IF: $ban_expiry}锁定直到{DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}允许{ENDI} 登录本站，因为本站的&#39s规则.
+err_banned_acct_msg:由于违反了论坛的规则，您的账户被此网站{IF: $ban_expiry}暂时禁止访问，直到{DATE: ban_expiry %Y %B %d %a %H:%M}{ELSE}永久禁止访问{ENDI}。
 post_err_edttimelimit_title:错误
 post_err_edttimelimit_msg:你不能再编辑这条信息
 post_err_noannontopics_msg2:<legend>错误：权限不够</legend>匿名用户不允许发帖。

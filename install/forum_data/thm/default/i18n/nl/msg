@@ -331,7 +331,7 @@ register_occupation:Beroep:
 register_interests:Interesses:
 register_image:Afbeelding:
 register_icq:ICQ:
-register_aim:AIM-gebruiker
+register_aim:AIM-account:
 register_yahoo:Yahoo Messenger:
 register_msnm:MSN Messenger:
 register_homepage:Startpagina:
@@ -854,7 +854,7 @@ post_proc_reveal_spoiler:Spoiler wisselen
 register_jabber:Jabber-gebruiker:
 register_skype:Skype-gebruiker:
 register_twitter:Twitter-gebruiker:
-register_google:Google Chat/IM-gebruiker:
+register_google:Google Chat/IM-account:
 im_jabber:Jabber:
 im_google:Google Talk:
 im_skype:Skype:
@@ -1004,9 +1004,9 @@ split_cp:Beheervenster voor het splisen van onderwerpen
 groups_perms_header:Rechten <span class="small">(ga met uw muis over het recht om het type te bekijken)</span>
 register_err_sig_too_long:Uw ondertekening is langer dan het maximaal aantal toegelaten tekens ({GVAR: FORUM_SIG_ML})
 register_sig_limit:{GVAR: FORUM_SIG_ML} tekens <a href="javascript: alert('Uw ondertekening is '+document.forms['fud_register'].reg_sig.value.length+' tekens lang. Het maximale aantal toegelaten tekens is {GVAR: FORUM_SIG_ML}.');" class="SmallText">Pas de lengte van uw ondertekening aan</a>.
-adm_account_accepted:Uw gebruiker "{VAR: login}" is goedgekeurd door een beheerder en is nu actief. U kunt nu het forum {GVAR: FORUM_TITLE}' gebruiken als bevestigde, geregistreerde gebruiker.
+adm_account_accepted:Uw account "{VAR: login}" is goedgekeurd door een beheerder en is nu actief. U kunt nu het forum {GVAR: FORUM_TITLE}' gebruiken als bevestigde, geregistreerde gebruiker.
 adm_account_accepted_s:Uw gebruikersaanvraag voor '{GVAR: FORUM_TITLE}' is geaccepteerd.
-adm_account_rejected:Uw gebruiker '{VAR: login}' is niet goedgekeurd door een beheerder. Als u de achterliggende reden wilt weten, neem dan contact op met een beheerder via '{GVAR: ADMIN_EMAIL}'.
+adm_account_rejected:Uw account '{VAR: login}' is niet goedgekeurd door een beheerder. Als u de achterliggende reden wilt weten, neem dan contact op met een beheerder via '{GVAR: ADMIN_EMAIL}'.
 adm_account_rejected_s:Uw gebruikersaanvraag voor '{GVAR: FORUM_TITLE}' is afgewezen.
 thread_on:op
 userinfo_buddy:Vriend:
@@ -1067,7 +1067,7 @@ thread_merge_all:Selectie samenvoegen
 thread_loc_all:Selectie op/van slot
 dmsg_ip:IP-adres:
 err_blockedaccnt_title:Fout: uw gebruiker is uitgefilterd.
-err_blockedaccnt_msg:Uw gebruiker is verbannen van het forum vanwege een ingestelde filter.
+err_blockedaccnt_msg:Uw account is verbannen van het forum vanwege een ingestelde filter.
 merge_th_page_list:Onderwerppaginaselectie
 most_users_online:Het hoogste aantal actieve gebruikers was <b>{VAR: st_obj->most_online}</b> op <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
 sub_unsub_all_forums:Abonnement op alle forums opheffen

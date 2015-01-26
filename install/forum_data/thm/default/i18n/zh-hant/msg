@@ -473,7 +473,7 @@ rpasswd_passwd_nomatch:密碼不匹配
 rpasswd_passwd_length:密碼必須至少 6 個字元
 reset_remind_pass:密碼提示問題
 reset_reset_conf:將重置您的密碼，併發送給您。如果尚未確認您的電子郵寄地址，確認請求將會重新發送到你。
-reset_error:在資料庫中找不到的電子郵寄地址
+reset_error:在資料庫中找不到電子郵件位址
 reset_update:重設密碼
 rpasswd_change_pass:修改密碼
 rpasswd_login:登入
