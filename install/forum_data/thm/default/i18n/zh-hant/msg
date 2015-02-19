@@ -1121,7 +1121,7 @@ copyright:版權所有 © 2001年-2013 年<a href="http://fudforum.org/">FUDforu
 code_title:代碼：
 code_select_all:全選
 code_show_hide:顯示/隱藏
-social_sites:社交網站：
+social_sites:社群網站：
 postcheck_min_len_err:您的郵件是太短。最小長度是 {PLURAL: post_min_len|   $1  character| $1 字元}。
 postcheck_dup_err:請不要創建重複的主題。
 btn_new_topic:新主題

@@ -1132,7 +1132,7 @@ btn_homepage:www
 feed_no_data:Нема пронајдено совпаднати податоци.
 feed_rdf:RDF канал
 feed_rss:RSS2 канал
-feed_atom:ATOM канал
+feed_atom:АТОМ-канал
 ip_whois_connect_err:Не можам да се поврзам со WHOIS-опслужувачот ({VAR: whois_server}): {VAR: errstr}
 custom_filed_required:Ова поле е задолжително.
 pages:Страници
