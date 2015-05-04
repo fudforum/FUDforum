@@ -1,6 +1,7 @@
 # Messages for Indonesian (Bahasa Indonesia)
 # Exported from translatewiki.net
 # Author: Anakmalaysia
+# Author: ArdWar
 # Author: Bennylin
 # Author: C5st4wr6ch
 # Author: Farras
@@ -11,6 +12,7 @@
 # Author: Kenrick95
 # Author: Naudefj
 # Author: StefanusRA
+# Author: Totosunarto
 
 action:Tindakan
 add_to_buddy_list:tambahkan ke daftar teman
@@ -30,9 +32,9 @@ date_posted:Tgl dimasukkan
 date_registered:Tgl terdaftar:
 download_counter:Diunduh {PLURAL: v[3]|$1 time|$1 times}
 pmsg_download_counter:Diunduh {PLURAL: r->dlcount|$1 time|$1 times}
-email:Surat-e:
-email_to_friend:E-mail ke teman
-email_to_friend_desc:Kirim URL halaman ini ke teman melalui e-mail
+email:Surel:
+email_to_friend:Surel ke teman
+email_to_friend_desc:Kirim URL halaman ini ke teman melalui surel
 email_user:Kirim pengguna pesan e-mail
 faq:Bantuan
 first_unread_msg:Menuju ke pesan blm terbaca
@@ -153,7 +155,7 @@ sel_unread_messages:Belum terbaca
 sel_unread_messages_desc:Hidup/matikan filter pesan belum terbaca (hanya menampilkan pesan belum terbaca)
 send:Kirim
 send_pm_desc:Kirim pesan pribadi ke pengguna ini
-sender_email:E-mail pengirim:
+sender_email:Surel pengirim:
 sender_name:Nama pengirim:
 show_posts_by:Tampilkan pesan-pesan dari: {VAR: u_alias}
 size:Ukuran:
@@ -300,7 +302,7 @@ finduser_joindate:Tgl bergabung
 finduser_action:LAkukan
 yes:Ya
 no:Tidak
-register_email:Surat-e
+register_email:Surel
 edit_time_limit:<b>Batas waktu menyunting</b>: {GVAR: EDIT_TIME_LIMIT} menit
 no_edit_time_limit:<b>Batas waktu perbaikan</b>: Unlimited
 pmuserloc_login:Masuk log
@@ -313,7 +315,7 @@ register_uploaded:Kirimkan Avatar
 register_login:Masuk log
 register_password:Kata sandi:
 register_conf_pass:Konfirmasi Password:
-register_email_desc:Masukkan e-mail yang sah. Anda bisa menyembunyikan e-mail, lakukan di bagian kesukaan.
+register_email_desc:Masukkan surel yang sah. Anda bisa menyembunyikan surel, lakukan di bagian kesukaan.
 register_name:Nama:
 register_your_pass:Kata sandi Anda:
 register_update:Perbarui
@@ -361,14 +363,14 @@ register_timezone:Area Waktu:
 register_ignore_admin:Acuhkan pesan administratif:
 register_invisible_mode:mode sembunyi:
 register_invisible_mode_desc:Sembunyikan status anda
-register_show_email:Tampilkan alamat e-mail:
-register_show_email_desc:Pilih ini jika anda ingin e-mail anda ditampilkan ke umum.
+register_show_email:Tampilkan alamat surel:
+register_show_email_desc:Pilih ini jika anda ingin surel Anda ditampilkan ke umum.
 register_notification:Pemberitahuan secara otomatis:
 register_notification_desc:Jika pemberitahuan dipilih otomatis, bisa dihentikan saat menulis pesan.
 register_notify_method:Metode pemberitahuan:
 register_notify_method_desc:Atur preferensi metode pemberitahuan anda atau menonaktifkan pemberitahuan (misalnya ketika Anda pergi berlibur).
-register_allow_email_msg:Ijinkan pesan e-mail:
-register_allow_email_msg_desc:Ijinkan pengguna lain untuk mengirim e-mail ke anda melalui forum ini.
+register_allow_email_msg:Izinkan pesan surel:
+register_allow_email_msg_desc:Izinkan pengguna lain untuk mengirim surel ke Anda melalui forum ini.
 buddy_status:Status
 my_buddies:Temanku
 add_buddy:Tambah teman
@@ -426,7 +428,6 @@ ignore_users:Pengguna diacuhkan
 add_ignore:Tambah diacuhkan
 forum_terms:Pernyataan Forum
 forum_rules:<p>Pendaftaran untuk forum ini bebas! Kami bersikeras bahwa anda mematuhi peraturan dan kebijakan yang rinci di bawah ini. Jika Anda setuju dengan persyaratan, silahkan tekan tombol <b>Setuju</b> di akhir halaman. Catatan: Dengan menekan tombol Anda menyatakan bahwa Anda berusia lebih dari 13. Jika Anda berusia 13 atau kurang, silakan gunakan formulir registrasi ini. </p> <p> Meskipun para administrator dan moderator forum ini akan selalu berusaha untuk menjaga obyektivitas semua pesan dalam forum ini, tidak mungkin bagi kami untuk memeriksa semua pesan. Semua pesan yang ada mengungkapkan sudut pandang dari penulisnya masing-masing, dan baik pemilik forum atau para pengembang tidak bertanggung jawab atas isi dari setiap pesan tersebut. </p> <p> Dengan mengklik tombol Setuju, Anda menjamin bahwa Anda tidak akan memasukkan segala pesan yang cabul, vulgar, berorientasi seksual, kebencian, mengancam, atau melanggar hukum. </p> <p> Pemilik forum ini memiliki hak untuk menghapus, mengedit, memindahkan atau menutup topik apapun untuk alasan apapun. </p>
-# Fuzzy
 forum_rules_13:<p>Semua pengguna di bawah umur 13 tahun harus meminta izin dari orang tua atau wali mereka untuk mendapatkan keanggotaan  forum. Sementara kami menyambut partisipasi dari anggota di bawah 13, kami meminta orang tua atau wali mengirim faks atau surat formulir izin yang telah ditandatangani sebelum kami memberikan keanggotaan.</p><p>Jika Anda ingin memulai proses registrasi sebelum kami menerima bentuk izin, tekan tombol <b>Setuju</b> di bawah ini. Jika Anda ingin membatalkan registrasi, tekan <b>Tidak setuju</b> untuk kembali ke indeks forum. </p><p>Salinan formulir izin dapat didownload di sini. Untuk informasi lebih lanjut tentang proses pendaftaran, silakan kirim e-mail ke <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
 coppa_conf:Konfirmasi COPPA
 coppa_before:Sebelum {TEMPLATE: coppa_date}
@@ -471,7 +472,7 @@ rpasswd_invalid_passwd:Password salah
 rpasswd_passwd_nomatch:Sandi tidak cocok
 rpasswd_passwd_length:Password minimal 6 karakter
 reset_remind_pass:Pengingat Password
-reset_reset_conf:Password akan ditimpa dan dikirimkan ke anda. Jika anda belum mengkonfirmasikan di alamat e-mail, konfirmasi akan dikirim ulang.
+reset_reset_conf:Kata sandi Anda akan ditimpa dan dikirimkan ke surel Anda. Jika anda belum mengkonfirmasikan di alamat surel, konfirmasi akan dikirim ulang.
 reset_error:E-mail address tidak ada di database
 reset_update:Setel ulang kata sandi
 rpasswd_change_pass:Ubah Password
@@ -505,16 +506,16 @@ search_forum_search:Cari Forum
 move_thread_to:Pindahkan topik <b>{VAR: thr->subject}</b> ke:
 remail_email_topic:E-mail topik ini ke teman
 remail_your_name:Nama anda:
-remail_your_email:E-mail anda:
+remail_your_email:Surel Anda:
 remail_friends_name:Nama teman:
-remail_friends_email:E-mail teman:
+remail_friends_email:Surel teman:
 remail_required:diperlukan
 remail_subject:subyek:
 remail_message:Pesan:
 remail_send_now:Kirim E-mail sekarang
-remail_anon_opt:Salin pesan ini dan letakkan di aplikasi e-mail kesukaan anda dan kirimkan ke teman anda.
+remail_anon_opt:Salin pesan ini dan letakkan di aplikasi surel kesukaan Anda dan kirimkan ke teman anda.
 remail_done:Selesai
-remail_sent_conf:Pengiriman e-mail ke {VAR-HTML: _POST['femail']} tentang topik {VAR: data->subject} sukses.
+remail_sent_conf:Pengiriman surel ke {VAR-HTML: _POST['femail']} tentang topik {VAR: data->subject} sukses.
 remail_error:Ada kesalahan
 mklist_type:Tipe:
 mklist_option:Pilihan:
@@ -535,7 +536,7 @@ email_to:Ke:
 email_pg_title:Surel
 email_subject:subyek:
 email_body:Isi:
-email_submit:Surat-e
+email_submit:Surel
 ppost_quote_msg:{VAR: msg_to_list} ditulis pada {TEMPLATE: ppost_quote_msg_date}
 ppost_quote:Petikan:
 ppost_to:Ke:
@@ -601,7 +602,7 @@ email_error_subject:Isi subyek harus ada
 email_error_namerequired:Nama tidak boleh kosong
 email_error_invaliduser:Pengguna tidak sah
 emailconf_err_invkey_title:Galat
-emailconf_err_invkey_msg:Kode konfirmasi tidak benar. Mohon periksa e-mail anda untuk memastikan kebenaran alamat URL.
+emailconf_err_invkey_msg:Kode konfirmasi tidak benar. Mohon periksa surel Anda untuk memastikan kebenaran alamat URL.
 err_inc_criticaltitle:Kesalahan kritis
 err_inc_criticalmsg:Terjadi kesalahan. Sayangnya, terjadi juga kesalahan dengan sistem pelaporan.
 finduser_update:Mencari pengguna
@@ -650,7 +651,7 @@ postcheck_no_such_user:Tidak ada pengguna dengan nama "{FUNC: char_fix(htmlspeci
 postcheck_ignored:Anda tidak bisa mengirim pesan pribadi ke "{FUNC: char_fix(htmlspecialchars($v))}", karena oeang tersebut mengacuhkan anda.
 postcheck_no_recepient:Pesan tidak terkirim, penerima kosong.
 postcheck_invalid_email:Mohon masukkan alamat e-mail teman anda.
-postcheck_email_subject:Tidak bisa mengirim e-mail tanpa subyek yang jelas.
+postcheck_email_subject:Tidak bisa mengirim surel tanpa subjek yang jelas.
 postcheck_email_body:Tidak bisa mengirim e-mail tanpa isi.
 private_msg_notify_subj:Baca pemberitahuan tentang: {VAR: m->subject}
 private_msg_notify_body:Halo,<br />{VAR: usr->login} sudah membaca pesan pribadi anda tentang "{VAR: m->subject}", pada {TEMPLATE: private_msg_notify_body_date}<br />
@@ -658,10 +659,10 @@ referals_update:Memeriksa pe-referensi
 register_err_short_login:Nama Login yang anda pilih terlalu singkat. Nama Login minimal 4 karakter.
 register_err_login_notallowed:Nama pengguna tersebut tidak diizinkan.
 register_err_loginunique:Nama login harus unik, nama tersebut sudah terpakai.
-register_err_emailexists:alamat e-mail tersebut sudah dihubungkan dengan sebuah akun. Jika anda lupa password, pergunakan bantuan TIMPA Password, jangan mendaftar lagi.
+register_err_emailexists:alamat surel tersebut sudah dihubungkan dengan sebuah akun. Jika Anda lupa kata sandi Anda, pergunakan bantuan Balikkan Kata Sandi alih-alih mendaftar ulang.
 register_err_shortpasswd:Password minimal 6 karakter.
 register_err_passwdnomatch:Password tidak sesuai, mohon dicoba lagi.
-register_err_invalidemail:Alamat e-mail yang anda masukkan tampaknya tidak berlaku.
+register_err_invalidemail:Alamat surel yang anda masukkan tampaknya tidak berlaku.
 register_err_needname:ANda harus memasukkan nama agar proses registrasi sukses.
 register_err_enterpasswd:Password diperlukan untuk melakukan perubahan
 register_err_adminpasswd:Anda harus memasukkan katakunci <b>pengurus</b> untuk melakukan perubahan.
@@ -679,12 +680,11 @@ register_register_update:Halaman Registrasi
 report_err_nosuchmsg_title:GALAT
 report_err_nosuchmsg_msg:Pesan tidak ada
 reset_err_invalidkey_title:GALAT
-reset_err_invalidkey_msg:Kunci penimpaan password tidak benar. Mungkin aplikasi e-mail anda membuka halaman ini, menjadikan kunci tidak berlaku. Jika demikian, dalam beberapa saat lagi, anda akan menerima e-mail dengan password anda yang baru. Jika tidak demikian, silakan ulang proses penimpaan password.
+reset_err_invalidkey_msg:Kunci penimpaan kata sanditidak benar. Mungkin aplikasi surel Anda membuka halaman ini, menjadikan kunci tidak berlaku. Jika demikian, dalam beberapa saat lagi, Anda akan menerima surel dengan kata sandi Anda yang baru. Jika tidak demikian, silakan ulang proses penimpaan kata sandi.
 reset_err_rstconf_title:Informasi
-reset_err_rstconf_msg:Dalam beberapa menit, anda akan menerima petunjuk di e-mail.
+reset_err_rstconf_msg:Dalam beberapa menit, Anda akan menerima petunjuk di surel.
 reset_newpass_title:Timpa password
 reset_newpass_msg:Halo,\n\nSesuai permintaan anda, informasi login anda adalah:\n\nLogin: {VAR: ui[1]}\nPassword: {VAR: passwd}\n\nHarap diingat baik-baik bahwa password anda telah disetel ulang menjadi seperti di atas. Jika anda ingin merubah kembali password Anda\nbisa andalakukan di panel kontrol pengguna di:\n{FULL_ROOT}{ROOT}?t=register
-# Fuzzy
 reset_login_notify:Password anda sudah dikirim melalui e-mail, dalam beberapa saat anda akan menerimanya<br />
 search_update:Mencari pesan
 selmsg_update:Melihat <a href="{TEMPLATE: selmsg_update_lnk}">pesan hari ini</a>
@@ -702,12 +702,12 @@ ERR_access_msg:Anda tidak memiliki izin yang diperlukan untuk melakukan tindakan
 ERR_registration_disabled_ttl:Registrasi di non-aktifkan
 ERR_registration_disabled_msg:Administrator sudah menon-aktifkan proses registrasi, cobalah beberapa saat lagi.
 ERR_emailconf_ttl:SALAH: Akun anda belum dikonfirmasi
-ERR_emailconf_msg:Anda belum mengkonfirmasi akun Anda melalui surat-e.<br /><table border="0"><tr><td><ol><li>Jika Anda belum menerima konfirmasi surat-e,<a href="{TEMPLATE: ERR_emailconf_msg_lnk}"> minta lagi disini</a>.</li><li>Jika {VAR: usr_d->email} bukan surat-e Anda yang benar, <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">isi alamat yang benar disini</a>.</li></ol></td></tr></table>
+ERR_emailconf_msg:Anda belum mengkonfirmasi akun Anda melalui surel.<br /><table border="0"><tr><td><ol><li>Jika Anda belum menerima konfirmasi surat-e,<a href="{TEMPLATE: ERR_emailconf_msg_lnk}"> minta lagi disini</a>.</li><li>Jika {VAR: usr_d->email} bukan surel Anda yang benar, <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">isi alamat yang benar disini</a>.</li></ol></td></tr></table>
 ERR_user_ttl:SALAH: Pengguna tidak ada
 ERR_user_msg:Pengguna tidak ada
 ERR_systemerr_ttl:SALAH: Kesalahan sistem
 ERR_systemerr_msg:Kesalahan sistem telah terjadi, laporkan ke <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a>.
-email_title:Formulir E-mail
+email_title:Formulir Surel
 finduser_title:Cari Pengguna
 help_title:FAQ
 login_title:Formulir Login
@@ -718,7 +718,7 @@ rpasswd_title:Formulir pengubah Password
 error_title:Formulir Kesalahan
 index_title:Selamat datang di forum
 search_title:Mencari {VAR-HTML: srch}
-remail_emailsent:E-mail terkirim
+remail_emailsent:Surel terkirim
 remail_email:Halo,\n\nAda topik menarik tentang "{VAR: data->subject}" di forum {GVAR: FORUM_TITLE} yang mungkin ingin anda baca. Anda dapat melihatnya dari sini:\n {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nYour friend,\n\n{VAR: usr->alias}
 poll_add_option:Tambah pilihan:
 post_opt_html_on:kode <b>HTML</b> di<b>AKTIFKAN</b>
@@ -910,7 +910,7 @@ post_proceed:Proses
 post_moderated_forum:Anda sudah menulis di forum termoderasi. Pesan anda tidak akan terbaca oleh pengguna lain sampai disetujui oleh salah satu moderator atau administrator.
 post_moderated_forum_ttl:Catatan forum termoderasi
 buddy_list_bday:Hari ini {VAR: r[2]} menjadi {VAR: age} tahun
-email_warning_msg:Jika anda mengubah alamat e-mail, akun anda akan dianggap belum sah sampai ada konfirmasi dari e-mail
+email_warning_msg:Jika anda mengubah alamat surel, akun anda akan dianggap belum sah sampai ada konfirmasi dari surel
 register_show_im:Perlihatkan indikator IM
 register_show_im_desc:Apakah indikator IM muncul atau tidak disamping pesan-pesannya.
 unread_message:Pesan belum terbaca
@@ -954,21 +954,21 @@ no_unread_messages:Tidak ada pesan yang sesuai dengan yang anda inginkan.
 thread_mark_all_read:tandai semua pesan di forum ini terbaca
 thread_mark_all_read_desc:Semua pesan akan ditandai sebagai terbaca
 private_no_messages:Tidak ada pesan di folder ini.
-register_email_change_subject:Konfirmasi perubahan E-mail
-register_email_change_msg:Mohon konfirmasikan e-mail baru "{VAR: uent->email}" yang menggantikan e-mail yang lama "{VAR: old_email}", dengan membuka halam ini:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nSesudah mengkonfirmasi, akun anda akan diaktifkan kembali.
+register_email_change_subject:Konfirmasi perubahan surel
+register_email_change_msg:Mohon konfirmasikan surel baru "{VAR: uent->email}" yang menggantikan surel yang lama "{VAR: old_email}", dengan membuka halam ini:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nSesudah dikonfirmasi, akun Anda akan diaktifkan kembali.
 iemail_thread_unsub:Stop langganan topik ini
 iemail_forum_unsub:Stop langganan forum ini
 primary_group_prefix:Group utama forum ini:
 group_resources:Kelompok ini mengontrol perizinan Forum berikut
 register_admin_newuser_title:Pengguna baru sudah mendaftar dan sedang menunggu konfirmasi
-register_admin_newuser_msg:Pengguna baru ({VAR: uent->login}), dan karena konfirmasi di aktifkan, akun tidak aktif sampai disetujui administrator. Untuk memeriksa, silakan ke: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nIni proses otomatis, jangan membalas e-mail ini.\nPemberitahuan lewat e-mail bisa dinon-aktifkan melalui kontrol panel admin. Ubah seting di "Pemberitahuan Akun baru".
+register_admin_newuser_msg:Pengguna baru ({VAR: uent->login}), dan karena konfirmasi diaktifkan, akun tidak aktif sampai disetujui administrator. Untuk memeriksa, silakan ke: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nIni proses otomatis, jangan membalas surel ini.\nPemberitahuan lewat surel bisa dinonaktifkan melalui kontrol panel admin. Ubah setelan di "Pemberitahuan Akun baru".
 post_mod_msg_notify_title:Pesan baru di forum "{VAR: frm->name}" menunggu persetujuan anda
 post_mod_msg_notify_msg:Pesan baru berjudul "{VAR: msg_post->subject}" baru saja dimasukkan di forum yang anda moderasikan. Untum memeriksa,silakan ke: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nIni proses otomatis, jangan membalas email ini.
 thread_printable_pdf:Buat PDF utk pencetakan
 thread_syndicate:Sindikasikan forum ini (XML)
 reg_conf_title:Konfirmasi Pendaftaran
-reg_conf_email:<b>Konfirmasi E-mail</b><br />Sebuah e-mail sudah dikirimkan dengan alamat yang harus anda kunjungi sebelum akun anda aktif. Jika anda tidak menerima e-mail tsb dalam beberapa menit, login dan pastikan e-mail anda benar. Sesudah anda konfirmasikan, semua fasilitas akan tersedia.
-reg_conf_account:<b>Konfirmasi Akun</b><br />Sebelum akun anda aktif, harus ada persetujuan dari administrator. Anda akan menerima pembertahuan melalui e-mail jika sudah disetujui. Sementara ini, anda bisa login tetapi beberapa fasilitas belum tersedia.
+reg_conf_email:<b>Konfirmasi Surel</b><br />Sebuah surel sudah dikirimkan dengan alamat yang harus anda kunjungi sebelum akun Anda aktif. Jika Anda tidak menerima surel tersebut dalam beberapa menit, masuk log dan pastikan surel Anda benar. Sesudah Anda konfirmasikan, semua fasilitas akan tersedia.
+reg_conf_account:<b>Konfirmasi Akun</b><br />Sebelum akun Anda aktif, harus ada persetujuan dari administrator. Anda akan menerima pembertahuan melalui surel jika sudah disetujui. Sementara ini, Anda bisa masuk log tetapi beberapa fasilitas belum tersedia.
 forum_banned_user:Tindakan Anda sebelumnya telah mengakibatkan Anda secara permanen dilarang dari forum ini. Sampai jumpa.
 mnav_description:Navigasi pesan
 mnav_date_limit:Rentang tgl:
@@ -991,7 +991,7 @@ mnav_update:Memeriksa pesan dengan <a href="{TEMPLATE: mnav_update_lnk}">Navigas
 pm_notify_subject:[{GVAR: FORUM_TITLE}] Pemberitahuan Pesan Pribadi Baru
 pm_notify_body_email:Anda mendapat pesan pribadi baru dengan subyek "{VAR: subject}", dari "{VAR: from}", di forum "{GVAR: FORUM_TITLE}".\nUntuk melihat, Tekan disini: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nUntuk menghentikan pemberitahuan, non-aktifkan "Pemberitahuan Pesan Pribadi" di profile anda.
 register_pm_notification:Pemberitahuan Pesan Pribadi
-register_pm_notification_desc:Jika di aktifkan, anda akan menerima e-mail jika ada pesan pribadi untuk anda.
+register_pm_notification_desc:Jika di aktifkan, anda akan menerima surel jika ada pesan pribadi untuk Anda.
 findu_admin_opts_header:Pilihan Admin.
 findu_unban:Ijinkan
 findu_ban:Cekal
@@ -1016,8 +1016,8 @@ adm_account_rejected:Akun Anda '{VAR: login}' ditolak oleh pengurus. Jika Anda i
 adm_account_rejected_s:Permintaan akun Anda di '{GVAR: FORUM_TITLE}' ditolak.
 thread_on:hidup
 userinfo_buddy:Teman:
-register_email_addr:Alamat E-mail:
-reset_suffix:Jika anda menerima pesan ini karena kesalahan, mohon diabaikan. Jika anda menerima beberapa e-mail yang sama, yang tidak anda minta, mohon hubungi administrator di {GVAR: ADMIN_EMAIL}\n\nPermintaan ini dipicu dari: {VAR: _SERVER['REMOTE_ADDR']}.
+register_email_addr:Alamat surel:
+reset_suffix:Jika Anda menerima pesan ini karena kesalahan, mohon diabaikan. Jika Anda menerima beberapa surel yang sama, yang tidak anda minta, mohon hubungi administrator di {GVAR: ADMIN_EMAIL}\n\nPermintaan ini dipicu dari: {VAR: _SERVER['REMOTE_ADDR']}.
 usrinfo_last_visit:Kunjungan terakhir:
 mnav_newer:lebih baru dari
 mnav_older:lebih lama dari
@@ -1094,7 +1094,7 @@ post_common_align_center:Rata tengah
 post_common_align_right:Rata kanan
 post_common_link:Sisipkan pranala
 post_common_link_popup:Lokasi tautan:
-post_common_email:Masukan alamat Surat-e
+post_common_email:Masukan alamat surel
 post_common_email_popup:Alamat surel:
 post_common_image:Masukan berkas
 post_common_image_popup:URL gambar:
@@ -1117,8 +1117,7 @@ move_msg_th_expl:Penetapan ID dari tujuan topik (bisa juga terdapat di Forum lai
 captcha_img_alt:Verifikasi Captcha: Anda harus mengenali teks dalam gambar ini.
 captcha_img_help:Tidak ada nol atau satu pada berkas.
 powered-by:Di dukung oleh: FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:Hak Cipta &copy;2001-2012 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Hak-cipta&copy;2001-2013 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Kode:
 code_select_all:Pilih semua
 code_show_hide:Tampil/ sembunyi
@@ -1156,3 +1155,4 @@ karma:Karma
 karma_track:Kelola reputasi pengguna:
 karma_delete:Hapus
 rate_author:Nilai penulis:
+portal_update:Membaca portal forum

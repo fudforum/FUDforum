@@ -5,6 +5,7 @@
 # Author: Fitoschido
 # Author: Gomoko
 # Author: Hashar
+# Author: Hercule
 # Author: IAlex
 # Author: Jean-Frédéric
 # Author: McDutchie
@@ -31,7 +32,7 @@ by_mod:Par un modérateur
 current_time:Heure actuelle
 custom_avatar_queue:File d'attente des avatars personnalisés
 date_posted:Posté le
-date_registered:Inscrit(e) le :
+date_registered:Date d'inscription :
 download_counter:Téléchargé {PLURAL: v[3]|$1 fois|$1 fois}
 pmsg_download_counter:Téléchargé {PLURAL: r->dlcount|$1 fois|$1 fois}
 email:Courriel :
@@ -143,7 +144,7 @@ rating_track:Gérez les notes pour le sujet <b>{VAR: thr->subject}</b> :
 refresh_list:Rafraîchir la liste
 register:S’inscrire
 registered:Inscrit(e) :
-registered_on:Inscrit(e) le {TEMPLATE: registered_on_date}
+registered_on:Inscription le {TEMPLATE: registered_on_date}
 replies:Réponses
 report_to_mod:Rapporter un message au modérateur
 reported_messages:Messages rapportés
@@ -411,7 +412,7 @@ post_upload_file:Télécharger le fichier
 post_file_del:Supprimer
 post_file_name:Nom
 post_file_size:Taille
-file_attachments:Fichier(s) attaché(s) :
+file_attachments:Fichiers attachés :
 allowed_files:Extensions autorisées pour les fichiers :
 max_file_size:Taille maximum d'un fichier :
 max_files_per_msg:Nombre maximum de fichier(s) par message :
@@ -987,7 +988,7 @@ mnav_more:Plus &raquo;&raquo;
 mnav_minute:minute(s)
 mnav_hour:heure(s)
 mnav_day:jour(s)
-mnav_week:semaine(s)
+mnav_week:semaines
 mnav_month:mois
 mnav_title:Navigateur de messages
 mnav_update:Parcourt les messages à l'aide du <a href="{TEMPLATE: mnav_update_lnk}">Navigateur de messages</a>

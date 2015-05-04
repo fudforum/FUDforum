@@ -5,6 +5,7 @@
 # Author: Chrumps
 # Author: Faren
 # Author: Naudefj
+# Author: Openbk
 # Author: Rezonansowy
 # Author: Rzuwig
 # Author: Sp5uhe
@@ -654,7 +655,7 @@ private_msg_notify_subj:Powiadomienie przeczytania wiadomości o temacie: {VAR: 
 private_msg_notify_body:Witaj,<br />{VAR: usr->login} przeczytał(a) Twoją prywatną wiadomość, "{VAR: m->subject}", dnia {TEMPLATE: private_msg_notify_body_date}<br />
 referals_update:Przeglądanie osób poleconych
 register_err_short_login:Nazwa użytkownika, która została wybrana, jest za krótka. Nazwa użytkownika musi mieć co najmniej 4 znaki
-register_err_login_notallowed:Ta nazwa użytkownika nie jest dozwolona
+register_err_login_notallowed:Ta nazwa użytkownika nie jest dozwolona.
 register_err_loginunique:Nazwy użytkowników muszą być unikalne, a już jest użytkownik o takiej nazwie obecny w systemie
 register_err_emailexists:Ten adres e-mail już istnieje, więc jeśli zapomniałeś hasła, użyj opcji odzyskiwania opcji, zamiast rejestrować się ponownie.
 register_err_shortpasswd:Hasło musi mieć co najmniej 6 znaków.

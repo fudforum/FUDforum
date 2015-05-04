@@ -178,7 +178,7 @@ un_ignore_user:dexar de saltar los mensaxes d'esti usuariu
 unanswered_posts:Mensaxes ensin responder
 unanswered_posts_desc:Amosar tolos mensaxes ensin denguna respuesta
 unlock_thread:Desbloquiar el filu
-unread_msg:Esti filu contién mensaxes qu'inda nun lleísti
+unread_msg:Esti filu contien mensaxes qu'inda nun lleísti
 unread_msg_locked:Filu candáu con mensaxes ensin lleer
 unread_posts:Mensaxes ensin lleer
 unread_posts_desc:Amosar tolos mensaxes ensin lleer
@@ -869,7 +869,7 @@ help_return_to_index:Volver al índiz d'ayuda
 imsg_err_message_title:Mensaxe inválidu
 imsg_err_message_msg:El mensaxe qu'intentes ver nun esiste.
 poll_edit:Editar
-register_err_not_valid_img:La URL especificada nun contién una imaxe válida.
+register_err_not_valid_img:La URL especificada nun contien una imaxe válida.
 pmsg_recepient:Destinatariu
 register_err_taken_alias:L'alcuñu que quies utilizar yá lu ta usando otru miembru del foru. Por favor, escueyi otru.
 register_alias:Alcuñu:
@@ -957,7 +957,7 @@ post_mod_msg_notify_msg:Un nuevu mensaxe tituláu "{VAR: msg_post->subject}" vie
 thread_printable_pdf:Xenerar un PDF pa imprimir
 thread_syndicate:Sindicar esti foru (XML)
 reg_conf_title:Confirmación de rexistru
-reg_conf_email:<b>Confirmación de corréu electrónicu</b><br />Se t'unvió un corréu electrónicu que contién una URL especial a la que necesites entrar antes de que s'active la to cuenta. Si nun recibes esti corréu en dellos minutos, entra na to cuenta y asegurate de que'l corréu electrónicu qu'especificasti ye correutu. Llueu que confirmes la to cuenta, tendrás accesu a les funciones del foru que sólo tán disponibles para los usuarios rexistraos y confirmaos.
+reg_conf_email:<b>Confirmación de corréu electrónicu</b><br />Unviámoste un corréu electrónicu que contien una URL especial a la que necesites entrar antes de que s'active la to cuenta. Si nun recibes esti corréu en dellos minutos, entra na to cuenta y asegurate de que'l corréu electrónicu qu'especificasti ye correutu. Llueu que confirmes la to cuenta, tendrás accesu a les funciones del foru que sólo tán disponibles para los usuarios rexistraos y confirmaos.
 reg_conf_account:<b>Confirmación de la cuenta</b><br />Enantes de que s'active la to cuenta, tien qu'aprobala un alministrador. Cuando lo faiga, recibirás un corréu electrónicu indicando que la to cuenta se confirmó. Mentanto, pues entrar na to cuenta, pero nun podrás usar ciertes funciones.
 forum_banned_user:Les tos aiciones anteriores tienen como consecuencia la to espulsión permanente d'esti foru. Alón.
 mnav_description:Navegador de mensaxes

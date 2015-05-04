@@ -1,5 +1,6 @@
 # Messages for Hungarian (magyar)
 # Exported from translatewiki.net
+# Author: Adam78
 # Author: Csega
 # Author: Dani
 # Author: Dj
@@ -1058,7 +1059,7 @@ mmd_mov_title:Témák áthelyezése
 mmd_move_threads_to:Célfórum:
 mmd_abort_move:Mégse
 mmd_move:Témák áthelyezése
-pmsg_pdf_btn:PDF-archícvum készítése
+pmsg_pdf_btn:PDF-archívum készítése
 search_results_hdr:Összesen {VAR: total} találat van
 thread_del_all:Kiválasztottak törlése
 thread_mov_all:Kiválasztottak áthelyezése

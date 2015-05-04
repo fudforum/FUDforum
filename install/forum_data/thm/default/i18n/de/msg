@@ -8,6 +8,7 @@
 # Author: Hydra
 # Author: JanRei
 # Author: Kghbln
+# Author: Luke081515
 # Author: McDutchie
 # Author: Metalhead64
 # Author: Pill
@@ -16,7 +17,7 @@
 # Author: Umherirrender
 
 action:Aktion
-add_to_buddy_list:zur Buddyliste hinzufügen
+add_to_buddy_list:zur Freundesliste hinzufügen
 admin:Admin
 admin_control_panel:Administration
 administrator:Administrator
@@ -76,14 +77,14 @@ logged_in_list:Liste der angemeldeten Benutzer
 login:Anmelden
 login_header:Benutzername:
 logout:Abmelden
-mark_all_read:Alle Beiträge als gelesen kennzeichnen
+mark_all_read:Alle Beiträge als gelesen markieren
 mark_all_read_desc:Alle Beiträge werden als gelesen gekennzeichnet.
 members:Mitglieder
 calendar:Kalender
 cal_goto_date:Gehe zu:
 cal_day_heading:Ereignisse an diesem Tag
 cal_no_events:Keine Ereignisse an diesem Tag.
-cal_update:Durchsucht den Kalender
+cal_update:Durchsucht den Kalender des Forums
 cal_birthday:Geburtstag: {VAR: user}
 cal_birthdays:{PLURAL: birthdays|Ein Geburtstag|$1 Geburtstage}
 cal_birthday_age:({PLURAL: age|$1 Jahr|$1 Jahre} alt).
@@ -92,7 +93,7 @@ message_counter:Unsere Benutzer haben insgesamt <b>{PLURAL: post_count|$1 Nachri
 message_index:Beitragsindex
 message_index_desc:Liste der Beiträge ansehen
 minimize_category:Kategorie minimieren
-minimize_message:Beitrag minimieren
+minimize_message:Nachricht minimieren
 moderation_queue:Zu überprüfende Beiträge
 moderator:Moderator
 moderator_of:Moderator von:

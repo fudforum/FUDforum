@@ -70,7 +70,7 @@ cal_birthday_age:({PLURAL: age|$1 serre|$1 serri} verêne).
 message:Mesac
 message_counter:Karberi <b>{PLURAL: thread_count|$1 Mesel|$1 mesel}</b> dı pêro piya <b>{PLURAL: post_count|$1 mesac|$1 mesac}</b> rışto.
 message_index:İndeksê mesaca
-message_index_desc:Listey mesaca bıvin
+message_index_desc:Lista mesacan bıvêne
 minimize_category:Kategoriye Werdı ke
 minimize_message:Mesaci Werdı ke
 moderator:Cerbener
@@ -79,11 +79,11 @@ moderator_options:Wesetin Weçiney
 moderators:{PLURAL: modcount|Wesetber|Wesetber}
 move_thread:Bere
 na:n/a
-new_posts:Mesacê Newey
+new_posts:Mesacê Neweyi
 new_thread:Topiko newe vıraze
 next_page:Pela Peyêne
 next_thread:Topiko Peyên:
-no_new_posts:Mesacê Newey Çıniyê
+no_new_posts:Mesacê Neweyi Çıniyê
 no_posts:Mesac Çıno
 num_pages:Peley ({VAR: ttl_pg}):
 occupation:Kar:
@@ -113,8 +113,8 @@ user_info_l:Zanışiya Karberi {VAR: u->alias}
 user_offline:{VAR: obj->login} newe ke racanayeyo
 user_online:{VAR: obj->login} newe akerdeyo
 usrinfo_last_post:Mesaco Bohdeyên:
-view_results:Qedyayışa Bıvin
-views:Vinayışin
+view_results:Netican Bıvêne
+views:Asayışi
 vote_button:Rey Bıdê
 vote_for_thread:Rey Bıdê
 reported_del_report:Rapore Bestere
@@ -182,7 +182,7 @@ saturday_short:Ş
 male:Camêrd
 female:Cıniye
 unspecified:MOR NÊBİYO
-finduser_submit:Karberi Bıvin
+finduser_submit:Bıvêne
 finduser_no_such_user:Karbero do Wuna Çıniyo
 finduser_user:Karber
 finduser_postcount:Amariya Mesaca
@@ -194,7 +194,7 @@ register_email:E-posta
 edit_time_limit:<b>Wextê Vurnayışê sinori</b>: {GVAR: EDIT_TIME_LIMIT} daqiqe
 no_edit_time_limit:<b>Wextê Timar dê sinori</b>: Bê sinor
 pmuserloc_login:Cıkewtış:
-pmuserloc_submit:Bıvin
+pmuserloc_submit:Bıvêne
 pmuserloc_user:Karber
 pmuserloc_no_result:Nê vineya
 register_builtin:Sazine

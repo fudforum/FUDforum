@@ -6,6 +6,7 @@
 # Author: EugeneZelenko
 # Author: Fryed-peach
 # Author: Liuxinyu970226
+# Author: Macofe
 # Author: McDutchie
 # Author: Naudefj
 # Author: Rancher
@@ -438,6 +439,7 @@ search_options:{{Identical|Search options}}
 search_user_filter:Used as label for the "Username" input box in the Search form.
 modque_cat:{{Identical|Category}}
 modque_forum:{{Identical|Forum}}
+mmd_del_title:{{Identical|Delete topic}}
 mmd_move_threads_to:{{Identical|Destination forum}}
 mmd_abort_move:{{Identical|Cancel}}
 most_users_online:Example: "Most users ever online was 2 on Tue, 18 August 2009 11:38"

@@ -3,6 +3,7 @@
 # Author: Anakmalaysia
 # Author: Breawycker
 # Author: Cwlin0416
+# Author: EagerLin
 # Author: LNDDYL
 # Author: Lauhenry
 # Author: Liangent
@@ -61,7 +62,7 @@ image:照片：
 index_forum:論壇
 index_new_posts:上次瀏覽以後的新帖
 index_no_new_posts:自從上次瀏覽以後沒有新帖
-index_url_redirection:重定向
+index_url_redirection:重新導向
 interests:興趣：
 last_post:最新帖子
 last_thread_msg:轉入本主題最後一個帖子。
@@ -201,7 +202,7 @@ unsubscribe_desc:停止接收有關本論壇中最新主題通知
 updated_on:更新：
 user:使用者
 user_counter:我們有<b>{VAR: st_obj->user_count}</b>個註冊{PLURAL: st_obj->user_count|用戶|用戶}。
-user_info:用戶資訊
+user_info:使用者資訊
 user_info_l:用戶資訊 {VAR: u->alias}
 user_offline:{VAR: obj->login}目前處於離線狀態
 user_online:{VAR: obj->login}目前處於連線狀態
@@ -292,7 +293,7 @@ register_msg_tree_view:扁主題清單/樹消息清單
 register_tree_msg_view:扁主題清單/樹消息清單
 register_flat_view:樹狀檢視消息和主題清單
 use_forum_default:使用論壇預設值
-finduser_user_info:用戶資訊
+finduser_user_info:使用者資訊
 finduser_by_login:依帳號：
 finduser_submit:尋找
 finduser_no_such_user:沒有這個用戶
@@ -315,7 +316,7 @@ register_uploaded:上傳頭像
 register_login:帳號：
 register_password:密碼：
 register_conf_pass:密碼確認：
-register_email_desc:請輸入有效的電子郵件位址。您可以在下面的偏好設定中選擇隱藏您的郵件位址。
+register_email_desc:請輸入有效的電子郵件地址。您可以在下面的偏好設定中選擇隱藏您的 Email 地址。
 register_name:名稱：
 register_your_pass:您的密碼：
 register_update:更新
@@ -364,7 +365,7 @@ register_ignore_admin:忽略管理信息：
 register_invisible_mode:隱身模式：
 register_invisible_mode_desc:隱藏您的線上狀態。
 register_show_email:新電郵地址：
-register_show_email_desc:如果您想要公開顯示電子郵件位址，請選擇此選項。
+register_show_email_desc:如果您想要公開顯示電子郵件地址，請選擇此選項。
 register_notification:是否預設打開提醒功能：
 register_notification_desc:如果選擇“是”，在發帖時依然可以選擇是否提醒。
 register_notify_method:選擇通知方法：
@@ -384,12 +385,12 @@ post_annoncement:公告
 post_size:大小
 post_color:顏色
 post_font:字型
-create_thread:創建主題
+create_thread:建立主題
 submit_reply:提交的答覆
 edit_message:應用更改消息
 apply_spell_changes:應用更改拼寫
 post_preview:郵件預覽
-post_logedin_user:已登入用戶
+post_logedin_user:已登入使用者
 post_logout:登出
 post_passwd:過帳密碼：
 post_poll:調查：
@@ -425,7 +426,7 @@ post_options:選項：
 post_preview_btn:預覽郵件
 post_cancel_btn:取消
 ignore_users:忽略的使用者
-add_ignore:忽略用戶
+add_ignore:忽略使用者
 forum_terms:論壇條款
 forum_rules:<p>本論壇免費註冊！我們希望您務必遵守下列政策和規定。如同意請點擊本頁最下面的<b>我同意</b>按鈕。</p><p>論壇管理員和版主將盡力清除非法言論，但疏漏在所難免。因此我們在此鄭重聲明，所有發言都僅代表作者觀點，作者言責自負。論壇所有者和開發者對此不負任何責任。</p><p>點擊“我同意”按鈕即表明您保證不在論壇上發布任何淫穢、色情、反動、暴力等非法言論。</p><p>論壇管理者有權因為任何理由刪除、編輯、移動或者關閉任何發言。</p>
 forum_rules_13:<p>13歲以下用戶必須有父母或監護人允許，才能成為論壇成員。我們歡迎13歲以下用戶加入，不過只有在收到父母或者監護人，透過傳真或電子郵件交給我們簽名授權文件後，才能通過您的申請。 </p><p>如果您想在我們收到授權文件之前開始註冊程序，請點擊下面的“我同意”按鈕，如果您不想繼續註冊，請點擊“不同意”按鈕回到論壇主頁。 </p><p>您可以在這裡下載授權表格，想了解更多的信息請發電子郵件至<a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>。 </p>
@@ -448,7 +449,7 @@ coppa_fax_no_permission:在這裡簽名，如果您想要刪除的帳戶
 coppa_fax_parent_name:家長／監護人的真實姓名：
 coppa_fax_relation:與孩子的關係：
 coppa_fax_telephone:電話：
-coppa_fax_email:電郵位址：
+coppa_fax_email:電子郵件地址：
 coppa_fax_date:日期：
 coppa_fax_questions:欲知詳情，請聯絡<a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
 coppa_fax_login:帳號
@@ -473,7 +474,7 @@ rpasswd_passwd_nomatch:密碼不匹配
 rpasswd_passwd_length:密碼必須至少 6 個字元
 reset_remind_pass:密碼提示問題
 reset_reset_conf:將重置您的密碼，併發送給您。如果尚未確認您的電子郵寄地址，確認請求將會重新發送到你。
-reset_error:在資料庫中找不到電子郵件位址
+reset_error:在資料庫中找不到電子郵件地址
 reset_update:重設密碼
 rpasswd_change_pass:修改密碼
 rpasswd_login:登入
@@ -614,7 +615,7 @@ iemail_frm_bodyemail:要查看主題轉至： ！N ！{VAR: goto_url['email']}\n
 iemail_participate:若要參與討論，去這裡：
 ignore_list_err_info_title:資訊
 ignore_list_err_dup_msg:您已經有此使用者忽略清單中
-ignore_list_err_nu_title:找不到用戶。
+ignore_list_err_nu_title:未發現使用者。
 ignore_list_err_nu_msg:未找到您試圖添加到連絡人清單中的使用者。
 ignore_list_cantign_msg:你不能忽略此使用者
 ignore_list_update:流覽自己忽略清單
@@ -666,7 +667,7 @@ register_err_invalidemail:不會出現您所指定的電子郵件地址是有效
 register_err_needname:要成功地完成這個註冊，您必須輸入你的名字。
 register_err_enterpasswd:您必須輸入當前的密碼，以完成更改。
 register_err_adminpasswd:您必須輸入當前的密碼，以完成更改。
-register_err_notyouremail:別人已經註冊的使用此電子郵件位址。
+register_err_notyouremail:別人已經使用此電子郵件地址註冊了。
 register_err_avatartobig:您要上載的檔是太大，超過 {GVAR: CUSTOM_AVATAR_MAX_SIZE} 位元組為單位）。
 register_err_avatarnotallowed:您嘗試上傳的頭像是不允許的。檢查所允許的文件類型。
 register_conf_subject:報名確認
@@ -710,7 +711,7 @@ ERR_systemerr_msg:發生系統錯誤。請將其報告給<a href="mailto:{GVAR: 
 email_title:電子郵件表單
 finduser_title:查找使用者
 help_title:說明
-login_title:登錄表單
+login_title:登入表單
 poll_title:輪詢編輯器
 register_title:註冊表單
 reset_title:重設密碼
@@ -778,7 +779,7 @@ p_REPLY:回覆
 p_EDIT:編輯
 p_DEL:刪除
 p_STICKY:置頂帖子
-p_POLL:創建投票
+p_POLL:建立投票
 p_FILE:附加檔
 p_VOTE:投票
 p_RATE:主題評分/用戶
@@ -819,7 +820,7 @@ thread_mod_delete:刪除
 action_ip:IP
 action_latest_post:最後一條消息
 online_today_last_visit:上次訪問
-online_today_update:查看本論壇今天的在線用戶
+online_today_update:檢視本論壇今日線上的使用者清單
 logedin_todays_visitors:今天的訪客
 logedin_latest_post:本論壇最新發佈的主題
 register_show_avatar:顯示頭像：
@@ -865,7 +866,7 @@ im_jabber:Jabber：
 im_google:Google Talk：
 im_skype:Skype：
 im_twitter:Twitter：
-forum_contact:聯繫
+forum_contact:聯絡
 forum_home:主頁
 post_cur_attached:目前附加{VAR: i}個{PLURAL: i|檔案|檔案}
 ignored_anon_post:{GVAR: ANON_NICK} 被忽略
@@ -890,8 +891,8 @@ postcheck_pm_disabled:您不能發送到私有消息"{VAR-HTML: v}"，因為這�
 polllist_vote:投票
 polllist_view_results:檢視結果
 polllist_name:輪詢名稱
-polllist_date:創建日期
-polllist_owner:創建日期
+polllist_date:建立日期
+polllist_owner:建立日期
 polllist_votes:總票數
 polllist_action:操作
 polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">查看現有的調查</a>
@@ -931,8 +932,8 @@ err_mod_acc_msg:審查所有帳戶在啟動之前手動選擇了管理員。直�
 accounts_pending_approval:等待審批的帳戶
 saved:珍藏夾
 register_err_time_limit:每一個註冊的極限 {GVAR: REG_TIME_LIMIT} 已達到秒。請稍候，  {PLURAL: reg_limit_reached|   $1  second| $1 秒}，然後嘗試再次註冊。
-register_affero:Affero 使用者名：<br><span class="SmallText">如果您有<a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">Affero</a>使用者名，請在這裡輸入。</span>
-im_affero:Affero 使用者名
+register_affero:Affero 使用者名稱：<br><span class="SmallText">如果您有<a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">Affero</a>使用者名稱，請在這裡輸入。</span>
+im_affero:Affero 使用者名稱
 register_err_avatardimtobig:阿凡達尺寸的<b>( {VAR: img_info[0]} x {VAR: img_info[1]} )</b>超過允許的尺寸<b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>圖元為單位）。
 buddy_offline:{VAR: r[2]}目前處於離線狀態
 buddy_online:{VAR: r[2]}目前處於離線狀態
@@ -967,7 +968,7 @@ post_mod_msg_notify_msg:一個新的郵件，標題為" {VAR: msg_post->subject}
 thread_printable_pdf:生成可列印的 PDF
 thread_syndicate:集團本論壇 (XML)
 reg_conf_title:報名確認
-reg_conf_email:<b>確認電子郵件</b><br>電子郵件已發送給您包含特殊的 URL，您將需要訪問之前，您的帳戶被啟動。如果您不在接下來的幾分鐘，登錄到您的帳戶中收到這封電子郵件，請確保您指定的電子郵寄地址是正確的。一旦您確認您的帳戶，您將能夠訪問論壇功能僅供確認，註冊使用者使用。
+reg_conf_email:<b>確認電子郵件</b><br>電子郵件已發送給您包含特殊的 URL，您將需要存取之前，您的帳戶被啟動。如果您不在接下來的幾分鐘，登入至您的帳戶中收到這封電子郵件，請確保您指定的電子郵寄地址是正確的。一旦您確認您的帳戶，您將能夠存取論壇功能僅供確認，註冊使用者使用。
 reg_conf_account:<b>帳戶確認</b><br>您的帳戶由活動之前，需要管理員的批准。一旦這種情況發生，您將收到一封電子郵件，指示已確認您的帳戶。在此期間您可以日誌到您的帳戶，但是您不能訪問某些功能。
 forum_banned_user:你事先的行動已導致你被永久禁止從這一論壇。再見。
 mnav_description:在導航消息
@@ -1042,7 +1043,7 @@ delete_msg_pm_body:原帖
 delete_msg_pm_subject:主題：{VAR: data[15]}
 ip_no_whois:Whois 資訊<b> {VAR: ip} </b>不可用。
 ip_whois_title:ISP 資訊
-register_theme:佈景主題：
+register_theme:主題：
 pmsg_trash:清空垃圾箱
 uc_new_pm:新的短消息
 uc_new_topic:新主題
@@ -1094,8 +1095,8 @@ post_common_align_center:居中對齊
 post_common_align_right:右對齊
 post_common_link:插入連結
 post_common_link_popup:連結位置：
-post_common_email:插入電郵位址
-post_common_email_popup:電郵位址：
+post_common_email:插入電子郵件地址
+post_common_email_popup:電子郵件地址：
 post_common_image:插入圖片
 post_common_image_popup:圖像 URL：
 post_common_nlist:添加編號的清單

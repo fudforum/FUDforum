@@ -169,19 +169,19 @@ subject:Oggetto
 subscribe:Iscriviti
 subscribe_desc:Ricevi una notifica quando qualcuno crea un nuovo argomento all'interno di questo forum
 subscribed_forums:Forum cui sei iscritto
-subscribed_forums_desc:Abilita il filtro per i forum sottoscritti (mostra solo i forum cui sei iscritto)
-subscribed_threads:Argomenti sottoscritti
-subscribed_threads_desc:Abilita il filtro per gli argomenti sottoscritti (mostra solo i messaggi inseriti sugli argomenti cui sei iscritto)
+subscribed_forums_desc:Abilita il filtro per i forum a cui sei iscritto (mostra solo i forum cui sei iscritto)
+subscribed_threads:Argomenti a cui sei iscritto
+subscribed_threads_desc:Abilita il filtro per gli argomenti a cui sei iscritto (mostra solo i messaggi inseriti sugli argomenti cui sei iscritto)
 bookmarked_threads:Argomenti Preferiti
-switch_to_thread_view:Passa alla visuale di default per questo argomento
+switch_to_thread_view:Passa alla visuale a thread per questo argomento
 thread:Argomento:
-thread_announcement:annuncio:
+thread_announcement:Annuncio:
 thread_first_unread_msg:Vai al primo messaggio non letto di questo argomento
 thread_thread:Argomento
 threads:Argomenti
 time:Ora
 todays_posts:Messaggi odierni
-todays_posts_desc:Mostra tutti i messaggi postati oggi
+todays_posts_desc:Mostra tutti i messaggi scritti oggi
 un_ignore_user:Cessa di ignorare i messaggi di questo utente
 unanswered_posts:Messaggi senza risposta
 unanswered_posts_desc:Mostra tutti i messaggi che non hanno risposta
@@ -969,7 +969,7 @@ reg_conf_email:<b>E-mail di Conferma</b><br />Ti è stata spedita una e-mail con
 reg_conf_account:<b>Conferma Account</b><br />Prima che il tuo account sia reso attivo, è necessario che sia approvato dagli amministratori. appena questo avverrà riceverai una e-mail che ti avverte della approvazione. Prima di allora potrai effettuare il login col tuo account, tuttavia non potrai accedere alle funzioni riservate agli utenti approvati.
 forum_banned_user:A causa dei tuoi precedenti comportamenti sei stato bannato permanentemente da questo forum. Saluti.
 mnav_description:Navigatore messaggi
-mnav_date_limit:Range di date:
+mnav_date_limit:Intervallo di date:
 mnav_forum_limit:Ricerca solo in:
 mnav_all_forums:Ricerca in tutti i forum
 mnav_submit:Ricerca
