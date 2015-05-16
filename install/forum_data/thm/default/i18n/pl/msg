@@ -4,6 +4,7 @@
 # Author: Byulent
 # Author: Chrumps
 # Author: Faren
+# Author: Macofe
 # Author: Naudefj
 # Author: Openbk
 # Author: Rezonansowy
@@ -404,7 +405,7 @@ post_format_tools:Narzędzia formatujące:
 post_upload_file:Dodaj plik
 post_file_del:Usuń
 post_file_name:Nazwa
-post_file_size:Rozmar
+post_file_size:Rozmiar
 file_attachments:Załączniki:
 allowed_files:Dozwolone typy plików:
 max_file_size:Maksymalny rozmiar pliku:
@@ -862,7 +863,7 @@ register_google:Uchwyt do Google Chat
 im_jabber:Jabber
 im_google:Google Talk
 im_skype:Skype
-im_twitter:Twitter
+im_twitter:Twitter:
 forum_contact:Kontakt
 forum_home:Strona główna
 post_cur_attached:aktualnie {PLURAL: i|jest|są|jest} {VAR: i} {PLURAL: i|załączony plik|załączone pliki|załączonych plików}
