@@ -885,7 +885,7 @@ poll_edit:Düzelt
 register_err_not_valid_img:Belirtilen adreste geçerli bir resim yok
 pmsg_recepient:Alıcı
 register_err_taken_alias:Kullanmaya çalıştığınız takma isim forumda daha önce başka bir üye tarafından seçilmiş ve kullanılıyor durumda, lütfen başka bir tane seçin.
-register_alias:Takma İsim
+register_alias:Eşdeş:
 register_alias_desc:Eğer kullanıcı isminizden başka bir ismin forumda görüntülenmesini istiyorsanız, burda belirtebilirsiniz.
 register_allow_pm_msg:Özel iletilere izin ver
 register_allow_pm_msg_desc:Diğer kullanıcıların forum yoluyla size özel ileti gönderebilmesine izin verir.

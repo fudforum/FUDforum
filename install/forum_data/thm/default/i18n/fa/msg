@@ -3,6 +3,7 @@
 # Author: Alirezaaa
 # Author: Amin
 # Author: Atthar
+# Author: Dalba
 # Author: Ebraminio
 # Author: Huji
 # Author: Mjbmr
@@ -865,7 +866,7 @@ im_twitter:Twitter:
 forum_contact:تماس با ما
 forum_home:خانه
 post_cur_attached:تعداد {VAR: i} {PLURAL: i|فایل|فایل} ضمیمه شده
-ignored_anon_post:{GVAR: ANON_NICK} مسدود شده
+ignored_anon_post:☺{GVAR: ANON_NICK} نادیده گرفته شده‌است
 ignored_user_post:پست <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> مسدود شده
 smladd_close_window:بستن پنجره
 post_list_smilies:همه شکلک‌ها
@@ -1070,7 +1071,7 @@ thread_merge_all:ادغام مباحث
 thread_loc_all:بستن/باز‌کردن مباحث
 dmsg_ip:آی‌پی:
 err_blockedaccnt_title:خطا: حساب‌کاربری شما فیلتر شده است
-err_blockedaccnt_msg:حساب‌کاربری شما بدلیل وجود یکی از فیلترهای کاربری از دسترسی به انجمن مسدود شده است.
+err_blockedaccnt_msg:حساب کاربری شما بدلیل وجود یکی از پالایه‌های کاربری از دسترسی به انجمن محروم شده‌است.
 merge_th_page_list:انتخاب صفحه مبحث
 most_users_online:بیشترین تعداد کاربران آنلاین <b>{VAR: st_obj->most_online}</b> نفر در <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b> بوده است.
 sub_unsub_all_forums:لغو‌ اشتراک از همه انجمن‌ها
