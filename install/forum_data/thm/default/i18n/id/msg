@@ -709,7 +709,7 @@ ERR_systemerr_ttl:SALAH: Kesalahan sistem
 ERR_systemerr_msg:Kesalahan sistem telah terjadi, laporkan ke <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a>.
 email_title:Formulir Surel
 finduser_title:Cari Pengguna
-help_title:FAQ
+help_title:Bantuan
 login_title:Formulir Login
 poll_title:Pembuatan Poling
 register_title:Formulir Registrasi

@@ -413,7 +413,7 @@ max_files_per_msg:حداکثر تعداد فایل در هر پست:
 post_notification:آگاه‌سازی ارسال
 include_sig:قراردادن امضاء
 include_sig_desc:قراردادن امضای پروفایل‌تان.
-disable_smilies:غیرفعال‌کردن شکلک‌ها
+disable_smilies:غیرفعال کردن شکلک‌ها
 spell_check_msg:بررسی املای پست
 post_form:فرم ارسال
 post_forum:انجمن:
@@ -551,7 +551,7 @@ poll_timelimit:محدودیت زمانی:
 poll_maxiumvotes:حداکثر تعداد آرا:
 poll_create:ایجاد
 poll_update:بروزرسانی
-poll_disablesmilies:غیرفعال‌کردن شکلک‌ها
+poll_disablesmilies:غیرفعال کردن شکلک‌ها
 poll_create_poll:ایجاد نظرسنجی
 poll_update_poll:بروزرسانی
 poll_delete:حذف
@@ -1014,7 +1014,7 @@ adm_account_rejected:حساب‌کاربری شما '{VAR: login}' توسط اد
 adm_account_rejected_s:درخواست حساب‌کاربری شما '{GVAR: FORUM_TITLE}' پذیرفته نشد.
 thread_on:در
 userinfo_buddy:دوست:
-register_email_addr:آدرس ایمیل:
+register_email_addr:نشانی ایمیل:
 reset_suffix:اگر بطور ناخواسته این پیام را دریافت کرده‌اید، لطفا نادیده‌اش بگیرید. اگر علی‌رغم عدم درخواست شما، چند کپی از این ایمیل برای شما ارسال شده، لطفا از این طریق {GVAR: ADMIN_EMAIL} با ادمین انجمن تماس حاصل نمایید.\n\nدرخواست فرستاده شده از: {VAR: _SERVER['REMOTE_ADDR']}.
 usrinfo_last_visit:آخرین بازدید:
 mnav_newer:تازه‌ تر از

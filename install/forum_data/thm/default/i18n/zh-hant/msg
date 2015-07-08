@@ -671,7 +671,7 @@ register_err_notyouremail:別人已經使用此電子郵件地址註冊了。
 register_err_avatartobig:您要上載的檔是太大，超過 {GVAR: CUSTOM_AVATAR_MAX_SIZE} 位元組為單位）。
 register_err_avatarnotallowed:您嘗試上傳的頭像是不允許的。檢查所允許的文件類型。
 register_conf_subject:報名確認
-register_conf_msg:感謝您的註冊，\n要激活您的帳戶，請去下面的網址：\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\n一旦您的帳戶被激活，你會被記錄到論壇\n重定向到主頁。
+register_conf_msg:感謝您的註冊，\n若啟用您的帳戶，請前往下面之網址：\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\n一旦您的帳戶被啟用，你會被記錄至論壇當中並重新導向至首頁。
 register_welcome_subject:報名確認
 register_welcome_msg:謝謝註冊，\n\n這是您註冊的詳細資料：\n\n論壇地址：{TEMPLATE: index_update_lnk}\n帳號：{VAR: uent->login}\n密碼：{VAR: _POST['reg_plaintext_passwd']}\n\n請注意密碼區分大小寫！\n要更改您的設定或者個人資料，請點擊：\n{FULL_ROOT}{ROOT}?t=register
 register_err_cantreg_title:錯誤：無法註冊
