@@ -132,7 +132,7 @@ post_count_l:帖子数：
 posts:帖子
 posts_c:发帖数：
 prev_thread:下一个主题：
-usrinfo_private_message:悄悄话
+usrinfo_private_message:私信：
 profile:个人信息
 profile_desc:访问用户控制面板
 rate_thread:主题评价
@@ -671,7 +671,7 @@ register_err_notyouremail:已经有人用这个电子邮箱地址注册了，但
 register_err_avatartobig:你正在上传的文件太大，超过了{GVAR: CUSTOM_AVATAR_MAX_SIZE} 字节的最大限制。
 register_err_avatarnotallowed:你正在上传的头像不能上传，请查看允许上传的文件类型。
 register_conf_subject:注册确认
-register_conf_msg:谢谢注册,\n进入当前账号，请点击下列地址：\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\n进入当前账号后，你将直接进入论坛\n转入论坛的主页。
+register_conf_msg:感谢您的注册，\n要激活您的账户，请点击下面的URL：\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\n一旦您的账户被激活，您将可以登录论坛，并重定向至首页。
 register_welcome_subject:论坛注册确认
 register_welcome_msg:谢谢注册，\n\n这是您注册的详细资料：\n\n论坛地址：{TEMPLATE: index_update_lnk}\n帐号：{VAR: uent->login}\n密码：{VAR: _POST['reg_plaintext_passwd']}\n\n请注意密码区分大小写！\n要更改您的设置或者个人信息，请点击：\n{FULL_ROOT}{ROOT}?t=register
 register_err_cantreg_title:错误：无法注册
