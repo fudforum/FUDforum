@@ -10,6 +10,7 @@
 # Author: Naudefj
 # Author: Olvin
 # Author: Prima klasy4na
+# Author: Ата
 # Author: Тест
 
 action:Дія
@@ -199,7 +200,7 @@ unsubscribe:Відписатись
 unsubscribe_desc:Зупинити отримування повідомлень про нові теми на форумі
 updated_on:Оновлено:
 user:Користувач
-user_counter:У нас <b>{VAR: st_obj->user_count}</b>  {PLURAL: st_obj->user_count|зареєстрований учасник|зареєстрованих учасника|зареєстрованих учасників}.
+user_counter:У нас <b>{VAR: st_obj->user_count}</b>  {PLURAL: st_obj->user_count|зареєстрований користувач|зареєстровані користувачі|зареєстрованих користувачів}.
 user_info:Інформація про користувача
 user_info_l:Інформація про користувача {VAR: u->alias}
 user_offline:{VAR: obj->login} зараз не в мережі
@@ -341,7 +342,7 @@ register_yahoo:Мережа Yahoo:
 register_msnm:Мережа MSN:
 register_homepage:Домашня сторінка:
 register_bday:Дата народження:
-register_bday_desc:Якщо ввести дату народження, то інші учасники форуму зможуть побачити його у вашому профілі.
+register_bday_desc:Якщо ввести дату народження, то інші учасники форуму зможуть побачити його у Вашому профілі.
 register_day:День
 register_month:Місяць
 register_year:Рік

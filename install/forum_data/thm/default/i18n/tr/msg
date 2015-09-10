@@ -5,6 +5,7 @@
 # Author: Gorizon
 # Author: Incelemeelemani
 # Author: Joseph
+# Author: McAang
 # Author: Meelo
 # Author: Naudefj
 # Author: Rapsar
@@ -998,7 +999,7 @@ register_pm_notification_desc:Size bir özel ileti gönderildiğinde belirttiği
 findu_admin_opts_header:Yönetici Seçenekleri
 findu_unban:Yasağı Kaldır
 findu_ban:Yasakla
-findu_edit:Düzenle
+findu_edit:Değiştir
 findu_delete:Sil
 dmsg_reply_to:, bu iletiye yanıttır:
 dmsg_reply_num:#{VAR: obj->reply_to}

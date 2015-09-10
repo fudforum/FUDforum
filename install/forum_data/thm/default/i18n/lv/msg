@@ -2,6 +2,7 @@
 # Exported from translatewiki.net
 # Author: Edgars2007
 # Author: Papuass
+# Author: Silraks
 
 action:Darbība
 add_to_buddy_list:pievienot kontaktu sarakstam
@@ -119,6 +120,7 @@ profile:Uzstādījumi
 # Fuzzy
 profile_desc:Nospiest lai pārietu uz vadības paneli
 rate_thread:Novērtēt tēmu
+rating:Reitings
 refresh_list:Atjaunot sarakstu
 register:Reģistrācija
 registered:Reģistrēts:
@@ -426,6 +428,7 @@ coppa_fax_relation:Relation to child:
 coppa_fax_telephone:Tālrunis:
 coppa_fax_email:E-pasta adrese:
 coppa_fax_date:Datums:
+coppa_fax_login:Pieslēgties
 coppa_fax_passwd:Parole
 coppa_fax_remail:E-pasts
 login_not_logedin:Jūs neiekļuvāt forumā. Par iemeslu tam var būt sekojoši apstākļi:
@@ -448,11 +451,13 @@ rpasswd_passwd_length:Parolei jāsatur minimums 6 simboli
 reset_remind_pass:Paroles atgādinājums
 reset_reset_conf:Jūsu parole tiks no jauna izveidota un nosūtīta uz Jūsu E-pasta adresi.
 reset_error:Datu bāzē E-pasta adreses nav
+reset_update:Atiestatīt paroli
 rpasswd_change_pass:Nomainīt paroli
 rpasswd_login:Lietotājs:
 rpasswd_cur_pass:Esošā parole:
 rpasswd_new_pass:Jaunā parole:
 rpasswd_conf_pass:Jaunā parole (pārbaudei):
+ruser_cur_pass:Pašreizējā parole:
 login_passwd:Parole:
 reset_email:E-pasts:
 reset_reset_button:Izveidot jaunu paroli
@@ -483,8 +488,7 @@ remail_message:Publikācija:
 remail_send_now:Nosūtīt E-pastu
 remail_anon_opt:Pārkopējiet publikāciju uz E-pasta klienta programmu (pie. Outlook Express), lai pārsūtītu saviem draugiem.
 remail_done:Gatavs
-# Fuzzy
-remail_sent_conf:Elektroniskā vēstule uz adresi {VAR-HTML: _POST['femail']} par tēmu {{VAR: data->subject} veiksmīgi nosūtīta.
+remail_sent_conf:Elektroniskā vēstule uz adresi {VAR-HTML: _POST['femail']} par tēmu {VAR: data->subject} veiksmīgi nosūtīta.
 remail_error:Kļūda
 mklist_type:Tips:
 mklist_option:Elements:
@@ -897,6 +901,39 @@ saved:Saglabāts
 login_unapproved_account_ttl:Neapstiprināts konts
 iemail_msg_reply:Atbildēt
 iemail_msg_quote:Citēt
+threadt_announce:paziņojums
+findu_edit:Labot
 findu_delete:Dzēst
 usrinfo_last_visit:Pēdējais apmeklējums:
 mnav_newer:jaunāka par
+ip_search:Meklēt
+userinfo_real_name:Tavs īstais vārds:
+modque_cat:Kategorija
+modque_forum:Forums
+idx_compact_forum_row:Pieejamie Forumi:
+mmd_abort_move:Atcelt
+thread_del_all:Dzēst izvēlēto
+thread_mov_all:Pārvietot izvēlēto
+thread_merge_all:Apvienot izvēlēto
+post_common_bold:Pustrekns
+post_common_italics:Kursīvs
+post_common_underline:Pasvītrots
+post_common_link:Ievietot saiti
+post_common_link_popup:Saites atrašanās vieta:
+post_common_email:Ievietot e-pasta adresi
+post_common_email_popup:E-pasta adrese:
+post_common_image:Ievietot attēlu
+post_common_image_popup:Attēla URL:
+post_common_nlist:Pievienot numurētu sarakstu
+rating_delete:Dzēst
+code_select_all:Izvēlēties visu
+code_show_hide:Rādīt/ paslēpt
+btn_about:Profils
+btn_delete:dzēst
+btn_edit:labot
+btn_reply:atbildēt
+btn_forward:pārsūtīt
+btn_quote:citēt
+btn_email:E-pasts
+karma_delete:Dzēst
+rate_author:Vērtēt autoru:

@@ -1040,7 +1040,7 @@ sml_code:코드
 mnav_sub_only:구독된 포럼에서만 검색
 register_topics_per_page:문서마다 주제 수:
 post_not_logged_in:현재 로그인하고 있지 않아, 메시지가 익명으로 게시됩니다.
-post_common_bold:굶은 글씨
+post_common_bold:굵게
 post_common_italics:기울인 글씨
 post_common_underline:밑줄
 post_common_align_left:왼쪽 정렬

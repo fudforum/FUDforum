@@ -2,6 +2,7 @@
 # Exported from translatewiki.net
 # Author: Alvaro Vidal-Abarca
 # Author: BroOk
+# Author: Eduardo Martinez
 # Author: Fitoschido
 # Author: Gemmaa
 # Author: McDutchie
@@ -275,7 +276,7 @@ sunday_short:S
 monday:Dilluns
 monday_short:M
 tuesday:Dimarts
-tuesday_short:Tu
+tuesday_short:dm
 wednesday:Dimecres
 wednesday_short:W
 thursday:Dijous

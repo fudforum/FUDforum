@@ -208,7 +208,7 @@ user_info:Información del usuario
 user_info_l:Información del usuario {VAR: u->alias}
 user_offline:{VAR: obj->login} no está actualmente en el foro
 user_online:{VAR: obj->login} está actualmente en el foro
-usrinfo_last_post:Ultimo mensaje:
+usrinfo_last_post:Último mensaje:
 view_results:Ver resultados
 views:Vistas
 vote:{PLURAL: frm->n_rating|$1 Voto|$1 Votos}
@@ -401,7 +401,7 @@ post_poll_delete:BORRAR
 post_poll_edit:EDITAR
 post_mod_opt:Opciones del moderador:
 post_thread_type:Tipo de hilo de discusión:
-post_thread_expiry:Expiración de hilo de discusión:
+post_thread_expiry:Vencimiento del hilo de discusión:
 post_locked:Hilo de discusión bloqueado
 post_icons:Icono de mensaje:
 post_no_icon:Sin icono

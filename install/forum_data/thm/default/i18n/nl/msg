@@ -201,7 +201,7 @@ user_offline:{VAR: obj->login} is op dit moment afwezig
 user_online:{VAR: obj->login} is op dit moment aanwezig
 usrinfo_last_post:Laatste bericht:
 view_results:Resultaten bekijken
-views:Keer bekeken
+views:Weergaven
 vote:{PLURAL: frm->n_rating|$1 stem|$1 stemmen}
 vote_button:Stemmen
 vote_for_thread:Stemmen

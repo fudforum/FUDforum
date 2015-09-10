@@ -5,6 +5,7 @@
 # Author: Cwlin0416
 # Author: Hydra
 # Author: Hzy980512
+# Author: LNDDYL
 # Author: Liangent
 # Author: Liuxinyu970226
 # Author: Naudefj
@@ -35,7 +36,7 @@ pmsg_download_counter:下载$1次
 email:邮件：
 email_to_friend:发送邮件给朋友
 email_to_friend_desc:发送邮件，向您的朋友推荐这个帖子
-email_user:发送电子邮件的用户
+email_user:向用户发送一封电子邮件消息
 faq:帮助
 first_unread_msg:转入未读的帖子
 first_unread_msg_desc:转入本主题第一个未读帖子
@@ -136,16 +137,16 @@ usrinfo_private_message:私信：
 profile:个人信息
 profile_desc:访问用户控制面板
 rate_thread:主题评价
-rating:评价
-rating_track:给帖子评价 <b>{VAR: thr->subject}</b>：
-refresh_list:更新目录
+rating:评级
+rating_track:为帖子<b>{VAR: thr->subject}</b>管理评级：
+refresh_list:刷新列表
 register:注册
 registered:注册时间：
 registered_on:注册日期：{TEMPLATE: registered_on_date}
 replies:回复
 report_to_mod:违规帖举报
 reported_messages:已向版主举报的违规帖
-reveal_all_posts:显示所有结果 {VAR: user_login}
+reveal_all_posts:透露所有发自{VAR: user_login}的消息
 reveal_post:显示结果
 search:搜索
 sel_todays_posts:今天的主题
@@ -155,17 +156,17 @@ sel_unanswered_posts_desc:只显示未回复主题
 sel_unread_messages:未读信息
 sel_unread_messages_desc:只显示未读信息
 send:发送
-send_pm_desc:发悄悄话给这个用户
+send_pm_desc:向此用户发送一条私信
 sender_email:发送者邮件：
 sender_name:发送者姓名：
-show_posts_by:显示用户 {VAR: u_alias}发布的主题
+show_posts_by:显示发自{VAR: u_alias}的消息
 size:大小：
-status:级别：
-status_line:目前有<B>{PLURAL: st_obj - > online_users_reg|$ 1位成员| $1位成员} </ B>，<B>{PLURAL: st_obj - > online_users_hidden|$ 1位隐身成员| $1位隐身成员} </ b>以及<B>{PLURAL: st_obj - > online_users_anon|$ 1位客人| $1位客人}</ B>正在访问本主机板。
+status:状态：
+status_line:<b>{PLURAL: st_obj->online_users_reg|$1位成员}</b>、<b>{PLURAL: st_obj->online_users_hidden|$1位隐身成员}</b>和<b>{PLURAL: st_obj->online_users_anon|$1位访客}</b>正在访问此版块。
 sticky:置顶：
-stop_ignoring:不再拒绝这个用户
-sub_to_thread:订阅这个主题
-sub_to_thread_desc:接收有关本主题中最新消息通知
+stop_ignoring:停止忽略此用户
+sub_to_thread:订阅主题
+sub_to_thread_desc:接收有关此主题中新消息的通知
 bookmark_thread:将本主题加入书签
 bookmark_thread_desc:将本主题添加到书签列表中
 subject:主题
@@ -190,7 +191,7 @@ unanswered_posts:未回复消息
 unanswered_posts_desc:显示所有未回复信息
 unlock_thread:解锁本主题
 unread_msg:本主题包含尚未阅读的消息
-unread_msg_locked:本主题已锁定，却包含未读消息
+unread_msg_locked:锁定的话题包含未读消息
 unread_posts:未读信息
 unread_posts_desc:显示所有未读信息
 unsub_from_thread:取消订阅主题
@@ -421,7 +422,7 @@ spell_check_msg:拼写检查信息
 post_form:发布表格
 post_forum:论坛：
 post_title:标题：
-post_body:内容：
+post_body:正文：
 post_options:选项：
 post_preview_btn:预览
 post_cancel_btn:取消
@@ -470,7 +471,7 @@ login_invalid_radius:错误的账号或密码
 reset_confirmation:谢谢注册！\n\n进入当前账号，请点击下面的地址：\n\n{VAR: url}\n\n一旦进入当前账户，您将直接进入论坛主页。
 reset_reset:您好,\n\n您提交了重新设置密码的请求，需要重新设置密码，请点击：\n\n{VAR: url}\n\n注意：本论坛以单向加密的方式储存密码，即密码一经输入即被重新编码、无法找回。\n您每次登录输入密码时，该系统将自动对密码进行校验。\n（如果您对此加密方式感兴趣，请查阅关于MD5加密算法的相关资料。）
 rpasswd_invalid_passwd:密码错误
-rpasswd_passwd_nomatch:密码不符
+rpasswd_passwd_nomatch:密码不匹配
 rpasswd_passwd_length:密码必须至少6个字符
 reset_remind_pass:密码提示问题
 reset_reset_conf:您的密码已经重新设定，并将发送电子邮件给你进行确认。如果没有确认，系统将再次发送确认邮件。
@@ -536,7 +537,7 @@ mklist_close:关闭
 email_to:至：
 email_pg_title:电子邮箱
 email_subject:主题：
-email_body:内容：
+email_body:正文：
 email_submit:发送
 ppost_quote_msg:{VAR: msg_to_list}在{TEMPLATE: ppost_quote_msg_date}写道：
 ppost_quote:引用：
@@ -971,7 +972,7 @@ reg_conf_title:论坛注册验证邮件
 reg_conf_email:<b>电子邮件验证</b><br />一封特殊的邮件已经发往你填写的邮箱，邮件里包含了一个特殊的URL网址，你需要访问此网址以通过论坛的电子邮件验证步骤。如果几分钟后你没有收到这样的邮件，请登录论坛并检查邮件地址是否填写正确。在通过验证之前你将不能使用论坛的某些功能。
 reg_conf_account:<b>帐号确认</b><br />在帐号被激活启用之前，必须通过管理员的审核和批复。帐号被管理员批复之后在你注册时填写的邮箱里会收到一封提示注册成功的邮件，在通过批复之前，你将不能使用论坛的某些功能。
 forum_banned_user:由于此帐号上次在论坛的所作所为严重违反论坛规定，导致帐号被论坛管理员封闭，再见。
-mnav_description:帖子浏览器
+mnav_description:消息导航
 mnav_date_limit:日期范围：
 mnav_forum_limit:限制在如下的版面上查找：
 mnav_all_forums:所有论坛版面
@@ -1115,7 +1116,7 @@ pmsg_download_dump:查看所有悄悄话
 move_messages:移动帖子
 move_msg_btn:移动所有选中的
 move_msg_th_expl:移至指定主题的ID（可以跨版块）
-captcha_img_alt:验证码： 您需要识别此图像中的文本。
+captcha_img_alt:验证码验证：您将需要识别此图片中的文本。
 captcha_img_help:有没有为零或图像中的一个。
 powered-by:Powered by: FUDforum {GVAR: FORUM_VERSION}.
 copyright:版权所有&copy;2001~2013年<a href="http://fudforum.org/">FUD论坛公告板软件</a>

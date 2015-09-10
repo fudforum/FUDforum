@@ -6,6 +6,7 @@
 # Author: Nedergard
 # Author: Nike
 # Author: Olli
+# Author: SMAUG
 # Author: Samoasambia
 # Author: Silvonen
 
@@ -436,8 +437,7 @@ prereg_agree:Hyväksyn
 prereg_disagree:En hyväksy
 prereg_update:Lukee keskustelualueen sääntöjä
 coppa_fax_instructions:Ohjeet vanhemmille tai huoltajille
-# Fuzzy
-coppa_fax_instructions2:Tulostakaa tämä sivu, allekirjoittakaa ja faksatkaa tänne:
+coppa_fax_instructions2:Tulostakaa tämä sivu, allekirjoittakaa se ja lähettäkää kirjeenä tai faksatkaa takaisin meille.
 coppa_fax_reg_form:Rekisteröityminen
 coppa_fax_sign:Allekirjoittakaa alla oleva lomake ja lähettäkää se meille
 coppa_fax_conf:Olen tarkistanut tiedot, jotka lapseni on antanut ja olen lukenut tämän sivuston tietosuojaperiaatteista. Ymmärrän, että käyttäjätiedot voi muuttaa salasanaa käyttämällä. Ymmärrän, että voin vaatia että tämä käyttäjätunnus poistetaan kokonaan.
@@ -472,6 +472,7 @@ rpasswd_passwd_length:Salasanan täytyy olla vähintään 6 merkkiä pitkä
 reset_remind_pass:Unohtunut salasana
 reset_reset_conf:Salasanasi vaihdetaan ja lähetetään sinulle, tai jos et ole vahvistanut sähköpostiosoitettasi, vahvistussähköposti lähetetään uudestaan.
 reset_error:Sähköpostiosoitetta ei löytynyt tietokannasta
+reset_update:Salasanan vaihto
 rpasswd_change_pass:Vaihda salasana
 rpasswd_login:Käyttäjätunnus:
 rpasswd_cur_pass:Nykyinen salasana:
