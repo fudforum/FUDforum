@@ -498,7 +498,9 @@ remail_required:زۆرۈر
 remail_subject:تېما:
 remail_message:ئۇچۇر:
 remail_send_now:ھازىرلا تورخەت يوللا
+remail_anon_opt:بۇ مەزمۇنلارنى سىز تاللىغان تورخەت ئادرېسىغا كۆچۈرۈپ، دوستىڭىزغا ئەۋەتىڭ.
 remail_done:تامام
+remail_sent_conf:ماۋزۇسى {VAR: data->subject} بولغان تورخەت {VAR-HTML: _POST['femail']} ئادرېستىكى دوستىڭىزغا مۇۋەپپەقىيەتلىك يوللاندى.
 remail_error:خاتالىق كۆرۈلدى
 mklist_type:تىپى:
 mklist_option:تاللانما:
@@ -512,6 +514,7 @@ qbud_no_buddies:ھېچكىم تاللانمىدى
 mklist_numerical:سان
 mklist_aplha:ھەرپ
 mklist_square:چاسا
+mklist_disc:دائىرە
 mklist_circle:چەمبەر
 mklist_close:ياپ
 email_to:قوبۇللىغۇچى:
@@ -574,6 +577,21 @@ buddy_list_err_nouser_title:ئىشلەتكۈچى قوشالمايدۇ
 buddy_list_err_ignore:سىزگە پەرۋا قىلمىغان ئىشلەتكۈچىنى دوستلار تىزىمىغا قوشالمايدۇ.
 buddy_list_update:ئۆزىنىڭ دوستلار تىزىمىغا كۆز يۈگۈرتۈش
 core_err_invinp_title:كىرگۈزۈش خاتا
+core_err_invinp_err:سىز ئىناۋەتسىز ئۇلانمىدىن بىرنى چەكتىڭىز، <a href="mailto:{GVAR: ADMIN_EMAIL}">تور باشقۇرغۇچى</a> غا ئەمەلىي ئەھۋالنى ئۇقتۇرۇڭ.
+core_adm_login_msg:تور باشقۇرغۇچى <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">بۇ جاي</a>دىن تىزىمغا كىرىدۇ.
+email_err_unabletoemail_title:خاتالىق: تورخەت يوللىيالمىدى
+email_err_unabletoemail_msg:تورخەت سىستېمىسىنى تور باشقۇرغۇچى چەكلىۋەتكەن.
+email_error_body:مەزمۇن يېزىش زۆرۈر
+email_error_subject:ماۋزۇ يېزىش زۆرۈر
+email_error_namerequired:ئىسىم يېزىش زۆرۈر
+email_error_invaliduser:ئىناۋەتسىز ئىشلەتكۈچى
+emailconf_err_invkey_title:خاتالىق
+err_inc_criticaltitle:ئېغىر خاتالىق
+err_inc_criticalmsg:خاتالىق كۆرۈلدى. ئەپسۇسلىنارلىقى خاتالىق دوكلات سىستېمىسىدىمۇ مەسىلە كۆرۈلدى.
+finduser_update:ئىشلەتكۈچىلەرنى ئىزدەۋاتىدۇ
+help_index_update:<a href="{TEMPLATE: help_index_update_lnk}">ياردەم</a> نى ئوقۇڭ
+iemail_thr_subject:بۇ {VAR: thr_subject}غا {VAR: poster_login} يېڭى ئىنكاس قايتۇردى
+ignore_list_err_info_title:ئۇچۇر
 groupmgr_yes:ھەئە
 groupmgr_no:ياق
 groupmgr_action:مەشغۇلات

@@ -126,7 +126,7 @@ occupation:职业：
 off:关闭
 on:打开
 page_timings:生成本页面共花费时间: {PLURAL: page_gen_time|$1 秒}。
-pm:悄悄话
+pm:私信
 poll:调查：
 post_count:发帖数： {VAR: u_pcount}
 post_count_l:帖子数：
@@ -149,7 +149,7 @@ reported_messages:已向版主举报的违规帖
 reveal_all_posts:透露所有发自{VAR: user_login}的消息
 reveal_post:显示结果
 search:搜索
-sel_todays_posts:今天的主题
+sel_todays_posts:今天的消息
 sel_todays_posts_desc:只显示今天的主题
 sel_unanswered_posts:未回复主题
 sel_unanswered_posts_desc:只显示未回复主题
@@ -402,7 +402,7 @@ post_mod_opt:版主选项
 post_thread_type:主题类型：
 post_thread_expiry:主题到期期限：
 post_locked:本主题已锁定
-post_icons:添加图标：
+post_icons:消息图标：
 post_no_icon:不用图标
 post_smiley:表情符号：
 post_format_tools:编辑工具：
@@ -544,8 +544,8 @@ ppost_quote:引用：
 ppost_to:至：
 ppost_from_buddy_list:从好友名单中选择
 ppost_find_User:查找用户
-ppost_track_msg:跟踪这条信息
-ppost_track_msg_desc:当这条信息被阅读时请用悄悄话通知我。
+ppost_track_msg:跟踪这条消息
+ppost_track_msg_desc:当这条消息被阅读时用私信通知我。
 ppost_send:发送
 ppost_save_draft:保存草稿
 poll_blank_option:你不能提交空的选项。
@@ -680,7 +680,7 @@ regsiter_err_cantreg_msg:无法注册新的账号，请和系统管理员联系<
 register_profile_update:查看个人信息
 register_register_update:注册页
 report_err_nosuchmsg_title:错误
-report_err_nosuchmsg_msg:没有这样的信息
+report_err_nosuchmsg_msg:没有这样的消息
 reset_err_invalidkey_title:错误
 reset_err_invalidkey_msg:密码提示错误
 reset_err_rstconf_title:信息
@@ -839,7 +839,7 @@ split_th_split_sel:分出选中的帖子
 split_th_split_unsel:分出没有选中的帖子
 split_th_messages:信息
 split_th_select:选择
-report_report_post:报告发布
+report_report_post:报告消息
 quicklogin_login:账号：
 quicklogin_password:密码：
 quicklogin_use_cookies:是否使用Cookies功能？
@@ -850,7 +850,7 @@ quick_reply_preview:预览快速回复
 post_notification_desc:当有人回复本主题时请通知我。
 post_all_ext_allowed:（无限制）
 maximize_category:增加目录层次
-maximize_message:最大限度地消息
+maximize_message:最大化消息
 no_view_perm:很抱歉，你没有察看这个页面的权限
 report_empty_report:您不能提交空的报告。请说明推荐理由。
 report_already_reported_title:报告已经提交
@@ -988,7 +988,7 @@ mnav_hour:小时
 mnav_day:天
 mnav_week:周
 mnav_month:月
-mnav_title:帖子浏览器
+mnav_title:消息导航
 mnav_update:用<a href="{TEMPLATE: mnav_update_lnk}">帖子浏览器</a>来查看。
 pm_notify_subject:[{GVAR: FORUM_TITLE}] 你收到了新悄悄话！
 pm_notify_body_email:你收到了新的悄悄话，标题是 "{VAR: subject}"，发自 "{VAR: from}" 在 "{GVAR: FORUM_TITLE}" 论坛。\n要查看此悄悄话，请点击：{FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\n如果不想再收到新悄悄话提醒邮件，请在“个人信息”中禁止“新悄悄话提醒”。
@@ -1000,7 +1000,7 @@ findu_ban:封
 findu_edit:编辑
 findu_delete:删除
 dmsg_reply_to:回复于
-dmsg_reply_num:{VAR: obj->reply_to}号邮件
+dmsg_reply_num:消息 #{VAR: obj->reply_to}
 merge_topics:合并主题
 merge_topics_cp:合并主题功能面板
 merge_topics_tpl:选择要合并的主题<font class="SmallText">（至少需要选择两个主题）</font>
@@ -1046,7 +1046,7 @@ ip_no_whois:没有找到关于 <b>{VAR: ip}</b> 的 whois 信息。
 ip_whois_title:ISP 信息
 register_theme:主题：
 pmsg_trash:清空垃圾箱
-uc_new_pm:新悄悄话
+uc_new_pm:新私信
 uc_new_topic:新帖
 uc_new_cat_forum:包含新帖的已订阅论坛
 uc_cat_forum:分区 &raquo; 论坛
@@ -1113,7 +1113,7 @@ finduser_flag:旗帜
 post_descr:帖子简述
 pmsg_on:在日期
 pmsg_download_dump:查看所有悄悄话
-move_messages:移动帖子
+move_messages:移动消息
 move_msg_btn:移动所有选中的
 move_msg_th_expl:移至指定主题的ID（可以跨版块）
 captcha_img_alt:验证码验证：您将需要识别此图片中的文本。
