@@ -364,7 +364,7 @@ register_timezone:時區：
 register_ignore_admin:忽略管理信息：
 register_invisible_mode:隱身模式：
 register_invisible_mode_desc:隱藏您的線上狀態。
-register_show_email:新電郵地址：
+register_show_email:顯示電子郵件地址：
 register_show_email_desc:如果您想要公開顯示電子郵件地址，請選擇此選項。
 register_notification:是否預設打開提醒功能：
 register_notification_desc:如果選擇“是”，在發帖時依然可以選擇是否提醒。
@@ -1017,7 +1017,7 @@ adm_account_rejected:您的帳戶 ' {VAR: login} ' 由管理員被拒絕。如�
 adm_account_rejected_s:您的帳戶申請 ' {GVAR: FORUM_TITLE}' 被接受。
 thread_on:在
 userinfo_buddy:連絡人：
-register_email_addr:電郵地址：
+register_email_addr:電子郵件地址：
 reset_suffix:如果你錯誤收到此消息，請忽略它。如果您收到這封電子郵件，您不請求的多個副本，請聯繫論壇管理員在 {GVAR: ADMIN_EMAIL} ！N!!N ！此請求從開始：  {VAR: _SERVER['REMOTE_ADDR']} 。
 usrinfo_last_visit:上次訪問：
 mnav_newer:比新

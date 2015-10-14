@@ -205,7 +205,7 @@ user_offline:{VAR: obj->login}  è attualmente disconnesso
 user_online:{VAR: obj->login} è attualmente in linea
 usrinfo_last_post:Ultimo messaggio:
 view_results:Visualizza risultati
-views:visualizzazioni
+views:Visualizzazioni
 vote:{PLURAL: frm->n_rating|$1 Voto|$1 Voti}
 vote_button:Vota
 vote_for_thread:Vota l'argomento

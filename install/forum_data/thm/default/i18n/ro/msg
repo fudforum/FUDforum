@@ -5,6 +5,7 @@
 # Author: McDutchie
 # Author: Minisarm
 # Author: Naudefj
+# Author: Wintereu
 
 action:Acțiune
 add_to_buddy_list:adaugă la lista cu prieteni
@@ -141,7 +142,7 @@ sel_unread_messages:Mesaje fara raspuns
 sel_unread_messages_desc:Schimba filtrul de mesaje necitite
 send:Trimite
 send_pm_desc:Trimite un mesaj personal utilizatorului
-sender_email:Email-ul trimitatorului:
+sender_email:E-mailul expeditorului:
 sender_name:Numele trimitatorului:
 show_posts_by:Arata mesaje trimise de: {VAR: u_alias}
 size:Marimea:
@@ -493,7 +494,7 @@ remail_message:Mesaj:
 remail_send_now:Trimite Email
 remail_anon_opt:Copie acest mesaj in clientul de mail pentru a putea sa-l retransmiteti si altor prieteni.
 remail_done:Gata
-remail_sent_conf:Email-ul pentru prietenul dumneavoastra {VAR-HTML: _POST['femail']} despre {VAR: data->subject} a fost trimis.
+remail_sent_conf:E-mailul despre subiectul {VAR: data->subject} a fost trimis către prietenul/prietena dumneavoastră la {VAR-HTML: _POST['femail']}.
 remail_error:Aveti o eroare
 mklist_type:Tipul:
 mklist_option:Optiuni:
@@ -668,8 +669,7 @@ reset_err_rstconf_msg:Veti primi instructiuni la adresa de email, in cateva mome
 reset_newpass_title:Reseteaza Parola
 # Fuzzy
 reset_newpass_msg:Ziua buna,\n\nLa cerere v-am trimis numele de utilizator.\nAici sunt informatiile dumneavoastra:\n\nUtilizator: {VAR: ui[1]}\nParola: {VAR: passwd}
-# Fuzzy
-reset_login_notify:Parola v-a fost trimisa la adresa de email. Va rugam sa verificati email-ul in urmatoarele momente.
+reset_login_notify:Parola v-a fost trimisă prin e-mail. Ar trebui să o primiți în următoarele minute.
 search_update:Cautare mesaje trimise
 selmsg_update:Navigeaza <a href="{TEMPLATE: selmsg_update_lnk}">mesaje trimise astazi</a>
 showposts_update:Vizualizare mesaje trimise de: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
@@ -703,7 +703,7 @@ rpasswd_title:Formular schimbare parola
 error_title:Formular erori
 index_title:Bine ati venit la forum
 search_title:Cauta {VAR-HTML: srch}
-remail_emailsent:Emailul a fost trimis
+remail_emailsent:E-mailul a fost trimis
 remail_email:Buna,\n\nEste o tema interesata despre "{VAR: data->subject}" pe {GVAR: FORUM_TITLE} pe care cred ca ai vrea sa o citesti. Poti vedea tema la:\n {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\n Al tau,\n\n{VAR: usr->alias}
 poll_add_option:Adauga optiune:
 post_opt_html_on:<b>HTML</b> este <b>PORNIT</b>
@@ -891,7 +891,7 @@ post_proceed:OK
 post_moderated_forum:Ati trimis un mesaj intr-un forum moderat
 post_moderated_forum_ttl:Atentionare Forum moderat
 buddy_list_bday:Astazi {VAR: r[2]} impliniti {VAR: age}
-email_warning_msg:Daca va schimbati adresa de email, contul dumneavoastra nu va fi confirmat pana nu raspundeti la email.
+email_warning_msg:Dacă vă schimbați adresa de e-mail, contul dumneavoastră va rămâne neconfirmat până când îl veți reconfirma prin e-mail.
 register_show_im:Arata indicatori
 register_show_im_desc:Alegeti daca sa vedeti indicatori sau nu
 unread_message:Mesaj necitit
@@ -937,7 +937,7 @@ thread_mark_all_read:marcheaza toate mesajele ca citite
 thread_mark_all_read_desc:Toate mesajele necitite din acest forum vor fi marcate ca citite
 private_no_messages:nu sunt mesaje in acest director
 register_email_change_subject:Confirmarea schimbarii adresei de email
-register_email_change_msg:Va rugam sa confirmati noua adresa de email "{VAR: uent->email}" care inlocuieste vechea adresa de email "{VAR: old_email}" apasand pe legatura de mai jos:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nOdata ce confirmati noua adresa, contul dumneavoastra va fi redisponibil.
+register_email_change_msg:Vă rugăm să confirmați noua adresă de e-mail „{VAR: uent->email}”, care înlocuiește vechea adresă de e-mail „{VAR: old_email}”, accesând legătura de mai jos:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nDupă ce confirmați noua adresă, contul dumneavoastră de forum va fi reactivat.
 iemail_thread_unsub:Anuleaza inregistrarea la aceasta discutie
 iemail_forum_unsub:Anuleaza inregistrarea la acest forum
 primary_group_prefix:Grupul primar al forumului:

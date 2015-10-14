@@ -586,12 +586,150 @@ email_error_subject:ماۋزۇ يېزىش زۆرۈر
 email_error_namerequired:ئىسىم يېزىش زۆرۈر
 email_error_invaliduser:ئىناۋەتسىز ئىشلەتكۈچى
 emailconf_err_invkey_title:خاتالىق
+emailconf_err_invkey_msg:ئىناۋەتسىز جەزملەش ئاچقۇچى. تورخەت ئادرېسىڭىزنى تەڭشۈرۈڭ، كىرگۈزگەن URL نىڭ توغرىلىقىنى جەزملەڭ. ئەگەر ئۇلانمىنى ئىككى قېتىم چەككەن بولسىڭىز، ھېساباتىڭىز ئاللىبۇرۇن جەزملەنگەن بولۇشى مۇمكىن. مۇنبەرگە كىرىش ئۈچۈن باشقا ئاچقۇچ ئىلتىماس قىلىڭ.
 err_inc_criticaltitle:ئېغىر خاتالىق
 err_inc_criticalmsg:خاتالىق كۆرۈلدى. ئەپسۇسلىنارلىقى خاتالىق دوكلات سىستېمىسىدىمۇ مەسىلە كۆرۈلدى.
 finduser_update:ئىشلەتكۈچىلەرنى ئىزدەۋاتىدۇ
 help_index_update:<a href="{TEMPLATE: help_index_update_lnk}">ياردەم</a> نى ئوقۇڭ
 iemail_thr_subject:بۇ {VAR: thr_subject}غا {VAR: poster_login} يېڭى ئىنكاس قايتۇردى
+iemail_thr_bodyemail:ئوقۇلمىغان ئىنكاسلارنى كۆرۈش ئۈچۈن {VAR: goto_url['email']} غا يۆتكىلىڭ\n\nئەگەر سىز بۇ تېما ھەققىدىكى ئىنكاس يوللانغانلىق ئۇقتۇرۇشىنى قوبۇل قىلىشنى خالىمىسىڭىز، {VAR: unsub_url['email']} نى چېكىڭ
+iemail_frm_subject:{VAR: frm_name} مۇنبەردە{VAR: poster_login} تەرىپىدىن {VAR: thr_subject} ماۋزۇدىكى يېڭى تېما يوللاندى
+iemail_frm_bodyemail:تېمىنى كۆرۈش ئۈچۈن: \n{VAR: goto_url['email']}\n\nبۇ مۇنبەردە يوللانغان يېڭى تېما ئۇقتۇرۇشىنى قوبۇل قىلمىسىڭىز، بۇ جايغا يۆتكىلىڭ:\n{VAR: unsub_url['email']}
+iemail_participate:مۇنازىرىگە قاتناشماقچى بولسىڭىز بۇ جايدىن كىرىڭ:
 ignore_list_err_info_title:ئۇچۇر
+ignore_list_err_dup_msg:بۇ ئىشلەتكۈچى پەرۋا قىلمايدىغانلار تىزىمىدا بار
+ignore_list_err_nu_title:ئىشلەتكۈچى تېپىلمىدى
+ignore_list_err_nu_msg:سىز قوشۇشنى سىنىغان ئىشلەتكۈچى پەرۋا قىلماسلىق تىزىمىدا يوق.
+ignore_list_cantign_msg:بۇ ئىشلەتكۈچىنى رەت قىلالمايسىز.
+ignore_list_update:ئۆزىنىڭ پەرۋا قىلماسلىق تىزىمىغا كۆز يۈگۈرتۈۋاتىدۇ
+index_update:بۇ <a href="{TEMPLATE: index_update_lnk}">مۇنبەر تىزىمى</a> غا كۆز يۈگۈرتۈۋاتىدۇ
+list_referers_update:تونۇشلارغا كۆز يۈگۈرتۈۋاتىدۇ
+login_update:مۇنبەرگە تىزىمغا كىرىش
+msg_update:<a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a> باش تېمىغا كۆز يۈگۈرتۈۋاتىدۇ
+pm_err_nopm_title:خاتالىق: شەخسىي ئۇچۇر يوللاش چەكلەنگەن
+pm_err_nopm_msg:شەخسىي ئۇچۇر سىستېمىسىنى ئىشلىتەلمەيسىز. ئۇنى باشقۇرغۇچى چەكلىۋەتكەن.
+pm_update:شەخسىي ئۇچۇر ئىقتىدارىنى ئىشلىتىۋاتىدۇ
+post_err_lockedthread_title:خاتالىق: قۇلۇپلانغان يازما
+post_err_lockedthread_msg:بۇ يازما قۇلۇپلانغان. ئىنكاس قايتۇرغىلى بولمايدۇ.
+err_coppa_title:خاتالىق: ھېساباتىڭىز جەزملەنمىگەن.
+err_coppa_msg:بىز ئاتا-ئانىڭىز ياكى ھامىيىڭىزنىڭ يازما يوللىشىڭىزغا قوشۇلغانلىق خېتىنى تېخى تاپشۇرۇۋالمىدۇق. ئەگەر ئىلتىماس جەدۋىلىنى يوقىتىپ قويغان بولسىڭىز، <a href="{TEMPLATE: err_coppa_msg_lnk}">بۇ جاينى چېكىڭ</a>.
+err_banned_acct_title:خاتالىق: سىز چەكلەندىڭىز.
+err_banned_acct_msg:مۇنبەرنىڭ قائىدىسىگە خىلاپلىق قىلغانلىقىڭىز ئۈچۈن، ھېساباتىڭىزنى بۇ تورتۇرا {IF: $ban_expiry} سىزنى {DATE: ban_expiry %a, %d %B %Y %H:%M} غىچە زىيارەت قىلىشىڭىزنى ۋاقىتلىق چەكلىدى، {ELSE}زىيارىتىڭىزنى مەڭگۈلۈك چەكلەيدۇ{ENDI}.
+post_err_edttimelimit_title:خاتالىق
+post_err_edttimelimit_msg:بۇ يازمىنى تەھرىرلىيەلمەيسىز
+post_err_noannontopics_msg2:<legend>خاتالىق: ھوقۇقىڭىز يەتمىدى</legend> ئاتسىز ئىشلەتكۈچى يازما يوللىيالمايدۇ.
+post_err_noannonposts_msg2:<legend>خاتالىق: ھوقۇقىڭىز يەتمىدى</legend> ئاتسىز ئىشلەتكۈچى يازمىغا ئىنكاس يوللىيالمايدۇ.
+post_err_floodtrig_title:خاتالىق: ئارقىمۇ-ئارقا ئىنكاس يوللىيالمايسىز.
+post_err_floodtrig_msg:سىز {PLURAL: tm|$1 سېكۇنت|$1 سېكۇنت} ئىچىدە قايتا سىناڭ.
+post_err_attach_size:قوشۇمچە ھۆججەت بەك چوڭ (يول قويىدىغان ئەڭ يۇقىرى چەك {VAR: MAX_F_SIZE}بايتتىن ئېشىپ كەتتى )
+post_err_attach_ext:سىز يوكلەۋاتقان ھۆججەت تىپى مۇنبەرگە يۈكلەشكە يول قويۇلىدىغان ھۆججەت تىپىغا ماس كەلمەيدۇ.
+post_err_attach_filelimit:سىز يۈكلەشنى سىناۋاتقان ھۆججەت سانى يول قويۇلىدىغان چەكتىن ئېشىپ كەتتى.
+post_err_passwd:ئىم خاتا.
+post_reply_update:{VAR: frm->name} مۇنبەردىكى <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> تېمىغا ئىنكاس يېزىۋاتىدۇ
+post_topic_update:<a href="{TEMPLATE: post_topic_update_lnk}">{VAR: frm->name}</a> مۇنبەردە يېڭى تېما يېزىۋاتىدۇ
+post_error_generic:خاتالىق كۆرۈلدى
+postcheck_max_images_err:بىر قېتىمدا يوللاشقا يول قويىدىغان سۈرەتنىڭ سانى {GVAR: MAX_IMAGE_COUNT}، سۈرەت سانىنى ئازلىتىڭ.
+postcheck_no_links_allowed:سىز {PLURAL: posts_before_links|$1 يازما|$1 يازما} يوللىماي تۇرۇپ بۇ ئۇلانمىنى ئىشلىتەلمەيسىز.
+postcheck_subj_needed:ماۋزۇ زۆرۈر
+postcheck_no_such_user:بۇ مۇنبەردە «{FUNC: char_fix(htmlspecialchars($v))}» ئاتلىق ئىشلەتكۈچى يوق.
+postcheck_ignored:سىز «{FUNC: char_fix(htmlspecialchars($v))}» غا شەخسىي ئۇچۇر ئەۋەتەلمەيسىز، چۈنكى بۇ ئىشلەتكۈچى شەخسىي ئۇچۇر يوللاشنى رەت قىلغان.
+postcheck_no_recepient:ئۇچۇرنى يوللىيالمايدۇ، تاپشۇرۇۋالغۇچى كەم
+postcheck_invalid_email:دوستىڭىزنىڭ ئىناۋەتلىك تورخەت ئادرېسىدىن بىرنى كىرگۈزۈڭ.
+postcheck_email_subject:تېمىنى كىرگۈزمىسىڭىز تورخەتنى يوللىيالمايسىز.
+postcheck_email_body:ئۇچۇر مەزمۇنىنى كىرگۈزمىسىڭىز تورخەتنى يوللىيالمايسىز.
+private_msg_notify_subj:{VAR: m->subject} ئۈچۈن ئۇقتۇرۇش ئوقۇش
+private_msg_notify_body:سالام، <br />{VAR: usr->login} ئىشلەتكۈچى سىز ئەۋەتكەن "{VAR: m->subject}" شەخسىي ئۇچۇرنى ئوقۇدى. بۇ ئاپتوماتىك ئۇقتۇرۇش {TEMPLATE: private_msg_notify_body_date} ئەسكەرتىلگەن.<br />
+referals_update:تونۇشلارغا كۆز يۈگۈرتۈۋاتىدۇ
+register_err_short_login:سىز كىرگۈزگەن ھېسابات ئىسمى بەك قىسقا. ھېسابات ئىسمى ئاز دېگەندە 4 ھەرپ بولۇشى لازىم.
+register_err_login_notallowed:بۇ ھېسابات ئىسمىنى تىزىملىتالمايسىز.
+register_err_loginunique:مۇنبەردە ھېسابات ئىسمى چوقۇم بىردىنبىر بولىدۇ. بۇ ئىسىمنى باشقا ئىشلەتكۈچىلەر تىزىملىتىپ بولغان.
+register_err_emailexists:بۇ تورخەت ئادرېسى مەۋجۇت، تەكرار خەتلەتمەڭ. ئەگەر ئىمنى ئۇنتۇپ قالغان بولسىڭىز، ئىمنى ئەسلىگە كەلتۈرۈش ئارقىلىق ئىمنى قايتۇرۇۋېلىڭ.
+register_err_shortpasswd:ئىم ئاز دېگەندە 6 ھەرپ بولۇشى زۆرۈر.
+register_err_passwdnomatch:ئىم ماس كەلمىدى، قايتا سىناڭ.
+register_err_invalidemail:سىز كىرگۈزگەن تورخەت ئادرېسى توغرا ئەمەستەك قىلىدۇ.
+register_err_needname:خەتلىتىشنى مۇۋەپپەقىيەتلىك تاماملاش ئۈچۈن ئىسمىڭىزنى كىرگۈزۈشىڭىز زۆرۈر.
+register_err_enterpasswd:بۇ ئۆزگەرتىشنى تاماملاش ئۈچۈن ئىمنى كىرگۈزۈشىڭىز زۆرۈر.
+register_err_adminpasswd:ئۆزگەرتىشنى تاماملاش ئۈچۈن <b>باشقۇرغۇچى</b> ئىمنى كىرگۈزۈشىڭىز زۆرۈر.
+register_err_notyouremail:باشقىلار بۇ تورخەت ئادرېسىنى ئىشلىتىپ خەتلىتىپ بولدى.
+register_err_avatartobig:سىز يۈكلەشنى سىناۋاتقان بۇ ھۆججەت بەك چوڭ، {GVAR: CUSTOM_AVATAR_MAX_SIZE} بايتلىق چەكلىمىدىن ئېشىپ كەتتى.
+register_err_avatarnotallowed:سىز يۈكلىمەكچى بولغان سىماغا يول قويۇلمىغان. يۈكلەشكە يول قويۇلىدىغان ھۆججەت تىپىنى تەكشۈرۈڭ.
+register_conf_subject:خەتلىتىشنى جەزملەش
+register_conf_msg:خەتلەتكىنىڭىزگە رەھمەت.\n\nنۆۋەتتىكى ھېساباتنى ئاكتىپلىماقچى بولسىڭىز تۆۋەندىكى ئۇلانمىنى چېكىڭ:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nھېساباتىڭىز تۇنجى قېتىم ئاكتىپلانغاندا، مۇنبەر باش بېتىگە بىۋاستە كىرىسىز.
+register_welcome_subject:مۇنبەرگە خەتلىتىشنى جەزملەش
+register_welcome_msg:خەتلەتكىنىڭىزگە رەھمەت،\n\nبۇلار سىز مۇنبەرگە خەتلەتكەن ئۇچۇرلارنىڭ تەپسىلاتى:\n\nمۇنبەر ئادرېسى: {TEMPLATE: index_update_lnk}\nھېسابات: {VAR: uent->login}\nئىم: {VAR: _POST['reg_plaintext_passwd']}\n\nئىم چوڭ كىچىك ھەرپنى پەرقلەندۈرىدۇ!\nتەڭشەك ياكى سەپلىمە ھۆججىتىڭىزنى ئۆزگەرتمەكچى بولسىڭىز، بۇ بەتكە يۆتكىلىڭ:\n{FULL_ROOT}{ROOT}?t=register
+register_err_cantreg_title:خاتالىق: خەتلىتەلمەيدۇ
+regsiter_err_cantreg_msg:ئىشلەتكۈچى ھېساباتىنى قۇرالمايدۇ، سىستېما باشقۇرغۇچى بىلەن ئالاقىلىشىڭ <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
+register_profile_update:شەخسىي ئۇچۇرنى كۆرۈۋاتىدۇ
+register_register_update:خەتلىتىش بېتى
+report_err_nosuchmsg_title:خاتالىق
+report_err_nosuchmsg_msg:بۇنداق ئۇچۇر يوق
+reset_err_invalidkey_title:خاتالىق
+reset_err_invalidkey_msg:ئىمنى ئەسلىگە كەلتۈرۈش ئاچقۇچى ئىناۋەتسىز. بەلكىم تورخەت پىروگراممىڭىز بۇ بەتنى ئاپتوماتىك ئاچقان بولۇشى مۇمكىن، ئەسلىگە كەلتۈرۈش ئاچقۇچى ئىناۋەتسىز. ئەگەر مۇشۇنداق بولسا، سىز پات پۇرسەتتە يېڭى ئىم بار تورخەتنى تاپشۇرۇۋالىسىز. ئەگەر بۇ خىل تورخەتنى تاپشۇرۇۋالمىغان بولسىڭىز، ئىمنى ئەسلىگە قايتۇرۇشنى قايتا سىناڭ.
+reset_err_rstconf_title:ئۇچۇر
+reset_err_rstconf_msg:سىز سەل تۇرۇپ تورخەتتە مۇناسىۋەتلىك چۈشەندۈرۈشلەرنى تاپشۇرۇۋالىسىز.
+reset_newpass_title:ئىمنى ئەسلىگە قايتۇر
+reset_login_notify:ئىم تورخەت ساندۇقىڭىزغا ئەۋەتىلدى. ئۇنى بىر قانچە مىنۇت ئىچىدەتاپشۇرۇۋالىسىز.
+search_update:ئۇچۇر ئىزدەۋاتىدۇ
+selmsg_update:<a href="{TEMPLATE: selmsg_update_lnk}">بۈگۈنكى يازمىلار</a> نى كۆرۈۋاتىدۇ
+showposts_update:ئىشلەتكۈچى <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a> يوللىغان تېمىلارنى كۆرۈۋاتىدۇ
+subscribed_update:مۇشتەرى بولغانلىرىنى كۆرۈۋاتىدۇ
+bookmarked_update:ئۆزىنىڭ خەتكۈچلىرىنى كۆرۈۋاتىدۇ
+thread_update:<a href="{TEMPLATE: thread_update_lnk}">{VAR: frm->name}</a> مۇنبەرنى كۆرۈۋاتىدۇ
+tree_update:<a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a> تېما (شاخسىمان كۆرۈنۈشلۈك) كۆرۈۋاتىدۇ
+userinfo_update:<a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}نىڭ</a> سەپلىمە ھۆججىتىگە قاراۋاتىدۇ
+ERR_login_msg2:<legend>خاتالىق: سىز تېخى تىزىمغا كىرمىگەن</legend> تىزىمغا كىرگەندىن كېيىن ئاندىن بۇ بەتنى زىيارەت قىلالايسىز.
+ERR_disabled_ttl:چەكلەنگەن ئىقتىدار
+ERR_disabled_msg:بۇ ئىقتىدارنى سىستېما باشقۇرغۇچى چەكلىگەن
+ERR_access_ttl:خاتالىق: ھوقۇق يەتمەيدۇ
+ERR_access_msg:سىزنىڭ بۇ مەشغۇلاتنى ئېلىپ بېرىش ھوقۇقىڭىز يوق.
+ERR_registration_disabled_ttl:خەتلەش چەكلەنگەن
+ERR_registration_disabled_msg:باشقۇرغۇچى خەتلىتىشنى چەكلىگەن، سەل تۇرۇپ قايتا سىناڭ.
+ERR_emailconf_ttl:خاتالىق: ھېساباتىڭىز جەزملەنمىگەن.
+ERR_emailconf_msg:سىز خەتلەتكەن ھېسابات تېخى تورخەت بىلەن جەزملەنمىگەن.<br /><table border="0"><tr><td><ol><li>ئەگەر سىز جەزملەش تورخەتنى تېخى تاپشۇرۇۋالمىغان بولسىڭىز،  <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">بۇ جاينى چېكىپ قايتا ئىلتىماس قىلىڭ</a>.</li><li>ئەگەر {VAR: usr_d->email} ئادرېستا خاتلىق بولسا <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">تۈزىتىڭ</a>.</li></ol></td></tr></table>
+ERR_user_ttl:خاتالىق: بۇنداق ئىشلەتكۈچى يوق
+ERR_user_msg:بۇنداق ئىشلەتكۈچى يوق
+ERR_systemerr_ttl:خاتالىق: سىستېما خاتالىقى
+ERR_systemerr_msg:سىستېما خاتالىقى يۈز بەردى. خاتالىقنى <a href="mailto:{GVAR: ADMIN_EMAIL}">باشقۇرغۇچى</a> غا دوكلات قىلىڭ.
+email_title:تورخەت جەدۋىلى
+finduser_title:ئىشلەتكۈچى ئىزدە
+help_title:ياردەم
+login_title:مۇنبەرگە تىزىمغا كىرىش
+poll_title:تەكشۈرۈش تەھرىرلىگۈچ
+register_title:خەتلىتىش جەدۋىلى
+reset_title:ئىمنى ئەسلىگە قايتۇر
+rpasswd_title:ئىمنى ئۆزگەرتىش جەدۋىلى
+error_title:پىچىم خاتا
+index_title:مۇنبەرگە مەرھابا
+search_title:{VAR-HTML: srch} ئىزدە
+remail_emailsent:تورخەت يوللاندى
+remail_email:ئەسسالامۇ ئەلەيكۇم،\n\nسىز بەلكىم {GVAR: FORUM_TITLE} مۇنبەردىكى {VAR: data->subject} تېمىغا قىزىقىشىڭىز مۇمكىن. تېمىغا كىرىش ئۈچۈن تۆۋەندىكى ئۇلانمىنى چېكىڭ:\n{FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nدوستىڭىز، \n\n{VAR: usr->alias}
+poll_add_option:تاللانما قوش:
+post_opt_html_on:<b>HTML</b> : <b>ئوچۇق</b>
+post_opt_fud_on:<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>BBcode</b> : <b>ئوچۇق</b></a>
+post_opt_images_on:<b>Images</b> : <b>ئوچۇق</b>
+post_opt_smilies_on:<a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank"><b>چىراي ئىپادە</b> : <b>ئوچۇق</b></a>
+post_opt_html_off:<b>HTML</b> كودى <b>تاقاق</b>
+post_opt_fud_off:<b>BBcode</b> : <b>تاقاق</b>
+post_opt_images_off:<b>سۈرەتلەر</b> : <b>تاقاق</b>
+post_opt_smilies_off:<b>چىراي ئىپادىلىرى</b> : <b>تاقاق</b>
+post_opt:مۇنبەر تاللانمىلىرى:
+register_change_passwd:ئىم ئۆزگەرت
+register_change_login:تىزىمغا كىرىشنى ئۆزگەرتىش
+approved_avatar_title:ئىختىيارىي سىمايىڭىز جەزملەندى.
+approved_avatar_msg:سىمايىڭىزنى سىستېما باشقۇرغۇچى جەزملىدى. بۇندىن كېيىن يوللىغان ئۇچۇرلىرىڭىزنىڭ ھەممىسىدە بۇ سىمايىڭىز كۆرۈنىدۇ. ئەگەر سىمايىڭىز كۆرۈنمىگەن ياكى كۆرۈنگىنى كونىسى بولسا، ئۇنداقتا توركۆرگۈڭىز مۇناسىۋەتلىك بەتنى غەملەككە ساقلىۋاپتۇ. بىر قانچە قېتىم يېڭىلاپ باقسىڭىز بۇ مەسىلە ئوڭشىلىشى مۇمكىن.
+unapproved_avatar_title:ئىختىيارىي سىمايىڭىز رەت قىلىندى.
+unapproved_avatar_msg:سىستېما باشقۇرغۇچى سىيامىڭىزنى جەزملىمىدى. بەلكىم سىما ھۆججىتىڭىز بەك چوڭ (سىغىمى ياكى رازمېرى)، يەنە باش تېما بىلەن ماس كەلمەيدىغان ھۆججەت بولۇشىمۇ مۇمكىن. ئەگەر تېخىمۇ كۆپ ئۇچۇرلارغا ئېرىشمەكچى بولسىڭىز باشقۇرغۇچى بىلەن ئالاقىلىشىڭ.
+mvthread_request_move:تېما يۆتكەش ئىلتىماسى
+move_request_reason:بۇ تېمىنى نېمە ئۈچۈن يۆتكەيسىز؟
+mvthread_submit_req:ئىلتىماس تاپشۇر
+thread_exchange:تېما ئالماشتۇرۇش
+move_request_by:تېما يۆتكەتكۈچى:
+move_reason:تېما يۆتكەش سەۋەبى:
+thr_exch_accept:تېمىغا قوشۇل
+thr_exch_decline:تېمىنى رەت قىل
+thr_exch_orig_forum:ئەسلى مۇنبەر:
+thr_exch_dest_forum:نىشان مۇنبەر:
+thr_exch_no_threads:جەزملەيدىغان تېما يوق.
 groupmgr_yes:ھەئە
 groupmgr_no:ياق
 groupmgr_action:مەشغۇلات

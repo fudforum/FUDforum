@@ -1,12 +1,14 @@
 # Messages for Korean (한국어)
 # Exported from translatewiki.net
 # Author: Changwoo
+# Author: Hwangjy9
 # Author: Hym411
 # Author: Klutzy
 # Author: Naudefj
 # Author: Priviet
 # Author: Revi
 # Author: ToePeu
+# Author: Yearning
 # Author: 아라
 
 action:동작
@@ -423,8 +425,7 @@ ignore_users:차단 멤버
 add_ignore:차단 멤버 추가
 forum_terms:포럼 기간
 forum_rules:이 포럼의 가입은 자유입니다! 아래의 규칙을 준수하십시오. 준수사항에 동의 한다면 동의 버튼을 클릭 하십시오. 주의: 버튼을 클릭하는 것은 13세 이상임을 확인하는 행위입니다. 만일 13세 이하면 이 양식을 이용하십시오.<p>관리자 및 중재자는 포럼의 규칙 준수를 위해 모든 게시글을 감시하여 포럼의 원할한 운영을 유지합니다. 모든 게시물에 대한 법적 책임은 작성자에게 있으며, 포럼의 운영자는 불법적이거나 음란한 내용의 게시물을 삭제시키거나 포럼을 폐쇄 시킬 수 있습니다.
-# Fuzzy
-forum_rules_13:만13세 이하의 사용자는 부모의 동의서를 제출해야 멤버로 가입할 수 있습니다. 13세 미만의 회원을 회원으로 승인하기 위해 운영자는 13세 미만 회원 신청자의 부모에게 팩스 또는 이메일을 통해 회원 가입 사실을 발송합니다.<p>위 사항을 준수하고 회원으로 가입하고 싶으면 아래의 동의 버튼을 클릭 하십시오 <p>허가 양식은 이곳에서 다운로드 할 수 있으며 추가의 정보를 원하시면 이메일을 통해 요청하십시오 <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.<p>
+forum_rules_13:<p>만 13세 이하 사용자는 포럼 참가 자격을 얻기 위해 보호자 동의가 필요합니다. 만 13세 이하 사용자는 참가 자격을 얻기 위해서 보호자가 허가서에 서명하고, 가입 사실을 팩스나 이메일을 받아야 합니다.</p><p>위 사항을 준수하고 회원가입하고 싶다면 아래의 <b>동의</b> 버튼을 클릭해 주십시오. 등록하고 싶지 않다면 <b>동의하지 않음</b>버튼을 클릭하고 포럼의 첫 페이지로 돌아가 주십시오.</p><p>허가 양식은 등록 후 보일 것입니다. 더 알고 싶다면 <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> 로 메일을 보내 주십시오.</p>
 coppa_conf:청소년 온라인 개인 정보 보호법(COPPA) 인증
 coppa_before:{TEMPLATE: coppa_date}전
 coppa_after:{TEMPLATE: coppa_date}후
@@ -435,8 +436,7 @@ prereg_agree:동의
 prereg_disagree:비동의
 prereg_update:포럼 규칙 읽기
 coppa_fax_instructions:부모님을 위한 지시사항
-# Fuzzy
-coppa_fax_instructions2:현 페이지를 출력하여 서명한 후, 팩스로 발송하십시오:
+coppa_fax_instructions2:현 페이지를 출력하여 서명한 후, 이메일을 보내거나 팩스로 발송하십시오.
 coppa_fax_reg_form:등록 형식
 coppa_fax_sign:서명후 발송하십시오
 coppa_fax_conf:나는 우리 아이가 제공하는 정보를 검토했으며 웹사이트의 정책 및 준수 사항을 이해했고 모든 사항에 대해 동의합니다.
@@ -470,6 +470,7 @@ rpasswd_passwd_length:패스워드는 최소한 6자 이상이어야 합니다
 reset_remind_pass:비밀번호 조언
 reset_reset_conf:패스워드 분실시 힌트를 통해 찾을 수 있으며, 등록한 이메일로 발송됩니다
 reset_error:이메일 주소를 찾을 수 없습니다
+reset_update:비밀번호 재설정
 rpasswd_change_pass:비밀번호 바꾸기
 rpasswd_login:로그인
 rpasswd_cur_pass:현재 비밀번호:
