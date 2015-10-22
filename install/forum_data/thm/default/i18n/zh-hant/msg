@@ -33,8 +33,8 @@ date_registered:註冊日期：
 download_counter:下載 {PLURAL: v[3] | $1 次|$1 次}
 pmsg_download_counter:下載 {PLURAL: r->dlcount|$1 次|$1 次}
 email:郵件：
-email_to_friend:發送郵件給朋友
-email_to_friend_desc:發送郵件，向您的朋友推薦這個帖子
+email_to_friend:給朋友傳送電子郵件
+email_to_friend_desc:透過電子郵件把此頁面的網址傳送給你的朋友
 email_user:點這裡向此使用者寄出郵件。
 faq:說明
 first_unread_msg:轉入未讀的帖子
@@ -154,10 +154,10 @@ sel_unanswered_posts:未回復主題
 sel_unanswered_posts_desc:只顯示未回復主題
 sel_unread_messages:未讀訊息
 sel_unread_messages_desc:只顯示未讀訊息
-send:發送
+send:傳送
 send_pm_desc:給這位使用者傳送私人訊息
-sender_email:發送者郵件：
-sender_name:發送者姓名：
+sender_email:傳送者電子郵件：
+sender_name:傳送者姓名：
 show_posts_by:顯示使用者 {VAR: u_alias} 發佈的主題
 size:大小：
 status:狀態：
@@ -228,7 +228,7 @@ modque_no_message:沒有等待審批的訊息
 pmsg_new_messages:未讀悄悄話
 pmsg_old_messages:已讀悄悄話
 deny_recipt:拒絕接受
-deny_recipt_desc:請不要發送確認您已閱讀該郵件
+deny_recipt_desc:您在閱讀此訊息之後請勿傳送確認
 restore_to:將還原到：
 move_to:將移動到：
 list_referes_referrals:引用
@@ -442,7 +442,7 @@ prereg_update:閱讀論壇規則
 coppa_fax_instructions:對於父母或監護人的指示
 coppa_fax_instructions2:請列印此頁，簽名，並郵寄或傳真給我們。
 coppa_fax_reg_form:註冊表單
-coppa_fax_sign:請登錄以下表格並將其發送給我們
+coppa_fax_sign:請簽署以下表單並將其傳送給我們
 coppa_fax_conf:我已檢討我的孩子已經提供的資料，看過的 web 網站的隱私權原則。我明白使用密碼可以更改設定檔資訊。我明白請問此註冊設定檔會完全從論壇中移除。
 coppa_fax_permission:在這裡簽名，如果您授予的許可權
 coppa_fax_no_permission:在這裡簽名，如果您想要刪除的帳戶
@@ -505,7 +505,7 @@ search_all_forums:搜尋所有論壇
 search_in_forum:在論壇中的搜尋：
 search_forum_search:論壇搜尋
 move_thread_to:移動主題<b> {VAR: thr->subject} </b>到：
-remail_email_topic:通過電子郵件發送給朋友本主題
+remail_email_topic:透過電子郵件傳送給朋友本主題
 remail_your_name:您的姓名：
 remail_your_email:您的電郵：
 remail_friends_name:朋友的姓名：
@@ -513,7 +513,7 @@ remail_friends_email:朋友的電郵：
 remail_required:必填
 remail_subject:主題：
 remail_message:訊息：
-remail_send_now:立即發送電子郵件
+remail_send_now:立即傳送電子郵件
 remail_anon_opt:將此郵件複製到您的選擇，將其發送給您的賭場的郵件用戶端。
 remail_done:完成
 remail_sent_conf:你的朋友在電子郵件 {VAR-HTML: _POST['femail']} 關於 {VAR: data->subject} 主題已成功發送。
@@ -545,7 +545,7 @@ ppost_from_buddy_list:從連絡人清單中選擇
 ppost_find_User:查找使用者
 ppost_track_msg:跟蹤此訊息
 ppost_track_msg_desc:當此讀取訊息時，請通知我 (透過私人訊息) 。
-ppost_send:發送
+ppost_send:傳送
 ppost_save_draft:儲存草稿
 poll_blank_option:您不能添加一個空白的選項。
 poll_del_conf:如果您要刪除此選項，請按確定
@@ -595,7 +595,7 @@ buddy_list_update:流覽自己的好友清單
 core_err_invinp_title:無效的輸入
 core_err_invinp_err:您已按照無效的連結。請通知<a href="mailto:{GVAR: ADMIN_EMAIL}">站長</a>你如何走到今天。
 core_adm_login_msg:管理員可以登錄<a href="{GVAR: WWW_ROOT}adm/admloginuser.php">在這裡</a>。
-email_err_unabletoemail_title:錯誤: 無法發送電子郵件
+email_err_unabletoemail_title:錯誤: 無法傳送電子郵件
 email_err_unabletoemail_msg:電子郵件系統已被管理員禁用。
 email_error_unabletolocaddr:對不起，系統無法通過電子郵件發送 {VAR-HTML: _POST['tx_name']} 因為它無法確定電子郵寄地址
 email_error_body:身體是必需
@@ -650,9 +650,9 @@ postcheck_no_links_allowed:你不能使用，直到您已發布的 {PLURAL: post
 postcheck_subj_needed:必填
 postcheck_no_such_user:有沒有在這個論壇的使用者名稱為 "{FUNC: char_fix(htmlspecialchars($v))}"
 postcheck_ignored:您不能發送私人訊息給"{FUNC: char_fix(htmlspecialchars($v))}", 因為這個用戶是不理你。
-postcheck_no_recepient:不能發送消息，失踪收件人
+postcheck_no_recepient:收件者遺失，無法傳送訊息。
 postcheck_invalid_email:你的朋友，請輸入一個有效的電子郵件地址。
-postcheck_email_subject:你不能沒有主題發送電子郵件。
+postcheck_email_subject:你無法傳送沒有主題的電子郵件。
 postcheck_email_body:你不能的情況下發送一封電子郵件，郵件正文。
 private_msg_notify_subj:讀取通知：{VAR: m->subject}
 private_msg_notify_body:您好，<br>{VAR: usr->login}已打開私人郵件標題為" {VAR: m->subject} "。<br>這是在生成自動的通知 {範本： private_msg_notify_body_date}<br>
@@ -719,7 +719,7 @@ rpasswd_title:更改密碼的表單
 error_title:錯誤的表單
 index_title:歡迎來到論壇
 search_title:搜尋 {VAR-HTML: srch}
-remail_emailsent:電子郵件的發送
+remail_emailsent:電子郵件已傳送
 remail_email:你好\n!N ！關於有一個有趣的話題" {VAR: data->subject} "上 {GVAR: FORUM_TITLE} 要閱讀的論壇。你可以看到在主題： ！N ！{FULL_ROOT}{根} 嗎？t=rview&amp;th={VAR: data->id}&amp;rid ={DEF: _uid} ！N!!N ！你的朋友！N!!N ！{VAR: usr->alias}
 poll_add_option:添加選項：
 post_opt_html_on:<b>HTML</b>代碼：<b>開放</b>

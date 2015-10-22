@@ -561,7 +561,7 @@ poll_hours:uur
 poll_month:maand
 poll_year:jaar
 poll_week:week
-tabs_register:Gebruikersinstellingen
+tabs_register:Accountinstellingen
 tabs_subscriptions:Abonnementen
 tabs_bookmarkes:Bladwijzers
 tabs_referrals:Ingebrachte gebruikers
@@ -695,8 +695,8 @@ ERR_access_ttl:FOUT: onvoldoende rechten
 ERR_access_msg:U hebt niet de vereiste rechten om deze handeling uit te voeren.
 ERR_registration_disabled_ttl:Registratie is uitgeschakeld
 ERR_registration_disabled_msg:De beheerder heeft registratie uitgeschakeld. Probeer het later opnieuw.
-ERR_emailconf_ttl:Fout: uw gebruiker is nog niet bevestigd
-ERR_emailconf_msg:U hebt uw gebruiker nog niet via e-mail bevestigd.<br /><table border="0"><tr><td><ol><li><a href="{TEMPLATE: ERR_emailconf_msg_lnk}">Hebt u nog geen bevestiging per e-mail ontvangen?</a></li><li><a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">Is {VAR: usr_d->email} niet uw e-mailadres?</a></li></ol></td></tr></table>
+ERR_emailconf_ttl:Fout: uw account is nog niet bevestigd
+ERR_emailconf_msg:U hebt uw account nog niet via e-mail bevestigd.<br /><table border="0"><tr><td><ol><li><a href="{TEMPLATE: ERR_emailconf_msg_lnk}">Hebt u nog geen bevestiging per e-mail ontvangen?</a></li><li><a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">Is {VAR: usr_d->email} niet uw e-mailadres?</a></li></ol></td></tr></table>
 ERR_user_ttl:Fout: gebruiker bestaat niet
 ERR_user_msg:Deze gebruiker bestaat niet
 ERR_systemerr_ttl:Fout: systeemfout
@@ -920,7 +920,7 @@ finduser_help:De zoekmachine voegt automatisch het masker * toe aan uw zoekopdra
 back_to_top:Terug naar boven
 pm_err_disabled_title:Privéberichten zijn uitgeschakeld
 pm_err_disabled_msg:U kunt geen privéberichten verzenden totdat u de instelling "Privéberichten toestaan" in uw gebruikersinstellingen inschakelt.
-err_mod_acc_ttl:Gebruiker nog niet goedgekeurd
+err_mod_acc_ttl:Account nog niet goedgekeurd
 err_mod_acc_msg:De beheerder heeft ervoor gekozen om handmatig alle gebruikers te beoordelen alvorens ze te activeren. Totdat uw gebruiker gecontroleerd is door een beheerder kunt u niet alle functies gebruiken.
 accounts_pending_approval:Goed te keuren gebruikers
 saved:Opslaan
@@ -931,7 +931,7 @@ register_err_avatardimtobig:De afmetingen van de avatar (<b>({VAR: img_info[0]}x
 buddy_offline:{VAR: r[2]} is op dit moment afwezig
 buddy_online:{VAR: r[2]} is op dit moment aanwezig
 sml_no_smilies:Geen smiley's beschikbaar.
-login_unapproved_account_ttl:Gebruiker niet goedgekeurd
+login_unapproved_account_ttl:Account niet goedgekeurd
 login_unapproved_account_msg:De beheerder heeft ervoor gekozen om handmatig alle gebruikers te bevestigen alvorens ze te activeren. Totdat uw gebruiker bevestigd is door een beheerder kunt u niet alle functies gebruiken die voor bevestigde gebruikers beschikbaar zijn.
 remove_from_buddy_list:van vriendenlijst verwijderen
 iemail_msg_author:<b>Van:</b> {VAR: obj->alias}
@@ -1066,7 +1066,7 @@ thread_mov_all:Selectie verplaatsen
 thread_merge_all:Selectie samenvoegen
 thread_loc_all:Selectie op/van slot
 dmsg_ip:IP-adres:
-err_blockedaccnt_title:Fout: uw gebruiker is uitgefilterd.
+err_blockedaccnt_title:Fout: uw account is uitgefilterd.
 err_blockedaccnt_msg:Uw account is verbannen van het forum vanwege een ingestelde filter.
 merge_th_page_list:Onderwerppaginaselectie
 most_users_online:Het hoogste aantal actieve gebruikers was <b>{VAR: st_obj->most_online}</b> op <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
