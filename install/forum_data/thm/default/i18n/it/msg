@@ -1083,7 +1083,7 @@ sml_code:Codice
 mnav_sub_only:Cerca solo nei forum sottoscritti
 register_topics_per_page:Argomenti per paginaç
 login_min_time:Questo forum permette di tentativo di accesso ogni {VAR: MIN_TIME_BETWEEN_LOGIN} secondi, per favore attendere {FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)} secondi prima del prossimo tentativo.
-post_not_logged_in:Al momento non sei loggato, il messaggio verrà inviato in forma anonima.
+post_not_logged_in:Al momento non hai effettuato l'accesso, il messaggio verrà inviato in forma anonima.
 post_common_bold:Grassetto
 post_common_italics:Corsivo
 post_common_underline:Sottolinea

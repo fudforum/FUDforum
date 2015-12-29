@@ -2,6 +2,7 @@
 # Exported from translatewiki.net
 # Author: Jgaad007
 # Author: Obaid Raza
+# Author: محبوب عالم
 
 action:کارروائی
 add_to_buddy_list:دوستوں کی فہرست میں شامل
@@ -750,7 +751,7 @@ groupmgr_action:کارروائی
 groupmgr_member:ممبر
 groupmgr_cancel:منسوخ
 groupmgr_add_member:اراکین میں شامل کریں
-groupmgr_update_member:اراکین کی تازہ کاری کریں
+groupmgr_update_member:رکن تازہ کریں
 groupmgr_edit:ترمیم کریں
 groupmgr_delete:حذف کریں
 group_mgr_anon:گمنام

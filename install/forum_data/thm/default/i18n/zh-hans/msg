@@ -35,7 +35,7 @@ download_counter:下载 {PLURAL: v[3] | $1 次|$1 次}
 pmsg_download_counter:下载$1次
 email:邮件：
 email_to_friend:发送邮件给朋友
-email_to_friend_desc:发送邮件，向您的朋友推荐这个帖子
+email_to_friend_desc:通过电子邮件向您的朋友发送至此页面的URL
 email_user:向用户发送一封电子邮件消息
 faq:帮助
 first_unread_msg:转入未读的帖子
@@ -372,7 +372,7 @@ register_notification_desc:如果选择"是"，在发帖时依然可以选择是
 register_notify_method:请选择提醒方式：
 register_notify_method_desc:设置首选的通知方式或关闭通知（例如您正在度假时）。
 register_allow_email_msg:允许向你的电子邮箱发送信息：
-register_allow_email_msg_desc:允许别的用户通过本论坛向你发送邮件。
+register_allow_email_msg_desc:允许其他用户通过本论坛向您发送邮件。
 buddy_status:状态
 my_buddies:我的好友
 add_buddy:添加好友
@@ -388,8 +388,8 @@ post_color:颜色
 post_font:字体
 create_thread:生成主题
 submit_reply:回复
-edit_message:编辑信息
-apply_spell_changes:应用拼写检查的更改。
+edit_message:应用消息更改
+apply_spell_changes:应用拼写更改
 post_preview:预览
 post_logedin_user:登录用户：
 post_logout:注销
@@ -514,7 +514,7 @@ remail_friends_email:朋友的电子邮箱：
 remail_required:必填的
 remail_subject:主题：
 remail_message:内容：
-remail_send_now:发送邮件
+remail_send_now:现在发送电子邮件
 remail_anon_opt:把这些内容拷贝到你选择的邮件地址中，发送给你的朋友。
 remail_done:完成
 remail_sent_conf:给你在{VAR-HTML: _POST['femail']}的朋友主题为{VAR: data->subject}的邮件已经成功发送。
@@ -651,9 +651,9 @@ postcheck_no_links_allowed:发布未满{PLURAL: posts_before_links|$1 message|$1
 postcheck_subj_needed:输入主题
 postcheck_no_such_user:本论坛没有 "{FUNC: char_fix(htmlspecialchars($v))}" 用户
 postcheck_ignored:"{FUNC: char_fix(htmlspecialchars($v))}"用户拒绝接受你的悄悄话。
-postcheck_no_recepient:因为没有接受方，所以无法发送信息
+postcheck_no_recepient:无法发送消息，找不到收信人
 postcheck_invalid_email:请输入你的朋友的正确电子邮箱地址。
-postcheck_email_subject:如果不输入主题，你将无法发送邮件。
+postcheck_email_subject:您不能发送一封不带主题的电子邮件。
 postcheck_email_body:如果没有内容，你将无法发送邮件。
 private_msg_notify_subj:读取通知：{VAR: m->subject}
 private_msg_notify_body:你好，<br />{VAR: usr->login} 用户已经阅读了你的悄悄话 "{VAR: m->subject}"。<br />本自动提示于{TEMPLATE: private_msg_notify_body_date}生成。<br />

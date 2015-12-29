@@ -13,6 +13,7 @@
 # Author: Naudefj
 # Author: StefanusRA
 # Author: Totosunarto
+# Author: WongKentir
 
 action:Tindakan
 add_to_buddy_list:tambahkan ke daftar teman
@@ -74,7 +75,7 @@ locked_with_new_posts:Terkunci (dg/ pesan blm terbaca)
 logged_in_list:Daftar pemakai sedang aktif
 login:Masuk log
 login_header:Masuk log:
-logout:keluar log
+logout:Keluar log
 mark_all_read:Tandai semua pesan sebagai terbaca
 mark_all_read_desc:Semua pesan blm terbaca akan ditandai sbg terbaca
 members:Anggota
@@ -84,6 +85,7 @@ cal_day_heading:Kegiatan hari ini
 cal_no_events:Tidak ada kegiatan untuk hari ini.
 cal_update:Meramban kalender forum
 cal_birthday:Ulang tahun: {VAR: user}
+cal_birthdays:{PLURAL: ulang tahun|$1 berulang tahun|$1 berulang tahun}
 cal_birthday_age:({PLURAL: age|$1 tahun|$1 tahun}).
 message:Pesan
 message_counter:Pengguna kami telah mengirim sejumlah <b>{PLURAL: post_count|$1 message|$1 messages}</b> dalam <b>{PLURAL: thread_count|$1 topic|$1 topics}</b>.

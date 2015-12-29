@@ -5,6 +5,7 @@
 # Author: Eduardo Martinez
 # Author: Fitoschido
 # Author: Gemmaa
+# Author: Jaumeortola
 # Author: McDutchie
 # Author: Naudefj
 # Author: Paucabot
@@ -451,7 +452,7 @@ coppa_fax_relation:Relació amb el menor:
 coppa_fax_telephone:Telèfon:
 coppa_fax_email:Adreça de correu electrònic:
 coppa_fax_date:Data:
-coppa_fax_questions:Si us plau, posi`s en contacte amb <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> per a qualsevol dubte
+coppa_fax_questions:Per a qualsevol dubte poseu-vos en contacte amb <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.
 coppa_fax_login:Nom d`usuari
 coppa_fax_passwd:Contrasenya
 coppa_fax_remail:Correu electrònic
@@ -461,7 +462,7 @@ login_cookie_expired:La seva cookie ha expirat, i ha d`iniciar la sessió per a 
 login_perm_denied:Vostè no té permí­s per a accedir al recurs sol.licitat com a usuari anònim, i ha d`iniciar sessió per a obtenir permí­s per a accedir a l`esmentat recurs.
 login_want_to_register:Vol enregistrar-se?
 login_forgot_passwd:Ha oblidat la seva contrasenya?
-login_use_cookie:Utilitza cookies<br><span class="SmallText">Si està utilitzant un terminal públic com un ordinador en una biblioteca, escola o cafeteria d'Internet, es recomana que es desactivi aquesta opció per a més seguretat. Si deixa aquesta opció seleccionada llavors vostè serà automàticament connectat en el fòrum de la propera vegada que visiteu.</span>
+login_use_cookie:Utilitza cookies<br><span class="SmallText">Si està utilitzant un terminal públic com un ordinador en una biblioteca, escola o cafeteria d'Internet, es recomana que es desactivi aquesta opció per a més seguretat. Si deixa aquesta opció seleccionada llavors vostè serà automàticament connectat en el fòrum de la pròxima vegada que visiteu.</span>
 login_login:Iniciar sessió
 login_login_btn:Iniciar sessió
 login_name_required:Ha d`introduir un nom d`usuari
@@ -580,7 +581,7 @@ thread_delete:Esteu a punt de <span class="ErrorText">suprimir</span> el <span c
 delete_proceed:<span class="fb">Voleu continuar?</span>
 delete_yes:Sí­
 delete_no:No
-error_invalidurl:La URL no és vàlida
+error_invalidurl:L'URL no és vàlid
 error_error:Error
 usrinfo_profile:Perfil de {VAR: u->alias}
 usrinfo_show_all_posts:Mostrar tots els missatges publicats per {VAR: u->alias}
@@ -662,7 +663,7 @@ register_err_login_notallowed:Aquest nom d`usuari no està  permès
 register_err_loginunique:Els noms d`usuari per als fòrums han de ser únics. Ja existeix un usuari amb aquest nom en el sistema
 register_err_emailexists:Aquest correu electrònic ja existeix. Si ha oblidat la seva clau, si us plau usi l`opció de recordar contrasenya en comptes de tornar a enregistrar-se
 register_err_shortpasswd:La contrasenya ha de tenir almenys 6 caràcters
-register_err_passwdnomatch:Les seves contrasenyes no coincideixen.
+register_err_passwdnomatch:Les vostres contrasenyes no coincideixen. Torneu-ho a intentar.
 register_err_invalidemail:L`adreça de correu electrònic que ha especificat no sembla ser vàlida.
 register_err_needname:Per a completar aquest procés de registre, ha d`ingressar el seu nom.
 register_err_enterpasswd:Ha d`introduir la seva contrasenya actual per a completar els canvis
@@ -880,7 +881,7 @@ help_return_to_index:Tornar a l`í­ndex d`ajuda
 imsg_err_message_title:El missatge no és vàlid
 imsg_err_message_msg:El missatge que està  intentant veure no existeix.
 poll_edit:Modificar
-register_err_not_valid_img:La URL especificada no conté una imatge vàlida
+register_err_not_valid_img:L'URL especificat no conté una imatge vàlida
 pmsg_recepient:Destinatari
 register_err_taken_alias:L`àlies que està  intentant usar ja l`està  usant un altre membre del fòrum. si us plau, esculli`n un altre.
 register_alias:Àlies
@@ -1018,7 +1019,7 @@ adm_account_rejected_s:La seva sol.licitud de compte a '{GVAR: FORUM_TITLE}' ha 
 thread_on:el
 userinfo_buddy:Amic:
 register_email_addr:Correu electrònic
-reset_suffix:Si ha rebut aquest missatge per error, si us plau, ignori`l. Si està  rebent múltiples còpies d`aquest correu i no les ha sol.licitat, si us plau, posi`s en contacte amb l`administrador del fòrum a {GVAR: ADMIN_EMAIL}\n\nAquesta sol.licitud s`ha realitzat des de: {VAR: _SERVER['REMOTE_ADDR']}.
+reset_suffix:Si heu rebut aquest missatge per error, ignoreu-lo. Si rebeu    múltiples còpies d'aquest correu i no les heu sol·licitades, poseu-vos en contacte amb l'administrador del fòrum en {GVAR: ADMIN_EMAIL}\n\nAquesta sol·licitud s'ha fet des de: {VAR: _SERVER['REMOTE_ADDR']}.
 usrinfo_last_visit:Última visita:
 mnav_newer:més recent que
 mnav_older:menys recent que
@@ -1124,7 +1125,7 @@ code_select_all:Selecciona-ho tot
 code_show_hide:Mostra / Amaga
 social_sites:Llocs de xarxes socials:
 postcheck_min_len_err:El vostre missatge és massa curt. La longitud mínima és de  {PLURAL: post_min_len|   $1  character| $1  caràcters}.
-postcheck_dup_err:Si us plau, no crear temes duplicat.
+postcheck_dup_err:Si us plau, no creeu temes duplicats.
 btn_new_topic:Tema nou
 btn_new_pm:Nova P.Message
 btn_post_reply:Publica la resposta

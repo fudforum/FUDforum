@@ -207,7 +207,7 @@ user_info_l:使用者資訊 {VAR: u->alias}
 user_offline:{VAR: obj->login}目前處於離線狀態
 user_online:{VAR: obj->login}目前處於連線狀態
 usrinfo_last_post:最後一則訊息：
-view_results:查看結果
+view_results:檢視結果
 views:檢視次數
 vote:{PLURAL: frm->n_rating|$1票|$1票}
 vote_button:投票
@@ -371,7 +371,7 @@ register_notification_desc:如果選擇“是”，在發帖時依然可以選�
 register_notify_method:選擇通知方法：
 register_notify_method_desc:設定您的首選的通知方法或禁用通知（例如當您去度假時）。
 register_allow_email_msg:允許電子郵件：
-register_allow_email_msg_desc:允許其他使用者向您發送電子郵件通過此論壇。
+register_allow_email_msg_desc:允許其他使用者透過此論壇向您傳送電子郵件。
 buddy_status:狀態
 my_buddies:我的好朋友
 add_buddy:加為好友
@@ -387,8 +387,8 @@ post_color:顏色
 post_font:字型
 create_thread:建立主題
 submit_reply:提交的答覆
-edit_message:套用訊息更改
-apply_spell_changes:應用更改拼寫
+edit_message:套用訊息變更
+apply_spell_changes:應用拼寫變更
 post_preview:郵件預覽
 post_logedin_user:已登入使用者
 post_logout:登出
@@ -481,7 +481,7 @@ rpasswd_login:登入
 rpasswd_cur_pass:當前密碼：
 rpasswd_new_pass:新密碼：
 rpasswd_conf_pass:密碼確認：
-ruser_title:更改登入窗體
+ruser_title:變更登入表單
 ruser_change_user:更改您的論壇登錄名
 ruser_cur_login:當前登錄名：
 ruser_new_login:新的登錄名：
@@ -731,8 +731,8 @@ post_opt_fud_off:<b>BBcode</b>：<b>關閉</b>
 post_opt_images_off:<b>帖圖功能</b>：<b>關閉</b>
 post_opt_smilies_off:<b>表情符號</b>：<b>關閉</b>
 post_opt:論壇選項：
-register_change_passwd:更改密碼
-register_change_login:更改登錄資訊
+register_change_passwd:變更密碼
+register_change_login:變更登入
 approved_avatar_title:您定制的頭像已被管理員批准。
 approved_avatar_msg:由管理員批准您的虛擬形象。它現在應該顯示為你頭像的所有郵件。如果你不看它，或看到您老的化身，那是因為您的流覽器已緩存的頁面。請嘗試刷新它一次或兩次。在大多數情況下，這會解決緩存問題。
 unapproved_avatar_title:您的自訂頭像被拒絕。
@@ -1050,7 +1050,7 @@ uc_new_topic:新主題
 uc_new_cat_forum:新郵件訂閱的論壇
 uc_cat_forum:"類別"論壇
 uc_sub_topics:新郵件訂閱的論壇
-uc_page_title:查看個人控制台。
+uc_page_title:檢視個人控制台。
 search_options:搜尋選項
 search_user_filter:使用者通過篩選：
 register_none:不要通知我

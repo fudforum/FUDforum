@@ -29,8 +29,8 @@ faq:Peşti
 flat_view:Peyser şo asayışê raştiê hesebiyayey
 forum:Forum
 forum_icon:Forum Icon
-forum_new_messages:Mesacê newey
-forum_old_messages:Mesacê newey çıniyê
+forum_new_messages:Mesacê neweyi
+forum_old_messages:Mesacê neweyi çıniyê
 from:Rışten:
 gender:Neri makey:
 go:Şo
@@ -430,7 +430,7 @@ ip_no_whois:Qan dê <b>{VAR: ip}</b> whois malumat çıniyo.
 ip_whois_title:Zanışaya ISS
 register_theme:Tema:
 pmsg_trash:Çopi veng ke
-uc_new_pm:Xısusi Mesacê Newey
+uc_new_pm:Mesacê Xısusiyê Neweyi
 uc_new_topic:Meseleyo newe
 uc_new_cat_forum:Forumê ke şıma aboneyê êna ra mesacê ke estê.
 uc_cat_forum:Kategoriye &raquo; Forum

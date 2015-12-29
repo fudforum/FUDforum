@@ -8,6 +8,7 @@
 # Author: Juoand
 # Author: Mantak111
 # Author: Naudefj
+# Author: Zygimantus
 
 action:Veiksmas
 add_to_buddy_list:įdėti į bičiulių sąrašą
@@ -45,7 +46,7 @@ gender:Lytis:
 go:Pirmyn
 goto_next_msg:Sekanti žinutė
 goto_prev_msg:Praeita žinutė
-home:Į forumo pradžią
+home:Pradžia
 homepage:Namų puslapis:
 icq_control_panel:ICQ-Online žinutę pultas
 icq_message_form:ICQ Message Message Form:

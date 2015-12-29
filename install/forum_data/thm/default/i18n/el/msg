@@ -60,7 +60,7 @@ location:Τοποθεσία:
 lock_thread:Κλείδωμα Θέματος
 locked:Κλειδώθηκε
 locked_with_new_posts:Κλειδώθηκε (w/ μη αναγνωσμένα μηνύματα)
-logged_in_list:Λίστα συνδεδεμένων χρηστών
+logged_in_list:Κατάλογος συνδεδεμένων χρηστών
 login:Είσοδος
 login_header:Είσοδος:
 logout:Έξοδος
