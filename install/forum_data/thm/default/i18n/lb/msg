@@ -459,6 +459,7 @@ split_th_messages:Messagen
 split_th_select:Eraussichen
 quicklogin_password:Passwuert:
 quicklogin_use_cookies:Cookieë benotzen?
+quicklogin_login_btn:Aloggen
 pmsg_next_msg:Nächste Message
 pmsg_prev_msg:Virege Message
 im_skype:Skype:

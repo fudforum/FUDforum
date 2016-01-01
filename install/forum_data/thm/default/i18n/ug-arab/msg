@@ -987,7 +987,7 @@ findu_unban:چەكلەشنى بىكار قىل
 findu_ban:چەكلە
 findu_edit:تەھرىر
 findu_delete:ئۆچۈر
-dmsg_reply_to: جاۋاب
+dmsg_reply_to:جاۋاب
 dmsg_reply_num:ئۇچۇر #{VAR: obj->reply_to}
 merge_topics:تېمىنى بىرلەشتۈر
 merge_topics_cp:تېما تىزگىن تاختىنى بىرلەشتۈر
