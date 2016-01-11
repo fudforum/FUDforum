@@ -13,6 +13,7 @@
 # Author: McDutchie
 # Author: Metalhead64
 # Author: Pill
+# Author: Predatorix
 # Author: The Evil IP address
 # Author: Tiin
 # Author: Umherirrender
@@ -20,7 +21,7 @@
 action:Aktion
 add_to_buddy_list:zur Freundesliste hinzufügen
 admin:Admin
-admin_control_panel:Administration
+admin_control_panel:Verwaltung
 administrator:Administrator
 attachment:Anhang:
 avatar:Avatar:
@@ -44,7 +45,7 @@ first_unread_msg:Zu den ungelesenen Beiträgen gehen
 first_unread_msg_desc:Zum ersten ungelesenen Beitrag innerhalb dieses Themas gehen
 flat_view:Zur flachen Standardansicht zurückkehren
 forum:Forum:
-forum_icon:Forumsicon
+forum_icon:Forum-Symbol
 forum_new_messages:Neue Beiträge
 forum_none_messages:Nur registrierte Forumsmitglieder können gelesene &amp; ungelesene Beiträge verfolgen
 forum_old_messages:Keine neuen Beiträge
@@ -68,7 +69,7 @@ index_no_new_posts:Keine neuen Beiträge seit dem letzten Besuch
 index_url_redirection:Weiterleitung
 interests:Interessen:
 last_post:Letzter Beitrag
-last_thread_msg:Zum letzten Beitrag in diesem Thema gehen
+last_thread_msg:Zum letzten Beitrag dieses Themas gehen
 legend:Zeichenerklärung:
 location:Ort:
 lock_thread:Thema sperren
@@ -79,7 +80,7 @@ login:Anmelden
 login_header:Benutzername:
 logout:Abmelden
 mark_all_read:Alle Beiträge als gelesen markieren
-mark_all_read_desc:Alle Beiträge werden als gelesen gekennzeichnet.
+mark_all_read_desc:Alle ungelesenen Beiträge werden als gelesen markiert.
 members:Mitglieder
 calendar:Kalender
 cal_goto_date:Gehe zu:
