@@ -173,7 +173,7 @@ subject:主题
 subscribe:预定
 subscribe_desc:当本论坛有人发布新的主题时，请通知我。
 subscribed_forums:预定论坛信息
-subscribed_forums_desc:只显示预定的论坛信息
+subscribed_forums_desc:切换已订阅论坛过滤器（将只显示来自您订阅的论坛的消息）
 subscribed_threads:预定论坛主题
 subscribed_threads_desc:只显示预定论坛主题
 bookmarked_threads:用书签标记的主题
