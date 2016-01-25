@@ -482,7 +482,7 @@ rpasswd_cur_pass:當前密碼：
 rpasswd_new_pass:新密碼：
 rpasswd_conf_pass:密碼確認：
 ruser_title:變更登入表單
-ruser_change_user:更改您的論壇登錄名
+ruser_change_user:變更您的論壇登入
 ruser_cur_login:當前登錄名：
 ruser_new_login:新的登錄名：
 ruser_cur_pass:當前密碼：
@@ -715,7 +715,7 @@ login_title:登入表單
 poll_title:輪詢編輯器
 register_title:註冊表單
 reset_title:重設密碼
-rpasswd_title:更改密碼的表單
+rpasswd_title:變更密碼表單
 error_title:錯誤的表單
 index_title:歡迎來到論壇
 search_title:搜尋 {VAR-HTML: srch}
@@ -955,7 +955,7 @@ no_unread_messages:沒有未讀的郵件，您的查詢匹配。
 thread_mark_all_read:將讀取所有未讀的論壇郵件標記
 thread_mark_all_read_desc:在此論壇中的所有未讀的郵件將被標記讀取
 private_no_messages:在此資料夾中沒有任何訊息。
-register_email_change_subject:確認更改電子郵件
+register_email_change_subject:確認變更電子郵件
 register_email_change_msg:請確認您的新電子郵件帳戶" {VAR: uent->email} "，將替換舊電子郵件帳戶" {VAR: old_email} "，通過轉到下麵的 URL： ！N ！{FULL_ROOT}{根} 嗎？ t = emailconf 科技 conf_key = {VAR: conf_key} ！N!!N ！一旦您確認您的新電子郵寄地址，您的論壇帳戶將對方重新啟動。
 iemail_thread_unsub:取消訂閱主題
 iemail_forum_unsub:取消訂閱主題

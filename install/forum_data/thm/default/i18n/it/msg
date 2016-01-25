@@ -350,7 +350,7 @@ register_bio_desc:Alcune informazioni su di te, come i tuoi interessi, il tuo la
 register_prefs:Opzioni
 register_sig:Firma:
 register_sig_desc:Firma aggiuntiva che puoi far comparire in fondo ai tuoi messaggi.
-register_reset:Cancella
+register_reset:Reimposta
 register_def_thread_view:Visualizzazione predefinita degli argomenti:
 register_msg_per_page:Numero di messaggi per pagina:
 register_show_sig:Mostra le firme:

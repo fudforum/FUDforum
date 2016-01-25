@@ -483,7 +483,7 @@ rpasswd_cur_pass:当前密码：
 rpasswd_new_pass:新密码：
 rpasswd_conf_pass:密码确认：
 ruser_title:更改登录窗体
-ruser_change_user:更改您的论坛登录名
+ruser_change_user:更改您的论坛登录
 ruser_cur_login:当前登录名：
 ruser_new_login:新的登录名：
 ruser_cur_pass:当前密码：
@@ -716,7 +716,7 @@ login_title:登录格式
 poll_title:调查编辑
 register_title:注册
 reset_title:重新输入密码
-rpasswd_title:修改密码页面
+rpasswd_title:更改密码表单
 error_title:格式错误
 index_title:欢迎到来
 search_title:搜索 {VAR-HTML: srch}
