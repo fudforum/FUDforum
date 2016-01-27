@@ -1125,7 +1125,7 @@ code_title:Código:
 code_select_all:Seleccionar todo
 code_show_hide:Mostrar/ocultar
 social_sites:Sitios de redes sociales:
-postcheck_min_len_err:Tu mensaje es demasiado corto. El tamaño mínimo es de {PLURAL: post_min_len|$1 caracter|$1 caracteres}.
+postcheck_min_len_err:Tu mensaje es demasiado corto. El tamaño mínimo es de {PLURAL: post_min_len|$1 carácter|$1 caracteres}.
 postcheck_dup_err:Por favor no crear tópicos duplicados.
 btn_new_topic:Tema nuevo
 btn_new_pm:Nuevo mensaje personal
