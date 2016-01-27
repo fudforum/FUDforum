@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2016 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -66,7 +66,8 @@ function flood_check()
 
 	/* Fetch permissions & moderation status. */
 	$MOD = (int) ($is_a || ($usr->users_opt & 524288 && q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}mod WHERE user_id='. _uid .' AND forum_id='. $frm->id)));
-	$perms = perms_from_obj(db_sab(q_limit('SELECT group_cache_opt, '. $MOD .' as md FROM {SQL_TABLE_PREFIX}group_cache WHERE user_id IN('. _uid .',2147483647) AND resource_id='. $frm->id .' ORDER BY user_id ASC', 1)), $is_a);
+	// 0 = Anonymous & 2147483647 is a generic id for all registered users inside the group.
+	$perms = perms_from_obj(db_sab(q_limit('SELECT group_cache_opt, '. $MOD .' as md FROM {SQL_TABLE_PREFIX}group_cache WHERE user_id IN('. _uid .','. (_uid ? '2147483647': '0') .') AND resource_id='. $frm->id .' ORDER BY user_id ASC', 1)), $is_a);
 
 	/* More Security. */
 	if ($thr && !($perms & 4096) && $thr->thread_opt & 1) {
