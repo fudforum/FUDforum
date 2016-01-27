@@ -106,7 +106,11 @@ function sig_handler($signo)
 	// Connect to IRC server.
 	$server = array();
 	if ($ini['IRCBOT_USESSL']) {
-		$server['SOCKET'] = fsockopen('ssl://' .  $ini['IRCBOT_HOST'], $ini['IRCBOT_PORT'], $errno, $errstr, 2);
+		// $server['SOCKET'] = fsockopen('ssl://' .  $ini['IRCBOT_HOST'], $ini['IRCBOT_PORT'], $errno, $errstr, 2);
+		$context = stream_context_create();
+		stream_context_set_option($context, 'ssl', 'verify_peer', false);
+		stream_context_set_option($context, 'ssl', 'allow_self_signed', true);
+		$server['SOCKET'] = stream_socket_client('ssl://' .  $ini['IRCBOT_HOST'] . ':' . $ini['IRCBOT_PORT'], $errno, $errstr, 2, STREAM_CLIENT_CONNECT, $context);
 	} else {
 		$server['SOCKET'] = fsockopen($ini['IRCBOT_HOST'], $ini['IRCBOT_PORT'], $errno, $errstr, 2);
 	}
