@@ -7,6 +7,7 @@
 # Author: McDutchie
 # Author: Naudefj
 # Author: Nghtwlkr
+# Author: SuperPotato
 
 action:Handling
 add_to_buddy_list:legg til kontaktlisten
@@ -28,7 +29,7 @@ download_counter:Lastet ned {PLURAL: v[3]|$1 gang|$1 ganger}
 pmsg_download_counter:Lastet ned {PLURAL: r->dlcount|$1 gang|$1 ganger}
 email:E-post:
 email_to_friend:E-post til en kontakt
-email_to_friend_desc:Send denne sidens URL til en kontakt per e-post
+email_to_friend_desc:Send denne sidens URL til din(e) kontakt(er) via e-post
 email_user:Send bruker en e-postmelding
 faq:Hjelp
 first_unread_msg:Til uleste innlegg
