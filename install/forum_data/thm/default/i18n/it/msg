@@ -1114,7 +1114,7 @@ move_msg_btn:Sposta messaggi selezionati
 move_msg_th_expl:Specifica l'ID dell'argomento di destinazione (può essere in altri forum)
 captcha_img_alt:Captcha Verification: devi riconoscere il testo che compare in questa immagine.
 captcha_img_help:Non ci sono nè zero ne uno in questa immagine.
-powered-by:Powered by: FUDforum {GVAR: FORUM_VERSION}.
+powered-by:Realizzato con: FUDforum {GVAR: FORUM_VERSION}.
 copyright:Copyright &copy;2001-2013 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Codice:
 code_select_all:Seleziona tutto
