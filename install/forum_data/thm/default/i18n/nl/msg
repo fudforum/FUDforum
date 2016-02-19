@@ -465,9 +465,9 @@ reset_confirmation:Dank u wel voor uw registratie.\n\nGa voor het activeren van 
 reset_reset:Hallo,\n\nU hebt een verzoek uitgevoerd voor het opnieuw instellen van uw wachtwoord. Ga naar de volgende URL om het proces af te ronden:\n\n{VAR: url}\n\nLet op: het forum versleutelt de wachtwoorden op een manier die het niet mogelijk maakt het wachtwoord te achterhalen. De ingave van uw wachtwoord wordt versleuteld en vergeleken met de opgeslagen versleutelde versie. Als u hierover meer wilt weten, kunt u op internet zoeken naar het MD5 hash algoritme.
 rpasswd_invalid_passwd:Ongeldig wachtwoord
 rpasswd_passwd_nomatch:De wachtwoorden komen niet overeen
-rpasswd_passwd_length:Het wachtwoord moet tenminste zes tekens lang zijn
+rpasswd_passwd_length:Het wachtwoord moet ten minste zes tekens lang zijn
 reset_remind_pass:Wachtwoord wijzigen via e-mail
-reset_reset_conf:Uw wachtwoord zal opnieuw ingesteld en aan u toegezonden. Als u uw e-mailadres nog niet hebt bevestigd, wordt het bevestigingsverzoek opnieuw aan u toegezonden.
+reset_reset_conf:Uw wachtwoord wordt opnieuw ingesteld en aan u toegezonden. Als u uw e-mailadres nog niet hebt bevestigd, wordt het bevestigingsverzoek opnieuw aan u toegezonden.
 reset_error:Het e-mailadres is niet in de database aangetroffen
 reset_update:Wachtwoord vergeten?
 rpasswd_change_pass:Wachtwoord wijzigen

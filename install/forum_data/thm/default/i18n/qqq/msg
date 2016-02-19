@@ -129,8 +129,8 @@ month_10:The tenth month of the Gregorian calendar.\n{{Identical|October}}
 month_11:The eleventh month of the Gregorian calendar.\n{{Identical|November}}
 month_12:The twelfth month of the Gregorian calendar.\n{{Identical|December}}
 sunday:Name of the day of the week.
-monday:Name of the day of the week.
-tuesday:Name of the day of the week.
+monday:Name of the day of the week.\n{{Identical|Monday}}
+tuesday:Name of the day of the week.\n{{Identical|Tuesday}}
 wednesday:Name of the day of the week.
 thursday:Name of the day of the week.
 friday:Name of the day of the week.
