@@ -1036,7 +1036,7 @@ postcheck_session_invalid:La tua sessione è scadura, per cortesia risottometti 
 delete_message_extra_desc:<b>Opzionale</b><br />Specifica un motivo per la cancellazione del messaggio, che verrà spedito al suo autore via messaggio privato.
 delete_message_extra_body:Includi il testo del messaggio rimosso che verrà spedito al suo autore.
 delete_msg_removed_ttl:Il tuo messaggio è stato rimosso dallo staff di amministrazione.
-delete_msg_pm_body:messaggio originale
+delete_msg_pm_body:Messaggio originale
 delete_msg_pm_subject:Oggetto: {VAR: data[15]}
 ip_no_whois:Informazioni dal whois per <b>{VAR: ip}</b> non sono disponibili.
 ip_whois_title:Informazion sul provider
