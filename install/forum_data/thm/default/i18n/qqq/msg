@@ -131,9 +131,9 @@ month_12:The twelfth month of the Gregorian calendar.\n{{Identical|December}}
 sunday:Name of the day of the week.
 monday:Name of the day of the week.\n{{Identical|Monday}}
 tuesday:Name of the day of the week.\n{{Identical|Tuesday}}
-wednesday:Name of the day of the week.
-thursday:Name of the day of the week.
-friday:Name of the day of the week.
+wednesday:Name of the day of the week.\n{{Identical|Wednesday}}
+thursday:Name of the day of the week.\n{{Identical|Thursday}}
+friday:Name of the day of the week.\n{{Identical|Friday}}
 saturday:Name of the day of the week.
 male:{{Identical|Male}}
 female:{{Identical|Female}}

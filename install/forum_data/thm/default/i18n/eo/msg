@@ -3,6 +3,7 @@
 # Author: LyzTyphone
 # Author: Mihxil
 # Author: Objectivesea
+# Author: Robin van der Vliet
 # Author: Yekrats
 
 action:Ago
@@ -75,6 +76,7 @@ cal_day_heading:Okazoj por jena tago
 cal_no_events:Mankas okazoj ĉi-tage
 cal_update:Foliumante la forum-kalendaron
 cal_birthday:Naskiĝtago: {VAR: user}
+cal_birthdays:{PLURAL: birthdays|$1 naskiĝtago|$1 naskiĝtagoj}
 cal_birthday_age:({PLURAL: age|$1}-jaraĝa).
 message:Mesaĝo
 message_counter:Niaj uzantoj estas afiŝitaj sumon de <b>{PLURAL: post_count|$1 mesaĝo|$1 mesaĝojn}</b> en <b>{PLURAL: thread_count|$1 fadeno|$1 fadenoj}</b>.
@@ -466,6 +468,7 @@ rpasswd_passwd_length:Pasvorto devas esti almenaŭ 6 signoj longaj
 reset_remind_pass:Pasvorta Memorilo
 reset_reset_conf:Via pasvorto estos restarigita kajk sendita al vi. Se vi ne estas konfirmita vian retadreson, la konfirmada peto estos resendita al vi.
 reset_error:Retadreso ne trovita en datumbazo
+reset_update:Refari pasvorton
 rpasswd_change_pass:Ŝanĝi Pasvorton
 rpasswd_login:Ensaluti
 rpasswd_cur_pass:Nuna Pasvorto:
@@ -995,4 +998,22 @@ modque_forum:Forumo
 idx_compact_forum_row:Haveblaj forumoj:
 mmd_abort_move:Nuligi
 dmsg_ip:IP-adreso:
+post_common_link:Enmeti ligilon
+post_common_email_popup:Retpoŝtadreso:
+post_common_image:Enmeti bildon
+post_common_quote:Aldoni citaĵon
+post_common_code:Aldoni kodon
+rating_delete:Forigi
+tabs_notifications:Sciigoj
+code_title:Kodo:
+btn_new_topic:Nova temo
+btn_about:Profilo
+btn_delete:forigi
 btn_edit:redakti
+btn_reply:respondi
+btn_forward:plusendi
+btn_quote:citi
+btn_show_posts:afiŝoj
+btn_homepage:ttt
+pages:Paĝoj
+karma_delete:Forigi
