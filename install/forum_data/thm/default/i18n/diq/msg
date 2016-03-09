@@ -217,7 +217,7 @@ register_aim:AIM Handle:
 register_yahoo:Yahoo Messenger:
 register_msnm:MSN Messenger:
 register_homepage:Pelaseri:
-register_bday:Demê biyayışi:
+register_bday:Demê Biyayışi:
 register_day:Roce
 register_month:Aşme
 register_year:Serre
@@ -259,7 +259,7 @@ prereg_agree:Qebul kena
 prereg_disagree:Qebul nêkena
 coppa_fax_telephone:Telefun:
 coppa_fax_email:Adresa E-postey:
-coppa_fax_date:Deme:
+coppa_fax_date:Dem:
 coppa_fax_login:Cıkewtış
 coppa_fax_passwd:Parola
 coppa_fax_remail:E-posta
@@ -377,7 +377,7 @@ online_today_last_visit:Ziyareto Peyên
 post_re:Cwb:
 forumsel_goto_forum:Şo ri Forum:
 minimsg_thread_view:Asayışê Mewzuy
-split_th_posted_on:Deme rıştışi:
+split_th_posted_on:Demê rıştışi:
 split_th_forum:Forum
 split_th_messages:Mesaci
 split_th_select:Weçine

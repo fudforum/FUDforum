@@ -4,6 +4,7 @@
 # Author: Alssarem
 # Author: DRIHEM
 # Author: Majid Al-Dharrab
+# Author: Maroen1990
 # Author: Meno25
 # Author: Naudefj
 # Author: OsamaK
@@ -80,6 +81,7 @@ cal_day_heading:أحداث اليوم
 cal_no_events:لا أحداث اليوم.
 cal_update:تصفح تقويم المنتدى
 cal_birthday:عيد ميلاد: {VAR: user}
+cal_birthdays:{PLURAL: يوم ميلادك|$1 يوم ميلادك|$1يوم ميلادك}
 cal_birthday_age:({PLURAL: age||سنة واحدة|سنتان|$1 سنوات|$1 سنة}).
 message:رسالة
 message_counter:أرسل مستخدمونا <b>{PLURAL: post_count|رسالة واحدة|$1 رسائل}</b> في <b>{PLURAL: thread_count|موضوع واحد|$1 مواضيع}</b>.
