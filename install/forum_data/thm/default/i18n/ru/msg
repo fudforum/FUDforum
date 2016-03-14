@@ -10,6 +10,7 @@
 # Author: Lockal
 # Author: Naudefj
 # Author: Okras
+# Author: Putnik
 # Author: Volkov
 # Author: Александр Сигачёв
 
@@ -1106,7 +1107,7 @@ rating_delete:Удалить
 post_always_on_top:Удерживать тему наверху списка тем в форуме
 topic_rating:{VAR: frm->rating} из {PLURAL: frm->n_rating|$1 голоса|$1 голосов|$1 голосов}
 topic_list_rating:{VAR: r[17]} из {PLURAL: r[21]|$1 голоса|$1 голосов|$1 голосов}
-tabs_notifications:Извещения
+tabs_notifications:Уведомления
 finduser_flag:Флаг
 post_descr:Описание темы
 pmsg_on:вкл

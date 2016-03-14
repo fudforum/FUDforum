@@ -452,7 +452,7 @@ login_cookie_expired:Vòstre cookie a expirat e vos cal vos connectar tornarmai 
 login_perm_denied:Avètz pas la permission d'accedir a la ressorsa que volètz en tant qu'utilizaire anonim, e vos cal vos connectar (en mai de vos inscriure s'es pas encara fach) per i accedir.
 login_want_to_register:Vos volètz inscriure ?
 login_forgot_passwd:Ai doblidat mon senhal
-login_use_cookie:Utilizar de cookies<br /><font class="SmallText">S'utilizatz un ordenador dins un luòc public, coma una bibliotèca, una escòla o un cybercafè, es recomandat de desactivar aquesta opcion per de rasons de seguretat.<br />Se daissatz aquesta opcion activada, seretz connectat automaticament al forum quand tornaretz.</span>
+login_use_cookie:Utilizar de cookies<br /><font class="SmallText">S'utilizatz un ordinator dins un luòc public, coma una bibliotèca, una escòla o un cybercafè, es recomandat de desactivar aquesta opcion per de rasons de seguretat.<br />Se daissatz aquesta opcion activada, seretz connectat automaticament al forum quand tornaretz.</span>
 login_login:Utilizaire :
 login_login_btn:Connexion
 login_name_required:Picatz vòstre nom d'utilizaire
