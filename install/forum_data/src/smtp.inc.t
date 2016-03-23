@@ -135,8 +135,6 @@ class fud_smtp
 		$this->wts('Subject: '. $this->subject);
 		$this->wts('Date: '. date('r'));
 		$this->wts('To: '. (count($this->to) == 1 ? $this->to[0] : $GLOBALS['NOTIFY_FROM']));
-		$this->wts('From: '. $this->from);
-		$this->wts('X-Mailer: FUDforum v'. $GLOBALS['FORUM_VERSION']);
 		$this->wts($this->headers ."\r\n");
 		$this->wts($this->msg);
 		$this->wts('.');
