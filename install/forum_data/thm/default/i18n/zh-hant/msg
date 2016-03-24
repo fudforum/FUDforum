@@ -473,7 +473,7 @@ rpasswd_invalid_passwd:無效的密碼
 rpasswd_passwd_nomatch:密碼不匹配
 rpasswd_passwd_length:密碼必須至少 6 個字元
 reset_remind_pass:密碼提示問題
-reset_reset_conf:將重置您的密碼，併發送給您。如果尚未確認您的電子郵寄地址，確認請求將會重新發送到你。
+reset_reset_conf:將重設您的密碼，並傳送給您。如果尚未確認您的電子郵件地址，確認請求將會重新傳送給您。
 reset_error:在資料庫中找不到電子郵件地址
 reset_update:重設密碼
 rpasswd_change_pass:修改密碼
@@ -992,7 +992,7 @@ mnav_update:流覽郵件使用<a href="{TEMPLATE: mnav_update_lnk}">郵件導航
 pm_notify_subject:[{GVAR: FORUM_TITLE}]新的私人訊息通知
 pm_notify_body_email:您有新的私人郵件標題為" {VAR: subject} "，從" {VAR: from} "，在論壇中"{GVAR: FORUM_TITLE}"。 ！N ！要查看郵件，請按一下此處： {FULL_ROOT} {根} 嗎？ t = pmsg_view 科技 id = {VAR: pid} ！N!!N ！要停止未來的通知，在您的設定檔中禁用"私人郵件通知"。
 register_pm_notification:私人訊息通知：
-register_pm_notification_desc:如果啟用，您將得到通知，只要向您發送私人消息。
+register_pm_notification_desc:如果啟用，只要向您傳送一則私人消息，您將收到通知。
 findu_admin_opts_header:管理員選擇。
 findu_unban:城市
 findu_ban:禁令
