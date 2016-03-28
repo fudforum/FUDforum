@@ -83,6 +83,7 @@ cal_day_heading:Zdarzenia na dzień
 cal_no_events:Brak zdarzeń w tym dniu.
 cal_update:Przeglądanie kalendarza forum
 cal_birthday:Data urodzenia: {VAR: user}
+cal_birthdays:{PLURAL: birthdays|$1 urodziny|$1 urodziny|$1 urodzin}
 cal_birthday_age:({PLURAL: wiek | $1 rok | $1 lat} życia).
 message:Wiadomość
 message_counter:Użytkownicy zamieścili łącznie <b>{PLURAL: post_count|$1 wiadomość|$1 wiadomości}</b> w <b>{PLURAL: thread_count|$1 wątku|$1 wątkach}</b>.
@@ -100,7 +101,7 @@ more_unread_messages_desc:Pokaż wiecej nieprzeczytanych wiadomości i zaznacz a
 move_thread:Przenieś
 moved:Przeniesiony do innego forum
 moved_thread_message:Ten wątek został przeniesiony do innego forum
-na:brak
+na:n/d
 new_posts:Nowe wiadomości
 new_private_messages:Masz <span class="GenTextRed">({VAR: c})</span> {PLURAL: c|nieodczytaną prywatną wiadomość|nieodczytane prywatne wiadomości|nieodczytanych prywatnych wiadomości}
 new_thread:Utwórz nowy wątek
@@ -206,7 +207,7 @@ user_offline:{VAR: obj->login} jest aktualnie niedostępny
 user_online:{VAR: obj->login} jest aktualnie dostępny
 usrinfo_last_post:Ostatnia wiadomość:
 view_results:Wyświetl wyniki
-views:Odsłon
+views:Odsłony
 vote:{PLURAL: frm->n_rating|$1 głos|$1 głosy|$1 głosów}
 vote_button:Głosuj
 vote_for_thread:Głosuj
@@ -216,7 +217,7 @@ what_ppl_doing:pokaż, co robią inni użytkownicy
 reported_del_report:Usuń Zgłoszenie
 reported_reason:Powód
 reported_on:Dnia:
-reported_reported_by:Zgłoszone przez użytkownika:
+reported_reported_by:Zgłoszone przez:
 reported_reported_msg:Zgłoszone Wiadomości
 modque_pending_approval:Wiadomości oczekujące na zatwierdzenie
 modque_approve:Akceptuj
