@@ -895,8 +895,8 @@ polllist_action:Azione
 polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">Sto controllando i sondaggi</a>
 userinfo_polls:Sondaggi:
 show_pollist:Mostra i sondaggi
-search_and:AND
-search_or:OR
+search_and:E
+search_or:O
 search_desc_order:ordine decrescente
 search_asc_order:ordine crescente
 search_logic:Criterio di ricerca:
