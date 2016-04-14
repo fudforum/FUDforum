@@ -1,6 +1,7 @@
 # Messages for Javanese (Basa Jawa)
 # Exported from translatewiki.net
 # Author: Kangit23
+# Author: NoiX180
 
 action:Laku
 add_to_buddy_list:nambah kanggo konco dhaftar...
@@ -383,7 +384,7 @@ post_passwd:Pangguna Posting:
 post_poll:Jajak Pendapat Paling Anyar:
 post_create_poll:gawe jajak pendapat
 post_poll_delete:mbusak
-post_poll_edit:sunting
+post_poll_edit:BESUT
 post_mod_opt:Moderator Pilihan:
 post_thread_type:Tipe Topic:
 post_thread_expiry:Topic kadalu warso:
@@ -751,13 +752,13 @@ groupmgr_member:Anggota
 groupmgr_cancel:Batal
 groupmgr_add_member:Tambah Anggota
 groupmgr_update_member:update Anggota
-groupmgr_edit:Sunting
+groupmgr_edit:Besut
 groupmgr_delete:Busak
 group_mgr_anon:Tanpa aran
 group_mgr_reged:Kabeh Pangguna Pangguna
 show_show:Tampilake:
 group_mgr:Group Manager
-group_mgr_edit_btn:sunting Group
+group_mgr_edit_btn:Besut Kumpulan
 group_mgr_heading:Group Editor pilihan
 group_mgr_group:Kelompok:
 permission_denied_title:Idin rek!
@@ -765,7 +766,7 @@ permission_denied_msg:Panjenengan ijin ora ngijini sampeyan kanggo nindakake tin
 p_READ:Waca
 p_POST:Kirim
 p_REPLY:Wangsulana
-p_EDIT:Sunting
+p_EDIT:Besut
 p_DEL:Busak
 p_STICKY:caket pesen
 p_POLL:gawe Jajak Pendapat
@@ -868,7 +869,7 @@ help_back_to_top:bali menyang Top
 help_return_to_index:Bali menyang Bantuan Indeks
 imsg_err_message_title:bener Pesen
 imsg_err_message_msg:Pesen nyoba kanggo ndeleng ora ana.
-poll_edit:Sunting
+poll_edit:Besut
 register_err_not_valid_img:URL kasebut ora ngemot gambar neng.
 pmsg_recepient:panampa
 register_err_taken_alias:Ing alias nyoba kanggo nggunakake wis digunakake dening liyane anggota forum. Mangga milih liyane.
@@ -985,7 +986,7 @@ register_pm_notification_desc:Yen diaktifake, sampeyan bakal dikirimi notifikasi
 findu_admin_opts_header:Admin Opts.
 findu_unban:UnBan
 findu_ban:Ban
-findu_edit:Sunting
+findu_edit:Besut
 findu_delete:Busak
 dmsg_reply_to:punika kiye kanggo
 dmsg_reply_num:pesen #{VAR: obj->reply_to}
@@ -1123,7 +1124,7 @@ btn_flat_view:flat tampilan
 btn_about:profil
 btn_small_pm:PM
 btn_delete:busak
-btn_edit:sunting
+btn_edit:besut
 btn_reply:wales
 btn_forward:nerusake
 btn_quote:quote
