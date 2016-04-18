@@ -302,7 +302,7 @@ register_builtin:Ing dibangun
 register_specify_url:nemtokake URL
 register_uploaded:upload Avatar
 register_login:Mlebu:
-register_password:Tembung sandhi:
+register_password:Tembung wadi:
 register_conf_pass:Konfirmasi Pangguna:
 register_email_desc:Mangga ngetik neng alamat e-mail. Sampeyan bisa milih kanggo ndhelikake kasebut ing ngisor iki, ing bagean Preferensi.
 register_name:Jeneng:
@@ -443,7 +443,7 @@ coppa_fax_email:Alamat e-mail:
 coppa_fax_date:Tanggal
 coppa_fax_questions:Mangga kontak <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> karo pitakonan
 coppa_fax_login:Mlebu log
-coppa_fax_passwd:Tembung sandhi
+coppa_fax_passwd:Tembung wadi
 coppa_fax_remail:E-mail
 coppa_fax_name:Jeneng
 login_not_logedin:Sampeyan ora mlebu ping iki bisa uga amarga siji sawetara alasan:
@@ -475,7 +475,7 @@ ruser_change_user:Ngganti Panjenengan Login Forum
 ruser_cur_login:Saiki Login:
 ruser_new_login:Login anyar:
 ruser_cur_pass:Saiki Pangguna:
-login_passwd:Tembung sandhi:
+login_passwd:Tembung wadi:
 reset_email:E-mail:
 reset_reset_button:Reset Pangguna
 rate_this_thread:Rate
@@ -830,7 +830,7 @@ split_th_messages:Layang
 split_th_select:Pilih
 report_report_post:report Pesen
 quicklogin_login:Mlebu:
-quicklogin_password:Tembung sandhi:
+quicklogin_password:Tembung wadi:
 quicklogin_use_cookies:Gunakake cookies?
 quicklogin_login_btn:Mlebu log
 quick_reply:cepet Reply
