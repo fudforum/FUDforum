@@ -982,7 +982,7 @@ mnav_update:Njelajah Pesen nggunakake <a href="{TEMPLATE: mnav_update_lnk}">Pese
 pm_notify_subject:[{GVAR: FORUM_TITLE}] New Private Pesen Notifikasi
 pm_notify_body_email:Sampeyan kudu anyar pribadi pesen judul "{VAR: subject}", saka "{VAR: from}", ing forum "{GVAR: FORUM_TITLE}".\nKanggo ndeleng pesen, klik neng kene: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nKanggo mungkasi kabar mbokmenawa, mateni "Private Notifikasi Pesen" ing profil Panjenengan.
 register_pm_notification:Pesen Pribadi Notifikasi:
-register_pm_notification_desc:Yen diaktifake, sampeyan bakal dikirimi notifikasi saben pesen wis dikirim menyang pribadhi sampeyan.
+register_pm_notification_desc:Yèn diurubaké, sampéyan bakal diwelingi samangsa nawala pribadi dikirim menyang sampéyan.
 findu_admin_opts_header:Admin Opts.
 findu_unban:UnBan
 findu_ban:Ban
