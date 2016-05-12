@@ -386,7 +386,7 @@ submit_reply:답글제출
 edit_message:게시글 변경 적용
 apply_spell_changes:맞춤법 변경 적용
 post_preview:메시지 미리 보기
-post_logedin_user:로그인 사용자:
+post_logedin_user:로그인한 사용자:
 post_logout:로그아웃
 post_passwd:게시 비밀번호:
 post_poll:설문 조사:

@@ -113,14 +113,14 @@ occupation:pendhudhukan:
 off:mati
 on:ing
 page_timings:Total wektu kanggo dijupuk generate page: {PLURAL: page_gen_time|$1 detik}
-pm:Pesen pribadi
+pm:Nawala Priangga
 poll:Jajak Pendapat Paling Anyar:
 post_count:Pesen Count {VAR: u_pcount}
 post_count_l:Pesen Count:
 posts:Layang
 posts_c:Pesen:
 prev_thread:Sedurunge Topic:
-usrinfo_private_message:Pesen Pribadi:
+usrinfo_private_message:Nawala Priangga:
 profile:kontrol Panel
 profile_desc:Ngakses pangguna panel kontrol
 rate_thread:Rate Topic
@@ -237,7 +237,7 @@ pmsg_author:Pangarang
 pmsg_time:Wektu
 pmsg_selected:kapilih
 pmsg_delete:Busak
-cur_ppage_pm:Pesen pribadi
+cur_ppage_pm:Nawala Priangga
 writing_pm:Nulis pesen Private
 browsing_folder:njelajah <b>{VAR: folders[$folder_id]}</b> folder
 inbox:kothak mlebu
@@ -248,7 +248,7 @@ msg_author:Pangarang
 avatar_sel_form:Avatar pilihan Wujud
 no_avatars:Ora Avatars kasedhiya
 month_1:Januari
-month_2:Fébruari
+month_2:Pébruari
 month_3:Maret
 month_4:April
 month_5:Méi
@@ -258,7 +258,7 @@ month_8:Agustus
 month_9:September
 month_10:Oktober
 month_11:November
-month_12:Désèmber
+month_12:Dhésèmber
 sunday:Minggu
 sunday_short:Kdl
 monday:Senèn
@@ -563,7 +563,7 @@ tabs_bookmarkes:Tenger wacan
 tabs_referrals:pitunjuk
 tabs_buddy_list:konco Dhaftar
 tabs_ignore_list:ditolak lewat Dhaftar
-tabs_private_messaging:Pesen pribadi
+tabs_private_messaging:Nawala Pribadi
 single_msg_delete:Sampeyan meh <span class="ErrorText">mbusak</span> pesen judul: <b>{VAR: data[3]}</b>
 thread_delete:Sampeyan meh <span class="ErrorText">mbusak</span> ing <span class="ErrorText">kabeh topik</span> judul: <b>{VAR: data[3]}</b>
 delete_proceed:<span class="fb">Aja pengin nerusake?</span>
@@ -614,7 +614,7 @@ login_update:Mlebu Formulir
 msg_update:njelajah topic <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
 pm_err_nopm_title:Kesalahan: Private Pesen diaktifke
 pm_err_nopm_msg:Sampeyan bisa nggunakake olahpesen pribadi sistem. Wis diilangi dening administrator.
-pm_update:Nggunakake olahpesen pribadi
+pm_update:Nganggo nawala priangga
 post_err_lockedthread_title:Kesalahan: Dikunci Topic
 post_err_lockedthread_msg:Topic iki dikunci. Posting ora diijini maneh.
 err_coppa_title:Kesalahan: akun durung dikonfirmasi
