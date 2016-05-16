@@ -9,6 +9,7 @@
 # Author: Revi
 # Author: ToePeu
 # Author: Yearning
+# Author: Ykhwong
 # Author: 아라
 
 action:동작
@@ -380,7 +381,7 @@ post_sticky:고정
 post_annoncement:알림
 post_size:크기
 post_color:색상
-post_font:폰트
+post_font:글꼴
 create_thread:토픽제출
 submit_reply:답글제출
 edit_message:게시글 변경 적용
