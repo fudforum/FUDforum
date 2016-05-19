@@ -671,7 +671,7 @@ register_conf_msg:jums už registraciją,! Ačiū N! Norėdami aktyvuoti savo s�
 register_welcome_subject:Forumo registracijos patvirtinimas
 register_welcome_msg:Ačiū už registraciją,\n\nŠtai jūsų prisijungimo detalės forumui:\n\nForumo URL: {TEMPLATE: index_update_lnk}\nVardas: {VAR: uent->login}\nSlaptažodis: {VAR: _POST['reg_plaintext_passwd']}\n\nPrašome prisiminti, kad slaptažodžiai yra jautrus didžiosioms raidėms!\nKad redaguotumėte savo nuostatus ar profilį, eikite į šį puslapį:\n{FULL_ROOT}{ROOT}?t=register
 register_err_cantreg_title:KLAIDA: nepavyko užsiregistruoti
-regsiter_err_cantreg_msg:Nepavyko sukurti naudotojo sąskaitos, prašome susisiekti su administratoriu <a href="mailto:{var: ADMIN_EMAIL} "> <span class="notranslate">{VAR: ADMIN_EMAIL}</a>
+regsiter_err_cantreg_msg:Nepavyko sukurti naudotojo sąskaitos, prašome susisiekti su administratoriu <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:Peržiūrimas savo profilis
 register_register_update:Registracijos puslapis
 report_err_nosuchmsg_title:KLAIDA

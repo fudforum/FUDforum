@@ -998,6 +998,10 @@ modque_forum:Forumo
 idx_compact_forum_row:Haveblaj forumoj:
 mmd_abort_move:Nuligi
 dmsg_ip:IP-adreso:
+sml_code:Kodo
+post_common_bold:Grasa
+post_common_italics:Kursiva
+post_common_underline:Substrekita
 post_common_link:Enmeti ligilon
 post_common_email_popup:Retpoŝtadreso:
 post_common_image:Enmeti bildon

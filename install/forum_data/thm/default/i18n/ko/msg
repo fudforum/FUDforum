@@ -364,7 +364,7 @@ register_invisible_mode_desc:온라인 상태 숨김
 register_show_email:이메일 주소 공개:
 register_show_email_desc:이 옵션을 선택하면 당신의 이메일 주소를 누구 볼 수 있습니다.
 register_notification:알림 기능 선택:
-register_notification_desc:알림 기능을 선택하면 게시글 제출시에 사용하지 못할 수 있습니다.
+register_notification_desc:알림 기능을 기본적으로 사용 중인 경우에도, 게시할 때 이 기능을 끌 수 있습니다.
 register_notify_method:알림 수신 방법:
 register_notify_method_desc:선호하는 알림 메서드를 설정하거나 알림을 비활성화합니다. (예를 들어 휴가를 갈 때)
 register_allow_email_msg:이메일 수신 허가:
