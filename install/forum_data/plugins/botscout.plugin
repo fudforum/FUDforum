@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2016 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -31,14 +31,15 @@ function plugin_botscout($uent) {
 
 	$botdata = explode('|', $botscout_data); 
 	if ($botdata[3] > 0 || $botdata[5] > 0 || $botdata[7] > 0) { 	// Tests email address, IP & user.
-		fud_logerror('Botscout blocked registration from '. $uent->email .' / '. $_SERVER['REMOTE_ADDR'], 'fud_errors');
-		echo '<h2>Sorry, you are listed on botscout.com and are not allowed to register!</h2><p>'.		
+		fud_logerror('Botscout blocked registration: '. $uent->login .', '. $uent->email .', '. $_SERVER['REMOTE_ADDR'], 'fud_errors'); 'fud_errors');
+		echo '<h2>Sorry, you are listed on BotScout.com and are not allowed to register!</h2><p>'.		
 		     'Your '. $botdata[2] .' was found '. $botdata[3] .' times.<br />'.
 		     'Your '. $botdata[4] .' was found '. $botdata[5] .' times.<br />'.
-		     'Your '. $botdata[6] .' was found '. $botdata[7] .' times.</p>';
+		     'Your '. $botdata[6] .' was found '. $botdata[7] .' times.</p>'.
+		     '<p>We do not blacklist users, but repeated checks against your details will get you listed!</p>';
 		exit;
 	} else if (defined('fud_debug')) {
-		fud_logerror('Botscout allowed registration from '. $uent->email .' / '. $_SERVER['REMOTE_ADDR'], 'fud_errors');
+		fud_logerror('BotScout allowed registration: '. $uent->login .', '. $uent->email .', '. $_SERVER['REMOTE_ADDR'], 'fud_errors'); 'fud_errors');
 	}
 
 	return $uent;
