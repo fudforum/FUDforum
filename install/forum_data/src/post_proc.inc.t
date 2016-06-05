@@ -553,10 +553,10 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 
 	// Remove line breaks directly following list tags.
 	$ostr = preg_replace('!(<[uo]l>)\s*<br\s*/?\s*>\s*(<li>)!is', '\\1\\2', $ostr);
-	$ostr = preg_replace('!</(ul|ol|table|pre|code|blockqoote|div)>\s*<br\s*/?\s*>!is', '</\\1>', $ostr);
+	$ostr = preg_replace('!</(ul|ol|table|pre|code|blockquote|div)>\s*<br\s*/?\s*>!is', '</\\1>', $ostr);
 
 	// Remove <br /> after block level HTML tags like TABLE, LIST, PRE, BLOCKQUOTE, etc.
-	$ostr = preg_replace('!</(ul|ol|table|pre|code|blockqoote)>\s*<br />!is', '</\\1>', $ostr);
+	$ostr = preg_replace('!</(ul|ol|table|pre|code|blockquote)>\s*<br />!is', '</\\1>', $ostr);
 
 	return $ostr;
 }
