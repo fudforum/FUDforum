@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2016 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -553,7 +553,7 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 
 	// Remove line breaks directly following list tags.
 	$ostr = preg_replace('!(<[uo]l>)\s*<br\s*/?\s*>\s*(<li>)!is', '\\1\\2', $ostr);
-	$ostr = preg_replace('!<br\s*/?\s*>\s*(</li>|<li>|</ul>|</ol>)!is', '\\1', $ostr);
+	$ostr = preg_replace('!</(ul|ol|table|pre|code|blockqoote|div)>\s*<br\s*/?\s*>!is', '</\\1>', $ostr);
 
 	// Remove <br /> after block level HTML tags like TABLE, LIST, PRE, BLOCKQUOTE, etc.
 	$ostr = preg_replace('!</(ul|ol|table|pre|code|blockqoote)>\s*<br />!is', '</\\1>', $ostr);
