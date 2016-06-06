@@ -539,7 +539,7 @@ ppost_to:받는이:
 ppost_from_buddy_list:친구 목록에서 선택
 ppost_find_User:사용자 찾기
 ppost_track_msg:이 메시지 추적
-ppost_track_msg_desc:이 메시지을 읽으면 나에게 통보함(쪽지글).
+ppost_track_msg_desc:이 메시지를 읽으면 나에게 알림(개인 메시지를 통해).
 ppost_send:전송
 ppost_save_draft:발췌 및 저장
 poll_blank_option:선택 항목이 없습니다.
@@ -615,7 +615,7 @@ login_update:로그인 양식
 msg_update:<a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a> 주제를 찾아보는 중
 pm_err_nopm_title:오류: 쪽지를 사용할 수 없습니다
 pm_err_nopm_msg:쪽지를 이용할 수 없습니다. 관리자가 금지 시켰습니다.
-pm_update:쪽지 사용중
+pm_update:쪽지 사용 중
 post_err_lockedthread_title:오류: 주제가 잠김
 post_err_lockedthread_msg:이 토픽은 잠겨있습니다. 더이상 글을 올릴수 없습니다.
 err_coppa_title:오류: 당신의 계정은 인증 절차를 마치지 않았습니다
@@ -1111,4 +1111,4 @@ karma:카르마
 karma_track:사용자의 평판 관리:
 karma_delete:삭제
 rate_author:저자 평가:
-portal_update:포럼 들머리를 읽기
+portal_update:포럼 포털을 읽기
