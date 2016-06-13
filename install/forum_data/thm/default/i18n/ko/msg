@@ -368,12 +368,12 @@ register_notification_desc:알림 기능을 기본적으로 사용 중인 경우
 register_notify_method:알림 수신 방법:
 register_notify_method_desc:선호하는 알림 메서드를 설정하거나 알림을 비활성화합니다. (예를 들어 휴가를 갈 때)
 register_allow_email_msg:이메일 수신 허가:
-register_allow_email_msg_desc:이 포럼에서 다른 사용자가 당신에게 이메일을 발송하는 것을 허락 합니다.
+register_allow_email_msg_desc:이 포럼에서 다른 사용자가 당신에게 이메일을 발송하는 것을 허용합니다.
 buddy_status:상태
 my_buddies:나의 친구
 add_buddy:친구 추가
 add:추가
-buddy_search:추가를 위해 로그인 하십시오.
+buddy_search:추가할 사용자의 로그인 이름을 입력하십시오.
 member_search:Or use the <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Find User</a> feature to find a person.
 buddy_remove:제거
 post_normal:일반
@@ -425,7 +425,7 @@ post_cancel_btn:취소
 ignore_users:차단 멤버
 add_ignore:차단 멤버 추가
 forum_terms:포럼 기간
-forum_rules:이 포럼의 가입은 자유입니다! 아래의 규칙을 준수하십시오. 준수사항에 동의 한다면 동의 버튼을 클릭 하십시오. 주의: 버튼을 클릭하는 것은 13세 이상임을 확인하는 행위입니다. 만일 13세 이하면 이 양식을 이용하십시오.<p>관리자 및 중재자는 포럼의 규칙 준수를 위해 모든 게시글을 감시하여 포럼의 원할한 운영을 유지합니다. 모든 게시물에 대한 법적 책임은 작성자에게 있으며, 포럼의 운영자는 불법적이거나 음란한 내용의 게시물을 삭제시키거나 포럼을 폐쇄 시킬 수 있습니다.
+forum_rules:이 포럼의 가입은 자유입니다! 아래의 규칙을 준수하십시오. 준수사항에 동의한다면 동의 버튼을 클릭하십시오. 주의: 버튼을 클릭하는 것은 13세 이상임을 확인하는 행위입니다. 만일 13세 이하면 이 양식을 이용하십시오.<p>관리자 및 중재자는 포럼의 규칙 준수를 위해 모든 게시글을 감시하여 포럼의 원할한 운영을 유지합니다. 모든 게시물에 대한 법적 책임은 작성자에게 있으며, 포럼의 운영자는 불법적이거나 음란한 내용의 게시물을 삭제시키거나 포럼을 폐쇄시킬 수 있습니다.
 forum_rules_13:<p>만 13세 이하 사용자는 포럼 참가 자격을 얻기 위해 보호자 동의가 필요합니다. 만 13세 이하 사용자는 참가 자격을 얻기 위해서 보호자가 허가서에 서명하고, 가입 사실을 팩스나 이메일을 받아야 합니다.</p><p>위 사항을 준수하고 회원가입하고 싶다면 아래의 <b>동의</b> 버튼을 클릭해 주십시오. 등록하고 싶지 않다면 <b>동의하지 않음</b>버튼을 클릭하고 포럼의 첫 페이지로 돌아가 주십시오.</p><p>허가 양식은 등록 후 보일 것입니다. 더 알고 싶다면 <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> 로 메일을 보내 주십시오.</p>
 coppa_conf:청소년 온라인 개인 정보 보호법(COPPA) 인증
 coppa_before:{TEMPLATE: coppa_date}전
@@ -453,9 +453,9 @@ coppa_fax_login:로그인
 coppa_fax_passwd:비밀번호
 coppa_fax_remail:이메일
 coppa_fax_name:이름
-login_not_logedin:로그인 상태가 아닙니다. 몇가지 이유에 의해 만료될 수 있습니다:
+login_not_logedin:로그인 상태가 아닙니다. 여러 이유 중 하나로 인한 것일 수 있습니다:
 login_cookie_expired:쿠키가 만료되었습니다. 쿠키를 갱신하십시오.
-login_perm_denied:당신은 현재 익명 사용자 상태입니다. 로그인 하십시오.
+login_perm_denied:익명 사용자로서 요청된 리소스에 접근할 권한이 없습니다. 권한을 얻으려면 로그인해야 합니다.
 login_want_to_register:등록을 원하십니까?
 login_forgot_passwd:비밀번호 잊음
 login_use_cookie:쿠키사용<br /><span class="SmallText">만약 도서관,PC방,학교 등의 공공장소에서 로그인하고 있다면, 보안을 위해 이 체크박스를 해제하십시오. 이 옵션을 선택할 경우, 다음 접속 시 자동으로 로그인 상태가 유지됩니다.</span>
@@ -617,7 +617,7 @@ pm_err_nopm_title:오류: 쪽지를 사용할 수 없습니다
 pm_err_nopm_msg:쪽지를 이용할 수 없습니다. 관리자가 금지 시켰습니다.
 pm_update:쪽지 사용 중
 post_err_lockedthread_title:오류: 주제가 잠김
-post_err_lockedthread_msg:이 토픽은 잠겨있습니다. 더이상 글을 올릴수 없습니다.
+post_err_lockedthread_msg:이 주제는 잠겨 있습니다. 더 이상 글을 올릴 수 없습니다.
 err_coppa_title:오류: 당신의 계정은 인증 절차를 마치지 않았습니다
 err_coppa_msg:메시지를 게시할 수 있는 당신의 부모나 법적 보호자에서 확인을 받지 못했습니다. 청소년 온라인 개인 정보 보호법(COPPA) 양식을 잃었다면, <a href="{TEMPLATE: err_coppa_msg_lnk}">다시 보세요</a>.
 err_banned_acct_title:오류: 당신은 사이트 접속 차단 상태 입니다.
@@ -630,7 +630,7 @@ post_err_floodtrig_title:오류: Post flood triggered.
 post_err_floodtrig_msg:{PLURAL: tm|$1초} 안에 다시 시도하세요
 post_err_attach_size:파일 크기가 너무 큽니다 (최대 크기인 {VAR: MAX_F_SIZE} bytes를 초과했습니다)
 post_err_attach_ext:승인된 파일 형식이 아닙니다. 다시한번 확인 바랍니다.
-post_err_attach_filelimit:파일 갯수가 초과 되었습니다.
+post_err_attach_filelimit:업로드 가능한 파일 수를 초과했습니다.
 post_err_passwd:바밀번호가 잘못되었습니다.
 post_reply_update:{VAR: frm->name}에서 <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a>에 답변 중
 post_topic_update:<a href="{TEMPLATE: post_topic_update_lnk}">{VAR: frm->name}</a>에 새 토픽 쓰기
@@ -658,7 +658,7 @@ register_err_enterpasswd:바꾸려면 현재 비밀번호를 입력해야 합니
 register_err_adminpasswd:바꾸려면 <b>관리자</b> 비밀번호를 입력해야 합니다.
 register_err_notyouremail:누군가가 이미 동일한 이메일 주소로 등록했습니다.
 register_err_avatartobig:파일 사이즈가 너무 큽니다. 최대 파일 사이즈: {GVAR: CUSTOM_AVATAR_MAX_SIZE} bytes
-register_err_avatarnotallowed:허가되지 않은 파일 형식입니다. 파일 형식을 확인 하십시오.
+register_err_avatarnotallowed:업로드하려는 아바타는 허용되지 않습니다. 허용되는 파일 형식을 확인하십시오.
 register_conf_subject:등록 형식
 register_welcome_subject:포럼 등록 확인
 register_err_cantreg_title:오류: 등록불가
@@ -986,7 +986,7 @@ ip_search_by_ip:IP로 사용자 검색
 ip_search_syntax:지원하는 구문: 1.2.3.4, 1.2.3, 1.2, 1
 ip_search:검색
 ip_analyze_usage:IP 분석
-ip_analyze_usage_descr:지정한 사용자가 로그인 하였습니다.
+ip_analyze_usage_descr:사용자의 정확한 로그인 이름을 지정해 주십시오.
 ip_users_using:'{VAR: ip}' IP 주소를 사용하는 사용자
 ip_all_ips:'{VAR: user}'(이)가 사용한 모든 IP
 ip_title:IP 보기
