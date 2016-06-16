@@ -16,13 +16,14 @@
 # Author: Robby
 # Author: Urhixidur
 # Author: Verdy p
+# Author: Wladek92
 
 action:Action
 add_to_buddy_list:Ajouter à la liste de mes amis
 admin:Administrateur
 admin_control_panel:Administration
 administrator:Administrateur
-attachment:Attaché :
+attachment:Pièce jointe :
 avatar:Avatar :
 average_post_count:{PLURAL: u->posted_msg_count|$1 message|$1 messages} (approximativement {PLURAL: avg|$1 message|$1 messages} par jour)
 biography:Biographie :

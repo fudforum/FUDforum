@@ -1026,7 +1026,7 @@ register_err_alias_notallowed:Aqueste aliàs es pas autorizat.
 post_err_mod_forum_edit_ttl:ERROR
 post_err_mod_forum_edit_msg:Podètz pas editar los messatges d'un forum moderat.
 dmsg_num:messatge n° {VAR: obj->id}
-postcheck_session_invalid:Vòstra sesilha a expirat, vos cal tornar sometre lo formulari. Planhèm lo derengament.
+postcheck_session_invalid:Vòstra sessiona a expirat, vos cal tornar sometre lo formulari. Planhèm lo derengament.
 delete_message_extra_desc:<b>Opcional</b><br />Indicatz una rason que justifica l'escafament del messatge. Aquò serà mandat per messatge privat a l'autor.
 delete_message_extra_body:Inclure lo còs del messatge e lo mandar a l'autor.
 delete_msg_removed_ttl:Vòstre messatge es estat escafat per l'equipa d'administracion.
