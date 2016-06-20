@@ -82,6 +82,7 @@ cal_day_heading:하루의 사건
 cal_no_events:하루의 사건이 없습니다.
 cal_update:포럼 캘린더 찾아보기
 cal_birthday:생일: {VAR: user}
+cal_birthdays:{PLURAL: birthdays|$1건의 생일}
 cal_birthday_age:({PLURAL: age|$1살}).
 message:메시지
 message_counter:<b>{PLURAL: thread_count|주제 $1개}</b> 안에 총 <b>{PLURAL: post_count|메시지 $1개}</b>가 게시되었습니다.
@@ -340,7 +341,7 @@ register_yahoo:Yahoo 메신저:
 register_msnm:MSN 메신저:
 register_homepage:홈페이지:
 register_bday:생일:
-register_bday_desc:입력한 생일은 포럼 멤버에게 공개 됩니다
+register_bday_desc:생일을 입력하면 다른 포럼 구성원들이 사용자 프로필의 생일을 볼 수 있습니다.
 register_day:일
 register_month:월
 register_year:년
@@ -356,7 +357,7 @@ register_msg_per_page:페이지당 게시글:
 register_show_sig:서명 보기:
 register_show_sig_desc:당신의 서명을 포럼 사용자에게 보이게 또는 숨길 수 있습니다'
 register_use_sig_default:기본 서명:
-register_use_sig_default_desc:게시글을 작성하여 제출할 때에 서명이 자동으로 삽입 됩니다
+register_use_sig_default_desc:게시하는 모든 글마다 서명이 자동으로 뒤에 추가됩니다.
 register_timezone:시간대:
 register_ignore_admin:관리자 메시지 차단:
 register_invisible_mode:숨김 모드:
@@ -735,6 +736,8 @@ thr_exch_dest_forum:이동 위치:
 thr_exch_no_threads:승인 대기 중인 토픽이 없습니다.
 thr_exch_submit:제출
 split_thread:주제 분할
+groupmgr_no_user:"{FUNC: char_fix(htmlspecialchars($gr_member))}"로 로그인한 사용자는 없습니다.
+groupmgr_already_exists:"{FUNC: char_fix(htmlspecialchars($gr_member))}" 사용자는 이미 이 그룹에 존재합니다.
 groupmgr_yes:예
 groupmgr_no:아니오
 groupmgr_action:활동
@@ -752,6 +755,7 @@ group_mgr_edit_btn:그룹 편집
 group_mgr_heading:그룹 편집자 선택
 group_mgr_group:그룹:
 permission_denied_title:권한 없음!
+permission_denied_msg:당신의 사용자 권한은 시도하고 있는 동작의 수행을 허용하지 않습니다.
 p_READ:읽음
 p_POST:게시
 p_REPLY:답글
@@ -833,6 +837,7 @@ no_view_perm:이 게시글을 보기 위해선 적당한 권한이 필요합니�
 report_empty_report:보고 내용이 없어서 전송할 수 없습니다. 보고 내용을 작성하십시오.
 report_already_reported_title:이미 보고가 있습니다
 report_already_reported_msg:이 게시글에 대한 보고서가 제출되었으며 중재자 검토중입니다'.
+register_err_toomanyimages:사용자의 서명에 허용된 {GVAR: FORUM_IMG_CNT_SIG}개 이상의 그림을 사용하려고 했습니다.
 pmsg_next_msg:다음 게시글
 pmsg_prev_msg:이전 게시글
 post_proc_reveal_spoiler:훼방꾼 전환
@@ -914,7 +919,7 @@ buddy_offline:{VAR: r[2]} 사용자는 현재 오프라인입니다
 buddy_online:{VAR: r[2]} 사용자는 현재 온라인입니다
 sml_no_smilies:사용 가능한 이모티콘이 없습니다.
 login_unapproved_account_ttl:승인되지 않은 계정
-login_unapproved_account_msg:관리가 수동으로 사용자 계정을 인증 및 활성화하고 있습니다. 당신의 계정은 현재까지 인증되지 않았으니 활성화될때 까지 대기하여 주시기 바랍니다.
+login_unapproved_account_msg:이 포럼의 관리자가 인증에 앞서 각각의 새로운 계정을 일일이 확인하기로 했습니다. 사용자의 계정은 현재 인증되어 있지 않은 상태이므로 인증된 구성원들이 이용할 수 있는 기능들 중 일부에 접근할 수 없습니다.
 remove_from_buddy_list:친구 목록에서 제거
 iemail_msg_author:<b>저자:</b> {VAR: obj->alias}
 iemail_msg_subject:<b>제목:</b> {VAR: obj->subject}
@@ -936,11 +941,13 @@ iemail_forum_unsub:이 포럼에서 구독 취소
 primary_group_prefix:포럼에 대한 기본 그룹:
 group_resources:이 그룹은 다음 포럼의 권한을 제어합니다
 register_admin_newuser_title:새 사용자가 등록했고 계정은 확인을 기다리고 있습니다
+register_admin_newuser_msg:새로운 사용자 ({VAR: uent->login})이(가) 방금 등록되었습니다. 계정 인증이 되었더라도 당신이나 다른 포럼 관리자가 확인해 줄 때까지는 해당 사용자 계정은 활성화되지 않습니다. 계정을 검토하려면 다음으로 이동하십시오: {GVAR: WWW_ROOT}adm/admuserapr.php\n\n이것은 자동화된 프로세스입니다. 이 메시지에 응답하지 마십시오.\n앞으로의 새로운 사용자 등록에 대한 이메일 알림을 받지 않으려면, 관리자 제어판을 통해 처리하십시오. "새로운 계정 알림" 설정을 변경하시면 됩니다.
 post_mod_msg_notify_title:"{VAR: frm->name}" 포럼에 승인을 기다리는 새 메시지
 post_mod_msg_notify_msg:"{VAR: msg_post->subject}"이라는 제목의 새 메시지가 적절한 포럼에 게시했습니다. 이 메시지를 검토하려면 다음으로 가세요: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\n자동화된 진행입니다. 이 메시지에 답변하지 마십시오.
 thread_printable_pdf:인쇄용 PDF 생성
 thread_syndicate:이 포럼을 전달 (XML)
 reg_conf_title:등록 확인
+forum_banned_user:사용자의 과거 행위들로 인하여 이 포럼으로부터 영원히 추방되었습니다. 안녕히 가십시오.
 mnav_description:메시지 둘러보기
 mnav_date_limit:날짜 범위:
 mnav_forum_limit:이 중에서 검색:
@@ -961,6 +968,7 @@ mnav_title:메시지 둘러보기
 mnav_update:<a href="{TEMPLATE: mnav_update_lnk}">메시지 둘러보기</a>를 사용해 메시지를 찾아보는 중
 pm_notify_subject:[{GVAR: FORUM_TITLE}] 새 개인 메시지 알림
 register_pm_notification:쪽지알림
+register_pm_notification_desc:활성화하면 개인 메시지를 받을 때 알림을 받습니다.
 findu_admin_opts_header:관리자 옵션
 findu_unban:차단해제
 findu_ban:차단
@@ -970,10 +978,14 @@ dmsg_reply_to:(은)는 다음 메시지의 답글입니다:
 dmsg_reply_num:메시지 #{VAR: obj->reply_to}
 merge_topics:주제 병합
 merge_topics_cp:토픽 병합 제어판
+merge_topics_tpl:병합할 주제를 선택하십시오 <span class="SmallText">(하나 이상의 주제를 선택해야 합니다)</span>
 merge_merge:토픽 병합 선택
 merge_next:다음 주제
 merge_prev:이전 주제
+merge_another:<a href="{TEMPLATE: merge_another_lnk}">이전에 병합한 주제</a>로 이동하거나 다른 주제와 병합:
 split_cp:글타래 분리 제어판
+groups_perms_header:권한 <span class="small">(종류를 보려면 마우스를 권한 위로 이동시키십시오)</span>
+register_err_sig_too_long:사용자 서명의 길이가 최대로 허용된 {GVAR: FORUM_SIG_ML}자를 초과하였습니다.
 adm_account_accepted_s:'{GVAR: FORUM_TITLE}'에 대한 계정 요청은 받아졌습니다.
 adm_account_rejected_s:'{GVAR: FORUM_TITLE}'에 대한 계정 요청은 거부되었습니다.
 thread_on:날짜
@@ -996,6 +1008,8 @@ post_err_mod_forum_edit_ttl:오류
 post_err_mod_forum_edit_msg:중재자 및 관리자만 편집할 수 있습니다.
 dmsg_num:메시지 #{VAR: obj->id}
 postcheck_session_invalid:세션이 만료되었습니다. 양식을 다시 제출하세요. 불편을 드려 죄송합니다.
+delete_message_extra_desc:<b>선택 사항</b><br />메시지의 삭제 이유를 지정해 주십시오. 삭제 이유는 개인 메시지를 통해 작성자에게 전달됩니다.
+delete_message_extra_body:작성자에게 보낼, 제거된 메시지의 본문을 포함합니다.
 delete_msg_removed_ttl:관리자에 의해 메시지가 제거되었습니다.
 delete_msg_pm_body:원본 메시지
 delete_msg_pm_subject:제목: {VAR: data[15]}
@@ -1032,6 +1046,7 @@ thread_merge_all:선택한 것을 병합
 thread_loc_all:선택한 것을 잠금/잠금 해제
 dmsg_ip:IP:
 err_blockedaccnt_title:오류: 당신의 계정이 차단 당하였습니다
+err_blockedaccnt_msg:사용자의 계정은 설치된 사용자 필터들 가운데 하나로 인해 포럼에 접근하지 못하도록 차단되어 있습니다.
 merge_th_page_list:토픽 페이지 선택
 sub_unsub_all_forums:모든 포럼에서 구독 취소
 sub_unsub_all_topics:모든 주제에서 구독 취소
