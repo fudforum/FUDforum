@@ -2,6 +2,7 @@
 # Exported from translatewiki.net
 # Author: Erdemaslancan
 # Author: Gorizon
+# Author: Kumkumuk
 # Author: Marmase
 # Author: Mirzali
 
@@ -71,7 +72,7 @@ message:Mesac
 message_counter:Karberi <b>{PLURAL: thread_count|$1 Mesel|$1 mesel}</b> dı pêro piya <b>{PLURAL: post_count|$1 mesac|$1 mesac}</b> rışto.
 message_index:İndeksê mesaca
 message_index_desc:Lista mesacan bıvêne
-minimize_category:Kategoriye Werdı ke
+minimize_category:Kategoriya kılm ke
 minimize_message:Mesaci Werdı ke
 moderator:Cerbener
 moderator_of:Wesetê Forumi
