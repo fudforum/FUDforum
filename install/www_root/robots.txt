@@ -1,0 +1,75 @@
+# This following code can be appended to your site's robots.txt file if you are
+# using a theme based on the PATH_INFO or PATH_INFO_SEO template set.
+# It will prevent search engine bots from finding multiple instances of your
+# posts.
+
+# Note1: You need to change /forum/ to the subdirectory where you forum is located.
+# Note2: Your site's robots.txt file is in the site's root directory, not the subdirectory
+#        where you installed FUDforum.
+
+User-agent: *
+Crawl-Delay: 2
+#Default PATH_INFO and PATH_INFO_SEO URLs:
+Disallow: /forum/index.php/a/
+Disallow: /forum/index.php/bl/
+Disallow: /forum/index.php/d/
+Disallow: /forum/index.php/ef/
+Disallow: /forum/index.php/gm/
+Disallow: /forum/index.php/h/
+Disallow: /forum/index.php/i/
+Disallow: /forum/index.php/il/
+Disallow: /forum/index.php/ip/
+Disallow: /forum/index.php/l/
+Disallow: /forum/index.php/lk/
+Disallow: /forum/index.php/m/
+Disallow: /forum/index.php/ma/
+Disallow: /forum/index.php/mar/
+Disallow: /forum/index.php/ml/
+Disallow: /forum/index.php/mn/
+Disallow: /forum/index.php/mv/
+Disallow: /forum/index.php/ot/
+Disallow: /forum/index.php/pdm/
+Disallow: /forum/index.php/pl/
+Disallow: /forum/index.php/pmm/
+Disallow: /forum/index.php/r/
+Disallow: /forum/index.php/re/
+Disallow: /forum/index.php/rm/
+Disallow: /forum/index.php/s/
+Disallow: /forum/index.php/sel/
+Disallow: /forum/index.php/st/
+Disallow: /forum/index.php/tt/
+Disallow: /forum/index.php/u/
+Disallow: /forum/index.php/uc/
+
+# PATH_INFO and PATH_INFO_SEO URLs if you remove the index.php from the URL.
+Disallow: /forum/a/
+Disallow: /forum/bl/
+Disallow: /forum/d/
+Disallow: /forum/ef/
+Disallow: /forum/gm/
+Disallow: /forum/h/
+Disallow: /forum/i/
+Disallow: /forum/il/
+Disallow: /forum/ip/
+Disallow: /forum/l/
+Disallow: /forum/lk/
+Disallow: /forum/m/
+Disallow: /forum/ma/
+Disallow: /forum/mar/
+Disallow: /forum/ml/
+Disallow: /forum/mn/
+Disallow: /forum/mv/
+Disallow: /forum/ot/
+Disallow: /forum/pdm/
+Disallow: /forum/pl/
+Disallow: /forum/pmm/
+Disallow: /forum/r/
+Disallow: /forum/re/
+Disallow: /forum/rm/
+Disallow: /forum/s/
+Disallow: /forum/sel/
+Disallow: /forum/st/
+Disallow: /forum/tt/
+Disallow: /forum/u/
+Disallow: /forum/uc/
+
