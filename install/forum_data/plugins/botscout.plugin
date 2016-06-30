@@ -31,7 +31,7 @@ function plugin_botscout($uent) {
 
 	$botdata = explode('|', $botscout_data); 
 	if ($botdata[3] > 0 || $botdata[5] > 0 || $botdata[7] > 0) { 	// Tests email address, IP & user.
-		fud_logerror('Botscout blocked registration: '. $uent->login .', '. $uent->email .', '. $_SERVER['REMOTE_ADDR'], 'fud_errors'); 'fud_errors');
+		fud_logerror('Botscout blocked registration: '. $uent->login .', '. $uent->email .', '. $_SERVER['REMOTE_ADDR'], 'fud_errors');
 		echo '<h2>Sorry, you are listed on BotScout.com and are not allowed to register!</h2><p>'.		
 		     'Your '. $botdata[2] .' was found '. $botdata[3] .' times.<br />'.
 		     'Your '. $botdata[4] .' was found '. $botdata[5] .' times.<br />'.
@@ -39,7 +39,7 @@ function plugin_botscout($uent) {
 		     '<p>We do not blacklist users, but repeated checks against your details will get you listed!</p>';
 		exit;
 	} else if (defined('fud_debug')) {
-		fud_logerror('BotScout allowed registration: '. $uent->login .', '. $uent->email .', '. $_SERVER['REMOTE_ADDR'], 'fud_errors'); 'fud_errors');
+		fud_logerror('BotScout allowed registration: '. $uent->login .', '. $uent->email .', '. $_SERVER['REMOTE_ADDR'], 'fud_errors');
 	}
 
 	return $uent;
@@ -49,7 +49,7 @@ function botscout_info() {
 	return array('name' => 'BotScout',
 		     'desc' => 'This plugin integrates with the BotScout API to screen registering users and prevent known bots from creating accounts on your forum.',
 		     'cat'  => 'Anti-spam',
-		     'version' => '1.3');
+		     'version' => '1.4');
 }
 
 function botscout_config() {
