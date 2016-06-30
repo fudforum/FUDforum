@@ -39,8 +39,6 @@ function seterr($msg)
 }
 
 /* main */
-	@set_magic_quotes_runtime(0);	// Depricated in PHP 5.3.
-
 	define('SAFE_MODE', fud_ini_get('safe_mode'));
 
 	/* Read command line parameters. */

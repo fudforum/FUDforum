@@ -194,6 +194,7 @@ function decompress_archive($data_root, $web_root)
 					exit('Couldn\'t open '. $path .' for write.');
 				}
 			}
+// TODO: Good place for substitutions before we write the file.
 			fwrite($fp, $file);
 			fclose($fp);
 			@chmod($path, 0644);
@@ -452,7 +453,6 @@ function make_into_query($data)
 /* main */
 error_reporting(E_ALL);
 ignore_user_abort(true);
-@set_magic_quotes_runtime(0);	// Depricated in PHP 5.3.
 @set_time_limit(600);
 
 if (!fud_ini_get('track_errors')) {
@@ -646,7 +646,7 @@ if ($section == 'stor_path' || php_sapi_name() == 'cli') {
 		if (SAFE_MODE && !isset($_GET['sfh'])) {
 			$s = realpath(__FILE__);
 			$d = dirname($s) .'/install_safe.php';
-		if (!copy($s, $d)) {
+			if (!copy($s, $d)) {
 				exit('Failed to copy "'. $s .'" to "'. $d .'"');
 			}
 			header('Location: install_safe.php?SERVER_ROOT='. urlencode($SERVER_ROOT) .'&SERVER_DATA_ROOT='. urlencode($SERVER_DATA_ROOT) .'&WWW_ROOT='. urlencode($WWW_ROOT) .'&section=stor_path&sfh=1');

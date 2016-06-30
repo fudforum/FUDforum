@@ -12,7 +12,6 @@
 $FORUM_VERSION = '3.0.7';
 
 ignore_user_abort('1');
-@set_magic_quotes_runtime(0);	// Deprecated as of PHP 5.3.0.
 
 $GLOBALS['RSS'] = $GLOBALS['TITLE_EXTRA'] = '';
 $GLOBALS['is_post'] = !empty($_POST);
@@ -31,27 +30,6 @@ function release_db_lock()
 // Sanity checks.
 if (isset($_REQUEST['GLOBALS']) || isset($_FILES['GLOBALS'])) {
 	exit;	// GLOBALS overwrite attempt.
-}
-
-// Deprecated as of PHP 5.3.0.
-if (get_magic_quotes_gpc()) {
-	$in = array(&$_GET, &$_POST, &$_COOKIE);
-	while (list($k, $v) = each($in)) {
-		foreach ($v as $key => $val) {
-			if (!is_array($val)) {
-				$in[$k][$key] = stripslashes($val);
-				continue;
-			}
-			$in[] =& $in[$k][$key];
-		}
-	}
-	unset($in);
-
-	if (!empty($_FILES)) {
-		foreach ($_FILES as $k => $v) {
-			$_FILES[$k]['name'] = stripslashes((string)$v['name']);
-		}
-	}
 }
 
 // Enable debug mode.

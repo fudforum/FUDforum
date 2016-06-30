@@ -106,10 +106,6 @@ echo '<tr class="field">
 				<td><?php echo ini_get('upload_max_filesize'); ?></td>
 			</tr>
 			<tr>
-				<td>Magic quotes:</td>
-				<td><?php echo get_php_setting('magic_quotes_gpc'); ?></td>
-			</tr>
-			<tr>
 				<td>Output buffering:</td>
 				<td><?php echo (is_numeric(ini_get('output_buffering')) ? 'Yes' : 'No'); ?></td>
 			</tr>
