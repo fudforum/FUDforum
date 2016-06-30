@@ -9,7 +9,7 @@
 * Free Software Foundation; version 2 of the License.
 **/
 
-if ($GLOBALS['FUD_OPT_3'] & 4194304) {	// Plugins enabled?
+if ($GLOBALS['FUD_OPT_3'] & 4194304 && !defined('fud_no_plugins')) {	// Plugins enabled?
 	// Something to test against.
 	define('plugins', 1);
 
