@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2016 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -287,7 +287,6 @@ function decode_uent(&$uent)
 	$uent->aim        = urldecode($uent->aim);
 	$uent->yahoo      = urldecode($uent->yahoo);
 	$uent->msnm       = urldecode($uent->msnm);
-	$uent->affero     = urldecode($uent->affero);
 	$uent->google     = urldecode($uent->google);
 	$uent->skype      = urldecode($uent->skype);
 	$uent->twitter    = urldecode($uent->twitter);

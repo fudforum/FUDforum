@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2016 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -215,14 +215,6 @@
 
 {SECTION: dpmsg_next_message link to the next message}
 <a href="{TEMPLATE: dpmsg_next_message_lnk}">{MSG: pmsg_next_msg} <img src="{THEME_IMAGE_ROOT}/goto.gif" alt="" /></a>
-{SECTION: END}
-
-{SECTION: drawpmsg_affero_reg}
-<a href="http://svcs.affero.net/rm.php?r={VAR: obj->affero}&amp;ll=0.{VAR-URL: GLOBALS['affero_domain']['host']}&amp;lp=0.{VAR-URL: GLOBALS['affero_domain']['host']}&amp;ls={VAR-URL: obj->subject}" target=_blank><img alt="" src="{THEME_IMAGE_ROOT}/affero_reg.gif" /></a>
-{SECTION: END}
-
-{SECTION: drawpmsg_affero_noreg}
-<a href="http://svcs.affero.net/rm.php?m={VAR-URL: obj->email}&amp;ll=0.{VAR-URL: GLOBALS['affero_domain']['host']}&amp;lp=0.{VAR-URL: GLOBALS['affero_domain']['host']}&amp;ls={VAR-URL: obj->subject}" target=_blank><img alt="" src="{THEME_IMAGE_ROOT}/affero_noreg.gif" /></a>
 {SECTION: END}
 
 {SECTION: dpmsg_buddy_link_remove_lnk}

@@ -1,4 +1,4 @@
-#   copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
+#   copyright            : (C) 2001-2016 Advanced Internet Designs Inc.
 #   email                : forum@prohost.org
 #
 #   $Id$
@@ -9,6 +9,7 @@
 
 # TODO: Remove BINARY in future release. Also remove it from dbadmin.inc.
 # TODO: Rename 'alias' for future CUBRID support.
+# TODO: Since FUDforum 3.0.7 column 'affero' is no longer used.
 
 DROP TABLE IF EXISTS {SQL_TABLE_PREFIX}users;
 

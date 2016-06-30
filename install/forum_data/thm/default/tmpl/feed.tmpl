@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2016 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -178,7 +178,6 @@ Content-Type: application/{VAR: format}+xml
 	<im_google>{FUNC: sp($r->google)}</im_google>
 	<im_skype>{FUNC: sp($r->skype)}</im_skype>
 	<im_twitter>{FUNC: sp($r->twitter)}</im_twitter>
-	<im_affero>{FUNC: sp($r->affero)}</im_affero>
 {IF: $r->subject && $r->can_show_msg}
 	<m_subject>{FUNC: sp($r->subject)}</m_subject>
 	<m_id>{VAR: r->msg_id}</m_id>

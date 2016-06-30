@@ -107,7 +107,6 @@ class fud_forum_rdf_msg_print extends fud_forum_rdf_msg
  *	im_google	- Google IM (optional)
  *	im_skype	- Skype handle (optional)
  *	im_twitter	- Twitter handle (optional)
- *	im_affero	- Affero (optional)
  *	-- 	The following are going to be filled only if a user had posted
  *		a message and the permissions allow it to be displayed
  *	--
@@ -171,9 +170,6 @@ class fud_forum_rdf_user_print extends fud_forum_rdf_user
 		}
 		if ($this->im_twitter) {
 			echo '<b>Twitter:</b> '. $this->im_twitter .'<br />';
-		}
-		if ($this->im_affero) {
-			echo '<b>Affero:</b> '. $this->im_affero .'<br />';
 		}
 		echo '<hr />';
 	}
@@ -314,7 +310,7 @@ class fud_forum_rdf_user
 	var	$parser, $ctag, $ctag_attr, $in_parser=false, $forum_url=null;
 
 	var	$user_id, $user_login, $user_name, $user_email, $post_count, $avatar_img, $homepage,
-		$birthday, $last_visit, $reg_date, $im_icq, $im_aim, $im_yahoo, $im_msnm, $im_jabber, $im_google, $im_skype, $im_twitter, $im_affero,
+		$birthday, $last_visit, $reg_date, $im_icq, $im_aim, $im_yahoo, $im_msnm, $im_jabber, $im_google, $im_skype, $im_twitter,
 		$m_subject, $m_id, $m_thread_id, $m_forum_id, $m_forum_title, $m_cat_title;
 
 	function parse($url)
@@ -350,7 +346,7 @@ class fud_forum_rdf_user
 	{
 		if ($this->in_parser && $tag === 'item') {
 			$this->handle_fud_data();
-			unset($this->user_id, $this->user_login, $this->user_name, $this->user_email, $this->post_count, $this->avatar_img, $this->homepage, $this->birthday, $this->last_visit, $this->reg_date, $this->im_icq, $this->im_aim, $this->im_yahoo, $this->im_msnm, $this->im_jabber, $this->im_google, $this->im_skype, $this->im_twitter, $this->im_affero, $this->m_subject, $this->m_id, $this->m_thread_id, $this->m_forum_id, $this->m_forum_title, $this->m_cat_title);
+			unset($this->user_id, $this->user_login, $this->user_name, $this->user_email, $this->post_count, $this->avatar_img, $this->homepage, $this->birthday, $this->last_visit, $this->reg_date, $this->im_icq, $this->im_aim, $this->im_yahoo, $this->im_msnm, $this->im_jabber, $this->im_google, $this->im_skype, $this->im_twitter, $this->m_subject, $this->m_id, $this->m_thread_id, $this->m_forum_id, $this->m_forum_title, $this->m_cat_title);
 			$this->in_parser = false;
 		}
 	}

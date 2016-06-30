@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2016 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -8,8 +8,6 @@
 * under the terms of the GNU General Public License as published by the
 * Free Software Foundation; version 2 of the License.
 **/
-
-$GLOBALS['affero_domain'] = parse_url($GLOBALS['WWW_ROOT']);
 
 function tmpl_drawpmsg($obj, $usr, $mini)
 {
@@ -86,13 +84,6 @@ function tmpl_drawpmsg($obj, $usr, $mini)
 			}
 			if ($obj->twitter) {
 				$im .=  '{TEMPLATE: dpmsg_im_twitter}';
-			}
-			if ($o2 & 2048) {
-				if ($obj->affero) {
-					$im .= '{TEMPLATE: drawpmsg_affero_reg}';
-				} else {
-					$im .= '{TEMPLATE: drawpmsg_affero_noreg}';
-				}
 			}
 			if ($im) {
 				$dmsg_im_row = '{TEMPLATE: dmsg_im_row}';

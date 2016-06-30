@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2016 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -78,11 +78,6 @@ if (_uid) {
 	if (isset($_GET['reveal'])) {
 		unset($_GET['reveal']);
 	}
-}
-
-if ($GLOBALS['FUD_OPT_2'] & 2048) {
-	$GLOBALS['affero_domain'] = parse_url($WWW_ROOT);
-	$GLOBALS['affero_domain'] = $GLOBALS['affero_domain']['host'];
 }
 
 $_SERVER['QUERY_STRING_ENC'] = htmlspecialchars($_SERVER['QUERY_STRING']);
@@ -225,13 +220,6 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 			}
 			if ($obj->twitter) {
 				$im .=  '{TEMPLATE: dmsg_im_twitter}';
-			}
-			if ($o2 & 2048) {
-				if ($obj->affero) {
-					$im .= '{TEMPLATE: drawmsg_affero_reg}';
-				} else {
-					$im .= '{TEMPLATE: drawmsg_affero_noreg}';
-				}
 			}
 			if ($im) {
 				$dmsg_im_row = '{TEMPLATE: dmsg_im_row}';

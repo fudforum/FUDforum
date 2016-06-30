@@ -68,7 +68,6 @@ stdClass Object
     [google] =>  // author's google uin !!could be empty!!
     [skype] =>  // author's skype uin !!could be empty!!
     [twitter] =>  // author's twitter uin !!could be empty!!
-    [affero] =>  // author's affer uin !!could be empty!!
     [aim] => // author's aim uin !!could be empty!!
     [msnm] => // author's msn uin !!could be empty!! 
     [yahoo] =>  // author's Y! uin !!could be empty!! 
@@ -122,7 +121,7 @@ function fud_fetch_msg($arg)
 		m.*,
 		t.forum_id,
 		u.alias AS login, u.avatar_loc, u.email, u.posted_msg_count, u.join_date, u.location,
-		u.sig, u.custom_status, u.icq, u.aim, u.msnm, u.yahoo, u.jabber, u.google, u.skype, u.twitter, u.affero, u.users_opt, u.last_visit AS time_sec,
+		u.sig, u.custom_status, u.icq, u.aim, u.msnm, u.yahoo, u.jabber, u.google, u.skype, u.twitter, u.users_opt, u.last_visit AS time_sec,
 		l.name AS level_name, l.img AS level_img
 	FROM
 		'. $GLOBALS['DBHOST_TBL_PREFIX'] .'msg m
@@ -499,7 +498,6 @@ stdClass Object
     [google] => // google uin
     [skype] => // skype uin
     [twitter] => // twitter uin
-    [affero] => // affero uin
     [time_zone] => // user's timezone of choice
     [birthday] => // user's b-day MMDDYYYY
     [join_date] => // date this user registered on (unix timestamp)
@@ -560,7 +558,6 @@ function fud_fetch_top_poster()
  *	google	- Google IM ID.
  *	skype	- Skype handle.
  *	twitter	- Twitter handle.
- * 	affero	- Affero IM id.
  * 	posts_ppg - Host many messages to display per page, will default to POSTS_PER_PAGE.
  * 	time_zone - Time zone, will default to server timezone as specified in admin settings.
  * 	birthday	- Birth day MMDDYYYY format.
@@ -646,7 +643,7 @@ function fud_add_user($vals, &$err)
 
 	// Make sure all fields are set.
 	foreach( array('login','alias','passwd','name','email','icq','aim','yahoo','msnm','jabber','google','skype','twitter',
-		'affero','posts_ppg','time_zone','birthday','last_visit','conf_key','user_image',
+		'posts_ppg','time_zone','birthday','last_visit','conf_key','user_image',
 		'join_date','location','theme','occupation','interests','referer_id','last_read',
 		'sig','home_page','bio','users_opt','registration_ip') as $v) {
 		if (empty($vals[$v])) {
@@ -670,7 +667,6 @@ function fud_add_user($vals, &$err)
 				google,
 				skype,
 				twitter,
-				affero,
 				posts_ppg,
 				time_zone,
 				birthday,
@@ -704,7 +700,6 @@ function fud_add_user($vals, &$err)
 				'. ssn(htmlspecialchars($vals['google'])) .',
 				'. ssn(htmlspecialchars($vals['skype'])) .',
 				'. ssn(htmlspecialchars($vals['twitter'])) .',
-				'. ssn(urlencode($vals['affero'])) .',
 				'. (int)$vals['posts_ppg'] .',
 				'. _esc($vals['time_zone']) .',
 				'. ssn($vals['birthday']) .',
@@ -785,7 +780,7 @@ function fud_update_user($uid, $vals, &$err)
 	$qry = 'UPDATE '. $GLOBALS['DBHOST_TBL_PREFIX'] .'users SET ';
 	// Apply changes.
 	foreach( array('login','alias','passwd', 'salt', 'name','email','icq','aim','yahoo','msnm','jabber','google','skype','twitter',
-		'affero','posts_ppg','time_zone','birthday','last_visit','conf_key','user_image',
+		'posts_ppg','time_zone','birthday','last_visit','conf_key','user_image',
 		'join_date','location','theme','occupation','interests','referer_id','last_read',
 		'sig','home_page','bio','users_opt','registration_ip') as $v) {
 		if (isset($vals[$v])) {

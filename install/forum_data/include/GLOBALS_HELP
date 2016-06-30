@@ -311,7 +311,7 @@ Whether or not every new registration will need to be approved by the administra
 This limit allows you to define how often can a registration can occur (in seconds). Set the value of this field to -1 if you do not wish to limit registrations.}}}
 
 {{{ENABLE_AFFERO	FUD_OPT_2	2048
-Enable affero, this will result in an Affero button being shown beside each message, allowing users to give feedback via the Affero system.}}}
+Previously used to enable affero, this resulted in an Affero button being shown beside each message, allowing users to give feedback via the Affero system. Removed in FUDforum 3.0.7.}}}
 
 {{{SEARCH_CACHE_EXPIRY
 Due to the complexity of the searching process the search results are being cached. This option allows you to define the maximum age of entries (in seconds) stored inside this cache. By default the cache age is set to 2 days.}}}
@@ -514,3 +514,4 @@ Allow users to reset their own passwords.}}}
 
 {{{KARMA	FUD_OPT_4	4
 Enable karma / user reputation system. If enabled, member can upvote or downvote other members.}}}
+

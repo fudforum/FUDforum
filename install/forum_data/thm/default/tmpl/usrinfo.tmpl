@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2016 Advanced Internet Designs Inc.
 * email                : forum@fudforum.org
 * $Id$
 *
@@ -209,7 +209,6 @@
 {IF: $u->google}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: im_google}</td><td class="GenText"><img src="{THEME_IMAGE_ROOT}/google.png" title="{VAR: obj->google}" alt="" />{VAR: u->google}</td></tr>{ENDIF}
 {IF: $u->skype}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: im_skype}</td><td class="GenText"><a href="callto://{VAR: u->skype}"><img src="{THEME_IMAGE_ROOT}/skype.png" title="{VAR: obj->skype}" alt="" />{VAR: u->skype}</a></td></tr>{ENDIF}
 {IF: $u->twitter}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: im_twitter}</td><td class="GenText"><a href="http://twitter.com/{VAR: u->twitter}"><img src="{THEME_IMAGE_ROOT}/twitter.png" title="{VAR: obj->twitter}" alt="" />{VAR: u->twitter}</a></td></tr>{ENDIF}
-{IF: ($FUD_OPT_2 & 2048 && $u->affero)}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: im_affero}</td><td class="GenText"><a href="http://svcs.affero.net/user-history.php?u={VAR: u->affero}">{VAR-UH: u->affero}</a></td></tr>{ENDIF}
 {IF: $is_a}
 <tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: findu_admin_opts_header}</td>
 <td>

@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2016 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -327,7 +327,6 @@ jQuery(document).ready(function() {
 	print_reg_field('Max Image Count', 'MAX_IMAGE_COUNT', 1);
 	print_reg_field('Max Smilies Shown', 'MAX_SMILIES_SHOWN', 1);
 	print_reg_field('Message icons per row', 'POST_ICONS_PER_ROW', 1);
-	print_bit_field('Enable Affero<br /><a href="http://www.affero.net/bbsteps.html">Click here for details</a>', 'ENABLE_AFFERO');
 ?>
 <tr class="fieldaction"><td align="left"><input type="submit" name="btn_submit" value="Set" /></td><td align="right">[ <a href="#top">top</a> ]</td></tr>
 </table>
