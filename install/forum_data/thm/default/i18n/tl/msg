@@ -922,8 +922,6 @@ err_mod_acc_msg:Pinili ng tagapangasiwa na kinakamay na suriing muli ang lahat n
 accounts_pending_approval:Mga Akawnt Na Naghihintay Pa Ng Pagpayag
 saved:Nasagip na
 register_err_time_limit:Naabot na ang hangganan ng isang pagpapatala sa bawat {GVAR: REG_TIME_LIMIT} mga segundo. Mangyaring maghintay ng {PLURAL: reg_limit_reached|$1 segundo|$1 mga segundo}, at pagkaraan ay subukan na magpatalang muli.
-register_affero:Pangalan ng Tagagamit ng Affero:<br /><span class="SmallText">Kung mayroon kang isang pangalan ng tagagamit na para sa <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">Affero</a>, ipasok iyon dito.</span>
-im_affero:Pangalan ng tagagamit sa Affero
 register_err_avatardimtobig:Ang mga sukat ng huwaran ng <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> ay lumampas sa pinapayagang mga sukat ng <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b> mga piksel.
 buddy_offline:Kasalukuyang nakapatay ang linya ng {VAR: r[2]}
 buddy_online:Kasalukuyang nasa ibabaw ng linya ang {VAR: r[2]}

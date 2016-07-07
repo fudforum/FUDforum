@@ -928,8 +928,6 @@ err_mod_acc_msg:Administratorius pasirinko peržiūrėti visas sąskaitas rankin
 accounts_pending_approval:Sąskaitos Laukiančios Patvirtinimo
 saved:Išsaugoti
 register_err_time_limit:Limitas vienos registracijos per {GVAR: REG_TIME_LIMIT} sekundžių buvo pasiektas. Prašome palaukti {PLURAL: reg_limit_reached|$1 sekundę|$1 sekundžių}, ir tada bandykite registruotis dar kartą.
-register_affero:Affero Username:<br /><font class="SmallText">If you have an <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">Affero</a> username enter it here.</font>
-im_affero:Affero Vardas
 register_err_avatardimtobig:Avatar dimensions of <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> exceed the allowed dimensions of <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
 buddy_offline:{VAR: r[2]} yra šiuo metu neprisijungęs
 buddy_online:{VAR: r[2]} yra šiuo metu online

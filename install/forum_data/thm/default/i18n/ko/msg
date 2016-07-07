@@ -60,7 +60,7 @@ image:그림:
 index_forum:포럼
 index_new_posts:마지막으로 읽은 때부터의 새 메시지
 index_no_new_posts:마지막으로 읽은 때부터의 새 메시지가 없습니다
-index_url_redirection:리디렉션
+index_url_redirection:리다이렉션
 interests:흥미:
 last_post:마지막 메시지
 last_thread_msg:이 주제에서 마지막 메시지로 가기
@@ -415,7 +415,7 @@ post_notification:공지사항 제출
 include_sig:서명 포함
 include_sig_desc:당신의 프로파일에 서명이 포함되었습니다.
 disable_smilies:이 게시글은 이모티콘 사용이 금지되었습니다.
-spell_check_msg:게시글 문법 체크
+spell_check_msg:게시글 맞춤법 검사
 post_form:게시 형식
 post_forum:포럼:
 post_title:제목:
@@ -499,7 +499,7 @@ search_forum:포럼
 search_posted_on:게시한 날짜
 search_no_results:결과 없음
 search_all_forums:모든 포럼 검색
-search_in_forum:포럼내 검색:
+search_in_forum:포럼에서 검색:
 search_forum_search:포럼 검색
 move_thread_to:다음으로 <b>{VAR: thr->subject}</b> 주제 이동:
 remail_email_topic:이 토픽을 친구에게 전달
@@ -588,7 +588,7 @@ buddy_list_err_ignore:내 친구 목록에 무시한 사용자는 추가할 수 
 buddy_list_update:친구 목록 탐색
 core_err_invinp_title:입력 오류
 core_err_invinp_err:잘못된 링크입니다. <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a>에게 통보하여 주십시오.
-core_adm_login_msg:최고관리자는 <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">여기</a>로 로그인 할 수 있습니다.
+core_adm_login_msg:관리자들은 <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">여기</a>에서 로그인할 수 있습니다.
 email_err_unabletoemail_title:오류: 이메일 발송 불가
 email_err_unabletoemail_msg:최고관리자가 이메일 발송을 금지시켰습니다.
 email_error_unabletolocaddr:죄송합니다. 이메일 발송이 금지되었습니다. {VAR-HTML: _POST['tx_name']}
@@ -621,7 +621,7 @@ post_err_lockedthread_title:오류: 주제가 잠김
 post_err_lockedthread_msg:이 주제는 잠겨 있습니다. 더 이상 글을 올릴 수 없습니다.
 err_coppa_title:오류: 당신의 계정은 인증 절차를 마치지 않았습니다
 err_coppa_msg:메시지를 게시할 수 있는 당신의 부모나 법적 보호자에서 확인을 받지 못했습니다. 청소년 온라인 개인 정보 보호법(COPPA) 양식을 잃었다면, <a href="{TEMPLATE: err_coppa_msg_lnk}">다시 보세요</a>.
-err_banned_acct_title:오류: 당신은 사이트 접속 차단 상태 입니다.
+err_banned_acct_title:오류: 당신은 차단되어 있습니다.
 err_banned_acct_msg:Your account was {IF: $ban_expiry}temporarily banned until {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}permanently{ENDI} from accessing the site, due to a violation of the forum&#39s rules.
 post_err_edttimelimit_title:오류
 post_err_edttimelimit_msg:이 게시글은 더 이상 편집할 수 없습니다
@@ -647,7 +647,7 @@ postcheck_email_body:본문 내용 없이 이메일을 보낼 수 없습니다.
 private_msg_notify_subj:읽기 알림: {VAR: m->subject}
 private_msg_notify_body:안녕하세요,<br />{VAR: usr->login} 사용자가 "{VAR: m->subject}"이라는 제목의 개인 메시지를 열었습니다.<br />{TEMPLATE: private_msg_notify_body_date}에 생성된 자동적인 알림입니다<br />
 referals_update:추천 탐색
-register_err_short_login:로그인 ID는 최소한 4자 이상이어야 합니다.
+register_err_short_login:지정한 로그인 이름이 너무 짧습니다. 로그인 이름은 적어도 4자 이상이어야 합니다.
 register_err_login_notallowed:허가되지 않은 사용자 이름입니다.
 register_err_loginunique:포럼 로그인 이름은 고유해야 합니다. 이미 이 이름으로 된 사용자가 있습니다.
 register_err_emailexists:이메일 주소가 이미 계정에 연결되어 있습니다. 비밀번호를 잊었다면 다시 등록하는 대신 복구 옵션을 사용해주세요.
@@ -669,7 +669,7 @@ register_register_update:등록 페이지
 report_err_nosuchmsg_title:오류
 report_err_nosuchmsg_msg:게시글이 없습니다
 reset_err_invalidkey_title:오류
-reset_err_invalidkey_msg:패스워드 초기화 key가 일치하지 않습니다. 이메일을 통해 발송된 패스워드 초기화 Key가 만료되어 발생한 문제일 수 있으니 다시 시도하여 빠른 시간 내에 초기화 하시기 바랍니다.
+reset_err_invalidkey_msg:비밀번호 재설정 키가 유효하지 않습니다. 이메일 클라이언트가 이미 이 페이지를 열어서 재설정 키를 무효화했을 가능성이 있습니다.  이 경우에는 즉시 새로운 비밀번호로 이메일을 받아야 합니다. 이와 같은 이메일이 도착하지 않았다면 비밀번호 재설정를 다시 시도해 주십시오.
 reset_err_rstconf_title:정보
 reset_err_rstconf_msg:몇분 내로 당신의 이메일로 발송될 예정입니다.
 reset_newpass_title:비밀번호 재설정
@@ -872,7 +872,7 @@ register_allow_pm_msg:쪽지 허용
 register_allow_pm_msg_desc:현재 포럼 내에서 쪽지 수신 허용.
 postcheck_pm_disabled:"{VAR-HTML: v}"에게 쪽지를 보낼 수 없습니다.
 polllist_vote:투표
-polllist_view_results:결과보기
+polllist_view_results:결과 보기
 polllist_name:투표이름
 polllist_date:작성일
 polllist_owner:작성자
@@ -912,8 +912,6 @@ err_mod_acc_ttl:검증되지 않은 계정
 err_mod_acc_msg:관리가 수동으로 사용자 계정을 인증 및 활성화하고 있습니다. 관리자가 계정을 인증하여 활성화 시키기전까지 일부 기능이 제한됩니다.
 accounts_pending_approval:계정 승인 제출중
 saved:저장됨
-register_affero:Affero 사용자 이름:<br /><span class="SmallText"><a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">Affero</a> 사용자 이름이 있으면, 여기에 입력하세요.</span>
-im_affero:Affero 사용자 이름
 register_err_avatardimtobig:아바타 사이즈는 <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b>를 초과할 수 없습니다. <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b> pixels.
 buddy_offline:{VAR: r[2]} 사용자는 현재 오프라인입니다
 buddy_online:{VAR: r[2]} 사용자는 현재 온라인입니다
@@ -986,6 +984,7 @@ merge_another:<a href="{TEMPLATE: merge_another_lnk}">이전에 병합한 주제
 split_cp:글타래 분리 제어판
 groups_perms_header:권한 <span class="small">(종류를 보려면 마우스를 권한 위로 이동시키십시오)</span>
 register_err_sig_too_long:사용자 서명의 길이가 최대로 허용된 {GVAR: FORUM_SIG_ML}자를 초과하였습니다.
+register_sig_limit:{GVAR: FORUM_SIG_ML}자 <a href="javascript: alert('서명이 '+document.forms['fud_register'].reg_sig.value.length+'자입니다. 최대 허용된 서명 길이는 {GVAR: FORUM_SIG_ML}자입니다.');" class="SmallText">서명 길이 확인</a>
 adm_account_accepted_s:'{GVAR: FORUM_TITLE}'에 대한 계정 요청은 받아졌습니다.
 adm_account_rejected_s:'{GVAR: FORUM_TITLE}'에 대한 계정 요청은 거부되었습니다.
 thread_on:날짜

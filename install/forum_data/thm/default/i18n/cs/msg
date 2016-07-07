@@ -929,8 +929,6 @@ err_mod_acc_msg:Administrátor se rozhodl, že bude prohlížet všechny účty 
 accounts_pending_approval:Účty ke schválení
 saved:Uložené
 register_err_time_limit:Limit jedné registrace za {GVAR: REG_TIME_LIMIT} sekund bylo dosažen. Počkejte prosím {PLURAL: reg_limit_reached|$1 sekundu|$1 sekundy|$1 sekund} a pokuste se znovu zaregistrovat.
-register_affero:Affero uživatelské jméno:<br /><font class="SmallText">Pokud máte <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">Affero</a> uživatelské jméno, zadejte ho sem.</font>
-im_affero:Affero uživatelské jméno
 register_err_avatardimtobig:Rozměry Vaší uživatelské ikony <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> přesahují povolené rozměry <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b> pixelů.
 buddy_offline:{VAR: r[2]} je právě offline
 buddy_online:{VAR: r[2]} je právě online

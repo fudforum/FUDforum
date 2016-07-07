@@ -921,8 +921,6 @@ err_mod_acc_msg:ھېسابات ئاكتىپلىنىشتىن ئىلگىرى چو�
 accounts_pending_approval:تەكشۈرۈلىدىغان ھېساباتلار
 saved:ساقلانغان
 register_err_time_limit:ھەر {GVAR: REG_TIME_LIMIT} سېكۇنتتا بىر ئىشلەتكۈچى خەتلىتىشنىڭ چېكىگە يەتتى، سەل تۇرۇپ {PLURAL: reg_limit_reached|$1 سېكۇنت|$1 سېكۇنت}تىن كېيىن خەتلىتىڭ.
-register_affero:Affero ئىشلەتكۈچى ئاتى: <br /><span class="SmallText"> ئەگەر سىزنىڭ <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">Affero</a> ھېساباتىڭىز بولسا، بۇ جايدا ئىشلەتكۈچى ئاتىڭىزنى كىرگۈزۈڭ.</span>
-im_affero:Affero ئىشلەتكۈچى ئاتى
 register_err_avatardimtobig:باش سۈرەت چوڭلۇقى <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> مۇنبەر يول قويغان چەك: <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b> تىن ئېشىپ كەتتى.
 buddy_offline:{VAR: r[2]} شۇ ئاندا توردا ئەمەس
 buddy_online:{VAR: r[2]} شۇ ئاندا توردا

@@ -922,8 +922,6 @@ err_mod_acc_msg:Dr Administrator het bschlosse, alli Konte vor dr Aktivierig per
 accounts_pending_approval:Billigung vum Konto, wu in dr Schwäbi isch
 saved:Gspycheret
 register_err_time_limit:Du bisch zue dr Gränz vu eire Regischtrierig pro {GVAR: REG_TIME_LIMIT} Sekunde chuu. Bitte wart {PLURAL: reg_limit_reached|$1 Sekund|$1 Sekunde} un versuech derno nonemol di z regischtriere.
-register_affero:Affero-Benutzername:<br /><span class="SmallText">Wänn Du ne <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">Affero</a>-Benutzername hast, trag e do yy.</span>
-im_affero:Affero-Benutzername
 register_err_avatardimtobig:D Uusmaß vum Avatar vu <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> iberschryte di maximal erlaubt Greßi vu <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
 buddy_offline:{VAR: r[2]} isch grad offline
 buddy_online:{VAR: r[2]} isch grad online

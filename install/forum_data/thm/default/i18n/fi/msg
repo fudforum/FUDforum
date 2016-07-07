@@ -929,8 +929,6 @@ err_mod_acc_msg:Ylläpitäjä tarkistaa kaikki käyttäjätunnukset ennen niiden
 accounts_pending_approval:Hyväksymättömät käyttäjät
 saved:Tallennetut
 register_err_time_limit:Rekisteröitymiset on rajoitettu {GVAR: REG_TIME_LIMIT} sekuntiin per rekisteröinti. Odota {PLURAL: reg_limit_reached|$1 sekunti|$1 sekuntia} ja yritä rekisteröityä uudelleen.
-register_affero:Affero-tunnus:<br /><span class="SmallText">Voit antaa mahdollisen <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">Affero</a>-tunnuksesi tässä.</span>
-im_affero:Affero-tunnus
 register_err_avatardimtobig:Avatarin kuvakoko <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> ylittää suurimman sallitun koon <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
 buddy_offline:{VAR: r[2]} ei ole sisäänkirjautunut
 buddy_online:{VAR: r[2]} on sisäänkirjautunut

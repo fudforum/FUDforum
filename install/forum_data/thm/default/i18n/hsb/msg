@@ -921,8 +921,6 @@ err_mod_acc_msg:Administrator je rozsudźił, wšě konta do aktiwizowanja manue
 accounts_pending_approval:Konta, kotrež na schwalenje čakaja
 saved:Składowany
 register_err_time_limit:Limit jednoho registrowanja na {GVAR: REG_TIME_LIMIT} sekundow je so nětko docpěł. Prošu čakaj {PLURAL: reg_limit_reached|$1 sekundu|$1 sekundaj|$1 sekundy|$1 sekundow}, prjedy hač pospytuješ so hišće raz registrować.
-register_affero:Wužiwarske mjeno Affero:<br /><span class="SmallText">Jeli maš wužiwarske mjeno <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">Affero</a>, zapodaj jo tu.</span>
-im_affero:Wužiwarske mjeno za Affero
 register_err_avatardimtobig:Awatarowe wotměry <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> překročuja dowolene wotměry <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b> pikselow.
 buddy_offline:{VAR: r[2]} je tuchwilu offline
 buddy_online:{VAR: r[2]} je tuchwilu online

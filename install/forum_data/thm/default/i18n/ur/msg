@@ -3,10 +3,11 @@
 # Author: Jgaad007
 # Author: Obaid Raza
 # Author: محبوب عالم
+# Author: محمد افضل
 
 action:کارروائی
 add_to_buddy_list:دوستوں کی فہرست میں شامل
-admin:ایڈمن
+admin:منتظم
 admin_control_panel:انتظامیہ
 administrator:ایڈمنسٹریٹر
 attachment:لف دستاویز:
@@ -923,8 +924,6 @@ err_mod_acc_msg:ایڈمنسٹریٹر دستی طور پر پہلے سے چال
 accounts_pending_approval:اکاؤنٹس کی منظوری زیر التواء
 saved:محفوظ کر لیا
 register_err_time_limit:The limit of one registration per {GVAR: REG_TIME_LIMIT} seconds has been reached. Please wait {PLURAL: reg_limit_reached|$1 second|$1 seconds}, and then try to register once again.
-register_affero:اففرو یوزر کا نام:<br><span class="SmallText">اگر آپ کسی <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">اففرو</a> صارف کا نام ہے، یہاں داخل نہیں ۔</span>
-im_affero:Affero صارف کا نام
 register_err_avatardimtobig:کا اوتار طول و عرض کی <b>( {VAR: img_info[0]} x {VAR: img_info[1]} )</b> کی اجازت یافتہ جہتوں سے تجاوز <b>({گوار: CUSTOM_AVATAR_MAX_DIM})</b> پکسلز.
 buddy_offline:{VAR: r[2]}اس وقت آف لائن ہے
 buddy_online:{VAR: r[2]}اس وقت آن لائن ہے

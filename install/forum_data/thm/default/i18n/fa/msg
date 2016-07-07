@@ -929,8 +929,6 @@ err_mod_acc_msg:همه حسابهای‌کاربری قبل از فعال شدن
 accounts_pending_approval:حساب‌های در انتظار تایید
 saved:ذخیره‌ها
 register_err_time_limit:شما با محدودیت یک ثبت‌نام در هر {GVAR: REG_TIME_LIMIT} ثانیه مواجه هستید. لطفا {PLURAL: reg_limit_reached|$1 ثانیه|$1 ثانیه} صبر کنید و سپس دوباره برای ثبت‌نام اقدام کنید.
-register_affero:نام کاربری افرو:<br /><span class="SmallText">اگر شما دارای نام کاربری <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">افرو</a> هستید، اینجا واردش کنید.</span>
-im_affero:نام کاربری Affero
 register_err_avatardimtobig:ابعاد آواتار <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> بزرگتر از حد مجاز <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b> پیکسل است.
 buddy_offline:{VAR: r[2]} هم‌اکنون آفلاین است
 buddy_online:{VAR: r[2]} هم‌اکنون آنلاین است

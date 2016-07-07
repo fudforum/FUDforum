@@ -920,8 +920,6 @@ err_mod_acc_msg:Administrator hevur valt at gjøgnumganga allar kontur manuelt �
 accounts_pending_approval:Kontur sum bíða eftir góðkenning
 saved:Goymt
 register_err_time_limit:Markið fyri eina góðkenning per {GVAR: REG_TIME_LIMIT} sekund er nátt. Bíða {PLURAL: reg_limit_reached|$1 sekond}, og royn so aftur at skráseta teg.
-register_affero:Affero brúkaranavn:<br /><span class="SmallText">Um tú hevur eitt <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">Affero</a> brúkaranavn, skriva tað so her.</span>
-im_affero:Affero brúkaranavn
 register_err_avatardimtobig:Avatar mátini á <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> fara yvir loyvda markið fyri <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b> pikslar (pixels).
 buddy_offline:{VAR: r[2]} er í løtuni offline
 buddy_online:{VAR: r[2]} er í løtuni online

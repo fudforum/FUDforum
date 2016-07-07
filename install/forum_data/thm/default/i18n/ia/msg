@@ -921,8 +921,6 @@ err_mod_acc_msg:Le administrator ha optate pro revider tote le contos manualment
 accounts_pending_approval:Contos attendente approbation
 saved:Salveguardate
 register_err_time_limit:Le limite de un registration per {GVAR: REG_TIME_LIMIT} secundas ha essite attingite. Per favor attende {PLURAL: reg_limit_reached|$1 secunda|$1 secundas}, e reproba postea a registrar te.
-register_affero:Nomine de usator Affero:<br /><span class="SmallText">Si tu ha un nomine de usator <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">Affero</a>, entra lo hic.</span>
-im_affero:Nomine de usator Affero
 register_err_avatardimtobig:Le dimensiones del avatar <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> excede le dimensiones permittite de <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b> pixeles.
 buddy_offline:{VAR: r[2]} al momento es foras de linea
 buddy_online:{VAR: r[2]} al momento es in linea

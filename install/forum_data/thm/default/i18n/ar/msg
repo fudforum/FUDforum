@@ -929,8 +929,6 @@ err_mod_acc_msg:اختار الإداري مراجعة كل الحسابات ي�
 accounts_pending_approval:حسابات تنتظر الاعتماد
 saved:محفوظ
 register_err_time_limit:وُصل إلى حد تسجيل واحد كل {GVAR: REG_TIME_LIMIT} ثوانٍ. من فضلك انتظر {PLURAL: reg_limit_reached|ثانية واحدة|$1 ثوانٍ} ثم حاول التسجيل مرة أخرى.
-register_affero:اسم مستخدم أفيرو:<br /><span class="SmallText">إذا كان لديك اسم مستخدم <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">أفيرو</a> فأدخله هنا.</span>
-im_affero:اسم مستخدم أفيرو
 register_err_avatardimtobig:أبعاد الأفتار <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> تتخطى الأبعاد المسموح به (<b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b> بكسل)
 buddy_offline:{VAR: r[2]} غير متصل حاليًا
 buddy_online:{VAR: r[2]} متصل حاليًا

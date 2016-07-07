@@ -928,8 +928,6 @@ err_mod_acc_msg:Der Administrator hat beschlossen, alle Konten vor der Aktivieru
 accounts_pending_approval:Billigung des sich in der Schwebe befindlichen Kontos
 saved:Abgespeichert
 register_err_time_limit:Die Beschränkung auf eine Registrierung pro {GVAR: REG_TIME_LIMIT} Sekunden ist erreicht worden. Bitte warten Sie {PLURAL: reg_limit_reached|$1 Sekunde|$1 Sekunden} und versuchen Sie danach noch einmal sich zu registrieren.
-register_affero:Affero Benutzername:<br /><span class="SmallText">Falls Sie einen <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">Affero</a> Benutzernamen haben, tragen Sie ihn hier ein.</span>
-im_affero:Affero Benutzername
 register_err_avatardimtobig:Die Ausmaße des Avatar von <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> überschreiten die maximal erlaubte Größe von <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
 buddy_offline:{VAR: r[2]} ist gerade offline
 buddy_online:{VAR: r[2]} ist gerade online

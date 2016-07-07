@@ -931,8 +931,6 @@ err_mod_acc_msg:Administrator zdecydował się zatwierdzać ręcznie wszystkie k
 accounts_pending_approval:Konta oczekujące na zatwierdzenie
 saved:Zapisane
 register_err_time_limit:Zostało przekroczone ograniczenie jednej rejestracji na {GVAR: REG_TIME_LIMIT} sekund. Odczekaj {PLURAL: reg_limit_reached|$1 sekundę|$1 sekundy|$1 sekund} zanim spróbujesz ponownie.
-register_affero:Nazwa użytkownika systemu Affero <br /><font class="SmallText">Jeśli posiadasz konto w <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">Affero</a>, określ je tutaj.</font>
-im_affero:Nazwa użytkownika systemu Affero
 register_err_avatardimtobig:Wymiary avatara <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> przekraczają dopuszczalny limit <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
 buddy_offline:{VAR: r[2]} jest aktualnie rozłączony(a)
 buddy_online:{VAR: r[2]} jest aktualnie dostępny(a)

@@ -914,8 +914,6 @@ accounts_pending_approval:Conturi care asteapta aprobare
 saved:Salvat
 # Fuzzy
 register_err_time_limit:Limita de 1 inregistrare la {GVAR: REG_TIME_LIMIT} secunde a fost atinsa. Va rugam asteptati {VAR: reg_limit_reached} secunde apoi incercati din nou.
-register_affero:Nume de utilizator optional:<br /><font class="SmallText">Daca aveti un nume de utilizator <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">optional</a> introduceti-l aici.</font>
-im_affero:Nume utilizator optional
 register_err_avatardimtobig:Dimensiunile imaginii <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> depasesc dimensiunile permise de <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
 buddy_offline:{VAR: r[2]} este offline
 buddy_online:{VAR: r[2]} este online

@@ -936,8 +936,6 @@ err_mod_acc_msg:L'administrateur a choisi de passer en revue manuellement tous l
 accounts_pending_approval:Comptes en attente d'approbation
 saved:Sauvegardé
 register_err_time_limit:La limite de 1 inscription par période de {GVAR: REG_TIME_LIMIT} secondes a été atteinte. Veuillez patienter {PLURAL: reg_limit_reached|$1 seconde|$1 secondes} et réessayer.
-register_affero:Nom d'utilisateur Affero :<br /><font class="SmallText">Si vous avez un nom d'utilisateur <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">Affero</a>, entrez-le ici.</font>
-im_affero:Identifiant Affero :
 register_err_avatardimtobig:Les dimensions de l'avatar <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> excèdent la limite autorisée de <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
 buddy_offline:{VAR: r[2]} est actuellement déconnecté
 buddy_online:{VAR: r[2]} est actuellement connecté

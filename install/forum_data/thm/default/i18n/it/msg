@@ -929,8 +929,6 @@ err_mod_acc_msg:L'amministratore ha scelto di controllare tutti gli account manu
 accounts_pending_approval:Account in attesa di Approvazione
 saved:Salvato
 register_err_time_limit:Il limite di una registrazione ogni {GVAR: REG_TIME_LIMIT} secondi è stato raggiunto. Attendere {PLURAL: reg_limit_reached|$1 secondo|$1 secondi}, poi provare nuovamente a registrarsi.
-register_affero:Username Affero:<br /><span class="SmallText">Se si possiede una username <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">Affero</a> inserirla qui.</font>
-im_affero:Username affero
 register_err_avatardimtobig:Le dimensioni dell'Avatar di <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> superano la dimensione consentita di <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
 buddy_offline:{VAR: r[2]} al momento è fuori linea
 buddy_online:{VAR: r[2]} al momento è in linea

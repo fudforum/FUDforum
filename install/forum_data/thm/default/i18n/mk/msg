@@ -921,8 +921,6 @@ err_mod_acc_msg:Администраторот реши да ги преглед
 accounts_pending_approval:Сметки кои чекаат одобрување
 saved:Зачувано
 register_err_time_limit:Пречекорено е ограничувањето од една регистрација на {GVAR: REG_TIME_LIMIT} секунди. Почекајте {PLURAL: reg_limit_reached|една секунда|$1 секунди}, па обидете се да се регистрирате повторно.
-register_affero:Корисничко име на Affero:<br /><span class="SmallText">Ако имате корисничко име на<a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">Affero</a>, внесете го тука.</span>
-im_affero:Корисничко име на Affero
 register_err_avatardimtobig:Големината на аватарот <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> ги надминува максималните дозволени димензии од <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b> pixels.
 buddy_offline:{VAR: r[2]} е моментално исклучен(а)
 buddy_online:{VAR: r[2]} е моментално на линија

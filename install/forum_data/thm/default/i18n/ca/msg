@@ -933,8 +933,6 @@ err_mod_acc_msg:L`administrador ha escollit revisar tots els comptes manualment 
 accounts_pending_approval:Comptes pendents d`aprovació
 saved:Guardats
 register_err_time_limit:El límit d'una inscripció per {GVAR: REG_TIME_LIMIT} segons s'ha assolit. Si us plau esperi  {PLURAL: reg_limit_reached|   $1  second| $1  segons} i després tractar de registrar-se una vegada més.
-register_affero:Affero nom d'usuari:<br><span class="SmallText">Si vostè té un nom d'usuari <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">Affero</a> , introduïu aquí.</span>
-im_affero:Usuari Affero
 register_err_avatardimtobig:Les dimensions de l`avatar de <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> excedeixen les dimensions permeses de <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
 buddy_offline:{VAR: r[2]} no està  actualment en línia
 buddy_online:{VAR: r[2]} està  actualment en línia

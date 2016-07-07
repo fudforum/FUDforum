@@ -924,8 +924,6 @@ err_mod_acc_msg:L-amministratur iddeċieda li jikkontrolla l-kontijiet manwalmen
 accounts_pending_approval:Kontijiet li qed jistennew l-approvazzjoni
 saved:Salvat
 register_err_time_limit:Il-limitu ta' reġistrazzjoni waħda kull {GVAR: REG_TIME_LIMIT} sekondi intlaħaq. Jekk jogħġbok stenna {PLURAL: reg_limit_reached|$1 sekonda|$1 sekondi},
-register_affero:Isem tal-utent Affero:<br /><span class="SmallText">Jekk għandek isem tal-utent <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">Affero</a>, daħħlu hawnhekk.</span>
-im_affero:Isem tal-utent Affero
 register_err_avatardimtobig:Dimensjonijiet tal-<i>avatar</i> ta' <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> jaqbżu d-dimensjonijiet permessi ta' <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b> pixels.
 buddy_offline:{VAR: r[2]} attwalment mhuwiex illogjat
 buddy_online:{VAR: r[2]} attwalment hu illogjat

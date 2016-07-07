@@ -926,8 +926,6 @@ err_mod_acc_msg:La administranto elektis kontroli ĉiujn kontojn permane antaŭ 
 accounts_pending_approval:Kontoj Atendante Aprobon
 saved:Konservita
 register_err_time_limit:La limo de unu registrado por {GVAR: REG_TIME_LIMIT} sekundoj estis atingita. Bonvolu atendi {PLURAL: reg_limit_reached|$1 sekundon|$1 sekundojn}, kaj poste provi reregistri denove.
-register_affero:Salutnomo de Affero:<br /><span class="SmallText">Se vi havas salutnomon <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">Affero</a>, enigi ĝin ĉi tie.</span>
-im_affero:Salutnomo de Affero
 register_err_avatardimtobig:Avataraj dimensioj de <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> troigas la permesitajn dimensiojn de <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b> rastrumeroj.
 buddy_offline:{VAR: r[2]} estas nune malkonektita
 buddy_online:{VAR: r[2]} estas nune konektita

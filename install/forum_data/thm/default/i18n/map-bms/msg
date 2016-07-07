@@ -920,8 +920,6 @@ err_mod_acc_msg:Administrator wis milih nggo mriksa kabeh akun sacara manual sed
 accounts_pending_approval:Akun-akun sing ngenteni disarujuki
 saved:Disimpen
 register_err_time_limit:Batese nggo sepisan pendaftaran saben {GVAR: REG_TIME_LIMIT} detik wis dilewati. Monggo ngenteni {PLURAL: reg_limit_reached|$1 detik|$1 detik}, lan banjur jajalen ndaftar sepisan maning.
-register_affero:Jeneng panganggo Affero:<br /><span class="SmallText"> Angger Rika duwe <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">akun Affero</a>, lebokna nang kene.</span>
-im_affero:Jeneng panganggo Affero
 register_err_avatardimtobig:Dimensi avatare Rika <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> nglewihi bates dimensi yakuwe <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b> piksel.
 buddy_offline:{VAR: r[2]} sekiye lagi offline
 buddy_online:{VAR: r[2]} sekiye lagi online

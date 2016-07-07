@@ -927,8 +927,6 @@ err_mod_acc_msg:Administratoren har valgt å godkjenne alle kontoer manuellt fø
 accounts_pending_approval:Kontoer som venter på godkjenning
 saved:Lagret
 register_err_time_limit:Grensen for én registrering per {GVAR: REG_TIME_LIMIT} sekund er nådd. Vent {PLURAL: reg_limit_reached|ett sekund|$1 sekund} og prøv å registrere deg på nytt.
-register_affero:Affero-brukernavn:<br /><span class="SmallText">Om du har et <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">Affero</a>-brukernavn, skriv det inn her.</span>
-im_affero:Affero-brukernavn
 register_err_avatardimtobig:Avatardimensjonene på <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> overgår de tillatte dimensjonen på <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b> piksler.
 buddy_offline:{VAR: r[2]} er ikke pålogget
 buddy_online:{VAR: r[2]} er pålogget

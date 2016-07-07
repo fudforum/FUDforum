@@ -927,8 +927,6 @@ err_mod_acc_msg:Administratoren har valgt at gennemgå alle konti manuelt før a
 accounts_pending_approval:Konti der venter på godkendelse
 saved:Gemte
 register_err_time_limit:Grænsen for én registrering per {GVAR: REG_TIME_LIMIT} sekunder er nået. Vent venligst {PLURAL: reg_limit_reached|$1 sekund|$1 sekunder}, og forsøg derefter at registrere igen.
-register_affero:Affero brugernavn:<br /><span class="SmallText">Hvis du har et <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">Affero</a> brugernavn, skal du indtaste det her.</span>
-im_affero:Affero brugernavn
 register_err_avatardimtobig:Avatar dimensionerne på <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> overstiger den tilladte størrelse på <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b> pixels.
 buddy_offline:{VAR: r[2]} er i øjeblikket offline
 buddy_online:{VAR: r[2]} er i øjeblikket online

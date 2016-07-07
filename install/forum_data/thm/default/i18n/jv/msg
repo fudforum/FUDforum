@@ -922,8 +922,6 @@ err_mod_acc_msg:Administrator wis milih kanggo akun maneh kabeh manual sadurunge
 accounts_pending_approval:Akun sing ditundha disetujoni
 saved:disimpen
 register_err_time_limit:Watesan siji Situs saben {GVAR: REG_TIME_LIMIT} detik wis ngrambah. Mangga ngenteni {PLURAL: reg_limit_reached|$1 liyane|$1 detik}, lan banjur nyoba kanggo ndhaftar sepisan maneh.
-register_affero:Affero jeneng:<br /><span class="SmallText">Yen sampeyan nduweni <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">Affero</a> jeneng, ngetik kene.</span>
-im_affero:Affero Jeneng
 register_err_avatardimtobig:Avatar dimensi saka <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> ngluwihi dimensi sing diijini saka <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b> piksel.
 buddy_offline:{VAR: r[2]} is currently offline
 buddy_online:{VAR: r[2]} Saiki online

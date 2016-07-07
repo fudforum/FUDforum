@@ -925,8 +925,6 @@ err_mod_acc_msg:A jelenlegi beállítás szerint az adminisztrátornak minden fi
 accounts_pending_approval:Elfogadásra váró fiókok
 saved:Elmentve
 register_err_time_limit:Elérted a másodpercenként megtehető regisztrációk maximális számát ({GVAR: REG_TIME_LIMIT}). Várj {PLURAL: reg_limit_reached|egy|$1} másodpercet, majd próbálkozz újra a regisztrációval.
-register_affero:Affero-felhasználónév:<br /><span class="SmallText">Ha rendelkezel <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">Affero</a>-felhasználónévvel, itt add meg.</span>
-im_affero:Affero-felhasználónév
 register_err_avatardimtobig:Az avatar méretei (<b>({VAR: img_info[0]}x{VAR: img_info[1]})</b>) túllépik a megengedett <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b> képpontos méretet.
 buddy_offline:{VAR: r[2]} jelenleg nem elérhető
 buddy_online:{VAR: r[2]} jelenleg elérhető

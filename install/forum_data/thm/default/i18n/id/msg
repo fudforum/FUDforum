@@ -933,8 +933,6 @@ err_mod_acc_msg:Administrator sudah menentukan bahwa semua akun baru harus diper
 accounts_pending_approval:Akun menunggu persetujuan
 saved:Tersimpan
 register_err_time_limit:Batas pendaftaran selama {GVAR: REG_TIME_LIMIT} detik terlampaui. Mohon tunggu {PLURAL: reg_limit_reached|$1 detik|$1 detik}, dan cobalah lagi.
-register_affero:Nama pengguna Affero:<br /><span class="SmallText">Jika anda memiliki <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">akun Affero</a>, masukkan di sini.</span>
-im_affero:Nama pengguna Affero
 register_err_avatardimtobig:Dimensi Avatar anda: <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> melampaui batas sebesar <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
 buddy_offline:{VAR: r[2]} pengguna sedang offline
 buddy_online:{VAR: r[2]} pengguna sedang online

@@ -921,8 +921,6 @@ err_mod_acc_msg:L'amministratore ha scacchiate de revedè tutte le cunde manualm
 accounts_pending_approval:Cunde appise pe l'approvazione
 saved:Reggistrate
 register_err_time_limit:'U limite de 'na reggistrazione pe {GVAR: REG_TIME_LIMIT} seconda ha state raggiunde. Pe piacere aspitte {PLURAL: reg_limit_reached|$1 seconde}, e pò pruève a reggistrarte arrete.
-register_affero:Nome utende Affero: <br /><span class="SmallText">Ce tu è 'nu <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">nome utende Affero</a>, sckaffale aqquà.</span>
-im_affero:Nome utende Affero
 register_err_avatardimtobig:Dimenziune de l'immaggine <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> sbonnane 'a diumenzione permesse de  <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b> pixel.
 buddy_offline:{VAR: r[2]} pe mò ste fore linèe
 buddy_online:{VAR: r[2]} pe mò ste in linèe

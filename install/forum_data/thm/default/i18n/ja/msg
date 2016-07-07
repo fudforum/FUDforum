@@ -927,8 +927,6 @@ err_mod_acc_msg:管理者が、すべてのアカウントをその有効化前�
 accounts_pending_approval:承認保留アカウント
 saved:保存済み
 register_err_time_limit:{GVAR: REG_TIME_LIMIT}秒に1回の登録しか認められないという制限に達しました。{PLURAL: reg_limit_reached|$1秒}待ってからもう一度登録を試みてください。
-register_affero:Affero の利用者名:<br /><span class="SmallText">あなたが <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">Affero</a> の利用者名をもっている場合、ここにそれを入力してください。</span>
-im_affero:Affero の利用者名
 register_err_avatardimtobig:アバターの大きさ <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> は許可されている大きさである <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b> ピクセルを越えています。
 buddy_offline:{VAR: r[2]} は現在オフラインです
 buddy_online:{VAR: r[2]} は現在オンラインです

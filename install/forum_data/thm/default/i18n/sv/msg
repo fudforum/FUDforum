@@ -930,8 +930,6 @@ err_mod_acc_msg:Administratorn har valt att själv granska alla användare innan
 accounts_pending_approval:Ej granskade användare
 saved:Sparade
 register_err_time_limit:Registreringsbegränsningen av en registrering per {GVAR: REG_TIME_LIMIT} sekunder har överskridits. Vänligen vänta {PLURAL: reg_limit_reached|$1 sekund|$1 sekunder}, och försök sedan registrera er igen.
-register_affero:Affero Användarnamn:<br /><span class="SmallText">Om du har ett <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">Affero</a> användarnamn, ange den här.</span>
-im_affero:Affero Användarnamn
 register_err_avatardimtobig:Visningsbildens dimensiontioner på <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> överskrider den maximala storleken på <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
 buddy_offline:{VAR: r[2]} är för tillfället nedkopplad
 buddy_online:{VAR: r[2]} är för tillfället uppkopplad

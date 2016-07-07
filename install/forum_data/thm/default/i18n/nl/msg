@@ -926,8 +926,6 @@ err_mod_acc_msg:De beheerder heeft ervoor gekozen om handmatig alle gebruikers t
 accounts_pending_approval:Goed te keuren gebruikers
 saved:Opslaan
 register_err_time_limit:De registratielimiet van één registratie per {GVAR: REG_TIME_LIMIT} seconden is bereikt. Wacht nog {PLURAL: reg_limit_reached|$1 seconde|$1 seconden} en probeer dan opnieuw uw gebruiker te registreren.
-register_affero:Affero-gebruikersnaam:<br /><span class="SmallText">Als u een <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">Affero-gebruikersnaam</a> hebt, voer die dan hier in</span>
-im_affero:Affero-gebruikersnaam
 register_err_avatardimtobig:De afmetingen van de avatar (<b>({VAR: img_info[0]}x{VAR: img_info[1]})</b>) overschrijden de toegelaten maximale afmeting van <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b> pixels.
 buddy_offline:{VAR: r[2]} is op dit moment afwezig
 buddy_online:{VAR: r[2]} is op dit moment aanwezig

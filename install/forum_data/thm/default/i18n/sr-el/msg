@@ -922,8 +922,6 @@ err_mod_acc_msg:Administrator je izabrao da ručno pregleda sve naloge pred akti
 accounts_pending_approval:Nalozi koji čekaju odobrenje
 saved:Sačuvano
 register_err_time_limit:Ograničenje od jednog upisa svakih {GVAR: REG_TIME_LIMIT} sekundi je pređeno. Sačekajte {PLURAL: reg_limit_reached|$1 sekund|$1 sekunde|$1 sekundi} i pokušajte ponovo.
-register_affero:Afero korisničko ime:<br /><span class="SmallText">Ako imate <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">Afero</a> korisničko ime, unesite ga ovde.</span>
-im_affero:Afero korisničko ime
 register_err_avatardimtobig:Korisnička sličica dimenzija <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> prelazi ograničenje od <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b> tačaka.
 buddy_offline:{VAR: r[2]} je trenutno van mreže
 buddy_online:{VAR: r[2]} je trenutno na mreži

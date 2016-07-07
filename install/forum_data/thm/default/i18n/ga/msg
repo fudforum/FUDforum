@@ -922,8 +922,6 @@ err_mod_acc_msg:Bhí roghnaithe ag an riarthóir chun athbhreithniú a dhéanamh
 accounts_pending_approval:Cuntais feitheamh Ceadú
 saved:Saved
 register_err_time_limit:An teorainn chlárúcháin amháin in aghaidh an {GVAR: REG_TIME_LIMIT} soicind bainte amach. fan go fóill {PLURAL: reg_limit_reached|$1 dara|$1 soicind}, agus ansin déan iarracht a chlárú arís.
-register_affero:Affero Ainm Úsáideora:<br /><span class="SmallText">Má tá tú <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">Affero</a> ainm úsáideora, iontráil anseo.</span>
-im_affero:Affero Ainm Úsáideora
 register_err_avatardimtobig:Toisí Avatar de <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> níos mó ná na gnéithe a cheadaítear de <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b> pixel.
 buddy_offline:{VAR: r[2]} as líne faoi láthair
 buddy_online:{VAR: r[2]} Is ar líne faoi láthair

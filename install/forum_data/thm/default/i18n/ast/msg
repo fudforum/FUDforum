@@ -921,8 +921,6 @@ err_mod_acc_msg:L'alministrador prefier revisar toles cuentes de mou manual enan
 accounts_pending_approval:Cuentes pendientes d'aprobación
 saved:Guardada
 register_err_time_limit:Se llegó al llimite d'un rexistru cada {GVAR: REG_TIME_LIMIT} segundos. Por favor, aguarda {PLURAL: reg_limit_reached|$1 segundu|$1 segundos} ya intenta rexistrate otra vuelta.
-register_affero:Nome d'usuariu Affero:<br /><span class="SmallText">Si tienes un nome d'usuariu <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">Affero</a>, escribilu equí.</span>
-im_affero:Nome d'usuariu Affero
 register_err_avatardimtobig:Les dimensiones del avatar de <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> pasen de les dimensiones permitíes de <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
 buddy_offline:{VAR: r[2]} anguaño ta desconectáu
 buddy_online:{VAR: r[2]} anguaño ta conectáu

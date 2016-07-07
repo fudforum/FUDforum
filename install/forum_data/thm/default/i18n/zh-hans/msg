@@ -933,8 +933,6 @@ err_mod_acc_msg:账号在被激活之前必须得到系统管理员的确认，�
 accounts_pending_approval:待审核帐号
 saved:珍藏夹
 register_err_time_limit:每{GVAR: REG_TIME_LIMIT}秒限制一个用户可以注册的极限已达到， 请稍等{PLURAL: reg_limit_reached|$1|$1}秒再来注册。
-register_affero:Affero用户名：<br /><font class="SmallText">您若有 <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">Affero</a>帐户，请在此处输入用户名。</font>
-im_affero:Affero用户名
 register_err_avatardimtobig:头像大小 <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> 超出了论坛限制的： <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
 buddy_offline:{VAR: r[2]} 当前不在线
 buddy_online:{VAR: r[2]} 当前在线

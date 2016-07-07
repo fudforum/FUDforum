@@ -920,8 +920,6 @@ err_mod_acc_msg:Die administrateur het gekies om manueel alle rekeninge te hersi
 accounts_pending_approval:Rekeninge afwagtend vir goedkeuring
 saved:Stoor
 register_err_time_limit:Die registrasie limiet van 1 registrasie per {GVAR: REG_TIME_LIMIT} sekondes is oorskry. Wag asseblief {PLURAL: reg_limit_reached|$1 sekonde|$1 sekondes} en probeer dan weer om te registreer.
-register_affero:Affero-gebruikersnaam:<br /><font class="SmallText">As u 'n <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">Affero-gebruikersnaam</a> het, voer dit hier in.</span>
-im_affero:Affero Gebruikersnaam
 register_err_avatardimtobig:Avatar dimensies van <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> oorskry die toelaatbare dimensies van <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
 buddy_offline:{VAR: r[2]} is tans af-lyn
 buddy_online:{VAR: r[2]} is tans aan-lyn

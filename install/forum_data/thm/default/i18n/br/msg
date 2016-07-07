@@ -924,8 +924,6 @@ err_mod_acc_msg:Dibabet en deus ar merour adwelet an holl gontoù a-raok o gwere
 accounts_pending_approval:Kontoù o c'hortoz bezañ aprouet
 saved:Enrollet
 register_err_time_limit:Tizhet eo bet an harz a 1 enskrivadur dre {GVAR: REG_TIME_LIMIT}. Gortozit {PLURAL: reg_limit_reached|$1 eilenn|$1 eilenn}, mar plij, hag esaeit en-dro.
-register_affero:Anv implijer Affero : <br /><font class="SmallText">M'hoc'h eus un anv implijer <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">Affero</a>, ebarzhit-eñ amañ.</font>
-im_affero:Anv implijer Affero :
 register_err_avatardimtobig:Emañ ment an avatar <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> en tu-hont d'ar vent aotreet a <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b> piksel.
 buddy_offline:{VAR: r[2]} zo ezlinenn evit poent
 buddy_online:{VAR: r[2]} zo enlinenn evit poent

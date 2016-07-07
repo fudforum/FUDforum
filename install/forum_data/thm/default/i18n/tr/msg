@@ -935,8 +935,6 @@ err_mod_acc_msg:Tüm hesapların etkinleşmeden önce yönetici tarafından onay
 accounts_pending_approval:Onay bekleyen hesaplar
 saved:Saklanan
 register_err_time_limit:{GVAR: REG_TIME_LIMIT} saniye içinde sadece bir kayıt gerçekleştirilebilir. Lütfen {PLURAL: reg_limit_reached|$1 saniye|$1 saniye} bekledikten sonra tekrar deneyin.
-register_affero:Affero Kullanıcı İsmi:<br /><span class="SmallText">Eğer bir <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">Affero</a> kullanıcı ismine sahipseniz, buraya girin.</span>
-im_affero:Affero Kullanıcı İsmi
 register_err_avatardimtobig:<b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> boyutundaki avatar izin verilen boyutların <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b> dışında.
 buddy_offline:{VAR: r[2]} şu anda bağlı değil.
 buddy_online:{VAR: r[2]} şu anda bağlı.

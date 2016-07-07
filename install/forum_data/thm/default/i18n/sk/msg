@@ -923,8 +923,6 @@ err_mod_acc_msg:Administrátor sa rozhodol pre manuálne potvrdzovanie všetkýc
 accounts_pending_approval:Používateľské účty na schválenie
 saved:Uložené
 register_err_time_limit:Limit jednej registrácie za {GVAR: REG_TIME_LIMIT} sekúnd bol dosiahnutý. Prosím, počkajte {PLURAL: reg_limit_reached|$1 sekunda|$1 sekúnd}  a potom sa pokúste o registráciu opäť.
-register_affero:Affero používateľské meno:<br /><font class="SmallText">Ak máte <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">Affero</a> používateľské meno, zadajte ho sem.</font>
-im_affero:Affero používateľské meno
 register_err_avatardimtobig:Rozmery používateľskej ikony (avatar) <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> su väčšie ako povolené rozmery <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b> pixelov.
 buddy_offline:{VAR: r[2]} je práve offline
 buddy_online:{VAR: r[2]} je práve online

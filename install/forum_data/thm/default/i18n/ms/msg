@@ -922,8 +922,6 @@ err_mod_acc_msg:Pentadbir telah memutuskan untuk menyemak semua akaun secara man
 accounts_pending_approval:Akaun yang Menunggu Kelulusan
 saved:Disimpan
 register_err_time_limit:Had satu pendaftaran per {GVAR: REG_TIME_LIMIT} saat telah dicapai. Sila tunggu $1 saat, kemudian cuba berdaftar sekali lagi.
-register_affero:Nama Pengguna Affero:<br /><span class="SmallText">Jika abda ada nama pengguna <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">Affero</a>, sila taipkannya di sini.</span>
-im_affero:Nama Pengguna Affero
 register_err_avatardimtobig:Dimensi avatar <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> melampaui had maksimum <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b> piksel.
 buddy_offline:{VAR: r[2]} kini di luar talian
 buddy_online:{VAR: r[2]} kini di dalam talian

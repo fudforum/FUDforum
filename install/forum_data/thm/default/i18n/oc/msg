@@ -923,8 +923,6 @@ err_mod_acc_msg:L'administrator a causit de passar en revista manualament totes 
 accounts_pending_approval:Comptes en espèra d'aprovacion
 saved:Salvat
 register_err_time_limit:Lo limit d'1 inscripcion per periòde de {GVAR: REG_TIME_LIMIT} segondas es estada atencha. Pacientatz {PLURAL: reg_limit_reached|$1 segonda|$1 segondas} e ensajatz tornarmai.
-register_affero:Nom d'utilizaire Affero :<br /><font class="SmallText">S'avètz un nom d'utilizaire <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">Affero</a>, picatz-lo aicí.</font>
-im_affero:Identificant Affero :
 register_err_avatardimtobig:Las dimensions de l'avatar <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> excedisson lo limit autorizat de <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
 buddy_offline:{VAR: r[2]} es actualament desconnectat
 buddy_online:{VAR: r[2]} es actualament connectat

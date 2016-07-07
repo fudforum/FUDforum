@@ -932,8 +932,6 @@ err_mod_acc_msg:審查所有帳戶在啟動之前手動選擇了管理員。直�
 accounts_pending_approval:等待審批的帳戶
 saved:珍藏夾
 register_err_time_limit:每一個註冊的極限 {GVAR: REG_TIME_LIMIT} 已達到秒。請稍候，  {PLURAL: reg_limit_reached|   $1  second| $1 秒}，然後嘗試再次註冊。
-register_affero:Affero 使用者名稱：<br><span class="SmallText">如果您有<a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">Affero</a>使用者名稱，請在這裡輸入。</span>
-im_affero:Affero 使用者名稱
 register_err_avatardimtobig:阿凡達尺寸的<b>( {VAR: img_info[0]} x {VAR: img_info[1]} )</b>超過允許的尺寸<b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>圖元為單位）。
 buddy_offline:{VAR: r[2]}目前處於離線狀態
 buddy_online:{VAR: r[2]}目前處於離線狀態

@@ -922,8 +922,6 @@ err_mod_acc_msg:Stjórnandi hefur valið að fara yfir alla aðganga handvirkt �
 accounts_pending_approval:Aðgangar í bið eftir að verða staðfestir
 saved:Vistað
 register_err_time_limit:Hámarksfjöldi nýskráninga á {GVAR: REG_TIME_LIMIT} sekúndu hefur verið náð. Vinsamlegast bíddu í {PLURAL: reg_limit_reached|$1 sekúndu|$1 sekúndur} og reyndu aftur að nýskrá þig.
-register_affero:Affero notendanafn:<br /><span class="SmallText">Ef þú átt <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">Affero</a> notendanafn, skrifaðu það þá hér.</span>
-im_affero:Affero notendanafn
 register_err_avatardimtobig:Stærð notendamyndarinnar <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> er stærri en hámarkstærð notendamynda <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b> dílar.
 buddy_offline:{VAR: r[2]} er ótengdur
 buddy_online:{VAR: r[2]} er tengdur
