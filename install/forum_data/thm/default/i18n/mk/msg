@@ -312,7 +312,7 @@ register_update:Поднови
 register_avatar_type:Тип на аватар
 register_del_avatar:Избриши аватар
 register_avatar:Аватар:
-register_sel_avatar:Одбери аватар
+register_sel_avatar:Избор на аватар
 register_custom_avatar_rules:Приалгодениот аватар нема да се прикаже сè додека не биде одобрен од администратор.<br /><span class="SmallText">Аватарот не смее да биде поголем од <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} пиксели</b> и мора да биде во <b>jpg</b>, <b>gif</b> или <b>png</b> формат.</span>
 register_custom_avatar_url:URL на сликата:
 register_preview:Преглед
@@ -530,7 +530,7 @@ email_submit:Е-пошта
 ppost_quote_msg:{VAR: msg_to_list} напиша на {TEMPLATE: ppost_quote_msg_date}
 ppost_quote:Цитат:
 ppost_to:За:
-ppost_from_buddy_list:Одбери од списокот на пријатели
+ppost_from_buddy_list:Избор од списокот на пријатели
 ppost_find_User:Пронајди корисник
 ppost_track_msg:Следи ја поракава
 ppost_track_msg_desc:Извести ме (преку лично соопштение) кога ќе биде прочитана поракава.
@@ -826,7 +826,7 @@ split_th_forum:Форум:
 split_th_split_sel:Раздели ги одбраните пораки
 split_th_split_unsel:Раздели ги неодбраните пораки
 split_th_messages:Пораки
-split_th_select:Одбери
+split_th_select:Избор
 report_report_post:Пријави
 quicklogin_login:Корисничко име:
 quicklogin_password:Лозинка:

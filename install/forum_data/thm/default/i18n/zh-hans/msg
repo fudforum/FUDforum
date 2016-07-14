@@ -771,7 +771,7 @@ show_show:显示：
 group_mgr:论坛板块管理
 group_mgr_edit_btn:编辑组
 group_mgr_heading:选择论坛管理员
-group_mgr_group:论坛：
+group_mgr_group:组：
 permission_denied_title:权限被拒绝！
 permission_denied_msg:你没有权限执行此项操作
 p_READ:阅读
