@@ -871,8 +871,8 @@ imsg_err_message_msg:Пораката што сакате да ја видите
 poll_edit:Уреди
 register_err_not_valid_img:Назначената URL не содржи важечка слика.
 pmsg_recepient:Примач
-register_err_taken_alias:Алијасот што сакате да го користите е зафатен од друг член на форумот. Одберете друг.
-register_alias:Алијас:
+register_err_taken_alias:Прекарот што сакате да го користите е зафатен од друг член на форумот. Одберете друг.
+register_alias:Прекар:
 register_alias_desc:Ако сакате во форумот да користите прекар кој е различен од корисничкото име, внесете го тука.
 register_allow_pm_msg:Дозволи лични пораки:
 register_allow_pm_msg_desc:Дозволи им на другите корисници да ми праќаат лични пораки во овој форум.
@@ -1018,7 +1018,7 @@ ip_users_using:Корисници што користат IP-адреса „{VA
 ip_all_ips:Сите IP-адреси што ги користи „{VAR: user}“
 ip_title:IP-Прелистувач
 userinfo_real_name:Вистинско име:
-register_err_alias_notallowed:Овој алијас не е дозволен.
+register_err_alias_notallowed:Овој истозначник не е дозволен.
 post_err_mod_forum_edit_ttl:ГРЕШКА
 post_err_mod_forum_edit_msg:Не можете да уредувате пораки во модериран форум.
 dmsg_num:порака #{VAR: obj->id}
