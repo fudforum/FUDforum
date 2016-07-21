@@ -972,7 +972,7 @@ findu_unban:차단해제
 findu_ban:차단
 findu_edit:편집
 findu_delete:삭제
-dmsg_reply_to:(은)는 다음 메시지의 답글입니다:
+dmsg_reply_to:은(는) 다음 메시지의 답글입니다:
 dmsg_reply_num:메시지 #{VAR: obj->reply_to}
 merge_topics:주제 병합
 merge_topics_cp:토픽 병합 제어판
