@@ -1,5 +1,5 @@
 /***************************************************************************
-* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2016 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -486,7 +486,7 @@ function quote_selected_text(quoteButtonText) {
 
 /* Visual indication if confirmation password matches the original password. */
 function passwords_match(password1, password2) {
-	if (jQuery(password2).attr("value") != jQuery('#'+ password1).attr('value')) {
+	if (jQuery(password2).val() != jQuery('#'+ password1).val()) {
 		jQuery(password2).css("color", "red");
 	} else {
 		jQuery(password2).css("color", "green");
