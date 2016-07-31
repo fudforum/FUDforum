@@ -302,10 +302,13 @@ register_builtin:Built In
 register_specify_url:Specify URL
 register_uploaded:Upload Avatar
 register_login:Login:
+register_login_desc:The name by which you would like to log-in and be known on this site.
 register_password:Password:
+register_password_desc:Password for your account. Passwords are case-sensitive and must be at least 6 characters long.
 register_conf_pass:Confirm Password:
-register_email_desc:Please enter a valid e-mail address. You can choose to hide it below, in the Preferences section.
+register_email_desc:Your e-mail address. You can choose to hide it below, in the Preferences section.
 register_name:Name:
+register_name_desc:Your real name.
 register_your_pass:Your Password:
 register_update:Update
 register_avatar_type:Avatar Type:
@@ -318,7 +321,7 @@ register_preview:Preview
 register_custom_avatar_upload:Custom Avatar File:
 register_register:Register
 register_required:Required Information
-register_required_desc:All fields are required. Please note that passwords are case sensitive.
+register_required_desc:All fields are required.
 register_optional:Optional Information
 register_optional_desc:It is recommended that you not reveal any personal or identifying information in your profile. All information will be viewable by other forum members.
 register_location:Location:

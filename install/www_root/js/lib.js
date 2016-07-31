@@ -484,12 +484,14 @@ function quote_selected_text(quoteButtonText) {
 	});
 }
 
-/* Visual indication if confirmation password matches the original password. */
+/* Visual indication to confirm password matches the original password. 
+ * Passwords must be at least 6 characters long.
+ */
 function passwords_match(password1, password2) {
-	if (jQuery(password2).val() != jQuery('#'+ password1).val()) {
-		jQuery(password2).css("color", "red");
-	} else {
+	if (jQuery(password2).val().length >= 6 && jQuery(password2).val() == jQuery('#'+ password1).val()) {
 		jQuery(password2).css("color", "green");
+	} else {
+		jQuery(password2).css("color", "red");
 	}
 }
 

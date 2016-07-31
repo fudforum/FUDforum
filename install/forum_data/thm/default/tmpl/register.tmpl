@@ -34,12 +34,15 @@
 {SECTION: new_user // New user section is shown to a new user trying to register.}
 {IF: !__fud_real_user__}{FUNC: draw_err('reg_time_limit')}{ENDIFI}
 <tr class="child-c1 RowStyleA">
-	<td width="60%">{MSG: register_login}{FUNC: draw_err('reg_login')}</td>
-	<td width="60%"><input type="text" size="25" id="reg_login" name="reg_login" value="{VAR: reg_login}" maxlength="{GVAR: MAX_LOGIN_SHOW}" required="required" /> <span id="reg_login-result"><span></td>
+	<td width="60%">{MSG: register_login}{FUNC: draw_err('reg_login')}<br />
+                        <span class="SmallText">{MSG: register_login_desc}</span</td>
+	<td width="60%"><input type="text" size="25" name="reg_login" id="reg_login" value="{VAR: reg_login}" maxlength="{GVAR: MAX_LOGIN_SHOW}" required="required" />
+                        <span id="reg_login-result"><span></td>
 </tr>
 {IF: $FUD_OPT_2 & 128}{TEMPLATE: reg_alias}{ENDIFI}
 <tr class="child-c1 RowStyleA">
-	<td>{MSG: register_password}{FUNC: draw_err('reg_plaintext_passwd')}</td>
+	<td>{MSG: register_password}{FUNC: draw_err('reg_plaintext_passwd')}<br />
+            <span class="SmallText">{MSG: register_password_desc}</span></td>
 	<td><input type="password" name="reg_plaintext_passwd" id="reg_plaintext_passwd" size="25" required="required" /></td>
 </tr>
 <tr class="child-c1 RowStyleA">
@@ -47,10 +50,13 @@
 	<td><input type="password" name="reg_plaintext_passwd_conf" id="reg_plaintext_passwd_conf" size="25" onkeyup="passwords_match(\'reg_plaintext_passwd\', this); return false;" required="required" /></td>
 </tr>
 <tr class="child-c1 RowStyleA">
-	<td>{MSG: register_email_addr}{FUNC: draw_err('reg_email')}<br /><span class="SmallText">{MSG: register_email_desc}</span></td><td><input type="email" name="reg_email" size="25" value="{VAR: reg_email}" required="required" /></td>
+	<td>{MSG: register_email_addr}{FUNC: draw_err('reg_email')}<br />
+            <span class="SmallText">{MSG: register_email_desc}</span></td>
+        <td><input type="email" name="reg_email" id="reg_email" size="25" value="{VAR: reg_email}" required="required" /></td>
 </tr>
 <tr class="child-c1 RowStyleA">
-	<td>{MSG: register_name}{FUNC: draw_err('reg_name')}</td>
+	<td>{MSG: register_name}{FUNC: draw_err('reg_name')}<br />
+            <span class="SmallText">{MSG: register_name_desc}</span></td>
 	<td><input type="text" name="reg_name" size="25" value="{VAR: reg_name}" required="required" /></td>
 </tr>
 {IF: !($FUD_OPT_3 & 128)}{TEMPLATE: register_turing_test}{ENDIFI}
@@ -96,20 +102,24 @@
 
 {SECTION: update_user // Update user section, is used when a registered user is editing their profile.}
 <tr class="child-c1 RowStyleA">
-	<td width="60%">{MSG: register_login}</td>
+	<td width="60%">{MSG: register_login}<br />
+                        <span class="SmallText">{MSG: register_login_desc}</span</td>
 	<td><span class="fb">{VAR: reg_login}</span>{IF: ($FUD_OPT_4 & 1) && !$mod_id}{TEMPLATE: change_login_link}{ENDIFI}</td>
 </tr>
 {IF: $FUD_OPT_2 & 128}{TEMPLATE: reg_alias}{ENDIFI}
 <tr class="child-c1 RowStyleA">
-	<td>{MSG: register_your_pass}{FUNC: draw_err('reg_confirm_passwd')}</td>
+	<td>{MSG: register_your_pass}{FUNC: draw_err('reg_confirm_passwd')}<br />
+            <span class="SmallText">{MSG: register_password_desc}</span></td>
 	<td><nobr><input type="password" name="reg_confirm_passwd" size="25" />{IF: ($FUD_OPT_4 & 2) && !$mod_id}{TEMPLATE: change_passwd_link}{ENDIFI}</nobr></td>
 </tr>
 <tr class="child-c1 RowStyleA">
-	<td>{MSG: register_email_addr}{FUNC: draw_err('reg_email')}<br /><span class="SmallText">{MSG: register_email_desc}</span>{TEMPLATE-DATA: email_warning_msg}</td>
+	<td>{MSG: register_email_addr}{FUNC: draw_err('reg_email')}<br />
+            <span class="SmallText">{MSG: register_email_desc}</span>{TEMPLATE-DATA: register_email_desc}</td>
 	<td><input type="email" name="reg_email" size="25" value="{VAR: reg_email}" /></td>
 </tr>
 <tr class="child-c1 RowStyleA">
-	<td>{MSG: register_name}{FUNC: draw_err('reg_name')}</td>
+	<td>{MSG: register_name}{FUNC: draw_err('reg_name')}<br />
+            <span class="SmallText">{MSG: register_name_desc}</span></td>
 	<td><input type="text" name="reg_name" size="25" value="{VAR: reg_name}" /></td>
 </tr>
 {SECTION: END}
@@ -210,7 +220,7 @@
 </tr>
 {IF: !__fud_real_user__}{TEMPLATE: new_user}{ELSE}{TEMPLATE: update_user}{ENDI}
 {TEMPLATE-DATA: required_custom_fields}
-{IF: __fud_real_user__}<tr>
+{IF: __fud_real_user__}<tr class="child-c1">
 	<td colspan="2" class="ac RowStyleC">{TEMPLATE: update_button}</td>
 </tr>{ENDIF}
 <tr id="c2" style="display: table-row;">
@@ -426,8 +436,7 @@
                         }
                     }
                  });
-             });
- 
+            });
          });
 
 </script>

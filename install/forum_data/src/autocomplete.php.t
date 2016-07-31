@@ -41,6 +41,15 @@
 		$lookup = ($_GET['lookup'] == 'email') ? 'email' : 'login';
 		$term   = _esc($_GET['term']);
 
+		if ($lookup == 'login' && strlen($term) <= 4) {
+			echo 0;  // UserID too short.
+			exit;
+		}
+		if ($lookup == 'email' && !filter_var($term, FILTER_VALIDATE_EMAIL)) {
+			echo 0;  // Invalid e-mail address.
+			exit;
+		}
+
 		if (q_singleval('SELECT '. $lookup .' FROM {SQL_TABLE_PREFIX}users WHERE '. $lookup .' = '. $term)) {
 			echo 0;  // Not available - already taken.
 		} else {
