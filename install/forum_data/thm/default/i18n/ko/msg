@@ -156,7 +156,7 @@ send:보내기
 send_pm_desc:이 사용자에게 개인 메시지 보내기
 sender_email:보내는 사람의 이메일:
 sender_name:보내는 사람의 이름:
-show_posts_by:{VAR: u_alias} 사용자가 적은 메시지 보기
+show_posts_by:{VAR: u_alias}님이 적은 메시지 보기
 size:크기:
 status:상태:
 status_line:이 보드에는 <b>{PLURAL: st_obj->online_users_reg|구성원 $1명}</b>, <b>{PLURAL: st_obj->online_users_hidden|보이지 않는 구성원 $1명}</b>과 <b>{PLURAL: st_obj->online_users_anon|손님 $1명}</b>이 방문하고 있습니다.
@@ -322,7 +322,7 @@ register_avatar_type:아바타 형태:
 register_del_avatar:아바타 삭제
 register_avatar:아바타:
 register_sel_avatar:아바타 선택
-register_custom_avatar_rules:사용자가 지정한 아바타는 관리자가 승인할 때까지 나타나지 않습니다.<br /><span class="SmallText">아바타는, <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} 픽셀</b>보다 크지 않아야 하며 <b>jpg</b>, <b>gif</b> 또는 <b>png</b> 형식이어야 합니다.</span>
+register_custom_avatar_rules:사용자 지정한 아바타는 관리자가 승인할 때까지 나타나지 않습니다.<br /><span class="SmallText">아바타는, <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} 픽셀</b>보다 크지 않아야 하며 <b>jpg</b>, <b>gif</b> 또는 <b>png</b> 형식이어야 합니다.</span>
 register_custom_avatar_url:사용자 지정 아바타 URL:
 register_preview:미리 보기
 register_custom_avatar_upload:아바타 파일:
@@ -369,7 +369,7 @@ register_notification_desc:알림 기능을 기본적으로 사용 중인 경우
 register_notify_method:알림 수신 방법:
 register_notify_method_desc:선호하는 알림 메서드를 설정하거나 알림을 비활성화합니다. (예를 들어 휴가를 갈 때)
 register_allow_email_msg:이메일 수신 허가:
-register_allow_email_msg_desc:이 포럼에서 다른 사용자가 당신에게 이메일을 발송하는 것을 허용합니다.
+register_allow_email_msg_desc:이 포럼을 통해 다른 사용자가 당신에게 이메일을 발송하는 것을 허용합니다.
 buddy_status:상태
 my_buddies:나의 친구
 add_buddy:친구 추가
@@ -466,6 +466,7 @@ login_name_required:사용자 ID가 필요합니다
 login_passwd_required:비밀번호가 필요합니다
 login_invalid_radius:로그인/비밀번호 조합이 잘못되었습니다
 reset_confirmation:등록해 주셔서 감사합니다,\n\n 계정 활성화를 위해 아래의 URL로 접속하십시오:\n\n{VAR: url}\n\n계정이 활성화되고 포럼으로 포럼 메인 페이지로 이동될 것입니다.
+reset_reset:안녕하세요,\n\n비밀번호를 재설정하기 위해 요청하였습니다. 과정을 완료하려면,\n이 URL로 가세요:\n\n{VAR: url}\n\n참고: 이 포럼은 비밀번호를 입력하면 비밀번호는 한 방향 암호화 매커니즘으로\n암호화되어 저장되므로 그것을 다시 얻을 수 있는 방법은 없음을 뜻합니다.\n이것은 로그인을 물어보는 것에 입력한 것을 인코딩한 버전과 기존의 인코딩된 버전을 비교하여 작동합니다.\n(이 매커니즘이 어떻게 작동하는가에 관심이 있다면, MD5 HASH 알고리즘을 읽어주세요)
 rpasswd_invalid_passwd:비밀번호가 잘못됨
 rpasswd_passwd_nomatch:비밀번호가 일치하지 않습니다
 rpasswd_passwd_length:패스워드는 최소한 6자 이상이어야 합니다
@@ -607,7 +608,7 @@ iemail_participate:토론 참가를 위한 이동:
 ignore_list_err_info_title:정보
 ignore_list_err_dup_msg:이 사용자는 이미 차단 목록에 등록되어 있습니다
 ignore_list_err_nu_title:사용자를 찾을 수 없습니다
-ignore_list_err_nu_msg:그 사용자는 차단 목록에 없습니다.
+ignore_list_err_nu_msg:무시 목록에 추가하려는 사용자를 찾을 수 없습니다.
 ignore_list_cantign_msg:이 사용자를 차단할 수 없습니다
 ignore_list_update:차단 목록 탐색
 index_update:<a href="{TEMPLATE: index_update_lnk}">포럼목록</a> 탐색
@@ -637,6 +638,7 @@ post_reply_update:{VAR: frm->name}에서 <a href="{TEMPLATE: msg_post_lnk}">{VAR
 post_topic_update:<a href="{TEMPLATE: post_topic_update_lnk}">{VAR: frm->name}</a>에 새 토픽 쓰기
 post_error_generic:오류 발생
 postcheck_max_images_err:메시지마다 그림 {GVAR: MAX_IMAGE_COUNT}개보다 많은 것은 허용되지 않습니다. 그림 수를 줄여주세요.
+postcheck_no_links_allowed:{PLURAL: posts_before_links|$1개} 이상의 글을 게시할 때까지 링크를 사용할 수 없습니다.
 postcheck_subj_needed:제목이 필요합니다
 postcheck_no_such_user:이 포럼에는 "{FUNC: char_fix(htmlspecialchars($v))}"와 일치하는 사용자가 없습니다.
 postcheck_ignored:차단 리스트에 등록되었기 때문에 "{FUNC: char_fix(htmlspecialchars($v))}"에게 쪽지를 전송할 수 없습니다.
@@ -645,7 +647,7 @@ postcheck_invalid_email:올바른 이메일 주소를 입력하세요.
 postcheck_email_subject:제목 없이 이메일을 보낼 수 없습니다.
 postcheck_email_body:본문 내용 없이 이메일을 보낼 수 없습니다.
 private_msg_notify_subj:읽기 알림: {VAR: m->subject}
-private_msg_notify_body:안녕하세요,<br />{VAR: usr->login} 사용자가 "{VAR: m->subject}"이라는 제목의 개인 메시지를 열었습니다.<br />{TEMPLATE: private_msg_notify_body_date}에 생성된 자동적인 알림입니다<br />
+private_msg_notify_body:안녕하세요,<br />{VAR: usr->login}님이 "{VAR: m->subject}"이라는 제목의 개인 메시지를 열었습니다.<br />{TEMPLATE: private_msg_notify_body_date}에 생성된 자동적인 알림입니다<br />
 referals_update:추천 탐색
 register_err_short_login:지정한 로그인 이름이 너무 짧습니다. 로그인 이름은 적어도 4자 이상이어야 합니다.
 register_err_login_notallowed:허가되지 않은 사용자 이름입니다.
@@ -736,7 +738,7 @@ thr_exch_dest_forum:이동 위치:
 thr_exch_no_threads:승인 대기 중인 토픽이 없습니다.
 thr_exch_submit:제출
 split_thread:주제 분할
-groupmgr_no_user:"{FUNC: char_fix(htmlspecialchars($gr_member))}"로 로그인한 사용자는 없습니다.
+groupmgr_no_user:"{FUNC: char_fix(htmlspecialchars($gr_member))}"님으로 로그인한 사용자는 없습니다
 groupmgr_already_exists:"{FUNC: char_fix(htmlspecialchars($gr_member))}" 사용자는 이미 이 그룹에 존재합니다.
 groupmgr_yes:예
 groupmgr_no:아니오
@@ -776,7 +778,7 @@ group_mgr_search:사용자 찾기
 group_mgr_indicator:현재 편집중: <b>{VAR: grp->name}</b>
 rate_worst:최악
 rate_best:최고
-post_quote_msg:{VAR: msg->login} 사용자가 {TEMPLATE: make_report_date}에 적었습니다
+post_quote_msg:{VAR: msg->login}님이 {TEMPLATE: make_report_date}에 적었습니다
 post_quote:인용:
 post_quote_selected:선택한 문구 인용
 userinfo_referals:추천 사용자:
@@ -893,7 +895,7 @@ search_attach_with:첨부 있음
 post_proceed:진행
 post_moderated_forum:당신은 중재 포럼에 게시글을 작성할 수 있습니다. 작성된 게시글은 중재나 또는 관리자의 승인이 완료된 이후에 볼 수 있습니다.
 post_moderated_forum_ttl:중재 포럼 공지
-buddy_list_bday:오늘 {VAR: r[2]} 사용자는 {VAR: age}살이 됩니다
+buddy_list_bday:오늘 {VAR: r[2]}님은 {VAR: age}살이 됩니다
 email_warning_msg:만일 이메일 주소를 변경하면 당신의 계정은 이메일 확인 절차를 마치기 전까지 확인되지 않은 계정으로 표시됩니다.
 register_show_im:Show IM indicators
 unread_message:읽지않은 게시글
@@ -913,8 +915,8 @@ err_mod_acc_msg:관리가 수동으로 사용자 계정을 인증 및 활성화�
 accounts_pending_approval:계정 승인 제출중
 saved:저장됨
 register_err_avatardimtobig:아바타 사이즈는 <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b>를 초과할 수 없습니다. <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b> pixels.
-buddy_offline:{VAR: r[2]} 사용자는 현재 오프라인입니다
-buddy_online:{VAR: r[2]} 사용자는 현재 온라인입니다
+buddy_offline:{VAR: r[2]}님은 현재 오프라인입니다
+buddy_online:{VAR: r[2]}님은 현재 온라인입니다
 sml_no_smilies:사용 가능한 이모티콘이 없습니다.
 login_unapproved_account_ttl:승인되지 않은 계정
 login_unapproved_account_msg:이 포럼의 관리자가 인증에 앞서 각각의 새로운 계정을 일일이 확인하기로 했습니다. 사용자의 계정은 현재 인증되어 있지 않은 상태이므로 인증된 구성원들이 이용할 수 있는 기능들 중 일부에 접근할 수 없습니다.
