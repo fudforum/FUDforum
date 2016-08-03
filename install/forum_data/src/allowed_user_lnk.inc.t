@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2016 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -84,6 +84,7 @@ function is_allowed_user(&$usr, $simple=0)
 
 	if ($banned || is_email_blocked($usr->email) || is_login_blocked($usr->login) || is_ip_blocked(get_ip())) {
 		$ban_expiry = (int) $usr->ban_expiry;
+		$ban_reason = $usr->ban_reason;
 		if (!$simple) { // On login page we already have anon session.
 			ses_delete($usr->sid);
 			$usr = ses_anon_make();

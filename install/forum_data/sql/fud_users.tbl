@@ -72,6 +72,7 @@ CREATE TABLE {SQL_TABLE_PREFIX}users
 	registration_ip		VARCHAR(46) NOT NULL DEFAULT '::1',
 	last_used_ip		VARCHAR(46) NOT NULL DEFAULT '::1',
 	ban_expiry		BIGINT NOT NULL DEFAULT 0,
+	ban_reason		VARCHAR(255),
 	topics_per_page		INT NOT NULL DEFAULT 40,
 	last_login		BIGINT NOT NULL DEFAULT 0,
 

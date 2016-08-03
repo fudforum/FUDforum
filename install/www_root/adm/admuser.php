@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2016 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -67,28 +67,40 @@
 					echo errorify('Sorry, you cannot ban or unban yourself!');
 					break;
 				}
-				if ($u->users_opt & $keys[$act]) {	// Is currently banned.
-					$u->ban_expiry = 0;
-					logaction(_uid, 'User unbanned', 0, $u->login);
+
+				$is_banned = $u->users_opt & $keys[$act];
+				if (array_key_exists('block', $_POST)) {
+					$should_be_banned = $_POST['block'];
 				} else {
+					// Not set, toggle it.
+					$should_be_banned = ($is_banned) ? 0 : 1;
+				}
+				if ($should_be_banned) {	// Is currently banned.
 					$duration = (isset($_POST['ban_duration'])) ? $_POST['ban_duration'] : 0;
 					$u->ban_expiry = floatval($duration) * 86400;
 					if ($u->ban_expiry) {
 						$u->ban_expiry += __request_timestamp__;
 					}
+					$u->users_opt |= $keys[$act];
 					logaction(_uid, 'User banned', 0, $u->login);
+				} else {
+					$u->ban_expiry = 0;
+					if ($is_banned) $u->users_opt ^= $keys[$act];
+					logaction(_uid, 'User unbanned', 0, $u->login);
 				}
+				$u->ban_reason = (isset($_POST['ban_reason'])) ? $_POST['ban_reason'] : '';
+				q('UPDATE '. $DBHOST_TBL_PREFIX .'users SET ban_reason='. ssn($u->ban_reason) .', ban_expiry='. $u->ban_expiry .', users_opt='. $u->users_opt .' WHERE id='. $usr_id);
 				$block = $u->ban_expiry;
-			}
-
-			// Toggele setting.
-			if (empty($block)) $block = 'ban_expiry';
-			if ($u->users_opt & $keys[$act]) {
-				q('UPDATE '. $DBHOST_TBL_PREFIX .'users SET ban_expiry='. $block .', users_opt='. q_bitand('users_opt', q_bitnot($keys[$act])) .' WHERE id='. $usr_id);
-				$u->users_opt ^= $keys[$act];
 			} else {
-				q('UPDATE '. $DBHOST_TBL_PREFIX .'users SET ban_expiry='. $block .', users_opt='. q_bitor('users_opt', $keys[$act]) .' WHERE id='. $usr_id);
-				$u->users_opt |= $keys[$act];
+
+				// Toggele rest of the settings.
+				if ($u->users_opt & $keys[$act]) {
+					q('UPDATE '. $DBHOST_TBL_PREFIX .'users SET users_opt='. q_bitand('users_opt', q_bitnot($keys[$act])) .' WHERE id='. $usr_id);
+					$u->users_opt ^= $keys[$act];
+				} else {
+					q('UPDATE '. $DBHOST_TBL_PREFIX .'users SET users_opt='. q_bitor('users_opt', $keys[$act]) .' WHERE id='. $usr_id);
+					$u->users_opt |= $keys[$act];
+				}
 			}
 
 			echo successify('User options successfully updated.');
@@ -340,7 +352,7 @@ administration permissions to the forum. This individual will be able to do anyt
 
 <!-- Links to control panels that Account Moderators can access. -->
 </td><td>
-	<b>Account moderation:</b><br />
+	<b>Moderation:</b><br />
 	&nbsp;[ <a href="admuseradd.php?<?php   echo __adm_rsid; ?>">Create users</a> ]<br />
 	&nbsp;[ <a href="admuserapr.php?<?php   echo __adm_rsid; ?>">Approve users</a> ]<br />
 	&nbsp;[ <a href="admusermerge.php?<?php echo __adm_rsid; ?>">Merge users</a> ]<br /><br />
@@ -394,7 +406,7 @@ administration permissions to the forum. This individual will be able to do anyt
 				echo '<p>There are '. $cnt .' users that match this '. $field .' mask:</p>';
 				echo '<table class="resulttable fulltable">';
 				echo '<thead><tr class="resulttopic">';
-				echo '	<th>User Login</th><th>E-mail</th><th>Last visit</th><th>Last IP</th><th>Posts</th><th>Action</th>';
+				echo '	<th>Login</th><th>E-mail</th><th>Last visit</th><th>Last IP</th><th>Posts</th><th>Action</th>';
 				echo '</tr></thead>';
 				$i = 0;
 				while ($r = db_rowarr($c)) {
@@ -434,8 +446,10 @@ administration permissions to the forum. This individual will be able to do anyt
 	}
 ?>
 	<tr class="field"><td>E-mail:</td><td><a href="mailto:<?php echo $u->email; ?>"><?php echo $u->email; ?></a></td></tr>
-	<tr class="field"><td>Name:</td><td><?php echo $u->name; ?></td></tr>
 <?php
+	if ($u->name) {
+		echo '<tr class="field"><td>Name:</td><td>'. $u->name .'</td></tr>';
+	}
 	if ($u->home_page) {
 		echo '<tr class="field"><td>Home page:</td><td><a href="'. $u->home_page .'" title="Visit user\'s homepage">'. $u->home_page .'</a></td></tr>';
 	}
@@ -531,14 +545,21 @@ if ($acc_mod_only) {
 		For permanent bans, leave duration value at 0.
 		The value of the duration field for non-permanent bans will show days remaining till ban expiry.
 	</div></td></tr>
-	<tr class="field"><td>Is Banned:</td><td><label><input type="checkbox" name="block" value="65536" <?php echo ($u->users_opt & 65536 ? ' checked /> <b><font color="red">Yes</font></b>' : ' /> No'); ?> </label></td></tr>
-	<tr class="field"><td>Ban Duration (days left)</td><td><input type="number" value="<?php 
+	<tr class="field">
+		<td>Is Banned:</td>
+		<td><label>
+			<input type="hidden"   name="block" value="0" /><!-- Hack to ensure that $POST['block;] is always set -->
+			<input type="checkbox" name="block" value="65536" <?php echo ($u->users_opt & 65536 ? ' checked />
+			<b><font color="red">Yes</font></b>' : ' /> No'); ?> </label>
+	</td></tr>
+	<tr class="field"><td>Duration (days left)</td><td><input type="number" value="<?php 
 	if ($u->ban_expiry) {
 		printf("%.2f", ($u->ban_expiry - __request_timestamp__) / 86400);
 	} else {
 		echo 0;
 	}
 	?>" name="ban_duration" />
+	<tr class="field"><td>Reason:</td><td><input type="text" name="ban_reason" maxlength="255" value="<?php echo $u->ban_reason; ?>" />
 	<input type="submit" name="ban_user" value="Ban/Unban" /></td></tr>
 	</table>
 	</form>
