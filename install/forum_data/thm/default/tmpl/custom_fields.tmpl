@@ -11,7 +11,7 @@
 {PHP_FILE: input: custom_fields.inc.t; output: @custom_fields.inc;}
 
 {SECTION: custom_field_single_line}
-<tr class="RowStyleA">
+<tr {VAR: tr}>
 	<td>
 		{VAR: r['name']}{FUNC: draw_err('custom_field_'. $k)}
 		<br />
@@ -24,7 +24,7 @@
 {SECTION: END}
 
 {SECTION: custom_field_text}
-<tr class="RowStyleA">
+<tr {VAR: tr}>
 	<td valign="top">
 		{VAR: r['name']}{FUNC: draw_err('custom_field_'. $k)}
 		<br /><span class="SmallText">{VAR: r['descr']}</span>
@@ -36,7 +36,7 @@
 {SECTION: END}
 
 {SECTION: custom_field_select}
-<tr class="RowStyleA">
+<tr {VAR: tr}>
 	<td>
 		{VAR: r['name']}{FUNC: draw_err('custom_field_'. $k)}
 		<br /><span class="SmallText">{VAR: r['descr']}</span>
@@ -48,7 +48,7 @@
 {SECTION: END}
 
 {SECTION: custom_field_radio}
-<tr class="RowStyleA">
+<tr {VAR: tr}>
 	<td>
 		{VAR: r['name']}{FUNC: draw_err('custom_field_'. $k)}
 		<br />

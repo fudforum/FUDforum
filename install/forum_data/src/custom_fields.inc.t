@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2016 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -63,6 +63,13 @@ function serialize_custom_fields()
 
 		// Can field be edited.
 		$disabled = ((($r['field_opt'] & 8) && !$is_a) || $r['field_opt'] & 16) ? 'disabled="disabled"' : '';
+
+		// Expand required (children of c1) and collapse optional (children of c2) fields
+		if ($r['field_opt'] & 1) {
+			$tr = 'class="child-c1 RowStyleA"';
+		} else {
+			$tr = 'class="child-c2 RowStyleA" style="display: none;"';
+		}
 
 		if ($r['type_opt'] & 1) {	// # 1 == Textarea.
 			$val = empty($custom_field_vals[$k]) ? $r['choice'] : $custom_field_vals[$k];

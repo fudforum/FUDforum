@@ -95,7 +95,7 @@ function register_form_check($user_id)
 
 		$_POST['reg_login'] = trim(sanitize_login($_POST['reg_login']));
 
-		if (strlen($_POST['reg_login']) < 4) {
+		if (strlen($_POST['reg_login']) < 2) {
 			set_err('reg_login', '{TEMPLATE: register_err_short_login}');
 		} else if (is_login_blocked($_POST['reg_login'])) {
 			set_err('reg_login', '{TEMPLATE: register_err_login_notallowed}');
@@ -161,10 +161,10 @@ function register_form_check($user_id)
 		$_POST['reg_icq'] = '';
 	}
 
-	/* User's name or nick name. */
-	if (strlen($_POST['reg_name']) < 2) {
-		set_err('reg_name', '{TEMPLATE: register_err_needname}');
-	}
+	/* User's name or nick name. - NOW OPTIONAL! */
+	// if (strlen($_POST['reg_name']) < 2) {
+	// 	set_err('reg_name', '{TEMPLATE: register_err_needname}');
+	// }
 
 	/* Image count check. */
 	if ($GLOBALS['FORUM_IMG_CNT_SIG'] && $GLOBALS['FORUM_IMG_CNT_SIG'] < substr_count(strtolower($_POST['reg_sig']), '[img]') ) {
@@ -212,7 +212,7 @@ function register_form_check($user_id)
 
 	/* Check if user is allowed to post a home_page link. */
 	if (preg_match('?(\[url)|(http://)|(https://)?i', $_POST['reg_home_page'])) {
-		if ( $GLOBALS['POSTS_BEFORE_LINKS'] > 0 ) {
+		if ( 1 /* $GLOBALS['POSTS_BEFORE_LINKS'] > 0 */ ) {
 			$c = q_singleval('SELECT posted_msg_count FROM {SQL_TABLE_PREFIX}users WHERE id='. _uid);
 			if ( $GLOBALS['POSTS_BEFORE_LINKS'] > $c ) {
 				$posts_before_links = $GLOBALS['POSTS_BEFORE_LINKS'];

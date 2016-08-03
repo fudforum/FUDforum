@@ -303,6 +303,8 @@ register_specify_url:Specify URL
 register_uploaded:Upload Avatar
 register_login:Login:
 register_login_desc:The name by which you would like to log-in and be known on this site.
+register_login_available:Available
+register_login_taken:Already taken
 register_password:Password:
 register_password_desc:Password for your account. Passwords are case-sensitive and must be at least 6 characters long.
 register_conf_pass:Confirm Password:
@@ -648,7 +650,7 @@ postcheck_email_body:You cannot send an e-mail without the message body.
 private_msg_notify_subj:Read Notification For: {VAR: m->subject}
 private_msg_notify_body:Hello,<br />{VAR: usr->login} has opened your private message titled, "{VAR: m->subject}".<br />This is an automated notification generated at {TEMPLATE: private_msg_notify_body_date}<br />
 referals_update:Browsing referrals
-register_err_short_login:The Login you have selected is too short. Login names must be at least 4 characters long.
+register_err_short_login:The Login you have selected is too short. Login names must be at least 2 characters long.
 register_err_login_notallowed:This login name is not allowed.
 register_err_loginunique:Forum login names must be unique. There is already a user with this name.
 register_err_emailexists:This e-mail address is already associated with an account. If you have forgotten your password please use the Restore option, instead of re-registering.

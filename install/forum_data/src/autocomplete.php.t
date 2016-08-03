@@ -39,9 +39,9 @@
 	/* Check if supplied login/ e-mail address is in-use. */
 	if (!empty($_GET['check']) && !empty($_GET['term'])) {
 		$lookup = ($_GET['lookup'] == 'email') ? 'email' : 'login';
-		$term   = _esc($_GET['term']);
+		$term   = $_GET['term'];
 
-		if ($lookup == 'login' && strlen($term) <= 4) {
+		if ($lookup == 'login' && strlen($term) < 2) {
 			echo 0;  // UserID too short.
 			exit;
 		}
@@ -50,7 +50,7 @@
 			exit;
 		}
 
-		if (q_singleval('SELECT '. $lookup .' FROM {SQL_TABLE_PREFIX}users WHERE '. $lookup .' = '. $term)) {
+		if (q_singleval('SELECT '. $lookup .' FROM {SQL_TABLE_PREFIX}users WHERE '. $lookup .' = '. _esc($term))) {
 			echo 0;  // Not available - already taken.
 		} else {
 			echo 1;	 // Available for use.

@@ -34,49 +34,53 @@
 {SECTION: new_user // New user section is shown to a new user trying to register.}
 {IF: !__fud_real_user__}{FUNC: draw_err('reg_time_limit')}{ENDIFI}
 <tr class="child-c1 RowStyleA">
-	<td width="60%">{MSG: register_login}{FUNC: draw_err('reg_login')}<br />
-                        <span class="SmallText">{MSG: register_login_desc}</span</td>
-	<td width="60%"><input type="text" size="25" name="reg_login" id="reg_login" value="{VAR: reg_login}" maxlength="{GVAR: MAX_LOGIN_SHOW}" required="required" />
+	<td width="55%"><label for="reg_login">
+            {MSG: register_login}{FUNC: draw_err('reg_login')}<br />
+            <span class="SmallText">{MSG: register_login_desc}</span></label>
+        </td>
+	<td width="45%"><input type="text" size="25" name="reg_login" id="reg_login" value="{VAR: reg_login}" maxlength="{GVAR: MAX_LOGIN_SHOW}" required="required" />
                         <span id="reg_login-result"><span></td>
 </tr>
 {IF: $FUD_OPT_2 & 128}{TEMPLATE: reg_alias}{ENDIFI}
 <tr class="child-c1 RowStyleA">
-	<td>{MSG: register_password}{FUNC: draw_err('reg_plaintext_passwd')}<br />
-            <span class="SmallText">{MSG: register_password_desc}</span></td>
+	<td><label for="reg_plaintext_passwd">
+            {MSG: register_password}{FUNC: draw_err('reg_plaintext_passwd')}<br />
+            <span class="SmallText">{MSG: register_password_desc}</span></label>
+        </td>
 	<td><input type="password" name="reg_plaintext_passwd" id="reg_plaintext_passwd" size="25" required="required" /></td>
 </tr>
 <tr class="child-c1 RowStyleA">
-	<td>{MSG: register_conf_pass}</td>
+	<td><label for="reg_plaintext_passwd_conf">
+            {MSG: register_conf_pass}</label>
+        </td>
 	<td><input type="password" name="reg_plaintext_passwd_conf" id="reg_plaintext_passwd_conf" size="25" onkeyup="passwords_match(\'reg_plaintext_passwd\', this); return false;" required="required" /></td>
 </tr>
 <tr class="child-c1 RowStyleA">
-	<td>{MSG: register_email_addr}{FUNC: draw_err('reg_email')}<br />
-            <span class="SmallText">{MSG: register_email_desc}</span></td>
+	<td><label for="reg_email">
+            {MSG: register_email_addr}{FUNC: draw_err('reg_email')}<br />
+            <span class="SmallText">{MSG: register_email_desc}</span></label>
+        </td>
         <td><input type="email" name="reg_email" id="reg_email" size="25" value="{VAR: reg_email}" required="required" /></td>
-</tr>
-<tr class="child-c1 RowStyleA">
-	<td>{MSG: register_name}{FUNC: draw_err('reg_name')}<br />
-            <span class="SmallText">{MSG: register_name_desc}</span></td>
-	<td><input type="text" name="reg_name" size="25" value="{VAR: reg_name}" required="required" /></td>
 </tr>
 {IF: !($FUD_OPT_3 & 128)}{TEMPLATE: register_turing_test}{ENDIFI}
 {SECTION: END}
 
 {SECTION: register_turing_test}
 <tr class="child-c1 RowStyleA">
-	<td class="vt">{MSG: register_turing}<br />
+	<td class="vt"><label for="turing_test">
+                {MSG: register_turing}<br />
                 <span class="SmallText">{MSG: captcha_img_help}</span>
-                {FUNC: draw_err('reg_turing')}
+                {FUNC: draw_err('reg_turing')}</label>
         </td>
 	<td>
-		<input type="text" name="turing_test" size="25" value="" required="required" />
+		<input type="text" name="turing_test" id="turing_test" size="25" value="" required="required" />
 		<span class="dn" style="display:none; visibility:hidden;">
 		<input type="text" name="turing_test1" value="{DEF: __request_timestamp__}" />
 		<input type="text" name="turing_test2" value="" />
 		<input type="text" name="turing_test3" value="{FUNC: md5($GLOBALS['FORUM_SETTINGS_PATH'])}" />
 		</span><br />
-                {FUNC: generate_turing_val($turing_res)}
-                <input type="hidden" name="turing_res" value="{VAR: turing_res}" />
+		{FUNC: generate_turing_val($turing_res)}
+		<input type="hidden" name="turing_res" value="{VAR: turing_res}" />
 	</td>
 </tr>
 {SECTION: END}
@@ -116,11 +120,6 @@
 	<td>{MSG: register_email_addr}{FUNC: draw_err('reg_email')}<br />
             <span class="SmallText">{MSG: register_email_desc}</span>{TEMPLATE-DATA: register_email_desc}</td>
 	<td><input type="email" name="reg_email" size="25" value="{VAR: reg_email}" /></td>
-</tr>
-<tr class="child-c1 RowStyleA">
-	<td>{MSG: register_name}{FUNC: draw_err('reg_name')}<br />
-            <span class="SmallText">{MSG: register_name_desc}</span></td>
-	<td><input type="text" name="reg_name" size="25" value="{VAR: reg_name}" /></td>
 </tr>
 {SECTION: END}
 
@@ -202,7 +201,7 @@
 {SECTION: reg_user_image}
 <tr class="child-c2 RowStyleA" style="display: none;">
 	<td>{MSG: register_image}</td>
-	<td><input type="text" name="reg_user_image" value="{VAR: reg_user_image}" maxlength="255" size="30" /></td>
+	<td><input type="text" name="reg_user_image" value="{VAR: reg_user_image}" maxlength="255" size="25" /></td>
 </tr>
 {SECTION: END}
 
@@ -220,9 +219,7 @@
 </tr>
 {IF: !__fud_real_user__}{TEMPLATE: new_user}{ELSE}{TEMPLATE: update_user}{ENDI}
 {TEMPLATE-DATA: required_custom_fields}
-{IF: __fud_real_user__}<tr class="child-c1">
-	<td colspan="2" class="ac RowStyleC">{TEMPLATE: update_button}</td>
-</tr>{ENDIF}
+
 <tr id="c2" style="display: table-row;">
 	<th colspan="2" class="CatDesc collapsed">{MSG: register_optional}</th>
 </tr>
@@ -231,16 +228,21 @@
 </tr>
 {TEMPLATE-DATA: optional_custom_fields}
 <tr class="child-c2 RowStyleA" style="display: none;">
+	<td>{MSG: register_name}<br />
+            <span class="SmallText">{MSG: register_name_desc}</span></td>
+	<td><input type="text" name="reg_name" size="25" value="{VAR: reg_name}"></td>
+</tr>
+<tr class="child-c2 RowStyleA" style="display: none;">
 	<td>{MSG: register_location}</td>
-	<td><input type="text" spellcheck="true" name="reg_location" value="{VAR: reg_location}" maxlength="255" size="30" /></td>
+	<td><input type="text" spellcheck="true" name="reg_location" value="{VAR: reg_location}" maxlength="255" size="25" /></td>
 </tr>
 <tr class="child-c2 RowStyleA" style="display: none;">
 	<td>{MSG: register_occupation}</td>
-	<td><input type="text" spellcheck="true" name="reg_occupation" value="{VAR: reg_occupation}" maxlength="255" size="30" /></td>
+	<td><input type="text" spellcheck="true" name="reg_occupation" value="{VAR: reg_occupation}" maxlength="255" size="25" /></td>
 </tr>
 <tr class="child-c2 RowStyleA" style="display: none;">
 	<td>{MSG: register_interests}</td>
-	<td><input type="text" spellcheck="true" name="reg_interests" value="{VAR: reg_interests}" maxlength="255" size="30" /></td>
+	<td><input type="text" spellcheck="true" name="reg_interests" value="{VAR: reg_interests}" maxlength="255" size="25" /></td>
 </tr>
 {TEMPLATE-DATA: avatar_type_sel}
 {TEMPLATE-DATA: avatar}
@@ -336,6 +338,7 @@
 		<br />
 	</td>
 </tr>
+
 <tr id="c3" style="display: table-row;">
 	<th colspan="2" class="CatDesc collapsed">{MSG: register_prefs}</th>
 </tr>
@@ -430,9 +433,9 @@
                     url:"index.php?t=autocomplete&check=login&term=" + $("#reg_login").val(),
                     success:function(data) {
                         if (data==1) {
-                            $("#reg_login-result").html("<img src='{THEME_IMAGE_ROOT}/tick.png' /> Available");
+                            $("#reg_login-result").html("<img src='{THEME_IMAGE_ROOT}/tick.png' />{MSG: register_login_available}");
                         } else {
-                            $("#reg_login-result").html("<img src='{THEME_IMAGE_ROOT}/cross.png' /> Already taken");
+                            $("#reg_login-result").html("<img src='{THEME_IMAGE_ROOT}/cross.png' /> {MSG: register_login_taken}");
                         }
                     }
                  });
@@ -655,7 +658,7 @@
 {SECTION: END}
 
 {SECTION: reg_alias}
-<tr class="RowStyleA">
+<tr class="child-c1 RowStyleA">
 	<td>{MSG: register_alias}{FUNC: draw_err('reg_alias')}<br /><span class="SmallText">{MSG: register_alias_desc}</span></td>
 	<td><input type="text" name="reg_alias" size="25" value="{VAR: reg_alias}" maxlength="{GVAR: MAX_LOGIN_SHOW}" /></td>
 </tr>
