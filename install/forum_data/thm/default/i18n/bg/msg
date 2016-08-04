@@ -304,6 +304,7 @@ register_uploaded:Зареди аватар
 register_login:Логин:
 register_password:Парола:
 register_conf_pass:Повтори паролата (за проверка):
+# Fuzzy
 register_email_desc:Въведи съществуващия email адрес. Ще можете да го скриете като изберете тази опция в настройките по-долу.
 register_name:Име:
 register_your_pass:Вашата парола:
@@ -318,6 +319,7 @@ register_preview:Предварителен преглед
 register_custom_avatar_upload:Картинката на аватара:
 register_register:Регистрация
 register_required:Задължителна информация
+# Fuzzy
 register_required_desc:Всички полета са задължителни. Внимавайте с малки и големи букви при изписването на паролата.
 register_optional:Допълнителна информация
 register_optional_desc:Препоръчваме да не публикуваш прекаленно лична информация. Тя ще бъде достъпна за всеки потребител на форума.
@@ -641,6 +643,7 @@ postcheck_email_body:Не можеш да изпращаш е-мейл ако л
 private_msg_notify_subj:Виж обратна разписка за: {VAR: m->subject}
 private_msg_notify_body:Здравей,<br />{VAR: usr->login} прочел изпратеното от теб лично съобщение "{VAR: m->subject}" на {TEMPLATE: private_msg_notify_body_date}<br />
 referals_update:Преглед на реферали
+# Fuzzy
 register_err_short_login:Потребителското ти име е много късо. Трябва да бъде най-малко 4 символа
 register_err_login_notallowed:Не се допуска това потребителско име
 register_err_loginunique:Потребителските имена на форума трябва да бъдат уникални, а в системата вече съществува потребител с това име&nbsp;

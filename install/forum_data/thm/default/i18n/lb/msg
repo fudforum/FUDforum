@@ -210,6 +210,7 @@ register_login:Aloggen:
 register_password:Passwuert:
 register_conf_pass:Passwuert confirméieren:
 register_name:Numm:
+register_name_desc:Äre richtegen Numm.
 register_your_pass:Äert Passwuert:
 register_update:Aktualiséieren
 register_del_avatar:Avatar läschen
@@ -218,6 +219,7 @@ register_sel_avatar:Avatar eraussichen
 register_preview:Kucken ouni ofzespäicheren
 register_register:Registréieren
 register_required:Obligatoresch Informatioun
+register_required_desc:All Felder sinn obligatoresch.
 register_optional:Fakultativ Informatioun
 register_location:Plaz:
 register_occupation:Beruff:
@@ -382,6 +384,7 @@ post_err_passwd:Falscht Passwuert.
 post_error_generic:Et ass e Feeler geschitt
 postcheck_subj_needed:De Sujet ass obligatoresch
 postcheck_email_subject:Dir kënnt keen E-Mail ouni Sujet schécken.
+register_err_short_login:De Login deen Dir gewielt hutt ass ze kuerz. Login-Nimm musse mindestens 2 Zeeche laang sinn
 register_err_notyouremail:Et huet schonn een Anere sech mat dëser Mail-Adress ugemellt.
 register_profile_update:Kuckt den eegene Profil
 register_register_update:Umeldungssäit

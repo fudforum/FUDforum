@@ -310,6 +310,7 @@ register_uploaded:Загрузіць аватару
 register_login:Імя карыстальніка:
 register_password:Пароль:
 register_conf_pass:Пацьверджаньне паролю:
+# Fuzzy
 register_email_desc:Калі ласка, увядзіце слушны адрас электроннай пошты. Вы можаце яго схаваць ніжэй, у сэкцыі ўстановак.
 register_name:Імя:
 register_your_pass:Ваш пароль:
@@ -324,6 +325,7 @@ register_preview:Папярэдні прагляд
 register_custom_avatar_upload:Нестандартны файл аватара:
 register_register:Рэгістрацыя
 register_required:Патрабуемая інфармацыя
+# Fuzzy
 register_required_desc:Усе палі патрабуюцца. Калі каска, заўважце, што паролі адчувальныя да велічыні літараў.
 register_optional:Дадатковая інфармацыя
 register_optional_desc:Просім не публікаваць прыватную інфармацыю ў Вашым профілі. Уся інфармацыя будзе бачная іншым карыстальнікам форуму.
@@ -651,6 +653,7 @@ postcheck_email_body:Вы ня можаце даслаць электронны 
 private_msg_notify_subj:Прагляд паведамленьня пра: {VAR: m->subject}
 private_msg_notify_body:Вітаем, <br />{VAR: usr->login} адкрыў Вашае прыватнае паведамленьне «{VAR: m->subject}».<br />Гэта аўтаматычна створанае паведамленьне створанае {TEMPLATE: private_msg_notify_body_date}<br />
 referals_update:Прагляд запрошаных
+# Fuzzy
 register_err_short_login:Імя ўдзельніка, якое Вы выбралі, занадта кароткае. Імёны ўдзельнікаў павінны ўтрымліваць ня менш чым 4 сымбалі.
 register_err_login_notallowed:Недазволеная імя ўдзельніка.
 register_err_loginunique:Імёны карыстальнікаў форуму павінны быць унікальнымі. Карыстальнік з такім іменем ужо існуе.

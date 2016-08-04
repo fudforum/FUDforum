@@ -309,6 +309,7 @@ register_uploaded:Avatar feltöltése
 register_login:Bejelentkezési név:
 register_password:Jelszó:
 register_conf_pass:Jelszó megerősítése:
+# Fuzzy
 register_email_desc:Egy érvényes e-mail címet kell megadnod. A Beállítások szakaszban beállíthatod, hogy ne jelenjen meg.
 register_name:Név:
 register_your_pass:Jelszavad:
@@ -323,6 +324,7 @@ register_preview:Előnézet
 register_custom_avatar_upload:Saját avatar-fájl:
 register_register:Regisztráció
 register_required:Szükséges információk
+# Fuzzy
 register_required_desc:Az összes mező kötelező.  A jelszavak kis- és nagybetű-érzékenyek.
 register_optional:Nem kötelező információk
 register_optional_desc:Ajánlott, hogy ne adj meg személyes vagy azonosításra alkalmas információt a profilodban.  A fórum összes tagja láthatja az összes itt megadott információt.
@@ -650,6 +652,7 @@ postcheck_email_body:Nem küldhetsz e-mail üzenetet az üzenet szövege nélkü
 private_msg_notify_subj:Olvasási visszajelzés: {VAR: m->subject}
 private_msg_notify_body:Szia!<br />{VAR: usr->login} kinyitotta a(z) "{VAR: m->subject}" tárgyú privát üzenetedet.<br />Ez az automatikusan generált értesítő üzenet {TEMPLATE: private_msg_notify_body_date}-kor készült.<br />
 referals_update:Böngészi a hivatkozók listáját
+# Fuzzy
 register_err_short_login:Az általad megadott bejelentkezési név túl rövid. Legalább 4 karakter hosszúnak kell lennie.
 register_err_login_notallowed:Ez a bejelentkezési név nem engedélyezett.
 register_err_loginunique:A bejelentkezési neveknek egyedieknek kell lenniük. Már van ilyen nevű felhasználónk.

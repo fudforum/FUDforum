@@ -304,6 +304,7 @@ register_uploaded:Avatar ufelade
 register_login:Benutzername:
 register_password:Passwort:
 register_conf_pass:Passwort bstetige:
+# Fuzzy
 register_email_desc:Bitte ne giltigi E-Mail-Adräss aagee. Du chasch si derno wyter unter im Menü verstecke.
 register_name:Name:
 register_your_pass:Dyy Passwort:
@@ -318,6 +319,7 @@ register_preview:Vorschau
 register_custom_avatar_upload:Benutzeravatar-Datei:
 register_register:Regischtriere
 register_required:Aagabe, wu s brucht
+# Fuzzy
 register_required_desc:S brucht alli Fälder. Bitte gib Acht uf d Groß- un Chleischrybig bim Passwort.
 register_optional:Frejwilligi Aagabe
 register_optional_desc:Mir empfähle, kei Informatione im Profil aazgee, wu zuen ere Identifizierig vu dr Person geignet sin.  Sämtligi Informatione chenne vu Bsuecher vum Forum aagluegt wäre.
@@ -646,6 +648,7 @@ postcheck_email_body:Du chasch kei E-Mail ohni Inhalt verschicke.
 private_msg_notify_subj:Benochrichtigung läse zue: {VAR: m->subject}
 private_msg_notify_body:Sali,<br />{VAR: usr->login} het Dyy privati Nochricht, "{VAR: m->subject}", am {TEMPLATE: private_msg_notify_body_date} gläse<br />
 referals_update:Am Dursueche vu dr Aawärbige
+# Fuzzy
 register_err_short_login:Dr Benutzername, wu Du gwehlt hesch, isch z churz. Är muess zmindescht 4 Zeiche lang syy.
 register_err_login_notallowed:Dää Benutzername isch nit erlaubt.
 register_err_loginunique:Benutzernäme fir s Forum mien einmolig syy, s git scho ne Benutzer mit däm Name im Syschtem.

@@ -307,6 +307,7 @@ register_uploaded:ارفع الأفتار
 register_login:الولوج:
 register_password:كلمه السر:
 register_conf_pass:تأكيد كلمه السر:
+# Fuzzy
 register_email_desc:من فضلك أدخل عنوان بريد إلكترونى صالح. تستطيع اختيار اخفائه أدناه، فى قسم التفضيلات.
 register_name:الاسم:
 register_your_pass:كلمه سرّك:
@@ -321,6 +322,7 @@ register_preview:عاين
 register_custom_avatar_upload:ملف أفتار مُخصّص:
 register_register:سجّل
 register_required:معلومات مطلوبة
+# Fuzzy
 register_required_desc:كل الحقول مطلوبه. من فضلك لاحظ أن كلمات السر حساسه لحاله الأحرف.
 register_optional:معلومات اختيارية
 register_optional_desc:من الموصى به ألا تكشف عن أى معلومات شخصيه فى ملفك الشخصى. كل المعلومات ستكون ظاهره لمستخدمى المنتدى الآخرين.
@@ -648,6 +650,7 @@ postcheck_email_body:لا يمكنك إرسال بريد إلكترونى بدو
 private_msg_notify_subj:اقرأ إشعارًا عن: {VAR: m->subject}
 private_msg_notify_body:مرحبًا! <br />{VAR: usr->login} فتح رسالتك الخاص ذات العنوان "{VAR: m->subject}".<br /> هذا إشعار آلى وُلد فى {TEMPLATE: private_msg_notify_body_date}<br />
 referals_update:يتصفح الإحالات
+# Fuzzy
 register_err_short_login:اسم الولوج الذى اخترته قصير جدًا. يجب ألا يقل طول أسماء الدخول عن 4 محارف.
 register_err_login_notallowed:اسم الولوج هذا غير مسموح به.
 register_err_loginunique:يجب أن تكون أسماء ولوج المنتدى فريده. يوجد مستخدم مسبقًا بهذا الاسم.

@@ -78,7 +78,7 @@ moderator:Cerbener
 moderator_of:Wesetê Forumi
 moderator_options:Wesetin Weçiney
 moderators:{PLURAL: modcount|Wesetber|Wesetber}
-move_thread:Bere
+move_thread:Bıkırış
 na:n/a
 new_posts:Mesacê Neweyi
 new_thread:Topiko newe vıraze
@@ -163,8 +163,8 @@ month_6:Heziran
 month_7:Temuz
 month_8:Tebaxe
 month_9:Keşkelun
-month_10:Tışrino Verên
-month_11:Tışrino Peyên
+month_10:Cetan
+month_11:Kelverdan
 month_12:Kanun
 sunday:Bazar
 sunday_short:K
@@ -471,7 +471,7 @@ sml_emoticon:İfade
 sml_code:Kod
 mnav_sub_only:Forumê ke ez aboneya ênan dı cıgeyre
 register_topics_per_page:Sernuşti rê Mesele:
-login_min_time:{VAR: MIN_TIME_BETWEEN_LOGIN} saniya zerre de şıma şenê dekewtış bı kerê, Şıma ra reca verdê Cerbnayışê bahdoyeni {FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)} saniye pıpawê.
+login_min_time:{VAR: MIN_TIME_BETWEEN_LOGIN} saniyeyan miyan de şıma şenê cıkewê, şıma ra reca kenime ke raveri cerrebnayışê bahdoyêni {FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)} saniyeyan bıpawê.
 post_not_logged_in:Şıam cıqewtış nê kerdo, Mesacê şıma do bêname şıro.
 post_common_bold:Qalın
 post_common_italics:İtalik

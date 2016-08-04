@@ -304,6 +304,7 @@ register_uploaded:Uasluchtaigh Avatar
 register_login:Logáil isteach:
 register_password:D'fhocal faire:
 register_conf_pass:Dearbhaigh Pasfhocal:
+# Fuzzy
 register_email_desc:Cuir isteach seoladh ríomhphoist bailí. Is féidir leat a roghnú chun é a cheilt thíos, i rannóg na Roghanna.
 register_name:Ainm:
 register_your_pass:Do Pasfhocal:
@@ -318,6 +319,7 @@ register_preview:Réamhamhairc
 register_custom_avatar_upload:Custom Comhad Avatar:
 register_register:Cláraigh
 register_required:Eolas Riachtanach
+# Fuzzy
 register_required_desc:Gach réimsí atá ag teastáil. Tabhair faoi deara go bhfuil focal faire cás íogair.
 register_optional:Eolas roghnach
 register_optional_desc:Tá sé nach molta go bhfuil tú nochtann aon fhaisnéis phearsanta nó a aithint i do phróifíl. Beidh gach eolas ar viewable ag baill fóram eile.
@@ -646,6 +648,7 @@ postcheck_email_body:Ní féidir leat a sheoladh r-phoist gan an comhlacht teach
 private_msg_notify_subj:Léigh Fógra Do: {VAR: m->subject}
 private_msg_notify_body:Dia duit,<br />{VAR: usr->login} D'oscail do theachtaireacht phríobháideach dar teideal, "{VAR: m->subject}".<br />Is é seo an fógra uathoibrithe ginte ag {TEMPLATE: private_msg_notify_body_date}<br />
 referals_update:Brabhsáil atreoruithe
+# Fuzzy
 register_err_short_login:Is é an Login a roghnaigh tú ró-ghearr. Ní mór ainm logála isteach a bheith ar a laghad 4 carachtair ar fad.
 register_err_login_notallowed:Ní hé seo an t-ainm logáil isteach a cheadaítear.
 register_err_loginunique:Ní mór Fóram ainm logála isteach a bheith ar leith. Tá cheana féin i d'úsáideoir leis an ainm seo.

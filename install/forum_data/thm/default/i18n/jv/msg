@@ -304,6 +304,7 @@ register_uploaded:upload Avatar
 register_login:Mlebu:
 register_password:Tembung wadi:
 register_conf_pass:Konfirmasi Pangguna:
+# Fuzzy
 register_email_desc:Mangga ngetik neng alamat e-mail. Sampeyan bisa milih kanggo ndhelikake kasebut ing ngisor iki, ing bagean Preferensi.
 register_name:Jeneng:
 register_your_pass:Panjenengan Pangguna:
@@ -318,6 +319,7 @@ register_preview:Pratayang
 register_custom_avatar_upload:Custom Avatar Gambar:
 register_register:Register
 register_required:Perangkat Informasi
+# Fuzzy
 register_required_desc:Kabeh kothak sing dibutuhaké. Wigati dicathet sandhi sing cilik sensitif.
 register_optional:pilihan Informasi
 register_optional_desc:Apike sampeyan ora mbukak informasi pribadhi utawa sembarang Ngenali ing profil Panjenengan. Kabeh informasi bakal viewable dening liyane anggota forum.
@@ -646,6 +648,7 @@ postcheck_email_body:Sampeyan bisa ngirim e-mail tanpa awak pesen.
 private_msg_notify_subj:Waca Kanggo Notifikasi: {VAR: m->subject}
 private_msg_notify_body:Hello,<br />{VAR: usr->login} wis dibukak Panjenengan pribadi pesen judul, "{VAR: m->subject}".<br />Iki minangka kabar otomatis kui ing {TEMPLATE: private_msg_notify_body_date}<br />
 referals_update:njelajah pitunjuk
+# Fuzzy
 register_err_short_login:Ing Login sampeyan wis milih banget cendhak. Login jeneng kudu paling sethithik 4 karakter.
 register_err_login_notallowed:Iki jeneng mlebu log ora diijini.
 register_err_loginunique:Forum mlebu log jeneng kudu unik. Ana wis pangguna kanthi jeneng iki.

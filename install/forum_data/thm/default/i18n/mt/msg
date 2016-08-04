@@ -303,6 +303,7 @@ register_uploaded:Tella' <i>avatar</i>
 register_login:Isem tal-utent:
 register_password:Password:
 register_conf_pass:Ikkonferma l-password:
+# Fuzzy
 register_email_desc:Jekk jogħġbok daħħal indirizz elettroniku validu. Tista' tagħżel li taħbih fis-sezzjoni tal-preferenzi.
 register_name:Isem:
 register_your_pass:Password:
@@ -317,6 +318,7 @@ register_preview:Dehra proviżorja
 register_custom_avatar_upload:Fajl tal-<i>avatar</i> personalizzat:
 register_register:Irreġistra
 register_required:Informazzjoni neċessarja
+# Fuzzy
 register_required_desc:L-oqsma kollha huma neċessarji. Kun af li l-passwords huma sensittivi għal kif jinkitbu.
 register_optional:Informazzjoni addizzjonali
 register_optional_desc:Huwa ta' parir li ma turi l-ebda informazzjoni personali jew identifikabbli fil-profil tiegħek. Kull informazzjoni tista' tinqara minn kwalunkwe membru tal-forum.
@@ -645,6 +647,7 @@ postcheck_email_body:Ma tistax tibgħat ittra elettronika mingħajr test.
 private_msg_notify_subj:Aqra n-notifika għal: {VAR: m->subject}
 private_msg_notify_body:Merħba,<br />{VAR: usr->login} qara l-messaġġ privat tiegħek bit-titlu "{VAR: m->subject}".<br />Din hija notifika awtomatizzata ġġenerata nhar {TEMPLATE: private_msg_notify_body_date}<br />
 referals_update:Iqalleb ir-riferimenti
+# Fuzzy
 register_err_short_login:L-isem tal-utent li għażilt huwa wisq qasir. Dan irid ikun twil minn tal-inqas 4 karattri.
 register_err_login_notallowed:Dan l-isem tal-utent mhuwiex aċċettat.
 register_err_loginunique:L-ismijiet tal-utent fil-forum iridu jkunu uniċi; diġà hemm utent b'dan l-istess isem.

@@ -297,7 +297,7 @@ register_uploaded:Ielādēt nozīmīti
 register_login:Lietotāja vārds:
 register_password:Parole:
 register_conf_pass:Atkārtot paroli:
-register_email_desc:Ievadiet savu reālo E-pasta adresi. To apslēp varēsiet uzstādījumos zemāk.
+register_email_desc:Tava e-pasta adrese. To paslēpt varēsi zemāk, iestatījumu sadaļā.
 register_name:Vārds:
 register_your_pass:Jūsu parole:
 register_update:Atjaunot
@@ -311,6 +311,7 @@ register_preview:Priekšapskate
 register_custom_avatar_upload:Nozīmītes fails:
 register_register:Reģistrācija
 register_required:Obligātā informācija
+# Fuzzy
 register_required_desc:Visi lauki ir obligāti jāaizpilda. Atcerieties, ka paroles ir reģistra jūtīgas.
 register_optional:Papildus informācija
 register_optional_desc:Nav vēlams pārlieki izplūst.
@@ -629,6 +630,7 @@ postcheck_email_body:Nevar nosūtīt bez publikācijas teksta.
 private_msg_notify_subj:Paziņojums par: {VAR: m->subject}izlasīšanu
 private_msg_notify_body:Sveiki <br />{VAR: usr->login}. Izlasīju Jūsu ziņu "{VAR: m->subject}" {TEMPLATE: private_msg_notify_body_date}<br />
 referals_update:Uzaicināto saraksts
+# Fuzzy
 register_err_short_login:Pārāk maz simbolu. Minimālais simbolu skaits nikā – 4 simboli
 register_err_login_notallowed:Izvēlētais niks nav pieejams vai atļauts
 register_err_loginunique:Nikam jābūt unikālam un Jūsu izvēlētais niks jau ir reģistrēts sistēmā citam lietotājam

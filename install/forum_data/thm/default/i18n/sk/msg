@@ -307,6 +307,7 @@ register_uploaded:Nahrať ikonu používateľa (avatar)
 register_login:<font class="StClr">Používateľské meno:</font>
 register_password:Heslo:
 register_conf_pass:<font class="StClr">Opakovanie hesla:</font>
+# Fuzzy
 register_email_desc:Zadajte vašu e-mailovú adresu. Nižšie, v sekcii Nastavenia, je možné zobrazovanie e-mailovej adresy vypnúť.
 register_name:<font class="StClr">Skutočné meno:</font>
 register_your_pass:<font class="StClr">Vaše heslo:</font>
@@ -321,6 +322,7 @@ register_preview:Náhľad
 register_custom_avatar_upload:Súbor ikony používateľa (avatar):
 register_register:Registrovať
 register_required:Povinné údaje
+# Fuzzy
 register_required_desc:Všetky položky sú povinné. Prosím, v položke heslo dbajte na použitie veľkých / malých písmen.
 register_optional:Dobrovoľné údaje
 register_optional_desc:V profile odporučujeme nezverejňovať žiadne dôverné údaje. Všetky vyplnené údaje budú pre registrovaných používateľov dostupné.
@@ -648,6 +650,7 @@ postcheck_email_body:Nemôžete poslať e-mail bez obsahu.
 private_msg_notify_subj:Prečítať oznámenie pre: {VAR: m->subject}
 private_msg_notify_body:Dobrý deň,<br />používateľ {VAR: usr->login} si prečítal vašu správu súkromnej pošty, "{VAR: m->subject}", o {TEMPLATE: private_msg_notify_body_date}.<br />Toto je automatizované oznámenie vygenerované {TEMPLATE: private_msg_notify_body_date}<br />
 referals_update:Prehliada si zoznam odporúčaných používateľov
+# Fuzzy
 register_err_short_login:Používateľské meno, ktoré ste zadali, je príliš krátke. Zadajte aspoň 4 znaky.
 register_err_login_notallowed:Toto používateľské meno nie je povolené.
 register_err_loginunique:Používateľské mená vo fóre musia byť jedinečné, používateľ s takýmto menom sa už v systéme nachádza.

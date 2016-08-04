@@ -319,7 +319,7 @@ register_uploaded:Subir avatar
 register_login:Nombre de usuario:
 register_password:Contraseña:
 register_conf_pass:Confirmar contraseña:
-register_email_desc:Introduzca una dirección de correo electrónico válida. Puede elegir si desea ocultarla en la sección de preferencias.
+register_email_desc:Tu dirección de correo electrónico. Puedes elegir ocultarla en la sección de preferencias.
 register_name:Nombre:
 register_your_pass:Su contraseña:
 register_update:Actualizar
@@ -333,6 +333,7 @@ register_preview:Vista previa
 register_custom_avatar_upload:Archivo del avatar personalizado:
 register_register:Registrarse
 register_required:Información requerida
+# Fuzzy
 register_required_desc:Todos los campos son obligatorios. Las contraseñas distinguen entre caracteres en minúsculas y mayúsculas.
 register_optional:Información opcional
 register_optional_desc:No se recomienda revelar la información personal de su perfil. Toda la información será visible para otros miembros del foro.
@@ -660,6 +661,7 @@ postcheck_email_body:No puede enviar un correo sin el cuerpo del mensaje.
 private_msg_notify_subj:Leer el aviso para: {VAR: m->subject}
 private_msg_notify_body:Hola, <br />{VAR: usr->login} ha leído su mensaje privado "{VAR: m->subject}", el {TEMPLATE: private_msg_notify_body_date}<br />
 referals_update:Recorriendo las referencias
+# Fuzzy
 register_err_short_login:El nombre de usuario que ha seleccionado es demasiado corto. Los nombres de usuario deben tener al menos 4 caracteres
 register_err_login_notallowed:Este nombre de usuario no está permitido.
 register_err_loginunique:Los nombres de usuario del foro deben ser únicos. Ya existe un usuario con ese nombre.

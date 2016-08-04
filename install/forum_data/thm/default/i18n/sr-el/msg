@@ -304,6 +304,7 @@ register_uploaded:otpremanje
 register_login:Korisničko ime:
 register_password:Lozinka:
 register_conf_pass:Potvrdite lozinku:
+# Fuzzy
 register_email_desc:Unesite ispravnu e-adresu. Možete je sakriti u odeljku „Postavke“.
 register_name:Pravo ime:
 register_your_pass:Lozinka:
@@ -318,6 +319,7 @@ register_preview:Pregled
 register_custom_avatar_upload:Datoteka korisničke sličice:
 register_register:Otvori nalog
 register_required:Obavezni podaci
+# Fuzzy
 register_required_desc:Sva polja su obavezna. Upamtite da je lozinka osetljiva na mala i velika slova.
 register_optional:Neobavezni podaci
 register_optional_desc:Preporučljivo je da ne odajete nikakve lične podatke. Svi podaci biće vidljivi od strane drugih članova.
@@ -646,6 +648,7 @@ postcheck_email_body:Ne možete poslati e-poruku bez teksta.
 private_msg_notify_subj:Pročitaj obaveštenje za: {VAR: m->subject}
 private_msg_notify_body:Zdravo,<br />{VAR: usr->login} otvori vašu privatnu poruku pod nazivom „{VAR: m->subject}“.<br />Ovo je automatsko obaveštenje napravljeno {TEMPLATE: private_msg_notify_body_date}<br />
 referals_update:Pregledanje upućivača
+# Fuzzy
 register_err_short_login:Korisničko ime je prekratko. Ono mora imati najmanje 4 znaka.
 register_err_login_notallowed:Korisničko ime nije dozvoljeno.
 register_err_loginunique:Korisničko ime mora biti jedinstveno. Već postoji korisnik s ovim imenom.

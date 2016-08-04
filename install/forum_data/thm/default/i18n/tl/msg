@@ -304,6 +304,7 @@ register_uploaded:Ikarga ang huwaran (abatar)
 register_login:Mag-login:
 register_password:Password:
 register_conf_pass:Tiyakin ang hudyat:
+# Fuzzy
 register_email_desc:Mangyaring magpasok ng isang katanggap-tanggap na tirahan ng e-liham. Maaari mong piliin na itago ito sa ibaba, sa loob ng seksyon ng Mga Nais.
 register_name:Pangalan:
 register_your_pass:Password mo:
@@ -318,6 +319,7 @@ register_preview:Paunang tingin
 register_custom_avatar_upload:Talaksan ng Pasadyang Huwaran:
 register_register:Magpatala
 register_required:Kailangang Kabatiran
+# Fuzzy
 register_required_desc:Kailangan ang lahat ng mga hanay.  Pakitandaan na maselan ang pagmamakinilya ng mga hudyat.
 register_optional:Kabatirang Maaari Namang Wala
 register_optional_desc:Iminumungkahi na huwag mong ibubunyag ang anumang kabatirang pansarili o nakapagpapakilala sa loob ng balangkas mo. Ang lahat ng mga kabatiran ay magiging nakikita ng ibang mga kasapi sa poro.
@@ -646,6 +648,7 @@ postcheck_email_body:Hindi ka maaaring magpadala ng isang e-liham na wala ang ka
 private_msg_notify_subj:Basahin ang Pagpapabatid Para sa: {VAR: m->subject}
 private_msg_notify_body:Kumusta,<br />Binuksan na ni {VAR: usr->login} ang pribado mong mensaheng pinamagatang, "{VAR: m->subject}".<br />Isa itong kusang pagpapabatid na nabuo roon sa {TEMPLATE: private_msg_notify_body_date}<br />
 referals_update:Tinitingnan-tingnan ang mga pagpapalugod
+# Fuzzy
 register_err_short_login:Masyadong maikli ang Panglagdang napili mo. Ang mga pangalan ng panglagda ay dapat na hindi bababa sa 4 na mga panitik ang haba.
 register_err_login_notallowed:Hindi pinapahintulutan ang pangalang panglagda.
 register_err_loginunique:Kailangang kakaiba ang mga pangalang panglagda. Mayroon nang isang tagagamit na may ganitong pangalan.

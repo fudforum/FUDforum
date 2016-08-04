@@ -302,6 +302,7 @@ register_uploaded:Awatar nagraś
 register_login:Wužywarske mě:
 register_password:Gronidło:
 register_conf_pass:Gronidło wobkšuśiś:
+# Fuzzy
 register_email_desc:Pšosym zapódaj płaśiwu e-mailowu adresu. W nastajenjach móžoš nastajiś, lěc se wóna schowa.
 register_name:Mě:
 register_your_pass:Twójo gronidło:
@@ -316,6 +317,7 @@ register_preview:Pśeglěd
 register_custom_avatar_upload:Swójska awatarowa dataja:
 register_register:Registrěrowaś
 register_required:Trěbne informacije
+# Fuzzy
 register_required_desc:Wšykne póla su trěbne. Pšosym źiwaj na to, až gronidła zapśimuju wjelikopisanje.
 register_optional:Opcionalne informacije
 register_optional_desc:Pórucujo se, až njepśeraźujoš w swójom profilu wósobinske informacije, kótarež mógu śi identificěrowaś. Wšykne informacije daju se pśez drugich forumowych cłonkow woglědaś.

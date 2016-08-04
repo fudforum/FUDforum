@@ -317,6 +317,7 @@ register_uploaded:Pujar avatar
 register_login:Nom d`usuari:
 register_password:Contrasenya:
 register_conf_pass:Confirmar contrasenya:
+# Fuzzy
 register_email_desc:Si us plau, introdueixi una adreça de correu electrònic vàlida. Pot escollir  si desitja ocultar-la a la secció de preferències.
 register_name:Nom:
 register_your_pass:La seva contrasenya:
@@ -331,6 +332,7 @@ register_preview:Vista prèvia
 register_custom_avatar_upload:Arxiu de l`avatar personalizat:
 register_register:Enregistrar
 register_required:Informació requerida
+# Fuzzy
 register_required_desc:Tots els camps són obligatoris. Les contrasenyes distingeixen entre caràcters en minúscules i majúscules.
 register_optional:Informació opcional
 register_optional_desc:No es recomana revelar la informació personal del seu perfil. Tota la informació serà  visible per altres membres del fòrum.
@@ -658,6 +660,7 @@ postcheck_email_body:No pot enviar un correu sense el cos del missatge.
 private_msg_notify_subj:Llegí­s l`aví­s per a: {VAR: m->subject}
 private_msg_notify_body:Hola, <br />{VAR: usr->login} ha llegit el seu missatge privat "{VAR: m->subject}", el {TEMPLATE: private_msg_notify_body_date}<br />
 referals_update:Recorrent les referències
+# Fuzzy
 register_err_short_login:El nom d`usuari que ha seleccionat és massa curt. Els noms d`usuari han de tenir almenys 4 caràcters
 register_err_login_notallowed:Aquest nom d`usuari no està  permès
 register_err_loginunique:Els noms d`usuari per als fòrums han de ser únics. Ja existeix un usuari amb aquest nom en el sistema

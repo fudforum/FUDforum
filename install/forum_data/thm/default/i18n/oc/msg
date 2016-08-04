@@ -307,6 +307,7 @@ register_uploaded:Mandar un Avatar
 register_login:Utilizaire :
 register_password:Senhal :
 register_conf_pass:Confirmatz lo senhal :
+# Fuzzy
 register_email_desc:Entratz una adreça e-mail valida. Avètz la possibilitat de l'amagar als autres utilizaires dins la seccion « Preferéncias ».
 register_name:Nom :
 register_your_pass:Vòstre senhal :
@@ -321,6 +322,7 @@ register_preview:Previsualizacion
 register_custom_avatar_upload:Fichièr que correspond a l'avatar personal :
 register_register:S'inscriure
 register_required:Informacions obligatòrias
+# Fuzzy
 register_required_desc:Totes los camps son obligatòris. Atencion, lo senhal interprèta las majusculas e minusculas diferentament !
 register_optional:Informacions facultativas
 register_optional_desc:Es recomandat de revelar pas d'informacion sensibla pròpria a vòstra identitat dins vòstre perfil. Totas aquelas informacions seràn accessiblas als autres membres del forum.
@@ -648,6 +650,7 @@ postcheck_email_body:Podètz pas mandar d'e-mails sens contengut.
 private_msg_notify_subj:Notificacion de lectura del messatge : {VAR: m->subject}
 private_msg_notify_body:<br />{VAR: usr->login} a legit vòstre messatge privat intitolat « {VAR: m->subject} » lo {TEMPLATE: private_msg_notify_body_date}<br />
 referals_update:Percor la lista dels utilizaires pairinats
+# Fuzzy
 register_err_short_login:Lo nom d'utilizaire qu'avètz causit es tròp cort. Un nom d'utilizaire deu comportar al mens 4 caractèrs
 register_err_login_notallowed:Aqueste nom d'utilizaire es pas autorizat
 register_err_loginunique:Un membre del forum utiliza ja aqueste nom, causissètz-ne un autre

@@ -3,6 +3,7 @@
 # Author: Ainali
 # Author: Ernesto
 # Author: Jopparn
+# Author: Josve05a
 # Author: Lokal Profil
 # Author: McDutchie
 # Author: Naudefj
@@ -314,8 +315,10 @@ register_uploaded:Skicka avatar
 register_login:Logga in:
 register_password:Lösenord:
 register_conf_pass:Bekräfta lösenord:
+# Fuzzy
 register_email_desc:Vänligen ge en verklig e-postadress. Du kan ställa in forumet så att adressen är dold för de andra användarna.
 register_name:Namn:
+register_name_desc:Ditt riktiga namn.
 register_your_pass:Ditt lösenord:
 register_update:Uppdatera
 register_avatar_type:Avatartyp:
@@ -328,7 +331,7 @@ register_preview:Förhandsgranska
 register_custom_avatar_upload:Fil med egen avatar:
 register_register:Registrera
 register_required:Nödvändig information
-register_required_desc:Alla fält måste fyllas i. Kom ihåg att det är skillnad på små och stora bokstäver i lösenordet.
+register_required_desc:Alla fält är obligatoriska.
 register_optional:Frivillig information
 register_optional_desc:Vi rekommenderar att du inte avslöjar några personliga uppgifter i din profil. All information kan ses av andra medlemmar.
 register_location:Ort:
@@ -655,6 +658,7 @@ postcheck_email_body:Kan inte skicka e-post utan text.
 private_msg_notify_subj:Kvittering för: {VAR: m->subject}
 private_msg_notify_body:Hej!<br />Den {TEMPLATE: private_msg_notify_body_date} läste {VAR: usr->login} ditt privata meddelande med rubriken "{VAR: m->subject}"<br />
 referals_update:Visar refererade medlemmar
+# Fuzzy
 register_err_short_login:Det användarnamn du valt är för kort. Användarnamnet måste vara minst 4 tecken långt
 register_err_login_notallowed:Det här användarnamnet är inte tillåtet
 register_err_loginunique:Användarnamnen måste vara unika. Det finns redan en medlem med detta användarnamn

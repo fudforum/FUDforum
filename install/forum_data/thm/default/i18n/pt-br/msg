@@ -316,6 +316,7 @@ register_uploaded:Adicionar Avatar
 register_login:Usuário:
 register_password:Senha:
 register_conf_pass:Confirmar Senha:
+# Fuzzy
 register_email_desc:Por favor, informe um endereço de E-mail válido. Voce poderá escolher ocultar o email na seção preferências.
 register_name:Nome:
 register_your_pass:A sua Senha:
@@ -330,6 +331,7 @@ register_preview:Pré-visualização
 register_custom_avatar_upload:Arquivo do Avatar escolhido:
 register_register:Registar
 register_required:Informação requerida
+# Fuzzy
 register_required_desc:Todos os campos são requeridos. Por favor, note que na senha serão diferenciados os caracteres maiúsculos e minúsculos.
 register_optional:Informação opcional
 register_optional_desc:É recomendado que não revele a identificação ou alguma informação pessoal no seu perfil.  Toda a informação será visivel para todos os membros do fórum.
@@ -657,6 +659,7 @@ postcheck_email_body:Não pode mandar um e-mail sem conter uma mensagem
 private_msg_notify_subj:Notificação de leitura para: {VAR: m->subject}
 private_msg_notify_body:Olá,<br />{VAR: usr->login} Leu a sua mensagem privada, "{VAR: m->subject}", em {TEMPLATE: private_msg_notify_body_date}<br />
 referals_update:Visualizando referências
+# Fuzzy
 register_err_short_login:O login que escolheu é demasiado curto. O login tem que ter pelo menos 4 caracteres de tamanho
 register_err_login_notallowed:Este login não é permitido
 register_err_loginunique:O login do fórum deve ser único, já existe um usuário com este nome registado neste fórum.

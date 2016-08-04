@@ -296,6 +296,7 @@ register_uploaded:Incarca imagine
 register_login:Utilizator:
 register_password:Parola:
 register_conf_pass:Confira Parola:
+# Fuzzy
 register_email_desc:Va rugam sa introduceti o adresa de email valida.
 register_name:Nume:
 register_your_pass:Parola:
@@ -310,6 +311,7 @@ register_preview:Previzualizare
 register_custom_avatar_upload:Fisier imagine:
 register_register:Înregistrare
 register_required:Informatii necesare
+# Fuzzy
 register_required_desc:Toate campurile
 register_optional:Informatii optionale
 register_optional_desc:Este recomandat sa nu aratati toate informatiile despre dumneavoastra.
@@ -638,6 +640,7 @@ postcheck_email_body:Nu puteti trimite un email fara continut
 private_msg_notify_subj:Citeste anunt pentru: {VAR: m->subject}
 private_msg_notify_body:Bună,<br />{VAR: usr->login} a deschis mesajul dumneavoastră privat intitulat „{VAR: m->subject}”.<br />Aceasta este o notificare automată generată la {TEMPLATE: private_msg_notify_body_date}<br />
 referals_update:Navigare referinte
+# Fuzzy
 register_err_short_login:Numele de utilizator ales este prea scurt, trebuie sa aiba minimum 4 caractere.
 register_err_login_notallowed:Acest nume de utilizator nu este permis
 register_err_loginunique:Numele de utilizator trebuie sa fie unice

@@ -305,6 +305,7 @@ register_uploaded:Awatar nahrać
 register_login:Přizjewjenje:
 register_password:Hesło:
 register_conf_pass:Hesło wobkrućić:
+# Fuzzy
 register_email_desc:Prošu zapodaj płaćiwu e-mejlowu adresu. Móžeš ju deleka we wotrězku nastajenjow schować.
 register_name:Mjeno:
 register_your_pass:Twoje hesło:
@@ -319,6 +320,7 @@ register_preview:Přehlad
 register_custom_avatar_upload:Dataja swójskeho awatara:
 register_register:Registrować
 register_required:Trěbne informacije
+# Fuzzy
 register_required_desc:Wšě pola su trěbne. Prošu dźiwaj na to, zo hesła wulkopisanje wobkedźbuja.
 register_optional:Opcionalne informacije
 register_optional_desc:Poruča so, zo njepřeradźeš w swojim profilu wosobinske informacije, kotrež móžeja će identifikować. Wšě informacije dadźa so přez druhich forumowych čłonow wobhladać.
@@ -646,6 +648,7 @@ postcheck_email_body:Njemóžeš e-mejl bjez powěsćoweho ćělesa pósłać.
 private_msg_notify_subj:Zdźělenku čitać wo: {VAR: m->subject}
 private_msg_notify_body:Halo,<br />{VAR: usr->login} je twoju priwatnu powěsć z mjenom "{VAR: m->subject}" wočinił.<br />To je awtomatiska zdźělenka, kotraž bu dnja {TEMPLATE: private_msg_notify_body_date}<br /> spłodźena
 referals_update:Přepytanje doporučenjow
+# Fuzzy
 register_err_short_login:Přizjewjenske mjeno, kotrež sy wubrał, je překrótke. Přizjewjenske mjena dyrbja znajmjeńša 4 znamješka měć.
 register_err_login_notallowed:Tute přizjewjenske mjeno njeje dowolene.
 register_err_loginunique:Forumowe přizjejwenske mjena dyrbja jónkróćne być. Je hižo wužiwar z tutym mjenom.

@@ -151,6 +151,7 @@ pmuserloc_submit:{{Identical|Submit}}
 pmuserloc_user:{{Identical|User}}
 pmuserloc_no_result:{{Identical|No result}}
 register_login:{{Identical|Login}}\n\nLogin name (username) in the register form.<br />\nShould be the same as {{msg-fud|login login}} and {{msg-fud|Quicklogin login}}.
+register_login_available:{{Identical|Available}}
 register_password:{{Identical|Password}}
 register_conf_pass:{{Identical|Confirm password}}
 register_name:{{Identical|Name}}

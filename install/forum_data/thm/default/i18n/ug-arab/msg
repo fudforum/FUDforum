@@ -305,6 +305,7 @@ register_uploaded:سىما يۈكلە
 register_login:تىزىمغا كىر:
 register_password:پارول:
 register_conf_pass::پارولنى مۇقىملاشتۇرۇڭ
+# Fuzzy
 register_email_desc:ئىناۋەتلىك ئېلخەت ئادرېسىنى كىرگۈزۈڭ. تۆۋەندىكى مايىللىق بۆلىكىدە مۇنبەردە ئېلخەت ئادرېسىڭىزنى كۆرسەتمەسلىكنى تاللىسىڭىز بولىدۇ.
 register_name:ئاتى:
 register_your_pass:پارولىڭىز:
@@ -319,6 +320,7 @@ register_preview:ئالدىن كۆزەت
 register_custom_avatar_upload:ئىختىيارى سىما ھۆججەت:
 register_register:خەتلەت
 register_required:زۆرۈر ئۇچۇرلار
+# Fuzzy
 register_required_desc:ھەممە سۆز بۆلەكلىرىنى تولدۇرۇش لازىم. دىققەت ئىم چوڭ كىچىك يېزىلىشنى پەرقلەندۈرىدۇ.
 register_optional:تاللاشچان ئۇچۇر
 register_optional_desc:ئۇچۇرىڭىزنى باشقا مۇنبەر ئەزالىرى كۆرەلىگەنلىكتىن، ئۇچۇرلىرىڭىزنى تولدۇرغاندا شەخسىي ئۇچۇرلىرىڭىزنى ئاشكارىلاماڭ.
@@ -646,6 +648,7 @@ postcheck_email_body:ئۇچۇر مەزمۇنىنى كىرگۈزمىسىڭىز ت
 private_msg_notify_subj:{VAR: m->subject} ئۈچۈن ئۇقتۇرۇش ئوقۇش
 private_msg_notify_body:سالام، <br />{VAR: usr->login} ئىشلەتكۈچى سىز ئەۋەتكەن "{VAR: m->subject}" شەخسىي ئۇچۇرنى ئوقۇدى. بۇ ئاپتوماتىك ئۇقتۇرۇش {TEMPLATE: private_msg_notify_body_date} ئەسكەرتىلگەن.<br />
 referals_update:تونۇشلارغا كۆز يۈگۈرتۈۋاتىدۇ
+# Fuzzy
 register_err_short_login:سىز كىرگۈزگەن ھېسابات ئىسمى بەك قىسقا. ھېسابات ئىسمى ئاز دېگەندە 4 ھەرپ بولۇشى لازىم.
 register_err_login_notallowed:بۇ ھېسابات ئىسمىنى تىزىملىتالمايسىز.
 register_err_loginunique:مۇنبەردە ھېسابات ئىسمى چوقۇم بىردىنبىر بولىدۇ. بۇ ئىسىمنى باشقا ئىشلەتكۈچىلەر تىزىملىتىپ بولغان.

@@ -281,6 +281,7 @@ register_uploaded:Gửi hình đại diện lên
 register_login:Tên đăng nhập:
 register_password:Mật khẩu:
 register_conf_pass:Xác nhận mật khẩu:
+# Fuzzy
 register_email_desc:Xin vui lòng nhập vào địa chỉ email có giá trị. Bạn có thể lựa chọn ẩn email, trong phần TỰ CHỌN .
 register_name:Tên :
 register_your_pass:Mật khẩu của bạn:
@@ -295,6 +296,7 @@ register_preview:Xem lại
 register_custom_avatar_upload:Tập tin hình đại diện:
 register_register:Đăng ký
 register_required:Thông tin bắt buộc
+# Fuzzy
 register_required_desc:Tất cả những ô bắt buộc.  Xin vui lòng chú ý mật khẩu nhằm an toàn bảo mật.
 register_optional:Thông tin tự chọn
 register_optional_desc:Xin chú ý: Tất cả những thông tin bên dưới của bạn có thể  được xem bởi những thành viên khác của diễn đàn .
@@ -547,6 +549,7 @@ postcheck_email_subject:bạn không thể gửi email mà không có tựa đ�
 postcheck_email_body:bạn không thể gửi email mà không có nội dung.
 private_msg_notify_subj:Đọc thông báo : {VAR: m->subject}
 private_msg_notify_body:Xin chào,<br />{VAR: usr->login} đã đọc tin nhắn của bạn, "{VAR: m->subject}", vào {TEMPLATE: private_msg_notify_body_date}<br />
+# Fuzzy
 register_err_short_login:Tên đăng nhập bạn lựa chọn quá ngắn. Tên đăng nhập phải ít nhất 4 kí tự.
 register_err_login_notallowed:Tên đăng nhập này không được cho phép.
 register_err_loginunique:Tên đăng nhập phải là duy nhất. Đã có người khác sử dụng tên này.

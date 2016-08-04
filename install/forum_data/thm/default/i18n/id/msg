@@ -317,6 +317,7 @@ register_uploaded:Kirimkan Avatar
 register_login:Masuk log
 register_password:Kata sandi:
 register_conf_pass:Konfirmasi Password:
+# Fuzzy
 register_email_desc:Masukkan surel yang sah. Anda bisa menyembunyikan surel, lakukan di bagian kesukaan.
 register_name:Nama:
 register_your_pass:Kata sandi Anda:
@@ -331,6 +332,7 @@ register_preview:Pratayang
 register_custom_avatar_upload:Berkas avatar kustom:
 register_register:Daftar
 register_required:Informasi diharuskan
+# Fuzzy
 register_required_desc:Semua informasi diharuskan. Harap diingat password sensitif terhadap huruf besar/kecil.
 register_optional:Informasi pilihan
 register_optional_desc:Disarankan anda TIDAK memberikan informasi pribadi di profile anda, karena dapat dilihat oleh anggota forum lainnya.
@@ -658,6 +660,7 @@ postcheck_email_body:Tidak bisa mengirim e-mail tanpa isi.
 private_msg_notify_subj:Baca pemberitahuan tentang: {VAR: m->subject}
 private_msg_notify_body:Halo,<br />{VAR: usr->login} sudah membaca pesan pribadi anda tentang "{VAR: m->subject}", pada {TEMPLATE: private_msg_notify_body_date}<br />
 referals_update:Memeriksa pe-referensi
+# Fuzzy
 register_err_short_login:Nama Login yang anda pilih terlalu singkat. Nama Login minimal 4 karakter.
 register_err_login_notallowed:Nama pengguna tersebut tidak diizinkan.
 register_err_loginunique:Nama login harus unik, nama tersebut sudah terpakai.

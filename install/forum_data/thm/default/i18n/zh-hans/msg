@@ -315,10 +315,15 @@ register_builtin:内置
 register_specify_url:指定地址
 register_uploaded:上传头像
 register_login:登录：
+register_login_desc:您想用于登录，并在此网站出名的名字。
+register_login_available:可用
+register_login_taken:已被使用
 register_password:密码：
+register_password_desc:用于您账户的密码。密码区分大小写，并且长度必须至少为6个字符。
 register_conf_pass:密码确认：
-register_email_desc:请输入有效的电子邮件地址。您可以在下面的参数选择中选择隐藏您的邮件地址。
+register_email_desc:您的电子邮件地址。您可以在下面的参数设置一节中选择隐藏它。
 register_name:名称：
+register_name_desc:您的真实姓名。
 register_your_pass:您的密码：
 register_update:更新
 register_avatar_type:头像类型：
@@ -331,7 +336,7 @@ register_preview:预览
 register_custom_avatar_upload:定制头像文件：
 register_register:注册
 register_required:必填信息
-register_required_desc:所有内容都必须填写。请注意密码是区分大小写的。
+register_required_desc:所有字段都必须填写。
 register_optional:可选信息
 register_optional_desc:由于您的信息将会被别的论坛成员看到，因此我们建议您填写信息时不要暴露自己的个人身份。
 register_location:位置：
@@ -658,7 +663,7 @@ postcheck_email_body:如果没有内容，你将无法发送邮件。
 private_msg_notify_subj:读取通知：{VAR: m->subject}
 private_msg_notify_body:你好，<br />{VAR: usr->login} 用户已经阅读了你的悄悄话 "{VAR: m->subject}"。<br />本自动提示于{TEMPLATE: private_msg_notify_body_date}生成。<br />
 referals_update:浏览被推荐者
-register_err_short_login:你输入的账号太短，必须至少包括4个字符。
+register_err_short_login:您选择的登录名太短。登录名长度必须至少2个字符。
 register_err_login_notallowed:不能使用这个账号注册。
 register_err_loginunique:论坛账号必须是唯一的，这个账号已经有人使用。
 register_err_emailexists:这个电子邮件地址已经存在，请不要重复注册。如果你忘记了密码，请通过“找回密码”程序找回你的密码。

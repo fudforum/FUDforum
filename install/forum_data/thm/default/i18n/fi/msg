@@ -313,6 +313,7 @@ register_uploaded:Lähetä avatar
 register_login:Käyttäjätunnus:
 register_password:Salasana:
 register_conf_pass:Vahvista salasana:
+# Fuzzy
 register_email_desc:Anna toimiva sähköpostiosoite. Voit valita Asetukset-osiossa alempana näytetäänkö osoite julkisesti.
 register_name:Nimi:
 register_your_pass:Salasanasi:
@@ -327,6 +328,7 @@ register_preview:Esikatselu
 register_custom_avatar_upload:Oma avatar-tiedosto
 register_register:Rekisteröidy
 register_required:Pakolliset tiedot
+# Fuzzy
 register_required_desc:Kaikki kentät ovat pakollisia. Huomaa, että salasanat ovat kirjainkoosta riippuvaisia.
 register_optional:Vapaaehtoiset tiedot
 register_optional_desc:Huom! Harkitse tarkoin mitä tietoja annat, sillä kaikki tässä osiossa annetut tiedot ovat muiden foorumin käyttäjien nähtävissä.
@@ -654,6 +656,7 @@ postcheck_email_body:Et voi lähettää sahköpostia ilman viestiä.
 private_msg_notify_subj:Viesti otsikolla {VAR: m->subject} on luettu
 private_msg_notify_body:Hei,<br />{VAR: usr->login} on lukenut viestisi otsikolla ”{VAR: m->subject}”.<br />Tämä automaattinen ilmoitus luotiin {TEMPLATE: private_msg_notify_body_date}<br />
 referals_update:Selaa suosittelujaan
+# Fuzzy
 register_err_short_login:Valitsemasi käyttäjätunnus on liian lyhyt. Käyttäjätunnuksen täytyy olla vähintään 4 merkkiä pitkä.
 register_err_login_notallowed:Tätä tunnusta ei hyväksytty.
 register_err_loginunique:Foorumin käyttäjätunnusten täytyy olla uniikkeja ja annettu käyttäjätunnus on jo käytössä.

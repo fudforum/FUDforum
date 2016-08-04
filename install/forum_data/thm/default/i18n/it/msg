@@ -311,10 +311,13 @@ register_builtin:Di serie
 register_specify_url:Specifica URL
 register_uploaded:Carica avatar
 register_login:Login:
+register_login_desc:Il nome con cui vuoi accedere ed essere conosciuto su questo sito.
 register_password:Password:
+register_password_desc:Password per la tua utenza. Le password distinguono maiuscolo e minuscolo e devono essere di almeno 6 caratteri.
 register_conf_pass:Conferma password:
-register_email_desc:Per favore, inserisci un indirizzo email valido. Puoi decidere di renderlo non visibile nelle opzioni del tuo profilo utente.
+register_email_desc:Il tuo indirizzo di posta elettronica. Puoi scegliere di nasconderlo sotto, nella sezione Preferenze.
 register_name:Nome:
+register_name_desc:Il tuo vero nome.
 register_your_pass:Password:
 register_update:Aggiorna
 register_avatar_type:Avatar:
@@ -327,7 +330,7 @@ register_preview:Anteprima
 register_custom_avatar_upload:File dell'avatar personalizzato:
 register_register:Registrati
 register_required:Informazioni necessarie
-register_required_desc:Tutti i campi sono obbligatori. Attenzione: le password distinguono tra maiuscolo e minuscolo.
+register_required_desc:Tutti i campi sono obbligatori.
 register_optional:Informazioni aggiuntive
 register_optional_desc:Tutte le informazioni riportate di seguito saranno visibili a tutti gli utenti registrati del forum.
 register_location:Località:
@@ -654,6 +657,7 @@ postcheck_email_body:Non puoi spedire una email lasciando vuoto il campo Testo.
 private_msg_notify_subj:Leggi la notifica per l'argomento: {VAR: m->subject}
 private_msg_notify_body:Ciao,<br />{VAR: usr->login} ha letto il tuo messaggio personale, "{VAR: m->subject}", {TEMPLATE: private_msg_notify_body_date}<br />
 referals_update:Sfoglia i riferimenti
+# Fuzzy
 register_err_short_login:La login che hai scelto è troppo corta. La login deve essere composto da almeno 4 caratteri
 register_err_login_notallowed:Questo nome non è ammesso
 register_err_loginunique:Le login del forum devono essere univoche; c'è già un utente presente nel sistema con questa login

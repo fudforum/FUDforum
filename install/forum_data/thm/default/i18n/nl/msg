@@ -310,6 +310,7 @@ register_uploaded:Avatar uploaden
 register_login:Gebruikersnaam:
 register_password:Wachtwoord:
 register_conf_pass:Wachtwoord bevestigen:
+# Fuzzy
 register_email_desc:Geef een geldig e-mailadres op. U kunt bij Voorkeuren aangeven dit te verbergen voor andere gebruikers.
 register_name:Naam:
 register_your_pass:Uw wachtwoord:
@@ -324,6 +325,7 @@ register_preview:Voorvertoning
 register_custom_avatar_upload:Eigen avatarbestand:
 register_register:Registreren
 register_required:Vereiste informatie
+# Fuzzy
 register_required_desc:Alle velden zijn verplicht.  Let op: wachtwoorden zijn hoofdlettergevoelig.
 register_optional:Optionele gegevens
 register_optional_desc:We raden u aan geen persoonlijke of identificerende gegevens op te nemen in uw profiel.  Alle gegevens zijn zichtbaar voor andere forumleden.
@@ -651,6 +653,7 @@ postcheck_email_body:U kunt geen e-mail verzenden zonder inhoud.
 private_msg_notify_subj:{VAR: m->subject} is gelezen
 private_msg_notify_body:Hallo,<br />{VAR: usr->login} heeft uw privébericht "{VAR: m->subject}" gelezen op {TEMPLATE: private_msg_notify_body_date}<br />
 referals_update:Ingebrachte leden aan het bekijken
+# Fuzzy
 register_err_short_login:De gebruikersnaam die u hebt opgegeven is te kort. Gebruikersnamen moeten minstens vier tekens lang zijn.
 register_err_login_notallowed:Deze gebruikersnaam is niet toegestaan.
 register_err_loginunique:Gebruikersnamen op het forum moeten uniek zijn. Er is al een gebruikers met deze naam.

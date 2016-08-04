@@ -4,6 +4,7 @@
 # Author: Breawycker
 # Author: Cwlin0416
 # Author: EagerLin
+# Author: Kly
 # Author: LNDDYL
 # Author: Lauhenry
 # Author: Liangent
@@ -314,10 +315,13 @@ register_builtin:內置
 register_specify_url:指定的 URL
 register_uploaded:上傳頭像
 register_login:帳號：
+register_login_desc:您想用於登入、並在此網站顯示的名字。
 register_password:密碼：
+register_password_desc:用於您帳戶的密碼。密碼內容區分大小寫並至少6個字元長度。
 register_conf_pass:密碼確認：
-register_email_desc:請輸入有效的電子郵件地址。您可以在下面的偏好設定中選擇隱藏您的 Email 地址。
+register_email_desc:您的電子郵件地址。您可以在下面的偏好設定中選擇隱藏您的 Email 地址。
 register_name:名稱：
+register_name_desc:您的真實姓名。
 register_your_pass:您的密碼：
 register_update:更新
 register_avatar_type:阿凡達類型：
@@ -330,7 +334,7 @@ register_preview:預覽
 register_custom_avatar_upload:阿凡達的自訂檔：
 register_register:註冊
 register_required:所需的資訊
-register_required_desc:所有的欄位是必填的。請注意密碼是區分大小寫。
+register_required_desc:所有的欄位是必填的。
 register_optional:附註資訊
 register_optional_desc:由于您的資料將會被別的論壇成員看到，因此我們建議您填寫資訊時不要暴露自己的個人身份。
 register_location:位置：
@@ -657,6 +661,7 @@ postcheck_email_body:你不能的情況下發送一封電子郵件，郵件正�
 private_msg_notify_subj:讀取通知：{VAR: m->subject}
 private_msg_notify_body:您好，<br>{VAR: usr->login}已打開私人郵件標題為" {VAR: m->subject} "。<br>這是在生成自動的通知 {範本： private_msg_notify_body_date}<br>
 referals_update:流覽轉介
+# Fuzzy
 register_err_short_login:您所選擇的登錄太短。登錄名必須至少4個字符長。
 register_err_login_notallowed:檔案名非法。
 register_err_loginunique:論壇的登入名稱必須是唯一的。這個名字已經有一位使用者。

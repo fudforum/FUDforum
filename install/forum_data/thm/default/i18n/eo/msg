@@ -307,6 +307,7 @@ register_uploaded:Alŝuti vizaĝbildon
 register_login:Salutnomo:
 register_password:Pasvorto:
 register_conf_pass:Konfirmi Pasvorton:
+# Fuzzy
 register_email_desc:Bonvolu enigi validan retadreson. Vi povas elekti kaŝi ĝin sube, en la Agordoj-sekcio.
 register_name:Nomo:
 register_your_pass:Via Pasvorto:
@@ -321,6 +322,7 @@ register_preview:Antaŭvido
 register_custom_avatar_upload:Memprovizita Avatar-dosiero:
 register_register:Registri
 register_required:Deviga Informo
+# Fuzzy
 register_required_desc:Ĉiuj kampoj estas devigaj. Bonvolu noti ke pasvortoj estas usklecodistingaj.
 register_optional:Nedeviga informo
 register_optional_desc:Estas rekomendita ke vi ne eldonu iun personan aŭ identigan informon en via profilo. Ĉiu informo estos videbla de aliaj forumanoj.
@@ -650,6 +652,7 @@ postcheck_email_body:Vi ne povas sendi retpoŝton sen la mesaĝa korpo.
 private_msg_notify_subj:Lega Sciigo Por: {VAR: m->subject}
 private_msg_notify_body:Saluton,<br />{VAR: usr->login} malfermis vian privatan mesaĝon titolita,  "{VAR: m->subject}".<br />Ĉi tiu estas aŭtomata sciigo generita je {TEMPLATE: private_msg_notify_body_date}<br />
 referals_update:Tralegante referencojn
+# Fuzzy
 register_err_short_login:La Salutnomo kiun vi elektis estas tro mallonga. Salutnomoj devas esti almenaŭ 4 signoj longa.
 register_err_login_notallowed:Ĉi tiu salutnomo ne estas permesita.
 register_err_loginunique:Forumaj salutnomoj devas esti unikaj. Jam estas uzanto kun ĉi tiu nomo.

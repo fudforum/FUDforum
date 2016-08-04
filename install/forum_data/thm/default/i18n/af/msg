@@ -302,10 +302,13 @@ register_builtin:Ingebou
 register_specify_url:Verskaf URL
 register_uploaded:Laai avatar op
 register_login:Gebruiker:
+register_login_desc:Die naam waarmee u wil aanmeld en op die forum bekend wil wees.
 register_password:Wagwoord:
+register_password_desc:Wagwoord vir u gebruiker. Wagwoorde is gevoelig vir hoofletters en moet ten minste 6 karakters lank wees.
 register_conf_pass:Bevestig wagwoord:
-register_email_desc:Verskaf asseblief 'n geldige e-posadres. U kan kies om dit privaat te hou in die keuse hieronder.
+register_email_desc:U e-posadres. U kan kies om dit privaat te hou in die keuse hieronder.
 register_name:Naam:
+register_name_desc:U regte naam.
 register_your_pass:U wagwoord:
 register_update:Opdateer
 register_avatar_type:Avatar-tipe:
@@ -318,7 +321,7 @@ register_preview:Voorskou
 register_custom_avatar_upload:Doelgemaakte Avatar lêer:
 register_register:Registreer
 register_required:Vereiste Inligting
-register_required_desc:Alle velde moet voltooi word.  Oppas, wagwoorde is gevoelig vir hoofletters!
+register_required_desc:Alle velde moet voltooi word.
 register_optional:Opsionele inligting
 register_optional_desc:Moet asb nie persoonlike of identifikasie inligting in u profiel plaas nie. Alle info sal sigbaar wees vir ander forum lede.
 register_location:Ligging:
@@ -645,6 +648,7 @@ postcheck_email_body:U kan nie e-pos sonder 'n boodskap stuur nie.
 private_msg_notify_subj:Lees kennisgewing vir: {VAR: m->subject}
 private_msg_notify_body:Hallo,<br />{VAR: usr->login} het u privaatboodskap met titel "{VAR: m->subject}" oopgemaak.<br />Hierdie outomatiese boodskap is op {TEMPLATE: private_msg_notify_body_date} gegenereer.<br />
 referals_update:Blaai deur verwysings
+# Fuzzy
 register_err_short_login:Die gebruikersnaam wat u gekies het is te kort. Die naam moet ten minste 4 karakters lang wees
 register_err_login_notallowed:Hierdie naam word nie toegelaat nie
 register_err_loginunique:Gebruikersnaam moet uniek wees, daar is reeds 'n gebruiker met hierdie naam op die stelsel.

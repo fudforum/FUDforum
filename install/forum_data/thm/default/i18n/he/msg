@@ -1,6 +1,7 @@
 # Messages for Hebrew (עברית)
 # Exported from translatewiki.net
 # Author: Amire80
+# Author: Guycn2
 # Author: Imneo
 # Author: Inkbug
 # Author: YaronSh
@@ -233,14 +234,17 @@ register_builtin:מובנה
 register_specify_url:ציון כתובת
 register_uploaded:העלאת סמל
 register_password:ססמה:
+register_password_desc:הסיסמה של החשבון שלך. סיסמאות הן תלויות־רישיות וחייבות להיות באורך של 6 תווים לפחות.
 register_conf_pass:אימות הססמה:
+register_email_desc:כתובת הדוא"ל שלך. באפשרותך לבחור להסתיר אותה למטה, בחלק "העדפות".
 register_name:שם:
+register_name_desc:השם האמיתי שלך.
 register_your_pass:הססמה שלך:
 register_update:עדכון
 register_preview:תצוגה מקדימה
 register_register:הרשמה
 register_required:נתונים נחוצים
-register_required_desc:כל השדות נדרשים. בססמאות יש חשיבות לאותיות רישיות וקטנות.
+register_required_desc:כל השדות נדרשים.
 register_location:מיקום:
 register_occupation:עיסוק:
 register_interests:תחומי עניין:

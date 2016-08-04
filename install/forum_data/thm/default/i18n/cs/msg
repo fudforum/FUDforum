@@ -313,6 +313,7 @@ register_uploaded:Náhrát ikonu uživatele
 register_login:Uživatelské jméno:
 register_password:Heslo:
 register_conf_pass:Potvrzení hesla:
+# Fuzzy
 register_email_desc:Prosím, zadejte platnou emailovou adresu. Můžete ji skrýt před ostatními uživateli v sekci nastavení.
 register_name:Jméno:
 register_your_pass:Heslo:
@@ -327,6 +328,7 @@ register_preview:Nahrát
 register_custom_avatar_upload:Soubor s novou ikonou uživatele:
 register_register:Registrovat
 register_required:Nutné informace
+# Fuzzy
 register_required_desc:Všechna pole je nutno vyplnit.  Prosím uvažte, že heslo je citlivé na velikost znaků (A,a).
 register_optional:Volitelné informace
 register_optional_desc:Doporučujeme nezveřejňovat žádné důvěrné informace. Ostatní uživatelé do nich mohou nahlížet.
@@ -654,6 +656,7 @@ postcheck_email_body:Nemůžete poslat email bez obsahu.
 private_msg_notify_subj:Oznámení o přečtení pro: {VAR: m->subject}
 private_msg_notify_body:Dobrý den,<br />{VAR: usr->login} si přečetl(a) zprávu, "{VAR: m->subject}", v {TEMPLATE: private_msg_notify_body_date}<br />
 referals_update:Prohlížíte si přivedené lidi
+# Fuzzy
 register_err_short_login:Uživatelské jméno je příliš krátké. Musí mít alespoň 4 znaky
 register_err_login_notallowed:Toto uživatelské jméno není dovoleno.
 register_err_loginunique:Uživatelské jména musí být jedinečná, toto uživatelské jméno již ve fóru existuje

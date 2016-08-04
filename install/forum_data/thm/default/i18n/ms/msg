@@ -306,6 +306,7 @@ register_uploaded:Muat Naik Avatar
 register_login:Log masuk:
 register_password:Kata laluan:
 register_conf_pass:Sahkan Kata Laluan:
+# Fuzzy
 register_email_desc:Sial berikan alamat e-mel yang sah. Anda boleh memilih untuk menyorokkan alamat e-mel itu dalam bahagian Keutamaan di bawah.
 register_name:Nama:
 register_your_pass:Kata Laluan Anda:
@@ -320,6 +321,7 @@ register_preview:Pralihat
 register_custom_avatar_upload:Fail Avatar Ubah Suai:
 register_register:Daftar
 register_required:Maklumat yang Diperlukan
+# Fuzzy
 register_required_desc:Semua ruangan mesti diisi. Sila ingat bahawa kata laluan adalah peka huruf besar kecil.
 register_optional:Maklumat Pilihan
 register_optional_desc:Anda disaran supaya tidak mendedahkan sebarang maklumat peribadi atau identiti anda dalam profil, kerana segala maklumat sedemikian akan boleh dilihat oleh ahli-ahli forum yang lain.
@@ -647,6 +649,7 @@ postcheck_email_body:Anda tidak boleh menghantar e-mel tanpa isi pesanan.
 private_msg_notify_subj:Baca Pemberitahuan Untuk: {VAR: m->subject}
 private_msg_notify_body:Apa khabar,<br />{VAR: usr->login} telah membuka pesanan peribadi anda yang bertajuk, "{VAR: m->subject}".<br />Ini merupakan pemberitahuan janaan automatik yang dijana pada {TEMPLATE: private_msg_notify_body_date}<br />
 referals_update:Melayari rujukan
+# Fuzzy
 register_err_short_login:Nama Log Masuk yang anda pilih itu terlalu pendek. Nama log masuk mesti sekurang-kurangnya 4 aksara panjangnya.
 register_err_login_notallowed:Nama log masuk ini tidak dibenarkan.
 register_err_loginunique:Nama log masuk forum mestilah unik. Nama ini sudah dipunyai oleh pengguna lain.

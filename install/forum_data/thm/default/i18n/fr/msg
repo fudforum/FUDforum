@@ -318,10 +318,13 @@ register_builtin:Par défaut sur le site
 register_specify_url:Spécifier une URL
 register_uploaded:Envoyer un Avatar
 register_login:Utilisateur :
+register_login_desc:Le nom avec lequel vous souhaitez vous connecter et être connu sur ce site.
 register_password:Mot de passe :
+register_password_desc:Mot de passe pour votre compte. Les mots de passe sont sensibles à la casse et doivent avoir au moins 6 caractères de long.
 register_conf_pass:Confirmez le mot de passe :
-register_email_desc:Veuillez entrer une adresse e-mail valide. Vous avez la possibilité de la cacher des autres utilisateurs dans la section « Préférences ».
+register_email_desc:Vote adresse courriel. Vous pouvez choisir de la masquer ci-dessous, dans la section « Préférences ».
 register_name:Nom :
+register_name_desc:Votre vrai nom.
 register_your_pass:Votre mot de passe :
 register_update:Mettre à jour
 register_avatar_type:Type d’avatar :
@@ -334,7 +337,7 @@ register_preview:Prévisualisation
 register_custom_avatar_upload:Fichier correspondant à l'avatar personnel :
 register_register:S’inscrire
 register_required:Informations obligatoires
-register_required_desc:Tous les champs sont obligatoires. Attention, le mot de passe interprète les majuscules et minuscules différemment !
+register_required_desc:Tous les champs sont obligatoires.
 register_optional:Informations facultatives
 register_optional_desc:Il est recommandé de ne pas révéler d'information sensible propre à votre identité dans votre profil. Toutes ces informations seront accessibles aux autres membres du forum.
 register_location:Situation géographique :
@@ -661,6 +664,7 @@ postcheck_email_body:Vous ne pouvez pas envoyer d'e-mail sans contenu.
 private_msg_notify_subj:Notification de lecture du message : {VAR: m->subject}
 private_msg_notify_body:<br />{VAR: usr->login} a lu votre message privé intitulé « {VAR: m->subject} » le {TEMPLATE: private_msg_notify_body_date}<br />
 referals_update:Parcourt la liste des utilisateurs parrainés
+# Fuzzy
 register_err_short_login:Le nom d'utilisateur que vous avez choisi est trop court. Un nom d'utilisateur doit comporter au moins 4 caractères
 register_err_login_notallowed:Ce nom d'utilisateur n'est pas autorisé
 register_err_loginunique:Un membre du forum utilise déjà ce nom, veuillez en choisir un autre

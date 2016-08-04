@@ -1,5 +1,6 @@
 # Messages for Galician (galego)
 # Exported from translatewiki.net
+# Author: Elisardojm
 # Author: Fitoschido
 # Author: McDutchie
 # Author: Naudefj
@@ -306,10 +307,13 @@ register_builtin:Incorporado
 register_specify_url:Especificar un enderezo URL
 register_uploaded:Cargar un avatar
 register_login:Nome de usuario:
+register_login_desc:O nome co que quere conectarse e ser coñecido neste sitio.
 register_password:Contrasinal:
+register_password_desc:Contrasinal para a súa conta. Os contrasinais son sensibles ás maiúsculas e deben ter polo menos 6 caracteres de lonxitude.
 register_conf_pass:Confirmar o contrasinal:
-register_email_desc:Por favor, insire un enderezo de correo electrónico válido. Tes a posibilidade de elixir se agochalo á vista dos demais usuarios na sección de preferencias.
+register_email_desc:A súa dirección de correo electrónico. Pode escoller ocultala na sección de preferencias.
 register_name:Nome:
+register_name_desc:O seu nome real.
 register_your_pass:O teu contrasinal:
 register_update:Actualizar
 register_avatar_type:Tipo de avatar:
@@ -322,7 +326,7 @@ register_preview:Vista previa
 register_custom_avatar_upload:Ficheiro do avatar personalizado:
 register_register:Rexistrarse
 register_required:Información obrigatoria
-register_required_desc:Todos os campos son obrigatorios. Por favor, ten en conta que os contrasinais distinguen entre maiúsculas e minúsculas.
+register_required_desc:Todos os campos son obrigatorios.
 register_optional:Información opcional
 register_optional_desc:Recoméndase non revelar ningunha información persoal ou de identificación no teu perfil. Toda a información será visible para os outros membros do foro.
 register_location:Localización:
@@ -649,6 +653,7 @@ postcheck_email_body:Non podes enviar un correo electrónico sen o corpo da mens
 private_msg_notify_subj:Notificación de lectura da mensaxe: {VAR: m->subject}
 private_msg_notify_body:Ola:<br />{VAR: usr->login} abriu a túa mensaxe privada titulada "{VAR: m->subject}".<br />Esta é unha mensaxe automática xerada o {TEMPLATE: private_msg_notify_body_date}<br />
 referals_update:Navegando polos usuarios referenciados
+# Fuzzy
 register_err_short_login:O nome de usuario que elixiu é curto de máis. Os nomes de usuario deben ter, polo menos, 4 caracteres.
 register_err_login_notallowed:Este nome de usuario non está permitido.
 register_err_loginunique:Os nomes de usuario do foro deben ser únicos. Xa existe un usuario con este nome.

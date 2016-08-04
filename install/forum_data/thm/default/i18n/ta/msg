@@ -310,6 +310,7 @@ register_uploaded:சின்னம் (அ) படத்தை பதிவே
 register_login:புகுபதிகை:
 register_password:கடவுச்சொல்:
 register_conf_pass:கடவுச்சொல்லை உறுதிசெய்
+# Fuzzy
 register_email_desc:தயவுகூர்ந்து செல்லத்தக்க மின்னஞ்சல் முகவரியை உள்ளிடவும்.  அதை விருப்பத்தேர்வுகள் பகுதியில் கீழே  மறையுமாறு தேர்ந்தெடுக்கலாம்.
 register_name:பெயர்:
 register_your_pass:உங்கள் கடவுச்சொல்:
@@ -324,6 +325,7 @@ register_preview:முன்னோட்டம்
 register_custom_avatar_upload:தனிப்பயன்  சின்ன கோப்பு:
 register_register:பதிவுசெய்
 register_required:தேவையான தகவல்
+# Fuzzy
 register_required_desc:எல்லா புலங்களும் தேவைப்படுகின்றது. தயவுகூர்ந்து கடவுச்சொற்கள் எழுத்துவகை உணரக்கூடியது என்பதை குறித்துக்கொள்ளுங்கள்.
 register_optional:விருப்ப தகவல்
 register_optional_desc:உங்கள் சுயகுறிப்பில் தனிப்பட்ட அல்லது அடையாளங்காணும் தகவலை  வெளிப்படுத்த வேண்டாம் என பரிந்துரைக்கப்படுகிறது. எல்லா தகவல்களும்  மற்ற கருத்துகள உறுப்பினர்களுக்கு தெரியுமாறு இருக்கும்.
@@ -651,6 +653,7 @@ postcheck_email_body:நீங்கள் தகவல் உள்ளடக்
 private_msg_notify_subj:{VAR: m->subject}க்கான அறிவிக்கையை படிக்கவும்:
 private_msg_notify_body:வணக்கம்,<br />{VAR: usr->login} தனிப்பட்ட தகவலை திறந்துள்ளார்,தலைப்பு "{VAR: m->subject}".<br />இது ஒரு தானியங்கு அறிவிக்கை {TEMPLATE: private_msg_notify_body_date}ல் உருவாக்கப்பட்டது<br />
 referals_update:உலாவுதல் பரிந்துரைகள்
+# Fuzzy
 register_err_short_login:நீங்கள் தேர்ந்தெடுத்த புகுபதிகை பெயர் மிக குறுகியதாக உள்ளது. புகுபதிகை பெயர்கள் குறைந்தது 4எழுத்துகள் நீளமாவது இருக்க வேண்டும்
 register_err_login_notallowed:இந்த புகுபதிகை பெயர் அனுமதிக்கப்படாது.
 register_err_loginunique:கருத்துக்கள புகுபதிகை பெயர்கள் பிரத்யேகமாக இருக்க வேண்டும். இந்த பெயரில் ஒரு பயனர் ஏற்கனவே உள்ளார்.

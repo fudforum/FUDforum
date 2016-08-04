@@ -319,6 +319,7 @@ register_uploaded:Avatar Yükle
 register_login:Kullanıcı ismi:
 register_password:Parola:
 register_conf_pass:Parolayı Onayla:
+# Fuzzy
 register_email_desc:Lütfen geçerli bir e-posta adresi girin. İsterseniz aşağıda tercihler bölümünden gizleyebilirsiniz.
 register_name:İsim:
 register_your_pass:Parolanız:
@@ -333,6 +334,7 @@ register_preview:Önizleme
 register_custom_avatar_upload:Özel Avatar Dosyası:
 register_register:Kayıt Ol
 register_required:Zorunlu Bilgiler
+# Fuzzy
 register_required_desc:Tüm alanlar zorunludur. Parolanızı yazarken BÜYÜK/küçük harf ayrımı yapıldığını unutmayın.
 register_optional:İsteğe Bağlı Bilgiler
 register_optional_desc:Kişisel Bilgilerinizde özel veya belirleyici herhangi bir bilgiyi belirtmemeniz önerilir. Tüm bilgiler diğer üyeler tarafından görüntülenebilecek.
@@ -660,6 +662,7 @@ postcheck_email_body:Gövde bölümü boş olan bir ileti gönderemezsiniz.
 private_msg_notify_subj:{VAR: m->subject} için okundu haberi
 private_msg_notify_body:Selam,<br />{VAR: usr->login} kullanıcısı, {TEMPLATE: private_msg_notify_body_date} tarihinde atmış olduğunuz "{VAR: m->subject}" konulu özel iletinizi okumuş durumda.<br />
 referals_update:Tanıtımları Dolaşıyor
+# Fuzzy
 register_err_short_login:Seçtiğiniz kullanıcı ismi çok kısa. Kullanıcı isimleri en az 4 karakter uzunluğunda olmalı.
 register_err_login_notallowed:Bu kullanıcı ismine izin verilmiyor.
 register_err_loginunique:Forumdaki kullanıcı isimleri tek olmak zorunda, sistemde bu isimde bir kullanıcı zaten var.

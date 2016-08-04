@@ -306,6 +306,7 @@ register_uploaded:Hlaða upp notandamynd
 register_login:Innskráning:
 register_password:Lykilorð:
 register_conf_pass:Staðfestu lykilorðið:
+# Fuzzy
 register_email_desc:Vinsamlegast skráðu gilt netfang. Þú getur valið að fela það í stillingunum.
 register_name:Nafn:
 register_your_pass:Lykilorðið þitt:
@@ -320,6 +321,7 @@ register_preview:Forskoða
 register_custom_avatar_upload:Skrá sérhannaðrar notandamyndar:
 register_register:Skrá
 register_required:Nauðsynlegar upplýsingar
+# Fuzzy
 register_required_desc:Fylla þarf út alla reiti. Athugaðu að í lykilorði skipta há- og lágstafir máli.
 register_optional:Valfrjálsar upplýsingar
 register_optional_desc:Mælt er með því að þú hafir ekki greinanlegar persónuupplýsingar á notandasíðu þinni. Allar upplýsingar verða sýnilegar öðrum notendum spjallborðsins.
@@ -647,6 +649,7 @@ postcheck_email_body:Þú getur ekki sent tölvupóst án innihalds.
 private_msg_notify_subj:Lesa tilkynningar fyrir: {VAR: m->subject}
 private_msg_notify_body:Halló,<br />{VAR: usr->login} hefur opnað einkaskilaboðin þín, "{VAR: m->subject}".<br />Þetta eru sjálfvirk skilaboð sem voru búin til {TEMPLATE: private_msg_notify_body_date}<br />
 referals_update:Skoða tilvísanir
+# Fuzzy
 register_err_short_login:Notendanafnið sem þú valdir er of stutt. Notendanöfn verða að vera í minnsta lagi 4 stafa löng.
 register_err_login_notallowed:Þetta notendanafn er ekki leyft.
 register_err_loginunique:Notendanöfn á spjallborðinu verða að vera einstök. Það er þegar til notandi með þessu nafni.

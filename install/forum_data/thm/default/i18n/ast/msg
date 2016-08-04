@@ -305,6 +305,7 @@ register_uploaded:Xubir un avatar
 register_login:Aniciu de sesión:
 register_password:Contraseña:
 register_conf_pass:Confirma la contraseña:
+# Fuzzy
 register_email_desc:Por favor, escribi una direición de corréu electrónicu válida. Pues escoyer anubrilu más abaxo, na seición de preferencies.
 register_name:Nome:
 register_your_pass:La to conseña:
@@ -319,6 +320,7 @@ register_preview:Vista previa
 register_custom_avatar_upload:Ficheru del avatar personalizáu:
 register_register:Rexistrase
 register_required:Información obligatoria
+# Fuzzy
 register_required_desc:Tolos campos son obligatorios. Por favor, ten en cuenta que les conseñes distinguen ente mayúscules y minúscules.
 register_optional:Información opcional
 register_optional_desc:Se recomienda que nun reveles denguna información personal o que t'identifique nel to perfil. Tola información será visible pa los otros miembros del foru.
@@ -646,6 +648,7 @@ postcheck_email_body:Nun pues unviar un corréu electrónicu ensin el cuerpu del
 private_msg_notify_subj:Lleer el avisu pa: {VAR: m->subject}
 private_msg_notify_body:Hola, <br />{VAR: usr->login} abrió el to mensaxe priváu tituláu "{VAR: m->subject}".<br />Esti ye un avisu automáticu xeneráu el {TEMPLATE: private_msg_notify_body_date}<br />
 referals_update:Navegar poles referencies
+# Fuzzy
 register_err_short_login:El nome d'usuariu qu'escoyisti ye demasiao curtiu. Los nomes d'usuariu tienen de tener polo menos 4 caráuteres
 register_err_login_notallowed:Esti nome d'usuariu nun ta permitíu.
 register_err_loginunique:Los nomes d'usuariu del foru tienen de ser únicos. Yá hai un usuariu con esti nome.

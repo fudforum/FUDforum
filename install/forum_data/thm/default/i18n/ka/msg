@@ -304,6 +304,7 @@ register_uploaded:ავატარის ატვირთვა
 register_login:სახელი:
 register_password:პაროლი:
 register_conf_pass:პაროლის დადასტურება:
+# Fuzzy
 register_email_desc:მიუთითეთ თქვენი ნამდვილი ელ.ფოსტის მისამართი. მისი დამალვა შეგიძლიათ პირადი კონფიგურაციიდან.
 register_name:სახელი:
 register_your_pass:თქვენი პაროლი:
@@ -318,6 +319,7 @@ register_preview:წინასწარი გადახედვა
 register_custom_avatar_upload:ავატარის ფაილი:
 register_register:რეგისტრაცია
 register_required:სავალდებულო ინფორმაცია
+# Fuzzy
 register_required_desc:ყველა ველი სავალდებულოა. გთხოვთ, გაითვალისწინოთ, რომ პაროლი მგრძნობიარეა სიმბოლოების რეგისტრთან.
 register_optional:დამატებითი ინფორმაცია
 register_optional_desc:ძალიან პირადული მონაცემების გამოქვეყნება არ არის მიზანშეწონილი, რადგან ქვემოთ მოცემული მთელი ინფორმაცია ხელმისაწვდომია ფორუმის ყველა მომხმარებლისათვის.

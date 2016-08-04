@@ -305,6 +305,7 @@ register_uploaded:Incargar avatar
 register_login:Nomine de usator:
 register_password:Contrasigno:
 register_conf_pass:Confirma contrasigno:
+# Fuzzy
 register_email_desc:Per favor entra un adresse de e-mail valide. Tu pote render lo invisibile a altere usatores hic infra, in le section Preferentias.
 register_name:Nomine:
 register_your_pass:Tu contrasigno:
@@ -319,6 +320,7 @@ register_preview:Previsualisation
 register_custom_avatar_upload:File del avatar personalisate:
 register_register:Crear conto
 register_required:Information obligatori
+# Fuzzy
 register_required_desc:Tote le campos es obligatori. Nota ben que le contrasignos distingue inter majusculas e minusculas.
 register_optional:Information optional
 register_optional_desc:Il es recommendate de non revelar informationes personal o identificante in tu profilo. Tote le informationes essera visibile al membros del foro.
@@ -646,6 +648,7 @@ postcheck_email_body:Tu non pote inviar un e-mail sin texto.
 private_msg_notify_subj:Notification de lectura pro: {VAR: m->subject}
 private_msg_notify_body:Salute,<br />{VAR: usr->login} ha aperite tu message private titulate: "{VAR: m->subject}".<br />Isto es un notification automatic generate le {TEMPLATE: private_msg_notify_body_date}<br />
 referals_update:Percurre le membros referite
+# Fuzzy
 register_err_short_login:Le nomine de usator que tu ha seligite es troppo curte. Le nomines de usator debe haber al minus 4 characteres.
 register_err_login_notallowed:Iste nomine de usator non es permittite.
 register_err_loginunique:Le nomines de usator del foro debe esser unic. Il ha ja un usator con iste nomine.

@@ -304,6 +304,7 @@ register_uploaded:Careche l'immaggine
 register_login:Tràse:
 register_password:Passuord:
 register_conf_pass:Conferme 'a passuord:
+# Fuzzy
 register_email_desc:Pe piacere mitte 'n'indirizze email valide. Tu puè scacchià de sconnerle sotte, jndr'à selezione de le preferenze.
 register_name:Nome:
 register_your_pass:'A passuord toje:
@@ -318,6 +319,7 @@ register_preview:Andeprime
 register_custom_avatar_upload:File de l'immaggine personalizzate:
 register_register:Reggìstre
 register_required:'Mbormazione obbligatorie
+# Fuzzy
 register_required_desc:Tutte le cambe so obbligatorie. Pe piacere vide ca 'a passuord jè sensibbile a le maiuscole/minuscole
 register_optional:'Mbormazione facoltative
 register_optional_desc:Jè raccomandate ca non ge dice ogne 'mbormazione personale o ca te idendifiche sus a 'u profile tune. Tutte le 'mbormaziune sò visibbile da l'otre membre d'u forum.
@@ -646,6 +648,7 @@ postcheck_email_body:Non ge puè mannà 'n'email senze 'u cuèrpe d'u messàgge.
 private_msg_notify_subj:Ligge Notifiche Pe: {VAR: m->subject}
 private_msg_notify_body:Cià,<br />{VAR: usr->login} ave apirte 'u messàgge private cu 'u titole, "{VAR: m->subject}".<br />Queste jè 'na notifiche automaticamende generate a {TEMPLATE: private_msg_notify_body_date}<br />
 referals_update:Stoche a sfoglie le refèreminde
+# Fuzzy
 register_err_short_login:'U Nome ca è scacchiate jè troppe curte. Le nome pe trasè onne essere almene de 4 carattere.
 register_err_login_notallowed:Stu nome pe trasè non g'è permesse.
 register_err_loginunique:Le nome pe trasè d'u forum onne essere uniche. Stè già 'n'utende cu stu nome.

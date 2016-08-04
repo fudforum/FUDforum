@@ -304,6 +304,7 @@ register_uploaded:Ngunggahna Avatar
 register_login:Mlebu log:
 register_password:Tembung sandhi:
 register_conf_pass:Konfirmasi tembung sandhi:
+# Fuzzy
 register_email_desc:Monggo lebokna alamat imel sing sah. Rika teyeng milih nggo ngumpetna kuwe, nang bagiyan Preferensi.
 register_name:Jeneng:
 register_your_pass:Tembung sandhine Rika:
@@ -318,6 +319,7 @@ register_preview:Pratayang
 register_custom_avatar_upload:Berkas avatar kustom:
 register_register:Ndaftar
 register_required:Informasi sing kudu ana
+# Fuzzy
 register_required_desc:Kabeh kudu diisi. Tulung dieling-eling nek tembung sandhi kuwe sensitif karo aksara gedhe/cilik.
 register_optional:Informasi pilihan
 register_optional_desc:Kiye direkomendasikna nek Rika kuwe AJA NGANTI nidokna informasi identitas utawa pribadi nang profile Rika. Kabeh informasi kuwe bakal teyeng dideleng nang anggota forum liyane.
@@ -645,6 +647,7 @@ postcheck_email_body:Rika ora teyeng ngirimna imel sing ora ana isine.
 private_msg_notify_subj:Waca notifikasi kanggo: {VAR: m->subject}
 private_msg_notify_body:Halo,<br />{VAR: usr->login} uwis mbukak pesen pribadine Rika sing judule, "{VAR: m->subject}".<br />Kiye kuwe notifikasi otomatis sing digawe nang {TEMPLATE: private_msg_notify_body_date}<br />
 referals_update:Ndeleng ''referrals''
+# Fuzzy
 register_err_short_login:Jeneng login sing Rika pilih kecindheken. Jeneng login seora-orane kudu dawane 4 karakter.
 register_err_login_notallowed:Jeneng login kuwe ora olih dienggo.
 register_err_loginunique:Jeneng login kudu unik, ora kena kembar. Uwis ana panganggo sing nganggo jeneng kuwe.

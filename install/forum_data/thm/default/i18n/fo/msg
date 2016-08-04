@@ -304,6 +304,7 @@ register_uploaded:Legg avatar út
 register_login:Brúkaranavn:
 register_password:Loyniorð:
 register_conf_pass:Vátta loyniorð:
+# Fuzzy
 register_email_desc:Vinarliga skriva eina galdandi t-post adressu. Tú kanst velja at fjala hana fyri øðrum her niðanfyri í teiginum Innstillingar.
 register_name:Navn:
 register_your_pass:Títt loyniorð:
@@ -318,6 +319,7 @@ register_preview:Forskoðan
 register_custom_avatar_upload:Fíla við egnum avatar:
 register_register:Skráset
 register_required:Kravd kunning
+# Fuzzy
 register_required_desc:Allir teigur mugu útfyllast. Legg til merkis at tað er munur á stórum og lítlum bókstavum í loyniorðinum.
 register_optional:Valfrí kunning
 register_optional_desc:Vit mæla tær frá at avdúka nakrar persónligar upplýsingar á tínari vangamynd. Øll kunning verður sjónlig fyri aðrar limir í foruminum.
@@ -645,6 +647,7 @@ postcheck_email_body:Tú kanst ikki senda eitt teldubræv uttan nakran tekst.
 private_msg_notify_subj:Les fráboðan viðvíkjandi: {VAR: m->subject}
 private_msg_notify_body:Hey,<br />{VAR: usr->login} hevur latið upp tíni privatu boð við heitinum, "{VAR: m->subject}".<br />Hetta er ein sjálvvirkandi fráboðan, gjørd tann {TEMPLATE: private_msg_notify_body_date}<br />
 referals_update:Hygg ígjøgnum ávísingar
+# Fuzzy
 register_err_short_login:Brúkaranavnið ið tú hevur valt er ov stutt. Brúkaranøvn mugu vera í minsta lagi 4 tekn long.
 register_err_login_notallowed:Hetta brúkaranavnið er ikki loyvt.
 register_err_loginunique:Brúkaranøvn í hesum forum mugu vera serstøk. Tað er longu ein annar brúkari sum nýtir hetta navnið.

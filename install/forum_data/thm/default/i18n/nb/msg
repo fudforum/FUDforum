@@ -311,6 +311,7 @@ register_uploaded:Send avatar
 register_login:Brukernavn:
 register_password:Passord:
 register_conf_pass:Bekreft passord:
+# Fuzzy
 register_email_desc:Vennligst angi en gyldig e-postadresse. Du kan stille inn forumet slik at adressen er skjult for andre brukere.
 register_name:Fullt navn:
 register_your_pass:Ditt passord:
@@ -325,6 +326,7 @@ register_preview:Forhåndsvisning
 register_custom_avatar_upload:Fil med egen avatar:
 register_register:Registrere
 register_required:Nødvendig informasjon
+# Fuzzy
 register_required_desc:Alle felt må fylles ut. Husk at det er forskjell på små og store bokstaver i passordet.
 register_optional:Frivilig informasjon
 register_optional_desc:Vi anbefaler at du ikke avslører noen personlige opplysninger i din profil. All informasjon kan ses av andre medlemmer.
@@ -652,6 +654,7 @@ postcheck_email_body:Kan ikke sende e-post utan tekst.
 private_msg_notify_subj:Kvittering for: {VAR: m->subject}
 private_msg_notify_body:Hei!<br />Den {TEMPLATE: private_msg_notify_body_date} leste {VAR: usr->login} din private melding med emnet "{VAR: m->subject}"<br />
 referals_update:Visar refererte medlemmer
+# Fuzzy
 register_err_short_login:Brukernavnet du har valgt er for kort. Det må være minst 4 tegn langt
 register_err_login_notallowed:Dette brukernavnet er ikke tillatt
 register_err_loginunique:brukernavn må være unike. Det finnes allerede et medlem med dette brukernavnet

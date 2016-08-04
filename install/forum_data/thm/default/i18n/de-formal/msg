@@ -312,6 +312,7 @@ register_uploaded:Avatar hochladen
 register_login:Benutzername:
 register_password:Passwort:
 register_conf_pass:Passwort bestätigen:
+# Fuzzy
 register_email_desc:Bitte geben Sie eine gültige E-Mail-Adresse an. Sie können diese dann weiter unten im Menü verstecken.
 register_name:Name:
 register_your_pass:Ihr Passwort:
@@ -326,6 +327,7 @@ register_preview:Vorschau
 register_custom_avatar_upload:Benutzeravatar Datei:
 register_register:Registrieren
 register_required:Erforderliche Angaben
+# Fuzzy
 register_required_desc:Alle Felder sind erforderlich. Bitte beachten Sie die Groß- und Kleinschreibung beim Passwort.
 register_optional:Freiwillige Angaben
 register_optional_desc:Wir empfehlen, keine Informationen im Profil preiszugeben, die zu einer Identifizierung der Person geeignet wären. Sämtliche Informationen können von Besuchern des Forums eingesehen werden.
@@ -653,6 +655,7 @@ postcheck_email_body:Sie können keine E-Mail ohne Inhalt verschicken.
 private_msg_notify_subj:Benachrichtigung lesen zu: {VAR: m->subject}
 private_msg_notify_body:Guten Tag,<br />{VAR: usr->login} hat Ihre private Nachricht, „{VAR: m->subject}“, am {TEMPLATE: private_msg_notify_body_date} gelesen<br />
 referals_update:Durchsucht die Anwerbungen
+# Fuzzy
 register_err_short_login:Der Benutzername, den Sie gewählt haben, ist zu kurz. Er muss mindestens 4 Zeichen enthalten.
 register_err_login_notallowed:Dieser Benutzername ist nicht erlaubt.
 register_err_loginunique:Benutzernamen für das Forum müssen einmalig sein, es gibt bereits einen Benutzer mit diesem Benutzernamen im System.

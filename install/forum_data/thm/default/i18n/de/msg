@@ -318,10 +318,13 @@ register_builtin:Eingebaut
 register_specify_url:URL angeben
 register_uploaded:Avatar hochladen
 register_login:Benutzername:
+register_login_desc:Der Name, mit dem du dich anmeldest und der dieser Website bekannt ist.
 register_password:Passwort:
+register_password_desc:Passwort für dein Benutzerkonto. Bei Passwörtern wird zwischen Groß- und Kleinschreibung unterschieden und sie müssen mindestens 6 Zeichen lang sein.
 register_conf_pass:Passwort bestätigen:
-register_email_desc:Bitte eine gültige E-Mail-Adresse angeben. Du kannst diese dann weiter unten im Menü verstecken.
+register_email_desc:Deine E-Mail-Adresse. Du kannst unten im Einstellungsabschnitt auswählen, dass sie versteckt werden soll.
 register_name:Name:
+register_name_desc:Dein bürgerlicher Name.
 register_your_pass:Dein Passwort:
 register_update:Aktualisieren
 register_avatar_type:Avatar-Typ:
@@ -334,7 +337,7 @@ register_preview:Vorschau
 register_custom_avatar_upload:Benutzeravatar Datei:
 register_register:Registrieren
 register_required:Erforderliche Angaben
-register_required_desc:Alle Felder sind erforderlich. Bitte beachte die Groß- und Kleinschreibung beim Passwort.
+register_required_desc:Alle Felder sind erforderlich.
 register_optional:Freiwillige Angaben
 register_optional_desc:Wir empfehlen, keine Informationen im Profil preiszugeben, die zu einer Identifizierung der Person geeignet wären. Sämtliche Informationen können von Besuchern des Forums eingesehen werden.
 register_location:Ort:
@@ -661,6 +664,7 @@ postcheck_email_body:Du kannst keine E-Mail ohne Inhalt verschicken.
 private_msg_notify_subj:Benachrichtigung lesen zu: {VAR: m->subject}
 private_msg_notify_body:Hallo,<br />{VAR: usr->login} hat deine private Nachricht, „{VAR: m->subject}“, am {TEMPLATE: private_msg_notify_body_date} gelesen<br />
 referals_update:Durchsucht die Anwerbungen
+# Fuzzy
 register_err_short_login:Der Benutzername, den du gewählt hast, ist zu kurz. Er muss mindestens 4 Zeichen enthalten.
 register_err_login_notallowed:Dieser Benutzername ist nicht erlaubt.
 register_err_loginunique:Benutzernamen für das Forum müssen einmalig sein, es gibt bereits einen Benutzer mit diesem Benutzernamen im System.
