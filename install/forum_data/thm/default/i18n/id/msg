@@ -2,6 +2,7 @@
 # Exported from translatewiki.net
 # Author: Anakmalaysia
 # Author: ArdWar
+# Author: Arifin.wijaya
 # Author: Bennylin
 # Author: C5st4wr6ch
 # Author: Farras
@@ -315,11 +316,15 @@ register_builtin:Langsung
 register_specify_url:Berikan URL
 register_uploaded:Kirimkan Avatar
 register_login:Masuk log
+register_login_desc:Nama yang digunakan ketika Anda masuk log dan akan diketahui oleh situs ini.
+register_login_available:Tersedia
+register_login_taken:Sudah diambil
 register_password:Kata sandi:
+register_password_desc:Kata sandi untuk akun Anda. Kata sandi peka terhadap huruf dan harus memiliki panjang karakter lebih dari 6 karakter.
 register_conf_pass:Konfirmasi Password:
-# Fuzzy
-register_email_desc:Masukkan surel yang sah. Anda bisa menyembunyikan surel, lakukan di bagian kesukaan.
+register_email_desc:Alamat surel Anda. Anda bisa menyembunyikan surel, lakukan di bagian kesukaan.
 register_name:Nama:
+register_name_desc:Nama asli Anda.
 register_your_pass:Kata sandi Anda:
 register_update:Perbarui
 register_avatar_type:Tipe Avatar:
@@ -332,8 +337,7 @@ register_preview:Pratayang
 register_custom_avatar_upload:Berkas avatar kustom:
 register_register:Daftar
 register_required:Informasi diharuskan
-# Fuzzy
-register_required_desc:Semua informasi diharuskan. Harap diingat password sensitif terhadap huruf besar/kecil.
+register_required_desc:Semua kolom dibutuhkan.
 register_optional:Informasi pilihan
 register_optional_desc:Disarankan anda TIDAK memberikan informasi pribadi di profile anda, karena dapat dilihat oleh anggota forum lainnya.
 register_location:Lokasi:
@@ -660,8 +664,7 @@ postcheck_email_body:Tidak bisa mengirim e-mail tanpa isi.
 private_msg_notify_subj:Baca pemberitahuan tentang: {VAR: m->subject}
 private_msg_notify_body:Halo,<br />{VAR: usr->login} sudah membaca pesan pribadi anda tentang "{VAR: m->subject}", pada {TEMPLATE: private_msg_notify_body_date}<br />
 referals_update:Memeriksa pe-referensi
-# Fuzzy
-register_err_short_login:Nama Login yang anda pilih terlalu singkat. Nama Login minimal 4 karakter.
+register_err_short_login:Nama masuk log yang anda pilih terlalu singkat. Nama masuk log minimal 2 karakter.
 register_err_login_notallowed:Nama pengguna tersebut tidak diizinkan.
 register_err_loginunique:Nama login harus unik, nama tersebut sudah terpakai.
 register_err_emailexists:alamat surel tersebut sudah dihubungkan dengan sebuah akun. Jika Anda lupa kata sandi Anda, pergunakan bantuan Balikkan Kata Sandi alih-alih mendaftar ulang.

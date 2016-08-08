@@ -317,10 +317,13 @@ register_builtin:Incorporado
 register_specify_url:Especificar URL
 register_uploaded:Subir avatar
 register_login:Nombre de usuario:
+register_login_available:Disponible
+register_login_taken:Ya tomado
 register_password:Contraseña:
 register_conf_pass:Confirmar contraseña:
 register_email_desc:Tu dirección de correo electrónico. Puedes elegir ocultarla en la sección de preferencias.
 register_name:Nombre:
+register_name_desc:Tu nombre real.
 register_your_pass:Su contraseña:
 register_update:Actualizar
 register_avatar_type:Tipo de avatar:
@@ -333,8 +336,7 @@ register_preview:Vista previa
 register_custom_avatar_upload:Archivo del avatar personalizado:
 register_register:Registrarse
 register_required:Información requerida
-# Fuzzy
-register_required_desc:Todos los campos son obligatorios. Las contraseñas distinguen entre caracteres en minúsculas y mayúsculas.
+register_required_desc:Todos los campos son obligatorios.
 register_optional:Información opcional
 register_optional_desc:No se recomienda revelar la información personal de su perfil. Toda la información será visible para otros miembros del foro.
 register_location:Ubicación:

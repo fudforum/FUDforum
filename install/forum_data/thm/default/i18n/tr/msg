@@ -5,6 +5,7 @@
 # Author: Gorizon
 # Author: Incelemeelemani
 # Author: Joseph
+# Author: Kumkumuk
 # Author: McAang
 # Author: Meelo
 # Author: Naudefj
@@ -317,6 +318,7 @@ register_builtin:Kurulu
 register_specify_url:URL Belirt
 register_uploaded:Avatar Yükle
 register_login:Kullanıcı ismi:
+register_login_available:Mevcut
 register_password:Parola:
 register_conf_pass:Parolayı Onayla:
 # Fuzzy

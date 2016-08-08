@@ -315,6 +315,7 @@ register_builtin:Embutido
 register_specify_url:Especificar URL
 register_uploaded:Adicionar Avatar
 register_login:Utilizador:
+register_login_available:Disponível
 register_password:Senha:
 register_conf_pass:Confirmar senha:
 # Fuzzy

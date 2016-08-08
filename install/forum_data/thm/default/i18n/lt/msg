@@ -310,11 +310,15 @@ register_builtin:Integruotas
 register_specify_url:Atsiųsti logotipą iš interneto
 register_uploaded:Atsiųsti logotipą iš savo kompiuterio
 register_login:Nario vardas:
+register_login_desc:Vardas, su kurios norėtumėte prisijungti ir būti žinomas svetainėje.
+register_login_available:Galimas
+register_login_taken:Jau užimtas
 register_password:Slaptažodis:
+register_password_desc:Slaptažodis jūsų paskyrai. Slaptažodžiuose yra skirtumas tarp mažųjų ir didžiųjų raidžių ir jie turi būti bent 6 simbolių ilgio.
 register_conf_pass:Patvirtinti slaptažodį:
-# Fuzzy
-register_email_desc:Įveskite teisingą email adresą. Nenorėdami publikuoti adreso vešai galite tai nurodyti žemiau esančiuose nustatymuose.
+register_email_desc:Jūsų el. pašto adresas. Galite pasirinkti jį paslėpti žemiau, Nustatymų skyriuje.
 register_name:Vardas:
+register_name_desc:Jūsų tikras vardas.
 register_your_pass:Jūsų slaptažodis:
 register_update:Naujinti
 register_avatar_type:Logotipo tipas:
@@ -327,8 +331,7 @@ register_preview:Peržiūra
 register_custom_avatar_upload:Jūsų logotipo failas:
 register_register:Registruotis
 register_required:Būtina informacija
-# Fuzzy
-register_required_desc:Visi šioje dalyje laukai yra būtini. Atminkite kad slaptažodyje mažosios ir didžiosios raidės traktuojamos, kaip skirtingi simboliai.
+register_required_desc:Visi laukeliai yra privalomi.
 register_optional:Papildoma informacija
 register_optional_desc:Žemiau esančiuose laukuose įveskite tik tą informaciją, kurią neskaitote konfidenciale. Visa jūsų įvesta informacija bus prieinama visiems registruotiems nariams.
 register_location:Vieta:
@@ -655,8 +658,7 @@ postcheck_email_body:Jūs negalite siųsti elektroniniu paštu be pranešimo tek
 private_msg_notify_subj:Skaityti pranešimo: {VAR: m->subject}
 private_msg_notify_body:Sveiki, <br /> {VAR: usr->login} atvėrė savo privačią žinutę pavadinimu " {VAR: m->subject} ". <br /> Tai automatinis pranešimas generuojami {Šablonas: private_msg_notify_body_date} <br />
 referals_update:Naršymas referalų
-# Fuzzy
-register_err_short_login:Prisijungimo vardas kuri pasirinkote, yra per trumpas. Prisijungimo vardas turi būti ne trumpesnis kaip 4 simbolių.
+register_err_short_login:Prisijungimas, kurį pasirinkote yra per trumpas. Prisijungimo vardas turi būti bent 2 simbolių ilgio.
 register_err_login_notallowed:Šis prisijungimo vardas yra neleidžiamas.
 register_err_loginunique:Forumo vartotojų vardai turi būti unikalus. Jau yra vartotojas su tokiu vardu vartotojui.
 register_err_emailexists:Šis el.pašto adresas jau yra susietas su paskyra. Jei pamiršote slaptažodį, prašome naudoti atkūrimą, vietoj registravimosi iš naujo.

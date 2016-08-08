@@ -207,8 +207,11 @@ pmuserloc_no_result:Kee Resultat
 register_specify_url:Spezifizéiert d'URL
 register_uploaded:Avatar eroplueden
 register_login:Aloggen:
+register_login_available:Disponibel
+register_login_taken:Scho verginn
 register_password:Passwuert:
 register_conf_pass:Passwuert confirméieren:
+register_email_desc:Är E-mailadress. Dir kënnt hei drënner, am Abschnitt vun den Astellungen, wielen ob Dir se verstoppe wëllt.
 register_name:Numm:
 register_name_desc:Äre richtegen Numm.
 register_your_pass:Äert Passwuert:

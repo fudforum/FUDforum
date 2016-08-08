@@ -319,6 +319,8 @@ register_specify_url:URL angeben
 register_uploaded:Avatar hochladen
 register_login:Benutzername:
 register_login_desc:Der Name, mit dem du dich anmeldest und der dieser Website bekannt ist.
+register_login_available:Verfügbar
+register_login_taken:Bereits vergeben
 register_password:Passwort:
 register_password_desc:Passwort für dein Benutzerkonto. Bei Passwörtern wird zwischen Groß- und Kleinschreibung unterschieden und sie müssen mindestens 6 Zeichen lang sein.
 register_conf_pass:Passwort bestätigen:
@@ -664,8 +666,7 @@ postcheck_email_body:Du kannst keine E-Mail ohne Inhalt verschicken.
 private_msg_notify_subj:Benachrichtigung lesen zu: {VAR: m->subject}
 private_msg_notify_body:Hallo,<br />{VAR: usr->login} hat deine private Nachricht, „{VAR: m->subject}“, am {TEMPLATE: private_msg_notify_body_date} gelesen<br />
 referals_update:Durchsucht die Anwerbungen
-# Fuzzy
-register_err_short_login:Der Benutzername, den du gewählt hast, ist zu kurz. Er muss mindestens 4 Zeichen enthalten.
+register_err_short_login:Der Benutzername, den du gewählt hast, ist zu kurz. Er muss mindestens 2 Zeichen enthalten.
 register_err_login_notallowed:Dieser Benutzername ist nicht erlaubt.
 register_err_loginunique:Benutzernamen für das Forum müssen einmalig sein, es gibt bereits einen Benutzer mit diesem Benutzernamen im System.
 register_err_emailexists:Diese E-Mail-Adresse wurde schon verwendet, falls du dein Passwort vergessen hast, lasse es bitte zurücksetzen, anstatt dich neu zu registrieren.

@@ -312,6 +312,8 @@ register_builtin:내장
 register_specify_url:URL
 register_uploaded:아바타 업로드
 register_login:로그인:
+register_login_available:사용 가능
+register_login_taken:이미 사용 중
 register_password:비밀번호:
 register_password_desc:계정을 위한 비밀번호입니다. 비밀번호는 대소문자를 구별하며 적어도 6자여야 합니다.
 register_conf_pass:비밀번호 확인:
@@ -651,8 +653,7 @@ postcheck_email_body:본문 내용 없이 이메일을 보낼 수 없습니다.
 private_msg_notify_subj:읽기 알림: {VAR: m->subject}
 private_msg_notify_body:안녕하세요,<br />{VAR: usr->login}님이 "{VAR: m->subject}"이라는 제목의 개인 메시지를 열었습니다.<br />{TEMPLATE: private_msg_notify_body_date}에 생성된 자동적인 알림입니다<br />
 referals_update:추천 탐색
-# Fuzzy
-register_err_short_login:지정한 로그인 이름이 너무 짧습니다. 로그인 이름은 적어도 4자 이상이어야 합니다.
+register_err_short_login:지정한 로그인 이름이 너무 짧습니다. 로그인 이름은 적어도 2자여야 합니다.
 register_err_login_notallowed:허가되지 않은 사용자 이름입니다.
 register_err_loginunique:포럼 로그인 이름은 고유해야 합니다. 이미 이 이름으로 된 사용자가 있습니다.
 register_err_emailexists:이메일 주소가 이미 계정에 연결되어 있습니다. 비밀번호를 잊었다면 다시 등록하는 대신 복구 옵션을 사용해주세요.

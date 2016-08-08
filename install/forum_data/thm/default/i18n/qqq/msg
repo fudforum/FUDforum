@@ -151,7 +151,8 @@ pmuserloc_submit:{{Identical|Submit}}
 pmuserloc_user:{{Identical|User}}
 pmuserloc_no_result:{{Identical|No result}}
 register_login:{{Identical|Login}}\n\nLogin name (username) in the register form.<br />\nShould be the same as {{msg-fud|login login}} and {{msg-fud|Quicklogin login}}.
-register_login_available:{{Identical|Available}}
+register_login_available:{{Identical|Available}}\nMessage next to login to indicate that the entered user name is available (AJAX lookup).
+register_login_taken:Message next to login to indicate that the entered user name is already taken and hence not available (AJAX lookup).
 register_password:{{Identical|Password}}
 register_conf_pass:{{Identical|Confirm password}}
 register_name:{{Identical|Name}}
@@ -304,6 +305,7 @@ post_err_edttimelimit_title:{{Identical|Error}}
 post_reply_update:This message is shown in the forum's I-SPY system to indicate what this user is busy doing.\n\nUsed as session status to indicate last known action.\n{{Related|Fud-status}}
 post_topic_update:This message is shown in the forum's I-SPY system to indicate what this user is busy doing.\n\nUsed as session status to indicate last known action.\n{{Related|Fud-status}}
 referals_update:This message is shown in the forum's I-SPY system to indicate what this user is busy doing.\n\nUsed as session status to indicate last known action.\n{{Related|Fud-status}}
+register_err_short_login:Error indicating that the user's login name is too short.
 register_profile_update:This message is shown in the forum's I-SPY system to indicate what this user is busy doing.\n\nUsed as session status to indicate last known action.\n{{Related|Fud-status}}
 register_register_update:Used as session status to indicate last known action.\n{{Related|Fud-status}}
 report_err_nosuchmsg_title:{{Identical|Error}}

@@ -303,11 +303,15 @@ register_builtin:Integrao
 register_specify_url:Conseñar URL
 register_uploaded:Xubir un avatar
 register_login:Aniciu de sesión:
+register_login_desc:El nome col que quieras aniciar sesión y que te conozan nesti sitiu.
+register_login_available:Disponible
+register_login_taken:Coyíu
 register_password:Contraseña:
+register_password_desc:Contraseña pa la cuenta. Les contraseñes son sensibles a les mayúscules y han tener polo menos 6 caráuteres de llonxitú.
 register_conf_pass:Confirma la contraseña:
-# Fuzzy
-register_email_desc:Por favor, escribi una direición de corréu electrónicu válida. Pues escoyer anubrilu más abaxo, na seición de preferencies.
+register_email_desc:La to direición de corréu electrónicu. Pues escoyer tapecela más abaxo, na seición de preferencies.
 register_name:Nome:
+register_name_desc:El to nome real.
 register_your_pass:La to conseña:
 register_update:Anovar
 register_avatar_type:Triba d'avatar:
@@ -320,8 +324,7 @@ register_preview:Vista previa
 register_custom_avatar_upload:Ficheru del avatar personalizáu:
 register_register:Rexistrase
 register_required:Información obligatoria
-# Fuzzy
-register_required_desc:Tolos campos son obligatorios. Por favor, ten en cuenta que les conseñes distinguen ente mayúscules y minúscules.
+register_required_desc:Tolos campos son obligatorios.
 register_optional:Información opcional
 register_optional_desc:Se recomienda que nun reveles denguna información personal o que t'identifique nel to perfil. Tola información será visible pa los otros miembros del foru.
 register_location:Allugamientu:
@@ -648,8 +651,7 @@ postcheck_email_body:Nun pues unviar un corréu electrónicu ensin el cuerpu del
 private_msg_notify_subj:Lleer el avisu pa: {VAR: m->subject}
 private_msg_notify_body:Hola, <br />{VAR: usr->login} abrió el to mensaxe priváu tituláu "{VAR: m->subject}".<br />Esti ye un avisu automáticu xeneráu el {TEMPLATE: private_msg_notify_body_date}<br />
 referals_update:Navegar poles referencies
-# Fuzzy
-register_err_short_login:El nome d'usuariu qu'escoyisti ye demasiao curtiu. Los nomes d'usuariu tienen de tener polo menos 4 caráuteres
+register_err_short_login:El nome d'usuariu qu'escoyisti ye curtiu enforma. Los nomes d'usuariu tienen de tener polo menos 2 caráuteres.
 register_err_login_notallowed:Esti nome d'usuariu nun ta permitíu.
 register_err_loginunique:Los nomes d'usuariu del foru tienen de ser únicos. Yá hai un usuariu con esti nome.
 register_err_emailexists:Esta direición de corréu electrónicu yá ta asociada con una cuenta. Si escaecisti la to conseña, por favor, emplega la opción de restauración en cuenta de volvete a rexistrar.

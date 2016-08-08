@@ -1,6 +1,7 @@
 # Messages for Serbian (Cyrillic script) (српски (ћирилица)‎)
 # Exported from translatewiki.net
 # Author: Agilight
+# Author: Milicevic01
 # Author: Naudefj
 # Author: Rancher
 # Author: Srdjan m
@@ -323,8 +324,7 @@ register_preview:Преглед
 register_custom_avatar_upload:Датотека корисничке сличице:
 register_register:Отвори налог
 register_required:Обавезни подаци
-# Fuzzy
-register_required_desc:Сва поља су обавезна. Упамтите да је лозинка осетљива на мала и велика слова.
+register_required_desc:Сва поља су обавезна.
 register_optional:Необавезни подаци
 register_optional_desc:Препоручљиво је да не одајете никакве личне податке. Сви подаци биће видљиви од стране других чланова.
 register_location:Место:

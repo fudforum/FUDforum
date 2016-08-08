@@ -2,6 +2,7 @@
 # Exported from translatewiki.net
 # Author: HanV
 # Author: McDutchie
+# Author: MrLeopold
 # Author: Naudefj
 # Author: Robin van der Vliet
 # Author: Robin0van0der0vliet
@@ -308,11 +309,15 @@ register_builtin:Ingebouwd
 register_specify_url:Geef een URL op
 register_uploaded:Avatar uploaden
 register_login:Gebruikersnaam:
+register_login_desc:De naam waarmee u wilt inloggen en bekend staan op deze site.
+register_login_available:Beschikbaar
+register_login_taken:Al bezet
 register_password:Wachtwoord:
+register_password_desc:Wachtwoord voor uw account. Wachtwoorden zijn hoofdlettergevoelig en moeten tenminste 6 tekens lang zijn.
 register_conf_pass:Wachtwoord bevestigen:
-# Fuzzy
-register_email_desc:Geef een geldig e-mailadres op. U kunt bij Voorkeuren aangeven dit te verbergen voor andere gebruikers.
+register_email_desc:Uw e-mailadres. U kan hieronder, bij Voorkeuren aangeven dat u het wilt verbergen.
 register_name:Naam:
+register_name_desc:Uw echte naam.
 register_your_pass:Uw wachtwoord:
 register_update:Bijwerken
 register_avatar_type:Avatartype:
@@ -325,8 +330,7 @@ register_preview:Voorvertoning
 register_custom_avatar_upload:Eigen avatarbestand:
 register_register:Registreren
 register_required:Vereiste informatie
-# Fuzzy
-register_required_desc:Alle velden zijn verplicht.  Let op: wachtwoorden zijn hoofdlettergevoelig.
+register_required_desc:Alle velden zijn verplicht.
 register_optional:Optionele gegevens
 register_optional_desc:We raden u aan geen persoonlijke of identificerende gegevens op te nemen in uw profiel.  Alle gegevens zijn zichtbaar voor andere forumleden.
 register_location:Locatie:
@@ -653,8 +657,7 @@ postcheck_email_body:U kunt geen e-mail verzenden zonder inhoud.
 private_msg_notify_subj:{VAR: m->subject} is gelezen
 private_msg_notify_body:Hallo,<br />{VAR: usr->login} heeft uw privébericht "{VAR: m->subject}" gelezen op {TEMPLATE: private_msg_notify_body_date}<br />
 referals_update:Ingebrachte leden aan het bekijken
-# Fuzzy
-register_err_short_login:De gebruikersnaam die u hebt opgegeven is te kort. Gebruikersnamen moeten minstens vier tekens lang zijn.
+register_err_short_login:De gebruikersnaam die u hebt opgegeven is te kort. Gebruikersnamen moeten minstens twee tekens lang zijn.
 register_err_login_notallowed:Deze gebruikersnaam is niet toegestaan.
 register_err_loginunique:Gebruikersnamen op het forum moeten uniek zijn. Er is al een gebruikers met deze naam.
 register_err_emailexists:Er is al een gebruiker met dit e-mailadres. Als u uw wachtwoord vergeten bent, gebruik dan de optie "Wachtwoord e-mailen" in plaats van u opnieuw te registreren.

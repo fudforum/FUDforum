@@ -316,6 +316,8 @@ register_specify_url:指定的 URL
 register_uploaded:上傳頭像
 register_login:帳號：
 register_login_desc:您想用於登入、並在此網站顯示的名字。
+register_login_available:可用
+register_login_taken:已使用
 register_password:密碼：
 register_password_desc:用於您帳戶的密碼。密碼內容區分大小寫並至少6個字元長度。
 register_conf_pass:密碼確認：
@@ -661,8 +663,7 @@ postcheck_email_body:你不能的情況下發送一封電子郵件，郵件正�
 private_msg_notify_subj:讀取通知：{VAR: m->subject}
 private_msg_notify_body:您好，<br>{VAR: usr->login}已打開私人郵件標題為" {VAR: m->subject} "。<br>這是在生成自動的通知 {範本： private_msg_notify_body_date}<br>
 referals_update:流覽轉介
-# Fuzzy
-register_err_short_login:您所選擇的登錄太短。登錄名必須至少4個字符長。
+register_err_short_login:您所選擇的登錄太短。登錄名必須至少2個字符長。
 register_err_login_notallowed:檔案名非法。
 register_err_loginunique:論壇的登入名稱必須是唯一的。這個名字已經有一位使用者。
 register_err_emailexists:此電子郵件地址已與帳戶相關聯。如果您忘記密碼，請使用還原選項，而不是重新登記。
