@@ -306,6 +306,7 @@ register_builtin:Integrita
 register_specify_url:Specifigi URL-on
 register_uploaded:Alŝuti vizaĝbildon
 register_login:Salutnomo:
+register_login_available:Disponebla
 register_password:Pasvorto:
 register_conf_pass:Konfirmi Pasvorton:
 # Fuzzy

@@ -295,6 +295,8 @@ register_builtin:Iebūvēta
 register_specify_url:Norādīt URL
 register_uploaded:Ielādēt nozīmīti
 register_login:Lietotāja vārds:
+register_login_available:Pieejams
+register_login_taken:Jau aizņemts
 register_password:Parole:
 register_conf_pass:Atkārtot paroli:
 register_email_desc:Tava e-pasta adrese. To paslēpt varēsi zemāk, iestatījumu sadaļā.
