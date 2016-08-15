@@ -466,7 +466,7 @@ login_forgot_passwd:비밀번호 잊음
 login_use_cookie:쿠키사용<br /><span class="SmallText">만약 도서관,PC방,학교 등의 공공장소에서 로그인하고 있다면, 보안을 위해 이 체크박스를 해제하십시오. 이 옵션을 선택할 경우, 다음 접속 시 자동으로 로그인 상태가 유지됩니다.</span>
 login_login:로그인
 login_login_btn:로그인
-login_name_required:사용자 ID가 필요합니다
+login_name_required:로그인 이름은 필수입니다
 login_passwd_required:비밀번호가 필요합니다
 login_invalid_radius:로그인/비밀번호 조합이 잘못되었습니다
 reset_confirmation:등록해 주셔서 감사합니다,\n\n 계정 활성화를 위해 아래의 URL로 접속하십시오:\n\n{VAR: url}\n\n계정이 활성화되고 포럼으로 포럼 메인 페이지로 이동될 것입니다.
@@ -644,7 +644,7 @@ post_error_generic:오류 발생
 postcheck_max_images_err:메시지마다 그림 {GVAR: MAX_IMAGE_COUNT}개보다 많은 것은 허용되지 않습니다. 그림 수를 줄여주세요.
 postcheck_no_links_allowed:{PLURAL: posts_before_links|$1개} 이상의 글을 게시할 때까지 링크를 사용할 수 없습니다.
 postcheck_subj_needed:제목이 필요합니다
-postcheck_no_such_user:이 포럼에는 "{FUNC: char_fix(htmlspecialchars($v))}"와 일치하는 사용자가 없습니다.
+postcheck_no_such_user:이 포럼에는 "{FUNC: char_fix(htmlspecialchars($v))}"와(과) 일치하는 사용자가 없습니다.
 postcheck_ignored:차단 리스트에 등록되었기 때문에 "{FUNC: char_fix(htmlspecialchars($v))}"에게 쪽지를 전송할 수 없습니다.
 postcheck_no_recepient:수신자가 없어서, 메시지를 보낼 수 없습니다
 postcheck_invalid_email:올바른 이메일 주소를 입력하세요.
@@ -654,7 +654,7 @@ private_msg_notify_subj:읽기 알림: {VAR: m->subject}
 private_msg_notify_body:안녕하세요,<br />{VAR: usr->login}님이 "{VAR: m->subject}"이라는 제목의 개인 메시지를 열었습니다.<br />{TEMPLATE: private_msg_notify_body_date}에 생성된 자동적인 알림입니다<br />
 referals_update:추천 탐색
 register_err_short_login:지정한 로그인 이름이 너무 짧습니다. 로그인 이름은 적어도 2자여야 합니다.
-register_err_login_notallowed:허가되지 않은 사용자 이름입니다.
+register_err_login_notallowed:이 로그인 이름은 허용되지 않습니다.
 register_err_loginunique:포럼 로그인 이름은 고유해야 합니다. 이미 이 이름으로 된 사용자가 있습니다.
 register_err_emailexists:이메일 주소가 이미 계정에 연결되어 있습니다. 비밀번호를 잊었다면 다시 등록하는 대신 복구 옵션을 사용해주세요.
 register_err_shortpasswd:패스워드는 최소한 6자 이상으로 만들어야 합니다.

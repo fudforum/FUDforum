@@ -4,6 +4,7 @@
 # Author: ArdWar
 # Author: Arifin.wijaya
 # Author: Bennylin
+# Author: Bonaditya
 # Author: C5st4wr6ch
 # Author: Farras
 # Author: Ilham151096
@@ -322,7 +323,7 @@ register_login_taken:Sudah diambil
 register_password:Kata sandi:
 register_password_desc:Kata sandi untuk akun Anda. Kata sandi peka terhadap huruf dan harus memiliki panjang karakter lebih dari 6 karakter.
 register_conf_pass:Konfirmasi Password:
-register_email_desc:Alamat surel Anda. Anda bisa menyembunyikan surel, lakukan di bagian kesukaan.
+register_email_desc:Alamat surel Anda. Anda bisa menyembunyikan surel pada bagian preferensi.
 register_name:Nama:
 register_name_desc:Nama asli Anda.
 register_your_pass:Kata sandi Anda:

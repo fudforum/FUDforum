@@ -9,6 +9,7 @@
 # Author: Naudefj
 # Author: Nghtwlkr
 # Author: Poxnar
+# Author: Rockyfelle
 # Author: Tobulos1
 # Author: Warrakkk
 # Author: WikiPhoenix
@@ -313,6 +314,7 @@ register_builtin:Inbyggd
 register_specify_url:Ge URL
 register_uploaded:Skicka avatar
 register_login:Logga in:
+register_login_taken:Redan taget
 register_password:Lösenord:
 register_conf_pass:Bekräfta lösenord:
 # Fuzzy
@@ -658,8 +660,7 @@ postcheck_email_body:Kan inte skicka e-post utan text.
 private_msg_notify_subj:Kvittering för: {VAR: m->subject}
 private_msg_notify_body:Hej!<br />Den {TEMPLATE: private_msg_notify_body_date} läste {VAR: usr->login} ditt privata meddelande med rubriken "{VAR: m->subject}"<br />
 referals_update:Visar refererade medlemmar
-# Fuzzy
-register_err_short_login:Det användarnamn du valt är för kort. Användarnamnet måste vara minst 4 tecken långt
+register_err_short_login:Det användarnamn du valt är för kort. Användarnamn måste vara minst 2 tecken långa.
 register_err_login_notallowed:Det här användarnamnet är inte tillåtet
 register_err_loginunique:Användarnamnen måste vara unika. Det finns redan en medlem med detta användarnamn
 register_err_emailexists:Den här e-postadressen finns redan i vår databas. Om du försöker registrera dig på nytt för att du har glömt ditt lösenord kan du använda återställningsfunktionen istället.

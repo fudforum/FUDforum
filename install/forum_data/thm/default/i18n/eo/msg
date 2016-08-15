@@ -39,7 +39,7 @@ forum_new_messages:Novaj mesaĝoj
 forum_none_messages:Nur registritaj forumanoj povas sekvi legitajn &amp; nelegitajn mesaĝojn
 forum_old_messages:Neniuj novaj mesaĝoj
 from:De:
-gender:Sekso
+gender:Sekso:
 go:Ek
 goto_next_msg:Iri al posta mesaĝo
 goto_prev_msg:Iri al antaŭa mesaĝo
@@ -263,19 +263,19 @@ month_9:septembro
 month_10:oktobro
 month_11:novembro
 month_12:decembro
-sunday:Dimanĉo
+sunday:dimanĉo
 sunday_short:D
-monday:Lundo
+monday:lundo
 monday_short:L
-tuesday:Mardo
+tuesday:mardo
 tuesday_short:Ma
-wednesday:Merkredo
+wednesday:merkredo
 wednesday_short:Me
-thursday:Ĵaŭdo
+thursday:ĵaŭdo
 thursday_short:Ĵ
-friday:Vendredo
+friday:vendredo
 friday_short:V
-saturday:Sabato
+saturday:sabato
 saturday_short:S
 male:Vira
 female:Virina
@@ -912,7 +912,7 @@ post_moderated_forum_ttl:Sciigo pri Kontrolata Forumo
 buddy_list_bday:Hodiaŭ {VAR: r[2]} iĝas {VAR: age} jaraĝa
 email_warning_msg:Se vi ŝanĝas vian nunan retadreson, via konto estos markita nekonfirmita ĝis vi konfirmos ĝin per retpoŝto.
 register_show_im:Montri Ekmesaĝilajn Indikilojn:
-register_show_im_desc:Ĉu aŭ ne montri ekmesaĝilajn indikilojn de la aŭtoro apud liaj mesaĝoj.
+register_show_im_desc:Ĉu aŭ ne montri ekmesaĝilajn indikilojn de la aŭtoro apud la mesaĝoj de la aŭtoro.
 unread_message:Nelegita Mesaĝo
 read_message:Legi Mesaĝon
 threadt_more:&lt;pli&gt;

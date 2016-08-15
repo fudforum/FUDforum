@@ -7,11 +7,11 @@
 # Author: Mirzali
 
 action:Kerdış
-add_to_buddy_list:Peyey defi
+add_to_buddy_list:Listey embazan dek
 admin:Admin
-admin_control_panel:İdarekari
+admin_control_panel:İdaretey
 administrator:İdarekari
-attachment:Çol
+attachment:Ole
 avatar:Avatar:
 average_post_count:Pêro piya {PLURAL: u->posted_msg_count|$1 Message|$1 Mesaci} ({PLURAL: avg|$1 Mesaci|$1 mesaci} herg roc)
 biography:Biyografiye:
@@ -26,8 +26,12 @@ download_counter:Ronayış {PLURAL: r->dlcount|$1 time|$1 mend}
 pmsg_download_counter:Ronayış {PLURAL: r->dlcount|$1 time|$1 mend}
 email:E-mail
 email_to_friend:E-mailê embazi
+email_to_friend_desc:URL ena perer bırış embaz dê xorê
+email_user:Karberi rê e-posta bırış
 faq:Peşti
-flat_view:Peyser şo asayışê raştiê hesebiyayey
+first_unread_msg:Şo mesacanê nêwanayeya
+first_unread_msg_desc:Ena mersela dı şo nêwaneyaye mesaci
+flat_view:Peyser şo asayışê raştiyê hesebiyayey
 forum:Forum
 forum_icon:Forum Icon
 forum_new_messages:Mesacê neweyi
@@ -41,11 +45,14 @@ home:Keye
 homepage:Keyepel
 icq_control_panel:Panela ICQ Miyande-Mesaci
 icq_message_form:ICQ Mesac Formi:
+ignore_user:Mesacanê enê kerberi hemın peygoş ke
 im_aim:AIM Handle:
 im_msnm:MSN Messenger:
 im_yahoo:Yahoo Messenger:
 image:Resım
 index_forum:Forum
+index_new_posts:Ziyaret da şıma dıma rışyeyê newey rışiya yê
+index_no_new_posts:Ziyaret da şıma dıma theba nêrışiya ya
 index_url_redirection:Hetanayışê cı
 interests:Eleqe:
 last_post:Mesaco peyên
@@ -78,7 +85,7 @@ moderator:Cerbener
 moderator_of:Wesetê Forumi
 moderator_options:Wesetin Weçiney
 moderators:{PLURAL: modcount|Wesetber|Wesetber}
-move_thread:Bıkırış
+move_thread:Bıkırışe
 na:n/a
 new_posts:Mesacê Neweyi
 new_thread:Topiko newe vıraze
@@ -99,7 +106,17 @@ usrinfo_private_message:Mesaco Xısusi:
 profile:Panela Cerbnayışi
 rate_thread:Meseler ercenê
 rating:Nısbetkerden
+refresh_list:Lista anewe ke
+register:Qeyd Be
+registered:Qeyd biyayış:
+registered_on:Dema qeydi: {TEMPLATE: registered_on_date}
+replies:Cewabi
+report_to_mod:Mesavi kontrolori rê rapor ke
+reported_messages:Mesaci raporya yê
+reveal_all_posts:Heme mesacanê  karberê {VAR: user_login} bıasne
+reveal_post:Mesacan bıasne
 search:Cı geyre
+sel_todays_posts:Mesacê ewroyi
 send:Bırışe
 size:Gırdiye:
 status:Weziyet:
