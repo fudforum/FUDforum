@@ -317,9 +317,11 @@ register_builtin:Incorporado
 register_specify_url:Especificar URL
 register_uploaded:Subir avatar
 register_login:Nombre de usuario:
+register_login_desc:El nombre con el que te gustaría conectarte y ser conocido en este sitio.
 register_login_available:Disponible
 register_login_taken:Ya tomado
 register_password:Contraseña:
+register_password_desc:Contraseña para tu cuenta. Las contraseñas distinguen mayúsculas de minúsculas, y deben tener al menos 6 caracteres de longitud.
 register_conf_pass:Confirmar contraseña:
 register_email_desc:Tu dirección de correo electrónico. Puedes elegir ocultarla en la sección de preferencias.
 register_name:Nombre:
@@ -663,8 +665,7 @@ postcheck_email_body:No puede enviar un correo sin el cuerpo del mensaje.
 private_msg_notify_subj:Leer el aviso para: {VAR: m->subject}
 private_msg_notify_body:Hola, <br />{VAR: usr->login} ha leído su mensaje privado "{VAR: m->subject}", el {TEMPLATE: private_msg_notify_body_date}<br />
 referals_update:Recorriendo las referencias
-# Fuzzy
-register_err_short_login:El nombre de usuario que ha seleccionado es demasiado corto. Los nombres de usuario deben tener al menos 4 caracteres
+register_err_short_login:El nombre de usuario que has seleccionado es demasiado corto. Los nombres de usuarios deben tener al menos 2 caracteres.
 register_err_login_notallowed:Este nombre de usuario no está permitido.
 register_err_loginunique:Los nombres de usuario del foro deben ser únicos. Ya existe un usuario con ese nombre.
 register_err_emailexists:Este correo electrónico ya está asociado a una cuenta. Si ha olvidado su clave, use la opción de recordar contraseña en lugar de volver a registrarse.

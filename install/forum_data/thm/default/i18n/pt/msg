@@ -12,6 +12,7 @@
 # Author: Malafaya
 # Author: McDutchie
 # Author: Naudefj
+# Author: Tark
 # Author: Vitorvicentevalente
 # Author: Waldir
 
@@ -334,8 +335,7 @@ register_preview:Previsualização
 register_custom_avatar_upload:Ficheiro do Avatar escolhido:
 register_register:Registar
 register_required:Informação requerida
-# Fuzzy
-register_required_desc:Todos os campos são requeridos. É favor notar que na password serão diferenciados os caracteres maiusculos e minusculos .
+register_required_desc:Todos os campos são requeridos.
 register_optional:Informação opcional
 register_optional_desc:É recomendado que não revele a identificação ou alguma informação pessoal no seu perfil.  Toda a informação será visivel para todos os membros do forum.
 register_location:Localidade:
@@ -662,8 +662,7 @@ postcheck_email_body:Não pode mandar um E-mail sem conter uma mensagem
 private_msg_notify_subj:Notificação de leitura para: {VAR: m->subject}
 private_msg_notify_body:Olá,<br />{VAR: usr->login} Leu a sua mensagem privada, "{VAR: m->subject}", em {TEMPLATE: private_msg_notify_body_date}<br />
 referals_update:A visualisar referências
-# Fuzzy
-register_err_short_login:O login que escolheu é demasiado curto. O login tem que ter pelo menos 4 caracteres de tamanho
+register_err_short_login:O login que escolheu é demasiado curto. O login tem que ter pelo menos 2 caracteres de tamanho
 register_err_login_notallowed:Este login não é permitido
 register_err_loginunique:O login do forum deve ser unico, já existe um utilizador com este nome registado neste forum.
 register_err_emailexists:Este E-mail já existe, se esqueceu a password por favor use a opção de restauro em vez de se voltar a registar
