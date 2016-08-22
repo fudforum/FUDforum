@@ -315,6 +315,8 @@ register_specify_url:Указать URL
 register_uploaded:Загрузить картинку
 register_login:Учётная запись:
 register_login_desc:Имя, под которым вы хотите входить в систему и быть известным на этом сайте.
+register_login_available:Доступно
+register_login_taken:Уже занято
 register_password:Пароль:
 register_password_desc:Пароль для Вашей учетной записи. Пароли чувствительны к регистру и должны быть не менее 6 символов длиной.
 register_conf_pass:Пароль повторно (для проверки):
@@ -660,8 +662,7 @@ postcheck_email_body:Невозможно послать сообщение ес
 private_msg_notify_subj:Чтение извещения о: {VAR: m->subject}
 private_msg_notify_body:Привет,<br />{VAR: usr->login} прочел ваше личное сообщение, "{VAR: m->subject}", от {TEMPLATE: private_msg_notify_body_date}<br />
 referals_update:Просмотр приглашенных
-# Fuzzy
-register_err_short_login:Выбрано слишком короткое имя учётной записи — оно должно быть не короче 4-х символов.
+register_err_short_login:Выбрано слишком короткое имя учётной записи. Оно должно быть не короче 2 символов.
 register_err_login_notallowed:Недопустимое имя участника.
 register_err_loginunique:Имена участников форума должны быть уникальными, а заданное вами имя учётной записи уже занято другим участником.
 register_err_emailexists:Пользователь с таким адресом e-mail уже зарегистрирован. Если вы забыли пароль - используйте функцию его восстановления или сброса вместо повторной регистрации в форуме.
