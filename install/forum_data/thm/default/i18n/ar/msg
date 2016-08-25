@@ -311,11 +311,15 @@ register_builtin:المُضمّنة
 register_specify_url:حدّد مسارًا
 register_uploaded:ارفع الأفتار
 register_login:تسجيل الدخول:
+register_login_desc:الاسم الذي تود تسجيل الدخول به و الذي تود أن يظهر على هذا الموقع.
+register_login_available:متاح
+register_login_taken:مأخوذ مسبقا
 register_password:كلمة السر:
+register_password_desc:الكلمة السرية لحسابك. الكلمات السرية حساسة لحالة الأحرف و يجب أن تحتوي على 6 أحرف على الأقل.
 register_conf_pass:تأكيد كلمة السر:
-# Fuzzy
-register_email_desc:من فضلك أدخل عنوان بريد إلكتروني صالح. تستطيع اختيار اخفائه أدناه، في قسم التفضيلات.
+register_email_desc:البريد الإلكتروني الخاص بك. يمكنك اختيار إخفاءه أدناه في قسم التفضيلات.
 register_name:الاسم:
+register_name_desc:اسمك الحقيقي.
 register_your_pass:كلمة سرّك:
 register_update:حدّث
 register_avatar_type:نوع الأفتار:
@@ -328,8 +332,7 @@ register_preview:عرض مسبق
 register_custom_avatar_upload:ملف أفتار مُخصّص:
 register_register:سجّل
 register_required:معلومات مطلوبة
-# Fuzzy
-register_required_desc:كل الحقول مطلوبة. من فضلك لاحظ أن كلمات السر حساسة لحالة الأحرف.
+register_required_desc:كل الحقول مطلوبة.
 register_optional:معلومات اختيارية
 register_optional_desc:من الموصى به ألا تكشف عن أي معلومات شخصية في ملفك الشخصي. كل المعلومات ستكون ظاهرة لمستخدمي المنتدى الآخرين.
 register_location:الموقع:
@@ -656,8 +659,7 @@ postcheck_email_body:لا يمكنك إرسال بريد إلكتروني بدو
 private_msg_notify_subj:اقرأ إشعارًا عن: {VAR: m->subject}
 private_msg_notify_body:مرحبًا! <br />{VAR: usr->login} فتح رسالتك الخاص ذات العنوان "{VAR: m->subject}".<br /> هذا إشعار آلي وُلد في {TEMPLATE: private_msg_notify_body_date}<br />
 referals_update:يتصفح الإحالات
-# Fuzzy
-register_err_short_login:اسم الولوج الذي اخترته قصير جدًا. يجب ألا يقل طول أسماء الدخول عن 4 محارف.
+register_err_short_login:اسم الولوج الذي اخترته قصير جدًا. يجب ألا يقل طول أسماء الدخول عن حرفين اثنين.
 register_err_login_notallowed:اسم الولوج هذا غير مسموح به.
 register_err_loginunique:يجب أن تكون أسماء ولوج المنتدى فريدة. يوجد مستخدم مسبقًا بهذا الاسم.
 register_err_emailexists:عنوان البريد الإلكتروني هذا مربوط مسبقًا بحساب. إذا كنت نسيت كلمة سرك، فمن فضلك استخدم خيار الاسترجاع بدلًا من إعادة التسجيل.

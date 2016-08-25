@@ -192,11 +192,11 @@ unanswered_posts_desc:显示所有未回复信息
 unlock_thread:解锁本主题
 unread_msg:本主题包含尚未阅读的消息
 unread_msg_locked:锁定的话题包含未读消息
-unread_posts:未读信息
-unread_posts_desc:显示所有未读信息
-unsub_from_thread:取消订阅主题
+unread_posts:未读消息
+unread_posts_desc:显示所有未读消息
+unsub_from_thread:从话题取消订阅
 unsub_from_thread_desc:停止接收有关本主题中最新消息通知
-unbookmark_thread:删除书签
+unbookmark_thread:从书签中移除
 unbookmark_thread_desc:从您的书签列表中删除此主题
 unsubscribe:取消订阅
 unsubscribe_desc:停止接收有关本论坛中最新主题通知
@@ -936,7 +936,7 @@ pm_err_disabled_msg:你当前设置为不能发送悄悄话！可以在个人信
 err_mod_acc_ttl:未验证的帐户
 err_mod_acc_msg:账号在被激活之前必须得到系统管理员的确认，在得到确认之前，你的账号不享有注册用户的所有功能！
 accounts_pending_approval:待审核帐号
-saved:珍藏夹
+saved:已保存
 register_err_time_limit:每{GVAR: REG_TIME_LIMIT}秒限制一个用户可以注册的极限已达到， 请稍等{PLURAL: reg_limit_reached|$1|$1}秒再来注册。
 register_err_avatardimtobig:头像大小 <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> 超出了论坛限制的： <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
 buddy_offline:{VAR: r[2]} 当前不在线

@@ -102,7 +102,7 @@ new_thread:Új téma létrehozása
 newest_user:A legújabb regisztrált felhasználó:
 next_page:Következő oldal
 next_thread:Következő téma:
-no_messages:Ebben a fórumban nincsenek üzenetek.<br />Legyél Te az első, aki üzenetet küld a fórumra.
+no_messages:Ebben a fórumban nincsenek üzenetek.<br />Legyél Te az első, aki új témát hoz létre a fórumon.
 no_msg_body:Az üzenetnek nincs szövege
 no_new_posts:Nincsenek új üzenetek
 no_posts:Nincsenek üzenetek
@@ -413,7 +413,7 @@ include_sig:Aláírás hozzáfűzése
 include_sig_desc:A profilod aláírásának hozzáfűzése.
 disable_smilies:Hangulatjelek letiltása ebben az üzenetben
 spell_check_msg:Helyesírásellenőrzés
-post_form:Űrlap elküldése
+post_form:Hozzászólás űrlap
 post_forum:Fórum:
 post_title:Cím:
 post_body:Az hozzászólás szövege:
