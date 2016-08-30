@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2016 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -243,6 +243,15 @@ class fud_pdf extends FPDF
 	$page	= isset($_GET['page']) ? (int)$_GET['page'] : 0;
 	$sel	= isset($_GET['sel']) ? (array)$_GET['sel'] : 0;
 
+	// Cleanup $sel
+	foreach ($sel as $k => $v) {
+		if ($v = (int)$v) {
+			$sel[$k] = $v;
+		} else {
+			unset($sel[$k]);
+		}
+	}
+
 	if ($forum) {
 		if (!($FUD_OPT_2 & 268435456)) {	// PDF_ALLOW_FULL
 			 std_error('disabled');		
@@ -295,14 +304,7 @@ class fud_pdf extends FPDF
 				LEFT JOIN {SQL_TABLE_PREFIX}poll p ON m.poll_id=p.id
 			';
 	} else if ($sel) { /* PM handling. */
-		foreach ($sel as $k => $v) {
-			if ($v = (int)$v) {
-				$sel[$k] = $v;
-			} else {
-				unset($sel[$k]);
-			}
-		}
-		if (!$sel || !q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}pmsg WHERE id IN('. implode(',', $sel) .') AND duser_id='. _uid)) {
+		if (!q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}pmsg WHERE id IN('. implode(',', $sel) .') AND duser_id='. _uid)) {
 			invl_inp_err();
 		}
 		fud_use('private.inc');

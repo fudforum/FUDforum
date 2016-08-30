@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2016 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -46,7 +46,7 @@
 		$move_to = (!isset($_POST['btn_delete']) && isset($_POST['moveto'], $folders[$_POST['moveto']])) ? (int) $_POST['moveto'] : 0;
 
 		if (!$move_to && !isset($_POST['old_folder_id'])) {
-			$_POST['old_folder_id'] = q_singleval('SELECT fldr FROM {SQL_TABLE_PREFIX}pmsg WHERE id='. $sel[0]);
+			$_POST['old_folder_id'] = q_singleval('SELECT fldr FROM {SQL_TABLE_PREFIX}pmsg WHERE id='. (int)$sel[0]);
 		}
 
 		foreach ($sel as $m) {
