@@ -305,11 +305,15 @@ register_builtin:Per defaut sul site
 register_specify_url:Especificar una URL
 register_uploaded:Mandar un Avatar
 register_login:Utilizaire :
+register_login_desc:Lo nom amb lo quel vos volètz connectar e èsser conegut sus aqueste site.
+register_login_available:Disponible
+register_login_taken:Ja pres
 register_password:Senhal :
+register_password_desc:Senhal per vòstre compte. Los senhals son sensibles a la cassa e devon aver al mens 6 caractèrs de long.
 register_conf_pass:Confirmatz lo senhal :
-# Fuzzy
-register_email_desc:Entratz una adreça e-mail valida. Avètz la possibilitat de l'amagar als autres utilizaires dins la seccion « Preferéncias ».
+register_email_desc:Vòstra adreça de corrièr electronic. Podètz causir de l'amagar çaijós, dins la seccion « Preferéncias ».
 register_name:Nom :
+register_name_desc:Vòstre nom vertadièr.
 register_your_pass:Vòstre senhal :
 register_update:Metre a jorn
 register_avatar_type:Tipe d'avatar :
@@ -322,8 +326,7 @@ register_preview:Previsualizacion
 register_custom_avatar_upload:Fichièr que correspond a l'avatar personal :
 register_register:S'inscriure
 register_required:Informacions obligatòrias
-# Fuzzy
-register_required_desc:Totes los camps son obligatòris. Atencion, lo senhal interprèta las majusculas e minusculas diferentament !
+register_required_desc:Totes los camps son obligatòris.
 register_optional:Informacions facultativas
 register_optional_desc:Es recomandat de revelar pas d'informacion sensibla pròpria a vòstra identitat dins vòstre perfil. Totas aquelas informacions seràn accessiblas als autres membres del forum.
 register_location:Situacion geografica :
@@ -650,8 +653,7 @@ postcheck_email_body:Podètz pas mandar d'e-mails sens contengut.
 private_msg_notify_subj:Notificacion de lectura del messatge : {VAR: m->subject}
 private_msg_notify_body:<br />{VAR: usr->login} a legit vòstre messatge privat intitolat « {VAR: m->subject} » lo {TEMPLATE: private_msg_notify_body_date}<br />
 referals_update:Percor la lista dels utilizaires pairinats
-# Fuzzy
-register_err_short_login:Lo nom d'utilizaire qu'avètz causit es tròp cort. Un nom d'utilizaire deu comportar al mens 4 caractèrs
+register_err_short_login:Lo nom d'utilizaire qu'avètz causit es tròp cort. Los noms d'utilizaire devon comportar al mens 2 caractèrs.
 register_err_login_notallowed:Aqueste nom d'utilizaire es pas autorizat
 register_err_loginunique:Un membre del forum utiliza ja aqueste nom, causissètz-ne un autre
 register_err_emailexists:Aquesta adreça e-mail existís ja. S'avètz doblidat vòstre senhal, utilizatz l'opcion de restabliment. Se tornar inscriure es pas una solucion a aqueste problèma.

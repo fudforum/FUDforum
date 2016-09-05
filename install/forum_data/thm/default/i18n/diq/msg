@@ -16,7 +16,7 @@ avatar:Avatar:
 average_post_count:Pêro piya {PLURAL: u->posted_msg_count|$1 Message|$1 Mesaci} ({PLURAL: avg|$1 Mesaci|$1 mesaci} herg roc)
 biography:Biyografiye:
 birth_date:Rocbiyayış
-by:Rışten:
+by:Rıştoğ:
 by_mod:Moderator
 current_time:Tarix
 custom_avatar_queue:Pocıqa Avatar dê xususi
@@ -36,7 +36,7 @@ forum:Forum
 forum_icon:Forum Icon
 forum_new_messages:Mesacê neweyi
 forum_old_messages:Mesacê neweyi çıniyê
-from:Rışten:
+from:Rıştoğ:
 gender:Neri makey:
 go:Şo
 goto_next_msg:Şo Mesac dê peyêni
@@ -100,30 +100,39 @@ on:Akerde
 pm:Mesacê Xısusiyi
 poll:Reydayış
 post_count:Amariya Mesaca {VAR: u_pcount}
+post_count_l:Amarê Mesacan:
 posts:Mesaci
 posts_c:Mesaci:
+prev_thread:Mewzuyo verên:
 usrinfo_private_message:Mesaco Xısusi:
 profile:Panela Cerbnayışi
 rate_thread:Meseler ercenê
 rating:Nısbetkerden
-refresh_list:Lista anewe ke
-register:Qeyd Be
+refresh_list:Liste newe ke
+register:Qeyd be
 registered:Qeyd biyayış:
 registered_on:Dema qeydi: {TEMPLATE: registered_on_date}
 replies:Cewabi
 report_to_mod:Mesavi kontrolori rê rapor ke
 reported_messages:Mesaci raporya yê
 reveal_all_posts:Heme mesacanê  karberê {VAR: user_login} bıasne
-reveal_post:Mesacan bıasne
+reveal_post:mesacan bımocne
 search:Cı geyre
 sel_todays_posts:Mesacê ewroyi
 send:Bırışe
+sender_email:E-posteyê rıştoği:
+sender_name:Nameyê rıştoği:
+show_posts_by:Mesacanê karber {VAR: u_alias}'i bıasne
 size:Gırdiye:
 status:Weziyet:
+sticky:zeleqok:
 subject:Mewzu
+subscribe:Abone be
 thread:Topik:
+thread_thread:Mewzu
 threads:Topik:
 time:Wext
+todays_posts:Mesacê ewroyi
 updated_on:Wextê newekeredışi:
 user:Karber
 user_info:Zanışiya Karberi
@@ -230,6 +239,10 @@ register_sel_avatar:Avatar weçine
 register_custom_avatar_url:Gıreya Avatar dı Xususi
 register_preview:Verqayt
 register_register:Qeyd Be
+register_location:Ca:
+register_occupation:Kar:
+register_interests:Eleqe:
+register_image:Resım:
 register_icq:ICQ:
 register_aim:AIM Handle:
 register_yahoo:Yahoo Messenger:
@@ -241,9 +254,13 @@ register_month:Aşme
 register_year:Serre
 register_gender:Neri makey:
 register_bio:Biyografiye:
+register_prefs:Tercihi
+register_sig:İmza:
 register_reset:Reset kerê
 register_def_thread_view:Asayışê Mewzuyê Hesabiyayey:
+register_show_sig:İmza bımocne:
 register_use_sig_default:Hesıbyaye deye imzay bımocne:
+register_timezone:Warey saete:
 register_notification:Hesıbyaye yo deye ikaz bırşiyo:
 buddy_status:Weziyet
 my_buddies:Embazê me
@@ -284,8 +301,13 @@ coppa_fax_remail:E-posta
 coppa_fax_name:Name
 login_login:Cıkewtış:
 login_login_btn:Cıkewtış
+reset_update:Parola reset kı
+rpasswd_change_pass:Parola bıvurne
 rpasswd_login:Cıkewtış
+rpasswd_cur_pass:Parolay newkên:
+rpasswd_new_pass:Parolay Newiy:
 rpasswd_conf_pass:Parola tesdiq ke
+ruser_title:Forma Dekewtışi Bıvurnê
 ruser_cur_pass:Parolaya newkên
 login_passwd:Parola:
 reset_email:E-posta:
@@ -293,6 +315,10 @@ reset_reset_button:Parola ancia bınuse
 rate_this_thread:Nısbet ke
 report_subject:Mewzu:
 search_forum:Forum
+search_no_results:Nê vineya
+search_all_forums:Foruman pêron dı cı geyr
+search_in_forum:Cı geyrayıyaye Forum:
+search_forum_search:Forum Cı geyrayış
 remail_your_name:Nameyê Şıma:
 remail_your_email:E-Maila Şıma:
 remail_friends_name:Nameyê Embazi:
@@ -301,10 +327,21 @@ remail_required:lazım
 remail_subject:Mewzu:
 remail_message:Mesac
 remail_done:Qeyd kerd
+mklist_type:Babet:
+mklist_option:Weçinek:
+mklist_additem:Eza dek
 mklist_apply:Dezge ke
 mklist_delete:Bestere
+qbud_nick_name:Leqeb
+qbud_add_selected:Weçinayiyan cı ke
+qbud_selected:Weçinayeyi
+mklist_numerical:Amarki
+mklist_aplha:Alfa
 mklist_square:Qare
+mklist_disc:Golel
+mklist_circle:Helqa
 mklist_close:Racnê
+email_to:Kami rê:
 email_pg_title:E-posta
 email_subject:Mewzu:
 email_body:Verê:
@@ -432,6 +469,7 @@ findu_ban:Qedexe ke
 findu_edit:Bıvurne
 findu_delete:Bestere
 dmsg_reply_to:no cıwabê mesaciyo
+dmsg_reply_num:mesac #{VAR: obj->reply_to}
 userinfo_buddy:Embaz:
 register_email_addr:Adresa E-postey:
 ip_title:IP Rovıter

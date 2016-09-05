@@ -306,11 +306,15 @@ register_builtin:Dre ziouer war al lec'hienn
 register_specify_url:Spisaat un URL
 register_uploaded:Kas un avatar
 register_login:Anv implijer :
+register_login_desc:An anv ho peus c'hoant da gevreañ gantañ ha bezañ anavezet el lec'hienn-mañ.
+register_login_available:da gaout
+register_login_taken:Kemeret dija
 register_password:Ger-tremen :
+register_password_desc:Ger-tremen evit  ho kont. Tener eo ar gerioù-tremen ouzh an direnneg ha rankout a reont bezañ 6 arouezenn enno da nebeutañ.
 register_conf_pass:Kadarnaat ar ger-tremen :
-# Fuzzy
-register_email_desc:Ebarzhit ur chomlec'h postel reizh, mar plij. Gallout a rit e guzhat amañ dindan, er Penndibaboù.
+register_email_desc:Ebarzhit ho chomlec'h postel reizh, mar plij. Gallout a rit e guzhat amañ dindan, er Penndibaboù.
 register_name:Anv :
+register_name_desc:Ho kwir anv.
 register_your_pass:Ho ker-tremen :
 register_update:Hizivaat
 register_avatar_type:Seurt avatar :
@@ -323,8 +327,7 @@ register_preview:Rakwelet
 register_custom_avatar_upload:Restr an avatar personel :
 register_register:En em enskrivañ
 register_required:Titouroù rekis
-# Fuzzy
-register_required_desc:Ret eo leuniañ an holl vaeziennoù. Diwallit, ar gerioù-tremen a ra ar c'hemm etre lizherennoù bihan ha bras.
+register_required_desc:Ret eo leuniañ an holl vaeziennoù.
 register_optional:Titouroù diret
 register_optional_desc:Erbediñ a reomp deoc'h chom hep diskuliañ titouroù personel en ho profil. An holl ditouroù-se a c'hallo bezañ gwelet gant izili all ar forom.
 register_location:Lec'h :
@@ -651,8 +654,7 @@ postcheck_email_body:Ne c'hallit ket kas ur postel hep testenn ebet.
 private_msg_notify_subj:Lenn ar c'hemenn evit : {VAR: m->subject}
 private_msg_notify_body:Demat, <br />{VAR: usr->login} en deus digoret ho kemennadenn brevez anvet« {VAR: m->subject} » d'an {TEMPLATE: private_msg_notify_body_date}<br />
 referals_update:Furchal roll an dud paeroniet
-# Fuzzy
-register_err_short_login:Re verr eo an anv implijer hoc'h eus dibabet. 4 arouezenn da nebeutañ a rank bezañ en anvioù implijer.
+register_err_short_login:Re verr eo an anv implijer hoc'h eus dibabet. 2 arouezenn da nebeutañ a rank bezañ en anvioù implijer.
 register_err_login_notallowed:An anv implijer-mañ n'eo ket aotreet.
 register_err_loginunique:Implijet e vez an anv-mañ gant un ezel eus ar forom dija. Dibabit unan all, mar plij.
 register_err_emailexists:Stag eo ar chomlec'h postel-mañ ouzh ur gont dija. M'hoc'h eus ankouaet ho ker-tremen, implijit an dibarzh Assevel, mar plij, kentoc'h eget en em enskrivañ en-dro.

@@ -636,7 +636,7 @@ post_err_lockedthread_title:错误：该帖子已被锁定
 post_err_lockedthread_msg:这个主题已被锁定，不能回复
 err_coppa_title:错误：你没有此项权限
 err_coppa_msg:我们还没有收到来自你父母或者法定监护人的关于同意你发布帖子的确认函。 如果丢失了申请表，<a href="{TEMPLATE: err_coppa_msg_lnk}">请点这里</a>。
-err_banned_acct_title:错误:你被屏蔽了.
+err_banned_acct_title:错误：您已被禁止。
 err_banned_acct_msg:由于违反了论坛的规则，您的账户被此网站{IF: $ban_expiry}暂时禁止访问，直到{DATE: ban_expiry %Y %B %d %a %H:%M}{ELSE}永久禁止访问{ENDI}。
 post_err_edttimelimit_title:错误
 post_err_edttimelimit_msg:你不能再编辑这条信息
@@ -668,7 +668,7 @@ register_err_login_notallowed:不能使用这个账号注册。
 register_err_loginunique:论坛账号必须是唯一的，这个账号已经有人使用。
 register_err_emailexists:这个电子邮件地址已经存在，请不要重复注册。如果你忘记了密码，请通过“找回密码”程序找回你的密码。
 register_err_shortpasswd:密码必须至少有6个字符。
-register_err_passwdnomatch:你的密码不对。
+register_err_passwdnomatch:您的密码不匹配，请重试。
 register_err_invalidemail:你输入的电子邮件地址不正确。
 register_err_needname:你必须输入你的姓名才能完成此次注册。
 register_err_enterpasswd:你必须输入密码才能进行修改。

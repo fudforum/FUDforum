@@ -1,6 +1,7 @@
 # Messages for Bulgarian (български)
 # Exported from translatewiki.net
 # Author: DCLXVI
+# Author: StanProg
 # Author: Vodnokon4e
 
 action:Действие
@@ -924,7 +925,7 @@ uc_new_pm:Нови лични съобщения
 uc_new_topic:Нова тема
 modque_cat:Категория
 modque_forum:Форум
-mmd_abort_move:Отказване
+mmd_abort_move:Отказ
 dmsg_ip:IP:
 post_common_bold:Получер
 rating_delete:Изтриване
