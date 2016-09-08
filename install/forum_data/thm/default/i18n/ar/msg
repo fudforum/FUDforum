@@ -196,7 +196,7 @@ unbookmark_thread:أزل من العلامات
 unbookmark_thread_desc:أزل هذا الموضوع من قائمة علاماتك
 unsubscribe:ألغِ الاشتراك
 unsubscribe_desc:أوقف استقبال إشعارات عن مواضيع المنتدى الجديدة
-updated_on:رُفع في:
+updated_on:حُدث في:
 user:مستخدم
 user_counter:لدينا {PLURAL: st_obj->user_count|مستخدم مسجل|<b>{VAR: st_obj->user_count}</b> مستخدمين مسجلين}.
 user_info:معلومات مستخدم

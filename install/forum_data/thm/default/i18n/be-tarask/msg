@@ -309,6 +309,7 @@ register_specify_url:Падаць URL-адрас
 register_uploaded:Загрузіць аватару
 register_login:Імя карыстальніка:
 register_login_desc:Імя, пад якім вы хочаце ўваходзіць у сыстэму і быць вядомым на гэтым сайце.
+register_login_available:Даступна
 register_password:Пароль:
 register_conf_pass:Пацьверджаньне паролю:
 # Fuzzy
