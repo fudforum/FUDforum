@@ -310,10 +310,11 @@ register_uploaded:Загрузіць аватару
 register_login:Імя карыстальніка:
 register_login_desc:Імя, пад якім вы хочаце ўваходзіць у сыстэму і быць вядомым на гэтым сайце.
 register_login_available:Даступна
+register_login_taken:Ужо занятае
 register_password:Пароль:
+register_password_desc:Пароль для вашага рахунку. Паролі адчувальныя да рэгістру і мусяць мець ня меней за 6 сымбаляў.
 register_conf_pass:Пацьверджаньне паролю:
-# Fuzzy
-register_email_desc:Калі ласка, увядзіце слушны адрас электроннай пошты. Вы можаце яго схаваць ніжэй, у сэкцыі ўстановак.
+register_email_desc:Ваш адрас электроннай пошты. Вы можаце яго схаваць у сэкцыі наладаў ніжэй.
 register_name:Імя:
 register_your_pass:Ваш пароль:
 register_update:Абнавіць
