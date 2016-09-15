@@ -316,6 +316,7 @@ register_password_desc:Пароль для вашага рахунку. Паро
 register_conf_pass:Пацьверджаньне паролю:
 register_email_desc:Ваш адрас электроннай пошты. Вы можаце яго схаваць у сэкцыі наладаў ніжэй.
 register_name:Імя:
+register_name_desc:Вашае сапраўднае імя.
 register_your_pass:Ваш пароль:
 register_update:Абнавіць
 register_avatar_type:Тып аватару:
@@ -328,8 +329,7 @@ register_preview:Папярэдні прагляд
 register_custom_avatar_upload:Нестандартны файл аватара:
 register_register:Рэгістрацыя
 register_required:Патрабуемая інфармацыя
-# Fuzzy
-register_required_desc:Усе палі патрабуюцца. Калі каска, заўважце, што паролі адчувальныя да велічыні літараў.
+register_required_desc:Усе палі абавязковыя.
 register_optional:Дадатковая інфармацыя
 register_optional_desc:Просім не публікаваць прыватную інфармацыю ў Вашым профілі. Уся інфармацыя будзе бачная іншым карыстальнікам форуму.
 register_location:Месцазнаходжаньне:

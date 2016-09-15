@@ -1,5 +1,6 @@
 # Messages for Zazaki (Zazaki)
 # Exported from translatewiki.net
+# Author: Asmen
 # Author: Erdemaslancan
 # Author: Gorizon
 # Author: Kumkumuk
@@ -388,7 +389,7 @@ groupmgr_add_member:Eza cı ke
 groupmgr_update_member:Eza Neweke
 groupmgr_edit:Bıvurne
 groupmgr_delete:Bestere
-show_show:Bımocne
+show_show:Bımocne:
 group_mgr_group:Grube
 p_READ:Bıwane
 p_POST:Bırışe
