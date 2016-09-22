@@ -10,6 +10,7 @@
 # Author: Luckas
 # Author: Luckas Blade
 # Author: Malafaya
+# Author: Mansil
 # Author: McDutchie
 # Author: Naudefj
 # Author: Tark
@@ -18,16 +19,16 @@
 
 action:Ação
 add_to_buddy_list:adicionar à lista de amigos
-admin:Admin
+admin:Admin.
 admin_control_panel:Administração
 administrator:Administrador
 attachment:Anexo:
 avatar:Avatar:
 average_post_count:{PLURAL: u->posted_msg_count|$1 Mensagem|$1 Mensagens} ({PLURAL: avg|$1 mensagem em média|$1 mensagens em média} por dia)
 biography:Biografia:
-birth_date:Data de Nascimento :
+birth_date:Data de nascimento:
 by:Por:
-by_mod:por Moderador
+by_mod:pelo Moderador
 current_time:Hora atual
 custom_avatar_queue:Fila de avatares personalizados
 date_posted:Data de Publicação
@@ -50,10 +51,10 @@ forum_old_messages:Não há novas mensagens
 from:De:
 gender:Sexo:
 go:Avançar
-goto_next_msg:Ir para mensagem seguinte
-goto_prev_msg:Ir para mensagem anterior
+goto_next_msg:Ir para a mensagem seguinte
+goto_prev_msg:Ir para a mensagem anterior
 home:Início
-homepage:página início:
+homepage:Página inicial:
 icq_control_panel:Painel de mensagens do ICQ Online
 icq_message_form:Formulario de mensagem ICQ:
 ignore_user:Ignorar todos os posts deste utilizador
@@ -64,9 +65,9 @@ image:Imagem:
 index_forum:Fórum
 index_new_posts:Existem novos posts desde o último lido
 index_no_new_posts:Não existem novos posts desde o último lido
-index_url_redirection:Redirection
+index_url_redirection:Redireção
 interests:Interesses:
-last_post:Ultimo post
+last_post:Última mensagem
 last_thread_msg:Ir para a última mensagem neste tópico
 legend:Legenda:
 location:Localização:
@@ -317,10 +318,11 @@ register_specify_url:Especificar URL
 register_uploaded:Adicionar Avatar
 register_login:Utilizador:
 register_login_available:Disponível
+register_login_taken:Já utilizado
 register_password:Senha:
+register_password_desc:A palavra-passe para a sua conta. As palavras-passe são sensíveis a maiúsculas e minúsculas e devem ter pelo menos 6 carateres.
 register_conf_pass:Confirmar senha:
-# Fuzzy
-register_email_desc:Por favor tem de introduzir um endereço de e-mail válido. Pode escolher ocultar o email na seção de preferências.
+register_email_desc:O seu endereço de e-mail. Pode escolher em ocultá.lo em baixo, na secção das Preferências.
 register_name:Nome:
 register_name_desc:O seu nome verdadeiro.
 register_your_pass:A sua Palavra-chave:

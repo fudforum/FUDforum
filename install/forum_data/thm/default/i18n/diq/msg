@@ -36,6 +36,7 @@ flat_view:Peyser şo asayışê raştiyê hesebiyayey
 forum:Forum
 forum_icon:Forum Icon
 forum_new_messages:Mesacê neweyi
+forum_none_messages:Teyna karberê qeydıni şenê mesacan bıvinê
 forum_old_messages:Mesacê neweyi çıniyê
 from:Rıştoğ:
 gender:Neri makey:
@@ -57,6 +58,7 @@ index_no_new_posts:Ziyaret da şıma dıma theba nêrışiya ya
 index_url_redirection:Hetanayışê cı
 interests:Eleqe:
 last_post:Mesaco peyên
+last_thread_msg:Rna mewzu dı şo tewr peyên mesaci
 legend:Rehber:
 location:Lokasyon:
 lock_thread:Meseler qılit ke
@@ -75,6 +77,7 @@ cal_day_heading:Weqey Roceki
 cal_no_events:Ewroy rê zad Çıno
 cal_update:Teqwimê Forumi rat nı
 cal_birthday:Rocbiyayış: {VAR: user}
+cal_birthdays:{PLURAL: birthdays|$1 roc ziyayış|$1 roc ziyayışi}
 cal_birthday_age:({PLURAL: age|$1 serre|$1 serri} verêne).
 message:Mesac
 message_counter:Karberi <b>{PLURAL: thread_count|$1 Mesel|$1 mesel}</b> dı pêro piya <b>{PLURAL: post_count|$1 mesac|$1 mesac}</b> rışto.
@@ -82,19 +85,30 @@ message_index:İndeksê mesaca
 message_index_desc:Lista mesacan bıvêne
 minimize_category:Kategoriya kılm ke
 minimize_message:Mesaci Werdı ke
+moderation_queue:Poça tesdiqan
 moderator:Cerbener
 moderator_of:Wesetê Forumi
 moderator_options:Wesetin Weçiney
 moderators:{PLURAL: modcount|Wesetber|Wesetber}
+more_unread_messages:Yewbina nêwanaye mesaci
+more_unread_messages_desc:Yewbina nêwanaye mesacan bıasne u enewke asenayenmesaca wanaye nışan bık
 move_thread:Bıkırışe
+moved:Kırışıya yo yewna forum
+moved_thread_message:Ena mewzu kırışıya ya yewna forumi tede
 na:n/a
 new_posts:Mesacê Neweyi
+new_private_messages:<span class="GenTextRed">({VAR: c})</span> nêwanaye xısusi mesaca şıma est a
 new_thread:Topiko newe vıraze
+newest_user:Karbero kı tewr peyd qeyd bıyo
 next_page:Pela Peyêne
 next_thread:Topiko Peyên:
+no_messages:Ena forum dı mesaci çıni yê. <br />Ena forum dı ya sıfta boka şıma mesac akerê.
+no_msg_body:Bezna mesaci çıni ya
 no_new_posts:Mesacê Neweyi Çıniyê
 no_posts:Mesac Çıno
-num_pages:Peley ({VAR: ttl_pg}):
+no_subscribed_forums:Qet yew forumi rê abonê niyê
+no_subscribed_threads:Qrt yew mewzuy rê abone niyê
+num_pages:Peli ({VAR: ttl_pg}):
 occupation:Kar:
 off:Racıne
 on:Akerde
@@ -120,6 +134,7 @@ reveal_all_posts:Heme mesacanê  karberê {VAR: user_login} bıasne
 reveal_post:mesacan bımocne
 search:Cı geyre
 sel_todays_posts:Mesacê ewroyi
+sel_unread_messages:Mesacê nêwaniyayey
 send:Bırışe
 sender_email:E-posteyê rıştoği:
 sender_name:Nameyê rıştoği:
@@ -152,6 +167,8 @@ reported_reported_by:Xeberdar:
 reported_reported_msg:Masacê ke Xeberdar biyê
 modque_approve:Tesdiq bı
 modque_delete:Bestere
+pmsg_new_messages:Baxse mesaci nêwanaye nışan kı
+pmsg_old_messages:Baxse mesaci bıwan
 deny_recipt:Webdışin merışe
 restore_to:Vece Tiya:
 move_to:Biya Tiya:
@@ -210,6 +227,8 @@ saturday_short:Ş
 male:Camêrd
 female:Cıniye
 unspecified:MOR NÊBİYO
+use_forum_default:Hesıbyayey forumi bıkarne
+finduser_user_info:Zanışiya Karberi
 finduser_submit:Bıvêne
 finduser_no_such_user:Karbero do Wuna Çıniyo
 finduser_user:Karber
@@ -227,7 +246,10 @@ pmuserloc_user:Karber
 pmuserloc_no_result:Nê vineya
 register_builtin:Sazine
 register_specify_url:Url'i Cake
+register_uploaded:Avatar bıselagn
 register_login:Cıkewtış:
+register_login_available:Mewcud
+register_login_taken:Xora gêriya yo
 register_password:Parola:
 register_conf_pass:Parola tesdiq ke:
 register_name:Name:
@@ -262,12 +284,18 @@ register_def_thread_view:Asayışê Mewzuyê Hesabiyayey:
 register_show_sig:İmza bımocne:
 register_use_sig_default:Hesıbyaye deye imzay bımocne:
 register_timezone:Warey saete:
+register_invisible_mode_desc:Weziyeta xoya çerxmiyani bınımn
+register_show_email:Adresa e-posta bıasne :
 register_notification:Hesıbyaye yo deye ikaz bırşiyo:
+register_allow_email_msg:Mesacanê e-postay rê icazet bıd
+register_allow_email_msg_desc:Karberan dê binan rê forumi seta iıma rê nesac rıştışi rê icazet bıdê
 buddy_status:Weziyet
 my_buddies:Embazê me
 add_buddy:Embaz cı ke
 add:Cı ke
+buddy_remove:Hewad
 post_normal:Normal
+post_sticky:Zamq
 post_annoncement:Elan
 post_size:Gırdiye
 post_color:Dawte
@@ -277,22 +305,44 @@ submit_reply:Cewab Bırışê
 edit_message:Mesaca Timar ke
 apply_spell_changes:Vurnayışê Nuşta Dezge ke
 post_preview:Verqaytê Mesaci
+post_logedin_user:Karberê ke deqewte miyan:
 post_logout:veciyayış
+post_passwd:Parolaya rıştiy:
 post_poll:Anket:
 post_create_poll:ANKET VIRAZE
 post_poll_delete:BESTERE
 post_poll_edit:BIVURNE
+post_mod_opt:Weçniegê moderatori
+post_thread_type:Terza mewzuy:
+post_thread_expiry:Ravêrdena zemanê mewzuy:
+post_locked:Mewzuy kılit kı
+post_icons:İkona mesaci:
+post_no_icon:İkon çıni yo
+post_smiley:Rayakılma huwateka:
+post_format_tools:Hacetê format kerdışi :
+post_upload_file:Dosya bıselagne
 post_file_del:Bestere
 post_file_name:Name
 post_file_size:Gırdiye
+file_attachments:Oleyê dosya:
+post_form:Formi bırış
 post_forum:Forum:
 post_title:Sername:
 post_body:Verê:
 post_options:Weçinegi:
 post_preview_btn:Verqaytê Mesaci
 post_cancel_btn:Bıtexelne
+ignore_users:Peygos karberi
+add_ignore:Ignoramus dek
+forum_terms:Qaidey Forumi
+coppa_conf:COPPA tesdiq
+coppa_before:{TEMPLATE: coppa_date} ra veror
+coppa_after:{TEMPLATE: coppa_date} dıma
+prereg_info:Zanışek
 prereg_agree:Qebul kena
 prereg_disagree:Qebul nêkena
+prereg_update:Qaidanê forumi bıwanê
+coppa_fax_instructions:Wecifey wasiya  yana kufleti.
 coppa_fax_telephone:Telefun:
 coppa_fax_email:Adresa E-postey:
 coppa_fax_date:Dem:
@@ -347,9 +397,18 @@ email_pg_title:E-posta
 email_subject:Mewzu:
 email_body:Verê:
 email_submit:E-posta
+poll_name:Namey Anketi:
+poll_timelimit:Sinorê zemani:
+poll_maxiumvotes:Maksimum rey:
 poll_create:Vıraze
 poll_update:Rocane ke
+poll_disablesmilies:Huwateka men kı
+poll_create_poll:Anket Vırazê
+poll_update_poll:Anketi rocane kı
 poll_delete:Bestere
+poll_updateoption:Weçibegê rocanyışi
+poll_addoption:Weçineg dek
+poll_unlimited:Bêsinor
 poll_day:roc
 poll_days:roci
 poll_hour:saat
@@ -358,6 +417,12 @@ poll_month:Aşme
 poll_year:Serre
 poll_week:hefte
 tabs_register:Sazê Hesabi
+tabs_subscriptions:Aboneyin
+tabs_bookmarkes:Nışanê Cayan
+tabs_referrals:Şınasiyey
+tabs_buddy_list:Listey embazan
+tabs_ignore_list:Listay peygosan
+tabs_private_messaging:Mesacê Xısusi
 delete_yes:Eya
 delete_no:Nê
 error_error:Xeta
