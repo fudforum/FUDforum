@@ -512,8 +512,8 @@ search_in_forum:搜索这个论坛：
 search_forum_search:论坛搜索
 move_thread_to:把本主题移至 <b>{VAR: thr->subject}</b> ：
 remail_email_topic:通过电子邮件向朋友推荐这个主题
-remail_your_name:你的姓名：
-remail_your_email:你的电子邮箱：
+remail_your_name:您的名字：
+remail_your_email:您的电子邮箱：
 remail_friends_name:朋友的名字：
 remail_friends_email:朋友的电子邮箱：
 remail_required:必填的
@@ -553,7 +553,7 @@ ppost_track_msg:跟踪这条消息
 ppost_track_msg_desc:当这条消息被阅读时用私信通知我。
 ppost_send:发送
 ppost_save_draft:保存草稿
-poll_blank_option:你不能提交空的选项。
+poll_blank_option:您不能添加空的选项。
 poll_del_conf:如果你想删除这个选项，请按OK
 poll_name:调查名称：
 poll_timelimit:时间限制：
