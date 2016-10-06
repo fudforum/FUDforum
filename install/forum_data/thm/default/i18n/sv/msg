@@ -314,11 +314,13 @@ register_builtin:Inbyggd
 register_specify_url:Ge URL
 register_uploaded:Skicka avatar
 register_login:Logga in:
+register_login_desc:Namnet du vill logga in med och bli känd som på denna webbplats.
+register_login_available:Tillgänglig
 register_login_taken:Redan taget
 register_password:Lösenord:
+register_password_desc:Lösenord för ditt konto. Lösenord är skiftlägeskänsliga och måste vara minst 6 tecken långt.
 register_conf_pass:Bekräfta lösenord:
-# Fuzzy
-register_email_desc:Vänligen ge en verklig e-postadress. Du kan ställa in forumet så att adressen är dold för de andra användarna.
+register_email_desc:Din e-postadress. Du kan välja att dölja den nedan i avsnittet Inställningar.
 register_name:Namn:
 register_name_desc:Ditt riktiga namn.
 register_your_pass:Ditt lösenord:

@@ -9,6 +9,7 @@
 # Author: Nemo bis
 # Author: Nexus
 # Author: Rippitippi
+# Author: Selven
 # Author: Ubyfudder
 
 action:Azione
@@ -313,6 +314,7 @@ register_uploaded:Carica avatar
 register_login:Login:
 register_login_desc:Il nome con cui vuoi accedere ed essere conosciuto su questo sito.
 register_login_available:Disponibile
+register_login_taken:Già preso
 register_password:Password:
 register_password_desc:Password per la tua utenza. Le password distinguono maiuscolo e minuscolo e devono essere di almeno 6 caratteri.
 register_conf_pass:Conferma password:

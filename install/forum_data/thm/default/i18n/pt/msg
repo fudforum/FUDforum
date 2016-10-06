@@ -474,7 +474,7 @@ login_login_btn:Submeter
 login_name_required:Login requer nome
 login_passwd_required:Password requerida
 login_invalid_radius:Combinação inválida de Login/password
-reset_confirmation:Obrigado por se ter registrado,\n\nPara ativar a sua conta vá ao URL indicado:\n\n{VAR: url}\n\nUma vez ativa será logado no fórum e\nredirecionado para a página principal do fórum.
+reset_confirmation:Obrigado por se registar,\n\nPara ativar a sua conta aceda à URL:\n\n{VAR: url}\n\nAssim que a conta esteja ativa, será autenticado no fórum e\nredirecionado para a página principal.
 reset_reset:Ola,\n\nPediu para que a sua password seja restaurada, para restaurar a sua password\npor favor vá a URL\n\n{VAR: url}\n\nNOTE: Este forum guarda as passwords com um sistema de encriptação não reversível o que quer dizer, que\uma vez entrada a password será codificada e não haverá possibilidade de a recuperar.\nIsto funciona por simples codificação da password e comparada cada vez que é introduzida com a versão codificada e\nverificando se são iguais.
 rpasswd_invalid_passwd:Password Inválida
 rpasswd_passwd_nomatch:As Passwords não são iguais
@@ -678,10 +678,10 @@ register_err_notyouremail:Alguém já se registou utilizando este Email, e esse 
 register_err_avatartobig:O Ficheiro que está a tentar enviar para o servidor é demasiado grande, passa {GVAR: CUSTOM_AVATAR_MAX_SIZE} bytes do limite
 register_err_avatarnotallowed:O avatar que está a tentar enviar para o servidor não é permitido, verifique os tipos de ficheiro permitidos.
 register_conf_subject:Confirmação de Registo
-register_conf_msg:Obrigado por se registrar,\nPara ativar a sua conta vá ao URL :\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nAssim que a sua conta fique ativa, vai ficar registrado no fórum e vai ser redirecionado para a pagina principal.
+register_conf_msg:Obrigado por se registar,\nPara ativar a sua conta aceda à URL:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nAssim que a conta esteja ativa, será autenticado no fórum e redirecionado para a pagina principal.
 register_welcome_subject:Confirmação de registo no forum
 register_welcome_msg:Obrigado pelo registo,\n\nAqui estão os seus dados de login para o forum:\n\nForum URL: {TEMPLATE: index_update_lnk}\nLogin: {VAR: uent->login}\nPassword: {VAR: _POST['reg_plaintext_passwd']}\n\nNa Password os caracteres maiusculos ou minusculos fazem diferença!\nPara modificar os seus dados, vá a esta pagina:\n{FULL_ROOT}{ROOT}?t=register
-register_err_cantreg_title:ERRO: Não foi possível efetuar registro
+register_err_cantreg_title:ERRO: Não foi possível efetuar registo
 regsiter_err_cantreg_msg:Conta de utilizador não foi criada, por favor contacte o administrador em <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:A ver a sua ficha
 register_register_update:Página de Registo

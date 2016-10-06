@@ -634,12 +634,12 @@ pm_err_nopm_msg:系统管理员禁止你使用悄悄话系统。
 pm_update:使用悄悄话功能
 post_err_lockedthread_title:错误：该帖子已被锁定
 post_err_lockedthread_msg:这个主题已被锁定，不能回复
-err_coppa_title:错误：你没有此项权限
+err_coppa_title:错误：您的账户尚未确认
 err_coppa_msg:我们还没有收到来自你父母或者法定监护人的关于同意你发布帖子的确认函。 如果丢失了申请表，<a href="{TEMPLATE: err_coppa_msg_lnk}">请点这里</a>。
 err_banned_acct_title:错误：您已被禁止。
 err_banned_acct_msg:由于违反了论坛的规则，您的账户被此网站{IF: $ban_expiry}暂时禁止访问，直到{DATE: ban_expiry %Y %B %d %a %H:%M}{ELSE}永久禁止访问{ENDI}。
 post_err_edttimelimit_title:错误
-post_err_edttimelimit_msg:你不能再编辑这条信息
+post_err_edttimelimit_msg:您不能在编辑此消息
 post_err_noannontopics_msg2:<legend>错误：权限不够</legend>匿名用户不允许发帖。
 post_err_noannonposts_msg2:<legend>错误：权限不够</legend>匿名用户不许回帖。
 post_err_floodtrig_title:错误：发布灌水帖子
@@ -705,7 +705,7 @@ ERR_login_msg2:<legend>错误：未登录</legend>登录后才能访问所需页
 ERR_disabled_ttl:被禁止的功能
 ERR_disabled_msg:此功能已被系统管理员禁用。
 ERR_access_ttl:错误：权限不够
-ERR_access_msg:你无权执行该项操作。
+ERR_access_msg:您并无所需权限执行此操作。
 ERR_registration_disabled_ttl:注册失败
 ERR_registration_disabled_msg:注册功能被系统管理员禁止，请重试！
 ERR_emailconf_ttl:错误：此账号无效
@@ -741,7 +741,7 @@ register_change_passwd:更改密码
 register_change_login:更改登录信息
 approved_avatar_title:您定制的头像已被管理员批准。
 approved_avatar_msg:你定制的头像已被系统管理员批准，以后你发布的所有信息都将显示该头像。如果你尚未看到或者看到的是旧的头像，那可能是你的浏览器缓存了相关页面，尝试多刷新几次或许能解决这个问题。
-unapproved_avatar_title:你定制的头像未被批准。
+unapproved_avatar_title:您自定义的头像被拒绝。
 unapproved_avatar_msg:系统管理员没有批准你的头像。最可能的原因是你的头像太大（字节或者尺寸），还有可能是因为包括不合适的主题文件。如果需要了解更多的相关信息，请和系统管理员联系。
 mvthread_request_move:申请移动本主题
 move_request_reason:您为什么要移动本主题？
@@ -884,7 +884,7 @@ reported_in_thread:!展开浏览：
 help_back_to_top:回到页首
 help_return_to_index:返回帮助索引
 imsg_err_message_title:帖子出错
-imsg_err_message_msg:你要查看的帖子不存在。
+imsg_err_message_msg:您尝试查看的消息不存在。
 poll_edit:编辑
 register_err_not_valid_img:指定的图片连接不正确
 pmsg_recepient:收信人
