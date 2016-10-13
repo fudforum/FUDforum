@@ -11,8 +11,7 @@ admin_control_panel:Администрация
 administrator:Администратор
 attachment:Прикрепен файл:
 avatar:Аватар:
-# Fuzzy
-average_post_count:средно {VAR: u->posted_msg_count} съобщения за ден ({VAR: avg} средно количество на съобщенията за ден)
+average_post_count:{PLURAL: u->posted_msg_count|$1 съобщение|$1 съобщения} (средно {PLURAL: avg|$1 съобщение|$1 съобщения|} на ден)
 biography:Биография:
 birth_date:Дата на раждане:
 by:От:
@@ -21,8 +20,7 @@ current_time:Текущо време
 custom_avatar_queue:Опашка от аватарите на потребителите
 date_posted:Дата на публикуване
 date_registered:Дата на регистрация:
-# Fuzzy
-download_counter:Заредено {VAR: v[3]} пъти
+download_counter:Изтеглено {PLURAL: v[3]|$1 път|$1 пъти}
 email:Email:
 email_to_friend:Изпрати по e-mail на приятел
 email_to_friend_desc:Изпрати адреса на това съобщение по e-mail
@@ -88,8 +86,8 @@ moderators:{PLURAL: modcount|Модератор|Модератори}
 more_unread_messages:други непрочетени съобщения
 more_unread_messages_desc:Отбележи видяното като прочетено и покажи други непрочетени съобщения&nbsp;
 move_thread:Премести
-moved:Преместено в другия форум
-moved_thread_message:Тази тема е преместена в другия форум
+moved:Преместено в друг форум
+moved_thread_message:Тази тема е преместена в друг форум
 new_posts:Нови съобщения
 # Fuzzy
 new_private_messages:Имате <span class="GenText" style="color: #ff0000">({VAR: c})</span> непрочетени лични съобщения
@@ -113,8 +111,7 @@ num_votes:{VAR: obj->total_votes} гласа
 occupation:професия:
 off:изкл
 on:вкл
-# Fuzzy
-page_timings:бПЕЛЕ, МЕНАУНДХЛН ГЮ ЯЗГДЮБЮМЕ МЮ РЮГХ ЯРПЮМХЖЮ: {VAR: page_gen_time} ЯЕЙСМДХ
+page_timings:Общо време, необходимо за генериране на страницата: {PLURAL: page_gen_time|$1 секунди}
 pm:Лична поща
 poll:Гласуване:
 post_count:{VAR: u_pcount} съобщения
@@ -124,8 +121,7 @@ posts_c:Съобщения:
 prev_thread:Предишна тема:
 usrinfo_private_message:Лично съобщение:
 profile:Настройки
-# Fuzzy
-profile_desc:Натисни за преместване в Вашия контролен панел
+profile_desc:Достъп до контролния панел на потребителя
 rate_thread:Оцени темата
 rating:Рейтинг
 refresh_list:Обнови списъка
