@@ -150,7 +150,7 @@ reveal_all_posts:透露所有发自{VAR: user_login}的消息
 reveal_post:显示结果
 search:搜索
 sel_todays_posts:今天的消息
-sel_todays_posts_desc:只显示今天的主题
+sel_todays_posts_desc:开启/关闭今日消息过滤器（将只显示今天发出的消息）
 sel_unanswered_posts:未回复主题
 sel_unanswered_posts_desc:只显示未回复主题
 sel_unread_messages:未读信息

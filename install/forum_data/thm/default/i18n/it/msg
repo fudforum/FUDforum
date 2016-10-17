@@ -515,7 +515,7 @@ remail_friends_name:Nome dell'amico:
 remail_friends_email:Email dell'amico:
 remail_required:obbligatorio
 remail_subject:Oggetto:
-remail_message:Testo:
+remail_message:Messaggio:
 remail_send_now:Spedisci email
 remail_anon_opt:Copia questo messaggio in un programma di posta elettronica.
 remail_done:Fatto
@@ -895,7 +895,7 @@ polllist_vote:Vota
 polllist_view_results:Vedi risultati
 polllist_name:Sondaggio
 polllist_date:Creato
-polllist_owner:creato da
+polllist_owner:Creato da
 polllist_votes:Voti totali
 polllist_action:Azione
 polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">Sto controllando i sondaggi</a>

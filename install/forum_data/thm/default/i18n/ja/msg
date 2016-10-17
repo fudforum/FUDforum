@@ -6,13 +6,14 @@
 # Author: Iwai.masaharu
 # Author: Kanon und wikipedia
 # Author: Naudefj
+# Author: Omotecho
 # Author: Otokoume
 # Author: Shirayuki
 # Author: Sujiniku
 
 action:操作
 add_to_buddy_list:仲間リストに追加
-admin:管理
+admin:管理者
 admin_control_panel:管理
 administrator:管理者
 attachment:添付:
@@ -31,39 +32,39 @@ pmsg_download_counter:{PLURAL: r->dlcount|$1 回}ダウンロード
 email:メール:
 email_to_friend:友達にメールを送信
 email_to_friend_desc:このページの URL を友達にメールで送信
-email_user:利用者にメールを送信
+email_user:利用者にメールで連絡
 faq:ヘルプ
 first_unread_msg:未読メッセージに移動
-first_unread_msg_desc:このトピックの一つ目の未読メッセージに移動します
+first_unread_msg_desc:このトピックの1件目の未読メッセージに移動
 flat_view:既定のフラット表示に戻る
 forum:フォーラム:
 forum_icon:フォーラムアイコン
-forum_new_messages:新規メッセージ
-forum_none_messages:既読と未読メッセージの追跡はフォーラムに登録済みメンバーのみできます。
-forum_old_messages:新着メッセージはありません
+forum_new_messages:新しいメッセージ
+forum_none_messages:既読と未読メッセージの追跡ができるのはフォーラムに登録済みのメンバーだけです。
+forum_old_messages:新しいメッセージはありません
 from:差出人:
 gender:性別:
 go:表示
-goto_next_msg:次のメッセージに移動
-goto_prev_msg:前のメッセージに移動
+goto_next_msg:次のメッセージに進む
+goto_prev_msg:前のメッセージに戻る
 home:ホーム
 homepage:ホームページ:
 icq_control_panel:ICQ オンラインメッセージパネル
-icq_message_form:ICQ メッセージ差出人:
+icq_message_form:ICQ メッセージ フォーム:
 ignore_user:この利用者のメッセージはすべて無視
 im_aim:AIM ハンドル:
 im_msnm:MSN メッセンジャー:
 im_yahoo:Yahoo! メッセンジャー:
 image:画像:
 index_forum:フォーラム
-index_new_posts:最後に読んだ頃より新しいメッセージがあります。
-index_no_new_posts:最後に読んだ頃より新しいメッセージはありません。
+index_new_posts:新しい未読メッセージがあります
+index_no_new_posts:新しい未読メッセージはありません
 index_url_redirection:リダイレクト
 interests:興味:
-last_post:最後のメッセージ
-last_thread_msg:このトピックの最後のメッセージに行く
+last_post:最新のメッセージ
+last_thread_msg:このトピックの最新のメッセージに進む
 legend:凡例
-location:地域:
+location:場所:
 lock_thread:トピックをロック
 locked:ロック済み
 locked_with_new_posts:ロック済み (未読メッセージあり)
@@ -72,32 +73,32 @@ login:ログイン
 login_header:ログイン名:
 logout:ログアウト
 mark_all_read:すべてのメッセージを既読にする
-mark_all_read_desc:すべての未読メッセージを既に読んだことにします
+mark_all_read_desc:すべての未読メッセージを既読にする
 members:メンバー一覧
 calendar:カレンダー
 cal_goto_date:移動:
-cal_day_heading:今日の出来事
+cal_day_heading:今日のイベント
 cal_no_events:この日のイベントはありません。
 cal_update:フォーラムカレンダーの参照
 cal_birthday:誕生日: {VAR: user}
-cal_birthdays:{PLURAL: birthdays|$1 件の誕生日}
+cal_birthdays:{PLURAL: birthdays|$1 人の誕生日}
 cal_birthday_age:({PLURAL: age|$1 歳})。
 message:メッセージ
 message_counter:<b>{PLURAL: thread_count|$1 件}のトピック</b>内に合計で<b>{PLURAL: post_count|$1 通}のメッセージ</b>が投稿されました。
 message_index:メッセージ索引
-message_index_desc:メッセージ一覧を表示します
+message_index_desc:メッセージ一覧を表示
 minimize_category:カテゴリを最小化
 minimize_message:メッセージを最小化
 moderation_queue:モデレーション待ち
 moderator:モデレーター
-moderator_of:次のモデレーター:
+moderator_of:モデレーター担当:
 moderator_options:モデレーター用設定
 moderators:{PLURAL: modcount|モデレーター}
-more_unread_messages:さらなる未読メッセージ
-more_unread_messages_desc:現在表示されているメッセージを既読とし、さらに未読メッセージを表示します
+more_unread_messages:未読メッセージあり
+more_unread_messages_desc:表示中のメッセージを既読にして、未読メッセージを表示
 move_thread:移動
 moved:別のフォーラムに移動しました。
-moved_thread_message:このトピックは別のフォーラムに移動しました。
+moved_thread_message:このトピックは別のフォーラムに移動済
 na:該当なし
 new_posts:新規メッセージ
 new_private_messages:<span class="GenTextRed">({VAR: c})</span>件の未読{PLURAL: c|プライベートメッセージ}があります。
@@ -105,16 +106,16 @@ new_thread:トピックを新規作成
 newest_user:最新の登録利用者:
 next_page:次のページ
 next_thread:次のトピック:
-no_messages:このフォーラムにはメッセージはありません。<br />このフォーラムで最初のトピックを投稿してください。
+no_messages:このフォーラムにはメッセージがありません。<br />このフォーラムで最初のトピックを投稿してください。
 no_msg_body:メッセージに本文がありません。
 no_new_posts:新規メッセージなし
 no_posts:メッセージなし
-no_subscribed_forums:購読済みフォーラムがありません。
-no_subscribed_threads:購読済みトピックがありません。
+no_subscribed_forums:購読済みフォーラムがありません
+no_subscribed_threads:購読済みトピックはありません
 no_bookmarked_threads:ブックマークしたトピックなし
 no_unread_locked:このトピックはロックされました
 no_unread_msg:このトピックには未読のメッセージがありません。
-no_unread_msg_unreg:登録利用者のみが既読と未読メッセージを追跡できます
+no_unread_msg_unreg:既読と未読メッセージを追跡できるのは登録済利用者だけです
 num_pages:({VAR: ttl_pg}) ページ:
 num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|票}
 occupation:職業:
