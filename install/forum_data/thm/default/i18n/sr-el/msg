@@ -3,6 +3,7 @@
 # Author: KWiki
 # Author: Naudefj
 # Author: Rancher
+# Author: Сербијана
 
 action:Radnja
 add_to_buddy_list:dodaj na spisak prijatelja
@@ -466,7 +467,7 @@ rpasswd_passwd_nomatch:Lozinke se ne poklapaju
 rpasswd_passwd_length:Lozinka mora imati najmanje 6 znakova
 reset_remind_pass:Podsetnik za lozinku
 reset_reset_conf:Lozinka će biti poništena i poslata vama. Ako još uvek niste potvrdili svoju e-adresu, poslaćemo obrazac za to.
-reset_error:E-adresa nije pronađena u bazi podataka
+reset_error:Imejl adresa nije pronađena u bazi podataka
 rpasswd_change_pass:Promena lozinke
 rpasswd_login:Korisničko ime:
 rpasswd_cur_pass:Lozinka:
@@ -504,7 +505,7 @@ remail_friends_email:E-pošta prijatelja:
 remail_required:obavezno
 remail_subject:Naslov:
 remail_message:Poruka:
-remail_send_now:Pošalji e-poruku
+remail_send_now:Pošalji imejl sada
 remail_anon_opt:Umnoži ovu poruku u program e-pošte za kasnije slanje vašim prijateljima.
 remail_done:Završeno
 remail_sent_conf:Pošaljite e-poruku prijatelju na {VAR-HTML: _POST['femail']} oko {VAR: data->subject} teme koja je uspešno poslata.
@@ -643,8 +644,8 @@ postcheck_no_such_user:Ne postoji korisnik s imenom „{FUNC: char_fix(htmlspeci
 postcheck_ignored:Ne možete poslati privatnu poruku članu „{FUNC: char_fix(htmlspecialchars($v))}“ jer vas on/ona ignoriše.
 postcheck_no_recepient:Ne možete poslati poruku jer nedostaje primalac.
 postcheck_invalid_email:Unesite ispravnu e-adresu za vašeg prijatelja.
-postcheck_email_subject:Ne možete poslati e-poruku bez naslova.
-postcheck_email_body:Ne možete poslati e-poruku bez teksta.
+postcheck_email_subject:Ne možete poslati imejl bez naslova.
+postcheck_email_body:Ne možete poslati imejl bez teksta.
 private_msg_notify_subj:Pročitaj obaveštenje za: {VAR: m->subject}
 private_msg_notify_body:Zdravo,<br />{VAR: usr->login} otvori vašu privatnu poruku pod nazivom „{VAR: m->subject}“.<br />Ovo je automatsko obaveštenje napravljeno {TEMPLATE: private_msg_notify_body_date}<br />
 referals_update:Pregledanje upućivača
@@ -696,7 +697,7 @@ ERR_access_msg:Nemate potrebne dozvole za izvršavanje ove radnje.
 ERR_registration_disabled_ttl:Otvaranje naloga je onemogućeno
 ERR_registration_disabled_msg:Administrator je onemogućio otvaranje naloga. Pokušajte kasnije.
 ERR_emailconf_ttl:Greška: vaš nalog još uvek nije potvrđen
-ERR_emailconf_msg:Još uvek niste potvrdili svoj nalog.<br /><table border="0"><tr><td><ol><li>Ako niste primili e-poruku, <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">zatražite je</a>.</li><li>Ako {VAR: usr_d->email} e-adresa nije ispravna, <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">unesite je još jedanput</a>.</li></ol></td></tr></table>
+ERR_emailconf_msg:Još uvek niste potvrdili svoj nalog.<br /><table border="0"><tr><td><ol><li>Ako niste primili imejl, <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">zatražite je</a>.</li><li>Ako {VAR: usr_d->email} imejl adresa nije ispravna, <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">unesite je još jedanput</a>.</li></ol></td></tr></table>
 ERR_user_ttl:Greška: korisnik ne postoji
 ERR_user_msg:Ne postoji takav korisnik
 ERR_systemerr_ttl:Greška: sistemska greška

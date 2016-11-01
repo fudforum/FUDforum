@@ -889,7 +889,7 @@ poll_edit:编辑
 register_err_not_valid_img:指定的图片连接不正确
 pmsg_recepient:收信人
 register_err_taken_alias:您要使用的别名已在另一论坛成员使用。请选择另一个。
-register_alias:昵称
+register_alias:别名：
 register_alias_desc:如果你想应用昵称代替你的用户名来显示在论坛上就请你填入你想要的昵称。
 register_allow_pm_msg:接受悄悄话
 register_allow_pm_msg_desc:接受论坛其他用户向你发送的悄悄话。

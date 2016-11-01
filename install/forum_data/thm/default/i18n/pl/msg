@@ -313,11 +313,15 @@ register_builtin:Wbudowany
 register_specify_url:Podaj adres
 register_uploaded:Załaduj
 register_login:Nazwa użytkownika:
+register_login_desc:Nazwa, którą chcesz się logować i pod którą chcesz być znany na tej stronie.
+register_login_available:Dostępna
+register_login_taken:Zajęta
 register_password:Hasło
+register_password_desc:Hasło dla Twojego konta. Ma znaczenie wielkość liter i musi mieć co najmniej 6 znaków.
 register_conf_pass:Potwierdź hasło:
-# Fuzzy
-register_email_desc:Prosimy o podawanie poprawnego adresu e-mail. Możesz wybrać jego ukrywanie poniżej, w sekcji preferencji.
+register_email_desc:Twój adres e-mail. Możesz wybrać jego ukrywanie poniżej, w sekcji preferencji.
 register_name:Imię i nazwisko:
+register_name_desc:Twoje prawdziwe imię.
 register_your_pass:Twoje hasło:
 register_update:Uaktualnij
 register_avatar_type:Typ avatara:
@@ -330,8 +334,7 @@ register_preview:Podgląd
 register_custom_avatar_upload:Plik avatara użytkownika:
 register_register:Zarejestruj się
 register_required:Informacje Wymagane
-# Fuzzy
-register_required_desc:Wypełnienie wszystkich poniższych pól jest wymagane. Prosimy o zwrócenie uwagi na wielkość liter.
+register_required_desc:Wszystkie pola są wymagane.
 register_optional:Informacje Opcjonalne
 register_optional_desc:Zalecane jest, aby nie ujawniać prywatnych informacji. Wszystkie poniższe informacje będą dostępne dla innych użytkowników forum.
 register_location:Miejsce zamieszkania:
@@ -658,8 +661,7 @@ postcheck_email_body:Nie możesz wysłać listu bez treści.
 private_msg_notify_subj:Powiadomienie przeczytania wiadomości o temacie: {VAR: m->subject}
 private_msg_notify_body:Witaj,<br />{VAR: usr->login} przeczytał(a) Twoją prywatną wiadomość, "{VAR: m->subject}", dnia {TEMPLATE: private_msg_notify_body_date}<br />
 referals_update:Przeglądanie osób poleconych
-# Fuzzy
-register_err_short_login:Nazwa użytkownika, która została wybrana, jest za krótka. Nazwa użytkownika musi mieć co najmniej 4 znaki
+register_err_short_login:Nazwa użytkownika, która została wybrana, jest za krótka. Nazwa użytkownika musi mieć co najmniej 2 znaki.
 register_err_login_notallowed:Ta nazwa użytkownika nie jest dozwolona.
 register_err_loginunique:Nazwy użytkowników muszą być unikalne, a już jest użytkownik o takiej nazwie obecny w systemie
 register_err_emailexists:Ten adres e-mail już istnieje, więc jeśli zapomniałeś hasła, użyj opcji odzyskiwania opcji, zamiast rejestrować się ponownie.
