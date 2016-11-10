@@ -317,6 +317,7 @@ register_builtin:Embutido
 register_specify_url:Especificar URL
 register_uploaded:Adicionar Avatar
 register_login:Utilizador:
+register_login_desc:O nome para entrar e pelo qual gostaria de ser conhecido neste ''site''.
 register_login_available:Disponível
 register_login_taken:Já utilizado
 register_password:Senha:
