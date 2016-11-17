@@ -1028,7 +1028,7 @@ uc_new_cat_forum:새 메시지로 된 구독 중인 포럼
 uc_cat_forum:분류 &raquo; 포럼
 uc_sub_topics:새 메시지로 된 구독 중인 주제
 uc_page_title:개인 제어판을 보는 중입니다.
-search_options:검색 설정
+search_options:검색 옵션
 search_user_filter:사용자별 필터:
 register_none:알리지 마세요
 findu_no_conf:확인되지 않은 사용자

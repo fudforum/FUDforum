@@ -716,7 +716,7 @@ ERR_systemerr_ttl:系统错误
 ERR_systemerr_msg:发生系统错误，请报告错误给管理人员。
 email_title:邮件格式
 finduser_title:查找用户
-help_title:使用帮助
+help_title:帮助
 login_title:登录格式
 poll_title:调查编辑
 register_title:注册

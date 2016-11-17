@@ -312,7 +312,7 @@ register_conf_pass:Confirma la contraseña:
 register_email_desc:La to direición de corréu electrónicu. Pues escoyer tapecela más abaxo, na seición de preferencies.
 register_name:Nome:
 register_name_desc:El to nome real.
-register_your_pass:La to conseña:
+register_your_pass:La to contraseña:
 register_update:Anovar
 register_avatar_type:Triba d'avatar:
 register_del_avatar:Desaniciar l'avatar
@@ -386,7 +386,7 @@ apply_spell_changes:Aplicar los cambios ortográficos
 post_preview:Vista previa del mensaxe
 post_logedin_user:Usuariu coneutáu:
 post_logout:salir
-post_passwd:Conseña de publicación:
+post_passwd:Contraseña de publicación:
 post_poll:Encuesta:
 post_create_poll:CREAR ENCUESTA
 post_poll_delete:DESANICIAR
@@ -454,32 +454,32 @@ login_not_logedin:Nun aniciasti sesión. Esto pue ser por unu de los siguientes 
 login_cookie_expired:La to cookie caducó, y necesites volver a entrar nel sistema p'anovala.
 login_perm_denied:Nun tienes permisu d'accesu al recursu solicitáu como usuariu anónimu. Tienes de volver a entrar al sistema pa tener esi permisu.
 login_want_to_register:¿Quies rexistrate?
-login_forgot_passwd:Escaecí la conseña
+login_forgot_passwd:Escaecí la contraseña
 login_use_cookie:Usar cookies<br /><span class="SmallText">Si tas usando un terminal públicu, como un ordenador d'una biblioteca, escuela o cibercafé, ye recomendable que desmarques esta opción pa mayor seguridá. Si dexes seleicionada esta opción te coneutarás automáticamente al foru la siguiente vegada que lu visites.</span>
 login_login:Aniciu de sesión:
 login_login_btn:Entrar
 login_name_required:Fai falta un nome d'usuariu
-login_passwd_required:Fai falta una conseña
-login_invalid_radius:Combinación inválida de nome d'usuariu/conseña
+login_passwd_required:Fai falta la contraseña
+login_invalid_radius:Combinación inválida de nome d'usuariu/contraseña
 reset_confirmation:Gracies por rexistrate.\n\nP'activar la to cuenta, por favor, visita la URL siguiente:\n\n{VAR: url}\n\nUna vez que la to cuenta s'active coneutarás col foru y te\nre-dirixirá a la páxina principal.
-reset_reset:Hola:\n\nPidisti que se reaniciara la to conseña. Para finar el procesu, por favor,\nvisita la siguiente URL:\n\n{VAR: url}\n\nNOTA: esti foru guarda les conseñes con un mecanismu de cifráu de sentíu únicu, lo que significa que\ncuando escribas la to conseña, esta se codifica de mou que NUN HAI MANERA de recuperala.\nEsto funciona comparando la versión cifrada que tenemos nel rexistru cola versión cifrada de lo qu'escribes nel campu d'entrada.\n(Si tienes interés en saber como funciona esti mecanismu, busca información sobro l'algoritmu MD5 HASH)
-rpasswd_invalid_passwd:Conseña inválida
+reset_reset:Hola:\n\nPidisti que se reaniciara la contraseña. Para finar el procesu, por favor,\nvisita la siguiente URL:\n\n{VAR: url}\n\nNOTA: esti foru guarda les contraseñes con un mecanismu de cifráu de sentíu únicu, lo que significa que\ncuando escribas la contraseña, esta codifícase de mou que NUN HAI MANERA de recuperala.\nEsto funciona comparando la versión cifrada que tenemos nel rexistru cola versión cifrada de lo qu'escribes nel campu d'entrada.\n(Si tienes interés en saber como funciona esti mecanismu, busca información sobro l'algoritmu MD5 HASH)
+rpasswd_invalid_passwd:Contraseña inválida
 rpasswd_passwd_nomatch:Les contraseñes nun casen
-rpasswd_passwd_length:La conseña tien de tener polo menos 6 caráuteres
-reset_remind_pass:Recordatoriu de conseña
-reset_reset_conf:La to conseña se reaniciará y te la unviaremos. Si entá nun confirmasti la to direición de corréu electrónicu, volveremos a unviate la solicitú de confirmación.
+rpasswd_passwd_length:La contraseña tien de tener polo menos 6 caráuteres
+reset_remind_pass:Recordatoriu de contraseña
+reset_reset_conf:Reaniciaráse la contraseña y te la unviaremos. Si entá nun confirmasti la to direición de corréu electrónicu, volveremos a unviate la solicitú de confirmación.
 reset_error:Nun s'alcontró la direición de corréu electrónicu na base de datos
 reset_update:Reaniciar contraseña
 rpasswd_change_pass:Camudar contraseña
 rpasswd_login:Usuariu
-rpasswd_cur_pass:Conseña actual:
+rpasswd_cur_pass:Contraseña actual:
 rpasswd_new_pass:Contraseña nueva:
 rpasswd_conf_pass:Confirma la contraseña:
 ruser_title:Formulariu de cambiu d'identificación
 ruser_change_user:Camudar la to identificación nel foru
 ruser_cur_login:Nome d'usuariu actual:
 ruser_new_login:Nome d'usuariu nuevu:
-ruser_cur_pass:Conseña actual:
+ruser_cur_pass:Contraseña actual:
 login_passwd:Contraseña:
 reset_email:Corréu electrónicu:
 reset_reset_button:Reaniciar contraseña
@@ -635,7 +635,7 @@ post_err_floodtrig_msg:Por favor, vuelvi a intentalo {PLURAL: tm|nún segundu|en
 post_err_attach_size:El ficheru axuntu ye demasiao grande (pasa del llimite permitíu de {VAR: MAX_F_SIZE} bytes)
 post_err_attach_ext:El ficheru que quies xubir nun casa colos tipos de ficheru permitíos.
 post_err_attach_filelimit:Tas intentando xubir más ficheros de los permitíos.
-post_err_passwd:Conseña incorreuta.
+post_err_passwd:Contraseña incorreuta.
 post_reply_update:Respondiendo a <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> en {VAR: frm->name}
 post_topic_update:Escribiendo un nuevu filu en <a href="{TEMPLATE: post_topic_update_lnk}">{VAR: frm->name}</a>
 post_error_generic:Hebo un error
@@ -654,13 +654,13 @@ referals_update:Navegar poles referencies
 register_err_short_login:El nome d'usuariu qu'escoyisti ye curtiu enforma. Los nomes d'usuariu tienen de tener polo menos 2 caráuteres.
 register_err_login_notallowed:Esti nome d'usuariu nun ta permitíu.
 register_err_loginunique:Los nomes d'usuariu del foru tienen de ser únicos. Yá hai un usuariu con esti nome.
-register_err_emailexists:Esta direición de corréu electrónicu yá ta asociada con una cuenta. Si escaecisti la to conseña, por favor, emplega la opción de restauración en cuenta de volvete a rexistrar.
+register_err_emailexists:Esta direición de corréu electrónicu yá ta asociada con una cuenta. Si escaecisti la contraseña, por favor, emplega la opción de restauración en llugar de volvete a rexistrar.
 register_err_shortpasswd:Les conseñes tienen de tener polo menos 6 caráuteres.
 register_err_passwdnomatch:Les conseñes nun casen; por favor, vuelvi a intentalo.
 register_err_invalidemail:La direición de corréu electrónicu qu'especificasti paez que nun ye válida.
 register_err_needname:Pa completar correutamente esti rexistru tienes d'escribir el to nome.
-register_err_enterpasswd:Tienes d'escribir la to conseña actual pa completar los cambios.
-register_err_adminpasswd:Tienes d'escribir la to conseña <b>d'alministrador</b> pa completar los cambios.
+register_err_enterpasswd:Tienes d'escribir la to contraseña actual pa completar los cambios.
+register_err_adminpasswd:Tienes d'escribir la contraseña <b>d'alministrador</b> pa completar los cambios.
 register_err_notyouremail:Yá hai dalguién rexistráu con esta direición de corréu electrónicu.
 register_err_avatartobig:El ficheru que tas tratando de xubir ye demasiao grande, mayor que {GVAR: CUSTOM_AVATAR_MAX_SIZE} bytes.
 register_err_avatarnotallowed:L'avatar que tas tratando de xubir nun ta permitíu. Comprueba los tipos de ficheru permitíos.
@@ -675,11 +675,11 @@ register_register_update:Páxina de rexistru
 report_err_nosuchmsg_title:ERROR
 report_err_nosuchmsg_msg:Esi mensaxe nun esiste
 reset_err_invalidkey_title:ERROR
-reset_err_invalidkey_msg:Clave de reaniciu de conseña inválida. Ye posible que'l to cliente de corréu electrónicu yá abriera esta páxina de mou automáticu, invalidando la clave de reaniciu. Si esti ye'l casu, tendrías de recibir ceo un corréu cola to nueva conseña. Si nun te llega esi corréu, por favor, intenta volver a reaniciar la conseña.
+reset_err_invalidkey_msg:Clave de reaniciu de contraseña inválida. Ye posible que'l to cliente de corréu electrónicu yá abriera esta páxina de mou automáticu, invalidando la clave de reaniciu. Si esti ye'l casu, tendríes de recibir ceo un corréu cola to nueva contraseña. Si nun te llega esi corréu, por favor, tenta reaniciar la contraseña nuevamente.
 reset_err_rstconf_title:Información
 reset_err_rstconf_msg:Tendríes de recibir instrucciones nel to corréu electrónicu nos próximos minutos.
 reset_newpass_title:Reaniciar contraseña
-reset_newpass_msg:Hola,\n\nComo pidisti, la to información d'aniciu de sesión apaez darréu:\n\nNome d'usuariu: {VAR: ui[1]}\nConseña: {VAR: passwd}\n\nPor favor, ten en cuenta que la to conseña se reanició al valor d'arriba. Si quies camudar\nla conseña, pues facelo per aciu del panel de control d'información del usuariu en:\n{FULL_ROOT}{ROOT}?t=register
+reset_newpass_msg:Hola,\n\nComo pidisti, la información d'aniciu de sesión apaez darréu:\n\nNome d'usuariu: {VAR: ui[1]}\nContraseña: {VAR: passwd}\n\nPor favor, ten en cuenta que la contraseña reanicióse al valor d'arriba. Si quies camudar\nla contraseña, pues facelo per aciu del panel de control d'información del usuariu en:\n{FULL_ROOT}{ROOT}?t=register
 reset_login_notify:La to contraseña mandóse per corréu electrónicu. Tendríes de recibila dientro d'unos minutos.
 search_update:Buscando mensaxes
 selmsg_update:Navegando pelos <a href="{TEMPLATE: selmsg_update_lnk}">mensaxes de güei</a>
@@ -709,7 +709,7 @@ login_title:Formulariu d'aniciu de sesión
 poll_title:Editor d'encuestes
 register_title:Formulariu de rexistru
 reset_title:Reaniciar contraseña
-rpasswd_title:Formulariu de cambiu de conseña
+rpasswd_title:Formulariu de cambiu de contraseña
 error_title:Formulariu d'error
 index_title:Bienveníu al foru
 search_title:Guetar {VAR-HTML: srch}
@@ -725,7 +725,7 @@ post_opt_fud_off:El <b>BBCode</b> ta <b>desactiváu</b>
 post_opt_images_off:Les <b>imaxes</b> tán <b>desactivaes</b>
 post_opt_smilies_off:Los <b>fustaxes</b> tán <b>desactivaos</b>
 post_opt:Opciones del foru:
-register_change_passwd:camudar conseña
+register_change_passwd:camudar contraseña
 register_change_login:camudar l'aniciu de sesión
 approved_avatar_title:El to avatar personalizáu s'aprobó.
 approved_avatar_msg:L'alministrador aprobó el to avatar. Agora tendría d'apaecer como avatar tuyu en tolos mensaxes de to. Si nun lu ves o inda ves el to avatar antiguu, ye porque'l to navegador tien la páxina na caché. Intenta anovala una o dos vegaes. Na mayor parte de los casos esto igua'l problema.

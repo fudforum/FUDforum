@@ -75,7 +75,7 @@ lock_thread:Bloquear hilo de discusión
 locked:Bloqueado
 locked_with_new_posts:Bloqueado (con mensajes no leídos)
 logged_in_list:Lista de usuarios conectados
-login:Iniciar sesión
+login:Acceder
 login_header:Iniciar sesión:
 logout:Salir
 mark_all_read:Marcar todos los mensajes como leídos
