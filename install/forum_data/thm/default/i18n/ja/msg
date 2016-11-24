@@ -10,6 +10,7 @@
 # Author: Otokoume
 # Author: Shirayuki
 # Author: Sujiniku
+# Author: ネイ
 
 action:操作
 add_to_buddy_list:仲間リストに追加
@@ -77,7 +78,7 @@ mark_all_read_desc:すべての未読メッセージを既読にする
 members:メンバー一覧
 calendar:カレンダー
 cal_goto_date:移動:
-cal_day_heading:今日のイベント
+cal_day_heading:この日のイベント
 cal_no_events:この日のイベントはありません。
 cal_update:フォーラムカレンダーの参照
 cal_birthday:誕生日: {VAR: user}

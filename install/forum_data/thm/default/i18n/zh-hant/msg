@@ -613,7 +613,7 @@ emailconf_err_invkey_msg:無效的確認鍵。請檢查您的電子郵件，以�
 err_inc_criticaltitle:嚴重錯誤
 err_inc_criticalmsg:出現錯誤。不幸的是，也有錯誤報告系統有問題。
 finduser_update:搜尋使用者
-help_index_update:閱讀的<a href="{TEMPLATE: help_index_update_lnk}">説明</a>
+help_index_update:閱讀<a href="{TEMPLATE: help_index_update_lnk}">使用說明</a>
 iemail_thr_subject:新答覆 {VAR: thr_subject} 的{VAR: poster_login}
 iemail_thr_bodyemail:要查看未讀的答覆轉至 {VAR: goto_url['email']} ！N!!N ！如果您不希望再收到答覆有關通知，在本主題中，請轉到此處：{VAR: unsub_url['email']}
 iemail_frm_subject:新主題論壇 {VAR: frm_name} ，稱為 {VAR: thr_subject} ，通過{VAR: poster_login}
@@ -882,7 +882,7 @@ post_list_smilies:列出所有表情符號
 p_VISIBLE:可見
 reported_in_thread:中：
 help_back_to_top:回到頁首
-help_return_to_index:回到説明索引
+help_return_to_index:回到說明索引
 imsg_err_message_title:帖子出錯
 imsg_err_message_msg:不存在您要檢視的訊息。
 poll_edit:編輯
