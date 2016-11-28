@@ -218,11 +218,11 @@ welcome_message:欢迎！<b>{VAR: usr->alias}</b>，您上一次访问是在{TEM
 what_ppl_doing:显示浏览者的操作
 reported_del_report:删除报告
 reported_reason:原因：
-reported_on:日期：
+reported_on:于：
 reported_reported_by:报告者：
 reported_reported_msg:报告相关内容
 modque_pending_approval:等待批复的信息
-modque_approve:批复
+modque_approve:通过
 modque_delete:删除
 modque_deleteall:删除来自用户的一切
 modque_no_message:没有需要批复的信息
@@ -590,7 +590,7 @@ error_invalidurl:该地址无效
 error_error:错误
 usrinfo_profile:{VAR: u->alias}的个人信息
 usrinfo_show_all_posts:显示用户 {VAR: u->alias}发布的所有主题
-actions_update:查找和你的个人信息内容相匹配的用户。
+actions_update:查找和您的个人信息内容相匹配的用户
 err_info:信息
 buddy_list_err_cantadd:无法把你加入好友名单
 buddy_list_err_dup:你的好友列表中已经添加了这个用户
@@ -624,14 +624,14 @@ ignore_list_err_dup_msg:你已经把这用户添加到你的“被拒绝用户�
 ignore_list_err_nu_title:没有找到这个用户
 ignore_list_err_nu_msg:本论坛不存在你要添加的用户。
 ignore_list_cantign_msg:你无法拒绝该用户
-ignore_list_update:浏览“被拒绝用户”名单
+ignore_list_update:浏览自己的忽略列表
 index_update:浏览<a href="{TEMPLATE: index_update_lnk}">论坛列表</a>
 list_referers_update:浏览被提名者
-login_update:登录格式
-msg_update:展开浏览 <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
+login_update:登录表单
+msg_update:浏览话题<a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
 pm_err_nopm_title:错误：无法发送悄悄话
 pm_err_nopm_msg:系统管理员禁止你使用悄悄话系统。
-pm_update:使用悄悄话功能
+pm_update:使用私信
 post_err_lockedthread_title:错误：该帖子已被锁定
 post_err_lockedthread_msg:这个主题已被锁定，不能回复
 err_coppa_title:错误：您的账户尚未确认
@@ -693,14 +693,14 @@ reset_err_rstconf_msg:一会你将通过邮件收到相关说明。
 reset_newpass_title:重新输入密码
 reset_newpass_msg:您好，\n\n您每次登录的账号都将发送给您。\n以下是您的登录信息：\n\n账号：{VAR: ui[1]}\n密码：{VAR: passwd}\n\n注意：您的密码已经被改为上面的值字符组合，\n如果您想修改密码，请在个人信息中修改：\n{FULL_ROOT}{ROOT}?t=register
 reset_login_notify:您的密码已通过电子邮件发送给您。接下来几分钟您应该确认它。
-search_update:搜索
-selmsg_update:浏览 <a href="{TEMPLATE: selmsg_update_lnk}">今天发布的主题</a>
-showposts_update:查看用户 <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>发布的主题
-subscribed_update:浏览自己预定的内容
+search_update:搜索消息
+selmsg_update:浏览<a href="{TEMPLATE: selmsg_update_lnk}">今天的帖子</a>
+showposts_update:查看由该用户发表的帖子：<a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
+subscribed_update:浏览自己的订阅
 bookmarked_update:浏览自己的书签列表
-thread_update:浏览<a href="{TEMPLATE: thread_update_lnk}">{VAR: frm->name}</a>论坛中
-tree_update:浏览（以树状方式） <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
-userinfo_update:查看 <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}的</a> 个人信息
+thread_update:正在浏览论坛<a href="{TEMPLATE: thread_update_lnk}">{VAR: frm->name}</a>
+tree_update:正在浏览话题（树形查看）<a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
+userinfo_update:正在查看<a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}'s</a>的个人详情
 ERR_login_msg2:<legend>错误：未登录</legend>登录后才能访问所需页面。
 ERR_disabled_ttl:被禁止的功能
 ERR_disabled_msg:此功能已被系统管理员禁用。
@@ -826,7 +826,7 @@ thread_mod_delete:删除
 action_ip:IP
 action_latest_post:最后一条消息
 online_today_last_visit:上次访问
-online_today_update:查看本论坛今天的在线用户
+online_today_update:查看本论坛今天的在线用户。
 logedin_todays_visitors:今天的访客
 logedin_latest_post:本论坛最新发布的主题
 register_show_avatar:显示头像：
@@ -901,7 +901,7 @@ polllist_date:发起时间
 polllist_owner:发起人
 polllist_votes:总票数
 polllist_action:操作
-polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">查看现有的调查</a>
+polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">查看可用投票</a>
 userinfo_polls:调查：
 show_pollist:显示调查
 search_and:和
@@ -992,7 +992,7 @@ mnav_day:天
 mnav_week:周
 mnav_month:月
 mnav_title:消息导航
-mnav_update:用<a href="{TEMPLATE: mnav_update_lnk}">帖子浏览器</a>来查看。
+mnav_update:用<a href="{TEMPLATE: mnav_update_lnk}">帖子浏览器</a>来查看
 pm_notify_subject:[{GVAR: FORUM_TITLE}] 你收到了新悄悄话！
 pm_notify_body_email:你收到了新的悄悄话，标题是 "{VAR: subject}"，发自 "{VAR: from}" 在 "{GVAR: FORUM_TITLE}" 论坛。\n要查看此悄悄话，请点击：{FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\n如果不想再收到新悄悄话提醒邮件，请在“个人信息”中禁止“新悄悄话提醒”。
 register_pm_notification:新悄悄话提醒
@@ -1054,7 +1054,7 @@ uc_new_topic:新帖
 uc_new_cat_forum:包含新帖的已订阅论坛
 uc_cat_forum:分区 &raquo; 论坛
 uc_sub_topics:包含新帖的已订阅话题
-uc_page_title:查看个人控制面板
+uc_page_title:查看个人控制面板。
 search_options:搜索选项
 search_user_filter:仅限作者：
 register_none:不要通知我
