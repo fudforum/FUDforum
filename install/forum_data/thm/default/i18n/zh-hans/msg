@@ -592,11 +592,11 @@ usrinfo_profile:{VAR: u->alias}的个人信息
 usrinfo_show_all_posts:显示用户 {VAR: u->alias}发布的所有主题
 actions_update:查找和您的个人信息内容相匹配的用户
 err_info:信息
-buddy_list_err_cantadd:无法把你加入好友名单
+buddy_list_err_cantadd:您不能将您自己加入好友名单
 buddy_list_err_dup:你的好友列表中已经添加了这个用户
 buddy_list_err_nouser:您要新增到好友清單的使用者不存在。
 buddy_list_err_nouser_title:无法添加
-buddy_list_err_ignore:不能增加忽略你的用户到你的朋友列表.
+buddy_list_err_ignore:不能添加忽略您的用户到您的朋友列表。
 buddy_list_update:浏览我的好友列表
 core_err_invinp_title:输入错误
 core_err_invinp_err:你点击了一个无效的链接，请告知<a href="mailto:{GVAR: ADMIN_EMAIL}">管理员</a>具体情况。
@@ -623,7 +623,7 @@ ignore_list_err_info_title:信息
 ignore_list_err_dup_msg:你已经把这用户添加到你的“被拒绝用户”名单中。
 ignore_list_err_nu_title:没有找到这个用户
 ignore_list_err_nu_msg:本论坛不存在你要添加的用户。
-ignore_list_cantign_msg:你无法拒绝该用户
+ignore_list_cantign_msg:您不能忽略该用户
 ignore_list_update:浏览自己的忽略列表
 index_update:浏览<a href="{TEMPLATE: index_update_lnk}">论坛列表</a>
 list_referers_update:浏览被提名者
@@ -890,7 +890,7 @@ register_err_not_valid_img:指定的图片连接不正确
 pmsg_recepient:收信人
 register_err_taken_alias:您要使用的别名已在另一论坛成员使用。请选择另一个。
 register_alias:别名：
-register_alias_desc:如果你想应用昵称代替你的用户名来显示在论坛上就请你填入你想要的昵称。
+register_alias_desc:如果您想应用昵称代替您的用户名来显示在论坛上，请在此输入。
 register_allow_pm_msg:接受悄悄话
 register_allow_pm_msg_desc:接受论坛其他用户向你发送的悄悄话。
 postcheck_pm_disabled:你不能给 "{VAR-HTML: v}" 发送悄悄话，因为他没有开启悄悄话功能。
@@ -993,7 +993,7 @@ mnav_week:周
 mnav_month:月
 mnav_title:消息导航
 mnav_update:用<a href="{TEMPLATE: mnav_update_lnk}">帖子浏览器</a>来查看
-pm_notify_subject:[{GVAR: FORUM_TITLE}] 你收到了新悄悄话！
+pm_notify_subject:[{GVAR: FORUM_TITLE}] 新的私信通知
 pm_notify_body_email:你收到了新的悄悄话，标题是 "{VAR: subject}"，发自 "{VAR: from}" 在 "{GVAR: FORUM_TITLE}" 论坛。\n要查看此悄悄话，请点击：{FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\n如果不想再收到新悄悄话提醒邮件，请在“个人信息”中禁止“新悄悄话提醒”。
 register_pm_notification:新悄悄话提醒
 register_pm_notification_desc:如果选“是”，则在有新悄悄话收到时，论坛会通过所选的方式通知你。
