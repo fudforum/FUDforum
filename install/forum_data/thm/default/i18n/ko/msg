@@ -1097,7 +1097,7 @@ copyright:저작권 &copy;2001-2013 <a href="http://fudforum.org/">FUDforum Bull
 code_title:코드:
 code_select_all:모두 선택
 code_show_hide:보이기/ 숨기기
-social_sites:소설 네트워크 사이트:
+social_sites:소셜 네트워크 사이트:
 postcheck_min_len_err:메시지가 너무 짧습니다. 최소 길이는 {PLURAL: post_min_len|$1 글자}입니다.
 postcheck_dup_err:중복된 주제를 만들지 마세요.
 btn_new_topic:새 주제
