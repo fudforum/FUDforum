@@ -41,7 +41,7 @@ flat_view:기본 플랫뷰로 돌아갑니다
 forum:포럼:
 forum_icon:포럼 아이콘
 forum_new_messages:새 메시지
-forum_none_messages:등록된 포럼 사용자만 읽었거나 읽지 않은 메시지를 추적할 수 있습니다
+forum_none_messages:등록된 포럼 회원만 읽었거나 읽지 않은 메시지를 추적할 수 있습니다
 forum_old_messages:새 메시지가 없습니다
 from:보내는이:
 gender:성별:
@@ -75,7 +75,7 @@ login_header:로그인:
 logout:로그아웃
 mark_all_read:모든 메시지를 읽음으로 표시
 mark_all_read_desc:읽지 않은 모든 메시지가 읽음으로 표시됩니다
-members:구성원
+members:회원
 calendar:캘린더
 cal_goto_date:이동:
 cal_day_heading:하루의 사건
@@ -159,7 +159,7 @@ sender_name:보내는 사람의 이름:
 show_posts_by:{VAR: u_alias}님이 적은 메시지 보기
 size:크기:
 status:상태:
-status_line:이 보드에는 <b>{PLURAL: st_obj->online_users_reg|구성원 $1명}</b>, <b>{PLURAL: st_obj->online_users_hidden|보이지 않는 구성원 $1명}</b>과 <b>{PLURAL: st_obj->online_users_anon|손님 $1명}</b>이 방문하고 있습니다.
+status_line:이 게시판에는 <b>{PLURAL: st_obj->online_users_reg|회원 $1명}</b>, <b>{PLURAL: st_obj->online_users_hidden|보이지 않는 회원 $1명}</b>과 <b>{PLURAL: st_obj->online_users_anon|손님 $1명}</b>이 방문하고 있습니다.
 sticky:고정:
 stop_ignoring:이 사용자의 무시를 멈춤
 sub_to_thread:주제를 구독
@@ -230,10 +230,10 @@ deny_recipt_desc:이 메시지를 읽었다면 확인을 보내지 마십시오
 restore_to:복구:
 move_to:이동:
 list_referes_referrals:추천
-list_referes_members:추천 멤버
-list_referes_member:멤버
+list_referes_members:추천 회원
+list_referes_member:회원
 referals_none:추천 없음
-referals_refered_by:추천 멤버: <b><a href="{TEMPLATE: referals_refered_by_lnk}" class="thLnk">{VAR: p_user[1]}</a></b>
+referals_refered_by:포럼 추천 회원: <b><a href="{TEMPLATE: referals_refered_by_lnk}" class="thLnk">{VAR: p_user[1]}</a></b>
 referals_post_count:메시지 수
 referals_registered_on:등록됨
 referals_action:활동
@@ -334,7 +334,7 @@ register_register:등록
 register_required:필수 정보
 register_required_desc:모든 칸은 필수입니다.
 register_optional:선택 입력
-register_optional_desc:중요한 개인정보를 입력하지 마십시오. 다른 멤버에게 공개될 수 있습니다.
+register_optional_desc:중요한 개인 정보를 입력하지 마십시오. 다른 회원에게 공개될 수 있습니다.
 register_location:위치:
 register_occupation:직업:
 register_interests:관심분야:
@@ -345,7 +345,7 @@ register_yahoo:Yahoo 메신저:
 register_msnm:MSN 메신저:
 register_homepage:홈페이지:
 register_bday:생일:
-register_bday_desc:생일을 입력하면 다른 포럼 구성원들이 사용자 프로필의 생일을 볼 수 있습니다.
+register_bday_desc:생일을 입력하면 다른 포럼 회원들이 당신의 프로필의 생일을 볼 수 있습니다.
 register_day:일
 register_month:월
 register_year:년
@@ -359,7 +359,7 @@ register_reset:초기화
 register_def_thread_view:기본 주제 보기:
 register_msg_per_page:페이지당 게시글:
 register_show_sig:서명 보기:
-register_show_sig_desc:당신의 서명을 포럼 사용자에게 보이게 또는 숨길 수 있습니다'
+register_show_sig_desc:당신의 서명을 다른 포럼 회원에게 숨기거나 보여줄 수 있습니다.
 register_use_sig_default:기본 서명:
 register_use_sig_default_desc:게시하는 모든 글마다 서명이 자동으로 뒤에 추가됩니다.
 register_timezone:시간대:
@@ -431,7 +431,7 @@ ignore_users:차단 멤버
 add_ignore:차단 멤버 추가
 forum_terms:포럼 기간
 forum_rules:이 포럼의 가입은 자유입니다! 아래의 규칙을 준수하십시오. 준수사항에 동의한다면 동의 버튼을 클릭하십시오. 주의: 버튼을 클릭하는 것은 13세 이상임을 확인하는 행위입니다. 만일 13세 이하면 이 양식을 이용하십시오.<p>관리자 및 중재자는 포럼의 규칙 준수를 위해 모든 게시글을 감시하여 포럼의 원할한 운영을 유지합니다. 모든 게시물에 대한 법적 책임은 작성자에게 있으며, 포럼의 운영자는 불법적이거나 음란한 내용의 게시물을 삭제시키거나 포럼을 폐쇄시킬 수 있습니다.
-forum_rules_13:<p>만 13세 이하 사용자는 포럼 참가 자격을 얻기 위해 보호자 동의가 필요합니다. 만 13세 이하 사용자는 참가 자격을 얻기 위해서 보호자가 허가서에 서명하고, 가입 사실을 팩스나 이메일을 받아야 합니다.</p><p>위 사항을 준수하고 회원가입하고 싶다면 아래의 <b>동의</b> 버튼을 클릭해 주십시오. 등록하고 싶지 않다면 <b>동의하지 않음</b>버튼을 클릭하고 포럼의 첫 페이지로 돌아가 주십시오.</p><p>허가 양식은 등록 후 보일 것입니다. 더 알고 싶다면 <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>로 이메일을 보내주시기 바랍니다.</p>
+forum_rules_13:<p>만 13세 이하 사용자는 포럼 참가 자격을 얻기 위해 보호자 동의가 필요합니다. 만 13세 이하 회원은 참가 자격을 얻기 위해서 보호자가 허가서에 서명하고, 가입 사실을 팩스나 이메일을 받아야 합니다.</p><p>위 사항을 준수하고 회원가입하고 싶다면 아래의 <b>동의</b> 버튼을 클릭해 주십시오. 등록하고 싶지 않다면 <b>동의하지 않음</b>버튼을 클릭하고 포럼의 첫 페이지로 돌아가 주십시오.</p><p>허가 양식은 등록 후 보일 것입니다. 더 알고 싶다면 <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>로 이메일을 보내주시기 바랍니다.</p>
 coppa_conf:청소년 온라인 개인 정보 보호법(COPPA) 인증
 coppa_before:{TEMPLATE: coppa_date}전
 coppa_after:{TEMPLATE: coppa_date}후
@@ -688,7 +688,7 @@ bookmarked_update:자신의 북마크 목록을 찾아보는 중
 thread_update:<a href="{TEMPLATE: thread_update_lnk}">{VAR: frm->name}</a> 포럼 탐색
 tree_update:<a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a> 주제를 찾아보는 중 (트리 보기)
 userinfo_update:<a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}</a>의 프로필을 보는 중
-ERR_login_msg2:<legend>오류: 로그인하고 있지 않습니다</legend>이 페이지에 접근하려면 이 포럼의 구성원이어야 합니다.
+ERR_login_msg2:<legend>오류: 로그인하고 있지 않습니다</legend>이 페이지에 접근하려면 이 포럼의 회원이어야 합니다.
 ERR_disabled_ttl:기능 제한
 ERR_disabled_msg:이 기능은 시스템 관리자가 비활성화했습니다.
 ERR_access_ttl:오류: Insufficient Permissions
@@ -747,10 +747,10 @@ groupmgr_already_exists:"{FUNC: char_fix(htmlspecialchars($gr_member))}" 사용�
 groupmgr_yes:예
 groupmgr_no:아니오
 groupmgr_action:활동
-groupmgr_member:멤버
+groupmgr_member:회원
 groupmgr_cancel:취소
-groupmgr_add_member:멤버 추가
-groupmgr_update_member:멤버 업데이트
+groupmgr_add_member:회원 추가
+groupmgr_update_member:회원 업데이트
 groupmgr_edit:편집
 groupmgr_delete:삭제
 group_mgr_anon:익명
@@ -771,7 +771,7 @@ p_STICKY:끈끈이 게시글
 p_POLL:설문 조사 만들기
 p_FILE:파일 첨부
 p_VOTE:투표
-p_RATE:주제/구성원 평가
+p_RATE:주제/회원 평가
 p_SPLIT:주제 분할
 p_LOCK:주제 잠금
 p_MOVE:주제 이동
@@ -786,7 +786,7 @@ post_quote_msg:{VAR: msg->login}님이 {TEMPLATE: make_report_date}에 적었습
 post_quote:인용:
 post_quote_selected:선택한 문구 인용
 userinfo_referals:추천 사용자:
-userinfo_referals_count:{VAR: referals} 멤버
+userinfo_referals_count:{VAR: referals} 회원
 pm_no_space_title:좌측 공간 없음!
 pm_no_space_msg:쪽지함의 최대 저장 크기인 <b>{GVAR: MAX_PMSG_FLDR_SIZE} 바이트를</b> 초과하였습니다. 현재 사용 중인 크기는 <b>{VAR: fldr_size} 바이트입니다.</b> worth of messages. <br /><br /><span class="ErrorText">불필요한 파일을 정리하기 바랍니다.</span>
 pm_space_indct_msg:내 개인 메시지는 {VAR: percent_full}% 차있습니다.
@@ -871,7 +871,7 @@ imsg_err_message_msg:게시글이 존재하지 않습니다.
 poll_edit:편집
 register_err_not_valid_img:지정한 URL에 이미지가 포함되지 않았습니다.
 pmsg_recepient:수신
-register_err_taken_alias:동일한 별명이 사용 중입니다. 다른 별명을 선택하십시오.
+register_err_taken_alias:다른 포럼 회원이 이미 사용 중인 별명을 사용하려고 합니다. 다른 별명을 선택해주세요.
 register_alias:별명:
 register_alias_desc:포럼에서도 별명이 보이게 하기 위해선 여기에 기입하십시오.
 register_allow_pm_msg:쪽지 허용
@@ -923,7 +923,7 @@ buddy_offline:{VAR: r[2]}님은 현재 오프라인입니다
 buddy_online:{VAR: r[2]}님은 현재 온라인입니다
 sml_no_smilies:사용 가능한 이모티콘이 없습니다.
 login_unapproved_account_ttl:승인되지 않은 계정
-login_unapproved_account_msg:이 포럼의 관리자가 인증에 앞서 각각의 새로운 계정을 일일이 확인하기로 했습니다. 사용자의 계정은 현재 인증되어 있지 않은 상태이므로 인증된 구성원들이 이용할 수 있는 기능들 중 일부에 접근할 수 없습니다.
+login_unapproved_account_msg:이 포럼의 관리자가 인증에 앞서 각각의 새로운 계정을 일일이 확인하기로 했습니다. 당신의 계정은 현재 인증되어 있지 않은 상태이므로 인증된 회원들이 이용할 수 있는 기능들 중 일부에 접근할 수 없습니다.
 remove_from_buddy_list:친구 목록에서 제거
 iemail_msg_author:<b>저자:</b> {VAR: obj->alias}
 iemail_msg_subject:<b>제목:</b> {VAR: obj->subject}
