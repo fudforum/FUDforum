@@ -1139,10 +1139,10 @@ btn_small_pm:PM
 btn_delete:刪除
 btn_edit:編輯
 btn_reply:答覆
-btn_forward:轉發
+btn_forward:轉寄
 btn_quote:報價
 btn_email:電子郵件
-btn_show_posts:帖子
+btn_show_posts:貼文
 btn_homepage:www
 feed_no_data:找不到匹配的資料。
 feed_rdf:RDF源

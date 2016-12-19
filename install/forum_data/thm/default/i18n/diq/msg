@@ -1,5 +1,6 @@
 # Messages for Zazaki (Zazaki)
 # Exported from translatewiki.net
+# Author: 1917 Ekim Devrimi
 # Author: Asmen
 # Author: Erdemaslancan
 # Author: Gorizon
@@ -108,10 +109,15 @@ no_new_posts:Mesacê Neweyi Çıniyê
 no_posts:Mesac Çıno
 no_subscribed_forums:Qet yew forumi rê abonê niyê
 no_subscribed_threads:Qrt yew mewzuy rê abone niyê
+no_unread_locked:Ena mewzu biya kılit
+no_unread_msg:Ena mewzu dı nêwaniyaye mesac çıni yo
+no_unread_msg_unreg:Weziyeta mesacan teyna terefê karberanê qeydınan ra weynayışê cı beno
 num_pages:Peli ({VAR: ttl_pg}):
+num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|rey|reyi}
 occupation:Kar:
 off:Racıne
 on:Akerde
+page_timings:Vıraştena perrer pêro piya  {PLURAL: page_gen_time|$1 saniye} ramıt
 pm:Mesacê Xısusiyi
 poll:Reydayış
 post_count:Amariya Mesaca {VAR: u_pcount}
@@ -121,8 +127,10 @@ posts_c:Mesaci:
 prev_thread:Mewzuyo verên:
 usrinfo_private_message:Mesaco Xısusi:
 profile:Panela Cerbnayışi
+profile_desc:Resayışa Panela kontroli
 rate_thread:Meseler ercenê
 rating:Nısbetkerden
+rating_track:Qandé sername dê mewzu da <b>{VAR: thr->subject}</b> pey rıdyayışa timar kı
 refresh_list:Liste newe ke
 register:Qeyd be
 registered:Qeyd biyayış:
@@ -134,6 +142,8 @@ reveal_all_posts:Heme mesacanê  karberê {VAR: user_login} bıasne
 reveal_post:mesacan bımocne
 search:Cı geyre
 sel_todays_posts:Mesacê ewroyi
+sel_todays_posts_desc:Parzunê mesacanê noroci ak/racın
+sel_unanswered_posts:Mesacê kı neşr nêbiyê
 sel_unread_messages:Mesacê nêwaniyayey
 send:Bırışe
 sender_email:E-posteyê rıştoği:
