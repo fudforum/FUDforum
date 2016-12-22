@@ -36,7 +36,7 @@ first_unread_msg_desc:Ena mersela dı şo nêwaneyaye mesaci
 flat_view:Peyser şo asayışê raştiyê hesebiyayey
 forum:Forum
 forum_icon:Forum Icon
-forum_new_messages:Mesacê neweyi
+forum_new_messages:Mesaco newe
 forum_none_messages:Teyna karberê qeydıni şenê mesacan bıvinê
 forum_old_messages:Mesacê neweyi çıniyê
 from:Rıştoğ:
@@ -97,7 +97,7 @@ move_thread:Bıkırışe
 moved:Kırışıya yo yewna forum
 moved_thread_message:Ena mewzu kırışıya ya yewna forumi tede
 na:n/a
-new_posts:Mesacê Neweyi
+new_posts:Mesaco newe esto
 new_private_messages:<span class="GenTextRed">({VAR: c})</span> nêwanaye xısusi mesaca şıma est a
 new_thread:Topiko newe vıraze
 newest_user:Karbero kı tewr peyd qeyd bıyo

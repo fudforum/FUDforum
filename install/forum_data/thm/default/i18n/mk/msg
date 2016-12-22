@@ -405,8 +405,8 @@ post_file_name:Име
 post_file_size:Големина
 file_attachments:Приложени податотеки:
 allowed_files:Допуштени податотечни наставки:
-max_file_size:Максимална големина на податотеката:
-max_files_per_msg:Максимален број на податотеки по порака:
+max_file_size:Допуштена големина на податотеката:
+max_files_per_msg:Највеќе податотеки по порака:
 post_notification:Известување за порака
 include_sig:Додај потпис
 include_sig_desc:Додавање на потпис од профил.
@@ -926,7 +926,7 @@ err_mod_acc_msg:Администраторот реши да ги преглед
 accounts_pending_approval:Сметки кои чекаат одобрување
 saved:Зачувано
 register_err_time_limit:Пречекорено е ограничувањето од една регистрација на {GVAR: REG_TIME_LIMIT} секунди. Почекајте {PLURAL: reg_limit_reached|една секунда|$1 секунди}, па обидете се да се регистрирате повторно.
-register_err_avatardimtobig:Големината на аватарот <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> ги надминува максималните дозволени димензии од <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b> pixels.
+register_err_avatardimtobig:Големината на аватарот <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> ги надминува допуштените димензии од <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b> pixels.
 buddy_offline:{VAR: r[2]} е моментално исклучен(а)
 buddy_online:{VAR: r[2]} е моментално на линија
 sml_no_smilies:Нема смешковци на располагање.
@@ -1002,7 +1002,7 @@ merge_another:Оди на <a href="{TEMPLATE: merge_another_lnk}">последн
 split_cp:Контролна табла за разделување на теми
 groups_perms_header:Дозволи <span class="small">(отидете со глувчето врз дозволата за да видите за каков тип на дозвола се работи)</span>
 register_err_sig_too_long:Вашиот потпис го надминува бројот на дозволени знаци (највеќе {GVAR: FORUM_SIG_ML})
-register_sig_limit:{GVAR: FORUM_SIG_ML} characters <a href="javascript: alert('Вашиот потпис е долг '+document.forms['fud_register'].reg_sig.value.length+' знаци. Максималната дозволена должина на потписот изнесува {GVAR: FORUM_SIG_ML} знаци.');" class="SmallText">Проверете ја должината на потписот</a>
+register_sig_limit:{GVAR: FORUM_SIG_ML} characters <a href="javascript: alert('Вашиот потпис е долг '+document.forms['fud_register'].reg_sig.value.length+' знаци. Најголемата дозволена должина на потписот изнесува {GVAR: FORUM_SIG_ML} знаци.');" class="SmallText">Проверете ја должината на потписот</a>
 adm_account_accepted:Вашата сметка '{VAR: login}' е одобрена од администраторот и сега е активна. Сега можете да учествувате на форумот {GVAR: FORUM_TITLE}' како потврден, регистриран корисник.
 adm_account_accepted_s:Вашето барање за сметка на '{GVAR: FORUM_TITLE}' е прифатено.
 adm_account_rejected:Вашата сметка '{VAR: login}' беше одбиена од администраторот. Ако сакате да ја дознаете причината за оваа одлука, слободно контактирајте го администраторот на '{GVAR: ADMIN_EMAIL}'.
@@ -1047,7 +1047,7 @@ search_options:Нагодувања за пребарување
 search_user_filter:Филтрирај по корисник:
 register_none:Не ме известувај
 findu_no_conf:непотврден корисник
-register_max_sig_len:Максимална должина:
+register_max_sig_len:Најголема должина:
 register_turing:Внесете го долуприкажаниот код:
 register_err_turing:Неважечки потврден код.
 modque_cat:Категорија
@@ -1115,7 +1115,7 @@ code_title:Код:
 code_select_all:Избери сè
 code_show_hide:Прикажи / скриј
 social_sites:Мрежни места за друштвено вмрежување:
-postcheck_min_len_err:Вашата порака е прекратка. Минималната дозволена должина изнесува {PLURAL: post_min_len|$1 знак|$1 знаци}.
+postcheck_min_len_err:Вашата порака е прекратка. Мора да има барем {PLURAL: post_min_len|$1 знак|$1 знаци}.
 postcheck_dup_err:Ве молиме не создавајте дуплирани теми.
 btn_new_topic:Нова тема
 btn_new_pm:Нова прив. порака
