@@ -814,10 +814,10 @@ th_expr_one_day:1 Giorno
 th_expr_two_day:2 Giorni
 th_expr_four_day:4 Giorni
 th_expr_one_week:1 Settimana
-th_expr_two_week:2 Settimane
+th_expr_two_week:2 settimane
 th_expr_one_month:1 Mese
-th_expr_two_month:2 Mesi
-th_expr_four_month:4 Mesi
+th_expr_two_month:2 mesi
+th_expr_four_month:4 mesi
 th_expr_one_year:1 Anno
 thread_mod_delete:Cancella
 action_ip:IP

@@ -33,7 +33,7 @@ date_posted:发布时间
 date_registered:注册日期：
 download_counter:下载 {PLURAL: v[3] | $1 次|$1 次}
 pmsg_download_counter:下载$1次
-email:邮件：
+email:电子邮件：
 email_to_friend:发送邮件给朋友
 email_to_friend_desc:通过电子邮件向您的朋友发送至此页面的URL
 email_user:向用户发送一封电子邮件消息
@@ -304,7 +304,7 @@ finduser_joindate:注册日期
 finduser_action:操作
 yes:是
 no:否
-register_email:电子邮件：
+register_email:电子邮件
 edit_time_limit:<b>编辑时间限制</b>：{GVAR: EDIT_TIME_LIMIT}分钟
 no_edit_time_limit:<b>编辑时间限制</b>：不限
 pmuserloc_login:登录：

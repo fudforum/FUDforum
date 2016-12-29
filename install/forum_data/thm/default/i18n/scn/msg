@@ -1,5 +1,6 @@
 # Messages for Sicilian (sicilianu)
 # Exported from translatewiki.net
+# Author: Beta16
 # Author: Gmelfi
 
 action:Azione
@@ -804,7 +805,7 @@ th_expr_two_day:2 Sciurne
 th_expr_four_day:4 Sciurne
 th_expr_one_week:1 Sumàne
 th_expr_two_week:2 Sumàne
-th_expr_one_month:1 Mese
+th_expr_one_month:1 mese
 th_expr_two_month:2 Mise
 th_expr_four_month:4 Mise
 th_expr_one_year:'N'anne
