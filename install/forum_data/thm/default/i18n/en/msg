@@ -1014,6 +1014,7 @@ userinfo_buddy:Buddy:
 register_email_addr:E-mail Address:
 reset_suffix:If you received this message in error, please ignore it. If you are receiving multiple copies of this e-mail, which you have not requested, please contact the forum administrator at {GVAR: ADMIN_EMAIL}\n\nThis request was initiated from: {VAR: _SERVER['REMOTE_ADDR']}.
 usrinfo_last_visit:Last Visited:
+usrinfo_last_ip:Last used IP:
 mnav_newer:newer than
 mnav_older:older than
 ip_search_by_ip:Search users by IP
