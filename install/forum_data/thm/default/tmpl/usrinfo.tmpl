@@ -136,11 +136,12 @@
 {TEMPLATE-DATA: last_post}
 {IF: $u->last_visit && !($u->users_opt & 32768)}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}">
 	<td class="vt nw GenText">{MSG: usrinfo_last_visit}</td>
-	<td class="GenText DateText">{TEMPLATE: uinfo_last_visit_date}</td>
-</tr>{ENDIF}
-{IF: $u->last_used_ip && !($u->users_opt & 524288)}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}">
-	<td class="vt nw GenText">{MSG: usrinfo_last_ip}</td>
-	<td class="GenText"><a href="{TEMPLATE: usrinfo_last_ip_lnk}">{VAR: u->last_used_ip}</a></td>
+	<td class="GenText DateText">
+		{TEMPLATE: uinfo_last_visit_date}
+		{IF: $u->last_used_ip && $is_a}<br />
+			<a href="{TEMPLATE: usrinfo_last_ip_lnk}">{VAR: u->last_used_ip}</a>
+		{ENDIFI}
+	</td>
 </tr>{ENDIF}
 {TEMPLATE-DATA: polls}
 {IF: ($FUD_OPT_2 & 65536 && $u->user_image && strpos($u->user_image, '://'))}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}">
