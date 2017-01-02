@@ -1044,7 +1044,7 @@ delete_message_extra_desc:<b>可 选</b><br />用悄悄话向原帖作者说明�
 delete_message_extra_body:同时包含原帖内容。
 delete_msg_removed_ttl:你发的帖子已被管理员删除。
 delete_msg_pm_body:原帖
-delete_msg_pm_subject:原帖标题： {VAR: data[15]}
+delete_msg_pm_subject:主题：{VAR: data[15]}
 ip_no_whois:没有找到关于 <b>{VAR: ip}</b> 的 whois 信息。
 ip_whois_title:ISP 信息
 register_theme:主题：

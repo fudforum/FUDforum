@@ -4,6 +4,7 @@
 # Author: Asmen
 # Author: Erdemaslancan
 # Author: Gorizon
+# Author: Gırd
 # Author: Kumkumuk
 # Author: Marmase
 # Author: Mirzali
@@ -263,7 +264,7 @@ register_login_taken:Xora gêriya yo
 register_password:Parola:
 register_conf_pass:Parola tesdiq ke:
 register_name:Name:
-register_your_pass:Parolaya Şıma:
+register_your_pass:Parolay Şıma:
 register_update:Rocane ke
 register_avatar_type:Tipê Avatari
 register_del_avatar:Avatari Hewa dê
@@ -380,9 +381,9 @@ search_no_results:Nê vineya
 search_all_forums:Foruman pêron dı cı geyr
 search_in_forum:Cı geyrayıyaye Forum:
 search_forum_search:Forum Cı geyrayış
-remail_your_name:Nameyê Şıma:
+remail_your_name:Namey Şıma:
 remail_your_email:E-Maila Şıma:
-remail_friends_name:Nameyê Embazi:
+remail_friends_name:Namey Embazi:
 remail_friends_email:E Mailê Embaz dê Şıma:
 remail_required:lazım
 remail_subject:Mewzu:
