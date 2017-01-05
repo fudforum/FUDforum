@@ -39,7 +39,7 @@ forum:Forum
 forum_icon:Forum Icon
 forum_new_messages:Mesaco newe
 forum_none_messages:Teyna karberê qeydıni şenê mesacan bıvinê
-forum_old_messages:Mesacê neweyi çıniyê
+forum_old_messages:Mesacê newey çıniyê
 from:Rıştoğ:
 gender:Neri makey:
 go:Şo
@@ -106,7 +106,7 @@ next_page:Pela Peyêne
 next_thread:Topiko Peyên:
 no_messages:Ena forum dı mesaci çıni yê. <br />Ena forum dı ya sıfta boka şıma mesac akerê.
 no_msg_body:Bezna mesaci çıni ya
-no_new_posts:Mesacê Neweyi Çıniyê
+no_new_posts:Mesacê Newey Çıniyê
 no_posts:Mesac Çıno
 no_subscribed_forums:Qet yew forumi rê abonê niyê
 no_subscribed_threads:Qrt yew mewzuy rê abone niyê
@@ -563,7 +563,7 @@ ip_no_whois:Qan dê <b>{VAR: ip}</b> whois malumat çıniyo.
 ip_whois_title:Zanışaya ISS
 register_theme:Tema:
 pmsg_trash:Çopi veng ke
-uc_new_pm:Mesacê Xısusiyê Neweyi
+uc_new_pm:Mesacê Xısusiyê Newey
 uc_new_topic:Meseleyo newe
 uc_new_cat_forum:Forumê ke şıma aboneyê êna ra mesacê ke estê.
 uc_cat_forum:Kategoriye &raquo; Forum
