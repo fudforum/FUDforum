@@ -3,6 +3,7 @@
 # Author: 1917 Ekim Devrimi
 # Author: Asmen
 # Author: Erdemaslancan
+# Author: Gambollar
 # Author: Gorizon
 # Author: Gırd
 # Author: Kumkumuk
@@ -55,8 +56,8 @@ im_msnm:MSN Messenger:
 im_yahoo:Yahoo Messenger:
 image:Resım
 index_forum:Forum
-index_new_posts:Ziyaret da şıma dıma rışyeyê newey rışiya yê
-index_no_new_posts:Ziyaret da şıma dıma theba nêrışiya ya
+index_new_posts:Ziyaretê şıma dıma rışyeyê newey rışiya yê
+index_no_new_posts:Ziyaretê şıma dıma theba nêrışiya yo
 index_url_redirection:Hetanayışê cı
 interests:Eleqe:
 last_post:Mesaco peyên
@@ -66,7 +67,7 @@ location:Lokasyon:
 lock_thread:Meseler qılit ke
 locked:Kilit biya
 locked_with_new_posts:Kılit kerdeyo
-logged_in_list:Listeya karberanê ke cıqewtış kerda
+logged_in_list:Listey karberanê ke cı kewtış kerda
 login:Cıkewtış
 login_header:Cıkewtış:
 logout:Veciyayış
@@ -91,7 +92,7 @@ moderation_queue:Poça tesdiqan
 moderator:Cerbener
 moderator_of:Wesetê Forumi
 moderator_options:Wesetin Weçiney
-moderators:{PLURAL: modcount|Wesetber|Wesetber}
+moderators:{PLURAL: modcount|Moderator|Moderatori}
 more_unread_messages:Yewbina nêwanaye mesaci
 more_unread_messages_desc:Yewbina nêwanaye mesacan bıasne u enewke asenayenmesaca wanaye nışan bık
 move_thread:Bıkırışe
@@ -101,7 +102,7 @@ na:n/a
 new_posts:Mesaco newe esto
 new_private_messages:<span class="GenTextRed">({VAR: c})</span> nêwanaye xısusi mesaca şıma est a
 new_thread:Topiko newe vıraze
-newest_user:Karbero kı tewr peyd qeyd bıyo
+newest_user:Tewr peyên qeyd biyaye karber
 next_page:Pela Peyêne
 next_thread:Topiko Peyên:
 no_messages:Ena forum dı mesaci çıni yê. <br />Ena forum dı ya sıfta boka şıma mesac akerê.
@@ -118,7 +119,7 @@ num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|rey|reyi}
 occupation:Kar:
 off:Racıne
 on:Akerde
-page_timings:Vıraştena perrer pêro piya  {PLURAL: page_gen_time|$1 saniye} ramıt
+page_timings:Vıraştena perer arêdayış {PLURAL: page_gen_time|$1 saniye} ramıt
 pm:Mesacê Xısusiyi
 poll:Reydayış
 post_count:Amariya Mesaca {VAR: u_pcount}
@@ -142,9 +143,9 @@ reported_messages:Mesaci raporya yê
 reveal_all_posts:Heme mesacanê  karberê {VAR: user_login} bıasne
 reveal_post:mesacan bımocne
 search:Cı geyre
-sel_todays_posts:Mesacê ewroyi
+sel_todays_posts:Mesacê ewroy
 sel_todays_posts_desc:Parzunê mesacanê noroci ak/racın
-sel_unanswered_posts:Mesacê kı neşr nêbiyê
+sel_unanswered_posts:Mesacê bêcewabi
 sel_unread_messages:Mesacê nêwaniyayey
 send:Bırışe
 sender_email:E-posteyê rıştoği:
@@ -159,9 +160,11 @@ thread:Topik:
 thread_thread:Mewzu
 threads:Topik:
 time:Wext
-todays_posts:Mesacê ewroyi
+todays_posts:Mesacê Ewroy
+unanswered_posts:Mesacê bêcewabi
 updated_on:Wextê newekeredışi:
 user:Karber
+user_counter:<b>{VAR: st_obj->user_count}</b> karberê qeydıni esti.
 user_info:Zanışiya Karberi
 user_info_l:Zanışiya Karberi {VAR: u->alias}
 user_offline:{VAR: obj->login} newe ke racanayeyo
@@ -171,6 +174,7 @@ view_results:Netican Bıvêne
 views:Asayışi
 vote_button:Rey Bıdê
 vote_for_thread:Rey Bıdê
+what_ppl_doing:Merdımi se kenê bımotne
 reported_del_report:Rapore Bestere
 reported_reason:Sebeb:
 reported_on:Tarixê xeberdarin
@@ -223,7 +227,7 @@ month_11:Tışrino Peyên
 month_12:Kanun
 sunday:Bazar
 sunday_short:K
-monday:Bahdêbazari
+monday:Dışeme
 monday_short:D
 tuesday:Telete
 tuesday_short:S
@@ -272,7 +276,7 @@ register_avatar:Avatar:
 register_sel_avatar:Avatar weçine
 register_custom_avatar_url:Gıreya Avatar dı Xususi
 register_preview:Verqayt
-register_register:Qeyd Be
+register_register:Qeyd Bê
 register_location:Ca:
 register_occupation:Kar:
 register_interests:Eleqe:
@@ -380,7 +384,7 @@ search_forum:Forum
 search_no_results:Nê vineya
 search_all_forums:Foruman pêron dı cı geyr
 search_in_forum:Cı geyrayıyaye Forum:
-search_forum_search:Forum Cı geyrayış
+search_forum_search:Forum dı cı geyrı
 remail_your_name:Namey Şıma:
 remail_your_email:E-Maila Şıma:
 remail_friends_name:Namey Embazi:
@@ -465,7 +469,11 @@ groupmgr_add_member:Eza cı ke
 groupmgr_update_member:Eza Neweke
 groupmgr_edit:Bıvurne
 groupmgr_delete:Bestere
+group_mgr_anon:Anonim
+group_mgr_reged:Karberê qeydıni pêro
 show_show:Bımotne:
+group_mgr:Sermiyanê grube
+group_mgr_edit_btn:Grub bıvırnı
 group_mgr_group:Grube
 p_READ:Bıwane
 p_POST:Bırışe
@@ -506,6 +514,8 @@ thread_mod_delete:Bestere
 action_ip:IP
 action_latest_post:Mesaco Bohdeyên:
 online_today_last_visit:Ziyareto Peyên
+logedin_todays_visitors:Meymanê Ewroy
+logedin_latest_post:Peyên mesacê forumi:
 post_re:Cwb:
 forumsel_goto_forum:Şo ri Forum:
 minimsg_thread_view:Asayışê Mewzuy
@@ -533,15 +543,23 @@ polllist_name:Namey Anketi
 polllist_votes:Heme Reyi
 polllist_action:Kerdış
 userinfo_polls:Reydayış
-show_pollist:Anketi Bımocne
+show_pollist:Anketan bıvine
 search_and:U
 search_or:YA Zİ
+unread_message:Mesacê nêwaniyayey
+read_message:Mesaci bıwan
+threadt_more:&lt;dehana &gt;
 iemail_msg_author:<b>Nuskar:</b> {VAR: obj->alias}
+iemail_msg_subject:<b>Mewzu:</b> {VAR: obj->subject}
+iemail_msg_date:<b>Tarix:</b> {TEMPLATE: dmsg_post_date}
+iemail_msg_reply:Cewab bıdê
+mnav_description:Geyrayoğê mesaci
 mnav_minute:Deqe(y)
 mnav_hour:Sehat(i)
 mnav_day:Roc(i)
 mnav_week:Hefte(y)
 mnav_month:Aşm(i)
+mnav_title:Geyrayoğê mesaci
 findu_ban:Qedexe ke
 findu_edit:Bıvurne
 findu_delete:Bestere
@@ -636,11 +654,10 @@ move_msg_th_expl:IDa hedef cay nışan kerê (belki foruman dê binana deya)
 captcha_img_alt:Captcha Arıstekerdış: Asayış de metnê şınasnayışi icab keno.
 captcha_img_help:Asengi miyan dı sıfır yana yew tede esto.
 powered-by:Destegdaren: FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:Telif &copy;2001-2012 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Heqê Telifi &copy;2001-2012 <a href="http://fudforum.org/">FUDforum Bulletin Board nusnerin</a>
 code_title:Kod:
 code_select_all:Pêrıne weçine
-code_show_hide:bımocne/bınımne
+code_show_hide:Bımotne/bınımne
 social_sites:Steyê Sosyal Toran:
 postcheck_min_len_err:Mesacê şıma zaf kılmo. Tewr tayn dergeya cı wa {PLURAL: post_min_len|$1 karakter|$1 karakter} bo.
 postcheck_dup_err:Reca kem eyni merseler yew ra zaf merışê.
