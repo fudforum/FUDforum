@@ -196,7 +196,7 @@ user_info_l:Информации за корисникот {VAR: u->alias}
 user_offline:{VAR: obj->login} е моментално исклучен(а)
 user_online:{VAR: obj->login} е моментално на линија
 usrinfo_last_post:Последна порака:
-view_results:Види резултати
+view_results:Исход
 views:Посети
 vote:{PLURAL: frm->n_rating|$1 глас|$1 гласа}
 vote_button:Гласај
@@ -298,7 +298,7 @@ no_edit_time_limit:<b>Дозволено време за уредување</b>:
 pmuserloc_login:Корисничко име:
 pmuserloc_submit:Најди
 pmuserloc_user:Корисник
-pmuserloc_no_result:Нема резултати
+pmuserloc_no_result:Нема исход
 register_builtin:Вградена
 register_specify_url:Назначи URL
 register_uploaded:Подигни аватар
@@ -494,7 +494,7 @@ search_entire_msg:Цела порака
 search_subject_only:Само наслов
 search_forum:Форум
 search_posted_on:Објавено на
-search_no_results:Нема резултати
+search_no_results:Нема исход
 search_all_forums:Пребарај по сите форуми
 search_in_forum:Пребарај во форумот:
 search_forum_search:Пребарај го форумот
@@ -883,7 +883,7 @@ register_allow_pm_msg:Дозволи лични пораки:
 register_allow_pm_msg_desc:Дозволи им на другите корисници да ми праќаат лични пораки во овој форум.
 postcheck_pm_disabled:Не можете да испратите лична порака до „{VAR-HTML: v}“, бидејќи ова лице не прифаќа лични пораки.
 polllist_vote:Гласај
-polllist_view_results:Види резултати
+polllist_view_results:Исход
 polllist_name:Име на анкетата
 polllist_date:Создадено на
 polllist_owner:Создавач:
