@@ -120,7 +120,7 @@ occupation:Kar:
 off:Racıne
 on:Akerde
 page_timings:Vıraştena perer arêdayış {PLURAL: page_gen_time|$1 saniye} ramıt
-pm:Mesacê Xısusiyi
+pm:Mesacê Hısusiy
 poll:Reydayış
 post_count:Amariya Mesaca {VAR: u_pcount}
 post_count_l:Amarê Mesacan:
@@ -204,7 +204,7 @@ pmsg_author:Rıştener
 pmsg_time:Wext
 pmsg_selected:Weçinıte
 pmsg_delete:Bestere
-cur_ppage_pm:Mesacê Xısusiyi
+cur_ppage_pm:Mesacê Xısusiy
 writing_pm:Xususi Mesac Bınusne
 browsing_folder:<b>Klasorê {VAR: folders[$folder_id]}</b>
 inbox:Dora ameya

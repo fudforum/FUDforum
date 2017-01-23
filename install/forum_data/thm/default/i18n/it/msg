@@ -75,7 +75,7 @@ login_header:Login:
 logout:Logout
 mark_all_read:Marca tutti i messaggi come letti
 mark_all_read_desc:Tutti i tuoi messaggi non letti verranno marcati come letti
-members:Utenti
+members:Membri
 calendar:Calendario
 cal_goto_date:Vai a:
 cal_day_heading:Evento del giorno
@@ -231,7 +231,7 @@ restore_to:Ripristina in:
 move_to:Sposta in:
 list_referes_referrals:Riferimenti
 list_referes_members:Utenti segnalati
-list_referes_member:Utente
+list_referes_member:Membro
 referals_none:Nessuna segnalazione.
 referals_refered_by:Utenti del forum segnalati da: <b><a href="{TEMPLATE: referals_refered_by_lnk}" class="th_lnk">{VAR: p_user[1]}</a></b>
 referals_post_count:Numero di messaggi
@@ -761,7 +761,7 @@ groupmgr_already_exists:L'utente "{FUNC: char_fix(htmlspecialchars($gr_member))}
 groupmgr_yes:Sì
 groupmgr_no:No
 groupmgr_action:Azione
-groupmgr_member:Utente
+groupmgr_member:Membro
 groupmgr_cancel:Annulla
 groupmgr_add_member:Aggiungi utente
 groupmgr_update_member:Aggiorna utente
