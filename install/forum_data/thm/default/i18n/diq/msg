@@ -56,8 +56,8 @@ im_msnm:MSN Messenger:
 im_yahoo:Yahoo Messenger:
 image:Resım
 index_forum:Forum
-index_new_posts:Ziyaretê şıma dıma rışyeyê newey rışiya yê
-index_no_new_posts:Ziyaretê şıma dıma theba nêrışiya yo
+index_new_posts:Wendışo peyên ra nat mesacê newey çıniyê
+index_no_new_posts:Wendışo peyên ra nat mesacê newey çıniyê
 index_url_redirection:Hetanayışê cı
 interests:Eleqe:
 last_post:Mesaco peyên
@@ -174,7 +174,7 @@ view_results:Netican Bıvêne
 views:Asayışi
 vote_button:Rey Bıdê
 vote_for_thread:Rey Bıdê
-what_ppl_doing:Merdımi se kenê bımotne
+what_ppl_doing:Bımocne, merdumi haê se kenê
 reported_del_report:Rapore Bestere
 reported_reason:Sebeb:
 reported_on:Tarixê xeberdarin
@@ -276,7 +276,7 @@ register_avatar:Avatar:
 register_sel_avatar:Avatar weçine
 register_custom_avatar_url:Gıreya Avatar dı Xususi
 register_preview:Verqayt
-register_register:Qeyd Bê
+register_register:Qeydkerdış
 register_location:Ca:
 register_occupation:Kar:
 register_interests:Eleqe:
@@ -654,7 +654,7 @@ move_msg_th_expl:IDa hedef cay nışan kerê (belki foruman dê binana deya)
 captcha_img_alt:Captcha Arıstekerdış: Asayış de metnê şınasnayışi icab keno.
 captcha_img_help:Asengi miyan dı sıfır yana yew tede esto.
 powered-by:Destegdaren: FUDforum {GVAR: FORUM_VERSION}.
-copyright:Heqê Telifi &copy;2001-2012 <a href="http://fudforum.org/">FUDforum Bulletin Board nusnerin</a>
+copyright:Heqa telifi &copy;2001-2013 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Kod:
 code_select_all:Pêrıne weçine
 code_show_hide:Bımotne/bınımne

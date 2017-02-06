@@ -949,7 +949,7 @@ thread_mark_all_read_desc:Сите непрочитани пораки во ов
 private_no_messages:Нема пораки во оваа папка.
 register_email_change_subject:Потврда за промена на е-пошта
 register_email_change_msg:Потврдете ја вашата нова е-поштенска сметка "{VAR: uent->email}" која ја заменува старата "{VAR: old_email}", со тоа што ќе ја проследите долунаведената URL-адреса:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nОткако ќе ја потврдите новата е-поштенска адреса, ќе ви биде реактивирана сметката на форумот.
-iemail_thread_unsub:Отпиши ме од оваа тема
+iemail_thread_unsub:Отпиши ме од темава
 iemail_forum_unsub:Отпиши ме од овој форум
 primary_group_prefix:Главна група за форумот:
 group_resources:Оваа група ги контролира дозволите за следниве форуми
