@@ -7,6 +7,7 @@
 # Author: Naudefj
 # Author: Priviet
 # Author: Revi
+# Author: SeoJeongHo
 # Author: ToePeu
 # Author: Yearning
 # Author: Ykhwong
@@ -312,6 +313,7 @@ register_builtin:내장
 register_specify_url:URL
 register_uploaded:아바타 업로드
 register_login:로그인:
+register_login_desc:당신이 로그인할 때 사용되거나 이 사이트에 알려지는 이름입니다.
 register_login_available:사용 가능
 register_login_taken:이미 사용 중
 register_password:비밀번호:
@@ -741,6 +743,7 @@ thr_exch_orig_forum:원래 위치:
 thr_exch_dest_forum:이동 위치:
 thr_exch_no_threads:승인 대기 중인 토픽이 없습니다.
 thr_exch_submit:제출
+ppost_original_msg:전달하거나 답장을 보내는 메시지
 split_thread:주제 분할
 groupmgr_no_user:"{FUNC: char_fix(htmlspecialchars($gr_member))}"님으로 로그인한 사용자는 없습니다
 groupmgr_already_exists:"{FUNC: char_fix(htmlspecialchars($gr_member))}" 사용자는 이미 이 그룹에 존재합니다.
