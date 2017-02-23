@@ -114,7 +114,7 @@ no_messages:本论坛没有任何发言。成为第一个发言的人！
 no_msg_body:没有内容！
 no_new_posts:没有新的信息
 no_posts:没有信息
-no_subscribed_forums:没有预定的论坛
+no_subscribed_forums:没有订阅的论坛
 no_subscribed_threads:没有预定的主题
 no_bookmarked_threads:没有用书签标记的主题
 no_unread_locked:本主题已被锁定（不可回复）。
@@ -170,12 +170,12 @@ sub_to_thread_desc:接收有关此主题中新消息的通知
 bookmark_thread:将本主题加入书签
 bookmark_thread_desc:将本主题添加到书签列表中
 subject:主题
-subscribe:预定
+subscribe:订阅
 subscribe_desc:当本论坛有人发布新的主题时，请通知我。
-subscribed_forums:预定论坛信息
+subscribed_forums:订阅论坛
 subscribed_forums_desc:切换已订阅论坛过滤器（将只显示来自您订阅的论坛的消息）
 subscribed_threads:预定论坛主题
-subscribed_threads_desc:只显示预定论坛主题
+subscribed_threads_desc:切换已订阅话题过滤器（将只显示来自您订阅的话题的消息）
 bookmarked_threads:用书签标记的主题
 switch_to_thread_view:转换成以树状方式浏览
 thread:主题：
@@ -520,7 +520,7 @@ remail_required:必填的
 remail_subject:主题：
 remail_message:内容：
 remail_send_now:现在发送电子邮件
-remail_anon_opt:把这些内容拷贝到你选择的邮件地址中，发送给你的朋友。
+remail_anon_opt:将这段消息复制到您设备的电子邮件客户端，以将其发送给您的朋友。
 remail_done:完成
 remail_sent_conf:给你在{VAR-HTML: _POST['femail']}的朋友主题为{VAR: data->subject}的邮件已经成功发送。
 remail_error:发生了错误
@@ -620,9 +620,9 @@ iemail_frm_subject:论坛新主题 {VAR: frm_name} called {VAR: thr_subject}由{
 iemail_frm_bodyemail:查看主题：\n{VAR: goto_url['email']}\n\n不再接受本论坛的新主题发布通知，请点击： {VAR: unsub_url['email']}
 iemail_participate:参与讨论，点此：
 ignore_list_err_info_title:信息
-ignore_list_err_dup_msg:你已经把这用户添加到你的“被拒绝用户”名单中。
+ignore_list_err_dup_msg:您已将此用户添加到您的忽略列表中
 ignore_list_err_nu_title:没有找到这个用户
-ignore_list_err_nu_msg:本论坛不存在你要添加的用户。
+ignore_list_err_nu_msg:找不到您试图要添加到您的忽略列表的用户。
 ignore_list_cantign_msg:您不能忽略该用户
 ignore_list_update:浏览自己的忽略列表
 index_update:浏览<a href="{TEMPLATE: index_update_lnk}">论坛列表</a>
@@ -670,7 +670,7 @@ register_err_emailexists:这个电子邮件地址已经存在，请不要重复�
 register_err_shortpasswd:密码必须至少有6个字符。
 register_err_passwdnomatch:您的密码不匹配，请重试。
 register_err_invalidemail:你输入的电子邮件地址不正确。
-register_err_needname:你必须输入你的姓名才能完成此次注册。
+register_err_needname:要成功完成此次注册，您必须输入您的名字。
 register_err_enterpasswd:你必须输入密码才能进行修改。
 register_err_adminpasswd:您必须输入<b>管理员</b>密码才能完成更改。
 register_err_notyouremail:已经有人用这个电子邮箱地址注册了，但是那个人不是你。
@@ -1015,7 +1015,7 @@ split_cp:打散主题功能面板
 groups_perms_header:权限列表<font size="-1">（将鼠标指针挪至相应权限位以查看相应权限）</font>
 register_err_sig_too_long:你的签名超长了，最多只能 {GVAR: FORUM_SIG_ML} characters 个字符（一个汉子算两个字符）。
 register_sig_limit:{GVAR: FORUM_SIG_ML} characters <a href="javascript: alert('你的签名档共 '+document.forms['fud_register'].reg_sig.value.length+' 字符长。本论坛限制长度为 {GVAR: FORUM_SIG_ML} 个字符。');" class="SmallText">检查签名档长度</a>
-adm_account_accepted:你的帐号 '{VAR: login}' 已经通过审核且已被激活。恭喜你，你现在已经是 {GVAR: FORUM_TITLE}' 论坛的正式注册用户了！
+adm_account_accepted:您的账户“{VAR: login}”已获管理员通过，现已激活。您现在可以作为已确认，已注册的用户访问“{GVAR: FORUM_TITLE}”论坛了。
 adm_account_accepted_s:你在论坛 '{GVAR: FORUM_TITLE}' 的注册已被接受！
 adm_account_rejected:您的帐号“{VAR: login}”没有通过管理员的审核。请检查帐号是否符合论坛相关规定，如果不能确定问题，请联系“{GVAR: ADMIN_EMAIL}”。
 adm_account_rejected_s:你在论坛 '{GVAR: FORUM_TITLE}' 注册的帐号未通过审核，请检查是否符合论坛相关规定。
@@ -1051,9 +1051,9 @@ register_theme:主题：
 pmsg_trash:清空垃圾箱
 uc_new_pm:新私信
 uc_new_topic:新帖
-uc_new_cat_forum:包含新帖的已订阅论坛
+uc_new_cat_forum:包含新消息的已订阅论坛
 uc_cat_forum:分区 &raquo; 论坛
-uc_sub_topics:包含新帖的已订阅话题
+uc_sub_topics:包含新消息的已订阅话题
 uc_page_title:查看个人控制面板。
 search_options:搜索选项
 search_user_filter:仅限作者：
@@ -1087,7 +1087,7 @@ unbookmark_all_topics:删除所有书签
 tabs_own_posts:显示自己发的帖子
 sml_emoticon:表情
 sml_code:代码
-mnav_sub_only:仅在订阅的版块中搜索
+mnav_sub_only:只在订阅的论坛中搜索
 register_topics_per_page:每页主题数；
 login_min_time:本论坛允许前后两次登录尝试时间间隔是{VAR: MIN_TIME_BETWEEN_LOGIN}秒，请等待{FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)}秒后再尝试。
 post_not_logged_in:未登录状态，将匿名发表帖子。

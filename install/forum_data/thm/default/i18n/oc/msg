@@ -868,7 +868,7 @@ post_cur_attached:{VAR: i} {PLURAL: i|fichièr estacat|fichièrs estacats}
 ignored_anon_post:{GVAR: ANON_NICK} es ignorat
 ignored_user_post:Lo message de <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> es ignorat
 smladd_close_window:Tampar la fenèstra
-post_list_smilies:Far veire totes los smileys
+post_list_smilies:Far veire totas las emoticònas
 p_VISIBLE:Visible
 reported_in_thread:Dins lo fial :
 help_back_to_top:Retorn en naut de la pagina
