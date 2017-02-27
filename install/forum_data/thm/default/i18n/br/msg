@@ -784,7 +784,7 @@ p_SPLIT:Rannañ ar c'haozioù
 p_LOCK:Prennañ ar c'haozioù
 p_MOVE:Dilec'hiañ kaozioù
 p_SML:Implijout fromlunioù
-p_IMG:Implijout balizennoù skeudenn
+p_IMG:Implijout tikedennoù skeudenn
 p_SEARCH:Gallout a ra klask
 group_mgr_search:Kavout un implijer
 group_mgr_indicator:Oc'h aozañ : <b>{VAR: grp->name}</b>
