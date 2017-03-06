@@ -312,10 +312,15 @@ register_builtin:組み込み
 register_specify_url:URL を指定
 register_uploaded:アバターをアップロード
 register_login:ログイン名:
+register_login_desc:ログインの際に使われ、このサイト上で表示される名前です。
+register_login_available:使用可能
+register_login_taken:使用されています
 register_password:パスワード:
+register_password_desc:アカウントのパスワードです。パスワードは大文字と小文字が区別され、少なくとも6文字以上である必要があります。
 register_conf_pass:パスワード (確認):
 register_email_desc:メールアドレスを入力してください。下の設定セクションでこれを非公開にできます。
 register_name:名前:
+register_name_desc:あなたの本名です。
 register_your_pass:パスワード:
 register_update:更新
 register_avatar_type:アバタータイプ:
@@ -328,8 +333,7 @@ register_preview:プレビュー
 register_custom_avatar_upload:カスタム アバター ファイル:
 register_register:登録
 register_required:必須情報
-# Fuzzy
-register_required_desc:すべて必須項目です。パスワードは英大小文字を区別することを注意してください。
+register_required_desc:すべて必須項目です。
 register_optional:オプション情報
 register_optional_desc:自己紹介にはあなたの個人情報や個人を特定できる情報を載せないことをお勧めします。すべての情報は他のフォーラム・メンバーから見ることができます。
 register_location:所在地:
@@ -656,8 +660,7 @@ postcheck_email_body:メッセージ本文がないメールは送信できま�
 private_msg_notify_subj:既読通知: {VAR: m->subject}
 private_msg_notify_body:こんにちは。<br />{VAR: usr->login} さんがあなたのプライベートメッセージ「{VAR: m->subject}」を読みました。<br />これは{TEMPLATE: private_msg_notify_body_date}に生成された自動通知です。
 referals_update:推薦人をみています。
-# Fuzzy
-register_err_short_login:選択したログイン名は短すぎます。ログイン名は少なくとも 4 文字なければいけません。
+register_err_short_login:選択したログイン名は短すぎます。ログイン名は2文字以上でなければいけません。
 register_err_login_notallowed:このログイン名は許可していません。
 register_err_loginunique:フォーラムのログイン名は一意でなければなりません。この名前を持った利用者が既にいます。
 register_err_emailexists:このメールアドレスに関連付けられたアカウントが既に存在します。パスワードを忘れた場合は、再登録の代わりにパスワード再発行オプションを使用してください。

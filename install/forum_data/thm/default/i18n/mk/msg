@@ -897,7 +897,7 @@ search_or:ИЛИ
 search_desc_order:Надолен ред
 search_asc_order:Нагорен ред
 search_logic:Логички услов:
-search_sorting:Подреди ги резултатите по датум во:
+search_sorting:Подреди ги ставките по датум во:
 search_attach:Прилози:
 search_attach_all:Со или без
 search_attach_with:Со прилози
@@ -1059,7 +1059,7 @@ mmd_move_threads_to:Премести во форумот:
 mmd_abort_move:Откажи
 mmd_move:Премести теми
 pmsg_pdf_btn:Направи PDF-архив
-search_results_hdr:Пронајдени се {VAR: total} резултати
+search_results_hdr:Пронајдени се {VAR: total} ставки
 thread_del_all:Избриши одбрани
 thread_mov_all:Премести одбрани
 thread_merge_all:Спој одбрано
