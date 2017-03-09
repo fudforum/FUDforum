@@ -757,7 +757,7 @@ thr_exch_no_threads:没有需要批复的主题。
 thr_exch_decl_reason:拒绝主题 <b>{VAR: data->subject}</b> 转入 <b>{VAR: data->f2_name}</b> 论坛的理由
 thr_exch_submit:发布
 exch_decline_ttl:把主题 {VAR: data->subject} 转移至{VAR: data->f2_name}论坛的要求被拒绝。
-ppost_original_msg:你正在发送或者回复的信息
+ppost_original_msg:您正在转发或回复的消息
 split_thread:分开主题
 groupmgr_no_user:此账号不存在 "{FUNC: char_fix(htmlspecialchars($gr_member))}"
 groupmgr_already_exists:"{FUNC: char_fix(htmlspecialchars($gr_member))}" 本论坛已经存在这个用户

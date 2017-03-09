@@ -7,6 +7,7 @@
 # Author: Bonaditya
 # Author: C5st4wr6ch
 # Author: Farras
+# Author: Hidayatsrf
 # Author: Ilham151096
 # Author: Irwangatot
 # Author: IvanLanin
@@ -66,7 +67,7 @@ index_forum:Forum
 index_new_posts:Pesan baru sejak pembacaan terakhir
 index_no_new_posts:Tidak ada pesan baru sejak pembacaan terakhir
 index_url_redirection:Pengalihan
-interests:Interes:
+interests:Kepentingan:
 last_post:Pesan terakhir
 last_thread_msg:Ke pesan terakhir di topik ini
 legend:Keterangan
@@ -99,7 +100,7 @@ moderation_queue:Antrean moderasi
 moderator:Moderator
 moderator_of:Moderator dari:
 moderator_options:Pilhan Moderator
-moderators:{PLURAL: modcount|Moderator|Moderators}
+moderators:{PLURAL: modcount|Moderator|Moderator}
 more_unread_messages:Pesan blm terbaca lain
 more_unread_messages_desc:Tampilkan pesan belum terbaca lain,tandai yg sekarang sebagai terbaca
 move_thread:Pindahkan
@@ -108,7 +109,7 @@ moved_thread_message:Topik ini sudah dipindahkan ke forum lain
 na:t/a
 new_posts:Pesan baru
 new_private_messages:Anda memiliki <span class="GenTextRed">({VAR: c})</span> {PLURAL: c|private message|privates} belum terbaca
-new_thread:Buat topic baru
+new_thread:Buat topik baru
 newest_user:Anggota terbaru
 next_page:Halaman berikutnya
 next_thread:Topik berikutnya:
@@ -191,9 +192,9 @@ todays_posts_desc:Tampilkan semua pesan yang dibuat hari ini
 un_ignore_user:Hentikan pengacuhan pesan dari pengguna ini
 unanswered_posts:Pesan belum terjawab
 unanswered_posts_desc:Tampilkan semua pesan yang belum terbalas
-unlock_thread:Buka kunci opik
+unlock_thread:Buka kunci topik
 unread_msg:Topik ini memliki pesan yg belum anda baca
-unread_msg_locked:Topic terkunci deengan pesan belum terbaca
+unread_msg_locked:Topik terkunci dengan pesan belum terbaca
 unread_posts:Pesan belum terbaca
 unread_posts_desc:Tampilkan semua pesan belum terbaca
 unsub_from_thread:Hentikan langganan topik ini
@@ -202,14 +203,14 @@ unbookmark_thread:Hilangkan dari penanda
 unbookmark_thread_desc:Buang topik ini dari daftar penanda anda
 unsubscribe:Hentikan berlangganan
 unsubscribe_desc:Hentikan penerimaan pemberitahuan tentang topik baru dalam forum ini
-updated_on:diperbaiki pada:
+updated_on:Diperbaharui pada:
 user:Pengguna
 user_counter:Kami memiliki <b>{VAR: st_obj->user_count}</b>  {PLURAL: st_obj->user_count|pengguna|pengguna} terdaftar.
 user_info:Informasi pengguna
 user_info_l:Informasi pengguna {VAR: u->alias}
 user_offline:{VAR: obj->login}  sedang tidak aktif
 user_online:{VAR: obj->login} sedang aktif
-usrinfo_last_post:peran terakhir:
+usrinfo_last_post:Pesan Terakhir:
 view_results:Lihat hasil
 views:Tampilan
 vote:{PLURAL: frm->n_rating|$1 Vote|$1 Votes}
@@ -245,7 +246,7 @@ referals_action:Aksi
 pmsg_all:semua
 pmsg_none:tidak ada
 folder:Folder:
-pmsg_replied:sdh dibalas
+pmsg_replied:sudah dibalas
 pmsg_forwarded:diteruskan
 pmsg_subject:Subyek
 pmsg_author:Penulis
@@ -263,7 +264,7 @@ msg_author:Pembuat
 avatar_sel_form:Formulir pilihan Avatar
 no_avatars:Avatar tidak tersedia
 month_1:Januari
-month_2:Pebuari
+month_2:Februari
 month_3:Maret
 month_4:April
 month_5:Mei

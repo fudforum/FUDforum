@@ -2,6 +2,7 @@
 # Exported from translatewiki.net
 # Author: KuboF
 # Author: Kusavica
+# Author: Lexected
 # Author: Naudefj
 # Author: Rudko
 
@@ -124,7 +125,7 @@ posts:Príspevky
 posts_c:Príspevky:
 prev_thread:Predchádzajúca téma:
 usrinfo_private_message:Súkromná pošta:
-profile:Nastavenia
+profile:Ovládací panel
 profile_desc:Prejsť na nastavenia
 rate_thread:Hodnotenie témy
 rating:Hodnotenie
