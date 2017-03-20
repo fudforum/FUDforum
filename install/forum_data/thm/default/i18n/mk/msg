@@ -122,8 +122,8 @@ posts:Пораки
 posts_c:Пораки:
 prev_thread:Претходна тема:
 usrinfo_private_message:Лична порака:
-profile:Контролна табла
-profile_desc:Пристап до корисничката контролна табла
+profile:Поставки
+profile_desc:Пристап до корисничката управувачница
 rate_thread:Оцени тема
 rating:Котирање
 rating_track:Раководење со котирања за темата <b>{VAR: thr->subject}</b>:
@@ -679,7 +679,7 @@ reset_err_invalidkey_msg:Неважечки клуч за промена на л
 reset_err_rstconf_title:Информации
 reset_err_rstconf_msg:Би требало да добиете напатствија по е-пошта во текот на следните неколку минути.
 reset_newpass_title:Смени лозинка
-reset_newpass_msg:Здраво,\n\nКако што побаравте, еве ги вашите податоци за најава:\n\nКорисничко име: {VAR: ui[1]}\nЛозинка: {VAR: passwd}\n\nИмајте предвид дека вашата лозинка е заменета со горенаведената. Ако сакате да ја смените, одете на корисничката контролна табла на:\n{FULL_ROOT}{ROOT}?t=register
+reset_newpass_msg:Здраво,\n\nКако што побаравте, еве ги вашите податоци за најава:\n\nКорисничко име: {VAR: ui[1]}\nЛозинка: {VAR: passwd}\n\nИмајте предвид дека вашата лозинка е заменета со горенаведената. Ако сакате да ја смените, одете на корисничката управувачница на:\n{FULL_ROOT}{ROOT}?t=register
 reset_login_notify:Лозинката ви е испратена по е-пошта. Би требало да ја добиете во тек од следните неколку минути.
 search_update:Пребарување на пораки
 selmsg_update:Ги разгледува <a href="{TEMPLATE: selmsg_update_lnk}">денешните пораки</a>
@@ -993,13 +993,13 @@ findu_delete:Избриши
 dmsg_reply_to:е одговор на
 dmsg_reply_num:порака #{VAR: obj->reply_to}
 merge_topics:Спој теми
-merge_topics_cp:Контролна табла за спојување на теми
+merge_topics_cp:Управувачница за спојување на теми
 merge_topics_tpl:Одберете теми за спојување <span class="SmallText">(мора да одберете барем две)</span>
 merge_merge:Спој одбрани теми
 merge_next:Следни теми
 merge_prev:Претходни теми
 merge_another:Оди на <a href="{TEMPLATE: merge_another_lnk}">последната споена тема</a> или спој друга:
-split_cp:Контролна табла за разделување на теми
+split_cp:Управувачницата за разделување на теми
 groups_perms_header:Дозволи <span class="small">(отидете со глувчето врз дозволата за да видите за каков тип на дозвола се работи)</span>
 register_err_sig_too_long:Вашиот потпис го надминува бројот на дозволени знаци (највеќе {GVAR: FORUM_SIG_ML})
 register_sig_limit:{GVAR: FORUM_SIG_ML} characters <a href="javascript: alert('Вашиот потпис е долг '+document.forms['fud_register'].reg_sig.value.length+' знаци. Најголемата дозволена должина на потписот изнесува {GVAR: FORUM_SIG_ML} знаци.');" class="SmallText">Проверете ја должината на потписот</a>
@@ -1042,7 +1042,7 @@ uc_new_topic:Нови теми
 uc_new_cat_forum:Претплатени форуми со нови пораки
 uc_cat_forum:Категорија &raquo; Форум
 uc_sub_topics:Претплатени теми со нови пораки
-uc_page_title:Преглед на личната контролна табла.
+uc_page_title:Преглед на личната управувачница.
 search_options:Нагодувања за пребарување
 search_user_filter:Филтрирај по корисник:
 register_none:Не ме известувај

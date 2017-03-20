@@ -473,9 +473,9 @@ login_name_required:Användarnamnet är obligatoriskt
 login_passwd_required:Lösenordet är obligatoriskt
 login_invalid_radius:Ogiltig kombination av användarnamn och lösenord
 reset_confirmation:Tack för din registrering!\n\nFör att aktivera ditt konto skall du gå till följande URL:\n\n{VAR: url}\n\nNär ditt konto har aktiverats blir du inloggad i forumet och\nvidaresänd till forumets första sida.
-reset_reset:Hej!\n\nDu har begärt att ditt lösenord nollställs. För att verkligen NOLLSTÄLLA ditt lösenord\nvänligen besök denna URL\n\n{VAR: url}\n\nNOTERA: Forumet sparar lösenorden med enkelriktade krypteringsmekanismer vilket innebär att\nnär du väl har skrivit ditt lösenord krypteras det så att det inte går att dekryptera.\nDet här fungerar genom att helt enkelt kryptera lösenordet varje gång du skriver in det. Sedan jämförs resultatet för att se om den nya och den sparade versionen\nstämmer överrens. (Om du är intresserad av att veta hur det hela fungerar kan du läsa om "MD5 HASH"-algoritmen)
+reset_reset:Hej!\n\nDu har begärt att ditt lösenord nollställs. För att verkligen NOLLSTÄLLA ditt lösenord\nvänligen besök denna URL\n\n{VAR: url}\n\nNOTERA: Forumet sparar lösenorden med enkelriktade krypteringsmekanismer vilket innebär att\nnär du väl har skrivit ditt lösenord krypteras det så att det inte går att dekryptera.\nDet här fungerar genom att helt enkelt kryptera lösenordet varje gång du skriver in det. Sedan jämförs resultatet för att se om den nya och den sparade versionen\nstämmer överens. (Om du är intresserad av att veta hur det hela fungerar kan du läsa om "MD5 HASH"-algoritmen)
 rpasswd_invalid_passwd:Ogiltigt lösenord
-rpasswd_passwd_nomatch:Lösenorden stämmer inte överrens
+rpasswd_passwd_nomatch:Lösenorden stämmer inte överens
 rpasswd_passwd_length:Lösenordet måste vara minst 6 tecken långt
 reset_remind_pass:Lösenordspåminnare
 reset_reset_conf:Ditt lösenord kommer att nollställas och ett nytt skickas åt dig. Om du inte har bekräftat din registrering kommer bekräftelsemeddelandet att skickas istället.
