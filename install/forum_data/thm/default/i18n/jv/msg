@@ -1138,7 +1138,7 @@ feed_rss:RSS2 feed
 feed_atom:ATOM feed
 ip_whois_connect_err:Iso kanggo nyambung menyang sapa server ({VAR: whois_server}): {VAR: errstr}
 custom_filed_required:Iki kolom dibutuhake.
-pages:Kaca-kaca
+pages:Kaca
 page_list_heading:Sedhiya kaca
 page_list_total:{PLURAL: i|$1 kaca|$1 kaca} kadhaptar.
 page_update:njelajah kaca
