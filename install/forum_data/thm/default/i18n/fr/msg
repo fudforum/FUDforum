@@ -466,11 +466,11 @@ coppa_fax_passwd:Mot de passe
 coppa_fax_remail:Courriel
 coppa_fax_name:Nom
 login_not_logedin:Vous n'êtes pas connecté. Cela peut être dû à l'une des raisons suivantes :
-login_cookie_expired:Votre cookie a expiré et vous devez vous connecter à nouveau afin de le régénérer.
+login_cookie_expired:Votre témoin (cookie) a expiré et vous devez vous connecter à nouveau afin de le régénérer.
 login_perm_denied:Vous n'avez pas la permission d'accéder à la ressource que vous désirez en tant qu'utilisateur anonyme, et vous devez vous connecter (en plus de vous inscrire si ce n'est pas encore fait) afin d'y accéder.
 login_want_to_register:Voulez-vous vous inscrire ?
 login_forgot_passwd:J’ai oublié mon mot de passe
-login_use_cookie:Utiliser des cookies<br /><font class="SmallText">Si vous utilisez un ordinateur dans un lieu public tel qu'une bibliothèque, une école ou un cybercafé, il est recommandé de désactiver cette option pour des raisons de sécurité.<br />Si vous laissez cette option activée, vous serez automatiquement connecté au forum lorsque vous reviendrez.</span>
+login_use_cookie:Utiliser des témoins (cookies)<br /><font class="SmallText">Si vous utilisez un ordinateur dans un lieu public tel qu’une bibliothèque, une école ou un cybercafé, il est recommandé de désactiver cette option pour des raisons de sécurité.<br />Si vous laissez cette option activée, vous serez automatiquement connecté au forum lorsque vous reviendrez.</span>
 login_login:Utilisateur
 login_login_btn:Connexion
 login_name_required:Veuillez saisir votre nom d'utilisateur
@@ -850,7 +850,7 @@ split_th_select:Sélectionner
 report_report_post:Rapporter un message
 quicklogin_login:Nom d'utilisateur :
 quicklogin_password:Mot de passe :
-quicklogin_use_cookies:Utiliser un cookie ?
+quicklogin_use_cookies:Utiliser des témoins (cookies) ?
 quicklogin_login_btn:Connexion
 quick_reply:Réponse rapide
 quick_reply_post:Poster une réponse rapide
