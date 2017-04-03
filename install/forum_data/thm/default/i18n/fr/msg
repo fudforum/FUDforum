@@ -1093,7 +1093,7 @@ sml_code:Code
 mnav_sub_only:Rechercher dans les forums surveillés seulement
 register_topics_per_page:Sujets par page :
 login_min_time:Ce forum ne permet qu'une tentative de connexion par période de {VAR: MIN_TIME_BETWEEN_LOGIN} secondes, veuillez patienter {FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)} secondes avant votre prochaine tentative.
-post_not_logged_in:Vous n'êtes pas connecté, le message sera posté anonymement.
+post_not_logged_in:Vous n'êtes pas connecté, le billet sera publié anonymement.
 post_common_bold:Gras
 post_common_italics:Italique
 post_common_underline:Souligné

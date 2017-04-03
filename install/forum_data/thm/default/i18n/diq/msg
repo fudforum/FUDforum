@@ -478,7 +478,7 @@ group_mgr_group:Grube
 p_READ:Bıwane
 p_POST:Bırışe
 p_REPLY:Cewab bıde
-p_EDIT:Bıvurne
+p_EDIT:Bıvırne
 p_DEL:Bestere
 p_STICKY:Mesacê dışkiyayıni
 p_POLL:Anket Vırazê
@@ -538,7 +538,7 @@ im_twitter:Twitter:
 forum_contact:İrtıbat
 forum_home:Keye
 p_VISIBLE:Aseno
-poll_edit:Bıvurne
+poll_edit:Bıvırne
 polllist_name:Namey Anketi
 polllist_votes:Heme Reyi
 polllist_action:Kerdış
@@ -669,7 +669,7 @@ btn_flat_view:Asayışo duz
 btn_about:Profile
 btn_small_pm:MX
 btn_delete:bestere
-btn_edit:Bıvurne
+btn_edit:Bıvırne
 btn_reply:Cewab bıde
 btn_forward:raver
 btn_quote:groteko
