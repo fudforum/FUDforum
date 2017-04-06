@@ -3,6 +3,7 @@
 # Author: KWiki
 # Author: Naudefj
 # Author: Rancher
+# Author: Zoranzoki21
 # Author: Сербијана
 
 action:Radnja
@@ -213,6 +214,7 @@ reported_reported_msg:Prijavljene poruke
 modque_pending_approval:Poruke koje čekaju odobrenje
 modque_approve:Odobri
 modque_delete:Obriši
+modque_deleteall:Obriši sve od korisnika
 modque_no_message:Nema poruka koje čekaju odobrenje
 pmsg_new_messages:Nepročitana privatna poruka
 pmsg_old_messages:Pročitana privatna poruka
@@ -303,11 +305,13 @@ register_builtin:Ugrađeno
 register_specify_url:unos URL adrese
 register_uploaded:otpremanje
 register_login:Korisničko ime:
+register_login_available:Dostupno
 register_password:Lozinka:
 register_conf_pass:Potvrdite lozinku:
 # Fuzzy
 register_email_desc:Unesite ispravnu e-adresu. Možete je sakriti u odeljku „Postavke“.
 register_name:Pravo ime:
+register_name_desc:Tvoje pravo ime.
 register_your_pass:Lozinka:
 register_update:Ažuriraj
 register_avatar_type:Vrsta korisničke sličice:
@@ -320,8 +324,7 @@ register_preview:Pregled
 register_custom_avatar_upload:Datoteka korisničke sličice:
 register_register:Otvori nalog
 register_required:Obavezni podaci
-# Fuzzy
-register_required_desc:Sva polja su obavezna. Upamtite da je lozinka osetljiva na mala i velika slova.
+register_required_desc:Sva polja su obavezna.
 register_optional:Neobavezni podaci
 register_optional_desc:Preporučljivo je da ne odajete nikakve lične podatke. Svi podaci biće vidljivi od strane drugih članova.
 register_location:Mesto:
@@ -468,6 +471,7 @@ rpasswd_passwd_length:Lozinka mora imati najmanje 6 znakova
 reset_remind_pass:Podsetnik za lozinku
 reset_reset_conf:Lozinka će biti poništena i poslata vama. Ako još uvek niste potvrdili svoju e-adresu, poslaćemo obrazac za to.
 reset_error:Imejl adresa nije pronađena u bazi podataka
+reset_update:Resetuj lozinku
 rpasswd_change_pass:Promena lozinke
 rpasswd_login:Korisničko ime:
 rpasswd_cur_pass:Lozinka:

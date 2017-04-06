@@ -485,7 +485,7 @@ rpasswd_passwd_length:Parola en az 6 karakter uzunluğunda olmalı
 reset_remind_pass:Parola Hatırlatıcı
 reset_reset_conf:Parolanız yeniden belirlenip size gönderilecek, veya eğer e-mektubu doğrulamamış durumdaysanız, e-posta doğrulama isteği size tekrar gönderilecek.
 reset_error:E-posta veritabanında bulunamadı
-reset_update:Şifreyi sıfırla
+reset_update:Parolayı sıfırla
 rpasswd_change_pass:Parola değiştir
 rpasswd_login:Kullanıcı ismi
 rpasswd_cur_pass:Şu andaki Parola:
@@ -495,7 +495,7 @@ ruser_title:Giriş Formunu Değiştir
 ruser_change_user:Forum giriş bilgilerinizi değiştirin
 ruser_cur_login:Geçerli giriş:
 ruser_new_login:Yeni giriş:
-ruser_cur_pass:Geçerli şifre:
+ruser_cur_pass:Geçerli Parola:
 login_passwd:Parola:
 reset_email:E-posta:
 reset_reset_button:Parolayı Yeniden Belirle
