@@ -406,7 +406,7 @@ post_passwd:İleti Parolası:
 post_poll:Anket:
 post_create_poll:ANKET OLUŞTUR
 post_poll_delete:SİL
-post_poll_edit:DÜZELT
+post_poll_edit:DÜZENLE
 post_mod_opt:Denetim seçenekleri:
 post_thread_type:Konu tipi:
 post_thread_expiry:Konu süre aşımı:
@@ -772,7 +772,7 @@ groupmgr_member:Üye
 groupmgr_cancel:İptal
 groupmgr_add_member:Üye Ekle
 groupmgr_update_member:Üye Güncelle
-groupmgr_edit:Düzelt
+groupmgr_edit:Düzenle
 groupmgr_delete:Sil
 group_mgr_anon:İsimsiz
 group_mgr_reged:Tüm Kayıtlı Kullanıcılar
@@ -786,7 +786,7 @@ permission_denied_msg:Yapmak istediğinizi gerçekleştirmek için erişim iznin
 p_READ:Oku
 p_POST:Gönder
 p_REPLY:Yanıtla
-p_EDIT:Düzelt
+p_EDIT:Düzenle
 p_DEL:Sil
 p_STICKY:Yapışkan İletiler
 p_POLL:Anket Oluştur
@@ -889,7 +889,7 @@ help_back_to_top:yukarı dön
 help_return_to_index:Yardım indeksine dön
 imsg_err_message_title:Geçersiz İleti
 imsg_err_message_msg:Görüntülemeye çalıştığınız ileti yok.
-poll_edit:Düzelt
+poll_edit:Düzenle
 register_err_not_valid_img:Belirtilen adreste geçerli bir resim yok
 pmsg_recepient:Alıcı
 register_err_taken_alias:Kullanmaya çalıştığınız takma isim forumda daha önce başka bir üye tarafından seçilmiş ve kullanılıyor durumda, lütfen başka bir tane seçin.
@@ -1004,7 +1004,7 @@ register_pm_notification_desc:Size bir özel ileti gönderildiğinde belirttiği
 findu_admin_opts_header:Yönetici Seçenekleri
 findu_unban:Yasağı Kaldır
 findu_ban:Yasakla
-findu_edit:Değiştir
+findu_edit:Düzenle
 findu_delete:Sil
 dmsg_reply_to:, bu iletiye yanıttır:
 dmsg_reply_num:#{VAR: obj->reply_to}
@@ -1141,7 +1141,7 @@ btn_flat_view:Düz Görünüm
 btn_about:Profil
 btn_small_pm:Öİ
 btn_delete:sil
-btn_edit:değiştir
+btn_edit:düzenle
 btn_reply:yanıtla
 btn_forward:yönlendir
 btn_quote:alıntıla
