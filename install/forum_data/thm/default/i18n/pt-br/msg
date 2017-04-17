@@ -4,6 +4,7 @@
 # Author: Cainamarques
 # Author: Dianakc
 # Author: Eduardo Addad de Oliveira
+# Author: Felipe L. Ewald
 # Author: Giro720
 # Author: Leosls
 # Author: Luckas
@@ -170,7 +171,7 @@ sub_to_thread_desc:Receber notificação sobre novos posts neste tópico
 bookmark_thread:Adicionar tópico aos favoritos
 bookmark_thread_desc:Adicione este tópico à sua lista de favoritos
 subject:Assunto
-subscribe:Subscrever
+subscribe:Inscrever-se
 subscribe_desc:Receber notificações quando alguém criar novos tópicos neste fórum
 subscribed_forums:Fóruns subscritos
 subscribed_forums_desc:Filtro de fóruns subscritos (só serão mostrados os posts dos fóruns que tem subscritos)

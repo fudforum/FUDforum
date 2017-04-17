@@ -796,7 +796,7 @@ rate_worst:Værst
 rate_best:Best
 post_quote_msg:Den {TEMPLATE: make_report_date} skrev {VAR: msg->login}:
 post_quote:Sitat:
-post_quote_selected:Sitér valgt tekst
+post_quote_selected:Siter valgt tekst
 userinfo_referals:Refererte medlemmer:
 userinfo_referals_count:{VAR: referals} medlemmer
 pm_no_space_title:Ikke mer plass!
