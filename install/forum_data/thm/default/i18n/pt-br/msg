@@ -367,7 +367,7 @@ register_show_sig:Mostrar assinaturas:
 register_show_sig_desc:Permite mostrar ou ocultar assinaturas de outros membros
 register_use_sig_default:Usar assinatura como padrão:
 register_use_sig_default_desc:Adicionar automáticamente a assinatura no final dos posts
-register_timezone:Hora Local:
+register_timezone:Fuso horário:
 register_ignore_admin:Ignorar mensagens do administrador:
 register_invisible_mode:Modo Invisível:
 register_invisible_mode_desc:Ocultar o estado online.

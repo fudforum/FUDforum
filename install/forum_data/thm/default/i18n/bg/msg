@@ -197,8 +197,7 @@ views:Видяно
 vote:{VAR: frm->n_rating} гласа
 vote_button:Гласувай
 vote_for_thread:Гласувай
-# Fuzzy
-was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> е преместено на <a href="{TEMPLATE: was_moved_msg_lnk2}">{{VAR: r[12]}</a>
+was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> е преместено от модератора на <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a>
 welcome_message:Добре дошли, <b>{VAR: usr->alias}</b>, вашето последно посещение на форума: {TEMPLATE: welcome_message_date}
 what_ppl_doing:покажи кой какво прави
 reported_del_report:Изтрий доклада
