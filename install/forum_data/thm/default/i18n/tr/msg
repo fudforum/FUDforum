@@ -55,8 +55,8 @@ gender:Cinsiyet:
 go:Git
 goto_next_msg:Sonraki ileti
 goto_prev_msg:Önceki ileti
-home:Ana Sayfa
-homepage:Ana Sayfa:
+home:Anasayfa
+homepage:Anasayfa:
 icq_control_panel:ICQ İleti Denetim Masası
 icq_message_form:ICQ İleti Formu:
 ignore_user:bu kullanıcının tüm ileti gözardı et
@@ -351,7 +351,7 @@ register_icq:ICQ No:
 register_aim:AIM:
 register_yahoo:Yahoo:
 register_msnm:MSN:
-register_homepage:Ana Sayfa:
+register_homepage:Anasayfa:
 register_bday:Doğum Tarihi:
 register_bday_desc:Doğum tarihinizi belirtirseniz, diğer üyeler kişisel bilgilerinizde görebilecek.
 register_day:Gün
@@ -877,7 +877,7 @@ im_google:Google Talk:
 im_skype:Skype:
 im_twitter:Twitter:
 forum_contact:İletişim
-forum_home:Ana Sayfa
+forum_home:Anasayfa
 post_cur_attached:şu anda {VAR: i} {PLURAL: i|dosya|dosya} ekli
 ignored_anon_post:{GVAR: ANON_NICK} gözardı edilmiş durumda
 ignored_user_post:<a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> tarafından gönderilen ileti gözardı ediliyor.
