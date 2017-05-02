@@ -20,7 +20,7 @@ add_to_buddy_list:afegir a la llista d`amics
 admin:Admin
 admin_control_panel:L'administració
 administrator:Administrador
-attachment:Arxiu adjunt:
+attachment:Adjunció:
 avatar:Avatar:
 average_post_count:{PLURAL: u->posted_msg_count|$1 Missatge|$1 Missatges} ({PLURAL: avg|$1 missatge de mitjana|$1 missatges de mitjana} per dia)
 biography:Biografia:
