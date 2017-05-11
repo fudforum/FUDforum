@@ -865,7 +865,7 @@ report_already_reported_msg:Ya se ha informado sobre este mensaje y el informe e
 register_err_toomanyimages:Está tratando de usar más de las {GVAR: FORUM_IMG_CNT_SIG} imágenes permitidas en su firma.
 pmsg_next_msg:Mensaje siguiente
 pmsg_prev_msg:Mensaje anterior
-post_proc_reveal_spoiler:Mostrar Spoiler
+post_proc_reveal_spoiler:Activar o desactivar "spoiler"
 register_jabber:Usuario Jabber:
 register_skype:Identificador Skype:
 register_twitter:Nombre de usuario de Twitter:
@@ -984,7 +984,7 @@ mnav_all_forums:Buscar en todos los foros
 mnav_submit:Comenzar a buscar
 mnav_no_range:Debe introducir un rango de fechas válido. Este valor puede ser flotante (0.12) pero debe ser mayor de cero.
 mnav_invalid_unit:Debe especificar una unidad de tiempo válida.
-mnav_invalid_date:El rango de fechas especificado es mayor del permitido por el administrador. Reduzca el álcance de su búsqueda.
+mnav_invalid_date:El intervalo de fechas especificado es mayor del permitido por el administrador. Prueba con un intervalo más pequeño.
 mnav_no_results:No hay mensajes que coincidan con el criterio de búsqueda.
 mnav_posted_by:Publicado por:
 mnav_more:Más &raquo;&raquo;

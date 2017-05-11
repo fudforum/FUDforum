@@ -3,6 +3,7 @@
 # Author: Agilight
 # Author: Milicevic01
 # Author: Naudefj
+# Author: Obsuser
 # Author: Rancher
 # Author: Srdjan m
 # Author: Zoranzoki21
@@ -694,7 +695,7 @@ bookmarked_update:Прегледање забелешки
 thread_update:Прегледање форума <a href="{TEMPLATE: thread_update_lnk}">{VAR: frm->name}</a>
 tree_update:Прегледање теме (стабласти приказ) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
 userinfo_update:Посматрање <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}'s</a> профила
-ERR_login_msg2:<legend>Грешка: нисте пријављени</legend>Морате бити члан форума да бисте приступили овој страници.
+ERR_login_msg2:<legend>ГРЕШКА: Нисте пријављени</legend>Морате бити члан форума да бисте приступили овој страници.
 ERR_disabled_ttl:Онемогућена могућност
 ERR_disabled_msg:Ова могућност је онемогућена од стране администратора.
 ERR_access_ttl:Грешка: недовољно дозвола
@@ -1064,7 +1065,7 @@ mmd_move_threads_to:Одредишни форум:
 mmd_abort_move:Откажи
 mmd_move:Премести теме
 pmsg_pdf_btn:Направи PDF архиву
-search_results_hdr:{VAR: total} резултата претраге је пронађено
+search_results_hdr:Број пронађених резултата претраге: {VAR: total}
 thread_del_all:Обриши изабрано
 thread_mov_all:Премести изабрано
 thread_merge_all:Споји изабрано
