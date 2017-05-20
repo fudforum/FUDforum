@@ -865,7 +865,7 @@ report_already_reported_msg:Ya se ha informado sobre este mensaje y el informe e
 register_err_toomanyimages:Está tratando de usar más de las {GVAR: FORUM_IMG_CNT_SIG} imágenes permitidas en su firma.
 pmsg_next_msg:Mensaje siguiente
 pmsg_prev_msg:Mensaje anterior
-post_proc_reveal_spoiler:Activar o desactivar "spoiler"
+post_proc_reveal_spoiler:Activar o desactivar destripe
 register_jabber:Usuario Jabber:
 register_skype:Identificador Skype:
 register_twitter:Nombre de usuario de Twitter:
