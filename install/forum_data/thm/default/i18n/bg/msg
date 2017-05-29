@@ -907,6 +907,7 @@ iemail_msg_reply:Отговаряне
 iemail_msg_quote:Цитиране
 iemail_thread_unsub:Отписване от тази тема
 iemail_forum_unsub:Отписване от този форум
+mnav_submit:Начало на търсене
 findu_edit:Редактиране
 findu_delete:Изтриване
 register_email_addr:Адрес за е-поща:
