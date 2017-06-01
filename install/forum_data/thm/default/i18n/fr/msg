@@ -373,14 +373,14 @@ register_timezone:Fuseau horaire :
 register_ignore_admin:Ignorer les messages administratifs :
 register_invisible_mode:Invisibilité :
 register_invisible_mode_desc:Vous permet d'empêcher les autres utilisateurs de savoir si vous êtes connecté.
-register_show_email:Rendre mon adresse e-mail visible :
-register_show_email_desc:Choisissez cette option si vous souhaitez que les autres utilisateurs puissent voir votre adresse e-mail.
+register_show_email:Rendre mon adresse de courriel visible :
+register_show_email_desc:Choisissez cette option si vous souhaitez que les autres utilisateurs puissent voir votre adresse de courriel.
 register_notification:Activer la notification par défaut :
 register_notification_desc:Ceci est une option par défaut qui peut être modifiée pour chaque message que vous postez.
 register_notify_method:Méthode de notification :
 register_notify_method_desc:Choisissez votre système de notifications ou désactivez-les (par exemple pour les vacances)
-register_allow_email_msg:Autoriser les messages e-mail :
-register_allow_email_msg_desc:Permet aux autres utilisateurs de vous envoyer des e-mails directement via le forum.
+register_allow_email_msg:Autoriser les courriels :
+register_allow_email_msg_desc:Permet aux autres utilisateurs de vous envoyer des courriels directement via le forum.
 buddy_status:État
 my_buddies:Mes amis
 add_buddy:Ajouter un ami
@@ -482,8 +482,8 @@ rpasswd_invalid_passwd:Le mot de passe est invalide
 rpasswd_passwd_nomatch:Le mot de passe et sa confirmation ne sont pas identiques
 rpasswd_passwd_length:Le mot de passe doit comporter au moins 6 caractères
 reset_remind_pass:Vous avez oublié votre mot de passe
-reset_reset_conf:Nous allons générer un nouveau mot de passe temporaire qui vous sera envoyé par e-mail dans quelques minutes. Dans le cas où vous n'auriez pas encore validé votre mot de passe, nous vous enverrons l'e-mail de confirmation à la place.
-reset_error:L'adresse e-mail spécifiée n'a pas été trouvée dans la base de données
+reset_reset_conf:Nous allons générer un nouveau mot de passe temporaire qui vous sera envoyé par courriel dans quelques minutes. Dans le cas où vous n’auriez pas encore validé votre mot de passe, nous vous enverrons le courriel de confirmation à la place.
+reset_error:Le courriel spécifié n’a pas été trouvé dans la base de données
 reset_update:Réinitialiser le mot de passe
 rpasswd_change_pass:Changer de mot de passe
 rpasswd_login:Connexion
@@ -492,8 +492,8 @@ rpasswd_new_pass:Nouveau mot de passe :
 rpasswd_conf_pass:Confirmez le mot de passe :
 ruser_title:Formulaire de changement de connexion
 ruser_change_user:Modifiez votre connexion au forum
-ruser_cur_login:Login actuel :
-ruser_new_login:Nouveau login :
+ruser_cur_login:Connexion actuelle :
+ruser_new_login:Nouvelle connexion :
 ruser_cur_pass:Mot de passe actuel :
 login_passwd:Mot de passe :
 reset_email:Courriel :
@@ -514,18 +514,18 @@ search_all_forums:Chercher dans tous les forums
 search_in_forum:Chercher dans le forum :
 search_forum_search:Chercher dans un forum
 move_thread_to:Déplacer le fil <b>{VAR: thr->subject}</b> vers :
-remail_email_topic:Envoyer ce sujet par e-mail à un ami
+remail_email_topic:Envoyer ce sujet par courriel à un ami
 remail_your_name:Votre nom :
 remail_your_email:Votre courriel :
 remail_friends_name:Le nom de votre ami :
-remail_friends_email:L'adresse e-mail de votre ami :
+remail_friends_email:Le courriel de votre ami :
 remail_required:obligatoire
 remail_subject:Sujet :
 remail_message:Message :
-remail_send_now:Envoyer l'e-mail maintenant
-remail_anon_opt:Copier ce message dans un client e-mail de votre choix afin de l'envoyer à votre/vos ami(s).
+remail_send_now:Envoyer le courriel maintenant
+remail_anon_opt:Copier ce message dans un client courriel de votre choix afin de l’envoyer à votre(vos) ami(s).
 remail_done:C'est fait
-remail_sent_conf:Votre e-mail à propos de {VAR: data->subject} a été envoyé avec succès à votre ami ({VAR-HTML: _POST['femail']}).
+remail_sent_conf:Votre courriel à propos de {VAR: data->subject} a été envoyé avec succès à votre ami ({VAR-HTML: _POST['femail']}).
 remail_error:Une erreur est survenue
 mklist_type:Type :
 mklist_option:Option :
@@ -604,15 +604,15 @@ buddy_list_update:Parcourir ma liste d'amis
 core_err_invinp_title:Entrée invalide
 core_err_invinp_err:Vous avez suivi un lien invalide, veuillez en avertir l'<a href="mailto:{GVAR: ADMIN_EMAIL}">administrateur</a>
 core_adm_login_msg:Les administrateurs peuvent se connecter <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">ici</a>
-email_err_unabletoemail_title:ERREUR : Impossible d'envoyer des e-mails
-email_err_unabletoemail_msg:La fonctionnalité e-mail a été désactivée par l'administrateur.
-email_error_unabletolocaddr:Désolé, le système n'a pas été en mesure d'envoyer l'e-mail à {VAR-HTML: _POST['tx_name']} car il n'a pas trouvé son adresse e-mail dans le système
+email_err_unabletoemail_title:ERREUR : Impossible d’envoyer des courriels
+email_err_unabletoemail_msg:La fonctionnalité courriel a été désactivée par l’administrateur.
+email_error_unabletolocaddr:Désolé, le système n’a pas été en mesure d’envoyer de courriel à {VAR-HTML: _POST['tx_name']} car il n’a pas trouvé son adresse dans le système
 email_error_body:Le contenu est obligatoire
 email_error_subject:Le sujet est obligatoire
 email_error_namerequired:Le nom est obligatoire
 email_error_invaliduser:L'utilisateur est invalide
 emailconf_err_invkey_title:Erreur
-emailconf_err_invkey_msg:Clé de confirmation invalide. Veuillez vérifier votre e-mail afin de vous assurer que vous avez correctement entré l'URL
+emailconf_err_invkey_msg:Clé de confirmation invalide. Veuillez vérifier votre courriel afin de vous assurer que vous avez correctement entré l’URL
 err_inc_criticaltitle:Erreur critique
 err_inc_criticalmsg:Vous êtes en présence d'une erreur, mais malheureusement il y a un problème avec notre système de rapport d'erreurs
 finduser_update:Chercher un utilisateur
@@ -660,23 +660,23 @@ postcheck_subj_needed:Le champ sujet est obligatoire
 postcheck_no_such_user:Il n'y a pas d'utilisateur nommé « {FUNC: char_fix(htmlspecialchars($v))} » dans ce forum
 postcheck_ignored:Vous ne pouvez pas envoyer de message privé à « {FUNC: char_fix(htmlspecialchars($v))} » car cet utilisateur a décidé de vous ignorer.
 postcheck_no_recepient:Impossible d'envoyer le message, il manque le destinataire.
-postcheck_invalid_email:Veuillez saisir une adresse e-mail valide pour votre correspondant.
-postcheck_email_subject:Vous ne pouvez pas envoyer d'e-mail sans sujet.
-postcheck_email_body:Vous ne pouvez pas envoyer d'e-mail sans contenu.
+postcheck_invalid_email:Veuillez saisir une adresse de courriel valide pour votre correspondant.
+postcheck_email_subject:Vous ne pouvez pas envoyer de courriel sans sujet.
+postcheck_email_body:Vous ne pouvez pas envoyer de courriel sans contenu.
 private_msg_notify_subj:Notification de lecture du message : {VAR: m->subject}
 private_msg_notify_body:<br />{VAR: usr->login} a lu votre message privé intitulé « {VAR: m->subject} » le {TEMPLATE: private_msg_notify_body_date}<br />
 referals_update:Parcourt la liste des utilisateurs parrainés
 register_err_short_login:Le nom d’utilisateur que vous avez choisi est trop court. Les noms d’utilisateur doivent comporter au moins 2 caractères.
 register_err_login_notallowed:Ce nom d'utilisateur n'est pas autorisé
 register_err_loginunique:Un membre du forum utilise déjà ce nom, veuillez en choisir un autre
-register_err_emailexists:Cette adresse e-mail existe déjà. Si vous avez oublié votre mot de passe, veuillez utiliser l'option de restauration. Se ré-inscrire n'est pas une solution à ce problème.
+register_err_emailexists:Cette adresse de courriel existe déjà. Si vous avez oublié votre mot de passe, veuillez utiliser l’option de restauration. Se ré-inscrire n’est pas une solution à ce problème.
 register_err_shortpasswd:Le mot de passe doit comporter au moins 6 caractères.
 register_err_passwdnomatch:Le mot de passe et sa confirmation ne sont pas identiques.
-register_err_invalidemail:L'adresse e-mail que vous avez saisie ne semble pas être valide
+register_err_invalidemail:Le courriel que vous avez saisi ne semble pas être valide
 register_err_needname:Vous devez saisir votre nom
 register_err_enterpasswd:Vous devez saisir votre mot de passe actuel afin de valider votre saisie
 register_err_adminpasswd:Vous devez saisir votre mot de passe d'<b>administrateur</b> afin de valider votre saisie.
-register_err_notyouremail:Quelqu'un s'est déjà inscrit avec cette addresse e-mail, et ce n'est PAS vous !
+register_err_notyouremail:Quelqu’un s’est déjà inscrit avec cette adresse de courriel, et ce n’est '''pas''' vous !
 register_err_avatartobig:Le fichier que vous essayez de téléverser est trop gros, la taille limite autorisée est de {GVAR: CUSTOM_AVATAR_MAX_SIZE} octets
 register_err_avatarnotallowed:L’avatar que vous essayez de téléverser n’est pas autorisé, veuillez vérifier les types de fichier autorisés.
 register_conf_subject:Confirmation de votre inscription
@@ -692,7 +692,7 @@ report_err_nosuchmsg_msg:Message non trouvé
 reset_err_invalidkey_title:ERREUR
 reset_err_invalidkey_msg:Clé de réinitialisation de mot de passe invalide
 reset_err_rstconf_title:Information
-reset_err_rstconf_msg:Vous devriez recevoir des instructions par e-mail dans quelques minutes.
+reset_err_rstconf_msg:Vous devriez recevoir des instructions par courriel dans quelques minutes.
 reset_newpass_title:Réinitialisation du mot de passe
 reset_newpass_msg:Bonjour,\n\nveuillez trouver ci-joint les informations dont vous avez besoin pour accéder au forum :\n\n\nNom d'utilisateur: {VAR: ui[1]}\nMot de passe: {VAR: passwd}\n\nNotez que vous pouvez modifier votre mot de passe à tout moment via le panneau de configuration de votre profil sur le site du forum, également accessible à l'URL suivante:\n{FULL_ROOT}{ROOT}?t=register
 reset_login_notify:Votre mot de passe vous a été envoyé par courriel. Vous devriez le recevoir dans les prochaines minutes.
@@ -712,12 +712,12 @@ ERR_access_msg:Vous n'avez pas les privilèges nécessaires pour effectuer cette
 ERR_registration_disabled_ttl:Inscription désactivée
 ERR_registration_disabled_msg:L'administrateur a désactivé l'inscription, veuillez réessayer plus tard
 ERR_emailconf_ttl:ERREUR : Votre compte n'a pas encore été confirmé
-ERR_emailconf_msg:Vous n’avez pas encore confirmé votre inscription par e-mail<br /><table border="0"><tr><td><ol><li>Si vous n’avez pas reçu de courriel de confirmation,<a href="{TEMPLATE: ERR_emailconf_msg_lnk}">cliquez ici</a><li>Si {VAR: usr_d->email} n’est pas votre adresse de courriel correcte, <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">cliquez ici</a></ol></td></tr></table>
+ERR_emailconf_msg:Vous n’avez pas encore confirmé votre inscription par courriel<br /><table border="0"><tr><td><ol><li>Si vous n’avez pas reçu de courriel de confirmation,<a href="{TEMPLATE: ERR_emailconf_msg_lnk}">cliquez ici</a><li>Si {VAR: usr_d->email} n’est pas votre adresse de courriel correcte, <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">cliquez ici</a></ol></td></tr></table>
 ERR_user_ttl:ERREUR : l'utilisateur n'existe pas
 ERR_user_msg:Cet utilisateur n'existe pas
 ERR_systemerr_ttl:ERREUR : Erreur système
 ERR_systemerr_msg:Une erreur système s’est produite. Veuillez rapporter cet incident à l’<a href="mailto:{GVAR: ADMIN_EMAIL}">administrateur du site</a>.
-email_title:E-mail
+email_title:Formulaire de courriel
 finduser_title:Chercher un utilisateur
 help_title:Aide
 login_title:Nom d'utilisateur
@@ -893,7 +893,7 @@ register_err_not_valid_img:L'URL spécifiée ne pointe pas vers une image valide
 pmsg_recepient:Destinataire
 register_err_taken_alias:L'alias que vous avez choisi est déjà utilisé actuellement par quelqu'un d'autre, veuillez en choisir un autre
 register_alias:Alias
-register_alias_desc:Si vous désirez qu'un pseudonyme différent de votre login soit utilisé dans ce forum, veuillez le saisir ici.
+register_alias_desc:Si vous désirez qu’un pseudonyme différent de votre connexion soit utilisé dans ce forum, veuillez le saisir ici.
 register_allow_pm_msg:Autoriser les messages privés
 register_allow_pm_msg_desc:Permettre aux autres utilisateurs de vous envoyer des messages privés via le forum.
 postcheck_pm_disabled:Vous ne pouvez pas envoyer de message privé à « {VAR-HTML: v} », car cette personne n'accepte pas les messages privés.
@@ -920,7 +920,7 @@ post_proceed:Confirmer
 post_moderated_forum:Vous avez écrit dans un forum modéré, cela signifie que votre message ne sera pas visible dans le forum tant qu'il n'aura pas été approuvé par l'un des modérateurs et/ou administrateurs du forum.
 post_moderated_forum_ttl:Modération du forum
 buddy_list_bday:Aujourd'hui, {VAR: r[2]} a {VAR: age} ans.
-email_warning_msg:Si vous changez votre adresse e-mail, votre compte sera marqué comme non confirmé jusqu'à ce que vous le confirmiez par e-mail.
+email_warning_msg:Si vous changez votre courriel, votre compte sera marqué comme non confirmé jusqu’à ce que vous le confirmiez.
 register_show_im:Afficher les indicateurs IM
 register_show_im_desc:Afficher ou non les indicateurs de Messagerie Instantanée  des auteurs de messages.
 unread_message:Message non lu
@@ -962,8 +962,8 @@ no_unread_messages:Il n'y a aucun message non lu correspondant à votre requête
 thread_mark_all_read:Marquer tous les messages du forum comme lus
 thread_mark_all_read_desc:Tous les messages non lus dans ce forum seront marqués comme lus
 private_no_messages:Il n'y a aucun message dans ce dossier
-register_email_change_subject:Confirmation de changement d'e-mail
-register_email_change_msg:Veuillez confirmer votre nouveau compte e-mail « {VAR: uent->email} » qui remplace votre ancien compte e-mail « {VAR: old_email} » en visitant l'URL ci-dessous :\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nUne fois que vous aurez confirmé votre nouvelle adresse e-mail, votre compte sera réactivé.
+register_email_change_subject:Confirmation de changement de courriel
+register_email_change_msg:Veuillez confirmer votre nouveau compte courriel « {VAR: uent->email} » qui remplace votre ancien compte « {VAR: old_email} » en visitant l’URL ci-dessous :\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nUne fois que vous aurez confirmé votre nouvelle adresse, votre compte sera réactivé.
 iemail_thread_unsub:Cesser la surveillance de ce fil
 iemail_forum_unsub:Cesser la surveillance de ce forum
 primary_group_prefix:Groupe primaire pour le forum :
@@ -975,8 +975,8 @@ post_mod_msg_notify_msg:Un nouveau message intitulé « {VAR: msg_post->subject}
 thread_printable_pdf:Générer du PDF imprimable
 thread_syndicate:Publier ce forum (XML)
 reg_conf_title:Confirmation d'inscription
-reg_conf_email:<b>E-mail de confirmation</b><br />Un e-mail vous a été envoyé, contenant une URL spéciale que vous devrez visiter avant que votre compte ne soit activé. Si vous ne recevez pas cet e-mail dans les prochaines minutes, connectez-vous avec votre compte et assurez-vous que l'adresse e-mail que vous avez spécifiée est correcte. Une fois que vous aurez confirmé votre compte, vous pourrez accéder aux fonctionnalités du forum disponibles pour les utilisateurs ayant confirmé leur inscription.
-reg_conf_account:<b>Confirmation de votre compte</b><br />Avant que votre compte ne soit activé, il doit être approuvé par le (ou les) administrateur(s). Une fois ceci fait, vous recevrez un e-mail indiquant que votre compte a été confirmé. Avant cela, vous pouvez vous connecter avec votre compte, mais vous ne pourrez pas accéder aux fonctionnalités disponibles uniquement pour les utilisateurs approuvés.
+reg_conf_email:<b>Courriel de confirmation</b><br />Un courriel vous a été envoyé contenant une URL spéciale que vous devrez visiter avant que votre compte ne soit activé. Si vous ne recevez pas ce courriel dans les prochaines minutes, connectez-vous avec votre compte et assurez-vous que l’adresse que vous avez spécifiée est correcte. Une fois que vous aurez confirmé votre compte, vous pourrez accéder aux fonctionnalités du forum disponibles pour les utilisateurs ayant confirmé leur inscription.
+reg_conf_account:<b>Confirmation de votre compte</b><br />Avant que votre compte ne soit activé, il doit être approuvé par le (ou les) administrateur(s). Une fois ceci fait, vous recevrez un courriel indiquant que votre compte a été confirmé. Avant cela, vous pouvez vous connecter avec votre compte, mais vous ne pourrez pas accéder aux fonctionnalités disponibles uniquement pour les utilisateurs approuvés.
 forum_banned_user:Vos actions antérieures ont entraîné votre bannissement permanent de ce forum. Au revoir.
 mnav_description:Navigateur de messages
 mnav_date_limit:Intervalle de dates :
@@ -1025,7 +1025,7 @@ adm_account_rejected_s:Votre demande de compte pour '{GVAR: FORUM_TITLE}' a ét�
 thread_on:le
 userinfo_buddy:Ami :
 register_email_addr:Adresse de courriel :
-reset_suffix:Si vous avez reçu ce message par erreur, merci de l'ignorer. Si vous recevez plusieurs copies non sollicitées de ce mail, merci de contacter l'administrateur à {GVAR: ADMIN_EMAIL}\n\nCette requête a été initiée depuis : {VAR: _SERVER['REMOTE_ADDR']}.
+reset_suffix:Si vous avez reçu ce message par erreur, merci de l’ignorer. Si vous recevez plusieurs copies non sollicitées de ce courriel, merci de contacter l’administrateur à {GVAR: ADMIN_EMAIL}\n\nCette requête a été initiée depuis : {VAR: _SERVER['REMOTE_ADDR']}.
 usrinfo_last_visit:Dernière visite aujourd'hui:
 mnav_newer:plus récents que
 mnav_older:plus anciens que
