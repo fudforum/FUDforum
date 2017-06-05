@@ -101,9 +101,9 @@ moderator:Modérateur
 moderator_of:Modérateur de :
 moderator_options:Options de modération
 moderators:{PLURAL: modcount|Modérateur|Modérateurs}
-more_unread_messages:Autres de messages non lus
+more_unread_messages:Autres messages non lus
 more_unread_messages_desc:Montrer d'autres messages non lus et marquer les messages visibles actuellement comme lus
-move_thread:Déplacer
+move_thread:Renommer
 moved:Déplacé dans un autre forum
 moved_thread_message:Ce fil a été déplacé dans un autre forum
 na:n/a
@@ -477,12 +477,12 @@ login_name_required:Veuillez saisir votre nom d'utilisateur
 login_passwd_required:Veuillez saisir votre mot de passe
 login_invalid_radius:Association nom d'utilisateur / mot de passe invalide
 reset_confirmation:Merci de vous être inscrit.\n\nAfin d'activer votre compte, veuillez visiter l'URL suivante :\n\n{VAR: url}\n\nUne fois votre compte activé, vous serez connecté sur le forum et conduit vers la page d'accueil.
-reset_reset:Vous avez décidé de réinitialiser votre mot de passe. Afin de poursuivre cette opération,\nveuillez vous diriger vers cette URL\n\n{VAR: url}\n\nNOTE: Le forum enregistre les mots de passe dans sa base de données en utilisant un mécanisme d'encodage à sens unique, ce qui signifie qu'une fois que vous avez soumis votre mot de passe, ce dernier\nest encodé de telle sorte qu'il n'est plus possible de le décrypter.\nCeci est possible par perpétuel réencryptage de votre mot de passe. Pour plus d'information sur cette sécurité, veuillez vous référer à une documentation détaillant l'algorithme de hachage MD5.
+reset_reset:Bonjour, \n\nVous avez décidé de réinitialiser votre mot de passe. Afin de poursuivre cette opération, veuillez vous diriger vers cette URL\n\n{VAR: url}\n\nNOTE : Le forum enregistre les mots de passe dans sa base de données en utilisant un mécanisme de chiffrement à sens unique, ce qui signifie qu’une fois que vous avez soumis votre mot de passe, ce dernier est chiffré de telle sorte qu’il n’est plus possible de le déchiffrer. \nCeci est possible en comparant la version encodée que nous avons enregistrée avec ce que vous tapez dans la zone de saisie de l'interfa&ce de connexion.\n(Pour plus d’informations sur ce mécanisme, veuillez vous référer à une documentation détaillant l’algorithme de hachage MD5)
 rpasswd_invalid_passwd:Le mot de passe est invalide
 rpasswd_passwd_nomatch:Le mot de passe et sa confirmation ne sont pas identiques
 rpasswd_passwd_length:Le mot de passe doit comporter au moins 6 caractères
 reset_remind_pass:Vous avez oublié votre mot de passe
-reset_reset_conf:Nous allons générer un nouveau mot de passe temporaire qui vous sera envoyé par courriel dans quelques minutes. Dans le cas où vous n’auriez pas encore validé votre mot de passe, nous vous enverrons le courriel de confirmation à la place.
+reset_reset_conf:Votre mot de passe sera reinitialisé et un nouveau mot de passe  vous sera envoyé. Dans le cas où vous n’auriez pas encore validé votre adresse de courriel, la demande de confirmation vous sera renvoyée.
 reset_error:Le courriel spécifié n’a pas été trouvé dans la base de données
 reset_update:Réinitialiser le mot de passe
 rpasswd_change_pass:Changer de mot de passe
@@ -612,7 +612,7 @@ email_error_subject:Le sujet est obligatoire
 email_error_namerequired:Le nom est obligatoire
 email_error_invaliduser:L'utilisateur est invalide
 emailconf_err_invkey_title:Erreur
-emailconf_err_invkey_msg:Clé de confirmation invalide. Veuillez vérifier votre courriel afin de vous assurer que vous avez correctement entré l’URL
+emailconf_err_invkey_msg:Clé de confirmation invalide. Veuillez vérifier votre courriel afin de vous assurer que vous avez correctement entré l’URL. Si vous avez cliqué deux fois sur le lien, il se peut que votre compte soit déja confirmé. Connectez vous au forum et demandez une autre clé.
 err_inc_criticaltitle:Erreur critique
 err_inc_criticalmsg:Vous êtes en présence d'une erreur, mais malheureusement il y a un problème avec notre système de rapport d'erreurs
 finduser_update:Chercher un utilisateur

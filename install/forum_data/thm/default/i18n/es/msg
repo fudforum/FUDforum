@@ -451,7 +451,7 @@ coppa_fax_instructions:Instrucciones para padres o tutores
 coppa_fax_instructions2:Imprima esta página, fírmela y envíenosla de vuelta por fax o correo.
 coppa_fax_reg_form:Formulario de registro
 coppa_fax_sign:Firme el formulario siguiente y envíenoslo
-coppa_fax_conf:He revisado la información que el menor ha suministrado y he leído la Política de privacidad del sitio web. Entiendo que la información de perfil puede ser cambiada usando una clave. Entiendo que puedo pedir que este perfil de registro sea eliminado completamente.
+coppa_fax_conf:He revisado la información que el menor ha suministrado y he leído la Normativa de privacidad del sitio web. Entiendo que la información de perfil puede cambiarse mediante una contraseña. Entiendo que puedo pedir que este perfil de registro se elimine completamente del foro.
 coppa_fax_permission:Firme aquí si autoriza
 coppa_fax_no_permission:Firme aquí si desea que la cuenta sea eliminada
 coppa_fax_parent_name:Nombre completo del padre o tutor:
@@ -880,7 +880,7 @@ post_cur_attached:actualmente adjuntos: {VAR: i} {PLURAL: i|archivo|archivos}
 ignored_anon_post:{GVAR: ANON_NICK} es ignorado
 ignored_user_post:El mensaje de <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> es ignorado
 smladd_close_window:cerrar ventana
-post_list_smilies:listar todos los emoticonos
+post_list_smilies:mostrar todos los emoticonos
 p_VISIBLE:Visible
 reported_in_thread:En hilo de discusión:
 help_back_to_top:volver al principio
