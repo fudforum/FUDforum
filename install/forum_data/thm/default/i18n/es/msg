@@ -588,7 +588,7 @@ thread_delete:Está a punto de <span class="ErrorText">borrar</span> el <span cl
 delete_proceed:<span class="fb">¿Desea continuar?</span>
 delete_yes:Sí
 delete_no:No
-error_invalidurl:La URL no es válida
+error_invalidurl:El URL no es válido
 error_error:Error
 usrinfo_profile:Perfil de {VAR: u->alias}
 usrinfo_show_all_posts:Mostrar todos los mensajes de {VAR: u->alias}
