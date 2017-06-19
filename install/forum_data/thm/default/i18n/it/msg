@@ -153,7 +153,7 @@ sel_unanswered_posts_desc:Abilita il filtro per i messaggi senza risposta (mostr
 sel_unread_messages:Messaggi non letti
 sel_unread_messages_desc:Abilita il filtro per i messaggi non letti (mostra soli i messaggi non letti)
 send:Invia
-send_pm_desc:Invia un messaggi privato a questo utente
+send_pm_desc:Invia un messaggio privato a questo utente
 sender_email:Mittente:
 sender_name:Nome del mittente:
 show_posts_by:Mostra i messaggi di: {VAR: u_alias}
