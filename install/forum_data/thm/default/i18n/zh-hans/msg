@@ -646,7 +646,7 @@ post_err_floodtrig_title:错误：发布灌水帖子
 post_err_floodtrig_msg:请在{PLURAL: tm|$1 second|$1 seconds}内重试
 post_err_attach_size:附件文件太大（超过了允许的最大{VAR: MAX_F_SIZE}字节）
 post_err_attach_ext:你正在上传的文件类型不符合论坛对上传文件类型的设置。
-post_err_attach_filelimit:你正在上传的文件超过了限制的数量。
+post_err_attach_filelimit:您正在上传的文件超过了限制的数量。
 post_err_passwd:密码错误。
 post_reply_update:在{VAR: frm->name}回复<a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a>
 post_topic_update:在<a href="{TEMPLATE: post_topic_update_lnk}">{VAR: frm->name}</a>发表新话题
@@ -655,11 +655,11 @@ postcheck_max_images_err:一次提交图片允许的最大数是{GVAR: MAX_IMAGE
 postcheck_no_links_allowed:发布未满{PLURAL: posts_before_links|$1 message|$1 messages}之前不可使用此链接。
 postcheck_subj_needed:输入主题
 postcheck_no_such_user:本论坛没有 "{FUNC: char_fix(htmlspecialchars($v))}" 用户
-postcheck_ignored:"{FUNC: char_fix(htmlspecialchars($v))}"用户拒绝接受你的悄悄话。
+postcheck_ignored:您不能向“{FUNC: char_fix(htmlspecialchars($v))}”发送私信，因为该用户正在忽略您。
 postcheck_no_recepient:无法发送消息，找不到收信人
-postcheck_invalid_email:请输入你的朋友的正确电子邮箱地址。
+postcheck_invalid_email:请输入您的朋友的正确电子邮箱地址。
 postcheck_email_subject:您不能发送一封不带主题的电子邮件。
-postcheck_email_body:如果没有内容，你将无法发送邮件。
+postcheck_email_body:如果没有内容，您将无法发送邮件。
 private_msg_notify_subj:读取通知：{VAR: m->subject}
 private_msg_notify_body:你好，<br />{VAR: usr->login} 用户已经阅读了你的悄悄话 "{VAR: m->subject}"。<br />本自动提示于{TEMPLATE: private_msg_notify_body_date}生成。<br />
 referals_update:浏览被推荐者
@@ -669,7 +669,7 @@ register_err_loginunique:论坛账号必须是唯一的，这个账号已经有�
 register_err_emailexists:这个电子邮件地址已经存在，请不要重复注册。如果你忘记了密码，请通过“找回密码”程序找回你的密码。
 register_err_shortpasswd:密码必须至少有6个字符。
 register_err_passwdnomatch:您的密码不匹配，请重试。
-register_err_invalidemail:你输入的电子邮件地址不正确。
+register_err_invalidemail:您输入的电子邮件地址不正确。
 register_err_needname:要成功完成此次注册，您必须输入您的名字。
 register_err_enterpasswd:你必须输入密码才能进行修改。
 register_err_adminpasswd:您必须输入<b>管理员</b>密码才能完成更改。
