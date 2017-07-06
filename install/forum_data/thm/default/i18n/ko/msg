@@ -838,7 +838,7 @@ quicklogin_login_btn:로그인
 quick_reply:빠른 답변
 quick_reply_post:빠른 답변 게시
 quick_reply_preview:빠른 답변 미리 보기
-post_notification_desc:이 게시글에 대한 답글 통보.
+post_notification_desc:누군가가 이 메시지에 댓글을 달면 내게 알립니다.
 post_all_ext_allowed:(제한 해제)
 maximize_category:최대 분류
 maximize_message:메시지 최대화
