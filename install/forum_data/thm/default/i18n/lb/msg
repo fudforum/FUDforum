@@ -514,6 +514,7 @@ register_err_alias_notallowed:Dësen Alias ass net erlaabt
 post_err_mod_forum_edit_ttl:FEELER
 dmsg_num:Message #{VAR: obj->id}
 delete_msg_pm_subject:Sujet: {VAR: data[15]}
+register_theme:Thema:
 uc_new_topic:Neit Thema
 search_options:Sichoptiounen
 search_user_filter:Nom Benotzer filteren:
