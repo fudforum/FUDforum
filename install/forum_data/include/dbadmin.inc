@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2014 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -638,7 +638,8 @@ function create_index($tbl, $name, $unique, $flds, $del_dups=true)
 
 	if (__dbtype__ == 'mysql') {
 		// Prevent the famous 'duplicate entry' errors on MySQL.
-		q('ALTER IGNORE TABLE '. $tbl .' ADD '. ($unique ? 'UNIQUE ' : 'INDEX ') . $name .' ('. $flds .')');
+		// ALTER IGNORE ADD INDEX was removed in MySQL 5.7.4
+		q('ALTER TABLE '. $tbl .' ADD '. ($unique ? 'UNIQUE ' : 'INDEX ') . $name .' ('. $flds .')');
 	} else {
 		$unique = $unique ? 'UNIQUE' : '';
 		q('CREATE '. $unique .' INDEX '. $name .' ON '. $tbl .' ('. $flds .')');
