@@ -1,7 +1,7 @@
 #!/usr/bin/php -q
 <?php
 /***************************************************************************
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -69,8 +69,6 @@ function seterr($msg)
 	error_reporting(E_ALL);
 	@ini_set('display_errors', 1);
 	@ini_set('memory_limit', '128M');	// PHP 5.3's default, old defaults too small.
-	@set_magic_quotes_runtime(0);		// Depricated in PHP 5.3.
-
 	if (!defined('STDERR')) {
 		define('STDERR', fopen('php://stderr', 'wb'));
 	}
