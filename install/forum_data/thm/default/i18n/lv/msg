@@ -302,7 +302,7 @@ register_conf_pass:Atkārtot paroli:
 register_email_desc:Tava e-pasta adrese. To paslēpt varēsi zemāk, iestatījumu sadaļā.
 register_name:Vārds:
 register_your_pass:Jūsu parole:
-register_update:Atjaunot
+register_update:Atjaunināt
 register_avatar_type:Personīgās nozīmītes tips:
 register_del_avatar:Dzēst nozīmīti
 register_avatar:Privātā nozīmīte:
@@ -528,7 +528,7 @@ poll_name:Balsojuma nosaukums:
 poll_timelimit:Termiņš:
 poll_maxiumvotes:Maksimālais balsu skaits:
 poll_create:Izveidot
-poll_update:Izmainīt
+poll_update:Atjaunināt
 poll_disablesmilies:Aizliegt smaidiņus
 poll_create_poll:Izveidot balsojumu
 poll_update_poll:Rediģēt balsojumu

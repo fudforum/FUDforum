@@ -1,6 +1,7 @@
 # Messages for Malay (Bahasa Melayu)
 # Exported from translatewiki.net
 # Author: Anakmalaysia
+# Author: Jeluang Terluang
 # Author: Naudefj
 # Author: Pizza1016
 
@@ -420,7 +421,7 @@ post_cancel_btn:Batalkan
 ignore_users:Pengguna yang Diabaikan
 add_ignore:Abaikan Pengguna
 forum_terms:Syarat-syarat Forum
-forum_rules:<p>Pendaftaran di forum ini adalah percuma! Kami mengehendaki supaya anda mematuhi peraturan-peraturan dan dasar-dasar yang diterangkan di bawah. Jika anda bersetuju dengan syarat-syarat ini, sila tekan butang <b>Agree</b> di akhir halaman ini. Perhatian: Dengan menekan butang tersebut, anda mengakui diri anda berumur lebih 13 tahun. Jika anda berumur 13 tahun ke bawah, sila gunakan borang pendaftaran ini.</p><p>Walaupun para pentadbir dan pengawal selia forum ini akan cuba membendung pesanan-pesanan yang menyalahi peraturan di forum ini, namun adalah mustahil bagi kami menyemak semua pesanan. Semua pesanan meluahkan pendapat pengarang masing-masing, dan pemilik mahupun pihak pembangunan forum tidak akan dipertanggungjawabkan atas isi kandungan mana-mana pesanan.</p><p>Dengan menekan butang Setuju, anda bersumpah untuk tidak mengirim sebarang pesanan yang mengandungi kata-kata lucah, kesat, berorientasikan seks, kebencian, mengugut, ataupun melanggar undang-undang sekalipun.</p><p>Para pemilik forum ini berhak untuk memadamkan, menyunting, memindahkan atau menutup mana-mana topik atas sebarang alasan.</p>
+forum_rules:<p>Pendaftaran di forum ini adalah percuma! Kami mengehendaki supaya anda mematuhi peraturan-peraturan dan dasar-dasar yang diterangkan di bawah. Jika anda bersetuju dengan syarat-syarat ini, sila tekan butang <b>Agree</b> di akhir halaman ini.</p><p>Walaupun para pentadbir dan pengawal selia forum ini akan cuba membendung pesanan-pesanan yang menyalahi peraturan di forum ini, namun adalah mustahil bagi kami menyemak semua pesanan. Semua pesanan meluahkan pendapat pengarang masing-masing, dan pemilik mahupun pihak pembangunan forum tidak akan dipertanggungjawabkan atas isi kandungan mana-mana pesanan.</p><p>Dengan menekan butang Setuju, anda bersumpah untuk tidak mengirim sebarang pesanan yang mengandungi kata-kata lucah, kesat, berorientasikan seks, kebencian, mengugut, ataupun melanggar undang-undang sekalipun.</p><p>Para pemilik forum ini berhak untuk memadamkan, menyunting, memindahkan atau menutup mana-mana topik atas sebarang alasan.</p>
 forum_rules_13:<p>Semua pengguna bawah umur 13 tahun mesti meminta kebenaran ibu bapa atau penjaga untuk mendapat keahlian di forum ini. Walaupun kami mengalu-alukan penyertaan ahli bawah umur 13 tahun, namun kami mewajibkan supaya ibu bapa atau penjaga mengirim borang kebenaran melalui faks atau e-mel sebelum kami meluluskan keahlian.</p><p>Jika anda hendak memulakan proses pendaftaran sebelum borang kebenaran dapat disampaikan kepada kami, tekan butang <b>Setuju</b> di bawah. Jika anda hendak membatalkan pendaftaran, tekan <b>Tidak setuju</b> untuk kembali ke indeks forum.</p><p>Salinan borang kebenaran akan disampaikan selepas pendaftaran. Untuk maklumat lanjut mengenai proses pendaftaran, sila kirim e-mel kepada <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
 coppa_conf:Pengesahan COPPA
 coppa_before:Selepas {TEMPLATE: coppa_date}
@@ -727,7 +728,7 @@ post_opt:Opsyen Forum:
 register_change_passwd:tukar kata laluan
 register_change_login:tukar nama log masuk
 approved_avatar_title:Avatar anda diluluskan.
-approved_avatar_msg:Avatar anda diluluskan oleh pentadbir, dan sepatutnya muncul sebagai avatar anda di semua pesanan anda sekarang. Jika anda tidak dapat melihatnya, atau masih melihat avatar lama anda, ini adalah kerana pelayar anda telah menyimpan laman itu dalam cache. Cuba muat semula laman itu sekali dua. Biasanya ini boleh meleraikan masalah ini.
+approved_avatar_msg:Avatar anda diluluskan oleh pentadbir, dan sepatutnya muncul sebagai avatar anda di semua pesanan anda sekarang. Jika anda tidak dapat melihatnya, atau masih melihat avatar lama anda, ini adalah kerana pelayar anda telah menyimpan laman itu dalam ''cache''. Cuba muat semula laman itu sekali dua. Biasanya perbuatan ini boleh meleraikan masalah ini.
 unapproved_avatar_title:Avatar anda ditolak.
 unapproved_avatar_msg:Avatar anda tidak diterima oleh pihak pentadbiran. Ini mungkin disebabkan avatar anda terlalu besar (dari segi saiz dan/atau dimensi), atau mengandungi unsur-unsur yang tidak sesuai diperlihatkan di forum ini. Jika anda ingin mengetahui lebih lanjut tentang sebab avatar anda ditolak, sila hubungi pentadbir.
 mvthread_request_move:memohon pemindahan
@@ -959,7 +960,7 @@ post_mod_msg_notify_msg:Pesanan baru bertajuk "{VAR: msg_post->subject}" baru di
 thread_printable_pdf:Jana fail PDF yang boleh dicetak
 thread_syndicate:Sindiketkan forum ini (XML)
 reg_conf_title:Pengesahan Pendaftaran
-reg_conf_email:<b>Pengesahan E-mel</b><br />Sepucuk e-mel telah dihantar kepada anda, mengandungi URL khas yang anda perlu capai sebelum akaun anda diaktifkan. Jika anda tidak menerima e-mel ini dalam beberapa minit kemudian, sila log masuk ke dalam akaun anda dan pastikan bahawa alamat e-mel yang anda nyatakan itu adalah betul. Sebaik sahaja anda mengesahkan akaun anda, anda akan boleh mencapai ciri-ciri forum yang boleh digunakan oleh pengguna berdaftar yang disahkan sahaja.
+reg_conf_email:<b>Pengesahan E-mel</b><br />Sepucuk e-mel telah dihantar kepada anda. Ia mengandungi URL khas yang anda perlu capai sebelum akaun anda diaktifkan. Jika anda tidak menerima e-mel ini dalam beberapa minit kemudian, sila log masuk ke dalam akaun anda dan pastikan bahawa alamat e-mel yang anda nyatakan itu adalah betul. Sebaik sahaja anda mengesahkan akaun anda, anda akan boleh mencapai ciri-ciri forum yang boleh digunakan oleh pengguna berdaftar yang disahkan sahaja.
 reg_conf_account:<b>Pengesahan Akaun</b><br />Akaun anda perlu diluluskan oleh pentadbir sebelum diaktifkan. Sebaik sahaja akaun diluluskan, anda akan menerima e-mel yang menyatakan bahawa akaun anda telah disahkan. Sementara menunggu kelulusan akaun, anda boleh log masuk ke dalam akaun anda, tetapi anda tidak boleh menggunakan ciri-ciri tertentu.
 forum_banned_user:Disebabkan perbuatan anda sebelum ini, anda telah dilarang daripada memasuki forum ini buat selamanya. Selamat tinggal.
 mnav_description:Pemandu Arah Pesanan

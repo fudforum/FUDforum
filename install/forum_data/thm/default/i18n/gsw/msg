@@ -3,6 +3,7 @@
 # Author: Als-Chlämens
 # Author: Als-Holder
 # Author: Naudefj
+# Author: Terfili
 
 action:Aktion
 add_to_buddy_list:zue dr Fryndlischt zuefiege
@@ -74,6 +75,7 @@ cal_day_heading:Ereignis an däm Tag
 cal_no_events:Kei Ereignis an däm Tag.
 cal_update:Am Dursueche vum Kalender
 cal_birthday:Geburtstag: {VAR: user}
+cal_birthdays:{PLURAL: Geburtsdääg|ei Geburtsdaag|$1 Geburtsdääg}
 cal_birthday_age:({PLURAL: age|$1 Johr|$1 Johr} alt).
 message:Byytrag
 message_counter:Unsri Benutzer hän insgsamt <b>{PLURAL: post_count|$1 Byytrag|$1 Byytreg }</b> in <b>{PLURAL: thread_count|$1 Thema|$1 Themene}</b> aagleit.
@@ -212,6 +214,7 @@ reported_reported_msg:Gmäldeti Byytreg
 modque_pending_approval:Byytreg, wu no gnähmigt mien wäre
 modque_approve:Gnähmige
 modque_delete:Lesche
+modque_deleteall:Alli vo däm Benutzer lösche
 modque_no_message:S het kei Byytreg, wu no mien gnähmigt wäre
 pmsg_new_messages:Uugläseni privati Nochrichte
 pmsg_old_messages:Privati Nochrichte läse
@@ -302,11 +305,15 @@ register_builtin:Yyböue
 register_specify_url:URL aagee
 register_uploaded:Avatar ufelade
 register_login:Benutzername:
+register_login_desc:De Name, wo du dich mit wottsch aamälde un uff derre Syte wottsch drunter bekannt sy.
+register_login_available:Verfiegbar
+register_login_taken:Scho vergee
 register_password:Passwort:
+register_password_desc:S Passwort für dyn Benutzerchonto. Bi Passwörter wird zwüsche Gross- un Chlyschryybig unterschide, un si mien mindeschtens 6 Zeiche lang sy.
 register_conf_pass:Passwort bstetige:
-# Fuzzy
-register_email_desc:Bitte ne giltigi E-Mail-Adräss aagee. Du chasch si derno wyter unter im Menü verstecke.
+register_email_desc:Dyni E-Mail-Adräss. Du chasch derno wyter bi de Yystellige usswääle, dass si versteckt werde söll.
 register_name:Name:
+register_name_desc:Dyn ächter Name.
 register_your_pass:Dyy Passwort:
 register_update:Aktualisiere
 register_avatar_type:Avatar-Typ:
@@ -319,8 +326,7 @@ register_preview:Vorschau
 register_custom_avatar_upload:Benutzeravatar-Datei:
 register_register:Regischtriere
 register_required:Aagabe, wu s brucht
-# Fuzzy
-register_required_desc:S brucht alli Fälder. Bitte gib Acht uf d Groß- un Chleischrybig bim Passwort.
+register_required_desc:S brucht alli Fälder.
 register_optional:Frejwilligi Aagabe
 register_optional_desc:Mir empfähle, kei Informatione im Profil aazgee, wu zuen ere Identifizierig vu dr Person geignet sin.  Sämtligi Informatione chenne vu Bsuecher vum Forum aagluegt wäre.
 register_location:Ort:
@@ -419,7 +425,6 @@ ignore_users:Ignorierti Benutzer
 add_ignore:Benutzer zue dr Ignorierlischt zuefiege
 forum_terms:Forumsregle
 forum_rules:<p>D Regischtrierig fir des Forum choschtet nyt. Mir bstehn aber druf, ass Du Di an die Vereinbarig unte haltesch. Wänn Du mit däne Regle yyverstande bisch, druck bitte uf dr <b>Zuestimme</b>-Chnopf. Obacht: Dur s Klicke vu däre Schaltflechi erklärsch Du, ass Du iber 13 Johr alt bisch. Wänn Du imfall 13 oder drunter bisch, no verwänd bitte des Regischtrierigsformular.</p><p>Au wänn d Administratore un Moderatore vum Forum versueche, des vu aasteßlige Mitteilige frejzhalte, isch s is eiewäg uumeglig, alli ibermittlete Byytreg aazluege. Die gän d Aasichte vu vum jewylige Autor wider, wäge däm cha keine vu dr Forumsmitarbeiter fir sälli Inhalt verantwortlig gmacht wäre.</p><p>Mit Aaklicken vu dr "Zuestimme"-Schaltflechi sicheresch Du is verbindlig zue, ass Dyyni Byytreg keinerlei obzöni, vulgäri, sexistischi, hasserfillti, nötigendi oder sunscht irgedwie gsetzeswidrigi Inhalt hän.</p><p>Di Verantwortlige vu däm Forum hän s Rächt, zue jedwädere Zyt us jedwäderem Grund Diskussionsthemene usezneh, z bearbeite, z verschiebe oder zuezmache.</p>
-# Fuzzy
 forum_rules_13:<p>Alli Benutzer unter 13 Johr mien ihri Eltere oder ihre Vormund um Erlaubnis bitte go d Mitglidschaft im Forum z iberchuu. Au wänn mir fir d Teilnahm vu Benutzer unter 13 sin, verlange mit eiewäg, ass d Eltere oder dr Vormund e unterschribeni Yywilligungserklärig zruckschicke oder faxe, voreb mir d Mitglidschaft chenne gwähre.</p><p>Wänn Du d Regischtrierig mechtsch yyleite, voreb mir die Yywilligungserklärig iberchuu hän, klick uf d <b>Zuestimme</b>-Schaltflechi unte. Wänn Du d Regischtrierig witt abbräche, klick uf <b>Abbräche</b> go zum Forumsverzeichnis zruckchehre.</p><p>E Kopii vu dr Yywilligungserklärig, wu muess unterschryybe wäre, cha do abeglade wäre. Fir wyteri Informatione zue dr Regischtrierig schick bitte ne E-Mail an <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
 coppa_conf:COPPA Bstetigung
 coppa_before:Vor em {TEMPLATE: coppa_date}
@@ -431,8 +436,7 @@ prereg_agree:Zuestimme
 prereg_disagree:Ablähne
 prereg_update:Am Läse vu dr Foreregle
 coppa_fax_instructions:Anleitig fir e Eltereteil oder Vormund
-# Fuzzy
-coppa_fax_instructions2:Bitte drucke des Formular uus, unterschryybe s un schicke s an:
+coppa_fax_instructions2:Bitte druck des Formular uus, unterschryyb es un schick es per Mail oder Fax an:
 coppa_fax_reg_form:Regischtrierigsformular
 coppa_fax_sign:Bitte unterschryybe s Formular un schicke s an is
 coppa_fax_conf:Ich haa d Informatione vu myynem Chind aagluegt un d Handhab vu dr Privatssphäre uf dr Websyte gläse. Mir isch bekannt, ass d Informatione im Profil dur s Benutze vun eme Passwort chenne gänderet wäre. Mir isch bekannt, ass ich um e vollständig Entfärnig vum Benutzerprofil cha bitte.
@@ -467,6 +471,7 @@ rpasswd_passwd_length:S Passwort muess zmindescht 6 Zeiche lang syy
 reset_remind_pass:Passwort-Hiiwys
 reset_reset_conf:Dyy Passwort wird zruckgsetzt un an Di verschickt, oder wänn Du Dyy E-Mail nonig bstetigt hesch, wird die Bstetigungsaafrog nomol an di gschickt.
 reset_error:E-Mail-Adräss nit gfunde in dr Datebank
+reset_update:Passwort zruggsetze
 rpasswd_change_pass:Passwort ändere
 rpasswd_login:Aamälde
 rpasswd_cur_pass:Aktuäll Passwort:
@@ -648,8 +653,7 @@ postcheck_email_body:Du chasch kei E-Mail ohni Inhalt verschicke.
 private_msg_notify_subj:Benochrichtigung läse zue: {VAR: m->subject}
 private_msg_notify_body:Sali,<br />{VAR: usr->login} het Dyy privati Nochricht, "{VAR: m->subject}", am {TEMPLATE: private_msg_notify_body_date} gläse<br />
 referals_update:Am Dursueche vu dr Aawärbige
-# Fuzzy
-register_err_short_login:Dr Benutzername, wu Du gwehlt hesch, isch z churz. Är muess zmindescht 4 Zeiche lang syy.
+register_err_short_login:Dr Benutzername, wu Du gwehlt hesch, isch z churz. Är muess zmindescht 2 Zeiche lang syy.
 register_err_login_notallowed:Dää Benutzername isch nit erlaubt.
 register_err_loginunique:Benutzernäme fir s Forum mien einmolig syy, s git scho ne Benutzer mit däm Name im Syschtem.
 register_err_emailexists:Die E-Mail-Adräss isch scho brucht wore, wänn Di imfall Dyy Passwort vergässe hesch, loss es bitte zrucksetze, statt ass Du di nej regischtriersch.
@@ -678,8 +682,7 @@ reset_err_rstconf_title:Information
 reset_err_rstconf_msg:Du sottsch in dr negschte Minute ne Aaleitig per E-Mail iberchuu.
 reset_newpass_title:Passwort zrucksetze
 reset_newpass_msg:Sali,\n\nWie vu Dir gwinscht, wird der dr Benutzername zueschickt.\nDo sin Dyyni Aamäldeinformatione:\n\nBenutzername: {VAR: ui[1]}\nPasswort: {VAR: passwd}\n\nBitte gib Acht, ass Dyy Passwort uf dr Wärt dobe zruckgsetzt woren isch,\nwänn Du s witt ändere, no chasch des in dr persenlige Yystellige mache:\n{FULL_ROOT}{ROOT}?t=register
-# Fuzzy
-reset_login_notify:S Passwort isch an di gschickt wore. Du sottsch s in dr negschte Minute iberchuun.<br />
+reset_login_notify:S Passwort isch an di gschickt wore. Du sottsch s in dr negschte Minute iberchuun.
 search_update:Suecht no Byytreg
 selmsg_update:Am Dursuech vu dr <a href="{TEMPLATE: selmsg_update_lnk}">hitige Byytreg</a>
 showposts_update:Am Bschaue vu dr Byytreg vu <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
@@ -1109,8 +1112,7 @@ move_msg_th_expl:Gib d ID vum Ziilthemas aa (cha in eme andere Forum syy)
 captcha_img_alt:Captchakontrolle: Du muesch dää Text in däm Bild wider chänne.
 captcha_img_help:S het kei Null oder Eis im Bild.
 powered-by:Mit fryndliger Unterstitzig vu.: FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:Copyright &copy;2001-2012 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Copyright &copy;2001-2013 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Code:
 code_select_all:Alli uuswehle
 code_show_hide:Zeige/verstecke
@@ -1148,3 +1150,4 @@ karma:Karma
 karma_track:Reputation fir dää Benutzer verwalte:
 karma_delete:Lesche
 rate_author:Autor bewärte:
+portal_update:Lies d Foreregle
