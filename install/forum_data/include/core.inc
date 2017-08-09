@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2016 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -9,7 +9,7 @@
 * Free Software Foundation; version 2 of the License.
 **/
 
-$FORUM_VERSION = '3.0.7';
+$FORUM_VERSION = '3.0.8RC1';
 
 ignore_user_abort('1');
 

@@ -136,8 +136,8 @@
 {TEMPLATE-DATA: last_post}
 {IF: $u->last_visit && !($u->users_opt & 32768)}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}">
 	<td class="vt nw GenText">{MSG: usrinfo_last_visit}</td>
-	<td class="GenText DateText">
-		{TEMPLATE: uinfo_last_visit_date}
+	<td class="GenText">
+		<span class="DateText">{TEMPLATE: uinfo_last_visit_date}</span>
 		{IF: $u->last_used_ip && $is_a}<br />
 			<a href="{TEMPLATE: usrinfo_last_ip_lnk}">{VAR: u->last_used_ip}</a>
 		{ENDIFI}

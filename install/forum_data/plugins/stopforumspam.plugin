@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id: stopforumspam.plugin 5473 2012-05-06 16:35:53Z naudefj $
 *
@@ -22,7 +22,7 @@ function plugin_stopforumspam($uent) {
 		return $uent;
 	}
 
-	if ($data->username->appears || $data->email->appears || $data->ip->appears) { 	// Bloack listed!
+	if ($data->username->appears || $data->email->appears || $data->ip->appears) { 	// Black listed!
 		fud_logerror('StopForumSpam blocked registration from '. $uent->email .' / '. $_SERVER['REMOTE_ADDR'], 'fud_errors');
 		echo '<h2>Sorry, you are listed on StopForumSpam.com and are not allowed to register!</h2><p>'.
 		     'Your USERNAME was found '. $data->username->frequency .' times.<br />'.

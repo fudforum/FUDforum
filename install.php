@@ -1,6 +1,6 @@
 <?php
 /***************************************************************************
-* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -1159,7 +1159,7 @@ switch ($section) {
 	prereq_row('MySQL Improved:', 'Improved interface to the MySQL server database (mysqli) - HIGHLY RECOMMENDED!',
 		($module_status['mysqli'] ? 'enabled' : 'disabled'), ($module_status['mysqli'] ? 'green' : 'orange'));
 	if (!$module_status['mysqli']) {
-		// Depricated, don't show it if we habe an alternative.
+		// Depricated, don't show it if we have an alternative.
 		prereq_row('MySQL:', 'Interface to the MySQL server, which is the recommended database for FUDforum.', 
 			($module_status['mysql'] ? 'enabled' : 'disabled'), ($module_status['mysql'] ? 'green' : 'orange'));
 	}
