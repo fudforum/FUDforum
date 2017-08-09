@@ -1,6 +1,6 @@
 <?php
 /***************************************************************************
-* copyright            : (C) 2001-2016 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -584,6 +584,16 @@ function syncronize_theme($theme)
 		seterr('<p>THIS UPGRADE SCRIPT HAS ALREADY BEEN RUN.</p><p>If you wish to run it again, use the File Manager to remove file: '. $GLOBALS['ERROR_PATH'] .'UPGRADE_STATUS.</p><p>Alternatively, delete "upgrade.php" and "fudforum_archive"!');
 	}
 
+	/* Load glob.inc for functions like change_global_settings(). */
+	require($INCLUDE .'glob.inc');
+
+	/* The mysql driver was removed from PHP 7. */
+	if ($GLOBALS['DBHOST_DBTYPE'] == 'mysql' && extension_loaded('mysqli') ) {
+		pf('<span style="color:green;">Switching from depricated MySQL to new MySQLi driver.</span>');
+		change_global_settings(array('DBHOST_DBTYPE' => 'mysqli'));
+		$GLOBALS['DBHOST_DBTYPE'] = 'mysqli';
+	}
+
 	/* Include appropriate database functions. */
 	$dbinc = $GLOBALS['DATA_DIR'] .'sql/'. $GLOBALS['DBHOST_DBTYPE'] .'/db.inc';
 	if (!file_exists($dbinc)) {
@@ -779,9 +789,6 @@ pf('<h2>Step 1: Admin login</h2>', true);
 			}
 		}
 	}
-
-	/* Load glob.inc for functions like change_global_settings(). */
-	require($INCLUDE .'glob.inc');
 
 	/* Disable the forum. */
 	if ($GLOBALS['FUD_OPT_1'] & 1) {
