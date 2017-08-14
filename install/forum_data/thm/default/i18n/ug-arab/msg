@@ -2,33 +2,34 @@
 # Exported from translatewiki.net
 # Author: Sahran
 # Author: Tel'et
+# Author: Uzdil
 
 action:مەشغۇلات
-add_to_buddy_list:دوستلار تىزىملىكىگە قوش
+add_to_buddy_list:دوستلار تىزىملىكىگە قوشۇش
 admin:باشقۇرغۇچى
 admin_control_panel:باشقۇرۇش
 administrator:سىستېما باشقۇرغۇچى
 attachment:قوشۇمچە:
-avatar:چىراي ئىپادە:
+avatar:باش سۈرەت:
 average_post_count:{PLURAL: u->posted_msg_count|$1 ئۇچۇر|$1 ئۇچۇر} ({PLURAL: avg| كۈندىلىك ئوتتۇرىچە ئۇچۇر سانى $1|كۈندىلىك ئوتتۇرىچە ئۇچۇر سانى $1} )
 biography:تەرجىمىھال:
 birth_date:تۇغۇلغان كۈن:
 by:يوللىغۇچى:
 by_mod:رىياسەتچى:
 current_time:نۆۋەتتىكى ۋاقىت
-custom_avatar_queue:ئىختىيارى سىما تىزىملىكى
+custom_avatar_queue:ئىختىيارى باش سۈرەت تىزىملىكى
 date_posted:يوللانغان ۋاقتى
 date_registered:خەتلەتكەن ۋاقىت:
 download_counter:{PLURAL: v[3]|$1 قېتىم|$1 قېتىم} چۈشۈرۈلدى
 pmsg_download_counter:{PLURAL: r->dlcount|$1 قېتىم|$1 قېتىم} چۈشۈرۈلدى
 email::ئېلخەت
-email_to_friend:ددوستۇمغا ئېلخەت
-email_to_friend_desc:بۇ بەتنىڭ URL نى دوستىڭىزنىڭ ئېلخەتىگە ئەۋەتىدۇ
-email_user:ئىشلەتكۈچىگە ئېلخەت ئۇچۇرى يوللا
+email_to_friend:دوستۇمغا ئېلخەت يوللايمەن
+email_to_friend_desc:بۇ بەتنىڭ ئادرىسىنى دوستىڭىزنىڭ ئېلخەت ئادرىسىغا ئەۋەتىدۇ
+email_user:ئەزاغا ئېلخەت ئۇچۇرى يوللاش
 faq:ياردەم
-first_unread_msg:ئوقۇمىغان ئۇچۇرغا يۆتكەل
-first_unread_msg_desc:بۇ تېمادىكى ئوقۇمىغان بىرىنچى ئۇچۇرغا يۆتكەل
-flat_view:كۆڭۈلدىكى تەكشى كۆرۈنۈشكە قايت
+first_unread_msg:ئوقۇمىغان ئۇچۇرغا يۆتكىلىش
+first_unread_msg_desc:بۇ تېمىدىكى ئوقۇمىغان بىرىنچى ئۇچۇرغا يۆتكىلىش
+flat_view:كۆڭۈلدىكى تەكشى كۆرۈنۈشكە قايتىش
 forum:مۇنبەر:
 forum_icon:مۇنبەر سىنبەلگەسى
 forum_new_messages:يېڭى ئۇچۇرلار
@@ -36,9 +37,9 @@ forum_none_messages:مۇنبەرگە خەتلەتكەن ئەزالارلا ئۇ�
 forum_old_messages:يېڭى ئۇچۇر يوق
 from:مەنبە:
 gender:جىنسى:
-go:يۆتكەل
-goto_next_msg:كېيىنكى ئۇچۇرغا يۆتكەل
-goto_prev_msg:ئالدىنقى ئۇچۇرغا يۆتكەل
+go:يوللاش
+goto_next_msg:كېيىنكى قەۋەت
+goto_prev_msg:يۇقارقى قەۋەت
 home:باش بەت
 homepage:باش بەت:
 icq_control_panel:ICQ توردا ئۇچۇرى
@@ -51,24 +52,24 @@ image:سۈرەت:
 index_forum:مۇنبەر
 index_new_posts:ئاخىرقى زىيارەتتىن كېيىنكى يېڭى ئۇچۇرلار
 index_no_new_posts:ئاخىرقى زىيارەتتىن كېيىن يېڭى ئۇچۇرلار يوق
-index_url_redirection:قايتا نىشانلا
+index_url_redirection:قايتا نىشانلاش
 interests:قىزىقىش:
 last_post:ئاخىرقى ئۇچۇر
-last_thread_msg:بۇ تېمىدىكى ئاخىرقى ئۇچۇرغا يۆتكەل
+last_thread_msg:بۇ تېمىدىكى ئاخىرقى ئۇچۇرغا يۆتكىلىش.
 legend:بەلگە
-location:يەر:
-lock_thread:تېما قۇلۇپلا
+location:ئورنى:
+lock_thread:تېما قۇلۇپلاش
 locked:قۇلۇپلانغان
 locked_with_new_posts:(قۇلۇپلانغان ئوقۇلمىغان ئۇچۇرلار)
 logged_in_list:تىزىمغا كىرگەن ئەزالار تىزىملىكى
-login:تىزىمغا كىر
+login:كىرىش
 login_header:تەخەللۇس:
-logout:تىزىمدىن چىق
+logout:چېكىنىش
 mark_all_read:ھەممە ئۇچۇرغا ئوقۇلدى بەلگىسى سال
 mark_all_read_desc:سىز ئوقۇمىغان ھەممە ئۇچۇرغا ئوقۇلدى بەلگىسى قويۇلىدۇ
 members:ئەزالار
 calendar:يىلنامە
-cal_goto_date:ئاتلا:
+cal_goto_date:ئاتلاش:
 cal_day_heading:كۈندىلىك پائالىيەت
 cal_no_events:.كۈندىلىك پائالىيەت يوق
 cal_update:مۇنبەر يىلنامىسىغا كۆز يۈگۈرتۈۋاتىدۇ
@@ -78,17 +79,17 @@ cal_birthday_age:({PLURAL: age|$1 ياش|$1 ياش} ).
 message:ئۇچۇر
 message_counter:ئىشلەتكۈچى <b>{PLURAL: thread_count|$1 تېما|$1 تېما}</b> دا جەمئى <b>{PLURAL: post_count|$1 ئۇچۇر|$1 ئۇچۇر}</b> يوللىدى.
 message_index:ئۇچۇر ئىندېكسى
-message_index_desc:ئۇچۇر تىزىملىكىنى كۆرسەت
-minimize_category:كاتېگورىيە كىچىكلەت
-minimize_message:ئۇچۇرنى كىچىكلەت
+message_index_desc:ئۇچۇر تىزىملىكىنى كۆرسىتىش
+minimize_category:كاتېگورىيە قەۋىتىنى ئازلىتىش
+minimize_message:ئۇچۇرنى كىچىكلىتىش
 moderation_queue:رىياسەتچىلەر تىزىملىكى
 moderator:رىياسەتچى
 moderator_of:رىياسەتچىسى:
-moderator_options:رىياسەتچى تاللانما
+moderator_options:رىياسەتچى ئىقتىدارى
 moderators:{PLURAL: modcount|رىياسەتچى|رىياسەتچى}
 more_unread_messages:تېخىمۇ كۆپ ئوقۇمىغان ئۇچۇرلار
 more_unread_messages_desc:ئوقۇلمىغان تېخىمۇ كۆپ ئۇچۇرنى كۆرسىتىپ، نۆۋەتتىكى ئۇچۇرلارغا ئوقۇلدى بەلگىسى قوي
-move_thread:يۆتكە
+move_thread:يۆتكىلىش
 moved:باشقا مۇنبەرگە يۆتكەلدى
 moved_thread_message:بۇ تېما باشقا مۇنبەرگە يۆتكىلىدۇ
 na:ھازىرچە يوق
@@ -106,7 +107,7 @@ no_subscribed_forums:مۇشتەرى بولغان مۇنبەر يوق
 no_subscribed_threads:مۇشتەرى بولغان تېما يوق
 no_bookmarked_threads:خەتكۈچكە قوشقان تېما يوق
 no_unread_locked:بۇ تېما قۇلۇپلانغان
-no_unread_msg:بۇ تېمادا ئوقۇلمىغان ئۇچۇر يوق
+no_unread_msg:بۇ تېمىدا ئوقۇلمىغان ئۇچۇر يوق
 no_unread_msg_unreg:خەتلەتكەن ئىشلەتكۈچىلەرلا ئۇچۇرغا ئوقۇلدى ئوقۇلمىدى دەپ بەلگە قويالايدۇ
 num_pages:بەت({VAR: ttl_pg}):
 num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|بىلەت|بىلەت}
@@ -127,33 +128,33 @@ profile_desc:ئىشلەتكۈچى تىزگىن تاختا زىيارەت
 rate_thread:تېمىغا باھا
 rating:باھا
 rating_track:تېما باشقۇرۇش باھاسى <b>{VAR: thr->subject}</b>:
-refresh_list:تىزىملىك يېڭىلا
-register:خەتلەت
-registered:خەتلەتكەن ۋاقتى:
-registered_on:خەتلەتكەن ۋاقتى {TEMPLATE: registered_on_date}
+refresh_list:تىزىملىك يېڭىلاش
+register:تىزىملىتىش
+registered:تىزىملاتقان ۋاقتى:
+registered_on:تىزىملاتقان ۋاقتى {TEMPLATE: registered_on_date}
 replies:جاۋاب
-report_to_mod:رىياسەتچىگە ئۇچۇر مەلۇم قىل
+report_to_mod:رىياسەتچىگە ئۇچۇر مەلۇم قىلىش
 reported_messages:مەلۇم قىلىنغان ئۇچۇر
 reveal_all_posts:{VAR: user_login}نىڭ ھەممە ئۇچۇرىنى كۆرسەت
 reveal_post:كۆرسەتكەن ئۇچۇر
-search:ئىزدە
+search:ئىزدەش
 sel_todays_posts:بۈگۈنكى ئۇچۇرلار
 sel_todays_posts_desc:بۈگۈنكى ئۇچۇرلارنىلا كۆرسەت
 sel_unanswered_posts:جاۋابسىز ئۇچۇرلار
 sel_unanswered_posts_desc:جاۋابسىز تېمىلارنىلا كۆرسەت
 sel_unread_messages:ئوقۇلمىغان ئۇچۇرلار
 sel_unread_messages_desc:ئوقۇلمىغان ئۇچۇرلارنىلا كۆرسەت
-send:يوللا
+send:يوللاش
 send_pm_desc:بۇ ئىشلەتكۈچىگە شەخسىي ئۇچۇر يوللا
 sender_email:يوللىغۇچى ئېلخەت:
-sender_name:يوللىغۇچى ئاتى:
+sender_name:يوللىغۇچى نامى:
 show_posts_by:{VAR: u_alias} ئىشلەتكۈچىنىڭ ئۇچۇرلىرىنى كۆرسەت
 size:چوڭلۇقى:
 status:دەرىجە:
 status_line:بۇ مۇنبەرنى <b>{PLURAL: st_obj->online_users_reg|$1 ئەزا|$1 ئەزا}</b>،<b>{PLURAL: st_obj->online_users_hidden|$1 يوشۇرۇن ئەزا|$1 يوشۇرۇن ئەزا}</b> and <b>{PLURAL: st_obj->online_users_anon|$1 مېھمان|$1 مېھمان}</b> زىيارەت قىلىۋاتىدۇ.
 sticky:چوققا:
 stop_ignoring:بۇ ئىشلەتكۈچىگە پەرۋا قىلماسلىقنى توختات
-sub_to_thread:بۇ تېمىغا مۇشتەرى بول
+sub_to_thread:بۇ تېمىغا مۇشتەرى بولۇش
 sub_to_thread_desc:بۇ تېمىنىڭ ئەڭ يېڭى جاۋاب ئۇچۇر ئۇقتۇرۇشىنى قوبۇل قىل
 bookmark_thread:تېمىنى خەتكۈچكە قوش
 bookmark_thread_desc:بۇ تېمىنى خەتكۈچ تىزىملىكىڭىزگە قوشىدۇ
@@ -168,16 +169,16 @@ bookmarked_threads:خەتكۈچكە قوشقان تېمالار
 switch_to_thread_view:بۇ تېمىنىڭ شاخسىمان كۆرۈنۈشىگە ئالماشتۇر
 thread:تېما:
 thread_announcement:ئېلان:
-thread_first_unread_msg:بۇ تېمادىكى ئوقۇمىغان بىرىنچى ئۇچۇرغا يۆتكەل
+thread_first_unread_msg:تىمىدىكى ئوقۇمىغان تۇنجى ئۇچۇرغا يۆتكىلىش
 thread_thread:تېما
-threads:تېمالار
-time:سائەت
+threads:تېمىلار
+time:ۋاقىت
 todays_posts:بۈگۈنكى ئۇچۇرلار
 todays_posts_desc:بۈگۈن يوللانغان ھەممە ئۇچۇرنى كۆرسەت
 un_ignore_user:بۇ ئىشلەتكۈچىنىڭ ئۇچۇرىغا پەرۋا قىلماسلىقنى توختات
 unanswered_posts:جاۋابسىز ئۇچۇرلار
 unanswered_posts_desc:جاۋابسىز ئۇچۇرلارنىڭ ھەممىسىنى كۆرسەت
-unlock_thread:تېما قۇلۇپىنى ئاچ
+unlock_thread:تېما قۇلۇپىنى ئېچىش
 unread_msg:بۇ تېمىدا سىز ئوقۇمىغان ئۇچۇر بار
 unread_msg_locked:ئوقۇلمىغان قۇلۇپلانغان تېما
 unread_posts:ئوقۇلمىغان ئۇچۇرلار
@@ -211,7 +212,7 @@ reported_reported_by::دوكلات يوللىغۇچى
 reported_reported_msg:مەلۇم قىلىنغان ئۇچۇر
 modque_pending_approval:تەستىق كۈتۈۋاتقان ئۇچۇرلار
 modque_approve:تەستىق
-modque_delete:ئۆچۈر
+modque_delete:ئۆچۈرۈش
 modque_deleteall:ئىشلەتكۈچىنىڭ ھەممە ئۇچۇرلىرىنى ئۆچۈر
 modque_no_message:تەستىقلىنىدىغان ئۇچۇر يوق
 pmsg_new_messages:ئوقۇلمىغان شەخسىي ئۇچۇر
@@ -303,11 +304,15 @@ register_builtin:باش سۈرەت:
 register_specify_url:بەلگىلەنگەن URL
 register_uploaded:سىما يۈكلە
 register_login:تىزىمغا كىر:
+register_login_desc:تىزىملىتىپ كىرگەندە ئىشلىتىدىغان، تور بېكەتتە كۆرۈنىدىغان نام.
+register_login_available:ئىشلىتىچان
+register_login_taken:ئىشلىتىلگەن
 register_password:پارول:
+register_password_desc:ئاككونتىڭىزغا ئىشلىتىدىغان پارول. پارولدىكى ھەرپنىڭ چوڭ-كىچىك يېزىلىشى پەرقلىنىدۇ، شۇنداقلا ئۇزۇنلۇقى 6 ھەرپتىن ئاز بولمىسۇن.
 register_conf_pass::پارولنى مۇقىملاشتۇرۇڭ
-# Fuzzy
-register_email_desc:ئىناۋەتلىك ئېلخەت ئادرېسىنى كىرگۈزۈڭ. تۆۋەندىكى مايىللىق بۆلىكىدە مۇنبەردە ئېلخەت ئادرېسىڭىزنى كۆرسەتمەسلىكنى تاللىسىڭىز بولىدۇ.
-register_name:ئاتى:
+register_email_desc:ئېلخەت ئادرىسىڭىز. تۆۋەندىكى سانلىق ئۇچۇر بەلگىلىەش تۈرىدە يوشۇرۇشنى تاللىسىڭىز بولىدۇ.
+register_name:نامى:
+register_name_desc:ھەقىقىي ئىسىم-فامىلىڭىز.
 register_your_pass:پارولىڭىز:
 register_update:يېڭىلا
 register_avatar_type:سىما تىپى:
@@ -320,8 +325,7 @@ register_preview:ئالدىن كۆزەت
 register_custom_avatar_upload:ئىختىيارى سىما ھۆججەت:
 register_register:خەتلەت
 register_required:زۆرۈر ئۇچۇرلار
-# Fuzzy
-register_required_desc:ھەممە سۆز بۆلەكلىرىنى تولدۇرۇش لازىم. دىققەت ئىم چوڭ كىچىك يېزىلىشنى پەرقلەندۈرىدۇ.
+register_required_desc:ھەممە سۆز بۆلەكلىرىنى چوقۇم تولدۇرۇڭ.
 register_optional:تاللاشچان ئۇچۇر
 register_optional_desc:ئۇچۇرىڭىزنى باشقا مۇنبەر ئەزالىرى كۆرەلىگەنلىكتىن، ئۇچۇرلىرىڭىزنى تولدۇرغاندا شەخسىي ئۇچۇرلىرىڭىزنى ئاشكارىلاماڭ.
 register_location:ئورنى:
@@ -355,7 +359,7 @@ register_timezone:ۋاقىت رايونى:
 register_ignore_admin:باشقۇرۇش ئۇچۇرلىرىغا پەرۋا قىلما:
 register_invisible_mode:يوشۇرۇن ھالەت:
 register_invisible_mode_desc:توردىكى ھالىتىڭىزنى يوشۇرىدۇ.
-register_show_email:تورخەت ئادرېسىنى كۆرسەت:
+register_show_email:ئېلخەت ئادرېسىنى كۆرسىتىش:
 register_show_email_desc:ئەگەر تورخەت ئادرېسىڭىزنى ئاشكارىلىماقچى بولسىڭىز بۇ تاللانمىنى تاللاڭ.
 register_notification:كۆڭۈلدىكى ئەھۋالدا ئۇقتۇرۇش ئىقتىدارىنى ئاچامدۇق يوق:
 register_notification_desc:كۆڭۈلدىكى ئەھۋالدا ئۇقتۇرۇش ئىقتىدارى قوزغىتىلغان بولسا، يازما يوللىغاندا ئەسكەرتىشنى تاللىيالايدۇ.
@@ -382,12 +386,12 @@ edit_message:ئۇچۇر ئۆزگىرىشىنى قوللان
 apply_spell_changes:ئىملا تەكشۈرۈشتىكى ئۆزگىرىشنى قوللان
 post_preview:ئۇچۇرنى ئالدىن كۆزەت
 post_logedin_user:تىزىمغا كىرگەن ئىشلەتكۈچى:
-post_logout:تىزىمدىن چىق
+post_logout:چېكىنىش
 post_passwd:ئىم كىرگۈزۈش:
 post_poll:راي سىناش:
 post_create_poll:راي سىناش قۇر
 post_poll_delete:ئۆچۈر
-post_poll_edit:تەھرىر
+post_poll_edit:تەھرىرلەش
 post_mod_opt:رىياسەتچى تاللانمىلىرى:
 post_thread_type:باش تېما تىپى:
 post_thread_expiry:باش تېما مۆھلىتى:
@@ -396,7 +400,7 @@ post_icons:ئۇچۇر سىنبەلگىسى:
 post_no_icon:سىنبەلگە يوق
 post_smiley:چىراي ئىپادە قىسقا يوللىرى:
 post_format_tools:پىچىم قوراللىرى:
-post_upload_file:ھۆججەت يۈكلە
+post_upload_file:ھۆججەت يۈكلەش
 post_file_del:ئۆچۈر
 post_file_name:ئاتى
 post_file_size:چوڭلۇقى
@@ -415,7 +419,7 @@ post_title:ماۋزۇ:
 post_body:مەزمۇن:
 post_options:تاللانمىلار:
 post_preview_btn:ئۇچۇرنى ئالدىن كۆزەت
-post_cancel_btn:ۋاز كەچ
+post_cancel_btn:قايتىش
 ignore_users:پەرۋا قىلمىغان ئىشلەتكۈچىلەر
 add_ignore:پەرۋا قىلمىغان ئىشلەتكۈچى قوش
 forum_terms:مۇنبەر كېلىشىمى
@@ -445,7 +449,7 @@ coppa_fax_date:چېسلا:
 coppa_fax_questions:ھەر قانداق مەسىلە بولسا <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> ئالاقە قىلىڭ
 coppa_fax_login:تىزىمغا كىرىڭ
 coppa_fax_passwd:ئىم
-coppa_fax_remail:تورخەت
+coppa_fax_remail:ئېلخەت
 coppa_fax_name:ئاتى
 login_not_logedin:تىزىمغا كىرمىدىڭىز. بۇنىڭ بىر قانچە سەۋەبى بولۇسى مۇمكىن:
 login_cookie_expired:سىزنىڭ cookie نىڭ ۋاقتى ئۆتكەن، قايتا تىزىمغا كىرىپ cookie نى زاكاز قىلىشنى داۋاملاشتۇرۇشىڭىز زۆرۈر.
@@ -498,13 +502,13 @@ search_forum_search:مۇنبەردىن ئىزدەش
 move_thread_to:تېمىنى <b>{VAR: thr->subject}</b> غا يۆتكە:
 remail_email_topic:بۇ تېمىنى تورخەت ئارقىلىق دوستىغا تەۋسىيە قىل
 remail_your_name:ئاتىڭىز:
-remail_your_email:تورخەت ئادرېسىڭىز:
+remail_your_email:ئېلخەت ئادرېسىڭىز:
 remail_friends_name:دوستىڭىزنىڭ ئىسمى:
 remail_friends_email:دوستىڭىزنىڭ تورخەت ئادرېسى:
 remail_required:زۆرۈر
 remail_subject:تېما:
 remail_message:ئۇچۇر:
-remail_send_now:ھازىرلا تورخەت يوللا
+remail_send_now:ھازىرلا ئېلخەت يوللايمەن
 remail_anon_opt:بۇ مەزمۇنلارنى سىز تاللىغان تورخەت ئادرېسىغا كۆچۈرۈپ، دوستىڭىزغا ئەۋەتىڭ.
 remail_done:تامام
 remail_sent_conf:ماۋزۇسى {VAR: data->subject} بولغان تورخەت {VAR-HTML: _POST['femail']} ئادرېستىكى دوستىڭىزغا مۇۋەپپەقىيەتلىك يوللاندى.
@@ -525,10 +529,10 @@ mklist_disc:دائىرە
 mklist_circle:چەمبەر
 mklist_close:ياپ
 email_to:قوبۇللىغۇچى:
-email_pg_title:تورخەت
+email_pg_title:ئېلخەت
 email_subject:تېما:
 email_body:مەزمۇن:
-email_submit:تورخەت
+email_submit:ئېلخەت
 ppost_quote_msg:{VAR: msg_to_list} ئىشلەتكۈچى، {TEMPLATE: ppost_quote_msg_date} يازغىنى:
 ppost_quote:نەقىل:
 ppost_to:قوبۇللىغۇچى:
@@ -648,8 +652,7 @@ postcheck_email_body:ئۇچۇر مەزمۇنىنى كىرگۈزمىسىڭىز ت
 private_msg_notify_subj:{VAR: m->subject} ئۈچۈن ئۇقتۇرۇش ئوقۇش
 private_msg_notify_body:سالام، <br />{VAR: usr->login} ئىشلەتكۈچى سىز ئەۋەتكەن "{VAR: m->subject}" شەخسىي ئۇچۇرنى ئوقۇدى. بۇ ئاپتوماتىك ئۇقتۇرۇش {TEMPLATE: private_msg_notify_body_date} ئەسكەرتىلگەن.<br />
 referals_update:تونۇشلارغا كۆز يۈگۈرتۈۋاتىدۇ
-# Fuzzy
-register_err_short_login:سىز كىرگۈزگەن ھېسابات ئىسمى بەك قىسقا. ھېسابات ئىسمى ئاز دېگەندە 4 ھەرپ بولۇشى لازىم.
+register_err_short_login:سىز كىرگۈزگەن ھېسابات ئىسمى بەك قىسقا. ھېسابات ئىسمى ئاز دېگەندە 2 ھەرپ بولۇشى لازىم.
 register_err_login_notallowed:بۇ ھېسابات ئىسمىنى تىزىملىتالمايسىز.
 register_err_loginunique:مۇنبەردە ھېسابات ئىسمى چوقۇم بىردىنبىر بولىدۇ. بۇ ئىسىمنى باشقا ئىشلەتكۈچىلەر تىزىملىتىپ بولغان.
 register_err_emailexists:بۇ تورخەت ئادرېسى مەۋجۇت، تەكرار خەتلەتمەڭ. ئەگەر ئىمنى ئۇنتۇپ قالغان بولسىڭىز، ئىمنى ئەسلىگە كەلتۈرۈش ئارقىلىق ئىمنى قايتۇرۇۋېلىڭ.
@@ -700,7 +703,7 @@ ERR_user_ttl:خاتالىق: بۇنداق ئىشلەتكۈچى يوق
 ERR_user_msg:بۇنداق ئىشلەتكۈچى يوق
 ERR_systemerr_ttl:خاتالىق: سىستېما خاتالىقى
 ERR_systemerr_msg:سىستېما خاتالىقى يۈز بەردى. خاتالىقنى <a href="mailto:{GVAR: ADMIN_EMAIL}">باشقۇرغۇچى</a> غا دوكلات قىلىڭ.
-email_title:تورخەت جەدۋىلى
+email_title:ئېلخەت فورماتى
 finduser_title:ئىشلەتكۈچى ئىزدە
 help_title:ياردەم
 login_title:مۇنبەرگە تىزىمغا كىرىش
@@ -711,7 +714,7 @@ rpasswd_title:ئىمنى ئۆزگەرتىش جەدۋىلى
 error_title:پىچىم خاتا
 index_title:مۇنبەرگە مەرھابا
 search_title:{VAR-HTML: srch} ئىزدە
-remail_emailsent:تورخەت يوللاندى
+remail_emailsent:ئېلخەت يوللاندى
 remail_email:ئەسسالامۇ ئەلەيكۇم،\n\nسىز بەلكىم {GVAR: FORUM_TITLE} مۇنبەردىكى {VAR: data->subject} تېمىغا قىزىقىشىڭىز مۇمكىن. تېمىغا كىرىش ئۈچۈن تۆۋەندىكى ئۇلانمىنى چېكىڭ:\n{FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nدوستىڭىز، \n\n{VAR: usr->alias}
 poll_add_option:تاللانما قوش:
 post_opt_html_on:<b>HTML</b> : <b>ئوچۇق</b>
@@ -751,16 +754,16 @@ groupmgr_yes:ھەئە
 groupmgr_no:ياق
 groupmgr_action:مەشغۇلات
 groupmgr_member:ئەزا
-groupmgr_cancel:ۋاز كەچ
+groupmgr_cancel:قايتىش
 groupmgr_add_member:ئەزا قوش
 groupmgr_update_member:ئەزا يېڭىلا
-groupmgr_edit:تەھرىر
+groupmgr_edit:تەھرىرلەش
 groupmgr_delete:ئۆچۈر
 group_mgr_anon:ئاتسىز
 group_mgr_reged:خەتلەتكەن ھەممە ئىشلەتكۈچى
 show_show:كۆرسەت:
 group_mgr:گۇرۇپپا باشقۇرغۇچى
-group_mgr_edit_btn:گۇرۇپپا تەھرىر
+group_mgr_edit_btn:گۇرۇپپا تەھرىرلەش
 group_mgr_heading:گۇرۇپپا تەھرىرلىگۈچى تاللاش
 group_mgr_group:گۇرۇپپا:
 permission_denied_title:ھوقۇق رەت قىلىندى!
@@ -768,7 +771,7 @@ permission_denied_msg:سىزنىڭ بۇ مەشغۇلاتنى ئىجرا قىلى
 p_READ:ئوقۇ
 p_POST:يوللا
 p_REPLY:جاۋاب
-p_EDIT:تەھرىر
+p_EDIT:تەھرىرلەش
 p_DEL:ئۆچۈر
 p_STICKY:چوققا ئۇچۇر
 p_POLL:بىلەت تاشلاش قۇر
@@ -819,7 +822,7 @@ register_show_avatar:سىمانى كۆرسەت:
 register_show_avatar_desc:سىز باشقىلارنڭ ئۇچۇرىنى كۆرۈۋاتقاندا، باشقىلارنىڭ سىماسىنى يوشۇرۇشىڭىزغا يول قويىدۇ.
 drawmsg_view_rest_post:قالغان ئۇچۇرلارنى كۆرسەت
 post_re:جاۋاب:
-forumsel_goto_forum:مۇنبەرگە يۆتكەل:
+forumsel_goto_forum:مۇنبەرگە يۆتكىلىش:
 minimsg_thread_view:تېمىغا كۆزيۈگۈرتۇش
 split_th_post_by:سۆز قالدۇرغۇچى:
 split_th_posted_on:يوللىغان ۋاقىت:
@@ -849,7 +852,7 @@ report_already_reported_msg:بۇ ئۇچۇر دوكلات قىلىنغان، مۇ
 register_err_toomanyimages:شەخسىي ئىمزايىڭىزدا {GVAR: FORUM_IMG_CNT_SIG} سۈرەت ئىشلىتىش چەكلەنگەن.
 pmsg_next_msg:كېيىنكى ئۇچۇر
 pmsg_prev_msg:ئالدىنقى ئۇچۇر
-post_proc_reveal_spoiler:مەزمۇننى كۆرسەت/يوشۇر
+post_proc_reveal_spoiler:مەزمۇننى كۆرسىتىش/يوشۇرۇش
 register_jabber:Jabber:
 register_skype:Skype:
 register_twitter:Twitter:
@@ -871,7 +874,7 @@ help_back_to_top:چوققىغا قايت
 help_return_to_index:ياردەم ئىندېكىسىغا قايت
 imsg_err_message_title:ئىناۋەتسىز ئۇچۇر
 imsg_err_message_msg:سىز كۆرۈشنى سىنىغان ئۇچۇر مەۋجۇت ئەمەس.
-poll_edit:تەھرىر
+poll_edit:تەھرىرلەش
 register_err_not_valid_img:بەلگىلەنگەن ئادرېستا ئىناۋەتلىك سۈرەت يوق.
 pmsg_recepient:تاپشۇرۇۋالغۇچى
 register_err_taken_alias:سىز ئىشلىتىشنى سىنىغان تەخەللۇسنى مۇنبەردىكى باشقا بىر ئەزا ئىشلىتىپ بولغان. باشقا بىرىنى تاللاڭ.
@@ -955,10 +958,10 @@ register_admin_newuser_title:يېڭى ئىشلەتكۈچىدىن بىرسى خە
 register_admin_newuser_msg:يېڭى ئىشلەتكۈچى ({VAR: uent->login}) بايىلا خەتلەتتى، باشقۇرغۇچىنىڭ تەستىقلاپ جەزملىشىنى كۈتۈۋاتىدۇ. يېڭى ئىشلەتكۈچىنى جەزملەشتە، تۆۋەندىكى ئۇلانمىنى زىيارەت قىلىڭ: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nبۇ سىستېما ئۆزلۈكىدىن ئەۋەتكەن تورخەت، بۇ تورخەتكە جاۋاب قايتۇرمىسىڭىزمۇ بولىدۇ. ئەگەر بۇ خىل ئەسكەرتىشنى بىكار قىلماقچى بولسىڭىز، باشقۇرۇش تىزگىن تاختىدىكى «يېڭى ھېسابات ئەسكەرتىشى» دىكى تەڭشەكنى ئۆزگەرتىڭ.
 post_mod_msg_notify_title:بۇ «{VAR: frm->name}» سەھىپىدىكى يېڭى يازما تەستىقلىشىڭىزنى كۈتۈۋاتىدۇ
 post_mod_msg_notify_msg:«{VAR: msg_post->subject}» ماۋزۇلۇق يېڭى يازما يوللاندى، تەستىق كۈتۈۋاتىدۇ. بۇ يازمىنى تەستىقلاش ئۈچۈن يۆتكىلىدىغا ئۇلانما: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nبۇ ئۆزلۈكىدىن يوللانغان تورخەت، جاۋاب قايتۇرماڭ.
-thread_printable_pdf:باسقىلى بولىدىغان PDF پىچىمىنى قۇر
+thread_printable_pdf:باسما نۇسخىدىكى PDF فورماتى
 thread_syndicate:بۇ سەھىپىنى قەدەمداشلا (XML)
 reg_conf_title:خەتلىتىشنى جەزملەش
-reg_conf_email:<b>تورخەت جەزملەش</b><br /> ئالاھىدە URL تور ئادرېسى قوشۇلغان بىر پارچە تورخەت خەت ساندۇقىڭىزغا يوللاندى. سىز بۇ تور ئادرېسىنى زىيارەت قىلىپ مۇنبەرنىڭ تورخەت دەلىللەش باسقۇچىدىن ئۆتىسىز. ئەگەر بىر قانچە مىنۇتتىن كېيىن بۇ خىل تورخەتنى تاپشۇرۇۋالمىغان بولسىڭىز، مۇنبەرگە كىرىپ، تورخەت ئادرېسىنى توغرا يازغان يازمىغانلىقىڭىزنى تەڭشۈرۈڭ.دەلىللەشتىن ئۆتمەي تۇرۇپ مۇنبەرنىڭ بەزى ئىقتىدارلىرىنى ئىشلىتەلمەيسىز.
+reg_conf_email:<b>ئېلخەت جەزىملەش</b><br /> ئالاھىدە URL تور ئادرېسى قوشۇلغان بىر پارچە خەت ئېلخەت ساندۇقىڭىزغا يوللاندى. بۇ تور ئادرېسىنى زىيارەت قىلىپ مۇنبەرنىڭ ئېلخەت دەلىللەش باسقۇچىدىن ئۆتىسىز. ئەگەر بىر قانچە مىنۇتتىن كېيىن بۇ خىل ئېلخەتنى تاپشۇرۇۋالمىغان بولسىڭىز، مۇنبەرگە كىرىپ، ئېلخەت ئادرېسىنى توغرا يازغان يازمىغانلىقىڭىزنى تەڭشۈرۈڭ.دەلىللەشتىن ئۆتمەي تۇرۇپ مۇنبەرنىڭ بەزى ئىقتىدارلىرىنى ئىشلىتەلمەيسىز.
 reg_conf_account:<b>ھېسابات جەزملەش</b><br /> ھېسابات ئاكتىپلىنىپ ئىشلىتىلىشتىن ئىلگىرى، چوقۇم باشقۇرغۇچىنىڭ تەكشۈرۈپ تەستىقلىشىدىن ئۆتۈشى كېرەك. ھېساباتنى باشقۇرغۇچى تەستىقلىغاندىن كېيىن سىز خەتلەتكەندە تولدۇرغان خەت ساندۇققا خەتلىتىشنىڭ مۇۋەپپەقىيەتلىك بولغانلىقىنى ئەسكەرتىدىغان بىر تورخەت يوللىنىدۇ، تەستىقلىنىشتىن ئىلگىرى، سىز مۇنبەرنىڭ بەزى ئىقتىدارلىرىنى ئىشلىتەلمەيسىز.
 forum_banned_user:بۇ ھېساباتنىڭ ئىلگىرىكى قىلمىش-ئەتمىشلىرى مۇنبەر قائىدىسىگە ئېغىر دەرىجىدە خىلاپ بولغانلىقى ئۈچۈن، ھېساباتنى مۇنبەر باشقۇرغۇچى چەكلىۋەتكەن. خەيرخوش.
 mnav_description:ئۇچۇر يولباشچى
@@ -986,7 +989,7 @@ register_pm_notification_desc:ئەگەر قوزغىتىلسا، سىزگە شە�
 findu_admin_opts_header:باشقۇرغۇچى تاللانمىلىرى
 findu_unban:چەكلەشنى بىكار قىل
 findu_ban:چەكلە
-findu_edit:تەھرىر
+findu_edit:تەھرىرلەش
 findu_delete:ئۆچۈر
 dmsg_reply_to:جاۋاب
 dmsg_reply_num:ئۇچۇر #{VAR: obj->reply_to}
@@ -1007,7 +1010,7 @@ adm_account_rejected:ھېساباتىڭىز «{VAR: login}» باشقۇرغۇچ�
 adm_account_rejected_s:سىز «{GVAR: FORUM_TITLE}» مۇنبەرگە خەتلەتكەن ھېساباتىڭىز رەت قىلىندى.
 thread_on:ئوچۇق
 userinfo_buddy:دوست:
-register_email_addr:تورخەت ئادرېس:
+register_email_addr:ئېلخەت ئادرېس:
 reset_suffix:ئەگەر ئىمنى قايتا تەڭشەش ئىقتىدارىنى تەلەپ قىلمىغان بولسىڭىز، بۇ تورخەتكە پەرۋا قىلماڭ. ئەگەر سىز ئىمنى قايتا تەڭشەشنى تەلەپ قىلماي تۇرۇپ بىر قانچە پارچە تورخەت تاپشۇرۇۋالغان بولسىڭىز، باشقۇرغۇچى بىلەن ئالاقىلىشىڭ: {GVAR: ADMIN_EMAIL}\n\nئىمنى قايتا تەڭشەش ئىلتىماسى ئەۋەتىلگەن ئادرېس: {VAR: _SERVER['REMOTE_ADDR']}.
 usrinfo_last_visit:ئاخىرقى زىيارەت:
 mnav_newer:يېڭىسى:
@@ -1111,7 +1114,7 @@ powered-by:تەمىنلىگۈچى: FUDforum {GVAR: FORUM_VERSION}.
 copyright:نەشر ھوقۇقىغا ئىگە &copy;2001-2013 <a href="http://fudforum.org/">FUDforum مۇنبەر ئۇقتۇرۇش تاختا يۇمشاق دېتالى</a>
 code_title:كود:
 code_select_all:ھەممىنى تاللا
-code_show_hide:كۆرسەت/يوشۇر
+code_show_hide:كۆرسىتىش/يوشۇرۇش
 social_sites:ئىجتىمائىي ئالاقە تورتۇرالىرى:
 postcheck_min_len_err:ئۇچۇرىڭىز بەك قىسقا. ئەڭ قىسقا ئۇزۇنلۇق {PLURAL: post_min_len|$1 ھەرپ|$1 ھەرپ}.
 postcheck_dup_err:تەكرار تېما يازماڭ.
@@ -1123,7 +1126,7 @@ btn_flat_view:تەكشى كۆرۈنۈش
 btn_about:سەپلىمە ھۆججەت
 btn_small_pm:چ ك
 btn_delete:ئۆچۈر
-btn_edit:تەھرىر
+btn_edit:تەھرىرلەش
 btn_reply:جاۋاب
 btn_forward:ئالدىغا
 btn_quote:نەقىل
