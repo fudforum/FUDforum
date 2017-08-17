@@ -1,7 +1,7 @@
 #!/usr/bin/php -q
 <?php
 /**
-* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -27,7 +27,7 @@
 
 	/* Set language, locale and time zone. */
 	$sql_p = $GLOBALS['DBHOST_TBL_PREFIX'];
-	list($theme_name, $locale) = db_saq(q_limit('SELECT name, locale FROM '. $sql_p .'themes WHERE theme_opt='. (1|2), 1));
+	list($theme_name, $locale) = db_saq(q_limit('SELECT name, locale FROM '. $sql_p .'themes WHERE '. q_bitand('theme_opt', (1|2)) .' = 3', 1));
 	$GLOBALS['good_locale'] = setlocale(LC_ALL, $locale);
 	date_default_timezone_set($GLOBALS['SERVER_TZ']);
 
