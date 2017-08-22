@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -350,11 +350,12 @@ function resolve_sections($file, $secname, $str)
 				$ret .= "' : '' )  .'";
 				break;
 
-			case 'FULL_ROOT':
+			case 'URL_ROOT':
 				$ret .= "'.\$GLOBALS['WWW_ROOT'].'";
 				break;
 
 			case 'ROOT':
+			case 'FULL_ROOT':
 			case 'THEME_ROOT':
 			case 'THEME_IMAGE_ROOT':
 				$ret .= $GLOBALS['__COMPILER__'][$tag];
@@ -742,10 +743,21 @@ function compile_all($tset='default', $lang='en', $tname='default')
 	$GLOBALS['__COMPILER__'] = array('tset' => $tset, 'lang' => $lang, 'tname' => $tname);
 	$cmpl =& $GLOBALS['__COMPILER__'];
 
-	// Define constants to expand in template files, i.e. {ROOT}.
-	$cmpl['ROOT'] = 'index.php';
-	$cmpl['FULL_ROOT'] = $GLOBALS['WWW_ROOT']{strlen($GLOBALS['WWW_ROOT']) - 1} == '/' ? $GLOBALS['WWW_ROOT'] : $GLOBALS['WWW_ROOT'] .'/';
-	$cmpl['THEME_ROOT'] = 'theme/'. $tname;
+	// Extract path from forum URL.
+	$urlparts = parse_url($GLOBALS['WWW_ROOT']);
+	$urlpath = empty($urlparts['path']) ? '/' : $urlparts['path'];
+	if ($urlpath[strlen($urlpath)-1] != '/') {
+	   $urlpath = $urlpath .'/';
+    }
+
+	// Define constants to expand in template files, i.e. {ROOT}.	
+	if ($GLOBALS['FUD_OPT_4'] & 8) {	// Remove index.php from URLs (8==NO_INDEX_URL)
+		$cmpl['ROOT'] = rtrim($urlpath, '/');
+	} else {
+		$cmpl['ROOT'] = $urlpath .'index.php';
+	}
+	$cmpl['FULL_ROOT'] = $urlpath;
+	$cmpl['THEME_ROOT'] = $urlpath .'theme/'. $tname;
 
 	$cmpl['THEME_ROOT_DISK'] = $GLOBALS['WWW_ROOT_DISK'] .'theme/'. $tname;
 	$cmpl['THEME_IMAGE_ROOT'] = $cmpl['THEME_ROOT'] .'/images';

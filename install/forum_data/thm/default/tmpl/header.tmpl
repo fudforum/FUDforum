@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2016 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -14,14 +14,13 @@
 	<meta charset="{CHARSET}">
 	<meta name="description" content="{IF: !empty($META_DESCR)}{VAR: META_DESCR}{ELSE}{GVAR: FORUM_DESCR}{END}" />
 	<title>{GVAR: FORUM_TITLE}{VAR: TITLE_EXTRA}</title>
-	<base href="{FULL_ROOT}" />
 	<link rel="search" type="application/opensearchdescription+xml" title="{GVAR: FORUM_TITLE} Search" href="{FULL_ROOT}open_search.php" />
 	{VAR: RSS}
-	<link rel="stylesheet" href="js/ui/jquery-ui.css" media="screen" />
+	<link rel="stylesheet" href="{FULL_ROOT}js/ui/jquery-ui.css" media="screen" />
 	<link rel="stylesheet" href="{THEME_ROOT}/forum.css" media="screen" title="Default Forum Theme" />
-	<script src="js/jquery.js"></script>
-	<script src="js/ui/jquery-ui.js"></script>
-	<script src="js/lib.js"></script>
+	<script src="{FULL_ROOT}js/jquery.js"></script>
+	<script src="{FULL_ROOT}js/ui/jquery-ui.js"></script>
+	<script src="{FULL_ROOT}js/lib.js"></script>
 </head>
 <body>
 <!-- {INJECTION_POINT: left_block} -->
@@ -53,10 +52,9 @@
 <head>
 <meta charset="{CHARSET}">
 <title>{GVAR: FORUM_TITLE}{VAR: TITLE_EXTRA}</title>
-<base href="{FULL_ROOT}" />
-<script src="js/jquery.js"></script>
-<script src="js/ui/jquery-ui.js"></script>
-<script src="js/lib.js"></script>
+<script src="{FULL_ROOT}js/jquery.js"></script>
+<script src="{FULL_ROOT}js/ui/jquery-ui.js"></script>
+<script src="{FULL_ROOT}js/lib.js"></script>
 <link rel="stylesheet" href="{THEME_ROOT}/forum.css" />
 </head>
 <body>

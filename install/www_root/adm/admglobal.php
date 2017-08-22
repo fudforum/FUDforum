@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2016 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -236,7 +236,8 @@ jQuery(document).ready(function() {
 	print_reg_field('WWW Root', 'WWW_ROOT');
 	print_reg_field('WWW Root (disk path)', 'WWW_ROOT_DISK');
 	print_reg_field('Data Root', 'DATA_DIR');
-	print_bit_field('Use PATH_INFO style URLs<br /><a href="'.$WWW_ROOT.'index.php/a/b/c" target="_blank">Test Link</a>', 'USE_PATH_INFO');
+	print_bit_field('Remove index.php from URLs', 'NO_INDEX_URL');
+	print_bit_field('Use PATH_INFO style URLs<br /><small><a href="'. $WWW_ROOT .'index.php/a/b/c" target="_blank">Test Link</a></small>', 'USE_PATH_INFO');
 ?>
 <tr class="fieldaction"><td align="left"><input type="submit" name="btn_submit" value="Set" /></td><td align="right">[ <a href="#top">top</a> ]</td></tr>
 </table>

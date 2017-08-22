@@ -14,7 +14,7 @@ This message will be shown to users when the forum is disabled.}}}
 Enable/disable new user registration. Disable if you don't want new users to register or if you have a plugin that auto registers uses from an external system.}}}
 
 {{{WWW_ROOT
-This is the URL of your forum.}}}
+This is the URL of your forum. Use a protocol-relative URL if you want run the forum on HTTP and HTTPS.}}}
 
 #CUSTOM AVATAR SETTINGS
 
@@ -338,7 +338,7 @@ Whether or not to use PHP to compress forum's output. By turning this option you
 If PHP's compression is used, this indicates how extensively should the data be compressed, the values can range from 1-9.}}}
 
 {{{USE_PATH_INFO	FUD_OPT_2	32768
-Use PATH_INFO based URLs that looks like http://forum.com/index.php/a/b/c/. This makes the URLs easier to remember and more search engine friendly. Unfortunately this feature does not work with all web servers. Check if your web server supports it by clicking on the above test link. If you see the forum's front page, you can enable it. Note that you also need to enable a theme based on the 'path_info' template set.}}}
+Use PATH_INFO based URLs that looks like http://forum.com/index.php/a/b/c/. This makes the URLs easier to remember and more search engine friendly. Check if your web server supports it by clicking on the above test link. If you see the forum's front page, you can enable it. Note that you also need to enable a theme based on the 'path_info' template set.}}}
 
 {{{ALLOW_PROFILE_IMAGE	FUD_OPT_2	65536
 Whether or not to allow users to enter a URL to an image in their profile that will be displayed on the user info page for that user. The danger of this feature is that the user could potentially link to a page other then an image and insecure browsers like Internet Explorer will parse that page executing any potentially hostile Javascript that may be present.}}}
@@ -514,4 +514,7 @@ Allow users to reset their own passwords.}}}
 
 {{{KARMA	FUD_OPT_4	4
 Enable karma / user reputation system. If enabled, member can upvote or downvote other members.}}}
+
+{{{NO_INDEX_URL	FUD_OPT_4	8
+Remove 'index.php' from forum URLs. This will only work if your web server has rewrite rules in place to direct URLs to the index.php file. Recompile your themes after changing this value.}}}
 
