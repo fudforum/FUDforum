@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -44,7 +44,10 @@
 {TEMPLATE: header}
 {TEMPLATE: usercp}
 <br />{TEMPLATE-DATA: admin_cp}
-<div class="GenText ac">[ <a href="{TEMPLATE: online_today_lnk}" rel="nofollow">{MSG: refresh_list}</a> ]</div>
+<div class="GenText ac">
+	[ <a href="{TEMPLATE: online_today_lnk}" rel="nofollow">{MSG: refresh_list}</a> ]
+	[ <a href="{TEMPLATE: i_spy_lnk}" rel="nofollow">{MSG: what_ppl_doing}</a> ]
+</div>
 <br />
 <table cellspacing="1" cellpadding="2" class="ContentTable">
 <tr>
@@ -87,3 +90,8 @@
 {SECTION: online_today_sort_time_lnk}
 {ROOT}?t=online_today&amp;{DEF: _rsid}&amp;o=last_visit&amp;s={IF: $o=='u.last_visit' && $s=='ASC'}d{ELSE}a{END}&amp;{DEF: _rsid}
 {SECTION: END}
+
+{SECTION: what_ppl_doing}
+{MSG: what_ppl_doing}
+{SECTION: END}
+
