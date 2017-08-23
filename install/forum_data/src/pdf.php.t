@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2016 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -234,14 +234,14 @@ class fud_pdf extends FPDF
 	}
 
 	if ($FUD_OPT_2 & 16384) {		// PHP_COMPRESSION_ENABLE
-		ob_start(array('ob_gzhandler', (int)$PHP_COMPRESSION_LEVEL));
+		ob_start('ob_gzhandler', (int)$PHP_COMPRESSION_LEVEL);
 	}
 
 	$forum	= isset($_GET['frm']) ? (int)$_GET['frm'] : 0;
 	$thread	= isset($_GET['th']) ? (int)$_GET['th'] : 0;
 	$msg	= isset($_GET['msg']) ? (int)$_GET['msg'] : 0;
 	$page	= isset($_GET['page']) ? (int)$_GET['page'] : 0;
-	$sel	= isset($_GET['sel']) ? (array)$_GET['sel'] : 0;
+	$sel	= isset($_GET['sel']) ? (array)$_GET['sel'] : array();
 
 	// Cleanup $sel
 	foreach ($sel as $k => $v) {

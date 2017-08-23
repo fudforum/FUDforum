@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -98,7 +98,7 @@ function get_preview_img($id)
 		$comp_ext = array('zip', 'gz', 'rar', 'tgz', 'bz2', 'tar');
 		$ext = strtolower(substr(strrchr($r[1], '.'), 1));
 		if (!in_array($ext, $comp_ext)) {
-			ob_start(array('ob_gzhandler', (int)$PHP_COMPRESSION_LEVEL));
+			ob_start('ob_gzhandler', (int)$PHP_COMPRESSION_LEVEL);
 		}
 	}
 

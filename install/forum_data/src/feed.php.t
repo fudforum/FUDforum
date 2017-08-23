@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2016 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -45,7 +45,7 @@
 	}
 
 	if ($FUD_OPT_2 & 16384) {
-		ob_start(array('ob_gzhandler', (int)$PHP_COMPRESSION_LEVEL));
+		ob_start('ob_gzhandler', (int)$PHP_COMPRESSION_LEVEL);
 	}
 
 function sp($data)
@@ -80,7 +80,8 @@ function feed_cache_cleanup()
 	$cache_files = glob($GLOBALS['FORUM_SETTINGS_PATH'].'feed_cache_*');
 	if (is_array($cache_files)) {
 		foreach ($cache_files as $v) {
-			if (filemtime($v) + $GLOBALS['FEED_CACHE_AGE'] < __request_timestamp__) {
+			$filemtime = filemtime($v);
+			if ($filemtime && $filemtime + $GLOBALS['FEED_CACHE_AGE'] < __request_timestamp__) {
 				unlink($v);
 			}
 		}
