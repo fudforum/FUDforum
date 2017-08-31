@@ -505,7 +505,7 @@ report_posted_on:Publicado el:
 report_give_reason:Por favor, indique una razón de porqué está informando de este mensaje:
 report_submit_report:Enviar informe
 search_entire_msg:En todo el mensaje
-search_subject_only:Sólo asunto
+search_subject_only:Solo el asunto
 search_forum:Foro
 search_posted_on:Publicado el
 search_no_results:Sin resultados
@@ -979,7 +979,7 @@ reg_conf_account:<b>Confirmación de la cuenta</b><br />Antes de que su cuenta q
 forum_banned_user:Sus acciones anteriores tienen como consecuencia que ha sido expulsado de forma permanente de estos foros. Adiós.
 mnav_description:Navegador de mensajes
 mnav_date_limit:Intervalo de fechas:
-mnav_forum_limit:Buscar sólo en:
+mnav_forum_limit:Buscar solo en:
 mnav_all_forums:Buscar en todos los foros
 mnav_submit:Comenzar a buscar
 mnav_no_range:Debe introducir un rango de fechas válido. Este valor puede ser flotante (0.12) pero debe ser mayor de cero.
