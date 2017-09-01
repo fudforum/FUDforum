@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -320,7 +320,7 @@ for the group's they manage. To change the user permissions please use the <a hr
 	$dst = array('', '\\1<br />');
 	foreach ($hdr as $k => $v) {
 		echo '<td align="center" valign="top" title="'.$v[1].'"><b>';
-		echo preg_replace('!([^0]{1})!e', "strtoupper('\\1').'<br />'", $v[1]);
+		echo preg_replace_callback('!([^0]{1})!', function($matches) {return strtoupper($matches[1]).'<br />';}, $v[1]);
 		echo '</b></td>';
 	}
 ?>
