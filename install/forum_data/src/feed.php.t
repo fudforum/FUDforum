@@ -80,7 +80,7 @@ function feed_cache_cleanup()
 	$cache_files = glob($GLOBALS['FORUM_SETTINGS_PATH'].'feed_cache_*');
 	if (is_array($cache_files)) {
 		foreach ($cache_files as $v) {
-			$filemtime = filemtime($v);
+			$filemtime = @filemtime($v);
 			if ($filemtime && $filemtime + $GLOBALS['FEED_CACHE_AGE'] < __request_timestamp__) {
 				unlink($v);
 			}

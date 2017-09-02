@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2016 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
 * email                : forum@fudforum.org
 * $Id$
 *
@@ -114,7 +114,7 @@
 	<td class="vt nw GenText">{MSG: post_count_l}</td>
 	<td class="GenText">{MSG: average_post_count}<br /><a href="{TEMPLATE: USERINFO_PAGE_lnk}">{MSG: usrinfo_show_all_posts}</a></td>
 </tr>
-{IF: !$u->users || $u->users_opt & 32768}{ELSE}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}">
+{IF: $u->users_opt & 32768}{ELSE}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}">
 	<td class="nw GenText">{MSG: userinfo_real_name}</td>
 	<td class="GenText">{VAR: u->name}</td>
 </tr>{END}

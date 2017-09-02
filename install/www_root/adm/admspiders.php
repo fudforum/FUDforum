@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -133,7 +133,7 @@ echo '<h3>'. ($edit ? '<a name="edit">Edit Spider:</a>' : 'Add New Spider:') .'<
 
 	<tr class="field">
 		<td>Action:<br /><font size="-2">Action to take if this bot visits your site.</font></td>
-		<td><?php draw_select('spider_bot_opts', "Ignore it\nAuto-login\nBlock access", "1\n0\n2", ($spider_bot_opts & (1|2))); ?></td>
+		<td><?php draw_select('spider_bot_opts', "Ignore it\nAuto-login\nBlock access", "1\n0\n2", ((int)$spider_bot_opts & (1|2))); ?></td>
 	</tr>
 
 	<tr class="fieldaction">

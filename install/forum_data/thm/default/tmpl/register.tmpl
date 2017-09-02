@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2016 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -118,7 +118,7 @@
 </tr>
 <tr class="child-c1 RowStyleA">
 	<td>{MSG: register_email_addr}{FUNC: draw_err('reg_email')}<br />
-            <span class="SmallText">{MSG: register_email_desc}</span>{TEMPLATE-DATA: register_email_desc}</td>
+            <span class="SmallText">{MSG: register_email_desc}</span></td>
 	<td><input type="email" name="reg_email" size="25" value="{VAR: reg_email}" /></td>
 </tr>
 {SECTION: END}
@@ -699,15 +699,15 @@
 {SECTION: END}
 
 {SECTION: change_passwd_link_lnk1}
-{FULL_ROOT}{ROOT}?t=rpasswd&amp;{DEF: _rsid}
+{ROOT}?t=rpasswd&amp;{DEF: _rsid}
 {SECTION: END}
 
 {SECTION: change_login_link_lnk1}
-{FULL_ROOT}{ROOT}?t=ruser&amp;{DEF: _rsid}
+{ROOT}?t=ruser&amp;{DEF: _rsid}
 {SECTION: END}
 
 {SECTION: built_in_avatar_lnk1}
-{FULL_ROOT}{ROOT}?t=avatarsel&amp;{DEF: _rsid}
+{ROOT}?t=avatarsel&amp;{DEF: _rsid}
 {SECTION: END}
 
 {SECTION: REGISTER_PAGE_lnk3}
