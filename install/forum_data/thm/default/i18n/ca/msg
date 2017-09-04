@@ -1145,7 +1145,7 @@ btn_homepage:www
 feed_no_data:No hi ha dades que s'ha trobat.
 feed_rdf:RDF de connexió
 feed_rss:RSS2 feed
-feed_atom:Menjar d'Àtom
+feed_atom:Canal Atom
 ip_whois_connect_err:No es pot connectar al servidor de WHOIS ( {VAR: whois_server} ):{VAR: errstr}
 custom_filed_required:Aquest camp és obligatori.
 pages:Pàgines

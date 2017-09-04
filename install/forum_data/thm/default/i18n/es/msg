@@ -1029,7 +1029,7 @@ usrinfo_last_visit:Última visita:
 mnav_newer:más reciente que
 mnav_older:menos reciente que
 ip_search_by_ip:Buscar usuarios por IP
-ip_search_syntax:Sintaxis soportada: 1.2.3.4, 1.2.3, 1.2, 1
+ip_search_syntax:Sintaxis admitida: 1.2.3.4, 1.2.3, 1.2, 1
 ip_search:Buscar
 ip_analyze_usage:Analizar el uso de la IP
 ip_analyze_usage_descr:Por favor, indique el nombre de usuario exacto.
@@ -1089,7 +1089,7 @@ unbookmark_all_topics:Eliminar todos los marcadores
 tabs_own_posts:Mostrar mensajes propios
 sml_emoticon:Emoticono
 sml_code:Código
-mnav_sub_only:Buscar sólo en los foros suscritos
+mnav_sub_only:Buscar solo en los foros suscritos
 register_topics_per_page:Hilos por página:
 login_min_time:Este foro permite un intento de login cada {VAR: MIN_TIME_BETWEEN_LOGIN} segundos, por favor espere {FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)} segundos antes de intentarlo de nuevo.
 post_not_logged_in:No ha iniciado sesión, de manera que se enviará el mensaje anónimamente.
@@ -1147,9 +1147,9 @@ btn_email:Correo electrónico
 btn_show_posts:mensajes
 btn_homepage:www
 feed_no_data:No se encontró ningún dato coincidente.
-feed_rdf:Fuente RDF
-feed_rss:fuente RSS2
-feed_atom:fuente ATOM
+feed_rdf:Suministro RDF
+feed_rss:Suministro RSS2
+feed_atom:Suministro Atom
 ip_whois_connect_err:No se pudo conectar con el servidor WHOIS ({VAR: whois_server}): {VAR: errstr}
 custom_filed_required:Este campo es obligatorio.
 pages:Páginas
