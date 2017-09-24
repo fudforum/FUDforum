@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -18,7 +18,7 @@ function plugin_theme_router($usr) {
 	$theme = 'default';	// Fallback theme - hard coded!
 
 	if ((@include_once $GLOBALS['PLUGIN_PATH'] .'theme_router.ini') === false) {
-		die('ERROR: Theme router cache file missing!');
+		echo 'ERROR: Cannot locate the "theme router" plugin\'s cache file. Please rebuild your themes.<hr />';
 	}
 
 	if (isset($_GET['theme']) && in_array($_GET['theme'], $themes, true)) {

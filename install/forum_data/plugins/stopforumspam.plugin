@@ -14,7 +14,7 @@ plugin_add_hook('PRE_REGISTER', 'plugin_stopforumspam');
 
 // Validate registering users with StopForumSpam
 function plugin_stopforumspam($uent) {
-	$query = 'http://www.stopforumspam.com/api?username='. urlencode($uent->login) .'&email='. urlencode($uent->email) .'&ip='. $_SERVER['REMOTE_ADDR'] .'&f=json';
+	$query = '//www.stopforumspam.com/api?username='. urlencode($uent->login) .'&email='. urlencode($uent->email) .'&ip='. $_SERVER['REMOTE_ADDR'] .'&f=json';
 	$data = json_decode(file_get_contents($query));
 
 	if (!$data->success) {	// Error occured!
@@ -38,7 +38,7 @@ function plugin_stopforumspam($uent) {
 
 function stopforumspam_info() {
 	return array('name' => 'Stop Forum Spam',
-		     'desc' => 'This plugin checks registering users against the spammer blacklist from <a href="http://www.stopforumspam.com">stopforumspam.com</a> to prevent known bots from creating accounts on your forum.',
+		     'desc' => 'This plugin checks registering users against the spammer blacklist from <a href="//www.stopforumspam.com">stopforumspam.com</a> to prevent known bots from creating accounts on your forum.',
 		     'cat'  => 'Anti-spam',
 		     'version' => '1.0');
 }
