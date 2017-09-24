@@ -98,6 +98,11 @@ function get_max_upload_size()
 			}
 		}
 
+		/* Further instructions if WWW_ROOT is changed. */
+		if ($GLOBALS['WWW_ROOT'] != $_POST['CF_WWW_ROOT']) {
+			pf('Remember to rebuild your <a href="admthemes.php?'. __adm_rsid .'">themes</a> if you change the Forum URL or direcories.');
+		}
+
 		/* Further instructions if PATH_INFO is enabled. */
 		if (($FUD_OPT_2 & 32768) == 0 && ($NEW_FUD_OPT_2 & 32768) == 32768) {
 			pf('PATH_INFO is now enabled. Next step is to enable a <a href="admthemes.php?'. __adm_rsid .'">PATH_INFO theme</a>.');
