@@ -1,5 +1,10 @@
 AddDefaultCharset utf-8
 
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*) index.php/$1 [L]
+
 <IfModule mod_php5.c>
 php_value output_buffering 64000
 php_value variables_order GPCS
