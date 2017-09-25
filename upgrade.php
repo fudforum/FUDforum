@@ -9,7 +9,7 @@
 * Free Software Foundation; either version 2 of the License.
 ***************************************************************************/
 
-$__UPGRADE_SCRIPT_VERSION = 5308.0;
+$__UPGRADE_SCRIPT_VERSION = 5308.1;
 // define('fud_debug', 1);
 
 /*
@@ -744,7 +744,7 @@ pf('<h2>Step 1: Admin login</h2>', true);
 		}
 ?>
 
-<p>The last and most important step is to run the consistency checker. To continue, click on the link below or navigate to your forum's <i>Admin Control Panel</i> -&gt; <i>Forum Consistency</i> to run it.</p>
+<p>The last step is to run the consistency checker and re-enable your forum. To continue, click on the link below or navigate to your forum's <i>Admin Control Panel</i> -&gt; <i>Forum Consistency</i> to run it.</p>
 
 <ul><a href="adm/consist.php?enable_forum=1<?php echo $pfxs; ?>"  class="button"><b>Run consistency checker now!</b></a></ul><br />
 <div class="tutor">When done, please remove the upgrade script to prevent hackers from running it. The script is located at <?php echo realpath('./upgrade.php'); ?></div>

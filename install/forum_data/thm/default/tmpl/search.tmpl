@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -62,7 +62,7 @@
 		{IF: ($is_a || $r->md)}
 		<div class="ModOpt">{MSG: moderator_options}: <a href="{ROOT}?t=mmod&amp;{DEF: _rsid}&amp;th={VAR: r->thread_id}&amp;del={VAR: r->id}">{MSG: thread_mod_delete}</a>
 {IF: $r->is_rootm}
- | <a href="javascript://" onclick="window_open(\'{FULL_ROOT}{ROOT}?t=mvthread&amp;{DEF: _rsid}&amp;th={VAR: r->thread_id}\', \'th_move\', 300, 400);">{MSG: move_thread}</a> | <a href="{ROOT}?t=mmod&amp;{DEF: _rsid}&amp;th={VAR: r->thread_id}&amp;{IF: $r->is_lckd}unlock{ELSE}lock{ENDI}=1&amp;SQ={GVAR: sq}">{IF: $r->is_lckd}{MSG: unlock_thread}{ELSE}{MSG: lock_thread}{ENDI}</a>
+ | <a href="javascript://" onclick="window_open(\'{ROOT}?t=mvthread&amp;{DEF: _rsid}&amp;th={VAR: r->thread_id}\', \'th_move\', 300, 400);">{MSG: move_thread}</a> | <a href="{ROOT}?t=mmod&amp;{DEF: _rsid}&amp;th={VAR: r->thread_id}&amp;{IF: $r->is_lckd}unlock{ELSE}lock{ENDI}=1&amp;SQ={GVAR: sq}">{IF: $r->is_lckd}{MSG: unlock_thread}{ELSE}{MSG: lock_thread}{ENDI}</a>
 {ENDIFI}
 </div>
 		{ENDIFI}

@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -37,7 +37,7 @@
 {SECTION: END}
 
 {SECTION: thread_icon}
-<img src="images/message_icons/{VAR: cur->icon}" alt="{VAR: cur->icon}" />
+<img src="{BASE}images/message_icons/{VAR: cur->icon}" alt="{VAR: cur->icon}" />
 {SECTION: END}
 
 {SECTION: split_thread_lnk}
@@ -230,7 +230,7 @@
 {SECTION: END}
 
 {SECTION: tree_pdf_link_lnk}
-{GVAR: WWW_ROOT}pdf.php?msg={VAR: mid}&amp;{DEF: _rsid}
+{BASE}pdf.php?msg={VAR: mid}&amp;{DEF: _rsid}
 {SECTION: END}
 
 {SECTION: tree_pdf_link}
@@ -242,14 +242,14 @@
 {SECTION: END}
 
 {SECTION: tree_xml_link}
-[ <a href="{TEMPLATE: tree_xml_link_lnk}">{MSG: thread_syndicate}</a> ] [ <a href="feed.php?mode=m&amp;th={VAR: th}&amp;basic=1"><img src="{THEME_IMAGE_ROOT}/rss.gif" title="{MSG: thread_syndicate}" alt="RSS" /></a> ]
+[ <a href="{TEMPLATE: tree_xml_link_lnk}">{MSG: thread_syndicate}</a> ] [ <a href="{BASE}feed.php?mode=m&amp;th={VAR: th}&amp;basic=1"><img src="{THEME_IMAGE_ROOT}/rss.gif" title="{MSG: thread_syndicate}" alt="RSS" /></a> ]
 {SECTION: END}
 
 {SECTION: tree_RSS}
-{IF: $FUD_OPT_2 & 1048576}<link rel="alternate" type="application/rss+xml" title="{MSG: thread_syndicate}" href="{GVAR: WWW_ROOT}feed.php?mode=m&amp;th={VAR: th}&amp;basic=1" />
+{IF: $FUD_OPT_2 & 1048576}<link rel="alternate" type="application/rss+xml" title="{MSG: thread_syndicate}" href="{BASE}feed.php?mode=m&amp;th={VAR: th}&amp;basic=1" />
 {ENDIFI}
 {SECTION: END}
 
 {SECTION: tree_mv_thread}
-{FULL_ROOT}{ROOT}?t=mvthread&amp;{DEF: _rsid}&amp;th={VAR: th}
+{ROOT}?t=mvthread&amp;{DEF: _rsid}&amp;th={VAR: th}
 {SECTION: END}

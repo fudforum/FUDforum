@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -31,7 +31,7 @@
 {TEMPLATE-DATA: announcements}
 {TEMPLATE: forum_list}
 {IF: _uid}<div class="SmallText ar">[ <a href="{TEMPLATE: mark_all_read_lnk}" title="{MSG: mark_all_read_desc}">{MSG: mark_all_read}</a> ]
-{IF: $FUD_OPT_2 & 1048576}[ <a href="feed.php?mode=m&amp;l=1&amp;basic=1"><img src="{THEME_IMAGE_ROOT}/rss.gif" title="{MSG: thread_syndicate}" alt="{MSG: thread_syndicate}"/></a> ]{ENDIFI}
+{IF: $FUD_OPT_2 & 1048576}[ <a href="{BASE}feed.php?mode=m&amp;l=1&amp;basic=1"><img src="{THEME_IMAGE_ROOT}/rss.gif" title="{MSG: thread_syndicate}" alt="{MSG: thread_syndicate}"/></a> ]{ENDIFI}
 </div>{ENDIF}
 {IF: __fud_real_user__}{TEMPLATE: quick_login_logged_in}{ELSE}{TEMPLATE: quick_login_logged_out}{END}
 {IF: $logedin || $forum_info}{TEMPLATE: loged_in_list}{ENDIF}
@@ -51,7 +51,7 @@
 {PAGE: END}
 
 {SECTION: index_RSS}
-{IF: $FUD_OPT_2 & 1048576}<link rel="alternate" type="application/rss+xml" title="{MSG: thread_syndicate}" href="{GVAR: WWW_ROOT}feed.php?mode=m&amp;l=1&amp;basic=1" />
+{IF: $FUD_OPT_2 & 1048576}<link rel="alternate" type="application/rss+xml" title="{MSG: thread_syndicate}" href="{BASE}feed.php?mode=m&amp;l=1&amp;basic=1" />
 {ENDIFI}
 {SECTION: END}
 

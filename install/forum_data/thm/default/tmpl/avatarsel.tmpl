@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -21,7 +21,7 @@
 
 {SECTION: avatar_entry single avatar entry}
 <td class="{ALT-VAR: avatarsel_cl Av1 Av2}">
-<a href="javascript: window.opener.document.forms[\'fud_register\'].reg_avatar.value=\'{VAR: r[0]}\'; window.opener.document.reg_avatar_img.src=\'images/avatars/{VAR: r[2]}\'; window.close();"><img src="images/avatars/{VAR: r[2]}" alt="" />
+<a href="javascript: window.opener.document.forms[\'fud_register\'].reg_avatar.value=\'{VAR: r[0]}\'; window.opener.document.reg_avatar_img.src=\'{BASE}images/avatars/{VAR: r[2]}\'; window.close();"><img src="{BASE}images/avatars/{VAR: r[2]}" alt="" />
 <br />
 <span class="SmallText">{VAR: r[1]}</span></a>
 </td>

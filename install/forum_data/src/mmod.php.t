@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -92,9 +92,9 @@
 
 				if (strpos($usr->returnto, 'selmsg') === false) {
 					if ($FUD_OPT_2 & 32768) {
-						header('Location: {FULL_ROOT}{ROOT}/f/'. $data[0] .'/'. _rsidl);
+						header('Location: {ROOT}/f/'. $data[0] .'/'. _rsidl);
 					} else {
-						header('Location: {FULL_ROOT}{ROOT}?t='. t_thread_view .'&'. _rsidl .'&frm_id='. $data[0]);
+						header('Location: {ROOT}?t='. t_thread_view .'&'. _rsidl .'&frm_id='. $data[0]);
 					}
 					exit;
 				} else {
@@ -113,24 +113,24 @@
 		if (d_thread_view == 'tree') {
 			if (!$data[5]) {
 				if ($FUD_OPT_2 & 32768) {
-					header('Location: {FULL_ROOT}{ROOT}/mv/tree/'. $data[1] .'/'. _rsidl);
+					header('Location: {ROOT}/mv/tree/'. $data[1] .'/'. _rsidl);
 				} else {
-					header('Location: {FULL_ROOT}{ROOT}?t=tree&'. _rsidl .'&th='. $data[1]);
+					header('Location: {ROOT}?t=tree&'. _rsidl .'&th='. $data[1]);
 				}
 			} else {
 				if ($FUD_OPT_2 & 32768) {
-					header('Location: {FULL_ROOT}{ROOT}/mv/tree/'. $data[1] .'/'. $data[5] .'/'. _rsidl);
+					header('Location: {ROOT}/mv/tree/'. $data[1] .'/'. $data[5] .'/'. _rsidl);
 				} else {
-					header('Location: {FULL_ROOT}{ROOT}?t=tree&'. _rsidl .'&th='. $data[1] .'&mid='. $data[5]);
+					header('Location: {ROOT}?t=tree&'. _rsidl .'&th='. $data[1] .'&mid='. $data[5]);
 				}
 			}
 		} else {
 			$prev_id = q_singleval(q_limit('SELECT id FROM {SQL_TABLE_PREFIX}msg WHERE thread_id='. $data[1] .' AND id < '. $data[2] .' ORDER BY id DESC', 1));
 		
 			if ($FUD_OPT_2 & 32768) {
-				header('Location: {FULL_ROOT}{ROOT}/mv/msg/'. $data[1] .'/'. $prev_id .'/'. _rsidl);
+				header('Location: {ROOT}/mv/msg/'. $data[1] .'/'. $prev_id .'/'. _rsidl);
 			} else {
-				header('Location: {FULL_ROOT}{ROOT}?t=msg&th='. $data[1] .'&'. _rsidl .'&goto='. $prev_id);
+				header('Location: {ROOT}?t=msg&th='. $data[1] .'&'. _rsidl .'&goto='. $prev_id);
 			}
 		}
 		exit;

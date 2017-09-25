@@ -11,7 +11,6 @@
 **/
 
 	@set_time_limit(0);
-	define('no_session', 1);
 	define('fud_logging', 1);
 
 	if (file_exists('./GLOBALS.php')) {

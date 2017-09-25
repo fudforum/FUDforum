@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -759,7 +759,7 @@ function send_notifications($to, $msg_id, $thr_subject, $poster_login, $id_type,
 		return;
 	}
 
-	$goto_url['email'] = '{FULL_ROOT}{ROOT}?t=rview&goto='. $msg_id .'#msg_'. $msg_id;
+	$goto_url['email'] = '{FULL_ROOT}?t=rview&goto='. $msg_id .'#msg_'. $msg_id;
 	$CHARSET = $GLOBALS['CHARSET'];
 	if ($GLOBALS['FUD_OPT_2'] & 64) {	// NOTIFY_WITH_BODY
 		$munge_newlines = 0;
@@ -791,7 +791,7 @@ function send_notifications($to, $msg_id, $thr_subject, $poster_login, $id_type,
 		$plain_text = read_msg_body($obj->foff, $obj->length, $obj->file_id);
 		$iemail_unsub = html_entity_decode($id_type == 'thr' ? '{TEMPLATE: iemail_thread_unsub}' : '{TEMPLATE: iemail_forum_unsub}');
 
-		$body_email = $boundry .'Content-Type: text/plain; charset='. $CHARSET ."; format=flowed\r\nContent-Transfer-Encoding: 8bit\r\n\r\n" . html_entity_decode(strip_tags($plain_text)) . "\r\n\r\n" . html_entity_decode('{TEMPLATE: iemail_participate}') .' '. '{FULL_ROOT}{ROOT}?t=rview&'. ($id_type == 'thr' ? 'th' : 'frm_id') .'='. $id ."\r\n".
+		$body_email = $boundry .'Content-Type: text/plain; charset='. $CHARSET ."; format=flowed\r\nContent-Transfer-Encoding: 8bit\r\n\r\n" . html_entity_decode(strip_tags($plain_text)) . "\r\n\r\n" . html_entity_decode('{TEMPLATE: iemail_participate}') .' '. '{FULL_ROOT}?t=rview&'. ($id_type == 'thr' ? 'th' : 'frm_id') .'='. $id ."\r\n".
 				$boundry .'Content-Type: text/html; charset='. $CHARSET ."\r\nContent-Transfer-Encoding: 8bit\r\n\r\n". make_email_message($plain_text, $obj, $iemail_unsub) ."\r\n". substr($boundry, 0, -2) ."--\r\n";
 	} else {
 		$munge_newlines = 1;
@@ -805,7 +805,7 @@ function send_notifications($to, $msg_id, $thr_subject, $poster_login, $id_type,
 		$subj = html_entity_decode('{TEMPLATE: iemail_thr_subject}');
 
 		if (!isset($body_email)) {
-			$unsub_url['email'] = '{FULL_ROOT}{ROOT}?t=rview&th='. $id .'&notify=1&opt=off';
+			$unsub_url['email'] = '{FULL_ROOT}?t=rview&th='. $id .'&notify=1&opt=off';
 			$body_email = html_entity_decode('{TEMPLATE: iemail_thr_bodyemail}');
 		}
 	} else if ($id_type == 'frm') {
@@ -814,7 +814,7 @@ function send_notifications($to, $msg_id, $thr_subject, $poster_login, $id_type,
 		$subj = html_entity_decode('{TEMPLATE: iemail_frm_subject}');
 
 		if (!isset($body_email)) {
-			$unsub_url['email'] = '{FULL_ROOT}{ROOT}?t=rview&unsub=1&frm_id='. $id;
+			$unsub_url['email'] = '{FULL_ROOT}?t=rview&unsub=1&frm_id='. $id;
 			$body_email = html_entity_decode('{TEMPLATE: iemail_frm_bodyemail}');
 		}
 	}

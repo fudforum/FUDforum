@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2016 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -305,15 +305,15 @@ function email_encode($val)
 	if (!__fud_real_user__ && !isset($_POST['reg_coppa']) && !isset($_GET['reg_coppa'])) {
 		if ($FUD_OPT_1 & 1048576) {
 			if ($FUD_OPT_2 & 32768) {
-				header('Location: {FULL_ROOT}{ROOT}/cp/'. _rsidl);
+				header('Location: {ROOT}/cp/'. _rsidl);
 			} else {
-				header('Location: {FULL_ROOT}{ROOT}?t=coppa&'. _rsidl);
+				header('Location: {ROOT}?t=coppa&'. _rsidl);
 			}
 		} else {
 			if ($FUD_OPT_2 & 32768) {
-				header('Location: {FULL_ROOT}{ROOT}/pr/0/'. _rsidl);
+				header('Location: {ROOT}/pr/0/'. _rsidl);
 			} else {
-				header('Location: {FULL_ROOT}{ROOT}?t=pre_reg&'. _rsidl);
+				header('Location: {ROOT}?t=pre_reg&'. _rsidl);
 			}
 		}
 		exit;
@@ -520,13 +520,13 @@ function email_encode($val)
 
 			if ($FUD_OPT_1 & 1048576 && $uent->users_opt & 262144) {
 				if ($FUD_OPT_2 & 32768) {
-					header('Location: {FULL_ROOT}{ROOT}/cpf/'. _rsidl);
+					header('Location: {ROOT}/cpf/'. _rsidl);
 				} else {
-					header('Location: {FULL_ROOT}{ROOT}?t=coppa_fax&'. _rsidl);
+					header('Location: {ROOT}?t=coppa_fax&'. _rsidl);
 				}
 				exit;
 			} else if (!($uent->users_opt & 131072) || $FUD_OPT_2 & 1024) {
-				header('Location: {FULL_ROOT}{ROOT}'. ($FUD_OPT_2 & 32768 ? '/rc/' : '?t=reg_conf&') . _rsidl);
+				header('Location: {ROOT}'. ($FUD_OPT_2 & 32768 ? '/rc/' : '?t=reg_conf&') . _rsidl);
 				exit;
 			}
 
@@ -552,7 +552,7 @@ function email_encode($val)
 						$uent->avatar = 0;
 					} else if ($uent->avatar != $_POST['reg_avatar'] && ($img = q_singleval('SELECT img FROM {SQL_TABLE_PREFIX}avatar WHERE id='. (int)$_POST['reg_avatar']))) {
 						/* verify that the avatar exists and it is different from the one in DB */
-						$uent->avatar_loc = make_avatar_loc('images/avatars/'. $img, $WWW_ROOT_DISK, $WWW_ROOT);
+						$uent->avatar_loc = make_avatar_loc('images/avatars/'. $img, $WWW_ROOT_DISK, '{BASE}');
 						$uent->avatar = $_POST['reg_avatar'];
 					}
 					if ($uent->avatar && $uent->avatar_loc) {
@@ -593,7 +593,7 @@ function email_encode($val)
 
 						copy($TMP . $common_av_name, $WWW_ROOT_DISK . $av_path);
 						@unlink($TMP . $common_av_name);
-						if (($uent->avatar_loc = make_avatar_loc($av_path, $WWW_ROOT_DISK, $WWW_ROOT))) {
+						if (($uent->avatar_loc = make_avatar_loc($av_path, $WWW_ROOT_DISK, '{BASE}'))) {
 						 	if (!($FUD_OPT_1 & 32) || $uent->users_opt & 1048576) {
 						 		$uent->users_opt ^= 16777216|4194304;
 						 	} else {
@@ -625,9 +625,9 @@ function email_encode($val)
 				check_return($usr->returnto);
 			} else {
 				if ($FUD_OPT_2 & 32768) {
-					header('Location: {FULL_ROOT}adm/admuser.php?usr_id='. $uent->id .'&'. str_replace(array(s, '/?'), array('S='.s, '&'),_rsidl) .'&act=nada');
+					header('Location: {ROOT}adm/admuser.php?usr_id='. $uent->id .'&'. str_replace(array(s, '/?'), array('S='.s, '&'),_rsidl) .'&act=nada');
 				} else {
-					header('Location: {FULL_ROOT}adm/admuser.php?usr_id='. $uent->id .'&'. _rsidl .'&act=nada');
+					header('Location: {ROOT}adm/admuser.php?usr_id='. $uent->id .'&'. _rsidl .'&act=nada');
 				}
 				exit;
 			}
@@ -802,7 +802,7 @@ function email_encode($val)
 					if ((!empty($_POST['reg_avatar']) && $_POST['reg_avatar'] == $uent->avatar) || (!empty($avatar_arr['file']) && empty($avatar_arr['del']) && $avatar_arr['leave'])) {
 						$custom_avatar_preview = $uent->avatar_loc;
 					} else if (!empty($_POST['reg_avatar']) && ($im = q_singleval('SELECT img FROM {SQL_TABLE_PREFIX}avatar WHERE id='. (int)$_POST['reg_avatar']))) {
-						$custom_avatar_preview = make_avatar_loc('images/avatars/'. $im, $WWW_ROOT_DISK, $WWW_ROOT);
+						$custom_avatar_preview = make_avatar_loc('images/avatars/'. $im, $WWW_ROOT_DISK, '{BASE}');
 					} else {
 						if ($reg_avatar_loc_file) {
 							$common_name = $reg_avatar_loc_file;
@@ -811,7 +811,7 @@ function email_encode($val)
 						} else {
 							$common_name = '';
 						}
-						$custom_avatar_preview = $common_name ? make_avatar_loc(basename($common_name), $TMP, '{ROOT}?t=tmp_view&img=') : '';
+						$custom_avatar_preview = $common_name ? make_avatar_loc(basename($common_name), $TMP, '{BASE}?t=tmp_view&img=') : '';
 					}
 				} else if ($uent->avatar_loc) {
 					$custom_avatar_preview = $uent->avatar_loc;

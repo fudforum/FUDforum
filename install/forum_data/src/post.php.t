@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2016 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -224,8 +224,8 @@ function flood_check()
 				if (strpos($msg_body, '[img]{ROOT}?t=getfile&id='. $_POST['file_del_opt'] .'[/img]') !== false) {
 					$msg_body = str_replace('[img]{ROOT}?t=getfile&id='. $_POST['file_del_opt'] .'[/img]', '', $msg_body);
 				}
-				if (strpos($msg_body, '[img]{FULL_ROOT}{ROOT}?t=getfile&id='. $_POST['file_del_opt'] .'[/img]') !== false) {
-					$msg_body = str_replace('[img]{FULL_ROOT}{ROOT}?t=getfile&id='.$_POST['file_del_opt'] .'[/img]', '', $msg_body);
+				if (strpos($msg_body, '[img]{FULL_ROOT}?t=getfile&id='. $_POST['file_del_opt'] .'[/img]') !== false) {
+					$msg_body = str_replace('[img]{FULL_ROOT}?t=getfile&id='.$_POST['file_del_opt'] .'[/img]', '', $msg_body);
 				}
 				$attach_count--;
 			}
@@ -463,9 +463,9 @@ function flood_check()
 				}
 				/* Redirect the user to their message. */
 				if ($FUD_OPT_2 & 32768) {
-					header('Location: {FULL_ROOT}{ROOT}/m/'. $msg_post->id .'/'. _rsidl .'#msg_'. $msg_post->id);
+					header('Location: {ROOT}/m/'. $msg_post->id .'/'. _rsidl .'#msg_'. $msg_post->id);
 				} else {
-					header('Location: {FULL_ROOT}{ROOT}?t='. $t .'&goto='. $msg_post->id .'&'. _rsidl .'#msg_'. $msg_post->id);
+					header('Location: {ROOT}?t='. $t .'&goto='. $msg_post->id .'&'. _rsidl .'#msg_'. $msg_post->id);
 				}
 				exit;
 			}
@@ -484,7 +484,7 @@ function flood_check()
 
 	/* User cancelled operation. */
 	if (isset($_POST['cancel'])) {
-		// header('Location: {FULL_ROOT}{ROOT}?'. $usr->returnto);
+		// header('Location: {ROOT}?'. $usr->returnto);
 		check_return($usr->returnto);
 	}
 

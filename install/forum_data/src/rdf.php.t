@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -13,5 +13,5 @@
 	 * New file is feed.php to support RDF, Atom and RSS feeds.
 	 */
 	header('Status: 301');
-	header('Location: feed.php?'. $_SERVER['QUERY_STRING']);
+	header('Location: {BASE}feed.php?'. $_SERVER['QUERY_STRING']);
 ?>

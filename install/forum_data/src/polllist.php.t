@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -15,7 +15,7 @@
 		$pl_view = empty($_GET['vote']) ? 0 : (int)$_GET['goto'];
 		$mid = q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}msg WHERE poll_id='. (int)$_GET['goto']);
 		/* PATH_INFO is handled via /pv/ */
-		header('Location: {FULL_ROOT}{ROOT}?t='. d_thread_view .'&goto='. $mid .'&pl_view='. $pl_view .'&'._rsidl .'#msg_'. $mid);
+		header('Location: {ROOT}?t='. d_thread_view .'&goto='. $mid .'&pl_view='. $pl_view .'&'._rsidl .'#msg_'. $mid);
 		return;
 	}
 

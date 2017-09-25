@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -69,7 +69,7 @@
 
 {SECTION: iemail_attach_entry file attachment entry row}
 <tr>
-	<td class="vm"><a href="{TEMPLATE: iemail_attach_entry_lnk}"><img alt="" src="{GVAR: WWW_ROOT}images/mime/{VAR: v[4]}" /></a></td>
+	<td class="vm"><a href="{TEMPLATE: iemail_attach_entry_lnk}"><img alt="" src="{BASE}images/mime/{VAR: v[4]}" /></a></td>
 	<td>
 		<span class="GenText fb">{MSG: attachment}</span> <a href="{TEMPLATE: iemail_attach_entry_lnk}">{VAR: v[1]}</a><br />
 		<span class="SmallText">({MSG: size} {VAR: sz}, {MSG: download_counter})</span>
@@ -106,23 +106,23 @@
 {SECTION: END}
 
 {SECTION: iemail_thread_unsub_lnk}
-{FULL_ROOT}{ROOT}?t=rview&th={VAR: id}
+{FULL_ROOT}?t=rview&th={VAR: id}
 {SECTION: END}
 
 {SECTION: iemail_forum_unsub_lnk}
-{FULL_ROOT}{ROOT}?t=rview&frm_id={VAR: id}
+{FULL_ROOT}?t=rview&frm_id={VAR: id}
 {SECTION: END}
 
 {SECTION: iemail_body_lnk}
-{FULL_ROOT}{ROOT}?t=post&reply_to={VAR: obj->id}
+{FULL_ROOT}?t=post&reply_to={VAR: obj->id}
 {SECTION: END}
 
 {SECTION: iemail_body_lnk1}
-{FULL_ROOT}{ROOT}?t=rview&goto={VAR: obj->id}#msg_{VAR: obj->id}
+{FULL_ROOT}?t=rview&goto={VAR: obj->id}#msg_{VAR: obj->id}
 {SECTION: END}
 
 {SECTION: iemail_attach_entry_lnk}
-{FULL_ROOT}{ROOT}?t=getfile&amp;id={VAR: v[0]}
+{FULL_ROOT}?t=getfile&amp;id={VAR: v[0]}
 {SECTION: END}
 
 {SECTION: iemail_CHARSET}

@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -13,18 +13,18 @@ function check_return($returnto)
 {
 	if ($GLOBALS['FUD_OPT_2'] & 32768 && !empty($_SERVER['PATH_INFO'])) {
 		if (!$returnto || !strncmp($returnto, '/er/', 4)) {
-			header('Location: {FULL_ROOT}{ROOT}/i/'. _rsidl);
+			header('Location: {ROOT}/i/'. _rsidl);
 		} else if ($returnto[0] == '/') { /* Unusual situation, path_info & normal themes are active. */
-			header('Location: {FULL_ROOT}{ROOT}'. $returnto);
+			header('Location: {ROOT}'. $returnto);
 		} else {
-			header('Location: {FULL_ROOT}{ROOT}?'. $returnto);
+			header('Location: {ROOT}?'. $returnto);
 		}
 	} else if (!$returnto || !strncmp($returnto, 't=error', 7)) {
-		header('Location: {FULL_ROOT}{ROOT}?t=index&'. _rsidl);
+		header('Location: {ROOT}?t=index&'. _rsidl);
 	} else if (strpos($returnto, 'S=') === false && $GLOBALS['FUD_OPT_1'] & 128) {
-		header('Location: {FULL_ROOT}{ROOT}?'. $returnto .'&S='. s);
+		header('Location: {ROOT}?'. $returnto .'&S='. s);
 	} else {
-		header('Location: {FULL_ROOT}{ROOT}?'. $returnto);
+		header('Location: {ROOT}?'. $returnto);
 	}
 	exit;
 }

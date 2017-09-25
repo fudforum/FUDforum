@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -59,9 +59,9 @@
 		/* Sanity check. */
 		if (empty($_POST['sel_th'])) {
 			if ($FUD_OPT_2 & 32768) {
-				header('Location: {FULL_ROOT}{ROOT}/t/'. $th .'/'. _rsidl);
+				header('Location: {ROOT}/t/'. $th .'/'. _rsidl);
 			} else {
-				header('Location: {FULL_ROOT}{ROOT}?t='. d_thread_view .'&th='. $th .'&'. _rsidl);
+				header('Location: {ROOT}?t='. d_thread_view .'&th='. $th .'&'. _rsidl);
 			}
 			exit;
 		} else if (count($_POST['sel_th']) > 1) {

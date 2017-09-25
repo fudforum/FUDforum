@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -127,7 +127,7 @@
 			    $new_title = $v;
 			}
 		}
-		header('Location: {FULL_ROOT}{ROOT}?t=merge_th&frm_id='. $perms[0] .'&new_title='. urlencode($new_title) .'&sel_th='. serialize($sel_th) .'&'. _rsidl);
+		header('Location: {ROOT}?t=merge_th&frm_id='. $perms[0] .'&new_title='. urlencode($new_title) .'&sel_th='. serialize($sel_th) .'&'. _rsidl);
 		exit;
 	}
 

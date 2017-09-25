@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -19,7 +19,7 @@ function &init_user()
 	}
 
 	/* We need to parse S & rid right away since they are used during user init. */
-	if ($o2 & 32768 && !empty($_SERVER['PATH_INFO'])) {	// USE_PATH_INFO
+	if ($o2 & 32768 && !empty($_SERVER['PATH_INFO']) && empty($_GET['t'])) {	// USE_PATH_INFO
 		$pb = $p = explode('/', trim($_SERVER['PATH_INFO'], '/'));
 		if ($o1 & 128) {	// SESSION_USE_URL
 			$_GET['S'] = array_pop($p);
@@ -849,7 +849,7 @@ function sq_check($post, &$sq, $uid=__fud_real_user__, $ses=s)
 			$sq = regen_sq($uid);
 			return 1;
 		}
-		header('Location: {FULL_ROOT}{ROOT}?S='. $ses);
+		header('Location: {ROOT}?S='. $ses);
 		exit;
 	}
 

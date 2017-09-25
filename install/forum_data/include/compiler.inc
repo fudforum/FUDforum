@@ -350,12 +350,9 @@ function resolve_sections($file, $secname, $str)
 				$ret .= "' : '' )  .'";
 				break;
 
-			case 'URL_ROOT':
-				$ret .= "'.\$GLOBALS['WWW_ROOT'].'";
-				break;
-
-			case 'ROOT':
-			case 'FULL_ROOT':
+			case 'BASE':		// /forum/
+			case 'ROOT':		// /forum/index.php
+			case 'FULL_ROOT':	// http://site.com/forum/index.php
 			case 'THEME_ROOT':
 			case 'THEME_IMAGE_ROOT':
 				$ret .= $GLOBALS['__COMPILER__'][$tag];
@@ -737,7 +734,7 @@ function compile_all($tset='default', $lang='en', $tname='default')
 	$GLOBALS['TC']                  = array();
 	$GLOBALS['file_cache']          = array();
 
-	@unlink($GLOBALS['DATA_DIR'] .'src/db.inc.t'); // win32 hack
+	@unlink($GLOBALS['DATA_DIR'] .'src/db.inc.t'); // win32 hack, delete before copy.
 	copy($GLOBALS['DATA_DIR'] .'sql/'. $GLOBALS['DBHOST_DBTYPE'] .'/db.inc', $GLOBALS['DATA_DIR'] .'src/db.inc.t');
 
 	$GLOBALS['__COMPILER__'] = array('tset' => $tset, 'lang' => $lang, 'tname' => $tname);
@@ -748,19 +745,33 @@ function compile_all($tset='default', $lang='en', $tname='default')
 	$urlpath = empty($urlparts['path']) ? '/' : $urlparts['path'];
 	if ($urlpath[strlen($urlpath)-1] != '/') {
 	   $urlpath = $urlpath .'/';
-    }
+	}
 
 	// Define constants to expand in template files, i.e. {ROOT}.	
+	$cmpl['BASE'] = substr($urlpath, 0, strrpos($urlpath, '/')+1 );
+
 	if ($GLOBALS['FUD_OPT_4'] & 8) {	// Remove index.php from URLs (8==NO_INDEX_URL)
-		$cmpl['ROOT'] = rtrim($urlpath, '/');
+		$cmpl['ROOT']      = rtrim($cmpl['BASE'], '/');
+		$cmpl['FULL_ROOT'] = rtrim($GLOBALS['WWW_ROOT']);
 	} else {
-		$cmpl['ROOT'] = $urlpath .'index.php';
+		$cmpl['ROOT']      = $cmpl['BASE'] .'index.php';
+		$cmpl['FULL_ROOT'] = $GLOBALS['WWW_ROOT'] .'index.php';
 	}
-	$cmpl['FULL_ROOT'] = $urlpath;
-	$cmpl['THEME_ROOT'] = $urlpath .'theme/'. $tname;
+	$cmpl['THEME_ROOT'] = $cmpl['BASE'] .'theme/'. $tname;
 
 	$cmpl['THEME_ROOT_DISK'] = $GLOBALS['WWW_ROOT_DISK'] .'theme/'. $tname;
 	$cmpl['THEME_IMAGE_ROOT'] = $cmpl['THEME_ROOT'] .'/images';
+
+	if (defined('fud_debug')) {
+		print "<pre>";
+		print "\nBASE=". $cmpl['BASE'];
+		print "\nROOT=". $cmpl['ROOT'];
+		print "\nFULL_ROOT=". $cmpl['FULL_ROOT'];
+		print "\nTHEME_ROOT=". $cmpl['THEME_ROOT'];
+		print "\nTHEME_IMAGE_ROOT=". $cmpl['THEME_IMAGE_ROOT'];
+		print "\nTHEME_ROOT_DISK=". $cmpl['THEME_ROOT_DISK'];
+		print "</pre>";
+	}
 
 	$charset = $GLOBALS['DATA_DIR'] .'thm/'. $tset .'/i18n/'. $lang .'/charset';
 	if (!is_file($charset)) {
@@ -787,8 +798,8 @@ function compile_all($tset='default', $lang='en', $tname='default')
 	fud_mkdir($GLOBALS['INCLUDE'] .'theme');
 	fud_mkdir($GLOBALS['INCLUDE'] .'theme/'. $tname);
 
-	$GLOBALS['CMP_LOC_S'] = array('{ROOT}', '{FULL_ROOT}', '{THEME_ROOT}', '{THEME_ROOT_DISK}', ".'';", ".''.");
-	$GLOBALS['CMP_LOC_K'] = array($cmpl['ROOT'], "'.\$GLOBALS['WWW_ROOT'].'", $cmpl['THEME_ROOT'], $cmpl['THEME_ROOT_DISK'], ';', '.');
+	$GLOBALS['CMP_LOC_S'] = array('{BASE}', '{ROOT}', '{FULL_ROOT}', '{THEME_ROOT}', '{THEME_ROOT_DISK}', ".'';", ".''.");
+	$GLOBALS['CMP_LOC_K'] = array($cmpl['BASE'], $cmpl['ROOT'], "'.\$GLOBALS['WWW_ROOT'].'", $cmpl['THEME_ROOT'], $cmpl['THEME_ROOT_DISK'], ';', '.');
 
 	/*
 	 * Build the message array.

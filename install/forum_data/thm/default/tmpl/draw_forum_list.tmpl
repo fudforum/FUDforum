@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -26,7 +26,7 @@
 
 {SECTION: index_forum_entry forum entry row}
 <tr style="display: {IF: empty($collapse[$cid])}table-row{ELSE}none{ENDI}" class="row child-c{VAR: r[5]}">
-	<td class="RowStyleA wo">{IF: $r[6]}<img src="images/forum_icons/{VAR: r[6]}" alt="{MSG: forum_icon}" />{ELSE}&nbsp;{END}</td>
+	<td class="RowStyleA wo">{IF: $r[6]}<img src="{BASE}images/forum_icons/{VAR: r[6]}" alt="{MSG: forum_icon}" />{ELSE}&nbsp;{END}</td>
 	<td class="RowStyleB ac wo">{IF: empty($r[12])}{VAR: forum_read_indicator}{ELSE}<img title="{MSG: index_url_redirection}" src="{THEME_IMAGE_ROOT}/moved.png" alt="" />{ENDI}</td>
 	<td class="RowStyleA wa"><a href="{TEMPLATE: index_forum_entry_lnk}" class="big">{VAR: r[10]}</a>{FUNC: ($r[11] ? '<br />'.$r[11] : '')}{VAR: moderators}</td>
 	<td class="RowStyleB ac">{IF: empty($r[12])}{VAR: r[13]}{ELSE}--{ENDI}</td>

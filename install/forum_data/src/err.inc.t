@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -52,15 +52,15 @@ function error_dialog($title, $msg, $level='WARN', $ses=null)
 	// Redirect to error template.
 	if (is_int($ses)) {
 		if ($GLOBALS['FUD_OPT_2'] & 32768) {
-			header('Location: {FULL_ROOT}{ROOT}/e/'. _rsidl);
+			header('Location: {ROOT}/e/'. _rsidl);
 		} else {
-			header('Location: {FULL_ROOT}{ROOT}?t=error&'. _rsidl);
+			header('Location: {ROOT}?t=error&'. _rsidl);
 		}
 	} else {
 		if ($GLOBALS['FUD_OPT_2'] & 32768) {
-			header('Location: {FULL_ROOT}{ROOT}/e/0/'. $ses);
+			header('Location: {ROOT}/e/0/'. $ses);
 		} else {
-			header('Location: {FULL_ROOT}{ROOT}?t=error&S='. $ses);
+			header('Location: {ROOT}?t=error&S='. $ses);
 		}
 	}
 	exit;

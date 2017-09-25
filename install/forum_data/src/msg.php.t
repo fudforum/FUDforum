@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2016 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -92,9 +92,9 @@
 	}
 	if ($frm->moved_to) { /* Moved thread, we could handle it, but this case is rather rare, so it's cleaner to redirect. */
 		if ($FUD_OPT_2 & 32768) {
-			header('Location: {FULL_ROOT}{ROOT}/m/'. $frm->root_msg_id .'/'. _rsidl .'#msg_'. $frm->root_msg_id);
+			header('Location: {ROOT}/m/'. $frm->root_msg_id .'/'. _rsidl .'#msg_'. $frm->root_msg_id);
 		} else {
-			header('Location: {FULL_ROOT}{ROOT}?t=msg&goto='. $frm->root_msg_id .'&'. _rsidl .'#msg_'. $frm->root_msg_id);
+			header('Location: {ROOT}?t=msg&goto='. $frm->root_msg_id .'&'. _rsidl .'#msg_'. $frm->root_msg_id);
 		}
 		exit;
 	}
@@ -107,9 +107,9 @@
 			std_error('login');
 		}
 		if ($FUD_OPT_2 & 32768) {
-			header('Location: {FULL_ROOT}{ROOT}/i/'. _rsidl);
+			header('Location: {ROOT}/i/'. _rsidl);
 		} else {
-			header('Location: {FULL_ROOT}{ROOT}?'. _rsidl);
+			header('Location: {ROOT}?'. _rsidl);
 		}
 		exit;
 	}

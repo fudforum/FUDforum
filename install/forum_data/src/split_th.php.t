@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -52,9 +52,9 @@ function th_frm_last_post_id($id, $th)
 		/* sanity check */
 		if (!$m) {
 			if ($FUD_OPT_2 & 32768) {
-				header('Location: {FULL_ROOT}{ROOT}/t/'. $th .'/'. _rsidl);
+				header('Location: {ROOT}/t/'. $th .'/'. _rsidl);
 			} else {
-				header('Location: {FULL_ROOT}{ROOT}?t='. d_thread_view .'&th='. $th .'&'. _rsidl);
+				header('Location: {ROOT}?t='. d_thread_view .'&th='. $th .'&'. _rsidl);
 			}
 			exit;
 		}
@@ -70,9 +70,9 @@ function th_frm_last_post_id($id, $th)
 			/* sanity check */
 			if (!$a) {
 				if ($FUD_OPT_2 & 32768) {
-					header('Location: {FULL_ROOT}{ROOT}/t/'. $th .'/'. _rsidl);
+					header('Location: {ROOT}/t/'. $th .'/'. _rsidl);
 				} else {
-					header('Location: {FULL_ROOT}{ROOT}?t='. d_thread_view .'&th='. $th .'&'. _rsidl);
+					header('Location: {ROOT}?t='. d_thread_view .'&th='. $th .'&'. _rsidl);
 				}
 				exit;
 			}
@@ -103,9 +103,9 @@ function th_frm_last_post_id($id, $th)
 		/* Sanity check. */
 		if (!$data->replies) {
 			if ($FUD_OPT_2 & 32768) {
-				header('Location: {FULL_ROOT}{ROOT}/t/'. $th .'/'. _rsidl);
+				header('Location: {ROOT}/t/'. $th .'/'. _rsidl);
 			} else {
-				header('Location: {FULL_ROOT}{ROOT}?t='. d_thread_view .'&th='. $th .'&'. _rsidl);
+				header('Location: {ROOT}?t='. d_thread_view .'&th='. $th .'&'. _rsidl);
 			}
 			exit;
 		}
@@ -184,9 +184,9 @@ function th_frm_last_post_id($id, $th)
 			$th_id = $data->id;
 		}
 		if ($FUD_OPT_2 & 32768) {
-			header('Location: {FULL_ROOT}{ROOT}/t/'. $th_id .'/'. _rsidl);
+			header('Location: {ROOT}/t/'. $th_id .'/'. _rsidl);
 		} else {
-			header('Location: {FULL_ROOT}{ROOT}?t='. d_thread_view .'&th='. $th_id .'&'. _rsidl);
+			header('Location: {ROOT}?t='. d_thread_view .'&th='. $th_id .'&'. _rsidl);
 		}
 		exit;
 	}

@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2016 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -189,9 +189,9 @@ function ses_anonuser_auth($id, $error)
 	}
 	q('UPDATE {SQL_TABLE_PREFIX}ses SET data='. _esc(serialize($error)) .', returnto='. ssn($_SERVER['QUERY_STRING']) .' WHERE id='. $id);
 	if ($GLOBALS['FUD_OPT_2'] & 32768) {	// USE_PATH_INFO
-		header('Location: {FULL_ROOT}{ROOT}/l/'. _rsidl);
+		header('Location: {ROOT}/l/'. _rsidl);
 	} else {
-		header('Location: {FULL_ROOT}{ROOT}?t=login&'. _rsidl);
+		header('Location: {ROOT}?t=login&'. _rsidl);
 	}
 	exit;
 }

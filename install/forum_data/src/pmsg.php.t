@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2016 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -39,8 +39,8 @@
 	/* Moving or deleting a message. */
 	if (isset($_POST['sel']) || isset($_GET['sel'])) {
 		if (!empty($_POST['btn_pdf'])) {
-			header('Location: {FULL_ROOT}pdf.php?sel[]='. implode('&sel[]=', $_POST['sel']) .'&'. _rsidl);
-			exit;		
+			header('Location: {BASE}pdf.php?sel[]='. implode('&sel[]=', $_POST['sel']) .'&'. _rsidl);
+			exit;
 		}
 		$sel = isset($_POST['sel']) ? (array)$_POST['sel'] : (array)$_GET['sel'];
 		$move_to = (!isset($_POST['btn_delete']) && isset($_POST['moveto'], $folders[$_POST['moveto']])) ? (int) $_POST['moveto'] : 0;

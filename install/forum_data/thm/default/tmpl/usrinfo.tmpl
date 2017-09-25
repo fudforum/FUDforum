@@ -221,11 +221,11 @@
 {IF: $is_a}
 <tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: findu_admin_opts_header}</td>
 <td>
-<a href="{GVAR: WWW_ROOT}adm/admuser.php?usr_id={VAR: u->id}&amp;S={DEF: s}&amp;act=1&amp;SQ={GVAR: sq}">{MSG: findu_edit}</a> || <a href="{GVAR: WWW_ROOT}adm/admuser.php?usr_id={VAR: u->id}&amp;S={DEF: s}&amp;act=del&amp;SQ={GVAR: sq}">{MSG: findu_delete}</a> || 
+<a href="{BASE}adm/admuser.php?usr_id={VAR: u->id}&amp;S={DEF: s}&amp;act=1&amp;SQ={GVAR: sq}">{MSG: findu_edit}</a> || <a href="{BASE}adm/admuser.php?usr_id={VAR: u->id}&amp;S={DEF: s}&amp;act=del&amp;SQ={GVAR: sq}">{MSG: findu_delete}</a> || 
 {IF: $u->users_opt & 65536}
-<a href="{GVAR: WWW_ROOT}adm/admuser.php?act=block&amp;usr_id={VAR: u->id}&amp;S={DEF: s}&amp;SQ={GVAR: sq}">{MSG: findu_unban}</a>
+<a href="{BASE}adm/admuser.php?act=block&amp;usr_id={VAR: u->id}&amp;S={DEF: s}&amp;SQ={GVAR: sq}">{MSG: findu_unban}</a>
 {ELSE}
-<a href="{GVAR: WWW_ROOT}adm/admuser.php?act=block&amp;usr_id={VAR: u->id}&amp;S={DEF: s}&amp;SQ={GVAR: sq}">{MSG: findu_ban}</a>
+<a href="{BASE}adm/admuser.php?act=block&amp;usr_id={VAR: u->id}&amp;S={DEF: s}&amp;SQ={GVAR: sq}">{MSG: findu_ban}</a>
 {ENDI}
 </td></tr>
 {ENDIF}

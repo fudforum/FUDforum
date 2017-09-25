@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -78,7 +78,7 @@ function print_reg_field($descr, $field, $is_int=0, $pass=0)
 }
 
 /** Print a text field (used in ACP). */
-function print_txt_field($descr, $field, $rows=2, $cols=30)
+function print_txt_field($descr, $field, $rows=3, $cols=30)
 {
 	if (!isset($GLOBALS[$field])) {
 		$val = '';

@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -93,7 +93,7 @@
 {SECTION: END}
 
 {SECTION: post_icon_entry}
-<td class="ac nw"><input type="radio" name="msg_icon" value="{VAR: f}"{IF: $f == $msg_icon} checked="checked"{ENDIF} /><img src="images/message_icons/{VAR: f}" alt="" /></td>
+<td class="ac nw"><input type="radio" name="msg_icon" value="{VAR: f}"{IF: $f == $msg_icon} checked="checked"{ENDIF} /><img src="{BASE}images/message_icons/{VAR: f}" alt="" /></td>
 {SECTION: END}
 
 {SECTION: post_icon_row}
@@ -186,13 +186,13 @@ if (!document.getElementById('preview')) {
 {SECTION: END}
 
 {SECTION: post_smilies_lnk1}
-{FULL_ROOT}{ROOT}?t=smladd
+{ROOT}?t=smladd
 {SECTION: END}
 
 {SECTION: fud_code_icons_lnk1}
-{FULL_ROOT}{ROOT}?t=mklist&amp;{DEF: _rsid}&amp;tp=OL:1
+{ROOT}?t=mklist&amp;{DEF: _rsid}&amp;tp=OL:1
 {SECTION: END}
 
 {SECTION: fud_code_icons_lnk2}
-{FULL_ROOT}{ROOT}?t=mklist&amp;{DEF: _rsid}&amp;tp=UL:square
+{ROOT}?t=mklist&amp;{DEF: _rsid}&amp;tp=UL:square
 {SECTION: END}

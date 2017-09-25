@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2016 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -92,7 +92,7 @@
 {SECTION: END}
 
 {SECTION: dmsg_level_image}
-&nbsp;<img src="images/{VAR: obj->level_img}" alt="" />
+&nbsp;<img src="{BASE}images/{VAR: obj->level_img}" alt="" />
 {SECTION: END}
 
 {SECTION: dmsg_avatar}
@@ -271,7 +271,7 @@
 
 {SECTION: dmsg_drawmsg_file_attachment file attachment entry row}
 <li>
-	<img alt="" src="images/mime/{VAR: v[4]}" class="at" />
+	<img alt="" src="{BASE}images/mime/{VAR: v[4]}" class="at" />
 	<span class="GenText fb">{MSG: attachment}</span> <a href="{TEMPLATE: dmsg_drawmsg_file_attachment_lnk}" title="{VAR: v[1]}">{VAR: v[1]}</a>
 	<br />
 	<span class="SmallText">({MSG: size} {FUNC: ($sz < 1000 ? number_format($sz, 2).'KB' : number_format($sz/1024, 2).'MB')}, {MSG: download_counter})</span>
@@ -390,7 +390,7 @@
 	<td class="MsgSpacer">
 		<table cellspacing="0" cellpadding="0" class="MsgTable">
 		<tr>
-			<td class="MsgR1 vt al MsgSubText"><a name="msg_num_{VAR: m_num}"></a><a name="msg_{VAR: obj->id}"></a>{IF: $obj->icon && !$hide_controls}<img src="images/message_icons/{VAR: obj->icon}" alt="{VAR: obj->icon}" />&nbsp;&nbsp;{ENDIFI}{TEMPLATE: dmsg_subject}</td>
+			<td class="MsgR1 vt al MsgSubText"><a name="msg_num_{VAR: m_num}"></a><a name="msg_{VAR: obj->id}"></a>{IF: $obj->icon && !$hide_controls}<img src="{BASE}images/message_icons/{VAR: obj->icon}" alt="{VAR: obj->icon}" />&nbsp;&nbsp;{ENDIFI}{TEMPLATE: dmsg_subject}</td>
 			<td class="MsgR1 vt ar"><span class="DateText">{TEMPLATE: dmsg_post_date}</span> {TEMPLATE-DATA: prev_message}{TEMPLATE-DATA: next_message}</td>
 		</tr>
 		<tr class="MsgR2">
@@ -401,7 +401,7 @@
 					<td class="msgud">
 						{TEMPLATE-DATA: online_indicator}
 						{TEMPLATE-DATA: user_link}
-						{IF: !$hide_controls}{IF: $obj->disp_flag_cc && $GLOBALS['FUD_OPT_3'] & 524288}&nbsp;&nbsp;<img src="images/flags/{VAR: obj->disp_flag_cc}.png" border="0" width="16" height="11" title="{VAR: obj->flag_country}" alt="{VAR: obj->flag_country}"/>{ENDIFI}{IF: $obj->user_id}<br /><b>{MSG: posts_c}</b> {VAR: obj->posted_msg_count}<br /><b>{MSG: registered}</b> {TEMPLATE: dmsg_join_date} {TEMPLATE-DATA: location}{ENDIFI}{ENDIFI}
+						{IF: !$hide_controls}{IF: $obj->disp_flag_cc && $GLOBALS['FUD_OPT_3'] & 524288}&nbsp;&nbsp;<img src="{BASE}images/flags/{VAR: obj->disp_flag_cc}.png" border="0" width="16" height="11" title="{VAR: obj->flag_country}" alt="{VAR: obj->flag_country}"/>{ENDIFI}{IF: $obj->user_id}<br /><b>{MSG: posts_c}</b> {VAR: obj->posted_msg_count}<br /><b>{MSG: registered}</b> {TEMPLATE: dmsg_join_date} {TEMPLATE-DATA: location}{ENDIFI}{ENDIFI}
 						{IF: $GLOBALS['FUD_OPT_4'] & 4}<div class="karma_usr_{VAR: obj->poster_id} SmallText">{TEMPLATE: karma_show}</div>{ENDIFI}
 					</td>
 					<td class="msgud">{TEMPLATE-DATA: dmsg_tags}</td>

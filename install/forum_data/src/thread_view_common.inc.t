@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -63,9 +63,9 @@ if (!($frm->group_cache_opt & 2) && !$MOD) {
 		std_error('login');
 	}
 	if ($FUD_OPT_2 & 32768) {
-		header('Location: {FULL_ROOT}{ROOT}/i/'. _rsidl);
+		header('Location: {ROOT}/i/'. _rsidl);
 	} else {
-		header('Location: {FULL_ROOT}{ROOT}?'. _rsidl);
+		header('Location: {ROOT}?'. _rsidl);
 	}
 	exit;
 }

@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -135,15 +135,15 @@
 {PAGE: END}
 
 {SECTION: msg_pdf_link}
-[ <a href="{GVAR: WWW_ROOT}pdf.php?th={VAR: th}&amp;{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/pdf.gif" title="{MSG: thread_printable_pdf}" alt="PDF" /></a> ]
+[ <a href="{BASE}pdf.php?th={VAR: th}&amp;{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/pdf.gif" title="{MSG: thread_printable_pdf}" alt="PDF" /></a> ]
 {SECTION: END}
 
 {SECTION: msg_xml_link}
-[ <a href="{TEMPLATE: msg_xml_link_lnk}">{MSG: thread_syndicate}</a> ] [ <a href="feed.php?mode=m&amp;th={VAR: th}&amp;basic=1"><img src="{THEME_IMAGE_ROOT}/rss.gif" title="{MSG: thread_syndicate}" alt="RSS" /></a> ]
+[ <a href="{TEMPLATE: msg_xml_link_lnk}">{MSG: thread_syndicate}</a> ] [ <a href="{BASE}feed.php?mode=m&amp;th={VAR: th}&amp;basic=1"><img src="{THEME_IMAGE_ROOT}/rss.gif" title="{MSG: thread_syndicate}" alt="RSS" /></a> ]
 {SECTION: END}
 
 {SECTION: msg_RSS}
-{IF: $FUD_OPT_2 & 1048576}<link rel="alternate" type="application/rss+xml" title="{MSG: thread_syndicate}" href="{GVAR: WWW_ROOT}feed.php?mode=m&amp;th={VAR: th}&amp;basic=1" />
+{IF: $FUD_OPT_2 & 1048576}<link rel="alternate" type="application/rss+xml" title="{MSG: thread_syndicate}" href="{BASE}feed.php?mode=m&amp;th={VAR: th}&amp;basic=1" />
 {ENDIFI}
 {SECTION: END}
 
@@ -212,5 +212,5 @@
 {SECTION: END}
 
 {SECTION: msg_mv_thread}
-{FULL_ROOT}{ROOT}?t=mvthread&amp;{DEF: _rsid}&amp;th={VAR: th}
+{ROOT}?t=mvthread&amp;{DEF: _rsid}&amp;th={VAR: th}
 {SECTION: END}

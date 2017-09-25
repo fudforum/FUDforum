@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2016 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -89,9 +89,9 @@
 
 		ses_delete($usr->sid);
 		if ($FUD_OPT_2 & 32768 && $returnto && $returnto[0] == '/') {
-			header('Location: {FULL_ROOT}{ROOT}'. $returnto);
+			header('Location: {ROOT}'. $returnto);
 		} else {
-			header('Location: {FULL_ROOT}{ROOT}?'. str_replace(array('?', '&&'), array('&', '&'), $returnto));
+			header('Location: {ROOT}?'. str_replace(array('?', '&&'), array('&', '&'), $returnto));
 		}
 		exit;
 	}
@@ -99,9 +99,9 @@
 	/* Send logged in users to profile page if they are not logging out. */
 	if (_uid) {
 		if ($FUD_OPT_2 & 32768) {
-			header('Location: {FULL_ROOT}{ROOT}/re/'. _rsidl);
+			header('Location: {ROOT}/re/'. _rsidl);
 		} else {
-			header('Location: {FULL_ROOT}{ROOT}?t=register&'. _rsidl);
+			header('Location: {ROOT}?t=register&'. _rsidl);
 		}
 		exit;
 	}
@@ -206,7 +206,7 @@ function error_check()
 			}
 
 			if (!empty($_POST['adm']) && $usr_d->users_opt & 1048576) {
-				header('Location: {FULL_ROOT}adm/index.php?S='. $ses_id .'&SQ='. $new_sq);
+				header('Location: {ROOT}adm/index.php?S='. $ses_id .'&SQ='. $new_sq);
 				exit;
 			}
 

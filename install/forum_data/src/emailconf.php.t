@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -39,7 +39,7 @@
 		$usr->users_opt = (int) q_singleval('SELECT users_opt FROM {SQL_TABLE_PREFIX}users WHERE id='. $uid);
 	}
 	if ($usr->users_opt & 2097152) {
-		header('Location: {FULL_ROOT}{ROOT}'. ($FUD_OPT_2 & 32768 ? '/rc/' : '?t=reg_conf&') . _rsidl);
+		header('Location: {ROOT}'. ($FUD_OPT_2 & 32768 ? '/rc/' : '?t=reg_conf&') . _rsidl);
 		return;
 	}
 	check_return($usr->returnto);

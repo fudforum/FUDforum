@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -12,7 +12,7 @@
 {REF: post_common.tmpl}
 
 {SECTION: quick_reply}
-<form action="{ROOT}?t=post" method="post" id="post_form" name="post_form" enctype="multipart/form-data" onsubmit="document.forms[\'post_form\'].btn_submit.disabled = true;">
+<form action="{TEMPLATE: POST_PAGE_lnk}" method="post" id="post_form" name="post_form" enctype="multipart/form-data" onsubmit="document.forms[\'post_form\'].btn_submit.disabled = true;">
 <table cellspacing="0" cellpadding="0" class="ContentTable">
 <tr>
 	<td class="MsgSpacer">
@@ -49,6 +49,10 @@
 </tr>
 </table>
 </form>
+{SECTION: END}
+
+{SECTION: POST_PAGE_lnk}
+{ROOT}?t=post
 {SECTION: END}
 
 {SECTION: quick_reply_prefix used to check if the subject needs it added}

@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -13,10 +13,17 @@ function smiley_rebuild_cache()
 {
 	$rep = $src = $dst = array();
 
+	// Extract path from forum URL.
+	$urlparts = parse_url($GLOBALS['WWW_ROOT']);
+	$urlpath = empty($urlparts['path']) ? '/' : $urlparts['path'];
+	if ($urlpath[strlen($urlpath)-1] != '/') {
+	   $urlpath = $urlpath .'/';
+	}
+
 	/* Rebuild POST -> Smiley Cache. */
-	$c = uq('SELECT code, '. q_concat('\'images/smiley_icons/\'', 'img') .', descr FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'smiley ORDER BY vieworder');
+	$c = uq('SELECT code, img, descr FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'smiley ORDER BY vieworder');
 	while ($r = db_rowarr($c)) {
-		$src[] = $co = '<img src="'. $r[1] .'" border="0" alt="'. $r[2] .'" />';
+		$src[] = $co = '<img src="'. $urlpath .'images/smiley_icons/'. $r[1] .'" border="0" alt="'. $r[2] .'" />';
 		$codes = explode('~', strtolower($r[0]));
 		$dst[] = $codes[0];
 		foreach ($codes as $v) {

@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -16,9 +16,9 @@
 	/* User is logged in, redirect to forum index. */
 	if (_uid) {
 		if ($FUD_OPT_2 & 32768) {
-			header('Location: {FULL_ROOT}{ROOT}/i/'. _rsidl);
+			header('Location: {ROOT}/i/'. _rsidl);
 		} else {
-			header('Location: {FULL_ROOT}{ROOT}?t=index&'. _rsidl);
+			header('Location: {ROOT}?t=index&'. _rsidl);
 		}
 		exit;
 	}
@@ -44,9 +44,9 @@
 			
 			// Redirect user to login screen.
 			if ($FUD_OPT_2 & 32768) {
-				header('Location: {FULL_ROOT}{ROOT}/l/'. _rsidl);
+				header('Location: {ROOT}/l/'. _rsidl);
 			} else {
-				header('Location: {FULL_ROOT}{ROOT}?t=login&'. _rsidl);
+				header('Location: {ROOT}?t=login&'. _rsidl);
 			}
 			exit;
 		}
@@ -73,7 +73,7 @@
 			} else {
 				// Reset it and notify user.
 				q('UPDATE {SQL_TABLE_PREFIX}users SET reset_key=\''. ($key = md5(__request_timestamp__ . $uobj->id . get_random_value())) .'\' WHERE id='. $uobj->id);
-				$url = '{FULL_ROOT}{ROOT}?t=reset&reset_key='. $key;
+				$url = '{FULL_ROOT}?t=reset&reset_key='. $key;
 				send_email($NOTIFY_FROM, $email, '{TEMPLATE: reset_newpass_title}', '{TEMPLATE: reset_reset}');
 			}
 			error_dialog('{TEMPLATE: reset_err_rstconf_title}', '{TEMPLATE: reset_err_rstconf_msg}');

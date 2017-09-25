@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -207,8 +207,8 @@ function export_msg_data(&$m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smile
 				if (strpos($msg_body, '[img]{ROOT}?t=getfile&id='. $_POST['file_del_opt'] .'[/img]') !== false) {
 					$msg_body = str_replace('[img]{ROOT}?t=getfile&id='. $_POST['file_del_opt'] .'[/img]', '', $msg_body);
 				}
-				if (strpos($msg_body, '[img]{FULL_ROOT}{ROOT}?t=getfile&id='. $_POST['file_del_opt'] .'[/img]') !== false) {
-					$msg_body = str_replace('[img]{FULL_ROOT}{ROOT}?t=getfile&id='. $_POST['file_del_opt'] .'[/img]', '', $msg_body);
+				if (strpos($msg_body, '[img]{FULL_ROOT}?t=getfile&id='. $_POST['file_del_opt'] .'[/img]') !== false) {
+					$msg_body = str_replace('[img]{FULL_ROOT}?t=getfile&id='. $_POST['file_del_opt'] .'[/img]', '', $msg_body);
 				}
 				$attach_count--;
 			}
@@ -329,9 +329,9 @@ function export_msg_data(&$m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smile
 		}
 
 		if ($FUD_OPT_2 & 32768) {
-			header('Location: {FULL_ROOT}{ROOT}/pdm/1/'. _rsidl);
+			header('Location: {ROOT}/pdm/1/'. _rsidl);
 		} else {
-			header('Location: {FULL_ROOT}{ROOT}?t=pmsg&'. _rsidl .'&fldr=1');
+			header('Location: {ROOT}?t=pmsg&'. _rsidl .'&fldr=1');
 		}
 		exit;
 	}
@@ -423,7 +423,7 @@ function export_msg_data(&$m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smile
 	}
 
 	if ($PRIVATE_ATTACHMENTS > 0) {
-		$file_attachments = draw_post_attachments($attach_list, $PRIVATE_ATTACH_SIZE, $PRIVATE_ATTACHMENTS, $attach_control_error, ($FUD_OPT_2 & 32768 ? '1' : '&amp;private=1'), $msg_id ? $msg_id : (isset($_GET['forward']) ? (int)$_GET['forward'] : 0));
+		$file_attachments = draw_post_attachments($attach_list, $PRIVATE_ATTACH_SIZE, $PRIVATE_ATTACHMENTS, $attach_control_error, 1, $msg_id ? $msg_id : (isset($_GET['forward']) ? (int)$_GET['forward'] : 0));
 	} else {
 		$file_attachments = '';
 	}
