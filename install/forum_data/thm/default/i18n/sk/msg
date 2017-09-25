@@ -3,6 +3,7 @@
 # Author: KuboF
 # Author: Kusavica
 # Author: Lexected
+# Author: Macofe
 # Author: Naudefj
 # Author: Rudko
 
@@ -206,6 +207,7 @@ vote_button:Hlasovať
 vote_for_thread:Hlasovať
 was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> bola premiestnená do <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> moderátorom.
 welcome_message:Vitajte <b> {VAR: usr->alias} </b>, vaša posledná návšteva bola dňa {TEMPLATE: welcome_message_date}
+# Fuzzy
 what_ppl_doing:Ukáž, čo robia ostatní
 reported_del_report:Zmazať oznámenie
 reported_reason:Dôvod:
@@ -374,6 +376,7 @@ my_buddies:Moji priatelia
 add_buddy:Pridať priateľa
 add:Pridať
 buddy_search:Zadajte používateľské meno používateľa, ktorého si želáte pridať.
+# Fuzzy
 member_search:Alebo použite voľbu <a href="javascript://" class="GenLink" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Hľadať používateľa</a>.
 buddy_remove:odstrániť
 post_normal:Normálna
@@ -668,8 +671,9 @@ register_err_notyouremail:Pomocou tejto e-mailovej adresy, je už registrovaný 
 register_err_avatartobig:Súbor, ktorý sa snažíte nahrať je príliš veľký, limit je {GVAR: CUSTOM_AVATAR_MAX_SIZE} bytov.
 register_err_avatarnotallowed:Používateľská ikona (avatar), ktorú sa pokúšate nahrať, nie je povolená. Skontrolujte si povolené typy súborov.
 register_conf_subject:Potvrdenie registrácie
-register_conf_msg:Ďakujeme za vašu registráciu,\nak si prajete účet aktivovať, kliknite na nižšie uvedenú internetovú adresu:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nPo aktivovaní účtu budete prihlásený do fóra a\npresmerovaný na hlavnú stránku.
+register_conf_msg:Ďakujeme za vašu registráciu,\nak si prajete účet aktivovať, kliknite na nižšie uvedenú internetovú adresu:\n\n{FULL_ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nPo aktivovaní účtu budete prihlásený do fóra a\npresmerovaný na hlavnú stránku.
 register_welcome_subject:Potvrdenie registrácie do fóra
+# Fuzzy
 register_welcome_msg:Ďakujeme za Vašu registráciu,\n\ntu sú údaje potrebné na prihlásenie do fóra:\n\nInternetová adresa fóra: {TEMPLATE: index_update_lnk}\nPoužívateľské meno: {VAR: uent->login}\nHeslo: {VAR: _POST['reg_plaintext_passwd']}\n\nPamätajte, prosím, že heslo je citlivé na veľké/malé písmená!\nAk si prajete zmeniť Vaše nastavenie alebo profil, kliknite tu:\n{FULL_ROOT}{ROOT}?t=register
 register_err_cantreg_title:CHYBA: registrácia nie je možná
 regsiter_err_cantreg_msg:Používateľský účet nebolo možné vytvoriť, prosím, kontaktujte administrátora na <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
@@ -682,7 +686,7 @@ reset_err_invalidkey_msg:Chybný kľúč pre obnovenie hesla. Je možné, že v�
 reset_err_rstconf_title:Informácia
 reset_err_rstconf_msg:V priebehu pár minút by ste e-mailom mali obdržať ďalšie pokyny
 reset_newpass_title:Obnoviť heslo
-reset_newpass_msg:Dobrý deň,\n\nna základe Vašej žiadosti Vám posielame prihlasovacie informácie:\n\nPoužívateľské meno: {VAR: ui[1]}\nHeslo: {VAR: passwd}\n\nProsím všimnite si, že Vaše heslo bolo zmenené na horeuvedenú hodnotu.\nAk si ho prajete zmeniť, môžete tak urobiť v nastaveniach používateľa na adrese:\n{FULL_ROOT}{ROOT}?t=register
+reset_newpass_msg:Dobrý deň,\n\nna základe Vašej žiadosti Vám posielame prihlasovacie informácie:\n\nPoužívateľské meno: {VAR: ui[1]}\nHeslo: {VAR: passwd}\n\nProsím všimnite si, že Vaše heslo bolo zmenené na horeuvedenú hodnotu.\nAk si ho prajete zmeniť, môžete tak urobiť v nastaveniach používateľa na adrese:\n{FULL_ROOT}?t=register
 reset_login_notify:Tvoje heslo bolo odoslané e-mailom. Malo by ti príjsť v priebehu niekoľkých minút.
 search_update:Vyhľadáva správy
 selmsg_update:Prehliada <a href="{TEMPLATE: selmsg_update_lnk}">dnešné príspevky</a>
@@ -717,6 +721,7 @@ error_title:Formulár pre hlásenie chýb
 index_title:Vitajte vo fóre
 search_title:Hľadať {VAR-HTML: srch}
 remail_emailsent:E-mail bol odoslaný
+# Fuzzy
 remail_email:Dobrý deň,\n\nvo internetovom fóre {GVAR: FORUM_TITLE} sa nachádza zaujímavá téma "{VAR: data->subject}", ktorú by ste si možno chceli prečítať. Tému si môžete prezrieť na internetovej adrese:\n  {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nVáš priateľ,\n\n{VAR: usr->alias}
 poll_add_option:Pridať možnosť:
 post_opt_html_on:<b>HTML</b> je <b>zapnuté</b>
@@ -951,7 +956,7 @@ thread_mark_all_read:Označiť všetky neprečítané príspevky v tomto fóre a
 thread_mark_all_read_desc:Všetky neprečítané príspevky v tomto fóre budú označené ako prečítané.
 private_no_messages:V tomto adresári nie sú žiadne správy.
 register_email_change_subject:Potvrdenie zmeny e-mailu
-register_email_change_msg:Prosím, potvrďte Vášu novú e-mailovú adresu "{VAR: uent->email}", ktorá nahrádza Vašu predošlú e-mailovú adresu "{VAR: old_email}" tým, že kliknete na nasledovnú internetovú adresu:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nKeď Vašu novú e-mailovú adresu potvrdíte, bude Váš používateľský účet reaktivovaný.
+register_email_change_msg:Prosím, potvrďte Vášu novú e-mailovú adresu "{VAR: uent->email}", ktorá nahrádza Vašu predošlú e-mailovú adresu "{VAR: old_email}" tým, že kliknete na nasledovnú internetovú adresu:\n{FULL_ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nKeď Vašu novú e-mailovú adresu potvrdíte, bude Váš používateľský účet reaktivovaný.
 iemail_thread_unsub:Odhlásiť z tejto témy
 iemail_forum_unsub:Odhlásiť z tohoto fóra
 primary_group_prefix:Primárna skupina pre fórum:
@@ -959,6 +964,7 @@ group_resources:Táto skupina kontroluje práva pre nasledujúce fóra
 register_admin_newuser_title:Nový používateľ sa zaregistroval a jeho účet čaká na schválenie
 register_admin_newuser_msg:Nový používateľ ({VAR: uent->login}) sa práve zaregistroval. Je zapnuté potvrdzovanie účtov, tento účet nebude aktivovaný pokým ho Vy alebo iný administrátor na  fóre nepotvrdí. Ak si prajete tento používateľský účet skontrolovať, prejdite na: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nTáto správa je vygenerovaná serverom, prosím, neodpovedajte na ňu.\nAk chcete vypnúť ďalšie e-mailové oznamy nových registrácií, môžete tak urobiť cez Nastavenia správcov, zmenením nastavenia "Oznámenia nových používateľských účtov".
 post_mod_msg_notify_title:Nový príspevok vo fóre "{VAR: frm->name}" na schválenie
+# Fuzzy
 post_mod_msg_notify_msg:Príspevok s predmetom "{VAR: msg_post->subject}" bol práve uverejnený vo fóre, ktoré moderujete. Ak si prajete skontrolovať túto správu, prejdite na: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nTáto správa je automaticky vygenerovaná. Prosím, neodpovedajte na ňu.
 thread_printable_pdf:Generovať PDF
 thread_syndicate:Vytvoriť XML súbor tohoto fóra
@@ -985,6 +991,7 @@ mnav_month:Mesiac(e)
 mnav_title:Navigátor správ
 mnav_update:Prezerá si príspevky cez <a href="{TEMPLATE: mnav_update_lnk}">Navigátor správ</a>
 pm_notify_subject:[{GVAR: FORUM_TITLE}] Oznámenie novej súkromnej pošty
+# Fuzzy
 pm_notify_body_email:V súkromnej pošte máte novú správu s predmetom "{VAR: subject}" od "{VAR: from}" vo fóre "{GVAR: FORUM_TITLE}".\nPre zobrazenie správy, kliknite sem: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nAk si neprajete, dostávať ďalšie takéto upozornenia, vypnite možnosť "Upozorňovať na správy súkromnej pošty" vo vašom profile.
 register_pm_notification:Správy o súkromnej pošte
 register_pm_notification_desc:Ak je to povolené, budete upozorňovaní o každej novej správe súkromnej pošty.
@@ -1113,6 +1120,7 @@ move_msg_th_expl:Zadajte číslo cieľovej témy (môže byť na iných fórach)
 captcha_img_alt:Overenie kódu (captcha): Rozpoznajte text v obrázku.
 captcha_img_help:V obrázku sa nula alebo jeden nenachádza.
 powered-by:Prevádzkuje: FUDforum {GVAR: FORUM_VERSION}.
+# Fuzzy
 copyright:Copyright &copy;2001-2013 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Kód:
 code_select_all:Vybrať všetko

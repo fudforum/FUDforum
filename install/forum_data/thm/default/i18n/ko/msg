@@ -213,7 +213,7 @@ vote_button:투표
 vote_for_thread:투표
 was_moved_msg:중재자가 <a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> 메시지를 <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> 메시지로 이동했습니다.
 welcome_message:<b>{VAR: usr->alias}</b>님 환영합니다, 마지막으로 방문한 날짜는 {TEMPLATE: welcome_message_date}입니다
-what_ppl_doing:사람들이 무엇을 하는지 보기
+what_ppl_doing:사용자 활동
 reported_del_report:레포트 삭제
 reported_reason:이유:
 reported_on:날짜:
@@ -381,7 +381,7 @@ my_buddies:나의 친구
 add_buddy:친구 추가
 add:추가
 buddy_search:추가할 사용자의 로그인 이름을 입력하십시오.
-member_search:Or use the <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Find User</a> feature to find a person.
+member_search:사람을 찾으려면 <a href="javascript://" onclick="javascript: window_open('{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">사용자 찾기</a> 기능을 사용하십시오.
 buddy_remove:제거
 post_normal:일반
 post_sticky:고정
@@ -471,7 +471,7 @@ login_login_btn:로그인
 login_name_required:로그인 이름은 필수입니다
 login_passwd_required:비밀번호가 필요합니다
 login_invalid_radius:로그인/비밀번호 조합이 잘못되었습니다
-reset_confirmation:등록해 주셔서 감사합니다,\n\n 계정 활성화를 위해 아래의 URL로 접속하십시오:\n\n{VAR: url}\n\n계정이 활성화되고 포럼으로 포럼 메인 페이지로 이동될 것입니다.
+reset_confirmation:등록해 주셔서 감사합니다.\n\n계정을 활성화하려면 아래의 URL로 이동하십시오:\n\n{VAR: url}\n\n계정이 활성화되면 포럼으로 로그인된 다음 메인 페이지로\n이동될 것입니다.
 reset_reset:안녕하세요,\n\n비밀번호를 재설정하기 위해 요청하였습니다. 과정을 완료하려면,\n이 URL로 가세요:\n\n{VAR: url}\n\n참고: 이 포럼은 비밀번호를 입력하면 비밀번호는 한 방향 암호화 매커니즘으로\n암호화되어 저장되므로 그것을 다시 얻을 수 있는 방법은 없음을 뜻합니다.\n이것은 로그인을 물어보는 것에 입력한 것을 인코딩한 버전과 기존의 인코딩된 버전을 비교하여 작동합니다.\n(이 매커니즘이 어떻게 작동하는가에 관심이 있다면, MD5 HASH 알고리즘을 읽어주세요)
 rpasswd_invalid_passwd:비밀번호가 잘못됨
 rpasswd_passwd_nomatch:비밀번호가 일치하지 않습니다
@@ -669,7 +669,9 @@ register_err_notyouremail:누군가가 이미 동일한 이메일 주소로 등�
 register_err_avatartobig:파일 사이즈가 너무 큽니다. 최대 파일 사이즈: {GVAR: CUSTOM_AVATAR_MAX_SIZE} bytes
 register_err_avatarnotallowed:업로드하려는 아바타는 허용되지 않습니다. 허용되는 파일 형식을 확인하십시오.
 register_conf_subject:등록 형식
+register_conf_msg:등록해 주셔서 감사합니다,\n계정을 활성화하려면 아래의 URL로 이동하십시오:\n\n{FULL_ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\n계정이 활성화되면 포럼으로 로그인된 다음 메인 페이지로\n이동될 것입니다.
 register_welcome_subject:포럼 등록 확인
+register_welcome_msg:등록해 주셔서 감사합니다.\n\n아래에 이 포럼의 로그인 상세 정보가 있습니다:\n\n포럼 URL: {TEMPLATE: index_update_lnk}\n로그인: {VAR: uent->login}\n비밀번호: {VAR: _POST['reg_plaintext_passwd']}\n\n비밀번호는 대소문자를 구분합니다!\n설정이나 프로파일을 수정하려면 이 문서로 이동하십시오:\n{FULL_ROOT}?t=register
 register_err_cantreg_title:오류: 등록불가
 regsiter_err_cantreg_msg:사용자 계정을 만들 수 없습니다. <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>(으)로 관리자에게 문의하세요
 register_profile_update:내 프로파일 보기
@@ -950,7 +952,7 @@ group_resources:이 그룹은 다음 포럼의 권한을 제어합니다
 register_admin_newuser_title:새 사용자가 등록했고 계정은 확인을 기다리고 있습니다
 register_admin_newuser_msg:새로운 사용자 ({VAR: uent->login})이(가) 방금 등록되었습니다. 계정 인증이 되었더라도 당신이나 다른 포럼 관리자가 확인해 줄 때까지는 해당 사용자 계정은 활성화되지 않습니다. 계정을 검토하려면 다음으로 이동하십시오: {GVAR: WWW_ROOT}adm/admuserapr.php\n\n이것은 자동화된 프로세스입니다. 이 메시지에 응답하지 마십시오.\n앞으로의 새로운 사용자 등록에 대한 이메일 알림을 받지 않으려면, 관리자 제어판을 통해 처리하십시오. "새로운 계정 알림" 설정을 변경하시면 됩니다.
 post_mod_msg_notify_title:"{VAR: frm->name}" 포럼에 승인을 기다리는 새 메시지
-post_mod_msg_notify_msg:"{VAR: msg_post->subject}"이라는 제목의 새 메시지가 적절한 포럼에 게시했습니다. 이 메시지를 검토하려면 다음으로 가세요: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\n자동화된 진행입니다. 이 메시지에 답변하지 마십시오.
+post_mod_msg_notify_msg:"{VAR: msg_post->subject}" 제목의 새 메시지가 방금 당신이 관리하는 포럼에 게시되었습니다. 이 메시지를 검토하려면 다음으로 이동하십시오: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\n이것은 자동화된 프로세스입니다. 이 메시지에 답변하지 마십시오.
 thread_printable_pdf:인쇄용 PDF 생성
 thread_syndicate:이 포럼을 전달 (XML)
 reg_conf_title:등록 확인
@@ -1096,7 +1098,7 @@ move_msg_th_expl:(다른 포럼에 있을 수 있는) 대상 주제의 ID를 지
 captcha_img_alt:Captcha(캡차) 검증: 이 그림에 텍스트를 인식할 필요가 있습니다.
 captcha_img_help:그림에 0이나 1도 없습니다.
 powered-by:제공: FUDforum {GVAR: FORUM_VERSION}.
-copyright:저작권 &copy;2001-2013 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:저작권 &copy;2001-2017 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:코드:
 code_select_all:모두 선택
 code_show_hide:보이기/ 숨기기

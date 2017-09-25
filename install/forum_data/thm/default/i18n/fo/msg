@@ -1,6 +1,8 @@
 # Messages for Faroese (føroyskt)
 # Exported from translatewiki.net
 # Author: EileenSanda
+# Author: Macofe
+# Author: Naudefj
 
 action:Handling
 add_to_buddy_list:Legg afturat vinalista
@@ -202,6 +204,7 @@ vote_button:Atkvøð
 vote_for_thread:Atkvøð
 was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> varð flutt til <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> av kjakansaranum.
 welcome_message:Vælkomin <b>{VAR: usr->alias}</b>, tín seinasta vitjan var hin {TEMPLATE: welcome_message_date}
+# Fuzzy
 what_ppl_doing:Vís hvat fólk takast við
 reported_del_report:Sletta frágreiðing
 reported_reason:Orsøk:
@@ -367,6 +370,7 @@ my_buddies:Mínir vinir
 add_buddy:Legg til sum vin
 add:Legg afturat
 buddy_search:Skriva brúkaranavnið hjá brúkaranum, ið tú ynskir at leggja afturat.
+# Fuzzy
 member_search:Ella brúka <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Finn brúkara</a> funksjónina fyri at finna ein persón.
 buddy_remove:tak burtur
 post_normal:Vanligt
@@ -662,8 +666,9 @@ register_err_notyouremail:Onkur annar er longu skrásettur við hesi t-post adre
 register_err_avatartobig:Fílan ið tú roynir at leggja út er ov stór, meira enn {GVAR: CUSTOM_AVATAR_MAX_SIZE} byte.
 register_err_avatarnotallowed:Avatarurin (myndin) ið tú roynir at leggja út er ikki loyvd. Kanna eftir hvørji fílusløg ið eru loyvd.
 register_conf_subject:Váttan fyri skráseting
-register_conf_msg:Takk fyri tína skráseting,\nFyri at aktivera tína konto skalt tú fara til henda URL'in:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nTá tín konta er aktiverað, so verður tú innritað/ur til hetta forumið og send/ur víðari til høvuðssíðuna.
+register_conf_msg:Takk fyri tína skráseting,\nFyri at aktivera tína konto skalt tú fara til henda URL'in:\n\n{FULL_ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nTá tín konta er aktiverað, so verður tú innritað/ur til hetta forumið og send/ur víðari til høvuðssíðuna.
 register_welcome_subject:Váttan fyri skráseting til forumið
+# Fuzzy
 register_welcome_msg:Takk fyri tína skráseting,\n\nHer er tín brúkarakunning til forumið:\n\nForum URL: {TEMPLATE: index_update_lnk}\nBrúkaranavn: {VAR: uent->login}\nLoyniorð: {VAR: _POST['reg_plaintext_passwd']}\n\nLegg til merkis at tað er munur á stórum og lítlum bókstavum í loyniorðunum!\nFyri at broyta tínar innstillingar ella profil, so skal tú fara til hesa síðuna:\n{FULL_ROOT}{ROOT}?t=register
 register_err_cantreg_title:FEILUR: ber ikki til at skráseta
 regsiter_err_cantreg_msg:Tað bar ikki til at upprætta brúkarakonto, vinarliga set teg í samband við administrator á <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
@@ -676,7 +681,7 @@ reset_err_invalidkey_msg:Skeiv kota fyri nullstillan av loyniorði. Tað er møg
 reset_err_rstconf_title:Kunning
 reset_err_rstconf_msg:Tú eigur at fáa leiðbeining við telduposti um eina lítla løtu.
 reset_newpass_title:Nulstilla loyniorð
-reset_newpass_msg:Hey,\n\nSambært umbøn frá tær, so hava vit sent tær títt brúkaranavn og loyniorð, sí niðanfyri:\n\nBrúkaranavn: {VAR: ui[1]}\nLoyniorð: {VAR: passwd}\n\nVinarliga legg til merkis, at títt loyniorð er blivið broytt til tað virði sum er nevnt omanfyri. Um tú ynskir\nat broyta títt loyniorð, so kanst tú gera tað á  kontrolpanelinum til brúkarakunning á:\n{FULL_ROOT}{ROOT}?t=register
+reset_newpass_msg:Hey,\n\nSambært umbøn frá tær, so hava vit sent tær títt brúkaranavn og loyniorð, sí niðanfyri:\n\nBrúkaranavn: {VAR: ui[1]}\nLoyniorð: {VAR: passwd}\n\nVinarliga legg til merkis, at títt loyniorð er blivið broytt til tað virði sum er nevnt omanfyri. Um tú ynskir\nat broyta títt loyniorð, so kanst tú gera tað á  kontrolpanelinum til brúkarakunning á:\n{FULL_ROOT}?t=register
 reset_login_notify:Títt loyniorð er blivið sent til tín við telduposti. Tú eigur at móttaka tað um fáar minuttir.
 search_update:Leitar í innsløgunum
 selmsg_update:Hyggur ígjøgnum <a href="{TEMPLATE: selmsg_update_lnk}">Dagsins innsløg</a>
@@ -711,6 +716,7 @@ error_title:FEILUR
 index_title:Vælkomin til forumið
 search_title:Leita eftir {VAR-HTML: srch}
 remail_emailsent:Teldubræv varð sent
+# Fuzzy
 remail_email:Hey,\n\nTað er eitt áhugavert evni um "{VAR: data->subject}" í {GVAR: FORUM_TITLE} foruminum, sum tú møguliga ynskir at lesa. Tú kanst síggja evnið á:\n {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nVinur tín,\n\n{VAR: usr->alias}
 poll_add_option:Legg afturat valmøguleika:
 post_opt_html_on:<b>HTML</b> kotan er sligin <b>til (tendrað)</b>
@@ -945,7 +951,7 @@ thread_mark_all_read:Merk øll ólisin innsløg í forum sum lisin
 thread_mark_all_read_desc:Øll ólisin innsløg í hesum forum verða merkt sum lisin
 private_no_messages:Tað eru ongi boð í hesi mappu.
 register_email_change_subject:Váttan fyri broytta t-post adressu
-register_email_change_msg:Vinarliga vátta tína nýggju t-post konto "{VAR: uent->email}" sum kemur í staðin fyri tína gomlu t-post konto "{VAR: old_email}", við at fara til internetadressuna niðanfyri:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nTá ið tú hevur váttað tína nýggju t-post adressu, so verður tín forumkonta aktiv aftur.
+register_email_change_msg:Vinarliga vátta tína nýggju t-post konto "{VAR: uent->email}" sum kemur í staðin fyri tína gomlu t-post konto "{VAR: old_email}", við at fara til internetadressuna niðanfyri:\n{FULL_ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nTá ið tú hevur váttað tína nýggju t-post adressu, so verður tín forumkonta aktiv aftur.
 iemail_thread_unsub:Frámelda hald til henda tráðin
 iemail_forum_unsub:Frámelda hald til hetta forumið
 primary_group_prefix:Høvuðsbólkur fyri forumið:
@@ -953,6 +959,7 @@ group_resources:Hesin bólkur stýrir loyvum hjá fylgjandi forum
 register_admin_newuser_title:Ein nýggjur brúkari hevur skrásett seg og kontan hjá viðkomandi bíðar eftir váttan
 register_admin_newuser_msg:Ein nýggjur brúkari ({VAR: uent->login}) hevur júst skrásett seg, og eftirsum kontováttan er aktiverað, so verður kontan hjá viðkomandi ikki aktiverað fyrr enn tú ella onkur annar forum administrator hevur váttað hana. Fyri at hyggja at kontuni, vinarliga far til: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nHetta er ein sjálvvirkandi gongd. Ikki svara hesum boðnum. \nUm tú ynskir at sløkkja fyri t-post fráboðanum um nýggjar brúkara skrásetingar framyvir, so kanst tú gera tað á  Admin Control Panel. Broyt innstillingina fyri "Fráboðan um nýggja konto".
 post_mod_msg_notify_title:Nýtt innslag í forum "{VAR: frm->name}" bíðar eftir góðkenning
+# Fuzzy
 post_mod_msg_notify_msg:Eitt nýtt innslag við heitinum "{VAR: msg_post->subject}" varð júst postað í einum forum, sum tú umsitur (moderator). Fyri at síggja hetta innslagið, so skal tú fara til: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nHetta boðið varð sent sjálvvirkandi. Ikki svara hesum boðnum.
 thread_printable_pdf:Ger PDF til at skriva út
 thread_syndicate:Útgev (syndikera) hetta forumið (XML)
@@ -979,6 +986,7 @@ mnav_month:Máðaður/ir
 mnav_title:Navigatørur til boðini
 mnav_update:Leitar í innsløgum við nýtslu av <a href="{TEMPLATE: mnav_update_lnk}">Navigatørinum til boðini</a>
 pm_notify_subject:[{GVAR: FORUM_TITLE}] Fráboðan um nýggj privat boð
+# Fuzzy
 pm_notify_body_email:Tú hevur eitt nýtt privat boð við heitinum "{VAR: subject}", frá "{VAR: from}", í forum "{GVAR: FORUM_TITLE}".\nFyri at síggja boðið, trýst her: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nFyri at støðga framtíðar fráboðanum, so kanst tú broyta innstillingina í tínum profili til óvirkið í "Fráboðan um Privat boð" .
 register_pm_notification:Fráboðan um privat boð:
 register_pm_notification_desc:Um tað er aktiverað, so fert tú at fáa fráboðanir hvørja ferð eini privat boð verða send til tín.
@@ -1107,7 +1115,7 @@ move_msg_th_expl:Gev ID fyri destinasjónsevnið (kann vera í øðrum forum)
 captcha_img_alt:Captcha váttan: tú mást kenna aftur tekstin á hesi myndini.
 captcha_img_help:Tað er onki null ella eitt-tal á myndini.
 powered-by:Rikið av: FUDforum {GVAR: FORUM_VERSION}.
-copyright:Upphavsrættur &copy;2001-2013 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Upphavsrættur &copy;2001-2017 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Kota:
 code_select_all:Vel alt
 code_show_hide:Vís/fjal

@@ -2,6 +2,7 @@
 # Exported from translatewiki.net
 # Author: AnakngAraw
 # Author: Jojit fb
+# Author: Macofe
 # Author: Naudefj
 
 action:Galaw
@@ -203,6 +204,7 @@ vote_button:Bumoto
 vote_for_thread:Bumoto
 was_moved_msg:Ang <a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> ay inilipat ng tagapamagitan papunta sa <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a>.
 welcome_message:Maligayang pagdating <b>{VAR: usr->alias}</b> , ang huli mong pagdalaw ay noong {TEMPLATE: welcome_message_date}
+# Fuzzy
 what_ppl_doing:Ipakita kung ano ang ginagawa ng mga tao
 reported_del_report:Burahin ang Ulat
 reported_reason:Dahilan:
@@ -367,6 +369,7 @@ my_buddies:Mga Katoto Ko
 add_buddy:Magdagdag ng Katoto
 add:Idagdag
 buddy_search:Ipasok ang paglagdang papasok ng tagagamit na nais mong idagdag.
+# Fuzzy
 member_search:O gamitin ang tampok na <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Hanapin ang Tagagamit</a> upang hanapin ang isang tao.
 buddy_remove:tanggalin
 post_normal:Karaniwan
@@ -663,8 +666,9 @@ register_err_notyouremail:Mayroon nang ibang tao na nagpatalang may ganitong tir
 register_err_avatartobig:Masyadong malaki ang talaksang sinusubukan mong ikargang papaitaas, mas mahigit kaysa sa {GVAR: CUSTOM_AVATAR_MAX_SIZE} mga bayt.
 register_err_avatarnotallowed:Hindi pinapahintulutan ang huwarang sinusubukan mong ikargang papaitaas. Suriin ang pinapayagang mga uri ng talaksan.
 register_conf_subject:Pagtitiyak ng Pagpapatala
-register_conf_msg:Salamata sa pagpapatala mo.\nUpang buhayin ang akawnt mo mangyaring pumunta sa URL na nasa ibaba:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nKapag nabuhay na ang akawnt mo ilalagda kang papasok sa poro at\npapupuntahin sa pangunahing pahina.
+register_conf_msg:Salamata sa pagpapatala mo.\nUpang buhayin ang akawnt mo mangyaring pumunta sa URL na nasa ibaba:\n\n{FULL_ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nKapag nabuhay na ang akawnt mo ilalagda kang papasok sa poro at\npapupuntahin sa pangunahing pahina.
 register_welcome_subject:Pagtitiyak ng Pagpapatala
+# Fuzzy
 register_welcome_msg:Salamat sa pagpapatala mo,\n\nNarito ang mga detalye mo ng paglagdang papasok para sa poro:\n\nURL ng Poro: {TEMPLATE: index_update_lnk}\nPaglagda: {VAR: uent->login}\nHudyat: {VAR: _POST['reg_plaintext_passwd']}\n\nMangyaring tandaan na ang mga hudyat ay maselan kapag minamakinilya!\nUpang baguhin ang mga pagtatakda mo o balangkas, pumunta sa pahinang ito:\n{FULL_ROOT}{ROOT}?t=register
 register_err_cantreg_title:KAMALIAN: hindi nagawang ipatala
 regsiter_err_cantreg_msg:Hindi nagawang likhain ang akawnt ng tagagamit, mangyring makipag-ugnayan sa tagapangasiwa doon sa <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
@@ -677,7 +681,7 @@ reset_err_invalidkey_msg:Hindi katanggap-tanggap na susi ng muling pagtatakda. M
 reset_err_rstconf_title:Kabatiran
 reset_err_rstconf_msg:Dapat na makatanggap ka ng mga tagubilin sa loob ng e-liham mo sa loob ng susunod na ilang mga minuto.
 reset_newpass_title:Itakdang Muli ang Hudyat
-reset_newpass_msg:Kumusta,\n\nAyon sa kahilingan, nakalitaw sa ibaba ang iyong kabatiran na panglagda:\n\nPanglagda: {VAR: ui[1]}\nHudyat: {VAR: passwd}\n\nMangyaring tandaan na ang hudyat mo ang itinakdang muli sa halagang nasa ibabaw. Kung nais mong\nbaguhin ang hudyat mo maaari mong gawin iyan ssa pamamagitan ng kahong-tabanan ng kabatiran na pangtagagamit na naroon sa:\n{FULL_ROOT}{ROOT}?t=register
+reset_newpass_msg:Kumusta,\n\nAyon sa kahilingan, nakalitaw sa ibaba ang iyong kabatiran na panglagda:\n\nPanglagda: {VAR: ui[1]}\nHudyat: {VAR: passwd}\n\nMangyaring tandaan na ang hudyat mo ang itinakdang muli sa halagang nasa ibabaw. Kung nais mong\nbaguhin ang hudyat mo maaari mong gawin iyan ssa pamamagitan ng kahong-tabanan ng kabatiran na pangtagagamit na naroon sa:\n{FULL_ROOT}?t=register
 # Fuzzy
 reset_login_notify:Naipadala na sa iyo ang hudyat mo. Dapat mong matanggap ito sa loob ng susunod na mangilan-ngilang mga minuto.<br />
 search_update:Hinahanap ang mga mensahe
@@ -713,6 +717,7 @@ error_title:Pormularyo ng Kamalian
 index_title:Maligayang pagdating sa poro
 search_title:Hanapin ang {VAR-HTML: srch}
 remail_emailsent:Naipadala na ang e-liham
+# Fuzzy
 remail_email:Kumusta,\n\nMayroong nakawiwiling paksa tungkol sa "{VAR: data->subject}" na nasa porong {GVAR: FORUM_TITLE} na maaaring nais mong basahin. Maaari mong makita ang paksa doon sa:\n {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nAng iyong kaibigan,\n\n {VAR: usr->alias}
 poll_add_option:Idagdag ang Mapagpipilian:
 post_opt_html_on:<b>Buhay</b> ang <b>HTML</b>
@@ -947,7 +952,7 @@ thread_mark_all_read:Markahang nabasa na ang lahat ng hindi pa nababasang mga me
 thread_mark_all_read_desc:Ang lahat ng mga hindi pa nababasang mga mensahe na nasa loob ng porong ito ay mamarkahang nabasa na
 private_no_messages:Walang mga mensahe sa loob ng pantuping ito.
 register_email_change_subject:Pagtitiyak ng pagpapalit ng e-liham
-register_email_change_msg:Mangyaring tiyakin ang bago mong akawnt ng e-liham na "{VAR: uent->email}" na kapalit ng luma mong akawnt ng e-liham na "{VAR: old_email}", sa pamamagitan ng pagpunta sa URL na nasa ibaba: {FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nKapag natiyak mo na ang bago mong tirahan ng e-liham, muli nang mabubuhay ang akawnt mo ng poro.
+register_email_change_msg:Mangyaring tiyakin ang bago mong akawnt ng e-liham na "{VAR: uent->email}" na kapalit ng luma mong akawnt ng e-liham na "{VAR: old_email}", sa pamamagitan ng pagpunta sa URL na nasa ibaba:\n{FULL_ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nKapag natiyak mo na ang bago mong tirahan ng e-liham, muli nang mabubuhay ang akawnt mo ng poro.
 iemail_thread_unsub:Huwag nang magpasipi mula sa paksang ito
 iemail_forum_unsub:Huwag nang magpasipi mula sa porong ito
 primary_group_prefix:Pangunahing pangkat para sa poro:
@@ -955,6 +960,7 @@ group_resources:Ang pangkat na ito ang nagtataban ng mga kapahintulutan ng sumus
 register_admin_newuser_title:Isang bagong tagagamit ang nagpatala at naghihintay ng katiyakan ang kanilang akawnt
 register_admin_newuser_msg:Isang bagong tagagamit ({VAR: uent->login}) ang nagpatala na, at dahil sa pinagagana ang pagtitiyak ng akawnt, ang kanilang akawnt ay hindi magiging masigla hangga't hindi mo pa ito tinitiyak o ng ibang tagapangasiwa ng poro. Upang suriing muli ang akawnt mangyaring pumunta sa: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nIsa itong pagsasagawang kusa. Huwag tumugon sa mensaheng ito.\nKung nais mong huwag buhayin ang panghinaharap na mga pagpapabatid ng e-liham para sa mga pagpapatala ng bagong tagagamit, magagawa ito sa pamamagitan ng Kahong-Pangtaban ng Tagapangasiwa. Baguhin ang katakdaan ng "Pagpapabatid ng Bagong Akawnt".
 post_mod_msg_notify_title:Bagong mensahe sa loob ng porong "{VAR: frm->name}" na naghihintay ng pagpayag
+# Fuzzy
 post_mod_msg_notify_msg:Ipinaskil na ang isang bagong mensahe na pinamagatang "{VAR: msg_post->subject}" sa loob ng isang porong pinamamagitanan mo. Upang suriing muli ang mensaheng ito magpunta sa: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nIsa itong pagsasagawang kusa. Huwag tumugon sa mensaheng ito.
 thread_printable_pdf:Lumikha ng malilimbag na PDF
 thread_syndicate:Isindikato ang porong ito (XML)
@@ -981,6 +987,7 @@ mnav_month:(Mga) buwan
 mnav_title:Panlibot sa mensahe
 mnav_update:Tumitingin-tingin ng mga Mensahe na ginagamit ang <a href="{TEMPLATE: mnav_update_lnk}">Panlibuto sa Mensahe</a>
 pm_notify_subject:[{GVAR: FORUM_TITLE}] Pagpapabatid ng Bagong Pribadong Mensahe
+# Fuzzy
 pm_notify_body_email:Mayroon kang isang pribadong mensahe na pinamagatang "{VAR: subject}", from "{VAR: from}", sa loob ng porong "{GVAR: FORUM_TITLE}".\nUpang matingnan ang mensahe, pindutin dito: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nUpang mapahinto ang panghinaharap na mga pagpapabatid, huwag paganahin ang "Pagpapabatid ng Pribadong Mensahe" sa loob ng balangkas mo.
 register_pm_notification:Pagpapabatid ng Pribadong Mensahe:
 register_pm_notification_desc:Kapag pinagana, pababatiran ka tuwing may ipinadala sa iyong isang pribadong mensahe.

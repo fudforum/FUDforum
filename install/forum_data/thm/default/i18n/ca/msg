@@ -7,6 +7,7 @@
 # Author: Fitoschido
 # Author: Gemmaa
 # Author: Jaumeortola
+# Author: Macofe
 # Author: McDutchie
 # Author: Naudefj
 # Author: Paucabot
@@ -216,6 +217,7 @@ vote_button:Votar
 vote_for_thread:Votar
 was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a>s'ha traslladat a <a href="{TEMPLATE: was_moved_msg_lnk2}"> {VAR: r[12]} </a> pel moderador.
 welcome_message:Benvingut <b>{VAR: usr->alias}</b>, la seva última visita fou el {TEMPLATE: welcome_message_date}
+# Fuzzy
 what_ppl_doing:Mostrar el que la gent està fent
 reported_del_report:Esborrar informe
 reported_reason:Motiu:
@@ -381,6 +383,7 @@ my_buddies:Els meus amics
 add_buddy:Afegir amic
 add:Afegirr
 buddy_search:Introdueixi el nom d`usuari que desitgi afegir.
+# Fuzzy
 member_search:O usi la utilitat <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Cercar usuari</a> per a buscar a una persona.
 buddy_remove:eliminar
 post_normal:Normal
@@ -676,8 +679,9 @@ register_err_notyouremail:Algú ja s`ha enregistrat amb aquest correu electròni
 register_err_avatartobig:L`arxiu que està  tractant de pujar és massa gran, major que el lí­mit de {GVAR: CUSTOM_AVATAR_MAX_SIZE} bytes
 register_err_avatarnotallowed:L`avatar que està  tractant de pujar no està  permés. Revisi els tipus d`arxius permesos.
 register_conf_subject:Confirmació de registre
-register_conf_msg:Gràcies per a enregistrar-se,\nPer a activar el seu compte, si us plau, vagi a la següent URL:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nUn cop activat el seu compte, entrarà al fòrum i\nse li redireccionarà a la pàgina principal.
+register_conf_msg:Gràcies per a enregistrar-se,\nPer a activar el seu compte, si us plau, vagi a la següent URL:\n\n{FULL_ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nUn cop activat el seu compte, entrarà al fòrum i\nse li redireccionarà a la pàgina principal.
 register_welcome_subject:Confirmació de registre en el fòrum
+# Fuzzy
 register_welcome_msg:Gràcies per a enregistrar-se,\n\nAquí­ estan els seus detalls d`ingrés per al fòrum:\n\nURL del fòrum: {TEMPLATE: index_update_lnk}\nNom d`usuari: {VAR: uent->login}\nContrasenya: {VAR: _POST['reg_plaintext_passwd']}\n\nRecordi que les contrasenyes distingeixen entre majúscules i minúscules!\nPer a modificar la seva configuració i perfil, vagi a aquesta pàgina:\n{FULL_ROOT}{ROOT}?t=register
 register_err_cantreg_title:ERROR: no es pot enregistrar
 regsiter_err_cantreg_msg:No es pot crear el compte d`usuari. Si us plau, posi`s en contacte amb l`administrador en <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
@@ -690,7 +694,7 @@ reset_err_invalidkey_msg:La clau d`actualització de contrasenya no és vàlida
 reset_err_rstconf_title:Informació
 reset_err_rstconf_msg:Hauria de rebre instruccions al seu correu electrònic en els propers minuts
 reset_newpass_title:Actualitzar contrasenya
-reset_newpass_msg:Hola.\n\nTal i com ha sol.licitat, li remetem el seu nom d`usuari i contrasenya.\nAquí­ està la seva informació d`inici de sessió:\n\nUsuari: {VAR: ui[1]}\nContrasenya: {VAR: passwd}\n\nRecordi que la seva contrasenya ha estat actualitzada al valor anterior. Si desitja canviar la seva contrasenya pot fer-ho mitjançant el panell de control d`usuari a:\n{FULL_ROOT}{ROOT}?t=register
+reset_newpass_msg:Hola.\n\nTal i com ha sol.licitat, li remetem el seu nom d`usuari i contrasenya.\nAquí­ està la seva informació d`inici de sessió:\n\nUsuari: {VAR: ui[1]}\nContrasenya: {VAR: passwd}\n\nRecordi que la seva contrasenya ha estat actualitzada al valor anterior. Si desitja canviar la seva contrasenya pot fer-ho mitjançant el panell de control d`usuari a:\n{FULL_ROOT}?t=register
 reset_login_notify:Se li ha enviat la contrasenya per correu electrònic. Hauria de rebre-la en uns minuts.
 search_update:Buscant missatges
 selmsg_update:Recorreguent <a href="{TEMPLATE: selmsg_update_lnk}">missatges d`avui</a>
@@ -725,6 +729,7 @@ error_title:Formulari d`error
 index_title:Benvingut al fòrum
 search_title:Cercar {VAR-HTML: srch}
 remail_emailsent:S`ha enviat el missatge de correu
+# Fuzzy
 remail_email:Hola\n\nHi ha un tema interessant sobre "{VAR: data->subject}" a {GVAR: FORUM_TITLE} fòrum que pot voler llegir. Vostè pot veure el tema a:\n {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nEl seu amic\n\n{VAR: usr->alias}
 poll_add_option:Afegir opció:
 post_opt_html_on:El codi <b>HTML</b> està  <b>ACTIVAT</b>
@@ -959,7 +964,7 @@ thread_mark_all_read:marcar tots els missatges sense llegir del fòrum com a lle
 thread_mark_all_read_desc:Tots els missatges sense llegir dins d`aquest fòrum es marcaran com a llegits
 private_no_messages:No hi ha missatges privats en aquesta carpeta
 register_email_change_subject:Confirmació del canvi de correu electrònic
-register_email_change_msg:Si us plau, confirmi el seu nou compte de correu electrònic "{VAR: uent->email}" que substitueix la seva antiga adreça de correu "{VAR: old_email}" anant a la URL següent:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nQuan confirmi la seva nova adreça de correu, el seu compte quedarà reactivat.
+register_email_change_msg:Si us plau, confirmi el seu nou compte de correu electrònic "{VAR: uent->email}" que substitueix la seva antiga adreça de correu "{VAR: old_email}" anant a la URL següent:\n{FULL_ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nQuan confirmi la seva nova adreça de correu, el seu compte quedarà reactivat.
 iemail_thread_unsub:Desubscriure`s d`aquesta conversa
 iemail_forum_unsub:Desubscriure`s d`aquest fòrum
 primary_group_prefix:Grup principal per als fòrums:
@@ -967,6 +972,7 @@ group_resources:Aquest grup controla els permisos dels fòrums següents
 register_admin_newuser_title:S`ha enregistrat un usuari nou i el seu compte està  pendent de confirmació
 register_admin_newuser_msg:Un usuari nou, ({VAR: uent->login}), acaba d`enregistrar-se en els fòrums, i com està  activada la confirmació del compte, el seu compte no estarà actiu fins que Vostè o un altre administrador dels fòrums el confirmi. Per a revisar el compte, si us plau, vagi a: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nAquest és un procés automatizat, no respongui a aquest missatge.\nSi desitja desactivar futures notificacions de registre de nous usuaris, pot fer-ho usant el Panell de Control d`administració, canviant el valor de l`opció "Notificació de compte nou".
 post_mod_msg_notify_title:Un nou missatge en els fòrums amb l`assumpte "{VAR: frm->name}" està  pendent d`aprovació
+# Fuzzy
 post_mod_msg_notify_msg:Un nou missatge titulat "{VAR: msg_post->subject}" només va ser publicat en un fòrum que li moderar. Per revisar aquest missatge d'anar a: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id} \n\nAquest és un procés automatitzat. No respongui a aquest missatge.
 thread_printable_pdf:Generar PDF imprimible
 thread_syndicate:Llegir aquest forum amb lector un RSS (XML)
@@ -993,6 +999,7 @@ mnav_month:Mes(os)
 mnav_title:Navegador de missatges
 mnav_update:Examinar missatges usant el <a href="{TEMPLATE: mnav_update_lnk}">Navegador de missatges</a>
 pm_notify_subject:[{GVAR: FORUM_TITLE}] Notificació de nou missatge privat
+# Fuzzy
 pm_notify_body_email:Té un nou missatge privat titulat "{VAR: subject}" de "{VAR: from}" al fòrum "{GVAR: FORUM_TITLE}".\nPer a veure el missatge, premi l`enllaç següent: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nPer a evitar notificacions futures desactivi "Notificar missatges privats" en el seu perfil.
 register_pm_notification:Notificació de missatges privats
 register_pm_notification_desc:Si està  activat, se li notificarà pel mètode de notificació escollit quan se li enviï un missatge privat.
@@ -1121,7 +1128,7 @@ move_msg_th_expl:Especifiqueu l'IDENTIFICADOR del tema de destinació (pot ser e
 captcha_img_alt:Verificació de captcha: cal reconèixer el text en aquesta imatge.
 captcha_img_help:No hi ha cap zero o en la imatge.
 powered-by:Powered by: 0.9 {GVAR: FORUM_VERSION}.
-copyright:Copyright &copy;2001-2013 <a href="http://fudforum.org/">0.9 butlletí Junta programari</a>
+copyright:Copyright &copy;2001-2017 <a href="http://fudforum.org/">0.9 butlletí Junta programari</a>
 code_title:Codi:
 code_select_all:Selecciona-ho tot
 code_show_hide:Mostra / Amaga

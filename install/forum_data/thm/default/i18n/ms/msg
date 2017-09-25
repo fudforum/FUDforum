@@ -2,6 +2,7 @@
 # Exported from translatewiki.net
 # Author: Anakmalaysia
 # Author: Jeluang Terluang
+# Author: Macofe
 # Author: Naudefj
 # Author: Pizza1016
 
@@ -205,6 +206,7 @@ vote_button:Undi
 vote_for_thread:Undi
 was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> telah dipindahkan kepada <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> oleh pengawal selia.
 welcome_message:Selamat datang <b>{VAR: usr->alias}</b>, kali terakhir anda ke sini adalah pada {TEMPLATE: welcome_message_date}
+# Fuzzy
 what_ppl_doing:Paparkan kegiatan orang lain
 reported_del_report:Padamkan Laporan
 reported_reason:Sebab:
@@ -370,6 +372,7 @@ my_buddies:Kawan-kawan Saya
 add_buddy:Tambahkan Kawan
 add:Tambahkan
 buddy_search:Isikan nama log masuk pengguna yang anda mahu tambahkan.
+# Fuzzy
 member_search:Atau guna ciri <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Cari Pengguna</a> untuk mencari orang.
 buddy_remove:padamkan
 post_normal:Biasa
@@ -665,8 +668,9 @@ register_err_notyouremail:Sudah ada orang lain yang berdaftar dengan alamat e-me
 register_err_avatartobig:Fail yang anda cuba muat naik itu terlalu besar, iaitu lebih daripada {GVAR: CUSTOM_AVATAR_MAX_SIZE} bait.
 register_err_avatarnotallowed:Avatar yang anda cuba muat naik ini tidak dibenarkan. Sila lihat jenis-jenis fail yang dibenarkan.
 register_conf_subject:Pengesahan Pendaftaran
-register_conf_msg:Terima kasih kerana berdaftar. Sila pergi ke URL berikut untuk mengaktifkan akaun anda:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nSebaik sahaja akaun anda diaktifkan, anda akan log masuk ke dalam forum lalu dilencongkan ke laman utamanya.
+register_conf_msg:Terima kasih kerana berdaftar. Sila pergi ke URL berikut untuk mengaktifkan akaun anda:\n\n{FULL_ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nSebaik sahaja akaun anda diaktifkan, anda akan log masuk ke dalam forum lalu dilencongkan ke laman utamanya.
 register_welcome_subject:Pengesahan Pendaftaran Forum
+# Fuzzy
 register_welcome_msg:Terima kasih kerana berdaftar.\n\nBerikut ialah butiran-butiran log masuk untuk forum ini:\n\nURL Forum: {TEMPLATE: index_update_lnk}\nNama Log Masuk: {VAR: uent->login}\nKata Laluan: {VAR: _POST['reg_plaintext_passwd']}\n\nSila ingat bahawa kata laluan itu peka huruf besar kecil!\nUntuk mengubahsuai tetapan atau profil anda, sila ke laman ini:\n{FULL_ROOT}{ROOT}?t=register
 register_err_cantreg_title:PERHATIAN: tidak dapat berdaftar
 regsiter_err_cantreg_msg:Akaun pengguna tidak dapat dibuka; sila hubungi pentadbir di <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
@@ -679,7 +683,7 @@ reset_err_invalidkey_msg:Kunci set semula tidak sah. Mungkin klien e-mel anda te
 reset_err_rstconf_title:Maklumat
 reset_err_rstconf_msg:Anda sepatutnya menerima arahan dalam e-mel anda beberapa minit kemudian.
 reset_newpass_title:Set Semula Kata Laluan
-reset_newpass_msg:Apa khabar,\n\nSeperti yang dimohon, maklumat log masuk anda adalah seperti berikut:\n\nNama Log Masuk: {VAR: ui[1]}\nKata Laluan: {VAR: passwd}\n\nSila ingati bahawa kata laluan anda telah diset semula kepada nilai di atas. Jika anda hendak menukar kata laluan, anda boleh berbuat demikian di panel kawalan maklumat pengguna di:\n{FULL_ROOT}{ROOT}?t=register
+reset_newpass_msg:Apa khabar,\n\nSeperti yang dimohon, maklumat log masuk anda adalah seperti berikut:\n\nNama Log Masuk: {VAR: ui[1]}\nKata Laluan: {VAR: passwd}\n\nSila ingati bahawa kata laluan anda telah diset semula kepada nilai di atas. Jika anda hendak menukar kata laluan, anda boleh berbuat demikian di panel kawalan maklumat pengguna di:\n{FULL_ROOT}?t=register
 reset_login_notify:Kata laluan anda telah dikirim kepada anda. Anda dijangka menerimanya beberapa minit kemudian.
 search_update:Mencari pesanan
 selmsg_update:Melayari <a href="{TEMPLATE: selmsg_update_lnk}">Kiriman Hari Ini</a>
@@ -714,6 +718,7 @@ error_title:Borang Ralat
 index_title:Selamat datang ke forum
 search_title:Cari {VAR-HTML: srch}
 remail_emailsent:E-mel dihantar
+# Fuzzy
 remail_email:Apa khabar,\n\nAda satu topik tentang "{VAR: data->subject}" di forum {GVAR: FORUM_TITLE} yang mungkin menarik minat saudara. Saudara boleh lihat topik itu di:\n {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nYang telus,\n\n{VAR: usr->alias}
 poll_add_option:Tambahkan Opsyen:
 post_opt_html_on:<b>HTML</b> <b>dipasang</b>
@@ -948,7 +953,7 @@ thread_mark_all_read:Tandai semua pesanan belum dibaca sebagai sudah dibaca
 thread_mark_all_read_desc:Semua pesanan yang belum dibaca dalam forum ini akan ditandai sebagai sudah dibaca
 private_no_messages:Tiada pesanan dalam folder ini.
 register_email_change_subject:Pengesahan penukaran e-mel
-register_email_change_msg:Sila ke URL berikut untuk mengesahkan akaun e-mel baru anda, "{VAR: uent->email}" yang menggantikan akaun e-mel lama anda, "{VAR: old_email}":\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nSebaik sahaja anda mengesahkan alamat e-mel baru anda itu, akaun forum anda akan diaktifkan semula.
+register_email_change_msg:Sila ke URL berikut untuk mengesahkan akaun e-mel baru anda, "{VAR: uent->email}" yang menggantikan akaun e-mel lama anda, "{VAR: old_email}":\n{FULL_ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nSebaik sahaja anda mengesahkan alamat e-mel baru anda itu, akaun forum anda akan diaktifkan semula.
 iemail_thread_unsub:Berhenti melanggan topik ini
 iemail_forum_unsub:Berhenti melanggan forum ini
 primary_group_prefix:Kumpulan utama forum:
@@ -956,6 +961,7 @@ group_resources:Kumpulan ini mengawal kebenaran pengguna di forum-forum berikut:
 register_admin_newuser_title:Seorang pengguna baru telah berdaftar, dan akaunnya sedang menunggu pengesahan
 register_admin_newuser_msg:Seorang pengguna baru ({VAR: uent->login}) baru berdaftar; oleh sebab ciri pengesahan akaun dihidupkan, akaunnya tidak diaktifkan sehingga ia disahkan oleh anda atau seorang lagi pentadbir forum. Untuk menyemak akaun itu, sila ke: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nIni ialah proses yang berautomat. Jangan balas pesanan ini.\nJika anda ingin menutup ciri pemberitahuan pendaftaran pengguna baru melalui e-mel pada masa depan, anda boleh berbuat demikian di Panel Kawalan Pentadbir, dengan menukar tetapan "Pemberitahuan Akaun Baru".
 post_mod_msg_notify_title:Pesanan baru menunggu kelulusan di forum "{VAR: frm->name}"
+# Fuzzy
 post_mod_msg_notify_msg:Pesanan baru bertajuk "{VAR: msg_post->subject}" baru dikirim dalam forum yang anda kawal selia. Untuk menyemak pesanan itu, sila ke: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nIni ialah proses yang berautomat. Jangan balas pesanan ini.
 thread_printable_pdf:Jana fail PDF yang boleh dicetak
 thread_syndicate:Sindiketkan forum ini (XML)
@@ -982,6 +988,7 @@ mnav_month:Bulan
 mnav_title:Pemandu Arah Pesanan
 mnav_update:Melayari Pesanan dengan <a href="{TEMPLATE: mnav_update_lnk}">Pemandu Arah Pesanan</a>
 pm_notify_subject:Pemberitahuan Pesanan Peribadi Baru [{GVAR: FORUM_TITLE}]
+# Fuzzy
 pm_notify_body_email:Anda telah menerima pesanan perubadi baru bertajuk "{VAR: subject}" daripada "{VAR: from}" di forum "{GVAR: FORUM_TITLE}".\nUntuk melihat pesanan itu, klik di sini: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nUntuk berhenti menerima pemberitahuan, matikan "Pemberitahuan Pesanan Peribadi" di profil anda.
 register_pm_notification:Pemberitahuan Pesanan Peribadi:
 register_pm_notification_desc:Jika dihidupkan, anda akan diberitah apabila pesanan peribadi dihantar kepada anda.
@@ -1110,7 +1117,7 @@ move_msg_th_expl:Nyatakan ID topik destinasi (termasuk topik di forum lain)
 captcha_img_alt:Pengesahan Captcha; anda perlu mengecam teks dalam imej ini.
 captcha_img_help:Dalam imej ini tiada angka sifar atau satu.
 powered-by:Dijana oleh: FUDforum {GVAR: FORUM_VERSION}.
-copyright:Hakcipta &copy;2001-2013 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Hakcipta &copy;2001-2017 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Kod:
 code_select_all:Pilih semua
 code_show_hide:Tunjukkan/ sorokkan

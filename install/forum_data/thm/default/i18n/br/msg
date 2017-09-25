@@ -3,6 +3,7 @@
 # Author: Fohanno
 # Author: Fulup
 # Author: Gwenn-Ael
+# Author: Macofe
 # Author: Naudefj
 # Author: Y-M D
 
@@ -206,6 +207,7 @@ vote_button:Votiñ
 vote_for_thread:Mouezh
 was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> zo bet dilec'hiet da <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> gant an hanterour
 welcome_message:Degemer mat deoc'h, <b>{VAR: usr->alias}</b>. D'an {TEMPLATE: welcome_message_date} e oa ho kweladenn diwezhañ
+# Fuzzy
 what_ppl_doing:Diskouez petra emañ an dud oc'h ober
 reported_del_report:Dilemel un danevell
 reported_reason:Abeg :
@@ -374,6 +376,7 @@ my_buddies:Ma mignoned
 add_buddy:Ouzhpennañ ur mignon
 add:Ouzhpennañ
 buddy_search:Ebarzhit anv an implijer hoc'h eus c'hoant da ouzhpennañ.
+# Fuzzy
 member_search:Pe implijit an arc'hweladur <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Kavout un implijer</a> evit kavout unan bennak.
 buddy_remove:lemel
 post_normal:Reizh
@@ -668,8 +671,9 @@ register_err_notyouremail:Unan bennak zo enskrivet gant ar chomlec'h postel-mañ
 register_err_avatartobig:Re vras eo ar restr emaoc'h o klask pellgargañ, brasoc'h eget {GVAR: CUSTOM_AVATAR_MAX_SIZE} okted
 register_err_avatarnotallowed:An avatar emaoc'h o klask pellgargañ n'eo ket aotreet. Gwiriit ar seurtoù restroù aotreet, mar plij.
 register_conf_subject:Kadarnaat an enskrivadur
-register_conf_msg:Trugarez evit bezañ en em enskrivet.\nEvit gweredekaat ho kont, kit d'an URL amañ dindan :\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nUr wech gweredekaet ho kont e viot kevreet ouzh ar forom hag adkaset da bajenn degemer ar forom.
+register_conf_msg:Trugarez evit bezañ en em enskrivet.\nEvit gweredekaat ho kont, kit d'an URL amañ dindan :\n\n{FULL_ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nUr wech gweredekaet ho kont e viot kevreet ouzh ar forom hag adkaset da bajenn degemer ar forom.
 register_welcome_subject:Kadarnaat hoc'h enskrivadur er forom.
+# Fuzzy
 register_welcome_msg:Trugarez deoc'h evit bezañ en em enskrivet.\n\nSetu amañ ho titouroù kevreañ evit ar forom :\n\nURL ar forom : {TEMPLATE: index_update_lnk}\nAnv implijer : {VAR: uent->login}\nGer-tremen : {VAR: _POST['reg_plaintext_passwd']}\n\nDiwallit : kemm zo er gerioù-tremen etre al lizherennoù bihan ha bras !\nEvit kemmañ hoc'h arventennoù pe ho profil, kit d'ar bajenn-mañ :\n{FULL_ROOT}{ROOT}?t=register
 register_err_cantreg_title:FAZI : N'hon eus ket gallet hoc'h enskrivañ
 regsiter_err_cantreg_msg:Ne c'haller ket krouiñ ar gont implijer. Kit e darempred gant ar merour, mar plij : <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
@@ -682,7 +686,7 @@ reset_err_invalidkey_msg:Direizh eo an alc'hwez da adderaouekaat ar ger-tremen
 reset_err_rstconf_title:Titouroù
 reset_err_rstconf_msg:Resev a reot displegadennoù dre bostel a-benn un nebeud munutennoù.
 reset_newpass_title:Adderaouekaat ar ger-tremen
-reset_newpass_msg:Demat deoc'h,\n\nSetu amañ an titouroù hoc'h eus ezhomm evit mont d'ar forom :\n\n\nAnv implijer : {VAR: ui[1]}\nGer-tremen : {VAR: passwd}\n\nGallout a rit kemmañ ho ker-tremen ne vern pegoulz gant ar banell da gontrollañ titouroù an implijer :\n{FULL_ROOT}{ROOT}?t=register
+reset_newpass_msg:Demat deoc'h,\n\nSetu amañ an titouroù hoc'h eus ezhomm evit mont d'ar forom :\n\n\nAnv implijer : {VAR: ui[1]}\nGer-tremen : {VAR: passwd}\n\nGallout a rit kemmañ ho ker-tremen ne vern pegoulz gant ar banell da gontrollañ titouroù an implijer :\n{FULL_ROOT}?t=register
 reset_login_notify:Kaset eo bet ho ker-tremen deoc'h dre bostel. Dleout a rafec'h resev anezhañ a-benn un nebeud munutennoù
 search_update:O klask kemennadennoù
 selmsg_update:O furchal ar <a href="{TEMPLATE: selmsg_update_lnk}">c'hemennadennoù kaset hiziv</a>
@@ -717,6 +721,7 @@ error_title:Furmskrid fazi
 index_title:Degemer mat er forom
 search_title:Klask {VAR-HTML: srch}
 remail_emailsent:Kaset eo bet ar postel
+# Fuzzy
 remail_email:Demat,\n\nBez' ez eus ur gaoz dedennus diwar-benn "{VAR: data->subject}" er forom {GVAR: FORUM_TITLE}. Gallout a rafec'h kaout c'hoant d'he lenn. Gallout a rit gwelet ar gaoz amañ :\n  {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nHo mignon,\n\n{VAR: usr->alias}
 poll_add_option:Ouzhpennañ un dibarzh :
 post_opt_html_on:<b>GWEREDEKAET</b> eo ar c'hod <b>HTML</b>
@@ -951,7 +956,7 @@ thread_mark_all_read:Merkañ holl gemennadennoù ar forom evel lennet
 thread_mark_all_read_desc:An holl gemennadennoù anlennet er forom-mañ a vo merket evel lennet
 private_no_messages:N'eus kemennadenn ebet er renkell-mañ
 register_email_change_subject:Kadarnaat ar cheñchamant postel
-register_email_change_msg:Kadarnait ho kont postel nevez « {VAR: uent->email} », a erlec'hio ho kont postel kozh « {VAR: old_email} », dre vont d'an URL amañ dindan :\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nUr wech m'ho po kadarnaet ho chomlec'h postel nevez e vo gweredekaet ho kont war ar forom en-dro.
+register_email_change_msg:Kadarnait ho kont postel nevez « {VAR: uent->email} », a erlec'hio ho kont postel kozh « {VAR: old_email} », dre vont d'an URL amañ dindan :\n{FULL_ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nUr wech m'ho po kadarnaet ho chomlec'h postel nevez e vo gweredekaet ho kont war ar forom en-dro.
 iemail_thread_unsub:Paouez da evezhiañ ar gaoz-mañ
 iemail_forum_unsub:Paouez da evezhiañ ar forom-mañ
 primary_group_prefix:Strollad kentañ evit ar forom :
@@ -959,6 +964,7 @@ group_resources:Ar strollad-mañ a gontroll aotreoù ar foromoù-mañ
 register_admin_newuser_title:Un implijer nevez zo en em enskrivet hag emañ e gont o c'hortoz bezañ kadarnaet
 register_admin_newuser_msg:Un implijer nevez ({VAR: uent->login}) zo o paouez en em enskrivañ. O vezañ m'eo gweredekaet kadarnadur ar c'hontoù, ne vo oberiant e gont nemet pa vo kadarnaet ganeoc'h pe gant ur merour all eus ar forom. Evit adwelet ar gont, kit da {GVAR: WWW_ROOT}adm/admuserapr.php, mar plij.\n\nUn argerzh emlusk eo hemañ. Arabat respont d'ar gemennadenn-mañ.\nMa fell deoc'h diweredekaat ar c'hemenn dre bostel evit an implijerien nevez pelloc'h, gallout a rit ober gant panell gontrollañ ar merour en ur cheñch an arventenn "Kemenn ar c'hontoù nevez".
 post_mod_msg_notify_title:Kemennadenn nevez er forom « {VAR: frm->name} » o c'hortoz bezañ aprouet
+# Fuzzy
 post_mod_msg_notify_msg:Postet ez eus bet ur gemennadenn nevez, hec'h anv « {VAR: msg_post->subject} », er forom a habaskait. Evit adwelet ar gemennadenn-mañ, kit da : {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nUn argerzh emlusk eo hemañ, arabat respont d'ar gemennadenn-mañ.
 thread_printable_pdf:Krouiñ ur PDF a c'haller moullañ
 thread_syndicate:Embann ar forom-mañ (XML)
@@ -985,6 +991,7 @@ mnav_month:mizvezh
 mnav_title:Merdeer kemennadennoù
 mnav_update:O furchal ar c'hemennadennoù war-bouez ar <a href="{TEMPLATE: mnav_update_lnk}">Merdeer kemennadennoù</a>
 pm_notify_subject:[{GVAR: FORUM_TITLE}] Kemenn ur gemennadenn brevez nevez
+# Fuzzy
 pm_notify_body_email:Ur gemennadenn brevez nevez hoc'h eus, hec'h anv « {VAR: subject} », digant « {VAR: from} », er forom « {GVAR: FORUM_TITLE} ».\nEvit gwelet ar gemennadenn, klikit amañ : {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nEvit chom hep resev kemennoù evel hemañ, diweredekait « Kemenn kemennadennoù prevez » en ho profil.
 register_pm_notification:Kemenn ur gemennadenn brevez :
 register_pm_notification_desc:Ma vez gweredekaet an dibarzh-mañ, e viot kemennet bewech ma vo kaset ur gemennadenn brevez deoc'h.
@@ -1113,7 +1120,7 @@ move_msg_th_expl:Spisait anavezer ar gaoz pal (a c'hall bezañ en ur forom all)
 captcha_img_alt:Gwiriadur dre Captcha : dav eo deoc'h anavezout an destenn er skeudenn-mañ.
 captcha_img_help:N'eus ket a zero pe a unan er skeudenn.
 powered-by:Enlusket gant : FUDforum {GVAR: FORUM_VERSION}.
-copyright:Copyright &copy;2001-2013 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Copyright &copy;2001-2017 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:KOD :
 code_select_all:Diuzañ pep tra
 code_show_hide:Diskouez / kuzhat

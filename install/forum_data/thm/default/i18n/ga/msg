@@ -1,6 +1,8 @@
 # Messages for Irish (Gaeilge)
 # Exported from translatewiki.net
 # Author: Jagwar
+# Author: Macofe
+# Author: Naudefj
 # Author: Pksofttec
 
 action:Gníomh
@@ -202,6 +204,7 @@ vote_button:Vóta
 vote_for_thread:Vóta
 was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> Tá bhog sé go dtí <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> ag an moderator.
 welcome_message:Fáilte <b>{VAR: usr->alias}</b>, do chuairt dheireanach a bhí ar {TEMPLATE: welcome_message_date}
+# Fuzzy
 what_ppl_doing:Taispeáin cad iad na daoine ag déanamh
 reported_del_report:Scrios Tuarascáil
 reported_reason:Fáth:
@@ -367,6 +370,7 @@ my_buddies:mo Buddies
 add_buddy:Cuir Buddy
 add:Cuir
 buddy_search:Cuir isteach an logáil isteach an t-úsáideoir mian leat a chur leis.
+# Fuzzy
 member_search:Nó úsáid an <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Aimsigh Úsáideoir</a> gné a aimsiú duine.
 buddy_remove:bhaint
 post_normal:gnáth
@@ -663,8 +667,9 @@ register_err_notyouremail:Tá duine éigin eile atá cláraithe cheana féin lei
 register_err_avatartobig:Tá an comhad a bhfuil tú ag iarraidh a uaslódáil ró-mhór, níos mó ná {GVAR: CUSTOM_AVATAR_MAX_SIZE} bytes.
 register_err_avatarnotallowed:Níl an avatar tú ag iarraidh a uaslódáil ceadaithe. Seiceáil na cineálacha comhaid ceadaithe.
 register_conf_subject:Deimhniú clárúcháin
-register_conf_msg:Go raibh maith agat as clárú,\nChun do chuntas a ghníomhachtú téigh go dtí an URL thíos le do thoil:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nNuair atá do chuntas gníomhachtaithe a bheidh tú logáilte isteach-an fóram agus\natreorú chuig an leathanach príomh.
+register_conf_msg:Go raibh maith agat as clárú,\nChun do chuntas a ghníomhachtú téigh go dtí an URL thíos le do thoil:\n\n{FULL_ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nNuair atá do chuntas gníomhachtaithe a bheidh tú logáilte isteach-an fóram agus\natreorú chuig an leathanach príomh.
 register_welcome_subject:Fóram Deimhniú Clárúcháin
+# Fuzzy
 register_welcome_msg:Go raibh maith agat as clárú,\n\nSeo iad do chuid sonraí logáil isteach chun an fóram:\n\nFóram URL: {TEMPLATE: index_update_lnk}\nLogáil isteach: {VAR: uent->login}\nPasfhocal: {VAR: _POST['reg_plaintext_passwd']}\n\nTabhair faoi deara go bhfuil focal faire cás íogair!\nChun a mhodhnú do chuid socruithe nó próifíl, téigh go dtí an leathanach seo:\n{FULL_ROOT}{ROOT}?t=register
 register_err_cantreg_title:EARRÁID: ní féidir a chlárú
 regsiter_err_cantreg_msg:Níorbh fhéidir cuntas úsáideora a chruthú, téigh i dteagmháil leis an riarthóir ar <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
@@ -677,7 +682,7 @@ reset_err_invalidkey_msg:Eochair phasfhocal a athshocrú neamhbhailí. Is féidi
 reset_err_rstconf_title:Eolas
 reset_err_rstconf_msg:Ba chóir duit treoracha i do r-phost a fháil i miontuairiscí amach romhainn.
 reset_newpass_title:Athshocraigh Pasfhocal
-reset_newpass_msg:Dia duit,\n\nMar a iarradh dealraitheach do chuid faisnéise logáil isteach, thíos:\n\nLogáil isteach: {VAR: ui[1]}\nPasfhocal: {VAR: passwd}\n\nTabhair faoi deara go bhfuil do phasfhocal bhí athshocrú chun an luach thuas. Más mian leat\na athrú ar do phasfhocal is féidir leat é sin a dhéanamh tríd an painéal úsáideoirí rialaithe info at:\n{FULL_ROOT}{ROOT}?t=register
+reset_newpass_msg:Dia duit,\n\nMar a iarradh dealraitheach do chuid faisnéise logáil isteach, thíos:\n\nLogáil isteach: {VAR: ui[1]}\nPasfhocal: {VAR: passwd}\n\nTabhair faoi deara go bhfuil do phasfhocal bhí athshocrú chun an luach thuas. Más mian leat\na athrú ar do phasfhocal is féidir leat é sin a dhéanamh tríd an painéal úsáideoirí rialaithe info at:\n{FULL_ROOT}?t=register
 # Fuzzy
 reset_login_notify:Do phasfhocal curtha r-phost a thabhairt duit. Ba chóir duit é a fháil laistigh de na miontuairiscí amach romhainn. <br/>
 search_update:teachtaireachtaí Cuardach
@@ -713,6 +718,7 @@ error_title:Foirm earráid
 index_title:Fáilte chuig an fóram
 search_title:Cuardaigh le haghaidh {VAR-HTML: srch}
 remail_emailsent:Cuireadh Ríomhphost
+# Fuzzy
 remail_email:Dia duit,\n\nTá ábhar suimiúil faoi "{VAR: data->subject}" ar {GVAR: FORUM_TITLE} fóram gur b'fhéidir gur mhaith leat a léamh. Is féidir leat a fheiceáil ar an ábhar seo ag:\n {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\ndo chara,\n\n{VAR: usr->alias}
 poll_add_option:Cuir Rogha:
 post_opt_html_on:<b>HTML</b> Tá <b> ar </b>
@@ -947,7 +953,7 @@ thread_mark_all_read:Marcáil gach fóram teachtaireachtaí neamhléite a léamh
 thread_mark_all_read_desc:Beidh gach teachtaireacht neamhléite sa bhfóram seo a mharcáil léamh
 private_no_messages:Níl aon teachtaireacht san fhillteán seo.
 register_email_change_subject:R-phost deimhnithe athrú
-register_email_change_msg:Dearbhaigh le do thoil do chuntas nua r-phost "{VAR: uent->email}" a mbeidh a ionad do chuntas r-phoist d'aois "{VAR: old_email}", ag dul go dtí an URL thíos:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nNuair atá tú a dhaingniú do sheoladh nua r-phost, do chuntas fóram a ath-ghníomhachtú.
+register_email_change_msg:Dearbhaigh le do thoil do chuntas nua r-phost "{VAR: uent->email}" a mbeidh a ionad do chuntas r-phoist d'aois "{VAR: old_email}", ag dul go dtí an URL thíos:\n{FULL_ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nNuair atá tú a dhaingniú do sheoladh nua r-phost, do chuntas fóram a ath-ghníomhachtú.
 iemail_thread_unsub:Díliostáil ó ábhar seo
 iemail_forum_unsub:Díliostáil ón bhfóram seo
 primary_group_prefix:Grúpa Bunscoileanna do fóram:
@@ -955,6 +961,7 @@ group_resources:Rialaíonn an grúpa ceadanna de na fóraim seo a leanas
 register_admin_newuser_title:Tá úsáideoir nua cláraithe agus tá a gcuntas go dtí go ndeimhneofar
 register_admin_newuser_msg:A úsáideoir nua ({VAR: uent->login}) chláraigh díreach, agus ós rud é go bhfuil dearbhú cuntas ar chumas, nach mbeidh a n-chuntas a bheith gníomhach go dtí go mbeidh sé daingnithe le tú féin nó riarthóir fóram eile. Athbhreithniú a dhéanamh ar an chuntas téigh go dtí do thoil: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nIs próiseas uathoibrithe. Ná freagra don teachtaireacht seo.\nMás mian leat a mhúchadh fógraí ríomhphoist clárúcháin nua úsáideora amach anseo, is féidir leat é sin a dhéanamh tríd an Painéal Rialúcháin Riaracháin. Athraigh an "Nua Chuntas Fógra" suíomh.
 post_mod_msg_notify_title:Teachtaireacht nua i bhfóram "{VAR: frm->name}" feitheamh ceadú
+# Fuzzy
 post_mod_msg_notify_msg:A teachtaireacht nua dar teideal "{VAR: msg_post->subject}" Cuireadh i bpost ach i bhfóram go bhfuil tú measartha. Athbhreithniú a dhéanamh ar an teachtaireacht seo téigh go dtí: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nIs próiseas uathoibrithe. Ná freagra don teachtaireacht seo.
 thread_printable_pdf:Gin inphriontáilte PDF
 thread_syndicate:Syndicate bhfóram seo (XML)
@@ -981,6 +988,7 @@ mnav_month:Mí(onna)
 mnav_title:teachtaireacht Navigator
 mnav_update:Brabhsáil Teachtaireachtaí ag baint úsáide as <a href="{TEMPLATE: mnav_update_lnk}">teachtaireacht Navigator</a>
 pm_notify_subject:[{GVAR: FORUM_TITLE}] Fógra Teachtaireacht Príobháideacha Nua
+# Fuzzy
 pm_notify_body_email:Tá tú teachtaireacht phríobháideach nua dar teideal "{VAR: subject}", ó "{VAR: from}", san fhóram "{GVAR: FORUM_TITLE}".\nChun breathnú ar an teachtaireacht, cliceáil anseo: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nChun stop a chur fógraí sa todhchaí, a dhíchumasú "Teachtaireacht Fógra Príobháideacha" i do phróifíl.
 register_pm_notification:Teachtaireacht Príobháideach Fógra:
 register_pm_notification_desc:Má cumasaithe, beidh tú in iúl aon uair a teachtaireacht phríobháideach a sheoladh chugat.
@@ -1109,8 +1117,7 @@ move_msg_th_expl:Sonraigh an ID an ábhar scríbe (Is féidir a bheith i bhfóra
 captcha_img_alt:Fíorú Captcha: beidh ort a aithint an téacs ar an íomhá.
 captcha_img_help:Níl aon náid nó ceann san íomhá.
 powered-by:Powered by: FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:Cóipcheart &copy;2001-2012 <a href="http://fudforum.org/">FUDforum Feasachán Bogearraí</a>
+copyright:Cóipcheart &copy;2001-2017 <a href="http://fudforum.org/">FUDforum Feasachán Bogearraí</a>
 code_title:cód:
 code_select_all:Roghnaigh gach
 code_show_hide:Taispeáin/ folaigh

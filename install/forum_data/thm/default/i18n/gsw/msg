@@ -2,6 +2,7 @@
 # Exported from translatewiki.net
 # Author: Als-Chlämens
 # Author: Als-Holder
+# Author: Macofe
 # Author: Naudefj
 # Author: Terfili
 
@@ -205,6 +206,7 @@ vote_button:Abstimme
 vote_for_thread:Abstimme
 was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> isch vum Moderator no <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> verschobe wore
 welcome_message:Willchuu <b>{VAR: usr->alias}</b>, dyy letschte Bsuech isch am {TEMPLATE: welcome_message_date} gsi
+# Fuzzy
 what_ppl_doing:Aazeige, was d Lyt grad mache
 reported_del_report:Benochrichtigung lesche
 reported_reason:Grund:
@@ -373,6 +375,7 @@ my_buddies:Myy Frynd
 add_buddy:Frynd zuefiege
 add:Zuefiege
 buddy_search:Trag dr Benutzername vum Benutzer yy, wu Du witt zuefiege.
+# Fuzzy
 member_search:Oder verwänd d <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Benutzersuechi</a> go ne Benutzer finde.
 buddy_remove:Uuseneh
 post_normal:Normal
@@ -667,8 +670,9 @@ register_err_notyouremail:S git eber ander, wu mit däre E-Mail-Adräss regischt
 register_err_avatartobig:D Datei, wu Du witt uffelade, isch z groß un lyt iber dr Gränz vu {GVAR: CUSTOM_AVATAR_MAX_SIZE} Bytes.
 register_err_avatarnotallowed:Dr Avatar, wu Du witt uffelade, isch nit erlaubt, iberprief di erlaubte Dateitype.
 register_conf_subject:Regischtrierigsbstetigung
-register_conf_msg:Dankschen vilmol fir Dyy Regischtrierig,\nGo Dyy Konto aktiviere gang b itte uf d Adräss, wu do unte aagee isch: \n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nSobald Dyy Konto aktiviert isch, wirsch Du am Syschtem aagmäldet un\nzue dr Hauptsyte vum Forum wytergleitet.
+register_conf_msg:Dankschen vilmol fir Dyy Regischtrierig,\nGo Dyy Konto aktiviere gang b itte uf d Adräss, wu do unte aagee isch: \n\n{FULL_ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nSobald Dyy Konto aktiviert isch, wirsch Du am Syschtem aagmäldet un\nzue dr Hauptsyte vum Forum wytergleitet.
 register_welcome_subject:Regischtrierigsbstetigung fir s Forum
+# Fuzzy
 register_welcome_msg:Dankschen vilmol fir Dyy Regischtrierig,\n\nDi sin d Aamäldedetails fir s Forum:\n\nForum URL: {TEMPLATE: index_update_lnk}\nBenutzername: {VAR: uent->login}\nPasswort: {VAR: _POST['reg_plaintext_passwd']}\n\nBitte gibt Acht bim Passwort uf d Groß- un Chleischrybig!\nGo d Yystellige un s Profil ändere gang bitte uf die Syte:\n{FULL_ROOT}{ROOT}?t=register
 register_err_cantreg_title:FÄHLER: Regischtrierig nit megli
 regsiter_err_cantreg_msg:Cha s Benutzerkonto nit aalege, nimm bitte Kontakt uf zum Administrator: <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
@@ -681,7 +685,7 @@ reset_err_invalidkey_msg:Nit giltige Passwortschlissel. S isch meglig, ass Dyy E
 reset_err_rstconf_title:Information
 reset_err_rstconf_msg:Du sottsch in dr negschte Minute ne Aaleitig per E-Mail iberchuu.
 reset_newpass_title:Passwort zrucksetze
-reset_newpass_msg:Sali,\n\nWie vu Dir gwinscht, wird der dr Benutzername zueschickt.\nDo sin Dyyni Aamäldeinformatione:\n\nBenutzername: {VAR: ui[1]}\nPasswort: {VAR: passwd}\n\nBitte gib Acht, ass Dyy Passwort uf dr Wärt dobe zruckgsetzt woren isch,\nwänn Du s witt ändere, no chasch des in dr persenlige Yystellige mache:\n{FULL_ROOT}{ROOT}?t=register
+reset_newpass_msg:Sali,\n\nWie vu Dir gwinscht, wird der dr Benutzername zueschickt.\nDo sin Dyyni Aamäldeinformatione:\n\nBenutzername: {VAR: ui[1]}\nPasswort: {VAR: passwd}\n\nBitte gib Acht, ass Dyy Passwort uf dr Wärt dobe zruckgsetzt woren isch,\nwänn Du s witt ändere, no chasch des in dr persenlige Yystellige mache:\n{FULL_ROOT}?t=register
 reset_login_notify:S Passwort isch an di gschickt wore. Du sottsch s in dr negschte Minute iberchuun.
 search_update:Suecht no Byytreg
 selmsg_update:Am Dursuech vu dr <a href="{TEMPLATE: selmsg_update_lnk}">hitige Byytreg</a>
@@ -716,6 +720,7 @@ error_title:Fählersyte
 index_title:Willchuu im Forum
 search_title:No {VAR-HTML: srch} sueche
 remail_emailsent:D E-Mail isch gschickt wore.
+# Fuzzy
 remail_email:Sali,\n\nim Forum {GVAR: FORUM_TITLE} git s e inträssanti Diskussion zum Thema „{VAR: data->subject}“, wu Di chennt inträssiere. Du findsch si do: {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nVu {VAR: usr->alias}
 poll_add_option:Optione zuefiege:
 post_opt_html_on:<b>HTML</b> Code isch <b>AA</b>
@@ -950,7 +955,7 @@ thread_mark_all_read:Alli nit gläsene Byytreg im Forum as gläse chännzeichne
 thread_mark_all_read_desc:Alli nit gläsene Byytreg in däm Forum wäre as gläse gchännzeich1net
 private_no_messages:S het kei Nochrichten in däm Ordner.
 register_email_change_subject:Bstetigung vu dr gänderete E-Mail-Adräss
-register_email_change_msg:Bitte bstetig Dyy nej E-Mail-Adräss "{VAR: uent->email}", wu di alt Adräss "{VAR: old_email}" ersetze tuet, doderzue ruefsch die URL uf:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nSobald Du di nej Adräss bstetigt hesch, wird Dyy Konto wider aktiviert.
+register_email_change_msg:Bitte bstetig Dyy nej E-Mail-Adräss "{VAR: uent->email}", wu di alt Adräss "{VAR: old_email}" ersetze tuet, doderzue ruefsch die URL uf:\n{FULL_ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nSobald Du di nej Adräss bstetigt hesch, wird Dyy Konto wider aktiviert.
 iemail_thread_unsub:Abonnement fir des Thema ufhebe
 iemail_forum_unsub:S Abonnement fir des Forum ufhebe
 primary_group_prefix:Hauptgruppe fir s Forum:
@@ -958,6 +963,7 @@ group_resources:Die Gruppe kontrolliert d Berächtigunge fir die Fore
 register_admin_newuser_title:E neje Benutzer het sich regischtriert un wartet uf d Bstetigung vum Konto
 register_admin_newuser_msg:E neje Benutzer ({VAR: uent->login}) het sich grad fir des Forum regischtriert un wel d Bstetigung fir Konten aktiviert isch, wird des Konto nit aktiviert, voreb s dur Di oder e andere Forumsadministrator bstetigt woren isch. Go s Konto bschaue gang uf: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nDes isch e automatisierte Vorgang, bitte gib kei Antwort uf die Nochricht.\nWänn Du wyteri E-Mail-Benochrichtigunge iber neji Benutzerregischtrierige witt abstelle, chasch des iber s Administratormenü un dur Ändere vum Wärt vu dr Yystellig "New Account Notification" mache.
 post_mod_msg_notify_title:Neje Byytrag im Forum "{VAR: frm->name}" wartet uf Bstetigung
+# Fuzzy
 post_mod_msg_notify_msg:E neje Byytrag mit dr Iberschrift „{VAR: msg_post->subject}“ isch grad in eme Forum aagleit wore, wu vu Dir moderiert wird. Go dää Byytrag bschauen gang uf: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nDes isch e automatisierte Vorgang, bitte gib kei Antwort uf die Nochricht.
 thread_printable_pdf:Druckbars PDF erzyyge
 thread_syndicate:Themene as Syndicat vu andere Syten z Verfiegig stelle (XML)
@@ -984,6 +990,7 @@ mnav_month:Monet
 mnav_title:Byytragsnavigator
 mnav_update:Am Dursueche vu Byytreg mit em <a href="{TEMPLATE: mnav_update_lnk}">Byytragsnavigators</a>
 pm_notify_subject:[{GVAR: FORUM_TITLE}] Neji Benochrichtigung iber e privati Nochricht
+# Fuzzy
 pm_notify_body_email:Du hesch e neji privati Nochricht mit dr Iberschrift "{VAR: subject}" vu "{VAR: from}" im Forum "{GVAR: FORUM_TITLE}" iberchuu.\nKlick do go si bschaue: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nGo zuechimftigi Benochrichtigunge verhindere, deaktivier "Benochrichtigung iber privati Nochrichte" in Dyym Profil.
 register_pm_notification:Benochrichtigung iber privati Nochricht:
 register_pm_notification_desc:Wänn aktiviert, chunnsch e Mitteilig iber, sobald e privati Nochricht an Di gschickt woren isch.
@@ -1112,7 +1119,7 @@ move_msg_th_expl:Gib d ID vum Ziilthemas aa (cha in eme andere Forum syy)
 captcha_img_alt:Captchakontrolle: Du muesch dää Text in däm Bild wider chänne.
 captcha_img_help:S het kei Null oder Eis im Bild.
 powered-by:Mit fryndliger Unterstitzig vu.: FUDforum {GVAR: FORUM_VERSION}.
-copyright:Copyright &copy;2001-2013 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Copyright &copy;2001-2017 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Code:
 code_select_all:Alli uuswehle
 code_show_hide:Zeige/verstecke

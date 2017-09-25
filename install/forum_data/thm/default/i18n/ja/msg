@@ -5,6 +5,7 @@
 # Author: Hina
 # Author: Iwai.masaharu
 # Author: Kanon und wikipedia
+# Author: Macofe
 # Author: Naudefj
 # Author: Omotecho
 # Author: Otokoume
@@ -212,6 +213,7 @@ vote_button:投票
 vote_for_thread:投票
 was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> はモデレーターによって <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> に移動されました。
 welcome_message:<b>{VAR: usr->alias}</b> さん、ようこそ。前回の訪問は{TEMPLATE: welcome_message_date}でした。
+# Fuzzy
 what_ppl_doing:人々が何をしているのか表示する
 reported_del_report:報告を削除
 reported_reason:理由:
@@ -380,6 +382,7 @@ my_buddies:自分の仲間
 add_buddy:仲間を追加
 add:追加
 buddy_search:追加したい利用者のログイン名を入力してください。
+# Fuzzy
 member_search:Or use the <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Find User</a> feature to find a person.
 buddy_remove:除去
 post_normal:通常
@@ -674,8 +677,9 @@ register_err_notyouremail:誰か他の人がこのメールアドレスで既に
 register_err_avatartobig:アップロードしようとしたファイルは {GVAR: CUSTOM_AVATAR_MAX_SIZE}バイト以上であり、大きすぎます。
 register_err_avatarnotallowed:アップロードしようとしているアバターは許可されません。許可されているファイル形式を確認してください。
 register_conf_subject:登録確認
-register_conf_msg:登録ありがとうございます。\nあなたのアカウントを有効化するには下記の URL にアクセスしてください。\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nアカウントが有効化されると、フォーラムにログインし、\nメインページに転送されます。
+register_conf_msg:登録ありがとうございます。\nあなたのアカウントを有効化するには下記の URL にアクセスしてください。\n\n{FULL_ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nアカウントが有効化されると、フォーラムにログインし、\nメインページに転送されます。
 register_welcome_subject:フォーラム登録確認
+# Fuzzy
 register_welcome_msg:登録ありがとうございます。\n\n下記がフォーラムへのログインに関する詳細です。\n\nフォーラムの URL: {TEMPLATE: index_update_lnk}\nログイン名: {VAR: uent->login}\nパスワード: {VAR: _POST['reg_plaintext_passwd']}\n\nパスワードは大文字・小文字を区別することに注意してください!\nあなたの設定や自己紹介を変更したい場合は、次のページを使用してください:\n{FULL_ROOT}{ROOT}?t=register
 register_err_cantreg_title:エラー: 登録できません
 regsiter_err_cantreg_msg:利用者アカウントを作成できませんでした。<a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a> で管理者に連絡してください。
@@ -688,7 +692,7 @@ reset_err_invalidkey_msg:パスワード再設定キーが無効です。メー�
 reset_err_rstconf_title:情報
 reset_err_rstconf_msg:数分で手順説明がメールで届くはずです。
 reset_newpass_title:パスワードの再設定
-reset_newpass_msg:こんにちは。\n\n申請いただいた、あなたのログイン情報は下記となります。\n\nログイン名: {VAR: ui[1]}\nパスワード: {VAR: passwd}\n\nパスワードが上記の値に再設定されたことに注意してください。\nパスワードを変更したい場合、利用者情報コントロールパネルによって行います:\n{FULL_ROOT}{ROOT}?t=register
+reset_newpass_msg:こんにちは。\n\n申請いただいた、あなたのログイン情報は下記となります。\n\nログイン名: {VAR: ui[1]}\nパスワード: {VAR: passwd}\n\nパスワードが上記の値に再設定されたことに注意してください。\nパスワードを変更したい場合、利用者情報コントロールパネルによって行います:\n{FULL_ROOT}?t=register
 reset_login_notify:パスワードをメールでお送りしました。数分以内に届くはずです。
 search_update:メッセージ検索中
 selmsg_update:<a href="{TEMPLATE: selmsg_update_lnk}">今日の投稿</a>を閲覧中
@@ -723,6 +727,7 @@ error_title:エラーフォーム
 index_title:フォーラムへようこそ
 search_title:{VAR-HTML: srch} を検索する
 remail_emailsent:メールを送信しました
+# Fuzzy
 remail_email:こんにちは。\n\n「{GVAR: FORUM_TITLE}」フォーラムに、あなたが興味を持っていただけるかもしれない「{VAR: data->subject}」についてのトピックがあります。このトピックは {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid} で表示できます。\n\nあなたの友より。\n\n{VAR: usr->alias}
 poll_add_option:追加する選択肢:
 post_opt_html_on:<b>HTML</b> は<b>有効</b>です
@@ -957,7 +962,7 @@ thread_mark_all_read:このフォーラムの未読メッセージをすべて�
 thread_mark_all_read_desc:このフォーラムにあるすべての未読メッセージを既読とします。
 private_no_messages:このフォルダーにメッセージはありません。
 register_email_change_subject:メール変更の確認
-register_email_change_msg:下記の URL にアクセスして、あなたの古いメールアカウント "{VAR: old_email}" を置き換える新しいメールアカウント "{VAR: uent->email}" を確認してください。\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\n新しいメールアドレスを確認すれば、フォーラムのアカウントは再有効化されます。
+register_email_change_msg:下記の URL にアクセスして、あなたの古いメールアカウント "{VAR: old_email}" を置き換える新しいメールアカウント "{VAR: uent->email}" を確認してください。\n{FULL_ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\n新しいメールアドレスを確認すれば、フォーラムのアカウントは再有効化されます。
 iemail_thread_unsub:このトピックの購読停止
 iemail_forum_unsub:このフォーラムの購読停止
 primary_group_prefix:フォーラムの第一グループ:
@@ -965,6 +970,7 @@ group_resources:このグループは次のフォーラムの権限を制御し�
 register_admin_newuser_title:新規利用者が登録しました。アカウントは確認待ちです。
 register_admin_newuser_msg:新規利用者 ({VAR: uent->login}) がただ今登録しました。アカウントの確認が有効になっているため、その利用者のアカウントはあなたか他のフォーラム管理者によって確認されるまで有効化されません。このアカウントを審査するには、{GVAR: WWW_ROOT}adm/admuserapr.php にアクセスしてください。\n\nこれは自動化された処理です。このメッセージに返信しないでください。\n新規利用者の登録に関するメール通知を今後受け取りたくない場合は、管理者コントロールパネルで止めることができます。「New Account Notification」設定で変更します。
 post_mod_msg_notify_title:フォーラム「{VAR: frm->name}」で承認待ちの新規メッセージ
+# Fuzzy
 post_mod_msg_notify_msg:新規メッセージ「{VAR: msg_post->subject}」が、あなたがモデレーションを担当するフォーラムにただ今投稿されました。このメッセージを検査するには、{FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id} にアクセスしてください。\n\nこれは自動化された処理です。このメッセージに返信しないでください。
 thread_printable_pdf:印刷用 PDF を生成する
 thread_syndicate:このフォーラムを配信する (XML)
@@ -991,6 +997,7 @@ mnav_month:月
 mnav_title:メッセージナビゲーター
 mnav_update:<a href="{TEMPLATE: mnav_update_lnk}">メッセージナビゲーター</a>を使ってメッセージを閲覧中
 pm_notify_subject:[{GVAR: FORUM_TITLE}] 新規プライベートメッセージ通知
+# Fuzzy
 pm_notify_body_email:フォーラム「{GVAR: FORUM_TITLE}」の「{VAR: from}」さんより「{VAR: subject}」という件名のプライベートメッセージが届いています。\nメッセージを表示するには下記をクリックしてください:\n{FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nこれ以降の通知を停止するには、プロフィールで「プライベートメッセージ通知」を無効にしてください。
 register_pm_notification:プライベートメッセージ通知:
 register_pm_notification_desc:有効にした場合、プライベートメッセージがあなたに送られたことを常に通知します。
@@ -1119,7 +1126,7 @@ move_msg_th_expl:移動先トピックのIDを指定してください (他の�
 captcha_img_alt:CAPTCHA検証: この画像中の文字列を認識する必要があります。
 captcha_img_help:画像内には 0 も 1 もありません。
 powered-by:提供: FUDforum {GVAR: FORUM_VERSION}
-copyright:Copyright &copy;2001-2013 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Copyright &copy;2001-2017 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:コード:
 code_select_all:すべて選択
 code_show_hide:表示/非表示

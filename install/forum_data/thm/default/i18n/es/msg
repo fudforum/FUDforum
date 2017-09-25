@@ -217,7 +217,7 @@ vote_button:Votar
 vote_for_thread:Votar
 was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> se trasladó a <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> por el moderador.
 welcome_message:Bienvenido <b>{VAR: usr->alias}</b>, su última visita fue el {TEMPLATE: welcome_message_date}
-what_ppl_doing:Mostrar lo que la gente está haciendo
+what_ppl_doing:Actividad del usuario
 reported_del_report:Borrar informe
 reported_reason:Motivo:
 reported_on:Activado:
@@ -385,6 +385,7 @@ my_buddies:Mis amigos
 add_buddy:Añadir amigo
 add:Agregar
 buddy_search:Introduzca el nombre del usuario que desea añadir.
+# Fuzzy
 member_search:O use la utilidad <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Buscar usuario</a> para buscar a una persona.
 buddy_remove:eliminar
 post_normal:Normal
@@ -679,8 +680,9 @@ register_err_notyouremail:Alguien más ya se ha registrado con este correo elect
 register_err_avatartobig:El archivo que está tratando de subir es demasiado grande, mayor que el límite de {GVAR: CUSTOM_AVATAR_MAX_SIZE} bytes
 register_err_avatarnotallowed:El avatar que está tratando de subir no está permitido. Revise los tipos de archivo permitidos.
 register_conf_subject:Confirmación de registro
-register_conf_msg:Gracias por registrarse,\nPara activar su cuenta, vaya a la siguiente URL:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nUna vez activada su cuenta, entrará en el foro y\nse le redirigirá a la página principal.
+register_conf_msg:Gracias por registrarse,\nPara activar su cuenta, vaya a la siguiente URL:\n\n{FULL_ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nUna vez activada su cuenta, entrará en el foro y\nse le redirigirá a la página principal.
 register_welcome_subject:Confirmación de registro en el foro
+# Fuzzy
 register_welcome_msg:Gracias por registrarse,\n\nAquí estan sus detalles de ingreso para el foro:\n\nURL del foro: {TEMPLATE: index_update_lnk}\nNombre de usuario: {VAR: uent->login}\nContraseña: {VAR: _POST['reg_plaintext_passwd']}\n\nRecuerde que las contraseñas distinguen entre mayúsculas y minúsculas!\nPara modificar su configuración y perfil, vaya a esta página:\n{FULL_ROOT}{ROOT}?t=register
 register_err_cantreg_title:ERROR: no se puede registrar
 regsiter_err_cantreg_msg:No se puede crear la cuenta de usuario. Por favor, póngase en contacto con el administrador en <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
@@ -693,7 +695,7 @@ reset_err_invalidkey_msg:La clave de actualización de contraseña no es válida
 reset_err_rstconf_title:Información
 reset_err_rstconf_msg:Debería recibir instrucciones en su correo electrónico en los próximos minutos
 reset_newpass_title:Restablecer contraseña
-reset_newpass_msg:Hola.\n\nTal como solicitó, le remitimos su nombre de usuario y contraseña.\nAquí está su información de inicio de sesión:\n\nUsuario: {VAR: ui[1]}\nContraseña: {VAR: passwd}\n\nRecuerde que su contraseña ha sido actualizada al valor anterior. Si desea cambiar su contraseña puede hacerlo mediante el panel de control de usuario en:\n{FULL_ROOT}{ROOT}?t=register
+reset_newpass_msg:Hola.\n\nTal como solicitó, le remitimos su nombre de usuario y contraseña.\nAquí está su información de inicio de sesión:\n\nUsuario: {VAR: ui[1]}\nContraseña: {VAR: passwd}\n\nRecuerde que su contraseña ha sido actualizada al valor anterior. Si desea cambiar su contraseña puede hacerlo mediante el panel de control de usuario en:\n{FULL_ROOT}?t=register
 reset_login_notify:Se le ha enviado su contraseña por correo electrónico. Debería recibirla en unos minutos.
 search_update:Buscando mensajes
 selmsg_update:Recorriendo los <a href="{TEMPLATE: selmsg_update_lnk}">mensajes de hoy</a>
@@ -728,6 +730,7 @@ error_title:Formulario de error
 index_title:Bienvenido al foro
 search_title:Buscar {VAR-HTML: srch}
 remail_emailsent:Se ha enviado el mensaje de correo
+# Fuzzy
 remail_email:Hola,\n\nHay un tema interesante sobre "{VAR: data->subject}" en el foro {GVAR: FORUM_TITLE} que puedes desear leer. Puedes ver el tema en:\n  {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nTu amigo,\n\n{VAR: usr->alias}
 poll_add_option:Agregar opción:
 post_opt_html_on:El código <b>HTML</b> está <b>ACTIVADO</b>
@@ -962,7 +965,7 @@ thread_mark_all_read:marcar todos los mensajes sin leer del foro como leídos
 thread_mark_all_read_desc:Todos los mensajes sin leer dentro de este foro se marcarán como leídos
 private_no_messages:No hay mensajes privados en esta carpeta
 register_email_change_subject:Confirmación del cambio de correo electrónico
-register_email_change_msg:Por favor, confirme su nueva cuenta de correo electrónico "{VAR: uent->email}" que sustituye su anterior dirección de correo "{VAR: old_email}" yendo a la URL siguiente:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nCuando confirme su nueva dirección de correo, su cuenta quedará reactivada.
+register_email_change_msg:Por favor, confirme su nueva cuenta de correo electrónico "{VAR: uent->email}" que sustituye su anterior dirección de correo "{VAR: old_email}" yendo a la URL siguiente:\n{FULL_ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nCuando confirme su nueva dirección de correo, su cuenta quedará reactivada.
 iemail_thread_unsub:Desuscribirse de esta conversación
 iemail_forum_unsub:Desuscribirse de este foro
 primary_group_prefix:Grupo principal para los foros:
@@ -970,6 +973,7 @@ group_resources:Este grupo controla los permisos de los foros siguientes
 register_admin_newuser_title:Se ha registrado un usuario nuevo y su cuenta está pendiente de confirmación
 register_admin_newuser_msg:Un usuario nuevo, ({VAR: uent->login}), acaba de registrarse en los foros, y como está activada la confirmación de la cuenta, su cuenta no estará activa hasta que usted u otro administrador de los foros la confirme. Para revisar la cuenta, por favor, vaya a : {GVAR: WWW_ROOT}adm/admuserapr.php\n\nEsto es un proceso automatizado, no responda a este mensaje.\nSi desea desactivar futuras notificaciones de registro de nuevos usuarios, puede hacerlo usando el Panel de control de administración, cambiando el valor de la opción "Notificación de cuenta nueva".
 post_mod_msg_notify_title:Un nuevo mensaje en los foros con el asunto "{VAR: frm->name}" está pendiente de aprobación
+# Fuzzy
 post_mod_msg_notify_msg:Un nuevo mensaje titulado "{VAR: msg_post->subject}" acaba de ser enviado a un foro que usted modera. Para revisar este mensaje, vaya a: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nEste es un proceso automático, así que no responda a este mensaje.
 thread_printable_pdf:Generar PDF imprimible
 thread_syndicate:Leer este foro con lector un RSS (XML)
@@ -996,6 +1000,7 @@ mnav_month:Mes(es)
 mnav_title:Navegador de mensajes
 mnav_update:Examinar mensajes usando el <a href="{TEMPLATE: mnav_update_lnk}">Navegador de mensajes</a>
 pm_notify_subject:[{GVAR: FORUM_TITLE}] Notificación de nuevo mensaje privado
+# Fuzzy
 pm_notify_body_email:Tiene un nuevo mensaje privado titulado "{VAR: subject}" de "{VAR: from}" en el foro "{GVAR: FORUM_TITLE}".\nPara ver el mensaje, pulse el enlace siguiente: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nPara evitar notificaciones futuras desactive "Notificar mensajes privados" en su perfil.
 register_pm_notification:Notificación de mensajes privados:
 register_pm_notification_desc:Si está activado, se le notificará por el método de notificación elegido cuando se le envíe un mensaje privado.
@@ -1124,7 +1129,7 @@ move_msg_th_expl:Especificar el id. del tema de destino (puede estar en otros fo
 captcha_img_alt:Verificación captcha: necesitarás reconocer el texto en esta imagen.
 captcha_img_help:No hay cero o uno en la imagen
 powered-by:Impulsado por: FUDforum {GVAR: FORUM_VERSION}.
-copyright:Copyright &copy;2001-2013 <a href="http://fudforum.org/">FUDforum Software de tablón de anuncios</a>
+copyright:Copyright &copy;2001-2017 <a href="http://fudforum.org/">FUDforum Software de tablón de anuncios</a>
 code_title:Código:
 code_select_all:Seleccionar todo
 code_show_hide:Mostrar/ocultar

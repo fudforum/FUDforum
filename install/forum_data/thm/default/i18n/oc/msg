@@ -2,6 +2,7 @@
 # Exported from translatewiki.net
 # Author: Cedric31
 # Author: Jfblanc
+# Author: Macofe
 # Author: McDutchie
 # Author: Naudefj
 # Author: OpenStreetMap-oc
@@ -206,6 +207,7 @@ vote_button:Votar
 vote_for_thread:Vòte
 was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> es estat desplaçat cap a <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> pel moderator
 welcome_message:Benvenguda <b>{VAR: usr->alias}</b>, vòstra darrièra visita se debanèt lo {TEMPLATE: welcome_message_date}
+# Fuzzy
 what_ppl_doing:Far veire çò que los autres son a far
 reported_del_report:Destruire un rapòrt
 reported_reason:Motiu :
@@ -374,6 +376,7 @@ my_buddies:Mos amics
 add_buddy:Apondre un amic
 add:Ajustar
 buddy_search:Entratz lo nom de l'utilizaire que volètz apondre a vòstra lista.
+# Fuzzy
 member_search:O utilizatz la foncionalitat <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">cercar un utilizaire</a> per trobar aquesta persona.
 buddy_remove:Levar de ma lista d'amics
 post_normal:Normal
@@ -668,8 +671,9 @@ register_err_notyouremail:Qualqu'un s'es ja inscrit amb aquesta adreça e-mail, 
 register_err_avatartobig:Lo fichièr qu'ensajatz de telecargar es tròp gròs, la talha limita autorizada es de {GVAR: CUSTOM_AVATAR_MAX_SIZE} octets
 register_err_avatarnotallowed:L'avatar qu'ensajatz de telecargar es pas autorizat, verificatz los tipes de fichièrs autorizats.
 register_conf_subject:Confirmacion de vòstra inscripcion
-register_conf_msg:Mercés per vòstra inscripcion.\nPer activar vòstre compte, visitatz l'URL çaijós :\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nUn còp vòstre compte activat, seretz connectat al forum e redirigit cap a la pagina d'acuèlh del forum.
+register_conf_msg:Mercés per vòstra inscripcion.\nPer activar vòstre compte, visitatz l'URL çaijós :\n\n{FULL_ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nUn còp vòstre compte activat, seretz connectat al forum e redirigit cap a la pagina d'acuèlh del forum.
 register_welcome_subject:Confirmacion de vòstra inscripcion al forum.
+# Fuzzy
 register_welcome_msg:Mercés de vos èsser inscrit,\n\nVaquí un resumit de vòstras donadas de connexion al forum :\n\nURL del forum : {TEMPLATE: index_update_lnk}\nNom d'utilizaire : {VAR: uent->login}\nSenhal : {VAR: _POST['reg_plaintext_passwd']}\n\nDoblidetz pas que los senhals fan la diferéncia entre las majusculas e las minusculas !\nPer modificar vòstres reglatges e vòstre perfil, visitatz aquesta pagina :\n{FULL_ROOT}{ROOT}?t=register
 register_err_cantreg_title:ERROR : Vos avèm pas pogut inscriure
 regsiter_err_cantreg_msg:Impossible de crear un compte d'utilizaire ; fasètz part d'aqueste problèma a l'administrator : <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
@@ -682,7 +686,7 @@ reset_err_invalidkey_msg:Clau de reïnicializacion de senhal invalid
 reset_err_rstconf_title:Informacion
 reset_err_rstconf_msg:Deuriatz recebre d'instruccions per e-mail dins qualques minutas.
 reset_newpass_title:Reïnicializacion del senhal
-reset_newpass_msg:Bonjorn,\n\ntrobatz çaijunt las informacions que vos fan mestièr per accedir al forum :\n\n\nNom d'utilizaire : {VAR: ui[1]}\nSenhal : {VAR: passwd}\n\nNotatz que podètz modificar vòstre senhal quand volètz via lo panèl de configuracion de vòstre perfil sul site del forum, tanben accessible a l'URL seguenta :\n{FULL_ROOT}{ROOT}?t=register
+reset_newpass_msg:Bonjorn,\n\ntrobatz çaijunt las informacions que vos fan mestièr per accedir al forum :\n\n\nNom d'utilizaire : {VAR: ui[1]}\nSenhal : {VAR: passwd}\n\nNotatz que podètz modificar vòstre senhal quand volètz via lo panèl de configuracion de vòstre perfil sul site del forum, tanben accessible a l'URL seguenta :\n{FULL_ROOT}?t=register
 reset_login_notify:Vòstre senhal vos es estat mandat per corrièr electronic. Vos lo caldriá recebre dins las minutas que venon.
 search_update:Recèrca dels messatges
 selmsg_update:Percor los <a href="{TEMPLATE: selmsg_update_lnk}">messatges mandats uèi</a>
@@ -717,6 +721,7 @@ error_title:Formulari d'error
 index_title:Benvenguda sul forum
 search_title:Recèrca de {VAR-HTML: srch}
 remail_emailsent:L'e-mail es estat mandat
+# Fuzzy
 remail_email:Bonjorn,\n\nI a un subjècte interessant a prepaus de « {VAR: data->subject} » sul forum {GVAR: FORUM_TITLE} que poiriá voler legir. Podètz veire lo subjècte a : {FULL_ROOT}{ROOT}?t=rview&th={VAR: data->id}&rid={DEF: _uid}\n\nVòstre amic,\n\n{VAR: usr->alias}
 poll_add_option:Apondre una opcion :
 post_opt_html_on:Lo còdi <b>HTML</b> es <b>ACTIVAT</b>
@@ -951,7 +956,7 @@ thread_mark_all_read:Marcar totes los messatges del forum coma legits
 thread_mark_all_read_desc:Totes los messatges pas legits dins aqueste forum seràn marcats coma legits
 private_no_messages:I a pas cap de messatge dins aqueste dorsièr
 register_email_change_subject:Confirmacion de cambiament d'e-mail
-register_email_change_msg:Confirmatz vòstre novèl compte e-mail « {VAR: uent->email} » que remplaça vòstre ancian compte e-mail « {VAR: old_email} » en visitant l'URL çaijós :\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nUn còp qu'auretz confirmat vòstra novèla adreça e-mail, vòstre compte serà reactivat.
+register_email_change_msg:Confirmatz vòstre novèl compte e-mail « {VAR: uent->email} » que remplaça vòstre ancian compte e-mail « {VAR: old_email} » en visitant l'URL çaijós :\n{FULL_ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nUn còp qu'auretz confirmat vòstra novèla adreça e-mail, vòstre compte serà reactivat.
 iemail_thread_unsub:Arrestar la susvelhança d'aqueste fial
 iemail_forum_unsub:Arrestar la susvelhança d'aqueste forum
 primary_group_prefix:Grop primari pel forum :
@@ -959,6 +964,7 @@ group_resources:Aqueste grop contraròtla las permissions dels forums seguents
 register_admin_newuser_title:Un novèl utilizaire s'es inscrit e son compte es en espèra de confirmacion
 register_admin_newuser_msg:Un novèl utilizaire ({VAR: uent->login}) ven juste de s'inscriure sul forum e coma la confirmacion dels comptes es activada, son compte vendrà pas actiu que quand vos o un dels administrators del forum l'auretz confirmat. Per decidir d'aqueste compte, rendètz-vos a : {GVAR: WWW_ROOT}adm/admuserapr.php\n\nAquò's un processus automatic, respondatz pas a aqueste messatge.\nSe volètz desactivar las notificacions venentas per corrièr de l'inscripcion de novèls utilizaires, o podètz far amb lo panèl de contraròtle admin en cambiant la valor del paramètre « New Account Notification ».
 post_mod_msg_notify_title:Novèl messatge dins lo forum « {VAR: frm->name} » en espèra d'aprovacion
+# Fuzzy
 post_mod_msg_notify_msg:Un novèl messatge intitulat « {VAR: msg_post->subject} » ven juste d'èsser postat dins un forum que moderatz. Per decidir d'aqueste messatge, rendètz-vos a : {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nAquò's un processus automatic, respondatz pas a aqueste messatge.
 thread_printable_pdf:Generar de PDF imprimible
 thread_syndicate:Publicar aqueste forum (XML)
@@ -985,6 +991,7 @@ mnav_month:mes(es)
 mnav_title:Navigador de messatges
 mnav_update:Percor los messatges amb l'ajuda del <a href="{TEMPLATE: mnav_update_lnk}">Navigador de messatges</a>
 pm_notify_subject:[{GVAR: FORUM_TITLE}] Notificacion de novèl messatge privat
+# Fuzzy
 pm_notify_body_email:Avètz un novèl messatge privat intitulat « {VAR: subject} » de « {VAR: from} » sul forum « {GVAR: FORUM_TITLE} ».\nPer legir aqueste messatge, clicatz aicí : {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nPer recebre pas mai aquelas notificacions, desactivatz « Notificacion de novèl messatge privat » dins vòstre perfil.
 register_pm_notification:Notificacion de messatge privat
 register_pm_notification_desc:Se aquesta opcion es activada, seretz notificat per un metòde de notificacion coma l'auretz causit a cada còp qu'un messatge privat vos serà mandat.
@@ -1113,7 +1120,7 @@ move_msg_th_expl:Precisatz l'identificant del subjècte de destinacion (pòt ès
 captcha_img_alt:Verificacion par Captcha : vos cal reconéisser lo tèxte dins aqueste imatge.
 captcha_img_help:I a pas de zèro o de un sus aqueste imatge.
 powered-by:Propulsat per : FUDforum {GVAR: FORUM_VERSION}.
-copyright:Copyright &copy;2001-2013 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Copyright &copy;2001-2017 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:CÒDI :
 code_select_all:Seleccionar tot
 code_show_hide:Afichar / amagar

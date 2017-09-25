@@ -5,6 +5,7 @@
 # Author: Event
 # Author: Jon Harald Søby
 # Author: Laaknor
+# Author: Macofe
 # Author: McDutchie
 # Author: Naudefj
 # Author: Nghtwlkr
@@ -210,7 +211,7 @@ vote_button:Stem
 vote_for_thread:Stem
 was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> har blitt flyttet til <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> av moderatoren.
 welcome_message:Velkommen <b>{VAR: usr->alias}</b>! Ditt forrige besøk var {TEMPLATE: welcome_message_date}
-what_ppl_doing:vis hva folk holder på med
+what_ppl_doing:Brukeraktivitet
 reported_del_report:Slett rapport
 reported_reason:Årsak:
 reported_on:Tid:
@@ -378,7 +379,7 @@ my_buddies:Mine kontakter
 add_buddy:Legg til kontakt
 add:Legg til
 buddy_search:Angi påloggingsinformasjonen til brukeren du ønsker å legge til.
-member_search:Eller bruk «<a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">finn bruker</a>»-funksjonen for å finne en person.
+member_search:Eller bruk «<a href="javascript://" onclick="javascript: window_open('{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">finn bruker</a>»-funksjonen for å finne en person.
 buddy_remove:ta bort
 post_normal:Normal
 post_sticky:Klebrig
@@ -672,9 +673,9 @@ register_err_notyouremail:Noen har allerede registrert seg med denne e-postadres
 register_err_avatartobig:Filen du prøver å sende er for stor, over grensen på {GVAR: CUSTOM_AVATAR_MAX_SIZE} byte
 register_err_avatarnotallowed:Avataren du prøver å sende er ikke tillatt. Kontroller at den er av godkjent filtype.
 register_conf_subject:Bekreftelse av forumregistrering
-register_conf_msg:Takk for din registrering!\nGå til adressen under for å aktivere din medlemskonto:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nEtter at din konto er aktivert blir du innlogget på forumet og \nvideressendt til hovedsiden.
+register_conf_msg:Takk for din registrering!\nGå til adressen under for å aktivere din medlemskonto:\n\n{FULL_ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nEtter at din konto er aktivert blir du innlogget på forumet og \nvideressendt til hovedsiden.
 register_welcome_subject:Velkommen til forumet
-register_welcome_msg:Takk for at du registrerte deg,\n\nHer er innloggingsinformasjonen din for forumet:\n\nForumets URL: {TEMPLATE: index_update_lnk}\nInnlogging: {VAR: uent->login}\nPassord: {VAR: _POST['reg_plaintext_passwd']}\n\nVennligst merk at passord skiller mellom store og små bokstaver!\nFor å endre innstillingene dine eller profilen din, gå til denne siden:\n{FULL_ROOT}{ROOT}?t=register
+register_welcome_msg:Takk for at du registrerte deg,\n\nHer er innloggingsinformasjonen din for forumet:\n\nForumets URL: {TEMPLATE: index_update_lnk}\nInnlogging: {VAR: uent->login}\nPassord: {VAR: _POST['reg_plaintext_passwd']}\n\nVennligst merk at passordet skiller mellom store og små bokstaver!\nFor å endre innstillingene dine eller profilen din, gå til denne siden:\n{FULL_ROOT}?t=register
 register_err_cantreg_title:FEIL: kan ikke registrere
 regsiter_err_cantreg_msg:Kan ikke opprette brukerkonto, vennligst kontakt administratoren på adressen <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:Viser sin egen profil
@@ -686,7 +687,7 @@ reset_err_invalidkey_msg:Ugyldig kode for nullstilling av passord
 reset_err_rstconf_title:Informasjon
 reset_err_rstconf_msg:Du vil motta instruksjoner per e-post innen få minutter
 reset_newpass_title:Nullstill passord
-reset_newpass_msg:Hei!\n\nDitt brukernavn og passord har blitt endret på din forespørsel.\nHer er din inloggingsinformasjon:\n\nBrukernavn: {VAR: ui[1]}\nPassord: {VAR: passwd}\n\nNoter deg at passordet ditt er endret til det overstående. Om du vil\nendre passordet ditt kan du gjøre det i kontrollpanelet:\n{FULL_ROOT}{ROOT}?t=register
+reset_newpass_msg:Hei!\n\nDitt brukernavn og passord har blitt endret på din forespørsel.\nHer er din inloggingsinformasjon:\n\nBrukernavn: {VAR: ui[1]}\nPassord: {VAR: passwd}\n\nNoter deg at passordet ditt er endret til det overstående. Om du vil\nendre passordet ditt kan du gjøre det i kontrollpanelet:\n{FULL_ROOT}?t=register
 reset_login_notify:Ditt passord har blitt sendt til deg per e-post og burde komme frem innen et par minutter.
 search_update:Søker blandt innleggene
 selmsg_update:Leser <a href="{TEMPLATE: selmsg_update_lnk}">Dagens innlegg</a>
@@ -721,7 +722,7 @@ error_title:FEIL
 index_title:Velkommen til forumet
 search_title:Søk {VAR-HTML: srch}
 remail_emailsent:E-post sendt
-remail_email:Hei,\n\nDet er et interessant emne om "{VAR: data->subject}" på {GVAR: FORUM_TITLE}-forumet som du kanskje vil lese. Du kan se emnet på:\n  {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nDin venn,\n\n{VAR: usr->alias}
+remail_email:Hei,\n\nDet er et interessant emne om "{VAR: data->subject}" på {GVAR: FORUM_TITLE}-forumet som du kanskje vil lese. Du kan se emnet på:\n  {FULL_ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nDin venn,\n\n{VAR: usr->alias}
 poll_add_option:Legg til alternativ:
 post_opt_html_on:<b>HTML</b>-kode er <b>PÅ</b>
 post_opt_fud_on:<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>FUD-kode</b> er <b>PÅ</b></a>
@@ -955,7 +956,7 @@ thread_mark_all_read:merk alle uleste forummeldinger som lest
 thread_mark_all_read_desc:Alle uleste meldinger i dette forumet vil bli merket som lest
 private_no_messages:Det er ingen meldinger i denne mappen.
 register_email_change_subject:Bekreftelse på endret e-postadresse
-register_email_change_msg:Bekreft din nye e-postkonto "{VAR: uent->email}" som erstatter din gamle e-postkonto "{VAR: old_email}" ved å gå til nettadressen under:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nNår du har bekreftet din nye e-postadresse vil forumkontoen din ble aktivert igjen.
+register_email_change_msg:Bekreft din nye e-postkonto "{VAR: uent->email}" som erstatter din gamle e-postkonto "{VAR: old_email}" ved å gå til nettadressen under:\n{FULL_ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nNår du har bekreftet din nye e-postadresse vil forumkontoen din ble aktivert igjen.
 iemail_thread_unsub:Stopp abonnement på dette emnet
 iemail_forum_unsub:Stopp abonnement på dette forumet
 primary_group_prefix:Primærgruppe for forum:
@@ -963,7 +964,7 @@ group_resources:Denne gruppen kontrollerer rettighetene på følgende fora
 register_admin_newuser_title:En ny bruker har registrert seg og kontoen venter på bekreftelse
 register_admin_newuser_msg:En ny bruker ({VAR: uent->login}) har akkurat registrert seg og siden kontobekreftelse er aktivert vil ikke deres konto bli aktiv før den er bekreftet av deg eller en annen forumadministrator. For å godkjenne kontoen gå til: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nDette er en automatisert prosess. Ikke svar på denne meldingen.\nOm du vil slå av fremtidige e-postvarsler om nye brukerregistreringer kan du gjøre dette i Administratorens kontrollpanel. Endre «Varsel om ny konto»-innstillingen.
 post_mod_msg_notify_title:En ny melding i forumet «{VAR: frm->name}» venter på godkjenning
-post_mod_msg_notify_msg:En ny melding med tittelen «{VAR: msg_post->subject}» ble akkurat postet i et forum som du modererer. For å godkjenne denne meldingen gå til: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nDette er en automatisert prosess. Ikke svar på denne meldingen.
+post_mod_msg_notify_msg:En ny melding med tittelen «{VAR: msg_post->subject}» ble akkurat postet i et forum som du modererer. For å godkjenne denne meldingen gå til: {FULL_ROOT}?t=modque#{VAR: msg_post->id}\n\nDette er en automatisert prosess. Ikke svar på denne meldingen.
 thread_printable_pdf:Generer utskriftsvennlig PDF
 thread_syndicate:Syndiker dette forumet (XML)
 reg_conf_title:Registreringsbekreftelse
@@ -989,7 +990,7 @@ mnav_month:Måned(er)
 mnav_title:Meldingsnavigatør
 mnav_update:Bla i meldinger med <a href="{TEMPLATE: mnav_update_lnk}">Meldingsnavigatøren</a>
 pm_notify_subject:[{GVAR: FORUM_TITLE}] Varsel om ny privat melding
-pm_notify_body_email:Du har en ny privat melding med tittelen «{VAR: subject}», fra «{VAR: from}», i forumet «{GVAR: FORUM_TITLE}».\nFor å se meldingen, klikk her: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nFor å stoppe fremtidige varsel, deaktiver «Varsel om privat melding» i din profil.
+pm_notify_body_email:Du har en ny privat melding med tittelen «{VAR: subject}», fra «{VAR: from}», i forumet «{GVAR: FORUM_TITLE}».\nFor å se meldingen, klikk her: {FULL_ROOT}?t=pmsg_view&id={VAR: pid}\n\nFor å stoppe fremtidige varsel, deaktiver «Varsel om privat melding» i din profil.
 register_pm_notification:Varsel om privat melding:
 register_pm_notification_desc:Om aktivert vil du bli varslet hver gang du får en privat melding.
 findu_admin_opts_header:Adminalternativ
@@ -1117,7 +1118,7 @@ move_msg_th_expl:Oppgi ID'en til destinasjonsemnet (kan være i andre fora)
 captcha_img_alt:Captcha-verifisering: du må kjenne igjen teksten i dette bildet.
 captcha_img_help:Det er ingen null eller en i bildet.
 powered-by:Levert av: FUDforum {GVAR: FORUM_VERSION}.
-copyright:Copyright &copy;2001-2012 <a href="http://fudforum.org/">FUDforum Bulleting Board Software</a>
+copyright:Copyright &copy;2001–2017 <a href="http://fudforum.org/">FUDforum Bulleting Board Software</a>
 code_title:Kode:
 code_select_all:Velg alle
 code_show_hide:Vis/ skjul

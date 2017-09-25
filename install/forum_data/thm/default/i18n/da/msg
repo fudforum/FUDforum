@@ -4,6 +4,7 @@
 # Author: Emilkris33
 # Author: Joedalton
 # Author: Kaare
+# Author: Macofe
 # Author: McDutchie
 # Author: Naudefj
 # Author: Nghtwlkr
@@ -210,6 +211,7 @@ vote_button:Stem
 vote_for_thread:Stem
 was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> er blevet flyttet til <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> af moderatoren.
 welcome_message:Velkommen <b>{VAR: usr->alias}</b>, du var sidst på besøg her {TEMPLATE: welcome_message_date}
+# Fuzzy
 what_ppl_doing:Vis, hvad folk laver
 reported_del_report:Slet rapport
 reported_reason:Begrundelse:
@@ -378,6 +380,7 @@ my_buddies:Mine venner
 add_buddy:Tilføj ven
 add:Tilføj
 buddy_search:Indtast brugernavnet på den bruger du ønsker at tilføje.
+# Fuzzy
 member_search:Eller brug <a href="javascript://" onclIck="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Find Bruger</a> funktionen for at søge efter brugere.
 buddy_remove:fjern
 post_normal:Normal
@@ -672,8 +675,9 @@ register_err_notyouremail:En anden er allerede registreret med denne e-mailadres
 register_err_avatartobig:Den fil, du forsøger at overføre, er for stor, over grænsen på {GVAR: CUSTOM_AVATAR_MAX_SIZE} bytes.
 register_err_avatarnotallowed:Den avatar, du forsøger at uploade er ikke tilladt. Check de tilladte filtyper.
 register_conf_subject:Bekræftelse af registrering
-register_conf_msg:Tak for din registrering.\nFor at aktivere din konto skal du gå til webadressen nedenfor:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nNår din konto er aktiveret, vil du blive logget på forummet og \nviderestillet til forsiden.
+register_conf_msg:Tak for din registrering.\nFor at aktivere din konto skal du gå til webadressen nedenfor:\n\n{FULL_ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nNår din konto er aktiveret, vil du blive logget på forummet og \nviderestillet til forsiden.
 register_welcome_subject:Bekræftelse af registrering i forum
+# Fuzzy
 register_welcome_msg:Tak for din registrering,\n\nHer er dine brugerinformationer for forumet:\n\nForum URL: {TEMPLATE: index_update_lnk}\nBrugernavn: {VAR: uent->login}\nAdgangskode: {VAR: _POST['reg_plaintext_passwd']}\n\nBemærk, at der i adgangskoder skelnes mellem store og små bogstaver!\nFor at ændre dine personlige indstillinger eller profil skal du gå til følgende side:\n{FULL_ROOT}{ROOT}?t=register
 register_err_cantreg_title:FEJL: ude af stand til at registrere
 regsiter_err_cantreg_msg:Ude af stand til at oprette brugerkonto, du bedes kontakte administratoren på <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
@@ -686,7 +690,7 @@ reset_err_invalidkey_msg:Ugyldig link for ændret adgangskode. Det er muligt, at
 reset_err_rstconf_title:Information
 reset_err_rstconf_msg:Du burde modtage instruktioner per e-mail i løbet af de næste par minutter.
 reset_newpass_title:Få ny adgangskode
-reset_newpass_msg:Hej\n\nSom ønsket fremsendes hermed dine nye dine brugeroplysninger:\n\nBrugernavn: {VAR: ui[1]}\nAdgangskode: {VAR: passwd}\n\nBemærk venligst at din adgangskode er blevet ændret til den ovennævnte værdi. Hvis du ønsker\n at ændre din adgangskode igen, kan du gøre det via kontrolpanelet på:\n{FULL_ROOT}{ROOT}?t=register\n\n.
+reset_newpass_msg:Hej\n\nSom ønsket fremsendes hermed dine nye dine brugeroplysninger:\n\nBrugernavn: {VAR: ui[1]}\nAdgangskode: {VAR: passwd}\n\nBemærk venligst at din adgangskode er blevet ændret til den ovennævnte værdi. Hvis du ønsker\n at ændre din adgangskode igen, kan du gøre det via kontrolpanelet på:\n{FULL_ROOT}?t=register.
 reset_login_notify:Din nye adgangskode er blevet sendt til dig pr e-mail. Du bør modtage den inden for de næste par minutter.
 search_update:Søger blandt indlæggene
 selmsg_update:Gennemse <a href="{TEMPLATE: selmsg_update_lnk}">dagens indlæg</a>
@@ -721,6 +725,7 @@ error_title:Fejl
 index_title:Velkommen til forumet
 search_title:Søg efter {VAR-HTML: srch}
 remail_emailsent:Mail blev afsendt
+# Fuzzy
 remail_email:Hej\n\nDer er et interessant emne om "{VAR: data->subject}" i forummet {GVAR: FORUM_TITLE}, som du måske vil være interesseret i at læse. Du kan se emnet på:\n {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nDin ven\n\n{VAR: usr->alias}
 poll_add_option:Tilføj valgmulighed:
 post_opt_html_on:<b>HTML</b>-kode er slået <b>til</b>
@@ -955,7 +960,7 @@ thread_mark_all_read:Markér alle ulæste indlæg som læste
 thread_mark_all_read_desc:Alle ulæste indlæg i dette forum vil blive markeret som læste
 private_no_messages:Der er ingen indlæg i denne mappe.
 register_email_change_subject:Bekræftelse af ændret E-mail
-register_email_change_msg:Bekræft din nye e-mail konto "{VAR: uent->email}" som erstatter din gamle e-mail konto "{VAR: old_email}", ved at gå til nedenstående webadresse:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nNår du har bekræftet din nye e-mailadresse, vil din forum konto blive aktiveret igen.
+register_email_change_msg:Bekræft din nye e-mail konto "{VAR: uent->email}" som erstatter din gamle e-mail konto "{VAR: old_email}", ved at gå til nedenstående webadresse:\n{FULL_ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nNår du har bekræftet din nye e-mailadresse, vil din forum konto blive aktiveret igen.
 iemail_thread_unsub:Stop abonnement på dette emne
 iemail_forum_unsub:Stop abonnement på dette forum
 primary_group_prefix:Primær gruppe for forum:
@@ -963,6 +968,7 @@ group_resources:Denne gruppe kontrollerer tilladelserne for følgende fora
 register_admin_newuser_title:En ny bruger har registreret sig hvis konto mangler godkendelse
 register_admin_newuser_msg:En ny bruger ({VAR: uent->login}) har netop tilmeldt sig, og da godkendelse er aktiveret, kan vedkommende ikke tage sin konto i brug, før den er godkendt af dig eller en anden forum administrator. For at undersøge denne konto skal du gå til: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nDette er en automatiseret proces. Undlad at besvare denne besked.\nHvis du ønsker at afmelde fremtidige e-mail meddelelser om nye brugerregistreringer, kan du gøre det via administrationskonsollens kontrolpanel. Ændre "Ny konto notifikation" indstillingen.
 post_mod_msg_notify_title:Nyt indlæg i forum "{VAR: frm->name}" venter på godkendelse
+# Fuzzy
 post_mod_msg_notify_msg:Et nyt indlæg med titlen "{VAR: msg_post->subject}" er blevet postet i et forum, som du modererer. For at se og revidere indlægget gå til: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nDette er en automatiseret proces.  Svar ikke på denne meddelelse.
 thread_printable_pdf:Generer udskriftsvenlig PDF
 thread_syndicate:Syndiker dette forum (XML)
@@ -989,6 +995,7 @@ mnav_month:Måned(er)
 mnav_title:Beskedsnavigatør
 mnav_update:Gennemse beskeder med <a href="{TEMPLATE: mnav_update_lnk}">Beskedsnavigatør</a>
 pm_notify_subject:[{GVAR: FORUM_TITLE}] Notifikation om ny privat besked
+# Fuzzy
 pm_notify_body_email:Du har en ny privat besked med titlen "{VAR: subject}", fra "{VAR: from}", i forummet "{GVAR: FORUM_TITLE}".\nFor at se beskeden, skal du klikke her: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nFor at undgå fremtidige notifikationer, kan du deaktivere "Notifikation om private beskeder" i din profil.
 register_pm_notification:Notifikation om private beskeder:
 register_pm_notification_desc:Hvis aktiveret, vil du blive adviseret, når der sendes en privat besked til dig.
@@ -1117,7 +1124,7 @@ move_msg_th_expl:Angiv ID for destinationsemnet (kan være i andre fora)
 captcha_img_alt:Captcha verifikation: du skal genkende teksten i dette billede.
 captcha_img_help:Der er ingen nul eller én i billedet.
 powered-by:Drevet af: FUDforum {GVAR: FORUM_VERSION}.
-copyright:Copyright &copy;2001-2013 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Copyright &copy;2001-2017 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Kode:
 code_select_all:Vælg alle
 code_show_hide:Vis/ skjul

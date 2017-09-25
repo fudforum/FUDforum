@@ -1,5 +1,7 @@
 # Messages for Basa Banyumasan (Basa Banyumasan)
 # Exported from translatewiki.net
+# Author: Macofe
+# Author: Naudefj
 # Author: StefanusRA
 
 action:Tindakan
@@ -202,6 +204,7 @@ vote_button:Pilih
 vote_for_thread:Aweh swara
 was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> uwis dipindahna maring <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> nang moderator.
 welcome_message:Sugeng teka <b>{VAR: usr->alias}</b>, Rika teka ming kene keri dhewek dong {TEMPLATE: welcome_message_date}
+# Fuzzy
 what_ppl_doing:Tidokna aktivitase panganggo liyane
 reported_del_report:Busek laporan
 reported_reason:Alesan:
@@ -367,6 +370,7 @@ my_buddies:Kancane Inyong
 add_buddy:Tambahna Kanca
 add:Tambah
 buddy_search:Lebokna identifikasi panganggo sing arep Rika tambahna.
+# Fuzzy
 member_search:Utawa gunakna fitur <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Goleti Panganggo</a>  nggo nemokna kancane Rika.
 buddy_remove:busek
 post_normal:Normal
@@ -662,8 +666,9 @@ register_err_notyouremail:Wis ana wong sejen sing kedaftar nganggo alamat imel k
 register_err_avatartobig:Berkas sing arep Rika unggahna kegedhen, lewih sekang  {GVAR: CUSTOM_AVATAR_MAX_SIZE} bita.
 register_err_avatarnotallowed:Avatar sing Rika unggahna ora sah. Tulung dipriksa maning jinis sing olih dienggo.
 register_conf_subject:Konfirmasi Registrasi
-register_conf_msg:Matur nuwun Rika wis gelem ndaftar,\nKanggo ngaktifna akune Rika monggo di-klik URL nang ngisor kiye:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nSeuwise diaktifna Rika bakal mlebu log maring forum lan\ndiarahna ming kaca utama.
+register_conf_msg:Matur nuwun Rika wis gelem ndaftar,\nKanggo ngaktifna akune Rika monggo di-klik URL nang ngisor kiye:\n\n{FULL_ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nSeuwise diaktifna Rika bakal mlebu log maring forum lan\ndiarahna ming kaca utama.
 register_welcome_subject:Konfirmasi Registrasi Forum
+# Fuzzy
 register_welcome_msg:Matur nuwun Rika wis gelem ndaftar,\n\nKiye rincian data logine Rika nggo forum:\n\nForum URL: {TEMPLATE: index_update_lnk}\nLogin: {VAR: uent->login}\nPassword: {VAR: _POST['reg_plaintext_passwd']}\n\nTulung dieling-eling nek tembung sandhi kuwe sensitif karu aksara gedhe/cilik!\nKanggo ngowaih settingan utawa profile Rika, mlebu ming kaca kiye:\n{FULL_ROOT}{ROOT}?t=register
 register_err_cantreg_title:SALAH: Ora teyeng ndaftar
 regsiter_err_cantreg_msg:Ora teyeng gawe akun panganggo, tulung hubungi administrator nang <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
@@ -676,7 +681,7 @@ reset_err_invalidkey_msg:Kunci nggo nge-reset tembung sandhi ora bener. Ndeyane 
 reset_err_rstconf_title:Informasi
 reset_err_rstconf_msg:Rika bakal nampa instruksi nang imele Rika sedela maning.
 reset_newpass_title:nge-''reset'' tembung sandhi
-reset_newpass_msg:Halo,\n\nManut karo panjalukane Rika, kiye informasi logine Rika:\n\nLogin: {VAR: ui[1]}\nPassword: {VAR: passwd}\n\nTulung dieling-eling anggere tembung sandhine Rika kuwe wis diganti dadi sing nang dhuwur kuwe mau. Anggere Rika kepengin\nngganti maning tembung sandhine Rika, Rika teyeng nglakokna kuwe nang panel kendaline Rika kiye:\n{FULL_ROOT}{ROOT}?t=register
+reset_newpass_msg:Halo,\n\nManut karo panjalukane Rika, kiye informasi logine Rika:\n\nLogin: {VAR: ui[1]}\nPassword: {VAR: passwd}\n\nTulung dieling-eling anggere tembung sandhine Rika kuwe wis diganti dadi sing nang dhuwur kuwe mau. Anggere Rika kepengin\nngganti maning tembung sandhine Rika, Rika teyeng nglakokna kuwe nang panel kendaline Rika kiye:\n{FULL_ROOT}?t=register
 reset_login_notify:Tembung sandhine Rika wis dikirim ming imele Rika. Rika bakal nampa kuwe sedela maning.
 search_update:Ngoleti pesen
 selmsg_update:Ndeleng <a href="{TEMPLATE: selmsg_update_lnk}">Pesen dina kiye</a>
@@ -711,6 +716,7 @@ error_title:Formulir Kesalahan
 index_title:Sugeng teka ming forum kiye
 search_title:Nggoleti {VAR-HTML: srch}
 remail_emailsent:Imel wis dikirim
+# Fuzzy
 remail_email:Halo,\n\nKiye ana topik apik prakara "{VAR: data->subject}" nang forum {GVAR: FORUM_TITLE} mbok menawa Rika kepengin maca. Rika teyeng ndeleng topik kuwe nang:\n {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nKancane Rika,\n\n{VAR: usr->alias}
 poll_add_option:Tambahna pilihan:
 post_opt_html_on:kode <b>HTML</b> wis <b>Aktif</b>
@@ -945,7 +951,7 @@ thread_mark_all_read:Tandani kabeh pesen sing durung kewaca nang forum dadi "wis
 thread_mark_all_read_desc:Kabeh pesen nang forum kiye bakal ditandani dadi wis-kewaca
 private_no_messages:Sekiye ora ana pesen nang folder kiye.
 register_email_change_subject:Konfirmasi pangowahan imel
-register_email_change_msg:Tulung konfirmasi imel anyare Rika "{VAR: uent->email}" sing nggantikna imel lawase Rika "{VAR: old_email}", karo mbukak URL kiye:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nAngger Rika wis konfirmasi alamat imele Rika sing anyar,akun forume Rika bakal diaktifna maning.
+register_email_change_msg:Tulung konfirmasi imel anyare Rika "{VAR: uent->email}" sing nggantikna imel lawase Rika "{VAR: old_email}", karo mbukak URL kiye:\n{FULL_ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nAngger Rika wis konfirmasi alamat imele Rika sing anyar,akun forume Rika bakal diaktifna maning.
 iemail_thread_unsub:Mandeg gole langganan topik kiye
 iemail_forum_unsub:Mandeg gole langganan forum kiye
 primary_group_prefix:Grup utama forum kiye:
@@ -953,6 +959,7 @@ group_resources:Kelompok kiye ngontrol ijin nang forum-forum kiye
 register_admin_newuser_title:Panganggo anyar wis ndaftar lan sekiye lagi ngenteni konfirmasi
 register_admin_newuser_msg:Panganggo anyar ({VAR: uent->login}) tembeke ndaftar, lan jalaran konfirmasi akun diaktifna, akun kuwe ora bakal aktif sedurung dikonfirmasi nang Rika utawa administrator forum liyane. Kanggo mriksa akun monggo ming: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nKiye proses otomatis. Aja mbales pesen kiye.\nNek Rika kepengin non-aktifna notifikasi imel nggo registrasi panganggo anyar, Rika teyeng ngowaih settingan nang panel kontrol Admin. Ganti baen settingan "Notifikasi akun anyar".
 post_mod_msg_notify_title:Pesen anyar nang forum "{VAR: frm->name}" ngenteni disarujuki
+# Fuzzy
 post_mod_msg_notify_msg:Pesen anyar sing judule "{VAR: msg_post->subject}" tembe baen dilebokna nang forum sing Rika moderasi. Nggo mriksa pesen kuwe lunga baen ming: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nKiye proses otomatis. Aja mbales pesen kiye.
 thread_printable_pdf:Nggawe PDF nggo dicetak
 thread_syndicate:Sindikasikan forum kiye (XML)
@@ -979,6 +986,7 @@ mnav_month:Sasi
 mnav_title:Navigasi Pesen
 mnav_update:Mriksa peseng nganggo <a href="{TEMPLATE: mnav_update_lnk}">Navigasi Pesen</a>
 pm_notify_subject:[{GVAR: FORUM_TITLE}] Notifikasi Pesen Pribadi Anyar
+# Fuzzy
 pm_notify_body_email:Rika olih pesen pribadi anyar sing judule "{VAR: subject}", sekang "{VAR: from}", nang forum "{GVAR: FORUM_TITLE}".\nNggo ndeleng pesen kuwe, klik nang kene: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nKanggo ngendhegna notifikasi mbesuk-mbesuk, nnaktifna baen "Notifikasi Pesen Pribadi" nang profile Rika.
 register_pm_notification:Notifikasi Pesen Pribadi:
 register_pm_notification_desc:Angger diaktifna, Rika bakal nampa notifikasi saben ana pesen pribadi sing dikirimna nggo Rika.
@@ -1107,7 +1115,7 @@ move_msg_th_expl:Tetepna ID-ne sekang topik sing dituju (olih nang forum liyane)
 captcha_img_alt:Verifikasi Captcha: rika kudu teyeng maca teks nang gambar kiye.
 captcha_img_help:Ora ana nol utawa siji nang gambar.
 powered-by:Didukung nang: FUDforum {GVAR: FORUM_VERSION}.
-copyright:Hak Cipta &copy;2001-2013 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Hak Cipta &copy;2001-2017 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Kode:
 code_select_all:Pilih kabeh
 code_show_hide:Tidokna/ umpetna

@@ -213,6 +213,7 @@ vote_button:Głosuj
 vote_for_thread:Głosuj
 was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> został przeniesiony do forum <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> przez moderatora.
 welcome_message:Witaj <b>{VAR: usr->alias}</b>. Ostatni raz odwiedziłeś nas {TEMPLATE: welcome_message_date}
+# Fuzzy
 what_ppl_doing:pokaż, co robią inni użytkownicy
 reported_del_report:Usuń Zgłoszenie
 reported_reason:Powód
@@ -381,6 +382,7 @@ my_buddies:Moi Znajomi
 add_buddy:Dodawanie Znajomych
 add:Dodaj
 buddy_search:Podaj nazwę użytkownika którego chcesz dodać.
+# Fuzzy
 member_search:Możesz również użyć <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Wyszukiwarki Użytkowników</a> aby znaleźć daną osobę.
 buddy_remove:usuń
 post_normal:Normalny
@@ -675,8 +677,9 @@ register_err_notyouremail:Ktoś jest już zarejestrowany z tym adresem e-mail i 
 register_err_avatartobig:Plik, który próbujesz dołączyć, jest za duży, ponieważ przekracza ograniczenie {GVAR: CUSTOM_AVATAR_MAX_SIZE} bajtów
 register_err_avatarnotallowed:Avatar, który próbujesz dołączyć, jest niedozwolony, więc sprawdź dozwolone typy plików.
 register_conf_subject:Potwierdzenie rejestracji
-register_conf_msg:Dziękujemy za zarejestrowanie się na {FULL_ROOT}.\nAby aktywować swoje konto, przejdź pod adres:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nJak tylko konto zostanie aktywowane, zostaniesz zalogowany(a) i\nprzekierowany(a) na główną stronę naszego forum.
+register_conf_msg:Dziękujemy za zarejestrowanie się na {FULL_ROOT}.\nAby aktywować swoje konto, przejdź pod adres:\n\n{FULL_ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nJak tylko konto zostanie aktywowane, zostaniesz zalogowany(a) i\nprzekierowany(a) na główną stronę naszego forum.
 register_welcome_subject:Potwierdzenie rejestracji na forum
+# Fuzzy
 register_welcome_msg:Dziękujemy za zarejestrowanie się.\n\nTutaj znajdują się szczegóły twojego logowania się na forum:\n\nAdres forum: {TEMPLATE: index_update_lnk}\nNazwa użytkownika: {VAR: uent->login}\nHasło: {VAR: _POST['reg_plaintext_passwd']}\n\nBądź świadom(a), że wielkość liter w hasłach ma znaczenie!\nAby zmienić swoje ustawienia i profil, przejdź do tej strony:\n{FULL_ROOT}{ROOT}?t=register
 register_err_cantreg_title:BŁĄD: rejestracja nie jest możliwa
 regsiter_err_cantreg_msg:Brak możliwości stworzenia konta użytkownika, dlatego skontaktuj się z administratorem pod adresem e-mail <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>.
@@ -689,7 +692,7 @@ reset_err_invalidkey_msg:Nieprawidłowy klucz przy zerowaniu hasła
 reset_err_rstconf_title:Informacje
 reset_err_rstconf_msg:W ciągu paru minut powinieneś otrzymać e-mailem instrukcję co dalej robić.
 reset_newpass_title:Odzyskiwanie hasła
-reset_newpass_msg:Witaj,\n\nW związku z Twoja prośbą, wysyłamy Ci nowe hasło.\nPoniżej znajdują się Twoje informacje do logowania się:\n\nNazwa użytkownika: {VAR: ui[1]}\nHasło: {VAR: passwd}\n\nZauważ, że Twoje hasło zostało ustawione na to podane powyżej. Jeśli życzysz sobie\nzmienić swoje hasło, możesz to zrobić poprzez panel sterowania użytkownika:\n{FULL_ROOT}{ROOT}?t=register
+reset_newpass_msg:Witaj,\n\nW związku z Twoja prośbą, wysyłamy Ci nowe hasło.\nPoniżej znajdują się Twoje informacje do logowania się:\n\nNazwa użytkownika: {VAR: ui[1]}\nHasło: {VAR: passwd}\n\nZauważ, że Twoje hasło zostało ustawione na to podane powyżej. Jeśli życzysz sobie\nzmienić swoje hasło, możesz to zrobić poprzez panel sterowania użytkownika:\n{FULL_ROOT}?t=register
 reset_login_notify:Hasło zostało wysłane e-mailem do Ciebie. Powinieneś/aś otrzymać je w ciągu kilku minut.
 search_update:Szukanie wiadomości
 selmsg_update:Przeglądanie <a href="{TEMPLATE: selmsg_update_lnk}">dzisiejszych wiadomośc</a>
@@ -724,6 +727,7 @@ error_title:Formularz błędu
 index_title:Witaj na naszym forum
 search_title:Szukaj {VAR-HTML: srch}
 remail_emailsent:List został wysłany
+# Fuzzy
 remail_email:Cześć,\n\nZnalazłem interesującą dyskusję na temat „{VAR: data->subject}” na forum {GVAR: FORUM_TITLE}. Jeśli masz ochotę zapoznać się z tą dyskusją wejdź na stronę\n  {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nPozdrawiam,\n\n{VAR: usr->alias}
 poll_add_option:Dodaj Opcję:
 post_opt_html_on:<b>HTML</b> jest <b>Włączony</b>
@@ -958,7 +962,7 @@ thread_mark_all_read:zaznacz wszystkie wiadomości jako przeczytane
 thread_mark_all_read_desc:Wszystkie nieprzeczytane wiadomości na tym forum zostaną zaznaczone jako przeczytane
 private_no_messages:Ten folder jest pusty
 register_email_change_subject:Potwierdzenie zmiany adresu e-mail
-register_email_change_msg:Prosimy o potwierdzenie Twojego nowego adresu e-mail ({VAR: uent->email}), który zastąpi obecny ({VAR: old_email}).\nW tym celu udaj się pod poniższy adres:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nGdy nowy adres e-mail zostanie potwierdzony, Twoje konto na forum zostanie ponownie aktywowane.
+register_email_change_msg:Prosimy o potwierdzenie Twojego nowego adresu e-mail ({VAR: uent->email}), który zastąpi obecny ({VAR: old_email}).\nW tym celu udaj się pod poniższy adres:\n{FULL_ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nGdy nowy adres e-mail zostanie potwierdzony, Twoje konto na forum zostanie ponownie aktywowane.
 iemail_thread_unsub:Porzuć subskrybcję tego wątku
 iemail_forum_unsub:Porzuć subskrybcję tego forum
 primary_group_prefix:Podstawowa grupa dla forum:
@@ -966,6 +970,7 @@ group_resources:Ta grupa wyznacza przywileje następujących forów
 register_admin_newuser_title:Nowe konto na forum czeka na zatwierdzenie
 register_admin_newuser_msg:Nowy użytkownik ({VAR: uent->login}) właśnie zarejestrował się na Forum Opoka.\nJako, że zostało włączone zatwierdzanie nowych kont, nie zostanie ono\naktywowane bez potwierdzenia przez Ciebie albo innego administrator tego forum.\nCelem weryfikacji tego konta, udaj się proszę pod poniższy adres:\n{GVAR: WWW_ROOT}adm/admuserapr.php\n\nUWAGA!! Wiadomość została wygenerowana automatycznie. Prosimy nie odpowiadać\nna nią. Jeśli chcesz wyłączyć powiadamianie o rejestracji nowych użytkowników,\nmożesz to zrobić przy użyciu Panelu administracyjnego, zmieniając wartość\ndla "New Account Notification".
 post_mod_msg_notify_title:Nowa wiadomość na forum "{VAR: frm->name}" oczekuje zatwierdzenia
+# Fuzzy
 post_mod_msg_notify_msg:Nowa wiadomość zatytułowana „{VAR: msg_post->subject}” została właśnie wysłana na forum, którego jesteś moderatorem. Aby obejrzeć wiadomość wejdź na stronę {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nPowiadomienie zostało wygenerowane automatycznie. Prosimy nie odpowiadać na ten e-mail.
 thread_printable_pdf:Wygeneruj PDF do wydruku
 thread_syndicate:Śledź to forum (XML)
@@ -992,6 +997,7 @@ mnav_month:Miesiąc (Miesięcy)
 mnav_title:Przeglądarka wiadomości
 mnav_update:Przeglądanie Wiadomości z użyciem <a href="{TEMPLATE: mnav_update_lnk}">Przeglądarki wiadomości</a>
 pm_notify_subject:[{GVAR: FORUM_TITLE}] Powiadomienie o nowej Prywatnej Wiadomości
+# Fuzzy
 pm_notify_body_email:Otrzymałeś(aś) nową prywatną wiadomość zatytułowaną "{VAR: subject}" od "{VAR: from}" na forum "{GVAR: FORUM_TITLE}".\nAby odczytać wiadomość udaj się pod adres:\n{FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nAby nie otrzymywać powiadomień, wyłącz opcję "Powiadomienia o Prywatnych Wiadomościach" w swoim profilu.
 register_pm_notification:Powiadomienia o Prywatnych Wiadomościach
 register_pm_notification_desc:Gdy włączone, będziesz dostawać powiadomienia poprzez wybrany mechanizm powiadamiania jak tylko prywatna wiadomość zostanie do Ciebie wysłana.
@@ -1120,7 +1126,7 @@ move_msg_th_expl:Określ ID tematu docelowego (może znajdować się w innym for
 captcha_img_alt:Weryfikacja captcha – musisz odczytać tekst z obrazka.
 captcha_img_help:Na zdjęciu nie występuje zero i jedynka.
 powered-by:Korzysta z oprogramowania FUDforum {GVAR: FORUM_VERSION}.
-copyright:Copyright &copy;2001-2013 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Copyright &copy;2001-2017 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:KOD
 code_select_all:Wybierz wszystko
 code_show_hide:Pokaż lub ukryj

@@ -1,5 +1,6 @@
 # Messages for Asturian (asturianu)
 # Exported from translatewiki.net
+# Author: Macofe
 # Author: Tifinaghes
 # Author: Xuacu
 
@@ -203,7 +204,7 @@ vote_button:Votar
 vote_for_thread:Votar
 was_moved_msg:El moderador treslladó <a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> a <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a>.
 welcome_message:Bienllegáu <b>{VAR: usr->alias}</b>, la to cabera visita foi el {TEMPLATE: welcome_message_date}
-what_ppl_doing:Amosar qué ta faciendo la xente
+what_ppl_doing:Actividá del usuariu
 reported_del_report:Desaniciar informe
 reported_reason:Motivu:
 reported_on:El:
@@ -371,7 +372,7 @@ my_buddies:Los mios collacios
 add_buddy:Amestar un collaciu
 add:Amestar
 buddy_search:Escribi'l nome del usuariu que quies amestar.
-member_search:O usa la utilidá <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Buscar usuariu</a> p'alcontrar una persona.
+member_search:O usa la utilidá <a href="javascript://" onclick="javascript: window_open('{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Buscar usuariu</a> p'alcontrar una persona.
 buddy_remove:desaniciar
 post_normal:Normal
 post_sticky:Fixu
@@ -665,9 +666,9 @@ register_err_notyouremail:Yá hai dalguién rexistráu con esta direición de co
 register_err_avatartobig:El ficheru que tas tratando de xubir ye demasiao grande, mayor que {GVAR: CUSTOM_AVATAR_MAX_SIZE} bytes.
 register_err_avatarnotallowed:L'avatar que tas tratando de xubir nun ta permitíu. Comprueba los tipos de ficheru permitíos.
 register_conf_subject:Confirmación de rexistru
-register_conf_msg:Gracies por rexistrate.\nP'activar la to cuenta entra na direición URL qu'apaez darréu:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nCuando s'active la to cuenta entrarás nel foru y t'unviará a la\npáxina principal.
+register_conf_msg:Gracies por rexistrate.\nP'activar la to cuenta entra na direición URL qu'apaez darréu:\n\n{FULL_ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nCuando s'active la to cuenta entrarás nel foru y t'unviará a la\npáxina principal.
 register_welcome_subject:Confirmación del rexistru nel foru
-register_welcome_msg:Gracies por rexistrate.\n\nEstos son los detalles del to aniciu de sesión nel foru:\n\nDireición URL del foru: {TEMPLATE: index_update_lnk}\nNome del usuariu: {VAR: uent->login}\nConseña: {VAR: _POST['reg_plaintext_passwd']}\n\n¡Ten en cuenta que les conseñes distinguen ente mayúscules y minúscules!\nPa camudar la to configuración o'l to perfil, entra nesta páxina:\n{FULL_ROOT}{ROOT}?t=register
+register_welcome_msg:Gracies por rexistrate.\n\nEstos son los detalles del to aniciu de sesión nel foru:\n\nDireición URL del foru: {TEMPLATE: index_update_lnk}\nNome del usuariu: {VAR: uent->login}\nContraseña: {VAR: _POST['reg_plaintext_passwd']}\n\n¡Ten en cuenta que les contraseñes distinguen ente mayúscules y minúscules!\nPa camudar la configuración o'l perfil, entra nesta páxina:\n{FULL_ROOT}?t=register
 register_err_cantreg_title:ERROR: nun te pues rexistrar
 regsiter_err_cantreg_msg:Nun se pudo crear la cuenta d'usuariu; por favor, ponte en contautu col alministrador en <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:Viendo'l perfil propiu
@@ -679,7 +680,7 @@ reset_err_invalidkey_msg:Clave de reaniciu de contraseña inválida. Ye posible 
 reset_err_rstconf_title:Información
 reset_err_rstconf_msg:Tendríes de recibir instrucciones nel to corréu electrónicu nos próximos minutos.
 reset_newpass_title:Reaniciar contraseña
-reset_newpass_msg:Hola,\n\nComo pidisti, la información d'aniciu de sesión apaez darréu:\n\nNome d'usuariu: {VAR: ui[1]}\nContraseña: {VAR: passwd}\n\nPor favor, ten en cuenta que la contraseña reanicióse al valor d'arriba. Si quies camudar\nla contraseña, pues facelo per aciu del panel de control d'información del usuariu en:\n{FULL_ROOT}{ROOT}?t=register
+reset_newpass_msg:Hola,\n\nComo pidisti, la información d'aniciu de sesión apaez darréu:\n\nNome d'usuariu: {VAR: ui[1]}\nContraseña: {VAR: passwd}\n\nPor favor, ten en cuenta que la contraseña reanicióse al valor d'arriba. Si quies camudar\nla contraseña, pues facelo per aciu del panel de control d'información del usuariu en:\n{FULL_ROOT}?t=register
 reset_login_notify:La to contraseña mandóse per corréu electrónicu. Tendríes de recibila dientro d'unos minutos.
 search_update:Buscando mensaxes
 selmsg_update:Navegando pelos <a href="{TEMPLATE: selmsg_update_lnk}">mensaxes de güei</a>
@@ -714,7 +715,7 @@ error_title:Formulariu d'error
 index_title:Bienveníu al foru
 search_title:Guetar {VAR-HTML: srch}
 remail_emailsent:S'unvió'l corréu electrónicu
-remail_email:Hola,\n\nHai un filu interesante tocante a "{VAR: data->subject}" nel foru {GVAR: FORUM_TITLE} que pue ser que quieras lleer. Pues ver el filu en:   {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nEl to amigu,\n\n{VAR: usr->alias}
+remail_email:Hola,\n\nHai un filu interesante tocante a "{VAR: data->subject}" nel foru {GVAR: FORUM_TITLE} que podría interesate lleer. Puedes ver el filu en:   {FULL_ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nEl to amigu,\n\n{VAR: usr->alias}
 poll_add_option:Amestar opción:
 post_opt_html_on:El <b>HTML</b> ta <b>activáu</b>
 post_opt_fud_on:El <a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>BBCode</b> ta <b>activáu</b></a>
@@ -948,7 +949,7 @@ thread_mark_all_read:Marcar tolos mensaxes ensin lleer del foru como lleíos
 thread_mark_all_read_desc:Tolos mensaxes ensin lleer d'esti foru se marcarán como lleíos
 private_no_messages:Nun hai mensaxes nesta carpeta.
 register_email_change_subject:Confirmación de cambiu de corréu electrónicu
-register_email_change_msg:Por favor, confirma la sustitución de la to cuenta de corréu electrónicu antigua "{VAR: old_email}" pola nueva cuenta "{VAR: uent->email}" visitando la URL darréu:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nCuando confirmes la to nueva direición de corréu electrónicu, se reactivará la to cuenta del foru.
+register_email_change_msg:Por favor, confirma la sustitución de la to cuenta de corréu electrónicu antigua «{VAR: old_email}» pola nueva cuenta «{VAR: uent->email}» visitando la URL darréu:\n{FULL_ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nCuando confirmes la nueva direición de corréu electrónicu, reactivaráse la to cuenta del foru.
 iemail_thread_unsub:Quitar la suscripción d'esti filu
 iemail_forum_unsub:Quitar la suscripción d'esti foru
 primary_group_prefix:Grupu primariu pal foru:
@@ -956,7 +957,7 @@ group_resources:Esti grupu controla los permisos de los siguientes foros
 register_admin_newuser_title:Se rexistró un usuariu nuevu y la cuenta ta pendiente de confirmación
 register_admin_newuser_msg:Acaba de rexistrase un nuevu usuariu ({VAR: uent->login}) y, como la confirmación de cuentes ta activada, la so cuenta nun s'activará fasta que la confirmes tu o otru alministrador del foru. Pa revisar la cuenta, visita: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nEsti ye un procesu automáticu. Nun respuendas a esti mensaxe.\nSi quies dexar de recibir avisos per corréu de nuevos rexistros d'usuariu, pues facelo nel panel de control alministrativu. Cambia la configuración de "Avisu de cuenta nueva".
 post_mod_msg_notify_title:Un nuevu mensaxe del foru "{VAR: frm->name}" ta esperando aprobación
-post_mod_msg_notify_msg:Un nuevu mensaxe tituláu "{VAR: msg_post->subject}" vien d'apaecer nún foru que moderes. Pa revisar esti mensaxe visita: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nEsti ye un procesu automáticu. Nun respuendas a esti mensaxe.
+post_mod_msg_notify_msg:Un nuevu mensaxe tituláu "{VAR: msg_post->subject}" vien d'apaecer nún foru que moderes. Pa revisar esti mensaxe visita: {FULL_ROOT}?t=modque#{VAR: msg_post->id}\n\nEsti ye un procesu automáticu. Nun respuendas a esti mensaxe.
 thread_printable_pdf:Xenerar un PDF pa imprimir
 thread_syndicate:Sindicar esti foru (XML)
 reg_conf_title:Confirmación de rexistru
@@ -982,7 +983,7 @@ mnav_month:Mes(es)
 mnav_title:Navegador de mensaxes
 mnav_update:Esaminar los mensaxes usando'l <a href="{TEMPLATE: mnav_update_lnk}">Navegador de mensaxes</a>
 pm_notify_subject:[{GVAR: FORUM_TITLE}] Avisu de nuevu mensaxe priváu
-pm_notify_body_email:Tienes un nuevu mensaxe priváu tituláu "{VAR: subject}", de "{VAR: from}", nel foru "{GVAR: FORUM_TITLE}".\nPa ver el mensaxe, calca equí: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nPa dexar de recibir avisos, desactiva "Avisu de mensaxe priváu" nel to perfil.
+pm_notify_body_email:Tienes un nuevu mensaxe priváu tituláu "{VAR: subject}", de "{VAR: from}", nel foru "{GVAR: FORUM_TITLE}".\nPa ver el mensaxe, pulsia equí: {FULL_ROOT}?t=pmsg_view&id={VAR: pid}\n\nPa dexar de recibir avisos, desactiva "Avisu de mensaxe priváu" nel to perfil.
 register_pm_notification:Avisu de mensaxe priváu:
 register_pm_notification_desc:Si ta activáu, t'avisará cuando t'unvien un mensaxe priváu.
 findu_admin_opts_header:Opciones d'alministración
@@ -1110,7 +1111,7 @@ move_msg_th_expl:Especifica la ID del filu de destín (pue tar n'otros foros)
 captcha_img_alt:Comprobación por Captcha: tendrás que reconocer el testu d'esta imaxe.
 captcha_img_help:Nun hai dengún cero o unu na imaxe.
 powered-by:Movíu por: FUDforum {GVAR: FORUM_VERSION}.
-copyright:Copyright &copy;2001-2013 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Copyright &copy;2001-2017 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Códigu:
 code_select_all:Seleccionar too
 code_show_hide:Amosar/anubrir

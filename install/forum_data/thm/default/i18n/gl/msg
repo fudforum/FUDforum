@@ -3,6 +3,7 @@
 # Author: Banjo
 # Author: Elisardojm
 # Author: Fitoschido
+# Author: Macofe
 # Author: McDutchie
 # Author: Naudefj
 # Author: Toliño
@@ -208,6 +209,7 @@ vote_button:Votar
 vote_for_thread:Voto
 was_moved_msg:O moderedor moveu <a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> a <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a>
 welcome_message:Benvido <b>{VAR: usr->alias}</b>, a túa última visita foi o {TEMPLATE: welcome_message_date}
+# Fuzzy
 what_ppl_doing:Mostrar o que a xente está a facer
 reported_del_report:Eliminar un informe
 reported_reason:Motivo:
@@ -376,6 +378,7 @@ my_buddies:Os meus amigos
 add_buddy:Engadir un amigo
 add:Engadir
 buddy_search:Insire o nome do usuario que queres engadir.
+# Fuzzy
 member_search:Ou usa a ferramenta <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Atopar un usuario</a> para dar cunha persoa.
 buddy_remove:eliminar
 post_normal:Normal
@@ -670,8 +673,9 @@ register_err_notyouremail:Xa hai alguén rexistrado con este enderezo de correo 
 register_err_avatartobig:O ficheiro que estás intentando cargar é moi grande, de máis de {GVAR: CUSTOM_AVATAR_MAX_SIZE} bytes
 register_err_avatarnotallowed:O avatar que estás intentando cargar non está permitido. Comproba os tipos de ficheiro permitidos.
 register_conf_subject:Confirmación de rexistro
-register_conf_msg:Grazas por te rexistrares.\nPara activar a túa conta vai ao enderezo URL que aparece a continuación:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nUnha vez que a túa conta estea activada, accederás ao sistema do foro e\nserás redirixido cara á páxina principal.
+register_conf_msg:Grazas por te rexistrares.\nPara activar a túa conta vai ao enderezo URL que aparece a continuación:\n\n{FULL_ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nUnha vez que a túa conta estea activada, accederás ao sistema do foro e\nserás redirixido cara á páxina principal.
 register_welcome_subject:Confirmación de rexistro no foro
+# Fuzzy
 register_welcome_msg:Grazas por te rexistrares.\n\nAquí están os detalles para o inicio de sesión no foro:\n\nEnderezo URL do foro: {TEMPLATE: index_update_lnk}\nNome de usuario: {VAR: uent->login}\nContrasinal: {VAR: _POST['reg_plaintext_passwd']}\n\nPor favor, ten en conta que os contrasinais distinguen entre maiúsculas e minúsculas!\nPara modificar as túas configuracións ou o teu perfil, vai a esta páxina:\n{FULL_ROOT}{ROOT}?t=register
 register_err_cantreg_title:ERRO: Non te podes rexistrar
 regsiter_err_cantreg_msg:Non se puido crear a túa conta de usuario, por favor, ponte en contacto co administrador en <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
@@ -684,7 +688,7 @@ reset_err_invalidkey_msg:A clave de restablecemento de contrasinal é incorrecta
 reset_err_rstconf_title:Información
 reset_err_rstconf_msg:Deberías recibir instrucións no teu correo electrónico nuns minutos.
 reset_newpass_title:Restablecer o contrasinal
-reset_newpass_msg:Ola:\n\nTal e como o solicitaches, a túa información de inicio de sesión aparece a continuación:\n\nNome de usuario: {VAR: ui[1]}\nContrasinal: {VAR: passwd}\n\nPor favor, ten en conta que o teu contrasinal foi restablecido ao valor citado enriba. Se queres\ncambiar o contrasinal, podes facelo a través do panel de control de información de usuario en:\n{FULL_ROOT}{ROOT}?t=register
+reset_newpass_msg:Ola:\n\nTal e como o solicitaches, a túa información de inicio de sesión aparece a continuación:\n\nNome de usuario: {VAR: ui[1]}\nContrasinal: {VAR: passwd}\n\nPor favor, ten en conta que o teu contrasinal foi restablecido ao valor citado enriba. Se queres\ncambiar o contrasinal, podes facelo a través do panel de control de información de usuario en:\n{FULL_ROOT}?t=register
 reset_login_notify:O teu contrasinal foiche enviado por correo electrónico. Deberías recibilo nuns minutos.
 search_update:Buscando mensaxes
 selmsg_update:Navegando polas <a href="{TEMPLATE: selmsg_update_lnk}">mensaxes de hoxe</a>
@@ -719,6 +723,7 @@ error_title:Formulario de erro
 index_title:Benvido ao foro
 search_title:Procurar for {VAR-HTML: srch}
 remail_emailsent:Enviouse o correo electrónico
+# Fuzzy
 remail_email:Ola:\n\nHai un fío interesante sobre "{VAR: data->subject}" no foro {GVAR: FORUM_TITLE} que pode que queiras ler. Podes ver o fío en:   {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nO teu amigo,\n\n{VAR: usr->alias}
 poll_add_option:Engadir unha opción:
 post_opt_html_on:O código <b>HTML</b> está <b>activado</b>
@@ -953,7 +958,7 @@ thread_mark_all_read:marcar como lidas todas as mensaxes sen ler do foro
 thread_mark_all_read_desc:Todas as mensaxes sen ler deste foro serán marcadas como lidas
 private_no_messages:Non hai ningunha mensaxe neste cartafol.
 register_email_change_subject:Confirmación de cambio de correo electrónico
-register_email_change_msg:Por favor, confirma a substitución da túa antiga conta de correo electrónico "{VAR: old_email}" pola nova conta "{VAR: uent->email}" visitando o enderezo URL que aparece a continuación:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nUnha vez confirmado o teu novo enderezo de correo electrónico, a túa conta do foro será reactivada.
+register_email_change_msg:Por favor, confirma a substitución da túa antiga conta de correo electrónico "{VAR: old_email}" pola nova conta "{VAR: uent->email}" visitando o enderezo URL que aparece a continuación:\n{FULL_ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nUnha vez confirmado o teu novo enderezo de correo electrónico, a túa conta do foro será reactivada.
 iemail_thread_unsub:Cancelar a subscrición a este fío
 iemail_forum_unsub:Cancelar a subscrición a este foro
 primary_group_prefix:Grupo principal para o foro:
@@ -961,6 +966,7 @@ group_resources:Este grupo controla os permisos dos seguintes foros
 register_admin_newuser_title:Rexistrouse un novo usuario e a súa conta está á espera de confirmación
 register_admin_newuser_msg:Acaba de se rexistrar un novo usuario ({VAR: uent->login}) e, dado que a confirmación de contas está activada, a súa conta non se activará ata que sexa confirmada por ti ou outro administrador do foro. Para revisar a conta, vai a: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nEste é un proceso automático. Non respondas a esta mensaxe.\nSe queres deixar de recibir notificacións por correo electrónico de novos rexistros de usuario, podes facelo a través do panel de control administrativo. Cambia a configuración do parámetro "New Account Notification".
 post_mod_msg_notify_title:Hai unha nova mensaxe no foro "{VAR: frm->name}" á espera de aprobación
+# Fuzzy
 post_mod_msg_notify_msg:Unha nova mensaxe titulada "{VAR: msg_post->subject}" acaba de ser publicada nun foro que moderas. Para revisar esta mensaxe vai a:\n{FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nEste é un proceso automático. Non respondas a esta mensaxe.
 thread_printable_pdf:Xerar un PDF para imprimir
 thread_syndicate:Publicar este foro (XML)
@@ -987,6 +993,7 @@ mnav_month:mes(es)
 mnav_title:Navegador de mensaxes
 mnav_update:Navegando polas mensaxes usando o <a href="{TEMPLATE: mnav_update_lnk}">Navegador de mensaxes</a>
 pm_notify_subject:[{GVAR: FORUM_TITLE}] Notificación de nova mensaxe privada
+# Fuzzy
 pm_notify_body_email:Tes unha nova mensaxe privada titulada "{VAR: subject}" de "{VAR: from}" no foro "{GVAR: FORUM_TITLE}".\nPara ver a mensaxe, fai clic aquí: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nPara deixar de recibir notificacións, desactiva a opción "Notificación de mensaxe privada" no teu perfil.
 register_pm_notification:Notificación de mensaxe privada:
 register_pm_notification_desc:Se esta opción está activada, serás notificado cando se che envíe unha mensaxe privada.
@@ -1115,7 +1122,7 @@ move_msg_th_expl:Especifica o ID do fío de destino (pode ser noutro foro)
 captcha_img_alt:Verificación por Captcha: terás que recoñecer o texto que hai nesta imaxe.
 captcha_img_help:Non hai cero ou un na imaxe.
 powered-by:Desenvolvido por: FUDforum {GVAR: FORUM_VERSION}.
-copyright:Copyright &copy;2001-2013 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Copyright &copy;2001-2017 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Código:
 code_select_all:Seleccionar todo
 code_show_hide:Mostrar/agochar

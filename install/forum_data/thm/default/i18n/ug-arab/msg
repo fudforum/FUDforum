@@ -1,5 +1,6 @@
 # Messages for Uyghur (Arabic script) (ئۇيغۇرچە)
 # Exported from translatewiki.net
+# Author: Macofe
 # Author: Sahran
 # Author: Tel'et
 # Author: Uzdil
@@ -204,6 +205,7 @@ vote_button:بىلەت
 vote_for_thread:بىلەت
 was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> رىياسەتچى <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> غا يۆتكىدى.
 welcome_message:مەرھابا <b>{VAR: usr->alias}</b>، سىز ئۆتكەن قېتىم  {TEMPLATE: welcome_message_date} زىيارەت قىلغان
+# Fuzzy
 what_ppl_doing:زىيارەتچىلەرنىڭ مەشغۇلاتىنى كۆرسەت
 reported_del_report:دوكلاتنى ئۆچۈر
 reported_reason:سەۋەب:
@@ -372,6 +374,7 @@ my_buddies:دوستلارىم
 add_buddy:دوست قوش
 add:قوش
 buddy_search:قوشماقچى بولغان ئىشلەتكۈچى ئاتىنى كىرگۈزۈڭ.
+# Fuzzy
 member_search:ياكى <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">ئىشلەتكۈچى ئىزدەش</a> ئىقتىدارى ئارقىلىق ئادەم ئىزدەيدۇ.
 buddy_remove:چىقىرىۋەت
 post_normal:ئادەتتىكى
@@ -666,8 +669,9 @@ register_err_notyouremail:باشقىلار بۇ تورخەت ئادرېسىنى 
 register_err_avatartobig:سىز يۈكلەشنى سىناۋاتقان بۇ ھۆججەت بەك چوڭ، {GVAR: CUSTOM_AVATAR_MAX_SIZE} بايتلىق چەكلىمىدىن ئېشىپ كەتتى.
 register_err_avatarnotallowed:سىز يۈكلىمەكچى بولغان سىماغا يول قويۇلمىغان. يۈكلەشكە يول قويۇلىدىغان ھۆججەت تىپىنى تەكشۈرۈڭ.
 register_conf_subject:خەتلىتىشنى جەزملەش
-register_conf_msg:خەتلەتكىنىڭىزگە رەھمەت.\n\nنۆۋەتتىكى ھېساباتنى ئاكتىپلىماقچى بولسىڭىز تۆۋەندىكى ئۇلانمىنى چېكىڭ:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nھېساباتىڭىز تۇنجى قېتىم ئاكتىپلانغاندا، مۇنبەر باش بېتىگە بىۋاستە كىرىسىز.
+register_conf_msg:خەتلەتكىنىڭىزگە رەھمەت.\n\nنۆۋەتتىكى ھېساباتنى ئاكتىپلىماقچى بولسىڭىز تۆۋەندىكى ئۇلانمىنى چېكىڭ:\n\n{FULL_ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nھېساباتىڭىز تۇنجى قېتىم ئاكتىپلانغاندا، مۇنبەر باش بېتىگە بىۋاستە كىرىسىز.
 register_welcome_subject:مۇنبەرگە خەتلىتىشنى جەزملەش
+# Fuzzy
 register_welcome_msg:خەتلەتكىنىڭىزگە رەھمەت،\n\nبۇلار سىز مۇنبەرگە خەتلەتكەن ئۇچۇرلارنىڭ تەپسىلاتى:\n\nمۇنبەر ئادرېسى: {TEMPLATE: index_update_lnk}\nھېسابات: {VAR: uent->login}\nئىم: {VAR: _POST['reg_plaintext_passwd']}\n\nئىم چوڭ كىچىك ھەرپنى پەرقلەندۈرىدۇ!\nتەڭشەك ياكى سەپلىمە ھۆججىتىڭىزنى ئۆزگەرتمەكچى بولسىڭىز، بۇ بەتكە يۆتكىلىڭ:\n{FULL_ROOT}{ROOT}?t=register
 register_err_cantreg_title:خاتالىق: خەتلىتەلمەيدۇ
 regsiter_err_cantreg_msg:ئىشلەتكۈچى ھېساباتىنى قۇرالمايدۇ، سىستېما باشقۇرغۇچى بىلەن ئالاقىلىشىڭ <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
@@ -680,6 +684,7 @@ reset_err_invalidkey_msg:ئىمنى ئەسلىگە كەلتۈرۈش ئاچقۇچ
 reset_err_rstconf_title:ئۇچۇر
 reset_err_rstconf_msg:سىز سەل تۇرۇپ تورخەتتە مۇناسىۋەتلىك چۈشەندۈرۈشلەرنى تاپشۇرۇۋالىسىز.
 reset_newpass_title:ئىمنى ئەسلىگە قايتۇر
+# Fuzzy
 reset_newpass_msg:ئەسسالامۇ ئەلەيكۇم،\n\nسىز ھەر قېتىم ھېساباتىڭىزدا تىزىمغا كىرگەندە سىزگە يوللاپ بېرىدۇ.\nتۆۋەندىكىسى تىزىمغا كىرگەن ۋاقىتتىكى ئۇچۇرلار:\n\nھېسابات: {VAR: ui[1]}\nئىم: {VAR: passwd}\n\nدىققەت: ئىم يۇقىرىقى قىممەتكە ئەسلىگە قايتۇرۇلدى.\nئەگەر ئىمنى ئۆزگەرتمەكچى بولسىڭىز، شەخسىي ئۇچۇردىن ئۆزگەرتىڭ:\n{FULL_ROOT}{ROOT}?t=register
 reset_login_notify:ئىم تورخەت ساندۇقىڭىزغا ئەۋەتىلدى. ئۇنى بىر قانچە مىنۇت ئىچىدەتاپشۇرۇۋالىسىز.
 search_update:ئۇچۇر ئىزدەۋاتىدۇ
@@ -715,6 +720,7 @@ error_title:پىچىم خاتا
 index_title:مۇنبەرگە مەرھابا
 search_title:{VAR-HTML: srch} ئىزدە
 remail_emailsent:ئېلخەت يوللاندى
+# Fuzzy
 remail_email:ئەسسالامۇ ئەلەيكۇم،\n\nسىز بەلكىم {GVAR: FORUM_TITLE} مۇنبەردىكى {VAR: data->subject} تېمىغا قىزىقىشىڭىز مۇمكىن. تېمىغا كىرىش ئۈچۈن تۆۋەندىكى ئۇلانمىنى چېكىڭ:\n{FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nدوستىڭىز، \n\n{VAR: usr->alias}
 poll_add_option:تاللانما قوش:
 post_opt_html_on:<b>HTML</b> : <b>ئوچۇق</b>
@@ -949,7 +955,7 @@ thread_mark_all_read:ھەممە يازمىغا ئوقۇلدى بەلگىسى ق�
 thread_mark_all_read_desc:مۇنبەردىكى بارلىق ئوقۇلمىغان يازمىلارغا ئوقۇلدى بەلگىسى قويۇلىدۇ
 private_no_messages:بۇ قىسقۇچتا يازما يوق.
 register_email_change_subject:تورخەت ئۆزگىرىشنى جەزملەش
-register_email_change_msg:يېڭى تورخەت ھېساباتىڭىز «{VAR: uent->email}» نى جەزملەڭ، ئۇ كونا تورخەت ھېساباتىڭىز «{VAR: old_email}» نىڭ ئورنىغا ئالماشتۇرۇلىدۇ، تۆۋەندىكى URL نى زىيارەت قىلىپ توغرىلاڭ:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nھېساباتىڭىز يڭى تورخەت ئادرېسى جەزملەنگەندىن كېيىن قايتىدىن ئاكتىپلىنىدۇ.
+register_email_change_msg:يېڭى تورخەت ھېساباتىڭىز «{VAR: uent->email}» نى جەزملەڭ، ئۇ كونا تورخەت ھېساباتىڭىز «{VAR: old_email}» نىڭ ئورنىغا ئالماشتۇرۇلىدۇ، تۆۋەندىكى URL نى زىيارەت قىلىپ توغرىلاڭ:\n\n{FULL_ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nھېساباتىڭىز يڭى تورخەت ئادرېسى جەزملەنگەندىن كېيىن قايتىدىن ئاكتىپلىنىدۇ.
 iemail_thread_unsub:بۇ تېمىنى زاكاز قىلما
 iemail_forum_unsub:بۇ سەھىپىنى زاكاز قىلما
 primary_group_prefix:مۇنبەردىكى ئاساسىي گۇرۇپپا:
@@ -957,6 +963,7 @@ group_resources:بۇ گۇرۇپپا تۆۋەندىكى سەھىپىنىڭ زىي
 register_admin_newuser_title:يېڭى ئىشلەتكۈچىدىن بىرسى خەتلەتتى ھەمدە جەزملەشنى كۈتۈۋاتىدۇ
 register_admin_newuser_msg:يېڭى ئىشلەتكۈچى ({VAR: uent->login}) بايىلا خەتلەتتى، باشقۇرغۇچىنىڭ تەستىقلاپ جەزملىشىنى كۈتۈۋاتىدۇ. يېڭى ئىشلەتكۈچىنى جەزملەشتە، تۆۋەندىكى ئۇلانمىنى زىيارەت قىلىڭ: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nبۇ سىستېما ئۆزلۈكىدىن ئەۋەتكەن تورخەت، بۇ تورخەتكە جاۋاب قايتۇرمىسىڭىزمۇ بولىدۇ. ئەگەر بۇ خىل ئەسكەرتىشنى بىكار قىلماقچى بولسىڭىز، باشقۇرۇش تىزگىن تاختىدىكى «يېڭى ھېسابات ئەسكەرتىشى» دىكى تەڭشەكنى ئۆزگەرتىڭ.
 post_mod_msg_notify_title:بۇ «{VAR: frm->name}» سەھىپىدىكى يېڭى يازما تەستىقلىشىڭىزنى كۈتۈۋاتىدۇ
+# Fuzzy
 post_mod_msg_notify_msg:«{VAR: msg_post->subject}» ماۋزۇلۇق يېڭى يازما يوللاندى، تەستىق كۈتۈۋاتىدۇ. بۇ يازمىنى تەستىقلاش ئۈچۈن يۆتكىلىدىغا ئۇلانما: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nبۇ ئۆزلۈكىدىن يوللانغان تورخەت، جاۋاب قايتۇرماڭ.
 thread_printable_pdf:باسما نۇسخىدىكى PDF فورماتى
 thread_syndicate:بۇ سەھىپىنى قەدەمداشلا (XML)
@@ -983,6 +990,7 @@ mnav_month:ئاي
 mnav_title:ئۇچۇر يولباشچى
 mnav_update:<a href="{TEMPLATE: mnav_update_lnk}">يازما يولباشچى</a> ئارقىلىق كۆز يۈگۈرتۈڭ.
 pm_notify_subject:[{GVAR: FORUM_TITLE}] يېڭى شەخسىي ئۇچۇر ئەسكەرتىشى
+# Fuzzy
 pm_notify_body_email:سىز «{GVAR: FORUM_TITLE}» مۇنبەردىن «{VAR: from}» يوللىغان، ماۋزۇسى «{VAR: subject}» بولغان يېڭى بىر شەخسىي ئۇچۇر تاپشۇرۇۋالدىڭىز.\nبۇ ئۇچۇرنى كۆرمەكچى بولسىڭىز بۇ ئۇلانمىنى چېكىڭ: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nئەگەر يېڭى شەخسىي ئۇچۇرنى ئەسكەرتىدىغان تورخەتنى تاپشۇرۇۋېلىشنى خالىمىسىڭىز، سەپلىمە ھۆججىتىڭىزدىن «يېڭى شەخسىي ئۇچۇر ئەسكەرتىشى» نى چەكلەڭ.
 register_pm_notification:شەخسىي ئۇچۇر ئەسكەرتىشى:
 register_pm_notification_desc:ئەگەر قوزغىتىلسا، سىزگە شەخسىي ئۇچۇر يوللانسا مۇنبەر سىزگە ئەسكەرتىدۇ.
@@ -1111,6 +1119,7 @@ move_msg_th_expl:يۆتكەيدىغان تېمىنىڭ ID سىنى بەلگىل�
 captcha_img_alt:دەلىللەشنى جەزملەش: سىز بۇ رەسىمدىكى تېكىستنى تونۇشىڭىز كېرەك.
 captcha_img_help:سۈرەتتە نۆل ياكى بىر يوق.
 powered-by:تەمىنلىگۈچى: FUDforum {GVAR: FORUM_VERSION}.
+# Fuzzy
 copyright:نەشر ھوقۇقىغا ئىگە &copy;2001-2013 <a href="http://fudforum.org/">FUDforum مۇنبەر ئۇقتۇرۇش تاختا يۇمشاق دېتالى</a>
 code_title:كود:
 code_select_all:ھەممىنى تاللا

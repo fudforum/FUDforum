@@ -4,6 +4,7 @@
 # Author: Chmee2
 # Author: Juandev
 # Author: Kusavica
+# Author: Macofe
 # Author: Matěj Grabovský
 # Author: Mormegil
 # Author: Mr. Richard Bolla
@@ -211,6 +212,7 @@ vote_button:Hlasovat
 vote_for_thread:Hlasovat
 was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> byla moderátorem přemístěna do <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a>.
 welcome_message:Vítejte <b>{VAR: usr->alias}</b>, tvoje poslední návštěva byla v {TEMPLATE: welcome_message_date}
+# Fuzzy
 what_ppl_doing:ukaž, co dělají ostatní
 reported_del_report:Zpráva o smazání
 reported_reason:Důvod:
@@ -376,6 +378,7 @@ my_buddies:Moji přátelé
 add_buddy:Přidat přítele
 add:Přidat
 buddy_search:Zadejte uživatelské jméno uživatele, kterého si přejete přidat.
+# Fuzzy
 member_search:Nebo použijte volbu <a href="javascript://" class="GenLink" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Hledat uživatele</a> k nalezení osoby.
 buddy_remove:odstranit
 post_normal:Normální
@@ -671,8 +674,9 @@ register_err_notyouremail:Někdo je již registrován pomocí této e-mailové a
 register_err_avatartobig:Soubor, který se snažíte nahrát je příliš velký, limit je {GVAR: CUSTOM_AVATAR_MAX_SIZE} bytů
 register_err_avatarnotallowed:Ikona uživatele, kterou se snažíte nahrát není povolena. Prohlédněte si seznam povolených typů.
 register_conf_subject:Potvrzení registrace
-register_conf_msg:Děkujeme za vaši registraci,\npro aktivaci vašeho účtu, prosím, přejděte na následující URL:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nPokud je váš úšet již aktivován, budete přihlášeni do fóra a\npřesměrováni na hlavní stránku fóra.
+register_conf_msg:Děkujeme za vaši registraci,\npro aktivaci vašeho účtu, prosím, přejděte na následující URL:\n\n{FULL_ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nPokud je váš úšet již aktivován, budete přihlášeni do fóra a\npřesměrováni na hlavní stránku fóra.
 register_welcome_subject:Potvrzení registrace do fóra
+# Fuzzy
 register_welcome_msg:Děkujeme za vaši registraci,\n\nzde jsou údaje nutné k přihlášení k fóru:\n\nAdresa fóra: {TEMPLATE: index_update_lnk}\nUživatelské jméno: {VAR: uent->login}\nHeslo: {VAR: _POST['reg_plaintext_passwd']}\n\nPamatujte, prosím, že jeslo je citlivé na velikost znaků!\nPro změnu vašich nastavení nebo profilu přejděte sem:\n{FULL_ROOT}{ROOT}?t=register
 register_err_cantreg_title:CHYBA: nelze vás zaregistrovat
 regsiter_err_cantreg_msg:Není možné vytvořit uživatelský účet, prosím, kontaktujte administrátora na <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
@@ -685,7 +689,7 @@ reset_err_invalidkey_msg:Chybný klíč k vynulování hesla
 reset_err_rstconf_title:Informace
 reset_err_rstconf_msg:Během pár minut by jste měl(a) dostat pokyny emailem
 reset_newpass_title:Vynulování hesla
-reset_newpass_msg:Dobrý den,\n\nna základě vašeho požadavku jsou vám zasílány přihlašovací informace.\n\nUživatelské jméno: {VAR: ui[1]}\nHeslo: {VAR: passwd}\n\nVšimněte si, že vaše heslo by nastaveno na výše uvedenou hodnotu. Pokud chcete\nzměnit své heslo, můžete tak učinit přes nastavení vašeho účtu na:\n{FULL_ROOT}{ROOT}?t=register
+reset_newpass_msg:Dobrý den,\n\nna základě vašeho požadavku jsou vám zasílány přihlašovací informace.\n\nUživatelské jméno: {VAR: ui[1]}\nHeslo: {VAR: passwd}\n\nVšimněte si, že vaše heslo by nastaveno na výše uvedenou hodnotu. Pokud chcete\nzměnit své heslo, můžete tak učinit přes nastavení vašeho účtu na:\n{FULL_ROOT}?t=register
 reset_login_notify:Vaše heslo vám bylo zasláno emailem. Měl(a) by jste ho dostat během několika minut.
 search_update:Hledáte příspěvky
 selmsg_update:Prohlížíte si <a href="{TEMPLATE: selmsg_update_lnk}">dnešní příspěvky</a>
@@ -720,6 +724,7 @@ error_title:Formulář na hlášení chyb
 index_title:Vítejte ve fóru
 search_title:Hledat {VAR-HTML: srch}
 remail_emailsent:Email byl odeslán
+# Fuzzy
 remail_email:Ahoj,\n\nzde je zajímavé téma o "{VAR: data->subject}" na fóru {GVAR: FORUM_TITLE}, které by sis mohl(a) chtít přečíst. Téma můžeš vidět na:\n {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\n Tvůj přítel,\n\n{VAR: usr->alias}
 poll_add_option:Přidat volbu:
 post_opt_html_on:<b>HTML tagy</b> jsou <b>ZAPNUTÉ</b>
@@ -954,7 +959,7 @@ thread_mark_all_read:Označit všechny nepřečtené zprávy ve fóru jako pře�
 thread_mark_all_read_desc:Všechny nepřečtené zprávy v tomto fóru budou označeny jako přečtené
 private_no_messages:V této složce nejsou žádné zprávy.
 register_email_change_subject:Potvrzení změny E-mailu
-register_email_change_msg:Prosím potvrďte Váš nový emailový účet "{VAR: uent->email}", který nahrazuje Váš starý účet "{VAR: old_email}" tím, že navštívíte následující URL:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nJakmile potvrdíte Vaši novou emailovou adresu, Váš účet bude reaktivován.
+register_email_change_msg:Prosím potvrďte Váš nový emailový účet "{VAR: uent->email}", který nahrazuje Váš starý účet "{VAR: old_email}" tím, že navštívíte následující URL:\n{FULL_ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nJakmile potvrdíte Vaši novou emailovou adresu, Váš účet bude reaktivován.
 iemail_thread_unsub:Odhlásit z tohoto tématu
 iemail_forum_unsub:Odhlásit z tohoto fóra
 primary_group_prefix:Primární skupina pro fórum:
@@ -962,6 +967,7 @@ group_resources:Tato skupina kontroluje oprávnění pro následující fóra
 register_admin_newuser_title:Nový uživatel se zaregistroval a jeho účet čeká na potvrzení
 register_admin_newuser_msg:Nový uživatel ({VAR: uent->login}) se právě zaregistroval a protože je zapnuté potvrzování účtů, tento účet nebude aktivován dokud ho Vy nebo jiný administrátor ve  fóru nepotvrdí. Pokud chcete zobrazit tento účet jděte na: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nTato zpráva je generovaná serverem, prosím neodpovídejte na ní.\nPokud chcete vypnout budoucí e-mailové oznámení o nových registracích, můžete tak udělat přes Admin Control Panel, změnou nastavení "New Account Notification".
 post_mod_msg_notify_title:Nová zpráva ve fóru "{VAR: frm->name}" čeká na schválení
+# Fuzzy
 post_mod_msg_notify_msg:Nová zpráva s předmětem "{VAR: msg_post->subject}" byla právě zaslána do fóra které moderujete. Pro zobrazení této zprávy přejděte na: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nToto je automatický proces. Neodpovídejte na tuto zprávu.
 thread_printable_pdf:Generování PDF pro tisk
 thread_syndicate:Syndikovat toto fórum (XML)
@@ -988,6 +994,7 @@ mnav_month:Měsíc (e)
 mnav_title:Navigátor Zpráv
 mnav_update:Prohlížení zpráv pomocí <a href="{TEMPLATE: mnav_update_lnk}">Navigátoru Zpráv</a>
 pm_notify_subject:[{GVAR: FORUM_TITLE}] Oznámení nové soukromé zprávy
+# Fuzzy
 pm_notify_body_email:Máte novou soukromou zprávu s názvem "{VAR: subject}", od "{VAR: from}" na fóru "{gvar: FORUM_TITLE}". \nChcete-li zobrazit zprávu, klikněte zde: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nChcete-li zastavit další upozornění, vypněte "Oznámení soukormých zpráv" ve vašem profilu.
 register_pm_notification:Oznámení soukromých zpráv:
 register_pm_notification_desc:Je-li povoleno, budete upozorněni pokaždé když vám bude zaslána soukromá zpráva.
@@ -1116,7 +1123,7 @@ move_msg_th_expl:Zadejte ID cílového téma (může být v jiných fórech)
 captcha_img_alt:Ověření Captcha: je třeba rozpoznat text v tomto obrázku.
 captcha_img_help:Na obrázku není žádná nula nebo jednička.
 powered-by:Běží na: FUDforum {GVAR: FORUM_VERSION}.
-copyright:Copyright © 2001-2013 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Copyright © 2001-2017 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Kód:
 code_select_all:Vybrat vše
 code_show_hide:Zobrazit / skrýt

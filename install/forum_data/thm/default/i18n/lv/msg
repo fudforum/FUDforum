@@ -1,6 +1,7 @@
 # Messages for Latvian (latviešu)
 # Exported from translatewiki.net
 # Author: Edgars2007
+# Author: Macofe
 # Author: Papuass
 # Author: Silraks
 
@@ -196,6 +197,7 @@ vote_for_thread:Novērtējums
 # Fuzzy
 was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> moderātors pārcēla uz forumu <a href="{TEMPLATE: was_moved_msg_lnk2}">{{VAR: r[12]}</a>
 welcome_message:Sveiki <b><u>{VAR: usr->alias}</u></b>, prieks Jūs atkal redzēt kopš {TEMPLATE: welcome_message_date}
+# Fuzzy
 what_ppl_doing:parādīt ko kurš dara
 reported_del_report:Dzēst atskaiti
 reported_reason:Iemesls:
@@ -648,8 +650,9 @@ register_err_notyouremail:Sistēmā jau ir reģistrēts lietotājs ar tādu E-pa
 register_err_avatartobig:Jūsu ielādētais nozīmītes fails ir pārāk liels, maksimāli pieļaujamais nozīmīšu faila izmērs ir {GVAR: CUSTOM_AVATAR_MAX_SIZE} bytes
 register_err_avatarnotallowed:Ielādētais nozīmītes fails neatbilst nevienam pieļaujamajam failu formātam.
 register_conf_subject:Reģistrācijas apstiprinājums
-register_conf_msg:Jūs esat pereģistrēts,\nLai apstiprinātu sava nika reģistrāciju sekojiet saitei:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nTiklīdz reģistrācija tiks aktivizēta, Jūs automātiski ieiesiet foruma\ngalvenajā lapā.
+register_conf_msg:Jūs esat pereģistrēts,\nLai apstiprinātu sava nika reģistrāciju sekojiet saitei:\n\n{FULL_ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nTiklīdz reģistrācija tiks aktivizēta, Jūs automātiski ieiesiet foruma\ngalvenajā lapā.
 register_welcome_subject:Foruma reģistrācijas apliecinājums
+# Fuzzy
 register_welcome_msg:Paldies par reģistrāciju,\n\nZemāk informācija par Jūsu reģistrāciju:\n\nforuma URL: {TEMPLATE: index_update_lnk}\nLogin: {VAR: uent->login}\nParole: {VAR: _POST['reg_plaintext_passwd']}\n\nAtcerieties, paroles ir reģistra jūtīgas!\nSavus privātos uzstādījumus jūs variet rediģēt šeit:\n{FULL_ROOT}{ROOT}?t=register
 register_err_cantreg_title:KĻŪDA! Reģistrācija nav iespējama
 regsiter_err_cantreg_msg:Nevar piereģistrēt šo lietotāju. Lūdzu paziņojiet Administratoram <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
@@ -700,6 +703,7 @@ error_title:Kļūda
 index_title:Laipni lūdzam mūsu forumā
 search_title:Meklēt {VAR-HTML: srch}
 remail_emailsent:E-pasts nosūtīts
+# Fuzzy
 remail_email:Sveiki,\n\nForumā "{GVAR: FORUM_TITLE}" publicētas ziņas par tēmu "{VAR: data->subject}", kas pēc manām domām varētu Jūs interesēt. Šīs ziņas Jūs varat izlasīt šeit:\n\n{FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\n Ar cieņu,\n\n{VAR: usr->alias}
 poll_add_option:Pievienot variantu:
 post_opt_html_on:<b>HTML</b> - <b>ieslēgts</b>

@@ -5,7 +5,9 @@
 # Author: JanRei
 # Author: Kghbln
 # Author: LWChris
+# Author: Macofe
 # Author: McDutchie
+# Author: Naudefj
 # Author: The Evil IP address
 # Author: Tiin
 # Author: Umherirrender
@@ -210,6 +212,7 @@ vote_button:Abstimmen
 vote_for_thread:Abstimmen
 was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> ist vom Moderator nach <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> verschoben worden
 welcome_message:Willkommen <b>{VAR: usr->alias}</b>, Ihr letzter Besuch war am {TEMPLATE: welcome_message_date}
+# Fuzzy
 what_ppl_doing:Anzeigen, was die Leute gerade machen
 reported_del_report:Benachrichtigung löschen
 reported_reason:Grund:
@@ -375,6 +378,7 @@ my_buddies:Meine Buddies
 add_buddy:Buddy hinzufügen
 add:Hinzufügen
 buddy_search:Tragen Sie den Benutzernamen des Benutzers ein, den Sie hinzufügen möchten
+# Fuzzy
 member_search:Oder verwenden Sie die <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list',400,250);">Benutzersuche</a>, um einen Benutzer ausfindig zu machen.
 buddy_remove:Entfernen
 post_normal:Normal
@@ -670,8 +674,9 @@ register_err_notyouremail:Jemand ist bereits mit dieser E-Mail registriert, und 
 register_err_avatartobig:Die Datei, die Sie hochladen möchten, ist zu groß und liegt über der Grenze von {GVAR: CUSTOM_AVATAR_MAX_SIZE} Byte.
 register_err_avatarnotallowed:Der Avatar, den Sie hochladen möchten, ist nicht erlaubt, überprüfen Sie die erlaubten Dateitypen.
 register_conf_subject:Registrierungsbestätigung
-register_conf_msg:Vielen Dank für Ihre Registrierung,\nUm Ihr Konto zu aktivieren, gehen Sie bitte auf die unten angegebene Adresse:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nSobald Ihr Konto aktiviert ist, werden Sie am System angemeldet und\nzur Hauptseite des Forums weitergeleitet.
+register_conf_msg:Vielen Dank für Ihre Registrierung,\nUm Ihr Konto zu aktivieren, gehen Sie bitte auf die unten angegebene Adresse:\n\n{FULL_ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nSobald Ihr Konto aktiviert ist, werden Sie am System angemeldet und\nzur Hauptseite des Forums weitergeleitet.
 register_welcome_subject:Registrierungsbestätigung für das Forum
+# Fuzzy
 register_welcome_msg:Vielen Dank für Ihre Registrierung,\n\nHier sind die Anmeldedetails für das Forum:\n\nAdresse des Forums: {TEMPLATE: index_update_lnk}\nBenutzername: {VAR: uent->login}\nPasswort: {VAR: _POST['reg_plaintext_passwd']}\n\nBitte achten Sie beim Passwort auf Groß- und Kleinschreibung!\nUm die Einstellungen und das Profil zu verändern, gehen Sie bitte auf diese Seite:\n{FULL_ROOT}{ROOT}?t=register
 register_err_cantreg_title:FEHLER: Registrierung nicht möglich
 regsiter_err_cantreg_msg:Nicht in der Lage, das Benutzerkonto zu erstellen, bitte nehmen Sie Kontakt zum Administrator auf: <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
@@ -684,7 +689,7 @@ reset_err_invalidkey_msg:Ungültiger Schlüssel zum Zurücksetzen des Passwortes
 reset_err_rstconf_title:Information
 reset_err_rstconf_msg:Sie sollten in den nächsten Minuten eine Anleitung per E-Mail erhalten.
 reset_newpass_title:Passwort zurücksetzen
-reset_newpass_msg:Guten Tag,\n\nWie von Ihnen gewünscht, werden Ihnen die Anmeldeinformationen zugesendet.\n\nBenutzername: {VAR: ui[1]}\nPasswort: {VAR: passwd}\n\nBitte beachten Sie, dass Ihr Passwort auf obigen angegebenen Wert zurückgesetzt\nwurde, wenn Sie es ändern möchten, so können Sie das in\nden persönlichen Einstellungen tun:\n{FULL_ROOT}{ROOT}?t=register
+reset_newpass_msg:Guten Tag,\n\nWie von Ihnen gewünscht, werden Ihnen die Anmeldeinformationen zugesendet.\n\nBenutzername: {VAR: ui[1]}\nPasswort: {VAR: passwd}\n\nBitte beachten Sie, dass Ihr Passwort auf obigen angegebenen Wert zurückgesetzt\nwurde, wenn Sie es ändern möchten, so können Sie das in\nden persönlichen Einstellungen tun:\n{FULL_ROOT}?t=register
 reset_login_notify:Das Passwort wurde an Sie versandt. Sie sollten es in den nächsten Minuten erhalten.
 search_update:Sucht nach Beiträgen
 selmsg_update:Durchsucht <a href="{TEMPLATE: selmsg_update_lnk}">die heutigen Beiträge</a>
@@ -719,6 +724,7 @@ error_title:Fehlerseite
 index_title:Willkommen im Forum
 search_title:Suche nach {VAR-HTML: srch}
 remail_emailsent:Die E-Mail wurde verschickt.
+# Fuzzy
 remail_email:Hallo,\n\nEs gibt eine Seite auf {GVAR: FORUM_TITLE} die für Sie interessant zu lesen sein könnte.\nUnd zwar die Diskussion zum Thema {VAR: data->subject}, die hier gefunden werden kann: {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nVon {VAR: usr->alias}
 poll_add_option:Menüpunkt hinzufügen:
 post_opt_html_on:<b>HTML</b> Code ist <b>AN</b>
@@ -953,7 +959,7 @@ thread_mark_all_read:Alle ungelesenen Beiträge im Forum als gelesen kennzeichne
 thread_mark_all_read_desc:Alle ungelesenen Beiträge in diesem Forum werden als gelesen gekennzeichnet
 private_no_messages:Es sind keine Nachrichten in diesen Ordner vorhanden
 register_email_change_subject:Bestätigung der geänderten E-Mail-Adresse
-register_email_change_msg:Bitte bestätigen Sie Ihre neue E-Mail-Adresse „{VAR: uent->email}“, welche die alte Adresse „{VAR: old_email}“ ersetzen wird, in dem Sie die folgende URL aufrufen:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nSobald Sie die neue Adresse bestätigt haben, wird Ihr Konto wieder aktiviert werden.
+register_email_change_msg:Bitte bestätigen Sie Ihre neue E-Mail-Adresse „{VAR: uent->email}“, welche die alte Adresse „{VAR: old_email}“ ersetzen wird, in dem Sie die folgende URL aufrufen:\n{FULL_ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nSobald Sie die neue Adresse bestätigt haben, wird Ihr Konto wieder aktiviert werden.
 iemail_thread_unsub:Abonnement für dieses Thema aufheben
 iemail_forum_unsub:Das Abonnement für dieses Forum beenden
 primary_group_prefix:Hauptgruppe für Forum:
@@ -961,6 +967,7 @@ group_resources:Diese Gruppe kontrolliert die Berechtigungen für folgende Foren
 register_admin_newuser_title:Ein neuer Benutzer hat sich registriert und wartet auf die Bestätigung des Kontos
 register_admin_newuser_msg:Ein neuer Benutzer ({VAR: uent->login}) hat sich gerade für dieses Forum registriert und da die Bestätigung für Konten aktiviert ist, wird dieses Konto nicht eher aktiviert werden, bevor es durch Sie oder einem anderen Forumsadministrator bestätigt wurde. Um das Konto zu begutachten, gehen Sie zu: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nDas ist ein automatisierter Vorgang, bitte beantworten Sie diese Nachricht nicht.\nWenn Sie weitere E-Mail-Benachrichtigungen über neue Benutzerregistrierungen abstellen möchten, können Sie dies über das Administratormenü und durch Ändern des Wertes der Einstellung „New Account Notification“ erledigen.
 post_mod_msg_notify_title:Neuer Beitrag im Forum „{VAR: frm->name}“ wartet auf Bestätigung
+# Fuzzy
 post_mod_msg_notify_msg:Ein neuer Beitrag mit der Überschrift „{VAR: msg_post->subject}“ wurde gerade in einem Forum, welches von Ihnen moderiert wird, erstellt. Um diesen Beitrag zu begutachten, gehe Sie zu: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nDas ist ein automatisierter Vorgang, bitte beantworten Sie diese Benachrichtigung nicht.
 thread_printable_pdf:Druckbares PDF erzeugen
 thread_syndicate:Themen als Syndikate anderen Seiten zur Verfügung stellen (XML)
@@ -987,6 +994,7 @@ mnav_month:Monat(e)
 mnav_title:Beitragsnavigator
 mnav_update:Durchsucht Beiträge mit Hilfe des <a href="{TEMPLATE: mnav_update_lnk}">Beitragsnavigators</a>
 pm_notify_subject:[{GVAR: FORUM_TITLE}] Neue Benachrichtigung über eine private Nachricht
+# Fuzzy
 pm_notify_body_email:Sie haben eine neue private Nachricht mit der Überschrift „{VAR: subject}“ von „{VAR: from}“ im Forum „{GVAR: FORUM_TITLE}“.\nKlicke Sie hier, um diese zu betrachten: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nUm zukünftige Benachrichtigungen zu verhindern, deaktivieren Sie „Benachrichtigung über private Nachrichten“ in Ihrem Profil.
 register_pm_notification:Benachrichtigung über private Nachricht
 register_pm_notification_desc:Falls aktiviert, werden Sie über die Benachrichtigungsmethode Ihrer Wahl eine Mitteilung erhalten, sobald eine private Nachricht an Sie gesendet worden ist.
@@ -1115,7 +1123,7 @@ move_msg_th_expl:Geben Sie die ID des Zielthemas an (kann in einem anderem Forum
 captcha_img_alt:CAPTCHA-Bestätigung: Sie müssen den Text in diesem Bild erkennen.
 captcha_img_help:Das Bild enthält keine Null oder Eins.
 powered-by:Betrieben mit: FUDforum {GVAR: FORUM_VERSION}.
-copyright:Copyright &copy;2001–2013 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Copyright &copy;2001–2017 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Code:
 code_select_all:alles markieren
 code_show_hide:anzeigen/verstecken

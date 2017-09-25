@@ -9,6 +9,7 @@
 # Author: Kumkumuk
 # Author: Marmase
 # Author: Mirzali
+# Author: Naudefj
 
 action:Kerdış
 add_to_buddy_list:Listey embazan dek
@@ -174,6 +175,7 @@ view_results:Netican Bıvêne
 views:Asayışi
 vote_button:Rey Bıdê
 vote_for_thread:Rey Bıdê
+# Fuzzy
 what_ppl_doing:Bımocne, merdımi haê se kenê
 reported_del_report:Rapore Bestere
 reported_reason:Sebeb:
@@ -654,7 +656,7 @@ move_msg_th_expl:IDa hedef cay nışan kerê (belki foruman dê binana deya)
 captcha_img_alt:Captcha Arıstekerdış: Asayış de metnê şınasnayışi icab keno.
 captcha_img_help:Asengi miyan dı sıfır yana yew tede esto.
 powered-by:Destegdaren: FUDforum {GVAR: FORUM_VERSION}.
-copyright:Heqa telifi &copy;2001-2013 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Heqa telifi &copy;2001-2017 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Kod:
 code_select_all:Pêrıne weçine
 code_show_hide:Bımotne/bınımne

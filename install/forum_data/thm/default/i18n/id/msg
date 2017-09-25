@@ -13,6 +13,7 @@
 # Author: IvanLanin
 # Author: Iwan Novirion
 # Author: Kenrick95
+# Author: Macofe
 # Author: Naudefj
 # Author: StefanusRA
 # Author: Totosunarto
@@ -218,6 +219,7 @@ vote_button:Pilih
 vote_for_thread:Berikan suara
 was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> sudah dipindahkan ke <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> oleh moderator
 welcome_message:Selamat datang <b>{VAR: usr->alias}</b>, kunjungan terakhir anda pada {TEMPLATE: welcome_message_date}
+# Fuzzy
 what_ppl_doing:Perlihatkan aktivitas pengguna lain
 reported_del_report:Hapus laporan
 reported_reason:Alasan:
@@ -386,6 +388,7 @@ my_buddies:Temanku
 add_buddy:Tambah teman
 add:Tambah
 buddy_search:Masukkan identifikasi pengguna yang anda hendak tambahkan.
+# Fuzzy
 member_search:Atau pergunakan fitur <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Cari Pengguna</a> untuk mencari seseorang.
 buddy_remove:hapus
 post_normal:Normal
@@ -680,8 +683,9 @@ register_err_notyouremail:Seseorang sudah memakai alamat e-mail tsb.
 register_err_avatartobig:Berkas yang anda kirimkan terlalu besar, lebih dari {GVAR: CUSTOM_AVATAR_MAX_SIZE} bytes
 register_err_avatarnotallowed:Avatar yang Anda kirimkan tidak sah. Mohon periksa lagi jenis berkas yang diizinkan.
 register_conf_subject:Konfirmasi Registrasi
-register_conf_msg:Terima-kasih atas registrasi anda,\nUntuk mengaktifkan akun anda, silakan ke:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nSesudah aktif, anda bisa login&\nsecara otomatis akan diarahkan ke halaman utama.
+register_conf_msg:Terima-kasih atas registrasi anda,\nUntuk mengaktifkan akun anda, silakan ke:\n\n{FULL_ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nSesudah aktif, anda bisa login&\nsecara otomatis akan diarahkan ke halaman utama.
 register_welcome_subject:Konfirmasi Registrasi Forum
+# Fuzzy
 register_welcome_msg:Terima-kasih telah mendaftar,\n\nBerikut adalah keterangan lengkap anda:\n\nURL Forum: {TEMPLATE: index_update_lnk}\nLogin: {VAR: uent->login}\nPassword: {VAR: _POST['reg_plaintext_passwd']}\n\nMohon diingat password merupakan ''case sensitive''!\nUntuk mengubah pengesetan atau profile, tuju halaman ini:\n{FULL_ROOT}{ROOT}?t=register
 register_err_cantreg_title:SALAH: tidak dapat mendaftar
 regsiter_err_cantreg_msg:Tidak bisa membuat akun pengguna, mohon hubungi administrator di <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
@@ -694,7 +698,7 @@ reset_err_invalidkey_msg:Kunci penimpaan kata sanditidak benar. Mungkin aplikasi
 reset_err_rstconf_title:Informasi
 reset_err_rstconf_msg:Dalam beberapa menit, Anda akan menerima petunjuk di surel.
 reset_newpass_title:Timpa password
-reset_newpass_msg:Halo,\n\nSesuai permintaan anda, informasi login anda adalah:\n\nLogin: {VAR: ui[1]}\nPassword: {VAR: passwd}\n\nHarap diingat baik-baik bahwa password anda telah disetel ulang menjadi seperti di atas. Jika anda ingin merubah kembali password Anda\nbisa andalakukan di panel kontrol pengguna di:\n{FULL_ROOT}{ROOT}?t=register
+reset_newpass_msg:Halo,\n\nSesuai permintaan anda, informasi login anda adalah:\n\nLogin: {VAR: ui[1]}\nPassword: {VAR: passwd}\n\nHarap diingat baik-baik bahwa password anda telah disetel ulang menjadi seperti di atas. Jika anda ingin merubah kembali password Anda\nbisa andalakukan di panel kontrol pengguna di:\n{FULL_ROOT}?t=register
 reset_login_notify:Password anda sudah dikirim melalui e-mail, dalam beberapa saat anda akan menerimanya<br />
 search_update:Mencari pesan
 selmsg_update:Melihat <a href="{TEMPLATE: selmsg_update_lnk}">pesan hari ini</a>
@@ -729,6 +733,7 @@ error_title:Formulir Kesalahan
 index_title:Selamat datang di forum
 search_title:Mencari {VAR-HTML: srch}
 remail_emailsent:Surel terkirim
+# Fuzzy
 remail_email:Halo,\n\nAda topik menarik tentang "{VAR: data->subject}" di forum {GVAR: FORUM_TITLE} yang mungkin ingin anda baca. Anda dapat melihatnya dari sini:\n {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nYour friend,\n\n{VAR: usr->alias}
 poll_add_option:Tambah pilihan:
 post_opt_html_on:kode <b>HTML</b> di<b>AKTIFKAN</b>
@@ -963,7 +968,7 @@ thread_mark_all_read:tandai semua pesan di forum ini terbaca
 thread_mark_all_read_desc:Semua pesan akan ditandai sebagai terbaca
 private_no_messages:Tidak ada pesan di folder ini.
 register_email_change_subject:Konfirmasi perubahan surel
-register_email_change_msg:Mohon konfirmasikan surel baru "{VAR: uent->email}" yang menggantikan surel yang lama "{VAR: old_email}", dengan membuka halam ini:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nSesudah dikonfirmasi, akun Anda akan diaktifkan kembali.
+register_email_change_msg:Mohon konfirmasikan surel baru "{VAR: uent->email}" yang menggantikan surel yang lama "{VAR: old_email}", dengan membuka halam ini:\n{FULL_ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nSesudah dikonfirmasi, akun Anda akan diaktifkan kembali.
 iemail_thread_unsub:Stop langganan topik ini
 iemail_forum_unsub:Stop langganan forum ini
 primary_group_prefix:Group utama forum ini:
@@ -971,6 +976,7 @@ group_resources:Kelompok ini mengontrol perizinan Forum berikut
 register_admin_newuser_title:Pengguna baru sudah mendaftar dan sedang menunggu konfirmasi
 register_admin_newuser_msg:Pengguna baru ({VAR: uent->login}), dan karena konfirmasi diaktifkan, akun tidak aktif sampai disetujui administrator. Untuk memeriksa, silakan ke: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nIni proses otomatis, jangan membalas surel ini.\nPemberitahuan lewat surel bisa dinonaktifkan melalui kontrol panel admin. Ubah setelan di "Pemberitahuan Akun baru".
 post_mod_msg_notify_title:Pesan baru di forum "{VAR: frm->name}" menunggu persetujuan anda
+# Fuzzy
 post_mod_msg_notify_msg:Pesan baru berjudul "{VAR: msg_post->subject}" baru saja dimasukkan di forum yang anda moderasikan. Untum memeriksa,silakan ke: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nIni proses otomatis, jangan membalas email ini.
 thread_printable_pdf:Buat PDF utk pencetakan
 thread_syndicate:Sindikasikan forum ini (XML)
@@ -997,6 +1003,7 @@ mnav_month:Bulan
 mnav_title:Navigasi Pesan
 mnav_update:Memeriksa pesan dengan <a href="{TEMPLATE: mnav_update_lnk}">Navigasi Pesan</a>
 pm_notify_subject:[{GVAR: FORUM_TITLE}] Pemberitahuan Pesan Pribadi Baru
+# Fuzzy
 pm_notify_body_email:Anda mendapat pesan pribadi baru dengan subyek "{VAR: subject}", dari "{VAR: from}", di forum "{GVAR: FORUM_TITLE}".\nUntuk melihat, Tekan disini: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nUntuk menghentikan pemberitahuan, non-aktifkan "Pemberitahuan Pesan Pribadi" di profile anda.
 register_pm_notification:Pemberitahuan Pesan Pribadi
 register_pm_notification_desc:Jika di aktifkan, anda akan menerima surel jika ada pesan pribadi untuk Anda.
@@ -1125,7 +1132,7 @@ move_msg_th_expl:Penetapan ID dari tujuan topik (bisa juga terdapat di Forum lai
 captcha_img_alt:Verifikasi Captcha: Anda harus mengenali teks dalam gambar ini.
 captcha_img_help:Tidak ada nol atau satu pada berkas.
 powered-by:Di dukung oleh: FUDforum {GVAR: FORUM_VERSION}.
-copyright:Hak-cipta&copy;2001-2013 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Hak-cipta&copy;2001-2017 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Kode:
 code_select_all:Pilih semua
 code_show_hide:Tampil/ sembunyi

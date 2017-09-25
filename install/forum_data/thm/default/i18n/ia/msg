@@ -1,5 +1,6 @@
 # Messages for Interlingua (interlingua)
 # Exported from translatewiki.net
+# Author: Macofe
 # Author: McDutchie
 # Author: Naudefj
 
@@ -203,6 +204,7 @@ vote_button:Votar
 vote_for_thread:Votar
 was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> ha essite displaciate in <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> per le moderator.
 welcome_message:Benvenite <b>{VAR: usr->alias}</b>, tu ultime visita esseva le {TEMPLATE: welcome_message_date}
+# Fuzzy
 what_ppl_doing:Monstrar lo que le gente face
 reported_del_report:Deler reporto
 reported_reason:Motivo:
@@ -371,6 +373,7 @@ my_buddies:Mi amicos
 add_buddy:Adder amico
 add:Adder
 buddy_search:Entra le nomine de usator del persona que tu vole adder.
+# Fuzzy
 member_search:O usa le function <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Cercar usator</a> pro cercar un persona.
 buddy_remove:remover
 post_normal:Normal
@@ -665,8 +668,9 @@ register_err_notyouremail:Alcuno altere ja possede un conto con iste adresse de 
 register_err_avatartobig:Le file que tu tenta incargar es troppo grande, excedente {GVAR: CUSTOM_AVATAR_MAX_SIZE} bytes
 register_err_avatarnotallowed:Le avatar que tu tenta incargar non es permittite. Verifica le typos de file permittite.
 register_conf_subject:Confirmation del registration
-register_conf_msg:Gratias pro registrar te.\nPro activar tu conto, per favor visita le URL hic infra:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nQuando tu conto ha essite activate, tu essera authenticate al foro e\nredirigite verso le pagina principal.
+register_conf_msg:Gratias pro registrar te.\nPro activar tu conto, per favor visita le URL hic infra:\n\n{FULL_ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nQuando tu conto ha essite activate, tu essera authenticate al foro e\nredirigite verso le pagina principal.
 register_welcome_subject:Confirmation del registration in le foro
+# Fuzzy
 register_welcome_msg:Gratias pro registrar te.\n\nEcce le detalios de tu conto in le foro:\n\nURL del foro: {TEMPLATE: index_update_lnk}\nNomine de usator: {VAR: uent->login}\nContrasigno: {VAR: _POST['reg_plaintext_passwd']}\n\nNota ben que le contrasignos distingue inter majusculas e minusculas!\nPro modificar tu preferentias o tu profilo, visita iste pagina:\n{FULL_ROOT}{ROOT}?t=register
 register_err_cantreg_title:ERROR: impossibile crear conto
 regsiter_err_cantreg_msg:Impossibile crear le conto de usator. Per favor contacta le administrator a <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
@@ -679,7 +683,7 @@ reset_err_invalidkey_msg:Le clave de reinitialisation de contrasigno es invalide
 reset_err_rstconf_title:Information
 reset_err_rstconf_msg:Tu deberea reciper instructiones in e-mail in le proxime pauc minutas.
 reset_newpass_title:Reinitialisar contrasigno
-reset_newpass_msg:Salute,\n\nComo requestate, ecce le informationes de tu conto:\n\nNomine de usator: {VAR: ui[1]}\nContrasigno: {VAR: passwd}\n\nNota ben que tu contrasigno ha essite reinitialisate al valor hic supra. Si\ntu vole cambiar tu contrasigno, tu pote facer lo con le pannello de controlo\nde information de usator a:\n{FULL_ROOT}{ROOT}?t=register
+reset_newpass_msg:Salute,\n\nComo requestate, ecce le informationes de tu conto:\n\nNomine de usator: {VAR: ui[1]}\nContrasigno: {VAR: passwd}\n\nNota ben que tu contrasigno ha essite reinitialisate al valor hic supra. Si\ntu vole cambiar tu contrasigno, tu pote facer lo con le pannello de controlo\nde information de usator a:\n{FULL_ROOT}?t=register
 reset_login_notify:Tu contrasigno ha essite inviate a te in e-mail. Tu deberea reciper lo intra le proxime pauc minutas.
 search_update:Cerca messages
 selmsg_update:Folia <a href="{TEMPLATE: selmsg_update_lnk}">le messages de hodie</a>
@@ -714,6 +718,7 @@ error_title:Formulario de error
 index_title:Benvenite al foro
 search_title:Cercar {VAR-HTML: srch}
 remail_emailsent:Le e-mail ha essite inviate
+# Fuzzy
 remail_email:Salute,\n\nIl ha un topico interessante super "{VAR: data->subject}" in le foro {GVAR: FORUM_TITLE} que poterea interessar te. Tu pote vider le topico a:\n {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nAmicalmente,\n\n{VAR: usr->alias}
 poll_add_option:Adder option:
 post_opt_html_on:<b>HTML</b> es <b>activate</b>
@@ -948,7 +953,7 @@ thread_mark_all_read:marcar tote le messages non legite del foro como legite
 thread_mark_all_read_desc:Tote le messages non legite in iste foro essera marcate como legite
 private_no_messages:Il non ha messages in iste dossier.
 register_email_change_subject:Confirmation del cambiamento de e-mail
-register_email_change_msg:Per favor confirma tu nove conto de e-mail "{VAR: uent->email}" que reimplacia tu vetule conto de e-mail "{VAR: old_email}", visitante le URL sequente:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nUn vice que tu confirma tu nove adresse de e-mail, tu conto del foro essera re-activate.
+register_email_change_msg:Per favor confirma tu nove conto de e-mail "{VAR: uent->email}" que reimplacia tu vetule conto de e-mail "{VAR: old_email}", visitante le URL sequente:\n{FULL_ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nUn vice que tu confirma tu nove adresse de e-mail, tu conto del foro essera re-activate.
 iemail_thread_unsub:Cancellar subscription a iste topico
 iemail_forum_unsub:Cancellar subscription a iste foro
 primary_group_prefix:Gruppo primari pro le foro:
@@ -956,6 +961,7 @@ group_resources:Iste gruppo controla le permissiones del sequente foros
 register_admin_newuser_title:Un nove usator se ha registrate e su conto attende confirmation
 register_admin_newuser_msg:Un nove usator ({VAR: uent->login}) se ha justo registrate, e post que le confirmation del contos es activate, su conto non devenira active usque illo es confirmate per te o un altere administrator del foro. Pro revider le conto, per favor visita: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nIsto es un processo automatic. Non responde a iste message.\nSi tu vole disactivar le futur notificationes de registration de nove usatores, tu pote facer lo via le Pannello de Controlo Administrative. Cambia le option "Notification de nove contos".
 post_mod_msg_notify_title:Nove message in foro "{VAR: frm->name}" attende approbation
+# Fuzzy
 post_mod_msg_notify_msg:Un nove message titulate "{VAR: msg_post->subject}" esseva justo inviate a un foro que tu modera. Pro revider iste message, visita: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nIsto es un processo automatic. Non responde a iste message.
 thread_printable_pdf:Generar PDF imprimibile
 thread_syndicate:Syndicar iste foro (XML)
@@ -982,6 +988,7 @@ mnav_month:Mense(s)
 mnav_title:Navigator de messages
 mnav_update:Percurre messages usante le <a href="{TEMPLATE: mnav_update_lnk}">Navigator de messages</a>
 pm_notify_subject:[{GVAR: FORUM_TITLE}] Notification de nove message private
+# Fuzzy
 pm_notify_body_email:Tu ha un nove message private con le titulo "{VAR: subject}", de "{VAR: from}", in le foro "{GVAR: FORUM_TITLE}".\nPro vider le message, clicca hic: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nPro non plus reciper notificationes, disactiva "Notification de messages private" in tu profilo.
 register_pm_notification:Notification de messages private:
 register_pm_notification_desc:Si activate, tu recipera notification quandocunque un message private es inviate a te.
@@ -1110,7 +1117,7 @@ move_msg_th_expl:Specifica le ID del topico de destination (pote esser in altere
 captcha_img_alt:Verification per Captcha: tu debe recognoscer le texto in iste imagine.
 captcha_img_help:Il non ha zero o un in iste imagine.
 powered-by:Actionate per: FUDforum {GVAR: FORUM_VERSION}.
-copyright:Copyright &copy;2001-2013 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Copyright &copy;2001-2017 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Codice:
 code_select_all:Seliger toto
 code_show_hide:Revelar/celar

@@ -1,5 +1,6 @@
 # Messages for Afrikaans (Afrikaans)
 # Exported from translatewiki.net
+# Author: Macofe
 # Author: Naudefj
 
 action:Aksie
@@ -202,7 +203,7 @@ vote_button:Stem
 vote_for_thread:Stem
 was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> is deur die moderator na <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> geskuif.
 welcome_message:Welkom <b>{VAR: usr->alias}</b>, jou laaste besoek was op {TEMPLATE: welcome_message_date}
-what_ppl_doing:Loer wat ander mense doen
+what_ppl_doing:Loer wat ander doen
 reported_del_report:Verwyder verslag
 reported_reason:Rede:
 reported_on:op:
@@ -370,7 +371,7 @@ my_buddies:My vriende
 add_buddy:Voeg vriend by
 add:Voeg by
 buddy_search:Sleutel die naam van die gebruiker wat u wil byvoeg in.
-member_search:of gebruik die <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Vind Lid</a> funksie om vir 'n gebruiker te soek.
+member_search:of gebruik die <a href="javascript://" onclick="javascript: window_open('{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Vind Lid</a> funksie om vir 'n gebruiker te soek.
 buddy_remove:Verwyder
 post_normal:Normaal
 post_sticky:Plakker
@@ -664,9 +665,9 @@ register_err_notyouremail:Iemand is reeds met die e-posadres geregistreer, en di
 register_err_avatartobig:Die lêer wat u wil oplaai is te groot, groter as die {GVAR: CUSTOM_AVATAR_MAX_SIZE} grepe limiet
 register_err_avatarnotallowed:Die avatar wat u probeer oplaai is nie aanvaar nie. Kontroleer die toelaatbare lêertipes.
 register_conf_subject:Registrasiebevestiging
-register_conf_msg:Dankie vir u registrasie,\nVolg die onderstaande skakel om u lidmaatskap te aktiveer:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nSodra u gebruiker geaktiveer is sal u op die forum aangeteken word\nen na die forum se tuisblad deurgestuur word.
+register_conf_msg:Dankie vir u registrasie,\nVolg die onderstaande skakel om u lidmaatskap te aktiveer:\n\n{FULL_ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nSodra u gebruiker geaktiveer is sal u op die forum aangeteken word\nen na die forum se tuisblad deurgestuur word.
 register_welcome_subject:Forum registrasie bevestiging
-register_welcome_msg:Dankie vir u registrasie,\n\nhier is u gebruikernaam vir die forum:\n\nForum URL: {TEMPLATE: index_update_lnk}\nGebruiker: {VAR: uent->login}\nwagwoord: {VAR: _POST['reg_plaintext_passwd']}\n\nPas op, wagwoorde is gevoelig vir hoofletters!\nOm u voorkeure &amp; profiel aan te pas, gaan na hierdie bladsy:\n{FULL_ROOT}{ROOT}?t=register
+register_welcome_msg:Dankie vir u registrasie,\n\nhier is u gebruikernaam vir die forum:\n\nForum URL: {TEMPLATE: index_update_lnk}\nGebruiker: {VAR: uent->login}\nwagwoord: {VAR: _POST['reg_plaintext_passwd']}\n\nPas op, wagwoorde is gevoelig vir hoofletters!\nOm u voorkeure &amp; profiel aan te pas, gaan na hierdie bladsy:\n{FULL_ROOT}?t=register
 register_err_cantreg_title:FOUT: nie in staat om te registreer nie
 regsiter_err_cantreg_msg:Dit was nie moontlik om u gebruikersrekening te skep nie. Kontak asb die administrateur via <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:Bekyk eie profiel
@@ -678,7 +679,7 @@ reset_err_invalidkey_msg:ongeldige wagwoord herstel sleutel
 reset_err_rstconf_title:Inligting
 reset_err_rstconf_msg:U sal binne enkele minuute verdere instruksies per epos ontvang
 reset_newpass_title:Herstel wagwoord
-reset_newpass_msg:Hallo,\n\nSoos versoek, hier is u gebruikersinligting:\n\nGebruikersnaam: {VAR: ui[1]}\nWagwoord: {VAR: passwd}\n\nLet op: U wagwoord is herstel na die bovermelde waarde. Indien u u wagwoord wil verander, kan u dit in u profiel doen by:\n{FULL_ROOT}{ROOT}?t=register
+reset_newpass_msg:Hallo,\n\nSoos versoek, hier is u gebruikersinligting:\n\nGebruikersnaam: {VAR: ui[1]}\nWagwoord: {VAR: passwd}\n\nLet op: U wagwoord is herstel na die bovermelde waarde. Indien u u wagwoord wil verander, kan u dit in u profiel doen by:\n{FULL_ROOT}?t=register
 reset_login_notify:U wagwoord is per e-pos aan u gestuur. U sal dit binne enkele minute ontvang.
 search_update:Soek deur pos
 selmsg_update:Blaai deur <a href="{TEMPLATE: selmsg_update_lnk}">vandag se pos</a>
@@ -713,7 +714,7 @@ error_title:Fout-vorm
 index_title:Welkom by die forum
 search_title:Soek na {VAR-HTML: srch}
 remail_emailsent:Die e-pos is uitgestuur
-remail_email:Hallo,\n\nDaar is 'n interessante onderwerp oor "{VAR: data->subject}" op {GVAR: FORUM_TITLE} forum wat u miskien sal wil lees. U kan die onderwerp sien by:\n {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nU vriend,\n\n{VAR: usr->alias}
+remail_email:Hallo,\n\nDaar is 'n interessante onderwerp oor "{VAR: data->subject}" op {GVAR: FORUM_TITLE} forum wat u miskien sal wil lees. U kan die onderwerp sien by:\n {FULL_ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nU vriend,\n\n{VAR: usr->alias}
 poll_add_option:Voeg opsie by:
 post_opt_html_on:<b>HTML</b> is <b>AAN</b>
 post_opt_fud_on:<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>BBkode</b> is <b>AAN</b></a>
@@ -947,7 +948,7 @@ thread_mark_all_read:merk alle boodskappe as gelees
 thread_mark_all_read_desc:Al die ongeleesde boodskappe in die forum word as gelees gemerk
 private_no_messages:Die vouer is tans leeg
 register_email_change_subject:Bevestiging van veranderde e-posadres
-register_email_change_msg:Bevestig asseblief u nuwe e-psoadres "{VAR: uent->email}" ter vervanging van u ou e-posadres "{VAR: old_email}" deur die volgende verwysing te volg:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nAs u u nuwe e-posadres bevestig, word u gebruiker weer geaktiveer.
+register_email_change_msg:Bevestig asseblief u nuwe e-psoadres "{VAR: uent->email}" ter vervanging van u ou e-posadres "{VAR: old_email}" deur die volgende verwysing te volg:\n{FULL_ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nAs u u nuwe e-posadres bevestig, word u gebruiker weer geaktiveer.
 iemail_thread_unsub:Afmeld van hiedie reeks
 iemail_forum_unsub:Afmeld van die forum
 primary_group_prefix:Primêre groep vir forum:
@@ -955,7 +956,7 @@ group_resources:Die groep beheer die regte van die volgende forums
 register_admin_newuser_title:Nuwe gebruiker het geregistreer en sy rekening wag vir goedkeuring
 register_admin_newuser_msg:Die nuwe gebruiker {VAR: uent->login} het sopas geregistreer. Omdat gebruikersbevestiging geaktiveer is, moet die rekening deur 'n administrateur goedgekeur word. Vir bevestiging, gaan asseblief na: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nDie is 'n outomaties gestuurde boodskap. Moet asseblief nie antwoord nie. As u toekomstige E-posboodskappe vir nuwe gebruikers wil deaktiveer, kan u "New Account Notification" in die kontrolepaneel afskakel.
 post_mod_msg_notify_title:Nuwe boodskap in forum "{VAR: frm->name}" wag vir goedkeuring
-post_mod_msg_notify_msg:'n Nuwe boodskap met titel "{VAR: msg_post->subject}" is sopas gepos in 'n forum wat u modereer. Om die boodskap te hersien, gaan na: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nDie is 'n outomatiese boodskap. Moet asseblief nie antwoord nie.
+post_mod_msg_notify_msg:'n Nuwe boodskap met titel "{VAR: msg_post->subject}" is sopas gepos in 'n forum wat u modereer. Om die boodskap te hersien, gaan na: {FULL_ROOT}?t=modque#{VAR: msg_post->id}\n\nDie is 'n outomatiese boodskap. Moet asseblief nie antwoord nie.
 thread_printable_pdf:Genereer PDF-dokument
 thread_syndicate:XML-voer
 reg_conf_title:Bevestiging van registrasie
@@ -981,7 +982,7 @@ mnav_month:Maand(e)
 mnav_title:Navigasie
 mnav_update:Blaai deur boodskappe met <a href="{TEMPLATE: mnav_update_lnk}">Boodskapnavigator</a>
 pm_notify_subject:[{GVAR: FORUM_TITLE}]: Kennisgewing van nuwe privaat boodskap
-pm_notify_body_email:U het 'n nuwe privaatboodskap met onderwerp "{VAR: subject}" van "{VAR: from}" in forum "{GVAR: FORUM_TITLE}".\nVolg die verwysing om die boodskap te lees: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nIndien u nie meer kennisgewings soos die wil ontvang nie, kan u "Kennisgewings vir privaatboodskappe" in u profiel afskakel.
+pm_notify_body_email:U het 'n nuwe privaatboodskap met onderwerp "{VAR: subject}" van "{VAR: from}" in forum "{GVAR: FORUM_TITLE}".\nVolg die verwysing om die boodskap te lees: {FULL_ROOT}?t=pmsg_view&id={VAR: pid}\n\nIndien u nie meer kennisgewings soos die wil ontvang nie, kan u "Kennisgewings vir privaatboodskappe" in u profiel afskakel.
 register_pm_notification:Kennisgewings vir privaatboodskappe:
 register_pm_notification_desc:Indien aangeskakel sal u kennisgewings van privaat boodskappe ontvang via u voorkeer kennisgewingsmetode.
 findu_admin_opts_header:Administrasie:
@@ -1109,7 +1110,7 @@ move_msg_th_expl:Spesifiseer die ID van die destinasie onderwerp (kan in 'n ande
 captcha_img_alt:Captcha-verifikasie: u moet die teks in die beeld herken.
 captcha_img_help:Daar is nie 'n nul of 'n een in die beeld nie.
 powered-by:Aangedryf deur: FUDforum {GVAR: FORUM_VERSION}.
-copyright:Kopiereg &copy;2001-2013 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Kopiereg &copy;2001-2017 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:KODE:
 code_select_all:Kies alles
 code_show_hide:Wys/ versteek

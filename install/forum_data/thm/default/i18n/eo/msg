@@ -2,6 +2,7 @@
 # Exported from translatewiki.net
 # Author: Lucas
 # Author: LyzTyphone
+# Author: Macofe
 # Author: Mihxil
 # Author: Objectivesea
 # Author: Robin van der Vliet
@@ -207,6 +208,7 @@ vote_button:Voĉdoni
 vote_for_thread:Voĉdoni
 was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> estis movita al <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> de la kontrolanto
 welcome_message:Bonvenon, <b>{VAR: usr->alias}</b>. Via lasta vizito estis je {TEMPLATE: welcome_message_date}
+# Fuzzy
 what_ppl_doing:Montri kion uzantoj estas farantaj
 reported_del_report:Forigi Raporton
 reported_reason:Kialo:
@@ -372,6 +374,7 @@ my_buddies:Miaj Amikoj
 add_buddy:Aldoni Amikon
 add:Aldoni
 buddy_search:Enigi la salutnomo de la uzanto kiun vi volas aldoni.
+# Fuzzy
 member_search:Aŭ uzu <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Trovi Uzanto</a> por trovi personon.
 buddy_remove:forigi
 post_normal:Norma
@@ -669,8 +672,9 @@ register_err_notyouremail:Iu alia jam estas registrita kun ĉi tiu retadreso.
 register_err_avatartobig:La dosiero kiun vi provas alŝuti estas tro granda, pli ol {GVAR: CUSTOM_AVATAR_MAX_SIZE} bitikoj
 register_err_avatarnotallowed:La avatro kiun vi provas alŝuti ne estas permesita. Kontrolu la permesitajn dosiertipojn.
 register_conf_subject:Konfirmado de Registrado
-register_conf_msg:Dankon por via registrado.\nAktivigi vian konton bonvolu iru al la jenan URL-on:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nPost via konoto estas aktiva vi estos ensalutita en la forumo kaj alidirektita al la ĉefa paĝo.
+register_conf_msg:Dankon por via registrado.\nAktivigi vian konton bonvolu iru al la jenan URL-on:\n\n{FULL_ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nPost via konoto estas aktiva vi estos ensalutita en la forumo kaj alidirektita al la ĉefa paĝo.
 register_welcome_subject:Konfirmado de Foruma Registrado
+# Fuzzy
 register_welcome_msg:Dankon por via registrado.\n\nJen vian ensalutaj detaloj por la forumo:\n\n\nForuma URL-o: {TEMPLATE: index_update_lnk}\nSalutnomo: {VAR: uent->login}\nPasvorto: {VAR: _POST['reg_plaintext_passwd']}\n\nBonvolu sciigi ke pasvortoj estas usklecodistinga!\nModifi vian agordojn aŭ profilon, iru al ĉi tiu paĝo:\n{FULL_ROOT}{ROOT}?t=register
 register_err_cantreg_title:ERARO: ne eblas registri
 regsiter_err_cantreg_msg:Ne eblas krei uzanto-konto; bonvolu kontakti la administranto ĉe <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
@@ -683,7 +687,7 @@ reset_err_invalidkey_msg:Nevalida pasvorto restariga ŝlosilo. Eblas ke via retp
 reset_err_rstconf_title:Informo
 reset_err_rstconf_msg:Vi ricevos instruojn en via retpoŝtkesto dum la sekvaj kelkaj minutoj.
 reset_newpass_title:Restarigi Pasvorton
-reset_newpass_msg:Saluton,\n\nTiel petita, jen via salutinformo: \n\nSalutnomo: {VAR: ui[1]}\nPasvorto: {VAR: passwd}\n\nBonvolu noti ke via pasvorto estis restarigita al la valoro supre. Se vi volas\nŝanĝi vian pasvorton, vi povas fari tiel per la uzula kontrolilo ĉe: \n{FULL_ROOT}{ROOT}?t=register
+reset_newpass_msg:Saluton,\n\nTiel petita, jen via salutinformo: \n\nSalutnomo: {VAR: ui[1]}\nPasvorto: {VAR: passwd}\n\nBonvolu noti ke via pasvorto estis restarigita al la valoro supre. Se vi volas\nŝanĝi vian pasvorton, vi povas fari tiel per la uzula kontrolilo ĉe: \n{FULL_ROOT}?t=register
 # Fuzzy
 reset_login_notify:Via pasvorto estis retpoŝtita al vi. Vi ricevos ĝin post kelkaj minutoj.<br />
 search_update:Serĉante mesaĝojn
@@ -719,6 +723,7 @@ error_title:Erara Formularo
 index_title:Bonvenon al la forumo
 search_title:Serĉi Titolon {VAR-HTML: srch}
 remail_emailsent:Retpoŝto estis sendita
+# Fuzzy
 remail_email:Saluton,\n\n\nEstas interesa titolo pri "{VAR: data->subject}" en forumo {GVAR: FORUM_TITLE} kiu vi eble volas legi. Vi povas vidi la fadenon ĉe:\n\n  {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nVia amiko,\n\n{VAR: usr->alias}
 poll_add_option:Aldoni Opcion:
 post_opt_html_on:<b>HTML</b> estas <b>ŝalta</b>
@@ -953,7 +958,7 @@ thread_mark_all_read:marki ĉiujn nelegitajn forumajn mesaĝojn kiel legitajn
 thread_mark_all_read_desc:Ĉiuj nelegitaj mesaĝoj en ĉi tiu forumo estos markitaj kiel legitaj
 private_no_messages:Estas neniuj mesaĝoj en ĉi tiu mesaĝujo.
 register_email_change_subject:Konfirmado de retpoŝta ŝanĝo
-register_email_change_msg:Bonvolu konfirmi vian novan retadreson "{VAR: uent->email}" kiu anstataŭigas vian malnovan retadreson "{VAR: old_email}", irante la jenan URL-on:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nPost vi konfirmas vian novan retadreson, via foruma konto estos reaktivigita.
+register_email_change_msg:Bonvolu konfirmi vian novan retadreson "{VAR: uent->email}" kiu anstataŭigas vian malnovan retadreson "{VAR: old_email}", irante la jenan URL-on:\n{FULL_ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nPost vi konfirmas vian novan retadreson, via foruma konto estos reaktivigita.
 iemail_thread_unsub:Malaboni ĉi tiun fadenon
 iemail_forum_unsub:Malaboni ĉi tiun forumon
 primary_group_prefix:Ĉefa grupo por forumo:

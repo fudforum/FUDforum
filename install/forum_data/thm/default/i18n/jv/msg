@@ -1,6 +1,7 @@
 # Messages for Javanese (Basa Jawa)
 # Exported from translatewiki.net
 # Author: Kangit23
+# Author: Macofe
 # Author: NoiX180
 
 action:Laku
@@ -202,6 +203,7 @@ vote_button:Swara
 vote_for_thread:Swara
 was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> wis pindhah menyang <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> dening moderator.
 welcome_message:Sugeng Rawuh <b>{VAR: usr->alias}</b>, terakhir neng ana ing {TEMPLATE: welcome_message_date}
+# Fuzzy
 what_ppl_doing:Tampilake apa wong-wong mengkono
 reported_del_report:Busak Report
 reported_reason:Alesan:
@@ -367,6 +369,7 @@ my_buddies:Kula konco
 add_buddy:Tambah Buddy
 add:Tambah
 buddy_search:Ketik mlebu log ing pangguna sing sampeyan pengin nambah.
+# Fuzzy
 member_search:Utawa nggunakake <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Golek Anggota Jeneng</a> fitur kanggo nggoleki wong.
 buddy_remove:batal blokir
 post_normal:Normal
@@ -663,8 +666,9 @@ register_err_notyouremail:Wong liya wis kadhaftar karo alamat e-mail.
 register_err_avatartobig:File nyoba upload amba banget, luwih saka {GVAR: CUSTOM_AVATAR_MAX_SIZE} bita.
 register_err_avatarnotallowed:Ing avatar nyoba upload ora diijini. Priksa diijini jinis berkas.
 register_conf_subject:Situs Konfirmasi
-register_conf_msg:Matur nuwun kanggo ndhaftar,\nKanggo ngaktifake akun please menyang URL ngisor:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nYen akun aktif, sampeyan bakal mlebu-menyang forum lan\nredirected kanggo kaca utama.
+register_conf_msg:Matur nuwun kanggo ndhaftar,\nKanggo ngaktifake akun please menyang URL ngisor:\n\n{FULL_ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nYen akun aktif, sampeyan bakal mlebu-menyang forum lan\nredirected kanggo kaca utama.
 register_welcome_subject:Forum Situs Konfirmasi
+# Fuzzy
 register_welcome_msg:Matur nuwun kanggo ndhaftar,\n\nKene sampeyan mlebu log kanggo rincian forum:\n\nForum URL: {TEMPLATE: index_update_lnk}\nMlebu: {VAR: uent->login}\nPangguna: {VAR: _POST['reg_plaintext_passwd']}\n\nWigati dicathet sandhi sing cilik sensitif!\nKanggo ngganti setelan utawa profil, menyang kaca iki:\n{FULL_ROOT}{ROOT}?t=register
 register_err_cantreg_title:Kesalahan: Tukang ndhaftar
 regsiter_err_cantreg_msg:Iso kanggo nggawe akun pangguna, hubungi administrator ing <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
@@ -677,7 +681,7 @@ reset_err_invalidkey_msg:Bener Pendhaftaran Reset tombol. Sampeyan bisa Alamat e
 reset_err_rstconf_title:Informasi
 reset_err_rstconf_msg:Sampeyan kudu nampa pandhuan ing e-mail ing sabanjure sawetara menit.
 reset_newpass_title:Reset Pangguna
-reset_newpass_msg:Hello,\n\nNalika dijaluk, sampeyan mlebu log informasi katon ing ngisor iki:\n\nMlebu: {VAR: ui[1]}\nPangguna: {VAR: passwd}\n\nWigati dicathet sandi wis Reset menyang Nilai ndhuwur. Yen sampeyan pengin\nkanggo ngganti tembung sandi sampeyan bisa ditindakake liwat pangguna info panel kontrol ing:\n{FULL_ROOT}{ROOT}?t=register
+reset_newpass_msg:Hello,\n\nNalika dijaluk, sampeyan mlebu log informasi katon ing ngisor iki:\n\nMlebu: {VAR: ui[1]}\nPangguna: {VAR: passwd}\n\nWigati dicathet sandi wis Reset menyang Nilai ndhuwur. Yen sampeyan pengin\nkanggo ngganti tembung sandi sampeyan bisa ditindakake liwat pangguna info panel kontrol ing:\n{FULL_ROOT}?t=register
 # Fuzzy
 reset_login_notify:Panjenengan Pendhaftaran wis e-sering dipun kirim kanggo sampeyan. Sampeyan kudu nampa iku ing sabanjure sawetara menit.<br/>
 search_update:Kategori pesen
@@ -713,6 +717,7 @@ error_title:kesalahan Formulir
 index_title:Komunitas forum
 search_title:nelusuri {VAR-HTML: srch}
 remail_emailsent:E-mail iki Pesen dikirim
+# Fuzzy
 remail_email:Hello,\n\nAna sing topik menarik babagan "{VAR: data->subject}" ing {GVAR: FORUM_TITLE} forum sing mungkin kanggo maca. Sampeyan bisa ndeleng ing topic:\n {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nPanjenengan kanca,\n\n{VAR: usr->alias}
 poll_add_option:Tambah pilihan:
 post_opt_html_on:<b>HTML</b> punika <b>ing</b>
@@ -947,7 +952,7 @@ thread_mark_all_read:Tandhani kabeh unread pesen Category maca
 thread_mark_all_read_desc:Kabeh pesen unread ing forum iki bakal ditandhani maca
 private_no_messages:Ora ana pesen ing folder.
 register_email_change_subject:E-mail konfirmasi pangowahan
-register_email_change_msg:Mangga konfirmasi anyar akun email "{VAR: uent->email}" nggantosaken sing lawas e-mail akun "{VAR: old_email}", dening arep URL ngisor:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nSawise konfirmasi anyar alamat e-mail, sampeyan Category akun bakal maneh aktif.
+register_email_change_msg:Mangga konfirmasi anyar akun email "{VAR: uent->email}" nggantosaken sing lawas e-mail akun "{VAR: old_email}", dening arep URL ngisor:\n{FULL_ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nSawise konfirmasi anyar alamat e-mail, sampeyan Category akun bakal maneh aktif.
 iemail_thread_unsub:Batal saka topik
 iemail_forum_unsub:Batal saka forum
 primary_group_prefix:Utami grup kanggo Category:
@@ -955,6 +960,7 @@ group_resources:Grup iki Kontrol ijin forum iki
 register_admin_newuser_title:A pangguna anyar wis pangguna lan akun ditundha konfirmasi
 register_admin_newuser_msg:A pangguna anyar ({VAR: uent->login}) wis mung kadhaftar, lan wiwit akun konfirmasi wis aktif, sing akun bakal ora dadi aktif nganti wis dikonfirmasi sampeyan utawa administrator forum. Kanggo maneh akun please menyang: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nIki minangka proses otomatis. Aja Mbales pesen iki.\nYen sampeyan arep kanggo mateni mangsa kabar e-mail anyar dhaptaran, sampeyan bisa ditindakake liwat admin Panel Kontrol. Ganti "New akun Notifikasi" setelan.
 post_mod_msg_notify_title:Pesen anyar ing forum "{VAR: frm->name}" ditundha disetujoni
+# Fuzzy
 post_mod_msg_notify_msg:Pesen anyar judul "{VAR: msg_post->subject}" iki mung dikirim ing forum sing Moderate. Kanggo pesen maneh iki menyang: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nIki minangka proses otomatis. Aja Mbales pesen.
 thread_printable_pdf:Generate PDF Cetak
 thread_syndicate:Klompok iki forum (XML)
@@ -981,6 +987,7 @@ mnav_month:Wulan(s)
 mnav_title:Pesen Navigator
 mnav_update:Njelajah Pesen nggunakake <a href="{TEMPLATE: mnav_update_lnk}">Pesen Navigator</a>
 pm_notify_subject:[{GVAR: FORUM_TITLE}] New Private Pesen Notifikasi
+# Fuzzy
 pm_notify_body_email:Sampeyan kudu anyar pribadi pesen judul "{VAR: subject}", saka "{VAR: from}", ing forum "{GVAR: FORUM_TITLE}".\nKanggo ndeleng pesen, klik neng kene: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nKanggo mungkasi kabar mbokmenawa, mateni "Private Notifikasi Pesen" ing profil Panjenengan.
 register_pm_notification:Pesen Pribadi Notifikasi:
 register_pm_notification_desc:Yèn diurubaké, sampéyan bakal diwelingi samangsa nawala pribadi dikirim menyang sampéyan.

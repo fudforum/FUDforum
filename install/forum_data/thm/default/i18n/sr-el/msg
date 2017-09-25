@@ -1,6 +1,7 @@
 # Messages for Serbian (Latin script) (srpski (latinica)‎)
 # Exported from translatewiki.net
 # Author: KWiki
+# Author: Macofe
 # Author: Naudefj
 # Author: Obsuser
 # Author: Rancher
@@ -206,6 +207,7 @@ vote_button:Glasaj
 vote_for_thread:Glasaj
 was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> je premešten u <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> od strane urednika.
 welcome_message:Dobro došli, <b>{VAR: usr->alias}</b>. Vaša poslednja poseta je bila u {TEMPLATE: welcome_message_date}
+# Fuzzy
 what_ppl_doing:prikaži šta korisnici rade
 reported_del_report:Obriši prijavu
 reported_reason:Razlog:
@@ -372,6 +374,7 @@ my_buddies:Prijatelji
 add_buddy:Dodavanje prijatelja
 add:Dodaj
 buddy_search:Unesite korisničko ime korisnika koga želite da dodate.
+# Fuzzy
 member_search:Možete koristiti i <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">pretragu članova</a> da pronađete korisnika.
 buddy_remove:ukloni
 post_normal:Obična
@@ -669,8 +672,9 @@ register_err_notyouremail:Neko je već upisan preko ove e-adrese.
 register_err_avatartobig:Datoteka koju želite da otpremite je prevelika, veća od {GVAR: CUSTOM_AVATAR_MAX_SIZE} bajtova.
 register_err_avatarnotallowed:Otpremanje željene korisničke sličice nije dozvoljeno. Pogledajte spisak podržanih datoteka.
 register_conf_subject:Potvrda upisa
-register_conf_msg:Hvala vam što ste otvorili nalog.\nPosetite vezu ispod da biste ga potvrdili:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nKada ga omogućite, bićete prijavljeni na\nforum i preusmereni na naslovnu stranu.
+register_conf_msg:Hvala vam što ste otvorili nalog.\nPosetite vezu ispod da biste ga potvrdili:\n\n{FULL_ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nKada ga omogućite, bićete prijavljeni na\nforum i preusmereni na naslovnu stranu.
 register_welcome_subject:Potvrda upisa
+# Fuzzy
 register_welcome_msg:Hvala vam što ste otvorili nalog.\n\nIspod se nalaze podaci za prijavljivanje na forum:\n\nAdresa: {TEMPLATE: index_update_lnk}\nKorisničko ime: {VAR: uent->login}\nLozinka: {VAR: _POST['reg_plaintext_passwd']}\n\nUpamtite da su lozinke osetljive na mala i velika slova!\nDa biste promenili svoje postavke ili profil, posetite:\n{FULL_ROOT}{ROOT}?t=register
 register_err_cantreg_title:Greška: ne mogu da otvorim nalog
 regsiter_err_cantreg_msg:Nalog nije otvoren. Kontaktirajte administratora <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
@@ -683,7 +687,7 @@ reset_err_invalidkey_msg:Kôd za poništavanje lozinke je neispravan. Verovatno 
 reset_err_rstconf_title:Podaci
 reset_err_rstconf_msg:Trebalo bi da primite uputstva putem e-pošte u sledećih nekoliko minuta.
 reset_newpass_title:Poništavanje lozinke
-reset_newpass_msg:Zdravo,\n\nKao što ste i tražili, vaši podaci za prijavljivanje se nalaze ispod:\n\nKorisničko ime: {VAR: ui[1]}\nLozinka: {VAR: passwd}\n\nUpamtite da vam je lozinka poništena na vrednost iznad. Ako želite da je\npromenite, posetite korisnički upravljački panel preko sledeće veze:\n{FULL_ROOT}{ROOT}?t=register
+reset_newpass_msg:Zdravo,\n\nKao što ste i tražili, vaši podaci za prijavljivanje se nalaze ispod:\n\nKorisničko ime: {VAR: ui[1]}\nLozinka: {VAR: passwd}\n\nUpamtite da vam je lozinka poništena na vrednost iznad. Ako želite da je\npromenite, posetite korisnički upravljački panel preko sledeće veze:\n{FULL_ROOT}?t=register
 # Fuzzy
 reset_login_notify:Poslata vam je lozinka. Trebalo bi da je primite u roku od nekoliko minuta.<br />
 search_update:Traženje poruka
@@ -719,6 +723,7 @@ error_title:Greška
 index_title:Dobro došli na forum
 search_title:Traženje „{VAR-HTML: srch}“
 remail_emailsent:E-poruka je poslata
+# Fuzzy
 remail_email:Zdravo,\n\nOtvorena je zanimljiva tema „{VAR: data->subject}“ u {GVAR: FORUM_TITLE} forumu koju biste možda želeli da vidite. Temu možete videti na:\n {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nVaš prijatelj,\n\n{VAR: usr->alias}
 poll_add_option:Dodaj mogućnost:
 post_opt_html_on:<b>HTML</b> je <b>uključen</b>
@@ -953,7 +958,7 @@ thread_mark_all_read:označi sve nepročitane poruke kao pročitane
 thread_mark_all_read_desc:Sve nepročitane poruke ovog foruma biće označene kao pročitane
 private_no_messages:Nema poruka u ovoj fascikli.
 register_email_change_subject:Potvrda o promeni e-pošte
-register_email_change_msg:Potvrdite novi nalog e-pošte „{VAR: uent->email}“ koji menja stari nalog „{VAR: old_email}“ prateći vezu ispod:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nKada potvrdite novu e-adresu, vaš nalog na forumu biće ponovo omogućen.
+register_email_change_msg:Potvrdite novi nalog e-pošte „{VAR: uent->email}“ koji menja stari nalog „{VAR: old_email}“ prateći vezu ispod:\n{FULL_ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nKada potvrdite novu e-adresu, vaš nalog na forumu biće ponovo omogućen.
 iemail_thread_unsub:Prekini nadgledanje ove teme
 iemail_forum_unsub:Prekini nadgledanje ovog foruma
 primary_group_prefix:Glavna grupa foruma:
@@ -961,6 +966,7 @@ group_resources:Ova grupa upravlja dozvolama sledećih foruma
 register_admin_newuser_title:Novi korisnik je otvorio nalog koji čeka na potvrdu
 register_admin_newuser_msg:Novi korisnik ({VAR: uent->login}) je upravo napravio nalog. S obzirom na to da je potvrda naloga omogućena, nalog neće biti aktivan dok se ne proveri od strane administratora. Za pregled naloga posetite: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nOvo je automatizovana poruka Ne odgovarajte na nju.\nAko želite da isključite obaveštenja u vezi s novim članovima, promenite postavku „Obaveštenje o novim nalozima“ u administrativnom upravljačkom panelu.
 post_mod_msg_notify_title:Nova poruka u forumu „{VAR: frm->name}“ čeka na odobrenje
+# Fuzzy
 post_mod_msg_notify_msg:Nova poruka pod nazivom „{VAR: msg_post->subject}“ je upravo postavljena na forum koji uređujete. Za pregled ove poruke posetite: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nOvo je automatizovana poruka. Ne odgovarajte na nju.
 thread_printable_pdf:Napravi PDF dokument
 thread_syndicate:prikupi podatke ovog foruma (XML)
@@ -987,6 +993,7 @@ mnav_month:meseci
 mnav_title:Traženje poruka
 mnav_update:Pregledanje poruka koristeći <a href="{TEMPLATE: mnav_update_lnk}">Traženje poruka</a>
 pm_notify_subject:[{GVAR: FORUM_TITLE}] Obaveštenje o novim privatnim porukama
+# Fuzzy
 pm_notify_body_email:Primili ste novu privatnu poruku pod nazivom „{VAR: subject}“ od člana „{VAR: from}“ u forumu „{GVAR: FORUM_TITLE}“.\nZa pregled, kliknite ovde: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nDa biste prekinuli slanje obaveštenja, onemogućite „Obaveštenje o privatnim porukama“ u vašem profilu.
 register_pm_notification:Obaveštenje o privatnoj poruci:
 register_pm_notification_desc:Ako je omogućeno, bićete obavešteni svaki put kada primite privatnu poruku.

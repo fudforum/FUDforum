@@ -215,7 +215,7 @@ vote_button:投票
 vote_for_thread:投票
 was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a>已经被版主移至<a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a>。
 welcome_message:欢迎！<b>{VAR: usr->alias}</b>，您上一次访问是在{TEMPLATE: welcome_message_date}
-what_ppl_doing:显示浏览者的操作
+what_ppl_doing:用户活动
 reported_del_report:删除报告
 reported_reason:原因：
 reported_on:于：
@@ -232,13 +232,13 @@ deny_recipt:拒绝接受
 deny_recipt_desc:阅读这条消息后不发送确认信息
 restore_to:存入：
 move_to:移至：
-list_referes_referrals:被提名者
-list_referes_members:被提名的用户
+list_referes_referrals:推荐
+list_referes_members:推荐的成员
 list_referes_member:成员
-referals_none:目前还没有被提名的人。
-referals_refered_by:被推荐的论坛成员是：<b><a href="{TEMPLATE: referals_refered_by_lnk}" class="thLnk">{VAR: p_user[1]}</a></b>
-referals_post_count:发帖数
-referals_registered_on:登录
+referals_none:尚无推荐。
+referals_refered_by:论坛成员由该用户推荐：<b><a href="{TEMPLATE: referals_refered_by_lnk}" class="thLnk">{VAR: p_user[1]}</a></b>
+referals_post_count:消息数
+referals_registered_on:注册于
 referals_action:操作
 pmsg_all:全部
 pmsg_none:无
@@ -383,7 +383,7 @@ my_buddies:我的好友
 add_buddy:添加好友
 add:添加
 buddy_search:输入要添加的用户名。
-member_search:或者使用<a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">用户查找</a>功能来找人。
+member_search:或使用<a href="javascript://" onclick="javascript: window_open('{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">查找用户</a>功能来找到一个人。
 buddy_remove:移除
 post_normal:正常
 post_sticky:置顶
@@ -677,9 +677,9 @@ register_err_notyouremail:已经有人用这个电子邮箱地址注册了，但
 register_err_avatartobig:你正在上传的文件太大，超过了{GVAR: CUSTOM_AVATAR_MAX_SIZE} 字节的最大限制。
 register_err_avatarnotallowed:你正在上传的头像不能上传，请查看允许上传的文件类型。
 register_conf_subject:注册确认
-register_conf_msg:感谢您的注册，\n要激活您的账户，请点击下面的URL：\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\n一旦您的账户被激活，您将可以登录论坛，并重定向至首页。
+register_conf_msg:感谢您的注册，\n要激活您的账户，请前往下面的URL：\n\n{FULL_ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\n一旦您的账户被激活，您将可以登录论坛，并重定向至首页。
 register_welcome_subject:论坛注册确认
-register_welcome_msg:谢谢注册，\n\n这是您注册的详细资料：\n\n论坛地址：{TEMPLATE: index_update_lnk}\n帐号：{VAR: uent->login}\n密码：{VAR: _POST['reg_plaintext_passwd']}\n\n请注意密码区分大小写！\n要更改您的设置或者个人信息，请点击：\n{FULL_ROOT}{ROOT}?t=register
+register_welcome_msg:感谢您的注册，\n\n这是您在论坛的登录详情：\n\n论坛URL：{TEMPLATE: index_update_lnk}\n登录：{VAR: uent->login}\n密码：{VAR: _POST['reg_plaintext_passwd']}\n\n请注意密码区分大小写！\n要修改您的设置或详细资料，请前往该页面：\n{FULL_ROOT}?t=register
 register_err_cantreg_title:错误：无法注册
 regsiter_err_cantreg_msg:无法注册新的账号，请和系统管理员联系<a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:查看个人信息
@@ -691,7 +691,7 @@ reset_err_invalidkey_msg:密码提示错误
 reset_err_rstconf_title:信息
 reset_err_rstconf_msg:一会你将通过邮件收到相关说明。
 reset_newpass_title:重新输入密码
-reset_newpass_msg:您好，\n\n您每次登录的账号都将发送给您。\n以下是您的登录信息：\n\n账号：{VAR: ui[1]}\n密码：{VAR: passwd}\n\n注意：您的密码已经被改为上面的值字符组合，\n如果您想修改密码，请在个人信息中修改：\n{FULL_ROOT}{ROOT}?t=register
+reset_newpass_msg:您好，\n\n基于您的请求，您的登录信息显示如下：\n\n登录：{VAR: ui[1]}\n密码：{VAR: passwd}\n\n请注意您的密码已重置为上述值。如果您希望更改您的密码，您可以通过用户信息控制面板进行：\n{FULL_ROOT}?t=register
 reset_login_notify:您的密码已通过电子邮件发送给您。接下来几分钟您应该确认它。
 search_update:搜索消息
 selmsg_update:浏览<a href="{TEMPLATE: selmsg_update_lnk}">今天的帖子</a>
@@ -726,7 +726,7 @@ error_title:格式错误
 index_title:欢迎到来
 search_title:搜索 {VAR-HTML: srch}
 remail_emailsent:邮件已经发送
-remail_email:你好.\n\n你可能对{GVAR: FORUM_TITLE}论坛的主题{VAR: data->subject}感兴趣。请点击：{FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}。\n\n发件人:\n\n{VAR: usr->alias}
+remail_email:您好，\n\n在{GVAR: FORUM_TITLE}论坛上有一个关于“{VAR: data->subject}”的兴趣话题，您可能希望阅读。您可以在该链接查看话题：\n {FULL_ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\n您的朋友，\n\n{VAR: usr->alias}
 poll_add_option:添加选项：
 post_opt_html_on:<b>HTML</b>代码：<b>开放</b>
 post_opt_fud_on:<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>BBcode</b>：<b>开放</b></a>
@@ -960,7 +960,7 @@ thread_mark_all_read:标记所有帖子为已读
 thread_mark_all_read_desc:论坛中所有的未读标记将被清除
 private_no_messages:此板上没有帖子
 register_email_change_subject:电子邮件更改确认
-register_email_change_msg:请确认你的新邮件地址 "{VAR: uent->email}"（用于替换老地址 "{VAR: old_email}"），点击以下的URL：\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\n你的帐号将在新邮件地址被确认后被重新激活。
+register_email_change_msg:请通过前往下面的URL，确认您的新电子邮件账户“{VAR: uent->email}”来替换您的旧电子邮件账户“{VAR: old_email}”：\n{FULL_ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\n一旦您确认了您的新电子邮件地址，您的论坛账户将重新激活。
 iemail_thread_unsub:取消对此主题的订阅
 iemail_forum_unsub:取消对此板块的订阅
 primary_group_prefix:中心组对于板块：
@@ -968,7 +968,7 @@ group_resources:此组控制下列板块的访问权限
 register_admin_newuser_title:有新用户注册并等候批复
 register_admin_newuser_msg:新用户（{VAR: uent->login}）刚刚注册，并且由于账户确认已启用，他们的账户将不会被激活，直到被您或其他论坛管理员确认。要复核账户，请至{GVAR: WWW_ROOT}adm/admuserapr.php\n\n这是一条自动化处理消息。请不要回复该消息。\n如果您希望关闭新用户注册的电子邮件通知，您可以通过管理员控制面板进行。更改“New Account Notification”设置即可。
 post_mod_msg_notify_title:有新帖在 "{VAR: frm->name}" 板上等待审核
-post_mod_msg_notify_msg:新帖子 "{VAR: msg_post->subject}" 刚刚发布，等候审核。要审核此帖，请到：{FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\n这是一封自动发出的邮件，请勿回复此邮件。
+post_mod_msg_notify_msg:标题为“{VAR: msg_post->subject}”的新消息刚刚发布到您作为版主的论坛。要复核该消息，请到：{FULL_ROOT}?t=modque#{VAR: msg_post->id}\n\n这是自动化处理。不要回复该消息。
 thread_printable_pdf:生成可打印的PDF格式
 thread_syndicate:同步此板块（XML格式）
 reg_conf_title:论坛注册验证邮件
@@ -994,7 +994,7 @@ mnav_month:月
 mnav_title:消息导航
 mnav_update:用<a href="{TEMPLATE: mnav_update_lnk}">帖子浏览器</a>来查看
 pm_notify_subject:[{GVAR: FORUM_TITLE}] 新的私信通知
-pm_notify_body_email:你收到了新的悄悄话，标题是 "{VAR: subject}"，发自 "{VAR: from}" 在 "{GVAR: FORUM_TITLE}" 论坛。\n要查看此悄悄话，请点击：{FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\n如果不想再收到新悄悄话提醒邮件，请在“个人信息”中禁止“新悄悄话提醒”。
+pm_notify_body_email:您收到新的私信，标题是“{VAR: subject}”，来自“{GVAR: FORUM_TITLE}”论坛的“{VAR: from}”。\n要查看消息，请点击该链接：{FULL_ROOT}?t=pmsg_view&id={VAR: pid}\n\n要停止今后通知，请在您的详细资料中禁用“私信通知”功能。
 register_pm_notification:新悄悄话提醒
 register_pm_notification_desc:如果选“是”，则在有新悄悄话收到时，论坛会通过所选的方式通知你。
 findu_admin_opts_header:管理员选项
@@ -1122,7 +1122,7 @@ move_msg_th_expl:移至指定主题的ID（可以跨版块）
 captcha_img_alt:验证码验证：您将需要识别此图片中的文本。
 captcha_img_help:有没有为零或图像中的一个。
 powered-by:Powered by: FUDforum {GVAR: FORUM_VERSION}.
-copyright:版权所有&copy;2001~2013年<a href="http://fudforum.org/">FUD论坛公告板软件</a>
+copyright:版权所有&copy;2001~2017年<a href="http://fudforum.org/">FUDforum公告栏软件</a>
 code_title:代码：
 code_select_all:选择全部
 code_show_hide:显示/隐藏

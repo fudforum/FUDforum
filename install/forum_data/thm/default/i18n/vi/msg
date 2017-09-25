@@ -1,5 +1,6 @@
 # Messages for Vietnamese (Tiếng Việt)
 # Exported from translatewiki.net
+# Author: Macofe
 # Author: Max20091
 # Author: Minh Nguyen
 # Author: Naudefj
@@ -200,6 +201,7 @@ vote_button:Bỏ phiếu
 vote_for_thread:Phiếu
 was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> đã được chuyển đến <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> bởi người điều tiết
 welcome_message:Chào mừng <b>{VAR: usr->alias}</b>, lần ghé thăm cuối của bạn vào {TEMPLATE: welcome_message_date}
+# Fuzzy
 what_ppl_doing:Xem mọi người đang làm gì
 reported_del_report:Xóa thông báo
 reported_reason:Lý do:
@@ -340,6 +342,7 @@ my_buddies:Bạn bè của tôi
 add_buddy:Thêm danh sách bạn bè
 add:Thêm
 buddy_search:Nhập vào tên đăng nhập của thành viên mà bạn muốn thêm
+# Fuzzy
 member_search:hoặc sử dụng chức năng <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Tìm thành viên</a> để kiếm một người.
 buddy_remove:Xóa bỏ
 post_normal:Bình Thường
@@ -565,14 +568,14 @@ register_err_notyouremail:Một ai đó đã đăng ký với địa chỉ email
 register_err_avatartobig:Tập tin bạn gửi lên có dung lượng quá lớn, hơn {GVAR: CUSTOM_AVATAR_MAX_SIZE} bytes
 register_err_avatarnotallowed:Hình đại diện bạn gửi lên không được cho phép. Xin vui lòng kiểm tra loại tập tin được cho phép.
 register_conf_subject:Xác Nhận Đăng Ký
-register_conf_msg:Cám ơn bạn đã đăng ký,\n Để kích hoạt tài khoản của bạn xin vui lòng vào đường dẫn :\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nKhi tài khoản của bạn được kích hoạt bạn đã đăng nhập vào diễn đàn và \n chuyển đến trang chính.
+register_conf_msg:Cám ơn bạn đã đăng ký,\n Để kích hoạt tài khoản của bạn xin vui lòng vào đường dẫn :\n\n{FULL_ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nKhi tài khoản của bạn được kích hoạt bạn đã đăng nhập vào diễn đàn và \n chuyển đến trang chính.
 register_welcome_subject:Xác Nhận Đăng Ký Diễn Đàn
 register_err_cantreg_title:Lỗi :Không thể đăng ký
 regsiter_err_cantreg_msg:Không thể tạo tài khoản người sử dụng, xin vui lòng liên hệ với người quản trị tối cao ở <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:Xem tiểu sử của bạn
 register_register_update:Trang Đăng Ký
 reset_newpass_title:Tạo lại mật khẩu
-reset_newpass_msg:Xin chào,\n\n Như yêu cầu, thông tin đăng nhập của bạn hiện bên dưới:\n\n Tên đăng nhập: {VAR: ui[1]}\n Mật khẩu: {VAR: passwd}\n\n Xin vui lòng chú ý mật khẩu mới của bạn đã được tạo bên trên. Nếu bạn muốn thay đổi mật khẩu bạn có thể làm qua khu vực người sử dụng:\n{FULL_ROOT}{ROOT}?t=register
+reset_newpass_msg:Xin chào,\n\n Như yêu cầu, thông tin đăng nhập của bạn hiện bên dưới:\n\n Tên đăng nhập: {VAR: ui[1]}\n Mật khẩu: {VAR: passwd}\n\n Xin vui lòng chú ý mật khẩu mới của bạn đã được tạo bên trên. Nếu bạn muốn thay đổi mật khẩu bạn có thể làm qua khu vực người sử dụng:\n{FULL_ROOT}?t=register
 search_update:Bài viết tìm kiếm
 selmsg_update:Xem qua <a href="{TEMPLATE: selmsg_update_lnk}">Bài viết hôm nay</a>
 showposts_update:Xem Bài Viết Bởi: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
@@ -745,10 +748,11 @@ thread_mark_all_read:Đánh dấu đọc bài viết chưa đọc trong diễn �
 thread_mark_all_read_desc:Đánh dấu đã đọc tất cả bài viết chưa đọc trong diễn đàn này
 private_no_messages:Không có tin nhắn trong thư mục này.
 register_email_change_subject:Xác nhận thay đổi email
-register_email_change_msg:Xin vui lòng xác nhận tài khoản email mới của bạn "{VAR: uent->email}" để thay tài khoản email cũ của bạn "{VAR: old_email}", bằng cách đến đường dẫn :\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\n Khi tài khoản email của bạn được xác nhận , tài khoản diễn đàn của bạn sẽ được kích hoạt lại.
+register_email_change_msg:Xin vui lòng xác nhận tài khoản email mới của bạn "{VAR: uent->email}" để thay tài khoản email cũ của bạn "{VAR: old_email}", bằng cách đến đường dẫn :\n{FULL_ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\n Khi tài khoản email của bạn được xác nhận , tài khoản diễn đàn của bạn sẽ được kích hoạt lại.
 register_admin_newuser_title:Một thành viên mới đã đăng ký và tài khoản của họ đang chờ được xác nhận
 register_admin_newuser_msg:Một thành viên mới ({VAR: uent->login}) vừa đăng ký,Khi việc xác nhận tài khoản có thể được, tài khoản của họ sẽ không được kích hoạt cho đến khi nó được xác nhận bởi bạn hoặc người quản trị tối cao của diễn đàn. Để xem lại tài khoản xin vui lòng vào: {GVAR: WWW_ROOT}adm/admuserapr.php\n\n Đây là một quá trình tự động. Không trả lời bài viết này.\n Nếu bạn muốn tắt chức năng thông báo bằng email khi có người đăng ký mới, bạn có thể làm được điều đó qua khu vực người quản trị. Thay đổi hiệu chỉnh "New Account Notification".
 post_mod_msg_notify_title:Bài viết mới trong diễn đàn "{VAR: frm->name}" đang chờ được chấp nhận
+# Fuzzy
 post_mod_msg_notify_msg:Bài viết mới có tựa là "{VAR: msg_post->subject}" vừa mới được gửi trong diễn đàn mà bạn quản lý. Để xem lại bài viết này đến : {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\n Đây là một quá trình tự động. Bạn có trả lời bài viết này không.
 thread_printable_pdf:Tạo trang PDF
 mnav_description:Bộ lọc bài viết
@@ -770,6 +774,7 @@ mnav_month:Tháng
 mnav_title:Bộ lọc bài viết
 mnav_update:Xem những bài viết đang sử dụng <a href="{TEMPLATE: mnav_update_lnk}">Bộ lọc bài viết</a>
 pm_notify_subject:[{GVAR: FORUM_TITLE}] Thông báo có tin nhắn mới
+# Fuzzy
 pm_notify_body_email:Bạn có tin nhắn cá nhân tựa là "{VAR: subject}", từ "{VAR: from}", trong diễn đàn "{GVAR: FORUM_TITLE}".\n Để xem tin này , click vào đây: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nĐể dừng chức năng thông báo, vô hiệu hóa "Thông báo tin nhắn cá nhân" trong phần tiểu sử của bạn.
 register_pm_notification:Thông báo tin nhắn cá nhân
 register_pm_notification_desc:Nếu được kích hoạt ,bạn sẽ nhận được một thông báo bất cứ khi nào bạn nhận được một tin nhắn cá nhân.

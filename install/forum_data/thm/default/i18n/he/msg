@@ -156,6 +156,7 @@ view_results:צפיה בתוצאות
 views:צפיות
 vote_button:הצבעה
 vote_for_thread:הצבעה
+# Fuzzy
 what_ppl_doing:הצגת פעילות החברים
 reported_del_report:מחיקת דיווח
 reported_reason:סיבה:
@@ -379,12 +380,14 @@ register_err_shortpasswd:בססמה צריכים להיות לפחות 6 תוו�
 register_err_passwdnomatch:הססמאות שלך אינן תואמות, נא לנסות שוב.
 register_err_enterpasswd:יש להזין את הססמה הנוכחית כדי להשלים את השינויים.
 register_err_adminpasswd:יש להסין את ססמת ה<b>מנהל</b> שלך כדי להשלים את השינויים.
+# Fuzzy
 register_welcome_msg:תודה על הרישום.\n\nהיה פרטי ההרשמה שלך לפורום:\n\nכתובת הפורום: {TEMPLATE: index_update_lnk}\nשם משתמש: {VAR: uent->login}\nססמה: {VAR: _POST['reg_plaintext_passwd']}\n\nנא לשים לב לכך שבססמאות יש חשיבות לאותיות רישיות וקטנות!\nכדי לשנות את ההגדרות שלך או את הפרופיל שלך, נא לעבור לדף הזה:\n{FULL_ROOT}{ROOT}?t=register
 report_err_nosuchmsg_title:שגיאה
 report_err_nosuchmsg_msg:אין הודעה כזו
 reset_err_invalidkey_title:שגיאה
 reset_err_invalidkey_msg:מפתח איפוס ססמה בלתי־תקין. ייתכן שתכנת הדואר האלקטרוני שלך כבר פתחה אוטומטית את הדף הזה וביטלה את מפתח האיפוס. אם זה המקרה, בקרוב יגיע מכתב עם ססמה חדשה. אם מכתב כזה אינו מגיע, יש לנסות לאפס את הססמה.
 reset_newpass_title:איפוס ססמה
+# Fuzzy
 reset_newpass_msg:שלום,\n\nלבקשתף, מידע על ההרשה שלך מופיע להלן:\n\nמשתמש: {VAR: ui[1]}\nססמה: {VAR: passwd}\n\nנא לשים לב לכך שססמתך אופסה לערך לעיל.\nאם ברצונך לשנות את הססמה, אפשר לעשות זאת דרך לוח הבקרה בכתובת הבאה:\n{FULL_ROOT}{ROOT}?t=register
 # Fuzzy
 reset_login_notify:הססמה נשלחה אליך בדואר אלקטרוני. היא תתקבל בדקות הקרובות.<br />

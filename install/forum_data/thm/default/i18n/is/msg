@@ -1,6 +1,8 @@
 # Messages for Icelandic (íslenska)
 # Exported from translatewiki.net
 # Author: Jonbg
+# Author: Macofe
+# Author: Naudefj
 # Author: S.Örvarr.S
 # Author: Snævar
 
@@ -204,6 +206,7 @@ vote_button:Kjósa
 vote_for_thread:Kjósa
 was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> var færður á <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> af stjórnenda.
 welcome_message:Velkomin/n <b>{VAR: usr->alias}</b>, síðasta heimsókn þín var {TEMPLATE: welcome_message_date}
+# Fuzzy
 what_ppl_doing:Sýna hvað fólk er að gera
 reported_del_report:Eyða skýrslu
 reported_reason:Ástæða:
@@ -372,6 +375,7 @@ my_buddies:Félagarnir mínir
 add_buddy:Bæta við félaga
 add:Bæta við
 buddy_search:Skráðu notendanafn notandans sem þú vilt bæta við.
+# Fuzzy
 member_search:...eða notaðu <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Leita að notanda</a> valkostinn til að finna hann.
 buddy_remove:fjarlægja
 post_normal:Venjuleg
@@ -666,8 +670,9 @@ register_err_notyouremail:Einhver annar er þegar skráður með þessu netfangi
 register_err_avatartobig:Skráin sem þú reyndir að hlaða inn er of stór, stærri en {GVAR: CUSTOM_AVATAR_MAX_SIZE} bæti.
 register_err_avatarnotallowed:Skráarsnið notendamyndarinnar sem þú reyndir að hlaða inn er óheimilt. Athugaðu hvaða skráarsnið eru leyfinleg.
 register_conf_subject:Staðfesting skráningu
-register_conf_msg:Takk fyrir að skrá þig,\nTil að virkja aðganginn, skalt þú smella á vefslóðina hér fyrir neðan:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nÞegar aðgangurinn þinn hefur verið virkjaður verður þú skráður inn á spjallborðið og þér verður vísað áfram á forsíðuna.
+register_conf_msg:Takk fyrir að skrá þig,\nTil að virkja aðganginn, skalt þú smella á vefslóðina hér fyrir neðan:\n\n{FULL_ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nÞegar aðgangurinn þinn hefur verið virkjaður verður þú skráður inn á spjallborðið og þér verður vísað áfram á forsíðuna.
 register_welcome_subject:Staðfesting skráningu á spjallborði
+# Fuzzy
 register_welcome_msg:Takk fyrir að skrá þig,\n\nHér eru innskráningarupplýsingarnar þínar fyrir spjallborðið:\n\nVefslóð spjallborðsins: {TEMPLATE: index_update_lnk}\nNotendanafn: {VAR: uent->login}\nLykilorð: {VAR: _POST['reg_plaintext_passwd']}\n\nVinsamlegast athugaðu að stafseta lykilorðsins skiptir máli!\nTil að breyta stillingunum þínum eða notendasíðu, smelltu á þennan tengil:\n{FULL_ROOT}{ROOT}?t=register
 register_err_cantreg_title:VILLA: Mistókst að skrá þig
 regsiter_err_cantreg_msg:Mistókst að búa til notenda aðgang, vinsamlegast hafðu samband við stjórnenda á <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
@@ -680,7 +685,7 @@ reset_err_invalidkey_msg:Vitlaus staðfestingarkóði til að endursetja lykilor
 reset_err_rstconf_title:Upplýsingar
 reset_err_rstconf_msg:Þú færð sendar leiðbeiningar í tölvupósti á næstu mínútum.
 reset_newpass_title:Endurstilla lykilorð
-reset_newpass_msg:Halló,\n\nEins og þú baðst um eru innskráningarupplýsingarnar þínar tilgreindar hér fyrir neðan:\n\nNotendanafn: {VAR: ui[1]}\nLykilorð: {VAR: passwd}\n\nVinsamlegast athugaðu að lykilorðið hefur verið endursett yfir á það sem kemur fram hér fyrir ofan. Ef þú villt breyta lykilorðinu, þá getur þú gert það í stjórnborðinu þínu á: {FULL_ROOT}{ROOT}?t=register
+reset_newpass_msg:Halló,\n\nEins og þú baðst um eru innskráningarupplýsingarnar þínar tilgreindar hér fyrir neðan:\n\nNotendanafn: {VAR: ui[1]}\nLykilorð: {VAR: passwd}\n\nVinsamlegast athugaðu að lykilorðið hefur verið endursett yfir á það sem kemur fram hér fyrir ofan. Ef þú villt breyta lykilorðinu, þá getur þú gert það í stjórnborðinu þínu á: {FULL_ROOT}?t=register
 reset_login_notify:Lykilorðið hefur verið sent til þín. Þú ættir að fá skilaboðin á næstu mínótum.<br />
 search_update:Leita í skilaboðum
 selmsg_update:Skoða<a href="{TEMPLATE: selmsg_update_lnk}">skilaboð dagsins</a>
@@ -715,6 +720,7 @@ error_title:Villu eyðublað
 index_title:Velkominn á spjallborðið
 search_title:Leita að {VAR-HTML: srch}
 remail_emailsent:Tölvupósturinn var sendur
+# Fuzzy
 remail_email:Halló,\n\nÞað er áhugaverður þráður um "{VAR: data->subject}" á {GVAR: FORUM_TITLE} umræðunni sem þú gætir viljað lesa. Þú getur séð spjallþráðinn á: \n{FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nVinur þinn,\n{VAR: usr->alias}
 poll_add_option:Bæta við möguleika:
 post_opt_html_on:<b>HTML</b> er <b>virkt</b>
@@ -949,7 +955,7 @@ thread_mark_all_read:Merkja öll ólesin skilaboð sem lesin
 thread_mark_all_read_desc:Öll ólesin skilaboð á þessu spjallborði verða merkt sem lesin
 private_no_messages:Það eru engin ný skilaboð í þessari möppu.
 register_email_change_subject:Staðfesting breytingu netfangs
-register_email_change_msg:Vinsamlegast staðfestu að nýja netfangið þitt "{VAR: uent->email}" sem kemur í staðinn fyrir það gamla "{VAR: old_email}", með því að smella á eftirfarandi tengil:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nÞegar þú hefur staðfest nýja netfangið, þá verður aðgangur þinn á spjallborðinu endurvirkjaður.
+register_email_change_msg:Vinsamlegast staðfestu að nýja netfangið þitt "{VAR: uent->email}" sem kemur í staðinn fyrir það gamla "{VAR: old_email}", með því að smella á eftirfarandi tengil:\n{FULL_ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nÞegar þú hefur staðfest nýja netfangið, þá verður aðgangur þinn á spjallborðinu endurvirkjaður.
 iemail_thread_unsub:Hætta áskrift á þræði
 iemail_forum_unsub:Hætta áskrift á umræðu
 primary_group_prefix:Helsti hópur spjallborðsins:
@@ -957,6 +963,7 @@ group_resources:Þessi hópur stjórnar réttindum eftirfarandi umræðna
 register_admin_newuser_title:Nýr notandi hefur skráð sig og aðgangur hans er í bið eftir staðfestingu
 register_admin_newuser_msg:Nýr notandi ({VAR: uent->login}) hefur skráð sig og fyrst að staðfesting aðganga er virk, þá verður aðgangur þeirra ekki virkur fyrr en hann hefur verið samþykktur af þér eða öðrum stjórnanda. Til að skoða aðganginn vinsamlegast farðu á: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nÞetta eru sjálfvirk skilaboð. Ekki svara þessum skilaboðum.\nEf þú villt slökkva á þeim möguleika að fá tölvupóst yfir nýjar notendaskráningar, þá getur þú gert það í stjórnborði stjórnenda. Breyttu möguleikanum "Tilkynningar um nýja aðganga".
 post_mod_msg_notify_title:Ný skilaboð í umræðunni "{VAR: frm->name}" í bið eftir staðfestingu
+# Fuzzy
 post_mod_msg_notify_msg:Ný skilaboð með fyrirsögninni "{VAR: msg_post->subject}" voru sent á umræðu sem þú stjórnar. Til þess að skoða skilaboðin farðu á: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nÞetta eru sjálfvirk skilaboð. Ekki svara þessum skilaboðum.
 thread_printable_pdf:Búa til PDF skjal
 thread_syndicate:Miðla þessari umræðu (XML)
@@ -983,6 +990,7 @@ mnav_month:Mánuðir
 mnav_title:Skilaboðs vísir
 mnav_update:Skoða skilaboð með <a href="{TEMPLATE: mnav_update_lnk}">Message Navigator</a>
 pm_notify_subject:[{GVAR: FORUM_TITLE}] Ný tilkynning um einkaskilaboð
+# Fuzzy
 pm_notify_body_email:Þú hefur fengið ný einkaskilaboð "{VAR: subject}", frá "{VAR: from}", í spjallborðinu "{GVAR: FORUM_TITLE}".\nTil að skoða skilaboðin, smelltu á þennan tengil: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nTil þess að hætta að fá fleiri tilkynningar, afvirkjaðu "Tilkynning einkaskilaboða" í stillingunum þínum.
 register_pm_notification:Tilkynning einkaskilaboða:
 register_pm_notification_desc:Ef þessi möguleiki er virkjaður þá munt þú fá tilkynningar þegar þú færð einkaskilaboð.
@@ -1111,7 +1119,7 @@ move_msg_th_expl:Tilgreindu auðkenni þráðarinns sem á að færa á (má ver
 captcha_img_alt:Captcha staðfesting: Þú þarft að bera kennsl á textann á þessari mynd.
 captcha_img_help:Það er ekki núll eða einn á myndinni.
 powered-by:Knúið af: FUDforum {GVAR: FORUM_VERSION}.
-copyright:Höfundarréttur &copy;2001-2013 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Höfundarréttur &copy;2001-2017 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Kóði:
 code_select_all:Velja allt
 code_show_hide:sýna/fela

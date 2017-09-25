@@ -9,6 +9,7 @@
 # Author: Lauhenry
 # Author: Liangent
 # Author: Liuxinyu970226
+# Author: Macofe
 # Author: Mark85296341
 # Author: Naudefj
 # Author: Oapbtommy
@@ -215,7 +216,7 @@ vote_button:投票
 vote_for_thread:投票
 was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a>已經被版主移至<a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a>。
 welcome_message:歡迎！<b>{VAR: usr->alias}</b>，您上一次訪問是在{TEMPLATE: welcome_message_date}
-what_ppl_doing:顯示瀏覽者的操作
+what_ppl_doing:使用者行為
 reported_del_report:刪除報告
 reported_reason:原因：
 reported_on:日期：
@@ -383,7 +384,7 @@ my_buddies:我的好朋友
 add_buddy:加為好友
 add:新增
 buddy_search:輸入要添加的使用者的登錄名。
-member_search:或者使用<a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">用戶查找</a>功能來找人。
+member_search:或者使用<a href="javascript://" onclick="javascript: window_open('{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">用戶查找</a>功能來找人。
 buddy_remove:移除
 post_normal:正常
 post_sticky:置頂
@@ -677,9 +678,9 @@ register_err_notyouremail:別人已經使用此電子郵件地址註冊了。
 register_err_avatartobig:您要上載的檔是太大，超過 {GVAR: CUSTOM_AVATAR_MAX_SIZE} 位元組為單位）。
 register_err_avatarnotallowed:您嘗試上傳的頭像是不允許的。檢查所允許的文件類型。
 register_conf_subject:報名確認
-register_conf_msg:感謝您的註冊，\n若開啟您的帳號，請前往下面之網址：\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\n一旦您的帳號被開啟，你會被記錄至論壇當中並重新導向至首頁。
+register_conf_msg:感謝您的註冊，\n若開啟您的帳號，請前往下面之網址：\n\n{FULL_ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\n一旦您的帳號被開啟，你會被記錄至論壇當中並重新導向至首頁。
 register_welcome_subject:報名確認
-register_welcome_msg:謝謝註冊，\n\n這是您註冊的詳細資料：\n\n論壇地址：{TEMPLATE: index_update_lnk}\n帳號：{VAR: uent->login}\n密碼：{VAR: _POST['reg_plaintext_passwd']}\n\n請注意密碼區分大小寫！\n要更改您的設定或者個人資料，請點擊：\n{FULL_ROOT}{ROOT}?t=register
+register_welcome_msg:謝謝註冊，\n\n這是您註冊的詳細資料：\n\n論壇地址：{TEMPLATE: index_update_lnk}\n帳號：{VAR: uent->login}\n密碼：{VAR: _POST['reg_plaintext_passwd']}\n\n請注意密碼區分大小寫！\n要更改您的設定或者個人資料，請點擊：\n{FULL_ROOT}?t=register
 register_err_cantreg_title:錯誤：無法註冊
 regsiter_err_cantreg_msg:無法創建使用者帳戶，請聯繫管理員在<a href="mailto:{VAR: ADMIN_EMAIL}">大於{VAR: ADMIN_EMAIL}</a>
 register_profile_update:查看自己的個人資料
@@ -691,7 +692,7 @@ reset_err_invalidkey_msg:無效的密碼復位鍵。它是可能的，您的電�
 reset_err_rstconf_title:資訊
 reset_err_rstconf_msg:在接下來的幾分鐘內，您應該會收到您的電子郵件中的指令。
 reset_newpass_title:重設密碼
-reset_newpass_msg:您好，\n\n您每次登入的帳號都將發送給您。\n以下是您的登入資料：\n\n帳號：{VAR: ui[1]}\n密碼：{VAR: passwd}\n\n注意：您的密碼已經改為上面的值字符組合，\n如果您想修改密碼，請在個人資料中修改：\n{FULL_ROOT}{ROOT}?t=register
+reset_newpass_msg:您好，\n\n您每次登入的帳號都將發送給您。\n以下是您的登入資料：\n\n帳號：{VAR: ui[1]}\n密碼：{VAR: passwd}\n\n注意：您的密碼已經改為上面的值字符組合，\n如果您想修改密碼，請在個人資料中修改：\n{FULL_ROOT}?t=register
 reset_login_notify:您的密碼已透過電子郵件發送給您。您應該在接下來的幾分鐘之內確認它。
 search_update:搜尋訊息
 selmsg_update:瀏覽<a href="{TEMPLATE: selmsg_update_lnk}">今天的文章</a>
@@ -726,7 +727,7 @@ error_title:錯誤的表單
 index_title:歡迎來到論壇
 search_title:搜尋 {VAR-HTML: srch}
 remail_emailsent:電子郵件已傳送
-remail_email:你好\n!N ！關於有一個有趣的話題" {VAR: data->subject} "上 {GVAR: FORUM_TITLE} 要閱讀的論壇。你可以看到在主題： ！N ！{FULL_ROOT}{根} 嗎？t=rview&amp;th={VAR: data->id}&amp;rid ={DEF: _uid} ！N!!N ！你的朋友！N!!N ！{VAR: usr->alias}
+remail_email:你好：\n\n有一個有趣的話題" {VAR: data->subject} "在您可能感興趣的{GVAR: FORUM_TITLE}論壇上。你可以查看主題在：{FULL_ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid ={DEF: _uid} \n\n你的朋友，\n\n{VAR: usr->alias}
 poll_add_option:添加選項：
 post_opt_html_on:<b>HTML</b>代碼：<b>開放</b>
 post_opt_fud_on:<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>BBcode</b>：<b>開放</b></a>
@@ -960,7 +961,7 @@ thread_mark_all_read:將讀取所有未讀的論壇郵件標記
 thread_mark_all_read_desc:在此論壇中的所有未讀的郵件將被標記讀取
 private_no_messages:在此資料夾中沒有任何訊息。
 register_email_change_subject:確認變更電子郵件
-register_email_change_msg:請確認您的新電子郵件帳戶" {VAR: uent->email} "，將替換舊電子郵件帳戶" {VAR: old_email} "，通過轉到下麵的 URL： ！N ！{FULL_ROOT}{根} 嗎？ t = emailconf 科技 conf_key = {VAR: conf_key} ！N!!N ！一旦您確認您的新電子郵寄地址，您的論壇帳戶將對方重新啟動。
+register_email_change_msg:請確認您的新電子郵件帳戶" {VAR: uent->email} "，將替換舊電子郵件帳戶" {VAR: old_email} "，通過轉到下面的 URL： {FULL_ROOT}?t=emailconf&conf_key={VAR: conf_key} 一旦您確認您的新電子郵寄地址，您的論壇帳戶將對方重新啟動。
 iemail_thread_unsub:取消訂閱主題
 iemail_forum_unsub:取消訂閱主題
 primary_group_prefix:論壇的主要組：
@@ -968,7 +969,7 @@ group_resources:這組控制以下論壇的許可權
 register_admin_newuser_title:新使用者已註冊和他們的帳戶仍有待確認
 register_admin_newuser_msg:新使用者 （ {VAR: uent->login} ） 已註冊，和它由您或另一個論壇管理員確認之前啟用帳戶確認，因為他們的帳戶不會主動更改。檢討該帳戶請去： {GVAR: WWW_ROOT}adm/admuserapr.php ！N!!N ！這是一個自動化的過程。請勿回復此郵件。 ！N ！如果要關閉新使用者註冊的未來電子郵件通知，你可以通過管理控制台。更改"新帳戶通知"設置。
 post_mod_msg_notify_title:在論壇中的新郵件" {VAR: frm->name} "等待審批
-post_mod_msg_notify_msg:一個新的郵件，標題為" {VAR: msg_post->subject} "只是被張貼在你溫和的論壇。檢討此消息去： {FULL_ROOT} {根} 嗎？ t = modque # {VAR: msg_post->id} ！N!!N ！這是一個自動化的過程。請勿回復此消息。
+post_mod_msg_notify_msg:有個標題為" {VAR: msg_post->subject} "的新訊息剛張貼在你管理的論壇上。要檢視此訊息請至：{FULL_ROOT}?t=modque#{VAR: msg_post->id} \n\n這是一個自動化處理流程。請勿回復此訊息。
 thread_printable_pdf:生成可列印的 PDF
 thread_syndicate:集團本論壇 (XML)
 reg_conf_title:報名確認
@@ -994,7 +995,7 @@ mnav_month:當月
 mnav_title:訊息導航
 mnav_update:流覽郵件使用<a href="{TEMPLATE: mnav_update_lnk}">郵件導航器</a>
 pm_notify_subject:[{GVAR: FORUM_TITLE}]新的私人訊息通知
-pm_notify_body_email:您有新的私人郵件標題為" {VAR: subject} "，從" {VAR: from} "，在論壇中"{GVAR: FORUM_TITLE}"。 ！N ！要查看郵件，請按一下此處： {FULL_ROOT} {根} 嗎？ t = pmsg_view 科技 id = {VAR: pid} ！N!!N ！要停止未來的通知，在您的設定檔中禁用"私人郵件通知"。
+pm_notify_body_email:您有新的私人郵件標題為" {VAR: subject} "，從" {VAR: from} "，在論壇中"{GVAR: FORUM_TITLE}"。要查看郵件，請按一下此處： {FULL_ROOT}?t=pmsg_view&id={VAR: pid} \n\n要停止未來的通知，在您的設定檔中禁用"私人郵件通知"。
 register_pm_notification:私人訊息通知：
 register_pm_notification_desc:如果啟用，只要向您傳送一則私人消息，您將收到通知。
 findu_admin_opts_header:管理員選擇。
@@ -1122,7 +1123,7 @@ move_msg_th_expl:指定的 ID （可以在其他論壇） 的目標主題的
 captcha_img_alt:驗證碼： 您需要認識到此圖像中的文本。
 captcha_img_help:有沒有零或圖像中的一個。
 powered-by:網站： FUDforum {GVAR: FORUM_VERSION}。
-copyright:版權所有 © 2001年-2013 年<a href="http://fudforum.org/">FUDforum 公告板軟體</a>
+copyright:版權所有 © 2001年-2017 年<a href="http://fudforum.org/">FUDforum 公告板軟體</a>
 code_title:代碼：
 code_select_all:全選
 code_show_hide:顯示/隱藏

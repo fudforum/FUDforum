@@ -5,6 +5,7 @@
 # Author: Dani
 # Author: Dj
 # Author: Glanthor Reviol
+# Author: Macofe
 # Author: Naudefj
 
 action:Művelet
@@ -207,6 +208,7 @@ vote_button:Szavazás
 vote_for_thread:Szavazás
 was_moved_msg:A moderátor áthelyezte a(z) <a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> üzenetet a(z) <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> témába
 welcome_message:Szia, <b>{VAR: usr->alias}</b>! Legutóbb ekkor jártál erre: {TEMPLATE: welcome_message_date}
+# Fuzzy
 what_ppl_doing:Mit csinálnak az emberek
 reported_del_report:Törlési jelentés
 reported_reason:Ok:
@@ -375,6 +377,7 @@ my_buddies:Barátaim
 add_buddy:Barát hozzáadása
 add:Hozzáadás
 buddy_search:Add meg a felhasználó nevét, akit hozzá szeretnél adni.
+# Fuzzy
 member_search:Használhatod a <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">felhasználókeresőt</a> személyek megtalálásához.
 buddy_remove:eltávolítás
 post_normal:Normális
@@ -669,8 +672,9 @@ register_err_notyouremail:Valaki más már regisztrált ezzel az e-mail címmel.
 register_err_avatartobig:A fájl, amelyet fel akarsz tölteni, túl nagy, több, mint {GVAR: CUSTOM_AVATAR_MAX_SIZE} bájt
 register_err_avatarnotallowed:Az avatar, amit fel akartál tölteni, nem engedélyezett. Ellenőrizd az engedélyezett fájltípusok listáját.
 register_conf_subject:Regisztráció megerősítése
-register_conf_msg:Köszönjük, hogy regisztráltál,\nA fiókod aktiválásához kattints az alább látható URL-címre:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nMiután a fiókod aktiválva van, be leszel jelentkeztetve a fórumba, és át leszel\nirányítva a kezdőlapra.
+register_conf_msg:Köszönjük, hogy regisztráltál,\nA fiókod aktiválásához kattints az alább látható URL-címre:\n\n{FULL_ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nMiután a fiókod aktiválva van, be leszel jelentkeztetve a fórumba, és át leszel\nirányítva a kezdőlapra.
 register_welcome_subject:Fórum regisztráció megerősítése
+# Fuzzy
 register_welcome_msg:Köszönjük, hogy regisztráltál.\n\nItt vannak a bejelentkezési adataid a fórumba:\n\nFórum URL-címe: {TEMPLATE: index_update_lnk}\nBejelentkezési név: {VAR: uent->login}\nJelszó: {VAR: _POST['reg_plaintext_passwd']}\n\nFontos, hogy a jelszavak kis- és nagybetűérzékenyek!\nA beállításaid, vagy a profilod módosításához menj erre a lapra:\n{FULL_ROOT}{ROOT}?t=register
 register_err_cantreg_title:HIBA: a regisztráció nem sikerült
 regsiter_err_cantreg_msg:Nem sikerült létrehozni a fiókot, értesítsd az adminisztrátort a(z) <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a> címen
@@ -683,7 +687,7 @@ reset_err_invalidkey_msg:Érvénytelen új jelszó-kulcs. Lehetséges, hogy az e
 reset_err_rstconf_title:Információ
 reset_err_rstconf_msg:Pár percen belül megkapod az utasításokat az e-mail címedre.
 reset_newpass_title:Új jelszó kérése
-reset_newpass_msg:Szia!\n\nAhogy kérted, a bejelentkezési információid alább láthatóak:\n\nBejelentkezési név: {VAR: ui[1]}\nJelszó: {VAR: passwd}\n\nA jelszavad le lett cserélve a fenn látható értékre. Ha meg szeretnéd változtatni,\na felhasználói vezérlőpulton teheted meg:\n{FULL_ROOT}{ROOT}?t=register
+reset_newpass_msg:Szia!\n\nAhogy kérted, a bejelentkezési információid alább láthatóak:\n\nBejelentkezési név: {VAR: ui[1]}\nJelszó: {VAR: passwd}\n\nA jelszavad le lett cserélve a fenn látható értékre. Ha meg szeretnéd változtatni,\na felhasználói vezérlőpulton teheted meg:\n{FULL_ROOT}?t=register
 reset_login_notify:A jelszót elküldtük e-mailben. Pár percen belül meg fogod kapni.
 search_update:Hozzászólásokat keres
 selmsg_update:A <a href="{TEMPLATE: selmsg_update_lnk}">mai hozzászólásokat</a> böngészi
@@ -718,6 +722,7 @@ error_title:Hiba
 index_title:Üdvözlünk a fórumban
 search_title:{VAR-HTML: srch} keresése
 remail_emailsent:E-mail elküldve
+# Fuzzy
 remail_email:Szia!\n\nEgy érdekes téma található a(z) {GVAR: FORUM_TITLE} fórumon "{VAR: data->subject}" címmel, amit lehet, hogy el szeretnél olvasni. A témát itt találod meg:\n  {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nBarátod,\n\n{VAR: usr->alias}
 poll_add_option:Válaszlehetőség hozzáadása:
 post_opt_html_on:<b>HTML</b>-kód <b>engedélyezve</b>
@@ -952,7 +957,7 @@ thread_mark_all_read:az összes olvasatlan fórumüzenet olvasottnak jelölése
 thread_mark_all_read_desc:Az összes olvasatlan üzenet olvasottnak lesz jelölve
 private_no_messages:Ebben a mappában nincsenek üzenetek.
 register_email_change_subject:E-mail cím csere megerősítése
-register_email_change_msg:Erősítsd meg az új e-mail fiókodat ("{VAR: uent->email}"), ami a régi fiókod ("{VAR: old_email}") helyett lesz, az alábbi URL-címre való kattintással:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nMiután megerősítetted az új e-mail címedet, a fiókod újra aktiválva lesz.
+register_email_change_msg:Erősítsd meg az új e-mail fiókodat ("{VAR: uent->email}"), ami a régi fiókod ("{VAR: old_email}") helyett lesz, az alábbi URL-címre való kattintással:\n{FULL_ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nMiután megerősítetted az új e-mail címedet, a fiókod újra aktiválva lesz.
 iemail_thread_unsub:Leiratkozás erről a témáról
 iemail_forum_unsub:Leiratkozás erről a fórumról
 primary_group_prefix:A fórum elsődleges csoportja:
@@ -960,6 +965,7 @@ group_resources:Ez a csoport a következő fórum jogosultságait vezérli
 register_admin_newuser_title:Új felhasználó regisztrált, és fiókja megerősítésre vár
 register_admin_newuser_msg:Egy új felhasználó ({VAR: uent->login}) regisztrált, és mivel a fiókok megerősítése engedélyezve van, a fiókja nem lesz aktív, amíg te, vagy egy másik adminisztrátor nem erősíti meg. A fiók ellenőrzéséhez látogass el ide: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nEz egy automatikusan generált üzenet, ne válaszolj rá.\nHa ki szeretnéd kapcsolni a további értesítéseket, az adminisztrátori vezérlőpulton megteheted. Módosítsd az "Értesítés új fiókregisztrációkról" beállítást.
 post_mod_msg_notify_title:Új üzenet vár elfogadásra a(z) "{VAR: frm->name}" fórumban
+# Fuzzy
 post_mod_msg_notify_msg:Egy új hozzászólást írtak "{VAR: msg_post->subject}" címmel egy fórumba, amit te moderálsz. Az üzenet ellenőrzéséhez menj a következő címre: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nEz egy automatikusan generált üzenet, ne válaszolj rá.
 thread_printable_pdf:Nyomtatható PDF gererálása
 thread_syndicate:Fórum közzététele (XML)
@@ -986,6 +992,7 @@ mnav_month:hónap
 mnav_title:Hozzászólásböngésző
 mnav_update:A hozzászólásokat nézi a <a href="{TEMPLATE: mnav_update_lnk}">Hozzászólásböngésző</a> segítségével
 pm_notify_subject:[{GVAR: FORUM_TITLE}] Értesítés új privát üzenetről
+# Fuzzy
 pm_notify_body_email:{VAR: from} új privát üzenetet küldött neked "{VAR: subject}" címmel a(z) "{GVAR: FORUM_TITLE}" fórumban.\nAz üzenet megtekintéséhez kattints ide: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nHa nem szeretnél további értesítéseket kapni, tiltsd le az "Értesítések privát üzenetekről" beállítást a profilodban.
 register_pm_notification:Értesítés privát üzenetről:
 register_pm_notification_desc:Ha engedélyezve van, értesítve leszel, ha privát üzenetet kapsz.
@@ -1114,7 +1121,7 @@ move_msg_th_expl:Add meg a céltéma azonosítóját (lehet más fórumban is)
 captcha_img_alt:Captcha-ellenőrzés: fel kell ismerned a képen látható szöveget.
 captcha_img_help:Nincs nulla vagy egy a képen.
 powered-by:Az oldalt a FUDfórum {GVAR: FORUM_VERSION} hajtja.
-copyright:Copyright &copy;2001-2013 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Copyright &copy;2001-2017 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Kód:
 code_select_all:Összes kijelölése
 code_show_hide:Megjelenítés/ elrejtés

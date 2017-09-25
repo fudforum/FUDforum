@@ -9,6 +9,7 @@
 # Author: Imperadeiro98
 # Author: Luckas
 # Author: Luckas Blade
+# Author: Macofe
 # Author: Malafaya
 # Author: Mansil
 # Author: McDutchie
@@ -217,6 +218,7 @@ vote_button:Voto
 vote_for_thread:Voto
 was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> foi movido para <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> pelo moderador.
 welcome_message:Bem vindo <b>{VAR: usr->alias}</b>, a sua ultima visita foi em {TEMPLATE: welcome_message_date}
+# Fuzzy
 what_ppl_doing:Mostrar o que os membros estão a fazer
 reported_del_report:Apagar relatório
 reported_reason:Motivo:
@@ -385,6 +387,7 @@ my_buddies:Os meus amigos
 add_buddy:Adicionar Amigo
 add:Adicionar
 buddy_search:Introduza o nome do utilizador que pretende adicionar.
+# Fuzzy
 member_search:Ou use <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Encontrar Utilizador</a> para localizar a pessoa.
 buddy_remove:remover
 post_normal:Normal
@@ -679,8 +682,9 @@ register_err_notyouremail:Alguém já se registou utilizando este Email, e esse 
 register_err_avatartobig:O Ficheiro que está a tentar enviar para o servidor é demasiado grande, passa {GVAR: CUSTOM_AVATAR_MAX_SIZE} bytes do limite
 register_err_avatarnotallowed:O avatar que está a tentar enviar para o servidor não é permitido, verifique os tipos de ficheiro permitidos.
 register_conf_subject:Confirmação de Registo
-register_conf_msg:Obrigado por se registar,\nPara ativar a sua conta aceda à URL:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nAssim que a conta esteja ativa, será autenticado no fórum e redirecionado para a pagina principal.
+register_conf_msg:Obrigado por se registar,\nPara ativar a sua conta aceda à URL:\n\n{FULL_ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nAssim que a conta esteja ativa, será autenticado no fórum e redirecionado para a pagina principal.
 register_welcome_subject:Confirmação de registo no forum
+# Fuzzy
 register_welcome_msg:Obrigado pelo registo,\n\nAqui estão os seus dados de login para o forum:\n\nForum URL: {TEMPLATE: index_update_lnk}\nLogin: {VAR: uent->login}\nPassword: {VAR: _POST['reg_plaintext_passwd']}\n\nNa Password os caracteres maiusculos ou minusculos fazem diferença!\nPara modificar os seus dados, vá a esta pagina:\n{FULL_ROOT}{ROOT}?t=register
 register_err_cantreg_title:ERRO: Não foi possível efetuar registo
 regsiter_err_cantreg_msg:Conta de utilizador não foi criada, por favor contacte o administrador em <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
@@ -693,7 +697,7 @@ reset_err_invalidkey_msg:Chave de cancelamento de Password inválida
 reset_err_rstconf_title:Informação
 reset_err_rstconf_msg:Deve receber instruções no seu Email nos próximos minutos
 reset_newpass_title:Cancelar Password
-reset_newpass_msg:Olá,\n\na seu pedido os seus dados de login estão a ser enviados para si.\nAqui está a sua informação de login:\n\nLogin: {VAR: ui[1]}\nPassword: {VAR: passwd}\n\nA sua Password foi alterada para o valor em baixo, se quiser altera-la pode fazê-lo através do painel de controlo do utilizador em : \n{FULL_ROOT}{ROOT}?t=register
+reset_newpass_msg:Olá,\n\na seu pedido os seus dados de login estão a ser enviados para si.\nAqui está a sua informação de login:\n\nLogin: {VAR: ui[1]}\nPassword: {VAR: passwd}\n\nA sua Password foi alterada para o valor em baixo, se quiser altera-la pode fazê-lo através do painel de controlo do utilizador em : \n{FULL_ROOT}?t=register
 reset_login_notify:A sua password foi enviada por email para si. Deverá recebê-la nos próiximos minutos.
 search_update:A procurar posts
 selmsg_update:A visualisar <a href="{TEMPLATE: selmsg_update_lnk}">posts de Hoje</a>
@@ -728,6 +732,7 @@ error_title:Formulário de erro
 index_title:Bem vindo ao forum
 search_title:Procurar por {VAR-HTML: srch}
 remail_emailsent:Email enviado
+# Fuzzy
 remail_email:Olá,\n\nHá um tópico interessante sobre "{VAR: data->subject}" com o nome {GVAR: FORUM_TITLE} que talvez queira ler. Pode ver este tópico em:\n {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\n O seu amigo,\n\n{VAR: usr->alias}
 poll_add_option:Adicionar Opção:
 post_opt_html_on:<b>HTML LIGADO</b>
@@ -962,7 +967,7 @@ thread_mark_all_read:marcar todas as mensagens não lidas do forum como lidas
 thread_mark_all_read_desc:todas as mensagens não lidas deste forum serão marcadas como lidas
 private_no_messages:Não existem mensagens nesta pasta
 register_email_change_subject:Confirmação de alteração de E-mail
-register_email_change_msg:Confirme, por favor, a sua nova conta de e-mail "{VAR: uent->email}" que substitui a sua antiga conta "{VAR: old_email}" visitando a URL abaixo:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nAssim que confirmar o seu novo endereço de e-mail, a sua conta será reactivada.
+register_email_change_msg:Confirme, por favor, a sua nova conta de e-mail "{VAR: uent->email}" que substitui a sua antiga conta "{VAR: old_email}" visitando a URL abaixo:\n{FULL_ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nAssim que confirmar o seu novo endereço de e-mail, a sua conta será reactivada.
 iemail_thread_unsub:Remover subscrição desta conversa
 iemail_forum_unsub:Remover subscrição deste forum
 primary_group_prefix:Grupo primário para o forum:
@@ -970,6 +975,7 @@ group_resources:Este grupo controla as permissões dos seguintes sub-forums
 register_admin_newuser_title:Registou-se um novo utilizador e a sua conta aguarda confirmacao
 register_admin_newuser_msg:Registou-se um novo utilizador ({VAR: uent->login}) no forum e como a Confirmacao de Conta esta' Activa, esta conta nao ficara' activa ate' que que seja confirmada por si ou outro administrador do forum. Para rever a conta clique: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nEste e' um processo automatico, nao responda a esta mensagem.\nSe desejar desligar futuras notificacoes por e-mail de novos registos de utilizadores/usuarios pode faze-lo via Painel de Controlo de Administracao, alterando o valor de "Notificação de Nova Conta".
 post_mod_msg_notify_title:Nova mensagem no forum "{VAR: frm->name}" aguardando aprovacao
+# Fuzzy
 post_mod_msg_notify_msg:Uma mensagem nova, intitulada "{VAR: msg_post->subject}", foi colocada agora num fórum moderado por si. Para revê-la, consulte: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nEste é um processo automático. Não responda a esta mensagem.
 thread_printable_pdf:Exportar para PDF
 thread_syndicate:Adicione este forum (XML)
@@ -996,6 +1002,7 @@ mnav_month:Mês (es)
 mnav_title:Navegador de Mensagens
 mnav_update:Consultando as mensagens usando o <a href="{TEMPLATE: mnav_update_lnk}">Navegador de Mensagens</a>
 pm_notify_subject:[{GVAR: FORUM_TITLE}] Notificação de Nova Mensagem Privada
+# Fuzzy
 pm_notify_body_email:Você tem uma nova mensagem privada intitulada "{VAR: subject}", de "{VAR: from}", no fórum "{GVAR: FORUM_TITLE}".\nPara ver a mensagem clique aqui: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nPara deixar de receber notificações, desative "Notificação de Mensagens Privadas" no seu perfil.
 register_pm_notification:Notificação de Mensagem Privada:
 register_pm_notification_desc:Se ativado, será notificado sempre que lhe for enviada uma mensagem privada.
@@ -1124,7 +1131,7 @@ move_msg_th_expl:Especifique a ID do tópico de destino (pode estar em outros f�
 captcha_img_alt:Verificação por Captcha: você terá que reconhecer o texto nesta imagem.
 captcha_img_help:Não há zero ou um na imagem.
 powered-by:Potenciado por: FUDforum {GVAR: FORUM_VERSION}.
-copyright:Copyright &copy;2001-2013 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Copyright &copy;2001-2017 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Código:
 code_select_all:Selecionar tudo
 code_show_hide:Mostrar / ocultar

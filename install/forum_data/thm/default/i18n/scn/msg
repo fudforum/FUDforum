@@ -2,6 +2,7 @@
 # Exported from translatewiki.net
 # Author: Beta16
 # Author: Gmelfi
+# Author: Macofe
 
 action:Azione
 add_to_buddy_list:aggiunge a l'elenghe de l'amice
@@ -203,6 +204,7 @@ vote_button:Vote
 vote_for_thread:Vote
 was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> ha state spustate jndr'à <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> da 'u moderatore.
 welcome_message:Bovègne <b>{VAR: usr->alias}</b>, l'urtema visita toje ha state 'u {TEMPLATE: welcome_message_date}
+# Fuzzy
 what_ppl_doing:Fà vedè ce stonne a fanne le crestiane
 reported_del_report:Scangìlle 'a segnalazione
 reported_reason:Mutive:
@@ -368,6 +370,7 @@ my_buddies:L'amice mije
 add_buddy:Aggiunge 'n'amiche
 add:Aggiunge
 buddy_search:Mitte 'u nome de l'utende ca vuè aggiungere.
+# Fuzzy
 member_search:O ause 'a funzione <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Iacchie Utende</a> pe acchià 'nu crestiane.
 buddy_remove:live
 post_normal:Normale
@@ -664,8 +667,9 @@ register_err_notyouremail:Quaccheotre è ggià reggistrate cu st'indirizze email
 register_err_avatartobig:'U file ca tu ste pruève a carecà jè troppe granne, cchiù de {GVAR: CUSTOM_AVATAR_MAX_SIZE} byte.
 register_err_avatarnotallowed:L'immaggine ca ste pruève a carecà non g'è permesse. Condrolle le tipe de file valide.
 register_conf_subject:Conferme d'a reggistrazione
-register_conf_msg:Grazie ca tè reggistrate.\n\nPe attivà 'u cunde tune pe piacere vejè a l'URL de sotte:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\n'Na vote ca 'u cunde jè attivate tu puè trasè jndr'à 'u forum e avìne mannate sus a pàgena prengepàle.
+register_conf_msg:Grazie ca tè reggistrate.\n\nPe attivà 'u cunde tune pe piacere vejè a l'URL de sotte:\n\n{FULL_ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\n'Na vote ca 'u cunde jè attivate tu puè trasè jndr'à 'u forum e avìne mannate sus a pàgena prengepàle.
 register_welcome_subject:Conferme d'a reggistrazione d'u forum
+# Fuzzy
 register_welcome_msg:Grazie ca t'è reggistrate,\n\nAqquà le dettaglie pe trasè jndr'à 'u forum:\n\nURL d'u Forum: {TEMPLATE: index_update_lnk}\nNome: {VAR: uent->login}\nPassuord: {VAR: _POST['reg_plaintext_passwd']}\n\nPe piacere vide ca le passuord so sensibbile a le maiuscole e minuscole! Pe cangià le 'mbostaziune o 'u profile, vèje sus a pàgene:\n{FULL_ROOT}{ROOT}?t=register
 register_err_cantreg_title:ERRORE: 'mbossibbile da reggistrà
 regsiter_err_cantreg_msg:'Mbossibbile da ccrejè 'u cunde utende tune, pe piacere condatte l'amministratore a <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
@@ -678,7 +682,7 @@ reset_err_invalidkey_msg:Chiave de azzeramende d'a passuord invalide. Jè possib
 reset_err_rstconf_title:'Mbormaziune
 reset_err_rstconf_msg:Tu avissa ricevere le 'struziune jndr'à l'email toje jndr'à le prossime minute.
 reset_newpass_title:Azzere 'a passuord
-reset_newpass_msg:Cià,\n\nCumme richieste, le 'mbormaziune pe trasè stone aqquà sotte:\n\nNome: {VAR: ui[1]}\nPassuord: {VAR: passwd}\n\nPe piacere vide ca 'a passuord toje ha state azzerate a 'u valore de suse. Ce tu vuè cangià 'a passuord puè fà accussì cu 'u pannelle de condrolle de l'utende a:\n{FULL_ROOT}{ROOT}?t=register
+reset_newpass_msg:Cià,\n\nCumme richieste, le 'mbormaziune pe trasè stone aqquà sotte:\n\nNome: {VAR: ui[1]}\nPassuord: {VAR: passwd}\n\nPe piacere vide ca 'a passuord toje ha state azzerate a 'u valore de suse. Ce tu vuè cangià 'a passuord puè fà accussì cu 'u pannelle de condrolle de l'utende a:\n{FULL_ROOT}?t=register
 reset_login_notify:'A passuord toje t'ha state mannate pe email. Tu avissa riceverle 'mbrà le prossime minute.
 search_update:Stoche a cerche messàgge
 selmsg_update:Stoche a sfoglie le <a href="{TEMPLATE: selmsg_update_lnk}">Messàgge de Osce</a>
@@ -713,6 +717,7 @@ error_title:Module de errore
 index_title:Bovègne jndr'à 'u forum
 search_title:Cirche {VAR-HTML: srch}
 remail_emailsent:L'email ha state mannate
+# Fuzzy
 remail_email:Cià,\n\nStè 'n'argomende inderessande sus a "{VAR: data->subject}" sus a 'u forum {GVAR: FORUM_TITLE} ca tu puè vulè leggere. Tu puè 'ndrucà l'argomende a:\n {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nL'amiche tune,\n\n{VAR: usr->alias}
 poll_add_option:Aggiunge 'n'opzione:
 post_opt_html_on:<b>HTML</b> jè <b>appezzecate</b>
@@ -947,7 +952,8 @@ thread_mark_all_read:Signe tuttue le messàgge non lette d'u forum cumme lette
 thread_mark_all_read_desc:Tutte le messàgge non lette jndr'à stu forum avènene signate cumme lette
 private_no_messages:Non ge stonne messàgge jndr'à cartelle.
 register_email_change_subject:Conferme 'u cangiamende de l'email
-register_email_change_msg:Pe piacere conferme 'u cunde email nuève "{VAR: uent->email}" ca sostituisce 'u vecchie cunde email tune "{VAR: old_email}", scenne jndr'à URL aqquà sotte: {FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}
+# Fuzzy
+register_email_change_msg:Pe piacere conferme 'u cunde email nuève "{VAR: uent->email}" ca sostituisce 'u vecchie cunde email tune "{VAR: old_email}", scenne jndr'à URL aqquà sotte: {FULL_ROOT}?t=emailconf&conf_key={VAR: conf_key}
 iemail_thread_unsub:Livete da st'argomende
 iemail_forum_unsub:Livete da stu forum
 primary_group_prefix:Gruppe primarie pu forum:
@@ -955,6 +961,7 @@ group_resources:Stu gruppe condrolle le permesse de le forum ca seguone
 register_admin_newuser_title:'N'utende nuève ha state reggistrate e 'u cunde sue stè in attese de approvazione
 register_admin_newuser_msg:'N'utende nuève ({VAR: uent->login}) s'ha appene reggistrate, e da quanne 'a conferme d'u cunde jè abbilitate, le cunde lore non ge onne devendate attive 'nzgine ca lore non g'avènene confermate da te o da 'n'otre amministratore. Pe revedè 'u cunde pe piacere vèje: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nQUiste jè 'nu processe automateche. Nò responnere a stu messàgge.\nCe tu vuè luà le notifiche de le email future de reggistraziune de utinde nuève, tu puè farle da 'u Pannelle de Controlle de l'Amministratore. Cange le 'mbostaziune de "Notifiche de cunde nuève".
 post_mod_msg_notify_title:Messàgge muève jndr'à u forum "{VAR: frm->name}" in attese de approvazione
+# Fuzzy
 post_mod_msg_notify_msg:'Nu messàgge nuève cu titole "{VAR: msg_post->subject}" ha state mannate jndr'à 'u forum ca tu modere. Pe revedè stu messàgge vèje: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}
 thread_printable_pdf:Genere PDF stambabbile
 thread_syndicate:Sindache stu forum (XML)
@@ -981,6 +988,7 @@ mnav_month:Mese
 mnav_title:Navigatore de messàgge
 mnav_update:Stoche a sfoglie le messàgge ausanne 'u <a href="{TEMPLATE: mnav_update_lnk}">Navigatore de le messàgge</a>
 pm_notify_subject:[{GVAR: FORUM_TITLE}] Notifica nove de messàgge private
+# Fuzzy
 pm_notify_body_email:Tu è 'nu messàgge private cu titole "{VAR: subject}", da "{VAR: from}", jndr'à 'u forum "{GVAR: FORUM_TITLE}".\nPe 'ndrucà 'u messàgge, cazze aqquà: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nPe no avè notifiche future, disabbilite "Notifiche de messàgge private" jndr'à 'u profile tune.
 register_pm_notification:Notifiche de messàgge private:
 register_pm_notification_desc:Ce abbilitate, t'arive 'a notifiche quanne 'nu messàgge private t'avène mannate.
@@ -1109,6 +1117,7 @@ move_msg_th_expl:Specifiche l'ID de l'argomende de destinazione (pò essere jndr
 captcha_img_alt:Verifiche cu captcha: tu è abbesògne de mettere 'u teste jndr'à sta immaggine.
 captcha_img_help:Non ge stonne zero o une jndr'à l'immaggine.
 powered-by:Fatte da: FUDForum {GVAR: FORUM_VERSION}.
+# Fuzzy
 copyright:Copyright &copy;2001-2013 <a href="http://fudforum.org/">FUDforum Softuer de bollettine de schede</a>
 code_title:Codece:
 code_select_all:Scacchie tutte

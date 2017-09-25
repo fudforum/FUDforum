@@ -1,6 +1,7 @@
 # Messages for Dutch (Nederlands)
 # Exported from translatewiki.net
 # Author: HanV
+# Author: Macofe
 # Author: McDutchie
 # Author: MrLeopold
 # Author: Naudefj
@@ -209,6 +210,7 @@ vote_button:Stemmen
 vote_for_thread:Stemmen
 was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> is verplaatst naar <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> door de moderator.
 welcome_message:Welkom <b>{VAR: usr->alias}</b>. Uw laatste bezoek was op {TEMPLATE: welcome_message_date}
+# Fuzzy
 what_ppl_doing:Laat zien waar andere gebruikers mee bezig zijn
 reported_del_report:Rapport verwijderen
 reported_reason:Reden:
@@ -377,6 +379,7 @@ my_buddies:Mijn vrienden
 add_buddy:Vriend toevoegen
 add:Toevoegen
 buddy_search:Geef de gebruikersnaam op van de gebruiker die u wilt toevoegen.
+# Fuzzy
 member_search:Of gebruik de optie <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Gebruiker zoeken</a> om een gebruiker te vinden.
 buddy_remove:verwijderen
 post_normal:Normaal
@@ -671,8 +674,9 @@ register_err_notyouremail:Er is al iemand geregistreerd die dit e-mailadres gebr
 register_err_avatartobig:Het bestand dat u probeert te uploaden is te groot. De limiet is {GVAR: CUSTOM_AVATAR_MAX_SIZE} bytes
 register_err_avatarnotallowed:De avatar die u probeert te uploaden is niet toegestaan. Controleer of het bestand van een toegelaten bestandstype is.
 register_conf_subject:Registratiebevestiging
-register_conf_msg:Dank u voor uw registratie.\nVolg de volgende koppeling om uw gebruiker te activeren:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nAls uw gebruiker is geactiveerd, wordt u aangemeld bij het forum en automatisch doorverwezen naar de hoofdpagina.
+register_conf_msg:Dank u voor uw registratie.\nVolg de volgende koppeling om uw gebruiker te activeren:\n\n{FULL_ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nAls uw gebruiker is geactiveerd, wordt u aangemeld bij het forum en automatisch doorverwezen naar de hoofdpagina.
 register_welcome_subject:Bevestiging van forumregistratie
+# Fuzzy
 register_welcome_msg:Dank u voor uw registratie.\n\nHier volgen uw aanmeldgegevens voor het forum:\n\nURL van het forum: {TEMPLATE: index_update_lnk}\nGebruikersnaam: {VAR: uent->login}\nWachtwoord: {VAR: _POST['reg_plaintext_passwd']}\n\nLet op: wachtwoorden zijn hoofdlettergevoelig!\nOm uw instellingen of profiel aan te passen, kunt u de volgende koppeling volgen:\n{FULL_ROOT}{ROOT}?t=register
 register_err_cantreg_title:Fout: het was niet mogelijk om te registreren
 regsiter_err_cantreg_msg:Het was niet mogelijk om uw gebruiker aan te maken. Neem contact op met de beheerder via het e-mailadres <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
@@ -685,7 +689,7 @@ reset_err_invalidkey_msg:Er is een ongeldige sleutel voor het opnieuw instellen 
 reset_err_rstconf_title:Gegevens
 reset_err_rstconf_msg:U ontvangt meestal binnen enkele minuten een e-mail met instructies.
 reset_newpass_title:Wachtwoord opnieuw instellen
-reset_newpass_msg:Hallo.\n\nZoals gevraagd zijn uw aanmeldgegevens naar u verzonden.\nHier zijn uw gegevens:\n\nGebruikersnaam: {VAR: ui[1]}\nWachtwoord: {VAR: passwd}\n\nLet op: uw wachtwoord is opnieuw ingesteld naar de bovenstaande waarde. Als u toch een ander wachtwoord wilt instellen, kunt u dat via uit gebruikersinstellingen doen:\n{FULL_ROOT}{ROOT}?t=register
+reset_newpass_msg:Hallo.\n\nZoals gevraagd zijn uw aanmeldgegevens naar u verzonden.\nHier zijn uw gegevens:\n\nGebruikersnaam: {VAR: ui[1]}\nWachtwoord: {VAR: passwd}\n\nLet op: uw wachtwoord is opnieuw ingesteld naar de bovenstaande waarde. Als u toch een ander wachtwoord wilt instellen, kunt u dat via uit gebruikersinstellingen doen:\n{FULL_ROOT}?t=register
 reset_login_notify:Uw wachtwoord is naar u verzonden. Meestal ontvangt u de e-mail binnen enige minuten.
 search_update:Berichten zoeken
 selmsg_update:<a href="{TEMPLATE: selmsg_update_lnk}">Berichten van vandaag</a> aan het bekijken
@@ -720,6 +724,7 @@ error_title:Foutformulier
 index_title:Welkom bij het forum
 search_title:Zoeken naar {VAR-HTML: srch}
 remail_emailsent:De e-mail is verzonden
+# Fuzzy
 remail_email:Hallo.\n\nEr is een interessant onderwerp over "{VAR: data->subject}" op het forum {GVAR: FORUM_TITLE} dat u misschien wel wilt lezen. U kunt dit onderwerp bekijken via de volgende koppeling:\n  {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\n Groet,\n\n {VAR: usr->alias}
 poll_add_option:Optie toevoegen:
 post_opt_html_on:<b>HTML-code</b> staat <b>aan</b>
@@ -954,7 +959,7 @@ thread_mark_all_read:Alle berichten als gelezen markeren
 thread_mark_all_read_desc:Alle ongelezen berichten in dit forum worden als gelezen gemarkeerd
 private_no_messages:Er zijn geen berichten in deze map
 register_email_change_subject:Wijziging e-mailadres bevestigen
-register_email_change_msg:Bevestig uw nieuwe e-mailadres "{VAR: uent->email}" ter vervanging van uw oude e-mailadres "{VAR: old_email}" door de volgende koppeling te volgen:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nAls u uw nieuwe e-mailadres bevestigt, wordt uw gebruiker weer geactiveerd.
+register_email_change_msg:Bevestig uw nieuwe e-mailadres "{VAR: uent->email}" ter vervanging van uw oude e-mailadres "{VAR: old_email}" door de volgende koppeling te volgen:\n{FULL_ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nAls u uw nieuwe e-mailadres bevestigt, wordt uw gebruiker weer geactiveerd.
 iemail_thread_unsub:Abonnement op dit onderwerp opheffen
 iemail_forum_unsub:Abonnement op dit forum opheffen
 primary_group_prefix:Primaire groep voor forum:
@@ -962,6 +967,7 @@ group_resources:Deze groep beheert de rechten voor de volgende forums
 register_admin_newuser_title:Een nieuwe gebruiker heeft zich geregistreerd en moet nog bevestigd worden
 register_admin_newuser_msg:De nieuwe gebruiker {VAR: uent->login} is zojuist aangemeld voor het forum. Omdat gebruikersbevestiging is ingeschakeld, is de gebruiker pas bruikbaar nadat u of een andere beheeder de gebruiker bevestigt. Ga voor bevestigen naar: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nDit is een automatisch verzonden bericht. Antwoord hier niet op.\nE-mailberichten over nieuwe gebruikers uitschakelen is mogelijk via de instelling "Waarschuwingen nieuwe gebruikers" in de beheerdersinstellingen.
 post_mod_msg_notify_title:Nieuw bericht in het forum "{VAR: frm->name}" wacht op goedkeuring
+# Fuzzy
 post_mod_msg_notify_msg:Het bericht "{VAR: msg_post->subject}" is zojuist geplaatst in een door u gemodereerd forum. Volg de volgende koppeling om het bericht te beoordelen: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nDit is een automatisch verzonden bericht. Antwoord hier niet op.
 thread_printable_pdf:Pdf maken
 thread_syndicate:Dit forum syndiceren (XML)
@@ -988,6 +994,7 @@ mnav_month:Maanden
 mnav_title:Navigatie
 mnav_update:Met <a href="{TEMPLATE: mnav_update_lnk}">Berichtennavigator</a> door berichten bladeren
 pm_notify_subject:[{GVAR: FORUM_TITLE}] U hebt een nieuw privébericht
+# Fuzzy
 pm_notify_body_email:U hebt een nieuw privébericht met het onderwerp "{VAR: subject}" van "{VAR: from}" in het forum "{GVAR: FORUM_TITLE}".\nVolg de volgende koppeling om het bericht te bekijken: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nOm waarschuwingen on de toekomst niet meer te ontvangen, kunt u deze uitschakelen via de instelling "Waarschuwingen voor privéberichten" in uw gebruikersinstellingen.
 register_pm_notification:Waarschuwingen voor privéberichten:
 register_pm_notification_desc:Als deze instelling actief is, wordt u op de hoogte gesteld als u een privébericht hebt ontvangen.
@@ -1116,7 +1123,7 @@ move_msg_th_expl:Geef het nummer van het doelonderwerp (kan zich in een ander fo
 captcha_img_alt:Captchacontrole: u moet de tekst in deze afbeelding herkennen
 captcha_img_help:Er is geen nul of een in de afbeelding.
 powered-by:Maakt gebruik van FUDforum {GVAR: FORUM_VERSION}.
-copyright:Copyright &copy;2001-2013 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Copyright &copy;2001-2017 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Code:
 code_select_all:Alles selecteren
 code_show_hide:Weergeven/verbergen

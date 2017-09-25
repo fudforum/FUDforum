@@ -186,6 +186,7 @@ views:Εμφανίσεις
 vote:{PLURAL: frm->n_rating|$1 Ψήφος|$1 Ψήφοι}
 vote_button:Ψήφισε
 vote_for_thread:Ψήφισε
+# Fuzzy
 what_ppl_doing:Εμφάνιση του τι κάνουν οι άνθρωποι
 reported_del_report:Διαγραφή Αναφοράς
 reported_reason:Αιτία:
