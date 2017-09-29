@@ -75,7 +75,7 @@ cal_no_events:אין אירועים ליום זה.
 cal_update:עיון ביומן הפורום
 cal_birthday:יום הולדת: {VAR: user}
 message:הודעה
-message_counter:המשתמשים שלנו פרסמו סך הכל <b>{PLURAL: post_count|הודעה אחת|$1 הודעות}</b> תחת <b>{PLURAL: thread_count|נושא אחד|$1 נושאים}</b>.
+message_counter:המשתמשים שלנו פרסמו סך הכול <b>{PLURAL: post_count|הודעה אחת|$1 הודעות}</b> תחת <b>{PLURAL: thread_count|נושא אחד|$1 נושאים}</b>.
 message_index:אינדקס ההודעות
 message_index_desc:צפייה ברשימת ההודעות
 minimize_category:מזעור קטגוריה
@@ -513,7 +513,7 @@ finduser_flag:דגל
 # Fuzzy
 copyright:כל הזכויות שמורות &copy;2001‏-2012 ל־<a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:קוד:
-code_select_all:בחר הכל
+code_select_all:בחר הכול
 code_show_hide:הצגה/הסתרה
 social_sites:אתרי רשתות חברתיות:
 postcheck_min_len_err:ההודעה שלך קצרה מדי. האורך המזערי הוא {PLURAL: post_min_len|$1 character|$1 characters}.

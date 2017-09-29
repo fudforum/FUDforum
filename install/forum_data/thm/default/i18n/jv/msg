@@ -817,7 +817,7 @@ th_expr_one_year:1 Taun
 thread_mod_delete:Busak
 action_ip:IP
 action_latest_post:Paling Pesen
-online_today_last_visit:Paling sing Dikunjungi
+online_today_last_visit:Pungkasan Teka:
 online_today_update:Ndeleng dhaptar kedhaftar sing padha ing forum iki.
 logedin_todays_visitors:Dina Pengunjung
 logedin_latest_post:Paling pesen ing forum:
@@ -1017,7 +1017,7 @@ thread_on:ing
 userinfo_buddy:konco:
 register_email_addr:Alamat e-mail:
 reset_suffix:Yen sampeyan nampa pesen kesalahan ing, please ditolak lewat iku. Yen sampeyan nampa sawetara salinan saka email, sing wis ora dijaluk, hubungi administrator forum ing {GVAR: ADMIN_EMAIL}\n\nIki panyuwunan iki milai saka: {VAR: _SERVER['REMOTE_ADDR']}.
-usrinfo_last_visit:Paling sing Dikunjungi:
+usrinfo_last_visit:Pungkasan Teka:
 mnav_newer:anyar saka
 mnav_older:lawas saka
 ip_search_by_ip:Telusuri kedhaftar dening IP

@@ -2,6 +2,7 @@
 # Exported from translatewiki.net
 # Author: Beta16
 # Author: Chmee2
+# Author: Dvorapa
 # Author: Juandev
 # Author: Kusavica
 # Author: Macofe
@@ -212,8 +213,7 @@ vote_button:Hlasovat
 vote_for_thread:Hlasovat
 was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> byla moderátorem přemístěna do <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a>.
 welcome_message:Vítejte <b>{VAR: usr->alias}</b>, tvoje poslední návštěva byla v {TEMPLATE: welcome_message_date}
-# Fuzzy
-what_ppl_doing:ukaž, co dělají ostatní
+what_ppl_doing:Aktivita uživatele
 reported_del_report:Zpráva o smazání
 reported_reason:Důvod:
 reported_on:Oznámeno v:
@@ -378,8 +378,7 @@ my_buddies:Moji přátelé
 add_buddy:Přidat přítele
 add:Přidat
 buddy_search:Zadejte uživatelské jméno uživatele, kterého si přejete přidat.
-# Fuzzy
-member_search:Nebo použijte volbu <a href="javascript://" class="GenLink" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Hledat uživatele</a> k nalezení osoby.
+member_search:Nebo použijte volbu <a href="javascript://" class="GenLink" onclick="javascript: window_open('{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Hledat uživatele</a> k nalezení osoby.
 buddy_remove:odstranit
 post_normal:Normální
 post_sticky:Vývěsky
@@ -676,8 +675,7 @@ register_err_avatarnotallowed:Ikona uživatele, kterou se snažíte nahrát nen�
 register_conf_subject:Potvrzení registrace
 register_conf_msg:Děkujeme za vaši registraci,\npro aktivaci vašeho účtu, prosím, přejděte na následující URL:\n\n{FULL_ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nPokud je váš úšet již aktivován, budete přihlášeni do fóra a\npřesměrováni na hlavní stránku fóra.
 register_welcome_subject:Potvrzení registrace do fóra
-# Fuzzy
-register_welcome_msg:Děkujeme za vaši registraci,\n\nzde jsou údaje nutné k přihlášení k fóru:\n\nAdresa fóra: {TEMPLATE: index_update_lnk}\nUživatelské jméno: {VAR: uent->login}\nHeslo: {VAR: _POST['reg_plaintext_passwd']}\n\nPamatujte, prosím, že jeslo je citlivé na velikost znaků!\nPro změnu vašich nastavení nebo profilu přejděte sem:\n{FULL_ROOT}{ROOT}?t=register
+register_welcome_msg:Děkujeme za vaši registraci,\n\nzde jsou údaje nutné k přihlášení k fóru:\n\nAdresa fóra: {TEMPLATE: index_update_lnk}\nUživatelské jméno: {VAR: uent->login}\nHeslo: {VAR: _POST['reg_plaintext_passwd']}\n\nPamatujte, prosím, že jeslo je citlivé na velikost znaků!\nPro změnu vašich nastavení nebo profilu přejděte sem:\n{FULL_ROOT}?t=register
 register_err_cantreg_title:CHYBA: nelze vás zaregistrovat
 regsiter_err_cantreg_msg:Není možné vytvořit uživatelský účet, prosím, kontaktujte administrátora na <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:Prohlíží si vlastní profil
@@ -724,8 +722,7 @@ error_title:Formulář na hlášení chyb
 index_title:Vítejte ve fóru
 search_title:Hledat {VAR-HTML: srch}
 remail_emailsent:Email byl odeslán
-# Fuzzy
-remail_email:Ahoj,\n\nzde je zajímavé téma o "{VAR: data->subject}" na fóru {GVAR: FORUM_TITLE}, které by sis mohl(a) chtít přečíst. Téma můžeš vidět na:\n {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\n Tvůj přítel,\n\n{VAR: usr->alias}
+remail_email:Ahoj,\n\nzde je zajímavé téma o "{VAR: data->subject}" na fóru {GVAR: FORUM_TITLE}, které by sis mohl(a) chtít přečíst. Téma můžeš vidět na:\n {FULL_ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\n Tvůj přítel,\n\n{VAR: usr->alias}
 poll_add_option:Přidat volbu:
 post_opt_html_on:<b>HTML tagy</b> jsou <b>ZAPNUTÉ</b>
 post_opt_fud_on:<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>BBcode</b> je <b>VYPNUT</b></a>
@@ -967,8 +964,7 @@ group_resources:Tato skupina kontroluje oprávnění pro následující fóra
 register_admin_newuser_title:Nový uživatel se zaregistroval a jeho účet čeká na potvrzení
 register_admin_newuser_msg:Nový uživatel ({VAR: uent->login}) se právě zaregistroval a protože je zapnuté potvrzování účtů, tento účet nebude aktivován dokud ho Vy nebo jiný administrátor ve  fóru nepotvrdí. Pokud chcete zobrazit tento účet jděte na: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nTato zpráva je generovaná serverem, prosím neodpovídejte na ní.\nPokud chcete vypnout budoucí e-mailové oznámení o nových registracích, můžete tak udělat přes Admin Control Panel, změnou nastavení "New Account Notification".
 post_mod_msg_notify_title:Nová zpráva ve fóru "{VAR: frm->name}" čeká na schválení
-# Fuzzy
-post_mod_msg_notify_msg:Nová zpráva s předmětem "{VAR: msg_post->subject}" byla právě zaslána do fóra které moderujete. Pro zobrazení této zprávy přejděte na: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nToto je automatický proces. Neodpovídejte na tuto zprávu.
+post_mod_msg_notify_msg:Nová zpráva s předmětem "{VAR: msg_post->subject}" byla právě zaslána do fóra které moderujete. Pro zobrazení této zprávy přejděte na: {FULL_ROOT}?t=modque#{VAR: msg_post->id}\n\nToto je automatický proces. Neodpovídejte na tuto zprávu.
 thread_printable_pdf:Generování PDF pro tisk
 thread_syndicate:Syndikovat toto fórum (XML)
 reg_conf_title:Potvrzení registrace
@@ -994,8 +990,7 @@ mnav_month:Měsíc (e)
 mnav_title:Navigátor Zpráv
 mnav_update:Prohlížení zpráv pomocí <a href="{TEMPLATE: mnav_update_lnk}">Navigátoru Zpráv</a>
 pm_notify_subject:[{GVAR: FORUM_TITLE}] Oznámení nové soukromé zprávy
-# Fuzzy
-pm_notify_body_email:Máte novou soukromou zprávu s názvem "{VAR: subject}", od "{VAR: from}" na fóru "{gvar: FORUM_TITLE}". \nChcete-li zobrazit zprávu, klikněte zde: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nChcete-li zastavit další upozornění, vypněte "Oznámení soukormých zpráv" ve vašem profilu.
+pm_notify_body_email:Máte novou soukromou zprávu s názvem "{VAR: subject}", od "{VAR: from}" na fóru "{gvar: FORUM_TITLE}". \nChcete-li zobrazit zprávu, klikněte zde: {FULL_ROOT}?t=pmsg_view&id={VAR: pid}\n\nChcete-li zastavit další upozornění, vypněte "Oznámení soukormých zpráv" ve vašem profilu.
 register_pm_notification:Oznámení soukromých zpráv:
 register_pm_notification_desc:Je-li povoleno, budete upozorněni pokaždé když vám bude zaslána soukromá zpráva.
 findu_admin_opts_header:Možnosti Admina

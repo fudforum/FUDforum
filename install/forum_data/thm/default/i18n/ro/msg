@@ -1085,8 +1085,7 @@ move_messages:Mută mesajele
 move_msg_btn:Mută mesajele selectate
 captcha_img_alt:Verificare CAPTCHA: va trebui să recunoașteți textul din imagine.
 powered-by:Propulsat de: FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:Drepturi de autor &copy;2001-2012 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Drepturi de autor &copy;2001-2017 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Cod:
 code_select_all:Selectează tot
 code_show_hide:Arată / ascunde

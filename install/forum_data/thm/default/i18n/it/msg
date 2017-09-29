@@ -213,8 +213,7 @@ vote_button:Vota
 vote_for_thread:Vota l'argomento
 was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> è stato spostato in <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> dal moderatore.
 welcome_message:Benvenuto(a) <b>{VAR: usr->alias}</b>, la tua ultima visita è stata in data {TEMPLATE: welcome_message_date}
-# Fuzzy
-what_ppl_doing:mostra quello che fa la gente
+what_ppl_doing:Attività dell'utente
 reported_del_report:Cancella report
 reported_reason:Motivo:
 reported_on:Il:
@@ -382,8 +381,7 @@ my_buddies:Elenco amici
 add_buddy:Aggiungi amico
 add:Aggiungi
 buddy_search:Inserisci la login dell'utente che vuoi aggiungere.
-# Fuzzy
-member_search:O usa la funzionalità <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Ricerca utenter</a> per trovare una persona.
+member_search:O usa la funzionalità <a href="javascript://" onclick="javascript: window_open('{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Ricerca utente</a> per trovare una persona.
 buddy_remove:Rimuovi amico
 post_normal:Normale
 post_sticky:Evidenzia
@@ -679,8 +677,7 @@ register_err_avatarnotallowed:L'avatar che stai cercando di spedire non è ammes
 register_conf_subject:Conferma della registrazione
 register_conf_msg:Grazie per esserti registrato,\nPer attivare il tuo account vai cortesemente all'URL sotto indicato:\n\n{FULL_ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nOUna volta che il tuo account verrà attivato, tu risulterai loggato dentro al forum e\nverrai ridirezionato sulla pagina principale.
 register_welcome_subject:Conferma della registrazione al forum
-# Fuzzy
-register_welcome_msg:Grazie per esserti registrato,\n\necco i dettagli per effettuare il login al forum:\n\nForum URL: {TEMPLATE: index_update_lnk}\nLogin: {VAR: uent->login}\nPassword: {VAR: _POST['reg_plaintext_passwd']}\n\nRicordati che le password fanno distinzione tra MAIUSCOLE e minuscole!!\nPer modificare impostazioni e profilo utente, vai a questa pagina:\n{FULL_ROOT}{ROOT}?t=register
+register_welcome_msg:Grazie per esserti registrato,\n\necco i dettagli per effettuare il login al forum:\n\nForum URL: {TEMPLATE: index_update_lnk}\nLogin: {VAR: uent->login}\nPassword: {VAR: _POST['reg_plaintext_passwd']}\n\nRicordati che le password fanno distinzione tra MAIUSCOLE e minuscole!!\nPer modificare impostazioni e profilo utente, vai a questa pagina:\n{FULL_ROOT}?t=register
 register_err_cantreg_title:ERRORE: impossibile registrarsi
 regsiter_err_cantreg_msg:Impossibile creare l'account utente, contatta l'amministratore all'indirizzo <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:Guarda il suo profilo
@@ -727,8 +724,7 @@ error_title:Pagina di errore
 index_title:Benvenuto nel forum
 search_title:Ricerca {VAR-HTML: srch}
 remail_emailsent:L'email è stata spedita
-# Fuzzy
-remail_email:Salve,\nnel forum {GVAR: FORUM_TITLE} c'è un intervento a proposito di "{VAR: data->subject}" che ti potrebbe interessare. E' possibile vedere l'argomento all'indirizzo {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nCordialmente\n\n{VAR: usr->alias}
+remail_email:Salve,\nnel forum {GVAR: FORUM_TITLE} c'è un intervento a proposito di "{VAR: data->subject}" che ti potrebbe interessare. Puoi vedere l'argomento all'indirizzo {FULL_ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nCordialmente\n\n{VAR: usr->alias}
 poll_add_option:Aggiungi risposta:
 post_opt_html_on:L'<b>HTML</b> è <b>Attivo</b>
 post_opt_fud_on:<b><a href="{TEMPLATE: post_opt_fud_on_lnk}" target=_new>BBcode</b> è <b>ON</a></b>
@@ -970,8 +966,7 @@ group_resources:Questo gruppo controlla i permessi dei seguenti forum
 register_admin_newuser_title:Un nuovo utente si è registrato ed il suo account è in attesa di conferma
 register_admin_newuser_msg:Un nuovo utente ({VAR: uent->login}) si è appena registrato sul forum e poichè è attiva la conferma degli account, il suo account non sarà attivo finchè non venga confermato da te o dagli altri amministratori del forum. Per esaminare l'account per cortesia vai su: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nQuesto è un processo automatizzato, non replicare al presente messaggio.\nSe desideri disattivare le future notifiche e-mail sulla registrazione di nuovi utenti, puoi farlo tramite il Pannello di Controlo di Admin, cambiando il valore del settaggio di  "Notifica Nuovi Account".
 post_mod_msg_notify_title:Nuovi messaggi nel forum "{VAR: frm->name}" in attesa di approvazione
-# Fuzzy
-post_mod_msg_notify_msg:Un nuovo messaggio intitolato "{VAR: msg_post->subject}" è stato appena inserito in uno dei forum da te moderati. Per esaminare tale messaggio vai alla pagina: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nQuesto è un processo automatico, non rispondere al messaggio.
+post_mod_msg_notify_msg:Un nuovo messaggio intitolato "{VAR: msg_post->subject}" è stato appena inserito in uno dei forum da te moderati. Per esaminare tale messaggio vai alla pagina: {FULL_ROOT}?t=modque#{VAR: msg_post->id}\n\nQuesto è un processo automatico, non rispondere al messaggio.
 thread_printable_pdf:Genera un PDF stampabile
 thread_syndicate:Effettua la pubblicazione di questo forum (XML)
 reg_conf_title:Conferma della Registrazione
@@ -997,8 +992,7 @@ mnav_month:Mese/i
 mnav_title:Navigatore Messaggi
 mnav_update:Navigazione dei messaggi usando il <a href="{TEMPLATE: mnav_update_lnk}">Navigatore Messaggi</a>
 pm_notify_subject:[{GVAR: FORUM_TITLE}] Notifica di un nuovo Messaggio privato
-# Fuzzy
-pm_notify_body_email:Hai un nuovo messaggio privato intitolato "{VAR: subject}" provenente da "{VAR: from}" sul forum "{GVAR: FORUM_TITLE}" forum.\nPer visualizzare il messaggio clicca qui: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nPer bloccare future notifiche, disabilita "Notifica Messaggi Privati" sul tuo profilo.
+pm_notify_body_email:Hai un nuovo messaggio privato intitolato "{VAR: subject}" provenente da "{VAR: from}" sul forum "{GVAR: FORUM_TITLE}" forum.\nPer visualizzare il messaggio clicca qui: {FULL_ROOT}?t=pmsg_view&id={VAR: pid}\n\nPer bloccare future notifiche, disabilita "Notifica Messaggi Privati" sul tuo profilo.
 register_pm_notification:Notifica Messaggio Privato
 register_pm_notification_desc:Se abilitato, verrai notificato con il metodo di notifica scelto ogni qual volta ti saraà inviato un nuovo messaggio privato.
 findu_admin_opts_header:Opz. Admin
