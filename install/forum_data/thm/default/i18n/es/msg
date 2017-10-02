@@ -986,7 +986,7 @@ mnav_date_limit:Intervalo de fechas:
 mnav_forum_limit:Buscar solo en:
 mnav_all_forums:Buscar en todos los foros
 mnav_submit:Comenzar a buscar
-mnav_no_range:Debe introducir un rango de fechas válido. Este valor puede ser flotante (0.12) pero debe ser mayor de cero.
+mnav_no_range:Debes proporcionar un intervalo de fechas válido. Este valor puede contener una coma decimal (0,12), pero debe ser mayor que cero.
 mnav_invalid_unit:Debe especificar una unidad de tiempo válida.
 mnav_invalid_date:El intervalo de fechas especificado es mayor del permitido por el administrador. Prueba con un intervalo más pequeño.
 mnav_no_results:No hay mensajes que coincidan con el criterio de búsqueda.
@@ -1129,7 +1129,7 @@ move_msg_th_expl:Especificar el id. del tema de destino (puede estar en otros fo
 captcha_img_alt:Verificación captcha: necesitarás reconocer el texto en esta imagen.
 captcha_img_help:No hay cero o uno en la imagen
 powered-by:Impulsado por: FUDforum {GVAR: FORUM_VERSION}.
-copyright:Copyright &copy;2001-2017 <a href="http://fudforum.org/">FUDforum Software de tablón de anuncios</a>
+copyright:Derechos de autor &copy; 2001-2017 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Código:
 code_select_all:Seleccionar todo
 code_show_hide:Mostrar/ocultar

@@ -1,6 +1,7 @@
 # Messages for Swedish (svenska)
 # Exported from translatewiki.net
 # Author: Ainali
+# Author: Bengtsson96
 # Author: Ernesto
 # Author: Jopparn
 # Author: Josve05a
@@ -215,8 +216,7 @@ vote_button:Rösta
 vote_for_thread:Rösta
 was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> är flyttat till <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> av en moderator.
 welcome_message:Välkommen <b>{VAR: usr->alias}</b>! Ditt senaste besök var {TEMPLATE: welcome_message_date}
-# Fuzzy
-what_ppl_doing:visa vad folk håller på med
+what_ppl_doing:Användaraktivitet
 reported_del_report:Radera rapport
 reported_reason:Anledning:
 reported_on:Tid:
