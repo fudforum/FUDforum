@@ -7,6 +7,7 @@
 # Author: Glanthor Reviol
 # Author: Macofe
 # Author: Naudefj
+# Author: Tacsipacsi
 
 action:Művelet
 add_to_buddy_list:hozzáadás a barátok listájához
@@ -364,7 +365,7 @@ register_timezone:Időzóna:
 register_ignore_admin:Adminisztratív üzenetek figyelmen kívül hagyása:
 register_invisible_mode:Rejtett mód:
 register_invisible_mode_desc:Az elérhetőséged elrejtése.
-register_show_email:E-mail cím megjelenítése:
+register_show_email:E-mail-cím megjelenítése:
 register_show_email_desc:Válaszd ezt a lehetőséget, ha nem szeretnéd, hogy mások lássák az e-mail címedet.
 register_notification:Az értesítés legyen kijelölve alapértelmezettként:
 register_notification_desc:Ha az értesítés ki van kapcsolva alapértelmezettként, üzenet írásakor ki lehet kapcsolni.
@@ -664,7 +665,7 @@ register_err_loginunique:A bejelentkezési neveknek egyedieknek kell lenniük. M
 register_err_emailexists:Ez az e-mail cím már hozzá van rendelve egy fiókhoz. Ha elfelejtetted a jelszavadat, használd az új jelszó kérése lehetőséget az újraregisztráció helyett.
 register_err_shortpasswd:A jelszónak legalább 6 karakter hosszúnak kell lennie.
 register_err_passwdnomatch:A megadott jelszavak nem egyeznek, próbáld újra.
-register_err_invalidemail:Az általad megadott e-mail cím nem tűnik érvényesnek.
+register_err_invalidemail:Az általad megadott e-mail-cím nem tűnik érvényesnek.
 register_err_needname:A regisztráció sikeres befejezéséhez meg kell adnod a nevedet.
 register_err_enterpasswd:Meg kell adnod a jelenlegi jelszavadat a változtatások mentéséhez.
 register_err_adminpasswd:Meg kell adnod az <b>adminisztrátori</b> jelszavadat a változtatások mentéséhez.

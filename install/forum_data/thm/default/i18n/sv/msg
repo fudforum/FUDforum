@@ -22,7 +22,7 @@ admin:Admin
 admin_control_panel:Administration
 administrator:Administratör
 attachment:Bilaga:
-avatar:Visningsbild:
+avatar:Avatar:
 average_post_count:{PLURAL: u->posted_msg_count|$1 inlägg|$1 inlägg} ({PLURAL: avg|$1 inlägg|$1 inlägg}  i genomsnitt per dag)
 biography:Biografi:
 birth_date:Födelsedatum:
@@ -384,8 +384,7 @@ my_buddies:Mina kompisar
 add_buddy:Lägg till kompis
 add:Lägg till
 buddy_search:Ange användarnamnet på peronen du vill lägga till.
-# Fuzzy
-member_search:Eller använd <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Användarsöknings</a> funtionen för att hitta personen.
+member_search:Eller använd <a href="javascript://" onclick="javascript: window_open('{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Användarsökningsfunktionen</a> för att hitta en person.
 buddy_remove:ta bort
 post_normal:Normal
 post_sticky:Klibbig
@@ -681,8 +680,7 @@ register_err_avatarnotallowed:Avataren du försöker skicka är inte tillåten. 
 register_conf_subject:Bekräftelse av forumregistrering
 register_conf_msg:Tack för din registrering!\nGå till adressen nedan för att aktivera ditt medlemskonto:\n\n{FULL_ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nEfter att ditt konto blivit aktiverat blir du inloggad på forumet och \nvidareskickad till huvudsidan.
 register_welcome_subject:Välkommen till forumet
-# Fuzzy
-register_welcome_msg:Tack för din registrering!\n\nHär är dina inloggnignsuppgifter för forumet:\n\nForumets URL: {TEMPLATE: index_update_lnk}\nAnvändarnamn: {VAR: uent->login}\nLösenord: {VAR: _POST['reg_plaintext_passwd']}\n\nNotera att det är skillnad på små och stora bokstäver i lösenordet!\nVill du ändra inställningarna och din profil skall du gå till den här sidan:\n{FULL_ROOT}{ROOT}?t=register
+register_welcome_msg:Tack för din registrering!\n\nHär är dina inloggningsuppgifter för forumet:\n\nForumets adress: {TEMPLATE: index_update_lnk}\nAnvändarnamn: {VAR: uent->login}\nLösenord: {VAR: _POST['reg_plaintext_passwd']}\n\nObservera att det är skillnad på små och stora bokstäver i lösenordet!\nVill du ändra inställningarna och din profil ska du gå till den här sidan:\n{FULL_ROOT}?t=register
 register_err_cantreg_title:FEL: kan inte registrera
 regsiter_err_cantreg_msg:Kan inte skapa användarkonto, vänligen kontakta administratorn på adressen <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:Visar sin egen profil
@@ -694,7 +692,7 @@ reset_err_invalidkey_msg:Ogiltig kod får återställning av lösenord
 reset_err_rstconf_title:Information
 reset_err_rstconf_msg:Du torde få instruktioner per e-post inom ett par minuter
 reset_newpass_title:Nollställ lösenord
-reset_newpass_msg:Hej!\n\nEnligt önskemål har ditt användarnamn och ditt lösenord skickats till dig.\nHär är dina inloggningsuppgifter:\n\nAnvändarnamn: {VAR: ui[1]}\nLösenord: {VAR: passwd}\n\nNotera att ditt lösenord har ändrats till ovanstående. Om du vill\nändra ditt lösenord kan du göra det i medlemmens kontrollpanel:\n{FULL_ROOT}?t=register
+reset_newpass_msg:Hej!\n\nEnligt önskemål har ditt användarnamn och ditt lösenord skickats till dig. Här är dina inloggningsuppgifter:\n\nAnvändarnamn: {VAR: ui[1]}\nLösenord: {VAR: passwd}\n\nNotera att ditt lösenord har ändrats till ovanstående. Om du vill ändra ditt lösenord kan du göra det på kontrollpanelen:\n{FULL_ROOT}?t=register
 reset_login_notify:Ditt lösenord har skickats åt dig per e-post och borde komma fram inom ett par minuter.
 search_update:Söker bland inläggen
 selmsg_update:Läser <a href="{TEMPLATE: selmsg_update_lnk}">Dagens inlägg</a>
@@ -729,8 +727,7 @@ error_title:FEL
 index_title:Välkommen till forumet
 search_title:Sök {VAR-HTML: srch}
 remail_emailsent:E-posten skickad
-# Fuzzy
-remail_email:Hej, det finns ett intressant ämne om"{VAR: data->subject}" på {GVAR: FORUM_TITLE} forum som du kanske vill läsa. Du kan se ämnet här:\n {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nDin vän,\n\n{VAR: usr->alias}
+remail_email:Hej,\n\nDet finns ett intressant ämne om "{VAR: data->subject}" på forumet {GVAR: FORUM_TITLE} som du kanske vill läsa. Du kan se ämnet här:\n {FULL_ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nDin vän,\n\n{VAR: usr->alias}
 poll_add_option:Lägg till alternativ:
 post_opt_html_on:<b>HTML</b>-kod är <b>PÅ</b>
 post_opt_fud_on:<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>FUD-kod</b> är <b>PÅ</b></a>
@@ -964,7 +961,7 @@ thread_mark_all_read:markera alla olästa forums meddelanden lästa
 thread_mark_all_read_desc:Alla olästa meddelanden i detta forum kommer att markeras som lästa.
 private_no_messages:Det finns inga meddelanden i denna mapp
 register_email_change_subject:Verifiering av ändrad e-postadress
-register_email_change_msg:Vänligen verifiera ditt nya e-postadres "{VAR: uent->email}" som ersätter din gamla adress "{VAR: old_email}" genom att besöka länken under:\n{FULL_ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nNär du verifierat din nya adress, kommer ditt konto aktiveras igen.
+register_email_change_msg:Verifiera gärna din nya e-postadres "{VAR: uent->email}" som ersätter din gamla adress "{VAR: old_email}" genom att besöka:\n{FULL_ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nDitt konto kommer aktiveras igen när du verifierat din nya adress.
 iemail_thread_unsub:Avbeställ denna tråd
 iemail_forum_unsub:Avbeställ detta forum
 primary_group_prefix:Primär grupp för forum:
@@ -972,8 +969,7 @@ group_resources:Denna grupp kontrollerar rättigheterna för följande forum
 register_admin_newuser_title:En ny medlem har registrerat sig och väntar på att kontot skall bekräftas
 register_admin_newuser_msg:Den nya medlemmen {VAR: uent->login} har just registrerat sig på forumet. Eftersom kontobekräftelsefunktionen är på måste du eller någon annan av forumadministratörerna bekräfta konto innan det kan aktiveras. Gå till {GVAR: WWW_ROOT}adm/admuserapr.php för att kontrollera kontot.\n\nDet här är en automatiserad process. Svara inte på detta meddelande.\nOm du inte vill ha ytterligare meddelanden om nya medlemmar som registrerar sig kan du koppla bort dem i Administratörens kontrollpanel. Funktionen heter "New Account Notification".
 post_mod_msg_notify_title:Ett nytt meddelande i forumet "{VAR: frm->name}" väntar på godkännande
-# Fuzzy
-post_mod_msg_notify_msg:Ett nytt meddelande med rubriken "{VAR: msg_post->subject}" har nyligen skrivits i ett forum som du modererar. Gå till: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id} för att se meddelandet.\n\nDet här är en automatiserad process. Svara inte på detta meddelande.
+post_mod_msg_notify_msg:Ett nytt meddelande med rubriken "{VAR: msg_post->subject}" skrevs nyligen på ett forum som du modererar. Gå till {FULL_ROOT}?t=modque#{VAR: msg_post->id} för att se meddelandet.\n\nDet här är ett automatiskt meddelande. Svara inte på det.
 thread_printable_pdf:Gör utskriftsvänlig PDF
 thread_syndicate:Syndikera det här forumet (XML)
 reg_conf_title:Registreringsverifiering
@@ -998,9 +994,8 @@ mnav_week:Vecka/or
 mnav_month:Månad(er)
 mnav_title:Meddelandenavigatorn
 mnav_update:Bläddra Meddelanden användandes <a href="{TEMPLATE: mnav_update_lnk}">Meddelandenavigatorn</a>
-pm_notify_subject:[{GVAR: FORUM_TITLE}] Du har ett Nytt Privat Meddelande
-# Fuzzy
-pm_notify_body_email:Du har ett nytt privat meddelande titulerat "{VAR: subject}" från "{VAR: from}" på "{GVAR: FORUM_TITLE}" forumet.\nFör att läsa detta meddelande klicka här: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nFör att sluta mottaga meddelanden som detta, stäng av "Meddela mig när jag får Privata Meddelanden" i din profil.
+pm_notify_subject:[{GVAR: FORUM_TITLE}] Notifikation om nytt privat meddelande
+pm_notify_body_email:Du har ett nytt privat meddelande med rubriken "{VAR: subject}" från "{VAR: from}" på forumet "{GVAR: FORUM_TITLE}".\nKlicka här för att läsa detta meddelande: {FULL_ROOT}?t=pmsg_view&id={VAR: pid}\n\nFör att inte få meddelanden som detta i framtiden stänger du av "Notifikation om nytt privat meddelande" på din profil.
 register_pm_notification:Meddela mig när jag får Privata Meddelanden
 register_pm_notification_desc:Välj det här alternativet för att få ett meddelande med vald metod när ett privat meddelande skickas till dig.
 findu_admin_opts_header:Admin Alternativ.
@@ -1128,7 +1123,7 @@ move_msg_th_expl:Specificera ID på destinationsämnet (kan vara i andra fora)
 captcha_img_alt:Caotcha verifiering: du måste tolka texten i denna bild.
 captcha_img_help:Det finns ingen nolla eller etta i bilden.
 powered-by:Drivs av: FUDforum {GVAR: FORUM_VERSION}.
-copyright:Copyright &copy;2001-2017 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Copyright &copy;2001–2017 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Kod:
 code_select_all:Välj alla
 code_show_hide:Visa / dölj
