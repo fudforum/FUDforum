@@ -202,6 +202,7 @@ yes:Jo
 no:Neen
 register_email:Mail
 pmuserloc_login:Aloggen:
+pmuserloc_submit:Schécken
 pmuserloc_user:Benotzer
 pmuserloc_no_result:Kee Resultat
 register_specify_url:Spezifizéiert d'URL
@@ -413,6 +414,7 @@ post_opt_images_off:<b>Biller</b> sinn <b>DESAKTIVÉIERT</b>
 register_change_passwd:Passwuert änneren
 move_reason:Grond fir d'Thema ze réckelen:
 thr_exch_accept:Thema akzeptéieren
+thr_exch_submit:Schécken
 split_thread:thema opdeelen
 groupmgr_yes:Jo
 groupmgr_no:Neen
