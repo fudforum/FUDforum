@@ -695,7 +695,7 @@ reset_err_invalidkey_msg:Clé de réinitialisation de mot de passe invalide
 reset_err_rstconf_title:Information
 reset_err_rstconf_msg:Vous devriez recevoir des instructions par courriel dans quelques minutes.
 reset_newpass_title:Réinitialisation du mot de passe
-reset_newpass_msg:Bonjour,\n\nveuillez trouver ci-joint les informations dont vous avez besoin pour accéder au forum :\n\n\nNom d'utilisateur: {VAR: ui[1]}\nMot de passe: {VAR: passwd}\n\nNotez que vous pouvez modifier votre mot de passe à tout moment via le panneau de configuration de votre profil sur le site du forum, également accessible à l'URL suivante:\n{FULL_ROOT}?t=register
+reset_newpass_msg:Bonjour,\n\nVeuillez trouver ci-joint les informations dont vous avez besoin pour accéder au forum :\n\n\nNom d'utilisateur: {VAR: ui[1]}\nMot de passe: {VAR: passwd}\n\nNotez que vous pouvez modifier votre mot de passe à tout moment via le panneau de configuration de votre profil sur le site du forum, également accessible à l'URL suivante:\n{FULL_ROOT}?t=register
 reset_login_notify:Votre mot de passe vous a été envoyé par courriel. Vous devriez le recevoir dans les prochaines minutes.
 search_update:Recherche des messages
 selmsg_update:Parcourt les <a href="{TEMPLATE: selmsg_update_lnk}">messages envoyés aujourd'hui</a>

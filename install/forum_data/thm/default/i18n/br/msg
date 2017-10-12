@@ -207,8 +207,7 @@ vote_button:Votiñ
 vote_for_thread:Mouezh
 was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> zo bet dilec'hiet da <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> gant an hanterour
 welcome_message:Degemer mat deoc'h, <b>{VAR: usr->alias}</b>. D'an {TEMPLATE: welcome_message_date} e oa ho kweladenn diwezhañ
-# Fuzzy
-what_ppl_doing:Diskouez petra emañ an dud oc'h ober
+what_ppl_doing:Obererezh an implijer
 reported_del_report:Dilemel un danevell
 reported_reason:Abeg :
 reported_on:D'an :
