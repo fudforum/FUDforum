@@ -587,7 +587,7 @@ buddy_list_err_ignore:Cannot add users who ignore you to your buddy list.
 buddy_list_update:Browsing own buddy list
 core_err_invinp_title:Invalid Input
 core_err_invinp_err:You have followed an invalid link. Please notify the <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a> how you got here.
-core_adm_login_msg:Administrators can login <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">here</a>.
+core_adm_login_msg:Administrators can login <a href="{BASE}adm/admloginuser.php">here</a>.
 email_err_unabletoemail_title:ERROR: Unable to e-mail
 email_err_unabletoemail_msg:The e-mail system has been disabled by the administrator.
 email_error_unabletolocaddr:Sorry, the system was unable to e-mail {VAR-HTML: _POST['tx_name']} because it was unable to determine the e-mail address
@@ -956,7 +956,7 @@ iemail_forum_unsub:Unsubscribe from this forum
 primary_group_prefix:Primary group for forum:
 group_resources:This group controls permissions of the following forums
 register_admin_newuser_title:A new user has registered and their account is pending confirmation
-register_admin_newuser_msg:A new user ({VAR: uent->login}) has just registered, and since account confirmation is enabled, their account will not become active until it is confirmed by you or another forum administrator. To review the account please go to: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nThis is an automated process. Do not reply to this message.\nIf you want to turn off future e-mail notifications of new user registrations, you can do so via the Admin Control Panel. Change the "New Account Notification" setting.
+register_admin_newuser_msg:A new user ({VAR: uent->login}) has just registered, and since account confirmation is enabled, their account will not become active until it is confirmed by you or another forum administrator. To review the account please go to: {FULL_ROOT}adm/admuserapr.php\n\nThis is an automated process. Do not reply to this message.\nIf you want to turn off future e-mail notifications of new user registrations, you can do so via the Admin Control Panel. Change the "New Account Notification" setting.
 post_mod_msg_notify_title:New message in forum "{VAR: frm->name}" pending approval
 post_mod_msg_notify_msg:A new message titled "{VAR: msg_post->subject}" was just posted in a forum that you moderate. To review this message go to: {FULL_ROOT}?t=modque#{VAR: msg_post->id}\n\nThis is an automated process. Do not reply to this message.
 thread_printable_pdf:Generate printable PDF
