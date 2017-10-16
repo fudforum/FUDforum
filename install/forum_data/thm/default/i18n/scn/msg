@@ -590,6 +590,7 @@ buddy_list_err_ignore:Non ge puè aggiungere utinde ca te cacane jndr'à l'eleng
 buddy_list_update:Stoche a sfoglie l'elenghe de l'amice
 core_err_invinp_title:Ingresse invalide
 core_err_invinp_err:E' seguite 'nu collegamende invalide. Pe piacere notifiche a 'u <a href="mailto:{GVAR: ADMIN_EMAIL}">webmestre</a> cumme tu è arrivate aqquà.
+# Fuzzy
 core_adm_login_msg:L'amministrature ponne trasè <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">aqquà</a>.
 email_err_unabletoemail_title:ERRORE: Non ge pozze manna l'email
 email_err_unabletoemail_msg:'U sisteme de email ha state disabbilitate da l'amministratore.
@@ -960,6 +961,7 @@ iemail_forum_unsub:Livete da stu forum
 primary_group_prefix:Gruppe primarie pu forum:
 group_resources:Stu gruppe condrolle le permesse de le forum ca seguone
 register_admin_newuser_title:'N'utende nuève ha state reggistrate e 'u cunde sue stè in attese de approvazione
+# Fuzzy
 register_admin_newuser_msg:'N'utende nuève ({VAR: uent->login}) s'ha appene reggistrate, e da quanne 'a conferme d'u cunde jè abbilitate, le cunde lore non ge onne devendate attive 'nzgine ca lore non g'avènene confermate da te o da 'n'otre amministratore. Pe revedè 'u cunde pe piacere vèje: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nQUiste jè 'nu processe automateche. Nò responnere a stu messàgge.\nCe tu vuè luà le notifiche de le email future de reggistraziune de utinde nuève, tu puè farle da 'u Pannelle de Controlle de l'Amministratore. Cange le 'mbostaziune de "Notifiche de cunde nuève".
 post_mod_msg_notify_title:Messàgge muève jndr'à u forum "{VAR: frm->name}" in attese de approvazione
 # Fuzzy

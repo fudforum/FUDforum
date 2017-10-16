@@ -588,6 +588,7 @@ buddy_list_err_ignore:Tað ber ikki til at leggja afturat brúkarar, sum ignorer
 buddy_list_update:Hygg í gjøgnum tín egna vinalista
 core_err_invinp_title:Ikki loyvd inntastan
 core_err_invinp_err:Tú hevur fylgt einari skeivari leinkju. Vinarliga fortel fyri <a href="mailto:{GVAR: ADMIN_EMAIL}">netumsitaranum</a> hvussu tú komst higar.
+# Fuzzy
 core_adm_login_msg:Administratorar kunnu rita inn <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">her</a>.
 email_err_unabletoemail_title:FEILUR: Tað ber ikki til at senda t-post
 email_err_unabletoemail_msg:T-post skipanin er gjørd óvirkin av administrator.
@@ -957,6 +958,7 @@ iemail_forum_unsub:Frámelda hald til hetta forumið
 primary_group_prefix:Høvuðsbólkur fyri forumið:
 group_resources:Hesin bólkur stýrir loyvum hjá fylgjandi forum
 register_admin_newuser_title:Ein nýggjur brúkari hevur skrásett seg og kontan hjá viðkomandi bíðar eftir váttan
+# Fuzzy
 register_admin_newuser_msg:Ein nýggjur brúkari ({VAR: uent->login}) hevur júst skrásett seg, og eftirsum kontováttan er aktiverað, so verður kontan hjá viðkomandi ikki aktiverað fyrr enn tú ella onkur annar forum administrator hevur váttað hana. Fyri at hyggja at kontuni, vinarliga far til: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nHetta er ein sjálvvirkandi gongd. Ikki svara hesum boðnum. \nUm tú ynskir at sløkkja fyri t-post fráboðanum um nýggjar brúkara skrásetingar framyvir, so kanst tú gera tað á  Admin Control Panel. Broyt innstillingina fyri "Fráboðan um nýggja konto".
 post_mod_msg_notify_title:Nýtt innslag í forum "{VAR: frm->name}" bíðar eftir góðkenning
 # Fuzzy

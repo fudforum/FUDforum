@@ -600,6 +600,7 @@ buddy_list_err_ignore:あなたを無視している利用者を友達リスト�
 buddy_list_update:自分の友達リストを見ています
 core_err_invinp_title:無効な入力
 core_err_invinp_err:無効なリンクを辿りました。どうやってここに着いたか<a href="mailto:{GVAR: ADMIN_EMAIL}">サイト管理者</a>に知らせてください。
+# Fuzzy
 core_adm_login_msg:管理者は<a href="{GVAR: WWW_ROOT}adm/admloginuser.php">ここ</a>でログインできます。
 email_err_unabletoemail_title:エラー: メールを送信できません
 email_err_unabletoemail_msg:管理者がメールシステムを無効にしています。
@@ -968,6 +969,7 @@ iemail_forum_unsub:このフォーラムの購読停止
 primary_group_prefix:フォーラムの第一グループ:
 group_resources:このグループは次のフォーラムの権限を制御します
 register_admin_newuser_title:新規利用者が登録しました。アカウントは確認待ちです。
+# Fuzzy
 register_admin_newuser_msg:新規利用者 ({VAR: uent->login}) がただ今登録しました。アカウントの確認が有効になっているため、その利用者のアカウントはあなたか他のフォーラム管理者によって確認されるまで有効化されません。このアカウントを審査するには、{GVAR: WWW_ROOT}adm/admuserapr.php にアクセスしてください。\n\nこれは自動化された処理です。このメッセージに返信しないでください。\n新規利用者の登録に関するメール通知を今後受け取りたくない場合は、管理者コントロールパネルで止めることができます。「New Account Notification」設定で変更します。
 post_mod_msg_notify_title:フォーラム「{VAR: frm->name}」で承認待ちの新規メッセージ
 # Fuzzy

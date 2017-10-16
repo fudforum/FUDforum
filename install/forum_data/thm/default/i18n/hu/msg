@@ -596,6 +596,7 @@ buddy_list_err_ignore:Nem adhatod hozzá azokat a felhasználókat a barátaid l
 buddy_list_update:A saját barátjainak listáját böngészi
 core_err_invinp_title:Érvénytelen bemenet
 core_err_invinp_err:Egy érvénytelen hivatkozást követtél. Értesítsd a <a href="mailto:{GVAR: ADMIN_EMAIL}">webmestert</a>, hogyan kerültél ide.
+# Fuzzy
 core_adm_login_msg:Az adminisztrátorok <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">itt</a> jelentkezhetnek be.
 email_err_unabletoemail_title:HIBA: Nem sikerült az e-mail elküldése
 email_err_unabletoemail_msg:Az e-mail-rendszert letiltotta az adminisztrátor.
@@ -964,6 +965,7 @@ iemail_forum_unsub:Leiratkozás erről a fórumról
 primary_group_prefix:A fórum elsődleges csoportja:
 group_resources:Ez a csoport a következő fórum jogosultságait vezérli
 register_admin_newuser_title:Új felhasználó regisztrált, és fiókja megerősítésre vár
+# Fuzzy
 register_admin_newuser_msg:Egy új felhasználó ({VAR: uent->login}) regisztrált, és mivel a fiókok megerősítése engedélyezve van, a fiókja nem lesz aktív, amíg te, vagy egy másik adminisztrátor nem erősíti meg. A fiók ellenőrzéséhez látogass el ide: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nEz egy automatikusan generált üzenet, ne válaszolj rá.\nHa ki szeretnéd kapcsolni a további értesítéseket, az adminisztrátori vezérlőpulton megteheted. Módosítsd az "Értesítés új fiókregisztrációkról" beállítást.
 post_mod_msg_notify_title:Új üzenet vár elfogadásra a(z) "{VAR: frm->name}" fórumban
 # Fuzzy

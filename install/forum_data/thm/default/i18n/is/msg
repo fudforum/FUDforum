@@ -593,6 +593,7 @@ buddy_list_err_ignore:Mistókst að bæta við notanda sem er að hunsa þig
 buddy_list_update:Skoða eigin félaga lista
 core_err_invinp_title:Vitlaust inntak
 core_err_invinp_err:Þú hefur fylgt ógildum tengli. Vinsamlegast tilkynntu <a href="mailto:{GVAR: ADMIN_EMAIL}">kerfistjóra</a> hvernig þú komst hingað.
+# Fuzzy
 core_adm_login_msg:Stjórnendur geta skráð sig inn<a href="{GVAR: WWW_ROOT}adm/admloginuser.php">hér</a>.
 email_err_unabletoemail_title:VILLA: Mistókst að senda tölvupóst
 email_err_unabletoemail_msg:Slökkt hefur verið á tölvupóst kerfinu af stjórnanda.
@@ -961,6 +962,7 @@ iemail_forum_unsub:Hætta áskrift á umræðu
 primary_group_prefix:Helsti hópur spjallborðsins:
 group_resources:Þessi hópur stjórnar réttindum eftirfarandi umræðna
 register_admin_newuser_title:Nýr notandi hefur skráð sig og aðgangur hans er í bið eftir staðfestingu
+# Fuzzy
 register_admin_newuser_msg:Nýr notandi ({VAR: uent->login}) hefur skráð sig og fyrst að staðfesting aðganga er virk, þá verður aðgangur þeirra ekki virkur fyrr en hann hefur verið samþykktur af þér eða öðrum stjórnanda. Til að skoða aðganginn vinsamlegast farðu á: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nÞetta eru sjálfvirk skilaboð. Ekki svara þessum skilaboðum.\nEf þú villt slökkva á þeim möguleika að fá tölvupóst yfir nýjar notendaskráningar, þá getur þú gert það í stjórnborði stjórnenda. Breyttu möguleikanum "Tilkynningar um nýja aðganga".
 post_mod_msg_notify_title:Ný skilaboð í umræðunni "{VAR: frm->name}" í bið eftir staðfestingu
 # Fuzzy

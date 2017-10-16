@@ -601,6 +601,7 @@ buddy_list_err_ignore:No pot afegir usuaris que l`ignoren a la seva llista d`ami
 buddy_list_update:Recorreguent la llista d`amics
 core_err_invinp_title:L`entrada no és vàlida
 core_err_invinp_err:Ha seguit un enllaç que no és vàlid. Si us plau, informi d`això al  <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a>
+# Fuzzy
 core_adm_login_msg:Els administradors poden iniciar sessió <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">aquí</a>.
 email_err_unabletoemail_title:ERROR: No ha estat possible enviar el correu
 email_err_unabletoemail_msg:El sistema de correu electrònic ha estat desactivat per l`administrador.
@@ -970,6 +971,7 @@ iemail_forum_unsub:Desubscriure`s d`aquest fòrum
 primary_group_prefix:Grup principal per als fòrums:
 group_resources:Aquest grup controla els permisos dels fòrums següents
 register_admin_newuser_title:S`ha enregistrat un usuari nou i el seu compte està  pendent de confirmació
+# Fuzzy
 register_admin_newuser_msg:Un usuari nou, ({VAR: uent->login}), acaba d`enregistrar-se en els fòrums, i com està  activada la confirmació del compte, el seu compte no estarà actiu fins que Vostè o un altre administrador dels fòrums el confirmi. Per a revisar el compte, si us plau, vagi a: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nAquest és un procés automatizat, no respongui a aquest missatge.\nSi desitja desactivar futures notificacions de registre de nous usuaris, pot fer-ho usant el Panell de Control d`administració, canviant el valor de l`opció "Notificació de compte nou".
 post_mod_msg_notify_title:Un nou missatge en els fòrums amb l`assumpte "{VAR: frm->name}" està  pendent d`aprovació
 # Fuzzy

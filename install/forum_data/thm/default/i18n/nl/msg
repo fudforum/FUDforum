@@ -597,6 +597,7 @@ buddy_list_err_ignore:Het is niet mogelijk om gebruikers die u negeren toe te vo
 buddy_list_update:Eigen vriendenlijst aan het bekijken
 core_err_invinp_title:Ongeldige invoer
 core_err_invinp_err:U hebt een ongeldige koppeling gevolgd. Neem contact op met de <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a> en geef aan hoe u hier bent gekomen.
+# Fuzzy
 core_adm_login_msg:<a href="{GVAR: WWW_ROOT}adm/admloginuser.php">Aanmelden als beheerder</a>
 email_err_unabletoemail_title:FOUT: het was niet mogelijk om een e-mail te verzenden
 email_err_unabletoemail_msg:Het e-mailsysteem is uitgeschakeld door de beheerder.
@@ -965,6 +966,7 @@ iemail_forum_unsub:Abonnement op dit forum opheffen
 primary_group_prefix:Primaire groep voor forum:
 group_resources:Deze groep beheert de rechten voor de volgende forums
 register_admin_newuser_title:Een nieuwe gebruiker heeft zich geregistreerd en moet nog bevestigd worden
+# Fuzzy
 register_admin_newuser_msg:De nieuwe gebruiker {VAR: uent->login} is zojuist aangemeld voor het forum. Omdat gebruikersbevestiging is ingeschakeld, is de gebruiker pas bruikbaar nadat u of een andere beheeder de gebruiker bevestigt. Ga voor bevestigen naar: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nDit is een automatisch verzonden bericht. Antwoord hier niet op.\nE-mailberichten over nieuwe gebruikers uitschakelen is mogelijk via de instelling "Waarschuwingen nieuwe gebruikers" in de beheerdersinstellingen.
 post_mod_msg_notify_title:Nieuw bericht in het forum "{VAR: frm->name}" wacht op goedkeuring
 # Fuzzy

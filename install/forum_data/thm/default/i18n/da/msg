@@ -596,6 +596,7 @@ buddy_list_err_ignore:Kan ikke tilføje brugere, der ignorere dig, til din venne
 buddy_list_update:Gennemse egen venneliste
 core_err_invinp_title:Ugyldig indtastning
 core_err_invinp_err:Du har fulgt et ugyldigt link. Giv venligst <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a> besked om hvordan du kom hertil.
+# Fuzzy
 core_adm_login_msg:Administratorer kan logge på <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">her</a>.
 email_err_unabletoemail_title:FEJL: Kunne ikke sende e-mail
 email_err_unabletoemail_msg:E-mail systemet er blevet deaktiveret af administratoren.
@@ -962,6 +963,7 @@ iemail_forum_unsub:Stop abonnement på dette forum
 primary_group_prefix:Primær gruppe for forum:
 group_resources:Denne gruppe kontrollerer tilladelserne for følgende fora
 register_admin_newuser_title:En ny bruger har registreret sig hvis konto mangler godkendelse
+# Fuzzy
 register_admin_newuser_msg:En ny bruger ({VAR: uent->login}) har netop tilmeldt sig, og da godkendelse er aktiveret, kan vedkommende ikke tage sin konto i brug, før den er godkendt af dig eller en anden forum administrator. For at undersøge denne konto skal du gå til: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nDette er en automatiseret proces. Undlad at besvare denne besked.\nHvis du ønsker at afmelde fremtidige e-mail meddelelser om nye brugerregistreringer, kan du gøre det via administrationskonsollens kontrolpanel. Ændre "Ny konto notifikation" indstillingen.
 post_mod_msg_notify_title:Nyt indlæg i forum "{VAR: frm->name}" venter på godkendelse
 post_mod_msg_notify_msg:Et nyt indlæg med titlen »{VAR: msg_post->subject}« er lavet i et forum, som du reviderer. For at se og revidere indlægget gå til: {FULL_ROOT}?t=modque#{VAR: msg_post->id}\n\nDette er en automatiseret proces. Svar ikke på denne meddelelse.

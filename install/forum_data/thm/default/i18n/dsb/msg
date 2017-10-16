@@ -560,6 +560,7 @@ buddy_list_err_dup:Maš toś togo wužywarja na swójej lisćinje pśijaśelow
 buddy_list_err_nouser:Wužywaŕ, kótaregož wopytujoš swójej lisćinje pśijaśelow pśidaś, njejo se namakał.
 buddy_list_err_nouser_title:Wužywaŕ njedajo se pśidaś
 core_err_invinp_title:Njepłaśiwe zapódaśe
+# Fuzzy
 core_adm_login_msg:Administratory mógu se <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">how</a> pśizjawiś.
 email_err_unabletoemail_title:ZMÓLKA: E-mail njedajo se rozesłaś
 email_err_unabletoemail_msg:E-mailowy system jo se wót administratora znjemóžnił.

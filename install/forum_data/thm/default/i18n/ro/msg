@@ -578,6 +578,7 @@ buddy_list_update:Navigare in lista cu prieteni
 core_err_invinp_title:Introducere gresita
 # Fuzzy
 core_err_invinp_err:Ati ales o adresa gresita
+# Fuzzy
 core_adm_login_msg:Administratorii se pot autentifica <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">aici</a>
 email_err_unabletoemail_title:EROARE: nu pot trimite email
 email_err_unabletoemail_msg:Sistemul de trimitere al email-urilor a fost dezactivat de administrator

@@ -594,6 +594,7 @@ buddy_list_err_ignore:Používateľ, ktorý Vás ignoruje sa nedá pridať do zo
 buddy_list_update:Prezerá si vlastný zoznam priateľov
 core_err_invinp_title:Neplatný vstup
 core_err_invinp_err:Nasledovali ste neplatný odkaz. Prosím, oznámte to <a href="mailto:{GVAR: ADMIN_EMAIL}">administrátorovi</a>.
+# Fuzzy
 core_adm_login_msg:Administrátori sa môžu prihlásiť <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">tu</a>.
 email_err_unabletoemail_title:CHYBA: Nie je možné poslať e-mail
 email_err_unabletoemail_msg:E-mailový systém bol vypnutý administrátorom.
@@ -962,6 +963,7 @@ iemail_forum_unsub:Odhlásiť z tohoto fóra
 primary_group_prefix:Primárna skupina pre fórum:
 group_resources:Táto skupina kontroluje práva pre nasledujúce fóra
 register_admin_newuser_title:Nový používateľ sa zaregistroval a jeho účet čaká na schválenie
+# Fuzzy
 register_admin_newuser_msg:Nový používateľ ({VAR: uent->login}) sa práve zaregistroval. Je zapnuté potvrdzovanie účtov, tento účet nebude aktivovaný pokým ho Vy alebo iný administrátor na  fóre nepotvrdí. Ak si prajete tento používateľský účet skontrolovať, prejdite na: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nTáto správa je vygenerovaná serverom, prosím, neodpovedajte na ňu.\nAk chcete vypnúť ďalšie e-mailové oznamy nových registrácií, môžete tak urobiť cez Nastavenia správcov, zmenením nastavenia "Oznámenia nových používateľských účtov".
 post_mod_msg_notify_title:Nový príspevok vo fóre "{VAR: frm->name}" na schválenie
 # Fuzzy

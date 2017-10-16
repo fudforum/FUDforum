@@ -594,6 +594,7 @@ buddy_list_err_ignore:Ne možete dodati korisnike koji vas ignorišu na spisak p
 buddy_list_update:Pregledanje spiska prijatelja
 core_err_invinp_title:Neispravan ulaz
 core_err_invinp_err:Pratili ste neispravnu vezu. Obavestite <a href="mailto:{GVAR: ADMIN_EMAIL}">administratora</a> o grešci.
+# Fuzzy
 core_adm_login_msg:Administratori se mogu prijaviti <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">ovde</a>.
 email_err_unabletoemail_title:Greška: ne mogu da pošaljem e-poruku
 email_err_unabletoemail_msg:E-pošta je onemogućena od strane administratora.
@@ -964,6 +965,7 @@ iemail_forum_unsub:Prekini nadgledanje ovog foruma
 primary_group_prefix:Glavna grupa foruma:
 group_resources:Ova grupa upravlja dozvolama sledećih foruma
 register_admin_newuser_title:Novi korisnik je otvorio nalog koji čeka na potvrdu
+# Fuzzy
 register_admin_newuser_msg:Novi korisnik ({VAR: uent->login}) je upravo napravio nalog. S obzirom na to da je potvrda naloga omogućena, nalog neće biti aktivan dok se ne proveri od strane administratora. Za pregled naloga posetite: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nOvo je automatizovana poruka Ne odgovarajte na nju.\nAko želite da isključite obaveštenja u vezi s novim članovima, promenite postavku „Obaveštenje o novim nalozima“ u administrativnom upravljačkom panelu.
 post_mod_msg_notify_title:Nova poruka u forumu „{VAR: frm->name}“ čeka na odobrenje
 # Fuzzy

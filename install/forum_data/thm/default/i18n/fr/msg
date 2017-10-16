@@ -604,7 +604,7 @@ buddy_list_err_ignore:Impossible d'ajouter à votre liste d'amis des utilisateur
 buddy_list_update:Parcourir ma liste d'amis
 core_err_invinp_title:Entrée invalide
 core_err_invinp_err:Vous avez suivi un lien invalide, veuillez en avertir l'<a href="mailto:{GVAR: ADMIN_EMAIL}">administrateur</a>
-core_adm_login_msg:Les administrateurs peuvent se connecter <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">ici</a>
+core_adm_login_msg:Les administrateurs peuvent se connecter <a href="{BASE}adm/admloginuser.php">ici</a>
 email_err_unabletoemail_title:ERREUR : Impossible d’envoyer des courriels
 email_err_unabletoemail_msg:La fonctionnalité courriel a été désactivée par l’administrateur.
 email_error_unabletolocaddr:Désolé, le système n’a pas été en mesure d’envoyer de courriel à {VAR-HTML: _POST['tx_name']} car il n’a pas trouvé son adresse dans le système
@@ -681,9 +681,9 @@ register_err_notyouremail:Quelqu’un s’est déjà inscrit avec cette adresse 
 register_err_avatartobig:Le fichier que vous essayez de téléverser est trop gros, la taille limite autorisée est de {GVAR: CUSTOM_AVATAR_MAX_SIZE} octets
 register_err_avatarnotallowed:L’avatar que vous essayez de téléverser n’est pas autorisé, veuillez vérifier les types de fichier autorisés.
 register_conf_subject:Confirmation de votre inscription
-register_conf_msg:Merci de votre inscription.\nPour activer votre compte, veuillez visiter l'URL ci-dessous :\n\n{FULL_ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nUne fois votre compte activé, vous serez connecté au forum et redirigé vers la page d'accueil du forum.
+register_conf_msg:Merci de votre inscription.\nPour activer votre compte, veuillez visiter l'URL ci-dessous :\n\n{FULL_ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nUne fois votre compte activé, vous serez connecté au forum et redirigé vers la page d'accueil.
 register_welcome_subject:Confirmation de votre inscription au forum.
-register_welcome_msg:Merci de vous être inscrit.\n\nVoici résumé de vos données de connexion au forum :\n\nURL du forum: {TEMPLATE: index_update_lnk}\nNom d'utilisateur: {VAR: uent->login}\nMot de passe: {VAR: _POST['reg_plaintext_passwd']}\n\nN’oubliez pas que les mots de passe sont sensibles à la casse !\nPour modifier vos réglages ou votre profil, visitez cette page :\n{FULL_ROOT}{ROOT}?t=register
+register_welcome_msg:Merci de vous être inscrit.\n\nVoici résumé de vos données de connexion au forum :\n\nURL du forum: {TEMPLATE: index_update_lnk}\nNom d'utilisateur: {VAR: uent->login}\nMot de passe: {VAR: _POST['reg_plaintext_passwd']}\n\nN’oubliez pas que les mots de passe sont sensibles à la casse !\nPour modifier vos paramètres ou votre profil, visitez cette page :\n{FULL_ROOT}{ROOT}?t=register
 register_err_cantreg_title:ERREUR : Nous n'avons pas pu vous inscrire
 regsiter_err_cantreg_msg:Impossible de créer un compte d'utilisateur ; veuillez faire part de ce problème à l'administrateur : <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:Parcourt son profil
@@ -970,7 +970,7 @@ iemail_forum_unsub:Cesser la surveillance de ce forum
 primary_group_prefix:Groupe primaire pour le forum :
 group_resources:Ce groupe controle les permissions des forums suivants
 register_admin_newuser_title:Un nouvel utilisateur s'est inscrit et son compte est en attente de confirmation
-register_admin_newuser_msg:Un nouvel utilisateur ({VAR: uent->login}) vient juste de s'inscrire sur le forum et comme la confirmation des comptes est activée, son compte ne deviendra actif que lorsque vous ou l'un des administrateurs du forum l'aurez confirmé. Pour décider de ce compte, veuillez vous rendre à : {GVAR: WWW_ROOT}adm/admuserapr.php\n\nCeci est un processus automatique, ne répondez pas à ce message.\nSi vous désirez désactiver les futures notifications par courrier de l'inscription de nouveaux utilisateurs, vous pouvez le faire par le panneau de contrôle admin en changeant la valeur du paramètre « New Account Notification ».
+register_admin_newuser_msg:Un nouvel utilisateur ({VAR: uent->login}) vient juste de s'inscrire sur le forum et comme la confirmation des comptes est activée, son compte ne deviendra actif que lorsque vous ou l'un des administrateurs du forum l'aurez confirmé. Pour décider de ce compte, veuillez vous rendre sur : {FULL_ROOT}adm/admuserapr.php\n\nCeci est un processus automatique, ne répondez pas à ce message.\nSi vous désirez désactiver les futures notifications par courriel de l'inscription de nouveaux utilisateurs, vous pouvez le faire par le panneau de contrôle admin. Changez la valeur de « New Account Notification ».
 post_mod_msg_notify_title:Nouveau message dans le forum « {VAR: frm->name} » en attente d'approbation
 post_mod_msg_notify_msg:Un nouveau message intitulé « {VAR: msg_post->subject} » vient juste d'être posté dans un forum que vous modérez. Pour décider de ce message, rendez-vous à : {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nCeci est un processus automatique. Ne répondez pas à ce message.
 thread_printable_pdf:Générer du PDF imprimable

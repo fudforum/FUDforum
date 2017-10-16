@@ -588,6 +588,7 @@ buddy_list_err_ignore:Wužiwarjo, kotřiž će ignoruja, njehodźa so twojej lis
 buddy_list_update:Přepytanje swójskeje lisćiny přećelow
 core_err_invinp_title:Njepłaćiwe zapodaće
 core_err_invinp_err:Sy njepłaćiwemu wotkazej slědował. Prošu zdźěl <a href="mailto:{GVAR: ADMIN_EMAIL}">webmasterej</a>, kak sy so tam dóstał.
+# Fuzzy
 core_adm_login_msg:Administratorojo móžeja so <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">tu</a> přizjewić.
 email_err_unabletoemail_title:ZMYLK: E-mejl njehodźi so wotpósłać
 email_err_unabletoemail_msg:E-mejlowy system bu wot administratora znjemóžnjeny.
@@ -957,6 +958,7 @@ iemail_forum_unsub:Tutón forum wotskazać
 primary_group_prefix:Hłowna skupina za forum:
 group_resources:Tuta skupina kontroluje prawa slědowacych forumow
 register_admin_newuser_title:Nowy wužiwar je so zregistrował a jeho konto čaka na wobkrućenje
+# Fuzzy
 register_admin_newuser_msg:Nowy wužiwar ({VAR: uent->login}) je so runje zregistrował, a dokelž kontowe wobkrućenje je zmóžnjene, njebudźe jeho konto aktiwne, doniž so wot tebje abo druheho forumoweho administratora njewobkrući. Zo by konto přepruwował, dźi prošu k: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nTo je awtomatizowany proces. Njewotmołw na tutu powěsć.\nJeli chceš přichodne e-mejlowe zdźělenja nowych wužiwarskich registrowanjow wupinyć, móžeš to přez administratowy meni činić. Změń za to nastajenje "New Account Notification".
 post_mod_msg_notify_title:Nowa powěsć we forumje "{VAR: frm->name}" čaka na schwalenje
 # Fuzzy

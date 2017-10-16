@@ -572,6 +572,7 @@ buddy_list_err_nouser_title:Lietotāju pievienot nav iespējams
 buddy_list_update:Kontaktu saraksta pārskats
 core_err_invinp_title:Ievade nav atļauta
 core_err_invinp_err:You've followed an invalid link, please notify the <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a>
+# Fuzzy
 core_adm_login_msg:Administratoriem ieiet <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">šeit</a>
 email_err_unabletoemail_title:KĻŪDA!!! Nevar nosūtīt E-pastu
 email_err_unabletoemail_msg:Administrators ir atslēdzis E-pasta nosūtīšanas sistēmu.

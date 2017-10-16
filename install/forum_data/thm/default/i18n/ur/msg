@@ -593,6 +593,7 @@ buddy_list_err_ignore:اپنے دوستوں کی فہرست کرنے کے لئے
 buddy_list_update:خود اپنے دوستوں کی فہرست براؤزنگ
 core_err_invinp_title:غلط اندراج
 core_err_invinp_err:آپ کے منتظم سے رجوع کریں بعد ہے ۔ آپ یہاں کیسے ملی <a href="mailto:{GVAR: ADMIN_EMAIL}">ویب ماسٹر</a> کو مطلع کریں ۔
+# Fuzzy
 core_adm_login_msg:منتظمیں لاگ ان کر سکتے ہیں <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">یہاں</a>.
 email_err_unabletoemail_title:خرابی: ای میل کرنے سے قاصر ہے
 email_err_unabletoemail_msg:ای میل سسٹم ایڈمنسٹریٹر کی طرف سے غیر فعال کر دیا گیا ہے.
@@ -964,6 +965,7 @@ iemail_forum_unsub:اس فورم سے نام خارج
 primary_group_prefix:فورم کے لئے بنیادی گروپ:
 group_resources:اس گروپ کی مندرجہ ذیل فورمز کے اجازت کو کنٹرول
 register_admin_newuser_title:ایک نیا صارف درج کی گئی ہے اور ان کے اکاؤنٹ کی توثیق زیر التواء ہے
+# Fuzzy
 register_admin_newuser_msg:ایک نیا صارف ( {VAR: uent->login} ) صرف رجسٹرڈ ہے، اور چونکہ اکاؤنٹ تصدیق فعال ہے، یہ آپ کے یا کسی دوسرے فورم کے منتظم کی طرف سے تصدیق کی ہے یہاں تک کہ ان کے اکاؤنٹ فعال ہو جائیں گے نہیں ۔ کا جائزہ لینے کے لیے اکاؤنٹ براہ مہربانی جانے کے لئے: {گوار: WWW_ROOT}adm/admuserapr.php!ن!!ن!یہ ایک خود کار عمل ہے ۔ اس پیغام کا جواب نہ دیں ۔ ۔!ن!اگر آپ نئے صارف رجسٹریشن مستقبل ای میل اطلاعات بند کرنا چاہتے ہیں تو آپ ایسا منتظم کنٹرول پینل کے ذریعے کر سکتے ہیں ۔ 'نیا اکاؤنٹ اعلان' سیٹنگ تبدیل کریں ۔
 post_mod_msg_notify_title:فورم میں نئے پیغام " {VAR: frm->name} " کی منظوری زیر التوا
 # Fuzzy

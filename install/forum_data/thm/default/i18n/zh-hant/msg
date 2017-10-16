@@ -601,6 +601,7 @@ buddy_list_err_ignore:無法添加使用者忽略你的好友。
 buddy_list_update:流覽自己的好友清單
 core_err_invinp_title:無效的輸入
 core_err_invinp_err:您已按照無效的連結。請通知<a href="mailto:{GVAR: ADMIN_EMAIL}">站長</a>你如何走到今天。
+# Fuzzy
 core_adm_login_msg:管理員可以登錄<a href="{GVAR: WWW_ROOT}adm/admloginuser.php">在這裡</a>。
 email_err_unabletoemail_title:錯誤: 無法傳送電子郵件
 email_err_unabletoemail_msg:電子郵件系統已被管理員禁用。
@@ -967,6 +968,7 @@ iemail_forum_unsub:取消訂閱主題
 primary_group_prefix:論壇的主要組：
 group_resources:這組控制以下論壇的許可權
 register_admin_newuser_title:新使用者已註冊和他們的帳戶仍有待確認
+# Fuzzy
 register_admin_newuser_msg:新使用者 （ {VAR: uent->login} ） 已註冊，和它由您或另一個論壇管理員確認之前啟用帳戶確認，因為他們的帳戶不會主動更改。檢討該帳戶請去： {GVAR: WWW_ROOT}adm/admuserapr.php ！N!!N ！這是一個自動化的過程。請勿回復此郵件。 ！N ！如果要關閉新使用者註冊的未來電子郵件通知，你可以通過管理控制台。更改"新帳戶通知"設置。
 post_mod_msg_notify_title:在論壇中的新郵件" {VAR: frm->name} "等待審批
 post_mod_msg_notify_msg:有個標題為" {VAR: msg_post->subject} "的新訊息剛張貼在你管理的論壇上。要檢視此訊息請至：{FULL_ROOT}?t=modque#{VAR: msg_post->id} \n\n這是一個自動化處理流程。請勿回復此訊息。

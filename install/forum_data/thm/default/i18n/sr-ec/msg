@@ -210,8 +210,7 @@ vote_button:Гласај
 vote_for_thread:Гласај
 was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> је премештен у <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> од стране уредника.
 welcome_message:Добро дошли, <b>{VAR: usr->alias}</b>. Ваша последња посета је била у {TEMPLATE: welcome_message_date}
-# Fuzzy
-what_ppl_doing:прикажи шта корисници раде
+what_ppl_doing:Активност корисника
 reported_del_report:Обриши пријаву
 reported_reason:Разлог:
 reported_on:У:
@@ -379,8 +378,7 @@ my_buddies:Пријатељи
 add_buddy:Додавање пријатеља
 add:Додај
 buddy_search:Унесите корисничко име корисника кога желите да додате.
-# Fuzzy
-member_search:Можете користити и <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">претрагу чланова</a> да пронађете корисника.
+member_search:Можете користити и <a href="javascript://" onclick="javascript: window_open('{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">претрагу чланова</a> да пронађете корисника.
 buddy_remove:уклони
 post_normal:Обична
 post_sticky:Лепљива
@@ -597,7 +595,7 @@ buddy_list_err_ignore:Не можете додати кориснике који
 buddy_list_update:Прегледање списка пријатеља
 core_err_invinp_title:Неисправан улаз
 core_err_invinp_err:Пратили сте неисправну везу. Обавестите <a href="mailto:{GVAR: ADMIN_EMAIL}">администратора</a> о грешци.
-core_adm_login_msg:Администратори се могу пријавити <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">овде</a>.
+core_adm_login_msg:Администратори се могу пријавити <a href="{BASE}adm/admloginuser.php">овде</a>.
 email_err_unabletoemail_title:Грешка: не могу да пошаљем е-поруку
 email_err_unabletoemail_msg:Е-пошта је онемогућена од стране администратора.
 email_error_unabletolocaddr:Систем не може да контактира {VAR-HTML: _POST['tx_name']} преко е-поште јер е-адреса није пронађена
@@ -676,8 +674,7 @@ register_err_avatarnotallowed:Отпремање жељене корисничк
 register_conf_subject:Потврда регистације
 register_conf_msg:Хвала вам што сте отворили налог.\nПосетите везу испод да бисте га потврдили:\n\n{FULL_ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nКада га омогућите, бићете пријављени на\nфорум и преусмерени на насловну страну.
 register_welcome_subject:Потврда регистације
-# Fuzzy
-register_welcome_msg:Хвала вам што сте отворили налог.\n\nИспод се налазе подаци за пријављивање на форум:\n\nАдреса: {TEMPLATE: index_update_lnk}\nКорисничко име: {VAR: uent->login}\nЛозинка: {VAR: _POST['reg_plaintext_passwd']}\n\nУпамтите да су лозинке осетљиве на мала и велика слова!\nДа бисте променили своје поставке или профил, посетите:\n{FULL_ROOT}{ROOT}?t=register
+register_welcome_msg:Хвала вам што сте отворили налог.\n\nИспод се налазе подаци за пријављивање на форум:\n\nАдреса: {TEMPLATE: index_update_lnk}\nКорисничко име: {VAR: uent->login}\nЛозинка: {VAR: _POST['reg_plaintext_passwd']}\n\nУпамтите да су лозинке осетљиве на мала и велика слова!\nДа бисте променили своје поставке или профил, посетите:\n{FULL_ROOT}?t=register
 register_err_cantreg_title:Грешка: не могу да отворим налог
 regsiter_err_cantreg_msg:Налог није отворен. Контактирајте администратора <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:Прегледа сопствени профил
@@ -724,8 +721,7 @@ error_title:Грешка
 index_title:Добро дошли на форум
 search_title:Тражење „{VAR-HTML: srch}“
 remail_emailsent:Имејл је послат
-# Fuzzy
-remail_email:Здраво,\n\nОтворена је занимљива тема „{VAR: data->subject}“ у {GVAR: FORUM_TITLE} форуму коју бисте можда желели да видите. Тему можете видети на:\n {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nВаш пријатељ,\n\n{VAR: usr->alias}
+remail_email:Здраво,\n\nОтворена је занимљива тема „{VAR: data->subject}“ у {GVAR: FORUM_TITLE} форуму коју бисте можда желели да видите. Тему можете видети на:\n {FULL_ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nВаш пријатељ,\n\n{VAR: usr->alias}
 poll_add_option:Додај могућност:
 post_opt_html_on:<b>HTML</b> је <b>укључен</b>
 post_opt_fud_on:<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>BBcode</b> је <b>укључен</b></a>
@@ -965,10 +961,9 @@ iemail_forum_unsub:Прекини надгледање овог форума
 primary_group_prefix:Главна група форума:
 group_resources:Ова група управља дозволама следећих форума
 register_admin_newuser_title:Нови корисник је отворио налог који чека на потврду
-register_admin_newuser_msg:Нови корисник ({VAR: uent->login}) је управо отворио налог. С обзиром на то да је потврда налога омогућена, налог неће бити активан док га не потврди администратор. За преглед налога посетите: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nОво је аутоматизовани процес. Не одговарајте на ову поруку.\nАко желите да онемогућите обавештења о новим корисницима, промените поставку „Обавештење о новим налозима“ у административном управљачком панелу.
+register_admin_newuser_msg:Нови корисник ({VAR: uent->login}) је управо отворио налог. С обзиром на то да је потврда налога омогућена, налог неће бити активан док га не потврди администратор. За преглед налога посетите: {FULL_ROOT}adm/admuserapr.php\n\nОво је аутоматизовани процес. Не одговарајте на ову поруку.\nАко желите да онемогућите обавештења о новим корисницима, промените поставку „Обавештење о новим налозима“ у административном управљачком панелу.
 post_mod_msg_notify_title:Нова порука у форуму „{VAR: frm->name}“ чека на одобрење
-# Fuzzy
-post_mod_msg_notify_msg:Нова порука под називом „{VAR: msg_post->subject}“ је управо постављена на форум који уређујете. За преглед ове поруке посетите: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nОво је аутоматизована порука. Не одговарајте на њу.
+post_mod_msg_notify_msg:Нова порука под називом „{VAR: msg_post->subject}“ је управо постављена на форум који уређујете. За преглед ове поруке посетите: {FULL_ROOT}?t=modque#{VAR: msg_post->id}\n\nОво је аутоматизована порука. Не одговарајте на њу.
 thread_printable_pdf:Направи PDF документ
 thread_syndicate:прикупи податке овог форума (XML)
 reg_conf_title:Потврда регистације
@@ -994,8 +989,7 @@ mnav_month:месеци
 mnav_title:Тражење порука
 mnav_update:Прегледање порука користећи <a href="{TEMPLATE: mnav_update_lnk}">Тражење порука</a>
 pm_notify_subject:[{GVAR: FORUM_TITLE}] Обавештење о новим приватним порукама
-# Fuzzy
-pm_notify_body_email:Примили сте нову приватну поруку под називом „{VAR: subject}“ од члана „{VAR: from}“ у форуму „{GVAR: FORUM_TITLE}“.\nЗа преглед, кликните овде: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nДа бисте прекинули слање обавештења, онемогућите „Обавештење о приватним порукама“ у вашем профилу.
+pm_notify_body_email:Примили сте нову приватну поруку под називом „{VAR: subject}“ од члана „{VAR: from}“ у форуму „{GVAR: FORUM_TITLE}“.\nЗа преглед, кликните овде: {FULL_ROOT}?t=pmsg_view&id={VAR: pid}\n\nДа бисте прекинули слање обавештења, онемогућите „Обавештење о приватним порукама“ у вашем профилу.
 register_pm_notification:Обавештење о приватној поруци:
 register_pm_notification_desc:Ако је омогућено, бићете обавештени сваки пут када примите приватну поруку.
 findu_admin_opts_header:Административне могућности

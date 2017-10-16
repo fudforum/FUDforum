@@ -594,6 +594,7 @@ buddy_list_err_ignore:Ne povas aldoni uzantojn kiu ignori vin al via amika listo
 buddy_list_update:Rigardante vian amikan liston
 core_err_invinp_title:Malvalida Enigo
 core_err_invinp_err:Vi ĵus sekvis malvalidan ligilon. Bonvolu sciigi la <a href="mailto:{GVAR: ADMIN_EMAIL}">retmajstro</a> kiel vi venis ĉi tien.
+# Fuzzy
 core_adm_login_msg:Administrantoj povas ensaluti <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">ĉi tie</a>.
 email_err_unabletoemail_title:ERARO: Ne eblas retpoŝti
 email_err_unabletoemail_msg:La retpoŝta sistemo estis malŝalta de la administranto.
@@ -964,6 +965,7 @@ iemail_forum_unsub:Malaboni ĉi tiun forumon
 primary_group_prefix:Ĉefa grupo por forumo:
 group_resources:Ĉi tiu grupo rajtigas la jenajn forumojn
 register_admin_newuser_title:Nova uzanto registris kaj ties konto atendas konfirmado
+# Fuzzy
 register_admin_newuser_msg:Nova uzanto ({VAR: uent->login}) ĵus estas registrita, kaj ĉar konfirmado de kontoj estas aktiva , ĝia konto ne estos uzebla ĝis ĝi estos konfirmita de vi aŭ de aliaj forumestro. Por kontroli la konton bonvolu iri al: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nĈi tio estas rezulto de aŭtoma proceso. Ne reagu je tiu ĉi mesaĝo.\nSe vi deziras malŝalti ontajn ret-poŝtajn sciigojn pri novaj konto-kreoj, tiam vi povas tion aranĝi per la stirpanelo por administranto. Tie ŝanĝeblas la agardo pri 'sciigoj pri novaj kontoj'.
 thread_printable_pdf:Generi printeblan PDF-on
 mnav_description:Mesaĝa navigilo

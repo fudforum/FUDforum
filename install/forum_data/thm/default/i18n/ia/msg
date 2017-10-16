@@ -591,7 +591,7 @@ buddy_list_err_ignore:Non pote adder usatores qui te ignora a tu lista de amicos
 buddy_list_update:Examina le proprie lista de amicos
 core_err_invinp_title:Entrata invalide
 core_err_invinp_err:Tu ha sequite un ligamine invalide. Per favor notifica le <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a> de como tu ha arrivate hic.
-core_adm_login_msg:Le administratores pote aperir un session <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">hic</a>.
+core_adm_login_msg:Le administratores pote aperir un session <a href="{BASE}adm/admloginuser.php">hic</a>.
 email_err_unabletoemail_title:ERROR: Impossibile inviar e-mail
 email_err_unabletoemail_msg:Le systema de e-mail ha essite disactivate per le administrator.
 email_error_unabletolocaddr:Le systema non poteva inviar e-mail a {VAR-HTML: _POST['tx_name']} proque illo non poteva determinar le adresse de e-mail.
@@ -959,6 +959,7 @@ iemail_forum_unsub:Cancellar subscription a iste foro
 primary_group_prefix:Gruppo primari pro le foro:
 group_resources:Iste gruppo controla le permissiones del sequente foros
 register_admin_newuser_title:Un nove usator se ha registrate e su conto attende confirmation
+# Fuzzy
 register_admin_newuser_msg:Un nove usator ({VAR: uent->login}) se ha justo registrate, e post que le confirmation del contos es activate, su conto non devenira active usque illo es confirmate per te o un altere administrator del foro. Pro revider le conto, per favor visita: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nIsto es un processo automatic. Non responde a iste message.\nSi tu vole disactivar le futur notificationes de registration de nove usatores, tu pote facer lo via le Pannello de Controlo Administrative. Cambia le option "Notification de nove contos".
 post_mod_msg_notify_title:Nove message in foro "{VAR: frm->name}" attende approbation
 # Fuzzy

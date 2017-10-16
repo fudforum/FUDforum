@@ -581,6 +581,7 @@ buddy_list_err_nouser_title:Не е въможно да се добави пот
 buddy_list_update:Разглеждане на контактната листа
 core_err_invinp_title:Недопустим вход
 core_err_invinp_err:Следваш недействителен адрес, моля, съобщи на <a href="mailto:{GVAR: ADMIN_EMAIL}">на уебмастера</a>
+# Fuzzy
 core_adm_login_msg:Входът за Администратори е <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">тук</a>
 email_err_unabletoemail_title:ГРЕШКА: Невъзможно е да се прати Е-mail
 email_err_unabletoemail_msg:Е-mail системата е изключена от Администратора.

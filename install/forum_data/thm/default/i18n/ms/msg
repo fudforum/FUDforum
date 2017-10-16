@@ -590,6 +590,7 @@ buddy_list_err_ignore:Pengguna yang mengabaikan anda tidak dapat ditambahkan ke 
 buddy_list_update:Melayari senarai kawan sendiri
 core_err_invinp_title:Input Tidak Sah
 core_err_invinp_err:Anda telah mengikut pautan yang tidak sah. Sila beritahu <a href="mailto:{GVAR: ADMIN_EMAIL}">pentadbir web (webmaster)</a> bagaimana anda ke sini.
+# Fuzzy
 core_adm_login_msg:Pentadbir boleh log masuk di <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">sini</a>.
 email_err_unabletoemail_title:RALAT: E-mel tidak dapat dihantar
 email_err_unabletoemail_msg:Sistem e-mel telah dimatikan oleh pentadbir.
@@ -959,6 +960,7 @@ iemail_forum_unsub:Berhenti melanggan forum ini
 primary_group_prefix:Kumpulan utama forum:
 group_resources:Kumpulan ini mengawal kebenaran pengguna di forum-forum berikut:
 register_admin_newuser_title:Seorang pengguna baru telah berdaftar, dan akaunnya sedang menunggu pengesahan
+# Fuzzy
 register_admin_newuser_msg:Seorang pengguna baru ({VAR: uent->login}) baru berdaftar; oleh sebab ciri pengesahan akaun dihidupkan, akaunnya tidak diaktifkan sehingga ia disahkan oleh anda atau seorang lagi pentadbir forum. Untuk menyemak akaun itu, sila ke: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nIni ialah proses yang berautomat. Jangan balas pesanan ini.\nJika anda ingin menutup ciri pemberitahuan pendaftaran pengguna baru melalui e-mel pada masa depan, anda boleh berbuat demikian di Panel Kawalan Pentadbir, dengan menukar tetapan "Pemberitahuan Akaun Baru".
 post_mod_msg_notify_title:Pesanan baru menunggu kelulusan di forum "{VAR: frm->name}"
 # Fuzzy

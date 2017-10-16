@@ -595,6 +595,7 @@ buddy_list_err_ignore:Uživatele, který Vás blokuje, si nemůžete přidat do 
 buddy_list_update:Prohlížíte si seznam přátel
 core_err_invinp_title:Neplatný vstup
 core_err_invinp_err:Následoval(a) jste neplatný odkaz. Prosím, oznamte to <a href="mailto:{GVAR: ADMIN_EMAIL}">webmasterovi</a>
+# Fuzzy
 core_adm_login_msg:Administrátoři se můžou přihlásit <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">zde</a>
 email_err_unabletoemail_title:CHYBA: Není možno zaslat email
 email_err_unabletoemail_msg:Systém emailů by administrátorem vypnut.
@@ -962,6 +963,7 @@ iemail_forum_unsub:Odhlásit z tohoto fóra
 primary_group_prefix:Primární skupina pro fórum:
 group_resources:Tato skupina kontroluje oprávnění pro následující fóra
 register_admin_newuser_title:Nový uživatel se zaregistroval a jeho účet čeká na potvrzení
+# Fuzzy
 register_admin_newuser_msg:Nový uživatel ({VAR: uent->login}) se právě zaregistroval a protože je zapnuté potvrzování účtů, tento účet nebude aktivován dokud ho Vy nebo jiný administrátor ve  fóru nepotvrdí. Pokud chcete zobrazit tento účet jděte na: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nTato zpráva je generovaná serverem, prosím neodpovídejte na ní.\nPokud chcete vypnout budoucí e-mailové oznámení o nových registracích, můžete tak udělat přes Admin Control Panel, změnou nastavení "New Account Notification".
 post_mod_msg_notify_title:Nová zpráva ve fóru "{VAR: frm->name}" čeká na schválení
 post_mod_msg_notify_msg:Nová zpráva s předmětem "{VAR: msg_post->subject}" byla právě zaslána do fóra které moderujete. Pro zobrazení této zprávy přejděte na: {FULL_ROOT}?t=modque#{VAR: msg_post->id}\n\nToto je automatický proces. Neodpovídejte na tuto zprávu.

@@ -588,6 +588,7 @@ buddy_list_err_ignore:Ma tistax iżżid utenti li jinjorawk fil-lista ta' ħbieb
 buddy_list_update:Esplora l-lista ta' ħbieb tiegħek
 core_err_invinp_title:Informazzjoni ħażina
 core_err_invinp_err:Għadek kif segwejt ħolqa invalida. Innotifika lill-<a href="mailto:{GVAR: ADMIN_EMAIL}">amminstratur</a> kif wasalt hawnhekk.
+# Fuzzy
 core_adm_login_msg:Amministraturi jistgħu jidħlu <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">hawnhekk</a>.
 email_err_unabletoemail_title:ŻBALL: L-ittra-e ma tistax tinbgħat
 email_err_unabletoemail_msg:Is-sistema tal-posta elettronika ġiet diżattivata mill-amministratur.
@@ -961,6 +962,7 @@ iemail_forum_unsub:Ħassar l-abbonament minn dan il-forum
 primary_group_prefix:Grupp primarju għall-forum:
 group_resources:Dan il-grupp jikkontrolla l-permessi tal-forums segwenti
 register_admin_newuser_title:Utent ġdid għadu kif irreġistra u l-kont tiegħu qiegħed jistenna li jiġi kkonfermat
+# Fuzzy
 register_admin_newuser_msg:Utent ġdid ({VAR: uent->login}) għadu kif irreġistra u minħabba li l-konferma tal-kont hija attivata, il-kont tagħhom mhux se jkun attiv sakemm jiġi kkonfermat minnek jew minn amministratur ieħor tal-forum. Sabiex teżamina l-kont jekk jogħġbok żur {GVAR: WWW_ROOT}adm/admuserapr.php\n\nDan huwa proċess awtomatizzat. Tirrispondix dan il-messaġġ.\nJekk tixtieq titfi notifiki tal-posta elettronika fil-futur dwar reġistrazzjoni ta' utenti ġodda, tista' tagħmel dan billi tmur fuq il-pannell tal-kontroll tal-amministratur. Biddel l-impostazzjoni "Notifika ta' kont ġdid".
 post_mod_msg_notify_title:Messaġġ ġdid fil-forum "{VAR: frm->name}" qiegħed jistenna l-approvazzjoni.
 # Fuzzy

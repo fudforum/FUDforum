@@ -588,6 +588,7 @@ buddy_list_err_ignore:Ora teyeng nambahna kanca sing wis ngacuhna Rika maring da
 buddy_list_update:Ndeleng daftar kancane dhewek
 core_err_invinp_title:Input ora sah
 core_err_invinp_err:Rika ngetutna pranala sing ora sah. Tulung tidokna ming <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a> kepriwe jalarane Rika bisa gutul kene.
+# Fuzzy
 core_adm_login_msg:Administrators teyeng mlebu log <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">nang kene</a>.
 email_err_unabletoemail_title:ERROR: Ora teyeng ngirim imel
 email_err_unabletoemail_msg:Imel wis dinonaktfna nang administrator.
@@ -957,6 +958,7 @@ iemail_forum_unsub:Mandeg gole langganan forum kiye
 primary_group_prefix:Grup utama forum kiye:
 group_resources:Kelompok kiye ngontrol ijin nang forum-forum kiye
 register_admin_newuser_title:Panganggo anyar wis ndaftar lan sekiye lagi ngenteni konfirmasi
+# Fuzzy
 register_admin_newuser_msg:Panganggo anyar ({VAR: uent->login}) tembeke ndaftar, lan jalaran konfirmasi akun diaktifna, akun kuwe ora bakal aktif sedurung dikonfirmasi nang Rika utawa administrator forum liyane. Kanggo mriksa akun monggo ming: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nKiye proses otomatis. Aja mbales pesen kiye.\nNek Rika kepengin non-aktifna notifikasi imel nggo registrasi panganggo anyar, Rika teyeng ngowaih settingan nang panel kontrol Admin. Ganti baen settingan "Notifikasi akun anyar".
 post_mod_msg_notify_title:Pesen anyar nang forum "{VAR: frm->name}" ngenteni disarujuki
 # Fuzzy

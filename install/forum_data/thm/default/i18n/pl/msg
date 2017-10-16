@@ -600,6 +600,7 @@ buddy_list_err_ignore:Nie można dodać do listy kumpli użytkowników, którzy 
 buddy_list_update:Przeglądanie swojej listy znajomych
 core_err_invinp_title:Nieprawidłowe Dane
 core_err_invinp_err:Odkryłeś nieprawidłowy odnośnik, więc powiadom <a href="mailto:{GVAR: ADMIN_EMAIL}">administratora</a>.
+# Fuzzy
 core_adm_login_msg:Administratorzy mogą zalogować się <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">tutaj</a>
 email_err_unabletoemail_title:BŁĄD: Nie udało się wysłać listu
 email_err_unabletoemail_msg:System poczty elektronicznej został wyłączony przez administratora.
@@ -968,6 +969,7 @@ iemail_forum_unsub:Porzuć subskrybcję tego forum
 primary_group_prefix:Podstawowa grupa dla forum:
 group_resources:Ta grupa wyznacza przywileje następujących forów
 register_admin_newuser_title:Nowe konto na forum czeka na zatwierdzenie
+# Fuzzy
 register_admin_newuser_msg:Nowy użytkownik ({VAR: uent->login}) właśnie zarejestrował się na Forum Opoka.\nJako, że zostało włączone zatwierdzanie nowych kont, nie zostanie ono\naktywowane bez potwierdzenia przez Ciebie albo innego administrator tego forum.\nCelem weryfikacji tego konta, udaj się proszę pod poniższy adres:\n{GVAR: WWW_ROOT}adm/admuserapr.php\n\nUWAGA!! Wiadomość została wygenerowana automatycznie. Prosimy nie odpowiadać\nna nią. Jeśli chcesz wyłączyć powiadamianie o rejestracji nowych użytkowników,\nmożesz to zrobić przy użyciu Panelu administracyjnego, zmieniając wartość\ndla "New Account Notification".
 post_mod_msg_notify_title:Nowa wiadomość na forum "{VAR: frm->name}" oczekuje zatwierdzenia
 # Fuzzy

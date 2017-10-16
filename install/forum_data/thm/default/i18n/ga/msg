@@ -589,6 +589,7 @@ buddy_list_err_ignore:Ní féidir úsáideoirí atá tú neamhaird ar do liosta 
 buddy_list_update:Liosta chara féin Browsing
 core_err_invinp_title:Ionchur neamhbhailí
 core_err_invinp_err:Tá tú i ndiaidh nasc neamhbhailí. Le do thoil fógra a thabhairt don <a href="mailto:{GVAR: ADMIN_EMAIL}">stiúrthóir gréasáin</a> conas a fuair tú anseo.
+# Fuzzy
 core_adm_login_msg:Is féidir le Riarthóirí logáil isteach <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">anseo</a>.
 email_err_unabletoemail_title:EARRÁID: Níorbh fhéidir a r-phost
 email_err_unabletoemail_msg:Tá an córas r-phost curtha faoi mhíchumas ag an riarthóir.
@@ -959,6 +960,7 @@ iemail_forum_unsub:Díliostáil ón bhfóram seo
 primary_group_prefix:Grúpa Bunscoileanna do fóram:
 group_resources:Rialaíonn an grúpa ceadanna de na fóraim seo a leanas
 register_admin_newuser_title:Tá úsáideoir nua cláraithe agus tá a gcuntas go dtí go ndeimhneofar
+# Fuzzy
 register_admin_newuser_msg:A úsáideoir nua ({VAR: uent->login}) chláraigh díreach, agus ós rud é go bhfuil dearbhú cuntas ar chumas, nach mbeidh a n-chuntas a bheith gníomhach go dtí go mbeidh sé daingnithe le tú féin nó riarthóir fóram eile. Athbhreithniú a dhéanamh ar an chuntas téigh go dtí do thoil: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nIs próiseas uathoibrithe. Ná freagra don teachtaireacht seo.\nMás mian leat a mhúchadh fógraí ríomhphoist clárúcháin nua úsáideora amach anseo, is féidir leat é sin a dhéanamh tríd an Painéal Rialúcháin Riaracháin. Athraigh an "Nua Chuntas Fógra" suíomh.
 post_mod_msg_notify_title:Teachtaireacht nua i bhfóram "{VAR: frm->name}" feitheamh ceadú
 # Fuzzy

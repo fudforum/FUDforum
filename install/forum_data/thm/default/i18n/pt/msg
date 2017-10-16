@@ -605,6 +605,7 @@ buddy_list_err_ignore:Não se podem acrescentar utilizadores que te ignoram à t
 buddy_list_update:A ver a sua lista de amigos
 core_err_invinp_title:Entrada inválida
 core_err_invinp_err:Seguiu uma ligação inválida, por favor contacte o <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a>
+# Fuzzy
 core_adm_login_msg:Administradores podem fazer o login <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">aqui</a>
 email_err_unabletoemail_title:ERRO: Impossível usar o email
 email_err_unabletoemail_msg:O sistema de E-mail foi desabilitado pelo administrador.
@@ -973,6 +974,7 @@ iemail_forum_unsub:Remover subscrição deste forum
 primary_group_prefix:Grupo primário para o forum:
 group_resources:Este grupo controla as permissões dos seguintes sub-forums
 register_admin_newuser_title:Registou-se um novo utilizador e a sua conta aguarda confirmacao
+# Fuzzy
 register_admin_newuser_msg:Registou-se um novo utilizador ({VAR: uent->login}) no forum e como a Confirmacao de Conta esta' Activa, esta conta nao ficara' activa ate' que que seja confirmada por si ou outro administrador do forum. Para rever a conta clique: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nEste e' um processo automatico, nao responda a esta mensagem.\nSe desejar desligar futuras notificacoes por e-mail de novos registos de utilizadores/usuarios pode faze-lo via Painel de Controlo de Administracao, alterando o valor de "Notificação de Nova Conta".
 post_mod_msg_notify_title:Nova mensagem no forum "{VAR: frm->name}" aguardando aprovacao
 # Fuzzy

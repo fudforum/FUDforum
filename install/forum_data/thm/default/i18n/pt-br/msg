@@ -217,8 +217,7 @@ vote_button:Voto
 vote_for_thread:Voto
 was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> foi movido para <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> pelo moderador.
 welcome_message:Bem vindo <b>{VAR: usr->alias}</b>, a sua última visita foi em {TEMPLATE: welcome_message_date}
-# Fuzzy
-what_ppl_doing:Mostrar o que os membros estão fazendo
+what_ppl_doing:Atividade do usuário
 reported_del_report:Apagar relatório
 reported_reason:Motivo:
 reported_on:Em:
@@ -386,7 +385,6 @@ my_buddies:Os meus amigos
 add_buddy:Adicionar Amigo
 add:Adicionar
 buddy_search:Introduza o id do usuário que quer adicionar.
-# Fuzzy
 member_search:Ou use <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Encontrar Usuário</a> para localizar a pessoa.
 buddy_remove:remover
 post_normal:Normal
@@ -683,7 +681,6 @@ register_err_avatarnotallowed:O avatar que você está enviando para o servidor 
 register_conf_subject:Confirmação de registro
 register_conf_msg:Obrigado por se registar,\nPara ativar a sua conta acesse o endereço (URL) abaixo:\n\n{FULL_ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nAssim que a sua conta for ativada, você estará acessando o fórum sendo enviado para sua pagina principal.
 register_welcome_subject:Confirmação de registro no fórum
-# Fuzzy
 register_welcome_msg:Obrigado pelo registro,\n\nAqui estão os seus dados de login para o fórum:\n\nFórum URL: {TEMPLATE: index_update_lnk}\nLogin: {VAR: uent->login}\nSenha: {VAR: _POST['reg_plaintext_passwd']}\n\nNa Senha os caracteres maiúsculos ou minúsculos fazem diferença!\nPara modificar os seus dados, vá até esta pagina:\n{FULL_ROOT}{ROOT}?t=register
 register_err_cantreg_title:ERRO: não foi possível registrar
 regsiter_err_cantreg_msg:Conta de usuário não foi criada, por favor contacte o administrador em <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
@@ -731,7 +728,6 @@ error_title:Formulário de erro
 index_title:Bem vindo ao fórum
 search_title:Procurar por {VAR-HTML: srch}
 remail_emailsent:Email enviado
-# Fuzzy
 remail_email:Olá,\n\nHá um tópico interessante sobre "{VAR: data->subject}" com o nome {GVAR: FORUM_TITLE} que talvez queira ler. Pode ver este tópico em:\n {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\n O seu amigo,\n\n{VAR: usr->alias}
 poll_add_option:Adicionar Opção:
 post_opt_html_on:<b>HTML LIGADO</b>
@@ -974,7 +970,6 @@ group_resources:Este grupo controla as permissões dos seguintes sub-fórums
 register_admin_newuser_title:Um novo usuário se registrou nessa conta e ela está pendente de confirmação
 register_admin_newuser_msg:Um novo usuário ({VAR: uent->login}) registrou-se no fórum e como a Confirmacao de Conta está ativa, esta conta não será ativada até que seja confirmada por você ou outro administrador do fórum. Para rever a conta clique: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nEste é um processo automático, não responda a esta mensagem.\nSe desejar desligar futuras notificacoes por e-mail de novos registos de usuários através do Painel de Controle de Administracão, alterando o valor de "Notificação de Nova Conta".
 post_mod_msg_notify_title:Nova mensagem no fórum "{VAR: frm->name}" aguardando aprovação
-# Fuzzy
 post_mod_msg_notify_msg:Uma mensagem nova intitulada "{VAR: msg_post->subject}", foi colocada agora num fórum moderado por você. Para revisá-la, consulte: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nEste é um processo automático. Não responda a esta mensagem.
 thread_printable_pdf:Exportar para PDF
 thread_syndicate:Adicione este fórum (XML)
@@ -1001,7 +996,6 @@ mnav_month:Meses(s)
 mnav_title:Navegador de Mensagens
 mnav_update:Navegando pelas Mensagens usando <a href="{TEMPLATE: mnav_update_lnk}">Navegador de Mensagens</a>
 pm_notify_subject:[{GVAR: FORUM_TITLE}] Notificação de Mensagem Privada
-# Fuzzy
 pm_notify_body_email:Você tem uma nova mensagem privada entitulada "{VAR: subject}" de "{VAR: from}" do fórum "{GVAR: FORUM_TITLE}".\nPara ver a mensagem clique aqui: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nPara deixar de receber notificações futuras, desative "Notificação de Mensagens Privadas" em seu perfil.
 register_pm_notification:Notificação de Mensagens Privadas
 register_pm_notification_desc:Se ativado, você receberá notificação através do método de notificação de sua escolha, sempre que uma mensagem privada for enviada para você.

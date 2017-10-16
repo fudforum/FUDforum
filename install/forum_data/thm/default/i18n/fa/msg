@@ -600,6 +600,7 @@ buddy_list_err_ignore:امکان افزودن کاربرانی که شما را 
 buddy_list_update:مرور لیست دوستان خود
 core_err_invinp_title:ورودی نامعتبر
 core_err_invinp_err:شما لینک نامعتبری را دنبال کرده‌اید. لطفاً <a href="mailto:{GVAR: ADMIN_EMAIL}">مدیر سایت</a> را از چگونگی رسیدن‌تان به اینجا آگاه کنید.
+# Fuzzy
 core_adm_login_msg:ادمین‌ها می‌توانند <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">اینجا</a> وارد شوند.
 email_err_unabletoemail_title:خطا: عدم امکان ارسال ایمیل
 email_err_unabletoemail_msg:سیستم ایمیل توسط ادمین انجمن غیر فعال شده است.
@@ -969,6 +970,7 @@ iemail_forum_unsub:لغو اشتراک از این انجمن
 primary_group_prefix:گروه اصلی برای انجمن:
 group_resources:این گروه دسترسی انجمن‌های زیر را کنترل می‌کند
 register_admin_newuser_title:یک کاربر تازه ثبت‌نام کرده و حساب‌کاربری‌اش درانتظار تایید است
+# Fuzzy
 register_admin_newuser_msg:یک کاربر تازه ({VAR: uent->login}) اخیرا ثبت‌نام کرده است، اما ازآنجاییکه 'نیاز به تایید حساب‌کاربری' فعال است، حساب‌کاربری او تا زمانیکه توسط شما یا ادمین دیگری تایید نشود، فعال نخواهد شد. برای بررسی حساب‌کاربری لطفا به اینجا بروید: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nاین یک پیام خودکار است. به این پیام پاسخ ندهید.\nاگر می‌خواهید آگاه‌سازی برای ثبت‌نام‌ کاربران تازه از طریق ایمیل را غیرفعال کنید، می‌توانید به صفحه کنترل ادمین بروید و در بخش تنظیمات سراسری انجمن گزینه‌ی "New Account Notification" را به "No" تغییر دهید.
 post_mod_msg_notify_title:یک پست‌ تازه در انجمن "{VAR: frm->name}" در انتظار‌ تایید است
 # Fuzzy

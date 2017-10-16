@@ -598,7 +598,7 @@ buddy_list_err_ignore:Non è possibile aggiungere all lista degli amici un utent
 buddy_list_update:Sfoglia la propria lista di amici
 core_err_invinp_title:Dato non valido
 core_err_invinp_err:Hai seguito un link non attivo. Per cortesia, segnalalo all'<a href="mailto:{GVAR: ADMIN_EMAIL}">amministratore</a>
-core_adm_login_msg:Gli amministratori possono effettuare il login <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">qui</a>
+core_adm_login_msg:Gli amministratori possono effettuare l'accesso <a href="{BASE}adm/admloginuser.php">qui</a>.
 email_err_unabletoemail_title:ERRORE: Impossibile spedire email
 email_err_unabletoemail_msg:Il sistema di invio email è stato disabilitato dall'amministratore.
 email_error_unabletolocaddr:Spicenti, il sistema non è in può inviare un'e-mail all'utente {VAR-HTML: _POST['tx_name']} poichè non è in grado di determinare il suo indirizzo di posta elettronica
@@ -964,7 +964,7 @@ iemail_forum_unsub:deiscriviti da questo forum
 primary_group_prefix:Gruppo primario per il forum:
 group_resources:Questo gruppo controlla i permessi dei seguenti forum
 register_admin_newuser_title:Un nuovo utente si è registrato ed il suo account è in attesa di conferma
-register_admin_newuser_msg:Un nuovo utente ({VAR: uent->login}) si è appena registrato sul forum e poichè è attiva la conferma degli account, il suo account non sarà attivo finchè non venga confermato da te o dagli altri amministratori del forum. Per esaminare l'account per cortesia vai su: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nQuesto è un processo automatizzato, non replicare al presente messaggio.\nSe desideri disattivare le future notifiche e-mail sulla registrazione di nuovi utenti, puoi farlo tramite il Pannello di Controlo di Admin, cambiando il valore del settaggio di  "Notifica Nuovi Account".
+register_admin_newuser_msg:Un nuovo utente ({VAR: uent->login}) si è appena registrato sul forum e poiché è attiva la conferma degli account, la sua utenza non sarà attiva finché non viene confermata da te o dagli altri amministratori del forum. Per esaminare l'account per cortesia vai su: {FULL_ROOT}adm/admuserapr.php\n\nQuesto è un processo automatizzato, non replicare al presente messaggio.\nSe desideri disattivare le future notifiche email sulla registrazione di nuovi utenti, puoi farlo tramite il Pannello di Controllo Admin, cambiando il valore dell'impostazione "Notifica nuove utenze".
 post_mod_msg_notify_title:Nuovi messaggi nel forum "{VAR: frm->name}" in attesa di approvazione
 post_mod_msg_notify_msg:Un nuovo messaggio intitolato "{VAR: msg_post->subject}" è stato appena inserito in uno dei forum da te moderati. Per esaminare tale messaggio vai alla pagina: {FULL_ROOT}?t=modque#{VAR: msg_post->id}\n\nQuesto è un processo automatico, non rispondere al messaggio.
 thread_printable_pdf:Genera un PDF stampabile

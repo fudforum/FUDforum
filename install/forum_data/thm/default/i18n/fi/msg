@@ -601,6 +601,7 @@ buddy_list_err_ignore:Kaverilistaan ei voi lisätä käyttäjiä, jotka ovat tor
 buddy_list_update:Selaa omaa kaverilistaansa
 core_err_invinp_title:Virheellinen syöte
 core_err_invinp_err:Yritit ladata virheellistä linkkiä, ole hyvä ja ilmoita tästä <a href="mailto:{GVAR: ADMIN_EMAIL}">sivuston ylläpitäjälle</a>.
+# Fuzzy
 core_adm_login_msg:Ylläpitäjät voivat kirjautua sisään <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">täällä</a>
 email_err_unabletoemail_title:Virhe: Sähköpostin lähetys ei onnistunut
 email_err_unabletoemail_msg:Ylläpitäjä on estänyt sähköpostin lähetyksen.
@@ -969,6 +970,7 @@ iemail_forum_unsub:Lopeta tämän foorumin tilaus
 primary_group_prefix:Foorumin pääryhmä:
 group_resources:Tämä ryhmä hallinnoi seuraavien foorumien käyttöoikeuksia
 register_admin_newuser_title:Uusi rekisteröitynyt käyttäjä
+# Fuzzy
 register_admin_newuser_msg:Uusi käyttäjä ({VAR: uent->login}) on juuri rekisteröitynyt foorumille.\nTarkista ja hyväksy tai hylkää käyttäjätunnus: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nTämä on automatisoitu prosessi. Älä vastaa tähän viestiin.\nJos et enää halua vastaanottaa sähköpostitse ilmoituksia uusista rekisteröitymisistä,\nvaihda "New Account Notification" -asetus ylläpitäjän hallintapaneelissa.
 post_mod_msg_notify_title:Uusi viesti foorumilla "{VAR: frm->name}" odottaa hyväksyntää
 # Fuzzy

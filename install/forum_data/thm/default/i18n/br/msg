@@ -592,6 +592,7 @@ buddy_list_err_ignore:Ne c'hallit ket ouzhpennañ implijerien ho tianavez d'ho r
 buddy_list_update:Furchal roll mignoned an-unan
 core_err_invinp_title:Roadenn direizh
 core_err_invinp_err:Heuliet hoc'h eus ul liamm direizh. Lavarit d'ar <a href="mailto:{GVAR: ADMIN_EMAIL}">mestr-gwiad</a> penaos ez oc'h en em gavet amañ, mar plij.
+# Fuzzy
 core_adm_login_msg:Gallout a ra ar verourien kevreañ <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">amañ</a>.
 email_err_unabletoemail_title:FAZI : Ne c'haller ket kas posteloù
 email_err_unabletoemail_msg:Diweredekaet eo bet an arc'hweladur postel gant ar merour.
@@ -958,6 +959,7 @@ iemail_forum_unsub:Paouez da evezhiañ ar forom-mañ
 primary_group_prefix:Strollad kentañ evit ar forom :
 group_resources:Ar strollad-mañ a gontroll aotreoù ar foromoù-mañ
 register_admin_newuser_title:Un implijer nevez zo en em enskrivet hag emañ e gont o c'hortoz bezañ kadarnaet
+# Fuzzy
 register_admin_newuser_msg:Un implijer nevez ({VAR: uent->login}) zo o paouez en em enskrivañ. O vezañ m'eo gweredekaet kadarnadur ar c'hontoù, ne vo oberiant e gont nemet pa vo kadarnaet ganeoc'h pe gant ur merour all eus ar forom. Evit adwelet ar gont, kit da {GVAR: WWW_ROOT}adm/admuserapr.php, mar plij.\n\nUn argerzh emlusk eo hemañ. Arabat respont d'ar gemennadenn-mañ.\nMa fell deoc'h diweredekaat ar c'hemenn dre bostel evit an implijerien nevez pelloc'h, gallout a rit ober gant panell gontrollañ ar merour en ur cheñch an arventenn "Kemenn ar c'hontoù nevez".
 post_mod_msg_notify_title:Kemennadenn nevez er forom « {VAR: frm->name} » o c'hortoz bezañ aprouet
 post_mod_msg_notify_msg:Postet ez eus bet ur gemennadenn nevez, hec'h anv « {VAR: msg_post->subject} », er forom a habaskait. Evit adwelet ar gemennadenn-mañ, kit da : {FULL_ROOT}?t=modque#{VAR: msg_post->id}\n\nUn argerzh emlusk eo hemañ, arabat respont d'ar gemennadenn-mañ.

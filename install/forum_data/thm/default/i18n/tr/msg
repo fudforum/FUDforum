@@ -606,6 +606,7 @@ buddy_list_err_ignore:Sizi gözardı eden kullanıcıları arkadaş listenize ek
 buddy_list_update:Arkadaş listesini dolaşıyor
 core_err_invinp_title:Geçersiz girdi
 core_err_invinp_err:Geçersiz bir linki izlediniz, lütfen <a href="mailto:{GVAR: ADMIN_EMAIL}">yöneticiyi</a> uyarın.
+# Fuzzy
 core_adm_login_msg:Yöneticiler <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">buradan</a> giriş yapabilir
 email_err_unabletoemail_title:HATA: E-posta gönderilemedi
 email_err_unabletoemail_msg:E-posta sistemi yönetici tarafından engellenmiş durumda.
@@ -975,6 +976,7 @@ iemail_forum_unsub:Bu forum aboneliğinden çık
 primary_group_prefix:Bu forum için birincil grup:
 group_resources:Bu grup şu forumların izinlerini kontrol ediyor:
 register_admin_newuser_title:Yeni bir kullanıcı kayıt oldu ve hesabı onaylanmayı bekliyor.
+# Fuzzy
 register_admin_newuser_msg:({VAR: uent->login}) kullanıcı isimli yeni bir kullanıcı foruma kayıt olmuş durumda, ve kayıt denetimi etkin durumda olduğu için yeni kullanıcının hesabı siz veya diğer forum yöneticilerinden biri tarafından onaylanmadığı sürece etkin hale getirilmeyecek. Yeni hesabı gözden geçirmek için bu adrese gidebilirsiniz: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nBu otomatik bir iletidir, lütfen yanıt yazmayın.\nEğer gelecekte yeni kaydolan kullanıcılar için bu tür uyarılar almak istemiyorsanız Admin Control Panel içindeki "New Account Notification" ayarını değiştirerek bunu yapabilirsiniz.
 post_mod_msg_notify_title:"{VAR: frm->name}" forumunda onay bekleyen yeni ileti
 post_mod_msg_notify_msg:Denetlediğiniz bir foruma "{VAR: msg_post->subject}" başlıklı yeni bir ileti gönderildi. Bu iletiyi gözden geçirmek için bu adrese gidin: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nBu otomatik bir iletidir, lütfen yanıt yazmayın.

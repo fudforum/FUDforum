@@ -588,6 +588,7 @@ buddy_list_err_ignore:Bisa nambah kedhaftar sing ditolak lewat sampeyan dhaftar 
 buddy_list_update:Njelajah dhewe konco dhaftar
 core_err_invinp_title:bener Input
 core_err_invinp_err:Sampeyan wis ndherekake lan pranala bener. Mangga menawa pengiriman notifikasi sing <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a> carane sampeyan got dhumateng kaca punika.
+# Fuzzy
 core_adm_login_msg:Pangurus bisa mlebet <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">kene</a>.
 email_err_unabletoemail_title:Kesalahan: iso e-mail
 email_err_unabletoemail_msg:Sistem e-mail wis diilangi dening administrator.
@@ -958,6 +959,7 @@ iemail_forum_unsub:Batal saka forum
 primary_group_prefix:Utami grup kanggo Category:
 group_resources:Grup iki Kontrol ijin forum iki
 register_admin_newuser_title:A pangguna anyar wis pangguna lan akun ditundha konfirmasi
+# Fuzzy
 register_admin_newuser_msg:A pangguna anyar ({VAR: uent->login}) wis mung kadhaftar, lan wiwit akun konfirmasi wis aktif, sing akun bakal ora dadi aktif nganti wis dikonfirmasi sampeyan utawa administrator forum. Kanggo maneh akun please menyang: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nIki minangka proses otomatis. Aja Mbales pesen iki.\nYen sampeyan arep kanggo mateni mangsa kabar e-mail anyar dhaptaran, sampeyan bisa ditindakake liwat admin Panel Kontrol. Ganti "New akun Notifikasi" setelan.
 post_mod_msg_notify_title:Pesen anyar ing forum "{VAR: frm->name}" ditundha disetujoni
 # Fuzzy
