@@ -601,8 +601,7 @@ buddy_list_err_ignore:Kan inte lägga till användare som ignorerar dig till din
 buddy_list_update:Visar egen kompislista
 core_err_invinp_title:Ogiltig input
 core_err_invinp_err:Du har följt en felaktig länk, vänligen meddela <a href="mailto:{GVAR: ADMIN_EMAIL}">webmastern</a>
-# Fuzzy
-core_adm_login_msg:Administratörer kan logga in <a href="adm/admloginuser.php">här</a>.
+core_adm_login_msg:Administratörer kan logga in <a href="{BASE}adm/admloginuser.php">här</a>.
 email_err_unabletoemail_title:FEL: Kan inte skicka e-post
 email_err_unabletoemail_msg:E-postsystemet har stängts av av administratorn.
 email_error_unabletolocaddr:Systemet kunde tyvärr inte skicka e-post till {VAR-HTML: _POST['tx_name']} eftersom det inte hittade hans/hennes e-postadress
