@@ -12,6 +12,7 @@
 # Author: Meelo
 # Author: Naudefj
 # Author: Rapsar
+# Author: Sayginer
 # Author: Srhat
 # Author: Stultiwikia
 # Author: Suelnur
@@ -606,8 +607,7 @@ buddy_list_err_ignore:Sizi gözardı eden kullanıcıları arkadaş listenize ek
 buddy_list_update:Arkadaş listesini dolaşıyor
 core_err_invinp_title:Geçersiz girdi
 core_err_invinp_err:Geçersiz bir linki izlediniz, lütfen <a href="mailto:{GVAR: ADMIN_EMAIL}">yöneticiyi</a> uyarın.
-# Fuzzy
-core_adm_login_msg:Yöneticiler <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">buradan</a> giriş yapabilir
+core_adm_login_msg:Yöneticiler <a href="{BASE}adm/admloginuser.php">buradan</a> giriş yapabilir
 email_err_unabletoemail_title:HATA: E-posta gönderilemedi
 email_err_unabletoemail_msg:E-posta sistemi yönetici tarafından engellenmiş durumda.
 email_error_unabletolocaddr:Üzgünüz,  sistem {VAR-HTML: _POST['tx_name']} kullanıcısına e-posta gönderemedi, çünkü kullanıcının e-posta adresi bulunamadı.
