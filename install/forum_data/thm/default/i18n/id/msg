@@ -7,6 +7,7 @@
 # Author: Bonaditya
 # Author: C5st4wr6ch
 # Author: Farras
+# Author: Gombang
 # Author: Hidayatsrf
 # Author: Ilham151096
 # Author: Irwangatot
@@ -606,8 +607,7 @@ buddy_list_err_ignore:Tidak dapat menambah pengguna yang mengacuhkan anda untuk 
 buddy_list_update:Melihat daftar teman sendiri
 core_err_invinp_title:Masukan tidak sah
 core_err_invinp_err:Anda mengikuti alamat yang salah. Beritahu <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a> bagaimana anda bisa sampai disini.
-# Fuzzy
-core_adm_login_msg:Administrator login <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">disini</a>
+core_adm_login_msg:Administrator dapat masuk log <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">di sini</a>
 email_err_unabletoemail_title:ERROR: tidak bisa mengirim e-mail
 email_err_unabletoemail_msg:e-mail sudah dinon-aktifkan oleh administrator.
 email_error_unabletolocaddr:Maaf, tidak bisa mengirim ke {VAR-HTML: _POST['tx_name']} karena alamat tujuan tidak diketahui
@@ -975,8 +975,7 @@ iemail_forum_unsub:Stop langganan forum ini
 primary_group_prefix:Group utama forum ini:
 group_resources:Kelompok ini mengontrol perizinan Forum berikut
 register_admin_newuser_title:Pengguna baru sudah mendaftar dan sedang menunggu konfirmasi
-# Fuzzy
-register_admin_newuser_msg:Pengguna baru ({VAR: uent->login}), dan karena konfirmasi diaktifkan, akun tidak aktif sampai disetujui administrator. Untuk memeriksa, silakan ke: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nIni proses otomatis, jangan membalas surel ini.\nPemberitahuan lewat surel bisa dinonaktifkan melalui kontrol panel admin. Ubah setelan di "Pemberitahuan Akun baru".
+register_admin_newuser_msg:Pengguna baru ({VAR: uent->login}), dan karena konfirmasi diaktifkan, akun tidak akan aktif sampai disetujui administrator. Untuk memeriksa, silakan ke: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nIni proses otomatis, jangan membalas surel ini.\nPemberitahuan lewat surel bisa dinonaktifkan melalui kontrol panel admin. Ubah setelan di "Pemberitahuan Akun baru".
 post_mod_msg_notify_title:Pesan baru di forum "{VAR: frm->name}" menunggu persetujuan anda
 # Fuzzy
 post_mod_msg_notify_msg:Pesan baru berjudul "{VAR: msg_post->subject}" baru saja dimasukkan di forum yang anda moderasikan. Untum memeriksa,silakan ke: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nIni proses otomatis, jangan membalas email ini.
