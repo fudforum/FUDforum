@@ -1,5 +1,6 @@
 # Messages for Urdu (اردو)
 # Exported from translatewiki.net
+# Author: E THP
 # Author: Jgaad007
 # Author: Obaid Raza
 # Author: امین اکبر
@@ -24,7 +25,7 @@ date_posted:تاریخ پوسٹ
 date_registered:تاریخ رجسٹر ہوا:
 download_counter:ڈاؤن لوڈ  {PLURAL: v[3]|   $1  time| $1  بار}
 pmsg_download_counter:ڈاؤن لوڈ  {PLURAL: r->dlcount|   $1  time| $1  بار}
-email:ای-میل:
+email:ایمیل:
 email_to_friend:دوست کو ای میل کریں
 email_to_friend_desc:ای میل کے ذریعے یہ صفحہ اپنے دوست (زبانیں) کرنے کے لئے یو آر ایل ارسال کریں
 email_user:صارف کو ایک ای میل پیغام ارسال کریں
@@ -296,7 +297,7 @@ finduser_joindate:تاریخ شمولیت
 finduser_action:کارروائی
 yes:جی ہاں
 no:نہیں
-register_email:ای-میل
+register_email:ایمیل
 edit_time_limit:<b>تدوین کرنے کے لیے وقت کی حد</b>: {گوار: EDIT_TIME_LIMIT} منٹ
 no_edit_time_limit:<b>حد وقت تدوین کاری</b>: لا محدود
 pmuserloc_login:لاگ ان:
@@ -453,7 +454,7 @@ coppa_fax_date:تاریخ:
 coppa_fax_questions:براہ مہربانی رابطہ کریں <a href="mailto:{GVAR: ADMIN_EMAIL}">{گوار: ADMIN_EMAIL}</a> ذہن میں کوئی سوالات کے ساتھ
 coppa_fax_login:لاگ ان کریں
 coppa_fax_passwd:پاس ورڈ
-coppa_fax_remail:ای-میل
+coppa_fax_remail:ایمیل
 coppa_fax_name:نام
 login_not_logedin:کئی وجوہات میں سے ایک کی وجہ سے ہو سکتا ہے آپ کو اس لاگ ان نہیں ہیں:
 login_cookie_expired:آپ کوکی کی مدت ختم ہو چکی ہے، اور آپ کو آپ کی کوکیز کی تجدید لاگ ان کرنے کی ضرورت ہے.
