@@ -1020,7 +1020,7 @@ merge_next:Fils següents
 merge_prev:Fil anterior
 merge_another:Anar a l' <a href="{TEMPLATE: merge_another_lnk}">últim tema es van fusionar</a> o combinar un altre:
 split_cp:Panell de control per a separar fils
-groups_perms_header:Permisos <font size="-1">(mogui el ratolÃ­ per sobre del permÃ­s per a veure el tipus de permÃ­s)</font>
+groups_perms_header:Permisos <span class="small">(col·loqueu el ratolí sobre un permís per a veure el seu tipus)</span>
 register_err_sig_too_long:La seva signatura supera el nombre màxim de caràcters permesos ({GVAR: FORUM_SIG_ML}) a la signatura.
 register_sig_limit:{GVAR: FORUM_SIG_ML} characters <a href="javascript: alert('La seva signatura té una longitud de'+document.forms['fud_register'].reg_sig.value.length+' caràcters. La longitud màxima permesa és {GVAR: FORUM_SIG_ML}');" class="SmallText">Comprovar la longitud de la signatura</a>
 adm_account_accepted:El seu compte '{VAR: login}' ha estat aprovat per l`administrador i ja està  activat. Ara pot acceidr al fòrum {GVAR: FORUM_TITLE}' com un usuari amb el registre confirmat.

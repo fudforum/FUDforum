@@ -594,8 +594,7 @@ buddy_list_err_ignore:Non se poden engadir á túa lista de amigos usuarios que 
 buddy_list_update:Navegando pola miña lista de amigos
 core_err_invinp_title:A entrada non é válida
 core_err_invinp_err:Seguiches unha ligazón non válida. Por favor, informa ao <a href="mailto:{GVAR: ADMIN_EMAIL}">administrador</a> sobre isto.
-# Fuzzy
-core_adm_login_msg:Os administradores poden acceder ao sistema <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">aquí</a>.
+core_adm_login_msg:Os administradores poden acceder ao sistema <a href="{BASE}adm/admloginuser.php">here</a>.
 email_err_unabletoemail_title:Erro: Non se pode enviar o correo electrónico
 email_err_unabletoemail_msg:O sistema de correo electrónico foi desactivado polo administrador.
 email_error_unabletolocaddr:Sentímolo, o sistema non foi capaz de enviar por correo {VAR-HTML: _POST['tx_name']} porque non puido determinar o enderezo de correo electrónico
@@ -878,7 +877,7 @@ p_VISIBLE:Visible
 reported_in_thread:No fío:
 help_back_to_top:volver arriba
 help_return_to_index:Volver ao índice de axuda
-imsg_err_message_title:A mensaxe é inválida
+imsg_err_message_title:A mensaxe non é válida
 imsg_err_message_msg:A mensaxe que intentas ver non existe.
 poll_edit:Editar
 register_err_not_valid_img:O enderezo URL especificado non contén ningunha imaxe válida.
