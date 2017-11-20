@@ -473,7 +473,7 @@ groupmgr_edit:Bıvurne
 groupmgr_delete:Bestere
 group_mgr_anon:Anonim
 group_mgr_reged:Karberê qeydıni pêro
-show_show:Bımotne:
+show_show:Bımocne:
 group_mgr:Sermiyanê grube
 group_mgr_edit_btn:Grub bıvırnı
 group_mgr_group:Grube
@@ -659,7 +659,7 @@ powered-by:Destegdaren: FUDforum {GVAR: FORUM_VERSION}.
 copyright:Heqa telifi &copy;2001-2017 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Kod:
 code_select_all:Pêrıne weçine
-code_show_hide:Bımotne/bınımne
+code_show_hide:Bımocne/ bınımne
 social_sites:Steyê Sosyal Toran:
 postcheck_min_len_err:Mesacê şıma zaf kılmo. Tewr tayn dergeya cı wa {PLURAL: post_min_len|$1 karakter|$1 karakter} bo.
 postcheck_dup_err:Reca kem eyni merseler yew ra zaf merışê.

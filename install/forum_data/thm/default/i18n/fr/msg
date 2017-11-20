@@ -33,7 +33,7 @@ by:Par :
 by_mod:Par un modérateur
 current_time:Heure actuelle
 custom_avatar_queue:File d'attente des avatars personnalisés
-date_posted:Posté le
+date_posted:Publié le
 date_registered:Date d'inscription :
 download_counter:Téléchargé {PLURAL: v[3]|$1 fois|$1 fois}
 pmsg_download_counter:Téléchargé {PLURAL: r->dlcount|$1 fois|$1 fois}
@@ -92,7 +92,7 @@ cal_birthday:Anniversaire : {VAR: user}
 cal_birthdays:{PLURAL: birthdays|$1 anniversaire|$1 anniversaires}
 cal_birthday_age:({PLURAL: age|$1 an|$1 ans}).
 message:Message
-message_counter:Nos utilisateurs ont posté un total de <b>{PLURAL: post_count|$1 message|$1 messages}</b> message(s) dans <b>{PLURAL: thread_count|$1 fil|$1 fil}</b>.
+message_counter:Nos utilisateurs ont publié un total de <b>{PLURAL: post_count|$1 message|$1 messages}</b> dans <b>{PLURAL: thread_count|$1 fil|$1 fils}</b>.
 message_index:Index des messages
 message_index_desc:Voir la liste des messages
 minimize_category:Minimiser la catégorie
@@ -189,7 +189,7 @@ thread_thread:Fil
 threads:Fils
 time:Heure
 todays_posts:Messages du jour
-todays_posts_desc:Montrer tous les messages qui ont été postés aujourd'hui
+todays_posts_desc:Montrer tous les messages qui ont été publiés aujourd’hui
 un_ignore_user:Cesser d'ignorer les messages de cet utilisateur
 unanswered_posts:Messages sans réponse
 unanswered_posts_desc:Montrer tous les messages qui n'ont pas encore reçu de réponse
@@ -377,7 +377,7 @@ register_invisible_mode_desc:Vous permet d'empêcher les autres utilisateurs de 
 register_show_email:Rendre mon adresse de courriel visible :
 register_show_email_desc:Choisissez cette option si vous souhaitez que les autres utilisateurs puissent voir votre adresse de courriel.
 register_notification:Activer la notification par défaut :
-register_notification_desc:Ceci est une option par défaut qui peut être modifiée pour chaque message que vous postez.
+register_notification_desc:Ceci est une option par défaut qui peut être modifiée pour chaque message que vous publiez.
 register_notify_method:Méthode de notification :
 register_notify_method_desc:Choisissez votre système de notifications ou désactivez-les (par exemple pour les vacances)
 register_allow_email_msg:Autoriser les courriels :
@@ -438,7 +438,7 @@ post_cancel_btn:Annuler
 ignore_users:Ignorer les utilisateurs
 add_ignore:Ignorer quelqu'un d'autre
 forum_terms:Forum
-forum_rules:<p>L'inscription à ce forum est gratuite ! Nous vous faisons cependant remarquer que vous êtes redevable des conditions et détails ci-dessous. Si vous acceptez ces conditions, veuillez presser le bouton « <b>J'accepte </b>» à la fin de la page. Note : En pressant le bouton « J'accepte », vous déclarez avoir plus de 13 ans. Si vous n'avez pas encore 13 ans, vous devez utiliser le formulaire d'autorisation parentale.</p><p>Bien que les administrateurs et modérateurs de ce forum s'assurent d'écarter tout message qui ne serait pas jugé décent ou approprié sur l'un des forums, il nous est cependant impossible de les lire et contrôler tous. Chaque message représente les perspectives et idées propres de son auteur, et nous ne pouvons (administrateurs et modérateurs) être tenus pour responsables ou blâmables pour le contenu de quelque message que ce soit.</p><p>En cliquant sur le bouton « J'accepte », vous garantissez que vous n'avez pas l'intention de poster de messages à caractère obscène, vulgaire, en relation avec la sexualité, de propos haineux, menaces, ou violant toute loi en aucune façon. </p><p>Les responsables de ce forum ont le pouvoir et le droit d'effacer, éditer, corriger, déplacer, ou même fermer n'importe quel fil / message pour quelque raison que ce soit et sans préavis.</p>
+forum_rules:<p>L’inscription à ce forum est gratuite ! Nous vous faisons cependant remarquer que vous êtes redevable des conditions et détails ci-dessous. Si vous acceptez ces conditions, veuillez presser le bouton « <b>J’accepte </b>» à la fin de la page. Note : En pressant le bouton « J’accepte », vous déclarez avoir plus de 13 ans. Si vous n’avez pas encore 13 ans, vous devez utiliser le formulaire d’autorisation parentale.</p><p>Bien que les administrateurs et modérateurs de ce forum s’assurent d’écarter tout message qui ne serait pas jugé décent ou approprié sur l’un des forums, il nous est cependant impossible de les lire et contrôler tous. Chaque message représente les perspectives et idées propres de son auteur, et nous ne pouvons (administrateurs et modérateurs) être tenus pour responsables ou blâmables pour le contenu de quelque message que ce soit.</p><p>En cliquant sur le bouton « J’accepte », vous garantissez que vous n’avez pas l’intention de publier de messages à caractère obscène, vulgaire ou sexuel, de propos haineux, menaces, ou violant toute loi en aucune façon.</p><p>Les responsables de ce forum ont le pouvoir et le droit d’effacer, modifier, corriger, déplacer, ou même fermer n’importe quel fil ou message pour quelque raison que ce soit et sans préavis.</p>
 forum_rules_13:<p>Tout utilisateur de moins de 13 ans doit obtenir la permission de ses parents ou d’un tuteur légal afin de pouvoir devenir un membre de ce forum. Bien que la participation des personnes de moins de 13 ans soit la bienvenue, nous devons obtenir une autorisation signée d’un parent ou tuteur par fax ou courriel avant de l’inscrire.</p><p> Si vous désirez cependant commencer la procédure d’inscription avant que le document signé ne nous parvienne, veuillez cliquer sur le bouton <b>Accepter</b> ci-dessous. Si vous préférez annuler la procédure d’inscription, cliquez sur le bouton <b>Refuser</b> afin de retourner à la page d’index des forums. </p><p>Une copie du formulaire d’autorisation parentale vous sera fournie après l’inscription. Pour plus d’informations à propos de la procédure d’inscription, veuillez envoyer un courriel à <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
 coppa_conf:Confirmation COPPA
 coppa_before:Avant {TEMPLATE: coppa_date}
@@ -503,13 +503,13 @@ rate_this_thread:Note
 report_reporting_about:Je rapporte :
 report_subject:Sujet :
 report_by:Par :
-report_posted_on:Posté le
+report_posted_on:Publié le
 report_give_reason:Quelle est la raison pour laquelle vous rapportez ce message ?
 report_submit_report:Soumettre le rapport
 search_entire_msg:Dans tout le message
 search_subject_only:Uniquement dans le sujet
 search_forum:Forum
-search_posted_on:Posté le
+search_posted_on:Publié le
 search_no_results:Pas de résultat
 search_all_forums:Chercher dans tous les forums
 search_in_forum:Chercher dans le forum :
@@ -656,7 +656,7 @@ post_reply_update:Répond à <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subje
 post_topic_update:Écrit un nouveau sujet dans <a href="{TEMPLATE: post_topic_update_lnk}">{VAR: frm->name}</a>
 post_error_generic:Une erreur s'est produite
 postcheck_max_images_err:Un maximum de {GVAR: MAX_IMAGE_COUNT} images est autorisé par message, veuillez réduire le nombre d'images
-postcheck_no_links_allowed:Vous ne pouvez pas utiliser de liens avant d’avoir posté plus de {PLURAL: posts_before_links|$1 message|$1 messages}.
+postcheck_no_links_allowed:Vous ne pouvez pas utiliser de liens avant d’avoir publié plus de {PLURAL: posts_before_links|$1 message|$1 messages}.
 postcheck_subj_needed:Le champ sujet est obligatoire
 postcheck_no_such_user:Il n'y a pas d'utilisateur nommé « {FUNC: char_fix(htmlspecialchars($v))} » dans ce forum
 postcheck_ignored:Vous ne pouvez pas envoyer de message privé à « {FUNC: char_fix(htmlspecialchars($v))} » car cet utilisateur a décidé de vous ignorer.
@@ -854,7 +854,7 @@ quicklogin_password:Mot de passe :
 quicklogin_use_cookies:Utiliser des témoins (cookies) ?
 quicklogin_login_btn:Connexion
 quick_reply:Réponse rapide
-quick_reply_post:Poster une réponse rapide
+quick_reply_post:Publier une réponse rapide
 quick_reply_preview:Prévisualiser la réponse rapide
 post_notification_desc:Permet de recevoir une notification dès que quelqu'un a répondu à ce message.
 post_all_ext_allowed:(non restreint)
@@ -972,7 +972,7 @@ group_resources:Ce groupe controle les permissions des forums suivants
 register_admin_newuser_title:Un nouvel utilisateur s'est inscrit et son compte est en attente de confirmation
 register_admin_newuser_msg:Un nouvel utilisateur ({VAR: uent->login}) vient juste de s'inscrire sur le forum et comme la confirmation des comptes est activée, son compte ne deviendra actif que lorsque vous ou l'un des administrateurs du forum l'aurez confirmé. Pour décider de ce compte, veuillez vous rendre sur : {FULL_ROOT}adm/admuserapr.php\n\nCeci est un processus automatique, ne répondez pas à ce message.\nSi vous désirez désactiver les futures notifications par courriel de l'inscription de nouveaux utilisateurs, vous pouvez le faire par le panneau de contrôle admin. Changez la valeur de « New Account Notification ».
 post_mod_msg_notify_title:Nouveau message dans le forum « {VAR: frm->name} » en attente d'approbation
-post_mod_msg_notify_msg:Un nouveau message intitulé « {VAR: msg_post->subject} » vient juste d'être posté dans un forum que vous modérez. Pour décider de ce message, rendez-vous à : {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nCeci est un processus automatique. Ne répondez pas à ce message.
+post_mod_msg_notify_msg:Un nouveau message intitulé « {VAR: msg_post->subject} » vient juste d'être publié dans un forum que vous modérez. Pour décider de ce message, rendez-vous à : {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nCeci est un processus automatique. Ne répondez pas à ce message.
 thread_printable_pdf:Générer du PDF imprimable
 thread_syndicate:Publier ce forum (XML)
 reg_conf_title:Confirmation d'inscription
@@ -1135,7 +1135,7 @@ postcheck_min_len_err:Votre message est trop court. La longueur minimale est {PL
 postcheck_dup_err:Merci de ne pas créer de sujet en doublon.
 btn_new_topic:Nouveau sujet
 btn_new_pm:Nouveau MP
-btn_post_reply:Poster une réponse
+btn_post_reply:Publier une réponse
 btn_tree_view:Arborescence
 btn_flat_view:Liste
 btn_about:Profil
