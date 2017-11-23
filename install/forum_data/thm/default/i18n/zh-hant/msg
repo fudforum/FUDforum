@@ -17,71 +17,71 @@
 # Author: Wehwei
 
 action:操作
-add_to_buddy_list:加入好友列表
-admin:管理員
+add_to_buddy_list:加入好友清單
+admin:管理
 admin_control_panel:管理
 administrator:系統管理員
 attachment:附件：
 avatar:頭像：
-average_post_count:{PLURAL: u->posted_msg_count|$1 則訊息} (每日平均 {PLURAL: avg|$1 則訊息})
+average_post_count:{PLURAL: u->posted_msg_count|$1 則訊息}（每日平均 {PLURAL: avg|$1 則訊息}）
 biography:個人簡介：
 birth_date:出生日期：
-by:發帖：
+by:發文由：
 by_mod:版主
 current_time:目前時間
-custom_avatar_queue:定制頭像列表
-date_posted:發布時間
+custom_avatar_queue:自訂頭像佇列
+date_posted:發佈時間
 date_registered:註冊日期：
-download_counter:下載 {PLURAL: v[3] | $1 次|$1 次}
+download_counter:下載 {PLURAL: v[3]|$1 次|$1 次}
 pmsg_download_counter:下載 {PLURAL: r->dlcount|$1 次|$1 次}
 email:郵件：
-email_to_friend:給朋友傳送電子郵件
+email_to_friend:傳送電子郵件給朋友
 email_to_friend_desc:透過電子郵件把此頁面的網址傳送給你的朋友
-email_user:點這裡向此使用者寄出郵件。
+email_user:向使用者傳送電子郵件
 faq:說明
-first_unread_msg:轉入未讀的帖子
-first_unread_msg_desc:轉入本主題第一個未讀帖子
+first_unread_msg:轉入未讀訊息
+first_unread_msg_desc:轉入本主題第一個未讀訊息
 flat_view:返回至預設瀏覽方式
 forum:論壇：
 forum_icon:論壇圖示
 forum_new_messages:新訊息
-forum_none_messages:只有本論壇的註冊用戶能夠把帖子標為「已讀」或「未讀」
+forum_none_messages:只有本論壇的註冊用戶能夠把訊息標為「已讀」或「未讀」
 forum_old_messages:無新訊息
 from:來自：
 gender:性別：
-go:跳轉
-goto_next_msg:下一樓
-goto_prev_msg:樓上
+go:前往
+goto_next_msg:前往下一個訊息
+goto_prev_msg:前往上一個訊息
 home:首頁
 homepage:首頁：
 icq_control_panel:ICQ 線上訊息台
 icq_message_form:ICQ 訊息清單：
-ignore_user:加入黑名單
+ignore_user:忽略此使用者的所有訊息
 im_aim:AIM：
-im_msnm:MSN信使：
-im_yahoo:Yahoo信使：
+im_msnm:MSN：
+im_yahoo:Yahoo 即時通：
 image:照片：
 index_forum:論壇
-index_new_posts:上次瀏覽以後的新帖
-index_no_new_posts:自從上次瀏覽以後沒有新帖
+index_new_posts:上次瀏覽後的新訊息
+index_no_new_posts:自上次瀏覽後沒有新訊息
 index_url_redirection:重新導向
 interests:興趣：
-last_post:最新帖子
-last_thread_msg:轉入本主題最後一個帖子。
-legend:說明
+last_post:最新訊息
+last_thread_msg:轉入本主題最後一個訊息。
+legend:圖例
 location:地區：
 lock_thread:鎖定本主題
 locked:被鎖定
 locked_with_new_posts:鎖定（且未讀）
 logged_in_list:登入使用者清單
 login:登入
-login_header:帳號：
+login_header:登入：
 logout:登出
-mark_all_read:標記所有信息為已讀
-mark_all_read_desc:所有未讀的訊息都將被標為已讀
+mark_all_read:標記所有訊息為已讀
+mark_all_read_desc:標記您所有未讀的訊息為已讀
 members:成員
 calendar:日曆
-cal_goto_date:跳轉到：
+cal_goto_date:跳至：
 cal_day_heading:一天的事件
 cal_no_events:本日沒有事件。
 cal_update:瀏覽論壇日曆
@@ -89,7 +89,7 @@ cal_birthday:生日： {VAR: user}
 cal_birthdays:{PLURAL: birthdays|$1birthday| $1 生日}
 cal_birthday_age:（$1歲）。
 message:訊息
-message_counter:用戶共發布 <b>{PLURAL: post_count|$1|$1}</b>個帖子，分布在<b>{PLURAL: thread_count|$1|$1}</b>個主題裡。
+message_counter:我們的使用者一共發佈了 <b>{PLURAL: post_count|$1|$1}</b> 個訊息，包含在 <b>{PLURAL: thread_count|$1|$1}</b> 個主題裡。
 message_index:訊息索引
 message_index_desc:檢視訊息清單
 minimize_category:減少目錄層次
@@ -99,34 +99,34 @@ moderator:版主
 moderator_of:版主：
 moderator_options:版主功能
 moderators:{PLURAL: modcount|版主|版主}
-more_unread_messages:更多未讀信息
-more_unread_messages_desc:顯示更多未讀信息，並且把現在的信息標為已讀。
+more_unread_messages:更多未讀訊息
+more_unread_messages_desc:顯示更多未讀訊息，並且把現在的訊息標為已讀。
 move_thread:轉移
 moved:轉移至別的論壇
 moved_thread_message:這個主題已被轉移至別的論壇。
 na:暫無
-new_posts:新的主題
-new_private_messages:您有<span class="GenTextRed">({VAR: c})</span>條未讀悄悄話。
+new_posts:新訊息
+new_private_messages:您有<span class="GenTextRed">（{VAR: c}）</span>條未讀悄悄話。
 new_thread:建立一個新的主題
-newest_user:最新注冊的使用者為
+newest_user:最新註冊的使用者為
 next_page:下一頁
 next_thread:上一個主題：
-no_messages:本論壇沒有任何發言。成為第一個發言的人！
+no_messages:本論壇沒有任何訊息。成為第一個發佈訊息的人！
 no_msg_body:沒有內容！
-no_new_posts:沒有新的主題
-no_posts:沒有新主題
-no_subscribed_forums:沒有預定的論壇
-no_subscribed_threads:沒有預定的主題
-no_bookmarked_threads:沒有用書簽標記的主題
+no_new_posts:沒有新訊息
+no_posts:沒有訊息
+no_subscribed_forums:沒有訂閱的論壇
+no_subscribed_threads:沒有訂閱的主題
+no_bookmarked_threads:沒有用書籤標記的主題
 no_unread_locked:本主題已被鎖定（不可回復）。
-no_unread_msg:這個主題沒有未讀信息。
-no_unread_msg_unreg:只有注冊使用者能夠把訊息標為已讀和未讀。
+no_unread_msg:這個主題沒有未讀訊息。
+no_unread_msg_unreg:只有註冊過的使用者能把訊息標為已讀和未讀。
 num_pages:頁（{VAR: ttl_pg}）：
-num_votes:{VAR: obj->total_votes} 票
+num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|票|票}
 occupation:職業：
 off:關閉
 on:開啟
-page_timings:生成本頁面共花費時間：{VAR: page_gen_time} 秒。
+page_timings:產生此頁面時間共花費：{PLURAL: page_gen_time|$1 秒}
 pm:悄悄話
 poll:調查：
 post_count:發帖數： {VAR: u_pcount}
@@ -245,7 +245,7 @@ pmsg_all:全部
 pmsg_none:無
 folder:資料夾：
 pmsg_replied:回复
-pmsg_forwarded:轉發
+pmsg_forwarded:轉寄
 pmsg_subject:主題
 pmsg_author:作者
 pmsg_time:時間
