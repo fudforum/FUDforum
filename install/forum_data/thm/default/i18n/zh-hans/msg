@@ -719,6 +719,7 @@ email_title:邮件格式
 finduser_title:查找用户
 help_title:帮助
 login_title:登录格式
+msg_title:{VAR: frm->name} &raquo; {VAR: frm->subject}
 poll_title:调查编辑
 register_title:注册
 reset_title:重新输入密码
@@ -726,6 +727,8 @@ rpasswd_title:更改密码表单
 error_title:格式错误
 index_title:欢迎到来
 search_title:搜索 {VAR-HTML: srch}
+thread_title:{VAR: frm->name}
+tree_title:{VAR: frm->name} &raquo; {VAR: frm->subject}
 remail_emailsent:邮件已经发送
 remail_email:您好，\n\n在{GVAR: FORUM_TITLE}论坛上有一个关于“{VAR: data->subject}”的兴趣话题，您可能希望阅读。您可以在该链接查看话题：\n {FULL_ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\n您的朋友，\n\n{VAR: usr->alias}
 poll_add_option:添加选项：
