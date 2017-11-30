@@ -377,7 +377,7 @@ register_invisible_mode_desc:Vous permet d'empêcher les autres utilisateurs de 
 register_show_email:Rendre mon adresse de courriel visible :
 register_show_email_desc:Choisissez cette option si vous souhaitez que les autres utilisateurs puissent voir votre adresse de courriel.
 register_notification:Activer la notification par défaut :
-register_notification_desc:Ceci est une option par défaut qui peut être modifiée pour chaque message que vous publiez.
+register_notification_desc:Si la notification est active par défaut, elle peut être désactivée lorsque vous publiez.
 register_notify_method:Méthode de notification :
 register_notify_method_desc:Choisissez votre système de notifications ou désactivez-les (par exemple pour les vacances)
 register_allow_email_msg:Autoriser les courriels :
