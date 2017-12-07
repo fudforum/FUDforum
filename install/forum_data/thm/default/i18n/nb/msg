@@ -596,8 +596,7 @@ buddy_list_err_ignore:Kan ikke legge brukere som ignorerer deg til i vennelisten
 buddy_list_update:Viser egen kontaktliste
 core_err_invinp_title:Ugyldig input(??)
 core_err_invinp_err:Du har fulgt en feilaktig lenke, vennligst gi beskjed til <a href="mailto:{GVAR: ADMIN_EMAIL}">webansvarlig</a>
-# Fuzzy
-core_adm_login_msg:Administratorer kan logge inn <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">her</a>.
+core_adm_login_msg:Administratorer kan logge inn <a href="{BASE}adm/admloginuser.php">her</a>.
 email_err_unabletoemail_title:FEIL: Kan ikke sende e-post
 email_err_unabletoemail_msg:E-postsystemet er stengt av administratorn.
 email_error_unabletolocaddr:Systemet kunne dessverre ikke sende e-post til {VAR-HTML: _POST['tx_name']} ettersom det ikke kunne finne hans/hennes e-postadresse
@@ -963,8 +962,7 @@ iemail_forum_unsub:Stopp abonnement på dette forumet
 primary_group_prefix:Primærgruppe for forum:
 group_resources:Denne gruppen kontrollerer rettighetene på følgende fora
 register_admin_newuser_title:En ny bruker har registrert seg og kontoen venter på bekreftelse
-# Fuzzy
-register_admin_newuser_msg:En ny bruker ({VAR: uent->login}) har akkurat registrert seg og siden kontobekreftelse er aktivert vil ikke deres konto bli aktiv før den er bekreftet av deg eller en annen forumadministrator. For å godkjenne kontoen gå til: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nDette er en automatisert prosess. Ikke svar på denne meldingen.\nOm du vil slå av fremtidige e-postvarsler om nye brukerregistreringer kan du gjøre dette i Administratorens kontrollpanel. Endre «Varsel om ny konto»-innstillingen.
+register_admin_newuser_msg:En ny bruker ({VAR: uent->login}) har akkurat registrert seg og siden kontobekreftelse er aktivert vil ikke deres konto bli aktiv før den er bekreftet av deg eller en annen forumadministrator. For å godkjenne kontoen gå til: {FULL_ROOT}adm/admuserapr.php\n\nDette er en automatisert prosess. Ikke svar på denne meldingen.\nOm du vil slå av fremtidige e-postvarsler om nye brukerregistreringer kan du gjøre dette i Administratorens kontrollpanel. Endre «Varsel om ny konto»-innstillingen.
 post_mod_msg_notify_title:En ny melding i forumet «{VAR: frm->name}» venter på godkjenning
 post_mod_msg_notify_msg:En ny melding med tittelen «{VAR: msg_post->subject}» ble akkurat postet i et forum som du modererer. For å godkjenne denne meldingen gå til: {FULL_ROOT}?t=modque#{VAR: msg_post->id}\n\nDette er en automatisert prosess. Ikke svar på denne meldingen.
 thread_printable_pdf:Generer utskriftsvennlig PDF

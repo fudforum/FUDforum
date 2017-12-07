@@ -18,7 +18,7 @@ admin_control_panel:İdaretey
 administrator:İdarekari
 attachment:Ole
 avatar:Avatar:
-average_post_count:Pêro piya {PLURAL: u->posted_msg_count|$1 Message|$1 Mesaci} ({PLURAL: avg|$1 Mesaci|$1 mesaci} herg roc)
+average_post_count:Pêro piya {PLURAL: u->posted_msg_count|$1 Message|$1 Mesaci} ({PLURAL: avg|$1 Mesaci|$1 mesaci} her roce)
 biography:Biyografiye:
 birth_date:Rocbiyayış
 by:Rıştoğ:
@@ -81,7 +81,7 @@ cal_day_heading:Weqey Roceki
 cal_no_events:Ewroy rê zad Çıno
 cal_update:Teqwimê Forumi rat nı
 cal_birthday:Rocbiyayış: {VAR: user}
-cal_birthdays:{PLURAL: birthdays|$1 roc ziyayış|$1 roc ziyayışi}
+cal_birthdays:{PLURAL: birthdays|$1 roca biyayışi|$1 rocê biyayışi}
 cal_birthday_age:({PLURAL: age|$1 serre|$1 serri} verêne).
 message:Mesac
 message_counter:Karberi <b>{PLURAL: thread_count|$1 Mesel|$1 mesel}</b> dı pêro piya <b>{PLURAL: post_count|$1 mesac|$1 mesac}</b> rışto.
@@ -426,7 +426,7 @@ poll_delete:Bestere
 poll_updateoption:Weçibegê rocanyışi
 poll_addoption:Weçineg dek
 poll_unlimited:Bêsinor
-poll_day:roc
+poll_day:roce
 poll_days:roci
 poll_hour:saat
 poll_hours:saat
@@ -503,7 +503,7 @@ th_expr_three_hr:3 Sehata
 th_expr_four_hr:4 Sehata
 th_expr_eight_hr:8 Sehata
 th_expr_sixteen_hr:16 sehata
-th_expr_one_day:1 Roc
+th_expr_one_day:1 Roce
 th_expr_two_day:2 Roci
 th_expr_four_day:4 Roci
 th_expr_one_week:1 Hefti
@@ -558,7 +558,7 @@ iemail_msg_reply:Cewab bıdê
 mnav_description:Geyrayoğê mesaci
 mnav_minute:Deqe(y)
 mnav_hour:Sehat(i)
-mnav_day:Roc(i)
+mnav_day:Roce(roci)
 mnav_week:Hefte(y)
 mnav_month:Aşm(i)
 mnav_title:Geyrayoğê mesaci
