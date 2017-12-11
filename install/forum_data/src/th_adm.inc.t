@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -96,6 +96,11 @@ function __th_cron_emu($forum_id, $run=1)
 
 function rebuild_forum_view_ttl($forum_id, $skip_cron=0)
 {
+// 1 topic locked
+// 2 is_sticky ANNOUNCE
+// 4 is_sticky STICKY
+// 8 important (always on top)
+
 	if (!$skip_cron) {
 		__th_cron_emu($forum_id, 0);
 	}
@@ -125,11 +130,17 @@ function rebuild_forum_view_ttl($forum_id, $skip_cron=0)
 			WHERE forum_id='. $forum_id .' AND {SQL_TABLE_PREFIX}msg.apr=1 
 			ORDER BY (CASE WHEN thread_opt>=2 THEN (4294967294 + (('. q_bitand('thread_opt', 8) .') * 100000000) + {SQL_TABLE_PREFIX}thread.last_post_date) ELSE {SQL_TABLE_PREFIX}thread.last_post_date END) ASC LIMIT -1 OFFSET 0) q1');
 	} else {
-		q('INSERT INTO {SQL_TABLE_PREFIX}tv_'. $forum_id .' (seq, thread_id, iss) SELECT '. q_rownum() .', id, iss FROM
-			(SELECT {SQL_TABLE_PREFIX}thread.id AS id, '. q_bitand('thread_opt', (2|4|8)) .' AS iss FROM {SQL_TABLE_PREFIX}thread 
+		//q('INSERT INTO {SQL_TABLE_PREFIX}tv_'. $forum_id .' (seq, thread_id, iss) SELECT '. q_rownum() .', id, iss FROM
+		//	(SELECT {SQL_TABLE_PREFIX}thread.id AS id, '. q_bitand('thread_opt', (2|4|8)) .' AS iss FROM {SQL_TABLE_PREFIX}thread 
+		//	INNER JOIN {SQL_TABLE_PREFIX}msg ON {SQL_TABLE_PREFIX}thread.root_msg_id={SQL_TABLE_PREFIX}msg.id 
+		//	WHERE forum_id='. $forum_id .' AND {SQL_TABLE_PREFIX}msg.apr=1 
+		//	ORDER BY (CASE WHEN thread_opt>=2 THEN (4294967294 + (('. q_bitand('thread_opt', 8) .') * 100000000) + {SQL_TABLE_PREFIX}thread.last_post_date) ELSE {SQL_TABLE_PREFIX}thread.last_post_date END) ASC) q1');
+
+		q('INSERT INTO {SQL_TABLE_PREFIX}tv_'. $forum_id .' (seq, thread_id, iss)
+			SELECT '. q_rownum() .', {SQL_TABLE_PREFIX}thread.id, '. q_bitand('thread_opt', (2|4|8)) .' FROM {SQL_TABLE_PREFIX}thread 
 			INNER JOIN {SQL_TABLE_PREFIX}msg ON {SQL_TABLE_PREFIX}thread.root_msg_id={SQL_TABLE_PREFIX}msg.id 
 			WHERE forum_id='. $forum_id .' AND {SQL_TABLE_PREFIX}msg.apr=1 
-			ORDER BY (CASE WHEN thread_opt>=2 THEN (4294967294 + (('. q_bitand('thread_opt', 8) .') * 100000000) + {SQL_TABLE_PREFIX}thread.last_post_date) ELSE {SQL_TABLE_PREFIX}thread.last_post_date END) ASC) q1');
+			ORDER BY '. q_bitand('thread_opt', (2|4|8)) .' ASC, {SQL_TABLE_PREFIX}thread.last_post_date ASC');
 	}
 
 	if (isset($ll)) {

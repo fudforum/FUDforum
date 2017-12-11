@@ -1,4 +1,4 @@
-#   copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+#   copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
 #   email                : forum@prohost.org
 #
 #   $Id$
@@ -25,3 +25,5 @@ CREATE INDEX {SQL_TABLE_PREFIX}themes_i_t ON {SQL_TABLE_PREFIX}themes (theme_opt
 # 1 enabled
 # 2 t_default
 # 4 path_info
+# 8 no_index_url
+

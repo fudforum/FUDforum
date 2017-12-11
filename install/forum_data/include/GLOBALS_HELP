@@ -514,7 +514,3 @@ Allow users to reset their own passwords.}}}
 
 {{{KARMA	FUD_OPT_4	4
 Enable karma / user reputation system. If enabled, member can upvote or downvote other members.}}}
-
-{{{NO_INDEX_URL	FUD_OPT_4	8
-Remove 'index.php' from forum URLs. This will only work if your web server has rewrite rules in place to direct URLs to the index.php file. Recompile your themes after changing this value.}}}
-

@@ -71,7 +71,7 @@ function resolve_refs($file_name)
 		parse_sections($str, '');
 	}
 
-	// Non-default templates may not conatin all sections. Parse 'based_on' chain as well.
+	// Non-default templates may not contain all sections. Parse 'based_on' chain as well.
 	if (strpos($GLOBALS['CURFILE'], 'thm/default/tmpl') === false) {
 		$ini['based_on'] = $tset;
 		while ($ini['based_on'] != 'default' && ($ini = @parse_ini_file($GLOBALS['DATA_DIR'] .'thm/'. $ini['based_on'] .'/theme.ini'))) {
@@ -647,15 +647,19 @@ function build_msg($file)
 	/*
 	 * Read in requested message file.
 	 */
-	if (file_exists($file)) {
-		if (preg_match('!thm/([^/]+)/i18n!', $file, $m)) {
-			parse_sections(@file_get_contents($GLOBALS['DATA_DIR'] .'thm/'. $m[1] .'/tmpl/messages'), '', 1);
-			if (file_exists($GLOBALS['DATA_DIR'] .'thm/'. $m[1] .'/tmpl/date_formats.tmpl')) {
-				parse_sections(@file_get_contents($GLOBALS['DATA_DIR'] .'thm/'. $m[1] .'/tmpl/date_formats.tmpl'), '', 1);
-			}
-		}
-		parse_msgs($file);
-	}
+        if (preg_match('!thm/([^/]+)/i18n!', $file, $m)) {
+                if (file_exists($GLOBALS['DATA_DIR'] .'thm/'. $m[1] .'/tmpl/messages')) {
+                        parse_sections(@file_get_contents($GLOBALS['DATA_DIR'] .'thm/'. $m[1] .'/tmpl/messages'), '', 1);
+                } elseif ( file_exists($GLOBALS['DATA_DIR'] .'thm/'. $m[1] .'/.path_info')) {
+                        parse_sections(@file_get_contents($GLOBALS['DATA_DIR'] .'thm/path_info/tmpl/messages'), '', 1);
+                }
+                if (file_exists($GLOBALS['DATA_DIR'] .'thm/'. $m[1] .'/tmpl/date_formats.tmpl')) {
+                        parse_sections(@file_get_contents($GLOBALS['DATA_DIR'] .'thm/'. $m[1] .'/tmpl/date_formats.tmpl'), '', 1);
+                }
+                if (file_exists($file)) {
+                        parse_msgs($file);
+                }
+        }
 
 	/*
 	 * Append any missing entries from the DEFAULT template set (same language).
@@ -721,7 +725,7 @@ function resolve_compile($file)
 	$GLOBALS['file_cache'][$file]['compiled'] = compile_file($GLOBALS['file_cache'][$file]['src'], $file);
 }
 
-function compile_all($tset='default', $lang='en', $tname='default')
+function compile_all($tset='default', $lang='en', $tname='default', $t_opt=0)
 {
 	/* Make sure we can use the specified values to make 'nice' directory names. */
 	$tname = preg_replace('![^A-Za-z0-9-]!', '_', $tname);
@@ -750,7 +754,7 @@ function compile_all($tset='default', $lang='en', $tname='default')
 	// Define constants to expand in template files, i.e. {ROOT}.	
 	$cmpl['BASE'] = substr($urlpath, 0, strrpos($urlpath, '/')+1 );
 
-	if ($GLOBALS['FUD_OPT_4'] & 8) {	// Remove index.php from URLs (8==NO_INDEX_URL)
+	if ($t_opt & 8) {	// Remove index.php from URLs (8==NO_INDEX_URL)
 		$cmpl['ROOT']      = rtrim($cmpl['BASE'], '/');
 		$cmpl['FULL_ROOT'] = rtrim($GLOBALS['WWW_ROOT']);
 	} else {

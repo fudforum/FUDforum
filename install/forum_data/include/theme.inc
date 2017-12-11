@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -21,7 +21,7 @@ class fud_theme
 			}
 		}
 		$this->name = preg_replace('![^A-Za-z0-9_]!', '_', trim($this->name));
-		$this->theme_opt = !empty($_POST['thm_enabled']) | (!empty($_POST['thm_t_default']) ? 2 : 0);
+		$this->theme_opt = !empty($_POST['thm_enabled']) | (!empty($_POST['thm_t_default']) ? 2 : 0) | (!empty($_POST['thm_path_info']) ? 4 : 0) | (!empty($_POST['thm_no_index_url']) ? 8 : 0);
 	}
 
 	/** Register a new theme. */
@@ -37,7 +37,7 @@ class fud_theme
 			$this->theme_opt |= 1;
 		}
 
-		if ($this->theme == 'path_info' || @file_exists($GLOBALS['DATA_DIR'] .'thm/'. $this->theme .'/.path_info')) {
+		if (preg_match('/path_info/', $this->theme) || @file_exists($GLOBALS['DATA_DIR'] .'thm/'. $this->theme .'/.path_info')) {
 			$this->theme_opt |= 4;
 		}
 
@@ -70,7 +70,7 @@ class fud_theme
 			$this->theme_opt |= 2;
 		}
 
-		if ($this->theme == 'path_info' || @file_exists($GLOBALS['DATA_DIR'] .'thm/'. $this->theme .'/.path_info')) {
+		if (preg_match('/path_info/', $this->theme) || @file_exists($GLOBALS['DATA_DIR'] .'thm/'. $this->theme .'/.path_info')) {
 			$this->theme_opt |= 4;
 		}
 
@@ -114,6 +114,7 @@ class fud_theme
 		}
 
 		q('DELETE FROM '.$GLOBALS['DBHOST_TBL_PREFIX'] .'themes WHERE id='. $id);
+		// Pick a new default theme and assign to users.
 		if ($data[0] & 2) {
 			if (!($new_default = q_singleval('SELECT id FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'themes WHERE '. q_bitand('theme_opt', 1) .' > 0'))) {
 				$new_default = 1;

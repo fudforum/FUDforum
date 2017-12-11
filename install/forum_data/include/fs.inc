@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -169,6 +169,30 @@ function fud_copy($src, $dest, $mask='*', $recur=false)
 		}		
 	}
 	umask($u);
+}
+
+/** Write ini settings file (use with the built-in 'parse_ini_file' function). */
+function put_ini_file($ini, $file, $has_section = false, $write_to_file = true) {
+	$fileContent = '';
+	if (!empty($ini)) {
+		foreach ($ini as $i=>$v) {
+			if ($has_section){
+				$fileContent .= "[".$i."]\n" . put_ini_file($v, $file, false, false);
+			} else {
+    				if (is_array($v)) {
+					foreach($v as $t=>$m)
+						$fileContent .= $i."[".$t."] = ".(is_numeric($m) ? $m : '"'.$m.'"') . "\n";
+				} else {
+					$fileContent .= $i . " = " . (is_numeric($v) ? $v : '"'.$v.'"') . "\n";
+				}
+			}
+		}
+	}
+ 
+	if ($write_to_file && strlen($fileContent))
+		return file_put_contents($file, $fileContent, LOCK_EX);
+	else
+		return $fileContent;
 }
 
 ?>

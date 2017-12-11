@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2014 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -14,6 +14,12 @@ header('Cache-Control: no-cache, no-store, max-age=0, must-revalidate');
 header('Expires: Mon, 26 Jul 1997 05:00:00 GMT'); // Way back in the past.
 header('Pragma: no-cache');
 header('X-Robots-Tag: noindex, nofollow');
+
+// Try to force unbufered incremental output.
+header('X-Accel-Buffering: no');
+@ini_set('zlib.output_compression', 0);
+@ini_set('implicit_flush', 1);
+@ob_implicit_flush(1);
 
 /* Load DB driver. */
 fud_use('db.inc');
