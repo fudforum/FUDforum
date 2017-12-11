@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -9,6 +9,7 @@
 * Free Software Foundation; version 2 of the License.
 **/
 
+/* main */
 	require('./GLOBALS.php');
 
 	// Run from command line.
@@ -37,10 +38,10 @@
 
 	// Rebuild all themes.
 	if (isset($_GET['rebuild_all'])) {
-		$r = q('SELECT theme, lang, name FROM '. $DBHOST_TBL_PREFIX .'themes');
+		$r = q('SELECT theme, lang, name, theme_opt FROM '. $DBHOST_TBL_PREFIX .'themes');
 		while (($data = db_rowarr($r))) {
 			try {
-				compile_all($data[0], $data[1], $data[2]);
+				compile_all($data[0], $data[1], $data[2], $data[3]);
 				pf(successify('Theme '. $data[2] .' ('. $data[1] .') was successfully rebuilt.'));
 			} catch (Exception $e) {
 				pf(errorify('Please fix theme '. $data[2] .': '. htmlentities($e->getMessage())));
@@ -71,7 +72,7 @@
 			} else {
 				$thm->add();
 				try {
-					compile_all($thm->theme, $thm->lang, $thm->name);
+					compile_all($thm->theme, $thm->lang, $thm->name, $thm->theme_opt);
 					pf(successify('Theme '. $thm->name .' was successfully created.'));
 				} catch (Exception $e) {
 					pf(errorify('Please fix theme: '. $e->getMessage()));
@@ -86,16 +87,16 @@
 		if ($thm->name) {
 			$thm->sync((int)$_POST['edit']);
 			try {
-				compile_all($thm->theme, $thm->lang, $thm->name);
+				compile_all($thm->theme, $thm->lang, $thm->name, $thm->theme_opt);
 				pf(successify('Theme saved and successfully rebuilt.'));
 			} catch (Exception $e) {
 				pf(errorify('Please fix theme: '. $e->getMessage()));
 			}
 		}
 		$edit = '';
-	} else if (isset($_GET['rebuild']) && ($data = db_saq('SELECT theme, lang, name FROM '. $DBHOST_TBL_PREFIX .'themes WHERE id='. (int)$_GET['rebuild']))) {
+	} else if (isset($_GET['rebuild']) && ($data = db_saq('SELECT theme, lang, name, theme_opt FROM '. $DBHOST_TBL_PREFIX .'themes WHERE id='. (int)$_GET['rebuild']))) {
 		try {
-			compile_all($data[0], $data[1], $data[2]);
+			compile_all($data[0], $data[1], $data[2], $data[3]);
 			pf(successify('Theme '. $data[2] .' ('. $data[1] .') was successfully rebuilt.'));
 		} catch (Exception $e) {
 			pf(errorify('Please fix theme: '. $e->getMessage()));
@@ -104,8 +105,11 @@
 		foreach ($c as $k => $v) {
 			${'thm_'. $k} = $v;
 		}
-		$thm_t_default = $c['theme_opt'] & 2;
-		$thm_enabled = $c['theme_opt'] & 1;
+		$thm_no_index_url = $c['theme_opt'] & 8;
+		$thm_path_info    = $c['theme_opt'] & 4;
+		$thm_t_default    = $c['theme_opt'] & 2;
+		$thm_enabled      = $c['theme_opt'] & 1;
+
 	} else if (isset($_GET['del']) && (int)$_GET['del'] > 1) {
 		fud_theme::delete((int)$_GET['del']);
 		pf(successify('Theme was successfully deleted.'));
@@ -127,7 +131,7 @@
 		if (!isset($thm_pspell_lang) || empty($thm_pspell_lang)) {
 			$thm_pspell_lang = $thm_lang;
 		}
-		$thm_t_default = 0; $thm_enabled = 1;
+		$thm_t_default = 0; $thm_enabled = 1; $thm_path_info = 0; $thm_no_index_url = 0;
 	}
 ?>
 <h2>Theme Manager</h2>
@@ -250,6 +254,20 @@ function update_locale()
 	<td colspan="2">
 	<label><?php draw_checkbox('thm_t_default', '2', $thm_t_default);?> Default</label>
 	<label><?php draw_checkbox('thm_enabled', '1', $thm_enabled); ?> Enabled</label>
+	<label><?php draw_checkbox('thm_no_index_url', '8', $thm_no_index_url); ?> Generate without index.php</label>
+	<script>
+	jQuery(document).ready(function() {
+		/* Hide 'Login' & 'Password' fields if 'Authentication Method' is NONE. */
+		jQuery('#thm_theme').change(function() {
+			if ( jQuery('#thm_theme option:selected').val() == 64 ) {
+				jQuery('#nntp_login, #nntp_pass').parent().parent().hide('slow');
+			} else {
+				jQuery('#nntp_login, #nntp_pass').parent().parent().show('slow');
+			}
+		});
+		jQuery('#thm_theme').change();
+	});
+	</script>
 	</td>
 </tr>
 <tr class="fieldaction">

@@ -1,5 +1,5 @@
 /***************************************************************************
-* copyright            : (C) 2001-2016 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -498,7 +498,7 @@ function passwords_match(password1, password2) {
 /* Code that will run on each page. */
 jQuery(function init() {
 	/* Open external links in a new window. */
-	jQuery('a[href^="http://"]').attr({
+	jQuery('a[href^="http://"], a[href^="https://"]').attr({
 		target: "_blank", 
 		title: "Opens in a new window"
 	});

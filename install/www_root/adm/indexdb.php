@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -11,7 +11,7 @@
 
 /* main */
 	@set_time_limit(0);
-	@ini_set('memory_limit', '128M');
+	@ini_set('memory_limit', '512M');
 
 	require('./GLOBALS.php');
 

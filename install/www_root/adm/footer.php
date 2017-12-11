@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -71,7 +71,7 @@ jQuery(function() {
 	jQuery('.dismiss').prepend('<span style="float:right;">&nbsp;[ <a href="javascript://" onclick="jQuery(this).parents(\'.dismiss\').hide(\'slow\');" title="Dismiss!">X</a> ]</span>');
 
 	// Open external links in new windows.
-	jQuery('a[href^="http://"]').attr({ target: "_blank", title: "Opens in a new window!" });
+	jQuery('a[href^="http://"], a[href^=https://]').attr({ target: "_blank", title: "Opens in a new window!" });
 });
 </script>
 </div>

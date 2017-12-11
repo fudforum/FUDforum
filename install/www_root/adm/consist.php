@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -31,9 +31,15 @@ function delete_zero($tbl, $q)
 }
 
 /* main */
-	@set_time_limit(600);
-	@ini_set('memory_limit', '128M');
+	@set_time_limit(0);
+	@ini_set('memory_limit', '512M');
 	require('./GLOBALS.php');
+
+	// Try to force unbufered incremental output.
+	header('X-Accel-Buffering: no');
+	@ini_set('zlib.output_compression', 0);
+	@ini_set('implicit_flush', 1);
+	@ob_implicit_flush(1);
 
 	// Run from command line.
 	if (php_sapi_name() == 'cli') {
@@ -171,8 +177,10 @@ While it is running, your forum will be disabled!
 		if (!in_array($fl_tbl, $tbls)) {
 			$tbls[] = $fl_tbl;
 		}
-		frm_add_view_tbl($tv_tbl);
-		frm_add_lock_tbl($fl_tbl);
+		if ($thorough) {
+			frm_add_view_tbl($tv_tbl);
+			frm_add_lock_tbl($fl_tbl);
+		}
 	}
 
 	/* Add private message lock table. */
@@ -645,7 +653,7 @@ While it is running, your forum will be disabled!
 		ctag_rebuild_cache($r[0]);
 	}
 	unset($c);
-	draw_stat('Done Rebuilding custom tags for users');
+	draw_stat('Done rebuilding custom tags for users');
 
 	draw_stat('Validating group resources');
 	delete_zero($tbl .'group_resources', 'SELECT gr.id FROM '. $tbl .'group_resources gr LEFT JOIN '. $tbl .'forum f ON f.id=gr.resource_id LEFT JOIN '. $tbl .'groups g ON g.id=gr.group_id WHERE f.id IS NULL OR g.id IS NULL');

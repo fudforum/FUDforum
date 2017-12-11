@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -138,6 +138,9 @@ jQuery(document).ready(function() {
 <?php
 if (isset($_POST['txtb']) && $_POST['txtb'] != '') {
 	$sqlfile = str_replace("\r", '', $_POST['txtb']);
+	$sqlfile = preg_replace('/\/\/(.*)|/', '', $sqlfile);	// Remove //comments
+	$sqlfile = preg_replace('/--(.*)/', '', $sqlfile);	// Remove --comments
+	$sqlfile = preg_replace('/^#(.*)/', '', $sqlfile);	// Remove #comments
 	$sqlfile = str_replace('{SQL_TABLE_PREFIX}', $GLOBALS['DBHOST_TBL_PREFIX'], $sqlfile);
 	$sqlfile = explode(";", $sqlfile);
 
