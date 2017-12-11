@@ -1103,6 +1103,10 @@ if ($section == 'admin' || php_sapi_name() == 'cli') {
 			die('Unable to compile theme '. $templ .' ('. $lang .'): '.  $e->getMessage());
 		}
 
+		/* Build smiley cache */
+		require($INCLUDE .'sml_rcache.inc');
+		smiley_rebuild_cache();
+
 		$display_section = 'done';
 	}
 }
