@@ -119,7 +119,7 @@ no_posts:No hay mensajes
 no_subscribed_forums:No hay foros suscritos
 no_subscribed_threads:No hay hilos de discusión suscritos
 no_bookmarked_threads:Sin tópicos en marcadores
-no_unread_locked:Este hilo de discusión ha sido bloqueado
+no_unread_locked:Este hilo de discusión se ha bloqueado
 no_unread_msg:Este hilo de discusión no tiene mensajes no leídos
 no_unread_msg_unreg:Sólo los usuarios registrados pueden hacer seguimiento de mensajes leídos y no leídos
 num_pages:Páginas ({VAR: ttl_pg}):

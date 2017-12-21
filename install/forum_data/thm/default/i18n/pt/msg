@@ -1,5 +1,6 @@
 # Messages for Portuguese (português)
 # Exported from translatewiki.net
+# Author: Athena in Wonderland
 # Author: Crazymadlover
 # Author: Dianakc
 # Author: Fryed-peach
@@ -116,7 +117,7 @@ next_thread:Próximo Tópico:
 no_messages:Não há mensagens neste fórum.<br />Seja o primeiro a postar um tópico neste fórum.
 no_msg_body:mensagem vazia
 no_new_posts:Não há novos posts
-no_posts:sem Posts
+no_posts:Não há mensagens
 no_subscribed_forums:Não há forums subscritos
 no_subscribed_threads:Não há topicos subscritos
 no_bookmarked_threads:Não há nenhum tópico nos favoritos
@@ -218,8 +219,7 @@ vote_button:Voto
 vote_for_thread:Voto
 was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> foi movido para <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> pelo moderador.
 welcome_message:Bem vindo <b>{VAR: usr->alias}</b>, a sua ultima visita foi em {TEMPLATE: welcome_message_date}
-# Fuzzy
-what_ppl_doing:Mostrar o que os membros estão a fazer
+what_ppl_doing:Atividade do utilizador
 reported_del_report:Apagar relatório
 reported_reason:Motivo:
 reported_on:Em:
@@ -387,8 +387,7 @@ my_buddies:Os meus amigos
 add_buddy:Adicionar Amigo
 add:Adicionar
 buddy_search:Introduza o nome do utilizador que pretende adicionar.
-# Fuzzy
-member_search:Ou use <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Encontrar Utilizador</a> para localizar a pessoa.
+member_search:Ou utilize a funcionalidade <a href="javascript://" onclick="javascript: window_open('{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Encontrar Utilizador</a> para localizar a pessoa.
 buddy_remove:remover
 post_normal:Normal
 post_sticky:Fixo
@@ -416,7 +415,7 @@ post_icons:Icon do Post:
 post_no_icon:Nenhum Icon
 post_smiley:Atalhos para os smiles:
 post_format_tools:Ferramentas de formatação:
-post_upload_file:Upload Ficheiro
+post_upload_file:Carregar Ficheiro
 post_file_del:Apagar
 post_file_name:Nome
 post_file_size:Tamanho
@@ -605,8 +604,7 @@ buddy_list_err_ignore:Não se podem acrescentar utilizadores que te ignoram à t
 buddy_list_update:A ver a sua lista de amigos
 core_err_invinp_title:Entrada inválida
 core_err_invinp_err:Seguiu uma ligação inválida, por favor contacte o <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a>
-# Fuzzy
-core_adm_login_msg:Administradores podem fazer o login <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">aqui</a>
+core_adm_login_msg:Os administradores podem iniciar sessão <a href="{BASE}adm/admloginuser.php">aqui</a>.
 email_err_unabletoemail_title:ERRO: Impossível usar o email
 email_err_unabletoemail_msg:O sistema de E-mail foi desabilitado pelo administrador.
 email_error_unabletolocaddr:Desculpe, o sistema não conseguiu enviar o E-mail {VAR-HTML: _POST['tx_name']} porque não conseguiu localizar o endereço de E-mail
@@ -685,8 +683,7 @@ register_err_avatarnotallowed:O avatar que está a tentar enviar para o servidor
 register_conf_subject:Confirmação de Registo
 register_conf_msg:Obrigado por se registar,\nPara ativar a sua conta aceda à URL:\n\n{FULL_ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nAssim que a conta esteja ativa, será autenticado no fórum e redirecionado para a pagina principal.
 register_welcome_subject:Confirmação de registo no forum
-# Fuzzy
-register_welcome_msg:Obrigado pelo registo,\n\nAqui estão os seus dados de login para o forum:\n\nForum URL: {TEMPLATE: index_update_lnk}\nLogin: {VAR: uent->login}\nPassword: {VAR: _POST['reg_plaintext_passwd']}\n\nNa Password os caracteres maiusculos ou minusculos fazem diferença!\nPara modificar os seus dados, vá a esta pagina:\n{FULL_ROOT}{ROOT}?t=register
+register_welcome_msg:Agradecemos por registar-se,\n\nAqui estão os seus dados de iniciar sessão para o fórum:\n\nEndereço do fórum: {TEMPLATE: index_update_lnk}\nNome de utilizador: {VAR: uent->login}\nPalavra-passe: {VAR: _POST['reg_plaintext_passwd']}\n\nPor favor note que as palavras-passe diferenciam maiúsculas de minúsculas!\nPara modificar as suas configurações ou os dados do seu perfil, vá a esta página:\n{FULL_ROOT}?t=register
 register_err_cantreg_title:ERRO: Não foi possível efetuar registo
 regsiter_err_cantreg_msg:Conta de utilizador não foi criada, por favor contacte o administrador em <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:A ver a sua ficha
@@ -733,8 +730,7 @@ error_title:Formulário de erro
 index_title:Bem vindo ao forum
 search_title:Procurar por {VAR-HTML: srch}
 remail_emailsent:Email enviado
-# Fuzzy
-remail_email:Olá,\n\nHá um tópico interessante sobre "{VAR: data->subject}" com o nome {GVAR: FORUM_TITLE} que talvez queira ler. Pode ver este tópico em:\n {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\n O seu amigo,\n\n{VAR: usr->alias}
+remail_email:Olá,\n\nHá um tópico interessante sobre "{VAR: data->subject}" no fórum {GVAR: FORUM_TITLE} que talvez queira ler. Pode ver este tópico em:\n {FULL_ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nO seu amigo,\n\n{VAR: usr->alias}
 poll_add_option:Adicionar Opção:
 post_opt_html_on:<b>HTML LIGADO</b>
 post_opt_fud_on:<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>BBcode</b> está <b>LIGADO</b></a>
@@ -974,11 +970,9 @@ iemail_forum_unsub:Remover subscrição deste forum
 primary_group_prefix:Grupo primário para o forum:
 group_resources:Este grupo controla as permissões dos seguintes sub-forums
 register_admin_newuser_title:Registou-se um novo utilizador e a sua conta aguarda confirmacao
-# Fuzzy
-register_admin_newuser_msg:Registou-se um novo utilizador ({VAR: uent->login}) no forum e como a Confirmacao de Conta esta' Activa, esta conta nao ficara' activa ate' que que seja confirmada por si ou outro administrador do forum. Para rever a conta clique: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nEste e' um processo automatico, nao responda a esta mensagem.\nSe desejar desligar futuras notificacoes por e-mail de novos registos de utilizadores/usuarios pode faze-lo via Painel de Controlo de Administracao, alterando o valor de "Notificação de Nova Conta".
+register_admin_newuser_msg:Um novo utilizador registou-se ({VAR: uent->login}) no fórum, e como a confirmação da conta está ativa, esta conta não ficará ativa até que seja confirmada por si ou outro administrador do fórum. Para rever a conta, clique em: {FULL_ROOT}adm/admuserapr.php\n\nEste é um processo automático, não responda a esta mensagem.\nSe desejar parar de receber as futuras notificações por correio eletrónico de novos registos de utilizadores, pode fazê-lo via Painel de Controlo de Administração, alterando o valor de "Notificação de Nova Conta".
 post_mod_msg_notify_title:Nova mensagem no forum "{VAR: frm->name}" aguardando aprovacao
-# Fuzzy
-post_mod_msg_notify_msg:Uma mensagem nova, intitulada "{VAR: msg_post->subject}", foi colocada agora num fórum moderado por si. Para revê-la, consulte: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nEste é um processo automático. Não responda a esta mensagem.
+post_mod_msg_notify_msg:Uma mensagem nova, intitulada "{VAR: msg_post->subject}" foi publicada agora num fórum moderado por si. Para revê-la, consulte: {FULL_ROOT}?t=modque#{VAR: msg_post->id}\n\nEste é um processo automático. Não responda a esta mensagem.
 thread_printable_pdf:Exportar para PDF
 thread_syndicate:Adicione este forum (XML)
 reg_conf_title:Confirmação do Registo
@@ -1004,8 +998,7 @@ mnav_month:Mês (es)
 mnav_title:Navegador de Mensagens
 mnav_update:Consultando as mensagens usando o <a href="{TEMPLATE: mnav_update_lnk}">Navegador de Mensagens</a>
 pm_notify_subject:[{GVAR: FORUM_TITLE}] Notificação de Nova Mensagem Privada
-# Fuzzy
-pm_notify_body_email:Você tem uma nova mensagem privada intitulada "{VAR: subject}", de "{VAR: from}", no fórum "{GVAR: FORUM_TITLE}".\nPara ver a mensagem clique aqui: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nPara deixar de receber notificações, desative "Notificação de Mensagens Privadas" no seu perfil.
+pm_notify_body_email:Tem uma nova mensagem privada intitulada "{VAR: subject}", de "{VAR: from}", no fórum "{GVAR: FORUM_TITLE}".\nPara ver a mensagem, clique aqui: {FULL_ROOT}?t=pmsg_view&id={VAR: pid}\n\nPara deixar de receber as notificações, desative a opção "Notificação de Mensagens Privadas" no seu perfil.
 register_pm_notification:Notificação de Mensagem Privada:
 register_pm_notification_desc:Se ativado, será notificado sempre que lhe for enviada uma mensagem privada.
 findu_admin_opts_header:Opções de administração
