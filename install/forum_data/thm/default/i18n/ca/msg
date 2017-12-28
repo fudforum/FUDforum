@@ -366,7 +366,7 @@ register_show_sig:Mostrar signatures:
 register_show_sig_desc:Li permet ocultar o mostrar les signatures d`altres membres del fòrum
 register_use_sig_default:Usar la signatura:
 register_use_sig_default_desc:Afageix automàticament la seva signatura a cada missatge que publiqui
-register_timezone:Zona horària:
+register_timezone:Fus horari:
 register_ignore_admin:Ignorar els missatges administratius:
 register_invisible_mode:Mode invisible:
 register_invisible_mode_desc:Amaga el seu estat quan està  en lí­nia.
@@ -550,7 +550,7 @@ ppost_quote:Cita:
 ppost_to:Per a:
 ppost_from_buddy_list:Seleccionar des de la llista d`amics
 ppost_find_User:Trobar usuari
-ppost_track_msg:Fer seguiment d`aquest missatge
+ppost_track_msg:Fes seguiment d’aquest missatge
 ppost_track_msg_desc:Avisar-me (mitjançant un missatge privat) quan el destinatari llegeixi aquest missatge.
 ppost_send:Enviar
 ppost_save_draft:Guardar esborrany
