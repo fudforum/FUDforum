@@ -414,6 +414,7 @@ email_pg_title:E-posta
 email_subject:Mewzu:
 email_body:Verê:
 email_submit:E-posta
+ppost_quote:Gırewte:
 poll_name:Namey Anketi:
 poll_timelimit:Sinorê zemani:
 poll_maxiumvotes:Maksimum rey:
@@ -569,6 +570,7 @@ dmsg_reply_to:no cıwabê mesaciyo
 dmsg_reply_num:mesac #{VAR: obj->reply_to}
 userinfo_buddy:Embaz:
 register_email_addr:Adresa E-postey:
+ip_search:Cı geyre
 ip_title:IP Rovıter
 userinfo_real_name:Nameyo raştay
 post_err_mod_forum_edit_ttl:XIRAB

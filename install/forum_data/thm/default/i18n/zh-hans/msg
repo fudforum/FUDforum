@@ -1026,7 +1026,7 @@ adm_account_rejected_s:你在论坛 '{GVAR: FORUM_TITLE}' 注册的帐号未通�
 thread_on:于
 userinfo_buddy:好友：
 register_email_addr:电邮地址：
-reset_suffix:如果你没有要求密码重置功能，请删除此邮件。如果你没有要求密码重置而收到了多封类似邮件，请联络管理员： {GVAR: ADMIN_EMAIL}\n\n密码重置请求来自： {VAR: _SERVER['REMOTE_ADDR']}.
+reset_suffix:如果您错误地收到了此消息，请忽略它。如果您收到了太多份该电子邮件的副本，而您并未请求它，请联络论坛管理员：{GVAR: ADMIN_EMAIL}\n\n该请求最初来自：{VAR: _SERVER['REMOTE_ADDR']}。
 usrinfo_last_visit:上次访问：
 mnav_newer:新于
 mnav_older:早于
