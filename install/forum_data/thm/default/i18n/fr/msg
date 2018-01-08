@@ -8,6 +8,7 @@
 # Author: Hercule
 # Author: IAlex
 # Author: Jean-Frédéric
+# Author: Kenjiraw
 # Author: Macofe
 # Author: McDutchie
 # Author: Naudefj
@@ -21,7 +22,7 @@
 
 action:Action
 add_to_buddy_list:Ajouter à la liste de mes amis
-admin:Administrateur
+admin:Admin
 admin_control_panel:Administration
 administrator:Administrateur
 attachment:Pièce jointe :
@@ -30,7 +31,7 @@ average_post_count:{PLURAL: u->posted_msg_count|$1 message|$1 messages} (approxi
 biography:Biographie :
 birth_date:Date de naissance :
 by:Par :
-by_mod:Par un modérateur
+by_mod:par un modérateur
 current_time:Heure actuelle
 custom_avatar_queue:File d'attente des avatars personnalisés
 date_posted:Publié le
@@ -46,17 +47,17 @@ first_unread_msg:Aller aux messages non lus
 first_unread_msg_desc:Aller au premier message non lu dans ce fil
 flat_view:Vue plane (par défaut)
 forum:Forum concerné :
-forum_icon:Image associée à ce forum
+forum_icon:L'icône du Forum
 forum_new_messages:Nouveaux messages
 forum_none_messages:Seuls les membres inscrits au forum peuvent surveiller les messages lus et non lus
-forum_old_messages:Pas de nouveau(x) message(s)
+forum_old_messages:Pas de nouveau message
 from:De :
 gender:Genre :
 go:Valider
 goto_next_msg:Message suivant
 goto_prev_msg:Message précédent
 home:Accueil
-homepage:Site Web:
+homepage:Page personnelle :
 icq_control_panel:Message en-ligne ICQ
 icq_message_form:Formulaire de message ICQ :
 ignore_user:Ignorer les messages provenant de cet utilisateur
@@ -72,21 +73,21 @@ interests:Centres d’intérêt :
 last_post:Dernier message
 last_thread_msg:Aller au dernier message dans ce fil
 legend:Légende
-location:Situation géographique :
+location:Localisation :
 lock_thread:Verrouiller le fil
 locked:Verrouillé
 locked_with_new_posts:Verrouillé (contient des messages non lus)
-logged_in_list:Liste des utilisateurs actuellement connectés
+logged_in_list:Liste des utilisateurs connectés
 login:Connexion
 login_header:Connexion :
 logout:Déconnexion
 mark_all_read:Marquer tous les messages comme lus
-mark_all_read_desc:Tous vos messages non lus vont être marqués comme lus
+mark_all_read_desc:Tous vos messages non lus seront marqués comme lus
 members:Membres
 calendar:Calendrier
 cal_goto_date:Aller à :
 cal_day_heading:Événements pour la journée
-cal_no_events:Aucun événement pour le jour.
+cal_no_events:Aucun événement pour la journée.
 cal_update:Parcourir le calendrier du forum
 cal_birthday:Anniversaire : {VAR: user}
 cal_birthdays:{PLURAL: birthdays|$1 anniversaire|$1 anniversaires}
@@ -104,14 +105,14 @@ moderator_options:Options de modération
 moderators:{PLURAL: modcount|Modérateur|Modérateurs}
 more_unread_messages:Autres messages non lus
 more_unread_messages_desc:Montrer d'autres messages non lus et marquer les messages visibles actuellement comme lus
-move_thread:Renommer
+move_thread:Déplacer
 moved:Déplacé dans un autre forum
 moved_thread_message:Ce fil a été déplacé dans un autre forum
-na:n/a
-new_posts:Nouveau(x) message(s)
+na:nd
+new_posts:Nouveaux messages
 new_private_messages:Vous avez <span class="GenTextRed">({VAR: c})</span> {PLURAL: c|message privé non lu|messages privés non lus}
 new_thread:Créer un nouveau fil
-newest_user:Le dernier utilisateur à s'être inscrit est
+newest_user:Le dernier utilisateur enregistré est
 next_page:Page suivante
 next_thread:Fil suivant :
 no_messages:Il n'y a pas encore de message dans ce forum.<br />Soyez le premier à écrire un sujet dans ce forum.
@@ -127,21 +128,21 @@ no_unread_msg_unreg:La fonctionnalité permettant de suivre vos message lus et n
 num_pages:Pages ({VAR: ttl_pg}) :
 num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|vote|votes}
 occupation:Métier :
-off:DÉSACTIVÉ
-on:ACTIVÉ
+off:désactivé
+on:activé
 page_timings:Temps total utilisé pour générer la page : {PLURAL: page_gen_time|$1 seconde|$1 secondes}
-pm:Messages privés
+pm:Messagerie privée
 poll:Sondage :
 post_count:Compteur de messages : {VAR: u_pcount}
 post_count_l:Compteur de messages :
-posts:messages
-posts_c:messages :
+posts:Messages
+posts_c:Messages :
 prev_thread:Fil précédent :
 usrinfo_private_message:Message privé :
 profile:Profil
 profile_desc:Accéder au panneau de contrôle utilisateur
 rate_thread:Donner une note à ce Fil
-rating:Note
+rating:Évaluation
 rating_track:Gérez les notes pour le sujet <b>{VAR: thr->subject}</b> :
 refresh_list:Rafraîchir la liste
 register:S’inscrire
@@ -152,12 +153,12 @@ report_to_mod:Rapporter un message au modérateur
 reported_messages:Messages rapportés
 reveal_all_posts:Afficher tous les messages de {VAR: user_login}
 reveal_post:Afficher le(s) message(s)
-search:Rechercher
-sel_todays_posts:messages du jour
+search:Chercher
+sel_todays_posts:Messages du jour
 sel_todays_posts_desc:Activer/Désactiver le filtrage pour les messages du jour (pour n'afficher que les messages créés aujourd'hui)
-sel_unanswered_posts:messages sans réponse
+sel_unanswered_posts:Messages non répondus
 sel_unanswered_posts_desc:Activer/Désactiver le filtrage pour les messages sans réponse (pour ne montrer que les messages qui n'ont pas encore reçu de réponse)
-sel_unread_messages:messages non lus
+sel_unread_messages:Messages non lus
 sel_unread_messages_desc:Activer/Désactiver le filtrage pour les messages non lus (pour ne montrer que les messages que vous n'avez pas encore lus)
 send:Envoyer
 send_pm_desc:Envoyer un message privé à cet utilisateur
@@ -168,29 +169,29 @@ size:Taille :
 status:Statut :
 status_line:Il y a <b>{PLURAL: st_obj->online_users_reg|$1 membre|$1 membres}</b>, <b>{PLURAL: st_obj->online_users_hidden|$1 membre invisible|$1 membres invisibles}</b> et <b>{PLURAL: st_obj->online_users_anon|$1 invité|$1 invités}</b>  actuellement sur le forum.
 sticky:épinglé :
-stop_ignoring:Cesser d'ignorer cet utilisateur
+stop_ignoring:cesser d'ignorer cet utilisateur
 sub_to_thread:Surveiller ce fil
 sub_to_thread_desc:Recevoir des notifications lorsque de nouveaux messages sont ajoutés à ce fil
 bookmark_thread:Marquez ce fil
 bookmark_thread_desc:Ajoutez ce fil à votre liste de favoris
 subject:Sujet
-subscribe:Surveiller
+subscribe:S'abonner
 subscribe_desc:Recevoir des notifications lorsque de nouveaux fils sont créés sur ce forum
-subscribed_forums:Forums que vous surveillez
+subscribed_forums:Forums auxquels vous êtes abonné(e)
 subscribed_forums_desc:Activer/désactiver le filtrage pour les forums que vous surveillez (pour ne montrer que les messages des forums que vous surveillez)
 subscribed_threads:Fils que vous surveillez
 subscribed_threads_desc:Activer/Désactiver le filtrage pour les fils que vous surveillez (pour ne montrer que les messages des fils que vous surveillez)
 bookmarked_threads:Fils marqués
 switch_to_thread_view:Voir le fil sous forme arborescente
 thread:Fil :
-thread_announcement:annonce :
+thread_announcement:Annonce :
 thread_first_unread_msg:Aller au premier message non lu de ce fil
 thread_thread:Fil
 threads:Fils
 time:Heure
 todays_posts:Messages du jour
 todays_posts_desc:Montrer tous les messages qui ont été publiés aujourd’hui
-un_ignore_user:Cesser d'ignorer les messages de cet utilisateur
+un_ignore_user:cesser d'ignorer les messages de cet utilisateur
 unanswered_posts:Messages sans réponse
 unanswered_posts_desc:Montrer tous les messages qui n'ont pas encore reçu de réponse
 unlock_thread:Déverrouiller le fil
