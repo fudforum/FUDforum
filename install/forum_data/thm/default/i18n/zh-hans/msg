@@ -702,7 +702,7 @@ bookmarked_update:浏览自己的书签列表
 thread_update:正在浏览论坛<a href="{TEMPLATE: thread_update_lnk}">{VAR: frm->name}</a>
 tree_update:正在浏览话题（树形查看）<a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
 userinfo_update:正在查看<a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}'s</a>的个人详情
-ERR_login_msg2:<legend>错误：未登录</legend>登录后才能访问所需页面。
+ERR_login_msg2:<legend>错误：您尚未登录</legend>要访问此页面，您必须是此论坛的成员之一。
 ERR_disabled_ttl:被禁止的功能
 ERR_disabled_msg:此功能已被系统管理员禁用。
 ERR_access_ttl:错误：权限不够
@@ -1094,7 +1094,7 @@ sml_code:代码
 mnav_sub_only:只在订阅的论坛中搜索
 register_topics_per_page:每页主题数；
 login_min_time:本论坛允许前后两次登录尝试时间间隔是{VAR: MIN_TIME_BETWEEN_LOGIN}秒，请等待{FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)}秒后再尝试。
-post_not_logged_in:未登录状态，将匿名发表帖子。
+post_not_logged_in:您目前尚未登录，消息将以匿名身份发表。
 post_common_bold:粗体
 post_common_italics:斜体
 post_common_underline:下划线
@@ -1128,7 +1128,7 @@ captcha_img_help:有没有为零或图像中的一个。
 powered-by:Powered by: FUDforum {GVAR: FORUM_VERSION}.
 copyright:版权所有&copy;2001~2017年<a href="http://fudforum.org/">FUDforum公告栏软件</a>
 code_title:代码：
-code_select_all:选择全部
+code_select_all:全选
 code_show_hide:显示/隐藏
 social_sites:社交网站：
 postcheck_min_len_err:您的邮件是太短。最小长度是 {PLURAL: post_min_len|$1 字符|$1 字符}。
