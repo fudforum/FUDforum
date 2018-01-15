@@ -5,21 +5,22 @@
 # Author: Naudefj
 # Author: S.Örvarr.S
 # Author: Snævar
+# Author: Sveinki
 
 action:Aðgerð
-add_to_buddy_list:bæta við á félaga lista
+add_to_buddy_list:bæta við á félagalista
 admin:Stjórnandi
 admin_control_panel:Stjórn
 administrator:Stjórnandi
 attachment:Viðhengi:
 avatar:Notandamynd:
 average_post_count:{PLURAL: u->posted_msg_count|$1 skilaboð|$1 skilaboð} ({PLURAL: avg|$1 skilaboð|$1 skilaboð} að meðaltali á dag)
-biography:Sjálfsævisaga:
+biography:Æviágrip:
 birth_date:Fæðingardagur:
 by:eftir:
-by_mod:eftir vefstjóra
+by_mod:frá vefstjóra
 current_time:núverandi tími
-custom_avatar_queue:Biðlisti sérstakra notandamynda
+custom_avatar_queue:Biðlisti sérstakra notendamynda
 date_posted:Sent inn þann
 date_registered:Skráði sig:
 download_counter:Hlaðið niður {PLURAL: v[3]|$1 sinni|$1 sinnum}
@@ -42,7 +43,7 @@ gender:Kyn:
 go:Áfram
 goto_next_msg:Fara á næstu skilaboð
 goto_prev_msg:Fara á fyrri skilaboð
-home:Heim
+home:Forsíða
 homepage:Heimasíða:
 icq_control_panel:ICQ skilaboðsþjónusta
 icq_message_form:ICQ skilaboðaform:
@@ -58,15 +59,15 @@ index_url_redirection:Tilvísun
 interests:Áhugamál:
 last_post:Síðustu skilaboð
 last_thread_msg:Fara á síðustu skilaboðin á þessum þræði
-legend:Myndtexti
+legend:Myndatexti
 location:Staðsetning:
 lock_thread:Læsa þræði
 locked:Læstur
 locked_with_new_posts:Læstur (með ólesnum skilaboðum)
 logged_in_list:Listi yfir innskráða notendur
-login:Innskrá
+login:Innskráning
 login_header:Innskráning:
-logout:Útskrá
+logout:Útskráning
 mark_all_read:Merkja öll skilaboð sem lesin
 mark_all_read_desc:Öll ólesin skilaboð verða merkt sem lesin
 members:Meðlimir
@@ -94,7 +95,7 @@ more_unread_messages_desc:Sýna fleiri ólesin skilaboð og merkja þau sem eru 
 move_thread:Færa
 moved:Fært á aðra umræðu
 moved_thread_message:Þessi þráður hefur verið færður á aðra umræðu
-na:n/a
+na:ekki tiltækt
 new_posts:Ný skilaboð
 new_private_messages:Þú hefur <span class="GenTextRed">({VAR: c})</span> ólesin {PLURAL: c|einkaskilaboð|einkaskilaboð}
 new_thread:Búa til nýjan spjallþráð
@@ -130,7 +131,7 @@ profile_desc:Skoða stjórnborð notanda
 rate_thread:Gefa þræðinum einkunn
 rating:Einkunn
 rating_track:Stjórna einkunnum fyrir þráðinn <b>{VAR: thr->subject}</b>:
-refresh_list:Endurhlaða lista
+refresh_list:Endurlesa lista
 register:Skrá
 registered:Skráð/ur:
 registered_on:Skráð/ur {TEMPLATE: registered_on_date}
@@ -160,7 +161,7 @@ sub_to_thread:Verða áskrifandi að þræði
 sub_to_thread_desc:Fá tilkynningu um ný skilaboð á þessum spjallþræði
 bookmark_thread:Bókmerkja spjallþráð
 bookmark_thread_desc:Bæta þessum þræði við sem bókmerki
-subject:Titill
+subject:Efni
 subscribe:Gerast áskrifandi
 subscribe_desc:Fá tilkynningu þegar einhver býr til nýjan spjallþráð í þessari umræðu
 subscribed_forums:Umræður sem þú ert áskrifandi að
@@ -194,8 +195,8 @@ unsubscribe_desc:Hætta að fá skilaboð um nýja þræði í þessari umræðu
 updated_on:Uppfært:
 user:Notandi
 user_counter:Við höfum <b>{VAR: st_obj->user_count}</b> {PLURAL: st_obj->user_count|skráðan notanda|skráða notendur}
-user_info:Notendaupplýsingar
-user_info_l:Notendaupplýsingar {VAR: u->alias}
+user_info:Notandaupplýsingar
+user_info_l:Notandaupplýsingar {VAR: u->alias}
 user_offline:{VAR: obj->login} er ótengdur
 user_online:{VAR: obj->login} er tengdur
 usrinfo_last_post:Síðustu skilaboð:
@@ -206,8 +207,7 @@ vote_button:Kjósa
 vote_for_thread:Kjósa
 was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> var færður á <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> af stjórnenda.
 welcome_message:Velkomin/n <b>{VAR: usr->alias}</b>, síðasta heimsókn þín var {TEMPLATE: welcome_message_date}
-# Fuzzy
-what_ppl_doing:Sýna hvað fólk er að gera
+what_ppl_doing:Virkni notenda
 reported_del_report:Eyða skýrslu
 reported_reason:Ástæða:
 reported_on:Þann:
@@ -237,7 +237,7 @@ pmsg_none:ekkert
 folder:Mappa:
 pmsg_replied:svarað
 pmsg_forwarded:áframsent
-pmsg_subject:Fyrirsögn
+pmsg_subject:Efni
 pmsg_author:Höfundur
 pmsg_time:Tími
 pmsg_selected:Valið
@@ -348,7 +348,7 @@ register_year:Ár
 register_gender:Kyn:
 register_bio:Æviágrip:
 register_bio_desc:Nokkrir punktar um þig, eins og áhugamál, vinnu, o.s.frv.
-register_prefs:Stillingar
+register_prefs:Kjörstillingar
 register_sig:Undirskrift:
 register_sig_desc:Valfrjáls undirskrift sem birtist neðst í skilaboðunum þínum
 register_reset:Endurstilla
@@ -375,8 +375,7 @@ my_buddies:Félagarnir mínir
 add_buddy:Bæta við félaga
 add:Bæta við
 buddy_search:Skráðu notendanafn notandans sem þú vilt bæta við.
-# Fuzzy
-member_search:...eða notaðu <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Leita að notanda</a> valkostinn til að finna hann.
+member_search:Eða notaðu <a href="javascript://" onclick="javascript: window_open('{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Leita að notanda</a> valkostinn til að finna hann.
 buddy_remove:fjarlægja
 post_normal:Venjuleg
 post_sticky:Límt
@@ -406,7 +405,7 @@ post_smiley:Flýtileiðir broskalla:
 post_format_tools:Sniðverkfæri:
 post_upload_file:Hlaða upp skrá
 post_file_del:Eyða
-post_file_name:Nafn
+post_file_name:Heiti
 post_file_size:Stærð
 file_attachments:Skráarviðhengi:
 allowed_files:Leyfð skráarsnið:
@@ -440,7 +439,7 @@ prereg_disagree:Hafna
 prereg_update:Lesa reglur spjallborðsins
 coppa_fax_instructions:Leiðbeiningar fyrir foreldra og forráðarmenn
 coppa_fax_instructions2:Vinsamlegast prentaðu út þessa síðu, skrifaðu undir og símsentu eða sentu tölvupóst aftur til okkar.
-coppa_fax_reg_form:Skráningar eyðublað
+coppa_fax_reg_form:Skráningareyðublað
 coppa_fax_sign:Vinsamlegast undirritaðu eyðublaðið og sendu okkur það
 coppa_fax_conf:Ég hef lesið upplýsingarnar sem barnið mitt hefur gefið upp og ég hef lesið reglur spjallborðsins. Ég skil að upplýsingum á notendasíðu getur verið breytt með lykilorði. Ég skil að ég hafi rétt til þess að aðgangurinn verði fjarlægður alfarið af spjallborðinu.
 coppa_fax_permission:Settu undirskrift þína hér ef þú ert samþykk/ur
@@ -468,9 +467,9 @@ login_passwd_required:Lykilorð vantar
 login_invalid_radius:Vitlaus samsetning lykilorðs og notendanafns
 reset_confirmation:Takk fyrir að skrá þig.\n\nTil að virkja aðganginn, farðu á eftirfarandi vefslóð:\n\n{VAR: url}\n\nÞegar aðgangurinn þinn hefur verið virkjaður þá verður þú skráð þig inn á spjallborðið og\náframsendur á forsíðuna.
 reset_reset:Halló,\n\nÞú hefur óskað eftir því að endursetja lykilorðið þitt. Til að ljúka þeirri beiðni, vinsamlegast smelltu á eftirfarandi tengil:\n\n{VAR: url}\n\nATH: Spjallborðið geymir lykilorðið undir dulkóðun, sem þýðir að þegar þú hefur skráð lykilorðið þá er það dulkóðað og ENGIN LEIÐ er að fá það aftur. Þetta virkar með samanburði af dulkóðuðu útgáfunni sem við eigum á skrá við dulkóðaða útgáfu af því sem þú notar til þess að skrá þig inn.\n(Ef þú vilt vita enn meira um hvernig þetta virkar, flettu þá upp MD5 HASH algrím)
-rpasswd_invalid_passwd:Vitlaust lykilorð
-rpasswd_passwd_nomatch:Lykilorðin passa ekki saman.
-rpasswd_passwd_length:Lykilorðið verður að vera 6 stafa langt
+rpasswd_invalid_passwd:Ógilt lykilorð
+rpasswd_passwd_nomatch:Lykilorðin samsvara ekki
+rpasswd_passwd_length:Lykilorðið verður að vera að minnsta kosti 6 stafa langt
 reset_remind_pass:Áminning lykilorðs
 reset_reset_conf:Búið verður til nýtt lykilorð og sent til þín. Ef þú hefur ekki staðfest netfangið þá verður staðfestingarpósturinn endursendur til þín.
 reset_error:Mistókst að finna netfang
@@ -522,7 +521,7 @@ mklist_option:Möguleikar:
 mklist_additem:Bæta við hlut
 mklist_apply:Virkja
 mklist_delete:Eyða
-qbud_nick_name:Notendanafn
+qbud_nick_name:Stuttnefni
 qbud_add_selected:Bæta við völdu
 qbud_selected:Valið
 qbud_no_buddies:Engir félagar til að velja
@@ -540,15 +539,15 @@ email_submit:Netfang
 ppost_quote_msg:{VAR: msg_to_list} skrifaði {TEMPLATE: ppost_quote_msg_date}
 ppost_quote:Tilvitnun:
 ppost_to:Til:
-ppost_from_buddy_list:Velja frá félagalista:
+ppost_from_buddy_list:Velja úr félagalista:
 ppost_find_User:Finna notanda
 ppost_track_msg:Fylgjast með þessum skilaboðum
 ppost_track_msg_desc:Tilkynna mér (með einkaskilaboðum) þegar þessi skilaboð hafa verið lesin.
 ppost_send:Senda
 ppost_save_draft:Vista drög
-poll_blank_option:Þú getur ekki bætt við tómum möguleika
+poll_blank_option:Þú getur ekki bætt við tómum valkosti.
 poll_del_conf:Ef þú vilt eyða þessum möguleika, ýttu á OK
-poll_name:Nafn könnunar:
+poll_name:Heiti könnunar:
 poll_timelimit:Tímamörk:
 poll_maxiumvotes:Hámarksfjöldi atkvæða:
 poll_create:Stofna
@@ -557,8 +556,8 @@ poll_disablesmilies:Afvirkja broskalla
 poll_create_poll:Búa til könnun
 poll_update_poll:Uppfæra könnun
 poll_delete:Eyða
-poll_updateoption:Uppfæra möguleiki
-poll_addoption:Bæta við möguleiki
+poll_updateoption:Uppfæra-valkostur
+poll_addoption:Bæta við-valkostur
 poll_unlimited:Ótakmarkað
 poll_day:dagur
 poll_days:dagar
@@ -569,10 +568,10 @@ poll_year:ár
 poll_week:vika
 tabs_register:Stillingar aðgangs
 tabs_subscriptions:Áskriftir
-tabs_bookmarkes:Bókarmerki
+tabs_bookmarkes:Bókamerki
 tabs_referrals:Tilvísanir
 tabs_buddy_list:Félagalisti
-tabs_ignore_list:Hunsunar listi
+tabs_ignore_list:Hunsunarlisti
 tabs_private_messaging:Einkaskilaboð
 single_msg_delete:Þú ert í þann mund að <span class="ErrorText">eyða</span> skilaboðunum: <b>{VAR: data[3]}</b>
 thread_delete:Þú ert í þann mund að <span class="ErrorText">eyða</span> <span class="ErrorText">spjallþræðinum</span>: <b>{VAR: data[3]}</b>
@@ -581,7 +580,7 @@ delete_yes:Já
 delete_no:Nei
 error_invalidurl:Röng vefslóð
 error_error:Villa
-usrinfo_profile:Notendasíða {VAR: u->alias}
+usrinfo_profile:Notandasíða {VAR: u->alias}
 usrinfo_show_all_posts:Sýna öll skilaboð eftir: {VAR: u->alias}
 actions_update:Hlera annað fólk, eins og þig
 err_info:Upplýsingar
@@ -591,10 +590,9 @@ buddy_list_err_nouser:Notandinn sem þú reyndir að bæta við á félaga lista
 buddy_list_err_nouser_title:Mistókst að bæta við notanda
 buddy_list_err_ignore:Mistókst að bæta við notanda sem er að hunsa þig
 buddy_list_update:Skoða eigin félaga lista
-core_err_invinp_title:Vitlaust inntak
+core_err_invinp_title:Ógilt inntak
 core_err_invinp_err:Þú hefur fylgt ógildum tengli. Vinsamlegast tilkynntu <a href="mailto:{GVAR: ADMIN_EMAIL}">kerfistjóra</a> hvernig þú komst hingað.
-# Fuzzy
-core_adm_login_msg:Stjórnendur geta skráð sig inn<a href="{GVAR: WWW_ROOT}adm/admloginuser.php">hér</a>.
+core_adm_login_msg:Stjórnendur geta skráð sig inn <a href="{BASE}adm/admloginuser.php">hér</a>.
 email_err_unabletoemail_title:VILLA: Mistókst að senda tölvupóst
 email_err_unabletoemail_msg:Slökkt hefur verið á tölvupóst kerfinu af stjórnanda.
 email_error_unabletolocaddr:Því miður, mistókst að senda tölvupóst á {VAR-HTML: _POST['tx_name']} því ekki var hægt að ákvarða tölvupóstfang hans
@@ -673,8 +671,7 @@ register_err_avatarnotallowed:Skráarsnið notendamyndarinnar sem þú reyndir a
 register_conf_subject:Staðfesting skráningu
 register_conf_msg:Takk fyrir að skrá þig,\nTil að virkja aðganginn, skalt þú smella á vefslóðina hér fyrir neðan:\n\n{FULL_ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nÞegar aðgangurinn þinn hefur verið virkjaður verður þú skráður inn á spjallborðið og þér verður vísað áfram á forsíðuna.
 register_welcome_subject:Staðfesting skráningu á spjallborði
-# Fuzzy
-register_welcome_msg:Takk fyrir að skrá þig,\n\nHér eru innskráningarupplýsingarnar þínar fyrir spjallborðið:\n\nVefslóð spjallborðsins: {TEMPLATE: index_update_lnk}\nNotendanafn: {VAR: uent->login}\nLykilorð: {VAR: _POST['reg_plaintext_passwd']}\n\nVinsamlegast athugaðu að stafseta lykilorðsins skiptir máli!\nTil að breyta stillingunum þínum eða notendasíðu, smelltu á þennan tengil:\n{FULL_ROOT}{ROOT}?t=register
+register_welcome_msg:Takk fyrir að skrá þig,\n\nHér eru innskráningarupplýsingarnar þínar fyrir spjallborðið:\n\nVefslóð spjallborðsins: {TEMPLATE: index_update_lnk}\nNotendanafn: {VAR: uent->login}\nLykilorð: {VAR: _POST['reg_plaintext_passwd']}\n\nVinsamlegast athugaðu að stafseta lykilorðsins skiptir máli!\nTil að breyta stillingunum þínum eða notandasíðu, smelltu á þennan tengil:\n{FULL_ROOT}?t=register
 register_err_cantreg_title:VILLA: Mistókst að skrá þig
 regsiter_err_cantreg_msg:Mistókst að búa til notenda aðgang, vinsamlegast hafðu samband við stjórnenda á <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:Skoða eigin notendasíðu
@@ -721,8 +718,7 @@ error_title:Villu eyðublað
 index_title:Velkominn á spjallborðið
 search_title:Leita að {VAR-HTML: srch}
 remail_emailsent:Tölvupósturinn var sendur
-# Fuzzy
-remail_email:Halló,\n\nÞað er áhugaverður þráður um "{VAR: data->subject}" á {GVAR: FORUM_TITLE} umræðunni sem þú gætir viljað lesa. Þú getur séð spjallþráðinn á: \n{FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nVinur þinn,\n{VAR: usr->alias}
+remail_email:Halló,\n\nÞað er áhugaverður þráður um "{VAR: data->subject}" á {GVAR: FORUM_TITLE} umræðunni sem þú gætir viljað lesa. Þú getur séð spjallþráðinn á: \n{FULL_ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nVinur þinn,\n\n{VAR: usr->alias}
 poll_add_option:Bæta við möguleika:
 post_opt_html_on:<b>HTML</b> er <b>virkt</b>
 post_opt_fud_on:<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>BBcode</b> er <b>virkt</b></a>
@@ -962,11 +958,9 @@ iemail_forum_unsub:Hætta áskrift á umræðu
 primary_group_prefix:Helsti hópur spjallborðsins:
 group_resources:Þessi hópur stjórnar réttindum eftirfarandi umræðna
 register_admin_newuser_title:Nýr notandi hefur skráð sig og aðgangur hans er í bið eftir staðfestingu
-# Fuzzy
-register_admin_newuser_msg:Nýr notandi ({VAR: uent->login}) hefur skráð sig og fyrst að staðfesting aðganga er virk, þá verður aðgangur þeirra ekki virkur fyrr en hann hefur verið samþykktur af þér eða öðrum stjórnanda. Til að skoða aðganginn vinsamlegast farðu á: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nÞetta eru sjálfvirk skilaboð. Ekki svara þessum skilaboðum.\nEf þú villt slökkva á þeim möguleika að fá tölvupóst yfir nýjar notendaskráningar, þá getur þú gert það í stjórnborði stjórnenda. Breyttu möguleikanum "Tilkynningar um nýja aðganga".
+register_admin_newuser_msg:Nýr notandi ({VAR: uent->login}) hefur skráð sig og fyrst að staðfesting aðganga er virk, þá verður aðgangur notenda ekki virkur fyrr en hann hefur verið samþykktur af þér eða öðrum stjórnanda. Til að skoða aðganginn vinsamlegast farðu á: {FULL_ROOT}adm/admuserapr.php\n\nÞetta eru sjálfvirk skilaboð. Ekki svara þessum skilaboðum.\nEf þú villt slökkva á þeim möguleika að fá tölvupóst yfir nýjar notendaskráningar, þá getur þú gert það í stjórnborði stjórnenda. Breyttu möguleikanum "Tilkynningar um nýja aðganga".
 post_mod_msg_notify_title:Ný skilaboð í umræðunni "{VAR: frm->name}" í bið eftir staðfestingu
-# Fuzzy
-post_mod_msg_notify_msg:Ný skilaboð með fyrirsögninni "{VAR: msg_post->subject}" voru sent á umræðu sem þú stjórnar. Til þess að skoða skilaboðin farðu á: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nÞetta eru sjálfvirk skilaboð. Ekki svara þessum skilaboðum.
+post_mod_msg_notify_msg:Ný skilaboð með fyrirsögninni "{VAR: msg_post->subject}" voru sent á umræðu sem þú stjórnar. Til þess að skoða skilaboðin farðu á: {FULL_ROOT}?t=modque#{VAR: msg_post->id}\n\nÞetta eru sjálfvirk skilaboð. Ekki svara þessum skilaboðum.
 thread_printable_pdf:Búa til PDF skjal
 thread_syndicate:Miðla þessari umræðu (XML)
 reg_conf_title:Staðfesting skráningu
@@ -992,8 +986,7 @@ mnav_month:Mánuðir
 mnav_title:Skilaboðs vísir
 mnav_update:Skoða skilaboð með <a href="{TEMPLATE: mnav_update_lnk}">Message Navigator</a>
 pm_notify_subject:[{GVAR: FORUM_TITLE}] Ný tilkynning um einkaskilaboð
-# Fuzzy
-pm_notify_body_email:Þú hefur fengið ný einkaskilaboð "{VAR: subject}", frá "{VAR: from}", í spjallborðinu "{GVAR: FORUM_TITLE}".\nTil að skoða skilaboðin, smelltu á þennan tengil: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nTil þess að hætta að fá fleiri tilkynningar, afvirkjaðu "Tilkynning einkaskilaboða" í stillingunum þínum.
+pm_notify_body_email:Þú hefur fengið ný einkaskilaboð "{VAR: subject}", frá "{VAR: from}", í spjallborðinu "{GVAR: FORUM_TITLE}".\nTil að skoða skilaboðin, smelltu á þennan tengil: {FULL_ROOT}?t=pmsg_view&id={VAR: pid}\n\nTil þess að hætta að fá fleiri tilkynningar, afvirkjaðu "Tilkynning einkaskilaboða" í stillingunum þínum.
 register_pm_notification:Tilkynning einkaskilaboða:
 register_pm_notification_desc:Ef þessi möguleiki er virkjaður þá munt þú fá tilkynningar þegar þú færð einkaskilaboð.
 findu_admin_opts_header:Stjórnenda mög.
