@@ -1,0 +1,299 @@
+# Messages for Western Frisian (Frysk)
+# Exported from translatewiki.net
+# Author: Robin van der Vliet
+
+action:Hanneling
+admin:Behear
+admin_control_panel:Behear
+administrator:Behearder
+attachment:Taheakke:
+biography:Biografy:
+birth_date:Bertedatum:
+email:E-mail:
+faq:Help
+forum:Foarum:
+gender:Geslacht:
+go:OK
+im_msnm:MSN Messenger:
+im_yahoo:Yahoo Messenger:
+image:Ôfbylding:
+index_forum:Foarum
+interests:Ynteresses:
+last_post:Lêste berjocht
+legend:Leginda
+location:Lokaasje:
+members:Lidden
+calendar:Kalinder
+cal_birthday:Jierdei: {VAR: user}
+cal_birthdays:{PLURAL: birthdays|$1 jierdei|$1 jierdeis}
+cal_birthday_age:({PLURAL: age|$1 jier|$1 jier} âld).
+message:Berjocht
+moderator:Moderator
+moderators:{PLURAL: modcount|Moderator|Moderators}
+na:n.f.t.
+next_page:Folgjende side
+off:út
+on:oan
+posts:Berjochten
+posts_c:Berjochten:
+search:Sykje
+size:Grutte:
+status:Status:
+subject:Ûnderwerp
+time:Tiid
+user:Brûker
+usrinfo_last_post:Lêste berjocht:
+reported_reason:Reden:
+reported_on:Op:
+modque_delete:Fuortsmite
+referals_action:Hanneling
+pmsg_none:gjin
+folder:Map:
+pmsg_subject:Ûnderwerp
+pmsg_author:Auteur
+pmsg_time:Tiid
+pmsg_delete:Fuortsmite
+trash:Jiskefet
+msg_author:Auteur
+month_1:jannewaris
+month_2:febrewaris
+month_3:maart
+month_4:april
+month_5:maaie
+month_6:juny
+month_7:july
+month_8:augustus
+month_9:septimber
+month_10:oktober
+month_11:novimber
+month_12:desimber
+sunday:snein
+sunday_short:sn
+monday:moandei
+monday_short:mo
+tuesday:tiisdei
+tuesday_short:ti
+wednesday:woansdei
+wednesday_short:wo
+thursday:tongersdei
+thursday_short:to
+friday:freed
+friday_short:fr
+saturday:sneon
+saturday_short:sn
+male:Man
+female:Frou
+unspecified:NET OPJÛN
+finduser_submit:Sykje
+finduser_user:Brûker
+finduser_action:Hanneling
+yes:Ja
+no:Nee
+register_email:E-mail
+pmuserloc_submit:Ferstjoere
+pmuserloc_user:Brûker
+register_password:Wachtwurd:
+register_name:Namme:
+register_your_pass:Do wachtwurd:
+register_preview:Proefbyld
+register_required:Fereaske ynformaasje
+register_optional:Opsjonele ynformaasje
+register_location:Lokaasje:
+register_occupation:Berop:
+register_interests:Ynteresses:
+register_image:Ôfbylding:
+register_icq:ICQ:
+register_yahoo:Yahoo Messenger:
+register_msnm:MSN Messenger:
+register_bday:Bertedatum:
+register_day:Dei
+register_month:Moanne
+register_year:Jier
+register_gender:Geslacht:
+register_bio:Biografy:
+register_prefs:Foarkarren
+register_sig:Ûndertekening:
+post_normal:Normaal
+post_size:Grutte
+post_color:Kleur
+post_font:Lettertype
+post_poll_delete:FUORTSMITE
+post_poll_edit:BEWURKJE
+post_file_del:Fuortsmite
+post_file_name:Namme
+post_file_size:Grutte
+file_attachments:Taheakken:
+post_forum:Foarum:
+post_title:Titel:
+post_body:Tekst:
+post_options:Opsjes:
+post_cancel_btn:Annulearje
+coppa_before:Foar {TEMPLATE: coppa_date}
+coppa_after:Nei {TEMPLATE: coppa_date}
+prereg_info:Foarumregels
+coppa_fax_telephone:Tillefoan:
+coppa_fax_email:E-mailadres:
+coppa_fax_date:Datum:
+coppa_fax_passwd:Wachtwurd
+coppa_fax_remail:E-mail
+coppa_fax_name:Namme
+login_passwd:Wachtwurd:
+reset_email:E-mail:
+report_subject:Ûnderwerp:
+search_forum:Foarum
+remail_subject:Ûnderwerp:
+remail_message:Berjocht:
+remail_done:Dien
+mklist_type:Type:
+mklist_option:Opsje:
+mklist_delete:Fuortsmite
+qbud_nick_name:Bynamme
+mklist_numerical:Numeryk
+mklist_aplha:Alfanumeryk
+mklist_square:Fjouwerkant
+mklist_disc:Skiif
+mklist_circle:Sirkel
+mklist_close:Slute
+email_pg_title:E-mail
+email_subject:Ûnderwerp:
+email_body:Tekst:
+email_submit:E-mail
+ppost_quote:Sitaat:
+poll_create:Oanmeitsje
+poll_delete:Fuortsmite
+poll_unlimited:Unbeheind
+poll_day:dei
+poll_days:dagen
+poll_hour:oere
+poll_hours:oere
+poll_month:moanne
+poll_year:jier
+poll_week:wike
+tabs_bookmarkes:Blêdwizers
+tabs_buddy_list:Freonelist
+delete_yes:Ja
+delete_no:Nee
+error_error:Flater
+usrinfo_profile:Profyl fan {VAR: u->alias}
+err_info:Ynfo
+emailconf_err_invkey_title:Flater
+ignore_list_err_info_title:Ynfo
+post_err_edttimelimit_title:FLATER
+report_err_nosuchmsg_title:FLATER
+reset_err_invalidkey_title:FLATER
+reset_err_rstconf_title:Ynformaasje
+help_title:Help
+index_title:Wolkom by it foarum
+post_opt_html_on:<b>HTML</b> stiet <b>oan</b>
+post_opt_fud_on:<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>BBcode</b> stiet <b>oan</b></a>
+post_opt_images_on:<b>Ôfbyldingen</b> stean <b>oan</b>
+post_opt_smilies_on:<a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank"><b>Glimkes</b> stean <b>oan</b></a>
+post_opt_html_off:<b>HTML</b> stiet <b>út</b>
+post_opt_fud_off:<b>BBcode</b> stiet <b>út</b>
+post_opt_images_off:<b>Ôfbyldingen</b> stean <b>út</b>
+post_opt_smilies_off:<b>Glimkes</b> stean <b>út</b>
+thr_exch_submit:Ferstjoere
+groupmgr_yes:Ja
+groupmgr_no:Nee
+groupmgr_action:Hanneling
+groupmgr_cancel:Annulearje
+groupmgr_edit:Bewurkje
+groupmgr_delete:Fuortsmite
+group_mgr_anon:Anonym
+group_mgr_group:Groep:
+p_EDIT:Bewurkje
+p_DEL:Fuortsmite
+p_VOTE:Stimmen
+post_quote:Sitaat:
+th_expr_never:Nea
+th_expr_one_hr:1 oere
+th_expr_three_hr:3 oeren
+th_expr_four_hr:4 oeren
+th_expr_eight_hr:8 oeren
+th_expr_sixteen_hr:16 oeren
+th_expr_one_day:1 dei
+th_expr_two_day:2 dagen
+th_expr_four_day:4 dagen
+th_expr_one_week:1 wike
+th_expr_two_week:2 wiken
+th_expr_one_month:1 moanne
+th_expr_two_month:2 moannen
+th_expr_four_month:4 moannen
+th_expr_one_year:1 jier
+thread_mod_delete:Fuortsmite
+action_ip:IP
+action_latest_post:Lêste berjocht:
+post_re:Re:
+split_th_subject:Ûnderwerp:
+split_th_forum:Foarum:
+split_th_messages:Berjochten
+quicklogin_password:Wachtwurd:
+post_all_ext_allowed:(gjin beheiningen)
+pmsg_next_msg:Folgjende berjocht
+pmsg_prev_msg:Foarrige berjocht
+im_jabber:Jabber:
+im_google:Google Talk:
+im_skype:Skype:
+im_twitter:Twitter:
+forum_contact:Kontakt
+forum_home:Haadmenu
+p_VISIBLE:Sichtber
+poll_edit:Bewurkje
+pmsg_recepient:Untfanger
+register_alias:Alias:
+polllist_vote:Stimmen
+polllist_action:Hanneling
+search_and:EN
+search_or:OF
+search_attach:Taheakken:
+search_attach_all:Met of sûnder
+search_attach_with:Met taheakken
+threadt_more:&lt;mear&gt;
+iemail_msg_author:<b>Auteur:</b> {VAR: obj->alias}
+iemail_msg_subject:<b>Ûnderwerp:</b> {VAR: obj->subject}
+iemail_msg_date:<b>Datum:</b> {TEMPLATE: dmsg_post_date}
+iemail_msg_quote:Sitaat
+threadt_announce:oankundiging
+mnav_more:Mear &raquo;&raquo;
+mnav_minute:Minut(en)
+mnav_hour:Oere
+mnav_day:Dag(en)
+mnav_week:Wike(n)
+mnav_month:Moanne(n)
+findu_edit:Bewurkje
+findu_delete:Fuortsmite
+dmsg_reply_num:berjocht #{VAR: obj->reply_to}
+thread_on:op
+userinfo_buddy:Freon:
+register_email_addr:E-mailadres:
+ip_search:Sykje
+post_err_mod_forum_edit_ttl:FLATER
+dmsg_num:berjocht #{VAR: obj->id}
+delete_msg_pm_body:Oarspronklike berjocht
+delete_msg_pm_subject:Ûnderwerp: {VAR: data[15]}
+uc_cat_forum:Kategory &raquo; Foarum
+modque_cat:Kategory
+modque_forum:Foarum
+mmd_abort_move:Annulearje
+dmsg_ip:IP:
+sml_emoticon:Emoticon
+sml_code:Koade
+post_common_bold:Fet
+post_common_italics:Kursyf
+post_common_underline:Understreekje
+post_common_email_popup:E-mailadres:
+rating_delete:Fuortsmite
+code_title:Koade:
+btn_about:Profyl
+btn_small_pm:PB
+btn_delete:fuortsmite
+btn_edit:bewurkje
+btn_quote:sitaat
+btn_email:E-mail
+btn_homepage:www
+feed_rdf:RDF-feed
+feed_rss:RSS2-feed
+feed_atom:ATOM-feed
+pages:Siden
+karma:Karma
+karma_delete:Fuortsmite

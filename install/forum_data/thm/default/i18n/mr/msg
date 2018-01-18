@@ -1,0 +1,316 @@
+# Messages for Marathi (मराठी)
+# Exported from translatewiki.net
+# Author: Htt
+# Author: Shantanoo
+# Author: V.narsikar
+
+action:क्रिया
+add_to_buddy_list:मित्रांच्या यादीत नाव टाका
+admin:प्रबंधक
+admin_control_panel:प्रबंधक नियंत्रण फलक
+administrator:प्रचालक
+attachment:जोडण्या
+avatar:अवतार
+biography:चरित्र:
+birth_date:जन्मदिनांक:
+by:लेखक:
+by_mod:नियामकाद्वारे
+current_time:सध्याची वेळ
+date_posted:प्रेषण दिनांक (पाठविल्याचा दिनांक)
+date_registered:नोंदणी दिनांक:
+download_counter: {PLURAL: v[3]|$1 वेळा|$1 वेळा} उतरवले गेले
+pmsg_download_counter: {PLURAL: r->dlcount|$1 वेळा|$1 वेळा} उतरवले गेले
+email:विपत्र:
+email_to_friend:मित्रास विपत्र
+email_user:वापरकर्त्याला विपत्र संदेश पाठवा
+faq:साहाय्य
+first_unread_msg:न वाचलेल्या संदेशांकडे चला
+forum_new_messages:नवीन संदेश
+forum_old_messages:नवीन संदेश नाहीत.
+from:प्रेषक:
+go:चला
+goto_next_msg:पुढचा संदेश:
+home:मुख्य
+homepage:मुखपृष्ठ:
+im_msnm:एमएसएन संदेशवाहक (मेसेंजर) :
+im_yahoo:याहू संदेशवाहक (मेसेंजर) :
+image:चित्र:
+interests:आवडी:
+last_post:शेवटचा संदेश
+location:ठिकाण:
+login:प्रवेश
+login_header:प्रवेश करा
+logout:सनोंद-निर्गम
+members:सदस्य
+calendar:दिनदर्शिका
+cal_goto_date:येथे जा:
+message:संदेश
+message_index:संदेश अनुक्रमणिका
+moderator:नियामक
+moderator_of:चा नियामक
+moderator_options:नियामक पर्याय
+more_unread_messages:अधिक न वाचलेले संदेश
+move_thread:स्थानांतरण
+na:अनुपलब्ध
+new_posts:नवीन संदेश
+new_thread:नवीन प्रकरण तयार करा
+newest_user:सर्वांत नवीन सदस्यत्व घेतलेला सदस्य:
+next_page:पुढील पान
+next_thread:पुढील विषय
+no_new_posts:नवीन संदेश नाहीत.
+no_posts:संदेश नाहीत
+no_unread_msg:या विषयात न वाचलेले संदेश नाहीत.
+off:बंद
+on:चालू
+pm:खासगी संदेश पाठवणे
+post_count:संदेशमोजणी {VAR: u_pcount}
+post_count_l:संदेशमोजणी:
+posts:संदेश
+posts_c:संदेश:
+profile:नियंत्रण फलक
+replies:प्रतिक्रिया
+search:शोधा
+sel_todays_posts:आजचे संदेश
+sel_unanswered_posts:अनुत्तरित संदेश
+sel_unread_messages:न वाचलेले संदेश
+send:पाठवा
+size:आकार:
+status:स्थिती
+subject:विषय
+thread:प्रकरण:
+thread_announcement:घोषणा:
+thread_thread:प्रकरण
+threads:प्रकरणे
+time:वेळ
+todays_posts:आजचे संदेश
+unanswered_posts:अनुत्तरित संदेश
+unread_posts:न वाचलेले संदेश
+updated_on:अद्ययावन करण्याचा दिनांक:
+user:सदस्य
+user_offline:{VAR: obj->login} हा सध्या आंतरजालावर अनुपलब्ध आहे.
+usrinfo_last_post:शेवटचा संदेश:
+view_results:निकाल पहा
+vote_button:कौल
+vote_for_thread:कौल
+reported_reason:कारण:
+modque_delete:वगळा
+move_to:येथे हलवा:
+list_referes_member:सदस्य
+referals_action:क्रिया
+pmsg_all:सर्व
+pmsg_none:काहीही नाही
+pmsg_subject:विषय
+pmsg_author:लेखक
+pmsg_time:वेळ
+pmsg_delete:वगळा
+month_1:जानेवारी
+month_2:फेब्रुवारी
+month_3:मार्च
+month_4:एप्रिल
+month_5:मे
+month_6:जून
+month_7:जुलै
+month_8:ऑगस्ट
+month_9:सप्टेंबर
+month_10:ऑक्टोबर
+month_11:नोव्हेंबर
+month_12:डिसेंबर
+sunday:रविवार
+sunday_short:रवि
+monday:सोमवार
+monday_short:सोम
+tuesday:मंगळवार
+tuesday_short:मंगळ
+wednesday:बुधवार
+wednesday_short:बुध
+thursday:गुरूवार
+thursday_short:गुरु
+friday:शुक्रवार
+friday_short:शुक्र
+saturday:शनिवार
+saturday_short:शनि
+unspecified:अज्ञात
+finduser_user:सदस्य
+finduser_postcount:संदेशमोजणी
+finduser_action:क्रिया
+yes:होय
+no:नाही
+register_email:विपत्र
+pmuserloc_login:प्रवेश:
+pmuserloc_submit:पाठवा
+pmuserloc_user:सदस्य
+pmuserloc_no_result:निकाल नाहीत
+register_login:प्रवेश:
+register_login_available:उपलब्ध
+register_login_taken:पूर्वीच घेतले आहे
+register_password:परवलीचा शब्द:
+register_conf_pass:परवलीचा शब्द पुन्हा लिहा:
+register_email_desc:आपला विपत्र पत्ता.तुम्ही तो खाली असलेल्या पसंतीक्रम विभागात लपवू शकता.
+register_name:नाव:
+register_your_pass:तुमचा परवलीचा शब्द:
+register_update:अद्ययावत करा
+register_avatar_type:अवतार प्रकार:
+register_required:आवश्यक माहिती
+register_location:ठिकाण:
+register_occupation:व्यवसाय:
+register_image:चित्र:
+register_yahoo:याहू संदेशवाहक (मेसेंजर) :
+register_msnm:एमएसएन संदेशवाहक (मेसेंजर) :
+register_homepage:मुखपृष्ठ:
+register_bday:जन्मदिनांक:
+register_day:दिवस
+register_month:महिना
+register_year:वर्ष
+register_sig:स्वाक्षरी:
+register_msg_per_page:प्रतिपान संदेश:
+register_timezone:वेळक्षेत्र:
+post_normal:सामान्य
+post_size:आकार
+post_color:रंग
+post_font:टंक
+create_thread:प्रकरण तयार करा
+post_logout:बाहेर पडा
+post_poll_delete:वगळा
+post_poll_edit:संपादन करा
+post_upload_file:संचिका चढवा
+post_file_del:वगळा
+post_file_name:नाव
+post_file_size:आकार
+file_attachments:जोडलेल्या संचिका:
+post_title:शीर्षक:
+post_options:पर्याय:
+post_preview_btn:संदेशाची झलक पहा
+post_cancel_btn:रद्द करा
+prereg_agree:मान्यता
+coppa_fax_telephone:दूरध्वनी:
+coppa_fax_date:दिनांक:
+coppa_fax_login:प्रवेश
+coppa_fax_name:नाव
+login_login:प्रवेश:
+login_login_btn:प्रवेश
+rpasswd_invalid_passwd:अमान्य परवलीचा शब्द
+rpasswd_passwd_length:परवलीचा शब्द ६ अक्षरांपेक्षा लांब असणे आवश्यक आहे.
+rpasswd_change_pass:परवलीचा शब्द बदला
+rpasswd_login:प्रवेश
+rpasswd_cur_pass:सध्याचा परवलीचा शब्द:
+rpasswd_new_pass:नवीन परवलीचा शब्द:
+rpasswd_conf_pass:परवलीचा शब्द पुन्हा लिहा:
+ruser_cur_login:सध्याचे प्रवेशनाम:
+ruser_new_login:नवीन प्रवेशनाम:
+reset_email:विपत्र:
+reset_reset_button:परवलीचा शब्द पूर्ववत करा
+report_subject:विषय:
+search_entire_msg:पूर्ण संदेश
+search_subject_only:फक्त विषय
+remail_your_name:तुमचे नाव:
+remail_your_email:तुमचे विपत्र:
+remail_subject:विषय:
+remail_message:संदेश:
+remail_send_now:आत्ता विपत्र पाठवा
+remail_done:झाले
+mklist_type:प्रकार:
+mklist_delete:वगळा
+mklist_close:बंद करा
+email_to:प्रति:
+email_pg_title:विपत्र
+email_subject:विषय:
+email_submit:विपत्र
+ppost_to:प्रति:
+ppost_find_User:सदस्य शोधा
+ppost_send:पाठवा
+poll_update:अद्ययावत
+poll_delete:वगळा
+poll_updateoption:पर्याय अद्ययावत करा
+poll_addoption:पर्याय वाढवा
+poll_day:दिवस
+poll_days:दिवस
+poll_hour:तास
+poll_hours:तास
+poll_month:महिना
+poll_year:वर्ष
+poll_week:आठवडा
+delete_yes:होय
+delete_no:नाही
+error_error:चूक
+err_info:माहिती
+email_error_subject:विषय आवश्यक
+email_error_invaliduser:चुकीचे सदस्यनाव
+emailconf_err_invkey_title:चूक
+post_err_edttimelimit_title:चूक
+report_err_nosuchmsg_title:चूक
+reset_err_invalidkey_title:चूक
+reset_err_rstconf_title:माहिती
+ERR_systemerr_ttl:'''चूक:''' प्रणालीतील त्रूटी
+groupmgr_yes:होय
+groupmgr_no:नाही
+groupmgr_action:क्रिया
+groupmgr_member:सदस्य
+groupmgr_cancel:रद्द करा
+groupmgr_edit:संपादन
+groupmgr_delete:वगळा
+show_show:दाखवा:
+group_mgr:गट व्यवस्थापक
+group_mgr_group:गट:
+p_READ:वाचा
+p_REPLY:प्रतिक्रिया
+p_EDIT:संपादन करा
+p_DEL:वगळा
+p_FILE:संचिका जोडा
+group_mgr_search:सदस्य शोधा
+th_expr_never:कधीच नाही
+th_expr_one_hr:१ तास
+th_expr_three_hr:३ तास
+th_expr_four_hr:४ तास
+th_expr_eight_hr:८ तास
+th_expr_sixteen_hr:१६ तास
+th_expr_one_day:१ दिवस
+th_expr_two_day:२ दिवस
+th_expr_four_day:४ दिवस
+th_expr_one_week:१ आठवडा
+th_expr_two_week:२ आठवडे
+th_expr_one_month:१ महिना
+th_expr_two_month:२ महिना
+th_expr_four_month:४ महिने
+th_expr_one_year:१ वर्ष
+thread_mod_delete:वगळा
+action_ip:आयपी
+action_latest_post:शेवटचा संदेश
+drawmsg_view_rest_post:उरलेला संदेश दाखवा
+split_th_messages:संदेश
+quicklogin_login:प्रवेश:
+quicklogin_password:परवलीचा शब्द:
+quicklogin_use_cookies:स्मृतिशेषांचा (कुकीज) वापर?
+quicklogin_login_btn:प्रवेश
+im_jabber:जॅबर:
+im_google:गूगल टॉक:
+im_skype:स्कायपे:
+im_twitter:ट्विटर:
+forum_home:मुख्य
+search_and:आणि
+search_or:किंवा
+search_attach_with:जोडण्यांसहित
+iemail_msg_reply:प्रतिक्रिया
+threadt_announce:घोषणा
+mnav_minute:मिनिटे
+mnav_hour:तास
+mnav_day:दिवस
+mnav_week:आठवडे
+mnav_month:महिने
+mnav_title:संदेश न्याहाळक
+findu_edit:संपादन
+findu_delete:वगळा
+mnav_newer:याहून नवीन
+mnav_older:याहून जुने
+mmd_abort_move:रद्द करा
+dmsg_ip:आयपी:
+register_topics_per_page:प्रतिपान प्रकरणे:
+post_common_bold:ठळक
+post_common_italics:तिरपी मुद्राक्षरे
+post_common_link:दुवा जोडा
+post_common_email:विपत्र पत्ता जोडा
+rating_delete:वगळा
+btn_delete:वगळा
+btn_edit:संपादन
+btn_reply:प्रतिक्रिया
+btn_email:विपत्र
+page_list_heading:उपलब्ध पाने

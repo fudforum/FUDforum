@@ -1,0 +1,346 @@
+# Messages for Khmer (ភាសាខ្មែរ)
+# Exported from translatewiki.net
+# Author: Sovichet
+# Author: វ័ណថារិទ្ធ
+
+action:សកម្មភាព​
+add_to_buddy_list:បន្ថែម​ទៅ​ក្នុង​បញ្ជី​មិត្ត​
+admin:អ្នកគ្រប់គ្រង់
+admin_control_panel:អ្នកអភិបាល
+administrator:អ្នកអភិបាល
+attachment:ឯកសារភ្ជាប់៖
+avatar:អវតារ៖
+average_post_count:{PLURAL: u->posted_msg_count|$1 សារ|$1 សារ} ({PLURAL: avg|$1 average message|$1 average messages} ក្នុងមួយថ្ងៃ)
+biography:ប្រវត្តិរូប​៖
+birth_date:ថ្ងៃ​ខែ​ឆ្នាំ​កំណើ​ត​
+by:ដោយ​៖
+by_mod:ដោយ​អ្នក​សម្រប​សម្រួល​
+current_time:ម៉ោង​បច្ចុប្បន្ន​
+date_posted:កាលបរិច្ឆេកបិទប្រកាស
+date_registered:កាលបរិច្ឆេទបានចុះឈ្មោះ៖
+download_counter:បាន​ទាញ​យក {PLURAL: v[3]|$1 ដង |$1 ដង}
+pmsg_download_counter:ទាញ {PLURAL: r->dlcount|$1 ដង |$1 ដង}
+email:អ៊ីមែល​៖
+email_to_friend:អ៊ីមែល​ទៅ​កាន់​មិត្ត​
+email_user:ផ្ញើអីុមែលទៅកាន់អ្នកប្រើប្រាស់
+faq:ជំនួយ
+first_unread_msg:ទៅ​សារ​ថ្មីមិនទាន់បានអាន
+first_unread_msg_desc:ទៅកាន់សារមិនទាន់បានអានដំបូងគេទី១ នៅក្នុងប្រធានបទនេះ
+forum:វេទិកា​៖
+forum_icon:Icon របស់វេទិកា
+forum_new_messages:សារ​ថ្មី​
+forum_old_messages:គ្មាន​សារ​ថ្មី​
+from:ពី​៖
+gender:ភេទ​៖
+go:ទៅ​
+goto_next_msg:ទៅ​សារ​បន្ទាប់​
+goto_prev_msg:ទៅ​សារ​មុន​
+home:គេហ​
+homepage:គេហទំព័រ​៖
+im_aim:AIM Handle:
+im_msnm:MSN Messenger:
+im_yahoo:Yahoo Messenger:
+image:រូបភាព​៖
+index_forum:វេទិកា​
+index_new_posts:សារថ្មីចាប់តាំងពីបានអានពេលចុងក្រោយបង្អស់
+index_no_new_posts:គ្មានសារថ្មីចាប់តាំងពីបានអានពេលចុងក្រោយបង្អស់
+index_url_redirection:ការបញ្ជូនបន្ត
+interests:ចំណង់ចំនូលចិត្ត៖
+last_post:សារ​ចុង​ក្រោយ​
+last_thread_msg:ទៅកាន់សារចុងក្រោយគេនៅក្នុងប្រធានបទនេះ
+location:ទីតាំង​៖
+lock_thread:ដាក់សោរប្រធានបទ
+locked:បានចាក់សោ
+login:ឡុកអ៊ីន
+login_header:ឡុកអ៊ីន៖
+logout:ចាកចេញ​
+members:សមាជិក​
+message:សារ​
+message_index_desc:មើល​បញ្ជី​សារ​
+moderator:អ្នក​សម្រប​សម្រួល​
+moderators:{PLURAL: modcount|អ្នក​សម្រប​សម្រួល​|អ្នក​សម្រប​សម្រួល​}
+move_thread:ផ្លាស់ទីតាំង​
+new_posts:សារ​ថ្មី​
+new_thread:បង្កើត​ប្រធាន​បទ​ថ្មី​
+newest_user:អ្នក​ប្រើប្រាស់​ដែល​បាន​ចុះឈ្មោះ​ថ្មី​បំផុត​គឺ
+next_page:ទំព័រ​បន្ទាប់​
+next_thread:ប្រធាន​បទ​បន្ទាប់​៖
+no_new_posts:គ្មាន​សារ​ថ្មី​
+no_posts:គ្មាន​សារ​
+num_pages:ទំព័រ​ ({VAR: ttl_pg})៖
+occupation:អាជីប​៖
+off:បិទ​ (OFF)
+on:បើក​ (ON)
+post_count_l:ចំនួន​សារ​៖
+posts:សារ​
+posts_c:សារ​៖
+prev_thread:ប្រធាន​បទ​មុន​៖
+usrinfo_private_message:សារ​ឯកជន​៖
+register:ចុះ​ឈ្មោះ​
+search:ស្វែង​រក​
+sel_todays_posts:សារ​ថ្ងៃ​នេះ​
+send:ផ្ញើ​
+sender_email:អ៊ីមែល​របស់​អ្នក​ផ្ញើ​៖
+sender_name:ឈ្មោះ​អ្នក​ផ្ញើ​៖
+size:ទំហំ​៖
+status:ស្ថានភាព​៖
+subject:ប្រធានបទ​
+thread:ប្រធាន​បទ​៖
+thread_announcement:សេចក្ដី​ជូន​ដំណឹង​៖
+thread_thread:ប្រធាន​បទ​
+threads:ប្រធាន​បទ​
+time:ម៉ោង​
+todays_posts:សារ​ថ្ងៃ​នេះ​
+user:អ្នក​ប្រើ​ប្រាស់​
+user_counter:យើង​មាន{PLURAL: st_obj->user_count|អ្នក​ប្រើប្រាស់|អ្នក​ប្រើប្រាស់} ​ចំនួន  <b>{VAR: st_obj->user_count}</b> ដែលបាន​ចុះឈ្មោះ​។​
+user_info:ព័ត៌មាន​អ្នក​ប្រើ​ប្រាស់​
+user_info_l:ព័ត៌មាន​អ្នក​ប្រើប្រាស់​ {VAR: u->alias}
+usrinfo_last_post:សារ​ចុង​ក្រោយ​៖
+view_results:មើល​លទ្ធផល​
+reported_del_report:លុប​របាយការណ៍​
+reported_reason:មូលហេតុ៖
+modque_delete:លុបចោល​
+list_referes_member:សមាជិក​
+referals_action:សកម្មភាព​
+pmsg_all:ទាំងអស់​
+pmsg_none:គ្មាន​
+folder:ថត​ឯកសារ​៖
+pmsg_subject:ប្រធានបទ​
+pmsg_author:អ្នក​និពន្ធ​
+pmsg_time:ពេលវេលា
+pmsg_selected:ត្រូវបានជ្រើសរើស
+pmsg_delete:លុបចោល
+cur_ppage_pm:សារ​ឯកជន​៖
+inbox:ប្រអប់សំបុត្រ
+draft:ពង្រាង
+sent:បានផ្ញើ
+trash:ឆុងសំរាម
+msg_author:អ្នកនិពន្ធ
+month_1:មករា​
+month_2:កុម្ភៈ​
+month_3:មិនា​
+month_4:មេសា​
+month_5:ឧសភា​
+month_6:មិថុនា​
+month_7:កក្ដដា​
+month_8:សីហា​
+month_9:កញ្ញា​
+month_10:តុលា​
+month_11:វិច្ឆិកា​
+month_12:ធ្នូ​
+sunday:ថ្ងៃអាទិត្យ
+sunday_short:អា
+monday:ថ្ងៃច័ន្ទ
+monday_short:ច
+tuesday:ថ្ងៃអង្គារ
+tuesday_short:អ
+wednesday:ថ្ងៃពុធ
+wednesday_short:ពុ
+thursday:ថៃ្ងព្រហស្បតិ៍
+thursday_short:ព្រ
+friday:ថ្ងៃសុក្រ
+friday_short:សុ
+saturday:ថ្ងៃសៅរ៍
+saturday_short:សៅ
+male:ប្រុស​
+female:ស្រី​
+finduser_user_info:ព័ត៌មាន​អ្នក​ប្រើ​ប្រាស់​
+finduser_submit:ស្វែងរក
+finduser_no_such_user:គ្មានអ្នកប្រើប្រាស់បែបនេះទេ​
+finduser_user:អ្នក​ប្រើប្រាស់​
+finduser_postcount:ចំនួន​សារ​៖
+finduser_joindate:កាលបរិច្ឆេទចូលរួម
+finduser_action:សកម្មភាព
+yes:បាទ/ចាស
+no:ទេ
+register_email:អ៊ីមែល
+pmuserloc_login:ឡុកអ៊ីន៖
+pmuserloc_submit:ដាក់ស្នើ
+pmuserloc_user:អ្នក​ប្រើប្រាស់​
+pmuserloc_no_result:គ្មានលទ្ធផល
+register_uploaded:ផ្ទុកអាវ៉ាតារ៍ឡើង
+register_login:ឡុកអ៊ីន៖
+register_password:លេខ​សម្ងាត់៖
+register_conf_pass:បញ្ជាក់ពាក្យសម្ងាត់៖
+register_name:ឈ្មោះ​៖
+register_your_pass:លេខ​សម្ងាត់​អ្នក​៖
+register_register:ចុះ​ឈ្មោះ​
+register_location:ទីតាំង​៖​
+register_occupation:អាជីប​៖
+register_image:រូបភាព​៖
+register_homepage:គេហទំព័រ​៖
+register_bday:ថ្ងៃ​ខែ​ឆ្នាំ​កំណើត​៖
+register_day:ថ្ងៃ​
+register_month:ខែ​
+register_year:ឆ្នាំ​
+register_gender:ភេទ​៖
+register_bio:ប្រវត្តិរូប​៖
+register_sig:ហត្ថលេខា​៖
+register_show_sig:បង្ហាញ​ហត្ថលេខា​៖
+register_timezone:ល្វែង​ម៉ោង​៖
+register_show_email:បង្ហាញអសយដ្ឋាន​អ៊ីមែល​៖
+buddy_status:ស្ថានភាព​
+post_normal:ធ​ម្មតា​
+post_annoncement:សេចក្ដី​ប្រកាស​
+post_size:ទំហំ​
+post_color:ពណ៌
+post_font:ពុម្ព​អក្សរ​
+create_thread:បង្កើត​ប្រធានបទ​
+post_upload_file:ផ្ទុក​ឯកសារ​ឡើង​
+post_file_del:លុប​ចោល​
+post_file_name:ឈ្មោះ​
+post_file_size:ទំហំ​
+post_forum:វេទិកា​៖
+post_title:ចំណងជើង​៖
+post_body:តួ​៖
+post_cancel_btn:បោះបង់
+forum_terms:លក្ខខណ្ឌ​នៃ​វេទិកា​
+coppa_before:មុន {TEMPLATE: coppa_date}
+coppa_after:ក្រោយ {TEMPLATE: coppa_date}
+prereg_info:វិន័យ​នៃ​វេទិកា​
+prereg_agree:យល់​ព្រម​
+prereg_disagree:បដិសេធ​
+prereg_update:អានអំពីច្បាប់-វិន័យនៃវេទិកា
+coppa_fax_instructions:សេចក្ដីណែនាំចំពោះមាតិបិតា ឬអាណាព្យាបាល
+# Fuzzy
+coppa_fax_instructions2:សូមបោះពុម្ពទំព័រនេះ រួចចុះហត្ថលេខា ហើយផ្ញើទូរសារមក៖
+coppa_fax_reg_form:បែបបទ​ចុះឈ្មោះ​
+coppa_fax_sign:សូមចុះហត្ថលេខាទម្រង់បែបបទខាងក្រោម រួចហើយផ្ញើមកយើងខ្ញុំ
+coppa_fax_permission:ចុះហត្ថលេខានៅទីនេះបើអ្នកផ្ដល់ការយល់ព្រម
+coppa_fax_parent_name:នាមខ្លួន-ត្រកូល របស់មាតាបិតា/អាណាព្យាបាល៖
+coppa_fax_relation:ទំនាក់ទំនងនឹងកូនក្មេង៖
+coppa_fax_telephone:លេខ​ទូរស័ព្ទ​៖
+coppa_fax_email:អសយដ្ឋាន​អ៊ីមែល​៖
+coppa_fax_date:កាល​បរិច្ឆេទ​៖
+coppa_fax_questions:សូមទាក់ទងមកកាន់ <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> បើមានចង្ងល់ផ្សេងៗ
+coppa_fax_login:ឡុកអ៊ីន
+coppa_fax_passwd:លេខ​សម្ងាត់​
+coppa_fax_remail:អ៊ីមែល​
+coppa_fax_name:ឈ្មោះ​
+login_want_to_register:ចង់ចុះឈ្មោះ​?
+login_forgot_passwd:ភ្លេច​លេខ​សម្ងាត់​
+login_login:ឡុកអ៊ីន៖
+login_login_btn:ឡុកអ៊ីន
+rpasswd_change_pass:ប្ដូរពាក្យសម្ញាត់
+rpasswd_login:ឡុកអ៊ីន
+rpasswd_cur_pass:ពាក្យសម្ងាត់បច្ចុប្បន្ន
+rpasswd_new_pass:ពាក្យសម្ងាត់ថ្មី៖
+rpasswd_conf_pass:បញ្ជាក់ពាក្យសម្ងាត់៖
+login_passwd:ពាក្យសម្ងាត់៖
+reset_email:អ៊ីមែល៖
+reset_reset_button:កំណត់​ពាក្យសម្ងាត់​សាឡើងវិញ
+report_subject:ប្រធាន​៖
+report_by:ដោយ​៖
+report_posted_on:បិទផ្សាយនៅ៖
+search_subject_only:តែប្រធានបទ
+search_forum:វេទិកា​
+search_posted_on:បិទផ្សាយនៅ
+search_no_results:គ្មានលទ្ធផល
+search_all_forums:ស្វែងរកគ្រប់វេទិកាទាំងអស់
+search_in_forum:ស្វែងរកក្នុងវេទិកា៖
+search_forum_search:ស្វែងរកវេទិកា
+move_thread_to:ប្ដូរទីតាំងនៃប្រធានបទ <b>{VAR: thr->subject}</b> ទៅកាន់៖
+remail_your_name:ឈ្មោះ​របស់​អ្នក​៖
+remail_your_email:អ៊ីមែល​​របស់​អ្នក​៖
+remail_subject:ប្រធាន​៖
+remail_message:សារ​៖
+remail_send_now:ផ្ញើ​អ៊ីមែល​ឥឡូវ​នេះ​
+remail_done:រួចរាល់
+mklist_type:ប្រភេទ​៖
+mklist_close:បិទ
+email_to:ទៅកាន់៖
+email_pg_title:អ៊ីមែល
+email_subject:ប្រធានបទ៖
+email_body:តួ​សេចក្ដី​៖
+email_submit:អ៊ីមែល
+ppost_quote_msg:{VAR: msg_to_list} បានសរសេរនៅ {TEMPLATE: ppost_quote_msg_date}
+ppost_quote:ស្រង់សម្ដី៖
+ppost_to:ទៅកាន់៖
+ppost_from_buddy_list:ជ្រើសរើសពីបញ្ជីមិត្ត
+ppost_find_User:ស្វែងរកអ្នកប្រើប្រាស់
+ppost_send:ផ្ញើ
+ppost_save_draft:រក្សាទុក​ពង្រាង
+poll_day:ថ្ងៃ​
+poll_days:ថ្ងៃ​
+poll_hour:ម៉ោង​
+poll_hours:ម៉ោង​
+poll_month:ខែ​
+poll_year:ឆ្នាំ​
+poll_week:សប្តាហ៍​
+error_error:កំហុស​
+usrinfo_profile:ប្រវត្តិរូប​នៃ​{VAR: u->alias}
+err_info:ព័ត៌មាន​
+email_error_invaliduser:អ្នក​ប្រើប្រាស់​គ្មាន​សុពលភាព​
+emailconf_err_invkey_title:កំហុស​
+ignore_list_err_info_title:ព័ត៌មាន​
+ignore_list_err_nu_title:រក​មិន​ឃើញ​អ្នក​ប្រើប្រាស់​
+post_err_edttimelimit_title:កំហុស​
+post_err_passwd:លេខ​សម្ងាត់​មិន​ត្រឹមត្រូវ​។
+finduser_title:ស្វែងរកអ្នកប្រើប្រាស់
+help_title:ជំនួយ
+login_title:ទម្រង់ឡុកអីុន
+register_title:ទម្រង់បែបបទចុះឈ្មោះ
+reset_title:កំណត់​ពាក្យសំងាត់​សាឡើងវិញ
+rpasswd_title:ទម្រង់ប្ដូរពាក្យសម្ញាត់
+index_title:សូមស្វាគមន៍មកកាន់វេទិកា!
+search_title:ស្វែងរក {VAR-HTML: srch}
+groupmgr_yes:បាទ/ចាស
+groupmgr_no:ទេ
+groupmgr_action:សកម្មភាព
+groupmgr_member:សមាជិក​
+groupmgr_cancel:បោះបង់
+groupmgr_edit:កែប្រែ
+groupmgr_delete:លុបចោល
+group_mgr_anon:អនាមិក
+show_show:បង្ហាញ
+group_mgr:អ្នកគ្រប់គ្រងក្រុម
+group_mgr_edit_btn:កែប្រែក្រុម
+group_mgr_group:ក្រុម៖
+p_READ:អាន
+p_POST:បិទផ្សាយ
+p_REPLY:ឆ្លើយតប
+p_EDIT:កែប្រែ
+p_DEL:លុបចោល
+th_expr_one_hr:1 ម៉ោង​
+th_expr_three_hr:3 ម៉ោង
+th_expr_four_hr:4 ម៉ោង
+th_expr_eight_hr:8 ម៉ោង
+th_expr_sixteen_hr:16 ម៉ោង
+th_expr_one_day:1 ថ្ងៃ
+th_expr_two_day:2 ថ្ងៃ
+th_expr_four_day:4 ថ្ងៃ
+th_expr_one_week:1 សប្តាហ៍
+th_expr_two_week:2 សប្តាហ៍
+th_expr_one_month:1 ខែ
+th_expr_two_month:2 ខែ
+th_expr_four_month:4 ខែ
+th_expr_one_year:1 ឆ្នាំ
+thread_mod_delete:លុបចោល
+action_ip:អសយដ្ឋាន IP
+action_latest_post:សារ​ចុង​ក្រោយ​
+online_today_last_visit:បានចូលទស្សនាចុងក្រោយ
+logedin_todays_visitors:អ្នកទស្សនាថ្ងៃនេះ
+forum_contact:ទំនាក់ទំនង​
+forum_home:គេហ​
+mmd_abort_move:បោះបង់
+mmd_move:ប្ដូរទីតាំងប្រធានបទ
+thread_del_all:លុបចោលអ្វីដែលបានជ្រើសរើស
+thread_mov_all:ប្ដូរទីតាំងអ្វីដែលបានជ្រើសរើស
+dmsg_ip:អសយដ្ឋាន IP៖
+rating_delete:លុបចោល
+topic_rating:{VAR: frm->rating} ពី {PLURAL: frm->n_rating|$1 សម្លេង|$1 សម្លេង}
+code_select_all:ជ្រើសរើស​ទាំង​អស់​
+code_show_hide:បង្ហាញ​/ លាក់​
+btn_about:ប្រវត្តិរូប
+btn_small_pm:សារឯកជន
+btn_delete:លុបចោល
+btn_edit:កែប្រែ
+btn_reply:ឆ្លើយតប
+btn_quote:ស្រង់សម្ដី
+btn_email:អ៊ីមែល
+btn_show_posts:ប្រកាសន៍
+btn_homepage:www
+feed_rdf:RDF feed
+feed_rss:RSS2 feed
+feed_atom:ATOM feed
+pages:ទំព័រ

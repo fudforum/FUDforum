@@ -1,0 +1,347 @@
+# Messages for Nepali (नेपाली)
+# Exported from translatewiki.net
+# Author: Bhawani Gautam
+# Author: Krish Dulal
+# Author: NehalDaveND
+# Author: RajeshPandey
+# Author: राम प्रसाद जोशी
+# Author: सरोज कुमार ढकाल
+
+action:कार्य
+add_to_buddy_list:मित्रहरुको सूची
+admin:प्रबन्धक
+admin_control_panel:प्रबन्धक नियंत्रण कक्ष
+administrator:प्रबन्धक
+attachment:संलग्न:
+avatar:अवतार:
+average_post_count:{PLURAL: u->posted_msg_count|$1 सन्देश|$1 सन्देशहरू} (प्रति दिन {PLURAL: avg|औसत $1 सन्देश|औसत $1 सन्देशहरू})
+biography:जीवनी:
+birth_date:जन्मतिथि:
+by:द्वारा:
+by_mod:मडरेटर द्वारा
+current_time:वर्तमान समय
+custom_avatar_queue:कस्टम अवतार कतार
+date_posted:प्रेषित तिथि
+date_registered:पंजिकृत तिथि:
+download_counter:{PLURAL: v[3]|$1 पल्ट|$1 पल्ट} डाउनलोड गरिएको
+pmsg_download_counter:{PLURAL: r->dlcount|$1 पल्ट|$1 पल्ट} डाउनलोड गरिएको
+email:ईमेल
+email_to_friend:मित्रलाई ईमेल गर्ने
+email_to_friend_desc:यस पृष्ठमा  आफ्नो मित्र(हरू)लाई URL ईमेलद्वारा पठाउनुहोस्
+email_user:प्रयोगकर्तालाई ईमेल सन्देश पठाउने
+faq:सहायता
+first_unread_msg:नपढेका सन्देशहरू हेर्ने
+first_unread_msg_desc:पहिलो नपढेको सन्देश यस शीर्षकभित्र हेर्ने
+flat_view:सामान्य च्याप्टो दृश्य मा फर्किनुहोस
+forum:फोरम:
+forum_icon:फोरम चिह्न
+forum_new_messages:नयाँ सन्देशहरू
+forum_none_messages:पंजिकृत फोरम सदस्यहरूले मात्र पठित &amp; अपठित सन्देशहरू खोज्न सक्नेछन्
+forum_old_messages:नयाँ सन्देश छैन
+from:बाट:
+gender:लिङ्ग:
+go:जाने
+goto_next_msg:अर्को सन्देश तर्फ जाने
+goto_prev_msg:पछिल्लो सन्देश तर्फ लाग्ने
+home:गृह
+homepage:गृहपृष्ठ:
+icq_control_panel:ICQ अनलाइन-संदेश कक्ष
+icq_message_form:ICQ सन्देश फोरम:
+ignore_user:यस प्रयोगकर्ताका सबै सन्देशहरुलाई उपेक्षा गर्ने
+im_aim:AIM हैण्डल:
+im_msnm:MSN सन्देशवाहक:
+im_yahoo:याहू सन्देशवाहक:
+image:चित्र:
+index_forum:फोरम
+index_new_posts:अघिल्लो पढाइपछिका नयाँ सन्देशहरू
+index_no_new_posts:अघिल्लो पढाइपछिका नयाँ सन्देशहरू छैनन्
+index_url_redirection:अनु्प्रेषण
+interests:रुचीहरु:
+last_post:पछिको सन्देश
+last_thread_msg:यस शीर्षकको पछिल्लो सन्देश तर्फ जाने
+legend:किंवदंती
+location:स्थान:
+lock_thread:शीर्षक बन्द गर्ने
+locked:प्रतिबन्धित
+locked_with_new_posts:प्रतिबन्धित (पढे/ नपढेका सन्देशहरू)
+logged_in_list:प्रवेश गरिएको प्रयोगकर्ता सूची
+login:प्रवेश गर्ने
+login_header:प्रवेश:
+logout:निर्गमन (लग आउट)
+mark_all_read:सबै सन्देशहरुलाई पठित भनी दाग दिने
+mark_all_read_desc:तपाईका सबै सन्देशहरुलाई पठित भनी दाग दिइनेछ
+members:सदस्यहरू
+calendar:पंचाङ्ग
+cal_goto_date:यसमा जानुहोस्:
+cal_day_heading:दिनका घटनाहरु
+cal_no_events:दिनका घटनाहरु छैनन्।
+cal_update:फोरम पंचाङ्ग ब्राउज गरिंदै
+cal_birthday:जन्मतिथि: {VAR: user}
+cal_birthday_age:({PLURAL: उमेर|$1 वर्ष|$1 वर्ष} पुगेको)।
+message:सन्देश
+message_counter:हाम्रा प्रयोगकर्ताहरूले <b>{PLURAL: thread_count|$1 विषय|$1 विषयहरू}</b> मा कुल <b>{PLURAL: post_count|$1 सन्देश|$1 सन्देशहरू}</b>  प्रकाशित गरेका छन्।
+message_index:सन्देश सूची
+message_index_desc:सन्देश सूची हेर्ने
+minimize_category:श्रेणीलाई सानो पार्ने
+minimize_message:सन्देश सानो पार्ने
+moderation_queue:संचालन कतार
+moderator:मडरेटर
+moderator_of:मडरेटर सम्बन्ध:
+moderator_options:मडरेटर विकल्पहरू
+moderators:{PLURAL: modcount|मध्यस्थकर्ता|मध्यस्थकर्ताहरू}
+more_unread_messages:थप नपढेका सन्देशहरू
+more_unread_messages_desc:अहिले पढ्न सकिने सन्देशहरू चिनो लगाएर अरु नपढेका सन्देशहरू देखाउने ।
+move_thread:सार्ने
+moved:अर्को फोरममा सार्ने
+moved_thread_message:यो शीर्षक अर्को फोरममा सारिएको छ ।
+na:n/a
+new_posts:नयाँ सन्देशहरू
+new_thread:नयाँ शीर्षक बनाउने
+newest_user:नविनतम पंजिकृत प्रयोगकर्ता हुनुहुन्छ
+next_page:अर्को पृष्ठ
+next_thread:अर्को शीर्षक:
+no_msg_body:सन्देशको मूल भाग नभएको
+no_new_posts:नयाँ सन्देश छैन
+no_posts:नयाँ सन्देश छैन
+num_pages:पृष्ठहरू ({VAR: ttl_pg}):
+occupation:पेशा:
+off:बन्द
+on:खुल्ला
+page_timings:पृष्ठ तयार गर्न लिएको समय {PLURAL: page_gen_time|$1 सेकेण्ड}
+pm:व्यक्तिगत सन्देश प्रणाली
+poll:जनमत:
+post_count:सन्देश गणना {VAR: u_pcount}
+post_count_l:सन्देश गणना:
+posts:सन्देशहरू
+posts_c:सन्देशहरू:
+prev_thread:अघिल्लो विषय:
+usrinfo_private_message:व्यक्तिगत सन्देश:
+profile:नियंत्रण कक्ष
+refresh_list:सूची ताजा पार्ने
+register:पंजिकरण गर्ने
+registered:पंजिकृत:
+registered_on:{TEMPLATE: registered_on_date}मा पंजिकृत गरिएको
+replies:उत्तरहरू
+reveal_post:सन्देश निकाल्ने
+search:खोज
+sel_todays_posts:आजका सन्देशहरू
+sel_unanswered_posts:अनुत्तरित सन्देशहरू
+sel_unread_messages:अपठित सन्देशहरू
+send:पठाउने
+send_pm_desc:यी प्रयोगकर्तालाई व्यक्तिगत सन्देश पठाउने
+sender_email:पठाउनेको इमेल:
+sender_name:पठाउनेको नाम:
+show_posts_by:{VAR: u_alias}द्वारा दिएको सन्देश हेर्ने
+size:आकार:
+status:स्थिति:
+sticky:स्टिकी:
+stop_ignoring:यी प्रयोगकर्तामाथिको उपेक्षा रोक्ने
+bookmark_thread:बुकमार्कको शीर्षक
+subject:विषय
+subscribe:अंश ग्रहण गर्ने
+subscribed_threads:विषयमा अंश ग्रहण गर्ने
+bookmarked_threads:बुकमार्क गरिएको शीर्षक
+thread:विषय:
+thread_announcement:घोषणा:
+thread_first_unread_msg:यस विषयमा पहिलो नपढेको सन्देश तर्फ जाने
+thread_thread:विषय
+threads:विषयहरु
+time:समय
+todays_posts:आजका सन्देशहरू
+todays_posts_desc:आज प्रेषित सबै सन्देशहरू हेर्ने
+unanswered_posts:अनुत्तरित सन्देशहरू
+unlock_thread:बन्द विषय खोल्ने
+unread_posts:अपठित सन्देशहरू
+unread_posts_desc:सबै अपठित सन्देशहरू हेर्ने
+user:प्रयोगकर्ता
+user_info:प्रयोगकर्ता जानकारी
+usrinfo_last_post:पछिल्लो सन्देश:
+view_results:नतिजाहरू हेर्नुहोस
+views:अवलोकनहरू
+vote:{PLURAL: frm->n_rating|$1 भोट|$1 भोटहरू}
+vote_button:भोट गर्नुहोस
+vote_for_thread:मत
+reported_reason:कारण:
+modque_delete:हटाउने
+pmsg_new_messages:निजी सन्देशहरू नपढ्ने
+move_to:तिर सार्ने:
+list_referes_member:सदस्य
+referals_registered_on:दर्ता भएको
+referals_action:कार्य
+pmsg_all:सबै
+pmsg_none:कुनै पनि होइन
+folder:फोल्डर:
+pmsg_replied:उत्तर दिइयो
+pmsg_forwarded:अग्रसारित गरियो
+pmsg_subject:विषय
+pmsg_author:लेखक
+pmsg_time:समय
+pmsg_selected:चुनिएको
+pmsg_delete:मेट्ने
+cur_ppage_pm:व्यक्तिगत सन्देश प्रणाली
+writing_pm:व्यक्तिगत सन्देश लेखिंदै
+inbox:पत्र मञ्जुषा
+draft:प्रालेख
+sent:पठाइयो
+trash:कचरा
+msg_author:लेखक
+month_1:जेनवरी
+month_2:फेब्रुअरी
+month_3:मार्च
+month_4:एप्रील
+month_5:मे
+month_6:जुन
+month_7:जुलाई
+month_8:अगस्ट
+month_9:सेप्टेम्बर
+month_10:अक्टोबर
+month_11:नोभेम्बर
+month_12:डिसेम्बर
+sunday:आइतबार
+sunday_short:आ
+monday:सोमबार
+monday_short:सो
+tuesday:मंगलबार
+tuesday_short:मं
+wednesday:बुधबार
+wednesday_short:बु
+thursday:बिहीबार
+thursday_short:बि
+friday:शुक्रबार
+friday_short:शु
+saturday:शनिबार
+saturday_short:श
+male:पुरूष
+female:महिला
+unspecified:अनिर्दिष्ट
+finduser_user_info:प्रयोगकर्ता जानकारी
+finduser_submit:खोज्ने
+finduser_no_such_user:कुनै त्यस्तो प्रयोगकर्ता छैन
+finduser_user:प्रयोगकर्ता
+finduser_postcount:सन्देश गणना
+finduser_joindate:सामेल भएको तिथि
+finduser_action:कार्य
+yes:हुन्छ
+no:हुँदैन
+register_email:इमेल
+no_edit_time_limit:<b>समय सीमा सम्पादन गरिंदै</b>: असीमित
+pmuserloc_login:प्रवेश:
+pmuserloc_submit:बुझाउने
+pmuserloc_user:प्रयोगकर्ता
+pmuserloc_no_result:शून्य परिणाम
+register_uploaded:तस्विर उद्भरण गर्नुहोस
+register_login:प्रवेश:
+register_password:प्रवेशशव्द:
+register_conf_pass:प्रवेश शब्द सुनिश्चित गर्नुहोस्:
+# Fuzzy
+register_email_desc:कृपया मान्य इमेल ठेगाना दिनुहोस्। तपाईंले यसलाई तल अभिरुची भागमा गएर लुकाउन सक्नुहुन्छ।
+register_name:नाम:
+register_your_pass:तपाईंको प्रवेश शब्द:
+register_update:अद्यतन गर्ने
+register_avatar_type:अवतार प्रकार:
+register_del_avatar:अवतार मेट्ने
+register_avatar:अवतार:
+register_sel_avatar:अवतार चुन्ने
+register_preview:पूर्वावलोकन
+register_register:दर्ता गर्ने
+register_required:आवस्यक जानकारी
+register_optional: ऐच्छिक जानकारी
+register_location:स्थान:
+register_occupation:पेशा:
+register_image:चित्र:
+register_homepage:गृहपृष्ठ:
+register_bday:जन्ममिति:
+register_bday_desc:यदि तपाईंले जन्ममिति समावेस गर्नुभयो भने फोरमका अन्य सदस्यहरूले तपाईंको उमेर देख्न सक्नेछन ।
+register_day:गते
+register_month:महिना
+register_year:वर्ष
+register_gender:लिङ्ग:
+register_bio:जीवनी:
+register_prefs:अभिरुचीहरू
+register_sig:दस्तखत:
+register_reset:पूर्वरूपमा फर्काउने
+register_timezone:समय क्षेत्र :
+register_invisible_mode:अदृश्य ढाँचा:
+register_show_email:इमेल-ठेगाना देखाउने:
+buddy_status:स्थिति
+my_buddies:मेरो साथीहरू
+add_buddy:साथीहरू थप्ने
+add:थप्ने
+buddy_remove:हटाउने
+post_normal:सामान्य
+post_sticky:स्टिकी
+post_annoncement:घोषणा
+post_size:आकार
+post_color:रङ्ग
+post_font:फन्ट
+create_thread:विषय सिर्जना गर्ने
+post_logout:निर्गमन (लग आउट)
+post_poll:जनमत:
+post_poll_delete:मेटाउने
+post_poll_edit:सम्पादन
+post_upload_file:फाइल अपलोड गर्ने
+post_file_del:हटाउने
+post_file_name:नाम
+post_file_size:आकार
+post_forum:फोरम:
+post_title:शीर्षक:
+post_body:मूख्य भाग:
+post_options:विकल्पहरू:
+post_cancel_btn:रद्द गर्ने
+prereg_agree:सहमत
+prereg_disagree:असहमत
+coppa_fax_relation:बच्चासँगको सम्बन्ध:
+coppa_fax_telephone:टेलिफोन:
+coppa_fax_email:इमेल ठेगाना:
+coppa_fax_date:मिति:
+coppa_fax_login:प्रवेश
+coppa_fax_passwd:पासवर्ड
+coppa_fax_remail:इमेल
+coppa_fax_name:नाम
+login_login:प्रवेश:
+login_login_btn:प्रवेश
+rpasswd_new_pass:नयाँ पासवर्ड:
+rpasswd_conf_pass:पासवर्ड निश्चित गर्नुहोस्:
+login_passwd:पासवर्ड:
+reset_email:इमेल:
+remail_your_name:तपाईंको नाम:
+remail_your_email:तपाईंको इमेल:
+remail_friends_name:साथीको नाम:
+remail_friends_email:साथीको इमेल:
+remail_required:आवश्यक
+remail_subject:विषय:
+remail_message:सन्देश:
+remail_done:सम्पन्न
+email_to:लाई:
+email_pg_title:इमेल
+email_subject:विषय:
+email_body:मूख्य भाग:
+email_submit:इमेल
+ppost_to:लाई:
+th_expr_one_hr:घण्टा
+th_expr_three_hr:३ घण्टा
+th_expr_eight_hr:८ घण्टा
+th_expr_sixteen_hr:१६ घण्टा
+th_expr_one_day:१ दिन
+th_expr_two_day:२ दिन
+th_expr_four_day:४ दिन
+th_expr_one_week:१ हप्ता
+th_expr_two_week:२ हप्ता
+th_expr_one_month:१ महिना
+th_expr_two_month:२ महिना
+th_expr_four_month:४ महिना
+th_expr_one_year:१ वर्ष
+thread_mod_delete:मेट्ने
+action_ip:आई पी
+action_latest_post:पछिल्लो सन्देश
+online_today_last_visit:अन्तिम परिभ्रमण गरिएको
+logedin_todays_visitors:आजका आगन्तुकहरु
+drawmsg_view_rest_post:रहेका सन्देशहरू हेर्ने
+post_re:पुन:
+split_th_posted_on:प्रेषित तिथि:
+split_th_subject:विषय:
+split_th_new_thread_title:नयाँ विषय शीर्षक:
+split_th_forum:फोरम:
+split_th_split_sel:छानिएका सन्देशहरू छुट्याउने
+split_th_split_unsel:नछानिएका सन्देशहरू छुट्याउने
+ip_search:खोज

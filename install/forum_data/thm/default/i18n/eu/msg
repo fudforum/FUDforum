@@ -1,0 +1,382 @@
+# Messages for Basque (euskara)
+# Exported from translatewiki.net
+# Author: An13sa
+# Author: Gorkaazk
+# Author: Mikel Ibaiba
+# Author: Subi
+# Author: Xabier Armendaritz
+
+action:Ekintza
+add_to_buddy_list:gehitu lagunen zerrendara
+admin:Admin
+admin_control_panel:Administrazioa
+administrator:Administratzailea
+attachment:Eranskina:
+biography:Biografia:
+birth_date:Jaiotza data:
+current_time:Oraingo ordua
+email:E-posta:
+faq:Laguntza
+first_unread_msg:Irakurri gabeko mezuetara joan
+forum:Foroa:
+forum_icon:Foroaren ikonoa
+forum_new_messages:Mezu berriak
+forum_old_messages:Ez dago mezu berririk
+from:Nork:
+gender:Generoa:
+go:Joan
+goto_next_msg:Hurrengo mezura joan
+goto_prev_msg:Aurreko mezura joan
+home:Hasiera
+homepage:Hasiera orria:
+im_aim:AIM Handle:
+im_msnm:MSN Messenger
+im_yahoo:Yahoo Messenger:
+image:Irudia:
+index_forum:Foroa
+index_url_redirection:Birbideratzea
+interests:Interesak:
+last_post:Azken mezua
+last_thread_msg:Joan gai honnetako azken mezura
+location:Kokapena:
+lock_thread:Gaia babestu
+locked:Babestua
+locked_with_new_posts:Blokeatua (w/ irakurri gabeko mezuak)
+login:Saioa hasi
+login_header:Erabiltzailea:
+logout:Saioa itxi
+members:Kideak
+calendar:Egutegia
+cal_goto_date:Hona jauzi:
+message:Mezua
+message_index:Mezu zerrenda
+message_index_desc:Mezuen zerrenda ikusi
+moderator:Moderatzailea
+more_unread_messages:irakurri gabeko mezu gehiago
+move_thread:Mugitu
+na:ez dago eskuragarri
+new_posts:Mezu berriak
+new_thread:Sortu gai berria
+next_page:Hurrengo orria
+next_thread:Hurrengo Gaia:
+no_new_posts:Ez dago mezu berririk
+no_posts:Ez dago mezurik
+no_unread_locked:Gai hau blokeatua izan da
+no_unread_msg:Gai honek ez du irakurri gabeko mezuak
+occupation:Lanbidea:
+pm:Mezularitza pribatua
+poll:Inkesta:
+posts:Mezuak
+posts_c:Mezuak:
+prev_thread:Aurreko Mezua:
+usrinfo_private_message:Mezu Pribatua:
+profile:Kontrol-panela
+rating:Balorazioa
+refresh_list:Zerrenda berritu
+register:Izena eman
+registered:Erregistratua:
+replies:Erantzunak
+search:Bilatu
+sel_todays_posts:Gaurko mezuak
+sel_unread_messages:Irakurri gabeko mezuak
+send:Bidali
+size:Tamaina
+status:Egoera
+sub_to_thread:Gai honi harpidetu
+subject:Gaia
+subscribe:Harpidetu
+thread:Gaia:
+thread_announcement:Iragarpena:
+thread_thread:Gaia
+threads:Gaiak
+time:Ordua
+todays_posts:Gaurko mezuak
+todays_posts_desc:Erakutsi gaur argitaratu diren mezu guztiak
+unanswered_posts:Erantzu gabeko mezuak
+unanswered_posts_desc:Erakutsi erantzunik ez dituzten mezu guztiak
+unlock_thread:Gaiari babesa kendu
+unread_msg:Gai honek irakur ez dituzun mezuak ditu
+unread_posts:Irakurri gabeko mezuak
+unsubscribe:Harpidetza kendu
+user:Lankide
+usrinfo_last_post:Azken mezua:
+view_results:Emaitzak ikusi
+views:Ikustaldiak
+vote_button:Bozkatu
+vote_for_thread:Bozkatu
+reported_reason:Arrazoia:
+reported_on:Noiz:
+modque_delete:Ezabatu
+list_referes_member:Kidea
+referals_action:Ekintza
+pmsg_all:guztiak
+folder:Karpeta:
+pmsg_subject:Gaia
+pmsg_author:Egilea
+pmsg_time:Ordua
+pmsg_selected:Aukeratua
+pmsg_delete:Ezabatu
+inbox:Sarrera-ontzia
+draft:Zirriborroak
+sent:Bidalitakoak
+trash:Zakarrontzia
+msg_author:Egilea
+month_1:Urtarrila
+month_2:Otsaila
+month_3:Martxoa
+month_4:Apirila
+month_5:Maiatza
+month_6:Ekaina
+month_7:Uztaila
+month_8:Abuztua
+month_9:Iraila
+month_10:Urria
+month_11:Azaroa
+month_12:Abendua
+sunday:Igandea
+sunday_short:I
+monday:Astelehena
+monday_short:A
+tuesday:Asteartea
+tuesday_short:Aa
+wednesday:Asteazkena
+wednesday_short:Az
+thursday:Osteguna
+thursday_short:Og
+friday:Ostirala
+friday_short:Os
+saturday:Larunbata
+saturday_short:L
+male:Gizona
+female:Emakumea
+unspecified:ZEHAZTUGABEA
+finduser_submit:Bilatu
+yes:Bai
+no:Ez
+register_email:E-posta
+pmuserloc_login:Hasi saioa:
+pmuserloc_submit:Bidali
+register_specify_url:URL zehaztu
+register_password:Pasahitza:
+register_conf_pass:Pasahitza baieztatu:
+register_name:Izena:
+register_your_pass:Zure Pasahitza:
+register_update:Eguneratu
+register_preview:Aurrebista
+register_location:Kokapena:
+register_occupation:Lanbidea:
+register_image:Irudia:
+register_icq:ICQ:
+register_aim:AIM Handle:
+register_yahoo:Yahoo Messenger:
+register_msnm:MSN Messenger
+register_homepage:Hasiera orria:
+register_bday:Jaiotza data:
+register_day:Eguna
+register_month:Hilabetea
+register_year:Urtea
+register_gender:Generoa:
+register_bio:Biografia:
+register_sig:Sinadura:
+register_show_sig:Erakutsi sinadurak:
+register_timezone:Ordu Eremua:
+buddy_status:Egoera
+my_buddies:Nire lagunak
+add_buddy:Gehitu laguna
+add:Gehitu
+post_annoncement:Iragarpena
+post_size:Tamaina
+post_color:Kolorea
+post_font:Iturria
+post_preview:Mezuaren aurrikuspena
+post_logout:saioa itxi
+post_poll:Inkesta:
+post_create_poll:INKESTA SORTU
+post_poll_delete:EZABATU
+post_poll_edit:ALDATU
+post_thread_type:Gai mota:
+post_upload_file:Fitxategia igo
+post_file_del:Ezabatu
+post_file_name:Izena
+post_file_size:Tamaina
+post_forum:Foroa:
+post_title:Izenburua:
+post_body:Testua:
+post_options:Aukerak:
+post_preview_btn:Mezuaren aurrikuspena
+post_cancel_btn:Utzi
+prereg_info:Foroko Arauak
+prereg_agree:Ados
+prereg_disagree:Ez ados
+coppa_fax_reg_form:Izena-emate Formularioa
+coppa_fax_parent_name:Guraso/Tutorearen izen osoa:
+coppa_fax_telephone:Telefonoa:
+coppa_fax_email:E-posta helbidea:
+coppa_fax_date:Data:
+coppa_fax_login:Hasi saioa
+coppa_fax_passwd:Pasahitza
+coppa_fax_remail:E-posta
+coppa_fax_name:Izena
+login_forgot_passwd:Pasahitza ahaztuta
+login_login:Erabiltzailea:
+login_login_btn:Hasi saioa
+rpasswd_change_pass:Pasahitza aldatu
+rpasswd_cur_pass:Oraingo pasahitza:
+rpasswd_new_pass:Pasahitz berria:
+rpasswd_conf_pass:Berretsi pasahitza:
+login_passwd:Pasahitza:
+report_subject:Gaia:
+remail_your_name:Zure izena:
+remail_your_email:Zure E-posta
+remail_subject:Gaia:
+remail_message:Mezua:
+remail_done:Egina
+mklist_type:Mota:
+mklist_delete:Ezabatu
+mklist_numerical:Zenbakizkoa
+mklist_aplha:Alfa
+mklist_square:Laukia
+mklist_circle:Zirkulua
+mklist_close:Itxi
+email_to:Nori:
+email_pg_title:E-posta
+email_subject:Gaia:
+email_body:Testua:
+email_submit:E-posta
+ppost_quote:Aipua:
+ppost_to:Nori:
+ppost_send:Bidali
+poll_create:Sortu
+poll_update:Eguneratu
+poll_day:eguna
+poll_days:egunak
+poll_hour:ordua
+poll_hours:orduak
+poll_month:hilabetea
+poll_year:urtea
+poll_week:astea
+delete_yes:Bai
+delete_no:Ez
+error_error:Errorea
+err_info:Info
+emailconf_err_invkey_title:Errorea
+ignore_list_err_info_title:Info
+login_update:Saioa hasteko Formularioa
+post_err_edttimelimit_title:ERROREA
+report_err_nosuchmsg_title:ERROREA
+reset_err_invalidkey_title:ERROREA
+reset_err_rstconf_title:Informazioa
+help_title:Laguntza
+thr_exch_submit:Bidali
+groupmgr_yes:Bai
+groupmgr_no:Ez
+groupmgr_action:Ekintza
+groupmgr_member:Kidea
+groupmgr_cancel:Ezeztatu
+groupmgr_edit:Aldatu
+groupmgr_delete:Ezabatu
+group_mgr_group:Taldea:
+p_READ:Irakurri
+p_REPLY:Erantzun
+p_EDIT:Aldatu
+p_DEL:Ezabatu
+p_VOTE:Bozkatu
+rate_worst:Okerrena
+rate_best:Hoberena
+post_quote:Aipua:
+th_expr_never:Inoiz
+th_expr_one_hr:Ordubete
+th_expr_three_hr:3 ordu
+th_expr_four_hr:4 ordu
+th_expr_eight_hr:8 ordu
+th_expr_sixteen_hr:16 ordu
+th_expr_one_day:Egun bat
+th_expr_two_day:2 egun
+th_expr_four_day:4 egun
+th_expr_one_week:Aste Bete
+th_expr_two_week:2 aste
+th_expr_one_month:Hilabete
+th_expr_two_month:2 hilabete
+th_expr_four_month:4 hilabete
+th_expr_one_year:Urte Bete
+thread_mod_delete:Ezabatu
+action_latest_post:Azken Mezua
+post_re:Re:
+split_th_subject:Gaia:
+split_th_forum:Foroa:
+split_th_messages:Mezuak
+quicklogin_login:Erabiltzailea:
+quicklogin_password:Pasahitza:
+pmsg_next_msg:Hurrengo mezua
+pmsg_prev_msg:Aurreko mezua
+im_google:Google Talk:
+im_skype:Skype:
+im_twitter:Twitter
+forum_home:Hasiera
+p_VISIBLE:Ikusgai
+polllist_vote:Bozkatu
+search_and:ETA
+search_or:EDO
+iemail_msg_author:<b>Egilea:</b> {VAR: obj->alias}
+iemail_msg_subject:<b>Gaia:</b> {VAR: obj->subject}
+iemail_msg_date:<b>Data:</b> {TEMPLATE: dmsg_post_date}
+iemail_msg_reply:Erantzun
+mnav_more:Gehiago &raquo;&raquo;
+mnav_minute:Minutua(k)
+mnav_hour:Ordua(k)
+mnav_day:Eguna(k)
+mnav_week:Astea(k)
+mnav_month:Hilabetea(k)
+findu_edit:Aldatu
+findu_delete:Ezabatu
+merge_merge:Bateratu hautatutako gaiak
+merge_next:Hurrengo gaiak
+merge_prev:Aurreko gaiak
+userinfo_buddy:Laguna:
+register_email_addr:Helbide elektronikoa:
+uc_new_pm:Mezu pribatu berriak
+uc_new_topic:Gai berria
+modque_cat:Kategoria
+mmd_del_title:Ezabatu gaiak
+mmd_mov_title:Mugitu gaiak
+mmd_move_threads_to:Helburu-foroa:
+mmd_move:Mugitu gaiak
+thread_del_all:Ezabatu hautatutakoa
+thread_mov_all:Mugitu hautatutakoa
+thread_merge_all:Bateratu hautatutakoa
+dmsg_ip:IP:
+sml_code:Kodea
+post_common_italics:Etzana
+post_common_underline:Azpimarratu
+post_common_align_left:Ezkerrean jarri
+post_common_align_center:Erdian jarri
+post_common_align_right:Eskuinean jarri
+post_common_link:Lotura txertatu
+post_common_email_popup:Helbide elektronikoa:
+post_common_image:Irudia txertatu
+post_common_nlist:Gehitu zenbakidun zerrenda
+post_common_blist:Gehitu puntudun zerrenda
+post_common_code:Kodea gehitu
+rating_delete:Ezabatu
+tabs_notifications:Jakinarazpenak
+finduser_flag:Bandera
+post_descr:Gaiaren Deskribapena:
+move_messages:Mugitu mezuak
+move_msg_btn:Mugitu hautatutako mezuak
+code_title:Kodea:
+code_select_all:Denak aukeratu
+code_show_hide:Erakutsi/ ezkutatu
+social_sites:Sare sozialak:
+btn_new_topic:Gai berria
+btn_about:Profila
+btn_delete:ezabatu
+btn_edit:aldatu
+btn_reply:erantzun
+btn_forward:birbidali
+btn_quote:aipua
+btn_email:Eposta
+btn_show_posts:mezuak
+btn_homepage:www
+feed_rdf:RDF jarioa
+feed_rss:RSS2 jarioa
+karma:Karma

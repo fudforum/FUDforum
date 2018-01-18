@@ -1,0 +1,388 @@
+# Messages for Laki (لەکی‎)
+# Exported from translatewiki.net
+# Author: Arash71
+# Author: Hosseinblue
+# Author: Lakzon
+
+action:کارۀل
+add_to_buddy_list:افزودن به لیست دوستان
+admin:ادمین
+admin_control_panel:پنل مدیریت
+administrator:مدیریت
+attachment::ضمیمه
+avatar::آواتار
+average_post_count:{PLURAL: u->posted_msg_count|$1 پست|$1 پست} (بطور متوسط {PLURAL: avg|$1 پست|$1 پست} در روز)
+biography:بیوگرافی:
+birth_date::تاریخ ئۀدی هۀتن-تؤڵد
+by::توسط
+by_mod:توسط مدیر
+current_time:زمان ایسکة
+custom_avatar_queue:صف آواتار انتخابی
+date_posted:تاریخ ارسال
+date_registered::تاریخ نام نؤیسی
+download_counter:{PLURAL: v[3]|$1 بار|$1 بار} دانلود شده
+pmsg_download_counter:{PLURAL: r->dlcount|$1 بار|$1 بار} دانلود شده
+email::ايميل
+email_to_friend:ایمیل به دوست
+email_to_friend_desc:آدرس این صفحه را از طریق ایمیل به دوستانتان بفرستید
+email_user:فرستادن یک ایمیل به کاربر
+faq:راهنما
+first_unread_msg:رفتن به پست‌های خوانده‌نشده
+first_unread_msg_desc:رفتن به نخستین پست خوانده‌نشده در این مبحث
+flat_view:بازگشت به نمای پیش‌فرض خطی
+forum::انجمن
+forum_icon:نماد انجمن
+forum_new_messages:پست‌های تازه
+forum_none_messages:فقط کاربران ثبت‌نام شده می‌توانند پست‌های خوانده‌شده و خوانده‌نشده را پیگیری نمایند.
+forum_old_messages:هیچ پست تازه‌ای وجود ندارد
+from::إژ
+gender::جنسیت
+go:بِچۆ
+goto_next_msg:بچۆ پست تر(هەنی)
+goto_prev_msg:رفتن به پست قبلی
+home:ماڵ
+homepage::وةڵگة ماڵی
+icq_control_panel:ارسال پیام ازطریق ICQ
+icq_message_form:فرم پیام ICQ:
+ignore_user:انسداد همه پست‌های این کاربر
+im_aim:AIM:
+im_msnm:MSN Messenger:
+im_yahoo:Yahoo Messenger:
+image::عۀسگ/تۀصویر
+index_forum:انجمن
+index_new_posts:پست‌های تازه از آخرین بازدید
+index_no_new_posts:عدم پست‌های تازه‌ از آخرین بازدید
+index_url_redirection:گؤەڕانن/تغییر مسیر
+interests::علاقمندی‌ها
+last_post:آخرین پیغوم
+last_thread_msg:رفتن به آخرین پست در این مبحث
+legend:علائم
+location::محل زندگی/جازِنِی
+lock_thread:بستن مبحث
+locked:بسته‌شده
+locked_with_new_posts:بسته‌شده (با پست‌های خوانده‌نشده)
+logged_in_list:لیست کاربران آنلاین
+login:ڤەنۆم هەتن
+login_header:ڤەنۆم هەتن:
+logout:دةر چئن سیستم
+mark_all_read:درآوردن همه پست‌ها بصورت خوانده‌شده
+mark_all_read_desc:همه پست‌های خوانده‌نشده توسط شما بصورت خوانده‌شده درخواهند آمد
+members:کاربرۀل
+calendar:تقویم
+cal_goto_date::وازآ کردن/پریدن وۀ
+cal_day_heading:رویدادةل ایمرۆ
+cal_no_events:.هیچ رویدادی برای امروز موجود نیست
+cal_update:مرور تقویم انجمن
+cal_birthday:تولد: {VAR: user}
+cal_birthdays:{PLURAL: birthdays|$1 تولد|$1 تولد}
+cal_birthday_age:({PLURAL: age|$1 ساله|$1 ساله})
+message:پیغام
+message_counter:کاربران ما مجموعا <b>{PLURAL: post_count|$1 پست|$1 پست}</b> در <b>{PLURAL: thread_count|$1 مبحث|$1 مبحث}</b> ارسال کرده‌اند.
+message_index:لیست پست‌ها
+message_index_desc:مشاهده‌ لیست پست‌ها
+minimize_category:گؤجەرآ کردن ڕِزگ
+minimize_message:کوچک کردن پست
+moderation_queue:صف مدیریت
+moderator:مدیر
+moderator_of::مدیر بخش‌های
+moderator_options:اختیارات مدیر
+moderators:{PLURAL: modcount|مدیر|مدیران}
+more_unread_messages:پست‌های خوانده‌نشده دیگر
+more_unread_messages_desc:نمایش پست‌های خوانده‌نشده دیگر و درآوردن پست‌های آشکار بصورت خوانده‌شده
+move_thread:جاوواز کرِدِن
+moved:به انجمن دیگری منتقل شده
+moved_thread_message:این مبحث به انجمن دیگری منتقل شده‌است
+na:نادیاری
+new_posts:پيغامةل تازة
+new_private_messages:شما <span class="GenTextRed">({VAR: c})</span> {PLURAL: c|پیام‌خصوصی|پیام‌خصوصی} خوانده‌نشده دارید
+new_thread:ایجاد مبحث تازه
+newest_user:تازه ترین کاربر ثبت‌نام شده
+next_page:وەڵگە تِر(هەنی)
+next_thread::مبحث بعدی
+no_messages:هیچ پستی در این انجمن وجود ندارد.<br />اولین نفری باشید که در اینجا مبحث .ارسال می‌کند
+no_msg_body:هیچ متنی در پیام موجود نیست
+no_new_posts:هیچ پست تازه‌ای وجود ندارد
+no_posts:پستی وجود ندارد
+no_subscribed_forums:در هیچ انجمنی اشتراک ندارید
+no_subscribed_threads:در هیچ مبحثی اشتراک ندارید
+no_bookmarked_threads:هیچ مبحثی بوکمارک نشده است
+no_unread_locked:ئێ پستە بەسیآئە
+no_unread_msg:این مبحث هیچ پست خوانده‌نشده‌ای ندارد
+no_unread_msg_unreg:پست‌های خوانده‌شده و خوانده‌نشده فقط برای کاربران ثبت‌نام شده قابل پیگیری است
+num_pages:صفحات ({VAR: ttl_pg}):
+num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|رای|رای}
+occupation:حرفه:
+off:خاموش
+on:روشن/گیس
+page_timings:مدت زمان صرف شده برای تولید این صفحه: {PLURAL: page_gen_time|$1 ثانیه}
+pm:پیام‌خصوصی
+poll:نظرسنجی:
+post_count:تعداد پست‌ها {VAR: u_pcount}
+post_count_l::تعداد پست‌ها
+posts:پیغامةل
+posts_c:پیغامةل
+prev_thread:مبحث قبلی:
+usrinfo_private_message:پیام‌خصوصی:
+profile:صفحه کنترل
+profile_desc:دسترسی به صفحه کنترل کاربر
+rate_thread:رتبه مبحث
+rating:امتیاز
+rating_track:مدیریت رتبه‌بندی مبحث <b>{VAR: thr->subject}</b>:
+refresh_list:تازه‌سازی فهرست
+register:نام نؤیسی کردن
+registered::تاریخ نام نؤیسی
+registered_on:ثبت‌نام شده در {TEMPLATE: registered_on_date}
+replies:پاسخةل
+report_to_mod:گزارش این پست به مدیر
+reported_messages:پست‌های گزارش داده‌شده
+reveal_all_posts:نمایش همه پست‌های {VAR: user_login}
+reveal_post:نشان‌دادن پست
+search:مِنِی کِردِن(گێردین)
+sel_todays_posts:پست‌های امروز
+sel_todays_posts_desc:روشن/خاموش‌کردن فیلتر پست‌های امروز (فقط پست‌های امروز را نمایش خواهد داد)
+sel_unanswered_posts:پست‌های بی‌پاسخ‌
+sel_unanswered_posts_desc:روشن/خاموش‌کردن فیلتر پست‌های بی‌پاسخ (فقط پست‌هایی که به آنها پاسخ داده نشده را نمایش خواهد داد)
+sel_unread_messages:پست‌های خوانده نشده
+sel_unread_messages_desc:روشن/خاموش‌کردن فیلتر پست‌های خوانده‌نشده (فقط پست‌های خوانده‌نشده را نمایش خواهد داد)
+send:كِل كردن/ارسال
+send_pm_desc:ارسال پیام‌خصوصی به این کاربر
+sender_email::ایمیل فرستنده
+sender_name::نام فرستنده
+show_posts_by:نمایش پست‌های: {VAR: u_alias}
+size::اندازه
+status::حالتۀل
+status_line:درحال‌حاضر <b>{PLURAL: st_obj->online_users_reg|$1 کاربر|$1 کاربر}</b>، <b>{PLURAL: st_obj->online_users_hidden|$1 کاربر مخفی|$1 کاربر مخفی}</b> و <b>{PLURAL: st_obj->online_users_anon|$1 مهمان|$1 مهمان}</b> در حال بازدید از این انجمن هستند.
+sticky::مهم
+stop_ignoring:لغو انسداد این کاربر
+sub_to_thread:اشتراک ئة مبحث
+sub_to_thread_desc:دریافت آگاه‌سازی برای پست‌های تازه در این مبحث
+bookmark_thread:بوکمارک مبحث
+bookmark_thread_desc:افزودن این مبحث به فهرست بوکمارک‌هایتان
+subject:موضوع
+subscribe:اشتراک
+subscribe_desc:دریافت آگاه‌سازی برای هنگامیکه کاربری در این انجمن مبحث تازه ارسال می‌کند
+subscribed_forums:در هیچ انجمنی اشتراک ندارید
+subscribed_forums_desc:روشن/خاموش‌کردن فیلتر انجمن‌ةل مشترک بی (فقط پست‌های متعلق به انجمن‌های مشترک شده را نمایش خواهد داد)
+subscribed_threads:مباحث مشترک شده
+subscribed_threads_desc:روشن/خاموش‌کردن فیلتر مباحث مشترک شده (فقط پست‌های متعلق به مباحث مشترک شده را نمایش خواهد داد)
+bookmarked_threads:مباحث بوکمارک‌شده
+switch_to_thread_view:تغییر به نمای درختی این مبحث
+thread:مبحث:
+thread_announcement:اطلاعیه:
+thread_first_unread_msg:رفتن به نخستین پست خوانده‌نشده در این مبحث
+thread_thread:مبحث
+threads:مباحث
+time:وةخت
+todays_posts:پست‌های امروز
+todays_posts_desc:نمایش همه پست‌هایی که امروز ارسال شده‌اند
+un_ignore_user:لغو انسداد پست‌های این کاربر
+unanswered_posts:پست‌های بی‌پاسخ
+unanswered_posts_desc:نمایش همه پست‌هایی که پاسخی برایشان ارسال نشده
+unlock_thread:بازکردن مبحث
+unread_msg:این مبحث شامل پست‌هایی است که شما هنوز نخوانده‌اید
+unread_msg_locked:مبحث بسته‌شده با پست‌های خوانده‌نشده
+unread_posts:پست‌های خوانده‌نشده
+unread_posts_desc:نمایش همه پست‌های خوانده‌نشده
+unsub_from_thread:لغو اشتراک از مبحث
+unsub_from_thread_desc:لغو دریافت آگاه‌سازی‌ برای پست‌های تازه در این مبحث
+unbookmark_thread:حذف از بوکمارک‌ها
+unbookmark_thread_desc:حذف این مبحث از فهرست بوکمارک‌هایتان
+unsubscribe:لغو اشتراک
+unsubscribe_desc:لغو دریافت آگاه‌سازی‌ برای مباحث تازه در این انجمن
+updated_on:بروزشده در:
+user:کاربۀر
+user_counter:ما <b>{VAR: st_obj->user_count}</b> نفر {PLURAL: st_obj->user_count|کاربر|کاربر} ثبت‌نام شده داریم.
+user_info:اطلاعات کاربر
+user_info_l:اطلاعات کاربر {VAR: u->alias}
+user_offline:{VAR: obj->login} هم‌اکنون برون خط است
+user_online:{VAR: obj->login} هم‌اکنون متصل است
+usrinfo_last_post::آخرین پیغوم
+view_results:نمایش نتایج
+views:دیین/سئرکردن
+vote:{PLURAL: frm->n_rating|$1 رای|$1 رای}
+vote_button:رای
+vote_for_thread:رای
+was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> توسط مدیر وة <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> منتقل بیة.
+welcome_message:<b>{VAR: usr->alias}</b> گرامی، خؤةش هةتین. آخرین بازدید شما: {TEMPLATE: welcome_message_date}
+# Fuzzy
+what_ppl_doing:کاربران مشغول چه کاری هستند؟
+reported_del_report:حذف گزارش
+reported_reason:دلیل:
+reported_on:در:
+reported_reported_by:گزارش‌شده توسط:
+reported_reported_msg:پست‌های گزارش‌شده
+modque_pending_approval:پست‌ةل در انتظار تأیید
+modque_approve:تایید
+modque_delete:حۀذف کردن/پاک کردن
+modque_deleteall:حذف همه از کاربر
+modque_no_message:هیچ پست در انتظار تأییدی وجود ندارد
+pmsg_new_messages:پیام‌خصوصی خوانده‌نشده
+pmsg_old_messages:پیام‌خصوصی خوانده‌شده
+deny_recipt:انکار رسید
+deny_recipt_desc:تأییدیهٔ خوانده‌شدن این پیام را نفرست
+restore_to:برگرداندن به:
+move_to:انتقال به:
+list_referes_referrals:معرفی‌ها
+list_referes_members:کاربران معرفی‌شده
+list_referes_member:کاربر
+referals_none:هیچ معرفی‌ای هنوز نیست.
+referals_refered_by:کاربران معرفی‌شده توسط: <b><a href="{TEMPLATE: referals_refered_by_lnk}" class="thLnk">{VAR: p_user[1]}</a></b>
+referals_post_count:تعداد پست‌ها
+referals_registered_on: نام نؤیسی وة
+referals_action:کارۀل
+pmsg_all:کؤل(گشت)
+pmsg_none:هؤیچ کام
+folder:پوشه:
+pmsg_replied:پاسخ داده‌شده
+pmsg_forwarded:فوروارد‌شده
+pmsg_subject:عنوان
+pmsg_author:نویسنده
+pmsg_time:وةخت
+pmsg_selected:انتخاب‌ بیة
+pmsg_delete:حۀذف کردن/پاک کردن
+cur_ppage_pm:پیغام‌خصوصی
+writing_pm:یإ گِلة پیغوم خصوصی بنۆیسن
+browsing_folder:مرور پوشه <b>{VAR: folders[$folder_id]}</b>
+inbox:دریافتیةل
+draft:پیش‌نویسةل
+sent:كِل كردن/ارسال
+trash:زباله‌دانی
+msg_author:نویسنده
+avatar_sel_form:فرم انتخاب آواتار
+no_avatars:هیچ آواتاری موجود نیست
+month_1:ژانویه
+month_2:فوریه
+month_3:مارس
+month_4:آوریل
+month_5:می
+month_6:ژوئن
+month_7:ژولای
+month_8:اگوست
+month_9:سپتامبر
+month_10:اکتبر
+month_11:نوامبر
+month_12:دسامبر
+sunday:یشۀمۀ
+sunday_short:ی
+monday:دؤشۀمۀ
+monday_short:د
+tuesday:سه شۀمۀ
+tuesday_short:س
+wednesday:چووار شۀمۀ
+wednesday_short:چ
+thursday:پنج شۀمۀ
+thursday_short:پةنج شةمه
+friday:جؤمۀ
+friday_short:ج
+saturday:شۀمۀ
+saturday_short:ش
+male:پیا
+female:ژةن
+unspecified:نامشخص
+register_tree_view:نمای درختی پست و مبحث
+register_msg_tree_view:نمای مبحث خطی/نمای پست درختی
+register_tree_msg_view:نمای مبحث درختی/نمای پست خطی
+register_flat_view:نمای خطی پست و مبحث
+use_forum_default:استفاده از پیش‌فرض انجمن
+finduser_user_info:اطلاعات کاربةر
+finduser_by_login::توسط نام کاربری
+finduser_submit:آدئین(پێاکرن)
+finduser_no_such_user:چنین کاربری وجود ندارد
+finduser_user:کاربۀر
+finduser_postcount:تعداد پست‌ةل
+finduser_joindate:تاریخ ثبت‌نام
+finduser_action:کارۀل
+yes:أرێ-بةلئ
+no:نة-نةخئر
+register_email:ایمیل
+edit_time_limit:<b>محدودیت زمانی ویرایش</b>: {GVAR: EDIT_TIME_LIMIT} دقیقه
+no_edit_time_limit:<b>محدودیت زمانی ویرایش</b>: نامحدود
+pmuserloc_login:ڤەنۆم هەتن:
+pmuserloc_submit:ثبت
+pmuserloc_user:کاربۀر
+pmuserloc_no_result:بدون نتیجه
+register_builtin:آواتارهای داخلی
+register_specify_url:تعیین نشانی
+register_uploaded:بارگذاری آواتار
+register_login:ڤەنۆم هەتن:
+register_password::رمز
+register_conf_pass::تأیید گذرواژه
+# Fuzzy
+register_email_desc:لطفا یک ایمیل معتبر وارد کنید. شما بعدا می‌توانید از طریق بخش تنظیمات آن را مخفی کنید.
+register_name::نام
+register_your_pass::گذرواژه هؤمة
+register_update:تازۀسازی
+register_avatar_type::نوع آواتار
+register_del_avatar:حذف آواتار
+register_avatar::آواتار
+register_sel_avatar:انتخاب آواتار
+register_custom_avatar_rules:آواتار دلخواه تا زمانی که توسط ادمین تأیید شود ظاهر نمی‌شود.<br /><span class="SmallText">آواتار، نباید بزرگ‌تر از <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} پیکسل</b> باشد و باید به قالب <b>jpg</b>، <b>gif</b> یا <b>png</b> باشد.</span>
+register_custom_avatar_url:آدرس آواتار انتخابی:
+register_preview:پیش‌نمایش
+register_custom_avatar_upload:فایل آواتار انتخابی:
+register_register:نام نؤیسی کردن
+register_required:اطلاعات ضروری
+# Fuzzy
+register_required_desc:همه فیلدها ضروری‌اند. دقت داشته باشید که گذرواژه به حروف بزرگ و کوچک حساس است.
+register_optional:اطلاعات اختیاری
+register_optional_desc:توصیه می‌شود که هیچ‌گونه اطلاعات خصوصی و هویتی خودتان را در پروفایلتان آشکار نسازید؛ چرا که کاربران انجمن قادر به دیدنِ همه این اطلاعات خواهند بود.
+register_location::محل زندگی/جازِنِی
+register_occupation::کسم/حرفه
+register_interests::علاقمندیةل
+register_image::عۀسگ/تۀصویر
+register_icq:نام کاربری ICQ:
+register_aim:نام کاربری AIM:
+register_yahoo:نام کاربری Yahoo:
+register_msnm:نام کاربری MSN:
+register_homepage::وةڵگة ماڵی
+register_bday::تاریخ تولد
+register_bday_desc:اگر تاریخ تولد خود را وارد کنید، کاربران انجمن در پروفایلتان قادر به .دیدنِ آن خواهند بود
+register_day:رووژ
+register_month:مانگ
+register_year:ساڵ
+register_gender::جنسیت
+register_bio:بیوگرافی:
+register_bio_desc:...اندکی اطلاعات در مورد خودتان، مثل علایقتان، شغلتان و
+register_prefs:تنظيمةل
+register_sig:امضا:
+register_sig_desc:درج امضا اختیاری است؛ و در قسمت پایین پست‌هایتان به نمایش درخواهد آمد.
+register_reset:إژ دووارة
+register_def_thread_view:نمای پیش‌فرض مبحث:
+register_msg_per_page:تعداد پست‌ها در هر صفحه:
+register_show_sig:نمایش امضاها:
+register_show_sig_desc:اجازه می‌دهد امضای کاربران دیگر برای شما نمایش داده شود یا مخفی باشد.
+register_use_sig_default:استفاده پیش‌فرض از امضاء:
+register_use_sig_default_desc:بطور خودکار امضای شمارا به هر پستی که ارسال می‌کنید اضافه می‌کند.
+register_timezone:منطقه زمانی:
+register_ignore_admin:نادیده‌گرفتن پیام‌های مدیریتی:
+register_invisible_mode:حالت آشاریا:
+register_show_email:نمایش آدرس ایمیل:
+post_body::بدنۀ
+coppa:<p>ثبت‌نام کاربران زیر 13 سال منوط به ارائه‌ مجوز امضاشده ازسوی والدین یا سرپرست آنهاست.</p><p> برای اطلاعات بیشتر یک ایمیل به این آدرس ارسال کنید: <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a></p>
+login_perm_denied:شما مجوز دسترسی به این قسمت را به عنوان کاربر مهمان ندارید. برای کسب مجوز، شما باید وارد انجمن شوید.
+reset_reset:درود،\n\nشما برای بازنشانی گذرواژه خود درخواست نموده‌اید. برای کامل کردن فرآیند، به آدرس زیر بروید:\n\n{VAR: url}\n\nتوجه: نگه‌داری گذرواژه در این انجمن بصورت رمزنگاری یکطرفه می‌باشد؛ این یعنی وقتیکه شما گذرواژه خود را وارد کنید، هیچ راهی برای برگرداندن آن نیست. درواقع نحوه‌ ورود از طریق مقایسه‌ی نسخه‌ رمزنگاری شده‌ی موجود در دیتابیس با نسخه‌ی رمزنگاری شده‌ی چیزی که شما در صفحه‌ی ورود تایپ می‌کنید صورت می‌گیرد.\n(اگر علاقه‌مند هستید بیشتر در مورد مکانیزم مذکور بدانید، درمورد الگوریتم MD5 HASH مطالعه کنید.)
+email_body::بدنۀ
+poll_month:مانگ
+email_error_body:متن ضروری است
+email_error_subject:موضوع ضرروی است
+post_reply_update:پاسخ به <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> در {VAR: frm->name}
+postcheck_subj_needed:درج موضوع ضروری است
+postcheck_email_body:ارسال ایمیل بدون درج متن‌پیام امکان‌پذیر نیست.
+private_msg_notify_body:درود،<br />{VAR: usr->login} پیام‌خصوصی شما با عنوان "{VAR: m->subject}" را خوانده است.<br />این یک آگاه‌سازی خودکار است که در تاریخ {TEMPLATE: private_msg_notify_body_date} انجام شده است. <br />
+register_err_enterpasswd:برای انجام تغییرات شما باید گذرواژه فعلی خود را وارد کنید.
+tree_update:مرور مبحث (نمای درختی) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
+unapproved_avatar_msg:ادمین آواتار شما را تأیید نکرد. شایع‌ترین دلایل این است که آواتارتان خیلی بزرگ بود (حجم و یا ابعاد) یا شامل موضوع نامناسب است. اگر اطلاعات بیشتر پیرامون اینکه چرا آواتارتان رد شده‌است می‌خواهید، با ادمین تماس بگیرید.
+thr_exch_decl_reason:دلیل رد مبحث <b>{VAR: data->subject}</b> به داخل انجمن <b>{VAR: data->f2_name}</b>
+exch_decline_ttl:انتقال مبحث {VAR: data->subject} به داخل {VAR: data->f2_name} پذیرفته نشده‌است.
+maximize_category:کەڵنگآ کردن ڕِزگ
+insert_uploaded_image:وارد‌کردن تصویر درون متن پست
+iemail_msg_subject:<b>موضوع:</b> {VAR: obj->subject}
+# Fuzzy
+post_mod_msg_notify_msg:یک پست تازه با موضوع "{VAR: msg_post->subject}" در انجمنی که شما مدیریت می‌کنید ارسال شده است. برای بررسی این پست به اینجا بروید: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nاین یک پیام خودکار است. به این پیام پاسخ ندهید.
+# Fuzzy
+pm_notify_body_email:شما یک پیام‌خصوصی تازه با عنوان "{VAR: subject}"، از "{VAR: from}"، در "{GVAR: FORUM_TITLE}" دریافت کرده‌اید.\n\nبرای مشاهده پیام اینجا را کلیک کنید: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nجهت لغو آگاه‌سازی‌های آتی، گزینه‌ی "آگاه‌سازی برای پیام‌خصوصی" را در پروفایل خود غیرفعال کنید.
+delete_message_extra_body:متن پست حذف‌شده برای نویسنده ارسال گردد
+delete_msg_pm_subject:موضوع: {VAR: data[15]}
+modque_cat:ڕِزگ
+post_descr:شرح مبحث:
+pages:وةڵگةل

@@ -1,12 +1,23 @@
 # Messages for Pashto (پښتو)
 # Exported from translatewiki.net
 # Author: Ahmed-Najib-Biabani-Ibrahimkhel
+# Author: Baloch Khan
+# Author: Ibrahim khashrowdi
 
+action:کړنه
 admin:پازوال
+admin_control_panel:اداره
 administrator:پازوال
+attachment:مښلن:
+avatar:اواتار:
 biography:ژوندليک:
 birth_date:زېږون نېټه
+by:لخوا د:
 current_time:اوسينی وخت
+date_posted:د خپرولو نېټه
+date_registered:د ثبتېدلو نېټه:
+download_counter:{PLURAL: v[3]|$1 ځل|$1 ځله} ښکته شوی
+pmsg_download_counter:{PLURAL: r->dlcount|$1 ځل|$1 ځله} ښکته شوی
 email:برېښليک:
 email_to_friend:ملگري ته برېښليک لېږل
 email_user:دې کارن ته يو برېښليک لېږل
@@ -34,16 +45,24 @@ logout:وتل
 members:غړي
 calendar:کاليزه
 cal_goto_date:ورټوپ کړه:
+cal_day_heading:د نن پېښې
+cal_birthday:زېږون ورځ: {VAR: user}
 message:پيغام
 message_index:د پيغام ليکلړ
 message_index_desc:د پيغامونو لړليک کتل
+minimize_category:وېشنيزه وړوکې کول
+minimize_message:پيغام وړوکی کول
 move_thread:لېږدول
 new_posts:نوي پيغامونه
-next_page:راتلونکی مخ
+new_thread:يو نوی بحث پيلول
+next_page:بل مخ
 next_thread:راتلونکی سرليک:
 no_new_posts:نوي پيغامونه نشته
 no_posts:پيغامونه نشته
 occupation:دنده:
+off:گول
+on:بل
+post_count_l:د پيغامونو شمېر:
 posts:پيغامونه
 posts_c:پيغامونه:
 prev_thread:پخوانی سرليک:
@@ -80,6 +99,7 @@ view_results:پايلې کتل
 views:کتنې
 vote_button:رايه ورکول
 vote_for_thread:رايه ورکول
+what_ppl_doing:د کارن فعالیتونه
 reported_reason:سبب:
 modque_delete:ړنگول
 list_referes_member:غړی
@@ -98,10 +118,10 @@ month_1:جنوري
 month_2:فبروري
 month_3:مارچ
 month_4:اپرېل
-month_5:می
+month_5:مې
 month_6:جون
 month_7:جولای
-month_8:آګسټ
+month_8:اگسټ
 month_9:سېپتمبر
 month_10:اکتوبر
 month_11:نومبر
@@ -112,7 +132,7 @@ monday:دونۍ
 monday_short:د
 tuesday:درې نۍ
 wednesday_short:م
-thursday:شورو
+thursday:پينځنۍ
 thursday_short:ش
 friday:جمعه
 friday_short:ج
@@ -135,11 +155,13 @@ pmuserloc_user:کارن
 register_login:ننوتل:
 register_password:پټنوم:
 register_name:نوم:
+register_name_desc:ستاسې اصلي نوم.
 register_your_pass:ستاسې پټنوم:
 register_update:اوسمهالول
 register_preview:مخليدنه
 register_register:ثبتول
 register_required:اړين مالومات
+register_required_desc:ټولو ډاگونو ته اړتيا ده.
 register_location:ځای:
 register_occupation:دنده:
 register_interests:لېوالتياوې:
@@ -179,6 +201,8 @@ post_preview_btn:مخليدنه
 post_cancel_btn:ناگارل
 forum_terms:د فورم شرطونه
 prereg_info:د فورم قوانين
+prereg_agree:منل
+prereg_disagree:نه منل
 coppa_fax_telephone:ټيليفون:
 coppa_fax_email:برېښليک پته:
 coppa_fax_date:نېټه:
@@ -245,6 +269,7 @@ help_title:لارښود
 index_title:فورم ته ښه راغلاست
 post_opt:د فورم خوښنې:
 register_change_passwd:پټنوم بدلول
+thr_exch_submit:سپارل
 groupmgr_yes:هو
 groupmgr_no:نه
 groupmgr_member:غړی
@@ -309,11 +334,14 @@ register_email_addr:برېښليک پته:
 ip_search:پلټل
 userinfo_real_name:اصلي نوم:
 post_err_mod_forum_edit_ttl:تېروتنه
+delete_msg_pm_body:آرنی پيغام
+delete_msg_pm_subject:سکالو: {VAR: data[15]}
 uc_new_pm:نوي شخصي پيغامونه
 uc_new_topic:نوی سرليک
 search_options:د پلټلو خوښنې
 modque_cat:وېشنيزه
 modque_forum:فورم
+mmd_abort_move:ناگارل
 pmsg_pdf_btn:د PDF خونديځ جوړول
 thread_del_all:ټاکل شوی ړنگول
 thread_mov_all:ټاکلي لېږدول
@@ -337,3 +365,10 @@ btn_delete:ړنگول
 btn_edit:سمول
 btn_reply:ځوابول
 btn_email:برېښليک
+custom_filed_required:د دغو ډاگونو ډکولو ته اړتيا ده.
+pages:مخونه
+page_list_heading:شته مخونه
+page_list_total:{PLURAL: i|$1 مخ|$1 مخونه} لړليک.
+page_update:مخ سپړنه
+karma_delete:ړنگول
+rate_author:ليکوال ارزول:

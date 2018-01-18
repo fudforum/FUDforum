@@ -1,0 +1,324 @@
+# Messages for Kurdish (Latin script) (Kurdî (latînî)‎)
+# Exported from translatewiki.net
+# Author: Bikarhêner
+# Author: George Animal
+
+action:Xebat
+admin:Rêveber
+admin_control_panel:Rêveberî
+administrator:Koordînator
+biography:Biyografî:
+birth_date:Dîroka Rojbûnê:
+email:E-name:
+email_to_friend:Ji hevalên xwe re e-name bişîne
+email_user:Ji bikarhêner re e-nameyek bişîne
+faq:Alîkarî
+first_unread_msg:Here ba peyamên nexwendî
+first_unread_msg_desc:Di vê mijarê de here ba yekem peyama nexwendî
+forum:Forum:
+forum_new_messages:Peyamên nû
+forum_old_messages:Peyamên nû tune ne
+from:Ji:
+gender:Zayend:
+go:Biçe
+goto_next_msg:Here peyama piştî vê
+goto_prev_msg:Here peyama pêştir
+home:Mal
+homepage:Malper:
+im_yahoo:Yahoo Messenger:
+image:Wêne:
+index_forum:Forum
+index_url_redirection:Beralîkirin
+last_post:Peyama dawî
+last_thread_msg:Di vî mijarê de here peyama dawî
+legend:Ravek
+location:Cih:
+locked:Astengkirî
+logged_in_list:Lîsteya bikarhênerên têketinê
+login:Têkeve
+login_header:Têketin:
+logout:Derkeve
+mark_all_read:Hemû peyaman xwendî nîşan bide
+mark_all_read_desc:Hemû peyaman nexwendî wek xwendî nîşan bide
+members:Endam
+calendar:Salname
+cal_goto_date:Here cem:
+message:Peyam
+moderator:Moderator
+new_posts:Peyamên Nû
+next_page:Rûpela Din
+no_new_posts:Peyamên nû tune ye
+no_posts:Peyam tune ne
+no_unread_locked:Ev mijar hatiye astengkirin.
+off:girtî
+on:vekirî
+posts:Peyam
+posts_c:Peyam:
+usrinfo_private_message:Peyama Kesane:
+refresh_list:Lîsteyê Nû Bike
+register:Tomar bike
+registered:Xweqeydkirin:
+replies:Bersiv
+search:Lê bigere
+sel_todays_posts:Peyamên Îro
+sel_unanswered_posts:Peyamên Nebersivkirî
+sel_unread_messages:Peyamên Nexwendî
+send:Bişîne
+status:Rewş:
+thread:Mijar:
+thread_thread:Mijar
+threads:Mijar
+time:Dem
+todays_posts:Peyamên Îro
+todays_posts_desc:Hemû peyamên ko îro hatîye şandin nîşan bide
+unanswered_posts:Peyamên Nebersivkirî
+unanswered_posts_desc:Hemû peyamên bêbersiv nîşan bide
+unlock_thread:Astenga Mijarê Rake
+unread_msg:Di vê mijarê de peyamên ko te hêj nexwendîye heye
+unread_msg_locked:Peyamên nû ê di mijarê astengkirî de
+unread_posts:Peyamên Nexwendî
+unread_posts_desc:Hemû peyamên nexwendî nîşan bide
+unsub_from_thread:Ji şopandina vê mijarê derkeve
+user:Bikarhêner
+user_info:Agahiyên Bikarhêner
+user_info_l:Agahiyên Bikarhêner {VAR: u->alias}
+usrinfo_last_post:Peyama Dawî:
+view_results:Encamê Bibîne
+views:Dîtin
+vote_button:Dengdan
+vote_for_thread:Dengdan
+reported_reason:Sedem:
+modque_delete:Jê bibe
+list_referes_member:Endam
+referals_action:Çalakî
+pmsg_all:hemû
+pmsg_none:çêbû
+pmsg_replied:hate bersivandin
+pmsg_time:Dem
+pmsg_selected:Hate bijartin
+pmsg_delete:Jê bibe
+inbox:Qutiya Hatîyan
+month_1:rêbendan
+month_2:reşemî
+month_3:adar
+month_4:avrêl
+month_5:gulan
+month_6:pûşper
+month_7:tîrmeh
+month_8:gelawêj
+month_9:rezber
+month_10:kewçêr
+month_11:sermawez
+month_12:berfanbar
+sunday:Yekşem
+sunday_short:Y
+monday:Duşem
+monday_short:D
+tuesday:Sêşem
+tuesday_short:Sê
+wednesday:Çarşem
+wednesday_short:Ç
+thursday:Pêncşem
+thursday_short:Pş
+friday:În
+friday_short:Î
+saturday:Şemî
+saturday_short:Ş
+male:Nêr
+female:Mê
+finduser_user_info:Agahiyên Bikarhêner
+finduser_user:Bikarhêner
+finduser_postcount:Hejmarê Peyaman
+finduser_action:Xebat
+yes:Erê
+no:Na
+register_email:E-name
+pmuserloc_login:Têkeve:
+pmuserloc_submit:Tomar bike
+pmuserloc_user:Bikarhêner
+pmuserloc_no_result:Encam tune
+register_login:Têkeve:
+register_password:Şîfre:
+register_conf_pass:Şîfreyê Bipejirîne:
+register_name:Nav:
+register_your_pass:Şîfreya Te:
+register_update:Rojane bike
+register_preview: Pêşdîtin
+register_register:Xwe tomarke
+register_location:Cih:
+register_occupation:Kar:
+register_image:Wêne:
+register_icq:ICQ:
+register_yahoo:Yahoo Messenger:
+register_msnm:MSN Messenger:
+register_homepage:Malper:
+register_bday:Dema Rojbûnê:
+register_day:Roj
+register_month:Meh
+register_year:Sal
+register_gender:Zayend:
+register_prefs:Hevyazên min
+register_sig:Îmze:
+register_show_email:Navnîşana E-nameyê Nîşan Bide:
+buddy_status:Rewş
+add:Lê zêde bike
+buddy_remove:jê bibe
+post_normal:Normal
+post_size:Mezinbûn
+post_color:Reng
+post_logout:derkeve
+post_poll_delete:JÊ BIBE
+post_poll_edit:BIGUHERÎNE
+post_file_del:Jê bibe
+post_file_name:Nav
+post_file_size:Mezinbûn
+post_title:Sernav:
+post_options:Vebijêrk:
+post_preview_btn:Pêşdîtina Peyamê
+post_cancel_btn:Betal bike
+coppa_fax_telephone:Telefon:
+coppa_fax_email:Navnîşana E-nameyê:
+coppa_fax_date:Dîrok:
+coppa_fax_login:Têketin
+coppa_fax_passwd:Şîfre
+coppa_fax_remail:E-name
+coppa_fax_name:Nav
+login_login:Têketin:
+login_login_btn:Têketin
+reset_update:Şîfreyê reset bike
+rpasswd_change_pass:Şîfreyê Biguherîne
+rpasswd_login:Têkeve
+rpasswd_cur_pass:Şîfreya Niha:
+rpasswd_new_pass:Şîfreya Nû:
+rpasswd_conf_pass:Şîfreyê Bipejirîne:
+login_passwd:Şîfre:
+reset_email:E-name:
+remail_your_name:Navê Te:
+remail_your_email:E-nameya te:
+remail_friends_name:Navê heval:
+remail_message:Mesaj:
+remail_send_now:Vege E-name Bişîne
+remail_done:Çêbû
+mklist_type:Cure:
+mklist_option:Vebijêrk:
+mklist_delete:Jê bibe
+mklist_aplha:Alfa
+mklist_close:Bigre
+email_pg_title:E-name
+email_submit:E-name
+ppost_send:Bişîne
+poll_create:Çêke
+poll_update:Rojane bike
+poll_delete:Jê bibe
+poll_day:roj
+poll_days:rojan
+poll_hour:saet
+poll_hours:saetan
+poll_month:meh
+poll_year:sal
+poll_week:hefte
+delete_yes:Erê
+delete_no:Na
+error_error:Çewtî
+email_error_namerequired:Navek pêwist e
+emailconf_err_invkey_title:Çewtî
+ignore_list_err_nu_title:Bikarhêner nehate dîtin
+post_err_edttimelimit_title:ÇEWTÎ
+report_err_nosuchmsg_title:ÇEWTÎ
+reset_err_invalidkey_title:ÇEWTÎ
+reset_err_rstconf_title:Agahî
+search_update:Li peyama digere
+help_title:Alîkarî
+register_change_passwd:şîfreyê biguherîne
+groupmgr_yes:Erê
+groupmgr_no:Na
+groupmgr_action:Xebat
+groupmgr_member:Endam
+groupmgr_cancel:Betal bike
+groupmgr_edit:Biguherîne
+groupmgr_delete:Jê bibe
+group_mgr_reged:Hemû Bikarhênerên Tomarkirî
+show_show:Nîşan bide:
+group_mgr_group:Kom:
+p_READ:Bixwîne
+p_POST:Bişîne
+p_REPLY:Bersiv bide
+p_EDIT:Biguherîne
+p_DEL:Jê bibe
+p_VOTE:Dengdan
+th_expr_one_hr:1 Seet
+th_expr_three_hr:3 Seet
+th_expr_four_hr:4 Seet
+th_expr_eight_hr:8 Seet
+th_expr_sixteen_hr:16 Seet
+th_expr_one_day:1 Roj
+th_expr_two_day:2 rojan
+th_expr_four_day:4 Roj
+th_expr_one_week:1 Heftî
+th_expr_two_week:2 Heftî
+th_expr_one_month:1 Meh
+th_expr_two_month:2 Meh
+th_expr_four_month:4 Meh
+th_expr_one_year:1 Sal
+thread_mod_delete:Jê bibe
+action_ip:IP
+action_latest_post:Peyama Dawî
+split_th_messages:Peyam
+split_th_select:Hilbijêre
+quicklogin_login:Têkeve:
+quicklogin_password:Şîfre:
+quicklogin_login_btn:Têkeve
+pmsg_next_msg:Peyama pêş
+im_skype:Skype:
+im_twitter:Twitter:
+forum_contact:Têkilî
+forum_home:Mal
+poll_edit:Biguherîne
+polllist_vote:Dengdan
+polllist_action:Xebat
+search_and:Û
+search_or:AN
+unread_message:Peyama Nexwendî
+read_message:Peyamê Bixwîne
+saved:Hate tomarkirin
+iemail_msg_reply:Bersiv bide
+mnav_all_forums:Di hemû foruma da lê bigere
+mnav_minute:Deqe
+mnav_hour:Seet
+mnav_day:Roj
+mnav_week:Heftî
+mnav_month:Meh
+findu_edit:Biguherîne
+findu_delete:Jê bibe
+register_email_addr:Navnîşana E-nameye:
+ip_search:Lêbigere
+ip_title:Geroka IPyê
+userinfo_real_name:Navê Rast:
+register_err_alias_notallowed:Ji vê navê nerast re destûr naye dayîn
+post_err_mod_forum_edit_ttl:ÇEWTÎ
+delete_msg_pm_body:Peyamê orjînal
+uc_new_topic:Mijara Nû
+modque_cat:Kategorî
+mmd_abort_move:Betal bike
+dmsg_ip:IP:
+sml_code:Kod
+post_common_email_popup:Navnîşana e-nameyê:
+post_common_code:Kodek Dake
+rating_delete:Jê bibe
+finduser_flag:Al
+pmsg_on:vekirî
+code_title:Kod:
+code_select_all:Hemûyan hilbijêre
+code_show_hide:Nîşanbide/veşere
+postcheck_min_len_err:Peyama te zêde kurte. Direjahîya herî kêm dive {PLURAL: post_min_len|$1 karakter} be.
+postcheck_dup_err:Ji kerema xwe eynî mijar ji yek care zêdetir neşînin.
+btn_new_topic:Mijara Nû
+btn_about:Profîl
+btn_delete:jê bibe
+btn_edit:biguherîne
+btn_reply:bersiv bide
+btn_email:E-name
+btn_homepage:www
+pages:Rûpel
+page_list_heading:Rûpelên hene
+karma_delete:Jê bibe

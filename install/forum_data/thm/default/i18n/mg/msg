@@ -1,0 +1,380 @@
+# Messages for Malagasy (Malagasy)
+# Exported from translatewiki.net
+# Author: Jagwar
+
+action:Tao
+add_to_buddy_list:ampiana amin'ny lisitry ny namako
+admin:Mpandrindra
+admin_control_panel:Fandrindrana
+administrator:Mpandrindra
+attachment:Famatorana:
+avatar:Avatar:
+biography:Tantaram-piainana
+birth_date:Daty nahaterahana:
+by:Nataon'i:
+by_mod:Nataon'ny mpandanjalanja
+current_time:Ora ankehitriny
+custom_avatar_queue:Fiandrasana avatar voatokana
+date_posted:Daty nandefasana
+date_registered:Daty nisoratna anarana:
+download_counter:Nampidinina  {PLURAL: v[3]|indray|in-$1}
+pmsg_download_counter:Nampidinina {PLURAL: r->dlcount|indray mandeha|in-$1}
+email:Mailaka:
+email_to_friend:Handefa mailaka any amin'ny namana
+email_to_friend_desc:Handefa ny URL an'ity pejy ity amin'ny namanao amin'ny alalan'ny mailaka
+email_user:Handefa mailaka any amin'ity mpikambana ity
+faq:Fanoroana
+first_unread_msg:Hankany amin'ny hafatra tsy voavaky
+first_unread_msg_desc:Hankany amin'ny hafatra valohany tsy voavaky eto amin'ity lohahevitra ity
+forum:Forum:
+forum_new_messages:Hafatra vaovao
+forum_none_messages:Ny mpikambana nisoratra anarana ihany no afaka manaraka ny hafatra voavaky ary tsy voavaky
+forum_old_messages:Tsy misy hafatra vaovao
+from:Avy tamy:
+gender:Lahy/vavy:
+go:Ndeha
+goto_next_msg:Hankany amin'ny hafatra manaraka
+goto_prev_msg:Hankany amin'ny hafatra mialoha
+home:Fandraisana
+homepage:Tranonkala:
+image:Sary:
+index_forum:Forum
+index_new_posts:Tsy misy hafatra hatry ny famangianao farany
+index_no_new_posts:Tsy misy hafatra vaovao hatry ny famangianao farany
+index_url_redirection:Fihodinana
+interests:Zavatra mahaliana:
+last_post:Hafatra farany:
+legend:Maribolana
+location:Toerana:
+login:Hiditra
+login_header:Fidirana:
+logout:Hivoaka
+members:Mpikambana
+calendar:Kalandrie:
+cal_goto_date:Hanketo:
+message:Hafatra
+moderator:Mpandanjalanja
+moderator_of:Mpandanjalanjan'i:
+moderator_options:Safidin'ny mpandanjalanja
+move_thread:Soloina
+na:n/a
+new_posts:Hafatra vaovao
+next_page:Pejy manaraka
+next_thread:Lohahevitra vaovao:
+no_msg_body:Tsy misy votoatin-kafatra
+no_new_posts:Tsy misy hafatra vaovao
+no_posts:Tsy misy hafatra
+off:TSY ALEFA
+on:ALEFA
+poll:Fitsapan-kevitra:
+posts:Hafatra
+posts_c:Hafatra:
+rating:Tombana
+register:Hisoratra anarana
+registered_on:Nisoratra anarana teo amin'i {TEMPLATE: registered_on_date}
+replies:Valy
+search:Fikarohana
+sel_todays_posts:Hafatry ny androany
+send:Alefa
+size:Habe:
+status:Sata:
+sticky:napetaka:
+subject:Lohahevitra
+subscribe:Ambesana
+thread:Lohahevitra
+thread_announcement:Filazana:
+thread_thread:Lohahevitra
+threads:Lohahevitra
+time:Fotoana
+unread_posts:Hafatra tsy voavaky
+unread_posts_desc:Haneho ny hafatra tsy voavaky rehetra
+unsubscribe:Aza ambesana intsony
+updated_on:Nohavaozina ny:
+user:Mpikambana
+usrinfo_last_post:Hafatra farany
+views:Tsidika
+vote_button:Hifidy
+vote_for_thread:Hifidy
+reported_reason:Antony:
+reported_on:Ny:
+reported_reported_by:Notaterin'i:
+reported_reported_msg:Hafatra notaterina
+modque_pending_approval:Hafatra miandry fanekena
+modque_approve:Ekena
+modque_delete:Hamafa
+modque_deleteall:Hamafa ny rehetra avy amin'ny mpikambana
+deny_recipt:handà ny mari-pandraisana
+list_referes_member:Mpikambana
+referals_post_count:Isan'ny hafatra
+referals_registered_on:Nisoratra anarana ny
+referals_action:Tao
+pmsg_all:rehetra
+pmsg_none:tsy misy
+folder:Petra-drakitra:
+pmsg_replied:Novaliana
+pmsg_forwarded:nohampitaina
+pmsg_subject:Lohahevitra
+pmsg_author:Mpanoratra
+pmsg_time:Fotoana
+pmsg_selected:Nosafidiana
+pmsg_delete:Hamafa
+cur_ppage_pm:Hafatra tsy sarababem-bahoaka
+writing_pm:Hanoratra hafatra tsy sarababem-bahoaka
+inbox:Voaray
+draft:Drafita
+sent:Nalefa
+trash:Fako
+msg_author:Mpanoratra
+month_1:Janoary
+month_2:Febroary
+month_3:Martsa
+month_4:Aprily
+month_5:Mey
+month_6:Jiona
+month_7:Jolay
+month_8:Aogositra
+month_9:Septambra
+month_10:Oktobra
+month_11:Novambra
+month_12:Desambra
+sunday:Alahady
+sunday_short:Lh
+monday:Alatsinainy
+monday_short:Lt
+tuesday:Talata
+tuesday_short:Tl
+wednesday:Alarobia
+wednesday_short:Lr
+thursday:Alakamisy
+thursday_short:Lk
+friday:Zoma
+friday_short:Zm
+saturday:Sabotsy
+saturday_short:Sb
+male:Lahy
+female:Vavy
+unspecified:TSY VOALAZA
+finduser_submit:Tadiavina
+finduser_user:Mpikambana
+yes:Eny
+no:Tsia
+register_email:Mailaka
+pmuserloc_submit:Alefa
+pmuserloc_user:Mpikambana
+pmuserloc_no_result:Tsy nahitana valiny
+register_login:Fidirana:
+register_login_available:Azo ampiasaina
+register_login_taken:Efa nalaina
+register_password:Tenimiafina:
+register_password_desc:Tenimiafina ho an'ny kaontinao. Manavaka ny renisoratra/zanatsorata ny tenimiafina ary tsy maintsy ahitana soratra 6 farafahakeliny.
+register_conf_pass:Hamarino ny tenimiafinao:
+register_name:Anarana:
+register_update:Havaozina
+register_avatar:Avatar:
+register_preview:Topi-maso
+register_register:Hisoratra anarana
+register_location:Toerana:
+register_occupation:Asa atao:
+register_interests:Zavatra mahaliana:
+register_image:Sary:
+register_icq:Mpamantatra ICQ:
+register_homepage:Tranonkala:
+register_day:Andro
+register_month:Volana
+register_year:Taona
+register_gender:Lahy/vavy:
+register_bio:Tantaram-piainana:
+register_prefs:Safidy
+register_sig:Sonia:
+register_reset:Averina
+register_timezone:Faritr'ora :
+buddy_status:Sata
+add:Hanampy
+buddy_remove:esorina
+post_normal:tsotra
+post_sticky:napetaka
+post_annoncement:Filazana
+post_size:Habe
+post_color:Loko
+post_font:Tarehintsoratra
+create_thread:Hamorona lohahevitra
+submit_reply:Handefa valiny
+edit_message:Ampiharina
+post_logout:hivoaka
+post_poll_delete:FAFÀNA
+post_poll_edit:Hanova
+post_file_del:Hamafa
+post_file_name:Anarana
+post_file_size:Habe
+post_title:Lohateny:
+post_body:Vatana:
+post_options:Safidy:
+post_cancel_btn:Aoka
+prereg_agree:Ekeko
+prereg_disagree:Tsy ekeko
+coppa_fax_telephone:Telefaonina:
+coppa_fax_email:Adiresy mailaka:
+coppa_fax_date:Daty:
+coppa_fax_login:Fidirana
+coppa_fax_passwd:Tenimiafina
+coppa_fax_remail:Mailaka
+coppa_fax_name:Anarana
+login_want_to_register:Te-hisoratra anarana?
+login_forgot_passwd:Adino ny tenimiafina
+login_login:Fidirana:
+login_login_btn:Hiditra
+rpasswd_invalid_passwd:Tenimiafina tsy azo raisina
+reset_update:Hamerina ny tenimiafina
+rpasswd_change_pass:Hanova tenimiafina
+rpasswd_login:Hiditra
+rpasswd_cur_pass:Tenimiafina ankehitriny:
+rpasswd_new_pass:Tenimiafina vaovao:
+rpasswd_conf_pass:Hamarino ny tenimiafinao vaovao:
+ruser_new_login:Fidirana vaovao:
+login_passwd:Tenimiafina:
+reset_email:Mailaka:
+reset_reset_button:Hamerina ny tenimiafina
+rate_this_thread:Naotena
+report_subject:Lohahevitra:
+report_by:Nataon'i:
+report_posted_on:Nosoratana ny:
+search_forum:Forum
+search_no_results:Tsy nahitana valiny
+search_all_forums:Hikaroka ny forum rehetra
+search_in_forum:Karohana anaty forum:
+search_forum_search:Karoka anaty forum
+remail_your_name:Anaranao:
+remail_your_email:Mailakao:
+remail_friends_name:Anaran'ny namana:
+remail_friends_email:Mailaky ny namana:
+remail_required:ilaina
+remail_subject:Lohahevitra:
+remail_message:Hafatra:
+remail_send_now:Alefa izao ilay mailaka
+remail_done:Vita
+mklist_type:Karazana:
+mklist_option:Safidy:
+mklist_additem:Hanampy zavatra
+mklist_apply:Ampiharina
+mklist_delete:Fafàna
+qbud_nick_name:Solonanarana
+qbud_selected:Voatsonga
+qbud_no_buddies:Tsy misy namana azo safidiana
+mklist_numerical:Ara-daharana
+mklist_aplha:Alfa
+email_to:Ho an'i:
+email_pg_title:Mailaka
+email_subject:Lohahevitra:
+email_body:Vatana:
+email_submit:Mailaka
+ppost_quote:Tsiahy:
+ppost_to:Ho an'i:
+ppost_send:Alefa
+poll_name:Anaran'ny fitsapan-kevitra:
+poll_timelimit:Faran'ny fitsapan-kevitra:
+poll_create:Foronina
+poll_update:Vaozina
+poll_create_poll:Hamorona fitsapan-kevitra
+poll_update_poll:Hanavao fitsapan-kevitra
+poll_delete:Fafàna
+poll_unlimited:Tsy voafetra
+poll_day:andro
+poll_days:andro
+poll_hour:ora
+poll_hours:ora
+poll_month:volana
+poll_year:taona
+poll_week:herinandro
+tabs_register:Safidin'ny kaonty
+tabs_subscriptions:Fampilazana
+tabs_bookmarkes:Marika pejy
+tabs_ignore_list:Lisitry ny tsy raharahiana
+delete_yes:Eny
+delete_no:Tsia
+error_invalidurl:URL tsy azo raisina
+error_error:Hadisoana
+err_info:Fampahalalana
+emailconf_err_invkey_title:Hadisoana
+post_err_edttimelimit_title:HADISOANA
+report_err_nosuchmsg_title:HADISOANA
+reset_err_invalidkey_title:HADISOANA
+reset_newpass_title:Famerenana ny tenimiafina
+help_title:Fanoroana
+thr_exch_accept:hanaiky fifanakalozana
+thr_exch_decline:handà fifanakalozana
+thr_exch_orig_forum:Forum niaviana:
+thr_exch_dest_forum:Forum tanjona:
+thr_exch_no_threads:Tsy misy resaka andrasana ho ekena.
+thr_exch_submit:Alefa
+groupmgr_yes:Eny
+groupmgr_no:Tsia
+groupmgr_action:Tao
+groupmgr_member:Mpikambana
+groupmgr_cancel:Avela
+groupmgr_edit:Hanova
+groupmgr_delete:Hamafa
+group_mgr_anon:Tsy manana anarana
+group_mgr_reged:Mpikambana nisoratra anarana rehetra
+show_show:Aseho:
+group_mgr_group:Vondrona:
+p_READ:Hamaky
+p_POST:Alefa
+p_REPLY:Valiana
+p_EDIT:Ovaina
+p_DEL:Fafàna
+p_VOTE:Naotena
+rate_worst:Ratsy indrindra
+rate_best:Tsara indrindra
+th_expr_never:Tsy mihitsy
+th_expr_one_hr:1 ora
+th_expr_three_hr:3 ora
+th_expr_four_hr:4 ora
+th_expr_eight_hr:8 ora
+th_expr_sixteen_hr:16 ora
+th_expr_one_day:1 andro
+th_expr_two_day:2 andro
+th_expr_four_day:4 andro
+th_expr_one_week:Herinandro 1
+th_expr_two_week:Tapa-bolana
+th_expr_one_month:Iray volana
+th_expr_two_month:2 Volana
+th_expr_four_month:4 Volana
+th_expr_one_year:Herintaona
+thread_mod_delete:Fafàna
+action_ip:IP
+action_latest_post:Hafatra farany
+post_re:Va:
+split_th_subject:Lohahevitra:
+split_th_forum:Forum:
+split_th_select:Hisafidy
+quicklogin_login:Fidirana:
+quicklogin_password:Tenimiafina:
+quicklogin_use_cookies:Hampiasa cookies?
+quick_reply:Valiny maika
+quick_reply_post:Handefa valy maika
+quick_reply_preview:Topi-mason'ny valy maika
+# Fuzzy
+post_all_ext_allowed:(tsy ferabaà
+report_already_reported_title:Efa notoriana
+pmsg_next_msg:Hafatra manaraka
+pmsg_prev_msg:Hafatra taloha
+im_jabber:Jabber:
+im_google:Google Talk:
+im_skype:Skype:
+im_twitter:Twitter:
+forum_contact:Fifandraisana
+forum_home:Fandraisana
+p_VISIBLE:Hita maso
+reported_in_thread:Anaty:
+help_back_to_top:hiverina an-tampom-pejy
+poll_edit:Ovaina
+pmsg_recepient:Mpandray
+polllist_vote:Naoty
+polllist_view_results:Hijery valiny
+polllist_name:Anaran'ny fitsapan-kevitra
+polllist_date:Noforonina ny
+polllist_owner:Noforonin'i
+polllist_action:Tao
+search_and:SADY
+search_or:NA
+btn_edit:hanova
