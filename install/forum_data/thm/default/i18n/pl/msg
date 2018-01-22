@@ -6,6 +6,7 @@
 # Author: Faren
 # Author: Macofe
 # Author: Mateon1
+# Author: McDutchie
 # Author: Naudefj
 # Author: Openbk
 # Author: Rezonansowy
@@ -434,7 +435,7 @@ post_cancel_btn:Anuluj
 ignore_users:Ignorowani Użytkownicy
 add_ignore:Dodawanie ignorowanych
 forum_terms:Zasady Forum
-forum_rules:<p>Rejestracja na forum jest darmowa! Wymagamy jednak, aby przestrzegać poniżej opisane zasady. Jeśli zgadzasz się na te warunki, wciśnij przycisk <b>Zgadzam się</b> na dole strony. Uwaga – poprzez wciśnięcie tego przycisku oświadczasz, że masz ukończone 14 lat. Jeśli masz 13 lat lub mniej użyj formularza rejestracji.</p><p>Chociaż administratorzy i moderatorzy tego forum będą starać się usuwać wszelkie niepożądane wiadomości nie jest możliwym dla nas sprawdzenie ich wszystkich. Każda wiadomość przedstawia poglądy jej autora, a właściciele i operatorzy forum nie ponoszą za jej treść odpowiedzialności.</p><p>Wciskając przycisk <b>Zgadzam się</b> gwarantujesz, że nie będziesz przesyłał żadnych wiadomości obscenicznych, wulgarnych, erotycznych, nawołujących do nienawiści, napastliwych lub w inny sposób naruszających prawo.</p><p>Właściciele tego forum zastrzegają sobie prawo do usuwania, edytowania, przenoszenia lub zamykania wątków bez podania przyczyny.</p>
+forum_rules:<p>Rejestracja na forum jest darmowa! Wymagamy jednak, aby przestrzegać poniżej opisane zasady. Jeśli zgadzasz się na te warunki, wciśnij przycisk <b>Zgadzam się</b> na dole strony.</p><p>Chociaż administratorzy i moderatorzy tego forum będą starać się usuwać wszelkie niepożądane wiadomości nie jest możliwym dla nas sprawdzenie ich wszystkich. Każda wiadomość przedstawia poglądy jej autora, a właściciele i operatorzy forum nie ponoszą za jej treść odpowiedzialności.</p><p>Wciskając przycisk <b>Zgadzam się</b> gwarantujesz, że nie będziesz przesyłał żadnych wiadomości obscenicznych, wulgarnych, erotycznych, nawołujących do nienawiści, napastliwych lub w inny sposób naruszających prawo.</p><p>Właściciele tego forum zastrzegają sobie prawo do usuwania, edytowania, przenoszenia lub zamykania wątków bez podania przyczyny.</p>
 forum_rules_13:<p>Wszyscy użytkownicy w wieku poniżej 13 roku życia muszą uzyskać zgodę od swoich rodziców lub prawnych opiekunów, jeśli chcą zarejestrować się na tym forum. Chociaż nie mamy nic przeciwko udzielaniu się na forum osób o wieku poniżej 13 lat, wymagamy, aby rodzic lub opiekun przefaksował nam lub przesłał listem podpisaną zgodę zanim założymy konto.</p><p>Jeśli chcesz rozpocząć proces rejestracji naciśnij przycisk „Akceptuję“ umieszczony poniżej. Jeśli chcesz zrezygnować z rejestracji, naciśnij przycisk „Anuluj“, a powrócisz na główną stronę forum. </p><p>Kopia formularza pozwolenia zostanie wyświetlona po rejestracji. Więcej informacji o procesie rejestracji można uzyskać wysyłając list na adres <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
 coppa_conf:Potwierdzenie systemu COPPA
 coppa_before:Przed {TEMPLATE: coppa_date}

@@ -2,6 +2,7 @@
 # Exported from translatewiki.net
 # Author: Chrisportelli
 # Author: Macofe
+# Author: McDutchie
 # Author: Naudefj
 
 action:Azzjoni
@@ -421,7 +422,7 @@ post_cancel_btn:Annulla
 ignore_users:Utenti injorati
 add_ignore:Żid utent li tixtieq tinjora
 forum_terms:Regoli tal-forum
-forum_rules:<p>Ir-reġistrazzjoni f'dan il-forum hija b'xejn! Aħna ninsistu li int tirrispetta r-regoli u l-politiki mniżżlin hawn taħt. Jekk taqbel ma' dawn it-termin, agħfas il-buttuna <b>Naċċetta<b> fl-aħħar tal-paġna. Nota: Meta tagħfas il-buttuna inti tiddikjara li għandek iktar minn 13-il sena. Jekk inti għandek 13-il sena jew inqas, jekk jogħġbok uża din il-formola ta' reġistrazzjoni.</p><p>Għalkemm l-amministraturi u l-moderaturi ta' dan il-forum jippruvaw jagħmlu li jistgħu biex ma jħallux messaġġi mhux pjaċevoli isibu post fuq dan il-forum, huwa impossibbli li kull messaġġ jiġi reviżjonat. Kull messaġġ jesprimi d-dehriet tal-awtur, u la l-proprjetarji tal-forum u lanqas l-iżviluppaturi għandhom jinżammu responsabbli tal-kontentut tal-ebda messaġġ.</p><p>Billi tagħfas il-buttuna "Naċċetta", inti taċċetta li mintix se tikteb messaġġi li huma oxxeni, vulgari, sesswali, ta' mibgħeda, ta' theddida, jew kwalunkwe ħaġa oħra li tivvjola l-liġijiet.</p><p>Il-proprjetarji ta' dan il-forum għandhom id-dritt li jneħħu, jimmodifikaw, imexxu jew jagħlqu kwalunwke suġġett għal kwalunwke raġuni.</p>
+forum_rules:<p>Ir-reġistrazzjoni f'dan il-forum hija b'xejn! Aħna ninsistu li int tirrispetta r-regoli u l-politiki mniżżlin hawn taħt. Jekk taqbel ma' dawn it-termin, agħfas il-buttuna <b>Naċċetta<b> fl-aħħar tal-paġna.</p><p>Għalkemm l-amministraturi u l-moderaturi ta' dan il-forum jippruvaw jagħmlu li jistgħu biex ma jħallux messaġġi mhux pjaċevoli isibu post fuq dan il-forum, huwa impossibbli li kull messaġġ jiġi reviżjonat. Kull messaġġ jesprimi d-dehriet tal-awtur, u la l-proprjetarji tal-forum u lanqas l-iżviluppaturi għandhom jinżammu responsabbli tal-kontentut tal-ebda messaġġ.</p><p>Billi tagħfas il-buttuna "Naċċetta", inti taċċetta li mintix se tikteb messaġġi li huma oxxeni, vulgari, sesswali, ta' mibgħeda, ta' theddida, jew kwalunkwe ħaġa oħra li tivvjola l-liġijiet.</p><p>Il-proprjetarji ta' dan il-forum għandhom id-dritt li jneħħu, jimmodifikaw, imexxu jew jagħlqu kwalunwke suġġett għal kwalunwke raġuni.</p>
 # Fuzzy
 forum_rules_13:<p>Kull utent taħt l-età ta' 13-il sena għandu bżonn il-permess mingħand il-ġenituri jew gwardjan sabiex jirreġistra ma' dan il-forum. Filwaqt li nilqgħu l-parteċipazzjoni minn membri taħt it-13-il sena, aħna għandna bżonn <i>fax</i> jew ittra min-naħa tal-ġenituri jew gwardjan fejn jagħtu il-permess tagħhom bil-firma qabel ma nħallu ssir reġistrazzjoni.</p><p>Jekk tixtieq tibda l-proċess ta' reġistrazzjoni qabel ma aħna nirċievu formola ta' permess, agħfas il-buttona <b>Naċċetta</b> hawn taħt. Jekk tixtieq tħassar ir-reġistrazzjoni, agħfas <b>Ma naċċettax</b> sabiex tirritorna fid-daħla tal-forum.</p><p>Kopja tal-formola tal-permess tista' titniżżel hawnhek. Għal aktar informazzjoni dwar il-proċess ta' reġistrazzjoni, jekk jogħġbok ibgħat ittra elettronika fuq <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
 coppa_conf:Konferma tal-COPPA

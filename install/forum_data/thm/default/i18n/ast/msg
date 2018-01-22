@@ -1,6 +1,7 @@
 # Messages for Asturian (asturianu)
 # Exported from translatewiki.net
 # Author: Macofe
+# Author: McDutchie
 # Author: Tifinaghes
 # Author: Xuacu
 
@@ -423,7 +424,7 @@ post_cancel_btn:Encaboxar
 ignore_users:Usuarios anubríos
 add_ignore:Anubrir al usuariu
 forum_terms:Términos del foru
-forum_rules:<p>¡El rexistru nesti foru ye de baldre! Insistimos en que cumplas les regles y polítiques que se detallen darréu. Si tas d'acuerdu colos términos, por favor, calca nel botón "<b>Aceuto</b>" al final de la páxina. Nota: al calcar nel botón, declares que tienes más de 13 años d'edá. Si tienes 13 años o menos, por favor, usa esti formulariu de rexistru.</p><p>Por más que los alministradores y moderadores d'esti foru procurarán dexar tolos mensaxes inaceptables fuera del foru, ye imposible para nós revisalos toos. Tolos mensaxes espresen les opiniones del autor, y nin los propietarios del foru nin los desendolcadores son responsables del conteníu de cualquiera d'ellos.</p><p>Al calcar nel botón "Aceuto", garantices que nun publicarás dengún mensaxe con conteníu vulgar, sexual, que fomente l'odiu, amenazante o que vaya escontra cualquier llei.</p><p>Los propietarios d'esti foru tienen drechu a desaniciar, editar, treslladar o candar cualquier filu por cualquier motivu.</p>
+forum_rules:<p>¡El rexistru nesti foru ye de baldre! Insistimos en que cumplas les regles y polítiques que se detallen darréu. Si tas d'acuerdu colos términos, por favor, calca nel botón "<b>Aceuto</b>" al final de la páxina.</p><p>Por más que los alministradores y moderadores d'esti foru procurarán dexar tolos mensaxes inaceptables fuera del foru, ye imposible para nós revisalos toos. Tolos mensaxes espresen les opiniones del autor, y nin los propietarios del foru nin los desendolcadores son responsables del conteníu de cualquiera d'ellos.</p><p>Al calcar nel botón "Aceuto", garantices que nun publicarás dengún mensaxe con conteníu vulgar, sexual, que fomente l'odiu, amenazante o que vaya escontra cualquier llei.</p><p>Los propietarios d'esti foru tienen drechu a desaniciar, editar, treslladar o candar cualquier filu por cualquier motivu.</p>
 forum_rules_13:<p>Tolos usuarios menores de 13 años tienen de pidir permisu a los sos pas o tutores enantes de facese miembros de los foros. Mentanto qu'afalamos la participación de miembros menores de 13 años, necesitamos qu'un pa o tutor llegal devuelva per fax o corréu ordinariu un formulariu d'autorización robláu enantes d'aceutar al nuevu miembru.</p><p>Si quies principiar el procesu de rexistru enantes de que recibamos el formulariu d'autorización, calca nel botón "<b>Aceuto</b>" de más abaxo. Si quies encaboxar el rexistru, calca "<b>Nun aceuto</b>" pa volver al índiz de foros.</p><p>Dempués del procesu de rexistru apaecerá una copia del formulariu d'autorización. Pa más información tocante al procesu de rexistru, unvia un corréu electrónicu a <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
 coppa_conf:Confirmación COPPA
 coppa_before:Enantes de {TEMPLATE: coppa_date}

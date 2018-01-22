@@ -204,8 +204,7 @@ vote_button:Votar
 vote_for_thread:Votar
 was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> ha essite displaciate in <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> per le moderator.
 welcome_message:Benvenite <b>{VAR: usr->alias}</b>, tu ultime visita esseva le {TEMPLATE: welcome_message_date}
-# Fuzzy
-what_ppl_doing:Monstrar lo que le gente face
+what_ppl_doing:Activitate de usatores
 reported_del_report:Deler reporto
 reported_reason:Motivo:
 reported_on:Le:
@@ -373,8 +372,7 @@ my_buddies:Mi amicos
 add_buddy:Adder amico
 add:Adder
 buddy_search:Entra le nomine de usator del persona que tu vole adder.
-# Fuzzy
-member_search:O usa le function <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Cercar usator</a> pro cercar un persona.
+member_search:O usa le function <a href="javascript://" onclick="javascript: window_open('{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Cercar usator</a> pro cercar un persona.
 buddy_remove:remover
 post_normal:Normal
 post_sticky:Fixe
@@ -425,7 +423,7 @@ post_cancel_btn:Cancellar
 ignore_users:Usatores ignorate
 add_ignore:Ignorar usator
 forum_terms:Conditions d'utilisation du forum
-forum_rules:<p>Le inscription in iste foro es gratuite! Nos insiste totevia que tu seque le regulas e politicas detaliate hic infra. Si tu accepta iste conditiones, per favor preme le button <b>De accordo</b> al fin del pagina. Nota: Per premer le button tu declara que tu ha plus de 13 annos. Si tu ha 13 annos o minus, per favor usa iste formulario de inscription.</p><p>Ben que le administratores e moderatores de iste foro tentara excluder tote messages inappropriate de iste foro, il nos es impossibile revider tote le messages. Tote le messages exprime le opiniones del autor, e ni le proprietarios del foro ni le programmatores pote esser responsabile pro le contento de alcun message.</p><p>Per cliccar le button De accordo, tu garanti que tu non publicara alcun message que es obscen, vulgar, sexualmente orientate, odiose, menaciante, o alteremente in violation de alcun lege.</p><p>Le proprietarios de iste foro ha le derecto de remover, modificar, displaciar o clauder omne topico pro qualcunque motivo.</p>
+forum_rules:<p>Le inscription in iste foro es gratuite! Nos insiste totevia que tu seque le regulas e politicas detaliate hic infra. Si tu accepta iste conditiones, per favor preme le button <b>De accordo</b> al fin del pagina.</p><p>Ben que le administratores e moderatores de iste foro tentara excluder tote messages inappropriate de iste foro, il nos es impossibile revider tote le messages. Tote le messages exprime le opiniones del autor, e ni le proprietarios del foro ni le programmatores pote esser responsabile pro le contento de alcun message.</p><p>Per cliccar le button De accordo, tu garanti que tu non publicara alcun message que es obscen, vulgar, sexualmente orientate, odiose, menaciante, o alteremente in violation de alcun lege.</p><p>Le proprietarios de iste foro ha le derecto de remover, modificar, displaciar o clauder omne topico pro qualcunque motivo.</p>
 forum_rules_13:<p>Omne usator minor de 13 annos debe cercar permission de su parente o tutor pro poter devenir membro del foros. Ben que le participantes minor de 13 annos es benvenite, nos require que un parente o tutor nos invia per fax o e-mail un formulario de permission signate ante que nos accepta le membro.</p><p>Si tu vole comenciar le processo de inscription ante que nos ha recipite un formulario de permission, preme le button <b>De accordo</b> hic infra. Si tu vole cancellar le inscription, preme <b>Non de accordo</b> pro retornar al indice del foros.</p><p>Un copia del formulario de permission essera presentate post inscription. Pro plus information sur le processo de inscription, invia e-mail a <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
 coppa_conf:Confirmation COPPA
 coppa_before:Ante le {TEMPLATE: coppa_date}
@@ -670,8 +668,7 @@ register_err_avatarnotallowed:Le avatar que tu tenta incargar non es permittite.
 register_conf_subject:Confirmation del registration
 register_conf_msg:Gratias pro registrar te.\nPro activar tu conto, per favor visita le URL hic infra:\n\n{FULL_ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nQuando tu conto ha essite activate, tu essera authenticate al foro e\nredirigite verso le pagina principal.
 register_welcome_subject:Confirmation del registration in le foro
-# Fuzzy
-register_welcome_msg:Gratias pro registrar te.\n\nEcce le detalios de tu conto in le foro:\n\nURL del foro: {TEMPLATE: index_update_lnk}\nNomine de usator: {VAR: uent->login}\nContrasigno: {VAR: _POST['reg_plaintext_passwd']}\n\nNota ben que le contrasignos distingue inter majusculas e minusculas!\nPro modificar tu preferentias o tu profilo, visita iste pagina:\n{FULL_ROOT}{ROOT}?t=register
+register_welcome_msg:Gratias pro registrar te.\n\nEcce le detalios de tu conto in le foro:\n\nURL del foro: {TEMPLATE: index_update_lnk}\nNomine de usator: {VAR: uent->login}\nContrasigno: {VAR: _POST['reg_plaintext_passwd']}\n\nNota ben que le contrasignos distingue inter majusculas e minusculas!\nPro modificar tu preferentias o tu profilo, visita iste pagina:\n{FULL_ROOT}?t=register
 register_err_cantreg_title:ERROR: impossibile crear conto
 regsiter_err_cantreg_msg:Impossibile crear le conto de usator. Per favor contacta le administrator a <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:Visita su proprie profilo
@@ -718,8 +715,7 @@ error_title:Formulario de error
 index_title:Benvenite al foro
 search_title:Cercar {VAR-HTML: srch}
 remail_emailsent:Le e-mail ha essite inviate
-# Fuzzy
-remail_email:Salute,\n\nIl ha un topico interessante super "{VAR: data->subject}" in le foro {GVAR: FORUM_TITLE} que poterea interessar te. Tu pote vider le topico a:\n {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nAmicalmente,\n\n{VAR: usr->alias}
+remail_email:Salute,\n\nIl ha un topico interessante super "{VAR: data->subject}" in le foro {GVAR: FORUM_TITLE} que poterea interessar te. Tu pote vider le topico a:\n {FULL_ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nAmicalmente,\n\n{VAR: usr->alias}
 poll_add_option:Adder option:
 post_opt_html_on:<b>HTML</b> es <b>activate</b>
 post_opt_fud_on:<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>BBcode</b> es <b>activate</b></a>
@@ -959,11 +955,9 @@ iemail_forum_unsub:Cancellar subscription a iste foro
 primary_group_prefix:Gruppo primari pro le foro:
 group_resources:Iste gruppo controla le permissiones del sequente foros
 register_admin_newuser_title:Un nove usator se ha registrate e su conto attende confirmation
-# Fuzzy
-register_admin_newuser_msg:Un nove usator ({VAR: uent->login}) se ha justo registrate, e post que le confirmation del contos es activate, su conto non devenira active usque illo es confirmate per te o un altere administrator del foro. Pro revider le conto, per favor visita: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nIsto es un processo automatic. Non responde a iste message.\nSi tu vole disactivar le futur notificationes de registration de nove usatores, tu pote facer lo via le Pannello de Controlo Administrative. Cambia le option "Notification de nove contos".
+register_admin_newuser_msg:Un nove usator ({VAR: uent->login}) se ha justo registrate, e perque le confirmation del contos es activate, su conto non devenira active usque illo es confirmate per te o un altere administrator del foro. Pro revider le conto, per favor visita: {FULL_ROOT}adm/admuserapr.php\n\nIsto es un processo automatic. Non responde a iste message.\nSi tu vole disactivar le futur notificationes de registration de nove usatores, tu pote facer lo via le Pannello de Controlo Administrative. Cambia le option "Notification de nove contos".
 post_mod_msg_notify_title:Nove message in foro "{VAR: frm->name}" attende approbation
-# Fuzzy
-post_mod_msg_notify_msg:Un nove message titulate "{VAR: msg_post->subject}" esseva justo inviate a un foro que tu modera. Pro revider iste message, visita: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nIsto es un processo automatic. Non responde a iste message.
+post_mod_msg_notify_msg:Un nove message titulate "{VAR: msg_post->subject}" esseva justo inviate a un foro que tu modera. Pro revider iste message, visita: {FULL_ROOT}?t=modque#{VAR: msg_post->id}\n\nIsto es un processo automatic. Non responde a iste message.
 thread_printable_pdf:Generar PDF imprimibile
 thread_syndicate:Syndicar iste foro (XML)
 reg_conf_title:Confirmation del registration
@@ -989,8 +983,7 @@ mnav_month:Mense(s)
 mnav_title:Navigator de messages
 mnav_update:Percurre messages usante le <a href="{TEMPLATE: mnav_update_lnk}">Navigator de messages</a>
 pm_notify_subject:[{GVAR: FORUM_TITLE}] Notification de nove message private
-# Fuzzy
-pm_notify_body_email:Tu ha un nove message private con le titulo "{VAR: subject}", de "{VAR: from}", in le foro "{GVAR: FORUM_TITLE}".\nPro vider le message, clicca hic: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nPro non plus reciper notificationes, disactiva "Notification de messages private" in tu profilo.
+pm_notify_body_email:Tu ha un nove message private con le titulo "{VAR: subject}", de "{VAR: from}", in le foro "{GVAR: FORUM_TITLE}".\nPro vider le message, clicca hic: {FULL_ROOT}?t=pmsg_view&id={VAR: pid}\n\nPro non plus reciper notificationes, disactiva "Notification de messages private" in tu profilo.
 register_pm_notification:Notification de messages private:
 register_pm_notification_desc:Si activate, tu recipera notification quandocunque un message private es inviate a te.
 findu_admin_opts_header:Optiones admin

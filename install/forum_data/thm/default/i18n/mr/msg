@@ -18,8 +18,8 @@ by_mod:नियामकाद्वारे
 current_time:सध्याची वेळ
 date_posted:प्रेषण दिनांक (पाठविल्याचा दिनांक)
 date_registered:नोंदणी दिनांक:
-download_counter: {PLURAL: v[3]|$1 वेळा|$1 वेळा} उतरवले गेले
-pmsg_download_counter: {PLURAL: r->dlcount|$1 वेळा|$1 वेळा} उतरवले गेले
+download_counter:{PLURAL: v[3]|$1 वेळा|$1 वेळा} उतरवले गेले
+pmsg_download_counter:{PLURAL: r->dlcount|$1 वेळा|$1 वेळा} उतरवले गेले
 email:विपत्र:
 email_to_friend:मित्रास विपत्र
 email_user:वापरकर्त्याला विपत्र संदेश पाठवा

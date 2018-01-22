@@ -228,7 +228,7 @@ list_referes_member:کاربر
 referals_none:هیچ معرفی‌ای هنوز نیست.
 referals_refered_by:کاربران معرفی‌شده توسط: <b><a href="{TEMPLATE: referals_refered_by_lnk}" class="thLnk">{VAR: p_user[1]}</a></b>
 referals_post_count:تعداد پست‌ها
-referals_registered_on: نام نؤیسی وة
+referals_registered_on:نام نؤیسی وة
 referals_action:کارۀل
 pmsg_all:کؤل(گشت)
 pmsg_none:هؤیچ کام

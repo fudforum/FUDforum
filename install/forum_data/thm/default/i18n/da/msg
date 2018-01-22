@@ -430,7 +430,7 @@ post_cancel_btn:Annuller
 ignore_users:Ignorerede brugere
 add_ignore:Tilføj ignoramus
 forum_terms:Forum vilkår
-forum_rules:<p>Tilmelding til dette forum er gratis! Vi insisterer på, at du overholder de regler og politikker der nærmere er beskrevet nedenfor. Hvis du accepterer vilkårene, skal du trykke på <b>Enig</b>-knappen nederst på siden. Bemærk: Ved at trykke på knappen erklærer du, at du er over 13 år. Hvis du er 13 eller under, skal du bruge indmeldelsesblanket.</p><p>Selvom administratorer og moderatorer forsøger at holde alle stødende indlæg fra forumet, er det umuligt for os at gennemse alle indlæg. Alle beskeder udtrykker den enkelte forfatters synspunkter, og hverken ejere af forum eller programudviklere kan holdes ansvarlige for indholdet af beskeden.</p><p>Ved at klikke på "Enig" knappen, forsikrer du, at du ikke fremlægger meddelelser, der er uanstændige, vulgære, seksuelt krænkende, hadefulde, truende, eller på anden vis overtræder loven.</p><p>Ejerne af dette forum har ret til at fjerne, redigere, flytte eller lukke for ethvert emne med hvilken som helst begrundelse.</p>
+forum_rules:<p>Tilmelding til dette forum er gratis! Vi insisterer på, at du overholder de regler og politikker der nærmere er beskrevet nedenfor. Hvis du accepterer vilkårene, skal du trykke på <b>Enig</b>-knappen nederst på siden.</p><p>Selvom administratorer og moderatorer forsøger at holde alle stødende indlæg fra forumet, er det umuligt for os at gennemse alle indlæg. Alle beskeder udtrykker den enkelte forfatters synspunkter, og hverken ejere af forum eller programudviklere kan holdes ansvarlige for indholdet af beskeden.</p><p>Ved at klikke på "Enig" knappen, forsikrer du, at du ikke fremlægger meddelelser, der er uanstændige, vulgære, seksuelt krænkende, hadefulde, truende, eller på anden vis overtræder loven.</p><p>Ejerne af dette forum har ret til at fjerne, redigere, flytte eller lukke for ethvert emne med hvilken som helst begrundelse.</p>
 forum_rules_13:<p>Alle brugere under 13 år skal indhente tilladelse fra deres forældre eller værge for at opnå medlemskab i dette forum. Mens vi glæder os over deltagelse fra medlemmer under 13 år, kræver vi, at en forælder eller værge faxer eller e-mailer en underskrevet tilladelse til os før vi accepterer medlemskab.</p><p>Hvis du ønsker at starte registreringsprocessen inden vi har modtaget en tilladelses-formular, så tryk på <b>Enig</b> nedenfor. Hvis du vil annullere registreringen, skal du trykke på <b>Uenig</b> for at vende tilbage til forummets indeks.</p><p>En kopi af tilladelses-formularen vil blive præsenteret efter registrering. For mere information om registreringsprocessen bedes du sende en e-mail til <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
 coppa_conf:COPPA Bekræftelse
 coppa_before:Før {TEMPLATE: coppa_date}
@@ -596,8 +596,7 @@ buddy_list_err_ignore:Kan ikke tilføje brugere, der ignorere dig, til din venne
 buddy_list_update:Gennemse egen venneliste
 core_err_invinp_title:Ugyldig indtastning
 core_err_invinp_err:Du har fulgt et ugyldigt link. Giv venligst <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a> besked om hvordan du kom hertil.
-# Fuzzy
-core_adm_login_msg:Administratorer kan logge på <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">her</a>.
+core_adm_login_msg:Administratorer kan logge på <a href="{BASE}adm/admloginuser.php">her</a>.
 email_err_unabletoemail_title:FEJL: Kunne ikke sende e-mail
 email_err_unabletoemail_msg:E-mail systemet er blevet deaktiveret af administratoren.
 email_error_unabletolocaddr:Beklager, men systemet var ude af stand til at e-maile {VAR-HTML: _POST['tx_name']}, fordi det ikke var i stand til at bestemme e-mailadressen
@@ -963,8 +962,7 @@ iemail_forum_unsub:Stop abonnement på dette forum
 primary_group_prefix:Primær gruppe for forum:
 group_resources:Denne gruppe kontrollerer tilladelserne for følgende fora
 register_admin_newuser_title:En ny bruger har registreret sig hvis konto mangler godkendelse
-# Fuzzy
-register_admin_newuser_msg:En ny bruger ({VAR: uent->login}) har netop tilmeldt sig, og da godkendelse er aktiveret, kan vedkommende ikke tage sin konto i brug, før den er godkendt af dig eller en anden forum administrator. For at undersøge denne konto skal du gå til: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nDette er en automatiseret proces. Undlad at besvare denne besked.\nHvis du ønsker at afmelde fremtidige e-mail meddelelser om nye brugerregistreringer, kan du gøre det via administrationskonsollens kontrolpanel. Ændre "Ny konto notifikation" indstillingen.
+register_admin_newuser_msg:En ny bruger ({VAR: uent->login}) har netop tilmeldt sig, og da godkendelse er aktiveret, kan vedkommende ikke tage sin konto i brug, før den er godkendt af dig eller en anden forumadministrator. For at undersøge denne konto skal du gå til: {FULL_ROOT}adm/admuserapr.php\n\nDette er en automatiseret proces. Undlad at besvare denne besked.\nHvis du ønsker at afmelde fremtidige e-postmeddelelser om nye brugerregistreringer, kan du gøre det via administrationskonsollens kontrolpanel. Ændr indstillingen for »Ny konto-påmindelse«.
 post_mod_msg_notify_title:Nyt indlæg i forum "{VAR: frm->name}" venter på godkendelse
 post_mod_msg_notify_msg:Et nyt indlæg med titlen »{VAR: msg_post->subject}« er lavet i et forum, som du reviderer. For at se og revidere indlægget gå til: {FULL_ROOT}?t=modque#{VAR: msg_post->id}\n\nDette er en automatiseret proces. Svar ikke på denne meddelelse.
 thread_printable_pdf:Generer udskriftsvenlig PDF

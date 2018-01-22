@@ -782,7 +782,7 @@ group_mgr_edit_btn:编辑组
 group_mgr_heading:选择论坛管理员
 group_mgr_group:组：
 permission_denied_title:权限被拒绝！
-permission_denied_msg:你没有权限执行此项操作
+permission_denied_msg:您的用户权限不允许您执行您正在尝试的操作。
 p_READ:阅读
 p_POST:发布
 p_REPLY:回复
@@ -810,7 +810,7 @@ userinfo_referals:被推荐的用户：
 userinfo_referals_count:{VAR: referals} 成员：
 pm_no_space_title:空间不够
 pm_no_space_msg:你的悄悄话文件夹已经超出了系统限制的空间范围 <b>{GVAR: MAX_PMSG_FLDR_SIZE} 字节</b>，其中包括 <b>{VAR: fldr_size} 字节的</b> 有用信息，<br /><br /><font class="ErrorText">请删除一些旧信息以腾出空间</font>。
-pm_space_indct_msg:你的悄悄话信箱已占用{VAR: percent_full}%空间。
+pm_space_indct_msg:您的私信文件夹已充满{VAR: percent_full}%。
 th_expr_never:从不
 th_expr_one_hr:1个小时
 th_expr_three_hr:3个小时
@@ -860,7 +860,7 @@ post_notification_desc:当有人回复本主题时请通知我。
 post_all_ext_allowed:（无限制）
 maximize_category:增加目录层次
 maximize_message:最大化消息
-no_view_perm:很抱歉，你没有察看这个页面的权限
+no_view_perm:您没有所需的足够权限查看此话题。
 report_empty_report:您不能提交空的报告。请说明推荐理由。
 report_already_reported_title:报告已经提交
 report_already_reported_msg:这条信息已被推荐，相关推荐报告在论坛管理信息列表中。
@@ -896,7 +896,7 @@ register_err_taken_alias:您要使用的别名已在另一论坛成员使用。�
 register_alias:别名：
 register_alias_desc:如果您想应用昵称代替您的用户名来显示在论坛上，请在此输入。
 register_allow_pm_msg:接受悄悄话
-register_allow_pm_msg_desc:接受论坛其他用户向你发送的悄悄话。
+register_allow_pm_msg_desc:允许其他用户在此论坛向您发送私信。
 postcheck_pm_disabled:你不能给 "{VAR-HTML: v}" 发送悄悄话，因为他没有开启悄悄话功能。
 polllist_vote:投票
 polllist_view_results:查看结果

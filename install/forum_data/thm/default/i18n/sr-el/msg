@@ -2,6 +2,7 @@
 # Exported from translatewiki.net
 # Author: KWiki
 # Author: Macofe
+# Author: McDutchie
 # Author: Naudefj
 # Author: Obsuser
 # Author: Rancher
@@ -426,7 +427,7 @@ post_cancel_btn:Otkaži
 ignore_users:Zanemareni korisnici
 add_ignore:Zanemareni korisnici
 forum_terms:Pravilnik
-forum_rules:<p>Upis na ovaj forum je besplatan! Zahtevamo da pročitate pravila ispod. Ako se slažete s njima, kliknite na dugme „<b>Prihvatam</b>“ na kraju stranice. Napomena: klikom na dugme se slažete da imate više od 13 godina. Ako imate 13 godina ili manje, koristite ovaj obrazac za upis.</p><p>Iako se administratori i urednici trude da zadrže sve poruke objektivnim, nemoguće je da ih sve pregledamo. Poruka ukazuje mišljenje njenog autora, te vlasnici foruma ili programeri nisu odgovorni na sadržaj iste.</p><p>Klikom na dugme „Prihvatam“ garantujete da nećete postavljati poruke koje su sramotne, vulgarne, preteće, koje sadrže reči mržnje bilo za rasnu, etničku, versku ili seksualnu pripadnost, kao i one koje krše zakon.</p><p>Vlasnici ovog foruma imaju pravo da uklone, izmene, premeste ili zatvore bilo koju temu zbog bilo kog razloga.</p>
+forum_rules:<p>Upis na ovaj forum je besplatan! Zahtevamo da pročitate pravila ispod. Ako se slažete s njima, kliknite na dugme „<b>Prihvatam</b>“ na kraju stranice.</p><p>Iako se administratori i urednici trude da zadrže sve poruke objektivnim, nemoguće je da ih sve pregledamo. Poruka ukazuje mišljenje njenog autora, te vlasnici foruma ili programeri nisu odgovorni na sadržaj iste.</p><p>Klikom na dugme „Prihvatam“ garantujete da nećete postavljati poruke koje su sramotne, vulgarne, preteće, koje sadrže reči mržnje bilo za rasnu, etničku, versku ili seksualnu pripadnost, kao i one koje krše zakon.</p><p>Vlasnici ovog foruma imaju pravo da uklone, izmene, premeste ili zatvore bilo koju temu zbog bilo kog razloga.</p>
 # Fuzzy
 forum_rules_13:<p>Svi korisnici ispod 13 godina moraju zatražiti dozvolu od roditelja ili staratelja kako bi dobili pristup forumu. Potrebno je da nam pošaljete faks ili e-poruku s potpisanom obrascem pre nego što vam dodelimo članstvo.</p><p>Ako želite da nastavite s upisom, kliknite na dugme „<b>Prihvatam</b>“. Da biste prekinuli upis, kliknite na „<b>Ne prihvatam</b>“ za povratak na naslovnu stranu.</p><p>Primerak obrasca može se preuzeti ovde. Za više informacija pošaljite e-poruku na <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
 coppa_conf:COPPA potvrda

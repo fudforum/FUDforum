@@ -2,6 +2,7 @@
 # Exported from translatewiki.net
 # Author: EileenSanda
 # Author: Macofe
+# Author: McDutchie
 # Author: Naudefj
 
 action:Handling
@@ -422,7 +423,7 @@ post_cancel_btn:Avbrót
 ignore_users:Ignoreraðir brúkarar
 add_ignore:Ignorera ein lim
 forum_terms:Treytir fyri forumið
-forum_rules:<p>Skráseting til hetta forumið er ókeypis! Vit krevja, at tú fylgir teimum reglum og leiðbeiningum, sum greitt verður frá niðanfyri. Um tú tekur undir við hesum treytum, trýst so á <b>Eg góðtaki</b> knøttin niðast á síðuni. Legg til merkis: Við at trýsta á knøttin sigur tú samstundis, at tú ert yvir 13 ára gamal/gomul. Um tú ert 13 ella yngri, vinarliga nýt so skrásetingar formularin.</p><p>Sjálvt um administratorar og moderatorar av hesum forumi royna at halda øll fornermandi innsløg burturi frá foruminum, so er tað ógjørligt fyri okkum at fara ígjøgnum øll innsløgini. Øll boð vísa meiningina hjá høvundunum, og hvørki eigarar av foruminum ella mennarar av skipanini kunnu ábyrgdast fyri innihaldið nøkrum av boðunum yvirhøvur.</p><p>Við at trýsta á Eg góðtaki knøttin, so lovar tú, at tú ikki fert at leggja út boð ella innsløg sum eru ósømilig, vulger, seksuelt orienteraði, hatifull, hóttandi ella á annan hátt bróta nakrar lógir.</p><p>Eigararnir av hesum forum hava rætt til at taka burtur, rætta, flyta ella stongja eitt hvørt evni við hvørjari sum helst orsøk.</p>
+forum_rules:<p>Skráseting til hetta forumið er ókeypis! Vit krevja, at tú fylgir teimum reglum og leiðbeiningum, sum greitt verður frá niðanfyri. Um tú tekur undir við hesum treytum, trýst so á <b>Eg góðtaki</b> knøttin niðast á síðuni.</p><p>Sjálvt um administratorar og moderatorar av hesum forumi royna at halda øll fornermandi innsløg burturi frá foruminum, so er tað ógjørligt fyri okkum at fara ígjøgnum øll innsløgini. Øll boð vísa meiningina hjá høvundunum, og hvørki eigarar av foruminum ella mennarar av skipanini kunnu ábyrgdast fyri innihaldið nøkrum av boðunum yvirhøvur.</p><p>Við at trýsta á Eg góðtaki knøttin, so lovar tú, at tú ikki fert at leggja út boð ella innsløg sum eru ósømilig, vulger, seksuelt orienteraði, hatifull, hóttandi ella á annan hátt bróta nakrar lógir.</p><p>Eigararnir av hesum forum hava rætt til at taka burtur, rætta, flyta ella stongja eitt hvørt evni við hvørjari sum helst orsøk.</p>
 forum_rules_13:<p>Allir brúkarar undir 13 ár mugu hava loyvi frá foreldrum ella verja teirra fyri at gerast limur í foruminum. Vit bjóða limum undir 13 ár vælkomnum, men vit krevja at eitt foreldur ella ein verji sendir okkum eitt undirskrivað loyvi við antin faksi ella telduposti, áðrenn vit kunnu loyva limaskapi.</p><p>Um tú ynskir at byrja skrásetingina, áðrenn vit hava móttikið loyvið, so skalt tú trýsta á <b>Samd/ur</b> knøttin niðanfyri. Um tú ynksir at ógilda skrásetingina, trýst so á <b>Ósamd/ur</b> fyri at venda aftur til innihaldsyvirlitið av formuminum.</p><p>Eitt avrit av loyvis-oyðublaðnum kemur fram eftir skráseting. Um tú ynskir meira kunning um skrásetingargongdina, send so ein teldupost til <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
 coppa_conf:COPPA Váttan
 coppa_before:Áðrenn {TEMPLATE: coppa_date}

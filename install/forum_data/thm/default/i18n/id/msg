@@ -15,6 +15,7 @@
 # Author: Iwan Novirion
 # Author: Kenrick95
 # Author: Macofe
+# Author: McDutchie
 # Author: Naudefj
 # Author: StefanusRA
 # Author: Totosunarto
@@ -441,7 +442,7 @@ post_cancel_btn:Batalkan
 ignore_users:Pengguna diacuhkan
 add_ignore:Tambah diacuhkan
 forum_terms:Pernyataan Forum
-forum_rules:<p>Pendaftaran untuk forum ini bebas! Kami bersikeras bahwa anda mematuhi peraturan dan kebijakan yang rinci di bawah ini. Jika Anda setuju dengan persyaratan, silahkan tekan tombol <b>Setuju</b> di akhir halaman. Catatan: Dengan menekan tombol Anda menyatakan bahwa Anda berusia lebih dari 13. Jika Anda berusia 13 atau kurang, silakan gunakan formulir registrasi ini. </p> <p> Meskipun para administrator dan moderator forum ini akan selalu berusaha untuk menjaga obyektivitas semua pesan dalam forum ini, tidak mungkin bagi kami untuk memeriksa semua pesan. Semua pesan yang ada mengungkapkan sudut pandang dari penulisnya masing-masing, dan baik pemilik forum atau para pengembang tidak bertanggung jawab atas isi dari setiap pesan tersebut. </p> <p> Dengan mengklik tombol Setuju, Anda menjamin bahwa Anda tidak akan memasukkan segala pesan yang cabul, vulgar, berorientasi seksual, kebencian, mengancam, atau melanggar hukum. </p> <p> Pemilik forum ini memiliki hak untuk menghapus, mengedit, memindahkan atau menutup topik apapun untuk alasan apapun. </p>
+forum_rules:<p>Pendaftaran untuk forum ini bebas! Kami bersikeras bahwa anda mematuhi peraturan dan kebijakan yang rinci di bawah ini. Jika Anda setuju dengan persyaratan, silahkan tekan tombol <b>Setuju</b> di akhir halaman. </p> <p> Meskipun para administrator dan moderator forum ini akan selalu berusaha untuk menjaga obyektivitas semua pesan dalam forum ini, tidak mungkin bagi kami untuk memeriksa semua pesan. Semua pesan yang ada mengungkapkan sudut pandang dari penulisnya masing-masing, dan baik pemilik forum atau para pengembang tidak bertanggung jawab atas isi dari setiap pesan tersebut. </p> <p> Dengan mengklik tombol Setuju, Anda menjamin bahwa Anda tidak akan memasukkan segala pesan yang cabul, vulgar, berorientasi seksual, kebencian, mengancam, atau melanggar hukum. </p> <p> Pemilik forum ini memiliki hak untuk menghapus, mengedit, memindahkan atau menutup topik apapun untuk alasan apapun. </p>
 forum_rules_13:<p>Semua pengguna di bawah umur 13 tahun harus meminta izin dari orang tua atau wali mereka untuk mendapatkan keanggotaan  forum. Sementara kami menyambut partisipasi dari anggota di bawah 13, kami meminta orang tua atau wali mengirim faks atau surat formulir izin yang telah ditandatangani sebelum kami memberikan keanggotaan.</p><p>Jika Anda ingin memulai proses registrasi sebelum kami menerima bentuk izin, tekan tombol <b>Setuju</b> di bawah ini. Jika Anda ingin membatalkan registrasi, tekan <b>Tidak setuju</b> untuk kembali ke indeks forum. </p><p>Salinan formulir izin dapat didownload di sini. Untuk informasi lebih lanjut tentang proses pendaftaran, silakan kirim e-mail ke <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
 coppa_conf:Konfirmasi COPPA
 coppa_before:Sebelum {TEMPLATE: coppa_date}

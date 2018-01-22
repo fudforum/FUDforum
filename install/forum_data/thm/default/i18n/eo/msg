@@ -3,6 +3,7 @@
 # Author: Lucas
 # Author: LyzTyphone
 # Author: Macofe
+# Author: McDutchie
 # Author: Mihxil
 # Author: Objectivesea
 # Author: Robin van der Vliet
@@ -426,7 +427,7 @@ post_cancel_btn:Nuligi
 ignore_users:Ignoritaj Uzantoj
 add_ignore:Aldoni Ignoranton
 forum_terms:Foruma Regularo
-forum_rules:<p>Registrado al ĉi tiu forumo estas senpaga! Ni ja insistas ke vi sekvas la jenajn regularojn. Se vi konsentas la regulojn, bonvolu klaki la butonon <b>Mi Konsentas</b> ĉe la subo de la paĝo. Notu ke: Klakante la butonon, vi deklaras ke vi pli aĝas ol 13. Se vi estas 13 jaraĝa aŭ malpli, bonvolu uzi ĉi tiun registradan formularon.</p><p>Kvankam la administrantoj kaj kontrolantoj de ĉi tiu forumo provas forviŝi ĉiujn fiaĵojn el ĉi tiu forumo, ne eblas ke ni kontrolos ĉiujn mesaĝojn. Ĉiuj mesaĝoj esprimas la opiniojn de la aŭtoro, kaj nek la proprantoj de la forumo aŭ la disvolvantoj estos respondeca por la enhavo de iu mesaĝo.</p><p>Klakante la butonon Mi Konsentas, vi asertas ke vi ne afiŝos iujn mesaĝojn fivortecajn, seksecajn, malamikecajn, minacajn, aŭ alimaniere kontraŭigi iun ŝtatajn regularojn.</p><p>La proprantoj de ĉi tiu forumo havas la rajton forigi, redakti, movi, aŭ fermi iun fadenon por ia kialo.</p>
+forum_rules:<p>Registrado al ĉi tiu forumo estas senpaga! Ni ja insistas ke vi sekvas la jenajn regularojn. Se vi konsentas la regulojn, bonvolu klaki la butonon <b>Mi Konsentas</b> ĉe la subo de la paĝo.</p><p>Kvankam la administrantoj kaj kontrolantoj de ĉi tiu forumo provas forviŝi ĉiujn fiaĵojn el ĉi tiu forumo, ne eblas ke ni kontrolos ĉiujn mesaĝojn. Ĉiuj mesaĝoj esprimas la opiniojn de la aŭtoro, kaj nek la proprantoj de la forumo aŭ la disvolvantoj estos respondeca por la enhavo de iu mesaĝo.</p><p>Klakante la butonon Mi Konsentas, vi asertas ke vi ne afiŝos iujn mesaĝojn fivortecajn, seksecajn, malamikecajn, minacajn, aŭ alimaniere kontraŭigi iun ŝtatajn regularojn.</p><p>La proprantoj de ĉi tiu forumo havas la rajton forigi, redakti, movi, aŭ fermi iun fadenon por ia kialo.</p>
 # Fuzzy
 forum_rules_13:<p>Ĉiuj uzantoj sub 13-jaraĝa bezonas permeson de iliaj gepatro aŭ zorganto por gajni membreco al la forumoj. Kvankam vi bonvenas participado de forumanoj antaŭ 13-jaraĝa, ni devigas permeso-formularon antaŭ ni donas membrecon.</p><p>Se vi volus komenci la registrada procezo antaŭ sendante permeso-formularon, klaku la butonon <b>Mi Konsentas</b> sube. Se vi volus nuligi la registrado, klaku butonon <b>Mi Malkonsentas</b> por reiri al la foruma indekso.</p><p>Kopio de la permeso-formularo povas esti elŝutita ĉi tie. Por plia informo pri la registrada procezo, bonvolu sendi retpoŝton al <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
 coppa_conf:COPPA-Konfirmado

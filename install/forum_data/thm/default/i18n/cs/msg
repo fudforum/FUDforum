@@ -7,6 +7,7 @@
 # Author: Kusavica
 # Author: Macofe
 # Author: Matěj Grabovský
+# Author: McDutchie
 # Author: Mormegil
 # Author: Mr. Richard Bolla
 # Author: Naudefj
@@ -429,7 +430,7 @@ post_cancel_btn:Zrušit
 ignore_users:Ignorovaní uživatelé
 add_ignore:Přidat ignorovaného
 forum_terms:Podmínky fóra
-forum_rules:Registrace na toto fórum je zdarma! Trváme nicméně na dodržování všech níže uvedených pravidel a podmínek. Pokud s našimi podmínkami souhlasíte, prosím klikněte na tlačítko <b>Souhlasím</b> na konci stránky. Poznámka: Souhlasem s podmínkami prohlašujete, že jste starší 13 let. Pokud je Vám méně než 13 let, pro dokončení registrace prosím použijte tento registrační formulář.</p><p>Administrátoři a moderátoři fóra se snaží zabránit všem nevhodným příspěvkům, není však v našich silách je zcela vyloučit. Všechny zdejší příspěvky vyjadřují postoje a názory svých autorů; majitelé fóra nebo jeho vývojáři nenesou za obsah žádného příspěvku odpovědnost.</p><p>Klinutím na tlačítko Souhlasím stvrzujete, že nebudete uveřejňovat žádné obscénní, vulgární, sexuálně zaměřené, nenávistné nebo urážející či jinak zákony porušující příspěvky.</p><p>Majitelé tohoto fóra si vyhrazují právo smazat, upravit, přesunout či uzavřít kterékoliv téma pro jakýkoliv důvod.</p>
+forum_rules:Registrace na toto fórum je zdarma! Trváme nicméně na dodržování všech níže uvedených pravidel a podmínek. Pokud s našimi podmínkami souhlasíte, prosím klikněte na tlačítko <b>Souhlasím</b> na konci stránky.</p><p>Administrátoři a moderátoři fóra se snaží zabránit všem nevhodným příspěvkům, není však v našich silách je zcela vyloučit. Všechny zdejší příspěvky vyjadřují postoje a názory svých autorů; majitelé fóra nebo jeho vývojáři nenesou za obsah žádného příspěvku odpovědnost.</p><p>Klinutím na tlačítko Souhlasím stvrzujete, že nebudete uveřejňovat žádné obscénní, vulgární, sexuálně zaměřené, nenávistné nebo urážející či jinak zákony porušující příspěvky.</p><p>Majitelé tohoto fóra si vyhrazují právo smazat, upravit, přesunout či uzavřít kterékoliv téma pro jakýkoliv důvod.</p>
 forum_rules_13:<p>Všichni uživatelé mladší 13 let musí mít svolení svých rodičů nebo zákonného zástupce, aby se mohli stát členy tohoto fóra. Jakkoliv jsou uživatelé mladší 13 let vítáni, musíme vyžadovat e-mail či fax od jejich rodičů či zákonných zástupců s podepsaným svolením předtím, než můžeme udělit členství.</p><p>Pokud chcete započít registrační proces dříve, než obdržíme registrační formulář, klikněte na tlačítko <b>Souhlasím</b>, které se nachází níže. Pokud chcete registraci ukončit, klikněte na tlačítko <b>Nesouhlasím</b>, kterým se vrátíte na hlavní stránku.</p><p>Kopie registračního formuláře bude zobrazena po registraci. Pro více informací o registraci můžete poslat e-mail na adresu <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.<p>
 coppa_conf:Věkové potvrzení
 coppa_before:Před {TEMPLATE: coppa_date}
