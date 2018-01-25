@@ -219,7 +219,7 @@ welcome_message:欢迎！<b>{VAR: usr->alias}</b>，您上一次访问是在{TEM
 what_ppl_doing:用户活动
 reported_del_report:删除报告
 reported_reason:原因：
-reported_on:于：
+reported_on:在：
 reported_reported_by:报告者：
 reported_reported_msg:报告相关内容
 modque_pending_approval:等待批复的信息
@@ -1118,7 +1118,7 @@ topic_list_rating:{VAR: r[17]} 得票， {PLURAL: r[21]|$1 总票数|$1 总票�
 tabs_notifications:通知
 finduser_flag:旗帜
 post_descr:帖子简述
-pmsg_on:在日期
+pmsg_on:于
 pmsg_download_dump:查看所有悄悄话
 move_messages:移动消息
 move_msg_btn:移动所有选中的
@@ -1142,7 +1142,7 @@ btn_about:配置文件
 btn_small_pm:私人信息
 btn_delete:删除
 btn_edit:编辑
-btn_reply:答复
+btn_reply:回复
 btn_forward:转发
 btn_quote:报价
 btn_email:电子邮件
