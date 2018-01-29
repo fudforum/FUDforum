@@ -322,7 +322,7 @@ register_login:Utilizador:
 register_login_desc:O nome para entrar e pelo qual gostaria de ser conhecido neste ''site''.
 register_login_available:Disponível
 register_login_taken:Já utilizado
-register_password:Senha:
+register_password:Palavra-passe:
 register_password_desc:A palavra-passe para a sua conta. As palavras-passe são sensíveis a maiúsculas e minúsculas e devem ter pelo menos 6 carateres.
 register_conf_pass:Confirmar senha:
 register_email_desc:O seu endereço de e-mail. Pode escolher em ocultá.lo em baixo, na secção das Preferências.
@@ -463,7 +463,7 @@ coppa_fax_email:Endereço de Email:
 coppa_fax_date:Data:
 coppa_fax_questions:Por favor contacte <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> para qualquer questão
 coppa_fax_login:Utilizador
-coppa_fax_passwd:Senha
+coppa_fax_passwd:Palavra-passe
 coppa_fax_remail:Email
 coppa_fax_name:Nome
 login_not_logedin:Não fez o login. Isto pode ter acontecido por diversas razões:
@@ -496,7 +496,7 @@ ruser_change_user:Muda o teu nome de utilizador no fórum
 ruser_cur_login:Nome de utilizador atual
 ruser_new_login:Novo nome de utilizador:
 ruser_cur_pass:Palavra-chave Actual:
-login_passwd:Senha:
+login_passwd:Palavra-passe:
 reset_email:Email:
 reset_reset_button:Alterar Password
 rate_this_thread:Taxa
@@ -850,7 +850,7 @@ split_th_messages:Mensagens
 split_th_select:Selecionar
 report_report_post:Colocar Relatório
 quicklogin_login:Utilizador:
-quicklogin_password:Senha:
+quicklogin_password:Palavra-passe:
 quicklogin_use_cookies:Usa Cookies?
 quicklogin_login_btn:Entrar:
 quick_reply:Resposta rápida

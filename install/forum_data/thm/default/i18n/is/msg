@@ -7,6 +7,7 @@
 # Author: S.Örvarr.S
 # Author: Snævar
 # Author: Sveinki
+# Author: Sveinn í Felli
 
 action:Aðgerð
 add_to_buddy_list:bæta við á félagalista
@@ -427,7 +428,7 @@ post_cancel_btn:Hætta við
 ignore_users:Hunsaðir notendur
 add_ignore:Hunsa notanda
 forum_terms:Skilmálar spjallborðsins
-forum_rules:<p>Skráning á spjallborðið er án kostnaðar! Við gerum kröfu til þess að þú farir eftir reglunum og viðmuðunum sem eru nefnd hér á eftir. Ef þú samþykkir þessa skilmála, vinsamlegast ýttu á <b>Samþykkja</b> neðst á síðunni.</p><p>Þrátt fyrir að stjórnendur spjallborðsins reyna að halda öllum hneykslanlegum skilaboðum af spjallborðinu, þá er ómögulegt fyrir þá að fara yfir öll skilaboð. Öll skilaboð tjá skoðun höfundar, og hvorki eigendur spjallborðsins eða kerfistjórar geta tekið ábyrgð á innihaldi skilaboða.</p><p>Með því að smella á Samþykkja, ert þú að ábyrgjast að þú eigir ekki eftir að senda inn skilaboð sem eru ruddaleg, dónaleg, fela í sér kynferðislega áreitni, hatur, ógn eða brjóta lög á einhvern hátt.</p><p>Eigendur spjallborðsins hafa rétt til þess að fjarlægja, breyta, færa eða loka hvaða spjallþræði sem er fyrir hvaða ástæðu sem er.</p>
+forum_rules:<p>Skráning á spjallborðið er öllum frjáls! Við gerum kröfu til þess að þú farir eftir þeim reglum og viðmiðum sem nefnd eru hér á eftir. Ef þú samþykkir þessa skilmála, ýttu þá á <b>Samþykkja</b> neðst á síðunni.</p><p>Þrátt fyrir að stjórnendur spjallborðsins reyni eftir fremsta megni að halda öllum vafasömum skilaboðum frá spjallborðinu, þá er ómögulegt fyrir þá að fara yfir allt. Öll skilaboð tjá skoðun höfundar þeirra, og hvorki eigendur spjallborðsins eða kerfistjórar geta tekið ábyrgð á innihaldi skilaboða.</p><p>Með því að smella á Samþykkja, ert þú að ábyrgjast að þú eigir ekki eftir að senda inn skilaboð sem eru ruddaleg, dónaleg, fela í sér kynferðislega áreitni, hatur, ógn eða brjóta lög á einhvern hátt.</p><p>Eigendur spjallborðsins hafa rétt til þess að fjarlægja, breyta, færa eða loka hvaða spjallþræði sem er, af hvaða ástæðu sem er.</p>
 forum_rules_13:<p>Allir notendur yngri en 13 ára verða að fá samþykki foreldra eða forráðamanna til að geta fengið aðgang á þessu spjallborði. Þótt við tökum vel á móti meðlimum sem eru undir 13 ára aldri, þá gerum við kröfu um að foreldri eða forráðarmaður fylli út eyðublað og sendi það með símtæki eða pósti áður en við samþykkjum aðgang notandans.</p><p>Ef þú vilt skrá þig áður en eyðublaðið berst okkur, ýttu á <b>Samþykkja</b> hér fyrir neðan. Ef þú villt hætta við að skrá þig á þessum vef, ýttu á <b>Hafna</b> og þá birtist forsíða spjallborðsins.</p><p>Afrit af eyðublaðinu verður sýnt eftir skráningu. Fyrir frekari upplýsingar um skráninguna, sendu tölvupóst til <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
 coppa_conf:COPPA staðfesting
 coppa_before:Áður en {TEMPLATE: coppa_date}
