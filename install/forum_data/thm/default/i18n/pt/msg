@@ -984,7 +984,7 @@ mnav_date_limit:Intervalo de datas:
 mnav_forum_limit:Pesquisar apenas em:
 mnav_all_forums:Procurar em todos os fóruns
 mnav_submit:Iniciar pesquisa
-mnav_no_range:You must enter a valid date range. This value can be a float (0.12) but it must be greater then zero.
+mnav_no_range:Deve introduzir um intervalo de datas válido. Este valor pode ser um ponto decimal (0.12), porém deve ser maior que zero.
 mnav_invalid_unit:Tens que especificar uma unidade de tempo válida.
 mnav_invalid_date:The date range you've specified is larger then the one allowed by the administrator, narrow down date range of your search.
 mnav_no_results:There are no messages matching query.

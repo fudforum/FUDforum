@@ -4,6 +4,7 @@
 # Author: Evropi
 # Author: Geraki
 # Author: Glavkos
+# Author: Nikosgranturismogt
 # Author: Omnipaedista
 # Author: ZaDiak
 
@@ -282,11 +283,13 @@ register_builtin:Ενσωματώθηκε
 register_specify_url:Δώστε URL
 register_uploaded:Φόρτωση Άβαταρ
 register_login:Είσοδος:
+register_login_available:Διαθέσιμο
 register_password:Κωδικός:
 register_conf_pass:Επιβεβαίωση Κωδικού:
 # Fuzzy
 register_email_desc:Παρακαλώ εισάγετε μια έγκυρη διεύθυνση e-mail. Μπορείτε να επιλέξετε να την αποκρύψετε παρακάτω, στην ενότητα Προτιμήσεις.
 register_name:Όνομα:
+register_name_desc:Το πραγματικό σας όνομα.
 register_your_pass:Ο Κωδικός Σας:
 register_update:Ενημέρωση
 register_avatar_type:Τύπος Άβαταρ:

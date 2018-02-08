@@ -2,6 +2,7 @@
 # Exported from translatewiki.net
 # Author: Bikarhêner
 # Author: George Animal
+# Author: Ghybu
 
 action:Xebat
 admin:Rêveber
@@ -65,6 +66,7 @@ sel_unanswered_posts:Peyamên Nebersivkirî
 sel_unread_messages:Peyamên Nexwendî
 send:Bişîne
 status:Rewş:
+subject:Mijar
 thread:Mijar:
 thread_thread:Mijar
 threads:Mijar

@@ -453,7 +453,7 @@ coppa_fax_no_permission:Firma qui se preferisci che l'account sia rimosso
 coppa_fax_parent_name:Nome completo Genitore/Tutore:
 coppa_fax_relation:Tipo di parentela col bambino:
 coppa_fax_telephone:Telefono:
-coppa_fax_email:Indirizzo e-mail:
+coppa_fax_email:Indirizzo email:
 coppa_fax_date:Data:
 coppa_fax_questions:Per piacere contatta <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> per qualsiasi domanda
 coppa_fax_login:Login
@@ -1019,7 +1019,7 @@ adm_account_rejected:Il tuo account '{VAR: login}' è stato rifiutato dall'ammin
 adm_account_rejected_s:La tua richiesta per '{GVAR: FORUM_TITLE}' è stata rigettata.
 thread_on:attiva
 userinfo_buddy:Amico:
-register_email_addr:Indirizzo e-mail:
+register_email_addr:Indirizzo email:
 reset_suffix:Se hai ricevuto questo messaggio di errore, per cortesia ignoralo. If stai ricevendo copie multiple di questa e-mail, senza averla richiesta, contatta cortesemente l'amministratore su {GVAR: ADMIN_EMAIL}\n\nQuesta richiesta è partita da: {VAR: _SERVER['REMOTE_ADDR']}.
 usrinfo_last_visit:Ultima visita:
 mnav_newer:più nuovo di
@@ -1097,8 +1097,8 @@ post_common_align_center:Allinea al centro
 post_common_align_right:Allinea a destra
 post_common_link:Inserisci un collegamento
 post_common_link_popup:Posizione del collegamento:
-post_common_email:Inserisci un indirizzo e-mail
-post_common_email_popup:Indirizzo e-mail:
+post_common_email:Inserisci un indirizzo email
+post_common_email_popup:Indirizzo email:
 post_common_image:Inserisci un'immagine
 post_common_image_popup:URL dell'immagine:
 post_common_nlist:Aggiungi lista numerata
