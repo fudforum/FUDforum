@@ -1,5 +1,6 @@
 # Messages for Upper Sorbian (hornjoserbsce)
 # Exported from translatewiki.net
+# Author: J budissin
 # Author: Macofe
 # Author: McDutchie
 # Author: Michawiki
@@ -560,7 +561,7 @@ poll_day:dźeń
 poll_days:dny
 poll_hour:hodźina
 poll_hours:hodźiny
-poll_month:měsać
+poll_month:měsac
 poll_year:lěto
 poll_week:tydźeń
 tabs_register:Kontowe nastajenja

@@ -113,6 +113,7 @@ rate_thread:דירוג הנושא
 rating:דירוג
 refresh_list:רענון הרשימה
 register:הרשמה
+registered:נרשם:
 replies:תגובות
 reported_messages:הודעות מדווחות
 reveal_all_posts:חשיפת כל ההודעות שנכתבו על ידי {VAR: user_login}
@@ -135,6 +136,7 @@ sub_to_thread_desc:קבלת התרעות אודות הודעות חדשות בנ
 bookmark_thread:סימון נושא
 bookmark_thread_desc:הוספת נושא זה לרשימת הסימניות האישית
 subject:נושא
+subscribe:מינוי
 bookmarked_threads:נושאים מסומנים
 thread:נושא:
 thread_announcement:הכרזה:
@@ -148,7 +150,9 @@ unanswered_posts_desc:הצגת כל ההודעות, שאין להן תגובות
 unlock_thread:שחרור נושא
 unread_msg:נושא זה מכיל הודעות שטרם קראת
 unread_posts:הודעות שלא נקראו
+unread_posts_desc:הצגת כל ההודעות שלא נקראו
 unbookmark_thread:הסרה מהסימניות
+unsubscribe:ביטול מינוי
 user:משתמש
 user_info:נתוני משתמש
 usrinfo_last_post:הודעה אחרונה:
@@ -156,8 +160,7 @@ view_results:צפיה בתוצאות
 views:צפיות
 vote_button:הצבעה
 vote_for_thread:הצבעה
-# Fuzzy
-what_ppl_doing:הצגת פעילות החברים
+what_ppl_doing:פעילות משתמש
 reported_del_report:מחיקת דיווח
 reported_reason:סיבה:
 reported_reported_by:דווח על ידי:

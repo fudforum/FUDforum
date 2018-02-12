@@ -353,6 +353,8 @@ post_poll:Κάλπη:
 post_poll_delete:ΔΙΑΓΡΑΦΗ
 post_poll_edit:ΕΠΕΞΕΡΓΑΣΙΑ
 post_mod_opt:Επιλογές συντονιστή:
+post_thread_type:Τύπος θέματος:
+post_locked:Το θέμα είναι κλειδωμένο
 post_no_icon:Απουσία Εικονιδίου
 post_file_del:Διαγραφή
 post_file_name:Όνομα
