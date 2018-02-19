@@ -207,8 +207,7 @@ vote_button:Votar
 vote_for_thread:Vòte
 was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> es estat desplaçat cap a <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> pel moderator
 welcome_message:Benvenguda <b>{VAR: usr->alias}</b>, vòstra darrièra visita se debanèt lo {TEMPLATE: welcome_message_date}
-# Fuzzy
-what_ppl_doing:Far veire çò que los autres son a far
+what_ppl_doing:Activitat de l’utilizaire
 reported_del_report:Destruire un rapòrt
 reported_reason:Motiu :
 reported_on:Lo :
@@ -376,8 +375,7 @@ my_buddies:Mos amics
 add_buddy:Apondre un amic
 add:Ajustar
 buddy_search:Entratz lo nom de l'utilizaire que volètz apondre a vòstra lista.
-# Fuzzy
-member_search:O utilizatz la foncionalitat <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">cercar un utilizaire</a> per trobar aquesta persona.
+member_search:O utilizatz la foncionalitat <a href="javascript://" onclick="javascript: window_open('{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Cercar un utilizaire</a> per trobar aquesta persona.
 buddy_remove:Levar de ma lista d'amics
 post_normal:Normal
 post_sticky:Espinglat
@@ -594,8 +592,7 @@ buddy_list_err_ignore:Impossible d'apondre a vòstra lista d'amics d'utilizaires
 buddy_list_update:Percórrer ma lista d'amics
 core_err_invinp_title:Entrada invalida
 core_err_invinp_err:Avètz seguit un ligam invalid, avisatz-ne l'<a href="mailto:{GVAR: ADMIN_EMAIL}">administrator</a>
-# Fuzzy
-core_adm_login_msg:Los administrators se pòdon connectar <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">aicí</a>
+core_adm_login_msg:Los administrators se pòdon connectar <a href="{BASE}adm/admloginuser.php">aicí</a>
 email_err_unabletoemail_title:ERROR : Impossible de mandar d'emails
 email_err_unabletoemail_msg:La foncionalitat e-mail es estada desactivada per l'administrator.
 email_error_unabletolocaddr:O planhèm, lo sistèma es pas estat en mesura de mandar l'e-mail a {VAR-HTML: _POST['tx_name']} perque a pas trobat son adreça electronica dins lo sistèma
@@ -674,8 +671,7 @@ register_err_avatarnotallowed:L'avatar qu'ensajatz de telecargar es pas autoriza
 register_conf_subject:Confirmacion de vòstra inscripcion
 register_conf_msg:Mercés per vòstra inscripcion.\nPer activar vòstre compte, visitatz l'URL çaijós :\n\n{FULL_ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nUn còp vòstre compte activat, seretz connectat al forum e redirigit cap a la pagina d'acuèlh del forum.
 register_welcome_subject:Confirmacion de vòstra inscripcion al forum.
-# Fuzzy
-register_welcome_msg:Mercés de vos èsser inscrit,\n\nVaquí un resumit de vòstras donadas de connexion al forum :\n\nURL del forum : {TEMPLATE: index_update_lnk}\nNom d'utilizaire : {VAR: uent->login}\nSenhal : {VAR: _POST['reg_plaintext_passwd']}\n\nDoblidetz pas que los senhals fan la diferéncia entre las majusculas e las minusculas !\nPer modificar vòstres reglatges e vòstre perfil, visitatz aquesta pagina :\n{FULL_ROOT}{ROOT}?t=register
+register_welcome_msg:Mercés de vos èsser inscrit,\n\nVaquí un resumit de vòstras donadas de connexion al forum :\n\nURL del forum : {TEMPLATE: index_update_lnk}\nNom d'utilizaire : {VAR: uent->login}\nSenhal : {VAR: _POST['reg_plaintext_passwd']}\n\nDoblidetz pas que los senhals fan la diferéncia entre las majusculas e las minusculas !\nPer modificar vòstres reglatges e vòstre perfil, visitatz aquesta pagina :\n{FULL_ROOT}?t=register
 register_err_cantreg_title:ERROR : Vos avèm pas pogut inscriure
 regsiter_err_cantreg_msg:Impossible de crear un compte d'utilizaire ; fasètz part d'aqueste problèma a l'administrator : <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:Percor son perfil
@@ -714,6 +710,7 @@ email_title:Corrièr electronic
 finduser_title:Cercar un utilizaire
 help_title:F.A.Q. (Fièra De las Questions, questions pausadas frequentament)
 login_title:Nom d'utilizaire
+msg_title:{VAR: frm->name} &raquo; {VAR: frm->subject}
 poll_title:Editor de sondatge
 register_title:Inscripcion
 reset_title:Reïnicializacion del senhal
@@ -721,9 +718,10 @@ rpasswd_title:Cambiar de senhal
 error_title:Formulari d'error
 index_title:Benvenguda sul forum
 search_title:Recèrca de {VAR-HTML: srch}
+thread_title:{VAR: frm->name}
+tree_title:{VAR: frm->name} &raquo; {VAR: frm->subject}
 remail_emailsent:L'e-mail es estat mandat
-# Fuzzy
-remail_email:Bonjorn,\n\nI a un subjècte interessant a prepaus de « {VAR: data->subject} » sul forum {GVAR: FORUM_TITLE} que poiriá voler legir. Podètz veire lo subjècte a : {FULL_ROOT}{ROOT}?t=rview&th={VAR: data->id}&rid={DEF: _uid}\n\nVòstre amic,\n\n{VAR: usr->alias}
+remail_email:Bonjorn,\n\nI a un subjècte interessant a prepaus de « {VAR: data->subject} » sul forum {GVAR: FORUM_TITLE} que poiratz voler legir. Podètz veire lo subjècte a : {FULL_ROOT}{ROOT}?t=rview&th={VAR: data->id}&rid={DEF: _uid}\n\nVòstre amic,\n\n{VAR: usr->alias}
 poll_add_option:Apondre una opcion :
 post_opt_html_on:Lo còdi <b>HTML</b> es <b>ACTIVAT</b>
 post_opt_fud_on:Lo <b><a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank">BBcode</b> es <b>ACTIVAT</a></b>

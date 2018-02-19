@@ -344,7 +344,7 @@ register_icq:ICQ:
 register_aim:AIM:
 register_yahoo:Јаху месенџер:
 register_msnm:MSN месенџер:
-register_homepage:Насловна страна:
+register_homepage:Почетна страница:
 register_bday:Датум рођења:
 register_bday_desc:Видљиво другим члановима.
 register_day:дан

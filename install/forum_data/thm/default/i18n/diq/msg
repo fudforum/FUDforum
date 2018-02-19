@@ -509,7 +509,7 @@ th_expr_two_day:2 Roci
 th_expr_four_day:4 Roci
 th_expr_one_week:1 Hefti
 th_expr_two_week:2 Heftey
-th_expr_one_month:1 Meng
+th_expr_one_month:1 Aşme
 th_expr_two_month:2 Aşmi
 th_expr_four_month:4 Aşmi
 th_expr_one_year:1 Ser
