@@ -961,11 +961,9 @@ iemail_forum_unsub:Arrestar la susvelhança d'aqueste forum
 primary_group_prefix:Grop primari pel forum :
 group_resources:Aqueste grop contraròtla las permissions dels forums seguents
 register_admin_newuser_title:Un novèl utilizaire s'es inscrit e son compte es en espèra de confirmacion
-# Fuzzy
-register_admin_newuser_msg:Un novèl utilizaire ({VAR: uent->login}) ven juste de s'inscriure sul forum e coma la confirmacion dels comptes es activada, son compte vendrà pas actiu que quand vos o un dels administrators del forum l'auretz confirmat. Per decidir d'aqueste compte, rendètz-vos a : {GVAR: WWW_ROOT}adm/admuserapr.php\n\nAquò's un processus automatic, respondatz pas a aqueste messatge.\nSe volètz desactivar las notificacions venentas per corrièr de l'inscripcion de novèls utilizaires, o podètz far amb lo panèl de contraròtle admin en cambiant la valor del paramètre « New Account Notification ».
+register_admin_newuser_msg:Un novèl utilizaire ({VAR: uent->login}) ven juste de s'inscriure sul forum e coma la confirmacion dels comptes es activada, son compte vendrà pas actiu que quand vos o un dels administrators del forum l'auretz confirmat. Per decidir d'aqueste compte, rendètz-vos sus : {FULL_ROOT}adm/admuserapr.php\n\nAquò's un processus automatic, respondatz pas a aqueste messatge.\nSe volètz desactivar las notificacions venentas per corrièr de l'inscripcion de novèls utilizaires, o podètz far amb lo panèl de contraròtle admin en cambiant la valor del paramètre « New Account Notification ».
 post_mod_msg_notify_title:Novèl messatge dins lo forum « {VAR: frm->name} » en espèra d'aprovacion
-# Fuzzy
-post_mod_msg_notify_msg:Un novèl messatge intitulat « {VAR: msg_post->subject} » ven juste d'èsser postat dins un forum que moderatz. Per decidir d'aqueste messatge, rendètz-vos a : {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nAquò's un processus automatic, respondatz pas a aqueste messatge.
+post_mod_msg_notify_msg:Un novèl messatge intitulat « {VAR: msg_post->subject} » ven juste d'èsser postat dins un forum que moderatz. Per decidir d'aqueste messatge, rendètz-vos a :  {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nAquò's un processus automatic, respondatz pas a aqueste messatge.
 thread_printable_pdf:Generar de PDF imprimible
 thread_syndicate:Publicar aqueste forum (XML)
 reg_conf_title:Confirmacion d'inscripcion
@@ -991,7 +989,6 @@ mnav_month:mes(es)
 mnav_title:Navigador de messatges
 mnav_update:Percor los messatges amb l'ajuda del <a href="{TEMPLATE: mnav_update_lnk}">Navigador de messatges</a>
 pm_notify_subject:[{GVAR: FORUM_TITLE}] Notificacion de novèl messatge privat
-# Fuzzy
 pm_notify_body_email:Avètz un novèl messatge privat intitulat « {VAR: subject} » de « {VAR: from} » sul forum « {GVAR: FORUM_TITLE} ».\nPer legir aqueste messatge, clicatz aicí : {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nPer recebre pas mai aquelas notificacions, desactivatz « Notificacion de novèl messatge privat » dins vòstre perfil.
 register_pm_notification:Notificacion de messatge privat
 register_pm_notification_desc:Se aquesta opcion es activada, seretz notificat per un metòde de notificacion coma l'auretz causit a cada còp qu'un messatge privat vos serà mandat.
