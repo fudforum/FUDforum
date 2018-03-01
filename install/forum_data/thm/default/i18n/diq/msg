@@ -573,7 +573,7 @@ register_email_addr:Adresa E-postey:
 ip_search:Cı geyre
 ip_title:IP Rovıter
 userinfo_real_name:Nameyo raştay
-post_err_mod_forum_edit_ttl:XIRAB
+post_err_mod_forum_edit_ttl:XETA
 dmsg_num:mesac #{VAR: obj->id}
 postcheck_session_invalid:Ravêrdaya ronıştış de şıma qedyayai. Reca kem formi fına bırışê. Qısur dê ma meweyne.
 delete_message_extra_desc:<b>Wazayışi deye</b><br />Nuskari rê mesac qan dê çıçi besterneyayo deye cı rê malumat bırışê.
