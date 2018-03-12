@@ -214,8 +214,7 @@ vote_button:Äänestä
 vote_for_thread:Arvioi
 was_moved_msg:Moderaattori on siirtänyt aiheen <a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> foorumiin <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a>
 welcome_message:Tervetuloa <b>{VAR: usr->alias}</b>. Kävit viimeksi {TEMPLATE: welcome_message_date}
-# Fuzzy
-what_ppl_doing:Näytä mitä muut tekevät
+what_ppl_doing:Käyttäjän toiminta
 reported_del_report:Poista ilmoitus
 reported_reason:Syy:
 reported_on:Ilmoitettu:
@@ -601,8 +600,7 @@ buddy_list_err_ignore:Kaverilistaan ei voi lisätä käyttäjiä, jotka ovat tor
 buddy_list_update:Selaa omaa kaverilistaansa
 core_err_invinp_title:Virheellinen syöte
 core_err_invinp_err:Yritit ladata virheellistä linkkiä, ole hyvä ja ilmoita tästä <a href="mailto:{GVAR: ADMIN_EMAIL}">sivuston ylläpitäjälle</a>.
-# Fuzzy
-core_adm_login_msg:Ylläpitäjät voivat kirjautua sisään <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">täällä</a>
+core_adm_login_msg:Ylläpitäjät voivat kirjautua <a href="{BASE}adm/admloginuser.php">täällä</a>.
 email_err_unabletoemail_title:Virhe: Sähköpostin lähetys ei onnistunut
 email_err_unabletoemail_msg:Ylläpitäjä on estänyt sähköpostin lähetyksen.
 email_error_unabletolocaddr:Järjestelmä ei pystynyt lähettämään sähköpostia {VAR-HTML: _POST['tx_name']}, koska sähköpostiosoitetta ei löytynyt
@@ -681,8 +679,7 @@ register_err_avatarnotallowed:Lähetetyn tiedoston tyyppi ei ole sallittu. Tarki
 register_conf_subject:Rekisteröintivahvistus
 register_conf_msg:Kiitos rekisteröitymisestä.\nAktivoi käyttäjätunnuksesi napsauttamalla alla olevaa linkkiä:\n\n{FULL_ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nKun käyttäjätunnuksesi on aktivoitu, sisäänkirjautuminen tapahtuu automaattisesti ja sinut ohjataan foorumin etusivulle.
 register_welcome_subject:Rekisteröintivahvistus
-# Fuzzy
-register_welcome_msg:Kiitos rekisteröitymisestä.\n\nTässä ovat kirjautumistietosi foorumille.\n\nFoorumin osoite: {TEMPLATE: index_update_lnk}\nKäyttäjätunnus: {VAR: uent->login}\nSalasana: {VAR: _POST['reg_plaintext_passwd']}\n\nSalasanat ovat kirjainkokoherkkiä.\nVoit muuttaa asetuksia ja käyttäjätietojasi sivulla:\n{FULL_ROOT}{ROOT}?t=register
+register_welcome_msg:Kiitos rekisteröitymisestä.\n\nTässä ovat kirjautumistietosi foorumille.\n\nFoorumin osoite: {TEMPLATE: index_update_lnk}\nKäyttäjätunnus: {VAR: uent->login}\nSalasana: {VAR: _POST['reg_plaintext_passwd']}\n\nSalasanat ovat kirjainkokoherkkiä.\nVoit muuttaa asetuksia ja käyttäjätietojasi sivulla:\n{FULL_ROOT}?t=register
 register_err_cantreg_title:Virhe: Rekisteröityminen epäonnistui
 regsiter_err_cantreg_msg:Rekisteröityminen epäonnistui, ole hyvä ja ota yhteyttä ylläpitäjään: <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:Selaa omia käyttäjätietojaan
