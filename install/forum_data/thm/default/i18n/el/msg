@@ -285,9 +285,9 @@ register_uploaded:Φόρτωση Άβαταρ
 register_login:Είσοδος:
 register_login_available:Διαθέσιμο
 register_password:Κωδικός:
+register_password_desc:Κωδικός πρόσβασης για τον λογαριασμό σας. Οι κωδικοί πρόσβασης είναι ευαίσθητοι σε αυτή τη περίπτωση και πρέπει να περιέχουν τουλάχιστον 6 χαρακτήρες.
 register_conf_pass:Επιβεβαίωση Κωδικού:
-# Fuzzy
-register_email_desc:Παρακαλώ εισάγετε μια έγκυρη διεύθυνση e-mail. Μπορείτε να επιλέξετε να την αποκρύψετε παρακάτω, στην ενότητα Προτιμήσεις.
+register_email_desc:Η διεύθυνση ηλεκτρονικού ταχυδρομείου σας. Μπορείτε να επιλέξετε να την αποκρύψετε παρακάτω, στην ενότητα Προτιμήσεις.
 register_name:Όνομα:
 register_name_desc:Το πραγματικό σας όνομα.
 register_your_pass:Ο Κωδικός Σας:
@@ -301,8 +301,7 @@ register_preview:Προεπισκόπηση
 register_custom_avatar_upload:Σύνηθες Αρχείο Άβαταρ:
 register_register:Εγγραφή
 register_required:Απαραίτητες Πληροφορίες
-# Fuzzy
-register_required_desc:Απαιτούνται όλα τα πεδία. Παρακαλώ σημειώστε ότι στους κωδικούς πρόσβασης γίνεται διάκριση πεζών-κεφαλαίων.
+register_required_desc:Απαιτούνται όλα τα πεδία.
 register_optional:Προαιρετικές Πληροφορίες
 register_location:Τοποθεσία:
 register_occupation:Απασχόληση:
