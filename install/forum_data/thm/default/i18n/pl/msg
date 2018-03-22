@@ -3,6 +3,7 @@
 # Author: BeginaFelicysym
 # Author: Byulent
 # Author: Chrumps
+# Author: DeRudySoulStorm
 # Author: Faren
 # Author: Macofe
 # Author: Mateon1
@@ -214,8 +215,7 @@ vote_button:Głosuj
 vote_for_thread:Głosuj
 was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> został przeniesiony do forum <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> przez moderatora.
 welcome_message:Witaj <b>{VAR: usr->alias}</b>. Ostatni raz odwiedziłeś nas {TEMPLATE: welcome_message_date}
-# Fuzzy
-what_ppl_doing:pokaż, co robią inni użytkownicy
+what_ppl_doing:Aktywność użytkownika
 reported_del_report:Usuń Zgłoszenie
 reported_reason:Powód
 reported_on:Dnia:
@@ -383,7 +383,6 @@ my_buddies:Moi Znajomi
 add_buddy:Dodawanie Znajomych
 add:Dodaj
 buddy_search:Podaj nazwę użytkownika którego chcesz dodać.
-# Fuzzy
 member_search:Możesz również użyć <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Wyszukiwarki Użytkowników</a> aby znaleźć daną osobę.
 buddy_remove:usuń
 post_normal:Normalny
@@ -967,10 +966,8 @@ iemail_forum_unsub:Porzuć subskrybcję tego forum
 primary_group_prefix:Podstawowa grupa dla forum:
 group_resources:Ta grupa wyznacza przywileje następujących forów
 register_admin_newuser_title:Nowe konto na forum czeka na zatwierdzenie
-# Fuzzy
 register_admin_newuser_msg:Nowy użytkownik ({VAR: uent->login}) właśnie zarejestrował się na Forum Opoka.\nJako, że zostało włączone zatwierdzanie nowych kont, nie zostanie ono\naktywowane bez potwierdzenia przez Ciebie albo innego administrator tego forum.\nCelem weryfikacji tego konta, udaj się proszę pod poniższy adres:\n{GVAR: WWW_ROOT}adm/admuserapr.php\n\nUWAGA!! Wiadomość została wygenerowana automatycznie. Prosimy nie odpowiadać\nna nią. Jeśli chcesz wyłączyć powiadamianie o rejestracji nowych użytkowników,\nmożesz to zrobić przy użyciu Panelu administracyjnego, zmieniając wartość\ndla "New Account Notification".
 post_mod_msg_notify_title:Nowa wiadomość na forum "{VAR: frm->name}" oczekuje zatwierdzenia
-# Fuzzy
 post_mod_msg_notify_msg:Nowa wiadomość zatytułowana „{VAR: msg_post->subject}” została właśnie wysłana na forum, którego jesteś moderatorem. Aby obejrzeć wiadomość wejdź na stronę {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nPowiadomienie zostało wygenerowane automatycznie. Prosimy nie odpowiadać na ten e-mail.
 thread_printable_pdf:Wygeneruj PDF do wydruku
 thread_syndicate:Śledź to forum (XML)
@@ -997,7 +994,6 @@ mnav_month:Miesiąc (Miesięcy)
 mnav_title:Przeglądarka wiadomości
 mnav_update:Przeglądanie Wiadomości z użyciem <a href="{TEMPLATE: mnav_update_lnk}">Przeglądarki wiadomości</a>
 pm_notify_subject:[{GVAR: FORUM_TITLE}] Powiadomienie o nowej Prywatnej Wiadomości
-# Fuzzy
 pm_notify_body_email:Otrzymałeś(aś) nową prywatną wiadomość zatytułowaną "{VAR: subject}" od "{VAR: from}" na forum "{GVAR: FORUM_TITLE}".\nAby odczytać wiadomość udaj się pod adres:\n{FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nAby nie otrzymywać powiadomień, wyłącz opcję "Powiadomienia o Prywatnych Wiadomościach" w swoim profilu.
 register_pm_notification:Powiadomienia o Prywatnych Wiadomościach
 register_pm_notification_desc:Gdy włączone, będziesz dostawać powiadomienia poprzez wybrany mechanizm powiadamiania jak tylko prywatna wiadomość zostanie do Ciebie wysłana.

@@ -25,7 +25,7 @@ email_to_friend:Engem Frënd per E-Mail schécken
 email_to_friend_desc:Schéckt d'URL vun dëser Säit per Mail un Är Frënn
 email_user:Dem Benotzer en E-Mail-Message schécken
 faq:Hëllef
-first_unread_msg:Op déi net geliest Messagen
+first_unread_msg:Op déi net geliese Messagen
 first_unread_msg_desc:Gitt op den éischten net gelieste Message vun dësem Thema
 forum:Forum:
 forum_new_messages:Nei Messagen
@@ -53,8 +53,8 @@ logged_in_list:Lëscht vun den ageloggte Benotzer
 login:Aloggen
 login_header:Aloggen:
 logout:Ausloggen
-mark_all_read:All Messagen als geliest markéieren
-mark_all_read_desc:All Är net geliest Messagen ginn als geliest markéiert
+mark_all_read:All Messagen als gelies markéieren
+mark_all_read_desc:All Är net geliese Messagë ginn als gelies markéiert
 members:Memberen
 calendar:Kalenner
 cal_goto_date:Wiesselen op:
@@ -82,7 +82,7 @@ no_messages:Et gëtt keng Messagen an dësem Forum.<br /> Sidd deen éischten de
 no_new_posts:Keng nei Messagen
 no_posts:Keng Messagen
 no_unread_locked:Dëse Sujet gouf gespaart
-no_unread_msg:Dëse Sujet huet keng Messagen déi net geliest sinn
+no_unread_msg:Dëse Sujet huet keng Messagen déi net gelies sinn
 num_pages:Säiten ({VAR: ttl_pg}):
 num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|Stëmm|Stëmmen}
 occupation:Beruff:
@@ -124,7 +124,7 @@ todays_posts_desc:All Message weisen déi haut geschriwwe goufen
 unanswered_posts:Net beäntwert Messagen
 unanswered_posts_desc:All Message weisen, déi keng Äntwert hunn
 unread_posts:Net gelieste Messagen
-unread_posts_desc:All Message weisen déi nach net geliest sinn
+unread_posts_desc:All Messagë weisen déi nach net gelies sinn
 updated_on:Aktualiséiert den:
 user:Benotzer
 user_counter:Mir hunn <b>{VAR: st_obj->user_count}</b> registréiert {PLURAL: st_obj->user_count|Benotzer}.
@@ -147,7 +147,7 @@ modque_approve:Zoustëmmen
 modque_delete:Läschen
 modque_deleteall:Alles läsche vum Benotzer
 pmsg_old_messages:Private Message liesen
-deny_recipt_desc:Keng Confirmatioun schécken datt Dir dëse Message geliest hutt
+deny_recipt_desc:Keng Konfirmatioun schécken, datt Dir dëse Message gelies hutt
 restore_to:Zrésetzen op:
 move_to:Réckelen op:
 list_referes_member:Member
