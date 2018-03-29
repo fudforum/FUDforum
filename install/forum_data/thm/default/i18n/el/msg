@@ -362,10 +362,12 @@ include_sig:Συμπεριλάβετε Υπογραφή
 post_form:Φόρμα Δημοσίευσης
 post_forum:Φόρουμ:
 post_title:Τίτλος:
+post_body:Κείμενο:
 post_options:Επιλογές:
 post_preview_btn:Προεπισκόπηση Μηνύματος
 post_cancel_btn:Ακύρωση
 ignore_users:Αγνοημένοι χρήστες
+forum_terms:Όροι χρήσης του φόρουμ
 prereg_info:Κανόνες του Φόρουμ
 prereg_agree:Συμφωνώ
 prereg_disagree:Διαφωνώ
@@ -376,42 +378,88 @@ coppa_fax_login:Είσοδος
 coppa_fax_passwd:Κωδικός
 coppa_fax_remail:Email
 coppa_fax_name:Όνομα
+login_want_to_register:Θέλετε να εγγραφείτε;
 login_forgot_passwd:Ξεχάσατε τον κωδικό πρόσβασης;
 login_login:Είσοδος:
 login_login_btn:Είσοδος
+login_name_required:Το όνομα σύνδεσης απαιτείται.
 login_passwd_required:Απαιτείται κωδικός πρόσβασης
 rpasswd_invalid_passwd:Λανθασμένος Κωδικός
+rpasswd_passwd_nomatch:Οι κωδικοί πρόσβασης δεν αντιστοιχούν.
+rpasswd_passwd_length:Οι κωδικοί πρόσβασης πρέπει να έχουν τουλάχιστον 6 χαρακτήρες.
+reset_update:Επαναφορά κωδικού
 rpasswd_change_pass:Αλλαγή Κωδικού πρόσβασης
 rpasswd_login:Είσοδος
+rpasswd_cur_pass:Τρέχων κωδικός πρόσβασης:
 rpasswd_new_pass:Νέος κωδικός πρόσβασης:
+rpasswd_conf_pass:Επιβεβαίωση Κωδικού:
+ruser_cur_login:Τρέχουσα σύνδεση:
+ruser_new_login:Νέα σύνδεση:
+ruser_cur_pass:Τρέχων κωδικός πρόσβασης:
 login_passwd:Κωδικός:
 reset_email:Ηλεκτρονικό ταχυδρομείο:
+reset_reset_button:Επαναφορά Κωδικού
 rate_this_thread:Βαθμολόγηση
+report_reporting_about:Αναφέρετε για:
 report_subject:Αντικείμενο:
 report_by:Από:
+report_posted_on:Καταχωρήθηκε στις:
+report_give_reason:Παρακαλώ δώστε μια αιτία γιατί αναφέρεται το μήνυμα:
+report_submit_report:Υποβολή αναφοράς
+search_entire_msg:Ολόκληρο το μήνυμα
 search_forum:Φόρουμ
+search_posted_on:Καταχωρήθηκε στις
 search_no_results:Κανένα Αποτέλεσμα
+search_all_forums:Αναζήτηση όλων των φόρουμ
+search_in_forum:Αναζήτηση στο φόρουμ:
+search_forum_search:Αναζήτηση στο φόρουμ
 remail_your_name:Το όνομά σας:
 remail_your_email:Το ηλεκτρονικό ταχυδρομείο σας:
+remail_friends_name:Όνομα φίλου:
+remail_friends_email:Διεύθυνση ηλεκτρονικού ταχυδρομείου του φίλου:
 remail_required:απαιτούμενος
 remail_subject:Θέμα:
 remail_message:Μήνυμα:
 remail_done:Έγινε
+remail_error:Υπήρξε ένα σφάλμα
 mklist_type:Τύπος
 mklist_option:Επιλογή:
 mklist_additem:Προσθήκη Στοιχείου
 mklist_apply:Εφαρμογή
 mklist_delete:Διαγραφή
+qbud_nick_name:Ψευδώνυμο
+qbud_add_selected:Πρόσθεση επιλεγμένων
 qbud_selected:Επιλεγμένος
 mklist_numerical:Αριθμητικό
+mklist_aplha:άλφα
 mklist_square:Τετράγωνο
 mklist_disc:Δίσκος
 mklist_circle:Κύκλος
 mklist_close:Κλείσιμο
 email_to:Προς:
 email_pg_title:Ηλεκτρονικό ταχυδρομείο
+email_subject:Θέμα:
+email_body:Κείμενο:
+email_submit:Ηλεκτρονικό ταχυδρομείο
+ppost_quote:Απόσπασμα:
 ppost_to:Προς:
+ppost_find_User:Εύρεση χρήστη
+ppost_track_msg:Ιχνηλάτηση αυτού του μηνύματος
+ppost_track_msg_desc:Ειδοποίησέ με (μέσω ιδιωτικού μηνύματος) όταν αυτό το μήνυμα αναγνωστεί.
+ppost_send:Αποστολή
+ppost_save_draft:Αποθήκευση προχείρου
+poll_blank_option:Δεν μπορείτε να προσθέσετε μια κενή επιλογή.
+poll_del_conf:Εάν θέλετε να διαγράψετε αυτή τη επιλογή, πατήστε "Εντάξει"
+poll_name:Όνομα δημοσκόπησης:
+poll_timelimit:Χρονικό όριο:
+poll_maxiumvotes:Μέγιστες ψήφοι:
+poll_create:Δημιουργία
+poll_update:Ενημέρωση
+poll_create_poll:Δημιουργήστε ψηφοφορία
+poll_update_poll:Ενημέρωση ψηφοφορίας
 poll_delete:Διαγραφή
+poll_updateoption:Ενημέρωση επιλογής
+poll_addoption:Πρόσθεση επιλογής
 poll_unlimited:Απεριόριστο
 poll_day:ημέρα
 poll_days:ημέρες
@@ -420,30 +468,99 @@ poll_hours:ώρες
 poll_month:μήνας
 poll_year:έτος
 poll_week:εβδομάδα
+tabs_register:Ρυθμίσεις λογαριασμού
+tabs_subscriptions:Συνδρομές
 tabs_bookmarkes:Σελιδοδείκτες
+tabs_referrals:Παραπομπές
+tabs_ignore_list:Αγνόηση καταλόγου
+tabs_private_messaging:Προσωπικά Μηνύματα
 delete_yes:Ναι
 delete_no:Όχι
+error_invalidurl:Μη έγκυρη διεύθυνση URL
 error_error:Σφάλμα
 err_info:Πληροφορίες
+buddy_list_err_nouser_title:Αποτυχία στην πρόσθεση χρήστη
+email_error_body:Αυτό το κείμενο απαιτείται
+email_error_subject:Αυτό το θέμα απαιτείται
+email_error_namerequired:Ένα όνομα απαιτείται
 email_error_invaliduser:Μη έγκυρος χρήστης
 emailconf_err_invkey_title:Σφάλμα
 err_inc_criticaltitle:Κρίσιμο σφάλμα
+finduser_update:Αναζήτηση για χρήστες
 ignore_list_err_info_title:Πληροφορίες
+ignore_list_err_nu_title:Ο χρήστης δεν βρέθηκε
+ignore_list_err_nu_msg:Ο χρήστης που προσπαθήσατε να προσθέσετε στη λίστα αγνόησής σας δεν βρέθηκε.
+ignore_list_cantign_msg:Δεν μπορείτε να αγνοήσετε αυτό το χρήστη
+list_referers_update:Περιήγηση στις παραπομπές
 login_update:Φόρμα Σύνδεσης
+pm_err_nopm_title:Σφάλμα: Τα προσωπικά μηνύματα είναι απενεργοποιημένα
+pm_err_nopm_msg:Δεν μπορείτε να χρησιμοποιήσετε το σύστημα προσωπικών μηνυμάτων. Έχει απενεργοποιηθεί από τον διαχειριστή.
+pm_update:Χρησιμοποιώντας τα προσωπικά μηνύματα
+post_err_lockedthread_title:Σφάλμα: Κλειδωμένο θέμα
+post_err_lockedthread_msg:Αυτό το θέμα έχει κλειδωθεί. Δεν επιτρέπονται πλέον οι νέες αναρτήσεις.
 post_err_edttimelimit_title:ΣΦΑΛΜΑ
+post_error_generic:Υπήρξε ένα σφάλμα
+postcheck_subj_needed:Το θέμα απαιτείται
+register_register_update:Σελίδα εγγραφής
 report_err_nosuchmsg_title:ΣΦΑΛΜΑ
+report_err_nosuchmsg_msg:Κανένα τέτοιο μήνυμα
 reset_err_invalidkey_title:ΣΦΑΛΜΑ
 reset_err_rstconf_title:Πληροφορία
+reset_newpass_title:Επαναφορά Κωδικού
+search_update:Αναζήτηση μηνυμάτων
+ERR_disabled_ttl:Απενεργοποιημένο χαρακτηριστικό
+ERR_disabled_msg:Αυτό το χαρακτηριστικό έχει απενεργοποιηθεί από τον διαχειριστή του συστήματος.
+ERR_registration_disabled_ttl:Η εγγραφή είναι απενεργοποιημένη.
+ERR_registration_disabled_msg:Ο διαχειριστής έχει απενεργοποιήσει την εγγραφή. Παρακαλώ προσπαθήστε ξανά αργότερα.
+ERR_user_ttl:Σφάλμα: Δεν υπάρχει τέτοιος χρήστης
+ERR_user_msg:Δεν υπάρχει τέτοιος χρήστης
+ERR_systemerr_ttl:Σφάλμα: Σφάλμα συστήματος
+finduser_title:Εύρεση χρήστη
 help_title:Βοήθεια
+login_title:Φόρμα Σύνδεσης
+poll_title:Συντάκτης ψηφοφορίας
+register_title:Φόρμα εγγραφής
+reset_title:Επαναφορά Κωδικού
+rpasswd_title:Φόρμα αλλαγής κωδικού
+index_title:Καλωσήρθατε στο φόρουμ
+poll_add_option:Πρόσθεση επιλογής:
 post_opt_images_on:Οι <b>εικόνες</b> είναι <b>σε</b>
+post_opt:Επιλογές φόρουμ:
+register_change_passwd:Αλλαγή κωδικού
+register_change_login:αλλαγή σύνδεσης
+move_request_reason:Γιατί θέλετε να μετακινηθεί το θέμα;
+mvthread_submit_req:Υποβολή αιτήματος
+groupmgr_yes:Ναι
 groupmgr_no:Όχι
+groupmgr_action:Ενέργεια
+groupmgr_member:Μέλος
 groupmgr_cancel:Άκυρο
+groupmgr_add_member:Προσθήκη μέλους
+groupmgr_update_member:Ενημέρωση μέλους
 groupmgr_edit:Επεξεργασία
 groupmgr_delete:Διαγραφή
+group_mgr_anon:Ανώνυμος
+group_mgr_reged:Όλοι οι εγγεγραμμένοι χρήστες
+show_show:Εμφάνιση:
+group_mgr:Διαχειριστής ομάδας
+group_mgr_edit_btn:Επεξεργασία ομάδας
 group_mgr_group:Ομάδα:
+p_READ:Ανάγνωση
+p_POST:Καταχώριση
+p_REPLY:Απάντηση
 p_EDIT:Επεξεργασία
 p_DEL:Διαγραφή
+p_POLL:Δημιουργία ψηφοφορία
+p_FILE:Σύναψη αρχείων
 p_VOTE:Ψηφοφορία
+p_SPLIT:Διάσπαση θεμάτων
+p_LOCK:Κλείδωμα θεμάτων
+p_MOVE:Μετακίνηση θεμάτων
+group_mgr_search:Εύρεση χρήστη
+rate_worst:Χειρότερο
+rate_best:Καλύτερο
+post_quote:Απόσπασμα:
+pm_no_space_title:Δεν έχει μείνει χώρος!
 th_expr_never:Ποτέ
 th_expr_one_hr:1 Ώρα
 th_expr_three_hr:3 Ώρες
@@ -460,11 +577,25 @@ th_expr_two_month:2 Μήνες
 th_expr_four_month:4 Μήνες
 th_expr_one_year:1 έτος
 thread_mod_delete:Διαγραφή
+action_latest_post:Τελευταίο μήνυμα
+online_today_last_visit:Τελευταία επίσκεψη
+logedin_todays_visitors:Σημερινοί επισκέπτες
+post_re:Θέμα:
 split_th_subject:Θέμα:
+split_th_forum:Φόρουμ:
+split_th_split_sel:Διάσπαση επιλεγμένων μηνυμάτων
+split_th_split_unsel:Διάσπαση μη επιλεγμένων μηνυμάτων
+split_th_messages:Μηνύματα
 split_th_select:Επιλογή
 quicklogin_login:Όνομα:
 quicklogin_password:Κωδικός:
+quicklogin_use_cookies:Χρήση μπισκότων (cookies);
 quicklogin_login_btn:Είσοδος
+post_all_ext_allowed:(απεριόριστο)
+maximize_category:Μεγιστοποίηση Κατηγορίας
+maximize_message:Μεγιστοποίηση μηνύματος
+pmsg_next_msg:Επόμενο μήνυμα
+pmsg_prev_msg:Προηγούμενο μήνυμα
 register_jabber:Αναγνωριστής Jabber:
 register_skype:Αναγνωριστής Skype:
 register_twitter:Αναγνωριστής Twitter:
@@ -473,13 +604,39 @@ im_jabber:Jabber:
 im_google:Google Talk:
 im_skype:Skype:
 im_twitter:Twitter:
+forum_contact:Επικοινωνία
+forum_home:Αρχική
+smladd_close_window:κλείσιμο παραθύρου
+p_VISIBLE:Ορατό
+reported_in_thread:Σε:
+help_back_to_top:πίσω στην κορυφή
+imsg_err_message_title:Άκυρο μήνυμα
 poll_edit:Επεξεργασία
+pmsg_recepient:Παραλήπτης
 polllist_vote:Ψηφοφορία
+polllist_view_results:Εμφάνιση Αποτελεσμάτων
+polllist_name:Όνομα δημοσκόπησης
+polllist_date:Δημιουργήθηκε στις
+polllist_owner:Δημιουργήθηκε από
+polllist_votes:Συνολικές ψήφοι
+polllist_action:Ενέργεια
+post_proceed:Συνέχεια
 threadt_more:&lt;περισσότερα&gt;
+back_to_top:Επιστροφή στην κορυφή
 saved:Αποθηκεύθηκε
 iemail_msg_reply:Απάντηση
+iemail_msg_quote:Απόσπασμα
+iemail_msg_view:Προβολή Θέματος/Μηνύματος
+threadt_announce:Ανακοίνωση
+mnav_minute:Λεπτό(-ά)
+mnav_hour:Ώρα(-ες)
+mnav_day:Ημέρα(-ες)
+mnav_week:Εβδομάδα(-ες)
+mnav_month:Μήνας(-ες)
 findu_edit:Επεξεργασία
 findu_delete:Διαγραφή
+merge_next:Επόμενα Θέματα
+merge_prev:Προηγούμενα Θέματα
 register_email_addr:Διεύθυνση ηλεκτρονικού ταχυδρομείου:
 ip_search:Αναζήτηση
 post_err_mod_forum_edit_ttl:ΣΦΑΛΜΑ
