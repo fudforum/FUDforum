@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -34,7 +34,7 @@ function tmpl_create_forum_select($frm_id, $mod)
 	$oldc = $selection_options = '';
 	while ($r = db_rowarr($c)) {
 		if ($oldc != $r[2]) {
-			while (list($k, $i) = each($GLOBALS['cat_cache'])) {
+			foreach ($GLOBALS['cat_cache'] as $k => $i) {
 				if ($r[2] != $k && $i[0] >= $GLOBALS['cat_cache'][$r[2]][0]) {
 					continue;
 				}

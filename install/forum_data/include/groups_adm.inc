@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -58,7 +58,7 @@ function rebuild_group_ih($gid, $perm, $perma)
 	}
 
 	$gl = array($gid=>0);
-	while (list($gid, $v) = each($gl)) {
+	foreach ($gl as $gid => $v) {
 		if ($v) continue; /* Prevents circular references. */
 
 		/* Select all groups that inherit permissions from current group. */

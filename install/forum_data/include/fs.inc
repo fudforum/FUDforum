@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -37,7 +37,7 @@ function fud_dir_space_usage($dir)
 	$disk_space = 0;
 	$dirs = array(realpath($dir));
 
-	while (list(,$v) = each($dirs)) {
+	foreach ($dirs as &$v) {
 		if (!($files = glob($v .'/*', GLOB_NOSORT))) {
 			continue;	
 		}
@@ -128,7 +128,7 @@ function fud_copy($src, $dest, $mask='*', $recur=false)
 
 	$u = umask(0133);	// Limit to rw-r--r--
 	$dirs = array($src);
-	while (list(,$v) = each($dirs)) {
+	foreach ($dirs as &$v) {
 		if (is_link($v)) {	// Don't copy symlinks.
 			continue;
 		}

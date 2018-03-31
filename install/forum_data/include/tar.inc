@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -65,7 +65,7 @@ function make_tar($dir)
 	$l = strlen(dirname($dir)) + 1;
 
 	$dirs = array($dir);
-	while (list(,$v) = each($dirs)) {
+	foreach ($dirs as &$v) {
 		if (!($d = opendir($v))) {
 			echo 'Error: unable to read directory '. $v;
 			continue;

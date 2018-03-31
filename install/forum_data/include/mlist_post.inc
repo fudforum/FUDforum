@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -65,7 +65,7 @@ function mail_list_post($list_email, $from, $subject, $body, $msg_id, $reply_to=
 	if ($msg_ids) {
 		// Appends each message-id to the References header.
 		$reference_header = '';
-		while (list(, $msg_id) = each($msg_ids)) {
+		foreach ($msg_ids as $msg_id) {
 			$reference_header .= '<'. $msg_id .'> ';
 		}
 		$header .= 'References: '. $reference_header ."\n";

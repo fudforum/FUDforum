@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -125,7 +125,7 @@
 		require $FORUM_SETTINGS_PATH .'cat_cache.inc';
 		while ($r = db_rowarr($c)) {
 			if ($oldc != $r[2]) {
-				while (list($k, $i) = each($cat_cache)) {
+				foreach ($cat_cache as $k => $i) {
 					$table_data .= '{TEMPLATE: cat_entry}';
 					if ($k == $r[2]) {
 						break;

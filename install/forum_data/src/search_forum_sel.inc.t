@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -38,7 +38,7 @@ if ($forum_limiter) {
 
 while ($r = db_rowarr($c)) {
 	if ($oldc != $r[2]) {
-		while (list($k, $i) = each($cat_cache)) {
+		foreach ($cat_cache as $k => $i) {
 			$forum_limit_data .= '{TEMPLATE: forum_limit_cat_option}';
 			if ($k == $r[2]) {
 				break;

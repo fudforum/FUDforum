@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -87,7 +87,7 @@
 				$cbuf = '';
 			}
 
-			while (list($k, $i) = each($cidxc)) {
+			foreach ($cidxc as $k => $i) {
 				/* 2nd check ensures that we don't end up displaying categories without any children. */ 
 				if (($cat_id && !isset($cf[$k])) || ($cid != $k && $i[4] >= $cidxc[$cid][4])) {
 					continue;
