@@ -1,7 +1,7 @@
 #!/usr/bin/php -q
 <?php
 /***************************************************************************
-* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -18,7 +18,7 @@ function create_file_archive($dir)
 	$base = dirname($dirs[0]);
 	$data = '';
 
-	while (list(,$v) = each($dirs)) {
+        foreach($dirs as &$v) {		// Note the &$v, we're going to change the array.
 		if (!($d = opendir($v))) {
 			seterr('Cannot access ['. $path .'].');
 		}
