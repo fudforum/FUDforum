@@ -1,6 +1,6 @@
 <?php
 /***************************************************************************
-* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -443,10 +443,14 @@ function make_into_query($data)
 	$q = str_replace('{UNIX_TIMESTAMP}', time(), $q);
 	// OR bitmap values together (i.e. 1|2 -> 3) as different databases handle them differently.
 	$q = preg_replace_callback('/\b(\d[\d\|]+\d\b)/', 
-		create_function('$matches',
-			'$or=0; foreach( explode(\'|\', $matches[0]) as $val) {$or = $or|$val;} return $or;'),
-			$q);
-
+		function($matches) {
+			$or=0; 
+			foreach( explode('|', $matches[0]) as $val) {
+				$or = $or|$val;
+			}
+			return $or;
+		},
+		$q);
 	return trim($q);
 }
 
