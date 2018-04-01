@@ -1112,7 +1112,7 @@ move_msg_th_expl:Specify the ID of the destination topic (can be in other forums
 captcha_img_alt:Captcha Verification: you will need to recognize the text in this image.
 captcha_img_help:There is no zero or one in the image.
 powered-by:Powered by: FUDforum {GVAR: FORUM_VERSION}.
-copyright:Copyright &copy;2001-2017 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Copyright &copy;2001-2018 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Code:
 code_select_all:Select all
 code_show_hide:Show/ hide

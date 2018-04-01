@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -9,7 +9,7 @@
 * Free Software Foundation; version 2 of the License.
 **/
 
-$FORUM_VERSION = '3.0.8RC2';
+$FORUM_VERSION = '3.0.8';
 
 ignore_user_abort('1');
 
@@ -64,12 +64,13 @@ function fud_use($file, $static=0)
 }
 
 /** Auto load a class. */
-function __autoload( $className ) {
-	$inc = $GLOBALS['INCLUDE'] . $className .'.inc';
-	if (file_exists($inc)) {
-		require_once($inc);
-	}
-}
+//STILL NEEDED?
+//function __autoload( $className ) {
+//	$inc = $GLOBALS['INCLUDE'] . $className .'.inc';
+//	if (file_exists($inc)) {
+//		require_once($inc);
+//	}
+//}
 
 /** Generate a random value. */
 function get_random_value($bitlength=32)

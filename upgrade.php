@@ -1,6 +1,6 @@
 <?php
 /***************************************************************************
-* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -9,7 +9,7 @@
 * Free Software Foundation; either version 2 of the License.
 ***************************************************************************/
 
-$__UPGRADE_SCRIPT_VERSION = 5308.1;
+$__UPGRADE_SCRIPT_VERSION = 5308.2;
 // define('fud_debug', 1);
 
 /*
