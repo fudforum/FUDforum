@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -122,12 +122,12 @@
 
 {SECTION: thread_row}
 <tr class="row">
-	<td class="RowStyleB wo">{TEMPLATE-DATA: thread_read_status}</td>
-	<td class="RowStyleB wo ac">{IF: $r[3]}<img src="{BASE}images/message_icons/{VAR: r[3]}" alt="{VAR: r[3]}" />{ELSE}&nbsp;{END}</td>
+	<td class="RowStyleB wo hide2">{TEMPLATE-DATA: thread_read_status}</td>
+	<td class="RowStyleB wo ac hide2">{IF: $r[3]}<img src="{BASE}images/message_icons/{VAR: r[3]}" alt="{VAR: r[3]}" />{ELSE}&nbsp;{END}</td>
 	<td class="RowStyleA">{IF: ($r[18] > 1)}{IF: $r[18] & 4}<span class="StClr">{MSG: sticky}&nbsp;</span>{ELSE}<span class="AnClr">{MSG: thread_announcement}&nbsp;</span>{ENDI}{ENDIF}{TEMPLATE-DATA: first_unread_msg_link}{IF: $r[1]}{TEMPLATE: thread_poll_indicator}{ENDIF}{IF: $r[0]}{TEMPLATE: thread_attach_indicator}{ENDIF}<a class="big" href="{TEMPLATE: thread_row_lnk}">{VAR: r[2]}</a>{IF: $r[22]}<br /><span class="small">{VAR: r[22]}</span>{ENDIFI} {IF: (($FUD_OPT_2 & 4096) && $r[17])}{TEMPLATE: thread_rating}{ENDIF} {TEMPLATE-DATA: mini_thread_pager} <div class="TopBy">{MSG: by} {IF: $r[5]}{TEMPLATE: first_post_reg_user_link}{ELSE}{TEMPLATE: first_post_unreg_user_link}{END} {MSG: thread_on} <span class="DateText">{TEMPLATE: thread_first_post_date}</span></div>{TEMPLATE-DATA: admin_control_row}</td>
-	<td class="RowStyleB ac">{VAR: r[16]}</td>
-	<td class="RowStyleB ac">{VAR: r[19]}</td>
-	<td class="RowStyleC nw"><span class="DateText">{TEMPLATE: thread_last_post_date}</span><br />{MSG: by} {IF: $r[8]}<a href="{TEMPLATE: reg_user_link_lnk}">{VAR: r[8]}</a>{ELSE}{GVAR: ANON_NICK}{END} <a href="{TEMPLATE: last_msg_in_thread_lnk}"><img src="{THEME_IMAGE_ROOT}/goto.gif" title="{MSG: last_thread_msg}" alt="" /></a></td>
+	<td class="RowStyleB ac hide1">{VAR: r[16]}</td>
+	<td class="RowStyleB ac hide1">{VAR: r[19]}</td>
+	<td class="RowStyleC nw hide2"><span class="DateText">{TEMPLATE: thread_last_post_date}</span><br />{MSG: by} {IF: $r[8]}<a href="{TEMPLATE: reg_user_link_lnk}">{VAR: r[8]}</a>{ELSE}{GVAR: ANON_NICK}{END} <a href="{TEMPLATE: last_msg_in_thread_lnk}"><img src="{THEME_IMAGE_ROOT}/goto.gif" title="{MSG: last_thread_msg}" alt="" /></a></td>
 </tr>
 {SECTION: END}
 
@@ -137,7 +137,7 @@
 
 {SECTION: thread_row_moved a row indicating that the thread has been moved}
 <tr>
-	<td class="RowStyleB wo"><img src="{THEME_IMAGE_ROOT}/moved.png" title="{MSG: moved_thread_message}" alt="" /></td>
+	<td class="RowStyleB wo hide2"><img src="{THEME_IMAGE_ROOT}/moved.png" title="{MSG: moved_thread_message}" alt="" /></td>
 	<td class="RowStyleB ac GenText" colspan="5">{MSG: was_moved_msg}</td>
 </tr>
 {SECTION: END}
@@ -150,12 +150,12 @@
 {IF: $MOD || $mo == 8224}<form method="post" action="{TEMPLATE: thread_mod_mass_lnk}">{ENDIF}
 <table border="0" cellspacing="1" cellpadding="2" class="clear pad">
 <tr>
-	<th>&nbsp;</th>
-	<th>&nbsp;</th>
+	<th class="hide2">&nbsp;</th>
+	<th class="hide2">&nbsp;</th>
 	<th class="wa">{MSG: thread_thread}</th>
-	<th class="wo">{MSG: replies}</th>
-	<th class="wo">{MSG: views}</th>
-	<th class="nw">{MSG: last_post}</th>
+	<th class="wo hide1">{MSG: replies}</th>
+	<th class="wo hide1">{MSG: views}</th>
+	<th class="nw hide2">{MSG: last_post}</th>
 </tr>
 {IF: $MOD || $mo == 8224}
 <tr>
@@ -166,7 +166,7 @@
 		<input type="submit" class="button small" name="loc_sel_all" value="{MSG: thread_loc_all}" />
 		<input type="checkbox" name="toggle" title="Select all/none" onclick="jQuery(\'input:checkbox\').prop(\'checked\', this.checked);" />
 	</td>
-	<td colspan="3" class="RowStyleC"> </td>
+	<td colspan="3" class="RowStyleC hide2"> </td>
 </tr>
 {ENDIF}
 {TEMPLATE-DATA: thread_list_table_data}
@@ -179,7 +179,7 @@
 		<input type="submit" class="button small" name="loc_sel_all" value="{MSG: thread_loc_all}" />
 		<input type="checkbox" name="toggle" title="Select all/none" onclick="jQuery(\'input:checkbox\').prop(\'checked\', this.checked);" />
 	</td>
-	<td colspan="3" class="RowStyleC"> </td>
+	<td colspan="3" class="RowStyleC hide2"> </td>
 </tr>
 {ENDIF}
 </table>{IF: $MOD || $mo == 8224}{DEF: _hs}</form>{ENDIF}

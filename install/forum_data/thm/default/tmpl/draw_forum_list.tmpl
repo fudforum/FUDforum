@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -15,9 +15,9 @@
 <table cellspacing="1" cellpadding="2" class="ContentTable">
 <tr>
 	<th colspan="3" class="wa">{MSG: index_forum}</th>
-	<th class="nw">{MSG: posts}</th>
-	<th class="nw">{MSG: threads}</th>
-	<th class="nw">{MSG: last_post}</th>
+	<th class="nw hide1">{MSG: posts}</th>
+	<th class="nw hide1">{MSG: threads}</th>
+	<th class="nw hide2">{MSG: last_post}</th>
 </tr>
 	{TEMPLATE-DATA: forum_list_table_data}
 </table>
@@ -26,17 +26,17 @@
 
 {SECTION: index_forum_entry forum entry row}
 <tr style="display: {IF: empty($collapse[$cid])}table-row{ELSE}none{ENDI}" class="row child-c{VAR: r[5]}">
-	<td class="RowStyleA wo">{IF: $r[6]}<img src="{BASE}images/forum_icons/{VAR: r[6]}" alt="{MSG: forum_icon}" />{ELSE}&nbsp;{END}</td>
-	<td class="RowStyleB ac wo">{IF: empty($r[12])}{VAR: forum_read_indicator}{ELSE}<img title="{MSG: index_url_redirection}" src="{THEME_IMAGE_ROOT}/moved.png" alt="" />{ENDI}</td>
+	<td class="RowStyleA wo hide2">{IF: $r[6]}<img src="{BASE}images/forum_icons/{VAR: r[6]}" alt="{MSG: forum_icon}" />{ELSE}&nbsp;{END}</td>
+	<td class="RowStyleB ac wo hide2">{IF: empty($r[12])}{VAR: forum_read_indicator}{ELSE}<img title="{MSG: index_url_redirection}" src="{THEME_IMAGE_ROOT}/moved.png" alt="" />{ENDI}</td>
 	<td class="RowStyleA wa"><a href="{TEMPLATE: index_forum_entry_lnk}" class="big">{VAR: r[10]}</a>{FUNC: ($r[11] ? '<br />'.$r[11] : '')}{VAR: moderators}</td>
-	<td class="RowStyleB ac">{IF: empty($r[12])}{VAR: r[13]}{ELSE}--{ENDI}</td>
-	<td class="RowStyleB ac">{IF: empty($r[12])}{VAR: r[14]}{ELSE}--{ENDI}</td>
-	<td class="RowStyleA ac nw">{IF: empty($r[12])}{IF: $r[8]}<span class="DateText">{TEMPLATE: index_last_post_date}</span><br />{MSG: by} {IF: $r[3]}{TEMPLATE: profile_link_user}{ELSE}{TEMPLATE: profile_link_anon}{END} <a href="{TEMPLATE: last_post_lnk}"><img title="{VAR: r[0]}" src="{THEME_IMAGE_ROOT}/goto.gif" alt="{VAR: r[0]}" /></a>{ELSE}{MSG: na}{END}{ELSE}--{ENDI}</td>
+	<td class="RowStyleB ac hide1">{IF: empty($r[12])}{VAR: r[13]}{ELSE}--{ENDI}</td>
+	<td class="RowStyleB ac hide1">{IF: empty($r[12])}{VAR: r[14]}{ELSE}--{ENDI}</td>
+	<td class="RowStyleA ac nw hide2">{IF: empty($r[12])}{IF: $r[8]}<span class="DateText">{TEMPLATE: index_last_post_date}</span><br />{MSG: by} {IF: $r[3]}{TEMPLATE: profile_link_user}{ELSE}{TEMPLATE: profile_link_anon}{END} <a href="{TEMPLATE: last_post_lnk}"><img title="{VAR: r[0]}" src="{THEME_IMAGE_ROOT}/goto.gif" alt="{VAR: r[0]}" /></a>{ELSE}{MSG: na}{END}{ELSE}--{ENDI}</td>
 </tr>
 {SECTION: END}
 
 {SECTION: index_cat_up_down_arrows up/down arrows for navigating category list}
-<td class="CatDesc">
+<td class="CatDesc hide1">
 	{IF: key($cidxc)}<a href="javascript://" onclick=\'nextCat("c{VAR: k}")\'><img src="{THEME_IMAGE_ROOT}/down.png" alt="" border="0" style="vertical-align: top; float: right;" /></a>{ENDIFI}
 	{IF: $cat}<a href="javascript://" onclick=\'prevCat("c{VAR: k}")\'><img src="{THEME_IMAGE_ROOT}/up.png" border="0" alt="" style="vertical-align: top; float: right;" /></a>{ENDIFI}
 </td>

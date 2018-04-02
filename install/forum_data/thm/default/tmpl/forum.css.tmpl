@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -11,6 +11,20 @@
 {PHP_FILE: input: forum.css.t; output: forum.css;}
 
 {PAGE: FORUM_CSS forum's css styles}
+
+/* Hide some info on small screens that are 992px or less. */
+@media screen and (max-width: 992px) {
+  .hide1 {
+    display:none;
+  }
+}
+/* Hide even more on smaller screens that are 600px or less. */
+@media screen and (max-width: 600px) {
+  .hide1, .hide2 {
+    display:none;
+  }
+}
+
 body {
 	background: #e5e5e5;
 	color: #000;
@@ -197,7 +211,7 @@ a.MsgSubText, a.MsgSubText:visited {
 
 .MsgBodyText {
 	font-size: 10pt;
-	line-height: 1.4;
+	line-height: 1.6;
 }
 
 .FormattingToolsBG {
