@@ -658,6 +658,7 @@ move_msg_th_expl:IDa hedef cay nışan kerê (belki foruman dê binana deya)
 captcha_img_alt:Captcha Arıstekerdış: Asayış de metnê şınasnayışi icab keno.
 captcha_img_help:Asengi miyan dı sıfır yana yew tede esto.
 powered-by:Destegdaren: FUDforum {GVAR: FORUM_VERSION}.
+# Fuzzy
 copyright:Heqa telifi &copy;2001-2017 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Kod:
 code_select_all:Pêrıne weçine

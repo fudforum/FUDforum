@@ -1,4 +1,4 @@
-# Messages for Kurdish (Latin script) (Kurdî (latînî)‎)
+# Messages for Kurdish (Latin script) (kurdî (latînî)‎)
 # Exported from translatewiki.net
 # Author: Bikarhêner
 # Author: George Animal
@@ -222,8 +222,10 @@ poll_week:hefte
 delete_yes:Erê
 delete_no:Na
 error_error:Çewtî
+err_info:Agahî
 email_error_namerequired:Navek pêwist e
 emailconf_err_invkey_title:Çewtî
+ignore_list_err_info_title:Agahî
 ignore_list_err_nu_title:Bikarhêner nehate dîtin
 post_err_edttimelimit_title:ÇEWTÎ
 report_err_nosuchmsg_title:ÇEWTÎ

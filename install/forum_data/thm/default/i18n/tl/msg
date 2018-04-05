@@ -1119,6 +1119,7 @@ move_msg_th_expl:Tukuyin ang ID ng kapupuntahang paksa (maaari nasa ibang mga po
 captcha_img_alt:Pagpapatunay ng Captcha: kakailanganin mong makilala ang tekstong nasa loob ng larawang ito.
 captcha_img_help:Walang sero o isa sa loob ng larawan.
 powered-by:Binibigyang kapangyarihan ng: FUDforum {GVAR: FORUM_VERSION}.
+# Fuzzy
 copyright:Karapatang-ari &copy;2001-2017 <a href="http://fudforum.org/">Sopwer ng Paskilan ng Patalastas ng FUDforum</a>
 code_title:Kodigo:
 code_select_all:Piliin lahat

@@ -355,10 +355,15 @@ post_mod_opt:Επιλογές συντονιστή:
 post_thread_type:Τύπος θέματος:
 post_locked:Το θέμα είναι κλειδωμένο
 post_no_icon:Απουσία Εικονιδίου
+post_upload_file:Ανέβασμα αρχείων
 post_file_del:Διαγραφή
 post_file_name:Όνομα
 post_file_size:Μέγεθος
+allowed_files:Επιτρεπόμενες επεκτάσεις αρχείων:
+max_file_size:Μέγιστο μέγεθος αρχείου:
+max_files_per_msg:Μέγιστος αριθμός αρχείων ανά μήνυμα:
 include_sig:Συμπεριλάβετε Υπογραφή
+include_sig_desc:Συμπεριλάβετε την υπογραφή προφίλ σας.
 post_form:Φόρμα Δημοσίευσης
 post_forum:Φόρουμ:
 post_title:Τίτλος:
@@ -530,6 +535,8 @@ register_change_passwd:Αλλαγή κωδικού
 register_change_login:αλλαγή σύνδεσης
 move_request_reason:Γιατί θέλετε να μετακινηθεί το θέμα;
 mvthread_submit_req:Υποβολή αιτήματος
+thr_exch_submit:Υποβολή
+split_thread:Διάσπαση θέματος
 groupmgr_yes:Ναι
 groupmgr_no:Όχι
 groupmgr_action:Ενέργεια
@@ -556,10 +563,13 @@ p_VOTE:Ψηφοφορία
 p_SPLIT:Διάσπαση θεμάτων
 p_LOCK:Κλείδωμα θεμάτων
 p_MOVE:Μετακίνηση θεμάτων
+p_SEARCH:Μπορεί να αναζητήσει
 group_mgr_search:Εύρεση χρήστη
+group_mgr_indicator:Προς το παρόν επεξεργάζεται το:  <b>{VAR: grp->name}</b>
 rate_worst:Χειρότερο
 rate_best:Καλύτερο
 post_quote:Απόσπασμα:
+post_quote_selected:Αποσπασματοποίηση του επιλεγμένου κειμένου
 pm_no_space_title:Δεν έχει μείνει χώρος!
 th_expr_never:Ποτέ
 th_expr_one_hr:1 Ώρα
@@ -579,9 +589,15 @@ th_expr_one_year:1 έτος
 thread_mod_delete:Διαγραφή
 action_latest_post:Τελευταίο μήνυμα
 online_today_last_visit:Τελευταία επίσκεψη
+online_today_update:Βλέπει την λίστα χρηστών που ήταν στο φόρουμ σήμερα.
 logedin_todays_visitors:Σημερινοί επισκέπτες
+logedin_latest_post:Τελευταίο μήνυμα στο φόρουμ:
+drawmsg_view_rest_post:Εμφάνιση του υπόλοιπου μηνύματος
 post_re:Θέμα:
+forumsel_goto_forum:Πηγαίνετε στο φόρουμ:
+split_th_posted_on:Καταχωρήθηκε στις:
 split_th_subject:Θέμα:
+split_th_new_thread_title:Νέος τίτλος θέματος:
 split_th_forum:Φόρουμ:
 split_th_split_sel:Διάσπαση επιλεγμένων μηνυμάτων
 split_th_split_unsel:Διάσπαση μη επιλεγμένων μηνυμάτων
@@ -591,6 +607,10 @@ quicklogin_login:Όνομα:
 quicklogin_password:Κωδικός:
 quicklogin_use_cookies:Χρήση μπισκότων (cookies);
 quicklogin_login_btn:Είσοδος
+quick_reply:Γρήγορη απάντηση
+quick_reply_post:Δημοσίευση γρήγορης απάντησης
+quick_reply_preview:Προεπισκόπηση γρήγορης απάντησης
+post_notification_desc:Ειδοποίησέ με όταν κάποιος απαντήσει στο μήνυμα.
 post_all_ext_allowed:(απεριόριστο)
 maximize_category:Μεγιστοποίηση Κατηγορίας
 maximize_message:Μεγιστοποίηση μηνύματος
@@ -620,14 +640,30 @@ polllist_date:Δημιουργήθηκε στις
 polllist_owner:Δημιουργήθηκε από
 polllist_votes:Συνολικές ψήφοι
 polllist_action:Ενέργεια
+userinfo_polls:Δημοσκοπήσεις:
+show_pollist:Εμφάνιση ψηφοφοριών
+search_and:Και
+search_or:ή
+search_desc_order:Φθίνουσα σειρά
+search_asc_order:Αύξουσα σειρά
+search_attach:Συνημμένα:
+search_attach_all:Με ή χωρίς
+search_attach_with:Με συνάψεις
 post_proceed:Συνέχεια
+buddy_list_bday:Σήμερα ο {VAR: r[2]} κλείνει τα {VAR: age}
 threadt_more:&lt;περισσότερα&gt;
+spell_alts:χωρίς εναλλακτικές
+insert_uploaded_image:Εισαγωγή εικόνας στο κείμενο του μηνύματος
 back_to_top:Επιστροφή στην κορυφή
 saved:Αποθηκεύθηκε
+buddy_offline:Ο {VAR: r[2]} είναι προς το παρόν αποσυνδεδεμένος
+buddy_online:Ο {VAR: r[2]} είναι προς το παρόν συνδεδεμένος
 iemail_msg_reply:Απάντηση
 iemail_msg_quote:Απόσπασμα
 iemail_msg_view:Προβολή Θέματος/Μηνύματος
 threadt_announce:Ανακοίνωση
+thread_printable_pdf:Δημιουργία εκτυπώσιμου PDF
+mnav_description:Περιηγητής μηνυμάτων
 mnav_minute:Λεπτό(-ά)
 mnav_hour:Ώρα(-ες)
 mnav_day:Ημέρα(-ες)

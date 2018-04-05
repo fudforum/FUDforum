@@ -1118,6 +1118,7 @@ move_msg_th_expl:Gev ID fyri destinasjónsevnið (kann vera í øðrum forum)
 captcha_img_alt:Captcha váttan: tú mást kenna aftur tekstin á hesi myndini.
 captcha_img_help:Tað er onki null ella eitt-tal á myndini.
 powered-by:Rikið av: FUDforum {GVAR: FORUM_VERSION}.
+# Fuzzy
 copyright:Upphavsrættur &copy;2001-2017 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Kota:
 code_select_all:Vel alt

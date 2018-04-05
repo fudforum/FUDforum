@@ -1120,6 +1120,7 @@ move_msg_th_expl:Sonraigh an ID an ábhar scríbe (Is féidir a bheith i bhfóra
 captcha_img_alt:Fíorú Captcha: beidh ort a aithint an téacs ar an íomhá.
 captcha_img_help:Níl aon náid nó ceann san íomhá.
 powered-by:Powered by: FUDforum {GVAR: FORUM_VERSION}.
+# Fuzzy
 copyright:Cóipcheart &copy;2001-2017 <a href="http://fudforum.org/">FUDforum Feasachán Bogearraí</a>
 code_title:cód:
 code_select_all:Roghnaigh gach

@@ -1116,6 +1116,7 @@ move_msg_th_expl:Tilgreindu auðkenni þráðarinns sem á að færa á (má ver
 captcha_img_alt:Captcha staðfesting: Þú þarft að bera kennsl á textann á þessari mynd.
 captcha_img_help:Það er ekki núll eða einn á myndinni.
 powered-by:Knúið af: FUDforum {GVAR: FORUM_VERSION}.
+# Fuzzy
 copyright:Höfundarréttur &copy;2001-2017 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Kóði:
 code_select_all:Velja allt

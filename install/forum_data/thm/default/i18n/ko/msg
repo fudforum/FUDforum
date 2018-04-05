@@ -5,6 +5,7 @@
 # Author: Hym411
 # Author: Klutzy
 # Author: Naudefj
+# Author: Nuevo Paso
 # Author: Priviet
 # Author: Revi
 # Author: SeoJeongHo
@@ -877,7 +878,7 @@ poll_edit:편집
 register_err_not_valid_img:지정한 URL에 이미지가 포함되지 않았습니다.
 pmsg_recepient:수신
 register_err_taken_alias:다른 포럼 회원이 이미 사용 중인 별명을 사용하려고 합니다. 다른 별명을 선택해주세요.
-register_alias:별명:
+register_alias:다른 이름:
 register_alias_desc:포럼에서도 별명이 보이게 하기 위해선 여기에 기입하십시오.
 register_allow_pm_msg:쪽지 허용
 register_allow_pm_msg_desc:현재 포럼 내에서 쪽지 수신 허용.
@@ -1098,7 +1099,7 @@ move_msg_th_expl:(다른 포럼에 있을 수 있는) 대상 주제의 ID를 지
 captcha_img_alt:Captcha(캡차) 검증: 이 그림에 텍스트를 인식할 필요가 있습니다.
 captcha_img_help:그림에 0이나 1도 없습니다.
 powered-by:제공: FUDforum {GVAR: FORUM_VERSION}.
-copyright:저작권 &copy;2001-2017 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:저작권 &copy;2001-2018 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:코드:
 code_select_all:모두 선택
 code_show_hide:보이기/ 숨기기
