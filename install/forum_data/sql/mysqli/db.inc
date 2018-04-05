@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -20,8 +20,8 @@ if (empty(db::$db)) {
 		$socket = NULL;
 	}
 
-	if ($GLOBALS['FUD_OPT_1'] & 256 && version_compare(PHP_VERSION, '5.3.0', '>=')) {	// Enable pconnect for PHP 5.3+.
-		$GLOBALS['DBHOST'] .= 'p:';
+	if ($GLOBALS['FUD_OPT_1'] & 256 && $socket == NULL && version_compare(PHP_VERSION, '5.3.0', '>=')) {	// Enable pconnect for PHP 5.3+.
+		$GLOBALS['DBHOST'] = 'p:'. $GLOBALS['DBHOST'];
 	}
 
 	db::$db = new mysqli($GLOBALS['DBHOST'], $GLOBALS['DBHOST_USER'], $GLOBALS['DBHOST_PASSWORD'], $GLOBALS['DBHOST_DBNAME'], NULL, $socket);
