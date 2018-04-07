@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2014 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -44,7 +44,7 @@ class fud_nntp
 			switch ($this->cmd('AUTHINFO user '. $this->user, false)) {
 				case 281:
 					return true;
-					break 2;
+					break;
 				case 381:
 					if ($this->cmd('AUTHINFO pass '. $this->pass, false) != 281) {
 						$this->error = "Authentication failed\n";
