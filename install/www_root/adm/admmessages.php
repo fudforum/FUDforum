@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -24,7 +24,7 @@
 		pf(successify('Downloading '. $tlang .' messages from translatewiki.net...'));
 
 		fud_use('url.inc', true);	// For get_remote_file().
-		$url = 'http://translatewiki.net/w/i.php?title=Special%3ATranslate&task=export-to-file&group=out-fudforum&language='. $tlang .'&limit=2500';
+		$url = 'http://translatewiki.net/w/i.php?title=Special%3AExportTranslations&format=export-to-file&group=out-fudforum&language='. $tlang .'&limit=2500';
 		$messages = get_remote_file($url);
 
 		if (!strlen($messages)) {
