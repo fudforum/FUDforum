@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -58,7 +58,7 @@
 
 		$u = umask(0);
 
-		while (list(,$v) = each($dirs)) {
+		foreach($dirs as &$v) {		// Note the &$v, we're going to change the array.
 			@chmod($v, $dirperms);
 			if (!is_readable($v)) {
 				pf(errorify('ERROR: Unable to open directory '. $v .'!'));

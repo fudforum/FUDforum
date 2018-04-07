@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -112,7 +112,7 @@ function mk_date($y, $m, $d)
 			if ($row < 6) {
 				echo '<tr><td colspan="'. (6 - $row) .'"> </td></tr>';
 			}
-			while (list($k, $i) = each($GLOBALS['cat_cache'])) {
+			foreach ($GLOBALS['cat_cache'] as $k => $i) {
 				$pfx = str_repeat('&nbsp;&nbsp;&nbsp;', $i[0]);
 
 				echo '<tr class="fieldtopic"><td colspan="6">'. $pfx .'<font size="-2">'. $i[1] .'</font></td></tr><tr class="field">';

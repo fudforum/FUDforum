@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -16,7 +16,7 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir, $p=0)
 	$dirs = array($dirp);
 	$repl = realpath($GLOBALS[$keep_dir]);
 
-	while (list(,$v) = each($dirs)) {
+	foreach($dirs as &$v) {		// Note the &$v, we're going to change the array.
 		$v = realpath($v);
 
 		if (!is_readable($v)) {

@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -115,7 +115,7 @@
 	$i = $l = 0;
 	while (1) {
 		if (isset($ol[$l])) {
-			while (list(,$v) = each($ol[$l])) {
+			foreach($ol[$l] as $v) {
 				$v->lvl = $i;
 				$cat_list[] = $v;
 				if (isset($ol[$v->id])) {

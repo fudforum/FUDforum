@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -19,7 +19,7 @@ function import_avatars($path)
 	$list  = array(realpath($path));
 	$files = array();
 
-	while (list(,$v) = each($list)) {
+	foreach($list as &$v) {		// Note the &$v, we're going to change the array.
 		$files = array_merge($files, glob($v . "/{*.jpg,*.gif,*.png,*.jpeg}", GLOB_BRACE|GLOB_NOSORT));
 	
 		if (($dirs = glob($v . "/*", GLOB_BRACE|GLOB_NOSORT))) {
