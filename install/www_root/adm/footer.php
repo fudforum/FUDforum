@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -32,8 +32,8 @@ jQuery(function() {
 
 	// jQuery UI Buttons.
 	jQuery("button, input:submit, #button").button({
-                icons: { primary: "ui-icon-gear", secondary: "ui-icon-triangle-1-s" }
-    });
+		icons: { primary: "ui-icon-gear", secondary: "ui-icon-triangle-1-s" }
+	});
 
 	<?php if (defined('__adm_rsidl')) { ?>
 	// jQuery UI Sortable: Drag and drop to reorder items.
@@ -64,7 +64,7 @@ jQuery(function() {
 	// Add context sensitive 'Help' links to the Wiki.
 	var wikilink = jQuery('H2').first().text();
 	if (wikilink.length > 0) {
-		jQuery('#wikilink').append('[ <a href="http://cvs.prohost.org/index.php/'+ wikilink +'" title="Context sensitive help (FUDforum wiki)">Help</a> ]');
+		jQuery('#wikilink').append('[ <a href="http://cvs.prohost.org/index.php?title='+ wikilink +'" title="Context sensitive help (FUDforum wiki)">Help</a> ]');
 	}
 
 	// Add code for dismissable DIV boxes.
