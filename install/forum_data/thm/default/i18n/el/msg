@@ -187,8 +187,7 @@ views:Εμφανίσεις
 vote:{PLURAL: frm->n_rating|$1 Ψήφος|$1 Ψήφοι}
 vote_button:Ψήφισε
 vote_for_thread:Ψήφισε
-# Fuzzy
-what_ppl_doing:Εμφάνιση του τι κάνουν οι άνθρωποι
+what_ppl_doing:Δραστηριότητα χρηστών
 reported_del_report:Διαγραφή Αναφοράς
 reported_reason:Αιτία:
 reported_on:Στις:
@@ -197,6 +196,7 @@ reported_reported_msg:Αναφερμένα Μηνύματα
 modque_pending_approval:Μηνύματα με εκκρεμή έγκριση
 modque_approve:Έγκριση
 modque_delete:Διαγραφή
+modque_deleteall:Διαγραφή όλων από χρήστη
 modque_no_message:Δεν υπάρχουν μηνύματα με εκκρεμή έγκριση
 pmsg_new_messages:Μη αναγνωσμένο προσωπικό μήνυμα
 pmsg_old_messages:Αναγνωσμένο προσωπικό μήνυμα
@@ -284,6 +284,7 @@ register_specify_url:Δώστε URL
 register_uploaded:Φόρτωση Άβαταρ
 register_login:Είσοδος:
 register_login_available:Διαθέσιμο
+register_login_taken:Έχει ήδη πιαστεί
 register_password:Κωδικός:
 register_password_desc:Κωδικός πρόσβασης για τον λογαριασμό σας. Οι κωδικοί πρόσβασης είναι ευαίσθητοι σε αυτή τη περίπτωση και πρέπει να περιέχουν τουλάχιστον 6 χαρακτήρες.
 register_conf_pass:Επιβεβαίωση Κωδικού:
@@ -664,30 +665,89 @@ iemail_msg_view:Προβολή Θέματος/Μηνύματος
 threadt_announce:Ανακοίνωση
 thread_printable_pdf:Δημιουργία εκτυπώσιμου PDF
 mnav_description:Περιηγητής μηνυμάτων
+mnav_date_limit:Εύρος ημερομηνίας:
+mnav_forum_limit:Αναζήτηση μόνο σε:
+mnav_all_forums:Αναζήτηση όλων των φόρουμ
+mnav_submit:Ξεκινήστε την αναζήτηση
+mnav_invalid_unit:Πρέπει να ορίσετε μια έγκυρη μονάδα χρόνου.
+mnav_posted_by:Δημοσιεύθηκε από:
+mnav_more:Περισσότερα &raquo;&raquo;
 mnav_minute:Λεπτό(-ά)
 mnav_hour:Ώρα(-ες)
 mnav_day:Ημέρα(-ες)
 mnav_week:Εβδομάδα(-ες)
 mnav_month:Μήνας(-ες)
+mnav_title:Περιηγητής μηνυμάτων
 findu_edit:Επεξεργασία
 findu_delete:Διαγραφή
+dmsg_reply_to:είναι μια απάντηση σε
+dmsg_reply_num:μήνυμα #{VAR: obj->reply_to}
+merge_topics:Συγχώνευση θεμάτων
+merge_topics_cp:Πίνακας ελέγχου συγχώνευσης θεμάτων
+merge_merge:Συγχώνευση επιλεγμένων θεμάτων
 merge_next:Επόμενα Θέματα
 merge_prev:Προηγούμενα Θέματα
+thread_on:εντός
 register_email_addr:Διεύθυνση ηλεκτρονικού ταχυδρομείου:
+usrinfo_last_visit:Τελευταία επίσκεψη:
+mnav_newer:νεότερο από
+mnav_older:παλαιότερο από
 ip_search:Αναζήτηση
 post_err_mod_forum_edit_ttl:ΣΦΑΛΜΑ
 register_theme:Θεματολογία:
+uc_new_topic:Νέο θέμα
+uc_cat_forum:Κατηγορία &raquo; Φόρουμ
+search_options:Αναζήτηση επιλογών
+register_none:Μη με ειδοποιήσεις
+register_max_sig_len:Μέγιστο μήκος:
 modque_cat:Κατηγορία
+modque_forum:Φόρουμ
+idx_compact_forum_row:Διαθέσιμα φόρουμ:
+mmd_del_title:Διαγραφή θεμάτων
+mmd_mov_title:Μετακίνηση θεμάτων
+mmd_move_threads_to:Φόρουμ προορισμού:
 mmd_abort_move:Άκυρο
+mmd_move:Μετακίνηση θεμάτων
+pmsg_pdf_btn:Κάντε αρχείο PDF
+search_results_hdr:Βρέθηκαν {VAR: total} αποτέλεσματα αναζήτησης
+thread_del_all:Διαγραφή επιλεγμένων
+thread_mov_all:Μετακίνηση επιλεγμένων
+thread_merge_all:Συγχώνευση των επιλεγμένων
 dmsg_ip:IP:
 sml_code:Κωδικός
 post_common_bold:Έντονα
 post_common_italics:Πλάγια
+post_common_underline:Υπογράμμιση
+post_common_link:Εισαγωγή συνδέσμου
+post_common_link_popup:Τοποθεσία συνδέσμου:
+post_common_email_popup:Διεύθυνση ηλεκτρονικού ταχυδρομείου:
+post_common_image:Εισαγωγή εικόνας
+post_common_quote:Προσθήκη αποσπάσματος
 rating_delete:Διαγραφή
 tabs_notifications:Ενημερώσεις
 finduser_flag:Σημαία
+pmsg_on:εντός
+move_messages:Μετακίνηση μηνυμάτων
 code_title:Κωδικός:
+code_select_all:Επιλογή όλων
+btn_new_topic:Νέο θέμα
+btn_new_pm:Νέο ιδιωτικό μήνυμα
+btn_post_reply:Δημοσίευση απάντησης
+btn_about:Προφίλ
+btn_small_pm:ΜΜ
 btn_delete:διαγραφή
 btn_edit:επεξεργασία
+btn_reply:απάντηση
+btn_quote:Απόσπασμα
 btn_email:Ηλεκτρονικό ταχυδρομείο
+btn_show_posts:Αναρτήσεις
 btn_homepage:www
+feed_rdf:Ροή RDF
+feed_rss:Ροή RSS2
+feed_atom:Ροή ATOM
+custom_filed_required:Αυτό το πεδίο είναι υποχρεωτικό.
+pages:Σελίδες
+page_list_heading:Διαθέσιμες σελίδες
+page_update:Σελίδα περιήγησης
+karma_delete:Διαγραφή
+rate_author:Αξιολόγηση συγγραφέα:

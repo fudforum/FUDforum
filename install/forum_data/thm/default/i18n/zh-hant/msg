@@ -86,7 +86,7 @@ cal_day_heading:一天的事件
 cal_no_events:本日沒有事件。
 cal_update:瀏覽論壇日曆
 cal_birthday:生日： {VAR: user}
-cal_birthdays:{PLURAL: birthdays|$1birthday| $1 生日}
+cal_birthdays:{PLURAL: birthdays|$1 個生日| $1 個生日}
 cal_birthday_age:（{PLURAL: age|$1 歲|$1 歲}）。
 message:訊息
 message_counter:我們的使用者一共發佈了 <b>{PLURAL: post_count|$1|$1}</b> 個訊息，包含在 <b>{PLURAL: thread_count|$1|$1}</b> 個主題裡。
@@ -178,7 +178,7 @@ subscribed_forums_desc:開/關過濾訂閱論壇（只顯示您所訂閱的論�
 subscribed_threads:預定論壇主題
 subscribed_threads_desc:開/關過濾訂閱主題（只顯示您所訂閱的主題訊息）
 bookmarked_threads:用書籤標記的主題
-switch_to_thread_view:轉換成以線程方式瀏覽
+switch_to_thread_view:轉換成以討論串方式瀏覽
 thread:主題：
 thread_announcement:公告：
 thread_first_unread_msg:轉到本主題中的第一個未讀訊息
@@ -1123,8 +1123,7 @@ move_msg_th_expl:目標主題的指定 ID（可用在其它論壇）
 captcha_img_alt:驗證碼：您需要識別出在圖片裡的文字。
 captcha_img_help:圖片裡沒有零或一。
 powered-by:技術支援：FUDforum {GVAR: FORUM_VERSION}。
-# Fuzzy
-copyright:版權所有 © 2001年-2017 年<a href="http://fudforum.org/">FUDforum 留言板軟體</a>
+copyright:版權所有 © 2001年-2018 年<a href="http://fudforum.org/">FUDforum 留言板軟體</a>
 code_title:代碼：
 code_select_all:全選
 code_show_hide:顯示/隱藏
