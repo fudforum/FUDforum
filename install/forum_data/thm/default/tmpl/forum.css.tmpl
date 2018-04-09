@@ -18,8 +18,8 @@
     display:none;
   }
 }
-/* Hide even more on smaller screens that are 600px or less. */
-@media screen and (max-width: 600px) {
+/* Hide even more on smaller screens that are 768px or less. */
+@media screen and (max-width: 768px) {
   .hide1, .hide2 {
     display:none;
   }
@@ -46,6 +46,7 @@ text,	a:link, a:visited, a:active, a.CatLink, .CatDesc, .CatLockedName, .GenText
 {
 	font-family: Verdana,Geneva,Lucida,'Lucida Grande',Arial,Helvetica,Sans-serif;
 	font-size: 10pt;
+	line-height: 1.6;
 }
 
 .header, .content, .footer {
@@ -108,7 +109,7 @@ text, .GenText, .MsgIg, td.repI {
 
 .SmallText, .DateText, .TopBy, td.permYES, td.permNO, .SmallText a {
 	color: #202020;
-	font-size: 8pt;
+	font-size: x-small;
 }
 
 th {
@@ -211,7 +212,6 @@ a.MsgSubText, a.MsgSubText:visited {
 
 .MsgBodyText {
 	font-size: 10pt;
-	line-height: 1.6;
 }
 
 .FormattingToolsBG {
@@ -355,13 +355,11 @@ a[href^="mailto:"] {
 
 .ModOpt, .ModOpt a {
 	color: #a8b1b8;
-	margin-top: 2px;
-	font-size: small;
+	font-size: x-small;
 	text-align: right;
 }
 
 .TopBy {
-	margin-top: 3px;
 	margin-bottom: 0;
 	padding-right: 2px;
 	text-align: right;

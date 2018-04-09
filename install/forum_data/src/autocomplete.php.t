@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2016 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -38,7 +38,7 @@
 
 	/* Check if supplied login/ e-mail address is in-use. */
 	if (!empty($_GET['check']) && !empty($_GET['term'])) {
-		$lookup = ($_GET['lookup'] == 'email') ? 'email' : 'login';
+		$lookup = ($_GET['check'] == 'email') ? 'email' : 'login';
 		$term   = $_GET['term'];
 
 		if ($lookup == 'login' && strlen($term) < 2) {
