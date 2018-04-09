@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -19,25 +19,33 @@ function plugin_recaptcha_display() {
 		die('ERROR: Please configure the Recaptcha plugin from the Plugin Manager Control panel.');
 	}
 
-	$html = "<div id='recaptcha_widget' style='display:none;'><script type='text/javascript'>var RecaptchaOptions = {theme : 'custom',  custom_theme_widget: 'recaptcha_widget'};</script>
-<div id='recaptcha_image'></div><input type='hidden' id='recaptcha_response_field' name='recaptcha_response_field' />[ <a href='javascript:Recaptcha.reload()'>Get another CAPTCHA</a> ]<span class='recaptcha_only_if_image'>[ <a href='javascript:Recaptcha.switch_type(\"audio\")'>Get audio CAPTCHA</a> ]</span><span class='recaptcha_only_if_audio'>[ <a href='javascript:Recaptcha.switch_type(\"image\")'>Show image CAPTCHA</a> ]</span> 
-<script type='text/javascript' src='http://api.recaptcha.net/challenge?k=". $ini['RECAPTCHA_PUBKEY'] ."'></script>
-<noscript><iframe src='http://api.recaptcha.net/noscript?k=". $ini['RECAPTCHA_PUBKEY'] ."' height='300' width='500' frameborder='0'></iframe><textarea name='recaptcha_challenge_field' rows='1' cols='40'></textarea><input type='hidden' name='recaptcha_response_field' value='manual_challenge'></noscript></div>";
+	$html = '<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+		<div class="g-recaptcha" data-sitekey="'. $ini['RECAPTCHA_PUBKEY'] .'"></div>';
 
-	return array($html, 'not set');
+	return $html;
 }
 
 // Validate user response
 function plugin_recaptcha_validate($array) {
-	list($test, $res) = $array;
-
-	require_once('recaptchalib.php');
 	require_once($GLOBALS['PLUGIN_PATH'] .'recaptcha/recaptcha.ini');
-	$resp = recaptcha_check_answer($ini['RECAPTCHA_PRIVKEY'],
-				$_SERVER['REMOTE_ADDR'],
-				$_POST['recaptcha_challenge_field'],
-				$test); // recaptcha_response_field
-	if ($resp->is_valid) {
+
+	$url = 'https://www.google.com/recaptcha/api/siteverify';
+	$data = array(
+		'secret' => $ini['RECAPTCHA_PRIVKEY'],
+		'response' => $_POST['g-recaptcha-response']
+	);
+	$options = array(
+		'http' => array (
+			'header' => "Content-Type: application/x-www-form-urlencoded\r\n",
+			'method' => 'POST',
+			'content' => http_build_query($data)
+		)
+	);
+	$context = stream_context_create($options);
+	$verify = file_get_contents($url, false, $context);
+	$captcha_success = json_decode($verify);
+
+	if ($captcha_success->success == TRUE) {
 		return 1;
 	}
 	return 0;
@@ -47,7 +55,7 @@ function recaptcha_info() {
 	return array('name' => 'Recaptcha',
 	             'desc' => 'This plugin, if enabled, will use the recaptcha service instead of FUDforum\'s default captcha challenge.',
 		     'cat'  => 'Anti-spam',
-		     'version' => '1.0');
+		     'version' => '2.0');
 }
 
 function recaptcha_enable() {
@@ -74,10 +82,10 @@ function recaptcha_config() {
 		pf(successify('Settings successfully saved.'));
 	}
 	?>
-<p>Your Recaptcha private key (get one from <a href="http://recaptcha.net/api/getkey">recaptcha.net</a>):<br />
+<p>Your Recaptcha secret key (get one from <a href="https://www.google.com/recaptcha/admin/create">recaptcha.net</a>):<br />
 <input name="RECAPTCHA_PRIVKEY" value="<?php echo $ini['RECAPTCHA_PRIVKEY'] ?>" size="50" /></p>
 
-<p>Your Recaptcha public key:<br />
+<p>Your Recaptcha public site key:<br />
 <input name="RECAPTCHA_PUBKEY" value="<?php echo $ini['RECAPTCHA_PUBKEY'] ?>" size="50" /></p>
 
 	<?php
