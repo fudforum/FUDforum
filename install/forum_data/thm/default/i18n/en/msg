@@ -308,6 +308,7 @@ register_login_taken:Already taken
 register_password:Password:
 register_password_desc:Password for your account. Passwords are case-sensitive and must be at least 6 characters long.
 register_conf_pass:Confirm Password:
+register_conf_pass_desc:Please re-enter your password.
 register_email_desc:Your e-mail address. You can choose to hide it below, in the Preferences section.
 register_name:Name:
 register_name_desc:Your real name.
@@ -1050,8 +1051,8 @@ search_user_filter:Filter by user:
 register_none:Don't notify me
 findu_no_conf:unconfirmed user
 register_max_sig_len:Maximum Length:
-register_turing:Please enter the code shown below:
-register_err_turing:Invalid validation code.
+register_turing:Verification:
+register_err_turing:Verification failed. Please try again.
 modque_cat:Category
 modque_forum:Forum
 idx_compact_forum_row:Available Forums:

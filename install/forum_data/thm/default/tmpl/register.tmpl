@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -35,8 +35,9 @@
 {IF: !__fud_real_user__}{FUNC: draw_err('reg_time_limit')}{ENDIFI}
 <tr class="child-c1 RowStyleA">
 	<td width="55%"><label for="reg_login">
-            {MSG: register_login}{FUNC: draw_err('reg_login')}<br />
-            <span class="SmallText">{MSG: register_login_desc}</span></label>
+            {MSG: register_login}<br />
+            <span class="SmallText">{MSG: register_login_desc}</span>
+            {FUNC: draw_err('reg_login')}</label>
         </td>
 	<td width="45%"><input type="text" size="25" name="reg_login" id="reg_login" value="{VAR: reg_login}" maxlength="{GVAR: MAX_LOGIN_SHOW}" required="required" />
                         <span id="reg_login-result"><span></td>
@@ -44,23 +45,32 @@
 {IF: $FUD_OPT_2 & 128}{TEMPLATE: reg_alias}{ENDIFI}
 <tr class="child-c1 RowStyleA">
 	<td><label for="reg_plaintext_passwd">
-            {MSG: register_password}{FUNC: draw_err('reg_plaintext_passwd')}<br />
-            <span class="SmallText">{MSG: register_password_desc}</span></label>
+            {MSG: register_password}<br />
+            <span class="SmallText">{MSG: register_password_desc}</span>
+            {FUNC: draw_err('reg_plaintext_passwd')}</label>
         </td>
 	<td><input type="password" name="reg_plaintext_passwd" id="reg_plaintext_passwd" size="25" required="required" /></td>
 </tr>
 <tr class="child-c1 RowStyleA">
 	<td><label for="reg_plaintext_passwd_conf">
-            {MSG: register_conf_pass}</label>
+            {MSG: register_conf_pass}<br />
+            <span class="SmallText">{MSG: register_conf_pass_desc}</span></label>
         </td>
 	<td><input type="password" name="reg_plaintext_passwd_conf" id="reg_plaintext_passwd_conf" size="25" onkeyup="passwords_match(\'reg_plaintext_passwd\', this); return false;" required="required" /></td>
 </tr>
 <tr class="child-c1 RowStyleA">
 	<td><label for="reg_email">
-            {MSG: register_email_addr}{FUNC: draw_err('reg_email')}<br />
-            <span class="SmallText">{MSG: register_email_desc}</span></label>
+            {MSG: register_email_addr}<br />
+            <span class="SmallText">{MSG: register_email_desc}</span>
+            {FUNC: draw_err('reg_email')}</label>
         </td>
         <td><input type="email" name="reg_email" id="reg_email" size="25" value="{VAR: reg_email}" required="required" /></td>
+	<span class="dn" style="display:none; visibility:hidden;">
+		<input type="text" name="turing_test1" value="{DEF: __request_timestamp__}" />
+		<input type="text" name="turing_test2" value="" />
+		<input type="text" name="turing_test3" value="{FUNC: md5($GLOBALS['FORUM_SETTINGS_PATH'])}" />
+	</span>
+
 </tr>
 {IF: !($FUD_OPT_3 & 128)}{TEMPLATE: register_turing_test}{ENDIFI}
 {SECTION: END}
@@ -68,19 +78,11 @@
 {SECTION: register_turing_test}
 <tr class="child-c1 RowStyleA">
 	<td class="vt"><label for="turing_test">
-                {MSG: register_turing}<br />
-                <span class="SmallText">{MSG: captcha_img_help}</span>
+                {MSG: register_turing}
                 {FUNC: draw_err('reg_turing')}</label>
         </td>
 	<td>
-		<input type="text" name="turing_test" id="turing_test" size="25" value="" required="required" />
-		<span class="dn" style="display:none; visibility:hidden;">
-		<input type="text" name="turing_test1" value="{DEF: __request_timestamp__}" />
-		<input type="text" name="turing_test2" value="" />
-		<input type="text" name="turing_test3" value="{FUNC: md5($GLOBALS['FORUM_SETTINGS_PATH'])}" />
-		</span><br />
-		{FUNC: generate_turing_val($turing_res)}
-		<input type="hidden" name="turing_res" value="{VAR: turing_res}" />
+		{FUNC: generate_turing_val()}
 	</td>
 </tr>
 {SECTION: END}

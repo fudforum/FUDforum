@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -103,18 +103,19 @@ function register_form_check($user_id)
 			set_err('reg_login', '{TEMPLATE: register_err_loginunique}');
 		}
 
+		// Try to catch submitter bots.
+		$form_completion_time = __request_timestamp__ - (int)$_POST['turing_test1'];
+		if (
+			$form_completion_time < 5 || $form_completion_time > 3600 ||	// Took 5 sec to 1 hour.
+			!empty($_POST['turing_test2']) ||				// Must always be empty.
+			$_POST['turing_test3'] !== md5($GLOBALS['FORUM_SETTINGS_PATH'])	// No cross site submitions.
+		) {
+			set_err('reg_turing', '{TEMPLATE: register_err_turing}');
+		}
+
+		// Perform turing test, if enabled.
 		if (!($GLOBALS['FUD_OPT_3'] & 128)) { // Captcha not disabled.
-			// Try to catch submitter bots.
-			$form_completion_time = __request_timestamp__ - (int)$_POST['turing_test1'];
-			if (
-				$form_completion_time < 7 || $form_completion_time > 3600 ||	// Took 7 sec to 1 hour.
-				!empty($_POST['turing_test2']) ||				// Must always be empty.
-				$_POST['turing_test3'] !== md5($GLOBALS['FORUM_SETTINGS_PATH'])	// No cross site submitions.
-			) {
-				set_err('reg_turing', '{TEMPLATE: register_err_turing}');
-			}
-			// Normal turing test.
-			if (!test_turing_answer($_POST['turing_test'], $_POST['turing_res'])) {
+			if (!test_turing_answer()) {
 				set_err('reg_turing', '{TEMPLATE: register_err_turing}');
 			}
 		}
@@ -154,7 +155,7 @@ function register_form_check($user_id)
 	}
 
 	$_POST['reg_name'] = trim($_POST['reg_name']);
-	$_POST['reg_home_page'] = sanitize_url(trim($_POST['reg_home_page']));
+	$_POST['reg_home_page']  = !empty($_POST['reg_home_page'] ) ? sanitize_url(trim($_POST['reg_home_page'] )) : '';
 	$_POST['reg_user_image'] = !empty($_POST['reg_user_image']) ? sanitize_url(trim($_POST['reg_user_image'])) : '';
 
 	if (!empty($_POST['reg_icq']) && !(int)$_POST['reg_icq']) { /* ICQ # can only be an integer. */

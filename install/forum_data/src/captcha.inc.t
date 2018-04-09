@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -10,14 +10,11 @@
 **/
 
 /* Generate a CAPTCHA question to display. */
-function generate_turing_val(&$rt)
+function generate_turing_val()
 {
 	if (defined('plugins')) {
-		@list($text, $rt) = plugin_call_hook('CAPTCHA');
-		if (isset($text) && isset($rt)) {
-			$rt = md5($rt);
-			return $text;
-		}
+		$text = plugin_call_hook('CAPTCHA');
+		return $text;
 	}
 
 	$t = array(
@@ -31,14 +28,17 @@ function generate_turing_val(&$rt)
 		array('2','3','4','5','6','7','8','9','A','B','C','E','F','G','H','I','J','K','L','M','N','P','Q','R','S','T','U','V','W','X','Y','Z')
 	);
 
-	$rv = array_rand($t[0], 4);
+	$rv      = array_rand($t[0], 4);
 	$captcha = $t[7][$rv[0]] . $t[7][$rv[1]] . $t[7][$rv[2]] . $t[7][$rv[3]];
-	$rt = md5($captcha);
+	$rt      = md5($captcha);
+
+	$text = '<input type="text" name="turing_test" id="turing_test" size="25" required="required" placeholder="{TEMPLATE: captcha_img_help}" />';
+	$text .= '<input type="hidden" name="turing_res" value="'. $rt .'" />';
 
 	if (($GLOBALS['FUD_OPT_3'] & 33554432) && extension_loaded('gd') && function_exists('imagecreate') ) {
 		// Graphical captcha.
 		ses_putvar((int)$GLOBALS['usr']->sid, $captcha);
-		return '{TEMPLATE: image_captcha_link}';
+		return $text .'{TEMPLATE: image_captcha_link}';
 	} else {
 		// Text based captcha.
 		$bg_fill_chars = array(' ', '.', ',', '`', '_', '\'');
@@ -46,23 +46,24 @@ function generate_turing_val(&$rt)
 		$fg_fill_chars = array('&#35;', '&#64;', '&#36;', '&#42;', '&#88;');
 		$fg_fill       = $fg_fill_chars[array_rand($fg_fill_chars)];
 
+		$text .= '<pre>';
 		// Generate turing text.
-		$text = '';
 		for ($i = 0; $i < 7; $i++) {
 			foreach ($rv as $v) {
 				$text .= str_replace('#', $fg_fill, str_replace('.', $bg_fill, $t[$i][$v]));
 			}
 			$text .= '<br />';
 		}
-	 	return $text;
+	 	return $text .'</pre>';
 	}
 }
 
 /* Test if user entered a valid response to the CAPTCHA test. */
-function test_turing_answer($test, $res)
+// function test_turing_answer($test, $res)
+function test_turing_answer()
 {
 	if (defined('plugins')) {
-		$ok = plugin_call_hook('CAPTCHA_VALIDATE', array($test, $res));
+		$ok = plugin_call_hook('CAPTCHA_VALIDATE');
 	 	if ($ok == 0) {
 			return false;
 		} elseif ($ok == 1) {
@@ -70,6 +71,8 @@ function test_turing_answer($test, $res)
 		}
 	}
 
+	$test = $_POST['turing_test'];
+	$res  = $_POST['turing_res'];
 	if (empty($test) || empty($res)) {
 		return false;
 	}
