@@ -1057,7 +1057,9 @@ search_user_filter:Saring dening pangguna:
 register_none:Aja menawa pengiriman notifikasi kula
 findu_no_conf:unconfirmed pangguna
 register_max_sig_len:Bukaan Length:
+# Fuzzy
 register_turing:Mangga ketik kode ditampilake ing ngisor iki:
+# Fuzzy
 register_err_turing:Bener Validation kode.
 modque_cat:Kategori
 modque_forum:Forum

@@ -320,6 +320,7 @@ register_login_taken:Jo otettu
 register_password:Salasana:
 register_password_desc:Tilisi salasana. Salasana sisältää isoja ja pieniä kirjaimia, ja sen on oltava vähintään 6 merkkiä pitkä.
 register_conf_pass:Vahvista salasana:
+register_conf_pass_desc:Syötä salasana uudelleen.
 register_email_desc:Sähöpostiosoitteesi. Voit piilottaa sen Asetukset-osiossa.
 register_name:Nimi:
 register_name_desc:Oikea nimesi.
@@ -1064,8 +1065,8 @@ search_user_filter:Suodata käyttäjän mukaan:
 register_none:Älä ilmoita minulle
 findu_no_conf:vahvistamaton käyttäjä
 register_max_sig_len:Maksimipituus:
-register_turing:Syötä alla oleva varmistuskoodi:
-register_err_turing:Virheellinen varmistuskoodi.
+register_turing:Varmistus:
+register_err_turing:Varmistus epäonnistui. Yritä uudelleen.
 modque_cat:Luokka
 modque_forum:Foorumi
 idx_compact_forum_row:Saatavilla olevat foorumit:

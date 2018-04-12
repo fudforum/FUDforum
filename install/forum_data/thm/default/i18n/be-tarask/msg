@@ -316,6 +316,7 @@ register_login_taken:Ужо занятае
 register_password:Пароль:
 register_password_desc:Пароль для вашага рахунку. Паролі адчувальныя да рэгістру і мусяць мець ня меней за 6 сымбаляў.
 register_conf_pass:Пацьверджаньне паролю:
+register_conf_pass_desc:Калі ласка, увядзіце ваш пароль яшчэ раз.
 register_email_desc:Ваш адрас электроннай пошты. Вы можаце яго схаваць у сэкцыі наладаў ніжэй.
 register_name:Імя:
 register_name_desc:Вашае сапраўднае імя.
@@ -1055,7 +1056,8 @@ search_user_filter:Фільтраваць па карыстальнікам:
 register_none:Не паведамляць мне
 findu_no_conf:непацьверджаны карыстальнік
 register_max_sig_len:Максымальная даўжыня:
-register_turing:Калі ласка, увядзіце код, пададзены ніжэй:
+register_turing:Пацьверджаньне:
+# Fuzzy
 register_err_turing:Няслушны код пацьверджаньня.
 modque_cat:Катэгорыя
 modque_forum:Форум

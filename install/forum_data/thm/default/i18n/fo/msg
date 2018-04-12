@@ -1056,7 +1056,9 @@ search_user_filter:Filtrera eftir brúkara:
 register_none:Ikki siga mær frá
 findu_no_conf:óváttaður brúkari
 register_max_sig_len:Mest loyvda longd:
+# Fuzzy
 register_turing:Vinarliga tasta inn kotuna sum er víst niðanfyri:
+# Fuzzy
 register_err_turing:Ógyldug váttanarkota.
 modque_cat:Bólkur
 modque_forum:Forum

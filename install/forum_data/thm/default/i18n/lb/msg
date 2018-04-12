@@ -214,6 +214,7 @@ register_login_taken:Scho verginn
 register_password:Passwuert:
 register_password_desc:Passwuert fir Äre Benotzerkont. Passwierder ënnerscheeden tëscht groussen a klenge Buschtawen a musse mindestens 6 Zeeche laang sinn.
 register_conf_pass:Passwuert confirméieren:
+register_conf_pass_desc:Gitt Äert Passwuert w.e.g. nach eng Kéier an.
 register_email_desc:Är E-mailadress. Dir kënnt hei drënner, am Abschnitt vun den Astellungen, wielen ob Dir se verstoppe wëllt.
 register_name:Numm:
 register_name_desc:Äre richtegen Numm.
@@ -523,6 +524,7 @@ search_options:Sichoptiounen
 search_user_filter:Nom Benotzer filteren:
 findu_no_conf:net-confirméierte Benotzer
 register_max_sig_len:Maximal Längt:
+register_turing:Iwwerpréiwung:
 modque_cat:Kategorie
 modque_forum:Forum
 mmd_abort_move:Ofbriechen

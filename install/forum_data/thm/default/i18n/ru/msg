@@ -326,6 +326,7 @@ register_login_taken:Уже занято
 register_password:Пароль:
 register_password_desc:Пароль для Вашей учетной записи. Пароли чувствительны к регистру и должны быть не менее 6 символов длиной.
 register_conf_pass:Пароль повторно (для проверки):
+register_conf_pass_desc:Пожалуйста, введите пароль ещё раз.
 register_email_desc:Ваш адрес e-mail. Скрыть его вы сможете в персональных настройках ниже.
 register_name:Имя:
 register_name_desc:Ваше настоящее имя.
@@ -1066,7 +1067,7 @@ register_none:Не уведомлять
 findu_no_conf:неподтвержденный участник
 register_max_sig_len:Максимальная длинна:
 register_turing:Пожалуйста, введите код подтверждения, который вы видите ниже:
-register_err_turing:Неверный код подтверждения.
+register_err_turing:Неверный код подтверждения. Попробуйте снова.
 modque_cat:Категория
 modque_forum:Форум
 idx_compact_forum_row:Доступные форумы:

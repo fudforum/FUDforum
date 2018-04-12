@@ -322,6 +322,7 @@ register_login_taken:已使用
 register_password:密碼：
 register_password_desc:用於您帳戶的密碼。密碼內容區分大小寫並至少6個字元長度。
 register_conf_pass:密碼確認：
+register_conf_pass_desc:請重新輸入您的密碼。
 register_email_desc:您的電子郵件地址。您可以在下面的偏好設定中選擇來隱藏。
 register_name:名稱：
 register_name_desc:您的真實姓名。
@@ -1061,8 +1062,8 @@ search_user_filter:按使用者過濾：
 register_none:不要通知我
 findu_no_conf:未確認的使用者
 register_max_sig_len:最大長度：
-register_turing:請輸入如下所示的代碼：
-register_err_turing:無效的驗證代碼。
+register_turing:驗證：
+register_err_turing:驗證失敗，請再重試。
 modque_cat:類別
 modque_forum:論壇
 idx_compact_forum_row:可用論壇：

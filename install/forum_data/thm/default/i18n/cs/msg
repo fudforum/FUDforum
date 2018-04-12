@@ -1058,7 +1058,9 @@ search_user_filter:Filtrovat podle uživatele:
 register_none:Neupozorňovat
 findu_no_conf:nepotvrzený uživatel
 register_max_sig_len:Maximální délka:
+# Fuzzy
 register_turing:Zadejte prosím níže uvedený kód:
+# Fuzzy
 register_err_turing:Neplatný ověřovací kód.
 modque_cat:Kategorie
 modque_forum:Fórum

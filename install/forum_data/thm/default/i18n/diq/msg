@@ -596,7 +596,9 @@ search_user_filter:Karberi heta avrêc ke:
 register_none:Mı Xeberdar meke
 findu_no_conf:Karberê ke otomatikmen tesdiq biy
 register_max_sig_len:En Vêşi Dergey:
+# Fuzzy
 register_turing:Şıma ra reca, Qodê cêrêni defiye de:
+# Fuzzy
 register_err_turing:Ravyayışê qodi xırabo.
 modque_cat:Kategoriye
 modque_forum:Forum

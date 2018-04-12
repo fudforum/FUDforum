@@ -1050,7 +1050,9 @@ search_user_filter:ئىشلەتكۈچى سۈزگەن:
 register_none:ماڭا ئۇقتۇرما
 findu_no_conf:جەزملەنمىگەن ئىشلەتكۈچى
 register_max_sig_len:ئەڭ چوڭ ئۇزۇنلۇق:
+# Fuzzy
 register_turing:تۆۋەندە كۆرسىتىدىغان كودنى كىرگۈزۈڭ:
+# Fuzzy
 register_err_turing:ئىناۋەتسىز دەلىللەش كودى.
 modque_cat:تۈر
 modque_forum:مۇنبەر

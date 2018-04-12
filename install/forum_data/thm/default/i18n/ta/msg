@@ -1061,7 +1061,9 @@ search_user_filter:பயனரை  கொண்டு வடிகட்டு:
 register_none:எனக்கு தெரிவிக்க வேண்டாம்
 findu_no_conf:உறுதிப்படுத்தப்படாத பயனர்
 register_max_sig_len:அதிக பட்ச நீளம்:
+# Fuzzy
 register_turing:கீழே காண்பிக்கப்படும் குறியீட்டை உள்ளிடவும்:
+# Fuzzy
 register_err_turing:செல்லாத சரிபார்த்தல் குறியீடு.
 modque_cat:பகுப்பு
 modque_forum:கருத்துக்களம்

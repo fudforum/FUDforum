@@ -320,6 +320,7 @@ register_login_taken:이미 사용 중
 register_password:비밀번호:
 register_password_desc:계정을 위한 비밀번호입니다. 비밀번호는 대소문자를 구별하며 적어도 6자여야 합니다.
 register_conf_pass:비밀번호 확인:
+register_conf_pass_desc:비밀번호를 다시 입력해 주십시오.
 register_email_desc:이메일 주소입니다. 환경 설정 부분에서, 아래에 이메일 숨기기를 선택할 수 있습니다.
 register_name:이름:
 register_name_desc:실명입니다.
@@ -1039,8 +1040,8 @@ search_user_filter:사용자별 필터:
 register_none:알리지 마세요
 findu_no_conf:확인되지 않은 사용자
 register_max_sig_len:최대 길이:
-register_turing:아래에 보이는 코드를 입력하세요:
-register_err_turing:인증 코드가 잘못됐습니다.
+register_turing:인증:
+register_err_turing:인증을 실패했습니다. 다시 시도해 주십시오.
 modque_cat:분류
 modque_forum:포럼
 idx_compact_forum_row:이용가능 포럼:

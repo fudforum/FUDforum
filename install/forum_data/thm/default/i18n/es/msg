@@ -323,6 +323,7 @@ register_login_taken:Ya tomado
 register_password:Contraseña:
 register_password_desc:Contraseña para tu cuenta. Las contraseñas distinguen mayúsculas de minúsculas, y deben tener al menos 6 caracteres de longitud.
 register_conf_pass:Confirmar contraseña:
+register_conf_pass_desc:Escribe tu contraseña otra vez.
 register_email_desc:Tu dirección de correo electrónico. Puedes elegir ocultarla en la sección de preferencias.
 register_name:Nombre:
 register_name_desc:Tu nombre real.
@@ -1067,7 +1068,8 @@ search_user_filter:Filtrar por usuario:
 register_none:No me notifiquen
 findu_no_conf:usuario sin confirmar
 register_max_sig_len:Longitud máxima:
-register_turing:Escriba el código que se muestra debajo:
+register_turing:Verificación:
+# Fuzzy
 register_err_turing:El código de validación no es válido.
 modque_cat:Categoría
 modque_forum:Foros

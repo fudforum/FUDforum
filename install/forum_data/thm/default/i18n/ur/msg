@@ -1063,7 +1063,9 @@ search_user_filter:صارف کی طرف سے فلٹر کریں:
 register_none:مجھے مطلع نہ کریں
 findu_no_conf:غیر مصدقہ صارف
 register_max_sig_len:زیادہ سے زیادہ لمبائی:
+# Fuzzy
 register_turing:ذیل میں دکھایا گیا کوڈ درج کریں:
+# Fuzzy
 register_err_turing:باطل کی توثیق کوڈ.
 modque_cat:قسم
 modque_forum:فورم

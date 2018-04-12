@@ -1049,7 +1049,9 @@ search_user_filter:Filtrar per usator:
 register_none:Non notificar me
 findu_no_conf:usator non confirmate
 register_max_sig_len:Longitude maxime:
+# Fuzzy
 register_turing:Per favor entra le codice monstrate hic infra:
+# Fuzzy
 register_err_turing:Codice de validation invalide.
 modque_cat:Categoria
 modque_forum:Foro

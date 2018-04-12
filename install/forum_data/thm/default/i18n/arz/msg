@@ -1058,7 +1058,9 @@ search_user_filter:رشّح المستخدم:
 register_none:ما تبلغنيش
 findu_no_conf:مستخدم غير مؤكد
 register_max_sig_len:الدليل الأقصى:
+# Fuzzy
 register_turing:من فضلك أدخل الرمز الظاهر أدناه:
+# Fuzzy
 register_err_turing:رمز تحقق غير صالح.
 modque_cat:تصنيف
 modque_forum:منتدى

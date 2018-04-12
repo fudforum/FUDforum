@@ -1063,7 +1063,9 @@ search_user_filter:Nach Benutzer filtern:
 register_none:Nicht benachrichtigen
 findu_no_conf:unbestätigter Benutzer
 register_max_sig_len:Maximale Länge:
+# Fuzzy
 register_turing:Bitte geben Sie den unten angezeigten Code ein:
+# Fuzzy
 register_err_turing:Ungültiger Code
 modque_cat:Kategorie
 modque_forum:Forum

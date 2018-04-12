@@ -1055,7 +1055,9 @@ search_user_filter:Filtrar per utilizaire :
 register_none:Me notificar pas
 findu_no_conf:utilizaire pas confirmat
 register_max_sig_len:Longor maximala :
+# Fuzzy
 register_turing:Entratz lo còdi çaijós :
+# Fuzzy
 register_err_turing:Còdi de validacion incorrècte.
 modque_cat:Categoria
 modque_forum:Forum

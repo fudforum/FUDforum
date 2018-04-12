@@ -1063,7 +1063,9 @@ search_user_filter:Szűrés felhasználó alapján:
 register_none:Nem kérek értesítést
 findu_no_conf:nem megerősített felhasználó
 register_max_sig_len:Maximális hossz:
+# Fuzzy
 register_turing:Írd be az alább látható kódot:
+# Fuzzy
 register_err_turing:Érvénytelen ellenőrzőkód.
 modque_cat:Kategória
 modque_forum:Fórum

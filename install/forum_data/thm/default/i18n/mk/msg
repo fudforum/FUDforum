@@ -311,6 +311,7 @@ register_login_taken:Зафатено
 register_password:Лозинка:
 register_password_desc:Лозинка за сметката. Во нив се разликуваат големи и мали букви и мора да имаат барем 6 знаци.
 register_conf_pass:Повторно лозинката:
+register_conf_pass_desc:Повторно внесете ја лозинката.
 register_email_desc:Ваша е-пошта. Можете да ја окриете подолу, во делот за нагодувања.
 register_name:Име:
 register_name_desc:Вашето вистинско име.
@@ -1050,8 +1051,8 @@ search_user_filter:Филтрирај по корисник:
 register_none:Не ме известувај
 findu_no_conf:непотврден корисник
 register_max_sig_len:Најголема должина:
-register_turing:Внесете го долуприкажаниот код:
-register_err_turing:Неважечки потврден код.
+register_turing:Проверка:
+register_err_turing:Проверката не успеа. Обидете се повторно.
 modque_cat:Категорија
 modque_forum:Форум
 idx_compact_forum_row:Форуми на располагање:
@@ -1112,8 +1113,7 @@ move_msg_th_expl:Назначете ID на темата во која ќе се
 captcha_img_alt:Проверка со сликичка: ќе треба да го препознаете текстот на неа.
 captcha_img_help:На сликата нема нула или единица.
 powered-by:Со поддршка од: FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:Авторски права &copy;2001-2017 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Авторски права &copy;2001-2018 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Код:
 code_select_all:Избери сè
 code_show_hide:Прикажи / скриј

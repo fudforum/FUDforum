@@ -1060,7 +1060,9 @@ search_user_filter:No Benutzer filtere:
 register_none:Mi nit benochrichtige
 findu_no_conf:nit bstetigte Benutzer
 register_max_sig_len:Maximali Lengi:
+# Fuzzy
 register_turing:Bitte gib dr Code yy, wu unte aazeigt wird:
+# Fuzzy
 register_err_turing:Nit giltige Code
 modque_cat:Kategorii
 modque_forum:Forum

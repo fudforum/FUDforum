@@ -327,6 +327,7 @@ register_login_taken:Déjà pris
 register_password:Mot de passe :
 register_password_desc:Mot de passe pour votre compte. Les mots de passe sont sensibles à la casse et doivent avoir au moins 6 caractères de long.
 register_conf_pass:Confirmez le mot de passe :
+register_conf_pass_desc:Veuillez ressaisir votre mot de passe.
 register_email_desc:Vote adresse courriel. Vous pouvez choisir de la masquer ci-dessous, dans la section « Préférences ».
 register_name:Nom :
 register_name_desc:Votre vrai nom.
@@ -1066,8 +1067,8 @@ search_user_filter:Filtrer par utilisateur :
 register_none:Ne pas me notifier
 findu_no_conf:utilisateur non confirmé
 register_max_sig_len:Longueur maximale :
-register_turing:Veuillez entrer le code ci-dessous:
-register_err_turing:Code de validation incorrect.
+register_turing:Vérification :
+register_err_turing:Échec de la vérification. Veuillez réessayer.
 modque_cat:Catégorie
 modque_forum:Forum
 idx_compact_forum_row:Forums disponibles :
@@ -1128,8 +1129,7 @@ move_msg_th_expl:Précisez l'identifiant du sujet de destination (peut être sit
 captcha_img_alt:Vérification par Captcha : vous devez reconnaître le texte dans cette image.
 captcha_img_help:Il n'y a pas de zéro ou de un sur cette image.
 powered-by:Propulsé par : FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:Copyright &copy;2001-2017 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Copyright &copy;2001-2018 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:CODE :
 code_select_all:Tout sélectionner
 code_show_hide:Afficher / masquer

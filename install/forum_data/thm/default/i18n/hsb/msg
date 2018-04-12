@@ -1057,7 +1057,9 @@ search_user_filter:Po wužiwarjom filtrować:
 register_none:Njezdźělić
 findu_no_conf:njewobkrućeny wužiwar
 register_max_sig_len:Maksimalna dołhosć:
+# Fuzzy
 register_turing:Prošu zapodaj slědowacy kod:
+# Fuzzy
 register_err_turing:Njepłaćiwy přepruwowanski kod.
 modque_cat:Kategorija
 modque_forum:Forum

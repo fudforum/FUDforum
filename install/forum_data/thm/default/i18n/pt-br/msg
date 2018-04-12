@@ -1062,7 +1062,9 @@ search_user_filter:Filtrar por usuário:
 register_none:Não me notificar
 findu_no_conf:usuário não confirmado
 register_max_sig_len:Comprimento máximo:
+# Fuzzy
 register_turing:Por favor, entre com o código aqui abaixo:
+# Fuzzy
 register_err_turing:Código de validação inválido.
 modque_cat:Categoria
 modque_forum:Fórum

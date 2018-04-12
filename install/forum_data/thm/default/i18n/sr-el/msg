@@ -1063,7 +1063,9 @@ search_user_filter:Svrstaj po korisniku:
 register_none:ne obaveštavaj me
 findu_no_conf:nepotvrđen korisnik
 register_max_sig_len:Najveća dužina:
+# Fuzzy
 register_turing:Unesite kôd ispod:
+# Fuzzy
 register_err_turing:Neispravan potvrdni kôd.
 modque_cat:Kategorija
 modque_forum:Forum

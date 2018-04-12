@@ -1003,6 +1003,7 @@ uc_new_topic:Nova temo
 register_none:Ne min avizu
 findu_no_conf:Nekonfirmita uzanto
 register_max_sig_len:Maksimuma longaĵo:
+# Fuzzy
 register_err_turing:Nevalida validiga kodo.
 modque_cat:Kategorio
 modque_forum:Forumo

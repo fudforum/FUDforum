@@ -322,6 +322,7 @@ register_login_taken:Redan taget
 register_password:Lösenord:
 register_password_desc:Lösenord för ditt konto. Lösenord är skiftlägeskänsliga och måste vara minst 6 tecken långt.
 register_conf_pass:Bekräfta lösenord:
+register_conf_pass_desc:Var god ange ditt lösenord igen.
 register_email_desc:Din e-postadress. Du kan välja att dölja den nedan i avsnittet Inställningar.
 register_name:Namn:
 register_name_desc:Ditt riktiga namn.
@@ -1061,8 +1062,8 @@ search_user_filter:Filtrerar efter användare:
 register_none:Meddela mig inte
 findu_no_conf:obekräftad användare
 register_max_sig_len:Maximal längd:
-register_turing:Skriv in koden som visas nedan:
-register_err_turing:Ogiltig bekräftelsekod.
+register_turing:Verifiering:
+register_err_turing:Verifiering misslyckades. Var god försök igen.
 modque_cat:Kategori
 modque_forum:Forum
 idx_compact_forum_row:Tillgängliga forum:
@@ -1123,8 +1124,7 @@ move_msg_th_expl:Specificera ID på destinationsämnet (kan vara i andra fora)
 captcha_img_alt:Caotcha verifiering: du måste tolka texten i denna bild.
 captcha_img_help:Det finns ingen nolla eller etta i bilden.
 powered-by:Drivs av: FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:Copyright &copy;2001–2017 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Copyright &copy;2001–2018 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Kod:
 code_select_all:Välj alla
 code_show_hide:Visa / dölj

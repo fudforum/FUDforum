@@ -1057,7 +1057,9 @@ search_user_filter:Tapis mengikut pengguna:
 register_none:Jangan beritahu saya
 findu_no_conf:pengguna yang belum disahkan
 register_max_sig_len:Panjang Maksimum:
+# Fuzzy
 register_turing:Sila isikan kod yang dipaparkan di bawah:
+# Fuzzy
 register_err_turing:Kod pengesahan tidak sah.
 modque_cat:Kategori
 modque_forum:Forum

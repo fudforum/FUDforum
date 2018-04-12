@@ -1053,7 +1053,9 @@ search_user_filter:Silañ dre implijer :
 register_none:Chom hep kemenn din
 findu_no_conf:implijer n'eo ket kadarnaet
 register_max_sig_len:Hirded vrasañ :
+# Fuzzy
 register_turing:Ebarzhit ar c'hod diskouezet amañ dindan, mar plij :
+# Fuzzy
 register_err_turing:Kod kadarnaat direizh
 modque_cat:Rummad
 modque_forum:Forom

@@ -1039,7 +1039,9 @@ search_user_filter:Filtrat de utilizator:
 register_none:Nu mă notifica
 findu_no_conf:Utilizator neconfirmat
 register_max_sig_len:Lungimea Maxima:
+# Fuzzy
 register_turing:Va rog sa introduceti codul afisat mai jos:
+# Fuzzy
 register_err_turing:Cod de validare incorect.
 modque_cat:Categorie
 modque_forum:Forum

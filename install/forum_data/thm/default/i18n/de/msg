@@ -324,6 +324,7 @@ register_login_taken:Bereits vergeben
 register_password:Passwort:
 register_password_desc:Passwort für dein Benutzerkonto. Bei Passwörtern wird zwischen Groß- und Kleinschreibung unterschieden und sie müssen mindestens 6 Zeichen lang sein.
 register_conf_pass:Passwort bestätigen:
+register_conf_pass_desc:Bitte gib dein Passwort erneut ein.
 register_email_desc:Deine E-Mail-Adresse. Du kannst unten im Einstellungsabschnitt auswählen, dass sie versteckt werden soll.
 register_name:Name:
 register_name_desc:Dein bürgerlicher Name.
@@ -1063,8 +1064,8 @@ search_user_filter:Nach Benutzer filtern:
 register_none:Nicht benachrichtigen
 findu_no_conf:unbestätigter Benutzer
 register_max_sig_len:Maximale Länge:
-register_turing:Bitte den unten angezeigten Code eingeben:
-register_err_turing:Ungültiger Code
+register_turing:Verifizierung:
+register_err_turing:Verifizierung fehlgeschlagen. Bitte erneut versuchen.
 modque_cat:Kategorie
 modque_forum:Forum
 idx_compact_forum_row:Verfügbare Foren:

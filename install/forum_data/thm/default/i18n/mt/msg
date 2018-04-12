@@ -1060,7 +1060,9 @@ search_user_filter:Iffiltra skont l-utent:
 register_none:Tavżanix
 findu_no_conf:utent mhux ikkonfermat
 register_max_sig_len:Tul massimu:
+# Fuzzy
 register_turing:Jekk jogħġbok daħħal il-kodiċi muri taħt:
+# Fuzzy
 register_err_turing:Kodiċi ta' validazzjoni ħażin.
 modque_cat:Kategorija
 modque_forum:Forum

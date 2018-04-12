@@ -310,6 +310,7 @@ register_login_taken:Reeds gevat
 register_password:Wagwoord:
 register_password_desc:Wagwoord vir u gebruiker. Wagwoorde is gevoelig vir hoofletters en moet ten minste 6 karakters lank wees.
 register_conf_pass:Bevestig wagwoord:
+register_conf_pass_desc:Sleutel die wagwoord weer in.
 register_email_desc:U e-posadres. U kan kies om dit privaat te hou in die keuse hieronder.
 register_name:Naam:
 register_name_desc:U regte naam.
@@ -1049,8 +1050,8 @@ search_user_filter:Vir gebruiker:
 register_none:Geen kennisgewings
 findu_no_conf:onbevestigde gebruiker
 register_max_sig_len:Maksimum lengte:
-register_turing:Sleutel asb die volgende letters in:
-register_err_turing:Ongeldige validasie-kode.
+register_turing:Bevestiging:
+register_err_turing:Bevestiging het gefaal. Probeer asb weer.
 modque_cat:Kategorie
 modque_forum:Forum
 idx_compact_forum_row:Beskikbare forums:

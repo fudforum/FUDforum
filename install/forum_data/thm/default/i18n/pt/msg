@@ -325,6 +325,7 @@ register_login_taken:Já utilizado
 register_password:Palavra-passe:
 register_password_desc:A palavra-passe para a sua conta. As palavras-passe são sensíveis a maiúsculas e minúsculas e devem ter pelo menos 6 carateres.
 register_conf_pass:Confirmar senha:
+register_conf_pass_desc:Introduza novamente a sua palavra-passe, por favor.
 register_email_desc:O seu endereço de e-mail. Pode escolher em ocultá.lo em baixo, na secção das Preferências.
 register_name:Nome:
 register_name_desc:O seu nome verdadeiro.
@@ -1064,8 +1065,8 @@ search_user_filter:Filtrar por utilizador:
 register_none:Não me notificar
 findu_no_conf:utilizador não confirmado
 register_max_sig_len:Comprimento Máximo:
-register_turing:Por favor, insira o código mostrado abaixo:
-register_err_turing:Código de validação inválido.
+register_turing:Verificação:
+register_err_turing:A verificação falhou. Tente novamente, por favor.
 modque_cat:Categoria
 modque_forum:Fórum
 idx_compact_forum_row:Fóruns disponíveis:
@@ -1126,8 +1127,7 @@ move_msg_th_expl:Especifique a ID do tópico de destino (pode estar em outros f�
 captcha_img_alt:Verificação por Captcha: você terá que reconhecer o texto nesta imagem.
 captcha_img_help:Não há zero ou um na imagem.
 powered-by:Potenciado por: FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:Copyright &copy;2001-2017 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Direitos de autor &copy;2001-2018 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Código:
 code_select_all:Selecionar tudo
 code_show_hide:Mostrar / ocultar

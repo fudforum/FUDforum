@@ -322,6 +322,7 @@ register_login_taken:已被使用
 register_password:密码：
 register_password_desc:用于您账户的密码。密码区分大小写，并且长度必须至少为6个字符。
 register_conf_pass:密码确认：
+register_conf_pass_desc:请出现输入您的密码。
 register_email_desc:您的电子邮件地址。您可以在下面的参数设置一节中选择隐藏它。
 register_name:名称：
 register_name_desc:您的真实姓名。
@@ -1064,8 +1065,8 @@ search_user_filter:仅限作者：
 register_none:不要通知我
 findu_no_conf:未验证Email
 register_max_sig_len:最大长度:
-register_turing:请输入下面显示的代码:
-register_err_turing:无效的验证码.
+register_turing:认证：
+register_err_turing:认证失败。请重试。
 modque_cat:分类
 modque_forum:论坛
 idx_compact_forum_row:可用论坛

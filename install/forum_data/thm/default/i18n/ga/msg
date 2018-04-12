@@ -1058,7 +1058,9 @@ search_user_filter:Scag de réir úsáideora:
 register_none:Ná in iúl dom
 findu_no_conf:úsáideoir nár daingníodh
 register_max_sig_len:Fad Uasmhéid:
+# Fuzzy
 register_turing:Cuir isteach an cód a thaispeántar thíos:
+# Fuzzy
 register_err_turing:Cód bailíochtú neamhbhailí.
 modque_cat:catagóir
 modque_forum:Fóram

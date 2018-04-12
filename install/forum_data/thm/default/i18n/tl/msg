@@ -1057,7 +1057,9 @@ search_user_filter:Salain ayon sa tagagamit:
 register_none:Huwag akong pabatiran
 findu_no_conf:hindi natiyak na tagagamit
 register_max_sig_len:Pinakamataas na Haba:
+# Fuzzy
 register_turing:Mangyaring pakipasok ang kodigong ipinapakita sa ibaba:
+# Fuzzy
 register_err_turing:Hindi katanggap-tanggap na kodigo ng pagpapatunay.
 modque_cat:Kategorya
 modque_forum:Poro

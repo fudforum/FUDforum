@@ -845,7 +845,9 @@ search_user_filter:Pó wužywarju filtrowaś
 register_none:Njeinforměrowaś
 findu_no_conf:njewobkšuśony wužywaŕ
 register_max_sig_len:Maksimalna dłujkosć:
+# Fuzzy
 register_turing:Pšosym zapódaj slědujucy code:
+# Fuzzy
 register_err_turing:Njepłaśiwy kod.
 modque_cat:Kategorija
 modque_forum:Forum

@@ -288,6 +288,7 @@ register_login_taken:Έχει ήδη πιαστεί
 register_password:Κωδικός:
 register_password_desc:Κωδικός πρόσβασης για τον λογαριασμό σας. Οι κωδικοί πρόσβασης είναι ευαίσθητοι σε αυτή τη περίπτωση και πρέπει να περιέχουν τουλάχιστον 6 χαρακτήρες.
 register_conf_pass:Επιβεβαίωση Κωδικού:
+register_conf_pass_desc:Παρακαλούμε επανεισάγετε τον κωδικό σας.
 register_email_desc:Η διεύθυνση ηλεκτρονικού ταχυδρομείου σας. Μπορείτε να επιλέξετε να την αποκρύψετε παρακάτω, στην ενότητα Προτιμήσεις.
 register_name:Όνομα:
 register_name_desc:Το πραγματικό σας όνομα.
@@ -700,6 +701,8 @@ uc_cat_forum:Κατηγορία &raquo; Φόρουμ
 search_options:Αναζήτηση επιλογών
 register_none:Μη με ειδοποιήσεις
 register_max_sig_len:Μέγιστο μήκος:
+register_turing:Επιβεβαίωση:
+register_err_turing:Η επιβεβαίωση απέτυχε. Παρακαλώ προσπαθήστε ξανά.
 modque_cat:Κατηγορία
 modque_forum:Φόρουμ
 idx_compact_forum_row:Διαθέσιμα φόρουμ:

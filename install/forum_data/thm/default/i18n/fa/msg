@@ -1067,7 +1067,9 @@ search_user_filter:محدود به کاربر:
 register_none:من را آگاه نکن
 findu_no_conf:کاربر تأیید‌نشده
 register_max_sig_len:حداکثر طول:
+# Fuzzy
 register_turing:لطفا کد کپچای زیر را وارد کنید:
+# Fuzzy
 register_err_turing:کد کپچا نادرست است.
 modque_cat:سربرگ
 modque_forum:انجمن

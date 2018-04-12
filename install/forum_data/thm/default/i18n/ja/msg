@@ -1066,7 +1066,9 @@ search_user_filter:利用者で絞り込み:
 register_none:通知しない
 findu_no_conf:未確認利用者
 register_max_sig_len:最大長:
+# Fuzzy
 register_turing:下記に表示されているコードを入力してください:
+# Fuzzy
 register_err_turing:確認コードが正しくありません。
 modque_cat:カテゴリ
 modque_forum:フォーラム

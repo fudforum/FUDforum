@@ -1066,7 +1066,9 @@ search_user_filter:Filtruoti pagal vartotoją:
 register_none:Neperspėti manęs
 findu_no_conf:nepatvirtintas vartotojas
 register_max_sig_len:Maksimalus ilgis:
+# Fuzzy
 register_turing:Įveskite kodą, parodytą žemiau:
+# Fuzzy
 register_err_turing:Neteisingas patvirtinimo kodas.
 modque_cat:Kategorija
 modque_forum:Forumas

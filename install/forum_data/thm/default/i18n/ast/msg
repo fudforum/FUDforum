@@ -1050,7 +1050,9 @@ search_user_filter:Peñerar por usuariu:
 register_none:Nun avisame
 findu_no_conf:usuariu ensin confirmar
 register_max_sig_len:Llonxitú máxima:
+# Fuzzy
 register_turing:Por favor, escribi'l códigu que s'amuesa abaxo:
+# Fuzzy
 register_err_turing:Códigu de comprobación inválidu.
 modque_cat:Categoría
 modque_forum:Foru

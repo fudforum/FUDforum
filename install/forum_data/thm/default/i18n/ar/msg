@@ -319,6 +319,7 @@ register_login_taken:مأخوذ مسبقا
 register_password:كلمة السر:
 register_password_desc:الكلمة السرية لحسابك. الكلمات السرية حساسة لحالة الأحرف ويجب أن تحتوي على 6 أحرف على الأقل.
 register_conf_pass:تأكيد كلمة السر:
+register_conf_pass_desc:من فضلك أعد إدخال كلمة سرك.
 register_email_desc:البريد الإلكتروني الخاص بك، يمكنك اختيار إخفاءه أدناه في قسم التفضيلات.
 register_name:الاسم:
 register_name_desc:اسمك الحقيقي.
@@ -1058,8 +1059,8 @@ search_user_filter:رشِّح حسب المستخدم:
 register_none:لا تشعرني
 findu_no_conf:مستخدم غير مؤكد
 register_max_sig_len:الطول الأقصى:
-register_turing:من فضلك أدخل الرمز الظاهر أدناه:
-register_err_turing:رمز تحقق غير صالح.
+register_turing:التحقق:
+register_err_turing:فشل التحقق; حاول مرة أخرى.
 modque_cat:تصنيف
 modque_forum:منتدى
 idx_compact_forum_row:المنتديات المتوفرة:
@@ -1120,8 +1121,7 @@ move_msg_th_expl:حدد هوية الموضوع الهدف (يمكن أن يكو
 captcha_img_alt:تحقق كابتشا: سوف تحتاج إلى التعرف على نص هذه الصورة.
 captcha_img_help:لا يوجد صفر ولا واحد في الصورة.
 powered-by:يشغله: FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:حقوق النشر &copy;2001-2017 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:حقوق النشر &copy;2001-2018 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:الكود
 code_select_all:اختر الكل
 code_show_hide:أظهر/أخفِ

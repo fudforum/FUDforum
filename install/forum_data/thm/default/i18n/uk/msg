@@ -1061,7 +1061,9 @@ search_user_filter:Фільтр по користувачу:
 register_none:Не повідомляти мене
 findu_no_conf:підтверджений користувач
 register_max_sig_len:Максимальна довжина:
+# Fuzzy
 register_turing:Будь ласка, введіть код, вказаний нижче:
+# Fuzzy
 register_err_turing:Невірний код підтвердження.
 modque_cat:Категорія
 modque_forum:Форум

@@ -315,6 +315,7 @@ register_login_taken:Þegar upptekið
 register_password:Lykilorð:
 register_password_desc:Lykilorð fyrir aðganginn þinn. Lykilorð eru hástafanæm og verða að vera minnst 6 stafir að lengd.
 register_conf_pass:Staðfestu lykilorðið:
+register_conf_pass_desc:Settu lykilorðið þitt inn aftur
 register_email_desc:Netfangið þitt. Þú getur valið að fela það í stillingunum.
 register_name:Nafn:
 register_name_desc:Raunverulega nafnið þitt.
@@ -1054,8 +1055,8 @@ search_user_filter:Sía eftir notanda:
 register_none:Engar tilkynningar
 findu_no_conf:óstaðfestur notandi
 register_max_sig_len:Hámarks lengd:
-register_turing:Vinsamlegast settu inn kóðann sem er sýndur hér fyrir neðan:
-register_err_turing:Vitlaus staðfestingar kóði.
+register_turing:Staðfesting:
+register_err_turing:Staðfesting mistókst. Prófaðu aftur.
 modque_cat:Flokkur
 modque_forum:Umræða
 idx_compact_forum_row:Aðgengilegar umræður:
@@ -1116,8 +1117,7 @@ move_msg_th_expl:Tilgreindu auðkenni þráðarinns sem á að færa á (má ver
 captcha_img_alt:Captcha staðfesting: Þú þarft að bera kennsl á textann á þessari mynd.
 captcha_img_help:Það er ekki núll eða einn á myndinni.
 powered-by:Knúið af: FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:Höfundarréttur &copy;2001-2017 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Höfundarréttur &copy;2001-2018 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Kóði:
 code_select_all:Velja allt
 code_show_hide:sýna/fela

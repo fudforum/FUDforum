@@ -819,7 +819,9 @@ search_user_filter:Lọc thành viên:
 register_none:Không thông báo cho tôi
 findu_no_conf:Thành Viên Chưa Xác Nhận
 register_max_sig_len:Độ dài tối đa:
+# Fuzzy
 register_turing:Xin vui lòng nhập vào mã bên dưới:
+# Fuzzy
 register_err_turing:Mã Không Phù Hợp.
 modque_cat:Danh mục
 modque_forum:Diễn Đàn

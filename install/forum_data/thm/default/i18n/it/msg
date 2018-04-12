@@ -1058,8 +1058,8 @@ search_user_filter:Filtro per utente:
 register_none:Non avvisarmi
 findu_no_conf:utente non approvato
 register_max_sig_len:Lunghezza massima:
-register_turing:Per cortesia inserisci il codice mostrato sotto:
-register_err_turing:Codice di validazione errato.
+register_turing:Verifica:
+register_err_turing:Verifica fallita. Riprova.
 modque_cat:Categoria
 modque_forum:Forum
 idx_compact_forum_row:Forum disponibili:

@@ -1056,7 +1056,9 @@ search_user_filter:Filtrer etter bruker:
 register_none:Ikke varsle meg
 findu_no_conf:ubekreftet bruker
 register_max_sig_len:Maksimum lengde:
+# Fuzzy
 register_turing:Skriv inn koden vist nedenfor:
+# Fuzzy
 register_err_turing:Ugyldig valideringskode.
 modque_cat:Kategori
 modque_forum:Forum

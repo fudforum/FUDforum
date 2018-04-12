@@ -1063,7 +1063,9 @@ search_user_filter:Op gebruiker filteren:
 register_none:Mij niet waarschuwen
 findu_no_conf:onbevestigde gebruiker
 register_max_sig_len:Maximale lengte:
+# Fuzzy
 register_turing:Voer de onderstaande code in:
+# Fuzzy
 register_err_turing:Ongeldige bevestigingscode.
 modque_cat:Categorie
 modque_forum:Forum

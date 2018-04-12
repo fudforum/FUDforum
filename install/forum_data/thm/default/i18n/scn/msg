@@ -1059,7 +1059,9 @@ search_user_filter:Filtre pe utende:
 register_none:Non mu notificà
 findu_no_conf:utende non confermate
 register_max_sig_len:Lunghezza massime:
+# Fuzzy
 register_turing:Pe piacere mitte 'u codece fatte vedè sotte:
+# Fuzzy
 register_err_turing:Codece de validazione invalide.
 modque_cat:Categorije
 modque_forum:Forum

@@ -155,6 +155,7 @@ register_login_available:{{Identical|Available}}\nMessage next to login to indic
 register_login_taken:Message next to login to indicate that the entered user name is already taken and hence not available (AJAX lookup).
 register_password:{{Identical|Password}}
 register_conf_pass:{{Identical|Confirm password}}
+register_conf_pass_desc:Describe field for password confirmation.
 register_name:{{Identical|Name}}
 register_your_pass:Used as label for the "Password" input box in the control panel.\n{{Identical|Password}}
 register_update:{{Identical|Update}}
@@ -440,6 +441,8 @@ uc_new_topic:{{Identical|New topic}}
 uc_page_title:Used as session status to indicate last known action.\n{{Related|Fud-status}}
 search_options:{{Identical|Search options}}
 search_user_filter:Used as label for the "Username" input box in the Search form.
+register_turing:Part of registration screen where a captcha/ human verification will be presented.
+register_err_turing:Error message if captcha/ human verification failed.
 modque_cat:{{Identical|Category}}
 modque_forum:{{Identical|Forum}}
 mmd_del_title:{{Identical|Delete topic}}

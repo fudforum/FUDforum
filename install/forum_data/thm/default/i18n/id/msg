@@ -20,6 +20,7 @@
 # Author: StefanusRA
 # Author: Totosunarto
 # Author: WongKentir
+# Author: Zakiy
 
 action:Tindakan
 add_to_buddy_list:tambahkan ke daftar teman
@@ -1072,8 +1073,8 @@ search_user_filter:Filter atas dasar pengguna:
 register_none:Jangan beritahu saya
 findu_no_conf:Pengguna belum dikonfirmasi
 register_max_sig_len:Panjang maksimum:
-register_turing:Masukkan kode seperti terlihat di bawah ini:
-register_err_turing:Kode validasi tidak sah.
+register_turing:Verifikasi:
+register_err_turing:Verifikasi gagal. Harap dicoba lagi.
 modque_cat:Kategori
 modque_forum:Forum
 idx_compact_forum_row:Forum tersedia:

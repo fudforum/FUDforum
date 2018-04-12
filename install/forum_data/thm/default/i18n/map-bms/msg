@@ -1056,7 +1056,9 @@ search_user_filter:Saring miturut panganggo:
 register_none:Aja nidokna inyong
 findu_no_conf:panganggo durung dikonfirmasi
 register_max_sig_len:Dawane maksimum:
+# Fuzzy
 register_turing:Tulung lebokna kode sing keton nang ngisor kuwe:
+# Fuzzy
 register_err_turing:Kode validasine ora sah.
 modque_cat:Kategori
 modque_forum:Forum

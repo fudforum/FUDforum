@@ -1068,7 +1068,9 @@ search_user_filter:Kullanıcıya göre ara:
 register_none:Haberdar etme
 findu_no_conf:onaylanmamış kullanıcı
 register_max_sig_len:En Fazla Uzunluk:
+# Fuzzy
 register_turing:Lütfen aşağıda gösterilen kodu girin:
+# Fuzzy
 register_err_turing:Geçersiz doğrulama kodu.
 modque_cat:Kategori
 modque_forum:Forum
