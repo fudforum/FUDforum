@@ -1057,8 +1057,7 @@ register_none:Не паведамляць мне
 findu_no_conf:непацьверджаны карыстальнік
 register_max_sig_len:Максымальная даўжыня:
 register_turing:Пацьверджаньне:
-# Fuzzy
-register_err_turing:Няслушны код пацьверджаньня.
+register_err_turing:Памылка пацьверджаньня. Калі ласка, паспрабуйце яшчэ раз.
 modque_cat:Катэгорыя
 modque_forum:Форум
 idx_compact_forum_row:Даступныя форумы:
