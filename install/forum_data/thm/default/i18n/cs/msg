@@ -12,6 +12,7 @@
 # Author: Mormegil
 # Author: Mr. Richard Bolla
 # Author: Naudefj
+# Author: Patriccck
 # Author: Pedobry
 # Author: Utar
 
@@ -1058,10 +1059,8 @@ search_user_filter:Filtrovat podle uživatele:
 register_none:Neupozorňovat
 findu_no_conf:nepotvrzený uživatel
 register_max_sig_len:Maximální délka:
-# Fuzzy
-register_turing:Zadejte prosím níže uvedený kód:
-# Fuzzy
-register_err_turing:Neplatný ověřovací kód.
+register_turing:Ověření:
+register_err_turing:Ověření selhalo. Prosím zkuste to znovu.
 modque_cat:Kategorie
 modque_forum:Fórum
 idx_compact_forum_row:Dostupné Fóra:
@@ -1122,8 +1121,7 @@ move_msg_th_expl:Zadejte ID cílového téma (může být v jiných fórech)
 captcha_img_alt:Ověření Captcha: je třeba rozpoznat text v tomto obrázku.
 captcha_img_help:Na obrázku není žádná nula nebo jednička.
 powered-by:Běží na: FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:Copyright © 2001-2017 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Copyright &copy;2001-2018 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Kód:
 code_select_all:Vybrat vše
 code_show_hide:Zobrazit / skrýt

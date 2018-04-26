@@ -311,6 +311,7 @@ register_login_taken:Coyíu
 register_password:Contraseña:
 register_password_desc:Contraseña pa la cuenta. Les contraseñes son sensibles a les mayúscules y han tener polo menos 6 caráuteres de llonxitú.
 register_conf_pass:Confirma la contraseña:
+register_conf_pass_desc:Escribe nuevamante la contraseña.
 register_email_desc:La to direición de corréu electrónicu. Pues escoyer tapecela más abaxo, na seición de preferencies.
 register_name:Nome:
 register_name_desc:El to nome real.
@@ -1050,10 +1051,8 @@ search_user_filter:Peñerar por usuariu:
 register_none:Nun avisame
 findu_no_conf:usuariu ensin confirmar
 register_max_sig_len:Llonxitú máxima:
-# Fuzzy
-register_turing:Por favor, escribi'l códigu que s'amuesa abaxo:
-# Fuzzy
-register_err_turing:Códigu de comprobación inválidu.
+register_turing:Verificación:
+register_err_turing:Falló la verificación. Tenta nuevamente.
 modque_cat:Categoría
 modque_forum:Foru
 idx_compact_forum_row:Foros disponibles:
@@ -1114,8 +1113,7 @@ move_msg_th_expl:Especifica la ID del filu de destín (pue tar n'otros foros)
 captcha_img_alt:Comprobación por Captcha: tendrás que reconocer el testu d'esta imaxe.
 captcha_img_help:Nun hai dengún cero o unu na imaxe.
 powered-by:Movíu por: FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:Copyright &copy;2001-2017 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Copyright &copy;2001-2018 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Códigu:
 code_select_all:Seleccionar too
 code_show_hide:Amosar/anubrir
