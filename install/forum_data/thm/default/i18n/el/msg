@@ -726,6 +726,7 @@ post_common_link_popup:Τοποθεσία συνδέσμου:
 post_common_email_popup:Διεύθυνση ηλεκτρονικού ταχυδρομείου:
 post_common_image:Εισαγωγή εικόνας
 post_common_quote:Προσθήκη αποσπάσματος
+post_common_code:Προσθήκη κώδικα
 rating_delete:Διαγραφή
 tabs_notifications:Ενημερώσεις
 finduser_flag:Σημαία
@@ -736,11 +737,14 @@ code_select_all:Επιλογή όλων
 btn_new_topic:Νέο θέμα
 btn_new_pm:Νέο ιδιωτικό μήνυμα
 btn_post_reply:Δημοσίευση απάντησης
+btn_tree_view:Προβολή δέντρου
+btn_flat_view:Επίπεδη προβολή
 btn_about:Προφίλ
 btn_small_pm:ΜΜ
 btn_delete:διαγραφή
 btn_edit:επεξεργασία
 btn_reply:απάντηση
+btn_forward:προώθηση
 btn_quote:Απόσπασμα
 btn_email:Ηλεκτρονικό ταχυδρομείο
 btn_show_posts:Αναρτήσεις
@@ -752,5 +756,9 @@ custom_filed_required:Αυτό το πεδίο είναι υποχρεωτικό
 pages:Σελίδες
 page_list_heading:Διαθέσιμες σελίδες
 page_update:Σελίδα περιήγησης
+pm_export_footer:Έχει εξαχθεί:
+karma:Κάρμα
+karma_track:Διαχείριση φήμης για ένα χρήστη:
 karma_delete:Διαγραφή
 rate_author:Αξιολόγηση συγγραφέα:
+portal_update:Ανάγνωση της πύλης του φόρουμ
