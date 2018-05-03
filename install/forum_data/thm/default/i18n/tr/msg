@@ -329,6 +329,7 @@ register_login_taken:Zaten alınmış
 register_password:Parola:
 register_password_desc:Hesabınız için şifre.Şifreler büyük küçük harf duyarlıdır ve şifreniz en az 6 karakter uzunluğunda olmalıdır.
 register_conf_pass:Parolayı Onayla:
+register_conf_pass_desc:Lütfen şifrenizi tekrar girin.
 register_email_desc:E-mail adresiniz. İsterseniz aşağıda tercihler bölümünden gizleyebilirsiniz.
 register_name:İsim:
 register_name_desc:Gerçek isminiz.
@@ -621,7 +622,7 @@ emailconf_err_invkey_msg:Geçersiz doğrulama anahtarı. Lütfen gönderilen e-m
 err_inc_criticaltitle:Kritik hata
 err_inc_criticalmsg:Bir hata oluştu, fakat ne yazık ki hata bildirim sisteminde de bir sorun var.
 finduser_update:Kullanıcıları arıyor
-help_index_update:<a href="{TEMPLATE: help_index_update_lnk}">S.S.S.</a>
+help_index_update:<a href="{TEMPLATE: help_index_update_lnk}">Yardım</a>
 iemail_thr_subject:{VAR: poster_login} tarafından {VAR: thr_subject} konulu iletiye yanıt geldi.
 iemail_thr_bodyemail:Okunmamış yanıtları görüntülemek için {VAR: goto_url['email']} adresine gidin.\n\nBu konuya gönderilen yanıtların haber verilmesini istemiyorsanız, buraya gidin: {VAR: unsub_url['email']}
 iemail_frm_subject:{VAR: frm_name} forumunda {VAR: poster_login} tarafından {VAR: thr_subject} konulu yeni bir konu başlatıldı.
@@ -724,7 +725,7 @@ ERR_systemerr_ttl:HATA: Sistem Hatası
 ERR_systemerr_msg:Sistem hatası oluştu, lütfen <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster'a</a> bildirin.
 email_title:E-posta formu
 finduser_title:Kullanıcı bul
-help_title:S.S.S.
+help_title:Yardım
 login_title:Giriş formu
 poll_title:Anket düzenleyici
 register_title:Kayıt formu
@@ -1068,10 +1069,8 @@ search_user_filter:Kullanıcıya göre ara:
 register_none:Haberdar etme
 findu_no_conf:onaylanmamış kullanıcı
 register_max_sig_len:En Fazla Uzunluk:
-# Fuzzy
-register_turing:Lütfen aşağıda gösterilen kodu girin:
-# Fuzzy
-register_err_turing:Geçersiz doğrulama kodu.
+register_turing:Doğrulama:
+register_err_turing:Doğrulama başarısız oldu. Lütfen tekrar deneyin.
 modque_cat:Kategori
 modque_forum:Forum
 idx_compact_forum_row:Forumlar:
@@ -1132,8 +1131,7 @@ move_msg_th_expl:Hedef konunun ID'sini belirtin (diğer forumlarda olabilir)
 captcha_img_alt:Captcha Doğrulama: Görüntüde metni tanımanız gerekiyor.
 captcha_img_help:Görüntü içinde sıfır ya da bir bulunmuyor.
 powered-by:Destekleyen: FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:Telif hakkı &copy;2001-2017 <a href="http://fudforum.org/">FUDforum Bulletin Board Yazılımı</a>
+copyright:Telif hakkı &copy;2001-2018 <a href="http://fudforum.org/">FUDforum Bulletin Board Yazılımı</a>
 code_title:Kod:
 code_select_all:Tümünü seç
 code_show_hide:Göster / gizle
