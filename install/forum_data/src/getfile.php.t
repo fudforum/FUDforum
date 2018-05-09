@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -66,6 +66,7 @@ function get_preview_img($id)
 	}
 
 	// DWLND_REF_CHK
+	$WWW_ROOT = preg_replace('#^https?:#', '', $WWW_ROOT);	// Remove http/https before referer checking.
 	if ($FUD_OPT_2 & 4194304 && !empty($_SERVER['HTTP_REFERER']) && strpos($_SERVER['HTTP_REFERER'], $WWW_ROOT) === false) {
 		header('HTTP/1.0 403 Forbidden');
 		exit;
