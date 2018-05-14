@@ -1082,7 +1082,7 @@ dmsg_ip:IP：
 err_blockedaccnt_title:錯誤：您的帳號已被過濾出。
 err_blockedaccnt_msg:您的帳號已被所訪問論壇上安裝之使用者過濾器給封鎖住。
 merge_th_page_list:主題頁選擇
-most_users_online:在 <b>{日期： most_online_time %-> st_obj，  %d  %b%Y  %H:% M}</b> 的最多上線人數是 <b> {VAR: st_obj->most_online} </b>
+most_users_online:最多上線人數是於 <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b> 的 <b>{VAR: st_obj->most_online}</b> 位
 sub_unsub_all_forums:取消訂閱所有論壇
 sub_unsub_all_topics:取消訂閱的所有主題
 unbookmark_all_topics:刪除所有書籤
