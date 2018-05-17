@@ -49,7 +49,7 @@ home:Forsíða
 homepage:Heimasíða:
 icq_control_panel:ICQ skilaboðsþjónusta
 icq_message_form:ICQ skilaboðaform:
-ignore_user:hunsa öll skilaboð frá þessum notenda
+ignore_user:hunsa öll skilaboð frá þessum notanda
 im_aim:AIM hald:
 im_msnm:MSN Messenger:
 im_yahoo:Yahoo Messenger:
@@ -209,7 +209,7 @@ vote_button:Kjósa
 vote_for_thread:Kjósa
 was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> var færður á <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> af stjórnenda.
 welcome_message:Velkomin/n <b>{VAR: usr->alias}</b>, síðasta heimsókn þín var {TEMPLATE: welcome_message_date}
-what_ppl_doing:Virkni notenda
+what_ppl_doing:Virkni notanda
 reported_del_report:Eyða skýrslu
 reported_reason:Ástæða:
 reported_on:Þann:
@@ -402,8 +402,8 @@ post_mod_opt:Valkostir stjórnanda:
 post_thread_type:Gerð spjallþráðs:
 post_thread_expiry:Spjallþráður rennur út:
 post_locked:Þráður læstur
-post_icons:Tákn skilaboða:
-post_no_icon:Ekkert tákn
+post_icons:Táknmynd skilaboða:
+post_no_icon:Engin táknmynd
 post_smiley:Flýtileiðir broskalla:
 post_format_tools:Sniðverkfæri:
 post_upload_file:Hlaða upp skrá
