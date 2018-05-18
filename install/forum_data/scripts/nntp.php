@@ -1,7 +1,7 @@
 #!/usr/bin/php -q
 <?php
 /**
-* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -278,7 +278,8 @@
 		}
 
 		fud_wordwrap($msg_post->body);
-		$msg_post->subject = apply_custom_replace($emsg->subject);
+		$msg_post->subject = utf8_encode($emsg->subject);
+		$msg_post->subject = apply_custom_replace($msg_post->subject);
 		if (!strlen($msg_post->subject)) {
 			fud_logerror('Blank subject.', 'nntp_errors', $emsg->raw_msg);
 			$msg_post->subject = '(no subject)';
