@@ -1024,6 +1024,9 @@ pf('<h2>Step 1: Admin login</h2>', true);
 		}
 	}
 
+	// Fix gravatars (add missing quote; bug in gravatar.plugin prior to 3.0.9).
+	q('UPDATE '. $DBHOST_TBL_PREFIX .'users SET avatar_loc=REPLACE(avatar_loc, \'r=g alt=\', \'r=g" alt=\')  WHERE avatar_loc LIKE \'%gravatar.com%\'');
+
 	pf('SQL upgrades completed.');
 
 	// FUDforum 3.0.3 refedined FUD_OPT_3=536870912 as PAGES_ENABLED.
