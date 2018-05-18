@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -22,7 +22,7 @@ function plugin_gravatar($uent) {
 
 	// Asign the avatar.
 	$uent->avatar = 0;
-	$uent->avatar_loc = '<img src="'. $gravatar .' alt="" width="'. $s .'" height="'. $s .'" />';
+	$uent->avatar_loc = '<img src="'. $gravatar .'" alt="" width="'. $s .'" height="'. $s .'" />';
 
 	// Approve the user's avatar.
 	$uent->users_opt = $uent->users_opt | 8388608;
@@ -35,6 +35,6 @@ function gravatar_info() {
 		     'desc' => 'Assign users a Globally Recognized Avatar from <a href="http://en.gravatar.com/">gravatar.com</a> when they register.
 				If the user doesn\'t have a gravatar, he/she will get a default mystery-man avatar. To get bigger or smaller avatars, adjust "Custom Avatar Max Dimensions" in the Global Settings Manager.',
 		     'cat'  => 'Third-party Integration',
-		     'version' => '1.1');
+		     'version' => '1.2');
 }
 
