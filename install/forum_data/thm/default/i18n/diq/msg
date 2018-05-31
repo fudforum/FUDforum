@@ -158,6 +158,7 @@ sticky:zeleqok:
 subject:Mewzu
 subscribe:Abone be
 thread:Topik:
+thread_announcement:İlan:
 thread_thread:Mewzu
 threads:Topik:
 time:Wext
@@ -219,7 +220,7 @@ month_1:Çele
 month_2:Zemherı
 month_3:Mert
 month_4:Nisane
-month_5:Gúlan
+month_5:Gulane
 month_6:Heziran
 month_7:Temuz
 month_8:Tebaxe
@@ -313,7 +314,7 @@ add:Cı ke
 buddy_remove:Hewad
 post_normal:Normal
 post_sticky:Zamq
-post_annoncement:Elan
+post_annoncement:İlan
 post_size:Gırdiye
 post_color:Dawte
 post_font:Tipê nusni
