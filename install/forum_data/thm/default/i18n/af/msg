@@ -325,7 +325,7 @@ register_custom_avatar_url:Doelgemaakte Avatar URL:
 register_preview:Voorskou
 register_custom_avatar_upload:Doelgemaakte Avatar lêer:
 register_register:Registreer
-register_required:Vereiste Inligting
+register_required:Vereiste inligting
 register_required_desc:Alle velde moet voltooi word.
 register_optional:Opsionele inligting
 register_optional_desc:Moet asb nie persoonlike of identifikasie inligting in u profiel plaas nie. Alle info sal sigbaar wees vir ander forum lede.
@@ -919,7 +919,7 @@ threadt_update:Blaai deur forum <a href="{TEMPLATE: threadt_update_lnk}">{VAR: f
 mmod_delete_cofirm_ttl:Onderwerp/Boodskap verwydering bevestiging
 spell_alts:geen alternatiewe
 insert_uploaded_image:Voeg beeld in die boodskap
-finduser_help:Die soekenjin voeg outomaties 'n * by u soekvraag. Byvoorbeeld, om na lede te soek wat se login met 'n &quot;a&quot; begin, tik slegs &quot;a&quot; in die soekveld in.
+finduser_help:Die soekenjin voeg outomaties 'n * by u soekvraag. Byvoorbeeld, om na lede te soek wat se gebruikersnaam met 'n &quot;a&quot; begin, tik slegs &quot;a&quot; in die soekveld in.
 back_to_top:terug na bo
 pm_err_disabled_title:Privaatboodskappe is gedeaktiveer
 pm_err_disabled_msg:U kan nie privaatboodskappe stuur alvorens u nie die "Laat privaatboodskappe toe" funksie in u profiel aangeskakel het nie.
@@ -1098,7 +1098,7 @@ post_common_blist:Voeg 'n ongenommerde lys by
 post_common_quote:Voeg 'n aanhaling by
 post_common_code:Voeg kode by
 rating_delete:Skrap
-post_always_on_top:Vertoon die onderwerp altyd boaan die onderwerpslys.
+post_always_on_top:Vertoon die onderwerp altyd bo-aan die onderwerpslys.
 topic_rating:{VAR: frm->rating} na {PLURAL: frm->n_rating|$1 stem|$1 stemme}
 topic_list_rating:{VAR: r[17]} van {PLURAL: r[21]|$1 stem|$1 stemme}
 tabs_notifications:Kennisgewings
