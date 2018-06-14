@@ -347,10 +347,12 @@ post_color:Χρώμα
 post_font:Γραμματοσειρά
 create_thread:Δημιουργία Θέματος
 submit_reply:Υποβολή Απάντησης
+apply_spell_changes:Εφαρμογή αλλαγών ορθογραφίας
 post_preview:Προεπισκόπηση Μηνύματος
 post_logedin_user:Συνδεδεμένος χρήστης:
 post_logout:έξοδος
 post_poll:Κάλπη:
+post_create_poll:Δημιουργία ψηφοφορίας
 post_poll_delete:ΔΙΑΓΡΑΦΗ
 post_poll_edit:ΕΠΕΞΕΡΓΑΣΙΑ
 post_mod_opt:Επιλογές συντονιστή:
@@ -361,6 +363,7 @@ post_upload_file:Ανέβασμα αρχείων
 post_file_del:Διαγραφή
 post_file_name:Όνομα
 post_file_size:Μέγεθος
+file_attachments:Επισυνάψεις Αρχείων:
 allowed_files:Επιτρεπόμενες επεκτάσεις αρχείων:
 max_file_size:Μέγιστο μέγεθος αρχείου:
 max_files_per_msg:Μέγιστος αριθμός αρχείων ανά μήνυμα:
