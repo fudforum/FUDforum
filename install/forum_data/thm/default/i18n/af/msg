@@ -692,7 +692,7 @@ thread_update:Blaai deur forum <a href="{TEMPLATE: thread_update_lnk}">{VAR: frm
 tree_update:Blaai deur onderwerp (boomstruktuur) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
 userinfo_update:kyk na <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}</a> se profiel
 ERR_login_msg2:<legend>FOUT: U is nie aangeteken nie</legend>U moet 'n lid van die forum wees alvorens u die bladsy mag besoek.
-ERR_disabled_ttl:afgeskakelde opsie
+ERR_disabled_ttl:Afgeskakelde opsie
 ERR_disabled_msg:Hierdie opsie is deur die administrateur afgeskakel.
 ERR_access_ttl:FOUT: onvoldoende toegang
 ERR_access_msg:U het nie die vereiste regte om hierdie handeling uit te voer nie.
