@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2016 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -28,7 +28,10 @@ function url_check($url)
 	// Bad URL's (like 'script:' or 'data:').
 	if (preg_match('/(script:|data:)/', $url)) return false;
 
-	return filter_var($url, FILTER_SANITIZE_URL);
+	// International domains not recodnised - https://bugs.php.net/bug.php?id=73176
+	// return filter_var($url, FILTER_SANITIZE_URL);
+
+	return strip_tags($url);
 }
 
 /** Convert BBCode tags to HTML. */
