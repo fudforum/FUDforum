@@ -14,7 +14,9 @@ function generate_turing_val()
 {
 	if (defined('plugins')) {
 		$text = plugin_call_hook('CAPTCHA');
-		return $text;
+                if (!empty($text)) {
+                        return $text;
+                }
 	}
 
 	$t = array(
