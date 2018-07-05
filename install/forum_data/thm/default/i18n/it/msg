@@ -319,6 +319,7 @@ register_login_taken:Già preso
 register_password:Password:
 register_password_desc:Password per la tua utenza. Le password distinguono maiuscolo e minuscolo e devono essere di almeno 6 caratteri.
 register_conf_pass:Conferma password:
+register_conf_pass_desc:Reinserisci la tua password.
 register_email_desc:Il tuo indirizzo di posta elettronica. Puoi scegliere di nasconderlo sotto, nella sezione Preferenze.
 register_name:Nome:
 register_name_desc:Il tuo vero nome.
