@@ -39,11 +39,11 @@ if ($forum_limiter) {
 while ($r = db_rowarr($c)) {
 	if ($oldc != $r[2]) {
 		foreach ($cat_cache as $k => $i) {
-			$forum_limit_data .= '{TEMPLATE: forum_limit_cat_option}';
-			if ($k == $r[2]) {
+			if ($k == $r[2]) {	// Control break on Catagory ID
 				break;
 			}
 		}
+		$forum_limit_data .= '{TEMPLATE: forum_limit_cat_option}';
 		$oldc = $r[2];
 	}
 	$forum_limit_data .= '{TEMPLATE: forum_limit_frm_option}';

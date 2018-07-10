@@ -124,13 +124,13 @@
 
 		require $FORUM_SETTINGS_PATH .'cat_cache.inc';
 		while ($r = db_rowarr($c)) {
-			if ($oldc != $r[2]) {
+			if ($oldc != $r[2]) {	// Control break on Catagory ID
 				foreach ($cat_cache as $k => $i) {
-					$table_data .= '{TEMPLATE: cat_entry}';
 					if ($k == $r[2]) {
 						break;
 					}
 				}
+				$table_data .= '{TEMPLATE: cat_entry}';
 				$oldc = $r[2];
 			}
 
