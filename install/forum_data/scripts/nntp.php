@@ -311,6 +311,7 @@
 			fud_msg_edit::approve($msg_post->id);
 		}
 
+		// echo 'Added message '. $msg_post->id .' to forum '. $frm->id ."\n";
 		unset($emsg);
 		unset($msg_post);
 

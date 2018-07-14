@@ -1,7 +1,7 @@
 #!/usr/bin/php -q
 <?php
 /**
-* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -297,6 +297,7 @@
 
 		// If HTML is not allowed, strip it out.
 		if (!($config->mlist_opt & 16)) {	// NOT allow_mlist_html
+			$msg_post->body = preg_replace("/<([^>]*(<|$))/", "&lt;$1", $msg_post->body);
 			$msg_post->body = strip_tags($msg_post->body);
 		}
 
@@ -346,6 +347,7 @@
 		if (!($config->mlist_opt & 1)) {	// mlist_post_apr
 			$msg_post->approve($msg_post->id);
 		}
+		// echo 'Added message '. $msg_post->id .' to forum '. $frm->id ."\n";
 	}
 
 	// Close the mailbox.
