@@ -189,7 +189,7 @@ unbookmark_thread:Verwyder van boekmerke
 unbookmark_thread_desc:Verwyder die onderwerp vanaf my lys van boekmerke
 unsubscribe:Kanselleer subskripsie
 unsubscribe_desc:Ek wil nie meer kennisgewings ontvang as nuwe onderwerpe op die forum gepos word nie
-updated_on:Opgedateer op:
+updated_on:Bygewerk op:
 user:Lid
 user_counter:Ons het <b>{VAR: st_obj->user_count}</b> geregistreerde {PLURAL: st_obj->user_count|lid|lede}.
 user_info:Ledeinformasie
@@ -326,9 +326,9 @@ register_preview:Voorskou
 register_custom_avatar_upload:Doelgemaakte Avatar lêer:
 register_register:Registreer
 register_required:Vereiste inligting
-register_required_desc:Alle velde moet voltooi word.
+register_required_desc:Al die velde moet voltooi word.
 register_optional:Opsionele inligting
-register_optional_desc:Moet asb nie persoonlike of identifikasie inligting in u profiel plaas nie. Alle info sal sigbaar wees vir ander forum lede.
+register_optional_desc:Dit is nie wys om persoonlike of identifiserende inligting in u profiel plaas nie. Alle gegewens is sigbaar vir ander forumlede.
 register_location:Ligging:
 register_occupation:Beroep:
 register_interests:Belange:

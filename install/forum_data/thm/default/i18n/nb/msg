@@ -317,6 +317,7 @@ register_login_taken:Opptatt
 register_password:Passord:
 register_password_desc:Passord for kontoen din. Passord skiller mellom store og små bokstaver og må være minst seks tegn lange.
 register_conf_pass:Bekreft passord:
+register_conf_pass_desc:Skriv inn passordet på nytt:
 register_email_desc:E-postadressen din. Du kan velge å skjule den nedenfor, i Innstillinger-seksjonen.
 register_name:Fullt navn:
 register_name_desc:Ditt virkelige navn.
@@ -1056,10 +1057,8 @@ search_user_filter:Filtrer etter bruker:
 register_none:Ikke varsle meg
 findu_no_conf:ubekreftet bruker
 register_max_sig_len:Maksimum lengde:
-# Fuzzy
-register_turing:Skriv inn koden vist nedenfor:
-# Fuzzy
-register_err_turing:Ugyldig valideringskode.
+register_turing:Validering:
+register_err_turing:Validering feilet. Prøv igjen.
 modque_cat:Kategori
 modque_forum:Forum
 idx_compact_forum_row:Tilgjengelige forum:
@@ -1120,8 +1119,7 @@ move_msg_th_expl:Oppgi ID'en til destinasjonsemnet (kan være i andre fora)
 captcha_img_alt:Captcha-verifisering: du må kjenne igjen teksten i dette bildet.
 captcha_img_help:Det er ingen null eller en i bildet.
 powered-by:Levert av: FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:Copyright &copy;2001–2017 <a href="http://fudforum.org/">FUDforum Bulleting Board Software</a>
+copyright:Copyright &copy;2001–2018 <a href="http://fudforum.org/">FUDforum Bulleting Board Software</a>
 code_title:Kode:
 code_select_all:Velg alle
 code_show_hide:Vis/ skjul
