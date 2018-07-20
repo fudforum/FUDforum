@@ -647,7 +647,7 @@ postcheck_no_links_allowed:Nun pues usar enllaces fasta que publiques más {PLUR
 postcheck_subj_needed:L'asuntu ye obligatoriu
 postcheck_no_such_user:Nun hai dengún usuariu nomáu "{FUNC: char_fix(htmlspecialchars($v))}" nesti foru.
 postcheck_ignored:Nun pues unviar un mensaxe priváu a "{FUNC: char_fix(htmlspecialchars($v))}" porque esti usuariu te tien anubríu.
-postcheck_no_recepient:Nun se pue unviar un mensaxe, falta'l destinatariu
+postcheck_no_recepient:Nun puede unviase un mensaxe, falta'l destinatariu
 postcheck_invalid_email:Por favor, escribi una direición de corréu electrónicu válida pal to amigu.
 postcheck_email_subject:Nun pues unviar un corréu electrónicu ensin asuntu.
 postcheck_email_body:Nun pues unviar un corréu electrónicu ensin el cuerpu del mensaxe.

@@ -931,6 +931,7 @@ dmsg_ip:IP:
 post_common_bold:Получер
 rating_delete:Изтриване
 code_select_all:Избиране на всички
+code_show_hide:Показване/ скриване
 btn_delete:изтриване
 btn_edit:редактиране
 btn_email:Е-поща
