@@ -1,5 +1,5 @@
 /***************************************************************************
-* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -237,7 +237,8 @@ function highlightWord(node, word, Wno)
 
 		if ((ni = tempNodeVal.indexOf(word)) == -1 || pn.className.indexOf('st') != -1) return;
 
-		/* Create a load of replacement nodes */
+		/* Create replacement nodes - preserving case */
+		realWord = nv.substr(ni, word.length);
 		before = document.createTextNode(nv.substr(0,ni));
 		after = document.createTextNode(nv.substr(ni+word.length));
 		if (document.all && !OPERA) {
@@ -246,7 +247,7 @@ function highlightWord(node, word, Wno)
 			hiword = document.createElement('span');
 			hiword.setAttribute('class', 'st'+Wno);
 		}
-		hiword.appendChild(document.createTextNode(word));
+		hiword.appendChild(document.createTextNode(realWord));
 		pn.insertBefore(before,node);
 		pn.insertBefore(hiword,node);
 		pn.insertBefore(after,node);
@@ -355,10 +356,11 @@ function min_max_cats(theme_image_root, minimize_category, maximize_category, sq
 
   jQuery('img', jQuery('.collapsable')).addClass('clickable')
   .css('cursor', 'pointer')
-  .click(function() {
+  .click(function(e) {
     var toggleSrc = jQuery(this).attr('src');
     var cat = jQuery(this).parents('tr').attr('id');
     var on;
+    e.stopPropagation();
 
     if ( toggleSrc.indexOf(toggleMinus) >= 0 ) {        /* Hide cat */
       jQuery(this).attr('src', togglePlus)
