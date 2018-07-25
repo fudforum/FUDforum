@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -32,6 +32,9 @@
 		if ($a['start'] <= __request_timestamp__ && $a['end'] >= __request_timestamp__) {
 			$announce_subj = $a['subject'];
 			$announce_body = $a['text'];
+			if (defined('plugins')) {
+				list($announce_subj, $announce_body) = plugin_call_hook('ANNOUNCEMENT', array($announce_subj, $announce_body));
+			}
 			$announcements .= '{TEMPLATE: announce_entry}';
 		}
 	}
@@ -39,3 +42,5 @@
 /*{POST_PAGE_PHP_CODE}*/
 ?>
 {TEMPLATE: INDEX_PAGE}
+
+

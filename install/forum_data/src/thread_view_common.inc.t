@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -102,6 +102,9 @@ if ($frm->is_ann) {
 		}
 		if (_uid && $r['2'] & 4) {
 			continue;	// Only for anonomous users.
+		}
+		if (defined('plugins')) {
+			list($r[0], $r[1]) = plugin_call_hook('ANNOUNCEMENT', array($r[0], $r[1]));
 		}
 		$announcements .= '{TEMPLATE: announce_entry}';
 	}

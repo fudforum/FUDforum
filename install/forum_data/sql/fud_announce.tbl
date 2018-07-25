@@ -1,4 +1,4 @@
-#   copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+#   copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
 #   email                : forum@prohost.org
 #
 #   $Id$
@@ -24,3 +24,5 @@ CREATE INDEX {SQL_TABLE_PREFIX}announce_i_dd ON {SQL_TABLE_PREFIX}announce (date
 
 # Opts
 # 1 show on front page (ON/OFF)
+# 2 show to logged in users
+# 4 show to anonymous users
