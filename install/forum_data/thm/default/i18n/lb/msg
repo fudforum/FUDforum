@@ -508,7 +508,7 @@ mnav_month:Mount/Méint
 findu_edit:Änneren
 findu_delete:Läschen
 dmsg_reply_num:Message #{VAR: obj->reply_to}
-merge_topics:Themen zesummeleeën
+merge_topics:Theme fusionéieren
 register_email_addr:E-Mail-Adress:
 mnav_newer:méi nei wéi
 mnav_older:méi al wéi
