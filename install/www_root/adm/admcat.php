@@ -102,7 +102,8 @@
 		echo successify('Position successfully set.');
 	}
 
-	$ol = $cat_list = array();
+	// Creat an ordered list of categories.
+	$ol = array();
 	$c = uq('SELECT * FROM '. $tbl .'cat ORDER BY parent, view_order');
 	while ($r = db_rowobj($c)) {
 		if (!isset($ol[$r->parent])) {
@@ -111,26 +112,20 @@
 		$ol[$r->parent][] = $r;
 	}
 	unset($c);
-	$lvl = array(0); 
-	$i = $l = 0;
-	while (1) {
-		if (isset($ol[$l])) {
-			foreach($ol[$l] as $v) {
-				$v->lvl = $i;
-				$cat_list[] = $v;
-				if (isset($ol[$v->id])) {
-					$lvl[++$i] = $l;
-					$l = $v->id;
-					continue;
-				}
-			}
+
+	// Traverse list in display order and assign it a "level" for indentation.
+	$cat_list = array();
+	function buildTree($ol, $l=0, $i=0) {
+		global $cat_list;
+		foreach($ol[$l] as $v) {	// Loop through cats on level $l
+			$v->lvl = $i;
+			$cat_list[] = $v;
+			if (isset($ol[$v->id])) {	// We have cats below that we need to traverse.
+				buildTree($ol, $v->id, $i+1);
+		        }
 		}
-		if ($i < 1) {
-			break;
-		}
-		$l = $lvl[$i];
-		unset($lvl[$i--]);
 	}
+	buildTree($ol);
 	unset($ol);
 ?>
 <h2>Category Management System</h2>

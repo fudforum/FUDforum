@@ -98,23 +98,22 @@
 					$collapse[$k] = 1;
 				}
 
-				if ($i[3] & 1 && $k != $cat_id && !($i[3] & 4)) {
-					if (!isset($collapse[$k])) {
-						$collapse[$k] = !($i[3] & 2);
-					}
-					$forum_list_table_data .= '{TEMPLATE: index_category_allow_collapse_Y}';
-				} else {
-					if ($i[3] & 4) {
-						++$i[0];
-					}
-					$forum_list_table_data .= '{TEMPLATE: index_category_allow_collapse_N}';
-				}
-			
 				if ($k == $cid) {
-					break;
+					break;	// Got it!
 				}
 			}
 			$cat = $cid;
+			if ($i[3] & 1 && $k != $cat_id && !($i[3] & 4)) {
+				if (!isset($collapse[$k])) {
+					$collapse[$k] = !($i[3] & 2);
+				}
+				$forum_list_table_data .= '{TEMPLATE: index_category_allow_collapse_Y}';
+			} else {
+				if ($i[3] & 4) {
+					++$i[0];
+				}
+				$forum_list_table_data .= '{TEMPLATE: index_category_allow_collapse_N}';
+			}
 		}
 
 		/* Compact category view (ignore when expanded). */
