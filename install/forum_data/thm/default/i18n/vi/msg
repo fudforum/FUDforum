@@ -1,5 +1,6 @@
 # Messages for Vietnamese (Tiếng Việt)
 # Exported from translatewiki.net
+# Author: Leducthn
 # Author: Macofe
 # Author: Max20091
 # Author: Minh Nguyen
@@ -77,6 +78,7 @@ cal_day_heading:Sự kiện trong ngày
 cal_no_events:Không có sự kiện trong ngày.
 cal_update:Duyệt lịch diễn đàn
 cal_birthday:Ngày sinh: {VAR: user}
+cal_birthdays:{PLURAL: sinh nhật|$1 sinh nhật|$1 sinh nhật}
 cal_birthday_age:({PLURAL: tuổi|$1 năm|$1 năm} cũ).
 message:Tin nhắn
 message_counter:Các thành viên của chúng ta đã gửi tổng cộng <b>{PLURAL: post_count|$1 bài viết|$1 bài viết}</b> trong <b>{PLURAL: thread_count|$1 đề tài|$1 đề tài}</b>.
@@ -107,17 +109,16 @@ no_new_posts:Không có bài viết mới
 no_posts:Không có bài
 no_subscribed_forums:Không theo dõi diễn đàn
 no_subscribed_threads:Không theo dõi chủ đề
+no_bookmarked_threads:Không có chủ đề nào được đánh dấu
 no_unread_locked:Chủ đề này đã bị khóa
 no_unread_msg:Chủ đề này không có bài viết chưa đọc
 no_unread_msg_unreg:Những bài viết chưa đọc và đã đọc chỉ được xem bởi thành viên đã đăng ký
 num_pages:Trang ({VAR: ttl_pg}):
-# Fuzzy
-num_votes:{VAR: obj->total_votes} phiếu
+num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|phiếu|phiếu}
 occupation:Nghề nghiệp:
 off:Tắt
 on:Mở
-# Fuzzy
-page_timings:Tổng thời gian để tạo trang: {VAR: page_gen_time} giây
+page_timings:Tổng thời gian để tạo trang: {PLURAL: page_gen_time|$1 giây}
 pm:Tin Nhắn Cá Nhân
 poll:Bảng khảo sát:
 post_count:Số Bài Viết  {VAR: u_pcount}
@@ -127,9 +128,10 @@ posts_c:Bài viết:
 prev_thread:Chủ đề sau :
 usrinfo_private_message:Tin nhắn cá nhân:
 profile:Hiệu Chỉnh
-# Fuzzy
-profile_desc:Nhấn chuột vào đây để truy cập vào khu vực người sử dụng
+profile_desc:Truy cập bảng điều khiển của người dùng
 rate_thread:Nhận xét chủ đề
+rating:Đánh giá
+rating_track:Quản lý đánh giá cho chủ đề <b>{VAR: thr->subject}</b>:
 refresh_list:Làm Tươi Danh Sách
 register:Đăng ký
 registered:Đăng vào:
@@ -137,6 +139,8 @@ registered_on:Đăng ký vào {TEMPLATE: registered_on_date}
 replies:TrảLời
 report_to_mod:Thông báo đến người điều tiết
 reported_messages:Bài viết đã được trình bày
+reveal_all_posts:hiện toàn bộ bài viết của {VAR: user_login}
+reveal_post:hiện bài viết
 search:Tìm kiếm
 sel_todays_posts:Bài viết hôm nay
 sel_todays_posts_desc:Giữ bộ lọc bài viết ngày hôm nay (sẽ chỉ xem những bài viết ngày hôm nay)
@@ -149,12 +153,15 @@ send_pm_desc:Gởi một tin nhắn cá nhân đến thành viên này
 sender_email:Người gửi email:
 sender_name:Tên người gửi:
 show_posts_by:Xem Bài Viết Bởi: {VAR: u_alias}
+size:Kích cỡ:
 status:Trạng thái:
-# Fuzzy
-status_line:Hiện có <b>{VAR: st_obj->online_users_reg}</b> thành viên , <b>{VAR: st_obj->online_users_hidden}</b> thành viên ẩn danh và <b>{VAR: st_obj->online_users_anon}</b> khách đã ghé thăm trang này.
+status_line:Hiện đang có <b>{PLURAL: st_obj->online_users_reg|$1 thành viên|$1 thành viên}</b>, <b>{PLURAL: st_obj->online_users_hidden|$1 thành viên ẩn danh|$1 thành viên ẩn danh}</b> và <b>{PLURAL: st_obj->online_users_anon|$1 khách|$1 khách}</b> ghé thăm diễn đàn này.
+sticky:chủ đề được dán lên đầu:
 stop_ignoring:Không từ chối thành viên này
 sub_to_thread:Theo dõi chủ đề
 sub_to_thread_desc:Nhận thông báo về tin mới trong chủ đề này
+bookmark_thread:Đánh dấu chủ đề
+bookmark_thread_desc:Thêm chủ đề này vào danh sách đánh dấu
 subject:Tựa Đề
 subscribe:Theo dõi
 subscribe_desc:Nhận thông báo khi một ai đó tạo chủ đề mới trong diễn đàn này
@@ -162,11 +169,11 @@ subscribed_forums:Diễn đàn theo dõi
 subscribed_forums_desc:Giữ bộ lọc theo dõi diễn đàn (sẽ chỉ xem những bài viết bạn từ diễn đàn bạn theo dõi)
 subscribed_threads:Chủ đề theo dõi
 subscribed_threads_desc:Giữ bộ lọc theo dõi chủ đề (sẽ chỉ xem những bài viết từ chủ đề mà bạn theo dõi)
+bookmarked_threads:Các chủ đề đã đánh dấu
 switch_to_thread_view:Chuyển sang chủ đề đã xem trong chủ đề này
 thread:Chủ Đề:
 thread_announcement:Thông báo:
-# Fuzzy
-thread_first_unread_msg:nhấn chuột vào đây để xem bài viết chưa đọc đầu tiên trong chủ đề này
+thread_first_unread_msg:Xem bài viết chưa đọc đầu tiên trong chủ đề này
 thread_thread:Chủ Đề
 threads:Chủ Đề
 time:Thời Gian
@@ -182,12 +189,13 @@ unread_posts:Bài viết chưa đọc
 unread_posts_desc:Xem tất cả bài viết chưa đọc
 unsub_from_thread:Không theo dõi chủ đề này
 unsub_from_thread_desc:Không nhận thông báo về tin mới trong chủ đề này
+unbookmark_thread:Xoá đánh dấu
+unbookmark_thread_desc:Xoá chủ đề này khỏi danh sách đánh dấu
 unsubscribe:Không theo dõi
 unsubscribe_desc:Không nhận thông báo về chủ đề mới trong diễn đàn này
 updated_on:Cập nhật vào:
 user:Thành Viên
-# Fuzzy
-user_counter:Chúng ta có <b>{VAR: st_obj->user_count}</b> thành viên đăng ký.
+user_counter:Chúng ta hiện có <b>{VAR: st_obj->user_count}</b> {PLURAL: st_obj->user_count|thành viên|thành viên} đăng kí.
 user_info:Thông Tin Người Sử Dụng
 user_info_l:Thông Tin Người Sử Dụng {VAR: u->alias}
 user_offline:{VAR: obj->login}  hiện giờ đã offline
@@ -195,14 +203,12 @@ user_online:{VAR: obj->login} hiện giờ đang online
 usrinfo_last_post:Bài viết sau cùng:
 view_results:Xem kết quả
 views:Xem
-# Fuzzy
-vote:{VAR: frm->n_rating} Phiếu
+vote:{PLURAL: frm->n_rating|$1 Phiếu|$1 Phiếu}
 vote_button:Bỏ phiếu
 vote_for_thread:Phiếu
 was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> đã được chuyển đến <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> bởi người điều tiết
 welcome_message:Chào mừng <b>{VAR: usr->alias}</b>, lần ghé thăm cuối của bạn vào {TEMPLATE: welcome_message_date}
-# Fuzzy
-what_ppl_doing:Xem mọi người đang làm gì
+what_ppl_doing:Hoạt động Người dùng
 reported_del_report:Xóa thông báo
 reported_reason:Lý do:
 reported_on:Vào:
@@ -211,6 +217,7 @@ reported_reported_msg:Bài viết được thông báo
 modque_pending_approval:Bài viết đang chờ được chấp nhận
 modque_approve:Chấp nhận
 modque_delete:Xóa
+modque_deleteall:Xoá hết bài viết của người dùng này
 modque_no_message:Không có bài viết đang chờ được chấp nhận
 pmsg_new_messages:Tin nhắn cá nhân chưa đọc
 pmsg_old_messages:Tin nhắn cá nhân đã đọc
@@ -218,7 +225,11 @@ deny_recipt:Từ chối nhận
 deny_recipt_desc:Không gửi thông báo khi bạn đọc tin nhắn này
 restore_to:Phục hồi đến:
 move_to:Chuyển đến:
+list_referes_referrals:Lời mời
+list_referes_members:Những thành viên bạn đã mời gia nhập diễn đàn
 list_referes_member:Thành Viên
+referals_none:Bạn chưa mời ai cả.
+referals_refered_by:Thành viên này được mời đăng kí bởi: <b><a href="{TEMPLATE: referals_refered_by_lnk}" class="thLnk">{VAR: p_user[1]}</a></b>
 referals_post_count:Số bài viết
 referals_registered_on:Đăng ký vào
 referals_action:Hành động
@@ -254,6 +265,20 @@ month_9:Tháng Chín
 month_10:Tháng Mười
 month_11:Tháng Mười Một
 month_12:Tháng Mười Hai
+sunday:Chủ nhật
+sunday_short:CN
+monday:Thứ hai
+monday_short:T2
+tuesday:Thứ ba
+tuesday_short:T3
+wednesday:Thứ tư
+wednesday_short:T4
+thursday:Thứ năm
+thursday_short:T5
+friday:Thứ sáu
+friday_short:T6
+saturday:Thứ bảy
+saturday_short:T7
 male:Nam
 female:Nữ
 unspecified:Không xác định
@@ -265,12 +290,14 @@ use_forum_default:Sử dụng diễn đàn chuẩn
 finduser_user_info:Thông tin người sử dụng
 finduser_by_login:Bằng Tên Đăng Nhập:
 finduser_submit:Tìm
+finduser_no_such_user:Người dùng không tồn tại
 finduser_user:Thành viên
 finduser_postcount:Số bài viết
 finduser_joindate:Ngày tham gia
 finduser_action:Hành động
 yes:Có
 no:Không
+register_email:Thư điện tử
 edit_time_limit:<b>Hạn chế thời gian sửa</b> : {GVAR: EDIT_TIME_LIMIT} phút
 no_edit_time_limit:<b>Hạn chế thời gian sửa</b>:Khônghạn chế
 pmuserloc_login:Tên đăng nhập:
@@ -281,11 +308,16 @@ register_builtin:Được làm trong
 register_specify_url:Đường dẫn cụ thể
 register_uploaded:Gửi hình đại diện lên
 register_login:Tên đăng nhập:
+register_login_desc:Tên người dùng mà bạn muốn dùng để đăng nhập và làm biệt danh trên trang.
+register_login_available:Có sẵn cho bạn dùng
+register_login_taken:Đã có người dùng
 register_password:Mật khẩu:
+register_password_desc:Mật khẩu cho tài khoản của bạn. Mật khẩu có phân biệt chữ thường và chữ hoa, ít nhất 6 kí tự.
 register_conf_pass:Xác nhận mật khẩu:
-# Fuzzy
-register_email_desc:Xin vui lòng nhập vào địa chỉ email có giá trị. Bạn có thể lựa chọn ẩn email, trong phần TỰ CHỌN .
+register_conf_pass_desc:Xin hãy điền lại mật khẩu
+register_email_desc:Địa chỉ thư điện tử của bạn. Bạn có thể ẩn địa chỉ này trong mục Tuỳ chọn.
 register_name:Tên :
+register_name_desc:Tên thật của bạn.
 register_your_pass:Mật khẩu của bạn:
 register_update:Cập nhật
 register_avatar_type:Hình ảnh đại diện:
@@ -298,8 +330,7 @@ register_preview:Xem lại
 register_custom_avatar_upload:Tập tin hình đại diện:
 register_register:Đăng ký
 register_required:Thông tin bắt buộc
-# Fuzzy
-register_required_desc:Tất cả những ô bắt buộc.  Xin vui lòng chú ý mật khẩu nhằm an toàn bảo mật.
+register_required_desc:Xin hãy điền hết các mục.
 register_optional:Thông tin tự chọn
 register_optional_desc:Xin chú ý: Tất cả những thông tin bên dưới của bạn có thể  được xem bởi những thành viên khác của diễn đàn .
 register_location:Địa chỉ:
@@ -307,6 +338,9 @@ register_occupation:Nghề nghiệp:
 register_interests:Sở thích:
 register_image:Hình Ảnh:
 register_icq:ICQ
+register_aim:Tên người dùng AIM:
+register_yahoo:Yahoo Messenger:
+register_msnm:MSN Messenger:
 register_homepage:Trang web của bạn:
 register_bday:Ngày sinh nhật:
 register_bday_desc:Nếu bạn nhập vào ngày sinh nhật .Thành viên khác trong diễn dàn có thể sẽ nhìn thấy được ngày sinh của bạn trong phần tiểu sử
@@ -335,6 +369,7 @@ register_show_email_desc:Chọn mục này nếu bạn muốn địa chỉ email
 register_notification:Chọn thông báo theo tiêu chuẩn:
 register_notification_desc:Nếu thông báo theo tiêu chuẩn được kích hoạt ,nó có thể bị vô hiệu khi gửi bài.
 register_notify_method:Chọn phương pháp thông báo:
+register_notify_method_desc:Hãy chọn cách nhận thông báo bạn thích hoặc tắt hẳn thông báo (khi bạn đi du lịch chẳng hạn).
 register_allow_email_msg:Cho phép nhắn tin Email:
 register_allow_email_msg_desc:Cho phép thành viên khác gủi email đến bạn qua diễn đàn này.
 buddy_status:Trạng thái
@@ -342,12 +377,14 @@ my_buddies:Bạn bè của tôi
 add_buddy:Thêm danh sách bạn bè
 add:Thêm
 buddy_search:Nhập vào tên đăng nhập của thành viên mà bạn muốn thêm
-# Fuzzy
-member_search:hoặc sử dụng chức năng <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Tìm thành viên</a> để kiếm một người.
+member_search:Hoặc sử dụng chức năng <a href="javascript://" onclick="javascript: window_open('{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Tìm người dùng</a> để tìm kiếm một người.
 buddy_remove:Xóa bỏ
 post_normal:Bình Thường
+post_sticky:Chủ đề được dán lên đầu:
 post_annoncement:Thông Báo
+post_size:Kích cỡ
 post_color:Màu
+post_font:Phông chữ
 create_thread:Tạo Chủ Đề
 submit_reply:Đăng bài trả lời
 edit_message:Áp dụng thay đổi bài viết
@@ -387,35 +424,51 @@ post_title:Tựa Đề:
 post_body:Nội Dung:
 post_options:Mục Chọn:
 post_preview_btn:Xem Lại Bài Viết
+post_cancel_btn:Hủy bỏ
 ignore_users:Thành viên bị từ chối
 add_ignore:Thêm người bị từ chối
 forum_terms:Những điều khoản của diễn đàn
-# Fuzzy
-forum_rules:<center><h1>Chào đón những thành viên mới của <b>Trường Long Forum </b></h1><br />Chúc Các Bạn Vui Vẻ ^_^ <br />Nếu bạn đồng ý --->> [Đồng ý]<br />nếu không -->> [không đồng ý]</center>
-# Fuzzy
-forum_rules_13:Tất cả những thành viên dưới 13 tuổi phải có sự chấp nhận của cha mẹ hoặc người bảo hộ để có thể trở thành thành viên của diễn đàn While we welcome participation from members under 13, we require that a parent or guardian fax or mail back a signed permission form before we grant membership.<p>If you would like to start the registration process prior to us receiving a permission form, press the Agree button below. If you would like to cancel the registration, press Cancel to return to the forums index. <p>A copy of the permission form can be downloaded here. For more information about the registration process, please send e-mail to <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.<p>
+forum_rules:<p>Việc đăng kí tham gia diễn đàn hoàn toàn miễn phí, tuy nhiên, chúng tôi mong muốn bạn tuân theo các luật lệ và điều khoản bên dưới. Nếu bạn đồng ý với các quy định này, hãy nhấn nút <b>Chấp nhận</b> ở cuối trang.</p><p>Các quản trị viên và kiểm duyệt viên sẽ cố gắng bài trừ các bài viết có nội dung xúc phạm, tuy vậy việc kiểm soát toàn bộ mọi thứ là điều không thể. Toàn bộ mọi bài viết chỉ phản ánh quan điểm của chính tác giả, chủ sở hữu diễn đàn và các lập trình viên sẽ không chịu trách nhiệm cho nội dung của bất cứ bài viết nào.</p><p>Khi nhấn nút Chấp nhận, bạn đồng ý rằng bạn sẽ không đăng bất cứ nội dung nào vi phạm về mặt đạo đức, mang tính tục tĩu, khiêu dâm, thù hận, gây hấn hay đe doạ, hoặc bất cứ nội dung nào vi phạm pháp luật.</p><p>Chủ sở hữu diễn đàn có quyền xoá, sửa, di chuyển hay đóng một chủ đề nào đó vì bất kì lí do.</p>
+forum_rules_13:Tất cả những người dùng dưới 13 tuổi phải có sự chấp nhận của phụ huynh hoặc người giám hộ để có thể trở thành thành viên của diễn đàn. Mặc dù chúng tôi vẫn chào đón những người dùng dưới 13 tuổi, chúng tôi yêu cầu một phụ huynh hoặc người giám hộ gửi fax hay gửi thư có đơn cấp quyền sử dụng trước khi chúng tôi cho phép việc đăng kí tài khoản. </p><p>Nếu bạn vẫn muốn tiếp tục đăng kí và gửi đơn cấp quyền sử dụng tới chúng tôi, nhấn nút <b>Chấp nhận</b> bên dưới. Nếu không muốn đăng kí nữa, nhấn nút <b>Từ chối</b> để trở về trang chủ diễn đàn.</p><p>Sẽ có một bản đơn cấp quyền sử dụng mẫu xuất hiện ngay sau quá trình đăng kí. Để biết thêm thông tin chi tiết về quá trình đăng kí, hãy gửi thư điện tử cho <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
+coppa_conf:Xác nhận của COPPA
 coppa_before:Trước {TEMPLATE: coppa_date}
 coppa_after:Sau {TEMPLATE: coppa_date}
 coppa_link:Nhấn chuột vào link này để chịu trách nhiệm về ngày sinh của bạn
-# Fuzzy
-coppa:A parent or guardian must mail or fax a signed permission form to the administrator of this forum before a user under the age of 13 can complete registration.<p>For further information contact <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
+coppa:Phụ huynh hoặc người giám hộ phải gửi fax hay gửi thư có đơn cấp quyền sử dụng tới ban quản trị của diễn đàn trước khi chúng tôi cho phép người dùng dưới 13 tuổi đăng kí. </p><p>Để biết thêm thông tin hãy liên lạc tại địa chỉ <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a></p>
 prereg_info:Thông tin
 prereg_agree:Đồng Ý
 prereg_disagree:Không đồng ý
+prereg_update:Đọc luật diễn đàn
+coppa_fax_instructions:Hướng dẫn cho Phụ huynh hay Người giám hộ
+coppa_fax_instructions2:Xin hãy in trang này ra, kí vào và gửi thư/gửi fax về cho chúng tôi.
+coppa_fax_reg_form:Đơn Đăng kí
+coppa_fax_sign:Xin hãy kí vào đơn bên dưới và gửi về cho chúng tôi
+coppa_fax_conf:Tôi đã xem qua các thông tin mà con tôi cung cấp trong quá trình đăng kí và đã đọc Chính sách về quyền riêng tư của trang. Tôi hiểu rằng có thể dùng mật khẩu để thay đổi thông tin tài khoản. Tôi hiểu rằng tôi có thể yêu cầu tài khoản này bị xoá hoàn toàn khỏi diễn đàn.
+coppa_fax_permission:Kí vào đây nếu bạn muốn cấp quyền sử dụng
+coppa_fax_no_permission:Kí vào đây nếu bạn muốn xoá tài khoản
+coppa_fax_parent_name:Tên đầy đủ của Phụ huynh/Người giám hộ:
+coppa_fax_relation:Mối quan hệ với trẻ:
+coppa_fax_telephone:Số điện thoại
+coppa_fax_email:Địa chỉ Thư điện tử:
+coppa_fax_date:Ngày:
+coppa_fax_questions:Hãy liên lạc <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> nếu bạn có thắc mắc
+coppa_fax_login:Đăng nhập
 coppa_fax_passwd:Mật khẩu
+coppa_fax_remail:Thư điện tử
+coppa_fax_name:Tên
 login_not_logedin:Bạn không đăng nhập được. Có thể do một vài lý do:
 login_cookie_expired:Cookies của bạn đã hết hạn, và bạn cần phải đăng nhập lại để làm mới cookie.
 login_perm_denied:Bạn không được phép truy cập khi là thành viên vô danh. Bạn phải đăng nhập để có được sự cho phép.
 login_want_to_register:Bạn muốn đăng ký chứ?
 login_forgot_passwd:Quên mật khẩu
-# Fuzzy
-login_use_cookie:Sử dụng cookie<br /><span class="SmallText">Nếu bạn sử dụng máy tính nơi công cộng như thư viên, trường học ,hoặc dịch vụ internet, Chúng tôi khuyên bạn không nên chọn mục này nhằm tăng độ bảo mật hơn.<br />Nếu bạn chọn mục này ,bạn sẽ tự động đăng nhập vào lần ghé thăm kế tiếp .
+login_use_cookie:Sử dụng cookie<br /><span class="SmallText">Nếu bạn sử dụng máy tính nơi công cộng như thư viên, trường học hay quán net, chúng tôi khuyên bạn không nên chọn mục này để tăng độ bảo mật.<br />Nếu chọn mục này, bạn sẽ tự động đăng nhập khi ghé thăm diễn đàn lần tới.
 login_login:Tên Đăng Nhập
 login_login_btn:Đăng Nhập
 login_name_required:Tên đăng nhập đòi hỏi phải có
 login_passwd_required:Mật khẩu đòi hỏi phải có
 login_invalid_radius:Tên đăng nhập hoặc mật khẩu không chính xác
 reset_confirmation:Cám ơn bạn đã đăng ký,\n\n Để kích hoạt tài khoản Xin vui lòng đến đường dẫn bên dưới :\n\n{VAR: url}\n\n Tài khoản của bạn được kích hoạt sẽ đăng nhập vào diễn đàn và \n chuyển đến trang chính.
+reset_reset:Xin chào,\n\nBạn đã yêu cầu thay đổi mật khẩu. Để tiếp tục,\ntruy cập đường dẫn này:\n\n{VAR: url}\n\nLƯU Ý: Diễn đàn này lưu trữ mật khẩu của bạn dưới hình thức mã hoá một chiều, do đó, khi bạn nhập mật khẩu đăng kí lần đầu thì mật khẩu đó sẽ được mã hoá và KHÔNG CÓ cách lấy lại.\nBằng cách so sánh mật khẩu đã mã hoá trong dữ liệu của chúng tôi với mật khẩu đã mã hoá mà bạn gõ khi đăng nhập, chúng tôi có thể biết bạn đã nhập "đúng" mật khẩu.\n(Nếu bạn cần tìm hiểu thêm về cơ chế hoạt động của việc này, hãy tìm và đọc thêm về thuật toán MD5 HASH nhé)
 rpasswd_invalid_passwd:Mật khẩu không chính xác
 rpasswd_passwd_nomatch:Mật khẩu không tìm thấy
 rpasswd_passwd_length:Mật khẩu phải dài ít nhất 6 kí tự
@@ -616,8 +669,7 @@ post_opt_html_off:<b>Mã HTML</b> đã <b>Tắt</b>
 post_opt_fud_off:<b>TLcode</b> đã <b>Tắt</b>
 post_opt_images_off:<b>Hình ảnh</b> đã <b>Tắt</b>
 post_opt_smilies_off:<b>Biểu tượng cười</b> đã <b>Tắt</b>
-# Fuzzy
-post_opt:Mục chọn diễn đàn
+post_opt:Cài đặt diễn đàn:
 register_change_passwd:Đổi mật khẩu
 approved_avatar_title:Hình đại diện quen thuộc của bạn đã được chấp nhận.
 approved_avatar_msg:Hình đại diện của bạn đã được chấp nhận bởi người quản trị tối cao. Ngay bây giờ nó sẽ xuất hiện trong mọi bài viết của bạn. Nếu bạn không nhìn thấy nó, hoặc nhìn thấy hình đại diện cũ , bởi vì trình duyệt của bạn đã chụp lại. Thử làm tươi trình duyệt một , hai lần xem sao bằng cách nhấn phím F5. Trong hầu hết trường hợp đều do cất trữ của trình duyệt mà ra .
