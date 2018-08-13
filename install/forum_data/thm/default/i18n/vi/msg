@@ -474,13 +474,22 @@ rpasswd_passwd_nomatch:Mật khẩu không tìm thấy
 rpasswd_passwd_length:Mật khẩu phải dài ít nhất 6 kí tự
 reset_reset_conf:Mật khẩu của bạn sẽ được tạo mới và gửi đến bạn. Nếu bạn chưa xác nhận địa chỉ email , Yêu cầu xác nhận sẽ gửi lại đến bạn.
 reset_error:Địa chỉ email không tìm thấy trong cơ sở dữ liệu
+reset_update:Đặt lại mật khẩu
 rpasswd_change_pass:Thay đổi mật khẩu
 rpasswd_login:Tên đăng nhập
 rpasswd_cur_pass:Mật khẩu hiện tại:
 rpasswd_new_pass:Mật khẩu mới:
 rpasswd_conf_pass:Xác nhận mật khẩu:
 login_passwd:Mật khẩu:
+reset_email:Thư điện tử:
 reset_reset_button:Tạo mới mật khẩu
+rate_this_thread:Đánh giá
+report_reporting_about:Báo cáo về:
+report_subject:Tiêu đề:
+report_by:Bởi:
+report_posted_on:Được đăng vào:
+report_give_reason:Xin hãy nêu lí do bạn báo cáo bài đăng này:
+report_submit_report:Gửi báo cáo
 search_entire_msg:Toàn bộ bài viết
 search_subject_only:Chỉ tựa đề
 search_forum:Diễn đàn
@@ -490,15 +499,34 @@ search_all_forums:Tìm tất cả diễn đàn
 search_in_forum:Tìm trong diễn đàn:
 search_forum_search:Tìm Kiếm
 move_thread_to:Chuyển chủ đề <b>{VAR: thr->subject}</b> đến:
+remail_email_topic:Gửi thư về chủ đề này cho bạn của bạn
+remail_your_name:Tên của bạn:
+remail_your_email:Địa chỉ thư điện tử của bạn:
+remail_friends_name:Tên của người mà bạn cần gửi
+remail_friends_email:Địa chỉ thư điện tử của người bạn cần gửi:
+remail_required:bắt buộc
+remail_subject:Tiêu đề:
+remail_message:Tin nhắn:
+remail_send_now:Gửi thư ngay
+remail_anon_opt:Hãy chép tin nhắn này vào một dịch vụ gửi thư bạn thích và gửi cho người bạn muốn.
+remail_done:Xong
+remail_sent_conf:Thư về chủ đề {VAR: data->subject} đã được gửi đến địa chỉ thư điện tử {VAR-HTML: _POST['femail']} thành công.
+remail_error:Có lỗi xảy ra
 mklist_type:Loại:
+mklist_option:Tùy chọn:
+mklist_additem:Thêm mục
+mklist_apply:Áp dụng
 mklist_delete:Xóa
 qbud_nick_name:Bí danh
+qbud_add_selected:Thêm các mục đã chọn
 qbud_selected:Được chọn
 qbud_no_buddies:Không có bạn được chọn từ
 mklist_numerical:Số
 mklist_aplha:Kí tự
 mklist_square:Hình vuông
+mklist_close:Đóng
 email_to:Đến:
+email_pg_title:Thư điện tử
 email_subject:Tựa Đề:
 email_body:Nội Dung:
 email_submit:Gửi Email
@@ -534,16 +562,21 @@ poll_year:năm
 poll_week:tuần
 tabs_register:Hiệu Chỉnh
 tabs_subscriptions:Theo Dõi
+tabs_bookmarkes:Dấu trang
+tabs_referrals:Lời mời
 tabs_buddy_list:Danh Sách Bạn Bè
 tabs_ignore_list:Danh Sách Từ Chối
 tabs_private_messaging:Tin Nhắn Cá Nhân
 single_msg_delete:You are about to <span class="ErrorText">DELETE</span> the message titled: <b>{VAR: data[3]}</b>
-# Fuzzy
-thread_delete:You are about to <span class="ErrorText">DELETE</span> the <span class="ErrorText">ENTIRE TOPIC</span> titled: <b>{VAR: data[3]}</b>
+thread_delete:Bạn đang chuẩn bị <span class="ErrorText">XOÁ</span> the <span class="ErrorText">TOÀN BỘ CHỦ ĐỀ</span> này: <b>{VAR: data[3]}</b>
+delete_proceed:<span class="fb">Bạn có chắc muốn tiếp tục không?</span>
+delete_yes:Có
+delete_no:Không
 error_invalidurl:Đường dẫn URL không có giá trị
 error_error:Lỗi
 usrinfo_profile:Tiểu sử của {VAR: u->alias}
 usrinfo_show_all_posts:Xem tất cả bài viết bởi  {VAR: u->alias}
+actions_update:Cũng đang dòm ngó trang cá nhân người khác
 err_info:Thông tin
 buddy_list_err_cantadd:Bạn không thể thêm chính bạn vào trong danh sách bạn bè
 buddy_list_err_dup:Bạn đã có người này trong danh sách
@@ -551,8 +584,8 @@ buddy_list_err_nouser:Người sử dụng mà bạn muốn thêm không thể t
 buddy_list_err_nouser_title:Không thể thêm người sử dụng
 buddy_list_err_ignore:Không thể thêm thành viên này vì họ đã từ chối bạn thêm vào danh sách bạn bè.
 buddy_list_update:Xem qua danh sách bạn bè của tôi
-# Fuzzy
-core_adm_login_msg:người quản trị tối cao có thể đăng nhập  <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">ở đây</a>
+core_err_invinp_title:Thông tin được nhập không hợp lệ.
+core_adm_login_msg:Người quản trị có thể đăng nhập <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">tại đây</a>.
 email_err_unabletoemail_title:Lỗi : Không thể gửi email
 email_err_unabletoemail_msg:Hệ thống email đã bị vô hiệu hóa bởi người quản trị tối cao.
 email_error_unabletolocaddr:Lỗi :hệ thống không thể gửi email đến {VAR-HTML: _POST['tx_name']} bởi vì nó không thể xác định rõ địa chỉ email
@@ -562,7 +595,13 @@ email_error_namerequired:Tên đòi hỏi phải có
 email_error_invaliduser:Tên người sử dụng không có giá trị
 emailconf_err_invkey_title:Lỗi
 emailconf_err_invkey_msg:Khóa xác nhận không chính xác.  Xin vui lòng kiểm tra lại email của bạn để chắc chắn rằng bạn đã nhập vào đúng đường dẫn URL.
+err_inc_criticaltitle:Lỗi nghiêm trọng
+err_inc_criticalmsg:Có lỗi đã xảy ra. Thật tiếc là hệ thống báo cáo lỗi cũng gặp sự cố.
 finduser_update:Đang kiếm thành viên
+help_index_update:Đang đọc mục <a href="{TEMPLATE: help_index_update_lnk}">Trợ giúp</a>
+iemail_thr_subject:Có trả lời mới đăng vào chủ đề {VAR: thr_subject} bởi {VAR: poster_login}
+iemail_thr_bodyemail:Để xem các bài viết chưa đọc, hãy tới: {VAR: goto_url['email']}\n\nNếu bạn không muốn nhận thông báo về các bài viết mới thuộc chủ đề này nữa, hãy tới: {VAR: unsub_url['email']}
+iemail_participate:Để tham gia vào cuộc thảo luận, mời tới đây:
 ignore_list_err_info_title:Thông tin
 ignore_list_err_dup_msg:Bạn đã có người này trong danh sách của bạn
 ignore_list_err_nu_title:Không tìm thấy thành viên
@@ -578,8 +617,7 @@ pm_update:Đang sử dụng tin nhắn cá nhân
 post_err_lockedthread_title:Lỗi :Chủ đề đã bị khóa
 post_err_lockedthread_msg:Chủ đề này đã bị khóa .Bài viết của bạn không được phép.
 err_coppa_title:Lỗi : Tài khoản của bạn chưa được kích hoạt
-# Fuzzy
-err_coppa_msg:Chúng tôi chưa nhận được sự xác nhận từ cha mẹ hoặc người bảo hộ của bạn, để cho phép bạn gửi bài viết. Nếu bạn mất mẫu COPPA, <a href="{TEMPLATE: err_coppa_msg_lnk}">nhấn chuột vào đây</a> để xem lại nó.
+err_coppa_msg:Chúng tôi chưa nhận được xác nhận từ phụ huynh hoặc người bảo hộ của bạn, vậy nên bạn chưa được phép gửi bài viết. Nếu bạn mất mẫu COPPA, <a href="{TEMPLATE: err_coppa_msg_lnk}">xem lại tại đây</a>.
 err_banned_acct_title:Lỗi :Tài khoản đã bị cấm.
 err_banned_acct_msg:Tài khoản của bạn {IF: $ban_expiry}tạm thời bị cấm cho đến khi {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}lâu dài{ENDI} cho việc truy cập vào diễn đàn, vì vi phạm nội qui của diễn đàn.
 post_err_edttimelimit_title:Lỗi
@@ -588,7 +626,7 @@ post_err_noannontopics_msg2:<legend>Lỗi : Không được phép</legend>Thành
 post_err_noannonposts_msg2:<legend>Lỗi : Không được phép</legend>Thành viên vô danh không được phép trả loi.
 post_err_floodtrig_title:Lỗi : Gởi bài đã gây quá tải.
 # Fuzzy
-post_err_floodtrig_msg:Xin vui lòng thử lại sau {VAR: tm} giây nữa
+post_err_floodtrig_msg:Xin vui lòng thử lại sau PLURAL: tm|$1 giây|$1 giây}
 post_err_attach_size:Kích thước tập tin đính kèm quá lớn(lớn hơn giới hạn cho phép {VAR: MAX_F_SIZE} bytes)
 post_err_attach_ext:Loại tập tin bạn gửi lên không được cho phép.
 post_err_attach_filelimit:Số tập tin bạn gửi lên nhiều hơn được cho phép.
@@ -597,6 +635,7 @@ post_reply_update:Trả lời đến <a href="{TEMPLATE: msg_post_lnk}">{VAR: th
 post_topic_update:Tạo chủ đề mới trong <a href="{TEMPLATE: post_topic_update_lnk}">{VAR: frm->name}</a>
 post_error_generic:Có một lỗi xảy ra
 postcheck_max_images_err:Số lượng hình ảnh được cho phép trong mỗi bài viết không được hơn {GVAR: MAX_IMAGE_COUNT} hình. Xin vui lòng giảm số lượng hình.
+postcheck_no_links_allowed:Bạn chưa thể đăng đường dẫn cho tới khi đã đăng trên {PLURAL: posts_before_links|$1 bài viết|$1 bài viết}.
 postcheck_subj_needed:Yêu cầu có tựa đề
 postcheck_no_such_user:Không có thành viên tên "{FUNC: char_fix(htmlspecialchars($v))}" trong diễn đàn này.
 postcheck_ignored:Bạn không thể gửi tin nhắn cá nhân đên "{FUNC: char_fix(htmlspecialchars($v))}", vì người này đã từ chối bạn.
@@ -628,6 +667,8 @@ register_err_cantreg_title:Lỗi :Không thể đăng ký
 regsiter_err_cantreg_msg:Không thể tạo tài khoản người sử dụng, xin vui lòng liên hệ với người quản trị tối cao ở <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:Xem tiểu sử của bạn
 register_register_update:Trang Đăng Ký
+report_err_nosuchmsg_title:LỖI
+reset_err_invalidkey_title:LỖI
 reset_newpass_title:Tạo lại mật khẩu
 reset_newpass_msg:Xin chào,\n\n Như yêu cầu, thông tin đăng nhập của bạn hiện bên dưới:\n\n Tên đăng nhập: {VAR: ui[1]}\n Mật khẩu: {VAR: passwd}\n\n Xin vui lòng chú ý mật khẩu mới của bạn đã được tạo bên trên. Nếu bạn muốn thay đổi mật khẩu bạn có thể làm qua khu vực người sử dụng:\n{FULL_ROOT}?t=register
 search_update:Bài viết tìm kiếm
@@ -693,11 +734,25 @@ split_thread:Cắt chủ đề
 show_show:Xem :
 group_mgr:Nhóm quản lý
 permission_denied_title:Cho phép đã bị từ chối
+p_READ:Đọc
+p_POST:Đăng
+p_REPLY:Trả lời
+p_EDIT:Chỉnh sửa
+p_DEL:Xóa
+p_POLL:Tạo khảo sát
+p_FILE:Đính kèm tập tin
+p_VOTE:Bình chọn
+p_SPLIT:Chia chủ đề
+p_LOCK:Khóa chủ đề
+p_MOVE:Chuyển chủ đề
+p_SML:Dùng biểu tượng mặt cười
 group_mgr_search:Tìm User
 rate_worst:Tệ nhất
 rate_best:Tốt nhất
 post_quote_msg:{VAR: msg->login} được viết vào {TEMPLATE: make_report_date}
 post_quote:Trích dẫn:
+userinfo_referals:Người dùng được mời:
+userinfo_referals_count:{VAR: referals} người dùng
 pm_no_space_title:Không đủ khoảng trống
 pm_no_space_msg:Thư mục tin nhắn cá nhân của bạn có dung lượng không được vượt quá <b>{GVAR: MAX_PMSG_FLDR_SIZE} bytes</b>. Sức chứa hiện giờ là <b>{VAR: fldr_size} bytes</b> số tin nhắn.<br /><br /><span class="ErrorText">Xóa một vài tin nhắn cũ để làm trống không gian.</span>
 pm_space_indct_msg:Thư mục tin nhắn cá nhân của bạn có {VAR: percent_full}% đầy.
@@ -707,7 +762,17 @@ th_expr_three_hr:3 giờ
 th_expr_four_hr:4 Giờ
 th_expr_eight_hr:8 giờ
 th_expr_sixteen_hr:16 giờ
+th_expr_one_day:1 ngày
+th_expr_two_day:2 ngày
+th_expr_four_day:4 ngày
+th_expr_one_week:1 tuần
+th_expr_two_week:2 tuần
+th_expr_one_month:1 tháng
+th_expr_two_month:2 tháng
+th_expr_four_month:4 tháng
+th_expr_one_year:1 năm
 thread_mod_delete:Xóa
+action_ip:Địa chỉ IP
 action_latest_post:Tin Cuối Cùng
 online_today_last_visit:Lần ghé thăm cuối
 online_today_update:Xem danh sách những người đã vào diễn đàn hôm nay.
@@ -719,6 +784,16 @@ drawmsg_view_rest_post:Xem những bài viết còn lại
 post_re:Trả lời:
 forumsel_goto_forum:Đến diễn đàn:
 minimsg_thread_view:Xem chủ đề
+split_th_post_by:Bài đăng của:
+split_th_posted_on:Được đăng vào:
+split_th_subject:Tiêu đề:
+split_th_new_thread_title:Tiêu đề của chủ đề mới:
+split_th_forum:Diễn đàn:
+split_th_split_sel:Chia (các) bài đăng đã chọn
+split_th_split_unsel:Chia (các) bài đăng chưa được chọn
+split_th_messages:Bài đăng
+split_th_select:Chọn
+report_report_post:Báo cáo bài đăng
 quicklogin_login:Đăng Nhập:
 quicklogin_password:Mật khẩu:
 quicklogin_use_cookies:Sử dụng Cookie?
@@ -758,10 +833,13 @@ polllist_action:Hành động
 polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">Xem những phiếu hiện có</a>
 userinfo_polls:Bảng khảo sát:
 show_pollist:Xem bảng khảo sát
+search_and:VÀ
+search_or:HOẶC
 search_desc_order:Xếp giảm dần
 search_asc_order:Xếp tăng dần
 search_logic:Tìm kiếm logic:
 search_sorting:Xếp kết quả ngày theo:
+search_attach:Đính kèm:
 post_proceed:Bắt đầu
 post_moderated_forum:Bạn đã gửi bài trong diễn đàn đã được quản lý. Bài viết của bạn không thể xem bởi người khác cho đến khi nó được sự chấp nhận của người điều tiết diễn đàn hoặc người quản trị tối cao
 post_moderated_forum_ttl:Thông báo người điều tiết diễn đàn
@@ -836,8 +914,7 @@ findu_unban:Không Cấm
 findu_ban:Cấm
 findu_edit:Chỉnh Sửa
 findu_delete:Xóa
-# Fuzzy
-dmsg_reply_to:là bài trả lời đến bài viết  #{VAR: obj->reply_to}
+dmsg_reply_to:là bài trả lời đến bài đăng
 merge_topics:Gộp Chủ Đề
 split_cp:Thread Split Control Panel
 register_err_sig_too_long:Chữ ký của bạn vượt quá độ dài cho phép {GVAR: FORUM_SIG_ML} ký tự.
@@ -852,12 +929,15 @@ register_email_addr:Địa chỉ Email:
 usrinfo_last_visit:Lần ghé thăm sau cùng:
 mnav_newer:mới hơn
 mnav_older:cũ hơn
+ip_search:Tìm
 userinfo_real_name:Tên thật là :
 register_err_alias_notallowed:Bí danh này không được cho phép
 post_err_mod_forum_edit_ttl:Lỗi
 post_err_mod_forum_edit_msg:Bạn không thể chỉnh sửa bài viết trong diễn đàn đã được quản lý.
 dmsg_num:bài viết #{VAR: obj->id}
 postcheck_session_invalid:Phiên của bạn đã hết hạn. Xin vui lòng đăng nhập lại. Chúng tôi rất tiếc về sự bất tiện này.
+ip_no_whois:Thông tin WHOIS của <b>{VAR: ip}</b> không có sẵn.
+ip_whois_title:Thông tin dịch vụ cung cấp mạng
 register_theme:Giao Diện:
 pmsg_trash:Xóa rác
 uc_new_pm:Tin nhắn cá nhân mới
@@ -871,18 +951,23 @@ search_user_filter:Lọc thành viên:
 register_none:Không thông báo cho tôi
 findu_no_conf:Thành Viên Chưa Xác Nhận
 register_max_sig_len:Độ dài tối đa:
-# Fuzzy
-register_turing:Xin vui lòng nhập vào mã bên dưới:
-# Fuzzy
-register_err_turing:Mã Không Phù Hợp.
+register_turing:Xác nhận:
+register_err_turing:Xác nhận thất bại. Hãy thử lại.
 modque_cat:Danh mục
 modque_forum:Diễn Đàn
 idx_compact_forum_row:Những diễn đàn hiện có:
 mmd_del_title:Chủ đề bị xóa
+mmd_mov_title:Chuyển chủ đề
+mmd_move_threads_to:Diễn đàn đích:
+mmd_abort_move:Huỷ
+mmd_move:Chuyển chủ đề
 pmsg_pdf_btn:Tạo trang PDF
 search_results_hdr:Kết quả tìm kiếm được {VAR: total}
 thread_del_all:Xóa tất cả được chọn
 thread_mov_all:Di chuyển tất cả được chọn
+thread_merge_all:Hợp nhất các mục đã chọn
+thread_loc_all:Khoá/mở khoá các mục đã chọn
+dmsg_ip:Địa chỉ IP:
 err_blockedaccnt_title:Lỗi :Tài khoản của bạn đã bị lọc ra ngoài.
 err_blockedaccnt_msg:Tài khoản của bạn đã bị cấm truy cập vào diễn đàn vì bộ lọc người sử dụng đã được thiết lập.
 most_users_online:Thành viên online nhiều nhất là <b>{VAR: st_obj->most_online}</b> vào <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
@@ -904,3 +989,38 @@ post_common_nlist:Thêm danh sách số
 post_common_blist:Thêm danh sách chấm
 post_common_quote:Thêm trích dẫn
 post_common_code:Thêm mã
+tabs_notifications:Thông báo
+post_descr:Mô tả chủ đề:
+move_messages:Chuyển (các) bài đăng
+move_msg_btn:Chuyển (các) bài đăng đã chọn
+captcha_img_alt:Xác nhận Captcha: bạn cần nhận dạng các kí tự trong hình này.
+captcha_img_help:Trong hình không có số 0 (không) hoặc 1 (một).
+powered-by:Diễn đàn này sử dụng FUDforum {GVAR: FORUM_VERSION}.
+copyright:Bản quyền &copy;2001-2018 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+code_select_all:Chọn tất cả
+code_show_hide:Hiện/ẩn
+social_sites:Tài khoản mạng xã hội:
+postcheck_min_len_err:Bài đăng quá ngắn. Tối thiểu cầm có {PLURAL: post_min_len|$1 kí tự|$1 kí tự}.
+postcheck_dup_err:Xin đừng tạo chủ đề trùng lặp.
+btn_new_topic:Chủ đề mới
+btn_new_pm:Tin nhắn mới
+btn_post_reply:Đăng trả lời
+btn_tree_view:Dạng cây
+btn_flat_view:Dạng phẳng
+btn_about:Hồ sơ
+btn_small_pm:Nhắn
+btn_delete:xóa
+btn_edit:sửa
+btn_reply:trả lời
+btn_forward:ch.tiếp
+btn_quote:trích
+btn_email:Thư điện tử
+btn_show_posts:bài đăng
+btn_homepage:www
+pages:Các trang
+page_list_heading:Các trang có sẵn
+pm_export_header:Gửi tin nhắn riêng tư cho {VAR: usr->alias}
+pm_export_footer:Đã xuất:
+karma_track:Quản lý danh tiếng người dùng:
+karma_delete:Xoá
+rate_author:Đánh giá tác giả:
