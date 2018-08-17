@@ -2,6 +2,7 @@
 # Exported from translatewiki.net
 # Author: Aotake
 # Author: Fryed-peach
+# Author: Gulpin
 # Author: Hina
 # Author: Iwai.masaharu
 # Author: Kanon und wikipedia
@@ -213,7 +214,6 @@ vote_button:投票
 vote_for_thread:投票
 was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> はモデレーターによって <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> に移動されました。
 welcome_message:<b>{VAR: usr->alias}</b> さん、ようこそ。前回の訪問は{TEMPLATE: welcome_message_date}でした。
-# Fuzzy
 what_ppl_doing:人々が何をしているのか表示する
 reported_del_report:報告を削除
 reported_reason:理由:
@@ -320,6 +320,7 @@ register_login_taken:使用されています
 register_password:パスワード:
 register_password_desc:アカウントのパスワードです。パスワードは大文字と小文字が区別され、少なくとも6文字以上である必要があります。
 register_conf_pass:パスワード (確認):
+register_conf_pass_desc:パスワードを再入力してください。
 register_email_desc:メールアドレスを入力してください。下の設定セクションでこれを非公開にできます。
 register_name:名前:
 register_name_desc:あなたの本名です。
@@ -382,8 +383,7 @@ my_buddies:自分の仲間
 add_buddy:仲間を追加
 add:追加
 buddy_search:追加したい利用者のログイン名を入力してください。
-# Fuzzy
-member_search:Or use the <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Find User</a> feature to find a person.
+member_search:または、 <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">ユーザを探す</a> 機能を利用してください。.
 buddy_remove:除去
 post_normal:通常
 post_sticky:常に先頭に表示するトピック
@@ -600,7 +600,6 @@ buddy_list_err_ignore:あなたを無視している利用者を友達リスト�
 buddy_list_update:自分の友達リストを見ています
 core_err_invinp_title:無効な入力
 core_err_invinp_err:無効なリンクを辿りました。どうやってここに着いたか<a href="mailto:{GVAR: ADMIN_EMAIL}">サイト管理者</a>に知らせてください。
-# Fuzzy
 core_adm_login_msg:管理者は<a href="{GVAR: WWW_ROOT}adm/admloginuser.php">ここ</a>でログインできます。
 email_err_unabletoemail_title:エラー: メールを送信できません
 email_err_unabletoemail_msg:管理者がメールシステムを無効にしています。
@@ -680,8 +679,7 @@ register_err_avatarnotallowed:アップロードしようとしているアバ�
 register_conf_subject:登録確認
 register_conf_msg:登録ありがとうございます。\nあなたのアカウントを有効化するには下記の URL にアクセスしてください。\n\n{FULL_ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nアカウントが有効化されると、フォーラムにログインし、\nメインページに転送されます。
 register_welcome_subject:フォーラム登録確認
-# Fuzzy
-register_welcome_msg:登録ありがとうございます。\n\n下記がフォーラムへのログインに関する詳細です。\n\nフォーラムの URL: {TEMPLATE: index_update_lnk}\nログイン名: {VAR: uent->login}\nパスワード: {VAR: _POST['reg_plaintext_passwd']}\n\nパスワードは大文字・小文字を区別することに注意してください!\nあなたの設定や自己紹介を変更したい場合は、次のページを使用してください:\n{FULL_ROOT}{ROOT}?t=register
+register_welcome_msg:登録ありがとうございます。\n\n下記がフォーラムへのログインに関する詳細です。\n\nフォーラムの URL: {TEMPLATE: index_update_lnk}\nログイン名: {VAR: uent->login}\nパスワード: {VAR: _POST['reg_plaintext_passwd']}\n\nパスワードは大文字・小文字を区別することに注意してください!\nあなたの設定や自己紹介を変更したい場合は、次のページを使用してください:\n{FULL_ROOT}?t=register
 register_err_cantreg_title:エラー: 登録できません
 regsiter_err_cantreg_msg:利用者アカウントを作成できませんでした。<a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a> で管理者に連絡してください。
 register_profile_update:自分のプロフィールを閲覧中
@@ -728,8 +726,7 @@ error_title:エラーフォーム
 index_title:フォーラムへようこそ
 search_title:{VAR-HTML: srch} を検索する
 remail_emailsent:メールを送信しました
-# Fuzzy
-remail_email:こんにちは。\n\n「{GVAR: FORUM_TITLE}」フォーラムに、あなたが興味を持っていただけるかもしれない「{VAR: data->subject}」についてのトピックがあります。このトピックは {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid} で表示できます。\n\nあなたの友より。\n\n{VAR: usr->alias}
+remail_email:こんにちは。\n\n「{GVAR: FORUM_TITLE}」フォーラムに、あなたが興味を持っていただけるかもしれない「{VAR: data->subject}」についてのトピックがあります。このトピックは {FULL_ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid} で表示できます。\n\nあなたの友より。\n\n{VAR: usr->alias}
 poll_add_option:追加する選択肢:
 post_opt_html_on:<b>HTML</b> は<b>有効</b>です
 post_opt_fud_on:<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>FUDコード</b>は<b>有効</b></a>です
@@ -969,11 +966,9 @@ iemail_forum_unsub:このフォーラムの購読停止
 primary_group_prefix:フォーラムの第一グループ:
 group_resources:このグループは次のフォーラムの権限を制御します
 register_admin_newuser_title:新規利用者が登録しました。アカウントは確認待ちです。
-# Fuzzy
-register_admin_newuser_msg:新規利用者 ({VAR: uent->login}) がただ今登録しました。アカウントの確認が有効になっているため、その利用者のアカウントはあなたか他のフォーラム管理者によって確認されるまで有効化されません。このアカウントを審査するには、{GVAR: WWW_ROOT}adm/admuserapr.php にアクセスしてください。\n\nこれは自動化された処理です。このメッセージに返信しないでください。\n新規利用者の登録に関するメール通知を今後受け取りたくない場合は、管理者コントロールパネルで止めることができます。「New Account Notification」設定で変更します。
+register_admin_newuser_msg:新規利用者 ({VAR: uent->login}) がただ今登録しました。アカウントの確認が有効になっているため、その利用者のアカウントはあなたか他のフォーラム管理者によって確認されるまで有効化されません。このアカウントを審査するには、{FULL_ROOT}adm/admuserapr.php にアクセスしてください。\n\nこれは自動化された処理です。このメッセージに返信しないでください。\n新規利用者の登録に関するメール通知を今後受け取りたくない場合は、管理者コントロールパネルで止めることができます。「新規アカウント通知」設定で変更します。
 post_mod_msg_notify_title:フォーラム「{VAR: frm->name}」で承認待ちの新規メッセージ
-# Fuzzy
-post_mod_msg_notify_msg:新規メッセージ「{VAR: msg_post->subject}」が、あなたがモデレーションを担当するフォーラムにただ今投稿されました。このメッセージを検査するには、{FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id} にアクセスしてください。\n\nこれは自動化された処理です。このメッセージに返信しないでください。
+post_mod_msg_notify_msg:新規メッセージ「{VAR: msg_post->subject}」が、あなたがモデレーションを担当するフォーラムにただ今投稿されました。このメッセージを検査するには、{FULL_ROOT}?t=modque#{VAR: msg_post->id} にアクセスしてください。\n\nこれは自動化された処理です。このメッセージに返信しないでください。
 thread_printable_pdf:印刷用 PDF を生成する
 thread_syndicate:このフォーラムを配信する (XML)
 reg_conf_title:登録確認
@@ -999,8 +994,7 @@ mnav_month:月
 mnav_title:メッセージナビゲーター
 mnav_update:<a href="{TEMPLATE: mnav_update_lnk}">メッセージナビゲーター</a>を使ってメッセージを閲覧中
 pm_notify_subject:[{GVAR: FORUM_TITLE}] 新規プライベートメッセージ通知
-# Fuzzy
-pm_notify_body_email:フォーラム「{GVAR: FORUM_TITLE}」の「{VAR: from}」さんより「{VAR: subject}」という件名のプライベートメッセージが届いています。\nメッセージを表示するには下記をクリックしてください:\n{FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nこれ以降の通知を停止するには、プロフィールで「プライベートメッセージ通知」を無効にしてください。
+pm_notify_body_email:フォーラム「{GVAR: FORUM_TITLE}」の「{VAR: from}」さんより「{VAR: subject}」という件名のプライベートメッセージが届いています。\nメッセージを表示するには下記をクリックしてください:\n{FULL_ROOT}?t=pmsg_view&id={VAR: pid}\n\nこれ以降の通知を停止するには、プロフィールで「プライベートメッセージ通知」を無効にしてください。
 register_pm_notification:プライベートメッセージ通知:
 register_pm_notification_desc:有効にした場合、プライベートメッセージがあなたに送られたことを常に通知します。
 findu_admin_opts_header:管理者オプション
@@ -1066,10 +1060,8 @@ search_user_filter:利用者で絞り込み:
 register_none:通知しない
 findu_no_conf:未確認利用者
 register_max_sig_len:最大長:
-# Fuzzy
 register_turing:下記に表示されているコードを入力してください:
-# Fuzzy
-register_err_turing:確認コードが正しくありません。
+register_err_turing:確認コードが正しくありません。もう一度トライしてください。
 modque_cat:カテゴリ
 modque_forum:フォーラム
 idx_compact_forum_row:利用可能なフォーラム:
@@ -1130,8 +1122,7 @@ move_msg_th_expl:移動先トピックのIDを指定してください (他の�
 captcha_img_alt:CAPTCHA検証: この画像中の文字列を認識する必要があります。
 captcha_img_help:画像内には 0 も 1 もありません。
 powered-by:提供: FUDforum {GVAR: FORUM_VERSION}
-# Fuzzy
-copyright:Copyright &copy;2001-2017 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Copyright &copy;2001-2018 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:コード:
 code_select_all:すべて選択
 code_show_hide:表示/非表示
