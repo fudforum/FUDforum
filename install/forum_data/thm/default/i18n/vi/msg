@@ -1,5 +1,6 @@
 # Messages for Vietnamese (Tiếng Việt)
 # Exported from translatewiki.net
+# Author: Anhdonald
 # Author: Leducthn
 # Author: Macofe
 # Author: Max20091
@@ -625,8 +626,7 @@ post_err_edttimelimit_msg:Bạn không thể chỉnh sửa bài viết này
 post_err_noannontopics_msg2:<legend>Lỗi : Không được phép</legend>Thành viên vô danh không được phép tạo chủ de .
 post_err_noannonposts_msg2:<legend>Lỗi : Không được phép</legend>Thành viên vô danh không được phép trả loi.
 post_err_floodtrig_title:Lỗi : Gởi bài đã gây quá tải.
-# Fuzzy
-post_err_floodtrig_msg:Xin vui lòng thử lại sau PLURAL: tm|$1 giây|$1 giây}
+post_err_floodtrig_msg:Xin vui lòng thử lại sau {PLURAL: tm|$1 giây|$1 giây}
 post_err_attach_size:Kích thước tập tin đính kèm quá lớn(lớn hơn giới hạn cho phép {VAR: MAX_F_SIZE} bytes)
 post_err_attach_ext:Loại tập tin bạn gửi lên không được cho phép.
 post_err_attach_filelimit:Số tập tin bạn gửi lên nhiều hơn được cho phép.
