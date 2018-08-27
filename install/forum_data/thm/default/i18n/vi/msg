@@ -481,6 +481,7 @@ rpasswd_login:Tên đăng nhập
 rpasswd_cur_pass:Mật khẩu hiện tại:
 rpasswd_new_pass:Mật khẩu mới:
 rpasswd_conf_pass:Xác nhận mật khẩu:
+ruser_cur_pass:Mật khẩu hiện tại:
 login_passwd:Mật khẩu:
 reset_email:Thư điện tử:
 reset_reset_button:Tạo mới mật khẩu
@@ -669,8 +670,11 @@ register_profile_update:Xem tiểu sử của bạn
 register_register_update:Trang Đăng Ký
 report_err_nosuchmsg_title:LỖI
 reset_err_invalidkey_title:LỖI
+reset_err_rstconf_title:Thông tin
+reset_err_rstconf_msg:Bạn sẽ nhận được hướng dẫn trong hộp thư của địa chỉ thư điện tử của bạn vài phút tới.
 reset_newpass_title:Tạo lại mật khẩu
 reset_newpass_msg:Xin chào,\n\n Như yêu cầu, thông tin đăng nhập của bạn hiện bên dưới:\n\n Tên đăng nhập: {VAR: ui[1]}\n Mật khẩu: {VAR: passwd}\n\n Xin vui lòng chú ý mật khẩu mới của bạn đã được tạo bên trên. Nếu bạn muốn thay đổi mật khẩu bạn có thể làm qua khu vực người sử dụng:\n{FULL_ROOT}?t=register
+reset_login_notify:Mật khẩu đã được gửi tới hộp thư của địa chỉ thư điện tử của bạn. Bạn sẽ nhận được thông tin này trong vài phút tới.
 search_update:Bài viết tìm kiếm
 selmsg_update:Xem qua <a href="{TEMPLATE: selmsg_update_lnk}">Bài viết hôm nay</a>
 showposts_update:Xem Bài Viết Bởi: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
@@ -679,28 +683,30 @@ tree_update:Xem qua chủ đề (xem dạng cây) <a href="{TEMPLATE: tree_updat
 userinfo_update:Kiếm tiểu sử của <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}</a>
 ERR_login_msg2:<legend>Lỗi: Bạn không đăng nhập được</legend>Để truy cập vào trang này bạn phải là thành viên của diễn đàn.
 ERR_disabled_ttl:Chức năng bị vô hiệu
-# Fuzzy
-ERR_disabled_msg:Chức năng này đã bị vô hiệu bởi người quản trị hệ thống
+ERR_disabled_msg:Chức năng này đã bị vô hiệu hoá bởi người quản trị hệ thống.
 ERR_access_ttl:Lỗi :Không đủ quyền
-# Fuzzy
-ERR_access_msg:Bạn không được phép yêu cầu xem hành động này
+ERR_access_msg:Bạn không có quyền thực hiện hành động này.
 ERR_registration_disabled_ttl:Đăng ký đã bị vô hiệu hóa
 ERR_registration_disabled_msg:Người quản trị tối cao đã vô hiệu hóa đăng ký .Xin vui lòng đăng ký lại lần sau.
 ERR_emailconf_ttl:LỖI : Tài khoản của bạn vẫn chưa được xác nhận
-# Fuzzy
-ERR_emailconf_msg:Tài khoản của bạn vẫn chưa được xác nhận bằng email <br /><table border="0"><tr><td><ol><li>Nếu bạn không nhận được email xác nhận, <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">nhấn chuột vào đây</a><li>Nếu {VAR: usr_d->email} không phải là email của bạn, <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">nhấn chuột vào đây</a></ol></td></tr></table>
+ERR_emailconf_msg:Bạn vẫn chưa xác nhận tài khoản qua địa chỉ thư điện tử.<br /><table border="0"><tr><td><ol><li>Nếu vẫn chưa nhận được thư xác nhận, <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">hãy yêu cầu gửi lại</a>.</li><li>Nếu {VAR: usr_d->email} không phải địa chỉ thư điện tử của bạn, <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">hãy ghi lại cho chính xác</a>.</li></ol></td></tr></table>
+ERR_user_ttl:LỖI: Người dùng không tồn tại
+ERR_user_msg:Người dùng không tồn tại
 ERR_systemerr_ttl:Lỗi :Lỗi hệ thống
-# Fuzzy
-ERR_systemerr_msg:Đã xảy ra một lỗi hệ thống. Xin vui lòng thông báo nó đến <a href="mailto:{GVAR: ADMIN_EMAIL}">người quản lý trang web </a>.
+ERR_systemerr_msg:Đã xảy ra một lỗi hệ thống. Xin vui lòng báo cáo cho <a href="mailto:{GVAR: ADMIN_EMAIL}">người quản lý trang web</a>.
 email_title:Mẫu Email
 finduser_title:Tìm Kiếm Thành Viên
+help_title:Trợ giúp
 login_title:Đăng Nhập
 poll_title:Khung soạn thảo bảng khảo sát
 register_title:Mẫu Đăng Ký
+reset_title:Đặt lại Mật khẩu
 rpasswd_title:Thay đổi mật khẩu
 error_title:Lỗi
 index_title:Chào mừng đến với diễn đàn
 search_title:Tìm kiếm  {VAR-HTML: srch}
+remail_emailsent:Thư điện tử đã được gửi
+remail_email:Chào cậu,\n\nCó một chủ đề hấp dẫn về "{VAR: data->subject}" trên diễn đàn {GVAR: FORUM_TITLE} mà tớ nghĩ cậu sẽ muốn đọc. Cậu có thể xem chủ đề đó tại: {FULL_ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nBạn của cậu,\n\n{VAR: usr->alias}
 poll_add_option:Thêm mục chọn:
 post_opt_html_on:<b>Mã HTML</b> đang <b>Mở</b>
 post_opt_fud_on:<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>TLcode</b> đang <b>Mở</b></a>
@@ -712,6 +718,7 @@ post_opt_images_off:<b>Hình ảnh</b> đã <b>Tắt</b>
 post_opt_smilies_off:<b>Biểu tượng cười</b> đã <b>Tắt</b>
 post_opt:Cài đặt diễn đàn:
 register_change_passwd:Đổi mật khẩu
+register_change_login:đổi tên đăng nhập
 approved_avatar_title:Hình đại diện quen thuộc của bạn đã được chấp nhận.
 approved_avatar_msg:Hình đại diện của bạn đã được chấp nhận bởi người quản trị tối cao. Ngay bây giờ nó sẽ xuất hiện trong mọi bài viết của bạn. Nếu bạn không nhìn thấy nó, hoặc nhìn thấy hình đại diện cũ , bởi vì trình duyệt của bạn đã chụp lại. Thử làm tươi trình duyệt một , hai lần xem sao bằng cách nhấn phím F5. Trong hầu hết trường hợp đều do cất trữ của trình duyệt mà ra .
 unapproved_avatar_title:Hình đại diện của bạn đã bị từ chối.
@@ -721,6 +728,7 @@ move_request_reason:Tại sao bạn muốn chuyển chủ đề này?
 mvthread_submit_req:Gửi yêu cầu
 thread_exchange:Thay đổi chủ đề
 move_request_by:Chuyển chủ đề được yêu cầu bởi:
+move_reason:Lí do chuyển chủ đề:
 thr_exch_accept:Chấp nhận chủ đề
 thr_exch_decline:Từ chối chủ đề
 thr_exch_orig_forum:Diễn đàn gốc:
@@ -731,26 +739,47 @@ thr_exch_submit:Đăng bài
 exch_decline_ttl:Di chuyển chủ đề {VAR: data->subject} vào diễn đàn {VAR: data->f2_name} đã bị từ chối.
 ppost_original_msg:Tin nhắn bạn đang chuyển đi hoặc trả lời đến
 split_thread:Cắt chủ đề
+groupmgr_no_user:Không tồn tại người dùng nào với tên đăng nhập "{FUNC: char_fix(htmlspecialchars($gr_member))}"
+groupmgr_already_exists:Người dùng "{FUNC: char_fix(htmlspecialchars($gr_member))}" đã gia nhập nhóm này rồi.
+groupmgr_yes:Có
+groupmgr_no:Không
+groupmgr_action:Tác vụ
+groupmgr_member:Thành viên
+groupmgr_cancel:Hủy bỏ
+groupmgr_add_member:Thêm thành viên
+groupmgr_update_member:Cập nhật thành viên
+groupmgr_edit:Sửa đổi
+groupmgr_delete:Xóa
+group_mgr_anon:Vô danh
 show_show:Xem :
 group_mgr:Nhóm quản lý
+group_mgr_edit_btn:Chỉnh sửa nhóm
+group_mgr_group:Nhóm:
 permission_denied_title:Cho phép đã bị từ chối
+permission_denied_msg:Quyền người dùng của bạn không cho phép bạn thực hiện hành động này.
 p_READ:Đọc
 p_POST:Đăng
 p_REPLY:Trả lời
 p_EDIT:Chỉnh sửa
 p_DEL:Xóa
+p_STICKY:Bài viết dính lên đầu
 p_POLL:Tạo khảo sát
 p_FILE:Đính kèm tập tin
 p_VOTE:Bình chọn
+p_RATE:Đánh giá chủ đề/thành viên
 p_SPLIT:Chia chủ đề
 p_LOCK:Khóa chủ đề
 p_MOVE:Chuyển chủ đề
 p_SML:Dùng biểu tượng mặt cười
+p_IMG:Dùng nhãn cho hình ảnh
+p_SEARCH:Có thể tìm
 group_mgr_search:Tìm User
+group_mgr_indicator:Hiện đang sửa đổi: <b>{VAR: grp->name}</b>
 rate_worst:Tệ nhất
 rate_best:Tốt nhất
 post_quote_msg:{VAR: msg->login} được viết vào {TEMPLATE: make_report_date}
 post_quote:Trích dẫn:
+post_quote_selected:Trích nội dung đã chọn
 userinfo_referals:Người dùng được mời:
 userinfo_referals_count:{VAR: referals} người dùng
 pm_no_space_title:Không đủ khoảng trống
@@ -798,20 +827,39 @@ quicklogin_login:Đăng Nhập:
 quicklogin_password:Mật khẩu:
 quicklogin_use_cookies:Sử dụng Cookie?
 quicklogin_login_btn:Đăng Nhập
+quick_reply:Trả lời nhanh
+quick_reply_post:Đăng trả lời nhanh
+quick_reply_preview:Xem trước trả lời nhanh
 post_notification_desc:Thông báo khi một ai đó trả lời bài viết này.
 post_all_ext_allowed:(Không có giới hạn)
 maximize_category:Phóng to danh mục
+maximize_message:Phóng to bài viết
 no_view_perm:Bạn không có sự chấp nhận cho phép xem chủ đề này.
+report_empty_report:Bạn không thể gửi báo cáo trống. Xin hãy nêu rõ lý do bạn báo cáo.
+report_already_reported_title:Đã báo cáo rồi
+report_already_reported_msg:Bài viết này đã được báo cáo từ trước và báo cáo đang nằm trong hàng chờ của quản trị viên.
 register_err_toomanyimages:Bạn đã sử dụng hơn  {GVAR: FORUM_IMG_CNT_SIG} hình cho phép chèn trong bài viết.
 pmsg_next_msg:Tin nhắn kế
 pmsg_prev_msg:Tin nhắn sau
+post_proc_reveal_spoiler:Mở nội dung bị ẩn
+register_jabber:Tên người dùng Jabber:
+register_skype:Tên người dùng Skype:
+register_twitter:Tên người dùng Twitter:
+register_google:Tên người dùng Google Chat/IM:
+im_jabber:Jabber:
+im_google:Google Talk:
+im_skype:Skype:
+im_twitter:Twitter:
 forum_contact:Liên hệ
-# Fuzzy
-post_cur_attached:Tập tin đính kèm hiện giờ  {VAR: i}
+forum_home:Trang chủ
+post_cur_attached:hiện đang đính kèm: {VAR: i} tập tin
 ignored_anon_post:{GVAR: ANON_NICK} đã bị từ chối
 ignored_user_post:Bài viết bởi <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> đã bị từ chối
 smladd_close_window:Đóng cửa sổ
 post_list_smilies:Danh sách tất cả biểu tượng cười
+reported_in_thread:trong:
+help_back_to_top:lên đầu trang
+help_return_to_index:Về Mục lục Trợ giúp
 imsg_err_message_title:Bài viết không có
 imsg_err_message_msg:Bài viết mà bạn muốn xem không tồn tại.
 poll_edit:Chỉnh Sửa
@@ -840,6 +888,8 @@ search_asc_order:Xếp tăng dần
 search_logic:Tìm kiếm logic:
 search_sorting:Xếp kết quả ngày theo:
 search_attach:Đính kèm:
+search_attach_all:Có hoặc không có
+search_attach_with:Có đính kèm
 post_proceed:Bắt đầu
 post_moderated_forum:Bạn đã gửi bài trong diễn đàn đã được quản lý. Bài viết của bạn không thể xem bởi người khác cho đến khi nó được sự chấp nhận của người điều tiết diễn đàn hoặc người quản trị tối cao
 post_moderated_forum_ttl:Thông báo người điều tiết diễn đàn
@@ -853,6 +903,7 @@ threadt_more:&lt;thêm nữa&gt;
 threadt_disabled_ttl:Xem dạng cây của chủ đề đã bị vô hiệu hóa
 threadt_disabled_desc:Người quản trị tối cao đã vô hiệu hóa xem dạng cây chủ đề. Xin vui lòng sử dụng xem dạng khối để thay thế.
 threadt_update:Xem qua diễn đàn (xem dạng cây) <a href="{TEMPLATE: threadt_update_lnk}">{VAR: frm->name}</a>
+mmod_delete_cofirm_ttl:Xác nhận xoá Chủ đề/Bài viết
 insert_uploaded_image:Chèn hình vào nội dung bài viết
 finduser_help:Bộ máy tìm kiếm sẽ tự động thêm dấu * vào dữ liệu của bạn, <b>tìm kiếm theo trường hợp</b>.<br />Ví dụ như :Để tìm những thành viên có tên đăng nhập bắt đầu bằng một chử a thì nhập vào ô tìm kiếm 'a' thế là xong .
 back_to_top:Trở lên đầu trang
@@ -872,7 +923,11 @@ login_unapproved_account_ttl:Tài khoản chưa được chấp nhận
 login_unapproved_account_msg:Người quản trị tối cao của diễn đàn đã xác nhận mỗi tài khoản binh thường trước khi kích hoạt . Tài khoản của bạn vẫn chưa được xác nhận, Vì vậy bạn không thể sử dụng những chức năng của thành viên đã được xác nhận .
 remove_from_buddy_list:Xóa khỏi danh sách bạn bè
 iemail_msg_reply:Trả lời
+iemail_msg_quote:Trích dẫn
+iemail_msg_view:Xem Chủ đề/Bài viết
+threadt_sticky:được dán lên đầu
 threadt_announce:Thông báo
+reported_no_messages:Không có bài viết nào bị báo cáo.
 poll_no_polls:Không có bảng khảo sát nào.
 no_unread_messages:Không có bài viết chưa đọc tìm thấy trong cơ sở dữ liệu của bạn .
 thread_mark_all_read:Đánh dấu đọc bài viết chưa đọc trong diễn đàn
@@ -880,13 +935,19 @@ thread_mark_all_read_desc:Đánh dấu đã đọc tất cả bài viết chưa 
 private_no_messages:Không có tin nhắn trong thư mục này.
 register_email_change_subject:Xác nhận thay đổi email
 register_email_change_msg:Xin vui lòng xác nhận tài khoản email mới của bạn "{VAR: uent->email}" để thay tài khoản email cũ của bạn "{VAR: old_email}", bằng cách đến đường dẫn :\n{FULL_ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\n Khi tài khoản email của bạn được xác nhận , tài khoản diễn đàn của bạn sẽ được kích hoạt lại.
+iemail_thread_unsub:Ngừng theo dõi chủ đề này
+iemail_forum_unsub:Ngừng theo dõi diễn đàn này
+primary_group_prefix:Nhóm chính của diễn đàn:
+group_resources:Nhóm này điều khiển quyền hạn của các diễn đàn sau:
 register_admin_newuser_title:Một thành viên mới đã đăng ký và tài khoản của họ đang chờ được xác nhận
-# Fuzzy
-register_admin_newuser_msg:Một thành viên mới ({VAR: uent->login}) vừa đăng ký,Khi việc xác nhận tài khoản có thể được, tài khoản của họ sẽ không được kích hoạt cho đến khi nó được xác nhận bởi bạn hoặc người quản trị tối cao của diễn đàn. Để xem lại tài khoản xin vui lòng vào: {GVAR: WWW_ROOT}adm/admuserapr.php\n\n Đây là một quá trình tự động. Không trả lời bài viết này.\n Nếu bạn muốn tắt chức năng thông báo bằng email khi có người đăng ký mới, bạn có thể làm được điều đó qua khu vực người quản trị. Thay đổi hiệu chỉnh "New Account Notification".
+register_admin_newuser_msg:Một thành viên mới ({VAR: uent->login}) vừa đăng ký. Vì tính năng xác nhận tài khoản đã được bật, tài khoản của họ sẽ không được kích hoạt cho đến khi bạn hay một người quản trị diễn đàn khác xác nhận. Để phê duyệt tài khoản xin vui lòng vào: {GVAR: WWW_ROOT}adm/admuserapr.php\n\n Đây là tin nhắn tự động. Đừng trả lời tin nhắn này.\n Nếu bạn muốn tắt chức năng thông báo qua thư điện tử khi có người đăng ký mới, bạn có thể sử dụng Bảng điều khiển của Người quản trị (Admin Control Panel). Thay đổi hiệu chỉnh "New Account Notification".
 post_mod_msg_notify_title:Bài viết mới trong diễn đàn "{VAR: frm->name}" đang chờ được chấp nhận
-# Fuzzy
-post_mod_msg_notify_msg:Bài viết mới có tựa là "{VAR: msg_post->subject}" vừa mới được gửi trong diễn đàn mà bạn quản lý. Để xem lại bài viết này đến : {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\n Đây là một quá trình tự động. Bạn có trả lời bài viết này không.
+post_mod_msg_notify_msg:Bài viết mới có tựa là "{VAR: msg_post->subject}" vừa mới được đăng lên diễn đàn mà bạn quản lý. Để phê duyệt bài viết này xin vui lòng vào: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\n Đây là tin nhắn tự động. Đừng trả lời tin nhắn này.
 thread_printable_pdf:Tạo trang PDF
+reg_conf_title:Xác nhận Đăng ký
+reg_conf_email:<b>Xác nhận bằng thư điện tử</b><br />Một thư điện tử vừa được gửi đến bạn. Thư này có chứa một URL đặc biệt mà bạn sẽ cần truy cập để xác nhận tài khoản của bạn. Nếu sau vài phút mà vẫn chưa thấy thư tới, bạn hãy đăng nhập lại vào tài khoản để chắc chắn xem địa chỉ thư điện tử bạn cung cấp đã chính xác hay chưa. Khi đã xác nhận tài khoản, bạn có thể sử dụng các tính năng chỉ dành riêng cho người dùng đã đăng kí và xác nhận.
+reg_conf_account:<b>Xác nhận tài khoản</b><br />Một quản trị viên sẽ xác nhận tài khoản của bạn trước khi tài khoản của bạn có hiệu lực. Khi đã xác nhận xong, sẽ có thư điện tử được gửi đến để thông báo cho bạn. Bây giờ bạn vẫn có thể đăng nhập, nhưng một số tính năng có thể không sử dụng được.
+forum_banned_user:Hành động trước đã khiến bạn bị chặn vĩnh viễn khỏi diễn đàn này. Tạm biệt.
 mnav_description:Bộ lọc bài viết
 mnav_date_limit:Xếp theo ngày:
 mnav_forum_limit:Chỉ tìm trong diễn đàn:
