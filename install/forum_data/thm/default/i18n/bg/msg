@@ -752,7 +752,7 @@ groupmgr_edit:Промяна
 groupmgr_delete:Изтрий
 group_mgr_anon:Анонимен
 group_mgr_reged:Всички регистрирани участници
-show_show:Покажи:
+show_show:Показване:
 group_mgr:Мениджър на групата
 group_mgr_edit_btn:Промяна по групата
 group_mgr_heading:Избери група за редактиране
@@ -807,7 +807,7 @@ online_today_last_visit:Последно посещение
 online_today_update:Преглед на листата на хората, които са посетили форума днес.
 logedin_todays_visitors:Днешните посетители
 logedin_latest_post:Последното съобщение на форума:&nbsp;
-register_show_avatar:Покажи Аватарите:
+register_show_avatar:Показване на аватари:
 register_show_avatar_desc:Позволява да скриваш аватарите на другите, докато преглеждаш съобщенията им
 drawmsg_view_rest_post:Покажи останалато
 post_re:Относно:&nbsp;
