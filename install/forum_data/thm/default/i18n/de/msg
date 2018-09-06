@@ -1164,4 +1164,10 @@ karma:Reputation
 karma_track:Reputation für folgenden Nutzer verwalten:
 karma_delete:Löschen
 rate_author:Autor bewerten:
-portal_update:Lese das Forumsportal
+blog_update:Das Forum-Blog lesen
+blog:Blog
+blog_new_members:Neue Mitglieder
+blog_new_posts:Letzter Beitrag
+blog_rated_posts:Am besten bewertet
+blog_viewed_posts:Am häufigsten angesehen
+blog_comments:{PLURAL: topic->replies|Ein Kommentar|$1 Kommentare}

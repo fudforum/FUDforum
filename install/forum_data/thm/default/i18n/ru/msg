@@ -17,6 +17,7 @@
 # Author: Naudefj
 # Author: Okras
 # Author: Putnik
+# Author: Vlad5250
 # Author: Volkov
 # Author: Александр Сигачёв
 
@@ -1166,4 +1167,6 @@ karma:Карма
 karma_track:Управление репутацией пользователя:
 karma_delete:Удалить
 rate_author:Оценить автора:
-portal_update:Читает портал форума
+blog:Блог
+blog_new_members:Новые участники
+blog_new_posts:Последние сообщения

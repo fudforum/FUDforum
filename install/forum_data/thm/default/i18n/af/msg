@@ -1150,4 +1150,10 @@ karma:Karma
 karma_track:Bestuur reputasie van gebruikers
 karma_delete:Skrap
 rate_author:Beoordeel outeur:
-portal_update:Lees die forumportaal
+blog_update:Lees die forum se blog
+blog:Blog
+blog_new_members:Nuwe lede
+blog_new_posts:Nuutste boodskappe
+blog_rated_posts:Beste beoordeel
+blog_viewed_posts:Meeste gekyk
+blog_comments:{PLURAL: topic->replies|$1 kommentaar|$1 kommentare}

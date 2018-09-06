@@ -1163,4 +1163,10 @@ karma:Karma
 karma_track:Gerir reputação para o usuário:
 karma_delete:Apagar
 rate_author:Avaliar autor:
-portal_update:Lendo o fórum do portal
+blog_update:Lendo o blog do fórum
+blog:Blog
+blog_new_members:Novos membros
+blog_new_posts:Publicação recente
+blog_rated_posts:Melhor classificados
+blog_viewed_posts:Mais vistos
+blog_comments:{PLURAL: topic->replies|$1 comentário|$1 comentários}

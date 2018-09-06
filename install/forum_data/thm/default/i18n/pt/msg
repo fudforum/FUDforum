@@ -43,7 +43,7 @@ email_to_friend_desc:Enviar a URL desta página a um ou mais amigos por correio 
 email_user:Enviar mensagem ao utilizador por correio electrónico
 faq:Ajuda
 first_unread_msg:Ir para mensagens não lidas
-first_unread_msg_desc:Ir à primeira mensagem não lida neste tópico
+first_unread_msg_desc:Ir para a primeira mensagem não lida neste tópico
 flat_view:Voltar para a vista plana predefinida
 forum:Fórum:
 forum_icon:Ícone do Fórum
@@ -58,16 +58,16 @@ goto_prev_msg:Ir para a mensagem anterior
 home:Início
 homepage:Página inicial:
 icq_control_panel:Painel de mensagens do ICQ Online
-icq_message_form:Formulario de mensagem ICQ:
-ignore_user:Ignorar todos os posts deste utilizador
-im_aim:Apontar manuseamento:
+icq_message_form:Formulário de mensagem ICQ:
+ignore_user:Ignorar todas as mensagens deste utilizador
+im_aim:Identificador AIM:
 im_msnm:MSN Messenger:
 im_yahoo:Yahoo Messenger:
 image:Imagem:
 index_forum:Fórum
-index_new_posts:Existem novos posts desde o último lido
-index_no_new_posts:Não existem novos posts desde o último lido
-index_url_redirection:Redireção
+index_new_posts:Mensagens novas desde a última lida
+index_no_new_posts:Não há mensagens novas desde a última lida
+index_url_redirection:Redirecionamento
 interests:Interesses:
 last_post:Última mensagem
 last_thread_msg:Ir para a última mensagem neste tópico
@@ -75,7 +75,7 @@ legend:Legenda:
 location:Localização:
 lock_thread:Fechar Tópico
 locked:Fechado
-locked_with_new_posts:Fechado(c/ posts não lidos)
+locked_with_new_posts:Fechado(com mensagens não lidas)
 logged_in_list:Lista de utilizadores a visitar o forum
 login:Entrar
 login_header:Utilizador:
@@ -1125,7 +1125,7 @@ move_messages:Mover mensagens
 move_msg_btn:Mover mensagens selecionadas
 move_msg_th_expl:Especifique a ID do tópico de destino (pode estar em outros fóruns)
 captcha_img_alt:Verificação por Captcha: você terá que reconhecer o texto nesta imagem.
-captcha_img_help:Não há zero ou um na imagem.
+captcha_img_help:Não há nenhum zero nem um na imagem.
 powered-by:Potenciado por: FUDforum {GVAR: FORUM_VERSION}.
 copyright:Direitos de autor &copy;2001-2018 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Código:
@@ -1145,8 +1145,8 @@ btn_delete:apagar
 btn_edit:editar
 btn_reply:responder
 btn_forward:encaminhar
-btn_quote:Citar
-btn_email:Correio electrónico
+btn_quote:citar
+btn_email:Correio eletrónico
 btn_show_posts:mensagens
 btn_homepage:www
 feed_no_data:Não foram encontrados dados coincidentes.
@@ -1157,12 +1157,18 @@ ip_whois_connect_err:Não foi possível ligar-se ao servidor WHOIS ({VAR: whois_
 custom_filed_required:Este campo é obrigatório.
 pages:Páginas
 page_list_heading:Páginas disponíveis
-page_list_total:{PLURAL: i|$1 página|$1 páginas} listadas.
+page_list_total:{PLURAL: i|$1 página listada|$1 páginas listadas}.
 page_update:Página de navegação
 pm_export_header:Mensagens privadas para {VAR: usr->alias}
 pm_export_footer:Exportado:
-karma:Karma
-karma_track:Gerir reputação para o utilizador:
+karma:Carma
+karma_track:Gerir reputação do utilizador:
 karma_delete:Eliminar
 rate_author:Classificar autor:
-portal_update:A ler o portal do fórum
+blog_update:A ler o blogue do fórum
+blog:Blogue
+blog_new_members:Novos membros
+blog_new_posts:Publicação recente
+blog_rated_posts:Melhor classificadas
+blog_viewed_posts:Mais vistas
+blog_comments:{PLURAL: topic->replies|$1 comentário|$1 comentários}

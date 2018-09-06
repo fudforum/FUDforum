@@ -1162,4 +1162,10 @@ karma:積分
 karma_track:管理使用者的聲譽：
 karma_delete:刪除
 rate_author:給作者評分：
-portal_update:閱讀論壇入門
+blog_update:閱讀論壇部落格
+blog:部落格
+blog_new_members:新成員
+blog_new_posts:最近文章
+blog_rated_posts:最高評分
+blog_viewed_posts:最多閱覽
+blog_comments:{PLURAL: topic->replies|$1 個評論|$1 個評論}
