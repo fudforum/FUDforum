@@ -1151,4 +1151,10 @@ karma:Karma
 karma_track:Manage reputation for user:
 karma_delete:Delete
 rate_author:Rate author:
-portal_update:Reading the forum portal
+blog_update:Reading the forum blog
+blog:Blog
+blog_new_members:New Members
+blog_new_posts:Recent Post
+blog_rated_posts:Best rated
+blog_viewed_posts:Most viewed
+blog_comments:{PLURAL: topic->replies|$1 comment|$1 comments}
