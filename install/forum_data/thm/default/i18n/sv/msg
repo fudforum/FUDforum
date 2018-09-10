@@ -1162,3 +1162,10 @@ karma:Karma
 karma_track:Hantera rykte för användare:
 karma_delete:Radera
 rate_author:Betygsätt författare:
+blog_update:Läser forumbloggen
+blog:Blogg
+blog_new_members:Nya medlemmar
+blog_new_posts:Nya inlägg
+blog_rated_posts:Bäst betyg
+blog_viewed_posts:Mest lästa
+blog_comments:{PLURAL: topic->replies|$1 kommentar|$1 kommentarer}

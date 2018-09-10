@@ -1167,3 +1167,10 @@ karma:Karma
 karma_track:Gérer la réputation de l'utilisateur:
 karma_delete:Supprimer
 rate_author:Ratio de l'auteur:
+blog_update:Lecture du blog du forum
+blog:Blog
+blog_new_members:Nouveaux membres
+blog_new_posts:Publication récente
+blog_rated_posts:Les mieux notés
+blog_viewed_posts:Les plus vus
+blog_comments:{PLURAL: topic->replies|$1 commentaire|$1 commentaires}

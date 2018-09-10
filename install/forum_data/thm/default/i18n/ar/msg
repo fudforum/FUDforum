@@ -1159,3 +1159,10 @@ karma:كارما
 karma_track:إدارة السمعة للمستخدم:
 karma_delete:حذف
 rate_author:قيِّم الكاتب:
+blog_update:قراءة مدونة المنتدى
+blog:مدونة
+blog_new_members:أعضاء جدد
+blog_new_posts:المنشور الأخير
+blog_rated_posts:أفضل تصنيف
+blog_viewed_posts:الأكثر مشاهدة
+blog_comments:{PLURAL: topic->replies|$1 تعليق|$1 تعليقات}
