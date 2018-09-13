@@ -1157,3 +1157,10 @@ karma:Karma
 karma_track:Håndter omdømme for brukere:
 karma_delete:Slett
 rate_author:Bedøm forfatter:
+blog_update:Leser forumbloggen
+blog:Blogg
+blog_new_members:Nye medlemmer
+blog_new_posts:Nylige innlegg
+blog_rated_posts:Best rangert
+blog_viewed_posts:Mest lest
+blog_comments:{PLURAL: topic->replies|$1 kommentar|$1 kommentarer}
