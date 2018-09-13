@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id: karma_change.php.t 4898 2010-01-25 21:30:30Z naudefj $
 *
@@ -42,21 +42,29 @@
 		}
 
 		$poster_id = db_saq('SELECT poster_id FROM {SQL_TABLE_PREFIX}msg WHERE id='. $msg);
-		if (db_li('INSERT INTO {SQL_TABLE_PREFIX}karma_rate_track (msg_id, user_id, poster_id, stamp, rating) VALUES('. $msg .', '. _uid .', '. $poster_id[0] .', '. __request_timestamp__ .', '. $rt .')', $ef)) {
-			$karma = db_saq('SELECT karma FROM {SQL_TABLE_PREFIX}users WHERE id='. $poster_id[0]);
+		$karma = db_saq('SELECT karma FROM {SQL_TABLE_PREFIX}users WHERE id='. $poster_id[0]);
+               
+		/* Check if user already voted for this specific message */
+		if (!q_singleval('SELECT user_id FROM {SQL_TABLE_PREFIX}karma_rate_track WHERE msg_id = '. $msg .' AND user_id = '. _uid)) {
+               
+		   if (db_li('INSERT INTO {SQL_TABLE_PREFIX}karma_rate_track (msg_id, user_id, poster_id, stamp, rating) VALUES('. $msg .', '. _uid .', '. $poster_id[0] .', '. __request_timestamp__ .', '. $rt .')', $ef)) {
+
 			$new_karma = (int)$karma[0] + $rt;
 			q('UPDATE {SQL_TABLE_PREFIX}users SET karma='. $new_karma .' WHERE id='. $poster_id[0]);
 
-			if ($is_a) {
-				$MOD = 1;
-			} else {
-				$MOD = 0;
-			}
-
-			$obj = new StdClass;
-			$obj->id = $msg;
-			$obj->karma = $new_karma;
-
-			exit('{TEMPLATE: karma_show}');
+                   }
+		} else { /* user already voted, don't change karma */
+		   $new_karma = (int)$karma[0];
 		}
+		if ($is_a) {
+		  $MOD = 1;
+		} else {
+		  $MOD = 0;
+		}
+
+		$obj = new StdClass;
+		$obj->id = $msg;
+		$obj->karma = $new_karma;
+		exit('{TEMPLATE: karma_show}');
 	}
+
