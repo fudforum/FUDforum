@@ -9,7 +9,7 @@
 * Free Software Foundation; either version 2 of the License.
 ***************************************************************************/
 
-$__UPGRADE_SCRIPT_VERSION = 5309.2;
+$__UPGRADE_SCRIPT_VERSION = 5310.0;
 // define('fud_debug', 1);
 
 /*
@@ -1121,10 +1121,12 @@ pf('<h2>Step 1: Admin login</h2>', true);
 			    'google_analytics.plugin', // Moved to 'google/' subdir in 3.0.5
 			    'google_cdn.plugin',       // Moved to subdir 'google/' in 3.0.5
 			    'youtube_tag.plugin', // Moved to video_tags.plugin in 3.0.5
-			    'recaptcha/recaptchalib.php'); // Not needed for reCAPTCHA v2 in 3.0.9
+			    'recaptcha/recaptchalib.php', // Not needed for reCAPTCHA v2 in 3.0.9
+			    'ie6_update.plugin'); // Removed in 3.1.0
 	foreach ($rm_plugins as $f) {
 		if (file_exists($GLOBALS['DATA_DIR'] .'plugins/'. $f)) {
 			unlink($GLOBALS['DATA_DIR'] .'plugins/'. $f);
+			q('DELETE FROM '. $DBHOST_TBL_PREFIX .'plugins WHERE name = \''. $f .'\'');
 		}
 	}
 
