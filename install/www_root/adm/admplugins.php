@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -12,10 +12,10 @@
 /** Compile themes to apply COMPILER_* hooks. */
 function compile_themes()
 {
-	$r = q('SELECT theme, lang, name FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'themes WHERE '. q_bitand('theme_opt', 1) .' = 1');
+	$r = q('SELECT theme, lang, name, theme_opt FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'themes WHERE '. q_bitand('theme_opt', 1) .' = 1');
 	while (($data = db_rowarr($r))) {
 		try {
-			compile_all($data[0], $data[1], $data[2]);
+			compile_all($data[0], $data[1], $data[2], $data[3]);
 		} catch (Exception $e) {
 			pf(errorify('Unable to rebuild theme '. $data[2] .': '. $e->getMessage()));
 		}

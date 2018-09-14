@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -37,7 +37,7 @@
 		if (!$_POST['group']) {
 			$c = uq('SELECT '. $fld .' FROM '. $DBHOST_TBL_PREFIX .'users u WHERE u.id > 1'. (isset($_POST['ignore_override']) ? '' : ' AND '. q_bitand('users_opt', 8) .'=0'));
 		} else if (!isset($groups[$_POST['group']]) && $_POST['group'] != $all_mods && $_POST['group'] != $all_grp_lead && $_POST['group'] > 0) {
-			echo errorify('Invalid group id!');
+			pf(errorify('Invalid group id!'));
 			$err = 1;
 			$c = uq('SELECT '. $fld .' FROM '. $DBHOST_TBL_PREFIX .'users u WHERE id=-1');
 		} else {
@@ -63,7 +63,7 @@
 				$to[] = (int)$r[0];
 			}
 			$mails_sent = count($to);
-			if ($to) {
+			if ($to && !isset($_POST['dryrun'])) {
 				send_status_update($to, '', '', $_POST['subject'], $_POST['body']);
 			}
 		} else {	// Send via E-mail.
@@ -81,7 +81,12 @@
 					if (!(++$email_batch_cnt % $email_batch)) {
 						$email_batch_cnt = 0;
 						$bcc = implode(', ', $to) . "\r\n";
-						$mail_success = @mail(' ', encode_subject($_POST['subject']), $_POST['body'], $header ."\nBcc: ". $bcc);
+						if (!isset($_POST['dryrun'])) {
+							$mail_success = @mail(' ', encode_subject($_POST['subject']), $_POST['body'], $header ."\nBcc: ". $bcc);
+						} else {
+							$mail_success = 1;
+							pf('DRYRUN: Send e-mail to '. $bcc);
+						}
 						if ($mail_success) {
 							$mails_sent = $mails_sent + count($to);
 						} else {
@@ -94,7 +99,12 @@
 				unset($c);
 				if ($to) {
 					$bcc = implode(', ', $to) ."\r\n";
-					$mail_success = @mail(' ', encode_subject($_POST['subject']), $_POST['body'], $header ."\nBcc: ". $bcc);
+					if (!isset($_POST['dryrun'])) {
+						$mail_success = @mail(' ', encode_subject($_POST['subject']), $_POST['body'], $header ."\nBcc: ". $bcc);
+					} else {
+						$mail_success = 1;
+						pf('DRYRUN: Send e-mail to '. $bcc);
+					}
 					if ($mail_success) {
 						$mails_sent = $mails_sent + count($to);
 					} else {
@@ -116,8 +126,13 @@
 					if (!(++$email_batch_cnt % $email_batch)) {
 						$email_batch_cnt = 0;
 
-						$smtp->to = $to;
-						$mail_success = $smtp->send_smtp_email();
+						if (!isset($_POST['dryrun'])) {
+							$smtp->to = $to;
+							$mail_success = $smtp->send_smtp_email();
+						} else {
+							$mail_success = 1;
+							pf('DRYRUN: Send e-mail via SMTP to '. $to);
+						}
 						
 						if ($mail_success) {
 							$mails_sent = $mails_sent + count($to);
@@ -129,8 +144,13 @@
 					}
 				}
 				if (count($to)) {
-					$smtp->to = $to;
-					$mail_success = $smtp->send_smtp_email();
+					if (!isset($_POST['dryrun'])) {
+						$smtp->to = $to;
+						$mail_success = $smtp->send_smtp_email();
+					} else {
+						$mail_success = 1;
+						pf('DRYRUN: Send e-mail via SMTP to '. $to);
+					}
 
 					if ($mail_success) {
 						$mails_sent = $mails_sent + count($to);
@@ -141,10 +161,10 @@
 			}
 		}
 		if ($mails_sent) {
-			echo successify($mails_sent .' '. (empty($_POST['pm']) ? 'Mail(s)' : 'Private Message(s)') .' were sent.');
+			pf(successify($mails_sent .' '. (empty($_POST['pm']) ? 'Mail(s)' : 'Private Message(s)') .' were sent.'));
 		}
 		if ($mails_failed) {
-			echo errorify('Sending of '. $mails_failed .' '. (empty($_POST['pm']) ? 'Mail(s)' : 'Private Message(s)') .' failed, please check the <a href="admerr.php?'. __adm_rsid .'#fud_errors">Error Log</a> for more information.');
+			pf(errorify('Sending of '. $mails_failed .' '. (empty($_POST['pm']) ? 'Mail(s)' : 'Private Message(s)') .' failed, please check the <a href="admerr.php?'. __adm_rsid .'#fud_errors">Error Log</a> for more information.'));
 		}
 	}
 
@@ -189,8 +209,9 @@
 	</tr>
 	<tr class="fieldaction">
 		<td colspan="2" align="right">
+			<label><input type="checkbox" name="dryrun" value="1" /> Dry run</label>
 			<label><input type="checkbox" name="ignore_override" value="1" /> Ignore User Override</label>
-			<input tabindex="3" type="submit" value="Send" name="btn_submit" />
+			<input tabindex="4" type="submit" value="Send" name="btn_submit" />
 		</td>
 	</tr>
 </table>

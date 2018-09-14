@@ -100,10 +100,10 @@ echo '<h3>'. ($edit ? '<a name="edit">Edit Page:</a>' : 'Add New Page:') .'</h3>
 		<td><?php draw_select('page_page_opt[]', "Yes\nNo", "1\n0", ($page_page_opt & (1))); ?></td>
 	</tr>
 
-	<!-- tr class="field">
+	<tr class="field">
 		<td>List page:<br /><font size="-2">List this page in the list of pages.</font></td>
 		<td><?php draw_select('page_page_opt[]', "Yes\nNo", "2\n0", ($page_page_opt & (2))); ?></td>
-	</tr -->
+	</tr>
 
 	<tr class="field">
 		<td>Execute PHP:<br /><font size="-2">Execute embedded PHP code.</font></td>

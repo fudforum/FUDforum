@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -33,11 +33,14 @@
 		$sql_file = $_POST['sql_file'];
 		unlink($sql_dir . $sql_file);
 		pf(successify('SQL script '. $sql_file .' deleted.'));
-		
-		$sql_to_show = '';
+
+		$sql_file = $sql_to_show = '';
 		unset($_POST['txtb']);
 	} else if (isset($_POST['execute'])) {
-		// Execute SQL (see below).
+		if (!empty($_POST['sql_file'])) {
+			// Execute SQL (keep file name in form).
+			$sql_file = $_POST['sql_file'];
+		}
 	} else if (isset($_POST['script']) && file_exists($sql_dir . $_POST['script'])) {
 		// Load script into textarea for execution.
 		$sql_file      = $_POST['script'];

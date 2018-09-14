@@ -87,10 +87,11 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir, $p=0)
 			pf(errorify('Please cleanup this directory!')); 
 		}
 	}
+	unset($v);
 }
 
 /* main */
-	@ini_set('memory_limit', '256M');
+	@ini_set('memory_limit', '-1');
 	@set_time_limit(0);
 
 	require('./GLOBALS.php');
@@ -186,15 +187,15 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir, $p=0)
 			/* Skip tables that will be rebuilt by consistency checker. */
 			if (!strncmp($tbl_name, $DBHOST_TBL_PREFIX .'tv_', strlen($DBHOST_TBL_PREFIX .'tv_')) || 
 				!strncmp($tbl_name, $DBHOST_TBL_PREFIX .'fl_', strlen($DBHOST_TBL_PREFIX .'fl_')) ||
-				$tbl_name == $DBHOST_TBL_PREFIX .'ses'
+				$tbl_name == $DBHOST_TBL_PREFIX .'ses' ||
+				$tbl_name == $DBHOST_TBL_PREFIX .'search' || 
+				$tbl_name == $DBHOST_TBL_PREFIX .'search_cache'
 			) {
 				continue;
 			}
 			if (isset($_POST['skipsearch']) && $_POST['skipsearch'] == 'y' && (
-				$tbl_name == $DBHOST_TBL_PREFIX .'index' || 
-				$tbl_name == $DBHOST_TBL_PREFIX .'title_index' || 
-				$tbl_name == $DBHOST_TBL_PREFIX .'search' || 
-				$tbl_name == $DBHOST_TBL_PREFIX .'search_cache')
+				$tbl_name == $DBHOST_TBL_PREFIX .'index' ||
+				$tbl_name == $DBHOST_TBL_PREFIX .'title_index' )
 			) {
 				pf('Skipping table: '. $tbl_name);
 				continue;

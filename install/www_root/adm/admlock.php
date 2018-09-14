@@ -75,6 +75,7 @@
 				}
 			}
 		}
+		unset($v);
 		umask($u);
 
 		change_global_settings(array('FUD_OPT_2' => $FUD_OPT_2));

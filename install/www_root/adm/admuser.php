@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2016 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -256,6 +256,12 @@ administration permissions to the forum. This individual will be able to do anyt
 			ctag_rebuild_cache($usr_id);
 		}
 
+		/* Changing e-mail. */
+		if (!empty($_POST['login_email']) && $u->email != $_POST['login_email']) {
+			q('UPDATE '. $DBHOST_TBL_PREFIX .'users SET email='. _esc($_POST['login_email']) .' WHERE id='. $usr_id);
+			$u->email = $_POST['login_email'];
+			echo successify('User <b>'. $u->alias .'</b>\'s e-mail address was successfully changed.');
+		}
 		/* Changing password. */
 		if (!empty($_POST['login_passwd'])) {
 			$salt   = substr(md5(uniqid(mt_rand(), true)), 0, 9);
@@ -264,7 +270,8 @@ administration permissions to the forum. This individual will be able to do anyt
 			logaction(_uid, 'ADM_SET_PASSWD', 0, char_fix(htmlspecialchars($u->login)));
 			echo successify('User <b>'. $u->alias .'</b>\'s password was successfully changed.');
 		/* Chanding login name. */
-		} else if (!empty($_POST['login_name']) && $u->login != $_POST['login_name']) {
+		}
+		if (!empty($_POST['login_name']) && $u->login != $_POST['login_name']) {
 			$alias = _esc(make_alias($_POST['login_name']));
 			$login = _esc($_POST['login_name']);
 
@@ -435,6 +442,9 @@ administration permissions to the forum. This individual will be able to do anyt
 <table class="datatable solidtable">
 <form action="admuser.php" method="post"><?php echo _hs; ?>
 	<tr class="field"><td>Login:</td><td><?php echo $login_error; ?><input type="text" value="<?php echo char_fix(htmlspecialchars($u->login)); ?>" maxlength="<?php echo $MAX_LOGIN_SHOW; ?>" name="login_name" /> <input type="submit" name="submit" value="Change Login Name" /></td></tr>
+
+	<tr class="field"><td>E-mail:</td><td><input type="text" value="<?php echo char_fix(htmlspecialchars($u->email)); ?>" name="login_email" /> <input type="submit" name="submit" value="Change E-mail" /></td></tr>
+
 	<tr class="field"><td>Password:</td><td><input type="text" value="" name="login_passwd" /> <input type="submit" name="submit" value="Change Password" /></td></tr>
 	<input type="hidden" name="usr_id" value="<?php echo $usr_id; ?>" />
 	<input type="hidden" name="act" value="nada" />
@@ -444,9 +454,6 @@ administration permissions to the forum. This individual will be able to do anyt
 	if($FUD_OPT_2 & 128) {
 		echo '<tr class="field"><td>Alias:</td><td>'. $u->alias .'</td></tr>';
 	}
-?>
-	<tr class="field"><td>E-mail:</td><td><a href="mailto:<?php echo $u->email; ?>"><?php echo $u->email; ?></a></td></tr>
-<?php
 	if ($u->name) {
 		echo '<tr class="field"><td>Name:</td><td>'. $u->name .'</td></tr>';
 	}

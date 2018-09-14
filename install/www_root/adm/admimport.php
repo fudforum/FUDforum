@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -293,9 +293,9 @@ function resolve_dest_path($path)
 
 			pf('Recompiling Templates...');
 			fud_use('compiler.inc', true);
-			$c = q('SELECT theme, lang, name FROM '. $DBHOST_TBL_PREFIX .'themes WHERE theme_opt>=1 AND '. q_bitand('theme_opt', 1) .' > 0');
+			$c = q('SELECT theme, lang, name, theme_opt FROM '. $DBHOST_TBL_PREFIX .'themes WHERE theme_opt>=1 AND '. q_bitand('theme_opt', 1) .' > 0');
 			while ($r = db_rowarr($c)) {
-				compile_all($r[0], $r[1], $r[2]);
+				compile_all($r[0], $r[1], $r[2], $r[3]);
 			}
 			unset($c);
 

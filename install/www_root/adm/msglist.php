@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -127,10 +127,10 @@ function makedeps()
 		fud_use('compiler.inc', true);
 
 		// Recompile theme.
-		$c = q('SELECT name FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'themes WHERE theme='. _esc($tname) .' AND lang='. _esc($tlang));
+		$c = q('SELECT name, theme_opt FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'themes WHERE theme='. _esc($tname) .' AND lang='. _esc($tlang));
 		while ($r = db_rowarr($c)) {
 			// echo "Recompiling theme $tname, $tlang, {$r[0]}<hr />\n";
-			compile_all($tname, $tlang, $r[0]);
+			compile_all($tname, $tlang, $r[0], $r[1]);
 		}
 		unset($c);
 

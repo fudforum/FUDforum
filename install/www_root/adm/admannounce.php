@@ -53,6 +53,20 @@ function mk_date($y, $m, $d)
 		list($announce_year2, $announce_month2, $announce_day2) = explode(' ', gmdate('Y m d', (__request_timestamp__ + 86400)));	// 86400 seconds in a day.
 	}
 
+        // Validate input
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                if (empty($_POST['announce_subject'])) {
+                        pf(errorify('Subject canot be empty.'));
+                        $announce_text = $_POST['announce_text'];
+                        unset($_POST['btn_submit'], $_POST['btn_update']);
+                }
+                if (empty($_POST['announce_text'])) {
+                        pf(errorify('Message canot be empty.'));
+                        $announce_subject = $_POST['announce_subject'];
+                        unset($_POST['btn_submit'], $_POST['btn_update']);
+                }
+        }
+
 	if (isset($_POST['btn_submit'])) {
 		$ann = new fud_announce;
 		$id = $ann->add();
@@ -115,11 +129,11 @@ function mk_date($y, $m, $d)
 			foreach ($GLOBALS['cat_cache'] as $k => $i) {
 				$pfx = str_repeat('&nbsp;&nbsp;&nbsp;', $i[0]);
 
-				echo '<tr class="fieldtopic"><td colspan="6">'. $pfx .'<font size="-2">'. $i[1] .'</font></td></tr><tr class="field">';
 				if ($k == $r[2]) {
 					break;
 				}
 			}
+			echo '<tr class="fieldtopic"><td colspan="6">'. $pfx .'<font size="-2">'. $i[1] .'</font></td></tr><tr class="field">';
 			$oldc = $r[2];
 			$row = 1;
 		}

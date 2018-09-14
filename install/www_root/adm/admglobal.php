@@ -69,13 +69,15 @@ function get_max_upload_size()
 		$GLOBALS['NEW_FUD_OPT_2'] |= $FUD_OPT_2 & (16777216|33554432|67108864|134217728|268435456|8388608);
 		/* Restore plugin settings. */
 		$GLOBALS['NEW_FUD_OPT_3'] |= $FUD_OPT_3 & (4194304);
-		/* Restore page list settings. */
-		$GLOBALS['NEW_FUD_OPT_3'] |= $FUD_OPT_3 & (536870912);
 		/* Restore calendar settings. */
 		$GLOBALS['NEW_FUD_OPT_3'] |= $FUD_OPT_3 & (134217728);
 		$GLOBALS['NEW_FUD_OPT_3'] |= $FUD_OPT_3 & (268435456);
 		/* Restore GeoLocation settings. */
 		$GLOBALS['NEW_FUD_OPT_3'] |= $FUD_OPT_3 & (524288|2097152);
+		/* Restore page list settings. */
+		$GLOBALS['NEW_FUD_OPT_4'] |= $FUD_OPT_4 & (8);
+		/* Restore blog settings. */
+		$GLOBALS['NEW_FUD_OPT_4'] |= $FUD_OPT_4 & (16);
 
 		/* Disable apache_setenv() is no such function. */
 		if ($GLOBALS['NEW_FUD_OPT_3'] & 512 && !function_exists('apache_setenv')) {

@@ -30,6 +30,7 @@ function import_avatars($path)
 			}
 		}
 	}
+	unset($v);
 
 	$base = basename($list[0]);
 	$av_path = $GLOBALS['WWW_ROOT_DISK'] .'images/avatars/';

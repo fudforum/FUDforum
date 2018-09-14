@@ -37,9 +37,9 @@
 		
 			// Rebuild themes based on this language.
 			fud_use('compiler.inc', true);
-			$c = q('SELECT theme, name FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'themes WHERE lang='. _esc($tlang));
+			$c = q('SELECT theme, name, theme_opt FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'themes WHERE lang='. _esc($tlang));
 			while ($r = db_rowarr($c)) {
-				compile_all($r[0], $tlang, $r[1]);
+				compile_all($r[0], $tlang, $r[1], $r[2]);
 				echo successify('Theme '. $r[0] .' ('. $tlang .') was successfully rebuilt.');
 			}
 			unset($c);
