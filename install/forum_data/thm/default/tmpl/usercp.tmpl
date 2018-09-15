@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -14,11 +14,12 @@
 <div id="UserControlPanel">
 <ul>
 	{TEMPLATE-DATA: ucp_private_msg}
-	{IF: ($FUD_OPT_1 & 8388608 || (_uid && $FUD_OPT_1 & 4194304) || $usr->users_opt & 1048576)}{TEMPLATE: ucp_member_search}{ENDIF}
+	{IF: $FUD_OPT_4 & 16}{TEMPLATE: ucp_blog}{ENDIF}
+	{IF: $FUD_OPT_4 & 8}{TEMPLATE: ucp_pages}{ENDIF}
 	{IF: $FUD_OPT_3 & 134217728}{TEMPLATE: ucp_calendar}{ENDIF}
-	{IF: $FUD_OPT_3 & 536870912}{TEMPLATE: ucp_pages}{ENDIF}
 	{IF: $FUD_OPT_1 & 16777216} {TEMPLATE: ucp_search}{ENDIF}
 	<li><a accesskey="h" href="{TEMPLATE: ucp_help_lnk}" title="{MSG: faq}"><img src="{THEME_IMAGE_ROOT}/top_help.png" alt="" /> {MSG: faq}</a></li>
+	{IF: ($FUD_OPT_1 & 8388608 || (_uid && $FUD_OPT_1 & 4194304) || $usr->users_opt & 1048576)}{TEMPLATE: ucp_member_search}{ENDIF}
 	{IF: __fud_real_user__}{TEMPLATE: ucp_usercp}{ELSE}{IF: $FUD_OPT_1 & 2}{TEMPLATE: ucp_register}{ENDIF}{END}
 	{IF: __fud_real_user__}{TEMPLATE: ucp_logout}{ELSE}{TEMPLATE: ucp_login}{END}
 	<li><a href="{TEMPLATE: ucp_home_lnk}" title="{MSG: home}"><img src="{THEME_IMAGE_ROOT}/top_home.png" alt="" /> {MSG: home}</a></li>
@@ -93,6 +94,14 @@
 
 {SECTION: ucp_private_msg_unread Unread PM indicator}
 <li><a href="{TEMPLATE: ucp_private_msg_unread_lnk}" title="{MSG: pm}"><img src="{THEME_IMAGE_ROOT}/top_pm.png" alt="" /> {MSG: new_private_messages}</a></li>
+{SECTION: END}
+
+{SECTION: ucp_blog_lnk Blog URL}
+{ROOT}?t=blog&amp;{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: ucp_blog Blog}
+<li><a href="{TEMPLATE: ucp_blog_lnk}" title="{MSG: blog}"><img src="{THEME_IMAGE_ROOT}/blog.png" alt="" /> {MSG: blog}</a></li>
 {SECTION: END}
 
 {SECTION: ucp_calendar_lnk Calendar URL}

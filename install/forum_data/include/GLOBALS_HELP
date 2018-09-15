@@ -500,9 +500,6 @@ Enable or disable the forum's built-in calendar.}}}
 {{{CALENDAR_SHOW_BIRTHDAYS	FUD_OPT_3	268435456
 Show forum member's birthdays on the built-in calendar.}}}
 
-{{{PAGES_ENABLED	FUD_OPT_3	536870912
-Display pages icon on menu. This setting will automaticaaly be enaled if there are pages that should be shown in the List of Pages.}}}
-
 {{{FORUM_DEBUG	FUD_OPT_3	"Disabled\nDetailed logging\nFull debugging"	"0\n536870912\n1073741824"
 Debug the forum. Under normal conditions this should remain disabled.}}}
 
@@ -514,3 +511,10 @@ Allow users to reset their own passwords.}}}
 
 {{{KARMA	FUD_OPT_4	4
 Enable karma / user reputation system. If enabled, member can upvote or downvote other members.}}}
+
+{{{PAGES_ENABLED	FUD_OPT_4	8
+Display pages icon on menu. This setting will automatically be enaled if there are pages that should be shown in the List of Pages.}}}
+
+{{{BLOG_ENABLED	FUD_OPT_4	16
+Enable the forum's blog/ portal page.}}}
+

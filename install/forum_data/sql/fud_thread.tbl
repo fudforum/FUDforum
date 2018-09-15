@@ -30,7 +30,7 @@ CREATE INDEX {SQL_TABLE_PREFIX}thread_i_flm ON {SQL_TABLE_PREFIX}thread (forum_i
 CREATE INDEX {SQL_TABLE_PREFIX}thread_i_t   ON {SQL_TABLE_PREFIX}thread (thread_opt);
 CREATE INDEX {SQL_TABLE_PREFIX}thread_i_rmi ON {SQL_TABLE_PREFIX}thread (root_msg_id);
 CREATE INDEX {SQL_TABLE_PREFIX}thread_i_r   ON {SQL_TABLE_PREFIX}thread (replies);
-CREATE INDEX {SQL_TABLE_PREFIX}thread_i_rt  ON {SQL_TABLE_PREFIX}thread (rating);
+CREATE INDEX {SQL_TABLE_PREFIX}thread_i_rt  ON {SQL_TABLE_PREFIX}thread (rating, n_rating);
 
 # 1 locked
 # 2 is_sticky ANNOUNCE

@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -22,8 +22,12 @@ if (isset($_GET['id'])) {
 	$TITLE_EXTRA = ': '. $page->title;
 
 	fud_use('page_adm.inc', true);
-	$page->body = fud_page::read_page_body($page->foff, $page->length, ($page->page_opt & 3));
+	$page->body = fud_page::read_page_body($page->foff, $page->length, ($page->page_opt & 4));
 } else {
+	if (!($FUD_OPT_4 & 8)) {
+		std_error('disabled');	// No pages to list.
+	}
+
 	// Show a list of pages.
 	$page_list = '';
 	$i = 0;

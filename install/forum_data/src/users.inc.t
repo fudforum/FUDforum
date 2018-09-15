@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -626,6 +626,13 @@ function &init_user()
 				$_GET['t'] = 'calendar';
 				break;
 
+			case 'blog':	/* Blog */
+				$_GET['t'] = 'blog';
+				if (isset($p[1])) {
+					$_GET['start'] = $p[1];
+				}
+				break;
+
 			case 'page':	/* Static page */
 				$_GET['t'] = 'page';
 				if (isset($p[1])) {
@@ -634,6 +641,8 @@ function &init_user()
 				break;
 
 			default:
+				// Page not found, redirect to front page.
+				http_response_code(404);
 				$_GET['t'] = 'index';
 				break;
 		}
