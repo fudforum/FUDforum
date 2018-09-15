@@ -82,7 +82,7 @@ a.CatLink {
 .CatDesc {
 	color: #000;
 	height: 23px;
-	background: url('images/tableHeaderbg2.png');
+	background: url('{THEME_IMAGE_ROOT}/tableHeaderbg2.png');
 }
 
 .CatLockedName {
@@ -119,7 +119,7 @@ th {
 	font-weight: bold;
 	height: 23px;
 	vertical-align: middle;
-	background: url('images/tableHeaderbg.png');
+	background: url('{THEME_IMAGE_ROOT}/tableHeaderbg.png');
 }
 
 a.thLnk:link, a.thLnk:active, a.thLnk:visited {
@@ -212,6 +212,8 @@ a.MsgSubText, a.MsgSubText:visited {
 
 .MsgBodyText {
 	font-size: 10pt;
+	display: block;
+	line-height: 1.7;
 }
 
 .FormattingToolsBG {
@@ -247,8 +249,8 @@ cite {
 	font-weight: bold;
 	margin-left: 20px;
 	display: block;
-	background: transparent url('images/quote.gif') left top no-repeat;
-	padding-left: 25px;	
+	background: transparent url('{THEME_IMAGE_ROOT}/quote.gif') left top no-repeat;
+	padding-left: 25px;
 }
 
 blockquote {
@@ -262,9 +264,9 @@ blockquote {
 	font-style: italic;
 }
 blockquote:first-letter {
-	margin: .2em .2em .1em 0;
+	margin: 0 .1em 0 -0.12em;
 	font-family: "Monotype Corsiva", "Apple Chancery", fantasy;
-	font-size: 220%;
+	font-size: 160%;
 	font-weight: bold;
 	font-variant: small-caps;
 }
@@ -334,12 +336,16 @@ form {
 }
 
 img {
-	border: 0;
-	max-width: 800px;
+        border: 0;
+        max-width: 800px;
+        transition:all 0.5s ease-out;
+}
+img:hover {
+    transform: scale(1.05);
 }
 
 a[href^="mailto:"] {
-	background: url(images/email.png) no-repeat right center;
+	background: url({THEME_IMAGE_ROOT}/email.png) no-repeat right center;
 	padding-right:17px;
 }
 
@@ -670,7 +676,7 @@ img.r {
 /* Make textareas's resizable (jQuery UI). */
 .ui-resizable-s {
 	height: 9px;
-	background: #eee url("images/grippie.gif") no-repeat center 2px;
+	background: #eee url("{THEME_IMAGE_ROOT}/grippie.gif") no-repeat center 2px;
  	border: 1px solid #ddd;
 	border-top-width: 0;
 	overflow: hidden;
@@ -757,7 +763,7 @@ td.calendar-day, td.calendar-day-np { width:120px; padding:5px 25px 5px 5px; bor
 
 /* Buttons. */
 input.button:link, input.button:visited, input.button {
-	background:#ddd url(images/button.png) repeat-x scroll left top;
+	background:#ddd url({THEME_IMAGE_ROOT}/button.png) repeat-x scroll left top;
 	border-color:#ccc #b4b2b4 #ccc #b4b2b4;
 	position: relative;
 	cursor: pointer;
@@ -767,11 +773,12 @@ input.button:link, input.button:visited, input.button {
 	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.6);
 }
 input.button:hover, input.button:hover {
-	background:#e2e2e2 url(images/button.png) repeat-x scroll left -115px;
+	background:#e2e2e2 url({THEME_IMAGE_ROOT}/button.png) repeat-x scroll left -115px;
 	color:#000;
 }
 .small.button, .small.button:visited   { font-size: 11px; }
 
+/* Karma voting */
 a.karma {
     text-decoration: none;
 }
@@ -782,6 +789,52 @@ a.up {
 a.down {
     color: red;
     font-weight: bold;
+}
+
+/* Blog page - two unequal columns that floats next to each other */
+/* Left column */
+.leftcolumn {
+    float: left;
+    width: 74%;
+}
+
+/* Right column */
+.rightcolumn {
+    float: left;
+    width: 24%;
+    padding-left: 10px;
+}
+
+/* Add a card effect for articles */
+.card {
+    background-color: #f4f4f4;
+    padding: 0 10px 10px 10px;
+    margin-top: 10px;
+    font-size: 10pt;
+    line-height: 1.7;
+    box-shadow: inset 0 0 10px #ccc;
+}
+.rightcolumn .card {
+    background-color: #ddd;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+   display: table;
+    clear: both;
+}
+
+/* Responsive layout - hide the sidebar when the screen is less than 768px wide. */
+@media screen and (max-width: 768px) {
+  .rightcolumn {
+    display:none;
+    width: 0%;
+  }
+  .leftcolumn {
+    width: 98%;
+    padding: 0;
+  }
 }
 
 {TEMPLATE: css_overrides}

@@ -1,0 +1,201 @@
+/**
+* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
+* email                : forum@prohost.org
+* $Id$
+*
+* This program is free software; you can redistribute it and/or modify it
+* under the terms of the GNU General Public License as published by the
+* Free Software Foundation; version 2 of the License.
+**/
+
+{PHP_FILE: input: blog.php.t; output: blog.php;}
+
+{REF: security.tmpl}
+{REF: admincp.tmpl}
+{REF: header.tmpl}
+{REF: footer.tmpl}
+{REF: curtime.tmpl}
+{REF: usercp.tmpl}
+{REF: stats.tmpl}
+{REF: draw_pager.tmpl}
+{REF: forumsel.tmpl}
+{REF: drawmsg.tmpl}
+{REF: show.tmpl}
+{REF: fileio.tmpl}
+{REF: th.tmpl}
+{REF: thread_notify.tmpl}
+{REF: is_perms.tmpl}
+{REF: th_nav.tmpl}
+{REF: draw_forum_path.tmpl}
+{REF: topic_rating.tmpl}
+
+{PAGE: BLOG_PAGE}
+{TEMPLATE: header}
+{TEMPLATE: usercp}
+{TEMPLATE-DATA: page_data}
+<br />
+{TEMPLATE-DATA: page_pager}
+	{TEMPLATE: curtime}
+	{TEMPLATE-DATA: page_stats}
+	{TEMPLATE: footer}
+{PAGE: END}
+
+{SECTION: blog_msg_list}
+<!-- MODEL -> https://www.w3schools.com/howto/howto_css_blog_layout.asp -->
+<!-- table cellspacing="0" cellpadding="0" border="0" -->
+<div class="row">
+  <div class="leftcolumn">
+   {TEMPLATE-DATA: msg_list}
+  </div>
+  <div class="rightcolumn">
+    <div class="card">
+      <h3>{GVAR: FORUM_TITLE}</h3>
+      <span style="MsgBodyText">{GVAR: FORUM_DESCR}</span>
+    </div>
+    <div class="card">
+      <h3>{MSG: blog_new_posts}</h3>
+      {TEMPLATE-DATA: new_topic_list}
+    </div>
+    <div class="card">
+      <h3>{MSG: blog_viewed_posts}</h3>
+      {TEMPLATE-DATA: most_viewed_list}
+    </div>
+{IF: ($FUD_OPT_2 & 4096)}
+    <div class="card">
+      <h3>{MSG: blog_rated_posts}</h3>
+      {TEMPLATE-DATA: best_rated_list}
+    </div>
+{ENDIF}
+{IF: ($FUD_OPT_1 & 8388608 || (_uid && $FUD_OPT_1 & 4194304) || $usr->users_opt & 1048576)}
+    <div class="card">
+      <h3>{MSG: blog_new_members}</h3>
+      {TEMPLATE-DATA: recent_member_list}
+    </div>
+{ENDIF}
+    {TEMPLATE: blog_RSS_link}
+  </div>
+</div>
+<!-- /table -->
+{SECTION: END}
+
+{SECTION: blog_msg_entry}
+    <div class="card">
+      <a href="{TEMPLATE: blog_msg_subject_lnk}" title="{VAR: topic->subject}"><h1>{VAR: topic->subject}</h1></a>
+      <h5>{IF: $topic->tdescr}{VAR: topic->tdescr}; {ENDIF}{DATE: topic->post_stamp %a, %d %B %Y %H:%M}</h5>
+      <p>{VAR: topic->body}</p>
+      <span class="SmallText">{TEMPLATE: blog_forum} | {TEMPLATE: blog_comments}</span>
+    </div>
+<!--
+				{IF: $topic->icon}
+					<a href="{ROOT}/blog/{VAR: start}/{VAR: topic->icon}/"><img src="{BASE}images/message_icons/{VAR: topic->icon}" alt="{VAR: topic->icon}" align="left" class="news_icon" style="margin-right: 10px !important;padding: 0px;" height="48" width="48"></a>
+				{ENDIF}
+
+<div class="msglink" id="msg_{VAR: topic->id}" style="float; right;display: none;position: relative; top: 32px;left: -330px;"><input type="text" onFocus="this.select()" value="{TEMPLATE: blog_msg_subject_lnk}" size="20" tabindex="1" name="srch" class="inputbox" alt="search"></div>
+{TEMPLATE: blog_msg_subject}<br><br>
+{TEMPLATE: blog_new_comment_link}
+				<br>
+				<hr style="margin-right:0px;color: #fff; background-color: #fff; border: 1px dotted #cccccc; border-style: none none dotted;"><br>
+<div class="blog_div"><div class="MsgBodyText">
+				{VAR: topic->body}</div></div><br><br>
+				<div style="clear: both;"></div>
+				<div><hr style="border-style: none none dotted; border-color: rgb(204, 204, 204); margin-left: 0px; border-width: 1px; color: rgb(255, 255, 255); background-color: rgb(255, 255, 255);">
+				<span style="color: #666666;font-size: 8pt;">Written by TEMPLATE: blog_msg_user_login</span><span class="DateText"> {TEMPLATE: blog_msg_post_date}</span> - <a href="{TEMPLATE: blog_new_comment_link_lnk}" class="button">{TEMPLATE-DATA: thread_read_status} There are (<span style="color:black">{VAR: topic->replies}</span>) comments on the article.</a><br><br><br>
+-->
+{SECTION: END}
+
+{SECTION: blog_RSS}
+{IF: $FUD_OPT_2 & 1048576}
+<link rel="alternate" type="application/rss+xml" title="{MSG: thread_syndicate}" href="{BASE}rdf.php?mode=m&amp;l=1&amp;basic=1&amp;n=10">
+{ENDIFI}
+{SECTION: END}
+
+{SECTION: blog_RSS_link}
+<br />
+<div style="float: right"><a href="{BASE}rdf.php?mode=m&amp;l=1&amp;basic=1&amp;n=10" class="button"><img src="{THEME_IMAGE_ROOT}/rss.gif" title="{MSG: thread_syndicate}" alt="RSS" width="16" height="16"> RSS</a></div>
+{SECTION: END}
+
+{SECTION: blog_msg_subject}
+<a name="msg_num_{VAR: topic->id}"></a><a name="msg_{VAR: topic->id}"></a><a href="{TEMPLATE: blog_msg_subject_lnk}" title="{VAR: topic->subject}"><span class="blog_title">{VAR: topic->subject}</span></a>
+{SECTION: END}
+
+{SECTION: blog_forum}
+<a href="{TEMPLATE: blog_forum_lnk}">{VAR: topic->forum_name}</a>
+{SECTION: END}
+
+{SECTION: blog_forum_lnk}
+{ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: topic->forum_id}&amp;{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: blog_comments}
+{IF: _uid}
+<a href="{TEMPLATE: blog_comments_lnk}">{MSG: blog_comments}</a>
+{ELSE}
+<a href="{TEMPLATE: blog_msg_subject_lnk}">{MSG: blog_comments}</a>
+{END}
+
+{SECTION: END}
+
+{SECTION: blog_comments_lnk}
+{ROOT}?t={DEF: d_thread_view}&amp;th={VAR: topic->id}&amp;unread=1&amp;{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: blog_msg_post_date}
+{DATE: topic->post_stamp %a, %d %B %Y %H:%M}
+{SECTION: END}
+
+{SECTION: blog_msg_edit}
+<a href="{TEMPLATE: blog_msg_edit_lnk}" class="button">Edit</a>
+{SECTION: END}
+
+{SECTION: blog_thread_read}
+<img src="{THEME_IMAGE_ROOT}/read.png" title="{MSG: no_unread_msg}" alt="" class="nb">
+{SECTION: END}
+
+{SECTION: blog_thread_read_unreg}
+<img src="{THEME_IMAGE_ROOT}/read.png" title="{MSG: no_unread_msg_unreg}" alt="" class="nb">
+{SECTION: END}
+
+{SECTION: blog_thread_read_locked}
+<img src="{THEME_IMAGE_ROOT}/readlocked.png" title="{MSG: no_unread_locked}" alt="" class="nb">
+{SECTION: END}
+
+{SECTION: blog_thread_unread}
+<img src="{THEME_IMAGE_ROOT}/unread.png" title="{MSG: unread_msg}" alt="" class="nb">
+{SECTION: END}
+
+{SECTION: blog_thread_unread_locked}
+<img src="{THEME_IMAGE_ROOT}/unreadlocked.png" title="{MSG: unread_msg_locked}" alt="" class="nb">
+{SECTION: END}
+
+{SECTION: blog_first_unread_msg_link}
+<a href="{TEMPLATE: blog_first_unread_msg_link_lnk}"><img src="{THEME_IMAGE_ROOT}/newposts.gif" title="{MSG: thread_first_unread_msg}" alt=""></a>&nbsp;
+{SECTION: END}
+
+{SECTION: blog_new_comment_link}
+<a href="{TEMPLATE: blog_comment_link_lnk}" class="button">Comment on this article</a>
+{SECTION: END}
+
+{SECTION: blog_new_comment_link_lnk}
+{ROOT}/t/{VAR: topic->thread_id}/{DEF: _rsid}#quickreply
+{SECTION: END}
+
+{SECTION: blog_first_unread_msg_link_lnk}
+{ROOT}?t={DEF: d_thread_view}&amp;th={VAR: topic->id}&amp;unread=1&amp;{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: blog_msg_subject_lnk}
+{ROOT}?t=msg&amp;th={VAR: topic->thread_id}&amp;{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: blog_member_lnk}
+{ROOT}?t=usrinfo&amp;id={VAR: member->id}&amp;{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: blog_msg_edit_lnk}
+{ROOT}/r/msg_id/{VAR: topic->id}/{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: blog_update}
+{MSG: blog_update}
+{SECTION: END}
+
