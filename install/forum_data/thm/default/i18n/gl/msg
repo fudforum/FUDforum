@@ -1155,3 +1155,10 @@ karma:Karma
 karma_track:Administrar a reputación do usuario:
 karma_delete:Borrar
 rate_author:Avaliar o autor:
+blog_update:Lendo o blog do foro
+blog:Blog
+blog_new_members:Novos membros
+blog_new_posts:Publicación recente
+blog_rated_posts:Mellor valoradas
+blog_viewed_posts:Máis vistas
+blog_comments:{PLURAL: topic->replies|$1 comentario|$1 comentarios}
