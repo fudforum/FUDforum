@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -105,7 +105,8 @@ function tmpl_create_pager($start, $count, $total, $arg, $suf='', $append=1, $js
 		$page_start_2 = ($st - 1) * $count;
 		if ($append) {
 			$page_next_url = $arg . $upfx . $page_start . $suf;
-			$page_last_url = $arg . $upfx . $page_start_2 . $suf;
+			// $page_last_url = $arg . $upfx . $page_start_2 . $suf;
+			$page_last_url = $arg . $upfx . floor($total/$count)*$count . $suf;
 		} else {
 			$page_next_url = $page_last_url = $arg;
 			pager_replace($page_next_url, $upfx . $page_start, $count);
