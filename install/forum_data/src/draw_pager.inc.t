@@ -106,7 +106,7 @@ function tmpl_create_pager($start, $count, $total, $arg, $suf='', $append=1, $js
 		if ($append) {
 			$page_next_url = $arg . $upfx . $page_start . $suf;
 			// $page_last_url = $arg . $upfx . $page_start_2 . $suf;
-			$page_last_url = $arg . $upfx . floor($total/$count)*$count . $suf;
+			$page_last_url = $arg . $upfx . floor($total-1/$count)*$count . $suf;
 		} else {
 			$page_next_url = $page_last_url = $arg;
 			pager_replace($page_next_url, $upfx . $page_start, $count);
