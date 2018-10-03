@@ -1151,3 +1151,10 @@ karma:Karma
 karma_track:Xestionar la reputación del usuariu:
 karma_delete:Desaniciar
 rate_author:Puntuar al autor:
+blog_update:Lleendo'l blog del foru
+blog:Blog
+blog_new_members:Miembros nuevos
+blog_new_posts:Publicación de recién
+blog_rated_posts:Meyor valoraes
+blog_viewed_posts:Más vistes
+blog_comments:{PLURAL: topic->replies|$1 comentariu|$1 comentarios}

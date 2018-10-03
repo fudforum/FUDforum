@@ -1167,6 +1167,10 @@ karma:Карма
 karma_track:Управление репутацией пользователя:
 karma_delete:Удалить
 rate_author:Оценить автора:
+blog_update:Чтение блога форума
 blog:Блог
 blog_new_members:Новые участники
 blog_new_posts:Последние сообщения
+blog_rated_posts:Наиболее оценённые
+blog_viewed_posts:Наиболее просматриваемые
+blog_comments:{PLURAL: topic->replies|$1 комментарий|$1 комментариев}

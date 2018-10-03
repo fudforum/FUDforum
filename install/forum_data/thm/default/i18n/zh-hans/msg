@@ -1,5 +1,6 @@
 # Messages for Simplified Chinese (中文（简体）‎)
 # Exported from translatewiki.net
+# Author: A Chinese Wikipedian
 # Author: Anakmalaysia
 # Author: Chenxiaoqino
 # Author: Cwlin0416
@@ -941,7 +942,7 @@ pm_err_disabled_msg:你当前设置为不能发送悄悄话！可以在个人信
 err_mod_acc_ttl:未验证的帐户
 err_mod_acc_msg:账号在被激活之前必须得到系统管理员的确认，在得到确认之前，你的账号不享有注册用户的所有功能！
 accounts_pending_approval:待审核帐号
-saved:已保存
+saved:已提交
 register_err_time_limit:每{GVAR: REG_TIME_LIMIT}秒限制一个用户可以注册的极限已达到， 请稍等{PLURAL: reg_limit_reached|$1|$1}秒再来注册。
 register_err_avatardimtobig:头像大小 <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> 超出了论坛限制的： <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
 buddy_offline:{VAR: r[2]} 当前不在线
@@ -1165,3 +1166,10 @@ karma:业障
 karma_track:管理用户的声誉：
 karma_delete:删除
 rate_author:给作者评分：
+blog_update:阅读论坛博客
+blog:博客
+blog_new_members:新成员
+blog_new_posts:文章标题
+blog_rated_posts:额定功率
+blog_viewed_posts:最多点击量
+blog_comments:{PLURAL: topic->replies|$1 个评论|$1 个评论}

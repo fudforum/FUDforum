@@ -206,8 +206,7 @@ vote_button:تصويت
 vote_for_thread:صوت
 was_moved_msg:نقل المشرف <a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> إلى <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a>
 welcome_message:أهلا <b>{VAR: usr->alias}</b>، آخر زياره لك كانت فى {TEMPLATE: welcome_message_date}
-# Fuzzy
-what_ppl_doing:أظهر ما يفعله الناس
+what_ppl_doing:نشاط اليوزر
 reported_del_report:احذف البلاغ
 reported_reason:السبب:
 reported_on:في:
@@ -324,8 +323,7 @@ register_preview:عاين
 register_custom_avatar_upload:ملف أفتار مُخصّص:
 register_register:سجّل
 register_required:معلومات مطلوبة
-# Fuzzy
-register_required_desc:كل الحقول مطلوبه. من فضلك لاحظ أن كلمات السر حساسه لحاله الأحرف.
+register_required_desc:كل الحقول مطلوبه.
 register_optional:معلومات اختيارية
 register_optional_desc:من الموصى به ألا تكشف عن أى معلومات شخصيه فى ملفك الشخصى. كل المعلومات ستكون ظاهره لمستخدمى المنتدى الآخرين.
 register_location:المكان:
@@ -590,8 +588,7 @@ buddy_list_err_ignore:لا يمكن إضافه المستخدمين الذى ي�
 buddy_list_update:يتصفح قائمه أصدقائه
 core_err_invinp_title:دخل غير صالح
 core_err_invinp_err:لقد اتبعت وصله خاطئه. من فضلك أعلم <a href="mailto:{GVAR: ADMIN_EMAIL}">مدير الموقع</a> بكيفيه وصولك إلى هنا.
-# Fuzzy
-core_adm_login_msg:يمكن أن يدخل الإداريون <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">هنا</a>.
+core_adm_login_msg:يمكن أن يدخل الإداريون <a href="{BASE}adm/admloginuser.php">هنا</a>.
 email_err_unabletoemail_title:خطأ: تعذّر إرسال بريد إلكتروني
 email_err_unabletoemail_msg:عطل الإدارى نظام البريد الإلكترونى.
 email_error_unabletolocaddr:عذرًا، تعذر على النظام مراسله {VAR-HTML: _POST['tx_name']} لأنه لم يتمكن من تحديد البريد الإلكترونى.
@@ -654,8 +651,7 @@ postcheck_email_body:لا يمكنك إرسال بريد إلكترونى بدو
 private_msg_notify_subj:اقرأ إشعارًا عن: {VAR: m->subject}
 private_msg_notify_body:مرحبًا! <br />{VAR: usr->login} فتح رسالتك الخاص ذات العنوان "{VAR: m->subject}".<br /> هذا إشعار آلى وُلد فى {TEMPLATE: private_msg_notify_body_date}<br />
 referals_update:يتصفح الإحالات
-# Fuzzy
-register_err_short_login:اسم الولوج الذى اخترته قصير جدًا. يجب ألا يقل طول أسماء الدخول عن 4 محارف.
+register_err_short_login:اسم الولوج الذى اخترته قصير جدا. يجب ألا يقل طول أسماء الدخول عن 2 محارف.
 register_err_login_notallowed:اسم الولوج هذا غير مسموح به.
 register_err_loginunique:يجب أن تكون أسماء ولوج المنتدى فريده. يوجد مستخدم مسبقًا بهذا الاسم.
 register_err_emailexists:عنوان البريد الإلكترونى هذا مربوط مسبقًا بحساب. إذا كنت نسيت كلمه سرك، فمن فضلك استخدم خيار الاسترجاع بدلًا من إعاده التسجيل.
@@ -1058,10 +1054,8 @@ search_user_filter:رشّح المستخدم:
 register_none:ما تبلغنيش
 findu_no_conf:مستخدم غير مؤكد
 register_max_sig_len:الدليل الأقصى:
-# Fuzzy
-register_turing:من فضلك أدخل الرمز الظاهر أدناه:
-# Fuzzy
-register_err_turing:رمز تحقق غير صالح.
+register_turing:التحقق:
+register_err_turing:رمز تحقق غير صالح. من فضلك حاول تانى.
 modque_cat:تصنيف
 modque_forum:منتدى
 idx_compact_forum_row:المنتديات المتوفرة:
@@ -1122,8 +1116,7 @@ move_msg_th_expl:حدد هويه الموضوع الهدف (يمكن أن يكو
 captcha_img_alt:تحقق كابتشا: سوف تحتاج إلى التعرف على نص هذه الصوره.
 captcha_img_help:لا يوجد صفر ولا واحد فى الصوره.
 powered-by:يشغله: FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:!قوق النشر  و النسخ;2001-2017 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:!قوق النشر  و النسخ;2001-2018 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:الكود
 code_select_all:اختر الكل
 code_show_hide:أظهر/أخفِ
