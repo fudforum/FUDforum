@@ -77,7 +77,15 @@ $RSS = '{TEMPLATE: blog_RSS}';
 	}
 
 	// New posts for sidebar.
-	$c = uq(q_limit('SELECT distinct thread_id, subject FROM {SQL_TABLE_PREFIX}msg WHERE apr=1 ORDER BY post_stamp DESC', 10));
+	$c = uq(q_limit('SELECT thread_id, subject
+		FROM {SQL_TABLE_PREFIX}msg m
+		INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id
+                INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=2147483647 AND g1.resource_id=t.forum_id
+                LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='. _uid .' AND g2.resource_id=t.forum_id
+                LEFT JOIN {SQL_TABLE_PREFIX}mod mo ON mo.user_id='. _uid .' AND mo.forum_id=t.forum_id
+		WHERE apr=1
+                '. ($is_a ? '' : ' AND (mo.id IS NOT NULL OR '. q_bitand('COALESCE(g2.group_cache_opt, g1.group_cache_opt)', 1) .'> 0)') .'
+		ORDER BY m.post_stamp DESC', 10));
         $new_topic_list = '<div class="item-list">';
         while ($topic = db_rowobj($c)) {
 		if (strlen($topic->subject) > 40) {
@@ -91,7 +99,7 @@ $RSS = '{TEMPLATE: blog_RSS}';
 	// Most viewed for sidebar.
         $c = uq(q_limit('SELECT t.root_msg_id, t.id, t.rating, t.n_rating, t.replies, t.tdescr, m.thread_id, m.subject
 			FROM {SQL_TABLE_PREFIX}thread t
-			INNER JOIN {SQL_TABLE_PREFIX}msg   m ON m.id=t.root_msg_id
+			INNER JOIN {SQL_TABLE_PREFIX}msg m ON m.id=t.root_msg_id
 		WHERE m.apr=1
 		ORDER BY views DESC', 10));
         $most_viewed_list = '<div class="item-list">';
@@ -104,7 +112,7 @@ $RSS = '{TEMPLATE: blog_RSS}';
 	if ($FUD_OPT_2 & 4096) {	// ENABLE_THREAD_RATING
         	$c = uq(q_limit('SELECT t.root_msg_id, t.id, t.rating, t.n_rating, t.replies, t.tdescr, m.thread_id, m.subject
 				FROM {SQL_TABLE_PREFIX}thread t
-				INNER JOIN {SQL_TABLE_PREFIX}msg   m ON m.id=t.root_msg_id
+				INNER JOIN {SQL_TABLE_PREFIX}msg m ON m.id=t.root_msg_id
 			WHERE m.apr=1
 			ORDER BY rating*n_rating DESC, m.post_stamp DESC', 10));
 	        $best_rated_list = '<div class="item-list">';
