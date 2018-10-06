@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -11,7 +11,7 @@
 
 /* main */
 	@set_time_limit(0);
-	@ini_set('memory_limit', '512M');
+	@ini_set('memory_limit', '-1');
 
 	require('./GLOBALS.php');
 
@@ -75,6 +75,7 @@
 				/* Commit and re-acquire locks. */
 				db_unlock();
 				eta_calc($start_time, $i, $i_count);
+				usleep(1000000);	// throttle 1 sec
 				db_lock($tbl .'msg_store WRITE, '. $tbl .'search_cache WRITE, '. $tbl .'search WRITE, '. $tbl .'index WRITE, '. $tbl .'title_index WRITE, '. $tbl .'msg WRITE');
 			}
 			$i++;

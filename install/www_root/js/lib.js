@@ -256,21 +256,28 @@ function highlightWord(node, word, Wno)
 }
 
 /* Highlight search terms in document. */
-function highlightSearchTerms(searchText)
+function highlightSearchTerms(searchText, treatAsPhrase)
 {
 	searchText = searchText.toLowerCase();
-	var terms = searchText.split(' ');
-	var e = document.getElementsByTagName('span'); /* message body */
+	if (treatAsPhrase) {
+    		var terms = [searchText];
+	} else {
+    		var terms = searchText.split(' ');
+	}
+	var e = document.getElementsByTagName('span');
 
+	/* message body */
 	for (var i = 0; e[i]; i++) {
 		if (e[i].className != 'MsgBodyText') continue;
 		for (var j = 0, k = 0; j < terms.length; j++, k++) {
 			if (k > 9) k = 0; /* we only have 9 colors */
-			highlightWord(e[i], terms[j], k);
+			if (terms[j].length > 2) {	/* Skip 1 and 2 char words */
+				highlightWord(e[i], terms[j], k);
+			}
 		}
 	}
 
-	e = document.getElementsByTagName('td'); /* subject */
+	/* subject */
 	for (var i = 0; e[i]; i++) {
 		if (e[i].className.indexOf('MsgSubText') == -1) continue;
 		for (var j = 0, k = 0; j < terms.length; j++, k++) {
@@ -395,7 +402,8 @@ jQuery(document).ready(function() {
   var toggleMinus = theme_image_root +'/min.png';
   var togglePlus  = theme_image_root +'/max.png';
 
-  jQuery('td.MsgSubText').prepend('<img src="'+ toggleMinus +'" alt="-" title="'+ minimize_message +'" class="collapsable" /> ');
+  jQuery('.collapsed').prepend('<img src="'+ togglePlus +'" alt="+" title="'+ maximize_message +'" class="collapsable" /> ');
+  jQuery('.expanded').prepend('<img src="'+ toggleMinus +'" alt="-" title="'+ minimize_message +'" class="collapsable" /> ');
 
   jQuery('.collapsable').addClass('clickable').css('cursor', 'pointer')
   .click(function() {

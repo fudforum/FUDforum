@@ -188,12 +188,12 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir, $p=0)
 			if (!strncmp($tbl_name, $DBHOST_TBL_PREFIX .'tv_', strlen($DBHOST_TBL_PREFIX .'tv_')) || 
 				!strncmp($tbl_name, $DBHOST_TBL_PREFIX .'fl_', strlen($DBHOST_TBL_PREFIX .'fl_')) ||
 				$tbl_name == $DBHOST_TBL_PREFIX .'ses' ||
-				$tbl_name == $DBHOST_TBL_PREFIX .'search' || 
 				$tbl_name == $DBHOST_TBL_PREFIX .'search_cache'
 			) {
 				continue;
 			}
 			if (isset($_POST['skipsearch']) && $_POST['skipsearch'] == 'y' && (
+				$tbl_name == $DBHOST_TBL_PREFIX .'search' || 
 				$tbl_name == $DBHOST_TBL_PREFIX .'index' ||
 				$tbl_name == $DBHOST_TBL_PREFIX .'title_index' )
 			) {
