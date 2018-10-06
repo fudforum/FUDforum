@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -25,7 +25,7 @@
 	$GLOBALS['FUD_OPT_3']		= 41943104;
 	$GLOBALS['FUD_OPT_4']		= 3;
 
-	$GLOBALS['CUSTOM_AVATAR_MAX_SIZE'] = 10000;	/* bytes */
+	$GLOBALS['CUSTOM_AVATAR_MAX_SIZE'] = 12000;	/* bytes */
 	$GLOBALS['CUSTOM_AVATAR_MAX_DIM']  = '64x64';	/* width x height (pixels) */
 
 	$GLOBALS['COOKIE_PATH']		= '';
@@ -87,7 +87,7 @@
 	$GLOBALS['FORUM_DESCR']		= 'Fast Uncompromising Discussions. FUDforum will get your users talking.';
 	$GLOBALS['MAX_LOGIN_SHOW']	= 25;
 	$GLOBALS['MAX_LOCATION_SHOW']	= 25;
-	$GLOBALS['SHOW_N_MODS']		= 2;
+	$GLOBALS['SHOW_N_MODS']		= 0;
 
 	$GLOBALS['TREE_THREADS_MAX_DEPTH']	= 15;
 	$GLOBALS['TREE_THREADS_MAX_SUBJ_LEN']	= 75;

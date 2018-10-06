@@ -52,6 +52,7 @@ function fud_dir_space_usage($dir)
 			$disk_space += @filesize($f);
 		}
 	}
+	unset($v);
 
 	return $disk_space;
 }
@@ -168,6 +169,7 @@ function fud_copy($src, $dest, $mask='*', $recur=false)
 			}
 		}		
 	}
+	unset($v);
 	umask($u);
 }
 

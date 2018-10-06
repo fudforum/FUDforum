@@ -9,7 +9,7 @@
 * Free Software Foundation; version 2 of the License.
 **/
 
-$FORUM_VERSION = '3.0.9';
+$FORUM_VERSION = '3.1.0RC1';
 
 ignore_user_abort('1');
 

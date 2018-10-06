@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -103,17 +103,17 @@ class fud_page
 	/** Toggle PAGES_ENABLED to display 'pages icon' if we have pages that should be listed. */
 	static function enable_disable_pages_icon()
 	{
-		$FUD_OPT_3 = $GLOBALS['FUD_OPT_3'];
+		$FUD_OPT_4 = $GLOBALS['FUD_OPT_4'];
 		if (q_singleval('SELECT 1 FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'pages WHERE '. q_bitand('page_opt', 1) .' = 1 AND '. q_bitand('page_opt', 2) .' = 2')) {
-			$FUD_OPT_3 |= 536870912;	// Enable PAGES_ENABLED (536870912).
+			$FUD_OPT_4 |= 8;	// Enable PAGES_ENABLED (8).
 		} else {
-			$FUD_OPT_3 &= ~536870912;	// Disable PAGES_ENABLED.
+			$FUD_OPT_4 &= ~8;	// Disable PAGES_ENABLED.
 		}
 
 		// Apply if setting changed.
-		if ($FUD_OPT_3 !== $GLOBALS['FUD_OPT_3']) {
+		if ($FUD_OPT_4 !== $GLOBALS['FUD_OPT_4']) {
 			fud_use('glob.inc', true);
-			change_global_settings(array('FUD_OPT_3' => $FUD_OPT_3));
+			change_global_settings(array('FUD_OPT_4' => $FUD_OPT_4));
 		}
 	}
 
@@ -126,12 +126,12 @@ class fud_page
 
 		if ($GLOBALS['FUD_OPT_3'] & 32768 && $offset == -1) {
 			return q_singleval('SELECT data FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'msg_store WHERE id='. $length);
+		} else {
+			$fp = fopen($GLOBALS['MSG_STORE_DIR'] .'pages', 'rb');
+			fseek($fp, $offset, SEEK_SET);
+			$str = fread($fp, $length);
+			fclose($fp);
 		}
-
-		$fp = fopen($GLOBALS['MSG_STORE_DIR'] .'pages', 'rb');
-		fseek($fp, $offset, SEEK_SET);
-		$str = fread($fp, $length);
-		fclose($fp);
 
 		if ($eval) {	// Pages with embedded PHP code.
 			ob_start();

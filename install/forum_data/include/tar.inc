@@ -90,6 +90,7 @@ function make_tar($dir)
 		}
 		closedir($d);
 	}
+	unset($v);
 
 	return $out;
 }

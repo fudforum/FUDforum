@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -766,7 +766,7 @@ function compile_all($tset='default', $lang='en', $tname='default', $t_opt=0)
 	$cmpl['THEME_ROOT_DISK'] = $GLOBALS['WWW_ROOT_DISK'] .'theme/'. $tname;
 	$cmpl['THEME_IMAGE_ROOT'] = $cmpl['THEME_ROOT'] .'/images';
 
-	if (defined('fud_debug')) {
+	if (defined('fud_debug') || defined('fud_logging')) {
 		print "<pre>";
 		print "\nBASE=". $cmpl['BASE'];
 		print "\nROOT=". $cmpl['ROOT'];
@@ -796,7 +796,7 @@ function compile_all($tset='default', $lang='en', $tname='default', $t_opt=0)
 	$GLOBALS['text_dir'] = trim(file_get_contents($text_dir));
 
 	fud_mkdir($GLOBALS['WWW_ROOT_DISK'].'theme');
-	file_put_contents($GLOBALS['WWW_ROOT_DISK'] .'theme/README', "Files in this directory are generated. Do not edit them.\nTo regenerate, navigate to the Theme Manager admin control panel.");
+	file_put_contents($GLOBALS['WWW_ROOT_DISK'] .'theme/README', "Files in this directory are generated. Do not edit them.\nTo regenerate, navigate to the Theme Manager admin control panel\nTemplate files are in the 'thm' directory.");
 
 	fud_mkdir($GLOBALS['WWW_ROOT_DISK'] .'theme/'. $tname);
 	fud_mkdir($GLOBALS['INCLUDE'] .'theme');
