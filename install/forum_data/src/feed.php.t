@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -144,7 +144,7 @@ function smiley_full(&$data)
 	}
 
 	if ($FEED_MAX_N_RESULTS < 1) {	// Handler for events when the value is not set.
-		$FEED_MAX_N_RESULTS = 20;
+		$FEED_MAX_N_RESULTS = 10;
 	}
 	$limit  = (isset($_GET['n']) && $_GET['n'] <= $FEED_MAX_N_RESULTS) ? (int)$_GET['n'] : $FEED_MAX_N_RESULTS;
 
@@ -192,10 +192,10 @@ function smiley_full(&$data)
 
 			/* This is an optimization so that the forum does not need to
 			 * go through the entire message db to fetch latest messages.
-			 * So, instead we set an arbitrary search limit of 5 days.
+			 * So, instead we set an arbitrary search limit of 14 days.
 			 */
 			if (isset($_GET['l']) && $lmt == ' t.moved_to=0 AND m.apr=1') {
-				$lmt .= ' AND t.last_post_date >='. (__request_timestamp__ - 86400 * 5);
+				$lmt .= ' AND t.last_post_date >='. (__request_timestamp__ - 86400 * 14);
 			}
 
 			if ($FUD_OPT_2 & 33554432) {	// FEED_AUTH
@@ -307,10 +307,10 @@ function smiley_full(&$data)
 
 			/* This is an optimization so that the forum does not need to
 			 * go through the entire message db to fetch latest messages.
-			 * So, instead we set an arbitrary search limit if 5 days.
+			 * So, instead we set an arbitrary search limit if 14 days.
 			 */
 			if (isset($_GET['l']) && $lmt == ' t.moved_to=0 AND m.apr=1') {
-				$lmt .= ' AND t.last_post_date >='. (__request_timestamp__ - 86400 * 5);
+				$lmt .= ' AND t.last_post_date >='. (__request_timestamp__ - 86400 * 14);
 			}
 
 			if ($FUD_OPT_2 & 33554432) {	// FEED_AUTH
