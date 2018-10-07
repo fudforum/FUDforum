@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -257,6 +257,7 @@ class fud_msg_edit extends fud_msg
 		if ($GLOBALS['FUD_OPT_1'] & 16777216) {	// FORUM_SEARCH enabled? If so, reindex message.
 			q('DELETE FROM {SQL_TABLE_PREFIX}index WHERE msg_id='. $this->id);
 			q('DELETE FROM {SQL_TABLE_PREFIX}title_index WHERE msg_id='. $this->id);
+			q('DELETE FROM {SQL_TABLE_PREFIX}search_cache WHERE msg_id='. $this->id);
 			index_text((!strncasecmp('Re: ', $this->subject, 4) ? '' : $this->subject), $this->body, $this->id);
 		}
 	}
@@ -299,6 +300,7 @@ class fud_msg_edit extends fud_msg
 		if ($GLOBALS['FUD_OPT_1'] & 16777216) {	// FORUM_SEARCH enabled?
 			q('DELETE FROM {SQL_TABLE_PREFIX}index WHERE msg_id='. $mid);
 			q('DELETE FROM {SQL_TABLE_PREFIX}title_index WHERE msg_id='. $mid);
+			q('DELETE FROM {SQL_TABLE_PREFIX}search_cache WHERE msg_id='. $mid);
 		}
 
 		/* Remove poll. */
