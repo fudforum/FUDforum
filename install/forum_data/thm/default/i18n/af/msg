@@ -103,7 +103,7 @@ no_messages:Daar geen nuwe boodskappe in hierdie forum nie.<br />Wees die eerste
 no_msg_body:Geen teks in die boodskap nie.
 no_new_posts:Geen nuwe boodskappe
 no_posts:Geen boodskappe
-no_subscribed_forums:Geen ingeskrewe forums
+no_subscribed_forums:U is nie op enige forums ingeskryf nie
 no_subscribed_threads:Geen ingeskrewe onderwerpe
 no_bookmarked_threads:Geen boekmerke
 no_unread_locked:Die onderwerp is gesluit
@@ -242,7 +242,7 @@ pmsg_delete:Skrap
 cur_ppage_pm:Privaat boodskap
 writing_pm:Skryf nuwe privaat boodskap
 browsing_folder:wys vouer <b>{VAR: folders[$folder_id]}</b>
-inbox:IN-posvak
+inbox:Inboks
 draft:Kladwerk
 sent:Gestuur
 trash:Asblik
@@ -951,7 +951,7 @@ thread_mark_all_read_desc:Al die ongeleesde boodskappe in die forum word as gele
 private_no_messages:Die vouer is tans leeg
 register_email_change_subject:Bevestiging van veranderde e-posadres
 register_email_change_msg:Bevestig asseblief u nuwe e-psoadres "{VAR: uent->email}" ter vervanging van u ou e-posadres "{VAR: old_email}" deur die volgende verwysing te volg:\n{FULL_ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nAs u u nuwe e-posadres bevestig, word u gebruiker weer geaktiveer.
-iemail_thread_unsub:Afmeld van hiedie reeks
+iemail_thread_unsub:Kanselleer inskrywing op onderwerp
 iemail_forum_unsub:Afmeld van die forum
 primary_group_prefix:Primêre groep vir forum:
 group_resources:Die groep beheer die regte van die volgende forums
@@ -984,7 +984,7 @@ mnav_month:Maand(e)
 mnav_title:Navigasie
 mnav_update:Blaai deur boodskappe met <a href="{TEMPLATE: mnav_update_lnk}">Boodskapnavigator</a>
 pm_notify_subject:[{GVAR: FORUM_TITLE}]: Kennisgewing van nuwe privaat boodskap
-pm_notify_body_email:U het 'n nuwe privaatboodskap met onderwerp "{VAR: subject}" van "{VAR: from}" in forum "{GVAR: FORUM_TITLE}".\nVolg die verwysing om die boodskap te lees: {FULL_ROOT}?t=pmsg_view&id={VAR: pid}\n\nIndien u nie meer kennisgewings soos die wil ontvang nie, kan u "Kennisgewings vir privaatboodskappe" in u profiel afskakel.
+pm_notify_body_email:U het 'n nuwe privaatboodskap met onderwerp "{VAR: subject}" van "{VAR: from}" in forum "{GVAR: FORUM_TITLE}".\nKliek hier om die boodskap te lees: {FULL_ROOT}?t=pmsg_view&id={VAR: pid}\n\nIndien u nie meer kennisgewings soos hierdie wil ontvang nie, kan u "Kennisgewings vir privaatboodskappe" in u profiel afskakel.
 register_pm_notification:Kennisgewings vir privaatboodskappe:
 register_pm_notification_desc:Indien aangeskakel sal u kennisgewings van privaat boodskappe ontvang via u voorkeer kennisgewingsmetode.
 findu_admin_opts_header:Administrasie:
@@ -1071,7 +1071,7 @@ err_blockedaccnt_title:FOUT: Your account has been filtered out.
 err_blockedaccnt_msg:As gevolg van 'n filter is u gebruiker van die forum geblokkeer.
 merge_th_page_list:Onderwerp boodskap seleksie
 most_users_online:Die meeste aanlyn gebruikers was <b>{VAR: st_obj->most_online}</b> op <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
-sub_unsub_all_forums:Afmeld van alle Forums
+sub_unsub_all_forums:Kanselleer inskrywing op alle forums
 sub_unsub_all_topics:Afmeld van alle Ondwerwerpe
 unbookmark_all_topics:Skrap alle boekmerke
 tabs_own_posts:My boodskappe

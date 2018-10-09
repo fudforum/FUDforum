@@ -1169,3 +1169,10 @@ karma:Karma
 karma_track:Kullanıcı için itibar yönetme:
 karma_delete:Sil
 rate_author:Yazar oranı:
+blog_update:Forum blogunu okuma
+blog:Blog
+blog_new_members:Yeni Üyeler
+blog_new_posts:Son Gönderi
+blog_rated_posts:En çok oylanan
+blog_viewed_posts:En çok görüntülenen
+blog_comments:{PLURAL: topic->replies|$1 yorum|$1 yorum}

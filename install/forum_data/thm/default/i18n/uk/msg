@@ -14,6 +14,7 @@
 # Author: Olvin
 # Author: Piramidion
 # Author: Prima klasy4na
+# Author: Viiictorrr
 # Author: Ата
 # Author: Тест
 
@@ -1163,10 +1164,10 @@ karma:Карма
 karma_track:Управління репутацією для користувача:
 karma_delete:Вилучити
 rate_author:Оцінити автора:
-blog_update:Читання блога форуму
-blog:Блог
+blog_update:Читання блоґа форуму
+blog:Блоґ
 blog_new_members:Нові учасники
-blog_new_posts:Останні пости
+blog_new_posts:Останні дописи
 blog_rated_posts:Найбільш оцінені
 blog_viewed_posts:Найбільш переглянуті
 blog_comments:{PLURAL: topic->replies|$1 коментар|$1 коментарів}
