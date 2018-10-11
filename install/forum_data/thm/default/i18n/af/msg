@@ -683,7 +683,7 @@ reset_err_rstconf_msg:U sal binne enkele minuute verdere instruksies per epos on
 reset_newpass_title:Herstel wagwoord
 reset_newpass_msg:Hallo,\n\nSoos versoek, hier is u gebruikersinligting:\n\nGebruikersnaam: {VAR: ui[1]}\nWagwoord: {VAR: passwd}\n\nLet op: U wagwoord is herstel na die bovermelde waarde. Indien u u wagwoord wil verander, kan u dit in u profiel doen by:\n{FULL_ROOT}?t=register
 reset_login_notify:U wagwoord is per e-pos aan u gestuur. U sal dit binne enkele minute ontvang.
-search_update:Soek deur pos
+search_update:Soek deur boodskappe
 selmsg_update:Blaai deur <a href="{TEMPLATE: selmsg_update_lnk}">vandag se pos</a>
 showposts_update:Bekyk pos van: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
 subscribed_update:Blaai deur eie inskrwings
