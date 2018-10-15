@@ -1159,3 +1159,10 @@ karma:Карма
 karma_track:Управљање угледом корисника:
 karma_delete:Избриши
 rate_author:Оцена аутора:
+blog_update:Читање форумског портала
+blog:Блог
+blog_new_members:Нови чланови
+blog_new_posts:Скорашње објаве
+blog_rated_posts:Најбоље оцењено
+blog_viewed_posts:Највише прегледано
+blog_comments:{PLURAL: topic->replies|$1 коментар|$1 коментара}
