@@ -209,7 +209,7 @@ reported_reported_by:От:
 reported_reported_msg:Докладвани съобщения
 modque_pending_approval:Съобщения, очакващи одобрение
 modque_approve:Одобри
-modque_delete:Изтрий
+modque_delete:Изтриване
 modque_no_message:Няма съобщения, очакващи одобрение
 pmsg_new_messages:Непрочетено лично съобщение
 pmsg_old_messages:Прочетено лично съобщение
@@ -234,7 +234,7 @@ pmsg_subject:Заглавие
 pmsg_author:Автор
 pmsg_time:Време
 pmsg_selected:Избрано
-pmsg_delete:Изтрий
+pmsg_delete:Изтриване
 cur_ppage_pm:Лична поща
 writing_pm:Писане на лично съобщение
 browsing_folder:Разглеждане на <b>{VAR: folders[$folder_id]}</b> папка.
@@ -380,7 +380,7 @@ post_logout:изход
 post_passwd:Парола:
 post_poll:Гласуване:
 post_create_poll:СЪЗДАЙ
-post_poll_delete:ИЗТРИЙ
+post_poll_delete:ИЗТРИВАНЕ
 post_poll_edit:ПРОМЕНИ
 post_mod_opt:Настройки на Модератора:
 post_thread_type:Вид на темата:
@@ -391,7 +391,7 @@ post_no_icon:Няма иконка
 post_smiley:Усмивки:
 post_format_tools:Инструменти за форматиране:
 post_upload_file:Качи файл
-post_file_del:Изтрий
+post_file_del:Изтриване
 post_file_name:Име
 post_file_size:Размер
 file_attachments:Прикачени файлове:
@@ -409,7 +409,7 @@ post_title:Заглавие:
 post_body:Текст:
 post_options:Настройки:
 post_preview_btn:Предварителен преглед
-post_cancel_btn:Отказване
+post_cancel_btn:Отказ
 ignore_users:Игнорирани потребители
 add_ignore:Добави игнорирания
 forum_terms:Условия на форума
@@ -508,7 +508,7 @@ mklist_type:Вид:
 mklist_option:Опция:
 mklist_additem:Добави
 mklist_apply:Промени
-mklist_delete:Изтрий
+mklist_delete:Изтриване
 qbud_nick_name:Псевдоним
 qbud_add_selected:Добави избраните
 qbud_selected:Избрано
@@ -543,7 +543,7 @@ poll_update:Обнови
 poll_disablesmilies:Забрани усмивките
 poll_create_poll:Ново гласуване
 poll_update_poll:Обнови гласуването
-poll_delete:Изтрий
+poll_delete:Изтриване
 poll_updateoption:Обнови опцията
 poll_addoption:Добави опцията
 poll_unlimited:Не ограничено
@@ -749,7 +749,7 @@ groupmgr_cancel:Отказ
 groupmgr_add_member:Добави участник
 groupmgr_update_member:Обнови участника
 groupmgr_edit:Промяна
-groupmgr_delete:Изтрий
+groupmgr_delete:Изтриване
 group_mgr_anon:Анонимен
 group_mgr_reged:Всички регистрирани участници
 show_show:Показване:
@@ -763,7 +763,7 @@ p_READ:Чети
 p_POST:Пиши
 p_REPLY:Отговори
 p_EDIT:Промени
-p_DEL:Изтрий
+p_DEL:Изтриване
 p_STICKY:Остави табелка
 p_POLL:Почни гласуване
 p_FILE:Прикрепи файлове
@@ -800,7 +800,7 @@ th_expr_one_month:1 Месец
 th_expr_two_month:2 Месеца
 th_expr_four_month:4 Месеца
 th_expr_one_year:1 Година
-thread_mod_delete:Изтрий
+thread_mod_delete:Изтриване
 action_ip:IP
 action_latest_post:Последно съобщение
 online_today_last_visit:Последно посещение
@@ -935,3 +935,4 @@ code_show_hide:Показване/ скриване
 btn_delete:изтриване
 btn_edit:редактиране
 btn_email:Е-поща
+karma_delete:Изтриване
