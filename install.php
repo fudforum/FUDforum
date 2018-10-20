@@ -434,7 +434,7 @@ function fud_sql_error_handler($query, $error_string, $error_number, $server_ver
 function make_into_query($data)
 {
 	// Remove trailing ';' in case last line in SQL is ';' and not ';\n'.
-	$q = str_replace(';', '', $data);
+	$q = rtrim($data, ';');
 	// Remove comments.
 	$q = preg_replace('%/\*[\s\S]+?\*/|^(?://|#).*(?:\r\n|\n)%m', '', $q);
 	// Expand table prefix.
@@ -915,6 +915,7 @@ if ($section == 'db' || php_sapi_name() == 'cli') {
 			$file = str_replace(array('\r\n', '\r', '\n'), "\n", file_get_contents($t));
 			foreach (explode(";\n", $file) as $q) { 
 				$q = make_into_query($q);
+				if (defined('fud_debug')) echo "$q\n";
 				if ($q) {
 					try {
 						q($q);
@@ -1104,7 +1105,7 @@ if ($section == 'admin' || php_sapi_name() == 'cli') {
 			$templ = $_POST['TEMPLATE'];
 			compile_all($templ, $lang);
 		} catch (Exception $e) {
-			die('Unable to compile theme '. $templ .' ('. $lang .'): '.  $e->getMessage());
+			die('Unable to compile theme '. $templ .' ('. $lang .'): '.  $e->getMessage() ."\n");
 		}
 
 		/* Build smiley cache */
