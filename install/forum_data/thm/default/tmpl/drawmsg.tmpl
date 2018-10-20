@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -390,7 +390,7 @@
 	<td class="MsgSpacer">
 		<table cellspacing="0" cellpadding="0" class="MsgTable">
 		<tr>
-			<td class="MsgR1 vt al MsgSubText"><a name="msg_num_{VAR: m_num}"></a><a name="msg_{VAR: obj->id}"></a>{IF: $obj->icon && !$hide_controls}<img src="{BASE}images/message_icons/{VAR: obj->icon}" alt="{VAR: obj->icon}" />&nbsp;&nbsp;{ENDIFI}{TEMPLATE: dmsg_subject}</td>
+			<td class="MsgR1 vt al expanded"><a name="msg_num_{VAR: m_num}"></a><a name="msg_{VAR: obj->id}"></a>{IF: $obj->icon && !$hide_controls}<img src="{BASE}images/message_icons/{VAR: obj->icon}" alt="{VAR: obj->icon}" />&nbsp;&nbsp;{ENDIFI}{TEMPLATE: dmsg_subject}</td>
 			<td class="MsgR1 vt ar"><span class="DateText">{TEMPLATE: dmsg_post_date}</span> {TEMPLATE-DATA: prev_message}{TEMPLATE-DATA: next_message}</td>
 		</tr>
 		<tr class="MsgR2">
@@ -402,7 +402,7 @@
 						{TEMPLATE-DATA: online_indicator}
 						{TEMPLATE-DATA: user_link}
 						{IF: !$hide_controls}{IF: $obj->disp_flag_cc && $GLOBALS['FUD_OPT_3'] & 524288}&nbsp;&nbsp;<img src="{BASE}images/flags/{VAR: obj->disp_flag_cc}.png" border="0" width="16" height="11" title="{VAR: obj->flag_country}" alt="{VAR: obj->flag_country}"/>{ENDIFI}{IF: $obj->user_id}<br /><b>{MSG: posts_c}</b> {VAR: obj->posted_msg_count}<br /><b>{MSG: registered}</b> {TEMPLATE: dmsg_join_date} {TEMPLATE-DATA: location}{ENDIFI}{ENDIFI}
-						{IF: $GLOBALS['FUD_OPT_4'] & 4}<div class="karma_usr_{VAR: obj->poster_id} SmallText">{TEMPLATE: karma_show}</div>{ENDIFI}
+						{TEMPLATE: karma_show}</div>
 					</td>
 					<td class="msgud">{TEMPLATE-DATA: dmsg_tags}</td>
 					<td class="msgot">{TEMPLATE-DATA: dmsg_bd_il}{TEMPLATE-DATA: dmsg_im_row}{IF: !$hide_controls}{IF: ($obj->host_name && $o1 & 268435456)}<b>{MSG: from}</b> {VAR: obj->host_name}<br />{ENDIFI}{IF: ($b & 1048576 || $usr->md || $o1 & 134217728)}<b>{MSG: dmsg_ip}</b> <a href="{TEMPLATE: dmsg_ip_address_url}">{VAR: obj->ip_addr}</a>{ENDIFI}{ENDIFI}</td>
@@ -423,7 +423,7 @@
 {MAIN_SECTION: END}
 
 {SECTION: dmsg_subject}
-<a href="{TEMPLATE: dmsg_num_lnk}" class="MsgSubText">{VAR: obj->subject}</a> {TEMPLATE-DATA: rpl}
+<span class="MsgSubText"><a href="{TEMPLATE: dmsg_num_lnk}" class="MsgSubText">{VAR: obj->subject}</a></span> {TEMPLATE-DATA: rpl}
 {SECTION: END}
 
 {SECTION: dmsg_no_msg_body}
