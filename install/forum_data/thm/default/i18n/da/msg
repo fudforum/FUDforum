@@ -8,6 +8,7 @@
 # Author: McDutchie
 # Author: Naudefj
 # Author: Nghtwlkr
+# Author: Saederup92
 # Author: Sarrus
 # Author: Tjernobyl
 
@@ -1157,3 +1158,10 @@ karma:Karma
 karma_track:Administrere ry for brugeren:
 karma_delete:Slet
 rate_author:Bedøm forfatter:
+blog_update:Læser forumbloggen
+blog:Blog
+blog_new_members:Nye medlemmer
+blog_new_posts:Seneste indlæg
+blog_rated_posts:Bedst rangeret
+blog_viewed_posts:Mest læst
+blog_comments:{PLURAL: topic->replies|$1 kommentar|$1 kommentarer}
