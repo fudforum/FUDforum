@@ -133,7 +133,7 @@ register:Registreer
 registered:Geregistreer:
 registered_on:Geregistreer op {TEMPLATE: registered_on_date}
 replies:Antwoorde
-report_to_mod:Rapporteer die boodskap aan 'n moderator
+report_to_mod:Rapporteer boodskap aan 'n moderator
 reported_messages:Gerapporteerde boodskappe
 reveal_all_posts:Kyk na {VAR: user_login} se boodskappe
 reveal_post:wys boodskap
