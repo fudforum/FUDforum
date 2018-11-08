@@ -431,7 +431,7 @@ coppa_before:Voor {TEMPLATE: coppa_date}
 coppa_after:Na {TEMPLATE: coppa_date}
 coppa_link:Kliek op die skakel wat ooreenstem met u geboortedatum
 coppa:<p>U voog moet via faks of e-pos toestemming na die administrateur van die forum stuur alvorens gebruikers jonger as 13 toegelaat mag word om te registreer.</p><p>Vir meer inligting kontak <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a></p>.
-prereg_info:Informasie
+prereg_info:Forumreëls
 prereg_agree:Ek gaan akkoord
 prereg_disagree:Stem nie saam nie
 prereg_update:Lees die forum se reëls
@@ -962,7 +962,7 @@ post_mod_msg_notify_msg:'n Nuwe boodskap met titel "{VAR: msg_post->subject}" is
 thread_printable_pdf:Genereer PDF-dokument
 thread_syndicate:XML-voer
 reg_conf_title:Bevestiging van registrasie
-reg_conf_email:<b>E-posbevestiging</b><br />'n E-pos is aan u gestuur met 'n spesiale URL waarop u moet kliek voordat u rekening geaktiveer sal word. Indien u nie die e-pos binne 'n paar minute ontvang nie, meld aan en maak seker dat die e-posadres wat u verskaf het geldig is. Sodra u u rekening bevestig het, sal u al die funksies wat aan geregistreerde lede toegeken is kan uitvoer.
+reg_conf_email:<b>E-posbevestiging</b><br />'n E-pos is aan u gestuur met 'n spesiale URL waarop u moet kliek om u rekening te aktiveer. Indien u nie die e-pos binne 'n paar minute ontvang nie, meld aan en maak seker dat die e-posadres wat u verskaf het geldig is. Sodra u u rekening bevestig het, sal u al die funksies wat aan geregistreerde lede toegeken is kan uitvoer.
 reg_conf_account:<b>Gebruikersbevestiging</b><br />U gebruiker moet deur 'n administrateur goedgekeur word alvorens dit geaktiveer sal word. Sodra dit gebeur sal u 'n e-pos ter bevestiging ontvang. Tot dan sal u met u gebruiker kan aanmeld, maar u sal nie funksies wat aan geregistreerde lede toegeken is kan uitvoer nie.
 forum_banned_user:U optrede het veroorsaak dat u permanent van die webwerf geblokkeer is. Vaarwel!
 mnav_description:Boodskapnavigasie
@@ -1098,7 +1098,7 @@ post_common_blist:Voeg 'n ongenommerde lys by
 post_common_quote:Voeg 'n aanhaling by
 post_common_code:Voeg kode by
 rating_delete:Skrap
-post_always_on_top:Vertoon die onderwerp altyd bo-aan die onderwerpslys.
+post_always_on_top:Vertoon die onderwerp altyd bo-aan die onderwerpslys
 topic_rating:{VAR: frm->rating} na {PLURAL: frm->n_rating|$1 stem|$1 stemme}
 topic_list_rating:{VAR: r[17]} van {PLURAL: r[21]|$1 stem|$1 stemme}
 tabs_notifications:Kennisgewings

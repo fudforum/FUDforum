@@ -98,7 +98,7 @@ moderator_options:خيارات المشرفين
 moderators:{PLURAL: modcount|مشرف|مشرفين}
 more_unread_messages:رسائل غير مقروءة أخرى
 more_unread_messages_desc:أظهر المزيد من الرسائل غير المقروءة وعلم الرسائل المعروضة حاليًا كمقروءة
-move_thread:انقل
+move_thread:نقل
 moved:نُقِل إلى منتدى آخر
 moved_thread_message:نُقِل هذا الموضوع إلى منتدى آخر
 na:لا يوجد
@@ -410,7 +410,7 @@ post_icons:أيقونة الرسالة:
 post_no_icon:لا توجد أيقونة
 post_smiley:اختصارات الابتسامات:
 post_format_tools:أدوات التنسيق:
-post_upload_file:ارفع ملفًا
+post_upload_file:رفع الملف
 post_file_del:حذف
 post_file_name:الاسم
 post_file_size:الحجم

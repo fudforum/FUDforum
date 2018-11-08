@@ -314,6 +314,7 @@ register_login_taken:Kemeret dija
 register_password:Ger-tremen :
 register_password_desc:Ger-tremen evit  ho kont. Tener eo ar gerioù-tremen ouzh an direnneg ha rankout a reont bezañ 6 arouezenn enno da nebeutañ.
 register_conf_pass:Kadarnaat ar ger-tremen :
+register_conf_pass_desc:Bizskrivit ho ker-tremen en-dro mar plij
 register_email_desc:Ebarzhit ho chomlec'h postel reizh, mar plij. Gallout a rit e guzhat amañ dindan, er Penndibaboù.
 register_name:Anv :
 register_name_desc:Ho kwir anv.
@@ -1053,10 +1054,8 @@ search_user_filter:Silañ dre implijer :
 register_none:Chom hep kemenn din
 findu_no_conf:implijer n'eo ket kadarnaet
 register_max_sig_len:Hirded vrasañ :
-# Fuzzy
-register_turing:Ebarzhit ar c'hod diskouezet amañ dindan, mar plij :
-# Fuzzy
-register_err_turing:Kod kadarnaat direizh
+register_turing:Gwiriañ :
+register_err_turing:Gwiriekadur c'hwitet. Klaskit en-dro mar plij.
 modque_cat:Rummad
 modque_forum:Forom
 idx_compact_forum_row:Foromoù a c'haller mont dezho :
@@ -1117,8 +1116,7 @@ move_msg_th_expl:Spisait anavezer ar gaoz pal (a c'hall bezañ en ur forom all)
 captcha_img_alt:Gwiriadur dre Captcha : dav eo deoc'h anavezout an destenn er skeudenn-mañ.
 captcha_img_help:N'eus ket a zero pe a unan er skeudenn.
 powered-by:Enlusket gant : FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:Copyright &copy;2001-2017 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Copyright &copy;2001-2018 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:KOD :
 code_select_all:Diuzañ pep tra
 code_show_hide:Diskouez / kuzhat
@@ -1156,3 +1154,10 @@ karma:Karma
 karma_track:Merañ brud an implijer :
 karma_delete:Diverkañ
 rate_author:Priziañ an aozer :
+blog_update:Lenn blog ar forom
+blog:Blog
+blog_new_members:Izili nevez
+blog_new_posts:Embannadur nevez
+blog_rated_posts:Ar re notennet ar gwellañ
+blog_viewed_posts:Ar re gwelet ar muiañ
+blog_comments:{PLURAL: topic->replies|$1 evezhiadenn|$1 evezhiadennoù}

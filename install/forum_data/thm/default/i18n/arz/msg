@@ -91,7 +91,7 @@ moderator_options:خيارات المشرفين
 moderators:{PLURAL: modcount|مشرف|مشرفين}
 more_unread_messages:رسائل غير مقروءه أخرى
 more_unread_messages_desc:أظهر المزيد من الرسائل غير المقروءه وعلم الرسائل المعروضه حاليًا مقروءة
-move_thread:انقل
+move_thread:نقل
 moved:نُقل إلى منتدى آخر
 moved_thread_message:نُقل هذا الموضوع إلى منتدى آخر
 na:غير متوفر
@@ -304,7 +304,7 @@ pmuserloc_user:مستخدم
 pmuserloc_no_result:لا نتائج
 register_builtin:المُضمّنة
 register_specify_url:حدّد مسارًا
-register_uploaded:ارفع الأفتار
+register_uploaded:رفع الأفتار
 register_login:الولوج:
 register_password:كلمه السر:
 register_conf_pass:تأكيد كلمه السر:
@@ -399,7 +399,7 @@ post_icons:أيقونه الرسالة:
 post_no_icon:لا أيقونة
 post_smiley:اختصارات الابتسامات:
 post_format_tools:أدوات التنسيق:
-post_upload_file:ارفع ملفًا
+post_upload_file:رفع الملف
 post_file_del:احذف
 post_file_name:الاسم
 post_file_size:الحجم
