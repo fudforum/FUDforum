@@ -730,7 +730,7 @@ post_opt:Forumopsies:
 register_change_passwd:verander wagwoord
 register_change_login:verander gebruikersnaam
 approved_avatar_title:U avatar is goedgekeur.
-approved_avatar_msg:U avatar is goedgekeur deur die administrateur. Di sal nou verskyn as u avatar in al jou boodskappe. Indien u dit nie sie nie, of u ou avatar sien komt dat omdat u browser die bladsy gekas het. probeer 1 of 2x op verversen te kliek (in sommige browsers werk die "F5" sleutel ook) hiermee los u in die meeste gevalle die kas probleem op.
+approved_avatar_msg:U avatar is deur 'n administrateur goedgekeur. Dit sal nou langs al u boodskappe verskyn. Indien u dit nie sien nie, of as u nog u ou avatar sien, word dit waarskynlik deur u webleser gekas. Probeer om die bladsy een of twee keer te herlaai. Dit sal die probleem in die meeste gevalle oplos.
 unapproved_avatar_title:U doelgemaakte avatar is afgekeur.
 unapproved_avatar_msg:Die administrateur het nie u avatar goedgekeur nie. Die mees algemeenste rede hiervoor is dat die avatar te groot is (grootte en/of dimensies) of onvanpas is vir die webwerf. U is welcom om die dministrateur te kontak vir die presiese rede.
 mvthread_request_move:vra om onderwerp te skuif

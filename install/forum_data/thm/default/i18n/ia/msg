@@ -310,6 +310,7 @@ register_login_taken:Jam prendite
 register_password:Contrasigno:
 register_password_desc:Contrasigno pro tu conto. Le contrasignos distingue inter majusculas e minusculas e debe haber al minus 6 characteres de longitude.
 register_conf_pass:Confirma contrasigno:
+register_conf_pass_desc:Per favor, re-scribe tu contrasigno.
 register_email_desc:Tu adresse de e-mail. Tu pote optar pro celar lo hic infra, in le section Preferentias.
 register_name:Nomine:
 register_name_desc:Tu nomine real.
@@ -1049,10 +1050,8 @@ search_user_filter:Filtrar per usator:
 register_none:Non notificar me
 findu_no_conf:usator non confirmate
 register_max_sig_len:Longitude maxime:
-# Fuzzy
-register_turing:Per favor entra le codice monstrate hic infra:
-# Fuzzy
-register_err_turing:Codice de validation invalide.
+register_turing:Verification:
+register_err_turing:Verification fallite. Per favor, reproba.
 modque_cat:Categoria
 modque_forum:Foro
 idx_compact_forum_row:Foros disponibile:
@@ -1113,8 +1112,7 @@ move_msg_th_expl:Specifica le ID del topico de destination (pote esser in altere
 captcha_img_alt:Verification per Captcha: tu debe recognoscer le texto in iste imagine.
 captcha_img_help:Il non ha zero o un in iste imagine.
 powered-by:Actionate per: FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:Copyright &copy;2001-2017 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Copyright &copy;2001-2018 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Codice:
 code_select_all:Seliger toto
 code_show_hide:Revelar/celar
@@ -1152,3 +1150,10 @@ karma:Karma
 karma_track:Gerer le reputation del usator:
 karma_delete:Deler
 rate_author:Evalutar autor:
+blog_update:Lege le blog del foro
+blog:Blog
+blog_new_members:Nove membros
+blog_new_posts:Publication recente
+blog_rated_posts:Le plus appreciate
+blog_viewed_posts:Le plus legite
+blog_comments:{PLURAL: topic->replies|$1 commento|$1 commentos}
