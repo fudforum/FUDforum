@@ -7,6 +7,7 @@
 # Author: Mihxil
 # Author: Objectivesea
 # Author: Robin van der Vliet
+# Author: Surfo
 # Author: Yekrats
 
 action:Ago
@@ -70,7 +71,7 @@ logged_in_list:Listo de ensalutitaj uzantoj
 login:Ensaluti
 login_header:Ensaluti:
 logout:Elsaluti
-mark_all_read:Marki ĉiujn mesaĝojn kiel legitajn
+mark_all_read:Marki ĉiujn mesaĝojn legitaj
 mark_all_read_desc:Ĉiuj de viaj nelegitaj mesaĝoj estos markitaj kiel legitaj
 members:Forumanoj
 calendar:Kalendaro

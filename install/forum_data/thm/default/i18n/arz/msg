@@ -139,7 +139,7 @@ report_to_mod:بلّغ هذه الرساله إلى مشرف
 reported_messages:الرسائل المُبلغ عنها
 reveal_all_posts:استخرج كل رسائل {VAR: user_login}
 reveal_post:استخرج رسالة
-search:ابحث
+search:بحث
 sel_todays_posts:رسائل اليوم
 sel_todays_posts_desc:بدّل مُرشِّح رسائل اليوم (سوف يُظهر الرسائل المكتوبه اليوم فقط)
 sel_unanswered_posts:الرسائل غير المُجاب عليها
@@ -1022,7 +1022,7 @@ mnav_newer:الأحدث من
 mnav_older:الأقدم من
 ip_search_by_ip:ابحث عن المستخدمين عبر الآيبي
 ip_search_syntax:الصياغه المدعومة: 1.2.3.4، 1.2.3، 1.2، 1
-ip_search:ابحث
+ip_search:بحث
 ip_analyze_usage:أحصِ استخدام الآيبي
 ip_analyze_usage_descr:من فضلك حدّد بالضبط اسم ولوج المستخدم.
 ip_users_using:المستخدمون الذى يستخدمون عنوان الآيبى '{VAR: ip}'
