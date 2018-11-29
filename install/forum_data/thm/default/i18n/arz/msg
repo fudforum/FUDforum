@@ -312,7 +312,7 @@ register_conf_pass:تأكيد كلمه السر:
 register_email_desc:من فضلك أدخل عنوان بريد إلكترونى صالح. تستطيع اختيار اخفائه أدناه، فى قسم التفضيلات.
 register_name:الاسم:
 register_your_pass:كلمه سرّك:
-register_update:حدّث
+register_update:تحديث
 register_avatar_type:نوع الأفتار:
 register_del_avatar:احذف الأفتار
 register_avatar:الأفتار:
@@ -547,7 +547,7 @@ poll_name:اسم الاقتراع:
 poll_timelimit:الحد الزمني:
 poll_maxiumvotes:عدد الأصوات القصوى:
 poll_create:أنشئ
-poll_update:حدّث
+poll_update:تحديث
 poll_disablesmilies:عطّل الابتسامات
 poll_create_poll:أنشئ اقتراعًا
 poll_update_poll:حدّث الاقتراع

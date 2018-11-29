@@ -324,7 +324,7 @@ register_email_desc:البريد الإلكتروني الخاص بك، يمكن
 register_name:الاسم:
 register_name_desc:اسمك الحقيقي.
 register_your_pass:كلمة سرك:
-register_update:حدِّث
+register_update:تحديث
 register_avatar_type:نوع الصورة الرمزية:
 register_del_avatar:احذف الصورة الرمزية
 register_avatar:الصورة الرمزية:
@@ -558,7 +558,7 @@ poll_name:اسم الاقتراع:
 poll_timelimit:الحد الزمني:
 poll_maxiumvotes:الأصوات كحد أقصى:
 poll_create:أنشئ
-poll_update:حدِّث
+poll_update:تحديث
 poll_disablesmilies:عطِّل الابتسامات
 poll_create_poll:أنشئ اقتراعًا
 poll_update_poll:حدِّث الاقتراع
