@@ -1155,3 +1155,10 @@ karma:Karma
 karma_track:Stýra mannorði notanda:
 karma_delete:Eyða
 rate_author:Meta höfund:
+blog_update:Lesa blogg spjallborðsins
+blog:Blogg
+blog_new_members:Nýir meðlimir
+blog_new_posts:Nýleg færsla
+blog_rated_posts:Besta einkunn
+blog_viewed_posts:Mest skoðað
+blog_comments:{PLURAL: topic->replies|$1 athugasemd|$1 athugasemdir}

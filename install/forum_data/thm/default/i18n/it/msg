@@ -541,7 +541,7 @@ mklist_close:Chiudi
 email_to:A:
 email_pg_title:Email
 email_subject:Oggetto:
-email_body:Messaggio:
+email_body:Testo:
 email_submit:Email
 ppost_quote_msg:{VAR: msg_to_list} ha scritto in data {TEMPLATE: ppost_quote_msg_date}
 ppost_quote:Citazione:
