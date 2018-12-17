@@ -15,6 +15,7 @@
 # Author: McDutchie
 # Author: Movses
 # Author: Naudefj
+# Author: Nk88
 # Author: Okras
 # Author: Putnik
 # Author: Vlad5250
@@ -23,11 +24,11 @@
 
 action:Действие
 add_to_buddy_list:добавить в список контактов
-admin:Админ
+admin:Администратор
 admin_control_panel:Управление
 administrator:Администратор
 attachment:Вложение:
-avatar:Картинка:
+avatar:Аватар:
 average_post_count:{PLURAL: u->posted_msg_count|$1 сообщение|$1 сообщения|$1 сообщений} (в среднем {PLURAL: avg|$1 сообщение|$1 сообщения|$1 сообщений} в день)
 biography:Биография:
 birth_date:Дата рождения:
