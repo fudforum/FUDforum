@@ -395,7 +395,7 @@ remail_friends_email:E Mailê Embaz dê Şıma:
 remail_required:lazım
 remail_subject:Mewzu:
 remail_message:Mesac
-remail_done:Qeyd kerd
+remail_done:Temam
 mklist_type:Babet:
 mklist_option:Weçinek:
 mklist_additem:Eza dek
@@ -410,12 +410,13 @@ mklist_square:Qare
 mklist_disc:Golel
 mklist_circle:Helqa
 mklist_close:Racnê
-email_to:Kami rê:
+email_to:Gırewtoğ:
 email_pg_title:E-posta
 email_subject:Mewzu:
 email_body:Verê:
 email_submit:E-posta
 ppost_quote:Gırewte:
+ppost_to:Gırewtoğ:
 poll_name:Namey Anketi:
 poll_timelimit:Sinorê zemani:
 poll_maxiumvotes:Maksimum rey:
