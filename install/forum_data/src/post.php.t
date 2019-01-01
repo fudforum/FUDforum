@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -187,12 +187,6 @@ function flood_check()
 		$msg_body		= isset($_POST['msg_body']) ? (string)$_POST['msg_body'] : '';
 		$msg_subject		= isset($_POST['msg_subject']) ? (string)$_POST['msg_subject'] : '';
 		$msg_tdescr		= isset($_POST['msg_tdescr']) ? (string)$_POST['msg_tdescr'] : '';
-
-		/* Microsoft Word Hack to eliminate special characters. */
-		$in = array('”','“','’','‘','…','—','–'); $out = array('"','"',"'","'",'...','--');
-		$msg_body = str_replace($in,$out,$msg_body);
-		$msg_subject = str_replace($in,$out,$msg_subject);
-		$msg_tdescr = str_replace($in,$out,$msg_tdescr);
 
 		if ($perms & 256) {
 			$attach_count = 0;
