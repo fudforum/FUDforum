@@ -4,6 +4,7 @@
 # Author: Macofe
 # Author: McDutchie
 # Author: Naudefj
+# Author: Vlad5250
 
 action:Дејство
 add_to_buddy_list:додај во списокот на пријатели
@@ -115,7 +116,7 @@ num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|глас|гласо�
 occupation:Занимање:
 off:искл
 on:вкл
-page_timings:Вкупно време потрошено на создавање на страницава: {PLURAL: page_gen_time|$1 секунди}
+page_timings:Вкупно време потрошено на создавање на страницата: {PLURAL: page_gen_time|$1 секунди}
 pm:Лична пошта
 poll:Анкета:
 post_count:Број на пораки {VAR: u_pcount}
