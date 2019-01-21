@@ -3,6 +3,7 @@
 # Author: DCLXVI
 # Author: ShockD
 # Author: StanProg
+# Author: Vlad5250
 # Author: Vodnokon4e
 
 action:Действие
@@ -757,7 +758,7 @@ group_mgr:Мениджър на групата
 group_mgr_edit_btn:Промяна по групата
 group_mgr_heading:Избери група за редактиране
 group_mgr_group:Група:
-permission_denied_title:Достъпът е Забранен!
+permission_denied_title:Достъпът е забранен!
 permission_denied_msg:Правата ти на потребител не позволяват да извършиш желаното действие!
 p_READ:Чети
 p_POST:Пиши
