@@ -16,7 +16,7 @@ add_to_buddy_list:Listey embazan dek
 admin:İdarekar
 admin_control_panel:İdaretey
 administrator:İdarekari
-attachment:Ole
+attachment:Gaçık:
 avatar:Avatar:
 average_post_count:Pêro piya {PLURAL: u->posted_msg_count|$1 Message|$1 Mesaci} ({PLURAL: avg|$1 Mesaci|$1 mesaci} her roce)
 biography:Biyografiye:
@@ -104,7 +104,7 @@ new_posts:Mesaco newe esto
 new_private_messages:<span class="GenTextRed">({VAR: c})</span> nêwanaye xısusi mesaca şıma est a
 new_thread:Topiko newe vıraze
 newest_user:Tewr peyên qeyd biyaye karber
-next_page:Perra averi
+next_page:Pela peyco
 next_thread:Topiko Peyên:
 no_messages:Ena forum dı mesaci çıni yê. <br />Ena forum dı ya sıfta boka şıma mesac akerê.
 no_msg_body:Bezna mesaci çıni ya
@@ -183,7 +183,7 @@ reported_reason:Sebeb:
 reported_on:Tarixê xeberdarin
 reported_reported_by:Xeberdar:
 reported_reported_msg:Masacê ke Xeberdar biyê
-modque_approve:Şıma qebul kerê
+modque_approve:Qebul ke
 modque_delete:Bestere
 pmsg_new_messages:Baxse mesaci nêwanaye nışan kı
 pmsg_old_messages:Baxse mesaci bıwan
@@ -388,7 +388,7 @@ search_no_results:Nê vineya
 search_all_forums:Foruman pêron dı cı geyr
 search_in_forum:Cı geyrayıyaye Forum:
 search_forum_search:Forum dı cı geyrı
-remail_your_name:Namey Şıma:
+remail_your_name:Nameyê Şıma:
 remail_your_email:E-postê Şıma:
 remail_friends_name:Namey Embazi:
 remail_friends_email:E Mailê Embaz dê Şıma:
@@ -415,7 +415,7 @@ email_pg_title:E-posta
 email_subject:Mewzu:
 email_body:Verê:
 email_submit:E-posta
-ppost_quote:Gırewte:
+ppost_quote:Vate:
 ppost_to:Gırewtoğ:
 poll_name:Namey Anketi:
 poll_timelimit:Sinorê zemani:
@@ -431,8 +431,8 @@ poll_addoption:Weçineg dek
 poll_unlimited:Bêsinor
 poll_day:roce
 poll_days:roci
-poll_hour:saat
-poll_hours:saat
+poll_hour:saete
+poll_hours:saeti
 poll_month:Aşme
 poll_year:Serre
 poll_week:hefte
@@ -500,7 +500,7 @@ p_SEARCH:Şeno cı geyre
 group_mgr_search:Karber bıvine
 rate_worst:Hol niyo
 rate_best:Tewr
-post_quote:Gırewte
+post_quote:Vate:
 th_expr_never:Qet
 th_expr_one_hr:1 Sehat
 th_expr_three_hr:3 Sehata
@@ -552,6 +552,9 @@ userinfo_polls:Reydayış
 show_pollist:Anketan bıvine
 search_and:U
 search_or:YA Zİ
+search_attach:Gaçık:
+search_attach_all:Ebe ya zi bê
+search_attach_with:Ebe gaçıkan
 unread_message:Mesacê nêwaniyayey
 read_message:Mesaci bıwan
 threadt_more:&lt;dehana &gt;
@@ -559,9 +562,10 @@ iemail_msg_author:<b>Nuskar:</b> {VAR: obj->alias}
 iemail_msg_subject:<b>Mewzu:</b> {VAR: obj->subject}
 iemail_msg_date:<b>Tarix:</b> {TEMPLATE: dmsg_post_date}
 iemail_msg_reply:Cewab bıdê
+iemail_msg_quote:Vate
 mnav_description:Geyrayoğê mesaci
 mnav_minute:Deqe(y)
-mnav_hour:Sehat(i)
+mnav_hour:Saete (saeti)
 mnav_day:Roce(roci)
 mnav_week:Hefte(y)
 mnav_month:Aşm(i)
@@ -682,7 +686,7 @@ btn_delete:bestere
 btn_edit:Bıvırne
 btn_reply:Cewab bıde
 btn_forward:raver
-btn_quote:groteko
+btn_quote:vate
 btn_email:E-posta
 btn_show_posts:Rıştışi
 btn_homepage:www

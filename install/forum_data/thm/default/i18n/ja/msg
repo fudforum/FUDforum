@@ -1160,3 +1160,10 @@ karma:カルマ
 karma_track:このユーザの評判を管理:
 karma_delete:削除
 rate_author:著者を評価:
+blog_update:フォーラムのブログ閲覧
+blog:ブログ
+blog_new_members:新規参加者
+blog_new_posts:最近の投稿
+blog_rated_posts:最高評価
+blog_viewed_posts:最多閲覧
+blog_comments:{PLURAL: topic->replies|$1 comment|コメント$1件}

@@ -876,7 +876,7 @@ polllist_date:Започнато на
 polllist_owner:Започнато от
 polllist_votes:Общо гласове
 polllist_action:Действие
-polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">преглеждане на текущи гласувания</a>
+polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">Преглеждане на налични гласувания</a>
 userinfo_polls:Гласувания:
 show_pollist:Покажи гласувания
 search_and:И
