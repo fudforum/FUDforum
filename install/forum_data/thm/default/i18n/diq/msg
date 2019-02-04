@@ -10,6 +10,7 @@
 # Author: Marmase
 # Author: Mirzali
 # Author: Naudefj
+# Author: Orbot707
 
 action:Kerdış
 add_to_buddy_list:Listey embazan dek
@@ -55,7 +56,7 @@ ignore_user:Mesacanê enê kerberi hemın peygoş ke
 im_aim:AIM Handle:
 im_msnm:MSN Messenger:
 im_yahoo:Yahoo Messenger:
-image:Resım
+image:Resım:
 index_forum:Forum
 index_new_posts:Wendışo peyên ra nat mesacê newey çıniyê
 index_no_new_posts:Wendışo peyên ra nat mesacê newey çıniyê
@@ -176,8 +177,7 @@ view_results:Netican Bıvêne
 views:Asayışi
 vote_button:Rey Bıdê
 vote_for_thread:Rey Bıdê
-# Fuzzy
-what_ppl_doing:Bımocne, merdımi haê se kenê
+what_ppl_doing:Fealiyetê Karberi
 reported_del_report:Rapore Bestere
 reported_reason:Sebeb:
 reported_on:Tarixê xeberdarin
@@ -338,7 +338,7 @@ post_icons:İkona mesaci:
 post_no_icon:İkon çıni yo
 post_smiley:Rayakılma huwateka:
 post_format_tools:Hacetê format kerdışi :
-post_upload_file:Dosya bıselagne
+post_upload_file:Dosya bar ke
 post_file_del:Bestere
 post_file_name:Name
 post_file_size:Gırdiye
@@ -346,7 +346,7 @@ file_attachments:Oleyê dosya:
 post_form:Formi bırış
 post_forum:Forum:
 post_title:Sername:
-post_body:Verê:
+post_body:Metın:
 post_options:Weçinegi:
 post_preview_btn:Verqaytê Mesaci
 post_cancel_btn:Bıtexelne
@@ -413,10 +413,11 @@ mklist_close:Racnê
 email_to:Gırewtoğ:
 email_pg_title:E-posta
 email_subject:Mewzu:
-email_body:Verê:
+email_body:Metın:
 email_submit:E-posta
 ppost_quote:Vate:
 ppost_to:Gırewtoğ:
+ppost_save_draft:Teslaği qeyd ke
 poll_name:Namey Anketi:
 poll_timelimit:Sinorê zemani:
 poll_maxiumvotes:Maksimum rey:
@@ -656,7 +657,7 @@ rating_delete:Bestere
 post_always_on_top:Merseler Tım u tım liste dı en ser fi
 topic_rating:{VAR: frm->rating} from {PLURAL: frm->n_rating|$1 rey|$1 reyi}
 topic_list_rating:{VAR: r[17]} u {PLURAL: r[21]|$1 rey|$1 reyi}
-tabs_notifications:Mengeney
+tabs_notifications:Tebliği
 finduser_flag:Desmal
 post_descr:Şınasiya Mewzuy:
 pmsg_on:Akerde
