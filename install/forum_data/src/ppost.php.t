@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2019 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -175,11 +175,6 @@ function export_msg_data(&$m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smile
 		$msg_track = isset($_POST['msg_track']) ? '4' : '';
 		$msg_smiley_disabled = isset($_POST['msg_smiley_disabled']) ? '2' : '';
 		$msg_show_sig = isset($_POST['msg_show_sig']) ? '1' : '';
-
-		/* Microsoft Word Hack to eliminate special characters */
-		$in = array('”','“','’','‘','…','—','–'); $out = array('"','"',"'","'",'...','--');
-		$msg_body = str_replace($in,$out,$msg_body);
-		$msg_subject = str_replace($in,$out,$msg_subject);
 
 		$reply = isset($_POST['reply']) ? (int)$_POST['reply'] : 0;
 		$forward = isset($_POST['forward']) ? (int)$_POST['forward'] : 0;
