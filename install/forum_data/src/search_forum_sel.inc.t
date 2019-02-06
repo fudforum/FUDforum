@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2019 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -77,12 +77,38 @@ function trim_body($body)
 	}
 
 	$body = strip_tags($body);
-	if (strlen($body) > $GLOBALS['MNAV_MAX_LEN']) {
-		if (function_exists('mb_substr')) {
-			$body = mb_substr($body, 0, $GLOBALS['MNAV_MAX_LEN']) .'...';
-		} else {
-			$body = substr($body, 0, $GLOBALS['MNAV_MAX_LEN']) .'...';
+	$body_len = strlen($body);
+
+	if ($body_len > $GLOBALS['MNAV_MAX_LEN']) {
+		$startpos = 0;
+		$srch = isset($_GET['srch']) ? trim((string)$_GET['srch']) : '';
+		if (!empty($srch)) {
+			// Focus on first search term.
+			if (function_exists('mb_substr')) {
+				$startpos = mb_stripos($body, strtok($srch, ' '));
+			} else {
+				$startpos = stripos($body, strtok($srch, ' '));
+			}
+			$startpos = $startpos - 45; // Move back for a bit of context.
+			if ($body_len - $startpos < $GLOBALS['MNAV_MAX_LEN']) $startpos = $body_len - $GLOBALS['MNAV_MAX_LEN'];
+			if ($startpos < 0) $startpos = 0;
 		}
+
+                // Move to starting position.
+                if (function_exists('mb_substr')) {
+                        $body = mb_substr($body, $startpos);
+                        $body = '…'. mb_substr($body, strpos($body, ' ')+1);
+                } else {
+                        $body = substr($body, $startpos);
+                        $body = '…'. substr($body, strpos($body, ' ')+1);
+                }
+
+                // Cut off after max length.
+                if (preg_match('/^(.{1,'. $GLOBALS['MNAV_MAX_LEN'] .'})\b/su', $body, $match)) {
+                        $body=$match[0] .'…';
+                } else {
+                        $body = mb_substr($body, 0, $GLOBALS['MNAV_MAX_LEN']) .'…';
+                }
 	}
 	return $body;
 }
