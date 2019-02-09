@@ -235,7 +235,7 @@ pmsg_forwarded:forwarded
 pmsg_subject:Subject
 pmsg_author:Author
 pmsg_time:Time
-pmsg_selected:Selected
+pmsg_selected:Select
 pmsg_delete:Delete
 cur_ppage_pm:Private Messaging
 writing_pm:Writing a Private Message
@@ -519,7 +519,7 @@ mklist_apply:Apply
 mklist_delete:Delete
 qbud_nick_name:Nick Name
 qbud_add_selected:Add Selected
-qbud_selected:Selected
+qbud_selected:Select
 qbud_no_buddies:No buddies to choose from
 mklist_numerical:Numerical
 mklist_aplha:Alpha
@@ -1113,7 +1113,7 @@ move_msg_th_expl:Specify the ID of the destination topic (can be in other forums
 captcha_img_alt:Captcha Verification: you will need to recognize the text in this image.
 captcha_img_help:There is no zero or one in the image.
 powered-by:Powered by: FUDforum {GVAR: FORUM_VERSION}.
-copyright:Copyright &copy;2001-2018 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Copyright &copy;2001-2019 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Code:
 code_select_all:Select all
 code_show_hide:Show/ hide
