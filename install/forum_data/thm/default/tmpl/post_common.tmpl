@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2019 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -44,6 +44,7 @@
 	<span class="FormattingToolsCLR"><a title="{MSG: post_common_quote}" accesskey="q" href="javascript: insertTag(document.post_form.msg_body, \'[quote]\', \'[/quote]\');"><img alt="" src="{THEME_IMAGE_ROOT}/b_quote.gif" /></a></span>
 	<span class="FormattingToolsCLR"><a title="{MSG: post_common_code}" accesskey="c" href="javascript: insertTag(document.post_form.msg_body, \'[code]\', \'[/code]\');"><img alt="" src="{THEME_IMAGE_ROOT}/b_code.gif" /></a></span>
 </span>
+<span class="hide1">
 &nbsp;&nbsp;
 <select name="fnt_size" onchange="insertTag(document.post_form.msg_body, \'[size=\'+document.post_form.fnt_size.options[this.selectedIndex].value+\']\', \'[/size]\'); document.post_form.fnt_size.options[0].selected=true">
 	<option value="" selected="selected">{MSG: post_size}</option>
@@ -89,6 +90,7 @@
 	<option value="Courier" style="font-family:Courier">Courier</option>
 	<option value="Century" style="font-family:Century">Century</option>
 </select>
+</span>
 </td></tr>
 {SECTION: END}
 

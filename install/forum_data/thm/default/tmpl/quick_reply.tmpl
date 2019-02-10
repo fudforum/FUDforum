@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2019 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -18,8 +18,7 @@
 	<td class="MsgSpacer">
 		<table cellspacing="0" cellpadding="0" class="MsgTable">
 		<tr>
-			<td class="MsgR1 fb {IF: !$quick_reply_collapsed}MsgSubText{ENDIFI}">
-				{IF: $quick_reply_collapsed}<img src="{THEME_IMAGE_ROOT}/max.png" alt="+" title="{MSG: maximize_message}" class="collapsable" />{ENDIFI}
+			<td class="MsgR1 fb {IF: $quick_reply_collapsed}collapsed{ELSE}expanded{ENDI}">
 				{MSG: quick_reply}
 			</td>
 		</tr>

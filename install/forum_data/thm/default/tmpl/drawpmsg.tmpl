@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -145,7 +145,7 @@
 	<td>
 		<table cellspacing="0" cellpadding="0" class="MsgTable">
 		<tr>
-			<td class="MsgR1 al vt MsgSubText">{IF: !$mini && $obj->icon}{TEMPLATE: dpmsg_msg_icon}{ENDIFI}{VAR: obj->subject}</td>
+			<td class="MsgR1 al vt expanded">{IF: !$mini && $obj->icon}{TEMPLATE: dpmsg_msg_icon}{ENDIFI}<span class="MsgSubText">{VAR: obj->subject}</span></td>
 			<td class="MsgR1 vt ar DateText">{TEMPLATE: dmsg_post_date}</td>
 		</tr>
 		<tr class="MsgR2"><td class="MsgR2" colspan="2">

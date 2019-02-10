@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2019 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -17,7 +17,7 @@
 	<th colspan="3" class="wa">{MSG: index_forum}</th>
 	<th class="nw hide1">{MSG: posts}</th>
 	<th class="nw hide1">{MSG: threads}</th>
-	<th class="nw hide2">{MSG: last_post}</th>
+	<th class="nw ac hide2">{MSG: last_post}</th>
 </tr>
 	{TEMPLATE-DATA: forum_list_table_data}
 </table>
@@ -43,7 +43,7 @@
 {SECTION: END}
 
 {SECTION: index_category_allow_collapse_Y collapsable category entry}
-<tr id="c{VAR: r[5]}" style="display: {IF: empty($collapse[$i[4]])}table-row{ELSE}none{ENDI};">
+<tr id="c{VAR: r[5]}" style="display: table-row;">
 	<td class="CatDesc {IF: empty($collapse[$cid])}expanded{ELSE}collapsed{ENDI}" colspan="5" style="padding-left: {FUNC: ($i[0] ? $i[0] * 20 : '0')}px;">
 		<a href="{TEMPLATE: index_to_cat_lnk}" class="CatLink">{VAR: i[1]}</a> {VAR: i[2]}
 	</td>
@@ -52,7 +52,7 @@
 {SECTION: END}
 
 {SECTION: index_category_allow_collapse_N uncollapsable category entry}
-<tr id="c{VAR: r[5]}" style="display: {IF: empty($collapse[$i[4]])}table-row{ELSE}none{ENDI};">
+<tr id="c{VAR: r[5]}" style="display: table-row;">
 	<td class="CatDesc CatLockPad" colspan="5" style="padding-left: {FUNC: ($i[0] ? $i[0] * 20 : '0')}px;">
 		<span class="CatLockedName"><a href="{TEMPLATE: index_to_cat_lnk}" class="CatLink">{VAR: i[1]}</a></span> {VAR: i[2]}
 	</td>
@@ -92,8 +92,10 @@
 {SECTION: END}
 
 {SECTION: idx_compact_forum_row}
-<tr class="RowStyleB">
-	<td colspan="6">{MSG: idx_compact_forum_row}{VAR: cbuf}</td>
+<tr class="row child-c{VAR: cat}">
+	<td class="RowStyleA wo hide2">&nbsp;</td>
+	<td class="RowStyleB ac wo hide2">&nbsp;</td>
+	<td  class="RowStyleA wa" colspan="4">{MSG: idx_compact_forum_row}{VAR: cbuf}</td>
 </tr>
 {SECTION: END}
 

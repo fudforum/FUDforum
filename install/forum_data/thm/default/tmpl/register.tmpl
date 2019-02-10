@@ -133,7 +133,7 @@
 {SECTION: END}
 
 {SECTION: del_built_in_avatar delete avatar link}
-[<a href="javascript://" onclick="document.reg_avatar_img.src=\'blank.gif\'; document.forms[\'fud_register\'].reg_avatar.value=\'0\';">{MSG: register_del_avatar}</a>]
+[<a href="javascript://" onclick="document.reg_avatar_img.src=\'{BASE}blank.gif\'; document.forms[\'fud_register\'].reg_avatar.value=\'0\';">{MSG: register_del_avatar}</a>]
 {SECTION: END}
 
 {SECTION: built_in_avatar}
@@ -428,6 +428,11 @@
         min_max_cats("{THEME_IMAGE_ROOT}", "{MSG: minimize_category}", "{MSG: maximize_category}", "", "");
 
 	$(document).ready(function() {
+            // Make rows clickable to expand/hide section
+            $(".collapsable").closest("tr").css("cursor", "pointer").click(function() {
+	         jQuery(this).find("img").trigger("click");
+            });
+
             $("#reg_login").change(function() {
                  $("#reg_login-result").html("<img src='{THEME_IMAGE_ROOT}/ajax-loader.gif' />");
  

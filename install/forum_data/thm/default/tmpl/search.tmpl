@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2019 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -57,8 +57,10 @@
 		<b>{MSG: search_forum}</b>: <a href="{TEMPLATE: search_entry_lnk1}">{VAR: r->forum_name}</a> &laquo;&raquo;
 		<b>{MSG: search_posted_on}</b>: <span class="DateText">{TEMPLATE: search_post_date}</span> &laquo;&raquo;
 		<b>{MSG: by}</b> {IF: !empty($r->poster_id)}{TEMPLATE: registered_poster}{ELSE}{TEMPLATE: unregistered_poster}{END}<br />
-		<a href="{TEMPLATE: search_entry_lnk}">{VAR: r->subject}</a><br />
-		{FUNC: trim_body(read_msg_body($r->foff, $r->length, $r->file_id))}
+		<span class="MsgSubText"><a href="{TEMPLATE: search_entry_lnk}">{VAR: r->subject}</a></span><br />
+		<span class="MsgBodyText">
+			{FUNC: trim_body(read_msg_body($r->foff, $r->length, $r->file_id))}
+		</span>
 		{IF: ($is_a || $r->md)}
 		<div class="ModOpt">{MSG: moderator_options}: <a href="{ROOT}?t=mmod&amp;{DEF: _rsid}&amp;th={VAR: r->thread_id}&amp;del={VAR: r->id}">{MSG: thread_mod_delete}</a>
 {IF: $r->is_rootm}
@@ -107,6 +109,7 @@
 {TEMPLATE-DATA: page_stats}
 <script>
 	document.forms['search'].srch.focus();
+	highlightSearchTerms("{VAR-HTML: _GET['srch']}");
 </script>
 {TEMPLATE: footer}
 {PAGE: END}
@@ -157,6 +160,10 @@
 
 {SECTION: search_entry_lnk1}
 {ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: r->forum_id}&amp;{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: search_mod_mass_lnk}
+{ROOT}?t=mmd
 {SECTION: END}
 
 {SECTION: registered_poster_lnk}
