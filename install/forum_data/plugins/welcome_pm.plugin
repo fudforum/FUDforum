@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2019 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -29,17 +29,15 @@ function plugin_welcome_pm($usr) {
 	fud_wordwrap($msg_p->body);
 	$msg_p->read_stamp = 0;
 	$msg_p->ouser_id   = 2;	// admin
-	$msg_p->duser_id   = $usr->id;
+	$msg_p->duser_id   = $usr;
 	$msg_p->pmsg_opt   = 49;
 	$msg_p->add(1);
-
-	return $usr;
 }
 
 function welcome_pm_info() {
 	return array('name' => 'Welcome Private Message',
 	             'desc' => 'This plugin, if enabled, will send a welcome PM (private message) to users when they confirm their E-mail addresses.',
-		     'version' => '1.1');
+		     'version' => '1.2');
 }
 
 function welcome_pm_enable() {
