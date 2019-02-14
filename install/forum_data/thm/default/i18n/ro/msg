@@ -229,6 +229,7 @@ pmsg_forwarded:trimis
 pmsg_subject:Subiect
 pmsg_author:Autor
 pmsg_time:Data
+# Fuzzy
 pmsg_selected:Selectat
 pmsg_delete:Sterge
 cur_ppage_pm:Mesaj personal
@@ -508,6 +509,7 @@ mklist_apply:Aplica
 mklist_delete:Sterge
 qbud_nick_name:Porecla
 qbud_add_selected:Adauga selecat
+# Fuzzy
 qbud_selected:Selecat
 qbud_no_buddies:Nici un prieten
 mklist_numerical:Numeric
@@ -886,6 +888,7 @@ polllist_votes:Voturi totale
 polllist_action:Actiune
 polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">Vezi sondaje disponibile</a>
 userinfo_polls:Sondaje:
+# Fuzzy
 show_pollist:Arata sondaje
 search_and:SI
 search_or:SAU

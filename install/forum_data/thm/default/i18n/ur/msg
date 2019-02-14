@@ -242,6 +242,7 @@ pmsg_forwarded:فارورڈ
 pmsg_subject:موضوع
 pmsg_author:مصنف
 pmsg_time:وقت
+# Fuzzy
 pmsg_selected:منتخب
 pmsg_delete:حذف کریں
 cur_ppage_pm:ذاتی پیغام رسانی
@@ -526,6 +527,7 @@ mklist_apply:اطلاق
 mklist_delete:حذف کریں
 qbud_nick_name:نک نام
 qbud_add_selected:منتخب شدہ کو شامل کریں
+# Fuzzy
 qbud_selected:منتخب
 qbud_no_buddies:سے منتخب کرنے کے لئے کوئی دوستوں
 mklist_numerical:عددی
@@ -903,6 +905,7 @@ polllist_votes:کل ووٹ
 polllist_action:کارروائی
 polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">دستیاب سروے کا جائزہ لینے</a>
 userinfo_polls:پولز:
+# Fuzzy
 show_pollist:پولز دکھائیں
 search_and:اور
 search_or:یا

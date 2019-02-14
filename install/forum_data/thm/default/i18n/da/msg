@@ -245,7 +245,7 @@ pmsg_forwarded:videresendt
 pmsg_subject:Emne
 pmsg_author:Forfatter
 pmsg_time:Tidspunkt
-pmsg_selected:Valgt
+pmsg_selected:Vælg
 pmsg_delete:Slet
 cur_ppage_pm:Private beskeder
 writing_pm:Skrive en privat besked
@@ -529,7 +529,7 @@ mklist_apply:Anvend
 mklist_delete:Slet
 qbud_nick_name:Kaldenavn
 qbud_add_selected:Tilføj valgte
-qbud_selected:Udvalgte
+qbud_selected:Vælg
 qbud_no_buddies:Ingen venner at vælge imellem
 mklist_numerical:Talform
 mklist_aplha:Bogstavsform
@@ -901,7 +901,7 @@ polllist_votes:Stemmer i alt
 polllist_action:Gennemfør
 polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">Gennemse igangværende afstemninger</a>
 userinfo_polls:Afstemninger:
-show_pollist:Vis afstemninger
+show_pollist:Afstemninger
 search_and:OG
 search_or:ELLER
 search_desc_order:Faldende rækkefølge
@@ -1120,6 +1120,7 @@ move_msg_th_expl:Angiv ID for destinationsemnet (kan være i andre fora)
 captcha_img_alt:Captcha verifikation: du skal genkende teksten i dette billede.
 captcha_img_help:Der er ingen nul eller én i billedet.
 powered-by:Drevet af: FUDforum {GVAR: FORUM_VERSION}.
+# Fuzzy
 copyright:Ophavsret &copy;2001-2018 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Kode:
 code_select_all:Vælg alle

@@ -249,6 +249,7 @@ pmsg_forwarded:předáno
 pmsg_subject:Nadpis
 pmsg_author:Autor
 pmsg_time:Čas
+# Fuzzy
 pmsg_selected:Vybráno
 pmsg_delete:Smazat
 cur_ppage_pm:Pošta
@@ -529,6 +530,7 @@ mklist_apply:Aplikovat
 mklist_delete:Smazat
 qbud_nick_name:Přezdívka
 qbud_add_selected:Přidat vybrané
+# Fuzzy
 qbud_selected:Vybrané
 qbud_no_buddies:Žádní přátelé, ze kterých se dá vybrat
 mklist_numerical:Číselný
@@ -902,6 +904,7 @@ polllist_votes:Celkem hlasů
 polllist_action:Akce
 polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">prohlíží aktivní ankety</a>
 userinfo_polls:Ankety:
+# Fuzzy
 show_pollist:Zobrazit ankety
 search_and:A
 search_or:NEBO
@@ -1121,6 +1124,7 @@ move_msg_th_expl:Zadejte ID cílového téma (může být v jiných fórech)
 captcha_img_alt:Ověření Captcha: je třeba rozpoznat text v tomto obrázku.
 captcha_img_help:Na obrázku není žádná nula nebo jednička.
 powered-by:Běží na: FUDforum {GVAR: FORUM_VERSION}.
+# Fuzzy
 copyright:Copyright &copy;2001-2018 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Kód:
 code_select_all:Vybrat vše

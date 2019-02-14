@@ -239,6 +239,7 @@ pmsg_forwarded:diterusna
 pmsg_subject:Subyek
 pmsg_author:Penulise
 pmsg_time:Wektu
+# Fuzzy
 pmsg_selected:Dipilih
 pmsg_delete:Busek
 cur_ppage_pm:Pesen pribadi (japri)
@@ -520,6 +521,7 @@ mklist_apply:Sida
 mklist_delete:Busek
 qbud_nick_name:Jeneng samaran
 qbud_add_selected:Tambahna sing dipilih
+# Fuzzy
 qbud_selected:Dipilih
 qbud_no_buddies:Ora ana kanca sing teyeng dipilih
 mklist_numerical:Daftar Angka
@@ -896,6 +898,7 @@ polllist_votes:Total suara
 polllist_action:Tindakan
 polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">Ndeleng polling sing ana</a>
 userinfo_polls:Polling:
+# Fuzzy
 show_pollist:Tidokna Polling
 search_and:LAN
 search_or:UTAWA

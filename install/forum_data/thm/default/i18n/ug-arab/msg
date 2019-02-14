@@ -238,6 +238,7 @@ pmsg_forwarded:ئالدىغا
 pmsg_subject:تېما
 pmsg_author:يازغۇچى
 pmsg_time:سائەت
+# Fuzzy
 pmsg_selected:تاللانغان
 pmsg_delete:ئۆچۈر
 cur_ppage_pm:شەخسىي ئۇچۇر
@@ -521,6 +522,7 @@ mklist_apply:قوللان
 mklist_delete:ئۆچۈر
 qbud_nick_name:تەخەللۇس
 qbud_add_selected:تاللانغاننى قوش
+# Fuzzy
 qbud_selected:تاللانغان
 qbud_no_buddies:ھېچكىم تاللانمىدى
 mklist_numerical:سان
@@ -893,6 +895,7 @@ polllist_votes:ئومۇمىي بىلەت
 polllist_action:مەشغۇلات
 polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">مەۋجۇت راي سىناشنى كۆرۈش</a>
 userinfo_polls:راي سىناش:
+# Fuzzy
 show_pollist:راي سىناشنى كۆرسەت
 search_and:ۋە
 search_or:ياكى

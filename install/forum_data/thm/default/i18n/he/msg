@@ -13,6 +13,7 @@ admin_control_panel:ניהול
 administrator:מנהל
 attachment:קובץ מצורף:
 avatar:סמל אישי:
+average_post_count:{PLURAL: u->posted_msg_count|הודעה אחת|$1 הודעות} ({PLURAL: avg|הודעה אחת בממוצע|$1 הודעות בממוצע} ביום)
 biography:קורות חיים:
 birth_date:תאריך לידה:
 by:על ידי:
@@ -22,6 +23,7 @@ custom_avatar_queue:תור הסמלים האישיים להעלאה
 date_posted:תאריך הפרסום
 date_registered:תאריך ההרשמה:
 download_counter:התבצע{PLURAL: v[3]|ה הורדה אחת|ו $1 הורדות}
+pmsg_download_counter:Downloaded {PLURAL: r->dlcount|פעם אחת|פעמיים|$1 פעמים}
 email:דוא"ל:
 email_to_friend:שליחת דוא"ל לחבר
 email_to_friend_desc:שליחת כתובת העמוד הנוכחי לחבר/ים בדוא"ל
@@ -74,6 +76,8 @@ cal_day_heading:אירועים ליום
 cal_no_events:אין אירועים ליום זה.
 cal_update:עיון ביומן הפורום
 cal_birthday:יום הולדת: {VAR: user}
+cal_birthdays:{PLURAL: bithdays|יום הולדת אחד|$1 ימי הולדת}
+cal_birthday_age:({PLURAL: age|שנה|שנתיים|$1 שנים}).
 message:הודעה
 message_counter:המשתמשים שלנו פרסמו סך הכול <b>{PLURAL: post_count|הודעה אחת|$1 הודעות}</b> תחת <b>{PLURAL: thread_count|נושא אחד|$1 נושאים}</b>.
 message_index:אינדקס ההודעות
@@ -81,7 +85,12 @@ message_index_desc:צפייה ברשימת ההודעות
 minimize_category:מזעור קטגוריה
 minimize_message:מזעור הודעה
 moderation_queue:תור ההמתנה לאחראי
+moderator:אחראי
+moderator_of:אחריות על:
+moderator_options:אפשרויות אחראי
+moderators:{PLURAL: modcount|אחראי|אחראים}
 more_unread_messages:עוד הודעות שלא נקראו
+more_unread_messages_desc:להציג הודעות שלא נקראו ולסמן את אלו שניתן לצפות בהן כאילו נקראו
 move_thread:העברה
 moved:הועבר לפורום אחר
 moved_thread_message:נושא זה הועבר לפורום אחר
@@ -95,6 +104,9 @@ no_messages:אין הודעות בפורום זה.<br />\nרוצה לפתוח א
 no_msg_body:אין גוף להודעה
 no_new_posts:אין הודעות חדשות
 no_posts:אין הודעות
+no_subscribed_forums:אין פורום שערכת אליהם מינוי
+no_subscribed_threads:אין נושאים שערכת אליהם מינוי
+no_bookmarked_threads:אין נושאים שנוספו כסימנייה
 no_unread_locked:נושא זה ננעל
 no_unread_msg:בנושא זה ישנן הודעות שטרם נקראו
 num_pages:עמודים ({VAR: ttl_pg}):
@@ -103,6 +115,7 @@ off:כבוי
 on:פעיל
 pm:התכתבות אישית
 poll:סקר:
+post_count:מספר הודעות {VAR: u_pcount}
 posts:הודעות
 posts_c:הודעות:
 prev_thread:הנושא הקודם:
@@ -167,8 +180,11 @@ reported_reported_by:דווח על ידי:
 reported_reported_msg:הודעות מדווחות
 modque_approve:אישור
 modque_delete:מחיקה
+modque_deleteall:מחיקה מכל המשתמשים
+modque_no_message:אין הודעות שממתינות לאישור
 pmsg_new_messages:הודעה פרטית שטרם נקראה
 pmsg_old_messages:הודעה פרטית שנקראה
+deny_recipt_desc:לא לשלוח אישור שקראת את ההודעה הזאת
 restore_to:שחזור ל:
 move_to:העברה אל:
 list_referes_referrals:הפניות
@@ -183,6 +199,7 @@ pmsg_forwarded:הועברו
 pmsg_subject:נושא
 pmsg_author:מחבר
 pmsg_time:שעה
+pmsg_selected:בחירה
 pmsg_delete:מחיקה
 cur_ppage_pm:התכתבות פרטית
 writing_pm:כתיבת הודעה פרטית
@@ -191,6 +208,7 @@ draft:טיוטה
 sent:פריטים שנשלחו
 trash:אשפה
 msg_author:מחבר
+no_avatars:אין תמונות ייצוגיות זמינות
 month_1:ינואר
 month_2:פברואר
 month_3:מרץ
@@ -225,6 +243,7 @@ finduser_user_info:נתוני המשתמש
 finduser_submit:חיפוש
 finduser_no_such_user:אין משתמש כזה
 finduser_user:משתמש
+finduser_postcount:מספר הודעות
 finduser_joindate:תאריך ההצטרפות
 finduser_action:פעולה
 yes:כן
@@ -266,29 +285,48 @@ register_prefs:העדפות
 register_sig:חתימה:
 register_reset:איפוס
 register_def_thread_view:תצוגת התחלתית של הנושאים:
+register_msg_per_page:הודעות בעמוד:
 register_show_sig:הצגת חתימות:
 register_use_sig_default:להשתמש בחתימה לפי בררת המחדל:
 register_timezone:אזור זמן:
+register_invisible_mode:מצב בלתי נראה:
+register_show_email:הצגת כתובת דוא״ל:
 register_notification:בחירת ההודעה לפי בררת המחדל:
 register_notification_desc:אם ההודעה מופעלת לפי בררת המחדל, אפשר לכבות אותה בעת השליחה.
+register_allow_email_msg:לאפשר הודעות בדוא״ל:
 buddy_status:מצב
 add:הוספה
+post_sticky:נעוץ
 post_annoncement:הכרזה
 post_size:גודל
 post_color:צבע
 post_font:גופן
+create_thread:יצירת נושא
+submit_reply:הגשת תגובה
+edit_message:החלת שינויים על ההודעה
+apply_spell_changes:החלת שינויי איות
+post_preview:תצוגה מקדימה של הודעה
+post_logedin_user:משתמש במערכת:
+post_logout:יציאה
 post_passwd:ססמה לשליחה:
 post_poll:סקר:
 post_create_poll:יצירת סקר
 post_poll_delete:מחיקה
 post_poll_edit:עריכה
+post_mod_opt:אפשרויות פיקוח:
+post_thread_type:סוג נושא:
+post_thread_expiry:תפוגת נושא:
+post_locked:נושא נעול
 post_icons:סמל ההודעה:
 post_no_icon:ללא סמל
+post_smiley:קיצורי דרך לחייכנים:
+post_format_tools:כלי עיצוב:
 post_upload_file:העלאת קובץ
 post_file_del:מחיקה
 post_file_name:שם
 post_file_size:גודל
 file_attachments:קבצים מצורפים:
+allowed_files:סיומות קבצים מותרות:
 max_file_size:גודל הקובץ המרבי:
 max_files_per_msg:מספר הקבצים המרבי בכל הודעה:
 post_forum:פורום:
@@ -307,6 +345,9 @@ coppa_fax_date:תאריך:
 coppa_fax_passwd:ססמה
 coppa_fax_name:שם
 login_forgot_passwd:שכחתי את הססמה
+login_login:כניסה:
+login_login_btn:כניסה
+login_name_required:נדרש שם כניסה
 login_passwd_required:נדרשת ססמה
 login_invalid_radius:שילוב שגוי של חשבון וססמה
 reset_reset:שלום,\n\nביקשת לאפס את הססמה שלך. כדי להשלים את התהליך,\nנא לעבור אל הכתובת הבאה:\n\n{VAR: url}\n\nלתשובת לבך: הפורום הזה מאחסן ססמאות בהצפנה חד־כיוונית, מה שאומר\nשלאחר שהזנת את הססמה, היא מוצפנת בצורה שאינה מאפשרת לקבל אותה שוב.\nזה עובד על־ידי השוואה של הגרסה המוצפנת שרשומה אצלנו עם הגרסה המוצפנת של מה שנשלח ממך במסך הכניסה.\n(אם מעניין אותך איך זה עובד, מומלץ לקרוא על אלגוריתם MD5 HASH)
@@ -315,7 +356,9 @@ rpasswd_passwd_nomatch:הססמאות אינן זהות
 rpasswd_passwd_length:בססמה צריכים להיות לפחות 6 תווים.
 reset_remind_pass:תזכורת ססמה
 reset_reset_conf:הססמה שלך אופסה ונשלחה אליך. אם עוד לא אישרת את כתובת הדוא"ל שלך, בקשת האישור תישלח לכתובתך מחדש.
+reset_update:איפוס ססמה
 rpasswd_change_pass:החלפת ססמה
+rpasswd_login:כניסה
 rpasswd_cur_pass:הססמה הנוכחית:
 rpasswd_new_pass:ססמה חדשה:
 rpasswd_conf_pass:אימות הססמה:
@@ -325,6 +368,12 @@ reset_reset_button:איפוס ססמה
 report_subject:נושא:
 report_by:מאת:
 search_forum:פורום
+search_no_results:אין תוצאות
+search_all_forums:חיפוש בכל הפורומים
+search_in_forum:חיפוש בפורום:
+search_forum_search:חיפוש בפורום
+move_thread_to:העברת הנושא <b>{VAR: thr->subject}</b> to:
+remail_email_topic:לשלוח את הנושא הזה בדוא״ל לחבר
 remail_your_name:שמך:
 remail_your_email:כתובת הדוא״ל שלך:
 remail_friends_name:שם החבר:
@@ -332,11 +381,22 @@ remail_friends_email:כתובת הדוא״ל של החבר:
 remail_required:נדרש
 remail_subject:נושא:
 remail_message:הודעה:
+remail_send_now:שליחת דוא״ל כעת
+mklist_type:סוג:
+mklist_option:אפשרות:
 mklist_additem:הוספת פריט
 mklist_apply:החלה
 mklist_delete:מחיקה
 qbud_nick_name:כינוי
 qbud_add_selected:הוספת הנבחרים
+qbud_selected:בחירה
+qbud_no_buddies:אין חברים לבחירה מביניהם
+mklist_numerical:מספרי
+mklist_aplha:אלפביתי
+mklist_square:ריבוע
+mklist_disc:טבעת
+mklist_circle:עיגול
+mklist_close:סגירה
 email_to:אל:
 email_pg_title:דוא״ל
 email_subject:נושא:
@@ -344,11 +404,14 @@ email_body:תוכן:
 email_submit:דוא״ל
 ppost_quote:ציטוט:
 ppost_to:אל:
+ppost_from_buddy_list:בחירה מרשימת החברים
 ppost_find_User:חיפוש משתמש
 ppost_track_msg:מעקב אחר הודעה זו
+ppost_track_msg_desc:להודיע לי (בהודעה פרטית) כשההודעה הזאת נקראת.
 ppost_send:שליחה
 ppost_save_draft:שמירת טיוטה
 poll_blank_option:לא ניתן להוסיף אפשרות ריקה.
+poll_del_conf:למחיקת האפשרות הזאת יש ללחוץ על אישור
 poll_name:שם הסקר:
 poll_timelimit:מגבלת הזמן:
 poll_maxiumvotes:מס׳ קולות מרבי:
@@ -369,7 +432,12 @@ poll_month:חודש
 poll_year:שנה
 poll_week:שבוע
 tabs_register:הגדרות חשבון
+tabs_subscriptions:מינויים
 tabs_bookmarkes:סימניות
+tabs_referrals:הפניות
+tabs_buddy_list:רשימת חברים
+tabs_ignore_list:רשימת התעלמות
+tabs_private_messaging:התכתבות פרטית
 delete_yes:כן
 delete_no:לא
 error_invalidurl:כתובת שגויה
@@ -481,7 +549,7 @@ polllist_view_results:צפייה בתוצאות
 polllist_name:שם הסקר
 polllist_action:פעולה
 userinfo_polls:סקרים:
-show_pollist:הצגת סקרים
+show_pollist:סקרים
 search_and:וגם
 search_or:או
 spell_alts:אין חלופות

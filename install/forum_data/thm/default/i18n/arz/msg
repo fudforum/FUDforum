@@ -239,6 +239,7 @@ pmsg_forwarded:مُمرّرة
 pmsg_subject:الموضوع
 pmsg_author:المؤلف
 pmsg_time:الوقت
+# Fuzzy
 pmsg_selected:مُختار
 pmsg_delete:احذف
 cur_ppage_pm:مراسله خاصة
@@ -519,6 +520,7 @@ mklist_apply:طبّق
 mklist_delete:احذف
 qbud_nick_name:الاسم المستعار
 qbud_add_selected:أِضف المختار
+# Fuzzy
 qbud_selected:مختار
 qbud_no_buddies:لا أصدقاء يمكن الاختيار منهم
 mklist_numerical:مُرقمة
@@ -894,6 +896,7 @@ polllist_votes:مجموع الأصوات
 polllist_action:لإجراء
 polllist_update:a href="{TEMPLATE: polllist_update_lnk}">يراجع الاقتراعات المتوفرة</a>
 userinfo_polls:الاقتراعات:
+# Fuzzy
 show_pollist:أظهر الاقتراعات
 search_and:و
 search_or:أو
@@ -1116,6 +1119,7 @@ move_msg_th_expl:حدد هويه الموضوع الهدف (يمكن أن يكو
 captcha_img_alt:تحقق كابتشا: سوف تحتاج إلى التعرف على نص هذه الصوره.
 captcha_img_help:لا يوجد صفر ولا واحد فى الصوره.
 powered-by:يشغله: FUDforum {GVAR: FORUM_VERSION}.
+# Fuzzy
 copyright:!قوق النشر  و النسخ;2001-2018 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:الكود
 code_select_all:اختر الكل

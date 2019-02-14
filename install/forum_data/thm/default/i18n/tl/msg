@@ -238,6 +238,7 @@ pmsg_forwarded:isinulong
 pmsg_subject:Paksa
 pmsg_author:May-akda
 pmsg_time:Oras
+# Fuzzy
 pmsg_selected:Napili na
 pmsg_delete:Burahin
 cur_ppage_pm:Pribadong Pagmemensahe
@@ -520,6 +521,7 @@ mklist_apply:Ilapat
 mklist_delete:Burahin
 qbud_nick_name:Palayaw
 qbud_add_selected:Idagdag ang Napili
+# Fuzzy
 qbud_selected:Napili na
 qbud_no_buddies:Walang katoto na mapagpipilian
 mklist_numerical:Nasa pambilang
@@ -897,6 +899,7 @@ polllist_votes:Kabuuang mga Boto
 polllist_action:Galaw
 polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">Sinusuring Muli ang Makukuhang mga Botohan</a>
 userinfo_polls:Mga botohan:
+# Fuzzy
 show_pollist:Ipakita ang mga Botohan
 search_and:AT
 search_or:O

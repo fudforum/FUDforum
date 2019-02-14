@@ -240,6 +240,7 @@ pmsg_forwarded:dalesposrědkowany
 pmsg_subject:Temowe nadpismo
 pmsg_author:Awtor
 pmsg_time:Čas
+# Fuzzy
 pmsg_selected:Wubrany
 pmsg_delete:Zničić
 cur_ppage_pm:Priwatne powěsće
@@ -521,6 +522,7 @@ mklist_apply:Nałožić
 mklist_delete:Zničić
 qbud_nick_name:Přimjeno
 qbud_add_selected:Wubrane přidać
+# Fuzzy
 qbud_selected:Wubrany
 qbud_no_buddies:Žani přećeljo za wuběranje
 mklist_numerical:Numeriski
@@ -897,6 +899,7 @@ polllist_votes:Hłosy dohromady
 polllist_action:Akcija
 polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">K dispoziciji stejace wothłosowanja přepruwować</a>
 userinfo_polls:Wothłosowanja:
+# Fuzzy
 show_pollist:Wothłosowanja pokazać
 search_and:A
 search_or:ABO

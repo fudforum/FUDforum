@@ -12,6 +12,7 @@
 # Author: McAang
 # Author: McDutchie
 # Author: Meelo
+# Author: Mirzali
 # Author: Naudefj
 # Author: Rapsar
 # Author: Sayginer
@@ -256,7 +257,7 @@ pmsg_forwarded:yönlendirildi
 pmsg_subject:Konu
 pmsg_author:Gönderen
 pmsg_time:Tarih
-pmsg_selected:Seçilen
+pmsg_selected:Seç
 pmsg_delete:Sil
 cur_ppage_pm:Özel ileti sistemi
 writing_pm:Özel ileti yaz
@@ -540,7 +541,7 @@ mklist_apply:Uygula
 mklist_delete:Sil
 qbud_nick_name:Takma İsim
 qbud_add_selected:Seçilenleri Ekle
-qbud_selected:Seçilenler
+qbud_selected:Seçin
 qbud_no_buddies:Seçilebilecek arkadaş yok
 mklist_numerical:Sayı
 mklist_aplha:Harf
@@ -912,7 +913,7 @@ polllist_votes:Toplam Oy
 polllist_action:Eylem
 polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">Oylamaları gözden geçiriyor</a>
 userinfo_polls:Oylamalar:
-show_pollist:Oylamaları göster
+show_pollist:Anketler
 search_and:VE
 search_or:VEYA
 search_desc_order:Azalan sırada
@@ -1131,7 +1132,7 @@ move_msg_th_expl:Hedef konunun ID'sini belirtin (diğer forumlarda olabilir)
 captcha_img_alt:Captcha Doğrulama: Görüntüde metni tanımanız gerekiyor.
 captcha_img_help:Görüntü içinde sıfır ya da bir bulunmuyor.
 powered-by:Destekleyen: FUDforum {GVAR: FORUM_VERSION}.
-copyright:Telif hakkı &copy;2001-2018 <a href="http://fudforum.org/">FUDforum Bulletin Board Yazılımı</a>
+copyright:Telif hakkı &copy;2001-2019 <a href="http://fudforum.org/">FUDforum Bulletin Board Yazılımı</a>
 code_title:Kod:
 code_select_all:Tümünü seç
 code_show_hide:Göster / gizle

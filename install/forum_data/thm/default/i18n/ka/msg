@@ -236,6 +236,7 @@ pmsg_forwarded:გადამისამართებული
 pmsg_subject:თემა
 pmsg_author:ავტორი
 pmsg_time:დრო
+# Fuzzy
 pmsg_selected:არჩეული
 pmsg_delete:წაშლა
 cur_ppage_pm:პირადი შეტყობინება
@@ -451,6 +452,7 @@ mklist_apply:გამოყენება
 mklist_delete:წაშლა
 qbud_nick_name:მეტსახელი
 qbud_add_selected:არჩეულის დამატება
+# Fuzzy
 qbud_selected:არჩეულია
 mklist_numerical:რიცხვითი
 mklist_aplha:ალფა

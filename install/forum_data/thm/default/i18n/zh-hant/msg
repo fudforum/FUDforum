@@ -249,6 +249,7 @@ pmsg_forwarded:轉寄
 pmsg_subject:標題
 pmsg_author:作者
 pmsg_time:時間
+# Fuzzy
 pmsg_selected:已選擇
 pmsg_delete:刪除
 cur_ppage_pm:悄悄話
@@ -533,6 +534,7 @@ mklist_apply:套用
 mklist_delete:刪除
 qbud_nick_name:暱稱
 qbud_add_selected:添加所選
+# Fuzzy
 qbud_selected:已選擇
 qbud_no_buddies:沒有可供選擇的連絡人
 mklist_numerical:數字
@@ -905,6 +907,7 @@ polllist_votes:總票數
 polllist_action:操作
 polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">查看可用的調查</a>
 userinfo_polls:調查：
+# Fuzzy
 show_pollist:顯示調查
 search_and:與
 search_or:或
@@ -1124,6 +1127,7 @@ move_msg_th_expl:目標主題的指定 ID（可用在其它論壇）
 captcha_img_alt:驗證碼：您需要識別出在圖片裡的文字。
 captcha_img_help:圖片裡沒有零或一。
 powered-by:技術支援：FUDforum {GVAR: FORUM_VERSION}。
+# Fuzzy
 copyright:版權所有 © 2001年-2018 年<a href="http://fudforum.org/">FUDforum 留言板軟體</a>
 code_title:代碼：
 code_select_all:全選

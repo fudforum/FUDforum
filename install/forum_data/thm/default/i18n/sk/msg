@@ -242,6 +242,7 @@ pmsg_forwarded:preposlané
 pmsg_subject:Predmet
 pmsg_author:Autor
 pmsg_time:Čas
+# Fuzzy
 pmsg_selected:Vybrané
 pmsg_delete:Vymazať
 cur_ppage_pm:Súkromná pošta:
@@ -526,6 +527,7 @@ mklist_apply:Použiť
 mklist_delete:Vymazať
 qbud_nick_name:Prezývka
 qbud_add_selected:Pridať vybrané
+# Fuzzy
 qbud_selected:Vybrané
 qbud_no_buddies:Žiadny priatelia, z ktorých by sa dalo vyberať
 mklist_numerical:Číselný
@@ -901,6 +903,7 @@ polllist_votes:Celkom hlasov
 polllist_action:Akcia
 polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">Prehliadanie aktívnych ankiet</a>
 userinfo_polls:Ankety:
+# Fuzzy
 show_pollist:Zobraziť ankety
 search_and:A
 search_or:ALEBO

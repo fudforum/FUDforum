@@ -238,6 +238,7 @@ pmsg_forwarded:mgħoddi
 pmsg_subject:Suġġett
 pmsg_author:Awtur
 pmsg_time:Ħin
+# Fuzzy
 pmsg_selected:Magħżul
 pmsg_delete:Ħassar
 cur_ppage_pm:Messaġġi privati
@@ -520,6 +521,7 @@ mklist_apply:Applika
 mklist_delete:Ħassar
 qbud_nick_name:Laqam
 qbud_add_selected:Żid mal-magħżul/a
+# Fuzzy
 qbud_selected:Magħżul
 qbud_no_buddies:L-ebda ħabib
 mklist_numerical:Numerika
@@ -900,6 +902,7 @@ polllist_votes:Total ta' voti
 polllist_action:Azzjoni
 polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">Qiegħed nikkontrolla s-sondaġġi disponibbli</a>
 userinfo_polls:Sondaġġi:
+# Fuzzy
 show_pollist:Uri l-lista ta' sondaġġi
 search_and:U
 search_or:JEW

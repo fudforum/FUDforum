@@ -230,6 +230,7 @@ pmsg_forwarded:labots
 pmsg_subject:Tēma
 pmsg_author:Autors
 pmsg_time:Laiks
+# Fuzzy
 pmsg_selected:Izvēlēts
 pmsg_delete:Dzēst
 cur_ppage_pm:Privātais pasts
@@ -502,7 +503,7 @@ mklist_apply:Izpildīt
 mklist_delete:Dzēst
 qbud_nick_name:Pseidonīms
 qbud_add_selected:Pievienot izvēlēto
-qbud_selected:Izvēlēts
+qbud_selected:Izvēlēties
 qbud_no_buddies:Saraksts izvēlei ir tukšs
 mklist_numerical:Nummurēts - cipari
 mklist_aplha:Nummurēts - burti
@@ -876,6 +877,7 @@ polllist_votes:Balsis kopā
 polllist_action:Darbības
 polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">Pieejamo balsojumu saraksts</a>
 userinfo_polls:Balsojumi:
+# Fuzzy
 show_pollist:Parādīt balsojumus
 search_and:UN
 search_or:VAI

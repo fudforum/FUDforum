@@ -251,6 +251,7 @@ pmsg_forwarded:reenviat
 pmsg_subject:Assumpte
 pmsg_author:Autor
 pmsg_time:Hora
+# Fuzzy
 pmsg_selected:Seleccionat
 pmsg_delete:Esborrar
 cur_ppage_pm:Missatges privats
@@ -535,6 +536,7 @@ mklist_apply:Aplicar
 mklist_delete:Esborrar
 qbud_nick_name:Sobrenom
 qbud_add_selected:Afegir seleccionat(a)
+# Fuzzy
 qbud_selected:Seleccionat(a)
 qbud_no_buddies:No hi ha amics dels quals escollir
 mklist_numerical:Numèric
@@ -907,6 +909,7 @@ polllist_votes:Total de vots
 polllist_action:Acció
 polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">Revisant les enquestes disponibles</a>
 userinfo_polls:Enquestes:
+# Fuzzy
 show_pollist:Mostrar enquestes
 search_and:I
 search_or:O
@@ -1126,6 +1129,7 @@ move_msg_th_expl:Especifiqueu l'IDENTIFICADOR del tema de destinació (pot ser e
 captcha_img_alt:Verificació de captcha: cal reconèixer el text en aquesta imatge.
 captcha_img_help:No hi ha cap zero o en la imatge.
 powered-by:Powered by: 0.9 {GVAR: FORUM_VERSION}.
+# Fuzzy
 copyright:Copyright &copy;2001-2018 <a href="http://fudforum.org/">Junta de programari de FUDforum</a>
 code_title:Codi:
 code_select_all:Selecciona-ho tot

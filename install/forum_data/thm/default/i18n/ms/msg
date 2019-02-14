@@ -240,6 +240,7 @@ pmsg_forwarded:dihantar semula
 pmsg_subject:Subjek
 pmsg_author:Pengarang
 pmsg_time:Waktu
+# Fuzzy
 pmsg_selected:Dipilih
 pmsg_delete:Hapuskan
 cur_ppage_pm:Pesanan Peribadi
@@ -521,6 +522,7 @@ mklist_apply:Gunakan
 mklist_delete:Hapuskan
 qbud_nick_name:Nama Timangan
 qbud_add_selected:Tambahkan yang Terpilih
+# Fuzzy
 qbud_selected:Terpilih
 qbud_no_buddies:Tiada kawan untuk dipilih
 mklist_numerical:Bernombor
@@ -897,6 +899,7 @@ polllist_votes:Jumlah Undian
 polllist_action:Tindakan
 polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">Menyemak Tinjauan yang Sedia Ada</a>
 userinfo_polls:Tinjauan:
+# Fuzzy
 show_pollist:Tunjukkan Tinjauan
 search_and:DAN
 search_or:ATAU

@@ -240,6 +240,7 @@ pmsg_forwarded:inoltrate
 pmsg_subject:Oggette
 pmsg_author:Autore
 pmsg_time:Orarie
+# Fuzzy
 pmsg_selected:Scacchiate
 pmsg_delete:Scangìlle
 cur_ppage_pm:Messàgge private
@@ -522,6 +523,7 @@ mklist_apply:Appleche
 mklist_delete:Scangille
 qbud_nick_name:Soprannome
 qbud_add_selected:Aggiunge scacchiate
+# Fuzzy
 qbud_selected:Scacchiate
 qbud_no_buddies:Nisciune amiche da scacchià
 mklist_numerical:Numeriche
@@ -898,6 +900,7 @@ polllist_votes:Vote totale
 polllist_action:Azione
 polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">Stoche a rivede le sondagge disponibbile</a>
 userinfo_polls:Sondagge:
+# Fuzzy
 show_pollist:Fà vedè le sondagge
 search_and:E
 search_or:O

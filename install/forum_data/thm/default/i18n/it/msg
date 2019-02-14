@@ -1,5 +1,6 @@
 # Messages for Italian (italiano)
 # Exported from translatewiki.net
+# Author: Albe Albe 460
 # Author: Beta16
 # Author: Danmaz74
 # Author: Giallu
@@ -246,7 +247,7 @@ pmsg_forwarded:inoltrato
 pmsg_subject:Oggetto
 pmsg_author:Autore
 pmsg_time:Ora
-pmsg_selected:Selezionato
+pmsg_selected:Seleziona
 pmsg_delete:Cancella
 cur_ppage_pm:Messaggi personali
 writing_pm:Scrivi un messaggio personale
@@ -530,7 +531,7 @@ mklist_apply:Applica
 mklist_delete:Cancella
 qbud_nick_name:Nickname
 qbud_add_selected:Aggiungi selezionato/i
-qbud_selected:Selezionato
+qbud_selected:Seleziona
 qbud_no_buddies:Nessun amico
 mklist_numerical:Numerico
 mklist_aplha:Alfabetico
@@ -902,7 +903,7 @@ polllist_votes:Voti totali
 polllist_action:Azione
 polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">Sto controllando i sondaggi</a>
 userinfo_polls:Sondaggi:
-show_pollist:Mostra i sondaggi
+show_pollist:Sondaggi
 search_and:E
 search_or:O
 search_desc_order:ordine decrescente
@@ -1121,7 +1122,7 @@ move_msg_th_expl:Specifica l'ID dell'argomento di destinazione (può essere in a
 captcha_img_alt:Captcha Verification: devi riconoscere il testo che compare in questa immagine.
 captcha_img_help:Non ci sono nè zero ne uno in questa immagine.
 powered-by:Realizzato con: FUDforum {GVAR: FORUM_VERSION}.
-copyright:Copyright &copy;2001-2018 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Copyright &copy;2001-2019 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Codice:
 code_select_all:Seleziona tutto
 code_show_hide:mostra/nascondi
@@ -1159,3 +1160,10 @@ karma:Karma
 karma_track:Gestisci la reputazione per l'utente:
 karma_delete:Cancella
 rate_author:Valuta l'autore:
+blog_update:Legge il blog del forum
+blog:Blog
+blog_new_members:Nuovi membri
+blog_new_posts:Post recente
+blog_rated_posts:Il più votato
+blog_viewed_posts:I più visti
+blog_comments:{PLURAL: topic->replies|$1 commento|$1 commenti}

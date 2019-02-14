@@ -9,6 +9,7 @@
 # Author: Robin0van0der0vliet
 # Author: SPQRobin
 # Author: Siebrand
+# Author: Xbaked potatox
 
 action:Handeling
 add_to_buddy_list:toevoegen aan uw vriendenlijst
@@ -244,7 +245,7 @@ pmsg_forwarded:doorgestuurd
 pmsg_subject:Onderwerp
 pmsg_author:Auteur
 pmsg_time:Tijd
-pmsg_selected:Geselecteerd
+pmsg_selected:Selecteren
 pmsg_delete:Verwijderen
 cur_ppage_pm:Privéberichten
 writing_pm:Privébericht schrijven
@@ -528,7 +529,7 @@ mklist_apply:Toepassen
 mklist_delete:Verwijderen
 qbud_nick_name:Bijnaam
 qbud_add_selected:Geselecteerde toevoegen
-qbud_selected:Geselecteerd
+qbud_selected:Selecteren
 qbud_no_buddies:Geen vrienden om uit te kiezen
 mklist_numerical:Numeriek
 mklist_aplha:Alfanumeriek
@@ -903,7 +904,7 @@ polllist_votes:Totaal aantal stemmen
 polllist_action:Handeling
 polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">Beschikbare stemmingen bekijken</a>
 userinfo_polls:Stemmingen:
-show_pollist:Stemmingen weergeven
+show_pollist:Polls
 search_and:en
 search_or:of
 search_desc_order:Aflopen gesorteerd
@@ -1127,8 +1128,7 @@ move_msg_th_expl:Geef het nummer van het doelonderwerp (kan zich in een ander fo
 captcha_img_alt:Captchacontrole: u moet de tekst in deze afbeelding herkennen
 captcha_img_help:Er is geen nul of een in de afbeelding.
 powered-by:Maakt gebruik van FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:Copyright &copy;2001-2017 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Copyright &copy;2001-2019 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Code:
 code_select_all:Alles selecteren
 code_show_hide:Weergeven/verbergen

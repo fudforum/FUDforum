@@ -239,6 +239,7 @@ pmsg_forwarded:ar aghaidh
 pmsg_subject:ábhar
 pmsg_author:Údar
 pmsg_time:am
+# Fuzzy
 pmsg_selected:roghnaithe
 pmsg_delete:Scrios
 cur_ppage_pm:Teachtaireachtaí príobháideacha
@@ -521,6 +522,7 @@ mklist_apply:Iarratas
 mklist_delete:Scrios
 qbud_nick_name:leasainm
 qbud_add_selected:Cuir Roghnaithe
+# Fuzzy
 qbud_selected:roghnaithe
 qbud_no_buddies:Uimh cairde a roghnú as
 mklist_numerical:uimhriúil
@@ -898,6 +900,7 @@ polllist_votes:Vótaí iomlán
 polllist_action:gníomh
 polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">Athbhreithniú Cartlann Fáil</a>
 userinfo_polls:Pobalbhreitheanna:
+# Fuzzy
 show_pollist:Taispeáin Cartlann
 search_and:AGUS
 search_or:NÓ

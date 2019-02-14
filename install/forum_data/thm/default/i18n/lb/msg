@@ -159,7 +159,7 @@ pmsg_forwarded:virugeschéckt
 pmsg_subject:Sujet
 pmsg_author:Auteur
 pmsg_time:Zäit
-pmsg_selected:Erausgesicht
+pmsg_selected:Eraussichen
 pmsg_delete:Läschen
 writing_pm:E private Message schreiwen
 draft:Virbereedung
@@ -336,7 +336,7 @@ mklist_type:Typ:
 mklist_option:Optioun:
 mklist_delete:Läschen
 qbud_nick_name:Spëtznumm
-qbud_selected:Erausgesicht
+qbud_selected:Eraussichen
 mklist_numerical:Numeresch
 mklist_aplha:Alphabetesch
 mklist_disc:Scheif
@@ -488,7 +488,7 @@ polllist_view_results:Resultater kucken
 polllist_name:Numm vun der Ëmfro
 polllist_action:Aktioun
 userinfo_polls:Ëmfroen:
-show_pollist:Ëmfroe weisen
+show_pollist:Ëmfroen
 search_and:AN
 search_or:ODER
 saved:Gespäichert
@@ -540,7 +540,7 @@ tabs_notifications:Notifikatiounen
 finduser_flag:Fändel
 post_descr:Beschreiwung vum Thema:
 move_messages:Message réckelen
-copyright:Copyright &copy;2001-2018 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Copyright &copy;2001-2019<a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Code:
 code_select_all:Alles uwielen
 code_show_hide:Weisen / Verstoppen

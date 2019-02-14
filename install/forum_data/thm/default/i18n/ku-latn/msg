@@ -3,6 +3,7 @@
 # Author: Bikarhêner
 # Author: George Animal
 # Author: Ghybu
+# Author: Mirzali
 
 action:Xebat
 admin:Rêveber
@@ -97,6 +98,7 @@ pmsg_all:hemû
 pmsg_none:çêbû
 pmsg_replied:hate bersivandin
 pmsg_time:Dem
+# Fuzzy
 pmsg_selected:Hate bijartin
 pmsg_delete:Jê bibe
 inbox:Qutiya Hatîyan
@@ -204,6 +206,7 @@ remail_done:Çêbû
 mklist_type:Cure:
 mklist_option:Vebijêrk:
 mklist_delete:Jê bibe
+qbud_selected:Hilbijêre
 mklist_aplha:Alfa
 mklist_close:Bigre
 email_pg_title:E-name

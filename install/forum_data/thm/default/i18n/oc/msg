@@ -240,6 +240,7 @@ pmsg_forwarded:Retransmés
 pmsg_subject:Subjècte
 pmsg_author:Autor
 pmsg_time:Ora
+# Fuzzy
 pmsg_selected:Seleccionat
 pmsg_delete:Escafar
 cur_ppage_pm:Messatjariá privada
@@ -523,6 +524,7 @@ mklist_apply:Validar
 mklist_delete:Escafar
 qbud_nick_name:Escais
 qbud_add_selected:Apondre los elements seleccionats
+# Fuzzy
 qbud_selected:Seleccionat(s)
 qbud_no_buddies:Cap d'amic pas disponible dins la lista
 mklist_numerical:Numeric
@@ -898,6 +900,7 @@ polllist_votes:Total dels vòtes
 polllist_action:Accion
 polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">Agach los sondatges disponibles</a>
 userinfo_polls:Sondatges :
+# Fuzzy
 show_pollist:Veire los sondatges
 search_and:E
 search_or:O

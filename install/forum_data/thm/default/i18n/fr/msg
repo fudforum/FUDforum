@@ -254,7 +254,7 @@ pmsg_forwarded:Retransmis
 pmsg_subject:Sujet
 pmsg_author:Auteur
 pmsg_time:Heure
-pmsg_selected:Sélectionné
+pmsg_selected:Sélectionner
 pmsg_delete:Supprimer
 cur_ppage_pm:Messagerie privée
 writing_pm:Écrire un message privé
@@ -538,7 +538,7 @@ mklist_apply:Appliquer
 mklist_delete:Supprimer
 qbud_nick_name:Surnom
 qbud_add_selected:Ajouter les éléments sélectionnés
-qbud_selected:Sélectionné(s)
+qbud_selected:Sélectionner
 qbud_no_buddies:Pas d'ami disponible dans la liste
 mklist_numerical:Numérique
 mklist_aplha:Alfa
@@ -910,7 +910,7 @@ polllist_votes:Total des votes
 polllist_action:Action
 polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">Regarde les sondages disponibles</a>
 userinfo_polls:Sondages :
-show_pollist:Voir les sondages
+show_pollist:Sondages
 search_and:ET
 search_or:OU
 search_desc_order:Ordre décroissant
@@ -1129,7 +1129,7 @@ move_msg_th_expl:Précisez l'identifiant du sujet de destination (peut être sit
 captcha_img_alt:Vérification par Captcha : vous devez reconnaître le texte dans cette image.
 captcha_img_help:Il n'y a pas de zéro ou de un sur cette image.
 powered-by:Propulsé par : FUDforum {GVAR: FORUM_VERSION}.
-copyright:Copyright &copy;2001-2018 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Copyright &copy;2001-2019 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:CODE :
 code_select_all:Tout sélectionner
 code_show_hide:Afficher / masquer

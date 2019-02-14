@@ -242,6 +242,7 @@ pmsg_forwarded:reenviada
 pmsg_subject:Asunto
 pmsg_author:Autor
 pmsg_time:Hora
+# Fuzzy
 pmsg_selected:Seleccionada
 pmsg_delete:Borrar
 cur_ppage_pm:Mensaxes privadas
@@ -526,6 +527,7 @@ mklist_apply:Aplicar
 mklist_delete:Borrar
 qbud_nick_name:Alcume
 qbud_add_selected:Engadir a selección
+# Fuzzy
 qbud_selected:Seleccionado(s)
 qbud_no_buddies:Non hai amigos que elixir
 mklist_numerical:Numérica
@@ -898,6 +900,7 @@ polllist_votes:Total de votos
 polllist_action:Acción
 polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">Comprobando as enquisas dispoñibles</a>
 userinfo_polls:Enquisas:
+# Fuzzy
 show_pollist:Mostrar as enquisas
 search_and:E
 search_or:OU
@@ -1117,6 +1120,7 @@ move_msg_th_expl:Especifica o ID do fío de destino (pode ser noutro foro)
 captcha_img_alt:Verificación por Captcha: terás que recoñecer o texto que hai nesta imaxe.
 captcha_img_help:Non hai cero ou un na imaxe.
 powered-by:Desenvolvido por: FUDforum {GVAR: FORUM_VERSION}.
+# Fuzzy
 copyright:Copyright &copy;2001-2018 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Código:
 code_select_all:Seleccionar todo

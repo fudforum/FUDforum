@@ -243,6 +243,7 @@ pmsg_forwarded:пераслана
 pmsg_subject:Тэма
 pmsg_author:Аўтар
 pmsg_time:Час
+# Fuzzy
 pmsg_selected:Выбрана
 pmsg_delete:Выдаліць
 cur_ppage_pm:Прыватныя паведамленьні
@@ -527,6 +528,7 @@ mklist_apply:Ужыць
 mklist_delete:Выдаліць
 qbud_nick_name:Мянушка
 qbud_add_selected:Дадаць выбраных
+# Fuzzy
 qbud_selected:Выбрана
 qbud_no_buddies:Няма сяброў да выбару
 mklist_numerical:Нумараваны
@@ -899,6 +901,7 @@ polllist_votes:Усяго галасоў
 polllist_action:Дзеяньне
 polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">Прагляд даступных галасаваньняў</a>
 userinfo_polls:Апытаньні:
+# Fuzzy
 show_pollist:Паказаць галасаваньні
 search_and:І
 search_or:ЦІ
@@ -1118,6 +1121,7 @@ move_msg_th_expl:Пазначце ідэнтыфікатар мэтавай тэ
 captcha_img_alt:Праверка Captcha: Вам неабходна распазнаць тэкст на гэтай выяве.
 captcha_img_help:На выяве няма лічбаў 0 ці 1.
 powered-by:Падтрымліваецца з дапамогай FUDforum {GVAR: FORUM_VERSION}.
+# Fuzzy
 copyright:Аўтарскія правы &copy; 2001—2018 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Код:
 code_select_all:Выбраць усё

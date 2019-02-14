@@ -244,6 +244,7 @@ pmsg_forwarded:ඉදිරියට යැවූ
 pmsg_subject:මාතෘකාව
 pmsg_author:කර්තෘ
 pmsg_time:කාලය
+# Fuzzy
 pmsg_selected:තෝරාගත්
 pmsg_delete:මකන්න
 cur_ppage_pm:පුද්ගලික පණිවුඩකරණය
@@ -525,6 +526,7 @@ mklist_apply:යොමන්න
 mklist_delete:මකන්න
 qbud_nick_name:අපනාමය
 qbud_add_selected:තෝරගත්ත එක් කරන්න
+# Fuzzy
 qbud_selected:තෝරගත්
 qbud_no_buddies:තෝරාගැනීමට මිතුරෙකු නොමැත
 mklist_numerical:සංඛ්‍යාත්මක
@@ -901,6 +903,7 @@ polllist_votes:සමස්ත මනාපයන්
 polllist_action:ක්‍රියාව
 polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">නිරීක්ෂණ ලබා ගත හැකි ජන්ද විමසුම්</a>
 userinfo_polls:ඡන්ද විමසීම්:
+# Fuzzy
 show_pollist:ඡන්ද විමසීම් පෙන්වන්න
 search_and:සහ
 search_or:හෝ

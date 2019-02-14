@@ -239,6 +239,7 @@ pmsg_forwarded:víðarisent
 pmsg_subject:Evni
 pmsg_author:Høvundur
 pmsg_time:Tíð
+# Fuzzy
 pmsg_selected:Valt
 pmsg_delete:Sletta
 cur_ppage_pm:Privat boð
@@ -520,6 +521,7 @@ mklist_apply:Nýt
 mklist_delete:Sletta
 qbud_nick_name:Kelinavn
 qbud_add_selected:Legg afturat tað valda
+# Fuzzy
 qbud_selected:Valdu
 qbud_no_buddies:Ongir vinir at velja ímillum
 mklist_numerical:Í talformi
@@ -896,6 +898,7 @@ polllist_votes:Atkvøður tilsamans
 polllist_action:Handling
 polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">Hyggur ígjøgnum tøkar atkvøðugreiðslur</a>
 userinfo_polls:Atkvøðugreiðslur:
+# Fuzzy
 show_pollist:Vís atkvøðugreiðslur
 search_and:OG
 search_or:ELLA

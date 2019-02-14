@@ -244,6 +244,7 @@ pmsg_forwarded:továbbítva
 pmsg_subject:Tárgy
 pmsg_author:Szerző
 pmsg_time:Idő
+# Fuzzy
 pmsg_selected:Kiválasztott
 pmsg_delete:Törlés
 cur_ppage_pm:Privát üzenetek
@@ -528,6 +529,7 @@ mklist_apply:Alkalmazás
 mklist_delete:Törlés
 qbud_nick_name:Becenév
 qbud_add_selected:Kiválasztott hozzáadása
+# Fuzzy
 qbud_selected:Kiválasztott
 qbud_no_buddies:Nincsenek barátaid, akik közül választhatnál
 mklist_numerical:számozott
@@ -903,6 +905,7 @@ polllist_votes:Összes szavazat
 polllist_action:Művelet
 polllist_update:Az <a href="{TEMPLATE: polllist_update_lnk}">elérhető szavazásokat ellenőrzi</a>
 userinfo_polls:Szavazások:
+# Fuzzy
 show_pollist:Szavazások megjelenítése
 search_and:ÉS
 search_or:VAGY

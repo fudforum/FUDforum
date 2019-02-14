@@ -243,6 +243,7 @@ pmsg_forwarded:plusenditaj
 pmsg_subject:Temo
 pmsg_author:Aŭtoro
 pmsg_time:Tempo
+# Fuzzy
 pmsg_selected:Elektita
 pmsg_delete:Forigi
 cur_ppage_pm:Privata Mesaĝado
@@ -527,6 +528,7 @@ mklist_apply:Apliki
 mklist_delete:Forigi
 qbud_nick_name:Kromnomo
 qbud_add_selected:Aldoni Elektitan
+# Fuzzy
 qbud_selected:Elektita
 qbud_no_buddies:Neniuj amikoj por elekti de
 mklist_numerical:Cifera listo
@@ -904,6 +906,7 @@ polllist_votes:Tutaj Voĉdonoj
 polllist_action:Ago
 polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">Kontrolante Atingeblajn Opinisondojn</a>
 userinfo_polls:Opinisondoj:
+# Fuzzy
 show_pollist:Montri Opinisondojn
 search_and:KAJ
 search_or:AŬ

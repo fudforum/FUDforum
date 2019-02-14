@@ -247,6 +247,7 @@ pmsg_forwarded:転送済み
 pmsg_subject:件名
 pmsg_author:著者
 pmsg_time:時間
+# Fuzzy
 pmsg_selected:選択済み
 pmsg_delete:削除
 cur_ppage_pm:プライベートメッセージ
@@ -531,6 +532,7 @@ mklist_apply:適用
 mklist_delete:削除
 qbud_nick_name:ニックネーム
 qbud_add_selected:選択済みのものを追加
+# Fuzzy
 qbud_selected:選択済み
 qbud_no_buddies:選択できる友達はいません
 mklist_numerical:数字
@@ -903,6 +905,7 @@ polllist_votes:総投票数
 polllist_action:操作
 polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">有効な投票を確認中</a>
 userinfo_polls:投票一覧:
+# Fuzzy
 show_pollist:投票を表示
 search_and:論理積
 search_or:論理和
@@ -1122,6 +1125,7 @@ move_msg_th_expl:移動先トピックのIDを指定してください (他の�
 captcha_img_alt:CAPTCHA検証: この画像中の文字列を認識する必要があります。
 captcha_img_help:画像内には 0 も 1 もありません。
 powered-by:提供: FUDforum {GVAR: FORUM_VERSION}
+# Fuzzy
 copyright:Copyright &copy;2001-2018 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:コード:
 code_select_all:すべて選択

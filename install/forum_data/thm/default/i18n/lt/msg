@@ -246,6 +246,7 @@ pmsg_forwarded:persiųsta
 pmsg_subject:Tema
 pmsg_author:Autorius
 pmsg_time:Laikas
+# Fuzzy
 pmsg_selected:Pažymėti
 pmsg_delete:Naikinti
 cur_ppage_pm:Asmeninės žinutės
@@ -530,6 +531,7 @@ mklist_apply:Taikyti
 mklist_delete:Ištrinti
 qbud_nick_name:Nario vardas
 qbud_add_selected:Įdėti pažymėtus
+# Fuzzy
 qbud_selected:Pažymėti
 qbud_no_buddies:Nėra pasirinkta draugų
 mklist_numerical:Skaitmeninis
@@ -906,6 +908,7 @@ polllist_votes:Viso balsų
 polllist_action:Veiksmas
 polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">Peržiūrima Galimas Apklausas</a>
 userinfo_polls:Apklausos:
+# Fuzzy
 show_pollist:Apklausas
 search_and:IR
 search_or:ARBA

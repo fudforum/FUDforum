@@ -238,6 +238,7 @@ pmsg_forwarded:diterusake
 pmsg_subject:Subjek
 pmsg_author:Pangarang
 pmsg_time:Wektu
+# Fuzzy
 pmsg_selected:kapilih
 pmsg_delete:Busak
 cur_ppage_pm:Nawala Priangga
@@ -520,6 +521,7 @@ mklist_apply:aplikasi
 mklist_delete:Busak
 qbud_nick_name:Nick Sandi
 qbud_add_selected:Tambah Kapilih
+# Fuzzy
 qbud_selected:kapilih
 qbud_no_buddies:Ora konco kanggo milih saka
 mklist_numerical:angka
@@ -897,6 +899,7 @@ polllist_votes:Total Votes
 polllist_action:Laku
 polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">Reviewing Sedhiya Jajak Pendapat</a>
 userinfo_polls:Jajak Pendapat:
+# Fuzzy
 show_pollist:Tampilake Jajak Pendapat
 search_and:AND
 search_or:OR

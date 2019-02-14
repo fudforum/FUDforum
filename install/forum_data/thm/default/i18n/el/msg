@@ -220,6 +220,7 @@ pmsg_forwarded:προωθημένα
 pmsg_subject:Θέμα
 pmsg_author:Συγγραφέας
 pmsg_time:Ώρα
+# Fuzzy
 pmsg_selected:Επιλεγμένα
 pmsg_delete:Διαγραφή
 cur_ppage_pm:Προσωπικά Μηνύματα
@@ -439,6 +440,7 @@ mklist_apply:Εφαρμογή
 mklist_delete:Διαγραφή
 qbud_nick_name:Ψευδώνυμο
 qbud_add_selected:Πρόσθεση επιλεγμένων
+# Fuzzy
 qbud_selected:Επιλεγμένος
 mklist_numerical:Αριθμητικό
 mklist_aplha:άλφα
@@ -646,6 +648,7 @@ polllist_owner:Δημιουργήθηκε από
 polllist_votes:Συνολικές ψήφοι
 polllist_action:Ενέργεια
 userinfo_polls:Δημοσκοπήσεις:
+# Fuzzy
 show_pollist:Εμφάνιση ψηφοφοριών
 search_and:Και
 search_or:ή

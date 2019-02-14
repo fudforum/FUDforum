@@ -70,6 +70,7 @@ pmsg_replied:جواو دئیه
 pmsg_forwarded:ری وه نها
 pmsg_author:نيسنه
 pmsg_time:وخت
+# Fuzzy
 pmsg_selected:انتخاو بیه
 pmsg_delete:پاك كردن
 cur_ppage_pm:هوال خصوصی
@@ -207,6 +208,7 @@ mklist_option:گزينه يا هنی:
 mklist_additem:یه قلم اضاف بکید
 mklist_apply:وه کار بردن
 mklist_delete:پاك كردن
+# Fuzzy
 qbud_selected:انتخاو بیه
 mklist_numerical:عددی
 mklist_aplha:آلفا

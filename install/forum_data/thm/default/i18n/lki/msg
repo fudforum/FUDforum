@@ -238,6 +238,7 @@ pmsg_forwarded:فوروارد‌شده
 pmsg_subject:عنوان
 pmsg_author:نویسنده
 pmsg_time:وةخت
+# Fuzzy
 pmsg_selected:انتخاب‌ بیة
 pmsg_delete:حۀذف کردن/پاک کردن
 cur_ppage_pm:پیغام‌خصوصی

@@ -234,6 +234,7 @@ pmsg_forwarded:dalejpósrědnjony
 pmsg_subject:Tema
 pmsg_author:Awtor
 pmsg_time:Cas
+# Fuzzy
 pmsg_selected:Wubrany
 pmsg_delete:Wulašowaś
 cur_ppage_pm:Priwatne powěsći
@@ -499,6 +500,7 @@ mklist_apply:Nałožyś
 mklist_delete:Wulašowaś
 qbud_nick_name:Pśimě
 qbud_add_selected:Wubrane pśidaś
+# Fuzzy
 qbud_selected:Wubrany
 mklist_numerical:Numeriski
 mklist_aplha:Alfa
@@ -751,6 +753,7 @@ polllist_owner:Napórany wót
 polllist_votes:Głose dogromady
 polllist_action:Akcija
 userinfo_polls:Wótglosowanja:
+# Fuzzy
 show_pollist:Wótgłosowanja pokazaś
 search_and:A
 search_or:ABO

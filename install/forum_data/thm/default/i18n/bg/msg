@@ -234,6 +234,7 @@ pmsg_forwarded:препратено
 pmsg_subject:Заглавие
 pmsg_author:Автор
 pmsg_time:Време
+# Fuzzy
 pmsg_selected:Избрано
 pmsg_delete:Изтриване
 cur_ppage_pm:Лична поща
@@ -512,7 +513,7 @@ mklist_apply:Промени
 mklist_delete:Изтриване
 qbud_nick_name:Псевдоним
 qbud_add_selected:Добави избраните
-qbud_selected:Избрано
+qbud_selected:Избери
 qbud_no_buddies:Няма кой да избереш
 mklist_numerical:Номериране - цифри
 mklist_aplha:Номериране - букви
@@ -878,6 +879,7 @@ polllist_votes:Общо гласове
 polllist_action:Действие
 polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">Преглеждане на налични гласувания</a>
 userinfo_polls:Гласувания:
+# Fuzzy
 show_pollist:Покажи гласувания
 search_and:И
 search_or:ИЛИ

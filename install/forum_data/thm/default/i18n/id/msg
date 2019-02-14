@@ -256,6 +256,7 @@ pmsg_forwarded:diteruskan
 pmsg_subject:Subyek
 pmsg_author:Penulis
 pmsg_time:Waktu
+# Fuzzy
 pmsg_selected:Dipilih
 pmsg_delete:Hapus
 cur_ppage_pm:Pesan pribadi
@@ -540,6 +541,7 @@ mklist_apply:Terapkan
 mklist_delete:Hapus
 qbud_nick_name:Nama
 qbud_add_selected:Tambah yang terpilih
+# Fuzzy
 qbud_selected:Terpilih
 qbud_no_buddies:Tidak ada teman yang bisa dipilih
 mklist_numerical:Numerik
@@ -914,6 +916,7 @@ polllist_votes:Total suara
 polllist_action:Tindakan
 polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">melihat poling yang ada</a>
 userinfo_polls:Poling:
+# Fuzzy
 show_pollist:Tampilkan angket
 search_and:DAN
 search_or:ATAU

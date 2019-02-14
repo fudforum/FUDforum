@@ -242,6 +242,7 @@ pmsg_forwarded:đã chuyển đi
 pmsg_subject:Tựa đề
 pmsg_author:Tác Giả
 pmsg_time:Thời gian
+# Fuzzy
 pmsg_selected:Đã Chọn
 pmsg_delete:Xóa
 cur_ppage_pm:Tin nhắn cá nhân
@@ -521,6 +522,7 @@ mklist_apply:Áp dụng
 mklist_delete:Xóa
 qbud_nick_name:Bí danh
 qbud_add_selected:Thêm các mục đã chọn
+# Fuzzy
 qbud_selected:Được chọn
 qbud_no_buddies:Không có bạn được chọn từ
 mklist_numerical:Số
@@ -880,6 +882,7 @@ polllist_votes:Tổng số phiếu
 polllist_action:Hành động
 polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">Xem những phiếu hiện có</a>
 userinfo_polls:Bảng khảo sát:
+# Fuzzy
 show_pollist:Xem bảng khảo sát
 search_and:VÀ
 search_or:HOẶC
@@ -1057,6 +1060,7 @@ move_msg_btn:Chuyển (các) bài đăng đã chọn
 captcha_img_alt:Xác nhận Captcha: bạn cần nhận dạng các kí tự trong hình này.
 captcha_img_help:Trong hình không có số 0 (không) hoặc 1 (một).
 powered-by:Diễn đàn này sử dụng FUDforum {GVAR: FORUM_VERSION}.
+# Fuzzy
 copyright:Bản quyền &copy;2001-2018 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_select_all:Chọn tất cả
 code_show_hide:Hiện/ẩn

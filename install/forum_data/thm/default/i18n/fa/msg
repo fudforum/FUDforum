@@ -247,6 +247,7 @@ pmsg_forwarded:فوروارد‌شده
 pmsg_subject:موضوع
 pmsg_author:نویسنده
 pmsg_time:زمان
+# Fuzzy
 pmsg_selected:انتخاب‌
 pmsg_delete:حذف
 cur_ppage_pm:پیام‌خصوصی
@@ -531,6 +532,7 @@ mklist_apply:اعمال
 mklist_delete:حذف
 qbud_nick_name:نام مستعار
 qbud_add_selected:افزودن انتخاب‌شده
+# Fuzzy
 qbud_selected:انتخاب‌شده
 qbud_no_buddies:هیچ دوستی برای انتخاب کردن وجود ندارد
 mklist_numerical:عددی
@@ -907,6 +909,7 @@ polllist_votes:مجموع آرا
 polllist_action:اقدامات
 polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">مشاهده نظرسنجی‌های موجود</a>
 userinfo_polls:نظرسنجی‌ها:
+# Fuzzy
 show_pollist:نظرسنجی‌ها
 search_and:و
 search_or:یا

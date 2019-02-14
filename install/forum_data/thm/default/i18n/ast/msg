@@ -238,6 +238,7 @@ pmsg_forwarded:re-unviáu
 pmsg_subject:Asuntu
 pmsg_author:Autor
 pmsg_time:Hora
+# Fuzzy
 pmsg_selected:Seleicionáu
 pmsg_delete:Desaniciar
 cur_ppage_pm:Mensaxería privada
@@ -522,6 +523,7 @@ mklist_apply:Aplicar
 mklist_delete:Desaniciar
 qbud_nick_name:Alcuñu
 qbud_add_selected:Amestar seleicionáu
+# Fuzzy
 qbud_selected:Seleicionáu
 qbud_no_buddies:Nun hai collacios pa escoyer
 mklist_numerical:Numbérica
@@ -894,6 +896,7 @@ polllist_votes:Total de votos
 polllist_action:Aición
 polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">Revisando les encuestes disponibles</a>
 userinfo_polls:Encuestes:
+# Fuzzy
 show_pollist:Amosar encuestes
 search_and:ⴷ
 search_or:O
@@ -1113,6 +1116,7 @@ move_msg_th_expl:Especifica la ID del filu de destín (pue tar n'otros foros)
 captcha_img_alt:Comprobación por Captcha: tendrás que reconocer el testu d'esta imaxe.
 captcha_img_help:Nun hai dengún cero o unu na imaxe.
 powered-by:Movíu por: FUDforum {GVAR: FORUM_VERSION}.
+# Fuzzy
 copyright:Copyright &copy;2001-2018 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Códigu:
 code_select_all:Seleccionar too

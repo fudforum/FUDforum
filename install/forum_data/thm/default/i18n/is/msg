@@ -242,6 +242,7 @@ pmsg_forwarded:áframsent
 pmsg_subject:Efni
 pmsg_author:Höfundur
 pmsg_time:Tími
+# Fuzzy
 pmsg_selected:Valið
 pmsg_delete:Eyða
 cur_ppage_pm:Einkaskilaboð
@@ -526,6 +527,7 @@ mklist_apply:Virkja
 mklist_delete:Eyða
 qbud_nick_name:Stuttnefni
 qbud_add_selected:Bæta við völdu
+# Fuzzy
 qbud_selected:Valið
 qbud_no_buddies:Engir félagar til að velja
 mklist_numerical:töluröð
@@ -898,6 +900,7 @@ polllist_votes:Heildarfjöldi atkvæða
 polllist_action:Aðgerð
 polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">Yfirfara aðgengilegar skoðanakannanir</a>
 userinfo_polls:Kannanir:
+# Fuzzy
 show_pollist:Sýna kannanir
 search_and:OG
 search_or:EÐA
@@ -1117,6 +1120,7 @@ move_msg_th_expl:Tilgreindu auðkenni þráðarinns sem á að færa á (má ver
 captcha_img_alt:Captcha staðfesting: Þú þarft að bera kennsl á textann á þessari mynd.
 captcha_img_help:Það er ekki núll eða einn á myndinni.
 powered-by:Knúið af: FUDforum {GVAR: FORUM_VERSION}.
+# Fuzzy
 copyright:Höfundarréttur &copy;2001-2018 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Kóði:
 code_select_all:Velja allt

@@ -232,6 +232,7 @@ pmsg_forwarded:жооп башкага жолдонгон
 pmsg_subject:Тема
 pmsg_author:Автор
 pmsg_time:Убакыт
+# Fuzzy
 pmsg_selected:Тандалды
 pmsg_delete:Өчүрүү
 cur_ppage_pm:Жеке билдирүү
@@ -490,6 +491,7 @@ mklist_apply:Кабыл алуу
 mklist_delete:Өчүрүү
 qbud_nick_name:Кайман аты
 qbud_add_selected:Өзгөчөлөрдү кошуу
+# Fuzzy
 qbud_selected:Тандалды
 qbud_no_buddies:Тандалгандар тизмесинде эч ким жок
 mklist_numerical:Сандык

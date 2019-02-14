@@ -246,6 +246,7 @@ pmsg_forwarded:прослеђено
 pmsg_subject:Тема
 pmsg_author:Аутор
 pmsg_time:Време
+# Fuzzy
 pmsg_selected:Изабрано
 pmsg_delete:Избриши
 cur_ppage_pm:Приватне поруке
@@ -530,6 +531,7 @@ mklist_apply:Примени
 mklist_delete:Избриши
 qbud_nick_name:Надимак
 qbud_add_selected:Додај изабрано
+# Fuzzy
 qbud_selected:Изабрано
 qbud_no_buddies:Нема пријатеља
 mklist_numerical:нумерички
@@ -902,6 +904,7 @@ polllist_votes:Укупно гласова
 polllist_action:Радња
 polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">Прегледање доступних анкета</a>
 userinfo_polls:Анкете:
+# Fuzzy
 show_pollist:Анкете
 search_and:И
 search_or:ИЛИ
@@ -1121,6 +1124,7 @@ move_msg_th_expl:Наведите ИБ одредишне теме (може б�
 captcha_img_alt:Потврдна слика: мораћете да препознате текст на овој слици.
 captcha_img_help:Не постоји нула или јединица на слици.
 powered-by:Покреће FUDforum {GVAR: FORUM_VERSION}. Превод: Rancher
+# Fuzzy
 copyright:Ауторска права &copy;2001–2018 <a href="http://fudforum.org/">FUDforum Bulletin Board</a>
 code_title:Код:
 code_select_all:Изабери све

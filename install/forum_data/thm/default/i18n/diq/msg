@@ -205,7 +205,7 @@ pmsg_forwarded:Hetikerdo
 pmsg_subject:Mewzu
 pmsg_author:Rıştener
 pmsg_time:Wext
-pmsg_selected:Weçinıte
+pmsg_selected:Weçine
 pmsg_delete:Bestere
 cur_ppage_pm:Mesacê Xısusiy
 writing_pm:Xususi Mesac Bınusne
@@ -217,8 +217,8 @@ trash:Sılo
 msg_author:Nuskar
 avatar_sel_form:Weçine Formê Avatari
 month_1:Çele
-month_2:Zemherı
-month_3:Mert
+month_2:Gucige
+month_3:Adar
 month_4:Nisane
 month_5:Gulane
 month_6:Heziran
@@ -359,11 +359,11 @@ coppa_after:{TEMPLATE: coppa_date} dıma
 prereg_info:Zanışek
 prereg_agree:Qebul kena
 prereg_disagree:Qebul nêkena
-prereg_update:Qaidanê forumi bıwanê
+prereg_update:Qeydeyanê forumi bıwane
 coppa_fax_instructions:Wecifey wasiya  yana kufleti.
 coppa_fax_telephone:Telefun:
 coppa_fax_email:Adresa E-postey:
-coppa_fax_date:Dem:
+coppa_fax_date:Tarix:
 coppa_fax_login:Cıkewtış
 coppa_fax_passwd:Parola
 coppa_fax_remail:E-posta
@@ -389,7 +389,7 @@ search_all_forums:Foruman pêron dı cı geyr
 search_in_forum:Cı geyrayıyaye Forum:
 search_forum_search:Forum dı cı geyrı
 remail_your_name:Nameyê Şıma:
-remail_your_email:E-postê Şıma:
+remail_your_email:E-posteyê şıma:
 remail_friends_name:Namey Embazi:
 remail_friends_email:E Mailê Embaz dê Şıma:
 remail_required:lazım
@@ -403,7 +403,7 @@ mklist_apply:Dezge ke
 mklist_delete:Bestere
 qbud_nick_name:Leqeb
 qbud_add_selected:Weçinayiyan cı ke
-qbud_selected:Weçinayeyi
+qbud_selected:Weçine
 mklist_numerical:Amarki
 mklist_aplha:Alfa
 mklist_square:Qare
@@ -485,7 +485,7 @@ permission_denied_title:Destur red kerd!
 p_READ:Bıwane
 p_POST:Bırışe
 p_REPLY:Cewab bıde
-p_EDIT:Bıvırne
+p_EDIT:Bıvurne
 p_DEL:Bestere
 p_STICKY:Mesacê dışkiyayıni
 p_POLL:Anket Vırazê
@@ -545,12 +545,12 @@ im_twitter:Twitter:
 forum_contact:İrtıbat
 forum_home:Keye
 p_VISIBLE:Aseno
-poll_edit:Bıvırne
+poll_edit:Bıvurne
 polllist_name:Namey Anketi
 polllist_votes:Heme Reyi
 polllist_action:Kerdış
 userinfo_polls:Reydayış
-show_pollist:Anketan bıvine
+show_pollist:Anketi
 search_and:U
 search_or:YA Zİ
 search_attach:Gaçık:
@@ -639,7 +639,7 @@ login_min_time:{VAR: MIN_TIME_BETWEEN_LOGIN} saniyeyan miyan de şıma şenê c�
 post_not_logged_in:Şıam cıqewtış nê kerdo, Mesacê şıma do bêname şıro.
 post_common_bold:Qalın
 post_common_italics:İtalik
-post_common_underline:Bınê cı xızine
+post_common_underline:Bınxetın
 post_common_align_left:Hizada çep fi
 post_common_align_center:Miyan fi
 post_common_align_right:Hizada Raşt fi
@@ -668,8 +668,7 @@ move_msg_th_expl:IDa hedef cay nışan kerê (belki foruman dê binana deya)
 captcha_img_alt:Captcha Arıstekerdış: Asayış de metnê şınasnayışi icab keno.
 captcha_img_help:Asengi miyan dı sıfır yana yew tede esto.
 powered-by:Destegdaren: FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:Heqa telifi &copy;2001-2017 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Heqa telifi &copy;2001-2019 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Kod:
 code_select_all:Pêrıne weçine
 code_show_hide:Bımocne/ bınımne
@@ -684,7 +683,7 @@ btn_flat_view:Asayışo duz
 btn_about:Profile
 btn_small_pm:MX
 btn_delete:bestere
-btn_edit:Bıvırne
+btn_edit:bıvurne
 btn_reply:Cewab bıde
 btn_forward:raver
 btn_quote:vate

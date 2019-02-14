@@ -247,6 +247,7 @@ pmsg_forwarded:välitetty
 pmsg_subject:Otsikko
 pmsg_author:Lähettäjä
 pmsg_time:Aika
+# Fuzzy
 pmsg_selected:Valittu
 pmsg_delete:Poista
 cur_ppage_pm:Yksityisviestit
@@ -532,6 +533,7 @@ mklist_apply:Käytä
 mklist_delete:Poista
 qbud_nick_name:Nimi
 qbud_add_selected:Lisää valitut
+# Fuzzy
 qbud_selected:Valitut
 qbud_no_buddies:Ei kavereita, joista valita
 mklist_numerical:Numerot
@@ -905,6 +907,7 @@ polllist_votes:Ääniä yhteensä
 polllist_action:Toiminnot
 polllist_update:Selaa <a href="{TEMPLATE: polllist_update_lnk}">galluppeja</a>
 userinfo_polls:Gallupit:
+# Fuzzy
 show_pollist:Gallupit
 search_and:JA
 search_or:TAI
@@ -1127,6 +1130,7 @@ move_msg_th_expl:Ilmoita kohdeaiheen tunnistenumero (voi olla toisella foorumill
 captcha_img_alt:Captcha-varmistus: Sinun täytyy tunnistaa teksti tästä kuvasta.
 captcha_img_help:Kuvassa ei ole nollaa tai ykköstä.
 powered-by:Palvelun mahdollistaa: FUDforum {GVAR: FORUM_VERSION}.
+# Fuzzy
 copyright:Copyright &copy;2001–2018 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Koodi:
 code_select_all:Valitse kaikki

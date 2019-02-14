@@ -115,14 +115,14 @@ occupation:Beroep:
 off:Af
 on:Aan
 page_timings:Totale tyd vir bou van die bladsy: {PLURAL: page_gen_time|$1 sekondes}
-pm:Privaat boodskappe
+pm:Privaatboodskappe
 poll:Stemming:
 post_count:Aantal boodskappe {VAR: u_pcount}
 post_count_l:Aantal boodskappe:
 posts:Boodskappe
 posts_c:Boodskappe:
 prev_thread:Vorige onderwerp:
-usrinfo_private_message:Privaat boodskap:
+usrinfo_private_message:Privaatboodskap:
 profile:Profiel
 profile_desc:Toegang na voorkeure en ander beheeropsies
 rate_thread:Beoordeel onderwerp
@@ -237,11 +237,11 @@ pmsg_forwarded:aangestuur
 pmsg_subject:Onderwerp
 pmsg_author:Outeur
 pmsg_time:Tyd
-pmsg_selected:Gekies
+pmsg_selected:Kies
 pmsg_delete:Skrap
-cur_ppage_pm:Privaat boodskap
-writing_pm:Skryf nuwe privaat boodskap
-browsing_folder:wys vouer <b>{VAR: folders[$folder_id]}</b>
+cur_ppage_pm:Privaatboodskappe
+writing_pm:Skryf nuwe privaatboodskap
+browsing_folder:Wys vouer <b>{VAR: folders[$folder_id]}</b>
 inbox:Inboks
 draft:Kladwerk
 sent:Gestuur
@@ -521,7 +521,7 @@ mklist_apply:Pas toe
 mklist_delete:Skrap
 qbud_nick_name:Bynaam
 qbud_add_selected:Voeg gekose by
-qbud_selected:Gekies
+qbud_selected:Kies
 qbud_no_buddies:Geen vriende om uit te kies nie
 mklist_numerical:Numeries
 mklist_aplha:Alfa
@@ -570,7 +570,7 @@ tabs_bookmarkes:Boekmerke
 tabs_referrals:Verwysings
 tabs_buddy_list:Vriendelys
 tabs_ignore_list:Ignoreerlys
-tabs_private_messaging:Privaat boodskappe
+tabs_private_messaging:Privaatboodskappe
 single_msg_delete:U is op die punt om boodskap <b>{VAR: data[3]}</b> te <span class="ErrorText">verwyder</span>
 thread_delete:U is op die punt om <span class="ErrorText">die hele onderwerp</span> <b>{VAR: data[3]}</b> te <span class="ErrorText">verwyder</span>
 delete_proceed:<font size="3"><b>Wil u hiermee voortgaan?</b></font>
@@ -795,7 +795,7 @@ post_quote_selected:Haal geselekteerde teks aan
 userinfo_referals:Verwysde lede:
 userinfo_referals_count:{VAR: referals} lede
 pm_no_space_title:Geen spasie oor nie!
-pm_no_space_msg:U privaat boodskap oorskry die <b>{GVAR: MAX_PMSG_FLDR_SIZE} grepe</b> wat aan u toegeken is. U boodskappe neem op die oomblik <b>{VAR: fldr_size} grepe</b> op.<br /><br /><font class="ErrorText">Verwyder assblief van ouer boodskappe voor u nuwes plaas.</font>.
+pm_no_space_msg:U privaatboodskap oorskry die <b>{GVAR: MAX_PMSG_FLDR_SIZE} grepe</b> wat aan u toegeken is. U boodskappe neem op die oomblik <b>{VAR: fldr_size} grepe</b> op.<br /><br /><font class="ErrorText">Verwyder asseblief van die ouer boodskappe om spasie beskikbaar te maak.</font>.
 pm_space_indct_msg:U gebruik tans {VAR: percent_full}% van die spasie wat vir u privaatboodskappe toegeken is.
 th_expr_never:Nooit
 th_expr_one_hr:1 uur
@@ -823,7 +823,7 @@ register_show_avatar:Wys Avatars:
 register_show_avatar_desc:Laat u toe om avatars van ander gebruikers te verberg as u na hulle boodskappe kyk.
 drawmsg_view_rest_post:Wys die res van die boodskap
 post_re:Re:
-forumsel_goto_forum:Gaan na forum
+forumsel_goto_forum:Gaan na forum:
 minimsg_thread_view:Besigtig onderwerp
 split_th_post_by:Gepos deur:
 split_th_posted_on:Gepos op:
@@ -893,7 +893,7 @@ polllist_votes:Totale aantal stemme
 polllist_action:Aksie
 polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">Wys beskikbare stemmings</a>
 userinfo_polls:Stemmings:
-show_pollist:Wys stemmings
+show_pollist:Stemmings
 search_and:EN
 search_or:OF
 search_desc_order:dalende volgorde
@@ -983,10 +983,10 @@ mnav_week:Week(e)
 mnav_month:Maand(e)
 mnav_title:Navigasie
 mnav_update:Blaai deur boodskappe met <a href="{TEMPLATE: mnav_update_lnk}">Boodskapnavigator</a>
-pm_notify_subject:[{GVAR: FORUM_TITLE}]: Kennisgewing van nuwe privaat boodskap
+pm_notify_subject:[{GVAR: FORUM_TITLE}]: Kennisgewing van nuwe privaatboodskap
 pm_notify_body_email:U het 'n nuwe privaatboodskap met onderwerp "{VAR: subject}" van "{VAR: from}" in forum "{GVAR: FORUM_TITLE}".\nKliek hier om die boodskap te lees: {FULL_ROOT}?t=pmsg_view&id={VAR: pid}\n\nIndien u nie meer kennisgewings soos hierdie wil ontvang nie, kan u "Kennisgewings vir privaatboodskappe" in u profiel afskakel.
 register_pm_notification:Kennisgewings vir privaatboodskappe:
-register_pm_notification_desc:Indien aangeskakel sal u kennisgewings van privaat boodskappe ontvang via u voorkeer kennisgewingsmetode.
+register_pm_notification_desc:Indien aangeskakel sal u in kennis gestel word van nuwe privaatboodskappe.
 findu_admin_opts_header:Administrasie:
 findu_unban:Ontban
 findu_ban:Verban
@@ -1030,7 +1030,7 @@ post_err_mod_forum_edit_ttl:FOUT
 post_err_mod_forum_edit_msg:U mag nie boodskappe in 'n gemodereerde forum wysig nie.
 dmsg_num:boodskap #{VAR: obj->id}
 postcheck_session_invalid:U sessie het verval, pos asseblief weer die inligting. Jammer vir die ongerief.
-delete_message_extra_desc:<b>Opsioneel</b><br />Verskaf die rede hoekom die boodskap verwyder word. Die rede sal aan die outeur d.m.v. 'n privaat boodskap gestuur word.
+delete_message_extra_desc:<b>Opsioneel</b><br />Verskaf die rede hoekom die boodskap verwyder word. Die rede sal aan die outeur d.m.v. 'n privaatboodskap gestuur word.
 delete_message_extra_body:Sluit die geskrapte boodskap in by die boodskap wat aan die outeur gestuur gaan word.
 delete_msg_removed_ttl:Die administrateurs het u boodskap verwyder.
 delete_msg_pm_body:Oorspronklike boodskap
@@ -1039,7 +1039,7 @@ ip_no_whois:WHOIS-inligting vir die IP-adres <b>{VAR: ip}</b> is nie beskikbaar 
 ip_whois_title:ISP Inligting
 register_theme:Tema:
 pmsg_trash:Maak asblik leeg
-uc_new_pm:Nuwe privaat boodskappe
+uc_new_pm:Nuwe privaatboodskappe
 uc_new_topic:Nuwe onderwerp
 uc_new_cat_forum:Ingetekende forums met nuwe boodskappe
 uc_cat_forum:Kategorie &raquo; Forum
@@ -1112,7 +1112,7 @@ move_msg_th_expl:Spesifiseer die ID van die destinasie onderwerp (kan in 'n ande
 captcha_img_alt:Captcha-verifikasie: u moet die teks in die beeld herken.
 captcha_img_help:Daar is nie 'n nul of 'n een in die beeld nie.
 powered-by:Aangedryf deur: FUDforum {GVAR: FORUM_VERSION}.
-copyright:Kopiereg &copy;2001-2018 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Kopiereg &copy;2001-2019 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:KODE:
 code_select_all:Kies alles
 code_show_hide:Wys/ versteek

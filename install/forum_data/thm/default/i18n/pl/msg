@@ -248,6 +248,7 @@ pmsg_forwarded:przesłana
 pmsg_subject:Temat
 pmsg_author:Autor
 pmsg_time:Data
+# Fuzzy
 pmsg_selected:Wybrane
 pmsg_delete:Usuń
 cur_ppage_pm:Wiadomości prywatne
@@ -532,6 +533,7 @@ mklist_apply:Zatwierdź
 mklist_delete:Usuń
 qbud_nick_name:Pseudonim
 qbud_add_selected:Dodaj wybrany
+# Fuzzy
 qbud_selected:Wybrany
 qbud_no_buddies:Brak znajomych do wyboru
 mklist_numerical:Numeryczny
@@ -904,6 +906,7 @@ polllist_votes:Liczba głosów
 polllist_action:Akcja
 polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">Przeglądanie dostępnych ankiet</a>
 userinfo_polls:Ankiety:
+# Fuzzy
 show_pollist:Pokaż ankiety
 search_and:Logiczne I (koniunkcja)
 search_or:Logiczne LUB (alternatywa)
@@ -1123,6 +1126,7 @@ move_msg_th_expl:Określ ID tematu docelowego (może znajdować się w innym for
 captcha_img_alt:Weryfikacja captcha – musisz odczytać tekst z obrazka.
 captcha_img_help:Na zdjęciu nie występuje zero i jedynka.
 powered-by:Korzysta z oprogramowania FUDforum {GVAR: FORUM_VERSION}.
+# Fuzzy
 copyright:Copyright &copy;2001-2018 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:KOD
 code_select_all:Wybierz wszystko

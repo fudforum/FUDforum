@@ -241,6 +241,7 @@ pmsg_forwarded:wytergleitet
 pmsg_subject:Beträff
 pmsg_author:Verfasser
 pmsg_time:Zyt
+# Fuzzy
 pmsg_selected:Uusgwehlt
 pmsg_delete:Lesche
 cur_ppage_pm:Privati Nochrichte
@@ -525,6 +526,7 @@ mklist_apply:Aawände
 mklist_delete:Lesche
 qbud_nick_name:Spitzname
 qbud_add_selected:Markierti zuefiege
+# Fuzzy
 qbud_selected:Markiert
 qbud_no_buddies:Kei Frynd zur Uuswahl
 mklist_numerical:Nummeriert
@@ -900,6 +902,7 @@ polllist_votes:Stimme insgsamt
 polllist_action:Aktion
 polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">Verfiegbari Abstimmige bschaue</a>
 userinfo_polls:Abstimmige:
+# Fuzzy
 show_pollist:Abstimmige aazeige
 search_and:UN
 search_or:ODER

@@ -4,6 +4,7 @@
 # Author: Krish Dulal
 # Author: NehalDaveND
 # Author: RajeshPandey
+# Author: पर्वत सुबेदी
 # Author: राम प्रसाद जोशी
 # Author: सरोज कुमार ढकाल
 
@@ -67,7 +68,7 @@ locked_with_new_posts:प्रतिबन्धित (पढे/ नपढे
 logged_in_list:प्रवेश गरिएको प्रयोगकर्ता सूची
 login:प्रवेश गर्ने
 login_header:प्रवेश:
-logout:निर्गमन (लग आउट)
+logout:निर्गमन
 mark_all_read:सबै सन्देशहरुलाई पठित भनी दाग दिने
 mark_all_read_desc:तपाईका सबै सन्देशहरुलाई पठित भनी दाग दिइनेछ
 members:सदस्यहरू
@@ -176,6 +177,7 @@ pmsg_forwarded:अग्रसारित गरियो
 pmsg_subject:विषय
 pmsg_author:लेखक
 pmsg_time:समय
+# Fuzzy
 pmsg_selected:चुनिएको
 pmsg_delete:मेट्ने
 cur_ppage_pm:व्यक्तिगत सन्देश प्रणाली
@@ -275,7 +277,7 @@ post_size:आकार
 post_color:रङ्ग
 post_font:फन्ट
 create_thread:विषय सिर्जना गर्ने
-post_logout:निर्गमन (लग आउट)
+post_logout:निर्गमन
 post_poll:जनमत:
 post_poll_delete:मेटाउने
 post_poll_edit:सम्पादन
@@ -345,3 +347,4 @@ split_th_forum:फोरम:
 split_th_split_sel:छानिएका सन्देशहरू छुट्याउने
 split_th_split_unsel:नछानिएका सन्देशहरू छुट्याउने
 ip_search:खोज
+mmd_abort_move:रद्द

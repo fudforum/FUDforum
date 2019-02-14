@@ -251,6 +251,7 @@ pmsg_forwarded:перенаправлено
 pmsg_subject:Тема
 pmsg_author:Автор
 pmsg_time:Час
+# Fuzzy
 pmsg_selected:Обраний
 pmsg_delete:Видалити
 cur_ppage_pm:Приватні повідомлення
@@ -535,6 +536,7 @@ mklist_apply:Застосовувати
 mklist_delete:Видалити
 qbud_nick_name:Псевдонім
 qbud_add_selected:Додати вибрані
+# Fuzzy
 qbud_selected:Обрано
 qbud_no_buddies:Немає друзів в вписку для вибору
 mklist_numerical:Номерований - Цифри
@@ -907,6 +909,7 @@ polllist_votes:Всього проголосувало
 polllist_action:Дія
 polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">Перегляд доступних опитувань</a>
 userinfo_polls:Опитування:
+# Fuzzy
 show_pollist:Показати Опитування
 search_and:А ТАКОЖ
 search_or:АБО
@@ -1126,6 +1129,7 @@ move_msg_th_expl:Вкажіть ідентифікатор (ID) теми рец�
 captcha_img_alt:Перевірка на те що ви людина: вам необхідно ввести розпізнаний текст на зображенні.
 captcha_img_help:На зображенні відсутні нулі (0) та одиниці (1).
 powered-by:Розробка: FUDforum {GVAR: FORUM_VERSION}.
+# Fuzzy
 copyright:Авторські права &copy;2001-2018 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Код:
 code_select_all:Виділити всі

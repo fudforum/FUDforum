@@ -12,6 +12,7 @@
 # Author: Luke081515
 # Author: McDutchie
 # Author: Metalhead64
+# Author: Mirzali
 # Author: Pill
 # Author: Predatorix
 # Author: The Evil IP address
@@ -251,7 +252,7 @@ pmsg_forwarded:weitergeleitet
 pmsg_subject:Betreff
 pmsg_author:Verfasser
 pmsg_time:Zeit
-pmsg_selected:Ausgewählt
+pmsg_selected:Auswählen
 pmsg_delete:Löschen
 cur_ppage_pm:Private Nachrichten
 writing_pm:Eine private Nachricht schreiben
@@ -535,7 +536,7 @@ mklist_apply:Anwenden
 mklist_delete:Löschen
 qbud_nick_name:Spitzname
 qbud_add_selected:Markierte hinzufügen
-qbud_selected:Markiert
+qbud_selected:Auswählen
 qbud_no_buddies:Keine Buddies zur Auswahl
 mklist_numerical:Nummeriert
 mklist_aplha:Alphabetisch
@@ -907,7 +908,7 @@ polllist_votes:Stimmen Insgesamt
 polllist_action:Aktion
 polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">Verfügbare Abstimmungen betrachten</a>
 userinfo_polls:Abstimmungen:
-show_pollist:Abstimmungen anzeigen
+show_pollist:Umfragen
 search_and:UND
 search_or:ODER
 search_desc_order:Absteigende Sortierung
@@ -1126,7 +1127,7 @@ move_msg_th_expl:Gib die ID des Zielthemas an (kann in einem anderem Forum sein)
 captcha_img_alt:CAPTCHA-Bestätigung: Du musst den Text in diesem Bild erkennen.
 captcha_img_help:Das Bild enthält keine Null oder Eins.
 powered-by:Betrieben mit: FUDforum {GVAR: FORUM_VERSION}.
-copyright:Copyright &copy;2001–2018 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Copyright &copy;2001–2019 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Code:
 code_select_all:alles markieren
 code_show_hide:anzeigen/verstecken

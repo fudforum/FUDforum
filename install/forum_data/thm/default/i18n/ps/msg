@@ -109,6 +109,7 @@ pmsg_none:هېڅ
 pmsg_replied:ځواب شو
 pmsg_author:ليکوال
 pmsg_time:وخت
+# Fuzzy
 pmsg_selected:ټاکلی
 pmsg_delete:ړنگول
 inbox:ليکبکس
@@ -237,6 +238,7 @@ mklist_option:خوښنې:
 mklist_delete:ړنگول
 qbud_nick_name:کورنی نوم
 qbud_add_selected:ټاکلي ورگډول
+# Fuzzy
 qbud_selected:ټاکلي
 mklist_close:تړل
 email_pg_title:برېښليک

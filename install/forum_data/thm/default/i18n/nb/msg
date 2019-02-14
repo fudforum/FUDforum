@@ -244,6 +244,7 @@ pmsg_forwarded:videresendte
 pmsg_subject:Emne
 pmsg_author:Avsender
 pmsg_time:Tid
+# Fuzzy
 pmsg_selected:Valgt
 pmsg_delete:Slett
 cur_ppage_pm:Private meldinger
@@ -528,6 +529,7 @@ mklist_apply:Bruk
 mklist_delete:Slett
 qbud_nick_name:Kallenavn
 qbud_add_selected:Legg til valgte
+# Fuzzy
 qbud_selected:Valgte
 qbud_no_buddies:Inga kontakter å velge mellom
 mklist_numerical:Numerisk
@@ -900,6 +902,7 @@ polllist_votes:Antall stemmer totalt
 polllist_action:Aksjon
 polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">Ser på tilgjenglige avstemninger</a>
 userinfo_polls:Avstemninger:
+# Fuzzy
 show_pollist:Vise avstemninger
 search_and:OG
 search_or:ELLER
@@ -1119,6 +1122,7 @@ move_msg_th_expl:Oppgi ID'en til destinasjonsemnet (kan være i andre fora)
 captcha_img_alt:Captcha-verifisering: du må kjenne igjen teksten i dette bildet.
 captcha_img_help:Det er ingen null eller en i bildet.
 powered-by:Levert av: FUDforum {GVAR: FORUM_VERSION}.
+# Fuzzy
 copyright:Copyright &copy;2001–2018 <a href="http://fudforum.org/">FUDforum Bulleting Board Software</a>
 code_title:Kode:
 code_select_all:Velg alle

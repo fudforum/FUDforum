@@ -116,6 +116,7 @@ pmsg_forwarded:nohampitaina
 pmsg_subject:Lohahevitra
 pmsg_author:Mpanoratra
 pmsg_time:Fotoana
+# Fuzzy
 pmsg_selected:Nosafidiana
 pmsg_delete:Hamafa
 cur_ppage_pm:Hafatra tsy sarababem-bahoaka
@@ -258,6 +259,7 @@ mklist_additem:Hanampy zavatra
 mklist_apply:Ampiharina
 mklist_delete:Fafàna
 qbud_nick_name:Solonanarana
+# Fuzzy
 qbud_selected:Voatsonga
 qbud_no_buddies:Tsy misy namana azo safidiana
 mklist_numerical:Ara-daharana

@@ -237,7 +237,7 @@ pmsg_forwarded:reinviate
 pmsg_subject:Subjecto
 pmsg_author:Autor
 pmsg_time:Hora
-pmsg_selected:Seligite
+pmsg_selected:Seliger
 pmsg_delete:Deler
 cur_ppage_pm:Messageria private
 writing_pm:Scriber un message private
@@ -521,7 +521,7 @@ mklist_apply:Applicar
 mklist_delete:Deler
 qbud_nick_name:Pseudonymo
 qbud_add_selected:Adder selection
-qbud_selected:Seligite
+qbud_selected:Seliger
 qbud_no_buddies:Nulle amico disponibile
 mklist_numerical:Numeric
 mklist_aplha:Alphabetic
@@ -893,7 +893,7 @@ polllist_votes:Total de votos
 polllist_action:Action
 polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">Revide le sondages disponibile</a>
 userinfo_polls:Sondages:
-show_pollist:Monstrar sondages
+show_pollist:Sondages
 search_and:E
 search_or:O
 search_desc_order:Ordine descendente
@@ -1112,7 +1112,7 @@ move_msg_th_expl:Specifica le ID del topico de destination (pote esser in altere
 captcha_img_alt:Verification per Captcha: tu debe recognoscer le texto in iste imagine.
 captcha_img_help:Il non ha zero o un in iste imagine.
 powered-by:Actionate per: FUDforum {GVAR: FORUM_VERSION}.
-copyright:Copyright &copy;2001-2018 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Copyright &copy;2001-2019 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Codice:
 code_select_all:Seliger toto
 code_show_hide:Revelar/celar
