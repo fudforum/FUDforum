@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2019 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -36,6 +36,9 @@
 
 		$sql_file = $sql_to_show = '';
 		unset($_POST['txtb']);
+	} else if (isset($_POST['clear'])) {
+		$_POST['txtb']     = '';
+		$_POST['sql_file'] = '';
 	} else if (isset($_POST['execute'])) {
 		if (!empty($_POST['sql_file'])) {
 			// Execute SQL (keep file name in form).
@@ -112,6 +115,9 @@ txtb.val( txtb.val().substring(0, caretPos) + tables.value + txtb.val().substrin
 	
 	</span>
 
+</td></tr>
+<tr class="field"><td>
+
 	<textarea id="txtb" name="txtb" placeholder="Enter SQL here..." autofocus="autofocus" rows="5" cols="72" style="width:99%; box-sizing: border-box;"><?php
 		if (isset($_POST['txtb'])) print $_POST['txtb'];
 		else if (isset($sql_to_show)) print $sql_to_show; 
@@ -127,6 +133,7 @@ txtb.val( txtb.val().substring(0, caretPos) + tables.value + txtb.val().substrin
 		<?php } ?>
 	</span>
 	<input name="execute" type="submit" value="Run It" style="font-weight:bold;" />
+	<input name="clear" type="submit" value="Clear"  style="font-weight:bold;" />
 </td></tr>
  </table>
 </form>
@@ -213,7 +220,6 @@ if (isset($_POST['txtb']) && $_POST['txtb'] != '') {
 
 			// Execute query.
 			try {
-
 				$s = microtime(true);
 				$q = uq($sql);
 				$t = number_format(microtime(true) - $s, 4);
@@ -235,9 +241,18 @@ if (isset($_POST['txtb']) && $_POST['txtb'] != '') {
 
 					echo '<tr class="field">';
 					foreach ($result as $key => $value) {
-						if (!is_numeric($key)) {
-							echo '<td>'. htmlspecialchars($value) .'</td>';
+						// Apply a FUDforum function to the results, like seo_url_bit().
+						// Example: SELECT concat('/t/', t.id, '-@seo_url_bit[', m.subject, ']') FROM ...
+						if (preg_match('/^(.*)\@(.+?)\[(.+?)\](.*)$/i', $value, $matches)) {
+							$func = $matches[2];
+							$value = $matches[1] . $func($matches[3]) . $matches[4];
 						}
+
+						$value = htmlspecialchars($value);
+
+						// Replace URLs in text with HTML links.
+						$value = preg_replace('/(http[s]{0,1}\:\/\/\S{4,})\s{0,}/ims', '<a href="$1" target="_blank">$1</a> ', $value);
+						echo '<td>'. $value .'</td>';
 					}
 					echo '</tr>';
 

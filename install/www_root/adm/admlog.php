@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2019 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -211,6 +211,9 @@ function return_group_name($id)
 				break;
 			case 'CHANGE_PASSWD':
 				echo '<td>User Changed Own Password</td><td>ip address: '. $obj->logaction .'</td>';
+				break;
+			case 'EMAILCONFIRMED':
+				echo '<td>E-Mail adress confirmed</td><td>'. $obj->logaction .'</td>';
 				break;
 			default:
 				echo '<td>'. $obj->a_res .'</td><td>'. $obj->logaction .'</td>';

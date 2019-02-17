@@ -362,7 +362,8 @@ administration permissions to the forum. This individual will be able to do anyt
 	<b>Moderation:</b><br />
 	&nbsp;[ <a href="admuseradd.php?<?php   echo __adm_rsid; ?>">Create users</a> ]<br />
 	&nbsp;[ <a href="admuserapr.php?<?php   echo __adm_rsid; ?>">Approve users</a> ]<br />
-	&nbsp;[ <a href="admusermerge.php?<?php echo __adm_rsid; ?>">Merge users</a> ]<br /><br />
+	&nbsp;[ <a href="admusermerge.php?<?php echo __adm_rsid; ?>">Merge users</a> ]<br />
+	&nbsp;[ <a href="admuserprune.php?<?php echo __adm_rsid; ?>">Prune users</a> ]<br /><br />
 </td><td>
 	<b>Show:</b><br />
 	&nbsp;[ <a href="admprivlist.php?<?php  echo __adm_rsid; ?>">Privileged</a> ]<br />

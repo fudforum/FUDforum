@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -38,6 +38,10 @@
 			// Update user with oldest stats.
 			$join_date = q_singleval('SELECT min(join_date) FROM '. $DBHOST_TBL_PREFIX .'users WHERE id IN ('. $id1 .','. $id2 .')');
 			q('UPDATE '. $DBHOST_TBL_PREFIX .'users SET join_date = '. $join_date .' WHERE id = '. $id2);
+
+			// Update post count
+			$cnt = q_singleval('SELECT sum(posted_msg_count) FROM '. $DBHOST_TBL_PREFIX .'users WHERE id IN ('. $id1 .','. $id2 .')');
+			q('UPDATE '. $DBHOST_TBL_PREFIX .'users SET posted_msg_count='. $cnt .' WHERE id = '. $id2);
 
 			// Remove user!
 			usr_delete($id1);

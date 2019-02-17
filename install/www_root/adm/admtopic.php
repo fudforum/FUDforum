@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2019 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -28,6 +28,33 @@
 		$usr_id = (int) $_POST['usr_id'];
 	} else {
 		$usr_id = 0;
+	}
+
+	if (isset($_POST['btn_swap']) && !empty($_POST['msg1']) && !empty($_POST['msg2'])) {
+		$a = db_sab('SELECT id, thread_id, reply_to FROM '. $DBHOST_TBL_PREFIX .'msg WHERE id='. (int)$_POST['msg1']);
+		$b = db_sab('SELECT id, thread_id, reply_to FROM '. $DBHOST_TBL_PREFIX .'msg WHERE id='. (int)$_POST['msg2']);
+
+		if ($a->thread_id != $b->thread_id) {
+			echo errorify('Messages does not belong to the same thread.');
+		} else {
+			// Swap messages.
+			q('UPDATE '. $DBHOST_TBL_PREFIX .'msg SET id = 0                                    WHERE id = '. $a->id);
+			q('UPDATE '. $DBHOST_TBL_PREFIX .'msg SET id ='. $a->id .', reply_to = '. $b->id .' WHERE id = '. $b->id);
+			q('UPDATE '. $DBHOST_TBL_PREFIX .'msg SET id ='. $b->id .', reply_to = '. $a->id .' WHERE id = 0');
+
+			// Update title index
+			q('UPDATE '. $DBHOST_TBL_PREFIX .'title_index SET msg_id = 0           WHERE msg_id = '. $a->id);
+			q('UPDATE '. $DBHOST_TBL_PREFIX .'title_index SET msg_id ='. $a->id .' WHERE msg_id = '. $b->id);
+			q('UPDATE '. $DBHOST_TBL_PREFIX .'title_index SET msg_id ='. $b->id .' WHERE msg_id = 0');
+
+			// Update search index
+			q('UPDATE '. $DBHOST_TBL_PREFIX .'index SET msg_id = 0           WHERE msg_id = '. $a->id);
+			q('UPDATE '. $DBHOST_TBL_PREFIX .'index SET msg_id ='. $a->id .' WHERE msg_id = '. $b->id);
+			q('UPDATE '. $DBHOST_TBL_PREFIX .'index SET msg_id ='. $b->id .' WHERE msg_id = 0');
+			
+			echo successify('Messages '. $a->id .' and '. $b->id .' were successfully swapped around.');
+			unset($_POST);
+		}
 	}
 
 	if (isset($_POST['btn_prune']) && !empty($_POST['thread_age']) && !isset($_POST['btn_cancel'])) {
@@ -106,14 +133,14 @@ which were posted before <font color="red"><?php echo fdate($back, 'd M Y H:i');
 		}
 	}
 ?>
-<h2>Topic Pruning</h2>
+<h2>Topic Management</h2>
 
-<p>This utility allows you to remove all topics, where the last message<br />
-inside the topic was posted prior to the specified date. For example <br />
-if you enter a value of 10 and select "days" this form will offer to <br />
-delete topics with no messages in the last 10 days.</p>
+<h3>Topic Pruning</h3>
 
-<form id="adp" method="post" action="admprune.php">
+<p>Remove all topics, where the last message inside the topic was posted prior to the specified date.<br />
+For example if you enter a value of 10 and select "days", this form will <u>offer</u> to delete topics with no messages in the last 10 days.</p>
+
+<form id="prune" method="post" action="admtopic.php">
 <table class="datatable">
 <?php
 	if ($usr_id) {
@@ -156,4 +183,49 @@ delete topics with no messages in the last 10 days.</p>
 <?php echo _hs; ?>
 <input type="hidden" name="usr_id" value="<?php echo $usr_id; ?>" />
 </form>
+
+<h3>Merge Topics</h3>
+<p>Merge two topics into a single topic.</p>
+<form id="swap" method="post" action="../'. __fud_index_name__ .'?t=mmd">
+<table class="datatable">
+
+<tr class="field">
+	<td nowrap="nowrap">Topic 1:</td>
+	<td><input tabindex="1" type="number" name="_sel[]" />
+</tr>
+
+<tr class="field">
+	<td nowrap="nowrap">Topic 2:</td>
+	<td><input tabindex="2" type="number" name="_sel[]" />
+</tr>
+
+<tr class="field">
+	<td align="right" colspan="2"><input tabindex="2" type="submit" name="merge_sel_all" value="Merge" /></td>
+</tr>
+</table>
+<?php echo _hs; ?>
+</form>
+
+<h3>Swap Messages</h3>
+<p>Swap the order of two messages within a topic.</p>
+<form id="swap" method="post" action="admtopic.php">
+<table class="datatable">
+
+<tr class="field">
+	<td nowrap="nowrap">Message 1:</td>
+	<td><input tabindex="1" type="number" name="msg1" value="<?php if (isset($_POST['msg1'])) { echo htmlspecialchars($_POST['msg1']); } ?>" />
+</tr>
+
+<tr class="field">
+	<td nowrap="nowrap">Message 2:</td>
+	<td><input tabindex="2" type="number" name="msg2" value="<?php if (isset($_POST['msg2'])) { echo htmlspecialchars($_POST['msg2']); } ?>" />
+</tr>
+
+<tr class="field">
+	<td align="right" colspan="2"><input tabindex="2" type="submit" name="btn_swap" value="Swap" /></td>
+</tr>
+</table>
+<?php echo _hs; ?>
+</form>
+
 <?php require($WWW_ROOT_DISK .'adm/footer.php'); ?>

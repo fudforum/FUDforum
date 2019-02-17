@@ -16,7 +16,7 @@
 	// Run from command line.
 	if (php_sapi_name() == 'cli') {
 		if (empty($_SERVER['argv'][1])) {
-			echo "Usage: php admpruneusers.php days\n";
+			echo "Usage: php admuserprune.php days\n";
 			echo " - 'days' is the number of days the users haven't logged in for.\n";
 			die();
 		}
@@ -78,7 +78,7 @@ which haven't logged on since <font color="red"><?php echo fdate($back, 'd M Y H
 <p>This utility remove forum users that have <u>zero posts</u> and haven't logged on for the time specified.
 For example, if you enter a value of 2 and select "years" this form will offer to delete users with 0 posts that haven't logged on within the last 2 years.</p>
 
-<form id="adp" method="post" action="admpruneusers.php">
+<form id="adp" method="post" action="admuserprune.php">
 <table class="datatable">
 <tr class="field">
 	<td nowrap="nowrap">Users with last login prior to:</td>
@@ -94,5 +94,7 @@ For example, if you enter a value of 2 and select "years" this form will offer t
 </table>
 <?php echo _hs; ?>
 </form>
+
+<p><a href="admuser.php?<?php echo __adm_rsid; ?>">&laquo; Back to User Administration System</a></p>
 
 <?php require($WWW_ROOT_DISK .'adm/footer.php'); ?>

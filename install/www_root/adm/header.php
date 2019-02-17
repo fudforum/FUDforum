@@ -99,7 +99,7 @@ jQuery(document).ready(function() {
 	<ul class="menu">
 	<li><a title="Setup forum categories" href="admcat.php?<?php echo __adm_rsid; ?>">Category Manager</a></li>
 	<li><a title="Setup forums and subforums" href="admforum.php?<?php echo __adm_rsid; ?>">Forum Manager</a></li>
-	<li><a title="Remove old forum topics" href="admprune.php?<?php echo __adm_rsid; ?>">Topic Pruning</a></li>
+	<li><a title="Manage and remove forum topics" href="admtopic.php?<?php echo __adm_rsid; ?>">Topic Manager</a></li>
 	<li><a title="Remove old file attachements" href="admpruneattch.php?<?php echo __adm_rsid; ?>">Attachment Pruning</a></li>
 	<li><a title="Import Mailing Lists messages into your forum" href="admmlist.php?<?php echo __adm_rsid; ?>">Mailing List Manager</a></li>
 	<li><a title="Import Usenet posts into your forum" href="admnntp.php?<?php echo __adm_rsid; ?>">Newsgroup Manager</a></li>
@@ -117,7 +117,6 @@ jQuery(document).ready(function() {
 	<li><a title="Manage user ranks" href="admlevel.php?<?php echo __adm_rsid; ?>">Rank Manager</a></li>
 	<li><a title="Define custom profile fields" href="admcustomfields.php?<?php echo __adm_rsid; ?>">Profile fields</a></li>
 	<li><a title="Send E-mail to your forum memebers" href="admmassemail.php?<?php echo __adm_rsid; ?>">Mass E-mail</a></li>
-	<li><a title="Delete old users without messages" href="admpruneusers.php?<?php echo __adm_rsid; ?>">Prune users</a></li>
 	<br />
 
 	<span class="linkgroup">Templates & Messages</span>

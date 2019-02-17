@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2019 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -120,14 +120,14 @@ $day_list = array(date('D', strtotime('today'))   => 0,
 		date('D', strtotime('-6 days')) => 0);
 
 $messages_per_day = $day_list;	// Copy.
-$c = uq('SELECT post_stamp FROM '. $tbl .'msg WHERE post_stamp > '. (__request_timestamp__ - 86400*7)); // Last 7 days.
+$c = uq('SELECT post_stamp FROM '. $tbl .'msg WHERE post_stamp > '. (__request_timestamp__ - 86400*6)); // Last 6 days.
 while ($r = db_rowarr($c)) {
 	$messages_per_day[ date('D', $r[0]) ] += 1;
 }
 $messages_per_day = array_values($messages_per_day);
 
 $registrations_per_day = $day_list;	// Copy again.
-$c = uq('SELECT join_date FROM '. $tbl .'users WHERE id!=1 AND '. q_bitand('users_opt', 1073741824) .'= 0 AND join_date > '. (__request_timestamp__ - 86400*7)); // Last 7 days, exclude Anon & spider users.
+$c = uq('SELECT join_date FROM '. $tbl .'users WHERE id!=1 AND '. q_bitand('users_opt', 1073741824) .'= 0 AND join_date > '. (__request_timestamp__ - 86400*6)); // Last 6 days, exclude Anon & spider users.
 while ($r = db_rowarr($c)) {
 	$registrations_per_day[ date('D', $r[0]) ] += 1;
 }
