@@ -183,7 +183,7 @@ unread_msg:Topic iki ngandhut pesen sing durung diwaca
 unread_msg_locked:Dikunci topic karo unread pesen
 unread_posts:Unread Pesen
 unread_posts_desc:Tampilake kabeh pesen unread
-unsub_from_thread:Batal saka topik
+unsub_from_thread:Wurung langganan topik
 unsub_from_thread_desc:Stop nampa kabar bab pesen anyar ing topic
 unbookmark_thread:Busak saka tetenger
 unbookmark_thread_desc:Copot topik iki saka daftar tetenger
@@ -373,7 +373,7 @@ add:Tambah
 buddy_search:Ketik mlebu log ing pangguna sing sampeyan pengin nambah.
 # Fuzzy
 member_search:Utawa nggunakake <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Golek Anggota Jeneng</a> fitur kanggo nggoleki wong.
-buddy_remove:batal blokir
+buddy_remove:busak
 post_normal:Normal
 post_sticky:caket
 post_annoncement:woro-woro
@@ -419,7 +419,7 @@ post_title:Irah-irahan (judhul):
 post_body:badan:
 post_options:Pilihan:
 post_preview_btn:pratinjau Pesen
-post_cancel_btn:Batal
+post_cancel_btn:Wurung
 ignore_users:digathekno Pangguna
 add_ignore:Tambah Ignoramus
 forum_terms:Forum Sarat
@@ -761,7 +761,7 @@ groupmgr_yes:Iya
 groupmgr_no:Ora
 groupmgr_action:Laku
 groupmgr_member:Anggota
-groupmgr_cancel:Batal
+groupmgr_cancel:Wurung
 groupmgr_add_member:Tambah Anggota
 groupmgr_update_member:update Anggota
 groupmgr_edit:Besut
@@ -958,8 +958,8 @@ thread_mark_all_read_desc:Kabeh pesen unread ing forum iki bakal ditandhani maca
 private_no_messages:Ora ana pesen ing folder.
 register_email_change_subject:E-mail konfirmasi pangowahan
 register_email_change_msg:Mangga konfirmasi anyar akun email "{VAR: uent->email}" nggantosaken sing lawas e-mail akun "{VAR: old_email}", dening arep URL ngisor:\n{FULL_ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nSawise konfirmasi anyar alamat e-mail, sampeyan Category akun bakal maneh aktif.
-iemail_thread_unsub:Batal saka topik
-iemail_forum_unsub:Batal saka forum
+iemail_thread_unsub:Wurung langganan topik iki
+iemail_forum_unsub:Wurung langganan forum iki
 primary_group_prefix:Utami grup kanggo Category:
 group_resources:Grup iki Kontrol ijin forum iki
 register_admin_newuser_title:A pangguna anyar wis pangguna lan akun ditundha konfirmasi
@@ -1070,7 +1070,7 @@ idx_compact_forum_row:Sedhiya Forum:
 mmd_del_title:Busak Pages
 mmd_mov_title:pindhah Pages
 mmd_move_threads_to:Panggonan Forum:
-mmd_abort_move:Batal
+mmd_abort_move:Wurung
 mmd_move:pindhah Pages
 pmsg_pdf_btn:Priksa Arsip PDF
 search_results_hdr:{VAR: total} Search Results Found
@@ -1083,8 +1083,8 @@ err_blockedaccnt_title:Kesalahan: akun wis saring metu.
 err_blockedaccnt_msg:Akun wis diblokir saka ngakses forum amarga siji saka diinstal Filter-filter pangguna.
 merge_th_page_list:Topic Page pilihan
 most_users_online:Paling kedhaftar tau online iki <b>{VAR: st_obj->most_online}</b> ing <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
-sub_unsub_all_forums:Batal Saka Kabeh Forum
-sub_unsub_all_topics:Batal Saka Kabeh Pages
+sub_unsub_all_forums:Wurung Langganan Kabèh Forum
+sub_unsub_all_topics:Wurung Langganan Kabèh Topik
 unbookmark_all_topics:Busak tetenger kabeh
 tabs_own_posts:Tampilake Kiriman Piyambak
 sml_emoticon:Emoticon

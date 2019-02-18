@@ -2,6 +2,7 @@
 # Exported from translatewiki.net
 # Author: Alirezaaa
 # Author: Amin
+# Author: Amirsara
 # Author: Atthar
 # Author: Dalba
 # Author: Ebraminio
@@ -532,8 +533,7 @@ mklist_apply:اعمال
 mklist_delete:حذف
 qbud_nick_name:نام مستعار
 qbud_add_selected:افزودن انتخاب‌شده
-# Fuzzy
-qbud_selected:انتخاب‌شده
+qbud_selected:انتخاب
 qbud_no_buddies:هیچ دوستی برای انتخاب کردن وجود ندارد
 mklist_numerical:عددی
 mklist_aplha:الفبا
@@ -909,7 +909,6 @@ polllist_votes:مجموع آرا
 polllist_action:اقدامات
 polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">مشاهده نظرسنجی‌های موجود</a>
 userinfo_polls:نظرسنجی‌ها:
-# Fuzzy
 show_pollist:نظرسنجی‌ها
 search_and:و
 search_or:یا

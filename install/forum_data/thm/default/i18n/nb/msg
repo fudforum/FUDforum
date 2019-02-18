@@ -1,5 +1,6 @@
 # Messages for Norwegian Bokmål (norsk bokmål)
 # Exported from translatewiki.net
+# Author: AnB
 # Author: Cocu
 # Author: Danmichaelo
 # Author: Event
@@ -244,8 +245,7 @@ pmsg_forwarded:videresendte
 pmsg_subject:Emne
 pmsg_author:Avsender
 pmsg_time:Tid
-# Fuzzy
-pmsg_selected:Valgt
+pmsg_selected:Velg
 pmsg_delete:Slett
 cur_ppage_pm:Private meldinger
 writing_pm:å skrive en privat melding
@@ -529,8 +529,7 @@ mklist_apply:Bruk
 mklist_delete:Slett
 qbud_nick_name:Kallenavn
 qbud_add_selected:Legg til valgte
-# Fuzzy
-qbud_selected:Valgte
+qbud_selected:Velg
 qbud_no_buddies:Inga kontakter å velge mellom
 mklist_numerical:Numerisk
 mklist_aplha:Alfa
@@ -902,8 +901,7 @@ polllist_votes:Antall stemmer totalt
 polllist_action:Aksjon
 polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">Ser på tilgjenglige avstemninger</a>
 userinfo_polls:Avstemninger:
-# Fuzzy
-show_pollist:Vise avstemninger
+show_pollist:Avstemninger
 search_and:OG
 search_or:ELLER
 search_desc_order:Fallende sortering

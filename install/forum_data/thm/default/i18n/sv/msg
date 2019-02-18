@@ -534,8 +534,7 @@ mklist_apply:Verkställ
 mklist_delete:Radera
 qbud_nick_name:Smeknamn
 qbud_add_selected:Lägg till valda
-# Fuzzy
-qbud_selected:Valda
+qbud_selected:Välj
 qbud_no_buddies:Inga kompisar att välja mallen
 mklist_numerical:Numerisk
 mklist_aplha:Alfa
@@ -907,8 +906,7 @@ polllist_votes:Totalt antal röster
 polllist_action:Aktion
 polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">Tittar på tillgängliga gallupar</a>
 userinfo_polls:Gallupar:
-# Fuzzy
-show_pollist:Visa gallupar
+show_pollist:Omröstningar
 search_and:OCH
 search_or:ELLER
 search_desc_order:Fallande ordning
