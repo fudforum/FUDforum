@@ -44,12 +44,12 @@ forum_new_messages:Mesaco newe
 forum_none_messages:Teyna karberê qeydıni şenê mesacan bıvinê
 forum_old_messages:Mesacê newey çıniyê
 from:Rıştoğ:
-gender:Neri makey:
+gender:Cınsiyet:
 go:Şo
 goto_next_msg:Şo Mesac dê peyêni
 goto_prev_msg:Şo Mesac dê verêni
 home:Keye
-homepage:Keyepel
+homepage:Pela seri:
 icq_control_panel:Panela ICQ Miyande-Mesaci
 icq_message_form:ICQ Mesac Formi:
 ignore_user:Mesacanê enê kerberi hemın peygoş ke
@@ -279,7 +279,7 @@ register_avatar:Avatar:
 register_sel_avatar:Avatar weçine
 register_custom_avatar_url:Gıreya Avatar dı Xususi
 register_preview:Verqayt
-register_register:Qeydkerdış
+register_register:Qeyd be
 register_location:Ca:
 register_occupation:Kar:
 register_interests:Eleqe:
@@ -288,12 +288,12 @@ register_icq:ICQ:
 register_aim:AIM Handle:
 register_yahoo:Yahoo Messenger:
 register_msnm:MSN Messenger:
-register_homepage:Pelaseri:
+register_homepage:Pela seri:
 register_bday:Demê Biyayışi:
 register_day:Roce
 register_month:Aşme
 register_year:Serre
-register_gender:Neri makey:
+register_gender:Cınsiyet:
 register_bio:Biyografiye:
 register_prefs:Tercihi
 register_sig:İmza:
@@ -311,7 +311,7 @@ buddy_status:Weziyet
 my_buddies:Embazê me
 add_buddy:Embaz cı ke
 add:Cı ke
-buddy_remove:Hewad
+buddy_remove:wedare
 post_normal:Normal
 post_sticky:Zamq
 post_annoncement:İlan
@@ -347,7 +347,7 @@ post_form:Formi bırış
 post_forum:Forum:
 post_title:Sername:
 post_body:Metın:
-post_options:Weçinegi:
+post_options:Weçinıteki:
 post_preview_btn:Verqaytê Mesaci
 post_cancel_btn:Bıtexelne
 ignore_users:Peygos karberi
@@ -397,7 +397,7 @@ remail_subject:Mewzu:
 remail_message:Mesac
 remail_done:Temam
 mklist_type:Babet:
-mklist_option:Weçinek:
+mklist_option:Weçinıtek:
 mklist_additem:Eza dek
 mklist_apply:Dezge ke
 mklist_delete:Bestere
@@ -409,7 +409,7 @@ mklist_aplha:Alfa
 mklist_square:Qare
 mklist_disc:Golel
 mklist_circle:Helqa
-mklist_close:Racnê
+mklist_close:Kip ke
 email_to:Gırewtoğ:
 email_pg_title:E-posta
 email_subject:Mewzu:
@@ -439,7 +439,7 @@ poll_year:Serre
 poll_week:hefte
 tabs_register:Sazê Hesabi
 tabs_subscriptions:Aboneyin
-tabs_bookmarkes:Nışanê Cayan
+tabs_bookmarkes:Nişani
 tabs_referrals:Şınasiyey
 tabs_buddy_list:Listey embazan
 tabs_ignore_list:Listay peygosan
@@ -559,6 +559,7 @@ search_attach_with:Ebe gaçıkan
 unread_message:Mesacê nêwaniyayey
 read_message:Mesaci bıwan
 threadt_more:&lt;dehana &gt;
+saved:Qeyd bi
 iemail_msg_author:<b>Nuskar:</b> {VAR: obj->alias}
 iemail_msg_subject:<b>Mewzu:</b> {VAR: obj->subject}
 iemail_msg_date:<b>Tarix:</b> {TEMPLATE: dmsg_post_date}

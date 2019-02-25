@@ -207,7 +207,7 @@ user_offline:{VAR: obj->login} غير متصل الآن
 user_online:{VAR: obj->login} متصل حاليًا
 usrinfo_last_post:آخر رسالة:
 view_results:اعرض النتائج
-views:العروض
+views:المشاهدات
 vote:{PLURAL: frm->n_rating|صوت واحد|$1 أصوات}
 vote_button:تصويت
 vote_for_thread:تصويت
@@ -824,7 +824,7 @@ th_expr_two_month:شهران
 th_expr_four_month:4 أشهر
 th_expr_one_year:سنة واحدة
 thread_mod_delete:حذف
-action_ip:آيبي
+action_ip:أيبي
 action_latest_post:آخر رسالة
 online_today_last_visit:آخر زيارة
 online_today_update:عرض قائمة المستخدمين الذي كانوا في المنتدى اليوم

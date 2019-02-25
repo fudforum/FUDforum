@@ -109,6 +109,7 @@ no_subscribed_threads:אין נושאים שערכת אליהם מינוי
 no_bookmarked_threads:אין נושאים שנוספו כסימנייה
 no_unread_locked:נושא זה ננעל
 no_unread_msg:בנושא זה ישנן הודעות שטרם נקראו
+no_unread_msg_unreg:ההודעות שנקראו ואלו שאינן נקראו תקפות רק עבור משתמשים רשומים
 num_pages:עמודים ({VAR: ttl_pg}):
 occupation:עיסוק:
 off:כבוי

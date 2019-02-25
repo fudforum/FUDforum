@@ -5,6 +5,7 @@
 # Author: Danmichaelo
 # Author: Event
 # Author: Jon Harald Søby
+# Author: Kingu
 # Author: Laaknor
 # Author: Macofe
 # Author: McDutchie
@@ -1120,8 +1121,7 @@ move_msg_th_expl:Oppgi ID'en til destinasjonsemnet (kan være i andre fora)
 captcha_img_alt:Captcha-verifisering: du må kjenne igjen teksten i dette bildet.
 captcha_img_help:Det er ingen null eller en i bildet.
 powered-by:Levert av: FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:Copyright &copy;2001–2018 <a href="http://fudforum.org/">FUDforum Bulleting Board Software</a>
+copyright:Kopirett &copy;2001–2018 <a href="http://fudforum.org/">FUDforum-oppslagstavleprogramvare</a>
 code_title:Kode:
 code_select_all:Velg alle
 code_show_hide:Vis/ skjul

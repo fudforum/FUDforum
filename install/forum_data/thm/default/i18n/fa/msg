@@ -248,8 +248,7 @@ pmsg_forwarded:فوروارد‌شده
 pmsg_subject:موضوع
 pmsg_author:نویسنده
 pmsg_time:زمان
-# Fuzzy
-pmsg_selected:انتخاب‌
+pmsg_selected:انتخاب
 pmsg_delete:حذف
 cur_ppage_pm:پیام‌خصوصی
 writing_pm:نوشتن یک پیام‌خصوصی
