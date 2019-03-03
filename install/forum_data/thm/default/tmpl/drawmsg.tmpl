@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2019 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -415,7 +415,7 @@
 		{TEMPLATE-DATA: msg_body}
 		{TEMPLATE-DATA: drawmsg_file_attachments}
 		{IF: !$hide_controls}{IF: ($obj->sig && $o1 & 32768 && $obj->msg_opt & 1 && $b & 4096 && !($a & 67108864))}<br /><br /><div class="signature" />{VAR: obj->sig}</div>{ENDIFI}
-		<div class="SmallText">{TEMPLATE-DATA: modified_message}{TEMPLATE: dmsg_report_to_mod_link}{ENDIFI}</div>
+		<div class="SmallText clear">{TEMPLATE-DATA: modified_message}{TEMPLATE: dmsg_report_to_mod_link}{ENDIFI}</div>
 </td></tr>
 {IF: !$hide_controls}{TEMPLATE: dmsg_message_toolbar}{ENDIFI}
 </table>
