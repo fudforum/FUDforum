@@ -1133,8 +1133,7 @@ move_msg_th_expl:Especificar el id. del tema de destino (puede estar en otros fo
 captcha_img_alt:Verificación captcha: necesitarás reconocer el texto en esta imagen.
 captcha_img_help:No hay cero o uno en la imagen
 powered-by:Impulsado por: FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:Derechos de autor &copy; 2001-2018 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Derechos de autor &copy; 2001-2019 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Código:
 code_select_all:Seleccionar todo
 code_show_hide:Mostrar/ocultar

@@ -249,8 +249,7 @@ pmsg_forwarded:vidareskickat
 pmsg_subject:Rubrik
 pmsg_author:Avsändare
 pmsg_time:Tid
-# Fuzzy
-pmsg_selected:Vald
+pmsg_selected:Välj
 pmsg_delete:Radera
 cur_ppage_pm:Privata meddelanden
 writing_pm:Att skriva ett privat meddelande
@@ -1125,8 +1124,7 @@ move_msg_th_expl:Specificera ID på destinationsämnet (kan vara i andra fora)
 captcha_img_alt:Caotcha verifiering: du måste tolka texten i denna bild.
 captcha_img_help:Det finns ingen nolla eller etta i bilden.
 powered-by:Drivs av: FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:Copyright &copy;2001–2018 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Copyright &copy;2001–2019 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Kod:
 code_select_all:Välj alla
 code_show_hide:Visa / dölj
