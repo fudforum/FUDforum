@@ -256,7 +256,6 @@ pmsg_forwarded:переправлено
 pmsg_subject:Тема
 pmsg_author:Автор
 pmsg_time:Время
-# Fuzzy
 pmsg_selected:Выбрано
 pmsg_delete:Удалить
 cur_ppage_pm:Личная почта
@@ -541,7 +540,6 @@ mklist_apply:Применить
 mklist_delete:Удалить
 qbud_nick_name:Псевдоним
 qbud_add_selected:Добавить выбранных
-# Fuzzy
 qbud_selected:Выбрано
 qbud_no_buddies:Никого нет в списке для выбора
 mklist_numerical:Нумерованный - цифры
@@ -914,8 +912,7 @@ polllist_votes:Итого голосов
 polllist_action:Действие
 polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">Просмотр доступных голосований</a>
 userinfo_polls:Голосования:
-# Fuzzy
-show_pollist:Показать голосования
+show_pollist:Голосования
 search_and:ИЛИ
 search_or:И
 search_desc_order:По убыванию
