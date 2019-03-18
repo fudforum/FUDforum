@@ -66,7 +66,7 @@ locked_with_new_posts:مُقفل (مع رسائل غير مقروءة)
 logged_in_list:قائمه المستخدمين الوالجين
 login:لُج
 login_header:الولوج:
-logout:اخرج
+logout:خروج
 mark_all_read:علم على كل الرسايل انها إتقرت
 mark_all_read_desc:سوف تُعلّم كل رسائلك غير المقروءه مقروءة
 members:الأعضاء
@@ -386,7 +386,7 @@ edit_message:طبّق تغييرات الرسالة
 apply_spell_changes:طبّق تغييرات الإملاء
 post_preview:معاينه الرسالة
 post_logedin_user:مستخدم والج:
-post_logout:اخرج
+post_logout:خروج
 post_passwd:كلمه سر الإرسال:
 post_poll:اقتراع:
 post_create_poll:أنشئ اقتراعًا
@@ -758,7 +758,7 @@ groupmgr_yes:نعم
 groupmgr_no:لا
 groupmgr_action:فعل
 groupmgr_member:عضو
-groupmgr_cancel:ألغِ
+groupmgr_cancel:الغى
 groupmgr_add_member:أضف عضوًا
 groupmgr_update_member:حدّث عضوًا
 groupmgr_edit:حرّر
@@ -1065,7 +1065,7 @@ idx_compact_forum_row:المنتديات المتوفرة:
 mmd_del_title:احذف المواضيع
 mmd_mov_title:انقل المواضيع
 mmd_move_threads_to:المنتدى الهدف:
-mmd_abort_move:ألغِ
+mmd_abort_move:الغى
 mmd_move:انقل مواضيع
 pmsg_pdf_btn:أنشئ أرشيف PDF
 search_results_hdr:وُجدت {VAR: total} نتيجه بحث

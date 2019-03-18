@@ -357,8 +357,8 @@ coppa_conf:COPPA tesdiq
 coppa_before:{TEMPLATE: coppa_date} ra ver
 coppa_after:{TEMPLATE: coppa_date} dıma
 prereg_info:Zanışek
-prereg_agree:Qebul kena
-prereg_disagree:Qebul nêkena
+prereg_agree:Qebul kenan
+prereg_disagree:Qebul nêkenan
 prereg_update:Qeydeyanê forumi bıwane
 coppa_fax_instructions:Wecifey wasiya  yana kufleti.
 coppa_fax_telephone:Telefun:
