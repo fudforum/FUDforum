@@ -1006,7 +1006,7 @@ register_pm_notification:Notificació de missatges privats
 register_pm_notification_desc:Si està  activat, se li notificarà pel mètode de notificació escollit quan se li enviï un missatge privat.
 findu_admin_opts_header:Opcions d`administració
 findu_unban:No expulsat
-findu_ban:Expulsat
+findu_ban:Bandeja
 findu_edit:Modificar
 findu_delete:Esborrar
 dmsg_reply_to:és una resposta a
