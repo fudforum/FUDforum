@@ -7,7 +7,9 @@
 # Author: Glanthor Reviol
 # Author: Macofe
 # Author: McDutchie
+# Author: Misibacsi
 # Author: Naudefj
+# Author: R-Joe
 # Author: Tacsipacsi
 
 action:Művelet
@@ -210,8 +212,7 @@ vote_button:Szavazás
 vote_for_thread:Szavazás
 was_moved_msg:A moderátor áthelyezte a(z) <a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> üzenetet a(z) <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> témába
 welcome_message:Szia, <b>{VAR: usr->alias}</b>! Legutóbb ekkor jártál erre: {TEMPLATE: welcome_message_date}
-# Fuzzy
-what_ppl_doing:Mit csinálnak az emberek
+what_ppl_doing:Felhasználói tevékenység
 reported_del_report:Törlési jelentés
 reported_reason:Ok:
 reported_on:Ideje:
@@ -244,8 +245,7 @@ pmsg_forwarded:továbbítva
 pmsg_subject:Tárgy
 pmsg_author:Szerző
 pmsg_time:Idő
-# Fuzzy
-pmsg_selected:Kiválasztott
+pmsg_selected:Kiválasztás
 pmsg_delete:Törlés
 cur_ppage_pm:Privát üzenetek
 writing_pm:Privát üzenet írása
@@ -318,6 +318,7 @@ register_login_taken:Már foglalt
 register_password:Jelszó:
 register_password_desc:A fiókod jelszava. A jelszavak nagybetű érzékenyek, és legalább 6 karakter hosszúnak kell lennie.
 register_conf_pass:Jelszó megerősítése:
+register_conf_pass_desc:Írja be újra a jelszavát
 register_email_desc:Az e-mail címed. A Beállítások szakaszban beállíthatod, hogy ne jelenjen meg.
 register_name:Név:
 register_name_desc:A valódi neved.
@@ -380,8 +381,7 @@ my_buddies:Barátaim
 add_buddy:Barát hozzáadása
 add:Hozzáadás
 buddy_search:Add meg a felhasználó nevét, akit hozzá szeretnél adni.
-# Fuzzy
-member_search:Használhatod a <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">felhasználókeresőt</a> személyek megtalálásához.
+member_search:Használhatod a <a href="javascript://" onclick="javascript: window_open('{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">felhasználókeresőt</a> személyek megtalálásához.
 buddy_remove:eltávolítás
 post_normal:Normális
 post_sticky:Kiemelt
@@ -529,8 +529,7 @@ mklist_apply:Alkalmazás
 mklist_delete:Törlés
 qbud_nick_name:Becenév
 qbud_add_selected:Kiválasztott hozzáadása
-# Fuzzy
-qbud_selected:Kiválasztott
+qbud_selected:Kiválasztás
 qbud_no_buddies:Nincsenek barátaid, akik közül választhatnál
 mklist_numerical:számozott
 mklist_aplha:betűk
@@ -599,8 +598,7 @@ buddy_list_err_ignore:Nem adhatod hozzá azokat a felhasználókat a barátaid l
 buddy_list_update:A saját barátjainak listáját böngészi
 core_err_invinp_title:Érvénytelen bemenet
 core_err_invinp_err:Egy érvénytelen hivatkozást követtél. Értesítsd a <a href="mailto:{GVAR: ADMIN_EMAIL}">webmestert</a>, hogyan kerültél ide.
-# Fuzzy
-core_adm_login_msg:Az adminisztrátorok <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">itt</a> jelentkezhetnek be.
+core_adm_login_msg:Az adminisztrátorok <a href="{BASE}adm/admloginuser.php">here</a> jelentkezhetnek be.
 email_err_unabletoemail_title:HIBA: Nem sikerült az e-mail elküldése
 email_err_unabletoemail_msg:Az e-mail-rendszert letiltotta az adminisztrátor.
 email_error_unabletolocaddr:Sajnáljuk, a rendszernek nem sikerült e-mailt küldeni {VAR-HTML: _POST['tx_name']} részére, mert nem sikerült megállapítani az e-mail címét
@@ -679,8 +677,7 @@ register_err_avatarnotallowed:Az avatar, amit fel akartál tölteni, nem engedé
 register_conf_subject:Regisztráció megerősítése
 register_conf_msg:Köszönjük, hogy regisztráltál,\nA fiókod aktiválásához kattints az alább látható URL-címre:\n\n{FULL_ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nMiután a fiókod aktiválva van, be leszel jelentkeztetve a fórumba, és át leszel\nirányítva a kezdőlapra.
 register_welcome_subject:Fórum regisztráció megerősítése
-# Fuzzy
-register_welcome_msg:Köszönjük, hogy regisztráltál.\n\nItt vannak a bejelentkezési adataid a fórumba:\n\nFórum URL-címe: {TEMPLATE: index_update_lnk}\nBejelentkezési név: {VAR: uent->login}\nJelszó: {VAR: _POST['reg_plaintext_passwd']}\n\nFontos, hogy a jelszavak kis- és nagybetűérzékenyek!\nA beállításaid, vagy a profilod módosításához menj erre a lapra:\n{FULL_ROOT}{ROOT}?t=register
+register_welcome_msg:Köszönjük, hogy regisztráltál.\n\nItt vannak a bejelentkezési adataid a fórumba:\n\nFórum URL-címe: {TEMPLATE: index_update_lnk}\nBejelentkezési név: {VAR: uent->login}\nJelszó: {VAR: _POST['reg_plaintext_passwd']}\n\nFontos, hogy a jelszavak kis- és nagybetű érzékenyek!\nA beállításaid, vagy a profilod módosításához menj erre a lapra:\n{FULL_ROOT}?t=register
 register_err_cantreg_title:HIBA: a regisztráció nem sikerült
 regsiter_err_cantreg_msg:Nem sikerült létrehozni a fiókot, értesítsd az adminisztrátort a(z) <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a> címen
 register_profile_update:A saját profilját nézi
@@ -727,8 +724,7 @@ error_title:Hiba
 index_title:Üdvözlünk a fórumban
 search_title:{VAR-HTML: srch} keresése
 remail_emailsent:E-mail elküldve
-# Fuzzy
-remail_email:Szia!\n\nEgy érdekes téma található a(z) {GVAR: FORUM_TITLE} fórumon "{VAR: data->subject}" címmel, amit lehet, hogy el szeretnél olvasni. A témát itt találod meg:\n  {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nBarátod,\n\n{VAR: usr->alias}
+remail_email:Szia!\n\nEgy érdekes téma található a(z) {GVAR: FORUM_TITLE} fórumon "{VAR: data->subject}" címmel, amit lehet, hogy el szeretnél olvasni. A témát itt találod meg:\n  {FULL_ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nBarátod,\n\n{VAR: usr->alias}
 poll_add_option:Válaszlehetőség hozzáadása:
 post_opt_html_on:<b>HTML</b>-kód <b>engedélyezve</b>
 post_opt_fud_on:<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>BBcode</b> <b>engedélyezve</b></a>
@@ -905,8 +901,7 @@ polllist_votes:Összes szavazat
 polllist_action:Művelet
 polllist_update:Az <a href="{TEMPLATE: polllist_update_lnk}">elérhető szavazásokat ellenőrzi</a>
 userinfo_polls:Szavazások:
-# Fuzzy
-show_pollist:Szavazások megjelenítése
+show_pollist:Szavazások:
 search_and:ÉS
 search_or:VAGY
 search_desc_order:Csökkenő sorrend
@@ -969,11 +964,9 @@ iemail_forum_unsub:Leiratkozás erről a fórumról
 primary_group_prefix:A fórum elsődleges csoportja:
 group_resources:Ez a csoport a következő fórum jogosultságait vezérli
 register_admin_newuser_title:Új felhasználó regisztrált, és fiókja megerősítésre vár
-# Fuzzy
-register_admin_newuser_msg:Egy új felhasználó ({VAR: uent->login}) regisztrált, és mivel a fiókok megerősítése engedélyezve van, a fiókja nem lesz aktív, amíg te, vagy egy másik adminisztrátor nem erősíti meg. A fiók ellenőrzéséhez látogass el ide: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nEz egy automatikusan generált üzenet, ne válaszolj rá.\nHa ki szeretnéd kapcsolni a további értesítéseket, az adminisztrátori vezérlőpulton megteheted. Módosítsd az "Értesítés új fiókregisztrációkról" beállítást.
+register_admin_newuser_msg:Egy új felhasználó ({VAR: uent->login}) regisztrált, és mivel a fiókok megerősítése engedélyezve van, a fiókja nem lesz aktív, amíg te, vagy egy másik adminisztrátor nem erősíti meg. A fiók ellenőrzéséhez látogass el ide: {FULL_ROOT}adm/admuserapr.php\n\nEz egy automatikusan generált üzenet, ne válaszolj rá.\nHa ki szeretnéd kapcsolni a további értesítéseket, az adminisztrátori vezérlőpulton megteheted. Módosítsd az "Értesítés új fiókregisztrációkról" beállítást.
 post_mod_msg_notify_title:Új üzenet vár elfogadásra a(z) "{VAR: frm->name}" fórumban
-# Fuzzy
-post_mod_msg_notify_msg:Egy új hozzászólást írtak "{VAR: msg_post->subject}" címmel egy fórumba, amit te moderálsz. Az üzenet ellenőrzéséhez menj a következő címre: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nEz egy automatikusan generált üzenet, ne válaszolj rá.
+post_mod_msg_notify_msg:Egy új hozzászólást írtak "{VAR: msg_post->subject}" címmel egy fórumba, amit te moderálsz. Az üzenet ellenőrzéséhez menj a következő címre: {FULL_ROOT}?t=modque#{VAR: msg_post->id}\n\nEz egy automatikusan generált üzenet, ne válaszolj rá.
 thread_printable_pdf:Nyomtatható PDF gererálása
 thread_syndicate:Fórum közzététele (XML)
 reg_conf_title:Regisztráció megerősítése
@@ -999,8 +992,7 @@ mnav_month:hónap
 mnav_title:Hozzászólásböngésző
 mnav_update:A hozzászólásokat nézi a <a href="{TEMPLATE: mnav_update_lnk}">Hozzászólásböngésző</a> segítségével
 pm_notify_subject:[{GVAR: FORUM_TITLE}] Értesítés új privát üzenetről
-# Fuzzy
-pm_notify_body_email:{VAR: from} új privát üzenetet küldött neked "{VAR: subject}" címmel a(z) "{GVAR: FORUM_TITLE}" fórumban.\nAz üzenet megtekintéséhez kattints ide: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nHa nem szeretnél további értesítéseket kapni, tiltsd le az "Értesítések privát üzenetekről" beállítást a profilodban.
+pm_notify_body_email:{VAR: from} új privát üzenetet küldött neked "{VAR: subject}" címmel a(z) "{GVAR: FORUM_TITLE}" fórumban.\nAz üzenet megtekintéséhez kattints ide: {FULL_ROOT}?t=pmsg_view&id={VAR: pid}\n\nHa nem szeretnél további értesítéseket kapni, tiltsd le az "Értesítések privát üzenetekről" beállítást a profilodban.
 register_pm_notification:Értesítés privát üzenetről:
 register_pm_notification_desc:Ha engedélyezve van, értesítve leszel, ha privát üzenetet kapsz.
 findu_admin_opts_header:Adminbeállítások
@@ -1066,10 +1058,8 @@ search_user_filter:Szűrés felhasználó alapján:
 register_none:Nem kérek értesítést
 findu_no_conf:nem megerősített felhasználó
 register_max_sig_len:Maximális hossz:
-# Fuzzy
-register_turing:Írd be az alább látható kódot:
-# Fuzzy
-register_err_turing:Érvénytelen ellenőrzőkód.
+register_turing:Ellenőrzés:
+register_err_turing:Ellenőrzés érvénytelen. Próbálja újra.
 modque_cat:Kategória
 modque_forum:Fórum
 idx_compact_forum_row:Elérhető fórumok:
@@ -1130,8 +1120,7 @@ move_msg_th_expl:Add meg a céltéma azonosítóját (lehet más fórumban is)
 captcha_img_alt:Captcha-ellenőrzés: fel kell ismerned a képen látható szöveget.
 captcha_img_help:Nincs nulla vagy egy a képen.
 powered-by:Az oldalt a FUDfórum {GVAR: FORUM_VERSION} hajtja.
-# Fuzzy
-copyright:Copyright &copy;2001-2017 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Copyright &copy;2001-2019 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Kód:
 code_select_all:Összes kijelölése
 code_show_hide:Megjelenítés/ elrejtés
@@ -1169,3 +1158,10 @@ karma:Karma
 karma_track:Felhasználó tekintélyének kezelése:
 karma_delete:Törlés
 rate_author:Szerző értékelése:
+blog_update:Fórum portál olvasása
+blog:Blog
+blog_new_members:Új tagok
+blog_new_posts:Új üzenetek
+blog_rated_posts:Legjobb minősítésű
+blog_viewed_posts:Legnézettebb
+blog_comments:{PLURAL: topic->replies|$1 megjegyzés|$1 megjegyzés}
