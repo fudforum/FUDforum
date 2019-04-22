@@ -239,8 +239,7 @@ pmsg_forwarded:مُمرّرة
 pmsg_subject:الموضوع
 pmsg_author:المؤلف
 pmsg_time:الوقت
-# Fuzzy
-pmsg_selected:مُختار
+pmsg_selected:مختار
 pmsg_delete:احذف
 cur_ppage_pm:مراسله خاصة
 writing_pm:اكتب رساله خاصة
@@ -309,7 +308,6 @@ register_uploaded:رفع الأفتار
 register_login:الولوج:
 register_password:كلمه السر:
 register_conf_pass:تأكيد كلمه السر:
-# Fuzzy
 register_email_desc:من فضلك أدخل عنوان بريد إلكترونى صالح. تستطيع اختيار اخفائه أدناه، فى قسم التفضيلات.
 register_name:الاسم:
 register_your_pass:كلمه سرّك:
@@ -371,7 +369,6 @@ my_buddies:أصدقائي
 add_buddy:أضف صديقًا
 add:إضافة
 buddy_search:أدخل اسم ولوج المستخدم الذى تريد إضافته.
-# Fuzzy
 member_search:أو استخدم ميزه <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">إيجاد مستخدم</a> لإيجاد شخص معين.
 buddy_remove:إزالة
 post_normal:عادي
@@ -520,7 +517,6 @@ mklist_apply:طبّق
 mklist_delete:احذف
 qbud_nick_name:الاسم المستعار
 qbud_add_selected:أِضف المختار
-# Fuzzy
 qbud_selected:مختار
 qbud_no_buddies:لا أصدقاء يمكن الاختيار منهم
 mklist_numerical:مُرقمة
@@ -669,7 +665,6 @@ register_err_avatarnotallowed:لا يسمح بالأفتار التى تحاول
 register_conf_subject:تأكيد التسجيل
 register_conf_msg:شكرًا على التسجيل!\n\nلتُنشّط حسابك من فضلك اذهب إلى المسار التالي:\n\n{FULL_ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nسوف تلج إلى المنتدى وتُحوّل إلى الصفحه الرئيسيه بمجرد تنشيط حسابك.
 register_welcome_subject:تأكيد تسجيل المنتدى
-# Fuzzy
 register_welcome_msg:شكرا لك على التسجيل!\n\nهنا تفاصيل ولوجك إلى المنتدى:\n\n\nمسار المنتدى: {TEMPLATE: index_update_lnk}\nالولوج: {VAR: uent->login}\nكلمه السر: {VAR: _POST['reg_plaintext_passwd']}\n\nمن فضلك لاحظ أن كلمه السر حساسه لحاله الأحرف!\nلتغيّر إعداداتك أو ملفك شخص الشخصى، اذهب إلى هذه الصفحة:\n{FULL_ROOT}{ROOT}?t=register
 register_err_cantreg_title:خطأ: تعذر التسجيل
 regsiter_err_cantreg_msg:تعذر إنشاء حساب المستخدم، من فضلك اتصل بالإدارى عبر <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
@@ -682,7 +677,6 @@ reset_err_invalidkey_msg:مفتاح إعاده ضبط كلمه سر خاطئ. م
 reset_err_rstconf_title:معلومات
 reset_err_rstconf_msg:ينبغى أن تتلقى التعليمات فى بريدك الإلكترونى فى الدقائق القليله القادمه.
 reset_newpass_title:إعاده ضبط كلمه السر
-# Fuzzy
 reset_newpass_msg:مرحبًا!\n\nكما تطلب، فإن معلومات ولوجك ظاهره أدناه\n\n\nالولوج: {VAR: ui[1]}\nكلمه السر: {VAR: passwd}\n\nمن فضلك لاحظ أن كلمه السر أعيد ضبطها إلى القيمه أعلاه. تستطيع تغيير كلمه سرك عبر لوحه التحكم في: {FULL_ROOT}{ROOT}?t=register
 reset_login_notify:الباسوورد بتاعتك إتبعتلك .  المفروض  تستلمها كمان كام دئيئه .<br />
 search_update:يبحث عن رسائل
@@ -718,7 +712,6 @@ error_title:نموذج الخطأ
 index_title:مرحبًا بكم إلى المنتدى
 search_title:البحث عن {VAR-HTML: srch}
 remail_emailsent:أرسل البريد
-# Fuzzy
 remail_email:مرحبًا،\n\nيوجد موضوع مشوق عن "{VAR: data->subject}" فى منتدى {GVAR: FORUM_TITLE} وقد ترغب فى قراءته. تستطيع مشاهده الموضوع على:\n  {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nصديقك،\n\n{VAR: usr->alias}
 poll_add_option:أضف خيارًا:
 post_opt_html_on:<b>HTML مُفعّل</b>
@@ -896,7 +889,6 @@ polllist_votes:مجموع الأصوات
 polllist_action:لإجراء
 polllist_update:a href="{TEMPLATE: polllist_update_lnk}">يراجع الاقتراعات المتوفرة</a>
 userinfo_polls:الاقتراعات:
-# Fuzzy
 show_pollist:أظهر الاقتراعات
 search_and:و
 search_or:أو
@@ -960,10 +952,8 @@ iemail_forum_unsub:ألغِ الاشتراك من هذا المنتدى
 primary_group_prefix:مجموعه المنتدى الرئيسية:
 group_resources:تتحكم هذه المجموعه بأذونات المنتديات التالية
 register_admin_newuser_title:مستخدم جديد سجل وحسابه ينتظر التأكيد
-# Fuzzy
-register_admin_newuser_msg:سجل مستخدم جديد ({VAR: uent->login})، وبما أن تأكيد الحساب مفعل، فإن حسابه لن يُنشّط حتى تأكده أو يؤكده إدارى آخر. لمراجعه الحساب، اذهب من فضلك إلى: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nهذه إجراء تلقائى. لا ترد على هذه الرساله.\nإذا أردت إطفاء إخطارات البريد الإلكترونى المستقبليه لتسجيل المستخدمين الجدد، فقم بذلك عبر لوحه التحكم الإداريه. غيّر إعداد "إخطار الحسابات الجديدة".
+register_admin_newuser_msg:سجل مستخدم جديد ({VAR: uent->login})، وبما أن تأكيد الحساب مفعل، فإن حسابه لن يُنشّط حتى تأكده أو يؤكده إدارى آخر. لمراجعه الحساب، اذهب من فضلك إلى: {FULL_ROOT}adm/admuserapr.php\n\nهذه إجراء تلقائى. لا ترد على هذه الرساله.\nإذا أردت إطفاء إخطارات البريد الإلكترونى المستقبليه لتسجيل المستخدمين الجدد، فقم بذلك عبر لوحه التحكم الإداريه. غيّر إعداد "إخطار الحسابات الجديدة".
 post_mod_msg_notify_title:رسائل جديده فى منتدى "{VAR: frm->name}" تنتظر الاعتماد
-# Fuzzy
 post_mod_msg_notify_msg:أرسلت رساله جديده بالعنوان "{VAR: msg_post->subject}" فى المنتدى الذى تشرف عليه. لمراجعه هذه الرسالة: اذهب إلى {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}.\n\nهذا إجراء تلقائى. لا ترد على هذه الرساله.
 thread_printable_pdf:ولّد PDF يمكن طباعته
 thread_syndicate:نقّب هذا المنتدى (XML)
@@ -990,7 +980,6 @@ mnav_month:شهر (شهور)
 mnav_title:متصفح الرسائل
 mnav_update:يتصفح الرسائل باستخدام <a href="{TEMPLATE: mnav_update_lnk}">متصفح الرسائل</a>
 pm_notify_subject:[{GVAR: FORUM_TITLE}] إشعار رساله خاصه جديدة
-# Fuzzy
 pm_notify_body_email:لديك رساله خاصه جديده عنوانها "{VAR: subject}" من "{VAR: from}" فى منتدى "{GVAR: FORUM_TITLE}".\nلعرض الرساله، انقر هنا: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nلوقف الإشعارات القادمه، عطّل "إشعار الرسائل الخاصة" فى ملفك الشخصى.
 register_pm_notification:إشعار رساله جديدة:
 register_pm_notification_desc:إذا مُكن فسوف تُشعر كلما ترسل لك رساله جديده.
@@ -1119,8 +1108,7 @@ move_msg_th_expl:حدد هويه الموضوع الهدف (يمكن أن يكو
 captcha_img_alt:تحقق كابتشا: سوف تحتاج إلى التعرف على نص هذه الصوره.
 captcha_img_help:لا يوجد صفر ولا واحد فى الصوره.
 powered-by:يشغله: FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:!قوق النشر  و النسخ;2001-2018 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:حقوق النشر  و النسخ;2001-2019 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:الكود
 code_select_all:اختر الكل
 code_show_hide:أظهر/أخفِ

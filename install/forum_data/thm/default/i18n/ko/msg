@@ -978,7 +978,7 @@ mnav_month:월
 mnav_title:메시지 둘러보기
 mnav_update:<a href="{TEMPLATE: mnav_update_lnk}">메시지 둘러보기</a>를 사용해 메시지를 찾아보는 중
 pm_notify_subject:[{GVAR: FORUM_TITLE}] 새 개인 메시지 알림
-register_pm_notification:쪽지알림
+register_pm_notification:쪽지 알림:
 register_pm_notification_desc:활성화하면 개인 메시지를 받을 때 알림을 받습니다.
 findu_admin_opts_header:관리자 옵션
 findu_unban:차단해제
