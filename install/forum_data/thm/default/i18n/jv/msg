@@ -797,7 +797,7 @@ rate_worst:paling awon
 rate_best:Best
 post_quote_msg:{VAR: msg->login} wrote on {TEMPLATE: make_report_date}
 post_quote:Quote:
-post_quote_selected:Kutip teks Kapilih
+post_quote_selected:Cuplik Tulisan Kapilih
 userinfo_referals:Diarani Pangguna:
 userinfo_referals_count:{VAR: referals} anggota
 pm_no_space_title:Ana papan kiwa!

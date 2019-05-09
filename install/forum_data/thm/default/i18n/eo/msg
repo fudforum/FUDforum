@@ -5,6 +5,7 @@
 # Author: Macofe
 # Author: McDutchie
 # Author: Mihxil
+# Author: Mirin
 # Author: Objectivesea
 # Author: Robin van der Vliet
 # Author: Surfo
@@ -210,8 +211,7 @@ vote_button:Voĉdoni
 vote_for_thread:Voĉdoni
 was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> estis movita al <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> de la kontrolanto
 welcome_message:Bonvenon, <b>{VAR: usr->alias}</b>. Via lasta vizito estis je {TEMPLATE: welcome_message_date}
-# Fuzzy
-what_ppl_doing:Montri kion uzantoj estas farantaj
+what_ppl_doing:Aktiveco de Uzanto
 reported_del_report:Forigi Raporton
 reported_reason:Kialo:
 reported_on:Je:
@@ -220,6 +220,7 @@ reported_reported_msg:Raportitaj Mesaĝoj
 modque_pending_approval:Mesaĝoj atendantaj aprobon
 modque_approve:Aprobi
 modque_delete:Forigi
+modque_deleteall:Forigi ĉiujn el uzanto
 modque_no_message:Estas neniuj mesaĝoj atendantaj aprobon
 pmsg_new_messages:Nelegita privata mesaĝo
 pmsg_old_messages:Legi privatan mesaĝon
@@ -243,8 +244,7 @@ pmsg_forwarded:plusenditaj
 pmsg_subject:Temo
 pmsg_author:Aŭtoro
 pmsg_time:Tempo
-# Fuzzy
-pmsg_selected:Elektita
+pmsg_selected:Elekti
 pmsg_delete:Forigi
 cur_ppage_pm:Privata Mesaĝado
 writing_pm:Skribante Privatan Mesaĝon
@@ -314,8 +314,8 @@ register_login:Salutnomo:
 register_login_available:Disponebla
 register_password:Pasvorto:
 register_conf_pass:Konfirmi Pasvorton:
-# Fuzzy
-register_email_desc:Bonvolu enigi validan retadreson. Vi povas elekti kaŝi ĝin sube, en la Agordoj-sekcio.
+register_conf_pass_desc:Bonvolu reenigi vian pasvorton.
+register_email_desc:Via retpoŝta adreso. Vi povas elekti kaŝi ĝin sube, en la Agordoj-sekcio.
 register_name:Nomo:
 register_name_desc:Via vera nomo.
 register_your_pass:Via Pasvorto:
@@ -442,8 +442,7 @@ prereg_agree:Mi Konsentas
 prereg_disagree:Mi Malkonsentas
 prereg_update:Legante la forumregulojn
 coppa_fax_instructions:Instruoj por Gepatro aŭ Zorganto
-# Fuzzy
-coppa_fax_instructions2:Bonvolu printi ĉi tiun paĝon, subskribi ĝin, kaj faksi ĝin al:
+coppa_fax_instructions2:Bonvolu presi ĉi tiun paĝon, subskribi ĝin, kaj poŝti aŭ faksi ĝin al ni.
 coppa_fax_reg_form:Registrilo
 coppa_fax_sign:Bonvolu subskribi la jenan forumularon kaj sendi ĝin al ni
 coppa_fax_conf:Mi estas tralegita la informo de mia infano, kaj mi legis la Privatecan Regularon por la retejo. Mi komprenas ke la profila informo estas ŝanĝebla per pasvorto. Mi komprenas ke mi povas peti ke ĉi tiu informo esti forigita plene de la forumo.
@@ -528,8 +527,7 @@ mklist_apply:Apliki
 mklist_delete:Forigi
 qbud_nick_name:Kromnomo
 qbud_add_selected:Aldoni Elektitan
-# Fuzzy
-qbud_selected:Elektita
+qbud_selected:Elekti
 qbud_no_buddies:Neniuj amikoj por elekti de
 mklist_numerical:Cifera listo
 mklist_aplha:Litereca
@@ -906,8 +904,7 @@ polllist_votes:Tutaj Voĉdonoj
 polllist_action:Ago
 polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">Kontrolante Atingeblajn Opinisondojn</a>
 userinfo_polls:Opinisondoj:
-# Fuzzy
-show_pollist:Montri Opinisondojn
+show_pollist:Opinisondoj
 search_and:KAJ
 search_or:AŬ
 search_desc_order:Malkreskanta Ordo
@@ -977,6 +974,7 @@ mnav_description:Mesaĝa navigilo
 mnav_date_limit:Datintervalo:
 mnav_forum_limit:Nur serĉi en:
 mnav_submit:Komenci la serĉadon
+mnav_posted_by:Afiŝita De:
 mnav_more:Plua &raquo;&raquo;
 mnav_minute:Minuto(j)
 mnav_hour:Horo(j)
@@ -992,48 +990,102 @@ findu_edit:Redakti
 findu_delete:Forigi
 dmsg_reply_to:estas respondo al
 dmsg_reply_num:mesaĝo N-ro #{VAR: obj->reply_to}
+merge_topics:Kunigi Temojn
 thread_on:je
 userinfo_buddy:Kamarado:
 register_email_addr:Retpoŝtadreso:
+mnav_newer:pli nova ol
+mnav_older:pli malnova ol
+ip_search_by_ip:Serĉi uzantojn laŭ IP-adreso
+ip_search_syntax:Subtenata sintakso: 1.2.3.4, 1.2.3, 1.2, 1
 ip_search:Serĉi
+ip_analyze_usage:Analizi IP-uzadon
+ip_users_using:Uzantoj ĉe la IP-adreso {VAR: ip}
+ip_all_ips:Ĉiuj IP-adresoj uzataj de uzanto '{VAR: user}'
 userinfo_real_name:Vera nomo:
 register_err_alias_notallowed:Ĉi tiu kromnomo ne estas permesita
 post_err_mod_forum_edit_ttl:ERARO
+dmsg_num:mesaĝo no. {VAR: obj->id}
 delete_msg_pm_body:Origina mesaĝo
 delete_msg_pm_subject:Subjekto: {VAR: data[15]}
+ip_whois_title:Informo pri Provizanto de Retservoj
 register_theme:Etoso:
+pmsg_trash:Malplenigi Rubujon
 uc_new_pm:Novaj privataj mesaĝoj
 uc_new_topic:Nova temo
+uc_cat_forum:Kategorio &raquo; Forumo
+search_options:Opcioj pri Serĉado
+search_user_filter:Filtri laŭ uzanto:
 register_none:Ne min avizu
 findu_no_conf:Nekonfirmita uzanto
 register_max_sig_len:Maksimuma longaĵo:
-# Fuzzy
-register_err_turing:Nevalida validiga kodo.
+register_turing:Konfirmo:
+register_err_turing:Konfirmo malsukcesis. Bonvolu reprovi.
 modque_cat:Kategorio
 modque_forum:Forumo
 idx_compact_forum_row:Haveblaj forumoj:
+mmd_del_title:Forigi Temojn
+mmd_mov_title:Movi Temojn
+mmd_move_threads_to:Celata Forumo:
 mmd_abort_move:Nuligi
+mmd_move:Movi Temojn
+thread_mov_all:Movi Elektitojn
+thread_merge_all:Kunigi Elektitojn
 dmsg_ip:IP-adreso:
+sub_unsub_all_forums:Malaboni Ĉiujn Forumojn
+sub_unsub_all_topics:Malaboni Ĉiujn Temojn
 sml_code:Kodo
 post_common_bold:Grasa
 post_common_italics:Kursiva
 post_common_underline:Substrekita
 post_common_link:Enmeti ligilon
+post_common_link_popup:Adreso de ligilo:
+post_common_email:Enmeti retpoŝtan adreson
 post_common_email_popup:Retpoŝtadreso:
 post_common_image:Enmeti bildon
+post_common_image_popup:Retadreso de bildo:
+post_common_nlist:Aldoni numeritan liston
+post_common_blist:Aldoni bulan liston
 post_common_quote:Aldoni citaĵon
 post_common_code:Aldoni kodon
 rating_delete:Forigi
 tabs_notifications:Sciigoj
+finduser_flag:Standardo
+post_descr:Priskribo de Temo:
+pmsg_on:je
+move_messages:Movi mesaĝojn
 code_title:Kodo:
+code_select_all:Elekti ĉiujn
+code_show_hide:Montri / kaŝi
+social_sites:Sociaj retejoj:
 btn_new_topic:Nova temo
+btn_new_pm:Nova Priv. Mes.
+btn_post_reply:Afiŝi Respondon
+btn_tree_view:Arba vido
+btn_flat_view:Plata vido
 btn_about:Profilo
+btn_small_pm:PM
 btn_delete:forigi
 btn_edit:redakti
 btn_reply:respondi
 btn_forward:plusendi
 btn_quote:citi
+btn_email:Retpoŝto
 btn_show_posts:afiŝoj
 btn_homepage:ttt
+feed_rdf:RDF-abonfluo
+feed_rss:RSS2-abonfluo
+feed_atom:ATOM-abonfluo
+ip_whois_connect_err:Malsukcesis konekti WHOIS-servilon ({VAR: whois_server}): {VAR: errstr}
+custom_filed_required:Tiu kampo estas deviga.
 pages:Paĝoj
+page_list_heading:Disponaj paĝoj
+page_list_total:{PLURAL: i|$1 paĝo|$1 paĝoj} en listo.
+pm_export_footer:Elportita:
+karma:Karmo
 karma_delete:Forigi
+rate_author:Taksi aŭtoron:
+blog_update:Legante la foruman taglibron
+blog:Rettaglibro
+blog_new_members:Novaj Anoj
+blog_new_posts:Ĵusa Afiŝo
