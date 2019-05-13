@@ -106,7 +106,7 @@ new_thread:Krei novan fadenon
 newest_user:La plej nova registrita uzanto estas
 next_page:Posta Paĝo
 next_thread:Posta Fadeno:
-no_messages:Estas neniuj mesaĝoj en ĉi tiu forumo.<br />Afiŝu la unuan temon en ĉi tiu forumo.
+no_messages:Estas neniuj mesaĝoj en ĉi tiu forumo.<br />Afiŝu la unuan fadenon en ĉi tiu forumo.
 no_msg_body:Neniu Mesaĝkorpo
 no_new_posts:Neniuj Novaj Mesaĝoj
 no_posts:Neniuj Mesaĝoj
@@ -311,8 +311,11 @@ register_builtin:Integrita
 register_specify_url:Specifigi URL-on
 register_uploaded:Alŝuti vizaĝbildon
 register_login:Salutnomo:
+register_login_desc:La nomo per kiu vi volas ensaluti kaj koniĝi ĉe ĉi tiu retejo.
 register_login_available:Disponebla
+register_login_taken:Jam prenita
 register_password:Pasvorto:
+register_password_desc:Pasvorto de via konto. Uskleco gravas je pasvortoj; minimuma longo de pasvorto estas ses skribsignoj.
 register_conf_pass:Konfirmi Pasvorton:
 register_conf_pass_desc:Bonvolu reenigi vian pasvorton.
 register_email_desc:Via retpoŝta adreso. Vi povas elekti kaŝi ĝin sube, en la Agordoj-sekcio.
@@ -377,8 +380,7 @@ my_buddies:Miaj Amikoj
 add_buddy:Aldoni Amikon
 add:Aldoni
 buddy_search:Enigi la salutnomo de la uzanto kiun vi volas aldoni.
-# Fuzzy
-member_search:Aŭ uzu <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Trovi Uzanto</a> por trovi personon.
+member_search:Aŭ uzu la trajton <a href="javascript://" onclick="javascript: window_open('{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Trovi Uzanton</a> por trovi iun.
 buddy_remove:forigi
 post_normal:Norma
 post_sticky:Fiksita
@@ -430,8 +432,7 @@ ignore_users:Ignoritaj Uzantoj
 add_ignore:Aldoni Ignoranton
 forum_terms:Foruma Regularo
 forum_rules:<p>Registrado al ĉi tiu forumo estas senpaga! Ni ja insistas ke vi sekvas la jenajn regularojn. Se vi konsentas la regulojn, bonvolu klaki la butonon <b>Mi Konsentas</b> ĉe la subo de la paĝo.</p><p>Kvankam la administrantoj kaj kontrolantoj de ĉi tiu forumo provas forviŝi ĉiujn fiaĵojn el ĉi tiu forumo, ne eblas ke ni kontrolos ĉiujn mesaĝojn. Ĉiuj mesaĝoj esprimas la opiniojn de la aŭtoro, kaj nek la proprantoj de la forumo aŭ la disvolvantoj estos respondeca por la enhavo de iu mesaĝo.</p><p>Klakante la butonon Mi Konsentas, vi asertas ke vi ne afiŝos iujn mesaĝojn fivortecajn, seksecajn, malamikecajn, minacajn, aŭ alimaniere kontraŭigi iun ŝtatajn regularojn.</p><p>La proprantoj de ĉi tiu forumo havas la rajton forigi, redakti, movi, aŭ fermi iun fadenon por ia kialo.</p>
-# Fuzzy
-forum_rules_13:<p>Ĉiuj uzantoj sub 13-jaraĝa bezonas permeson de iliaj gepatro aŭ zorganto por gajni membreco al la forumoj. Kvankam vi bonvenas participado de forumanoj antaŭ 13-jaraĝa, ni devigas permeso-formularon antaŭ ni donas membrecon.</p><p>Se vi volus komenci la registrada procezo antaŭ sendante permeso-formularon, klaku la butonon <b>Mi Konsentas</b> sube. Se vi volus nuligi la registrado, klaku butonon <b>Mi Malkonsentas</b> por reiri al la foruma indekso.</p><p>Kopio de la permeso-formularo povas esti elŝutita ĉi tie. Por plia informo pri la registrada procezo, bonvolu sendi retpoŝton al <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
+forum_rules_13:<p>Ĉiu uzanto pli juna ol 13 jaroj bezonas permeson de siaj gepatroj aŭ zorganto por aniĝi al la forumoj. Kvankam ni bonvenas partoprenadon de forumanoj pli junaj ol 13 jaroj, ni postulas permeso-formularon faksitan aŭ poŝtitan de unu el la gepatroj aŭ zorgantoj por aniĝo.</p><p>Se vi volas komenci la registradan procezon antaŭ sendi la permeso-formularon, alklaku la jenan butonon <b>Mi Konsentas</b>. Se vi volas nuligi la registradon, alklaku la butonon <b>Mi Malkonsentas</b> por reiri al la foruma indekso.</p><p>Post registriĝo, disponos kopio de la permeso-formularo. Por plia informo pri registriĝo, bonvolu sendi retmesaĝon al <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
 coppa_conf:COPPA-Konfirmado
 coppa_before:Antaŭ {TEMPLATE: coppa_date}
 coppa_after:Poste {TEMPLATE: coppa_date}
@@ -596,8 +597,7 @@ buddy_list_err_ignore:Ne povas aldoni uzantojn kiu ignori vin al via amika listo
 buddy_list_update:Rigardante vian amikan liston
 core_err_invinp_title:Malvalida Enigo
 core_err_invinp_err:Vi ĵus sekvis malvalidan ligilon. Bonvolu sciigi la <a href="mailto:{GVAR: ADMIN_EMAIL}">retmajstro</a> kiel vi venis ĉi tien.
-# Fuzzy
-core_adm_login_msg:Administrantoj povas ensaluti <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">ĉi tie</a>.
+core_adm_login_msg:Administrantoj povas ensaluti <a href="{BASE}adm/admloginuser.php">ĉi tie</a>.
 email_err_unabletoemail_title:ERARO: Ne eblas retpoŝti
 email_err_unabletoemail_msg:La retpoŝta sistemo estis malŝalta de la administranto.
 email_error_unabletolocaddr:Bedaŭrinde, la sistemo ne eblis retpoŝti {VAR-HTML: _POST['tx_name']} ĉar ĝi ne eblis determini la retadreson.
@@ -660,8 +660,7 @@ postcheck_email_body:Vi ne povas sendi retpoŝton sen la mesaĝa korpo.
 private_msg_notify_subj:Lega Sciigo Por: {VAR: m->subject}
 private_msg_notify_body:Saluton,<br />{VAR: usr->login} malfermis vian privatan mesaĝon titolita,  "{VAR: m->subject}".<br />Ĉi tiu estas aŭtomata sciigo generita je {TEMPLATE: private_msg_notify_body_date}<br />
 referals_update:Tralegante referencojn
-# Fuzzy
-register_err_short_login:La Salutnomo kiun vi elektis estas tro mallonga. Salutnomoj devas esti almenaŭ 4 signoj longa.
+register_err_short_login:La Salutnomo kiun vi elektis estas tro mallonga. Longo de salutnomo devas esti minimume 2 skribsignoj.
 register_err_login_notallowed:Ĉi tiu salutnomo ne estas permesita.
 register_err_loginunique:Forumaj salutnomoj devas esti unikaj. Jam estas uzanto kun ĉi tiu nomo.
 register_err_emailexists:Ĉi tiu retadreso jam ligita kun konto. Se vi forgesis vian pasvorto, bonvolu uzi la opcion Restarigi, anstataŭ reregistradon.
@@ -677,8 +676,7 @@ register_err_avatarnotallowed:La avatro kiun vi provas alŝuti ne estas permesit
 register_conf_subject:Konfirmado de Registrado
 register_conf_msg:Dankon por via registrado.\nAktivigi vian konton bonvolu iru al la jenan URL-on:\n\n{FULL_ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nPost via konoto estas aktiva vi estos ensalutita en la forumo kaj alidirektita al la ĉefa paĝo.
 register_welcome_subject:Konfirmado de Foruma Registrado
-# Fuzzy
-register_welcome_msg:Dankon por via registrado.\n\nJen vian ensalutaj detaloj por la forumo:\n\n\nForuma URL-o: {TEMPLATE: index_update_lnk}\nSalutnomo: {VAR: uent->login}\nPasvorto: {VAR: _POST['reg_plaintext_passwd']}\n\nBonvolu sciigi ke pasvortoj estas usklecodistinga!\nModifi vian agordojn aŭ profilon, iru al ĉi tiu paĝo:\n{FULL_ROOT}{ROOT}?t=register
+register_welcome_msg:Dankon por via registriĝo.\n\nJen viaj ensalutaj detaloj pri la forumo:\n\nForuma retadreso: {TEMPLATE: index_update_lnk}\nSalutnomo: {VAR: uent->login}\nPasvorto: {VAR: _POST['reg_plaintext_passwd']}\n\nBonvolu noti ke pasvorta uskleco gravas!\nVi povas agordi vian profilon ĉe la jena paĝo:\n{FULL_ROOT}?t=register
 register_err_cantreg_title:ERARO: ne eblas registri
 regsiter_err_cantreg_msg:Ne eblas krei uzanto-konto; bonvolu kontakti la administranto ĉe <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:Rigardante propran profilon
@@ -691,8 +689,7 @@ reset_err_rstconf_title:Informo
 reset_err_rstconf_msg:Vi ricevos instruojn en via retpoŝtkesto dum la sekvaj kelkaj minutoj.
 reset_newpass_title:Restarigi Pasvorton
 reset_newpass_msg:Saluton,\n\nTiel petita, jen via salutinformo: \n\nSalutnomo: {VAR: ui[1]}\nPasvorto: {VAR: passwd}\n\nBonvolu noti ke via pasvorto estis restarigita al la valoro supre. Se vi volas\nŝanĝi vian pasvorton, vi povas fari tiel per la uzula kontrolilo ĉe: \n{FULL_ROOT}?t=register
-# Fuzzy
-reset_login_notify:Via pasvorto estis retpoŝtita al vi. Vi ricevos ĝin post kelkaj minutoj.<br />
+reset_login_notify:Via pasvorto estis retpoŝtita al vi. Vi ricevos ĝin post kelkaj minutoj.
 search_update:Serĉante mesaĝojn
 selmsg_update:Tralegante <a href="{TEMPLATE: selmsg_update_lnk}">Afiŝoj de Hodiaŭ</a>
 showposts_update:Tralegante afiŝojn laŭ: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
@@ -726,8 +723,7 @@ error_title:Erara Formularo
 index_title:Bonvenon al la forumo
 search_title:Serĉi Titolon {VAR-HTML: srch}
 remail_emailsent:Retpoŝto estis sendita
-# Fuzzy
-remail_email:Saluton,\n\n\nEstas interesa titolo pri "{VAR: data->subject}" en forumo {GVAR: FORUM_TITLE} kiu vi eble volas legi. Vi povas vidi la fadenon ĉe:\n\n  {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nVia amiko,\n\n{VAR: usr->alias}
+remail_email:Saluton,\n\nEstas interesa fadeno pri "{VAR: data->subject}" ĉe forumo {GVAR: FORUM_TITLE} kiun vi eble volas legi. Vi povas vidi la fadenon ĉe:\n\n  {FULL_ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nVia amiko,\n\n{VAR: usr->alias}
 poll_add_option:Aldoni Opcion:
 post_opt_html_on:<b>HTML</b> estas <b>ŝalta</b>
 post_opt_fud_on:<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>BBcode</b> estas <b>ŝalta</b></a>
@@ -967,13 +963,24 @@ iemail_forum_unsub:Malaboni ĉi tiun forumon
 primary_group_prefix:Ĉefa grupo por forumo:
 group_resources:Ĉi tiu grupo rajtigas la jenajn forumojn
 register_admin_newuser_title:Nova uzanto registris kaj ties konto atendas konfirmado
-# Fuzzy
-register_admin_newuser_msg:Nova uzanto ({VAR: uent->login}) ĵus estas registrita, kaj ĉar konfirmado de kontoj estas aktiva , ĝia konto ne estos uzebla ĝis ĝi estos konfirmita de vi aŭ de aliaj forumestro. Por kontroli la konton bonvolu iri al: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nĈi tio estas rezulto de aŭtoma proceso. Ne reagu je tiu ĉi mesaĝo.\nSe vi deziras malŝalti ontajn ret-poŝtajn sciigojn pri novaj konto-kreoj, tiam vi povas tion aranĝi per la stirpanelo por administranto. Tie ŝanĝeblas la agardo pri 'sciigoj pri novaj kontoj'.
+register_admin_newuser_msg:Nova uzanto ({VAR: uent->login}) ĵus estas registrita, kaj ĉar konfirmado de kontoj estas aktiva, ĝia konto ne estos uzebla ĝis ĝi estos konfirmita de vi aŭ de alia forumestro. Por kontroli la konton bonvolu iri al: {FULL_ROOT}adm/admuserapr.php\n\nĈi tio estas rezulto de aŭtomata proceso. Ne reagu je ĉi tiu mesaĝo.\nSe vi deziras malŝalti estontajn retpoŝtajn sciigojn pri novaj konto-kreoj, vi povas tion aranĝi per la stirpanelo por administranto. Tie ŝanĝeblas la agordo pri "sciigoj pri novaj kontoj".
+post_mod_msg_notify_title:Nova mesaĝo en forumo "{VAR: frm->name}" ne jam aprobita
+post_mod_msg_notify_msg:Nova mesaĝo kun temo "{VAR: msg_post->subject}" ĵus afiŝiĝis en forumo kontrolata de vi. Por revizii ĉi-supran mesaĝon iru al: {FULL_ROOT}?t=modque#{VAR: msg_post->id}\n\nĈi tio estas aŭtomata mesaĝo. Bonvolu ne respondi.
 thread_printable_pdf:Generi printeblan PDF-on
+thread_syndicate:Aboni tiun forumon (XML)
+reg_conf_title:Konfirmo de Registriĝo
+reg_conf_email:<br>Konfirmo de retpoŝta adreso</br><br />Ni retpoŝtis retmesaĝon al vi enhavantan specialan retpaĝan adreson, kiun vi devas atingi por aktivigi vian konton. Se vi ne ricevas tiun retmesaĝon en kelkaj minutoj, ensalutu en vian konton kaj konfirmu ke la specifita retpoŝta adreso estas ĝusta. Post konfirmado de via konto, vi povos uzi forumajn funkciojn nur haveblajn al konfirmitaj, registritaj uzantoj.
+reg_conf_account:<br>Konfirmo de Konto</br><br />Aktivigo de via konto postulas aprobon far administranto. Kiam tio okazos, vi ekscios per retmesaĝo. Sen tio, vi povas ensaluti en vian konton; tamen vi ne povas uzi iujn funkciojn.
+forum_banned_user:Viaj pasinta konduto kaŭzis vian ĉiaman forbaron el ĉi tiu forumo. Adiaŭ.
 mnav_description:Mesaĝa navigilo
 mnav_date_limit:Datintervalo:
 mnav_forum_limit:Nur serĉi en:
+mnav_all_forums:Serĉi ĉiujn forumojn
 mnav_submit:Komenci la serĉadon
+mnav_no_range:Vi devas enigi validan intervalon de datoj. Tiu povas enhavi decimalan punkton (ne komon, ekz. 0.12), sed devas esti pli granda ol 0.
+mnav_invalid_unit:Vi devas specifi validan mezurunuon de tempo.
+mnav_invalid_date:La specifita intervalo de datoj estas pli larĝa ol la maksimumo specifita de la administranto. Provu malpli larĝan.
+mnav_no_results:Estas neniu mesaĝo kongrua kun via informpeto.
 mnav_posted_by:Afiŝita De:
 mnav_more:Plua &raquo;&raquo;
 mnav_minute:Minuto(j)
@@ -982,38 +989,69 @@ mnav_day:Tago(j)
 mnav_week:Semajno(j)
 mnav_month:Monato(j)
 mnav_title:Mesaĝa navigilo
+mnav_update:Foliumanta Mesaĝojn per <a href="{TEMPLATE: mnav_update_lnk}">Mesaĝa Navigilo</a>
 pm_notify_subject:[{GVAR: FORUM_TITLE}] Avizo de nova privata mesaĝo
+pm_notify_body_email:Vi havas novan privatan mesaĝon kun temo "{VAR: subject}", far "{VAR: from}", en la forumo "{GVAR: FORUM_TITLE}".\nPor vidi la mesaĝon, alklaku la jenan ligilon: {FULL_ROOT}?t=pmsg_view&id={VAR: pid}\n\nPor halti sciigojn, malŝalti "Sciigon pri Privata Mesaĝo" en via profilo.
 register_pm_notification:Avizo de privata mesaĝo:
+register_pm_notification_desc:Se ŝaltita, vi estos sciigata kiam oni sendas privatan mesaĝon al vi.
+findu_admin_opts_header:Administraj Opcioj
 findu_unban:Malekzili
 findu_ban:Forbari
 findu_edit:Redakti
 findu_delete:Forigi
 dmsg_reply_to:estas respondo al
 dmsg_reply_num:mesaĝo N-ro #{VAR: obj->reply_to}
-merge_topics:Kunigi Temojn
+merge_topics:Kunigi Fadenojn
+merge_topics_cp:Stirpanelo pri Kunigo de Fadenoj
+merge_topics_tpl:Elekti kunigotajn fadenojn <span class="SmallText">(vi devas elekti plurajn)</span>
+merge_merge:Kunigi Elektitajn Fadenojn
+merge_next:Sekvaj Fadenoj
+merge_prev:Antaŭaj Fradenoj
+merge_another:Iri al la <a href="{TEMPLATE: merge_another_lnk}">ĵus kunigitan fadenon</a> aŭ kunigi alian:
+split_cp:Stirpanelo pri Malkunigo de Fadeno
+groups_perms_header:Permesoj <span class="small">(musumi la permeson por vidi la tipon)</span>
+register_err_sig_too_long:Via subskribo estas pli longa ol la maksimumo de {GVAR: FORUM_SIG_ML} skribsignoj.
+register_sig_limit:{GVAR: FORUM_SIG_ML} skribsignoj <a href="javascript: alert('Longo de via Subskribo estas '+document.forms['fud_register'].reg_sig.value.length+' skribsignoj. La maksimuma longo de subskribo estas {GVAR: FORUM_SIG_ML} skribsignoj.');" class="SmallText">Kontroli Longon de Subskribo</a>
+adm_account_accepted:Via konto '{VAR: login}' estis aprobita de la administranto kaj estas nun aktiva. Vi povas nun atingi la forumon '{GVAR: FORUM_TITLE}' kiel konfirmita, registrita uzanto.
+adm_account_accepted_s:Via konta peto pri '{GVAR: FORUM_TITLE}' estis akceptita.
+adm_account_rejected:Via konto '{VAR: login}' estis malaprobita de la administranto. Se vi volas scii la kialon, bonvolu retmesaĝi la administranton ĉe '{GVAR: ADMIN_EMAIL}'.
+adm_account_rejected_s:Via konta peto pri '{GVAR: FORUM_TITLE}' estis malakceptita.
 thread_on:je
 userinfo_buddy:Kamarado:
 register_email_addr:Retpoŝtadreso:
+reset_suffix:Se vi ricevis jenan mesaĝon erare, bonvolu ignori ĝin. Se vi ricevis nepetitajn plurajn kopiojn de la jenan retmesaĝon, bonvolu kontakti la foruman administranton ĉe {GVAR: ADMIN_EMAIL}\n\nTiun peton plenumis: {VAR: _SERVER['REMOTE_ADDR']}.
+usrinfo_last_visit:Laste Vizitita:
 mnav_newer:pli nova ol
 mnav_older:pli malnova ol
 ip_search_by_ip:Serĉi uzantojn laŭ IP-adreso
 ip_search_syntax:Subtenata sintakso: 1.2.3.4, 1.2.3, 1.2, 1
 ip_search:Serĉi
 ip_analyze_usage:Analizi IP-uzadon
+ip_analyze_usage_descr:Bonvolu specifi la ekzaktan uzantnomon.
 ip_users_using:Uzantoj ĉe la IP-adreso {VAR: ip}
 ip_all_ips:Ĉiuj IP-adresoj uzataj de uzanto '{VAR: user}'
+ip_title:Foliumilo de IP-adresoj
 userinfo_real_name:Vera nomo:
 register_err_alias_notallowed:Ĉi tiu kromnomo ne estas permesita
 post_err_mod_forum_edit_ttl:ERARO
+post_err_mod_forum_edit_msg:Vi ne povas redakti mesaĝon ĉe kontrolata forumo.
 dmsg_num:mesaĝo no. {VAR: obj->id}
+postcheck_session_invalid:Via sesio eksvalidiĝos. Bonvolu resendi la formularon. Ni bedaŭras la ĝenon.
+delete_message_extra_desc:<b>Laŭvole</br><br />Specifi kialon pri la forigo de la mesaĝo, sendotan al la aŭtoro per privata mesaĝo.
+delete_message_extra_body:Inkluzivu la enhavon de la forigita mesaĝo sendotan al la aŭtoro.
+delete_msg_removed_ttl:Vian mesaĝon forigis administranto.
 delete_msg_pm_body:Origina mesaĝo
 delete_msg_pm_subject:Subjekto: {VAR: data[15]}
+ip_no_whois:WHOIS-informo pri <b>{VAR: ip}</b> ne estas havebla.
 ip_whois_title:Informo pri Provizanto de Retservoj
 register_theme:Etoso:
 pmsg_trash:Malplenigi Rubujon
 uc_new_pm:Novaj privataj mesaĝoj
-uc_new_topic:Nova temo
+uc_new_topic:Nova Fadeno
+uc_new_cat_forum:Abonitaj Forumoj Kun Novaj Mesaĝoj
 uc_cat_forum:Kategorio &raquo; Forumo
+uc_sub_topics:Abonitaj Fadenoj Kun Novaj Mesaĝoj
+uc_page_title:Vidante personan stirpanelon.
 search_options:Opcioj pri Serĉado
 search_user_filter:Filtri laŭ uzanto:
 register_none:Ne min avizu
@@ -1024,20 +1062,38 @@ register_err_turing:Konfirmo malsukcesis. Bonvolu reprovi.
 modque_cat:Kategorio
 modque_forum:Forumo
 idx_compact_forum_row:Haveblaj forumoj:
-mmd_del_title:Forigi Temojn
-mmd_mov_title:Movi Temojn
+mmd_del_title:Forigi Fadenojn
+mmd_mov_title:Movi Fadenojn
 mmd_move_threads_to:Celata Forumo:
 mmd_abort_move:Nuligi
-mmd_move:Movi Temojn
+mmd_move:Movi Fadenojn
+pmsg_pdf_btn:Fari PDF-Arkivon
+search_results_hdr:{VAR: total} Serĉrezultoj Trovitaj
+thread_del_all:Forigi elektitojn
 thread_mov_all:Movi Elektitojn
 thread_merge_all:Kunigi Elektitojn
+thread_loc_all:Ŝlosi/Malŝlosi Elektitojn
 dmsg_ip:IP-adreso:
+err_blockedaccnt_title:ERARO: Via konto estis filtrita for.
+err_blockedaccnt_msg:Via konto estas forbarata el la forumo de unu el la instalitaj uzanto-filtriloj.
+merge_th_page_list:Elekto de Tema Paĝo
+most_users_online:La plej granda nombro de uzantoj konektitaj samtempe estis <b>{VAR: st_obj->most_online}</b> je <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
 sub_unsub_all_forums:Malaboni Ĉiujn Forumojn
-sub_unsub_all_topics:Malaboni Ĉiujn Temojn
+sub_unsub_all_topics:Malaboni Ĉiujn Fadenojn
+unbookmark_all_topics:Forigi ĉiujn legosignojn
+tabs_own_posts:Montri Proprajn Afiŝojn
+sml_emoticon:Miensimbolo
 sml_code:Kodo
+mnav_sub_only:Serĉi nur abonatajn forumojn
+register_topics_per_page:Nombro de Fadenoj en Unu Paĝo:
+login_min_time:Ĉi tiu forumo permesas ensalutajn provojn po unu en {VAR: MIN_TIME_BETWEEN_LOGIN} sekundoj. Bonvolu atendi {FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)} sekundojn antaŭ via sekva provo.
+post_not_logged_in:Vi ankoraŭ ne ensalutis, kaj afiŝos la mesaĝon anonime.
 post_common_bold:Grasa
 post_common_italics:Kursiva
 post_common_underline:Substrekita
+post_common_align_left:Ĝisrandigi Maldekstren
+post_common_align_center:Centrigi
+post_common_align_right:Ĝisrandigi Dekstren
 post_common_link:Enmeti ligilon
 post_common_link_popup:Adreso de ligilo:
 post_common_email:Enmeti retpoŝtan adreson
@@ -1049,16 +1105,28 @@ post_common_blist:Aldoni bulan liston
 post_common_quote:Aldoni citaĵon
 post_common_code:Aldoni kodon
 rating_delete:Forigi
+post_always_on_top:Suprigi la fadenon ĉe la listo de fadenoj
+topic_rating:{VAR: frm->rating} el {PLURAL: frm->n_rating|$1 voĉdono|$1 voĉdonoj}
+topic_list_rating:{VAR: r[17]} el {PLURAL: r[21]|$1 voĉdono|$1 voĉdonoj}
 tabs_notifications:Sciigoj
 finduser_flag:Standardo
-post_descr:Priskribo de Temo:
+post_descr:Priskribo de Fadeno:
 pmsg_on:je
+pmsg_download_dump:Elŝuti Mesaĝamason
 move_messages:Movi mesaĝojn
+move_msg_btn:Movi Elektitajn Mesaĝojn
+move_msg_th_expl:Specifi la identigilon de la celata fadeno (eble en alia forumo)
+captcha_img_alt:Konfirmo de homeco: vi devas rekoni la tekston en ĉi-suba bildo.
+captcha_img_help:La bildo prezentas neniun nulon aŭ unuon.
+powered-by:Funkciante per: FUDforum {GVAR: FORUM_VERSION}.
+copyright:Aŭtorrajtoj &copy;2001-2019 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Kodo:
 code_select_all:Elekti ĉiujn
 code_show_hide:Montri / kaŝi
 social_sites:Sociaj retejoj:
-btn_new_topic:Nova temo
+postcheck_min_len_err:Via mesaĝo estas tro mallonga. La minimuma longo estas {PLURAL: post_min_len|$1 skribsigno|$1 skribsignoj}.
+postcheck_dup_err:Bonvolu ne krei duplikatajn fadenojn.
+btn_new_topic:Nova Fadeno
 btn_new_pm:Nova Priv. Mes.
 btn_post_reply:Afiŝi Respondon
 btn_tree_view:Arba vido
@@ -1073,6 +1141,7 @@ btn_quote:citi
 btn_email:Retpoŝto
 btn_show_posts:afiŝoj
 btn_homepage:ttt
+feed_no_data:Neniu kongrua dateno troviĝis.
 feed_rdf:RDF-abonfluo
 feed_rss:RSS2-abonfluo
 feed_atom:ATOM-abonfluo
@@ -1081,11 +1150,17 @@ custom_filed_required:Tiu kampo estas deviga.
 pages:Paĝoj
 page_list_heading:Disponaj paĝoj
 page_list_total:{PLURAL: i|$1 paĝo|$1 paĝoj} en listo.
+page_update:Legante paĝon
+pm_export_header:Privataj mesaĝoj por {VAR: usr->alias}
 pm_export_footer:Elportita:
 karma:Karmo
+karma_track:Mastrumi reputacion de uzanto:
 karma_delete:Forigi
 rate_author:Taksi aŭtoron:
 blog_update:Legante la foruman taglibron
 blog:Rettaglibro
 blog_new_members:Novaj Anoj
 blog_new_posts:Ĵusa Afiŝo
+blog_rated_posts:Plej bone taksita
+blog_viewed_posts:Plej ofte vidata
+blog_comments:{PLURAL: topic->replies|$1 komento|$1 komentoj}

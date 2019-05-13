@@ -30,7 +30,7 @@ date_posted:Tarixê Rıştışi
 date_registered:Tarixê Qeydi
 download_counter:Ronayış {PLURAL: r->dlcount|$1 time|$1 mend}
 pmsg_download_counter:Ronayış {PLURAL: r->dlcount|$1 time|$1 mend}
-email:E-mail
+email:E-poste:
 email_to_friend:E-mailê embazi
 email_to_friend_desc:URL ena perer bırış embaz dê xorê
 email_user:Karberi rê e-posta bırış
@@ -255,7 +255,7 @@ finduser_joindate:Tarixê Tewrbiyayışi
 finduser_action:Kerdış
 yes:Eya
 no:Nê
-register_email:E-posta
+register_email:E-poste
 edit_time_limit:<b>Wextê Vurnayışê sinori</b>: {GVAR: EDIT_TIME_LIMIT} daqiqe
 no_edit_time_limit:<b>Wextê Timar dê sinori</b>: Bê sinor
 pmuserloc_login:Cıkewtış:
@@ -362,11 +362,11 @@ prereg_disagree:Qebul nêkenan
 prereg_update:Qeydeyanê forumi bıwane
 coppa_fax_instructions:Wecifey wasiya  yana kufleti.
 coppa_fax_telephone:Telefun:
-coppa_fax_email:Adresa E-postey:
+coppa_fax_email:Adresa E-posteyi:
 coppa_fax_date:Tarix:
 coppa_fax_login:Cıkewtış
 coppa_fax_passwd:Parola
-coppa_fax_remail:E-posta
+coppa_fax_remail:E-poste
 coppa_fax_name:Name
 login_login:Cıkewtış:
 login_login_btn:Cıkewtış
@@ -379,7 +379,7 @@ rpasswd_conf_pass:Parola tesdiq ke
 ruser_title:Forma Dekewtışi Bıvurnê
 ruser_cur_pass:Parolaya newkên
 login_passwd:Parola:
-reset_email:E-posta:
+reset_email:E-poste:
 reset_reset_button:Parola ancia bınuse
 rate_this_thread:Nısbet ke
 report_subject:Mewzu:
@@ -411,10 +411,10 @@ mklist_disc:Golel
 mklist_circle:Helqa
 mklist_close:Kip ke
 email_to:Gırewtoğ:
-email_pg_title:E-posta
+email_pg_title:E-poste
 email_subject:Mewzu:
 email_body:Metın:
-email_submit:E-posta
+email_submit:E-poste
 ppost_quote:Vate:
 ppost_to:Gırewtoğ:
 ppost_save_draft:Teslaği qeyd ke
@@ -579,10 +579,10 @@ findu_delete:Bestere
 dmsg_reply_to:no cıwabê mesaciyo
 dmsg_reply_num:mesac #{VAR: obj->reply_to}
 userinfo_buddy:Embaz:
-register_email_addr:Adresa E-postey:
+register_email_addr:Adresa E-posteyi:
 ip_search:Cı geyre
 ip_title:IP Rovıter
-userinfo_real_name:Nameyo raştay
+userinfo_real_name:Nameyo raştıkên:
 post_err_mod_forum_edit_ttl:XETA
 dmsg_num:mesac #{VAR: obj->id}
 postcheck_session_invalid:Ravêrdaya ronıştış de şıma qedyayai. Reca kem formi fına bırışê. Qısur dê ma meweyne.
@@ -648,7 +648,7 @@ post_common_align_right:Hizada Raşt fi
 post_common_link:Gıre defi
 post_common_link_popup:Cayê Linki:
 post_common_email:E-mail adresi defi de
-post_common_email_popup:Adresa e-postey:
+post_common_email_popup:Adresa e-posteyi:
 post_common_image:Resım cı ke
 post_common_image_popup:Url'ey Resımi:
 post_common_nlist:Listeyo Nımreyın Defi de
@@ -689,7 +689,7 @@ btn_edit:bıvurne
 btn_reply:Cewab bıde
 btn_forward:raver
 btn_quote:vate
-btn_email:E-posta
+btn_email:E-poste
 btn_show_posts:Rıştışi
 btn_homepage:www
 feed_no_data:Zey cı malumat nêvineya.
