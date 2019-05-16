@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2014 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2019 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -67,7 +67,7 @@ function fetch_search_cache($qry, $start, $count, $logic, $srch_type, $order, $f
 	if (!($total = q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}search_cache WHERE srch_query=\''. $qry_lck .'\' AND query_type='. $qt))) {
 		q('INSERT INTO {SQL_TABLE_PREFIX}search_cache (srch_query, query_type, expiry, msg_id, n_match) '. 
 		  q_limit('SELECT \''. $qry_lck .'\', '. $qt .', '. __request_timestamp__ .', msg_id, count(*) as word_count FROM {SQL_TABLE_PREFIX}search s INNER JOIN {SQL_TABLE_PREFIX}'. $tbl .' i ON i.word_id=s.id WHERE word IN('. $qr .') GROUP BY msg_id ORDER BY word_count DESC', 
-		          500, 0));
+		          5000, 0));
 	}
 
 	if ($forum_limiter) {
