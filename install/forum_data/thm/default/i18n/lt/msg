@@ -9,6 +9,7 @@
 # Author: Macofe
 # Author: Mantak111
 # Author: McDutchie
+# Author: Naktis
 # Author: Naudefj
 # Author: Zygimantus
 
@@ -212,8 +213,7 @@ vote_button:Balsuoti
 vote_for_thread:Balsuoti
 was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> perkelta moderatoriaus į <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a>.
 welcome_message:Labas <b>{VAR: usr->alias}</b>, paskutinį kartą buvai {TEMPLATE: welcome_message_date}
-# Fuzzy
-what_ppl_doing:rodyti ką veikia prisijungę žmonės
+what_ppl_doing:Vartotojo Veikla
 reported_del_report:Naikinti ataskaitą
 reported_reason:Priežastis:
 reported_on:Dėl:
@@ -246,8 +246,7 @@ pmsg_forwarded:persiųsta
 pmsg_subject:Tema
 pmsg_author:Autorius
 pmsg_time:Laikas
-# Fuzzy
-pmsg_selected:Pažymėti
+pmsg_selected:Pasirinkti
 pmsg_delete:Naikinti
 cur_ppage_pm:Asmeninės žinutės
 writing_pm:Asmeninės žinutės rašymas
@@ -320,6 +319,7 @@ register_login_taken:Jau užimtas
 register_password:Slaptažodis:
 register_password_desc:Slaptažodis jūsų paskyrai. Slaptažodžiuose yra skirtumas tarp mažųjų ir didžiųjų raidžių ir jie turi būti bent 6 simbolių ilgio.
 register_conf_pass:Patvirtinti slaptažodį:
+register_conf_pass_desc:Prašome dar kartą įveskite slaptažodį.
 register_email_desc:Jūsų el. pašto adresas. Galite pasirinkti jį paslėpti žemiau, Nustatymų skyriuje.
 register_name:Vardas:
 register_name_desc:Jūsų tikras vardas.
@@ -382,8 +382,7 @@ my_buddies:Mano draugai
 add_buddy:Įrašyti naują draugą
 add:Irašyti
 buddy_search:Įveskite vartotojo, kuriam norite pridėti prisijungti.
-# Fuzzy
-member_search:Arba naudokite <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&{DEF: _rsid}&js_redr=buddy_add.add_login&overwrite=1', 'user_list', 400,250);">Ieškoti vartotojo</a> funkcija surasti asmenį.
+member_search:Arba naudokite <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&{DEF: _rsid}&js_redr=buddy_add.add_login&overwrite=1', 'user_list', 400,250);">Ieškoti vartotojo</a> funkcija rasti asmenį.
 buddy_remove:pašalinti
 post_normal:Paprasta
 post_sticky:Lipni
@@ -531,8 +530,7 @@ mklist_apply:Taikyti
 mklist_delete:Ištrinti
 qbud_nick_name:Nario vardas
 qbud_add_selected:Įdėti pažymėtus
-# Fuzzy
-qbud_selected:Pažymėti
+qbud_selected:Pasirinkti
 qbud_no_buddies:Nėra pasirinkta draugų
 mklist_numerical:Skaitmeninis
 mklist_aplha:Alpha
@@ -678,10 +676,8 @@ register_err_notyouremail:Kažkas kitas jau užsiregistraves šį e-pašto adres
 register_err_avatartobig:Failas, kurį bandote įkelti, yra per didelis, daugiau nei {GVAR: CUSTOM_AVATAR_MAX_SIZE} baitai.
 register_err_avatarnotallowed:Avataras kuri bandote įkelti neleidžiamas. Patikrinkite leistinų failų tipus.
 register_conf_subject:Registracijos patvirtinimas
-# Fuzzy
-register_conf_msg:jums už registraciją,! Ačiū N! Norėdami aktyvuoti savo sąskaitą eikite į URL žemiau:! N! N! {FULL_ROOT} {ŠAKNIAVAISIAI} =? t = emailconf & conf_key {VAR: uent->conf_key} ! N! N!! Kai jūsų sąskaita bus aktyvuota jūs būsite prijungtas-į forumą ir! N! nukreipti į pagrindinį puslapį.
+register_conf_msg:Ačiū, kad užsiregistravote,\nJei norite suaktyvinti paskyrą, eikite į toliau pateiktą URL:\n\n{FULL_ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nKai jūsų paskyra bus aktyvuota jūs būsite prijungtas į forumą ir nukreiptas į pagrindinį puslapį.
 register_welcome_subject:Forumo registracijos patvirtinimas
-# Fuzzy
 register_welcome_msg:Ačiū už registraciją,\n\nŠtai jūsų prisijungimo detalės forumui:\n\nForumo URL: {TEMPLATE: index_update_lnk}\nVardas: {VAR: uent->login}\nSlaptažodis: {VAR: _POST['reg_plaintext_passwd']}\n\nPrašome prisiminti, kad slaptažodžiai yra jautrus didžiosioms raidėms!\nKad redaguotumėte savo nuostatus ar profilį, eikite į šį puslapį:\n{FULL_ROOT}{ROOT}?t=register
 register_err_cantreg_title:KLAIDA: nepavyko užsiregistruoti
 regsiter_err_cantreg_msg:Nepavyko sukurti naudotojo sąskaitos, prašome susisiekti su administratoriu <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
@@ -694,8 +690,7 @@ reset_err_invalidkey_msg:Neteisingas slaptažodžio klavišą. Gali būti, kad j
 reset_err_rstconf_title:Informacija
 reset_err_rstconf_msg:Turėtumėte gauti nurodymus į savo e-paštą per ateinančias keletą minučių.
 reset_newpass_title:Atstatyti slaptažodį
-# Fuzzy
-reset_newpass_msg:Hello,\n\nAs per your request your login name are being sent to you.\nHere is your login information:\n\nLogin: {VAR: ui[1]}\nPassword: {VAR: passwd}\n\nPlease not that your password has been reset the the value above, if you wish\nto change your password you may do so via the user info control panel at:\n{FULL_ROOT}{ROOT}?t=register
+reset_newpass_msg:Sveiki,\n\nKaip reikalaujama, jūsų prisijungimo informacija pateikiama toliau:\n\nPrisijungti: {VAR: ui[1]}\nSlaptažodis: {VAR: passwd}\n\nAtminkite, kad jūsų slaptažodis buvo atstatytas į aukščiau nurodytą reikšmę. Jei norite pakeisti savo slaptažodį, galite tai padaryti naudodami vartotojo informacijos valdymo skydelį:\n{FULL_ROOT}{ROOT}?t=register
 reset_login_notify:Jūsų slaptažodis buvo išsiųstas elektroniniu paštu Jums. Jūs turėtumėte gauti per kelias minutes.
 search_update:Pranešimų paieška
 selmsg_update:Naršymos <a href="{TEMPLATE: selmsg_update_lnk}">Šiandienos Žinutės</a>
@@ -730,8 +725,7 @@ error_title:Klaida forma
 index_title:Sveiki forume
 search_title:Ieškoti {var-HTML: srch}
 remail_emailsent:Laiškas buvo išsiųstas
-# Fuzzy
-remail_email:Sveiki,\n\nYra įdomi tema apie "{VAR: data->subject}" {GVAR: FORUM_TITLE} forume kuria galbūt norite perskaityti. Jūs galite pamatyti šia tema:\n {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nTavo draugas,\n\n{VAR: usr->alias}
+remail_email:Sveiki,\n\nYra įdomi tema apie "{VAR: data->subject}" apie {GVAR: FORUM_TITLE} forume kurį galbūt norite perskaityti. Jūs galite pamatyti šia tema:\n {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nTavo draugas,\n\n{VAR: usr->alias}
 poll_add_option:Pridėti varianta
 post_opt_html_on:<b>HTML</b> kodas <b>ĮJUNGTAS</b>
 post_opt_fud_on:<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>BBcode</b> <b>ĮJUNGTAS</b></a>
@@ -908,8 +902,7 @@ polllist_votes:Viso balsų
 polllist_action:Veiksmas
 polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">Peržiūrima Galimas Apklausas</a>
 userinfo_polls:Apklausos:
-# Fuzzy
-show_pollist:Apklausas
+show_pollist:Apklausos
 search_and:IR
 search_or:ARBA
 search_desc_order:Pirma naujesnius
@@ -972,10 +965,8 @@ iemail_forum_unsub:Nebeprenumeruoti šio forumo
 primary_group_prefix:Pagrindinė grupė forumui:
 group_resources:Ši grupė kontroliuoja šių forumų teises
 register_admin_newuser_title:Naujas vartotojas užsiregistravo ir jų sąskaita laukia patvirtinimo
-# Fuzzy
 register_admin_newuser_msg:Naujas vartotojas ({VAR: uent->login}) ką tik užsiregistravo, ir kol sąskaitos patvirtinimas yra įjungtas, jų sąskaita nebus aktyvi iki kol ji bus patvirtinta jūsų ar kito forumo administratoriaus. Kad peržiūrėtumėte sąskaita eikite į: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nTai automatinis procesas. Neatsakinėkite į šia žinutę.\nJei norite išjungti ateities naujų vartotojų registracijos el. laiškus, jūs galite tai padaryti eidami į administratoriaus valdymo pultą. Ir pakeisti "Naujų Sąskaitų Pranešimo" nustatymą.
 post_mod_msg_notify_title:Naujas pranešimas forume "{VAR: frm->name}  laukia patvirtinimo
-# Fuzzy
 post_mod_msg_notify_msg:Naujas pranešimas pavadinimu "{VAR: msg_post->subject}" buvo ką tik parašytas forume kurį jus moderuojate. Norėdami peržiūrėtu ši pranešimą eikite į: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nTai automatinis procesas. Neatsakykite į šia žinutę.
 thread_printable_pdf:Generuoti PDF spausdinimui
 thread_syndicate:Syndikuoti šį forumą (XML)
@@ -1002,7 +993,6 @@ mnav_month:Mėnesis(-iai)
 mnav_title:Žinučių atranka
 mnav_update:Žinučių peržiūra naudojant <a href="{TEMPLATE: mnav_update_lnk}"> atranką</a>
 pm_notify_subject:[{GVAR: FORUM_TITLE}] Naujo Asmeninio Pranešimo Pranešimas
-# Fuzzy
 pm_notify_body_email:Jus turite nauja privačia žinutė pavadinimu "{VAR: subject}", nuo "{VAR: from}", forume "{GVAR: FORUM_TITLE}".\nKad peržiūrėtumėte žinutė, spauskite čia: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nNorėdami sustabdyti šiuos pranešimus, išjunkite "Privačių Žinučių Pranešimus" savo profilyje.
 register_pm_notification:Privačių Žinučių Pranešimai:
 register_pm_notification_desc:Jei įjungta, jūs busite informuoti kai gausite privačia žinutę.
@@ -1069,10 +1059,8 @@ search_user_filter:Filtruoti pagal vartotoją:
 register_none:Neperspėti manęs
 findu_no_conf:nepatvirtintas vartotojas
 register_max_sig_len:Maksimalus ilgis:
-# Fuzzy
 register_turing:Įveskite kodą, parodytą žemiau:
-# Fuzzy
-register_err_turing:Neteisingas patvirtinimo kodas.
+register_err_turing:Tikrinimas nepavyko. Prašau, pabandykite dar kartą.
 modque_cat:Kategorija
 modque_forum:Forumas
 idx_compact_forum_row:Galimi Forumai:
@@ -1133,8 +1121,7 @@ move_msg_th_expl:Nurodykite paskirties temą (gali būti kituose forumuose) ID.
 captcha_img_alt:Captcha patikrinimas: jums reikia atpažinti tekstą paveikslėlije.
 captcha_img_help:Nėra nulio ar vieno šiame vaizde.
 powered-by:Pagal: FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:Autorinės teisės &copy;2001-2017 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Autorinės teisės &copy;2001-2019 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Kodas
 code_select_all:Pasirinkti visus
 code_show_hide:Rodyti / slėpti
@@ -1172,3 +1159,10 @@ karma:Reputacija
 karma_track:Valdyti reputaciją vartotojui:
 karma_delete:Ištrinti
 rate_author:Įvertinti autorių:
+blog_update:Forumo dienoraščio skaitymas
+blog:Dienoraštis
+blog_new_members:Nauji nariai
+blog_new_posts:Naujausi pranešimai
+blog_rated_posts:Geriausiai įvertinta
+blog_viewed_posts:Labiausiai žiūrimi
+blog_comments:{PLURAL: tema->atsakymai|$1 komentaras|$1 komentarai}
