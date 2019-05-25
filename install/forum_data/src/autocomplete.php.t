@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2019 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -17,7 +17,7 @@
 
 /*{POST_HTML_PHP}*/
 
-	/* Return DB values for AJAX autocomplete of fields. */
+	/* User Lookup: Return DB values for AJAX autocomplete of fields. */
 	if (!empty($_GET['lookup']) && !empty($_GET['term'])) {
 		/* Only for logged in users. */
 		if (!_uid) {
@@ -36,7 +36,24 @@
 		exit;
 	}
 
-	/* Check if supplied login/ e-mail address is in-use. */
+	/* Search: autocomplete topic titles. */
+	if (!empty($_GET['search']) && !empty($_GET['term'])) {
+		/* Only for logged in users. */
+		if (!_uid) {
+			std_error('access');
+		}
+		$term   = _esc($_GET['term'] .'%');
+
+		$c = uq(q_limit('SELECT DISTINCT subject FROM {SQL_TABLE_PREFIX}thread t LEFT JOIN {SQL_TABLE_PREFIX}msg m on t.root_msg_id = m.id WHERE subject LIKE '. $term, 10));
+		$rows = array();
+		while ($r = db_rowarr($c)) {
+			$rows[] = array('value' => $r[0]);
+		}
+		echo json_encode($rows);
+		exit;
+	}
+
+	/* Registration: Check if supplied login/ e-mail address is in-use. */
 	if (!empty($_GET['check']) && !empty($_GET['term'])) {
 		$lookup = ($_GET['check'] == 'email') ? 'email' : 'login';
 		$term   = $_GET['term'];
