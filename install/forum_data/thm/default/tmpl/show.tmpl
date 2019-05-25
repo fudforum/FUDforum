@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2019 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -11,12 +11,14 @@
 {PHP_FILE: input: show.inc.t; output: @show.inc;}
 
 {MAIN_SECTION: show_links the links that you see on index/thread/msg page that allow you to access selmsg}
+<span id="ShowLinks">
 <span class="GenText fb">{MSG: show_show}</span>
 <a href="{TEMPLATE: show_links_lnk}" title="{MSG: todays_posts_desc}" rel="nofollow">{MSG: todays_posts}</a>
 {IF: _uid}{TEMPLATE: unread_posts}{ENDIF}
 {IF: !$th}{TEMPLATE: unanswered_posts}{ENDIF}
 <b>::</b> <a href="{TEMPLATE: show_links_lnk1}" rel="nofollow">{MSG: show_pollist}</a>
 <b>::</b> <a href="{TEMPLATE: show_links_lnk2}" rel="nofollow">{MSG: mnav_title}</a>
+</span>
 {MAIN_SECTION: END}
 
 {SECTION: unread_posts}

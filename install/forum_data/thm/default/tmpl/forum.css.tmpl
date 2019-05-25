@@ -33,22 +33,6 @@ body {
 	font-size: 100%;
 }
 
-text,	a:link, a:visited, a:active, a.CatLink, .CatDesc, .CatLockedName, .GenText,
-	.GenTextRed, .ErrorText, .SmallText, .DateText, .TopBy, th, a.thLnk:link, a.thLnk:active, a.thLnk:visited,
-	a.thLnk:active, .RowStyleA, .RowStyleB, .RowStyleC, .MsgToolBar, .PollTable, .MsgIg, td.miniMH,
-	.ContentTable, .MsgTable, .DialogTable, .PreviewTable, .AnnonTable, .AnnText, td.NoAvatar, td.Av1, td.Av2, td.tabA,
-	.AnnSubjText, a.PagerLink, .LevelText, .MsgSubText, .MsgBodyText, th.SelTS, th.SelFS, legend, td.tabH, div.tabT,
-	.MiniTable, .quote, .dashed, .adminColor, .modsColor, td.tabI, td.tabA:hover,
-	.brdrNormal, .brdrSelected, input.button, form, img, .StClr, .AnClr, td.msgot, td.msgud, div.ctags, td.mvTc, td.pmNav,
-	.ModOpt, .MsgR1, .MsgR2, .MsgR3, .mnavMsg, .mnavWarnTbl, .mnavNoRes, font.lg, td.tt, table.tt, tr.tab, table.tab,
-	a.big:link, a.big:active, a.big:visited, .small, a.small:link, a.small:active, a.small:visited, .curtime,
-	font.anon, font.reg, td.permYES, td.permNO, td.repI, font.selmsgInd, fieldset
-{
-	font-family: Verdana,Geneva,Lucida,'Lucida Grande',Arial,Helvetica,Sans-serif;
-	font-size: 10pt;
-	line-height: 1.6;
-}
-
 .header, .content, .footer {
 	display:block;
 	clear: both;
@@ -65,6 +49,22 @@ text,	a:link, a:visited, a:active, a.CatLink, .CatDesc, .CatLockedName, .GenText
 	margin: 0 auto;
 	width: 800px;
 */
+}
+
+text,	a:link, a:visited, a:active, a.CatLink, .CatDesc, .CatLockedName, .GenText,
+	.GenTextRed, .ErrorText, .SmallText, .DateText, .TopBy, th, a.thLnk:link, a.thLnk:active, a.thLnk:visited,
+	a.thLnk:active, .RowStyleA, .RowStyleB, .RowStyleC, .MsgToolBar, .PollTable, .MsgIg, td.miniMH,
+	.ContentTable, .MsgTable, .DialogTable, .PreviewTable, .AnnonTable, .AnnText, td.NoAvatar, td.Av1, td.Av2, td.tabA,
+	.AnnSubjText, a.PagerLink, .LevelText, .MsgSubText, .MsgBodyText, th.SelTS, th.SelFS, legend, td.tabH, div.tabT,
+	.MiniTable, .quote, .dashed, .adminColor, .modsColor, td.tabI, td.tabA:hover,
+	.brdrNormal, .brdrSelected, input.button, form, img, .StClr, .AnClr, td.msgot, td.msgud, div.ctags, td.mvTc, td.pmNav,
+	.ModOpt, .MsgR1, .MsgR2, .MsgR3, .mnavMsg, .mnavWarnTbl, .mnavNoRes, font.lg, td.tt, table.tt, tr.tab, table.tab,
+	a.big:link, a.big:active, a.big:visited, .small, a.small:link, a.small:active, a.small:visited, .curtime,
+	font.anon, font.reg, td.permYES, td.permNO, td.repI, font.selmsgInd, fieldset
+{
+	font-family: Verdana,Geneva,Lucida,'Lucida Grande',Arial,Helvetica,Sans-serif;
+	font-size: 10pt;
+	line-height: 1.6;
 }
 
 a:link, a:visited, a:active, a.PagerLink {
@@ -337,7 +337,8 @@ form {
 
 img {
         border: 0;
-        max-width: 800px;
+        //max-width: 800px;
+	max-width: 100%;
         transition:all 0.5s ease-out;
 }
 img:hover {
