@@ -191,16 +191,16 @@ For example if you enter a value of 10 and select "days", this form will <u>offe
 
 <tr class="field">
 	<td nowrap="nowrap">Topic 1:</td>
-	<td><input tabindex="1" type="number" name="_sel[]" />
+	<td><input tabindex="3" type="number" name="_sel[]" />
 </tr>
 
 <tr class="field">
 	<td nowrap="nowrap">Topic 2:</td>
-	<td><input tabindex="2" type="number" name="_sel[]" />
+	<td><input tabindex="4" type="number" name="_sel[]" />
 </tr>
 
 <tr class="field">
-	<td align="right" colspan="2"><input tabindex="2" type="submit" name="merge_sel_all" value="Merge" /></td>
+	<td align="right" colspan="2"><input tabindex="5" type="submit" name="merge_sel_all" value="Merge" /></td>
 </tr>
 </table>
 <?php echo _hs; ?>
@@ -213,16 +213,16 @@ For example if you enter a value of 10 and select "days", this form will <u>offe
 
 <tr class="field">
 	<td nowrap="nowrap">Message 1:</td>
-	<td><input tabindex="1" type="number" name="msg1" value="<?php if (isset($_POST['msg1'])) { echo htmlspecialchars($_POST['msg1']); } ?>" />
+	<td><input tabindex="6" type="number" name="msg1" value="<?php if (isset($_POST['msg1'])) { echo htmlspecialchars($_POST['msg1']); } ?>" />
 </tr>
 
 <tr class="field">
 	<td nowrap="nowrap">Message 2:</td>
-	<td><input tabindex="2" type="number" name="msg2" value="<?php if (isset($_POST['msg2'])) { echo htmlspecialchars($_POST['msg2']); } ?>" />
+	<td><input tabindex="7" type="number" name="msg2" value="<?php if (isset($_POST['msg2'])) { echo htmlspecialchars($_POST['msg2']); } ?>" />
 </tr>
 
 <tr class="field">
-	<td align="right" colspan="2"><input tabindex="2" type="submit" name="btn_swap" value="Swap" /></td>
+	<td align="right" colspan="2"><input tabindex="8" type="submit" name="btn_swap" value="Swap" /></td>
 </tr>
 </table>
 <?php echo _hs; ?>

@@ -1087,7 +1087,9 @@ pf('<h2>Step 1: Admin login</h2>', true);
 			  'admdelfrm.php',	// Renamed to admforumdel.php (3.0.3).
 			  'admaccapr.php',	// Renamed to admuserapr.php (3.0.3).
 			  'admapprove_avatar.php',	// Renamed to admavatarapr.php (3.0.3).
-			  'admslist.php'	// Renamed to admprivlist.php (3.0.5).
+			  'admslist.php',	// Renamed to admprivlist.php (3.0.5).
+			  'admprune.php',	// Renamed to admtopic.php (3.1.0).
+			  'admpruneusers.pgp'	// Renamed to admuserprune.php (3.1.0).
 			 );
 	foreach ($rm_adm as $f) {
  		if (file_exists($GLOBALS['WWW_ROOT_DISK'] .'adm/'. $f)) {
