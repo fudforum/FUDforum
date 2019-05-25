@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2019 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -190,6 +190,7 @@ class fud_msg_edit extends fud_msg
 		WHERE id='. $this->id);
 
 		if ($GLOBALS['FUD_OPT_3'] & 32768) {	// DB_MESSAGE_STORAGE
+//TODO: Why DELETE? Can't we just UPDATE the DB?
 			q('DELETE FROM {SQL_TABLE_PREFIX}msg_store WHERE id IN('. $this->file_id .','. $this->file_id_preview .')');
 			$file_id = db_qid('INSERT INTO {SQL_TABLE_PREFIX}msg_store (data) VALUES('. _esc($this->body) .')');
 			if ($message_threshold && $length > $message_threshold) {
@@ -257,7 +258,6 @@ class fud_msg_edit extends fud_msg
 		if ($GLOBALS['FUD_OPT_1'] & 16777216) {	// FORUM_SEARCH enabled? If so, reindex message.
 			q('DELETE FROM {SQL_TABLE_PREFIX}index WHERE msg_id='. $this->id);
 			q('DELETE FROM {SQL_TABLE_PREFIX}title_index WHERE msg_id='. $this->id);
-			q('DELETE FROM {SQL_TABLE_PREFIX}search_cache WHERE msg_id='. $this->id);
 			index_text((!strncasecmp('Re: ', $this->subject, 4) ? '' : $this->subject), $this->body, $this->id);
 		}
 	}
@@ -277,7 +277,7 @@ class fud_msg_edit extends fud_msg
 		}
 
 		if (!db_locked()) {
-			db_lock('{SQL_TABLE_PREFIX}msg_store WRITE, {SQL_TABLE_PREFIX}forum f WRITE, {SQL_TABLE_PREFIX}thr_exchange WRITE, {SQL_TABLE_PREFIX}tv_'. $del->forum_id .' WRITE, {SQL_TABLE_PREFIX}tv_'. $del->forum_id .' tv WRITE, {SQL_TABLE_PREFIX}msg m WRITE, {SQL_TABLE_PREFIX}thread t WRITE, {SQL_TABLE_PREFIX}level WRITE, {SQL_TABLE_PREFIX}forum WRITE, {SQL_TABLE_PREFIX}forum_read WRITE, {SQL_TABLE_PREFIX}thread WRITE, {SQL_TABLE_PREFIX}msg WRITE, {SQL_TABLE_PREFIX}attach WRITE, {SQL_TABLE_PREFIX}poll WRITE, {SQL_TABLE_PREFIX}poll_opt WRITE, {SQL_TABLE_PREFIX}poll_opt_track WRITE, {SQL_TABLE_PREFIX}users WRITE, {SQL_TABLE_PREFIX}thread_notify WRITE, {SQL_TABLE_PREFIX}bookmarks WRITE, {SQL_TABLE_PREFIX}msg_report WRITE, {SQL_TABLE_PREFIX}thread_rate_track WRITE, {SQL_TABLE_PREFIX}index WRITE, {SQL_TABLE_PREFIX}title_index WRITE');
+			db_lock('{SQL_TABLE_PREFIX}msg_store WRITE, {SQL_TABLE_PREFIX}forum f WRITE, {SQL_TABLE_PREFIX}thr_exchange WRITE, {SQL_TABLE_PREFIX}tv_'. $del->forum_id .' WRITE, {SQL_TABLE_PREFIX}tv_'. $del->forum_id .' tv WRITE, {SQL_TABLE_PREFIX}msg m WRITE, {SQL_TABLE_PREFIX}thread t WRITE, {SQL_TABLE_PREFIX}level WRITE, {SQL_TABLE_PREFIX}forum WRITE, {SQL_TABLE_PREFIX}forum_read WRITE, {SQL_TABLE_PREFIX}thread WRITE, {SQL_TABLE_PREFIX}msg WRITE, {SQL_TABLE_PREFIX}attach WRITE, {SQL_TABLE_PREFIX}poll WRITE, {SQL_TABLE_PREFIX}poll_opt WRITE, {SQL_TABLE_PREFIX}poll_opt_track WRITE, {SQL_TABLE_PREFIX}users WRITE, {SQL_TABLE_PREFIX}thread_notify WRITE, {SQL_TABLE_PREFIX}bookmarks WRITE, {SQL_TABLE_PREFIX}msg_report WRITE, {SQL_TABLE_PREFIX}thread_rate_track WRITE, {SQL_TABLE_PREFIX}index WRITE, {SQL_TABLE_PREFIX}title_index WRITE, {SQL_TABLE_PREFIX}search_cache WRITE');
 			$ll = 1;
 		}
 
