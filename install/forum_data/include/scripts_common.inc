@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2019 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -89,7 +89,9 @@ function get_fud_reply_id($complex, $forum_id, $subject, $data)
 
 		foreach ($data as $reply_id) {
 			// We have a Message ID:
-			if (($r = db_saq('SELECT m.id, m.thread_id FROM '. sql_p .'msg m INNER JOIN '. sql_p .'thread t ON m.thread_id=t.id WHERE m.mlist_msg_id='. _esc($reply_id) .' AND t.forum_id='. $forum_id .' ORDER BY m.post_stamp DESC LIMIT 1'))) {
+// Remove forum check for now.
+//			if (($r = db_saq('SELECT m.id, m.thread_id FROM '. sql_p .'msg m INNER JOIN '. sql_p .'thread t ON m.thread_id=t.id WHERE m.mlist_msg_id='. _esc($reply_id) .' AND t.forum_id='. $forum_id .' ORDER BY m.post_stamp DESC LIMIT 1'))) {
+			if (($r = db_saq('SELECT m.id, m.thread_id FROM '. sql_p .'msg m INNER JOIN '. sql_p .'thread t ON m.thread_id=t.id WHERE m.mlist_msg_id='. _esc($reply_id) .' ORDER BY m.post_stamp DESC LIMIT 1'))) {
 				break;
 			}
 		}
