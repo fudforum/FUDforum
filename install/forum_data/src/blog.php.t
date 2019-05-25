@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2019 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -26,12 +26,24 @@ $RSS = '{TEMPLATE: blog_RSS}';
 		$start = 0;
 	}
 
-	$frm_list = q_singleval('SELECT conf_value FROM {SQL_TABLE_PREFIX}settings WHERE conf_name =\'blog_forum_list\'');
-	if (empty($frm_list)) {
-		$frm_list = '1';	// Default to first forum.
+	// Limit to a spesific user.
+	$lmt = '';
+	if (isset($_GET['user']) && (is_numeric($_GET['user'])) ) {
+		$lmt = ' AND u.id = '. $_GET['user'];
+	}
+
+	// Limit to a spesific forum.
+	if (isset($_GET['forum']) && (is_numeric($_GET['forum'])) ) {
+		$frm_list = $_GET['forum'];
 	} else {
+		$frm_list = q_singleval('SELECT conf_value FROM {SQL_TABLE_PREFIX}settings WHERE conf_name =\'blog_forum_list\'');
 		$frm_list = json_decode($frm_list, true);
         	$frm_list = join(',', array_values($frm_list));
+	}
+
+	// If all else fails (i.e. json error), limit to first forum.
+	if ($frm_list === null) {	
+		$frm_list = '1';
 	}
 
 	$msg_list = null;
@@ -43,36 +55,23 @@ $RSS = '{TEMPLATE: blog_RSS}';
 			INNER JOIN {SQL_TABLE_PREFIX}forum f ON t.forum_id=f.id
 			INNER JOIN {SQL_TABLE_PREFIX}msg   m ON m.id=t.root_msg_id
 			INNER JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id
+	                INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=2147483647 AND g1.resource_id=t.forum_id
+	                LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='. _uid .' AND g2.resource_id=t.forum_id
+	                LEFT JOIN {SQL_TABLE_PREFIX}mod mo ON mo.user_id='. _uid .' AND mo.forum_id=t.forum_id
 		WHERE
-			forum_id IN ('. $frm_list .') AND m.apr=1 AND moved_to=0
+			t.forum_id IN ('. $frm_list .')
+			AND m.apr=1 AND moved_to=0
+	                '. ($is_a ? '' : ' AND (mo.id IS NOT NULL OR '. q_bitand('COALESCE(g2.group_cache_opt, g1.group_cache_opt)', 1) .'> 0)') .'
+			'. $lmt .'
 		ORDER BY
 			t.root_msg_id DESC', 10, $start));
 	while ($topic = db_rowobj($c)) {
-/*
-                if (_uid && ($perms & 16 || (_uid == $topic->poster_id && (!$GLOBALS['EDIT_TIME_LIMIT'] || __request_timestamp__ - $topic->post_stamp < $GLOBALS['EDIT_TIME_LIMIT'] * 60)))) {
-                        $edit_link = '{TEMPLATE: blog_msg_edit}';
-                } else {
-                        $edit_link = '';
-                }
-*/
-		$thread_read_status = $first_unread_msg_link = '';
-/*
-		if (_uid && $usr->last_read < $thread->last_post_stamp && $thread->last_post_stamp > $thread->post_stamp) {
-			$thread_read_status = ($thread->rating & 1) ? '{TEMPLATE: blog_thread_unread_locked}' : '{TEMPLATE: blog_thread_unread}';
-			// Do not show 1st unread message link if thread has no replies.
-			if ($thread->replies) {
-				$first_unread_msg_link = '{TEMPLATE: blog_first_unread_msg_link}';
-			}
-		} else if ($thread->rating & 1) {
-			$thread_read_status = '{TEMPLATE: blog_thread_read_locked}';
-		} else if (!_uid) {
-			$thread_read_status = '{TEMPLATE: blog_thread_read_unreg}';
-		} else {
-			$thread_read_status = '{TEMPLATE: blog_thread_read}';
-		}
-*/
+		/* Read message body. */
 		$topic->body = read_msg_body($topic->foff, $topic->length, $topic->file_id);
-
+		/* Cut-off portion after the teaser break. */
+		if ( ($break = strpos($topic->body, '<!--break-->')) > 0)  {
+			$topic->body = substr($topic->body, 0, $break);
+		}
 		$msg_list .= '{TEMPLATE: blog_msg_entry}';
 	}
 
