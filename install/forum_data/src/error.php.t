@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -25,6 +25,7 @@
 	} else {
 		$error_message	= '{TEMPLATE: error_invalidurl}';
 		$error_title	= '{TEMPLATE: error_error}';
+		ses_update_status($usr->sid, $error_message, 0, 0);
 	}
 
 /*{POST_PAGE_PHP_CODE}*/
