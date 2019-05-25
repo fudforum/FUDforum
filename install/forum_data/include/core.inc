@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2019 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -62,15 +62,6 @@ function fud_use($file, $static=0)
 	defined('fud_theme') or define('fud_theme', 'theme/default/');
 	include_once $GLOBALS['INCLUDE'] . fud_theme . $file;
 }
-
-/** Auto load a class. */
-//STILL NEEDED?
-//function __autoload( $className ) {
-//	$inc = $GLOBALS['INCLUDE'] . $className .'.inc';
-//	if (file_exists($inc)) {
-//		require_once($inc);
-//	}
-//}
 
 /** Generate a random value. */
 function get_random_value($bitlength=32)
