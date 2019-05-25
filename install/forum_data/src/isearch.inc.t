@@ -70,5 +70,6 @@ function index_text($subj, $body, $msg_id)
 
 	/* Clear search cache. */
 	q('DELETE FROM {SQL_TABLE_PREFIX}search_cache');
+	// "WHERE msg_id='. $msg_id" for better performance, but newly indexed text will not be immediately searchable.
 }
 ?>
