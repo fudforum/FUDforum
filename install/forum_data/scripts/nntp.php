@@ -1,7 +1,7 @@
 #!/usr/bin/php -q
 <?php
 /**
-* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2019 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -175,7 +175,7 @@
 			fud_logerror('Ignore NNTP cancellation message (not yet implemented).', 'nntp_errors', $emsg->raw_msg);
 			// q('DELETE FROM '. sql_p .'msg WHERE mlist_msg_id='. _esc($emsg->msg_id));
 			if (db_affected()) {
-				echo ' - cancellation ignored';
+				echo ' - cancellation ignored, not yet implemented!';
 				continue;
 			}
 		}
