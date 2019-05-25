@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2019 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -23,7 +23,11 @@ header('X-Accel-Buffering: no');
 
 /* Load DB driver. */
 fud_use('db.inc');
-	
+// DB functions (generated) should now be included, but we need to double check.
+if (!function_exists('q')) {
+	include($GLOBALS['DATA_DIR'] .'sql/'. $GLOBALS['DBHOST_DBTYPE'] .'/db.inc');
+}
+
 if (!defined('shell_script')) {
 	if (php_sapi_name() == 'cli') {	// adm_cli.inc wasn't called!
 		die('Sorry, cannot run from command line.');
