@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2019 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -67,5 +67,8 @@ function index_text($subj, $body, $msg_id)
 		db_li('INSERT INTO {SQL_TABLE_PREFIX}title_index (word_id, msg_id) SELECT id, '. $msg_id .' FROM {SQL_TABLE_PREFIX}search WHERE word IN('. implode(',', $w1) .')', $ef);
 	}
 	db_li('INSERT INTO {SQL_TABLE_PREFIX}index (word_id, msg_id) SELECT id, '. $msg_id .' FROM {SQL_TABLE_PREFIX}search WHERE word IN('. implode(',', $w2) .')', $ef);
+
+	/* Clear search cache. */
+	q('DELETE FROM {SQL_TABLE_PREFIX}search_cache');
 }
 ?>
