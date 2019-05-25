@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2016 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -50,8 +50,8 @@ function path_info_lnk($var, $val)
 		$tm_today_end   = $tm_today_start + 86400;
 		$date_limit     = ' AND m.post_stamp>'. $tm_today_start .' AND m.post_stamp<'. $tm_today_end .' ';
 	} else {
-		/* Limit results to the last 7 days to prevent the forum from searching the entire forum. */
-		$date_limit     = ' AND m.post_stamp > '. (__request_timestamp__ - 7*86400) .' ';
+		/* Limit results to the last 14 days to prevent the forum from searching the entire forum. */
+		$date_limit     = ' AND m.post_stamp > '. (__request_timestamp__ - 14*86400) .' ';
 	}
 	if (!_uid) { /* These options are restricted to registered users. */
 		unset($_GET['sub_forum_limit'], $_GET['sub_th_limit'], $_GET['unread']);
@@ -110,6 +110,13 @@ function path_info_lnk($var, $val)
 	if (!$unread_limit) {
 		$total = (int) q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}msg m INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id INNER JOIN {SQL_TABLE_PREFIX}forum f ON t.forum_id=f.id INNER JOIN {SQL_TABLE_PREFIX}cat c ON f.cat_id=c.id '. (isset($_GET['sub_forum_limit']) ? 'INNER JOIN {SQL_TABLE_PREFIX}forum_notify fn ON fn.forum_id=f.id AND fn.user_id='. _uid : '') .' '. (isset($_GET['sub_th_limit']) ? 'INNER JOIN {SQL_TABLE_PREFIX}thread_notify tn ON tn.thread_id=t.id AND tn.user_id='. _uid : '') .' '. $join .' LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=f.id AND mm.user_id='. _uid .' WHERE m.apr=1 '. $date_limit .' '. ($frm_id ? ' AND f.id='. $frm_id : '') .' '. ($th ? ' AND t.id='. $th : '') .' '. (isset($_GET['reply_count']) ? ' AND t.replies='. (int)$_GET['reply_count'] : '') .' '. $perm_limit);
 	}
+
+	/* Fall back to yesterday if there is no messages for today yet. */
+        if ($_GET['date'] == 'today' && $total == 0) {  // Nothing, try yesterday.
+                $tm_today_start   = $tm_today_start - 86400;
+                $date_limit     = ' AND m.post_stamp>'. $tm_today_start .' AND m.post_stamp<'. $tm_today_end .' ';
+                $total = (int) q_singleval('SELECT count(*) FROM fud30_msg m INNER JOIN fud30_thread t ON m.thread_id=t.id INNER JOIN fud30_forum f ON t.forum_id=f.id INNER JOIN fud30_cat c ON f.cat_id=c.id '. (isset($_GET['sub_forum_limit']) ? 'INNER JOIN fud30_forum_notify fn ON fn.forum_id=f.id AND fn.user_id='. _uid : '') .' '. (isset($_GET['sub_th_limit']) ? 'INNER JOIN fud30_thread_notify tn ON tn.thread_id=t.id AND tn.user_id='. _uid : '') .' '. $join .' LEFT JOIN fud30_mod mm ON mm.forum_id=f.id AND mm.user_id='. _uid .' WHERE m.apr=1 '. $date_limit .' '. ($frm_id ? ' AND f.id='. $frm_id : '') .' '. ($th ? ' AND t.id='. $th : '') .' '. (isset($_GET['reply_count']) ? ' AND t.replies='. (int)$_GET['reply_count'] : '') .' '. $perm_limit);
+        }
 
 /*{POST_HTML_PHP}*/
 
