@@ -1,4 +1,4 @@
-#   copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
+#   copyright            : (C) 2001-2019 Advanced Internet Designs Inc.
 #   email                : forum@prohost.org
 #
 #   $Id$
@@ -12,7 +12,7 @@ DROP TABLE IF EXISTS {SQL_TABLE_PREFIX}settings;
 CREATE TABLE {SQL_TABLE_PREFIX}settings
 (
 	conf_name	VARCHAR(255) PRIMARY KEY,	
-	conf_value	VARCHAR(255)
+	conf_value	VARCHAR(2048)
 );
 
 # Notes
