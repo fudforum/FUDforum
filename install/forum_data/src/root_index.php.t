@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2019 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -46,6 +46,8 @@
 			$t = $_GET['t'] = 'index';
 		}
 	} else if (preg_match('/[^a-z_]/', $t) || !@file_exists($WWW_ROOT_DISK . fud_theme . $t .'.php')) {
+		// Page not found, redirect to front page.
+		http_response_code(404);
 		$t = 'index';
 	}
 
