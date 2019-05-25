@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2019 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -25,14 +25,14 @@
 	$GLOBALS['FUD_OPT_3']		= 41943104;
 	$GLOBALS['FUD_OPT_4']		= 3;
 
-	$GLOBALS['CUSTOM_AVATAR_MAX_SIZE'] = 12000;	/* bytes */
+	$GLOBALS['CUSTOM_AVATAR_MAX_SIZE'] = 20000;	/* bytes */
 	$GLOBALS['CUSTOM_AVATAR_MAX_DIM']  = '64x64';	/* width x height (pixels) */
 
 	$GLOBALS['COOKIE_PATH']		= '';
 	$GLOBALS['COOKIE_DOMAIN']	= '';
 	$GLOBALS['COOKIE_NAME']		= '';
 	$GLOBALS['COOKIE_TIMEOUT'] 	= 604800;	/* seconds */
-	$GLOBALS['SESSION_TIMEOUT'] 	= 1800;		/* seconds */
+	$GLOBALS['SESSION_TIMEOUT'] 	= 604800;	/* seconds */
 
 	$GLOBALS['DBHOST'] 		= '';
 	$GLOBALS['DBHOST_SLAVE_HOST']	= '';
@@ -98,7 +98,7 @@
 	$GLOBALS['PHP_COMPRESSION_LEVEL']	= 9;		/* int 1-9 */
 	$GLOBALS['PHP_CLI']		= '';		/* Command line PHP exectable */
 	$GLOBALS['MNAV_MAX_DATE']	= 31;		/* days */
-	$GLOBALS['MNAV_MAX_LEN']	= 256;		/* characters */
+	$GLOBALS['MNAV_MAX_LEN']	= 512;		/* characters */
 
 	$GLOBALS['FEED_MAX_N_RESULTS']	= 20;		/* int */
 	$GLOBALS['FEED_AUTH_ID']	= 0;		/* 0 - treat as anon user, >0 treat like specific forum user */
