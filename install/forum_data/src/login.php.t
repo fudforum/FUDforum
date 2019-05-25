@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -89,9 +89,9 @@
 
 		ses_delete($usr->sid);
 		if ($FUD_OPT_2 & 32768 && $returnto && $returnto[0] == '/') {
-			header('Location: {ROOT}'. $returnto);
+			header('Location: {FULL_ROOT}'. $returnto);
 		} else {
-			header('Location: {ROOT}?'. str_replace(array('?', '&&'), array('&', '&'), $returnto));
+			header('Location: {FULL_ROOT}?'. str_replace(array('?', '&&'), array('&', '&'), $returnto));
 		}
 		exit;
 	}
