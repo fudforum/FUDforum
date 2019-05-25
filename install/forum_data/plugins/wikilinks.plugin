@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2019 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -56,6 +56,8 @@ function plugin_wikilinks_tag_to_html($array) {
 		$m = str_replace(' ', '_', $res[1]);
 		$bbcode = str_replace($res[0], '[url='. $ini['WIKILINKS_URL'] . $m .']'. $res[2] .'[/url]', $bbcode);
 	}
+
+	$bbcode = wiki2bbcode($bbcode);
 
 	// Reinsert [notag] blocks.
 	if (is_array($notag_pre)) {
@@ -128,5 +130,33 @@ function wikilinks_config() {
 <input type="url" name="WIKILINKS_URL" value="<?php echo $ini['WIKILINKS_URL'] ?>" size="60" /><br />
 <font size="-1">For example, enter <i>http://en.wikipedia.org/wiki/</i> to link tags like <b>[[FUDforum]]</b> to Wikipedia articles.</font></p>
 	<?php
+}
+
+function wiki2bbcode($text)
+{
+// Regex from https://github.com/lahdekorpi/Wiky.php/blob/master/wiky.inc.php
+
+	// Headings
+	$text = preg_replace('/====== (.+?) ======/', '[h5]$1[/h5]', $text);
+	$text = preg_replace('/===== (.+?) =====/', '[h4]$1[/h4]', $text);
+	$text = preg_replace('/==== (.+?) ====/', '[h3]$1[/h3]', $text);
+	$text = preg_replace('/=== (.+?) ===/', '[h2]$1[/h2]', $text);
+	$text = preg_replace('/== (.+?) ==/', '[h1]$1[/h1]', $text);
+
+	// Bold & italic
+	$text = preg_replace("/'''([^']+?)'''/", '[b]$1[/b]', $text);
+	$text = preg_replace("/''([^']+?)''/", '[i]$1[/i]', $text);
+
+	// Horizontal rule
+	$text = preg_replace('/^----$/', '[hr]', $text);
+
+	// Lists
+	$text = preg_replace('/^\* (.*?)$/m', '[list][*]$1[/list]', $text);
+	$text = preg_replace('/\[\/list\][\n\r]*\[list\]/', '', $text);
+
+	$text = preg_replace('/^# (.*?)$/m', '[list type=1][*]$1[/list]', $text);
+	$text = preg_replace('/\[\/list\][\n\r]*\[list type=1\]/', '', $text);
+
+	return $text;
 }
 

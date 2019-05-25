@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2019 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id: google_cdn.plugin 5354 2011-08-20 08:42:41Z naudefj $
 *
@@ -20,8 +20,8 @@ function plugin_google_cdn($array) {
 	$URIprotocol = isset($_SERVER['HTTPS']) ? (($_SERVER['HTTPS']==='on' || $_SERVER['HTTPS']===1 || $_SERVER['SERVER_PORT']===443) ? 'https://' : 'http://') :  (($_SERVER['SERVER_PORT']===443) ? 'https://' : 'http://');
 	
 	$html = preg_replace('/href="(.*)js\/ui\/jquery-ui\.css"/', 'href="'. $URIprotocol .'ajax.googleapis.com/ajax/libs/jqueryui/1/themes/ui-lightness/jquery-ui.css"', $html);
-	$html = preg_replace('/src="(.*)js\/jquery\.js"/',          'src="'. $URIprotocol .'ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"', $html);
-	$html = preg_replace('/src="(.*)js\/ui\/jquery-ui\.js"/',   'src="'. $URIprotocol .'ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"', $html);
+	$html = preg_replace('/(async )?src="(.*)js\/jquery\.js"/',          'src="'. $URIprotocol .'ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"', $html);
+	$html = preg_replace('/(async )?src="(.*)js\/ui\/jquery-ui\.js"/',   'src="'. $URIprotocol .'ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"', $html);
 
 	return array($html, $page);
 }

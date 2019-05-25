@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2019 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -23,14 +23,14 @@ function plugin_lightbox($array) {
 
 	// Add to footer.
 	$foot_add = '
-<link rel="stylesheet" href="theme/lightbox/jquery.lightbox-0.5.css" media="screen" />
-<script src="theme/lightbox/jquery.lightbox-0.5.min.js"></script>
+<link rel="stylesheet" href="'. $GLOBALS['WWW_ROOT'] .'theme/lightbox/jquery.lightbox-0.5.css" media="screen" />
+<script src="'. $GLOBALS['WWW_ROOT'] .'theme/lightbox/jquery.lightbox-0.5.min.js"></script>
 <script>
     $(function() { $(".AttachmentsList a").filter(function(){ return /(jpe?g|png|gif)$/i.test($(this).attr("title")); }).lightBox({
-	imageLoading:  "theme/lightbox/lightbox-ico-loading.gif",
-	imageBtnClose: "theme/lightbox/lightbox-btn-close.gif",
-	imageBtnPrev:  "theme/lightbox/lightbox-btn-prev.gif",
-	imageBtnNext:  "theme/lightbox/lightbox-btn-next.gif",
+	imageLoading:  "'. $GLOBALS['WWW_ROOT'] .'theme/lightbox/lightbox-ico-loading.gif",
+	imageBtnClose: "'. $GLOBALS['WWW_ROOT'] .'theme/lightbox/lightbox-btn-close.gif",
+	imageBtnPrev:  "'. $GLOBALS['WWW_ROOT'] .'theme/lightbox/lightbox-btn-prev.gif",
+	imageBtnNext:  "'. $GLOBALS['WWW_ROOT'] .'theme/lightbox/lightbox-btn-next.gif",
 	});
     });
 </script>';
