@@ -16,3 +16,9 @@ CREATE TABLE {SQL_TABLE_PREFIX}msg_store
 	id		INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	data		TEXT
 );
+
+# TODO: allow storage of larger messages:
+# The maximum amount of data that can be stored in each data type is as follows:
+# TEXT 	65,535 bytes 	~64kb
+# MEDIUMTEXT 	 16,777,215 bytes 	~16MB
+# LONGTEXT 	4,294,967,295 bytes 	~4GB
