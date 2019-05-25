@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -14,14 +14,14 @@ function validate_db_version()
 {
 	if (!function_exists('db_version')) {
 		// get_version() was renamed to db_version() in FUDforum v3.0.2.
-		// TODO: Remove in FUDforum 3.1.
+		// TODO: Remove in FUDforum 4?
 		function db_version() { return get_version(); }
 	}
 
 	$dbver = db_version();	// Defined in db.inc.
 
-	if (__dbtype__ == 'mysql' && version_compare($dbver, '5.0.0', '<')) {
-		return 'MySQL version '. $dbver .' is not supported. Please upgrade to MySQL Version 5.0.0 or higher.';
+	if (__dbtype__ == 'mysql' && version_compare($dbver, '5.6.0', '<')) {
+		return 'MySQL version '. $dbver .' is not supported. Please upgrade to MySQL Version 5.6.0 or higher.';
 	} else if (__dbtype__ == 'pgsql' && version_compare($dbver, '8.1.0', '<')) {
 		return 'PostgreSQL version '. $dbver .' is not supported. Please upgrade to PgSql Version 8.1.0 or higher.';
 	} else if (__dbtype__ == 'oracle' && version_compare($dbver, '10.2.0', '<')) {
@@ -898,8 +898,9 @@ function make_table_row($col, $prop)
 		array_push($src, '/TEXT/', '/BIGINT/', '/BINARY/', '/INT NOT NULL AUTO_INCREMENT/', '/NOT NULL DEFAULT (.+?)([,\s$])/');
 		array_push($dst, 'CLOB',   'FLOAT',    '',         'NUMBER',                        'DEFAULT \\1 NOT NULL\\2');
 	} else if (__dbtype__ == 'pgsql') {
-		array_push($src, '!BINARY!', '!INT NOT NULL AUTO_INCREMENT!');
-		array_push($dst, '',         'SERIAL');
+		// Postgress does not have MEDIUMTEXT and LONGTEXT.
+		array_push($src, 'LONGTEXT', '!BINARY!', '!INT NOT NULL AUTO_INCREMENT!');
+		array_push($dst, 'TEXT',     '',         'SERIAL');
 	} else if (__dbtype__ == 'sqlite') {
 		array_push($src, '!BINARY!', '!INT NOT NULL AUTO_INCREMENT!');
 		array_push($dst, '',         'INTEGER');
