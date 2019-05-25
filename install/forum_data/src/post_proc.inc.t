@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2019 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -205,6 +205,8 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 				case 'h2':
 				case 'h3':
 				case 'h4':
+				case 'h5':
+				case 'h6':
 					$end_tag[$cpos] = '</'.$tag.'>';
 					$ostr .= '<'.$tag.'>';
 					break;
@@ -260,7 +262,7 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 					$epos = $cepos;
 					$str[$cpos] = '<';
 					break;
-				case 'img':
+				case 'img':	// Image, image left and right.
 				case 'imgl':
 				case 'imgr':
 					if (!$allow_img) {
@@ -295,9 +297,21 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 					$ostr .= '{TEMPLATE: post_html_quote_start}';
 					$end_tag[$cpos] = '{TEMPLATE: post_html_quote_end}';
 					break;
-				case 'align':
-					$end_tag[$cpos] = '</div>';
+				case 'align':	// Aligh left, right or centre
+					$end_tag[$cpos] = '</div><!--align-->';
 					$ostr .= '<div align="'. $parms .'">';
+					break;
+				case 'float':	// Float left or right
+					$end_tag[$cpos] = '</span><!--float-->';
+					$ostr .= '<span style="float:'. $parms .'">';
+					break;
+				case 'left':	// Back convert to [aligh=left]
+					$end_tag[$cpos] = '</div><!--align-->';
+					$ostr .= '<div align="left">';
+					break;
+				case 'right':	// Back convert to [aligh=right]
+					$end_tag[$cpos] = '</div><!--align-->';
+					$ostr .= '<div align="right">';
 					break;
 				case 'list':
 					$tmp = substr($str, $epos, ($cpos-$epos));
@@ -558,8 +572,9 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 	$ostr = preg_replace('!(<[uo]l>)\s*<br\s*/?\s*>\s*(<li>)!is', '\\1\\2', $ostr);
 	$ostr = preg_replace('!</(ul|ol|table|pre|code|blockquote|div)>\s*<br\s*/?\s*>!is', '</\\1>', $ostr);
 
-	// Remove <br /> after block level HTML tags like TABLE, LIST, PRE, BLOCKQUOTE, etc.
-	$ostr = preg_replace('!</(ul|ol|table|pre|code|blockquote)>\s*<br />!is', '</\\1>', $ostr);
+	// Remove <br /> after block level HTML tags like /TABLE, /LIST, /PRE, /BLOCKQUOTE, etc.
+	$ostr = preg_replace('!</(ul|ol|table|pre|code|blockquote|div|hr|h1|h2|h3|h4|h5|h6)>\s*<br\s*/?\s*>!is', '</\\1>', $ostr);
+	$ostr = preg_replace('!<(hr)>\s*<br\s*/?\s*>!is', '<\\1>', $ostr);
 
 	return $ostr;
 }
@@ -636,19 +651,21 @@ function html_to_tags($fudml)
 		'<b>', '</b>', '<i>', '</i>', '<u>', '</u>', '<s>', '</s>', '<sub>', '</sub>', '<sup>', '</sup>', 
 		'<del>', '</del>', '<big>', '</big>', '<small>', '</small>', '<center>', '</center>',
 		'<div class="pre"><pre>', '</pre></div>', 
-		'<div align="center">', '<div align="left">', '<div align="right">', '</div>',
+		'<div align="left">', '<div align="right">', '<div align="center">', '</div><!--align-->',
+		'<span style="float:left">', '<span style="float:right">', '</span><!--float-->',
 		'<span class="indent">', '</span><!--indent-->',
 		'<span name="notag">', '</span>', '&#64;', '&#58;&#47;&#47;', '<br />', '<pre>', '</pre>', '<hr>',
-		'<h1>', '</h1>', '<h2>', '</h2>', '<h3>', '</h3>', '<h4>', '</h4>'
+		'<h1>', '</h1>', '<h2>', '</h2>', '<h3>', '</h3>', '<h4>', '</h4>', '<h5>', '</h5>', '<h6>', '</h6>'
 	),
 	array(
 		'[b]', '[/b]', '[i]', '[/i]', '[u]', '[/u]', '[s]', '[/s]', '[sub]', '[/sub]', '[sup]', '[/sup]', 
 		'[del]', '[/del]', '[big]', '[/big]', '[small]', '[/small]', '[center]', '[/center]',
 		'[code]', '[/code]', 
-		'[align=center]', '[align=left]', '[align=right]', '[/align]',
+		'[align=left]', '[align=right]', '[align=center]', '[/align]',
+		'[float=left]', '[float=right]', '[/float]',
 		'[indent]', '[/indent]',
 		'[notag]', '[/notag]', '@', '://', '', '[pre]', '[/pre]', '[hr]',
-		'[h1]', '[/h1]', '[h2]', '[/h2]', '[h3]', '[/h3]', '[h4]', '[/h4]'
+		'[h1]', '[/h1]', '[h2]', '[/h2]', '[h3]', '[/h3]', '[h4]', '[/h4]', '[h5]', '[/h5]', '[h6]', '[/h6]'
 	),
 	$fudml);
 
