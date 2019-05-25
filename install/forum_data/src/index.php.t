@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2019 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -18,7 +18,7 @@
 
 	$TITLE_EXTRA = ': {TEMPLATE: index_title}';
 
-// @TODO: Merge with foum level announcements in thread_view_common.inc.t.
+// @TODO: Merge with forum level announcements in thread_view_common.inc.t.
 	/* Display non-forum related announcements. */
 	include $GLOBALS['FORUM_SETTINGS_PATH'] .'announce_cache';
 	$announcements = '';
