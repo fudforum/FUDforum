@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2019 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -628,7 +628,14 @@ function &init_user()
 
 			case 'blog':	/* Blog */
 				$_GET['t'] = 'blog';
-				if (isset($p[1])) {
+				if ($p[1] == 'u' && isset($p[2])) {
+					$_GET['user'] = $p[2];
+					$_GET['start'] = isset($p[3]) ? $p[3] : 0;
+				}
+				if ($p[1] == 'f' && isset($p[2])) {
+					$_GET['forum'] = $p[2];
+					$_GET['start'] = isset($p[3]) ? $p[3] : 0;
+				} else {
 					$_GET['start'] = $p[1];
 				}
 				break;
