@@ -1,5 +1,5 @@
 /***************************************************************************
-* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2019 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -282,7 +282,9 @@ function highlightSearchTerms(searchText, treatAsPhrase)
 		if (e[i].className.indexOf('MsgSubText') == -1) continue;
 		for (var j = 0, k = 0; j < terms.length; j++, k++) {
 			if (k > 9) k = 0; /* we only have 9 colors */
-			highlightWord(e[i], terms[j], k);
+			if (terms[j].length > 2) {	/* Skip 1 and 2 char words */
+				highlightWord(e[i], terms[j], k);
+			}
 		}
 	}
 }
