@@ -4,6 +4,7 @@
 # Author: Crazymadlover
 # Author: Dalton2
 # Author: Fitoschido
+# Author: Harvest
 # Author: Indiralena
 # Author: Larjona
 # Author: Locos epraix
@@ -15,6 +16,7 @@
 # Author: Od1n
 # Author: Peter17
 # Author: Translationista
+# Author: Unai01
 # Author: VegaDark
 # Author: Vivaelcelta
 
@@ -1071,8 +1073,7 @@ register_none:No me notifiquen
 findu_no_conf:usuario sin confirmar
 register_max_sig_len:Longitud máxima:
 register_turing:Verificación:
-# Fuzzy
-register_err_turing:El código de validación no es válido.
+register_err_turing:La verificación falló. Por favor intente nuevamente.
 modque_cat:Categoría
 modque_forum:Foros
 idx_compact_forum_row:Foros disponibles:
@@ -1171,3 +1172,7 @@ karma:Karma
 karma_track:Administrar la reputación del usuario:
 karma_delete:Eliminar
 rate_author:Evaluar al autor:
+blog:Blog
+blog_rated_posts:Mejor calificados
+blog_viewed_posts:Más vistos
+blog_comments:{PLURAL: tema->respuestas|$1 comentario|$1 comentarios}
