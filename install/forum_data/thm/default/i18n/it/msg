@@ -948,7 +948,7 @@ remove_from_buddy_list:rimuovi dalla lista degli amici
 iemail_msg_author:<b>Autore:</b> {VAR: obj->alias}
 iemail_msg_subject:<b>Oggetto:</b> {VAR: obj->subject}
 iemail_msg_date:<b>Data:</b> {TEMPLATE: dmsg_post_date}
-iemail_msg_reply:Replica
+iemail_msg_reply:Rispondi
 iemail_msg_quote:Quota
 iemail_msg_view:Visualizza l'Argomento/il Messaggio
 threadt_sticky:in evidenza

@@ -416,7 +416,7 @@ post_thread_expiry:Expiration du fil :
 post_locked:Fil Verrouillé
 post_icons:Choisissez une icône à associer à votre message :
 post_no_icon:Pas d'icône
-post_smiley:Raccourcis de smileys :
+post_smiley:Raccourcis des binettes :
 post_format_tools:Outils de mise en page :
 post_upload_file:Téléverser le fichier
 post_file_del:Supprimer
@@ -429,7 +429,7 @@ max_files_per_msg:Nombre maximum de fichier(s) par message :
 post_notification:Notification de message
 include_sig:Insérer ma signature
 include_sig_desc:Inclure la signature par défaut de mon profil.
-disable_smilies:Désactiver les smileys pour ce message
+disable_smilies:Désactiver les binettes pour ce message
 spell_check_msg:Appeler le correcteur orthographique
 post_form:Nouveau message
 post_forum:Forum :
@@ -567,7 +567,7 @@ poll_timelimit:Fin du sondage :
 poll_maxiumvotes:Nombre maximum de votes :
 poll_create:Créer
 poll_update:Mettre à jour
-poll_disablesmilies:Désactiver les smileys
+poll_disablesmilies:Désactiver les binettes
 poll_create_poll:Créer le sondage
 poll_update_poll:Mettre le sondage à jour
 poll_delete:Supprimer
@@ -738,11 +738,11 @@ poll_add_option:Ajouter une Option :
 post_opt_html_on:Le code <b>HTML</b> est <b>ACTIVÉ</b>
 post_opt_fud_on:Le <b><a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank">BBcode</b> est <b>ACTIVÉ</a></b>
 post_opt_images_on:Les <b>images</b> sont <b>ACTIVÉES</b>
-post_opt_smilies_on:Les <a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank"><b>smileys</b> sont <b>ACTIVÉS</b></a>
+post_opt_smilies_on:Les <a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank"><b>binettes</b> sont <b>activées</b></a>
 post_opt_html_off:Le code <b>HTML</b> est <b>DÉSACTIVÉ</b>
 post_opt_fud_off:Le <b>BBcode</b> est <b>DÉSACTIVÉ</b>
 post_opt_images_off:Les <b>images</b> sont <b>DÉSACTIVÉES</b>
-post_opt_smilies_off:Les <b>smileys</b> sont <b>DÉSACTIVÉS</b>
+post_opt_smilies_off:Les <b>binettes</b> sont <b>désactivées</b>
 post_opt:Options du forum :
 register_change_passwd:changer de mot de passe
 register_change_login:modifier la connexion
@@ -799,7 +799,7 @@ p_RATE:Ratio sujets/membres
 p_SPLIT:Découper les fils
 p_LOCK:Verrouiller les fils
 p_MOVE:Déplacer des fils
-p_SML:Utiliser des smileys
+p_SML:Utiliser des binettes
 p_IMG:Employer des tags image
 p_SEARCH:Peut effectuer une recherche
 group_mgr_search:Trouver l'utilisateur
@@ -885,7 +885,7 @@ post_cur_attached:{VAR: i} {PLURAL: i|fichier attaché|fichiers attachés}
 ignored_anon_post:{GVAR: ANON_NICK} est ignoré
 ignored_user_post:Le message de <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> est ignoré
 smladd_close_window:Fermer la fenêtre
-post_list_smilies:Montrer tous les smileys
+post_list_smilies:Montrer toutes les binettes
 p_VISIBLE:Visible
 reported_in_thread:Dans le fil :
 help_back_to_top:Retour en haut de la page
@@ -948,7 +948,7 @@ register_err_time_limit:La limite de 1 inscription par période de {GVAR: REG_TI
 register_err_avatardimtobig:Les dimensions de l'avatar <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> excèdent la limite autorisée de <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
 buddy_offline:{VAR: r[2]} est actuellement déconnecté
 buddy_online:{VAR: r[2]} est actuellement connecté
-sml_no_smilies:Aucun smiley disponible.
+sml_no_smilies:Aucune binette disponible.
 login_unapproved_account_ttl:Compte non approuvé
 login_unapproved_account_msg:L'administrateur du forum a choisi de passer en revue chaque nouveau compte manuellement avant son activation. Votre compte n'a pas encore été confirmé, vous ne pourrez donc pas accéder à certaines fonctionnalités réservées aux membres inscrits avant que votre compte ne soit approuvé.
 remove_from_buddy_list:Retirer de la liste d'amis
@@ -962,7 +962,7 @@ threadt_sticky:Epinglé
 threadt_announce:Annonce
 reported_no_messages:Il n'y a aucun message rapporté.
 poll_no_polls:Il n'y a aucun sondage accessible.
-no_unread_messages:Il n'y a aucun message non lu correspondant à votre requête.
+no_unread_messages:Il n’y a aucun message non lu correspondant à votre requête.
 thread_mark_all_read:Marquer tous les messages du forum comme lus
 thread_mark_all_read_desc:Tous les messages non lus dans ce forum seront marqués comme lus
 private_no_messages:Il n'y a aucun message dans ce dossier
