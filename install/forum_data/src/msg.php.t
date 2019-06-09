@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2019 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -56,7 +56,13 @@
 		}
 		$_GET['start'] = (ceil($pos/$count) - 1) * $count;
 	} else if (!$th) {
-		invl_inp_err();
+                // Try to lookup ThreadID from URL, similar to what Wikipedia does.
+                // This can produce insonsitent results if you have more than one topic with the same subject.
+                // Example URL: http://your.forum.com/t/subject/
+                $th = q_singleval(q_limit('SELECT thread_id FROM fud30_msg WHERE subject='. _esc($_GET[th]) .' AND reply_to=0', 1));
+                if (!$th) {
+                        invl_inp_err();
+                }
 	}
 
 	/* We create a BIG object frm, which contains data about forum,
