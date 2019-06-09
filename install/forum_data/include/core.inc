@@ -94,8 +94,24 @@ function get_ip()
 	return (filter_var($ip, FILTER_VALIDATE_IP) ? $ip : '0.0.0.0');
 }
 
-/** Prepare string for use in a SEO URL. */
+/** Prepare string for use in a SEO URL - inspired by MediaWiki's wfUrlencode(). */
 function seo_url_bit($str) {
+        $str = str_replace(' ', '_', $str);
+        $str = str_replace('/', '|', $str);
+
+	// Encode and un-escape some "safe" characters. RFC 1738 says these are safe: ;:&=$-_.+!*'(),
+        $str = urlencode($str);
+        $str = str_ireplace(
+           ['%3B', '%3A', '%40', '%24', '%21', '%26', '%2A', '%28', '%29', '%2C', '%7E'],
+           [ ';',  ':',   '@',   '$',   '!',   '&',   '*',   '(',   ')',   ',',   '~'  ],
+           $str
+        );
+ 
+	return $str;
+}
+
+/** Alternative way to prepare string for use in a SEO URL. No longer used. */
+function seo_url_bit_alt($str) {
 	$str = strtolower($str);
 	$str = strip_tags($str);
 	$str = html_entity_decode($str);
