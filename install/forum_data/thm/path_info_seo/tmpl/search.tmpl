@@ -31,11 +31,11 @@
 {SECTION: END}
 
 {SECTION: search_entry_lnk1}
-{ROOT}/f/{VAR: r->forum_id}/{DEF: _rsid}
+{ROOT}/f/{VAR: r->forum_id}-{VAR-SEO: r->forum_name}/{DEF: _rsid}
 {SECTION: END}
 
 {SECTION: registered_poster_lnk}
-{ROOT}/u/{VAR: r->poster_id}/{DEF: _rsid}
+{ROOT}/u/{VAR: r->poster_id}-{VAR-SEO: r->alias}/{DEF: _rsid}
 {SECTION: END}
 
 {SECTION: SEARCH_PAGE_lnk3}
