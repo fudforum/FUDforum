@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2019 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -648,14 +648,23 @@ function build_msg($file)
 	 * Read in requested message file.
 	 */
         if (preg_match('!thm/([^/]+)/i18n!', $file, $m)) {
-                if (file_exists($GLOBALS['DATA_DIR'] .'thm/'. $m[1] .'/tmpl/messages')) {
-                        parse_sections(@file_get_contents($GLOBALS['DATA_DIR'] .'thm/'. $m[1] .'/tmpl/messages'), '', 1);
-                } elseif ( file_exists($GLOBALS['DATA_DIR'] .'thm/'. $m[1] .'/.path_info')) {
-                        parse_sections(@file_get_contents($GLOBALS['DATA_DIR'] .'thm/path_info/tmpl/messages'), '', 1);
-                }
-                if (file_exists($GLOBALS['DATA_DIR'] .'thm/'. $m[1] .'/tmpl/date_formats.tmpl')) {
-                        parse_sections(@file_get_contents($GLOBALS['DATA_DIR'] .'thm/'. $m[1] .'/tmpl/date_formats.tmpl'), '', 1);
-                }
+                // Get theme's 'messages' file.
+                $ini['based_on'] = $m[1];
+                do {
+                        if (($tmp = @file_get_contents($GLOBALS['DATA_DIR'] .'thm/'. $ini['based_on'] .'/tmpl/messages')) !== false) {
+                                parse_sections($tmp, '', 1);
+                        }
+                } while ($ini['based_on'] != 'default' && ($ini = @parse_ini_file($GLOBALS['DATA_DIR'] .'thm/'. $ini['based_on'] .'/theme.ini')));
+
+                // Get theme's date formats file.
+                $ini['based_on'] = $m[1];
+                do {
+                        if (($tmp = @file_get_contents($GLOBALS['DATA_DIR'] .'thm/'. $ini['based_on'] .'/tmpl/date_formats.tmpl')) !== false) {
+                                parse_sections($tmp, '', 1);
+                        }
+                } while ($ini['based_on'] != 'default' && ($ini = @parse_ini_file($GLOBALS['DATA_DIR'] .'thm/'. $ini['based_on'] .'/theme.ini')));
+
+		// Parse the reqeuested message file.
                 if (file_exists($file)) {
                         parse_msgs($file);
                 }

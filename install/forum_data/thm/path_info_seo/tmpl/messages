@@ -1,0 +1,11 @@
+{SECTION: msg_update_lnk}
+{ROOT}/t/{VAR: frm->id}-{VAR-SEO: frm->subject}
+{SECTION: END}
+
+{SECTION: post_topic_update_lnk}
+{ROOT}/f/{VAR: frm->id}-{VAR-SEO: frm->form_name}
+{SECTION: END}
+
+{SECTION: thread_update_lnk}
+{ROOT}/f/{VAR: frm->id}-{VAR-SEO: frm->form_name}
+{SECTION: END}
