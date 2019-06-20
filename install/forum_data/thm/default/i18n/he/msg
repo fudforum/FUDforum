@@ -4,6 +4,7 @@
 # Author: Guycn2
 # Author: Imneo
 # Author: Inkbug
+# Author: Steeve815
 # Author: YaronSh
 
 action:פעולה
@@ -117,6 +118,7 @@ on:פעיל
 pm:התכתבות אישית
 poll:סקר:
 post_count:מספר הודעות {VAR: u_pcount}
+post_count_l:מספר הודעות:
 posts:הודעות
 posts_c:הודעות:
 prev_thread:הנושא הקודם:
