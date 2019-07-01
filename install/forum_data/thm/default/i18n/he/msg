@@ -25,7 +25,7 @@ date_posted:תאריך הפרסום
 date_registered:תאריך ההרשמה:
 download_counter:התבצע{PLURAL: v[3]|ה הורדה אחת|ו $1 הורדות}
 pmsg_download_counter:Downloaded {PLURAL: r->dlcount|פעם אחת|פעמיים|$1 פעמים}
-email:דוא"ל:
+email:דוא״ל:
 email_to_friend:שליחת דוא"ל לחבר
 email_to_friend_desc:שליחת כתובת העמוד הנוכחי לחבר/ים בדוא"ל
 email_user:שליחת דוא״ל אל המשתמש
@@ -140,7 +140,7 @@ sel_unanswered_posts:הודעות שלא נקראו
 sel_unread_messages:הודעות שלא נקראו
 send:שליחה
 send_pm_desc:שליחת הודעה פרטית למשתמש זה
-sender_email:דוא"ל השולח:
+sender_email:דוא״ל השולח:
 sender_name:שם השולח:
 show_posts_by:הצגת ההודעות של: {VAR: u_alias}
 size:נפח:
@@ -251,7 +251,7 @@ finduser_joindate:תאריך ההצטרפות
 finduser_action:פעולה
 yes:כן
 no:לא
-register_email:דוא"ל
+register_email:דוא״ל
 pmuserloc_login:שם משתמש:
 pmuserloc_submit:כניסה
 pmuserloc_user:משתמש

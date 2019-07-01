@@ -23,11 +23,12 @@
 # Author: Vlad5250
 # Author: Volkov
 # Author: Александр Сигачёв
+# Author: ЛингвоЧел
 
 action:Действие
 add_to_buddy_list:добавить в список контактов
 admin:Администратор
-admin_control_panel:Управление
+admin_control_panel:Администрация
 administrator:Администратор
 attachment:Вложение:
 avatar:Аватар:
