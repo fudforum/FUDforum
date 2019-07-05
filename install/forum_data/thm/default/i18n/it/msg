@@ -466,7 +466,7 @@ login_not_logedin:Non sei autenticato. Ecco quali potrebbero essere le cause:
 login_cookie_expired:Il tuo cookie è scaduto, e devi quindi effettuare nuovamente la procedura di autenticazione.
 login_perm_denied:Non si dispone dei permessi necessari per accedere alla risorsa richiesta come utente anonimo, e devi quindi autenticarti.
 login_want_to_register:Vuoi registrarti?
-login_forgot_passwd:Hai dimenticato la password?
+login_forgot_passwd:Password dimenticata
 login_use_cookie:Utilizza i cookie<br /><span class="SmallText">>Se si sta utilizzando un terminale pubblico, ad esempio un PC in una biblioteca o in un Internet Cafè, per maggior sicurezza è consigliabile disabilitare questa opzione. Se si lascia questa opzione attiva, si verrà automaticamente riconosciuti ad ogni visita del Forum (fino allo scadere del cookie).</span>
 login_login:Login
 login_login_btn:Login
