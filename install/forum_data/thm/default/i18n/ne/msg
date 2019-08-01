@@ -26,10 +26,10 @@ date_posted:प्रेषित तिथि
 date_registered:पंजिकृत तिथि:
 download_counter:{PLURAL: v[3]|$1 पल्ट|$1 पल्ट} डाउनलोड गरिएको
 pmsg_download_counter:{PLURAL: r->dlcount|$1 पल्ट|$1 पल्ट} डाउनलोड गरिएको
-email:ईमेल
-email_to_friend:मित्रलाई ईमेल गर्ने
+email:इमेल
+email_to_friend:साथीलाई इमेल गर्नुहोस्
 email_to_friend_desc:यस पृष्ठमा  आफ्नो मित्र(हरू)लाई URL ईमेलद्वारा पठाउनुहोस्
-email_user:प्रयोगकर्तालाई ईमेल सन्देश पठाउने
+email_user:प्रयोगकर्तालाई इमेल सन्देश पठाउनुहोस्
 faq:सहायता
 first_unread_msg:नपढेका सन्देशहरू हेर्ने
 first_unread_msg_desc:पहिलो नपढेको सन्देश यस शीर्षकभित्र हेर्ने

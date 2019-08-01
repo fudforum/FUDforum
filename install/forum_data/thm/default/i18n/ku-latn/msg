@@ -3,6 +3,7 @@
 # Author: Bikarhêner
 # Author: George Animal
 # Author: Ghybu
+# Author: MikaelF
 # Author: Mirzali
 
 action:Xebat
@@ -102,18 +103,18 @@ pmsg_time:Dem
 pmsg_selected:Hate bijartin
 pmsg_delete:Jê bibe
 inbox:Qutiya Hatîyan
-month_1:rêbendan
-month_2:reşemî
+month_1:kanûna paşîn
+month_2:sibat
 month_3:adar
-month_4:avrêl
+month_4:nîsan
 month_5:gulan
-month_6:pûşper
+month_6:hezîran
 month_7:tîrmeh
-month_8:gelawêj
-month_9:rezber
-month_10:kewçêr
-month_11:sermawez
-month_12:berfanbar
+month_8:tebax
+month_9:îlon
+month_10:çiriya pêşîn
+month_11:çiriya paşîn
+month_12:kanûna pêşîn
 sunday:Yekşem
 sunday_short:Y
 monday:Duşem
