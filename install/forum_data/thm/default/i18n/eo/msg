@@ -688,7 +688,7 @@ reset_err_invalidkey_msg:Nevalida pasvorto restariga ŝlosilo. Eblas ke via retp
 reset_err_rstconf_title:Informo
 reset_err_rstconf_msg:Vi ricevos instruojn en via retpoŝtkesto dum la sekvaj kelkaj minutoj.
 reset_newpass_title:Restarigi Pasvorton
-reset_newpass_msg:Saluton,\n\nTiel petita, jen via salutinformo: \n\nSalutnomo: {VAR: ui[1]}\nPasvorto: {VAR: passwd}\n\nBonvolu noti ke via pasvorto estis restarigita al la valoro supre. Se vi volas\nŝanĝi vian pasvorton, vi povas fari tiel per la uzula kontrolilo ĉe: \n{FULL_ROOT}?t=register
+reset_newpass_msg:Saluton,\n\nTiel petita, jen via salutinformo: \n\nSalutnomo: {VAR: ui[1]}\nPasvorto: {VAR: passwd}\n\nBonvolu noti ke via pasvorto estis restarigita al la valoro supre. Se vi volas\nŝanĝi vian pasvorton, vi povas fari tiel per la uzanto-kontrolilo ĉe: \n{FULL_ROOT}?t=register
 reset_login_notify:Via pasvorto estis retpoŝtita al vi. Vi ricevos ĝin post kelkaj minutoj.
 search_update:Serĉante mesaĝojn
 selmsg_update:Tralegante <a href="{TEMPLATE: selmsg_update_lnk}">Afiŝoj de Hodiaŭ</a>
