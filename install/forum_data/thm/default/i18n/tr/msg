@@ -689,7 +689,7 @@ register_err_avatarnotallowed:Yüklemeye çalıştığınız avatara izin verilm
 register_conf_subject:Kayıt Doğrulama
 register_conf_msg:Kayıt olduğunuz için teşekkürler,\nHesabınızı etkinleştirmek için lütfen aşağıdaki URL'ye gidin:\n\n{FULL_ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nBir kez hesabınız etkineşti mi foruma giriş yapacak ve \nforumun ana sayfasına yönlendirileceksiniz.
 register_welcome_subject:Forum Kayıt Doğrulama
-register_welcome_msg:Kayıt olduğunuz için teşekkürler,\n\nİşte forum için giriş bilgileriniz:\n\nForum URL'si: {TEMPLATE: index_update_lnk}\nKullanıcı ismi: {VAR: uent->login}\nParola: {VAR: _POST['reg_plaintext_passwd']}\n\nLütfen şifrelerin büyük / küçük harfe duyarlı olduğunu unutmayın!\nAyarlarınızı veya profilinizi değiştirmek için şu sayfaya gidin:\n{FULL_ROOT}{ROOT}?t=register
+register_welcome_msg:Kayıt olduğunuz için teşekkürler,\n\nİşte forum için giriş bilgileriniz:\n\nForum URL'si: {TEMPLATE: index_update_lnk}\nKullanıcı ismi: {VAR: uent->login}\nParola: {VAR: _POST['reg_plaintext_passwd']}\n\nLütfen şifrelerin büyük / küçük harfe duyarlı olduğunu unutmayın!\nAyarlarınızı veya profilinizi değiştirmek için şu sayfaya gidin:\n{FULL_ROOT}?t=register
 register_err_cantreg_title:HATA: kayıt olunamadı
 regsiter_err_cantreg_msg:Kullanıcı hesabı oluşturulamadı, lütfen yönetici ile iletişime geçin: <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:Kişisel bilgilerine göz atıyor

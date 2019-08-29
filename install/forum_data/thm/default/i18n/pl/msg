@@ -682,7 +682,7 @@ register_err_avatarnotallowed:Avatar, który próbujesz dołączyć, jest niedoz
 register_conf_subject:Potwierdzenie rejestracji
 register_conf_msg:Dziękujemy za zarejestrowanie się na {FULL_ROOT}.\nAby aktywować swoje konto, przejdź pod adres:\n\n{FULL_ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nJak tylko konto zostanie aktywowane, zostaniesz zalogowany(a) i\nprzekierowany(a) na główną stronę naszego forum.
 register_welcome_subject:Potwierdzenie rejestracji na forum
-register_welcome_msg:Dziękujemy za zarejestrowanie się.\n\nTutaj znajdują się szczegóły twojego logowania się na forum:\n\nAdres forum: {TEMPLATE: index_update_lnk}\nNazwa użytkownika: {VAR: uent->login}\nHasło: {VAR: _POST['reg_plaintext_passwd']}\n\nBądź świadom(a), że wielkość liter w hasłach ma znaczenie!\nAby zmienić swoje ustawienia i profil, przejdź do tej strony:\n{FULL_ROOT}{ROOT}?t=register
+register_welcome_msg:Dziękujemy za zarejestrowanie się.\n\nTutaj znajdują się szczegóły twojego logowania się na forum:\n\nAdres forum: {TEMPLATE: index_update_lnk}\nNazwa użytkownika: {VAR: uent->login}\nHasło: {VAR: _POST['reg_plaintext_passwd']}\n\nBądź świadom(a), że wielkość liter w hasłach ma znaczenie!\nAby zmienić swoje ustawienia i profil, przejdź do tej strony:\n{FULL_ROOT}?t=register
 register_err_cantreg_title:BŁĄD: rejestracja nie jest możliwa
 regsiter_err_cantreg_msg:Brak możliwości stworzenia konta użytkownika, dlatego skontaktuj się z administratorem pod adresem e-mail <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>.
 register_profile_update:Przegląd własnego profilu

@@ -672,8 +672,7 @@ register_err_avatarnotallowed:Hindi pinapahintulutan ang huwarang sinusubukan mo
 register_conf_subject:Pagtitiyak ng Pagpapatala
 register_conf_msg:Salamata sa pagpapatala mo.\nUpang buhayin ang akawnt mo mangyaring pumunta sa URL na nasa ibaba:\n\n{FULL_ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nKapag nabuhay na ang akawnt mo ilalagda kang papasok sa poro at\npapupuntahin sa pangunahing pahina.
 register_welcome_subject:Pagtitiyak ng Pagpapatala
-# Fuzzy
-register_welcome_msg:Salamat sa pagpapatala mo,\n\nNarito ang mga detalye mo ng paglagdang papasok para sa poro:\n\nURL ng Poro: {TEMPLATE: index_update_lnk}\nPaglagda: {VAR: uent->login}\nHudyat: {VAR: _POST['reg_plaintext_passwd']}\n\nMangyaring tandaan na ang mga hudyat ay maselan kapag minamakinilya!\nUpang baguhin ang mga pagtatakda mo o balangkas, pumunta sa pahinang ito:\n{FULL_ROOT}{ROOT}?t=register
+register_welcome_msg:Salamat sa pagpapatala mo,\n\nNarito ang mga detalye mo ng paglagdang papasok para sa poro:\n\nURL ng Poro: {TEMPLATE: index_update_lnk}\nPaglagda: {VAR: uent->login}\nHudyat: {VAR: _POST['reg_plaintext_passwd']}\n\nMangyaring tandaan na ang mga hudyat ay maselan kapag minamakinilya!\nUpang baguhin ang mga pagtatakda mo o balangkas, pumunta sa pahinang ito:\n{FULL_ROOT}?t=register
 register_err_cantreg_title:KAMALIAN: hindi nagawang ipatala
 regsiter_err_cantreg_msg:Hindi nagawang likhain ang akawnt ng tagagamit, mangyring makipag-ugnayan sa tagapangasiwa doon sa <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:Tinitingnan ang sariling balangkas

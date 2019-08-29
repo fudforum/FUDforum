@@ -673,8 +673,7 @@ register_err_avatarnotallowed:Awatar, kotryž pospytuješ nahrać, njeje dowolen
 register_conf_subject:Wobkrućenje registrowanja
 register_conf_msg:Dźakujemy so za registrowanje.\nZo by swoje konto aktiwizował, dźi prošu k slědowacemu URL:\n\n{FULL_ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nTak ruče kaž twoje konto je aktiwizowane, móžeš so do foruma přizjewić a budźeš so na startowu stronu dale posrědkować.
 register_welcome_subject:Wobkrućenje registrowanja za forum
-# Fuzzy
-register_welcome_msg:Dźakujemy so za registrowanje.\n\nTu su twoje přizjewjenske podrobnosće za forum:\n\nURL foruma: {TEMPLATE: index_update_lnk}\nPřizjewjenske mjeno: {VAR: uent->login}\nHesło: {VAR: _POST['reg_plaintext_passwd']}\n\nProšu dźiwaj na to, zo hesła wulkopisanje wobkedźbuja!\nZo by swoje nastajenja abo profil změnił, dźi k tutej stronje:\n{FULL_ROOT}{ROOT}?t=register
+register_welcome_msg:Dźakujemy so za registrowanje.\n\nTu su twoje přizjewjenske podrobnosće za forum:\n\nURL foruma: {TEMPLATE: index_update_lnk}\nPřizjewjenske mjeno: {VAR: uent->login}\nHesło: {VAR: _POST['reg_plaintext_passwd']}\n\nProšu dźiwaj na to, zo hesła wulkopisanje wobkedźbuja!\nZo by swoje nastajenja abo profil změnił, dźi k tutej stronje:\n{FULL_ROOT}?t=register
 register_err_cantreg_title:ZMYLK: registrowanje njemóžno
 regsiter_err_cantreg_msg:Njeje móžno wužiwarske konto załožić, prošu staj so z administratorom z e-mejlowej adresu <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a> do zwiska
 register_profile_update:Wobhlada sej swój profil

@@ -653,8 +653,7 @@ register_err_avatarnotallowed:Ielādētais nozīmītes fails neatbilst nevienam 
 register_conf_subject:Reģistrācijas apstiprinājums
 register_conf_msg:Paldies par reģistrāciju,\nLai apstiprinātu sava nika reģistrāciju sekojiet saitei:\n\n{FULL_ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nTiklīdz reģistrācija tiks aktivizēta, Jūs automātiski ieiesiet foruma\ngalvenajā lapā.
 register_welcome_subject:Foruma reģistrācijas apliecinājums
-# Fuzzy
-register_welcome_msg:Paldies par reģistrāciju,\n\nZemāk informācija par Jūsu reģistrāciju:\n\nforuma URL: {TEMPLATE: index_update_lnk}\nLogin: {VAR: uent->login}\nParole: {VAR: _POST['reg_plaintext_passwd']}\n\nAtcerieties, paroles ir reģistra jūtīgas!\nSavus privātos uzstādījumus jūs variet rediģēt šeit:\n{FULL_ROOT}{ROOT}?t=register
+register_welcome_msg:Paldies par reģistrāciju,\n\nZemāk informācija par Jūsu reģistrāciju:\n\nforuma URL: {TEMPLATE: index_update_lnk}\nLogin: {VAR: uent->login}\nParole: {VAR: _POST['reg_plaintext_passwd']}\n\nAtcerieties, paroles ir reģistra jūtīgas!\nSavus privātos uzstādījumus jūs variet rediģēt šeit:\n{FULL_ROOT}?t=register
 register_err_cantreg_title:KĻŪDA! Reģistrācija nav iespējama
 regsiter_err_cantreg_msg:Nevar piereģistrēt šo lietotāju. Lūdzu paziņojiet Administratoram <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:Personīgo uzstādījumu un datu pārskats

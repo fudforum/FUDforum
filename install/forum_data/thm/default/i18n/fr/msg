@@ -686,7 +686,7 @@ register_err_avatarnotallowed:L’avatar que vous essayez de téléverser n’es
 register_conf_subject:Confirmation de votre inscription
 register_conf_msg:Merci de votre inscription.\nPour activer votre compte, veuillez visiter l'URL ci-dessous :\n\n{FULL_ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nUne fois votre compte activé, vous serez connecté au forum et redirigé vers la page d'accueil.
 register_welcome_subject:Confirmation de votre inscription au forum.
-register_welcome_msg:Merci de vous être inscrit.\n\nVoici résumé de vos données de connexion au forum :\n\nURL du forum: {TEMPLATE: index_update_lnk}\nNom d'utilisateur: {VAR: uent->login}\nMot de passe: {VAR: _POST['reg_plaintext_passwd']}\n\nN’oubliez pas que les mots de passe sont sensibles à la casse !\nPour modifier vos paramètres ou votre profil, visitez cette page :\n{FULL_ROOT}{ROOT}?t=register
+register_welcome_msg:Merci de vous être inscrit.\n\nVoici résumé de vos données de connexion au forum :\n\nURL du forum: {TEMPLATE: index_update_lnk}\nNom d'utilisateur: {VAR: uent->login}\nMot de passe: {VAR: _POST['reg_plaintext_passwd']}\n\nN’oubliez pas que les mots de passe sont sensibles à la casse !\nPour modifier vos paramètres ou votre profil, visitez cette page :\n{FULL_ROOT}?t=register
 register_err_cantreg_title:ERREUR : Nous n'avons pas pu vous inscrire
 regsiter_err_cantreg_msg:Impossible de créer un compte d'utilisateur ; veuillez faire part de ce problème à l'administrateur : <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:Parcourt son profil

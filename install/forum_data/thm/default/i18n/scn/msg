@@ -674,8 +674,7 @@ register_err_avatarnotallowed:L'immaggine ca ste pruève a carecà non g'è perm
 register_conf_subject:Conferme d'a reggistrazione
 register_conf_msg:Grazie ca tè reggistrate.\n\nPe attivà 'u cunde tune pe piacere vejè a l'URL de sotte:\n\n{FULL_ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\n'Na vote ca 'u cunde jè attivate tu puè trasè jndr'à 'u forum e avìne mannate sus a pàgena prengepàle.
 register_welcome_subject:Conferme d'a reggistrazione d'u forum
-# Fuzzy
-register_welcome_msg:Grazie ca t'è reggistrate,\n\nAqquà le dettaglie pe trasè jndr'à 'u forum:\n\nURL d'u Forum: {TEMPLATE: index_update_lnk}\nNome: {VAR: uent->login}\nPassuord: {VAR: _POST['reg_plaintext_passwd']}\n\nPe piacere vide ca le passuord so sensibbile a le maiuscole e minuscole! Pe cangià le 'mbostaziune o 'u profile, vèje sus a pàgene:\n{FULL_ROOT}{ROOT}?t=register
+register_welcome_msg:Grazie ca t'è reggistrate,\n\nAqquà le dettaglie pe trasè jndr'à 'u forum:\n\nURL d'u Forum: {TEMPLATE: index_update_lnk}\nNome: {VAR: uent->login}\nPassuord: {VAR: _POST['reg_plaintext_passwd']}\n\nPe piacere vide ca le passuord so sensibbile a le maiuscole e minuscole! Pe cangià le 'mbostaziune o 'u profile, vèje sus a pàgene:\n{FULL_ROOT}?t=register
 register_err_cantreg_title:ERRORE: 'mbossibbile da reggistrà
 regsiter_err_cantreg_msg:'Mbossibbile da ccrejè 'u cunde utende tune, pe piacere condatte l'amministratore a <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:'Ndruche 'u profile tune

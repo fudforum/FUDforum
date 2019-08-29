@@ -673,8 +673,7 @@ register_err_avatarnotallowed:Avatar yang anda cuba muat naik ini tidak dibenark
 register_conf_subject:Pengesahan Pendaftaran
 register_conf_msg:Terima kasih kerana berdaftar. Sila pergi ke URL berikut untuk mengaktifkan akaun anda:\n\n{FULL_ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nSebaik sahaja akaun anda diaktifkan, anda akan log masuk ke dalam forum lalu dilencongkan ke laman utamanya.
 register_welcome_subject:Pengesahan Pendaftaran Forum
-# Fuzzy
-register_welcome_msg:Terima kasih kerana berdaftar.\n\nBerikut ialah butiran-butiran log masuk untuk forum ini:\n\nURL Forum: {TEMPLATE: index_update_lnk}\nNama Log Masuk: {VAR: uent->login}\nKata Laluan: {VAR: _POST['reg_plaintext_passwd']}\n\nSila ingat bahawa kata laluan itu peka huruf besar kecil!\nUntuk mengubahsuai tetapan atau profil anda, sila ke laman ini:\n{FULL_ROOT}{ROOT}?t=register
+register_welcome_msg:Terima kasih kerana berdaftar.\n\nBerikut ialah butiran-butiran log masuk untuk forum ini:\n\nURL Forum: {TEMPLATE: index_update_lnk}\nNama Log Masuk: {VAR: uent->login}\nKata Laluan: {VAR: _POST['reg_plaintext_passwd']}\n\nSila ingat bahawa kata laluan itu peka huruf besar kecil!\nUntuk mengubahsuai tetapan atau profil anda, sila ke laman ini:\n{FULL_ROOT}?t=register
 register_err_cantreg_title:PERHATIAN: tidak dapat berdaftar
 regsiter_err_cantreg_msg:Akaun pengguna tidak dapat dibuka; sila hubungi pentadbir di <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:Melihat profil sendiri

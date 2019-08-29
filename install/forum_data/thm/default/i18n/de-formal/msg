@@ -679,8 +679,7 @@ register_err_avatarnotallowed:Der Avatar, den Sie hochladen möchten, ist nicht 
 register_conf_subject:Registrierungsbestätigung
 register_conf_msg:Vielen Dank für Ihre Registrierung,\nUm Ihr Konto zu aktivieren, gehen Sie bitte auf die unten angegebene Adresse:\n\n{FULL_ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nSobald Ihr Konto aktiviert ist, werden Sie am System angemeldet und\nzur Hauptseite des Forums weitergeleitet.
 register_welcome_subject:Registrierungsbestätigung für das Forum
-# Fuzzy
-register_welcome_msg:Vielen Dank für Ihre Registrierung,\n\nHier sind die Anmeldedetails für das Forum:\n\nAdresse des Forums: {TEMPLATE: index_update_lnk}\nBenutzername: {VAR: uent->login}\nPasswort: {VAR: _POST['reg_plaintext_passwd']}\n\nBitte achten Sie beim Passwort auf Groß- und Kleinschreibung!\nUm die Einstellungen und das Profil zu verändern, gehen Sie bitte auf diese Seite:\n{FULL_ROOT}{ROOT}?t=register
+register_welcome_msg:Vielen Dank für Ihre Registrierung,\n\nHier sind die Anmeldedetails für das Forum:\n\nAdresse des Forums: {TEMPLATE: index_update_lnk}\nBenutzername: {VAR: uent->login}\nPasswort: {VAR: _POST['reg_plaintext_passwd']}\n\nBitte achten Sie beim Passwort auf Groß- und Kleinschreibung!\nUm die Einstellungen und das Profil zu verändern, gehen Sie bitte auf diese Seite:\n{FULL_ROOT}?t=register
 register_err_cantreg_title:FEHLER: Registrierung nicht möglich
 regsiter_err_cantreg_msg:Nicht in der Lage, das Benutzerkonto zu erstellen, bitte nehmen Sie Kontakt zum Administrator auf: <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:Betrachtet das eigene Profil

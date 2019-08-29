@@ -672,8 +672,7 @@ register_err_avatarnotallowed:Ing avatar nyoba upload ora diijini. Priksa diijin
 register_conf_subject:Situs Konfirmasi
 register_conf_msg:Matur nuwun kanggo ndhaftar,\nKanggo ngaktifake akun please menyang URL ngisor:\n\n{FULL_ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nYen akun aktif, sampeyan bakal mlebu-menyang forum lan\nredirected kanggo kaca utama.
 register_welcome_subject:Forum Situs Konfirmasi
-# Fuzzy
-register_welcome_msg:Matur nuwun kanggo ndhaftar,\n\nKene sampeyan mlebu log kanggo rincian forum:\n\nForum URL: {TEMPLATE: index_update_lnk}\nMlebu: {VAR: uent->login}\nPangguna: {VAR: _POST['reg_plaintext_passwd']}\n\nWigati dicathet sandhi sing cilik sensitif!\nKanggo ngganti setelan utawa profil, menyang kaca iki:\n{FULL_ROOT}{ROOT}?t=register
+register_welcome_msg:Matur nuwun kanggo ndhaftar,\n\nKene sampeyan mlebu log kanggo rincian forum:\n\nForum URL: {TEMPLATE: index_update_lnk}\nMlebu: {VAR: uent->login}\nPangguna: {VAR: _POST['reg_plaintext_passwd']}\n\nWigati dicathet sandhi sing cilik sensitif!\nKanggo ngganti setelan utawa profil, menyang kaca iki:\n{FULL_ROOT}?t=register
 register_err_cantreg_title:Kesalahan: Tukang ndhaftar
 regsiter_err_cantreg_msg:Iso kanggo nggawe akun pangguna, hubungi administrator ing <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:Ndeleng dhewe profil

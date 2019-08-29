@@ -690,8 +690,7 @@ register_err_avatarnotallowed:Avatar yang Anda kirimkan tidak sah. Mohon periksa
 register_conf_subject:Konfirmasi Registrasi
 register_conf_msg:Terima-kasih atas registrasi anda,\nUntuk mengaktifkan akun anda, silakan ke:\n\n{FULL_ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nSesudah aktif, anda bisa login&\nsecara otomatis akan diarahkan ke halaman utama.
 register_welcome_subject:Konfirmasi Registrasi Forum
-# Fuzzy
-register_welcome_msg:Terima-kasih telah mendaftar,\n\nBerikut adalah keterangan lengkap anda:\n\nURL Forum: {TEMPLATE: index_update_lnk}\nLogin: {VAR: uent->login}\nPassword: {VAR: _POST['reg_plaintext_passwd']}\n\nMohon diingat password merupakan ''case sensitive''!\nUntuk mengubah pengesetan atau profile, tuju halaman ini:\n{FULL_ROOT}{ROOT}?t=register
+register_welcome_msg:Terima-kasih telah mendaftar,\n\nBerikut adalah keterangan lengkap anda:\n\nURL Forum: {TEMPLATE: index_update_lnk}\nLogin: {VAR: uent->login}\nPassword: {VAR: _POST['reg_plaintext_passwd']}\n\nMohon diingat password merupakan ''case sensitive''!\nUntuk mengubah pengesetan atau profile, tuju halaman ini:\n{FULL_ROOT}?t=register
 register_err_cantreg_title:SALAH: tidak dapat mendaftar
 regsiter_err_cantreg_msg:Tidak bisa membuat akun pengguna, mohon hubungi administrator di <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:Melihat profil pribadi

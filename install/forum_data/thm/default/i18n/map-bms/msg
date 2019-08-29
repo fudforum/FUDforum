@@ -672,8 +672,7 @@ register_err_avatarnotallowed:Avatar sing Rika unggahna ora sah. Tulung dipriksa
 register_conf_subject:Konfirmasi Registrasi
 register_conf_msg:Matur nuwun Rika wis gelem ndaftar,\nKanggo ngaktifna akune Rika monggo di-klik URL nang ngisor kiye:\n\n{FULL_ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nSeuwise diaktifna Rika bakal mlebu log maring forum lan\ndiarahna ming kaca utama.
 register_welcome_subject:Konfirmasi Registrasi Forum
-# Fuzzy
-register_welcome_msg:Matur nuwun Rika wis gelem ndaftar,\n\nKiye rincian data logine Rika nggo forum:\n\nForum URL: {TEMPLATE: index_update_lnk}\nLogin: {VAR: uent->login}\nPassword: {VAR: _POST['reg_plaintext_passwd']}\n\nTulung dieling-eling nek tembung sandhi kuwe sensitif karu aksara gedhe/cilik!\nKanggo ngowaih settingan utawa profile Rika, mlebu ming kaca kiye:\n{FULL_ROOT}{ROOT}?t=register
+register_welcome_msg:Matur nuwun Rika wis gelem ndaftar,\n\nKiye rincian data logine Rika nggo forum:\n\nForum URL: {TEMPLATE: index_update_lnk}\nLogin: {VAR: uent->login}\nPassword: {VAR: _POST['reg_plaintext_passwd']}\n\nTulung dieling-eling nek tembung sandhi kuwe sensitif karu aksara gedhe/cilik!\nKanggo ngowaih settingan utawa profile Rika, mlebu ming kaca kiye:\n{FULL_ROOT}?t=register
 register_err_cantreg_title:SALAH: Ora teyeng ndaftar
 regsiter_err_cantreg_msg:Ora teyeng gawe akun panganggo, tulung hubungi administrator nang <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:Ndeleng profile dhewek

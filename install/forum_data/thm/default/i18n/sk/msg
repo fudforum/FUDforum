@@ -677,8 +677,7 @@ register_err_avatarnotallowed:Používateľská ikona (avatar), ktorú sa pokú�
 register_conf_subject:Potvrdenie registrácie
 register_conf_msg:Ďakujeme za vašu registráciu,\nak si prajete účet aktivovať, kliknite na nižšie uvedenú internetovú adresu:\n\n{FULL_ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nPo aktivovaní účtu budete prihlásený do fóra a\npresmerovaný na hlavnú stránku.
 register_welcome_subject:Potvrdenie registrácie do fóra
-# Fuzzy
-register_welcome_msg:Ďakujeme za Vašu registráciu,\n\ntu sú údaje potrebné na prihlásenie do fóra:\n\nInternetová adresa fóra: {TEMPLATE: index_update_lnk}\nPoužívateľské meno: {VAR: uent->login}\nHeslo: {VAR: _POST['reg_plaintext_passwd']}\n\nPamätajte, prosím, že heslo je citlivé na veľké/malé písmená!\nAk si prajete zmeniť Vaše nastavenie alebo profil, kliknite tu:\n{FULL_ROOT}{ROOT}?t=register
+register_welcome_msg:Ďakujeme za Vašu registráciu,\n\ntu sú údaje potrebné na prihlásenie do fóra:\n\nInternetová adresa fóra: {TEMPLATE: index_update_lnk}\nPoužívateľské meno: {VAR: uent->login}\nHeslo: {VAR: _POST['reg_plaintext_passwd']}\n\nPamätajte, prosím, že heslo je citlivé na veľké/malé písmená!\nAk si prajete zmeniť Vaše nastavenie alebo profil, kliknite tu:\n{FULL_ROOT}?t=register
 register_err_cantreg_title:CHYBA: registrácia nie je možná
 regsiter_err_cantreg_msg:Používateľský účet nebolo možné vytvoriť, prosím, kontaktujte administrátora na <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:Prezerá si vlastný profil

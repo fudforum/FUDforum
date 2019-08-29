@@ -672,8 +672,7 @@ register_err_avatarnotallowed:Avatarurin (myndin) ið tú roynir at leggja út e
 register_conf_subject:Váttan fyri skráseting
 register_conf_msg:Takk fyri tína skráseting,\nFyri at aktivera tína konto skalt tú fara til henda URL'in:\n\n{FULL_ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nTá tín konta er aktiverað, so verður tú innritað/ur til hetta forumið og send/ur víðari til høvuðssíðuna.
 register_welcome_subject:Váttan fyri skráseting til forumið
-# Fuzzy
-register_welcome_msg:Takk fyri tína skráseting,\n\nHer er tín brúkarakunning til forumið:\n\nForum URL: {TEMPLATE: index_update_lnk}\nBrúkaranavn: {VAR: uent->login}\nLoyniorð: {VAR: _POST['reg_plaintext_passwd']}\n\nLegg til merkis at tað er munur á stórum og lítlum bókstavum í loyniorðunum!\nFyri at broyta tínar innstillingar ella profil, so skal tú fara til hesa síðuna:\n{FULL_ROOT}{ROOT}?t=register
+register_welcome_msg:Takk fyri tína skráseting,\n\nHer er tín brúkarakunning til forumið:\n\nForum URL: {TEMPLATE: index_update_lnk}\nBrúkaranavn: {VAR: uent->login}\nLoyniorð: {VAR: _POST['reg_plaintext_passwd']}\n\nLegg til merkis at tað er munur á stórum og lítlum bókstavum í loyniorðunum!\nFyri at broyta tínar innstillingar ella profil, so skal tú fara til hesa síðuna:\n{FULL_ROOT}?t=register
 register_err_cantreg_title:FEILUR: ber ikki til at skráseta
 regsiter_err_cantreg_msg:Tað bar ikki til at upprætta brúkarakonto, vinarliga set teg í samband við administrator á <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:Sýning av egnum profili

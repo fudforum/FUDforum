@@ -685,7 +685,7 @@ register_err_avatarnotallowed:L`avatar que està  tractant de pujar no està  
 register_conf_subject:Confirmació de registre
 register_conf_msg:Gràcies per a enregistrar-se,\nPer a activar el seu compte, si us plau, vagi a la següent URL:\n\n{FULL_ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nUn cop activat el seu compte, entrarà al fòrum i\nse li redireccionarà a la pàgina principal.
 register_welcome_subject:Confirmació de registre en el fòrum
-register_welcome_msg:Gràcies per a enregistrar-se,\n\nAquí­ estan els seus detalls d`accés per al fòrum:\n\nURL del fòrum: {TEMPLATE: index_update_lnk}\nNom d`usuari: {VAR: uent->login}\nContrasenya: {VAR: _POST['reg_plaintext_passwd']}\n\nRecordi que les contrasenyes distingeixen entre majúscules i minúscules!\nPer a modificar la seva configuració i perfil, vagi a aquesta pàgina:\n{FULL_ROOT}{ROOT}?t=register
+register_welcome_msg:Gràcies per a enregistrar-se,\n\nAquí­ estan els seus detalls d`accés per al fòrum:\n\nURL del fòrum: {TEMPLATE: index_update_lnk}\nNom d`usuari: {VAR: uent->login}\nContrasenya: {VAR: _POST['reg_plaintext_passwd']}\n\nRecordi que les contrasenyes distingeixen entre majúscules i minúscules!\nPer a modificar la seva configuració i perfil, vagi a aquesta pàgina:\n{FULL_ROOT}?t=register
 register_err_cantreg_title:ERROR: no es pot enregistrar
 regsiter_err_cantreg_msg:No es pot crear el compte d`usuari. Si us plau, posi`s en contacte amb l`administrador en <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:Veient el perfil propi

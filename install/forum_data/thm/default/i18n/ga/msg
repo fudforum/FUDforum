@@ -673,8 +673,7 @@ register_err_avatarnotallowed:Níl an avatar tú ag iarraidh a uaslódáil ceada
 register_conf_subject:Deimhniú clárúcháin
 register_conf_msg:Go raibh maith agat as clárú,\nChun do chuntas a ghníomhachtú téigh go dtí an URL thíos le do thoil:\n\n{FULL_ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nNuair atá do chuntas gníomhachtaithe a bheidh tú logáilte isteach-an fóram agus\natreorú chuig an leathanach príomh.
 register_welcome_subject:Fóram Deimhniú Clárúcháin
-# Fuzzy
-register_welcome_msg:Go raibh maith agat as clárú,\n\nSeo iad do chuid sonraí logáil isteach chun an fóram:\n\nFóram URL: {TEMPLATE: index_update_lnk}\nLogáil isteach: {VAR: uent->login}\nPasfhocal: {VAR: _POST['reg_plaintext_passwd']}\n\nTabhair faoi deara go bhfuil focal faire cás íogair!\nChun a mhodhnú do chuid socruithe nó próifíl, téigh go dtí an leathanach seo:\n{FULL_ROOT}{ROOT}?t=register
+register_welcome_msg:Go raibh maith agat as clárú,\n\nSeo iad do chuid sonraí logáil isteach chun an fóram:\n\nFóram URL: {TEMPLATE: index_update_lnk}\nLogáil isteach: {VAR: uent->login}\nPasfhocal: {VAR: _POST['reg_plaintext_passwd']}\n\nTabhair faoi deara go bhfuil focal faire cás íogair!\nChun a mhodhnú do chuid socruithe nó próifíl, téigh go dtí an leathanach seo:\n{FULL_ROOT}?t=register
 register_err_cantreg_title:EARRÁID: ní féidir a chlárú
 regsiter_err_cantreg_msg:Níorbh fhéidir cuntas úsáideora a chruthú, téigh i dteagmháil leis an riarthóir ar <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:Ag féachaint ar phróifíl féin

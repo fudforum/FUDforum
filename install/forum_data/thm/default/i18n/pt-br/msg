@@ -682,7 +682,7 @@ register_err_avatarnotallowed:O avatar que você está enviando para o servidor 
 register_conf_subject:Confirmação de registro
 register_conf_msg:Obrigado por se registar,\nPara ativar a sua conta acesse o endereço (URL) abaixo:\n\n{FULL_ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nAssim que a sua conta for ativada, você estará acessando o fórum sendo enviado para sua pagina principal.
 register_welcome_subject:Confirmação de registro no fórum
-register_welcome_msg:Obrigado pelo registro,\n\nAqui estão os seus dados de login para o fórum:\n\nFórum URL: {TEMPLATE: index_update_lnk}\nLogin: {VAR: uent->login}\nSenha: {VAR: _POST['reg_plaintext_passwd']}\n\nNa Senha os caracteres maiúsculos ou minúsculos fazem diferença!\nPara modificar os seus dados, vá até esta pagina:\n{FULL_ROOT}{ROOT}?t=register
+register_welcome_msg:Obrigado pelo registro,\n\nAqui estão os seus dados de login para o fórum:\n\nFórum URL: {TEMPLATE: index_update_lnk}\nLogin: {VAR: uent->login}\nSenha: {VAR: _POST['reg_plaintext_passwd']}\n\nNa Senha os caracteres maiúsculos ou minúsculos fazem diferença!\nPara modificar os seus dados, vá até esta pagina:\n{FULL_ROOT}?t=register
 register_err_cantreg_title:ERRO: não foi possível registrar
 regsiter_err_cantreg_msg:Conta de usuário não foi criada, por favor contacte o administrador em <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:Vendo a sua ficha

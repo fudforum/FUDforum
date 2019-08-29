@@ -678,7 +678,7 @@ register_err_avatarnotallowed:لا يُسمَح بالصورة المصغرة ا
 register_conf_subject:تأكيد التسجيل
 register_conf_msg:شكرًا على التسجيل!\n\nلتُنشِّط حسابك من فضلك اذهب إلى المسار التالي:\n\n{FULL_ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nسوف تلج إلى المنتدى وتُحوَّل إلى الصفحة الرئيسية بمجرد تنشيط حسابك.
 register_welcome_subject:تأكيد تسجيل المنتدى
-register_welcome_msg:شكرا لك على التسجيل!\n\nهنا تفاصيل ولوجك إلى المنتدى:\n\n\nمسار المنتدى: {TEMPLATE: index_update_lnk}\nالولوج: {VAR: uent->login}\nكلمة السر: {VAR: _POST['reg_plaintext_passwd']}\n\nمن فضلك لاحظ أن كلمة السر حساسة لحالة الأحرف!\nلتغيِّر إعداداتك أو ملفك شخص الشخصي؛ اذهب إلى هذه الصفحة:\n{FULL_ROOT}{ROOT}?t=register
+register_welcome_msg:شكرا لك على التسجيل!\n\nهنا تفاصيل ولوجك إلى المنتدى:\n\n\nمسار المنتدى: {TEMPLATE: index_update_lnk}\nالولوج: {VAR: uent->login}\nكلمة السر: {VAR: _POST['reg_plaintext_passwd']}\n\nمن فضلك لاحظ أن كلمة السر حساسة لحالة الأحرف!\nلتغيِّر إعداداتك أو ملفك شخص الشخصي؛ اذهب إلى هذه الصفحة:\n{FULL_ROOT}?t=register
 register_err_cantreg_title:خطأ: تعذر التسجيل
 regsiter_err_cantreg_msg:تعذر إنشاء حساب المستخدم، من فضلك اتصل بالإداري عبر <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:عرض ملفك الشخصي

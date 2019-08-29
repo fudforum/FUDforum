@@ -676,8 +676,7 @@ register_err_avatarnotallowed:Dr Avatar, wu Du witt uffelade, isch nit erlaubt, 
 register_conf_subject:Regischtrierigsbstetigung
 register_conf_msg:Dankschen vilmol fir Dyy Regischtrierig,\nGo Dyy Konto aktiviere gang b itte uf d Adräss, wu do unte aagee isch: \n\n{FULL_ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nSobald Dyy Konto aktiviert isch, wirsch Du am Syschtem aagmäldet un\nzue dr Hauptsyte vum Forum wytergleitet.
 register_welcome_subject:Regischtrierigsbstetigung fir s Forum
-# Fuzzy
-register_welcome_msg:Dankschen vilmol fir Dyy Regischtrierig,\n\nDi sin d Aamäldedetails fir s Forum:\n\nForum URL: {TEMPLATE: index_update_lnk}\nBenutzername: {VAR: uent->login}\nPasswort: {VAR: _POST['reg_plaintext_passwd']}\n\nBitte gibt Acht bim Passwort uf d Groß- un Chleischrybig!\nGo d Yystellige un s Profil ändere gang bitte uf die Syte:\n{FULL_ROOT}{ROOT}?t=register
+register_welcome_msg:Dankschen vilmol fir Dyy Regischtrierig,\n\nDi sin d Aamäldedetails fir s Forum:\n\nForum URL: {TEMPLATE: index_update_lnk}\nBenutzername: {VAR: uent->login}\nPasswort: {VAR: _POST['reg_plaintext_passwd']}\n\nBitte gibt Acht bim Passwort uf d Groß- un Chleischrybig!\nGo d Yystellige un s Profil ändere gang bitte uf die Syte:\n{FULL_ROOT}?t=register
 register_err_cantreg_title:FÄHLER: Regischtrierig nit megli
 regsiter_err_cantreg_msg:Cha s Benutzerkonto nit aalege, nimm bitte Kontakt uf zum Administrator: <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:Am Bschaue vum eigene Profil

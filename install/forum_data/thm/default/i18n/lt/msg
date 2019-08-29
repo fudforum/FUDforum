@@ -678,7 +678,7 @@ register_err_avatarnotallowed:Avataras kuri bandote įkelti neleidžiamas. Patik
 register_conf_subject:Registracijos patvirtinimas
 register_conf_msg:Ačiū, kad užsiregistravote,\nJei norite suaktyvinti paskyrą, eikite į toliau pateiktą URL:\n\n{FULL_ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nKai jūsų paskyra bus aktyvuota jūs būsite prijungtas į forumą ir nukreiptas į pagrindinį puslapį.
 register_welcome_subject:Forumo registracijos patvirtinimas
-register_welcome_msg:Ačiū už registraciją,\n\nŠtai jūsų prisijungimo detalės forumui:\n\nForumo URL: {TEMPLATE: index_update_lnk}\nVardas: {VAR: uent->login}\nSlaptažodis: {VAR: _POST['reg_plaintext_passwd']}\n\nPrašome prisiminti, kad slaptažodžiai yra jautrus didžiosioms raidėms!\nKad redaguotumėte savo nuostatus ar profilį, eikite į šį puslapį:\n{FULL_ROOT}{ROOT}?t=register
+register_welcome_msg:Ačiū už registraciją,\n\nŠtai jūsų prisijungimo detalės forumui:\n\nForumo URL: {TEMPLATE: index_update_lnk}\nVardas: {VAR: uent->login}\nSlaptažodis: {VAR: _POST['reg_plaintext_passwd']}\n\nPrašome prisiminti, kad slaptažodžiai yra jautrus didžiosioms raidėms!\nKad redaguotumėte savo nuostatus ar profilį, eikite į šį puslapį:\n{FULL_ROOT}?t=register
 register_err_cantreg_title:KLAIDA: nepavyko užsiregistruoti
 regsiter_err_cantreg_msg:Nepavyko sukurti naudotojo sąskaitos, prašome susisiekti su administratoriu <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:Peržiūrimas savo profilis

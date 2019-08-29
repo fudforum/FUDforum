@@ -672,8 +672,7 @@ register_err_avatarnotallowed:L-<i>avatar</i> li qiegħed tipprova ttella' mhuwi
 register_conf_subject:Konferma tar-reġistrazzjoni
 register_conf_msg:Grazzi talli rreġistrajt,\nSabiex tattiva l-kont tiegħek jekk jogħġbok żur il-URL t'hawn taħt:\n\n{FULL_ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nĠaladarba l-kont tiegħek huwa attiv inti tiddaħħal fil-forum u\ntiġi rindirizzat lejn il-paġna prinċipali.
 register_welcome_subject:Konferma tar-reġistrazzjoni mal-forum
-# Fuzzy
-register_welcome_msg:Grazzi talli rreġistrajt,\n\nHawnhekk hawn id-dettalji tiegħek fuq dan il-forum:\n\nURL tal-forum: {TEMPLATE: index_update_lnk}\nIsem tal-utent: {VAR: uent->login}\nPassword: {VAR: _POST['reg_plaintext_passwd']}\n\nKun af li l-passwords huma sensittivi għal kif jinkitbu!\nSabiex timmodfika l-impostazzjonijiet jew il-profil, żur il-paġna:\n{FULL_ROOT}{ROOT}?t=register
+register_welcome_msg:Grazzi talli rreġistrajt,\n\nHawnhekk hawn id-dettalji tiegħek fuq dan il-forum:\n\nURL tal-forum: {TEMPLATE: index_update_lnk}\nIsem tal-utent: {VAR: uent->login}\nPassword: {VAR: _POST['reg_plaintext_passwd']}\n\nKun af li l-passwords huma sensittivi għal kif jinkitbu!\nSabiex timmodfika l-impostazzjonijiet jew il-profil, żur il-paġna:\n{FULL_ROOT}?t=register
 register_err_cantreg_title:ŻBALL: impossibbli li tirreġistra
 regsiter_err_cantreg_msg:Impossibbli li jinħoloq kont tal-utent. Jekk jogħġbok ikkuntatja lill-amministratur fuq <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:Jara l-profil tegħu

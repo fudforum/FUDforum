@@ -211,8 +211,7 @@ vote_button:Stemmen
 vote_for_thread:Stemmen
 was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> is verplaatst naar <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> door de moderator.
 welcome_message:Welkom <b>{VAR: usr->alias}</b>. Uw laatste bezoek was op {TEMPLATE: welcome_message_date}
-# Fuzzy
-what_ppl_doing:Laat zien waar andere gebruikers mee bezig zijn
+what_ppl_doing:Gebruikersactiviteit
 reported_del_report:Rapport verwijderen
 reported_reason:Reden:
 reported_on:Op:
@@ -312,12 +311,13 @@ register_builtin:Ingebouwd
 register_specify_url:Geef een URL op
 register_uploaded:Avatar uploaden
 register_login:Gebruikersnaam:
-register_login_desc:De naam waarmee u wilt inloggen en bekend staan op deze site.
+register_login_desc:De naam waarmee u wilt aanmelden en bekend staan op deze site.
 register_login_available:Beschikbaar
-register_login_taken:Al bezet
+register_login_taken:Al in gebruik
 register_password:Wachtwoord:
 register_password_desc:Wachtwoord voor uw account. Wachtwoorden zijn hoofdlettergevoelig en moeten tenminste 6 tekens lang zijn.
 register_conf_pass:Wachtwoord bevestigen:
+register_conf_pass_desc:Geef uw wachtwoord opnieuw op.
 register_email_desc:Uw e-mailadres. U kan hieronder, bij Voorkeuren aangeven dat u het wilt verbergen.
 register_name:Naam:
 register_name_desc:Uw echte naam.
@@ -380,8 +380,7 @@ my_buddies:Mijn vrienden
 add_buddy:Vriend toevoegen
 add:Toevoegen
 buddy_search:Geef de gebruikersnaam op van de gebruiker die u wilt toevoegen.
-# Fuzzy
-member_search:Of gebruik de optie <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Gebruiker zoeken</a> om een gebruiker te vinden.
+member_search:Of gebruik de functie <a href="javascript://" onclick="javascript: window_open('{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Gebruiker zoeken</a> om een persoon te vinden.
 buddy_remove:verwijderen
 post_normal:Normaal
 post_sticky:Sticky
@@ -598,8 +597,7 @@ buddy_list_err_ignore:Het is niet mogelijk om gebruikers die u negeren toe te vo
 buddy_list_update:Eigen vriendenlijst aan het bekijken
 core_err_invinp_title:Ongeldige invoer
 core_err_invinp_err:U hebt een ongeldige koppeling gevolgd. Neem contact op met de <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a> en geef aan hoe u hier bent gekomen.
-# Fuzzy
-core_adm_login_msg:<a href="{GVAR: WWW_ROOT}adm/admloginuser.php">Aanmelden als beheerder</a>
+core_adm_login_msg:<a href="{BASE}adm/admloginuser.php">Aanmelden als beheerder</a>.
 email_err_unabletoemail_title:FOUT: het was niet mogelijk om een e-mail te verzenden
 email_err_unabletoemail_msg:Het e-mailsysteem is uitgeschakeld door de beheerder.
 email_error_unabletolocaddr:Het systeem was helaas niet in staat om {VAR-HTML: _POST['tx_name']} te mailen omdat het e-mailadres niet gevonden kon worden.
@@ -678,8 +676,7 @@ register_err_avatarnotallowed:De avatar die u probeert te uploaden is niet toege
 register_conf_subject:Registratiebevestiging
 register_conf_msg:Dank u voor uw registratie.\nVolg de volgende koppeling om uw gebruiker te activeren:\n\n{FULL_ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nAls uw gebruiker is geactiveerd, wordt u aangemeld bij het forum en automatisch doorverwezen naar de hoofdpagina.
 register_welcome_subject:Bevestiging van forumregistratie
-# Fuzzy
-register_welcome_msg:Dank u voor uw registratie.\n\nHier volgen uw aanmeldgegevens voor het forum:\n\nURL van het forum: {TEMPLATE: index_update_lnk}\nGebruikersnaam: {VAR: uent->login}\nWachtwoord: {VAR: _POST['reg_plaintext_passwd']}\n\nLet op: wachtwoorden zijn hoofdlettergevoelig!\nOm uw instellingen of profiel aan te passen, kunt u de volgende koppeling volgen:\n{FULL_ROOT}{ROOT}?t=register
+register_welcome_msg:Dank u voor uw registratie.\n\nHier volgen uw aanmeldgegevens voor het forum:\n\nURL van het forum: {TEMPLATE: index_update_lnk}\nGebruikersnaam: {VAR: uent->login}\nWachtwoord: {VAR: _POST['reg_plaintext_passwd']}\n\nLet op: wachtwoorden zijn hoofdlettergevoelig!\nOm uw instellingen of profiel aan te passen, kunt u de volgende koppeling volgen:\n{FULL_ROOT}?t=register
 register_err_cantreg_title:Fout: het was niet mogelijk om te registreren
 regsiter_err_cantreg_msg:Het was niet mogelijk om uw gebruiker aan te maken. Neem contact op met de beheerder via het e-mailadres <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:Eigen profiel bekijken
@@ -726,8 +723,7 @@ error_title:Foutformulier
 index_title:Welkom bij het forum
 search_title:Zoeken naar {VAR-HTML: srch}
 remail_emailsent:De e-mail is verzonden
-# Fuzzy
-remail_email:Hallo.\n\nEr is een interessant onderwerp over "{VAR: data->subject}" op het forum {GVAR: FORUM_TITLE} dat u misschien wel wilt lezen. U kunt dit onderwerp bekijken via de volgende koppeling:\n  {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\n Groet,\n\n {VAR: usr->alias}
+remail_email:Hallo.\n\nEr is een interessant onderwerp over "{VAR: data->subject}" op het forum {GVAR: FORUM_TITLE} dat u misschien wel wilt lezen. U kunt dit onderwerp bekijken via de volgende koppeling:\n  {FULL_ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\n Groet,\n\n {VAR: usr->alias}
 poll_add_option:Optie toevoegen:
 post_opt_html_on:<b>HTML-code</b> staat <b>aan</b>
 post_opt_fud_on:<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>BBcode</b> staat <b>aan</b></a>
@@ -904,7 +900,7 @@ polllist_votes:Totaal aantal stemmen
 polllist_action:Handeling
 polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">Beschikbare stemmingen bekijken</a>
 userinfo_polls:Stemmingen:
-show_pollist:Polls
+show_pollist:Peilingen
 search_and:en
 search_or:of
 search_desc_order:Aflopen gesorteerd
@@ -967,11 +963,9 @@ iemail_forum_unsub:Abonnement op dit forum opheffen
 primary_group_prefix:Primaire groep voor forum:
 group_resources:Deze groep beheert de rechten voor de volgende forums
 register_admin_newuser_title:Een nieuwe gebruiker heeft zich geregistreerd en moet nog bevestigd worden
-# Fuzzy
-register_admin_newuser_msg:De nieuwe gebruiker {VAR: uent->login} is zojuist aangemeld voor het forum. Omdat gebruikersbevestiging is ingeschakeld, is de gebruiker pas bruikbaar nadat u of een andere beheeder de gebruiker bevestigt. Ga voor bevestigen naar: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nDit is een automatisch verzonden bericht. Antwoord hier niet op.\nE-mailberichten over nieuwe gebruikers uitschakelen is mogelijk via de instelling "Waarschuwingen nieuwe gebruikers" in de beheerdersinstellingen.
+register_admin_newuser_msg:De nieuwe gebruiker {VAR: uent->login} is zojuist aangemeld voor het forum. Omdat gebruikersbevestiging is ingeschakeld, is de gebruiker pas bruikbaar nadat u of een andere beheeder de gebruiker bevestigt. Ga voor bevestigen naar: {FULL_ROOT}adm/admuserapr.php\n\nDit is een automatisch verzonden bericht. Antwoord hier niet op.\nE-mailberichten over nieuwe gebruikers uitschakelen is mogelijk via de instelling "Waarschuwingen nieuwe gebruikers" in de beheerdersinstellingen.
 post_mod_msg_notify_title:Nieuw bericht in het forum "{VAR: frm->name}" wacht op goedkeuring
-# Fuzzy
-post_mod_msg_notify_msg:Het bericht "{VAR: msg_post->subject}" is zojuist geplaatst in een door u gemodereerd forum. Volg de volgende koppeling om het bericht te beoordelen: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nDit is een automatisch verzonden bericht. Antwoord hier niet op.
+post_mod_msg_notify_msg:Het bericht "{VAR: msg_post->subject}" is zojuist geplaatst in een door u gemodereerd forum. Volg de volgende koppeling om het bericht te beoordelen: {FULL_ROOT}?t=modque#{VAR: msg_post->id}\n\nDit is een automatisch verzonden bericht. Antwoord hier niet op.
 thread_printable_pdf:Pdf maken
 thread_syndicate:Dit forum syndiceren (XML)
 reg_conf_title:Registratiebevestiging
@@ -997,8 +991,7 @@ mnav_month:Maanden
 mnav_title:Navigatie
 mnav_update:Met <a href="{TEMPLATE: mnav_update_lnk}">Berichtennavigator</a> door berichten bladeren
 pm_notify_subject:[{GVAR: FORUM_TITLE}] U hebt een nieuw privébericht
-# Fuzzy
-pm_notify_body_email:U hebt een nieuw privébericht met het onderwerp "{VAR: subject}" van "{VAR: from}" in het forum "{GVAR: FORUM_TITLE}".\nVolg de volgende koppeling om het bericht te bekijken: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nOm waarschuwingen on de toekomst niet meer te ontvangen, kunt u deze uitschakelen via de instelling "Waarschuwingen voor privéberichten" in uw gebruikersinstellingen.
+pm_notify_body_email:U hebt een nieuw privébericht met het onderwerp "{VAR: subject}" van "{VAR: from}" in het forum "{GVAR: FORUM_TITLE}".\nVolg de volgende koppeling om het bericht te bekijken: {FULL_ROOT}?t=pmsg_view&id={VAR: pid}\n\nOm waarschuwingen on de toekomst niet meer te ontvangen, kunt u deze uitschakelen via de instelling "Waarschuwingen voor privéberichten" in uw gebruikersinstellingen.
 register_pm_notification:Waarschuwingen voor privéberichten:
 register_pm_notification_desc:Als deze instelling actief is, wordt u op de hoogte gesteld als u een privébericht hebt ontvangen.
 findu_admin_opts_header:Beheerdersinstellingen
@@ -1064,10 +1057,8 @@ search_user_filter:Op gebruiker filteren:
 register_none:Mij niet waarschuwen
 findu_no_conf:onbevestigde gebruiker
 register_max_sig_len:Maximale lengte:
-# Fuzzy
-register_turing:Voer de onderstaande code in:
-# Fuzzy
-register_err_turing:Ongeldige bevestigingscode.
+register_turing:Bevestiging:
+register_err_turing:Ongeldige bevestigingscode. Probeer het opnieuw.
 modque_cat:Categorie
 modque_forum:Forum
 idx_compact_forum_row:Beschikbare forums:
@@ -1166,3 +1157,10 @@ karma:Karma
 karma_track:Reputatie voor deze gebruiker beheren:
 karma_delete:Verwijderen
 rate_author:Auteurs beoordelen:
+blog_update:Forumblog aan het lezen
+blog:Blog
+blog_new_members:Nieuwe leden
+blog_new_posts:Recent bericht
+blog_rated_posts:Best beoordeeld
+blog_viewed_posts:Meest bekeken
+blog_comments:{PLURAL: topic->replies|$1 reactie|$1 reacties}
