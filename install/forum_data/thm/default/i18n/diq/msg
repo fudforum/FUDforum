@@ -185,8 +185,8 @@ reported_reported_by:Xeberdar:
 reported_reported_msg:Masacê ke Xeberdar biyê
 modque_approve:Qebul ke
 modque_delete:Bestere
-pmsg_new_messages:Baxse mesaci nêwanaye nışan kı
-pmsg_old_messages:Baxse mesaci bıwan
+pmsg_new_messages:Mesacê xısusiyi nêwende bımare
+pmsg_old_messages:Mesacê xısusiyi bıwane
 deny_recipt:Webdışin merışe
 restore_to:Vece Tiya:
 move_to:Biya Tiya:
@@ -558,7 +558,7 @@ search_attach:Gaçık:
 search_attach_all:Ebe ya zi bê
 search_attach_with:Ebe gaçıkan
 unread_message:Mesacê nêwaniyayey
-read_message:Mesaci bıwan
+read_message:Mesaci bıwane
 threadt_more:&lt;dehana &gt;
 saved:Qeyd bi
 iemail_msg_author:<b>Nuskar:</b> {VAR: obj->alias}
