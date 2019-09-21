@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2019 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -94,7 +94,7 @@ function read_global_settings()
 {
 	$settings_path = dirname(__FILE__) .'/GLOBALS.php';
 	$globals = file_get_contents($settings_path);	
-	$stripped_globals = str_replace('require($INCLUDE .\'core.inc\');', '', $globals);
+	$stripped_globals = str_replace('require($GLOBALS[\'INCLUDE\'] .\'core.inc\');', '', $globals);
 	$tmpfname = tempnam('.', 'fud_');
 	$handle = fopen($tmpfname, 'w');
 	

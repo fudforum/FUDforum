@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2019 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -433,7 +433,7 @@ function flood_check()
 						send_email($NOTIFY_FROM, $modl, '{TEMPLATE: post_mod_msg_notify_title}', '{TEMPLATE: post_mod_msg_notify_msg}', '');
 					}
 				}
-				$data = file_get_contents($INCLUDE .'theme/'. $usr->theme_name .'/usercp.inc');
+				$data = file_get_contents($GLOBALS['INCLUDE'] .'theme/'. $usr->theme_name .'/usercp.inc');
 				$s = strpos($data, '<?php') + 5;
 				eval(substr($data, $s, (strrpos($data, '?>') - $s)));
 				?>
