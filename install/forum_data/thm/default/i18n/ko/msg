@@ -158,7 +158,7 @@ send:보내기
 send_pm_desc:이 사용자에게 개인 메시지 보내기
 sender_email:보내는 사람의 이메일:
 sender_name:보내는 사람의 이름:
-show_posts_by:{VAR: u_alias}님이 적은 메시지 보기
+show_posts_by:{VAR: u_alias} 님이 적은 메시지 보기
 size:크기:
 status:상태:
 status_line:이 게시판에는 <b>{PLURAL: st_obj->online_users_reg|회원 $1명}</b>, <b>{PLURAL: st_obj->online_users_hidden|보이지 않는 회원 $1명}</b>과 <b>{PLURAL: st_obj->online_users_anon|손님 $1명}</b>이 방문하고 있습니다.
@@ -213,7 +213,7 @@ vote:{PLURAL: frm->n_rating|$1표}
 vote_button:투표
 vote_for_thread:투표
 was_moved_msg:중재자가 <a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> 메시지를 <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> 메시지로 이동했습니다.
-welcome_message:<b>{VAR: usr->alias}</b>님 환영합니다, 마지막으로 방문한 날짜는 {TEMPLATE: welcome_message_date}입니다
+welcome_message:<b>{VAR: usr->alias}</b> 님 환영합니다, 마지막으로 방문한 날짜는 {TEMPLATE: welcome_message_date}입니다
 what_ppl_doing:사용자 활동
 reported_del_report:레포트 삭제
 reported_reason:이유:
@@ -1012,7 +1012,7 @@ ip_search:검색
 ip_analyze_usage:IP 분석
 ip_analyze_usage_descr:사용자의 정확한 로그인 이름을 지정해 주십시오.
 ip_users_using:'{VAR: ip}' IP 주소를 사용하는 사용자
-ip_all_ips:'{VAR: user}'님이 사용한 모든 IP
+ip_all_ips:'{VAR: user}' 님이 사용한 모든 IP
 ip_title:IP 보기
 userinfo_real_name:실명:
 register_err_alias_notallowed:이 별명은 승인되지 않았습니다
