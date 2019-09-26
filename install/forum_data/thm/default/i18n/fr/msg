@@ -266,18 +266,18 @@ trash:Corbeille
 msg_author:Auteur
 avatar_sel_form:Sélection de l'avatar
 no_avatars:Pas d'avatar disponible
-month_1:Janvier
-month_2:Février
-month_3:Mars
-month_4:Avril
-month_5:Mai
-month_6:Juin
-month_7:Juillet
-month_8:Août
-month_9:Septembre
-month_10:Octobre
-month_11:Novembre
-month_12:Décembre
+month_1:janvier
+month_2:février
+month_3:mars
+month_4:avril
+month_5:mai
+month_6:juin
+month_7:juillet
+month_8:août
+month_9:septembre
+month_10:octobre
+month_11:novembre
+month_12:décembre
 sunday:Dimanche
 sunday_short:Dim
 monday:Lundi
