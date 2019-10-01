@@ -26,46 +26,46 @@ add_to_buddy_list:Ajouter à la liste de mes amis
 admin:Admin
 admin_control_panel:Administration
 administrator:Administrateur
-attachment:Pièce jointe :
-avatar:Avatar :
+attachment:Pièce jointe :
+avatar:Avatar :
 average_post_count:{PLURAL: u->posted_msg_count|$1 message|$1 messages} (approximativement {PLURAL: avg|$1 message|$1 messages} par jour)
-biography:Biographie :
-birth_date:Date de naissance :
-by:Par :
+biography:Biographie :
+birth_date:Date de naissance :
+by:Par :
 by_mod:par un modérateur
 current_time:Heure actuelle
-custom_avatar_queue:File d'attente des avatars personnalisés
+custom_avatar_queue:File d’attente des avatars personnalisés
 date_posted:Publié le
-date_registered:Date d'inscription :
+date_registered:Date d’inscription :
 download_counter:Téléchargé {PLURAL: v[3]|$1 fois|$1 fois}
 pmsg_download_counter:Téléchargé {PLURAL: r->dlcount|$1 fois|$1 fois}
 email:Courriel :
 email_to_friend:Envoyer par courriel à un ami
-email_to_friend_desc:Envoyez l'URL de cette page à un/des ami(s) par courriel
-email_user:Envoyer un courriel à cet utilisateur
+email_to_friend_desc:Envoyez l’URL de cette page par courriel à un ou plusieurs amis
+email_user:Envoyer un courriel à l’utilisateur
 faq:Aide
 first_unread_msg:Aller aux messages non lus
 first_unread_msg_desc:Aller au premier message non lu dans ce fil
-flat_view:Vue plane (par défaut)
-forum:Forum concerné :
-forum_icon:L'icône du Forum
+flat_view:Retour à la vue plane par défaut
+forum:Forum :
+forum_icon:Icône du forum
 forum_new_messages:Nouveaux messages
-forum_none_messages:Seuls les membres inscrits au forum peuvent surveiller les messages lus et non lus
+forum_none_messages:Seuls les membres inscrits au forum peuvent tracer les messages lus et non lus
 forum_old_messages:Pas de nouveau message
-from:De :
+from:De :
 gender:Genre :
-go:Valider
+go:Aller
 goto_next_msg:Message suivant
 goto_prev_msg:Message précédent
 home:Accueil
-homepage:Page personnelle :
-icq_control_panel:Message en-ligne ICQ
-icq_message_form:Formulaire de message ICQ :
-ignore_user:Ignorer les messages provenant de cet utilisateur
-im_aim:Identifiant AIM :
-im_msnm:Identifiant MSN Messenger :
-im_yahoo:Identifiant Yahoo Messenger :
-image:Image :
+homepage:Page personnelle :
+icq_control_panel:Panneau de messages en ligne ICQ
+icq_message_form:Formulaire de message ICQ :
+ignore_user:ignorer tous les messages de cet utilisateur
+im_aim:Identifiant AIM :
+im_msnm:MSN Messenger :
+im_yahoo:Yahoo Messenger :
+image:Image :
 index_forum:Forum
 index_new_posts:Nouveaux messages depuis votre dernière visite
 index_no_new_posts:Pas de nouveau message depuis votre dernière visite
@@ -74,23 +74,23 @@ interests:Centres d’intérêt :
 last_post:Dernier message
 last_thread_msg:Aller au dernier message dans ce fil
 legend:Légende
-location:Localisation :
+location:Situation géographique :
 lock_thread:Verrouiller le fil
 locked:Verrouillé
 locked_with_new_posts:Verrouillé (contient des messages non lus)
 logged_in_list:Liste des utilisateurs connectés
 login:Connexion
-login_header:Connexion :
+login_header:Connexion :
 logout:Déconnexion
 mark_all_read:Marquer tous les messages comme lus
 mark_all_read_desc:Tous vos messages non lus seront marqués comme lus
 members:Membres
 calendar:Calendrier
-cal_goto_date:Aller à :
+cal_goto_date:Aller à :
 cal_day_heading:Événements pour la journée
 cal_no_events:Aucun événement pour la journée.
 cal_update:Parcourir le calendrier du forum
-cal_birthday:Anniversaire : {VAR: user}
+cal_birthday:Anniversaire : {VAR: user}
 cal_birthdays:{PLURAL: birthdays|$1 anniversaire|$1 anniversaires}
 cal_birthday_age:({PLURAL: age|$1 an|$1 ans}).
 message:Message
@@ -99,93 +99,93 @@ message_index:Index des messages
 message_index_desc:Voir la liste des messages
 minimize_category:Minimiser la catégorie
 minimize_message:Minimiser le message
-moderation_queue:Queue de Modération
+moderation_queue:File de modération
 moderator:Modérateur
-moderator_of:Modérateur de :
+moderator_of:Modérateur de :
 moderator_options:Options de modération
 moderators:{PLURAL: modcount|Modérateur|Modérateurs}
 more_unread_messages:Autres messages non lus
-more_unread_messages_desc:Montrer d'autres messages non lus et marquer les messages visibles actuellement comme lus
+more_unread_messages_desc:Montrer d’autres messages non lus et marquer les messages actuellement visibles comme lus
 move_thread:Déplacer
-moved:Déplacé dans un autre forum
-moved_thread_message:Ce fil a été déplacé dans un autre forum
-na:nd
+moved:Déplacé vers un autre forum
+moved_thread_message:Ce fil a été déplacé vers un autre forum
+na:s.o.
 new_posts:Nouveaux messages
 new_private_messages:Vous avez <span class="GenTextRed">({VAR: c})</span> {PLURAL: c|message privé non lu|messages privés non lus}
 new_thread:Créer un nouveau fil
 newest_user:Le dernier utilisateur enregistré est
 next_page:Page suivante
-next_thread:Fil suivant :
-no_messages:Il n'y a pas encore de message dans ce forum.<br />Soyez le premier à écrire un sujet dans ce forum.
-no_msg_body:Le message n'a pas de contenu
-no_new_posts:Pas de nouveau message
-no_posts:Pas de message
-no_subscribed_forums:Aucun forum surveillé pour l'instant
-no_subscribed_threads:Aucun fil surveillé pour l'instant
+next_thread:Fil suivant :
+no_messages:Il n’y a encore aucun message dans ce forum.<br /> Soyez le premier à écrire un sujet dans ce forum.
+no_msg_body:Le message n’a aucun contenu
+no_new_posts:Aucun nouveau message
+no_posts:Aucun message
+no_subscribed_forums:Aucun abonnement aux forums pour l’instant
+no_subscribed_threads:Aucun abonnement aux fils pour l’instant
 no_bookmarked_threads:Aucun sujet favori
 no_unread_locked:Ce fil a été verrouillé
-no_unread_msg:Ce fil ne contient pas de message non lu
-no_unread_msg_unreg:La fonctionnalité permettant de suivre vos message lus et non lus n'est activée que pour les utilisateurs inscrits
-num_pages:Pages ({VAR: ttl_pg}) :
-num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|vote|votes}
-occupation:Métier :
+no_unread_msg:Ce fil ne contient aucun message non lu
+no_unread_msg_unreg:Le suivi des message lus et non lus n’est possible que pour les utilisateurs inscrits
+num_pages:Pages ({VAR: ttl_pg}) :
+num_votes:{VAR: obj->total_votes} vote{PLURAL: obj->total_votes||s}
+occupation:Métier :
 off:désactivé
 on:activé
-page_timings:Temps total utilisé pour générer la page : {PLURAL: page_gen_time|$1 seconde|$1 secondes}
+page_timings:Temps total utilisé pour générer la page : {PLURAL: page_gen_time|$1 seconde|$1 secondes}
 pm:Messagerie privée
-poll:Sondage :
-post_count:Compteur de messages : {VAR: u_pcount}
-post_count_l:Compteur de messages :
+poll:Sondage :
+post_count:Nombre de messages : {VAR: u_pcount}
+post_count_l:Nombre de messages :
 posts:Messages
-posts_c:Messages :
-prev_thread:Fil précédent :
-usrinfo_private_message:Message privé :
-profile:Profil
+posts_c:Messages :
+prev_thread:Fil précédent :
+usrinfo_private_message:Message privé :
+profile:Panneau de contrôle
 profile_desc:Accéder au panneau de contrôle utilisateur
-rate_thread:Donner une note à ce Fil
+rate_thread:Évaluer ce fil
 rating:Évaluation
-rating_track:Gérez les notes pour le sujet <b>{VAR: thr->subject}</b> :
+rating_track:Gérer les évaluations du fil <b>{VAR: thr->subject}</b> :
 refresh_list:Rafraîchir la liste
 register:S’inscrire
-registered:Inscrit(e) :
-registered_on:Inscription le {TEMPLATE: registered_on_date}
+registered:Inscrit(e) :
+registered_on:Inscrit(e) le {TEMPLATE: registered_on_date}
 replies:Réponses
 report_to_mod:Rapporter un message au modérateur
 reported_messages:Messages rapportés
 reveal_all_posts:Afficher tous les messages de {VAR: user_login}
-reveal_post:Afficher le(s) message(s)
-search:Chercher
+reveal_post:révéler le message
+search:Rechercher
 sel_todays_posts:Messages du jour
-sel_todays_posts_desc:Activer/Désactiver le filtrage pour les messages du jour (pour n'afficher que les messages créés aujourd'hui)
-sel_unanswered_posts:Messages non répondus
-sel_unanswered_posts_desc:Activer/Désactiver le filtrage pour les messages sans réponse (pour ne montrer que les messages qui n'ont pas encore reçu de réponse)
+sel_todays_posts_desc:Basculer le filtrage des messages du jour (pour n’afficher que ceux créés aujourd’hui)
+sel_unanswered_posts:Messages sans réponse
+sel_unanswered_posts_desc:Basculer le filtrage pour les messages sans réponse (pour ne montrer que les messages qui n’ont pas encore reçu de réponse)
 sel_unread_messages:Messages non lus
-sel_unread_messages_desc:Activer/Désactiver le filtrage pour les messages non lus (pour ne montrer que les messages que vous n'avez pas encore lus)
+sel_unread_messages_desc:Basculer le filtrage pour les messages non lus (pour ne montrer que les messages que vous n’avez pas encore lus)
 send:Envoyer
 send_pm_desc:Envoyer un message privé à cet utilisateur
-sender_email:Courriel de l'auteur :
-sender_name:Nom de l'auteur :
-show_posts_by:Montrer les messages de : {VAR: u_alias}
-size:Taille :
-status:Statut :
-status_line:Il y a <b>{PLURAL: st_obj->online_users_reg|$1 membre|$1 membres}</b>, <b>{PLURAL: st_obj->online_users_hidden|$1 membre invisible|$1 membres invisibles}</b> et <b>{PLURAL: st_obj->online_users_anon|$1 invité|$1 invités}</b>  actuellement sur le forum.
-sticky:épinglé :
-stop_ignoring:cesser d'ignorer cet utilisateur
-sub_to_thread:Surveiller ce fil
+sender_email:Courriel de l’auteur :
+sender_name:Nom de l’auteur :
+show_posts_by:Montrer les messages de : {VAR: u_alias}
+size:Taille :
+status:État :
+status_line:Actuellement, <b>{PLURAL: st_obj->online_users_reg|$1 membre|$1 membres}</b>, <b>{PLURAL: st_obj->online_users_hidden|$1 membre invisible|$1 membres invisibles}</b> et <b>{PLURAL: st_obj->online_users_anon|$1 invité|$1 invités}</b> visitent ce forum.
+sticky:épinglé :
+stop_ignoring:cesser d’ignorer cet utilisateur
+sub_to_thread:S’abonner à ce fil
 sub_to_thread_desc:Recevoir des notifications lorsque de nouveaux messages sont ajoutés à ce fil
-bookmark_thread:Marquez ce fil
-bookmark_thread_desc:Ajoutez ce fil à votre liste de favoris
+bookmark_thread:Garder ce fil
+bookmark_thread_desc:Ajouter ce fil à votre liste de favoris
 subject:Sujet
-subscribe:S'abonner
+subscribe:S’abonner
 subscribe_desc:Recevoir des notifications lorsque de nouveaux fils sont créés sur ce forum
-subscribed_forums:Forums auxquels vous êtes abonné(e)
-subscribed_forums_desc:Activer/désactiver le filtrage pour les forums que vous surveillez (pour ne montrer que les messages des forums que vous surveillez)
-subscribed_threads:Fils que vous surveillez
-subscribed_threads_desc:Activer/Désactiver le filtrage pour les fils que vous surveillez (pour ne montrer que les messages des fils que vous surveillez)
-bookmarked_threads:Fils marqués
+subscribed_forums:Abonnements aux forums
+subscribed_forums_desc:Basculer le filtrage pour les forums auxquels vous êtes abonné (pour ne montrer que les messages de ces forums)
+subscribed_threads:Abonnements aux fils
+subscribed_threads_desc:Basculer le filtrage pour les fils auxquels vous êtes abonné (pour ne montrer que les messages de ces fils)
+bookmarked_threads:Fils favoris
 switch_to_thread_view:Voir le fil sous forme arborescente
-thread:Fil :
-thread_announcement:Annonce :
+thread:Fil :
+thread_announcement:Annonce :
 thread_first_unread_msg:Aller au premier message non lu de ce fil
 thread_thread:Fil
 threads:Fils
@@ -194,63 +194,63 @@ todays_posts:Messages du jour
 todays_posts_desc:Montrer tous les messages qui ont été publiés aujourd’hui
 un_ignore_user:cesser d'ignorer les messages de cet utilisateur
 unanswered_posts:Messages sans réponse
-unanswered_posts_desc:Montrer tous les messages qui n'ont pas encore reçu de réponse
+unanswered_posts_desc:Montrer tous les messages qui n’ont pas encore reçu de réponse
 unlock_thread:Déverrouiller le fil
-unread_msg:Ce fil contient des messages que vous n'avez pas encore lus
+unread_msg:Ce fil contient des messages que vous n’avez pas encore lus
 unread_msg_locked:Fil verrouillé contenant des messages non lus
 unread_posts:Messages non lus
 unread_posts_desc:Montrer tous les messages non lus
-unsub_from_thread:Cesser la surveillance de ce fil
+unsub_from_thread:Cesser de suivre de ce fil
 unsub_from_thread_desc:Cesser de recevoir des notifications lorsque de nouveaux messages sont ajoutés à ce fil
 unbookmark_thread:Retirer des favoris
 unbookmark_thread_desc:Retirez ce sujet de votre liste de favoris
-unsubscribe:Cesser la surveillance
+unsubscribe:Se désabonner
 unsubscribe_desc:Cesser de recevoir des notifications lorsque de nouveaux fils sont créés sur ce forum
-updated_on:Mis à jour le :
+updated_on:Mis à jour le :
 user:Utilisateur
 user_counter:Nous avons <b>{VAR: st_obj->user_count}</b> {PLURAL: st_obj->user_count|utilisateur inscrit|utilisateurs inscrits}.
 user_info:Informations sur l’utilisateur
-user_info_l:Qui est {VAR: u->alias} ?
-user_offline:{VAR: obj->login} n'est pas connecté
-user_online:{VAR: obj->login} est en ligne
-usrinfo_last_post:Dernier message :
+user_info_l:Qui est {VAR: u->alias} ?
+user_offline:{VAR: obj->login} n’est pas actuellement connecté
+user_online:{VAR: obj->login} est actuellement en ligne
+usrinfo_last_post:Dernier message :
 view_results:Voir les résultats
 views:Visites
 vote:{PLURAL: frm->n_rating|$1 vote|$1 votes}
 vote_button:Voter
 vote_for_thread:Vote
-was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> a été déplacé vers <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> par le modérateur
-welcome_message:Bienvenue <b>{VAR: usr->alias}</b>, votre dernière visite a eu lieu le {TEMPLATE: welcome_message_date}
-what_ppl_doing:Activité de l'utilisateur
+was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> a été déplacé vers <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> par le modérateur.
+welcome_message:Bienvenue <b>{VAR: usr->alias}</b>, votre dernière visite a eu lieu le {TEMPLATE: welcome_message_date}.
+what_ppl_doing:Activité de l’utilisateur
 reported_del_report:Détruire un rapport
-reported_reason:Motif :
-reported_on:Le :
-reported_reported_by:Rapporté par :
-reported_reported_msg:Message rapporté
-modque_pending_approval:Messages en attente d'approbation
+reported_reason:Motif :
+reported_on:Le :
+reported_reported_by:Signalé par :
+reported_reported_msg:Messages signalés
+modque_pending_approval:Messages en attente d’approbation
 modque_approve:Approuver
 modque_delete:Supprimer
 modque_deleteall:Tout supprimer de l’utilisateur
-modque_no_message:Il n'y a pas de message en attente d'approbation
+modque_no_message:Il n’y aucun message en attente d’approbation
 pmsg_new_messages:Message privé non lu
 pmsg_old_messages:Message privé lu
-deny_recipt:Ne pas accuser réception
-deny_recipt_desc:Ne pas envoyer de notification indiquant que j'ai lu ce message
-restore_to:Restaurer vers :
-move_to:Déplacer vers :
+deny_recipt:ne pas accuser réception
+deny_recipt_desc:Ne pas envoyer de notification indiquant que j’ai lu ce message
+restore_to:Restaurer vers :
+move_to:Déplacer vers :
 list_referes_referrals:Parrainages
 list_referes_members:Membres parrainés
-list_referes_member:Membres
-referals_none:Pas encore de parrainage
-referals_refered_by:Membre(s) du forum parrainé(s) par: <b><a href="{TEMPLATE: referals_refered_by_lnk}" class="thLnk">{VAR: p_user[1]}</a></b>
+list_referes_member:Membre
+referals_none:Aucun parrainage pour l’instant.
+referals_refered_by:Membre(s) du forum parrainé(s) par : <b><a href="{TEMPLATE: referals_refered_by_lnk}" class="thLnk">{VAR: p_user[1]}</a></b>
 referals_post_count:Compteur de messages
 referals_registered_on:Inscrit(e) depuis le
 referals_action:Action
 pmsg_all:tous/toutes
 pmsg_none:aucun(e)
-folder:Dossier :
-pmsg_replied:Répondu
-pmsg_forwarded:Retransmis
+folder:Dossier :
+pmsg_replied:répondu
+pmsg_forwarded:retransmis
 pmsg_subject:Sujet
 pmsg_author:Auteur
 pmsg_time:Heure
@@ -258,14 +258,14 @@ pmsg_selected:Sélectionner
 pmsg_delete:Supprimer
 cur_ppage_pm:Messagerie privée
 writing_pm:Écrire un message privé
-browsing_folder:Vous visitez le dossier <b>{VAR: folders[$folder_id]}</b>
-inbox:Réception
+browsing_folder:Visite du dossier <b>{VAR: folders[$folder_id]}</b>
+inbox:Boîte de réception
 draft:Brouillon
 sent:Envoyé
 trash:Corbeille
 msg_author:Auteur
-avatar_sel_form:Sélection de l'avatar
-no_avatars:Pas d'avatar disponible
+avatar_sel_form:Formulaire de sélection d’avatar
+no_avatars:aucun avatar disponible
 month_1:janvier
 month_2:février
 month_3:mars
@@ -278,201 +278,201 @@ month_9:septembre
 month_10:octobre
 month_11:novembre
 month_12:décembre
-sunday:Dimanche
-sunday_short:Dim
-monday:Lundi
-monday_short:Lun
-tuesday:Mardi
-tuesday_short:Mar
-wednesday:Mercredi
-wednesday_short:Mer
-thursday:Jeudi
-thursday_short:Jeu
-friday:Vendredi
-friday_short:Ven
-saturday:Samedi
-saturday_short:Sam
+sunday:dimanche
+sunday_short:D.
+monday:lundi
+monday_short:L.
+tuesday:mardi
+tuesday_short:Ma.
+wednesday:mercredi
+wednesday_short:Me.
+thursday:jeudi
+thursday_short:J.
+friday:vendredi
+friday_short:V.
+saturday:samedi
+saturday_short:S.
 male:Homme
 female:Femme
-unspecified:Inconnu
-register_tree_view:Vue arborescente
-register_msg_tree_view:Liste de fils plane/Liste des messages arborescente
-register_tree_msg_view:Liste de fils en arborescente/Liste des messages plane
-register_flat_view:Vue plane
+unspecified:NON SPÉCIFIÉ
+register_tree_view:Vue arborescente des fils et messages
+register_msg_tree_view:Liste plane des fils / Liste arborescente des messages
+register_tree_msg_view:Liste arborescente des fils / Liste plane des messages
+register_flat_view:Vue plane des files et des messages
 use_forum_default:Valeur par défaut du forum
 finduser_user_info:Informations sur un utilisateur
-finduser_by_login:Par utilisateur :
+finduser_by_login:Par utilisateur :
 finduser_submit:Chercher
 finduser_no_such_user:Aucun utilisateur ne correspond à cette requête
 finduser_user:Utilisateur
-finduser_postcount:Compteur de messages
-finduser_joindate:s'est inscrit le
+finduser_postcount:Nombre de messages
+finduser_joindate:Date d’inscription
 finduser_action:Action
 yes:Oui
 no:Non
 register_email:Courriel
-edit_time_limit:<b>Temps maximum alloué pour l'édition</b> : {GVAR: EDIT_TIME_LIMIT} minutes
-no_edit_time_limit:<b>Temps maximum alloué pour l'édition</b> : Illimité
-pmuserloc_login:Utilisateur :
+edit_time_limit:<b>Temps maximum alloué pour l’édition</b> : {GVAR: EDIT_TIME_LIMIT} minutes
+no_edit_time_limit:<b>Temps maximum alloué pour l’édition</b> : illimité
+pmuserloc_login:Utilisateur :
 pmuserloc_submit:Soumettre
 pmuserloc_user:Utilisateur
 pmuserloc_no_result:Pas de résultat
-register_builtin:Par défaut sur le site
+register_builtin:Pré-installé
 register_specify_url:Spécifier une URL
-register_uploaded:Envoyer un Avatar
-register_login:Utilisateur :
+register_uploaded:Téléverser un avatar
+register_login:Utilisateur :
 register_login_desc:Le nom avec lequel vous souhaitez vous connecter et être connu sur ce site.
 register_login_available:Disponible
 register_login_taken:Déjà pris
-register_password:Mot de passe :
-register_password_desc:Mot de passe pour votre compte. Les mots de passe sont sensibles à la casse et doivent avoir au moins 6 caractères de long.
-register_conf_pass:Confirmez le mot de passe :
-register_conf_pass_desc:Veuillez ressaisir votre mot de passe.
-register_email_desc:Vote adresse courriel. Vous pouvez choisir de la masquer ci-dessous, dans la section « Préférences ».
-register_name:Nom :
+register_password:Mot de passe :
+register_password_desc:Mot de passe pour votre compte. Les mots de passe sont sensibles à la casse et doivent compter au moins 6 caractères.
+register_conf_pass:Confirmez le mot de passe :
+register_conf_pass_desc:Veuillez saisir à nouveau votre mot de passe.
+register_email_desc:Vote adresse courriel. Vous pouvez choisir de la masquer ci-dessous, dans la section « Préférences ».
+register_name:Nom :
 register_name_desc:Votre vrai nom.
-register_your_pass:Votre mot de passe :
+register_your_pass:Votre mot de passe :
 register_update:Mettre à jour
 register_avatar_type:Type d’avatar :
-register_del_avatar:Effacer l'avatar
-register_avatar:Avatar :
+register_del_avatar:Effacer l’avatar
+register_avatar:Avatar :
 register_sel_avatar:Sélectionner un avatar
-register_custom_avatar_rules:Les avatars personnels n'apparaissent qu'après leur approbation par l'administrateur.<br /><font class="SmallText"> L'avatar doit faire moins de <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} pixels</b> et doit être dans l'un des formats suivants: <b>jpg</b>, <b>gif</b> ou <b>png</b>.</font>
-register_custom_avatar_url:URL de l'avatar personnel :
-register_preview:Prévisualisation
-register_custom_avatar_upload:Fichier correspondant à l'avatar personnel :
+register_custom_avatar_rules:Les avatars personnels n’apparaissent qu’après leur approbation par un administrateur.<br /> <span class="SmallText">L’avatar doit mesurer moins de <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} pixels</b> et être dans l’un des formats suivants : <b>jpg</b>, <b>gif</b> ou <b>png</b>.</span>
+register_custom_avatar_url:URL de l’avatar personnel :
+register_preview:Aperçu
+register_custom_avatar_upload:Fichier d’avatar personnalisé :
 register_register:S’inscrire
 register_required:Informations obligatoires
 register_required_desc:Tous les champs sont obligatoires.
 register_optional:Informations facultatives
-register_optional_desc:Il est recommandé de ne pas révéler d'information sensible propre à votre identité dans votre profil. Toutes ces informations seront accessibles aux autres membres du forum.
-register_location:Situation géographique :
-register_occupation:Métier :
-register_interests:Centres d'intérêt :
-register_image:Photo :
-register_icq:Identifiant ICQ :
-register_aim:Identifiant AIM :
-register_yahoo:Identifiant Yahoo Messenger :
-register_msnm:Identifiant MSN Messenger :
-register_homepage:Site web personnel :
-register_bday:Date de naissance :
-register_bday_desc:Si vous entrez votre date de naissance, les autres membres du forum pourront la voir via votre profil.
+register_optional_desc:Il est recommandé de ne pas révéler d’information sensible propre à votre identité dans votre profil. Toutes ces informations seront accessibles aux autres membres du forum.
+register_location:Situation géographique :
+register_occupation:Occupation :
+register_interests:Centres d'intérêt :
+register_image:Image :
+register_icq:Identifiant ICQ :
+register_aim:Identifiant AIM :
+register_yahoo:Yahoo Messenger :
+register_msnm:MSN Messenger :
+register_homepage:Site web personnel :
+register_bday:Date de naissance :
+register_bday_desc:Si vous entrez votre date de naissance, les autres membres du forum pourront la voir dans votre profil.
 register_day:Jour
 register_month:Mois
 register_year:Année
 register_gender:Genre :
-register_bio:Biographie :
-register_bio_desc:Présentez-vous en quelques lignes ...
+register_bio:Biographie :
+register_bio_desc:Quelques détails pour vous présenter tels que vos intérêts, travail, activités, réalisations, objectifs, etc.
 register_prefs:Préférences
-register_sig:Signature :
-register_sig_desc:Il s'agit d'une signature que vous pourrez appliquer à la fin de vos messages.
+register_sig:Signature :
+register_sig_desc:Il s’agit d'une signature que vous pourrez appliquer à la fin de vos messages.
 register_reset:Réinitialiser
-register_def_thread_view:Par défaut, voir les fils sous forme :
-register_msg_per_page:Nombre de messages par page :
-register_show_sig:Montrer les signatures :
-register_show_sig_desc:Empêche la signature des autres membres d'être présentée dans les forums que vous lirez
-register_use_sig_default:Utiliser ma signature par défaut :
-register_use_sig_default_desc:Par défaut, appliquer ma signature aux messages que j'écrirai
-register_timezone:Fuseau horaire :
-register_ignore_admin:Ignorer les messages administratifs :
-register_invisible_mode:Invisibilité :
-register_invisible_mode_desc:Vous permet d'empêcher les autres utilisateurs de savoir si vous êtes connecté.
-register_show_email:Rendre mon adresse de courriel visible :
+register_def_thread_view:Vue par défaut des fils :
+register_msg_per_page:Nombre de messages par page :
+register_show_sig:Montrer les signatures :
+register_show_sig_desc:Empêche la signature des autres membres d’être présentée dans les forums que vous lirez.
+register_use_sig_default:Utiliser ma signature par défaut :
+register_use_sig_default_desc:Ajouter automatiquement ma signature aux messages que j’envoie.
+register_timezone:Fuseau horaire :
+register_ignore_admin:Ignorer les messages administratifs :
+register_invisible_mode:Mode d’invisibilité :
+register_invisible_mode_desc:Vous permet d’empêcher les autres utilisateurs de savoir si vous êtes connecté.
+register_show_email:Rendre mon adresse de courriel visible :
 register_show_email_desc:Choisissez cette option si vous souhaitez que les autres utilisateurs puissent voir votre adresse de courriel.
-register_notification:Activer la notification par défaut :
-register_notification_desc:Si la notification est active par défaut, elle peut être désactivée lorsque vous publiez.
-register_notify_method:Méthode de notification :
-register_notify_method_desc:Choisissez votre système de notifications ou désactivez-les (par exemple pour les vacances)
-register_allow_email_msg:Autoriser les courriels :
+register_notification:Activer la notification par défaut :
+register_notification_desc:Si la notification est activée par défaut, elle peut être désactivée lorsque vous publiez.
+register_notify_method:Méthode de notification :
+register_notify_method_desc:Choisissez votre système de notification ou désactivez-les (par exemple pendant vos congés).
+register_allow_email_msg:Autoriser les courriels :
 register_allow_email_msg_desc:Permet aux autres utilisateurs de vous envoyer des courriels directement via le forum.
 buddy_status:État
 my_buddies:Mes amis
 add_buddy:Ajouter un ami
 add:Ajouter
-buddy_search:Entrez le nom de l'utilisateur que vous souhaitez ajouter à votre liste.
-member_search:Ou utilisez la fonctionnalité <a href="javascript://" onclick="javascript: window_open('{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Chercher un utilisateur</a> pour trouver une personne.
-buddy_remove:Enlever de ma liste d'amis
+buddy_search:Entrez le nom d’utilisateur que vous souhaitez ajouter à votre liste d’amis.
+member_search:Ou utilisez la fonctionnalité <a href="javascript://" onclick="javascript:window_open('{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400, 250)">Chercher un utilisateur</a> pour trouver une personne.
+buddy_remove:enlever
 post_normal:Normal
 post_sticky:Épinglé
 post_annoncement:Annonce
 post_size:Taille
 post_color:Couleur
 post_font:Police
-create_thread:Créer le fil
-submit_reply:Répondre
-edit_message:Valider
-apply_spell_changes:Valider les modifications apportées par le correcteur orthographique
-post_preview:Voir le message avant de le valider
-post_logedin_user:Utilisateur :
-post_logout:Déconnexion
-post_passwd:Mot de passe de message :
-post_poll:Sondage :
-post_create_poll:Créer un sondage
+create_thread:Créer un fil
+submit_reply:Soumettre la réponse
+edit_message:Appliquer les modifications du message
+apply_spell_changes:Appliquer les corrections orthographiques
+post_preview:Prévisualiser le message
+post_logedin_user:Utilisateur :
+post_logout:déconnexion
+post_passwd:Mot de passe de message :
+post_poll:Sondage :
+post_create_poll:CRÉER UN SONDAGE
 post_poll_delete:SUPPRIMER
-post_poll_edit:Editer
-post_mod_opt:Options de modération :
-post_thread_type:Type de fil :
-post_thread_expiry:Expiration du fil :
-post_locked:Fil Verrouillé
-post_icons:Choisissez une icône à associer à votre message :
-post_no_icon:Pas d'icône
-post_smiley:Raccourcis des binettes :
-post_format_tools:Outils de mise en page :
+post_poll_edit:MODIFIER
+post_mod_opt:Options de modération :
+post_thread_type:Type de fil :
+post_thread_expiry:Expiration du fil :
+post_locked:Fil verrouillé
+post_icons:Icône du message :
+post_no_icon:Aucune icône
+post_smiley:Raccourcis des binettes :
+post_format_tools:Outils de mise en forme :
 post_upload_file:Téléverser le fichier
 post_file_del:Supprimer
 post_file_name:Nom
 post_file_size:Taille
-file_attachments:Fichiers attachés :
-allowed_files:Extensions autorisées pour les fichiers :
-max_file_size:Taille maximum d'un fichier :
-max_files_per_msg:Nombre maximum de fichier(s) par message :
+file_attachments:Fichiers joints :
+allowed_files:Extensions autorisées pour les fichiers :
+max_file_size:Taille maximum d’un fichier :
+max_files_per_msg:Nombre maximum de fichiers par message :
 post_notification:Notification de message
 include_sig:Insérer ma signature
-include_sig_desc:Inclure la signature par défaut de mon profil.
+include_sig_desc:Inclure la signature de mon profil.
 disable_smilies:Désactiver les binettes pour ce message
-spell_check_msg:Appeler le correcteur orthographique
+spell_check_msg:Contrôler l’orthographe du message
 post_form:Nouveau message
-post_forum:Forum :
-post_title:Titre :
+post_forum:Forum :
+post_title:Titre :
 post_body:Corps :
-post_options:Options :
-post_preview_btn:Voir le message avant de l'envoyer
+post_options:Options :
+post_preview_btn:Prévisualiser le message
 post_cancel_btn:Annuler
-ignore_users:Ignorer les utilisateurs
-add_ignore:Ignorer quelqu'un d'autre
-forum_terms:Forum
-forum_rules:<p>L’inscription à ce forum est gratuite ! Nous vous faisons cependant remarquer que vous êtes redevable des conditions et détails ci-dessous. Si vous acceptez ces conditions, veuillez presser le bouton « <b>J’accepte </b>» à la fin de la page. </p><p>Bien que les administrateurs et modérateurs de ce forum s’assurent d’écarter tout message qui ne serait pas jugé décent ou approprié sur l’un des forums, il nous est cependant impossible de tous les lire et les contrôler. Chaque message représente les perspectives et idées propres de son auteur, et nous ne pouvons (administrateurs et modérateurs) être tenus pour responsables du contenu de quelque message que ce soit.</p><p>En cliquant sur le bouton « J’accepte », vous garantissez que vous n’avez pas l’intention de publier de messages à caractère obscène, vulgaire ou sexuel, de propos haineux, menaces, ou violant toute loi en aucune façon.</p><p>Les responsables de ce forum ont le pouvoir et le droit d’effacer, modifier, corriger, déplacer, ou même fermer n’importe quel fil ou message pour quelque raison que ce soit.</p>
-forum_rules_13:<p>Tout utilisateur de moins de 13 ans doit obtenir la permission de ses parents ou d’un tuteur légal afin de pouvoir devenir un membre de ce forum. Bien que la participation des personnes de moins de 13 ans soit la bienvenue, nous devons obtenir une autorisation signée d’un parent ou tuteur par fax ou courriel avant de l’inscrire.</p><p> Si vous désirez cependant commencer la procédure d’inscription avant que le document signé ne nous parvienne, veuillez cliquer sur le bouton <b>Accepter</b> ci-dessous. Si vous préférez annuler la procédure d’inscription, cliquez sur le bouton <b>Refuser</b> afin de retourner à la page d’index des forums. </p><p>Une copie du formulaire d’autorisation parentale vous sera fournie après l’inscription. Pour plus d’informations à propos de la procédure d’inscription, veuillez envoyer un courriel à <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
+ignore_users:Utilisateurs ignorés
+add_ignore:Ignorer quelqu’un d’autre
+forum_terms:Règles du forum
+forum_rules:<p>L’inscription à ce forum est gratuite ! Nous insistons cependant sur le fait que vous êtes redevable des conditions et politiques ci-dessous. Si vous acceptez ces conditions, veuillez presser le bouton « <b>J’accepte </b> » à la fin de la page.</p><p>Bien que les administrateurs et modérateurs de ce forum s’assurent d’écarter tout message qui ne serait pas jugé décent ou approprié sur l’un des forums, il nous est cependant impossible de tous les lire et les contrôler. Chaque message représente les perspectives et idées propres de son auteur et nous (administrateurs et modérateurs) ne pouvons être tenus pour responsables du contenu de quelque message que ce soit.</p><p>En cliquant sur le bouton « J’accepte », vous garantissez que vous n’avez pas l’intention de publier de messages à caractère obscène, vulgaire ou sexuel, de propos haineux, menaces ou violant toute loi en aucune façon.</p><p>Les propriétaires de ce forum ont le droit de supprimer, modifier, déplacer ou même fermer n’importe quel fil ou message pour quelque raison que ce soit.</p>
+forum_rules_13:<p>Tout utilisateur de moins de 13 ans doit obtenir la permission de ses parents ou d’un tuteur légal afin de pouvoir devenir un membre de ce forum. Bien que la participation des personnes de moins de 13 ans soit la bienvenue, nous devons obtenir une autorisation signée d’un parent ou tuteur par fax ou courriel avant de l’inscrire.</p><p> Si vous désirez cependant commencer la procédure d’inscription avant que le document signé ne nous parvienne, veuillez cliquer sur le bouton <b>J’accepte</b> ci-dessous. Si vous préférez annuler la procédure d’inscription, cliquez sur le bouton <b>Je refuse</b> afin de retourner à la page d’index des forums.</p><p>Une copie du formulaire d’autorisation parentale vous sera fournie après l’inscription. Pour plus d’informations à propos de la procédure d’inscription, veuillez envoyer un courriel à <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
 coppa_conf:Confirmation COPPA
-coppa_before:Avant {TEMPLATE: coppa_date}
-coppa_after:Après {TEMPLATE: coppa_date}
+coppa_before:Avant le {TEMPLATE: coppa_date}
+coppa_after:Après le {TEMPLATE: coppa_date}
 coppa_link:Cliquez sur le lien correspondant à votre date de naissance
-coppa:<p>Un parent ou tuteur légal doit faxer ou envoyer par la poste une autorisation signée a l'administrateur de ce forum avant qu'une personne de moins de 13 ans ne puisse valider son inscription.</p><p>Pour de plus amples informations, contactez <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a></p>
-prereg_info:Information
-prereg_agree:J'accepte
+coppa:<p>Un parent ou tuteur légal doit faxer ou envoyer par la poste une autorisation signée à l’administrateur de ce forum avant qu’une personne de moins de 13 ans ne puisse valider son inscription.</p><p>Pour de plus amples informations, contactez <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a></p>
+prereg_info:Règles du forum
+prereg_agree:J’accepte
 prereg_disagree:Je refuse
 prereg_update:Lire les règles du forum
-coppa_fax_instructions:Instructions aux parents ou tuteur(s)
-coppa_fax_instructions2:Veuillez imprimer cette page, la signer et nous la faxer ou nous la renvoyer par courriel.
-coppa_fax_reg_form:Formulaire d'inscription
-coppa_fax_sign:Veuillez signer le formulaire ci-dessous et nous l'envoyer
-coppa_fax_conf:J'ai vérifié les informations que mon enfant vous a fournies et j'ai lu la charte sur la vie privée de votre site web. Je comprends que les informations relatives au profil d'un membre peuvent être modifiées en utilisant un mot de passe. Je comprends que je peux demander à ce que ce profil soit définitivement effacé de la base de données.
+coppa_fax_instructions:Instructions aux parents ou tuteurs légaux
+coppa_fax_instructions2:Veuillez imprimer cette page, la signer et nous la faxer ou nous la renvoyer par courrier.
+coppa_fax_reg_form:Formulaire d’inscription
+coppa_fax_sign:Veuillez signer le formulaire ci-dessous et nous l’envoyer
+coppa_fax_conf:J’ai vérifié les informations que mon enfant vous a fournies et j’ai lu la charte sur la vie privée de votre site web. Je comprends que les informations relatives au profil d’un membre peuvent être modifiées en utilisant un mot de passe. Je comprends que je peux demander à ce que ce profil soit définitivement effacé de la base de données.
 coppa_fax_permission:Signez ici si vous donnez votre permission
 coppa_fax_no_permission:Signez ici si vous désirez que ce compte soit détruit
-coppa_fax_parent_name:Parent/Tuteur Nom complet :
-coppa_fax_relation:Lien de parenté par rapport à l'enfant :
+coppa_fax_parent_name:Nom complet du parent ou tuteur légal :
+coppa_fax_relation:Lien de parenté ou de responsabilité avec l’enfant :
 coppa_fax_telephone:Téléphone :
-coppa_fax_email:Adresse de courriel :
-coppa_fax_date:Date :
-coppa_fax_questions:Veuillez contacter <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> si vous avez des questions
+coppa_fax_email:Adresse de courriel :
+coppa_fax_date:Date :
+coppa_fax_questions:Veuillez contacter <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> si vous avez des questions.
 coppa_fax_login:Utilisateur
 coppa_fax_passwd:Mot de passe
 coppa_fax_remail:Courriel
 coppa_fax_name:Nom
-login_not_logedin:Vous n'êtes pas connecté. Cela peut être dû à l'une des raisons suivantes :
+login_not_logedin:Vous n’êtes pas connecté. Cela peut être dû à l’une des raisons suivantes :
 login_cookie_expired:Votre cookie a expiré et vous devez vous connecter afin de le renouveler.
-login_perm_denied:Vous n'avez pas la permission d'accéder à la ressource que vous désirez en tant qu'utilisateur anonyme, et vous devez vous connecter (en plus de vous inscrire si ce n'est pas encore fait) afin d'y accéder.
-login_want_to_register:Voulez-vous vous inscrire ?
+login_perm_denied:Vous n’avez pas la permission d’accéder à la ressource que vous désirez en tant qu’utilisateur anonyme. Vous devez être inscrit et connecté pour obtenir cette permission.
+login_want_to_register:Voulez-vous vous inscrire ?
 login_forgot_passwd:J’ai oublié mon mot de passe
 login_use_cookie:Utiliser des témoins (cookies)<br /><font class="SmallText">Si vous utilisez un ordinateur dans un lieu public tel qu’une bibliothèque, une école ou un cybercafé, il est recommandé de désactiver cette option pour des raisons de sécurité.<br />Si vous laissez cette option activée, vous serez automatiquement connecté au forum lorsque vous reviendrez.</span>
 login_login:Utilisateur
