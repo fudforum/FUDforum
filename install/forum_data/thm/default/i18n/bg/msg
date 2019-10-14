@@ -878,8 +878,7 @@ polllist_votes:Общо гласове
 polllist_action:Действие
 polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">Преглеждане на налични гласувания</a>
 userinfo_polls:Гласувания:
-# Fuzzy
-show_pollist:Покажи гласувания
+show_pollist:Гласувания
 search_and:И
 search_or:ИЛИ
 search_desc_order:мХГУНДЪЫ ПЕД
