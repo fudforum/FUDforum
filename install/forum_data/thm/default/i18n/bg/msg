@@ -234,8 +234,7 @@ pmsg_forwarded:препратено
 pmsg_subject:Заглавие
 pmsg_author:Автор
 pmsg_time:Време
-# Fuzzy
-pmsg_selected:Избрано
+pmsg_selected:Избиране
 pmsg_delete:Изтриване
 cur_ppage_pm:Лична поща
 writing_pm:Писане на лично съобщение
@@ -848,8 +847,7 @@ im_skype:Скайп:
 im_twitter:Туитър:
 forum_contact:Обратна връзка
 forum_home:Начало
-# Fuzzy
-post_cur_attached:броят на прикачени файлове в момента е: {VAR: i}
+post_cur_attached:броят на прикачени файлове в момента е: {VAR: i} {PLURAL: i|файл|файла}
 ignored_anon_post:{GVAR: ANON_NICK} е игнориран
 ignored_user_post:Съобщението от <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> е игнорирано
 smladd_close_window:затвори прозорец
@@ -900,8 +898,7 @@ read_message:Прочетени съобщения
 threadt_more:&amp;lt;повече&gt;
 threadt_disabled_ttl:Разгърнатия изглед на темата е изключен.
 threadt_disabled_desc:Администраторът изключи разгърнатия изглед на темата. Моля, използвай плосък такъв.
-# Fuzzy
-threadt_update:Разглеждане (разгърнат изглед) на форума <a href="{TEMPLATE: threadt_update_lnk}">{VAR-HTML: frm->name}</a>
+threadt_update:Разглеждане (разгърнат изглед) на форума <a href="{TEMPLATE: threadt_update_lnk}">{VAR: frm->name}</a>
 mmod_delete_cofirm_ttl:Потвърждение за Изтриване на Тема/Съобщение&nbsp;
 spell_alts:няма други възможности
 back_to_top:Връщане в началото
