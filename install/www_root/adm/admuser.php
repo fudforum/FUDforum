@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2019 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -599,13 +599,13 @@ if ($acc_mod_only) {
 	$c = uq('SELECT time_sec, action, useragent, ip_addr FROM '. $DBHOST_TBL_PREFIX .'ses s WHERE s.user_id='. $usr_id);
 	while ($r = db_rowarr($c)) {
 		$r[1] = preg_replace('/href="/', 'href="'. $GLOBALS['WWW_ROOT'], $r[1]); // Fix URL.
-		echo fdate($r[0], 'd M Y H:i') .': '. $r[1] .' <span class="tiny">'. $r[2] .' ('. $r[3] .')</span><br />';
+		echo fdate($r[0], 'd M Y H:i') .': '. $r[1] .' <span class="tiny">'. htmlspecialchars($r[2]) .' ('. htmlspecialchars($r[3]) .')</span><br />';
 		$i++;
 	}
 	unset($c);
 	$c = uq('SELECT time_sec, action, useragent FROM '. $DBHOST_TBL_PREFIX .'ses s WHERE s.ip_addr='. _esc($u->last_used_ip) .' AND s.user_id<>'. $usr_id);
 	while ($r = db_rowarr($c)) {
-		echo 'FROM SAME IP: '. fdate($r[0], 'd M Y H:i') .': '. $r[1] .' <span class="tiny">'. $r[2] .'</span><br />';
+		echo 'FROM SAME IP: '. fdate($r[0], 'd M Y H:i') .': '. $r[1] .' <span class="tiny">'. htmlspecialchars($r[2]) .'</span><br />';
 		$i++;
 	}
 	unset($c);

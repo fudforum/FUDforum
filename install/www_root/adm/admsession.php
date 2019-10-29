@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2019 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -24,7 +24,7 @@
 	<th width="30%">Count</th>
 </tr></thead>
 <?php
-	$c = uq(q_limit('SELECT action, count(*) FROM '. $DBHOST_TBL_PREFIX .'ses s GROUP BY action ORDER BY count(*) DESC', 10));
+	$c = uq(q_limit('SELECT action, count(*) FROM '. $DBHOST_TBL_PREFIX .'ses s GROUP BY action ORDER BY count(*) DESC', 15));
 	$i = 0;
 	while ($r = db_rowarr($c)) {
 		$r[0] = preg_replace('/href="/', 'href="'. $WWW_ROOT, $r[0]); // Fix URL.
@@ -43,7 +43,7 @@
 	<th width="30%">Count</th>
 </tr></thead>
 <?php
-	$c = uq(q_limit('SELECT ip_addr, count(*) FROM '. $DBHOST_TBL_PREFIX .'ses s GROUP BY ip_addr ORDER BY count(*) DESC', 10));
+	$c = uq(q_limit('SELECT ip_addr, count(*) FROM '. $DBHOST_TBL_PREFIX .'ses s GROUP BY ip_addr ORDER BY count(*) DESC', 5));
 	$i = 0;
 	while ($r = db_rowarr($c)) {
 		$bgcolor = ($i++%2) ? ' class="resultrow1"' : ' class="resultrow2"';
@@ -61,11 +61,11 @@
 	<th width="30%">Count</th>
 </tr></thead>
 <?php
-	$c = uq(q_limit('SELECT useragent, count(*) FROM '. $DBHOST_TBL_PREFIX .'ses s GROUP BY useragent ORDER BY count(*) DESC', 10));
+	$c = uq(q_limit('SELECT useragent, count(*) FROM '. $DBHOST_TBL_PREFIX .'ses s GROUP BY useragent ORDER BY count(*) DESC', 5));
 	$i = 0;
 	while ($r = db_rowarr($c)) {
 		$bgcolor = ($i++%2) ? ' class="resultrow1"' : ' class="resultrow2"';
-		echo '<tr'. $bgcolor .'"><td>'. $r[0] .'</td>';
+		echo '<tr'. $bgcolor .'"><td>'. htmlspecialchars($r[0]) .'</td>';
 		echo '<td>'. $r[1]  .'</td>';
 	}
 	unset($c);
@@ -88,8 +88,8 @@
 		$bgcolor = ($i++%2) ? ' class="resultrow1"' : ' class="resultrow2"';
 		echo '<tr'. $bgcolor .'"><td>'. (empty($r[0]) ? $ANON_NICK : $r[0]) .'</td>';
 		echo '<td>'. $r[1]  .'</td>';
-		echo '<td>'. $r[2] .'</td>';
-		echo '<td>'. $r[3] .'</td>';
+		echo '<td>'. htmlspecialchars($r[2]) .'</td>';
+		echo '<td>'. htmlspecialchars($r[3]) .'</td>';
 	}
 	unset($c);
 	if (!$i) {
