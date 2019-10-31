@@ -6,6 +6,7 @@
 # Author: Max20091
 # Author: Minh Nguyen
 # Author: Naudefj
+# Author: Quang.hoangminh
 # Author: Trần Nguyễn Minh Huy
 # Author: Tuankiet65
 
@@ -79,7 +80,7 @@ cal_day_heading:Sự kiện trong ngày
 cal_no_events:Không có sự kiện trong ngày.
 cal_update:Duyệt lịch diễn đàn
 cal_birthday:Ngày sinh: {VAR: user}
-cal_birthdays:{PLURAL: sinh nhật|$1 sinh nhật|$1 sinh nhật}
+cal_birthdays:{PLURAL: birthdays|$1 birthday|$1 birthdays}
 cal_birthday_age:({PLURAL: tuổi|$1 năm|$1 năm} cũ).
 message:Tin nhắn
 message_counter:Các thành viên của chúng ta đã gửi tổng cộng <b>{PLURAL: post_count|$1 bài viết|$1 bài viết}</b> trong <b>{PLURAL: thread_count|$1 đề tài|$1 đề tài}</b>.
@@ -242,8 +243,7 @@ pmsg_forwarded:đã chuyển đi
 pmsg_subject:Tựa đề
 pmsg_author:Tác Giả
 pmsg_time:Thời gian
-# Fuzzy
-pmsg_selected:Đã Chọn
+pmsg_selected:Chọn
 pmsg_delete:Xóa
 cur_ppage_pm:Tin nhắn cá nhân
 writing_pm:Viết tin nhắn cá nhân
@@ -474,6 +474,7 @@ reset_reset:Xin chào,\n\nBạn đã yêu cầu thay đổi mật khẩu. Để 
 rpasswd_invalid_passwd:Mật khẩu không chính xác
 rpasswd_passwd_nomatch:Mật khẩu không tìm thấy
 rpasswd_passwd_length:Mật khẩu phải dài ít nhất 6 kí tự
+reset_remind_pass:Nhắc nhở mật khẩu
 reset_reset_conf:Mật khẩu của bạn sẽ được tạo mới và gửi đến bạn. Nếu bạn chưa xác nhận địa chỉ email , Yêu cầu xác nhận sẽ gửi lại đến bạn.
 reset_error:Địa chỉ email không tìm thấy trong cơ sở dữ liệu
 reset_update:Đặt lại mật khẩu
@@ -482,6 +483,10 @@ rpasswd_login:Tên đăng nhập
 rpasswd_cur_pass:Mật khẩu hiện tại:
 rpasswd_new_pass:Mật khẩu mới:
 rpasswd_conf_pass:Xác nhận mật khẩu:
+ruser_title:Thay đổi hình thức đăng nhập
+ruser_change_user:Thay đổi đăng nhập diễn đàn của bạn
+ruser_cur_login:Đăng nhập hiện tại:
+ruser_new_login:Đăng nhập mới:
 ruser_cur_pass:Mật khẩu hiện tại:
 login_passwd:Mật khẩu:
 reset_email:Thư điện tử:
@@ -522,8 +527,7 @@ mklist_apply:Áp dụng
 mklist_delete:Xóa
 qbud_nick_name:Bí danh
 qbud_add_selected:Thêm các mục đã chọn
-# Fuzzy
-qbud_selected:Được chọn
+qbud_selected:Chọn
 qbud_no_buddies:Không có bạn được chọn từ
 mklist_numerical:Số
 mklist_aplha:Kí tự
@@ -925,6 +929,7 @@ sml_no_smilies:Không có ký tự vui.
 login_unapproved_account_ttl:Tài khoản chưa được chấp nhận
 login_unapproved_account_msg:Người quản trị tối cao của diễn đàn đã xác nhận mỗi tài khoản binh thường trước khi kích hoạt . Tài khoản của bạn vẫn chưa được xác nhận, Vì vậy bạn không thể sử dụng những chức năng của thành viên đã được xác nhận .
 remove_from_buddy_list:Xóa khỏi danh sách bạn bè
+iemail_msg_date:<b>Ngày:</b> {TEMPLATE: dmsg_post_date}
 iemail_msg_reply:Trả lời
 iemail_msg_quote:Trích dẫn
 iemail_msg_view:Xem Chủ đề/Bài viết
@@ -1035,6 +1040,7 @@ dmsg_ip:Địa chỉ IP:
 err_blockedaccnt_title:Lỗi :Tài khoản của bạn đã bị lọc ra ngoài.
 err_blockedaccnt_msg:Tài khoản của bạn đã bị cấm truy cập vào diễn đàn vì bộ lọc người sử dụng đã được thiết lập.
 most_users_online:Thành viên online nhiều nhất là <b>{VAR: st_obj->most_online}</b> vào <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
+unbookmark_all_topics:Xóa tất cả dấu trang
 tabs_own_posts:Bài viết của bạn
 mnav_sub_only:Chỉ tìm trong những diễn đàn theo dõi
 register_topics_per_page:Số chủ đề trong một trang:
@@ -1053,6 +1059,7 @@ post_common_nlist:Thêm danh sách số
 post_common_blist:Thêm danh sách chấm
 post_common_quote:Thêm trích dẫn
 post_common_code:Thêm mã
+post_always_on_top:Làm cho chủ đề luôn xuất hiện ở đầu danh sách
 tabs_notifications:Thông báo
 post_descr:Mô tả chủ đề:
 move_messages:Chuyển (các) bài đăng

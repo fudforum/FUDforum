@@ -1,6 +1,7 @@
 # Messages for Finnish (suomi)
 # Exported from translatewiki.net
 # Author: Crt
+# Author: Cxz
 # Author: ElmA
 # Author: Lliehu
 # Author: Macofe
@@ -1130,8 +1131,7 @@ move_msg_th_expl:Ilmoita kohdeaiheen tunnistenumero (voi olla toisella foorumill
 captcha_img_alt:Captcha-varmistus: Sinun täytyy tunnistaa teksti tästä kuvasta.
 captcha_img_help:Kuvassa ei ole nollaa tai ykköstä.
 powered-by:Palvelun mahdollistaa: FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:Copyright &copy;2001–2018 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Copyright &copy;2001–2019 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Koodi:
 code_select_all:Valitse kaikki
 code_show_hide:Näytä tai piilota
