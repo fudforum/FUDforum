@@ -529,7 +529,7 @@ remail_message:Message :
 remail_send_now:Envoyer le courriel maintenant
 remail_anon_opt:Copier ce message dans un client courriel de votre choix afin de l’envoyer à votre(vos) ami(s).
 remail_done:C’est fait
-remail_sent_conf:Votre courriel au sujet de {VAR: data->subject}  a été envoyé avec succès à votre ami à {VAR-HTML: _POST['femail']}.
+remail_sent_conf:Votre courriel au sujet de {VAR: data->subject} a été envoyé avec succès à votre ami à {VAR-HTML: _POST['femail']}.
 remail_error:Une erreur est survenue
 mklist_type:Type :
 mklist_option:Option :
@@ -610,7 +610,7 @@ core_err_invinp_err:Vous avez suivi un lien invalide, veuillez en avertir l’<a
 core_adm_login_msg:Les administrateurs peuvent se connecter <a href="{BASE}adm/admloginuser.php">ici</a>
 email_err_unabletoemail_title:ERREUR : impossible d’envoyer des courriels
 email_err_unabletoemail_msg:La fonctionnalité d’envoi de courriels a été désactivée par l’administrateur.
-email_error_unabletolocaddr:Désolé, le système n’a pas été en mesure d’envoyer un courriel à {VAR-HTML: _POST['tx_name']} car il n’a pas pu déterminer son adresse de courriel
+email_error_unabletolocaddr:Désolé, le système n’a pas été en mesure d’envoyer un message à {VAR-HTML: _POST['tx_name']} car il n’a pas pu déterminer son adresse de courriel
 email_error_body:Le contenu est obligatoire
 email_error_subject:Le sujet est obligatoire
 email_error_namerequired:Le nom est obligatoire
@@ -673,7 +673,7 @@ referals_update:Parcourt la liste des utilisateurs parrainés
 register_err_short_login:Le nom d’utilisateur que vous avez choisi est trop court. Les noms d’utilisateur doivent comporter au moins 2 caractères.
 register_err_login_notallowed:Ce nom d’utilisateur n’est pas autorisé.
 register_err_loginunique:Un membre du forum utilise déjà ce nom d’utilisateur, veuillez en choisir un autre.
-register_err_emailexists:Cette adresse de courriel est déjà associé à un compte. Si vous avez oublié votre mot de passe, veuillez utiliser l’option de restauration de compte, au lieu de vous réinscrire.
+register_err_emailexists:Cette adresse de courriel est déjà associée à un compte. Si vous avez oublié votre mot de passe, veuillez utiliser l’option de restauration de compte au lieu de vous réinscrire.
 register_err_shortpasswd:Le mot de passe doit comporter au moins 6 caractères.
 register_err_passwdnomatch:Le mot de passe et sa confirmation ne sont pas identiques.
 register_err_invalidemail:Le courriel que vous avez saisi ne semble pas être valide.
@@ -951,92 +951,92 @@ buddy_online:{VAR: r[2]} est actuellement connecté
 sml_no_smilies:Aucune binette disponible.
 login_unapproved_account_ttl:Compte non approuvé
 login_unapproved_account_msg:L'administrateur du forum a choisi de passer en revue chaque nouveau compte manuellement avant son activation. Votre compte n'a pas encore été confirmé, vous ne pourrez donc pas accéder à certaines fonctionnalités réservées aux membres inscrits avant que votre compte ne soit approuvé.
-remove_from_buddy_list:Retirer de la liste d'amis
-iemail_msg_author:<b>Auteur&nbsp;:</b> {VAR: obj->alias}
-iemail_msg_subject:<b>Sujet&nbsp;:</b> {VAR: obj->subject}
-iemail_msg_date:<b>Date&nbsp;:</b> {TEMPLATE: dmsg_post_date}
+remove_from_buddy_list:Retirer de la liste d’amis
+iemail_msg_author:<b>Auteur :</b> {VAR: obj->alias}
+iemail_msg_subject:<b>Sujet :</b> {VAR: obj->subject}
+iemail_msg_date:<b>Date :</b> {TEMPLATE: dmsg_post_date}
 iemail_msg_reply:Répondre
 iemail_msg_quote:Citer
-iemail_msg_view:Voir le message
-threadt_sticky:Epinglé
-threadt_announce:Annonce
-reported_no_messages:Il n'y a aucun message rapporté.
-poll_no_polls:Il n'y a aucun sondage accessible.
+iemail_msg_view:Voir le fil/message
+threadt_sticky:Épinglé
+threadt_announce:annonce
+reported_no_messages:Il n’y a aucun message rapporté.
+poll_no_polls:Il n’y a aucun sondage accessible.
 no_unread_messages:Il n’y a aucun message non lu correspondant à votre requête.
 thread_mark_all_read:Marquer tous les messages du forum comme lus
 thread_mark_all_read_desc:Tous les messages non lus dans ce forum seront marqués comme lus
-private_no_messages:Il n'y a aucun message dans ce dossier
+private_no_messages:Il n’y a aucun message dans ce dossier.
 register_email_change_subject:Confirmation de changement de courriel
-register_email_change_msg:Veuillez confirmer votre nouveau compte courriel « {VAR: uent->email} » qui remplace votre ancien compte « {VAR: old_email} » en visitant l’URL ci-dessous :\n{FULL_ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nUne fois que vous aurez confirmé votre nouvelle adresse, votre compte sera réactivé.
+register_email_change_msg:Veuillez confirmer votre nouveau compte courriel « {VAR: uent->email} » qui remplace votre ancien compte « {VAR: old_email} » en visitant l’URL ci-dessous :\n{FULL_ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nUne fois que vous aurez confirmé votre nouvelle adresse, votre compte sera réactivé.
 iemail_thread_unsub:Cesser la surveillance de ce fil
 iemail_forum_unsub:Cesser la surveillance de ce forum
-primary_group_prefix:Groupe primaire pour le forum :
-group_resources:Ce groupe controle les permissions des forums suivants
-register_admin_newuser_title:Un nouvel utilisateur s'est inscrit et son compte est en attente de confirmation
-register_admin_newuser_msg:Un nouvel utilisateur ({VAR: uent->login}) vient juste de s'inscrire sur le forum et comme la confirmation des comptes est activée, son compte ne deviendra actif que lorsque vous ou l'un des administrateurs du forum l'aurez confirmé. Pour décider de ce compte, veuillez vous rendre sur : {FULL_ROOT}adm/admuserapr.php\n\nCeci est un processus automatique, ne répondez pas à ce message.\nSi vous désirez désactiver les futures notifications par courriel de l'inscription de nouveaux utilisateurs, vous pouvez le faire par le panneau de contrôle admin. Changez la valeur de « New Account Notification ».
-post_mod_msg_notify_title:Nouveau message dans le forum « {VAR: frm->name} » en attente d'approbation
-post_mod_msg_notify_msg:Un nouveau message intitulé « {VAR: msg_post->subject} » vient juste d'être publié dans un forum que vous modérez. Pour décider de ce message, rendez-vous à : {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nCeci est un processus automatique. Ne répondez pas à ce message.
-thread_printable_pdf:Générer du PDF imprimable
+primary_group_prefix:Groupe primaire pour le forum :
+group_resources:Ce groupe contrôle les permissions des forums suivants
+register_admin_newuser_title:Un nouvel utilisateur s’est inscrit et son compte est en attente de confirmation
+register_admin_newuser_msg:Un nouvel utilisateur ({VAR: uent->login}) vient juste de s’inscrire sur le forum et comme la confirmation des comptes est activée, son compte ne deviendra actif que lorsque vous ou l’un des administrateurs du forum l’aurez confirmé. Pour décider de ce compte, veuillez vous rendre sur : {FULL_ROOT}adm/admuserapr.php\n\nCeci est un processus automatique, ne répondez pas à ce message.\nSi vous désirez désactiver les futures notifications par courriel de l’inscription de nouveaux utilisateurs, vous pouvez le faire par le Panneau de contrôle administrateur. Changez la valeur de « New Account Notification ».
+post_mod_msg_notify_title:Nouveau message dans le forum « {VAR: frm->name} » en attente d’approbation
+post_mod_msg_notify_msg:Un nouveau message intitulé « {VAR: msg_post->subject} » vient juste d’être publié dans un forum que vous modérez. Pour décider de ce message, rendez-vous à : {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nCeci est un processus automatique. Ne répondez pas à ce message.
+thread_printable_pdf:Générer un PDF imprimable
 thread_syndicate:Publier ce forum (XML)
-reg_conf_title:Confirmation d'inscription
-reg_conf_email:<b>Courriel de confirmation</b><br />Un courriel vous a été envoyé contenant une URL spéciale que vous devrez visiter avant que votre compte ne soit activé. Si vous ne recevez pas ce courriel dans les prochaines minutes, connectez-vous avec votre compte et assurez-vous que l’adresse que vous avez spécifiée est correcte. Une fois que vous aurez confirmé votre compte, vous pourrez accéder aux fonctionnalités du forum disponibles pour les utilisateurs ayant confirmé leur inscription.
-reg_conf_account:<b>Confirmation de votre compte</b><br />Avant que votre compte ne soit activé, il doit être approuvé par le (ou les) administrateur(s). Une fois ceci fait, vous recevrez un courriel indiquant que votre compte a été confirmé. Avant cela, vous pouvez vous connecter avec votre compte, mais vous ne pourrez pas accéder aux fonctionnalités disponibles uniquement pour les utilisateurs approuvés.
+reg_conf_title:Confirmation d’inscription
+reg_conf_email:<b>Courriel de confirmation</b><br /> Un courriel vous a été envoyé contenant une URL spéciale que vous devrez visiter avant que votre compte ne soit activé. Si vous ne recevez pas ce courriel dans les prochaines minutes, connectez-vous avec votre compte et assurez-vous que l’adresse que vous avez spécifiée est correcte. Une fois que vous aurez confirmé votre compte, vous pourrez accéder aux fonctionnalités du forum disponibles pour les utilisateurs ayant confirmé leur inscription.
+reg_conf_account:<b>Confirmation de votre compte</b><br /> Avant que votre compte ne soit activé, il doit être approuvé par un administrateur. Une fois ceci fait, vous recevrez un courriel indiquant que votre compte a été confirmé. Avant cela, vous pouvez vous connecter avec votre compte, mais vous ne pourrez pas accéder aux fonctionnalités disponibles uniquement pour les utilisateurs approuvés.
 forum_banned_user:Vos actions antérieures ont entraîné votre bannissement permanent de ce forum. Au revoir.
 mnav_description:Navigateur de messages
-mnav_date_limit:Intervalle de dates :
-mnav_forum_limit:Ne chercher que dans :
+mnav_date_limit:Intervalle de dates :
+mnav_forum_limit:Ne chercher que dans :
 mnav_all_forums:Chercher dans tous les forums
 mnav_submit:Commencer la recherche
 mnav_no_range:Vous devez entrer un intervalle de dates valide. Cette valeur peut être décimale (0.12), mais elle doit être supérieure à zéro.
-mnav_invalid_unit:Vous devez spécifier une unitée de temps valide.
-mnav_invalid_date:L'intervalle de dates que vous avez spécifié est plus grand que celui autorisé par l'administrateur, veuillez réduire l'intervalle de dates de votre recherche.
-mnav_no_results:Il n'y a aucun message correspondant à votre recherche.
-mnav_posted_by:Envoyé par :
-mnav_more:Plus &raquo;&raquo;
-mnav_minute:minute(s)
-mnav_hour:heure(s)
-mnav_day:jour(s)
-mnav_week:semaines
-mnav_month:mois
+mnav_invalid_unit:Vous devez spécifier une unité de temps valide.
+mnav_invalid_date:L’intervalle de dates que vous avez spécifié est plus grand que celui autorisé par l’administrateur. Essayez un intervalle de dates plus réduit.
+mnav_no_results:Il n’y a aucun message correspondant à votre recherche.
+mnav_posted_by:Envoyé par :
+mnav_more:Plus ››
+mnav_minute:Minute(s)
+mnav_hour:Heure(s)
+mnav_day:Jour(s)
+mnav_week:Semaine(s)
+mnav_month:Mois
 mnav_title:Navigateur de messages
-mnav_update:Parcourt les messages à l'aide du <a href="{TEMPLATE: mnav_update_lnk}">Navigateur de messages</a>
+mnav_update:Parcourt les messages à l’aide du <a href="{TEMPLATE: mnav_update_lnk}">Navigateur de messages</a>
 pm_notify_subject:[{GVAR: FORUM_TITLE}] Notification de nouveau message privé
-pm_notify_body_email:Vous avez un nouveau message privé intitulé « {VAR: subject} » de « {VAR: from} » sur le forum « {GVAR: FORUM_TITLE} ».\nPour lire ce message, cliquez ici : {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nPour ne plus recevoir ces notifications, désactivez « Notification de nouveau message privé » dans votre profil.
-register_pm_notification:Notification de message privé
-register_pm_notification_desc:Si cette option est activée, vous serez notifié par une méthode de notification de votre choix à chaque fois qu'un message privé vous sera envoyé.
-findu_admin_opts_header:Options d'admin.
-findu_unban:Autoriser
+pm_notify_body_email:Vous avez un nouveau message privé intitulé « {VAR: subject} » de « {VAR: from} » sur le forum « {GVAR: FORUM_TITLE} ».\nPour lire ce message, cliquez ici : {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nPour ne plus recevoir ces notifications, désactivez « Notification de nouveau message privé » dans votre profil.
+register_pm_notification:Notification de message privé :
+register_pm_notification_desc:Si cette option est activée, vous serez notifié par une méthode de notification de votre choix à chaque fois qu’un message privé vous sera envoyé.
+findu_admin_opts_header:Options d’administration.
+findu_unban:Réadmettre
 findu_ban:Bannir
 findu_edit:Modifier
 findu_delete:Supprimer
 dmsg_reply_to:est une réponse au
-dmsg_reply_num:message n° {VAR: obj->reply_to}
+dmsg_reply_num:message nº {VAR: obj->reply_to}
 merge_topics:Fusionner les fils
-merge_topics_cp:Panneau de contrôle de fusion de sujets
-merge_topics_tpl:Sélectionnez les fils à fusionner <font class="SmallText">(vous devez sélectionner plus d'1 sujet)</font>
+merge_topics_cp:Panneau de contrôle de fusion de fils
+merge_topics_tpl:Sélectionnez les fils à fusionner <font class="SmallText">(vous devez sélectionner plus d’un fil)</font>
 merge_merge:Fusionner les fils sélectionnés
 merge_next:Fils suivants
 merge_prev:Fils précédents
-merge_another:Aller au <a href="{TEMPLATE: merge_another_lnk}">dernier sujet fusionné</a> ou en fusionner un autre :
-split_cp:Panneau de contrôle de division de fils
-groups_perms_header:Permissions <font size="-1">(déplacer la souris au-dessus de la permission pour en voir le type)</font>
+merge_another:Aller au <a href="{TEMPLATE: merge_another_lnk}">dernier fil fusionné</a> ou en fusionner un autre :
+split_cp:Panneau de contrôle de scission de fils
+groups_perms_header:Permissions <span class="small">(déplacer la souris au-dessus de la permission pour en voir le type)</span>
 register_err_sig_too_long:Votre signature excède la longueur maximale autorisée de {GVAR: FORUM_SIG_ML} caractères.
-register_sig_limit:{GVAR: FORUM_SIG_ML} caractères <a href="javascript: alert('Votre signature comporte '+document.forms['fud_register'].reg_sig.value.length+' caractères en trop. La longueur maximale autorisée pour une signature est de {GVAR: FORUM_SIG_ML}');" class="SmallText">Vérifier la longueur de la signature</a>
-adm_account_accepted:Votre compte '{VAR: login}' a été approuvé par l'administrateur, et est maintenant actif. Vous pouvez désormais accéder au forum {GVAR: FORUM_TITLE}' en tant qu'utilisateur inscrit et confirmé.
-adm_account_accepted_s:Votre demande de compte pour '{GVAR: FORUM_TITLE}' a été acceptée.
-adm_account_rejected:Votre compte '{VAR: login}' a été refusé par l'administrateur, et est maintenant désactivé. Si vous voulez connaître la raison de cette décision, veuillez contacter l'administrateur à '{GVAR: ADMIN_EMAIL}'.
-adm_account_rejected_s:Votre demande de compte pour '{GVAR: FORUM_TITLE}' a été refusée.
+register_sig_limit:{GVAR: FORUM_SIG_ML} caractères <a href="javascript: alert('Votre signature comporte '+document.forms['fud_register'].reg_sig.value.length+' caractères en trop. La longueur maximale autorisée pour une signature est de {GVAR: FORUM_SIG_ML}')" class="SmallText">Vérifier la longueur de la signature</a>
+adm_account_accepted:Votre compte « {VAR: login} » a été approuvé par l’administrateur et est maintenant actif. Vous pouvez désormais accéder au forum « {GVAR: FORUM_TITLE} » en tant qu’utilisateur inscrit et confirmé.
+adm_account_accepted_s:Votre demande de compte pour « {GVAR: FORUM_TITLE} » a été acceptée.
+adm_account_rejected:Votre compte « {VAR: login} » a été refusé par l’administrateur et est maintenant désactivé. Si vous voulez connaître la raison de cette décision, veuillez contacter l’administrateur à « {GVAR: ADMIN_EMAIL} ».
+adm_account_rejected_s:Votre demande de compte pour « {GVAR: FORUM_TITLE} » a été refusée.
 thread_on:le
-userinfo_buddy:Ami :
-register_email_addr:Adresse de courriel :
-reset_suffix:Si vous avez reçu ce message par erreur, merci de l’ignorer. Si vous recevez plusieurs copies non sollicitées de ce courriel, merci de contacter l’administrateur à {GVAR: ADMIN_EMAIL}\n\nCette requête a été initiée depuis : {VAR: _SERVER['REMOTE_ADDR']}.
-usrinfo_last_visit:Dernière visite aujourd'hui:
+userinfo_buddy:Ami :
+register_email_addr:Adresse de courriel :
+reset_suffix:Si vous avez reçu ce message par erreur, merci de l’ignorer. Si vous recevez plusieurs copies non sollicitées de ce courriel, merci de contacter l’administrateur à {GVAR: ADMIN_EMAIL}\n\nCette requête a été initiée depuis : {VAR: _SERVER['REMOTE_ADDR']}.
+usrinfo_last_visit:Dernière visite :
 mnav_newer:plus récents que
 mnav_older:plus anciens que
 ip_search_by_ip:Rechercher un utilisateur par IP
-ip_search_syntax:Syntaxes reconnues : 1.2.3.4, 1.2.3, 1.2, 1
+ip_search_syntax:Syntaxes reconnues : 1.2.3.4, 1.2.3, 1.2, 1
 ip_search:Rechercher
-ip_analyze_usage:Analyser l'utilisation de cette IP
+ip_analyze_usage:Analyser l’utilisation de cette IP
 ip_analyze_usage_descr:Veuillez spécifier le nom d'utilisateur exact.
 ip_users_using:Cet(ces) utilisateur(s) utilise(nt) l'adresse IP « {VAR: ip} »
 ip_all_ips:Toutes les IP utilisées par '{VAR: user}'
