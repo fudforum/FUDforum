@@ -333,7 +333,7 @@ register_bio_desc:Отделни детайли като интересите В
 register_prefs:Предпочитания
 register_sig:Подпис:
 register_sig_desc:Подпис, с който бихте могли да завършвате вашите съобщения.
-register_reset:Изчисти
+register_reset:Изчистване
 register_def_thread_view:Изглед на темата по подразбиране:
 register_msg_per_page:Брой на съобщенията на страница:
 register_show_sig:Покажи подписа:
