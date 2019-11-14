@@ -1,6 +1,6 @@
 <?php
 /***************************************************************************
-* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2019 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -515,8 +515,8 @@ function syncronize_theme($theme)
 <tr>
 <td class="linktable linkdata" nowrap="nowrap">
 <p><b>Preperation:</b></p>
-<p>Please <b><a href="http://cvs.prohost.org/index.php/Backup">backup</a></b> your forum<br />
-   and <b><a href="http://cvs.prohost.org/index.php/Upgrading">review the documentation</a></b><br />
+<p>Please <b><a href="http://cvs.prohost.org/index.php?title=Backup">backup</a></b> your forum<br />
+   and <b><a href="http://cvs.prohost.org/index.php?title=Upgrading">review the documentation</a></b><br />
    before proceeding!</p>
 
 <p><b>Upgrade steps:</b></p>

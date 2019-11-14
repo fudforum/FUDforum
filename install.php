@@ -1140,7 +1140,7 @@ if (isset($display_section)) {
 switch ($section) {
 	case 'welcome':
 		/* Display some system information on the 1st page of the installer. */
-		dialog_start('WELCOME TO FUDFORUM!', '<p>Thanks for choosing FUDforum, the fastest, most secure, and most feature rich PHP based discussion forum available today.</p><p>This wizard will guide you through installing your forum. For more information, please read the <a href="http://cvs.prohost.org/index.php/Installation">installation guide</a>. Kindly review your system information as set out below and click on <b>Start installer</b> if your system meets the minimum requirements. If you encounter any problems, please report them on the <a href="http://fudforum.org/forum">support website</a>.</p><p><i>This program is free software; you can redistribute it and/or modify it under the terms of the <a href="http://www.gnu.org/licenses/gpl-2.0.html">GNU General Public License version 2</a> as published by the Free Software Foundation. This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.</i></p>');
+		dialog_start('WELCOME TO FUDFORUM!', '<p>Thanks for choosing FUDforum, the fastest, most secure, and most feature rich PHP based discussion forum available today.</p><p>This wizard will guide you through installing your forum. For more information, please read the <a href="http://cvs.prohost.org/index.php?title=Installation">installation guide</a>. Kindly review your system information as set out below and click on <b>Start installer</b> if your system meets the minimum requirements. If you encounter any problems, please report them on the <a href="http://fudforum.org/forum">support website</a>.</p><p><i>This program is free software; you can redistribute it and/or modify it under the terms of the <a href="http://www.gnu.org/licenses/gpl-2.0.html">GNU General Public License version 2</a> as published by the Free Software Foundation. This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.</i></p>');
 		dialog_end($section);
 
 		dialog_start('System information:', '');
@@ -1339,7 +1339,7 @@ switch ($section) {
 		break;
 
 	case 'theme':
-		dialog_start('Forum Theme<span class="step">Step 4 of 5</span>', '<p>Choose the primary template set and language for your forum. Additional templates and languages can be configured after installation from the <i>Theme Manager</i> admin control panel.</p><p>If the language you require is not available, or the translation is incomplete, please go to <a href="http://cvs.prohost.org/index.php/Translate">FUDforum Wiki</a> to and read about translating the forum to other languages.</p>');
+		dialog_start('Forum Theme<span class="step">Step 4 of 5</span>', '<p>Choose the primary template set and language for your forum. Additional templates and languages can be configured after installation from the <i>Theme Manager</i> admin control panel.</p><p>If the language you require is not available, or the translation is incomplete, please go to <a href="http://cvs.prohost.org/index.php?title=Translate">FUDforum Wiki</a> to and read about translating the forum to other languages.</p>');
 
 		// List available template sets.
 		$tmpl_names = '';
