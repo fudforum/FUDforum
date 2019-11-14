@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2019 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -35,6 +35,9 @@
 		} else if (get_id_by_login($_POST['nlogin'])) {
 			$ruser_error_msg = '{TEMPLATE: ruser_err_loginunique}';
 		} else {
+			// Remove bad characters from login names (see sanitize_login in register.php.t).
+			$_POST['nlogin'] = strtr($_POST['nlogin'], '<>&;', '[]??');
+
 			q('UPDATE {SQL_TABLE_PREFIX}users SET login='. _esc($_POST['nlogin']) .' WHERE id='. $r->id);
 			if (!($GLOBALS['FUD_OPT_2'] & 128)) {	// USE_ALIASES diabled, set alias = nlogin.
 				q('UPDATE {SQL_TABLE_PREFIX}users SET alias='. _esc($_POST['nlogin']) .' WHERE id='. $r->id);

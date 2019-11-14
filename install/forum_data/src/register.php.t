@@ -65,7 +65,7 @@ function sanitize_login($login)
 	}
 
 	// Bad characters to remove from login names.
-	$badchars = '&;';
+	$badchars = '<>&;';
 
 	// Control characters are also bad.
 	for ($i = 0; $i < 32; $i++) $badchars .= chr($i);
