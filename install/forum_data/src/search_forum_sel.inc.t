@@ -97,11 +97,10 @@ function trim_body($body)
                 // Move to starting position.
                 if (function_exists('mb_substr')) {
                         $body = mb_substr($body, $startpos);
-                        $body = '…'. mb_substr($body, strpos($body, ' ')+1);
                 } else {
                         $body = substr($body, $startpos);
-                        $body = '…'. substr($body, strpos($body, ' ')+1);
                 }
+                $body = '…'. preg_replace('/^\w+\s/','',$body);
 
                 // Cut off after max length.
                 if (preg_match('/^(.{1,'. $GLOBALS['MNAV_MAX_LEN'] .'})\b/su', $body, $match)) {

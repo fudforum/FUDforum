@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2019 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -23,7 +23,7 @@
 		switch ($_GET['o']) {
 			case 'alias':		$o = 'u.alias'; break;
 			case 'last_visit':
-			default:			$o = 'u.last_visit';
+			default:		$o = 'u.last_visit';
 		}	
 	} else {
 		$o = 'u.last_visit';
