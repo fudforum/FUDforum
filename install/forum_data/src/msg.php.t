@@ -58,10 +58,35 @@
 	} else if (!$th) {
                 // Try to lookup ThreadID from URL, similar to what Wikipedia does.
                 // This can produce insonsitent results if you have more than one topic with the same subject.
-                // Example URL: http://your.forum.com/t/subject/
-                $th = q_singleval(q_limit('SELECT thread_id FROM fud30_msg WHERE subject='. _esc($_GET[th]) .' AND reply_to=0', 1));
-                if (!$th) {
-                        invl_inp_err();
+		// Narro down a forum with forum:subject.
+                // Example URL: http://your.forum.com/t/subject
+                list($subj, $frm) = array_reverse(explode(':', $_GET['th'], 2));
+                $count = q_singleval('SELECT count(*) FROM fud30_msg m
+                                        LEFT JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id = t.id
+                                        LEFT JOIN {SQL_TABLE_PREFIX}forum f ON t.forum_id = f.id
+                                        WHERE m.subject='. _esc($subj) .' AND f.name like '. _esc($frm.'%'). ' AND m.reply_to=0');
+		if (!$count) {
+			// Normal search
+			if ($GLOBALS['FUD_OPT_2'] & 32768) {
+                        	header('Location: {ROOT}/s/'. $subj . _rsidl);
+	                } else {
+	                        header('Location: {ROOT}?t=search&srch='. $subj . _rsidl);
+                	}
+			exit;
+		} elseif ($count > 1) {
+			// Title search
+			if ($GLOBALS['FUD_OPT_2'] & 32768) {
+                        	header('Location: {ROOT}/s/'. $subj .'/subject/'. _rsidl);
+	                } else {
+	                        header('Location: {ROOT}?t=search&srch='. $subj .'&field=subject'. _rsidl);
+                	}
+			exit;
+		} else {
+			// Load topic
+	                $th = q_singleval(q_limit('SELECT thread_id FROM fud30_msg m
+                                        LEFT JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id = t.id
+                                        LEFT JOIN {SQL_TABLE_PREFIX}forum f ON t.forum_id = f.id
+                                        WHERE m.subject='. _esc($subj) .' AND f.name like '. _esc($frm.'%'). ' AND m.reply_to=0', 1));
                 }
 	}
 
