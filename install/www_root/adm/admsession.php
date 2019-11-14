@@ -30,7 +30,7 @@
 		$r[0] = preg_replace('/href="/', 'href="'. $WWW_ROOT, $r[0]); // Fix URL.
 		$bgcolor = ($i++%2) ? ' class="resultrow1"' : ' class="resultrow2"';
 		echo '<tr'. $bgcolor .'"><td>'. $r[0] .'</td>';
-		echo '<td>'. $r[1]  .'</td>';
+		echo '<td>'. $r[1] .'</td>';
 	}
 	unset($c);
 ?>

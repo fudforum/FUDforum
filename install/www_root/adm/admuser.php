@@ -46,6 +46,11 @@
 		q('UPDATE '. $DBHOST_TBL_PREFIX .'users SET ban_expiry=0, users_opt='. q_bitand('users_opt', ~65536) .' WHERE id='. $usr_id);
 	}
 
+	/* Sanitize user alias to prevent possible xss. */
+	if (isset($u->alias)) {
+        	$u->alias = htmlspecialchars($u->alias);
+	}
+
 	$keys = array('block'=>65536, 'coppa'=>262144, 'econf'=>131072, 'sig'=>67108864, 'pm'=>33554432, 'conf'=>2097152, 'accmod'=>268435456, 'modposts'=>536870912);
 
 	switch ($act) {
@@ -420,10 +425,10 @@ administration permissions to the forum. This individual will be able to do anyt
 				while ($r = db_rowarr($c)) {
 					$bgcolor = ($i++%2) ? ' class="resultrow2"' : ' class="resultrow1"';
 					echo '<tr'. $bgcolor .'>';
-					echo '<td><a href="admuser.php?usr_id='. $r[0] .'&amp;act=m&amp;'. __adm_rsid .'">'. $r[1] .'</a></td>';
+					echo '<td><a href="admuser.php?usr_id='. $r[0] .'&amp;act=m&amp;'. __adm_rsid .'">'. htmlspecialchars($r[1]) .'</a></td>';
 					echo '<td>'. htmlspecialchars($r[2]) .'</td>';
 					echo '<td>'. fdate($r[3], 'd M Y H:i:s') .'</td>';
-					echo '<td>'. $r[4] .'</td><td>'. $r[5] .'</td>';
+					echo '<td>'. htmlspecialchars($r[4]) .'</td><td>'. $r[5] .'</td>';
 					echo '<td><a href="admuser.php?usr_id='. $r[0] .'&amp;act=m&amp;'. __adm_rsid .'">Edit</a> | <a href="admuser.php?act=del&amp;usr_id='. $r[0] .'&amp;'. __adm_rsid .'">Delete</a></td>';
 					echo '</tr>';
 				}

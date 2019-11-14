@@ -243,7 +243,7 @@ if (isset($_POST['txtb']) && $_POST['txtb'] != '') {
 					foreach ($result as $key => $value) {
 						// Apply a FUDforum function to the results, like seo_url_bit().
 						// Example: SELECT concat('/t/', t.id, '-@seo_url_bit[', m.subject, ']') FROM ...
-						if (preg_match('/^(.*)\@(.+?)\[(.+?)\](.*)$/i', $value, $matches)) {
+						while (preg_match('/(.*)\@(.+?)\[(.+?)\](.*)/i', $value, $matches)) {
 							$func = $matches[2];
 							$value = $matches[1] . $func($matches[3]) . $matches[4];
 						}
