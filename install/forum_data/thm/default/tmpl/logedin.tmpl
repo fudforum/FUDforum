@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2019 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -43,7 +43,7 @@
 {SECTION: END}
 
 {SECTION: last_msg latest message on the forum}
-<br />{MSG: logedin_latest_post} <a href="{TEMPLATE: last_msg_lnk}"><b>{VAR: st_obj->last_msg_subject}</b></a>
+<br />{MSG: logedin_latest_post} <a href="{TEMPLATE: last_msg_lnk}"><b>{VAR-HTML: st_obj->last_msg_subject}</b></a>
 {SECTION: END}
 
 {SECTION: forum_info}
@@ -52,7 +52,7 @@
 		{MSG: message_counter}<br />
 		{MSG: most_users_online}<br />
 		{MSG: user_counter}<br />
-		{MSG: newest_user} <a href="{TEMPLATE: forum_info_lnk}"><b>{VAR: st_obj->last_user_alias}</b></a>
+		{MSG: newest_user} <a href="{TEMPLATE: forum_info_lnk}"><b>{VAR-HTML: st_obj->last_user_alias}</b></a>
 		{IF: $last_msg_id}{TEMPLATE: last_msg}{ENDIF}
 	</td>
 </tr>

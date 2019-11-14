@@ -71,7 +71,7 @@
 	<td class="ac GenText"><input type="checkbox" name="sel[]" value="{VAR: obj->id}" /></td>
 	<td>{IF: $obj->read_stamp}{TEMPLATE: pmsg_unread}{ELSE}{TEMPLATE: pmsg_read}{END}</td>
 	<td width="100%" class="GenText">{TEMPLATE-DATA: msg_type}<a href="{VAR: goto}">{VAR: obj->subject}</a>{IF: ($obj->pmsg_opt & 4 && $obj->pmsg_opt & 16 && $obj->duser_id == _uid && $obj->ouser_id != _uid)}{TEMPLATE: deny_recipt}{ENDIF}</td>
-	<td class="nw GenText">{TEMPLATE-DATA: online_indicator}<a href="{TEMPLATE: normal_msg_lnk}" title="{FUNC: char_fix(htmlspecialchars($obj->to_list))}">{VAR: obj->alias}</a></td>
+	<td class="nw GenText">{TEMPLATE-DATA: online_indicator}<a href="{TEMPLATE: normal_msg_lnk}" title="{FUNC: char_fix(htmlspecialchars($obj->to_list))}">{VAR-HTML: obj->alias}</a></td>
 	<td class="nw DateText">{TEMPLATE: dmsg_post_date}</td>
 	<td class="nw ac GenText">{TEMPLATE-DATA: action}</td>
 </tr>

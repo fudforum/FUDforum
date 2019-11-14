@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2019 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -40,7 +40,7 @@
 <table cellspacing="0" cellpadding="0" class="MsgTable">
 <tr>
 	<td class="MsgR1 al vt"><b>{MSG: subject}:</b> {VAR: obj->subject}</td>
-	<td class="MsgR1 ar vt DateText"><b>{MSG: by}</b> {VAR: obj->alias} <b>{MSG: pmsg_on}</b> {TEMPLATE: dmsg_post_date}</td>
+	<td class="MsgR1 ar vt DateText"><b>{MSG: by}</b> {VAR-HTML: obj->alias} <b>{MSG: pmsg_on}</b> {TEMPLATE: dmsg_post_date}</td>
 </tr>
 <tr>
 	<td class="MsgR3" colspan="2">{FUNC: read_pmsg_body($obj->foff, $obj->length)}

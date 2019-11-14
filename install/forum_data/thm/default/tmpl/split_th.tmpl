@@ -31,7 +31,7 @@
 		<table cellspacing="1" cellpadding="2" class="ContentTable">
 		<tr class="RowStyleB">
 			<td class="SmallText">
-				<b>{MSG: split_th_post_by}</b> {IF: $r->alias}{VAR: r->alias}{ELSE}{VAR: anon_alias}{ENDI}<br />
+				<b>{MSG: split_th_post_by}</b> {IF: $r->alias}{VAR-HTML: r->alias}{ELSE}{VAR: anon_alias}{ENDI}<br />
 				<b>{MSG: split_th_posted_on}</b> {TEMPLATE: search_post_date}<br />
 				<b>{MSG: split_th_subject}</b> {VAR: r->subject}
 			</td>

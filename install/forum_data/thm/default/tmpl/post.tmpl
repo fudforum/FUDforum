@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2019 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -85,7 +85,7 @@
 {SECTION: loged_in_user shows who you're logged in as and offers a logout link}
 <tr class="RowStyleB">
 	<td class="GenText nw">{MSG: post_logedin_user}</td>
-	<td class="GenText wa">{VAR: usr->alias} [<a href="{TEMPLATE: loged_in_user_lnk}">{MSG: post_logout}</a>]</td>
+	<td class="GenText wa">{VAR-HTML: usr->alias} [<a href="{TEMPLATE: loged_in_user_lnk}">{MSG: post_logout}</a>]</td>
 </tr>
 {SECTION: END}
 
@@ -475,4 +475,12 @@
 
 {SECTION: imsg_err_message_msg}
 {MSG: imsg_err_message_msg}
+{SECTION: END}
+
+{SECTION: category_option}
+<option disabled="disabled">- {FUNC: ($tabw = ($i[0] ? str_repeat('&nbsp;&nbsp;&nbsp;', $i[0]) : ''))}{VAR: i[1]}</option>
+{SECTION: END}
+
+{SECTION: forum_option}
+<option value="{VAR: r[0]}"{FUNC: (isset($f[$r[0]]) ? ' selected="selected"' : '')}>{VAR: tabw}&nbsp;&nbsp;{VAR: r[1]}</option>
 {SECTION: END}

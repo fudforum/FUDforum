@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2019 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -57,7 +57,7 @@
 {SECTION: END}
 
 {SECTION: ucp_logout logout link User Logout}
-<li><a href="{TEMPLATE: ucp_logout_lnk}" title="{MSG: logout}"><img src="{THEME_IMAGE_ROOT}/top_logout.png" alt="" /> {MSG: logout} [ {VAR: usr->alias} ]</a></li>
+<li><a href="{TEMPLATE: ucp_logout_lnk}" title="{MSG: logout}"><img src="{THEME_IMAGE_ROOT}/top_logout.png" alt="" /> {MSG: logout} [ {VAR-HTML: usr->alias} ]</a></li>
 {SECTION: END}
 
 {SECTION: ucp_register_lnk User Registration URL}

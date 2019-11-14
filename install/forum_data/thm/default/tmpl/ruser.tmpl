@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2019 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -31,11 +31,11 @@
 </tr>
 <tr class="RowStyleB">
 	<td>{MSG: ruser_new_login}</td>
-	<td><input type="text" name="nlogin" value="" /></td>
+	<td><input type="text" name="nlogin" value="" required="required" maxlength="{GVAR: MAX_LOGIN_SHOW}" /></td>
 </tr>
 <tr class="RowStyleB">
 	<td>{MSG: ruser_cur_pass}</td>
-	<td><input type="password" name="cpasswd" id="passwd" value="" /></td>
+	<td><input type="password" name="cpasswd" id="passwd" value="" required="required" /></td>
 </tr>
 <tr class="RowStyleB">
 	<td align="right" colspan="2"><input type="submit" class="button" value="{MSG: go}" name="btn_submit" /></td>
