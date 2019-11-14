@@ -1150,7 +1150,7 @@ pf('<h2>Step 1: Admin login</h2>', true);
 	q('UPDATE '. $DBHOST_TBL_PREFIX .'plugins SET name = \'video_tags.plugin\' WHERE name = \'youtube_tag.plugin\'');
 
 	/* Remove obsolete SRC files. */
-	$rm_src = array('tz.inc.t');	// Remove from 3.0.2.
+	$rm_src = array('tz.inc.t', 'portal.php.t');	// Remove from 3.0.2 and 3.1.0.
 	foreach ($rm_src as $f) {
 		if (file_exists($GLOBALS['DATA_DIR'] .'src/'. $f)) {
 			unlink($GLOBALS['DATA_DIR'] .'src/'. $f);
@@ -1158,7 +1158,7 @@ pf('<h2>Step 1: Admin login</h2>', true);
 	}
 
 	/* Remove obsolete DEFAULT template files. */
-	$rm_default_tmpl = array('tz.tmpl');	// Remove from 3.0.2.
+	$rm_default_tmpl = array('tz.tmpl', 'portal.tmpl');	// Remove from 3.0.2 and 3.1.0.
 	foreach ($rm_default_tmpl as $f) {
 		if (file_exists($GLOBALS['DATA_DIR'] .'thm/default/tmpl/'. $f)) {
 			unlink($GLOBALS['DATA_DIR'] .'thm/default/tmpl/'. $f);
