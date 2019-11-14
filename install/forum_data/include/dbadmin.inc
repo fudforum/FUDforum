@@ -20,13 +20,13 @@ function validate_db_version()
 
 	$dbver = db_version();	// Defined in db.inc.
 
-	if (__dbtype__ == 'mysql' && version_compare($dbver, '5.6.0', '<')) {
-		return 'MySQL version '. $dbver .' is not supported. Please upgrade to MySQL Version 5.6.0 or higher.';
+	if (__dbtype__ == 'mysql' && version_compare($dbver, '5.5.0', '<')) {
+		return 'MySQL version '. $dbver .' is not supported. Please upgrade to MySQL Version 5.5.0 or higher.';
 	} else if (__dbtype__ == 'pgsql' && version_compare($dbver, '8.1.0', '<')) {
 		return 'PostgreSQL version '. $dbver .' is not supported. Please upgrade to PgSql Version 8.1.0 or higher.';
 	} else if (__dbtype__ == 'oracle' && version_compare($dbver, '10.2.0', '<')) {
 		return 'Oracle version '. $dbver .' is not supported. Please upgrade to Oracle Version 10.2.0 or higher.';
-	} else if (__dbtype__ == 'sqlsrv' && version_compare($dbver, '10.00.00', '<')) {
+	} else if (__dbtype__ == 'sqlsrv' && version_compare($dbver, '11.00.00', '<')) {
 		return 'SQL Server version '. $dbver .' is not supported. Please upgrade to SQL Server Version 11.00.0000 or higher.';
 	}
 }
