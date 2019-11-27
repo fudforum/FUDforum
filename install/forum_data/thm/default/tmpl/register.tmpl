@@ -253,14 +253,14 @@
 	<td>
 		<table border="0" cellspacing="3" cellpadding="0">
 		 <tr class="GenText">
-			<td class="ac">{MSG: register_month}</td>
 			<td class="ac">{MSG: register_day}</td>
+			<td class="ac">{MSG: register_month}</td>
 			<td class="ac">{MSG: register_year}</td>
 		</tr>
 		<tr>
-			<td class="ac"><select name="b_month">{TEMPLATE-DATA: month_select}</select></td>
 			<td class="ac"><select name="b_day">{TEMPLATE-DATA: day_select}</select></td>
-			<td class="ac"><input type="text" name="b_year" value="{VAR: b_year}" maxlength="4" size="5" /></td>
+			<td class="ac"><select name="b_month">{TEMPLATE-DATA: month_select}</select></td>
+			<td class="ac"><input type="number" name="b_year" value="{VAR: b_year}" maxlength="4" size="5" /></td>
 			</tr>
 		</table>
 	</td>
