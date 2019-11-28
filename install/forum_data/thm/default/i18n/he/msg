@@ -259,7 +259,7 @@ pmuserloc_no_result:אין תוצאות
 register_builtin:מובנה
 register_specify_url:ציון כתובת
 register_uploaded:העלאת סמל
-register_password:ססמה:
+register_password:סיסמה:
 register_password_desc:הסיסמה של החשבון שלך. סיסמאות הן תלויות־רישיות וחייבות להיות באורך של 6 תווים לפחות.
 register_conf_pass:אימות הססמה:
 register_email_desc:כתובת הדוא"ל שלך. באפשרותך לבחור להסתיר אותה למטה, בחלק "העדפות".
@@ -345,7 +345,7 @@ coppa_fax_relation:יחס לצאצא:
 coppa_fax_telephone:טלפון:
 coppa_fax_email:כתובת דוא״ל:
 coppa_fax_date:תאריך:
-coppa_fax_passwd:ססמה
+coppa_fax_passwd:סיסמה
 coppa_fax_name:שם
 login_forgot_passwd:שכחתי את הססמה
 login_login:כניסה:
@@ -366,7 +366,7 @@ rpasswd_cur_pass:הססמה הנוכחית:
 rpasswd_new_pass:ססמה חדשה:
 rpasswd_conf_pass:אימות הססמה:
 ruser_cur_pass:הססמה הנוכחית:
-login_passwd:ססמה:
+login_passwd:סיסמה:
 reset_reset_button:איפוס ססמה
 report_subject:נושא:
 report_by:מאת:
@@ -535,7 +535,7 @@ split_th_forum:פורום:
 split_th_messages:הודעות
 split_th_select:בחירה
 report_report_post:דיווח על הודעה
-quicklogin_password:ססמה:
+quicklogin_password:סיסמה:
 quick_reply:תגובה מהירה
 quick_reply_post:פרסום תגובה מהירה
 quick_reply_preview:הצגה מקדימה של התגובה המהירה
