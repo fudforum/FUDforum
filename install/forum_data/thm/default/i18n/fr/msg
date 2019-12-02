@@ -944,13 +944,13 @@ err_mod_acc_ttl:Compte non vérifié
 err_mod_acc_msg:L’administrateur a choisi de passer en revue manuellement tous les comptes avant leur activation. Tant que votre compte n’aura pas été validé par l’administrateur, vous ne pourrez pas en utiliser toutes les capacités.
 accounts_pending_approval:Comptes en attente d’approbation
 saved:Enregistré
-register_err_time_limit:La limite de 1 inscription par période de {GVAR: REG_TIME_LIMIT} secondes a été atteinte. Veuillez patienter {PLURAL: reg_limit_reached|$1 seconde|$1 secondes} et réessayer.
-register_err_avatardimtobig:Les dimensions de l'avatar <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> excèdent la limite autorisée de <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
+register_err_time_limit:La limite de 1 inscription par période de {GVAR: REG_TIME_LIMIT} secondes a été atteinte. Veuillez patienter $1 seconde{PLURAL: reg_limit_reached||s} avant d’essayer de vous inscrire à nouveau.
+register_err_avatardimtobig:Les dimensions de l’avatar <b>({VAR: img_info[0]} × {VAR: img_info[1]})</b> excèdent la limite autorisée de <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b> pixels.
 buddy_offline:{VAR: r[2]} est actuellement déconnecté
 buddy_online:{VAR: r[2]} est actuellement connecté
 sml_no_smilies:Aucune binette disponible.
 login_unapproved_account_ttl:Compte non approuvé
-login_unapproved_account_msg:L'administrateur du forum a choisi de passer en revue chaque nouveau compte manuellement avant son activation. Votre compte n'a pas encore été confirmé, vous ne pourrez donc pas accéder à certaines fonctionnalités réservées aux membres inscrits avant que votre compte ne soit approuvé.
+login_unapproved_account_msg:L’administrateur du forum a choisi de passer en revue chaque nouveau compte manuellement avant son activation. Votre compte n’a pas encore été confirmé, vous ne pourrez donc pas accéder à certaines fonctionnalités réservées aux membres inscrits avant que votre compte ne soit approuvé.
 remove_from_buddy_list:Retirer de la liste d’amis
 iemail_msg_author:<b>Auteur :</b> {VAR: obj->alias}
 iemail_msg_subject:<b>Sujet :</b> {VAR: obj->subject}
@@ -1037,67 +1037,67 @@ ip_search_by_ip:Rechercher un utilisateur par IP
 ip_search_syntax:Syntaxes reconnues : 1.2.3.4, 1.2.3, 1.2, 1
 ip_search:Rechercher
 ip_analyze_usage:Analyser l’utilisation de cette IP
-ip_analyze_usage_descr:Veuillez spécifier le nom d'utilisateur exact.
-ip_users_using:Cet(ces) utilisateur(s) utilise(nt) l'adresse IP « {VAR: ip} »
-ip_all_ips:Toutes les IP utilisées par '{VAR: user}'
+ip_analyze_usage_descr:Veuillez spécifier le nom d’utilisateur exact.
+ip_users_using:Cet(ces) utilisateur(s) utilise(nt) l’adresse IP « {VAR: ip} »
+ip_all_ips:Toutes les IP utilisées par « {VAR: user} »
 ip_title:Navigateur IP
-userinfo_real_name:Vrai nom :
-register_err_alias_notallowed:Cet alias n'est pas autorisé.
+userinfo_real_name:Nom réel :
+register_err_alias_notallowed:Cet alias n’est pas autorisé.
 post_err_mod_forum_edit_ttl:ERREUR
-post_err_mod_forum_edit_msg:Vous ne pouvez pas éditer les messages d'un forum modéré.
-dmsg_num:message n° {VAR: obj->id}
-postcheck_session_invalid:Votre session a expiré, veuillez re-soumettre le formulaire. Désolé pour le dérangement.
-delete_message_extra_desc:<b>Optionnel</b><br />Indiquez une raison justifiant l'effacement du message. Ceci sera envoyé par message privé à l'auteur.
-delete_message_extra_body:Inclure le corps du message et l'envoyer à l'auteur.
-delete_msg_removed_ttl:Votre message a été effacé par l'équipe d'administration.
+post_err_mod_forum_edit_msg:Vous ne pouvez pas modifier les messages d’un forum modéré.
+dmsg_num:message n° {VAR: obj->id}
+postcheck_session_invalid:Votre session a expiré, veuillez soumettre à nouveau le formulaire. Désolé pour le dérangement.
+delete_message_extra_desc:<b>Facultatif</b><br /> Indiquez une raison justifiant l’effacement du message. Ceci sera envoyé par message privé à l’auteur.
+delete_message_extra_body:Inclure le corps du message supprimé qui sera envoyé à l’auteur.
+delete_msg_removed_ttl:Votre message a été effacé par le personnel d’administration.
 delete_msg_pm_body:Message original
-delete_msg_pm_subject:Sujet&nbsp;: {VAR: data[15]}
-ip_no_whois:Information Whois pour <b>{VAR: ip}</b> non disponible.
+delete_msg_pm_subject:Sujet : {VAR: data[15]}
+ip_no_whois:Informations Whois pour <b>{VAR: ip}</b> non disponibles.
 ip_whois_title:Informations sur le FAI
-register_theme:Thème :
+register_theme:Thème :
 pmsg_trash:Vider la corbeille
 uc_new_pm:Nouveaux messages privés
 uc_new_topic:Nouveau fil
-uc_new_cat_forum:Forums surveillés avec des nouveaux messages
-uc_cat_forum:Catégorie &raquo; Forum
-uc_sub_topics:Sujets surveillés avec des nouveaux messages
+uc_new_cat_forum:Forums surveillés avec de nouveaux messages
+uc_cat_forum:Catégorie › Forum
+uc_sub_topics:Sujets surveillés avec de nouveaux messages
 uc_page_title:Affichage du panneau de contrôle personnel.
 search_options:Options de recherche
-search_user_filter:Filtrer par utilisateur :
+search_user_filter:Filtrer par utilisateur :
 register_none:Ne pas me notifier
 findu_no_conf:utilisateur non confirmé
-register_max_sig_len:Longueur maximale :
-register_turing:Vérification :
-register_err_turing:Échec de la vérification. Veuillez réessayer.
+register_max_sig_len:Longueur maximale :
+register_turing:Vérification :
+register_err_turing:Échec de la vérification. Veuillez essayer à nouveau.
 modque_cat:Catégorie
 modque_forum:Forum
-idx_compact_forum_row:Forums disponibles :
-mmd_del_title:Effacement de sujets
-mmd_mov_title:Déplacement de sujets
-mmd_move_threads_to:Forum de destination :
+idx_compact_forum_row:Forums disponibles :
+mmd_del_title:Effacer des sujets
+mmd_mov_title:Déplacer des sujets
+mmd_move_threads_to:Forum de destination :
 mmd_abort_move:Annuler
-mmd_move:Déplacer les sujets
+mmd_move:Déplacer des sujets
 pmsg_pdf_btn:Constituer une archive PDF
 search_results_hdr:{VAR: total} résultats pour cette recherche
 thread_del_all:Supprimer la sélection
 thread_mov_all:Déplacer la sélection
 thread_merge_all:Fusionner la sélection
-thread_loc_all:Verrouiller / Déverrouiller la sélection
-dmsg_ip:IP :
-err_blockedaccnt_title:ERREUR : Votre compte a été filtré.
-err_blockedaccnt_msg:Votre compte ne peut pas accéder à ce forum à cause de l'un des filtres utilisateurs installés.
+thread_loc_all:Verrouiller / déverrouiller la sélection
+dmsg_ip:IP :
+err_blockedaccnt_title:ERREUR : votre compte a été filtré.
+err_blockedaccnt_msg:Votre compte ne peut pas accéder à ce forum à cause de l’un des filtres utilisateurs installés.
 merge_th_page_list:Sélection de page de sujet
-most_users_online:Le nombre maximum d'utilisateurs en ligne était de <b>{VAR: st_obj->most_online}</b> le <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
+most_users_online:Le nombre maximum d’utilisateurs en ligne était de <b>{VAR: st_obj->most_online}</b> le <b>{DATE: st_obj->most_online_time %a, %d %B %Y à %H:%M}</b>
 sub_unsub_all_forums:Cesser la surveillance de tous les forums
 sub_unsub_all_topics:Cesser la surveillance de tous les fils
-unbookmark_all_topics:Supprimez tous les favoris
+unbookmark_all_topics:Supprimer tous les favoris
 tabs_own_posts:Montrer ses propres messages
-sml_emoticon:Émoticon
+sml_emoticon:Émoticône
 sml_code:Code
-mnav_sub_only:Rechercher dans les forums surveillés seulement
-register_topics_per_page:Sujets par page :
-login_min_time:Ce forum ne permet qu'une tentative de connexion par période de {VAR: MIN_TIME_BETWEEN_LOGIN} secondes, veuillez patienter {FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)} secondes avant votre prochaine tentative.
-post_not_logged_in:Vous n'êtes pas connecté, le billet sera publié anonymement.
+mnav_sub_only:Rechercher uniquement dans les forums surveillés
+register_topics_per_page:Sujets par page :
+login_min_time:Ce forum ne permet qu’une tentative de connexion par période de {VAR: MIN_TIME_BETWEEN_LOGIN} secondes, veuillez patienter {FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)} secondes avant votre prochaine tentative.
+post_not_logged_in:Vous n’êtes pas connecté, le message sera publié anonymement.
 post_common_bold:Gras
 post_common_italics:Italique
 post_common_underline:Souligné
@@ -1105,37 +1105,37 @@ post_common_align_left:Aligné à gauche
 post_common_align_center:Centré
 post_common_align_right:Aligné à droite
 post_common_link:Insérer un lien
-post_common_link_popup:Adresse du lien :
+post_common_link_popup:Adresse du lien :
 post_common_email:Insérer une adresse de courriel
-post_common_email_popup:Adresse de courriel :
+post_common_email_popup:Adresse de courriel :
 post_common_image:Insérer une image
-post_common_image_popup:URL de l'image :
+post_common_image_popup:URL de l’image :
 post_common_nlist:Ajouter une liste numérotée
 post_common_blist:Ajouter une liste à puces
 post_common_quote:Ajouter une citation
 post_common_code:Ajouter du code
 rating_delete:Supprimer
 post_always_on_top:Faire toujours apparaître le sujet au sommet de la liste des sujets
-topic_rating:{VAR: frm->rating} de {PLURAL: frm->n_rating|$1 vote|$1 votes}
-topic_list_rating:{VAR: r[17]} de {PLURAL: r[21]|$1 vote|$1 votes}
+topic_rating:{VAR: frm->rating} sur $1 vote{PLURAL: frm->n_rating||s}
+topic_list_rating:{VAR: r[17]} sur $1 vote{PLURAL: r[21]||s}
 tabs_notifications:Notifications
 finduser_flag:Indicateur
-post_descr:Description du sujet
+post_descr:Description du sujet :
 pmsg_on:activé
-pmsg_download_dump:Téléchargez une sauvegarde des messages
-move_messages:Déplacez les messages
-move_msg_btn:Déplacez les messages sélectionnés
-move_msg_th_expl:Précisez l'identifiant du sujet de destination (peut être situé dans un autre forum)
-captcha_img_alt:Vérification par Captcha : vous devez reconnaître le texte dans cette image.
-captcha_img_help:Il n'y a pas de zéro ou de un sur cette image.
-powered-by:Propulsé par : FUDforum {GVAR: FORUM_VERSION}.
-copyright:Copyright &copy;2001-2019 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
-code_title:CODE :
+pmsg_download_dump:Télécharger un vidage des messages
+move_messages:Déplacer les messages
+move_msg_btn:Déplacer les messages sélectionnés
+move_msg_th_expl:Précisez l’identifiant du sujet de destination (peut être situé dans un autre forum)
+captcha_img_alt:Vérification par Captcha : vous devrez reconnaître le texte dans cette image.
+captcha_img_help:Il n’y a aucun zéro ou un sur cette image.
+powered-by:Propulsé par : FUDforum {GVAR: FORUM_VERSION}.
+copyright:Copyright © 2001–2019 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+code_title:Code :
 code_select_all:Tout sélectionner
-code_show_hide:Afficher / masquer
-social_sites:Site de réseaux sociaux :
-postcheck_min_len_err:Votre message est trop court. La longueur minimale est {PLURAL: post_min_len|$1 caractère|$1 caractères}.
-postcheck_dup_err:Merci de ne pas créer de sujet en doublon.
+code_show_hide:Afficher / masquer
+social_sites:Sites de réseaux sociaux :
+postcheck_min_len_err:Votre message est trop court. La longueur minimale est de $1 caractère{PLURAL: post_min_len||s}.
+postcheck_dup_err:Merci de ne créer aucun sujet en doublon.
 btn_new_topic:Nouveau sujet
 btn_new_pm:Nouveau MP
 btn_post_reply:Publier une réponse
@@ -1155,22 +1155,22 @@ feed_no_data:Aucune donnée correspondante trouvée.
 feed_rdf:flux RDF
 feed_rss:flux RSS2
 feed_atom:flux ATOM
-ip_whois_connect_err:Impossible de se connecter au serveur WHOIS ({VAR: whois_server}) : {VAR: errstr}
+ip_whois_connect_err:Impossible de se connecter au serveur WHOIS ({VAR: whois_server}) : {VAR: errstr}
 custom_filed_required:Ce champ est obligatoire.
 pages:Pages
 page_list_heading:Pages disponibles
 page_list_total:{PLURAL: i|$1 page listée|$1 pages listées}.
 page_update:Page de navigation
 pm_export_header:Messages privés pour {VAR: usr->alias}
-pm_export_footer:Exporté :
+pm_export_footer:Exporté :
 karma:Karma
-karma_track:Gérer la réputation de l'utilisateur:
+karma_track:Gérer la réputation de l’utilisateur :
 karma_delete:Supprimer
-rate_author:Ratio de l'auteur:
-blog_update:Lecture du blog du forum
-blog:Blog
+rate_author:Évaluer l’auteur :
+blog_update:Lecture du blogue du forum
+blog:Blogue
 blog_new_members:Nouveaux membres
 blog_new_posts:Publication récente
 blog_rated_posts:Les mieux notés
 blog_viewed_posts:Les plus vus
-blog_comments:{PLURAL: topic->replies|$1 commentaire|$1 commentaires}
+blog_comments:$1 commentaire{PLURAL: topic->replies||s}
