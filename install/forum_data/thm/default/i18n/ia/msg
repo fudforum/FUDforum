@@ -691,7 +691,7 @@ bookmarked_update:Folia le proprie lista de favorites
 thread_update:Percurre le foro <a href="{TEMPLATE: thread_update_lnk}">{VAR: frm->name}</a>
 tree_update:Percurre le topico (vista arborescente) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
 userinfo_update:Reguarda le profilo de <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}'s</a>
-ERR_login_msg2:<legend>ERROR: Tu non ha aperite un session</legend>Pro acceder a iste pagina tu debe esser un membro de iste foro.
+ERR_login_msg2:<legend>ERROR: Tu non ha aperite session</legend>Pro acceder a iste pagina tu debe esser membro de iste foro.
 ERR_disabled_ttl:Function non active
 ERR_disabled_msg:Iste function ha essite disactivate per le administrator del systema.
 ERR_access_ttl:ERROR: Permissiones insufficiente
