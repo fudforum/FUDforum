@@ -74,7 +74,7 @@ locked_with_new_posts:Chiuso (con messaggi non letti)
 logged_in_list:Utenti collegati
 login:Login
 login_header:Login:
-logout:Logout
+logout:Esci
 mark_all_read:Marca tutti i messaggi come letti
 mark_all_read_desc:Tutti i tuoi messaggi non letti verranno marcati come letti
 members:Membri
@@ -294,7 +294,7 @@ register_tree_msg_view:Elenco degli argomenti ad albero/Elenco messaggi piatto
 register_flat_view:Vista piatta
 use_forum_default:Usa le impostazioni standard del forum
 finduser_user_info:Informazioni utente
-finduser_by_login:Per login:
+finduser_by_login:Per accesso:
 finduser_submit:Trova
 finduser_no_such_user:Nessun utente trovato
 finduser_user:Utente
