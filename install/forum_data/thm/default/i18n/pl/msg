@@ -13,6 +13,7 @@
 # Author: Rezonansowy
 # Author: Rzuwig
 # Author: Sp5uhe
+# Author: WaldiSt
 # Author: Woytecr
 
 action:Akcja
@@ -248,8 +249,7 @@ pmsg_forwarded:przesłana
 pmsg_subject:Temat
 pmsg_author:Autor
 pmsg_time:Data
-# Fuzzy
-pmsg_selected:Wybrane
+pmsg_selected:Wybierz
 pmsg_delete:Usuń
 cur_ppage_pm:Wiadomości prywatne
 writing_pm:Pisanie prywatnej wiadomości
@@ -533,8 +533,7 @@ mklist_apply:Zatwierdź
 mklist_delete:Usuń
 qbud_nick_name:Pseudonim
 qbud_add_selected:Dodaj wybrany
-# Fuzzy
-qbud_selected:Wybrany
+qbud_selected:Wybierz
 qbud_no_buddies:Brak znajomych do wyboru
 mklist_numerical:Numeryczny
 mklist_aplha:Alfabetyczny
@@ -906,8 +905,7 @@ polllist_votes:Liczba głosów
 polllist_action:Akcja
 polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">Przeglądanie dostępnych ankiet</a>
 userinfo_polls:Ankiety:
-# Fuzzy
-show_pollist:Pokaż ankiety
+show_pollist:Ankiety
 search_and:Logiczne I (koniunkcja)
 search_or:Logiczne LUB (alternatywa)
 search_desc_order:malejącej
@@ -1126,8 +1124,7 @@ move_msg_th_expl:Określ ID tematu docelowego (może znajdować się w innym for
 captcha_img_alt:Weryfikacja captcha – musisz odczytać tekst z obrazka.
 captcha_img_help:Na zdjęciu nie występuje zero i jedynka.
 powered-by:Korzysta z oprogramowania FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:Copyright &copy;2001-2018 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Copyright &copy;2001-2019 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:KOD
 code_select_all:Wybierz wszystko
 code_show_hide:Pokaż lub ukryj
@@ -1165,3 +1162,10 @@ karma:Karma
 karma_track:Zarządzaj reputacją dla użytkownika:
 karma_delete:Usuń
 rate_author:Oceń autora:
+blog_update:Czytanie bloga na forum
+blog:Blog
+blog_new_members:Nowi członkowie
+blog_new_posts:Ostatni post
+blog_rated_posts:Najlepiej oceniany
+blog_viewed_posts:Najczęściej oglądane
+blog_comments:{PLURAL: temat->odpowiedzieć|$1 komentarz|$1 komentarze}

@@ -271,6 +271,7 @@ register_login_taken:Xora gêriya yo
 register_password:Parola:
 register_conf_pass:Parola tesdiq ke:
 register_name:Name:
+register_name_desc:Nameyê şımayo raştıkên.
 register_your_pass:Parolay Şıma:
 register_update:Rocane ke
 register_avatar_type:Tipê Avatari
@@ -466,6 +467,7 @@ poll_add_option:Weçine defi de
 post_opt_html_on:<b>HTML</b> akerde <b>yo</b>
 post_opt_fud_on:<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>BBcode</b> ê <b>akerdeyo</b></a>
 post_opt_images_on:<b>Resımi akerdeyê</b>
+register_change_passwd:parola bıvurne
 thr_exch_submit:Bırışe
 groupmgr_yes:Eya
 groupmgr_no:Nê
@@ -707,3 +709,5 @@ pm_export_footer:Êk Vetê:
 karma:Karma
 karma_track:İdariya ercen dê karberi:
 karma_delete:Bestere
+blog:Qeyd
+blog_new_members:Ezayên neweyi
