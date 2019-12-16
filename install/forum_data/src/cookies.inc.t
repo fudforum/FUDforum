@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2019 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -145,7 +145,13 @@ function ses_anon_make()
 	if (isset($_GET['rid']) && !isset($_COOKIE['frm_referer_id']) && $GLOBALS['FUD_OPT_2'] & 8192) {
 		setcookie($GLOBALS['COOKIE_NAME'] .'_referer_id', $_GET['rid'], __request_timestamp__+31536000, $GLOBALS['COOKIE_PATH'], $GLOBALS['COOKIE_DOMAIN']);
 	}
-	setcookie($GLOBALS['COOKIE_NAME'], $ses_id, __request_timestamp__+$GLOBALS['COOKIE_TIMEOUT'], $GLOBALS['COOKIE_PATH'], $GLOBALS['COOKIE_DOMAIN']);
+
+	if ($GLOBALS['FUD_OPT_3'] & 1) {        // SESSION_COOKIES
+		setcookie($GLOBALS['COOKIE_NAME'], $ses_id, 0,                                                $GLOBALS['COOKIE_PATH'], $GLOBALS['COOKIE_DOMAIN']);
+	} else {
+		setcookie($GLOBALS['COOKIE_NAME'], $ses_id, __request_timestamp__+$GLOBALS['COOKIE_TIMEOUT'], $GLOBALS['COOKIE_PATH'], $GLOBALS['COOKIE_DOMAIN']);
+	}
+
 
 	return ses_get($id);
 }
