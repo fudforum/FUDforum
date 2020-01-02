@@ -1,6 +1,7 @@
 # Messages for Turkish (Türkçe)
 # Exported from translatewiki.net
 # Author: Alpkant
+# Author: BaRaN6161 TURK
 # Author: Emperyan
 # Author: Erdemaslancan
 # Author: Gorizon
@@ -534,7 +535,7 @@ remail_anon_opt:Bu iletiyi arkadaş(lar)ınıza göndermek için e-posta istemci
 remail_done:Yapıldı
 remail_sent_conf:{VAR: data->subject} konulu e-posta, {VAR-HTML: _POST['femail']} adresli arkadaşınıza başarıyla gönderildi.
 remail_error:Bir hata oluştu
-mklist_type:Tipi:
+mklist_type:Tür:
 mklist_option:Seçenek:
 mklist_additem:Eleman Ekle
 mklist_apply:Uygula
