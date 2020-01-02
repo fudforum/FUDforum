@@ -2,7 +2,7 @@
 exit('<h2>To run the uninstaller, comment out the 2nd line of this script!</h2>');
 
 /***************************************************************************
-* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2020 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -135,6 +135,7 @@ function seterr($msg)
 			}
 		}
 
+		pf();
 		if (!file_exists($INCLUDE .'fs.inc')) {
 			pf('Unable to load fs.inc (file functions).');
 			pf('Files and directories will not be deleted!');
@@ -161,6 +162,7 @@ function seterr($msg)
 			}
 		}
 
+		pf();
 		pf('FUDforum was successfully uninstalled!');
 		seterr('Sorry to see you go. If there is anything we can do to help, please let us know on the support forum at <a href="http://fudforum.org/">fudforum.org</a>.');
 	}

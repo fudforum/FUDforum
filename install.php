@@ -1,6 +1,6 @@
 <?php
 /***************************************************************************
-* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2020 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -298,7 +298,7 @@ table.maintable {
 	-moz-border-radius: 0.75em;
 	-webkit-border-radius: 0.75em;
 	border-radius: 0.75em;
-	width: 100%
+	width: 95%;
 	-webkit-box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
 	-moz-box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
 	box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
@@ -853,7 +853,14 @@ if ($section == 'db' || php_sapi_name() == 'cli') {
 
 	/* Check SQL permissions. */
 	if (!isset($GLOBALS['errors'])) {
-		drop_table('fud_forum_install_test_table', true);
+		try {
+			drop_table('fud_forum_install_test_table', true);
+		} catch (Exception $e) {
+			// This is wehere we get errors like "No database selected".
+			seterr('DBHOST_DBNAME', $e->getMessage());
+		}
+	}
+	if (!isset($GLOBALS['errors'])) {
 		try {
 			create_table('CREATE TABLE fud_forum_install_test_table (test_val INT)');
 		} catch (Exception $e) {
@@ -1151,9 +1158,6 @@ switch ($section) {
 		if (fud_ini_get('register_globals')) {
 			prereq_row('Register Globals:', 'For performance &amp; security reasons we recommend keeping this option OFF.', 'enabled', 'orange');
 		}
-		if (get_magic_quotes_gpc()) {
-			prereq_row('Magic quotes gpc:', 'For performance reasons we recommend keeping this option OFF.', 'enabled', 'orange');
-		}
 		prereq_row('MBsting Exension:', 'The Multibyte String extention provides UTF-8 support (required).', 
 			($module_status['mbstring'] ? 'enabled' : 'disabled'), ($module_status['mbstring'] ? 'green' : 'red'));
 		prereq_row('PCRE Extension:', 'Perl Compatible Regular Expression (required).', 
@@ -1208,6 +1212,7 @@ switch ($section) {
 			if( $_SERVER['SERVER_PORT'] != 80 ) $WWW_ROOT .= ':'. $_SERVER['SERVER_PORT'];
 			if (($d = dirname($_SERVER['SCRIPT_NAME']))) {
 				$WWW_ROOT .= dirname(((strpos($_SERVER['SCRIPT_NAME'], basename(__FILE__)) !== false) ? $_SERVER['SCRIPT_NAME'] : $_SERVER['REQUEST_URI']));
+				$d = str_replace('\\', '/', $d);
 				if ($d != '/') {
 					$WWW_ROOT .= '/';
 				}
@@ -1279,10 +1284,10 @@ switch ($section) {
 		}
 
 		if (count($db_types) > 1 || !isset($db_types['pdo_sqlite'])) { // If only DB is sqlite, don't show non-relavent settings.
-			input_row('Host', 'DBHOST', $DBHOST, 'The IP address (or unix domain socket) of the database server.');
-			input_row('User', 'DBHOST_USER', $DBHOST_USER, 'The database user name.');
+			input_row('Host', 'DBHOST', $DBHOST, 'The IP address (or unix domain socket) of the database server.', null, 'required');
+			input_row('User', 'DBHOST_USER', $DBHOST_USER, 'The database user name.', null, 'required');
 			input_row('Password', 'DBHOST_PASSWORD', $DBHOST_PASSWORD, 'The password for the above user name.', 'password');
-			input_row('Database', 'DBHOST_DBNAME', $DBHOST_DBNAME, 'The database name.');
+			input_row('Database', 'DBHOST_DBNAME', $DBHOST_DBNAME, 'The database name.', null, 'required');
 		} else {
 			echo '<input type="hidden" name="DBHOST" value="" />
 			      <input type="hidden" name="DBHOST_USER" value="" />

@@ -1,6 +1,6 @@
 <?php
 /***************************************************************************
-* copyright            : (C) 2001-2019 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2020 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -664,11 +664,6 @@ function syncronize_theme($theme)
 		$_POST['passwd'] = $_SERVER['argv'][2];
 	}
 	if (count($_POST)) {
-		if (get_magic_quotes_gpc()) {
-			$_POST['login']  = stripslashes($_POST['login']);
-			$_POST['passwd'] = stripslashes($_POST['passwd']);
-		}
-
 		// Authenticate user & password against the database.
 		try {
 			// Try with password 'salt' - introduced in 3.0.1.
@@ -705,16 +700,22 @@ pf('<h2>Step 1: Admin login</h2>', true);
 	<td><label for="passwd"><b>Password:</b><br /><small>Your forum's admin password.<small></label></td>
 	<td><input type="password" id="passwd" name="passwd" value="" /></td>
 </tr>
+<tr class="fieldaction">
+	<td align="right" colspan="2"><input type="submit" class="button" name="submit" value="Login" /></td>
+</tr>
+<tr class="fieldaction">
+   <td colspan="2"><br />Advanced settings:</td>
+</tr>
+<tr class="fieldaction">
+   <td colspan="2"><br /></td>
+</tr>
 <tr class="field">
-	<td><label for="custom_tmpl" title="If unsure, leave unchecked!"><b>Update custom template sets?</b><br /><small>Leave unchecked to preserve custom styling. FUDforum will not update custom template sets and you will have to do it manually! If checked, the upgrade may overwrite custom themes.</small></label></td>
+	<td><label for="custom_tmpl" title="If unsure, leave unchecked!"><b>Update custom template sets?</b><br /><small>Leave unchecked to preserve custom styling. FUDforum will not update custom template sets and you may have to do it manually! If checked, the upgrade may <u>overwrite</u> and <u>destroy</u> custom themes.</small></label></td>
 	<td><input type="checkbox" id="custom_tmpl" name="custom_tmpl" value="1" /></td>
 </tr>
 <tr class="field">
-	<td><label for="custom_sql" title="If unsure, leave unchecked!"><b>Skip database changes?</b><br /><small>Check if you've modified FUDforum's SQL structure. You will have to apply the SQL changes yourself! Unless you know what you're doing, you should leave this unchecked!</small></label></td>
+	<td><label for="custom_sql" title="If unsure, leave unchecked!"><b>Skip database changes?</b><br /><small>Check if you've modified FUDforum's SQL structure. You will have to apply the SQL changes yourself! Unless you know what you're doing, you should <u>leave this unchecked</u>!</small></label></td>
 	<td><input type="checkbox" id="custom_sql" name="custom_sql" value="1" /></td>
-</tr>
-<tr class="fieldaction">
-	<td align="right" colspan="2"><input type="submit" class="button" name="submit" value="Login" /></td>
 </tr>
 </table>
 </form>
