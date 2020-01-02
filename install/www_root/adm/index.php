@@ -40,17 +40,13 @@
 	/* Check for files that should be removed. */
 	if (@file_exists($WWW_ROOT_DISK .'install.php')) {
 		echo '<div class="alert dismiss" title="'. $WWW_ROOT_DISK .'install.php">Please <a href="../install.php">run</a> or <a href="admbrowse.php?cur='. urlencode($WWW_ROOT_DISK) .'&amp;'. __adm_rsid .'#flagged">delete</a> the <em>install</em> script before a hacker discovers it.<br /></div>';
-	}
-	if (@file_exists($WWW_ROOT_DISK .'uninstall.php')) {
+	} elseif (@file_exists($WWW_ROOT_DISK .'uninstall.php')) {
 		echo '<div class="alert dismiss" title="'. $WWW_ROOT_DISK .'uninstall.php">Please <a href="../uninstall.php">run</a> or <a href="admbrowse.php?cur='. urlencode($WWW_ROOT_DISK) .'&amp;'. __adm_rsid .'#flagged">delete</a> the <em>uninstall</em> script before a hacker discovers it.<br /></div>';
-	}
-	if (@file_exists($WWW_ROOT_DISK .'upgrade.php')) {
+	} elseif (@file_exists($WWW_ROOT_DISK .'upgrade.php')) {
 		echo '<div class="alert dismiss" title="'. $WWW_ROOT_DISK .'upgrade.php">Please <a href="../upgrade.php">run</a> or <a href="admbrowse.php?cur='. urlencode($WWW_ROOT_DISK) .'&amp;'. __adm_rsid .'#flagged">delete</a> the <em>upgrade</em> script before a hacker discovers it.<br /></div>';
-	}
-	if (@file_exists($WWW_ROOT_DISK .'unprotect.php')) {
+	} elseif  (@file_exists($WWW_ROOT_DISK .'unprotect.php')) {
 		echo '<div class="alert dismiss" title="'. $WWW_ROOT_DISK .'unprotect.php">Please <a href="admbrowse.php?cur='. urlencode($WWW_ROOT_DISK) .'&amp;'. __adm_rsid .'#flagged">delete</a> the <em>unprotect</em> script before a hacker discovers it.<br /></div>';
-	}
-	if (@file_exists($WWW_ROOT_DISK .'fudforum_archive')) {
+	} elseif (@file_exists($WWW_ROOT_DISK .'fudforum_archive')) {
 		echo '<div class="alert dismiss" title="'. $WWW_ROOT_DISK .'forum_archive">You should <a href="admbrowse.php?cur='. urlencode($WWW_ROOT_DISK) .'&amp;'. __adm_rsid .'#flagged">delete</a> the <em>fudforum_archive</em> when you are done installing/upgrading your forum.<br /></div>';
 	}
 
