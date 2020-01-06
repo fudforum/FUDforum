@@ -256,7 +256,7 @@ folder:Klasör:
 pmsg_replied:yanıtlandı
 pmsg_forwarded:yönlendirildi
 pmsg_subject:Konu
-pmsg_author:Gönderen
+pmsg_author:Yazar
 pmsg_time:Tarih
 pmsg_selected:Seç
 pmsg_delete:Sil
@@ -469,7 +469,7 @@ coppa_fax_telephone:Telefon:
 coppa_fax_email:E-posta adresi:
 coppa_fax_date:Tarih:
 coppa_fax_questions:Sorularınız için <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> iletişime geçin
-coppa_fax_login:Kullanıcı ismi
+coppa_fax_login:Oturum aç
 coppa_fax_passwd:Parola
 coppa_fax_remail:E-posta
 coppa_fax_name:İsim
@@ -480,7 +480,7 @@ login_want_to_register:Kayıt olmak istiyorum
 login_forgot_passwd:Parolamı unuttum
 login_use_cookie:Çerez kullan<br /><span class="SmallText">Eğer kütüphane, okul, veya İnternet kafe gibi herkese açık bir bilgisayar kullanarak bağlanıyorsanız, güvenlik açısından bu seçeneği kaldırmanız önerilir.<br />Bu seçeneği açık bırakırsanız tarayıcınız sonraki ziyarette foruma otomatik olarak giriş yapacak. </p>
 login_login:Kullanıcı ismi
-login_login_btn:Giriş yap
+login_login_btn:Oturum aç
 login_name_required:Lütfen kullanıcı isminizi belirtin
 login_passwd_required:Lütfen parolanızı belirtin
 login_invalid_radius:Geçersiz kullanıcı ismi veya parola
