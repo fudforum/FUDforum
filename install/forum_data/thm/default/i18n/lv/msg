@@ -440,7 +440,7 @@ coppa_fax_remail:E-pasts
 login_not_logedin:Jūs neiekļuvāt forumā. Par iemeslu tam var būt sekojoši apstākļi:
 login_cookie_expired:Jūsu Web pārlūka cookie darbības laiks ir beidzies, lai to atjaunotu vēlreiz ielogojieties.
 login_perm_denied:Jums nav tiesību piekļūt pieprasītajiem resursiem kā anonīmajam lietotājam, tādēļ ienāciet ar reālu foruma dalībnieka Niku un Paroli.
-login_want_to_register:Vēlaties piereģistrēties?
+login_want_to_register:Vēlaties reģistrēties?
 login_forgot_passwd:Esmu aizmirsis paroli.
 # Fuzzy
 login_use_cookie:Izmantot cookies<br /><font class="SmallText">Gadījumos ja strādājat no publiskajām darbstacijām, skolas, interneta kafejnīcas, vai citiem publiskajiem termināliem, drošības apsvērumu pēc ieteicams šo opciju atslēgt.<br />Atstājot cookies ieslēgtus, nākošais savienojums automātiski atvērs forumu bez nika un parojes ievadīšanas.
