@@ -818,7 +818,7 @@ userinfo_referals_count:{VAR: referals} Üyeler
 pm_no_space_title:Yer kalmadı!
 pm_no_space_msg:Özel ileti klasörünüz izin verilen sınırı geçmiş durumda. İzin verilen sınır: <b>{GVAR: MAX_PMSG_FLDR_SIZE} bytes</b>. İletilerinizin toplam boyutu: <b>{VAR: fldr_size} bytes</b>.<br /><br /><font class="ErrorText">Yer boşaltmak için eski iletilerinizden bir kısmını silmelisiniz</font>.
 pm_space_indct_msg:Özel ileti klasörleriniz % {VAR: percent_full} dolu.
-th_expr_never:Hiçbir zaman
+th_expr_never:Asla
 th_expr_one_hr:1 Saat
 th_expr_three_hr:3 Saat
 th_expr_four_hr:4 Saat
