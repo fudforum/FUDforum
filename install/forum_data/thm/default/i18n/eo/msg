@@ -469,7 +469,7 @@ login_login:Ensaluti:
 login_login_btn:Ensaluti
 login_name_required:Elsalutado estas deviga
 login_passwd_required:Pasvorto estas deviga
-login_invalid_radius:Malvalida kombinaĵo de salutnomo/pasvorto
+login_invalid_radius:Nevalida kombinaĵo de uzantnomo/pasvorto
 reset_confirmation:Dankon por registrado.\n\nPor aktivigi vian konton, bonvolu iru al la jena URL-o:\n\n{VAR: url}\n\nPost via konto estas aktivigita, vi estos ensalutita en la forumo kaj alidirektita al la ĉefa paĝo.
 reset_reset:Saluton,\n\nVi petis por via pasvorto esti restarigita. Por plenumi la procezon, bonvolu iri al ĉi tiu URL:\n\n{VAR: url}\n\nNOTU: Ĉi tiu forumo konservas la pasvortojn en unu-direkta ĉifra mekanismo, kiu signifas ke post vi enigis vian pasvorton, ĝi estas ĉifrita tiel ne eblos reatingi ĝin. Ĉi tiu funkcias per komparante la ĉifritan registritan version kun la ĉifrita versio entajpita ĉe la ensaluta invito.\n(Se vi estas interesa kiel ĉi tiu mekanismo funkcias, prilegu pri MD5 HASH algoritmo)
 rpasswd_invalid_passwd:Malvalida Pasvorto
@@ -485,9 +485,9 @@ rpasswd_cur_pass:Nuna Pasvorto:
 rpasswd_new_pass:Nova Pasvorto:
 rpasswd_conf_pass:Konfirmu Pasvorton:
 ruser_title:Formularo pri uzanto
-ruser_change_user:Ŝanĝi la uzantonomon
-ruser_cur_login:Nuna uzantonomo:
-ruser_new_login:Nova uzantonomo:
+ruser_change_user:Ŝanĝi la uzantnomon
+ruser_cur_login:Nuna uzantnomo:
+ruser_new_login:Nova uzantnomo:
 ruser_cur_pass:Nuna pasvorto:
 login_passwd:Pasvorto:
 reset_email:Retadreso:
@@ -735,7 +735,7 @@ post_opt_images_off:<b>Bildoj</b> estas <b>malŝalta</b>
 post_opt_smilies_off:<b>Miensimboloj</b> estas <b>malŝaltaj</b>
 post_opt:Forumaj Agordoj:
 register_change_passwd:ŝanĝi pasvorton
-register_change_login:Ŝanĝi uzantonomon
+register_change_login:ŝanĝi la uzantnomon
 approved_avatar_title:Via memprovizita avataro estis aprobita.
 approved_avatar_msg:Via avataro estis aprobita de la administranto. Ĝi nun aperos kiel avataro en ĉiuj viaj mesaĝoj. Se vi ne vidas ĝin, aŭ vidas vian malnovan avataron, tiel via retumilo havas malfreŝan informon en kaŝmemoro. Refreŝigu la paĝon unu aŭ du fojojn. Plej ofte ĉi tiel solvos la kaŝmemoran problemon.
 unapproved_avatar_title:Via memprovizita avataro estis malaprobita.
