@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2020 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -153,11 +153,11 @@
 		while ($r = db_rowarr($c)) {
 			if ($oldc != $r[2]) {
 				foreach ($cat_cache as $k => $i) {
-					$table_data .= '{TEMPLATE: cat_entry}';
 					if ($k == $r[2]) {
 						break;
 					}
 				}
+				$table_data .= '{TEMPLATE: cat_entry}';
 				$oldc = $r[2];
 			}
 
