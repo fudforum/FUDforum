@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2019 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2020 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -20,7 +20,8 @@ function get_preview_img($id)
 /* main */
 	if (!isset($_GET['id']) || !($id = (int)$_GET['id'])) {
 		// Previously: invl_inp_err();
-		header('HTTP/1.0 400 Bad Request');
+		header('HTTP/1.0 400 Bad Request', true, 400);
+		echo 'Bad Request';
 		exit;
 	}
 	if (empty($_GET['private'])) { /* Non-private upload. */
@@ -38,12 +39,14 @@ function get_preview_img($id)
 		if (!$r) {
 			if (!($r = get_preview_img($id))) {
 				// Previously: invl_inp_err();
-				header('HTTP/1.0 404 Not Found');
+				header('HTTP/1.0 404 Not Found', true, 404);
+				echo 'Not Found';
 				exit;
 			}
 		} else if (!$is_a && !$r[4] && !$r[5]) {
 			// Previously: std_error('access');
-			header('HTTP/1.0 401 Unauthorized');
+			header('HTTP/1.0 401 Unauthorized', true, 401);
+			echo 'Unauthorized';
 			exit;
 		}
 	} else {
@@ -55,20 +58,23 @@ function get_preview_img($id)
 		if (!$r) {
 			if (!($r = get_preview_img($id))) {
 				// Previously: invl_inp_err();
-				header('HTTP/1.0 404 Not Found');
+				header('HTTP/1.0 404 Not Found', true, 404);
+				echo 'Not Found';
 				exit;
 			}
 		} else if (!$is_a && $r[4] != _uid) {
 			// Previously: std_error('access');
-			header('HTTP/1.0 401 Unauthorized');
+			header('HTTP/1.0 401 Unauthorized', true, 401);
+			echo 'Unauthorized';
 			exit;
 		}
 	}
 
 	// DWLND_REF_CHK
-	$WWW_ROOT = preg_replace('#^https?:\/\/|www\.#', '', $WWW_ROOT);	// Remove www & http/https before referer checking.
+	$WWW_ROOT = preg_replace('#^\/\/|^https?:\/\/|www\.#', '', $WWW_ROOT);	// Remove www, \\ and http/https before referer checking.
 	if ($FUD_OPT_2 & 4194304 && !empty($_SERVER['HTTP_REFERER']) && strpos($_SERVER['HTTP_REFERER'], $WWW_ROOT) === false) {
-		header('HTTP/1.0 403 Forbidden');
+		header('HTTP/1.0 403 Forbidden', true, 403);
+		echo 'Forbidden - bad referer';
 		exit;
 	}
 
