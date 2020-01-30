@@ -52,7 +52,7 @@ homepage:Hejmpaĝo
 icq_control_panel:ICQ Retmesaĝa Panelo
 icq_message_form:ICQ Mesaĝa Formularo:
 ignore_user:ignori ĉiujn mesaĝoj de ĉi tiu uzanto
-im_aim:AIM-Salutnomo:
+im_aim:AIM-uzantnomo:
 im_msnm:MSN-Ekmesaĝilo
 im_yahoo:Yahoo-Ekmesaĝilo
 image:Bildo:
@@ -291,7 +291,7 @@ register_tree_msg_view:Arbeca listado de fadenoj/Plata listado de mesaĝoj
 register_flat_view:Plata listado de mesaĝoj kaj fadenoj
 use_forum_default:Uzi foruman defaŭltaĵon
 finduser_user_info:Informo pri Uzanto
-finduser_by_login:Laŭ Salutnomo
+finduser_by_login:Laŭ uzantnomo:
 finduser_submit:Serĉi
 finduser_no_such_user:Nenia Uzanto
 finduser_user:Uzanto
@@ -310,7 +310,7 @@ pmuserloc_no_result:Neniu Rezulto
 register_builtin:Integrita
 register_specify_url:Specifigi URL-on
 register_uploaded:Alŝuti vizaĝbildon
-register_login:Salutnomo:
+register_login:Uzantnomo:
 register_login_desc:La nomo per kiu vi volas ensaluti kaj koniĝi ĉe ĉi tiu retejo.
 register_login_available:Disponebla
 register_login_taken:Jam prenita
@@ -341,7 +341,7 @@ register_occupation:Laboro:
 register_interests:Interesoj:
 register_image:Bildo:
 register_icq:ICQ:
-register_aim:AIM Salutnomo:
+register_aim:AIM-uzantnomo:
 register_yahoo:Yahoo-Ekmesaĝilo:
 register_msnm:MSN-Ekmesaĝilo:
 register_homepage:Hejmpaĝo:
@@ -379,7 +379,7 @@ buddy_status:Statuso
 my_buddies:Miaj Amikoj
 add_buddy:Aldoni Amikon
 add:Aldoni
-buddy_search:Enigi la salutnomo de la uzanto kiun vi volas aldoni.
+buddy_search:Enigi la uzantnomo de la uzanto kiun vi volas aldoni.
 member_search:Aŭ uzu la trajton <a href="javascript://" onclick="javascript: window_open('{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Trovi Uzanton</a> por trovi iun.
 buddy_remove:forigi
 post_normal:Norma
@@ -660,8 +660,8 @@ postcheck_email_body:Vi ne povas sendi retpoŝton sen la mesaĝa korpo.
 private_msg_notify_subj:Lega Sciigo Por: {VAR: m->subject}
 private_msg_notify_body:Saluton,<br />{VAR: usr->login} malfermis vian privatan mesaĝon titolita,  "{VAR: m->subject}".<br />Ĉi tiu estas aŭtomata sciigo generita je {TEMPLATE: private_msg_notify_body_date}<br />
 referals_update:Tralegante referencojn
-register_err_short_login:La Salutnomo kiun vi elektis estas tro mallonga. Longo de salutnomo devas esti minimume 2 skribsignoj.
-register_err_login_notallowed:Ĉi tiu salutnomo ne estas permesita.
+register_err_short_login:La uzantnomo kiun vi elektis estas tro mallonga. Longo de uzantnomo devas esti minimume 2 skribsignoj.
+register_err_login_notallowed:Ĉi tiu uzantnomo ne estas permesita.
 register_err_loginunique:Forumaj salutnomoj devas esti unikaj. Jam estas uzanto kun ĉi tiu nomo.
 register_err_emailexists:Ĉi tiu retadreso jam ligita kun konto. Se vi forgesis vian pasvorto, bonvolu uzi la opcion Restarigi, anstataŭ reregistradon.
 register_err_shortpasswd:Pasvortoj devas esti almenaŭ 6 signoj longaj.
@@ -676,7 +676,7 @@ register_err_avatarnotallowed:La avatro kiun vi provas alŝuti ne estas permesit
 register_conf_subject:Konfirmado de Registrado
 register_conf_msg:Dankon por via registrado.\nAktivigi vian konton bonvolu iru al la jenan URL-on:\n\n{FULL_ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nPost via konoto estas aktiva vi estos ensalutita en la forumo kaj alidirektita al la ĉefa paĝo.
 register_welcome_subject:Konfirmado de Foruma Registrado
-register_welcome_msg:Dankon por via registriĝo.\n\nJen viaj ensalutaj detaloj pri la forumo:\n\nForuma retadreso: {TEMPLATE: index_update_lnk}\nSalutnomo: {VAR: uent->login}\nPasvorto: {VAR: _POST['reg_plaintext_passwd']}\n\nBonvolu noti ke pasvorta uskleco gravas!\nVi povas agordi vian profilon ĉe la jena paĝo:\n{FULL_ROOT}?t=register
+register_welcome_msg:Dankon por via registriĝo.\n\nJen viaj ensalutaj detaloj pri la forumo:\n\nForuma retadreso: {TEMPLATE: index_update_lnk}\nUzantnomo: {VAR: uent->login}\nPasvorto: {VAR: _POST['reg_plaintext_passwd']}\n\nBonvolu noti ke pasvorta uskleco gravas!\nVi povas agordi vian profilon ĉe la jena paĝo:\n{FULL_ROOT}?t=register
 register_err_cantreg_title:ERARO: ne eblas registri
 regsiter_err_cantreg_msg:Ne eblas krei uzanto-konto; bonvolu kontakti la administranto ĉe <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:Rigardante propran profilon
@@ -688,7 +688,7 @@ reset_err_invalidkey_msg:Nevalida pasvorto restariga ŝlosilo. Eblas ke via retp
 reset_err_rstconf_title:Informo
 reset_err_rstconf_msg:Vi ricevos instruojn en via retpoŝtkesto dum la sekvaj kelkaj minutoj.
 reset_newpass_title:Restarigi Pasvorton
-reset_newpass_msg:Saluton,\n\nTiel petita, jen via salutinformo: \n\nSalutnomo: {VAR: ui[1]}\nPasvorto: {VAR: passwd}\n\nBonvolu noti ke via pasvorto estis restarigita al la valoro supre. Se vi volas\nŝanĝi vian pasvorton, vi povas fari tiel per la uzanto-kontrolilo ĉe: \n{FULL_ROOT}?t=register
+reset_newpass_msg:Saluton,\n\nTiel petita, jen viaj salutinformoj:\n\nUzantnomo: {VAR: ui[1]}\nPasvorto: {VAR: passwd}\n\nBonvolu noti ke via pasvorto estis restarigita al la valoro supre. Se vi volas\nŝanĝi vian pasvorton, vi povas fari tiel per la uzanto-kontrolilo ĉe: \n{FULL_ROOT}?t=register
 reset_login_notify:Via pasvorto estis retpoŝtita al vi. Vi ricevos ĝin post kelkaj minutoj.
 search_update:Serĉante mesaĝojn
 selmsg_update:Tralegante <a href="{TEMPLATE: selmsg_update_lnk}">Afiŝoj de Hodiaŭ</a>
@@ -756,7 +756,7 @@ thr_exch_submit:Sendi
 exch_decline_ttl:Movado de fadeno {VAR: data->subject} en forumo {VAR: data->f2_name} estis malaprobita.
 ppost_original_msg:mesaĝo kiun vi plusendas aŭ respondas
 split_thread:Dividita Fadeno
-groupmgr_no_user:Estas neniu uzanto kun salutnomo "{FUNC: char_fix(htmlspecialchars($gr_member))}"
+groupmgr_no_user:Estas neniu uzanto kun uzantnomo "{FUNC: char_fix(htmlspecialchars($gr_member))}"
 groupmgr_already_exists:Uzanto "{FUNC: char_fix(htmlspecialchars($gr_member))}" jam ekzistas en ĉi tiu grupo.
 groupmgr_yes:Jes
 groupmgr_no:Ne
@@ -842,7 +842,7 @@ split_th_split_unsel:Dividi malelektitajn mesaĝojn
 split_th_messages:Mesaĝoj
 split_th_select:Elekti
 report_report_post:Raporti Mesaĝon
-quicklogin_login:Salutnomo:
+quicklogin_login:Uzantnomo:
 quicklogin_password:Pasvorto:
 quicklogin_use_cookies:Ĉu uzi kuketojn?
 quicklogin_login_btn:Ensaluti
@@ -861,10 +861,10 @@ register_err_toomanyimages:Vi provas uzi pli ol la permesitajn {GVAR: FORUM_IMG_
 pmsg_next_msg:Posta mesaĝo
 pmsg_prev_msg:Antaŭa mesaĝo
 post_proc_reveal_spoiler:Baskuligi Kaŝilon
-register_jabber:Jabber-Salutnomo:
-register_skype:Skype-Salutnomo:
-register_twitter:Twitter-Salutnomo:
-register_google:Salutnomo de Google Babililo:
+register_jabber:Jabber-uzantnomo:
+register_skype:Skype-uzantnomo:
+register_twitter:Twitter-uzantnomo:
+register_google:Uzantnomo de Google Chat/IM:
 im_jabber:Jabber:
 im_google:Google Talk:
 im_skype:Skype:
@@ -887,7 +887,7 @@ register_err_not_valid_img:La specifigita URL ne enhavas validan bildon.
 pmsg_recepient:Ricevanto
 register_err_taken_alias:La kromnomo kiun vi provas uzi jam estas uzata de alia forumano. Bonvolu elekti alian.
 register_alias:Kromnomo:
-register_alias_desc:Se vi volas kromnomon alia ol via salutnomo esti montrita en la forumo, enigi ĝin ĉi tien:
+register_alias_desc:Se vi volas kromnomon alia ol via uzantnomo esti montrita en la forumo, enigi ĝin ĉi tien:
 register_allow_pm_msg:Permesigi Privatajn Mesaĝojn:
 register_allow_pm_msg_desc:Permesigi al aliaj uzantoj sendi al vi privatajn mesaĝojn en ĉi tiu forumo.
 postcheck_pm_disabled:Vi ne povas sendi privatan mesaĝon al "{VAR-HTML: v}", ĉar ĉi tiu persono ne akceptas privatajn mesaĝojn.
