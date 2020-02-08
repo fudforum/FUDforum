@@ -1,4 +1,4 @@
-#   copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+#   copyright            : (C) 2001-2020 Advanced Internet Designs Inc.
 #   email                : forum@prohost.org
 #
 #   $Id$
@@ -16,7 +16,9 @@ CREATE TABLE {SQL_TABLE_PREFIX}search_cache
 	expiry		INT NOT NULL DEFAULT 0,
 	msg_id		INT NOT NULL DEFAULT 0,
 	n_match		INT NOT NULL DEFAULT 0,
+	score		INT NOT NULL DEFAULT 0,
 	PRIMARY KEY (srch_query, query_type, msg_id)
 );
 
 CREATE INDEX {SQL_TABLE_PREFIX}search_cache_i_e ON {SQL_TABLE_PREFIX}search_cache (expiry);
+CREATE INDEX {SQL_TABLE_PREFIX}search_cache_i_qtn ON fud30_search_cache (srch_query, query_type, n_match);

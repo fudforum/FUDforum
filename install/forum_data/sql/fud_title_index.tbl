@@ -1,4 +1,4 @@
-#   copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+#   copyright            : (C) 2001-2020 Advanced Internet Designs Inc.
 #   email                : forum@prohost.org
 #
 #   $Id$
@@ -13,6 +13,7 @@ CREATE TABLE {SQL_TABLE_PREFIX}title_index
 (
 	word_id		INT NOT NULL DEFAULT 0,
 	msg_id		INT NOT NULL DEFAULT 0,
+	frequency 	INT NOT NULL DEFAULT 0,
 	PRIMARY KEY (word_id, msg_id)
 );
 

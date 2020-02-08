@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: db.inc 5331 2011-07-30 07:01:04Z naudefj $
+* $Id$
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
