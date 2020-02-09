@@ -128,7 +128,7 @@ While it is running, your forum will be disabled!
 
 	if ($FUD_OPT_1 & 1) {
 		draw_stat('Disabling the forum for the duration of maintenance run.');
-		maintenance_status('Undergoing maintenance, please come back later.', 1);
+		maintenance_status(1);
 	}
 
 	if (isset($_GET['opt'])) {
@@ -138,7 +138,7 @@ While it is running, your forum will be disabled!
 
 		if ($FUD_OPT_1 & 1 || isset($_GET['enable_forum'])) {
 			draw_stat('Re-enabling the forum.');
-			maintenance_status($DISABLED_REASON, 0);
+			maintenance_status(0);
 			pf('<br /><div class="tutor">Database tables were successfully optimized.</div>');
 		} else {
 			pf('<br/><div class="tutor">Your forum is currently disabled, to re-enable it go to the <a href="admglobal.php?'. __adm_rsid .'">Global Settings Manager</a> and re-enable it.</div>');
@@ -861,7 +861,7 @@ While it is running, your forum will be disabled!
 
 	if ($FUD_OPT_1 & 1 || isset($_GET['enable_forum'])) {
 		draw_stat('Re-enabling the forum.');
-		maintenance_status($DISABLED_REASON, 0);
+		maintenance_status(0);
 	} else {
 		pf('<font size="+1" color="red">Your forum is currently disabled, to re-enable it go to the <a href="admglobal.php?'.__adm_rsid.'">Global Settings Manager</a> and re-enable it.</font>');
 	}

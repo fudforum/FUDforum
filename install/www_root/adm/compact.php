@@ -169,7 +169,7 @@ function write_body_copy($data, &$len, &$offset, $file_id, $forum_id)
 
 	if ($FUD_OPT_1 & 1) {
 		pf('Disabling the forum for the duration of maintenance run.');
-		maintenance_status('Undergoing maintenance, please come back later.', 1);
+		maintenance_status(1);
 	}
 
 	pf('Please wait while we rebuild the forum\'s messages. This may take a while depending on the size of your forum.');
@@ -367,7 +367,7 @@ function write_body_copy($data, &$len, &$offset, $file_id, $forum_id)
 
 	if ($FUD_OPT_1 & 1) {
 		pf('Re-enabling the forum.');
-		maintenance_status($DISABLED_REASON, 0);
+		maintenance_status(0);
 	} else {
 		echo '<br /><font size="+1" color="red">Your forum is currently disabled, to re-enable it go to the <a href="admglobal.php?'. __adm_rsid .'">Global Settings Manager</a> and re-enable it.</font>';
 	}

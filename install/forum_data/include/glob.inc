@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2019 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2020 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -166,16 +166,20 @@ function change_global_settings($list)
 }
 
 /** Enable (status=1) or disable (status=0) maintenace mode. */
-function maintenance_status($reason, $status)
+function maintenance_status($status, $reason=null)
 {
 	if ($status) {
 		if ($GLOBALS['FUD_OPT_1'] & 1) {
-			change_global_settings(array('FUD_OPT_1' => $GLOBALS['FUD_OPT_1'] ^1, 'DISABLED_REASON' => $reason));
+			change_global_settings(array('FUD_OPT_1' => $GLOBALS['FUD_OPT_1'] ^1));
 		} else {
-			change_global_settings(array('FUD_OPT_1' => $GLOBALS['FUD_OPT_1'], 'DISABLED_REASON' => $reason));
+			change_global_settings(array('FUD_OPT_1' => $GLOBALS['FUD_OPT_1']));
 		}
 	} else {
-		change_global_settings(array('FUD_OPT_1' => $GLOBALS['FUD_OPT_1']|1, 'DISABLED_REASON' => $reason));
+		change_global_settings(array('FUD_OPT_1' => $GLOBALS['FUD_OPT_1']|1));
+	}
+
+	if (!empty($reason)) {
+		change_global_settings(array('DISABLED_REASON' => $reason));
 	}
 }
 
