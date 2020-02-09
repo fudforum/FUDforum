@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2019 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2020 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -9,67 +9,94 @@
 * Free Software Foundation; version 2 of the License.
 **/
 
-function text_to_worda($text)
-{
-	$a = array();
-	$text = strtolower(strip_tags(reverse_fmt($text)));
-	$lang = $GLOBALS['usr']->lang;
-
+function str_word_count_utf8($text) {
 	if (@preg_match('/\p{L}/u', 'a') == 1) {	// PCRE unicode support is turned on
 		// Match utf-8 words to index:
 		// - If you also want to index numbers, use regex "/[\p{N}\p{L}][\p{L}\p{N}\p{Mn}\p{Pd}'\x{2019}]*/u".
 		// - Remove the \p{N} if you don't want to index words with numbers in them.
-		preg_match_all("/\p{L}[\p{L}\p{N}\p{Mn}\p{Pd}'\x{2019}]*/u", $text, $t1);
-		foreach ($t1[0] as $v) {
-			if ($lang != 'zh-hans' && $lang != 'zh-hant' && $lang != 'ja' && $lang != 'ko') {	// Not Chinese, Japanese nor Korean.
-				if (isset($v[51]) || !isset($v[2])) continue;   // Word too short or long.
-			}
-			$a[] = _esc($v);
-		}
-		return $a;
+		preg_match_all("/\p{L}[\p{L}\p{N}\p{Mn}\p{Pd}'\x{2019}]*/u", $text, $m);
+		return $m[0];
+	} else {
+		return str_word_count($text, 1);
+	}
+}
+
+function text_to_worda($text, $minlen=2, $maxlen=51, $uniq=0)
+{
+	$words = array();
+	$text = strtolower(strip_tags(reverse_fmt($text)));
+
+	// Throw away words that are too short or too long.
+        if (!isset($minlen)) $minlen = 2;
+        if (!isset($maxlen)) $maxlen = 51;
+
+	// Languages like Chinese, Japanese and Korean can have very short and very long words.
+	$lang = isset($GLOBALS['usr']->lang) ? $GLOBALS['usr']->lang : '';
+	if ($lang == 'zh-hans' || $lang == 'zh-hant' || $lang == 'ja' || $lang == 'ko') {
+		$minlen = 0;
+		$maxlen = 100;
 	}
 
-	/* PCRE unicode support is turned off, fallback to old non-utf8 algorithm. */
-	$t1 = array_unique(str_word_count($text, 1));
-	foreach ($t1 as $v) {
-		if (isset($v[51]) || !isset($v[2])) continue;	// Word too short or long.
-		$a[] = _esc($v);
+	$t1 = str_word_count_utf8($text, 1);
+	foreach ($t1 as $word) {
+		if (isset($word[$maxlen]) || !isset($word[$minlen])) continue;	// Check wWord length.
+		$word = _esc($word);
+
+		// Count the frequency of each unique word.
+	        if (isset($words[$word])) { 
+           		$words[$word]++;
+		} else {
+			$words[$word] = 1;
+		}
 	}
-	return $a;
+
+	// Return unique words, with or without word counts.
+	return $uniq ? $words : array_keys($words);
 }
 
 function index_text($subj, $body, $msg_id)
 {
-	/* Remove stuff in [quote] tags. */
+	// Remove stuff in [quote] tags.
 	while (preg_match('!{TEMPLATE: post_html_quote_start_p1}(.*?){TEMPLATE: post_html_quote_start_p2}(.*?){TEMPLATE: post_html_quote_end}!is', $body)) {
 		$body = preg_replace('!{TEMPLATE: post_html_quote_start_p1}(.*?){TEMPLATE: post_html_quote_start_p2}(.*?){TEMPLATE: post_html_quote_end}!is', '', $body);
 	}
 
-        /* Remove quotes imported Usenet/ Mailing lists. */
+        // Remove quotes imported Usenet/ Mailing lists.
         while (preg_match('/<font color="[^"]*">&gt;[^<]*<\/font><br \/>/s', $body)) {
                 $body = preg_replace('/<font color="[^"]*">&gt;[^<]*<\/font><br \/>/s', '', $body);
         }
 
-	if ($subj && ($w1 = text_to_worda($subj))) {
-		$w2 = array_merge($w1, text_to_worda($body));
-	} else {
-		$w2 = text_to_worda($body);
-	}
-
+	// Spilt text into word arrays, note how $subj is repeated for increaded relevancy.
+	$w1 = text_to_worda($subj, null, null, 1);
+	$w2 = text_to_worda($subj .' '. $subj .' '. $body, null, null, 1);
 	if (!$w2) {
 		return;
 	}
 
-	$w2 = array_unique($w2);
+	// Register word so that we can get an id.
+	ins_m('{SQL_TABLE_PREFIX}search', 'word', 'text', array_keys($w2));
 
-	ins_m('{SQL_TABLE_PREFIX}search', 'word', 'text', $w2);
+	// Populate title index
 	if ($subj && $w1) {
-		db_li('INSERT INTO {SQL_TABLE_PREFIX}title_index (word_id, msg_id) SELECT id, '. $msg_id .' FROM {SQL_TABLE_PREFIX}search WHERE word IN('. implode(',', $w1) .')', $ef);
-	}
-	db_li('INSERT INTO {SQL_TABLE_PREFIX}index (word_id, msg_id) SELECT id, '. $msg_id .' FROM {SQL_TABLE_PREFIX}search WHERE word IN('. implode(',', $w2) .')', $ef);
+		foreach ($w1 as $word => $count) {
+			try {
+				q('INSERT INTO {SQL_TABLE_PREFIX}title_index (word_id, msg_id, frequency) SELECT id, '. $msg_id .','. $count .' FROM {SQL_TABLE_PREFIX}search WHERE word = '. $word);
+			} catch(Exception $e) {}
 
-	/* Clear search cache. */
+		}
+	}
+
+	// Populate index.
+	foreach ($w2 as $word => $count) {
+		try {
+			q('INSERT INTO {SQL_TABLE_PREFIX}index (word_id, msg_id, frequency) SELECT id, '. $msg_id .','. $count .' FROM {SQL_TABLE_PREFIX}search WHERE word = '. $word);
+		} catch(Exception $e) {}
+	}
+
+	// Clear search cache.
 	q('DELETE FROM {SQL_TABLE_PREFIX}search_cache');
 	// "WHERE msg_id='. $msg_id" for better performance, but newly indexed text will not be immediately searchable.
 }
+
+
 ?>
