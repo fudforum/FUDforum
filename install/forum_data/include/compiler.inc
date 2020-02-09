@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2019 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2020 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -81,7 +81,7 @@ function resolve_refs($file_name)
 		}
 		
 		// Still not found, use old lookup method: PATH_INFO and DEFAULT themes.
-		if ( $ini['based_on'] != 'default' ) {
+		if ( $ini == FALSE || $ini['based_on'] != 'default' ) {
 			// For undefined sections of a path_info theme, look first in the PATH_INFO template set.
 			if (file_exists($GLOBALS['DATA_DIR'] .'thm/'. $tset .'/.path_info')) {
 				if (($tmp = @file_get_contents($GLOBALS['DATA_DIR'] .'thm/path_info/tmpl/'. $file_name)) !== false) {
@@ -235,7 +235,7 @@ function resolve_sections($file, $secname, $str)
 				break;
 
 			case 'VAR-HTML':
-				$ret .= '\'.htmlspecialchars($'. $name .').\'';
+				$ret .= '\'.htmlspecialchars($'. $name .', null, null, false).\'';
 				break;
 
 			case 'VAR-UH':
