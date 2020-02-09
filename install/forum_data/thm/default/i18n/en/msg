@@ -897,10 +897,11 @@ userinfo_polls:Polls:
 show_pollist:Polls
 search_and:AND
 search_or:OR
-search_desc_order:Descending Order
-search_asc_order:Ascending Order
+search_desc_order:Newest first
+search_asc_order:Oldest first
+search_relevance_order:Relevance
 search_logic:Search Logic:
-search_sorting:Sort Results by Date in:
+search_sorting:Sort by:
 search_attach:Attachments:
 search_attach_all:With or without
 search_attach_with:With attachments
