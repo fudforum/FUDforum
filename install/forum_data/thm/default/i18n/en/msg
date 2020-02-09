@@ -496,7 +496,7 @@ search_forum:Forum
 search_posted_on:Posted on
 search_no_results:No Results
 search_all_forums:Search All Forums
-search_in_forum:Search in Forum:
+search_in_forum:Search in forum:
 search_forum_search:Forum Search
 move_thread_to:Move topic <b>{VAR: thr->subject}</b> to:
 remail_email_topic:E-mail This Topic to a Friend
@@ -900,7 +900,7 @@ search_or:OR
 search_desc_order:Newest first
 search_asc_order:Oldest first
 search_relevance_order:Relevance
-search_logic:Search Logic:
+search_logic:Search logic:
 search_sorting:Sort by:
 search_attach:Attachments:
 search_attach_all:With or without
