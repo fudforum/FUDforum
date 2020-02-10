@@ -905,9 +905,12 @@ userinfo_polls:Abstimmige:
 show_pollist:Abstimmige aazeige
 search_and:UN
 search_or:ODER
+# Fuzzy
 search_desc_order:Sortierig abezues
+# Fuzzy
 search_asc_order:Sortierig uffezues
 search_logic:Suechlogik:
+# Fuzzy
 search_sorting:Ergebnis no Datum sortiere in:
 search_attach:Aahäng:
 search_attach_all:Mit oder Ohni

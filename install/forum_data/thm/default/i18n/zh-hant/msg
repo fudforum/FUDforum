@@ -908,10 +908,11 @@ userinfo_polls:調查：
 show_pollist:調查
 search_and:與
 search_or:或
-search_desc_order:降序排列
-search_asc_order:昇序排列
+search_desc_order:最新優先
+search_asc_order:最舊優先
+search_relevance_order:相關性
 search_logic:搜尋方式：
-search_sorting:排序結果按日期：
+search_sorting:排序按：
 search_attach:附件:
 search_attach_all:有無
 search_attach_with:帶有附件

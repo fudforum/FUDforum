@@ -909,9 +909,12 @@ userinfo_polls:پولز:
 show_pollist:پولز دکھائیں
 search_and:اور
 search_or:یا
+# Fuzzy
 search_desc_order:نزولی
+# Fuzzy
 search_asc_order:صعودی
 search_logic:تلاش منطق:
+# Fuzzy
 search_sorting:میں تاریخ کی طرف سے ترتیب کے نتائج:
 search_attach:منسلکات:
 search_attach_all:کے ساتھ یا اس کے بغیر

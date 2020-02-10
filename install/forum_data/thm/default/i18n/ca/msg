@@ -913,9 +913,12 @@ userinfo_polls:Enquestes:
 show_pollist:Mostrar enquestes
 search_and:I
 search_or:O
+# Fuzzy
 search_desc_order:Ordre descendent
+# Fuzzy
 search_asc_order:Ordre ascendent
 search_logic:Lògica de recerca:
+# Fuzzy
 search_sorting:Ordenar resultats per data a:
 search_attach:Fitxers adjunts:
 search_attach_all:Amb o sense

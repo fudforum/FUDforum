@@ -903,9 +903,12 @@ userinfo_polls:Opinisondoj:
 show_pollist:Opinisondoj
 search_and:KAJ
 search_or:AŬ
+# Fuzzy
 search_desc_order:Malkreskanta Ordo
+# Fuzzy
 search_asc_order:Kreskanta Ordo
 search_logic:Serĉlogiko:
+# Fuzzy
 search_sorting:Ordigi Rezultojn laŭ Dato en:
 search_attach:Aldonaĵoj:
 search_attach_all:Kun aŭ sen

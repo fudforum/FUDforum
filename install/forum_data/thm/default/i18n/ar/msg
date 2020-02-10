@@ -905,9 +905,12 @@ userinfo_polls:الاقتراعات:
 show_pollist:الاقتراعات
 search_and:و
 search_or:أو
+# Fuzzy
 search_desc_order:ترتيب تنازلي
+# Fuzzy
 search_asc_order:ترتيب تصاعدي
 search_logic:منطق البحث:
+# Fuzzy
 search_sorting:رتّب النتائج حسب التاريخ:
 search_attach:المرفقات:
 search_attach_all:مع أو بدون

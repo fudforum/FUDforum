@@ -903,9 +903,12 @@ userinfo_polls:Pobalbhreitheanna:
 show_pollist:Taispeáin Cartlann
 search_and:AGUS
 search_or:NÓ
+# Fuzzy
 search_desc_order:Eagar Íslitheach
+# Fuzzy
 search_asc_order:Ascending Ordú
 search_logic:Loighic Cuardaigh:
+# Fuzzy
 search_sorting:Torthaí Sórtáil de réir Date in:
 search_attach:ceangaltáin:
 search_attach_all:Le nó gan

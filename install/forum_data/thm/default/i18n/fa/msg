@@ -910,9 +910,12 @@ userinfo_polls:نظرسنجی‌ها:
 show_pollist:نظرسنجی‌ها
 search_and:و
 search_or:یا
+# Fuzzy
 search_desc_order:ترتیب نزولی
+# Fuzzy
 search_asc_order:ترتیب صعودی
 search_logic:منطق جستجو:
+# Fuzzy
 search_sorting:ترتیب تاریخ نتایج:
 search_attach:ضميمه‌ها:
 search_attach_all:فاقد یا دارا

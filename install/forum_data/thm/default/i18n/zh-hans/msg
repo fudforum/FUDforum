@@ -915,9 +915,12 @@ userinfo_polls:调查：
 show_pollist:显示调查
 search_and:和
 search_or:或
+# Fuzzy
 search_desc_order:降序排列
+# Fuzzy
 search_asc_order:升序排列
 search_logic:搜索方式：
+# Fuzzy
 search_sorting:结果按日期：
 search_attach:附件：
 search_attach_all:有无

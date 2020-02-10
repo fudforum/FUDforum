@@ -905,9 +905,12 @@ userinfo_polls:Sondaġġi:
 show_pollist:Uri l-lista ta' sondaġġi
 search_and:U
 search_or:JEW
+# Fuzzy
 search_desc_order:Ordni dixxendenti
+# Fuzzy
 search_asc_order:Ordni axxendenti
 search_logic:Kriterju ta' tfittxija:
+# Fuzzy
 search_sorting:Uri r-riżultati skont id-data f':
 search_attach:Mehmużin:
 search_attach_all:Bi jew mingħajr

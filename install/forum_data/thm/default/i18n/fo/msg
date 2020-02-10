@@ -901,9 +901,12 @@ userinfo_polls:Atkvøðugreiðslur:
 show_pollist:Vís atkvøðugreiðslur
 search_and:OG
 search_or:ELLA
+# Fuzzy
 search_desc_order:Fallandi raðfylgju
+# Fuzzy
 search_asc_order:Hækkandi raðfylgju
 search_logic:Leitingar logikkur:
+# Fuzzy
 search_sorting:Sortera úrslitini eftir dagfesting í:
 search_attach:Viðfesti:
 search_attach_all:Við ella uttan

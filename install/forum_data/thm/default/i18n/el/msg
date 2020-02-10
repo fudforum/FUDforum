@@ -652,7 +652,9 @@ userinfo_polls:Δημοσκοπήσεις:
 show_pollist:Εμφάνιση ψηφοφοριών
 search_and:Και
 search_or:ή
+# Fuzzy
 search_desc_order:Φθίνουσα σειρά
+# Fuzzy
 search_asc_order:Αύξουσα σειρά
 search_attach:Συνημμένα:
 search_attach_all:Με ή χωρίς

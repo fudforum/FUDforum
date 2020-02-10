@@ -896,10 +896,11 @@ userinfo_polls:Stemmings:
 show_pollist:Stemmings
 search_and:EN
 search_or:OF
-search_desc_order:dalende volgorde
-search_asc_order:stygende volgorde
+search_desc_order:Nuutste eerste
+search_asc_order:Oudste eerste
+search_relevance_order:Relevansie
 search_logic:Logika vir soektog:
-search_sorting:Sorteer resultate volgens datum:
+search_sorting:Sorteer volgens:
 search_attach:Aanhangsels:
 search_attach_all:Met of sonder
 search_attach_with:Met aanhangsels

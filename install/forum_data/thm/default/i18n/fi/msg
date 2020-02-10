@@ -912,9 +912,12 @@ userinfo_polls:Gallupit:
 show_pollist:Gallupit
 search_and:JA
 search_or:TAI
+# Fuzzy
 search_desc_order:Uusin ensin
+# Fuzzy
 search_asc_order:Vanhin ensin
 search_logic:Hakulogiikka:
+# Fuzzy
 search_sorting:Järjestä tulokset päivämäärän mukaan:
 search_attach:Liitteet:
 search_attach_all:Kanssa tai ilman

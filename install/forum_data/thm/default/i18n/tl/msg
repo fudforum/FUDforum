@@ -902,9 +902,12 @@ userinfo_polls:Mga botohan:
 show_pollist:Ipakita ang mga Botohan
 search_and:AT
 search_or:O
+# Fuzzy
 search_desc_order:Pababang pagkakaayos
+# Fuzzy
 search_asc_order:Pataas na pagkakaayos
 search_logic:Lohika ng Paghahanap:
+# Fuzzy
 search_sorting:Paguri-uriin ang mga Kinalabasan ayon sa Petsa sa loob ng:
 search_attach:Mga kalakip:
 search_attach_all:Mayroon o wala

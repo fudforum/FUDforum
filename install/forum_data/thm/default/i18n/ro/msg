@@ -892,9 +892,12 @@ userinfo_polls:Sondaje:
 show_pollist:Arata sondaje
 search_and:SI
 search_or:SAU
+# Fuzzy
 search_desc_order:Ordine descendenta
+# Fuzzy
 search_asc_order:Ordine ascendenta
 search_logic:Cautare logica:
+# Fuzzy
 search_sorting:Sorteaza rezultatele dupa data:
 search_attach:Atașamente:
 search_attach_all:Cu sau fără

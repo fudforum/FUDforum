@@ -911,9 +911,12 @@ userinfo_polls:Опитування:
 show_pollist:Опитування
 search_and:А ТАКОЖ
 search_or:АБО
+# Fuzzy
 search_desc_order:По спаданню
+# Fuzzy
 search_asc_order:По зростанню
 search_logic:Логіка пошуку:
+# Fuzzy
 search_sorting:Сортувати за датою:
 search_attach:Додатки:
 search_attach_all:З або БЕЗ

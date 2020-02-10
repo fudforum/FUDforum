@@ -906,9 +906,12 @@ userinfo_polls:Ankety:
 show_pollist:Zobraziť ankety
 search_and:A
 search_or:ALEBO
+# Fuzzy
 search_desc_order:Zostupne
+# Fuzzy
 search_asc_order:Vzostupne
 search_logic:Logika vyhľadávania:
+# Fuzzy
 search_sorting:Zoradiť výsledky podľa dátumu:
 search_attach:Prílohy:
 search_attach_all:S alebo bez

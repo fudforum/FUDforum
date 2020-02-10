@@ -900,9 +900,12 @@ userinfo_polls:Encuestes:
 show_pollist:Amosar encuestes
 search_and:ⴷ
 search_or:O
+# Fuzzy
 search_desc_order:Orde descendente
+# Fuzzy
 search_asc_order:Orde ascendente
 search_logic:Llóxica de gueta:
+# Fuzzy
 search_sorting:Ordenar los resultaos por data en:
 search_attach:Axuntos:
 search_attach_all:Con o ensin

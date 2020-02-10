@@ -890,9 +890,12 @@ userinfo_polls:Bảng khảo sát:
 show_pollist:Xem bảng khảo sát
 search_and:VÀ
 search_or:HOẶC
+# Fuzzy
 search_desc_order:Xếp giảm dần
+# Fuzzy
 search_asc_order:Xếp tăng dần
 search_logic:Tìm kiếm logic:
+# Fuzzy
 search_sorting:Xếp kết quả ngày theo:
 search_attach:Đính kèm:
 search_attach_all:Có hoặc không có

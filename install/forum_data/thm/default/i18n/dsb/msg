@@ -757,8 +757,11 @@ userinfo_polls:Wótglosowanja:
 show_pollist:Wótgłosowanja pokazaś
 search_and:A
 search_or:ABO
+# Fuzzy
 search_desc_order:Wóstupujucy slěd
+# Fuzzy
 search_asc_order:Póstupujucy slěd
+# Fuzzy
 search_sorting:Wuslědki pó datumje sortěrowaś w:
 search_attach:Dodanki:
 search_attach_all:Z abo bźez

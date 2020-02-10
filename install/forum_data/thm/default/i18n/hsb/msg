@@ -902,9 +902,12 @@ userinfo_polls:Wothłosowanja:
 show_pollist:Wothłosowanja pokazać
 search_and:A
 search_or:ABO
+# Fuzzy
 search_desc_order:Spadowace sortěrowanje
+# Fuzzy
 search_asc_order:Postupowace sortěrowanje
 search_logic:Pytanska logika:
+# Fuzzy
 search_sorting:Wuslědki po datumje sortěrować w:
 search_attach:Přiwěški:
 search_attach_all:Z abo bjez

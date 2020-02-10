@@ -901,9 +901,12 @@ userinfo_polls:Polling:
 show_pollist:Tidokna Polling
 search_and:LAN
 search_or:UTAWA
+# Fuzzy
 search_desc_order:Urutan Mudun (Z-A)
+# Fuzzy
 search_asc_order:Urutan Munggah (A-Z)
 search_logic:Logika Penggoletan:
+# Fuzzy
 search_sorting:Urutna hasile miturut tanggal nang:
 search_attach:Lampiran:
 search_attach_all:Nganggo utawa ora nganggo

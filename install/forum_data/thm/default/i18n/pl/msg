@@ -908,9 +908,12 @@ userinfo_polls:Ankiety:
 show_pollist:Ankiety
 search_and:Logiczne I (koniunkcja)
 search_or:Logiczne LUB (alternatywa)
+# Fuzzy
 search_desc_order:malejącej
+# Fuzzy
 search_asc_order:rosnącej
 search_logic:Operacja logiczna:
+# Fuzzy
 search_sorting:Sortuj rezultaty wg daty w kolejności:
 search_attach:Załączniki:
 search_attach_all:Z lub bez

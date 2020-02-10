@@ -880,10 +880,12 @@ userinfo_polls:Balsojumi:
 show_pollist:Parādīt balsojumus
 search_and:UN
 search_or:VAI
+# Fuzzy
 search_desc_order:Dilstoši
+# Fuzzy
 search_asc_order:Augoši
 search_logic:Loģiskie argumenti:
-search_sorting:Pēc datuma:
+search_sorting:Kārtot pēc:
 search_attach:Pielikumi:
 search_attach_all:Ar vai bez
 search_attach_with:Ar pielikumiem

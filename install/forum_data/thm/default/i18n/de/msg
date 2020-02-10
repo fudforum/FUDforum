@@ -911,9 +911,12 @@ userinfo_polls:Abstimmungen:
 show_pollist:Umfragen
 search_and:UND
 search_or:ODER
+# Fuzzy
 search_desc_order:Absteigende Sortierung
+# Fuzzy
 search_asc_order:Aufsteigende Sortierung
 search_logic:Suchlogik:
+# Fuzzy
 search_sorting:Ergebnisse nach Datum sortieren in:
 search_attach:Anhänge:
 search_attach_all:Mit oder Ohne

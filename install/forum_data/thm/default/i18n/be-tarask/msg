@@ -905,9 +905,12 @@ userinfo_polls:Апытаньні:
 show_pollist:Паказаць галасаваньні
 search_and:І
 search_or:ЦІ
+# Fuzzy
 search_desc_order:Па убываньню
+# Fuzzy
 search_asc_order:Па ўзрастаньню
 search_logic:Лягічны пошук:
+# Fuzzy
 search_sorting:Сартаваць вынікі па даце:
 search_attach:Далучэньні:
 search_attach_all:З ці без

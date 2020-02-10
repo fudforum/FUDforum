@@ -904,9 +904,12 @@ userinfo_polls:Ankete:
 show_pollist:Ankete
 search_and:I
 search_or:ILI
+# Fuzzy
 search_desc_order:opadajućem nizu
+# Fuzzy
 search_asc_order:rastućem nizu
 search_logic:Logika:
+# Fuzzy
 search_sorting:Poređaj rezultate u:
 search_attach:Prilozi:
 search_attach_all:sa i bez priloga

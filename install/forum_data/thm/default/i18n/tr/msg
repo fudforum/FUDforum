@@ -917,10 +917,11 @@ userinfo_polls:Anketler:
 show_pollist:Anketler
 search_and:VE
 search_or:VEYA
-search_desc_order:Azalan Sırada
-search_asc_order:Artan Sırada
+search_desc_order:En yeni ilk
+search_asc_order:En eski ilk
+search_relevance_order:Alaka düzeyi
 search_logic:Arama Mantığı:
-search_sorting:Sonuçları Tarihe Göre Sırala:
+search_sorting:Sıralama ölçütü:
 search_attach:Ekler:
 search_attach_all:Olan veya olmayan
 search_attach_with:Ekleri ile

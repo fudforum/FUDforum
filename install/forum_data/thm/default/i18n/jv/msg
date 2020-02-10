@@ -902,9 +902,12 @@ userinfo_polls:Jajak Pendapat:
 show_pollist:Tampilake Jajak Pendapat
 search_and:AND
 search_or:OR
+# Fuzzy
 search_desc_order:mudhun Ordo
+# Fuzzy
 search_asc_order:munggah Ordo
 search_logic:Telusuri logika:
+# Fuzzy
 search_sorting:Urut Asil dening Tanggal ing:
 search_attach:lampiran:
 search_attach_all:Nganggo utawa tanpa

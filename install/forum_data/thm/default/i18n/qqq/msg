@@ -392,7 +392,7 @@ polllist_update:Used as session status to indicate last known action.\n{{Related
 userinfo_polls:{{Identical|Poll}}
 search_and:{{Identical|And}}
 search_or:{{Identical|Or}}
-search_sorting:Used as label for the "Sort order" select box which has the following options:\n* {{msg-fud|Search desc order}}\n* {{msg-fud|Search asc order}}
+search_sorting:Used as label for the "Sort order" select box which has the following options:\n* {{msg-fud|Search relevance order}}\n* {{msg-fud|Search desc order}}\n* {{msg-fud|Search asc order}}
 search_attach:Used as label for the select box which has the following options:\n* {{msg-fud|Search attach all}}\n* {{msg-fud|Search attach with}}\n{{Identical|Attachment}}
 search_attach_all:Used as an option in the select box which is labeled {{msg-fud|Search attach}}.\n\nThis means "With or without attachments".
 search_attach_with:Used as an option in the select box which is labeled {{msg-fud|Search attach}}.

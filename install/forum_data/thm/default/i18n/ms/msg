@@ -902,9 +902,12 @@ userinfo_polls:Tinjauan:
 show_pollist:Tunjukkan Tinjauan
 search_and:DAN
 search_or:ATAU
+# Fuzzy
 search_desc_order:Urutan Menurun
+# Fuzzy
 search_asc_order:Urutan Menaik
 search_logic:Logik Carian:
+# Fuzzy
 search_sorting:Susun Hasil mengikut Tarikh dalam:
 search_attach:Lampiran:
 search_attach_all:Dengan atau tanpa

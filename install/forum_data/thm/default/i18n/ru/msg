@@ -917,9 +917,12 @@ userinfo_polls:Голосования:
 show_pollist:Голосования
 search_and:ИЛИ
 search_or:И
+# Fuzzy
 search_desc_order:По убыванию
+# Fuzzy
 search_asc_order:По возрастанию
 search_logic:Логическое условие:
+# Fuzzy
 search_sorting:Сортировка результатов по дате:
 search_attach:Прикреплённые файлы:
 search_attach_all:С или без

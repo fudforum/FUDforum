@@ -903,9 +903,12 @@ userinfo_polls:Sontadegoù :
 show_pollist:Diskouez ar sontadegoù
 search_and:HA
 search_or:PE
+# Fuzzy
 search_desc_order:Urzh war zigresk
+# Fuzzy
 search_asc_order:Urzh war gresk
 search_logic:Dezverkoù klask :
+# Fuzzy
 search_sorting:Urzhiañ an disoc'hoù dre zeiziad, e-barzh :
 search_attach:Pezhioù stag :
 search_attach_all:Gant pe hep

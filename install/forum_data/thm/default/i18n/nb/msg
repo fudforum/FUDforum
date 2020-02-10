@@ -905,9 +905,12 @@ userinfo_polls:Avstemninger:
 show_pollist:Avstemninger
 search_and:OG
 search_or:ELLER
+# Fuzzy
 search_desc_order:Fallende sortering
+# Fuzzy
 search_asc_order:Stigande ordning
 search_logic:Søkelogikk:
+# Fuzzy
 search_sorting:Sorter resultatene etter dato i:
 search_attach:Vedlegg:
 search_attach_all:Med eller uten

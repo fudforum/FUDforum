@@ -905,10 +905,11 @@ userinfo_polls:Анкете:
 show_pollist:Анкете
 search_and:И
 search_or:ИЛИ
-search_desc_order:опадајућем низу
-search_asc_order:растућем низу
+search_desc_order:прво најновије
+search_asc_order:прво најстарије
+search_relevance_order:Релевантност
 search_logic:Логика:
-search_sorting:Поређај резултате у:
+search_sorting:Поређај по:
 search_attach:Прилози:
 search_attach_all:са и без прилога
 search_attach_with:са прилозима

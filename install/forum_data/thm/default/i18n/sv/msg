@@ -908,9 +908,12 @@ userinfo_polls:Gallupar:
 show_pollist:Omröstningar
 search_and:OCH
 search_or:ELLER
+# Fuzzy
 search_desc_order:Fallande ordning
+# Fuzzy
 search_asc_order:Stigande ordning
 search_logic:Söklogik:
+# Fuzzy
 search_sorting:Sortera resultaten enligt datum i:
 search_attach:Bilagor:
 search_attach_all:Med eller utan

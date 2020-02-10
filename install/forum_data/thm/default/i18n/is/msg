@@ -901,9 +901,12 @@ userinfo_polls:Kannanir:
 show_pollist:Kannanir
 search_and:OG
 search_or:EÐA
+# Fuzzy
 search_desc_order:Í lækkandi röð
+# Fuzzy
 search_asc_order:Í hækkandi röð
 search_logic:Leitar rök:
+# Fuzzy
 search_sorting:Flokka niðurstöður eftir dagsetningu í:
 search_attach:Viðhengi:
 search_attach_all:Með eða án

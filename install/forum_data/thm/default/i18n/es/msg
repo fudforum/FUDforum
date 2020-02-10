@@ -6,6 +6,7 @@
 # Author: Fitoschido
 # Author: Harvest
 # Author: Indiralena
+# Author: Joanmp17
 # Author: Larjona
 # Author: Locos epraix
 # Author: Macofe
@@ -253,8 +254,7 @@ pmsg_forwarded:reenviado
 pmsg_subject:Asunto
 pmsg_author:Autor
 pmsg_time:Hora
-# Fuzzy
-pmsg_selected:Seleccionado
+pmsg_selected:Seleccionar
 pmsg_delete:Borrar
 cur_ppage_pm:Mensajes privados
 writing_pm:Escribiendo un mensaje privado
@@ -915,10 +915,11 @@ userinfo_polls:Encuestas:
 show_pollist:Encuestas
 search_and:Y
 search_or:O
-search_desc_order:Orden descendente
-search_asc_order:Orden ascendente
+search_desc_order:Más recientes primero
+search_asc_order:Más antiguos primero
+search_relevance_order:Relevancia:
 search_logic:Lógica de búsqueda:
-search_sorting:Ordenar resultados por fecha en:
+search_sorting:Ordenar por:
 search_attach:Adjuntos:
 search_attach_all:Con o sin
 search_attach_with:Con adjuntos
@@ -1171,7 +1172,9 @@ karma:Karma
 karma_track:Administrar la reputación del usuario:
 karma_delete:Eliminar
 rate_author:Evaluar al autor:
+blog_update:Leyendo el blog de foro
 blog:Blog
+blog_new_members:Miembros nuevos
 blog_rated_posts:Mejor calificados
 blog_viewed_posts:Más vistos
 blog_comments:{PLURAL: tema->respuestas|$1 comentario|$1 comentarios}

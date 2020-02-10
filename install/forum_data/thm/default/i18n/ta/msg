@@ -902,9 +902,12 @@ userinfo_polls:கருத்து கணிப்புகள்:
 show_pollist:தேர்தல்
 search_and:மற்றும்
 search_or:அல்லது
+# Fuzzy
 search_desc_order:இறங்கு வரிசை
+# Fuzzy
 search_asc_order:ஏறு வரிசை
 search_logic:தேடல் அடிப்படை:
+# Fuzzy
 search_sorting:தேதியை பொறுத்து முடிவுகளை வரிசைப்படுத்து:
 search_attach:இணைப்புகள்:
 search_attach_all:உடன் அல்லது உடனில்லாமல்

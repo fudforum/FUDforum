@@ -908,9 +908,12 @@ userinfo_polls:Ankety:
 show_pollist:Zobrazit ankety
 search_and:A
 search_or:NEBO
+# Fuzzy
 search_desc_order:Sestupně
+# Fuzzy
 search_asc_order:Vzestupně
 search_logic:Logika vyhledávání:
+# Fuzzy
 search_sorting:Seřadit výsledky podle data:
 search_attach:Přílohy:
 search_attach_all:S nebo bez

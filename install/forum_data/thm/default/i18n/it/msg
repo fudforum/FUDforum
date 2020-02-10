@@ -906,10 +906,11 @@ userinfo_polls:Sondaggi:
 show_pollist:Sondaggi
 search_and:E
 search_or:O
-search_desc_order:ordine decrescente
-search_asc_order:ordine crescente
+search_desc_order:Prima le più recenti
+search_asc_order:Prima le meno recenti
+search_relevance_order:Rilevanza
 search_logic:Criterio di ricerca:
-search_sorting:Mostra i risultati per data, in:
+search_sorting:Ordina per:
 search_attach:Allegati:
 search_attach_all:Con o senza
 search_attach_with:Con allegati

@@ -856,9 +856,12 @@ userinfo_polls:Гласувания:
 show_pollist:Гласувания
 search_and:И
 search_or:ИЛИ
+# Fuzzy
 search_desc_order:мХГУНДЪЫ ПЕД
+# Fuzzy
 search_asc_order:Възходящ ред
 search_logic:Търси Логически:
+# Fuzzy
 search_sorting:Сортиране на резултатите по дата:
 search_attach:Прикачени файлове:
 search_attach_all:С или без

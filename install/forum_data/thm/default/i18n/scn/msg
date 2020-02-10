@@ -903,9 +903,12 @@ userinfo_polls:Sondagge:
 show_pollist:Fà vedè le sondagge
 search_and:E
 search_or:O
+# Fuzzy
 search_desc_order:Ordine a scennere
+# Fuzzy
 search_asc_order:Ordine a 'nghianà
 search_logic:Ricerca loggeche:
+# Fuzzy
 search_sorting:Ordine le resultate pe date jndr'à:
 search_attach:Allegate:
 search_attach_all:Con o senze

@@ -919,9 +919,12 @@ userinfo_polls:Poling:
 show_pollist:Tampilkan angket
 search_and:DAN
 search_or:ATAU
+# Fuzzy
 search_desc_order:Urutan terbalik
+# Fuzzy
 search_asc_order:Urutan
 search_logic:Logika pencarian:
+# Fuzzy
 search_sorting:Urutkan hasil pencarian berdasarkan tanggal dengan:
 search_attach:Lampiran:
 search_attach_all:Dengan atau tanpa

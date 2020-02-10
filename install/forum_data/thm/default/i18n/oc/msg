@@ -904,9 +904,12 @@ userinfo_polls:Sondatges :
 show_pollist:Veire los sondatges
 search_and:E
 search_or:O
+# Fuzzy
 search_desc_order:Òrdre descreissent
+# Fuzzy
 search_asc_order:Òrdre creissent
 search_logic:Logic :
+# Fuzzy
 search_sorting:Triar los resultats per data e per :
 search_attach:Pèças juntas :
 search_attach_all:Amb o sens

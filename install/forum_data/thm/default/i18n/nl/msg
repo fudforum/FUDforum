@@ -903,9 +903,12 @@ userinfo_polls:Stemmingen:
 show_pollist:Peilingen
 search_and:en
 search_or:of
+# Fuzzy
 search_desc_order:Aflopen gesorteerd
+# Fuzzy
 search_asc_order:Oplopend gesorteerd
 search_logic:Logisch zoeken:
+# Fuzzy
 search_sorting:Resultaten op datum sorteren in:
 search_attach:Bijlagen:
 search_attach_all:Met of zonder

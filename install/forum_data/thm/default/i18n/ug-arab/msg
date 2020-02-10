@@ -899,9 +899,12 @@ userinfo_polls:راي سىناش:
 show_pollist:راي سىناشنى كۆرسەت
 search_and:ۋە
 search_or:ياكى
+# Fuzzy
 search_desc_order:كېمەيگۈچى تەرتىپ
+# Fuzzy
 search_asc_order:ئاشقۇچى تەرتىپ
 search_logic:ئىزدەش ئۇسۇلى:
+# Fuzzy
 search_sorting:نەتىجىنى چېسلا بويىچە تىزىش:
 search_attach:قوشۇمچە
 search_attach_all:بار ياكى يوق

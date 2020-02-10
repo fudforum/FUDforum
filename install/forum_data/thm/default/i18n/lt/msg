@@ -905,9 +905,12 @@ userinfo_polls:Apklausos:
 show_pollist:Apklausos
 search_and:IR
 search_or:ARBA
+# Fuzzy
 search_desc_order:Pirma naujesnius
+# Fuzzy
 search_asc_order:Pirma senesnius
 search_logic:Paieškos loginė sąlyga:
+# Fuzzy
 search_sorting:Rodyti pagal datą:
 search_attach:Priedai:
 search_attach_all:Su ar be

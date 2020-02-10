@@ -906,9 +906,12 @@ userinfo_polls:ඡන්ද විමසීම්:
 show_pollist:ඡන්ද විමසීම් පෙන්වන්න
 search_and:සහ
 search_or:හෝ
+# Fuzzy
 search_desc_order:අවරෝහණ අනුපිළිවෙළ
+# Fuzzy
 search_asc_order:ආරෝහණ අනුපිළිවෙළ
 search_logic:න්‍යාය සොයන්න:
+# Fuzzy
 search_sorting:ප්‍රතිඑල දිනය අනුව පෙළගස්වන්න:
 search_attach:ඇමුණුම්:
 search_attach_all:සමඟ හෝ තොරව

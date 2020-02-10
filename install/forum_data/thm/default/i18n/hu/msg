@@ -904,9 +904,12 @@ userinfo_polls:Szavazások:
 show_pollist:Szavazások:
 search_and:ÉS
 search_or:VAGY
+# Fuzzy
 search_desc_order:Csökkenő sorrend
+# Fuzzy
 search_asc_order:Növekvő sorrend
 search_logic:Összekötő logika:
+# Fuzzy
 search_sorting:Eredmények rendezése dátum szerint:
 search_attach:Csatolmányok:
 search_attach_all:Vele vagy nélküle

@@ -909,9 +909,12 @@ userinfo_polls:投票一覧:
 show_pollist:投票を表示
 search_and:論理積
 search_or:論理和
+# Fuzzy
 search_desc_order:降順
+# Fuzzy
 search_asc_order:昇順
 search_logic:検索ロジック:
+# Fuzzy
 search_sorting:結果の日時の並び順:
 search_attach:添付:
 search_attach_all:不問
