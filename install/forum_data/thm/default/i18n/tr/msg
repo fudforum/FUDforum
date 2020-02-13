@@ -1136,7 +1136,7 @@ captcha_img_help:Görüntüde sıfır veya bir yok.
 powered-by:Destekleyen: FUDforum {GVAR: FORUM_VERSION}.
 copyright:Telif hakkı &copy;2001-2019 <a href="http://fudforum.org/">FUDforum Bulletin Board Yazılımı</a>
 code_title:Kod:
-code_select_all:Tümünü seç
+code_select_all:Hepsini seç
 code_show_hide:Göster/gizle
 social_sites:Sosyal ağ siteleri:
 postcheck_min_len_err:Mesajınız çok kısa. Asgari uzunluk {PLURAL: post_min_len|$1 karakter|$1 karakter}.

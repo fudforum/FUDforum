@@ -491,6 +491,8 @@ userinfo_polls:Ëmfroen:
 show_pollist:Ëmfroen
 search_and:AN
 search_or:ODER
+search_relevance_order:Relevanz
+search_sorting:Zortéieren no:
 saved:Gespäichert
 buddy_offline:{VAR: r[2]} ass elo offline
 buddy_online:{VAR: r[2]} ass elo online

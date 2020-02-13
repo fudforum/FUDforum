@@ -904,13 +904,10 @@ userinfo_polls:Afstemninger:
 show_pollist:Afstemninger
 search_and:OG
 search_or:ELLER
-# Fuzzy
-search_desc_order:Faldende rækkefølge
-# Fuzzy
-search_asc_order:Stigende rækkefølge
+search_desc_order:Nyeste først
+search_asc_order:Ældste først
 search_logic:Søge logik:
-# Fuzzy
-search_sorting:Sorter resultater efter dato i:
+search_sorting:Sorter efter:
 search_attach:Vedhæftede filer:
 search_attach_all:Med eller uden
 search_attach_with:Med vedhæftninger

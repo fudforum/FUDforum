@@ -899,13 +899,11 @@ userinfo_polls:Анкети:
 show_pollist:Анкети
 search_and:И
 search_or:ИЛИ
-# Fuzzy
-search_desc_order:Надолен ред
-# Fuzzy
-search_asc_order:Нагорен ред
+search_desc_order:Прво најнови
+search_asc_order:Прво најстари
+search_relevance_order:Релевантност
 search_logic:Логички услов:
-# Fuzzy
-search_sorting:Подреди ги ставките по датум во:
+search_sorting:Подреди по:
 search_attach:Прилози:
 search_attach_all:Со или без
 search_attach_with:Со прилози

@@ -7,6 +7,7 @@
 # Author: Minh Nguyen
 # Author: Naudefj
 # Author: Quang.hoangminh
+# Author: Thienhau2003
 # Author: Trần Nguyễn Minh Huy
 # Author: Tuankiet65
 
@@ -134,7 +135,7 @@ profile_desc:Truy cập bảng điều khiển của người dùng
 rate_thread:Nhận xét chủ đề
 rating:Đánh giá
 rating_track:Quản lý đánh giá cho chủ đề <b>{VAR: thr->subject}</b>:
-refresh_list:Làm Tươi Danh Sách
+refresh_list:Làm mới danh sách
 register:Đăng ký
 registered:Đăng vào:
 registered_on:Đăng ký vào {TEMPLATE: registered_on_date}

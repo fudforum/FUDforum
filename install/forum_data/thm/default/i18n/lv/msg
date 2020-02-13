@@ -884,6 +884,7 @@ search_or:VAI
 search_desc_order:Dilstoši
 # Fuzzy
 search_asc_order:Augoši
+search_relevance_order:Atbilstība
 search_logic:Loģiskie argumenti:
 search_sorting:Kārtot pēc:
 search_attach:Pielikumi:

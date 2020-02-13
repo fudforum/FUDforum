@@ -909,13 +909,11 @@ userinfo_polls:Votações:
 show_pollist:Enquetes
 search_and:E
 search_or:OU
-# Fuzzy
-search_desc_order:Ordem Descendente
-# Fuzzy
-search_asc_order:Ordem Ascendente
+search_desc_order:Mais recentes primeiro
+search_asc_order:Mais antigos primeiro
+search_relevance_order:Relevância
 search_logic:Lógica de Busca:
-# Fuzzy
-search_sorting:Mostrar os Resultados por Data no:
+search_sorting:Ordenar por:
 search_attach:Anexos:
 search_attach_all:Com ou sem
 search_attach_with:Com anexos
