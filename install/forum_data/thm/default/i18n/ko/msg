@@ -896,13 +896,11 @@ userinfo_polls:설문 조사:
 show_pollist:설문 조사
 search_and:그리고
 search_or:또는
-# Fuzzy
-search_desc_order:내림차순
-# Fuzzy
-search_asc_order:오름차순
+search_desc_order:최신 항목 먼저
+search_asc_order:과거 항목 먼저
+search_relevance_order:관련성
 search_logic:검색 규칙:
-# Fuzzy
-search_sorting:날짜별 정렬:
+search_sorting:정렬 기준:
 search_attach:첨부:
 search_attach_all:유무에 관계 없음
 search_attach_with:첨부 있음

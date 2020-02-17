@@ -910,8 +910,8 @@ search_and:OCH
 search_or:ELLER
 # Fuzzy
 search_desc_order:Fallande ordning
-# Fuzzy
-search_asc_order:Stigande ordning
+search_asc_order:Äldst först
+search_relevance_order:Relevans
 search_logic:Söklogik:
 # Fuzzy
 search_sorting:Sortera resultaten enligt datum i:

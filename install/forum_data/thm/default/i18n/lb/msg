@@ -491,6 +491,8 @@ userinfo_polls:Ëmfroen:
 show_pollist:Ëmfroen
 search_and:AN
 search_or:ODER
+search_desc_order:déi Neist fir d'éischt
+search_asc_order:déi Eelst fir d'éischt
 search_relevance_order:Relevanz
 search_sorting:Zortéieren no:
 saved:Gespäichert

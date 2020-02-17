@@ -18,6 +18,7 @@
 # Author: Naudefj
 # Author: Nk88
 # Author: Okras
+# Author: Pacha Tchernof
 # Author: Putnik
 # Author: Romanko Mikhail
 # Author: Vlad5250
@@ -921,6 +922,7 @@ search_or:И
 search_desc_order:По убыванию
 # Fuzzy
 search_asc_order:По возрастанию
+search_relevance_order:Релевантность
 search_logic:Логическое условие:
 # Fuzzy
 search_sorting:Сортировка результатов по дате:

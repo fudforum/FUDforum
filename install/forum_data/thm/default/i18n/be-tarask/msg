@@ -243,8 +243,7 @@ pmsg_forwarded:пераслана
 pmsg_subject:Тэма
 pmsg_author:Аўтар
 pmsg_time:Час
-# Fuzzy
-pmsg_selected:Выбрана
+pmsg_selected:Выбраць
 pmsg_delete:Выдаліць
 cur_ppage_pm:Прыватныя паведамленьні
 writing_pm:Стварэньне асабістага паведамленьня
@@ -528,8 +527,7 @@ mklist_apply:Ужыць
 mklist_delete:Выдаліць
 qbud_nick_name:Мянушка
 qbud_add_selected:Дадаць выбраных
-# Fuzzy
-qbud_selected:Выбрана
+qbud_selected:Выбраць
 qbud_no_buddies:Няма сяброў да выбару
 mklist_numerical:Нумараваны
 mklist_aplha:Альфабэтны
@@ -901,17 +899,14 @@ polllist_votes:Усяго галасоў
 polllist_action:Дзеяньне
 polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">Прагляд даступных галасаваньняў</a>
 userinfo_polls:Апытаньні:
-# Fuzzy
-show_pollist:Паказаць галасаваньні
+show_pollist:Галасаваньні
 search_and:І
 search_or:ЦІ
-# Fuzzy
-search_desc_order:Па убываньню
-# Fuzzy
-search_asc_order:Па ўзрастаньню
+search_desc_order:Спачатку найноўшыя
+search_asc_order:Спачатку найстарэйшыя
+search_relevance_order:Адпаведнасьць
 search_logic:Лягічны пошук:
-# Fuzzy
-search_sorting:Сартаваць вынікі па даце:
+search_sorting:Сартаваць паводле:
 search_attach:Далучэньні:
 search_attach_all:З ці без
 search_attach_with:З далучэньнямі
@@ -1124,8 +1119,7 @@ move_msg_th_expl:Пазначце ідэнтыфікатар мэтавай тэ
 captcha_img_alt:Праверка Captcha: Вам неабходна распазнаць тэкст на гэтай выяве.
 captcha_img_help:На выяве няма лічбаў 0 ці 1.
 powered-by:Падтрымліваецца з дапамогай FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:Аўтарскія правы &copy; 2001—2018 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Аўтарскія правы &copy; 2001—2019 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Код:
 code_select_all:Выбраць усё
 code_show_hide:Паказаць/схаваць
