@@ -68,7 +68,7 @@ function index_text($subj, $body, $msg_id)
 
 	// Spilt text into word arrays, note how $subj is repeated for increaded relevancy.
 	$w1 = text_to_worda($subj, null, null, 1);
-	$w2 = text_to_worda($subj .' '. $subj .' '. $body, null, null, 1);
+	$w2 = text_to_worda($subj .' '. $subj .' '. $subj .' '. $subj .' '. $body, null, null, 1);
 	if (!$w2) {
 		return;
 	}

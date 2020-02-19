@@ -856,7 +856,7 @@ if ($section == 'db' || php_sapi_name() == 'cli') {
 		try {
 			drop_table('fud_forum_install_test_table', true);
 		} catch (Exception $e) {
-			// This is wehere we get errors like "No database selected".
+			// Report this errors, for example "No database selected".
 			seterr('DBHOST_DBNAME', $e->getMessage());
 		}
 	}

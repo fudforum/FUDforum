@@ -9,7 +9,7 @@
 * Free Software Foundation; either version 2 of the License.
 ***************************************************************************/
 
-$__UPGRADE_SCRIPT_VERSION = 5310.0;
+$__UPGRADE_SCRIPT_VERSION = 5310.1;
 // define('fud_debug', 1);
 
 /*
@@ -794,8 +794,6 @@ pf('<h2>Step 1: Admin login</h2>', true);
 	/* Disable the forum. */
 	if ($GLOBALS['FUD_OPT_1'] & 1) {
 		pf('Disabling the forum.');
-		// We normally diable the forum with maintenance_status(). However, since we will not re-enable
-		// the forum (done in consist.php), we will not be able to restore the disable reason.
 		change_global_settings(array('FUD_OPT_1' => ($GLOBALS['FUD_OPT_1'] &~ 1)));
 		pf('Forum is now disabled.');
 	}

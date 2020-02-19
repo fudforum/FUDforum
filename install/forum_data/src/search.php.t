@@ -49,8 +49,19 @@ function fetch_search_cache($qry, $start, $count, $logic, $srch_type, $order, $f
 {
 
 	if (!($wa = text_to_worda($qry))) {
-//BUG HERE: We need to set Total....
 		// Short and long words are filtered out and nothing is left. Try direct match on subject.
+		$total = q_singleval('SELECT count(*)
+		FROM {SQL_TABLE_PREFIX}msg m
+		INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id
+		INNER JOIN {SQL_TABLE_PREFIX}forum f ON t.forum_id=f.id
+		INNER JOIN {SQL_TABLE_PREFIX}cat c ON f.cat_id=c.id
+		INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id='. (_uid ? '2147483647' : '0') .' AND g1.resource_id=f.id
+		LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id
+		LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=f.id AND mm.user_id='. _uid .'
+		LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='. _uid .' AND g2.resource_id=f.id
+		WHERE m.reply_to = 0 and m.subject = '. _esc($qry) .'
+			'. ($GLOBALS['is_a'] ? '' : ' AND (mm.id IS NOT NULL OR '. q_bitand('COALESCE(g2.group_cache_opt, g1.group_cache_opt)',  262146) .' >= 262146)'));
+
 		return q(q_limit('SELECT u.alias, f.name AS forum_name, f.id AS forum_id,
 			m.poster_id, m.id, m.thread_id, m.subject, m.foff, m.length, m.post_stamp, m.file_id, m.icon, m.attach_cnt,
 			mm.id AS md, CASE WHEN t.root_msg_id = m.id THEN 1 ELSE 0 END AS is_rootm, '. q_bitand('t.thread_opt', 1) .' AS is_lckd
@@ -184,6 +195,11 @@ function fetch_search_cache($qry, $start, $count, $logic, $srch_type, $order, $f
 		} else if (!($c = fetch_search_cache($srch, $start, $ppg, $search_logic, $field, $sort_order, $forum_limiter, $total))) {
 			$search_data = '{TEMPLATE: no_search_results}';
 			$page_pager = '';
+// TODO: Try to fix spelling errors.
+//$c = uq('SELECT word from fud30_search where word SOUNDS LIKE '. _esc($srch));
+//while ($r = db_rowarr($c)) {
+//      echo "Probeer ". $r[0] ."</br>";
+//}
 		} else {
 			$i = 0;
 			$search_data = '';
