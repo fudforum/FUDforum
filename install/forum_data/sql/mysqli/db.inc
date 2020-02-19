@@ -163,13 +163,11 @@ function db_rowarr($result)
 	return $result->fetch_row();
 }
 
-function q_singleval($query, $def='')
+function q_singleval($query)
 {
 	$r = q($query);
 	if (($result = $r->fetch_row()) !== false && isset($result)) {
-		return $result[0];
-	} else {
-		return $def;
+		return isset($result) ? $result[0] : '';
 	}
 }
 

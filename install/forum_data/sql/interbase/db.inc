@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2020 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -134,10 +134,10 @@ function db_rowarr($result)
 	return ibase_fetch_row($result, IBASE_TEXT);
 }
 
-function q_singleval($query)
+function q_singleval($query, $def='')
 {
 	if (($res = ibase_fetch_row(q($query), IBASE_TEXT)) !== false) {
-		return $res[0];
+		return isset($res) ? $res[0] : $def;
 	}
 }
 

@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2020 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -155,10 +155,10 @@ function db_rowarr($result)
 	return oci_fetch_array($result, OCI_RETURN_LOBS+OCI_RETURN_NULLS+OCI_NUM);
 }
 
-function q_singleval($query)
+function q_singleval($query, $def='')
 {
 	$val = oci_fetch_array(q($query), OCI_RETURN_LOBS+OCI_RETURN_NULLS);
-	return $val ? $val[0] : null;
+	return $val ? $val[0] : $def;
 }
 
 function q_limit($query, $limit, $off=0)
