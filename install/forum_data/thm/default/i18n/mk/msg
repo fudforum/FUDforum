@@ -1116,6 +1116,7 @@ move_msg_th_expl:Назначете ID на темата во која ќе се
 captcha_img_alt:Проверка со сликичка: ќе треба да го препознаете текстот на неа.
 captcha_img_help:На сликата нема нула или единица.
 powered-by:Со поддршка од: FUDforum {GVAR: FORUM_VERSION}.
+# Fuzzy
 copyright:Авторски права &copy;2001-2019 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Код:
 code_select_all:Избери сè

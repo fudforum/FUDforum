@@ -472,7 +472,7 @@ login_passwd_required:Pasvorto estas deviga
 login_invalid_radius:Nevalida kombinaĵo de uzantnomo/pasvorto
 reset_confirmation:Dankon por registrado.\n\nPor aktivigi vian konton, bonvolu iru al la jena URL-o:\n\n{VAR: url}\n\nPost via konto estas aktivigita, vi estos ensalutita en la forumo kaj alidirektita al la ĉefa paĝo.
 reset_reset:Saluton,\n\nVi petis por via pasvorto esti restarigita. Por plenumi la procezon, bonvolu iri al ĉi tiu URL:\n\n{VAR: url}\n\nNOTU: Ĉi tiu forumo konservas la pasvortojn en unu-direkta ĉifra mekanismo, kiu signifas ke post vi enigis vian pasvorton, ĝi estas ĉifrita tiel ne eblos reatingi ĝin. Ĉi tiu funkcias per komparante la ĉifritan registritan version kun la ĉifrita versio entajpita ĉe la ensaluta invito.\n(Se vi estas interesa kiel ĉi tiu mekanismo funkcias, prilegu pri MD5 HASH algoritmo)
-rpasswd_invalid_passwd:Malvalida Pasvorto
+rpasswd_invalid_passwd:Nevalida pasvorto
 rpasswd_passwd_nomatch:Pasvortoj ne estas samaj
 rpasswd_passwd_length:Pasvorto devas esti almenaŭ 6 signoj longaj
 reset_remind_pass:Pasvorta Memorilo
@@ -583,7 +583,7 @@ thread_delete:Vi preskaŭ <span class="ErrorText">forigas</span> la <span class=
 delete_proceed:<span class="fb">Ĉu vi volas kontinui?</span>
 delete_yes:Jes
 delete_no:Ne
-error_invalidurl:Malvalida URL-o
+error_invalidurl:Nevalida URL-o
 error_error:Eraro
 usrinfo_profile:Profilo de {VAR: u->alias}
 usrinfo_show_all_posts:Montri ĉiujn mesaĝojn de {VAR: u->alias}
@@ -595,8 +595,8 @@ buddy_list_err_nouser:La uzanto kiun vi provis aldoni al via amika listo ne esti
 buddy_list_err_nouser_title:Ne eblas aldoni uzanton
 buddy_list_err_ignore:Ne povas aldoni uzantojn kiu ignori vin al via amika listo.
 buddy_list_update:Rigardante vian amikan liston
-core_err_invinp_title:Malvalida Enigo
-core_err_invinp_err:Vi ĵus sekvis malvalidan ligilon. Bonvolu sciigi la <a href="mailto:{GVAR: ADMIN_EMAIL}">retmajstro</a> kiel vi venis ĉi tien.
+core_err_invinp_title:Nevalida enigo
+core_err_invinp_err:Vi ĵus sekvis nevalidan ligilon. Bonvolu sciigi la <a href="mailto:{GVAR: ADMIN_EMAIL}">retmajstro</a> kiel vi venis ĉi tien.
 core_adm_login_msg:Administrantoj povas ensaluti <a href="{BASE}adm/admloginuser.php">ĉi tie</a>.
 email_err_unabletoemail_title:ERARO: Ne eblas retpoŝti
 email_err_unabletoemail_msg:La retpoŝta sistemo estis malŝalta de la administranto.
@@ -604,9 +604,9 @@ email_error_unabletolocaddr:Bedaŭrinde, la sistemo ne eblis retpoŝti {VAR-HTML
 email_error_body:La korpo estas deviga
 email_error_subject:La Temo estas deviga
 email_error_namerequired:Nomo estas deviga
-email_error_invaliduser:Malvalida uzanto
+email_error_invaliduser:Nevalida uzanto
 emailconf_err_invkey_title:Eraro
-emailconf_err_invkey_msg:Malvalida konfirm-ŝlosilo. Bonvolu kontroli vian retpoŝton por certigi ke vi eniris la URL-on korekte.
+emailconf_err_invkey_msg:Nevalida konfirm-ŝlosilo. Bonvolu kontroli vian retpoŝton por certigi ke vi eniris la URL-on ĝuste.
 err_inc_criticaltitle:Kritika eraro
 err_inc_criticalmsg:Eraro okazis. Bedaŭrinde, estis ankaŭ problemo kun la eraro-raportada sistemo.
 finduser_update:Serĉante uzantojn
@@ -662,11 +662,11 @@ private_msg_notify_body:Saluton,<br />{VAR: usr->login} malfermis vian privatan 
 referals_update:Tralegante referencojn
 register_err_short_login:La uzantnomo kiun vi elektis estas tro mallonga. Longo de uzantnomo devas esti minimume 2 skribsignoj.
 register_err_login_notallowed:Ĉi tiu uzantnomo ne estas permesita.
-register_err_loginunique:Forumaj salutnomoj devas esti unikaj. Jam estas uzanto kun ĉi tiu nomo.
+register_err_loginunique:Forumaj uzantnomoj devas esti unikaj. Jam estas uzanto kun ĉi tiu nomo.
 register_err_emailexists:Ĉi tiu retadreso jam ligita kun konto. Se vi forgesis vian pasvorto, bonvolu uzi la opcion Restarigi, anstataŭ reregistradon.
 register_err_shortpasswd:Pasvortoj devas esti almenaŭ 6 signoj longaj.
 register_err_passwdnomatch:Viaj pasvortoj ne kongruas. Bonvolu reprovi.
-register_err_invalidemail:La retadreso kiun vi specifigita verŝajne estas malvalida.
+register_err_invalidemail:La retadreso kiun vi specifigita verŝajne estas nevalida.
 register_err_needname:Por sukcese fini ĉi tiun registradon, vi devas enigi vian nomon.
 register_err_enterpasswd:Vi devas enigi vian nunan pasvorton por fini la ŝanĝojn.
 register_err_adminpasswd:Vi devas enigi vian <b>administrulan</b> pasvorton por plenumi la ŝanĝojn.
@@ -880,7 +880,7 @@ p_VISIBLE:Videbla
 reported_in_thread:En:
 help_back_to_top:reiri al supro
 help_return_to_index:Reiri al Helpindekso
-imsg_err_message_title:Malvalida Mesaĝo
+imsg_err_message_title:Nevalida mesaĝo
 imsg_err_message_msg:La mesaĝo kiun vi provas vidi ne ekzistas.
 poll_edit:Redakti
 register_err_not_valid_img:La specifigita URL ne enhavas validan bildon.
@@ -929,7 +929,7 @@ threadt_update:Tralegante forumon (arbeca aspekto)  <a href="{TEMPLATE: threadt_
 mmod_delete_cofirm_ttl:Konfirmi Fadenan/Mesaĝan Forigadon
 spell_alts:neniuj alternativoj
 insert_uploaded_image:Enmeti bildon en mesaĝa korpo
-finduser_help:La serĉilo aŭtomate aldonos maskon * al via serĉomendo; la <b>serĉo estas usklecodistinga</b>.<br />Ekz-e, serĉi por ĉiuj uzantoj kies salutnomoj komencas kun 'a', enigi 'a' en la serĉa tekstujo.
+finduser_help:La serĉilo aŭtomate aldonos maskon * al via serĉomendo; la <b>serĉo estas usklecodistinga</b>.<br />Ekz-e, serĉi por ĉiuj uzantoj kies uzantnomoj komencas kun 'a', enigi 'a' en la serĉa tekstujo.
 back_to_top:Reiri al Supro
 pm_err_disabled_title:Privata Mesaĝado estas Malŝalta
 pm_err_disabled_msg:Vi ne povas sendi privatajn mesaĝojn ĝis vi ŝaltos la 'Permesi Privatajn Mesaĝojn' opcio en via profilo.
@@ -1122,6 +1122,7 @@ move_msg_th_expl:Specifi la identigilon de la celata fadeno (eble en alia forumo
 captcha_img_alt:Konfirmo de homeco: vi devas rekoni la tekston en ĉi-suba bildo.
 captcha_img_help:La bildo prezentas neniun nulon aŭ unuon.
 powered-by:Funkciante per: FUDforum {GVAR: FORUM_VERSION}.
+# Fuzzy
 copyright:Aŭtorrajtoj &copy;2001-2019 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Kodo:
 code_select_all:Elekti ĉiujn

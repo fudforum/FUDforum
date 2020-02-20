@@ -7,6 +7,7 @@
 # Author: पर्वत सुबेदी
 # Author: राम प्रसाद जोशी
 # Author: सरोज कुमार ढकाल
+# Author: हिमाल सुबेदी
 
 action:कार्य
 add_to_buddy_list:मित्रहरुको सूची
@@ -275,7 +276,7 @@ post_sticky:स्टिकी
 post_annoncement:घोषणा
 post_size:आकार
 post_color:रङ्ग
-post_font:फन्ट
+post_font:लिपि
 create_thread:विषय सिर्जना गर्ने
 post_logout:निर्गमन
 post_poll:जनमत:
@@ -353,3 +354,4 @@ search_logic:तर्क खाेज्नुहाेस्
 search_sorting:अनुसार क्रमबद्ध...
 ip_search:खोज
 mmd_abort_move:रद्द
+tabs_notifications:सूचनाहरू
