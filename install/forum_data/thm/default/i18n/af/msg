@@ -1113,8 +1113,7 @@ move_msg_th_expl:Spesifiseer die ID van die destinasie onderwerp (kan in 'n ande
 captcha_img_alt:Captcha-verifikasie: u moet die teks in die beeld herken.
 captcha_img_help:Daar is nie 'n nul of 'n een in die beeld nie.
 powered-by:Aangedryf deur: FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:Kopiereg &copy;2001-2019 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Kopiereg &copy;2001-2020 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:KODE:
 code_select_all:Kies alles
 code_show_hide:Wys/ versteek

@@ -8,6 +8,7 @@
 # Author: Krzyz23
 # Author: Macofe
 # Author: Mateon1
+# Author: Matma Rex
 # Author: McDutchie
 # Author: Naudefj
 # Author: Openbk
@@ -909,13 +910,10 @@ userinfo_polls:Ankiety:
 show_pollist:Ankiety
 search_and:Logiczne I (koniunkcja)
 search_or:Logiczne LUB (alternatywa)
-# Fuzzy
-search_desc_order:malejącej
-# Fuzzy
-search_asc_order:rosnącej
+search_desc_order:Od najnowszych
+search_asc_order:Od najstarszych
 search_logic:Operacja logiczna:
-# Fuzzy
-search_sorting:Sortuj rezultaty wg daty w kolejności:
+search_sorting:Sortuj w kolejności:
 search_attach:Załączniki:
 search_attach_all:Z lub bez
 search_attach_with:Z załącznikami

@@ -306,10 +306,16 @@ register_builtin:المُضمّنة
 register_specify_url:حدّد مسارًا
 register_uploaded:رفع الأفتار
 register_login:الولوج:
+register_login_desc:الاسم اللى تحب تسجيل الدخول بيه و اللى تحب انه يظهر على الويبسايت ده.
+register_login_available:متاح
+register_login_taken:مستعمل بالفعل
 register_password:كلمه السر:
+register_password_desc:الباسوورد لحسابك. الباسوورد حساسة لحالة الحروف و لازم يكون فيها 6 حروف على الأقل.
 register_conf_pass:تأكيد كلمه السر:
+register_conf_pass_desc:من فضلك اكتب تانى الباسوورد بتاعتك.
 register_email_desc:من فضلك أدخل عنوان بريد إلكترونى صالح. تستطيع اختيار اخفائه أدناه، فى قسم التفضيلات.
 register_name:الاسم:
+register_name_desc:اسمك الحقيقى.
 register_your_pass:كلمه سرّك:
 register_update:تحديث
 register_avatar_type:نوع الأفتار:
@@ -892,13 +898,11 @@ userinfo_polls:الاقتراعات:
 show_pollist:أظهر الاقتراعات
 search_and:و
 search_or:أو
-# Fuzzy
-search_desc_order:ترتيب تنازلي
-# Fuzzy
-search_asc_order:ترتيب تصاعدي
+search_desc_order:ترتيب تنازلى
+search_asc_order:ترتيب تصاعدى
+search_relevance_order:ترتيب حسب الصله
 search_logic:منطق البحث:
-# Fuzzy
-search_sorting:رتّب النتائج حسب التاريخ:
+search_sorting:رتب حسب
 search_attach:الملحقات
 search_attach_all:مع أو من عير
 search_attach_with:مع مرفقات
@@ -1111,8 +1115,7 @@ move_msg_th_expl:حدد هويه الموضوع الهدف (يمكن أن يكو
 captcha_img_alt:تحقق كابتشا: سوف تحتاج إلى التعرف على نص هذه الصوره.
 captcha_img_help:لا يوجد صفر ولا واحد فى الصوره.
 powered-by:يشغله: FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:حقوق النشر  و النسخ;2001-2019 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:حقوق النشر  و النسخ;2001-2020 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:الكود
 code_select_all:اختر الكل
 code_show_hide:أظهر/أخفِ
@@ -1150,3 +1153,10 @@ karma:كارما
 karma_track:إدارة سمعة اليوزر:
 karma_delete:مسح
 rate_author:قيم الكاتب:
+blog_update:قراية مدونة المنتدى
+blog:مدونة
+blog_new_members:أعضاء جداد
+blog_new_posts:المنشور الأخير
+blog_rated_posts:احسن تصنيف
+blog_viewed_posts:اكتر بوستات اتشافت
+blog_comments:{PLURAL: topic->replies|$1 تعليق|$1 تعليقات}
