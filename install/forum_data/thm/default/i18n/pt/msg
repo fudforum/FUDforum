@@ -514,7 +514,7 @@ search_forum:Fórum
 search_posted_on:Afixado em
 search_no_results:Sem resultados
 search_all_forums:Procurar em todos os foruns
-search_in_forum:Procurar no Forum:
+search_in_forum:Procurar no fórum:
 search_forum_search:Procura no forum
 move_thread_to:Mover tópico <b>{VAR: thr->subject}</b> para:
 remail_email_topic:Enviar este tópico por Email a um amigo
@@ -912,13 +912,11 @@ userinfo_polls:Comentários:
 show_pollist:Sondagens
 search_and:E
 search_or:OU
-# Fuzzy
-search_desc_order:Ordem Descendente
-# Fuzzy
-search_asc_order:Ordem Ascendente
-search_logic:Lógica de Busca:
-# Fuzzy
-search_sorting:Mostrar os Resultados por Data no:
+search_desc_order:Mais recentes primeiro
+search_asc_order:Mais antigo primeiro
+search_relevance_order:Relevância
+search_logic:Lógica de pesquisa:
+search_sorting:Ordenar por:
 search_attach:Anexos:
 search_attach_all:Com ou sem
 search_attach_with:Com anexos
@@ -1131,8 +1129,7 @@ move_msg_th_expl:Especifique a ID do tópico de destino (pode estar em outros f�
 captcha_img_alt:Verificação por Captcha: você terá que reconhecer o texto nesta imagem.
 captcha_img_help:Não há nenhum zero nem um na imagem.
 powered-by:Potenciado por: FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:Direitos de autor &copy;2001-2019 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Direitos de autor &copy;2001-2020 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Código:
 code_select_all:Selecionar tudo
 code_show_hide:Mostrar / ocultar
