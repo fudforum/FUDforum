@@ -544,8 +544,7 @@ tabs_notifications:Notifikatiounen
 finduser_flag:Fändel
 post_descr:Beschreiwung vum Thema:
 move_messages:Message réckelen
-# Fuzzy
-copyright:Copyright &copy;2001-2019<a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Copyright &copy;2001-2020<a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Code:
 code_select_all:Alles uwielen
 code_show_hide:Weisen / Verstoppen
