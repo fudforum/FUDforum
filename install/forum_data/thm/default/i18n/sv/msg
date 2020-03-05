@@ -908,13 +908,11 @@ userinfo_polls:Gallupar:
 show_pollist:Omröstningar
 search_and:OCH
 search_or:ELLER
-# Fuzzy
-search_desc_order:Fallande ordning
+search_desc_order:Senaste först
 search_asc_order:Äldst först
 search_relevance_order:Relevans
 search_logic:Söklogik:
-# Fuzzy
-search_sorting:Sortera resultaten enligt datum i:
+search_sorting:Sortera efter:
 search_attach:Bilagor:
 search_attach_all:Med eller utan
 search_attach_with:Med bilagor

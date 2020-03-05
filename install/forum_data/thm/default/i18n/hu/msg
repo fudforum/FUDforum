@@ -11,6 +11,7 @@
 # Author: Naudefj
 # Author: R-Joe
 # Author: Tacsipacsi
+# Author: Worrida
 
 action:Művelet
 add_to_buddy_list:hozzáadás a barátok listájához
@@ -904,13 +905,11 @@ userinfo_polls:Szavazások:
 show_pollist:Szavazások:
 search_and:ÉS
 search_or:VAGY
-# Fuzzy
-search_desc_order:Csökkenő sorrend
-# Fuzzy
-search_asc_order:Növekvő sorrend
+search_desc_order:Legújabb elöl
+search_asc_order:Legrégebbi elöl
+search_relevance_order:Relevancia
 search_logic:Összekötő logika:
-# Fuzzy
-search_sorting:Eredmények rendezése dátum szerint:
+search_sorting:Rendezés:
 search_attach:Csatolmányok:
 search_attach_all:Vele vagy nélküle
 search_attach_with:Csatolmányokkal
@@ -1123,8 +1122,7 @@ move_msg_th_expl:Add meg a céltéma azonosítóját (lehet más fórumban is)
 captcha_img_alt:Captcha-ellenőrzés: fel kell ismerned a képen látható szöveget.
 captcha_img_help:Nincs nulla vagy egy a képen.
 powered-by:Az oldalt a FUDfórum {GVAR: FORUM_VERSION} hajtja.
-# Fuzzy
-copyright:Copyright &copy;2001-2019 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Copyright &copy;2001–2020 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Kód:
 code_select_all:Összes kijelölése
 code_show_hide:Megjelenítés/ elrejtés

@@ -494,6 +494,7 @@ search_or:ODER
 search_desc_order:déi Neist fir d'éischt
 search_asc_order:déi Eelst fir d'éischt
 search_relevance_order:Relevanz
+search_logic:Sich-Logik:
 search_sorting:Zortéieren no:
 saved:Gespäichert
 buddy_offline:{VAR: r[2]} ass elo offline
