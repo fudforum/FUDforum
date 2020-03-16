@@ -7,6 +7,7 @@
 # Author: Majid Al-Dharrab
 # Author: Maroen1990
 # Author: Meno25
+# Author: NEHAOUA
 # Author: Naudefj
 # Author: OsamaK
 # Author: ترجمان05
@@ -905,13 +906,11 @@ userinfo_polls:الاقتراعات:
 show_pollist:الاقتراعات
 search_and:و
 search_or:أو
-# Fuzzy
-search_desc_order:ترتيب تنازلي
-# Fuzzy
-search_asc_order:ترتيب تصاعدي
+search_desc_order:الأحدث أولا
+search_asc_order:الأقدم أولا
+search_relevance_order:ملاءمة
 search_logic:منطق البحث:
-# Fuzzy
-search_sorting:رتّب النتائج حسب التاريخ:
+search_sorting:ترتيب حسب:
 search_attach:المرفقات:
 search_attach_all:مع أو بدون
 search_attach_with:مع مرفقات
@@ -1124,8 +1123,7 @@ move_msg_th_expl:حدد هوية الموضوع الهدف (يمكن أن يكو
 captcha_img_alt:تحقق كابتشا: سوف تحتاج إلى التعرف على نص هذه الصورة.
 captcha_img_help:لا يوجد صفر ولا واحد في الصورة.
 powered-by:يشغله: FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:حقوق النشر &copy;2001-2019 <a href="http://fudforum.org/">برنامج منتدى FUDforum</a>
+copyright:حقوق النشر &copy;2001-2020 <a href="http://fudforum.org/">برنامج منتدى FUDforum</a>
 code_title:الكود
 code_select_all:اختر الكل
 code_show_hide:أظهر/أخفِ
