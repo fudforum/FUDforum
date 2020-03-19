@@ -15,6 +15,7 @@
 # Author: Xiaomingyan
 # Author: Yanmiao liu
 # Author: Yfdyh000
+# Author: 沈澄心
 # Author: 阿pp
 
 action:操作
@@ -250,8 +251,7 @@ pmsg_forwarded:转发
 pmsg_subject:主题
 pmsg_author:作者
 pmsg_time:时间
-# Fuzzy
-pmsg_selected:已选择
+pmsg_selected:选择
 pmsg_delete:删除
 cur_ppage_pm:悄悄话通知
 writing_pm:写悄悄话
@@ -535,7 +535,6 @@ mklist_apply:提交
 mklist_delete:删除
 qbud_nick_name:昵称
 qbud_add_selected:添加选定用户
-# Fuzzy
 qbud_selected:选择
 qbud_no_buddies:没有用户选择
 mklist_numerical:数字
