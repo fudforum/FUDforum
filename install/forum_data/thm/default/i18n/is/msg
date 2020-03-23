@@ -901,13 +901,11 @@ userinfo_polls:Kannanir:
 show_pollist:Kannanir
 search_and:OG
 search_or:EÐA
-# Fuzzy
-search_desc_order:Í lækkandi röð
-# Fuzzy
-search_asc_order:Í hækkandi röð
+search_desc_order:Nýjasta fyrst
+search_asc_order:Elsta fyrst
+search_relevance_order:Vægi
 search_logic:Leitar rök:
-# Fuzzy
-search_sorting:Flokka niðurstöður eftir dagsetningu í:
+search_sorting:Raða eftir:
 search_attach:Viðhengi:
 search_attach_all:Með eða án
 search_attach_with:Með viðhengjum
@@ -1120,8 +1118,7 @@ move_msg_th_expl:Tilgreindu auðkenni þráðarinns sem á að færa á (má ver
 captcha_img_alt:Captcha staðfesting: Þú þarft að bera kennsl á textann á þessari mynd.
 captcha_img_help:Það er ekki núll eða einn á myndinni.
 powered-by:Knúið af: FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:Höfundarréttur &copy;2001-2019 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Höfundarréttur &copy;2001-2020 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Kóði:
 code_select_all:Velja allt
 code_show_hide:sýna/fela
