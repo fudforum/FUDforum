@@ -121,7 +121,7 @@ num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|rey|reyi}
 occupation:Kar:
 off:Racıne
 on:Akerde
-page_timings:Vıraştena perer arêdayış {PLURAL: page_gen_time|$1 saniye} ramıt
+page_timings:Vıraştışê pele pêro piya {PLURAL: page_gen_time|$1 saniya} domna
 pm:Mesacê Hısusiy
 poll:Reydayış
 post_count:Amariya Mesaca {VAR: u_pcount}
@@ -638,7 +638,7 @@ tabs_own_posts:Rıştayışanê mı bımocne
 sml_emoticon:İfade
 sml_code:Kod
 mnav_sub_only:Forumê ke ez aboneya ênan dı cıgeyre
-register_topics_per_page:Sernuşti rê Mesele:
+register_topics_per_page:Pele de amarê mewzuyan:
 login_min_time:{VAR: MIN_TIME_BETWEEN_LOGIN} saniyeyan miyan de şıma şenê cıkewê, şıma ra reca kenime ke raveri cerrebnayışê bahdoyêni {FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)} saniyeyan bıpawê.
 post_not_logged_in:Şıam cıqewtış nê kerdo, Mesacê şıma do bêname şıro.
 post_common_bold:Qalınd

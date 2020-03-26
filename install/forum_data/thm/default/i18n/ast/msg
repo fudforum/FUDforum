@@ -238,8 +238,7 @@ pmsg_forwarded:re-unviáu
 pmsg_subject:Asuntu
 pmsg_author:Autor
 pmsg_time:Hora
-# Fuzzy
-pmsg_selected:Seleicionáu
+pmsg_selected:Seleicionar
 pmsg_delete:Desaniciar
 cur_ppage_pm:Mensaxería privada
 writing_pm:Escribiendo un mensaxe priváu
@@ -523,8 +522,7 @@ mklist_apply:Aplicar
 mklist_delete:Desaniciar
 qbud_nick_name:Alcuñu
 qbud_add_selected:Amestar seleicionáu
-# Fuzzy
-qbud_selected:Seleicionáu
+qbud_selected:Seleicionar
 qbud_no_buddies:Nun hai collacios pa escoyer
 mklist_numerical:Numbérica
 mklist_aplha:Alfabética
@@ -896,17 +894,14 @@ polllist_votes:Total de votos
 polllist_action:Aición
 polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">Revisando les encuestes disponibles</a>
 userinfo_polls:Encuestes:
-# Fuzzy
-show_pollist:Amosar encuestes
+show_pollist:Encuestes
 search_and:ⴷ
 search_or:O
-# Fuzzy
-search_desc_order:Orde descendente
-# Fuzzy
-search_asc_order:Orde ascendente
+search_desc_order:Más nueves primero
+search_asc_order:Más antigües primero
+search_relevance_order:Relevancia
 search_logic:Llóxica de gueta:
-# Fuzzy
-search_sorting:Ordenar los resultaos por data en:
+search_sorting:Ordenar por:
 search_attach:Axuntos:
 search_attach_all:Con o ensin
 search_attach_with:Con axuntos
@@ -1119,8 +1114,7 @@ move_msg_th_expl:Especifica la ID del filu de destín (pue tar n'otros foros)
 captcha_img_alt:Comprobación por Captcha: tendrás que reconocer el testu d'esta imaxe.
 captcha_img_help:Nun hai dengún cero o unu na imaxe.
 powered-by:Movíu por: FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:Copyright &copy;2001-2018 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Copyright &copy;2001-2020 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Códigu:
 code_select_all:Seleccionar too
 code_show_hide:Amosar/anubrir

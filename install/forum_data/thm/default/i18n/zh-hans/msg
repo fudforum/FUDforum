@@ -1,5 +1,6 @@
 # Messages for Simplified Chinese (中文（简体）‎)
 # Exported from translatewiki.net
+# Author: 500000000006城
 # Author: A Chinese Wikipedian
 # Author: Anakmalaysia
 # Author: Chenxiaoqino
@@ -910,8 +911,7 @@ polllist_votes:总票数
 polllist_action:操作
 polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">查看可用投票</a>
 userinfo_polls:调查：
-# Fuzzy
-show_pollist:显示调查
+show_pollist:调查
 search_and:和
 search_or:或
 # Fuzzy
