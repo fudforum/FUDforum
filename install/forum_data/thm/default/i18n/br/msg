@@ -241,8 +241,7 @@ pmsg_forwarded:adkaset
 pmsg_subject:Danvez
 pmsg_author:Aozer
 pmsg_time:Eur
-# Fuzzy
-pmsg_selected:Diuzet
+pmsg_selected:Diuzañ
 pmsg_delete:Dilemel
 cur_ppage_pm:Kemennadennoù prevez
 writing_pm:Skrivañ ur gemennadenn brevez
@@ -526,8 +525,7 @@ mklist_apply:Arloañ
 mklist_delete:Dilemel
 qbud_nick_name:Lesanv
 qbud_add_selected:Ouzhpennañ an elfennoù diuzet
-# Fuzzy
-qbud_selected:Diuzet
+qbud_selected:Diuzañ
 qbud_no_buddies:Mignon ebet da zibab
 mklist_numerical:Niverel
 mklist_aplha:Lizherennek
@@ -899,17 +897,14 @@ polllist_votes:Hollad ar mouezhioù
 polllist_action:Ober
 polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">O welet ar sontadegoù</a>
 userinfo_polls:Sontadegoù :
-# Fuzzy
-show_pollist:Diskouez ar sontadegoù
+show_pollist:Sontadegoù
 search_and:HA
 search_or:PE
-# Fuzzy
-search_desc_order:Urzh war zigresk
-# Fuzzy
-search_asc_order:Urzh war gresk
+search_desc_order:an hini nevesañ da gentañ
+search_asc_order:an hini koshañ da gentañ
+search_relevance_order:Pizhder
 search_logic:Dezverkoù klask :
-# Fuzzy
-search_sorting:Urzhiañ an disoc'hoù dre zeiziad, e-barzh :
+search_sorting:Urzhiañ dre :
 search_attach:Pezhioù stag :
 search_attach_all:Gant pe hep
 search_attach_with:Gant pezhioù stag
@@ -1122,8 +1117,7 @@ move_msg_th_expl:Spisait anavezer ar gaoz pal (a c'hall bezañ en ur forom all)
 captcha_img_alt:Gwiriadur dre Captcha : dav eo deoc'h anavezout an destenn er skeudenn-mañ.
 captcha_img_help:N'eus ket a zero pe a unan er skeudenn.
 powered-by:Enlusket gant : FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:Copyright &copy;2001-2018 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Copyright &copy;2001-2020 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:KOD :
 code_select_all:Diuzañ pep tra
 code_show_hide:Diskouez / kuzhat

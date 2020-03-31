@@ -718,6 +718,7 @@ email_title:نموذج البريد الإكتروني
 finduser_title:جِد مستخدمًا
 help_title:مساعدة
 login_title:نموذج الولوج
+msg_title:{VAR: frm->name} &raquo; {VAR: frm->subject}
 poll_title:مُحرر الاقتراع
 register_title:نموذج التسجيل
 reset_title:إعادة ضبط كلمة السر
@@ -725,6 +726,8 @@ rpasswd_title:نموذج تغيير كلمة السر
 error_title:نموذج الخطأ
 index_title:مرحبًا بكم في المنتدى
 search_title:البحث عن {VAR-HTML: srch}
+thread_title:{VAR: frm->name}
+tree_title:{VAR: frm->name} &raquo; {VAR: frm->subject}
 remail_emailsent:أُرسِل البريد
 remail_email:مرحبًا،\n\nيوجد موضوع مشوق عن "{VAR: data->subject}" في منتدى {GVAR: FORUM_TITLE} وقد ترغب في قراءته، تستطيع مشاهدة الموضوع على:\n  {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nصديقك،\n\n{VAR: usr->alias}
 poll_add_option:أضف خيارًا:
