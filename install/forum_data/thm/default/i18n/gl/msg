@@ -3,6 +3,7 @@
 # Author: Banjo
 # Author: Elisardojm
 # Author: Fitoschido
+# Author: Iváns
 # Author: Macofe
 # Author: McDutchie
 # Author: Naudefj
@@ -652,7 +653,7 @@ postcheck_max_images_err:Permítese un máximo de {GVAR: MAX_IMAGE_COUNT} imaxes
 postcheck_no_links_allowed:Non podes empregar as ligazóns ata que publiques máis {PLURAL: posts_before_links|dunha mensaxe|de $1 mensaxes}.
 postcheck_subj_needed:O asunto é obrigatorio
 postcheck_no_such_user:Non existe ningún usuario chamado "{FUNC: char_fix(htmlspecialchars($v))}" neste foro.
-postcheck_ignored:Non lle podes enviar unha mensaxe privada a "{FUNC: char_fix(htmlspecialchars($v))}" porque este usuario te está ignorando.
+postcheck_ignored:Non lle podes enviar unha mensaxe privada a "{FUNC: char_fix(htmlspecialchars($v))}" porque este usuario está a ignorarche.
 postcheck_no_recepient:Non se pode enviar a mensaxe porque falta o destinatario
 postcheck_invalid_email:Por favor, insire un enderezo de correo electrónico válido para o teu amigo.
 postcheck_email_subject:Non podes enviar un correo electrónico sen asunto.

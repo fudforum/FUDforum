@@ -6,6 +6,7 @@
 # Author: Atthar
 # Author: Dalba
 # Author: Ebraminio
+# Author: FarsiNevis
 # Author: Fatemi127
 # Author: Huji
 # Author: Macofe
@@ -321,6 +322,7 @@ register_login_taken:گرفته‌شده
 register_password:گذرواژه:
 register_password_desc:رمز عبور برای حساب کاربری شما. رمز عبور به بزرگی و کوچکی حساس است و دست‌کم باید 6 کاراکتر داشته باشد.
 register_conf_pass:تأیید گذرواژه:
+register_conf_pass_desc:لطفاً گذرواژه‌تان را دوباره وارد کنید.
 register_email_desc:ایمیل شما. شما بعدا می‌توانید از طریق بخش تنظیمات آن را مخفی کنید.
 register_name:نام:
 register_name_desc:نام واقعی شما.
@@ -910,13 +912,11 @@ userinfo_polls:نظرسنجی‌ها:
 show_pollist:نظرسنجی‌ها
 search_and:و
 search_or:یا
-# Fuzzy
-search_desc_order:ترتیب نزولی
-# Fuzzy
-search_asc_order:ترتیب صعودی
+search_desc_order:نخست جدیدترین
+search_asc_order:نخست قدیمی‌ترین
+search_relevance_order:ارتباط
 search_logic:منطق جستجو:
-# Fuzzy
-search_sorting:ترتیب تاریخ نتایج:
+search_sorting:مرتب‌سازی بر اساس:
 search_attach:ضميمه‌ها:
 search_attach_all:فاقد یا دارا
 search_attach_with:دارای ضمیمه
@@ -1070,10 +1070,8 @@ search_user_filter:محدود به کاربر:
 register_none:من را آگاه نکن
 findu_no_conf:کاربر تأیید‌نشده
 register_max_sig_len:حداکثر طول:
-# Fuzzy
-register_turing:لطفا کد کپچای زیر را وارد کنید:
-# Fuzzy
-register_err_turing:کد کپچا نادرست است.
+register_turing:درستی‌سنجی:
+register_err_turing:درستی‌سنجی با شکست مواجه شد. لطفاً دوباره تلاش کنید.
 modque_cat:سربرگ
 modque_forum:انجمن
 idx_compact_forum_row:انجمن‌های موجود:
@@ -1173,3 +1171,4 @@ karma:کارما
 karma_track:مدیریت سوابق کاربر:
 karma_delete:حذف
 rate_author:امتیازدهی:
+blog_new_members:اعضای جدید

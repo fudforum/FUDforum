@@ -238,8 +238,7 @@ pmsg_forwarded:ئالدىغا
 pmsg_subject:تېما
 pmsg_author:يازغۇچى
 pmsg_time:سائەت
-# Fuzzy
-pmsg_selected:تاللانغان
+pmsg_selected:تاللا
 pmsg_delete:ئۆچۈر
 cur_ppage_pm:شەخسىي ئۇچۇر
 writing_pm:شەخسىي ئۇچۇر يېزىۋاتىدۇ
@@ -312,6 +311,7 @@ register_login_taken:ئىشلىتىلگەن
 register_password:ئىم:
 register_password_desc:ھېساباتىڭىزغا ئىشلىتىدىغان ئىم. ئىمدىكى ھەرپنىڭ چوڭ-كىچىك يېزىلىشى پەرقلىنىدۇ، شۇنداقلا ئۇزۇنلۇقى 6 ھەرپتىن ئاز بولمىسۇن.
 register_conf_pass::ئىم جەزملەش
+register_conf_pass_desc:ئىمنى قايتا كىرگۈزۈڭ.
 register_email_desc:تورخەت ئادرېسىڭىز. تۆۋەندىكى مايىللىق بۆلىكىدە ئۇنى يوشۇرۇشنى تاللىسىڭىز بولىدۇ.
 register_name:نامى:
 register_name_desc:ھەقىقىي ئىسىم-فامىلىڭىز.
@@ -522,8 +522,7 @@ mklist_apply:قوللان
 mklist_delete:ئۆچۈر
 qbud_nick_name:تەخەللۇس
 qbud_add_selected:تاللانغاننى قوش
-# Fuzzy
-qbud_selected:تاللانغان
+qbud_selected:تاللا
 qbud_no_buddies:ھېچكىم تاللانمىدى
 mklist_numerical:سان
 mklist_aplha:ھەرپ
@@ -895,17 +894,14 @@ polllist_votes:ئومۇمىي بىلەت
 polllist_action:مەشغۇلات
 polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">مەۋجۇت راي سىناشنى كۆرۈش</a>
 userinfo_polls:راي سىناش:
-# Fuzzy
-show_pollist:راي سىناشنى كۆرسەت
+show_pollist:راي سىناشلار
 search_and:ۋە
 search_or:ياكى
-# Fuzzy
-search_desc_order:كېمەيگۈچى تەرتىپ
-# Fuzzy
-search_asc_order:ئاشقۇچى تەرتىپ
+search_desc_order:يېڭىسى ئالدىدا
+search_asc_order:كونىسى ئالدىدا
+search_relevance_order:باغلىنىش
 search_logic:ئىزدەش ئۇسۇلى:
-# Fuzzy
-search_sorting:نەتىجىنى چېسلا بويىچە تىزىش:
+search_sorting:تەرتىپى:
 search_attach:قوشۇمچە
 search_attach_all:بار ياكى يوق
 search_attach_with:قوشۇمچە بار
@@ -1056,10 +1052,8 @@ search_user_filter:ئىشلەتكۈچى سۈزگەن:
 register_none:ماڭا ئۇقتۇرما
 findu_no_conf:جەزملەنمىگەن ئىشلەتكۈچى
 register_max_sig_len:ئەڭ چوڭ ئۇزۇنلۇق:
-# Fuzzy
-register_turing:تۆۋەندە كۆرسىتىدىغان كودنى كىرگۈزۈڭ:
-# Fuzzy
-register_err_turing:ئىناۋەتسىز دەلىللەش كودى.
+register_turing:دەلىللەش:
+register_err_turing:دەلىللىيەلمىدى. قايتا سىناڭ.
 modque_cat:تۈر
 modque_forum:مۇنبەر
 idx_compact_forum_row:ئىشلىتىلىشچان مۇنبەر:
@@ -1120,8 +1114,7 @@ move_msg_th_expl:يۆتكەيدىغان تېمىنىڭ ID سىنى بەلگىل�
 captcha_img_alt:دەلىللەشنى جەزملەش: سىز بۇ رەسىمدىكى تېكىستنى تونۇشىڭىز كېرەك.
 captcha_img_help:سۈرەتتە نۆل ياكى بىر يوق.
 powered-by:تەمىنلىگۈچى: FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:نەشر ھوقۇقىغا ئىگە &copy;2001-2017 <a href="http://fudforum.org/">FUDforum مۇنبەر ئۇقتۇرۇش تاختا يۇمشاق دېتالى</a>
+copyright:نەشر ھوقۇقىغا ئىگە &copy;2001-2020 <a href="http://fudforum.org/">FUDforum مۇنبەر ئۇقتۇرۇش تاختا يۇمشاق دېتالى</a>
 code_title:كود:
 code_select_all:ھەممىنى تاللا
 code_show_hide:كۆرسەت/يوشۇر
@@ -1159,3 +1152,10 @@ karma:سەۋەپ
 karma_track:ئىشلەتكۈچىنىڭ ئىناۋىتىنى باشقۇرۇش:
 karma_delete:ئۆچۈر
 rate_author:يازغۇچىغا باھا:
+blog_update:مۇنبەر بىلوگىنى ئوقۇش
+blog:بىلوگ
+blog_new_members:يېڭى ئەزالار
+blog_new_posts:يېقىندا يوللانغىنى
+blog_rated_posts:ئەڭ ياخشى باھا
+blog_viewed_posts:كۆپ كۆرۈلگەنلىرى
+blog_comments:{PLURAL: topic->replies|$1 ئىنكاس|$1 ئىنكاس}

@@ -18,6 +18,7 @@
 # Author: Omnipaedista
 # Author: Peter17
 # Author: Robby
+# Author: Thibaut120094
 # Author: Urhixidur
 # Author: Verdy p
 # Author: Wladek92
@@ -918,7 +919,7 @@ search_desc_order:Plus récents d’abord
 search_asc_order:Plus anciens d’abord
 search_relevance_order:Pertinence
 search_logic:Logique de recherche :
-search_sorting:Trier par :
+search_sorting:Trier par :
 search_attach:Pièces jointes :
 search_attach_all:Avec ou sans
 search_attach_with:Avec des pièces jointes
