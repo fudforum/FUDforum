@@ -1138,7 +1138,7 @@ btn_quote:цитирај
 btn_email:Писмо
 btn_show_posts:пораки
 btn_homepage:www
-feed_no_data:Нема пронајдено совпаднати податоци.
+feed_no_data:Не пронајдов совпаднати податоци.
 feed_rdf:RDF-тековник
 feed_rss:RSS2-тековник
 feed_atom:АТОМ-тековник
