@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2019 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2020 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -104,7 +104,7 @@ function return_group_name($id)
 			if ($obj->a_res == 'WRONGPASSWD') {
 				$user_info = 'Unauthenticated user';
 			} else {
-				$user_info = 'User is no longer in the system.';
+				$user_info = 'New or deleted user';
 			}
 		} else if ($obj->users_opt & 1048576) {
 			$user_info = '<a href="admuser.php?usr_id='. $obj->user_id .'&amp;act=m&amp;'. __adm_rsid .'">'. $obj->alias .'</a> <span class="tiny">[Administrator]</span>';
