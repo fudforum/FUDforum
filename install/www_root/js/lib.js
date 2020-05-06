@@ -1,5 +1,5 @@
 /***************************************************************************
-* copyright            : (C) 2001-2019 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2020 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -17,7 +17,22 @@ var OPERA = navigator.userAgent.indexOf('Opera') > -1 ? 1 : 0;
 var MAC = navigator.userAgent.indexOf('Mac') > -1 ? 1 : 0;
 
 /* Edit box stuff */
-function insertTag(obj, stag, etag)
+function insertTag(obj, startTag, endTag) {
+	var field = document.getElementById(obj);
+	if (field == null ) {
+		field = document.getElementById('txtb');
+	}
+	var scroll = field.scrollTop;
+	field.focus();
+	var startSelection   = field.value.substring(0, field.selectionStart);
+	var currentSelection = field.value.substring(field.selectionStart, field.selectionEnd);
+	var endSelection     = field.value.substring(field.selectionEnd);
+	field.value = startSelection + startTag + currentSelection + endTag + endSelection;
+	field.focus();
+	field.setSelectionRange(startSelection.length + startTag.length, startSelection.length + startTag.length + currentSelection.length);
+}
+
+function insertTagOLD(obj, stag, etag)
 {
 	if (navigator.userAgent.indexOf('MSIE') > -1 && !OPERA) {
 		insertTagIE(obj, stag, etag);
