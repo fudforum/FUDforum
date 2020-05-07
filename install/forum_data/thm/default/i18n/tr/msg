@@ -978,6 +978,7 @@ iemail_forum_unsub:Bu forum aboneliğinden çık
 primary_group_prefix:Forum için birincil grup:
 group_resources:Bu grup aşağıdaki forumların izinlerini kontrol eder
 register_admin_newuser_title:Yeni bir kullanıcı kaydoldu ve hesabı onay bekliyor
+# Fuzzy
 register_admin_newuser_msg:Yeni bir kullanıcı ({VAR: uent->login}) az önce kaydoldu ve hesap onayı etkinleştirildiğinden, siz veya başka bir forum yöneticisi tarafından onaylanana kadar hesapları aktif hale gelmeyecek. Hesabı incelemek için lütfen şu adrese gidin: {FULL_ROOT}adm/admuserapr.php\n\nBu otomatik bir işlemdir. Bu iletiyi yanıtlamayın.\nYeni kullanıcı kayıtlarına ilişkin gelecekteki e-posta bildirimlerini kapatmak istiyorsanız bunu Yönetici Denetim Paneli'nden yapabilirsiniz. "Yeni Hesap Bildirimi" ayarını değiştirin.
 post_mod_msg_notify_title:"{VAR: frm->name}" forumunda onay bekleyen yeni mesaj
 post_mod_msg_notify_msg:Denetlediğiniz bir foruma "{VAR: msg_post->subject}" başlıklı yeni bir mesaj gönderildi. Bu mesajı incelemek için şu adrese gidin: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nBu otomatik bir işlemdir. Bu mesajı yanıtlamayın.

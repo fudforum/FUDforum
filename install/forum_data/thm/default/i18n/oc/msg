@@ -967,6 +967,7 @@ iemail_forum_unsub:Arrestar la susvelhança d'aqueste forum
 primary_group_prefix:Grop primari pel forum :
 group_resources:Aqueste grop contraròtla las permissions dels forums seguents
 register_admin_newuser_title:Un novèl utilizaire s'es inscrit e son compte es en espèra de confirmacion
+# Fuzzy
 register_admin_newuser_msg:Un novèl utilizaire ({VAR: uent->login}) ven juste de s'inscriure sul forum e coma la confirmacion dels comptes es activada, son compte vendrà pas actiu que quand vos o un dels administrators del forum l'auretz confirmat. Per decidir d'aqueste compte, rendètz-vos sus : {FULL_ROOT}adm/admuserapr.php\n\nAquò's un processus automatic, respondatz pas a aqueste messatge.\nSe volètz desactivar las notificacions venentas per corrièr de l'inscripcion de novèls utilizaires, o podètz far amb lo panèl de contraròtle admin en cambiant la valor del paramètre « New Account Notification ».
 post_mod_msg_notify_title:Novèl messatge dins lo forum « {VAR: frm->name} » en espèra d'aprovacion
 post_mod_msg_notify_msg:Un novèl messatge intitulat « {VAR: msg_post->subject} » ven juste d'èsser postat dins un forum que moderatz. Per decidir d'aqueste messatge, rendètz-vos a :  {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nAquò's un processus automatic, respondatz pas a aqueste messatge.

@@ -977,6 +977,7 @@ iemail_forum_unsub:取消对此板块的订阅
 primary_group_prefix:中心组对于板块：
 group_resources:此组控制下列板块的访问权限
 register_admin_newuser_title:有新用户注册并等候批复
+# Fuzzy
 register_admin_newuser_msg:新用户（{VAR: uent->login}）刚刚注册，并且由于账户确认已启用，其账户将不会被激活，直到被您或其他论坛管理员确认。要复核账户，请至{FULL_ROOT}adm/admuserapr.php\n\n这是一条自动化处理消息。请不要回复该消息。\n如果您希望关闭新用户注册的电子邮件通知，您可以通过管理员控制面板进行。更改"新账户通知”设置即可。
 post_mod_msg_notify_title:有新帖在 "{VAR: frm->name}" 板上等待审核
 post_mod_msg_notify_msg:标题为“{VAR: msg_post->subject}”的新消息刚刚发布到您作为版主的论坛。要复核该消息，请到：{FULL_ROOT}?t=modque#{VAR: msg_post->id}\n\n这是自动化处理。不要回复该消息。

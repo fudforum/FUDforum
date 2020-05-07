@@ -953,6 +953,7 @@ iemail_forum_unsub:이 포럼에서 구독 취소
 primary_group_prefix:포럼에 대한 기본 그룹:
 group_resources:이 그룹은 다음 포럼의 권한을 제어합니다
 register_admin_newuser_title:새 사용자가 등록했고 계정은 확인을 기다리고 있습니다
+# Fuzzy
 register_admin_newuser_msg:새로운 사용자 ({VAR: uent->login})이(가) 방금 등록되었습니다. 계정 인증이 되었더라도 당신이나 다른 포럼 관리자가 확인해 줄 때까지는 해당 사용자 계정은 활성화되지 않습니다. 계정을 검토하려면 다음으로 이동하십시오: {FULL_ROOT}adm/admuserapr.php\n\n이것은 자동화된 프로세스입니다. 이 메시지에 응답하지 마십시오.\n앞으로의 새로운 사용자 등록에 대한 이메일 알림을 받지 않으려면, 관리자 제어판을 통해 처리하십시오. "새로운 계정 알림" 설정을 변경하시면 됩니다.
 post_mod_msg_notify_title:"{VAR: frm->name}" 포럼에 승인을 기다리는 새 메시지
 post_mod_msg_notify_msg:"{VAR: msg_post->subject}" 제목의 새 메시지가 방금 당신이 관리하는 포럼에 게시되었습니다. 이 메시지를 검토하려면 다음으로 이동하십시오: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\n이것은 자동화된 프로세스입니다. 이 메시지에 답변하지 마십시오.

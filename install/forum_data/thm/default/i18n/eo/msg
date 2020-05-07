@@ -966,6 +966,7 @@ iemail_forum_unsub:Malaboni ĉi tiun forumon
 primary_group_prefix:Ĉefa grupo por forumo:
 group_resources:Ĉi tiu grupo rajtigas la jenajn forumojn
 register_admin_newuser_title:Nova uzanto registris kaj ties konto atendas konfirmado
+# Fuzzy
 register_admin_newuser_msg:Nova uzanto ({VAR: uent->login}) ĵus estas registrita, kaj ĉar konfirmado de kontoj estas aktiva, ĝia konto ne estos uzebla ĝis ĝi estos konfirmita de vi aŭ de alia forumestro. Por kontroli la konton bonvolu iri al: {FULL_ROOT}adm/admuserapr.php\n\nĈi tio estas rezulto de aŭtomata proceso. Ne reagu je ĉi tiu mesaĝo.\nSe vi deziras malŝalti estontajn retpoŝtajn sciigojn pri novaj konto-kreoj, vi povas tion aranĝi per la stirpanelo por administranto. Tie ŝanĝeblas la agordo pri "sciigoj pri novaj kontoj".
 post_mod_msg_notify_title:Nova mesaĝo en forumo "{VAR: frm->name}" ne jam aprobita
 post_mod_msg_notify_msg:Nova mesaĝo kun temo "{VAR: msg_post->subject}" ĵus afiŝiĝis en forumo kontrolata de vi. Por revizii ĉi-supran mesaĝon iru al: {FULL_ROOT}?t=modque#{VAR: msg_post->id}\n\nĈi tio estas aŭtomata mesaĝo. Bonvolu ne respondi.

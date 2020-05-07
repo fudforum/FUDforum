@@ -968,6 +968,7 @@ iemail_forum_unsub:Nebeprenumeruoti šio forumo
 primary_group_prefix:Pagrindinė grupė forumui:
 group_resources:Ši grupė kontroliuoja šių forumų teises
 register_admin_newuser_title:Naujas vartotojas užsiregistravo ir jų sąskaita laukia patvirtinimo
+# Fuzzy
 register_admin_newuser_msg:Naujas vartotojas ({VAR: uent->login}) ką tik užsiregistravo, ir kol sąskaitos patvirtinimas yra įjungtas, jų sąskaita nebus aktyvi iki kol ji bus patvirtinta jūsų ar kito forumo administratoriaus. Kad peržiūrėtumėte sąskaita eikite į: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nTai automatinis procesas. Neatsakinėkite į šia žinutę.\nJei norite išjungti ateities naujų vartotojų registracijos el. laiškus, jūs galite tai padaryti eidami į administratoriaus valdymo pultą. Ir pakeisti "Naujų Sąskaitų Pranešimo" nustatymą.
 post_mod_msg_notify_title:Naujas pranešimas forume "{VAR: frm->name}  laukia patvirtinimo
 post_mod_msg_notify_msg:Naujas pranešimas pavadinimu "{VAR: msg_post->subject}" buvo ką tik parašytas forume kurį jus moderuojate. Norėdami peržiūrėtu ši pranešimą eikite į: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nTai automatinis procesas. Neatsakykite į šia žinutę.

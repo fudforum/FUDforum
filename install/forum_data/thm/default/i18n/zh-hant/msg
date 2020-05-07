@@ -969,6 +969,7 @@ iemail_forum_unsub:取消訂閱主題
 primary_group_prefix:論壇主要群組：
 group_resources:這組控制以下論壇的許可權
 register_admin_newuser_title:有已註冊新使用者的帳號在等待確認
+# Fuzzy
 register_admin_newuser_msg:新使用者（{VAR: uent->login}）已註冊，由於帳號確認已啟用，他們的帳號在由您或別的論壇管理員確認之前不會生效。要檢帳號請前至：{GVAR: WWW_ROOT}adm/admuserapr.php\n\n這是一個自動化處理流程。請勿回復此訊息。\n如果要關閉新使用者註冊的電子郵件通知功能，您可以透過管理控制台中更改「新帳號通知」設置。
 post_mod_msg_notify_title:在論壇中的新訊息" {VAR: frm->name} "等待審批
 post_mod_msg_notify_msg:有個標題為" {VAR: msg_post->subject} "的新訊息剛張貼在你管理的論壇上。要檢視此訊息請至：{FULL_ROOT}?t=modque#{VAR: msg_post->id} \n\n這是一個自動化處理流程。請勿回復此訊息。

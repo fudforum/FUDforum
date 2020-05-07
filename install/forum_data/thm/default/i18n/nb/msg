@@ -968,6 +968,7 @@ iemail_forum_unsub:Stopp abonnement på dette forumet
 primary_group_prefix:Primærgruppe for forum:
 group_resources:Denne gruppen kontrollerer rettighetene på følgende fora
 register_admin_newuser_title:En ny bruker har registrert seg og kontoen venter på bekreftelse
+# Fuzzy
 register_admin_newuser_msg:En ny bruker ({VAR: uent->login}) har akkurat registrert seg og siden kontobekreftelse er aktivert vil ikke deres konto bli aktiv før den er bekreftet av deg eller en annen forumadministrator. For å godkjenne kontoen gå til: {FULL_ROOT}adm/admuserapr.php\n\nDette er en automatisert prosess. Ikke svar på denne meldingen.\nOm du vil slå av fremtidige e-postvarsler om nye brukerregistreringer kan du gjøre dette i Administratorens kontrollpanel. Endre «Varsel om ny konto»-innstillingen.
 post_mod_msg_notify_title:En ny melding i forumet «{VAR: frm->name}» venter på godkjenning
 post_mod_msg_notify_msg:En ny melding med tittelen «{VAR: msg_post->subject}» ble akkurat postet i et forum som du modererer. For å godkjenne denne meldingen gå til: {FULL_ROOT}?t=modque#{VAR: msg_post->id}\n\nDette er en automatisert prosess. Ikke svar på denne meldingen.

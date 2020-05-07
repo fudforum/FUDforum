@@ -967,6 +967,7 @@ iemail_forum_unsub:Prekini nadgledanje ovog foruma
 primary_group_prefix:Glavna grupa foruma:
 group_resources:Ova grupa upravlja dozvolama sledećih foruma
 register_admin_newuser_title:Novi korisnik je otvorio nalog koji čeka na potvrdu
+# Fuzzy
 register_admin_newuser_msg:Novi korisnik ({VAR: uent->login}) je upravo otvorio nalog. S obzirom na to da je potvrda naloga omogućena, nalog neće biti aktivan dok ga ne potvrdi administrator. Za pregled naloga posetite: {FULL_ROOT}adm/admuserapr.php\n\nOvo je automatizovani proces. Ne odgovarajte na ovu poruku.\nAko želite da onemogućite obaveštenja o novim korisnicima, promenite postavku „Obaveštenje o novim nalozima“ u administrativnom upravljačkom panelu.
 post_mod_msg_notify_title:Nova poruka u forumu „{VAR: frm->name}“ čeka na odobrenje
 post_mod_msg_notify_msg:Nova poruka pod nazivom „{VAR: msg_post->subject}“ je upravo postavljena na forum koji uređujete. Za pregled ove poruke posetite: {FULL_ROOT}?t=modque#{VAR: msg_post->id}\n\nOvo je automatizovana poruka. Ne odgovarajte na nju.

@@ -982,6 +982,7 @@ iemail_forum_unsub:Stop langganan forum ini
 primary_group_prefix:Group utama forum ini:
 group_resources:Kelompok ini mengontrol perizinan Forum berikut
 register_admin_newuser_title:Pengguna baru sudah mendaftar dan sedang menunggu konfirmasi
+# Fuzzy
 register_admin_newuser_msg:Pengguna baru ({VAR: uent->login}), dan karena konfirmasi diaktifkan, akun tidak akan aktif sampai disetujui administrator. Untuk memeriksa, silakan ke: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nIni proses otomatis, jangan membalas surel ini.\nPemberitahuan lewat surel bisa dinonaktifkan melalui kontrol panel admin. Ubah setelan di "Pemberitahuan Akun baru".
 post_mod_msg_notify_title:Pesan baru di forum "{VAR: frm->name}" menunggu persetujuan anda
 # Fuzzy

@@ -956,6 +956,7 @@ iemail_forum_unsub:Cancellar subscription a iste foro
 primary_group_prefix:Gruppo primari pro le foro:
 group_resources:Iste gruppo controla le permissiones del sequente foros
 register_admin_newuser_title:Un nove usator se ha registrate e su conto attende confirmation
+# Fuzzy
 register_admin_newuser_msg:Un nove usator ({VAR: uent->login}) se ha justo registrate, e perque le confirmation del contos es activate, su conto non devenira active usque illo es confirmate per te o un altere administrator del foro. Pro revider le conto, per favor visita: {FULL_ROOT}adm/admuserapr.php\n\nIsto es un processo automatic. Non responde a iste message.\nSi tu vole disactivar le futur notificationes de registration de nove usatores, tu pote facer lo via le Pannello de Controlo Administrative. Cambia le option "Notification de nove contos".
 post_mod_msg_notify_title:Nove message in foro "{VAR: frm->name}" attende approbation
 post_mod_msg_notify_msg:Un nove message titulate "{VAR: msg_post->subject}" esseva justo inviate a un foro que tu modera. Pro revider iste message, visita: {FULL_ROOT}?t=modque#{VAR: msg_post->id}\n\nIsto es un processo automatic. Non responde a iste message.

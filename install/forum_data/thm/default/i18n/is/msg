@@ -962,6 +962,7 @@ iemail_forum_unsub:Hætta áskrift á umræðu
 primary_group_prefix:Helsti hópur spjallborðsins:
 group_resources:Þessi hópur stjórnar réttindum eftirfarandi umræðna
 register_admin_newuser_title:Nýr notandi hefur skráð sig og aðgangur hans er í bið eftir staðfestingu
+# Fuzzy
 register_admin_newuser_msg:Nýr notandi ({VAR: uent->login}) hefur skráð sig og fyrst að staðfesting aðganga er virk, þá verður aðgangur notenda ekki virkur fyrr en hann hefur verið samþykktur af þér eða öðrum stjórnanda. Til að skoða aðganginn vinsamlegast farðu á: {FULL_ROOT}adm/admuserapr.php\n\nÞetta eru sjálfvirk skilaboð. Ekki svara þessum skilaboðum.\nEf þú villt slökkva á þeim möguleika að fá tölvupóst yfir nýjar notendaskráningar, þá getur þú gert það í stjórnborði stjórnenda. Breyttu möguleikanum "Tilkynningar um nýja aðganga".
 post_mod_msg_notify_title:Ný skilaboð í umræðunni "{VAR: frm->name}" í bið eftir staðfestingu
 post_mod_msg_notify_msg:Ný skilaboð með fyrirsögninni "{VAR: msg_post->subject}" voru sent á umræðu sem þú stjórnar. Til þess að skoða skilaboðin farðu á: {FULL_ROOT}?t=modque#{VAR: msg_post->id}\n\nÞetta eru sjálfvirk skilaboð. Ekki svara þessum skilaboðum.
