@@ -976,7 +976,6 @@ iemail_forum_unsub:Desuscribirse de este foro
 primary_group_prefix:Grupo principal para los foros:
 group_resources:Este grupo controla los permisos de los foros siguientes
 register_admin_newuser_title:Se ha registrado un usuario nuevo y su cuenta está pendiente de confirmación
-# Fuzzy
 register_admin_newuser_msg:Un usuario nuevo, ({VAR: uent->login}), acaba de registrarse en los foros, y como está activada la confirmación de la cuenta, su cuenta no estará activa hasta que tú u otro administrador de los foros la confirme. Para revisar la cuenta, visita: {FULL_ROOT}adm/admuserapr.php\n\nEste es un proceso automatizado. No respondas a este mensaje.\nPara desactivar futuras notificaciones de registro de usuarios nuevos, puedes hacerlo a través del Panel de control de administración, al cambiar el valor de la opción «Notificación de cuentas nuevas».
 post_mod_msg_notify_title:Un nuevo mensaje en los foros con el asunto "{VAR: frm->name}" está pendiente de aprobación
 # Fuzzy
