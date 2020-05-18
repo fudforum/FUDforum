@@ -66,7 +66,7 @@ last_post:Mesaco peyên
 last_thread_msg:Rna mewzu dı şo tewr peyên mesaci
 legend:Kıtabek
 location:Lokasyon:
-lock_thread:Meseler qılit ke
+lock_thread:Mewzuyan kılit ke
 locked:Kilit biya
 locked_with_new_posts:Kılit kerdeyo
 logged_in_list:Lista karberanê ke kewtê cı
@@ -165,6 +165,7 @@ threads:Topik:
 time:Wext
 todays_posts:Mesacê Ewroy
 unanswered_posts:Mesacê bêcewabi
+unlock_thread:Kılitê mewzuyi ake
 updated_on:Wextê newekeredışi:
 user:Karber
 user_counter:<b>{VAR: st_obj->user_count}</b> karberê qeydıni esti.
@@ -496,7 +497,7 @@ p_FILE:Dosya Dekerê de
 p_VOTE:Rey Bıdê
 p_RATE:Meseler/ezay bercıne
 p_SPLIT:Meseli abırne
-p_LOCK:Meseler qılit ke
+p_LOCK:Mewzuyan kılit ke
 p_MOVE:Mersela Ahûlne
 p_SML:Huwatış Cıwine
 p_IMG:Taganê resımi cıwine
