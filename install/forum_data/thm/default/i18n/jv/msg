@@ -1,13 +1,15 @@
 # Messages for Javanese (Jawa)
 # Exported from translatewiki.net
+# Author: Diki Ananta
 # Author: Kangit23
 # Author: Macofe
 # Author: McDutchie
+# Author: N219
 # Author: NoiX180
 
 action:Laku
 add_to_buddy_list:nambah kanggo konco dhaftar...
-admin:Pangurus
+admin:Panata
 admin_control_panel:Administrasi
 administrator:administrator
 attachment:lampiran:
@@ -190,7 +192,7 @@ unbookmark_thread_desc:Copot topik iki saka daftar tetenger
 unsubscribe:Mandeg langganan
 unsubscribe_desc:Stop nampa kabar bab topik anyar ing forum
 updated_on:Dianyari ing:
-user:Panganggo
+user:Naraguna
 user_counter:We have <b>{VAR: st_obj->user_count}</b> kadhaftar {PLURAL: st_obj->user_count|pangguna|kedhaftar}.
 user_info:Anggota Jeneng Informasi
 user_info_l:Anggota Jeneng Informasi {VAR: u->alias}
@@ -289,7 +291,7 @@ finduser_user_info:Anggota Jeneng Informasi
 finduser_by_login:Login dening:
 finduser_submit:Golèk
 finduser_no_such_user:Ora kaya Anggota Jeneng
-finduser_user:Panganggo
+finduser_user:Naraguna
 finduser_postcount:Pesen Count
 finduser_joindate:Join Date
 finduser_action:Laku
@@ -300,13 +302,13 @@ edit_time_limit:<b>Pengeditan Wektu watesan</b>: {GVAR: EDIT_TIME_LIMIT} menit
 no_edit_time_limit:<b>Pengeditan Wektu watesan</b>: Unlimited
 pmuserloc_login:Mlebu:
 pmuserloc_submit:Kirim
-pmuserloc_user:Panganggo
+pmuserloc_user:Naraguna
 pmuserloc_no_result:Ora Kasil
 register_builtin:Ing dibangun
 register_specify_url:nemtokake URL
 register_uploaded:upload Avatar
 register_login:Mlebu:
-register_password:Tembung wadi:
+register_password:Tembung sandi:
 register_conf_pass:Konfirmasi Pangguna:
 # Fuzzy
 register_email_desc:Mangga ngetik neng alamat e-mail. Sampeyan bisa milih kanggo ndhelikake kasebut ing ngisor iki, ing bagean Preferensi.
@@ -450,7 +452,7 @@ coppa_fax_email:Alamat e-mail:
 coppa_fax_date:Tanggal
 coppa_fax_questions:Mangga kontak <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> karo pitakonan
 coppa_fax_login:Mlebu log
-coppa_fax_passwd:Tembung wadi
+coppa_fax_passwd:Tembung sandi
 coppa_fax_remail:E-mail
 coppa_fax_name:Jeneng
 login_not_logedin:Sampeyan ora mlebu ping iki bisa uga amarga siji sawetara alasan:
@@ -482,7 +484,7 @@ ruser_change_user:Ngganti Panjenengan Login Forum
 ruser_cur_login:Saiki Login:
 ruser_new_login:Login anyar:
 ruser_cur_pass:Saiki Pangguna:
-login_passwd:Tembung wadi:
+login_passwd:Tembung sandi:
 reset_email:E-mail:
 reset_reset_button:Reset Pangguna
 rate_this_thread:Rate
@@ -646,7 +648,7 @@ post_error_generic:Ana kesalahan
 postcheck_max_images_err:Ana luwih saka {GVAR: MAX_IMAGE_COUNT} gambar sing diijini saben pesen. Mangga ngurangi jumlah gambar.
 postcheck_no_links_allowed:Sampeyan ora bisa nganggo pranala nganti sampeyan luwih saka {PLURAL: posts_before_links|$1 pesen|$1 pesen}.
 postcheck_subj_needed:Subjek required
-postcheck_no_such_user:Ora ana panganggo jenenge "{FUNC: char_fix(htmlspecialchars($v))}" ing forum iki.
+postcheck_no_such_user:Ora ana naraguna jenenge "{FUNC: char_fix(htmlspecialchars($v))}" ing forum iki.
 postcheck_ignored:Sampeyan bisa ngirim pesen pribadi kanggo "{FUNC: char_fix(htmlspecialchars($v))}", amarga pangguna iki sampeyan mboten midhangetaken.
 postcheck_no_recepient:Ora bisa ngirim pesen, panampa ilang
 postcheck_invalid_email:Mangga ngetik neng alamat e-mail kanggo kanca.
@@ -841,7 +843,7 @@ split_th_messages:Layang
 split_th_select:Pilih
 report_report_post:report Pesen
 quicklogin_login:Mlebu:
-quicklogin_password:Tembung wadi:
+quicklogin_password:Tembung sandi:
 quicklogin_use_cookies:Gunakake cookies?
 quicklogin_login_btn:Mlebu log
 quick_reply:cepet Reply
