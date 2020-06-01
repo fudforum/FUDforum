@@ -28,7 +28,7 @@ pmsg_download_counter:diundhuh {PLURAL: r->dlcount|$1 wektu|$1 kaping}
 email:E-mail:
 email_to_friend:E-mail kanggo kanca
 email_to_friend_desc:Kirimi URL kanggo kaca iki menyang kanca (s) liwat e-mail
-email_user:Kirimi pangguna pesen email
+email_user:Kirimi naraguna layang-èl
 faq:Pitulung
 first_unread_msg:Go kanggo unread pesen
 first_unread_msg_desc:Menyang 1st unread pesen nang topik iki
@@ -116,7 +116,7 @@ num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|milih|votes}
 occupation:pendhudhukan:
 off:mati
 on:ing
-page_timings:Total wektu kanggo dijupuk generate page: {PLURAL: page_gen_time|$1 detik}
+page_timings:Gunggung wektu kanggo dijupuk nuduhaké kaca: {PLURAL: page_gen_time|$1 detik}
 pm:Nawala Priangga
 poll:Jajak Pendapat Paling Anyar:
 post_count:Pesen Count {VAR: u_pcount}
@@ -345,7 +345,7 @@ register_month:Sasi
 register_year:Taun
 register_gender:Jenis Kelamin:
 register_bio:Biografi:
-register_bio_desc:A rincian sawetara bab sampeyan dhewe, kuwi minangka kapentingan, Proyek, etc ..
+register_bio_desc:Sawetara rerincèn bab sampéyan, contoné kayata hobi, profèsi, lsp...
 register_prefs:Pilihan
 register_sig:teken:
 register_sig_desc:Pilihan teken, kang katon ing sisih ngisor pesen.
@@ -456,11 +456,11 @@ coppa_fax_passwd:Tembung sandi
 coppa_fax_remail:E-mail
 coppa_fax_name:Jeneng
 login_not_logedin:Sampeyan ora mlebu ping iki bisa uga amarga siji sawetara alasan:
-login_cookie_expired:Panjenengan cookie wis kadaluwarsa, lan sampeyan kudu mlebet gawe anyar cookie Panjenengan.
+login_cookie_expired:Kukimu wis kadaluwarsa, lan sampeyan kudu mlebet gawe anyar kukimu.
 login_perm_denied:Sampeyan ora duwé hak aksès kanggo ngakses sumber sing dijaluk minangka pangguna anonymous. Sampeyan kudu mlebet gain ijin.
 login_want_to_register:Arep kanggo ndhaftar?
 login_forgot_passwd:kelalen Pendhaftaran
-login_use_cookie:Gunakake cookie<br /><span class="SmallText">Yen sampeyan nggunakake terminal umum kayata komputer ing perpustakaan, sekolah, utawa Internet cafe, Apike sampeyan busak opsi kanggo luwih keamanan. Yen sampeyan salah milih ninggalake iki, sampeyan bakal kanthi otomatis mlebu-menyang forum wektu yen sampeyan dibukak.</span>
+login_use_cookie:Gunakaké kuki<br /><span class="SmallText">Yèn sampèyan nggunakaké terminal umum kayata komputer ing perpustakaan, sekolah, utawa warnèt, apik sampèyan busak opsi kanggo luwih keamanan. Yèn sampèyan salah milih ninggalaké iki, sampèyan bakal kanthi otomatis mlebu-menyang forum wektu yèn sampèyan dibukak.</span>
 login_login:Mlebu:
 login_login_btn:Mlebu log
 login_name_required:Login jeneng dibutuhake
@@ -674,7 +674,7 @@ register_err_avatarnotallowed:Ing avatar nyoba upload ora diijini. Priksa diijin
 register_conf_subject:Situs Konfirmasi
 register_conf_msg:Matur nuwun kanggo ndhaftar,\nKanggo ngaktifake akun please menyang URL ngisor:\n\n{FULL_ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nYen akun aktif, sampeyan bakal mlebu-menyang forum lan\nredirected kanggo kaca utama.
 register_welcome_subject:Forum Situs Konfirmasi
-register_welcome_msg:Matur nuwun kanggo ndhaftar,\n\nKene sampeyan mlebu log kanggo rincian forum:\n\nForum URL: {TEMPLATE: index_update_lnk}\nMlebu: {VAR: uent->login}\nPangguna: {VAR: _POST['reg_plaintext_passwd']}\n\nWigati dicathet sandhi sing cilik sensitif!\nKanggo ngganti setelan utawa profil, menyang kaca iki:\n{FULL_ROOT}?t=register
+register_welcome_msg:Matur nuwun kanggo ndhaftar,\n\nKene sampeyan mlebu log kanggo rerincèn forum:\n\nForum URL: {TEMPLATE: index_update_lnk}\nMlebu: {VAR: uent->login}\nPangguna: {VAR: _POST['reg_plaintext_passwd']}\n\nWigati dicathet sandhi sing cilik sensitif!\nKanggo ngganti setelan utawa profil, menyang kaca iki:\n{FULL_ROOT}?t=register
 register_err_cantreg_title:Kesalahan: Tukang ndhaftar
 regsiter_err_cantreg_msg:Iso kanggo nggawe akun pangguna, hubungi administrator ing <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:Ndeleng dhewe profil
@@ -719,7 +719,7 @@ register_title:Register Formulir
 reset_title:Reset Pangguna
 rpasswd_title:Ngganti Formulir Pangguna
 error_title:kesalahan Formulir
-index_title:Komunitas forum
+index_title:Sugeng rawuh ing forum
 search_title:nelusuri {VAR-HTML: srch}
 remail_emailsent:E-mail iki Pesen dikirim
 # Fuzzy
@@ -729,7 +729,7 @@ post_opt_html_on:<b>HTML</b> punika <b>ing</b>
 post_opt_fud_on:<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>BBcode</b> punika <b>ing</b></a>
 post_opt_images_on:<b>gambar</b> punika <b>ing</b>
 post_opt_smilies_on:<a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank"><b>Smilies</b> punika <b>ing</b></a>
-post_opt_html_off:<b>HTML</b> kode punika <b>mati</b>
+post_opt_html_off:<b>HTML</b> kodhe punika <b>mati</b>
 post_opt_fud_off:<b>BBcode</b> punika <b>mati</b>
 post_opt_images_off:<b>gambar</b> punika <b>mati</b>
 post_opt_smilies_off:<b>Smilies</b> punika <b>mati</b>
@@ -737,7 +737,7 @@ post_opt:Forum Pilihan:
 register_change_passwd:ngganti Pendhaftaran
 register_change_login:ngganti mlebu log
 approved_avatar_title:Panjenengan adat avatar disetujui.
-approved_avatar_msg:Panjenengan avatar iki disetujoni dening administrator. Sampeyan ngirim saiki katon minangka avatar ing kabeh pesen. Yen sampeyan ora bisa ndeleng iku, utawa ndeleng Panjenengan avatar lawas, iku amarga browser wis kethok kaca. Coba sumilir sepindah utawa kaping pindho. Ing kasus paling iki bakal ngatasi masalah caching.
+approved_avatar_msg:Panjenengan avatar iki disetujoni dening administrator. Sampeyan ngirim saiki katon minangka avatar ing kabeh pesen. Yen sampeyan ora bisa ndeleng iku, utawa ndeleng Panjenengan avatar lawas, iku amarga pangluru wèb wis kethok kaca. Coba sumilir sepindah utawa kaping pindho. Ing kasus paling iki bakal ngatasi masalah caching.
 unapproved_avatar_title:Panjenengan adat avatar iki nolak.
 unapproved_avatar_msg:Administrator durung sarujuk avatar sampeyan. Alasan sing paling umum ana sing avatar iki amba banget (ukuran lan / utawa dimensi) utawa ngandhut boten cecek Subject Matter. Yen arep informasi luwih lengkap babagan napa sampeyan avatar iki ditolak, hubungi administrator.
 mvthread_request_move:nyuwun pindhah menyang
@@ -982,7 +982,7 @@ mnav_description:Pesen Navigator
 mnav_date_limit:Tanggal macem:
 mnav_forum_limit:Mung nelusuri ing:
 mnav_all_forums:Telusuri forum kabeh
-mnav_submit:Mulai Panelusuran
+mnav_submit:Miwiti Panelusuran
 mnav_no_range:Sampeyan kudu ngetik neng sawetara tanggal. Nilai iki bisa ngemot titik a desimal, (0,12) nanging kudu luwih saka nol.
 mnav_invalid_unit:Sampeyan kudu nemtokake neng unit wektu.
 mnav_invalid_date:Ing sawetara tanggal sing kasebut iku luwih saka siji diijini dening administrator. Coba sawetara cilik saka tanggal.
@@ -1037,7 +1037,7 @@ ip_analyze_usage:Njelasno panggunaan IP
 ip_analyze_usage_descr:Mangga nemtokake pangguna pas mlebu log.
 ip_users_using:pangguna nggunakake '{VAR: ip}' alamat IP
 ip_all_ips:Kabeh IPS digunakake dening '{VAR: user}'
-ip_title:IP Browser
+ip_title:Naraguna IP
 userinfo_real_name:Nyata Sandi:
 register_err_alias_notallowed:Iki alias ora diijini
 post_err_mod_forum_edit_ttl:kesalahan
@@ -1155,7 +1155,7 @@ feed_no_data:Ora data sing cocog ditemokake.
 feed_rdf:RDF feed
 feed_rss:RSS2 feed
 feed_atom:ATOM feed
-ip_whois_connect_err:Iso kanggo nyambung menyang sapa server ({VAR: whois_server}): {VAR: errstr}
+ip_whois_connect_err:Ora bisa nyambung menyang paladèn WHOIS ({VAR: whois_server}): {VAR: errstr}
 custom_filed_required:Iki kolom dibutuhake.
 pages:Kaca
 page_list_heading:Sedhiya kaca
