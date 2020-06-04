@@ -9,7 +9,7 @@
 * Free Software Foundation; either version 2 of the License.
 ***************************************************************************/
 
-$__UPGRADE_SCRIPT_VERSION = 5310.1;
+$__UPGRADE_SCRIPT_VERSION = 5310.2;
 // define('fud_debug', 1);
 
 /*
@@ -1107,8 +1107,7 @@ pf('<h2>Step 1: Admin login</h2>', true);
 	/* Remove obsolete SQL files. */
 	$rm_sql = array('def_users.sql',	// Merge into install.php (3.0.2).
 			'fud_thread_view.tbl',	// Renamed to fud_tv_1.tbl (3.0.2).
-			'fud_style.tbl',	// Left over from an ancient release.
-			'fud_settings.tbl');	// Another old file.
+			'fud_style.tbl');	// Left over from an ancient release.
 	foreach ($rm_sql as $f) {
 		if (file_exists($GLOBALS['DATA_DIR'] .'sql/'. $f)) {
 			unlink($GLOBALS['DATA_DIR'] .'sql/'. $f);

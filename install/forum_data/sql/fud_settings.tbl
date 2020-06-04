@@ -1,4 +1,4 @@
-#   copyright            : (C) 2001-2019 Advanced Internet Designs Inc.
+#   copyright            : (C) 2001-2020 Advanced Internet Designs Inc.
 #   email                : forum@prohost.org
 #
 #   $Id$
@@ -16,4 +16,4 @@ CREATE TABLE {SQL_TABLE_PREFIX}settings
 );
 
 # Notes
-# Forum settings, in addition to the GLOBALS.php file.
+# Forum settings, in addition to the GLOBALS.php file, for less frequenlty used settings.
