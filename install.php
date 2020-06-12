@@ -130,7 +130,7 @@ function decompress_archive($data_root, $web_root)
 	chdir(dirname(__FILE__));
 
 	/* Install from './fudforum_archive' file. */
-	$fp = fopen('./fudforum_archive', 'rb');
+	$fp = fopen('./fudforum_archive', 'rb') or die('Please upload file fudforum_archive and try again.');
 	$checksum = fread($fp, 32);
 	$tmp = fread($fp, 20000);
 	fseek($fp, (ftell($fp) - 20000), SEEK_SET);
@@ -143,15 +143,14 @@ function decompress_archive($data_root, $web_root)
 	} else {
 		$data_len = (int) fread($fp, 10);
 		// Data should be @ least 100k.
-		if ($data_len < 100000) {
-			exit('Failed getting archive size from '. htmlentities(fread($fp, 10)));
+		if ($data_len > 100000) {
+			$data = gzuncompress(strtr(fread($fp, $data_len), $clean), $data_len);
 		}
-		$data = gzuncompress(strtr(fread($fp, $data_len), $clean), $data_len);
 	}
 	fclose($fp);
 
-	if (md5($data) != $checksum) {
-		exit("Archive did not pass the checksum test, it is corrupt!<br />\nIf you've encountered this error it means that you've:<ul><li>downloaded a corrupt 'fudforum_archive' file</li><li>uploaded the archive to your server in ASCII and not BINARY mode</li><li>your FTP Server/Decompression software/Operating System added un-needed cartrige return ('\r') characters to the archive, resulting in archive corruption.</li></ul>\n");
+	if (empty($data) || md5($data) != $checksum) {
+		exit("Archive did not pass the checksum test, it is corrupt!<br />\nIf you've encountered this error it means that you've:<ul><li>downloaded a corrupt 'fudforum_archive' file</li><li>uploaded the archive to your server in ASCII and not BINARY mode</li><li>your FTP Server/Decompression software/Operating System added un-needed cartrige return ('\\r') characters to the archive.</li></ul>\n");
 	}
 
 	$pos = 0;
