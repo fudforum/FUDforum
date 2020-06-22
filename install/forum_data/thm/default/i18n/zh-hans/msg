@@ -917,7 +917,7 @@ show_pollist:调查
 search_and:和
 search_or:或
 search_desc_order:从最新开始
-search_asc_order:从最老开始
+search_asc_order:从最旧开始
 search_relevance_order:相关度
 search_logic:搜索方式：
 search_sorting:排序方式：
@@ -1133,7 +1133,7 @@ move_msg_th_expl:移至指定主题的ID（可以跨版块）
 captcha_img_alt:验证码验证：您将需要识别此图片中的文本。
 captcha_img_help:有没有为零或图像中的一个。
 powered-by:Powered by: FUDforum {GVAR: FORUM_VERSION}.
-copyright:版权所有&copy;2001~2020年<a href="http://fudforum.org/">FUDforum公告栏软件</a>
+copyright:版权所有&copy;2001年-2020年<a href="http://fudforum.org/">FUDforum公告栏软件</a>
 code_title:代码：
 code_select_all:全选
 code_show_hide:显示/隐藏

@@ -12,6 +12,7 @@
 # Author: McDutchie
 # Author: Naudefj
 # Author: Openbk
+# Author: Rainbow P
 # Author: Rezonansowy
 # Author: Rzuwig
 # Author: Sp5uhe
@@ -912,6 +913,7 @@ search_and:Logiczne I (koniunkcja)
 search_or:Logiczne LUB (alternatywa)
 search_desc_order:Od najnowszych
 search_asc_order:Od najstarszych
+search_relevance_order:Trafność
 search_logic:Operacja logiczna:
 search_sorting:Sortuj w kolejności:
 search_attach:Załączniki:
@@ -970,8 +972,7 @@ iemail_forum_unsub:Porzuć subskrybcję tego forum
 primary_group_prefix:Podstawowa grupa dla forum:
 group_resources:Ta grupa wyznacza przywileje następujących forów
 register_admin_newuser_title:Nowe konto na forum czeka na zatwierdzenie
-# Fuzzy
-register_admin_newuser_msg:Nowy użytkownik ({VAR: uent->login}) właśnie zarejestrował się na Forum Opoka.\nJako, że zostało włączone zatwierdzanie nowych kont, nie zostanie ono\naktywowane bez potwierdzenia przez Ciebie albo innego administrator tego forum.\nCelem weryfikacji tego konta, udaj się proszę pod poniższy adres:\n{GVAR: WWW_ROOT}adm/admuserapr.php\n\nUWAGA!! Wiadomość została wygenerowana automatycznie. Prosimy nie odpowiadać\nna nią. Jeśli chcesz wyłączyć powiadamianie o rejestracji nowych użytkowników,\nmożesz to zrobić przy użyciu Panelu administracyjnego, zmieniając wartość\ndla "New Account Notification".
+register_admin_newuser_msg:Nowy użytkownik ({VAR: uent->login}) właśnie się zarejestrował.\nJako, że zostało włączone zatwierdzanie nowych kont, nie zostanie ono aktywowane bez potwierdzenia przez Ciebie albo innego administratora tego forum.\nCelem weryfikacji tego konta, udaj się proszę pod poniższy adres:\nadm/admuserapr.php\n\nUWAGA!! Wiadomość została wygenerowana automatycznie. Prosimy na nią nie odpowiadać.\nJeśli chcesz wyłączyć powiadamianie o rejestracji nowych użytkowników, możesz to zrobić przy użyciu Panelu administracyjnego, zmieniając wartość\ndla "New Account Notification".
 post_mod_msg_notify_title:Nowa wiadomość na forum "{VAR: frm->name}" oczekuje zatwierdzenia
 post_mod_msg_notify_msg:Nowa wiadomość zatytułowana „{VAR: msg_post->subject}” została właśnie wysłana na forum, którego jesteś moderatorem. Aby obejrzeć wiadomość wejdź na stronę {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nPowiadomienie zostało wygenerowane automatycznie. Prosimy nie odpowiadać na ten e-mail.
 thread_printable_pdf:Wygeneruj PDF do wydruku
