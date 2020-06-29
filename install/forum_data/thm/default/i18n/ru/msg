@@ -21,6 +21,7 @@
 # Author: Pacha Tchernof
 # Author: Putnik
 # Author: Romanko Mikhail
+# Author: Teretalexev
 # Author: Vlad5250
 # Author: Volkov
 # Author: Александр Сигачёв
@@ -60,23 +61,23 @@ forum_old_messages:Нет новых сообщений
 from:От:
 gender:Пол:
 go:Переход
-goto_next_msg:Переход к следующему сообщения
-goto_prev_msg:Переход к предыдущему сообщения
+goto_next_msg:Переход к следующему сообщению
+goto_prev_msg:Переход к предыдущему сообщению
 home:Начало
 homepage:Домашняя страница, сайт:
 icq_control_panel:Панель присутствия в сети ICQ
 icq_message_form:Послать сообщение на ICQ
 ignore_user:игнорировать все сообщения<br />от этого участника
-im_aim:Сеть AIM:
-im_msnm:Сеть MSN:
-im_yahoo:Сеть Yahoo:
+im_aim:AIM Handle:
+im_msnm:MSN Messenger:
+im_yahoo:Yahoo Messenger:
 image:Картинка:
 index_forum:Форум
 index_new_posts:Есть новые сообщения с момента последнего посещения
-index_no_new_posts:Нет новых сообщения с момента последнего посещения
+index_no_new_posts:Нет новых сообщений с момента последнего посещения
 index_url_redirection:Перенаправление
 interests:Интересы:
-last_post:Последнее
+last_post:Последнее сообщение
 last_thread_msg:Перейти к последнему сообщению в этой теме
 legend:Легенда:
 location:Географическое положение:
@@ -88,7 +89,7 @@ login:Вход
 login_header:Учётная запись:
 logout:Выход
 mark_all_read:Отметить все сообщения как прочитанные
-mark_all_read_desc:Все непрочитанные вами сообщения были помечены как прочитанные
+mark_all_read_desc:Все непрочитанные вами сообщения будут помечены как прочитанные
 members:Участники
 calendar:Календарь
 cal_goto_date:Перейти к:
@@ -103,7 +104,7 @@ message_counter:Нашими пользователями оставлено <b>
 message_index:Список сообщений
 message_index_desc:Просмотр списка сообщений
 minimize_category:Свернуть категорию
-minimize_message:Минимизировать сообщение
+minimize_message:Свернуть сообщение
 moderation_queue:Очередь модератора
 moderator:Модератор
 moderator_of:Модерируемые форумы:
