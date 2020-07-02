@@ -348,7 +348,7 @@ register_month:Месец
 register_year:Година
 register_gender:Пол:
 register_bio:Биографија:
-register_bio_desc:Некои нешта за вас, како вашите интереси, занимање и тн...
+register_bio_desc:Некои нешта за вас, како вашите интереси, занимање итн...
 register_prefs:Нагодувања
 register_sig:Потпис:
 register_sig_desc:Потпис (незадолжително), кој ќе се прикажува најдолу во вашите пораки.
