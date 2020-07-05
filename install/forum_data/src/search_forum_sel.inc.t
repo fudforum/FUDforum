@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2019 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2020 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -29,7 +29,7 @@ if ($is_a) {
 }
 $oldc = $forum_limit_data = ''; $g = $f = array();
 if ($forum_limiter) {
-	if ($forum_limiter{0} != 'c') {
+	if ($forum_limiter[0] != 'c') {
 		$f[$forum_limiter] = 1;
 	} else {
 		$g[(int)ltrim($forum_limiter, 'c')] = 1;

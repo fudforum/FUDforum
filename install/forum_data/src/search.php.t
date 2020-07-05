@@ -108,7 +108,7 @@ function fetch_search_cache($qry, $start, $count, $logic, $srch_type, $order, $f
 	}
 
 	if ($forum_limiter) {
-		if ($forum_limiter{0} != 'c') {
+		if ($forum_limiter[0] != 'c') {
 			$qry_lmt = ' AND f.id='. (int)$forum_limiter .' ';
 		} else {
 			$cid = (int)substr($forum_limiter, 1);
