@@ -9,6 +9,7 @@
 # Author: Jaumeortola
 # Author: Macofe
 # Author: McDutchie
+# Author: Mguix
 # Author: Naudefj
 # Author: Paucabot
 # Author: Pginer
@@ -251,8 +252,7 @@ pmsg_forwarded:reenviat
 pmsg_subject:Assumpte
 pmsg_author:Autor
 pmsg_time:Hora
-# Fuzzy
-pmsg_selected:Seleccionat
+pmsg_selected:Seleccionar
 pmsg_delete:Esborrar
 cur_ppage_pm:Missatges privats
 writing_pm:Escrivint un missatge privat
@@ -536,8 +536,7 @@ mklist_apply:Aplicar
 mklist_delete:Esborrar
 qbud_nick_name:Sobrenom
 qbud_add_selected:Afegir seleccionat(a)
-# Fuzzy
-qbud_selected:Seleccionat(a)
+qbud_selected:Seleccionar
 qbud_no_buddies:No hi ha amics dels quals escollir
 mklist_numerical:Numèric
 mklist_aplha:Alfanumèric
@@ -909,17 +908,14 @@ polllist_votes:Total de vots
 polllist_action:Acció
 polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">Revisant les enquestes disponibles</a>
 userinfo_polls:Enquestes:
-# Fuzzy
-show_pollist:Mostrar enquestes
+show_pollist:Enquestes
 search_and:I
 search_or:O
-# Fuzzy
-search_desc_order:Ordre descendent
-# Fuzzy
-search_asc_order:Ordre ascendent
+search_desc_order:Primer les més recents
+search_asc_order:Primer els més antics
+search_relevance_order:Rellevància
 search_logic:Lògica de recerca:
-# Fuzzy
-search_sorting:Ordenar resultats per data a:
+search_sorting:Ordenar per:
 search_attach:Fitxers adjunts:
 search_attach_all:Amb o sense
 search_attach_with:Amb fitxers adjunts
@@ -976,8 +972,7 @@ iemail_forum_unsub:Desubscriure`s d`aquest fòrum
 primary_group_prefix:Grup principal per als fòrums:
 group_resources:Aquest grup controla els permisos dels fòrums següents
 register_admin_newuser_title:S`ha enregistrat un usuari nou i el seu compte està  pendent de confirmació
-# Fuzzy
-register_admin_newuser_msg:Un usuari nou, ({VAR: uent->login}), acaba d`enregistrar-se en els fòrums, i com que està  activada la confirmació del compte, aquest no estarà actiu fins que vostè o un altre administrador dels fòrums el confirmi. Per a revisar el compte, si us plau, vagi a: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nAquest és un procés automatizat, no respongui a aquest missatge.\nSi desitja desactivar futures notificacions de registre de nous usuaris, pot fer-ho usant el Panell de Control d`administració, canviant el valor de l`opció "Notificació de compte nou".
+register_admin_newuser_msg:Un usuari nou, ({VAR: uent->login}), acaba d'enregistrar-se en els fòrums, i com que està  activada la confirmació del compte, aquest no estarà actiu fins que vostè o un altre administrador dels fòrums el confirmi. Per a revisar el compte, si us plau, vagi a: {BASE}adm/admuserapr.php\n\nAquest és un procés automatizat, no respongui a aquest missatge.\nSi desitja desactivar futures notificacions de registre de nous usuaris, pot fer-ho usant el Panell de Control d'administració, canviant el valor de l'opció "Notificació de compte nou".
 post_mod_msg_notify_title:Un nou missatge en els fòrums amb l`assumpte "{VAR: frm->name}" està  pendent d`aprovació
 post_mod_msg_notify_msg:Un nou missatge titulat "{VAR: msg_post->subject}" acaba de ser publicat en un fòrum que vostè modera. Per revisar aquest missatge, vagi a: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id} \n\nAquest és un procés automatitzat. No respongui a aquest missatge.
 thread_printable_pdf:Generar PDF imprimible
@@ -1133,8 +1128,7 @@ move_msg_th_expl:Especifiqueu l'IDENTIFICADOR del tema de destinació (pot ser e
 captcha_img_alt:Verificació de captcha: cal reconèixer el text en aquesta imatge.
 captcha_img_help:No hi ha cap zero o en la imatge.
 powered-by:Powered by: 0.9 {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:Copyright &copy;2001-2018 <a href="http://fudforum.org/">Junta de programari de FUDforum</a>
+copyright:Copyright &copy;2001-2020 <a href="http://fudforum.org/">Junta de programari de FUDforum</a>
 code_title:Codi:
 code_select_all:Selecciona-ho tot
 code_show_hide:Mostra / Amaga
