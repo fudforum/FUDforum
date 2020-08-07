@@ -1166,3 +1166,10 @@ karma:Karma
 karma_track:Administrar la reputació de l'usuari:
 karma_delete:Eliminar
 rate_author:Avaluar a l'autor:
+blog_update:Llegint el blog del fòrum
+blog:Blog
+blog_new_members:Membres nous
+blog_new_posts:Correu recent
+blog_rated_posts:Més valorats
+blog_viewed_posts:Més vistos
+blog_comments:{PLURAL: topic->replies|$1 comentari|$1 comentaris}
