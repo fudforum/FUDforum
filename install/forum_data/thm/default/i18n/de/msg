@@ -916,7 +916,6 @@ search_desc_order:Neuestes zuerst
 search_asc_order:Ältestes zuerst
 search_relevance_order:Relevanz
 search_logic:Suchlogik:
-# Fuzzy
 search_sorting:Ergebnisse nach Datum sortieren in:
 search_attach:Anhänge:
 search_attach_all:Mit oder Ohne
@@ -974,8 +973,7 @@ iemail_forum_unsub:Das Abonnement für dieses Forum beenden
 primary_group_prefix:Hauptgruppe für Forum:
 group_resources:Diese Gruppe kontrolliert die Berechtigungen für folgende Foren
 register_admin_newuser_title:Ein neuer Benutzer hat sich registriert und wartet auf die Bestätigung des Kontos
-# Fuzzy
-register_admin_newuser_msg:Ein neuer Benutzer ({VAR: uent->login}) hat sich gerade für dieses Forum registriert und da die Bestätigung für Konten aktiviert ist, wird dieses Konto nicht eher aktiviert werden, bevor es durch dich oder einem anderen Forumsadministrator bestätigt wurde. Um das Konto zu begutachten, gehe zu: {FULL_ROOT}adm/admuserapr.php\n\nDas ist ein automatisierter Vorgang, bitte beantworte diese Nachricht nicht.\nWenn du weitere E-Mail-Benachrichtigungen über neue Benutzerregistrierungen abstellen willst, kannst du dies über das Administratormenü und durch Ändern des Wertes der Einstellung „New Account Notification“ erledigen.
+register_admin_newuser_msg:Ein neuer Benutzer ({VAR: uent->login}) hat sich gerade für dieses Forum registriert und da die Bestätigung für Konten aktiviert ist, wird dieses Konto nicht eher aktiviert werden, bevor es durch dich oder einem anderen Forumsadministrator bestätigt wurde. Um das Konto zu begutachten, gehe zu: {BASE}adm/admuserapr.php\n\nDas ist ein automatisierter Vorgang, bitte beantworte diese Nachricht nicht.\nWenn du weitere E-Mail-Benachrichtigungen über neue Benutzerregistrierungen abstellen willst, kannst du dies über das Administratormenü und durch Ändern des Wertes der Einstellung „New Account Notification“ erledigen.
 post_mod_msg_notify_title:Neuer Beitrag im Forum „{VAR: frm->name}“ wartet auf Bestätigung
 post_mod_msg_notify_msg:Ein neuer Beitrag mit der Überschrift „{VAR: msg_post->subject}“ wurde gerade in einem Forum erstellt, das von dir moderiert wird. Um diesen Beitrag zu begutachten, gehe zu: {FULL_ROOT}?t=modque#{VAR: msg_post->id}\n\nDas ist ein automatisierter Vorgang, bitte antworte nicht auf diese Nachricht.
 thread_printable_pdf:Druckbares PDF erzeugen
@@ -1131,8 +1129,7 @@ move_msg_th_expl:Gib die ID des Zielthemas an (kann in einem anderem Forum sein)
 captcha_img_alt:CAPTCHA-Bestätigung: Du musst den Text in diesem Bild erkennen.
 captcha_img_help:Das Bild enthält keine Null oder Eins.
 powered-by:Betrieben mit: FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:Copyright &copy;2001–2019 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Copyright &copy;2001–2020 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Code:
 code_select_all:alles markieren
 code_show_hide:anzeigen/verstecken
