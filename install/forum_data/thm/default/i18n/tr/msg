@@ -2,6 +2,7 @@
 # Exported from translatewiki.net
 # Author: Alpkant
 # Author: BaRaN6161 TURK
+# Author: Cobija
 # Author: Emperyan
 # Author: Erdemaslancan
 # Author: Gorizon
@@ -537,7 +538,7 @@ remail_sent_conf:{VAR: data->subject} konulu e-posta, {VAR-HTML: _POST['femail']
 remail_error:Bir hata oluştu
 mklist_type:Tür:
 mklist_option:Seçenek:
-mklist_additem:Öğe Ekle
+mklist_additem:Öge Ekle
 mklist_apply:Uygula
 mklist_delete:Sil
 qbud_nick_name:Takma Ad
