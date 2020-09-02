@@ -805,7 +805,7 @@ function compile_all($tset='default', $lang='en', $tname='default', $t_opt=0)
 	$GLOBALS['text_dir'] = trim(file_get_contents($text_dir));
 
 	fud_mkdir($GLOBALS['WWW_ROOT_DISK'].'theme');
-	file_put_contents($GLOBALS['WWW_ROOT_DISK'] .'theme/README', "Files in this directory are generated. Do not edit them.\nTo regenerate, navigate to the Theme Manager admin control panel\nTemplate files are in the 'thm' directory.");
+	file_put_contents($GLOBALS['WWW_ROOT_DISK'] .'theme/README', "Files in this directory are generated and will be overwritten!\nPlease do not edit or add files here.\nTemplate files are in the 'thm' directory.\nTo regenerate, navigate to the Theme Manager admin control panel.");
 
 	fud_mkdir($GLOBALS['WWW_ROOT_DISK'] .'theme/'. $tname);
 	fud_mkdir($GLOBALS['INCLUDE'] .'theme');
