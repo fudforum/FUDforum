@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2019 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2020 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -31,14 +31,14 @@
 	<td class="RowStyleA wa"><a href="{TEMPLATE: index_forum_entry_lnk}" class="big">{VAR: r[10]}</a>{FUNC: ($r[11] ? '<br />'.$r[11] : '')}{VAR: moderators}</td>
 	<td class="RowStyleB ac hide1">{IF: empty($r[12])}{VAR: r[13]}{ELSE}--{ENDI}</td>
 	<td class="RowStyleB ac hide1">{IF: empty($r[12])}{VAR: r[14]}{ELSE}--{ENDI}</td>
-	<td class="RowStyleA ac nw hide2">{IF: empty($r[12])}{IF: $r[8]}<span class="DateText">{TEMPLATE: index_last_post_date}</span><br />{MSG: by} {IF: $r[3]}{TEMPLATE: profile_link_user}{ELSE}{TEMPLATE: profile_link_anon}{END} <a href="{TEMPLATE: last_post_lnk}"><img title="{VAR: r[0]}" src="{THEME_IMAGE_ROOT}/goto.gif" alt="{VAR: r[0]}" /></a>{ELSE}{MSG: na}{END}{ELSE}--{ENDI}</td>
+	<td class="RowStyleA ac nw hide2">{IF: empty($r[12])}{IF: $r[8]}<span class="DateText">{TEMPLATE: index_last_post_date}</span><br />{MSG: by} {IF: $r[3]}{TEMPLATE: profile_link_user}{ELSE}{TEMPLATE: profile_link_anon}{END} <a href="{TEMPLATE: last_post_lnk}"><img title="{VAR: r[0]}" src="{THEME_IMAGE_ROOT}/goto.gif" alt="{VAR: r[0]}" width="9" height="9" /></a>{ELSE}{MSG: na}{END}{ELSE}--{ENDI}</td>
 </tr>
 {SECTION: END}
 
 {SECTION: index_cat_up_down_arrows up/down arrows for navigating category list}
 <td class="CatDesc hide1">
-	{IF: key($cidxc)}<a href="javascript://" onclick=\'nextCat("c{VAR: k}")\'><img src="{THEME_IMAGE_ROOT}/down.png" alt="" border="0" style="vertical-align: top; float: right;" /></a>{ENDIFI}
-	{IF: $cat}<a href="javascript://" onclick=\'prevCat("c{VAR: k}")\'><img src="{THEME_IMAGE_ROOT}/up.png" border="0" alt="" style="vertical-align: top; float: right;" /></a>{ENDIFI}
+	{IF: key($cidxc)}<a href="javascript://" onclick=\'nextCat("c{VAR: k}")\'><img src="{THEME_IMAGE_ROOT}/down.png" alt="" width="16" height="11" border="0" style="vertical-align: top; float: right;" /></a>{ENDIFI}
+	{IF: $cat}<a href="javascript://" onclick=\'prevCat("c{VAR: k}")\'><img src="{THEME_IMAGE_ROOT}/up.png" border="0" alt="" width="16" height="11" style="vertical-align: top; float: right;" /></a>{ENDIFI}
 </td>
 {SECTION: END}
 
@@ -106,15 +106,15 @@
 {SECTION: END}
 
 {SECTION: forum_read}
-<img title="{MSG: forum_old_messages}" src="{THEME_IMAGE_ROOT}/existing_content.png" alt="{MSG: forum_old_messages}" />
+<img title="{MSG: forum_old_messages}" src="{THEME_IMAGE_ROOT}/existing_content.png" alt="{MSG: forum_old_messages}" width="30" heaight="30" />
 {SECTION: END}
 
 {SECTION: forum_unread}
-<img title="{MSG: forum_new_messages}" src="{THEME_IMAGE_ROOT}/new_content.png" alt="{MSG: forum_new_messages}" />
+<img title="{MSG: forum_new_messages}" src="{THEME_IMAGE_ROOT}/new_content.png" alt="{MSG: forum_new_messages}" width="30" heaight="30" />
 {SECTION: END}
 
 {SECTION: forum_no_indicator no new message indicator}
-<img title="{MSG: forum_none_messages}" src="{THEME_IMAGE_ROOT}/existing_content.png" alt="{MSG: forum_none_messages}" />
+<img title="{MSG: forum_none_messages}" src="{THEME_IMAGE_ROOT}/existing_content.png" alt="{MSG: forum_none_messages}" width="30" heaight="30" />
 {SECTION: END}
 
 {SECTION: moderators moderator list}

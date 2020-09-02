@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2019 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2020 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -18,11 +18,11 @@
 	{IF: $FUD_OPT_4 & 8}{TEMPLATE: ucp_pages}{ENDIF}
 	{IF: $FUD_OPT_3 & 134217728}{TEMPLATE: ucp_calendar}{ENDIF}
 	{IF: $FUD_OPT_1 & 16777216} {TEMPLATE: ucp_search}{ENDIF}
-	<li><a accesskey="h" href="{TEMPLATE: ucp_help_lnk}" title="{MSG: faq}"><img src="{THEME_IMAGE_ROOT}/top_help.png" alt="" /> {MSG: faq}</a></li>
+	<li><a accesskey="h" href="{TEMPLATE: ucp_help_lnk}" title="{MSG: faq}"><img src="{THEME_IMAGE_ROOT}/top_help.png" alt="" width="16" height="16" /> {MSG: faq}</a></li>
 	{IF: ($FUD_OPT_1 & 8388608 || (_uid && $FUD_OPT_1 & 4194304) || $usr->users_opt & 1048576)}{TEMPLATE: ucp_member_search}{ENDIF}
 	{IF: __fud_real_user__}{TEMPLATE: ucp_usercp}{ELSE}{IF: $FUD_OPT_1 & 2}{TEMPLATE: ucp_register}{ENDIF}{END}
 	{IF: __fud_real_user__}{TEMPLATE: ucp_logout}{ELSE}{TEMPLATE: ucp_login}{END}
-	<li><a href="{TEMPLATE: ucp_home_lnk}" title="{MSG: home}"><img src="{THEME_IMAGE_ROOT}/top_home.png" alt="" /> {MSG: home}</a></li>
+	<li><a href="{TEMPLATE: ucp_home_lnk}" title="{MSG: home}"><img src="{THEME_IMAGE_ROOT}/top_home.png" alt="" width="16" height="16" /> {MSG: home}</a></li>
 	{IF: $is_a || ($usr->users_opt & 268435456)}{TEMPLATE: ucp_admin_control_panel}{ENDIF}
 </ul>
 </div>
@@ -41,7 +41,7 @@
 {SECTION: END}
 
 {SECTION: ucp_search Forum search}
-<li><a href="{TEMPLATE: ucp_search_lnk}" title="{MSG: search}"><img src="{THEME_IMAGE_ROOT}/top_search.png" alt="" /> {MSG: search}</a></li>
+<li><a href="{TEMPLATE: ucp_search_lnk}" title="{MSG: search}"><img src="{THEME_IMAGE_ROOT}/top_search.png" alt="" width="16" height="16" /> {MSG: search}</a></li>
 {SECTION: END}
 
 {SECTION: ucp_login_lnk User Login URL}
@@ -49,7 +49,7 @@
 {SECTION: END}
 
 {SECTION: ucp_login User Login}
-<li><a href="{TEMPLATE: ucp_login_lnk}" title="{MSG: login}"><img src="{THEME_IMAGE_ROOT}/top_login.png" alt="" /> {MSG: login}</a></li>
+<li><a href="{TEMPLATE: ucp_login_lnk}" title="{MSG: login}"><img src="{THEME_IMAGE_ROOT}/top_login.png" alt="" width="16" height="16" /> {MSG: login}</a></li>
 {SECTION: END}
 
 {SECTION: ucp_logout_lnk User Logout URL}
@@ -57,7 +57,7 @@
 {SECTION: END}
 
 {SECTION: ucp_logout logout link User Logout}
-<li><a href="{TEMPLATE: ucp_logout_lnk}" title="{MSG: logout}"><img src="{THEME_IMAGE_ROOT}/top_logout.png" alt="" /> {MSG: logout} [ {VAR-HTML: usr->alias} ]</a></li>
+<li><a href="{TEMPLATE: ucp_logout_lnk}" title="{MSG: logout}"><img src="{THEME_IMAGE_ROOT}/top_logout.png" alt="" width="16" height="16" /> {MSG: logout} [ {VAR-HTML: usr->alias} ]</a></li>
 {SECTION: END}
 
 {SECTION: ucp_register_lnk User Registration URL}
@@ -65,7 +65,7 @@
 {SECTION: END}
 
 {SECTION: ucp_register User Registration}
-<li><a href="{TEMPLATE: ucp_register_lnk}" title="{MSG: register}"><img src="{THEME_IMAGE_ROOT}/top_register.png" alt="" /> {MSG: register}</a></li>
+<li><a href="{TEMPLATE: ucp_register_lnk}" title="{MSG: register}"><img src="{THEME_IMAGE_ROOT}/top_register.png" alt="" width="16" height="18" /> {MSG: register}</a></li>
 {SECTION: END}
 
 {SECTION: ucp_usercp_lnk User Contrrol Panel URL}
@@ -73,11 +73,11 @@
 {SECTION: END}
 
 {SECTION: ucp_usercp User Control Panel}
-<li><a href="{TEMPLATE: ucp_usercp_lnk}" title="{MSG: profile_desc}"><img src="{THEME_IMAGE_ROOT}/top_profile.png" alt="" /> {MSG: profile}</a></li>
+<li><a href="{TEMPLATE: ucp_usercp_lnk}" title="{MSG: profile_desc}"><img src="{THEME_IMAGE_ROOT}/top_profile.png" alt="" width="16" height="16" /> {MSG: profile}</a></li>
 {SECTION: END}
 
 {SECTION: ucp_admin_control_panel Admin Control Panel}
-<li><a href="{BASE}adm/index.php?S={DEF: s}&amp;SQ={GVAR: sq}" title="{MSG: admin_control_panel}"><img src="{THEME_IMAGE_ROOT}/top_admin.png" alt="" /> {MSG: admin_control_panel}</a></li>
+<li><a href="{BASE}adm/index.php?S={DEF: s}&amp;SQ={GVAR: sq}" title="{MSG: admin_control_panel}"><img src="{THEME_IMAGE_ROOT}/top_admin.png" alt="" width="16" height="16" /> {MSG: admin_control_panel}</a></li>
 {SECTION: END}
 
 {SECTION: ucp_private_msg_empty_lnk No PM URL}
@@ -85,7 +85,7 @@
 {SECTION: END}
 
 {SECTION: ucp_private_msg_empty No PM messages}
-<li><a href="{TEMPLATE: ucp_private_msg_empty_lnk}" title="{MSG: pm}"><img src="{THEME_IMAGE_ROOT}/top_pm.png" alt="" /> {MSG: pm}</a></li>
+<li><a href="{TEMPLATE: ucp_private_msg_empty_lnk}" title="{MSG: pm}"><img src="{THEME_IMAGE_ROOT}/top_pm.png" alt="" width="15" height="11" /> {MSG: pm}</a></li>
 {SECTION: END}
 
 {SECTION: ucp_private_msg_unread_lnk Unread PM URL}
@@ -93,7 +93,7 @@
 {SECTION: END}
 
 {SECTION: ucp_private_msg_unread Unread PM indicator}
-<li><a href="{TEMPLATE: ucp_private_msg_unread_lnk}" title="{MSG: pm}"><img src="{THEME_IMAGE_ROOT}/top_pm.png" alt="" /> {MSG: new_private_messages}</a></li>
+<li><a href="{TEMPLATE: ucp_private_msg_unread_lnk}" title="{MSG: pm}"><img src="{THEME_IMAGE_ROOT}/top_pm.png" alt="" width="16" height="16" /> {MSG: new_private_messages}</a></li>
 {SECTION: END}
 
 {SECTION: ucp_blog_lnk Blog URL}
@@ -101,7 +101,7 @@
 {SECTION: END}
 
 {SECTION: ucp_blog Blog}
-<li><a href="{TEMPLATE: ucp_blog_lnk}" title="{MSG: blog}"><img src="{THEME_IMAGE_ROOT}/blog.png" alt="" /> {MSG: blog}</a></li>
+<li><a href="{TEMPLATE: ucp_blog_lnk}" title="{MSG: blog}"><img src="{THEME_IMAGE_ROOT}/blog.png" alt="" width="16" height="16" /> {MSG: blog}</a></li>
 {SECTION: END}
 
 {SECTION: ucp_calendar_lnk Calendar URL}
@@ -109,7 +109,7 @@
 {SECTION: END}
 
 {SECTION: ucp_calendar Calendar}
-<li><a href="{TEMPLATE: ucp_calendar_lnk}" title="{MSG: calendar}"><img src="{THEME_IMAGE_ROOT}/calendar.png" alt="" /> {MSG: calendar}</a></li>
+<li><a href="{TEMPLATE: ucp_calendar_lnk}" title="{MSG: calendar}"><img src="{THEME_IMAGE_ROOT}/calendar.png" alt="" width="16" height="16" /> {MSG: calendar}</a></li>
 {SECTION: END}
 
 {SECTION: ucp_pages_lnk Pages URL}
@@ -117,7 +117,7 @@
 {SECTION: END}
 
 {SECTION: ucp_pages List of Forum Pages}
-<li><a href="{TEMPLATE: ucp_pages_lnk}" title="{MSG: pages}"><img src="{THEME_IMAGE_ROOT}/pages.png" alt="" /> {MSG: pages}</a></li>
+<li><a href="{TEMPLATE: ucp_pages_lnk}" title="{MSG: pages}"><img src="{THEME_IMAGE_ROOT}/pages.png" alt="" width="16" height="16" /> {MSG: pages}</a></li>
 {SECTION: END}
 
 {SECTION: ucp_member_search_lnk Member Search URL}
@@ -125,5 +125,5 @@
 {SECTION: END}
 
 {SECTION: ucp_member_search Member Search}
-<li><a href="{TEMPLATE: ucp_member_search_lnk}" title="{MSG: members}"><img src="{THEME_IMAGE_ROOT}/top_members.png" alt="" /> {MSG: members}</a></li>
+<li><a href="{TEMPLATE: ucp_member_search_lnk}" title="{MSG: members}"><img src="{THEME_IMAGE_ROOT}/top_members.png" alt="" width="16" height="16" /> {MSG: members}</a></li>
 {SECTION: END}

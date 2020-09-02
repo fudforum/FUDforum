@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2020 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -31,15 +31,15 @@
 {TEMPLATE-DATA: announcements}
 {TEMPLATE: forum_list}
 {IF: _uid}<div class="SmallText ar">[ <a href="{TEMPLATE: mark_all_read_lnk}" title="{MSG: mark_all_read_desc}">{MSG: mark_all_read}</a> ]
-{IF: $FUD_OPT_2 & 1048576}[ <a href="{BASE}feed.php?mode=m&amp;l=1&amp;basic=1"><img src="{THEME_IMAGE_ROOT}/rss.gif" title="{MSG: thread_syndicate}" alt="{MSG: thread_syndicate}"/></a> ]{ENDIFI}
+{IF: $FUD_OPT_2 & 1048576}[ <a href="{BASE}feed.php?mode=m&amp;l=1&amp;basic=1"><img src="{THEME_IMAGE_ROOT}/rss.gif" title="{MSG: thread_syndicate}" alt="{MSG: thread_syndicate}" width="16" height="16" /></a> ]{ENDIFI}
 </div>{ENDIF}
 {IF: __fud_real_user__}{TEMPLATE: quick_login_logged_in}{ELSE}{TEMPLATE: quick_login_logged_out}{END}
 {IF: $logedin || $forum_info}{TEMPLATE: loged_in_list}{ENDIF}
 <br /><fieldset>
 <legend>{MSG: legend}</legend>
-<img src="{THEME_IMAGE_ROOT}/new_content.png" alt="{MSG: index_new_posts}" /> {MSG: index_new_posts}&nbsp;&nbsp;
-<img src="{THEME_IMAGE_ROOT}/existing_content.png" alt="{MSG: index_no_new_posts}" /> {MSG: index_no_new_posts}&nbsp;&nbsp;
-<img src="{THEME_IMAGE_ROOT}/moved.png" alt="{MSG: index_url_redirection}" /> {MSG: index_url_redirection}
+<img src="{THEME_IMAGE_ROOT}/new_content.png" alt="{MSG: index_new_posts}" width="30" heaight="30" /> {MSG: index_new_posts}&nbsp;&nbsp;
+<img src="{THEME_IMAGE_ROOT}/existing_content.png" alt="{MSG: index_no_new_posts}" width="30" heaight="30" /> {MSG: index_no_new_posts}&nbsp;&nbsp;
+<img src="{THEME_IMAGE_ROOT}/moved.png" alt="{MSG: index_url_redirection}" width="30" heaight="30" /> {MSG: index_url_redirection}
 </fieldset>
 <div><br />{INJECTION_POINT: after_index}</div>
 {TEMPLATE: curtime}

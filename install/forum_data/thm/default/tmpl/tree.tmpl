@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2019 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2020 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -29,11 +29,11 @@
 {REF: topic_rating.tmpl}
 
 {SECTION: tree_unread_message new message}
-<img id="msgIm{VAR: cur->id}" src="{THEME_IMAGE_ROOT}/unread.png" alt="{MSG: unread_message}" title="{MSG: unread_message}" />
+<img id="msgIm{VAR: cur->id}" src="{THEME_IMAGE_ROOT}/unread.png" alt="{MSG: unread_message}" title="{MSG: unread_message}" width="22" height="22" />
 {SECTION: END}
 
 {SECTION: tree_read_message read message}
-<img src="{THEME_IMAGE_ROOT}/read.png" alt="{MSG: read_message}" title="{MSG: read_message}" />
+<img src="{THEME_IMAGE_ROOT}/read.png" alt="{MSG: read_message}" title="{MSG: read_message}" width="22" height="22" />
 {SECTION: END}
 
 {SECTION: thread_icon}
@@ -242,7 +242,7 @@
 {SECTION: END}
 
 {SECTION: tree_xml_link}
-[ <a href="{TEMPLATE: tree_xml_link_lnk}">{MSG: thread_syndicate}</a> ] [ <a href="{BASE}feed.php?mode=m&amp;th={VAR: th}&amp;basic=1"><img src="{THEME_IMAGE_ROOT}/rss.gif" title="{MSG: thread_syndicate}" alt="RSS" /></a> ]
+[ <a href="{TEMPLATE: tree_xml_link_lnk}">{MSG: thread_syndicate}</a> ] [ <a href="{BASE}feed.php?mode=m&amp;th={VAR: th}&amp;basic=1"><img src="{THEME_IMAGE_ROOT}/rss.gif" title="{MSG: thread_syndicate}" alt="RSS" width="16" height="16" /></a> ]
 {SECTION: END}
 
 {SECTION: tree_RSS}
