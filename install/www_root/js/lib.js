@@ -8,14 +8,6 @@
 * Free Software Foundation; version 2 of the License.
 ***************************************************************************/
 
-var JS_HELPOFF = false;
-/* Indentify the browser */
-var DOM = (document.getElementById) ? 1 : 0;
-var NS4 = (document.layers) ? 1 : 0;
-var IE4 = (document.all) ? 1 : 0;
-var OPERA = navigator.userAgent.indexOf('Opera') > -1 ? 1 : 0;
-var MAC = navigator.userAgent.indexOf('Mac') > -1 ? 1 : 0;
-
 /* Edit box stuff */
 function insertTag(obj, startTag, endTag) {
 	var field = document.getElementById(obj);
@@ -30,58 +22,6 @@ function insertTag(obj, startTag, endTag) {
 	field.value = startSelection + startTag + currentSelection + endTag + endSelection;
 	field.focus();
 	field.setSelectionRange(startSelection.length + startTag.length, startSelection.length + startTag.length + currentSelection.length);
-}
-
-function insertTagOLD(obj, stag, etag)
-{
-	if (navigator.userAgent.indexOf('MSIE') > -1 && !OPERA) {
-		insertTagIE(obj, stag, etag);
-	} else {
-		insertTagMoz(obj, stag, etag);
-	}
-	obj.focus();
-}
-
-function insertTagMoz(obj, stag, etag)
-{
-	var txt;
-
-	if (window.getSelection) {
-		txt = window.getSelection();
-	} else if (document.getSelection) {
-		txt = document.getSelection();
-	}
-
-	if (!txt || txt == '') {
-		var t = document.getElementById('txtb');
-		var scrollPos = t.scrollTop;
-		if (t.selectionStart == t.selectionEnd) {
-			t.value = t.value.substring(0, t.selectionStart) + stag + etag +  t.value.substring(t.selectionEnd, t.value.length);
-			t.scrollTop = scrollPos;
-			return;
-		}
-		txt = t.value.substring(t.selectionStart, t.selectionEnd);
-		if (txt) {
-			t.value = t.value.substring(0, t.selectionStart) + stag + txt + etag +  t.value.substring(t.selectionEnd, t.value.length);
-			t.scrollTop = scrollPos;
-			return;
-		}
-	}
-	obj.value = obj.value+stag+etag;
-}
-
-function insertTagIE(obj, stag, etag)
-{
-	// getSelection() works in IE 9 and above, until then use createRange().
-	var r = document.selection.createRange();
-	if( document.selection.type == 'Text' && (obj.value.indexOf(r.text) != -1) ) {
-		a = r.text;
-		r.text = stag+r.text+etag;
-		if ( obj.value.indexOf(document.selection.createRange().text) == -1 ) {
-			document.selection.createRange().text = a;
-		}
-	}
-	else insertAtCaret(obj, stag+etag);	
 }
 
 function dialogTag(obj, qst, def, stag, etag)
@@ -144,22 +84,6 @@ function check_selection()
 	}
 	
 	return sel;
-}
-
-function storeCaret(textEl)
-{
-	 if (textEl.createTextRange) textEl.caretPos = document.selection.createRange().duplicate();
-}
-
-function insertAtCaret(textEl, text)
-{
-	if (textEl.createTextRange && textEl.caretPos)
-	{
-		var caretPos = textEl.caretPos;
-		caretPos.text = caretPos.text.charAt(caretPos.text.length - 1) == ' ' ? text + ' ' : text;
-	}
-	else 
-		textEl.value  =  textEl.value + text;
 }
 
 function window_open(url, winName, width, height)
