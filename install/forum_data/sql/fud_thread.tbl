@@ -1,4 +1,4 @@
-#   copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
+#   copyright            : (C) 2001-2020 Advanced Internet Designs Inc.
 #   email                : forum@prohost.org
 #
 #   $Id$
@@ -31,6 +31,7 @@ CREATE INDEX {SQL_TABLE_PREFIX}thread_i_t   ON {SQL_TABLE_PREFIX}thread (thread_
 CREATE INDEX {SQL_TABLE_PREFIX}thread_i_rmi ON {SQL_TABLE_PREFIX}thread (root_msg_id);
 CREATE INDEX {SQL_TABLE_PREFIX}thread_i_r   ON {SQL_TABLE_PREFIX}thread (replies);
 CREATE INDEX {SQL_TABLE_PREFIX}thread_i_rt  ON {SQL_TABLE_PREFIX}thread (rating, n_rating);
+CREATE INDEX {SQL_TABLE_PREFIX}thread_i_frm ON {SQL_TABLE_PREFIX}thread (forum_id, root_msg_id, moved_to);
 
 # 1 locked
 # 2 is_sticky ANNOUNCE

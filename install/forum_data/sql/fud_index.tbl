@@ -18,3 +18,4 @@ CREATE TABLE {SQL_TABLE_PREFIX}index
 );
 
 CREATE INDEX {SQL_TABLE_PREFIX}index_i_m ON {SQL_TABLE_PREFIX}index (msg_id);
+CREATE INDEX {SQL_TABLE_PREFIX}index_i_mf ON {SQL_TABLE_PREFIX}index (msg_id, frequency);
