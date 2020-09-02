@@ -67,8 +67,12 @@ function index_text($subj, $body, $msg_id)
         }
 
 	// Give more weight to short descriptive subjects and penalize long descriptions.
-	$spaces = substr_count($subj, ' ') + 1;
-	$weight = 20 / $spaces;
+	if (substr($subj, 0, 3) === 'Re:') {
+		$weight = 0;
+	} else {
+		$spaces = substr_count($subj, ' ');
+		$weight = $spaces ? 40 / ($spaces + 1) : 100;
+	}
 
 	// Spilt text into word arrays, note how $subj is repeated for increaded relevancy.
 	$w1 = text_to_worda($subj, null, null, 1);
