@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2020 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -449,7 +449,7 @@ function create_table($script)
 
 		/* Because mysql with InnoDB table refuses to resolve indexes correctly, we need to force MyISAM table type. */
 		if (__dbtype__ == 'mysql' && preg_match('/^\s*CREATE\s*TABLE\s*/i', $q)) {
-			$q .= ' ENGINE=MyISAM ';
+//TODO: STILL NEEDED????			$q .= ' ENGINE=MyISAM ';
 			/* We need to specify a default charset for MySQL 4.1.2+. */
 			$q .= ' DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci';
 		}		
