@@ -609,10 +609,8 @@ search_user_filter:Karberi heta avrêc ke:
 register_none:Mı Xeberdar meke
 findu_no_conf:Karberê ke otomatikmen tesdiq biy
 register_max_sig_len:En Vêşi Dergey:
-# Fuzzy
-register_turing:Şıma ra reca, Qodê cêrêni defiye de:
-# Fuzzy
-register_err_turing:Ravyayışê qodi xırabo.
+register_turing:Araşt kerdış
+register_err_turing:Araşt kerdış xırabo. Reyna bıcerrebnê
 modque_cat:Kategoriye
 modque_forum:Forum
 idx_compact_forum_row:Forumi:
@@ -673,8 +671,7 @@ move_msg_th_expl:IDa hedef cay nışan kerê (belki foruman dê binana deya)
 captcha_img_alt:Captcha Arıstekerdış: Asayış de metnê şınasnayışi icab keno.
 captcha_img_help:Asengi miyan dı sıfır yana yew tede esto.
 powered-by:Destegdaren: FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:Heqa telifi &copy;2001-2019 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Heqa telifi &copy;2001-2020 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Kod:
 code_select_all:Pêrıne weçine
 code_show_hide:Bımocne/ bınımne
