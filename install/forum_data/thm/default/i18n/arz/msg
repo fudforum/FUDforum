@@ -97,7 +97,7 @@ moved_thread_message:نُقل هذا الموضوع إلى منتدى آخر
 na:غير متوفر
 new_posts:رسائل جديدة
 new_private_messages:لديك <span class="GenTextRed">({VAR: c})</span> {PLURAL: c|رساله خاصة|رسائل خاصه غير مقروءة} غير مقروءة
-new_thread:أنشئ موضوعًا جديدًا
+new_thread:أنشئ موضوعا جديدا
 newest_user:أحدث مستخدم مُسجل هو
 next_page:الصفحه التالية
 next_thread:الموضوع التالي
@@ -162,7 +162,7 @@ bookmark_thread:علّم الموضوع
 bookmark_thread_desc:أضف هذا الموضوع إلى قائمه علاماتك
 subject:الموضوع
 subscribe:اشترك
-subscribe_desc:استقبل إشعارات عندما ينشئ أحد موضوعًا جديدًا فى هذا المنتدى
+subscribe_desc:استقبل إشعارات عندما ينشئ أحد موضوعا جديدا فى هذا المنتدى
 subscribed_forums:المنتديات المُشترك فيها
 subscribed_forums_desc:بدل مُرشِّح المنتديات (سوف يظهر فقط الرسائل التى أنت مشترك فيها)
 subscribed_threads:المواضيع المُشترك فيها
@@ -384,7 +384,7 @@ post_size:الحجم
 post_color:اللون
 post_font:الخط
 create_thread:أنشئ موضوعًا
-submit_reply:أرسل ردًا
+submit_reply:أرسل ردا
 edit_message:طبّق تغييرات الرسالة
 apply_spell_changes:طبّق تغييرات الإملاء
 post_preview:معاينه الرسالة
@@ -641,7 +641,7 @@ post_err_attach_ext:الملف الذى تحاول رفعه لا يطابق أن
 post_err_attach_filelimit:أنت تحاول رفع ملفات أكثر مما هو مسموح به.
 post_err_passwd:كلمه سر غير صحيحه.
 post_reply_update:يرد على <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> فى {VAR: frm->name}
-post_topic_update:يكتب موضوعًا جديدًا فى <a href="{TEMPLATE: post_topic_update_lnk}">{VAR: frm->name}</a>
+post_topic_update:يكتب موضوعا جديدا فى <a href="{TEMPLATE: post_topic_update_lnk}">{VAR: frm->name}</a>
 post_error_generic:ثمّه خطأ ما
 postcheck_max_images_err:لا يسمح أكثر من {GVAR: MAX_IMAGE_COUNT} صوره لكل رساله. من فضلك قلل عدد الصور.
 postcheck_no_links_allowed:لا يمكنك استخدام الوصلات قبل أن ترسل أكثر من {PLURAL: posts_before_links|رساله واحدة|$1 رسائل}.
@@ -1125,7 +1125,7 @@ postcheck_min_len_err:رسالتك قصيره جدًا. الطول الأقصر 
 postcheck_dup_err:من فضلك لا تنشئ مواضيع مكرّره.
 btn_new_topic:موضوع جديد
 btn_new_pm:ر. خ. جديدة
-btn_post_reply:أرسل ردًا
+btn_post_reply:أرسل ردا
 btn_tree_view:عرض الشجرة
 btn_flat_view:العرض المسطح
 btn_about:ملف
