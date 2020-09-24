@@ -1,0 +1,20 @@
+name: Build FUDforum archive
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: Check out code under $GITHUB_WORKSPACE
+      uses: actions/checkout@v2
+
+    - name: Build
+      run: php create_file_archive
