@@ -16,5 +16,12 @@ jobs:
     - name: Check out code under $GITHUB_WORKSPACE
       uses: actions/checkout@v2
 
-    - name: Build
-      run: php create_file_archive
+    - name: Generate archive file
+      run: php create_file_archive install 1 > fudforum_archive
+
+    - name: Upload as artifact
+      uses: actions/upload-artifact@v1
+      with:
+          name: fudforum-latest
+          path: fudforum_archive
+          if-no-files-found: error
