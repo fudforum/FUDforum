@@ -12,7 +12,7 @@
 //* Notes:
 //    Subject lines that starts with 'Re:' are not indexed.
 //    With X search terms, n_match=X means we do an AND-search.
-//    Default search order is ASC, DESC or REL(evance)
+//    Search order is ASC, DESC or REL(evance)
 //*
 
 /*{PRE_HTML_PHP}*/
@@ -190,6 +190,12 @@ function fetch_search_cache($qry, $start, $count, $logic, $srch_type, $order, $f
 
 	if ($srch) {
 
+		// Modify the search terms.
+		if (defined('plugins')) {
+			$srch = plugin_call_hook('SEARCH_QUERY_MOD', $srch);
+		}
+
+		// Check if we shoud use the internal or an external search engine.
 		if (defined('plugins') && isset($plugin_hooks['SEARCH'])) {
 			list($search_data, $page_pager) = plugin_call_hook('SEARCH', $srch);
 		} else if (!($c = fetch_search_cache($srch, $start, $ppg, $search_logic, $field, $sort_order, $forum_limiter, $total))) {
