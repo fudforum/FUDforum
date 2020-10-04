@@ -105,7 +105,7 @@ moved_thread_message:نُقِل هذا الموضوع إلى منتدى آخر
 na:لا يوجد
 new_posts:رسائل جديدة
 new_private_messages:لديك <span class="GenTextRed">({VAR: c})</span> {PLURAL: c|رسالة خاصة|رسائل خاصة} غير مقروءة
-new_thread:أنشئ موضوعًا جديدًا
+new_thread:أنشئ موضوعا جديدا
 newest_user:أحدث مستخدم مسجل هو
 next_page:الصفحة التالية
 next_thread:الموضوع التالي
@@ -170,7 +170,7 @@ bookmark_thread:علِّم الموضوع
 bookmark_thread_desc:أضف هذا الموضوع إلى قائمة علاماتك
 subject:الموضوع
 subscribe:اشترك
-subscribe_desc:استقبل إشعارات عندما ينشئ أحد موضوعًا جديدًا في هذا المنتدى
+subscribe_desc:استقبل إشعارات عندما ينشئ أحد موضوعا جديدا في هذا المنتدى
 subscribed_forums:المنتديات المُشترك فيها
 subscribed_forums_desc:بدِّل مرشِح المنتديات (سوف يُظهر فقط الرسائل التي أنت مشترك فيها)
 subscribed_threads:المواضيع المُشترك فيها
@@ -392,7 +392,7 @@ post_size:الحجم
 post_color:اللون
 post_font:الخط
 create_thread:أنشئ موضوعًا
-submit_reply:أرسل ردًا
+submit_reply:أرسل ردا
 edit_message:طبِّق تغييرات الرسالة
 apply_spell_changes:طبِّق تغييرات الإملاء
 post_preview:معاينة الرسالة
@@ -649,7 +649,7 @@ post_err_attach_ext:الملف الذي تحاول رفعه لا يطابق أن
 post_err_attach_filelimit:أنت تحاول رفع ملفات أكثر مما هو مسموح به.
 post_err_passwd:كلمة سر غير صحيحة.
 post_reply_update:رد على <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> في {VAR: frm->name}
-post_topic_update:اكتب موضوعًا جديدًا في <a href="{TEMPLATE: post_topic_update_lnk}">{VAR: frm->name}</a>
+post_topic_update:اكتب موضوعا جديدا في <a href="{TEMPLATE: post_topic_update_lnk}">{VAR: frm->name}</a>
 post_error_generic:ثمة خطأ ما
 postcheck_max_images_err:لا يُسمَح بأكثر من {GVAR: MAX_IMAGE_COUNT} صورة لكل رسالة؛ من فضلك قلل عدد الصور.
 postcheck_no_links_allowed:لا يمكنك استخدام الوصلات قبل أن ترسل أكثر من {PLURAL: posts_before_links|رسالة واحدة|$1 رسائل}.
@@ -853,7 +853,7 @@ quicklogin_password:كلمة السر:
 quicklogin_use_cookies:أتستخدم الكوكيز؟
 quicklogin_login_btn:تسجيل الدخول
 quick_reply:رد سريع
-quick_reply_post:أرسل ردًا سريعًا
+quick_reply_post:أرسل ردا سريعا
 quick_reply_preview:عاين الرد السريع
 post_notification_desc:أشعرني عندما يرد أحد على هذه الرسالة.
 post_all_ext_allowed:(غير مقيد)
@@ -1136,7 +1136,7 @@ postcheck_min_len_err:رسالتك قصيرة جدًا، الطول الأقصر
 postcheck_dup_err:من فضلك لا تنشئ مواضيع مكررة.
 btn_new_topic:موضوع جديد
 btn_new_pm:رسالة خاصة جديدة
-btn_post_reply:أرسل ردًا
+btn_post_reply:أرسل ردا
 btn_tree_view:عرض الشجرة
 btn_flat_view:العرض المسطح
 btn_about:الملف الشخصي

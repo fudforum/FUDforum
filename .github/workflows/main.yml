@@ -1,0 +1,27 @@
+name: Build FUDforum archive
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: Check out code under $GITHUB_WORKSPACE
+      uses: actions/checkout@v2
+
+    - name: Generate archive file
+      run: php create_file_archive install 1 > fudforum_archive
+
+    - name: Upload as artifact
+      uses: actions/upload-artifact@v1
+      with:
+          name: fudforum-latest
+          path: fudforum_archive
+          if-no-files-found: error

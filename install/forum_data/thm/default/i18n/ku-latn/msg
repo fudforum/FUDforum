@@ -10,8 +10,12 @@ action:Xebat
 admin:Rêveber
 admin_control_panel:Rêveberî
 administrator:Koordînator
+avatar:Avatar:
 biography:Biyografî:
 birth_date:Dîroka Rojbûnê:
+by:Ji aliyê:
+by_mod:ji aliyê Moderatorê ve
+current_time:Wextê Vêga
 email:E-name:
 email_to_friend:Ji hevalên xwe re e-name bişîne
 email_user:Ji bikarhêner re e-nameyek bişîne
@@ -74,7 +78,7 @@ thread_thread:Mijar
 threads:Mijar
 time:Dem
 todays_posts:Peyamên Îro
-todays_posts_desc:Hemû peyamên ku îro hatiye şandin nîşan bide
+todays_posts_desc:Hemû peyamên ku îro hatine şandin nîşan bide
 unanswered_posts:Peyamên Nebersivkirî
 unanswered_posts_desc:Hemû peyamên bêbersiv nîşan bide
 unlock_thread:Astenga Mijarê Rake
@@ -99,8 +103,7 @@ pmsg_all:hemû
 pmsg_none:çêbû
 pmsg_replied:hate bersivandin
 pmsg_time:Dem
-# Fuzzy
-pmsg_selected:Hate bijartin
+pmsg_selected:Bibijêre
 pmsg_delete:Jê bibe
 inbox:Qutiya Hatîyan
 month_1:kanûna paşîn
