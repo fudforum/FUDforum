@@ -2,6 +2,7 @@
 # Exported from translatewiki.net
 # Author: David1010
 # Author: ITshnik
+# Author: Გიო ოქრო
 
 action:ქმედება
 add_to_buddy_list:დაამატე სხეულის სიაში
@@ -549,3 +550,4 @@ mvthread_submit_req:მოთხოვნის გაგზავნა
 thread_exchange:თემის ცვლილება
 move_request_by:თემის გადატანა მოითხოვა:
 move_reason:თემის გადატანის მიზეზი:
+mnav_more:მეტი &raquo;&raquo;
