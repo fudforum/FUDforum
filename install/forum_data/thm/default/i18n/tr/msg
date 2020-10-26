@@ -15,6 +15,7 @@
 # Author: McDutchie
 # Author: Meelo
 # Author: Mirzali
+# Author: MuratTheTurkish
 # Author: Naudefj
 # Author: Rapsar
 # Author: Sayginer
@@ -403,7 +404,7 @@ post_sticky:Yapışkan
 post_annoncement:Duyuru
 post_size:Boyut
 post_color:Renk
-post_font:Yazıtipi
+post_font:Yazı tipi
 create_thread:Konu Oluştur
 submit_reply:Yanıtı Gönder
 edit_message:Mesaj Değişikliklerini Uygula
