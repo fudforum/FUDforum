@@ -3,6 +3,7 @@
 # Author: HanV
 # Author: Macofe
 # Author: Mainframe98
+# Author: Marcelhospers
 # Author: McDutchie
 # Author: MrLeopold
 # Author: Naudefj
@@ -908,8 +909,7 @@ search_desc_order:Nieuwste eerst
 search_asc_order:Oudste eerst
 search_relevance_order:Relevantie
 search_logic:Logisch zoeken:
-# Fuzzy
-search_sorting:Resultaten op datum sorteren in:
+search_sorting:Sorteren op:
 search_attach:Bijlagen:
 search_attach_all:Met of zonder
 search_attach_with:Met bijlagen
@@ -1123,7 +1123,6 @@ move_msg_th_expl:Geef het nummer van het doelonderwerp (kan zich in een ander fo
 captcha_img_alt:Captchacontrole: u moet de tekst in deze afbeelding herkennen
 captcha_img_help:Er is geen nul of een in de afbeelding.
 powered-by:Maakt gebruik van FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
 copyright:Copyright &copy;2001-2019 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Code:
 code_select_all:Alles selecteren
