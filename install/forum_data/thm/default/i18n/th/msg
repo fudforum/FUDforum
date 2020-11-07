@@ -1,0 +1,781 @@
+# Messages for Thai (ไทย)
+# Exported from translatewiki.net
+# Author: Aefgh39622
+# Author: Ans
+# Author: Geonuch
+# Author: Horus
+# Author: Octahedron80
+
+action:การกระทำ
+add_to_buddy_list:เพิ่มลงในรายการเพื่อน
+admin:ผู้ดูแล
+admin_control_panel:การดูแล
+administrator:ผู้ดูแลระบบ
+attachment:ไฟล์แนบ:
+avatar:รูปประจำตัว:
+average_post_count:{PLURAL: u->posted_msg_count|ข้อความ $1 รายการ} ({PLURAL: avg|ข้อความเฉลี่ย $1 รายการ}ต่อวัน)
+biography:ชีวประวัติ:
+birth_date:วันเกิด:
+by:โดย:
+by_mod:โดยผู้ควบคุม
+current_time:เวลาปัจจุบัน
+custom_avatar_queue:คิวรูปประจำตัวกำหนดเอง
+date_posted:วันที่โพสต์
+date_registered:วันที่ลงทะเบียน:
+download_counter:ดาวน์โหลดแล้ว {PLURAL: v[3]|$1 ครั้ง|$1 ครั้ง}
+pmsg_download_counter:ดาวน์โหลดแล้ว {PLURAL: r->dlcount|$1 ครั้ง|$1 ครั้ง}
+email:อีเมล:
+email_to_friend:อีเมลหาเพื่อน
+email_to_friend_desc:ส่ง URL ไปยังหน้านี้หาเพื่อนของคุณผ่านอีเมล
+email_user:ส่งข้อความอีเมลหาผู้ใช้
+faq:วิธีใช้
+first_unread_msg:ไปยังข้อความที่ยังไม่ได้อ่าน
+first_unread_msg_desc:ไปยังข้อความแรกที่ยังไม่ได้อ่านภายในหัวข้อนี้
+flat_view:กลับสู่มุมมองแบบแฟลตแบบปริยาย
+forum:กระดานสนทนา:
+forum_icon:ไอคอนกระดานสนทนา
+forum_new_messages:ข้อความใหม่
+forum_none_messages:เฉพาะสมาชิกกระดานสนทนาที่ลงทะเบียนแล้วเท่านั้นที่สามารถติดตามข้อความที่อ่านแล้วและยังไม่ได้อ่านได้
+forum_old_messages:ไม่มีข้อความใหม่
+from:จาก:
+gender:เพศ:
+go:ไป
+goto_next_msg:ไปยังข้อความถัดไป
+goto_prev_msg:ไปยังข้อความก่อนหน้า
+home:หน้าแรก
+homepage:หน้าแรก:
+icq_control_panel:แผงข้อความออนไลน์ ICQ:
+icq_message_form:แบบฟอร์มข้อความ ICQ:
+ignore_user:ละเว้นข้อความทั้งหมดโดยผู้ใช้นี้
+im_aim:AIM Handle:
+im_msnm:MSN Messenger:
+im_yahoo:Yahoo Messenger:
+image:รูปภาพ:
+index_forum:กระดานสนทนา
+index_new_posts:ข้อความใหม่ตั้งแต่อ่านครั้งล่าสุด
+index_no_new_posts:ไม่มีข้อความใหม่ตั้งแต่อ่านครั้งล่าสุด
+index_url_redirection:การเปลี่ยนทาง
+interests:สิ่งที่สนใจ:
+last_post:ข้อความสุดท้าย
+last_thread_msg:ไปยังข้อความสุดท้ายในหัวข้อนี้
+legend:คำอธิบายสัญลักษณ์
+location:ตำแหน่งที่ตั้ง:
+lock_thread:ล็อกหัวข้อ
+locked:ถูกล็อก
+locked_with_new_posts:ถูกล็อก (มีข้อความที่ยังไม่ได้อ่าน)
+logged_in_list:รายชื่อผู้ใช้ที่ลงชื่อเข้า
+login:ลงชื่อเข้า
+login_header:ลงชื่อเข้า:
+logout:ลงชื่อออก
+mark_all_read:ทำเครื่องหมายข้อความทั้งหมดว่าอ่านแล้ว
+mark_all_read_desc:ข้อความทั้งหมดที่คุณยังไม่อ่านจะถูกทำเครื่องหมายว่าอ่านแล้ว
+members:สมาชิก
+calendar:ปฏิทิน
+cal_goto_date:ข้ามไป:
+cal_day_heading:เหตุการณ์ประจำวัน
+cal_no_events:ไม่มีเหตุการณ์ประจำวัน
+cal_update:เรียกดูปฏิทินกระดานสนทนา
+cal_birthday:วันเกิด: {VAR: user}
+cal_birthdays:{PLURAL: birthdays|$1 วันเกิด}
+cal_birthday_age:(อายุ {PLURAL: age|$1 ปี})
+message:ข้อความ
+message_counter:ผู้ใช้ของเราโพสต์แล้วทั้งหมด<b>{PLURAL: post_count|$1 ข้อความ}</b>ภายใน <b>{PLURAL: thread_count|$1 หัวข้อ}</b>
+message_index:ดัชนีข้อความ
+message_index_desc:ดูรายการข้อความ
+minimize_category:ย่อหมวดหมู่
+minimize_message:ย่อข้อความ
+moderation_queue:คิวการควบคุม
+moderator:ผู้ควบคุม
+moderator_of:ผู้ควบคุมของ:
+moderator_options:ตัวเลือกผู้ควบคุม
+moderators:{PLURAL: modcount|ผู้ควบคุม}
+more_unread_messages:ข้อความที่ยังไม่ได้อ่านเพิ่มเติม
+more_unread_messages_desc:แสดงข้อความที่ยังไม่ได้อ่านเพิ่มเติมและทำเครื่องหมายข้อความที่มองเห็นได้ขณะนี้ว่าอ่านแล้ว
+move_thread:ย้าย
+moved:ย้ายไปกระดานสนทนาอื่นแล้ว
+moved_thread_message:หัวข้อนี้ได้ถูกย้ายไปกระดานสนทนาอื่นแล้ว
+na:ไม่มี
+new_posts:ข้อความใหม่
+new_private_messages:คุณมี <span class="GenTextRed">({VAR: c})</span> {PLURAL: c|private message|ข้อความส่วนตัว}ที่ยังไม่ได้อ่าน
+new_thread:สร้างหัวข้อใหม่
+newest_user:ผู้ใช้ที่ลงทะเบียนล่าสุดคือ
+next_page:หน้าถัดไป
+next_thread:หัวข้อถัดไป:
+no_messages:ไม่มีข้อความในกระดานสนทนานี้<br />มาเป็นคนแรกที่โพสต์หัวข้อลงในกระดานสนทนานี้
+no_msg_body:ไม่มีเนื้อความข้อความ
+no_new_posts:ไม่มีข้อความใหม่
+no_posts:ไม่มีข้อความ
+no_subscribed_forums:ไม่มีกระดานสนทนาที่สมัครรับ
+no_subscribed_threads:ไม่มีหัวข้อที่สมัครรับ
+no_bookmarked_threads:ไม่มีหัวข้อที่คั่นหน้าไว้
+no_unread_locked:หัวข้อนี้ถูกล็อกแล้ว
+no_unread_msg:หัวข้อนี้ไม่มีข้อความที่ยังไม่ได้อ่าน
+no_unread_msg_unreg:เฉพาะผู้ใช้ที่ลงทะเบียนแล้วเท่านั้นที่สามารถติดตามข้อความที่อ่านแล้วและยังไม่ได้อ่านได้
+num_pages:หน้า({VAR: ttl_pg}):
+num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|โหวต}
+occupation:อาชีพ:
+off:ปิด
+on:เปิด
+page_timings:เวลาทั้งหมดที่ใช้ในการสร้างหน้า: {PLURAL: page_gen_time|$1 วินาที}
+pm:ข้อความส่วนตัว
+poll:โพลล์:
+post_count:จำนวนข้อความ {VAR: u_pcount}
+post_count_l:จำนวนข้อความ:
+posts:ข้อความ
+posts_c:ข้อความ:
+prev_thread:หัวข้อก่อนหน้า:
+usrinfo_private_message:ข้อความส่วนตัว:
+profile:แผงควบคุม
+profile_desc:เข้าถึงแผงควบคุมของผู้ใช้
+rate_thread:จัดอันดับหัวข้อ
+rating:อันดับ
+rating_track:จัดการอันดับสำหรับหัวข้อ <b>{VAR: thr->subject}</b>:
+refresh_list:รีเฟรชรายการ
+register:ลงทะเบียน
+registered:ลงทะเบียนเมื่อ:
+registered_on:ลงทะเบียนเมื่อ {TEMPLATE: registered_on_date}
+replies:การตอบกลับ
+report_to_mod:รายงานข้อความแก่ผู้ควบคุม
+reported_messages:ข้อความที่รายงาน
+reveal_all_posts:แสดงข้อความทั้งหมดโดย {VAR: user_login}
+reveal_post:แสดงข้อความ
+search:ค้นหา
+sel_todays_posts:ข้อความของวันนี้
+sel_todays_posts_desc:เปิด/ปิดตัวกรองข้อความของวันนี้ (จะแสดงเฉพาะข้อความที่สร้างขึ้นวันนี้)
+sel_unanswered_posts:ข้อความที่ยังไม่มีการตอบกลับ
+sel_unanswered_posts_desc:เปิด/ปิดตัวกรองข้อความที่ยังไม่มีการตอบกลับ (จะแสดงเฉพาะข้อความที่ไม่มีการตอบกลับ)
+sel_unread_messages:ข้อความที่ยังไม่ได้อ่าน
+sel_unread_messages_desc:เปิด/ปิดตัวกรองข้อความที่ยังไม่ได้อ่าน (จะแสดงเฉพาะข้อความที่ยังไม่ได้อ่าน)
+send:ส่ง
+send_pm_desc:ส่งข้อความส่วนตัวหาผู้ใช้นี้
+sender_email:อีเมลผู้ส่ง:
+sender_name:ชื่อผู้ส่ง:
+show_posts_by:แสดงข้อความตาม: {VAR: u_alias}
+size:ขนาด:
+status:สถานะ:
+sticky:หัวข้อที่จะแสดงบนสุดเสมอ:
+stop_ignoring:หยุดละเว้นผู้ใช้นี้
+sub_to_thread:สมัครรับหัวข้อ
+sub_to_thread_desc:รับการแจ้งเตือนเกี่ยวกับข้อความใหม่ภายในหัวข้อนี้
+bookmark_thread:คั่นหน้าหัวข้อ
+bookmark_thread_desc:เพิ่มหัวข้อนี้ลงในรายการที่คั่นหน้าของคุณ
+subject:หัวเรื่อง
+subscribe:สมัครรับ
+subscribe_desc:รับการแจ้งเตือนเมื่อมีคนสร้างหัวข้อใหม่ในกระดานสนทนานี้
+subscribed_forums:กระดานสนทนาที่สมัครรับ
+subscribed_forums_desc:เปิด/ปิดตัวกรองกระดานสนทนาที่สมัครรับ (จะแสดงเฉพาะข้อความจากกระดานสนทนาที่คุณสมัครรับ)
+subscribed_threads:หัวข้อที่สมัครรับ
+subscribed_threads_desc:เปิด/ปิดตัวกรองหัวข้อที่สมัครรับ (จะแสดงเฉพาะข้อความจากหัวข้อที่คุณสมัครรับ)
+bookmarked_threads:หัวข้อที่คั่นหน้าไว้
+switch_to_thread_view:สลับไปใช้มุมมองแบบหัวข้อของหัวข้อนี้
+thread:หัวข้อ:
+thread_announcement:การประกาศ:
+thread_first_unread_msg:ไปยังข้อความแรกที่ยังไม่ได้อ่านในหัวข้อนี้
+thread_thread:หัวข้อ
+threads:หัวข้อ
+time:เวลา
+todays_posts:ข้อความของวันนี้
+todays_posts_desc:แสดงข้อความทั้งหมดที่โพสต์วันนี้
+un_ignore_user:หยุดละเว้นข้อความโดยผู้ใช้นี้
+unanswered_posts:ข้อความที่ยังไม่มีการตอบกลับ
+unanswered_posts_desc:แสดงข้อความทั้งหมดที่ยังไม่มีการตอบกลับ
+unlock_thread:ปลดล็อกหัวข้อ
+unread_msg:หัวข้อนี้มีข้อความที่คุณยังไม่ได้อ่าน
+unread_msg_locked:หัวข้อที่ถูกล็อกที่มีข้อความที่ยังไม่ได้อ่าน
+unread_posts:ข้อความที่ยังไม่ได้อ่าน
+unread_posts_desc:แสดงข้อความทั้งหมดที่ยังไม่ได้อ่าน
+unsub_from_thread:เลิกสมัครรับหัวข้อนี้
+unsub_from_thread_desc:หยุดรับการแจ้งเตือนเกี่ยวกับข้อความใหม่ในหัวข้อนี้
+unbookmark_thread:ลบออกจากที่คั่นหน้า
+unbookmark_thread_desc:ลบหัวข้อนี้ออกจากรายการที่คั่นหน้าของคุณ
+unsubscribe:เลิกสมัครรับ
+unsubscribe_desc:หยุดรับการแจ้งเตือนเกี่ยวกับข้อความใหม่ในกระดานสนทนานี้
+updated_on:ปรับปรุงเมื่อ:
+user:ผู้ใช้
+user_counter:เรามี {VAR: st_obj->user_count} {PLURAL: st_obj->user_count|ผู้ใช้}ที่ลงทะเบียนแล้ว
+user_info:ข้อมูลผู้ใช้
+user_info_l:ข้อมูลผู้ใช้ {VAR: u->alias}
+user_offline:{VAR: obj->login} ออฟไลน์อยู่ในขณะนี้
+user_online:{VAR: obj->login} ออนไลน์อยู่ในขณะนี้
+usrinfo_last_post:ข้อความสุดท้าย:
+view_results:ดูผลลัพธ์
+views:จำนวนครั้งที่ดู
+vote:{PLURAL: frm->n_rating|$1 โหวต}
+vote_button:โหวต
+vote_for_thread:โหวต
+was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> ถูกย้ายไป <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> โดยผู้ควบคุมแล้ว
+welcome_message:ยินดีต้อนรับ <b>{VAR: usr->alias}</b> คุณเยี่ยมขมครั้งล่าสุดเมื่อ {TEMPLATE: welcome_message_date}
+what_ppl_doing:ความเคลื่อนไหวของผู้ใช้
+reported_del_report:ลบรายงาน
+reported_reason:เหตุผล:
+reported_on:เมื่อ:
+reported_reported_by:รายงานโดย:
+reported_reported_msg:ข้อความที่รายงาน
+modque_pending_approval:ข้อความที่อยู่ในระหว่างรอการอนุมัติ
+modque_approve:อนุมัติ
+modque_delete:ลบ
+modque_deleteall:ลบโพสต์ทั้งหมดจากผู้ใช้นี้
+modque_no_message:ไม่มีข้อความที่อยู่ในระหว่างรอการอนุมัติ
+pmsg_new_messages:ข้อความส่วนตัวที่ยังไม่ได้อ่าน
+pmsg_old_messages:ข้อความส่วนตัวที่อ่านแล้ว
+deny_recipt:ปฏิเสธการรับ
+deny_recipt_desc:ไม่ต้องส่งการยืนยันว่าคุณอ่านข้อความนี้แล้วหรือยัง
+restore_to:กู้คืนไป:
+move_to:ย้ายไป:
+list_referes_referrals:ผู้ที่ถูกกล่าวถึง
+list_referes_members:สมาชิกที่ถูกกล่าวถึง
+list_referes_member:สมาชิก
+referals_none:ยังไม่มีผู้ที่ถูกกล่าวถึง
+referals_refered_by:สมาชิกกระดานสนทนาถูกอ้างอิงโดย: <b><a href="{TEMPLATE: referals_refered_by_lnk}" class="thLnk">{VAR: p_user[1]}</a></b>
+referals_post_count:จำนวนข้อความ
+referals_registered_on:ลงทะเบียนเมื่อ
+referals_action:การกระทำ
+pmsg_all:ทั้งหมด
+pmsg_none:ไม่มี
+folder:โฟลเดอร์:
+pmsg_replied:ตอบกลับแล้ว
+pmsg_forwarded:ส่งต่อแล้ว
+pmsg_subject:หัวเรื่อง
+pmsg_author:ผู้เขียน
+pmsg_time:เวลา
+pmsg_selected:เลือก
+pmsg_delete:ลบ
+cur_ppage_pm:ข้อความส่วนตัว
+writing_pm:เขียนข้อความส่วนตัว
+browsing_folder:เรียกดูโฟลเดอร์ <b>{VAR: folders[$folder_id]}</b>
+inbox:กล่องจดหมาย
+draft:จดหมายร่าง
+sent:ส่งแล้ว
+trash:ถังขยะ
+msg_author:ผู้เขียน
+avatar_sel_form:แบบฟอร์มเลือกรูปประจำตัว
+no_avatars:ไม่มีรูปประจำตัวพร้อมใช้งาน
+month_1:มกราคม
+month_2:กุมภาพันธ์
+month_3:มีนาคม
+month_4:เมษายน
+month_5:พฤษภาคม
+month_6:มิถุนายน
+month_7:กรกฎาคม
+month_8:สิงหาคม
+month_9:กันยายน
+month_10:ตุลาคม
+month_11:พฤศจิกายน
+month_12:ธันวาคม
+sunday:วันอาทิตย์
+sunday_short:อา
+monday:วันจันทร์
+monday_short:จ
+tuesday:วันอังคาร
+tuesday_short:อ
+wednesday:วันพุธ
+wednesday_short:พ
+thursday:วันพฤหัสบดี
+thursday_short:พฤ
+friday:วันศุกร์
+friday_short:ศ
+saturday:วันเสาร์
+saturday_short:ส
+male:ชาย
+female:หญิง
+unspecified:ไม่ระบุ
+register_tree_view:แสดงข้อความและรายชื่อหัวข้อในมุมมองทรี
+register_msg_tree_view:แสดงรายชื่อหัวข้อแบบแฟลต/แสดงรายชื่อข้อความแบบทรี
+register_tree_msg_view:แสดงรายชื่อหัวข้อแบบทรี/แสดงรายชื่อข้อความแบบแฟลต
+register_flat_view:แสดงข้อความและรายชื่อหัวข้อในมุมมองแฟลต
+use_forum_default:ใช้ค่าเริ่มต้นของกระดานสนทนา
+finduser_user_info:ข้อมูลผู้ใช้
+finduser_by_login:ตามการเข้าสู่ระบบ:
+finduser_submit:ค้นหา
+finduser_no_such_user:ไม่มีผู้ใช้ดังกล่าว
+finduser_user:ผู้ใช้
+finduser_postcount:จำนวนข้อความ
+finduser_joindate:วันที่เข้าร่วม
+finduser_action:การกระทำ
+yes:ใช่
+no:ไม่
+register_email:อีเมล
+edit_time_limit:<b>แก้ไขขีดจำกัดเวลา</b>: {GVAR: EDIT_TIME_LIMIT} นาที
+no_edit_time_limit:<b>แก้ไขขีดจำกัดเวลา</b>: ไม่จำกัด
+pmuserloc_login:เข้าสู่ระบบ:
+pmuserloc_submit:ส่ง
+pmuserloc_user:ผู้ใช้
+pmuserloc_no_result:ไม่มีผลลัพธ์
+register_builtin:ในตัว
+register_specify_url:ระบุ URL
+register_uploaded:อัปโหลดรูปประจำตัว
+register_login:เข้าสู่ระบบ:
+register_password:รหัสผ่าน:
+register_conf_pass:ยืนยันรหัสผ่าน:
+register_name:ชื่อ:
+register_your_pass:รหัสผ่านของคุณ:
+register_update:อัปเดต
+register_avatar_type:ชนิดรูปประจำตัว:
+register_del_avatar:ลบรูปประจำตัว
+register_avatar:รูปประจำตัว:
+register_sel_avatar:เลือกรูปประจำตัว
+register_custom_avatar_url:UR รูปประจำตัวที่กำหนดเอง:
+register_preview:แสดงตัวอย่าง
+register_custom_avatar_upload:ไฟล์รูปประจำตัวที่กำหนดเอง:
+register_register:ลงทะเบียน
+register_required:ข้อมูลที่จำเป็น
+register_required_desc:คุณจำเป็นต้องกรอกข้อมูลลงในเขตข้อมูลทุกเขต
+register_optional:ข้อมูลที่ไม่บังคับกรอก
+register_location:ที่ตั้ง:
+register_occupation:อาชีพ:
+register_interests:สิ่งที่สนใจ:
+register_image:ภาพ:
+register_icq:ICQ:
+register_aim:AIM Handle:
+register_yahoo:Yahoo Messenger:
+register_msnm:MSN Messenger:
+register_homepage:หน้าแรก:
+register_bday:วันเกิด:
+register_day:วัน
+register_month:เดือน
+register_year:ปี
+register_gender:เพศ:
+register_bio:ชีวประวัติ:
+register_prefs:การตั้งค่า
+register_sig:ลายเซ็น:
+register_reset:ตั้งค่าใหม่
+register_def_thread_view:มุมมองหัวข้อเริ่มต้น:
+register_msg_per_page:จำนวนข้อความต่อหน้า:
+register_show_sig:แสดงลายเซ็น:
+register_use_sig_default:ใช้ลายเซ็นตามค่าเริ่มต้น:
+register_timezone:เขตเวลา:
+register_ignore_admin:ละเลยข้อความเกี่ยวกับการดูแลระบบ:
+register_invisible_mode:โหมดไม่แสดงสถานะ:
+register_show_email:แสดงที่อยู่อีเมล:
+register_notification:เลือกการแจ้งเตือนตามค่าเริ่มต้น:
+register_notify_method:เลือกวิธีการแจ้งเตือน:
+register_allow_email_msg:อนุญาตข้อความอีเมล:
+buddy_status:สถานะ
+my_buddies:เพื่อนของฉัน
+add_buddy:เพิ่มเพื่อน
+add:เพิ่ม
+buddy_remove:เอาออก
+post_normal:ปกติ
+post_annoncement:การประกาศ
+post_size:ขนาด
+post_color:สี
+post_font:แบบอักษร
+create_thread:สร้างหัวข้อ
+submit_reply:ส่งการตอบกลับ
+edit_message:นำการเปลี่ยนแปลงข้อความไปใช้
+apply_spell_changes:นำการเปลี่ยนแปลงการสะกดไปใช้
+post_preview:ตัวอย่างข้อความ
+post_logedin_user:ผู้ใช้ที่เข้าสู่ระบบ:
+post_logout:ลงชื่อออก
+post_passwd:รหัสผ่านสำหรับโพสต์:
+post_poll:โพล:
+post_create_poll:สร้างโพล
+post_poll_delete:ลบ
+post_poll_edit:แก้ไข
+post_mod_opt:ตัวเลือกผู้ควบคุม:
+post_thread_type:ชนิดหัวข้อ:
+post_thread_expiry:เวลาหมดอายุของหัวข้อ:
+post_locked:หัวข้อถูกล็อก
+post_icons:ไอคอนข้อความ:
+post_no_icon:ไม่มีไอคอน
+post_smiley:ทางลัดหน้ายิ้ม:
+post_format_tools:เครื่องมือจัดรูปแบบ:
+post_upload_file:อัปโหลดไฟล์
+post_file_del:ลบ
+post_file_name:ชื่อ
+post_file_size:ขนาด
+file_attachments:ไฟล์แนบ:
+allowed_files:ส่วนขยายไฟล์ที่อนุญาต:
+max_file_size:ขนาดไฟล์สูงสุด:
+max_files_per_msg:จำนวนไฟล์สูงสุดต่อข้อความ:
+post_notification:การแจ้งเตือนโพสต์
+include_sig:รวมลายเซ็น
+disable_smilies:ลบหน้ายิ้มในข้อความนี้
+spell_check_msg:ตรวจสอบการสะกดของข้อความ
+post_form:แบบฟอร์มการโพสต์
+post_forum:กระดานสนทนา:
+post_title:ชื่อเรื่อง:
+post_body:เนื้อหา:
+post_options:ตัวเลือก:
+post_preview_btn:แสดงตัวอย่างข้อความ
+post_cancel_btn:ยกเลิก
+ignore_users:ผู้ใช้ที่ถูกละเลย
+add_ignore:เพิ่มผู้ใช้ที่ถูกละเลย
+forum_terms:ข้อกำหนดกระดานสนทนา
+coppa_conf:การยืนยัน COPPA
+coppa_before:ก่อน {TEMPLATE: coppa_date}
+coppa_after:หลังจาก {TEMPLATE: coppa_date}
+coppa_link:คลิกลิงก์ที่สอดคล้องกับวันเกิดของคุณ
+prereg_info:กฎของกระดานสนทนา
+prereg_agree:เห็นด้วย
+prereg_disagree:ไม่เห็นด้วย
+coppa_fax_reg_form:แบบฟอร์มการลงทะเบียน
+coppa_fax_parent_name:ชื่อเต็มของพ่อแม่/ผู้ปกครอง:
+coppa_fax_relation:ความสัมพันธ์กับเด็ก:
+coppa_fax_telephone:โทรศัพท์:
+coppa_fax_email:ที่อยู่อีเมล:
+coppa_fax_date:วันที่:
+coppa_fax_login:เข้าสู่ระบบ
+coppa_fax_passwd:รหัสผ่าน
+coppa_fax_remail:อีเมล
+coppa_fax_name:ชื่อ
+login_not_logedin:คุณไม่ได้เข้าสู่ระบบ อาจเกิดจากเหตุผลใดเหตุผลหนึ่งต่อไปนี้:
+login_cookie_expired:คุกกี้ของคุณหมดอายุแล้ว และคุณต้องเข้าสู่ระบบเพื่อต่ออายุคุกกี้ของคุณ
+login_perm_denied:คุณไม่มีสิทธิเข้าถึงทรัพยากรที่ขอในฐานะผู้ใช้ที่ไม่ระบุตัวตน คุณต้องเข้าสู่ระบบเพื่อรับสิทธิ
+login_want_to_register:ต้องการลงทะเบียนหรือไม่
+login_forgot_passwd:ลืมรหัสผ่าน
+login_login:เข้าสู่ระบบ:
+login_login_btn:เข้าสู่ระบบ
+login_name_required:จำเป็นต้องระบุชื่อเข้าสู่ระบบ
+login_passwd_required:จำเป็นต้องระบุรหัสผ่าน
+login_invalid_radius:ชื่อเข้าสู่ระบบหรือรหัสผ่านไม่ถูกต้อง
+reset_confirmation:ขอบคุณที่ลงทะเบียน\n\nเมื่อต้องการเปิดใช้งานบัญชีของคุณ โปรดไปที่ URL ด้านล่างนี้:\n\n{VAR: url}\n\nเมื่อบัญชีของคุณถูกเปิดใช้งานแล้ว คุณจะเข้าสู่ระบบไปที่กระดานสนทนา\nและจะถูกเปลี่ยนทางไปที่หน้าหลัก
+reset_reset:สวัสดี\n\nคุณได้ร้องขอให้ตั้งค่ารหัสผ่านของคุณใหม่ เมื่อต้องการดำเนินการให้เสร็จสมบูรณ์\nโปรดไปที่ URL นี้:\n\n{VAR: url}\n\nหมายเหตุ: กระดานสนทนานี้จะเก็บรหัสผ่านในกลไกการเข้ารหัสแบบทางเดียว ซึ่งหมายความว่าเมื่อคุณป้อนรหัสผ่านของคุณแล้ว\nรหัสผ่านของคุณจะถูกเข้ารหัส ซึ่งทำให้ไม่สามารถกู้คืนได้\nกลไกนี้ทำงานด้วยการเปรียบเทียบรุ่นที่เข้ารหัสที่เรามีอยู่บนระเบียนกับรุ่นที่เข้ารหัสของสิ่งที่คุณพิมพ์ลงในพรอมต์การเข้าสู่ระบบ\n(หากคุณสนใจเกี่ยวกับวิธีการทำงานของกลไกนี้ ให้อ่านเกี่ยวกับอัลกอริทึม MD5 HASH)
+rpasswd_invalid_passwd:รหัสผ่านไม่ถูกต้อง
+rpasswd_passwd_nomatch:รหัสผ่านไม่ตรงกัน
+rpasswd_passwd_length:รหัสผ่านต้องมีความยาวอักขระอย่างน้อย 6 ตัว
+reset_remind_pass:การแจ้งเตือนรหัสผ่าน
+reset_reset_conf:รหัสผ่านของคุณจะถูกตั้งค่าใหม่และจะถูกส่งให้คุณ หากคุณยังไม่ได้ยืนยันที่อยู่อีเมลของคุณ คำขอการยืนยันจะถูกส่งให้คุณใหม่
+reset_error:ไม่พบที่อยู่อีเมลในฐานข้อมูล
+reset_update:ตั้งค่ารหัสผ่านใหม่
+rpasswd_change_pass:เปลี่ยนรหัสผ่าน
+rpasswd_login:เข้าสู่ระบบ
+rpasswd_cur_pass:รหัสผ่านปัจจุบัน:
+rpasswd_new_pass:รหัสผ่านใหม่:
+rpasswd_conf_pass:ยืนยันรหัสผ่าน:
+ruser_title:เปลี่ยนแบบฟอร์มการเข้าสู่ระบบ
+ruser_change_user:เปลี่ยนชื่อเข้าสู่ระบบของกระดานสนทนาของคุณ
+ruser_cur_login:ชื่อเข้าสู่ระบบปัจจุบัน:
+ruser_new_login:ชื่อเข้าสู่ระบบใหม่:
+ruser_cur_pass:รหัสผ่านปัจจุบัน:
+login_passwd:รหัสผ่าน:
+reset_email:อีเมล:
+reset_reset_button:ตั้งค่ารหัสผ่านใหม่
+rate_this_thread:ให้คะแนน
+report_reporting_about:รายงานเกี่ยวกับ:
+report_subject:หัวเรื่อง:
+report_by:โดย:
+report_posted_on:โพสต์เมื่อ:
+report_give_reason:โปรดระบุเหตุผลที่คุณรายงานข้อความนี้:
+report_submit_report:ส่งรายงาน
+search_entire_msg:ทั้งข้อความ
+search_subject_only:เฉพาะหัวเรื่องเท่านั้น
+search_forum:กระดานสนทนา
+search_posted_on:โพสต์เมื่อ:
+search_no_results:ไม่มีผลลัพธ์
+search_all_forums:ค้นหากระดานสนทนาทั้งหมด
+search_in_forum:ค้นหาในกระดานสนทนา:
+search_forum_search:ค้นหากระดานสนทนา
+move_thread_to:ย้ายหัวข้อ <b>{VAR: thr->subject}</b> ไปยัง:
+remail_email_topic:ส่งหัวข้อนี้ให้เพื่อนทางอีเมล
+remail_your_name:ชื่อของคุณ:
+remail_your_email:อีเมลของคุณ:
+remail_friends_name:ชื่อของเพื่อน:
+remail_friends_email:อีเมลของเพื่อน:
+remail_required:จำเป็น
+remail_subject:หัวเรื่อง:
+remail_message:ข้อความ:
+remail_send_now:ส่งอีเมลเดี๋ยวนี้
+remail_anon_opt:คัดลอกข้อความนี้ลงในไคลเอนต์เมลที่คุณต้องการใช้เพื่อส่งให้เพื่อนของคุณ
+remail_done:เสร็จสิ้น
+remail_sent_conf:อีเมลที่ไปยังเพื่อนของคุณที่ {VAR-HTML: _POST['femail']} เกี่ยวกับหัวข้อ {VAR: data->subject} ถูกส่งสำเร็จแล้ว
+remail_error:มีข้อผิดพลาด
+mklist_type:ชนิด:
+mklist_option:ตัวเลือก:
+mklist_additem:เพิ่มรายการ
+mklist_apply:นำไปใช้
+mklist_delete:ลบ
+qbud_nick_name:ชื่อเล่น
+qbud_add_selected:เพิ่มที่เลือก
+qbud_selected:เลือก
+qbud_no_buddies:ไม่มีเพื่อนที่จะเลือก
+mklist_numerical:ตัวเลข
+mklist_aplha:ตัวอักษร
+mklist_square:สี่เหลี่ยมจัตุรัส
+mklist_disc:ดิสก์
+mklist_circle:วงกลม
+mklist_close:ปิด
+email_to:ถึง:
+email_pg_title:อีเมล
+email_subject:หัวเรื่อง:
+email_body:เนื้อหา:
+email_submit:อีเมล
+ppost_quote_msg:{VAR: msg_to_list} เขียนเมื่อ {TEMPLATE: ppost_quote_msg_date}
+ppost_quote:ข้อความที่อ้างอิง:
+ppost_to:ถึง:
+ppost_from_buddy_list:เลือกจากรายชื่อเพื่อน
+ppost_find_User:ค้นหาผู้ใช้
+ppost_track_msg:ติดตามข้อความนี้
+ppost_track_msg_desc:แจ้งเตือนฉัน (ผ่านข้อความส่วนตัว) เมื่อมีคนอ่านข้อความนี้
+ppost_send:ส่ง
+ppost_save_draft:บันทึกฉบับร่าง
+poll_blank_option:คุณไม่สามารถเพิ่มตัวเลือกเปล่าได้
+poll_del_conf:หากคุณต้องการลบตัวเลือกนี้ ให้กด "ตกลง"
+poll_name:ชื่อโพล:
+poll_timelimit:ขีดจำกัดเวลา:
+poll_maxiumvotes:จำนวนการโหวตสูงสุด:
+poll_create:สร้าง
+poll_update:ปรับปรุง
+poll_disablesmilies:ปิดใช้งานหน้ายิ้ม
+poll_create_poll:สร้างโพล
+poll_update_poll:ปรับปรุงโพล
+poll_delete:ลบ
+poll_updateoption:ปรับปรุงตัวเลือก
+poll_addoption:เพิ่มตัวเลือก
+poll_unlimited:ไม่จำกัด
+poll_day:วัน
+poll_days:วัน
+poll_hour:ชั่วโมง
+poll_hours:ชั่วโมง
+poll_month:เดือน
+poll_year:ปี
+poll_week:สัปดาห์
+tabs_register:การตั้งค่าบัญชี
+tabs_subscriptions:การสมัครรับ
+tabs_bookmarkes:ที่คั่นหน้า
+tabs_referrals:การอ้างอิง
+tabs_buddy_list:รายชื่อเพื่อน
+tabs_ignore_list:รายชื่อผู้ที่ถูกละเลย
+tabs_private_messaging:ข้อความส่วนตัว
+delete_yes:ใช่
+delete_no:ไม่
+error_invalidurl:URL ไม่ถูกต้อง
+error_error:ข้อผิดพลาด
+usrinfo_profile:โปรไฟล์ของ {VAR: u->alias}
+actions_update:ค้นหาคนอื่น ๆ เช่นคุณ
+err_info:ข้อมูล
+buddy_list_err_cantadd:คุณไม่สามารถเพิ่มตัวคุณเองลงในรายชื่อเพื่อนได้
+buddy_list_err_dup:คุณมีผู้ใช้นี้บนรายชื่อเพื่อนของคุณอยู่แล้ว
+buddy_list_err_nouser:ไม่พบผู้ใช้ที่คุณพยายามเพิ่มลงในรายชื่อเพื่อนของคุณ
+buddy_list_err_nouser_title:ไม่สามารถเพิ่มผู้ใช้ได้
+buddy_list_err_ignore:ไม่สามารถเพิ่มผู้ใช้ที่ละเลยคุณลงในรายชื่อเพื่อนของคุณได้
+buddy_list_update:เรียกดูรายชื่อเพื่อนของตนเอง
+core_err_invinp_title:ค่าที่ป้อนไม่ถูกต้อง
+email_error_body:จำเป็นต้องระบุเนื้อหา
+email_error_subject:จำเป็นต้องระบุหัวเรื่อง
+email_error_namerequired:จำเป็นต้องระบุชื่อ
+email_error_invaliduser:ผู้ใช้ไม่ถูกต้อง
+emailconf_err_invkey_title:ข้อผิดพลาด
+err_inc_criticaltitle:ข้อผิดพลาดร้ายแรง
+finduser_update:กำลังค้นหาผู้ใช้
+ignore_list_err_info_title:ข้อมูล
+poll_add_option:เพิ่มตัวเลือก:
+post_opt_html_on:<b>HTML</b> <b>เปิด</b>อยู่
+post_opt_fud_on:<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>BBcode</b> <b>เปิด</b></a>อยู่
+post_opt_images_on:<b>ภาพ</b><b>เปิด</b>อยู่
+post_opt_smilies_on:<a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank"><b>สัญลักษณ์หน้ายิ้ม</b><b>เปิด</b></a>อยู่
+post_opt_html_off:รหัส <b>HTML</b> <b>ปิด</b>อยู่
+post_opt_fud_off:<b>BBcode</b> <b>ปิด</b>อยู่
+post_opt_images_off:<b>ภาพ</b><b>ปิด</b>อยู่
+post_opt_smilies_off:<b>สัญลักษณ์หน้ายิ้ม</b><b>ปิด</b>อยู่
+post_opt:ตัวเลือกกระดานสนทนา:
+register_change_passwd:เปลี่ยนรหัสผ่าน
+register_change_login:เปลี่ยนชื่อเข้าสู่ระบบ
+groupmgr_yes:ใช่
+groupmgr_no:ไม่
+groupmgr_action:การกระทำ
+groupmgr_member:สมาชิก
+groupmgr_cancel:ยกเลิก
+groupmgr_add_member:เพิ่มสมาชิก
+groupmgr_update_member:ปรับปรุงสมาชิก
+groupmgr_edit:แก้ไข
+groupmgr_delete:ลบ
+group_mgr_anon:ไม่ระบุตัวตน
+group_mgr_reged:ผู้ใช้ที่ลงทะเบียนทั้งหมด
+show_show:แสดง:
+group_mgr:ตัวจัดการกลุ่ม
+group_mgr_edit_btn:แก้ไขกลุ่ม
+group_mgr_heading:ส่วนที่เลือกของตัวแก้ไขกลุ่ม
+group_mgr_group:กลุ่ม:
+permission_denied_title:ไม่ได้รับอนุญาต!
+permission_denied_msg:คุณไม่ได้รับอนุญาตให้ดำเนินการที่คุณกำลังพยายาม
+p_READ:อ่าน
+p_POST:โพสต์
+p_REPLY:ตอบกลับ
+p_EDIT:แก้ไข
+p_DEL:ลบ
+p_POLL:สร้างโพล
+p_FILE:แนบไฟล์
+p_VOTE:โหวต
+p_RATE:ให้คะแนนหัวข้อ/สมาชิก
+p_SPLIT:แยกหัวข้อ
+p_LOCK:ล็อกหัวข้อ
+p_MOVE:ย้ายหัวข้อ
+p_SML:ใช้สัญลักษณ์หน้ายิ้ม
+p_IMG:ใช้ป้ายกำกับภาพ
+p_SEARCH:สามารถค้นหาได้
+group_mgr_search:ค้นหาผู้ใช้
+group_mgr_indicator:กำลังแก้ไข: <b>{VAR: grp->name}</b>
+rate_worst:แย่ที่สุด
+rate_best:ดีที่สุด
+post_quote_msg:{VAR: msg->login} เขียนเมื่อ {TEMPLATE: make_report_date}
+post_quote:อ้างอิง:
+post_quote_selected:อ้างอิงข้อความที่เลือก
+userinfo_referals:ผู้ใช้ที่อ้างอิง:
+userinfo_referals_count:{VAR: referals} สมาชิก
+pm_no_space_title:เนื้อที่ไม่เพียงพอ!
+pm_no_space_msg:โฟลเดอร์ข้อความส่วนตัวของคุณเกินขนาดที่เก็บข้อมูลที่อนุญาต <b>{GVAR: MAX_PMSG_FLDR_SIZE} ไบต์</b> ซึ่งตอนนี้ประกอบด้วยข้อความประมาณ <b>{VAR: fldr_size} ไบต์</b><br /><br /><span class="ErrorText">โปรดเอาข้อความเก่าบางส่วนออกเพื่อเพิ่มเนื้อที่</span>
+pm_space_indct_msg:โฟลเดอร์ข้อความส่วนตัวของคุณเต็มแล้ว {VAR: percent_full}%
+th_expr_never:ไม่เลย
+th_expr_one_hr:1 ชั่วโมง
+th_expr_three_hr:3 ชั่วโมง
+th_expr_four_hr:4 ชั่วโมง
+th_expr_eight_hr:8 ชั่วโมง
+th_expr_sixteen_hr:16 ชั่วโมง
+th_expr_one_day:1 วัน
+th_expr_two_day:2 วัน
+th_expr_four_day:4 วัน
+th_expr_one_week:1 สัปดาห์
+th_expr_two_week:2 สัปดาห์
+th_expr_one_month:1 เดือน
+th_expr_two_month:2 เดือน
+th_expr_four_month:4 เดือน
+th_expr_one_year:1 ปี
+thread_mod_delete:ลบ
+action_ip:IP
+action_latest_post:ข้อความสุดท้าย
+online_today_last_visit:เยี่ยมชมล่าสุดเมื่อ
+online_today_update:ดูรายชื่อผู้ใช้ที่อยู่บนกระดานสนทนาวันนี้
+logedin_todays_visitors:ผู้เยี่ยมชมของวันนี้
+logedin_latest_post:ข้อความสุดท้ายบนกระดานสนทนา:
+register_show_avatar:แสดงรูปประจำตัว:
+register_show_avatar_desc:ให้คุณสามารถซ่อนรูปประจำตัวของผู้ใช้อื่น ๆ ได้เมื่อดูข้อความ
+drawmsg_view_rest_post:แสดงส่วนที่เหลือของข้อความ
+post_re:ตอบ:
+forumsel_goto_forum:ไปยังกระดานสนทนา:
+minimsg_thread_view:มุมมองหัวข้อ
+split_th_post_by:ข้อความโดย:
+split_th_posted_on:โพสต์เมื่อ:
+split_th_subject:หัวเรื่อง:
+split_th_new_thread_title:ชื่อเรื่องหัวข้อใหม่:
+split_th_forum:กระดานสนทนา:
+split_th_split_sel:แยกข้อความที่เลือก
+split_th_split_unsel:แยกข้อความที่ไม่ได้เลือก
+split_th_messages:ข้อความ
+split_th_select:เลือก
+report_report_post:รายงานข้อความ
+quicklogin_login:ชื่อเข้าสู่ระบบ:
+quicklogin_password:รหัสผ่าน:
+quicklogin_use_cookies:ใช้คุกกี้หรือไม่
+quicklogin_login_btn:เข้าสู่ระบบ
+quick_reply:การตอบกลับด่วน
+quick_reply_post:โพสต์การตอบกลับด่วน
+quick_reply_preview:แสดงตัวอย่างการตอบกลับด่วน
+post_notification_desc:แจ้งเตือนฉันเมื่อมีคนตอบกลับข้อความนี้
+post_all_ext_allowed:(ไม่มีการจำกัด)
+maximize_category:ย่อหมวดหมู่
+maximize_message:ย่อข้อความ
+no_view_perm:คุณไม่มีสิทธิที่เหมาะสมในการดูหัวข้อนี้
+report_empty_report:คุณไม่สามารถส่งรายงานเปล่าได้ โปรดป้อนเหตุผลสำหรับรายงานของคุณ
+report_already_reported_title:รายงานไปแล้ว
+report_already_reported_msg:ข้อความนี้ถูกรายงานไปแล้วและรายงานอยู่ในคิวของผู้ควบคุมในขณะนี้
+register_err_toomanyimages:คุณกำลังพยายามใช้ {GVAR: FORUM_IMG_CNT_SIG} ภาพซึ่งเกินกว่าจำนวนที่อนุญาตในลายเซ็นของคุณ
+pmsg_next_msg:ข้อความถัดไป
+pmsg_prev_msg:ข้อความก่อนหน้า
+post_proc_reveal_spoiler:แสดง/ซ่อนสปอยล์
+register_jabber:Jabber Handle:
+register_skype:Skype Handle:
+register_twitter:Twitter Handle:
+register_google:Google Chat/IM Handle:
+im_jabber:Jabber:
+im_google:Google Talk:
+im_skype:Skype:
+im_twitter:Twitter:
+forum_contact:ติดต่อ
+forum_home:หน้าแรก
+post_cur_attached:แนบแล้วในขณะนี้: {VAR: i} {PLURAL: i|ไฟล์}
+ignored_anon_post:{GVAR: ANON_NICK} ถูกละเลย
+ignored_user_post:ข้อความโดย <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> ถูกละเลย
+smladd_close_window:ปิดหน้าต่าง
+post_list_smilies:แสดงรายการสัญลักษณ์หน้ายิ้มทั้งหมด
+p_VISIBLE:มองเห็นได้
+reported_in_thread:ใน:
+help_back_to_top:กลับไปด้านบน
+help_return_to_index:กลับไปยังดัชนีวิธีใช้
+imsg_err_message_title:ข้อความไม่ถูกต้อง
+imsg_err_message_msg:ข้อความที่คุณกำลังพยายามดูไม่มีอยู่
+poll_edit:แก้ไข
+register_err_not_valid_img:URL ที่ระบุไม่มีภาพที่ถูกต้อง
+pmsg_recepient:ผู้รับ
+register_err_taken_alias:นามแฝงที่คุณกำลังพยายามใช้ถูกใช้แล้วโดยสมาชิกกระดานสนทนาอื่น โปรดเลือกนามแฝงอื่น
+register_alias:นามแฝง:
+register_alias_desc:หากคุณต้องการแสดงชื่อเล่นแทนชื่อเข้าสู่ระบบในกระดานสนทนาของคุณ ให้ป้อนที่นี่
+register_allow_pm_msg:อนุญาตข้อความส่วนตัว:
+register_allow_pm_msg_desc:อนุญาตให้ผู้ใช้อื่นส่งข้อความส่วนตัวให้คุณในกระดานสนทนานี้ได้
+postcheck_pm_disabled:คุณไม่สามารถส่งข้อความส่วนตัวไปยัง "{VAR-HTML: v}" ได้เนื่องจากบุคคลนี้ไม่รับข้อความส่วนตัว
+polllist_vote:โหวต
+polllist_view_results:ดูผลลัพธ์
+polllist_name:ชื่อโพล
+polllist_date:สร้างเมื่อ
+polllist_owner:สร้างโดย
+polllist_votes:จำนวนโหวตทั้งหมด
+polllist_action:การกระทำ
+polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">ตรวจดูโพลที่มีอยู่</a>
+userinfo_polls:โพล:
+show_pollist:โพล
+search_and:และ
+search_or:หรือ
+search_desc_order:ล่าสุดก่อน
+search_asc_order:เก่าสุดก่อน
+search_relevance_order:ความเกี่ยวข้อง
+search_logic:ตรรกะการค้นหา:
+search_sorting:จัดเรียงตาม:
+search_attach:ไฟล์แนบ:
+search_attach_all:มีหรือไม่มี
+search_attach_with:มีไฟล์แนบ
+post_proceed:ดำเนินการต่อ
+post_moderated_forum:คุณได้โพสต์ในกระดานสนทนาที่มีการควบคุม ข้อความของคุณจะไม่ปรากฏต่อคนอื่นจนกว่าจะได้รับการอนุมัติโดยผู้ควบคุมหรือผู้ดูแลคนใดคนหนึ่งของกระดานสนทนา
+post_moderated_forum_ttl:การแจ้งเตือนเกี่ยวกับกระดานสนทนาที่มีการควบคุม
+buddy_list_bday:วันนี้ {VAR: r[2]} มีอายุ {VAR: age} ปี
+email_warning_msg:หากคุณเปลี่ยนที่อยู่อีเมลปัจจุบันของคุณ บัญชีของคุณจะถูกทำเครื่องหมายว่ายังไม่ได้ยืนยันจนกว่าคุณจะยืนยันบัญชีผ่านทางอีเมล
+register_show_im:แสดงตัวบ่งชี้ IM:
+register_show_im_desc:เลือกว่าจะแสดงตัวบ่งชี้ IM ของเจ้าของข้างข้อความหรือไม่
+unread_message:ข้อความที่ยังไม่ได้อ่าน
+read_message:ข้อความที่อ่านแล้ว
+threadt_more:&lt;เพิ่มเติม&gt;
+threadt_disabled_ttl:มุมมองทรีของรายชื่อหัวข้อได้ถูกปิดใช้งาน
+threadt_disabled_desc:ผู้ดูแลระบบได้ปิดใช้งานมุมมองทรีของรายชื่อหัวข้อ โปรดใช้มุมมองแฟลตแทน
+threadt_update:เรียกดูกระดานสนทนา (มุมมองทรี) <a href="{TEMPLATE: threadt_update_lnk}">{VAR: frm->name}</a>
+mmod_delete_cofirm_ttl:ยืนยันการลบหัวข้อ/ข้อความ
+spell_alts:ไม่มีทางเลือกอื่น
+insert_uploaded_image:แทรกภาพลงในเนื้อหาของข้อความ
+finduser_help:เครื่องมือค้นหาจะเพิ่มมาสก์ * ลงในคำค้นหาของคุณโดยอัตโนมัติ <b>การค้นหาจะเทียบตรงตัวพิมพ์ใหญ่-เล็ก</b><br />ตัวอย่างเช่น เมื่อต้องการค้นหาผู้ใช้ทั้งหมดที่ชื่อเข้าสู่ระบบขึ้นต้นด้วย 'a' ให้ป้อน 'a' ลงในกล่องค้นหา
+back_to_top:กลับไปด้านบน
+pm_err_disabled_title:ข้อความส่วนตัวถูกปิดใช้งาน
+iemail_msg_author:<b>เจ้าของ:</b> {VAR: obj->alias}
+iemail_msg_subject:<b>หัวเรื่อง:</b> {VAR: obj->subject}
+iemail_msg_date:<b>วันที่:</b> {TEMPLATE: dmsg_post_date}
+iemail_msg_reply:ตอบกลับ
+iemail_msg_quote:อ้างอิง
+iemail_msg_view:ดูหัวข้อ/ข้อความ
+thread_printable_pdf:สร้าง PDF ที่พิมพ์ได้
+reg_conf_title:การยืนยันการลงทะเบียน
+forum_banned_user:การกระทำก่อนหน้าของคุณส่งผลให้คุณถูกแบนจากกระดานสนทนานี้อย่างถาวร ลาก่อน
+mnav_description:ตัวนำทางข้อความ
+mnav_date_limit:ช่วงวันที่:
+mnav_forum_limit:ค้นหาเฉพาะใน:
+mnav_all_forums:ค้นหากระดานสนทนาทั้งหมด
+mnav_submit:เริ่มการค้นหา
+mnav_posted_by:โพสต์โดย:
+mnav_more:เพิ่มเติม &raquo;&raquo;
+mnav_minute:นาที
+mnav_hour:ชั่วโมง
+mnav_day:วัน
+mnav_week:สัปดาห์
+mnav_month:เดือน
+mnav_title:ตัวนำทางข้อความ
+mnav_update:เรียกดูข้อความโดยใช้<a href="{TEMPLATE: mnav_update_lnk}">ตัวนำทางข้อความ</a>
+pm_notify_subject:[{GVAR: FORUM_TITLE}] การแจ้งเตือนข้อความส่วนตัวใหม่
+register_pm_notification:การแจ้งเตือนข้อความส่วนตัว:
+findu_admin_opts_header:ตัวเลือกผู้ดูแล
+findu_unban:เลิกแบน
+findu_ban:แบน
+findu_edit:แก้ไข
+findu_delete:ลบ
+merge_topics:ผสานหัวข้อ
+merge_topics_cp:แผงควบคุมการผสานหัวข้อ
+merge_topics_tpl:เลือกหัวข้อที่จะผสาน <span class="SmallText">(คุณต้องเลือกมากกว่าหนึ่งหัวข้อ)</span>
+merge_merge:ผสานหัวข้อที่เลือก
+merge_next:หัวข้อถัดไป
+merge_prev:หัวข้อก่อนหน้า
+split_cp:แผงควบคุมการแยกหัวข้อ
