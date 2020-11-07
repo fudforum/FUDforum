@@ -203,6 +203,9 @@ function highlightSearchTerms(searchText, treatAsPhrase)
 	} else {
     		var terms = searchText.split(' ');
 	}
+	/* Sorting from longest to shortest. */
+	terms.sort(function(a, b) {return b.length - a.length});
+
 	var e = document.getElementsByTagName('span');
 
 	/* message body */
