@@ -87,7 +87,7 @@ locked:Kilitli
 locked_with_new_posts:Kilitli (w/ okunmamış mesajlarla)
 logged_in_list:Giriş yapan kullanıcılar listesi
 login:Oturum aç
-login_header:Kullanıcı ismi:
+login_header:Oturum aç:
 logout:Oturumu kapat
 mark_all_read:Tüm mesajları okundu olarak işaretle
 mark_all_read_desc:Tüm okunmamış mesajlarınız okundu olarak işaretlenecek
@@ -320,14 +320,14 @@ no:Hayır
 register_email:E-posta
 edit_time_limit:<b>Düzeltme süre sınırı</b>: {GVAR: EDIT_TIME_LIMIT} dakika
 no_edit_time_limit:<b>Düzeltme süre sınırı</b>: Sınırsız
-pmuserloc_login:Kullanıcı ismi:
+pmuserloc_login:Oturum aç:
 pmuserloc_submit:Gönder
 pmuserloc_user:Kullanıcı
 pmuserloc_no_result:Bulunamadı
 register_builtin:Kurulu
 register_specify_url:URL Belirt
 register_uploaded:Avatar Yükle
-register_login:Kullanıcı ismi:
+register_login:Oturum aç:
 register_login_desc:Oturum açmak ve bu sitede bilinmek istediğiniz ad.
 register_login_available:Mevcut
 register_login_taken:Zaten alınmış
@@ -482,7 +482,7 @@ login_perm_denied:Anonim bir kullanıcı olarak istenen kaynağa erişme izniniz
 login_want_to_register:Kayıt olmak ister misiniz?
 login_forgot_passwd:Parolanızı mı unuttunuz?
 login_use_cookie:Çerez kullanın<br /><span class="SmallText">Kütüphane, okul veya İnternet kafede bilgisayar gibi genel bir terminal kullanıyorsanız, daha fazla güvenlik için bu seçeneğin işaretini kaldırmanız önerilir. Bu seçeneği işaretli bırakırsanız, bir sonraki ziyaretinizde otomatik olarak foruma giriş yaparsınız.</span>
-login_login:Kullanıcı ismi:
+login_login:Oturum aç:
 login_login_btn:Oturum aç
 login_name_required:Giriş adı gerekli
 login_passwd_required:Parola gereklidir
@@ -1000,7 +1000,7 @@ mnav_invalid_unit:Geçerli bir zaman birimi belirtmelisiniz.
 mnav_invalid_date:Belirttiğiniz tarih aralığı, yönetici tarafından izin verilen aralıktan daha büyük. Daha küçük bir tarih aralığı deneyin.
 mnav_no_results:Sorgu ile eşleşen mesaj yok.
 mnav_posted_by:Gönderen:
-mnav_more:Devamı &raquo;&raquo;
+mnav_more:Daha fazla &raquo;&raquo;
 mnav_minute:Dakika
 mnav_hour:Saat
 mnav_day:Gün

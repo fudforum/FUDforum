@@ -1,5 +1,6 @@
 # Messages for Kurdish (Latin script) (kurdî (latînî)‎)
 # Exported from translatewiki.net
+# Author: Balyozxane
 # Author: Bikarhêner
 # Author: George Animal
 # Author: Ghybu
@@ -101,7 +102,7 @@ list_referes_member:Endam
 referals_action:Çalakî
 pmsg_all:hemû
 pmsg_none:çêbû
-pmsg_replied:hate bersivandin
+pmsg_replied:hat bersivandin
 pmsg_time:Dem
 pmsg_selected:Bibijêre
 pmsg_delete:Jê bibe
