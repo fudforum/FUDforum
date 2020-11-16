@@ -266,7 +266,7 @@ pmsg_delete:Sil
 cur_ppage_pm:Özel Mesajlaşma
 writing_pm:Özel Mesaj Yazma
 browsing_folder:<b>{VAR: folders[$folder_id]}</b> klasörü tarama
-inbox:Gelen Kutusu
+inbox:Gelen kutusu
 draft:Taslak
 sent:Gönderildi
 trash:Çöp

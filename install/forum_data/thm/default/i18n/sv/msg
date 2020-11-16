@@ -1085,7 +1085,7 @@ err_blockedaccnt_title:FEL: Ditt konto har filtrerats bort.
 err_blockedaccnt_msg:Ditt konto har spärrats från att komma åt forumet på grund av något av de installerade användarfiltren.
 merge_th_page_list:Ämnesidesval
 most_users_online:Flest användare online samtidigt var <b>{VAR: st_obj->most_online}</b> on <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
-sub_unsub_all_forums:Avsluta Prenumeration Från Alla Forum
+sub_unsub_all_forums:Avsluta prenumeration från alla forum
 sub_unsub_all_topics:Avsluta Prenumeration Från Alla Ämnen
 unbookmark_all_topics:Ta bort alla bokmärken
 tabs_own_posts:Visa Egna Inlägg
