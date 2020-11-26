@@ -262,6 +262,7 @@ register_uploaded:העלאת סמל
 register_password:סיסמה:
 register_password_desc:הסיסמה של החשבון שלך. סיסמאות הן תלויות־רישיות וחייבות להיות באורך של 6 תווים לפחות.
 register_conf_pass:אימות הססמה:
+register_conf_pass_desc:נא למלא את הסיסמה שלך מחדש.
 register_email_desc:כתובת הדוא"ל שלך. באפשרותך לבחור להסתיר אותה למטה, בחלק "העדפות".
 register_name:שם:
 register_name_desc:השם האמיתי שלך.
