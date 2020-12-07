@@ -1079,7 +1079,7 @@ unbookmark_all_topics:Skrap alle boekmerke
 tabs_own_posts:My boodskappe
 sml_emoticon:Emotikon
 sml_code:Kode
-mnav_sub_only:Soek slegs deur forums waarop ek ingeskryf het.
+mnav_sub_only:Soek slegs deur forums waarop ek ingeskryf is.
 register_topics_per_page:Onderwerpe per bladsy:
 login_min_time:Die forum laat slegs een aanmelding elke {VAR: MIN_TIME_BETWEEN_LOGIN} sekondes toe. Wag asseblief {FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)} sekondes voor u weer probeer.
 post_not_logged_in:U is nie tans aangeteken nie, die boodskap sal anoniem gepos word.
