@@ -372,17 +372,17 @@ coppa_fax_remail:E-poste
 coppa_fax_name:Name
 login_login:Cıkewtış:
 login_login_btn:Cıkewtış
-reset_update:Parola reset kı
+reset_update:Parola newe ke
 rpasswd_change_pass:Parola bıvurne
 rpasswd_login:Cıkewtış
 rpasswd_cur_pass:Parolay newkên:
-rpasswd_new_pass:Parolay Newiy:
+rpasswd_new_pass:Parolaya Newiye:
 rpasswd_conf_pass:Parola tesdiq ke
 ruser_title:Forma Dekewtışi Bıvurnê
 ruser_cur_pass:Parolaya newkên
 login_passwd:Parola:
 reset_email:E-poste:
-reset_reset_button:Parola ancia bınuse
+reset_reset_button:Parola newe ke
 rate_this_thread:Nısbet ke
 report_subject:Mewzu:
 search_forum:Forum
@@ -458,11 +458,12 @@ report_err_nosuchmsg_title:XETA
 report_err_nosuchmsg_msg:Mesaco wuna çıno
 reset_err_invalidkey_title:XETA
 reset_err_rstconf_title:Melumat
-reset_newpass_title:Parola reset ke
+reset_newpass_title:Parola newe ke
 email_title:Formê E-maili
 help_title:Peşti
 login_title:Formê Cı qewtışi
 register_title:Formê Cı qewtışi
+reset_title:Parola newe ke
 error_title:Formê Xırabin
 poll_add_option:Weçine defi de
 post_opt_html_on:<b>HTML</b> akerde <b>yo</b>
