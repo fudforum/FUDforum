@@ -679,7 +679,7 @@ register_err_needname:Per a completar aquest procés de registre, ha d`ingressar
 register_err_enterpasswd:Ha d`introduir la seva contrasenya actual per a completar els canvis
 register_err_adminpasswd:Heu d'introduir la contrasenya <b>d'administrador</b> per completar els canvis.
 register_err_notyouremail:Algú ja s`ha enregistrat amb aquest correu electrònic, i aquest algú NO ÉS VOSTÈ
-register_err_avatartobig:L`arxiu que està  tractant de pujar és massa gran, major que el lí­mit de {GVAR: CUSTOM_AVATAR_MAX_SIZE} bytes
+register_err_avatartobig:L`arxiu que està  tractant de pujar és massa gran, més gran que el lí­mit de {GVAR: CUSTOM_AVATAR_MAX_SIZE} bytes
 register_err_avatarnotallowed:L`avatar que està  tractant de pujar no està  permés. Revisi els tipus d`arxius permesos.
 register_conf_subject:Confirmació de registre
 register_conf_msg:Gràcies per a enregistrar-se,\nPer a activar el seu compte, si us plau, vagi a la següent URL:\n\n{FULL_ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nUn cop activat el seu compte, entrarà al fòrum i\nse li redireccionarà a la pàgina principal.
@@ -986,9 +986,9 @@ mnav_date_limit:Rang per a les dates:
 mnav_forum_limit:Cercar solament a:
 mnav_all_forums:Cercar a tots els fòrums
 mnav_submit:Començar a cercar
-mnav_no_range:Ha d`introduir un rang de dates vàlid. Aquest valor pot ser flotant (0.12) però ha de ser major de zero.
+mnav_no_range:Ha d`introduir un rang de dates vàlid. Aquest valor pot ser flotant (0.12) però ha de ser més gran que zero.
 mnav_invalid_unit:Ha d`especificar una unitat de temps vàlida.
-mnav_invalid_date:El rang de dates és major del permès per l`administrador. Redueixi l`abast de la seva recerca.
+mnav_invalid_date:El rang de dates més gran que el permès per l'administrador. Redueixi l'abast de la seva recerca.
 mnav_no_results:No hi ha missatges que coincideixin amb el criteri de recerca.
 mnav_posted_by:Enviat per:
 mnav_more:Més &raquo;&raquo;
@@ -1086,7 +1086,7 @@ dmsg_ip:IP:
 err_blockedaccnt_title:ERROR: el seu compte ha estat filtrat.
 err_blockedaccnt_msg:El seu compte ha estat bloquejat per un dels filtres d`usuaris instal.lats.
 merge_th_page_list:Seleccionar la pàgina del fil
-most_users_online:La major quantitat d`usuaris en línia fou <b>{VAR: st_obj->most_online}</b>, el <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
+most_users_online:La majoria d'usuaris en línia fou <b>{VAR: st_obj->most_online}</b>, el <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
 sub_unsub_all_forums:Desubscriure de tots els fòrums
 sub_unsub_all_topics:Desubscriure de tots els fils
 unbookmark_all_topics:Suprimeix totes les adreces d'interès
