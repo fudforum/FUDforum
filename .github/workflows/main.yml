@@ -19,7 +19,15 @@ jobs:
     - name: Generate archive file
       run: php create_file_archive install 1 > fudforum_archive
 
-    - name: Upload as artifact
+    - name: Commit fudforum_archive back to repo
+      run: |
+        git config user.name github-actions
+        git config user.email github-actions@github.com
+        git add fudforum_archive
+        git commit -m "Generated forum_archive"
+        git push
+          
+    - name: Upload files required for install as artifact
       uses: actions/upload-artifact@v2
       with:
           name: fudforum-latest
@@ -32,4 +40,3 @@ jobs:
             COPYING
             CREDITS
           if-no-files-found: error
-          
