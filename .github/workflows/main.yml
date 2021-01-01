@@ -17,7 +17,7 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Generate archive file
-      run: php create_file_archive install 1 > fudforum_archive
+      run: php create_fudforum_archive install 1 > fudforum_archive
 
     - name: Commit fudforum_archive back to repo
       run: |
