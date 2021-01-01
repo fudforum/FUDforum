@@ -20,8 +20,16 @@ jobs:
       run: php create_file_archive install 1 > fudforum_archive
 
     - name: Upload as artifact
-      uses: actions/upload-artifact@v1
+      uses: actions/upload-artifact@v2
       with:
           name: fudforum-latest
-          path: fudforum_archive
+          path: |
+            fudforum_archive
+            install.php
+            upgrade.php
+            uninstall.php
+            README
+            COPYING
+            CREDITS
           if-no-files-found: error
+          
