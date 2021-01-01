@@ -1,7 +1,7 @@
 #!/usr/bin/php -q
 <?php
 /***************************************************************************
-* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2021 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -24,7 +24,7 @@ function create_file_archive($dir)
 		}
 
 		$dd = str_replace($base, '', $v);
-		if ($dd && ($dd{0} == '/' || $dd{0} == '\\')) {
+		if ($dd && ($dd[0] == '/' || $dd[0] == '\\')) {
 			$dd = substr($dd, 1);
 		}
 
