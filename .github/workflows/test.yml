@@ -40,7 +40,7 @@ jobs:
              WWW_ROOT         = "http://127.0.0.1:8080/forum/"
              SERVER_ROOT      = "./forum/"
              SERVER_DATA_ROOT = "./forum/"
-             DBHOST           = 127.0.0.1
+             DBHOST           = 127.0.0.1:${{ job.services.mariadb.ports[3306] }}
              DBHOST_USER      = fuduser
              DBHOST_PASSWORD  = fudpass
              DBHOST_DBNAME    = fuddb
