@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2021 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -218,7 +218,7 @@ function error_check()
 				$usr->returnto = str_replace(s, $ses_id, $usr->returnto);
 			}
 
-			if ($usr->returnto{0} != '/') { /* No GET vars or no PATH_INFO. */
+			if ($usr->returnto[0] != '/') { /* No GET vars or no PATH_INFO. */
 				$ret =& $usr->returnto;
 				parse_str($ret, $args);
 				$args['SQ'] = $new_sq;

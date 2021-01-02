@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2021 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -81,7 +81,7 @@
 					$p += 6;
 					$p = substr($r[0], $p, (strpos($r[0], '"', $p) - $p));
 
-					if ($p{strlen($p) - 1} == '/') {
+					if ($p[strlen[$p] - 1] == '/') {
 						$tmp = explode('/', substr(str_replace('{ROOT}', '', $p), 1, -1));
 						if ($FUD_OPT_1 & 128) {	// SESSION_USE_URL
 							array_pop($tmp);

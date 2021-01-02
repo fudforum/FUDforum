@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2021 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -31,13 +31,13 @@ function tokenize_string($data)
 	$seps = array(','=>1,' '=>1,'/'=>1,'\\'=>1,'.'=>1,','=>1,'!'=>1,'>'=>1,'?'=>1,"\n"=>1,"\r"=>1,"\t"=>1,')'=>1,'('=>1,'}'=>1,'{'=>1,'['=>1,']'=>1,'*'=>1,';'=>1,'='=>1,':'=>1,'1'=>1,'2'=>1,'3'=>1,'4'=>1,'5'=>1,'6'=>1,'7'=>1,'8'=>1,'9'=>1,'0'=>1);
 
 	while ($i < $len) {
-		if (isset($seps[$data{$i}])) {
+		if (isset($seps[$data[$i]])) {
 			if (isset($str)) {
 				$wa[] = array('token'=>$str, 'check'=>1);
 				unset($str);
 			}
 			$wa[] = array('token'=>$data[$i], 'check'=>0);
-		} else if ($data{$i} == '<') {
+		} else if ($data[$i] == '<') {
 			if (($p = strpos($data, '>', $i)) !== false) {
 				if (isset($str)) {
 					$wa[] = array('token'=>$str, 'check'=>1);
@@ -99,7 +99,7 @@ function tokenize_string($data)
 			} else {
 				$str .= $data[$i];
 			}
-		} else if ($data{$i} == '&') {
+		} else if ($data[$i] == '&') {
 			if (isset($str)) {
 				$wa[] = array('token'=>$str, 'check'=>1);
 				unset($str);

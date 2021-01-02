@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2021 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -17,7 +17,7 @@ function fud_wrap_tok($data)
 	$i=$j=$p=0;
 	$str = '';
 	while ($i < $len) {
-		switch ($data{$i}) {
+		switch ($data[$i]) {
 			case ' ':
 			case "\n":
 			case "\t":
@@ -59,7 +59,7 @@ function fud_wrap_tok($data)
 			case '&':
 				if (($e = strpos($data, ';', $i))) {
 					$st = substr($data, $i, ($e - $i + 1));
-					if (($st{1} == '#' && is_numeric(substr($st, 3, -1))) || !strcmp($st, '&nbsp;') || !strcmp($st, '&gt;') || !strcmp($st, '&lt;') || !strcmp($st, '&quot;')) {
+					if (($st[1] == '#' && is_numeric(substr($st, 3, -1))) || !strcmp($st, '&nbsp;') || !strcmp($st, '&gt;') || !strcmp($st, '&lt;') || !strcmp($st, '&quot;')) {
 						if ($j) {
 							$wa[] = array('word'=>$str, 'len'=>($j+1));
 							$j=0;

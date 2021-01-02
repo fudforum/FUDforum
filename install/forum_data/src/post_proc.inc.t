@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2019 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2021 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -90,10 +90,10 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 				$tag = 'list';
 				break;
 			case 'hr':
-				$str{$pos} = '<';
-				$str{$pos+1} = 'h';
-				$str{$pos+2} = 'r';
-				$str{$epos} = '>';
+				$str[$pos] = '<';
+				$str[$pos+1] = 'h';
+				$str[$pos+2] = 'r';
+				$str[$epos] = '>';
 				continue 2;
 		}
 
@@ -268,7 +268,7 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 					if (!$allow_img) {
 						$ostr .= substr($str, $pos, ($cepos-$pos)+1);
 					} else {
-						$class = ($tag == 'img') ? '' : 'class="'. $tag{3} .'" ';
+						$class = ($tag == 'img') ? '' : 'class="'. $tag[3] .'" ';
 
 						if (!$parms) {
 							// Relative URLs or physical with http/https/ftp.
