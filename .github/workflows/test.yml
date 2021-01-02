@@ -5,6 +5,18 @@ on: [push, pull_request]
 jobs:
   test:
     runs-on: ${{ matrix.os }}
+    services:
+      mariadb:
+        image: mariadb:latest
+        ports:
+          - 3306
+        env:
+          MYSQL_USER: fuduser
+          MYSQL_PASSWORD: fudpass
+          MYSQL_DATABASE: fuddb
+          MYSQL_ROOT_PASSWORD: root
+        options: --health-cmd="mysqladmin ping" --health-interval=5s --health-timeout=2s --health-retries=3
+        
     strategy:
       fail-fast: true
       matrix:
@@ -29,9 +41,9 @@ jobs:
              SERVER_ROOT      = "./forum/"
              SERVER_DATA_ROOT = "./forum/"
              DBHOST           = 127.0.0.1
-             DBHOST_USER      = root
-             DBHOST_PASSWORD  = root
-             DBHOST_DBNAME    = fudforum
+             DBHOST_USER      = fuduser
+             DBHOST_PASSWORD  = fudpass
+             DBHOST_DBNAME    = fuddb
              DBHOST_TBL_PREFIX= fud30_
              DBHOST_DBTYPE    = mysqli
              COOKIE_DOMAIN    = 127.0.0.1
