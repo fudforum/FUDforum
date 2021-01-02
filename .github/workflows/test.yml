@@ -23,24 +23,26 @@ jobs:
         run: |
              php create_fudforum_archive install 1 > fudforum_archive
              find . -name \*.php -exec php -l {} \;
+             
              cat << EOF > install.ini
-             WWW_ROOT 		    = "http://127.0.0.1:8080/forum/"
-             SERVER_ROOT	  	= "/home/naudefj/web/lamp/apache2/htdocs/forum/"
-             SERVER_DATA_ROOT	= "/home/naudefj/web/lamp/apache2/htdocs/forum/"
-             DBHOST 		    	= 127.0.0.1
-             DBHOST_USER	  	= root
-             DBHOST_PASSWORD	= root
-             DBHOST_DBNAME		= fudforum
+             WWW_ROOT         = "http://127.0.0.1:8080/forum/"
+             SERVER_ROOT     	= "/home/naudefj/web/lamp/apache2/htdocs/forum/"
+             SERVER_DATA_ROOT = "/home/naudefj/web/lamp/apache2/htdocs/forum/"
+             DBHOST           = 127.0.0.1
+             DBHOST_USER      = root
+             DBHOST_PASSWORD  = root
+             DBHOST_DBNAME    = fudforum
              DBHOST_TBL_PREFIX= fud30_
-             DBHOST_DBTYPE 		= mysqli
-             COOKIE_DOMAIN		= 127.0.0.1
-             LANGUAGE 	    	= en
-             TEMPLATE	      	= default
-             ROOT_LOGIN   		= admin
-             ROOT_PASS		    = admin
-             ADMIN_EMAIL  		= "me@nowhere.com"
+             DBHOST_DBTYPE    = mysqli
+             COOKIE_DOMAIN    = 127.0.0.1
+             LANGUAGE         = en
+             TEMPLATE         = default
+             ROOT_LOGIN       = admin
+             ROOT_PASS        = admin
+             ADMIN_EMAIL      = "me@nowhere.com"
              EOF
              cat install.ini
+             ./install.php install.ini
                           
       # - name: PHP Linting
       #  uses: michaelw90/PHP-Lint@master
