@@ -15,14 +15,12 @@ jobs:
     name: P${{ matrix.php }} - ${{ matrix.dependancy-version }} - ${{ matrix.os }}
     
     steps:
-      - name Checkout code
+      - name: Checkout code
         uses: actions/checkout@v2
       
-      - name: Generate archive file
-        run: php create_fudforum_archive install 1 > fudforum_archive
-
-      - name: 
+      - name: Install FUDforum
         run: |
+             php create_fudforum_archive install 1 > fudforum_archive
              php -l install.php
              php -l upgrade.php
              php -l uninstall.php
