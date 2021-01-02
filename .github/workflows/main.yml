@@ -26,6 +26,7 @@ jobs:
         git add fudforum_archive
         git commit -m "Generated forum_archive"
         git push
+        exit 0
           
     - name: Upload files required for install as artifact
       uses: actions/upload-artifact@v2
