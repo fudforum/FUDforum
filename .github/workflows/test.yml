@@ -10,9 +10,9 @@ jobs:
       matrix:
         os: [ubuntu-latest, windows-latest]
         php: [7.4, 8.0]
-        dependency-version: [prefer-lowest, prefer-statle]
+        dependency-version: [prefer-lowest, prefer-stable]
 
-    name: P${{ matrix.php }} - ${{ matrix.dependancy-version }} - ${{ matrix.os }}
+    name: P${{ matrix.php }} - ${{ matrix.dependency-version }} - ${{ matrix.os }}
     
     steps:
       - name: Checkout code
@@ -26,4 +26,4 @@ jobs:
              php -l uninstall.php
              
       - name: PHP Linting
-        uses: michaelw90/PHP-Lint@v2
+        uses: michaelw90/PHP-Lint@master
