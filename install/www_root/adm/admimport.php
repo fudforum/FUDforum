@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2021 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -212,7 +212,7 @@ function resolve_dest_path($path)
 				$line = str_replace("\\'", "''", $line);
 
 				if (($line = trim($line))) {
-					if ($line{0} != '(') {
+					if ($line[0] != '(') {
 						if ($tmp && !$skip) {
 							q($pfx . substr($tmp, 0, -1));
 							$tmp = '';

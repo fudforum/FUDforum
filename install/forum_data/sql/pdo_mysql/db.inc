@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2021 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -259,7 +259,7 @@ function _esc($s)
 
 /* Connect to DB. */
 if (empty(db::$db)) {
-	if ($GLOBALS['DBHOST']{0} == ':') {
+	if ($GLOBALS['DBHOST'][0] == ':') {
 		$host = 'unix_socket='. substr($GLOBALS['DBHOST'], 1);
 	} else {
 		$host = 'host='. $GLOBALS['DBHOST'];

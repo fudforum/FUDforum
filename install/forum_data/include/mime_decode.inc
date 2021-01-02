@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2021 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -42,7 +42,7 @@ class fud_mime_msg
 		foreach ($hdr as $v) {
 			$hk = substr($v, 0, ($p = strpos($v, ':')));
 			// Skip non-valid header lines.
-			if (!$hk || ++$p == strlen($v) || ($v{$p} != ' ' && $v{$p} != "\t")) {
+			if (!$hk || ++$p == strlen($v) || ($v[$p] != ' ' && $v[$p] != "\t")) {
 				continue;
 			}
 

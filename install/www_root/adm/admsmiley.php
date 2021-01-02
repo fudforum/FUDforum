@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2021 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -58,11 +58,11 @@
 		$sml_img = $_FILES['icoul']['name'];
 	}
 
-	if (isset($_POST['btn_update'], $_POST['edit']) && !empty($_POST['sml_img']) && !empty($_POST['sml_code']) && $_POST['sml_code']{strlen($_POST['sml_code']) - 1} != '~') {
+	if (isset($_POST['btn_update'], $_POST['edit']) && !empty($_POST['sml_img']) && !empty($_POST['sml_code']) && $_POST['sml_code'][strlen($_POST['sml_code']) - 1] != '~') {
 		q('UPDATE '. $tbl .'smiley SET code='. ssn($_POST['sml_code']) .', img='. ssn($_POST['sml_img']) .', descr='. ssn($_POST['sml_descr']) .' WHERE id='. (int)$_POST['edit']);
 		smiley_rebuild_cache();
 		echo successify('Smiley succesfully updated.');
-	} else if (isset($_POST['btn_submit']) && !empty($_POST['sml_img']) && !empty($_POST['sml_code']) && $_POST['sml_code']{strlen($_POST['sml_code']) - 1} != '~') {
+	} else if (isset($_POST['btn_submit']) && !empty($_POST['sml_img']) && !empty($_POST['sml_code']) && $_POST['sml_code'][strlen($_POST['sml_code']) - 1] != '~') {
 		$view_order = q_singleval('SELECT MAX(vieworder) FROM '. $tbl .'smiley') + 1;
 		q('INSERT INTO '.$tbl.'smiley (code, img, descr, vieworder) VALUES('. ssn($_POST['sml_code']) .', '. ssn($_POST['sml_img']) .', '. ssn($_POST['sml_descr']) .', '. $view_order .')');
 		smiley_rebuild_cache();

@@ -1,6 +1,6 @@
 <?php
 /***************************************************************************
-* copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2021 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -199,7 +199,7 @@ function import_av_gal($dirn)
 			case 'gif':
 				if( q_singleval("SELECT id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."avatar WHERE img='".addslashes($file)."'") ) {
 					/* dupe avatar */
-					continue;	
+					break;	
 				}
 			
 				if( !copy($file, $GLOBALS['IMG_ROOT_DISK'].'avatars/'.$file) ) {
@@ -345,7 +345,6 @@ function import_av_gal($dirn)
 						break;
 					default:
 						print_msg("Unsupported imagetype");
-						continue 2;
 						break;
 				}
 

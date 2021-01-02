@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2021 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -69,7 +69,7 @@
 
 		$lmt = array();
 		if (!empty($_POST['lmt'])) {
-			if ($_POST['lmt']{0} == 'c') {
+			if ($_POST['lmt'][0] == 'c') {
 				$lmt = db_all('SELECT id FROM '. $tbl .'forum WHERE cat_id='. (int)substr($_POST['lmt'],1));
 			} else if ((int)$_POST['lmt'] > 0) {
 				$lmt = array((int)$_POST['lmt']);

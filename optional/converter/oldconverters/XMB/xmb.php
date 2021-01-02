@@ -1,6 +1,6 @@
 <?php
 /***************************************************************************
-* copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2021 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -581,7 +581,7 @@ function html_clean($str)
 		/* add options */
 		foreach ($opts as $opt) {
 			if ($opt) {
-				if ($opt{0} != ' ') {
+				if ($opt[0] != ' ') {
 					list($o, $v) = explode('||~|~|| ', $opt);
 					$o = html_clean(trim($o));
 					$o = apply_custom_replace($o);

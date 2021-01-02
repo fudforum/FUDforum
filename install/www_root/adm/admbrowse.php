@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2021 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -318,25 +318,25 @@ if (!extension_loaded('posix')) {
 			switch ($_FILES['fname']['error']) {
 				case UPLOAD_ERR_INI_SIZE:
 					echo errorify('The uploaded file exceeds the upload_max_filesize directive in php.ini.');
-					continue;
+					break;
 				case UPLOAD_ERR_FORM_SIZE:
 					echo errorify('The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in the HTML form.');
-					continue;
+					break;
 				case UPLOAD_ERR_PARTIAL:
 					echo errorify('The uploaded file was only partially uploaded.');
-					continue;
+					break;
 				case UPLOAD_ERR_NO_FILE:
 					echo errorify('No file was uploaded.');
-					continue;
+					break;
 				case UPLOAD_ERR_NO_TMP_DIR:
 					echo errorify('Missing a temporary folder.');
-					continue;
+					break;
 				case UPLOAD_ERR_CANT_WRITE:
 					echo errorify('Failed to write file to disk.');
-					continue;
+					break;
 				case UPLOAD_ERR_EXTENSION:
 					echo errorify('File upload stopped by extension.');
-					continue;
+					break;
 				default:
 					echo errorify('Unknown upload error. Please try again.');
 			}

@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2021 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -33,7 +33,7 @@ function mem_limit_to_int($str)
 	$lmt = $m[1];
 	if (isset($m[2])) {
 		for ($i = 0; $i < strlen($m[2]); $i++) {
-			switch ($m[2]{$i}) {
+			switch ($m[2][$i]) {
 				case 'G':
 				case 'g':
 					$lmt *= 1024 * 1024 * 1024;

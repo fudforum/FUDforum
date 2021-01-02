@@ -1,6 +1,6 @@
 <?php
 /***************************************************************************
-* copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2021 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -196,8 +196,7 @@ function bbq($q, $err=0)
 				break;
 			default:
 				print_msg("Unsupported imagetype");
-				continue;
-			break;
+				break;
 		}
 
 		$dest = $IMG_ROOT_DISK . "custom_avatars/". $obj->U_Number . $ext;
