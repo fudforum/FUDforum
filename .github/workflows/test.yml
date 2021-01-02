@@ -20,10 +20,10 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        #os: [ubuntu-latest, windows-latest]
-        os: [ubuntu-latest]
-        php: [7.4, 8.0, 8.1]
-        dependency-version: [prefer-lowest, prefer-stable]
+        os: [ubuntu-latest, windows-latest]
+        #os: [ubuntu-latest]
+        php: [7.4, 8.1]
+        #dependency-version: [prefer-lowest, prefer-stable]
 
     name: P${{ matrix.php }} - ${{ matrix.dependency-version }} - ${{ matrix.os }}
     
@@ -33,9 +33,10 @@ jobs:
       
       - name: Check for syntax errors
         run: |
-             php create_fudforum_archive install 1 > fudforum_archive
              find . -name \*.php -exec php -l {} \;
-             pwd
+             
+      - name: Install FUDforum
+        run: |
              cat << EOF > install.ini
              WWW_ROOT         = "http://127.0.0.1:8080/forum/"
              SERVER_ROOT      = "./forum/"
@@ -54,7 +55,12 @@ jobs:
              ADMIN_EMAIL      = "me@nowhere.com"
              EOF
              cat install.ini
+             php create_fudforum_archive install 1 > fudforum_archive
              php ./install.php install.ini
-                          
+             
+      - name: Upgrade FUDforum
+        run: |
+             php ./upgrade.php admin admin
+
       # - name: PHP Linting
       #  uses: michaelw90/PHP-Lint@master
