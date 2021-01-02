@@ -69,3 +69,9 @@ jobs:
       - name: Check for syntax errors
         run: |
              find ./forum/ -name \*.php -exec php -l {} \; | grep -v 'No syntax errors'
+             if [$? -ne 0]; then
+               echo "No errors"
+               exit 0
+             else
+               exit 1
+             fi
