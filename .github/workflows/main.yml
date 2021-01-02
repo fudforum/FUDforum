@@ -3,8 +3,8 @@ name: Build FUDforum archive
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
+  #pull_request:
+  #  branches: [ master ]
 
 jobs:
 
@@ -18,15 +18,6 @@ jobs:
 
     - name: Generate archive file
       run: php create_fudforum_archive install 1 > fudforum_archive
-
-    - name: Commit fudforum_archive back to repo
-      run: |
-        git config user.name github-actions
-        git config user.email github-actions@github.com
-        git add fudforum_archive
-        git commit -m "Generated forum_archive"
-        git push
-        exit 0
           
     - name: Upload files required for install as artifact
       uses: actions/upload-artifact@v2
@@ -41,3 +32,11 @@ jobs:
             COPYING
             CREDITS
           if-no-files-found: error
+
+    - name: Commit fudforum_archive back to repo
+      run: |
+        git config user.name github-actions
+        git config user.email github-actions@github.com
+        git add fudforum_archive
+        git commit -m "Generated forum_archive"
+        git push
