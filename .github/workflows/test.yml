@@ -37,6 +37,7 @@ jobs:
              mkdir forum
              cp install.php fudforum_archive forum/
              cd forum
+             pwd
              cat << EOF > install.ini
              WWW_ROOT         = "http://127.0.0.1:8080/forum/"
              SERVER_ROOT      = "/home/runner/work/FUDforum/FUDforum/forum"
@@ -57,19 +58,14 @@ jobs:
              pwd
              cat install.ini
              php ./install.php install.ini
-             ls
              
       - name: Upgrade FUDforum
         run: |
-             pwd
-             ls
              cp upgrade.php fudforum_archive forum/
              cd forum
+             pwd
              php ./upgrade.php admin admin
  
       - name: Check for syntax errors
         run: |
              find ./forum/ -name \*.php -exec php -l {} \;
-
-      # - name: PHP Linting
-      #  uses: michaelw90/PHP-Lint@master
