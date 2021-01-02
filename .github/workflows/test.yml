@@ -60,6 +60,8 @@ jobs:
              
       - name: Upgrade FUDforum
         run: |
+             cp upgrade.php fudforum_archive ./forum/
+             cd  forum
              php ./upgrade.php admin admin
 
       # - name: PHP Linting
