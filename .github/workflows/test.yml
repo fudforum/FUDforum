@@ -24,4 +24,6 @@ jobs:
              php -l install.php
              php -l upgrade.php
              php -l uninstall.php
-      
+             
+      - name: PHP Linting
+        uses: michaelw90/PHP-Lint@v2
