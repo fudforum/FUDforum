@@ -33,6 +33,10 @@ jobs:
             
       - name: Install FUDforum
         run: |
+             php create_fudforum_archive install 1 > fudforum_archive
+             mkdir forum
+             cp install.php fudforum_archive ./forum/
+             cd forum
              cat << EOF > install.ini
              WWW_ROOT         = "http://127.0.0.1:8080/forum/"
              SERVER_ROOT      = "./forum/"
@@ -51,15 +55,11 @@ jobs:
              ADMIN_EMAIL      = "me@nowhere.com"
              EOF
              cat install.ini
-             php create_fudforum_archive install 1 > fudforum_archive
              php ./install.php install.ini
              
       - name: Upgrade FUDforum
         run: |
              cp upgrade.php fudforum_archive ./forum/
-             cd  forum
-             pwd
-             ls -ltr
              php ./upgrade.php admin admin
  
       - name: Check for syntax errors
