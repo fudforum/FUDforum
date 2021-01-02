@@ -35,12 +35,12 @@ jobs:
         run: |
              php create_fudforum_archive install 1 > fudforum_archive
              mkdir forum
-             cp install.php fudforum_archive ./forum/
+             cp install.php fudforum_archive forum/
              cd forum
              cat << EOF > install.ini
              WWW_ROOT         = "http://127.0.0.1:8080/forum/"
-             SERVER_ROOT      = "./forum/"
-             SERVER_DATA_ROOT = "./forum/"
+             SERVER_ROOT      = "/home/runner/work/FUDforum/FUDforum/forum"
+             SERVER_DATA_ROOT = "/home/runner/work/FUDforum/FUDforum/forum"
              DBHOST           = 127.0.0.1:${{ job.services.mariadb.ports[3306] }}
              DBHOST_USER      = fuduser
              DBHOST_PASSWORD  = fudpass
@@ -63,7 +63,8 @@ jobs:
         run: |
              pwd
              ls
-             cp upgrade.php fudforum_archive ./forum/
+             cp upgrade.php fudforum_archive forum/
+             cd forum
              php ./upgrade.php admin admin
  
       - name: Check for syntax errors
