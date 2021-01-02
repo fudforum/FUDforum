@@ -68,4 +68,4 @@ jobs:
  
       - name: Check for syntax errors
         run: |
-             find ./forum/ -name \*.php -exec php -l {} \;
+             find ./forum/ -name \*.php -exec php -l {} \; | grep -v 'No syntax errors'
