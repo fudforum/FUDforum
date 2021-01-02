@@ -54,11 +54,15 @@ jobs:
              ROOT_PASS        = admin
              ADMIN_EMAIL      = "me@nowhere.com"
              EOF
+             pwd
              cat install.ini
              php ./install.php install.ini
+             ls
              
       - name: Upgrade FUDforum
         run: |
+             pwd
+             ls
              cp upgrade.php fudforum_archive ./forum/
              php ./upgrade.php admin admin
  
