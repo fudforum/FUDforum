@@ -30,11 +30,7 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      
-      - name: Check for syntax errors
-        run: |
-             find . -name \*.php -exec php -l {} \;
-             
+            
       - name: Install FUDforum
         run: |
              cat << EOF > install.ini
@@ -62,7 +58,13 @@ jobs:
         run: |
              cp upgrade.php fudforum_archive ./forum/
              cd  forum
+             pwd
+             ls -ltr
              php ./upgrade.php admin admin
+ 
+      - name: Check for syntax errors
+        run: |
+             find ./forum/ -name \*.php -exec php -l {} \;
 
       # - name: PHP Linting
       #  uses: michaelw90/PHP-Lint@master
