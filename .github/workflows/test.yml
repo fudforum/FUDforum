@@ -1,4 +1,4 @@
-name: Test FUFdorum
+name: Test FUDdorum
 
 on: [push, pull_request]
 
@@ -22,9 +22,10 @@ jobs:
       - name: Install FUDforum
         run: |
              php create_fudforum_archive install 1 > fudforum_archive
-             php -l install.php
-             php -l upgrade.php
-             php -l uninstall.php
+             find . -name \*.php -exec php -l {} \;
+             #php -l install.php
+             #php -l upgrade.php
+             #php -l uninstall.php
              
       - name: PHP Linting
         uses: michaelw90/PHP-Lint@master
