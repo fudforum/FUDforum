@@ -1,4 +1,4 @@
-#   copyright            : (C) 2001-2016 Advanced Internet Designs Inc.
+#   copyright            : (C) 2001-2021 Advanced Internet Designs Inc.
 #   email                : forum@prohost.org
 #
 #   $Id$
@@ -19,7 +19,7 @@ CREATE TABLE {SQL_TABLE_PREFIX}users
 	login			VARCHAR(50) NOT NULL DEFAULT '',
 	alias			VARCHAR(50) BINARY NOT NULL DEFAULT '',
 	passwd			VARCHAR(40) NOT NULL DEFAULT '',
-	salt			VARCHAR(12) DEFAULT NULL,
+	salt			VARCHAR(12),
 	name			VARCHAR(255) NOT NULL DEFAULT '',
 
 	email			VARCHAR(255) NOT NULL DEFAULT '',
@@ -68,7 +68,7 @@ CREATE TABLE {SQL_TABLE_PREFIX}users
 	ignore_list		TEXT,
 	group_leader_list	TEXT,
 	users_opt		INT NOT NULL DEFAULT 4488117,
-	sq	                VARCHAR(32),
+	sq	                 VARCHAR(32),
 	registration_ip		VARCHAR(46) NOT NULL DEFAULT '::1',
 	last_used_ip		VARCHAR(46) NOT NULL DEFAULT '::1',
 	ban_expiry		BIGINT NOT NULL DEFAULT 0,
