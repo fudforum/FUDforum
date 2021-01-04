@@ -4,6 +4,7 @@
 # Author: Guycn2
 # Author: Imneo
 # Author: Inkbug
+# Author: Naudefj
 # Author: Steeve815
 # Author: YaronSh
 
@@ -584,8 +585,7 @@ pmsg_pdf_btn:יצירת ארכיון PDF
 dmsg_ip:IP:
 rating_delete:מחיקה
 finduser_flag:דגל
-# Fuzzy
-copyright:כל הזכויות שמורות &copy;2001‏-2012 ל־<a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:כל הזכויות שמורות &copy;2001‏-2021 ל־<a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:קוד:
 code_select_all:בחר הכול
 code_show_hide:הצגה/הסתרה

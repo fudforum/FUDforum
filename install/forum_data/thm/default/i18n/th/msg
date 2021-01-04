@@ -153,6 +153,7 @@ sender_name:ชื่อผู้ส่ง:
 show_posts_by:แสดงข้อความตาม: {VAR: u_alias}
 size:ขนาด:
 status:สถานะ:
+status_line:มี<b>{PLURAL: st_obj->online_users_reg|สมาชิก $1 คน}</b> <b>{PLURAL: st_obj->online_users_hidden|สมาชิกที่มองไม่เห็น $1 คน}</b> และ<b>{PLURAL: st_obj->online_users_anon|ผู้มาเยือน $1 คน}</b>ที่กำลังเยี่ยมชมกระดานนี้
 sticky:หัวข้อที่จะแสดงบนสุดเสมอ:
 stop_ignoring:หยุดละเว้นผู้ใช้นี้
 sub_to_thread:สมัครรับหัวข้อ

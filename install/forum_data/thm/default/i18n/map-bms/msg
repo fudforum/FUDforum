@@ -1125,8 +1125,7 @@ move_msg_th_expl:Tetepna ID-ne sekang topik sing dituju (olih nang forum liyane)
 captcha_img_alt:Verifikasi Captcha: rika kudu teyeng maca teks nang gambar kiye.
 captcha_img_help:Ora ana nol utawa siji nang gambar.
 powered-by:Didukung nang: FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:Hak Cipta &copy;2001-2017 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Hak Cipta &copy;2001-2021 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Kode:
 code_select_all:Pilih kabeh
 code_show_hide:Tidokna/ umpetna

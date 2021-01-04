@@ -354,7 +354,7 @@ register_def_thread_view:Formaat vir vertoon van onderwerpe:
 register_msg_per_page:Boodskappe per bladsy:
 register_show_sig:Wys handtekening:
 register_show_sig_desc:Laat u toe om die handtekeninge van andere forumlede te wys of te verberg
-register_use_sig_default:gebruik standaard handtekening:
+register_use_sig_default:Gebruik standaard handtekening:
 register_use_sig_default_desc:Plak u handtekening outomaties by elke booedskap wat u pos
 register_timezone:Tydsone:
 register_ignore_admin:Ignoreer boodskappe vanaf die administrateur:
@@ -957,8 +957,7 @@ iemail_forum_unsub:Afmeld van die forum
 primary_group_prefix:Primêre groep vir forum:
 group_resources:Die groep beheer die regte van die volgende forums
 register_admin_newuser_title:Nuwe gebruiker het geregistreer en sy rekening wag vir goedkeuring
-# Fuzzy
-register_admin_newuser_msg:Die nuwe gebruiker {VAR: uent->login} het sopas geregistreer. Omdat gebruikersbevestiging geaktiveer is, moet die rekening deur 'n administrateur goedgekeur word. Vir bevestiging, gaan asseblief na: {FULL_ROOT}adm/admuserapr.php\n\nDie is 'n outomaties gestuurde boodskap. Moet asseblief nie antwoord nie. As u toekomstige E-posboodskappe vir nuwe gebruikers wil deaktiveer, kan u "New Account Notification" in die kontrolepaneel afskakel.
+register_admin_newuser_msg:Die nuwe gebruiker {VAR: uent->login} het sopas geregistreer. Omdat gebruikersbevestiging geaktiveer is, moet die rekening deur 'n administrateur goedgekeur word. Vir bevestiging, gaan asseblief na: {BASE}adm/admuserapr.php\n\nDie is 'n outomaties gestuurde boodskap. Moet asseblief nie antwoord nie. As u toekomstige E-posboodskappe vir nuwe gebruikers wil deaktiveer, kan u "New Account Notification" in die kontrolepaneel afskakel.
 post_mod_msg_notify_title:Nuwe boodskap in forum "{VAR: frm->name}" wag vir goedkeuring
 post_mod_msg_notify_msg:'n Nuwe boodskap met titel "{VAR: msg_post->subject}" is sopas gepos in 'n forum wat u modereer. Om die boodskap te hersien, gaan na: {FULL_ROOT}?t=modque#{VAR: msg_post->id}\n\nDie is 'n outomatiese boodskap. Moet asseblief nie antwoord nie.
 thread_printable_pdf:Genereer PDF-dokument
@@ -1114,7 +1113,7 @@ move_msg_th_expl:Spesifiseer die ID van die destinasie onderwerp (kan in 'n ande
 captcha_img_alt:Captcha-verifikasie: u moet die teks in die beeld herken.
 captcha_img_help:Daar is nie 'n nul of 'n een in die beeld nie.
 powered-by:Aangedryf deur: FUDforum {GVAR: FORUM_VERSION}.
-copyright:Kopiereg &copy;2001-2020 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Kopiereg &copy;2001-2021 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:KODE:
 code_select_all:Kies alles
 code_show_hide:Wys/ versteek

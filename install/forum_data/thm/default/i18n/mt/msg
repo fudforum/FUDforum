@@ -1129,8 +1129,7 @@ move_msg_th_expl:Speċifika l-ID tas-suġġett ta' destinazzjoni (jista' jkun f'
 captcha_img_alt:Verifika tal-captcha: trid tagħraf it-test f'din l-istampa.
 captcha_img_help:M'hemmx żero jew wieħed fl-istampa.
 powered-by:Operata minn: FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:Copyright &copy;2001-2017 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Copyright &copy;2001-2021 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Kodiċi:
 code_select_all:Agħżel kollox
 code_show_hide:uri/aħbi

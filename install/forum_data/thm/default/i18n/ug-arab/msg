@@ -1,6 +1,7 @@
 # Messages for Uyghur (Arabic script) (ئۇيغۇرچە)
 # Exported from translatewiki.net
 # Author: Macofe
+# Author: Naudefj
 # Author: Sahran
 # Author: Tel'et
 # Author: Uzdil
@@ -1115,7 +1116,7 @@ move_msg_th_expl:يۆتكەيدىغان تېمىنىڭ ID سىنى بەلگىل�
 captcha_img_alt:دەلىللەشنى جەزملەش: سىز بۇ رەسىمدىكى تېكىستنى تونۇشىڭىز كېرەك.
 captcha_img_help:سۈرەتتە نۆل ياكى بىر يوق.
 powered-by:تەمىنلىگۈچى: FUDforum {GVAR: FORUM_VERSION}.
-copyright:نەشر ھوقۇقىغا ئىگە &copy;2001-2020 <a href="http://fudforum.org/">FUDforum مۇنبەر ئۇقتۇرۇش تاختا يۇمشاق دېتالى</a>
+copyright:نەشر ھوقۇقىغا ئىگە &copy;2001-2021 <a href="http://fudforum.org/">FUDforum مۇنبەر ئۇقتۇرۇش تاختا يۇمشاق دېتالى</a>
 code_title:كود:
 code_select_all:ھەممىنى تاللا
 code_show_hide:كۆرسەت/يوشۇر

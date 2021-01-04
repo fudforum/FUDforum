@@ -1126,7 +1126,7 @@ move_msg_th_expl:目標主題的指定 ID（可用在其它論壇）
 captcha_img_alt:驗證碼：您需要識別出在圖片裡的文字。
 captcha_img_help:圖片裡沒有零或一。
 powered-by:技術支援：FUDforum {GVAR: FORUM_VERSION}。
-copyright:版權所有 © 2001年-2020 年 <a href="http://fudforum.org/">FUDforum 留言板軟體</a>
+copyright:版權所有 © 2001年-2021 年 <a href="http://fudforum.org/">FUDforum 留言板軟體</a>
 code_title:代碼：
 code_select_all:全選
 code_show_hide:顯示/隱藏
