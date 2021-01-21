@@ -3,6 +3,7 @@
 # Author: Macofe
 # Author: McDutchie
 # Author: Naudefj
+# Author: Winstonza
 
 action:Aksie
 add_to_buddy_list:voeg by jou vriendelys
@@ -146,7 +147,7 @@ sel_unread_messages:Ongeleesde boodskappe
 sel_unread_messages_desc:Wys slegs boodskappe wat nog nie gelees is nie
 send:Stuur
 send_pm_desc:Stuur 'n  privaatboodskap aan die gebruiker
-sender_email:Afsender se E-posadres:
+sender_email:Afsender se e-posadres:
 sender_name:Afsender se naam:
 show_posts_by:Wys boodskappe van: {VAR: u_alias}
 size:Grootte:
@@ -360,7 +361,7 @@ register_timezone:Tydsone:
 register_ignore_admin:Ignoreer boodskappe vanaf die administrateur:
 register_invisible_mode:Onsigbare modus:
 register_invisible_mode_desc:Verberg u aan-lyn status.
-register_show_email:Wys E-posadres:
+register_show_email:Wys e-posadres:
 register_show_email_desc:Kies hierdie opsie indien u u e-posadres publiek sigbaar wil maak.
 register_notification:Selekteer Notifikasie as standaard
 register_notification_desc:of die notifikasie standaard is ingesteld, u kan het nog aanpas by het posten
@@ -388,7 +389,7 @@ apply_spell_changes:Pas spel-wysigings toe
 post_preview:Boodskap voorskou
 post_logedin_user:Aangetekende lid:
 post_logout:teken af
-post_passwd:Pos Wagwoord:
+post_passwd:Pos wagwoord:
 post_poll:Stemming:
 post_create_poll:SKEP STEMMING
 post_poll_delete:VERWYDER
@@ -530,10 +531,10 @@ mklist_disc:Blokkie
 mklist_circle:Sirkel
 mklist_close:Geslote
 email_to:Aan:
-email_pg_title:Stel E-pos saam:
+email_pg_title:Stel e-pos saam:
 email_subject:Onderwerp:
 email_body:Boodskap:
-email_submit:Stuur E-pos
+email_submit:Stuur e-pos
 ppost_quote_msg:{VAR: msg_to_list} het op {TEMPLATE: ppost_quote_msg_date} geskryf
 ppost_quote:Aanhaling:
 ppost_to:Aan:
@@ -647,7 +648,7 @@ postcheck_subj_needed:U moet 'n onderwerp verskaf
 postcheck_no_such_user:Daar is geen lid genaamd "{FUNC: char_fix(htmlspecialchars($v))}" in die forum
 postcheck_ignored:U kan nie 'n privaatboodskap aan "{FUNC: char_fix(htmlspecialchars($v))}" stuur nie omdat die gebruiker u ignoreer.
 postcheck_no_recepient:U kan geen boodskap versturen, ontvanger ontbreek
-postcheck_invalid_email:Vul 'n geldig E-posadres van u vriend in.
+postcheck_invalid_email:Vul 'n geldig e-posadres van u vriend in.
 postcheck_email_subject:U kan nie e-pos sonder 'n onderwerp stuur nie.
 postcheck_email_body:U kan nie e-pos sonder 'n boodskap stuur nie.
 private_msg_notify_subj:Lees kennisgewing vir: {VAR: m->subject}
@@ -704,7 +705,7 @@ ERR_user_ttl:FOUT: onbekend lid
 ERR_user_msg:Hierdie gebruiker bestaan nie
 ERR_systemerr_ttl:FOUT: STESLELFOUT
 ERR_systemerr_msg:Daar was 'n STELSELFOUT, rapporteer dit asseblief aan die <a href="mailto:{GVAR: ADMIN_EMAIL}">webmeester</a>.
-email_title:Stuur E-pos
+email_title:Stuur e-pos
 finduser_title:Vind lid
 help_title:Hulp
 login_title:Aanmelding
@@ -715,7 +716,7 @@ rpasswd_title:wagwoord-aanpassingsvorm
 error_title:Fout-vorm
 index_title:Welkom by die forum
 search_title:Soek na {VAR-HTML: srch}
-remail_emailsent:Die e-pos is uitgestuur
+remail_emailsent:Die e-pos is gestuur
 remail_email:Hallo,\n\nDaar is 'n interessante onderwerp oor "{VAR: data->subject}" op {GVAR: FORUM_TITLE} forum wat u miskien sal wil lees. U kan die onderwerp sien by:\n {FULL_ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nU vriend,\n\n{VAR: usr->alias}
 poll_add_option:Voeg opsie by:
 post_opt_html_on:<b>HTML</b> is <b>AAN</b>
@@ -1012,7 +1013,7 @@ adm_account_rejected:Die administrateur het nie u gebruiker '{VAR: login}' goedg
 adm_account_rejected_s:U versoek om 'n gebruikersnaam vir '{GVAR: FORUM_TITLE}' was geweier.
 thread_on:op
 userinfo_buddy:Vriend:
-register_email_addr:E-pos Address:
+register_email_addr:E-posadres:
 reset_suffix:Ignoreer asseblief hierdie boodskap sou u dit foutiewelik ontvang. As u verskeie kopieë van die e-pos ontvang wat u nie self versoek het nie, kontak asseblief die administrateur by {GVAR: ADMIN_EMAIL}\n\nDie versoek was gestuur vanaf: {VAR: _SERVER['REMOTE_ADDR']}.
 usrinfo_last_visit:Laaste besoek:
 mnav_newer:nuwer as
@@ -1090,7 +1091,7 @@ post_common_align_center:Sentreer
 post_common_align_right:Skuif Regs
 post_common_link:Voeg 'n skakel by
 post_common_link_popup:Skakel:
-post_common_email:Voeg 'n E-posadres by
+post_common_email:Voeg 'n e-posadres by
 post_common_email_popup:E-posadres:
 post_common_image:Voeg 'n beeld by
 post_common_image_popup:Beeld se URL:
