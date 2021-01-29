@@ -14,7 +14,7 @@ Install steps:
 
 3) The install wizard will take you through 5 simple configuration steps.
 
-Detailed instructions at http://cvs.prohost.org/index.php?title=Installation
+Detailed instructions at https://github.com/fudforum/FUDforum/wiki/Installation
 
 
 Upgrade steps:
@@ -28,7 +28,7 @@ Upgrade steps:
 3) After the upgrade, the consistency checker will be started.
    If not, you will need to run the consistency checker manually.
 
-Detailed instructions at http://cvs.prohost.org/index.php?title=Upgrading
+Detailed instructions at https://github.com/fudforum/FUDforum/wiki/Upgrading
 
 
 Uninstall steps:
