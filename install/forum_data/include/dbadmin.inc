@@ -78,7 +78,7 @@ function get_stbl_from_file($file)
 
 			if (strpos($r[2], ' PRIMARY KEY') !== false) {
 				$r[2] = str_replace(' PRIMARY KEY', '', $r[2]);
-				$not_null = 1;	// PRINARY KEYS cannot be NULL.
+				$not_null = 1;	// PRIMARY KEYs cannot be NULL.
 				$key = 1;
 			} else {
 				$key = 0;

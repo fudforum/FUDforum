@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2020 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2021 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -39,7 +39,7 @@ function text_to_worda($text, $minlen=2, $maxlen=51, $uniq=0)
 
 	$t1 = str_word_count_utf8($text, 1);
 	foreach ($t1 as $word) {
-		if (isset($word[$maxlen]) || !isset($word[$minlen])) continue;	// Check wWord length.
+		if (isset($word[$maxlen]) || !isset($word[$minlen])) continue;	// Check word length.
 		$word = _esc($word);
 
 		// Count the frequency of each unique word.
