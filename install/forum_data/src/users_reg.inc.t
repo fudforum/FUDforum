@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2016 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2021 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -13,7 +13,7 @@ class fud_user
 {
 	var $id, $login, $alias, $passwd, $salt, $plaintext_passwd,
 	    $name, $email, $location, $occupation, $interests, $topics_per_page,
-	    $icq, $aim, $yahoo, $msnm, $jabber, $google, $skype, $twitter,
+	    $icq, $facebook, $yahoo, $jabber, $google, $skype, $twitter,
 	    $avatar, $avatar_loc, $posts_ppg, $time_zone, $birthday, $home_page,
 	    $sig, $bio, $posted_msg_count, $last_visit, $last_event, $conf_key,
 	    $user_image, $join_date, $theme, $last_read,
@@ -136,9 +136,8 @@ class fud_user_reg extends fud_user
 				avatar, 
 				avatar_loc,
 				icq,
-				aim,
+				facebook,
 				yahoo,
-				msnm,
 				jabber,
 				google,
 				skype,
@@ -175,9 +174,8 @@ class fud_user_reg extends fud_user
 				'. (int)$this->avatar .',
 				'. ssn($this->avatar_loc) .',
 				'. $this->icq .',
-				'. ssn(urlencode($this->aim)) .',
+				'. ssn(urlencode($this->facebook)) .',
 				'. ssn(urlencode($this->yahoo)) .',
-				'. ssn($this->msnm) .',
 				'. ssn(htmlspecialchars($this->jabber)) .',
 				'. ssn($this->google) .',
 				'. ssn(urlencode($this->skype)) .',
@@ -240,9 +238,8 @@ class fud_user_reg extends fud_user
 			alias='. _esc($this->alias) .',
 			email='. _esc($this->email) .',
 			icq='. $this->icq .',
-			aim='. ssn(urlencode($this->aim)) .',
+			facebook='. ssn(urlencode($this->facebook)) .',
 			yahoo='. ssn(urlencode($this->yahoo)) .',
-			msnm='. ssn($this->msnm) .',
 			jabber='. ssn(htmlspecialchars($this->jabber)) .',
 			google='. ssn($this->google) .',
 			skype='. ssn(urlencode($this->skype)) .',

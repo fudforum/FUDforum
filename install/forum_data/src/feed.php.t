@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2021 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -406,7 +406,7 @@ function smiley_full(&$data)
 			}
 			$c = q(q_limit('SELECT
 						u.id, u.alias, u.join_date, u.posted_msg_count, u.avatar_loc, u.users_opt,
-						u.home_page, u.birthday, u.last_visit, u.icq, u.aim, u.yahoo, u.msnm, u.jabber, u.google, u.skype, u.twitter,
+						u.home_page, u.birthday, u.last_visit, u.icq, u.facebook, u.yahoo, u.jabber, u.google, u.skype, u.twitter,
 						u.name, u.email,
 						m.id AS msg_id, m.subject, m.thread_id,
 						t.forum_id,

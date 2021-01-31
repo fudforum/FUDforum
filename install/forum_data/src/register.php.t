@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2021 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -285,9 +285,8 @@ function decode_uent(&$uent)
 	$uent->home_page  = reverse_fmt($uent->home_page);
 	$uent->user_image = reverse_fmt($uent->user_image);
 	$uent->jabber     = reverse_fmt($uent->jabber);
-	$uent->aim        = urldecode($uent->aim);
+	$uent->facebook   = urldecode($uent->facebook);
 	$uent->yahoo      = urldecode($uent->yahoo);
-	$uent->msnm       = urldecode($uent->msnm);
 	$uent->google     = urldecode($uent->google);
 	$uent->skype      = urldecode($uent->skype);
 	$uent->twitter    = urldecode($uent->twitter);
@@ -454,7 +453,6 @@ function email_encode($val)
 			$uent->birthday = '';
 		}
 
-		$uent->msnm   = email_encode($uent->msnm);
 		$uent->google = email_encode($uent->google);
 
 		if ($FUD_OPT_1 & 32768 && $uent->sig) {
@@ -638,7 +636,7 @@ function email_encode($val)
 	}
 
 	$avatar_type = '';
-	$chr_fix = array('reg_sig', 'reg_name', 'reg_bio', 'reg_location', 'reg_occupation', 'reg_interests', 'reg_msnm', 'reg_google'); 
+	$chr_fix = array('reg_sig', 'reg_name', 'reg_bio', 'reg_location', 'reg_occupation', 'reg_interests', 'reg_google'); 
 	if ($FUD_OPT_2 & 128) {
 		$chr_fix[] = 'reg_alias';
 	}

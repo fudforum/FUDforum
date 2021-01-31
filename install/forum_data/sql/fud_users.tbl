@@ -9,7 +9,6 @@
 
 # TODO: Remove BINARY in future release. Also remove it from dbadmin.inc.
 # TODO: Rename 'alias' for future CUBRID support.
-# TODO: Since FUDforum 3.0.7 column 'affero' is no longer used.
 
 DROP TABLE IF EXISTS {SQL_TABLE_PREFIX}users;
 
@@ -30,11 +29,9 @@ CREATE TABLE {SQL_TABLE_PREFIX}users
 	avatar_loc		VARCHAR(512),
 
 	icq			BIGINT,
-	aim			VARCHAR(255),
+	facebook		VARCHAR(255),
 	yahoo			VARCHAR(255),
-	msnm			VARCHAR(255),
 	jabber			VARCHAR(255),
-	affero			VARCHAR(255),
 	google			VARCHAR(255),
 	skype			VARCHAR(255),
 	twitter			VARCHAR(255),

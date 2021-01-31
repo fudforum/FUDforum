@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2016 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2021 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -64,14 +64,11 @@ function tmpl_drawpmsg($obj, $usr, $mini)
 			if ($obj->icq) {
 				$im .= '{TEMPLATE: dpmsg_im_icq}';
 			}
-			if ($obj->aim) {
-				$im .= '{TEMPLATE: dpmsg_im_aim}';
+			if ($obj->facebook) {
+				$im .= '{TEMPLATE: dpmsg_im_facebook}';
 			}
 			if ($obj->yahoo) {
 				$im .= '{TEMPLATE: dpmsg_im_yahoo}';
-			}
-			if ($obj->msnm) {
-				$im .= '{TEMPLATE: dpmsg_im_msnm}';
 			}
 			if ($obj->jabber) {
 				$im .=  '{TEMPLATE: dpmsg_im_jabber}';

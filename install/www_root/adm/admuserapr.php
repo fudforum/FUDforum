@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2021 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -104,9 +104,8 @@ function print_if_avail($descr, $value, $no_html=1)
 		print_if_avail('Image',                 $r->user_image) .
 		print_if_avail('Biography',             $r->bio) .
 		print_if_avail('ICQ',                   $r->icq) .
-		print_if_avail('AIM Handle',            $r->aim) .
+		print_if_avail('Facebook',              $r->facebook) .
 		print_if_avail('Yahoo Messenger',       $r->yahoo) .
-		print_if_avail('MSN Messenger',         $r->msnm) .
 		print_if_avail('Jabber Handle',         $r->jabber) .
 		print_if_avail('Google Chat/IM Handle', $r->google) .
 		print_if_avail('Skype Handle',          $r->skype) .

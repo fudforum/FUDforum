@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2016 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2021 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -30,7 +30,7 @@
 	$m = db_sab('SELECT
 		p.*,
 		u.id AS user_id, u.alias, u.users_opt, u.avatar_loc, u.email, u.posted_msg_count, u.join_date,
-		u.location, u.sig, u.icq, u.aim, u.msnm, u.yahoo, u.jabber, u.google, u.skype, u.twitter, u.custom_status, u.last_visit,
+		u.location, u.sig, u.icq, u.facebook, u.yahoo, u.jabber, u.google, u.skype, u.twitter, u.custom_status, u.last_visit,
 		l.name AS level_name, l.level_opt, l.img AS level_img
 	FROM
 		{SQL_TABLE_PREFIX}pmsg p

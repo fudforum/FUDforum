@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2016 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2021 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -171,10 +171,9 @@ Content-Type: application/{VAR: format}+xml
 	{IF: $r->last_visit}<last_visit>{FUNC: gmdate('Y-m-d\TH:i:s', $r->last_visit)}</last_visit>{ENDIF}
 	{IF: $r->join_date}<reg_date>{FUNC: gmdate('Y-m-d\TH:i:s', $r->join_date)}</reg_date>{ENDIF}
 	<im_icq>{VAR: r->icq}</im_icq>
-	<im_aim>{FUNC: sp($r->aim)}</im_aim>
+	<im_facebook>{FUNC: sp($r->facebook)}</im_facebook>
 	<im_yahoo>{FUNC: sp($r->yahoo)}</im_yahoo>
-	<im_msnm>{FUNC: sp($r->msnm)}</im_msnm>
-	<im_jabber>{FUNC: sp($r->msnm)}</im_jabber>
+	<im_jabber>{FUNC: sp($r->jabber)}</im_jabber>
 	<im_google>{FUNC: sp($r->google)}</im_google>
 	<im_skype>{FUNC: sp($r->skype)}</im_skype>
 	<im_twitter>{FUNC: sp($r->twitter)}</im_twitter>

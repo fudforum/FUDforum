@@ -68,8 +68,7 @@ stdClass Object
     [google] =>  // author's google uin !!could be empty!!
     [skype] =>  // author's skype uin !!could be empty!!
     [twitter] =>  // author's twitter uin !!could be empty!!
-    [aim] => // author's aim uin !!could be empty!!
-    [msnm] => // author's msn uin !!could be empty!! 
+    [facebook] => // author's facebook uin !!could be empty!!
     [yahoo] =>  // author's Y! uin !!could be empty!! 
     [users_opt] => // author's settings bitmask
     [time_sec] => // time of author's last visit
@@ -121,7 +120,7 @@ function fud_fetch_msg($arg)
 		m.*,
 		t.forum_id,
 		u.alias AS login, u.avatar_loc, u.email, u.posted_msg_count, u.join_date, u.location,
-		u.sig, u.custom_status, u.icq, u.aim, u.msnm, u.yahoo, u.jabber, u.google, u.skype, u.twitter, u.users_opt, u.last_visit AS time_sec,
+		u.sig, u.custom_status, u.icq, u.facebook, u.yahoo, u.jabber, u.google, u.skype, u.twitter, u.users_opt, u.last_visit AS time_sec,
 		l.name AS level_name, l.img AS level_img
 	FROM
 		'. $GLOBALS['DBHOST_TBL_PREFIX'] .'msg m
@@ -491,9 +490,8 @@ stdClass Object
     [occupation] => // user's occuptation (optional)
     [avatar_loc] => // img src of the user's avatar !!could be empty!!
     [icq] => // icq uin
-    [aim] => // aim uin
+    [facebook] => // facebook uin
     [yahoo] => // Y! uin
-    [msnm] => // msn uin
     [jabber] => // jabber uin
     [google] => // google uin
     [skype] => // skype uin
@@ -551,9 +549,8 @@ function fud_fetch_top_poster()
  *	name	- the user's real first & last name. **required**
  *	alias	- must be unique, if not available will be generated based on login.
  * 	icq	- ICQ IM id (integer)
- *	aim	- AIM IM id.
+ *	facebook- Facebook id.
  * 	yahoo	- Yahoo IM id.
- *	msnm	- MSN IM id.
  * 	jabber	- Jabber IM id.
  *	google	- Google IM ID.
  *	skype	- Skype handle.
@@ -642,7 +639,7 @@ function fud_add_user($vals, &$err)
 	$last_visit = $last_read = $join_date = __request_timestamp__;
 
 	// Make sure all fields are set.
-	foreach( array('login','alias','passwd','name','email','icq','aim','yahoo','msnm','jabber','google','skype','twitter',
+	foreach( array('login','alias','passwd','name','email','icq','facebook','yahoo','jabber','google','skype','twitter',
 		'posts_ppg','time_zone','birthday','last_visit','conf_key','user_image',
 		'join_date','location','theme','occupation','interests','referer_id','last_read',
 		'sig','home_page','bio','users_opt','registration_ip') as $v) {
@@ -660,9 +657,8 @@ function fud_add_user($vals, &$err)
 				name,
 				email,
 				icq,
-				aim,
+				facebook,
 				yahoo,
-				msnm,
 				jabber,
 				google,
 				skype,
@@ -693,9 +689,8 @@ function fud_add_user($vals, &$err)
 				'. _esc($vals['name']) .',
 				'. _esc($vals['email']) .',
 				'. (int)$vals['icq'] .',
-				'. ssn(urlencode($vals['aim'])) .',
+				'. ssn(urlencode($vals['facebook'])) .',
 				'. ssn(urlencode($vals['yahoo'])) .',
-				'. ssn(urlencode($vals['msnm'])) .',
 				'. ssn(htmlspecialchars($vals['jabber'])) .',
 				'. ssn(htmlspecialchars($vals['google'])) .',
 				'. ssn(htmlspecialchars($vals['skype'])) .',
@@ -779,7 +774,7 @@ function fud_update_user($uid, $vals, &$err)
 
 	$qry = 'UPDATE '. $GLOBALS['DBHOST_TBL_PREFIX'] .'users SET ';
 	// Apply changes.
-	foreach( array('login','alias','passwd', 'salt', 'name','email','icq','aim','yahoo','msnm','jabber','google','skype','twitter',
+	foreach( array('login','alias','passwd', 'salt', 'name','email','icq','facebook','yahoo','jabber','google','skype','twitter',
 		'posts_ppg','time_zone','birthday','last_visit','conf_key','user_image',
 		'join_date','location','theme','occupation','interests','referer_id','last_read',
 		'sig','home_page','bio','users_opt','registration_ip') as $v) {

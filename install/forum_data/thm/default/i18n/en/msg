@@ -43,8 +43,7 @@ homepage:Homepage:
 icq_control_panel:ICQ Online-Message Panel
 icq_message_form:ICQ Message Form:
 ignore_user:ignore all messages by this user
-im_aim:AIM Handle:
-im_msnm:MSN Messenger:
+im_facebook:Facebook:
 im_yahoo:Yahoo Messenger:
 image:Image:
 index_forum:Forum
@@ -332,9 +331,8 @@ register_occupation:Occupation:
 register_interests:Interests:
 register_image:Image:
 register_icq:ICQ:
-register_aim:AIM Handle:
+register_facebook:Facebook ID:
 register_yahoo:Yahoo Messenger:
-register_msnm:MSN Messenger:
 register_homepage:Homepage:
 register_bday:Birth Date:
 register_bday_desc:If you enter a birth date, then other forum members will be able to see it in your profile.

@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2016 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2021 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -200,14 +200,11 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 			if ($obj->icq) {
 				$im .= '{TEMPLATE: dmsg_im_icq}';
 			}
-			if ($obj->aim) {
-				$im .= '{TEMPLATE: dmsg_im_aim}';
+			if ($obj->facebook) {
+				$im .= '{TEMPLATE: dmsg_im_facebook}';
 			}
 			if ($obj->yahoo) {
 				$im .= '{TEMPLATE: dmsg_im_yahoo}';
-			}
-			if ($obj->msnm) {
-				$im .= '{TEMPLATE: dmsg_im_msnm}';
 			}
 			if ($obj->jabber) {
 				$im .=  '{TEMPLATE: dmsg_im_jabber}';

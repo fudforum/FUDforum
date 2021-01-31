@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2020 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2021 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -181,16 +181,12 @@
 <a href="{TEMPLATE: dmsg_im_icq_lnk}"><img title="{VAR: obj->icq}" src="{THEME_IMAGE_ROOT}/icq.png" alt="" /></a>
 {SECTION: END}
 
-{SECTION: dmsg_im_aim}
-<a href="aim:goim?screenname={VAR: obj->aim}&amp;message=Hi.+Are+you+there?"><img alt="" src="{THEME_IMAGE_ROOT}/aim.png" title="{VAR: obj->aim}" /></a>
+{SECTION: dmsg_im_facebook}
+<a href="https://www.facebook.com/{VAR: obj->facebook}"><img alt="" src="{THEME_IMAGE_ROOT}/facebook.png" title="{VAR: obj->facebook}" /></a>
 {SECTION: END}
 
 {SECTION: dmsg_im_yahoo}
 <a href="http://edit.yahoo.com/config/send_webmesg?.target={VAR: obj->yahoo}&amp;.src=pg"><img alt="" src="{THEME_IMAGE_ROOT}/yahoo.png" title="{VAR: obj->yahoo}" /></a>
-{SECTION: END}
-
-{SECTION: dmsg_im_msnm}
-<a href="mailto: {VAR: obj->msnm}"><img alt="" src="{THEME_IMAGE_ROOT}/msnm.png" title="{VAR: obj->msnm}" /></a>
 {SECTION: END}
 
 {SECTION: dmsg_im_jabber}
@@ -206,7 +202,7 @@
 {SECTION: END}
 
 {SECTION: dmsg_im_twitter}
-<a href="http://twitter.com/{VAR: obj->twitter}"><img src="{THEME_IMAGE_ROOT}/twitter.png" title="{VAR: obj->twitter}" alt="" /></a>
+<a href="https://twitter.com/{VAR: obj->twitter}"><img src="{THEME_IMAGE_ROOT}/twitter.png" title="{VAR: obj->twitter}" alt="" /></a>
 {SECTION: END}
 
 {SECTION: dmsg_poll_option}
