@@ -206,7 +206,7 @@ function error_check()
 			}
 
 			if (!empty($_POST['adm']) && $usr_d->users_opt & 1048576) {
-				header('Location: {ROOT}adm/index.php?S='. $ses_id .'&SQ='. $new_sq);
+				header('Location: {BASE}adm/index.php?S='. $ses_id .'&SQ='. $new_sq);
 				exit;
 			}
 

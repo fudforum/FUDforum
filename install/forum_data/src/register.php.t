@@ -626,9 +626,9 @@ function email_encode($val)
 				check_return($usr->returnto);
 			} else {
 				if ($FUD_OPT_2 & 32768) {
-					header('Location: {ROOT}adm/admuser.php?usr_id='. $uent->id .'&'. str_replace(array(s, '/?'), array('S='.s, '&'),_rsidl) .'&act=nada');
+					header('Location: {BASE}adm/admuser.php?usr_id='. $uent->id .'&'. str_replace(array(s, '/?'), array('S='.s, '&'),_rsidl) .'&act=nada');
 				} else {
-					header('Location: {ROOT}adm/admuser.php?usr_id='. $uent->id .'&'. _rsidl .'&act=nada');
+					header('Location: {BASE}adm/admuser.php?usr_id='. $uent->id .'&'. _rsidl .'&act=nada');
 				}
 				exit;
 			}
