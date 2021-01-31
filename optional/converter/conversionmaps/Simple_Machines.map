@@ -78,9 +78,8 @@ function source_load_users() {
 			'sig'       => $r->signature,
 			'avatar'    => '',
 			'icq'       => $r->icq,	// was ICQ
-			'aim'       => $r->aim,	// was AIM
+			'facebook'  => $r->facebook,
 			'yahoo'     => $r->yim, // was YIM
-			'msn'       => $r->msn,	// was MSN
 			'users_opt' => 0
 		);
 

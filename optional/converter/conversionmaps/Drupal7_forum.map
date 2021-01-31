@@ -51,9 +51,8 @@ function source_load_users() {
 			'sig'       => $r->signature,
 			'avatar'    => '',
 			'icq'       => '',
-			'aim'       => '',
+			'facebook'  => '',
 			'yahoo'     => '',
-			'msn'       => '',
 			'users_opt' => 0
 		);
 //		$user['users_opt'] |= ($r->status=='Super Administrator') ? 1048576 : 0;	// Admin.

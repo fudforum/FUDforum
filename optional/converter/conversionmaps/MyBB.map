@@ -76,9 +76,8 @@ function source_load_users() {
 			'sig'       => $r->signature,
 			'avatar'    => $r->avatar,
 			'icq'       => $r->icq,
-			'aim'       => $r->aim,
+			'facebook'  => $r->facebook,
 			'yahoo'     => $r->yahoo,
-			'msn'       => $r->msn,
 			'users_opt' => 0
 		);
 		$user['users_opt'] |= $r->cancp ? 1048576 : 0;	// is_admin

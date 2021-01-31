@@ -298,7 +298,7 @@ function target_add_user($user)
 		(id, login, alias, name, passwd, salt, last_visit, last_read, join_date, 
 		email, home_page, location, interests, occupation, birthday,
 		time_zone, sig, avatar, avatar_loc,
-		icq, aim, yahoo, msnm, users_opt, theme)
+		icq, facebook, yahoo, users_opt, theme)
 		VALUES (
 			'. (int)$user['id'] .',
 			'. _esc($user['login']) .',
@@ -320,9 +320,8 @@ function target_add_user($user)
 			'. (int)$avatar .',
 			'. _esc($avatar_loc) .',
 			'. (int)$user['icq'] .',
-			'. _esc($user['aim']) .',
+			'. _esc($user['facebook']) .',
 			'. _esc($user['yahoo']) .',
-			'. _esc($user['msn']) .',
 			'. (int)$user['users_opt'] .',
 			'. (int)$GLOBALS['theme'] .'
 			)');

@@ -49,9 +49,8 @@ function source_load_users() {
 			'sig'       => '',
 			'avatar'    => '',
 			'icq'       => '',
-			'aim'       => '',
+			'facebook'  => '',
 			'yahoo'     => '',
-			'msn'       => '',
 			'users_opt' => 0
 		);
 		$user['users_opt'] |= $r->Admin ? 1048576 : 0;	// is_admin

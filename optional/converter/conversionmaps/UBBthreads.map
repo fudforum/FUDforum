@@ -80,9 +80,8 @@ function source_load_users() {
 			'sig'       => $r->USER_SIGNATURE,
 			'avatar'    => $r->USER_AVATAR,
 			'icq'       => $r->USER_ICQ,
-			'aim'       => $r->USER_AIM,
+			'facebook'  => '',
 			'yahoo'     => $r->USER_YAHOO,
-			'msn'       => $r->USER_MSN,
 			'users_opt' => 0
 		);
 		$user['users_opt'] |= ($r->USER_ID == $GLOBALS['config']['MAIN_ADMIN_ID']) ? 1048576 : 0;	// Admin.

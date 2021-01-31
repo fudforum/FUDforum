@@ -61,9 +61,8 @@ function source_load_users() {
 			'sig'       => $r->Signature,
 			'avatar'    => '',
 			'icq'       => $r->ICQ,
-			'aim'       => $r->AIM,
+			'facebook'  => '',
 			'yahoo'     => $r->YIM,
-			'msn'       => $r->MSN,
 			'users_opt' => 0
 		);
 		$c2 = bbq('SELECT * FROM '. dbpref .'groupmembers m LEFT JOIN '. dbpref .'groupnames g ON m.User = g.ID WHERE User='. $r->ID);

@@ -48,9 +48,8 @@ function source_load_users() {
 			'sig'       => $r->siggie,
 			'avatar'    => '',
 			'icq'       => $r->icq,
-			'aim'       => $r->aim,
+			'facebook'  => $r->facebook,
 			'yahoo'     => $r->yahoo,
-			'msn'       => $r->msn,
 			'users_opt' => 0
 		);
 		$user['users_opt'] |= ($r->user_group==1) ? 1048576 : 0;	// Admin.

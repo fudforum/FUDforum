@@ -92,9 +92,8 @@ function source_load_users() {
 			'sig'       => $r->user_sig,
 			'avatar'    => $r->user_avatar,
 			'icq'       => $r->user_icq,
-			'aim'       => $r->user_aim,
+			'facebook'  => $r->user_facebook,
 			'yahoo'     => $r->user_yim,
-			'msn'       => $r->user_msnm,
 			'users_opt' => 0
 		);
 		$user['users_opt'] |= ($r->user_level == ADMIN) ? 1048576 : 0;	// Admin.

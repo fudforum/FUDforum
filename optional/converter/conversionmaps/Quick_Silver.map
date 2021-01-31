@@ -59,9 +59,8 @@ function source_load_users() {
 			'sig'       => $r->user_signature,
 			'avatar'    => $r->user_avatar,
 			'icq'       => $r->user_icq,
-			'aim'       => $r->user_aim,
+			'facebook'  => $r->user_facebook,
 			'yahoo'     => $r->user_yahoo,
-			'msn'       => $r->user_msn,
 			'users_opt' => 0
 		);
 		$c2 = bbq('SELECT * FROM '. dbpref .'groups WHERE group_id ='. $r->user_group);

@@ -47,9 +47,8 @@ function source_load_users() {
 			'sig'       => $r->signature,
 			'avatar'    => '',
 			'icq'       => $r->icq,
-			'aim'       => $r->aim,
+			'facebook'  => $r->facebook,
 			'yahoo'     => $r->yim,
-			'msn'       => $r->msn,
 			'users_opt' => 0
 		);
 		$user['users_opt'] |= ($r->role == 'Admin') ? 1048576 : 0;	// Admin.
