@@ -56,8 +56,6 @@ homepage:Почетна страница:
 icq_control_panel:Табла присутних корисника ICQ-а
 icq_message_form:Образац за поруке са ICQ-а:
 ignore_user:игнориши све поруке овог корисника
-im_aim:AIM Handle:
-im_msnm:MSN Messenger:
 im_yahoo:Yahoo Messenger:
 image:Слика:
 index_forum:Форум
@@ -345,9 +343,7 @@ register_occupation:Занимање:
 register_interests:Хоби:
 register_image:Слика:
 register_icq:ICQ:
-register_aim:AIM:
 register_yahoo:Јаху месенџер:
-register_msnm:MSN месенџер:
 register_homepage:Почетна страница:
 register_bday:Датум рођења:
 register_bday_desc:Видљиво другим члановима.

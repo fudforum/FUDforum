@@ -63,8 +63,6 @@ homepage:Hal.Awal:
 icq_control_panel:Panel pesan ICQ
 icq_message_form:Formulir pesan ICQ:
 ignore_user:acuhkan semua pesan dari pengguna ini
-im_aim:AIM Handle:
-im_msnm:MSN Messenger:
 im_yahoo:Yahoo Messenger:
 image:Gambar:
 index_forum:Forum
@@ -353,9 +351,7 @@ register_occupation:Pekerjaan:
 register_interests:Interes:
 register_image:Gambar:
 register_icq:ICQ
-register_aim:AIM Handle:
 register_yahoo:Yahoo Messenger:
-register_msnm:MSN Messenger:
 register_homepage:Homepage:
 register_bday:Tgl lahir:
 register_bday_desc:Jika anda memberikan tanggal lahir, pengguna lain bisa melihatnya di profile anda.

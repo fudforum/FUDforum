@@ -47,8 +47,6 @@ homepage:Startowa strona:
 icq_control_panel:ICQ-meni online
 icq_message_form:Formular ICQ-powěsće:
 ignore_user:Wšě powěsće tutoho wužiwarja ignorować
-im_aim:Wužiwarske mjeno AIM:
-im_msnm:MSN Messenger:
 im_yahoo:Yahoo Messenger:
 image:Wobraz:
 index_forum:Forum
@@ -334,9 +332,7 @@ register_occupation:Powołanje:
 register_interests:Zajimy:
 register_image:Wobraz:
 register_icq:ICQ:
-register_aim:Wužiwarske mjeno AIM:
 register_yahoo:Yahoo Messsenger:
-register_msnm:MSN Messenger:
 register_homepage:Startowa strona:
 register_bday:Narodniny:
 register_bday_desc:Jeli zapodaš datum narodźenja, da druzy forumowi čłonojo móžeja jón w twojim profilu widźeć.

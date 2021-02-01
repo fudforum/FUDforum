@@ -49,8 +49,6 @@ homepage:דף הבית:
 icq_control_panel:חלונית להודעות ICQ מקוונות
 icq_message_form:טופס הודעת ICQ:
 ignore_user:התעלמות מהודעות הנשלחות ממשתמש זה
-im_aim:כינוי ב־AIM:
-im_msnm:MSN מסנג'ר:
 im_yahoo:Yahoo מסנג'ר:
 image:תמונה:
 index_forum:פורום
@@ -278,7 +276,6 @@ register_occupation:עיסוק:
 register_interests:תחומי עניין:
 register_image:תמונה:
 register_icq:ICQ:
-register_aim:כינוי ב־AIM:
 register_homepage:דף הבית:
 register_bday:תאריך לידה:
 register_day:יום

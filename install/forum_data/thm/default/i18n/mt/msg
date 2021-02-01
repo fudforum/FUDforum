@@ -46,8 +46,6 @@ homepage:Paġna prinċipali:
 icq_control_panel:Pannell tal-messaġġi <i>online</i> tal-ICQ
 icq_message_form:Formola tal-messaġġi tal-ICQ:
 ignore_user:injora l-messaġġi kollha ta' dan l-utent
-im_aim:<i>Handle</i> tal-AIM:
-im_msnm:MSN Messenger:
 im_yahoo:Yahoo Messenger:
 image:Stampa:
 index_forum:Forum
@@ -332,9 +330,7 @@ register_occupation:Okkupazzjoni:
 register_interests:Interessi:
 register_image:Stampa:
 register_icq:ICQ:
-register_aim:<i>Handle</i> tal-AIM:
 register_yahoo:Yahoo Messenger:
-register_msnm:MSN Messenger:
 register_homepage:Paġna prinċipali:
 register_bday:Data tat-twelid:
 register_bday_desc:Jekk tiddeċiedi li turi d-data tat-twelid tiegħek, il-membri l-oħra tal-forum ikunu jistgħu jarawha.

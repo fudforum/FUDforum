@@ -46,8 +46,7 @@ homepage:Tuisblad:
 icq_control_panel:ICQ aan-lyn boodskappe paneel
 icq_message_form:ICQ boodskapvorm:
 ignore_user:ignoreer die gebruiker se boodskappe
-im_aim:AIM Handle:
-im_msnm:MSN Messenger:
+im_facebook:Facebook:
 im_yahoo:Yahoo Messenger:
 image:Foto:
 index_forum:Forum
@@ -335,9 +334,8 @@ register_occupation:Beroep:
 register_interests:Belange:
 register_image:Foto:
 register_icq:ICQ
-register_aim:AIM Handle:
+register_facebook:Facebook ID:
 register_yahoo:Yahoo Messenger:
-register_msnm:MSN Messenger:
 register_homepage:Tuisblad:
 register_bday:Geboortedatum:
 register_bday_desc:As u u geboortedatum verskaf, sal ander gebruikers dit in u profiel kan sien.

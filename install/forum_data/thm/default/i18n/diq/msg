@@ -53,8 +53,6 @@ homepage:Pela seri:
 icq_control_panel:Panela ICQ Miyande-Mesaci
 icq_message_form:ICQ Mesac Formi:
 ignore_user:Mesacanê enê kerberi hemın peygoş ke
-im_aim:AIM Handle:
-im_msnm:MSN Messenger:
 im_yahoo:Yahoo Messenger:
 image:Resım:
 index_forum:Forum
@@ -287,9 +285,7 @@ register_occupation:Kar:
 register_interests:Eleqe:
 register_image:Resım:
 register_icq:ICQ:
-register_aim:AIM Handle:
 register_yahoo:Yahoo Messenger:
-register_msnm:MSN Messenger:
 register_homepage:Pela seri:
 register_bday:Demê Biyayışi:
 register_day:Roce

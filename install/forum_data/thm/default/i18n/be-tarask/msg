@@ -51,8 +51,6 @@ homepage:Хатняя старонка:
 icq_control_panel:Панэль паведамленьняў ICQ
 icq_message_form:Форма паведамленьня ICQ:
 ignore_user:ігнараваць усе паведамленьні гэтага карыстальніка
-im_aim:Ідэнтыфікатар AIM:
-im_msnm:Камунікатар MSN:
 im_yahoo:Камунікатар Yahoo:
 image:Выява:
 index_forum:Форум
@@ -340,9 +338,7 @@ register_occupation:Занятак:
 register_interests:Зацікаўленасьці:
 register_image:Выява:
 register_icq:ICQ:
-register_aim:Ідэнтыфікатар AIM:
 register_yahoo:Камунікатар Yahoo:
-register_msnm:Камунікатар MSN:
 register_homepage:Хатняя старонка:
 register_bday:Дата нараджэньня:
 register_bday_desc:Калі Вы пазначыце сваю дату нараджэньня, іншыя карыстальнікі форуму змогуць яе ўбачыць у Вашым профілі.

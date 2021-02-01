@@ -45,8 +45,6 @@ home:Sākums
 homepage:Saite uz mājas lapu:
 icq_message_form:Nosūtīt ICQ paziņojumu
 ignore_user:ignorēt visus paziņojumus<br /> no šī lietotāja
-im_aim:AIM tīkls:
-im_msnm:MSN tīkls:
 im_yahoo:Yahoo tīkls:
 image:Attēls:
 index_forum:Forums
@@ -325,9 +323,7 @@ register_occupation:Nodarbošanās:
 register_interests:Intereses:
 register_image:Attēls:
 register_icq:ICQ
-register_aim:AIM pseidonīms:
 register_yahoo:Yahoo tīkls:
-register_msnm:MSN tīkls:
 register_homepage:Mālas lapas URL:
 register_bday:Dzimšanas datums:
 register_bday_desc:Uzrādot dzimšanas datumu tas būs redzams foruma lietotājiem.

@@ -53,8 +53,6 @@ homepage:Hejmpaĝo
 icq_control_panel:ICQ Retmesaĝa Panelo
 icq_message_form:ICQ Mesaĝa Formularo:
 ignore_user:ignori ĉiujn mesaĝoj de ĉi tiu uzanto
-im_aim:AIM-uzantnomo:
-im_msnm:MSN-Ekmesaĝilo
 im_yahoo:Yahoo-Ekmesaĝilo
 image:Bildo:
 index_forum:Forumo
@@ -342,9 +340,7 @@ register_occupation:Laboro:
 register_interests:Interesoj:
 register_image:Bildo:
 register_icq:ICQ:
-register_aim:AIM-uzantnomo:
 register_yahoo:Yahoo-Ekmesaĝilo:
-register_msnm:MSN-Ekmesaĝilo:
 register_homepage:Hejmpaĝo:
 register_bday:Naskiĝdato:
 register_bday_desc:Se vi enigi naskiĝdato, alia forumanoj eblos vidi ĝin en via profilo.

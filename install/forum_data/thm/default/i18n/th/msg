@@ -47,8 +47,6 @@ homepage:หน้าแรก:
 icq_control_panel:แผงข้อความออนไลน์ ICQ:
 icq_message_form:แบบฟอร์มข้อความ ICQ:
 ignore_user:ละเว้นข้อความทั้งหมดโดยผู้ใช้นี้
-im_aim:AIM Handle:
-im_msnm:MSN Messenger:
 im_yahoo:Yahoo Messenger:
 image:รูปภาพ:
 index_forum:กระดานสนทนา
@@ -327,9 +325,7 @@ register_occupation:อาชีพ:
 register_interests:สิ่งที่สนใจ:
 register_image:ภาพ:
 register_icq:ICQ:
-register_aim:AIM Handle:
 register_yahoo:Yahoo Messenger:
-register_msnm:MSN Messenger:
 register_homepage:หน้าแรก:
 register_bday:วันเกิด:
 register_day:วัน

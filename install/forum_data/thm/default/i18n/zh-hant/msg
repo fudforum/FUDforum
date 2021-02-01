@@ -57,8 +57,7 @@ homepage:首頁：
 icq_control_panel:ICQ 線上訊息台
 icq_message_form:ICQ 訊息清單：
 ignore_user:忽略此使用者的所有訊息
-im_aim:AIM：
-im_msnm:MSN：
+im_facebook:Facebook：
 im_yahoo:Yahoo 即時通：
 image:照片：
 index_forum:論壇
@@ -346,9 +345,8 @@ register_occupation:職業：
 register_interests:興趣：
 register_image:圖片：
 register_icq:ICQ：
-register_aim:AIM：
+register_facebook:Facebook ID：
 register_yahoo:Yahoo 即時通：
-register_msnm:MSN：
 register_homepage:首頁：
 register_bday:出生日期：
 register_bday_desc:如果您輸入了出生日期，其他論壇成員會在您的個人資料中見到它。

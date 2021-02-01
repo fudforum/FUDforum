@@ -45,8 +45,6 @@ homepage:Pagina personal:
 icq_control_panel:Pannello de messages ICQ Online
 icq_message_form:Formulario de message ICQ:
 ignore_user:ignorar tote le messages de iste usator
-im_aim:Pseudonymo AIM:
-im_msnm:MSN Messenger:
 im_yahoo:Yahoo Messenger:
 image:Imagine:
 index_forum:Foro
@@ -334,9 +332,7 @@ register_occupation:Occupation:
 register_interests:Interesses:
 register_image:Imagine:
 register_icq:ICQ:
-register_aim:AIM:
 register_yahoo:Yahoo Messenger:
-register_msnm:MSN Messenger:
 register_homepage:Pagina personal:
 register_bday:Data de nascentia:
 register_bday_desc:Si tu entra un data de nascentia, le altere membros del foro potera vider lo in tu profilo.

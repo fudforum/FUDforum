@@ -48,8 +48,6 @@ homepage:Homepage:
 icq_control_panel:ICQ Online-Menü;
 icq_message_form:ICQ-Nochrichteformular:
 ignore_user:alli Byytreg vu däm Benutzer ignoriere
-im_aim:AIM-Benutzername:
-im_msnm:MSN Messenger:
 im_yahoo:Yahoo Messenger:
 image:Bild:
 index_forum:Forum
@@ -338,9 +336,7 @@ register_occupation:Beruef:
 register_interests:Inträsse:
 register_image:Bild:
 register_icq:ICQ:
-register_aim:AIM-Benutzername:
 register_yahoo:Yahoo Messenger:
-register_msnm:MSN Messenger:
 register_homepage:Homepage:
 register_bday:Geburtsdatum:
 register_bday_desc:Wänn Du Dyy Geburtstag aagisch, chenne ne di andre Bsuecher vum Forum in Dyym Profil säh.

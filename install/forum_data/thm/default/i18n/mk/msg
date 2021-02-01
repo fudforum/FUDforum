@@ -48,8 +48,7 @@ homepage:Почетна страница:
 icq_control_panel:Табла на присутни ICQ корисници
 icq_message_form:Образец за ICQ пораки:
 ignore_user:занемари ги сите пораки од овој корисник
-im_aim:AIM Handle:
-im_msnm:MSN Messenger:
+im_facebook:Фејсбук:
 im_yahoo:Yahoo Messenger:
 image:Слика:
 index_forum:Форум
@@ -337,9 +336,8 @@ register_occupation:Занимање:
 register_interests:Интереси:
 register_image:Слика:
 register_icq:ICQ:
-register_aim:AIM:
+register_facebook:Назнака на Фејсбук:
 register_yahoo:Yahoo Messenger:
-register_msnm:MSN:
 register_homepage:Домашна страница:
 register_bday:Дата на раѓање:
 register_bday_desc:Ако внесете датум на раѓање, тој ќе се прикаже во вашиот профил и ќе биде видлив за другите членови на форумот.

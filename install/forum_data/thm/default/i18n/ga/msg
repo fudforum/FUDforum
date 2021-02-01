@@ -47,8 +47,6 @@ homepage:Leathanach Baile:
 icq_control_panel:ICQ Painéal Líne-Teachtaireacht
 icq_message_form:ICQ Teachtaireacht Foirm:
 ignore_user:neamhaird a dhéanamh ar gach teachtaireacht úsáideoir seo Feicthe Le
-im_aim:AIM láimhsiú:
-im_msnm:MSN Messenger:
 im_yahoo:Yahoo Messenger:
 image:íomhá:
 index_forum:Fóram
@@ -333,9 +331,7 @@ register_occupation:Slí Bheatha:
 register_interests:leasanna:
 register_image:íomhá:
 register_icq:ICQ:
-register_aim:AIM láimhseáil:
 register_yahoo:Yahoo Messenger:
-register_msnm:MSN Messenger:
 register_homepage:Leathanach Baile:
 register_bday:Dáta Breithe:
 register_bday_desc:Má théann tú isteach dáta breithe, ansin beidh baill fóram eile a bheith in ann é a fheiceáil i do phróifíl.

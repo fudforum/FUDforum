@@ -47,8 +47,6 @@ homepage:باش بەت:
 icq_control_panel:ICQ توردا ئۇچۇرى
 icq_message_form:ICQ ئۇچۇر تىزىملىكى:
 ignore_user:بۇ ئىشلەتكۈچىنىڭ ھەممە ئۇچۇرلىرىغا پەرۋا قىلما
-im_aim::AIM
-im_msnm::MSN
 im_yahoo::Yahoo
 image:سۈرەت:
 index_forum:مۇنبەر
@@ -336,9 +334,7 @@ register_occupation:كەسپى:
 register_interests:قىزىقىش:
 register_image:سۈرەت:
 register_icq:ICQ:
-register_aim::AIM
 register_yahoo:ياخۇ مۇڭداشقۇ:
-register_msnm:MSN مۇڭداشقۇ:
 register_homepage:باش بەت:
 register_bday:تۇغۇلغان كۈن:
 register_bday_desc:ئەگەر تۇغۇلغان كۈننى تاللىسىڭىز، باشقا مۇنبەرنىڭ ئەزالىرى سەپلىمە ھۆججىتىڭىزدىن كۆرەلەيدۇ.

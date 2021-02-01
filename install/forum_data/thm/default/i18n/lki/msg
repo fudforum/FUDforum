@@ -45,8 +45,6 @@ homepage::وةڵگة ماڵی
 icq_control_panel:ارسال پیام ازطریق ICQ
 icq_message_form:فرم پیام ICQ:
 ignore_user:انسداد همه پست‌های این کاربر
-im_aim:AIM:
-im_msnm:MSN Messenger:
 im_yahoo:Yahoo Messenger:
 image::عۀسگ/تۀصویر
 index_forum:انجمن
@@ -332,9 +330,7 @@ register_occupation::کسم/حرفه
 register_interests::علاقمندیةل
 register_image::عۀسگ/تۀصویر
 register_icq:نام کاربری ICQ:
-register_aim:نام کاربری AIM:
 register_yahoo:نام کاربری Yahoo:
-register_msnm:نام کاربری MSN:
 register_homepage::وةڵگة ماڵی
 register_bday::تاریخ تولد
 register_bday_desc:اگر تاریخ تولد خود را وارد کنید، کاربران انجمن در پروفایلتان قادر به .دیدنِ آن خواهند بود

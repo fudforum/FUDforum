@@ -50,8 +50,6 @@ homepage:مرکزی صفحہ
 icq_control_panel:ICQ آن لائن-پیغام پینل
 icq_message_form:کیو پیغام فارم:
 ignore_user:اس رکن کی تمام پیغامات کو نظر انداز
-im_aim:سنبھال کا مقصد:
-im_msnm:MSN میسنجر:
 im_yahoo:Yahoo میسنجر:
 image:تصویر:
 index_forum:فورم
@@ -340,9 +338,7 @@ register_occupation:ملازمت:
 register_interests:دلچسپیاں:
 register_image:تصویر:
 register_icq:ICQ:
-register_aim:سنبھال کا مقصد:
 register_yahoo:Yahoo میسنجر:
-register_msnm:MSN میسنجر:
 register_homepage:مرکزی صفحہ
 register_bday:پیدائش تاریخ:
 register_bday_desc:آپ کو ایک تاریخ پیدائش درج کریں، تو دوسرے فورم کے ارکان اپنے پروفائل میں اس کو دیکھنے کے لئے قابل ہو جائے گا.

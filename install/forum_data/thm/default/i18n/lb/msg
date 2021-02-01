@@ -39,7 +39,7 @@ goto_prev_msg:Op de virege Message goen
 home:Ufankssäit
 homepage:Haaptsäit:
 ignore_user:all Message vun deem Benotzer ignoréieren
-im_msnm:MSN Messenger:
+im_facebook:Facebook:
 im_yahoo:Yahoo Messenger:
 image:Bild:
 index_forum:Forum
@@ -234,8 +234,8 @@ register_occupation:Beruff:
 register_interests:iInteressen:
 register_image:Bild:
 register_icq:ICQ:
+register_facebook:Facebook ID:
 register_yahoo:Yahoo Messenger:
-register_msnm:MSN Messenger:
 register_homepage:Haaptsäit:
 register_bday:Gebuertsdatum:
 register_day:Dag

@@ -61,8 +61,6 @@ homepage:Домашня сторінка:
 icq_control_panel:Панель онлайн присутності в ICQ
 icq_message_form:Відправити повідомлення на ICQ
 ignore_user:ігнорувати всі повідомлення від цього користувача
-im_aim:Мережа AIM:
-im_msnm:Мережа MSN:
 im_yahoo:Мережа Yahoo:
 image:Зображення:
 index_forum:Форум
@@ -350,9 +348,7 @@ register_occupation:Рід занять:
 register_interests:Інтереси:
 register_image:Зображення:
 register_icq:ICQ:
-register_aim:Мережа AIM:
 register_yahoo:Мережа Yahoo:
-register_msnm:Мережа MSN:
 register_homepage:Домашня сторінка:
 register_bday:Дата народження:
 register_bday_desc:Якщо ввести дату народження, то інші учасники форуму зможуть побачити його у Вашому профілі.

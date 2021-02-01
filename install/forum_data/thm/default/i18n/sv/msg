@@ -58,8 +58,7 @@ homepage:Hemsida:
 icq_control_panel:ICQ Online-meddelandepanel
 icq_message_form:ICQ meddelandeformulär:
 ignore_user:ignorera alla inlägg av den här medlemmen
-im_aim:AIM användarnamn:
-im_msnm:MSN Messenger:
+im_facebook:Facebook:
 im_yahoo:Yahoo Messenger:
 image:Bild-URL:
 index_forum:Forum
@@ -347,9 +346,8 @@ register_occupation:Yrke:
 register_interests:Intressen:
 register_image:Bild:
 register_icq:ICQ
-register_aim:AIM användarnamn:
+register_facebook:Facebook-ID:
 register_yahoo:Yahoo Messenger:
-register_msnm:MSN Messenger:
 register_homepage:Hemsida:
 register_bday:Födelsedatum:
 register_bday_desc:Om du ger ditt födelsedatum kan andra medlemmar se det i din profil

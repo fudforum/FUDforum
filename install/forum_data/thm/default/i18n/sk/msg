@@ -49,8 +49,6 @@ homepage:Domovská stránka:
 icq_control_panel:Panel ICQ správ
 icq_message_form:Napísať ICQ správu:
 ignore_user:Ignorovať všetky príspevky tohto používateľa
-im_aim:AIM:
-im_msnm:MSN:
 im_yahoo:YAHOO:
 image:Obrázok:
 index_forum:Fórum
@@ -339,9 +337,7 @@ register_occupation:Zamestnanie:
 register_interests:Záujmy:
 register_image:Obrázok / Fotka (URL):
 register_icq:ICQ:
-register_aim:AIM:
 register_yahoo:YAHOO:
-register_msnm:MSN:
 register_homepage:Domovská stránka:
 register_bday:Dátum narodenia:
 register_bday_desc:Ak zadáte dátum narodenia, používatelia ho budú v profile vidieť.

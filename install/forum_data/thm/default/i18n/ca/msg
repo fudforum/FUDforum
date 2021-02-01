@@ -60,8 +60,6 @@ homepage:Pàgina d`inici:
 icq_control_panel:Panell ICQ en líni-missatge
 icq_message_form:Formulari de missatge ICQ:
 ignore_user:ignorar tots els missatges publicats per aquest usuari
-im_aim:Manejador d'objectiu:
-im_msnm:Missatger de MSN:
 im_yahoo:Yahoo Messenger:
 image:Imatge:
 index_forum:Comuniat
@@ -349,9 +347,7 @@ register_occupation:Ocupació:
 register_interests:Interessos:
 register_image:Imatge:
 register_icq:ICQ
-register_aim:Usuari AIM:
 register_yahoo:Yahoo Messenger:
-register_msnm:MSN Messenger
 register_homepage:Pàgina personal:
 register_bday:Data de naixement:
 register_bday_desc:Si selecciona la seva data de naixement, altres membres del fòrum podran veure-la en el seu perfil

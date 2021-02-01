@@ -54,8 +54,6 @@ homepage:முதல் பக்கம்:
 icq_control_panel:ICQ இணைப்பு-செய்தி பலகை
 icq_message_form:ICQ செய்தி படிவம்:
 ignore_user:இந்த பயனரின்  அனைத்து தகவல்களையும் புறக்கணி
-im_aim:AIM கையாள்:
-im_msnm:MSN செய்தியனுப்பி(Messenger):
 im_yahoo:யாஹூ செய்தியனுப்பி(messenger):
 image:படம்:
 index_forum:கருத்துக்களம்
@@ -342,9 +340,7 @@ register_occupation:தொழில்:
 register_interests:விருப்பங்கள்:
 register_image:படம்:
 register_icq:ஐசிக்யு (ICQ):
-register_aim:AIM கையாளவும்:
 register_yahoo:யாஹூ செய்தியனுப்பி(messenger):
-register_msnm:MSN செய்தியனுப்பி(Messenger):
 register_homepage:முகப்பு பக்கம்:
 register_bday:பிறந்த தேதி:
 register_bday_desc:நீங்கள் பிறந்த நாளை உள்ளிட்டால், பின்னர் மற்ற அமைப்பின் உறுப்பினர்கள் உங்கள் சுயகுறிப்பில் அதனை பார்க்க முடியும்.

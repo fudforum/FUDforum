@@ -49,8 +49,6 @@ homepage:Pagina personală:
 icq_control_panel:Panoul de control mesaje ICQ
 icq_message_form:Formularul de mesaje ICQ:
 ignore_user:ignoră toate mesajele trimise de acest utilizator
-im_aim:AIM:
-im_msnm:MSN Messenger:
 im_yahoo:Yahoo Messenger:
 image:Imagine:
 index_forum:Forum
@@ -323,9 +321,7 @@ register_occupation:Ocupatia:
 register_interests:Interese:
 register_image:Imagine:
 register_icq:Numar ICQ:
-register_aim:AIM:
 register_yahoo:Yahoo Messenger:
-register_msnm:MSN Messenger:
 register_homepage:Pagina personala:
 register_bday:Data nasterii:
 register_bday_desc:Daca selectati data nasterii atunci ceilati membri o vor putea vedea.

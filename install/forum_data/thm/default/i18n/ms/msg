@@ -48,8 +48,6 @@ homepage:Laman Utama:
 icq_control_panel:Panel Pesanan Dalam Talian ICQ
 icq_message_form:Borang Pesanan ICQ:
 ignore_user:abaikan semua pesanan daripada pengguna ini
-im_aim:AIM Handle:
-im_msnm:MSN Messenger:
 im_yahoo:Yahoo Messenger:
 image:Gambar:
 index_forum:Forum
@@ -335,9 +333,7 @@ register_occupation:Pekerjaan:
 register_interests:Minat:
 register_image:Gambar:
 register_icq:ICQ:
-register_aim:AIM Handle:
 register_yahoo:Yahoo Messenger:
-register_msnm:MSN Messenger:
 register_homepage:Laman Utama:
 register_bday:Tarikh Lahir:
 register_bday_desc:Jika anda mengisikan tarikh lahir, ahli-ahli forum lain boleh melihatnya dalam profil anda.

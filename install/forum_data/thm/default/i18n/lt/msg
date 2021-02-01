@@ -54,8 +54,6 @@ homepage:Namų puslapis:
 icq_control_panel:ICQ-Online žinutę pultas
 icq_message_form:ICQ Message Message Form:
 ignore_user:ignoruoti visus šio nario pranešimus
-im_aim:AIM Rankenėlės:
-im_msnm:MSN Messenger:
 im_yahoo:"Yahoo Messenger":
 image:Paveiksliukas:
 index_forum:Forumas
@@ -343,9 +341,7 @@ register_occupation:Užsiėmimas:
 register_interests:Pomėgiai:
 register_image:Paveikslėlis:
 register_icq:ICQ
-register_aim:AIM Rankenėlės:
 register_yahoo:"Yahoo Messenger":
-register_msnm:MSN Messenger:
 register_homepage:Namų puslapio adresas:
 register_bday:Gimimo data:
 register_bday_desc:Jei įvesite gimimo datą ją galės matyti kiti nariai.

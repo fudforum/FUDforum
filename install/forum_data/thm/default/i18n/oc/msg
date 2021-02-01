@@ -48,8 +48,6 @@ homepage:Site Web :
 icq_control_panel:Messatge en linha ICQ
 icq_message_form:Messatge ICQ de :
 ignore_user:Ignorar los messatges que provenon d'aqueste utilizaire
-im_aim:Identificant AIM :
-im_msnm:Identificant MSN Messenger :
 im_yahoo:Identificant Yahoo Messenger :
 image:Imatge :
 index_forum:Forum
@@ -337,9 +335,7 @@ register_occupation:Mestièr :
 register_interests:Centres d'interès :
 register_image:Fòto :
 register_icq:Identificant ICQ :
-register_aim:Identificant AIM :
 register_yahoo:Identificant Yahoo Messenger :
-register_msnm:Identificant MSN Messenger :
 register_homepage:Site web personal :
 register_bday:Data de naissença :
 register_bday_desc:Se entratz vòstra data de naissença, los autres membres del forum la poiràn veire via vòstre perfil.

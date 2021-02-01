@@ -47,8 +47,6 @@ homepage:Pàgena prengepàle:
 icq_control_panel:Panelle ICQ Online-Message
 icq_message_form:Module d'u Messàgge de ICQ:
 ignore_user:no scè penzanne a tutte le messàgge da stu utende
-im_aim:Gestore de AIM:
-im_msnm:MSN Messenger:
 im_yahoo:Yahoo Messenger:
 image:Immaggine:
 index_forum:Forum
@@ -334,9 +332,7 @@ register_occupation:Occupazione:
 register_interests:Inderesse:
 register_image:Immaggine:
 register_icq:ICQ:
-register_aim:Gestore de AIM:
 register_yahoo:Yahoo Messenger:
-register_msnm:MSN Messenger:
 register_homepage:Pàgena prengepàle:
 register_bday:Date de nascite:
 register_bday_desc:Ce mitte 'a date de nascita toje, allore l'otre membre d'u forum a ponne 'ndrucà jndr'à 'u profile tune.

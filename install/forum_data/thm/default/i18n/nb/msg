@@ -54,8 +54,6 @@ homepage:Hjemmeside:
 icq_control_panel:ICQ Online-meldingspanel
 icq_message_form:ICQ meldingsformuler:
 ignore_user:ignorer  dette medlemmet
-im_aim:AIM brukernavn:
-im_msnm:MSN Messenger:
 im_yahoo:Yahoo Messenger:
 image:Bilde-URL:
 index_forum:Forum
@@ -343,9 +341,7 @@ register_occupation:Yrke:
 register_interests:Interesser:
 register_image:Bilde:
 register_icq:ICQ
-register_aim:AIM brukernavn:
 register_yahoo:Yahoo Messenger:
-register_msnm:MSN Messenger:
 register_homepage:Hjemmeside:
 register_bday:Fødsesldato:
 register_bday_desc:Om du gir din fødselsdato kan andre medlemmer se det i din profil

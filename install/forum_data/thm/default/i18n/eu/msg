@@ -29,8 +29,6 @@ goto_next_msg:Hurrengo mezura joan
 goto_prev_msg:Aurreko mezura joan
 home:Hasiera
 homepage:Hasiera orria:
-im_aim:AIM Handle:
-im_msnm:MSN Messenger
 im_yahoo:Yahoo Messenger:
 image:Irudia:
 index_forum:Foroa
@@ -168,9 +166,7 @@ register_location:Kokapena:
 register_occupation:Lanbidea:
 register_image:Irudia:
 register_icq:ICQ:
-register_aim:AIM Handle:
 register_yahoo:Yahoo Messenger:
-register_msnm:MSN Messenger
 register_homepage:Hasiera orria:
 register_bday:Jaiotza data:
 register_day:Eguna

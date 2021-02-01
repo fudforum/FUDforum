@@ -46,8 +46,6 @@ homepage:Heimasíða:
 icq_control_panel:ICQ Online-pallborðskjak
 icq_message_form:ICQ oyðublað til boð:
 ignore_user:síggj burtur frá øllum boðum frá hesum brúkaranum
-im_aim:AIM brúkaranavn:
-im_msnm:MSN Messenger (Boðberi):
 im_yahoo:Yahoo Messenger (Boðberi):
 image:Mynd:
 index_forum:Forum
@@ -333,9 +331,7 @@ register_occupation:Starv:
 register_interests:Áhugamál:
 register_image:Mynd:
 register_icq:ICQ:
-register_aim:AIM brúkaranavn:
 register_yahoo:Yahoo Messenger:
-register_msnm:MSN Messenger:
 register_homepage:Heimasíða:
 register_bday:Føðingardagur:
 register_bday_desc:Um tú upplýsir tín føðingardag, so kunnu aðrir limir í foruminum síggja tað á tínari vangamynd.

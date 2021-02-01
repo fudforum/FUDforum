@@ -32,7 +32,6 @@ go:चला
 goto_next_msg:पुढचा संदेश:
 home:मुख्य
 homepage:मुखपृष्ठ:
-im_msnm:एमएसएन संदेशवाहक (मेसेंजर) :
 im_yahoo:याहू संदेशवाहक (मेसेंजर) :
 image:चित्र:
 interests:आवडी:
@@ -155,7 +154,6 @@ register_location:ठिकाण:
 register_occupation:व्यवसाय:
 register_image:चित्र:
 register_yahoo:याहू संदेशवाहक (मेसेंजर) :
-register_msnm:एमएसएन संदेशवाहक (मेसेंजर) :
 register_homepage:मुखपृष्ठ:
 register_bday:जन्मदिनांक:
 register_day:दिवस

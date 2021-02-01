@@ -55,8 +55,6 @@ homepage:Startpagina:
 icq_control_panel:ICQ online-berichtenvenster
 icq_message_form:ICQ berichtenformulier:
 ignore_user:alle berichten van deze gebruiker negeren
-im_aim:AIM-gebruiker:
-im_msnm:MSN Messenger:
 im_yahoo:Yahoo Messenger:
 image:Afbeelding:
 index_forum:Forum
@@ -344,9 +342,7 @@ register_occupation:Beroep:
 register_interests:Interesses:
 register_image:Afbeelding:
 register_icq:ICQ:
-register_aim:AIM-account:
 register_yahoo:Yahoo Messenger:
-register_msnm:MSN Messenger:
 register_homepage:Startpagina:
 register_bday:Geboortedatum:
 register_bday_desc:Als u een geboortedatum selecteert kunnen andere gebruikers deze ook zien in uw profiel.

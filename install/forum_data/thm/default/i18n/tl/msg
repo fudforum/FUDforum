@@ -47,8 +47,6 @@ homepage:Bahay-pahina:
 icq_control_panel:Kahong Pantaban ng Nasa Internet na Mensahe ng ICQ
 icq_message_form:Pormularyo ng Mensahe ng ICQ:
 ignore_user:huwag pansinin ang lahat ng mga mensahe ng tagagamit na ito
-im_aim:Hawakan ng AIM:
-im_msnm:Mensahero ng MSN:
 im_yahoo:Mensahero ng Yahoo:
 image:Larawan:
 index_forum:Poro
@@ -332,9 +330,7 @@ register_occupation:Hanapbuhay:
 register_interests:Mga hilig:
 register_image:Larawan:
 register_icq:ICQ:
-register_aim:Panghawak ng AIM:
 register_yahoo:Mensahero ng Yahoo:
-register_msnm:Mensahero ng MSN:
 register_homepage:Bahay-pahina:
 register_bday:Petsa ng Kapanganakan:
 register_bday_desc:Kapag nagpasok ka ng isang petsa ng kapanganakan, makikita ito kung gayon ng ibang mga kasapi sa poro sa loob ng balangkas mo.

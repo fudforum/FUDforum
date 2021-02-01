@@ -43,8 +43,6 @@ homepage:Үйбарак:
 icq_control_panel:ICQ тармагындагы онлайн панели
 icq_message_form:ICQ билдирүү жөнөтүү:
 ignore_user:Бул колдонуучунну бардык билдирүүлөрүн жокко чыгаруу
-im_aim:AIM тармагы:
-im_msnm:MSN билдирүү:
 im_yahoo:Yahoo билдирүү:
 image:Сүрөт:
 index_forum:Форум
@@ -318,9 +316,7 @@ register_occupation:Ишмердүүлүгү:
 register_interests:Кызыгуулар:
 register_image:Сүрөт:
 register_icq:ICQ
-register_aim:AIM тармагы:
 register_yahoo:Yahoo билдирүү:
-register_msnm:MSN билдирүү:
 register_homepage:Башбарак:
 register_bday:Туулган жылы:
 register_bday_desc:өзүңүздүн туулган жылыңызды көрсөткөнүңүздө, башка колдонуучулар Сиздин жеке баракты көрүүдө көрө алышат.

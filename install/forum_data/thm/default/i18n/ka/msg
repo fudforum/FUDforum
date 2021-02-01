@@ -45,8 +45,6 @@ homepage:მთავარი გვერდი:
 icq_control_panel:ICQ ონლაინ-შეტყობინებების პანელი
 icq_message_form:ICQ შეტყობინების ფორმა:
 ignore_user:ამ მომხმარებლის ყველა შეტყობინების იგნორირება
-im_aim:AIM-ის ქსელი:
-im_msnm:MSN-ის ქსელი:
 im_yahoo:Yahoo-ს ქსელი:
 image:სურათი:
 index_forum:ფორუმი
@@ -331,9 +329,7 @@ register_occupation:საქმიანობა:
 register_interests:ინტერესები:
 register_image:სურათი:
 register_icq:ICQ:
-register_aim:სახელი AIM-ის ქსელში:
 register_yahoo:სახელი Yahoo-ს ქსელში:
-register_msnm:სახელი MSN-ის ქსელში:
 register_homepage:მთავარი გვერდი:
 register_bday:დაბადების თარიღი:
 register_bday_desc:დაბადების თარიღის მითითების შემთხვევაში, სხვა მომხმარებლები<br />შეძლებენ თქვენ პროფილში მის ნახვას.

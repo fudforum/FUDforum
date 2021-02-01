@@ -56,8 +56,6 @@ homepage:ホームページ:
 icq_control_panel:ICQ オンラインメッセージパネル
 icq_message_form:ICQ メッセージ フォーム:
 ignore_user:この利用者のメッセージはすべて無視
-im_aim:AIM ハンドル:
-im_msnm:MSN メッセンジャー:
 im_yahoo:Yahoo! メッセンジャー:
 image:画像:
 index_forum:フォーラム
@@ -345,9 +343,7 @@ register_occupation:職業:
 register_interests:興味:
 register_image:画像:
 register_icq:ICQ
-register_aim:AIM ハンドル:
 register_yahoo:Yahoo! メッセンジャー:
-register_msnm:MSN メッセンジャー:
 register_homepage:ホームページ:
 register_bday:誕生日:
 register_bday_desc:誕生日を入力するとあなたの自己紹介とともに、他のフォーラム・メンバーから見ることができます。

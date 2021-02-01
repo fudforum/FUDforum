@@ -57,8 +57,6 @@ homepage:Domovská stránka:
 icq_control_panel:ICQ Online panel
 icq_message_form:Formulář ICQ zprávy:
 ignore_user:ignorovat uživatele
-im_aim:AIM:
-im_msnm:MSN Messenger:
 im_yahoo:Yahoo Messenger:
 image:Obrázek:
 index_forum:Fórum
@@ -343,9 +341,7 @@ register_occupation:Zaměstnání:
 register_interests:Zájmy:
 register_image:Vzhled:
 register_icq:ICQ
-register_aim:AIM kód:
 register_yahoo:Yahoo Messenger:
-register_msnm:MSN Messenger:
 register_homepage:Domovská stránka:
 register_bday:Datum narození:
 register_bday_desc:Pokud zadáte datum narození, ostatní uživatelé ho mohou vidět také ve vašem profilu.

@@ -48,8 +48,6 @@ homepage:Κεντρική σελίδα:
 icq_control_panel:Πίνακας ICQ Online-Μηνυμάτων
 icq_message_form:Φόρμα Μηνύματος ICQ:
 ignore_user:αγνόηση όλων των μηνυμάτων από αυτόν τον χρήστη
-im_aim:Διαχείριση ΑΙΜ:
-im_msnm:MSN Αγγελιοφόρος:
 im_yahoo:Yahoo Αγγελιοφόρος:
 image:Εικόνα:
 index_forum:Φόρουμ
@@ -313,9 +311,7 @@ register_occupation:Απασχόληση:
 register_interests:Ενδιαφέροντα:
 register_image:Εικόνα:
 register_icq:Ταυτότητα ICQ:
-register_aim:Διαχείριση ΑΙΜ:
 register_yahoo:Αγγελιοφόρος Yahoo:
-register_msnm:Αγγελιοφόρος MSN:
 register_homepage:Κεντρική σελίδα:
 register_bday:Ημερομηνία Γέννησης:
 register_bday_desc:Εάν εισαγάγετε μια ημερομηνία γέννησης, τότε  άλλα μέλη του φόρουμ θα είναι σε θέση να το δουν το προφίλ σας.

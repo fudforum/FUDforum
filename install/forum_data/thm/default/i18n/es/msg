@@ -62,8 +62,6 @@ homepage:Página de inicio:
 icq_control_panel:Panel ICQ en línea-mensaje
 icq_message_form:Formulario de mensaje ICQ:
 ignore_user:ignorar todos los mensajes de este usuario
-im_aim:Usuario AIM:
-im_msnm:MSN Messenger:
 im_yahoo:Yahoo Messenger:
 image:Imagen:
 index_forum:Foro
@@ -351,9 +349,7 @@ register_occupation:Ocupación:
 register_interests:Intereses:
 register_image:Imagen:
 register_icq:ICQ:
-register_aim:Usuario AIM:
 register_yahoo:Yahoo Messenger:
-register_msnm:MSN Messenger:
 register_homepage:Página personal:
 register_bday:Fecha de nacimiento:
 register_bday_desc:Si selecciona su fecha de nacimiento, otros miembros del foro podrán verla en su perfil.

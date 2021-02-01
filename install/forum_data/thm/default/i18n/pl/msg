@@ -60,8 +60,6 @@ homepage:Strona domowa:
 icq_control_panel:Panel wiadomości ICQ
 icq_message_form:Formularz wiadomości ICQ:
 ignore_user:Ignoruj tego użytkownika
-im_aim:Pseudonim AIM:
-im_msnm:Komunikator GaduGadu:
 im_yahoo:Komunikator Yahoo:
 image:Obrazek:
 index_forum:Forum
@@ -349,9 +347,7 @@ register_occupation:Zawód:
 register_interests:Zainteresowania:
 register_image:Adres obrazka:
 register_icq:ICQ
-register_aim:Pseudonim AIM:
 register_yahoo:Komunikator Yahoo:
-register_msnm:Komunikator GaduGadu:
 register_homepage:Strona domowa:
 register_bday:Data urodzenia:
 register_bday_desc:Jeśli podasz swoją datę urodzenia, to inni użytkownicy forum będą w stanie zobaczyć ją w twoim profilu.

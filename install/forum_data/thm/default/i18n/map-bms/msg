@@ -46,8 +46,6 @@ homepage:Homepage:
 icq_control_panel:Panel pesen ICQ
 icq_message_form:Formulir pesen ICQ:
 ignore_user:jorna baen kabeh pesen sekang panganggo kiye
-im_aim:AIM Handle:
-im_msnm:MSN Messenger:
 im_yahoo:Yahoo Messenger:
 image:Gambar:
 index_forum:Forum
@@ -333,9 +331,7 @@ register_occupation:Pegawean:
 register_interests:Kesenengane:
 register_image:Gambar:
 register_icq:ICQ:
-register_aim:AIM Handle:
 register_yahoo:Yahoo Messenger:
-register_msnm:MSN Messenger:
 register_homepage:Homepage:
 register_bday:Tgl lair:
 register_bday_desc:Angger Rika aweh tanggal lair, panganggo sejen bakal teyeng ndeleng kuwe nang profile Rika.

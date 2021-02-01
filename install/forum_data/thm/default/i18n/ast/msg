@@ -47,8 +47,6 @@ homepage:Páxina principal:
 icq_control_panel:ICQ en llinia-Panel de mensaxes
 icq_message_form:Formulariu de mensaxe ICQ:
 ignore_user:saltar tolos mensaxes d'esti usuariu
-im_aim:Identificador AIM:
-im_msnm:MSN Messenger:
 im_yahoo:Yahoo Messenger:
 image:Imaxe:
 index_forum:Foru
@@ -336,9 +334,7 @@ register_occupation:Ocupación:
 register_interests:Intereses:
 register_image:Imaxe:
 register_icq:ICQ:
-register_aim:Identificador AIM:
 register_yahoo:Yahoo Messenger:
-register_msnm:MSN Messenger:
 register_homepage:Páxina personal:
 register_bday:Data de nacimientu:
 register_bday_desc:Si escribes una data de nacimientu, los otros miembros del foru podrán vela nel to perfil.

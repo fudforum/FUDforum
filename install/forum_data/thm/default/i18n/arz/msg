@@ -47,8 +47,6 @@ homepage:الصفحه الرئيسية:
 icq_control_panel:لوحه رسائل ICQ على الإنترنت
 icq_message_form:نموذج رساله ICQ:
 ignore_user:تجاهل كل رسائل هذا المستخدم
-im_aim:مدير AIM:
-im_msnm:MSN Messenger:
 im_yahoo:Yahoo Messenger:
 image:صورة:
 index_forum:المنتدى
@@ -336,9 +334,7 @@ register_occupation:المهنة:
 register_interests:الاهتمامات:
 register_image:الصورة:
 register_icq:ICQ:
-register_aim:مدير AIM:
 register_yahoo:Yahoo Messenger:
-register_msnm:MSN Messenger:
 register_homepage:الصفحه الرئيسية:
 register_bday:تاريخ الميلاد:
 register_bday_desc:إذا أدخلت تاريخ ميلاد، فسيتمكن أعضاء المنتدى الآخرون من رؤيته فى ملفك الشخصى.

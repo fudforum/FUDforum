@@ -56,8 +56,6 @@ homepage:Kotisivu:
 icq_control_panel:ICQ Online -viestipaneeli
 icq_message_form:ICQ-viestilomake:
 ignore_user:torju kaikki tämän käyttäjän viestit
-im_aim:AIM-tunnus:
-im_msnm:MSN Messenger:
 im_yahoo:Yahoo Messenger:
 image:Kuva:
 index_forum:Foorumi
@@ -346,9 +344,7 @@ register_occupation:Ammatti:
 register_interests:Harrastukset:
 register_image:Kuva:
 register_icq:ICQ:
-register_aim:AIM-tunnus:
 register_yahoo:Yahoo Messenger:
-register_msnm:MSN Messenger:
 register_homepage:Kotisivu:
 register_bday:Syntymäaika:
 register_bday_desc:Jos asetat syntymäaikasi, muut foorumin käyttäjät näkevät sen profiilissasi.

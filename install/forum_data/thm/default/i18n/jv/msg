@@ -50,8 +50,6 @@ homepage:kaca:
 icq_control_panel:ICQ-online Pesen Panel
 icq_message_form:ICQ Formulir Pesen:
 ignore_user:ditolak lewat pesen kabeh dening pangguna
-im_aim:Yahoo nangani:
-im_msnm:MSN Messenger:
 im_yahoo:Yahoo Messenger:
 image:gambar:
 index_forum:Forum
@@ -336,9 +334,7 @@ register_occupation:pendhudhukan:
 register_interests:kapentingan:
 register_image:gambar:
 register_icq:ICQ:
-register_aim:Yahoo nangani:
 register_yahoo:Yahoo Messenger:
-register_msnm:MSN Messenger:
 register_homepage:kaca:
 register_bday:Tanggal lair:
 register_bday_desc:Yen sampeyan ngetik tanggal lair, banjur liyane Category anggota bakal bisa ndeleng ing profil Panjenengan.

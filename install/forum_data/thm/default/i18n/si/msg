@@ -51,8 +51,6 @@ homepage:මුල් පිටුව:
 icq_control_panel:ICQ මාර්ගගත-පණිවුඩ පැනලය
 icq_message_form:ICQ පණිවුඩ ෆෝරමය:
 ignore_user:මෙම පරිශීලකගෙන් සියලුම පණිවුඩ නොසලකා හරින්න
-im_aim:AIM හැසිරවීම:
-im_msnm:MSN පණිවුඩකරු:
 im_yahoo:යාහූ පණිවුඩකරු:
 image:රූපය:
 index_forum:ෆෝරමය:
@@ -338,9 +336,7 @@ register_occupation:රැකියාව:
 register_interests:ලැදිකම්:
 register_image:රූපය:
 register_icq:ICQ:
-register_aim:AIM හැසිරවීම:
 register_yahoo:යාහූ පණිවුඩකරු:
-register_msnm:MSN පණිවුඩකරු:
 register_homepage:නිවස්නපිටුව:
 register_bday:උපන් දිනය:
 register_bday_desc:ඔබ උපන් දිනය යෙදුවහොත්, අනෙත් ෆෝරම සාමාජිකයන්ට එය බැලීමට අවස්ථාව ඇත.

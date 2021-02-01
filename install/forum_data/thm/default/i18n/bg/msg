@@ -47,8 +47,6 @@ homepage:Лична страница, сайт:
 icq_control_panel:Панел на потребителите присъстващи в ICQ
 icq_message_form:Форма за съобщения по ICQ
 ignore_user:игнорирай всички съобщения<br />от този потребител
-im_aim:AIM:
-im_msnm:MSN:
 im_yahoo:Yahoo:
 image:Изображение:
 index_forum:Форум
@@ -318,9 +316,7 @@ register_occupation:Професия:
 register_interests:Интереси:
 register_image:Изображение:
 register_icq:ICQ
-register_aim:AIM :
 register_yahoo:Yahoo:
-register_msnm:MSN:
 register_homepage:Лична страница&nbsp; или сайт:
 register_bday:Дата на раждане:
 register_bday_desc:Всеки ще може да види рождения ти ден

@@ -52,8 +52,6 @@ homepage:Trang web cá nhân:
 icq_control_panel:ICQ Online-Message Panel
 icq_message_form:Tin nhắn mẫu ICQ:
 ignore_user:Từ chối tất cả bài viết bởi thành viên này
-im_aim:Bộ xử lý AIM:
-im_msnm:MSN Messenger:
 im_yahoo:Yahoo Messenger:
 image:Hình ảnh:
 index_forum:Diễn đàn
@@ -341,9 +339,7 @@ register_occupation:Nghề nghiệp:
 register_interests:Sở thích:
 register_image:Hình Ảnh:
 register_icq:ICQ
-register_aim:Tên người dùng AIM:
 register_yahoo:Yahoo Messenger:
-register_msnm:MSN Messenger:
 register_homepage:Trang web của bạn:
 register_bday:Ngày sinh nhật:
 register_bday_desc:Nếu bạn nhập vào ngày sinh nhật .Thành viên khác trong diễn dàn có thể sẽ nhìn thấy được ngày sinh của bạn trong phần tiểu sử

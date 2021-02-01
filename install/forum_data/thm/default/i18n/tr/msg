@@ -69,8 +69,6 @@ homepage:Anasayfa:
 icq_control_panel:ICQ Çevrimiçi Mesaj Paneli
 icq_message_form:ICQ Mesaj Formu:
 ignore_user:bu kullanıcının tüm mesajlarını yoksay
-im_aim:AIM Kolu:
-im_msnm:MSN Messenger:
 im_yahoo:Yahoo Messenger:
 image:Resim:
 index_forum:Forum
@@ -358,9 +356,7 @@ register_occupation:Meslek:
 register_interests:İlgi:
 register_image:Resim:
 register_icq:ICQ:
-register_aim:AIM Kolu:
 register_yahoo:Yahoo Messenger:
-register_msnm:MSN Messenger:
 register_homepage:Anasayfa:
 register_bday:Doğum Tarihi:
 register_bday_desc:Bir doğum tarihi girerseniz, diğer forum üyeleri bunu profilinizde görebilir.

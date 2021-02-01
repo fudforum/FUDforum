@@ -68,8 +68,7 @@ homepage:Домашняя страница, сайт:
 icq_control_panel:Панель присутствия в сети ICQ
 icq_message_form:Послать сообщение на ICQ
 ignore_user:игнорировать все сообщения<br />от этого участника
-im_aim:AIM Handle:
-im_msnm:MSN Messenger:
+im_facebook:Facebook:
 im_yahoo:Yahoo Messenger:
 image:Картинка:
 index_forum:Форум
@@ -357,9 +356,8 @@ register_occupation:Род деятельности:
 register_interests:Интересы:
 register_image:Картинка:
 register_icq:ICQ
-register_aim:Имя в сети AIM:
+register_facebook:Идентификатор Facebook:
 register_yahoo:Имя в сети Yahoo:
-register_msnm:Имя в сети MSN:
 register_homepage:Домашняя страница или сайт:
 register_bday:Дата рождения:
 register_bday_desc:При указании вами даты своего рождения, остальные пользователи<br />смогут её увидеть при просмотре вашего профиля.

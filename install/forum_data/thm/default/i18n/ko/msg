@@ -55,8 +55,7 @@ homepage:홈페이지:
 icq_control_panel:ICQ 온라인 메시지 패널
 icq_message_form:ICQ 메시지 보내기:
 ignore_user:이 사용자의 모든 메시지 무시
-im_aim:AIM 핸들:
-im_msnm:MSN 메신저:
+im_facebook:페이스북:
 im_yahoo:Yahoo 메신저:
 image:그림:
 index_forum:포럼
@@ -344,9 +343,8 @@ register_occupation:직업:
 register_interests:관심분야:
 register_image:그림:
 register_icq:ICQ
-register_aim:AIM:
+register_facebook:페이스북 ID:
 register_yahoo:Yahoo 메신저:
-register_msnm:MSN 메신저:
 register_homepage:홈페이지:
 register_bday:생일:
 register_bday_desc:생일을 입력하면 다른 포럼 회원들이 당신의 프로필의 생일을 볼 수 있습니다.

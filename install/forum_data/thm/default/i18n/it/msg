@@ -55,8 +55,7 @@ homepage:Homepage:
 icq_control_panel:Pannello Messaggi on-line ICQ
 icq_message_form:ICQ Form Messaggi:
 ignore_user:ignora tutti i messaggi<br />di questo utente
-im_aim:Handle AIM:
-im_msnm:MSN Messenger:
+im_facebook:Facebook:
 im_yahoo:Yahoo Messenger:
 image:Immagine:
 index_forum:Forum
@@ -344,9 +343,7 @@ register_occupation:Occupazione:
 register_interests:Interessi:
 register_image:Immagine:
 register_icq:ICQ
-register_aim:Handle AIM:
 register_yahoo:Yahoo Messenger:
-register_msnm:MSN Messenger:
 register_homepage:Homepage:
 register_bday:Data di nascita:
 register_bday_desc:Se decidi di rendere nota la tua data di nascita, gli altri utenti registrati del forum potranno vederla

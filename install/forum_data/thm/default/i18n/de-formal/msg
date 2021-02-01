@@ -53,8 +53,6 @@ homepage:Homepage:
 icq_control_panel:ICQ-Online-Menü
 icq_message_form:ICQ-Nachricht erstellen:
 ignore_user:Alle Beiträge dieses Benutzers ignorieren
-im_aim:AIM-Benutzername:
-im_msnm:MSN Messenger:
 im_yahoo:Yahoo Messenger:
 image:Bild:
 index_forum:Forum
@@ -340,9 +338,7 @@ register_occupation:Beruf:
 register_interests:Interessen:
 register_image:Bild:
 register_icq:ICQ:
-register_aim:AIM-Benutzername:
 register_yahoo:Yahoo Messenger:
-register_msnm:MSN Messenger:
 register_homepage:Webseite:
 register_bday:Geburtsdatum:
 register_bday_desc:Falls Sie Ihren Geburtstag angeben, wird dieser allen Besuchern des Forums angezeigt werden

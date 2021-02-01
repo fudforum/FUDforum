@@ -49,8 +49,6 @@ homepage:Lec'hienn Web :
 icq_control_panel:Kemennadenn enlinenn ICQ
 icq_message_form:Furmskrid kemennadenn ICQ :
 ignore_user:Dianavezout an holl gemennadennoù gant an implijer-mañ
-im_aim:Anavezer AIM :
-im_msnm:Anavezer MSN Messenger :
 im_yahoo:Anavezer Yahoo Messenger :
 image:Skeudenn :
 index_forum:Forom
@@ -338,9 +336,7 @@ register_occupation:Micher :
 register_interests:Ar pezh oc'h dedennet gantañ :
 register_image:Skeudenn :
 register_icq:Anavezer ICQ :
-register_aim:Anavezer AIM :
 register_yahoo:Anavezer Yahoo Messenger :
-register_msnm:Anavezer MSN Messenger :
 register_homepage:Lec'hienn web personel :
 register_bday:Deiziad ganedigezh :
 register_bday_desc:Ma ebarzhit un deiziad ganedigezh e vo gwelet gant izili all ar forom en ho profil.
