@@ -5,6 +5,7 @@
 # Author: Macofe
 # Author: McDutchie
 # Author: Naudefj
+# Author: Yivan000
 
 action:Galaw
 add_to_buddy_list:idagdag sa talaan ng katoto
@@ -527,7 +528,7 @@ mklist_disc:Dalipay
 mklist_circle:Bilog
 mklist_close:Isara
 email_to:Para kay:
-email_pg_title:E-liham
+email_pg_title:Email
 email_subject:Paksa:
 email_body:Katawan:
 email_submit:E-liham

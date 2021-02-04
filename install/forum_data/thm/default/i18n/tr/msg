@@ -69,6 +69,7 @@ homepage:Anasayfa:
 icq_control_panel:ICQ Çevrimiçi Mesaj Paneli
 icq_message_form:ICQ Mesaj Formu:
 ignore_user:bu kullanıcının tüm mesajlarını yoksay
+im_facebook:Facebook:
 im_yahoo:Yahoo Messenger:
 image:Resim:
 index_forum:Forum
@@ -356,6 +357,7 @@ register_occupation:Meslek:
 register_interests:İlgi:
 register_image:Resim:
 register_icq:ICQ:
+register_facebook:Facebook IDsi:
 register_yahoo:Yahoo Messenger:
 register_homepage:Anasayfa:
 register_bday:Doğum Tarihi:
