@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2020 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2021 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -136,8 +136,8 @@ function change_global_settings($list)
 {
 	$settings = file_get_contents($GLOBALS['INCLUDE'] .'GLOBALS.php');
 	foreach ($list as $k => $v) {
-		$v = str_replace("\n", '<br />', $v);	// Get rid of newlines (they will break this function).
-		$v = addcslashes($v, '\'');
+		$v = str_replace("\n", '<br />', $v);	// Remove newlines, they will break this function.
+		$v = addcslashes($v, '\\\'');
 		$str = "\$GLOBALS['". $k ."']";
 		
 		if (($p = strpos($settings, $str)) === false) {	// Find it. New or existing setting?
@@ -154,7 +154,6 @@ function change_global_settings($list)
 			if (is_numeric($v)) {
 				$settings = substr_replace($settings, ' '. $v, $p, ($e - $p));
 			} else {
-				$v = addcslashes($v, '\\\'');
 				$settings = substr_replace($settings, ' \''. $v .'\'', $p, ($e - $p));
 			}
 		}
