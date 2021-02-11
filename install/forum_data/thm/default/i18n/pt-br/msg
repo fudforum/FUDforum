@@ -5,6 +5,7 @@
 # Author: Dianakc
 # Author: Dr03ramos
 # Author: Eduardo Addad de Oliveira
+# Author: Eduardoaddad
 # Author: Felipe L. Ewald
 # Author: Giro720
 # Author: Leosls
@@ -59,6 +60,7 @@ homepage:Página inicial:
 icq_control_panel:Painel de mensagens do ICQ Online
 icq_message_form:Formulario de mensagem ICQ:
 ignore_user:Ignorar todas mensagens deste usuário
+im_facebook:Facebook:
 im_yahoo:Yahoo Messenger:
 image:Imagem:
 index_forum:Fórum
@@ -346,6 +348,7 @@ register_occupation:Ocupação:
 register_interests:Interesses:
 register_image:Imagem:
 register_icq:ICQ
+register_facebook:ID no Facebook:
 register_yahoo:Yahoo Messenger:
 register_homepage:Página Pessoal:
 register_bday:Data de nascimento:

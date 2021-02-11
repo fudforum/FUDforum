@@ -56,6 +56,7 @@ homepage:Kotisivu:
 icq_control_panel:ICQ Online -viestipaneeli
 icq_message_form:ICQ-viestilomake:
 ignore_user:torju kaikki tämän käyttäjän viestit
+im_facebook:Facebook:
 im_yahoo:Yahoo Messenger:
 image:Kuva:
 index_forum:Foorumi
@@ -344,6 +345,7 @@ register_occupation:Ammatti:
 register_interests:Harrastukset:
 register_image:Kuva:
 register_icq:ICQ:
+register_facebook:Facebook-tunnus:
 register_yahoo:Yahoo Messenger:
 register_homepage:Kotisivu:
 register_bday:Syntymäaika:
