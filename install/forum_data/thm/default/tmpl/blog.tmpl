@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2020 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2021 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -32,12 +32,15 @@
 {PAGE: BLOG_PAGE}
 {TEMPLATE: header}
 {TEMPLATE: usercp}
+{IF: _uid}<span class="GenText">{MSG: welcome_message}</span><br />{ENDIF}
+{TEMPLATE: show_links}{TEMPLATE-DATA: admin_cp}
+{TEMPLATE-DATA: announcements}
 {TEMPLATE-DATA: page_data}
 <br />
 {TEMPLATE-DATA: page_pager}
-	{TEMPLATE: curtime}
-	{TEMPLATE-DATA: page_stats}
-	{TEMPLATE: footer}
+{TEMPLATE: curtime}
+{TEMPLATE-DATA: page_stats}
+{TEMPLATE: footer}
 {PAGE: END}
 
 {SECTION: blog_msg_list}
@@ -85,7 +88,7 @@
       <p>{VAR: topic->body}</p>
       <span class="SmallText">{TEMPLATE: blog_forum} | {TEMPLATE: blog_comments}</span>
     </div>
-<!--
+<!-- TODO - can we use this code?
 				{IF: $topic->icon}
 					<a href="{ROOT}/blog/{VAR: start}/{VAR: topic->icon}/"><img src="{BASE}images/message_icons/{VAR: topic->icon}" alt="{VAR: topic->icon}" align="left" class="news_icon" style="margin-right: 10px !important;padding: 0px;" height="48" width="48"></a>
 				{ENDIF}
@@ -93,13 +96,6 @@
 <div class="msglink" id="msg_{VAR: topic->id}" style="float; right;display: none;position: relative; top: 32px;left: -330px;"><input type="text" onFocus="this.select()" value="{TEMPLATE: blog_msg_subject_lnk}" size="20" tabindex="1" name="srch" class="inputbox" alt="search"></div>
 {TEMPLATE: blog_msg_subject}<br><br>
 {TEMPLATE: blog_new_comment_link}
-				<br>
-				<hr style="margin-right:0px;color: #fff; background-color: #fff; border: 1px dotted #cccccc; border-style: none none dotted;"><br>
-<div class="blog_div"><div class="MsgBodyText">
-				{VAR: topic->body}</div></div><br><br>
-				<div style="clear: both;"></div>
-				<div><hr style="border-style: none none dotted; border-color: rgb(204, 204, 204); margin-left: 0px; border-width: 1px; color: rgb(255, 255, 255); background-color: rgb(255, 255, 255);">
-				<span style="color: #666666;font-size: 8pt;">Written by TEMPLATE: blog_msg_user_login</span><span class="DateText"> {TEMPLATE: blog_msg_post_date}</span> - <a href="{TEMPLATE: blog_new_comment_link_lnk}" class="button">{TEMPLATE-DATA: thread_read_status} There are (<span style="color:black">{VAR: topic->replies}</span>) comments on the article.</a><br><br><br>
 -->
 {SECTION: END}
 
@@ -110,8 +106,9 @@
 {SECTION: END}
 
 {SECTION: blog_RSS_link}
-<br />
+{IF: $FUD_OPT_2 & 1048576}<br />
 <div style="float: right"><a href="{BASE}rdf.php?mode=m&amp;l=1&amp;basic=1&amp;n=10" class="button"><img src="{THEME_IMAGE_ROOT}/rss.gif" title="{MSG: thread_syndicate}" alt="RSS" width="16" height="16"> RSS</a></div>
+{ENDIFI}
 {SECTION: END}
 
 {SECTION: blog_msg_subject}
@@ -199,3 +196,9 @@
 {MSG: blog_update}
 {SECTION: END}
 
+{SECTION: announce_entry Announcement row}
+<fieldset class="AnnText">
+        <legend class="AnnSubjText">{VAR: announce_subj}</legend>
+        {VAR: announce_body}
+</fieldset>
+{SECTION: END}
