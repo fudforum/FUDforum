@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2021 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -58,7 +58,7 @@ function draw_post_icons($msg_icon)
 	return '{TEMPLATE: post_icons}';
 }
 
-function draw_post_attachments($al, $max_as, $max_a, $attach_control_error, $private=0, $msg_id)
+function draw_post_attachments($al, $max_as, $max_a, $attach_control_error, $private, $msg_id)
 {
 	$attached_files = '';
 	$i = 0;
