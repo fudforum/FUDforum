@@ -112,7 +112,7 @@ function path_info_lnk($var, $val)
 	}
 
 	/* Fall back to yesterday if there is no messages for today yet. */
-        if ($_GET['date'] == 'today' && $total == 0) {  // Nothing, try yesterday.
+        if (isset($_GET['date']) && $_GET['date'] == 'today' && $total == 0) {  // Nothing, try yesterday.
                 $tm_today_start   = $tm_today_start - 86400;
                 $date_limit     = ' AND m.post_stamp>'. $tm_today_start .' AND m.post_stamp<'. $tm_today_end .' ';
                 $total = (int) q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}msg m INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id INNER JOIN {SQL_TABLE_PREFIX}forum f ON t.forum_id=f.id INNER JOIN {SQL_TABLE_PREFIX}cat c ON f.cat_id=c.id '. (isset($_GET['sub_forum_limit']) ? 'INNER JOIN {SQL_TABLE_PREFIX}forum_notify fn ON fn.forum_id=f.id AND fn.user_id='. _uid : '') .' '. (isset($_GET['sub_th_limit']) ? 'INNER JOIN {SQL_TABLE_PREFIX}thread_notify tn ON tn.thread_id=t.id AND tn.user_id='. _uid : '') .' '. $join .' LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=f.id AND mm.user_id='. _uid .' WHERE m.apr=1 '. $date_limit .' '. ($frm_id ? ' AND f.id='. $frm_id : '') .' '. ($th ? ' AND t.id='. $th : '') .' '. (isset($_GET['reply_count']) ? ' AND t.replies='. (int)$_GET['reply_count'] : '') .' '. $perm_limit);
