@@ -64,7 +64,7 @@ homepage:Page personnelle :
 icq_control_panel:Panneau de messages en ligne ICQ
 icq_message_form:Formulaire de message ICQ :
 ignore_user:ignorer tous les messages de cet utilisateur
-im_facebook:Facebook :
+im_facebook:Facebook :
 im_yahoo:Yahoo Messenger :
 image:Image :
 index_forum:Forum
@@ -352,7 +352,7 @@ register_occupation:Occupation :
 register_interests:Centres d'intérêt :
 register_image:Image :
 register_icq:Identifiant ICQ :
-register_facebook:ID Facebook :
+register_facebook:ID Facebook :
 register_yahoo:Yahoo Messenger :
 register_homepage:Site web personnel :
 register_bday:Date de naissance :
@@ -479,7 +479,7 @@ login_login:Nom d’utilisateur :
 login_login_btn:Se connecter
 login_name_required:Veuillez saisir votre nom d’utilisateur
 login_passwd_required:Veuillez saisir votre mot de passe
-login_invalid_radius:Combinaison de nom d’utilisateur et de mot de passe non valide
+login_invalid_radius:Combinaison de nom d’utilisateur et de mot de passe incorrecte
 reset_confirmation:Merci de vous être inscrit.\n\nAfin d’activer votre compte, veuillez visiter l’URL suivante :\n\n{VAR: url}\n\nUne fois votre compte activé, vous serez connecté au forum et conduit vers la page d accueil.
 reset_reset:Bonjour, \n\nVous avez décidé de réinitialiser votre mot de passe. Afin de poursuivre cette opération, veuillez vous diriger vers cette URL :\n\n{VAR: url}\n\nNOTE : le forum enregistre les mots de passe dans sa base de données en utilisant un mécanisme de chiffrement à sens unique, ce qui signifie qu’une fois que vous avez soumis votre mot de passe, ce dernier est chiffré de telle sorte qu’il ne sera PLUS POSSIBLE de le déchiffrer simplement.\nCeci est possible en comparant la version encodée que nous avons enregistrée avec celle de ce que vous saisissez dans la zone de saisie de l interface de connexion.\n(Pour plus d’informations sur ce mécanisme, veuillez vous référer à une documentation détaillant l’algorithme de hachage MD5)
 rpasswd_invalid_passwd:Mot de passe non valide
