@@ -12,6 +12,7 @@
 # Author: ToePeu
 # Author: Yearning
 # Author: Ykhwong
+# Author: 그냥기여자
 # Author: 아라
 
 action:동작
@@ -520,6 +521,7 @@ remail_message:메시지:
 remail_send_now:지금 이메일 발송
 remail_anon_opt:이 게시글을 이메일 클라이언트에 복사한 후, 전송할 친구를 선택하십시오.
 remail_done:완료
+remail_sent_conf:{VAR: data->subject} 주제에 대한 이메일을 {VAR-HTML: _POST['femail']} 주소로 성공적으로 전송했습니다.
 remail_error:오류
 mklist_type:유형:
 mklist_option:옵션:
@@ -1137,4 +1139,7 @@ karma:카르마
 karma_track:사용자의 평판 관리:
 karma_delete:삭제
 rate_author:저자 평가:
+blog_update:포럼 블로그 읽기
 blog:블로그
+blog_new_members:새 회원
+blog_new_posts:최근
