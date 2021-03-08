@@ -372,11 +372,11 @@ login_login_btn:Cıkewtış
 reset_update:Parola newe ke
 rpasswd_change_pass:Parola bıvurne
 rpasswd_login:Cıkewtış
-rpasswd_cur_pass:Parolay newkên:
+rpasswd_cur_pass:Parolaya nıkayêne:
 rpasswd_new_pass:Parolaya Newiye:
 rpasswd_conf_pass:Parola tesdiq ke
 ruser_title:Forma Dekewtışi Bıvurnê
-ruser_cur_pass:Parolaya newkên
+ruser_cur_pass:Parolaya nıkayêne:
 login_passwd:Parola:
 reset_email:E-poste:
 reset_reset_button:Parola newe ke
