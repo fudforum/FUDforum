@@ -49,6 +49,7 @@ homepage:דף הבית:
 icq_control_panel:חלונית להודעות ICQ מקוונות
 icq_message_form:טופס הודעת ICQ:
 ignore_user:התעלמות מהודעות הנשלחות ממשתמש זה
+im_facebook:פייסבוק:
 im_yahoo:Yahoo מסנג'ר:
 image:תמונה:
 index_forum:פורום
@@ -96,6 +97,7 @@ moved:הועבר לפורום אחר
 moved_thread_message:נושא זה הועבר לפורום אחר
 na:לא זמין
 new_posts:הודעות חדשות
+new_private_messages:יש לך {PLURAL: c|הודעה פרטית <span class="GenTextRed">אחת</span> שלא נקראה|<span class="GenTextRed">({VAR: c})</span>הודעות פרטיות שלא נקראו}
 new_thread:יצירת נושא חדש
 newest_user:המשתמש האחרון שנרשם הוא
 next_page:העמוד הבא
