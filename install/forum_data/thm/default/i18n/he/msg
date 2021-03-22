@@ -602,7 +602,7 @@ feed_rdf:הזנת RDF
 feed_rss:הזנת RSS2
 feed_atom:הזנת ATOM
 ip_whois_connect_err:לא ניתן להתחבר לשרת ה־WHOIS ({VAR: whois_server}): {VAR: errstr}
-custom_filed_required:זהו שדה נדרש.
+custom_filed_required:חובה למלא את השדה הזה.
 pages:עמודים
 page_list_heading:עמודים זמינים
 karma_delete:מחיקה

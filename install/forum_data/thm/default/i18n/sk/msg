@@ -51,6 +51,7 @@ homepage:Domovská stránka:
 icq_control_panel:Panel ICQ správ
 icq_message_form:Napísať ICQ správu:
 ignore_user:Ignorovať všetky príspevky tohto používateľa
+im_facebook:Facebook:
 im_yahoo:YAHOO:
 image:Obrázok:
 index_forum:Fórum
@@ -208,8 +209,7 @@ vote_button:Hlasovať
 vote_for_thread:Hlasovať
 was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> bola premiestnená do <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> moderátorom.
 welcome_message:Vitajte <b> {VAR: usr->alias} </b>, vaša posledná návšteva bola dňa {TEMPLATE: welcome_message_date}
-# Fuzzy
-what_ppl_doing:Ukáž, čo robia ostatní
+what_ppl_doing:Aktivita používateľa
 reported_del_report:Zmazať oznámenie
 reported_reason:Dôvod:
 reported_on:Čas oznámenia:
@@ -242,8 +242,7 @@ pmsg_forwarded:preposlané
 pmsg_subject:Predmet
 pmsg_author:Autor
 pmsg_time:Čas
-# Fuzzy
-pmsg_selected:Vybrané
+pmsg_selected:Vybrať
 pmsg_delete:Vymazať
 cur_ppage_pm:Súkromná pošta:
 writing_pm:Napísať súkromnú poštu
@@ -316,6 +315,7 @@ register_login_taken:Už sa používa
 register_password:Heslo:
 register_password_desc:Heslo pre váš účet. V heslách rozlišujte veľké a malé písmená a použite aspoň 6 znakov.
 register_conf_pass:<font class="StClr">Opakovanie hesla:</font>
+register_conf_pass_desc:Prosím zadajte znovu svoje heslo.
 register_email_desc:Vaša e-mailová adresa. Nižšie, v sekcii Nastavenia, je možné zobrazovanie e-mailovej adresy vypnúť.
 register_name:<font class="StClr">Skutočné meno:</font>
 register_name_desc:Vaše skutočné meno.
@@ -339,6 +339,7 @@ register_occupation:Zamestnanie:
 register_interests:Záujmy:
 register_image:Obrázok / Fotka (URL):
 register_icq:ICQ:
+register_facebook:Facebook ID:
 register_yahoo:YAHOO:
 register_homepage:Domovská stránka:
 register_bday:Dátum narodenia:
@@ -376,8 +377,7 @@ my_buddies:Moji priatelia
 add_buddy:Pridať priateľa
 add:Pridať
 buddy_search:Zadajte používateľské meno používateľa, ktorého si želáte pridať.
-# Fuzzy
-member_search:Alebo použite voľbu <a href="javascript://" class="GenLink" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Hľadať používateľa</a>.
+member_search:Alebo použite voľbu<a href="javascript://" onclick="javascript: window_open('{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Nájsť používateľa</a>.
 buddy_remove:odstrániť
 post_normal:Normálna
 post_sticky:Výveska
@@ -525,8 +525,7 @@ mklist_apply:Použiť
 mklist_delete:Vymazať
 qbud_nick_name:Prezývka
 qbud_add_selected:Pridať vybrané
-# Fuzzy
-qbud_selected:Vybrané
+qbud_selected:Vybrať
 qbud_no_buddies:Žiadny priatelia, z ktorých by sa dalo vyberať
 mklist_numerical:Číselný
 mklist_aplha:Alfa
@@ -595,8 +594,7 @@ buddy_list_err_ignore:Používateľ, ktorý Vás ignoruje sa nedá pridať do zo
 buddy_list_update:Prezerá si vlastný zoznam priateľov
 core_err_invinp_title:Neplatný vstup
 core_err_invinp_err:Nasledovali ste neplatný odkaz. Prosím, oznámte to <a href="mailto:{GVAR: ADMIN_EMAIL}">administrátorovi</a>.
-# Fuzzy
-core_adm_login_msg:Administrátori sa môžu prihlásiť <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">tu</a>.
+core_adm_login_msg:Administrátori sa môžu prihlásiť <a href="{BASE}adm/admloginuser.php">tu</a>.
 email_err_unabletoemail_title:CHYBA: Nie je možné poslať e-mail
 email_err_unabletoemail_msg:E-mailový systém bol vypnutý administrátorom.
 email_error_unabletolocaddr:Ospravedlňujeme sa, ale systém nemohol odoslať e-mail používateľovi {VAR-HTML: _POST['tx_name']} pretože nemohol zistiť/nájsť jeho e-mailovú adresu
@@ -722,8 +720,7 @@ error_title:Formulár pre hlásenie chýb
 index_title:Vitajte vo fóre
 search_title:Hľadať {VAR-HTML: srch}
 remail_emailsent:E-mail bol odoslaný
-# Fuzzy
-remail_email:Dobrý deň,\n\nvo internetovom fóre {GVAR: FORUM_TITLE} sa nachádza zaujímavá téma "{VAR: data->subject}", ktorú by ste si možno chceli prečítať. Tému si môžete prezrieť na internetovej adrese:\n  {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nVáš priateľ,\n\n{VAR: usr->alias}
+remail_email:Dobrý deň,\n\nv internetovom fóre {GVAR: FORUM_TITLE} sa nachádza zaujímavá téma "{VAR: data->subject}", ktorú by ste si možno chceli prečítať. Tému si môžete prezrieť na internetovej adrese:\n  {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nVáš priateľ,\n\n{VAR: usr->alias}
 poll_add_option:Pridať možnosť:
 post_opt_html_on:<b>HTML</b> je <b>zapnuté</b>
 post_opt_fud_on:<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>BBcode</b> je <b>zapnutý</b></a>
@@ -900,17 +897,14 @@ polllist_votes:Celkom hlasov
 polllist_action:Akcia
 polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">Prehliadanie aktívnych ankiet</a>
 userinfo_polls:Ankety:
-# Fuzzy
-show_pollist:Zobraziť ankety
+show_pollist:Ankety
 search_and:A
 search_or:ALEBO
-# Fuzzy
-search_desc_order:Zostupne
-# Fuzzy
-search_asc_order:Vzostupne
+search_desc_order:Najprv najnovšie
+search_asc_order:Najprv najstaršie
+search_relevance_order:Relevantnosť
 search_logic:Logika vyhľadávania:
-# Fuzzy
-search_sorting:Zoradiť výsledky podľa dátumu:
+search_sorting:Zoradiť podľa:
 search_attach:Prílohy:
 search_attach_all:S alebo bez
 search_attach_with:S prílohami
@@ -967,10 +961,8 @@ iemail_forum_unsub:Odhlásiť z tohoto fóra
 primary_group_prefix:Primárna skupina pre fórum:
 group_resources:Táto skupina kontroluje práva pre nasledujúce fóra
 register_admin_newuser_title:Nový používateľ sa zaregistroval a jeho účet čaká na schválenie
-# Fuzzy
-register_admin_newuser_msg:Nový používateľ ({VAR: uent->login}) sa práve zaregistroval. Je zapnuté potvrdzovanie účtov, tento účet nebude aktivovaný pokým ho Vy alebo iný administrátor na  fóre nepotvrdí. Ak si prajete tento používateľský účet skontrolovať, prejdite na: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nTáto správa je vygenerovaná serverom, prosím, neodpovedajte na ňu.\nAk chcete vypnúť ďalšie e-mailové oznamy nových registrácií, môžete tak urobiť cez Nastavenia správcov, zmenením nastavenia "Oznámenia nových používateľských účtov".
+register_admin_newuser_msg:Nový používateľ ({VAR: uent->login}) sa práve zaregistroval. Je zapnuté potvrdzovanie účtov, tento účet nebude aktivovaný pokým ho Vy alebo iný administrátor na  fóre nepotvrdí. Ak si prajete tento používateľský účet skontrolovať, prejdite na: {BASE}adm/admuserapr.php\n\nTáto správa je vygenerovaná automaticky, prosím, neodpovedajte na ňu.\nAk chcete vypnúť ďalšie e-mailové oznamy nových registrácií, môžete tak urobiť cez Nastavenia správcov, zmenením nastavenia "Oznámenia nových používateľských účtov".
 post_mod_msg_notify_title:Nový príspevok vo fóre "{VAR: frm->name}" na schválenie
-# Fuzzy
 post_mod_msg_notify_msg:Príspevok s predmetom "{VAR: msg_post->subject}" bol práve uverejnený vo fóre, ktoré moderujete. Ak si prajete skontrolovať túto správu, prejdite na: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nTáto správa je automaticky vygenerovaná. Prosím, neodpovedajte na ňu.
 thread_printable_pdf:Generovať PDF
 thread_syndicate:Vytvoriť XML súbor tohoto fóra
@@ -997,7 +989,6 @@ mnav_month:Mesiac(e)
 mnav_title:Navigátor správ
 mnav_update:Prezerá si príspevky cez <a href="{TEMPLATE: mnav_update_lnk}">Navigátor správ</a>
 pm_notify_subject:[{GVAR: FORUM_TITLE}] Oznámenie novej súkromnej pošty
-# Fuzzy
 pm_notify_body_email:V súkromnej pošte máte novú správu s predmetom "{VAR: subject}" od "{VAR: from}" vo fóre "{GVAR: FORUM_TITLE}".\nPre zobrazenie správy, kliknite sem: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nAk si neprajete, dostávať ďalšie takéto upozornenia, vypnite možnosť "Upozorňovať na správy súkromnej pošty" vo vašom profile.
 register_pm_notification:Správy o súkromnej pošte
 register_pm_notification_desc:Ak je to povolené, budete upozorňovaní o každej novej správe súkromnej pošty.
@@ -1064,10 +1055,8 @@ search_user_filter:Filtrovať podľa používateľa:
 register_none:Neupozorňovať
 findu_no_conf:nepotvrdený používateľ
 register_max_sig_len:Maximálna dĺžka:
-# Fuzzy
-register_turing:Prosím, zadajte nižšie uvedený kód:
-# Fuzzy
-register_err_turing:Neplatný overovací kód.
+register_turing:Overenie:
+register_err_turing:Neplatný overovací kód. Prosím skúste znovu.
 modque_cat:Kategória
 modque_forum:Fórum
 idx_compact_forum_row:Dostupné fóra:
@@ -1166,3 +1155,10 @@ karma:Karma
 karma_track:Správa karmy používateľa:
 karma_delete:Zmazať
 rate_author:Ohodnotiť autora:
+blog_update:Čítanie blogu fóra
+blog:Blog
+blog_new_members:Noví členovia
+blog_new_posts:Nedávne príspevky
+blog_rated_posts:Najlepšie hodnotené
+blog_viewed_posts:Najviac videné
+blog_comments:{PLURAL: topic->replies|$1 koment|komentárov $1}
