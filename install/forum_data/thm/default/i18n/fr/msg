@@ -80,7 +80,7 @@ lock_thread:Verrouiller le fil
 locked:Verrouillé
 locked_with_new_posts:Verrouillé (contient des messages non lus)
 logged_in_list:Liste des utilisateurs connectés
-login:Connexion
+login:Se connecter
 login_header:Connexion :
 logout:Déconnexion
 mark_all_read:Marquer tous les messages comme lus
@@ -855,7 +855,7 @@ report_report_post:Rapporter un message
 quicklogin_login:Nom d’utilisateur :
 quicklogin_password:Mot de passe :
 quicklogin_use_cookies:Utiliser des témoins (cookies) ?
-quicklogin_login_btn:Connexion
+quicklogin_login_btn:Se connecter
 quick_reply:Réponse rapide
 quick_reply_post:Publier une réponse rapide
 quick_reply_preview:Prévisualiser la réponse rapide

@@ -560,7 +560,7 @@ search_attach_all:Ebe ya zi bê
 search_attach_with:Ebe gaçıkan
 unread_message:Mesacê nêwaniyayey
 read_message:Mesaci bıwane
-threadt_more:&lt;dehana &gt;
+threadt_more:&lt;zêde&gt;
 saved:Qeyd bi
 iemail_msg_author:<b>Nuskar:</b> {VAR: obj->alias}
 iemail_msg_subject:<b>Mewzu:</b> {VAR: obj->subject}
