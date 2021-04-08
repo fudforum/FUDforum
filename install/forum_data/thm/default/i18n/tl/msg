@@ -1,84 +1,87 @@
 # Messages for Tagalog (Tagalog)
 # Exported from translatewiki.net
 # Author: AnakngAraw
+# Author: GinawaSaHapon
 # Author: Jojit fb
 # Author: Macofe
 # Author: McDutchie
 # Author: Naudefj
 # Author: Yivan000
 
-action:Galaw
-add_to_buddy_list:idagdag sa talaan ng katoto
-admin:Tagapangasiwa
+action:Gawain
+add_to_buddy_list:tropahin
+admin:Admin
 admin_control_panel:Pangangasiwa
-administrator:Tagapangasiwa
-attachment:Kalakip:
-avatar:Huwaran:
-average_post_count:{PLURAL: u->posted_msg_count|$1 Mensahe|$1 Mga mensahe} ({PLURAL: avg|$1 karaniwang mensahe|$1 karaniwang mga mensahe} bawat araw)
-biography:Talambuhay:
-birth_date:Petsa ng Kapanganakan:
+administrator:Administrator
+attachment:Naka-attach:
+avatar:Avatar:
+average_post_count:{PLURAL: u->posted_msg_count|$1 mensahe|$1 (na) mensahe} ({PLURAL: avg|$1 mensahe|$1 (na) mensahe} kada araw)
+biography:Bio:
+birth_date:Ipinanganak:
 by:Ni:
-by_mod:ng Tagapamagitan
-current_time:Kasalukuyang Oras
-custom_avatar_queue:Pasadyang Pila ng Huwaran
-date_posted:Petsa ng Pagpapaskil
-date_registered:Petsa ng Pagpapatala:
-download_counter:Ikinargang paibaba nang {PLURAL: v[3]|$1 ulit|$1 mga ulit}
-pmsg_download_counter:Ikinargang paibaba nang {PLURAL: r_>dlcount|$1 ulit|$1 mga ulit}
-email:E-liham:
-email_to_friend:Ipadala sa e-liham ng kaibigan
-email_to_friend_desc:Ipadala ang URL ng pahinang ito sa iyong (mga) kaibigan sa pamamagitan ng e-liham
-email_user:Padalhan ang tagagamit ng isang mensahe sa e-liham
+by_mod:ng Mod
+current_time:Oras ngayon
+custom_avatar_queue:Pila ng custom avatar
+date_posted:Pinost
+date_registered:Rinehistro:
+download_counter:Na-download nang {PLURAL: v[3]|$1 beses|$1 (na) beses}
+pmsg_download_counter:Na-download nang {PLURAL: r->dlcount|$1 beses|$1 (na) beses}
+email:Email:
+email_to_friend:Mag-email sa kaibigan
+email_to_friend_desc:Ipadala ang URL ng pahinang ito sa (mga) kaibigan mo gamit email
+email_user:Mag-email sa isang user
 faq:Tulong
-first_unread_msg:Pumunta sa hindi pa nababasang mga mensahe
-first_unread_msg_desc:Pumunta sa unang hindi pa nababasang mensahe na nasa loob ng paksang ito
-flat_view:Bumalik sa likas na nakatakdang patag na tanawin
-forum:Poro:
-forum_icon:Kinatawang Larawan ng Poro
-forum_new_messages:Bagong mga mensahe
-forum_none_messages:Tanging nagpatalang mga kasapi sa poro lang ang makasusubaybay sa nabasa &amp; at hindi pa nababasang mga mensahe
-forum_old_messages:Walang bagong mga mensahe
+first_unread_msg:Tingnan ang di pa nabasang mensahe
+first_unread_msg_desc:Tingnan ang unang mensaheng di pa nabasa sa paksang ito
+flat_view:Bumalik sa patag na view
+forum:Forum:
+forum_icon:Icon ng Forum
+forum_new_messages:Bagong mensahe
+forum_none_messages:Tanging mga nakarehistrong miyembro ng forum ang makakasunod sa mga nabasa &amp; di pa nabasang mensahe
+forum_old_messages:Walang bagong mensahe
 from:Mula kay:
 gender:Kasarian:
 go:Gawin
-goto_next_msg:Pumunta sa susunod na mensahe
-goto_prev_msg:Pumunta sa nakaraang mensahe
+goto_next_msg:Susunod
+goto_prev_msg:Nakaraan
 home:Tahanan
-homepage:Bahay-pahina:
-icq_control_panel:Kahong Pantaban ng Nasa Internet na Mensahe ng ICQ
-icq_message_form:Pormularyo ng Mensahe ng ICQ:
-ignore_user:huwag pansinin ang lahat ng mga mensahe ng tagagamit na ito
-im_yahoo:Mensahero ng Yahoo:
+homepage:Homepage:
+icq_control_panel:Panel ng Mensaheng Online ICQ
+icq_message_form:Form ng Mensahe ICQ:
+ignore_user:huwag pansinin ang mensahe ng user na ito
+im_facebook:Facebook:
+im_yahoo:Yahoo Messenger:
 image:Larawan:
-index_forum:Poro
-index_new_posts:Bagong mga mensahe magmula noong huling pagbasa
-index_no_new_posts:Walang bagong mga mensahe magmula noong huling pagbasa
-index_url_redirection:Pagpapapunta sa iba
-interests:Mga hilig:
+index_forum:Forum
+index_new_posts:Bagong mensahe mula nung huling basa
+index_no_new_posts:Walang bagong mensahe mula nung huling basa
+index_url_redirection:Redirect
+interests:Hilig:
 last_post:Huling mensahe
-last_thread_msg:Pumunta sa huling mensahe sa loob ng paksang ito
-legend:Alamat
-location:Pook (lokasyon):
-lock_thread:Ikandado ang Paksa
-locked:Nakakandado
-locked_with_new_posts:Ikinandado (may hindi pa nababasang mga mensahe)
-logged_in_list:Talaan ng nakalagdang mga tagagamit
+last_thread_msg:Puntahan ang huling mensahe ng paksang ito
+legend:Gabay
+location:Lokasyon:
+lock_thread:I-lock ang Paksa
+locked:Naka-lock
+locked_with_new_posts:Naka-lock (may di pa nabasang mensahe)
+logged_in_list:Listahan ng mga naka-login
 login:Mag-login
-login_header:Mag-login
-logout:Umalis sa pagkakalagda
-mark_all_read:Markahang nabasa na ang lahat ng mga mensahe
-mark_all_read_desc:Mamarkahang nabasa na ang lahat ng hindi mo pa nababasang mga mensahe
-members:Mga kasapi
+login_header:Mag-login:
+logout:Mag-logout
+mark_all_read:Markahang nabasa lahat
+mark_all_read_desc:Mamarkahang nabasa na ang lahat ng mga di mo pa nababasang mensahe
+members:Miyembro
 calendar:Kalendaryo
-cal_goto_date:Tumalon sa:
-cal_day_heading:Mga kaganapan para sa araw
-cal_no_events:Walang mga kaganapan para sa araw.
-cal_update:Tinitingnan-tingnan ang kalendaryo ng poro
+cal_goto_date:Pumunta sa:
+cal_day_heading:Ganap ngayong araw
+cal_no_events:Walang ganap ngayon.
+cal_update:Nagba-browse sa kalendaryo ng forum
 cal_birthday:Kaarawan: {VAR: user}
-cal_birthday_age:({PLURAL: age| $1 taong|$1 mga taong} gulang).
+cal_birthdays:{PLURAL: birthdays|$1 kaarawan|$1 (na) kaarawan}
+cal_birthday_age:({PLURAL: age| $1 taong|$1 (na) taong} gulang).
 message:Mensahe
-message_counter:Ang mga tagagamit namin ay nagpaskil ng isang kabuuan ng <b>{PLURAL: post_count|$1 mensahe|$1 mga mensahe}</b>  sa loob ng <b>{PLURAL: thread_count|$1 paksa|$1 mga paksa}</b>.
-message_index:Talatuntunan ng mensahe
+message_counter:Sa kabuuan, nakapag-post na ang mga user namin ng <b>{PLURAL: post_count|$1 mensahe|$1 (na) mensahe}</b> sa loob ng <b>{PLURAL: thread_count|$1 paksa|$1 (na) paksa}</b>.
+message_index:Index ng mensahe
 message_index_desc:Tingnan ang talaan ng mensahe
 minimize_category:Paliitin ang Kategorya
 minimize_message:Paliitin ang Mensahe
