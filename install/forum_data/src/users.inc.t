@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2019 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2021 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -648,8 +648,7 @@ function &init_user()
 				break;
 
 			default:
-				// Page not found, redirect to front page.
-				http_response_code(404);
+				// Page not specified, redirect to front page.
 				$_GET['t'] = 'index';
 				break;
 		}
