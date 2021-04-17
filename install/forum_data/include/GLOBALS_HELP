@@ -245,7 +245,7 @@ Enable/disable the showing of the partially resolved hostname of the poster to a
 Enable/disable the ability for forum users to see what other forum users are doing.}}}
 
 {{{LOGEDIN_LIST	FUD_OPT_1	1073741824
-Enable/disable the list of users who are currently using the forum on the front page. This option is a MUST be enabled if you want to enable the Allow Action List.}}}
+Enable/disable the list of users who are currently using the forum on the front page. This option MUST be enabled if you want to enable the Allow Action List.}}}
 
 {{{EMAIL_CONFIRMATION	FUD_OPT_2	1
 Enable/disable E-mail confirmation of new registered accounts. A special URL will be sent in the welcome E-mail upon registration.}}}

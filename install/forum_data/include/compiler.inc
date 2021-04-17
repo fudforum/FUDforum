@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2020 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2021 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -235,21 +235,14 @@ function resolve_sections($file, $secname, $str)
 				break;
 
 			case 'VAR-HTML':
-				$ret .= '\'.htmlspecialchars($'. $name .', null, null, false).\'';
-				break;
-
-			case 'VAR-UH':
-				$ret .= '\'.htmlspecialchars(urldecode($'. $name .')).\'';
+				// XSS protection
+				$ret .= '\'.filter_var($'. $name .', FILTER_SANITIZE_STRING).\'';
 				break;
 				
 			case 'VAR-SEO':
 				$ret .= '\'.seo_url_bit($'. $name .').\'';
 				break;
 				
-			case 'VAR-FORM':
-				$ret .= '\'.stripslashes($'. $name .').\'';
-				break;
-
 			case 'ALT-VAR':
 				list($name, $class1, $class2) = explode(' ', $name, 3);
 				$ret .= '\'.alt_var(\''. $name .'\',\''.$class1.'\',\''.$class2.'\').\'';
@@ -358,7 +351,7 @@ function resolve_sections($file, $secname, $str)
 				$ret .= $GLOBALS['__COMPILER__'][$tag];
 				break;
 			default:
-				throw new Exception('No such tag: "'. htmlspecialchars($tag) .'" in "'. $secname .'" in file '. $file);
+				throw new Exception('No such tag: "'. htmlspecialchars($tag, ENT_QUOTES) .'" in "'. $secname .'" in file '. $file);
 		}
 	} while (($p = strpos($str, '{', $p)) !== false);
 

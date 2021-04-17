@@ -6,6 +6,7 @@
 # Author: Blackteahamburger
 # Author: Chenxiaoqino
 # Author: Cwlin0416
+# Author: Gerongfenh
 # Author: Hydra
 # Author: Hzy980512
 # Author: LNDDYL
@@ -62,6 +63,7 @@ homepage:主页：
 icq_control_panel:ICQ 在线信息
 icq_message_form:ICQ 信息列表：
 ignore_user:加入黑名单
+im_facebook:脸书：
 im_yahoo:Yahoo信息：
 image:照片：
 index_forum:论坛
@@ -349,6 +351,7 @@ register_occupation:职业：
 register_interests:兴趣：
 register_image:头像：
 register_icq:ICQ：
+register_facebook:脸书 ID:
 register_yahoo:Yahoo信息：
 register_homepage:主页：
 register_bday:出生日期：

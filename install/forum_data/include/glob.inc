@@ -137,7 +137,7 @@ function change_global_settings($list)
 	$settings = file_get_contents($GLOBALS['INCLUDE'] .'GLOBALS.php');
 	foreach ($list as $k => $v) {
 		$v = str_replace("\n", '<br />', $v);	// Remove newlines, they will break this function.
-		$v = addcslashes($v, '\\\'');
+		$v = addcslashes($v, '\\\'');		// Escape quotes and backslashes.
 		$str = "\$GLOBALS['". $k ."']";
 		
 		if (($p = strpos($settings, $str)) === false) {	// Find it. New or existing setting?

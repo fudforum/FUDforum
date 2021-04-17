@@ -4,6 +4,7 @@
 # Author: McDutchie
 # Author: Naudefj
 # Author: Tifinaghes
+# Author: Tokvo
 # Author: Xuacu
 
 action:Aición
@@ -955,8 +956,7 @@ iemail_forum_unsub:Quitar la suscripción d'esti foru
 primary_group_prefix:Grupu primariu pal foru:
 group_resources:Esti grupu controla los permisos de los siguientes foros
 register_admin_newuser_title:Se rexistró un usuariu nuevu y la cuenta ta pendiente de confirmación
-# Fuzzy
-register_admin_newuser_msg:Acaba de rexistrase un nuevu usuariu ({VAR: uent->login}) y, como la confirmación de cuentes ta activada, la so cuenta nun s'activará fasta que la confirmes tu o otru alministrador del foru. Pa revisar la cuenta, visita: {FULL_ROOT}adm/admuserapr.php\n\nEsti ye un procesu automáticu. Nun respuendas a esti mensaxe.\nSi quies dexar de recibir avisos per corréu de nuevos rexistros d'usuariu, pues facelo nel panel de control alministrativu. Cambia la configuración de «Avisu de cuenta nueva».
+register_admin_newuser_msg:Acaba de rexistrase un nuevu usuariu ({VAR: uent->login}) y, como la confirmación de cuentes ta activada, la so cuenta nun s'activará fasta que la confirmes tu o otru alministrador del foru. Pa revisar la cuenta, visita: {BASE}adm/admuserapr.php\n\nEsti ye un procesu automáticu. Nun respuendas a esti mensaxe.\nSi quies dexar de recibir avisos per corréu de nuevos rexistros d'usuariu, pues facelo nel panel de control alministrativu. Cambia la configuración de «Avisu de cuenta nueva».
 post_mod_msg_notify_title:Un nuevu mensaxe del foru "{VAR: frm->name}" ta esperando aprobación
 post_mod_msg_notify_msg:Un nuevu mensaxe tituláu "{VAR: msg_post->subject}" vien d'apaecer nún foru que moderes. Pa revisar esti mensaxe visita: {FULL_ROOT}?t=modque#{VAR: msg_post->id}\n\nEsti ye un procesu automáticu. Nun respuendas a esti mensaxe.
 thread_printable_pdf:Xenerar un PDF pa imprimir

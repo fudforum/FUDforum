@@ -2,6 +2,8 @@
 # Exported from translatewiki.net
 # Author: Als-Holder
 # Author: Das Schäfchen
+# Author: FF-11
+# Author: FF11
 # Author: Geitost
 # Author: George Animal
 # Author: Giftpflanze
@@ -62,6 +64,7 @@ homepage:Homepage:
 icq_control_panel:ICQ-Online-Menü
 icq_message_form:ICQ-Nachricht erstellen:
 ignore_user:Alle Beiträge dieses Benutzers ignorieren
+im_facebook:Facebook:
 im_yahoo:Yahoo Messenger:
 image:Bild:
 index_forum:Forum
@@ -349,6 +352,7 @@ register_occupation:Beruf:
 register_interests:Interessen:
 register_image:Bild:
 register_icq:ICQ:
+register_facebook:Facebook ID:
 register_yahoo:Yahoo Messenger:
 register_homepage:Webseite:
 register_bday:Geburtsdatum:

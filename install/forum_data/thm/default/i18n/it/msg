@@ -1,5 +1,6 @@
 # Messages for Italian (italiano)
 # Exported from translatewiki.net
+# Author: Ajeje Brazorf
 # Author: Albe Albe 460
 # Author: Beta16
 # Author: Danmaz74
@@ -343,6 +344,7 @@ register_occupation:Occupazione:
 register_interests:Interessi:
 register_image:Immagine:
 register_icq:ICQ
+register_facebook:Facebook ID:
 register_yahoo:Yahoo Messenger:
 register_homepage:Homepage:
 register_bday:Data di nascita:

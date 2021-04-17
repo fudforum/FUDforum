@@ -1,6 +1,7 @@
 # Messages for Catalan (català)
 # Exported from translatewiki.net
 # Author: Abella
+# Author: Alan Mena
 # Author: Alvaro Vidal-Abarca
 # Author: BroOk
 # Author: Eduardo Martinez
@@ -60,6 +61,7 @@ homepage:Pàgina d`inici:
 icq_control_panel:Panell ICQ en líni-missatge
 icq_message_form:Formulari de missatge ICQ:
 ignore_user:ignorar tots els missatges publicats per aquest usuari
+im_facebook:Facebook:
 im_yahoo:Yahoo Messenger:
 image:Imatge:
 index_forum:Comuniat
@@ -347,6 +349,7 @@ register_occupation:Ocupació:
 register_interests:Interessos:
 register_image:Imatge:
 register_icq:ICQ
+register_facebook:ID de Facebook:
 register_yahoo:Yahoo Messenger:
 register_homepage:Pàgina personal:
 register_bday:Data de naixement:

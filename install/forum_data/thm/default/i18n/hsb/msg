@@ -47,6 +47,7 @@ homepage:Startowa strona:
 icq_control_panel:ICQ-meni online
 icq_message_form:Formular ICQ-powěsće:
 ignore_user:Wšě powěsće tutoho wužiwarja ignorować
+im_facebook:Facebook:
 im_yahoo:Yahoo Messenger:
 image:Wobraz:
 index_forum:Forum
@@ -204,8 +205,7 @@ vote_button:Hłosować
 vote_for_thread:Hłosować
 was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> bu wot moderatora do <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> přesunjena
 welcome_message:Witaj <b>{VAR: usr->alias}</b>, twój posledni wopyt bě {TEMPLATE: welcome_message_date}
-# Fuzzy
-what_ppl_doing:Pokazać, štož ludźo runje činja
+what_ppl_doing:Wužiwarska aktiwita
 reported_del_report:Zdźělenku zničić
 reported_reason:Přičina:
 reported_on:Datum:
@@ -238,8 +238,7 @@ pmsg_forwarded:dalesposrědkowany
 pmsg_subject:Temowe nadpismo
 pmsg_author:Awtor
 pmsg_time:Čas
-# Fuzzy
-pmsg_selected:Wubrany
+pmsg_selected:Wubrać
 pmsg_delete:Zničić
 cur_ppage_pm:Priwatne powěsće
 writing_pm:Spisowanje priwatneje powěsće
@@ -306,11 +305,15 @@ register_builtin:Zatwarjeny
 register_specify_url:URL podać
 register_uploaded:Awatar nahrać
 register_login:Přizjewjenje:
+register_login_desc:Mjeno, z kotrymž so přizjewiš a kotrež je na tutej webstronje znate.
+register_login_available:Swobodne
+register_login_taken:Hižo wobsadźene
 register_password:Hesło:
 register_conf_pass:Hesło wobkrućić:
 # Fuzzy
 register_email_desc:Prošu zapodaj płaćiwu e-mejlowu adresu. Móžeš ju deleka we wotrězku nastajenjow schować.
 register_name:Mjeno:
+register_name_desc:Twoje prawe mjeno.
 register_your_pass:Twoje hesło:
 register_update:Aktualizować
 register_avatar_type:Awatarowy typ:
@@ -332,6 +335,7 @@ register_occupation:Powołanje:
 register_interests:Zajimy:
 register_image:Wobraz:
 register_icq:ICQ:
+register_facebook:Facebook ID:
 register_yahoo:Yahoo Messsenger:
 register_homepage:Startowa strona:
 register_bday:Narodniny:
@@ -518,8 +522,7 @@ mklist_apply:Nałožić
 mklist_delete:Zničić
 qbud_nick_name:Přimjeno
 qbud_add_selected:Wubrane přidać
-# Fuzzy
-qbud_selected:Wubrany
+qbud_selected:Wubrać
 qbud_no_buddies:Žani přećeljo za wuběranje
 mklist_numerical:Numeriski
 mklist_aplha:Alfa
@@ -588,8 +591,7 @@ buddy_list_err_ignore:Wužiwarjo, kotřiž će ignoruja, njehodźa so twojej lis
 buddy_list_update:Přepytanje swójskeje lisćiny přećelow
 core_err_invinp_title:Njepłaćiwe zapodaće
 core_err_invinp_err:Sy njepłaćiwemu wotkazej slědował. Prošu zdźěl <a href="mailto:{GVAR: ADMIN_EMAIL}">webmasterej</a>, kak sy so tam dóstał.
-# Fuzzy
-core_adm_login_msg:Administratorojo móžeja so <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">tu</a> přizjewić.
+core_adm_login_msg:Administratorojo móžeja so <a href="{BASE}adm/admloginuser.php">tu</a> přizjewić.
 email_err_unabletoemail_title:ZMYLK: E-mejl njehodźi so wotpósłać
 email_err_unabletoemail_msg:E-mejlowy system bu wot administratora znjemóžnjeny.
 email_error_unabletolocaddr:Wodaj, system njemóžeše {VAR-HTML: _POST['tx_name']} e-mejl pósłać, dokelž bě njemóžno, e-mejlowu adresu zwěsćić
@@ -652,8 +654,7 @@ postcheck_email_body:Njemóžeš e-mejl bjez powěsćoweho ćělesa pósłać.
 private_msg_notify_subj:Zdźělenku čitać wo: {VAR: m->subject}
 private_msg_notify_body:Halo,<br />{VAR: usr->login} je twoju priwatnu powěsć z mjenom "{VAR: m->subject}" wočinił.<br />To je awtomatiska zdźělenka, kotraž bu dnja {TEMPLATE: private_msg_notify_body_date}<br /> spłodźena
 referals_update:Přepytanje doporučenjow
-# Fuzzy
-register_err_short_login:Přizjewjenske mjeno, kotrež sy wubrał, je překrótke. Přizjewjenske mjena dyrbja znajmjeńša 4 znamješka měć.
+register_err_short_login:Wužiwarske mjeno, kotrež sy wubrał, je překrótke. Dyrbi znajmjeńša dwě znamješce měć.
 register_err_login_notallowed:Tute přizjewjenske mjeno njeje dowolene.
 register_err_loginunique:Forumowe přizjejwenske mjena dyrbja jónkróćne być. Je hižo wužiwar z tutym mjenom.
 register_err_emailexists:Tuta e-mejlowa adresa je hižo z kontom zwjazana. Jeli sy swoje hesło zabył, wužij prošu opciju Wróćo stajić, město toho zo znowa registruješ.
@@ -695,7 +696,7 @@ ERR_login_msg2:<legend>ZMYLK: Njejsy přizjewjeny</legend>Zo by přistup na tutu
 ERR_disabled_ttl:Znjemóžnjena funkcija
 ERR_disabled_msg:Tuta funkcija bu wot systemoweho administratora znjemóžnjena.
 ERR_access_ttl:ZMYLK: Njedosahace prawa
-ERR_access_msg:Nimaš trěbne prawa, zo by tutu akciju wuwjedł.
+ERR_access_msg:Nimaš trěbne prawa, zo by tutu akciju přewjedł{{GENDER:||a|(a)}}.
 ERR_registration_disabled_ttl:Registrowanje znjemóžnjene
 ERR_registration_disabled_msg:Administrator je registrowanje znjemóžnił. Prošu spytaj pozdźišo hišće raz.
 ERR_emailconf_ttl:ZMYLK: Twoje konto hišće njeje wobkrućene
@@ -847,7 +848,7 @@ post_notification_desc:Zdźělić, hdyž něchtó na tutu powěsć wotmołwja.
 post_all_ext_allowed:(njewobmjezowany)
 maximize_category:Kategoriju maksiměrować
 maximize_message:Powěsć maksiměrować
-no_view_perm:Njemóžeš trěbne prawa, zo by sej tutu temu wobhladał.
+no_view_perm:Nimaš trěbne prawa, zo by sej tutu temu wobhladał{{GENDER:||a|(a)}}.
 report_empty_report:Njemóžeš prózdnu zdźělenku wotpósłać. Prošu zapodaj přičinu za twoju zdźělenku.
 report_already_reported_title:Hižo zdźěleny
 report_already_reported_msg:Tuta powěsć bu hižo zdźělena a zdźělenka je tuchwilu w čakanskim rynku moderatora.
@@ -902,9 +903,9 @@ search_or:ABO
 search_desc_order:Spadowace sortěrowanje
 # Fuzzy
 search_asc_order:Postupowace sortěrowanje
+search_relevance_order:Relewancy
 search_logic:Pytanska logika:
-# Fuzzy
-search_sorting:Wuslědki po datumje sortěrować w:
+search_sorting:Sortěrować po:
 search_attach:Přiwěški:
 search_attach_all:Z abo bjez
 search_attach_with:z přiwěškami
@@ -1058,10 +1059,8 @@ search_user_filter:Po wužiwarjom filtrować:
 register_none:Njezdźělić
 findu_no_conf:njewobkrućeny wužiwar
 register_max_sig_len:Maksimalna dołhosć:
-# Fuzzy
-register_turing:Prošu zapodaj slědowacy kod:
-# Fuzzy
-register_err_turing:Njepłaćiwy přepruwowanski kod.
+register_turing:Werifikacija:
+register_err_turing:Werifikacija zwrěšćena. Prošu spytaj znowa.
 modque_cat:Kategorija
 modque_forum:Forum
 idx_compact_forum_row:K dispoziciji stejace forumy:
@@ -1160,3 +1159,9 @@ karma:Karma
 karma_track:Reputaciju za wužiwarja zrjadować:
 karma_delete:Zhašeć
 rate_author:Awtora pohódnoćić:
+blog:Blog
+blog_new_members:Nowi čłonojo
+blog_new_posts:Posledni přinošk
+blog_rated_posts:Najlěpje hódnoćene
+blog_viewed_posts:Najhusćišo wobhladane
+blog_comments:{PLURAL: topic->replies|$1 komentar|$1 komentaraj|$1 komentary|$1 komentarow}

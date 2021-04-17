@@ -5,6 +5,7 @@
 # Author: Dani
 # Author: Dj
 # Author: Glanthor Reviol
+# Author: Hanna Tardos
 # Author: Macofe
 # Author: McDutchie
 # Author: Misibacsi
@@ -54,6 +55,7 @@ homepage:Honlap:
 icq_control_panel:ICQ online üzenőfal
 icq_message_form:ICQ üzenetküldő űrlap:
 ignore_user:a felhasználó üzeneteinek figyelmen kívül hagyása
+im_facebook:Facebook
 im_yahoo:Yahoo Messenger:
 image:Kép:
 index_forum:Fórum
@@ -341,6 +343,7 @@ register_occupation:Foglalkozás:
 register_interests:Érdeklődési kör:
 register_image:Kép:
 register_icq:ICQ:
+register_facebook:Facebook azonosító:
 register_yahoo:Yahoo Messenger:
 register_homepage:Honlap:
 register_bday:Születési dátum:

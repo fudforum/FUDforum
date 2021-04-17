@@ -53,6 +53,7 @@ homepage:Pela seri:
 icq_control_panel:Panela ICQ Miyande-Mesaci
 icq_message_form:ICQ Mesac Formi:
 ignore_user:Mesacanê enê kerberi hemın peygoş ke
+im_facebook:Facebook
 im_yahoo:Yahoo Messenger:
 image:Resım:
 index_forum:Forum
@@ -260,7 +261,7 @@ no_edit_time_limit:<b>Wextê Timar dê sinori</b>: Bê sinor
 pmuserloc_login:Cıkewtış:
 pmuserloc_submit:Bıvêne
 pmuserloc_user:Karber
-pmuserloc_no_result:Nê vineya
+pmuserloc_no_result:Netice çıniyo
 register_builtin:Sazine
 register_specify_url:Url'i Cake
 register_uploaded:Avatar bıselagn
@@ -321,7 +322,7 @@ submit_reply:Cewab Bırışê
 edit_message:Mesaca Timar ke
 apply_spell_changes:Vurnayışê Nuşta Dezge ke
 post_preview:Verqaytê Mesaci
-post_logedin_user:Karberê ke deqewte miyan:
+post_logedin_user:Karberê ke kewtê cı:
 post_logout:veciyayış
 post_passwd:Parolaya rıştiy:
 post_poll:Anket:
@@ -371,18 +372,18 @@ login_login_btn:Cıkewtış
 reset_update:Parola newe ke
 rpasswd_change_pass:Parola bıvurne
 rpasswd_login:Cıkewtış
-rpasswd_cur_pass:Parolay newkên:
+rpasswd_cur_pass:Parolaya nıkayêne:
 rpasswd_new_pass:Parolaya Newiye:
 rpasswd_conf_pass:Parola tesdiq ke
 ruser_title:Forma Dekewtışi Bıvurnê
-ruser_cur_pass:Parolaya newkên
+ruser_cur_pass:Parolaya nıkayêne:
 login_passwd:Parola:
 reset_email:E-poste:
 reset_reset_button:Parola newe ke
 rate_this_thread:Nısbet ke
 report_subject:Mewzu:
 search_forum:Forum
-search_no_results:Nê vineya
+search_no_results:Netice çıniyo
 search_all_forums:Foruman pêron dı cı geyr
 search_in_forum:Cı geyrayıyaye Forum:
 search_forum_search:Forum dı cı geyrı
@@ -559,7 +560,7 @@ search_attach_all:Ebe ya zi bê
 search_attach_with:Ebe gaçıkan
 unread_message:Mesacê nêwaniyayey
 read_message:Mesaci bıwane
-threadt_more:&lt;dehana &gt;
+threadt_more:&lt;zêde&gt;
 saved:Qeyd bi
 iemail_msg_author:<b>Nuskar:</b> {VAR: obj->alias}
 iemail_msg_subject:<b>Mewzu:</b> {VAR: obj->subject}
@@ -601,7 +602,7 @@ uc_new_cat_forum:Forumê ke şıma aboneyê êna ra mesacê ke estê.
 uc_cat_forum:Kategoriye &raquo; Forum
 uc_sub_topics:Merselê ke şıma aboneyê êna ra mesacê ke estê.
 uc_page_title:Kontrol panliya merdumi.
-search_options:Tercihê Cı geyrayışi
+search_options:Cıgeyrayışê Tercihan
 search_user_filter:Karberi heta avrêc ke:
 register_none:Mı Xeberdar meke
 findu_no_conf:Karberê ke otomatikmen tesdiq biy

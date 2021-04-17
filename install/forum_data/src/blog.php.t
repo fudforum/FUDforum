@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2019 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2021 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -20,6 +20,26 @@ ses_update_status($usr->sid, '{TEMPLATE: blog_update}');
 $TITLE_EXTRA=': Blog';
 $RSS = '{TEMPLATE: blog_RSS}';
 
+	/* Display non-forum related announcements. */
+	include $GLOBALS['FORUM_SETTINGS_PATH'] .'announce_cache';
+	$announcements = '';
+	foreach ($announce_cache as $a_id => $a) {
+		if (!_uid && $a['ann_opt'] & 2) {
+			continue;       // Only for logged in users.
+		}
+		if (_uid && $a['ann_opt'] & 4) {
+			continue;       // Only for anonomous users.
+		}
+		if ($a['start'] <= __request_timestamp__ && $a['end'] >= __request_timestamp__) {
+			$announce_subj = $a['subject'];
+			$announce_body = $a['text'];
+			if (defined('plugins')) {
+				list($announce_subj, $announce_body) = plugin_call_hook('ANNOUNCEMENT', array($announce_subj, $announce_body));
+			}
+			$announcements .= '{TEMPLATE: announce_entry}';
+		}
+	}
+
 	if (isset($_GET['start']) && (is_numeric($_GET['start'])) ) {
 		$start = $_GET['start'];
 	} else {
@@ -38,12 +58,11 @@ $RSS = '{TEMPLATE: blog_RSS}';
 	} else {
 		$frm_list = q_singleval('SELECT conf_value FROM {SQL_TABLE_PREFIX}settings WHERE conf_name =\'blog_forum_list\'');
 		$frm_list = json_decode($frm_list, true);
+		// Forum List not set or json error, limit to 1st forum.
+		if ($frm_list === null) {
+			$frm_list = array(1);
+		}
         	$frm_list = join(',', array_values($frm_list));
-	}
-
-	// If all else fails (i.e. json error), limit to first forum.
-	if ($frm_list === null) {	
-		$frm_list = '1';
 	}
 
 	$msg_list = null;
