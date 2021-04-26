@@ -45,7 +45,7 @@ gender:Jenis Kelamin:
 go:Nuju
 goto_next_msg:Go kanggo sabanjuré pesen
 goto_prev_msg:Go kanggo sadurunge pesen
-home:Latar
+home:Pendhapa
 homepage:kaca:
 icq_control_panel:ICQ-online Pesen Panel
 icq_message_form:ICQ Formulir Pesen:
@@ -868,7 +868,7 @@ im_google:Google Talk:
 im_skype:Skype:
 im_twitter:Twitter:
 forum_contact:Kontak
-forum_home:Latar
+forum_home:Pendhapa
 post_cur_attached:saiki ditempelake: {VAR: i} {PLURAL: i|berkas|file}
 ignored_anon_post:{GVAR: ANON_NICK} wis digathekno
 ignored_user_post:Pesen dening <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> wis digathekno
