@@ -568,6 +568,7 @@ iemail_msg_date:<b>Tarix:</b> {TEMPLATE: dmsg_post_date}
 iemail_msg_reply:Cewab bıdê
 iemail_msg_quote:Vate
 mnav_description:Geyrayoğê mesaci
+mnav_more:Zêde &raquo;&raquo;
 mnav_minute:Deqe(y)
 mnav_hour:Saete (saeti)
 mnav_day:Roce(roci)
