@@ -1,5 +1,6 @@
 # Messages for Sicilian (sicilianu)
 # Exported from translatewiki.net
+# Author: Ajeje Brazorf
 # Author: Beta16
 # Author: Gmelfi
 # Author: Macofe
@@ -1014,7 +1015,7 @@ merge_another:Vèje a l'<a href="{TEMPLATE: merge_another_lnk}">urteme argomende
 split_cp:Pannelle de Condrolle pa divisione de l'argomende
 groups_perms_header:Permesse <span class="small">(spuèste 'u sciorge sus a 'u permesse pe 'ndrucà 'u tipe sue)</span>
 register_err_sig_too_long:'A firma toje sbonne 'a lunghezza massime permesse de {GVAR: FORUM_SIG_ML} carattere.
-register_sig_limit:{GVAR: FORUM_SIG_ML} carattere <a href="javascript: alert('A firma toje jè de'+document.forms['fud_register'].reg_sig.value.length+' carattere. 'A lunghezza massime pa firme jè {GVAR: FORUM_SIG_ML} carattere.');" class="SmallText">Verifiche 'a lunghezze d'a firme</a>
+register_sig_limit:{GVAR: FORUM_SIG_ML} carattere <a href="javascript: alert('A firma toje è de'+document.forms['fud_register'].reg_sig.value.length+' carattere. 'A lunghezza massime pâ firme è {GVAR: FORUM_SIG_ML} carattere.');" class="SmallText">Verifiche 'a lunghezze d'a firme</a>
 adm_account_accepted:'U cunde tune '{VAR: login}' ha state approvate da l'amministratore e mò jè attive. Tu puè accedere a 'u forum {GVAR: FORUM_TITLE} cumme 'n'utende confermate e reggistrate.
 adm_account_accepted_s:'U cunde richieste pe '{GVAR: FORUM_TITLE}' ha state accettate.
 adm_account_rejected:'U cunde '{VAR: login}' ha state scettate da l'amministratore. Ce vuè ccu canusce 'u mutive, sindete libbere de condattà l'amministratore sus a '{GVAR: ADMIN_EMAIL}'.
