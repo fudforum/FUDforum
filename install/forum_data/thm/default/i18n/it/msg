@@ -602,7 +602,7 @@ core_err_invinp_err:Hai seguito un link non attivo. Per cortesia, segnalalo all'
 core_adm_login_msg:Gli amministratori possono effettuare l'accesso <a href="{BASE}adm/admloginuser.php">qui</a>.
 email_err_unabletoemail_title:ERRORE: Impossibile spedire email
 email_err_unabletoemail_msg:Il sistema di invio email è stato disabilitato dall'amministratore.
-email_error_unabletolocaddr:Spicenti, il sistema non è in può inviare un'e-mail all'utente {VAR-HTML: _POST['tx_name']} poichè non è in grado di determinare il suo indirizzo di posta elettronica
+email_error_unabletolocaddr:Spicenti, il sistema non è in può inviare un'e-mail all'utente {VAR-HTML: _POST['tx_name']} poiché non è in grado di determinare il suo indirizzo di posta elettronica
 email_error_body:Il campo testo è obbligatorio
 email_error_subject:Oggetto è obbligatorio
 email_error_namerequired:Nome è obbligatorio
@@ -654,7 +654,7 @@ postcheck_max_images_err:Sono consentite un massimo di {GVAR: MAX_IMAGE_COUNT} i
 postcheck_no_links_allowed:Non puoi usare i link finché non avrai postato almeno {PLURAL: posts_before_links|$1 messaggio|$1 messaggi}.
 postcheck_subj_needed:Oggetto necessario
 postcheck_no_such_user:Non c'è alcun utente "{FUNC: char_fix(htmlspecialchars($v))}" in questo forum
-postcheck_ignored:Non puoi spedire un messaggio personale a "{FUNC: char_fix(htmlspecialchars($v))}", perchè questo utente ha deciso di ignorarti.
+postcheck_ignored:Non puoi spedire un messaggio personale a "{FUNC: char_fix(htmlspecialchars($v))}", perché questo utente ha deciso di ignorarti.
 postcheck_no_recepient:Non è possibile inviare il messaggio, manca il destinatario
 postcheck_invalid_email:Inserisci un indirizzo email valido.
 postcheck_email_subject:Non puoi spedire una email lasciando vuoto il campo Oggetto.
@@ -739,11 +739,11 @@ post_opt:Opzioni del Forum:
 register_change_passwd:cambia password
 register_change_login:cambia login
 approved_avatar_title:Il tuo avatar personalizzato è stato approvato.
-approved_avatar_msg:Il tuo avatat è stato approvato dall'amministratore. Dovrebbe apparirti come immagine in tutti i tuoi messaggi. Se non lo vedi, o rimane visualizzato il vecchio avatar, è perchè il tuo browser ha salvato la pagina in cache. Prova ad aggiornare la pagina una o due volte, questa soluzione risolve il problema nella maggior parte dei casi.
+approved_avatar_msg:Il tuo avatar è stato approvato dall'amministratore. Dovrebbe apparirti come immagine in tutti i tuoi messaggi. Se non lo vedi, o rimane visualizzato il vecchio avatar, è perché il tuo browser ha salvato la pagina in cache. Prova ad aggiornare la pagina una o due volte, questa soluzione risolve il problema nella maggior parte dei casi.
 unapproved_avatar_title:Il tuo avatar personalizzato non è stato accettato.
 unapproved_avatar_msg:L'amministratore non ha accettato il tuo avatar. Le cause più frequenti per questo genere di rifiuto sono che l'immagine è troppo grande (dimensione/grandezza del file), o che l'immagine ritrae qualcosa di non idoneo al forum. Se desideri maggior informazioni sul motivo che ha portato al rifiuto dell'avatar, contatta l'amministratore.
 mvthread_request_move:richiedi lo spostamento
-move_request_reason:Perchè vuoi che l'argomento sia spostato?
+move_request_reason:Perché vuoi che l'argomento sia spostato?
 mvthread_submit_req:Invia la richiesta
 thread_exchange:Scambio di argomenti
 move_request_by:Spostamento dell'argomento richiesto da:
@@ -804,7 +804,7 @@ post_quote_selected:Quota il testo selezionato
 userinfo_referals:Utenti referenziati:
 userinfo_referals_count:{VAR: referals} Utenti
 pm_no_space_title:Non hai più spazio!
-pm_no_space_msg:Le tue cartelle di messaggi privati hanno superato la quota limite di <b>{GVAR: MAX_PMSG_FLDR_SIZE} byte</b>, poichè contengono <b>{VAR: fldr_size} byte</b> di messaggi.<br /><br /><font class="ErrorText">Cancella qualcuno dei vecchi messaggi per liberare dello spazio</font>.
+pm_no_space_msg:Le tue cartelle di messaggi privati hanno superato la quota limite di <b>{GVAR: MAX_PMSG_FLDR_SIZE} byte</b>, poiché contengono <b>{VAR: fldr_size} byte</b> di messaggi.<br /><br /><font class="ErrorText">Cancella qualcuno dei vecchi messaggi per liberare dello spazio</font>.
 pm_space_indct_msg:Le tue cartelle di MP sono piene al {VAR: percent_full}%.
 th_expr_never:Mai
 th_expr_one_hr:1 Ora
@@ -892,7 +892,7 @@ register_alias:Alias
 register_alias_desc:Se vuoi uno username differente dalla tua login, specificalo qui.
 register_allow_pm_msg:Messaggi Privati
 register_allow_pm_msg_desc:Abilita la messaggistica privata
-postcheck_pm_disabled:Non puoi inviare un messaggio privato a "{VAR-HTML: v}", perchè non accetta messaggi privati.
+postcheck_pm_disabled:Non puoi inviare un messaggio privato a "{VAR-HTML: v}", perché non accetta messaggi privati.
 polllist_vote:Vota
 polllist_view_results:Vedi risultati
 polllist_name:Sondaggio
@@ -932,9 +932,9 @@ insert_uploaded_image:Inserisci una immagine nel testo del messaggio
 finduser_help:Il motore di ricerca aggiungerà automaticamente la maschera * nella tua richiesta. es. per ricercare tutti gli utenti la cui login comincia con una 'a', scrivi 'a' nel box di ricerca.
 back_to_top:Torna all'inizio
 pm_err_disabled_title:Messaggi privati Disabilitati
-pm_err_disabled_msg:Non puoi inviare messaggi privati finchè non abiliti l'opzione 'Abilita Messaggi Privati' nel tuo profilo.
+pm_err_disabled_msg:Non puoi inviare messaggi privati finché non abiliti l'opzione 'Abilita Messaggi Privati' nel tuo profilo.
 err_mod_acc_ttl:Account non verificato
-err_mod_acc_msg:L'amministratore ha scelto di controllare tutti gli account manualmente prima della loro attivazione. Finchè il tuo account non sarà validato dall'amministratore, non potrai utilizzare tutte le funzioni del tuo account.
+err_mod_acc_msg:L'amministratore ha scelto di controllare tutti gli account manualmente prima della loro attivazione. Finché il tuo account non sarà validato dall'amministratore, non potrai utilizzare tutte le funzioni del tuo account.
 accounts_pending_approval:Account in attesa di Approvazione
 saved:Salvato
 register_err_time_limit:Il limite di una registrazione ogni {GVAR: REG_TIME_LIMIT} secondi è stato raggiunto. Attendere {PLURAL: reg_limit_reached|$1 secondo|$1 secondi}, poi provare nuovamente a registrarsi.
@@ -1120,7 +1120,7 @@ move_messages:Sposta messaggi
 move_msg_btn:Sposta messaggi selezionati
 move_msg_th_expl:Specifica l'ID dell'argomento di destinazione (può essere in altri forum)
 captcha_img_alt:Captcha Verification: devi riconoscere il testo che compare in questa immagine.
-captcha_img_help:Non ci sono nè zero ne uno in questa immagine.
+captcha_img_help:Non ci sono né zero né uno in questa immagine.
 powered-by:Realizzato con: FUDforum {GVAR: FORUM_VERSION}.
 copyright:Copyright &copy;2001-2021 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Codice:

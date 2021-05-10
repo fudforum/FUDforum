@@ -51,6 +51,7 @@ homepage:Heimasíða:
 icq_control_panel:ICQ skilaboðsþjónusta
 icq_message_form:ICQ skilaboðaform:
 ignore_user:hunsa öll skilaboð frá þessum notanda
+im_facebook:Facebook:
 im_yahoo:Yahoo Messenger:
 image:Mynd:
 index_forum:Spjallþráður
@@ -338,6 +339,7 @@ register_occupation:Atvinna:
 register_interests:Áhugamál:
 register_image:Mynd:
 register_icq:ICQ:
+register_facebook:Facebook auðkenni:
 register_yahoo:Yahoo Messenger:
 register_homepage:Heimasíða:
 register_bday:Fæðingardagur:
