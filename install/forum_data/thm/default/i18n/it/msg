@@ -211,7 +211,7 @@ view_results:Visualizza risultati
 views:Visualizzazioni
 vote:{PLURAL: frm->n_rating|$1 Voto|$1 Voti}
 vote_button:Vota
-vote_for_thread:Vota l'argomento
+vote_for_thread:Vota
 was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> è stato spostato in <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> dal moderatore.
 welcome_message:Benvenuto(a) <b>{VAR: usr->alias}</b>, la tua ultima visita è stata in data {TEMPLATE: welcome_message_date}
 what_ppl_doing:Attività dell'utente
