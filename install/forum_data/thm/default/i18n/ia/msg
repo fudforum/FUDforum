@@ -427,7 +427,7 @@ forum_rules_13:<p>Omne usator minor de 13 annos debe cercar permission de su par
 coppa_conf:Confirmation COPPA
 coppa_before:Ante le {TEMPLATE: coppa_date}
 coppa_after:Post le {TEMPLATE: coppa_date}
-coppa_link:Clicca super le ligamine que corresponde a tu data de nascentia
+coppa_link:Clicca sur le ligamine que corresponde a tu data de nascentia
 coppa:<p>Un parente o tutor debe inviar per posta o fax un formulario de permission signate al administrator de iste foro ante que un usator minor de 13 annos pote completar le inscription.</p><p>Pro ulterior informationes contacta <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
 prereg_info:Regulas del foro
 prereg_agree:De accordo
@@ -462,7 +462,7 @@ login_name_required:Le nomine de usator es requirite
 login_passwd_required:Le contrasigno es requirite
 login_invalid_radius:Le nomine de usator o le contrasigno es invalide
 reset_confirmation:Gratias pro inscriber te.\n\nPro activar tu conto, per favor visita le URL sequente:\n\n{VAR: url}\n\nQuando tu conto ha essite activate, tu essera identificate al foro\ne redirigite verso le pagina principal.
-reset_reset:Salute,\n\nTu ha requestate que tu contrasigno sia reinitialisate. Pro completar le processo,\nper favor visita le URL sequente:\n\n{VAR: url}\n\nNOTA: Iste foro immagazina le contrasignos con un mechanismo cryptographic unidirectional.\nIsto significa que le contrasigno que tu specifica es codificate de sorta que il es IMPOSSIBILE recuperar lo.\nCata vice que tu aperi un session, le version codificate in nostre systema es comparate con le version codificate del contrasigno que tu entra.\n(Si tu vole saper como functiona iste mechanismo, cerca informationes super le algorithmo MD5 HASH.)
+reset_reset:Salute,\n\nTu ha demandate le reinitialisation de tu contrasigno. Pro completar le processo,\nper favor visita le URL sequente:\n\n{VAR: url}\n\nNOTA: Iste foro immagazina le contrasignos con un mechanismo cryptographic unidirectional.\nIsto significa que le contrasigno que tu specifica es codificate de sorta que il es IMPOSSIBILE recuperar lo.\nCata vice que tu aperi un session, le version codificate in nostre systema es comparate con le version codificate del contrasigno que tu entra.\n(Si tu vole saper como functiona iste mechanismo, cerca informationes sur le algorithmo de hash MD5.)
 rpasswd_invalid_passwd:Contrasigno invalide
 rpasswd_passwd_nomatch:Le contrasignos non es identic
 rpasswd_passwd_length:Le contrasigno debe haber al minus 6 characteres
@@ -510,7 +510,7 @@ remail_message:Message:
 remail_send_now:Inviar e-mail ora
 remail_anon_opt:Copia iste message in un programma de e-mail de tu preferentia pro inviar lo a tu amico(s).
 remail_done:Facite
-remail_sent_conf:Le message a tu amico a {VAR-HTML: _POST['femail']} super le topico {VAR: data->subject} ha essite inviate.
+remail_sent_conf:Le message a tu amico a {VAR-HTML: _POST['femail']} sur le topico {VAR: data->subject} ha essite inviate.
 remail_error:Un error ha occurrite
 mklist_type:Typo:
 mklist_option:Option:
@@ -569,8 +569,8 @@ tabs_referrals:Referimentos
 tabs_buddy_list:Lista de amicos
 tabs_ignore_list:Lista de ignoratos
 tabs_private_messaging:Messageria private
-single_msg_delete:Tu es super le puncto de <span class="ErrorText">deler</span> le message titulate: <b>{VAR: data[3]}</b>
-thread_delete:Tu es super le puncto de <span class="ErrorText">deler</span> le <span class="ErrorText">topico integre</span> titulate: <b>{VAR: data[3]}</b>
+single_msg_delete:Tu es sur le puncto de <span class="ErrorText">deler</span> le message titulate: <b>{VAR: data[3]}</b>
+thread_delete:Tu es sur le puncto de <span class="ErrorText">deler</span> le <span class="ErrorText">topico integre</span> titulate: <b>{VAR: data[3]}</b>
 delete_proceed:<span class="fb">Vole tu continuar?</span>
 delete_yes:Si
 delete_no:No
@@ -597,15 +597,15 @@ email_error_subject:Le subjecto es obligatori
 email_error_namerequired:Le nomine es obligatori
 email_error_invaliduser:Usator invalide
 emailconf_err_invkey_title:Error
-emailconf_err_invkey_msg:Clave de confirmation invalide. Per favor verifica tu e-mail pro assecurar que tu ha entrate le URL correctemente. Si tu ha cliccate super le ligamine duo vices, tu conto pote ja esser confirmate. Aperi un session al foro pro requestar un altere clave.
+emailconf_err_invkey_msg:Clave de confirmation invalide. Per favor verifica tu e-mail pro assecurar que tu ha entrate le URL correcte. Si tu ha cliccate sur le ligamine duo vices, tu conto pote jam esser confirmate. Aperi session in le foro pro requestar un altere clave.
 err_inc_criticaltitle:Error critic
 err_inc_criticalmsg:Un error ha occurrite. Infortunatemente, il ha tamben un problema con le systema de reportage de errores.
 finduser_update:Cerca usatores
 help_index_update:Lege le <a href="{TEMPLATE: help_index_update_lnk}">Adjuta</a>
 iemail_thr_subject:Nove responsa a {VAR: thr_subject} per {VAR: poster_login}
-iemail_thr_bodyemail:Pro vider le responsas non legite va a {VAR: goto_url['email']}\n\nSi tu non vole reciper ulterior notificationes super le responsas in iste topico, per favor va hic: {VAR: unsub_url['email']}
+iemail_thr_bodyemail:Pro vider le responsas non legite, visita {VAR: goto_url['email']}\n\nSi tu non vole reciper plus notificationes sur le responsas in iste topico, per favor visita: {VAR: unsub_url['email']}
 iemail_frm_subject:Nove topico in le foro {VAR: frm_name}, titulate {VAR: thr_subject}, per {VAR: poster_login}
-iemail_frm_bodyemail:Pro vider le topico va a:\n{VAR: goto_url['email']}\n\nPro non reciper pus notificationes super nove topicos in iste foro, per favor va hic: {VAR: unsub_url['email']}
+iemail_frm_bodyemail:Pro vider le topico, visita:\n{VAR: goto_url['email']}\n\nPro non reciper pus notificationes sur nove topicos in iste foro, per favor visita: {VAR: unsub_url['email']}
 iemail_participate:Pro participar in le discussion, va hic:
 ignore_list_err_info_title:Info
 ignore_list_err_dup_msg:Iste usator ja figura in tu lista de ignoratos

@@ -350,7 +350,7 @@ register_year:Год
 register_gender:Пол:
 register_bio:Біяграфія:
 register_bio_desc:Падрабязьней пра Вас, напрыклад, Вашыя зацікаўленасьці, праца і г. д.
-register_prefs:Устаноўкі
+register_prefs:Налады
 register_sig:Подпіс:
 register_sig_desc:Неабавязковы подпіс, які будзе далучацца да Вашых паведамленьняў.
 register_reset:Скінуць

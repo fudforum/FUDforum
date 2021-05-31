@@ -191,7 +191,7 @@ unbookmark_thread_desc:Live st'argomende da l'elenghe tune de le segnalibbre
 unsubscribe:Scangillate
 unsubscribe_desc:Avaste a ricevere notifiche sus a argumende nuève jndr'a 'u forum
 updated_on:Aggiornate 'u:
-user:Utende
+user:Utenti
 user_counter:Avime <b>{VAR: st_obj->user_count}</b> {PLURAL: st_obj->user_count|utende|utinde} reggistrate.
 user_info:'Mbormaziune de l'utende
 user_info_l:'Mbormaziune de l'utende {VAR: u->alias}
@@ -290,7 +290,7 @@ finduser_user_info:'Mbormaziune de l'utende
 finduser_by_login:Pe Utende:
 finduser_submit:Iacchie
 finduser_no_such_user:Nisciune utende
-finduser_user:Utende
+finduser_user:Utenti
 finduser_postcount:Condegge de le messàgge
 finduser_joindate:Date de collegamende
 finduser_action:Azione
@@ -301,7 +301,7 @@ edit_time_limit:<b>Stoche a cange 'u limite orarie</b>: {GVAR: EDIT_TIME_LIMIT} 
 no_edit_time_limit:<b>Cange 'u limite orarie</b>: Illimitate
 pmuserloc_login:Tràse:
 pmuserloc_submit:Conferme
-pmuserloc_user:Utende
+pmuserloc_user:Utenti
 pmuserloc_no_result:Nisciune resultate
 register_builtin:Costruite jndre
 register_specify_url:Specifiche l'URL
@@ -418,7 +418,7 @@ post_title:Titole:
 post_body:Cuèrpe:
 post_options:Opziune:
 post_preview_btn:Andeprime d'u messàgge
-post_cancel_btn:Annulle
+post_cancel_btn:Annulla
 ignore_users:Utinde cacate
 add_ignore:Aggiunge le cacaminde
 forum_terms:Termine d'u forum
@@ -758,7 +758,7 @@ groupmgr_yes:Sìne
 groupmgr_no:None
 groupmgr_action:Azione
 groupmgr_member:Membre
-groupmgr_cancel:Annulle
+groupmgr_cancel:Annulla
 groupmgr_add_member:Aggiunge 'nu membre
 groupmgr_update_member:Aggiorne 'u membre
 groupmgr_edit:Cange
@@ -1071,7 +1071,7 @@ idx_compact_forum_row:Forum disponibbile:
 mmd_del_title:Argumende scangellate
 mmd_mov_title:Spuèste le argumende
 mmd_move_threads_to:Forum de destinazione:
-mmd_abort_move:Annulle
+mmd_abort_move:Annulla
 mmd_move:Spuèste le argumende
 pmsg_pdf_btn:Fà l'archivije PDF
 search_results_hdr:{VAR: total} Resultate de ricerche acchiate

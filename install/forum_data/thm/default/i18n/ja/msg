@@ -11,6 +11,7 @@
 # Author: Object＊tofu
 # Author: Omotecho
 # Author: Otokoume
+# Author: RYU N
 # Author: Shirayuki
 # Author: Sujiniku
 # Author: ネイ
@@ -56,6 +57,7 @@ homepage:ホームページ:
 icq_control_panel:ICQ オンラインメッセージパネル
 icq_message_form:ICQ メッセージ フォーム:
 ignore_user:この利用者のメッセージはすべて無視
+im_facebook:Facebook:
 im_yahoo:Yahoo! メッセンジャー:
 image:画像:
 index_forum:フォーラム
@@ -343,6 +345,7 @@ register_occupation:職業:
 register_interests:興味:
 register_image:画像:
 register_icq:ICQ
+register_facebook:Facebook ID:
 register_yahoo:Yahoo! メッセンジャー:
 register_homepage:ホームページ:
 register_bday:誕生日:
