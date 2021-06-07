@@ -112,8 +112,7 @@ folder:Karpeta:
 pmsg_subject:Gaia
 pmsg_author:Egilea
 pmsg_time:Ordua
-# Fuzzy
-pmsg_selected:Aukeratua
+pmsg_selected:Aukeratu
 pmsg_delete:Ezabatu
 inbox:Sarrera-ontzia
 draft:Zirriborroak
