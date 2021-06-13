@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2021 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -129,7 +129,7 @@
 			$thm_lang = isset($_SERVER['HTTP_ACCEPT_LANGUAGE']) ? substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2) : 'en';
 		}
 		if (!isset($thm_pspell_lang) || empty($thm_pspell_lang)) {
-			$thm_pspell_lang = $thm_lang;
+			$thm_pspell_lang = 'en_US';
 		}
 		$thm_t_default = 0; $thm_enabled = 1; $thm_path_info = 0; $thm_no_index_url = 0;
 	}
@@ -245,7 +245,7 @@ function update_locale()
 <tr class="field">
 	<td>Spell check language:</td>
 	<td>
-		<input type="text" name="thm_pspell_lang" value="<?php echo htmlspecialchars($thm_pspell_lang); ?>" size="2" />
+		<input type="text" name="thm_pspell_lang" value="<?php echo htmlspecialchars($thm_pspell_lang); ?>" size="5" />
 		[<a href="javascript://" onclick="document.forms['admthm'].thm_pspell_lang.value=''">disable</a>]
 	</td>
 </tr>

@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2021 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -85,8 +85,8 @@ function get_max_upload_size()
 		}
 		
 		/* Check if we can use the spell checker. */
-		if ($NEW_FUD_OPT_1 & 2097152 && !extension_loaded('pspell')) {
-			echo errorify('PHP\'s pspell module is currently disabled.');
+		if ($NEW_FUD_OPT_1 & 2097152 && !extension_loaded('enchant')) {
+			echo errorify('PHP\'s enchant module is currently disabled.');
 			$NEW_FUD_OPT_1 ^= 2097152;
 		}
 		
@@ -443,8 +443,10 @@ jQuery(document).ready(function() {
 <fieldset class="section 14"><legend>Spell Checker</legend>
 <table class="datatable solidtable"><col width="50%" /><col width="50%" />
 <?php
-	if (!extension_loaded('pspell')) {
-		echo '<tr class="field"><td colspan="2">You cannot use the spell checker as PHP\'s pspell module is currently <span style="color:red">disabled</span>. Please ask your administrator to enable "pspell" support.</td></tr>';
+	if (!extension_loaded('enchant')) {
+		echo '<tr class="field small"><td colspan="2">You cannot use the spell checker as PHP\'s enchant module is currently <span style="color:red">disabled</span>. Please ask your administrator to enable "enchant" support.</td></tr>';
+	} else {
+		echo '<tr class="field small"><td colspan="2">For futher details, refer to the <a href="admspell.php?'. __adm_rsid .'#14">Forum Spell Checker Control Panel</a>.</td></tr>';
 	}
 	print_bit_field('Enable Spell Checker', 'SPELL_CHECK_ENABLED');
 ?>

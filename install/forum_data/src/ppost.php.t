@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2019 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2021 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -373,7 +373,7 @@ function export_msg_data(&$m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smile
 
 /*{POST_HTML_PHP}*/
 
-	$spell_check_button = ($FUD_OPT_1 & 2097152 && extension_loaded('pspell') && $usr->pspell_lang) ? '{TEMPLATE: spell_check_button}' : '';
+	$spell_check_button = ($FUD_OPT_1 & 2097152 && extension_loaded('enchant') && $usr->pspell_lang) ? '{TEMPLATE: spell_check_button}' : '';
 
 	if (isset($_POST['preview']) || isset($_POST['spell'])) {
 		$text = apply_custom_replace($_POST['msg_body']);

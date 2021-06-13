@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2021 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -137,8 +137,8 @@ jQuery(document).ready(function() {
 	<li><a title="Manage RDF, RSS and ATOM feeds" href="admfeed.php?<?php echo __adm_rsid; ?>">Syndication Manager</a></li>
 	<li><a title="Define PDF page settings" href="admpdf.php?<?php echo __adm_rsid; ?>">PDF Generation Manager</a></li>
 	<li><a title="Track the location of your users" href="admgeoip.php?<?php echo __adm_rsid; ?>">Geolocation Manager</a></li>
-<?php if (extension_loaded('pspell')) { ?>
-	<li><a title="Setup spell checker" href="admspell.php?<?php echo __adm_rsid; ?>">Custom Dictionary Spell Checker</a></li>
+<?php if (extension_loaded('enchant')) { ?>
+	<li><a title="Setup spell checker" href="admspell.php?<?php echo __adm_rsid; ?>">Spell Checker</a></li>
 <?php } ?>
 	</ul>
 	<br />

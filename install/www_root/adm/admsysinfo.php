@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2021 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -114,8 +114,8 @@ echo '<tr class="field">
 				<td><?php echo (($df=str_replace(',', ', ', ini_get('disable_functions'))) ? $df : 'none'); ?></td>
 			</tr>
 			<tr>
-				<td>PSpell support:</td>
-				<td><?php echo extension_loaded('pspell') ? 'Yes' : 'No'; ?></td>
+				<td>Enchant support:</td>
+				<td><?php echo extension_loaded('enchant') ? 'Yes' : 'No'; ?></td>
 			</tr>
 			<tr>
 				<td>Zlib support:</td>

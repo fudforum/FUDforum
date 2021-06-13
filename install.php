@@ -1,6 +1,6 @@
 <?php
 /***************************************************************************
-* copyright            : (C) 2001-2020 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2021 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -27,7 +27,7 @@ function modules_enabled()
 {
 	$status = array();
 	foreach (array('cubrid', 'ibm_db2', 'interbase', 'mysql', 'oci8', 'pdo_mysql', 'pdo_pgsql', 'pdo_sqlite', 'pdo_sqlsrv', 'pgsql', 'sqlsrv',
-		           'mbstring', 'pcre', 'pspell', 'posix', 'zlib') as $m) {
+		           'mbstring', 'pcre', 'enchant', 'posix', 'zlib') as $m) {
 		$status[$m] = extension_loaded($m);
 	}
 
@@ -707,7 +707,7 @@ if ($section == 'stor_path' || php_sapi_name() == 'cli') {
 
 		/* Default bitmask values. */
 		$FUD_OPT_1 = 1743713343;	// From default GLOBALS.php.
-		if (!$module_status['pspell']) {
+		if (!$module_status['enchant']) {
 			$FUD_OPT_1 ^= 2097152;	// Disable spell checker.
 		}
 
@@ -1163,8 +1163,8 @@ switch ($section) {
 			($module_status['pcre'] ? 'enabled' : 'disabled'), ($module_status['pcre'] ? 'green' : 'red'));
 		prereq_row('Zlib Extension:', 'The zlib extension is optional, however we recommend enabling it. This extension allow you to compress your forum backups as well as use zlib compression for your pages.',
 			($module_status['zlib'] ? 'enabled' : 'disabled'), ($module_status['zlib'] ? 'green' : 'orange'));
-		prereq_row('Pspell Extension:', 'Pspell extension is optional, this extension is needed by the FUDforum spellchecker. If you want to allow users to spell check their messages, please enable this extension.',
-			($module_status['pspell'] ? 'enabled' : 'disabled'), ($module_status['pspell'] ? 'green' : 'orange'));
+		prereq_row('Enchant Extension:', 'Enchant extension is optional, this extension is needed by the FUDforum spellchecker. If you want to allow users to spell check their messages, please enable this extension.',
+			($module_status['enchant'] ? 'enabled' : 'disabled'), ($module_status['enchant'] ? 'green' : 'orange'));
 	dialog_end('prereq');
 
 	dialog_start('At least <u>one</u> of the following database extensions must be enabled:', '');
