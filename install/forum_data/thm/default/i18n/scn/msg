@@ -7,7 +7,7 @@
 # Author: McDutchie
 # Author: Naudefj
 
-action:Azione
+action:Azzioni
 add_to_buddy_list:aggiunge a l'elenghe de l'amice
 admin:Amministratore
 admin_control_panel:Amministrazione
@@ -15,7 +15,7 @@ administrator:Amministratore
 attachment:Allegate:
 avatar:Immaggine:
 average_post_count:{PLURAL: u->posted_msg_count|$1 Messàgge} ({PLURAL: avg|$1 messàgge medie} pe sciurne)
-biography:Biografije:
+biography:Biografìa:
 birth_date:Date de nascite:
 by:Da:
 by_mod:da 'nu Moderatore
@@ -230,7 +230,7 @@ referals_none:Nisciune riferimende angore.
 referals_refered_by:Membre d'u forum referenziate da: <b><a href="{TEMPLATE: referals_refered_by_lnk}" class="thLnk">{VAR: p_user[1]}</a></b>
 referals_post_count:Condegge de le messàgge
 referals_registered_on:Reggistrate 'u
-referals_action:Azione
+referals_action:Azzioni
 pmsg_all:tutte
 pmsg_none:ninde
 folder:Cartelle:
@@ -252,18 +252,18 @@ trash:Rummate
 msg_author:Autore
 avatar_sel_form:Module pe scacchià l'immaggine
 no_avatars:Nisciune immaggine disponibbile
-month_1:Scennáre
-month_2:Febbráre
-month_3:Màrze
-month_4:Abbríle
-month_5:Másce
-month_6:Sciúgne
-month_7:Lùglie
-month_8:Agúste
-month_9:Settèmmre
-month_10:Ottòmmre
-month_11:Novèmbre
-month_12:Decèmmre
+month_1:jinnaru
+month_2:frivaru
+month_3:marzu
+month_4:aprili
+month_5:maiu
+month_6:giugnu
+month_7:giugnettu
+month_8:austu
+month_9:sittèmmiru
+month_10:uttùviru
+month_11:nuvèmmiru
+month_12:dicèmmiru
 sunday:Dumèneche
 sunday_short:D
 monday:Lunedìe
@@ -293,7 +293,7 @@ finduser_no_such_user:Nisciune utende
 finduser_user:Utenti
 finduser_postcount:Condegge de le messàgge
 finduser_joindate:Date de collegamende
-finduser_action:Azione
+finduser_action:Azzioni
 yes:Sìne
 no:None
 register_email:E-mail
@@ -341,7 +341,7 @@ register_day:Sciúrne
 register_month:Mese
 register_year:Anne
 register_gender:Sesse:
-register_bio:Biografije:
+register_bio:Biografìa:
 register_bio_desc:Quacche dettaglie sus a te, cumme le inderesse tune, 'a fatìe, ecc...
 register_prefs:Me piace accussì
 register_sig:Firme:
@@ -756,7 +756,7 @@ groupmgr_no_user:Non ge stu 'n'utende cu 'u nome de "{FUNC: char_fix(htmlspecial
 groupmgr_already_exists:Utende "{FUNC: char_fix(htmlspecialchars($gr_member))}" già esiste jndr'à stu gruppe.
 groupmgr_yes:Sìne
 groupmgr_no:None
-groupmgr_action:Azione
+groupmgr_action:Azzioni
 groupmgr_member:Membre
 groupmgr_cancel:Annulla
 groupmgr_add_member:Aggiunge 'nu membre
@@ -765,7 +765,7 @@ groupmgr_edit:Cange
 groupmgr_delete:Scangille
 group_mgr_anon:Anonime
 group_mgr_reged:Tutte le utinde reggistrate
-show_show:Fà vedè:
+show_show:Ammustra:
 group_mgr:Gestore d'u Gruppe
 group_mgr_edit_btn:Cange 'u Gruppe
 group_mgr_heading:Scacchie 'u cangiatore de gruppe
@@ -893,7 +893,7 @@ polllist_name:Nome d'u sondagge
 polllist_date:Ccrejate 'u
 polllist_owner:Ccrejate da
 polllist_votes:Vote totale
-polllist_action:Azione
+polllist_action:Azzioni
 polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">Stoche a rivede le sondagge disponibbile</a>
 userinfo_polls:Sondagge:
 # Fuzzy
@@ -1065,7 +1065,7 @@ register_max_sig_len:Lunghezza massime:
 register_turing:Pe piacere mitte 'u codece fatte vedè sotte:
 # Fuzzy
 register_err_turing:Codece de validazione invalide.
-modque_cat:Categorije
+modque_cat:Catigurìa
 modque_forum:Forum
 idx_compact_forum_row:Forum disponibbile:
 mmd_del_title:Argumende scangellate

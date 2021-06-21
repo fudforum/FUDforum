@@ -353,7 +353,7 @@ register_day:Giorno
 register_month:Mese
 register_year:Anno
 register_gender:Sesso:
-register_bio:Bio:
+register_bio:Biografia:
 register_bio_desc:Alcune informazioni su di te, come i tuoi interessi, il tuo lavoro, ecc.
 register_prefs:Opzioni
 register_sig:Firma:
