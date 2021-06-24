@@ -313,7 +313,7 @@ register_conf_pass:Conferme 'a passuord:
 register_email_desc:Pe piacere mitte 'n'indirizze email valide. Tu puè scacchià de sconnerle sotte, jndr'à selezione de le preferenze.
 register_name:Nome:
 register_your_pass:'A passuord toje:
-register_update:Aggiorne
+register_update:Aggiorna
 register_avatar_type:Tipe de immaggine:
 register_del_avatar:Scangille l'immaggine
 register_avatar:Immaggine:
@@ -401,7 +401,7 @@ post_smiley:Scorciatoije de le facce:
 post_format_tools:Struminde de formattazzione:
 post_upload_file:Careche 'nu file
 post_file_del:Scangille
-post_file_name:Nome
+post_file_name:Nomu
 post_file_size:Dimenzione
 file_attachments:Allegate d'u file:
 allowed_files:Estenziune d'u file permesse:
@@ -451,7 +451,7 @@ coppa_fax_questions:Pe piacere condatte <a href="mailto:{GVAR: ADMIN_EMAIL}">{GV
 coppa_fax_login:Tràse
 coppa_fax_passwd:Passuord
 coppa_fax_remail:E-mail
-coppa_fax_name:Nome
+coppa_fax_name:Nomu
 login_not_logedin:Tu non g'è trasute. Quiste pò essere legate a diverse mutive:
 login_cookie_expired:Le cookie tune onne scadute, e tu è abbesogne de trasè arrete pe rinnovà le cookie tune.
 login_perm_denied:Non ge tìne 'u permesse de accedere sus a resorse richieste cumme 'nu utende anonime. Tu a trasè pe avè 'u permesse.
@@ -549,7 +549,7 @@ poll_name:Nome d'u sondagge:
 poll_timelimit:Orarie limite:
 poll_maxiumvotes:Vote massime:
 poll_create:Ccreje
-poll_update:Agghiorna
+poll_update:Aggiorna
 poll_disablesmilies:Disabbilite le facce
 poll_create_poll:Ccreje 'nu sondagge
 poll_update_poll:Aggiorne 'u sondagge
@@ -577,7 +577,7 @@ delete_proceed:<span class="fb">Vuè ccu condinue?</span>
 delete_yes:Sìne
 delete_no:None
 error_invalidurl:URL invalide
-error_error:Errore
+error_error:Erruri
 usrinfo_profile:{VAR: u->alias} du profile
 usrinfo_show_all_posts:Fà vedè tutte le messàgge da {VAR: u->alias}
 actions_update:Fatte le fatte de l'otre crestiane, cumme piace a te
@@ -599,7 +599,7 @@ email_error_body:'U cuèrpe jè obbligatorie
 email_error_subject:L'oggette jè obbligatorie
 email_error_namerequired:'Nu nome jè richieste
 email_error_invaliduser:Utende invalide
-emailconf_err_invkey_title:Errore
+emailconf_err_invkey_title:Erruri
 emailconf_err_invkey_msg:Chiave de conferme invalide. Pe piacere verifiche l'email toje pe essere secure ca tu è mise l'URL satte satte. Ce tu è cazzate 'u collegamende doje vote, 'u cunde tune pò già essere state confermate. Tràse jndr'à 'u forum pe cercà 'n'otra chiave.
 err_inc_criticaltitle:Errore critiche
 err_inc_criticalmsg:Ha assute 'n'errore. Sfortunatamende, ste pure 'nu probbleme cu 'u sisteme de segnalaziune de le errore.
