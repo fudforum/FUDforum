@@ -337,7 +337,7 @@ register_yahoo:Yahoo Messenger:
 register_homepage:Pàgena prengepàle:
 register_bday:Date de nascite:
 register_bday_desc:Ce mitte 'a date de nascita toje, allore l'otre membre d'u forum a ponne 'ndrucà jndr'à 'u profile tune.
-register_day:Sciúrne
+register_day:Jornu
 register_month:Mese
 register_year:Anne
 register_gender:Sesse:
@@ -414,7 +414,7 @@ disable_smilies:Disabbilite le facce jndr'à stu messàgge
 spell_check_msg:Messàgge de verifiche d'a pronunge
 post_form:Module de Invie
 post_forum:Forum:
-post_title:Titole:
+post_title:Tìtulu:
 post_body:Cuèrpe:
 post_options:Opziune:
 post_preview_btn:Andeprime d'u messàgge
@@ -557,7 +557,7 @@ poll_delete:Scangille
 poll_updateoption:Opzione de aggiornamende
 poll_addoption:Aggiunge 'n'opzione
 poll_unlimited:Illimitate
-poll_day:sciurne
+poll_day:jornu
 poll_days:sciurne
 poll_hour:ore
 poll_hours:ore
@@ -680,7 +680,7 @@ report_err_nosuchmsg_title:ERRORE
 report_err_nosuchmsg_msg:Nisciune messàgge
 reset_err_invalidkey_title:ERRORE
 reset_err_invalidkey_msg:Chiave de azzeramende d'a passuord invalide. Jè possibbile ca 'u client de l'email tune ave apirte automaticamende sta pàgene, 'nvalidanne 'a chiave de azzeramende. Ce quiste jè 'u case, tu avissà ricevere fra picche 'n'email cu 'a passuord nova toje. Ce l'email non g'arrive, pe piacere pruève arrete a azzerà 'a passuord.
-reset_err_rstconf_title:'Mbormaziune
+reset_err_rstconf_title:Nfurmazzioni
 reset_err_rstconf_msg:Tu avissa ricevere le 'struziune jndr'à l'email toje jndr'à le prossime minute.
 reset_newpass_title:Azzere 'a passuord
 reset_newpass_msg:Cià,\n\nCumme richieste, le 'mbormaziune pe trasè stone aqquà sotte:\n\nNome: {VAR: ui[1]}\nPassuord: {VAR: passwd}\n\nPe piacere vide ca 'a passuord toje ha state azzerate a 'u valore de suse. Ce tu vuè cangià 'a passuord puè fà accussì cu 'u pannelle de condrolle de l'utende a:\n{FULL_ROOT}?t=register
@@ -769,7 +769,7 @@ show_show:Ammustra:
 group_mgr:Gestore d'u Gruppe
 group_mgr_edit_btn:Cange 'u Gruppe
 group_mgr_heading:Scacchie 'u cangiatore de gruppe
-group_mgr_group:Gruppe:
+group_mgr_group:Gruppu:
 permission_denied_title:Permesse vietate!
 permission_denied_msg:Le permesse de l'utende non ge sò permesse pe combletà l'azione ca tu vuè ccu face.
 p_READ:Ligge
@@ -988,7 +988,7 @@ mnav_posted_by:Mannate da:
 mnav_more:Cchiù &raquo;&raquo;
 mnav_minute:Minute
 mnav_hour:Ore
-mnav_day:Sciurne
+mnav_day:Jornu/a
 mnav_week:Sumàne
 mnav_month:Mese
 mnav_title:Navigatore de messàgge
