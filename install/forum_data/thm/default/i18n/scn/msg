@@ -151,7 +151,7 @@ sender_email:Mittende de l'email:
 sender_name:Nome d'u mittende:
 show_posts_by:Fà vedè le messàgge de: {VAR: u_alias}
 size:Dimenzione:
-status:State:
+status:Statu:
 status_line:<b>{PLURAL: st_obj->online_users_reg|Ste $1 membre|Stonne $1 membre}</b>, <b>{PLURAL: st_obj->online_users_hidden|$1 membre invisibbile}</b> e <b>{PLURAL: st_obj->online_users_anon|$1 ospite}</b> a visità 'a tabbelle.
 sticky:adesive:
 stop_ignoring:ferme a ignorà st'utende
@@ -365,7 +365,7 @@ register_notify_method:Scacchie 'u metode de notifiche:
 register_notify_method_desc:'Mboste 'u metode de notifiche preferite o disabbilite le notifiche (pe esembie quanne tu vè in vacanze).
 register_allow_email_msg:Permette le messàgge email:
 register_allow_email_msg_desc:Permette a tutte le utinde de mannà le email da stu forum.
-buddy_status:State
+buddy_status:Statu
 my_buddies:L'amice mije
 add_buddy:Aggiunge 'n'amiche
 add:Aggiunge
