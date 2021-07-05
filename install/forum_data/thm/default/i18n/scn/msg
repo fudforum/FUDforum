@@ -44,7 +44,7 @@ go:Véje
 goto_next_msg:Vèje a 'u prossime messàgge
 goto_prev_msg:Vèje a 'u messàgge precedende
 home:Pàgena Prengepàle
-homepage:Pàgena prengepàle:
+homepage:Pàggina principali:
 icq_control_panel:Panelle ICQ Online-Message
 icq_message_form:Module d'u Messàgge de ICQ:
 ignore_user:no scè penzanne a tutte le messàgge da stu utende
@@ -334,7 +334,7 @@ register_interests:Inderesse:
 register_image:Immaggine:
 register_icq:ICQ:
 register_yahoo:Yahoo Messenger:
-register_homepage:Pàgena prengepàle:
+register_homepage:Pàggina principali:
 register_bday:Date de nascite:
 register_bday_desc:Ce mitte 'a date de nascita toje, allore l'otre membre d'u forum a ponne 'ndrucà jndr'à 'u profile tune.
 register_day:Jornu
