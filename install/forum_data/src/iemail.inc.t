@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2021 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -63,7 +63,8 @@ function send_email($from, $to, $subj, $body, $header='', $munge_newlines=1)
 	if (strpos($header, 'MIME-Version') === false) {
 		$extra_header = "\nMIME-Version: 1.0\nContent-Type: text/plain; charset={TEMPLATE: iemail_CHARSET}\nContent-Transfer-Encoding: 8bit". $header;
 	}
-	$header = 'From: '. $from ."\nErrors-To: ". $from ."\nReturn-Path: ". $from ."\nX-Mailer: FUDforum v". $GLOBALS['FORUM_VERSION']. $extra_header. $header;
+	$addronly = preg_replace('/.*</', '<', $from);	// RFC 2822 Return-Path: <...>
+	$header = 'From: '. $from ."\nReturn-Path: ". $addronly ."\nX-Mailer: FUDforum v". $GLOBALS['FORUM_VERSION'] . $extra_header . $header;
 
 	$body = str_replace("\r", '', $body);
 	if ($munge_newlines) {

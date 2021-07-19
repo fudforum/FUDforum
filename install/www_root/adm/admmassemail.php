@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2021 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -8,8 +8,6 @@
 * under the terms of the GNU General Public License as published by the
 * Free Software Foundation; version 2 of the License.
 **/
-// TODO: Rewrite to use send_email() in iemail.inc.t. We should have a single mail sending routine.
-// send_email($from, $to, $subj, $body, $header='', $munge_newlines=1)
 
 	require('./GLOBALS.php');
 	fud_use('adm.inc', true);
@@ -70,19 +68,20 @@
 			$email_batch     = 50;
 			$email_batch_cnt = 0;
 			$to = array();
+			
+			$addronly = preg_replace('/.*</', '<', $ADMIN_EMAIL);	// RFC 2822 Return-Path: <...>
+			$header   = 'From: '. $ADMIN_EMAIL ."\r\nReply-To: ". $addronly ."\r\nX-Mailer: FUDforum v". $GLOBALS['FORUM_VERSION'] ."\r\nMIME-Version: 1.0\r\nContent-Type: text/plain; charset=". $charset ."\r\nContent-Transfer-Encoding: 8bit";
+			$subject  = encode_subject($_POST['subject']);
+			$body     = str_replace("\n.", "\n..", $_POST['body']);
 
 			if (!($FUD_OPT_1 & 512)) {	// Not USE_SMTP.
-				$header = 'From: '. $ADMIN_EMAIL. "\r\nErrors-To: ". $ADMIN_EMAIL. "\r\nReply-To: ". $ADMIN_EMAIL. "\r\nX-Mailer: FUDforum v". $GLOBALS['FORUM_VERSION']. "\r\nMIME-Version: 1.0\r\nContent-Type: text/plain; charset=". $charset. "\r\nContent-Transfer-Encoding: 8bit";
-			
-				$_POST['body'] = str_replace("\n.", "\n..", $_POST['body']);
-
 				while ($r = db_rowarr($c)) {
 					$to[] = $r[0];
 					if (!(++$email_batch_cnt % $email_batch)) {
 						$email_batch_cnt = 0;
 						$bcc = implode(', ', $to) . "\r\n";
 						if (!isset($_POST['dryrun'])) {
-							$mail_success = @mail(' ', encode_subject($_POST['subject']), $_POST['body'], $header ."\nBcc: ". $bcc);
+							$mail_success = @mail(' ', $subject, $body, $header ."\nBcc: ". $bcc);
 						} else {
 							$mail_success = 1;
 							pf('DRYRUN: Send e-mail to '. $bcc);
@@ -91,7 +90,7 @@
 							$mails_sent = $mails_sent + count($to);
 						} else {
 							$mails_failed = $mails_failed + count($to);
-							fud_logerror('Mass Mail ['. $_POST['subject'] .'] to ['. $to[0] .', ...] not accepted for delivery.', 'fud_errors');
+							fud_logerror('Mass Mail ['. $subject .'] to ['. $to[0] .', ...] not accepted for delivery.', 'fud_errors');
 						}
 						$to = array();
 					}
@@ -100,7 +99,7 @@
 				if ($to) {
 					$bcc = implode(', ', $to) ."\r\n";
 					if (!isset($_POST['dryrun'])) {
-						$mail_success = @mail(' ', encode_subject($_POST['subject']), $_POST['body'], $header ."\nBcc: ". $bcc);
+						$mail_success = @mail(' ', $subject, $body, $header ."\nBcc: ". $bcc);
 					} else {
 						$mail_success = 1;
 						pf('DRYRUN: Send e-mail to '. $bcc);
@@ -109,15 +108,13 @@
 						$mails_sent = $mails_sent + count($to);
 					} else {
 						$mails_failed = $mails_failed + count($to);
-						fud_logerror('Mass Mail ['. $_POST['subject'] .'] to ['. $to[0] .', ...] not accepted for delivery.', 'fud_errors');
+						fud_logerror('Mass Mail ['. $subject .'] to ['. $to[0] .', ...] not accepted for delivery.', 'fud_errors');
 					}
 				}
 			} else {
-				$header = 'Errors-To: '. $ADMIN_EMAIL. "\r\nReply-To: ". $ADMIN_EMAIL. "\r\nMIME-Version: 1.0\r\nContent-Type: text/plain; charset=". $charset. "\r\nContent-Transfer-Encoding: 8bit";
-
 				$smtp = new fud_smtp;
-				$smtp->msg = str_replace("\n.", "\n..", $_POST['body']);
-				$smtp->subject = encode_subject($_POST['subject']);
+				$smtp->msg = $body;
+				$smtp->subject = $subject;
 				$smtp->from = $ADMIN_EMAIL;
 				$smtp->headers = $header;
 
