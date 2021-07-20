@@ -70,7 +70,7 @@
 			$to = array();
 			
 			$addronly = preg_replace('/.*</', '<', $ADMIN_EMAIL);	// RFC 2822 Return-Path: <...>
-			$header   = 'From: '. $ADMIN_EMAIL ."\r\nReply-To: ". $addronly ."\r\nX-Mailer: FUDforum v". $GLOBALS['FORUM_VERSION'] ."\r\nMIME-Version: 1.0\r\nContent-Type: text/plain; charset=". $charset ."\r\nContent-Transfer-Encoding: 8bit";
+			$header   = 'From: '. $ADMIN_EMAIL ."\r\nReply-To: ". $addronly ."\r\nUser-Agent: FUDforum/". $GLOBALS['FORUM_VERSION'] ."\r\nMIME-Version: 1.0\r\nContent-Type: text/plain; charset=". $charset ."\r\nContent-Transfer-Encoding: 8bit";
 			$subject  = encode_subject($_POST['subject']);
 			$body     = str_replace("\n.", "\n..", $_POST['body']);
 
