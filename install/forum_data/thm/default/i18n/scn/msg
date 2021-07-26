@@ -29,7 +29,7 @@ email:E-mail:
 email_to_friend:Mane 'n'email a 'n'amiche
 email_to_friend_desc:Manne l'URL a sta pàgene a le amice tune via email
 email_user:Manne a 'n'utende 'nu messàgge email
-faq:Aijute
+faq:Aiutu
 first_unread_msg:Vèje a le messàgge non lette
 first_unread_msg_desc:Vèje a 'u prime messàgge non lette jndr'à stu argomende
 flat_view:Tuèrne a 'a viste piane de base
@@ -49,7 +49,7 @@ icq_control_panel:Panelle ICQ Online-Message
 icq_message_form:Module d'u Messàgge de ICQ:
 ignore_user:no scè penzanne a tutte le messàgge da stu utende
 im_yahoo:Yahoo Messenger:
-image:Immaggine:
+image:Mmàggini:
 index_forum:Forum
 index_new_posts:Messàgge nuève da l'urtema letture
 index_no_new_posts:Nisciune messàgge da l'urtema letture
@@ -63,9 +63,9 @@ lock_thread:Bluècche l'argomende
 locked:Bloccate
 locked_with_new_posts:Bloccate (w/ messàgge non lette)
 logged_in_list:Elenghe de le utinde trasute
-login:Tràse
-login_header:Tràse:
-logout:Isse
+login:Trasi
+login_header:Trasi:
+logout:Nesci
 mark_all_read:Signe tutte le messàgge cumme lette
 mark_all_read_desc:Tutte le messàgge non lette avènene signate cumme lette
 members:Membre
@@ -110,7 +110,7 @@ no_bookmarked_threads:Nisciune argomende signate
 no_unread_locked:St'argomende ha state bloccate
 no_unread_msg:Stu argomende non ge tène messàgge non lette
 no_unread_msg_unreg:Le messàgge lette e chidde non lette sò sulamende tracciate pe le utinde reggistrate
-num_pages:Pàggene ({VAR: ttl_pg}):
+num_pages:Pàggini ({VAR: ttl_pg}):
 num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|vote}
 occupation:Occupazione:
 off:stutate
@@ -214,7 +214,7 @@ reported_reported_by:Segnalate da:
 reported_reported_msg:Messàgge segnalate
 modque_pending_approval:Messàgge appise pe l'approvazione
 modque_approve:Approve
-modque_delete:Scangìlle
+modque_delete:Cancella
 modque_deleteall:Scangille tutte da l'utende
 modque_no_message:Non ge stonne messàgge appise da approvà
 pmsg_new_messages:Messàgge private non lette
@@ -241,7 +241,7 @@ pmsg_author:Autore
 pmsg_time:Orarie
 # Fuzzy
 pmsg_selected:Scacchiate
-pmsg_delete:Scangìlle
+pmsg_delete:Cancella
 cur_ppage_pm:Messàgge private
 writing_pm:Stoche a scrive 'nu messàgge private
 browsing_folder:Stoche a sfogghie 'a cartelle <b>{VAR: folders[$folder_id]}</b>
@@ -299,14 +299,14 @@ no:None
 register_email:E-mail
 edit_time_limit:<b>Stoche a cange 'u limite orarie</b>: {GVAR: EDIT_TIME_LIMIT} minute
 no_edit_time_limit:<b>Cange 'u limite orarie</b>: Illimitate
-pmuserloc_login:Tràse:
+pmuserloc_login:Trasi:
 pmuserloc_submit:Conferme
 pmuserloc_user:Utenti
 pmuserloc_no_result:Nisciune resultate
 register_builtin:Costruite jndre
 register_specify_url:Specifiche l'URL
 register_uploaded:Careche l'immaggine
-register_login:Tràse:
+register_login:Trasi:
 register_password:Passuord:
 register_conf_pass:Conferme 'a passuord:
 # Fuzzy
@@ -331,7 +331,7 @@ register_optional_desc:Jè raccomandate ca non ge dice ogne 'mbormazione persona
 register_location:Luèche:
 register_occupation:Occupazione:
 register_interests:Inderesse:
-register_image:Immaggine:
+register_image:Mmàggini:
 register_icq:ICQ:
 register_yahoo:Yahoo Messenger:
 register_homepage:Pàggina principali:
@@ -344,7 +344,7 @@ register_gender:Sesse:
 register_bio:Biografìa:
 register_bio_desc:Quacche dettaglie sus a te, cumme le inderesse tune, 'a fatìe, ecc...
 register_prefs:Me piace accussì
-register_sig:Firme:
+register_sig:Firma:
 register_sig_desc:Firme facoltative, quedde ca iesse sotte a le messàgge tune.
 register_reset:Azzere
 register_def_thread_view:Viste de base de l'argomende:
@@ -385,11 +385,11 @@ edit_message:Appliche le cangiaminde a 'u messàgge
 apply_spell_changes:Appliche le cangiaminde d'a pronunge
 post_preview:Andeprime d'u messàgge
 post_logedin_user:Utende trasute:
-post_logout:Isse
+post_logout:Nesci
 post_passwd:Passuord mannate:
 post_poll:Sondagge:
 post_create_poll:CCREJE 'NU SONDAGGE
-post_poll_delete:SCANGILLE
+post_poll_delete:CANCELLA
 post_poll_edit:CANGE
 post_mod_opt:Opziune d'u Moderatore:
 post_thread_type:Tipe de argomende:
@@ -400,7 +400,7 @@ post_no_icon:Nisciuna icone
 post_smiley:Scorciatoije de le facce:
 post_format_tools:Struminde de formattazzione:
 post_upload_file:Careche 'nu file
-post_file_del:Scangille
+post_file_del:Cancella
 post_file_name:Nomu
 post_file_size:Dimenzione
 file_attachments:Allegate d'u file:
@@ -448,7 +448,7 @@ coppa_fax_telephone:Telefone:
 coppa_fax_email:Indirizze e-mail:
 coppa_fax_date:Date:
 coppa_fax_questions:Pe piacere condatte <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> pe ogne domande
-coppa_fax_login:Tràse
+coppa_fax_login:Trasi
 coppa_fax_passwd:Passuord
 coppa_fax_remail:E-mail
 coppa_fax_name:Nomu
@@ -458,8 +458,8 @@ login_perm_denied:Non ge tìne 'u permesse de accedere sus a resorse richieste c
 login_want_to_register:Te vuè ccu reggistre?
 login_forgot_passwd:Passuord scurdate
 login_use_cookie:Ause le Use cookie<br /><span class="SmallText">Ce tu ste ause 'nu terminale pubbleche cumme a 'nu combiuter jndr'à 'na libbrerie, scole, o Indernettè Caféje, te consigliame de luà sta opzione pe maggiore securezze. Ce tu lasse sta opzione scacchiate allore tu trase automaticamende jndr'à 'u forum 'a prossema vote ca 'u visite.</span>
-login_login:Tràse:
-login_login_btn:Tràse
+login_login:Trasi:
+login_login_btn:Trasi
 login_name_required:Nome utende jè obbligatorie
 login_passwd_required:Passuord jè obbligatorie
 login_invalid_radius:Combinazione invalide de nome/passuord
@@ -472,7 +472,7 @@ reset_remind_pass:Arrecordatore de passuord
 reset_reset_conf:'A passuor toje ha state azzerate e mannate a te. Ce tu non g'è confermate a mail toje, 'a richieste de conferme t'avène mannate arrete.
 reset_error:Indirizze email non acchiate jndr'à 'u database
 rpasswd_change_pass:Cange 'a passuord
-rpasswd_login:Tràse
+rpasswd_login:Trasi
 rpasswd_cur_pass:Passuord de mò:
 rpasswd_new_pass:Passuord nove:
 rpasswd_conf_pass:Conferme 'a passuord:
@@ -517,7 +517,7 @@ mklist_type:Tipe:
 mklist_option:Opzione:
 mklist_additem:Aggiunge 'na vôsce
 mklist_apply:Appleche
-mklist_delete:Scangille
+mklist_delete:Cancella
 qbud_nick_name:Soprannome
 qbud_add_selected:Aggiunge scacchiate
 # Fuzzy
@@ -553,7 +553,7 @@ poll_update:Aggiorna
 poll_disablesmilies:Disabbilite le facce
 poll_create_poll:Ccreje 'nu sondagge
 poll_update_poll:Aggiorne 'u sondagge
-poll_delete:Scangille
+poll_delete:Cancella
 poll_updateoption:Opzione de aggiornamende
 poll_addoption:Aggiunge 'n'opzione
 poll_unlimited:Illimitate
@@ -629,7 +629,7 @@ err_coppa_title:ERRORE: 'U cunde tune non g'e confermate
 err_coppa_msg:Nuje non g'amme ricevute 'na conferme da le genitore tune e/o 'u tutore legale, 'u quale t'avessà dà 'u permesse de mannà messàgge. Ce tu è perse 'u module COPPA, <a href="{TEMPLATE: err_coppa_msg_lnk}">'ndrucale arrete</a>.
 err_banned_acct_title:ERRORE: Tu è state cacciate.
 err_banned_acct_msg:'U cunde tune ha state {IF: $ban_expiry}temboraneamende cacciate 'nzigne a {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}cacciate pe sembre{ENDI} da l'accesse a 'u site, pu fatte ca è violate le regole d'u forum.
-post_err_edttimelimit_title:ERRORE
+post_err_edttimelimit_title:ERRURI
 post_err_edttimelimit_msg:Non ge puè cangià cchiù stu messàgge
 post_err_noannontopics_msg2:<legend>ERRORE: Privilegge insufficiende</legend>l'utinde anonime non ge ponne ccrejà argumende.
 post_err_noannonposts_msg2:<legend>ERRORE: Privilegge insufficiende</legend>utinde anonime non ge ponne responnere.
@@ -676,9 +676,9 @@ register_err_cantreg_title:ERRORE: 'mbossibbile da reggistrà
 regsiter_err_cantreg_msg:'Mbossibbile da ccrejè 'u cunde utende tune, pe piacere condatte l'amministratore a <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:'Ndruche 'u profile tune
 register_register_update:Pàgene de reggistrazione
-report_err_nosuchmsg_title:ERRORE
+report_err_nosuchmsg_title:ERRURI
 report_err_nosuchmsg_msg:Nisciune messàgge
-reset_err_invalidkey_title:ERRORE
+reset_err_invalidkey_title:ERRURI
 reset_err_invalidkey_msg:Chiave de azzeramende d'a passuord invalide. Jè possibbile ca 'u client de l'email tune ave apirte automaticamende sta pàgene, 'nvalidanne 'a chiave de azzeramende. Ce quiste jè 'u case, tu avissà ricevere fra picche 'n'email cu 'a passuord nova toje. Ce l'email non g'arrive, pe piacere pruève arrete a azzerà 'a passuord.
 reset_err_rstconf_title:Nfurmazzioni
 reset_err_rstconf_msg:Tu avissa ricevere le 'struziune jndr'à l'email toje jndr'à le prossime minute.
@@ -708,7 +708,7 @@ ERR_systemerr_ttl:ERRORE: Errore de sisteme
 ERR_systemerr_msg:Ste 'n'errore de sisteme. Pe piacere segnalale a 'u <a href="mailto:{GVAR: ADMIN_EMAIL}">webmestre</a>.
 email_title:Module de l'email
 finduser_title:Iacchie l'utende
-help_title:Aijute
+help_title:Aiutu
 login_title:Module pe trasè
 poll_title:Cangiatore d'u sondagge
 register_title:Module de reggistrazzione
@@ -762,7 +762,7 @@ groupmgr_cancel:Annulla
 groupmgr_add_member:Aggiunge 'nu membre
 groupmgr_update_member:Aggiorne 'u membre
 groupmgr_edit:Cange
-groupmgr_delete:Scangille
+groupmgr_delete:Cancella
 group_mgr_anon:Anonime
 group_mgr_reged:Tutte le utinde reggistrate
 show_show:Ammustra:
@@ -776,7 +776,7 @@ p_READ:Ligge
 p_POST:Manne
 p_REPLY:Respunne
 p_EDIT:Cange
-p_DEL:Scangille
+p_DEL:Cancella
 p_STICKY:Messàgge adesive
 p_POLL:Ccreje le sondagge
 p_FILE:Attacche le file
@@ -815,7 +815,7 @@ th_expr_one_month:1 mese
 th_expr_two_month:2 Mise
 th_expr_four_month:4 Mise
 th_expr_one_year:'N'anne
-thread_mod_delete:Scangille
+thread_mod_delete:Cancella
 action_ip:IP
 action_latest_post:Urteme messàgge
 online_today_last_visit:Urtema visite
@@ -841,7 +841,7 @@ report_report_post:Segnale 'u messàgge
 quicklogin_login:Nome:
 quicklogin_password:Passuord:
 quicklogin_use_cookies:Ause le cookie?
-quicklogin_login_btn:Tràse
+quicklogin_login_btn:Trasi
 quick_reply:Resposta veloce
 quick_reply_post:Manne 'an resposta veloce
 quick_reply_preview:Andeprime d'a resposta veloce
@@ -1002,7 +1002,7 @@ findu_admin_opts_header:Opziune de l'amministratore
 findu_unban:Nò caccià
 findu_ban:Cacce
 findu_edit:Cange
-findu_delete:Scangille
+findu_delete:Cancella
 dmsg_reply_to:jè 'na resposte a
 dmsg_reply_num:messàgge #{VAR: obj->reply_to}
 merge_topics:Scuagghie le argumende
@@ -1037,7 +1037,7 @@ ip_all_ips:Tutte le IP ausate da '{VAR: user}'
 ip_title:IP d'u browser
 userinfo_real_name:Nome vere:
 register_err_alias_notallowed:Stu alias non gè permesse
-post_err_mod_forum_edit_ttl:ERRORE
+post_err_mod_forum_edit_ttl:ERRURI
 post_err_mod_forum_edit_msg:Tu non ge puè cangià le messàgge jndr'à 'nu forum moderate.
 dmsg_num:messàgge #{VAR: obj->id}
 postcheck_session_invalid:'A sessiona toje ha scadute. Pe piacere re-conferme 'u module. Ne despiace pe l'ingonveniende.
@@ -1094,9 +1094,9 @@ mnav_sub_only:Cirche sulamende jndr'à le forum sottoscritte
 register_topics_per_page:Argumende pe pàgene:
 login_min_time:Stu forum permette 'nu tendative de trasè ogne {VAR: MIN_TIME_BETWEEN_LOGIN} seconde, pe piacere aspitte {FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)} seconde apprime d'u prossime tendative.
 post_not_logged_in:Tu non g'è trasute, 'u messàgge avène mannate anonimamende.
-post_common_bold:Grascette
-post_common_italics:Corsive
-post_common_underline:Sottolineate
+post_common_bold:Grassettu
+post_common_italics:Cursivu
+post_common_underline:Suttalineatu
 post_common_align_left:Allinèe a sinistre
 post_common_align_center:Allinèe a cendre
 post_common_align_right:Allinèe a destre
@@ -1110,7 +1110,7 @@ post_common_nlist:Aggiunge 'n'elenghe numerate
 post_common_blist:Agiiunge 'n'elenghe puntate
 post_common_quote:Aggiunge 'na citazione
 post_common_code:Aggiunge 'nu codece
-rating_delete:Scangille
+rating_delete:Cancella
 post_always_on_top:Fà assè l'argomende sembre 'ngape a l'elenghe de l'argomende
 topic_rating:{VAR: frm->rating} da {PLURAL: frm->n_rating|$1 vote}
 topic_list_rating:{VAR: r[17]} da {PLURAL: r[21]|$1 vote}
@@ -1139,7 +1139,7 @@ btn_tree_view:Viste a arvule
 btn_flat_view:Viste piatte
 btn_about:Profile
 btn_small_pm:MP
-btn_delete:scangille
+btn_delete:cancella
 btn_edit:cange
 btn_reply:respunne
 btn_forward:inoltre
@@ -1153,7 +1153,7 @@ feed_rss:Feed RSS2
 feed_atom:Feed ATOM
 ip_whois_connect_err:Non disponibbile a collegarse a 'u server WHOIS ({VAR: whois_server}): {VAR: errstr}
 custom_filed_required:Stu cambe jè obbligatorie.
-pages:Pàggene
+pages:Pàggini
 page_list_heading:Pàggene disponibbile
 page_list_total:{PLURAL: i|$1 pàgene|$1 pàggene} elengate.
 page_update:Stoche a sfoglie 'a pàgene
@@ -1161,5 +1161,5 @@ pm_export_header:Messàgge private pe {VAR: usr->alias}
 pm_export_footer:Esportate:
 karma:Karma
 karma_track:Gestisce 'a reputazione pe utende:
-karma_delete:Scangille
+karma_delete:Cancella
 rate_author:Valute l'autore:
