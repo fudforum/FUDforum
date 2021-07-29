@@ -32,7 +32,7 @@ email:Email:
 email_to_friend:Poslať email priateľovi
 email_to_friend_desc:Poslať priateľovi internetovú adresu na túto stránku e-mailom
 email_user:Poslať e-mail používateľovi
-faq:Pomoc
+faq:Pomocník
 first_unread_msg:Prejsť na neprečítané správy
 first_unread_msg_desc:Prejsť na prvú neprečítanú správu v tejto téme
 flat_view:Späť k štandardnému plochému zobrazeniu
@@ -710,7 +710,7 @@ ERR_systemerr_ttl:CHYBA: Systémová chyba
 ERR_systemerr_msg:V systéme sa vyskytla chyba. Prosím oznámte to <a href="mailto:{GVAR: ADMIN_EMAIL}">administrátorovi</a>.
 email_title:E-mailový formulár
 finduser_title:Hľadanie používateľa
-help_title:Pomoc
+help_title:Pomocník
 login_title:Prihlasovací formulár
 poll_title:Editor ankiet
 register_title:Registračný formulár

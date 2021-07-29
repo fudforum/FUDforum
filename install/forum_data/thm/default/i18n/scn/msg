@@ -338,7 +338,7 @@ register_homepage:Pàggina principali:
 register_bday:Date de nascite:
 register_bday_desc:Ce mitte 'a date de nascita toje, allore l'otre membre d'u forum a ponne 'ndrucà jndr'à 'u profile tune.
 register_day:Jornu
-register_month:Mese
+register_month:Misi
 register_year:Anne
 register_gender:Sesse:
 register_bio:Biografìa:
@@ -415,7 +415,7 @@ spell_check_msg:Messàgge de verifiche d'a pronunge
 post_form:Module de Invie
 post_forum:Forum:
 post_title:Tìtulu:
-post_body:Cuèrpe:
+post_body:Corpu:
 post_options:Opziune:
 post_preview_btn:Andeprime d'u messàgge
 post_cancel_btn:Annulla
@@ -532,7 +532,7 @@ mklist_close:Achiude
 email_to:A:
 email_pg_title:E-mail
 email_subject:Oggette:
-email_body:Cuèrpe:
+email_body:Corpu:
 email_submit:E-mail
 ppost_quote_msg:{VAR: msg_to_list} scritte sus a {TEMPLATE: ppost_quote_msg_date}
 ppost_quote:Cite:
@@ -561,9 +561,9 @@ poll_day:jornu
 poll_days:sciurne
 poll_hour:ore
 poll_hours:ore
-poll_month:mese
+poll_month:misi
 poll_year:anne
-poll_week:sumáne
+poll_week:simana
 tabs_register:'Mbostaziune d'u cunde
 tabs_subscriptions:Iscriziune
 tabs_bookmarkes:Segnalibbre
@@ -811,9 +811,9 @@ th_expr_two_day:2 Sciurne
 th_expr_four_day:4 Sciurne
 th_expr_one_week:1 Sumàne
 th_expr_two_week:2 Sumàne
-th_expr_one_month:1 mese
-th_expr_two_month:2 Mise
-th_expr_four_month:4 Mise
+th_expr_one_month:1 misi
+th_expr_two_month:2 misi
+th_expr_four_month:4 misi
 th_expr_one_year:'N'anne
 thread_mod_delete:Cancella
 action_ip:IP
@@ -990,7 +990,7 @@ mnav_minute:Minute
 mnav_hour:Ore
 mnav_day:Jornu/a
 mnav_week:Sumàne
-mnav_month:Mese
+mnav_month:Misi
 mnav_title:Navigatore de messàgge
 mnav_update:Stoche a sfoglie le messàgge ausanne 'u <a href="{TEMPLATE: mnav_update_lnk}">Navigatore de le messàgge</a>
 pm_notify_subject:[{GVAR: FORUM_TITLE}] Notifica nove de messàgge private
