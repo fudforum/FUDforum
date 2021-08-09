@@ -39,7 +39,7 @@ forum_new_messages:missaggi novi
 forum_none_messages:Sulamende le membre d'u forum reggistrate ponne traccià le messàgge lette &amp; non lette
 forum_old_messages:Nisciune messàgge nuève
 from:Da:
-gender:Sesse:
+gender:Sessu:
 go:Véje
 goto_next_msg:Vèje a 'u prossime messàgge
 goto_prev_msg:Vèje a 'u messàgge precedende
@@ -48,6 +48,7 @@ homepage:Pàggina principali:
 icq_control_panel:Panelle ICQ Online-Message
 icq_message_form:Module d'u Messàgge de ICQ:
 ignore_user:no scè penzanne a tutte le messàgge da stu utende
+im_facebook:Facebook:
 im_yahoo:Yahoo Messenger:
 image:Mmàggini:
 index_forum:Forum
@@ -232,7 +233,7 @@ referals_post_count:Condegge de le messàgge
 referals_registered_on:Reggistrate 'u
 referals_action:Azzioni
 pmsg_all:tutte
-pmsg_none:ninde
+pmsg_none:nuddu
 folder:Cartelle:
 pmsg_replied:resposte
 pmsg_forwarded:inoltrate
@@ -311,7 +312,7 @@ register_password:Passuord:
 register_conf_pass:Conferme 'a passuord:
 # Fuzzy
 register_email_desc:Pe piacere mitte 'n'indirizze email valide. Tu puè scacchià de sconnerle sotte, jndr'à selezione de le preferenze.
-register_name:Nome:
+register_name:Nomu:
 register_your_pass:'A passuord toje:
 register_update:Aggiorna
 register_avatar_type:Tipe de immaggine:
@@ -320,7 +321,7 @@ register_avatar:Immaggine:
 register_sel_avatar:Scacchie l'immaggine
 register_custom_avatar_rules:L'immaggine personalizzate non ge iesse fine a quanne non g'avène approvate da l'amministratore.<br /><span class="SmallText">L'immaggine, non g'avessa essere cchiù granne de <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} pixels</b> e avessa essere jndr'à 'u formate <b>jpg</b>, <b>gif</b> o <b>png</b>.</span>
 register_custom_avatar_url:URL de l'immaggine personalizzate:
-register_preview:Andeprime
+register_preview:Antiprima
 register_custom_avatar_upload:File de l'immaggine personalizzate:
 register_register:Reggìstre
 register_required:'Mbormazione obbligatorie
@@ -340,7 +341,7 @@ register_bday_desc:Ce mitte 'a date de nascita toje, allore l'otre membre d'u fo
 register_day:Jornu
 register_month:Misi
 register_year:Anne
-register_gender:Sesse:
+register_gender:Sessu:
 register_bio:Biografìa:
 register_bio_desc:Quacche dettaglie sus a te, cumme le inderesse tune, 'a fatìe, ecc...
 register_prefs:Me piace accussì
@@ -501,7 +502,7 @@ search_in_forum:Cirche jndr'à 'u forum:
 search_forum_search:Ricerche d'u forum
 move_thread_to:Spuèste l'argomende <b>{VAR: thr->subject}</b> jndr'à:
 remail_email_topic:Manne pe mail st'argomende a 'n'amiche
-remail_your_name:'U nome tune:
+remail_your_name:Tò nomu:
 remail_your_email:L'email toje:
 remail_friends_name:Nome de l'amiche:
 remail_friends_email:Email de l'amiche:
@@ -528,7 +529,7 @@ mklist_aplha:Alfa
 mklist_square:Quadrate
 mklist_disc:Dische
 mklist_circle:Cerchie
-mklist_close:Achiude
+mklist_close:Chiudi
 email_to:A:
 email_pg_title:E-mail
 email_subject:Oggette:
@@ -933,7 +934,7 @@ pm_err_disabled_msg:Non ge puè mannà messàgge private 'nzigne ca tu abbilite 
 err_mod_acc_ttl:Cunde non verificate
 err_mod_acc_msg:L'amministratore ha scacchiate de revedè tutte le cunde manualmende pe l'attivazione. 'Nzigne ca 'u cunde tune ha state validate da l'amministratore tu non ge puè ausà le capacità comblete d'u cunde.
 accounts_pending_approval:Cunde appise pe l'approvazione
-saved:Reggistrate
+saved:Sarvata
 register_err_time_limit:'U limite de 'na reggistrazione pe {GVAR: REG_TIME_LIMIT} seconda ha state raggiunde. Pe piacere aspitte {PLURAL: reg_limit_reached|$1 seconde}, e pò pruève a reggistrarte arrete.
 register_err_avatardimtobig:Dimenziune de l'immaggine <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> sbonnane 'a diumenzione permesse de  <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b> pixel.
 buddy_offline:{VAR: r[2]} pe mò ste fore linèe
@@ -986,7 +987,7 @@ mnav_invalid_date:L'indervalle de le date ca è specificate jè cchiù granne de
 mnav_no_results:Non ge stonne messàgge ca soddisfane l'inderrogazione.
 mnav_posted_by:Mannate da:
 mnav_more:Cchiù &raquo;&raquo;
-mnav_minute:Minute
+mnav_minute:Minutu/i
 mnav_hour:Ore
 mnav_day:Jornu/a
 mnav_week:Sumàne
@@ -1163,3 +1164,4 @@ karma:Karma
 karma_track:Gestisce 'a reputazione pe utende:
 karma_delete:Cancella
 rate_author:Valute l'autore:
+blog:Blog
