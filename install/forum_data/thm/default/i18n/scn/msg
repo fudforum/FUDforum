@@ -9,9 +9,9 @@
 
 action:Azzioni
 add_to_buddy_list:aggiunge a l'elenghe de l'amice
-admin:Amministratore
+admin:Amministraturi
 admin_control_panel:Amministrazione
-administrator:Amministratore
+administrator:Amministraturi
 attachment:Allegate:
 avatar:Immaggine:
 average_post_count:{PLURAL: u->posted_msg_count|$1 Messàgge} ({PLURAL: avg|$1 messàgge medie} pe sciurne)
@@ -209,7 +209,7 @@ welcome_message:Bovègne <b>{VAR: usr->alias}</b>, l'urtema visita toje ha state
 # Fuzzy
 what_ppl_doing:Fà vedè ce stonne a fanne le crestiane
 reported_del_report:Scangìlle 'a segnalazione
-reported_reason:Mutive:
+reported_reason:Mutivu:
 reported_on:Sus a:
 reported_reported_by:Segnalate da:
 reported_reported_msg:Messàgge segnalate
@@ -295,8 +295,8 @@ finduser_user:Utenti
 finduser_postcount:Condegge de le messàgge
 finduser_joindate:Date de collegamende
 finduser_action:Azzioni
-yes:Sìne
-no:None
+yes:Sì
+no:No
 register_email:E-mail
 edit_time_limit:<b>Stoche a cange 'u limite orarie</b>: {GVAR: EDIT_TIME_LIMIT} minute
 no_edit_time_limit:<b>Cange 'u limite orarie</b>: Illimitate
@@ -308,8 +308,8 @@ register_builtin:Costruite jndre
 register_specify_url:Specifiche l'URL
 register_uploaded:Careche l'immaggine
 register_login:Trasi:
-register_password:Passuord:
-register_conf_pass:Conferme 'a passuord:
+register_password:Password:
+register_conf_pass:Cunferma password:
 # Fuzzy
 register_email_desc:Pe piacere mitte 'n'indirizze email valide. Tu puè scacchià de sconnerle sotte, jndr'à selezione de le preferenze.
 register_name:Nomu:
@@ -334,13 +334,14 @@ register_occupation:Occupazione:
 register_interests:Inderesse:
 register_image:Mmàggini:
 register_icq:ICQ:
+register_facebook:Facebook ID:
 register_yahoo:Yahoo Messenger:
 register_homepage:Pàggina principali:
 register_bday:Date de nascite:
 register_bday_desc:Ce mitte 'a date de nascita toje, allore l'otre membre d'u forum a ponne 'ndrucà jndr'à 'u profile tune.
 register_day:Jornu
 register_month:Misi
-register_year:Anne
+register_year:Annu
 register_gender:Sessu:
 register_bio:Biografìa:
 register_bio_desc:Quacche dettaglie sus a te, cumme le inderesse tune, 'a fatìe, ecc...
@@ -391,7 +392,7 @@ post_passwd:Passuord mannate:
 post_poll:Sondagge:
 post_create_poll:CCREJE 'NU SONDAGGE
 post_poll_delete:CANCELLA
-post_poll_edit:CANGE
+post_poll_edit:CANCIA
 post_mod_opt:Opziune d'u Moderatore:
 post_thread_type:Tipe de argomende:
 post_thread_expiry:Scadenze de l'argomende:
@@ -755,8 +756,8 @@ ppost_original_msg:messàgge ca tu è inoltrate o resposte
 split_thread:Divide l'argomende
 groupmgr_no_user:Non ge stu 'n'utende cu 'u nome de "{FUNC: char_fix(htmlspecialchars($gr_member))}"
 groupmgr_already_exists:Utende "{FUNC: char_fix(htmlspecialchars($gr_member))}" già esiste jndr'à stu gruppe.
-groupmgr_yes:Sìne
-groupmgr_no:None
+groupmgr_yes:Sì
+groupmgr_no:No
 groupmgr_action:Azzioni
 groupmgr_member:Membre
 groupmgr_cancel:Annulla
