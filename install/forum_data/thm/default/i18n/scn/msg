@@ -43,7 +43,7 @@ gender:Sessu:
 go:Véje
 goto_next_msg:Vèje a 'u prossime messàgge
 goto_prev_msg:Vèje a 'u messàgge precedende
-home:Pàgena Prengepàle
+home:Pàggina principali
 homepage:Pàggina principali:
 icq_control_panel:Panelle ICQ Online-Message
 icq_message_form:Module d'u Messàgge de ICQ:
@@ -561,8 +561,8 @@ poll_addoption:Aggiunge 'n'opzione
 poll_unlimited:Illimitate
 poll_day:jornu
 poll_days:sciurne
-poll_hour:ore
-poll_hours:ore
+poll_hour:ura
+poll_hours:uri
 poll_month:misi
 poll_year:anne
 poll_week:simana
@@ -576,14 +576,14 @@ tabs_private_messaging:Messàgge private
 single_msg_delete:Tu ste <span class="ErrorText">scangille</span> 'u messàgge cu 'u titole: <b>{VAR: data[3]}</b>
 thread_delete:Tu ste <span class="ErrorText">scangille</span> 'u <span class="ErrorText">'ndere argomende</span> cu 'u titole: <b>{VAR: data[3]}</b>
 delete_proceed:<span class="fb">Vuè ccu condinue?</span>
-delete_yes:Sìne
-delete_no:None
+delete_yes:Sì
+delete_no:No
 error_invalidurl:URL invalide
 error_error:Erruri
 usrinfo_profile:{VAR: u->alias} du profile
 usrinfo_show_all_posts:Fà vedè tutte le messàgge da {VAR: u->alias}
 actions_update:Fatte le fatte de l'otre crestiane, cumme piace a te
-err_info:'Mbormazione
+err_info:Nfurmazzioni
 buddy_list_err_cantadd:Non ge te puè aggiungere da sule a l'elenghe de l'amice
 buddy_list_err_dup:Tu tìne ggià stu utende sus a l'elenghe de l'amice tune
 buddy_list_err_nouser:L'utende ca è pruvate a aggiungere a l'elenghe de l'amice non g'ha state acchiate.
@@ -612,7 +612,7 @@ iemail_thr_bodyemail:Pe 'ndrucà le resposte non lette vèje a {VAR: goto_url['e
 iemail_frm_subject:Argomende nuève jndr'à 'u forum {VAR: frm_name}, chiamate {VAR: thr_subject}, da {VAR: poster_login}
 iemail_frm_bodyemail:Pe 'ndrucà l'argomende vejè:\n{VAR: goto_url['email']}\n\nPe fermà 'a ricezione de le notifiche sus a le argumende nuève jndr'à stu forum, pe piacere vèje: {VAR: unsub_url['email']}
 iemail_participate:Pe partecipà a 'u 'ngazzamende, vèje aqquà:
-ignore_list_err_info_title:'Mbormazione
+ignore_list_err_info_title:Nfurmazzioni
 ignore_list_err_dup_msg:Tu tìne ggià stu utende sus a l'elenghe de l'amice tune
 ignore_list_err_nu_title:Utende none acchiate
 ignore_list_err_nu_msg:L'utende ca è pruvate a aggiungere a l'elenghe de l'amice non g'ha state acchiate.
@@ -989,7 +989,7 @@ mnav_no_results:Non ge stonne messàgge ca soddisfane l'inderrogazione.
 mnav_posted_by:Mannate da:
 mnav_more:Cchiù &raquo;&raquo;
 mnav_minute:Minutu/i
-mnav_hour:Ore
+mnav_hour:Ura/i
 mnav_day:Jornu/a
 mnav_week:Sumàne
 mnav_month:Misi
