@@ -55,6 +55,7 @@ homepage:Startpagina:
 icq_control_panel:ICQ online-berichtenvenster
 icq_message_form:ICQ berichtenformulier:
 ignore_user:alle berichten van deze gebruiker negeren
+im_facebook:Facebook:
 im_yahoo:Yahoo Messenger:
 image:Afbeelding:
 index_forum:Forum
@@ -342,6 +343,7 @@ register_occupation:Beroep:
 register_interests:Interesses:
 register_image:Afbeelding:
 register_icq:ICQ:
+register_facebook:Facebook ID:
 register_yahoo:Yahoo Messenger:
 register_homepage:Startpagina:
 register_bday:Geboortedatum:
