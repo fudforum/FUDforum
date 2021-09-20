@@ -3,6 +3,7 @@
 # Author: Armando-Martin
 # Author: Crazymadlover
 # Author: Dalton2
+# Author: Destinid10 2
 # Author: Fitoschido
 # Author: Harvest
 # Author: Indiralena
@@ -62,6 +63,7 @@ homepage:Página de inicio:
 icq_control_panel:Panel ICQ en línea-mensaje
 icq_message_form:Formulario de mensaje ICQ:
 ignore_user:ignorar todos los mensajes de este usuario
+im_facebook:Facebook:
 im_yahoo:Yahoo Messenger:
 image:Imagen:
 index_forum:Foro
@@ -349,6 +351,7 @@ register_occupation:Ocupación:
 register_interests:Intereses:
 register_image:Imagen:
 register_icq:ICQ:
+register_facebook:ID de Facebook:
 register_yahoo:Yahoo Messenger:
 register_homepage:Página personal:
 register_bday:Fecha de nacimiento:
@@ -1171,6 +1174,7 @@ rate_author:Evaluar al autor:
 blog_update:Leyendo el blog de foro
 blog:Blog
 blog_new_members:Miembros nuevos
+blog_new_posts:Correo reciente
 blog_rated_posts:Mejor calificados
 blog_viewed_posts:Más vistos
 blog_comments:{PLURAL: tema->respuestas|$1 comentario|$1 comentarios}
