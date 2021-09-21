@@ -1,12 +1,13 @@
 /* $Id$ */ 
 
 This package contains all the files required to install FUDforum, 
-uninstall FUDforum and to upgrade existing forum installations.
+uninstall FUDforum, and to upgrade existing forum installations.
 
 Install steps:
 --------------
 
-1) Copy 'install.php' and 'fudforum_archive' to a web browsable directory.
+1) Copy 'install.php' and 'fudforum_archive' to a web browsable directory on 
+   your web server.
 	It is a good idea to place the script in the same directory you
 	intend to install the forum to.
 
