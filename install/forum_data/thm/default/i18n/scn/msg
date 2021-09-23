@@ -370,11 +370,11 @@ register_allow_email_msg_desc:Permette a tutte le utinde de mannà le email da s
 buddy_status:Statu
 my_buddies:L'amice mije
 add_buddy:Aggiunge 'n'amiche
-add:Aggiunge
+add:Junci
 buddy_search:Mitte 'u nome de l'utende ca vuè aggiungere.
 # Fuzzy
 member_search:O ause 'a funzione <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Iacchie Utende</a> pe acchià 'nu crestiane.
-buddy_remove:live
+buddy_remove:leva
 post_normal:Normale
 post_sticky:Adesive
 post_annoncement:Annunge
@@ -802,7 +802,7 @@ userinfo_referals_count:{VAR: referals} Membre
 pm_no_space_title:Nisciune spazie lassate!
 pm_no_space_msg:Le cartelle tune de le messàgge private ave sbunnate 'a dimenzione permesse de <b>{GVAR: MAX_PMSG_FLDR_SIZE} byte</b>. Lore mò tènene <b>{VAR: fldr_size} byte</b> de messàgge.<br /><br /><span class="ErrorText">Live quacche messàgge vecchie pe libberà spazie.</span>
 pm_space_indct_msg:Le cartele tune de le messàgge private sò chine pe {VAR: percent_full}%.
-th_expr_never:Maje
+th_expr_never:Mai
 th_expr_one_hr:'N'ore
 th_expr_three_hr:3 Ore
 th_expr_four_hr:4 Ore
