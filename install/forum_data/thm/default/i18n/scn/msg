@@ -69,7 +69,7 @@ login_header:Trasi:
 logout:Nesci
 mark_all_read:Signe tutte le messàgge cumme lette
 mark_all_read_desc:Tutte le messàgge non lette avènene signate cumme lette
-members:Membre
+members:Mèmmiri
 calendar:Calendarije
 cal_goto_date:Zumbe a:
 cal_day_heading:Avveneminde pa sciurnate
@@ -226,7 +226,7 @@ restore_to:Repristine a:
 move_to:Spuèste jndr'à:
 list_referes_referrals:Refèreminde
 list_referes_members:Membre referenziate
-list_referes_member:Membre
+list_referes_member:Mèmmiru
 referals_none:Nisciune riferimende angore.
 referals_refered_by:Membre d'u forum referenziate da: <b><a href="{TEMPLATE: referals_refered_by_lnk}" class="thLnk">{VAR: p_user[1]}</a></b>
 referals_post_count:Condegge de le messàgge
@@ -759,7 +759,7 @@ groupmgr_already_exists:Utende "{FUNC: char_fix(htmlspecialchars($gr_member))}" 
 groupmgr_yes:Sì
 groupmgr_no:No
 groupmgr_action:Azzioni
-groupmgr_member:Membre
+groupmgr_member:Mèmmiru
 groupmgr_cancel:Annulla
 groupmgr_add_member:Aggiunge 'nu membre
 groupmgr_update_member:Aggiorne 'u membre
