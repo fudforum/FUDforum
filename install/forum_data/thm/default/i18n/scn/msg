@@ -1091,7 +1091,7 @@ sub_unsub_all_topics:Scangillate da tutte le argumende
 unbookmark_all_topics:Live tutte le segnalibbre
 tabs_own_posts:Fà vedè le probbie messàgge
 sml_emoticon:Emoticon
-sml_code:Codece
+sml_code:Còdici
 mnav_sub_only:Cirche sulamende jndr'à le forum sottoscritte
 register_topics_per_page:Argumende pe pàgene:
 login_min_time:Stu forum permette 'nu tendative de trasè ogne {VAR: MIN_TIME_BETWEEN_LOGIN} seconde, pe piacere aspitte {FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)} seconde apprime d'u prossime tendative.
@@ -1128,7 +1128,7 @@ captcha_img_alt:Verifiche cu captcha: tu è abbesògne de mettere 'u teste jndr'
 captcha_img_help:Non ge stonne zero o une jndr'à l'immaggine.
 powered-by:Fatte da: FUDForum {GVAR: FORUM_VERSION}.
 copyright:Copyright &copy;2001-2021 <a href="http://fudforum.org/">FUDforum Softuer de bollettine de schede</a>
-code_title:Codece:
+code_title:Còdici:
 code_select_all:Scacchie tutte
 code_show_hide:Fa vedè/scunne
 social_sites:Site de rezze suggiale:
