@@ -78,7 +78,7 @@ cal_update:Sfogghie 'u calendarije d'u forum
 cal_birthday:Date de nascite: {VAR: user}
 cal_birthdays:{PLURAL: birthdays|$1 cumpliannu|$1 cumplianni}
 cal_birthday_age:({PLURAL: età|$1 anne}).
-message:Messàgge
+message:Missaggiu
 message_counter:Le utinde nuèstre onne mannate 'nu totale de  <b>{PLURAL: post_count|$1 messàgge}</b> sus a <b>{PLURAL: thread_count|$1 argomende|$1 argumende}</b>.
 message_index:Indice de le messàgge
 message_index_desc:'Ndruche l'elenghe de le messàgge
@@ -121,8 +121,8 @@ pm:Messàgge private
 poll:Sondagge:
 post_count:Cunde de le messàgge {VAR: u_pcount}
 post_count_l:Condegge de le messàgge:
-posts:Mèssagge
-posts_c:Messàgge:
+posts:Missaggi
+posts_c:Missaggi:
 prev_thread:Argomende precedende:
 usrinfo_private_message:Messàgge private:
 profile:Pannelle de Condrolle
@@ -345,7 +345,7 @@ register_year:Annu
 register_gender:Sessu:
 register_bio:Biografìa:
 register_bio_desc:Quacche dettaglie sus a te, cumme le inderesse tune, 'a fatìe, ecc...
-register_prefs:Me piace accussì
+register_prefs:Prifirenzi
 register_sig:Firma:
 register_sig_desc:Firme facoltative, quedde ca iesse sotte a le messàgge tune.
 register_reset:Azzere
@@ -509,13 +509,13 @@ remail_friends_name:Nome de l'amiche:
 remail_friends_email:Email de l'amiche:
 remail_required:obbligatorie
 remail_subject:Oggette:
-remail_message:Messàgge:
+remail_message:Missaggiu:
 remail_send_now:Manne 'na mail mò
 remail_anon_opt:Copie stu messàgge jndr'à 'nu client de email ca te piace pe mannà a le amice tune.
 remail_done:Fatte
 remail_sent_conf:L'email a l'amiche tune {VAR-HTML: _POST['femail']} sus a l'agomende {VAR: data->subject} ha state mannate.
 remail_error:Stè 'n'errore
-mklist_type:Tipe:
+mklist_type:Tipu:
 mklist_option:Opzione:
 mklist_additem:Aggiunge 'na vôsce
 mklist_apply:Appleche
@@ -837,7 +837,7 @@ split_th_new_thread_title:Titole de l'argomende nuève:
 split_th_forum:Forum:
 split_th_split_sel:Divide le messàgge scacchiate
 split_th_split_unsel:Divide le messàgge non schiacchiate
-split_th_messages:Mèssagge
+split_th_messages:Missaggi
 split_th_select:Scacchie
 report_report_post:Segnale 'u messàgge
 quicklogin_login:Nome:
@@ -1006,7 +1006,7 @@ findu_ban:Cacce
 findu_edit:Cange
 findu_delete:Cancella
 dmsg_reply_to:jè 'na resposte a
-dmsg_reply_num:messàgge #{VAR: obj->reply_to}
+dmsg_reply_num:missaggiu #{VAR: obj->reply_to}
 merge_topics:Scuagghie le argumende
 merge_topics_cp:Pannelle de Condrolle pu scuagghiamende de l'argomende
 merge_topics_tpl:Scacchie l'argumende da scuagghià <span class="SmallText">(tu a scacchià cchiù de n'argomende)</span>
@@ -1041,7 +1041,7 @@ userinfo_real_name:Nome vere:
 register_err_alias_notallowed:Stu alias non gè permesse
 post_err_mod_forum_edit_ttl:ERRURI
 post_err_mod_forum_edit_msg:Tu non ge puè cangià le messàgge jndr'à 'nu forum moderate.
-dmsg_num:messàgge #{VAR: obj->id}
+dmsg_num:missaggiu #{VAR: obj->id}
 postcheck_session_invalid:'A sessiona toje ha scadute. Pe piacere re-conferme 'u module. Ne despiace pe l'ingonveniende.
 delete_message_extra_desc:<b>Facoltative</b><br />Specifiche 'nu mutive pa scangellazione d'u messàgge, 'u quale avène mannate a l'autore cu 'nu messàgge private.
 delete_message_extra_body:'Nglude 'u cuèrpe d'u messàgge luate ca adda essere mannate a l'autore.
