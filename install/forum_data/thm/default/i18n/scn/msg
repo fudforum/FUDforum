@@ -77,7 +77,7 @@ cal_no_events:Nisciune avvenemende pa sciurnate.
 cal_update:Sfogghie 'u calendarije d'u forum
 cal_birthday:Date de nascite: {VAR: user}
 cal_birthdays:{PLURAL: birthdays|$1 cumpliannu|$1 cumplianni}
-cal_birthday_age:({PLURAL: età|$1 anne}).
+cal_birthday_age:({PLURAL: etati|$1 annu|$1 anni}).
 message:Missaggiu
 message_counter:Le utinde nuèstre onne mannate 'nu totale de  <b>{PLURAL: post_count|$1 messàgge}</b> sus a <b>{PLURAL: thread_count|$1 argomende|$1 argumende}</b>.
 message_index:Indice de le messàgge
@@ -206,8 +206,7 @@ vote_button:Vote
 vote_for_thread:Vote
 was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> ha state spustate jndr'à <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> da 'u moderatore.
 welcome_message:Bovègne <b>{VAR: usr->alias}</b>, l'urtema visita toje ha state 'u {TEMPLATE: welcome_message_date}
-# Fuzzy
-what_ppl_doing:Fà vedè ce stonne a fanne le crestiane
+what_ppl_doing:Attivitati di l'utenti
 reported_del_report:Scangìlle 'a segnalazione
 reported_reason:Mutivu:
 reported_on:Sus a:
@@ -265,22 +264,22 @@ month_9:sittèmmiru
 month_10:uttùviru
 month_11:nuvèmmiru
 month_12:dicèmmiru
-sunday:Dumèneche
+sunday:Duminicadìa
 sunday_short:D
-monday:Lunedìe
+monday:Lunidìa
 monday_short:L
-tuesday:Martedìe
+tuesday:Martidìa
 tuesday_short:Ma
-wednesday:Mercrudìe
+wednesday:Mercuridìa
 wednesday_short:Me
-thursday:Sciuvedìe
-thursday_short:Sc
-friday:Venerdìe
+thursday:Jovidìa
+thursday_short:Jo
+friday:Venniridìa
 friday_short:V
-saturday:Sàbbete
+saturday:Sabbatudìa
 saturday_short:S
-male:Maschele
-female:Femmene
+male:Màsculu
+female:Fìmmina
 unspecified:NONE SPECIFICATE
 register_tree_view:L'arvule de le messàgge e de l'argomende da elengà
 register_msg_tree_view:Argomende lineare da elengà/Arvule de le messàgge da elengà
@@ -359,7 +358,7 @@ register_timezone:Orarie d'a zone:
 register_ignore_admin:Ignore le messàgge amministrative:
 register_invisible_mode:Mode invisibbile:
 register_invisible_mode_desc:Scunne 'u state in linèe tune.
-register_show_email:Fà vedè l'indirizze email:
+register_show_email:Ammustra lu nnirizzu email:
 register_show_email_desc:Scacchie st'opzione ce tu vuè ca l'indirizze email tune adda essere viste pubblecamende.
 register_notification:Scacchie 'a notifiche de base:
 register_notification_desc:Ce 'a notifiche jè abbilitate de base, pò essere disabbilitate quane manne le messàgge.
@@ -387,7 +386,7 @@ edit_message:Appliche le cangiaminde a 'u messàgge
 apply_spell_changes:Appliche le cangiaminde d'a pronunge
 post_preview:Andeprime d'u messàgge
 post_logedin_user:Utende trasute:
-post_logout:Nesci
+post_logout:nesci
 post_passwd:Passuord mannate:
 post_poll:Sondagge:
 post_create_poll:CCREJE 'NU SONDAGGE
@@ -401,7 +400,7 @@ post_icons:Icone d'u messàgge:
 post_no_icon:Nisciuna icone
 post_smiley:Scorciatoije de le facce:
 post_format_tools:Struminde de formattazzione:
-post_upload_file:Careche 'nu file
+post_upload_file:Càrrica nu file
 post_file_del:Cancella
 post_file_name:Nomu
 post_file_size:Dimenzione
@@ -447,12 +446,12 @@ coppa_fax_no_permission:Firme aqquà ce vuè ca 'u cunde avène scangellate
 coppa_fax_parent_name:Nome comblete d'u genitore/tutore:
 coppa_fax_relation:Relazione cu 'u Piccine:
 coppa_fax_telephone:Telefone:
-coppa_fax_email:Indirizze e-mail:
+coppa_fax_email:Nnirizzu email:
 coppa_fax_date:Date:
 coppa_fax_questions:Pe piacere condatte <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> pe ogne domande
 coppa_fax_login:Trasi
-coppa_fax_passwd:Passuord
-coppa_fax_remail:E-mail
+coppa_fax_passwd:Password
+coppa_fax_remail:Email
 coppa_fax_name:Nomu
 login_not_logedin:Tu non g'è trasute. Quiste pò essere legate a diverse mutive:
 login_cookie_expired:Le cookie tune onne scadute, e tu è abbesogne de trasè arrete pe rinnovà le cookie tune.
@@ -504,7 +503,7 @@ search_forum_search:Ricerche d'u forum
 move_thread_to:Spuèste l'argomende <b>{VAR: thr->subject}</b> jndr'à:
 remail_email_topic:Manne pe mail st'argomende a 'n'amiche
 remail_your_name:Tò nomu:
-remail_your_email:L'email toje:
+remail_your_email:La tò email:
 remail_friends_name:Nome de l'amiche:
 remail_friends_email:Email de l'amiche:
 remail_required:obbligatorie
