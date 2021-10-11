@@ -1,5 +1,6 @@
 # Messages for Message documentation (Message documentation)
 # Exported from translatewiki.net
+# Author: Ajeje Brazorf
 # Author: Alex Khimich
 # Author: Amin
 # Author: Breawycker
@@ -279,6 +280,7 @@ poll_create_poll:{{Identical|Create poll}}
 poll_delete:{{Identical|Delete}}
 poll_updateoption:"Update" is a verb.
 poll_day:{{Identical|Day}}
+poll_days:{{identical|Day}}
 poll_hour:{{Identical|Hour}}
 poll_hours:{{Identical|Hour}}
 poll_month:{{Identical|Month}}

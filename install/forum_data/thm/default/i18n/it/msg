@@ -1113,7 +1113,7 @@ topic_rating:{VAR: frm->rating} di {PLURAL: frm->n_rating|$1 voto|$1 voti}
 topic_list_rating:{VAR: r[17]} di {PLURAL: r[21]|$1 voto|$1 voti}
 tabs_notifications:Notifiche
 finduser_flag:Bandiera
-post_descr:Topic Description
+post_descr:Descrizione argomento:
 pmsg_on:in data
 pmsg_download_dump:Scarica il Riepilogo dei Massaggi
 move_messages:Sposta messaggi

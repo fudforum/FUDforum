@@ -559,11 +559,11 @@ poll_updateoption:Opzione de aggiornamende
 poll_addoption:Aggiunge 'n'opzione
 poll_unlimited:Illimitate
 poll_day:jornu
-poll_days:sciurne
+poll_days:jorna
 poll_hour:ura
 poll_hours:uri
 poll_month:misi
-poll_year:anne
+poll_year:annu
 poll_week:simana
 tabs_register:'Mbostaziune d'u cunde
 tabs_subscriptions:Iscriziune
@@ -762,7 +762,7 @@ groupmgr_member:Mèmmiru
 groupmgr_cancel:Annulla
 groupmgr_add_member:Aggiunge 'nu membre
 groupmgr_update_member:Aggiorne 'u membre
-groupmgr_edit:Cange
+groupmgr_edit:Cancia
 groupmgr_delete:Cancella
 group_mgr_anon:Anonime
 group_mgr_reged:Tutte le utinde reggistrate
@@ -776,7 +776,7 @@ permission_denied_msg:Le permesse de l'utende non ge sò permesse pe combletà l
 p_READ:Ligge
 p_POST:Manne
 p_REPLY:Respunne
-p_EDIT:Cange
+p_EDIT:Cancia
 p_DEL:Cancella
 p_STICKY:Messàgge adesive
 p_POLL:Ccreje le sondagge
@@ -802,23 +802,23 @@ pm_no_space_title:Nisciune spazie lassate!
 pm_no_space_msg:Le cartelle tune de le messàgge private ave sbunnate 'a dimenzione permesse de <b>{GVAR: MAX_PMSG_FLDR_SIZE} byte</b>. Lore mò tènene <b>{VAR: fldr_size} byte</b> de messàgge.<br /><br /><span class="ErrorText">Live quacche messàgge vecchie pe libberà spazie.</span>
 pm_space_indct_msg:Le cartele tune de le messàgge private sò chine pe {VAR: percent_full}%.
 th_expr_never:Mai
-th_expr_one_hr:'N'ore
-th_expr_three_hr:3 Ore
-th_expr_four_hr:4 Ore
-th_expr_eight_hr:8 Ore
-th_expr_sixteen_hr:16 Ore
-th_expr_one_day:1 Sciurne
-th_expr_two_day:2 Sciurne
-th_expr_four_day:4 Sciurne
-th_expr_one_week:1 Sumàne
-th_expr_two_week:2 Sumàne
+th_expr_one_hr:1 ura
+th_expr_three_hr:3 uri
+th_expr_four_hr:4 uri
+th_expr_eight_hr:8 uri
+th_expr_sixteen_hr:16 uri
+th_expr_one_day:1 jornu
+th_expr_two_day:2 jorna
+th_expr_four_day:4 jorna
+th_expr_one_week:1 simana
+th_expr_two_week:2 simani
 th_expr_one_month:1 misi
 th_expr_two_month:2 misi
 th_expr_four_month:4 misi
-th_expr_one_year:'N'anne
+th_expr_one_year:1 annu
 thread_mod_delete:Cancella
 action_ip:IP
-action_latest_post:Urteme messàgge
+action_latest_post:Ùrtimu missaggiu
 online_today_last_visit:Urtema visite
 online_today_update:Stoche a 'ndruche l'elenghe de le utinde ca stavane sus a 'u forum osce.
 logedin_todays_visitors:Visitature de osce
@@ -840,7 +840,7 @@ split_th_messages:Missaggi
 split_th_select:Scacchie
 report_report_post:Segnale 'u messàgge
 quicklogin_login:Nome:
-quicklogin_password:Passuord:
+quicklogin_password:Password:
 quicklogin_use_cookies:Ause le cookie?
 quicklogin_login_btn:Trasi
 quick_reply:Resposta veloce
@@ -865,9 +865,9 @@ register_google:Gestore de Google Chat/IM:
 im_jabber:Jabber:
 im_google:Google Talk:
 im_skype:Skype:
-im_twitter:Tuitter:
+im_twitter:Twitter
 forum_contact:Condatte
-forum_home:Pàgena Prengepàle
+forum_home:Pàggina principali
 post_cur_attached:allegate pe mò: {VAR: i} {PLURAL: i|file}
 ignored_anon_post:{GVAR: ANON_NICK} ha state cacate
 ignored_user_post:Messàgge da <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> ha state cacate
@@ -879,7 +879,7 @@ help_back_to_top:tuèrne sus
 help_return_to_index:Tuèrne a l'indice de l'aijute
 imsg_err_message_title:Messàgge invalide
 imsg_err_message_msg:'U messàgge ca ste pruève a 'ndrucà non g'esiste.
-poll_edit:Cange
+poll_edit:Cancia
 register_err_not_valid_img:L'URL specificate non ge tène 'n'immaggine valide.
 pmsg_recepient:Recipiende
 register_err_taken_alias:L'alias ca ste pruève de ausà jè ggià in use da 'n'otre membre d'u forum. Pe piacere scacchie 'n'otre.
@@ -990,7 +990,7 @@ mnav_more:Cchiù &raquo;&raquo;
 mnav_minute:Minutu/i
 mnav_hour:Ura/i
 mnav_day:Jornu/a
-mnav_week:Sumàne
+mnav_week:Simana/i
 mnav_month:Misi
 mnav_title:Navigatore de messàgge
 mnav_update:Stoche a sfoglie le messàgge ausanne 'u <a href="{TEMPLATE: mnav_update_lnk}">Navigatore de le messàgge</a>
@@ -1002,7 +1002,7 @@ register_pm_notification_desc:Ce abbilitate, t'arive 'a notifiche quanne 'nu mes
 findu_admin_opts_header:Opziune de l'amministratore
 findu_unban:Nò caccià
 findu_ban:Cacce
-findu_edit:Cange
+findu_edit:Cancia
 findu_delete:Cancella
 dmsg_reply_to:jè 'na resposte a
 dmsg_reply_num:missaggiu #{VAR: obj->reply_to}
@@ -1104,18 +1104,18 @@ post_common_align_right:Allinèe a destre
 post_common_link:'Nzerisce 'nu collegamende
 post_common_link_popup:Colleghe 'u luèche:
 post_common_email:Mitte 'n'indirizze e-mail
-post_common_email_popup:Indirizze email:
-post_common_image:Mitte 'n'immaggine
-post_common_image_popup:URL de l'immaggine:
+post_common_email_popup:Nnirizzu email:
+post_common_image:Nzirisci na mmàggini
+post_common_image_popup:URL dâ mmàggini:
 post_common_nlist:Aggiunge 'n'elenghe numerate
 post_common_blist:Agiiunge 'n'elenghe puntate
 post_common_quote:Aggiunge 'na citazione
-post_common_code:Aggiunge 'nu codece
+post_common_code:Junci còdici
 rating_delete:Cancella
 post_always_on_top:Fà assè l'argomende sembre 'ngape a l'elenghe de l'argomende
 topic_rating:{VAR: frm->rating} da {PLURAL: frm->n_rating|$1 vote}
 topic_list_rating:{VAR: r[17]} da {PLURAL: r[21]|$1 vote}
-tabs_notifications:Notifiche
+tabs_notifications:Nutìfichi
 finduser_flag:Bandiere
 post_descr:Descrizione de l'argomende:
 pmsg_on:appezzecate
@@ -1141,7 +1141,7 @@ btn_flat_view:Viste piatte
 btn_about:Profile
 btn_small_pm:MP
 btn_delete:cancella
-btn_edit:cange
+btn_edit:cancia
 btn_reply:respunne
 btn_forward:inoltre
 btn_quote:cite
