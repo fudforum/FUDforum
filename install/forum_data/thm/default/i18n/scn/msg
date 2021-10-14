@@ -511,7 +511,7 @@ remail_subject:Oggette:
 remail_message:Missaggiu:
 remail_send_now:Manne 'na mail mò
 remail_anon_opt:Copie stu messàgge jndr'à 'nu client de email ca te piace pe mannà a le amice tune.
-remail_done:Fatte
+remail_done:Fattu
 remail_sent_conf:L'email a l'amiche tune {VAR-HTML: _POST['femail']} sus a l'agomende {VAR: data->subject} ha state mannate.
 remail_error:Stè 'n'errore
 mklist_type:Tipu:
