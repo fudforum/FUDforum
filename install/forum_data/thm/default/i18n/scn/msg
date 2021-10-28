@@ -369,7 +369,7 @@ register_allow_email_msg_desc:Permette a tutte le utinde de mannà le email da s
 buddy_status:Statu
 my_buddies:L'amice mije
 add_buddy:Aggiunge 'n'amiche
-add:Junci
+add:Agghiunci
 buddy_search:Mitte 'u nome de l'utende ca vuè aggiungere.
 # Fuzzy
 member_search:O ause 'a funzione <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Iacchie Utende</a> pe acchià 'nu crestiane.
@@ -768,7 +768,7 @@ group_mgr_anon:Anonime
 group_mgr_reged:Tutte le utinde reggistrate
 show_show:Ammustra:
 group_mgr:Gestore d'u Gruppe
-group_mgr_edit_btn:Cange 'u Gruppe
+group_mgr_edit_btn:Cancia lu gruppu
 group_mgr_heading:Scacchie 'u cangiatore de gruppe
 group_mgr_group:Gruppu:
 permission_denied_title:Permesse vietate!
@@ -1110,7 +1110,7 @@ post_common_image_popup:URL dâ mmàggini:
 post_common_nlist:Aggiunge 'n'elenghe numerate
 post_common_blist:Agiiunge 'n'elenghe puntate
 post_common_quote:Aggiunge 'na citazione
-post_common_code:Junci còdici
+post_common_code:Agghiunci còdici
 rating_delete:Cancella
 post_always_on_top:Fà assè l'argomende sembre 'ngape a l'elenghe de l'argomende
 topic_rating:{VAR: frm->rating} da {PLURAL: frm->n_rating|$1 vote}
