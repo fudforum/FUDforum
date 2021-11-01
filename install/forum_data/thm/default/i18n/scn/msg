@@ -307,6 +307,7 @@ register_builtin:Costruite jndre
 register_specify_url:Specifiche l'URL
 register_uploaded:Careche l'immaggine
 register_login:Trasi:
+register_login_available:Dispunìbbili
 register_password:Password:
 register_conf_pass:Cunferma password:
 # Fuzzy
