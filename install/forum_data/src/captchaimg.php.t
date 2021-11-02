@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2021 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -42,9 +42,10 @@
 	}
 
 	/* Create textbox and add text. */
-	$ttf_support = 1;
-	$textbox = @imagettfbbox($font_size, 0, $font, $image_text) or $ttf_support = 0;
+	$ttf_support = function_exists('imagettfbbox');	// Use FreeType if available, or revert to older method.
+
 	if ($ttf_support) {
+		$textbox = imagettfbbox($font_size, 0, $font, $image_text);
 		/* Print chars. */
 		$x = $font_size;
 		$y = ($height - $textbox[5])/2;
