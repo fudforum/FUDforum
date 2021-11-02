@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2021 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -14,12 +14,24 @@ plugin_add_hook('PRE_REGISTER', 'plugin_stopforumspam');
 
 // Validate registering users with StopForumSpam
 function plugin_stopforumspam($uent) {
-	$query = '//www.stopforumspam.com/api?username='. urlencode($uent->login) .'&email='. urlencode($uent->email) .'&ip='. $_SERVER['REMOTE_ADDR'] .'&f=json';
-	$data = json_decode(file_get_contents($query));
+	$query = 'https://api.stopforumspam.org/api?username='. urlencode($uent->login) .'&email='. urlencode($uent->email) .'&ip='. $_SERVER['REMOTE_ADDR'] .'&f=json';
+	if (($data = @file_get_contents($query)) === false) {
+		$error = error_get_last();
+		fud_logerror('StopForumSpam HTTP error ['. $error['message'] .'] while validating '. $uent->email .' from '. $_SERVER['REMOTE_ADDR'] .'. User will be allowed to register.', 'fud_errors');
+		// fud_logerror('<a href="'. $query .'">Test API</a>', 'fud_errors');
+		return $uent;
+	}
+
+	$data = json_decode($data);
 
 	if (!$data->success) {	// Error occured!
-		fud_logerror('StopForumSpam returned ['. $data->error .'] while validating '. $uent->email .' from '. $_SERVER['REMOTE_ADDR'] .'. User will be allowed to register.', 'fud_errors');
-		return $uent;
+		if (!$data->error) {
+			$out = var_export($data, true);
+			fud_logerror('StopForumSpam API returned ['. $out .'] while validating '. $uent->email .' from '. $_SERVER['REMOTE_ADDR'] .'. User will be allowed to register.', 'fud_errors');
+		} else {
+			fud_logerror('StopForumSpam API error ['. $data->error .'] while validating '. $uent->email .' from '. $_SERVER['REMOTE_ADDR'] .'. User will be allowed to register.', 'fud_errors');
+			return $uent;
+		}
 	}
 
 	if ($data->username->appears || $data->email->appears || $data->ip->appears) { 	// Black listed!
@@ -40,6 +52,6 @@ function stopforumspam_info() {
 	return array('name' => 'Stop Forum Spam',
 		     'desc' => 'This plugin checks registering users against the spammer blacklist from <a href="//www.stopforumspam.com">stopforumspam.com</a> to prevent known bots from creating accounts on your forum.',
 		     'cat'  => 'Anti-spam',
-		     'version' => '1.0');
+		     'version' => '1.1');
 }
 
