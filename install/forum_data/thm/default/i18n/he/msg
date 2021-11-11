@@ -361,7 +361,7 @@ rpasswd_passwd_length:בססמה צריכים להיות לפחות 6 תווים
 reset_remind_pass:תזכורת ססמה
 reset_reset_conf:הססמה שלך אופסה ונשלחה אליך. אם עוד לא אישרת את כתובת הדוא"ל שלך, בקשת האישור תישלח לכתובתך מחדש.
 reset_update:איפוס סיסמה
-rpasswd_change_pass:החלפת ססמה
+rpasswd_change_pass:שינוי סיסמה
 rpasswd_login:כניסה
 rpasswd_cur_pass:הססמה הנוכחית:
 rpasswd_new_pass:ססמה חדשה:
