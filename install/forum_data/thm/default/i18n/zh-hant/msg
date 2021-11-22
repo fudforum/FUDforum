@@ -15,6 +15,7 @@
 # Author: Oapbtommy
 # Author: Simon Shek
 # Author: Wehwei
+# Author: Winston Sung
 
 action:操作
 add_to_buddy_list:加入好友清單
@@ -1129,7 +1130,7 @@ code_select_all:全選
 code_show_hide:顯示/隱藏
 social_sites:社群網站：
 postcheck_min_len_err:您的訊息太短。最小長度是 {PLURAL: post_min_len|$1 個字元| $1 個字元}。
-postcheck_dup_err:請不要創建重複的主題。
+postcheck_dup_err:請不要建立重複的話題。
 btn_new_topic:新主題
 btn_new_pm:新私訊
 btn_post_reply:傳遞回覆
