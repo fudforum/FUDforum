@@ -13,7 +13,7 @@ admin:Amministraturi
 admin_control_panel:Amministrazione
 administrator:Amministraturi
 attachment:Allegate:
-avatar:Immaggine:
+avatar:Avatar:
 average_post_count:{PLURAL: u->posted_msg_count|$1 Messàgge} ({PLURAL: avg|$1 messàgge medie} pe sciurne)
 biography:Biografìa:
 birth_date:Date de nascite:
@@ -25,7 +25,7 @@ date_posted:Date de l'Invie
 date_registered:Date de Reggistrazione:
 download_counter:Scarecate {PLURAL: v[3]|$1 vote}
 pmsg_download_counter:Scarecate {PLURAL: r->dlcount|$1 vote}
-email:E-mail:
+email:Email:
 email_to_friend:Mane 'n'email a 'n'amiche
 email_to_friend_desc:Manne l'URL a sta pàgene a le amice tune via email
 email_user:Manne a 'n'utende 'nu messàgge email
@@ -56,9 +56,9 @@ index_new_posts:Messàgge nuève da l'urtema letture
 index_no_new_posts:Nisciune messàgge da l'urtema letture
 index_url_redirection:Redirezionamende
 interests:Inderesse:
-last_post:Urtme messàgge
+last_post:Ùrtimu missaggiu
 last_thread_msg:Vèje a l'urteme messàgge jndr'à st'argomende
-legend:Leggende
+legend:Liggenna
 location:Luèche:
 lock_thread:Bluècche l'argomende
 locked:Bloccate
@@ -70,7 +70,7 @@ logout:Nesci
 mark_all_read:Signe tutte le messàgge cumme lette
 mark_all_read_desc:Tutte le messàgge non lette avènene signate cumme lette
 members:Mèmmiri
-calendar:Calendarije
+calendar:Calannariu
 cal_goto_date:Zumbe a:
 cal_day_heading:Avveneminde pa sciurnate
 cal_no_events:Nisciune avvenemende pa sciurnate.
@@ -91,11 +91,11 @@ moderator_options:Opziune d'u Moderatore
 moderators:{PLURAL: modcount|Moderatore|Moderature}
 more_unread_messages:cchiù messàgge non lette
 more_unread_messages_desc:Fà vedè cchiù messàgge non lette e signe le messaggè ca se 'ndrucane cumme lette
-move_thread:Spuèste
+move_thread:Sposta
 moved:Spuèste jndr'à 'n'otre forum
 moved_thread_message:St'argomende ha state spustate jndr'à 'n'otre forum
-na:n/a
-new_posts:Messàgge nuève
+na:n/d
+new_posts:Missaggi novi
 new_private_messages:Tu è <span class="GenTextRed">({VAR: c})</span> {PLURAL: c|messàgge private} non lette
 new_thread:Ccreje 'n'argomende nuève
 newest_user:L'urteme utende reggistrate ète
@@ -104,7 +104,7 @@ next_thread:Argomende successive:
 no_messages:Non ge stonne messàgge jndr'à stu forum.<br />Fà ca sì 'u prime ca face 'n'argomende jndr'à stu forum.
 no_msg_body:Nisciune cuèrpe de messàgge
 no_new_posts:Nisciune messàgge nuève
-no_posts:Nisciune messàgge
+no_posts:Nuddu missaggiu
 no_subscribed_forums:Nisciune forum sottoscritte
 no_subscribed_threads:Nisciune argomende sottoscritte
 no_bookmarked_threads:Nisciune argomende signate
@@ -113,7 +113,7 @@ no_unread_msg:Stu argomende non ge tène messàgge non lette
 no_unread_msg_unreg:Le messàgge lette e chidde non lette sò sulamende tracciate pe le utinde reggistrate
 num_pages:Pàggini ({VAR: ttl_pg}):
 num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|vote}
-occupation:Occupazione:
+occupation:Occupazzioni:
 off:stutate
 on:appezzecate
 page_timings:Tiembe totale pigghiate pe generà 'a pàgene: {PLURAL: page_gen_time|$1 seconde}
@@ -160,7 +160,7 @@ sub_to_thread:Sottoscrive l'argomende
 sub_to_thread_desc:Rivece notifiche sus a messàgge nuève jndr'a l'argomende
 bookmark_thread:Signe l'argomende
 bookmark_thread_desc:Aggiunge st'argomende a l'elenghe tune de segnalibbre
-subject:Oggette
+subject:Uggettu:
 subscribe:Sottoscrive
 subscribe_desc:Riceve notifiche quanne quacchedune ccreje 'n'argomende nuève jndr'à stu forum
 subscribed_forums:Forum sottoscritte
@@ -194,7 +194,7 @@ unsubscribe_desc:Avaste a ricevere notifiche sus a argumende nuève jndr'a 'u fo
 updated_on:Aggiornate 'u:
 user:Utenti
 user_counter:Avime <b>{VAR: st_obj->user_count}</b> {PLURAL: st_obj->user_count|utende|utinde} reggistrate.
-user_info:'Mbormaziune de l'utende
+user_info:Nfurmazzioni utenti
 user_info_l:'Mbormaziune de l'utende {VAR: u->alias}
 user_offline:{VAR: obj->login} non ge ste in linèe
 user_online:{VAR: obj->login} ste in linèe
@@ -330,7 +330,7 @@ register_required_desc:Tutte le cambe so obbligatorie. Pe piacere vide ca 'a pas
 register_optional:'Mbormazione facoltative
 register_optional_desc:Jè raccomandate ca non ge dice ogne 'mbormazione personale o ca te idendifiche sus a 'u profile tune. Tutte le 'mbormaziune sò visibbile da l'otre membre d'u forum.
 register_location:Luèche:
-register_occupation:Occupazione:
+register_occupation:Occupazzioni:
 register_interests:Inderesse:
 register_image:Mmàggini:
 register_icq:ICQ:
@@ -475,14 +475,14 @@ reset_reset_conf:'A passuor toje ha state azzerate e mannate a te. Ce tu non g'�
 reset_error:Indirizze email non acchiate jndr'à 'u database
 rpasswd_change_pass:Cange 'a passuord
 rpasswd_login:Trasi
-rpasswd_cur_pass:Passuord de mò:
+rpasswd_cur_pass:Password attuali:
 rpasswd_new_pass:Passuord nove:
-rpasswd_conf_pass:Conferme 'a passuord:
+rpasswd_conf_pass:Cunferma la password:
 ruser_title:Cange 'u module pe trasè
 ruser_change_user:Cange 'u nome de collegamende d'u forum tune
 ruser_cur_login:Nome de mò:
 ruser_new_login:Nome nuève:
-ruser_cur_pass:Passuord de mò:
+ruser_cur_pass:Password attuali:
 login_passwd:Passuord:
 reset_email:E-mail:
 reset_reset_button:Azzere 'a passuord
@@ -761,7 +761,7 @@ groupmgr_no:No
 groupmgr_action:Azzioni
 groupmgr_member:Mèmmiru
 groupmgr_cancel:Annulla
-groupmgr_add_member:Aggiunge 'nu membre
+groupmgr_add_member:Agghiunci nu mèmmmiru
 groupmgr_update_member:Aggiorne 'u membre
 groupmgr_edit:Cancia
 groupmgr_delete:Cancella
