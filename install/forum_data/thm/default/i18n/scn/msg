@@ -146,7 +146,7 @@ sel_unanswered_posts:Messàgge non resposte
 sel_unanswered_posts_desc:Live e mitte 'u filtre pe le messàgge non resposte (face 'ndrucà sulamende le messàgge ca non ge onne resposte)
 sel_unread_messages:Messàgge non lette
 sel_unread_messages_desc:Live e mitte 'u filtre pe le messàgge non lette (face 'ndrucà sulamende le messàgge non lette)
-send:Manne
+send:Manna
 send_pm_desc:Manne 'nu messàgge private a stu utende
 sender_email:Mittende de l'email:
 sender_name:Nome d'u mittende:
@@ -195,10 +195,10 @@ updated_on:Aggiornate 'u:
 user:Utenti
 user_counter:Avime <b>{VAR: st_obj->user_count}</b> {PLURAL: st_obj->user_count|utende|utinde} reggistrate.
 user_info:Nfurmazzioni utenti
-user_info_l:'Mbormaziune de l'utende {VAR: u->alias}
+user_info_l:Nfurmazzioni utenti {VAR: u->alias}
 user_offline:{VAR: obj->login} non ge ste in linèe
 user_online:{VAR: obj->login} ste in linèe
-usrinfo_last_post:Urtme messàgge:
+usrinfo_last_post:Ùrtimu missaggiu:
 view_results:'Ndruche le resultate
 views:Visite
 vote:{PLURAL: frm->n_rating|$1 Vote}
@@ -209,7 +209,7 @@ welcome_message:Bovègne <b>{VAR: usr->alias}</b>, l'urtema visita toje ha state
 what_ppl_doing:Attivitati di l'utenti
 reported_del_report:Scangìlle 'a segnalazione
 reported_reason:Mutivu:
-reported_on:Sus a:
+reported_on:Lu:
 reported_reported_by:Segnalate da:
 reported_reported_msg:Messàgge segnalate
 modque_pending_approval:Messàgge appise pe l'approvazione
@@ -231,13 +231,13 @@ referals_refered_by:Membre d'u forum referenziate da: <b><a href="{TEMPLATE: ref
 referals_post_count:Condegge de le messàgge
 referals_registered_on:Reggistrate 'u
 referals_action:Azzioni
-pmsg_all:tutte
+pmsg_all:tutti
 pmsg_none:nuddu
 folder:Cartelle:
 pmsg_replied:resposte
 pmsg_forwarded:inoltrate
 pmsg_subject:Oggette
-pmsg_author:Autore
+pmsg_author:Auturi
 pmsg_time:Orarie
 # Fuzzy
 pmsg_selected:Scacchiate
@@ -246,7 +246,7 @@ cur_ppage_pm:Messàgge private
 writing_pm:Stoche a scrive 'nu messàgge private
 browsing_folder:Stoche a sfogghie 'a cartelle <b>{VAR: folders[$folder_id]}</b>
 inbox:Casscette d'a poste
-draft:Bozze
+draft:Abbozzu
 sent:Mannate
 trash:Rummate
 msg_author:Autore
@@ -265,9 +265,9 @@ month_10:uttùviru
 month_11:nuvèmmiru
 month_12:dicèmmiru
 sunday:Duminicadìa
-sunday_short:D
+sunday_short:Du
 monday:Lunidìa
-monday_short:L
+monday_short:Lu
 tuesday:Martidìa
 tuesday_short:Ma
 wednesday:Mercuridìa
@@ -275,9 +275,9 @@ wednesday_short:Me
 thursday:Jovidìa
 thursday_short:Jo
 friday:Venniridìa
-friday_short:V
+friday_short:Ve
 saturday:Sabbatudìa
-saturday_short:S
+saturday_short:Sa
 male:Màsculu
 female:Fìmmina
 unspecified:NONE SPECIFICATE
@@ -296,13 +296,13 @@ finduser_joindate:Date de collegamende
 finduser_action:Azzioni
 yes:Sì
 no:No
-register_email:E-mail
+register_email:Email
 edit_time_limit:<b>Stoche a cange 'u limite orarie</b>: {GVAR: EDIT_TIME_LIMIT} minute
 no_edit_time_limit:<b>Cange 'u limite orarie</b>: Illimitate
 pmuserloc_login:Trasi:
-pmuserloc_submit:Conferme
+pmuserloc_submit:Mànna
 pmuserloc_user:Utenti
-pmuserloc_no_result:Nisciune resultate
+pmuserloc_no_result:Nuddu risurtatu
 register_builtin:Costruite jndre
 register_specify_url:Specifiche l'URL
 register_uploaded:Careche l'immaggine
@@ -313,7 +313,8 @@ register_conf_pass:Cunferma password:
 # Fuzzy
 register_email_desc:Pe piacere mitte 'n'indirizze email valide. Tu puè scacchià de sconnerle sotte, jndr'à selezione de le preferenze.
 register_name:Nomu:
-register_your_pass:'A passuord toje:
+register_name_desc:Lu tò nomu veru.
+register_your_pass:La tò password:
 register_update:Aggiorna
 register_avatar_type:Tipe de immaggine:
 register_del_avatar:Scangille l'immaggine
@@ -372,16 +373,15 @@ my_buddies:L'amice mije
 add_buddy:Aggiunge 'n'amiche
 add:Agghiunci
 buddy_search:Mitte 'u nome de l'utende ca vuè aggiungere.
-# Fuzzy
-member_search:O ause 'a funzione <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Iacchie Utende</a> pe acchià 'nu crestiane.
+member_search:O ause 'a funzione <a href="javascript://" onclick="javascript: window_open('{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Iacchie Utende</a> pe acchià 'nu crestiane.
 buddy_remove:leva
-post_normal:Normale
+post_normal:Nurmali
 post_sticky:Adesive
 post_annoncement:Annunge
 post_size:Dimenzione
-post_color:Culore
+post_color:Culuri
 post_font:Carattere
-create_thread:Ccreje l'argomende
+create_thread:Crea argumentu
 submit_reply:Conferme 'a resposte
 edit_message:Appliche le cangiaminde a 'u messàgge
 apply_spell_changes:Appliche le cangiaminde d'a pronunge
@@ -418,7 +418,7 @@ post_form:Module de Invie
 post_forum:Forum:
 post_title:Tìtulu:
 post_body:Corpu:
-post_options:Opziune:
+post_options:Opzioni:
 post_preview_btn:Andeprime d'u messàgge
 post_cancel_btn:Annulla
 ignore_users:Utinde cacate
@@ -427,7 +427,7 @@ forum_terms:Termine d'u forum
 forum_rules:<p>'A reggistrazione a stu forum jè libbere! Nuje insisitime ca tu respitte le regole ca stonne aqquà sotte. Ce tu sì d'accorde cu le termine, pe paicere cazze 'u buttone <b>Accette</b> a 'a fine d'a pàgene.</p><p>Pure ca le amministrature e le moderature de stu forum provane a tenè sotte condrolle tutte le messàgge, non g'è possibbile sta rrete a tutte. Tutte le messàgge esprimone le punde de vistre de l'autore, e nisciune de le titolare d'u forum o sveluppature ponne essere responsabbile pe le condenute de le messàgge.</p><p>Cazzanne 'u buttone Accette, tu garandisce ca non g'à mannà messàgge oscene, volgare, oriendate a 'u sesse, chine d'odie,  hateful, de minacce, o otre cose ca violane 'a legge.</p><p>Le titolare de stu forum onne 'u diritte de luà, cangià, spustà o achiudere ogne argomende pe ogne mutive.</p>
 # Fuzzy
 forum_rules_13:<p>Tutte le utinde sotte a 13 anne onna cercà 'u permesse a le genitore lore o a 'nu tutore pe devendà membre d'u forum. Mendre nuje diceme bovègne a ce tène mene de 13 anne, nuje vulime ca 'nu genitore o 'nu tutore manne 'nu fax o 'na poste cu 'u permesse firmate apprime de dà 'u titole de membre.</p><p>Ce vuè ccu accuminze 'u processe de reggistrazione apprime amma ricevere 'u module de permesse, cazze 'u buttone <b>Accette</b> aqquà sotte. Ce vuè ccu scangille 'a reggistrazione, cazze <b>Non accette</b> pe turnà a l'indice d'u forum.</p><p>'Na copie d'u module de permesse pò essere scarecate aqquà. Pe cchiù 'mbormaziune sus a 'u processe de reggistrazione, pe piacere manne 'n'email a <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
-coppa_conf:Conferme d'a COPPA
+coppa_conf:Cunferma dû COPPA
 coppa_before:Apprime de {TEMPLATE: coppa_date}
 coppa_after:Apprisse {TEMPLATE: coppa_date}
 coppa_link:Cazze 'u collegamende ca corrisponne 'a date de nascita toje
@@ -467,13 +467,13 @@ login_passwd_required:Passuord jè obbligatorie
 login_invalid_radius:Combinazione invalide de nome/passuord
 reset_confirmation:Grazie ca tè reggistrate.\n\nPe attivà 'u cunde tune pe piacere vejè a l'URL de sotte:\n\n{VAR: url}\n\n'Na vote ca 'u cunde jè attivate tu puè trasè jndr'à 'u forum e avìne mannate sus a pàgena prengepàle.
 reset_reset:Cià,\n\nTu vuè azzerà 'a passuord toje. Pe combletà stu processe, pe piacere vèje a sta URL:\n\n{VAR: url}\n\nNOTE: Stu forum reggistre le passuord cu 'nu meccanisme de criptazione, 'u quale significhe ca 'na vote ca è mise 'a passuord toje jedde avène codificate accussì no ste mode pe turnà rrete.\nSta fatìe de combrondà 'a versione codificate ca nuje reggistrame cu 'a versione codificate ca tu è scritte jndr'à linèe de collegamende a facime nuje.\n(Ce tu si inderessate accume funzione stu meccanisme, ligge l'algoritme MD5 HASH)
-rpasswd_invalid_passwd:Passuord invalide
+rpasswd_invalid_passwd:Password nun vàlidda
 rpasswd_passwd_nomatch:Passuord non ge s'accocchie
 rpasswd_passwd_length:Passuord adda essere almene longhe 6 carattere
 reset_remind_pass:Arrecordatore de passuord
 reset_reset_conf:'A passuor toje ha state azzerate e mannate a te. Ce tu non g'è confermate a mail toje, 'a richieste de conferme t'avène mannate arrete.
 reset_error:Indirizze email non acchiate jndr'à 'u database
-rpasswd_change_pass:Cange 'a passuord
+rpasswd_change_pass:Cancia password
 rpasswd_login:Trasi
 rpasswd_cur_pass:Password attuali:
 rpasswd_new_pass:Passuord nove:
@@ -483,8 +483,8 @@ ruser_change_user:Cange 'u nome de collegamende d'u forum tune
 ruser_cur_login:Nome de mò:
 ruser_new_login:Nome nuève:
 ruser_cur_pass:Password attuali:
-login_passwd:Passuord:
-reset_email:E-mail:
+login_passwd:Password:
+reset_email:Email:
 reset_reset_button:Azzere 'a passuord
 rate_this_thread:Valute
 report_reporting_about:Segnale sus a:
@@ -503,7 +503,7 @@ search_in_forum:Cirche jndr'à 'u forum:
 search_forum_search:Ricerche d'u forum
 move_thread_to:Spuèste l'argomende <b>{VAR: thr->subject}</b> jndr'à:
 remail_email_topic:Manne pe mail st'argomende a 'n'amiche
-remail_your_name:Tò nomu:
+remail_your_name:Lu tò nomu:
 remail_your_email:La tò email:
 remail_friends_name:Nome de l'amiche:
 remail_friends_email:Email de l'amiche:
@@ -516,7 +516,7 @@ remail_done:Fattu
 remail_sent_conf:L'email a l'amiche tune {VAR-HTML: _POST['femail']} sus a l'agomende {VAR: data->subject} ha state mannate.
 remail_error:Stè 'n'errore
 mklist_type:Tipu:
-mklist_option:Opzione:
+mklist_option:Opzioni:
 mklist_additem:Aggiunge 'na vôsce
 mklist_apply:Appleche
 mklist_delete:Cancella
@@ -532,10 +532,10 @@ mklist_disc:Dische
 mklist_circle:Cerchie
 mklist_close:Chiudi
 email_to:A:
-email_pg_title:E-mail
+email_pg_title:Email
 email_subject:Oggette:
 email_body:Corpu:
-email_submit:E-mail
+email_submit:Email
 ppost_quote_msg:{VAR: msg_to_list} scritte sus a {TEMPLATE: ppost_quote_msg_date}
 ppost_quote:Cite:
 ppost_to:A:
@@ -543,8 +543,8 @@ ppost_from_buddy_list:Scacchie da 'n'elenghe de amice
 ppost_find_User:Iacchie l'utende
 ppost_track_msg:Tracce stu messàgge
 ppost_track_msg_desc:Notificame (cu 'nu messàgge private) quanne stu messàgge jè pronde.
-ppost_send:Manne
-ppost_save_draft:Salve 'a bozze
+ppost_send:Manna
+ppost_save_draft:Salve abbozzu
 poll_blank_option:Non ge puè aggiungere 'n'opzione vacande.
 poll_del_conf:Ce tu vuè ccu scangille sta opzione, cazze OK
 poll_name:Nome d'u sondagge:
@@ -720,8 +720,7 @@ error_title:Module de errore
 index_title:Bovègne jndr'à 'u forum
 search_title:Cirche {VAR-HTML: srch}
 remail_emailsent:L'email ha state mannate
-# Fuzzy
-remail_email:Cià,\n\nStè 'n'argomende inderessande sus a "{VAR: data->subject}" sus a 'u forum {GVAR: FORUM_TITLE} ca tu puè vulè leggere. Tu puè 'ndrucà l'argomende a:\n {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nL'amiche tune,\n\n{VAR: usr->alias}
+remail_email:Cià,\n\nStè 'n'argomende inderessande sus a "{VAR: data->subject}" sus a 'u forum {GVAR: FORUM_TITLE} ca tu puè vulè leggere. Tu puè 'ndrucà l'argomende a:\n {FULL_ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nL'amiche tune,\n\n{VAR: usr->alias}
 poll_add_option:Aggiunge 'n'opzione:
 post_opt_html_on:<b>HTML</b> jè <b>appezzecate</b>
 post_opt_fud_on:<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>BBcode</b> jè<b>appezzecate</b></a>
@@ -731,7 +730,7 @@ post_opt_html_off:'U codece <b>HTML</b> jè <b>stutate</b>
 post_opt_fud_off:<b>BBcode</b> jè <b>stutate</b>
 post_opt_images_off:<b>Le immaggine</b> sò <b>stutate</b>
 post_opt_smilies_off:<b>Le immaggine</b> sò <b>stutate</b>
-post_opt:Opziune d'u forum:
+post_opt:Opzioni dû forum:
 register_change_passwd:cange a 'password
 register_change_login:cange 'u nome
 approved_avatar_title:L'immaggine personalizzate toje ha state approvate.
