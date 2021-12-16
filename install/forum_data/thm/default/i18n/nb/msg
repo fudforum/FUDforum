@@ -54,6 +54,7 @@ homepage:Hjemmeside:
 icq_control_panel:ICQ Online-meldingspanel
 icq_message_form:ICQ meldingsformuler:
 ignore_user:ignorer  dette medlemmet
+im_facebook:Facebook:
 im_yahoo:Yahoo Messenger:
 image:Bilde-URL:
 index_forum:Forum
@@ -341,6 +342,7 @@ register_occupation:Yrke:
 register_interests:Interesser:
 register_image:Bilde:
 register_icq:ICQ
+register_facebook:Facebook-ID:
 register_yahoo:Yahoo Messenger:
 register_homepage:Hjemmeside:
 register_bday:Fødsesldato:
@@ -901,13 +903,11 @@ userinfo_polls:Avstemninger:
 show_pollist:Avstemninger
 search_and:OG
 search_or:ELLER
-# Fuzzy
-search_desc_order:Fallende sortering
-# Fuzzy
-search_asc_order:Stigande ordning
+search_desc_order:Nyeste først
+search_asc_order:Eldste først
+search_relevance_order:Relevans
 search_logic:Søkelogikk:
-# Fuzzy
-search_sorting:Sorter resultatene etter dato i:
+search_sorting:Sorter etter:
 search_attach:Vedlegg:
 search_attach_all:Med eller uten
 search_attach_with:Med vedlegg
@@ -964,8 +964,7 @@ iemail_forum_unsub:Stopp abonnement på dette forumet
 primary_group_prefix:Primærgruppe for forum:
 group_resources:Denne gruppen kontrollerer rettighetene på følgende fora
 register_admin_newuser_title:En ny bruker har registrert seg og kontoen venter på bekreftelse
-# Fuzzy
-register_admin_newuser_msg:En ny bruker ({VAR: uent->login}) har akkurat registrert seg og siden kontobekreftelse er aktivert vil ikke deres konto bli aktiv før den er bekreftet av deg eller en annen forumadministrator. For å godkjenne kontoen gå til: {FULL_ROOT}adm/admuserapr.php\n\nDette er en automatisert prosess. Ikke svar på denne meldingen.\nOm du vil slå av fremtidige e-postvarsler om nye brukerregistreringer kan du gjøre dette i Administratorens kontrollpanel. Endre «Varsel om ny konto»-innstillingen.
+register_admin_newuser_msg:En ny bruker ({VAR: uent->login}) har akkurat registrert seg og siden kontobekreftelse er aktivert vil ikke deres konto bli aktiv før den er bekreftet av deg eller en annen forumadministrator. For å godkjenne kontoen gå til: {BASE}adm/admuserapr.php\n\nDette er en automatisert prosess. Ikke svar på denne meldingen.\nOm du vil slå av fremtidige e-postvarsler om nye brukerregistreringer kan du gjøre dette i Administratorens kontrollpanel. Endre «Varsel om ny konto»-innstillingen.
 post_mod_msg_notify_title:En ny melding i forumet «{VAR: frm->name}» venter på godkjenning
 post_mod_msg_notify_msg:En ny melding med tittelen «{VAR: msg_post->subject}» ble akkurat postet i et forum som du modererer. For å godkjenne denne meldingen gå til: {FULL_ROOT}?t=modque#{VAR: msg_post->id}\n\nDette er en automatisert prosess. Ikke svar på denne meldingen.
 thread_printable_pdf:Generer utskriftsvennlig PDF
