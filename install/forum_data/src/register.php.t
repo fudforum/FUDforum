@@ -438,8 +438,8 @@ function email_encode($val)
 
 		/* Import data from _POST into $uent object. */
 		foreach (array_keys(get_class_vars('fud_user')) as $v) {
-			if (isset($_POST['reg_'.$v])) {
-				$uent->{$v} = $_POST['reg_'.$v];
+			if ($v !== 'users_opt' && isset($_POST['reg_'. $v])) {
+				$uent->{$v} = $_POST['reg_'. $v];
 			}
 		}
 
