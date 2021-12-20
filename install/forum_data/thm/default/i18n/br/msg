@@ -49,6 +49,7 @@ homepage:Lec'hienn Web :
 icq_control_panel:Kemennadenn enlinenn ICQ
 icq_message_form:Furmskrid kemennadenn ICQ :
 ignore_user:Dianavezout an holl gemennadennoù gant an implijer-mañ
+im_facebook:Facebook :
 im_yahoo:Anavezer Yahoo Messenger :
 image:Skeudenn :
 index_forum:Forom
@@ -336,6 +337,7 @@ register_occupation:Micher :
 register_interests:Ar pezh oc'h dedennet gantañ :
 register_image:Skeudenn :
 register_icq:Anavezer ICQ :
+register_facebook:ID Facebook :
 register_yahoo:Anavezer Yahoo Messenger :
 register_homepage:Lec'hienn web personel :
 register_bday:Deiziad ganedigezh :
@@ -957,8 +959,7 @@ iemail_forum_unsub:Paouez da evezhiañ ar forom-mañ
 primary_group_prefix:Strollad kentañ evit ar forom :
 group_resources:Ar strollad-mañ a gontroll aotreoù ar foromoù-mañ
 register_admin_newuser_title:Un implijer nevez zo en em enskrivet hag emañ e gont o c'hortoz bezañ kadarnaet
-# Fuzzy
-register_admin_newuser_msg:Un implijer nevez ({VAR: uent->login}) zo o paouez en em enskrivañ. O vezañ m'eo gweredekaet kadarnadur ar c'hontoù, ne vo oberiant e gont nemet pa vo kadarnaet ganeoc'h pe gant ur merour all eus ar forom. Evit adwelet ar gont, kit da {FULL_ROOT}adm/admuserapr.php, mar plij.\n\nUn argerzh emlusk eo hemañ. Arabat respont d'ar gemennadenn-mañ.\nMa fell deoc'h diweredekaat ar c'hemenn dre bostel evit an implijerien nevez pelloc'h, gallout a rit ober gant panell gontrollañ ar merour en ur cheñch an arventenn "Kemenn ar c'hontoù nevez".
+register_admin_newuser_msg:Un implijer nevez ({VAR: uent->login}) zo o paouez en em enskrivañ. O vezañ m'eo gweredekaet kadarnadur ar c'hontoù, ne vo oberiant e gont nemet pa vo bet kadarnaet ganeoc'h pe gant ur merour all eus ar forom. Evit adwelet ar gont, kit da {BASE}adm/admuserapr.php, mar plij.\n\nUn argerzh emgefre eo hemañ. Arabat respont d'ar gemennadenn-mañ.\nMar fell deoc'h diweredekaat ar c'hemenn dre bostel evit an implijerien nevez pelloc'h, gallout a rit en ober gant panell gontrollañ ar merour en ur cheñch an arventenn "Kemenn kontoù nevez".
 post_mod_msg_notify_title:Kemennadenn nevez er forom « {VAR: frm->name} » o c'hortoz bezañ aprouet
 post_mod_msg_notify_msg:Postet ez eus bet ur gemennadenn nevez, hec'h anv « {VAR: msg_post->subject} », er forom a habaskait. Evit adwelet ar gemennadenn-mañ, kit da : {FULL_ROOT}?t=modque#{VAR: msg_post->id}\n\nUn argerzh emlusk eo hemañ, arabat respont d'ar gemennadenn-mañ.
 thread_printable_pdf:Krouiñ ur PDF a c'haller moullañ

@@ -102,7 +102,7 @@ newest_user:L'urteme utende reggistrate ète
 next_page:Pàgena successive
 next_thread:Argomende successive:
 no_messages:Non ge stonne messàgge jndr'à stu forum.<br />Fà ca sì 'u prime ca face 'n'argomende jndr'à stu forum.
-no_msg_body:Nisciune cuèrpe de messàgge
+no_msg_body:Nuddu corpu dû missaggiu
 no_new_posts:Nisciune messàgge nuève
 no_posts:Nuddu missaggiu
 no_subscribed_forums:Nisciune forum sottoscritte
@@ -529,7 +529,7 @@ mklist_numerical:Numeriche
 mklist_aplha:Alfa
 mklist_square:Quadrate
 mklist_disc:Dische
-mklist_circle:Cerchie
+mklist_circle:Circhiu
 mklist_close:Chiudi
 email_to:A:
 email_pg_title:Email
@@ -1027,7 +1027,7 @@ register_email_addr:Indirizze e-mail:
 reset_suffix:ICe tu è ricevute stu messàgge pe errore, pe piacere cacale. Ce tu è avute cchiù copie de sta email, ca non g'è richieste, pe piacere condatte l'amministratore d'u forum sus a {GVAR: ADMIN_EMAIL}\n\nSta richieste ha state accumenzate da: {VAR: _SERVER['REMOTE_ADDR']}.
 usrinfo_last_visit:Urtema visite:
 mnav_newer:cchiù nuève de
-mnav_older:cchiù vicchie de
+mnav_older:cchiù vecchiu di
 ip_search_by_ip:Cirche le utinde pe IP
 ip_search_syntax:Sindasse supprotate: 1.2.3.4, 1.2.3, 1.2, 1
 ip_search:Cirche
