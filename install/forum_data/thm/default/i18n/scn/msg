@@ -308,6 +308,7 @@ register_specify_url:Specifiche l'URL
 register_uploaded:Careche l'immaggine
 register_login:Trasi:
 register_login_available:Dispunìbbili
+register_login_taken:Già pigghiatu
 register_password:Password:
 register_conf_pass:Cunferma password:
 # Fuzzy
@@ -706,7 +707,7 @@ ERR_emailconf_ttl:ERRORE: 'U cunde tune non g'è confermate
 ERR_emailconf_msg:Non g'è confermate 'u cunde via mail.<br />table border="0"><tr><td><ol><li>Ce tu non g'è ricevute 'a mail de conferme, <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">circhele arrete</a>.</li><li>Ce {VAR: usr_d->email} non g'è l'indirizze email corrette, <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">specifiche 'u 'ndirizze corrette</a>.</li></ol></td></tr></table>
 ERR_user_ttl:ERRORE: Nisciune utende
 ERR_user_msg:Non ge ste nisciune utende
-ERR_systemerr_ttl:ERRORE: Errore de sisteme
+ERR_systemerr_ttl:ERRURI: Erruri di sistema
 ERR_systemerr_msg:Ste 'n'errore de sisteme. Pe piacere segnalale a 'u <a href="mailto:{GVAR: ADMIN_EMAIL}">webmestre</a>.
 email_title:Module de l'email
 finduser_title:Iacchie l'utende
@@ -871,7 +872,7 @@ forum_home:Pàggina principali
 post_cur_attached:allegate pe mò: {VAR: i} {PLURAL: i|file}
 ignored_anon_post:{GVAR: ANON_NICK} ha state cacate
 ignored_user_post:Messàgge da <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> ha state cacate
-smladd_close_window:achiude 'a finestre
+smladd_close_window:Chiudi la finestra
 post_list_smilies:elenghe de le facce
 p_VISIBLE:Visibbile
 reported_in_thread:In:
@@ -1165,3 +1166,5 @@ karma_track:Gestisce 'a reputazione pe utende:
 karma_delete:Cancella
 rate_author:Valute l'autore:
 blog:Blog
+blog_new_members:Mèmmiri novi
+blog_comments:{PLURAL: topic->replies|$1 cummentu|$1 cummenti}
