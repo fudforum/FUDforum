@@ -353,7 +353,7 @@ register_sig_desc:Firme facoltative, quedde ca iesse sotte a le messàgge tune.
 register_reset:Azzere
 register_def_thread_view:Viste de base de l'argomende:
 register_msg_per_page:Messàgge pe pàgene:
-register_show_sig:Fà vedè le firme:
+register_show_sig:Ammustra li firmi:
 register_show_sig_desc:Te permette de sconnere o fà vedè le firme de le otre membre d'u forum.
 register_use_sig_default:Ause 'a firme de base:
 register_use_sig_default_desc:Automaticamende appenne 'a firma toje pe ogne messàgge ca manne.
@@ -1130,7 +1130,7 @@ powered-by:Fatte da: FUDForum {GVAR: FORUM_VERSION}.
 copyright:Copyright &copy;2001-2021 <a href="http://fudforum.org/">FUDforum Softuer de bollettine de schede</a>
 code_title:Còdici:
 code_select_all:Scacchie tutte
-code_show_hide:Fa vedè/scunne
+code_show_hide:Ammustra/ ammuccia
 social_sites:Site de rezze suggiale:
 postcheck_min_len_err:'U messàgge tune jè troppe curte. 'A lunghezze minime jè {PLURAL: post_min_len|$1 carattere}.
 postcheck_dup_err:Pe piacere no ccrejà argumende duplicate.

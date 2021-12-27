@@ -6,6 +6,7 @@
 # Author: Bennylin
 # Author: Bonaditya
 # Author: C5st4wr6ch
+# Author: Daud I.F. Argana
 # Author: Farras
 # Author: Gombang
 # Author: Hidayatsrf
@@ -63,6 +64,7 @@ homepage:Hal.Awal:
 icq_control_panel:Panel pesan ICQ
 icq_message_form:Formulir pesan ICQ:
 ignore_user:acuhkan semua pesan dari pengguna ini
+im_facebook:Facebook:
 im_yahoo:Yahoo Messenger:
 image:Gambar:
 index_forum:Forum
@@ -220,8 +222,7 @@ vote_button:Pilih
 vote_for_thread:Berikan suara
 was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> sudah dipindahkan ke <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> oleh moderator
 welcome_message:Selamat datang <b>{VAR: usr->alias}</b>, kunjungan terakhir anda pada {TEMPLATE: welcome_message_date}
-# Fuzzy
-what_ppl_doing:Perlihatkan aktivitas pengguna lain
+what_ppl_doing:Aktivitas Pengguna
 reported_del_report:Hapus laporan
 reported_reason:Alasan:
 reported_on:pada:
@@ -254,7 +255,6 @@ pmsg_forwarded:diteruskan
 pmsg_subject:Subyek
 pmsg_author:Penulis
 pmsg_time:Waktu
-# Fuzzy
 pmsg_selected:Dipilih
 pmsg_delete:Hapus
 cur_ppage_pm:Pesan pribadi
@@ -328,6 +328,7 @@ register_login_taken:Sudah diambil
 register_password:Kata sandi:
 register_password_desc:Kata sandi untuk akun Anda. Kata sandi peka terhadap huruf dan harus memiliki panjang karakter lebih dari 6 karakter.
 register_conf_pass:Konfirmasi Password:
+register_conf_pass_desc:Tolong masukkan kembali kata sandi Anda.
 register_email_desc:Alamat surel Anda. Anda bisa menyembunyikan surel pada bagian preferensi.
 register_name:Nama:
 register_name_desc:Nama asli Anda.
@@ -351,6 +352,7 @@ register_occupation:Pekerjaan:
 register_interests:Interes:
 register_image:Gambar:
 register_icq:ICQ
+register_facebook:ID Facebook:
 register_yahoo:Yahoo Messenger:
 register_homepage:Homepage:
 register_bday:Tgl lahir:
@@ -388,8 +390,7 @@ my_buddies:Temanku
 add_buddy:Tambah teman
 add:Tambah
 buddy_search:Masukkan identifikasi pengguna yang anda hendak tambahkan.
-# Fuzzy
-member_search:Atau pergunakan fitur <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Cari Pengguna</a> untuk mencari seseorang.
+member_search:Atau pergunakan fitur <a href="javascript://" onclick="javascript: window_open('{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Cari Pengguna</a> untuk mencari seseorang.
 buddy_remove:hapus
 post_normal:Normal
 post_sticky:Stiki
@@ -537,7 +538,6 @@ mklist_apply:Terapkan
 mklist_delete:Hapus
 qbud_nick_name:Nama
 qbud_add_selected:Tambah yang terpilih
-# Fuzzy
 qbud_selected:Terpilih
 qbud_no_buddies:Tidak ada teman yang bisa dipilih
 mklist_numerical:Numerik
@@ -733,8 +733,7 @@ error_title:Formulir Kesalahan
 index_title:Selamat datang di forum
 search_title:Mencari {VAR-HTML: srch}
 remail_emailsent:Surel terkirim
-# Fuzzy
-remail_email:Halo,\n\nAda topik menarik tentang "{VAR: data->subject}" di forum {GVAR: FORUM_TITLE} yang mungkin ingin anda baca. Anda dapat melihatnya dari sini:\n {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nYour friend,\n\n{VAR: usr->alias}
+remail_email:Halo,\n\nAda topik menarik tentang "{VAR: data->subject}" di forum {GVAR: FORUM_TITLE} yang mungkin ingin Anda baca. Anda dapat melihatnya dari sini:\n {FULL_ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nTeman Anda,\n\n{VAR: usr->alias}
 poll_add_option:Tambah pilihan:
 post_opt_html_on:kode <b>HTML</b> di<b>AKTIFKAN</b>
 post_opt_fud_on:<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>BBcode</b> di<b>AKTIFKAN</b></a>
@@ -911,17 +910,14 @@ polllist_votes:Total suara
 polllist_action:Tindakan
 polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">melihat poling yang ada</a>
 userinfo_polls:Poling:
-# Fuzzy
-show_pollist:Tampilkan angket
+show_pollist:Angket
 search_and:DAN
 search_or:ATAU
-# Fuzzy
-search_desc_order:Urutan terbalik
-# Fuzzy
-search_asc_order:Urutan
+search_desc_order:Mulai dari yang terbaru
+search_asc_order:Mulai dari yang terlama
+search_relevance_order:Berdasarkan relevansi
 search_logic:Logika pencarian:
-# Fuzzy
-search_sorting:Urutkan hasil pencarian berdasarkan tanggal dengan:
+search_sorting:Urutkan berdasarkan:
 search_attach:Lampiran:
 search_attach_all:Dengan atau tanpa
 search_attach_with:Dengan lampiran
@@ -978,11 +974,9 @@ iemail_forum_unsub:Stop langganan forum ini
 primary_group_prefix:Group utama forum ini:
 group_resources:Kelompok ini mengontrol perizinan Forum berikut
 register_admin_newuser_title:Pengguna baru sudah mendaftar dan sedang menunggu konfirmasi
-# Fuzzy
-register_admin_newuser_msg:Pengguna baru ({VAR: uent->login}), dan karena konfirmasi diaktifkan, akun tidak akan aktif sampai disetujui administrator. Untuk memeriksa, silakan ke: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nIni proses otomatis, jangan membalas surel ini.\nPemberitahuan lewat surel bisa dinonaktifkan melalui kontrol panel admin. Ubah setelan di "Pemberitahuan Akun baru".
+register_admin_newuser_msg:Pengguna baru ({VAR: uent->login}) baru saja mendaftar, dan karena konfirmasi akun diaktifkan, akun mereka tidak akan aktif sampai disetujui administrator. Untuk memeriksa, silakan ke: {BASE}adm/admuserapr.php\n\nIni proses otomatis, jangan membalas surel ini.\nJika Anda ingin mematikan pemberitahuan pendaftaran pengguna baru lewat surel di masa mendatang, Anda bisa mennonaktifkannya melalui Kontrol Panel Admin. Ubah setelan di "Pemberitahuan Akun Baru".
 post_mod_msg_notify_title:Pesan baru di forum "{VAR: frm->name}" menunggu persetujuan anda
-# Fuzzy
-post_mod_msg_notify_msg:Pesan baru berjudul "{VAR: msg_post->subject}" baru saja dimasukkan di forum yang anda moderasikan. Untum memeriksa,silakan ke: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nIni proses otomatis, jangan membalas email ini.
+post_mod_msg_notify_msg:Pesan baru berjudul "{VAR: msg_post->subject}" baru saja dimasukkan di forum yang Anda moderasikan. Untuk memeriksa pesan tersebut, silakan ke: {FULL_ROOT}?t=modque#{VAR: msg_post->id}\n\nIni proses otomatis. Jangan membalas pesan ini ini.
 thread_printable_pdf:Buat PDF utk pencetakan
 thread_syndicate:Sindikasikan forum ini (XML)
 reg_conf_title:Konfirmasi Pendaftaran
@@ -1008,8 +1002,7 @@ mnav_month:Bulan
 mnav_title:Navigasi Pesan
 mnav_update:Memeriksa pesan dengan <a href="{TEMPLATE: mnav_update_lnk}">Navigasi Pesan</a>
 pm_notify_subject:[{GVAR: FORUM_TITLE}] Pemberitahuan Pesan Pribadi Baru
-# Fuzzy
-pm_notify_body_email:Anda mendapat pesan pribadi baru dengan subyek "{VAR: subject}", dari "{VAR: from}", di forum "{GVAR: FORUM_TITLE}".\nUntuk melihat, Tekan disini: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nUntuk menghentikan pemberitahuan, non-aktifkan "Pemberitahuan Pesan Pribadi" di profile anda.
+pm_notify_body_email:Anda mendapat pesan pribadi baru dengan subjek "{VAR: subject}", dari "{VAR: from}", di forum "{GVAR: FORUM_TITLE}".\nUntuk melihat, tekan di sini: {FULL_ROOT}?t=pmsg_view&id={VAR: pid}\n\nUntuk menghentikan pemberitahuan, nonaktifkan "Pemberitahuan Pesan Pribadi" di profil Anda.
 register_pm_notification:Pemberitahuan Pesan Pribadi
 register_pm_notification_desc:Jika di aktifkan, anda akan menerima surel jika ada pesan pribadi untuk Anda.
 findu_admin_opts_header:Pilihan Admin.
@@ -1175,3 +1168,10 @@ karma:Karma
 karma_track:Kelola reputasi pengguna:
 karma_delete:Hapus
 rate_author:Nilai penulis:
+blog_update:Membaca blog forum
+blog:Blog
+blog_new_members:Anggota Baru
+blog_new_posts:Pos Terbaru
+blog_rated_posts:Nilai terbaik
+blog_viewed_posts:Paling banyak dibaca
+blog_comments:{PLURAL: topic->replies|$1 komentar}
