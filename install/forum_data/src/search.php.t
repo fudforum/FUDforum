@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2020 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2022 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -47,66 +47,6 @@
 
 function fetch_search_cache($qry, $start, $count, $logic, $srch_type, $order, $forum_limiter, &$total)
 {
-
-	if (!($wa = text_to_worda($qry))) {
-		// Short and long words are filtered out and nothing is left. Try direct match on subject.
-		$total = q_singleval('SELECT count(*)
-		FROM {SQL_TABLE_PREFIX}msg m
-		INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id
-		INNER JOIN {SQL_TABLE_PREFIX}forum f ON t.forum_id=f.id
-		INNER JOIN {SQL_TABLE_PREFIX}cat c ON f.cat_id=c.id
-		INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id='. (_uid ? '2147483647' : '0') .' AND g1.resource_id=f.id
-		LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id
-		LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=f.id AND mm.user_id='. _uid .'
-		LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='. _uid .' AND g2.resource_id=f.id
-		WHERE m.reply_to = 0 and m.subject = '. _esc($qry) .'
-			'. ($GLOBALS['is_a'] ? '' : ' AND (mm.id IS NOT NULL OR '. q_bitand('COALESCE(g2.group_cache_opt, g1.group_cache_opt)',  262146) .' >= 262146)'));
-
-		return q(q_limit('SELECT u.alias, f.name AS forum_name, f.id AS forum_id,
-			m.poster_id, m.id, m.thread_id, m.subject, m.foff, m.length, m.post_stamp, m.file_id, m.icon, m.attach_cnt,
-			mm.id AS md, CASE WHEN t.root_msg_id = m.id THEN 1 ELSE 0 END AS is_rootm, '. q_bitand('t.thread_opt', 1) .' AS is_lckd
-		FROM {SQL_TABLE_PREFIX}msg m
-		INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id
-		INNER JOIN {SQL_TABLE_PREFIX}forum f ON t.forum_id=f.id
-		INNER JOIN {SQL_TABLE_PREFIX}cat c ON f.cat_id=c.id
-		INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id='. (_uid ? '2147483647' : '0') .' AND g1.resource_id=f.id
-		LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id
-		LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=f.id AND mm.user_id='. _uid .'
-		LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='. _uid .' AND g2.resource_id=f.id
-		WHERE m.reply_to = 0 and m.subject = '. _esc($qry) .'
-			'. ($GLOBALS['is_a'] ? '' : ' AND (mm.id IS NOT NULL OR '. q_bitand('COALESCE(g2.group_cache_opt, g1.group_cache_opt)',  262146) .' >= 262146)') .'
-		ORDER BY m.subject DESC, m.post_stamp '. ($order=='ASC' ? 'ASC' : 'DESC'),
-		$count, $start));
-	}
-
-	$lang =& $GLOBALS['usr']->lang;
-	if ($lang != 'zh-hans' && $lang != 'zh-hant' && $lang != 'ja' && $lang != 'ko') {	// Not Chinese, Japanese nor Korean.
-		if (count($wa) > 10) {
-			$wa = array_slice($wa, 0, 10);
-		}
-	}
-
-	$qr      = implode(',', $wa);
-	$qry_lck = md5($qr);
-	$i       = count($wa);
-
-	if ($srch_type == 'all') {
-		$tbl = 'index';
-		$qt  = '0';
-	} else {
-		$tbl = 'title_index';
-		$qt  = '1';
-	}
-
-	/* Remove expired cache entries. */
-	q('DELETE FROM {SQL_TABLE_PREFIX}search_cache WHERE expiry<'. (__request_timestamp__ - $GLOBALS['SEARCH_CACHE_EXPIRY']));
-
-	if (!($total = q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}search_cache WHERE srch_query=\''. $qry_lck .'\' AND query_type='. $qt))) {
-		q('INSERT INTO {SQL_TABLE_PREFIX}search_cache (srch_query, query_type, expiry, msg_id, n_match, score) '. 
-		  q_limit('SELECT \''. $qry_lck .'\', '. $qt .', '. __request_timestamp__ .', msg_id, count(*) as word_count, sum(frequency) as frequency FROM {SQL_TABLE_PREFIX}search s INNER JOIN {SQL_TABLE_PREFIX}'. $tbl .' i ON i.word_id=s.id WHERE word IN('. $qr .') GROUP BY msg_id ORDER BY frequency DESC', 
-		          5000, 0));
-	}
-
 	if ($forum_limiter) {
 		if ($forum_limiter[0] != 'c') {
 			$qry_lmt = ' AND f.id='. (int)$forum_limiter .' ';
@@ -131,14 +71,74 @@ function fetch_search_cache($qry, $start, $count, $logic, $srch_type, $order, $f
 	if ($order == 'ASC' || $order == 'DESC') {
 		$sort = 'm.post_stamp '. $order;
 	} else {
-                $sort = 'sc.score DESC, m.post_stamp DESC';
+		$sort = 'sc.score DESC, m.post_stamp DESC';
 	}
 
 	if ($GLOBALS['author_id']) {
 		$qry_lmt .= ' AND m.poster_id='. $GLOBALS['author_id'] .' ';
 	}
 
-	$qry_lck = '\''. $qry_lck .'\'';
+	if (preg_match('/(\_|\%)/', $qry) || !($wa = text_to_worda($qry))) {
+		// Force a subject search, either because -
+		//   1) we detected wildcard caracters, or
+		//   2) filtering out short and long words left us with an empty search string.
+
+		$total = q_singleval('SELECT count(*)
+		FROM {SQL_TABLE_PREFIX}msg m
+		INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id
+		INNER JOIN {SQL_TABLE_PREFIX}forum f ON t.forum_id=f.id
+		INNER JOIN {SQL_TABLE_PREFIX}cat c ON f.cat_id=c.id
+		INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id='. (_uid ? '2147483647' : '0') .' AND g1.resource_id=f.id
+		LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id
+		LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=f.id AND mm.user_id='. _uid .'
+		LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='. _uid .' AND g2.resource_id=f.id
+		WHERE m.reply_to = 0 and m.subject like '. _esc($qry) . $qry_lmt .'
+			'. ($GLOBALS['is_a'] ? '' : ' AND (mm.id IS NOT NULL OR '. q_bitand('COALESCE(g2.group_cache_opt, g1.group_cache_opt)',  262146) .' >= 262146)'));
+
+		return q(q_limit('SELECT u.alias, f.name AS forum_name, f.id AS forum_id,
+			m.poster_id, m.id, m.thread_id, m.subject, m.foff, m.length, m.post_stamp, m.file_id, m.icon, m.attach_cnt,
+			mm.id AS md, CASE WHEN t.root_msg_id = m.id THEN 1 ELSE 0 END AS is_rootm, '. q_bitand('t.thread_opt', 1) .' AS is_lckd
+		FROM {SQL_TABLE_PREFIX}msg m
+		INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id
+		INNER JOIN {SQL_TABLE_PREFIX}forum f ON t.forum_id=f.id
+		INNER JOIN {SQL_TABLE_PREFIX}cat c ON f.cat_id=c.id
+		INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id='. (_uid ? '2147483647' : '0') .' AND g1.resource_id=f.id
+		LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id
+		LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=f.id AND mm.user_id='. _uid .'
+		LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='. _uid .' AND g2.resource_id=f.id
+		WHERE m.reply_to = 0 and m.subject like '. _esc($qry) . $qry_lmt .'
+			'. ($GLOBALS['is_a'] ? '' : ' AND (mm.id IS NOT NULL OR '. q_bitand('COALESCE(g2.group_cache_opt, g1.group_cache_opt)',  262146) .' >= 262146)') .'
+		ORDER BY m.subject DESC, m.post_stamp '. ($order=='ASC' ? 'ASC' : 'DESC'),
+		$count, $start));
+	}
+
+	$lang =& $GLOBALS['usr']->lang;
+	if ($lang != 'zh-hans' && $lang != 'zh-hant' && $lang != 'ja' && $lang != 'ko') {	// Not Chinese, Japanese nor Korean.
+		if (count($wa) > 10) {
+			$wa = array_slice($wa, 0, 10);
+		}
+	}
+
+	$qr      = implode(',', $wa);
+	$qry_lck = _esc(md5($qr));
+	$i       = count($wa);
+
+	if ($srch_type == 'all') {
+		$tbl = 'index';
+		$qt  = '0';
+	} else {
+		$tbl = 'title_index';
+		$qt  = '1';
+	}
+
+	/* Remove expired cache entries. */
+	q('DELETE FROM {SQL_TABLE_PREFIX}search_cache WHERE expiry<'. (__request_timestamp__ - $GLOBALS['SEARCH_CACHE_EXPIRY']));
+
+	if (!($total = q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}search_cache WHERE srch_query='. $qry_lck .' AND query_type='. $qt))) {
+		q('INSERT INTO {SQL_TABLE_PREFIX}search_cache (srch_query, query_type, expiry, msg_id, n_match, score) '. 
+		  q_limit('SELECT '. $qry_lck .', '. $qt .', '. __request_timestamp__ .', msg_id, count(*) as word_count, sum(frequency) as frequency FROM {SQL_TABLE_PREFIX}search s INNER JOIN {SQL_TABLE_PREFIX}'. $tbl .' i ON i.word_id=s.id WHERE word IN('. $qr .') GROUP BY msg_id ORDER BY frequency DESC', 
+		          5000, 0));
+	}
 
 	$total = q_singleval('SELECT count(*)
 		FROM {SQL_TABLE_PREFIX}search_cache sc
@@ -201,11 +201,39 @@ function fetch_search_cache($qry, $start, $count, $logic, $srch_type, $order, $f
 		} else if (!($c = fetch_search_cache($srch, $start, $ppg, $search_logic, $field, $sort_order, $forum_limiter, $total))) {
 			$search_data = '{TEMPLATE: no_search_results}';
 			$page_pager = '';
-// TODO: Try to fix spelling errors.
-//$c = uq('SELECT word from fud30_search where word SOUNDS LIKE '. _esc($srch));
-//while ($r = db_rowarr($c)) {
-//      echo "Probeer ". $r[0] ."</br>";
-//}
+
+			// Use spell checker to make search suggestions.
+			if ($FUD_OPT_1 & 2097152 && extension_loaded('enchant') && $usr->pspell_lang) {
+				$r = enchant_broker_init();
+				if (enchant_broker_dict_exists($r, $usr->pspell_lang)) {
+					$d = enchant_broker_request_dict($r, $usr->pspell_lang);
+
+					$srch_words = preg_split('~[^\p{L}\p{N}\']+~u', $srch);
+					$srch_links = '';
+					if (count($srch_words) == 1) {
+						$sugg = array_values(enchant_dict_suggest($d, $srch));
+						foreach($sugg as $w) {
+							$srch_links .= '<a href="/s/'. $w .'">'. $w .'</a> ';
+						}
+					} else {
+						foreach($srch_words as $srch_word) {
+							if (enchant_dict_check($d, $srch_word)) {
+								$srch_links .= $srch_word .' ';
+							} else {
+								$sugg = array_values(enchant_dict_suggest($d, $srch_word));
+								$srch_links .= $sugg[0] .' ';
+							}
+						}
+						if (!empty($srch_links)) {
+							$srch_links = '<a href="/s/'. $srch_links . '">'. $srch_suggestions .'</a>';
+						}
+					}
+					if (!empty($srch_links)) {
+						$search_data .=  '<div class="wa">{TEMPLATE: search_spell_suggestions} '. $srch_links . '</div>';
+					}
+				}
+			}
+
 		} else {
 			$i = 0;
 			$search_data = '';
