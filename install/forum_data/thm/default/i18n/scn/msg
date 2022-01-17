@@ -1127,7 +1127,7 @@ move_msg_th_expl:Specifiche l'ID de l'argomende de destinazione (pò essere jndr
 captcha_img_alt:Verifiche cu captcha: tu è abbesògne de mettere 'u teste jndr'à sta immaggine.
 captcha_img_help:Non ge stonne zero o une jndr'à l'immaggine.
 powered-by:Fatte da: FUDForum {GVAR: FORUM_VERSION}.
-copyright:Copyright &copy;2001-2021 <a href="http://fudforum.org/">FUDforum Softuer de bollettine de schede</a>
+copyright:Copyright &copy;2001-2022 <a href="http://fudforum.org/">FUDforum Softuer de bollettine de schede</a>
 code_title:Còdici:
 code_select_all:Scacchie tutte
 code_show_hide:Ammustra/ ammuccia

@@ -2,6 +2,7 @@
 # Exported from translatewiki.net
 # Author: Alpkant
 # Author: BaRaN6161 TURK
+# Author: Can
 # Author: Cobija
 # Author: Emperyan
 # Author: Erdemaslancan
@@ -519,6 +520,7 @@ search_subject_only:Yalnızca Konu
 search_forum:Forum
 search_posted_on:Gönderilme Tarihi
 search_no_results:Sonuç Yok
+search_spell_suggestions:Şunu mu demek istediniz:
 search_all_forums:Tüm Forumlarda Ara
 search_in_forum:Forumda Ara:
 search_forum_search:Forum Arama

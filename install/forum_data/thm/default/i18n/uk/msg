@@ -6,6 +6,7 @@
 # Author: Andriykopanytsia
 # Author: Apromix
 # Author: Base
+# Author: Bicolino34
 # Author: DDPAT
 # Author: Dim Grits
 # Author: Gzhegozh
@@ -512,6 +513,7 @@ search_subject_only:Тільки тема
 search_forum:Форум
 search_posted_on:Опубліковано:
 search_no_results:Нічого не знайдено
+search_spell_suggestions:Ти маєш на увазі:
 search_all_forums:Пошук у всіх форумах
 search_in_forum:Пошук у форумі:
 search_forum_search:Пошук у форумах
@@ -1128,7 +1130,7 @@ move_msg_th_expl:Вкажіть ідентифікатор (ID) теми рец�
 captcha_img_alt:Перевірка на те що ви людина: вам необхідно ввести розпізнаний текст на зображенні.
 captcha_img_help:На зображенні відсутні нулі (0) та одиниці (1).
 powered-by:Розробка: FUDforum {GVAR: FORUM_VERSION}.
-copyright:Авторські права &copy;2001-2021 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Авторські права &copy;2001-2022 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Код:
 code_select_all:Виділити всі
 code_show_hide:Показати / приховати

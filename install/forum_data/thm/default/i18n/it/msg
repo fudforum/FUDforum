@@ -1122,7 +1122,7 @@ move_msg_th_expl:Specifica l'ID dell'argomento di destinazione (può essere in a
 captcha_img_alt:Captcha Verification: devi riconoscere il testo che compare in questa immagine.
 captcha_img_help:Non ci sono né zero né uno in questa immagine.
 powered-by:Realizzato con: FUDforum {GVAR: FORUM_VERSION}.
-copyright:Copyright &copy;2001-2021 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Copyright &copy;2001-2022 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Codice:
 code_select_all:Seleziona tutto
 code_show_hide:mostra/nascondi

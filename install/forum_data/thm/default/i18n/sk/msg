@@ -1117,6 +1117,7 @@ move_msg_th_expl:Zadajte číslo cieľovej témy (môže byť na iných fórach)
 captcha_img_alt:Overenie kódu (captcha): Rozpoznajte text v obrázku.
 captcha_img_help:V obrázku sa nula alebo jeden nenachádza.
 powered-by:Poháňané cez: FUDforum {GVAR: FORUM_VERSION}.
+# Fuzzy
 copyright:Copyright &copy;2001-2021 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Kód:
 code_select_all:Vybrať všetko

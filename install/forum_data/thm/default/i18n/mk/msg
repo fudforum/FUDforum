@@ -498,6 +498,7 @@ search_subject_only:Само наслов
 search_forum:Форум
 search_posted_on:Објавено на
 search_no_results:Нема исход
+search_spell_suggestions:Дали мислевте на:
 search_all_forums:Пребарај по сите форуми
 search_in_forum:Пребарај во форумот:
 search_forum_search:Пребарај го форумот
@@ -1114,7 +1115,7 @@ move_msg_th_expl:Назначете ID на темата во која ќе се
 captcha_img_alt:Проверка со сликичка: ќе треба да го препознаете текстот на неа.
 captcha_img_help:На сликата нема нула или единица.
 powered-by:Со поддршка од: FUDforum {GVAR: FORUM_VERSION}.
-copyright:Авторски права &copy;2001-2021 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Авторски права &copy;2001-2022 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Код:
 code_select_all:Избери сè
 code_show_hide:Прикажи / скриј
