@@ -10,7 +10,7 @@
 action:Azzioni
 add_to_buddy_list:aggiunge a l'elenghe de l'amice
 admin:Amministraturi
-admin_control_panel:Amministrazione
+admin_control_panel:Amministrazzioni
 administrator:Amministraturi
 attachment:Allegate:
 avatar:Avatar:
@@ -300,7 +300,7 @@ register_email:Email
 edit_time_limit:<b>Stoche a cange 'u limite orarie</b>: {GVAR: EDIT_TIME_LIMIT} minute
 no_edit_time_limit:<b>Cange 'u limite orarie</b>: Illimitate
 pmuserloc_login:Trasi:
-pmuserloc_submit:Mànna
+pmuserloc_submit:Manna
 pmuserloc_user:Utenti
 pmuserloc_no_result:Nuddu risurtatu
 register_builtin:Costruite jndre
@@ -750,7 +750,7 @@ thr_exch_orig_forum:Forum origgenale:
 thr_exch_dest_forum:Forum de destinazione:
 thr_exch_no_threads:Nisicune argomende in attese de approvazione.
 thr_exch_decl_reason:Mutive pe scettà l'argomende <b>{VAR: data->subject}</b> jndr'à 'u forum <b>{VAR: data->f2_name}</b>
-thr_exch_submit:Conferme
+thr_exch_submit:Manna
 exch_decline_ttl:Spustamende de l'argomende {VAR: data->subject} jndr'à 'u forum {VAR: data->f2_name} ha state scettate.
 ppost_original_msg:messàgge ca tu è inoltrate o resposte
 split_thread:Divide l'argomende
