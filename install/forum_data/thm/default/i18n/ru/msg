@@ -10,6 +10,7 @@
 # Author: Happy13241
 # Author: Helpau
 # Author: Kaganer
+# Author: Kareyac
 # Author: Kv75
 # Author: Lockal
 # Author: Macofe
@@ -1134,8 +1135,7 @@ move_msg_th_expl:Укажите ID темы для переноса в нее с
 captcha_img_alt:Антибот проверка. Вам нужно распознать текст на этом изображении.
 captcha_img_help:На изображении нет цифр 0 и 1.
 powered-by:При поддержке: FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:&copy; 2001-2021 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:&copy; 2001-2022 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:CODE:
 code_select_all:Выделить все
 code_show_hide:Показать / скрыть
