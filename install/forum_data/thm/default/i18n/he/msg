@@ -421,7 +421,7 @@ poll_timelimit:מגבלת הזמן:
 poll_maxiumvotes:מס׳ קולות מרבי:
 poll_create:יצירה
 poll_update:עדכון
-poll_disablesmilies:נטרול הסמיילים
+poll_disablesmilies:לכבות סמיילים
 poll_create_poll:יצירת סקר
 poll_update_poll:עדכון סקר
 poll_delete:מחיקה

@@ -170,7 +170,7 @@ subscribed_threads_desc:Live e mitte 'u filtre sus a le argumende sottoscritte (
 bookmarked_threads:Argumende cu 'u segnalibbre
 switch_to_thread_view:Passe a 'na viste pe descussione de stu argomende
 thread:Argumentu:
-thread_announcement:Annuge:
+thread_announcement:Annùnziu:
 thread_first_unread_msg:Vèje a 'u prime messàgge non lette jndr'à stu argomende
 thread_thread:Argumentu
 threads:Argumenti
@@ -213,7 +213,7 @@ reported_on:Lu:
 reported_reported_by:Segnalate da:
 reported_reported_msg:Messàgge segnalate
 modque_pending_approval:Messàgge appise pe l'approvazione
-modque_approve:Approve
+modque_approve:Appruva
 modque_delete:Cancella
 modque_deleteall:Scangille tutte da l'utende
 modque_no_message:Non ge stonne messàgge appise da approvà
@@ -378,7 +378,7 @@ member_search:O ause 'a funzione <a href="javascript://" onclick="javascript: wi
 buddy_remove:leva
 post_normal:Nurmali
 post_sticky:Adesive
-post_annoncement:Annunge
+post_annoncement:Annùnziu
 post_size:Dimenzione
 post_color:Culuri
 post_font:Carattere
@@ -519,7 +519,7 @@ remail_error:Stè 'n'errore
 mklist_type:Tipu:
 mklist_option:Opzioni:
 mklist_additem:Aggiunge 'na vôsce
-mklist_apply:Appleche
+mklist_apply:Applica
 mklist_delete:Cancella
 qbud_nick_name:Soprannome
 qbud_add_selected:Aggiunge scacchiate
@@ -549,7 +549,7 @@ ppost_save_draft:Salve abbozzu
 poll_blank_option:Non ge puè aggiungere 'n'opzione vacande.
 poll_del_conf:Ce tu vuè ccu scangille sta opzione, cazze OK
 poll_name:Nome d'u sondagge:
-poll_timelimit:Orarie limite:
+poll_timelimit:Lìmiti di tempu:
 poll_maxiumvotes:Vote massime:
 poll_create:Crea
 poll_update:Aggiorna
@@ -951,7 +951,7 @@ iemail_msg_reply:Respunne
 iemail_msg_quote:Cite
 iemail_msg_view:'Ndruche Argomende/Messàgge
 threadt_sticky:adesive
-threadt_announce:annunge
+threadt_announce:annùnziu
 reported_no_messages:Non ge stonne messàgge segnalate.
 poll_no_polls:Non ge stone sondagge accessibbile.
 no_unread_messages:Non ge stonne messàgge non lette ca soddisfane l'inderrogaziona toje.
