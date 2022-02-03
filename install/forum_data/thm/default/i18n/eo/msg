@@ -9,6 +9,7 @@
 # Author: Naudefj
 # Author: Objectivesea
 # Author: Robin van der Vliet
+# Author: Spenĉjo
 # Author: Surfo
 # Author: Yekrats
 
@@ -603,7 +604,7 @@ email_error_subject:La Temo estas deviga
 email_error_namerequired:Nomo estas deviga
 email_error_invaliduser:Nevalida uzanto
 emailconf_err_invkey_title:Eraro
-emailconf_err_invkey_msg:Nevalida konfirm-ŝlosilo. Bonvolu kontroli vian retpoŝton por certigi ke vi eniris la URL-on ĝuste.
+emailconf_err_invkey_msg:Nevalida konfirm-ŝlosilo. Kontrolu vian retpoŝton por certigi, ke vi entajpis la URL-on ĝuste.
 err_inc_criticaltitle:Kritika eraro
 err_inc_criticalmsg:Eraro okazis. Bedaŭrinde, estis ankaŭ problemo kun la eraro-raportada sistemo.
 finduser_update:Serĉante uzantojn
