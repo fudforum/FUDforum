@@ -514,7 +514,7 @@ search_subject_only:Uniquement le sujet
 search_forum:Forum
 search_posted_on:Publié le
 search_no_results:Aucun résultat
-search_spell_suggestions:Voulez-vous dire :
+search_spell_suggestions:Voulez-vous dire :
 search_all_forums:Chercher dans tous les forums
 search_in_forum:Chercher dans le forum :
 search_forum_search:Chercher dans un forum
@@ -1131,7 +1131,7 @@ move_msg_th_expl:Précisez l’identifiant du sujet de destination (peut être s
 captcha_img_alt:Vérification par Captcha : vous devrez reconnaître le texte dans cette image.
 captcha_img_help:Il n’y a aucun zéro ou un sur cette image.
 powered-by:Propulsé par : FUDforum {GVAR: FORUM_VERSION}.
-copyright:Copyright &copy; 2001–2022 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Copyright © 2001–2022 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Code :
 code_select_all:Tout sélectionner
 code_show_hide:Afficher / masquer
