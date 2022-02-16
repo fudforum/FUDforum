@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2021 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2022 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -81,24 +81,21 @@ function index_text($subj, $body, $msg_id)
 		return;
 	}
 
-	// Register word so that we can get an id.
+	// Register words - this will asign an "id" to each.
 	ins_m('{SQL_TABLE_PREFIX}search', 'word', 'text', array_keys($w2));
 
 	// Populate title index
+	q('DELETE FROM {SQL_TABLE_PREFIX}title_index WHERE msg_id = '. $msg_id);
 	if ($subj && $w1) {
 		foreach ($w1 as $word => $count) {
-			try {
-				q('INSERT INTO {SQL_TABLE_PREFIX}title_index (word_id, msg_id, frequency) SELECT id, '. $msg_id .','. $count .' FROM {SQL_TABLE_PREFIX}search WHERE word = '. $word);
-			} catch(Exception $e) {}
-
+			q('INSERT INTO {SQL_TABLE_PREFIX}title_index (word_id, msg_id, frequency) SELECT id, '. $msg_id .','. $count .' FROM {SQL_TABLE_PREFIX}search WHERE word = '. $word);
 		}
 	}
 
 	// Populate index.
+	q('DELETE FROM {SQL_TABLE_PREFIX}index WHERE msg_id = '. $msg_id);
 	foreach ($w2 as $word => $count) {
-		try {
-			q('INSERT INTO {SQL_TABLE_PREFIX}index (word_id, msg_id, frequency) SELECT id, '. $msg_id .','. $count .' FROM {SQL_TABLE_PREFIX}search WHERE word = '. $word);
-		} catch(Exception $e) {}
+		q('INSERT INTO {SQL_TABLE_PREFIX}index (word_id, msg_id, frequency) SELECT id, '. $msg_id .','. $count .' FROM {SQL_TABLE_PREFIX}search WHERE word = '. $word);
 	}
 
 	// Clear search cache.
