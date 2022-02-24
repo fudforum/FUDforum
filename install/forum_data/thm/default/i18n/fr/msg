@@ -75,7 +75,7 @@ interests:Centres d’intérêt :
 last_post:Dernier message
 last_thread_msg:Aller au dernier message dans ce fil
 legend:Légende
-location:Situation géographique :
+location:Emplacement :
 lock_thread:Verrouiller le fil
 locked:Verrouillé
 locked_with_new_posts:Verrouillé (contient des messages non lus)
@@ -347,7 +347,7 @@ register_required:Informations obligatoires
 register_required_desc:Tous les champs sont obligatoires.
 register_optional:Informations facultatives
 register_optional_desc:Il est recommandé de ne pas révéler d’information sensible propre à votre identité dans votre profil. Toutes ces informations seront accessibles aux autres membres du forum.
-register_location:Situation géographique :
+register_location:Emplacement :
 register_occupation:Occupation :
 register_interests:Centres d'intérêt :
 register_image:Image :
