@@ -889,7 +889,7 @@ smladd_close_window:fermer la fenêtre
 post_list_smilies:montrer toutes les binettes
 p_VISIBLE:Visible
 reported_in_thread:Dans :
-help_back_to_top:retour en haut de la page
+help_back_to_top:retour en haut
 help_return_to_index:Retour à l’index de l’aide
 imsg_err_message_title:Message non valide
 imsg_err_message_msg:Le message que vous essayez de voir n’existe pas
@@ -939,7 +939,7 @@ mmod_delete_cofirm_ttl:Confirmer la suppression de sujet/message
 spell_alts:aucune alternative
 insert_uploaded_image:Insérer l’image dans le corps du message
 finduser_help:Le moteur de recherche ajoutera automatiquement un masque « * » à votre requête. Par exemple, pour rechercher tous les utilisateurs dont le nom commence par un « a », entrez simplement « a » dans la zone de recherche.
-back_to_top:Retour en haut de la page
+back_to_top:Retour en haut
 pm_err_disabled_title:Messagerie privée désactivée
 pm_err_disabled_msg:Vous ne pourrez pas envoyer de message privé tant que vous n’aurez pas activé l’option « Autoriser les messages privés » dans votre profil.
 err_mod_acc_ttl:Compte non vérifié
@@ -1047,7 +1047,7 @@ userinfo_real_name:Nom réel :
 register_err_alias_notallowed:Cet alias n’est pas autorisé.
 post_err_mod_forum_edit_ttl:ERREUR
 post_err_mod_forum_edit_msg:Vous ne pouvez pas modifier les messages d’un forum modéré.
-dmsg_num:message n° {VAR: obj->id}
+dmsg_num:message nº {VAR: obj->id}
 postcheck_session_invalid:Votre session a expiré, veuillez soumettre à nouveau le formulaire. Désolé pour le dérangement.
 delete_message_extra_desc:<b>Facultatif</b><br /> Indiquez une raison justifiant l’effacement du message. Ceci sera envoyé par message privé à l’auteur.
 delete_message_extra_body:Inclure le corps du message supprimé qui sera envoyé à l’auteur.
