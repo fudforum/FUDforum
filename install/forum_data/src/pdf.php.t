@@ -73,10 +73,13 @@ class fud_pdf extends FPDF
 
 			// GIF, PNG and JPG images can be embedded.
 			if (extension_loaded('gd') && preg_match('/\.gif$/i', $a['name'])) {
+				$this->Ln(5);
 				$this->Image($GLOBALS['WWW_ROOT'] .'index.php?t=getfile&id='. $a['id'] . ($private ? '&private=1' : ''), null, null, 0, 0, 'GIF');
 			} elseif (preg_match('/\.png$/i', $a['name'])) {
+				$this->Ln(5);
 				$this->Image($GLOBALS['WWW_ROOT'] .'index.php?t=getfile&id='. $a['id'] . ($private ? '&private=1' : ''), null, null, 0, 0, 'PNG');
 			} elseif (preg_match('/\.(jpg|jpeg)$/i', $a['name'])) {
+				$this->Ln(5);
 				$this->Image($GLOBALS['WWW_ROOT'] .'index.php?t=getfile&id='. $a['id'] . ($private ? '&private=1' : ''), null, null, 0, 0, 'JPEG');
 			}
 
