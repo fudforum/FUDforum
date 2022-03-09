@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2022 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -70,6 +70,16 @@ class fud_pdf extends FPDF
 			$this->Write(5, ++$i .') ');
 			$this->add_link($GLOBALS['WWW_ROOT'] .'index.php?t=getfile&id='. $a['id'] . ($private ? '&private=1' : ''), $a['name']);
 			$this->Write(5, ', downloaded '. $a['nd'] .' times');
+
+			// GIF, PNG and JPG images can be embedded.
+			if (extension_loaded('gd') && preg_match('/\.gif$/i', $a['name'])) {
+				$this->Image($GLOBALS['WWW_ROOT'] .'index.php?t=getfile&id='. $a['id'] . ($private ? '&private=1' : ''), null, null, 0, 0, 'GIF');
+			} elseif (preg_match('/\.png$/i', $a['name'])) {
+				$this->Image($GLOBALS['WWW_ROOT'] .'index.php?t=getfile&id='. $a['id'] . ($private ? '&private=1' : ''), null, null, 0, 0, 'PNG');
+			} elseif (preg_match('/\.(jpg|jpeg)$/i', $a['name'])) {
+				$this->Image($GLOBALS['WWW_ROOT'] .'index.php?t=getfile&id='. $a['id'] . ($private ? '&private=1' : ''), null, null, 0, 0, 'JPEG');
+			}
+
 			$this->Ln(5);
 		}
 	}
