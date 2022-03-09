@@ -17,7 +17,7 @@ Install steps:
 
 Detailed instructions at https://github.com/fudforum/FUDforum/wiki/Installation
 
-
+   
 Upgrade steps:
 --------------
 
@@ -42,6 +42,14 @@ Uninstall steps:
    Tip: Upload it with your forum's 'File Manager' Admin Control Panel.
 
 3) Run uninstall.php from your web browser.
+
+
+Quick Start Commands:
+---------------------
+   wget https://raw.githubusercontent.com/fudforum/FUDforum/master/install.php
+   wget https://raw.githubusercontent.com/fudforum/FUDforum/master/upgrade.php
+   wget https://raw.githubusercontent.com/fudforum/FUDforum/master/fudforum_archive
+   Navigate to install.pghp/upgrade.php in web brower.
 
 
 Command line operations:
