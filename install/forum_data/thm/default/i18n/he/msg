@@ -1,6 +1,7 @@
 # Messages for Hebrew (עברית)
 # Exported from translatewiki.net
 # Author: Amire80
+# Author: Dee
 # Author: Guycn2
 # Author: Imneo
 # Author: Inkbug
@@ -128,10 +129,13 @@ profile:לוח הבקרה
 profile_desc:גישה אל לוח הבקרת המשתמשים
 rate_thread:דירוג הנושא
 rating:דירוג
+rating_track:ניהול דירוגים לנושא <b>{VAR: thr->subject}</b>:
 refresh_list:רענון הרשימה
 register:הרשמה
 registered:נרשם:
+registered_on:נרשם בתאריך {TEMPLATE: registered_on_date}
 replies:תגובות
+report_to_mod:לדווח על ההודעה למנטר
 reported_messages:הודעות מדווחות
 reveal_all_posts:חשיפת כל ההודעות שנכתבו על ידי {VAR: user_login}
 reveal_post:גילוי הודעה
