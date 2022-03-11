@@ -1212,7 +1212,7 @@ pf('<h2>Step 1: Admin login</h2>', true);
 
 	/* Loop through themes for maintenance. */
 	require($GLOBALS['DATA_DIR'] .'include/compiler.inc');
-	$c = q('SELECT theme, lang, name FROM '. $DBHOST_TBL_PREFIX .'themes WHERE '. q_bitand('theme_opt', 1) .' > 0 OR id=1');
+	$c = q('SELECT theme, lang, name, theme_opt FROM '. $DBHOST_TBL_PREFIX .'themes WHERE '. q_bitand('theme_opt', 1) .' > 0 OR id=1');
 	while ($r = db_rowarr($c)) {
 		// See if custom themes need to have their files updated.
 		if ($r[0] != 'default' && $r[0] != 'path_info' && $r[0] != 'user_info_left' && $r[0] != 'user_info_right' && $r[0] != 'forestgreen' && $r[0] != 'slateblue' && $r[0] != 'twilightgrey') {
@@ -1245,7 +1245,7 @@ pf('<h2>Step 1: Admin login</h2>', true);
 		}
 
 		try {
-			compile_all($r[0], $r[1], $r[2]);
+			compile_all($r[0], $r[1], $r[2]), $r[3];
 			pf('Theme '. $r[2] .' was successfully compiled.');
 		} catch (Exception $e) {
 			pf('Unable to compile theme '. $r[2] .'. Please fix it manually: <span style="color:red;">'.  $e->getMessage() .'</span>');
