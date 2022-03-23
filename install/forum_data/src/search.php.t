@@ -225,7 +225,7 @@ function fetch_search_cache($qry, $start, $count, $logic, $srch_type, $order, $f
 							}
 						}
 						if (!empty($srch_links)) {
-							$srch_links = '<a href="/s/'. $srch_links . '">'. $srch_suggestions .'</a>';
+							$srch_links = '<a href="/s/'. $srch_links . '">'. $srch_links .'</a>';
 						}
 					}
 					if (!empty($srch_links)) {

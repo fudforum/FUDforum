@@ -1245,7 +1245,7 @@ pf('<h2>Step 1: Admin login</h2>', true);
 		}
 
 		try {
-			compile_all($r[0], $r[1], $r[2]), $r[3];
+			compile_all($r[0], $r[1], $r[2], $r[3]);
 			pf('Theme '. $r[2] .' was successfully compiled.');
 		} catch (Exception $e) {
 			pf('Unable to compile theme '. $r[2] .'. Please fix it manually: <span style="color:red;">'.  $e->getMessage() .'</span>');
