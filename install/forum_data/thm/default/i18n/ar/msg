@@ -3,6 +3,7 @@
 # Author: Alexknight12
 # Author: Alssarem
 # Author: DRIHEM
+# Author: FiberAhmed
 # Author: Macofe
 # Author: Majid Al-Dharrab
 # Author: Maroen1990
@@ -108,7 +109,7 @@ new_thread:أنشئ موضوعا جديدا
 newest_user:أحدث مستخدم مسجل هو
 next_page:الصفحة التالية
 next_thread:الموضوع التالي
-no_messages:لا توجد رسائل في هذا المنتدى.<br />كن أول من ينشر موضوعا.
+no_messages:لا توجد رسائل في هذا المنتدى.<br />كن أول من ينشر موضوعًا.
 no_msg_body:لا يوجد جسم للرسالة
 no_new_posts:لا توجد رسائل جديدة
 no_posts:لا توجد رسائل
@@ -505,7 +506,7 @@ search_subject_only:الموضوع فقط
 search_forum:منتدى
 search_posted_on:انشر على
 search_no_results:لا نتائج
-search_spell_suggestions:هل تعني:
+search_spell_suggestions:هل تقصد:
 search_all_forums:ابحث في كل المنتديات
 search_in_forum:ابحث في منتدى:
 search_forum_search:بحث المنتدى
