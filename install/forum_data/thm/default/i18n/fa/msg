@@ -4,6 +4,7 @@
 # Author: Amin
 # Author: Amirsara
 # Author: Atthar
+# Author: Beginneruser
 # Author: Dalba
 # Author: Darafsh
 # Author: Ebraminio
@@ -430,7 +431,7 @@ post_forum:انجمن:
 post_title:عنوان:
 post_body:متن:
 post_options:اختیارات:
-post_preview_btn:پیش‌نمای پست
+post_preview_btn:پیش‌نمایش پست
 post_cancel_btn:لغو
 ignore_users:کاربران مسدود‌شده
 add_ignore:افزودن انسداد
@@ -603,7 +604,7 @@ core_err_invinp_title:ورودی نامعتبر
 core_err_invinp_err:شما لینک نامعتبری را دنبال کرده‌اید. لطفاً <a href="mailto:{GVAR: ADMIN_EMAIL}">مدیر سایت</a> را از چگونگی رسیدن‌تان به اینجا آگاه کنید.
 core_adm_login_msg:ادمین‌ها می‌توانند از <a href="{BASE}adm/admloginuser.php">اینجا</a> وارد شوند.
 email_err_unabletoemail_title:خطا: عدم امکان ارسال ایمیل
-email_err_unabletoemail_msg:سیستم ایمیل توسط ادمین انجمن غیر فعال شده است.
+email_err_unabletoemail_msg:سامانۀ ایمیل توسط ادمین انجمن غیر فعال شده است.
 email_error_unabletolocaddr:با عرض پوزش، سیستم قادر نیست به {VAR-HTML: _POST['tx_name']} ایمیل بفرستد زیرا قادر به تشخیص آدرس ایمیل نبود
 email_error_body:متن ضروری است
 email_error_subject:موضوع ضرروی است
@@ -612,7 +613,7 @@ email_error_invaliduser:کاربر نامعتبر
 emailconf_err_invkey_title:خطا
 emailconf_err_invkey_msg:کلید تأیید نامعتبر است. لطفاً ایمیل‌تان را برای مطمئن‌شدن از اینکه نشانی را درست وارد کرده‌اید بررسی کنید. اگر روی لینک دو بار کلیک کرده‌اید، حساب کاربری‌تان ممکن است از پیش تأیید شده‌باشد. به انجمن وارد شوید و کلید دیگری درخواست دهید.
 err_inc_criticaltitle:خطای مهلک
-err_inc_criticalmsg:یک خطا رخ داده است. متاسفانه در سیستم گزارش خطا هم مشکلی وجود دارد.
+err_inc_criticalmsg:یک خطا رخ داده است. متاسفانه در سامانۀ گزارش خطا هم مشکلی وجود دارد.
 finduser_update:جستجوی کاربران
 help_index_update:خواندن <a href="{TEMPLATE: help_index_update_lnk}">راهنما</a>
 iemail_thr_subject:پاسخ تازه به {VAR: thr_subject} توسط {VAR: poster_login}
@@ -631,7 +632,7 @@ list_referers_update:مرور معرفی‌ها
 login_update:مشاهده فرم ورود
 msg_update:مرور مبحث <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
 pm_err_nopm_title:خطا: پیام‌خصوصی غیرفعال است
-pm_err_nopm_msg:شما نمی‌توانید از سیستم پیام‌خصوصی استفاده کنید. این سیستم توسط ادمین غیرفعال شده است.
+pm_err_nopm_msg:شما نمی‌توانید از سامانۀ پیام‌خصوصی استفاده کنید. این سیستم توسط ادمین غیرفعال شده است.
 pm_update:استفاده از پیام‌خصوصی
 post_err_lockedthread_title:خطا: مبحث بسته‌شده
 post_err_lockedthread_msg:این مبحث بسته شده‌است. دیگر امکان ارسال پست وجود ندارد.
@@ -704,7 +705,7 @@ tree_update:مرور مبحث (نمای درختی) <a href="{TEMPLATE: tree_upd
 userinfo_update:مشاهده پروفایل <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}'s</a>
 ERR_login_msg2:<legend>خطا: شما وارد نشده‌اید</legend>برای دسترسی به این صفحه، باید کاربر این انجمن باشید.
 ERR_disabled_ttl:ویژگی غیرفعال
-ERR_disabled_msg:این ویژگی توسط ادمین غیرفعال شده است.
+ERR_disabled_msg:این ویژگی توسط مدیر سامانه غیرفعال شده است.
 ERR_access_ttl:خطا: دسترسی‌های ناکافی
 ERR_access_msg:شما دسترسی لازم برای انجام این کار را ندارید.
 ERR_registration_disabled_ttl:ثبت‌نام غیرفعال است
@@ -852,7 +853,7 @@ quicklogin_use_cookies:استفاده از کوکی‌ها؟
 quicklogin_login_btn:ورود
 quick_reply:پاسخ سریع
 quick_reply_post:ارسال پاسخ سریع
-quick_reply_preview:پیش‌نمای پاسخ سریع
+quick_reply_preview:پیش‌نمایش پاسخ سریع
 post_notification_desc:وقتی شخصی به این پست پاسخ داد، من را آگاه کن.
 post_all_ext_allowed:(بدون‌محدودیت)
 maximize_category:بزرگ‌کردن سربرگ
@@ -1018,7 +1019,7 @@ groups_perms_header:دسترسی‌ها <span class="small">(برای مشاهد
 register_err_sig_too_long:امضای شما طولی بیشتر از حد مجاز {GVAR: FORUM_SIG_ML} کاراکتر دارد.
 register_sig_limit:{GVAR: FORUM_SIG_ML} کاراکتر <a href="javascript: alert('امضای شما دارای '+document.forms['fud_register'].reg_sig.value.length+' کاراکتر است. حداکثر طول کاراکتر مجاز برای امضا {GVAR: FORUM_SIG_ML} کاراکتر است.');" class="SmallText">طول امضا را بررسی کنید</a>
 adm_account_accepted:حساب‌کاربری شما '{VAR: login}' توسط ادمین تایید شد و فعال است. شما هم‌اکنون می‌توانید انجمن '{GVAR: FORUM_TITLE}' را به عنوان یک کاربر تایید‌شده و ثبت‌نام شده تجربه کنید.
-adm_account_accepted_s:درخواست حساب‌کاربری شما در '{GVAR: FORUM_TITLE}' پذیرفته شد.
+adm_account_accepted_s:درخواست حساباتان برای '{GVAR: FORUM_TITLE}' پذیرفته شد.
 adm_account_rejected:حساب‌کاربری شما '{VAR: login}' توسط ادمین پذیرفته نشد. اگر مایل هستید دلیل این تصمیم را بدانید، از طریق این ایمیل با ادمین تماس حاصل نمایید '{GVAR: ADMIN_EMAIL}'.
 adm_account_rejected_s:درخواست حساب‌کاربری شما '{GVAR: FORUM_TITLE}' پذیرفته نشد.
 thread_on:در
@@ -1072,7 +1073,7 @@ mmd_mov_title:انتقال مباحث
 mmd_move_threads_to:انجمن مقصد:
 mmd_abort_move:لغو
 mmd_move:انتقال مباحث
-pmsg_pdf_btn:ایجاد آرشیو پی‌دی‌اف
+pmsg_pdf_btn:ایجاد بایگانی پی‌دی‌اف
 search_results_hdr:{VAR: total} مورد پیدا شد
 thread_del_all:حذف مباحث
 thread_mov_all:انتقال مباحث
