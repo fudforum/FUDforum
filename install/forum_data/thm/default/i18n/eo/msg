@@ -54,6 +54,7 @@ homepage:Hejmpaĝo
 icq_control_panel:ICQ Retmesaĝa Panelo
 icq_message_form:ICQ Mesaĝa Formularo:
 ignore_user:ignori ĉiujn mesaĝoj de ĉi tiu uzanto
+im_facebook:Facebook:
 im_yahoo:Yahoo-Ekmesaĝilo
 image:Bildo:
 index_forum:Forumo
@@ -341,6 +342,7 @@ register_occupation:Laboro:
 register_interests:Interesoj:
 register_image:Bildo:
 register_icq:ICQ:
+register_facebook:Facebook-identigilo:
 register_yahoo:Yahoo-Ekmesaĝilo:
 register_homepage:Hejmpaĝo:
 register_bday:Naskiĝdato:
@@ -502,6 +504,7 @@ search_subject_only:Nur Temo
 search_forum:Forumo
 search_posted_on:Afiŝita je
 search_no_results:Neniuj Rezultoj
+search_spell_suggestions:Ĉu vi celis:
 search_all_forums:Serĉi Ĉiujn Forumojn
 search_in_forum:Serĉi en Forumon:
 search_forum_search:Foruma Serĉo
@@ -901,13 +904,11 @@ userinfo_polls:Opinisondoj:
 show_pollist:Opinisondoj
 search_and:KAJ
 search_or:AŬ
-# Fuzzy
-search_desc_order:Malkreskanta Ordo
-# Fuzzy
-search_asc_order:Kreskanta Ordo
+search_desc_order:Plej novaj unue
+search_asc_order:Plej malnovaj unue
+search_relevance_order:Rilateco
 search_logic:Serĉlogiko:
-# Fuzzy
-search_sorting:Ordigi Rezultojn laŭ Dato en:
+search_sorting:Ordigi laŭ:
 search_attach:Aldonaĵoj:
 search_attach_all:Kun aŭ sen
 search_attach_with:Kun aldonaĵoj
@@ -964,8 +965,7 @@ iemail_forum_unsub:Malaboni ĉi tiun forumon
 primary_group_prefix:Ĉefa grupo por forumo:
 group_resources:Ĉi tiu grupo rajtigas la jenajn forumojn
 register_admin_newuser_title:Nova uzanto registris kaj ties konto atendas konfirmado
-# Fuzzy
-register_admin_newuser_msg:Nova uzanto ({VAR: uent->login}) ĵus estas registrita, kaj ĉar konfirmado de kontoj estas aktiva, ĝia konto ne estos uzebla ĝis ĝi estos konfirmita de vi aŭ de alia forumestro. Por kontroli la konton bonvolu iri al: {FULL_ROOT}adm/admuserapr.php\n\nĈi tio estas rezulto de aŭtomata proceso. Ne reagu je ĉi tiu mesaĝo.\nSe vi deziras malŝalti estontajn retpoŝtajn sciigojn pri novaj konto-kreoj, vi povas tion aranĝi per la stirpanelo por administranto. Tie ŝanĝeblas la agordo pri "sciigoj pri novaj kontoj".
+register_admin_newuser_msg:Nova uzanto ({VAR: uent->login}) estas ĵus registrita, kaj ĉar konfirmado de kontoj estas aktiva, la konto ne estos uzebla ĝis la uzanto estos konfirmita de vi aŭ de alia forumestro. Por kontroli la konton bonvolu iri al: {BASE}adm/admuserapr.php\n\nĈi tio estas rezulto de aŭtomata proceso. Ne reagu je ĉi tiu mesaĝo.\nSe vi deziras malŝalti estontajn retpoŝtajn sciigojn pri novaj konto-kreoj, vi povas tion aranĝi per la stirpanelo por administranto. Tie ŝanĝeblas la agordo pri "sciigoj pri novaj kontoj".
 post_mod_msg_notify_title:Nova mesaĝo en forumo "{VAR: frm->name}" ne jam aprobita
 post_mod_msg_notify_msg:Nova mesaĝo kun temo "{VAR: msg_post->subject}" ĵus afiŝiĝis en forumo kontrolata de vi. Por revizii ĉi-supran mesaĝon iru al: {FULL_ROOT}?t=modque#{VAR: msg_post->id}\n\nĈi tio estas aŭtomata mesaĝo. Bonvolu ne respondi.
 thread_printable_pdf:Generi printeblan PDF-on
@@ -1121,8 +1121,7 @@ move_msg_th_expl:Specifi la identigilon de la celata fadeno (eble en alia forumo
 captcha_img_alt:Konfirmo de homeco: vi devas rekoni la tekston en ĉi-suba bildo.
 captcha_img_help:La bildo prezentas neniun nulon aŭ unuon.
 powered-by:Funkciante per: FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:Aŭtorrajtoj &copy;2001-2021 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Kopirajto &copy;2001-2022 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Kodo:
 code_select_all:Elekti ĉiujn
 code_show_hide:Montri / kaŝi

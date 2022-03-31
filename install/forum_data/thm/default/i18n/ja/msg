@@ -14,6 +14,7 @@
 # Author: RYU N
 # Author: Shirayuki
 # Author: Sujiniku
+# Author: Yamagata Yusuke
 # Author: ネイ
 
 action:操作
@@ -507,6 +508,7 @@ search_subject_only:件名のみ
 search_forum:フォーラム
 search_posted_on:投稿日
 search_no_results:結果なし
+search_spell_suggestions:あなたは以下のことを意味していますか:
 search_all_forums:すべてのフォーラムを検索
 search_in_forum:検索するフォーラム:
 search_forum_search:フォーラム検索
@@ -1123,8 +1125,7 @@ move_msg_th_expl:移動先トピックのIDを指定してください (他の�
 captcha_img_alt:CAPTCHA検証: この画像中の文字列を認識する必要があります。
 captcha_img_help:画像内には 0 も 1 もありません。
 powered-by:提供: FUDforum {GVAR: FORUM_VERSION}
-# Fuzzy
-copyright:Copyright &copy;2001-2021 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Copyright &copy;2001-2022 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:コード:
 code_select_all:すべて選択
 code_show_hide:表示/非表示

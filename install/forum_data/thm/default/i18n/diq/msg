@@ -35,7 +35,7 @@ email_to_friend:E-mailê embazi
 email_to_friend_desc:URL ena perer bırış embaz dê xorê
 email_user:Karberi rê e-posta bırış
 faq:Peşti
-first_unread_msg:Şo mesacanê nêwanayeya
+first_unread_msg:Şo mesacanê nêwaniyayeyan
 first_unread_msg_desc:Ena mersela dı şo nêwaneyaye mesaci
 flat_view:Peyser şo asayışê raştiyê hesebiyayeyi
 forum:Forum
@@ -147,7 +147,7 @@ search:Cı geyre
 sel_todays_posts:Mesacê ewroy
 sel_todays_posts_desc:Parzunê mesacanê noroci ak/racın
 sel_unanswered_posts:Mesacê bêcewabi
-sel_unread_messages:Mesacê nêwaniyayey
+sel_unread_messages:Mesacê nêwaniyayeyi
 send:Bırışe
 sender_email:E-posteyê rıştoği:
 sender_name:Nameyê rıştoği:
@@ -165,6 +165,8 @@ time:Wext
 todays_posts:Mesacê Ewroy
 unanswered_posts:Mesacê bêcewabi
 unlock_thread:Kılitê mewzuyi ake
+unread_posts:Mesacê nêwaniyayeyi
+unread_posts_desc:Mesacanê nêwaniyayeyan pêro bımocne
 updated_on:Wextê newekeredışi:
 user:Karber
 user_counter:<b>{VAR: st_obj->user_count}</b> karberê qeydıni esti.
@@ -558,7 +560,7 @@ search_or:YA Zİ
 search_attach:Gaçık:
 search_attach_all:Ebe ya zi bê
 search_attach_with:Ebe gaçıkan
-unread_message:Mesacê nêwaniyayey
+unread_message:Mesacê nêwaniyayeyi
 read_message:Mesaci bıwane
 threadt_more:&lt;zêde&gt;
 saved:Qeyd bi
