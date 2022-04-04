@@ -320,14 +320,14 @@ register_login:نام کاربری:
 register_login_desc:نامی که شما دوست دارید با آن وارد شوید و با آن در این وبگاه شناخته شوید.
 register_login_available:موجود
 register_login_taken:گرفته‌شده
-register_password:گذرواژه:
-register_password_desc:رمز عبور برای حساب کاربری شما. رمز عبور به بزرگی و کوچکی حساس است و دست‌کم باید 6 کاراکتر داشته باشد.
-register_conf_pass:تأیید گذرواژه:
-register_conf_pass_desc:لطفاً گذرواژه‌تان را دوباره وارد کنید.
+register_password:رمز عبور:
+register_password_desc:رمز عبور برای حساب شما. رمز عبور به بزرگی و کوچکی حساس است و حداقل باید 6 نویسه داشته باشد.
+register_conf_pass:تأیید رمز عبور:
+register_conf_pass_desc:لطفاً رمز عبورتان را دوباره وارد کنید.
 register_email_desc:ایمیل شما. شما بعدا می‌توانید از طریق بخش تنظیمات آن را مخفی کنید.
 register_name:نام:
 register_name_desc:نام واقعی شما.
-register_your_pass:گذرواژه شما:
+register_your_pass:رمز عبور شما:
 register_update:بروزرسانی
 register_avatar_type:نوع آواتار:
 register_del_avatar:حذف آواتار
@@ -400,7 +400,7 @@ apply_spell_changes:اعمال تغییرات املایی
 post_preview:پیشنمای پست
 post_logedin_user:کاربر وارد‌شده:
 post_logout:خروج
-post_passwd:گذرواژه ارسال:
+post_passwd:درحال ارسال رمز عبور:
 post_poll:نظرسنجی:
 post_create_poll:ایجاد نظرسنجی
 post_poll_delete:حذف
@@ -461,42 +461,42 @@ coppa_fax_email:آدرس ایمیل:
 coppa_fax_date:تاریخ:
 coppa_fax_questions:درصورتیکه سوالی دارید، با این ایمیل مکاتبه کنید: <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
 coppa_fax_login:ورود
-coppa_fax_passwd:گذرواژه
+coppa_fax_passwd:رمز عبور
 coppa_fax_remail:ایمیل
 coppa_fax_name:نام
 login_not_logedin:شما وارد نشده‌اید. این می‌تواند به یکی از این دلایل باشد:
 login_cookie_expired:کوکی‌های شما منقضی شده است، و می‌بایست دوباره وارد شوید تا کوکی‌هایتان بازسازی و تمدید شوند.
 login_perm_denied:شما مجوز دسترسی به این قسمت را به عنوان کاربر مهمان ندارید. برای کسب مجوز، شما باید وارد انجمن شوید.
 login_want_to_register:قصد ثبت‌نام دارید؟
-login_forgot_passwd:گذرواژه‌تان را فراموش کرده‌اید؟
+login_forgot_passwd:رمز عبورتان را فراموش کرده‌اید؟
 login_use_cookie:استفاده از کوکی‌ها<br /><span class="SmallText">اگر از یک رایانه عمومی مثل رایانه‌ی کتابخانه، مدرسه یا کافی‌نت استفاده می‌کنید، توصیه می‌شود که برای امنیت بیشتر این گزینه را انتخاب نکنید. اگر این گزینه را انتخاب کنید، بار بعدی بطور خودکار وارد انجمن خواهید شد (بدون نیاز به وارد کردن نام کاربری و گذرواژه)</span>
 login_login:نام کاربری:
 login_login_btn:ورود
 login_name_required:نام کاربری ضروری است
-login_passwd_required:گذرواژه ضروری است
-login_invalid_radius:ترکیب نام کاربری و گذرواژه اشتباه است
+login_passwd_required:رمز عبور ضروری است
+login_invalid_radius:ترکیب نام کاربری و رمز عبور اشتباه است
 reset_confirmation:با سپاس از شما برای ثبت‌نام.\n\nبرای فعال کردن حساب کاربری تان لطفا به آدرس زیر بروید:\n\n{VAR: url}\n\nبعد از فعال شدن حساب کاربریتان، شما وارد انجمن و به صفحه ی اصلی هدایت خواهید شد.
-reset_reset:درود،\n\nشما برای بازنشانی گذرواژه خود درخواست نموده‌اید. برای کامل کردن فرآیند، به آدرس زیر بروید:\n\n{VAR: url}\n\nتوجه: نگه‌داری گذرواژه در این انجمن بصورت رمزنگاری یکطرفه می‌باشد؛ این یعنی وقتیکه شما گذرواژه خود را وارد کنید، هیچ راهی برای برگرداندن آن نیست. درواقع نحوه‌ ورود از طریق مقایسه‌ی نسخه‌ رمزنگاری شده‌ی موجود در دیتابیس با نسخه‌ی رمزنگاری شده‌ی چیزی که شما در صفحه‌ی ورود تایپ می‌کنید صورت می‌گیرد.\n(اگر علاقه‌مند هستید بیشتر در مورد مکانیزم مذکور بدانید، درمورد الگوریتم MD5 HASH مطالعه کنید.)
-rpasswd_invalid_passwd:گذرواژه نامعتبر است
+reset_reset:درود،\n\nشما برای بازنشانی رمز عبور خود درخواست نموده‌اید. برای کامل کردن فرآیند، به آدرس زیر بروید:\n\n{VAR: url}\n\nتوجه: نگه‌داری رمز عبور در این انجمن بصورت رمزنگاری یکطرفه می‌باشد؛ این یعنی وقتیکه شما رمز عبور خود را وارد کنید، هیچ راهی برای برگرداندن آن نیست. درواقع نحوه‌ ورود از طریق مقایسه‌ی نسخه‌ رمزنگاری شده‌ی موجود در دیتابیس با نسخه‌ی رمزنگاری شده‌ی چیزی که شما در صفحه‌ی ورود تایپ می‌کنید صورت می‌گیرد.\n(اگر علاقه‌مند هستید بیشتر در مورد مکانیزم مذکور بدانید، درمورد الگوریتم MD5 HASH مطالعه کنید.)
+rpasswd_invalid_passwd:رمز عبور نامعتبر است
 rpasswd_passwd_nomatch:گذرواژه‌ها مطابقت ندارند
-rpasswd_passwd_length:گذرواژه باید حداقل دارای 6 کاراکتر باشد.
-reset_remind_pass:پروسه بازنشانی گذرواژه
-reset_reset_conf:گذرواژه شما بازنشانی و برایتان ارسال خواهد شد. اگر شما هنوز آدرس ایمیلتان را تایید نکرده‌اید، درخواست تایید برای شما ارسال خواهد شد.
+rpasswd_passwd_length:طول رمز عبور باید حداقل 6 کاراکتر باشد.
+reset_remind_pass:پروسه بازنشانی رمز عبور
+reset_reset_conf:رمز عبور شما بازنشانی و برایتان ارسال خواهد شد. اگر شما هنوز آدرس ایمیلتان را تایید نکرده‌اید، درخواست تایید برای شما ارسال خواهد شد.
 reset_error:آدرس ایمیل در دیتابیس موجود نیست
-reset_update:بازنشانی گذرواژه
-rpasswd_change_pass:تغییر گذرواژه
+reset_update:بازنشانی رمز عبور
+rpasswd_change_pass:تغییر رمز عبور
 rpasswd_login:ورود
-rpasswd_cur_pass:گذرواژه فعلی:
-rpasswd_new_pass:گذرواژه تازه:
-rpasswd_conf_pass:تأیید گذرواژه:
+rpasswd_cur_pass:رمز عبور فعلی:
+rpasswd_new_pass:رمز عبور تازه:
+rpasswd_conf_pass:تأیید رمز عبور:
 ruser_title:فرم تغییر نام کاربری
 ruser_change_user:تغییر نام کاربری انجمن‌تان
 ruser_cur_login:نام کاربری فعلی:
 ruser_new_login:نام کاربری تازه:
-ruser_cur_pass:گذرواژه فعلی:
-login_passwd:گذرواژه:
+ruser_cur_pass:رمز عبور فعلی:
+login_passwd:رمز عبور:
 reset_email:ایمیل:
-reset_reset_button:بازنشانی گذرواژه
+reset_reset_button:بازنشانی رمز عبور
 rate_this_thread:رتبه
 report_reporting_about:توضیحات گزارش:
 report_subject:موضوع:
@@ -649,7 +649,7 @@ post_err_floodtrig_msg:لطفا مجددا {PLURAL: tm|$1 ثانیه|$1 ثانی
 post_err_attach_size:حجم فایل ضمیمه خیلی زیاد است (بیشتر از حجم مجازِ {VAR: MAX_F_SIZE} بایت است)
 post_err_attach_ext:فایلی که قصد آپلود کردنش را دارید از نوع فایل‌های مجاز نیست.
 post_err_attach_filelimit:شما سعی در آپلود فایل بیش از تعداد مجاز دارید.
-post_err_passwd:گذرواژه نادرست است.
+post_err_passwd:رمز عبور نادرست است.
 post_reply_update:پاسخ به <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> در {VAR: frm->name}
 post_topic_update:ایجاد مبحث تازه در <a href="{TEMPLATE: post_topic_update_lnk}">{VAR: frm->name}</a>
 post_error_generic:این اقدام با خطا مواجه شد
@@ -668,20 +668,20 @@ referals_update:مرور معرفی‌ها
 register_err_short_login:نام کاربری ای که انتخاب کرده‌اید خیلی کوتاه است. نام کاربری باید دارای حداقل 2 کاراکتر باشد.
 register_err_login_notallowed:این نام کاربری مجاز نیست.
 register_err_loginunique:نام کاربری انجمن باید منحصر بفرد باشد. درحال‌حاضر کاربری با این نام موجود می‌باشد.
-register_err_emailexists:این آدرس ایمیل درحال‌حاضر مرتبط به یک حساب‌کاربری دیگر است. چنانچه گذرواژه خود را فراموش کرده اید لطفا بجای ثبت‌نام مجدد، از گزینه‌ی بازیابی استفاده کنید.
+register_err_emailexists:این آدرس ایمیل درحال‌حاضر با یک حساب‌ دیگر مرتبط هست. چنانچه رمز عبور خود را فراموش کرده اید لطفا بجای ثبت‌نام مجدد، از گزینه‌ی بازیابی استفاده کنید.
 register_err_shortpasswd:گذرواژه باید دارای حداقل 6 کاراکتر باشد.
 register_err_passwdnomatch:گذرواژه‌ها با همدیگر مطابقت ندارند، لطفا بررسی کنید.
 register_err_invalidemail:بنظر می‌رسد آدرس ایمیلی که وارد کرده‌اید معتبر نیست.
 register_err_needname:برای تکمیل موفقیت‌آمیز ثبت‌نام، شما باید نام خود را وارد کنید.
-register_err_enterpasswd:برای انجام تغییرات شما باید گذرواژه فعلی خود را وارد کنید.
-register_err_adminpasswd:برای انجام تغییرات شما باید گذرواژه <b>ادمین</b> خود را وارد کنید.
+register_err_enterpasswd:برای انجام تغییرات شما باید رمز عبور فعلی خود را وارد کنید.
+register_err_adminpasswd:برای انجام تغییرات شما باید رمز عبور <b>مدیر</b> خود را وارد کنید.
 register_err_notyouremail:درحال‌حاضر شخصی دیگر با این آدرس ایمیل ثبت‌نام کرده‌است.
 register_err_avatartobig:فایلی که قصد آپلود کردنش را دارید خیلی بزرگ است، بیشتر از {GVAR: CUSTOM_AVATAR_MAX_SIZE} بایت.
 register_err_avatarnotallowed:آواتاری که قصد آپلود کردنش را دارید مجاز نمی‌باشد. نوع فایل‌های مجاز را بررسی کنید.
 register_conf_subject:تأیید ثبت‌نام
 register_conf_msg:باسپاس از شما برای ثبت‌نام،\n\nبرای فعال کردن حساب‌کاربری خود، لطفا به آدرس ذیل بروید:\n\n{FULL_ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nبعد از اینکه حساب شما فعال شود، شما وارد انجمن و به صفحه ی اصلی هدایت خواهید شد.
 register_welcome_subject:تایید ثبت‌نام در انجمن
-register_welcome_msg:باسپاس از شما برای ثبت‌نام،\n\nجزئیات کاربری شما جهت ورود به انجمن، به شرح ذیل می‌باشد:\n\nآدرس انجمن: {TEMPLATE: index_update_lnk}\nنام کاربری: {VAR: uent->login}\nگذرواژه: {VAR: _POST['reg_plaintext_passwd']}\n\nلطفا توجه داشته باشید که گذرواژه به حروف کوچک و بزرگ حساس است!\n\nبرای تغییر در تنظیمات یا پروفایلتان، به صفحه‌ی زیر بروید:\n{FULL_ROOT}?t=register
+register_welcome_msg:باسپاس از شما برای ثبت‌نام،\n\nجزئیات کاربری شما جهت ورود به انجمن، به شرح ذیل می‌باشد:\n\nآدرس انجمن: {TEMPLATE: index_update_lnk}\nنام کاربری: {VAR: uent->login}\nرمز عبور: {VAR: _POST['reg_plaintext_passwd']}\n\nلطفا توجه داشته باشید که رمز عبور به حروف کوچک و بزرگ حساس است!\n\nبرای تغییر در تنظیمات یا پروفایلتان، به صفحه‌ی زیر بروید:\n{FULL_ROOT}?t=register
 register_err_cantreg_title:خطا: عدم امکان ثبت‌نام
 regsiter_err_cantreg_msg:امکان ایجاد حساب‌کاربری وجود ندارد، لطفا از این طریق با ادمین تماس حاصل فرمایید:\nhref="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:مشاهدهٔ پروفایل خود
@@ -689,12 +689,12 @@ register_register_update:صفحه ثبت‌نام
 report_err_nosuchmsg_title:خطا
 report_err_nosuchmsg_msg:چنین پستی موجود نیست
 reset_err_invalidkey_title:خطا
-reset_err_invalidkey_msg:کلید بازیابی گذرواژه نامعتبر است. ممکن است کلاینت ایمیل شما بطور خودکار این صفحه را باز کرده‌ باشد، که منجر به بی‌اعتبار شدن کلید بازیابی شده باشد. اگر دلیلش این باشد، باید درظرف مدت کوتاهی یک ایمیل حاوی گذرواژه تازه‌تان را دریافت کنید. اگر چنین ایمیلی بدستتان نرسید، لطفا سعی کنید مجددا گذرواژه را بازیابی کنید.
+reset_err_invalidkey_msg:کلید بازیابی رمز عبور نامعتبر است. ممکن است کلاینت ایمیل شما بطور خودکار این صفحه را باز کرده‌ باشد، که منجر به بی‌اعتبار شدن کلید بازیابی شده باشد. اگر دلیلش این باشد، باید درظرف مدت کوتاهی یک ایمیل حاوی رمز عبور تازه‌تان را دریافت کنید. اگر چنین ایمیلی بدستتان نرسید، لطفا سعی کنید مجددا رمز عبور را بازیابی کنید.
 reset_err_rstconf_title:اطلاعات
 reset_err_rstconf_msg:در ظرف چند دقیقه باید ایمیل حاوی دستورالعمل را دریافت کنید.
-reset_newpass_title:بازنشانی گذرواژه
-reset_newpass_msg:درود،\n\nطبق درخواستتان، اطلاعات ورود به سیستم شما برایتان ارسال شد:\n\n\nنام کاربری: {VAR: ui[1]}\nگذرواژه: {VAR: passwd}\n\n\nتوجه داشته باشید که گذرواژه شما به مقدار بالا بازنشانی شده است. اگر تمایل به تغییر گذرواژه‌تان دارید، می‌توانید این کار را در صفحه کنترل اطلاعات کاربری در بخش پایین انجام دهید: \n{FULL_ROOT}?t=register
-reset_login_notify:گذرواژه‌تان به ایمیل شما ارسال شده است. در ظرف مدت چند دقیقه باید آن را دریافت کنید.
+reset_newpass_title:بازنشانی رمز عبور
+reset_newpass_msg:درود،\n\nطبق درخواستتان، اطلاعات ورود به سیستم شما برایتان ارسال شد:\n\n\nنام کاربری: {VAR: ui[1]}\nرمز عبور: {VAR: passwd}\n\n\nتوجه داشته باشید که گذرواژه شما به مقدار بالا بازنشانی شده است. اگر تمایل به تغییر رمز عبورتان دارید، می‌توانید این کار را در صفحه کنترل اطلاعات کاربری در بخش پایین انجام دهید: \n{FULL_ROOT}?t=register
+reset_login_notify:رمز عبورتان به شما ایمیل شده است. در ظرف مدت چند دقیقه باید آن را دریافت کنید.
 search_update:جستجوی پُست‌ها
 selmsg_update:مرور <a href="{TEMPLATE: selmsg_update_lnk}">پست‌های امروز</a>
 showposts_update:مشاهده پست‌های: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
@@ -722,8 +722,8 @@ help_title:راهنما
 login_title:فرم ورود
 poll_title:ویرایشگر نظرسنجی
 register_title:فرم ثبت‌نام
-reset_title:بازنشانی گذرواژه
-rpasswd_title:فرم تغییر گذرواژه
+reset_title:بازنشانی رمز عبور
+rpasswd_title:فرم تغییر رمز عبور
 error_title:فرم خطا
 index_title:به انجمن خوش آمدید
 search_title:جستجوی {VAR-HTML: srch}
@@ -739,7 +739,7 @@ post_opt_fud_off:بی‌بی‌کد <b>غیرفعال</b> است
 post_opt_images_off:تصاویر <b>غیرفعال</b> است
 post_opt_smilies_off:شکلک‌ها <b>غیرفعال</b> است
 post_opt:گزینه‌های انجمن:
-register_change_passwd:تغییر گذرواژه
+register_change_passwd:تغییر رمز عبور
 register_change_login:تغییر نام کاربری
 approved_avatar_title:آواتار دلخواه شما تأیید شده‌است.
 approved_avatar_msg:آواتار شما توسط ادمین تأیید شده‌است. اکنون به عنوان آواتار شما در همه پست‌هایتان ظاهر می‌شود. اگر آن را نمی‌بینید، یا آواتار قدیمی‌تان را می‌بینید، به این دلیل است که مرورگرتان صفحه را ذخیره کرده‌است. صفحه را یک بار یا دو بار رفرش کنید. در بیشتر موارد این کار مشکل ذخیره را برطرف می‌کند.
@@ -848,7 +848,7 @@ split_th_messages:پست‌ها
 split_th_select:انتخاب
 report_report_post:گزارش پست
 quicklogin_login:نام کاربری:
-quicklogin_password:گذرواژه:
+quicklogin_password:رمز عبور:
 quicklogin_use_cookies:استفاده از کوکی‌ها؟
 quicklogin_login_btn:ورود
 quick_reply:پاسخ سریع

@@ -15,6 +15,7 @@
 # Author: Naudefj
 # Author: NeverBehave
 # Author: PhiLiP
+# Author: StarrySky
 # Author: Xiaomingyan
 # Author: Yanmiao liu
 # Author: Yfdyh000
@@ -513,6 +514,7 @@ search_subject_only:主题搜索
 search_forum:论坛
 search_posted_on:提交
 search_no_results:没有查询结果
+search_spell_suggestions:您的意思是：
 search_all_forums:搜索所有论坛
 search_in_forum:搜索这个论坛：
 search_forum_search:论坛搜索
@@ -1132,8 +1134,7 @@ move_msg_th_expl:移至指定主题的ID（可以跨版块）
 captcha_img_alt:验证码验证：您将需要识别此图片中的文本。
 captcha_img_help:有没有为零或图像中的一个。
 powered-by:Powered by: FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:版权所有&copy;2001年-2021年<a href="http://fudforum.org/">FUDforum公告栏软件</a>
+copyright:版权所有&copy;2001年-2021年<a href="http://fudforum.org/">FUDforum软件</a>
 code_title:代码：
 code_select_all:全选
 code_show_hide:显示/隐藏
