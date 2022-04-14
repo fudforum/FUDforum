@@ -13,6 +13,7 @@
 # Author: Huji
 # Author: Macofe
 # Author: Mjbmr
+# Author: Mohammad ebz
 # Author: Naudefj
 # Author: Obzord
 # Author: Reza1615
@@ -358,7 +359,7 @@ register_year:سال
 register_gender:جنسیت:
 register_bio:بیوگرافی:
 register_bio_desc:اندکی اطلاعات در مورد خودتان، مثل علایقتان، شغلتان و....
-register_prefs:تنظيمات
+register_prefs:ترجیحات
 register_sig:امضا:
 register_sig_desc:درج امضا اختیاری است؛ و در قسمت پایین پست‌هایتان به نمایش درخواهد آمد.
 register_reset:بازنشانی
@@ -1114,7 +1115,7 @@ rating_delete:حذف
 post_always_on_top:تبدیل به اطلاعیه شود
 topic_rating:{VAR: frm->rating} از {PLURAL: frm->n_rating|$1 رای|$1 رای}
 topic_list_rating:{VAR: r[17]} از {PLURAL: r[21]|$1 رای|$1 رای}
-tabs_notifications:آگاه‌سازی‌ها
+tabs_notifications:اعلان‌ها
 finduser_flag:پرچم
 post_descr:شرح مبحث:
 pmsg_on:در
