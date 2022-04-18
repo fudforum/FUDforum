@@ -48,6 +48,7 @@ homepage:Laman Utama:
 icq_control_panel:Panel Pesanan Dalam Talian ICQ
 icq_message_form:Borang Pesanan ICQ:
 ignore_user:abaikan semua pesanan daripada pengguna ini
+im_facebook:Facebook:
 im_yahoo:Yahoo Messenger:
 image:Gambar:
 index_forum:Forum
@@ -205,8 +206,7 @@ vote_button:Undi
 vote_for_thread:Undi
 was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> telah dipindahkan kepada <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> oleh pengawal selia.
 welcome_message:Selamat datang <b>{VAR: usr->alias}</b>, kali terakhir anda ke sini adalah pada {TEMPLATE: welcome_message_date}
-# Fuzzy
-what_ppl_doing:Paparkan kegiatan orang lain
+what_ppl_doing:Kegiatan Pengguna
 reported_del_report:Padamkan Laporan
 reported_reason:Sebab:
 reported_on:Pada:
@@ -239,8 +239,7 @@ pmsg_forwarded:dihantar semula
 pmsg_subject:Subjek
 pmsg_author:Pengarang
 pmsg_time:Waktu
-# Fuzzy
-pmsg_selected:Dipilih
+pmsg_selected:Pilih
 pmsg_delete:Hapuskan
 cur_ppage_pm:Pesanan Peribadi
 writing_pm:Menulis Pesanan Peribadi
@@ -495,6 +494,7 @@ search_subject_only:Subjek Sahaja
 search_forum:Forum
 search_posted_on:Dikirim pada
 search_no_results:Tiada Hasil
+search_spell_suggestions:Adakah anda bermaksud:
 search_all_forums:Cari Semua Forum
 search_in_forum:Cari dalam Forum:
 search_forum_search:Carian Forum
@@ -519,8 +519,7 @@ mklist_apply:Gunakan
 mklist_delete:Hapuskan
 qbud_nick_name:Nama Timangan
 qbud_add_selected:Tambahkan yang Terpilih
-# Fuzzy
-qbud_selected:Terpilih
+qbud_selected:Pilih
 qbud_no_buddies:Tiada kawan untuk dipilih
 mklist_numerical:Bernombor
 mklist_aplha:Abjad
@@ -1162,3 +1161,5 @@ karma:Karma
 karma_track:Urus reputasi pengguna:
 karma_delete:Hapuskan
 rate_author:Nilai pengarang:
+blog:Blog
+blog_new_members:Ahli Baru
