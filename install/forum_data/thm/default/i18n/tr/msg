@@ -19,6 +19,7 @@
 # Author: MuratTheTurkish
 # Author: Naudefj
 # Author: Rapsar
+# Author: SaldırganSincap
 # Author: Sayginer
 # Author: Sezgin İbiş
 # Author: Srhat
@@ -154,7 +155,7 @@ rating:Derecelendirme
 rating_track:<b>{VAR: thr->subject}</b> konusu için derecelendirmeleri yönetin:
 refresh_list:Listeyi Yenile
 register:Kaydol
-registered:Kayıt:
+registered:Kayıt tarihi:
 registered_on:Kayıt tarihi: {TEMPLATE: registered_on_date}
 replies:Yanıtlar
 report_to_mod:Mesajı bir moderatöre bildirin

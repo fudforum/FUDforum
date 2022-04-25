@@ -324,7 +324,7 @@ register_login_taken:گرفته‌شده
 register_password:رمز عبور:
 register_password_desc:رمز عبور برای حساب شما. رمز عبور به بزرگی و کوچکی حساس است و حداقل باید 6 نویسه داشته باشد.
 register_conf_pass:تأیید رمز عبور:
-register_conf_pass_desc:لطفاً رمز عبورتان را دوباره وارد کنید.
+register_conf_pass_desc:لطفاً اسم رمزتان را دوباره وارد کنید.
 register_email_desc:ایمیل شما. شما بعدا می‌توانید از طریق بخش تنظیمات آن را مخفی کنید.
 register_name:نام:
 register_name_desc:نام واقعی شما.
