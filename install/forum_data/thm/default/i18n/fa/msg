@@ -1115,7 +1115,7 @@ rating_delete:حذف
 post_always_on_top:تبدیل به اطلاعیه شود
 topic_rating:{VAR: frm->rating} از {PLURAL: frm->n_rating|$1 رای|$1 رای}
 topic_list_rating:{VAR: r[17]} از {PLURAL: r[21]|$1 رای|$1 رای}
-tabs_notifications:اعلان‌ها
+tabs_notifications:آگاه‌سازی‌ها
 finduser_flag:پرچم
 post_descr:شرح مبحث:
 pmsg_on:در
