@@ -502,6 +502,7 @@ search_subject_only:Fyrirsögn eingöngu
 search_forum:Umræða
 search_posted_on:Sent inn
 search_no_results:Engar niðurstöður
+search_spell_suggestions:Varstu að meina:
 search_all_forums:Leita í öllum umræðum
 search_in_forum:Leita í umræðu:
 search_forum_search:Leit spjallborðsins
@@ -1118,8 +1119,7 @@ move_msg_th_expl:Tilgreindu auðkenni þráðarinns sem á að færa á (má ver
 captcha_img_alt:Captcha staðfesting: Þú þarft að bera kennsl á textann á þessari mynd.
 captcha_img_help:Það er ekki núll eða einn á myndinni.
 powered-by:Knúið af: FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:Höfundaréttur &copy;2001-2021 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Höfundaréttur &copy;2001-2022 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Kóði:
 code_select_all:Velja allt
 code_show_hide:sýna/fela
