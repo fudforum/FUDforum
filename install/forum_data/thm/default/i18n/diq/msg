@@ -622,7 +622,7 @@ mmd_abort_move:Bıtexelne
 mmd_move:Mersela Ahûlne
 pmsg_pdf_btn:Arşivê PDF bıke
 search_results_hdr:Cı geyrayış dı {VAR: total} neticey vineyaye.
-thread_del_all:Weçineya esterne
+thread_del_all:Weçinıteyan bestere
 thread_mov_all:Weçineya Ahûlne
 thread_merge_all:Weçineya biya apê
 thread_loc_all:Weçineya kılit ke/Kıliti ake
@@ -675,7 +675,7 @@ powered-by:Destegdaren: FUDforum {GVAR: FORUM_VERSION}.
 # Fuzzy
 copyright:Heqa telifi &copy;2001-2021 <a href="http://fudforum.org/">FUDforum Nuştışê panelê bulteni</a>
 code_title:Kod:
-code_select_all:Pêrıne weçine
+code_select_all:Pêrune weçine
 code_show_hide:Bımocne/ bınımne
 social_sites:Steyê Sosyal Toran:
 postcheck_min_len_err:Mesacê şıma zaf kılmo. Tewr tayn dergeya cı wa {PLURAL: post_min_len|$1 karakter|$1 karakter} bo.
