@@ -49,7 +49,7 @@ Quick Start Commands:
    wget https://raw.githubusercontent.com/fudforum/FUDforum/master/install.php
    wget https://raw.githubusercontent.com/fudforum/FUDforum/master/upgrade.php
    wget https://raw.githubusercontent.com/fudforum/FUDforum/master/fudforum_archive
-   Navigate to install.pghp/upgrade.php in web brower.
+   Navigate to install.php or upgrade.php from your web brower.
 
 
 Command line operations:
