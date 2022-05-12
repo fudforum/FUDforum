@@ -101,7 +101,7 @@ moved:Kırışıya yo yewna forum
 moved_thread_message:Ena mewzu kırışıya ya yewna forumi tede
 na:n/a
 new_posts:Mesaco newe esto
-new_private_messages:<span class="GenTextRed">({VAR: c})</span> nêwanaye xısusi mesaca şıma est a
+new_private_messages:<span class="GenTextRed">({VAR: c})</span> {PLURAL: c|mesacê şımayo xısusiyo nêwende esto|mesacên şımayê xısusiyê nêwendeyi estê}
 new_thread:Topiko newe vıraze
 newest_user:Tewr peyên qeyd biyaye karber
 next_page:Pela bahdoyêne
