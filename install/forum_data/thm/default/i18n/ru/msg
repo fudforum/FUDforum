@@ -345,7 +345,7 @@ register_avatar:Персональная картинка:
 register_sel_avatar:Выбрать картинку
 register_custom_avatar_rules:Внешняя картинка не появится в ваших данных, пока не будет утверждена администратором форума.<br /><font class="SmallText">Размер картинки не должен превышать <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} точек</b> и должна быть в формате <b>jpg</b>, <b>gif</b> или <b>png</b>.</font>
 register_custom_avatar_url:URL картинки:
-register_preview:Предварительный просмотр
+register_preview:Предпросмотр
 register_custom_avatar_upload:Файл с картинкой:
 register_register:Регистрация
 register_required:Обязательная информация
@@ -407,7 +407,7 @@ create_thread:Создать тему
 submit_reply:Отправить ответ
 edit_message:Изменить сообщение
 apply_spell_changes:Утвердить проверку правописания
-post_preview:Предварительный просмотр сообщения
+post_preview:Предпросмотр сообщения
 post_logedin_user:Пользователь:
 post_logout:выход
 post_passwd:Пароль форума:
@@ -441,7 +441,7 @@ post_forum:Форум:
 post_title:Заголовок:
 post_body:Текст:
 post_options:Параметры:
-post_preview_btn:Предварительный просмотр
+post_preview_btn:Предпросмотр сообщения
 post_cancel_btn:Отмена
 ignore_users:Игнорируемые участники
 add_ignore:Добавить игнорируемого
@@ -864,7 +864,7 @@ quicklogin_use_cookies:Использовать Cookies?
 quicklogin_login_btn:Войти
 quick_reply:быстрый ответ
 quick_reply_post:Отправить быстрый ответ
-quick_reply_preview:Предварительный просмотр быстрого ответа
+quick_reply_preview:Предпросмотр быстрого ответа
 post_notification_desc:Известить меня, когда кто-либо ответить на это сообщение.
 post_all_ext_allowed:(нет ограничений)
 maximize_category:Развернуть категорию
