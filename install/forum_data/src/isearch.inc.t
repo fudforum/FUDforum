@@ -88,14 +88,14 @@ function index_text($subj, $body, $msg_id)
 	q('DELETE FROM {SQL_TABLE_PREFIX}title_index WHERE msg_id = '. $msg_id);
 	if ($subj && $w1) {
 		foreach ($w1 as $word => $count) {
-			q('INSERT INTO {SQL_TABLE_PREFIX}title_index (word_id, msg_id, frequency) SELECT id, '. $msg_id .','. $count .' FROM {SQL_TABLE_PREFIX}search WHERE word = '. $word);
+			db_li('INSERT INTO {SQL_TABLE_PREFIX}title_index (word_id, msg_id, frequency) SELECT id, '. $msg_id .','. $count .' FROM {SQL_TABLE_PREFIX}search WHERE word = '. $word, $ef));
 		}
 	}
 
 	// Populate index.
 	q('DELETE FROM {SQL_TABLE_PREFIX}index WHERE msg_id = '. $msg_id);
 	foreach ($w2 as $word => $count) {
-		q('INSERT INTO {SQL_TABLE_PREFIX}index (word_id, msg_id, frequency) SELECT id, '. $msg_id .','. $count .' FROM {SQL_TABLE_PREFIX}search WHERE word = '. $word);
+		db_li('INSERT INTO {SQL_TABLE_PREFIX}index (word_id, msg_id, frequency) SELECT id, '. $msg_id .','. $count .' FROM {SQL_TABLE_PREFIX}search WHERE word = '. $word, $ef);
 	}
 
 	// Clear search cache.
