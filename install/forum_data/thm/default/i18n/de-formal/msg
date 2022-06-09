@@ -9,6 +9,7 @@
 # Author: McDutchie
 # Author: Naudefj
 # Author: The Evil IP address
+# Author: ThisCarthing
 # Author: Tiin
 # Author: Umherirrender
 
@@ -53,6 +54,7 @@ homepage:Homepage:
 icq_control_panel:ICQ-Online-Menü
 icq_message_form:ICQ-Nachricht erstellen:
 ignore_user:Alle Beiträge dieses Benutzers ignorieren
+im_facebook:Facebook:
 im_yahoo:Yahoo Messenger:
 image:Bild:
 index_forum:Forum
@@ -210,8 +212,7 @@ vote_button:Abstimmen
 vote_for_thread:Abstimmen
 was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> ist vom Moderator nach <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> verschoben worden
 welcome_message:Willkommen <b>{VAR: usr->alias}</b>, Ihr letzter Besuch war am {TEMPLATE: welcome_message_date}
-# Fuzzy
-what_ppl_doing:Anzeigen, was die Leute gerade machen
+what_ppl_doing:Benutzeraktivität
 reported_del_report:Benachrichtigung löschen
 reported_reason:Grund:
 reported_on:Am:
@@ -244,8 +245,7 @@ pmsg_forwarded:weitergeleitet
 pmsg_subject:Betreff
 pmsg_author:Verfasser
 pmsg_time:Zeit
-# Fuzzy
-pmsg_selected:Ausgewählt
+pmsg_selected:Auswählen
 pmsg_delete:Löschen
 cur_ppage_pm:Private Nachrichten
 writing_pm:Eine private Nachricht schreiben
@@ -312,11 +312,16 @@ register_builtin:Eingebaut
 register_specify_url:URL angeben
 register_uploaded:Avatar hochladen
 register_login:Benutzername:
+register_login_desc:Der Name, mit dem sie sich anmelden und der dieser Website bekannt ist.
+register_login_available:Verfügbar
+register_login_taken:Bereits vergeben
 register_password:Passwort:
+register_password_desc:Passwort für ihr Benutzerkonto. Bei Passwörtern wird zwischen Groß- und Kleinschreibung unterschieden und sie müssen mindestens 6 Zeichen lang sein.
 register_conf_pass:Passwort bestätigen:
-# Fuzzy
-register_email_desc:Bitte geben Sie eine gültige E-Mail-Adresse an. Sie können diese dann weiter unten im Menü verstecken.
+register_conf_pass_desc:Bitte geben Sie ihr Passwort erneut ein.
+register_email_desc:Ihre E0-Mail-Adresse. Sie können unten im Einstellungsabschnitt auswählen, dass sie versteckt werden soll.
 register_name:Name:
+register_name_desc:Ihr bürgerlicher Name.
 register_your_pass:Ihr Passwort:
 register_update:Aktualisieren
 register_avatar_type:Avatar-Typ:
@@ -329,8 +334,7 @@ register_preview:Vorschau
 register_custom_avatar_upload:Benutzeravatar Datei:
 register_register:Registrieren
 register_required:Erforderliche Angaben
-# Fuzzy
-register_required_desc:Alle Felder sind erforderlich. Bitte beachten Sie die Groß- und Kleinschreibung beim Passwort.
+register_required_desc:Alle Felder sind erforderlich.
 register_optional:Freiwillige Angaben
 register_optional_desc:Wir empfehlen, keine Informationen im Profil preiszugeben, die zu einer Identifizierung der Person geeignet wären. Sämtliche Informationen können von Besuchern des Forums eingesehen werden.
 register_location:Ort:
@@ -338,6 +342,7 @@ register_occupation:Beruf:
 register_interests:Interessen:
 register_image:Bild:
 register_icq:ICQ:
+register_facebook:Facebook ID:
 register_yahoo:Yahoo Messenger:
 register_homepage:Webseite:
 register_bday:Geburtsdatum:
@@ -375,8 +380,7 @@ my_buddies:Meine Buddies
 add_buddy:Buddy hinzufügen
 add:Hinzufügen
 buddy_search:Tragen Sie den Benutzernamen des Benutzers ein, den Sie hinzufügen möchten
-# Fuzzy
-member_search:Oder verwenden Sie die <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list',400,250);">Benutzersuche</a>, um einen Benutzer ausfindig zu machen.
+member_search:Oder verwenden Sie die <a href="javascript://" onclick="javascript: window_open('{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list',400,250);">Benutzersuche</a>, um einen Benutzer ausfindig zu machen.
 buddy_remove:Entfernen
 post_normal:Normal
 post_sticky:Angeheftet
@@ -500,6 +504,7 @@ search_subject_only:Nur Betreff
 search_forum:Forum:
 search_posted_on:Erstellt am
 search_no_results:Keine Ergebnisse
+search_spell_suggestions:Meinen Sie:
 search_all_forums:In allen Foren suchen
 search_in_forum:Suchen im Forum:
 search_forum_search:Forumssuche
@@ -524,8 +529,7 @@ mklist_apply:Anwenden
 mklist_delete:Löschen
 qbud_nick_name:Spitzname
 qbud_add_selected:Markierte hinzufügen
-# Fuzzy
-qbud_selected:Markiert
+qbud_selected:Auswählen
 qbud_no_buddies:Keine Buddies zur Auswahl
 mklist_numerical:Nummeriert
 mklist_aplha:Alphabetisch
@@ -594,8 +598,7 @@ buddy_list_err_ignore:Sie können keine Benutzer zu Ihrerer Buddyliste hinzufüg
 buddy_list_update:Durchsucht die eigene Buddyliste
 core_err_invinp_title:Ungültige Eingabe
 core_err_invinp_err:Sie sind einem toten Link gefolgt, bitte benachrichtigen Sie den <a href="mailto:{GVAR: ADMIN_EMAIL}">Webmaster</a> darüber.
-# Fuzzy
-core_adm_login_msg:Administratoren können sich <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">hier</a> anmelden.
+core_adm_login_msg:Administratoren können sich <a href="{BASE}adm/admloginuser.php">hier</a> anmelden.
 email_err_unabletoemail_title:FEHLER: Kann E-Mail nicht verschicken
 email_err_unabletoemail_msg:Das E-Mail-System wurde vom Administrator deaktiviert.
 email_error_unabletolocaddr:Entschuldigung, das System konnte die E-Mail an {VAR-HTML: _POST['tx_name']} nicht verschicken, weil es die E-Mail-Adresse nicht finden kann.
@@ -658,8 +661,7 @@ postcheck_email_body:Sie können keine E-Mail ohne Inhalt verschicken.
 private_msg_notify_subj:Benachrichtigung lesen zu: {VAR: m->subject}
 private_msg_notify_body:Guten Tag,<br />{VAR: usr->login} hat Ihre private Nachricht, „{VAR: m->subject}“, am {TEMPLATE: private_msg_notify_body_date} gelesen<br />
 referals_update:Durchsucht die Anwerbungen
-# Fuzzy
-register_err_short_login:Der Benutzername, den Sie gewählt haben, ist zu kurz. Er muss mindestens 4 Zeichen enthalten.
+register_err_short_login:Der Benutzername, den Sie gewählt haben, ist zu kurz. Er muss mindestens 2 Zeichen enthalten.
 register_err_login_notallowed:Dieser Benutzername ist nicht erlaubt.
 register_err_loginunique:Benutzernamen für das Forum müssen einmalig sein, es gibt bereits einen Benutzer mit diesem Benutzernamen im System.
 register_err_emailexists:Diese E-Mail-Adresse wurde schon verwendet, falls Sie Ihr Passwort vergessen haben, lassen Sie es bitte zurücksetzen, anstatt sich neu zu registrieren.
@@ -722,8 +724,7 @@ error_title:Fehlerseite
 index_title:Willkommen im Forum
 search_title:Suche nach {VAR-HTML: srch}
 remail_emailsent:Die E-Mail wurde verschickt.
-# Fuzzy
-remail_email:Hallo,\n\nEs gibt eine Seite auf {GVAR: FORUM_TITLE} die für Sie interessant zu lesen sein könnte.\nUnd zwar die Diskussion zum Thema {VAR: data->subject}, die hier gefunden werden kann: {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nVon {VAR: usr->alias}
+remail_email:Hallo,\n\nim Forum {GVAR: FORUM_TITLE} gibt es eine interessante Diskussion zum Thema „{VAR: data->subject}“, die Ihnen interessieren könnte. Sie finden sie hier: {FULL_ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nVon {VAR: usr->alias}
 poll_add_option:Menüpunkt hinzufügen:
 post_opt_html_on:<b>HTML</b> Code ist <b>AN</b>
 post_opt_fud_on:<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>BBcode</b> ist <b>AN</b></a>
@@ -900,17 +901,14 @@ polllist_votes:Stimmen Insgesamt
 polllist_action:Aktion
 polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">Verfügbare Abstimmungen betrachten</a>
 userinfo_polls:Abstimmungen:
-# Fuzzy
-show_pollist:Abstimmungen anzeigen
+show_pollist:Umfragen
 search_and:UND
 search_or:ODER
-# Fuzzy
-search_desc_order:Absteigende Sortierung
-# Fuzzy
-search_asc_order:Aufsteigende Sortierung
+search_desc_order:Neuestes zuerst
+search_asc_order:Ältestes zuerst
+search_relevance_order:Relevanz
 search_logic:Suchlogik:
-# Fuzzy
-search_sorting:Ergebnisse nach Datum sortieren in:
+search_sorting:Sortieren nach:
 search_attach:Anhänge:
 search_attach_all:Mit oder Ohne
 search_attach_with:Mit Anhängen
@@ -967,11 +965,9 @@ iemail_forum_unsub:Das Abonnement für dieses Forum beenden
 primary_group_prefix:Hauptgruppe für Forum:
 group_resources:Diese Gruppe kontrolliert die Berechtigungen für folgende Foren
 register_admin_newuser_title:Ein neuer Benutzer hat sich registriert und wartet auf die Bestätigung des Kontos
-# Fuzzy
-register_admin_newuser_msg:Ein neuer Benutzer ({VAR: uent->login}) hat sich gerade für dieses Forum registriert und da die Bestätigung für Konten aktiviert ist, wird dieses Konto nicht eher aktiviert werden, bevor es durch Sie oder einem anderen Forumsadministrator bestätigt wurde. Um das Konto zu begutachten, gehen Sie zu: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nDas ist ein automatisierter Vorgang, bitte beantworten Sie diese Nachricht nicht.\nWenn Sie weitere E-Mail-Benachrichtigungen über neue Benutzerregistrierungen abstellen möchten, können Sie dies über das Administratormenü und durch Ändern des Wertes der Einstellung „New Account Notification“ erledigen.
+register_admin_newuser_msg:Ein neuer Benutzer ({VAR: uent->login}) hat sich gerade für dieses Forum registriert und da die Bestätigung für Konten aktiviert ist, wird dieses Konto nicht eher aktiviert werden, bevor es durch Sie oder einem anderen Forumsadministrator bestätigt wurde. Um das Konto zu begutachten, gehen Sie zu: {BASE}adm/admuserapr.php\n\nDas ist ein automatisierter Vorgang, bitte beantworten Sie diese Nachricht nicht.\nWenn Sie weitere E-Mail-Benachrichtigungen über neue Benutzerregistrierungen abstellen wollen, können sie dies über das Administratormenü und durch Ändern des Wertes der Einstellung „New Account Notification“ erledigen.
 post_mod_msg_notify_title:Neuer Beitrag im Forum „{VAR: frm->name}“ wartet auf Bestätigung
-# Fuzzy
-post_mod_msg_notify_msg:Ein neuer Beitrag mit der Überschrift „{VAR: msg_post->subject}“ wurde gerade in einem Forum, welches von Ihnen moderiert wird, erstellt. Um diesen Beitrag zu begutachten, gehe Sie zu: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nDas ist ein automatisierter Vorgang, bitte beantworten Sie diese Benachrichtigung nicht.
+post_mod_msg_notify_msg:Ein neuer Beitrag mit der Überschrift „{VAR: msg_post->subject}“ wurde gerade in einem Forum erstellt, das von Ihnen moderiert wird. Um diesen Beitrag zu begutachten, gehen Sie zu: {FULL_ROOT}?t=modque#{VAR: msg_post->id}\n\nDas ist ein automatisierter Vorgang, bitte antworten Sie nicht auf diese Nachricht.
 thread_printable_pdf:Druckbares PDF erzeugen
 thread_syndicate:Themen als Syndikate anderen Seiten zur Verfügung stellen (XML)
 reg_conf_title:Registrierungsbestätigung
@@ -997,8 +993,7 @@ mnav_month:Monat(e)
 mnav_title:Beitragsnavigator
 mnav_update:Durchsucht Beiträge mit Hilfe des <a href="{TEMPLATE: mnav_update_lnk}">Beitragsnavigators</a>
 pm_notify_subject:[{GVAR: FORUM_TITLE}] Neue Benachrichtigung über eine private Nachricht
-# Fuzzy
-pm_notify_body_email:Sie haben eine neue private Nachricht mit der Überschrift „{VAR: subject}“ von „{VAR: from}“ im Forum „{GVAR: FORUM_TITLE}“.\nKlicke Sie hier, um diese zu betrachten: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nUm zukünftige Benachrichtigungen zu verhindern, deaktivieren Sie „Benachrichtigung über private Nachrichten“ in Ihrem Profil.
+pm_notify_body_email:Sie haben eine neue private Nachricht mit der Überschrift „{VAR: subject}“ von „{VAR: from}“ im Forum „{GVAR: FORUM_TITLE}“.\nKlicken Sie hier, um diese zu betrachten: {FULL_ROOT}?t=pmsg_view&id={VAR: pid}\n\nUm zukünftige Benachrichtigungen zu verhindern, deaktivieren Sie „Benachrichtigung über private Nachrichten“ in Ihrem Profil.
 register_pm_notification:Benachrichtigung über private Nachricht
 register_pm_notification_desc:Falls aktiviert, werden Sie über die Benachrichtigungsmethode Ihrer Wahl eine Mitteilung erhalten, sobald eine private Nachricht an Sie gesendet worden ist.
 findu_admin_opts_header:Admin-Optionen
@@ -1064,10 +1059,8 @@ search_user_filter:Nach Benutzer filtern:
 register_none:Nicht benachrichtigen
 findu_no_conf:unbestätigter Benutzer
 register_max_sig_len:Maximale Länge:
-# Fuzzy
-register_turing:Bitte geben Sie den unten angezeigten Code ein:
-# Fuzzy
-register_err_turing:Ungültiger Code
+register_turing:Verifizierung:
+register_err_turing:Verifizierung fehlgeschlagen. Bitte erneut versuchen.
 modque_cat:Kategorie
 modque_forum:Forum
 idx_compact_forum_row:Verfügbare Foren:
@@ -1128,8 +1121,7 @@ move_msg_th_expl:Geben Sie die ID des Zielthemas an (kann in einem anderem Forum
 captcha_img_alt:CAPTCHA-Bestätigung: Sie müssen den Text in diesem Bild erkennen.
 captcha_img_help:Das Bild enthält keine Null oder Eins.
 powered-by:Betrieben mit: FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:Copyright &copy;2001–2021 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Copyright &copy;2001–2022 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Code:
 code_select_all:alles markieren
 code_show_hide:anzeigen/verstecken
@@ -1167,3 +1159,10 @@ karma:Reputation
 karma_track:Reputation für folgenden Nutzer verwalten:
 karma_delete:Löschen
 rate_author:Autor bewerten:
+blog_update:Das Forum-Blog lesen
+blog:Blog
+blog_new_members:Neue Mitglieder
+blog_new_posts:Letzter Beitrag
+blog_rated_posts:Am besten bewertet
+blog_viewed_posts:Am häufigsten angesehen
+blog_comments:{PLURAL: topic->replies|Ein Kommentar|$1 Kommentare}
