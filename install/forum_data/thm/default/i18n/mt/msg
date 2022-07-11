@@ -4,6 +4,7 @@
 # Author: Macofe
 # Author: McDutchie
 # Author: Naudefj
+# Author: ToniSant
 
 action:Azzjoni
 add_to_buddy_list:żid mal-lista ta' ħbieb
@@ -734,7 +735,7 @@ post_opt:Opzjonijiet tal-forum:
 register_change_passwd:biddel il-password
 register_change_login:biddel l-isem tal-utent
 approved_avatar_title:L-<i>avatar</i> personalizzat ġie approvat.
-approved_avatar_msg:L-<i>avatar</i> tiegħek ġie approvat mill-amministratur. Għandu jidher bħala l-<i>avatar</i> tiegħek biswit il-messaġġi tiegħek. Jekk ma tarahx, jew qed tara l-<i>avatar</i> il-qadim, dan hu minħabba li l-browżer tiegħek salva l-paġna fil-<i>cache</i>. Erġa' aġġorna l-paġna darba jew tnejn. Ħafna drabi din issolvi l-problema.
+approved_avatar_msg:L-<i>avatar</i> tiegħek ġie approvat mill-amministratur. Għandu jidher bħala l-<i>avatar</i> tiegħek ħdejn il-messaġġi tiegħek. Jekk ma tarahx, jew qed tara l-<i>avatar</i> il-qadim, dan hu minħabba li l-browżer tiegħek salva l-paġna fil-<i>cache</i>. Erġa' aġġorna l-paġna darba jew tnejn. Ħafna drabi din issolvi l-problema.
 unapproved_avatar_title:L-<i>avatar</i> personalizzat ma ġiex approvat.
 unapproved_avatar_msg:L-amministratur ma aċċettax l-<i>avatar</i> tiegħek. Ir-raġunijiet l-aktar komuni huma li l-<i>avatar<i> huwa wisq kbir (daqs u/jew dimensjonijiet) jew jinkludi immaġni li ma jikkorispondux mat-tema tal-forum. Jekk tixtieq iktar informazzjoni dwar ir-raġuni l-għala l-<i>avatar</i> tiegħek ġie rifjutat, ikkuntatja l-amministratur.
 mvthread_request_move:itlob tmexxija

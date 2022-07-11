@@ -1,5 +1,6 @@
 # Messages for Nepali (नेपाली)
 # Exported from translatewiki.net
+# Author: Bada Kaji
 # Author: Bhawani Gautam
 # Author: Krish Dulal
 # Author: NehalDaveND
@@ -156,7 +157,7 @@ unread_posts_desc:सबै अपठित सन्देशहरू हे�
 user:प्रयोगकर्ता
 user_info:प्रयोगकर्ता जानकारी
 usrinfo_last_post:पछिल्लो सन्देश:
-view_results:नतिजाहरू हेर्नुहोस
+view_results:नतिजाहरू हेर्नुहोस्
 views:अवलोकनहरू
 vote:{PLURAL: frm->n_rating|$1 भोट|$1 भोटहरू}
 vote_button:भोट गर्नुहोस
