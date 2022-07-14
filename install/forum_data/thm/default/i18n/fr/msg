@@ -326,7 +326,7 @@ register_login_desc:Le nom avec lequel vous souhaitez vous connecter et être co
 register_login_available:Disponible
 register_login_taken:Déjà pris
 register_password:Mot de passe :
-register_password_desc:Mot de passe pour votre compte. Les mots de passe sont sensibles à la casse et doivent compter au moins 6 caractères.
+register_password_desc:Mot de passe pour votre compte. Les mots de passe sont sensibles à la casse et doivent comporter au moins 6 caractères.
 register_conf_pass:Confirmez le mot de passe :
 register_conf_pass_desc:Veuillez saisir à nouveau votre mot de passe.
 register_email_desc:Vote adresse courriel. Vous pouvez choisir de la masquer ci-dessous, dans la section « Préférences ».

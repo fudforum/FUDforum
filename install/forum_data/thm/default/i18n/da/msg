@@ -54,6 +54,7 @@ homepage:Hjemmeside:
 icq_control_panel:ICQ Online-meddelelsespanel
 icq_message_form:ICQ-meddelelsesformular:
 ignore_user:Ignorer alle indlæg fra denne bruger
+im_facebook:Facebook:
 im_yahoo:Yahoo Messenger:
 image:Billede:
 index_forum:Forum
@@ -341,6 +342,7 @@ register_occupation:Beskæftigelse:
 register_interests:Interesser:
 register_image:Billede:
 register_icq:ICQ
+register_facebook:Facebook-id:
 register_yahoo:Yahoo Messenger:
 register_homepage:Hjemmeside:
 register_bday:Fødselsdato:
@@ -502,6 +504,7 @@ search_subject_only:Kun emne
 search_forum:Forum
 search_posted_on:Postet dato
 search_no_results:Ingen resultater
+search_spell_suggestions:Mener du:
 search_all_forums:Søg i alle fora
 search_in_forum:Søg i forum:
 search_forum_search:Forumsøgning
@@ -1118,8 +1121,7 @@ move_msg_th_expl:Angiv ID for destinationsemnet (kan være i andre fora)
 captcha_img_alt:Captcha verifikation: du skal genkende teksten i dette billede.
 captcha_img_help:Der er ingen nul eller én i billedet.
 powered-by:Drevet af: FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:Ophavsret &copy;2001-2021 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Ophavsret &copy;2001-2022 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Kode:
 code_select_all:Vælg alle
 code_show_hide:Vis/ skjul
