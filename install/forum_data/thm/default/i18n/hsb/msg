@@ -696,7 +696,7 @@ ERR_login_msg2:<legend>ZMYLK: Njejsy přizjewjeny</legend>Zo by přistup na tutu
 ERR_disabled_ttl:Znjemóžnjena funkcija
 ERR_disabled_msg:Tuta funkcija bu wot systemoweho administratora znjemóžnjena.
 ERR_access_ttl:ZMYLK: Njedosahace prawa
-ERR_access_msg:Nimaš trěbne prawa, zo by tutu akciju přewjedł{{GENDER:||a|(a)}}.
+ERR_access_msg:Nimaš trěbne prawa, zo by tutu akciju přewjedł.
 ERR_registration_disabled_ttl:Registrowanje znjemóžnjene
 ERR_registration_disabled_msg:Administrator je registrowanje znjemóžnił. Prošu spytaj pozdźišo hišće raz.
 ERR_emailconf_ttl:ZMYLK: Twoje konto hišće njeje wobkrućene
@@ -848,7 +848,7 @@ post_notification_desc:Zdźělić, hdyž něchtó na tutu powěsć wotmołwja.
 post_all_ext_allowed:(njewobmjezowany)
 maximize_category:Kategoriju maksiměrować
 maximize_message:Powěsć maksiměrować
-no_view_perm:Nimaš trěbne prawa, zo by sej tutu temu wobhladał{{GENDER:||a|(a)}}.
+no_view_perm:Nimaš trěbne prawa, zo by sej tutu temu wobhladał.
 report_empty_report:Njemóžeš prózdnu zdźělenku wotpósłać. Prošu zapodaj přičinu za twoju zdźělenku.
 report_already_reported_title:Hižo zdźěleny
 report_already_reported_msg:Tuta powěsć bu hižo zdźělena a zdźělenka je tuchwilu w čakanskim rynku moderatora.
