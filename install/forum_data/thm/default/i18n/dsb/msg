@@ -43,6 +43,7 @@ homepage:Startowy bok:
 icq_control_panel:ICQ-meni online
 icq_message_form:Formular ICQ-powěsći:
 ignore_user:wšykne powěsći toś togo wužywarja ignorěrowaś
+im_facebook:Facebook:
 im_yahoo:Yahoo Messenger:
 image:Wobraz:
 index_forum:Forum
@@ -70,6 +71,7 @@ cal_day_heading:Tšojenja dnja
 cal_no_events:Žedne tšojenja za toś ten źeń.
 cal_update:Forumowa pratyja se pśepytujo
 cal_birthday:Narodny źeń: {VAR: user}
+cal_birthdays:{PLURAL: birthdays|$1 narodny źeń|$1 narodnej dnja|$1 narodne dny|$1 narodnych dnjow}
 cal_birthday_age:({PLURAL: age|$1 lěto|$1 lěśe|$1 lěta|$1 lět} stary).
 message:Powěsć
 message_counter:Naše wužywarje su dogromady <b>{PLURAL: post_count|$1 powěsć|$1 powěsći|$1 powěsći|$1 powěsćow}</b> w <b>{PLURAL: thread_count|$1 temje|$1 temoma|$1 temach|$1 temach}</b> pósłali.
@@ -199,8 +201,7 @@ vote_button:Wótgłosowaś
 vote_for_thread:Wótgłosowaś
 was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> jo se wót moderatora do <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> pśesunuł
 welcome_message:Witaj <b>{VAR: usr->alias}</b>, twój slědny woglěd jo był {TEMPLATE: welcome_message_date}
-# Fuzzy
-what_ppl_doing:Pokazaś, což luźe cynje
+what_ppl_doing:Wužywaŕska aktiwita
 reported_del_report:Powěźeńku wulašowaś
 reported_reason:Pśicyna:
 reported_on:Datum:
@@ -209,6 +210,7 @@ reported_reported_msg:K wěsći dane powěsći
 modque_pending_approval:Powěsći, kótarež muse se hyšći pśizwóliś
 modque_approve:Pśizwóliś
 modque_delete:Wulašowaś
+modque_deleteall:Wšykne wót wužywarja lašowaś
 modque_no_message:Njejsu powěsći, kótarež muse se hyšći pśizwóliś
 pmsg_new_messages:Njecytana priwatna powěsć
 pmsg_old_messages:Pśecytana priwatna powěsć
@@ -232,8 +234,7 @@ pmsg_forwarded:dalejpósrědnjony
 pmsg_subject:Tema
 pmsg_author:Awtor
 pmsg_time:Cas
-# Fuzzy
-pmsg_selected:Wubrany
+pmsg_selected:Wubraś
 pmsg_delete:Wulašowaś
 cur_ppage_pm:Priwatne powěsći
 writing_pm:Priwatnu powěsć pisaś
@@ -300,11 +301,16 @@ register_builtin:Zatwarjony
 register_specify_url:URL pódaś
 register_uploaded:Awatar nagraś
 register_login:Wužywarske mě:
+register_login_desc:Mě, z kótarymž se pśizjawijoš a kótarež jo na toś tom sedle znate.
+register_login_available:K dispoziciji
+register_login_taken:Južo rozdane
 register_password:Gronidło:
+register_password_desc:Gronidło za twójo konto. Gronidła mjazy wjeliko- a małopisanim rozeznawaju a musy nanejmjenjej 6 znamuškow dłujke byś.
 register_conf_pass:Gronidło wobkšuśiś:
-# Fuzzy
-register_email_desc:Pšosym zapódaj płaśiwu e-mailowu adresu. W nastajenjach móžoš nastajiś, lěc se wóna schowa.
+register_conf_pass_desc:Pšosym zapódajśo swójo gronidło znowego.
+register_email_desc:Twója e-mailowa adresa. W nastajenjach móžoš ju dołojce we wobceŕku nastajenjow schowaś.
 register_name:Mě:
+register_name_desc:Wašo napšawdne mě.
 register_your_pass:Twójo gronidło:
 register_update:Aktualizěrowaś
 register_avatar_type:Typ awatara:
@@ -317,8 +323,7 @@ register_preview:Pśeglěd
 register_custom_avatar_upload:Swójska awatarowa dataja:
 register_register:Registrěrowaś
 register_required:Trěbne informacije
-# Fuzzy
-register_required_desc:Wšykne póla su trěbne. Pšosym źiwaj na to, až gronidła zapśimuju wjelikopisanje.
+register_required_desc:Wšykne póla su trěbne.
 register_optional:Opcionalne informacije
 register_optional_desc:Pórucujo se, až njepśeraźujoš w swójom profilu wósobinske informacije, kótarež mógu śi identificěrowaś. Wšykne informacije daju se pśez drugich forumowych cłonkow woglědaś.
 register_location:Městno:
@@ -326,6 +331,7 @@ register_occupation:Pówołanje:
 register_interests:Zajmy:
 register_image:Wobraz:
 register_icq:ICQ:
+register_facebook:Facebook ID:
 register_yahoo:Yahoo Messenger:
 register_homepage:Startowy bok:
 register_bday:Naroźeński datum:
@@ -363,8 +369,7 @@ my_buddies:Móje pśijaśele
 add_buddy:Pśijaśela pśidaś
 add:Dodaś
 buddy_search:Zapódaj wužywarske mě wužywarja, kótaregož coš pśidaś.
-# Fuzzy
-member_search:Abo wužyj funkciju  <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Wužywarja namakaś</a>, aby wósobu namakał.
+member_search:Abo wužyj funkciju  <a href="javascript://" onclick="javascript: window_open('{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Wužywarja namakaś</a>, aby wósobu namakał.
 buddy_remove:wótpóraś
 post_normal:Normalny
 post_sticky:Pśilipnjony
@@ -431,11 +436,13 @@ coppa_fax_relation:Póśěg ku góleśeju:
 coppa_fax_telephone:Telefon:
 coppa_fax_email:E-mailowa adresa:
 coppa_fax_date:Datum:
+coppa_fax_questions:Pšosym staj se za dalšne pšašanja z <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> do zwiska
 coppa_fax_login:Pśizjawjenje
 coppa_fax_passwd:Gronidło
 coppa_fax_remail:E-mail
 coppa_fax_name:Mě
 login_not_logedin:Njejsy pśizjawjony. To by mógło jadnu ze slědujucych pśicynow měś:
+login_cookie_expired:Twój cookie jo spadnuł a musyš se znowego pśizjawiś, aby nowy cookie dostał.
 login_want_to_register:Coš se registrěrowaś?
 login_forgot_passwd:Gronidło zabyte
 login_login:Wužywarske mě:
@@ -448,6 +455,7 @@ rpasswd_passwd_nomatch:Gronidle se njemakatej
 rpasswd_passwd_length:Gronidło musy nanejmjenjej 6 znamuškow dłujke byś
 reset_remind_pass:Dopomnjeśe na gronidło
 reset_error:E-mailowa adresa njejo se namakała w datowej bance
+reset_update:Gronidło slědk stajiś
 rpasswd_change_pass:Gronidło změniś
 rpasswd_login:Wužywarske mě
 rpasswd_cur_pass:Aktualne gronidło:
@@ -465,6 +473,7 @@ rate_this_thread:Pógódnośiś
 report_reporting_about:Zdźělenje wó:
 report_subject:Tema:
 report_by:wót:
+report_posted_on:Pósłany dnja:
 report_give_reason:Pšosym pódajśo pśicynu, cogodla dajoš toś tu powěźeńku k wěsći:
 report_submit_report:Powěźeńku wótpósłaś
 search_entire_msg:Cełe gronidło
@@ -472,6 +481,7 @@ search_subject_only:Jano tema
 search_forum:Forum
 search_posted_on:Pósłany dnja
 search_no_results:Žedne wuslědki
+search_spell_suggestions:Měniš:
 search_all_forums:We wšyknych forumach pytaś
 search_in_forum:We forumje pytaś:
 search_forum_search:Forumowe pytanje
@@ -496,8 +506,8 @@ mklist_apply:Nałožyś
 mklist_delete:Wulašowaś
 qbud_nick_name:Pśimě
 qbud_add_selected:Wubrane pśidaś
-# Fuzzy
-qbud_selected:Wubrany
+qbud_selected:Wubraś
+qbud_no_buddies:Žedne pśijaśele za wuběranje
 mklist_numerical:Numeriski
 mklist_aplha:Alfa
 mklist_square:Kwadraśik
@@ -515,6 +525,7 @@ ppost_to:Komu:
 ppost_from_buddy_list:Z lisćiny pśijaśelow wubraś
 ppost_find_User:Wužywarja pytaś
 ppost_track_msg:Toś tej powěsći slědowaś
+ppost_track_msg_desc:Powěźeńka (pśez priwatnu powěsć), gaž toś ta powěsć jo pśecytana.
 ppost_send:Wótpósłaś
 ppost_save_draft:Nacerjenje składowaś
 poll_blank_option:Njamóžoš proznu opciju pśidaś.
@@ -545,6 +556,8 @@ tabs_referrals:Pórucenja
 tabs_buddy_list:Lisćina pśijaśelow
 tabs_ignore_list:Lisćina ignorěrowanjow
 tabs_private_messaging:Priwatne powěsći
+single_msg_delete:Sy rowno pśi tom, powěsć <b>{VAR: data[3]}</b> <span class="ErrorText">lašowaś</span>
+thread_delete:Sy pśi tom, <span class="ErrorText">cełu temu</span> <b>{VAR: data[3]}</b> <span class="ErrorText">lašowaś</span>
 delete_proceed:<span class="fb">Coš pókšacowaś?</span>
 delete_yes:Jo
 delete_no:Ně
@@ -558,24 +571,40 @@ buddy_list_err_dup:Maš toś togo wužywarja na swójej lisćinje pśijaśelow
 buddy_list_err_nouser:Wužywaŕ, kótaregož wopytujoš swójej lisćinje pśijaśelow pśidaś, njejo se namakał.
 buddy_list_err_nouser_title:Wužywaŕ njedajo se pśidaś
 core_err_invinp_title:Njepłaśiwe zapódaśe
-# Fuzzy
-core_adm_login_msg:Administratory mógu se <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">how</a> pśizjawiś.
+core_adm_login_msg:Administratory mógu se <a href="{BASE}adm/admloginuser.php">how</a> pśizjawiś.
 email_err_unabletoemail_title:ZMÓLKA: E-mail njedajo se rozesłaś
 email_err_unabletoemail_msg:E-mailowy system jo se wót administratora znjemóžnił.
+email_error_unabletolocaddr:Wódaj, system njeho mógł {VAR-HTML: _POST['tx_name']} e-mail pósłaś, dokulaž njejo było móžno, e-mailowu adresu zwěsćiś
 email_error_body:Wopśimjeśe trěbne
 email_error_subject:Tema jo trěbna
 email_error_namerequired:Mě jo trěbne
 email_error_invaliduser:Njepłaśiwy wužywaŕ
 emailconf_err_invkey_title:Zmólka
+emailconf_err_invkey_msg:Njepłaśiwy wobkšuśeński kluc. Pšosym skontrolěruj swóju e-mail, aby zawěsćił, až sy korektnje zapódał URL.
 err_inc_criticaltitle:Kritiska zmólka
+err_inc_criticalmsg:Zmólka jo nastała. Bóžko jo teke problem ze systemom zdźělenja zmólkow.
 finduser_update:Pytanje za wužywarjami
 help_index_update:Cyta <a href="{TEMPLATE: help_index_update_lnk}">Pomoc</a>
 iemail_thr_subject:Nowe wótegrono wó {VAR: thr_subject} wót {VAR: poster_login}
+iemail_thr_bodyemail:Aby se njepśecytane wótegrona woglědał, źi k {VAR: goto_url['email']}\n\n\nJolic njocoš dalšne powěźeńki wó wótegronach w toś tej temje dostaś, źi pšosym sem:\n{VAR: unsub_url['email']}
+iemail_frm_subject:Nowa tema we forumje {VAR: frm_name} z mjenim {VAR: thr_subject} wót {VAR: poster_login}
+iemail_frm_bodyemail:Aby se temu woglědał, źi k:\n{VAR: goto_url['email']}\n\nAž njeby žedne dalšne powěźeńki wó nowych temach w toś tom forumje dostał, źi pšosym sem: {VAR: unsub_url['email']}
+iemail_participate:Aby se na diskusiji wobźělił, źi sem:
 ignore_list_err_info_title:Informacije
+ignore_list_err_dup_msg:Toś ten wužywaŕ jo južo na wašej lisćinje ignorěrowanjow
 ignore_list_err_nu_title:Wužywaŕ njenamakany
+ignore_list_err_nu_msg:Wužywaŕ, kótaregož sy wopytał, swójej lisćinje ignorěrowanjow pśidaś, njejo se namakał.
 ignore_list_cantign_msg:Njamóžoš toś togo wužywarja ignorěrowaś
+ignore_list_update:Pśepytujo swójsku lisćinu ignorěrowanjow
+index_update:Pśepytujo <a href="{TEMPLATE: index_update_lnk}">forumoweje lisćiny</a>
+list_referers_update:Pśepytujo dopórucenja
 login_update:Pśizjawjeński formular
+msg_update:Pśepytujo temu <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
+pm_err_nopm_title:ZMÓLKA: Rozesćełanje priwatnych powěsćow znjemóžnjone
+pm_err_nopm_msg:Njamóžoš system priwatnych powěsćow wužywaś. Administrator jo jen znjemóžnił.
+pm_update:Wužywa priwatne powěsći
 post_err_lockedthread_title:Zmólka: Zastajona tema
+post_err_lockedthread_msg:Toś ta tema jo zastajona. Rozpósćełanje powěsćow wěcej njejo dowólone.
 err_coppa_title:ZMÓLKA: Twójo konto hyšći njejo wobkšuśone
 err_banned_acct_title:ZMÓLKA: Sy wugnany.
 post_err_edttimelimit_title:ZMÓLKA
@@ -749,16 +778,14 @@ polllist_owner:Napórany wót
 polllist_votes:Głose dogromady
 polllist_action:Akcija
 userinfo_polls:Wótglosowanja:
-# Fuzzy
-show_pollist:Wótgłosowanja pokazaś
+show_pollist:Wótgłosowanja
 search_and:A
 search_or:ABO
-# Fuzzy
-search_desc_order:Wóstupujucy slěd
-# Fuzzy
-search_asc_order:Póstupujucy slěd
-# Fuzzy
-search_sorting:Wuslědki pó datumje sortěrowaś w:
+search_desc_order:Nejnowše ako prědne
+search_asc_order:Nejstarše ako prědne
+search_relevance_order:Relewanca
+search_logic:Pytańska logika:
+search_sorting:Sortěrowaś pó:
 search_attach:Dodanki:
 search_attach_all:Z abo bźez
 search_attach_with:Z dodankami
@@ -847,10 +874,8 @@ search_user_filter:Pó wužywarju filtrowaś
 register_none:Njeinforměrowaś
 findu_no_conf:njewobkšuśony wužywaŕ
 register_max_sig_len:Maksimalna dłujkosć:
-# Fuzzy
-register_turing:Pšosym zapódaj slědujucy code:
-# Fuzzy
-register_err_turing:Njepłaśiwy kod.
+register_turing:Werifikacija:
+register_err_turing:Werifikacija njejo se raźiła. Pšosym wopytaj znowego.
 modque_cat:Kategorija
 modque_forum:Forum
 idx_compact_forum_row:K dispoziciji stojece forumy:
@@ -861,6 +886,9 @@ mmd_abort_move:Pśetergnuś
 mmd_move:Temy pśesunuś
 pmsg_pdf_btn:PDF-archiw załožyś
 search_results_hdr:{VAR: total} pytańskich wuslědkow namakanych
+thread_del_all:Wubrane lašowaś
+thread_mov_all:Wubrane pśesunuś
+thread_merge_all:Wubrane zjadnośiś
 dmsg_ip:IP:
 err_blockedaccnt_title:ZMÓLKA: Twójo konto jo se wufiltrowało.
 sub_unsub_all_forums:Wšykne forumy wótskazaś
@@ -899,6 +927,8 @@ captcha_img_help:Njejo nula abo jadenka we wobrazu.
 code_title:Kod:
 code_select_all:Wše wubraś
 code_show_hide:Pokazaś/schowaś
+social_sites:Socialne seśi:
+postcheck_min_len_err:Twója powěsć jo pśekrotka. Minimalna dłujkosć jo {PLURAL: post_min_len|$1 znamuško|$1 znamušce|znamuška|znamuškow}.
 postcheck_dup_err:Pšosym njenapóraj temy dwójcy.
 btn_new_topic:Nowa tema
 btn_new_pm:Nowa priwatna powěsć
@@ -919,13 +949,20 @@ feed_no_data:Žedne wótpwědujuce daty namakane.
 feed_rdf:RDF-kanal
 feed_rss:RSS2-kanal
 feed_atom:ATOM-kanal
+ip_whois_connect_err:Njejo móžno z WHOIS-serwerom ({VAR: whois_server}) zwězaś: {VAR: errstr}
 custom_filed_required:Toś to pólo jo trěbne.
 pages:Boki
 page_list_heading:K dispoziciji stojece boki
 page_list_total:{PLURAL: i|$1 bok pódany|$1 boka pódanej|$1 boki pódane|$1 bokow pódanych}.
+page_update:Bok se cyta
 pm_export_header:Priwatne powěsći za {VAR: usr->alias}
 pm_export_footer:Eksportěrowany.
 karma:Karma
 karma_track:Reputaciju za wužywarja zastojaś:
 karma_delete:Wulašowaś
 rate_author:Awtora pogódnośiś:
+blog_update:Forumowy blog se cyta
+blog:Blog
+blog_new_members:Nowe cłonki
+blog_new_posts:Slědny pśinosk
+blog_comments:{PLURAL: topic->replies|$1 komentar|$1 komentara|$1 komentary|$1 komentarow}

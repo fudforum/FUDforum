@@ -9,7 +9,7 @@
 action:Akcija
 add_to_buddy_list:Lisćinje přećelow přidać
 admin:Administrator
-admin_control_panel:Zarjadowanje
+admin_control_panel:Administracija
 administrator:Administrator
 attachment:Přiwěšk:
 avatar:Awatar:
@@ -31,7 +31,7 @@ email_user:Wužiwarjej e-mejlowu powěsć pósłać
 faq:Pomoc
 first_unread_msg:K njepřečitanych powěsćam
 first_unread_msg_desc:K prěnjej njepřečitanej powěsći znutřka tuteje temy
-flat_view:WRóćo k płonemu standardnemu napohladej
+flat_view:Wróćo k płonemu standardnemu napohladej
 forum:Forum:
 forum_icon:Forumowy symbol
 forum_new_messages:Nowe powěsće
@@ -51,7 +51,7 @@ im_facebook:Facebook:
 im_yahoo:Yahoo Messenger:
 image:Wobraz:
 index_forum:Forum
-index_new_posts:Nowe powěsć wot poslednjeho čitanja
+index_new_posts:Nowe powěsće wot poslednjeho čitanja
 index_no_new_posts:Žane nowe powěsće wot poslednjeho čitanja
 index_url_redirection:Dalesposrědkowanje
 interests:Zajimy:
@@ -309,9 +309,10 @@ register_login_desc:Mjeno, z kotrymž so přizjewiš a kotrež je na tutej webst
 register_login_available:Swobodne
 register_login_taken:Hižo wobsadźene
 register_password:Hesło:
+register_password_desc:Hesło za twoje konto. Hesła mjez wulko- a małopisanjom rozeznawaja a dyrbi znajmjeńša 6 znamješkow dołhe być.
 register_conf_pass:Hesło wobkrućić:
-# Fuzzy
-register_email_desc:Prošu zapodaj płaćiwu e-mejlowu adresu. Móžeš ju deleka we wotrězku nastajenjow schować.
+register_conf_pass_desc:Prošu zapodajće swoje hesło znowa.
+register_email_desc:Twoja e-mejlowa adresa. Móžeš ju deleka we wotrězku nastajenjow schować.
 register_name:Mjeno:
 register_name_desc:Twoje prawe mjeno.
 register_your_pass:Twoje hesło:
@@ -326,8 +327,7 @@ register_preview:Přehlad
 register_custom_avatar_upload:Dataja swójskeho awatara:
 register_register:Registrować
 register_required:Trěbne informacije
-# Fuzzy
-register_required_desc:Wšě pola su trěbne. Prošu dźiwaj na to, zo hesła wulkopisanje wobkedźbuja.
+register_required_desc:Wšě pola su trěbne
 register_optional:Opcionalne informacije
 register_optional_desc:Poruča so, zo njepřeradźeš w swojim profilu wosobinske informacije, kotrež móžeja će identifikować. Wšě informacije dadźa so přez druhich forumowych čłonow wobhladać.
 register_location:Městno:
@@ -373,8 +373,7 @@ my_buddies:Moji přećeljo
 add_buddy:Přećela přidać
 add:Přidać
 buddy_search:Zapodaj mjeno wužiwarja, kotrehož chceš přidać.
-# Fuzzy
-member_search:Abo wužij funkciju  <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Wužiwarja namakać</a>, funkcija, zo by wosobu namakał.
+member_search:Abo wužij funkciju  <a href="javascript://" onclick="javascript: window_open('{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Wužiwarja namakać</a>, zo by wosobu namakał.
 buddy_remove:wotstronić
 post_normal:Normalny
 post_sticky:Přilěpjeny
@@ -498,6 +497,7 @@ search_subject_only:Jenož temowe nadpismo
 search_forum:Forum
 search_posted_on:Datum wotpósłanja
 search_no_results:Žane wuslědki
+search_spell_suggestions:Měniš:
 search_all_forums:Wšě forumy přepytać
 search_in_forum:Přepytać we forumje:
 search_forum_search:Forumowe pytanje
@@ -717,8 +717,7 @@ error_title:Zmylkowy formular
 index_title:Witaj do foruma
 search_title:Za {VAR-HTML: srch} pytać
 remail_emailsent:E-mejl bu pósłany
-# Fuzzy
-remail_email:Halo,\n\nto je zajimawa tema wo "{VAR: data->subject}" we forumje {GVAR: FORUM_TITLE}, kotruž chceš snano rady čitać. Móžeš temu widźeć na:\n  {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nTwój přećel\n\n{VAR: usr->alias}
+remail_email:Halo,\n\nto je zajimawa tema wo "{VAR: data->subject}" we forumje {GVAR: FORUM_TITLE}, kotruž chceš snano rady čitać. Móžeš temu widźeć na:  {FULL_ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nTwój přećel,\n\n{VAR: usr->alias}
 poll_add_option:Opciju přidać:
 post_opt_html_on:<b>HTML</b> je <b>zapinjeny</b>
 post_opt_fud_on:<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>BBcode</b> je <b>zapinjeny</b></a>
@@ -895,14 +894,11 @@ polllist_votes:Hłosy dohromady
 polllist_action:Akcija
 polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">K dispoziciji stejace wothłosowanja přepruwować</a>
 userinfo_polls:Wothłosowanja:
-# Fuzzy
-show_pollist:Wothłosowanja pokazać
+show_pollist:Wothłosowanja
 search_and:A
 search_or:ABO
-# Fuzzy
-search_desc_order:Spadowace sortěrowanje
-# Fuzzy
-search_asc_order:Postupowace sortěrowanje
+search_desc_order:Najnowše jako prěnje
+search_asc_order:Najstarše jako prěnje
 search_relevance_order:Relewancy
 search_logic:Pytanska logika:
 search_sorting:Sortěrować po:
@@ -962,11 +958,9 @@ iemail_forum_unsub:Tutón forum wotskazać
 primary_group_prefix:Hłowna skupina za forum:
 group_resources:Tuta skupina kontroluje prawa slědowacych forumow
 register_admin_newuser_title:Nowy wužiwar je so zregistrował a jeho konto čaka na wobkrućenje
-# Fuzzy
-register_admin_newuser_msg:Nowy wužiwar ({VAR: uent->login}) je so runje zregistrował, a dokelž kontowe wobkrućenje je zmóžnjene, njebudźe jeho konto aktiwne, doniž so wot tebje abo druheho forumoweho administratora njewobkrući. Zo by konto přepruwował, dźi prošu k: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nTo je awtomatizowany proces. Njewotmołw na tutu powěsć.\nJeli chceš přichodne e-mejlowe zdźělenja nowych wužiwarskich registrowanjow wupinyć, móžeš to přez administratowy meni činić. Změń za to nastajenje "New Account Notification".
+register_admin_newuser_msg:Nowy wužiwar ({VAR: uent->login}) je so runje zregistrował, a dokelž kontowe wobkrućenje je zmóžnjene, njebudźe jeho konto aktiwne, doniž so wot tebje abo druheho forumoweho administratora njewobkrući. Zo by konto přepruwował, dźi prošu k:  {BASE}adm/admuserapr.php\n\nTo je awtomatizowany proces. Njewotmołw na tutu powěsć.\nJeli chceš přichodne e-mejlowe zdźělenja nowych wužiwarskich registrowanjow wupinyć, móžeš to přez administratowy meni činić. Změń za to nastajenje "New Account Notification".
 post_mod_msg_notify_title:Nowa powěsć we forumje "{VAR: frm->name}" čaka na schwalenje
-# Fuzzy
-post_mod_msg_notify_msg:Nowa powěsć z nadpismom "{VAR: msg_post->subject}" je so runje do foruma pósłała, kotryž moderěruješ. Zo by tutu powěsć přepruwował, dźi k: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nTo je awtomatizowany proces. Njewotmołw na powěsć.
+post_mod_msg_notify_msg:Nowa powěsć z nadpismom "{VAR: msg_post->subject}" je so runje do foruma pósłała, kotryž moderěruješ. Zo by tutu powěsć přepruwował, dźi k: {FULL_ROOT}?t=modque#{VAR: msg_post->id}\n\nTo je awtomatizowany proces. Njewotmołw na powěsć.
 thread_printable_pdf:Ćišćomny PDF płodźić
 thread_syndicate:Strony tutoho foruma druhim stronam k dispoziciji stajić (XML)
 reg_conf_title:Wobkrućenje registrowanja
@@ -992,8 +986,7 @@ mnav_month:Měsacy
 mnav_title:Nawigator powěsćow
 mnav_update:Powěsće z pomocu <a href="{TEMPLATE: mnav_update_lnk}">Nawigatora powěsćow</a> přepytać
 pm_notify_subject:[{GVAR: FORUM_TITLE}] Nowa zdźělenka wo priwatnej powěsći
-# Fuzzy
-pm_notify_body_email:Maš nowu priwatnu powěsć z temowym nadpismom "{VAR: subject}" wot "{VAR: from}" we forumje "{GVAR: FORUM_TITLE}".\nZo by sej powěsć wobhladał, klikń sem: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nZo by dalšim zdźělenkam zadźěwał, znjemóžń "Zdźělenje wo priwatnej powěsći" w swojim profilu.
+pm_notify_body_email:Maš nowu priwatnu powěsć z temowym nadpismom "{VAR: subject}" wot "{VAR: from}" we forumje "{GVAR: FORUM_TITLE}".\nZo by sej powěsć wobhladał, klikń sem: {FULL_ROOT}?t=pmsg_view&id={VAR: pid}\n\nZo by dalšim zdźělenkam zadźěwał, znjemóžń "Zdźělenje wo priwatnej powěsći" w swojim profilu.
 register_pm_notification:Zdźělenka wo priwatnej powěsći
 register_pm_notification_desc:Jeli zmóžnjene, dóstanješ zdźělenku, hdyžkuli so ći priwatna powěsće sćele.
 findu_admin_opts_header:Administratorowe opcije
@@ -1121,8 +1114,7 @@ move_msg_th_expl:Podaj ID ciloweje temy (móže w druhich forumach być)
 captcha_img_alt:Pruwowanje captcha: dyrbiš tekst we wobrazu spóznać.
 captcha_img_help:Njeje nula abo jedynka we wobrazu.
 powered-by:Pohonjeny přez: FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:Copyright &copy;2001-2021 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Copyright &copy;2001-2022 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Kod:
 code_select_all:Wšě wubrać
 code_show_hide:Pokazać/schować
@@ -1160,6 +1152,7 @@ karma:Karma
 karma_track:Reputaciju za wužiwarja zrjadować:
 karma_delete:Zhašeć
 rate_author:Awtora pohódnoćić:
+blog_update:Forumowy blog čitać
 blog:Blog
 blog_new_members:Nowi čłonojo
 blog_new_posts:Posledni přinošk

@@ -4,6 +4,7 @@
 # Author: Cainamarques
 # Author: Dianakc
 # Author: Dr03ramos
+# Author: Duke of Wikipädia
 # Author: Eduardo Addad de Oliveira
 # Author: Eduardoaddad
 # Author: Felipe L. Ewald
@@ -510,6 +511,7 @@ search_subject_only:Apenas o assunto
 search_forum:Fórum
 search_posted_on:Afixado em
 search_no_results:Sem resultados
+search_spell_suggestions:Você quer dizer:
 search_all_forums:Procurar em todos os fóruns
 search_in_forum:Procurar no Fórum:
 search_forum_search:Procura no fórum
@@ -1126,8 +1128,7 @@ move_msg_th_expl:Especifique a ID do tópico de destino (pode estar em outros f�
 captcha_img_alt:Verificação por Captcha: você precisará reconhecer o texto nesta imagem.
 captcha_img_help:Não há zero ou um na imagem.
 powered-by:Powered by: FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:Direitos de autor &copy;2001-2021 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Direitos autorais &copy;2001-2022 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Código:
 code_select_all:Selecionar tudo
 code_show_hide:Mostrar/esconder
