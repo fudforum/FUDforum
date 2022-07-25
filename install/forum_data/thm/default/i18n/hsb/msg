@@ -469,7 +469,7 @@ rpasswd_invalid_passwd:Njepłaćiwe hesło
 rpasswd_passwd_nomatch:Hesle so njekryjetej
 rpasswd_passwd_length:Hesło dyrbi znajmjeńša 6 pismikow měć
 reset_remind_pass:Hesłowe dopomnjeće
-reset_reset_conf:Twoje hesło budźe so ći připosyłać. Jeli hišće njejsy swoju e-mejlowu adresu wobkrućił, požadanje wo wobkrućenje budźe so ći wróćo słać.
+reset_reset_conf:Twoje hesło budźe so ći připosyłać. Jeli hišće njejsy swoju e-mejlowu adresu wobkrućił, próstwa wo wobkrućenje budźe so ći znowa słać.
 reset_error:E-mejlowa adresa njebu w datowej bance namakana
 reset_update:Hesło wróćo stajić
 rpasswd_change_pass:Hesło změnić
@@ -643,7 +643,7 @@ post_reply_update:Wotmołwa na <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->sub
 post_topic_update:Spisowanje noweje temy w <a href="{TEMPLATE: post_topic_update_lnk}">{VAR: frm->name}</a>
 post_error_generic:Zmylk je wustupił
 postcheck_max_images_err:Njeje wjace hač {GVAR: MAX_IMAGE_COUNT} wobrazow na powěsć dowolene. Prošu redukuj ličbu wobrazow.
-postcheck_no_links_allowed:Njemóžeš wotkazy wužiwać, doniž njejsy wjace hač {PLURAL: posts_before_links|$1 powěsće|$1 powěsćow|powěsćow|powěsćow} rozpósłał.
+postcheck_no_links_allowed:Njemóžeš wotkazy wužiwać, doniž njejsy wjace hač {PLURAL: posts_before_links|$1 powěsć|$1 powěsći|powěsće|powěsćow} rozpósłał.
 postcheck_subj_needed:Temowe nadpismo trěbne
 postcheck_no_such_user:Wužiwar z mjenom "{FUNC: char_fix(htmlspecialchars($v))}" w tutym forumje njeeksistuje.
 postcheck_ignored:Njemóžeš "{FUNC: char_fix(htmlspecialchars($v))}" priwatnu powěsć pósłać, dokelž tutón wužiwar će ignoruje.
@@ -656,7 +656,7 @@ private_msg_notify_body:Halo,<br />{VAR: usr->login} je twoju priwatnu powěsć 
 referals_update:Přepytanje doporučenjow
 register_err_short_login:Wužiwarske mjeno, kotrež sy wubrał, je překrótke. Dyrbi znajmjeńša dwě znamješce měć.
 register_err_login_notallowed:Tute přizjewjenske mjeno njeje dowolene.
-register_err_loginunique:Forumowe přizjejwenske mjena dyrbja jónkróćne być. Je hižo wužiwar z tutym mjenom.
+register_err_loginunique:Forumowe přizjewjenske mjena dyrbja jónkróćne być. Je hižo wužiwar z tutym mjenom.
 register_err_emailexists:Tuta e-mejlowa adresa je hižo z kontom zwjazana. Jeli sy swoje hesło zabył, wužij prošu opciju Wróćo stajić, město toho zo znowa registruješ.
 register_err_shortpasswd:Hesła dyrbja znajmjeńša 6 znamješkow měć.
 register_err_passwdnomatch:Twojej hesle so njekryjetej, prošu spytaj hišće raz.
@@ -665,15 +665,15 @@ register_err_needname:Zo by registrowanje wuspěšnje dokónčił, dyrbiš swoje
 register_err_enterpasswd:Dyrbiš swoje aktualne hesło zapodać, zo by změny zakónčił.
 register_err_adminpasswd:Dyrbiš swoje <b>administratorowe</b> hesło zapodać, zo by změny zakónčił.
 register_err_notyouremail:Něchtó druhi je hižo z tutej e-mejlowej adresu zregistrowany.
-register_err_avatartobig:Dataja, kotruž pospytuješ naharać, je přewulka, wjetša hač {GVAR: CUSTOM_AVATAR_MAX_SIZE} bajtow
-register_err_avatarnotallowed:Awatar, kotryž pospytuješ nahrać, njeje dowoleny.  Přepruwuj dowolene datajowe typy.
+register_err_avatartobig:Dataja, kotruž pospytuješ nahrać, je přewulka, wjetša hač {GVAR: CUSTOM_AVATAR_MAX_SIZE} bajtow.
+register_err_avatarnotallowed:Awatar, kotryž pospytuješ nahrać, njeje dowoleny. Přepruwuj dowolene datajowe typy.
 register_conf_subject:Wobkrućenje registrowanja
 register_conf_msg:Dźakujemy so za registrowanje.\nZo by swoje konto aktiwizował, dźi prošu k slědowacemu URL:\n\n{FULL_ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nTak ruče kaž twoje konto je aktiwizowane, móžeš so do foruma přizjewić a budźeš so na startowu stronu dale posrědkować.
 register_welcome_subject:Wobkrućenje registrowanja za forum
 register_welcome_msg:Dźakujemy so za registrowanje.\n\nTu su twoje přizjewjenske podrobnosće za forum:\n\nURL foruma: {TEMPLATE: index_update_lnk}\nPřizjewjenske mjeno: {VAR: uent->login}\nHesło: {VAR: _POST['reg_plaintext_passwd']}\n\nProšu dźiwaj na to, zo hesła wulkopisanje wobkedźbuja!\nZo by swoje nastajenja abo profil změnił, dźi k tutej stronje:\n{FULL_ROOT}?t=register
 register_err_cantreg_title:ZMYLK: registrowanje njemóžno
 regsiter_err_cantreg_msg:Njeje móžno wužiwarske konto załožić, prošu staj so z administratorom z e-mejlowej adresu <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a> do zwiska
-register_profile_update:Wobhlada sej swój profil
+register_profile_update:Wobhladuje sej swój profil
 register_register_update:Registrowanska strona
 report_err_nosuchmsg_title:ZMYLK
 report_err_nosuchmsg_msg:Tajka powěsć njeeksistuje
@@ -691,8 +691,8 @@ subscribed_update:Přepytuje swójske abonementy
 bookmarked_update:Přepytuje swójsku lisćinu zapołožkow
 thread_update:Přepytuje forum <a href="{TEMPLATE: thread_update_lnk}">{VAR: frm->name}</a>
 tree_update:Přepytuje temu (štomowy napohlad) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
-userinfo_update:Wobhladuje sej profil <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}'s</a>
-ERR_login_msg2:<legend>ZMYLK: Njejsy přizjewjeny</legend>Zo by přistup na tutu stronu měł, dyrbiš čłon tutoho foruma być.
+userinfo_update:Wobhladuje sej profil <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}</a>
+ERR_login_msg2:<legend>ZMYLK: Njejsy přizjewjeny</legend>Zo by přistup k tutej stronje měł, dyrbiš čłon tutoho foruma być.
 ERR_disabled_ttl:Znjemóžnjena funkcija
 ERR_disabled_msg:Tuta funkcija bu wot systemoweho administratora znjemóžnjena.
 ERR_access_ttl:ZMYLK: Njedosahace prawa

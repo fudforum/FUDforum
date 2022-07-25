@@ -420,18 +420,25 @@ post_cancel_btn:Pśetergnuś
 ignore_users:Ignorěrowane wužywarje
 add_ignore:K lisćinje ignorěrowanjow pśidaś
 forum_terms:Forumowe pšawidła
+forum_rules:<p>Registrěrowanje za toś ten forum jo liche! Wobstawamy na tom, až źaržyš se za slědujuymi pšawidłami a zasadami. Jolic sy z wuměnjenjami wobjadny, klikni na tłocašk <b>Pśigłosowaś</b> na kóńcu boka.</p><p>Lěcrownož administratory a moderatory toś togo foruma budu wopytowaś, wšykne njepśiměrjone powěsći wót toś togo foruma wótźaržaś, njejo móžno za nas, wšykne powěsći pśeglědowaś. Wšykne powěsći naglědy awtora wugroniju a daniž wobsejźarje foruma daniž jogo wuwijarje njamógu se zagronite za wopśimjeśe powěsći cyniś.</p><p>Pśez kliknjenje na tłocašk Pśigłosowaś lubiš, až njebuźoš žedne powěsći słaś, kótarež su obscene, wulgarne, seksuelnje orientěrowane, gramoty połne, grozece abo se na hynajši nałog pśeśiwo kaznjam pśejdu.</p><p>Wobsejźarje toś togo foruma maju pšawo, temu z někakeje pśicyny wótwónoźeś, wobźěłowaś, pśesunuś abo zacyniś.</p>
+forum_rules_13:<p>Wšykne wužywarje, kótarež su młodše ako 13 lět, trjebaju dowólnosć jadnogo ze swójeju starjejšeju abo pśinanka, aby cłonkojstwo we forumach dostali. Lěcrownož se za to wugronijomy, až cłonki, kótarež su młodše ako13 lět, směju se we forumje wobźěliś, pominamy weto, až jaden ze starjejšeju abo pśinank nam pódpisany dowóleński formular faksujo abo pśez e-mail slědk sćelo, nježli až cłonkojstwo dajomy.</p><p>Jolic coš registrěrowański proces startowaś, nježli až smy dostali dowóleński formular, klikni dołojce na tłocašk <b>Pśigłosowaś</b>. Jolic coś registrěrowanje pśetergnuś, klikni na <b>Wótpokazaś</b>, aby se k pśeglědoju forumow wrośił.</p><p>Kopija dowóleńskego formulara buźo se pó registraciji pokazowaś. Za dalšne informacije wó registrěrowańskem procesu, sćel pšosym administratoroju e-mail <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
 coppa_conf:COPPA-wobkšuśenje
 coppa_before:Do {TEMPLATE: coppa_date}
 coppa_after:Pó {TEMPLATE: coppa_date}
 coppa_link:Klikni na wótkaz, kótaryž wótpowědujo twójomu dnju naroźenja
+coppa:<p>Jadyn ze starjejšeju abo pśinank musy administratoroju pódpisany dowóleński formular pśez faks abo e-mail pśipósłaś, nježli až wužywaŕ, kótaryž jo młodšy ako 13 lět, móžo registrěrowanje dokóńcyś.</p><p>Za dalšne informacije staj se z <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> do zwiska</p>
 prereg_info:Forumowe pšawidła
 prereg_agree:Pśigłosyś
 prereg_disagree:Wótpokazaś
 prereg_update:Forumowe pšawidła cytaś
+coppa_fax_instructions:Instrukcije za jadnogo ze starjejšeju abo pśinanka
 coppa_fax_instructions2:Pšosym śišć toś ten bok, pódpiš jen a pósćel jen z e-mailu abo faksom slědk na nas:
 coppa_fax_reg_form:Registěrowański formular
 coppa_fax_sign:Pšosym pódpiš slědujucy formular a pósćel jen nam
+coppa_fax_conf:Som pśeglědał informacije, kótarež mójo góle jo mě pódało a som pśecytał pšawidła priwatnosći za websedło. Rozmějom, až profilowe informacije daju se z pomocu gronidła změniś. Rozměju, až móžom pominaś, až toś ten registrěrowański profil móžo se dopołnje z foruma wótwónoźeś.
 coppa_fax_permission:Pódpišćo how, aby dał dowólnosć
+coppa_fax_no_permission:Pódpiš how, jolic coš konto lašowaś daś
+coppa_fax_parent_name:Dopołne mě jadnogo ze starjejšeju abo pśinanka:
 coppa_fax_relation:Póśěg ku góleśeju:
 coppa_fax_telephone:Telefon:
 coppa_fax_email:E-mailowa adresa:
@@ -443,17 +450,22 @@ coppa_fax_remail:E-mail
 coppa_fax_name:Mě
 login_not_logedin:Njejsy pśizjawjony. To by mógło jadnu ze slědujucych pśicynow měś:
 login_cookie_expired:Twój cookie jo spadnuł a musyš se znowego pśizjawiś, aby nowy cookie dostał.
+login_perm_denied:Njamaš pšawo pominanu resursu ako anonymny wužywaŕ wužywaś. Musyš se pśizjawiś, aby pšawo dostał.
 login_want_to_register:Coš se registrěrowaś?
 login_forgot_passwd:Gronidło zabyte
+login_use_cookie:Cookieje wužywaś<br /><span class="SmallText">Jolic zjawny terminal ako licadło w bibliotece, šuli abo internetnej kafejowni wužywaš, pórucamy, až znjemóžnjaš toś tu opciju za wětšu wěstotu.<br />Jolic wóstajijoš toś tu opciju wubranu, buźoš se awtomatiski pla foruma pśizjawjaś, gaž woglědujoš se k forumoju pśiducy raz.</span>
 login_login:Wužywarske mě:
 login_login_btn:Pśizjawjenje
 login_name_required:Wužywarske mě jo trěbne
 login_passwd_required:Gronidło jo trěbne
 login_invalid_radius:Njepłaśiwa kombinacija wužywarske mě/gronidło
+reset_confirmation:Źěkujomy se za registrěrowanje.\n\nAby swójo konto aktiwěrował, źi k slědujucemu URL:\n\n{VAR: url}\n\nGaž twójo konto jo zaktiwěrowane, buźoš se pla foruma pśizjawjaś a na głowny bok dalej pósrědnjaś.
+reset_reset:Witaj,\n\nsy pominał, aby se swójo gronidło slědk stajiło. Aby proceso dokóńcył,\nźi pšosym k toś tomu URL:\n\n{VAR: url}\n\nGLĚDAJŚO: Toś ten forum składujo gronidło z jadnosměrnym koděrowanim, což groni, až se gronidło, gaž sy jo składł, koděrujo, aby njejo ŽEDNA MÓŽNOSĆ, jo slědk dostaś. To funkcioněrujo pśez pśirownowanje skoděrowaneje wersije, kótaraž jo skłaźona, ze skoděrowaneju wersiju, kótaruž zapódawaš.\n(Jolic maš zajm za funkcisku wašnju toś togo mechanizma, studěruj algoritmus MD5 HASH)
 rpasswd_invalid_passwd:Njepłaśiwe gronidło
 rpasswd_passwd_nomatch:Gronidle se njemakatej
 rpasswd_passwd_length:Gronidło musy nanejmjenjej 6 znamuškow dłujke byś
 reset_remind_pass:Dopomnjeśe na gronidło
+reset_reset_conf:Twójo gronidło buźo se śi pśipósćełaś. Jolic hyšći njejsy wobkšuśił swóju e-mailowu adresu, pšosba wó wobkšuśenje buźo se śi znowego słaś.
 reset_error:E-mailowa adresa njejo se namakała w datowej bance
 reset_update:Gronidło slědk stajiś
 rpasswd_change_pass:Gronidło změniś
@@ -565,12 +577,16 @@ error_invalidurl:Njepłaśiwy URL
 error_error:Zmólka
 usrinfo_profile:Profil wužywarja {VAR: u->alias}
 usrinfo_show_all_posts:Wšykne powěsći wót {VAR: u->alias} pokazaś
+actions_update:Wobsnuchlujo druge luźe, ako ty něnto
 err_info:Informacije
 buddy_list_err_cantadd:Njamóžoš se samego k lisćinje pśijaśelow pśidaś
 buddy_list_err_dup:Maš toś togo wužywarja na swójej lisćinje pśijaśelow
 buddy_list_err_nouser:Wužywaŕ, kótaregož wopytujoš swójej lisćinje pśijaśelow pśidaś, njejo se namakał.
 buddy_list_err_nouser_title:Wužywaŕ njedajo se pśidaś
+buddy_list_err_ignore:Wužywarje, kótarež śi ignorěruju, njedaju se twójej lisćinje pśijaśelow pśidaś.
+buddy_list_update:Pśepytujo swójsku lisćinu psijaśelow
 core_err_invinp_title:Njepłaśiwe zapódaśe
+core_err_invinp_err:Sy njepłaśiwemu wótkazoju slědował. Pšosym daj <a href="mailto:{GVAR: ADMIN_EMAIL}">webmasteroju</a> k wěsći, kak sy se tam dostał.
 core_adm_login_msg:Administratory mógu se <a href="{BASE}adm/admloginuser.php">how</a> pśizjawiś.
 email_err_unabletoemail_title:ZMÓLKA: E-mail njedajo se rozesłaś
 email_err_unabletoemail_msg:E-mailowy system jo se wót administratora znjemóžnił.
@@ -606,42 +622,85 @@ pm_update:Wužywa priwatne powěsći
 post_err_lockedthread_title:Zmólka: Zastajona tema
 post_err_lockedthread_msg:Toś ta tema jo zastajona. Rozpósćełanje powěsćow wěcej njejo dowólone.
 err_coppa_title:ZMÓLKA: Twójo konto hyšći njejo wobkšuśone
+err_coppa_msg:Hyšći njejsmy dostali wobkšuśenje wót jadnogo z twójeju starjejšeju a/abo kazniskego pśinanka, kótaryž by śi dowólił, powěsći rozesłaś. Jolic sy zgubił swój formular COPPA, <a href="{TEMPLATE: err_coppa_msg_lnk}">woglědaj se jen hyšći raz</a>.
 err_banned_acct_title:ZMÓLKA: Sy wugnany.
+err_banned_acct_msg:Twójo konto jo se zastajiło {IF: $ban_expiry}nachwilu až {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}na pśecej{ENDI} dla pśekśiwjenja forumowych pšawidłow.
 post_err_edttimelimit_title:ZMÓLKA
 post_err_edttimelimit_msg:Njamóžoš wěcej toś tu powěsć wobźěłaś
+post_err_noannontopics_msg2:<legend>ZMÓLKA: Njedosegajuce pšawa</legend>Anonymne wužywarje njesměju temy załožyś.
+post_err_noannonposts_msg2:<legend>ZMÓLKA: Njedosegajuce pšawa</legend>Anonymne wužywarje njesměju wótegroniś.
+post_err_floodtrig_title:ZMÓLKA: Kopica pśinoskow jo se zapušćiła.
 post_err_floodtrig_msg:Pšosym wopytaj za {PLURAL: tm|$1 sekundu|$1 sekunźe|$1 sekundy|$1 sekundow} hyšći raz
+post_err_attach_size:Datajowy pśidank jo pśewjeliki (nad dowólonym limitom {VAR: MAX_F_SIZE} bytes)
+post_err_attach_ext:Dataja, kótaruž wopytujoš nagraś, njewótpowědujo dowólonym datajowym typam.
+post_err_attach_filelimit:Wopytujoš wěcej datajow nagraś ako su dowólone.
 post_err_passwd:Wopacne gronidło.
+post_reply_update:Wótegranja na <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> w {VAR: frm->name}
+post_topic_update:Napórajo nowu temu w <a href="{TEMPLATE: post_topic_update_lnk}">{VAR: frm->name}</a>
 post_error_generic:Zmólka jo nastała
+postcheck_max_images_err:Njejo wěcej ako {GVAR: MAX_IMAGE_COUNT} wobrazow na powěsć dowólone. Pšosym reducěruj licbu wobrazow.
+postcheck_no_links_allowed:Njamóžoš wótkaze wužywaś, daniž njejsy pósłał wěcej ako {PLURAL: posts_before_links|$1 powěsć|$1 powěsći|powěsći|powěsćow}.
 postcheck_subj_needed:Tema trěbna
+postcheck_no_such_user:Wužywaŕ z mjenim "{FUNC: char_fix(htmlspecialchars($v))}" w toś tom forumje njeeksistěrujo.
 postcheck_ignored:Njamóžoš "{FUNC: char_fix(htmlspecialchars($v))}" priwatnu powěsć pósłaś, dokulaž toś ten wužywaŕ śi ignorěrujo.
 postcheck_no_recepient:Powěsć njedajo se pósłaś, dostawar felujo.
 postcheck_invalid_email:Pšosym zapódaj płaśiwu e-mailowu adresu za swójogo pśijaśela.
 postcheck_email_subject:Njamóžoš e-mail bźez temowego nadpisma pósłaś.
 postcheck_email_body:Njamóžoš e-mail bźez powěsćowego śěla pósłaś.
+private_msg_notify_subj:Powěźeńku cytaś wó: {VAR: m->subject}
+private_msg_notify_body:Halo,<br />{VAR: usr->login} jo wócynił twóju priwatnu powěsć z mjenim "{VAR: m->subject}".<br />To jo awtomatiska powěźeńka, kótaraž jo se generěrowała d0nja {TEMPLATE: private_msg_notify_body_date}<br />
+referals_update:Pśepytujo dopórucenja
+register_err_short_login:Wužywaŕske mě, kótarež sy wubrał, jo pśekrotke. Musy nanjemjenjej dwě znamušce měś.
 register_err_login_notallowed:Toś to pśizjawjeńske mě njejo dowólone.
+register_err_loginunique:Forumowe pśizjawjeńske mjenja muse jadnorazowe byś. Dajo južo wužywarja z toś tym mjenim.
+register_err_emailexists:Toś ta e-mailowa adresa jo južo z kontom zwězana. Jolic sy zabył swójo gronidło, wužyj pšosym opciju Slědk stajiś, město togo až znowego registrěrujoš.
 register_err_shortpasswd:Gronidła muse nanejmjenjej 6 znamuškow dłujke byś
 register_err_passwdnomatch:Twójej gronidle se njemakatej, pšosym wopytaj hyšći raz.
 register_err_invalidemail:Zda se, až e-mailowa adresa, kótaruž sy pódał, njejo płaśiwa.
+register_err_needname:Aby registrěrowanje wuspěšnje dokóńcył, musyš swójo mě zapódaś.
+register_err_enterpasswd:Musyš swójo aktualne gronidło zapódaś, aby změny dokóńcył.
+register_err_adminpasswd:Musyš swójo <b>administratorowe</b> gronidło zapódaś, aby změny dokóńcył.
 register_err_notyouremail:Něchten drugi jo južo z toś teju e-mejloweju adresu zregistrěrowany.
+register_err_avatartobig:Dataja, kótaruž wopytujoš nagraś, jo pśewjelika, wětša ako {GVAR: CUSTOM_AVATAR_MAX_SIZE} bajtow.
+register_err_avatarnotallowed:Awatar, kótaryž wopytujoš nagraś, njejo dowólony. Pśeglěduj dowólone datajowe typy.
 register_conf_subject:Wobkšuśenje registrěrowanja
+register_conf_msg:Źěkujomy se za registrěrowanje.\nAby swójo konto aktiwěrował, źi pšosym k slědujucemu URL:\n\n{FULL_ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nGaž twójo konto jo zaktiwěrowane, móžoš se pla foruma pśizjawiś a buźoš se na startowy bok dalej pósrědnjaś.
 register_welcome_subject:Wobkšuśenje forumowego registrěrowanja
+register_welcome_msg:Źěkujomy se za registrěrowanje.\n\nHow su twóje pśizjawjeńske drobnostki za forum:\n\nURL foruma: {TEMPLATE: index_update_lnk}\nPśizjawjeńske mě: {VAR: uent->login}\nGronidło: {VAR: _POST['reg_plaintext_passwd']}\n\nPšosym źiwaj na to, až gronidła na wjelikopisanje źiwaju!\nAby swóje nastajenja abo profil změnił, źi k toś tomu bokoju:\n{FULL_ROOT}?t=register
 register_err_cantreg_title:ZMÓLKA: registrěrowanje njejo móžno
+regsiter_err_cantreg_msg:Njejo móžno wužywaŕske konto załožyś, pšosym staj se z administratorom z e-mailoweju adresu <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a> do zwiska
+register_profile_update:Woglědujo se swój profil
 register_register_update:Registěrowański bok
 report_err_nosuchmsg_title:ZMÓLKA
 report_err_nosuchmsg_msg:Powěźeńka njeeksistěrujo
 reset_err_invalidkey_title:ZMÓLKA
+reset_err_invalidkey_msg:Njepłaśiwy kluc za slědkstajanje gronidła. Jo móžno, až twój e-mailowy program jo južo awtomatiski wócynił toś ten bok a kluc jo něnto njepłaśiwy. Jolic tomu tak jo, ty měł za krotki cas e-mail ze swójim nowym gronidłom dostaś. Jolic taka e-mail njedojźo, wopytaj pšosym gronidło slědk stajaś.
 reset_err_rstconf_title:Informacije
+reset_err_rstconf_msg:Ty měł za pór minutow pśez e-mail instrukcije dostaś.
 reset_newpass_title:Gronidło slědk stajiś
+reset_newpass_msg:Halo,\n\nako pominane, se pśizjawjeńske informacije dołojce zjawiju:\n\nPśizjawjeńske mě: {VAR: ui[1]}\nGronidło: {VAR: passwd}\n\nPšosym źiwaj na to, až se swójo gronidło na górnu gódnotu slědk stajiło. Jolic coš swójo gronidło změniś, móžoš to pśez swóje wužywaŕske nastajenja cyniś:\n{FULL_ROOT}?t=register
+reset_login_notify:Twójo gronidło jo se śi pśipósłał pśez e-mail. Ty měł jo za pór minutow dostaś.
 search_update:Pyta powěsći
+selmsg_update:Pśepytujo <a href="{TEMPLATE: selmsg_update_lnk}">źinsajšne powěsći</a>
+showposts_update:Woglědujo se powěsći wót: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
+subscribed_update:Pśepytujo swójske abonementy
+bookmarked_update:Pśepytujo swójsku lisćinu cytańskich znamjenjow
+thread_update:Pśepytujo forum <a href="{TEMPLATE: thread_update_lnk}">{VAR: frm->name}</a>
+tree_update:Pśepytujo temu (bomowy naglěd) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
+userinfo_update:Woglědujo se profil <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}</a>
+ERR_login_msg2:<legend>ZMÓLKA: Njejsy pśizjawjony</legend>Aby pśistup k toś tomu bokoju měł, musyš cłonk toś togo foruma byś.
 ERR_disabled_ttl:Znjemóžnjona funkcija
 ERR_disabled_msg:Toś ta funkcija jo se wót systemowego administratora znjemóžniła.
 ERR_access_ttl:ZMÓLKA: Njedosegajuce pšawa
+ERR_access_msg:Njamaš trěbne pšawa, aby toś tu akciju pśewjadł.
 ERR_registration_disabled_ttl:Registrěrowanje znjemóžnjone
 ERR_registration_disabled_msg:Administrator jo registrěrowanje znjemóžnił. Pšosym wopytaj pózdźej hyšći raz.
 ERR_emailconf_ttl:ZMÓLKA: Twójo konto hyšći njejo wobkšuśone
+ERR_emailconf_msg:Njejsy wobkšuśił swójo konto pśez e-mail.<br /><table border="0"><tr><td><ol><li>Jolic njejsy dostał wobkšuśeńsku e-mail, <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">pominaj ju hyšći raz</a>.</li><li>Jolic {VAR: usr_d->email} njeje twoja prawa e-mejlowa adresa, <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">pódaj pšawu adresu</a>.</li></ol></td></tr></table>
 ERR_user_ttl:ZMÓLKA: Wužywaŕ njeeksistěrujo
 ERR_user_msg:Toś ten wužywaŕ njeeksistěrujo
 ERR_systemerr_ttl:ZMÓLKA: Systemowa zmólka
+ERR_systemerr_msg:Systemowa zmólka jo nastała. Pšosym daj ju <a href="mailto:{GVAR: ADMIN_EMAIL}">webmasteroju</a> k wěsći.
 email_title:E-mailowy formular
 finduser_title:Wužywarja pytaś
 help_title:Pomoc
@@ -654,21 +713,41 @@ error_title:Zmólkowy formular
 index_title:Witaj do foruma
 search_title:Za {VAR-HTML: srch} pytaś
 remail_emailsent:E-mail jo se wótpósłała
+remail_email:Halo,\n\nto jo zajmna tema wó "{VAR: data->subject}" we forumje {GVAR: FORUM_TITLE}, kótaruž coš snaź rady cytaś. Móžoš temu wiźeś na:  {FULL_ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nTwój pśijaśel,\n\n{VAR: usr->alias}
 poll_add_option:Opciju pśidaś:
+post_opt_html_on:<b>HTML</b> jo <b>zašaltowany</b>
+post_opt_fud_on:<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>BBcode</b> jo <b>zašaltowany</b></a>
 post_opt_images_on:<b>Wobraze</b> su <b>zašaltowane</b>
+post_opt_smilies_on:<a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank"><b>Smilieye</b> su <b>zašaltowane</b></a>
+post_opt_html_off:<b>HTML</b>-kod jo <b>wušaltowany</b>
+post_opt_fud_off:<b>BBcode</b> jo <b>wušaltowany</b>
+post_opt_images_off:<b>Wobraze</b> su <b>wušaltowane</b>
+post_opt_smilies_off:<b>Smilieye</b> su <b>wušaltowane</b>
 post_opt:Forumowe opcije:
 register_change_passwd:gronidło změniś
 register_change_login:wužywarske mě změniś
 approved_avatar_title:Twój swójski awatar jo se pśizwólił.
+approved_avatar_msg:Twój awatar jo se pśizwólił wot administratora. Měł se něnto na wšych twójich bokach ako awatar zjawiś. Jolic jen njewiźeš abo stary awatar wiźeš, jo bok nejskerjej w pufrowaku twójogo wobglědowaka. Wopytaj bok jaden raz abo dwójcy aktualizěrowaś. W nejwěcej padach se pufrowański problem pón rozwěžo.
 unapproved_avatar_title:Waš swójski awatar jo se wótpokazał.
+unapproved_avatar_msg:Administrator njejo pśizwólił twój awatar. Nejcesćejšej pśicynje stej, až twój awatar jo był pśewjeliki (datajowa wjelikosć a/abo wótměry) abo ma njesłušne wopśimjeśe. Jolic coš dalšne informacije wó tom dostaś, cogoždla twój awatar jo se wótpokazał, staj se z administratorom do zwiska.
 mvthread_request_move:wó pśesunjenje pšosyś
 move_request_reason:Cogodla cośo temu pśesunuś?
 mvthread_submit_req:Napšašowanje wótpósłaś
+thread_exchange:Temowa wuměna
+move_request_by:Wó pśesunjenje temy jo pšosył:
+move_reason:Pśicyna za pśesunjenje temy:
 thr_exch_accept:temu akceptěrowaś
 thr_exch_decline:temu wótpokazaś
 thr_exch_orig_forum:Spócetny forum:
 thr_exch_dest_forum:Celowy forum:
+thr_exch_no_threads:Žedne njepśizwólone temy.
+thr_exch_decl_reason:Pśicyna za wótpokazowanje pśesunjenja temy <b>{VAR: data->subject}</b> do foruma <b>{VAR: data->f2_name}</b>
 thr_exch_submit:Wótpósłaś
+exch_decline_ttl:Pśesunjenje temy {VAR: data->subject} do foruma {VAR: data->f2_name} jo se wótpokazało.
+ppost_original_msg:powěsć, kótaruž dalej pósrědnjaš abo na kótaruž wótegranjaš
+split_thread:Temu rozdźěliś
+groupmgr_no_user:Wužywaŕ z pśizjawjeńskim mjenim "{FUNC: char_fix(htmlspecialchars($gr_member))}" njeeksistěrujo
+groupmgr_already_exists:Wužywaŕ "{FUNC: char_fix(htmlspecialchars($gr_member))}" w toś tej kupce južo eksistěrujo.
 groupmgr_yes:Jo
 groupmgr_no:Ně
 groupmgr_action:Akcija
@@ -683,8 +762,10 @@ group_mgr_reged:Wšykne zregistrěrowane wužywarje
 show_show:Pokazaś:
 group_mgr:Kupkowy zastojnik
 group_mgr_edit_btn:Kupku wobźěłaś
+group_mgr_heading:Wuběrk kupkowego editora
 group_mgr_group:Kupka:
 permission_denied_title:Pšawo wótpokazane!
+permission_denied_msg:Twóje wužywaŕske pšawa śi njedowóluju akciju wuwjasć, kótaruž planujoš.
 p_READ:Cytaś
 p_POST:Powěsć
 p_REPLY:Wótegroniś
@@ -694,17 +775,25 @@ p_STICKY:Pśilipnjone powěsći
 p_POLL:Wótgłosowanja napóraś
 p_FILE:Dataje pśipowjesyś
 p_VOTE:Wótgłosowaś
+p_RATE:Temy/cłonki pógódnośiś
+p_SPLIT:Temy rozdźěliś
+p_LOCK:Temy zastajiś
 p_MOVE:Temy pśesunuś
 p_SML:Smileyje wužywaś
+p_IMG:Wobrazowe wobznamjenja wužywaś
 p_SEARCH:Móžo pytaś
 group_mgr_search:Wužywarja pytaś
+group_mgr_indicator:Tuchylu se <b>{VAR: grp->name}</b> wobźěłujo
 rate_worst:Nejšpatnjejšy
 rate_best:Nejlěpšy
+post_quote_msg:{VAR: msg->login} jo napisał dnja {TEMPLATE: make_report_date}
 post_quote:Citat:
 post_quote_selected:Wubrany tekst citěrowaś
 userinfo_referals:Nawabjone wužywarje:
 userinfo_referals_count:{VAR: referals} cłonkow
 pm_no_space_title:Žeden rum wušej!
+pm_no_space_msg:Twóje zarědniki za priwatne powěsći pśekšacuju dowólonu składowańsku wjelikosć <b>{GVAR: MAX_PMSG_FLDR_SIZE} bajtow</b>. Tuchylu wopśimuju powěsći z cełkowneju wjelikosću <b>{VAR: fldr_size} bajtow</b>.<br /><br /><span class="ErrorText">Wótwónoź někotare stare powěsći, aby rum lichy dał.</span>
+pm_space_indct_msg:Twóje zarědniki priwatnych powěsćow su {VAR: percent_full}% połne.
 th_expr_never:Nigda
 th_expr_one_hr:1 góźina
 th_expr_three_hr:3 góźiny
@@ -724,17 +813,22 @@ thread_mod_delete:Wulašowaś
 action_ip:IP
 action_latest_post:Slědna powěsć
 online_today_last_visit:Slědny woglěd
+online_today_update:Lisćinu wužywarjow se woglědaś, kótarež su byli źinsa we forumje.
 logedin_todays_visitors:Źinsajšne woglědarje
 logedin_latest_post:Slědna powěsć we forumje:
 register_show_avatar:Awatary pokazaś:
+register_show_avatar_desc:Zmóžnja śi awatary drugich wužywarjow schowaś, gaž se jich powěsći woglědujoš.
 drawmsg_view_rest_post:Wušk powěsći pokazaś
 post_re:Re:
+forumsel_goto_forum:Źi k forumoju:
 minimsg_thread_view:Temowy naglěd
 split_th_post_by:Powěsć wót:
 split_th_posted_on:Pósłany dnja:
 split_th_subject:Tema:
 split_th_new_thread_title:Titel noweje temy:
 split_th_forum:Forum:
+split_th_split_sel:Wubrane powěsći rozdźěliś
+split_th_split_unsel:Njewubrane powěsći rozdźěliś
 split_th_messages:Powěsći
 split_th_select:Wubraś
 report_report_post:Pśinosk k wěsći daś
@@ -743,10 +837,17 @@ quicklogin_password:Gronidło:
 quicklogin_use_cookies:Cookieje wužywaś?
 quicklogin_login_btn:Pśizjawiś
 quick_reply:Malsne wótegrono
+quick_reply_post:Spěšne wótegrono pósłaś
+quick_reply_preview:Pśeglěd spěšnego wótegrona pokazaś
+post_notification_desc:K wěsći daś, gaž něchten na toś tu powěsć wótegranja.
 post_all_ext_allowed:(njewobgranicowany)
 maximize_category:Kategoriju maksiměrowaś
 maximize_message:Powěsć maksiměrowaś
+no_view_perm:Njamaš trěbne pšawa, aby se toś tu temu woglědał.
+report_empty_report:Njamóžoš proznu powěźeńku wótpósłaś. Pšosym zapódaj pśicynu za twóju powěźeńku.
 report_already_reported_title:Južo k wěsći dany
+report_already_reported_msg:Toś ta powěsć jo se južo dała k wěsći a powěźeńka jo tuchylu w cakańskem rěźe moderatora.
+register_err_toomanyimages:Wopytujoš wěcej ako dowólonych {GVAR: FORUM_IMG_CNT_SIG} wobrazow w toś tej signaturje wužywaś.
 pmsg_next_msg:Pśiduca powěsć
 pmsg_prev_msg:Pjerwjejšna powěsć
 im_jabber:Jabber:
