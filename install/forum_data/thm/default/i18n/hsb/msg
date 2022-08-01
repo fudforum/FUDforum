@@ -854,7 +854,7 @@ report_already_reported_msg:Tuta powěsć bu hižo zdźělena a zdźělenka je t
 register_err_toomanyimages:Pospytuješ wjace hač dowolenych {GVAR: FORUM_IMG_CNT_SIG} wobrazow w tutej signaturje wužiwać.
 pmsg_next_msg:Přichodna powěsć
 pmsg_prev_msg:Předchadna powěsć
-post_proc_reveal_spoiler:Wjeselokažerja zapinyć
+post_proc_reveal_spoiler:Spoiler pokazać
 register_jabber:Wužiwarske mjeno Jabber:
 register_skype:Wužiwarske mjeno Skype:
 register_twitter:Wužiwarske mjeno Twitter:
@@ -865,7 +865,7 @@ im_skype:Skype:
 im_twitter:Twitter:
 forum_contact:Kontakt
 forum_home:Startowa strona
-post_cur_attached:tuchwili připowěsnjeny: {VAR: i} {PLURAL: i|dataja|dataji|dataje|datajow}
+post_cur_attached:tuchwilu připowěsnjeny: {VAR: i} {PLURAL: i|dataja|dataji|dataje|datajow}
 ignored_anon_post:{GVAR: ANON_NICK} so ignoruje
 ignored_user_post:Powěsć wot <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> so ignoruje
 smladd_close_window:wokno začinić
@@ -881,10 +881,10 @@ register_err_not_valid_img:Podaty URL njewobsahuje płaćiwy wobraz.
 pmsg_recepient:Přijimowar
 register_err_taken_alias:Alias, kotryž pospytuješ wužiwać, so hižo wot druheho čłona foruma wužiwa. Prošu wubjer druhi.
 register_alias:Alias:
-register_alias_desc:Jeli chceš, zo so přimjeno, kotryž so we forumje zwobraznjuje, wot přizjewjenskeho mjena rozeznawa, da zapodaj mjeno, kotrež ma so pokazać.
+register_alias_desc:Jeli chceš, zo so přimjeno, kotrež so we forumje pokazuje, wot přizjewjenskeho mjena rozeznawa, zapodaj mjeno, kotrež ma so pokazać.
 register_allow_pm_msg:Priwatne powěsće dowolić
 register_allow_pm_msg_desc:Druhim wužiwarjam dowolić, tebi priwatne powěsće w tutym forumje pósłać.
-postcheck_pm_disabled:Njemóžeš priwatnu powěsć wužiwarjej "{VAR-HTML: v}" pósłać, dokelž tuta wosoba priwatne powěsće njeakceptuje.
+postcheck_pm_disabled:Njemóžeš wužiwarjej "{VAR-HTML: v}" priwatnu powěsć pósłać, dokelž tuta wosoba priwatne powěsće njeakceptuje.
 polllist_vote:Wothłosować
 polllist_view_results:Wuslědki sej wobhladać
 polllist_name:Mjeno wothłosowanja
@@ -920,8 +920,8 @@ threadt_disabled_desc:Administrator je štomowy napohlad lisćiny temow znjemó�
 threadt_update:Přepytuje forum (štomowy napohlad) <a href="{TEMPLATE: threadt_update_lnk}">{VAR: frm->name}</a>
 mmod_delete_cofirm_ttl:Temu wobkrućić/Powěsć zničić
 spell_alts:žane alternatiwy
-insert_uploaded_image:Wobraz do powěsće zasunyć
-finduser_help:Pytawa awtomatisce přidawa  twojemu naprašowanju hwěžku * jako masku, <b>pytanje dźiwa na wulkopisanje</b>.<br />Na př., zo by wšěch wužiwarjow pytał, kotrychž wužiwarske mjeno započina so z pismikom 'a', zapodaj prosće 'a' do pytanskeho kašćika.
+insert_uploaded_image:Wobraz do powěsće zasadźić
+finduser_help:Pytawa awtomatisce přidawa  twojemu naprašowanju hwěžku * jako masku, <b>pytanje dźiwa na wulkopisanje</b>.<br />Na př., zo by wšěch wužiwarjow pytał, kotrychž wužiwarske mjeno so z pismikom 'a' započina, zapodaj prosće 'a' do pytanskeho kašćika.
 back_to_top:Wróćo k spočatkej
 pm_err_disabled_title:Priwatne powěsće znjemóžnjene
 pm_err_disabled_msg:Njemóžeš priwatne powěsće pósłać, doniž njezmóžnješ opciju 'Priwatne powěsće dowolić' w swojim profilu.
@@ -929,7 +929,7 @@ err_mod_acc_ttl:Njepřepruwowane konto
 err_mod_acc_msg:Administrator je rozsudźił, wšě konta do aktiwizowanja manuelnje pruwować. Doniž twoje konto njeje wot administratora wobkrućene, njemóžeš wšě móžnosće twojeho konta wužiwać.
 accounts_pending_approval:Konta, kotrež na schwalenje čakaja
 saved:Składowany
-register_err_time_limit:Limit jednoho registrowanja na {GVAR: REG_TIME_LIMIT} sekundow je so nětko docpěł. Prošu čakaj {PLURAL: reg_limit_reached|$1 sekundu|$1 sekundaj|$1 sekundy|$1 sekundow}, prjedy hač pospytuješ so hišće raz registrować.
+register_err_time_limit:Limit jednoho registrowanja na {GVAR: REG_TIME_LIMIT} sekundow je so nětko docpěł. Prošu čakaj {PLURAL: reg_limit_reached|$1 sekundu|$1 sekundźe|$1 sekundy|$1 sekundow}, prjedy hač pospytuješ so hišće raz registrować.
 register_err_avatardimtobig:Awatarowe wotměry <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> překročuja dowolene wotměry <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b> pikselow.
 buddy_offline:{VAR: r[2]} je tuchwilu offline
 buddy_online:{VAR: r[2]} je tuchwilu online

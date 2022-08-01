@@ -850,13 +850,20 @@ report_already_reported_msg:Toś ta powěsć jo se južo dała k wěsći a powě
 register_err_toomanyimages:Wopytujoš wěcej ako dowólonych {GVAR: FORUM_IMG_CNT_SIG} wobrazow w toś tej signaturje wužywaś.
 pmsg_next_msg:Pśiduca powěsć
 pmsg_prev_msg:Pjerwjejšna powěsć
+post_proc_reveal_spoiler:Spoiler pokazaś
+register_jabber:Wužywaŕske mě Jabber:
+register_skype:Skype:
+register_twitter:Wužywaŕske mě Twitter:
+register_google:Google Chat/IM:
 im_jabber:Jabber:
 im_google:Google Talk:
 im_skype:Skype:
 im_twitter:Twitter:
 forum_contact:Kontakt
 forum_home:Startowy bok
+post_cur_attached:tuchylu pśipowjesony: {VAR: i} {PLURAL: i|dataja|dataji|dataje|datajow}
 ignored_anon_post:{GVAR: ANON_NICK} se ignorěrujo
+ignored_user_post:Powěsć wót <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> se ignorěrujo
 smladd_close_window:wokno zacyniś
 post_list_smilies:wšykne smileyje nalicyś
 p_VISIBLE:Widobny
@@ -868,9 +875,12 @@ imsg_err_message_msg:Powěsć, kótaraž cośo se woglědaś, njeeksistěrujo.
 poll_edit:Wobźěłaś
 register_err_not_valid_img:Pódany URL njewopśimujo płaśiwy wobraz.
 pmsg_recepient:Dostawaŕ
+register_err_taken_alias:Alias, kótaryž wopytujoš wužywaś, se južo wót drugego cłonka foruma wužywa. Pšosym wubjeŕ drugi.
 register_alias:Alias:
+register_alias_desc:Jolic coš, až se pśimě, kótarež se we forumje pokazujo, wót pśizjawjeńskego mjenja rozeznawa, zapódaj mě, kótarež ma se pokazaś.
 register_allow_pm_msg:Priwatne powěsći dowóliś:
 register_allow_pm_msg_desc:Drugim wužywarjam dowóliś śi prwiatne powěsći w toś tom forumje pósłaś.
+postcheck_pm_disabled:Njamóžoš wužywarjeju "{VAR-HTML: v}" priwatnu powěsć pósłaś, dokulaž toś ta wósoba priwatne powěsći njeakceptěrujo.
 polllist_vote:Wótgłosowaś
 polllist_view_results:Wuslědki pokazaś
 polllist_name:Mě wótgłosowanja
@@ -878,6 +888,7 @@ polllist_date:Napórany:
 polllist_owner:Napórany wót
 polllist_votes:Głose dogromady
 polllist_action:Akcija
+polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">K dispoziciji stojece wótgłosowanja pśeglědowaś</a>
 userinfo_polls:Wótglosowanja:
 show_pollist:Wótgłosowanja
 search_and:A
@@ -891,13 +902,31 @@ search_attach:Dodanki:
 search_attach_all:Z abo bźez
 search_attach_with:Z dodankami
 post_proceed:Pókšacowaś
+post_moderated_forum:Sy spisał powěsć w moderěrowanem forumje. Twója powěsć njebuźo widobna za druge, daniž njejo wót jadnogo z moderatorow abo administratorow foruma pśizwólona.
+post_moderated_forum_ttl:Powěźeńka moderěrowanego foruma
+buddy_list_bday:Źinsa {VAR: r[2]} buźo {VAR: age} lět
+email_warning_msg:Jolic změnijoš swóju aktualnu e-mailowu adresu, twójo konto buźo se ako njewobkšuśone markěrowaś, daniž ju pśez e-mail njewobkšuśijoš.
+register_show_im:IM-indikatory pokazaś:
+register_show_im_desc:Lěc se maju IM-indikatory awtora pódla jich powěsći pokazaś abo nic.
 unread_message:Njecytana powěsć
 read_message:Pśecytana powěsć
 threadt_more:&lt;wěcej&gt;
+threadt_disabled_ttl:Bomowy naglěd lisćiny temow jo se znjemóžnił.
+threadt_disabled_desc:Administrator jo znjemóžnił bomowy naglěd lisćiny temow. Pšosym wužyj płony naglěd město togo.
+threadt_update:Pśepytujo forum (bomowy naglěd) <a href="{TEMPLATE: threadt_update_lnk}">{VAR: frm->name}</a>
+mmod_delete_cofirm_ttl:Temu wobkšuśiś/Powěsć lašowaś
 spell_alts:žedne alternatiwy
+insert_uploaded_image:Wobraz do powěsći zasajźiś
+finduser_help:Pytnica awtomatiski pśidawa  twójomu napšašowanjeju gwězdku * ako masku, <b>pytanje źiwa na wjelikopisanje</b>.<br />Na pś., aby wšykne wužywarje pytał, kótarychž wužywaŕske mě z pismikom 'a' zachopina, zapódaj jadnorje 'a' do pytańskego kašćika.
 back_to_top:Slědk do zachopjeńka
+pm_err_disabled_title:Priwatne powěsći znjemóžnjone
+pm_err_disabled_msg:Njamóžoš priwatne powěsći pósłaś, daniž njazmóžnijoš opciju 'Priwatne powěsći dowóliś' w swójom profilu.
 err_mod_acc_ttl:Njepśeglědane konto
+err_mod_acc_msg:Administrator jo rozsuźił, wšykne konta do aktiwěrowanja manuelnje pśeglědowaś. Až twójo konto njejo wobkšuśone wót administratora, njamóžoš wšykne móžnosći twójogo konta wužywaś.
+accounts_pending_approval:Konta, kótarež na pśizwólenje cakaju
 saved:Skłaźony
+register_err_time_limit:Limit jadnogo registrěrowanja na {GVAR: REG_TIME_LIMIT} sekundow jo se něnto dojśpił. Pšosym cakaj {PLURAL: reg_limit_reached|$1 sekundu|$1 sekunźe|$1 sekundy|$1 sekundow}, nježli až wopytujoš se hyšći raz registrěrowaś.
+register_err_avatardimtobig:Awatarowe wótměry <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> dowólone wótměry <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b> pikselow pśekšacaju .
 buddy_offline:{VAR: r[2]} jo tuchylu offline
 buddy_online:{VAR: r[2]} jo tuchylu online
 sml_no_smilies:Žedne smileyje k dispoziciji.
