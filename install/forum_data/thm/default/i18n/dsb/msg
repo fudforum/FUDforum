@@ -931,27 +931,44 @@ buddy_offline:{VAR: r[2]} jo tuchylu offline
 buddy_online:{VAR: r[2]} jo tuchylu online
 sml_no_smilies:Žedne smileyje k dispoziciji.
 login_unapproved_account_ttl:Njewobkšuśone konto
+login_unapproved_account_msg:Administrator foruma jo rozsuźił, kužde nowe konto do aktiwěrowanja manuelnje wobkšuśiś. Twójo konto hyšći njejo wobkšuśone, togodla njezmějoš pśistup na někotare funkcije, kótarež su wobkšuśonym cłonkam k dispoziciji.
+remove_from_buddy_list:z lisćiny pśijaśelow wótwónoźeś
 iemail_msg_author:<b>Awtor:</b> {VAR: obj->alias}
 iemail_msg_subject:<b>Tema:</b> {VAR: obj->subject}
 iemail_msg_date:<b>Datum:</b> {TEMPLATE: dmsg_post_date}
 iemail_msg_reply:Wótegrono
 iemail_msg_quote:Citat
+iemail_msg_view:Temu/Powěsć se woglědaś
 threadt_sticky:pśilipnjony
 threadt_announce:Pśipowěźenje
+reported_no_messages:Žedne powěsći k wěsći dane.
+poll_no_polls:Žedne pśistupne wótgłosowanja.
+no_unread_messages:Njejsu njecytane powěsći, kótarež twójomu napšašowanjeju wótpowěduju.
 thread_mark_all_read:Wšykne njepśecytane powěsći foruma ako pśecytane markěrowaś
 thread_mark_all_read_desc:Wšykne njepśecytane powěsći w toś tom forumje budu se ako pśecytane markěrowaś
 private_no_messages:W toś tom zarědniku žedne powěsći njejsu.
 register_email_change_subject:Wobkšuśenje změnjoneje e-mailoweje adrese
+register_email_change_msg:Wobkšuś pšosym swójo nowe e-mailowe konto "{VAR: uent->email}", kótarež twóje stare e-mailowe konto "{VAR: old_email}" narownajo. Źi za to k slědujucemu URL:\n{FULL_ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nGaž sy wobkšuśił swóju nowu e-mailowu adresu, buźo se twój forum znowego aktiwěrowaś.
 iemail_thread_unsub:Toś tu temu wótskazaś
 iemail_forum_unsub:Toś ten forum wótskazaś
 primary_group_prefix:Głowna kupka za forum:
+group_resources:Toś ta kupka pšrawa slědujucych forumow kontrolěrujo
 register_admin_newuser_title:Nowy wužywaŕ jo se zregistrěrował a jogo konto caka na wobkšuśenje
+register_admin_newuser_msg:Nowy wužywaŕ ({VAR: uent->login}) jo se rowno zregistrěrował, a dokulaž kontowe wobkšuśenje jo zmóžnjone, njebuźo jogo konto aktiwne, daniž se wót tebje abo drugego forumowego administratora njewobkšuśijo. Aby konto pśeglědował, źi pšosym k:  {BASE}adm/admuserapr.php\n\nTo jo awtomatizěrowany proces. Njewótegroń na toś tu powěsć.\nJolic coś pśichodne e-mailowe zdźělenja nowych wužywaŕskich registrěrowanjow wušaltowaś, móžoš to pśez administratowy meni cyniś. Změń za to nastajenje "New Account Notification".
 post_mod_msg_notify_title:Nowa powěźeńka we forumje "{VAR: frm->name}", kótaraž caka na wobkšuśenje
+post_mod_msg_notify_msg:Nowa powěsć z nadpismom "{VAR: msg_post->subject}" jo se rowno pósłała do foruma, kótaryž moderěrujoš. Aby toś tu powěsć pśeglědował, źi k: {FULL_ROOT}?t=modque#{VAR: msg_post->id}\n\nTo jo awtomatizěrowany proces. Njewótegroń na powěsć.
+thread_printable_pdf:Śišćajobny PDF generěrowaś
+thread_syndicate:Boki toś togo foruma drugim bokam k dispoziciji stajiś (XML)
 reg_conf_title:Wobkšuśenje registrěrowanja
+reg_conf_email:<b>E-mailowe wobkšuśenje</b><br />Mejlka jo se śi pósłała, kótaraž wósebny URL wopśimujo, kótaryž musyš zawołaś, nježli až se konto aktiwěrujo. Jolic njedostanjoš toś tu e-mail w běgu pśichodnych pór minutow, pśizjaw se do swójogo konta a pśeznań se, až e-mailowa adresa, kótaruž sy zapódał, jo pšawa. Gaž swójo konto wobkšuśijoš, změjoš pśistup k forumowym funkcijam, kótarež su jano wobkšuśonym, zregistrěrowanym wužywarjam k dispoziciji.
+reg_conf_account:<b>Kontowe wobkšuśenje</b><br />Nježli až se twójo konto aktiwěrujo, musy se wót administratora pśizwóliś. Gaž to jo se stało, dostanjoš e-mail, kótaraž śi informěrujo, až twójo konto jo wobkšuśone. Mjaztym móžoš se pśi swójom konśe pśizjawiś, njezmějoš pak žeden pśistup k wěstym funkcijam.
+forum_banned_user:Twóje pjerwjejšne akcije su wjadli k tomu, až sy na pśecej z toś togo foruma wugnany. Na zasejwiźenje.
+mnav_description:Nawigator powěsćow
 mnav_date_limit:Datumowy wobcerk:
 mnav_forum_limit:Jano pytaś w:
 mnav_all_forums:Wšykne forumy pśepytaś
 mnav_submit:Pytanje zachopiś
+mnav_no_range:Musyš płaśiwy datumowy wobceŕk zapódaś. Toś ta gódnota móžo decimalny dypk wopśimowaś, (0.12), musy pak wětša ako nul byś.
 mnav_invalid_unit:Musyš płaśiwu casowu jadnotku pódaś.
 mnav_posted_by:Pósłany wót:
 mnav_more:Wěcej &raquo;&raquo;
