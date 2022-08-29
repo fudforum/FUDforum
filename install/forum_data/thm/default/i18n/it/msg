@@ -337,7 +337,7 @@ register_custom_avatar_upload:File dell'avatar personalizzato:
 register_register:Registrati
 register_required:Informazioni necessarie
 register_required_desc:Tutti i campi sono obbligatori.
-register_optional:Informazioni aggiuntive
+register_optional:Informazioni facoltative
 register_optional_desc:Tutte le informazioni riportate di seguito saranno visibili a tutti gli utenti registrati del forum.
 register_location:Località:
 register_occupation:Occupazione:

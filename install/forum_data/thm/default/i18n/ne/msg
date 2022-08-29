@@ -160,7 +160,7 @@ usrinfo_last_post:पछिल्लो सन्देश:
 view_results:नतिजाहरू हेर्नुहोस्
 views:अवलोकनहरू
 vote:{PLURAL: frm->n_rating|$1 भोट|$1 भोटहरू}
-vote_button:भोट गर्नुहोस
+vote_button:मतदान गर्नुहोस्
 vote_for_thread:मत
 reported_reason:कारण:
 modque_delete:हटाउने
@@ -231,7 +231,7 @@ pmuserloc_login:प्रवेश:
 pmuserloc_submit:बुझाउने
 pmuserloc_user:प्रयोगकर्ता
 pmuserloc_no_result:शून्य परिणाम
-register_uploaded:तस्विर उद्भरण गर्नुहोस
+register_uploaded:तस्विर उद्भरण गर्नुहोस्
 register_login:प्रवेश:
 register_password:प्रवेशशव्द:
 register_conf_pass:प्रवेश शब्द सुनिश्चित गर्नुहोस्:
