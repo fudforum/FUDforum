@@ -302,6 +302,7 @@ coppa_fax_remail:इमेल
 coppa_fax_name:नाम
 login_login:प्रवेश:
 login_login_btn:प्रवेश
+rpasswd_change_pass:प्रवेश शब्द परिवर्तन गर्नुहाेस्
 rpasswd_new_pass:नयाँ पासवर्ड:
 rpasswd_conf_pass:पासवर्ड निश्चित गर्नुहोस्:
 login_passwd:पासवर्ड:
@@ -321,6 +322,7 @@ email_body:मूख्य भाग:
 email_submit:इमेल
 ppost_to:लाई:
 poll_hours:घण्टाहरू
+register_change_passwd:प्रवेश शब्द परिवर्तन गर्नुहाेस्
 th_expr_one_hr:घण्टा
 th_expr_three_hr:३ घण्टा
 th_expr_eight_hr:८ घण्टा
