@@ -218,7 +218,7 @@ vote:{PLURAL: frm->n_rating|$1 Voto|$1 Votos}
 vote_button:Voto
 vote_for_thread:Voto
 was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> foi movido para <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> pelo moderador.
-welcome_message:Bem vindo <b>{VAR: usr->alias}</b>, a sua ultima visita foi em {TEMPLATE: welcome_message_date}
+welcome_message:Bem-vindo <b>{VAR: usr->alias}</b>, a sua última visita foi em {TEMPLATE: welcome_message_date}
 what_ppl_doing:Atividade do utilizador
 reported_del_report:Apagar relatório
 reported_reason:Motivo:
@@ -829,7 +829,7 @@ th_expr_four_month:4 Mêses
 th_expr_one_year:1 Ano
 thread_mod_delete:Apagar
 action_ip:IP
-action_latest_post:Ultima mensagem colocada
+action_latest_post:Última mensagem
 online_today_last_visit:Ultimo Visitado
 online_today_update:Ver a lista de pessoas que estiveram no forum hoje.
 logedin_todays_visitors:Visitantes de Hoje
@@ -843,7 +843,7 @@ minimsg_thread_view:Vista por Tópico
 split_th_post_by:Colocado por:
 split_th_posted_on:Colocado em:
 split_th_subject:Assunto:
-split_th_new_thread_title:Novo titulo do Tópico:
+split_th_new_thread_title:Título do tópico novo:
 split_th_forum:Fórum:
 split_th_split_sel:Dividir mensagens selecionadas
 split_th_split_unsel:Dividir mensagens não selecionadas
