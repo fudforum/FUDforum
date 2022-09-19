@@ -167,6 +167,7 @@ unanswered_posts:Mesacê bêcewabi
 unlock_thread:Kılitê mewzuyi ake
 unread_posts:Mesacê nêwaniyayeyi
 unread_posts_desc:Mesacanê nêwaniyayeyan pêro bımocne
+unsubscribe:Aboneyiye ra veciye
 updated_on:Wextê newekeredışi:
 user:Karber
 user_counter:<b>{VAR: st_obj->user_count}</b> karberê qeydıni esti.
