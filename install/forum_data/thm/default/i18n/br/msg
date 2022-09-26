@@ -718,7 +718,7 @@ error_title:Furmskrid fazi
 index_title:Degemer mat er forom
 search_title:Klask {VAR-HTML: srch}
 remail_emailsent:Kaset eo bet ar postel
-remail_email:Demat,\n\nBez' ez eus ur gaoz dedennus diwar-benn "{VAR: data->subject}" er forom {GVAR: FORUM_TITLE}. Gallout a rafec'h kaout c'hoant d'he lenn. Gallout a rit gwelet ar gaoz amañ :\n  {FULL_ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nHo mignon,\n\n{VAR: usr->alias}
+remail_email:Demat,\n\nUr gaoz dedennus diwar-benn "{VAR: data->subject}" zo er forom {GVAR: FORUM_TITLE}. Gallout a rafec'h kaout c'hoant d'he lenn. Gallout a rit gwelet ar gaoz amañ :\n  {FULL_ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nHo mignon,\n\n{VAR: usr->alias}
 poll_add_option:Ouzhpennañ un dibarzh :
 post_opt_html_on:<b>GWEREDEKAET</b> eo ar c'hod <b>HTML</b>
 post_opt_fud_on:<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>GWEREDEKAET</b> eo <b>BBcode</b></a>
