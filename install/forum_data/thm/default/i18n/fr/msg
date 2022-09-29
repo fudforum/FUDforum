@@ -352,7 +352,7 @@ register_occupation:Occupation :
 register_interests:Centres d'intérêt :
 register_image:Image :
 register_icq:Identifiant ICQ :
-register_facebook:ID Facebook :
+register_facebook:Identifiant Facebook :
 register_yahoo:Yahoo Messenger :
 register_homepage:Site web personnel :
 register_bday:Date de naissance :
