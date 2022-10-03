@@ -318,7 +318,7 @@ register_login_taken:Bereits vergeben
 register_password:Passwort:
 register_password_desc:Passwort für ihr Benutzerkonto. Bei Passwörtern wird zwischen Groß- und Kleinschreibung unterschieden und sie müssen mindestens 6 Zeichen lang sein.
 register_conf_pass:Passwort bestätigen:
-register_conf_pass_desc:Bitte geben Sie ihr Passwort erneut ein.
+register_conf_pass_desc:Bitte geben Sie Ihr Passwort erneut ein.
 register_email_desc:Ihre E0-Mail-Adresse. Sie können unten im Einstellungsabschnitt auswählen, dass sie versteckt werden soll.
 register_name:Name:
 register_name_desc:Ihr bürgerlicher Name.
