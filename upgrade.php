@@ -366,7 +366,7 @@ function upgrade_decompress_archive($data_root, $web_root)
 			}
 			fwrite($fp, $file);
 			fclose($fp);
-			@chmod($file, 0644);
+			@chmod($path, 0644);
 		} else {
 			if (!__mkdir(preg_replace('!/+$!', '', $path))) {
 				seterr('failed creating "'. $path .'" directory');
