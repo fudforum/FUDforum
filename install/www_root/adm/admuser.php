@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2019 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2022 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -313,8 +313,8 @@ administration permissions to the forum. This individual will be able to do anyt
 		$_GET['usr_login'] = '*';	// Default search.
 		$_GET['usr_email'] = '';
 	} else {
-		$_GET['usr_login'] = filter_var($_GET['usr_login'], FILTER_SANITIZE_STRING);	// Sanitize input.
-		$_GET['usr_email'] = filter_var($_GET['usr_email'], FILTER_SANITIZE_STRING);
+		$_GET['usr_login'] = filter_var($_GET['usr_login'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);	// Sanitize input.
+		$_GET['usr_email'] = filter_var($_GET['usr_email'], FILTER_SANITIZE_EMAIL);
 	}
 } else {
 	// We are looking at a spesific record. Empty variables & collapse search box.
