@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2021 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2022 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -38,7 +38,7 @@ function print_if_avail($descr, $value, $no_html=1)
 
 	// Approve selected accounts.
 	if (isset($_POST['approve_selected'], $_POST['account'])) {
-		while (list($key, $account) = @each($_POST['account'])) {
+		foreach ($_POST['account'] as $key => $account) {
 			if (($r = db_sab('SELECT email, login FROM '. $DBHOST_TBL_PREFIX .'users WHERE id='. (int)$account))) {
 				fud_use('adm_acc.inc');
 				usr_approve((int)$account);
@@ -52,7 +52,7 @@ function print_if_avail($descr, $value, $no_html=1)
 	}
 	// Delete selected accounts.
 	if (isset($_POST['delete_selected'], $_POST['account'])) {
-		while (list($key, $account) = @each($_POST['account'])) {
+		foreach ($_POST['account'] as $key => $account) {
 			if (($r = db_sab('SELECT email, login, users_opt FROM '. $DBHOST_TBL_PREFIX .'users WHERE id='. (int)$account))) {
 				// We should never delete Anonymous, admin or spider users.
 				if ($account == 1 || ($r->users_opt & 1048576) || ($r->users_opt & 1073741824)) {

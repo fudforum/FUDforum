@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2022 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -124,7 +124,7 @@ function undeploy_files($plugin)
 
 	// Activate a group of plugins.
 	if (isset($_POST['activate_plugins'], $_POST['plugins'])) {
-		while (list($key, $plugin) = @each($_POST['plugins'])) {
+		foreach ($_POST['plugins'] as $key => $plugin) {
 			list($ok, $msg) = fud_plugin::activate($plugin);
 			if ($ok) {
 				echo $msg ? successify($msg) : successify('Plugin '. $plugin .' was successfully installed and activated.');
