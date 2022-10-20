@@ -495,7 +495,7 @@ rpasswd_cur_pass:Mot de passe actuel :
 rpasswd_new_pass:Nouveau mot de passe :
 rpasswd_conf_pass:Confirmez le mot de passe :
 ruser_title:Formulaire de changement de nom d’utilisateur
-ruser_change_user:Modifier votre nom d’utilisateur sur le forum
+ruser_change_user:Modifier votre nom d’utilisateur du forum
 ruser_cur_login:Nom d’utilisateur actuel :
 ruser_new_login:Nouveau nom d’utilisateur :
 ruser_cur_pass:Mot de passe actuel :
@@ -935,7 +935,7 @@ threadt_more:&lt;plus&gt;
 threadt_disabled_ttl:La vue arborescente de la liste des fils est désactivée.
 threadt_disabled_desc:L’administrateur a désactivé la vue arborescente de la liste des fils. Veuillez utiliser la vue plane à la place.
 threadt_update:Parcourt le forum (vue arborescente) <a href="{TEMPLATE: threadt_update_lnk}">{VAR: frm->name}</a>
-mmod_delete_cofirm_ttl:Confirmer la suppression de sujet/message
+mmod_delete_cofirm_ttl:Confirmer la suppression du sujet ou message
 spell_alts:aucune alternative
 insert_uploaded_image:Insérer l’image dans le corps du message
 finduser_help:Le moteur de recherche ajoutera automatiquement un masque « * » à votre requête. Par exemple, pour rechercher tous les utilisateurs dont le nom commence par un « a », entrez simplement « a » dans la zone de recherche.
