@@ -54,6 +54,7 @@ homepage:Namų puslapis:
 icq_control_panel:ICQ-Online žinutę pultas
 icq_message_form:ICQ Message Message Form:
 ignore_user:ignoruoti visus šio nario pranešimus
+im_facebook:Facebook:
 im_yahoo:"Yahoo Messenger":
 image:Paveiksliukas:
 index_forum:Forumas
@@ -341,6 +342,7 @@ register_occupation:Užsiėmimas:
 register_interests:Pomėgiai:
 register_image:Paveikslėlis:
 register_icq:ICQ
+register_facebook:Facebook ID:
 register_yahoo:"Yahoo Messenger":
 register_homepage:Namų puslapio adresas:
 register_bday:Gimimo data:
@@ -502,6 +504,7 @@ search_subject_only:Tik pranešimų temose
 search_forum:Forumas
 search_posted_on:Sukurta
 search_no_results:Nerasta
+search_spell_suggestions:Ar turite omenyje:
 search_all_forums:Ieškoti visuose forumuose
 search_in_forum:Ieškoti forume:
 search_forum_search:Paieška forumuose
@@ -901,13 +904,11 @@ userinfo_polls:Apklausos:
 show_pollist:Apklausos
 search_and:IR
 search_or:ARBA
-# Fuzzy
-search_desc_order:Pirma naujesnius
-# Fuzzy
-search_asc_order:Pirma senesnius
+search_desc_order:Pirmiau naujesni
+search_asc_order:Pirmiau senesni
+search_relevance_order:Aktualumas
 search_logic:Paieškos loginė sąlyga:
-# Fuzzy
-search_sorting:Rodyti pagal datą:
+search_sorting:Rūšiuoti pagal:
 search_attach:Priedai:
 search_attach_all:Su ar be
 search_attach_with:Su priedais
@@ -964,8 +965,7 @@ iemail_forum_unsub:Nebeprenumeruoti šio forumo
 primary_group_prefix:Pagrindinė grupė forumui:
 group_resources:Ši grupė kontroliuoja šių forumų teises
 register_admin_newuser_title:Naujas vartotojas užsiregistravo ir jų sąskaita laukia patvirtinimo
-# Fuzzy
-register_admin_newuser_msg:Naujas vartotojas ({VAR: uent->login}) ką tik užsiregistravo, ir kol sąskaitos patvirtinimas yra įjungtas, jų sąskaita nebus aktyvi iki kol ji bus patvirtinta jūsų ar kito forumo administratoriaus. Kad peržiūrėtumėte sąskaita eikite į: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nTai automatinis procesas. Neatsakinėkite į šia žinutę.\nJei norite išjungti ateities naujų vartotojų registracijos el. laiškus, jūs galite tai padaryti eidami į administratoriaus valdymo pultą. Ir pakeisti "Naujų Sąskaitų Pranešimo" nustatymą.
+register_admin_newuser_msg:Naujas vartotojas ({VAR: uent->login}) ką tik užsiregistravo, ir kadangi paskyros patvirtinimas yra įjungtas, vartotojo paskyra nebus aktyvi iki kol ji bus patvirtinta jūsų ar kito forumo administratoriaus. Kad peržiūrėtumėte paskyrą eikite į: {BASE}adm/admuserapr.php\n\nTai automatinis procesas. Neatsakinėkite į šia žinutę.\nJei norite išjungti ateities naujų vartotojų registracijos el. laiškus, jūs galite tai padaryti administratoriaus valdymo pulte. Pakeiskite „Naujų Paskyrų Pranešimo" nustatymą.
 post_mod_msg_notify_title:Naujas pranešimas forume "{VAR: frm->name}  laukia patvirtinimo
 post_mod_msg_notify_msg:Naujas pranešimas pavadinimu "{VAR: msg_post->subject}" buvo ką tik parašytas forume kurį jus moderuojate. Norėdami peržiūrėtu ši pranešimą eikite į: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nTai automatinis procesas. Neatsakykite į šia žinutę.
 thread_printable_pdf:Generuoti PDF spausdinimui
@@ -1121,8 +1121,7 @@ move_msg_th_expl:Nurodykite paskirties temą (gali būti kituose forumuose) ID.
 captcha_img_alt:Captcha patikrinimas: jums reikia atpažinti tekstą paveikslėlije.
 captcha_img_help:Nėra nulio ar vieno šiame vaizde.
 powered-by:Pagal: FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:Autorinės teisės &copy;2001-2021 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Autorinės teisės &copy;2001-2022 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Kodas
 code_select_all:Pasirinkti visus
 code_show_hide:Rodyti / slėpti
