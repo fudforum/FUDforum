@@ -1,7 +1,7 @@
 #!/usr/bin/php -q
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2022 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -35,7 +35,7 @@
 	switch ($action) {
 		case 'backup':
 			$acp  = 'admdump.php';
-			$args = $GLOBALS['TMP'] .'FUDforum_'. strftime('%d_%m_%Y_%I_%M', __request_timestamp__) .'.fud';
+			$args = $GLOBALS['TMP'] .'FUDforum_'. date('Y_m_d_H_i', __request_timestamp__) .'.fud';
 			if (extension_loaded('zlib')) {
 				$args .= '.gz compress';
 			}

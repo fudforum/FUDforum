@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2022 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -276,7 +276,7 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir, $p=0)
 	} else {
 		$gz = extension_loaded('zlib');
 		if (!isset($path_error)) {
-			$path = $TMP .'FUDforum_'. strftime('%d_%m_%Y_%I_%M', __request_timestamp__) .'.fud';
+			$path = $TMP .'FUDforum_'. date('Y_m_d_H_i', __request_timestamp__) .'.fud';
 			if ($gz) {
 				$path .= '.gz';
 				$compress = ' checked="checked"';

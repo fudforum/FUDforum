@@ -1,7 +1,7 @@
 #!/usr/bin/php -q
 <?php
 /**
-* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2022 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -223,7 +223,7 @@ function sig_handler($signo)
 			$user = q_singleval('SELECT alias FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'users WHERE id = (SELECT MAX(id) FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'users)');
 			$subj = q_singleval('SELECT subject FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'msg WHERE id = (SELECT MAX(id) FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'msg)');
 			send_command('PRIVMSG '. $parts[2] ." :There are {$stat->online_users_reg} members, {$stat->online_users_hidden} invisible members and {$stat->online_users_anon} guests visiting the board.");
-			send_command('PRIVMSG '. $parts[2] ." :Most users ever online was {$stat->most_online} on ". strftime('%a, %d %B %Y %H:%M', $stat->most_online_time));
+			send_command('PRIVMSG '. $parts[2] ." :Most users ever online was {$stat->most_online} on ". date('r', $stat->most_online_time));
 			send_command('PRIVMSG '. $parts[2] ." :We have {$stat->user_count} registered users.");
 			send_command('PRIVMSG '. $parts[2] ." :The newest registered user is {$user}");
 			send_command('PRIVMSG '. $parts[2] ." :Last message on the forum: {$subj}");

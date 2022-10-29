@@ -1,6 +1,6 @@
 <?php
 /***************************************************************************
-* copyright            : (C) 2001-2014 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2022 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -289,7 +289,7 @@ function target_add_user($user)
 
 	// Birthday calculations.
 	if (!empty($user['birthday'])) {
-		$birthday = strftime('%m%d%Y', $user['birthday']);
+		$birthday = date('mdY', $user['birthday']);
 	} else {
 		$birthday = '';
 	}
