@@ -858,12 +858,12 @@ pmsg_prev_msg:Претходна порака
 post_proc_reveal_spoiler:Прикажи скриен текст
 register_jabber:Име на Jabber:
 register_skype:Име на Skype:
-register_twitter:Прекар на Twitter:
+register_twitter:Прекар на Твитер:
 register_google:Google Chat/IM прекар:
 im_jabber:Jabber:
 im_google:Google Talk:
 im_skype:Skype:
-im_twitter:Twitter:
+im_twitter:Твитер:
 forum_contact:Контакт
 forum_home:Почетна
 post_cur_attached:моментално приложено: {VAR: i} {PLURAL: i|податотека|податотеки}

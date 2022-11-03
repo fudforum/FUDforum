@@ -316,14 +316,18 @@ remail_required:आवश्यक
 remail_subject:विषय:
 remail_message:सन्देश:
 remail_done:सम्पन्न
+mklist_delete:मेट्ने
 email_to:लाई:
 email_pg_title:इमेल
 email_subject:विषय:
 email_body:मूख्य भाग:
 email_submit:इमेल
 ppost_to:लाई:
+poll_delete:मेट्ने
 poll_hours:घण्टाहरू
 register_change_passwd:प्रवेश शब्द परिवर्तन गर्नुहाेस्
+groupmgr_delete:मेट्ने
+p_DEL:मेट्ने
 th_expr_one_hr:घण्टा
 th_expr_three_hr:३ घण्टा
 th_expr_eight_hr:८ घण्टा
@@ -355,6 +359,10 @@ search_asc_order:पुराना पहिला
 search_relevance_order:प्रासङ्गिकता
 search_logic:तर्क खाेज्नुहाेस्
 search_sorting:अनुसार क्रमबद्ध...
+findu_delete:मेट्ने
 ip_search:खोज
 mmd_abort_move:रद्द
+rating_delete:मेट्ने
 tabs_notifications:सूचनाहरू
+btn_delete:मेट्ने
+karma_delete:मेट्ने
