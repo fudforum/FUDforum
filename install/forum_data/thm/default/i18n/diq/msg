@@ -550,6 +550,7 @@ im_twitter:Twitter:
 forum_contact:İrtıbat
 forum_home:Keye
 p_VISIBLE:Aseno
+help_back_to_top:peyser şo serêniye
 poll_edit:Bıvurne
 polllist_name:Namey Anketi
 polllist_votes:Heme Reyi
@@ -564,6 +565,7 @@ search_attach_with:Ebe gaçıkan
 unread_message:Mesacê nêwaniyayeyi
 read_message:Mesaci bıwane
 threadt_more:&lt;zêde&gt;
+back_to_top:Peyser şo serêniye
 saved:Qeyd bi
 iemail_msg_author:<b>Nuskar:</b> {VAR: obj->alias}
 iemail_msg_subject:<b>Mewzu:</b> {VAR: obj->subject}
