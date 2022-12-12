@@ -51,6 +51,7 @@ homepage:Páxina de inicio:
 icq_control_panel:Panel ICQ de mensaxes en liña
 icq_message_form:Formulario de mensaxe ICQ:
 ignore_user:ignorar todas as mensaxes deste usuario
+im_facebook:Facebook:
 im_yahoo:Yahoo Messenger:
 image:Imaxe:
 index_forum:Foro
@@ -208,7 +209,7 @@ vote_button:Votar
 vote_for_thread:Voto
 was_moved_msg:O moderedor moveu <a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> a <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a>
 welcome_message:Benvido <b>{VAR: usr->alias}</b>, a túa última visita foi o {TEMPLATE: welcome_message_date}
-what_ppl_doing:Actividade de usuario
+what_ppl_doing:Actividade do usuario
 reported_del_report:Eliminar un informe
 reported_reason:Motivo:
 reported_on:O:
@@ -241,8 +242,7 @@ pmsg_forwarded:reenviada
 pmsg_subject:Asunto
 pmsg_author:Autor
 pmsg_time:Hora
-# Fuzzy
-pmsg_selected:Seleccionada
+pmsg_selected:Seleccionar
 pmsg_delete:Borrar
 cur_ppage_pm:Mensaxes privadas
 writing_pm:Escribindo unha mensaxe privada
@@ -311,12 +311,12 @@ register_uploaded:Cargar un avatar
 register_login:Nome de usuario:
 register_login_desc:O nome co que quere conectarse e ser coñecido neste sitio.
 register_login_available:Dispoñible
-register_login_taken:Xa ocupado
+register_login_taken:Xa está collido
 register_password:Contrasinal:
-register_password_desc:Contrasinal para a súa conta. Os contrasinais son sensibles ás maiúsculas e deben ter polo menos 6 caracteres de lonxitude.
+register_password_desc:Contrasinal para a súa conta. Os contrasinais distinguen entre maiúsculas e minúsculas e deben ter polo menos 6 caracteres de lonxitude.
 register_conf_pass:Confirmar o contrasinal:
-register_conf_pass_desc:Por favor introduza o seu contrasinal de novo.
-register_email_desc:A súa dirección de correo electrónico. Pode escoller ocultala na sección de preferencias.
+register_conf_pass_desc:Por favor, introduza o seu contrasinal de novo.
+register_email_desc:O seu enderezo de correo electrónico. Pode escoller ocultalo na sección de preferencias.
 register_name:Nome:
 register_name_desc:O seu nome real.
 register_your_pass:O teu contrasinal:
@@ -339,6 +339,7 @@ register_occupation:Ocupación:
 register_interests:Intereses:
 register_image:Imaxe:
 register_icq:ICQ:
+register_facebook:ID de Facebook:
 register_yahoo:Yahoo Messenger:
 register_homepage:Páxina de inicio:
 register_bday:Data de nacemento:
@@ -500,6 +501,7 @@ search_subject_only:Só no asunto
 search_forum:Foro
 search_posted_on:Publicado o
 search_no_results:Non houbo resultados
+search_spell_suggestions:Queres dicir:
 search_all_forums:Procurar en todos os foros
 search_in_forum:Procurar no foro:
 search_forum_search:Busca nun foro
@@ -524,8 +526,7 @@ mklist_apply:Aplicar
 mklist_delete:Borrar
 qbud_nick_name:Alcume
 qbud_add_selected:Engadir a selección
-# Fuzzy
-qbud_selected:Seleccionado(s)
+qbud_selected:Seleccionar
 qbud_no_buddies:Non hai amigos que elixir
 mklist_numerical:Numérica
 mklist_aplha:Alfabética
@@ -897,17 +898,14 @@ polllist_votes:Total de votos
 polllist_action:Acción
 polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">Comprobando as enquisas dispoñibles</a>
 userinfo_polls:Enquisas:
-# Fuzzy
-show_pollist:Mostrar as enquisas
+show_pollist:Enquisas
 search_and:E
 search_or:OU
-# Fuzzy
-search_desc_order:Orde descendente
-# Fuzzy
-search_asc_order:Orde ascendente
+search_desc_order:O máis novo primeiro
+search_asc_order:O máis vello primeiro
+search_relevance_order:Relevancia
 search_logic:Lóxica de busca:
-# Fuzzy
-search_sorting:Ordenar os resultados por data en:
+search_sorting:Ordenar por:
 search_attach:Datos adxuntos:
 search_attach_all:Con ou sen
 search_attach_with:Con datos adxuntos
@@ -964,8 +962,7 @@ iemail_forum_unsub:Cancelar a subscrición a este foro
 primary_group_prefix:Grupo principal para o foro:
 group_resources:Este grupo controla os permisos dos seguintes foros
 register_admin_newuser_title:Rexistrouse un novo usuario e a súa conta está á espera de confirmación
-# Fuzzy
-register_admin_newuser_msg:Acaba de se rexistrar un novo usuario ({VAR: uent->login}) e, dado que a confirmación de contas está activada, a súa conta non se activará ata que sexa confirmada por ti ou outro administrador do foro. Para revisar a conta, vai a: {FULL_ROOT}adm/admuserapr.php\n\nEste é un proceso automático. Non respondas a esta mensaxe.\nSe queres deixar de recibir notificacións por correo electrónico de novos rexistros de usuario, podes facelo a través do panel de control administrativo. Cambia a configuración do parámetro "New Account Notification".
+register_admin_newuser_msg:Acaba de se rexistrar un novo usuario ({VAR: uent->login}) e, dado que a confirmación de contas está activada, a súa conta non se activará ata que sexa confirmada por ti ou outro administrador do foro. Para revisar a conta, vai a: {BASE}adm/admuserapr.php\n\nEste é un proceso automático. Non respondas a esta mensaxe.\nSe queres deixar de recibir notificacións por correo electrónico de novos rexistros de usuario, podes facelo a través do panel de control administrativo. Cambia a configuración do parámetro "New Account Notification".
 post_mod_msg_notify_title:Hai unha nova mensaxe no foro "{VAR: frm->name}" á espera de aprobación
 post_mod_msg_notify_msg:Unha nova mensaxe titulada "{VAR: msg_post->subject}" acaba de ser publicada nun foro que moderas. Para revisar esta mensaxe vai a:\n{FULL_ROOT}?t=modque#{VAR: msg_post->id}\n\nEste é un proceso automático. Non respondas a esta mensaxe.
 thread_printable_pdf:Xerar un PDF para imprimir
@@ -1121,8 +1118,7 @@ move_msg_th_expl:Especifica o ID do fío de destino (pode ser noutro foro)
 captcha_img_alt:Verificación por Captcha: terás que recoñecer o texto que hai nesta imaxe.
 captcha_img_help:Non hai cero ou un na imaxe.
 powered-by:Desenvolvido por: FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:Copyright &copy;2001-2021 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Copyright &copy;2001-2022 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Código:
 code_select_all:Seleccionar todo
 code_show_hide:Mostrar/agochar
