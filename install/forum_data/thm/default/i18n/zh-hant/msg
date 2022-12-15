@@ -16,6 +16,7 @@
 # Author: Simon Shek
 # Author: Wehwei
 # Author: Winston Sung
+# Author: 捍粵者
 
 action:操作
 add_to_buddy_list:加入好友清單
@@ -51,8 +52,8 @@ forum_old_messages:無新訊息
 from:來自：
 gender:性別：
 go:前往
-goto_next_msg:前往下一個訊息
-goto_prev_msg:前往上一個訊息
+goto_next_msg:前往下條訊息
+goto_prev_msg:前往上條訊息
 home:首頁
 homepage:首頁：
 icq_control_panel:ICQ 線上訊息台
@@ -71,7 +72,7 @@ last_thread_msg:轉入本主題最後一個訊息。
 legend:圖例
 location:地區：
 lock_thread:鎖定本主題
-locked:被鎖定
+locked:已鎖定
 locked_with_new_posts:鎖定（且未讀）
 logged_in_list:登入使用者清單
 login:登入
@@ -110,7 +111,7 @@ new_private_messages:您有<span class="GenTextRed">（{VAR: c}）</span>條未�
 new_thread:建立一個新的主題
 newest_user:最新註冊的使用者為
 next_page:下一頁
-next_thread:上一個主題：
+next_thread:上一主題
 no_messages:本論壇沒有任何訊息。成為第一個發佈訊息的人！
 no_msg_body:沒有內容！
 no_new_posts:沒有新訊息
@@ -133,7 +134,7 @@ post_count:訊息數：{VAR: u_pcount}
 post_count_l:訊息數：
 posts:訊息
 posts_c:訊息：
-prev_thread:上一個主題：
+prev_thread:上一主題
 usrinfo_private_message:悄悄話
 profile:控制台
 profile_desc:存取使用者控制台
@@ -503,7 +504,7 @@ report_by:發文由：
 report_posted_on:發佈於：
 report_give_reason:請給予為何回報此訊息的理由：
 report_submit_report:送出回報
-search_entire_msg:整個訊息
+search_entire_msg:整條訊息
 search_subject_only:僅標題
 search_forum:論壇
 search_posted_on:發佈於：
@@ -592,7 +593,7 @@ error_invalidurl:無效 URL
 error_error:錯誤
 usrinfo_profile:{VAR: u->alias}個人資料
 usrinfo_show_all_posts:顯示所有的訊息{VAR: u->alias}
-actions_update:找尋與你相同的其他人們
+actions_update:找尋與你相同的其他人
 err_info:資訊
 buddy_list_err_cantadd:您不能將自己添加到您的好友清單
 buddy_list_err_dup:此使用者已在您的好友清單
@@ -877,7 +878,7 @@ im_twitter:Twitter：
 forum_contact:聯絡
 forum_home:首頁
 post_cur_attached:目前附加：{VAR: i}{PLURAL: i| 個檔案| 個檔案}
-ignored_anon_post:{GVAR: ANON_NICK} 被忽略
+ignored_anon_post:{GVAR: ANON_NICK}已忽略
 ignored_user_post:<a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a>的消息被忽略
 smladd_close_window:關閉視窗
 post_list_smilies:列出所有表情符號
@@ -1011,8 +1012,8 @@ merge_topics:合併主題
 merge_topics_cp:合併主題控制台
 merge_topics_tpl:選擇主題以合併<span class="SmallText">（您必須選擇多個主題）</span>
 merge_merge:合併所選的主題
-merge_next:上一個主題：
-merge_prev:下一個主題：
+merge_next:下一主題
+merge_prev:上一主題
 merge_another:前往<a href="{TEMPLATE: merge_another_lnk}">最後一個合併的主題</a>或合併另一個：
 split_cp:主題拆分控制台
 groups_perms_header:權限<span class="small">（移動滑鼠游標覆蓋在權限上，可查看其類型）</span>
