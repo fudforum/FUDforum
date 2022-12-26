@@ -63,7 +63,7 @@ on:vekirî
 posts:Peyam
 posts_c:Peyam:
 usrinfo_private_message:Peyama Kesane:
-refresh_list:Lîsteyê Nû Bike
+refresh_list:Lîsteyê Rojane Bike
 register:Tomar bike
 registered:Xweqeydkirin:
 replies:Bersiv
@@ -294,6 +294,7 @@ read_message:Peyamê Bixwîne
 saved:Hate tomarkirin
 iemail_msg_reply:Bersiv bide
 mnav_all_forums:Di hemû foruma da lê bigere
+mnav_more:Bêhtir &raquo;&raquo;
 mnav_minute:Deqe
 mnav_hour:Seet
 mnav_day:Roj
