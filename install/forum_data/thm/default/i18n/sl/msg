@@ -1,0 +1,296 @@
+# Messages for Slovenian (slovenščina)
+# Exported from translatewiki.net
+# Author: Dbc334
+# Author: Eleassar
+# Author: McDutchie
+# Author: Yerpo
+
+action:Dejanje
+add_to_buddy_list:dodaj na seznam prijateljev
+admin:Administrator
+admin_control_panel:Administracija
+administrator:Administrator
+attachment:Priponka:
+avatar:Avatar:
+biography:Biografija:
+birth_date:Datum rojstva:
+by:Od:
+by_mod:od moderatorja
+current_time:Trenutni čas
+email:E-pošta:
+email_to_friend:Pošlji e-pošto prijatelju
+faq:Pomoč
+first_unread_msg:Pojdi na neprebrana sporočila
+first_unread_msg_desc:Pojdi na prvo neprebrano sporočilo v tej temi
+forum:Forum:
+forum_icon:Ikona foruma
+forum_new_messages:Nova sporočila
+forum_old_messages:Ni novih sporočil
+from:Od:
+gender:Spol:
+go:Pojdi
+goto_next_msg:Pojdi na naslednje sporočilo
+goto_prev_msg:Pojdi na prejšnje sporočilo
+home:Domov
+homepage:Domača stran:
+ignore_user:prezri vsa sporočia tega uporabnika
+im_yahoo:Yahoo Messenger:
+image:Slika:
+index_forum:Forum
+index_url_redirection:Preusmeritev
+interests:Zanimanja:
+last_post:Zadnje sporočilo
+legend:Legenda
+location:Lokacija:
+lock_thread:Zakleni nit
+locked:Zaklenjeno
+locked_with_new_posts:Zaklenjeno (z neprebranimi sporočili)
+login:Prijava
+login_header:Prijava:
+logout:Odjava
+members:Člani
+calendar:Koledar
+message:Sporočilo
+moderator:Moderator
+move_thread:Prestavi
+new_posts:Nova sporočila
+new_thread:Ustvari novo temo
+newest_user:Novopridruženi uporabnik je
+next_page:Naslednja stran
+next_thread:Naslednja tema:
+no_new_posts:Ni novih sporočil
+no_posts:Ni sporočil
+num_pages:Strani ({VAR: ttl_pg}):
+occupation:Poklic:
+off:izklopljeno
+on:vklopljeno
+poll:Anketa:
+posts:Sporočila
+posts_c:Sporočila:
+prev_thread:Prejšnja tema:
+usrinfo_private_message:Zasebno sporočilo:
+profile:Nadzorna plošča
+rate_thread:Oceni temo
+rating:Ocena
+rating_track:Upravljanje ocen teme <b>{VAR: thr->subject}</b>:
+refresh_list:Osveži seznam
+replies:Odgovori
+search:Išči
+sel_todays_posts:Današnja sporočila
+send:Pošlji
+size:Velikost:
+status:Stanje:
+subscribe:Naroči
+thread:Tema:
+thread_announcement:Obvestilo:
+thread_first_unread_msg:Prvo neprebrano sporočilo v tej temi
+thread_thread:Tema
+threads:Teme
+time:Čas
+unsubscribe:Odnaroči
+user:Uporabnik
+views:Ogledi
+vote_button:Glasuj
+vote_for_thread:Glasuj
+reported_reason:Razlog:
+reported_on:Datum:
+modque_approve:Potrdi
+modque_delete:Izbriši
+list_referes_member:Član
+referals_registered_on:Registriran od
+referals_action:Dejanje
+pmsg_all:vse
+pmsg_none:nobeno
+folder:Mapa:
+pmsg_subject:Naslov
+pmsg_author:Avtor
+pmsg_time:Čas
+pmsg_selected:Izberi
+pmsg_delete:Izbriši
+inbox:Predal
+draft:Osnutek
+sent:Poslana sporočila
+trash:Smeti
+msg_author:Avtor
+avatar_sel_form:Meni za izbiranje avatarja
+month_1:Januar
+month_2:Februar
+month_3:Marec
+month_4:April
+month_5:Maj
+month_6:Junij
+month_7:Julij
+month_8:Avgust
+month_9:September
+month_10:Oktober
+month_11:November
+month_12:December
+use_forum_default:Uporabi privzeto nastavitev
+finduser_user:Uporabnik
+finduser_action:Dejanje
+yes:Da
+no:Ne
+register_email:E-pošta
+pmuserloc_login:Prijava:
+pmuserloc_submit:Pošlji
+pmuserloc_user:Uporabnik
+register_specify_url:Določi URL
+register_uploaded:Naloži avatarja
+register_login:Prijava:
+register_password:Geslo:
+register_conf_pass:Potrdi geslo:
+register_name:Ime:
+register_your_pass:Vaše geslo:
+register_update:Posodobi
+register_avatar:Avatar:
+register_sel_avatar:Izberite avatarja
+register_preview:Predogled
+register_location:Lokacija:
+register_occupation:Poklic:
+register_interests:Interesi:
+register_image:Slika:
+register_icq:ICQ:
+register_yahoo:Yahoo Messenger:
+register_homepage:Spletna stran:
+register_bday:Datum rojstva:
+register_day:Dan
+register_month:Mesec
+register_year:Leto
+register_gender:Spol:
+register_bio:Biografija:
+register_prefs:Nastavitve
+register_sig:Podpis:
+register_reset:Ponastavi
+register_msg_per_page:Sporočil na stran:
+register_show_sig:Pokaži podpise:
+register_use_sig_default:Vedno vključi podpis:
+register_timezone:Časovni pas:
+buddy_status:Stanje
+my_buddies:Moji prijatelji
+add_buddy:Dodaj prijatelja
+add:Dodaj
+buddy_remove:odstrani
+post_normal:Normalno
+post_size:Velikost
+post_color:Barva
+post_font:Pisava
+post_logout:odjava
+post_poll_delete:IZBRIŠI
+post_poll_edit:UREDI
+post_file_del:Izbriši
+post_file_name:Ime
+post_file_size:Velikost
+post_title:Naslov:
+post_options:Možnosti:
+post_cancel_btn:Prekliči
+forum_rules:<p>Registracija na tem forumu je brezplačna! Zahtevamo samo, da se držite pravil in smernic, kot so opisane spodaj. Če se strinjate s pogoji, pritisnite gumb <b>Strinjam se</b> na dnu te strani.</p><p>Moderatorji in administratorji tega foruma si bodo prizadevali, da na njem ne bo spornih besedil, vendar je sprotno pregledovanje vseh sporočil nemogoče. Vsa sporočila izražajo mnenje njihovih avtorjev in ustvarjalci ter lastniki tega foruma niso odgovorni za njihovo vsebino.</p><p>S pritiskom na gumb "Strinjam se" zagotavljate, da ne boste pisali sporočil z obsceno, vulgarno, sovražno, grozečo ali kako drugače nezakonito vsebino.</p><p>Lastniki tega foruma imajo pravico odstranjevati, urejati, premikati ali zapirati vsako temo ne glede na razlog.</p>
+prereg_agree:Strinjam se
+coppa_fax_date:Datum:
+coppa_fax_login:Prijava
+coppa_fax_passwd:Geslo
+coppa_fax_remail:E-pošta
+coppa_fax_name:Ime
+login_login:Prijava:
+login_login_btn:Prijava
+rpasswd_invalid_passwd:Neveljavno geslo
+rpasswd_login:Prijava
+rpasswd_new_pass:Novo geslo:
+login_passwd:Geslo:
+reset_email:E-pošta:
+report_by:Avtor:
+remail_your_name:Vaše ime:
+remail_required:obvezno
+mklist_type:Vrsta:
+mklist_option:Možnost:
+mklist_delete:Izbriši
+qbud_selected:Izberi
+mklist_close:Zapri
+email_pg_title:E-pošta
+email_submit:E-pošta
+ppost_send:Pošlji
+poll_create:Ustvari
+poll_update:Posodobi
+poll_delete:Izbriši
+poll_day:dan
+poll_hour:ura
+poll_hours:ure
+poll_month:mesec
+poll_year:leto
+delete_yes:Da
+delete_no:Ne
+error_error:Napaka
+emailconf_err_invkey_title:Napaka
+post_err_edttimelimit_title:NAPAKA
+report_err_nosuchmsg_title:NAPAKA
+reset_err_invalidkey_title:NAPAKA
+reset_err_rstconf_title:Informacije
+reset_login_notify:Vaše geslo vam je bilo poslano po e-pošti. Prejeti bi ga morali v naslednjih minutah.
+help_title:Pomoč
+thr_exch_submit:Pošlji
+groupmgr_yes:Da
+groupmgr_no:Ne
+groupmgr_action:Dejanje
+groupmgr_member:Član
+groupmgr_cancel:Prekliči
+groupmgr_edit:Uredi
+groupmgr_delete:Izbriši
+group_mgr_anon:Anonimnež
+show_show:Prikaži:
+group_mgr_group:Skupina:
+permission_denied_title:Dovoljenje zavrnjeno!
+p_POST:Objavi
+p_REPLY:Odgovori
+p_EDIT:Uredi
+p_DEL:Izbriši
+th_expr_one_month:1 mesec
+th_expr_two_month:2 meseca
+th_expr_four_month:4 meseci
+th_expr_one_year:1 leto
+thread_mod_delete:Izbriši
+split_th_select:Izberi
+quicklogin_password:Geslo:
+quicklogin_login_btn:Prijava
+im_twitter:Twitter:
+forum_contact:Stik
+forum_home:Domov
+p_VISIBLE:Vidno
+poll_edit:Uredi
+register_alias:Sopomenka:
+polllist_action:Dejanje
+search_and:IN
+search_or:ALI
+search_sorting:Razvrsti po:
+saved:Shranjeno
+iemail_msg_reply:Odgovori
+mnav_more:Več &raquo;&raquo;
+mnav_minute:Minuta (minute)
+mnav_hour:Ura(e)
+mnav_day:Dan(dnevi)
+mnav_month:Mesec(i)
+findu_edit:Uredi
+findu_delete:Izbriši
+thread_on:dne
+ip_search:Išči
+post_err_mod_forum_edit_ttl:NAPAKA
+modque_cat:Kategorija
+mmd_abort_move:Prekliči
+sml_code:Koda
+post_common_bold:Krepko
+post_common_italics:Ležeče
+post_common_underline:Podčrtano
+rating_delete:Izbriši
+tabs_notifications:Obvestila
+finduser_flag:Zastava
+pmsg_on:Datum:
+powered-by:Omogoča: FUDforum {GVAR: FORUM_VERSION}.
+copyright:Avtorske pravice &copy;2001–2022 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+code_title:Koda:
+code_select_all:Izberi vse
+btn_delete:izbriši
+btn_edit:uredi
+btn_reply:odgovori
+btn_email:E-pošta
+btn_show_posts:objave
+custom_filed_required:To polje je obvezno.
+pages:Strani
+karma_delete:Izbriši
