@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2016 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2022 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -35,7 +35,7 @@ function validate_custom_fields()
 		}
 
 		// Validate/sanitize user input.
-		$_POST['custom_field_'. $k] = filter_var($_POST['custom_field_'. $k], FILTER_SANITIZE_STRING);
+		$_POST['custom_field_'. $k] = filter_var($_POST['custom_field_'. $k], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 	}
 }
 
