@@ -624,7 +624,7 @@ post_err_lockedthread_msg:This topic is locked. Posting is no longer allowed.
 err_coppa_title:ERROR: Your account is not yet confirmed
 err_coppa_msg:We have not received a confirmation from your parent and/or legal guardian, which would allow you to post messages. If you lost your COPPA form, <a href="{TEMPLATE: err_coppa_msg_lnk}">view it again</a>.
 err_banned_acct_title:ERROR: You have been banned.
-err_banned_acct_msg:Your account was {IF: $ban_expiry}temporarily banned until {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}permanently banned{ENDI} from accessing the site, due to a violation of the forum's rules.
+err_banned_acct_msg:Your account was {IF: $ban_expiry}temporarily banned until {TEMPLATE: ban_expiry_date}{ELSE}permanently banned{ENDI} from accessing the site, due to a violation of the forum's rules.
 post_err_edttimelimit_title:ERROR
 post_err_edttimelimit_msg:You can no longer edit this message
 post_err_noannontopics_msg2:<legend>ERROR: Insufficient Privileges</legend>Anonymous users are not allowed to create topics.
@@ -1071,7 +1071,7 @@ dmsg_ip:IP:
 err_blockedaccnt_title:ERROR: Your account has been filtered out.
 err_blockedaccnt_msg:Your account has been blocked from accessing the forum due to one of the installed user filters.
 merge_th_page_list:Topic Page Selection
-most_users_online:Most users ever online was <b>{VAR: st_obj->most_online}</b> on <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
+most_users_online:Most users ever online was <b>{VAR: st_obj->most_online}</b> on <b>{TEMPLATE: most_online_time}</b>
 sub_unsub_all_forums:Unsubscribe From All Forums
 sub_unsub_all_topics:Unsubscribe From All Topics
 unbookmark_all_topics:Remove all bookmarks

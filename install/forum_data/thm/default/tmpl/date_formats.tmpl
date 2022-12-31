@@ -23,6 +23,10 @@
 {DATE: obj->join_date %B %Y}
 {SECTION: END}
 
+{SECTION: ban_expiry_date}
+{DATE: ban_expiry %a, %d %B %Y %H:%M}
+{SECTION: END}
+
 {SECTION: dmsg_update_on_date}
 {DATE: obj->update_stamp %a, %d %B %Y %H:%M}
 {SECTION: END}
@@ -105,6 +109,10 @@
 
 {SECTION: referrals_join_date}
 {DATE: r[2] %a, %d %B %Y}
+{SECTION: END}
+
+{SECTION: most_online_time}
+{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}
 {SECTION: END}
 
 {SECTION: online_today_last_post_date}
