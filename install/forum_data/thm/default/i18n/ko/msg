@@ -631,6 +631,7 @@ post_err_lockedthread_msg:이 주제는 잠겨 있습니다. 더 이상 글을 �
 err_coppa_title:오류: 당신의 계정은 인증 절차를 마치지 않았습니다
 err_coppa_msg:메시지를 게시할 수 있는 당신의 부모나 법적 보호자에서 확인을 받지 못했습니다. 청소년 온라인 개인정보 보호법(COPPA) 양식을 잃었다면, <a href="{TEMPLATE: err_coppa_msg_lnk}">이를 다시 보세요</a>.
 err_banned_acct_title:오류: 당신은 차단되어 있습니다.
+# Fuzzy
 err_banned_acct_msg:Your account was {IF: $ban_expiry}temporarily banned until {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}permanently{ENDI} from accessing the site, due to a violation of the forum&#39s rules.
 post_err_edttimelimit_title:오류
 post_err_edttimelimit_msg:이 게시글은 더 이상 편집할 수 없습니다

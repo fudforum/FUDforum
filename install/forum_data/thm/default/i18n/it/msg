@@ -637,7 +637,7 @@ post_err_lockedthread_msg:Questo argomento è chiuso, non è più possibile inse
 err_coppa_title:ERRORE: il tuo account non è stato ancora confermato
 err_coppa_msg:Non abbiamo ricevuto una conferma dai tuoi genitori e/o tutori legali, la quale ti permetterebbe di inserire messaggi. Se hai perso il modulo COPPA (Children's Online Privacy Protection Act) <a href="{TEMPLATE: err_coppa_msg_lnk}">fai click qui</a> per ottenerlo.
 err_banned_acct_title:ERRORE: si è stati esclusi (banned).
-err_banned_acct_msg:L'account è stato {IF: $ban_expiry}temporaneamente escluso (banned) fino a {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}definitivamente escluso (banned){ENDI} dall'accesso al sito a causa di una violazione delle regole del forum.
+err_banned_acct_msg:L'account è stato {IF: $ban_expiry}temporaneamente escluso (banned) fino a {TEMPLATE: ban_expiry_date}{ELSE}definitivamente escluso (banned){ENDI} dall'accesso al sito a causa di una violazione delle regole del forum.
 post_err_edttimelimit_title:ERRORE
 post_err_edttimelimit_msg:Non puoi più modificare questo messaggio
 post_err_noannontopics_msg2:<legend>ERRORE: Privilegi insufficienti</legend>Gli utenti anonimi non sono abilitati a creare degli argomenti.
@@ -1081,7 +1081,7 @@ dmsg_ip:IP:
 err_blockedaccnt_title:ERRORE: Il tuo account e' stato scartato da un filtro.
 err_blockedaccnt_msg:L'accesso al forum per il tuo account è stato bloccato da uno dei filtri utente installati.
 merge_th_page_list:Pagina di selezione discussione
-most_users_online:Il maggior numero di utenti online è stato <b>{VAR: st_obj->most_online}</b> il <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
+most_users_online:Il maggior numero di utenti online è stato <b>{VAR: st_obj->most_online}</b> il <b>{TEMPLATE: most_online_time}</b>
 sub_unsub_all_forums:Togli la sottoscrizione da Tutti i Forum
 sub_unsub_all_topics:Togli la sottoscrizione da Tutti i Topic
 unbookmark_all_topics:Rimuovi tutti i preferiti

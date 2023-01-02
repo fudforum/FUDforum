@@ -624,6 +624,7 @@ post_err_lockedthread_msg:Toś ta tema jo zastajona. Rozpósćełanje powěsćow
 err_coppa_title:ZMÓLKA: Twójo konto hyšći njejo wobkšuśone
 err_coppa_msg:Hyšći njejsmy dostali wobkšuśenje wót jadnogo z twójeju starjejšeju a/abo kazniskego pśinanka, kótaryž by śi dowólił, powěsći rozesłaś. Jolic sy zgubił swój formular COPPA, <a href="{TEMPLATE: err_coppa_msg_lnk}">woglědaj se jen hyšći raz</a>.
 err_banned_acct_title:ZMÓLKA: Sy wugnany.
+# Fuzzy
 err_banned_acct_msg:Twójo konto jo se zastajiło {IF: $ban_expiry}nachwilu až {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}na pśecej{ENDI} dla pśekśiwjenja forumowych pšawidłow.
 post_err_edttimelimit_title:ZMÓLKA
 post_err_edttimelimit_msg:Njamóžoš wěcej toś tu powěsć wobźěłaś

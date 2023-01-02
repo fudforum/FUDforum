@@ -641,6 +641,7 @@ post_err_lockedthread_msg:本主題已被鎖定，不允許發佈。
 err_coppa_title:錯誤：您的帳號尚未確認
 err_coppa_msg:我們沒有收到來自於您的雙親/或合法監護人允許您在網站上發佈訊息的確認內容。如果你遺失了 COPPA 表單，請在<a href="{TEMPLATE: err_coppa_msg_lnk}">此重新檢視</a>。
 err_banned_acct_title:錯誤：您已被禁止。
+# Fuzzy
 err_banned_acct_msg:基於違反論壇方針緣故，您的帳號{IF: $ban_expiry}會在 {DATE: ban_expiry %a, %d %B %Y %H:%M} 以前被臨時禁止{ELSE}已被永久禁止{ENDI}訪問此網站。
 post_err_edttimelimit_title:錯誤
 post_err_edttimelimit_msg:您不能再編輯此訊息
@@ -1085,6 +1086,7 @@ dmsg_ip:IP：
 err_blockedaccnt_title:錯誤：您的帳號已被過濾出。
 err_blockedaccnt_msg:您的帳號已被所訪問論壇上安裝之使用者過濾器給封鎖住。
 merge_th_page_list:主題頁選擇
+# Fuzzy
 most_users_online:最多上線人數是於 <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b> 的 <b>{VAR: st_obj->most_online}</b> 位
 sub_unsub_all_forums:取消訂閱所有論壇
 sub_unsub_all_topics:取消訂閱的所有主題

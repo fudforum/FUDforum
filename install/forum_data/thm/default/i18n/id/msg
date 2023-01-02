@@ -645,6 +645,7 @@ post_err_lockedthread_msg:Topik ini sudah terkunci, tidak bisa menambah pembahas
 err_coppa_title:SALAH: Akun anda belum terkonfirmasi
 err_coppa_msg:Kami belum menerima konfirmasi dari orangtua dan/atau wali Anda yang sah, yang akan mengizinkan Anda untuk mengirim pesan. Jika Anda kehilangan COPPA <a href="{TEMPLATE: err_coppa_msg_lnk}">lihat lagi di sini</a>.
 err_banned_acct_title:SALAH: anda sudah di cekal.
+# Fuzzy
 err_banned_acct_msg:Akun anda {IF: $ban_expiry}di-cekal sementara sampai {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}permanen{ENDI} karena pelanggaran peraturan forum ini.
 post_err_edttimelimit_title:GALAT
 post_err_edttimelimit_msg:Pesan tersebut sudah tidak boleh anda ubah
@@ -1089,6 +1090,7 @@ dmsg_ip:IP:
 err_blockedaccnt_title:SALAH: Akun anda sudah di-filter.
 err_blockedaccnt_msg:Akun anda sudaj diblokir dari forum karena salah satu filter dari pengguna.
 merge_th_page_list:Pemilihan halaman topik
+# Fuzzy
 most_users_online:Paling banyak <b>{VAR: st_obj->most_online}</b> pengguna aktif pada <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
 sub_unsub_all_forums:Hentikan langgan dari semua forum
 sub_unsub_all_topics:Hentikan langgan dari semua topik

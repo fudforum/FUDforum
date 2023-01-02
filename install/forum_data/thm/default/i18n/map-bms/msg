@@ -625,6 +625,7 @@ post_err_lockedthread_msg:Topik kiye wis dikunci, ora teyeng ditulisi maning.
 err_coppa_title:SALAH: Akune Rika durung dikonfirmasi
 err_coppa_msg:Inyong durung nampa konfirmasi sekang wong tuwane Rika lan/utawa waline Rika sing sah, sing bakal ngijina Rika nggo ngirim pesen. Angger Rika kelangan formulir COPPA, <a href="{TEMPLATE: err_coppa_msg_lnk}">deleng maning nang kene</a>.
 err_banned_acct_title:SALAH: Rika wis dicekal.
+# Fuzzy
 err_banned_acct_msg:Akune Rika wis {IF: $ban_expiry}dicekal sawetara wektu nganti {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}dicekal selawase{ENDI} ora olih mlebu situs kiye jalaran nglanggar aturane forum kiye.
 post_err_edttimelimit_title:SALAH
 post_err_edttimelimit_msg:Rika wis ora teyeng nyunting pesen kiye maning
@@ -1079,6 +1080,7 @@ dmsg_ip:IP:
 err_blockedaccnt_title:SALAH: Akune Rika wis disaring.
 err_blockedaccnt_msg:Akune Rika wis diblokir sekang forum jalaran ana sawijining penyaringan sekang panganggo.
 merge_th_page_list:Pamilihan kaca topik
+# Fuzzy
 most_users_online:Panganggo sing lagi online paling akeh <b>{VAR: st_obj->most_online}</b> yakuwe dong tanggal <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
 sub_unsub_all_forums:Mandeg gole langganan sekang kabeh forum
 sub_unsub_all_topics:Mandeg gole langganan sekang kabeh topik

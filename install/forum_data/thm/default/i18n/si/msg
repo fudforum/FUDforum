@@ -630,6 +630,7 @@ post_err_lockedthread_msg:මෙම මාතෘකාව අගුළුලා 
 err_coppa_title:දෝෂය: ඔබේ ගිණුම තවමත් තහවුරු කර නොමැත
 err_coppa_msg:පණිවුඩ දැමීමට ඔබට ඉඩදීම සඳහා, අපට ඔබගේ දෙමව්පිය සහ/හෝ නීතිමය භාරකරුගෙන් තහවුරු කිරීමක් ලැබුනේ නැත. ඔබට ඔබේ COPPA ෆෝරමය අහිමි වූයේ නම්, <a href="{TEMPLATE: err_coppa_msg_lnk}">එය නැවත නරඹන්න</a>.
 err_banned_acct_title:දෝෂය: ඔබව තහනම් කර ඇත.
+# Fuzzy
 err_banned_acct_msg:ෆෝරමයේ නීති උල්ලංඝනය කිරීම හේතුවෙන් ඔබේ ගිණුම {IF: $ban_expiry} තාවකාලිකව {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE} දක්වා තහනම් කොට {ENDI} අඩවියට ප්‍රවේශ වීම ස්ථිරවම තහනම් කොට ඇත.
 post_err_edttimelimit_title:දෝෂය
 post_err_edttimelimit_msg:ඔබට මෙම පණිවුඩය තවදුරටත් සංස්කරණය කල නොහැක
@@ -1084,6 +1085,7 @@ dmsg_ip:IP:
 err_blockedaccnt_title:දෝෂය: ඔබේ ගිණුම අපෙරහන්ගත කොට ඇත.
 err_blockedaccnt_msg:ස්ථාපිත කරන ලද පරිශීලක පෙරහන් එකක් හේතුවෙන් ඔබේ ගිණුම ෆෝරමය වෙත ප්‍රවේශ වීම වලකා ඇත.
 merge_th_page_list:මාතෘකා පිටු තේරීම
+# Fuzzy
 most_users_online:පරිශීලකයන් විශාල ප්‍රමාණයක් මාර්ගතවූයේ <b>{VAR: st_obj->most_online}</b> <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b> හී
 sub_unsub_all_forums:සියලුම ෆෝරමයන්ගෙන් අසහභාගී වන්න
 sub_unsub_all_topics:සියලුම මාතෘකාවන්ගෙන් අසහභාගී වන්න

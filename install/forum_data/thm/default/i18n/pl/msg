@@ -638,6 +638,7 @@ post_err_lockedthread_msg:Ten wątek jest zablokowany, więc nie wolno zamieszcz
 err_coppa_title:BŁĄD: Twoje konto nie jest jeszcze potwierdzone
 err_coppa_msg:Nie otrzymaliśmy potwierdzenia od Twojego rodzica lub prawnego opiekuna, co pozwoliłoby Ci zamieszczać wiadomości. Jeśli zgubiłeś swój formularz COPPA <a href="{TEMPLATE: err_coppa_msg_lnk}">pobierz go ponownie</a>.
 err_banned_acct_title:BŁĄD - zostałeś zablokowany.
+# Fuzzy
 err_banned_acct_msg:Twoje konto zostało {IF: $ban_expiry}pozbawione dostępu na forum do czasu {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}trwale pozbawione dostępu{ENDI} na forum z powodu złamania regulaminu.
 post_err_edttimelimit_title:BŁĄD
 post_err_edttimelimit_msg:Nie możesz już edytować tej wiadomości
@@ -1082,6 +1083,7 @@ dmsg_ip:IP
 err_blockedaccnt_title:BŁĄD - Twoje konto zostało odfiltrowane.
 err_blockedaccnt_msg:Dostęp do tego forum został zablokowany dla twojego konta użytkownika za pomocą jednego z zainstalowanych filtrów użytkowników.
 merge_th_page_list:Strona wyboru wątków
+# Fuzzy
 most_users_online:Najwięcej użytkowników online (<b>{VAR: st_obj->most_online}</b>) było dnia <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
 sub_unsub_all_forums:Wypisz ze wszystkich forów
 sub_unsub_all_topics:Wypisz ze wszystkich tematów

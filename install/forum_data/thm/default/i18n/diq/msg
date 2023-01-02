@@ -633,6 +633,7 @@ dmsg_ip:IP:
 err_blockedaccnt_title:XIRAB: Hesabê şıma avrêcyaye weziyet deyo.
 err_blockedaccnt_msg:Poxta avrêc da karberi yewi ra forum dı resnayışê hesabi vındarnayo.
 merge_th_page_list:Weçinıtışê Pela Mewzuy
+# Fuzzy
 most_users_online:Amariya karberan de grebiyaya tewr zaf tarixê cı, <b>{VAR: st_obj->most_online}</b> Karberana <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b> dı biyo.
 sub_unsub_all_forums:Aboneyiya Foruman Pêrıne Bıtexelne
 sub_unsub_all_topics:Aboneyiya Mewzuyan Pêrıne Bıtexelne

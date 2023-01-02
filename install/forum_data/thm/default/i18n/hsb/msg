@@ -628,6 +628,7 @@ post_err_lockedthread_msg:Tuta tema je zawrjena. Rozpósłanje powěsćow hižo 
 err_coppa_title:ZMYLK: Twoje konto hišće njeje wobkrućene
 err_coppa_msg:Hišće njejsmy wobkrućenje wot jednoho z twojeju staršeju a/abo zakonskeho předporučnika dóstali, kotryž by ći dowolił, powěsće rozpósłać. Jeli sy swój formular COPPA zhubił, <a href="{TEMPLATE: err_coppa_msg_lnk}">wobhladaj sej jón hišće raz</a>.
 err_banned_acct_title:ZMYLK: Ty bu zatamany.
+# Fuzzy
 err_banned_acct_msg:Twoje konto bu {IF: $ban_expiry}nachwilu hač {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}na přeco{ENDI} dla přeńdźenja přećiwo forumowym prawidłam poklate.
 post_err_edttimelimit_title:ZMYLK
 post_err_edttimelimit_msg:Njemóžeš hižo swoju powěsć wobdźěłać
@@ -1072,6 +1073,7 @@ dmsg_ip:IP:
 err_blockedaccnt_title:ZMYLK: Twoje konto bu wufiltrowane.
 err_blockedaccnt_msg:Twoje konto přez jeden z instalowanych filtrow přistup na forum nima.
 merge_th_page_list:Wuběr temowych stronow
+# Fuzzy
 most_users_online:Najwjace wužiwarjow, kotřiž běchu online, bě <b>{VAR: st_obj->most_online}</b> dnja <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
 sub_unsub_all_forums:Wšě forumy wotskazać
 sub_unsub_all_topics:Wšě temy wotskazać

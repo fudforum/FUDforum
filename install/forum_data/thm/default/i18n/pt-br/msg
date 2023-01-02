@@ -8,6 +8,7 @@
 # Author: Eduardo Addad de Oliveira
 # Author: Eduardoaddad
 # Author: Felipe L. Ewald
+# Author: Fúlvio
 # Author: Giro720
 # Author: Leosls
 # Author: Luckas
@@ -642,7 +643,7 @@ post_err_lockedthread_msg:Este tópico está bloqueado, não é permitido coloca
 err_coppa_title:ERRO: A sua conta ainda não foi confirmada
 err_coppa_msg:Nós não recebemos uma confirmação dos seus pais ou responsáveis, que permitam que coloque mensagens. Se você perdeu o seu formulário <a href="{TEMPLATE: err_coppa_msg_lnk}">veja-o novamente</a>.
 err_banned_acct_title:ERRO: Você foi banido.
-err_banned_acct_msg:Sua conta foi {IF: $ban_expiry}temporariamente banida até {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}permanentemente banida{ENDI} do site, devido à violação das regras do fórum.
+err_banned_acct_msg:Sua conta foi {IF: $ban_expiry}temporariamente banida até {TEMPLATE: ban_expiry_date}{ELSE}permanentemente banida{ENDI} do site, devido à violação das regras do fórum.
 post_err_edttimelimit_title:ERRO
 post_err_edttimelimit_msg:Já não pode editar esta mensagem
 post_err_noannontopics_msg2:<legend>ERRO: Privilégios Insuficientes</legend>Usuários anônimos não podem criar tópicos.
@@ -1086,7 +1087,7 @@ dmsg_ip:IP:
 err_blockedaccnt_title:ERRO: Sua conta foi filtrada.
 err_blockedaccnt_msg:Sua conta  foi bloqueada por um dos filtros de usuários instalados e, por isso, não poderá acessar o fórum.
 merge_th_page_list:Seleção de página de tópicos
-most_users_online:O recorde de usuários ''on line'' foi de <b>{VAR: st_obj->most_online}</b> em <b>({DATE: st_obj->most_online_time %a, %d %B %Y %H:%M})</b>
+most_users_online:O recorde de usuários ''on line'' foi de <b>{VAR: st_obj->most_online}</b> em <b>({TEMPLATE: most_online_time})</b>
 sub_unsub_all_forums:Cancelar inscrição de todos os fóruns
 sub_unsub_all_topics:Cancelar inscrição de todos os tópicos
 unbookmark_all_topics:Remover todos os favoritos

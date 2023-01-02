@@ -626,6 +626,7 @@ post_err_lockedthread_msg:Dan is-suġġett huwa magħluq, u għalhekk mhuwiex pe
 err_coppa_title:ŻBALL: Il-kont tiegħek għadu ma ġiex ikkonfermat
 err_coppa_msg:Aħna ma rċevejniex konferma mill-ġenituri u/jew il-gwardjan legali, li jħallik tikteb messaġġi. Jekk tlift il-formola taċ-COPPA (Children's Online Privacy Protection Act), iksibha minn <a href="{TEMPLATE: err_coppa_msg_lnk}">hawnhekk</a>.
 err_banned_acct_title:ŻBALL: Inti ġejt imblukkat.
+# Fuzzy
 err_banned_acct_msg:Il-kont tiegħek ġie {IF: $ban_expiry}temporanjament imblukkat sa {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}definittivament imblukkat{ENDI} milli taċċessa s-sit, minħabba vjolazzjoni tar-regoli tal-forum.
 post_err_edttimelimit_title:ŻBALL
 post_err_edttimelimit_msg:Ma tistax aktar timmodifika dan il-messaġġ
@@ -1084,6 +1085,7 @@ dmsg_ip:IP:
 err_blockedaccnt_title:ŻBALL: Il-kont tiegħek ġie mneħħi minn filtru.
 err_blockedaccnt_msg:Il-kont tiegħek ġie imblukkat milli jaċċessa l-forum minħabba wieħed mill-filtri tal-utenti installati.
 merge_th_page_list:Għażla tal-paġna tas-suġġett
+# Fuzzy
 most_users_online:L-iktar numru ta' utenti illogjati kien ta' <b>{VAR: st_obj->most_online}</b> nhar <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
 sub_unsub_all_forums:Ħassar l-abbonament mill-forums kollha
 sub_unsub_all_topics:Ħassar l-abbonament mis-suġġetti kollha

@@ -629,6 +629,7 @@ post_err_lockedthread_msg:Prennet eo ar gaoz-mañ. N'eur ket aotreet da bostañ 
 err_coppa_title:FAZI : Ho kont n'eo ket kadarnaet c'hoazh
 err_coppa_msg:N'hon eus ket resevet ur c'hadarnadur digant ho tud ha/pe ho kward evit hoc'h aotren da bostañ kemennadennoù. M'hoc'h eus kollet ho furmskrid COPPA, <a href="{TEMPLATE: err_coppa_msg_lnk}">klikit amañ d'e welet en-dro</a>.
 err_banned_acct_title:FAZI : Forbannet oc'h bet
+# Fuzzy
 err_banned_acct_msg:Ho kont zo bet {IF: $ban_expiry}forbannet evit ur mare betek an {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}forbannet da viken{ENDI} diouzh al lec'hienn, abalamour m'hoc'h eus torret reolennoù ar forom.
 post_err_edttimelimit_title:FAZI
 post_err_edttimelimit_msg:Ne c'hallit ket aozañ ar gemennadenn-mañ ken
@@ -1073,6 +1074,7 @@ dmsg_ip:IP :
 err_blockedaccnt_title:FAZI : Silet eo bet ho kont.
 err_blockedaccnt_msg:Ne c'hall ket ho kont mont d'ar forom abalamour da unan eus ar siloù implijer staliet.
 merge_th_page_list:Diuzañ pajenn ar gaoz
+# Fuzzy
 most_users_online:An niver uhelañ a implijerien enlinenn a oa <b>{VAR: st_obj->most_online}</b> d'an <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
 sub_unsub_all_forums:Paouez da evezhiañ an holl foromoù
 sub_unsub_all_topics:Paouez da evezhiañ an holl gaozioù

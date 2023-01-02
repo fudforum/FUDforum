@@ -632,6 +632,7 @@ post_err_lockedthread_msg:Este fío está bloqueado; non se permite a publicaci�
 err_coppa_title:ERRO: A túa conta aínda non está confirmada
 err_coppa_msg:Aínda non recibimos a confirmación do teu pai e/ou titor legal que te permitirá publicar mensaxes. Se perdiches o formulario COPPA, <a href="{TEMPLATE: err_coppa_msg_lnk}">telo aquí de novo</a>.
 err_banned_acct_title:ERRO: Fuches expulsado.
+# Fuzzy
 err_banned_acct_msg:A túa conta foi {IF: $ban_expiry}temporalmente expulsada do foro ata {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}permanentemente expulsada do foro{ENDI} debido a unha violación do regras do mesmo.
 post_err_edttimelimit_title:ERRO
 post_err_edttimelimit_msg:Xa non podes editar máis esta mensaxe
@@ -1076,6 +1077,7 @@ dmsg_ip:Enderezo IP:
 err_blockedaccnt_title:ERRO: A túa conta foi filtrada.
 err_blockedaccnt_msg:A túa conta foi bloqueada fronte ao acceso ao foro debido a un dos filtros de usuario instalados.
 merge_th_page_list:Selección da páxina do fío
+# Fuzzy
 most_users_online:O número máximo de usuarios conectados á vez foi <b>{VAR: st_obj->most_online}</b> o <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
 sub_unsub_all_forums:Deixar a subscrición a todos os foros
 sub_unsub_all_topics:Deixar a subscrición a todos os fíos

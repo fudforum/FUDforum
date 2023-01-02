@@ -635,6 +635,7 @@ post_err_lockedthread_msg:Denne tråden er låst og tar ikke imot flere innlegg
 err_coppa_title:FEIL: Din konto er ikke bekreftet enda
 err_coppa_msg:Vi har ikke mottatt en bekreftelse fra din forelder og/eller formynder, som ville tillatt deg å poste meldinger. Om du mistet ditt COPPA-skjema kan du <a href="{TEMPLATE: err_coppa_msg_lnk}">se det igjen</a>.
 err_banned_acct_title:FEIL: Du har blitt utestengt.
+# Fuzzy
 err_banned_acct_msg:Din konto ble {IF: $ban_expiry}midlertidig utestengt til {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}permanent utestengt{ENDI} fra nettstedet på grunn av brudd på forumets regler.
 post_err_edttimelimit_title:FEIL
 post_err_edttimelimit_msg:Du kan ikke redigere denne meldingen lenger
@@ -1079,6 +1080,7 @@ dmsg_ip:IP:
 err_blockedaccnt_title:FEIL: Kontoen din har blitt filtrert ut.
 err_blockedaccnt_msg:Kontoen din har blitt blokkert fra forumet på grunn av en av de installerte brukerfiltrene.
 merge_th_page_list:Emnesidevalg
+# Fuzzy
 most_users_online:Mest brukere på samme tid noensinne var <b>{VAR: st_obj->most_online}</b> den <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
 sub_unsub_all_forums:Stopp abonnement på alle fora
 sub_unsub_all_topics:Stopp abonnement på alle emner

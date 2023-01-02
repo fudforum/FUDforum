@@ -635,6 +635,7 @@ post_err_lockedthread_msg:Ez a téma le van zárva. Nem lehet új üzeneteket í
 err_coppa_title:HIBA: A fiókod még nincs megerősítve
 err_coppa_msg:Még nem kaptuk meg a megerősítést a szülődtől és/vagy törvényes képviselődtől, ami után írhatnál üzeneteket. Ha elveszítetted a COPPA-űrlapodat, <a href="{TEMPLATE: err_coppa_msg_lnk}">itt megnézheted újra</a>.
 err_banned_acct_title:HIBA: Le vagy tiltva.
+# Fuzzy
 err_banned_acct_msg:A fiókod {IF: $ban_expiry}ideiglenesen blokkolva van {DATE: ban_expiry %a, %d %B %Y %H:%M}-ig{ELSE}véglegesen blokkolva van{ENDI} a fórumhoz való hozzáféréstől a fórum szabályainak megsértése miatt.
 post_err_edttimelimit_title:HIBA
 post_err_edttimelimit_msg:Már nem szerkesztheted ezt az üzenetet.
@@ -1080,6 +1081,7 @@ dmsg_ip:IP-cím:
 err_blockedaccnt_title:HIBA: a fiókod ki lett szűrve.
 err_blockedaccnt_msg:A fiókod blokkolva van a fórumhoz való hozzáféréstől a telepített szűrők egyike miatt.
 merge_th_page_list:Témák kiválasztása
+# Fuzzy
 most_users_online:Legtöbben egyszerre <b>{VAR: st_obj->most_online}</b> felhasználó volt jelen <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>-kor
 sub_unsub_all_forums:Leiratkozás az összes fórumról
 sub_unsub_all_topics:Leiratkozás az összes témáról

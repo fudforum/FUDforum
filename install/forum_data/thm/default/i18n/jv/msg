@@ -629,6 +629,7 @@ post_err_lockedthread_msg:Topic iki dikunci. Posting ora diijini maneh.
 err_coppa_title:Kesalahan: akun durung dikonfirmasi
 err_coppa_msg:Kita ora nampa konfirmasi saka tiyang sepah lan / utawa legal Guardian, kang badhe ngijini sampeyan kanggo ngirim pesen. Yen sampeyan ilang COPPA wangun, <a href="{TEMPLATE: err_coppa_msg_lnk}">ndeleng maneh</a>.
 err_banned_acct_title:Kesalahan: Sampeyan wis begalan.
+# Fuzzy
 err_banned_acct_msg:Akun iki {IF: $ban_expiry}sementara begalan nganti {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}permanen begalan{ENDI} saka ngakses situs, amarga nerak ing forum kang aturan.
 post_err_edttimelimit_title:kesalahan
 post_err_edttimelimit_msg:Sampeyan bisa maneh Ngowahi pesen iki
@@ -1084,6 +1085,7 @@ dmsg_ip:IP:
 err_blockedaccnt_title:Kesalahan: akun wis saring metu.
 err_blockedaccnt_msg:Akun wis diblokir saka ngakses forum amarga siji saka diinstal Filter-filter pangguna.
 merge_th_page_list:Topic Page pilihan
+# Fuzzy
 most_users_online:Paling kedhaftar tau online iki <b>{VAR: st_obj->most_online}</b> ing <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
 sub_unsub_all_forums:Wurung Langganan Kabèh Forum
 sub_unsub_all_topics:Wurung Langganan Kabèh Topik

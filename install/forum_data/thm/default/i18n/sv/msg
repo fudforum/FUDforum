@@ -639,6 +639,7 @@ post_err_lockedthread_msg:Den här diskussionen är låst och inga fler inlägg 
 err_coppa_title:FEL: Ditt konto är inte bekräftat ännu
 err_coppa_msg:Vi har inte fått en bekräftelse av din förälder eller förmyndare, vilket skulle tillåtit dig att skriva inlägg. Om du tappat bort ditt COPPA-formulär kan du <a href="{TEMPLATE: err_coppa_msg_lnk}">se det här</a>.
 err_banned_acct_title:FEL: Du har blivit avstängd.
+# Fuzzy
 err_banned_acct_msg:Ditt konto blev {IF: $ban_expiry}temporärt avstängt till {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}permanent avstängt{ENDI} för tillgång till websidan på grund av överträdelser av forumets regler.
 post_err_edttimelimit_title:FEL
 post_err_edttimelimit_msg:Du kan inte editera det här meddelandet längre
@@ -1083,6 +1084,7 @@ dmsg_ip:IP:
 err_blockedaccnt_title:FEL: Ditt konto har filtrerats bort.
 err_blockedaccnt_msg:Ditt konto har spärrats från att komma åt forumet på grund av något av de installerade användarfiltren.
 merge_th_page_list:Ämnesidesval
+# Fuzzy
 most_users_online:Flest användare online samtidigt var <b>{VAR: st_obj->most_online}</b> on <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
 sub_unsub_all_forums:Avsluta prenumeration från alla forum
 sub_unsub_all_topics:Avsluta Prenumeration Från Alla Ämnen

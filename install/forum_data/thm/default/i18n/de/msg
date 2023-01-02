@@ -646,6 +646,7 @@ post_err_lockedthread_msg:Das Thema ist gesperrt, und es sind keine weiteren Bei
 err_coppa_title:FEHLER: Dein Konto ist noch nicht bestätigt worden
 err_coppa_msg:Wir haben noch keine Bestätigung von einem Elternteil oder einem gesetzlichen Vormund erhalten, welche dir erlauben würde, Nachrichten zu erstellen. Falls du dein COPPA-Formular verloren hast, <a href="{TEMPLATE: err_coppa_msg_lnk}">schau es dir noch einmal an</a>.
 err_banned_acct_title:FEHLER: Du wurdest verbannt.
+# Fuzzy
 err_banned_acct_msg:Dein Konto wurde aufgrund von Verletzungen der Forumsregeln {IF: $ban_expiry}vorübergehend bis zum {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}permanent{ENDI} gebannt.
 post_err_edttimelimit_title:FEHLER
 post_err_edttimelimit_msg:Du kannst deinen Beitrag nicht mehr bearbeiten
@@ -1090,6 +1091,7 @@ dmsg_ip:IP:
 err_blockedaccnt_title:FEHLER: Dein Konto wurde ausgefiltert.
 err_blockedaccnt_msg:Deinem Konto wurde aufgrund der aktivierten Benutzerfilter der Zugriff auf das Forum verwehrt.
 merge_th_page_list:Seite der Themenauswahl
+# Fuzzy
 most_users_online:Mit <b>{VAR: st_obj->most_online}</b> Benutzern waren am <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b> die meisten Benutzer gleichzeitig online.
 sub_unsub_all_forums:Abonnement für alle Foren beenden
 sub_unsub_all_topics:Abonnement für alle Themen beenden

@@ -639,6 +639,7 @@ post_err_lockedthread_msg:このトピックはロックされています。投
 err_coppa_title:エラー: あなたのアカウントは確認が済んでいません
 err_coppa_msg:保護者の方から、あなたのメッセージ投稿の許可を受け取っていません。 COPPA フォームを紛失された場合は、 <a href="{TEMPLATE: err_coppa_msg_lnk}">再確認</a>してください。
 err_banned_acct_title:エラー: あなたは入室が禁止されています。
+# Fuzzy
 err_banned_acct_msg:あなたのアカウントは、フォーラムの規則への違反のため、{IF: $ban_expiry}{DATE: ban_expiry %a, %d %B %Y %H:%M}まで一時的に{ELSE}永久に{ENDI}サイトへのアクセスが禁止されています。
 post_err_edttimelimit_title:エラー
 post_err_edttimelimit_msg:もうこのメッセージを編集することができません
@@ -1083,6 +1084,7 @@ dmsg_ip:IP:
 err_blockedaccnt_title:エラー: あなたのアカウントは排除されています。
 err_blockedaccnt_msg:あなたのアカウントは、インストールされた利用者フィルターの 1つにより、フォーラムへのアクセスを遮断されました。
 merge_th_page_list:トピックページ選択
+# Fuzzy
 most_users_online:オンラインの利用者が最も多かったのは、<b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>の<b>{VAR: st_obj->most_online}</b>人のときです
 sub_unsub_all_forums:すべてのフォーラムの購読を停止
 sub_unsub_all_topics:すべてのトピックの購読を停止

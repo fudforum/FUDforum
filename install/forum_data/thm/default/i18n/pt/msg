@@ -642,6 +642,7 @@ post_err_lockedthread_msg:Este tópico está bloqueado, não é permitido coloca
 err_coppa_title:ERRO: A sua conta ainda não foi confirmada
 err_coppa_msg:Ainda não recebemos uma confirmação dos teus pais ou tutores legais, o que te permitiria publicar mensagens. Se perdeste o teu formulário COPPA, <a href="{TEMPLATE: err_coppa_msg_lnk}">consulta-o novamente</a>.
 err_banned_acct_title:ERRO: Você foi banido.
+# Fuzzy
 err_banned_acct_msg:Your account was {IF: $ban_expiry}temporarily banned until {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}permanently{ENDI} from accessing the site, due to a violation of the forum&#39s rules.
 post_err_edttimelimit_title:ERRO
 post_err_edttimelimit_msg:Já não pode editar esta mensagem
@@ -1086,6 +1087,7 @@ dmsg_ip:IP:
 err_blockedaccnt_title:ERRO: Sua conta foi filtrada.
 err_blockedaccnt_msg:O acesso ao fórum foi bloqueado à sua conta devido a um dos filtros de utilizadores instalados.
 merge_th_page_list:Seleção de página do tópico
+# Fuzzy
 most_users_online:O recorde de utilizadores em linha foi <b>{VAR: st_obj->most_online}</b> <b>({DATE: st_obj->most_online_time %a, %d %B %Y %H:%M})</b>
 sub_unsub_all_forums:Cancelar inscrição em todos os fóruns
 sub_unsub_all_topics:Cancelar inscrição em todos os tópicos

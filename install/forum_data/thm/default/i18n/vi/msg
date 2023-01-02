@@ -624,6 +624,7 @@ post_err_lockedthread_msg:Chủ đề này đã bị khóa .Bài viết của b�
 err_coppa_title:Lỗi : Tài khoản của bạn chưa được kích hoạt
 err_coppa_msg:Chúng tôi chưa nhận được xác nhận từ phụ huynh hoặc người bảo hộ của bạn, vậy nên bạn chưa được phép gửi bài viết. Nếu bạn mất mẫu COPPA, <a href="{TEMPLATE: err_coppa_msg_lnk}">xem lại tại đây</a>.
 err_banned_acct_title:Lỗi :Tài khoản đã bị cấm.
+# Fuzzy
 err_banned_acct_msg:Tài khoản của bạn {IF: $ban_expiry}tạm thời bị cấm cho đến khi {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}lâu dài{ENDI} cho việc truy cập vào diễn đàn, vì vi phạm nội qui của diễn đàn.
 post_err_edttimelimit_title:Lỗi
 post_err_edttimelimit_msg:Bạn không thể chỉnh sửa bài viết này
@@ -1040,6 +1041,7 @@ thread_loc_all:Khoá/mở khoá các mục đã chọn
 dmsg_ip:Địa chỉ IP:
 err_blockedaccnt_title:Lỗi :Tài khoản của bạn đã bị lọc ra ngoài.
 err_blockedaccnt_msg:Tài khoản của bạn đã bị cấm truy cập vào diễn đàn vì bộ lọc người sử dụng đã được thiết lập.
+# Fuzzy
 most_users_online:Thành viên online nhiều nhất là <b>{VAR: st_obj->most_online}</b> vào <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
 unbookmark_all_topics:Xóa tất cả dấu trang
 tabs_own_posts:Bài viết của bạn

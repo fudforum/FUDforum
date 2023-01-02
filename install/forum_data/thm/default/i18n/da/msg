@@ -635,6 +635,7 @@ post_err_lockedthread_msg:Dette emne er låst. Nye indlæg er ikke længere till
 err_coppa_title:FEJL: Din konto er endnu ikke bekræftet
 err_coppa_msg:Vi har ikke modtaget en bekræftelse fra en af dine forældre og/eller værge, som vil give dig mulighed for at skrive indlæg. Hvis du har mistet din COPPA formular, så <a href="{TEMPLATE: err_coppa_msg_lnk}">se den her</a>.
 err_banned_acct_title:FEJL: Du er blevet udelukket.
+# Fuzzy
 err_banned_acct_msg:Din konto blev {IF: $ban_expiry}midlertidigt lukket indtil {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}permanent lukket{ENDI} for adgang til webstedet, som følge af en overtrædelse af forumets regler.
 post_err_edttimelimit_title:FEJL
 post_err_edttimelimit_msg:Du kan ikke længere redigere denne besked
@@ -1079,6 +1080,7 @@ dmsg_ip:IP:
 err_blockedaccnt_title:FEJL: Din konto er blevet filtreret væk.
 err_blockedaccnt_msg:Din konto er blevet spærret for adgang til dette forum på grund af et af de installerede brugerfiltre.
 merge_th_page_list:Oversigtsside til valg af emner
+# Fuzzy
 most_users_online:Flest online på samme tid nogensinde var <b>{VAR: st_obj->most_online}</b> bruger(e) den <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
 sub_unsub_all_forums:Stop abonnement på alle fora
 sub_unsub_all_topics:Stop abonnement på alle emner

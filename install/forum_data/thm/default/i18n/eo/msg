@@ -635,6 +635,7 @@ post_err_lockedthread_msg:Ĉi tiu fadeno estas ŝlosita. Afiŝado ne plu estas p
 err_coppa_title:ERARO: Via konto ne ankoraŭ estas konfirmita
 err_coppa_msg:Ni ne ricevis konfirmaĵon de via gepatro kaj/aŭ leĝa zorganto, kiu permesus al vi afiŝi mesaĝojn. Se vi perdis vian COPPA-formularon, <a href="{TEMPLATE: err_coppa_msg_lnk}">rerigardu ĝin</a>.
 err_banned_acct_title:ERARO: Vi estis forbarita.
+# Fuzzy
 err_banned_acct_msg:Via konto estis {IF: $ban_expiry}provizore forbarita ĝis {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}ĉiame forbarita{ENDI} de atingo la retejo, pro malobservo de la foruma regularo.
 post_err_edttimelimit_title:ERARO
 post_err_edttimelimit_msg:Vi ne plu povas redakti ĉi tiun mesaĝon
@@ -1079,6 +1080,7 @@ dmsg_ip:IP-adreso:
 err_blockedaccnt_title:ERARO: Via konto estis filtrita for.
 err_blockedaccnt_msg:Via konto estas forbarata el la forumo de unu el la instalitaj uzanto-filtriloj.
 merge_th_page_list:Elekto de Tema Paĝo
+# Fuzzy
 most_users_online:La plej granda nombro de uzantoj konektitaj samtempe estis <b>{VAR: st_obj->most_online}</b> je <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
 sub_unsub_all_forums:Malaboni Ĉiujn Forumojn
 sub_unsub_all_topics:Malaboni Ĉiujn Fadenojn

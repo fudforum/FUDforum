@@ -627,6 +627,7 @@ post_err_lockedthread_msg:Aqueste fial es verrolhat, cap de messatge novèl es p
 err_coppa_title:ERROR : Vòstre compte es pas encara confirmat
 err_coppa_msg:Avèm pas recebut de confirmacion de vòstres parents o de vòstre tutor legal que vos autoriza a mandar de messatges. S'avètz perdut vòstre formulari COPPA, <a href="{TEMPLATE: err_coppa_msg_lnk}">per l'obténer tornamai</a>.
 err_banned_acct_title:ERROR : sètz estat fòrabandit.
+# Fuzzy
 err_banned_acct_msg:Vòstre compte es estat {IF: $ban_expiry}temporàriament fòrabandit fins a {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}fòrabandit definitivament {ENDI} del site, en rason d'una violacion de las règlas del forum.
 post_err_edttimelimit_title:ERROR
 post_err_edttimelimit_msg:Avètz pas pus la possibilitat de modificar aqueste messatge
@@ -1080,6 +1081,7 @@ dmsg_ip:IP :
 err_blockedaccnt_title:ERROR : Vòstre compte es estat filtrat.
 err_blockedaccnt_msg:Vòstre compte pòt pas accedir a aqueste forum a causa d'un dels filtres d'utilizaires installats.
 merge_th_page_list:Seleccion de pagina de subjècte
+# Fuzzy
 most_users_online:Lo nombre maximum d'utilizaires en linha èra de <b>{VAR: st_obj->most_online}</b> lo <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
 sub_unsub_all_forums:Daissar la susvelhança de totes los forums
 sub_unsub_all_topics:Daissar la susvelhança de totes los fials

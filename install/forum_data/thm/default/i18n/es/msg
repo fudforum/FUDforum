@@ -644,6 +644,7 @@ post_err_lockedthread_msg:Este hilo de discusión esta bloqueado, no se permiten
 err_coppa_title:ERROR: Su cuenta aún no ha sido confirmada
 err_coppa_msg:No hemos recibido una confirmación de su padre y/o tutor legal, la cual te permitiría publicar mensajes. Si perdiste tu formulario COPPA, <a href="{TEMPLATE: err_coppa_msg_lnk}">míralo de nuevo</a>.
 err_banned_acct_title:ERROR: Ha sido expulsado.
+# Fuzzy
 err_banned_acct_msg:Su cuenta tenía el acceso restringido {IF: $ban_expiry}temporalmente hasta {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}permanentemente{ENDI} al sitio, debido a una violación de las reglas del foro.
 post_err_edttimelimit_title:ERROR
 post_err_edttimelimit_msg:Ya no puede editar este mensaje
@@ -1091,6 +1092,7 @@ dmsg_ip:IP:
 err_blockedaccnt_title:ERROR: Su cuenta ha sido filtrada.
 err_blockedaccnt_msg:Su cuenta ha sido bloqueada por uno de los filtros de usuario instalados.
 merge_th_page_list:Seleccionar la página del hilo
+# Fuzzy
 most_users_online:La mayor cantidad de usuarios en línea fue <b>{VAR: st_obj->most_online}</b>, el <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
 sub_unsub_all_forums:Desuscribir de todos los foros
 sub_unsub_all_topics:Desuscribir de todos los hilos

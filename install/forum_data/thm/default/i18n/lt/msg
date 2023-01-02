@@ -635,6 +635,7 @@ post_err_lockedthread_msg:Ši tema užrakinta. Rašymas nebeleidžiamas.
 err_coppa_title:KLAIDA: jūsų sąskaita dar nepatvirtinta
 err_coppa_msg:Mes negavome iš jūsų tėvų ir / ar teisėtų globėjų, patvirtinimo kuris leistų jums rašyti žinutes. Jei Jūs pametėte savo COPPA forma, <a href="{TEMPLATE: err_coppa_msg_lnk}">peržiūrėkit ją vėl</a> .
 err_banned_acct_title:KLAIDA: Jūs buvote užblokuotas.
+# Fuzzy
 err_banned_acct_msg:Jūsų sąskaita {IF: $ban_expiry}laikinai užblokuota {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}laikinai užblokuota{ENDI} pateikimui į puslapį, dėl forumo taisyklių pažeidimo.
 post_err_edttimelimit_title:KLAIDA
 post_err_edttimelimit_msg:Nebegalite redaguoti šios žinutės
@@ -1079,6 +1080,7 @@ dmsg_ip:IP:
 err_blockedaccnt_title:KLAIDA: Jūsų sąskaita buvo išfiltruota.
 err_blockedaccnt_msg:Jūsų sąskaita buvo užblokuotas nuo prieigos prie forumo dėl vieno iš įdiegtų vartotojų filtrų.
 merge_th_page_list:Temos Puslapio Pasirinkimas
+# Fuzzy
 most_users_online:Daugiausia vartotojų buvo <b>{VAR: st_obj->most_online} ({DATE: st_obj->most_online_time %Y-%m-%d %H:%M})</b>.
 sub_unsub_all_forums:Nebeprenumeruoti visu forumų
 sub_unsub_all_topics:Nebeprenumeruoti visu temų

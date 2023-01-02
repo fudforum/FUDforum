@@ -627,7 +627,7 @@ post_err_lockedthread_msg:Die onderwerp is gesluit, geen boodskappe word meer to
 err_coppa_title:FOUT: u rekening is nog nie bevestig nie
 err_coppa_msg:Ons het nog nie toestemming van u ouer of voog ontvang nie. Dit is nodig alvorens u boodskappe kan byvoeg. As u u COPPA-vorm verloor het, kan u dit weer <a href="{TEMPLATE: err_coppa_msg_lnk}">hier kry</a>.
 err_banned_acct_title:FOUT: U is verban.
-err_banned_acct_msg:U gebruiker is {IF: $ban_expiry}tydelik geblokkeerd tot {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}permanent geblokkeerd{ENDI}. U het geen toegang tot die webwerf nie aangesien u die forumreëls oortree het.
+err_banned_acct_msg:U gebruiker is {IF: $ban_expiry}tydelik geblokkeer tot {TEMPLATE: ban_expiry_date}{ELSE}permanent geblokkeer{ENDI}. U het geen toegang tot die webwerf nie aangesien u die forumreëls oortree het.
 post_err_edttimelimit_title:FOUT
 post_err_edttimelimit_msg:U kan nie die boodskap meer wysig nie
 post_err_noannontopics_msg2:<legend>FOUT: Onvoldoende Regte</legend>Anonieme gebruikers word nie toegelaat om nuwe onderwerpe te begin nie.
@@ -1071,7 +1071,7 @@ dmsg_ip:IP:
 err_blockedaccnt_title:FOUT: Your account has been filtered out.
 err_blockedaccnt_msg:As gevolg van 'n filter is u gebruiker van die forum geblokkeer.
 merge_th_page_list:Onderwerp boodskap seleksie
-most_users_online:Die meeste aanlyn gebruikers was <b>{VAR: st_obj->most_online}</b> op <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
+most_users_online:Die meeste aanlyn gebruikers was <b>{VAR: st_obj->most_online}</b> op <b>{TEMPLATE: most_online_time}</b>
 sub_unsub_all_forums:Kanselleer inskrywing op alle forums
 sub_unsub_all_topics:Afmeld van alle Ondwerwerpe
 unbookmark_all_topics:Skrap alle boekmerke

@@ -626,6 +626,7 @@ post_err_lockedthread_msg:Tá an topaic seo faoi ghlas. Postála a thuilleadh a 
 err_coppa_title:EARRÁ: Nach bhfuil do chuntas deimhnithe go fóill
 err_coppa_msg:Ní mór dúinn a fuarthas deimhniú ó do thuismitheoir agus/nó caomhnóir dlíthiúil, rud a cheadaíonn duit chun teachtaireachtaí a phost. Má chaill tú d'fhoirm COPPA, <a href="{TEMPLATE: err_coppa_msg_lnk}">féachaint air arís</a>.
 err_banned_acct_title:EARRÁID: Tá tú cuireadh toirmeasc.
+# Fuzzy
 err_banned_acct_msg:Do chuntas a bhí {IF: $ban_expiry}toirmeasc go sealadach go dtí go {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}toirmeasc buan{ENDI} ó rochtain a fháil ar an láithreán, mar gheall ar shárú ar na rialacha an fóram ar.
 post_err_edttimelimit_title:EARRÁ
 post_err_edttimelimit_msg:Is féidir leat a thuilleadh in eagar teachtaireacht seo
@@ -1081,6 +1082,7 @@ dmsg_ip:IP:
 err_blockedaccnt_title:EARRÁID: Tá do chuntas ndearnadh scagadh.
 err_blockedaccnt_msg:Tá do chuntas cosc curtha ó rochtain a fháil ar an fóram mar gheall ar cheann de na scagairí úsáideora suiteáilte.
 merge_th_page_list:Topaic Leathanach Roghnaithe
+# Fuzzy
 most_users_online:An chuid is mó d'úsáideoirí riamh a bhí ar líne <b>{VAR: st_obj->most_online}</b> ar <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
 sub_unsub_all_forums:Díliostáil Ó Gach Fóraim
 sub_unsub_all_topics:Díliostáil Ó Gach Ábhair

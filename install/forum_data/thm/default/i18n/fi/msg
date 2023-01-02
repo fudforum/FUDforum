@@ -641,6 +641,7 @@ post_err_lockedthread_msg:Tämä aihe on lukittu, uusia viestejä ei sallita
 err_coppa_title:Virhe: Käyttäjätunnusta ei ole vielä hyväksytty
 err_coppa_msg:Emme ole vastaanottaneet varmistusta vanhemmiltasi tai lailliselta huoltajaltasi, joten et voi vielä lähettää viestejä foorumille. Jos olet hukannut COPPA-lomakkeen – <a href="{TEMPLATE: err_coppa_msg_lnk}">voit hakea sen uudelleen</a>.
 err_banned_acct_title:Virhe: Olet estetty.
+# Fuzzy
 err_banned_acct_msg:Tunnuksesi oli {IF: $ban_expiry}väliaikaisesti estettynä {DATE: ban_expiry %e %Bta %Y kello %H.%M} saakka{ELSE}pysyvästi estettynä{ENDI} johtuen keskustelualueen sääntöjen rikkomisesta.
 post_err_edttimelimit_title:Virhe
 post_err_edttimelimit_msg:Et voi enää muokata tätä viestiä.
@@ -1092,6 +1093,7 @@ dmsg_ip:IP:
 err_blockedaccnt_title:Virhe: Tunnuksesi on suodatettu pois.
 err_blockedaccnt_msg:Tätä sivustoa ei voi käyttää tunnuksellasi johtuen käyttäjäsuodattimista.
 merge_th_page_list:Aihesivun valinta
+# Fuzzy
 most_users_online:Eniten yhtaikaisia käyttäjiä (<b>{VAR: st_obj->most_online}</b>) oli <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
 sub_unsub_all_forums:Peruuta liittyminen kaikille foorumeille
 sub_unsub_all_topics:Peruuta kaikkiin ketjuihin liittyminen

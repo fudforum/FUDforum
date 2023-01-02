@@ -629,6 +629,7 @@ post_err_lockedthread_msg:Nakakandado ang paksang ito. Hindi na pinapayagan ang 
 err_coppa_title:KAMALIAN: Hindi pa natitiyak ang akawnt mo
 err_coppa_msg:Hindi pa namin natatanggap ang isang katiyakan mula sa magulang mo at/o pambatas na tagapag-alaga, na makapagpapahintulot sa iyo na makapagpaskil ng mga mensahe. Kung naiwala mo ang iyong pormularyo ng COPPA, a href="{TEMPLATE: err_coppa_msg_lnk}">tingnan ulit ito</a>.
 err_banned_acct_title:KAMALIAN: Pinagbabawalan ka na.
+# Fuzzy
 err_banned_acct_msg:Ang akawnt mo ay {IF: $ban_expiry}pansamantalang pinagbabawalan hanggang {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}permanently banned{ENDI}pampamalagian nang pinagbabawalan{END} mula sa pagpunta sa sityo, dahil sa iyong paglabag sa mga patakaran ng poro.
 post_err_edttimelimit_title:KAMALIAN
 post_err_edttimelimit_msg:Hindi mo na maaaring baguhin ang mensaheng ito
@@ -1084,6 +1085,7 @@ dmsg_ip:IP:
 err_blockedaccnt_title:KAMALIAN: Ang akawnt mo ay nasalang palabas.
 err_blockedaccnt_msg:Hinarang ang akawnt mo mula sa pagpunta sa poro dahil sa isa sa iniluklok na mga pansala ng tagagamit.
 merge_th_page_list:Pilian ng Pahina ng Paksa
+# Fuzzy
 most_users_online:Karamihang mga tagagamit na palagiang nasa linya ng Internet ay <b>{VAR: st_obj->most_online}</b> on <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
 sub_unsub_all_forums:Huwag Nang Magpasipi MulaSa Lahat Ng Mga Poro
 sub_unsub_all_topics:Huwag Nang Magpasipi Mula Sa Lahat Ng Mga Paksa

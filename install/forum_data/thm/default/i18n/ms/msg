@@ -626,6 +626,7 @@ post_err_lockedthread_msg:Topik ini dikunci. Sesiapa tidak boleh mengirim apa-ap
 err_coppa_title:PERHATIAN: Akaun anda belum disahkan
 err_coppa_msg:Kami belum menerima pengesahan daripada ibu bapa dan/atau penjaga anda yang akan membenarkan anda untuk mengirim pesanan. Sekiranya anda hilang borang COPPA anda, <a href="{TEMPLATE: err_coppa_msg_lnk}">sila dapatkan borang tersebut di sini</a>.
 err_banned_acct_title:PERHATIAN: Anda telah dilarang masuk.
+# Fuzzy
 err_banned_acct_msg:Akaun anda {IF: $ban_expiry}dilarang buat sementara hingga {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}dilarang buat selamanya{ENDI} daripada mencapai tapak ini kerana melanggar peraturan forum.
 post_err_edttimelimit_title:PERHATIAN
 post_err_edttimelimit_msg:Anda tidak boleh menyunting pesanan ini lagi
@@ -1080,6 +1081,7 @@ dmsg_ip:IP:
 err_blockedaccnt_title:PERHATIAN: Akaun anda telah ditapis keluar.
 err_blockedaccnt_msg:Akaun anda telah disekat daripada mencapai forum ini disebabkan salah satu penapis pengguna yang terpasang.
 merge_th_page_list:Pemilihan Laman Topik
+# Fuzzy
 most_users_online:Detik paling ramai pengguna: <b>{VAR: st_obj->most_online}</b> orang pada <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
 sub_unsub_all_forums:Berhenti Melanggan Semua Forum
 sub_unsub_all_topics:Berhenti Melanggan Semua Topik

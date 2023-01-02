@@ -205,8 +205,10 @@ mklist_option:Možnost:
 mklist_delete:Izbriši
 qbud_selected:Izberi
 mklist_close:Zapri
+email_to:Za:
 email_pg_title:E-pošta
 email_submit:E-pošta
+ppost_to:Za:
 ppost_send:Pošlji
 poll_create:Ustvari
 poll_update:Posodobi
@@ -219,12 +221,17 @@ poll_year:leto
 delete_yes:Da
 delete_no:Ne
 error_error:Napaka
+err_info:Informacije
 emailconf_err_invkey_title:Napaka
+ignore_list_err_info_title:Informacije
+err_banned_acct_msg:Vašemu računu je bil {IF: $ban_expiry}začasno preprečen do {TEMPLATE: ban_expiry_date}{ELSE}trajno preprečen{ENDI} dostop do spletnega mesta zaradi kršitve pravil foruma.
 post_err_edttimelimit_title:NAPAKA
 report_err_nosuchmsg_title:NAPAKA
 reset_err_invalidkey_title:NAPAKA
 reset_err_rstconf_title:Informacije
 reset_login_notify:Vaše geslo vam je bilo poslano po e-pošti. Prejeti bi ga morali v naslednjih minutah.
+ERR_disabled_ttl:Onemogočena možnost
+ERR_registration_disabled_ttl:Registracija onemogočena
 help_title:Pomoč
 thr_exch_submit:Pošlji
 groupmgr_yes:Da
@@ -234,7 +241,7 @@ groupmgr_member:Član
 groupmgr_cancel:Prekliči
 groupmgr_edit:Uredi
 groupmgr_delete:Izbriši
-group_mgr_anon:Anonimnež
+group_mgr_anon:Anonimni
 show_show:Prikaži:
 group_mgr_group:Skupina:
 permission_denied_title:Dovoljenje zavrnjeno!
@@ -262,6 +269,7 @@ search_or:ALI
 search_sorting:Razvrsti po:
 saved:Shranjeno
 iemail_msg_reply:Odgovori
+mnav_date_limit:Datumski razpon:
 mnav_more:Več &raquo;&raquo;
 mnav_minute:Minuta (minute)
 mnav_hour:Ura(e)
@@ -274,6 +282,7 @@ ip_search:Išči
 post_err_mod_forum_edit_ttl:NAPAKA
 modque_cat:Kategorija
 mmd_abort_move:Prekliči
+most_users_online:Največ uporabnikov je bilo prisotnih <b>{VAR: st_obj->most_online}</b> ob <b>{TEMPLATE: most_online_time}</b>
 sml_code:Koda
 post_common_bold:Krepko
 post_common_italics:Ležeče

@@ -645,6 +645,7 @@ post_err_lockedthread_msg:这个主题已被锁定，不能回复
 err_coppa_title:错误：您的账户尚未确认
 err_coppa_msg:我们还没有收到来自你父母或者法定监护人的关于同意你发布帖子的确认函。 如果丢失了申请表，<a href="{TEMPLATE: err_coppa_msg_lnk}">请点这里</a>。
 err_banned_acct_title:错误：您已被禁止。
+# Fuzzy
 err_banned_acct_msg:由于违反了论坛的规则，您的账户被此网站{IF: $ban_expiry}暂时禁止访问，直到{DATE: ban_expiry %Y %B %d %a %H:%M}{ELSE}永久禁止访问{ENDI}。
 post_err_edttimelimit_title:错误
 post_err_edttimelimit_msg:您不能在编辑此消息
@@ -1092,6 +1093,7 @@ dmsg_ip:IP：
 err_blockedaccnt_title:错误:你的帐号已经被过滤了。
 err_blockedaccnt_msg:你的帐号因为一个已经安装的用户过滤器而被阻止了。
 merge_th_page_list:话题页面选择
+# Fuzzy
 most_users_online:始终最高在线人数：<b>{VAR: st_obj->most_online}</b> 在 <b>{DATE: st_obj->most_online_time 周%a, %B%d日 %Y %H:%M}</b>
 sub_unsub_all_forums:从所有的论坛取消订阅
 sub_unsub_all_topics:从所有的话题取消订阅

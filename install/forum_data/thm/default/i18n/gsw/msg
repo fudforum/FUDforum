@@ -630,6 +630,7 @@ post_err_lockedthread_msg:Des Thema isch gsperrt. Wyteri Byytreg sin nimi erlaub
 err_coppa_title:FÄHLER: Dyy Konto isch nonig bstetigt wore
 err_coppa_msg:Mir hän no kei Bstetigung iberchuu vun eme Eltereteil oder eme gsetzlige Vormund, wu Dir deet erlaube, Nochrichte aazlege. Wänn Du imfall Dyy COPPA-Formular verlore hesch, <a href="{TEMPLATE: err_coppa_msg_lnk}">lueg s der nonemol aa</a>.
 err_banned_acct_title:FÄHLER: Du bisch gsperrt wore.
+# Fuzzy
 err_banned_acct_msg:Dyy Konto isch wäge Verletzige vu dr Forumsregle {IF: $ban_expiry}erscht emol bis zum {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}permanent{ENDI} gsperrt wore.
 post_err_edttimelimit_title:FÄHLER
 post_err_edttimelimit_msg:Du chasch Dyyy Byytrag nimmi bearbeite
@@ -1083,6 +1084,7 @@ dmsg_ip:IP:
 err_blockedaccnt_title:FÄHLER: Dyy Konto isch uusegfilteret wore.
 err_blockedaccnt_msg:Dyym Konto isch wäg dr aktivierte Benutzerfilter dr Zuegriff uf s Forum verweigeret wore.
 merge_th_page_list:Syte vu dr Themeneuuswahl
+# Fuzzy
 most_users_online:Mit <b>{VAR: st_obj->most_online}</b> Benutzer sin am <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b> di meischte Benutzer glyychzeitig online gsi.
 sub_unsub_all_forums:Abonnement fir alli Fore chinde
 sub_unsub_all_topics:Abonnement fir alli Themene chinde

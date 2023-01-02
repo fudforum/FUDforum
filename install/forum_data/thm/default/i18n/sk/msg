@@ -632,6 +632,7 @@ post_err_lockedthread_msg:Táto téma je uzamknutá. Ďalšie príspevky nie sú
 err_coppa_title:CHYBA: Váš používateľský účet ešte nebol potvrdený
 err_coppa_msg:Nedostali sme ešte potvrdenie rodiča a/alebo zákonného zástupcu, ktoré by vám umožňovalo uverejňovanie správ na fóre. Ak ste váš COOPA formulár stratili <a href="{TEMPLATE: err_coppa_msg_lnk}">zobraziť znova</a> .
 err_banned_acct_title:CHYBA: Boli ste vyhostený.
+# Fuzzy
 err_banned_acct_msg:Váš používateľský účet bol  {IF: $ban_expiry}  dočasne zablokovaný do {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE} trvalo zablokovaný {ENDI} z dôvodu porušenia pravidiel fóra.
 post_err_edttimelimit_title:CHYBA
 post_err_edttimelimit_msg:Túto správu už nie je možné upraviť
@@ -1076,6 +1077,7 @@ dmsg_ip:IP:
 err_blockedaccnt_title:CHYBA: Váš účet bol vyfiltrovaný.
 err_blockedaccnt_msg:Váš účet bol zablokovaný pre prístup na fórum, kvôli jednému z nainštalovaných používateľských filtrov.
 merge_th_page_list:Stránka výberu tém
+# Fuzzy
 most_users_online:Najviac používateľov <b>{VAR: st_obj->most_online}</b> bolo online dňa <b>{DATE: st_obj-> most_online_time%, %d % B% Y %H:% M}</b>
 sub_unsub_all_forums:Odhlásiť z všetkých fór
 sub_unsub_all_topics:Odhlásiť z všetkých tém

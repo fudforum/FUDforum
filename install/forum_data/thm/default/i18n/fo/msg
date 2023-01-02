@@ -625,6 +625,7 @@ post_err_lockedthread_msg:Hesin tráðurin er stongdur. Tað er ikki longur loyv
 err_coppa_title:FEILUR: Tín konta er ikki váttað enn
 err_coppa_msg:Vit hava enn ikki móttikið eina váttan frá tínum foreldrum og/ella lógliga verja, sum fer at geva tær loyvi til at skriva innsløg. Um so er at tú hevur mist tín COPPA formular, so <a href="{TEMPLATE: err_coppa_msg_lnk}">kanst tú síggja hann enn einaferð</a>.
 err_banned_acct_title:FEILUR: Tú ert blivin útihýst/ur.
+# Fuzzy
 err_banned_acct_msg:Tín konta varð {IF: $ban_expiry}fyribils stongd til {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}stongd fyri altíð{ENDI} fyri atgongd til hesa heimasíðuna orsakað av brot á viðtøkunum hjá hesum forumi.
 post_err_edttimelimit_title:FEILUR
 post_err_edttimelimit_msg:Tú kanst ikki longur rætta hesi boðini
@@ -1079,6 +1080,7 @@ dmsg_ip:IP:
 err_blockedaccnt_title:FEILUR: Tín konta er blivin filtrerað vekk.
 err_blockedaccnt_msg:Tín konta er blivin sperrað fyri atgongd til hetta forumið orsakað av einum av teimum innstalleraðu brúkarafiltrunum.
 merge_th_page_list:Yvirlitssíða til val av evnum
+# Fuzzy
 most_users_online:Flest brúkarar nakrantíð ið vóru online í senn var <b>{VAR: st_obj->most_online}</b> hin <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
 sub_unsub_all_forums:Frámelda hald frá øllum forum
 sub_unsub_all_topics:Frámelda hald frá øllum evnum

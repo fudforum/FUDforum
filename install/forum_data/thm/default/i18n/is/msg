@@ -633,6 +633,7 @@ post_err_lockedthread_msg:Þessi spjallþráður er læstur. Ekki er hægt að s
 err_coppa_title:VILLA: Aðgangur þinn hefur ekki enn verið staðfestur
 err_coppa_msg:Við höfum ekki fengið staðfestingu frá foreldri eða forráðarmanni sem myndi leyfa þér að senda inn skilaboð. Ef þú hefur týnt staðfestingar eyðublaðinu þá getur þú <a href="{TEMPLATE: err_coppa_msg_lnk}">skoðað það hér</a>.
 err_banned_acct_title:VILLA: Þú hefur verið bannaður.
+# Fuzzy
 err_banned_acct_msg:Aðgangur þinn var {IF: $ban_expiry}tímabundið bannaður til {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}bannaður ótímabundið{ENDI} frá því að hafa aðgang að síðunni, vegna brota á reglum spjallborðsins.
 post_err_edttimelimit_title:VILLA
 post_err_edttimelimit_msg:Þú getur ekki lengur breytt þessum skilaboðum
@@ -1077,6 +1078,7 @@ dmsg_ip:Vistfang:
 err_blockedaccnt_title:VILLA: Aðgangurinn þinn hefur verið síaður út.
 err_blockedaccnt_msg:Aðgangurinn þinn hefur verið bannaður frá spjallborðinu vegna eins af þeim síum sem þú hefur sett inn.
 merge_th_page_list:Val þráða
+# Fuzzy
 most_users_online:Flestu notendir voru tengdir <b>{VAR: st_obj->most_online}</b> þann <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
 sub_unsub_all_forums:Hætta áskrift á öllum umræðum
 sub_unsub_all_topics:Hætta áskrift á öllum spjallþráðum

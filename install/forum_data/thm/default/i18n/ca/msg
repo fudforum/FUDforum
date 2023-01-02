@@ -641,6 +641,7 @@ post_err_lockedthread_msg:Aquest fil de discussió està  bloquejat, no es perm
 err_coppa_title:ERROR: El seu compte encara no ha estat confirmat
 err_coppa_msg:No he rebut una confirmació del seu pare i/o tutor, que li permet enviar missatges. Si vostè va perdre el seu formulari COPPA, <a href="{TEMPLATE: err_coppa_msg_lnk}">veure'l altra vegada</a>.
 err_banned_acct_title:ERROR: Ha estat expulsat.
+# Fuzzy
 err_banned_acct_msg:El seu compte tenia l`accés restringit {IF: $ban_expiry}temporalment fins {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}permanentement{ENDI} al lloc, degut a una violació de les regles del fòrum.
 post_err_edttimelimit_title:ERROR
 post_err_edttimelimit_msg:Ja no pot editar aquest missatge
@@ -1085,6 +1086,7 @@ dmsg_ip:IP:
 err_blockedaccnt_title:ERROR: el seu compte ha estat filtrat.
 err_blockedaccnt_msg:El seu compte ha estat bloquejat per un dels filtres d`usuaris instal.lats.
 merge_th_page_list:Seleccionar la pàgina del fil
+# Fuzzy
 most_users_online:La majoria d'usuaris en línia fou <b>{VAR: st_obj->most_online}</b>, el <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
 sub_unsub_all_forums:Desubscriure de tots els fòrums
 sub_unsub_all_topics:Desubscriure de tots els fils

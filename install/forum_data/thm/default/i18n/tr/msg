@@ -652,6 +652,7 @@ post_err_lockedthread_msg:Bu konu kilitlendi. Gönderiye artık izin verilmiyor.
 err_coppa_title:HATA: Hesabınız henüz onaylanmadı
 err_coppa_msg:Ebeveyninizden ve/veya yasal vasinizden mesaj göndermenize izin verecek bir onay almadık. COPPA formunuzu kaybettiyseniz, <a href="{TEMPLATE: err_coppa_msg_lnk}">tekrar görüntüleyin</a>.
 err_banned_acct_title:HATA: Yasaklandınız.
+# Fuzzy
 err_banned_acct_msg:Forum kurallarını ihlal etmeniz nedeniyle foruma erişiminiz {IF: $ban_expiry}{DATE: ban_expiry %a, %d %B %Y %H:%M} tarihine kadar geçici olarak{ELSE}kalıcı olarak{ENDI} engellenmiştir.
 post_err_edttimelimit_title:HATA
 post_err_edttimelimit_msg:Artık bu mesajı düzenleyemezsiniz
@@ -1096,6 +1097,7 @@ dmsg_ip:IP:
 err_blockedaccnt_title:HATA: Hesabınız filtrelendi.
 err_blockedaccnt_msg:Yüklü kullanıcı filtrelerinden biri nedeniyle hesabınızın foruma erişmesi engellendi.
 merge_th_page_list:Konu Sayfa Seçimi
+# Fuzzy
 most_users_online:Bağlı kullanıcı sayısının en çok olduğu tarih, <b>{VAR: st_obj->most_online}</b> kullanıcı ile <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b> idi.
 sub_unsub_all_forums:Tüm Forumlardan Aboneliği İptal Et
 sub_unsub_all_topics:Tüm Konulardan Aboneliği İptal Et

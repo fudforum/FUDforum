@@ -631,6 +631,7 @@ post_err_lockedthread_msg:St'argomende jè bloccate. Le messàgge non ge sò con
 err_coppa_title:ERRORE: 'U cunde tune non g'e confermate
 err_coppa_msg:Nuje non g'amme ricevute 'na conferme da le genitore tune e/o 'u tutore legale, 'u quale t'avessà dà 'u permesse de mannà messàgge. Ce tu è perse 'u module COPPA, <a href="{TEMPLATE: err_coppa_msg_lnk}">'ndrucale arrete</a>.
 err_banned_acct_title:ERRORE: Tu è state cacciate.
+# Fuzzy
 err_banned_acct_msg:'U cunde tune ha state {IF: $ban_expiry}temboraneamende cacciate 'nzigne a {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}cacciate pe sembre{ENDI} da l'accesse a 'u site, pu fatte ca è violate le regole d'u forum.
 post_err_edttimelimit_title:ERRURI
 post_err_edttimelimit_msg:Non ge puè cangià cchiù stu messàgge
@@ -1085,6 +1086,7 @@ dmsg_ip:IP:
 err_blockedaccnt_title:ERRORE: 'U cunde tune ha state filtrate.
 err_blockedaccnt_msg:'U cunde tune ha state bloccate da l'accesse a 'u forum da une de le filtre utende installate.
 merge_th_page_list:Pàgene de scacchiamende de l'argomende
+# Fuzzy
 most_users_online:'U numere maggiore de utinde in linèe ha state <b>{VAR: st_obj->most_online}</b> 'u <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
 sub_unsub_all_forums:Scangillate da tutte le forum
 sub_unsub_all_topics:Scangillate da tutte le argumende

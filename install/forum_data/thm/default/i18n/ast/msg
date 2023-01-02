@@ -626,6 +626,7 @@ post_err_lockedthread_msg:Esti filu ta candáu. Yá nun se permite la publicaci�
 err_coppa_title:ERROR: La to cuenta inda nun se confirmó
 err_coppa_msg:Entá nun recibimos la confirmación del to pa y/o tutor llegal, que te permitiría publicar mensaxes. Si perdisti el to formulariu COPPA, <a href="{TEMPLATE: err_coppa_msg_lnk}">vuelvi a miralu</a>.
 err_banned_acct_title:ERROR: Fuisti espulsáu.
+# Fuzzy
 err_banned_acct_msg:La to cuenta foi {IF: $ban_expiry}espulsada de mou temporal fasta'l {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}espulsada de mou permanente{ENDI} d'esti sitiu por una violación de les regles del foru.
 post_err_edttimelimit_title:ERROR
 post_err_edttimelimit_msg:Yá nun pues editar esti mensaxe
@@ -1070,6 +1071,7 @@ dmsg_ip:IP:
 err_blockedaccnt_title:ERROR: La to cuenta ta peñerada.
 err_blockedaccnt_msg:La to cuenta tien bloquiáu l'accesu al foru por una de les peñeres d'usuarios instalaes.
 merge_th_page_list:Seleicionar la páxina del filu
+# Fuzzy
 most_users_online:La mayor cantidá d'usuarios coneutaos al mesmu tiempu foi <b>{VAR: st_obj->most_online}</b>, el <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
 sub_unsub_all_forums:Quitar la suscripción a tolos foros
 sub_unsub_all_topics:Quitar la suscripción a tolos filos

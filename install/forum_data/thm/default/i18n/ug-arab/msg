@@ -627,6 +627,7 @@ post_err_lockedthread_msg:بۇ يازما قۇلۇپلانغان. ئىنكاس �
 err_coppa_title:خاتالىق: ھېساباتىڭىز جەزملەنمىگەن.
 err_coppa_msg:بىز ئاتا-ئانىڭىز ياكى ھامىيىڭىزنىڭ يازما يوللىشىڭىزغا قوشۇلغانلىق خېتىنى تېخى تاپشۇرۇۋالمىدۇق. ئەگەر ئىلتىماس جەدۋىلىنى يوقىتىپ قويغان بولسىڭىز، <a href="{TEMPLATE: err_coppa_msg_lnk}">بۇ جاينى چېكىڭ</a>.
 err_banned_acct_title:خاتالىق: سىز چەكلەندىڭىز.
+# Fuzzy
 err_banned_acct_msg:مۇنبەرنىڭ قائىدىسىگە خىلاپلىق قىلغانلىقىڭىز ئۈچۈن، ھېساباتىڭىزنى بۇ تورتۇرا {IF: $ban_expiry} سىزنى {DATE: ban_expiry %a, %d %B %Y %H:%M} غىچە زىيارەت قىلىشىڭىزنى ۋاقىتلىق چەكلىدى، {ELSE}زىيارىتىڭىزنى مەڭگۈلۈك چەكلەيدۇ{ENDI}.
 post_err_edttimelimit_title:خاتالىق
 post_err_edttimelimit_msg:بۇ يازمىنى تەھرىرلىيەلمەيسىز
@@ -1071,6 +1072,7 @@ dmsg_ip:IP:
 err_blockedaccnt_title:خەتالىق: ھېساباتىڭىز سۈزۈۋېتىلدى.
 err_blockedaccnt_msg:ھېساباتىڭىز مۇنبەرگە ئورنىتىلغان بىر سۈزگۈچ تەرىپىدىن توسۇلغان.
 merge_th_page_list:يازما بەت تاللاش
+# Fuzzy
 most_users_online:توردىكى ئادەم سانى: <b>{VAR: st_obj->most_online}</b> ئەڭ كۆپ بولغان ۋاقىت <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
 sub_unsub_all_forums:ھەممە سەھىپىلەردىكى زاكازنى بىكار قىل
 sub_unsub_all_topics:ھەممە يازمىلارنىڭ زاكازلىرىنى بىكار قىل
