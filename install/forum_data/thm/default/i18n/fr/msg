@@ -646,7 +646,7 @@ post_err_lockedthread_msg:Ce fil est verrouillé, aucun nouveau message n’est 
 err_coppa_title:ERREUR : votre compte n’est pas encore confirmé
 err_coppa_msg:Nous n’avons pas reçu de confirmation de vos parents ou de votre tuteur légal qui vous autorise à envoyer des messages. Si vous avez perdu votre formulaire COPPA, <a href="{TEMPLATE: err_coppa_msg_lnk}">pour l’obtenir à nouveau</a>.
 err_banned_acct_title:ERREUR : vous avez été banni.
-err_banned_acct_msg:Votre compte a été {IF: $ban_expiry}temporairement banni du site jusqu'à {TEMPLATE: ban_expiry_date}{ELSE}définitivement banni du site{ENDI}, en raison d’une violation des règles du forum.
+err_banned_acct_msg:Votre compte a été {IF: $ban_expiry}temporairement banni du site jusqu’au {TEMPLATE: ban_expiry_date}{ELSE}définitivement banni du site{ENDI}, en raison d’une violation des règles du forum.
 post_err_edttimelimit_title:ERREUR
 post_err_edttimelimit_msg:Vous n’avez plus la possibilité de modifier ce message
 post_err_noannontopics_msg2:<legend>ERREUR : droits insuffisants</legend> Les utilisateurs anonymes ne sont pas autorisés à créer des sujets.

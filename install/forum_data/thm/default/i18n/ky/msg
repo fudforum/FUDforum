@@ -1,5 +1,6 @@
 # Messages for Kyrgyz (кыргызча)
 # Exported from translatewiki.net
+# Author: Bosogo
 # Author: Growingup
 # Author: Maksat
 
@@ -728,3 +729,4 @@ pmsg_recepient:Алуучу
 register_err_taken_alias:Сиз тандаган каймана ат, башка бирөө тарабынан колдонот. Сураныч, алмаштырыңыз.
 register_alias:Каймана ат
 register_allow_pm_msg:Жеке билдирүүлөргө уруксат берүү
+ip_search:Издөө

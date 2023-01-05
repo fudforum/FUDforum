@@ -174,6 +174,7 @@ post_normal:Normalno
 post_size:Velikost
 post_color:Barva
 post_font:Pisava
+post_preview:Predogled sporočila
 post_logout:odjava
 post_poll_delete:IZBRIŠI
 post_poll_edit:UREDI
@@ -182,6 +183,7 @@ post_file_name:Ime
 post_file_size:Velikost
 post_title:Naslov:
 post_options:Možnosti:
+post_preview_btn:Predogled sporočila
 post_cancel_btn:Prekliči
 forum_rules:<p>Registracija na tem forumu je brezplačna! Zahtevamo samo, da se držite pravil in smernic, kot so opisane spodaj. Če se strinjate s pogoji, pritisnite gumb <b>Strinjam se</b> na dnu te strani.</p><p>Moderatorji in administratorji tega foruma si bodo prizadevali, da na njem ne bo spornih besedil, vendar je sprotno pregledovanje vseh sporočil nemogoče. Vsa sporočila izražajo mnenje njihovih avtorjev in ustvarjalci ter lastniki tega foruma niso odgovorni za njihovo vsebino.</p><p>S pritiskom na gumb "Strinjam se" zagotavljate, da ne boste pisali sporočil z obsceno, vulgarno, sovražno, grozečo ali kako drugače nezakonito vsebino.</p><p>Lastniki tega foruma imajo pravico odstranjevati, urejati, premikati ali zapirati vsako temo ne glede na razlog.</p>
 prereg_agree:Strinjam se
@@ -198,10 +200,14 @@ rpasswd_new_pass:Novo geslo:
 login_passwd:Geslo:
 reset_email:E-pošta:
 report_by:Avtor:
+search_all_forums:Preišči vse forume
+search_in_forum:Išči v forumu:
+search_forum_search:Preišči forum
 remail_your_name:Vaše ime:
 remail_required:obvezno
 mklist_type:Vrsta:
 mklist_option:Možnost:
+mklist_apply:Uporabi
 mklist_delete:Izbriši
 qbud_selected:Izberi
 mklist_close:Zapri
@@ -210,6 +216,7 @@ email_pg_title:E-pošta
 email_submit:E-pošta
 ppost_to:Za:
 ppost_send:Pošlji
+poll_timelimit:Časovna omejitev:
 poll_create:Ustvari
 poll_update:Posodobi
 poll_delete:Izbriši
@@ -222,6 +229,7 @@ delete_yes:Da
 delete_no:Ne
 error_error:Napaka
 err_info:Informacije
+buddy_list_err_nouser_title:Uporabnika ni mogoče dodati
 emailconf_err_invkey_title:Napaka
 ignore_list_err_info_title:Informacije
 err_banned_acct_msg:Vašemu računu je bil {IF: $ban_expiry}začasno preprečen do {TEMPLATE: ban_expiry_date}{ELSE}trajno preprečen{ENDI} dostop do spletnega mesta zaradi kršitve pravil foruma.
@@ -233,6 +241,7 @@ reset_login_notify:Vaše geslo vam je bilo poslano po e-pošti. Prejeti bi ga mo
 ERR_disabled_ttl:Onemogočena možnost
 ERR_registration_disabled_ttl:Registracija onemogočena
 help_title:Pomoč
+unapproved_avatar_msg:Administrator ni odobril vašega avatarja. Najpogostejši razlogi so, da je bil vaš avatar prevelik (velikost in/ali mere) ali pa vsebuje neprimerno temo. Če želite več informacij o tem, zakaj je bil vaš avatar zavrnjen, kontaktirajte administratorja.
 thr_exch_submit:Pošlji
 groupmgr_yes:Da
 groupmgr_no:Ne
@@ -249,14 +258,17 @@ p_POST:Objavi
 p_REPLY:Odgovori
 p_EDIT:Uredi
 p_DEL:Izbriši
+p_SEARCH:Lahko iščete
 th_expr_one_month:1 mesec
 th_expr_two_month:2 meseca
 th_expr_four_month:4 meseci
 th_expr_one_year:1 leto
 thread_mod_delete:Izbriši
+split_th_new_thread_title:Nov naslov teme:
 split_th_select:Izberi
 quicklogin_password:Geslo:
 quicklogin_login_btn:Prijava
+quick_reply_preview:Predogled hitrega odgovora
 im_twitter:Twitter:
 forum_contact:Stik
 forum_home:Domov
@@ -266,10 +278,15 @@ register_alias:Sopomenka:
 polllist_action:Dejanje
 search_and:IN
 search_or:ALI
+search_logic:Logika iskanja:
 search_sorting:Razvrsti po:
 saved:Shranjeno
+register_err_avatardimtobig:Mere avatarja <b>({VAR: img_info[0]} × {VAR: img_info[1]} )</b> presegajo dovoljene mere <b({GVAR: CUSTOM_AVATAR_MAX_DIM})</b> slikovnih pik.
 iemail_msg_reply:Odgovori
 mnav_date_limit:Datumski razpon:
+mnav_forum_limit:Išči samo v:
+mnav_all_forums:Preišči vse forume
+mnav_submit:Začni iskanje
 mnav_more:Več &raquo;&raquo;
 mnav_minute:Minuta (minute)
 mnav_hour:Ura(e)
@@ -278,12 +295,15 @@ mnav_month:Mesec(i)
 findu_edit:Uredi
 findu_delete:Izbriši
 thread_on:dne
+ip_search_by_ip:Iskanje uporabnikov po IP-ju
 ip_search:Išči
 post_err_mod_forum_edit_ttl:NAPAKA
+search_options:Možnosti iskanja
 modque_cat:Kategorija
 mmd_abort_move:Prekliči
 most_users_online:Največ uporabnikov je bilo prisotnih <b>{VAR: st_obj->most_online}</b> ob <b>{TEMPLATE: most_online_time}</b>
 sml_code:Koda
+register_topics_per_page:Tem na stran:
 post_common_bold:Krepko
 post_common_italics:Ležeče
 post_common_underline:Podčrtano
@@ -295,9 +315,11 @@ powered-by:Omogoča: FUDforum {GVAR: FORUM_VERSION}.
 copyright:Avtorske pravice &copy;2001–2022 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Koda:
 code_select_all:Izberi vse
+btn_about:Profil
 btn_delete:izbriši
 btn_edit:uredi
 btn_reply:odgovori
+btn_forward:naprej
 btn_email:E-pošta
 btn_show_posts:objave
 custom_filed_required:To polje je obvezno.

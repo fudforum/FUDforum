@@ -4,6 +4,7 @@
 # Author: Breawycker
 # Author: Cwlin0416
 # Author: EagerLin
+# Author: HellojoeAoPS
 # Author: Kly
 # Author: LNDDYL
 # Author: Lauhenry
@@ -641,8 +642,7 @@ post_err_lockedthread_msg:本主題已被鎖定，不允許發佈。
 err_coppa_title:錯誤：您的帳號尚未確認
 err_coppa_msg:我們沒有收到來自於您的雙親/或合法監護人允許您在網站上發佈訊息的確認內容。如果你遺失了 COPPA 表單，請在<a href="{TEMPLATE: err_coppa_msg_lnk}">此重新檢視</a>。
 err_banned_acct_title:錯誤：您已被禁止。
-# Fuzzy
-err_banned_acct_msg:基於違反論壇方針緣故，您的帳號{IF: $ban_expiry}會在 {DATE: ban_expiry %a, %d %B %Y %H:%M} 以前被臨時禁止{ELSE}已被永久禁止{ENDI}訪問此網站。
+err_banned_acct_msg:由於違反論壇規則，您的帳戶{IF: $ban_expiry}暫時被禁止，直到{TEMPLATE: ban_expiry_date}{ELSE}永久被禁止{ENDI}訪問該網站。
 post_err_edttimelimit_title:錯誤
 post_err_edttimelimit_msg:您不能再編輯此訊息
 post_err_noannontopics_msg2:<legend>錯誤：沒有足夠的權限</legend>不允許匿名使用者創建主題。
