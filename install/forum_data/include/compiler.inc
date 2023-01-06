@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2021 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -236,13 +236,13 @@ function resolve_sections($file, $secname, $str)
 
 			case 'VAR-HTML':
 				// XSS protection
-				$ret .= '\'.filter_var($'. $name .', FILTER_SANITIZE_STRING).\'';
+				$ret .= '\'.htmlspecialchars($'. $name .', ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML5, null, false).\'';
 				break;
 				
 			case 'VAR-SEO':
 				$ret .= '\'.seo_url_bit($'. $name .').\'';
 				break;
-				
+
 			case 'ALT-VAR':
 				list($name, $class1, $class2) = explode(' ', $name, 3);
 				$ret .= '\'.alt_var(\''. $name .'\',\''.$class1.'\',\''.$class2.'\').\'';
@@ -650,6 +650,7 @@ function build_msg($file)
                 } while ($ini['based_on'] != 'default' && ($ini = @parse_ini_file($GLOBALS['DATA_DIR'] .'thm/'. $ini['based_on'] .'/theme.ini')));
 
                 // Get theme's date formats file.
+                $ini = [];	// Prevent 'Automatic conversion of false to array is deprecated', caused by do...while loop.
                 $ini['based_on'] = $m[1];
                 do {
                         if (($tmp = @file_get_contents($GLOBALS['DATA_DIR'] .'thm/'. $ini['based_on'] .'/tmpl/date_formats.tmpl')) !== false) {
@@ -657,7 +658,7 @@ function build_msg($file)
                         }
                 } while ($ini['based_on'] != 'default' && ($ini = @parse_ini_file($GLOBALS['DATA_DIR'] .'thm/'. $ini['based_on'] .'/theme.ini')));
 
-		// Parse the reqeuested message file.
+		// Parse the requested message file.
                 if (file_exists($file)) {
                         parse_msgs($file);
                 }
