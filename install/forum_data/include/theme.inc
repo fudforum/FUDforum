@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -20,7 +20,7 @@ class fud_theme
 				$this->{$k} = $_POST['thm_'.$k];
 			}
 		}
-		$this->name = preg_replace('![^A-Za-z0-9_]!', '_', trim($this->name));
+		$this->name = preg_replace('![^A-Za-z0-9_]!', '_', trim((string)$this->name));
 		$this->theme_opt = !empty($_POST['thm_enabled']) | (!empty($_POST['thm_t_default']) ? 2 : 0) | (!empty($_POST['thm_path_info']) ? 4 : 0) | (!empty($_POST['thm_no_index_url']) ? 8 : 0);
 	}
 
