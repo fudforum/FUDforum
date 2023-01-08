@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2022 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -71,7 +71,7 @@ function index_text($subj, $body, $msg_id)
 		$weight = 0;
 	} else {
 		$spaces = substr_count($subj, ' ');
-		$weight = $spaces ? 40 / ($spaces + 1) : 100;
+		$weight = $spaces ? round(40 / ($spaces + 1)) : 100;
 	}
 
 	// Spilt text into word arrays, note how $subj is repeated for increaded relevancy.
