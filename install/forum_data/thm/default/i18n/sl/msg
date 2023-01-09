@@ -50,6 +50,7 @@ login_header:Prijava:
 logout:Odjava
 members:Člani
 calendar:Koledar
+cal_update:Brskanje po koledarju foruma
 message:Sporočilo
 moderator:Moderator
 move_thread:Prestavi
@@ -60,6 +61,7 @@ next_page:Naslednja stran
 next_thread:Naslednja tema:
 no_new_posts:Ni novih sporočil
 no_posts:Ni sporočil
+no_unread_locked:Ta tema je zaklenjena
 num_pages:Strani ({VAR: ttl_pg}):
 occupation:Poklic:
 off:izklopljeno
@@ -80,6 +82,7 @@ sel_todays_posts:Današnja sporočila
 send:Pošlji
 size:Velikost:
 status:Stanje:
+bookmark_thread:Dodaj temo med zaznamke
 subscribe:Naroči
 thread:Tema:
 thread_announcement:Obvestilo:
@@ -87,6 +90,9 @@ thread_first_unread_msg:Prvo neprebrano sporočilo v tej temi
 thread_thread:Tema
 threads:Teme
 time:Čas
+unlock_thread:Odkleni temo
+unread_msg_locked:Zaklenjena tema z neprebranimi sporočili
+unsub_from_thread:Odnaroči temo
 unsubscribe:Odnaroči
 user:Uporabnik
 views:Ogledi
@@ -115,17 +121,18 @@ msg_author:Avtor
 avatar_sel_form:Meni za izbiranje avatarja
 month_1:Januar
 month_2:Februar
-month_3:Marec
-month_4:April
-month_5:Maj
-month_6:Junij
-month_7:Julij
-month_8:Avgust
-month_9:September
-month_10:Oktober
-month_11:November
-month_12:December
+month_3:marec
+month_4:april
+month_5:maj
+month_6:junij
+month_7:julij
+month_8:avgust
+month_9:september
+month_10:oktober
+month_11:november
+month_12:december
 use_forum_default:Uporabi privzeto nastavitev
+finduser_by_login:Po uporabniškem imenu:
 finduser_user:Uporabnik
 finduser_action:Dejanje
 yes:Da
@@ -137,6 +144,7 @@ pmuserloc_user:Uporabnik
 register_specify_url:Določi URL
 register_uploaded:Naloži avatarja
 register_login:Prijava:
+register_login_available:Na voljo
 register_password:Geslo:
 register_conf_pass:Potrdi geslo:
 register_name:Ime:
@@ -174,10 +182,15 @@ post_normal:Normalno
 post_size:Velikost
 post_color:Barva
 post_font:Pisava
+create_thread:Ustvari temo
 post_preview:Predogled sporočila
 post_logout:odjava
+post_create_poll:USTVARI ANKETO
 post_poll_delete:IZBRIŠI
 post_poll_edit:UREDI
+post_thread_type:Vrsta teme:
+post_thread_expiry:Pretek teme:
+post_locked:Tema zaklenjena
 post_file_del:Izbriši
 post_file_name:Ime
 post_file_size:Velikost
@@ -187,6 +200,7 @@ post_preview_btn:Predogled sporočila
 post_cancel_btn:Prekliči
 forum_rules:<p>Registracija na tem forumu je brezplačna! Zahtevamo samo, da se držite pravil in smernic, kot so opisane spodaj. Če se strinjate s pogoji, pritisnite gumb <b>Strinjam se</b> na dnu te strani.</p><p>Moderatorji in administratorji tega foruma si bodo prizadevali, da na njem ne bo spornih besedil, vendar je sprotno pregledovanje vseh sporočil nemogoče. Vsa sporočila izražajo mnenje njihovih avtorjev in ustvarjalci ter lastniki tega foruma niso odgovorni za njihovo vsebino.</p><p>S pritiskom na gumb "Strinjam se" zagotavljate, da ne boste pisali sporočil z obsceno, vulgarno, sovražno, grozečo ali kako drugače nezakonito vsebino.</p><p>Lastniki tega foruma imajo pravico odstranjevati, urejati, premikati ali zapirati vsako temo ne glede na razlog.</p>
 prereg_agree:Strinjam se
+prereg_update:Branje pravil foruma
 coppa_fax_date:Datum:
 coppa_fax_login:Prijava
 coppa_fax_passwd:Geslo
@@ -194,17 +208,27 @@ coppa_fax_remail:E-pošta
 coppa_fax_name:Ime
 login_login:Prijava:
 login_login_btn:Prijava
+login_name_required:Potrebno je prijavno ime
+login_invalid_radius:Neveljavna kombinacija uporabniškega imena in gesla
 rpasswd_invalid_passwd:Neveljavno geslo
+reset_update:Ponastavi geslo
+rpasswd_change_pass:Sprememba gesla
 rpasswd_login:Prijava
 rpasswd_new_pass:Novo geslo:
+ruser_title:Sprememba obrazca za prijavo
+ruser_change_user:Sprememba forumskega imena
+ruser_cur_login:Trenutna prijava:
+ruser_new_login:Nova prijava:
 login_passwd:Geslo:
 reset_email:E-pošta:
+reset_reset_button:Ponastavi geslo
 report_by:Avtor:
 search_all_forums:Preišči vse forume
 search_in_forum:Išči v forumu:
 search_forum_search:Preišči forum
 remail_your_name:Vaše ime:
 remail_required:obvezno
+remail_error:Prišlo je do napake
 mklist_type:Vrsta:
 mklist_option:Možnost:
 mklist_apply:Uporabi
@@ -219,6 +243,7 @@ ppost_send:Pošlji
 poll_timelimit:Časovna omejitev:
 poll_create:Ustvari
 poll_update:Posodobi
+poll_create_poll:Ustvari anketo
 poll_delete:Izbriši
 poll_day:dan
 poll_hour:ura
@@ -228,21 +253,58 @@ poll_year:leto
 delete_yes:Da
 delete_no:Ne
 error_error:Napaka
+actions_update:Vohljanje za drugimi ljudmi, kot ste vi
 err_info:Informacije
 buddy_list_err_nouser_title:Uporabnika ni mogoče dodati
+buddy_list_update:Brskanje po lastnem seznamu prijateljev
 emailconf_err_invkey_title:Napaka
+finduser_update:Iskanje uporabnikov
+help_index_update:Branje <a href="{TEMPLATE: help_index_update_lnk}">Pomoči</a>
 ignore_list_err_info_title:Informacije
+ignore_list_update:Brskanje po lastnem seznamu prezrtij
+index_update:Brskanje po <a href="{TEMPLATE: index_update_lnk}">seznamu foruma</a>
+list_referers_update:Brskanje po svojem seznamu priporočenih uporabnikov
+login_update:Obrazec za prijavo
+msg_update:Brskanje po temi <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
+pm_update:Uporaba zasebnih sporočil
 err_banned_acct_msg:Vašemu računu je bil {IF: $ban_expiry}začasno preprečen do {TEMPLATE: ban_expiry_date}{ELSE}trajno preprečen{ENDI} dostop do spletnega mesta zaradi kršitve pravil foruma.
 post_err_edttimelimit_title:NAPAKA
+post_reply_update:Odgovarjanje na <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> v {VAR: frm->name}
+post_topic_update:Pisanje nove teme v <a href="{TEMPLATE: post_topic_update_lnk}">{VAR: frm->name}</a>
+post_error_generic:Prišlo je do napake
+referals_update:Brskanje po svojem seznamu priporočil
+register_profile_update:Ogledovanje lastnega profila
+register_register_update:Registracijska stran
 report_err_nosuchmsg_title:NAPAKA
 reset_err_invalidkey_title:NAPAKA
 reset_err_rstconf_title:Informacije
+reset_newpass_title:Ponastavi geslo
 reset_login_notify:Vaše geslo vam je bilo poslano po e-pošti. Prejeti bi ga morali v naslednjih minutah.
+search_update:Iskanje po sporočilih
+selmsg_update:Brskanje po <a href="{TEMPLATE: selmsg_update_lnk}">današnjih objavah</a>
+showposts_update:Ogledovanje objav avtorja: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
+subscribed_update:Brskanje po svojih naročilih
+bookmarked_update:Brskanje po svojem seznamu zaznamkov
+thread_update:Brskanje po forumu <a href="{TEMPLATE: thread_update_lnk}">{VAR: frm->name}</a>
+tree_update:Brskanje po temi (tree view) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
+userinfo_update:Ogledovanje profila <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}</a>
 ERR_disabled_ttl:Onemogočena možnost
 ERR_registration_disabled_ttl:Registracija onemogočena
+ERR_systemerr_ttl:NAPAKA: sistemska napaka
 help_title:Pomoč
+login_title:Obrazec za prijavo
+reset_title:Ponastavi geslo
+error_title:Obrazec za napako
+remail_emailsent:E-pismo je bilo poslano
+register_change_passwd:sprememba gesla
+register_change_login:spreminjanje uporabniških imen
 unapproved_avatar_msg:Administrator ni odobril vašega avatarja. Najpogostejši razlogi so, da je bil vaš avatar prevelik (velikost in/ali mere) ali pa vsebuje neprimerno temo. Če želite več informacij o tem, zakaj je bil vaš avatar zavrnjen, kontaktirajte administratorja.
+thread_exchange:Zamenjava teme
+move_reason:Razlog za prestavitev teme:
+thr_exch_accept:sprejmi temo
+thr_exch_decline:zavrni temo
 thr_exch_submit:Pošlji
+split_thread:Razdeli temo
 groupmgr_yes:Da
 groupmgr_no:Ne
 groupmgr_action:Dejanje
@@ -258,31 +320,43 @@ p_POST:Objavi
 p_REPLY:Odgovori
 p_EDIT:Uredi
 p_DEL:Izbriši
+p_POLL:Ustvari ankete
 p_SEARCH:Lahko iščete
+th_expr_never:Nikoli
 th_expr_one_month:1 mesec
 th_expr_two_month:2 meseca
 th_expr_four_month:4 meseci
 th_expr_one_year:1 leto
 thread_mod_delete:Izbriši
+online_today_update:Ogledovanje seznama uporabnikov, ki so bili na forumu danes.
+minimsg_thread_view:Pogled tem
 split_th_new_thread_title:Nov naslov teme:
 split_th_select:Izberi
+quicklogin_login:Prijava:
 quicklogin_password:Geslo:
 quicklogin_login_btn:Prijava
 quick_reply_preview:Predogled hitrega odgovora
 im_twitter:Twitter:
 forum_contact:Stik
 forum_home:Domov
+smladd_close_window:zapri okno
 p_VISIBLE:Vidno
 poll_edit:Uredi
 register_alias:Sopomenka:
 polllist_action:Dejanje
+polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">Pregledovanje razpoložljivih anket</a>
 search_and:IN
 search_or:ALI
+search_relevance_order:Ustreznost
 search_logic:Logika iskanja:
 search_sorting:Razvrsti po:
+threadt_update:Brskanje po forumu (drevesni pogled) <a href="{TEMPLATE: threadt_update_lnk}">{VAR: frm->name}</a>
+mmod_delete_cofirm_ttl:Potrdite brisanje teme/sporočila
 saved:Shranjeno
 register_err_avatardimtobig:Mere avatarja <b>({VAR: img_info[0]} × {VAR: img_info[1]} )</b> presegajo dovoljene mere <b({GVAR: CUSTOM_AVATAR_MAX_DIM})</b> slikovnih pik.
 iemail_msg_reply:Odgovori
+iemail_thread_unsub:Odnaroči temo
+iemail_forum_unsub:Odnaroči ta forum
 mnav_date_limit:Datumski razpon:
 mnav_forum_limit:Išči samo v:
 mnav_all_forums:Preišči vse forume
@@ -292,29 +366,41 @@ mnav_minute:Minuta (minute)
 mnav_hour:Ura(e)
 mnav_day:Dan(dnevi)
 mnav_month:Mesec(i)
+mnav_update:Brskanje po sporočilih z uporabo <a href="{TEMPLATE: mnav_update_lnk}">Sporočilnega navigatorja</a>
 findu_edit:Uredi
 findu_delete:Izbriši
+merge_topics_cp:Nadzorna plošča za združevanje tem
+split_cp:Nadzorna plošča za delitev tem
 thread_on:dne
 ip_search_by_ip:Iskanje uporabnikov po IP-ju
 ip_search:Išči
+userinfo_real_name:Pravo ime:
 post_err_mod_forum_edit_ttl:NAPAKA
+register_theme:Tema:
+uc_new_topic:Nova tema
+uc_page_title:Ogledovanje osebne nadzorne plošče.
 search_options:Možnosti iskanja
 modque_cat:Kategorija
 mmd_abort_move:Prekliči
 most_users_online:Največ uporabnikov je bilo prisotnih <b>{VAR: st_obj->most_online}</b> ob <b>{TEMPLATE: most_online_time}</b>
+sub_unsub_all_forums:Odnaroči vse forume
+sub_unsub_all_topics:Odnaroči vse teme
 sml_code:Koda
 register_topics_per_page:Tem na stran:
 post_common_bold:Krepko
 post_common_italics:Ležeče
 post_common_underline:Podčrtano
 rating_delete:Izbriši
+post_always_on_top:Ta tema naj bo vedno prikazana na vrhu seznama tem
 tabs_notifications:Obvestila
 finduser_flag:Zastava
+post_descr:Opis teme:
 pmsg_on:Datum:
 powered-by:Omogoča: FUDforum {GVAR: FORUM_VERSION}.
 copyright:Avtorske pravice &copy;2001–2022 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Koda:
 code_select_all:Izberi vse
+btn_new_topic:Nova tema
 btn_about:Profil
 btn_delete:izbriši
 btn_edit:uredi
@@ -324,4 +410,5 @@ btn_email:E-pošta
 btn_show_posts:objave
 custom_filed_required:To polje je obvezno.
 pages:Strani
+page_update:Brskanje po strani
 karma_delete:Izbriši
