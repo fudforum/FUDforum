@@ -626,8 +626,7 @@ post_err_lockedthread_msg:Iste topico es claudite. Non es plus possibile adder m
 err_coppa_title:ERROR: Tu conto non ha ancora essite confirmate
 err_coppa_msg:Nos non ha recipite confirmation de tu parente e/o tutor legal, le qual te permitterea publicar messages.  Si tu ha perdite tu formulario COPPA, <a href="{TEMPLATE: err_coppa_msg_lnk}">obtene lo de novo</a>.
 err_banned_acct_title:ERROR: Tu ha essite bannite.
-# Fuzzy
-err_banned_acct_msg:Tu conto ha essite bannite {IF: $ban_expiry}temporarimente, usque {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}permanentemente{ENDI} de acceder a iste sito, a causa de un violation del regulas de iste foro.
+err_banned_acct_msg:Tu conto ha essite bannite {IF: $ban_expiry}temporarimente, usque le {TEMPLATE: ban_expiry_date}{ELSE}permanentemente{ENDI} de iste sito, a causa de un violation del regulas del foro.
 post_err_edttimelimit_title:ERROR
 post_err_edttimelimit_msg:Tu non pote plus modificar iste message
 post_err_noannontopics_msg2:<legend>ERROR: Privilegios insufficiente</legend>Le usatores anonyme non ha le permission de crear topicos.
@@ -1071,8 +1070,7 @@ dmsg_ip:IP:
 err_blockedaccnt_title:ERROR: Tu conto ha essite filtrate.
 err_blockedaccnt_msg:Tu conto ha essite blocate de acceder al foro debite a un del filtros de usator installate.
 merge_th_page_list:Selection de pagina de topico
-# Fuzzy
-most_users_online:Le numero maxime de usatores connectite esseva <b>{VAR: st_obj->most_online}</b> a <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
+most_users_online:Le numero maxime de usatores in linea esseva <b>{VAR: st_obj->most_online}</b> le <b>{TEMPLATE: most_online_time}</b>
 sub_unsub_all_forums:Cancellar subscription a tote le foros
 sub_unsub_all_topics:Cancellar subscription a tote le topicos
 unbookmark_all_topics:Remover tote le favorites

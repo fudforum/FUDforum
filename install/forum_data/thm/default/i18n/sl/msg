@@ -267,6 +267,7 @@ emailconf_err_invkey_title:Napaka
 finduser_update:Iskanje uporabnikov
 help_index_update:Branje <a href="{TEMPLATE: help_index_update_lnk}">Pomoči</a>
 ignore_list_err_info_title:Informacije
+ignore_list_err_nu_title:Uporabnik ni bil najden
 ignore_list_update:Brskanje po lastnem seznamu prezrtij
 index_update:Brskanje po <a href="{TEMPLATE: index_update_lnk}">seznamu foruma</a>
 list_referers_update:Brskanje po svojem seznamu priporočenih uporabnikov

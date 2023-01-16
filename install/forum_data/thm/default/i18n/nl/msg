@@ -636,8 +636,7 @@ post_err_lockedthread_msg:Dit onderwerp is gesloten. Berichten toevoegen is niet
 err_coppa_title:Fout: uw gebruiker is nog niet bevestigd
 err_coppa_msg:We hebben geen toestemming ontvangen van uw ouder of voogd. Dit is nodig om berichten toe te kunnen voegen. Als u uw COPPA-formulier kwijt bent, kunt u het <a href="{TEMPLATE: err_coppa_msg_lnk}">opnieuw bekijken</a>.
 err_banned_acct_title:Fout: u bent geblokkeerd.
-# Fuzzy
-err_banned_acct_msg:Uw gebruiker is {IF: $ban_expiry}tijdelijk geblokkeerd tot {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}permanent geblokkeerd{ENDI}. U hebt geen toegang tot de site wegens het overtreden van de forumregels.
+err_banned_acct_msg:Uw gebruiker is {IF: $ban_expiry}tijdelijk geblokkeerd tot {TEMPLATE: ban_expiry_date}{ELSE}permanent geblokkeerd{ENDI}. U hebt geen toegang tot de site wegens het overtreden van de forumregels.
 post_err_edttimelimit_title:Fout
 post_err_edttimelimit_msg:Dit bericht kan niet meer gewijzigd worden
 post_err_noannontopics_msg2:<legend>Fout: onvoldoende rechten</legend>Anonieme gebruikers mogen geen onderwerpen aanmaken.
@@ -1081,8 +1080,7 @@ dmsg_ip:IP-adres:
 err_blockedaccnt_title:Fout: uw account is uitgefilterd.
 err_blockedaccnt_msg:Uw account is verbannen van het forum vanwege een ingestelde filter.
 merge_th_page_list:Onderwerppaginaselectie
-# Fuzzy
-most_users_online:Het hoogste aantal actieve gebruikers was <b>{VAR: st_obj->most_online}</b> op <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
+most_users_online:Het hoogste aantal actieve gebruikers was <b>{VAR: st_obj->most_online}</b> op <b>{TEMPLATE: most_online_time}</b>
 sub_unsub_all_forums:Abonnement op alle forums opheffen
 sub_unsub_all_topics:Abonnement op alle onderwerpen opheffen
 unbookmark_all_topics:Alle bladwijzers verwijderen
