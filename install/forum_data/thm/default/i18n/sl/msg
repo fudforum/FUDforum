@@ -113,7 +113,7 @@ pmsg_author:Avtor
 pmsg_time:Čas
 pmsg_selected:Izberi
 pmsg_delete:Izbriši
-inbox:Predal
+inbox:Prejeta pošta
 draft:Osnutek
 sent:Poslana sporočila
 trash:Smeti
@@ -145,8 +145,10 @@ register_specify_url:Določi URL
 register_uploaded:Naloži avatarja
 register_login:Prijava:
 register_login_available:Na voljo
+register_login_taken:Že zasedeno
 register_password:Geslo:
 register_conf_pass:Potrdi geslo:
+register_conf_pass_desc:Znova vnesite svoje geslo.
 register_name:Ime:
 register_your_pass:Vaše geslo:
 register_update:Posodobi
@@ -232,6 +234,7 @@ search_in_forum:Išči v forumu:
 search_forum_search:Preišči forum
 remail_your_name:Vaše ime:
 remail_required:obvezno
+remail_done:Opravljeno
 remail_error:Prišlo je do napake
 mklist_type:Vrsta:
 mklist_option:Možnost:
@@ -281,6 +284,7 @@ post_topic_update:Pisanje nove teme v <a href="{TEMPLATE: post_topic_update_lnk}
 post_error_generic:Prišlo je do napake
 postcheck_no_recepient:Sporočila ni mogoče poslati, manjka prejemnik
 referals_update:Brskanje po svojem seznamu priporočil
+register_err_enterpasswd:Za dokončanje sprememb morate vnesti svoje trenutno geslo.
 register_profile_update:Ogledovanje lastnega profila
 register_register_update:Registracijska stran
 report_err_nosuchmsg_title:NAPAKA
@@ -346,6 +350,7 @@ quicklogin_login:Prijava:
 quicklogin_password:Geslo:
 quicklogin_login_btn:Prijava
 quick_reply_preview:Predogled hitrega odgovora
+report_already_reported_title:Že prijavljeno
 im_twitter:Twitter:
 forum_contact:Stik
 forum_home:Domov
@@ -353,6 +358,7 @@ smladd_close_window:zapri okno
 p_VISIBLE:Vidno
 poll_edit:Uredi
 register_alias:Sopomenka:
+polllist_view_results:Ogled rezultatov
 polllist_action:Dejanje
 polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">Pregledovanje razpoložljivih anket</a>
 search_and:IN
