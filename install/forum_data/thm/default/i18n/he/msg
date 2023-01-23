@@ -461,7 +461,7 @@ register_err_enterpasswd:יש להזין את הססמה הנוכחית כדי �
 register_err_adminpasswd:יש להסין את ססמת ה<b>מנהל</b> שלך כדי להשלים את השינויים.
 register_welcome_msg:תודה על הרישום.\n\nהיה פרטי ההרשמה שלך לפורום:\n\nכתובת הפורום: {TEMPLATE: index_update_lnk}\nשם משתמש: {VAR: uent->login}\nססמה: {VAR: _POST['reg_plaintext_passwd']}\n\nנא לשים לב לכך שבססמאות יש חשיבות לאותיות רישיות וקטנות!\nכדי לשנות את ההגדרות שלך או את הפרופיל שלך, נא לעבור לדף הזה:\n{FULL_ROOT}?t=register
 report_err_nosuchmsg_title:שגיאה
-report_err_nosuchmsg_msg:אין הודעה כזו
+report_err_nosuchmsg_msg:אין הודעה כזאת
 reset_err_invalidkey_title:שגיאה
 reset_err_invalidkey_msg:מפתח איפוס ססמה בלתי־תקין. ייתכן שתכנת הדואר האלקטרוני שלך כבר פתחה אוטומטית את הדף הזה וביטלה את מפתח האיפוס. אם זה המקרה, בקרוב יגיע מכתב עם ססמה חדשה. אם מכתב כזה אינו מגיע, יש לנסות לאפס את הססמה.
 reset_newpass_title:איפוס סיסמה

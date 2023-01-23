@@ -95,6 +95,7 @@ unread_msg_locked:Zaklenjena tema z neprebranimi sporočili
 unsub_from_thread:Odnaroči temo
 unsubscribe:Odnaroči
 user:Uporabnik
+usrinfo_last_post:Zadnje sporočilo:
 views:Ogledi
 vote_button:Glasuj
 vote_for_thread:Glasuj
@@ -180,12 +181,15 @@ buddy_status:Stanje
 my_buddies:Moji prijatelji
 add_buddy:Dodaj prijatelja
 add:Dodaj
+member_search:Ali pa uporabite funkcijo <a href="javascript://" onclick="javascript: window_open('{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Poišči uporabnika</a>, da poiščete osebo.
 buddy_remove:odstrani
 post_normal:Normalno
 post_size:Velikost
 post_color:Barva
 post_font:Pisava
 create_thread:Ustvari temo
+edit_message:Uporabi spremembe sporočila
+apply_spell_changes:Uporabi spremembe črkovanja
 post_preview:Predogled sporočila
 post_logout:odjava
 post_create_poll:USTVARI ANKETO
@@ -342,6 +346,8 @@ th_expr_two_month:2 meseca
 th_expr_four_month:4 meseci
 th_expr_one_year:1 leto
 thread_mod_delete:Izbriši
+action_latest_post:Zadnje sporočilo
+online_today_last_visit:Zadnji obisk
 online_today_update:Ogledovanje seznama uporabnikov, ki so bili na forumu danes.
 minimsg_thread_view:Pogled tem
 split_th_new_thread_title:Nov naslov teme:
@@ -391,6 +397,7 @@ findu_delete:Izbriši
 merge_topics_cp:Nadzorna plošča za združevanje tem
 split_cp:Nadzorna plošča za delitev tem
 thread_on:dne
+usrinfo_last_visit:Zadnji obisk:
 ip_search_by_ip:Iskanje uporabnikov po IP-ju
 ip_search:Išči
 userinfo_real_name:Pravo ime:
@@ -411,6 +418,8 @@ post_common_italics:Ležeče
 post_common_underline:Podčrtano
 post_common_align_left:Poravnano levo
 post_common_link:Vstavi povezavo
+post_common_link_popup:Mesto povezave:
+post_common_image_popup:URL slike:
 rating_delete:Izbriši
 post_always_on_top:Ta tema naj bo vedno prikazana na vrhu seznama tem
 tabs_notifications:Obvestila
