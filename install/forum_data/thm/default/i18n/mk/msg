@@ -894,7 +894,7 @@ polllist_date:Создадено на
 polllist_owner:Создавач:
 polllist_votes:Вкупно гласови
 polllist_action:Дејство
-polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">Преглед на расположиви анкети</a>
+polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">Преглед на расположливи анкети</a>
 userinfo_polls:Анкети:
 show_pollist:Анкети
 search_and:И

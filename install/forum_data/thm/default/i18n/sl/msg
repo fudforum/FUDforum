@@ -337,6 +337,7 @@ p_REPLY:Odgovori
 p_EDIT:Uredi
 p_DEL:Izbriši
 p_POLL:Ustvari ankete
+p_VOTE:Glasuj
 p_SEARCH:Lahko iščete
 post_quote_selected:Citiraj izbrano besedilo
 pm_no_space_title:Ni več prostora!
@@ -364,6 +365,7 @@ smladd_close_window:zapri okno
 p_VISIBLE:Vidno
 poll_edit:Uredi
 register_alias:Sopomenka:
+polllist_vote:Glasuj
 polllist_view_results:Ogled rezultatov
 polllist_action:Dejanje
 polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">Pregledovanje razpoložljivih anket</a>
