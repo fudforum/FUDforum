@@ -17,6 +17,8 @@ birth_date:Datum rojstva:
 by:Od:
 by_mod:od moderatorja
 current_time:Trenutni čas
+date_posted:Datum sporočila
+date_registered:Datum registracije:
 email:E-pošta:
 email_to_friend:Pošlji e-pošto prijatelju
 faq:Pomoč
@@ -242,6 +244,7 @@ remail_done:Opravljeno
 remail_error:Prišlo je do napake
 mklist_type:Vrsta:
 mklist_option:Možnost:
+mklist_additem:Dodaj predmet
 mklist_apply:Uporabi
 mklist_delete:Izbriši
 qbud_selected:Izberi

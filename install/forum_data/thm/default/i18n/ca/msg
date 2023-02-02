@@ -16,6 +16,7 @@
 # Author: Pginer
 # Author: Qllach
 # Author: Quel.soler
+# Author: Robertgarrigos
 # Author: SMP
 # Author: Ssola
 # Author: Vriullop
@@ -511,6 +512,7 @@ search_subject_only:Solament assumpte
 search_forum:Fòrum
 search_posted_on:Publicat el
 search_no_results:No hi ha hagut resultats
+search_spell_suggestions:Volíeu dir:
 search_all_forums:Buscar a tots els fòrums
 search_in_forum:Buscar al fòrum:
 search_forum_search:Recerca al fòrum:
@@ -641,8 +643,7 @@ post_err_lockedthread_msg:Aquest fil de discussió està  bloquejat, no es perm
 err_coppa_title:ERROR: El seu compte encara no ha estat confirmat
 err_coppa_msg:No he rebut una confirmació del seu pare i/o tutor, que li permet enviar missatges. Si vostè va perdre el seu formulari COPPA, <a href="{TEMPLATE: err_coppa_msg_lnk}">veure'l altra vegada</a>.
 err_banned_acct_title:ERROR: Ha estat expulsat.
-# Fuzzy
-err_banned_acct_msg:El seu compte tenia l`accés restringit {IF: $ban_expiry}temporalment fins {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}permanentement{ENDI} al lloc, degut a una violació de les regles del fòrum.
+err_banned_acct_msg:El vostre compte va ser {IF: $ban_expiry}prohibit temporalment fins al dia {TEMPLATE: ban_expiry_date}{ELSE}permanentment prohibit{ENDI} d'accedir al lloc, a causa d'una infracció de les regles del fòrum.
 post_err_edttimelimit_title:ERROR
 post_err_edttimelimit_msg:Ja no pot editar aquest missatge
 post_err_noannontopics_msg2:<legend>ERROR: Privilegis insuficients</legend>Els usuaris anònims no tenen permís per a crear fils.
@@ -1086,8 +1087,7 @@ dmsg_ip:IP:
 err_blockedaccnt_title:ERROR: el seu compte ha estat filtrat.
 err_blockedaccnt_msg:El seu compte ha estat bloquejat per un dels filtres d`usuaris instal.lats.
 merge_th_page_list:Seleccionar la pàgina del fil
-# Fuzzy
-most_users_online:La majoria d'usuaris en línia fou <b>{VAR: st_obj->most_online}</b>, el <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
+most_users_online:El nombre més gran d'usuaris connectats va ser <b>{VAR: st_obj->most_online}</b> el dia <b>{TEMPLATE: most_online_time}</b>
 sub_unsub_all_forums:Desubscriure de tots els fòrums
 sub_unsub_all_topics:Desubscriure de tots els fils
 unbookmark_all_topics:Suprimeix totes les adreces d'interès
@@ -1129,8 +1129,7 @@ move_msg_th_expl:Especifiqueu l'IDENTIFICADOR del tema de destinació (pot ser e
 captcha_img_alt:Verificació de captcha: cal reconèixer el text en aquesta imatge.
 captcha_img_help:No hi ha cap zero o en la imatge.
 powered-by:Powered by: 0.9 {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:Copyright &copy;2001-2021 <a href="http://fudforum.org/">Junta de programari de FUDforum</a>
+copyright:Copyright &copy;2001-2022 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Codi:
 code_select_all:Selecciona-ho tot
 code_show_hide:Mostra / Amaga
