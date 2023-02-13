@@ -17,7 +17,7 @@ avatar:Avatar:
 average_post_count:{PLURAL: u->posted_msg_count|$1 Messàgge} ({PLURAL: avg|$1 messàgge medie} pe sciurne)
 biography:Biografìa:
 birth_date:Date de nascite:
-by:Da:
+by:Di:
 by_mod:da 'nu Moderatore
 current_time:Orarie de mò
 custom_avatar_queue:Code de le Immaggine Personalizzate
@@ -38,7 +38,7 @@ forum_icon:Icone d'u forum
 forum_new_messages:missaggi novi
 forum_none_messages:Sulamende le membre d'u forum reggistrate ponne traccià le messàgge lette &amp; non lette
 forum_old_messages:Nisciune messàgge nuève
-from:Da:
+from:Di:
 gender:Sessu:
 go:Véje
 goto_next_msg:Vèje a 'u prossime messàgge
@@ -490,7 +490,7 @@ reset_reset_button:Azzere 'a passuord
 rate_this_thread:Valute
 report_reporting_about:Segnale sus a:
 report_subject:Oggette:
-report_by:Da:
+report_by:Di:
 report_posted_on:Mannate 'u:
 report_give_reason:Pe piacere dèje 'nu mutive purcé ste signale stu messàgge:
 report_submit_report:Conferme 'a segnalazione
@@ -831,7 +831,7 @@ drawmsg_view_rest_post:Fà vedè 'u reste d'u messàgge
 post_re:Re:
 forumsel_goto_forum:Vèje a 'u forum:
 minimsg_thread_view:'Ndruche l'argomende
-split_th_post_by:Messàgge da:
+split_th_post_by:Missaggiu di:
 split_th_posted_on:Mannate 'u:
 split_th_subject:Oggette:
 split_th_new_thread_title:Titole de l'argomende nuève:
@@ -894,7 +894,7 @@ polllist_vote:Vote
 polllist_view_results:'Ndruche le resultate
 polllist_name:Nome d'u sondagge
 polllist_date:Ccrejate 'u
-polllist_owner:Ccrejate da
+polllist_owner:Criatu di
 polllist_votes:Vote totale
 polllist_action:Azzioni
 polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">Stoche a rivede le sondagge disponibbile</a>

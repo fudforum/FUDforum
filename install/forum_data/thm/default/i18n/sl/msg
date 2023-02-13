@@ -204,6 +204,7 @@ post_smiley:Bližnjice smeškov:
 post_file_del:Izbriši
 post_file_name:Ime
 post_file_size:Velikost
+post_form:Nova objava
 post_title:Naslov:
 post_options:Možnosti:
 post_preview_btn:Predogled sporočila
@@ -211,6 +212,7 @@ post_cancel_btn:Prekliči
 forum_rules:<p>Registracija na tem forumu je brezplačna! Zahtevamo samo, da se držite pravil in smernic, kot so opisane spodaj. Če se strinjate s pogoji, pritisnite gumb <b>Strinjam se</b> na dnu te strani.</p><p>Moderatorji in administratorji tega foruma si bodo prizadevali, da na njem ne bo spornih besedil, vendar je sprotno pregledovanje vseh sporočil nemogoče. Vsa sporočila izražajo mnenje njihovih avtorjev in ustvarjalci ter lastniki tega foruma niso odgovorni za njihovo vsebino.</p><p>S pritiskom na gumb "Strinjam se" zagotavljate, da ne boste pisali sporočil z obsceno, vulgarno, sovražno, grozečo ali kako drugače nezakonito vsebino.</p><p>Lastniki tega foruma imajo pravico odstranjevati, urejati, premikati ali zapirati vsako temo ne glede na razlog.</p>
 prereg_agree:Strinjam se
 prereg_update:Branje pravil foruma
+coppa_fax_reg_form:Obrazec za registracijo
 coppa_fax_telephone:Telefon:
 coppa_fax_date:Datum:
 coppa_fax_login:Prijava
@@ -312,6 +314,7 @@ ERR_registration_disabled_ttl:Registracija onemogočena
 ERR_systemerr_ttl:NAPAKA: sistemska napaka
 help_title:Pomoč
 login_title:Obrazec za prijavo
+register_title:Obrazec za registracijo
 reset_title:Ponastavi geslo
 error_title:Obrazec za napako
 remail_emailsent:E-pismo je bilo poslano
