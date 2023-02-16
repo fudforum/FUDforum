@@ -105,6 +105,7 @@ reported_reason:Razlog:
 reported_on:Datum:
 modque_approve:Potrdi
 modque_delete:Izbriši
+modque_no_message:Ni nobenih sporočil, ki čakajo na odobritev
 list_referes_member:Član
 referals_registered_on:Registriran od
 referals_action:Dejanje
@@ -388,6 +389,8 @@ mmod_delete_cofirm_ttl:Potrdite brisanje teme/sporočila
 saved:Shranjeno
 register_err_avatardimtobig:Mere avatarja <b>({VAR: img_info[0]} × {VAR: img_info[1]} )</b> presegajo dovoljene mere <b({GVAR: CUSTOM_AVATAR_MAX_DIM})</b> slikovnih pik.
 iemail_msg_reply:Odgovori
+reported_no_messages:Ni prijavljenih sporočil.
+poll_no_polls:Ni nobene razpoložljive ankete.
 iemail_thread_unsub:Odnaroči temo
 iemail_forum_unsub:Odnaroči ta forum
 mnav_date_limit:Datumski razpon:
