@@ -258,6 +258,7 @@ email_submit:E-pošta
 ppost_to:Za:
 ppost_send:Pošlji
 ppost_save_draft:Shrani osnutek
+poll_blank_option:Ne morete dodati prazne možnosti.
 poll_timelimit:Časovna omejitev:
 poll_create:Ustvari
 poll_update:Posodobi
@@ -281,6 +282,7 @@ finduser_update:Iskanje uporabnikov
 help_index_update:Branje <a href="{TEMPLATE: help_index_update_lnk}">Pomoči</a>
 ignore_list_err_info_title:Informacije
 ignore_list_err_nu_title:Uporabnik ni bil najden
+ignore_list_cantign_msg:Tega uporabnika ne morete izbrisati
 ignore_list_update:Brskanje po lastnem seznamu prezrtij
 index_update:Brskanje po <a href="{TEMPLATE: index_update_lnk}">seznamu foruma</a>
 list_referers_update:Brskanje po svojem seznamu priporočenih uporabnikov
@@ -293,6 +295,7 @@ post_reply_update:Odgovarjanje na <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->
 post_topic_update:Pisanje nove teme v <a href="{TEMPLATE: post_topic_update_lnk}">{VAR: frm->name}</a>
 post_error_generic:Prišlo je do napake
 postcheck_no_recepient:Sporočila ni mogoče poslati, manjka prejemnik
+postcheck_email_body:E-poštnega sporočila brez telesa sporočila ne morete poslati
 referals_update:Brskanje po svojem seznamu priporočil
 register_err_enterpasswd:Za dokončanje sprememb morate vnesti svoje trenutno geslo.
 register_profile_update:Ogledovanje lastnega profila

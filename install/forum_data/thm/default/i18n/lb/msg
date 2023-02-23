@@ -4,6 +4,7 @@
 # Author: Naudefj
 # Author: Robby
 # Author: Soued031
+# Author: Volvox
 
 action:Aktioun
 add_to_buddy_list:op d'Lëscht vun de Frënn derbäisetzen
@@ -83,7 +84,7 @@ no_messages:Et gëtt keng Messagen an dësem Forum.<br /> Sidd deen éischten de
 no_new_posts:Keng nei Messagen
 no_posts:Keng Messagen
 no_unread_locked:Dëse Sujet gouf gespaart
-no_unread_msg:Dëse Sujet huet keng Messagen déi net gelies sinn
+no_unread_msg:Dëse Sujet huet keng Messagen, déi net gelies sinn
 num_pages:Säiten ({VAR: ttl_pg}):
 num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|Stëmm|Stëmmen}
 occupation:Beruff:
@@ -125,7 +126,7 @@ todays_posts_desc:All Message weisen déi haut geschriwwe goufen
 unanswered_posts:Net beäntwert Messagen
 unanswered_posts_desc:All Message weisen, déi keng Äntwert hunn
 unread_posts:Net gelieste Messagen
-unread_posts_desc:All Messagë weisen déi nach net gelies sinn
+unread_posts_desc:All Messagë weisen, déi nach net gelies sinn
 updated_on:Aktualiséiert den:
 user:Benotzer
 user_counter:Mir hunn <b>{VAR: st_obj->user_count}</b> registréiert {PLURAL: st_obj->user_count|Benotzer}.
@@ -260,6 +261,7 @@ post_normal:Normal
 post_annoncement:Ukënnegung
 post_size:Gréisst
 post_color:Faarf
+post_font:Schrëftaart
 post_logedin_user:Ageloggte Benotzer:
 post_logout:ausloggen
 post_poll:Ëmfro:
@@ -302,7 +304,7 @@ login_login_btn:Aloggen
 login_name_required:Login-Numm ass obligatoresch
 login_passwd_required:D'Passwuert ass obligatoresch
 rpasswd_invalid_passwd:Passwuert ass net valabel
-rpasswd_passwd_nomatch:Déi Passwierder déi Dir aginn hutt sinn net identesch
+rpasswd_passwd_nomatch:D'Passwierder, déi Dir aginn hutt, sinn net identesch
 rpasswd_passwd_length:Passwuert muss mindestens 6 Zeeche laang sinn
 reset_remind_pass:Erënnerung fir d'Passwuert
 reset_error:E-Mial-Adress gouf an der Datebank net fonnt
