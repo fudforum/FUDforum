@@ -342,6 +342,7 @@ group_mgr_anon:Anonimni
 show_show:Prikaži:
 group_mgr_group:Skupina:
 permission_denied_title:Dovoljenje zavrnjeno!
+p_READ:Beri
 p_POST:Objavi
 p_REPLY:Odgovori
 p_EDIT:Uredi
@@ -387,6 +388,7 @@ search_sorting:Razvrsti po:
 search_attach:Priponke:
 search_attach_all:Z ali brez
 search_attach_with:S priponkami
+read_message:Prebrano sporočilo
 threadt_update:Brskanje po forumu (drevesni pogled) <a href="{TEMPLATE: threadt_update_lnk}">{VAR: frm->name}</a>
 mmod_delete_cofirm_ttl:Potrdite brisanje teme/sporočila
 saved:Shranjeno
@@ -454,5 +456,6 @@ btn_email:E-pošta
 btn_show_posts:objave
 custom_filed_required:To polje je obvezno.
 pages:Strani
+page_list_heading:Razpoložljive strani
 page_update:Brskanje po strani
 karma_delete:Izbriši
