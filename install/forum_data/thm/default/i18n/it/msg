@@ -526,7 +526,7 @@ remail_sent_conf:L'email destinata a {VAR-HTML: _POST['femail']} con oggetto {VA
 remail_error:Hai un errore
 mklist_type:Tipo:
 mklist_option:Opzione:
-mklist_additem:Aggiungi oggetto
+mklist_additem:Aggiungi elemento
 mklist_apply:Applica
 mklist_delete:Cancella
 qbud_nick_name:Nickname
