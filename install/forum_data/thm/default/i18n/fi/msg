@@ -248,8 +248,7 @@ pmsg_forwarded:välitetty
 pmsg_subject:Otsikko
 pmsg_author:Lähettäjä
 pmsg_time:Aika
-# Fuzzy
-pmsg_selected:Valittu
+pmsg_selected:Valitse
 pmsg_delete:Poista
 cur_ppage_pm:Yksityisviestit
 writing_pm:Yksityisviestin kirjoitus
@@ -384,8 +383,7 @@ my_buddies:Kaverit
 add_buddy:Lisää kaveri
 add:Lisää
 buddy_search:Anna käyttäjätunnus, jonka haluat lisätä.
-# Fuzzy
-member_search:Tai käytä <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Hae käyttäjä</a> -toimintoa löytääksesi henkilön.
+member_search:Tai käytä <a href="javascript://" onclick="javascript: window_open('{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Hae käyttäjä</a> -toimintoa löytääksesi henkilön.
 buddy_remove:poista
 post_normal:Normaali
 post_sticky:Kiinnitetty
@@ -534,8 +532,7 @@ mklist_apply:Käytä
 mklist_delete:Poista
 qbud_nick_name:Nimi
 qbud_add_selected:Lisää valitut
-# Fuzzy
-qbud_selected:Valitut
+qbud_selected:Valitse
 qbud_no_buddies:Ei kavereita, joista valita
 mklist_numerical:Numerot
 mklist_aplha:Aakkoset
@@ -641,8 +638,7 @@ post_err_lockedthread_msg:Tämä aihe on lukittu, uusia viestejä ei sallita
 err_coppa_title:Virhe: Käyttäjätunnusta ei ole vielä hyväksytty
 err_coppa_msg:Emme ole vastaanottaneet varmistusta vanhemmiltasi tai lailliselta huoltajaltasi, joten et voi vielä lähettää viestejä foorumille. Jos olet hukannut COPPA-lomakkeen – <a href="{TEMPLATE: err_coppa_msg_lnk}">voit hakea sen uudelleen</a>.
 err_banned_acct_title:Virhe: Olet estetty.
-# Fuzzy
-err_banned_acct_msg:Tunnuksesi oli {IF: $ban_expiry}väliaikaisesti estettynä {DATE: ban_expiry %e %Bta %Y kello %H.%M} saakka{ELSE}pysyvästi estettynä{ENDI} johtuen keskustelualueen sääntöjen rikkomisesta.
+err_banned_acct_msg:Tunnuksesi oli {IF: $ban_expiry}väliaikaisesti estettynä {TEMPLATE: ban_expiry_date} saakka{ELSE}pysyvästi estettynä{ENDI} johtuen keskustelualueen sääntöjen rikkomisesta.
 post_err_edttimelimit_title:Virhe
 post_err_edttimelimit_msg:Et voi enää muokata tätä viestiä.
 post_err_noannontopics_msg2:<legend>Virhe: Riittämättömät käyttöoikeudet</legend>Anonyymit käyttäjät eivät ole oikeutettuja luomaan aiheita.
@@ -731,8 +727,7 @@ error_title:Virhe
 index_title:Tervetuloa foorumille
 search_title:Haku {VAR-HTML: srch}
 remail_emailsent:Sähköposti on lähetetty
-# Fuzzy
-remail_email:Hei, löysin foorumilta {GVAR: FORUM_TITLE} mielenkiintoisen aiheen otsikolla ”{VAR: data->subject}”, joka ehkä kiinnostaa sinua. Löydät sen täältä:\n{FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nTerveisin,\n\n{VAR: usr->alias}
+remail_email:Hei, löysin foorumilta {GVAR: FORUM_TITLE} mielenkiintoisen aiheen otsikolla ”{VAR: data->subject}”, joka ehkä kiinnostaa sinua. Löydät sen täältä:\n {FULL_ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nTerveisin,\n\n{VAR: usr->alias}
 poll_add_option:Lisää valinta:
 post_opt_html_on:<b>HTML</b>-koodit: <b>Käytössä</b>
 post_opt_fud_on:<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>BBcode</b>: <b>Käytössä</b></a>
@@ -909,16 +904,13 @@ polllist_votes:Ääniä yhteensä
 polllist_action:Toiminnot
 polllist_update:Selaa <a href="{TEMPLATE: polllist_update_lnk}">galluppeja</a>
 userinfo_polls:Gallupit:
-# Fuzzy
 show_pollist:Gallupit
 search_and:JA
 search_or:TAI
-# Fuzzy
 search_desc_order:Uusin ensin
-# Fuzzy
 search_asc_order:Vanhin ensin
+search_relevance_order:Osuvimmat
 search_logic:Hakulogiikka:
-# Fuzzy
 search_sorting:Järjestä tulokset päivämäärän mukaan:
 search_attach:Liitteet:
 search_attach_all:Kanssa tai ilman
@@ -976,11 +968,9 @@ iemail_forum_unsub:Lopeta tämän foorumin tilaus
 primary_group_prefix:Foorumin pääryhmä:
 group_resources:Tämä ryhmä hallinnoi seuraavien foorumien käyttöoikeuksia
 register_admin_newuser_title:Uusi rekisteröitynyt käyttäjä
-# Fuzzy
-register_admin_newuser_msg:Uusi käyttäjä ({VAR: uent->login}) on juuri rekisteröitynyt foorumille.\nTarkista ja hyväksy tai hylkää käyttäjätunnus: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nTämä on automatisoitu prosessi. Älä vastaa tähän viestiin.\nJos et enää halua vastaanottaa sähköpostitse ilmoituksia uusista rekisteröitymisistä,\nvaihda "New Account Notification" -asetus ylläpitäjän hallintapaneelissa.
+register_admin_newuser_msg:Uusi käyttäjä ({VAR: uent->login}) on juuri rekisteröitynyt foorumille.\nTarkista ja hyväksy tai hylkää käyttäjätunnus: {BASE}adm/admuserapr.php\n\nTämä on automatisoitu prosessi. Älä vastaa tähän viestiin.\nJos et enää halua vastaanottaa sähköpostitse ilmoituksia uusista rekisteröitymisistä,\nvaihda "New Account Notification" -asetus ylläpitäjän hallintapaneelissa.
 post_mod_msg_notify_title:Uusi viesti foorumilla "{VAR: frm->name}" odottaa hyväksyntää
-# Fuzzy
-post_mod_msg_notify_msg:Uusi viesti otsikolla ”{VAR: msg_post->subject}” lähetettiin foorumille, jonka moderaattori olet. Tarkistaaksesi tämän viestin siirry osoitteeseen: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nTämä on automatisoitu prosessi. Älä vastaa tähän sähköpostiin.
+post_mod_msg_notify_msg:Uusi viesti otsikolla ”{VAR: msg_post->subject}” lähetettiin foorumille, jonka moderaattori olet. Tarkistaaksesi tämän viestin siirry osoitteeseen: {FULL_ROOT}?t=modque#{VAR: msg_post->id}\n\nTämä on automatisoitu prosessi. Älä vastaa tähän sähköpostiin.
 thread_printable_pdf:Luo tulostettava PDF-tiedosto
 thread_syndicate:Foorumin syndikointi (XML)
 reg_conf_title:Rekisteröinnin vahvistus
@@ -1006,8 +996,7 @@ mnav_month:Kuukautta
 mnav_title:Viestiselain
 mnav_update:Selaa viestejä käyttäen <a href="{TEMPLATE: mnav_update_lnk}">viestiselainta</a>
 pm_notify_subject:[{GVAR: FORUM_TITLE}] – Ilmoitus uudesta yksityisviestistä
-# Fuzzy
-pm_notify_body_email:Sinulle on uusi yksityisviesti käyttäjältä "{VAR: from}" otsikolla "{VAR: subject}" foorumilla "{GVAR: FORUM_TITLE}".\nNäet viestin napsauttamalla tätä: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nJos et halua ilmoituksia uusista viesteistä, voit poistaa ne käytöstä asetuksissasi.
+pm_notify_body_email:Sinulle on uusi yksityisviesti käyttäjältä "{VAR: from}" otsikolla "{VAR: subject}" foorumilla "{GVAR: FORUM_TITLE}".\nNäet viestin napsauttamalla tätä: {FULL_ROOT}?t=pmsg_view&id={VAR: pid}\n\nJos et halua ilmoituksia uusista viesteistä, voit poistaa ne käytöstä asetuksissasi.
 register_pm_notification:Ilmoitukset uusista yksityisviesteistä:
 register_pm_notification_desc:Määrittää lähetetäänkö uusista yksityisviesteistä viesti määrittelemälläsi ilmoitusten lähetystavalla.
 findu_admin_opts_header:Ylläpidon toiminnot
@@ -1093,8 +1082,7 @@ dmsg_ip:IP:
 err_blockedaccnt_title:Virhe: Tunnuksesi on suodatettu pois.
 err_blockedaccnt_msg:Tätä sivustoa ei voi käyttää tunnuksellasi johtuen käyttäjäsuodattimista.
 merge_th_page_list:Aihesivun valinta
-# Fuzzy
-most_users_online:Eniten yhtaikaisia käyttäjiä (<b>{VAR: st_obj->most_online}</b>) oli <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
+most_users_online:Eniten yhtaikaisia käyttäjiä (<b>{VAR: st_obj->most_online}</b>) oli <b>{TEMPLATE: most_online_time}</b>
 sub_unsub_all_forums:Peruuta liittyminen kaikille foorumeille
 sub_unsub_all_topics:Peruuta kaikkiin ketjuihin liittyminen
 unbookmark_all_topics:Poista kaikki kirjanmerkit
@@ -1174,6 +1162,10 @@ karma:Karma
 karma_track:Hallinnoi käyttäjän mainetta:
 karma_delete:Poista
 rate_author:Arvostele tekijä:
+blog_update:Lukemassa foorumin blogia
 blog:Blogi
 blog_new_members:Uudet jäsenet
+blog_new_posts:Uusimmat viestit
+blog_rated_posts:Paras arvosana
+blog_viewed_posts:Eniten katsottu
 blog_comments:{PLURAL: topic->replies|$1 kommentti|$1 kommenttia}
