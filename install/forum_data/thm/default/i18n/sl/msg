@@ -289,6 +289,7 @@ list_referers_update:Brskanje po svojem seznamu priporočenih uporabnikov
 login_update:Obrazec za prijavo
 msg_update:Brskanje po temi <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
 pm_update:Uporaba zasebnih sporočil
+err_coppa_title:NAPAKA: Vaš račun še ni potrjen
 err_banned_acct_msg:Vašemu računu je bil {IF: $ban_expiry}začasno preprečen do {TEMPLATE: ban_expiry_date}{ELSE}trajno preprečen{ENDI} dostop do spletnega mesta zaradi kršitve pravil foruma.
 post_err_edttimelimit_title:NAPAKA
 post_reply_update:Odgovarjanje na <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> v {VAR: frm->name}
@@ -315,6 +316,7 @@ tree_update:Brskanje po temi (tree view) <a href="{TEMPLATE: tree_update_lnk}">{
 userinfo_update:Ogledovanje profila <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}</a>
 ERR_disabled_ttl:Onemogočena možnost
 ERR_registration_disabled_ttl:Registracija onemogočena
+ERR_emailconf_ttl:NAPAKA: Vaš račun še ni potrjen
 ERR_systemerr_ttl:NAPAKA: sistemska napaka
 help_title:Pomoč
 login_title:Obrazec za prijavo
