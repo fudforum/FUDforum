@@ -226,7 +226,7 @@ reported_on:日期：
 reported_reported_by:回報由：
 reported_reported_msg:已回報訊息
 modque_pending_approval:等待批准的訊息
-modque_approve:批准
+modque_approve:核准
 modque_delete:刪除
 modque_deleteall:刪除使用者的所有內容
 modque_no_message:沒有等待批准的訊息
