@@ -1,6 +1,6 @@
 <?php
 /***************************************************************************
-* copyright            : (C) 2001-2022 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -36,7 +36,7 @@ function seterr($msg)
 function bbconn($host, $port, $dbname, $dbuser, $dbpass, $prefix, $dbtype='mysql') {
 	if (preg_match('/mysql/i', $dbtype)) {
 		if (!empty($port)) $host = $host .':'. $port;
-		if (!($conn = mysql_connect($host, $dbuser, $dbpass))) {
+		if (!($conn = mysqli_connect($host, $dbuser, $dbpass))) {
 			seterr('Unable to connect to the source forum\'s MySQL database.');
 		}
 		define('dbtype', 'mysql');
@@ -70,7 +70,7 @@ function bbconn($host, $port, $dbname, $dbuser, $dbpass, $prefix, $dbtype='mysql
 /** Perform query against source forum's DB. */
 function bbq($q, $err=0)
 {
-	if (dbtype == 'mysql')  $r = mysql_query($q, dbconn);
+	if (dbtype == 'mysql')  $r = mysqli_query(dbconn, $q);
 	if (dbtype == 'pgsql')  $r = pg_query(dbconn, $q);
 	if (dbtype == 'sqlite') $r = db2::$db->query($q);
 
@@ -79,7 +79,7 @@ function bbq($q, $err=0)
 	}
 	if (!$err) {
 		pf('SQL statement: '. $q);
-		if (dbtype == 'mysql')  seterr('MySQL error: '.      mysql_error(  dbconn));
+		if (dbtype == 'mysql')  seterr('MySQL error: '.      mysqli_error(dbconn));
 		if (dbtype == 'pgsql')  seterr('PostgreSQL error: '. pg_last_error(dbconn));
 		if (dbtype == 'sqlite') seterr('SQLite error: '.     end(db2::$db->errorInfo()));
 	}
@@ -88,7 +88,7 @@ function bbq($q, $err=0)
 /** Fetch a row from the source forum's DB. */
 function bbfetch($r)
 {
-	if (dbtype == 'mysql')  return mysql_fetch_object($r);
+	if (dbtype == 'mysql')  return mysqli_fetch_object($r);
 	if (dbtype == 'pgsql')  return pg_fetch_object(   $r);
 	if (dbtype == 'sqlite') return $r->fetch(PDO::FETCH_OBJ);
 }
@@ -119,6 +119,11 @@ function bbcode2fudcode($str)
 /** Format an IP address. */
 function decode_ip($ip)
 {
+
+	if (!isset($ip)) {
+		return '127.0.0.1';
+	}
+
 	if (filter_var($ip, FILTER_VALIDATE_IP)) {
 		// We have a valid IPv4 or IPv6 address, return it.
 		return $ip;
@@ -149,9 +154,14 @@ function config_file_include($file)
 		pf('... reading config file '. $GLOBALS['CONVERT_FROM_DIR'] .'/'. $file);
 	}
 
-	// Export config as global vars.
-	$GLOBALS += get_defined_vars();
-	$GLOBALS += get_defined_constants();
+	// Make local variables global.
+	foreach(get_defined_vars() as $k => $v)  {
+		$GLOBALS[$k] = $v;
+	}
+	// Convert constants to global variables.
+	foreach(get_defined_constants() as $k => $v)  {
+		$GLOBALS[$k] = $v;
+	}
 }
 
 /** Callback to load an avatar into the FUDforum database. */
@@ -755,7 +765,7 @@ if ($inc === FALSE) {
 
 /* Check source forum directory. */
 if (!is_dir($CONVERT_FROM_DIR)) {
-	seterr('Source forum direcory is invalid ['. $CONVERT_FROM_DIR .'].');
+	seterr('Source forum directory is invalid ['. $CONVERT_FROM_DIR .'].');
 }
 
 /* Prevent session initialization. */
