@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2021 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -282,14 +282,14 @@ function remove_old_avatar($avatar_str)
 
 function decode_uent(&$uent)
 {
-	$uent->home_page  = reverse_fmt($uent->home_page);
-	$uent->user_image = reverse_fmt($uent->user_image);
-	$uent->jabber     = reverse_fmt($uent->jabber);
-	$uent->facebook   = urldecode($uent->facebook);
-	$uent->yahoo      = urldecode($uent->yahoo);
-	$uent->google     = urldecode($uent->google);
-	$uent->skype      = urldecode($uent->skype);
-	$uent->twitter    = urldecode($uent->twitter);
+	$uent->home_page  = reverse_fmt($uent->home_page ?? '');
+	$uent->user_image = reverse_fmt($uent->user_image ?? '');
+	$uent->jabber     = reverse_fmt($uent->jabber ?? '');
+	$uent->facebook   = urldecode($uent->facebook ?? '');
+	$uent->yahoo      = urldecode($uent->yahoo ?? '');
+	$uent->google     = urldecode($uent->google ?? '');
+	$uent->skype      = urldecode($uent->skype ?? '');
+	$uent->twitter    = urldecode($uent->twitter ?? '');
 }
 
 function email_encode($val)
@@ -649,7 +649,7 @@ function email_encode($val)
 	/* Populate form variables based on user's profile. */
 	if (__fud_real_user__ && !isset($_POST['prev_loaded'])) {
 		foreach ($uent as $k => $v) {
-			${'reg_'.$k} = htmlspecialchars($v);
+			${'reg_'.$k} = htmlspecialchars($v ?? '');
 		}
 		foreach($chr_fix as $v) {
 			$$v = char_fix(reverse_fmt($$v));
