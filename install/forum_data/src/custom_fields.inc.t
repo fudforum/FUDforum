@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2022 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -53,7 +53,7 @@ function serialize_custom_fields()
 
 /* main */
 	// Unserialize custom fields to set display values.
-	$custom_field_vals = unserialize($uent->custom_fields);
+	$custom_field_vals = unserialize($uent->custom_fields ?? '');
 
 	// Setup custom fields for display.
 	$required_custom_fields = $optional_custom_fields = '';
