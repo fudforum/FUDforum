@@ -249,14 +249,9 @@ function resolve_sections($file, $secname, $str)
 				break;
 
 			case 'DATE':
-				if (stristr($GLOBALS['char_set'], 'utf-8') !== false && substr(PHP_OS, 0, 3) == 'WIN') {
-					// Windows doesn't have UTF-8 locales
-					$func = '\'.utf8_encode(strftime(\'';
-					$close = ')).\'';
-				} else {
-					$func = '\'.strftime(\'';
-					$close = ').\'';
-				}
+				$func = '\'.print_date(\'';
+				$close = ').\'';
+
 				list($var, $format) = explode(' ', $name, 2);
 				if ($var[0] != '!') {
 					$ret .= $func . $format .'\', $'. $var . $close;

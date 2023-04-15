@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2022 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -94,6 +94,37 @@ function get_ip()
 	return (filter_var($ip, FILTER_VALIDATE_IP) ? $ip : '0.0.0.0');
 }
 
+/** Print an localized and time-zone adjusted date.
+ *  Data formats are defined in date_formats.tmpl
+ */
+function print_date($format, $date) {
+
+	if (extension_loaded('intl')) {
+		// Convert old strftime format to Intl format.
+		$search  = array('%Z', '%Y', '%a', '%B',   '%b',  '%d', '%H', '%M', '%S');
+		$replace = array('z',  'y',  'E',  'LLLL', 'LLL', 'dd', 'HH', 'mm', 'ss');
+		$format  = str_replace($search, $replace, $format);
+
+		//$tz  = date_default_timezone_get();
+		//$loc = locale_get_default();
+		//echo "TZ=[". $tz ."] LOC=[". $loc ."] DATE=[". $date ."] FORMAT=[". $format ."]<hr>";
+
+		$datefmt = datefmt_create(
+		    null,   // locale_get_default(),
+		    0,      // IntlDateFormatter::NONE,
+		    0,      // IntlDateFormatter::NONE,
+		    null,   // date_default_timezone_get(),
+		    null,   // IntlDateFormatter::GREGORIAN,
+		    $format // ex. 'E dd MMMM yyyy HH:mm'
+		  );
+
+		return datefmt_format($datefmt , $date);
+	} else {
+		// Fall back to deprecated strftime().
+		return strftime($format, $date);
+	}
+}
+
 /** Prepare string for use in a SEO URL - inspired by MediaWiki's wfUrlencode(). */
 function seo_url_bit($str) {
         $str = str_replace(' ', '_', $str);
@@ -107,19 +138,6 @@ function seo_url_bit($str) {
            $str
         );
  
-	return $str;
-}
-
-/** Alternative way to prepare string for use in a SEO URL. No longer used. */
-function seo_url_bit_alt($str) {
-	$str = strtolower($str);
-	$str = strip_tags($str);
-	$str = html_entity_decode($str);
-	$str = urldecode($str);
-	$str = trim($str);
-	$str = preg_replace('/ +/', ' ', $str);
-	$str = preg_replace('/[^A-Za-z0-9\s]/', '', $str);
-	$str = preg_replace('/ /', '-', $str);
 	return $str;
 }
 
