@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2022 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -646,7 +646,7 @@ if ($acc_mod_only) {
 		if ($FUD_OPT_1 & 1024) {	// PM_ENABLED
 			echo ' | <a href="admpmspy.php?user='. htmlspecialchars($u->alias) .'&amp;'. __adm_rsid .'">View Private Messages</a>';
 		}
-		echo ' | <a href="admprune.php?usr_id='. $usr_id .'&amp;'. __adm_rsid .'">Delete ALL messages by this user</a>';
+		echo ' | <a href="admuserprune.php?usr_id='. $usr_id .'&amp;'. __adm_rsid .'">Delete ALL messages by this user</a>';
 	}
 ?>
 </td></tr></table>
