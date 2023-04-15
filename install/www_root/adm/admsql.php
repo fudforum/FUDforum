@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2019 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -243,7 +243,8 @@ if (isset($_POST['txtb']) && $_POST['txtb'] != '') {
 					foreach ($result as $key => $value) {
 						// Apply a FUDforum function to the results, like seo_url_bit().
 						// Example: SELECT concat('/t/', t.id, '-@seo_url_bit[', m.subject, ']') FROM ...
-						while (preg_match('/(.*)\@(.+?)\[(.+?)\](.*)/i', $value, $matches)) {
+                                                //                       @func  [ args    ]
+                                                while (preg_match('/(.*)\@(\w+)\[([^\]]+)\](.*)/i', $value, $matches)) {
 							$func = $matches[2];
 							$value = $matches[1] . $func($matches[3]) . $matches[4];
 						}

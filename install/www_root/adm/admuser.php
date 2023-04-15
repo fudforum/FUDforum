@@ -646,7 +646,7 @@ if ($acc_mod_only) {
 		if ($FUD_OPT_1 & 1024) {	// PM_ENABLED
 			echo ' | <a href="admpmspy.php?user='. htmlspecialchars($u->alias) .'&amp;'. __adm_rsid .'">View Private Messages</a>';
 		}
-		echo ' | <a href="admuserprune.php?usr_id='. $usr_id .'&amp;'. __adm_rsid .'">Delete ALL messages by this user</a>';
+		echo ' | <a href="admtopic.php?usr_id='. $usr_id .'&amp;'. __adm_rsid .'">Delete ALL messages by this user</a>';
 	}
 ?>
 </td></tr></table>

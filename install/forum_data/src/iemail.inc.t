@@ -39,8 +39,8 @@ function validate_email($email)
 function encode_subject($text)
 {
 	/* HTML entities check. */
-	if (strpos($subj, '&') !== false) {
-		$subj = html_entity_decode($subj);
+	if (strpos($text, '&') !== false) {
+		$text = html_entity_decode($text);
 	}
 
 	$text = htmlspecialchars($text);  // Prevent XSS like <img src="1" onerror="alert()">

@@ -45,7 +45,7 @@
 	} elseif (@file_exists($WWW_ROOT_DISK .'uninstall.php')) {
 		echo '<div class="alert dismiss" title="'. $WWW_ROOT_DISK .'uninstall.php">Please <a href="../uninstall.php">run</a> or <a href="admbrowse.php?cur='. urlencode($WWW_ROOT_DISK) .'&amp;'. __adm_rsid .'#flagged">delete</a> the <em>uninstall</em> script before a hacker discovers it.<br /></div>';
 	} elseif (@file_exists($WWW_ROOT_DISK .'upgrade.php')) {
-		echo '<div class="alert dismiss" title="'. $WWW_ROOT_DISK .'upgrade.php">Please <a href="../upgrade.php">run</a> or <a href="admbrowse.php?cur='. urlencode($WWW_ROOT_DISK) .'&amp;'. __adm_rsid .'#flagged">delete</a> the <em>upgrade</em> script before a hacker discovers it.<br /></div>';
+		echo '<div class="alert dismiss" title="'. $WWW_ROOT_DISK .'upgrade.php">Please <a href="../upgrade.php">run</a> and <a href="admbrowse.php?cur='. urlencode($WWW_ROOT_DISK) .'&amp;'. __adm_rsid .'#flagged">delete</a> the <em>upgrade</em> script before a hacker discovers it.<br /></div>';
 	} elseif  (@file_exists($WWW_ROOT_DISK .'unprotect.php')) {
 		echo '<div class="alert dismiss" title="'. $WWW_ROOT_DISK .'unprotect.php">Please <a href="admbrowse.php?cur='. urlencode($WWW_ROOT_DISK) .'&amp;'. __adm_rsid .'#flagged">delete</a> the <em>unprotect</em> script before a hacker discovers it.<br /></div>';
 	} elseif (@file_exists($WWW_ROOT_DISK .'fudforum_archive')) {
