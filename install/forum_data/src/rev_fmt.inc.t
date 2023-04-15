@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -15,6 +15,8 @@ $GLOBALS['__revfd'] = array('"', '<', '>', '&');
 function reverse_fmt($data)
 {
 	$s = $d = array();
+	if (empty($data)) return '';
+
 	foreach ($GLOBALS['__revfs'] as $k => $v) {
 		if (strpos($data, $v) !== false) {
 			$s[] = $v;
