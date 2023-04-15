@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2021 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -386,6 +386,9 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 	}
 	$ostr .= substr($str, $old_pos, strlen($str)-$old_pos);
 
+	/* Replace multiple spaces by non breaking spaces. */
+	$ostr = preg_replace('/(?<= ) /', '&nbsp;', $ostr);
+
 	/* URL paser. */
 	$pos = 0;
 	$ppos = 0;
@@ -648,23 +651,25 @@ function html_to_tags($fudml)
 
 	$fudml = str_replace(
 	array(
+		'&nbsp;', '<br />',
 		'<b>', '</b>', '<i>', '</i>', '<u>', '</u>', '<s>', '</s>', '<sub>', '</sub>', '<sup>', '</sup>', 
 		'<del>', '</del>', '<big>', '</big>', '<small>', '</small>', '<center>', '</center>',
 		'<div class="pre"><pre>', '</pre></div>', 
 		'<div align="left">', '<div align="right">', '<div align="center">', '</div><!--align-->',
 		'<span style="float:left">', '<span style="float:right">', '</span><!--float-->',
 		'<span class="indent">', '</span><!--indent-->',
-		'<span name="notag">', '</span>', '&#64;', '&#58;&#47;&#47;', '<br />', '<pre>', '</pre>', '<hr>',
+		'<span name="notag">', '</span>', '&#64;', '&#58;&#47;&#47;', '<pre>', '</pre>', '<hr>',
 		'<h1>', '</h1>', '<h2>', '</h2>', '<h3>', '</h3>', '<h4>', '</h4>', '<h5>', '</h5>', '<h6>', '</h6>'
 	),
 	array(
+		' ', '',
 		'[b]', '[/b]', '[i]', '[/i]', '[u]', '[/u]', '[s]', '[/s]', '[sub]', '[/sub]', '[sup]', '[/sup]', 
 		'[del]', '[/del]', '[big]', '[/big]', '[small]', '[/small]', '[center]', '[/center]',
 		'[code]', '[/code]', 
 		'[align=left]', '[align=right]', '[align=center]', '[/align]',
 		'[float=left]', '[float=right]', '[/float]',
 		'[indent]', '[/indent]',
-		'[notag]', '[/notag]', '@', '://', '', '[pre]', '[/pre]', '[hr]',
+		'[notag]', '[/notag]', '@', '://', '[pre]', '[/pre]', '[hr]',
 		'[h1]', '[/h1]', '[h2]', '[/h2]', '[h3]', '[/h3]', '[h4]', '[/h4]', '[h5]', '[/h5]', '[h6]', '[/h6]'
 	),
 	$fudml);
