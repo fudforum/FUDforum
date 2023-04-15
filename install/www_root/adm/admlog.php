@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2021 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -99,7 +99,7 @@ function return_group_name($id)
 		}
 		
 		// Encode HTML in logaction.
-		$obj->logaction = htmlentities($obj->logaction);
+		$obj->logaction = htmlentities($obj->logaction ?? '');
 
 		$logtime = '<td>'. gmdate('D, d M Y H:i:s', $obj->logtime) .'</td>';
 
