@@ -461,6 +461,11 @@ function target_add_message($message)
 		pf('WARNING: Skip message ['. $message['subject'] .']. Cannot add message to non-existing forum.');
 		return;
 	}
+
+        // Remove unneeded BR tags.
+        $message['body'] = preg_replace('/<br>/m', "\n", $message['body']);
+
+        // Load message.
 	$file_id = write_body(bbcode2fudcode($message['body']), $len, $off, $GLOBALS['forum_map'][ (int)$message['forum_id'] ] );
 
 	if ($message['poster_id'] == 1 && isset($GLOBALS['hack_id'])) {

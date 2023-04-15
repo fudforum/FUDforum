@@ -1,6 +1,6 @@
 <?php
 /***************************************************************************
-* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id: UBBthreads.map 5054 2010-10-23 00:47:24Z naudefj $
 *
@@ -142,9 +142,6 @@ function source_load_topics() {
 function source_load_messages() {
 	$c = bbq('SELECT p.*, t.forum_id AS "FORUM_ID" FROM '. dbpref .'posts p LEFT JOIN '. dbpref .'topics t ON p.topic_id = t.topic_id ORDER BY p.post_id');
 	while ($r = bbfetch($c)) {
-
-		// Remove unneeded BR tags.
-		$r->POST_DEFAULT_BODY = preg_replace('/<br>/m', "\n", $r->POST_DEFAULT_BODY);
 
 		$message = array(
 			'id'           => $r->POST_ID,
