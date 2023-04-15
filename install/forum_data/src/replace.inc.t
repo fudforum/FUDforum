@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -39,6 +39,7 @@ function make_replace_array()
 /* Reverse replacement and censorship of text. */
 function apply_reverse_replace($text)
 {
+	if (empty($text)) return '';
 	defined('__fud_replacer_init') or make_reverse_replace_array();
 	if (empty($GLOBALS['__FUD_REPLR__'])) {
 		return $text;
