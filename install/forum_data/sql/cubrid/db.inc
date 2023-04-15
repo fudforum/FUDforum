@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2020 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -149,10 +149,10 @@ function db_rowarr($result)
 	return cubrid_fetch_row($result);
 }
 
-function q_singleval($query, $def='')
+function q_singleval($query)
 {
 	if (($res = cubrid_fetch_row(q($query))) !== false) {
-		return isset($res) ? $res[0] : $def;
+		return isset($res) ? $res[0] : '';
 	}
 }
 

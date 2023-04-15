@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -162,9 +162,11 @@ function q_singleval($query)
 function q_limit($query, $limit, $off=0)
 {
 	if ($off) {
-		return 'SELECT * FROM (SELECT /*+ FIRST_ROWS */ a.*, rownum AS xrownum FROM ('. $query .') a WHERE rownum <= '. ($off + $limit) .') WHERE xrownum >= '. ($off+1);
+		// return 'SELECT * FROM (SELECT /*+ FIRST_ROWS */ a.*, rownum AS xrownum FROM ('. $query .') a WHERE rownum <= '. ($off + $limit) .') WHERE xrownum >= '. ($off+1);
+		return $query .' OFFSET '. $off .' ROWS FETCH NEXT '. $limit .' ROWS ONLY';
 	} else {
-		return 'SELECT * FROM (SELECT /*+ FIRST_ROWS */ a.* FROM ('. $query .') a WHERE rownum <= '. $limit .')';
+		// return 'SELECT * FROM (SELECT /*+ FIRST_ROWS */ a.* FROM ('. $query .') a WHERE rownum <= '. $limit .')';
+		return $query .' FETCH FIRST '. $limit .' ROWS ONLY';
 	}
 }
 
@@ -209,10 +211,14 @@ function db_sab($q)
 
 function db_qid($q)
 {
-	$r = q($q);
-
-	$seqname = preg_replace('/.*INSERT\s+INTO\s+(\w+)[\s\(\,].*$/si', '\\1', $q) .'_id_seq';
-	return q_singleval('SELECT '. $seqname .'.CURRVAL from dual');
+//	$r = q($q);
+//
+//	$seqname = preg_replace('/.*INSERT\s+INTO\s+(\w+)[\s\(\,].*$/si', '\\1', $q) .'_id_seq';
+//	return q_singleval('SELECT '. $seqname .'.CURRVAL from dual');
+	$stmt = db::$db->prepare($q .' RETURNING ID INTO :id');
+	$stmt->bindParam('id', $rowid, PDO::PARAM_INT, 8);
+	$stmt->execute();
+	return $rowid;
 }
 
 function db_arr_assoc($q)
@@ -235,12 +241,21 @@ function db_fetch_array($q)
 
 function db_li($q, &$ef, $li=0)
 {
-	$r = db::$db->exec(_ora_syntax($q));
+	//$r = db::$db->exec(_ora_syntax($q));
+	if ($li) {
+		$stmt = db::$db->prepare($q .' RETURNING ID INTO :id');
+		$stmt->bindParam('id', $rowid, PDO::PARAM_INT, 8);
+		$r = $stmt->execute();
+	} else {
+		$stmt = db::$db->prepare($q);
+		$r = $stmt->execute();
+	}
 
 	if ($r) {
 		if ($li) {
-			$seqname = preg_replace('/.*INSERT\s+INTO\s+(\w+)[\s\(\,].*$/si', '\\1', $q) .'_id_seq';
-			return q_singleval('SELECT '. $seqname .'.CURRVAL FROM dual');
+			// $seqname = preg_replace('/.*INSERT\s+INTO\s+(\w+)[\s\(\,].*$/si', '\\1', $q) .'_id_seq';
+			// return q_singleval('SELECT '. $seqname .'.CURRVAL FROM dual');
+			return $rowid;
 		}
 		return $r;
 	}

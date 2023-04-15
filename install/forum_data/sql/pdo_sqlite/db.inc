@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -257,6 +257,9 @@ if (empty(db::$db)) {
 	} catch (PDOException $e) {
 		fud_sql_error_handler('Failed to establish database connection', 'PDO says: '. $e->getMessage(), '', '');
 	}
+
+	// Use ERRMODE_SILENT so we can check error codes manually.
+	db::$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_SILENT);
 
 	define('__dbtype__', substr($GLOBALS['DBHOST_DBTYPE'], 4));
 

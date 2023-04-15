@@ -1,4 +1,4 @@
-#   copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+#   copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
 #   email                : forum@prohost.org
 #
 #   $Id$
@@ -6,8 +6,6 @@
 #       This program is free software; you can redistribute it and/or modify
 #       it under the terms of the GNU General Public License as published by
 #       the Free Software Foundation; version 2 of the License.
-
-# TODO: Rename 'string' to 'email' for future CUBRID support.
 
 DROP TABLE IF EXISTS {SQL_TABLE_PREFIX}email_block;
 

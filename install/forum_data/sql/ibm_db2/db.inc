@@ -159,10 +159,10 @@ function db_rowarr($result)
 	return db2_fetch_array($result);
 }
 
-function q_singleval($query, $def='')
+function q_singleval($query)
 {
 	$val = db2_fetch_array(q($query));
-	return $val ? $val[0] : $def;
+	return $val ? $val[0] : false;
 }
 
 function q_limit($query, $limit, $off=0)

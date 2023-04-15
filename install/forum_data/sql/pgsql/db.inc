@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2020 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -36,7 +36,7 @@ if (!defined('fud_sql_lnk')) {
 
 	// The pgsql module cannot return connection errors. Don't event try pg_last_error(), it will fail!
 	$conn = $connect_func(ltrim($dsn)) or fud_sql_error_handler('Initiating '. $connect_func, 'Unable to connect', '', 'Unknown');
-	pg_set_client_encoding('UTF8');
+	pg_set_client_encoding($conn, 'UTF8');
 
 	define('fud_sql_lnk', $conn);
 	define('__dbtype__', 'pgsql');
@@ -148,10 +148,10 @@ function db_rowarr($result)
 	return pg_fetch_row($result);
 }
 
-function q_singleval($query, $def='')
+function q_singleval($query)
 {
 	$val = pg_fetch_row(q($query));
-	return $val ? $val[0] : $def;
+	return $val ? $val[0] : false;
 }
 
 function q_limit($query, $limit, $off=0)
@@ -279,6 +279,6 @@ function db_all($q)
 
 function _esc($s)
 {
-	return '\''. pg_escape_string($s) .'\'';
+	return '\''. pg_escape_string(fud_sql_lnk, $s) .'\'';
 }
 ?>

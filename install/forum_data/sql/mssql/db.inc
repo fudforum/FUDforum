@@ -134,10 +134,10 @@ function db_rowarr($result)
 	return mssql_fetch_row($result);
 }
 
-function q_singleval($query, $def='')
+function q_singleval($query)
 {
 	if (($res = mssql_fetch_row(q($query))) !== false) {
-		return isset($res) ? $res[0] : $def;
+		return isset($res) ? $res[0] : false;
 	}
 }
 

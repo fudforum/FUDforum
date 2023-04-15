@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2020 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -155,18 +155,21 @@ function db_rowarr($result)
 	return oci_fetch_array($result, OCI_RETURN_LOBS+OCI_RETURN_NULLS+OCI_NUM);
 }
 
-function q_singleval($query, $def='')
+function q_singleval($query)
 {
 	$val = oci_fetch_array(q($query), OCI_RETURN_LOBS+OCI_RETURN_NULLS);
-	return $val ? $val[0] : $def;
+	return $val ? $val[0] : false;
 }
 
 function q_limit($query, $limit, $off=0)
 {
+
 	if ($off) {
-		return 'SELECT * FROM (SELECT /*+ FIRST_ROWS */ a.*, rownum AS xrownum FROM ('. $query .') a WHERE rownum <= '. ($off + $limit) .') WHERE xrownum >= '. ($off+1);
+//		return 'SELECT * FROM (SELECT /*+ FIRST_ROWS */ a.*, rownum AS xrownum FROM ('. $query .') a WHERE rownum <= '. ($off + $limit) .') WHERE xrownum >= '. ($off+1);
+		return $query .' OFFSET '. $off .' ROWS FETCH NEXT '. $limit .' ROWS ONLY';
 	} else {
-		return 'SELECT * FROM (SELECT /*+ FIRST_ROWS */ a.* FROM ('. $query .') a WHERE rownum <= '. $limit .')';
+//		return 'SELECT * FROM (SELECT /*+ FIRST_ROWS */ a.* FROM ('. $query .') a WHERE rownum <= '. $limit .')';
+		return $query .' FETCH FIRST '. $limit .' ROWS ONLY';
 	}
 }
 
@@ -205,10 +208,15 @@ function db_sab($q)
 
 function db_qid($q)
 {
-	$r = q($q);
+//	$r = q($q);
+//
+//	$seqname = preg_replace('/.*INSERT\s+INTO\s+(\w+)[\s\(\,].*$/si', '\\1', $q) .'_id_seq';
+//	return q_singleval('SELECT '. $seqname .'.CURRVAL from dual');
 
-	$seqname = preg_replace('/.*INSERT\s+INTO\s+(\w+)[\s\(\,].*$/si', '\\1', $q) .'_id_seq';
-	return q_singleval('SELECT '. $seqname .'.CURRVAL from dual');
+	$p = oci_parse(fud_sql_lnk, $q .' RETURNING ID INTO :id');
+	oci_bind_by_name($p, ":id", $rowid);
+	$r = @oci_execute($p);
+	return $rowid;
 }
 
 function db_arr_assoc($q)
@@ -228,13 +236,20 @@ function db_fetch_array($q)
 
 function db_li($q, &$ef, $li=0)
 {
-	$p = oci_parse(fud_sql_lnk, _ora_syntax($q));
+	if ($li) {
+		$p = oci_parse(fud_sql_lnk, $q . ' RETURNING ID INTO :id');
+		oci_bind_by_name($p, ":id", $rowid);
+	} else {
+		$p = oci_parse(fud_sql_lnk, _ora_syntax($q));
+	}
+
 	$r = @oci_execute($p);
 
 	if ($r) {
 		if ($li) {
-			$seqname = preg_replace('/.*INSERT\s+INTO\s+(\w+)[\s\(\,].*$/si', '\\1', $q) .'_id_seq';
-			return q_singleval('SELECT '. $seqname .'.CURRVAL FROM dual');
+//			$seqname = preg_replace('/.*INSERT\s+INTO\s+(\w+)[\s\(\,].*$/si', '\\1', $q) .'_id_seq';
+//			return q_singleval('SELECT '. $seqname .'.CURRVAL FROM dual');
+			return $rowid;
 		}
 		return $r;
 	}
@@ -271,7 +286,7 @@ function ins_m($tbl, $flds, $types, $vals)
 function db_all($q)
 {
 	$r = q($q);
-	$nrows = oci_fetch_all($r, $rows, null, null, OCI_FETCHSTATEMENT_BY_ROW);
+	$nrows = oci_fetch_all($r, $rows, 0, -1, OCI_FETCHSTATEMENT_BY_ROW);
 	if (!$rows) {
 		return array();
 	}

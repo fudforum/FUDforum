@@ -134,10 +134,10 @@ function db_rowarr($result)
 	return ibase_fetch_row($result, IBASE_TEXT);
 }
 
-function q_singleval($query, $def='')
+function q_singleval($query)
 {
 	if (($res = ibase_fetch_row(q($query), IBASE_TEXT)) !== false) {
-		return isset($res) ? $res[0] : $def;
+		return isset($res) ? $res[0] : false;
 	}
 }
 

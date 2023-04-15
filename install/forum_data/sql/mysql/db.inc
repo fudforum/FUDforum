@@ -162,10 +162,10 @@ function db_rowarr($result)
 	return mysql_fetch_row($result);
 }
 
-function q_singleval($query, $def='')
+function q_singleval($query)
 {
 	if (($res = mysql_fetch_row(q($query))) !== false) {
-		return isset($res) ? $res[0] : $def;
+		return isset($res) ? $res[0] : false;
 	}
 }
 
