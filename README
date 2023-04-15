@@ -17,7 +17,6 @@ Install steps:
 
 Detailed instructions at https://github.com/fudforum/FUDforum/wiki/Installation
 
-   
 Upgrade steps:
 --------------
 
@@ -46,10 +45,13 @@ Uninstall steps:
 
 Quick Start Commands:
 ---------------------
+
+Be up and running in less than 5 minutes:
+
    wget https://raw.githubusercontent.com/fudforum/FUDforum/master/install.php
    wget https://raw.githubusercontent.com/fudforum/FUDforum/master/upgrade.php
    wget https://raw.githubusercontent.com/fudforum/FUDforum/master/fudforum_archive
-   Navigate to install.php or upgrade.php from your web brower.
+   Navigate to install.php or upgrade.php from your web browser.
 
 
 Command line operations:

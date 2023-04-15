@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -15,7 +15,7 @@
 function convertPlural($count, $forms) {
 	if (!count($forms)) { return '';}
 
-	// Pads array to requested amound of forms by copying the last one.
+	// Pads array to requested amount of forms by copying the last one.
 	while (count($forms) < 2) {
 		$forms[] = $forms[count($forms)-1];
 	}
