@@ -1,6 +1,6 @@
 <?php
 /***************************************************************************
-* copyright            : (C) 2001-2022 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -9,7 +9,7 @@
 * Free Software Foundation; either version 2 of the License.
 ***************************************************************************/
 
-$__UPGRADE_SCRIPT_VERSION = 5312.0;
+$__UPGRADE_SCRIPT_VERSION = 5313.0;
 // define('fud_debug', 1);
 
 /*
@@ -36,7 +36,7 @@ function nntp_tracker($flds)
 
 /** Change birthday from NUMBER to CHAR(8) (3.0.1->3.0.2).
  * New format is MMDDYYYY.
- * Requred for index lookups on leading string. I.e: WHERE birthday LIKE 'mmdd%';
+ * Required for index lookups on leading string. I.e: WHERE birthday LIKE 'mmdd%';
  */
 function users_birthday($flds)
 {
@@ -520,8 +520,8 @@ function syncronize_theme($theme)
 
 <p><b>Upgrade steps:</b></p>
 <p>This wizard will guide you<br />
-   through the steps required to<br />
-   upgrade your forum:</p>
+   through the steps required<br />
+   to upgrade your forum:</p>
 <p><span class="linkgroup">Step 1:</span> Admin login</p>
 <p><span class="linkgroup">Step 2:</span> Perform upgrade</p>
 <p><span class="linkgroup">Step 3:</span> Consistency check</p>

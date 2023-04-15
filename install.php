@@ -1,6 +1,6 @@
 <?php
 /***************************************************************************
-* copyright            : (C) 2001-2021 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -27,14 +27,14 @@ function modules_enabled()
 {
 	$status = array();
 	foreach (array('cubrid', 'ibm_db2', 'interbase', 'mysql', 'oci8', 'pdo_mysql', 'pdo_pgsql', 'pdo_sqlite', 'pdo_sqlsrv', 'pgsql', 'sqlsrv',
-		           'mbstring', 'pcre', 'enchant', 'posix', 'zlib') as $m) {
+		           'mbstring', 'pcre', 'intl', 'enchant', 'posix', 'zlib') as $m) {
 		$status[$m] = extension_loaded($m);
 	}
 
 	// MySQLi is an extension, not a module, but we add it anyway.
 	if (function_exists('mysqli_connect')) {
 		$status['mysqli'] = true;
-		$status['mysql']  = false;	// mysql is depricated and we have an alternative.
+		$status['mysql']  = false;	// mysql is deprecated and we have an alternative.
 	} else {
 		$status['mysqli'] = false;
 	}
@@ -68,7 +68,7 @@ function __mkdir($dir)
 	} else if (file_exists($dir)) {
 		unlink($dir);
 	}
-	$ret = (mkdir($dir, 0755) || mkdir(dirname($dir, 0755)));
+	$ret = (@mkdir($dir, 0755) || @mkdir(dirname($dir, 0755)));
 
 	umask($u);
 	return $ret;
@@ -321,7 +321,7 @@ span.linkhead {color: #fff; font-weight: bold; font-size: xx-large;}
 	background: #dddeed; border-bottom: 1px solid red;
 } 
 .field td {
-	border-bottom: 2px inset #fff; padding: 2px; margin: 3px;
+	border-bottom: 2px inset #fff; padding: 10px; margin: 3px;
 }
 .prereq { background: #fffaf0; }
 .step { color: #242; float:right; font-size:small; font-weight:bold; }
@@ -378,7 +378,7 @@ function dialog_end($section)
 			if ($section == 'welcome') {
 				echo '<td align="right"><input class="button forward" type="submit" title="Install FUDforum on your system." name="submit" value=" Start installer &gt;&gt; " />';
 			} else {
-				echo '<td align="right"><input class="button forward" type="submit" title="Go to the next step." name="submit" value="Next &gt;&gt;" />';		
+				echo '<td align="right"><input class="button forward" type="submit" title="Go to the next step." name="submit" value="Next &gt;&gt;" />';
 			}
 		} 
 		echo '</td></tr></table><br />';
@@ -389,7 +389,7 @@ function dialog_end($section)
 
 function input_row($title, $var, $def, $descr=NULL, $type='text', $extra='')
 {
-	echo '<tr class="field"><td><b>'. $title .'</b>'. ($descr ? '<br /><span class="descr">'. $descr .'</span>' : '') .'</td><td valign="bottom">'. (isset($GLOBALS['errors'][$var]) ? $GLOBALS['errors'][$var] : '') .'<input type="'. $type .'" name="'. $var .'" id="'. $var .'" value="'. htmlspecialchars($def) .'" size="40" '. $extra .' /></td></tr>';
+	echo '<tr class="field"><td><b>'. $title .'</b>'. ($descr ? '<br /><span class="descr">'. $descr .'</span>' : '') .'</td><td valign="bottom"><input type="'. $type .'" name="'. $var .'" id="'. $var .'" value="'. htmlspecialchars($def) .'" size="40" '. $extra .' /><br />'. (isset($GLOBALS['errors'][$var]) ? $GLOBALS['errors'][$var] : '') .'</td></tr>';
 }
 
 function prereq_row($title, $descr=NULL, $value=NULL, $status='green') 
@@ -665,9 +665,11 @@ if ($section == 'stor_path' || php_sapi_name() == 'cli') {
 			fclose($fp);
 
 			if (($d = @file_get_contents($WWW_ROOT .'fud_test_page.htm')) != $check_time) {
-				seterr('WWW_ROOT', 'Your Forum URL and Web Directory do not appear to point to the same location on disk.<br /><small>Unable to load '. $SERVER_ROOT .'fud_test_page.htm as '. $WWW_ROOT .'fud_test_page.htm.<br />Error: '. $php_errormsg .'</small>');
+				$errstr = error_get_last()['message'];
+				seterr('WWW_ROOT', 'Your Forum URL and Web Directory do not appear to point to the same location on disk.<br /><small>Cannot load '. $SERVER_ROOT .'fud_test_page.htm as <a href="'. $WWW_ROOT .'fud_test_page.htm">'. $WWW_ROOT .'fud_test_page.htm</a><br />Error: '. $errstr .'</small>');
+			} else {
+				unlink($SERVER_ROOT .'fud_test_page.htm');
 			}
-			unlink($SERVER_ROOT .'fud_test_page.htm');
 		}
 	}
 
@@ -1161,6 +1163,8 @@ switch ($section) {
 			($module_status['mbstring'] ? 'enabled' : 'disabled'), ($module_status['mbstring'] ? 'green' : 'red'));
 		prereq_row('PCRE Extension:', 'Perl Compatible Regular Expression (required).', 
 			($module_status['pcre'] ? 'enabled' : 'disabled'), ($module_status['pcre'] ? 'green' : 'red'));
+		prereq_row('Internationalization Extension:', 'The intl extension is optional, however we recommend enabling it to support locale-aware date and number formatting.',
+			($module_status['intl'] ? 'enabled' : 'disabled'), ($module_status['intl'] ? 'green' : 'orange'));
 		prereq_row('Zlib Extension:', 'The zlib extension is optional, however we recommend enabling it. This extension allow you to compress your forum backups as well as use zlib compression for your pages.',
 			($module_status['zlib'] ? 'enabled' : 'disabled'), ($module_status['zlib'] ? 'green' : 'orange'));
 		prereq_row('Enchant Extension:', 'Enchant extension is optional, this extension is needed by the FUDforum spellchecker. If you want to allow users to spell check their messages, please enable this extension.',
@@ -1249,7 +1253,7 @@ switch ($section) {
 		}
 
 		input_row('Web Directory', 'SERVER_ROOT', $SERVER_ROOT, 'Directory on the server where web browseable files (*.php, images, etc.) will be stored.');
-		input_row('Data Directory', 'SERVER_DATA_ROOT', $SERVER_DATA_ROOT, 'Directory on the server where <b>NON-</b>browseable (cache, backups, and other data) files will be stored. This directory should perferably be placed outside the webserver\'s document root.');
+		input_row('Data Directory', 'SERVER_DATA_ROOT', $SERVER_DATA_ROOT, 'Directory on the server where <b>NON-</b>browseable (cache, backups, and other data) files will be stored. For extra security, this directory can be placed outside the webserver\'s document root.');
 		input_row('Forum URL', 'WWW_ROOT', $WWW_ROOT, 'The URL of your forum. It should point to the forum front page. This is the address needed to visit your forum.');
 		input_row('URL Check', 'url_check', '1', 'Turn off this check if you get errors about the <i>Forum URL</i> not matching the <i>Web Directory</i> and are certain that the paths indicated are correct. We recommend you leave this checked!', 'checkbox', 'checked="checked"');
 		dialog_end($section);
@@ -1319,7 +1323,7 @@ switch ($section) {
 						jQuery("#DBHOST_USER").val("scott");
 						jQuery("#DBHOST_DBNAME").val("XE");
 					} else if (db == "pdo_sqlite") {
-						jQuery("#DBHOST,#DBHOST_USER,#DBHOST_PASSWORD,#DBHOST_DBNAME").hide().val("");
+						jQuery("#DBHOST,#DBHOST_USER,#DBHOST_PASSWORD,#DBHOST_DBNAME").prop("required", false).hide().val("");
 					} else if (db == "sqlsrv" || db == "pdo_sqlsrv") {
 						jQuery("#DBHOST_USER").val("se");
 					}
