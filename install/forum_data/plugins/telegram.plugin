@@ -1,0 +1,99 @@
+<?php
+/**
+* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
+* email                : forum@prohost.org
+* $Id$
+*
+* This program is free software; you can redistribute it and/or modify it
+* under the terms of the GNU General Public License as published by the
+* Free Software Foundation; version 2 of the License.
+**/
+
+// Initialize plugin.
+plugin_add_hook('POST_APPROVE',  'plugin_telegram_post');
+
+// Announce new forum post on Telegram.
+function plugin_telegram_post($msg_post) {
+	if ((@include_once $GLOBALS['PLUGIN_PATH'] .'telegram.ini') === false) {
+		die('ERROR: Please configure the Telegram plugin from the Plugin Manager Control panel.');
+	}
+
+	$apiurl = 'https://api.telegram.org:443/bot'. $ini['TELEGRAM_TOKEN'];
+	$posturl = $GLOBALS['WWW_ROOT'] .'index.php?t=msg&goto='. $msg_post->id .'#msg_'. $msg_post->id;
+	$msg = '<b><a href="'. $posturl .'">'. $msg_post->subject .'</a></b> in '. $msg_post->frm_name ."\n\n". $msg_post->body;
+
+	// Check if we have an image that can be posted.
+	if (preg_match('/<img src="(.+?)".*?>/', $msg, $match)) {
+		$imgurl = $GLOBALS['WWW_ROOT'] . $match[1];
+		$query = http_build_query(array(
+			'chat_id'    => $ini['TELEGRAM_CHATID'],
+			'photo'      => $imgurl,
+			'text'       => 'foto teks',
+			'parse_mode' => 'HTML'
+		));
+		$response = file_get_contents("$apiurl/sendPhoto?$query");
+	}
+
+	// Allowed HTML tags @ https://core.telegram.org/bots/api#html-style
+	$allow_tags = '<b><strong><i><em><u><ins><s><strike><del><span><code><pre><hr><a>';
+	$msg = preg_replace('/<hr>/', '---', $msg);
+	$msg = strip_tags($msg, $allow_tags);
+	
+	$query = http_build_query(array(
+		'chat_id'                  => $ini['TELEGRAM_CHATID'],
+		'parse_mode'               => 'HTML',
+		'text'                     => $msg,
+		// 'disable_web_page_preview' => false
+	));
+	$response = file_get_contents("$apiurl/sendMessage?$query");
+	$result = json_decode($response, true);
+	if (!isset($response) || $result["ok"] != 1) {
+	   fud_logerror("Telegram post failed:<br>\n". var_export($query, true) ."\n\n". var_export($response, true), 'fud_errors');
+	}
+	return($msg_post);
+}
+
+function telegram_enable() {
+	if ((@include $GLOBALS['PLUGIN_PATH'] .'telegram.ini') === false) {
+		return array(null, 'Please configure the Telegram plugin before enabling it.');	// OK, Err.
+	}
+}
+
+function telegram_info() {
+	return array('name' => 'Telegram',
+	             'desc' => 'This plugin is used to post new forum posts on a Telegram channel.',
+		     'cat'  => 'Third-party Integration',
+	             'version' => '0.1');
+}
+
+function telegram_config() {
+	if ((@include $GLOBALS['PLUGIN_PATH'] .'telegram.ini') === false) {
+		$ini['TELEGRAM_TOKEN'] = null;
+		$ini['TELEGRAM_CHATID'] = null;
+	}
+
+	if (isset($_POST['Set'])) {
+		foreach (array_keys($_POST) as $key) {
+			if (substr($key, 0, 9) == 'TELEGRAM_') {
+				$ini[$key] = $_POST[$key];
+			}
+		}
+		$fp = fopen($GLOBALS['PLUGIN_PATH'] .'telegram.ini', 'w');
+		fwrite($fp, '<?php $ini = '. var_export($ini, 1) .'; ?>');
+		fclose($fp);
+		pf(successify('Settings successfully saved.'));
+	}
+	?>
+<p>Enter your Telegram API Token and a Chat ID below. This is provided when your <a href="https://www.shellhacks.com/telegram-api-send-message-personal-notification-bot">create a Telegram bot</a>.</p>
+
+<p>API token:<br />
+<input name="TELEGRAM_TOKEN" value="<?php echo $ini['TELEGRAM_TOKEN'] ?>" size="45" /><br />
+<font size="-1">Obtained from <a href="https://t.me/botfather">@BotFather</a></font></p>
+
+<p>Chat ID:<br />
+<input name="TELEGRAM_CHATID" value="<?php echo $ini['TELEGRAM_CHATID'] ?>" size="15" /><br />
+<font size="-1">Chat ID or Group Name (starting with an @). Your bot must be registered as an admin to this group.</font></p>
+
+	<?php
+}
+
