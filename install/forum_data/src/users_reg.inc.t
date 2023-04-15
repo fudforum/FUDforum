@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2021 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -9,7 +9,7 @@
 * Free Software Foundation; version 2 of the License.
 **/
 
-class fud_user
+class fud_user extends stdClass
 {
 	var $id, $login, $alias, $passwd, $salt, $plaintext_passwd,
 	    $name, $email, $location, $occupation, $interests, $topics_per_page,
