@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -49,7 +49,7 @@
 		}
 	} else { /* Set the some default values. */
 		foreach (get_class_vars('fud_nntp_adm') as $k => $v) {
-			${'nntp_'. $k} = $v;
+			${'nntp_'. $k} = $v ?? '';
 		}
 	}
 

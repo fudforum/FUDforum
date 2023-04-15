@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2021 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -82,7 +82,7 @@ echo '<tr class="field">
 ?>
 
 <tr class="field">
-	<td valign="top"><b>Relevant PHP settings:</b></td>
+	<td valign="top"><b>PHP settings:</b></td>
 	<td>
 		<table cellspacing="1" cellpadding="1" border="0">
 			<tr>
@@ -113,12 +113,32 @@ echo '<tr class="field">
 				<td>Disabled functions:</td>
 				<td><?php echo (($df=str_replace(',', ', ', ini_get('disable_functions'))) ? $df : 'none'); ?></td>
 			</tr>
+		</table>
+	</td>
+</tr>
+
+<tr class="field">
+	<td valign="top"><b>PHP Modules:</b></td>
+	<td>
+		<table cellspacing="1" cellpadding="1" border="0">
 			<tr>
-				<td>Enchant support:</td>
+				<td>MBsting (Multibyte Strings):</td>
+				<td><?php echo extension_loaded('mbstring') ? 'Yes' : 'No'; ?></td>
+			</tr>
+			<tr>
+				<td>PCRE (Perl Regular Expressions):</td>
+				<td><?php echo extension_loaded('pcre') ? 'Yes' : 'No'; ?></td>
+			</tr>
+			<tr>
+				<td>Internationalization support:</td>
+				<td><?php echo extension_loaded('intl') ? 'Yes' : 'No'; ?></td>
+			</tr>
+			<tr>
+				<td>Enchant (spelchecker):</td>
 				<td><?php echo extension_loaded('enchant') ? 'Yes' : 'No'; ?></td>
 			</tr>
 			<tr>
-				<td>Zlib support:</td>
+				<td>Zlib (compression):</td>
 				<td><?php echo extension_loaded('zlib') ? 'Yes' : 'No'; ?></td>
 			</tr>
 		</table>

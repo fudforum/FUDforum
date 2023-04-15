@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -61,7 +61,7 @@ function format_regex(&$regex)
 		$ml_body_regex_haystack_opt = format_regex($ml_body_regex_haystack);
 	} else {
 		foreach (get_class_vars('fud_mlist') as $k => $v) {
-			${'ml_'. $k} = $v;
+			${'ml_'. $k} = $v ?? '';
 		}
 		$ml_subject_regex_haystack_opt = $ml_body_regex_haystack_opt = '';
 	}

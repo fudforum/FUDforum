@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -59,7 +59,7 @@
 			if (isset($_POST['xmlagg_'. $k])) {
 				${'xmlagg_'. $k} = $_POST['xmlagg_'. $k];
 			} else {
-				${'xmlagg_'. $k} = $v;
+				${'xmlagg_'. $k} = $v ?? '';
 			}
 		}
 	}

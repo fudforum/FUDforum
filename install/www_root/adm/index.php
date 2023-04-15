@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2019 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -38,7 +38,9 @@
 	}
 
 	/* Check for files that should be removed. */
-	if (@file_exists($WWW_ROOT_DISK .'install.php')) {
+	if (@file_exists($WWW_ROOT_DISK .'convert.php')) {
+		echo '<div class="alert dismiss" title="'. $WWW_ROOT_DISK .'convert.php">Please <a href="../convert.php">run</a> and <a href="admbrowse.php?cur='. urlencode($WWW_ROOT_DISK) .'&amp;'. __adm_rsid .'#flagged">delete</a> the <em>converter</em> script before a hacker discovers it.<br /></div>';
+	} elseif (@file_exists($WWW_ROOT_DISK .'install.php')) {
 		echo '<div class="alert dismiss" title="'. $WWW_ROOT_DISK .'install.php">Please <a href="../install.php">run</a> or <a href="admbrowse.php?cur='. urlencode($WWW_ROOT_DISK) .'&amp;'. __adm_rsid .'#flagged">delete</a> the <em>install</em> script before a hacker discovers it.<br /></div>';
 	} elseif (@file_exists($WWW_ROOT_DISK .'uninstall.php')) {
 		echo '<div class="alert dismiss" title="'. $WWW_ROOT_DISK .'uninstall.php">Please <a href="../uninstall.php">run</a> or <a href="admbrowse.php?cur='. urlencode($WWW_ROOT_DISK) .'&amp;'. __adm_rsid .'#flagged">delete</a> the <em>uninstall</em> script before a hacker discovers it.<br /></div>';
