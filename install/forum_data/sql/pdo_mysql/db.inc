@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2021 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -283,6 +283,9 @@ if (empty(db::$db)) {
 			fud_logerror('Unable to init SlaveDB, fallback to MasterDB: '. $e->getMessage(), 'sql_errors');
 		}
 	}
+
+	// Use ERRMODE_SILENT so we can check error codes manually.
+	db::$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_SILENT);
 
 	define('__dbtype__', substr($GLOBALS['DBHOST_DBTYPE'], 4));
 }

@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2020 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -13,6 +13,11 @@
 class db { public static $db, $slave; }
 
 if (empty(db::$db)) {
+
+	// Use MYSQLI_REPORT_OFF so we can check error codes manually.
+	$driver = new mysqli_driver();
+	$driver->report_mode = MYSQLI_REPORT_OFF;
+
 	if (substr($GLOBALS['DBHOST'], 0, 1) == ':') {	// Socket connection.
 		$socket = substr($GLOBALS['DBHOST'], 1);
 		$GLOBALS['DBHOST'] = 'localhost';

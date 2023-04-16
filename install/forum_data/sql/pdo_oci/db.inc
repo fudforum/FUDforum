@@ -310,6 +310,9 @@ if (empty(db::$db)) {
 		fud_sql_error_handler('Failed to establish database connection', 'PDO says: '. $e->getMessage(), '', '');
 	}
 
+	// Use ERRMODE_SILENT so we can check error codes manually.
+	db::$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_SILENT);
+
 	define('__dbtype__', 'oracle');
 }
 
