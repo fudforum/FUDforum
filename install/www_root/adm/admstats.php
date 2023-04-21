@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2021 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -201,7 +201,7 @@
 </tr>
 <tr class="field">
 	<td valign="top"><b>Level of detail: </b></td>
-	<td colspan="3"><select name="sep"><?php echo tmpl_draw_select_opt("hour\nday\nweek\nmonth\nyear", "Hour\nDay\nWeek\nMonth\nYear", $_POST['sep']); ?></select></td>
+	<td colspan="3"><select name="sep"><?php echo tmpl_draw_select_opt("day\nweek\nmonth\nyear", "Day\nWeek\nMonth\nYear", $_POST['sep']); ?></select></td>
 </tr>
 <tr class="field">
 	<td valign="top"><b>Graph Data: </b></td>

@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -61,7 +61,7 @@
 	</tr>
 	<tr class="field">
 		<td>Rank Image:<br /><font size="-1">URL to image to display.</font></td>
-		<td><input type="text" name="lev_img" value="<?php echo htmlspecialchars($lev_img); ?>" /></td>
+		<td><input type="text" name="lev_img" value="<?php echo htmlspecialchars($lev_img ?? ''); ?>" /></td>
 	</tr>
 
 	<tr class="field">

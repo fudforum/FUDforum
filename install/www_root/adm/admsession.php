@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2019 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -27,7 +27,7 @@
 	$c = uq(q_limit('SELECT action, count(*) FROM '. $DBHOST_TBL_PREFIX .'ses s GROUP BY action ORDER BY count(*) DESC', 15));
 	$i = 0;
 	while ($r = db_rowarr($c)) {
-		$r[0] = preg_replace('/href="/', 'href="'. $WWW_ROOT, $r[0]); // Fix URL.
+		$r[0] = preg_replace('/href="/', 'href="'. $WWW_ROOT, $r[0] ?? ''); // Fix URL.
 		$bgcolor = ($i++%2) ? ' class="resultrow1"' : ' class="resultrow2"';
 		echo '<tr'. $bgcolor .'"><td>'. $r[0] .'</td>';
 		echo '<td>'. $r[1] .'</td>';
@@ -84,7 +84,7 @@
 	$c = uq(q_limit('SELECT u.alias, action, ip_addr, useragent FROM '. $DBHOST_TBL_PREFIX .'ses s LEFT JOIN '. $DBHOST_TBL_PREFIX .'users u ON s.user_id=u.id ORDER BY time_sec', 1000));
 	$i = 0;
 	while ($r = db_rowarr($c)) {
-		$r[1] = preg_replace('/href="/', 'href="'. $WWW_ROOT, $r[1]); // Fix URL.
+		$r[1] = preg_replace('/href="/', 'href="'. $WWW_ROOT, $r[1]) ?? ''; // Fix URL.
 		$bgcolor = ($i++%2) ? ' class="resultrow1"' : ' class="resultrow2"';
 		echo '<tr'. $bgcolor .'"><td>'. (empty($r[0]) ? $ANON_NICK : $r[0]) .'</td>';
 		echo '<td>'. $r[1]  .'</td>';

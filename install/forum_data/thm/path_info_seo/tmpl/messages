@@ -3,9 +3,9 @@
 {SECTION: END}
 
 {SECTION: post_topic_update_lnk}
-{ROOT}/f/{VAR: frm->id}-{VAR-SEO: frm->form_name}
+{ROOT}/f/{VAR: frm->id}-{VAR-SEO: frm->name}
 {SECTION: END}
 
 {SECTION: thread_update_lnk}
-{ROOT}/f/{VAR: frm->id}-{VAR-SEO: frm->form_name}
+{ROOT}/f/{VAR: frm->id}-{VAR-SEO: frm->name}
 {SECTION: END}
