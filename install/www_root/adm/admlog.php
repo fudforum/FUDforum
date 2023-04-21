@@ -11,8 +11,8 @@
 
 function check_data_avl($data)
 {
-	$data = trim($data);
-	if (empty($data) && !strlen($data)) {
+	$data = trim($data ?? '');
+	if (!strlen($data)) {
 		return 'no longer in system';
 	}
 

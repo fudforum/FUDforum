@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -56,6 +56,9 @@ jQuery(function() {
 	// Make tables sortable.
 	jQuery('.resulttable').tablesorter();
 
+	// Implement jQuery keepAlive plugin from https://github.com/ocombe/jQuery-keepAlive 
+	$.fn.keepAlive({url: "keepAlive.php", timer: 60000});  // 1 min
+
 	// Focus on the first input element.
 	if (window.location.hash.length <= 0) {	// But not if the URL has an anchor.
 		jQuery(':text:visible:enabled:first').focus();
@@ -75,7 +78,7 @@ jQuery(function() {
 });
 </script>
 </div>
-<?php } /* Normal & popup pages. */ ?>
+<?php } /* Normal & pop-up pages. */ ?>
 <br />
 </td>
 </tr>

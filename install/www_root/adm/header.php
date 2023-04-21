@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2021 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -32,6 +32,7 @@
 	<script src="../js/ui/jquery-ui.js"></script>
 	<script src="../js/lib.js"></script>
 	<script src="style/jquery.tablesorter.min.js"></script>
+	<script type="text/javascript" src="style/jquery.keepAlive.js"></script>
 </head>
 <?php
 
@@ -68,9 +69,9 @@ if (defined('popup') ) {	/* Special header for popup pages. */
 	</center><br />
 
 <style>
-ul {list-style-type:none; padding: 0px; margin: 0px;}
-li {position: relative; padding: 2px 0; }
-span.ui-icon {float: left; margin: 0 -2px;}
+	ul {list-style-type:none; padding: 0px; margin: 0px;}
+	li {position: relative; padding: 2px 0; }
+	span.ui-icon {float: left; margin: 0 -2px;}
 </style>
 <script>
 jQuery(document).ready(function() {
@@ -78,7 +79,6 @@ jQuery(document).ready(function() {
 		var url = this.href.substring(0, this.href.lastIndexOf("?"));
 		if( url == document.location.protocol + "//" + window.location.hostname + window.location.pathname ) {
 			jQuery(this).before('<span class="ui-icon ui-icon-triangle-1-e"></span>');
-			//jQuery(this).before('<img src="../blank.gif" class="ui-icon ui-icon-triangle-1-w" />');
 		}
 	});
 });
@@ -182,7 +182,6 @@ jQuery(document).ready(function() {
 	<ul class="menu">
 	<li><a title="Backup your forum" href="admdump.php?<?php echo __adm_rsid; ?>">Make forum datadump</a></li>
 	<li><a title="Restore a forum backup" href="admimport.php?<?php echo __adm_rsid; ?>">Import forum data</a></li>
-	<!-- li><a title="Convert from another form type to FUDforum" href="convert.php?<?php echo __adm_rsid; ?>">Convert forum</a></li -->
 	</ul>
 	<br />
 </td></tr>

@@ -15,7 +15,7 @@ header('Expires: Mon, 26 Jul 1997 05:00:00 GMT'); // Way back in the past.
 header('Pragma: no-cache');
 header('X-Robots-Tag: noindex, nofollow');
 
-// Try to force unbufered incremental output.
+// Try to force unbuffered incremental output.
 header('X-Accel-Buffering: no');
 @ini_set('zlib.output_compression', 0);
 @ini_set('implicit_flush', 1);
@@ -77,7 +77,7 @@ if (!($GLOBALS['usr']->users_opt & 1048576)) {	// not is_admin
 	// Admin's should see ALL errors.
 	error_reporting(-1);
 	@ini_set('display_errors', 1);
-	// Disable buffering to see step by step prorgress.
+	// Disable buffering to see step by step progress.
 	@ini_set('output_buffering', 'Off'); 
 }
 
