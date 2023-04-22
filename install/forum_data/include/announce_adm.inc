@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -11,7 +11,7 @@
 
 class fud_announce
 {
-	var	$date_started, $date_ended, $subject, $text, $opt;
+	var	$id, $date_started, $date_ended, $subject, $text, $opt;
 	var     $year1, $month1, $day1;
 	var     $year2, $month2, $day2;
 

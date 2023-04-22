@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -11,7 +11,7 @@
 
 class fud_custom_field
 {
-	var	$name, $descr, $type_opt, $choice, $vieworder, $field_opt;
+	var $id, $name, $descr, $type_opt, $choice, $vieworder, $field_opt;
 
 	function __construct()
 	{
