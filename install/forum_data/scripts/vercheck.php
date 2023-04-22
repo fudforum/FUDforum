@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -30,7 +30,7 @@
 
 	echo "Busy looking up the latest forum version from FUDforum's wiki...\n";
 	fud_use('url.inc', true);	// For get_remote_file().
-	$verinfo = get_remote_file('http://cvs.prohost.org/index.php?title=Current_version&action=raw');
+	$verinfo = get_remote_file('https://raw.githubusercontent.com/wiki/fudforum/FUDforum/Current-version.md');
 
 	if ($verinfo && strpos($verinfo, '::')) {
 		// Write version to the forum's cache directory.
