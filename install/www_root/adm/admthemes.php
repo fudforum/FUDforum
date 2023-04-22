@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2021 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -103,7 +103,7 @@
 		}
 	} else if (isset($_GET['edit']) && ($c = db_arr_assoc('SELECT * FROM '. $DBHOST_TBL_PREFIX .'themes WHERE id='. $edit))) {
 		foreach ($c as $k => $v) {
-			${'thm_'. $k} = $v;
+			${'thm_'. $k} = $v ?? '';
 		}
 		$thm_no_index_url = $c['theme_opt'] & 8;
 		$thm_path_info    = $c['theme_opt'] & 4;

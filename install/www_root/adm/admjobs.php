@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -98,7 +98,7 @@
 	}
 	if ($edit && ($c = db_arr_assoc('SELECT * FROM '. $tbl .'jobs WHERE id='. $edit))) {
 		foreach ($c as $k => $v) {
-			${'job_'. $k} = $v;
+			${'job_'. $k} = $v ?? '';
 		}
 		$job_def = $job_name .'::'. $job_cmd;
 	} else {

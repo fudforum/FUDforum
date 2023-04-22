@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2021 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -298,6 +298,9 @@ function resolve_dest_path($path)
 				compile_all($r[0], $r[1], $r[2], $r[3]);
 			}
 			unset($c);
+
+			/* Flag for consistency check. */
+			touch($GLOBALS['TMP'] .'RUN_CONSISTENCY_CHECK');
 
 			pf('<b>All good so far, but you are not done yet!</b><br /><br />');
 			if (defined('__adm_rsid')) {

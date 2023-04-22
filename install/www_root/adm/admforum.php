@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -83,7 +83,7 @@ function get_max_upload_size()
 	}
 	if ($edit && ($c = db_arr_assoc('SELECT * FROM '. $tbl .'forum WHERE id='. $edit))) {
 		foreach ($c as $k => $v) {
-			${'frm_'.$k} = $v;
+			${'frm_'.$k} = $v ?? '';
 		}
 	} else {
 		$c = get_class_vars('fud_forum');

@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -52,7 +52,7 @@
 	/* Set defaults. */
 	if ($edit && ($c = db_arr_assoc('SELECT * FROM '. $tbl .'pages WHERE id='. $edit))) {
 		foreach ($c as $k => $v) {
-			${'page_'. $k} = $v;
+			${'page_'. $k} = $v ?? '';
 		}
 		$page_body = fud_page::read_page_body($page_foff, $page_length);
 	} else {

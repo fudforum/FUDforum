@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -108,7 +108,7 @@
 	/* Set defaults. */
 	if ($edit && ($c = db_arr_assoc('SELECT * FROM '. $tbl .'calendar WHERE id='. $edit))) {
 		foreach ($c as $k => $v) {
-			${'cal_'.$k} = $v;
+			${'cal_'.$k} = $v ?? '';
 		}
 	} else {
 		$c = get_class_vars('fud_calendar');

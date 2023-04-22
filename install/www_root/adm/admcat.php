@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -59,7 +59,7 @@
 	}
 	if ($edit && ($c = db_arr_assoc('SELECT parent, name, description, cat_opt FROM '. $tbl .'cat WHERE id='. $edit))) {
 		foreach ($c as $k => $v) {
-			${'cat_'. $k} = $v;
+			${'cat_'. $k} = $v ?? '';
 		}
 		if ($cat_description && !strncmp($cat_description, ' - ', 3)) {
 			$cat_description = substr($cat_description, 3);

@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2021 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -33,12 +33,12 @@
 			// }
 
 			// Create a PWL (personal word list) file with one word per line.
-			rename($custom_dict, $custom_dict .'bck');
+			@rename($custom_dict, $custom_dict .'.bck');
 			$r = enchant_broker_init();
 			$d = enchant_broker_request_pwl_dict($r, $custom_dict);
 			foreach ($wl as $w) {
 			 	if (($w = trim($w))) {
-	 				enchant_dict_add_to_personal($d, $w);
+					enchant_dict_add($d, $w);
 					++$status;
 			 	}
 			 }

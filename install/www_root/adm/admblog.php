@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -34,7 +34,7 @@
 		pf(successify('Settings successfully updated.'));
 	}
 	$frm_list = q_singleval('SELECT conf_value FROM '. $tbl .'settings WHERE conf_name =\'blog_forum_list\'');
-	$frm_list = json_decode($frm_list, true);
+	$frm_list = json_decode($frm_list ?? '', true);
 
 	if (!empty($_POST['btn_cancel'])) {
 		unset($_POST);
