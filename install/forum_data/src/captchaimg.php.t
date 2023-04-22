@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2021 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -51,7 +51,14 @@
 		$y = ($height - $textbox[5])/2;
 		for ($i = 0; $i < strlen($image_text); $i++) {
 			$text_color = imagecolorallocate($img, mt_rand(1,127), mt_rand(0,127), mt_rand(0,127));
-			imagettftext($img, mt_rand($font_size-5, $font_size+5), mt_rand(-$font_size/3,$font_size/3), mt_rand($x-$font_size/5,$x)+($i*$font_size), mt_rand($y-5, $y+5), $text_color, $font, $image_text[$i]) or die('Error in imagettftext function');
+			imagettftext($img,
+				mt_rand(round($font_size-5), round($font_size+5)),
+				mt_rand(round(-$font_size/3), round($font_size/3)),
+				mt_rand(round($x-$font_size/5), round($x)) + ($i*round($font_size)),
+				mt_rand(round($y-5), round($y+5)),
+				$text_color,
+				$font,
+				$image_text[$i]) or die('Error in imagettftext function');
 		}
 		$smoothness = 0.1;
 	} else {
@@ -60,7 +67,12 @@
 		$y = imagefontwidth($font);
 		for ($i = 0; $i < strlen($image_text); $i++) {
 			$text_color = imagecolorallocate($img, mt_rand(1,100), mt_rand(0,100), mt_rand(0,100));
-			imagestring($img, $font, mt_rand($x-15,$x)+($i*$font_size), mt_rand($y-5,$y+5), $image_text[$i], $text_color);
+			imagestring($img,
+				$font,
+				mt_rand($x-15, $x) + ($i*$font_size),
+				mt_rand($y-5,$y+5),
+				$image_text[$i],
+				$text_color);
 		}
 		$smoothness = 5;
 	}
