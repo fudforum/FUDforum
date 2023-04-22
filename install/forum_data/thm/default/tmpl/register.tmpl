@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2021 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -110,13 +110,15 @@
 <tr class="child-c1 RowStyleA">
 	<td width="60%">{MSG: register_login}<br />
                         <span class="SmallText">{MSG: register_login_desc}</span</td>
-	<td><span class="fb">{VAR: reg_login}</span>{IF: ($FUD_OPT_4 & 1) && !$mod_id}{TEMPLATE: change_login_link}{ENDIFI}</td>
+	<td><span class="fb">{VAR: reg_login}</span>
+	{IF: ($FUD_OPT_4 & 1) && !$mod_id}{TEMPLATE: change_login_link}{ENDIFI}
+	{IF: ($FUD_OPT_4 & 2) && !$mod_id}{TEMPLATE: change_passwd_link}{ENDIFI}</td>
 </tr>
 {IF: $FUD_OPT_2 & 128}{TEMPLATE: reg_alias}{ENDIFI}
 <tr class="child-c1 RowStyleA">
 	<td>{MSG: register_your_pass}{FUNC: draw_err('reg_confirm_passwd')}<br />
             <span class="SmallText">{MSG: register_password_desc}</span></td>
-	<td><nobr><input type="password" name="reg_confirm_passwd" size="25" />{IF: ($FUD_OPT_4 & 2) && !$mod_id}{TEMPLATE: change_passwd_link}{ENDIFI}</nobr></td>
+	<td><input type="password" name="reg_confirm_passwd" size="25" /></td>
 </tr>
 <tr class="child-c1 RowStyleA">
 	<td>{MSG: register_email_addr}{FUNC: draw_err('reg_email')}<br />
