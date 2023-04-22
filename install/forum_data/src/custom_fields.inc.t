@@ -58,7 +58,7 @@ function serialize_custom_fields()
 	// Setup custom fields for display.
 	$required_custom_fields = $optional_custom_fields = '';
 	foreach (get_custom_field_defs() as $k => $r) {
-		$r['choice'] = preg_replace("/\r\n/", "\n", $r['choice']);	// Strip Windows newlines.
+		$r['choice'] = preg_replace("/\r\n/", "\n", $r['choice'] ?? '');	// Strip Windows newlines.
 		$custom_field_vals[$k] = empty($custom_field_vals[$k]) ? '' : $custom_field_vals[$k];
 
 		// Can field be edited.
