@@ -188,7 +188,7 @@ function undeploy_files($plugin)
 		if (isset($info['help'])) {
 			echo ' [ <a href="'. $info['help'] .'">Plugin documentation</a> ]';
 		} else {
-			echo ' [ <a href="http://cvs.prohost.org/index.php/'. $func_base .'.plugin">Documentation on Wiki</a> ]';
+			echo ' [ <a href="https://github.com/fudforum/FUDforum/wiki/'. $func_base .'.plugin">Documentation on Wiki</a> ]';
 		}
 		echo '</span><br />';
 		echo '</fieldset>';

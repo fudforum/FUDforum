@@ -67,7 +67,7 @@ jQuery(function() {
 	// Add context sensitive 'Help' links to the Wiki.
 	var wikilink = jQuery('H2').first().text();
 	if (wikilink.length > 0) {
-		jQuery('#wikilink').append('[ <a href="http://cvs.prohost.org/index.php?title='+ wikilink +'" title="Context sensitive help (FUDforum wiki)">Help</a> ]');
+		jQuery('#wikilink').append('[ <a href="https://github.com/fudforum/FUDforum/wiki/'+ wikilink +'" title="Context sensitive help (FUDforum wiki)">Help</a> ]');
 	}
 
 	// Add code for dismissable DIV boxes.

@@ -79,7 +79,7 @@ Welcome to your forum's Admin Control Panel. From here you can control how your 
 <table border="0"><tr><td width="50%" valign="top">
 
 	<h4>Getting help:</h4>
-	FUDforum's documentation is available on our <b><a href="http://cvs.prohost.org/">development and documentation wiki</a></b>. Please report any problems on the support forum at <b><a href="http://fudforum.org">fudforum.org</a></b>.
+	FUDforum's documentation is available on our <b><a href="https://github.com/fudforum/FUDforum/wiki">development and documentation wiki</a></b>. Please report any problems on the support forum at <b><a href="http://fudforum.org">fudforum.org</a></b>.
 
 </td><td width="50%" valign="top">
 
