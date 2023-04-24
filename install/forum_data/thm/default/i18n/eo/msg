@@ -1123,6 +1123,7 @@ move_msg_th_expl:Specifi la identigilon de la celata fadeno (eble en alia forumo
 captcha_img_alt:Konfirmo de homeco: vi devas rekoni la tekston en ĉi-suba bildo.
 captcha_img_help:La bildo prezentas neniun nulon aŭ unuon.
 powered-by:Funkciante per: FUDforum {GVAR: FORUM_VERSION}.
+# Fuzzy
 copyright:Kopirajto &copy;2001-2022 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Kodo:
 code_select_all:Elekti ĉiujn

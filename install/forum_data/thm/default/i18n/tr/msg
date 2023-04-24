@@ -1140,6 +1140,7 @@ move_msg_th_expl:Hedef konunun kimliğini belirtin (diğer forumlarda olabilir)
 captcha_img_alt:Captcha Doğrulaması: bu resimdeki metni tanımanız gerekir.
 captcha_img_help:Görüntüde sıfır veya bir yok.
 powered-by:Destekleyen: FUDforum {GVAR: FORUM_VERSION}.
+# Fuzzy
 copyright:Telif hakkı &copy;2001-2021 <a href="http://fudforum.org/">FUDforum Bulletin Board Yazılımı</a>
 code_title:Kod:
 code_select_all:Hepsini seç

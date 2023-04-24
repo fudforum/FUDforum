@@ -393,6 +393,7 @@ search_attach_with:S priponkami
 read_message:Prebrano sporočilo
 threadt_update:Brskanje po forumu (drevesni pogled) <a href="{TEMPLATE: threadt_update_lnk}">{VAR: frm->name}</a>
 mmod_delete_cofirm_ttl:Potrdite brisanje teme/sporočila
+pm_err_disabled_title:Zasebno sporočanje je onemogočeno
 saved:Shranjeno
 register_err_avatardimtobig:Mere avatarja <b>({VAR: img_info[0]} × {VAR: img_info[1]} )</b> presegajo dovoljene mere <b({GVAR: CUSTOM_AVATAR_MAX_DIM})</b> slikovnih pik.
 iemail_msg_reply:Odgovori
@@ -445,7 +446,7 @@ finduser_flag:Zastava
 post_descr:Opis teme:
 pmsg_on:Datum:
 powered-by:Omogoča: FUDforum {GVAR: FORUM_VERSION}.
-copyright:Avtorske pravice &copy;2001–2022 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Avtorske pravice ©2001–2023 <a href="http://fudforum.org/">FUDforum, programska oprema za oglasne deske</a>
 code_title:Koda:
 code_select_all:Izberi vse
 btn_new_topic:Nova tema

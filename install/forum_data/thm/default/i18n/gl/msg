@@ -1120,6 +1120,7 @@ move_msg_th_expl:Especifica o ID do fío de destino (pode ser noutro foro)
 captcha_img_alt:Verificación por Captcha: terás que recoñecer o texto que hai nesta imaxe.
 captcha_img_help:Non hai cero ou un na imaxe.
 powered-by:Desenvolvido por: FUDforum {GVAR: FORUM_VERSION}.
+# Fuzzy
 copyright:Copyright &copy;2001-2022 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Código:
 code_select_all:Seleccionar todo

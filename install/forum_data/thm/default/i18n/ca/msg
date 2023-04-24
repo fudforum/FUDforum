@@ -1129,6 +1129,7 @@ move_msg_th_expl:Especifiqueu l'IDENTIFICADOR del tema de destinació (pot ser e
 captcha_img_alt:Verificació de captcha: cal reconèixer el text en aquesta imatge.
 captcha_img_help:No hi ha cap zero o en la imatge.
 powered-by:Powered by: 0.9 {GVAR: FORUM_VERSION}.
+# Fuzzy
 copyright:Copyright &copy;2001-2022 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Codi:
 code_select_all:Selecciona-ho tot

@@ -1133,6 +1133,7 @@ move_msg_th_expl:Gib die ID des Zielthemas an (kann in einem anderem Forum sein)
 captcha_img_alt:CAPTCHA-Bestätigung: Du musst den Text in diesem Bild erkennen.
 captcha_img_help:Das Bild enthält keine Null oder Eins.
 powered-by:Betrieben mit: FUDforum {GVAR: FORUM_VERSION}.
+# Fuzzy
 copyright:Copyright &copy;2001–2022 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Code:
 code_select_all:alles markieren
