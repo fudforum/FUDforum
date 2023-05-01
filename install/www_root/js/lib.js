@@ -1,5 +1,5 @@
 /***************************************************************************
-* copyright            : (C) 2001-2020 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -369,7 +369,7 @@ jQuery(document).ready(function() {
 }
 
 /* Highlight code, ready for copying. */
-function selectCode(a) {
+function select_code(a) {
    'use strict';
 
    // Get ID of code block
