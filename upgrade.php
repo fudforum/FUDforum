@@ -9,7 +9,7 @@
 * Free Software Foundation; either version 2 of the License.
 ***************************************************************************/
 
-$__UPGRADE_SCRIPT_VERSION = 5313.0;
+$__UPGRADE_SCRIPT_VERSION = 5313.1;
 // define('fud_debug', 1);
 
 /*
@@ -1226,7 +1226,7 @@ pf('<h2>Step 1: Admin login</h2>', true);
 		foreach ($rm_default_tmpl as $f) {
 			if (file_exists($GLOBALS['DATA_DIR'] .'thm/'. $r[0] .'/tmpl/'. $f)) {
 				if (empty($_POST['custom_tmpl'])) {
-					pf('Please remove file '. $GLOBALS['DATA_DIR'] .'thm/'. $r[0] .'/tmpl/'. $f .' as it is not part of FUDforum anymore.');
+					pf('Check if file '. $GLOBALS['DATA_DIR'] .'thm/'. $r[0] .'/tmpl/'. $f .' is required, as it is not part of the parent theme.');
 				} else {
 					unlink($GLOBALS['DATA_DIR'] .'thm/'. $r[0] .'/tmpl/'. $f);
 				}
@@ -1236,7 +1236,7 @@ pf('<h2>Step 1: Admin login</h2>', true);
 			foreach ($rm_pathinfo_tmpl as $f) {
 				if (file_exists($GLOBALS['DATA_DIR'] .'thm/'. $r[0] .'/tmpl/'. $f)) {
 					if (empty($_POST['custom_tmpl'])) {
-						pf('Please remove file '. $GLOBALS['DATA_DIR'] .'thm/'. $r[0] .'/tmpl/'. $f .' as it is not part of FUDforum anymore.');
+						pf('Check if file '. $GLOBALS['DATA_DIR'] .'thm/'. $r[0] .'/tmpl/'. $f .' is required, as it is not part of the parent theme.');
 					} else {
 						unlink($GLOBALS['DATA_DIR'] .'thm/'. $r[0] .'/tmpl/'. $f);
 					}
@@ -1267,7 +1267,7 @@ pf('<h2>Step 1: Admin login</h2>', true);
 ?>
 
 <div class="tutor">All changed files were backed up to: <small><?php echo $GLOBALS['ERROR_PATH'] .'.backup/'; ?></small>.</div>
-<div class="tutor">If everything went well, you may click on the button below to continiue to step 3.</div>
+<div class="tutor">If everything went well, you may click on the button below to continue to step 3.</div>
 
 <br />
 <form name="upgrade" action="<?php echo basename(__FILE__); ?>" method="post">
