@@ -303,6 +303,7 @@ if (!isset($_GET['chpos'])) {	// Hide this if we are changing forum order.
 			}
 			$lp = $r->view_order;
 		}
+		$r->descr = $r->descr ?? '';
 		$cat_name = !$move_ct ? $cat_name : '<form method="post" action="admforum.php">'. _hs .'<input type="hidden" name="frm_id" value="'. $r->id .'" /><input type="hidden" name="cat_id" value="'. $cat_id .'" /><input type="submit" name="btn_chcat" value="Move To: " /> '. $move_ct .'</form>';
 		echo '<tr id="order_'. $r->id .'"'. $bgcolor .' title="'. htmlspecialchars($r->descr) .'">
 			<td><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>'. $r->name .'</td>

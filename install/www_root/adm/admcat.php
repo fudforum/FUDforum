@@ -258,6 +258,7 @@ function imposeMaxLength(Object, len)
 
 		$parent = $r->parent;
 
+		$r->description = $r->description ?? '';
 		if ($r->description && !strncmp($r->description, ' - ', 3)) {
 			$r->description = substr($r->description, 3);
 		}
