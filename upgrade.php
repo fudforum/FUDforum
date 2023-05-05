@@ -290,8 +290,14 @@ function upgrade_decompress_archive($data_root, $web_root)
 	// CLI doesn't automatically change the CWD to the one the started script resides in.
 	chdir(dirname(__FILE__));
 
+	// Try to download the fudforum_archive if not available.
+	if (!file_exists('./fudforum_archive')) {
+		$archive_url = 'https://raw.githubusercontent.com/fudforum/FUDforum/master/fudforum_archive';
+		@file_put_contents('./fudforum_archive', fopen($archive_url, 'r'));
+	}
+
 	/* Install from './fudforum_archive' file. */
-	$fp = fopen('./fudforum_archive', 'rb') or die('Please upload file fudforum_archive and try again.');
+	$fp = fopen('./fudforum_archive', 'rb') or die('The upgrade script requires a "fudforum_archive" file to run. Please download it and retry again.');
 	$checksum = fread($fp, 32);
 	$tmp = fread($fp, 20000);
 	fseek($fp, (ftell($fp) - 20000), SEEK_SET);
@@ -534,14 +540,9 @@ function syncronize_theme($theme)
 <?php
 	}
 
-	// Check if we have a forum_archive.
-	if (!file_exists('./fudforum_archive')) {
-		seterr('The upgrade script requires a "fudforum_archive" file to run. Please download it and retry again.');
-	}
-
 	// PHP version check.
-	if (!version_compare(PHP_VERSION, '5.2.3', '>=')) {
-		seterr('The upgrade script requires that you have PHP version 5.2.3 or higher.');
+	if (!version_compare(PHP_VERSION, '7.0.0', '>=')) {
+		seterr('The upgrade script requires that you have PHP version 7.0.0 or higher.');
 	}
 
 	/* Mbstring hackery, necessary if function overload is enabled. */

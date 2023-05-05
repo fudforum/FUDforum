@@ -129,8 +129,14 @@ function decompress_archive($data_root, $web_root)
 	// CLI doesn't automatically change the CWD to the one the started script resides in.
 	chdir(dirname(__FILE__));
 
+	// Try to download the fudforum_archive if not available.
+	if (!file_exists('./fudforum_archive')) {
+		$archive_url = 'https://raw.githubusercontent.com/fudforum/FUDforum/master/fudforum_archive';
+		@file_put_contents('./fudforum_archive', fopen($archive_url, 'r'));
+	}
+
 	/* Install from './fudforum_archive' file. */
-	$fp = fopen('./fudforum_archive', 'rb') or die('Please upload file fudforum_archive and try again.');
+	$fp = fopen('./fudforum_archive', 'rb') or die('The install script requires a "fudforum_archive" file to run. Please download it and retry again.');
 	$checksum = fread($fp, 32);
 	$tmp = fread($fp, 20000);
 	fseek($fp, (ftell($fp) - 20000), SEEK_SET);
@@ -494,8 +500,8 @@ $module_status = modules_enabled();
 /* Perform various sanity checks, which check for required components. */
 if (!count($_POST)) {
 	/* PHP version check. */
-	if (!version_compare(PHP_VERSION, '5.3.0', '>=')) {
-		seterr('PHPVER', 'FUDforum requires PHP 5.3.0 or later while you have version <?php echo PHP_VERSION; ?> Installed. Please rectify this and try again.');
+	if (!version_compare(PHP_VERSION, '7.0.0', '>=')) {
+		seterr('PHPVER', 'FUDforum requires PHP 7.0.0 or later while you have version <?php echo PHP_VERSION; ?> Installed. Please rectify this and try again.');
 	}
 
 	/* Database check. */
@@ -534,9 +540,9 @@ if (!count($_POST)) {
 	}
 
 	// Check if we have a forum_archive.
-	if (!file_exists('./fudforum_archive')) {
-		seterr('NOARCHIVE', 'The install script requires a "fudforum_archive" file to run. Please download it and retry again.');
-	}
+//	if (!file_exists('./fudforum_archive')) {
+//		seterr('NOARCHIVE', 'The install script requires a "fudforum_archive" file to run. Please download it and retry again.');
+//	}
 }
 
 /* In comand line mode we need to read parameters from the config file (is supplied).
