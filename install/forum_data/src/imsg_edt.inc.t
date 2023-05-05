@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2021 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -20,7 +20,7 @@ $GLOBALS['CHARSET'] = '{TEMPLATE: imsg_CHARSET}';
 
 class fud_msg_edit extends fud_msg
 {
-	function add_reply($reply_to, $th_id=null, $perm=(64|4096), $autoapprove=1)
+	function add_reply($reply_to, $th_id=null, $perm=64|4096, $autoapprove=1)
 	{
 		if ($reply_to) {
 			$this->reply_to = $reply_to;
