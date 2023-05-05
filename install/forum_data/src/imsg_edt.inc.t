@@ -20,8 +20,12 @@ $GLOBALS['CHARSET'] = '{TEMPLATE: imsg_CHARSET}';
 
 class fud_msg_edit extends fud_msg
 {
-	function add_reply($reply_to, $th_id=null, $perm=64|4096, $autoapprove=1)
+	function add_reply($reply_to, $th_id=null, $perm=0, $autoapprove=1)
 	{
+		if ($perm = 0) {
+			$perm = 64|4096;
+		}
+
 		if ($reply_to) {
 			$this->reply_to = $reply_to;
 			$fd = db_saq('SELECT t.forum_id, f.message_threshold, f.forum_opt FROM {SQL_TABLE_PREFIX}msg m INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id INNER JOIN {SQL_TABLE_PREFIX}forum f ON f.id=t.forum_id WHERE m.id='. $reply_to);
