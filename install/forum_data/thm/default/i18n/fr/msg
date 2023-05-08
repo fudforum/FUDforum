@@ -1104,9 +1104,9 @@ post_not_logged_in:Vous n’êtes pas connecté, le message sera publié anonyme
 post_common_bold:Gras
 post_common_italics:Italique
 post_common_underline:Souligné
-post_common_align_left:Aligné à gauche
+post_common_align_left:Cadré à gauche
 post_common_align_center:Centré
-post_common_align_right:Aligné à droite
+post_common_align_right:Cadré à droite
 post_common_link:Insérer un lien
 post_common_link_popup:Adresse du lien :
 post_common_email:Insérer une adresse de courriel
@@ -1132,8 +1132,7 @@ move_msg_th_expl:Précisez l’identifiant du sujet de destination (peut être s
 captcha_img_alt:Vérification par Captcha : vous devrez reconnaître le texte dans cette image.
 captcha_img_help:Il n’y a aucun zéro ou un sur cette image.
 powered-by:Propulsé par : FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:Copyright © 2001–2022 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Copyright © 2001–2023 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Code :
 code_select_all:Tout sélectionner
 code_show_hide:Afficher / masquer
