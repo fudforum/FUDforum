@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2019 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -27,7 +27,7 @@
 	if (!$uid || (__fud_real_user__ && __fud_real_user__ != $uid)) {
 		error_dialog('{TEMPLATE: emailconf_err_invkey_title}', '{TEMPLATE: emailconf_err_invkey_msg}');
 	}
-	q('UPDATE {SQL_TABLE_PREFIX}users SET users_opt='. q_bitor(users_opt, 131072) .', conf_key=NULL WHERE id='. $uid);
+	q('UPDATE {SQL_TABLE_PREFIX}users SET users_opt='. q_bitor('users_opt', 131072) .', conf_key=NULL WHERE id='. $uid);
 	logaction($uid, 'EMAILCONFIRMED', 0, 'Key='. $_GET['conf_key']);
 
 	if (defined('plugins')) {
