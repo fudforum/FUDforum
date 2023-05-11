@@ -354,17 +354,17 @@ register_msg_per_page:Boodskappe per bladsy:
 register_show_sig:Wys handtekening:
 register_show_sig_desc:Laat u toe om die handtekeninge van andere forumlede te wys of te verberg
 register_use_sig_default:Gebruik standaard handtekening:
-register_use_sig_default_desc:Plak u handtekening outomaties by elke booedskap wat u pos
+register_use_sig_default_desc:Plak u handtekening outomaties by elke boodskap wat u pos
 register_timezone:Tydsone:
 register_ignore_admin:Ignoreer boodskappe vanaf die administrateur:
 register_invisible_mode:Onsigbare modus:
-register_invisible_mode_desc:Verberg u aan-lyn status.
+register_invisible_mode_desc:Verberg u aanlyn status.
 register_show_email:Wys e-posadres:
 register_show_email_desc:Kies hierdie opsie indien u u e-posadres publiek sigbaar wil maak.
 register_notification:Selekteer Notifikasie as standaard
-register_notification_desc:of die notifikasie standaard is ingesteld, u kan het nog aanpas by het posten
+register_notification_desc:As kennisgewing by verstek geaktiveer is, kan dit steeds afgesit word wanneer u pos.
 register_notify_method:Kies notifikasie metode:
-register_notify_method_desc:Stel wat se kennisgewings wil u ontvang of skakel kennisgewings af (byvoorbeeld as u op vakasie is)
+register_notify_method_desc:Stel wat se kennisgewings u wil ontvang of skakel kennisgewings af (byvoorbeeld as u op vakansie is).
 register_allow_email_msg:Laat boodskappe per E-pos toe:
 register_allow_email_msg_desc:Laat andere lede toe om vir u epos deur die forum te stuur.
 buddy_status:Status
@@ -641,7 +641,7 @@ post_err_passwd:ongeldige wagwoord.
 post_reply_update:Antwoorde op <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> in {VAR: frm->name}
 post_topic_update:Begin nuwe onderwerp in <a href="{TEMPLATE: post_topic_update_lnk}">{VAR: frm->name}</a>
 post_error_generic:Daar was 'n probleem
-postcheck_max_images_err:Maksimum {GVAR: MAX_IMAGE_COUNT} fotos word toegelaat per boodskap, verminder die aantal foto's
+postcheck_max_images_err:Net {GVAR: MAX_IMAGE_COUNT} beelde word per boodskap toegelaat, verminder die aantal beelde.
 postcheck_no_links_allowed:U mag geen skakels pos voordat u nie ten minste {PLURAL: posts_before_links|$1 boodskap|$1 boodskappe} gepos het nie.
 postcheck_subj_needed:U moet 'n onderwerp verskaf
 postcheck_no_such_user:Daar is geen lid genaamd "{FUNC: char_fix(htmlspecialchars($v))}" in die forum
@@ -720,11 +720,11 @@ remail_email:Hallo,\n\nDaar is 'n interessante onderwerp oor "{VAR: data->subjec
 poll_add_option:Voeg opsie by:
 post_opt_html_on:<b>HTML</b> is <b>AAN</b>
 post_opt_fud_on:<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>BBkode</b> is <b>AAN</b></a>
-post_opt_images_on:<b>fotos</b> is <b>AAN</b>
+post_opt_images_on:<b>Beelde</b> is <b>AAN</b>
 post_opt_smilies_on:<a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank"><b>Gesiggies</b> is <b>AAN</b></a>
 post_opt_html_off:<b>HTML</b> kode is <b>AF</b>
 post_opt_fud_off:<b>BBkode</b> is <b>AF</b>
-post_opt_images_off:<b>Fotos</b> is <b>AF</b>
+post_opt_images_off:<b>Beelde</b> is <b>AF</b>
 post_opt_smilies_off:<b>Gesiggies</b> is <b>AF</b>
 post_opt:Forumopsies:
 register_change_passwd:verander wagwoord
@@ -987,7 +987,7 @@ mnav_update:Blaai deur boodskappe met <a href="{TEMPLATE: mnav_update_lnk}">Bood
 pm_notify_subject:[{GVAR: FORUM_TITLE}]: Kennisgewing van nuwe privaatboodskap
 pm_notify_body_email:U het 'n nuwe privaatboodskap met onderwerp "{VAR: subject}" van "{VAR: from}" in forum "{GVAR: FORUM_TITLE}".\nKliek hier om die boodskap te lees: {FULL_ROOT}?t=pmsg_view&id={VAR: pid}\n\nIndien u nie meer kennisgewings soos hierdie wil ontvang nie, kan u "Kennisgewings vir privaatboodskappe" in u profiel afskakel.
 register_pm_notification:Kennisgewings vir privaatboodskappe:
-register_pm_notification_desc:Indien aangeskakel sal u in kennis gestel word van nuwe privaatboodskappe.
+register_pm_notification_desc:Indien aangeskakel sal u van nuwe privaatboodskappe in kennis gestel word.
 findu_admin_opts_header:Administrasie:
 findu_unban:Ontban
 findu_ban:Verban

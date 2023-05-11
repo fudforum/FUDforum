@@ -154,7 +154,7 @@ status_line:Il ha <b>{PLURAL: st_obj->online_users_reg|$1 membro|$1 membros}</b>
 sticky:fixe:
 stop_ignoring:cessar de ignorar iste usator
 sub_to_thread:Subscriber al topico
-sub_to_thread_desc:Reciper notification super nove messages intra iste topico
+sub_to_thread_desc:Reciper notification de nove messages in iste topico
 bookmark_thread:Favorir topico
 bookmark_thread_desc:Adder iste topico a tu lista de favorites
 subject:Subjecto
@@ -183,11 +183,11 @@ unread_msg_locked:Topico serrate con messages non legite
 unread_posts:Messages non legite
 unread_posts_desc:Monstrar tote le messages non legite
 unsub_from_thread:Cancellar subscription al topico
-unsub_from_thread_desc:Cessar de reciper notificationes super nove messages in iste topico
+unsub_from_thread_desc:Cessar de reciper notificationes de nove messages in iste topico
 unbookmark_thread:Disfavorir
 unbookmark_thread_desc:Remover iste topico de tu lista de favorites
 unsubscribe:Cancellar subscription
-unsubscribe_desc:Cessar de reciper notificationes super nove topicos in iste foro
+unsubscribe_desc:Cessar de reciper notificationes de nove topicos in iste foro
 updated_on:Actualisate le:
 user:Usator
 user_counter:Nos ha <b>{VAR: st_obj->user_count}</b> {PLURAL: st_obj->user_count|usator|usatores} registrate.
@@ -343,7 +343,7 @@ register_month:Mense
 register_year:Anno
 register_gender:Sexo:
 register_bio:Biographia:
-register_bio_desc:Alcun detalios super te, como tu interesses, empleo, etc. …
+register_bio_desc:Alcun detalios sur te, como tu interesses, empleo, etc.
 register_prefs:Preferentias
 register_sig:Signatura:
 register_sig_desc:Si tu entra un signatura, illo essera adjungite al fin de tu messages.
@@ -484,7 +484,7 @@ login_passwd:Contrasigno:
 reset_email:E-mail:
 reset_reset_button:Reinitialisar contrasigno
 rate_this_thread:Evalutar
-report_reporting_about:Reporto super:
+report_reporting_about:Reporto concernente:
 report_subject:Subjecto:
 report_by:Per:
 report_posted_on:Publicate le:
@@ -715,7 +715,7 @@ error_title:Formulario de error
 index_title:Benvenite al foro
 search_title:Cercar {VAR-HTML: srch}
 remail_emailsent:Le e-mail ha essite inviate
-remail_email:Salute,\n\nIl ha un topico interessante super "{VAR: data->subject}" in le foro {GVAR: FORUM_TITLE} que poterea interessar te. Tu pote vider le topico a:\n {FULL_ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nAmicalmente,\n\n{VAR: usr->alias}
+remail_email:Salute,\n\nIl ha un topico interessante sur "{VAR: data->subject}" in le foro {GVAR: FORUM_TITLE} que poterea interessar te. Tu pote vider le topico a:\n {FULL_ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nAmicalmente,\n\n{VAR: usr->alias}
 poll_add_option:Adder option:
 post_opt_html_on:<b>HTML</b> es <b>activate</b>
 post_opt_fud_on:<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>BBcode</b> es <b>activate</b></a>
@@ -1002,7 +1002,7 @@ merge_next:Topicos sequente
 merge_prev:Topicos precedente
 merge_another:Vader al <a href="{TEMPLATE: merge_another_lnk}">ultime topico fusionate</a> o fusiona un altere:
 split_cp:Pannello de controlo pro divider topicos
-groups_perms_header:Permissiones <span class="small">(move le mouse super le permission pro vider su typo)</span>
+groups_perms_header:Permissiones <span class="small">(displacia le mouse super le permission pro vider su typo)</span>
 register_err_sig_too_long:Tu signatura excede le longitude maxime permittite de {GVAR: FORUM_SIG_ML} characteres.
 register_sig_limit:{GVAR: FORUM_SIG_ML} characteres <a href="javascript: alert('Tu signatura ha un longitude de '+document.forms['fud_register'].reg_sig.value.length+' characteres. Le longitude maxime permittite es {GVAR: FORUM_SIG_ML} characteres.');" class="SmallText">Verifica le longitude del signatura</a>
 adm_account_accepted:Tu conto '{VAR: login}' esseva approbate per le administrator e es presentemente active. Tu pote ora acceder al foro '{GVAR: FORUM_TITLE}' como usator registrate e confirmate.
@@ -1112,8 +1112,7 @@ move_msg_th_expl:Specifica le ID del topico de destination (pote esser in altere
 captcha_img_alt:Verification per Captcha: tu debe recognoscer le texto in iste imagine.
 captcha_img_help:Il non ha zero o un in iste imagine.
 powered-by:Actionate per: FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:Copyright &copy;2001-2022 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Copyright &copy;2001-2023 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Codice:
 code_select_all:Seliger toto
 code_show_hide:Revelar/celar

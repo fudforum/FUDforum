@@ -1,6 +1,7 @@
 # Messages for Arabic (العربية)
 # Exported from translatewiki.net
 # Author: Alexknight12
+# Author: Alshamiri1
 # Author: Alssarem
 # Author: DRIHEM
 # Author: FiberAhmed
@@ -638,8 +639,7 @@ post_err_lockedthread_msg:هذا الموضوع مُقفَل؛ لم يعد ال�
 err_coppa_title:خطأ: لم يؤكد حسابك إلى الآن
 err_coppa_msg:لم نتلقَ تأكيدًا من والدك أو مرشدك القانوني يسمح لك فيه بإرسال الرسائل. إذا ضيَّعت نموذج COPPA، <a href="{TEMPLATE: err_coppa_msg_lnk}">فاعرضه مرة أخرى</a>.
 err_banned_acct_title:خطأ: لقد طُردت.
-# Fuzzy
-err_banned_acct_msg:حسابك {IF: $ban_expiry}مطرود مؤقتًا إلى {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}مطرود بشكل دائم{ENDI} من الوصول إلى الموقع بسبب خرق قوانين المنتدى.
+err_banned_acct_msg:تم حظر حسابك {IF: $ ban_expiry} مؤقتًا حتى {TEMPLATE: ban_expiry_date} {ELSE} تم حظره {ENDI} نهائيًا من الوصول إلى الموقع ، بسبب انتهاك قواعد المنتدى.
 post_err_edttimelimit_title:خطأ
 post_err_edttimelimit_msg:لم يعد بمقدورك تعديل هذه الرسالة
 post_err_noannontopics_msg2:<legend>خطأ: صلاحيات غير كافية</legend>لا يُسمح للمستخدمين المجهولين بإنشاء المواضيع.
@@ -1086,8 +1086,7 @@ dmsg_ip:الآيبي:
 err_blockedaccnt_title:خطأ: تمت تصفية حسابك.
 err_blockedaccnt_msg:تم منع حسابك من الوصول إلى المنتدى بسبب إحدى مُرشِّحات المستخدمين المثبتة.
 merge_th_page_list:اختيار صفحة الموضوع
-# Fuzzy
-most_users_online:أكبر عدد للمستخدمين المسجلين كان <b>{VAR: st_obj->most_online}</b> في <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
+most_users_online:كان معظم المستخدمين المتصلين على الإنترنت <b>{VAR: st_obj->most_online}</b> في <b>{TEMPLATE: most_online_time}</b>
 sub_unsub_all_forums:ألغِ اشتراك جميع المنتديات
 sub_unsub_all_topics:ألغِ اشتراك جميع المواضيع
 unbookmark_all_topics:أزل كل العلامات
