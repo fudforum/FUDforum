@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -130,6 +130,10 @@ function draw_tmpl_perm_table($perm, $perms, $names)
 				q('INSERT INTO {SQL_TABLE_PREFIX}group_members (group_members_opt, user_id, group_id) VALUES ('. $perm .', '. $usr_id .', '. $group_id .')');
 				grp_rebuild_cache(array($usr_id));
 				logaction(_uid, 'ADDGRP', $group_id, $gr_member);
+
+				if (defined('plugins')) {
+					plugin_call_hook('GROUP_JOIN', array($usr_id, $group_id));
+				}
 			}
 		} else if (($usr_id = q_singleval('SELECT user_id FROM {SQL_TABLE_PREFIX}group_members WHERE group_id='. $group_id .' AND id='. (int)$_POST['edit'])) !== null) {
 			if (q_singleval('SELECT user_id FROM {SQL_TABLE_PREFIX}group_members WHERE group_id='. $group_id .' AND user_id='. $usr_id .' AND group_members_opt>=131072 AND '. q_bitand('group_members_opt', 131072) .' > 0')) {

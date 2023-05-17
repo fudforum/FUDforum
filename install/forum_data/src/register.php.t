@@ -615,9 +615,14 @@ function email_encode($val)
 
 			$uent->sync();
 
-			/* If the user had changed their e-mail, force them re-confirm their account (unless admin). */
+			/* If the user changed his e-mail address, force him to re-confirm his account (unless admin). */
 			if ($FUD_OPT_2 & 1 && $old_email && $old_email != $uent->email && !($uent->users_opt & 1048576)) {
 				$conf_key = usr_email_unconfirm($uent->id);
+
+				if (defined('plugins')) {
+					plugin_call_hook('EMAIL_CHANGED', array($uent->id, $old_email, $uent->email) );
+				}
+
 				send_email($NOTIFY_FROM, $uent->email, '{TEMPLATE: register_email_change_subject}', '{TEMPLATE: register_email_change_msg}', '');
 			}
 			if (!$mod_id) {

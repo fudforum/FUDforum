@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -23,6 +23,10 @@ function grp_delete_member($id, $user_id)
 		grp_rebuild_cache(array($user_id));
 	} else {
 		q('DELETE FROM {SQL_TABLE_PREFIX}group_cache WHERE user_id='. $user_id);
+	}
+
+	if (defined('plugins')) {
+		plugin_call_hook('GROUP_LEAVE', array($user_id, $id));
 	}
 }
 

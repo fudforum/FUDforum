@@ -176,8 +176,11 @@
 <?php
 					exit;
 			} else if (isset($_POST['btn_yes'])) {
-				logaction(_uid, 'DELETE_USER', 0, $u->alias);
 				usr_delete($usr_id);
+				logaction(_uid, 'DELETE_USER', 0, $u->alias);
+				if (defined('plugins')) {
+					plugin_call_hook('ACCOUNT_DELETE', $usr_id);
+				}
 				echo successify('User <b>'. $u->alias .'</b> was successfully removed.');
 				unset($act, $u);
 				$usr_id = '';
