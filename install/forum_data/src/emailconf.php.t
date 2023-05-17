@@ -28,10 +28,10 @@
 		error_dialog('{TEMPLATE: emailconf_err_invkey_title}', '{TEMPLATE: emailconf_err_invkey_msg}');
 	}
 	q('UPDATE {SQL_TABLE_PREFIX}users SET users_opt='. q_bitor('users_opt', 131072) .', conf_key=NULL WHERE id='. $uid);
-	logaction($uid, 'EMAILCONFIRMED', 0, 'Key='. $_GET['conf_key']);
+	logaction($uid, 'EMAIL_CONFIRMED', 0, 'Key='. $_GET['conf_key']);
 
 	if (defined('plugins')) {
-		plugin_call_hook('EMAILCONFIRMED', $uid);
+		plugin_call_hook('EMAIL_CONFIRMED', $uid);
 	}
 
 	if (!__fud_real_user__) {

@@ -215,7 +215,7 @@ function return_group_name($id)
 			case 'CHANGE_PASSWD':
 				echo '<td>User Changed Own Password</td><td>ip address: '. $obj->logaction .'</td>';
 				break;
-			case 'EMAILCONFIRMED':
+			case 'EMAIL_CONFIRMED':
 				echo '<td>E-Mail address confirmed</td><td>'. $obj->logaction .'</td>';
 				break;
 			default:
