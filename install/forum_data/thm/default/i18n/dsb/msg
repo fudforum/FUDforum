@@ -624,8 +624,7 @@ post_err_lockedthread_msg:Toś ta tema jo zastajona. Rozpósćełanje powěsćow
 err_coppa_title:ZMÓLKA: Twójo konto hyšći njejo wobkšuśone
 err_coppa_msg:Hyšći njejsmy dostali wobkšuśenje wót jadnogo z twójeju starjejšeju a/abo kazniskego pśinanka, kótaryž by śi dowólił, powěsći rozesłaś. Jolic sy zgubił swój formular COPPA, <a href="{TEMPLATE: err_coppa_msg_lnk}">woglědaj se jen hyšći raz</a>.
 err_banned_acct_title:ZMÓLKA: Sy wugnany.
-# Fuzzy
-err_banned_acct_msg:Twójo konto jo se zastajiło {IF: $ban_expiry}nachwilu až {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}na pśecej{ENDI} dla pśekśiwjenja forumowych pšawidłow.
+err_banned_acct_msg:Twójo konto jo se zastajiło {IF: $ban_expiry}nachwilu až {TEMPLATE: ban_expiry_date}{ELSE}na pśecej{ENDI} dla pśekśiwjenja forumowych pšawidłow.
 post_err_edttimelimit_title:ZMÓLKA
 post_err_edttimelimit_msg:Njamóžoš wěcej toś tu powěsć wobźěłaś
 post_err_noannontopics_msg2:<legend>ZMÓLKA: Njedosegajuce pšawa</legend>Anonymne wužywarje njesměju temy załožyś.
@@ -971,6 +970,8 @@ mnav_all_forums:Wšykne forumy pśepytaś
 mnav_submit:Pytanje zachopiś
 mnav_no_range:Musyš płaśiwy datumowy wobceŕk zapódaś. Toś ta gódnota móžo decimalny dypk wopśimowaś, (0.12), musy pak wětša ako nul byś.
 mnav_invalid_unit:Musyš płaśiwu casowu jadnotku pódaś.
+mnav_invalid_date:Datumowy wobceŕk, kótaryž sy pódał, jo wětšy ako ten, kótaryž administrator jo dowólił. Wopytaj mjeńše datumowe wobceŕki.
+mnav_no_results:Njedajo powěsći, kótarež napšašowanjeju wótpowěduju.
 mnav_posted_by:Pósłany wót:
 mnav_more:Wěcej &raquo;&raquo;
 mnav_minute:minuty
@@ -978,6 +979,12 @@ mnav_hour:góźiny
 mnav_day:dny
 mnav_week:tyźenje
 mnav_month:mjasece
+mnav_title:Nawigator powěsćow
+mnav_update:Powěsći z pomocu <a href="{TEMPLATE: mnav_update_lnk}">Nawigatora powěsćow</a> pśepytaś
+pm_notify_subject:[{GVAR: FORUM_TITLE}] Nowa powěźeńka wó priwatnej powěsći
+pm_notify_body_email:Maš nowu priwatnu powěsć z temowym nadpismom "{VAR: subject}" wót "{VAR: from}" we forumje "{GVAR: FORUM_TITLE}".\nAby se powěsć woglědał, klikni sem: {FULL_ROOT}?t=pmsg_view&id={VAR: pid}\n\nAby dalšnym powěźeńkam zajźował, znjemóžni "Powěźeńka wó priwatnej powěsći" w swójom profilu.
+register_pm_notification:Powěźeńka wó priwatnej powěsći
+register_pm_notification_desc:Jolic zmóžnjone, dostanjoš powěźeńka, gažkuli se śi priwatna powěsć sćelo.
 findu_admin_opts_header:Opcije administratora
 findu_unban:Wugnanje wótpóraś
 findu_ban:Wugnaś
@@ -986,12 +993,24 @@ findu_delete:Wulašowaś
 dmsg_reply_to:jo wótegrono na
 dmsg_reply_num:pśinosk #{VAR: obj->reply_to}
 merge_topics:Temy zjadnośiś
+merge_topics_cp:Meni za zjadnośenje temow
+merge_topics_tpl:Temy wubraś, kótarež se maju zjadnośiś <span class="SmallText">(musyš wěcej ako jadnu temu wubraś)</span>
 merge_merge:Wubrane temy zjadnośiś
 merge_next:Pśiduce temy
 merge_prev:Pjerwjejšne temy
+merge_another:Źi k <a href="{TEMPLATE: merge_another_lnk}">slědnej zjadnośonej temje</a> abo zjadnoś drugu:
+split_cp:Wóźeńske pólo za rozdźělenje temow
+groups_perms_header:Pšawa <span class="small">(gibni pokazowak myški nad pšawo, aby jogo typ wiźeł)</span>
+register_err_sig_too_long:Twója signatura pśekšaca maksimalnje dowólonu dłujkosć {GVAR: FORUM_SIG_ML} znamuškow.
+register_sig_limit:{GVAR: FORUM_SIG_ML} znamuškow <a href="javascript: alert('Twója signatura jo '+document.forms['fud_register'].reg_sig.value.length+' znamuškow dłujka. Maksimalnje dowólona signaturowa dłujkosć jo {GVAR: FORUM_SIG_ML} znamuškow.');" class="SmallText">Pśeglědaj dłujkosć signatury</a>
+adm_account_accepted:Twójo konto '{VAR: login}' jo se pśizwóliło wót administratora a jo něnto aktiwne. Móžoš něnto na forum {GVAR: FORUM_TITLE}' ako wobkšuśony, zregistrěrowany wužywaŕ pśistup měś.
+adm_account_accepted_s:Twójo kontowe pominanje za '{GVAR: FORUM_TITLE}' jo se akceptěrowało.
+adm_account_rejected:Twójo konto '{VAR: login}' jo se wótpokazało wót administratora. Jolic coš pśicynu za toś ten rozsud wěźeś, wóstanjo śi pśewóstanjony, se z administratorom pśez '{GVAR: ADMIN_EMAIL}' do zwiska stajiś.
+adm_account_rejected_s:Twójo kontowe pominanje za '{GVAR: FORUM_TITLE}' jo se wótpokazało.
 thread_on:dnja
 userinfo_buddy:Pśijaśel:
 register_email_addr:E-mailowa adresa:
+reset_suffix:Jolic sy mólnje dostał toś tu powěsć, ignorěruj ju pšosym. Jolic dostanjoš někotare kopije toś teje mejlki, wó kótarež njejsy pšosył, staj se pšosym z forumowym administratorom pśez {GVAR: ADMIN_EMAIL} do zwiska.\n\nToś to napšašowanje jo se iniciěrowało wót {VAR: _SERVER['REMOTE_ADDR']}.
 usrinfo_last_visit:Slědny woglěd:
 mnav_newer:nowše ako
 mnav_older:starše ako
@@ -999,6 +1018,7 @@ ip_search_by_ip:Wužywarjow pó IP pytaś
 ip_search_syntax:Pódpěrana syntaksa: 1.2.3.4, 1.2.3, 1.2, 1
 ip_search:Pytaś
 ip_analyze_usage:IP-wužywanje analyzěrowaś
+ip_analyze_usage_descr:Pšosym pódaj eksaktne wužywaŕskego mjenja wužywarja.
 ip_users_using:Wužywarje, kótarež wužywaju IP-adresu "{VAR: ip}"
 ip_all_ips:Wšykne IP-adrese, kótarež su se wót "{VAR: user}" wužyli
 ip_title:IP-wobglědowak
@@ -1007,8 +1027,13 @@ register_err_alias_notallowed:Toś ten alias njejo dowólony
 post_err_mod_forum_edit_ttl:ZMÓLKA
 post_err_mod_forum_edit_msg:Njamóžoš powěsći w moderěrowanem forumje wobźěłaś.
 dmsg_num:powěsć #{VAR: obj->id}
+postcheck_session_invalid:Twóje pósejźenje jo spadnjone. Pšosym wótpósćel formular znowego. Wódaj wobuznosći.
+delete_message_extra_desc:<b>Opcionalny</b><br />Pódaj pśicynu za lašowanje powěsći, kótaraž se pśez priwatnu powěsć awtoroju pósćelo.
+delete_message_extra_body:Zasajźćo tekst wótwónoźoneje powěsći, kótaraž se na awtora pósćelo.
+delete_msg_removed_ttl:Twója powěsć jo se wótwónoźeła wót administratora.
 delete_msg_pm_body:Spócetna powěsć
 delete_msg_pm_subject:Tema: {VAR: data[15]}
+ip_no_whois:Informacije Whois za <b>{VAR: ip}</b> njestoje k dispoziciji.
 ip_whois_title:ISP-informacije
 register_theme:Drastwa:
 pmsg_trash:Papjernik wuprozniś
@@ -1017,6 +1042,7 @@ uc_new_topic:Nowa tema
 uc_new_cat_forum:Aboněrowane forumy z nowymi powěsćami
 uc_cat_forum:Kategorija &raquo; forum
 uc_sub_topics:Aboněrowane temy z nowymi powěsćami
+uc_page_title:Pokazujo swójski profil
 search_options:Pytańske opcije
 search_user_filter:Pó wužywarju filtrowaś
 register_none:Njeinforměrowaś
@@ -1037,8 +1063,12 @@ search_results_hdr:{VAR: total} pytańskich wuslědkow namakanych
 thread_del_all:Wubrane lašowaś
 thread_mov_all:Wubrane pśesunuś
 thread_merge_all:Wubrane zjadnośiś
+thread_loc_all:Wubrane zastajiś/wótwóriś
 dmsg_ip:IP:
 err_blockedaccnt_title:ZMÓLKA: Twójo konto jo se wufiltrowało.
+err_blockedaccnt_msg:Twójo konto njama pśistup k forumoju pśez jaden ze zainstalěrowanych filtrow.
+merge_th_page_list:Wuběrk temowych stronow
+most_users_online:Nejwěcej wužywarjow, kótarež gdy su byli online, jo było <b>{VAR: st_obj->most_online}</b> dnja <b>{TEMPLATE: most_online_time}</b>
 sub_unsub_all_forums:Wšykne forumy wótskazaś
 sub_unsub_all_topics:Wšykne temy wótskazaś
 unbookmark_all_topics:Wšykne załožki wótpóraś
@@ -1047,6 +1077,7 @@ sml_emoticon:Smiley
 sml_code:Kod
 mnav_sub_only:Jano w aboněrowanych forumach pytaś
 register_topics_per_page:Temy na bok:
+login_min_time:Toś ten forum jadno pśizjawjenje kuždych {VAR: MIN_TIME_BETWEEN_LOGIN} sekundow dowólujo, pšosym cakaj {FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)} sekundow do swójogo pśiducego wopyta.
 post_not_logged_in:Njejsy tuchylu pśizjawjony, powěsć buźo se anonymnje wótpósćełaś.
 post_common_bold:Tucny
 post_common_italics:Kursiwny
@@ -1065,13 +1096,21 @@ post_common_blist:Nalicenje pśidaś
 post_common_quote:Citat dodaś
 post_common_code:Kod dodaś
 rating_delete:Lašowaś
+post_always_on_top:Temu pśecej na zachopjeńku lisćiny temow zwobrazniś
+topic_rating:{VAR: frm->rating} z {PLURAL: frm->n_rating|$1 głosa|$1 głosowu|$1 głosow|$1 głosow}
+topic_list_rating:{VAR: r[17]} z {PLURAL: r[21]|$1 głosa|$1 głosowu|$1 głosow|$1 głosow}
 tabs_notifications:Zdźělenja
+finduser_flag:Chórgojcka
 post_descr:Wopisanje temy:
 pmsg_on:dnja
+pmsg_download_dump:Archiw powěsćow ześěgnuś
 move_messages:Powěsći pśesunuś
 move_msg_btn:Wubrane powěsći pśesunuś
 move_msg_th_expl:Pódaj ID celoweje temy (móžo teke w drugich forumach byś)
+captcha_img_alt:Pśespytanje captcha: Musyš tekst we wobrazu spóznaś.
 captcha_img_help:Njejo nula abo jadenka we wobrazu.
+powered-by:Spěchowany přez: FUDforum {GVAR: FORUM_VERSION}.
+copyright:Copyright &copy;2001-2023 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Kod:
 code_select_all:Wše wubraś
 code_show_hide:Pokazaś/schowaś
@@ -1113,4 +1152,6 @@ blog_update:Forumowy blog se cyta
 blog:Blog
 blog_new_members:Nowe cłonki
 blog_new_posts:Slědny pśinosk
+blog_rated_posts:Nejlěpjej pógódnośone
+blog_viewed_posts:Nejcesćej woglědane
 blog_comments:{PLURAL: topic->replies|$1 komentar|$1 komentara|$1 komentary|$1 komentarow}
