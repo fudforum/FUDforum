@@ -255,6 +255,7 @@ mklist_close:Zapri
 email_to:Za:
 email_pg_title:E-pošta
 email_submit:E-pošta
+ppost_quote:Citat:
 ppost_to:Za:
 ppost_send:Pošlji
 ppost_save_draft:Shrani osnutek
@@ -352,6 +353,7 @@ p_DEL:Izbriši
 p_POLL:Ustvari ankete
 p_VOTE:Glasuj
 p_SEARCH:Lahko iščete
+post_quote:Citat:
 post_quote_selected:Citiraj izbrano besedilo
 pm_no_space_title:Ni več prostora!
 th_expr_never:Nikoli
@@ -397,6 +399,7 @@ pm_err_disabled_title:Zasebno sporočanje je onemogočeno
 saved:Shranjeno
 register_err_avatardimtobig:Mere avatarja <b>({VAR: img_info[0]} × {VAR: img_info[1]} )</b> presegajo dovoljene mere <b({GVAR: CUSTOM_AVATAR_MAX_DIM})</b> slikovnih pik.
 iemail_msg_reply:Odgovori
+iemail_msg_quote:Citiraj
 reported_no_messages:Ni prijavljenih sporočil.
 poll_no_polls:Ni nobene razpoložljive ankete.
 iemail_thread_unsub:Odnaroči temo
@@ -455,6 +458,7 @@ btn_delete:izbriši
 btn_edit:uredi
 btn_reply:odgovori
 btn_forward:naprej
+btn_quote:citiraj
 btn_email:E-pošta
 btn_show_posts:objave
 custom_filed_required:To polje je obvezno.
