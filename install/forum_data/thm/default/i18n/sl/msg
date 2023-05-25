@@ -293,6 +293,8 @@ pm_update:Uporaba zasebnih sporočil
 err_coppa_title:NAPAKA: Vaš račun še ni potrjen
 err_banned_acct_msg:Vašemu računu je bil {IF: $ban_expiry}začasno preprečen do {TEMPLATE: ban_expiry_date}{ELSE}trajno preprečen{ENDI} dostop do spletnega mesta zaradi kršitve pravil foruma.
 post_err_edttimelimit_title:NAPAKA
+post_err_noannontopics_msg2:<legend>NAPAKA: Nezadostni privilegiji</legend>Anonimnim uporabnikom ni dovoljeno ustvarjati tem.
+post_err_noannonposts_msg2:<legend>NAPAKA: Nezadostni privilegiji</legend>Anonimnim uporabnikom ni dovoljeno odgovoriti.
 post_reply_update:Odgovarjanje na <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> v {VAR: frm->name}
 post_topic_update:Pisanje nove teme v <a href="{TEMPLATE: post_topic_update_lnk}">{VAR: frm->name}</a>
 post_error_generic:Prišlo je do napake
@@ -315,6 +317,7 @@ bookmarked_update:Brskanje po svojem seznamu zaznamkov
 thread_update:Brskanje po forumu <a href="{TEMPLATE: thread_update_lnk}">{VAR: frm->name}</a>
 tree_update:Brskanje po temi (tree view) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
 userinfo_update:Ogledovanje profila <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}</a>
+ERR_login_msg2:<legend>NAPAKA: Niste prijavljeni</legend>Za dostop do te strani morate biti član tega foruma.
 ERR_disabled_ttl:Onemogočena možnost
 ERR_registration_disabled_ttl:Registracija onemogočena
 ERR_emailconf_ttl:NAPAKA: Vaš račun še ni potrjen

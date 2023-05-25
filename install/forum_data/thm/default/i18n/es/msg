@@ -16,6 +16,7 @@
 # Author: Mirzali
 # Author: Mor
 # Author: Naudefj
+# Author: No se
 # Author: Od1n
 # Author: Peter17
 # Author: Translationista
@@ -514,6 +515,7 @@ search_subject_only:Solo el asunto
 search_forum:Foro
 search_posted_on:Publicado el
 search_no_results:Sin resultados
+search_spell_suggestions:Quieres decir:
 search_all_forums:Buscar en todos los foros
 search_in_forum:Buscar en el foro:
 search_forum_search:Búsqueda en el foro
