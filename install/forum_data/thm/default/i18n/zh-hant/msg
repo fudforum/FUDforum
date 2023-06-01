@@ -932,7 +932,7 @@ threadt_more:&lt;更多&gt;
 threadt_disabled_ttl:樹狀檢視主題清單已被停用。
 threadt_disabled_desc:管理員已停用以樹狀檢視主題清單。請改用平面檢視。
 threadt_update:流覽論壇（樹狀檢視）<a href="{TEMPLATE: threadt_update_lnk}">{VAR: frm->name}</a>
-mmod_delete_cofirm_ttl:確認刪除主題/訊息
+mmod_delete_cofirm_ttl:確認刪除主題／訊息
 spell_alts:無其它選擇
 insert_uploaded_image:訊息正文中插入圖片
 finduser_help:搜尋引擎會自動添加「*」符號來遮蔽您的查詢，另外請注意<b>搜尋是區分大小寫</b>的。<br>提示：如要搜尋所有登入帳號是「a」開頭的使用者，在搜尋框裡輸入 a 即可。
