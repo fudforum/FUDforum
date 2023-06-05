@@ -20,18 +20,6 @@
 		$wl = explode("\n", trim($_POST['words']));
 		sort($wl);
 		if (count($wl)) {
-			// $pspell_config = pspell_config_create($usr->pspell_lang);
-			// pspell_config_personal($pspell_config, $FORUM_SETTINGS_PATH .'forum.pws');
-			// $pspell_link = pspell_new_config($pspell_config);
-			//
-			// foreach ($wl as $w) {
-			// 	if (($w = trim($w))) {
-			// 		pspell_add_to_personal($pspell_link, $w);
-			// 		pspell_save_wordlist($pspell_link);
-			// 		++$status;
-			// 	}
-			// }
-
 			// Create a PWL (personal word list) file with one word per line.
 			@rename($custom_dict, $custom_dict .'.bck');
 			$r = enchant_broker_init();
@@ -48,7 +36,7 @@
 	if ($status) {
 		echo successify($status .' word(s) were successfully added.');
 	}
-	
+
 	$word_list = file_exists($custom_dict) ? htmlentities(file_get_contents($custom_dict)) : '';
 ?>
 <h2>Forum Spell Checker</h2>
@@ -78,7 +66,7 @@
 ?>
 <br /><br />
 
-<b>System dictionaries:</b><br />
+<b >Installed dictionaries:</b><sup title="These values can be used for 'Spell check language' in the Theme Manager">?</sup><br />
 <?php
 	$r = enchant_broker_init();
 	$dicts = enchant_broker_list_dicts($r);

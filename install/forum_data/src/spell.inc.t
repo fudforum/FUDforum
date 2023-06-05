@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2021 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -11,12 +11,6 @@
 
 function init_spell($lang)
 {
-	// $pspell_config = pspell_config_create($lang);
-	// pspell_config_mode($pspell_config, 'PSPELL_FAST');
-	// pspell_config_personal($pspell_config, $GLOBALS['FORUM_SETTINGS_PATH'] .'forum.pws');
-	// pspell_config_ignore($pspell_config, 2);
-	// define('__FUD_SPELL_LINK__', pspell_new_config($pspell_config));
-
 	$r = enchant_broker_init();
 	if (enchant_broker_dict_exists($r, $lang)) {
 		$d1 = enchant_broker_request_dict($r, $lang);
@@ -25,6 +19,7 @@ function init_spell($lang)
 		define('__FUD_PSPELL_LINK__', $d2);
 		return true;
 	} else {
+		fud_logerror('Unable to initialize spell checker for language ['. $lang .']', 'fud_errors');
 		return false;
 	}
 }
@@ -59,7 +54,7 @@ function tokenize_string($data)
 				/* remove code blocks */
 				if ($wrd == '<pre>') {
 					$l = 'pre';
-					
+
 				/* Deal with bad old style quotes - remove in future release. */
 				} else if ($wrd == '<table border="0" align="center" width="90%" cellpadding="3" cellspacing="1">') {
 					$l = 1;
@@ -142,7 +137,6 @@ function draw_spell_sug_select($v, $k, $type)
 	$data = '<select name="'. $sel_name .'">';
 	$data .= '<option value="'. htmlspecialchars($v['token']) .'">'. htmlspecialchars($v['token']) .'</option>';
 	$i = 0;
-	// foreach(pspell_suggest(__FUD_SPELL_LINK__, $v['token']) as $va) {
 	foreach(enchant_dict_suggest(__FUD_SPELL_LINK__, $v['token']) as $va) {
 		$data .= '<option value="'. $va .'">'. ++$i .') '. $va .'</option>';
 	}
@@ -174,7 +168,6 @@ function spell_replace($wa, $type)
 function spell_check_ar($wa, $type)
 {
 	foreach($wa as $k => $v) {
-		// if ($v['check'] > 0 && !pspell_check(__FUD_SPELL_LINK__, $v['token'])) {
 		if ($v['check'] > 0 && !enchant_dict_check(__FUD_SPELL_LINK__, $v['token']) && !enchant_dict_check(__FUD_PSPELL_LINK__, $v['token'])) {
 			$wa[$k]['token'] = draw_spell_sug_select($v, $k, $type);
 		}
