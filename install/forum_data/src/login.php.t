@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2021 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -250,7 +250,7 @@ function error_check()
 /*{POST_HTML_PHP}*/
 
 	/* Check if we have a 'password reset' message to display (from reset.php.t). */
-	if (!empty($usr->data) && substr($usr->data, 0, 9) == 'resetmsg=') {
+	if (!empty($usr->data) && substr((string)$usr->data, 0, 9) == 'resetmsg=') {
 		$reset_login_notify = substr($usr->data, 9);
 	}
 
