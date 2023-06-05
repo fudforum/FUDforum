@@ -407,6 +407,7 @@ reported_no_messages:Ni prijavljenih sporočil.
 poll_no_polls:Ni nobene razpoložljive ankete.
 iemail_thread_unsub:Odnaroči temo
 iemail_forum_unsub:Odnaroči ta forum
+thread_printable_pdf:Ustvari PDF za tiskanje
 mnav_date_limit:Datumski razpon:
 mnav_forum_limit:Išči samo v:
 mnav_all_forums:Preišči vse forume
@@ -433,6 +434,7 @@ uc_page_title:Ogledovanje osebne nadzorne plošče.
 search_options:Možnosti iskanja
 modque_cat:Kategorija
 mmd_abort_move:Prekliči
+pmsg_pdf_btn:Ustvari PDF-arhiv
 most_users_online:Največ uporabnikov je bilo prisotnih <b>{VAR: st_obj->most_online}</b> ob <b>{TEMPLATE: most_online_time}</b>
 sub_unsub_all_forums:Odnaroči vse forume
 sub_unsub_all_topics:Odnaroči vse teme
