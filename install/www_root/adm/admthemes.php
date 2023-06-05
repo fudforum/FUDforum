@@ -252,8 +252,8 @@ function update_locale()
 
 <tr class="field">
 	<td colspan="2">
-	<label><?php draw_checkbox('thm_t_default', '2', $thm_t_default);?> Default</label>
 	<label><?php draw_checkbox('thm_enabled', '1', $thm_enabled); ?> Enabled</label>
+	<label><?php draw_checkbox('thm_t_default', '2', $thm_t_default);?> Default</label>
 	<label><?php draw_checkbox('thm_no_index_url', '8', $thm_no_index_url); ?> Generate without index.php</label>
 	<script>
 	jQuery(document).ready(function() {

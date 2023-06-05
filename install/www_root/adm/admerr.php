@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -72,7 +72,7 @@ function print_log($logfile, $search)
 		if (!($pfx = fread($fp, 23))) {	// ?%-10d?%-10d?
 			break;
 		}
-		if (strpos($pfx, '?') === FALSE) {	// Read past bad line.
+                if (!preg_match('/^\?[0-9\s]{10}\?[0-9\s]{10}\?/', $pfx)) {     // Read past bad line.
 			$garbage = fgets($fp);
 			continue;
 		}

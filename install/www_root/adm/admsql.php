@@ -244,12 +244,12 @@ if (isset($_POST['txtb']) && $_POST['txtb'] != '') {
 						// Apply a FUDforum function to the results, like seo_url_bit().
 						// Example: SELECT concat('/t/', t.id, '-@seo_url_bit[', m.subject, ']') FROM ...
                                                 //                       @func  [ args    ]
-                                                while (preg_match('/(.*)\@(\w+)\[([^\]]+)\](.*)/i', $value, $matches)) {
+                                                while (preg_match('/(.*)\@(\w+)\[([^\]]+)\](.*)/i', $value ?? '', $matches)) {
 							$func = $matches[2];
 							$value = $matches[1] . $func($matches[3]) . $matches[4];
 						}
 
-						$value = htmlspecialchars($value);
+						$value = htmlspecialchars($value ?? '');
 
 						// Replace URLs in text with HTML links.
 						$value = preg_replace('/(http[s]{0,1}\:\/\/\S{4,})\s{0,}/ims', '<a href="$1" target="_blank">$1</a> ', $value);
