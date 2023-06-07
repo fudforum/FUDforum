@@ -379,7 +379,7 @@ post_color:Color
 post_font:Font
 create_thread:Create Topic
 submit_reply:Submit Reply
-edit_message:Apply Message Changes
+edit_message:Apply Changes
 apply_spell_changes:Apply Spelling Changes
 post_preview:Message Preview
 post_logedin_user:Logged in user:
@@ -416,6 +416,7 @@ post_title:Title:
 post_body:Body:
 post_options:Options:
 post_preview_btn:Preview Message
+post_diff_btn:Diff Changes
 post_cancel_btn:Cancel
 ignore_users:Ignored Users
 add_ignore:Add Ignoramus
@@ -1050,6 +1051,7 @@ search_options:Search Options
 search_user_filter:Filter by user:
 register_none:Don't notify me
 findu_no_conf:unconfirmed user
+findu_banned:banned user
 register_max_sig_len:Maximum Length:
 register_turing:Verification:
 register_err_turing:Verification failed. Please try again.
