@@ -394,6 +394,7 @@ post_color:Kolor
 post_font:Czcionka
 create_thread:Wyślij
 submit_reply:Odpowiedz
+# Fuzzy
 edit_message:Edytuj wiadomość
 apply_spell_changes:Zastosuj zmiany pisowni
 post_preview:Podgląd wiadomości

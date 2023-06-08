@@ -401,7 +401,7 @@ post_color:Couleur
 post_font:Police
 create_thread:Créer un fil
 submit_reply:Soumettre la réponse
-edit_message:Appliquer les modifications du message
+edit_message:Appliquer les modifications
 apply_spell_changes:Appliquer les corrections orthographiques
 post_preview:Prévisualiser le message
 post_logedin_user:Utilisateur :
@@ -438,6 +438,7 @@ post_title:Titre :
 post_body:Corps :
 post_options:Options :
 post_preview_btn:Prévisualiser le message
+post_diff_btn:Différences des modifications
 post_cancel_btn:Annuler
 ignore_users:Utilisateurs ignorés
 add_ignore:Ignorer quelqu’un d’autre
@@ -1069,6 +1070,7 @@ search_options:Options de recherche
 search_user_filter:Filtrer par utilisateur :
 register_none:Ne pas me notifier
 findu_no_conf:utilisateur non confirmé
+findu_banned:utilisateur banni
 register_max_sig_len:Longueur maximale :
 register_turing:Vérification :
 register_err_turing:Échec de la vérification. Veuillez essayer à nouveau.

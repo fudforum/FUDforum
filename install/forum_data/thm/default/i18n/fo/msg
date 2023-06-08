@@ -379,6 +379,7 @@ post_color:Litur
 post_font:Skriftslag
 create_thread:Byrja eitt kjak
 submit_reply:Send svar
+# Fuzzy
 edit_message:Goym broytingarnar í innslagnum
 apply_spell_changes:Góðtak broytingar í stavsetingini
 post_preview:Forskoða innslagið

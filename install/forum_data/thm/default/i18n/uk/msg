@@ -400,6 +400,7 @@ post_color:Колір
 post_font:Шрифт
 create_thread:Створити тему
 submit_reply:Надіслати відповідь
+# Fuzzy
 edit_message:Зберегти зміни повідомлення
 apply_spell_changes:Підтвердити пеервірку орфографії
 post_preview:Попередній перегляд повідомлення

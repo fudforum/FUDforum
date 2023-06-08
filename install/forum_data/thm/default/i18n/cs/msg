@@ -389,6 +389,7 @@ post_color:Barva
 post_font:Písmo
 create_thread:Vytvoř téma
 submit_reply:Odešli odpověď
+# Fuzzy
 edit_message:Aplikuj změny zpráv
 apply_spell_changes:Aplikuj změny způsobu psaní
 post_preview:Náhled příspěvku

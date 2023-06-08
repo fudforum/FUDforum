@@ -401,6 +401,7 @@ post_color:Color
 post_font:Tipo de letra
 create_thread:Crear hilo de discusión
 submit_reply:Enviar respuesta
+# Fuzzy
 edit_message:Editar mensaje
 apply_spell_changes:Aplicar los cambios del corrector ortográfico
 post_preview:Vista previa del mensaje

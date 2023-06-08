@@ -397,6 +397,7 @@ post_color:Cor
 post_font:Fonte
 create_thread:Criar Tópico
 submit_reply:Submeter resposta
+# Fuzzy
 edit_message:Aplicar Alterações nas Mensagens
 apply_spell_changes:Aplicar Alterações de ortografia
 post_preview:Visualisar o Post

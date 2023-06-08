@@ -398,6 +398,7 @@ post_color:Color
 post_font:Tipus de lletra
 create_thread:Crear fil de discussió
 submit_reply:Enviar resposta
+# Fuzzy
 edit_message:Editar missatge
 apply_spell_changes:Aplicar els canvis del corrector ortogràfic
 post_preview:Publicar vista prèvia

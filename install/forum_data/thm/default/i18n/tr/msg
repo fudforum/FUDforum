@@ -407,6 +407,7 @@ post_color:Renk
 post_font:Yazı tipi
 create_thread:Konu Oluştur
 submit_reply:Yanıtı Gönder
+# Fuzzy
 edit_message:Mesaj Değişikliklerini Uygula
 apply_spell_changes:Yazım Değişikliklerini Uygula
 post_preview:Mesaj Önizleme

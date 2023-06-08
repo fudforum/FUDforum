@@ -390,6 +390,7 @@ post_color:Farbe
 post_font:Schriftart
 create_thread:Thema erstellen
 submit_reply:Antwort abschicken
+# Fuzzy
 edit_message:Beitrag bearbeiten
 apply_spell_changes:Rechtschreibkorrektur anwenden
 post_preview:Beitragsvorschau

@@ -419,6 +419,7 @@ post_title:Onderwerp:
 post_body:Boodskap:
 post_options:Opsies:
 post_preview_btn:Boodskap voorskou
+post_diff_btn:Wys veranderinge
 post_cancel_btn:Kanselleer
 ignore_users:Geignoreerde Lede
 add_ignore:Ignoreer gebruiker
@@ -1050,6 +1051,7 @@ search_options:Soekopsies
 search_user_filter:Vir gebruiker:
 register_none:Geen kennisgewings
 findu_no_conf:onbevestigde gebruiker
+findu_banned:verbande gebruiker
 register_max_sig_len:Maksimum lengte:
 register_turing:Bevestiging:
 register_err_turing:Bevestiging het gefaal. Probeer asb weer.

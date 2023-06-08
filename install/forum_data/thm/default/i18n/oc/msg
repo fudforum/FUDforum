@@ -382,6 +382,7 @@ post_color:Color
 post_font:Poliça
 create_thread:Crear lo fial
 submit_reply:Respondre
+# Fuzzy
 edit_message:Validar
 apply_spell_changes:Validar las modificacions aportadas pel corrector ortografic
 post_preview:Veire lo messatge abans de lo validar

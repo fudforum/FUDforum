@@ -386,6 +386,7 @@ post_color:boja
 post_font:font
 create_thread:Napravi temu
 submit_reply:Pošalji odgovor
+# Fuzzy
 edit_message:Sačuvaj
 apply_spell_changes:Primeni pravopisne izmene
 post_preview:Pregled poruke

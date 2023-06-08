@@ -393,6 +393,7 @@ post_color:Väri
 post_font:Kirjasin
 create_thread:Luo aihe
 submit_reply:Lähetä vastaus
+# Fuzzy
 edit_message:Tallenna muutokset
 apply_spell_changes:Tallenna oikeinkirjoituksen muutokset
 post_preview:Viestin esikatselu

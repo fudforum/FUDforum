@@ -359,6 +359,7 @@ post_color:สี
 post_font:แบบอักษร
 create_thread:สร้างหัวข้อ
 submit_reply:ส่งการตอบกลับ
+# Fuzzy
 edit_message:นำการเปลี่ยนแปลงข้อความไปใช้
 apply_spell_changes:นำการเปลี่ยนแปลงการสะกดไปใช้
 post_preview:ตัวอย่างข้อความ

@@ -396,6 +396,7 @@ post_color:رنگ
 post_font:قلم
 create_thread:ایجاد مبحث
 submit_reply:ارسال پاسخ
+# Fuzzy
 edit_message:اعمال تغییرات پست
 apply_spell_changes:اعمال تغییرات املایی
 post_preview:پیشنمای پست

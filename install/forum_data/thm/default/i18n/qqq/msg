@@ -209,6 +209,7 @@ post_forum:{{Identical|Forum}}
 post_title:{{Identical|Title}}
 post_body:{{Identical|Body}}
 post_options:{{Identical|Options}}
+post_diff_btn:Button text when editing a message to show the changes between the original and edited message. "Diff Changes" can be translated to "Show Changes" or "Show Difference".
 post_cancel_btn:{{Identical|Cancel}}
 add_ignore:[http://en.wiktionary.org/wiki/ignoramus Ignoramus] (noun) refers to a user you want to ignore. Can also be translated as "Ignore user".
 forum_rules:The "Agree" button refers to message {{msg-fud|Prereg_agree}}.
@@ -443,6 +444,7 @@ uc_new_topic:{{Identical|New topic}}
 uc_page_title:Used as session status to indicate last known action.\n{{Related|Fud-status}}
 search_options:{{Identical|Search options}}
 search_user_filter:Used as label for the "Username" input box in the Search form.
+findu_banned:Indicate that the user is banned/blocked from using the forum.
 register_turing:Part of registration screen where a captcha/ human verification will be presented.
 register_err_turing:Error message if captcha/ human verification failed.
 modque_cat:{{Identical|Category}}

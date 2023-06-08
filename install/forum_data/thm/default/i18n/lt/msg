@@ -391,6 +391,7 @@ post_color:Spalva
 post_font:Šriftas
 create_thread:Sukurti temą
 submit_reply:Siųsti atsakymą
+# Fuzzy
 edit_message:Atlikti žinutės pakeitimus
 apply_spell_changes:Taikyti Rašyba keitimai
 post_preview:Žinutės peržiūra

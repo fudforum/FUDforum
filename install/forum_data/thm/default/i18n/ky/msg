@@ -362,6 +362,7 @@ post_color:Түс
 post_font:Шрифттер
 create_thread:Тема түзүү
 submit_reply:Жооп кайтаруу
+# Fuzzy
 edit_message:Билдирүүнү өзгөртүү
 apply_spell_changes:Туура жазуу эрежесин тастыктоо
 post_preview:Билдирүүнү алдын ала көрүү

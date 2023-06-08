@@ -390,6 +390,7 @@ post_color:Farve
 post_font:Skrifttype
 create_thread:Opret emne
 submit_reply:Send svar
+# Fuzzy
 edit_message:Send ændringerne
 apply_spell_changes:Anvend staverettelser
 post_preview:Forhåndsvis indlægget

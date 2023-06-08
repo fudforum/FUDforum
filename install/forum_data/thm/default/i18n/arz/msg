@@ -382,6 +382,7 @@ post_color:اللون
 post_font:الخط
 create_thread:أنشئ موضوعًا
 submit_reply:أرسل ردا
+# Fuzzy
 edit_message:طبّق تغييرات الرسالة
 apply_spell_changes:طبّق تغييرات الإملاء
 post_preview:معاينه الرسالة

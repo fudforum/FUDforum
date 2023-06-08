@@ -311,6 +311,7 @@ post_color:צבע
 post_font:גופן
 create_thread:יצירת נושא
 submit_reply:הגשת תגובה
+# Fuzzy
 edit_message:החלת שינויים על ההודעה
 apply_spell_changes:החלת שינויי איות
 post_preview:תצוגה מקדימה של הודעה

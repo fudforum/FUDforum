@@ -372,6 +372,7 @@ post_color:ფერი
 post_font:შრიფტი
 create_thread:თემის შექმნა
 submit_reply:პასუხის მიწერა
+# Fuzzy
 edit_message:შეტყობინების ცვლილების დადასტურება
 apply_spell_changes:მართლწერის ცვლილების დადასტურება
 post_preview:შეტყობინების წინასწარ გადახედვა

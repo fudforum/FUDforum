@@ -367,6 +367,7 @@ post_color:Culoare
 post_font:Font
 create_thread:Creeaza Tema
 submit_reply:Trimite raspuns
+# Fuzzy
 edit_message:Aplica modificarile mesajului
 apply_spell_changes:Aplica modificari limbaj
 post_preview:Previzualizare mesaj

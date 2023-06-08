@@ -392,6 +392,7 @@ post_color:боја
 post_font:фонт
 create_thread:Направи тему
 submit_reply:Пошаљи одговор
+# Fuzzy
 edit_message:Сачувај
 apply_spell_changes:Примени правописне измене
 post_preview:Преглед поруке

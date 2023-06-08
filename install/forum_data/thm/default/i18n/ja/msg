@@ -394,6 +394,7 @@ post_color:色
 post_font:フォント
 create_thread:トピックを作成
 submit_reply:返信を送信
+# Fuzzy
 edit_message:メッセージ変更を適用する
 apply_spell_changes:スペル変更を適用する
 post_preview:メッセージのプレビュー

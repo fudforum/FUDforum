@@ -391,6 +391,7 @@ post_color:Szín
 post_font:Betűtípus
 create_thread:Téma létrehozása
 submit_reply:Válasz elküldése
+# Fuzzy
 edit_message:Az üzenet módosításainak mentése
 apply_spell_changes:Helyesírási javítások alkalmazása
 post_preview:Az üzenet előnézete

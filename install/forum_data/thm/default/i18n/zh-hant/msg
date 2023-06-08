@@ -397,7 +397,7 @@ post_color:顏色
 post_font:字型
 create_thread:建立主題
 submit_reply:提交回覆
-edit_message:套用訊息變更
+edit_message:套用變更
 apply_spell_changes:套用拼寫變更
 post_preview:訊息預覽
 post_logedin_user:已登入使用者
@@ -434,6 +434,7 @@ post_title:標題：
 post_body:內容：
 post_options:選項：
 post_preview_btn:預覽訊息
+post_diff_btn:變更差異
 post_cancel_btn:取消
 ignore_users:忽略的使用者
 add_ignore:增加忽略的使用者
@@ -1065,6 +1066,7 @@ search_options:搜尋選項
 search_user_filter:按使用者過濾：
 register_none:不要通知我
 findu_no_conf:未確認的使用者
+findu_banned:已禁止的使用者
 register_max_sig_len:最大長度：
 register_turing:驗證：
 register_err_turing:驗證失敗，請再重試。

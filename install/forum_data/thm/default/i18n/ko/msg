@@ -392,6 +392,7 @@ post_color:색상
 post_font:글꼴
 create_thread:토픽제출
 submit_reply:답글제출
+# Fuzzy
 edit_message:게시글 변경 적용
 apply_spell_changes:맞춤법 변경 적용
 post_preview:메시지 미리 보기

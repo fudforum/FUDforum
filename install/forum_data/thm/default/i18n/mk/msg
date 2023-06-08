@@ -384,7 +384,7 @@ post_color:Боја
 post_font:Фонт
 create_thread:Создај тема
 submit_reply:Поднеси одговор
-edit_message:Примени промени во пораката
+edit_message:Примени промени
 apply_spell_changes:Примени правописни измени
 post_preview:Преглед на пораката
 post_logedin_user:Најавен корисник:
@@ -421,6 +421,7 @@ post_title:Наслов:
 post_body:Содржина:
 post_options:Можности:
 post_preview_btn:Прегледај порака
+post_diff_btn:Разлика од промените
 post_cancel_btn:Откажи
 ignore_users:Игнорирани корисници
 add_ignore:Додај игнориран
@@ -1052,6 +1053,7 @@ search_options:Нагодувања за пребарување
 search_user_filter:Филтрирај по корисник:
 register_none:Не ме известувај
 findu_no_conf:непотврден корисник
+findu_banned:забранет корисник
 register_max_sig_len:Најголема должина:
 register_turing:Проверка:
 register_err_turing:Проверката не успеа. Обидете се повторно.

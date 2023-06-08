@@ -388,6 +388,7 @@ post_color:Litur
 post_font:Letur
 create_thread:Stofna þráð
 submit_reply:Senda svar
+# Fuzzy
 edit_message:Gera breytingar á skilaboðum
 apply_spell_changes:Gera breytingar á stafsetningu
 post_preview:Forskoðun skilaboða

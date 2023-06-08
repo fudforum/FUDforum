@@ -394,6 +394,7 @@ post_color:Färg
 post_font:Typsnitt
 create_thread:Börja diskussion
 submit_reply:Skicka svar
+# Fuzzy
 edit_message:Editera inlägg
 apply_spell_changes:Godta stavningskontrollens ändringar
 post_preview:Förhandsgranska inlägget

@@ -366,6 +366,7 @@ post_color:Krāsa
 post_font:Fonts
 create_thread:Izveidot tēmu
 submit_reply:Nosūtīt atbildi
+# Fuzzy
 edit_message:Rediģēt ierakstu
 apply_spell_changes:Apstiprināt pareizrakstības pārbaudi
 post_preview:Priekšapskate

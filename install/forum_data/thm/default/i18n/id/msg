@@ -400,6 +400,7 @@ post_color:Warna
 post_font:Jenis huruf
 create_thread:Buat topik
 submit_reply:Kirim balasan
+# Fuzzy
 edit_message:Lakukan pengubahan pesan
 apply_spell_changes:Lakukan pengubahan ejaan
 post_preview:Pratayang pesan

@@ -382,6 +382,7 @@ post_color:Color
 post_font:Lletra
 create_thread:Crear un filu
 submit_reply:Unviar respuesta
+# Fuzzy
 edit_message:Aplicar los cambios al mensaxe
 apply_spell_changes:Aplicar los cambios ortográficos
 post_preview:Vista previa del mensaxe
