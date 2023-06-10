@@ -55,6 +55,7 @@ stdClass Object
     [poll_id] => // id of a poll included in the message, !!could be empty!!
     [mlist_msg_id] => // mailing list or nntp message identifier !!could be empty!!
     [forum_id] => // of the forum where the message is posted
+    [tdescr] => // Thread desctiption
     [login] => // html encoded login mame of the user
     [avatar_loc] => // <img src> of the author avatar !!could be empty!!
     [email] => // author e-mail address
@@ -118,7 +119,7 @@ function fud_fetch_msg($arg)
 	$result = array();
 	$c = q('SELECT
 		m.*,
-		t.forum_id,
+		t.forum_id, t.tdescr,
 		u.alias AS login, u.avatar_loc, u.email, u.posted_msg_count, u.join_date, u.location,
 		u.sig, u.custom_status, u.icq, u.facebook, u.yahoo, u.jabber, u.google, u.skype, u.twitter, u.users_opt, u.last_visit AS time_sec,
 		l.name AS level_name, l.img AS level_img
