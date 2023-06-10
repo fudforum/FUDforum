@@ -130,9 +130,10 @@ function path_info_lnk($var, $val)
 			t.thread_opt, t.root_msg_id, t.last_post_id, t.forum_id,
 			f.message_threshold, f.name,
 			u.id AS user_id, u.alias AS login, u.avatar_loc, u.email, u.posted_msg_count, u.join_date, u.location,
-			u.sig, u.custom_status, u.icq, u.jabber, u.facebook, u.yahoo, u.skype, u.google, u.twitter, u.last_visit AS time_sec, u.users_opt,
+			u.sig, u.custom_status, u.icq, u.jabber, u.facebook, u.yahoo, u.google, u.skype, u.twitter, u.users_opt, u.last_visit AS time_sec, u.karma,
 			l.name AS level_name, l.level_opt, l.img AS level_img,
 			p.max_votes, p.expiry_date, p.creation_date, p.name AS poll_name, p.total_votes,
+			karma.id AS cant_karma,
 			pot.id AS cant_vote,
 			r.last_view,
 			mm.id AS md,
@@ -150,6 +151,7 @@ function path_info_lnk($var, $val)
 			LEFT JOIN {SQL_TABLE_PREFIX}read r             ON r.thread_id=t.id AND r.user_id='. _uid .'
 			LEFT JOIN {SQL_TABLE_PREFIX}users u            ON m.poster_id=u.id
 			LEFT JOIN {SQL_TABLE_PREFIX}level l            ON u.level_id=l.id
+			LEFT JOIN {SQL_TABLE_PREFIX}karma_rate_track karma ON karma.msg_id=m.id AND karma.user_id='. _uid . '
 			LEFT JOIN {SQL_TABLE_PREFIX}poll p             ON m.poll_id=p.id
 			LEFT JOIN {SQL_TABLE_PREFIX}poll_opt_track pot ON pot.poll_id=p.id AND pot.user_id='. _uid .'
 			LEFT JOIN {SQL_TABLE_PREFIX}mod mm             ON mm.forum_id=f.id AND mm.user_id='. _uid .'
