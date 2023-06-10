@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -15,7 +15,7 @@ function draw_user_link($login, $type, $custom_color='')
 		return '{TEMPLATE: ulink_custom_color}';
 	}
 
-	switch ($type & 1572864) {
+	switch ((int)$type & 1572864) {
 		case 0:
 		default:
 			return '{TEMPLATE: ulink_reg_user}';
