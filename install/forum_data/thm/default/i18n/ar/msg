@@ -3,6 +3,7 @@
 # Author: Alexknight12
 # Author: Alshamiri1
 # Author: Alssarem
+# Author: Asma
 # Author: DRIHEM
 # Author: FiberAhmed
 # Author: Macofe
@@ -394,8 +395,7 @@ post_color:اللون
 post_font:الخط
 create_thread:أنشئ موضوعًا
 submit_reply:أرسل ردا
-# Fuzzy
-edit_message:طبِّق تغييرات الرسالة
+edit_message:طبق التعديلات
 apply_spell_changes:طبِّق تغييرات الإملاء
 post_preview:معاينة الرسالة
 post_logedin_user:مستخدم والج:
@@ -432,6 +432,7 @@ post_title:العنوان:
 post_body:الجسم:
 post_options:خيارات:
 post_preview_btn:عاين الرسالة
+post_diff_btn:تغييرات الفرق
 post_cancel_btn:إلغاء
 ignore_users:المستخدمون المتَجاهَلون
 add_ignore:أضف تجاهلًا
@@ -1066,6 +1067,7 @@ search_options:خيارات البحث
 search_user_filter:رشِّح حسب المستخدم:
 register_none:لا تشعرني
 findu_no_conf:مستخدم غير مؤكد
+findu_banned:مستخدم محظور
 register_max_sig_len:الطول الأقصى:
 register_turing:التحقق:
 register_err_turing:فشل التحقق; حاول مرة أخرى.

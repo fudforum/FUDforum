@@ -387,8 +387,7 @@ post_color:Колер
 post_font:Шрыфт
 create_thread:Стварыць тэму
 submit_reply:Адправіць адказ
-# Fuzzy
-edit_message:Прыняць зьмены паведамленьня
+edit_message:Ужыць зьмены
 apply_spell_changes:Прыняць вынікі праверкі артаграфіі
 post_preview:Папярэдні прагляд паведамленьня
 post_logedin_user:увайшоў у сыстэму як:
@@ -425,6 +424,7 @@ post_title:Назва:
 post_body:Тэкст:
 post_options:Устаноўкі:
 post_preview_btn:Папярэдні прагляд
+post_diff_btn:Паказаць зьмены
 post_cancel_btn:Скасаваць
 ignore_users:Ігнараваныя карыстальнікі
 add_ignore:Дадаць да сьпісу ігнараваных
@@ -1056,6 +1056,7 @@ search_options:Налады пошуку
 search_user_filter:Фільтраваць па карыстальнікам:
 register_none:Не паведамляць мне
 findu_no_conf:непацьверджаны карыстальнік
+findu_banned:заблякаваны ўдзельнік
 register_max_sig_len:Максымальная даўжыня:
 register_turing:Пацьверджаньне:
 register_err_turing:Памылка пацьверджаньня. Калі ласка, паспрабуйце яшчэ раз.

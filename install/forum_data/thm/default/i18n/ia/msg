@@ -418,6 +418,7 @@ post_title:Titulo:
 post_body:Texto:
 post_options:Optiones:
 post_preview_btn:Previsualisar message
+post_diff_btn:Monstrar differentias
 post_cancel_btn:Cancellar
 ignore_users:Usatores ignorate
 add_ignore:Ignorar usator
@@ -1049,6 +1050,7 @@ search_options:Optiones de recerca
 search_user_filter:Filtrar per usator:
 register_none:Non notificar me
 findu_no_conf:usator non confirmate
+findu_banned:usator bannite
 register_max_sig_len:Longitude maxime:
 register_turing:Verification:
 register_err_turing:Verification fallite. Per favor, reproba.

@@ -335,7 +335,7 @@ unapproved_avatar_msg:Administrator ni odobril vašega avatarja. Najpogostejši 
 thread_exchange:Zamenjava teme
 move_reason:Razlog za prestavitev teme:
 thr_exch_accept:sprejmi temo
-thr_exch_decline:zavrni temo
+thr_exch_decline:odkloni temo
 thr_exch_submit:Pošlji
 split_thread:Razdeli temo
 groupmgr_yes:Da

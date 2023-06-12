@@ -393,8 +393,7 @@ post_color:Colore
 post_font:Tipo di carattere
 create_thread:Crea Argomento
 submit_reply:Rispondi
-# Fuzzy
-edit_message:Applica le modifiche al messaggio
+edit_message:Applica modifiche
 apply_spell_changes:Applica le modifiche
 post_preview:Anteprima del messaggio
 post_logedin_user:Utente collegato:

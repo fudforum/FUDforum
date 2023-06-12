@@ -391,8 +391,7 @@ post_color:Kleur
 post_font:Lettertype
 create_thread:Onderwerp toevoegen
 submit_reply:Antwoorden
-# Fuzzy
-edit_message:Wijzigingen opslaan
+edit_message:Wijzigingen toepassen
 apply_spell_changes:Spellingswijzigingen toepassen
 post_preview:Bericht ter controle weergeven
 post_logedin_user:Aangemelde gebruiker:

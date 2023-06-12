@@ -1,5 +1,6 @@
 # Messages for Greek (Ελληνικά)
 # Exported from translatewiki.net
+# Author: AProdromou
 # Author: Crazymadlover
 # Author: Evropi
 # Author: Geraki
@@ -346,6 +347,7 @@ post_color:Χρώμα
 post_font:Γραμματοσειρά
 create_thread:Δημιουργία Θέματος
 submit_reply:Υποβολή Απάντησης
+edit_message:Εφαρμογή αλλαγών
 apply_spell_changes:Εφαρμογή αλλαγών ορθογραφίας
 post_preview:Προεπισκόπηση Μηνύματος
 post_logedin_user:Συνδεδεμένος χρήστης:
@@ -706,6 +708,7 @@ uc_new_topic:Νέο θέμα
 uc_cat_forum:Κατηγορία &raquo; Φόρουμ
 search_options:Αναζήτηση επιλογών
 register_none:Μη με ειδοποιήσεις
+findu_banned:αποκλεισμένος χρήστης
 register_max_sig_len:Μέγιστο μήκος:
 register_turing:Επιβεβαίωση:
 register_err_turing:Η επιβεβαίωση απέτυχε. Παρακαλώ προσπαθήστε ξανά.

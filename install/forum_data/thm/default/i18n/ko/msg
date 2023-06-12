@@ -392,8 +392,7 @@ post_color:색상
 post_font:글꼴
 create_thread:토픽제출
 submit_reply:답글제출
-# Fuzzy
-edit_message:게시글 변경 적용
+edit_message:바뀜 적용
 apply_spell_changes:맞춤법 변경 적용
 post_preview:메시지 미리 보기
 post_logedin_user:로그인한 사용자:
@@ -430,6 +429,7 @@ post_title:제목:
 post_body:본문:
 post_options:옵션:
 post_preview_btn:쪽지
+post_diff_btn:차이 보기
 post_cancel_btn:취소
 ignore_users:차단 멤버
 add_ignore:차단 멤버 추가

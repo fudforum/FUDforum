@@ -7,6 +7,7 @@
 # Author: Bonaditya
 # Author: C5st4wr6ch
 # Author: Daud I.F. Argana
+# Author: David Wadie Fisher-Freberg
 # Author: Farras
 # Author: Gombang
 # Author: Hidayatsrf
@@ -400,8 +401,7 @@ post_color:Warna
 post_font:Jenis huruf
 create_thread:Buat topik
 submit_reply:Kirim balasan
-# Fuzzy
-edit_message:Lakukan pengubahan pesan
+edit_message:Terapkan perubahan
 apply_spell_changes:Lakukan pengubahan ejaan
 post_preview:Pratayang pesan
 post_logedin_user:Pengguna sedang Aktif:
