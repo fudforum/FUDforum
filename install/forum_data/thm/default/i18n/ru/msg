@@ -442,6 +442,7 @@ post_title:Заголовок:
 post_body:Текст:
 post_options:Параметры:
 post_preview_btn:Предпросмотр сообщения
+post_diff_btn:Показать изменения
 post_cancel_btn:Отмена
 ignore_users:Игнорируемые участники
 add_ignore:Добавить игнорируемого
@@ -1073,6 +1074,7 @@ search_options:Настройки поиска
 search_user_filter:Отобрать по участнику:
 register_none:Не уведомлять
 findu_no_conf:неподтвержденный участник
+findu_banned:забаненный участник
 register_max_sig_len:Максимальная длинна:
 register_turing:Пожалуйста, введите код подтверждения, который вы видите ниже:
 register_err_turing:Неверный код подтверждения. Попробуйте снова.

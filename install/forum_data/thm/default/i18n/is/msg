@@ -388,8 +388,7 @@ post_color:Litur
 post_font:Letur
 create_thread:Stofna þráð
 submit_reply:Senda svar
-# Fuzzy
-edit_message:Gera breytingar á skilaboðum
+edit_message:Virkja breytingar
 apply_spell_changes:Gera breytingar á stafsetningu
 post_preview:Forskoðun skilaboða
 post_logedin_user:Innskráður notandi:
@@ -426,6 +425,7 @@ post_title:Titill:
 post_body:Innihald:
 post_options:Möguleikar:
 post_preview_btn:Forskoða skilaboð
+post_diff_btn:Mismunur breytinga
 post_cancel_btn:Hætta við
 ignore_users:Hunsaðir notendur
 add_ignore:Hunsa notanda
@@ -634,8 +634,7 @@ post_err_lockedthread_msg:Þessi spjallþráður er læstur. Ekki er hægt að s
 err_coppa_title:VILLA: Aðgangur þinn hefur ekki enn verið staðfestur
 err_coppa_msg:Við höfum ekki fengið staðfestingu frá foreldri eða forráðarmanni sem myndi leyfa þér að senda inn skilaboð. Ef þú hefur týnt staðfestingar eyðublaðinu þá getur þú <a href="{TEMPLATE: err_coppa_msg_lnk}">skoðað það hér</a>.
 err_banned_acct_title:VILLA: Þú hefur verið bannaður.
-# Fuzzy
-err_banned_acct_msg:Aðgangur þinn var {IF: $ban_expiry}tímabundið bannaður til {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}bannaður ótímabundið{ENDI} frá því að hafa aðgang að síðunni, vegna brota á reglum spjallborðsins.
+err_banned_acct_msg:Aðgangur þinn var {IF: $ban_expiry}tímabundið bannaður til {TEMPLATE: ban_expiry_date}{ELSE}bannaður ótímabundið{ENDI} frá því að hafa aðgang að vefsvæðinu, vegna brota á reglum spjallborðsins.
 post_err_edttimelimit_title:VILLA
 post_err_edttimelimit_msg:Þú getur ekki lengur breytt þessum skilaboðum
 post_err_noannontopics_msg2:<legend>VILLA: Ónóg réttindi</legend>Óskráðir notendur hafa ekki réttindi til að búa til spjallþræði.
@@ -1058,6 +1057,7 @@ search_options:Leitarvalmöguleikar
 search_user_filter:Sía eftir notanda:
 register_none:Engar tilkynningar
 findu_no_conf:óstaðfestur notandi
+findu_banned:bannaður notandi
 register_max_sig_len:Hámarks lengd:
 register_turing:Staðfesting:
 register_err_turing:Staðfesting mistókst. Prófaðu aftur.
@@ -1079,8 +1079,7 @@ dmsg_ip:Vistfang:
 err_blockedaccnt_title:VILLA: Aðgangurinn þinn hefur verið síaður út.
 err_blockedaccnt_msg:Aðgangurinn þinn hefur verið bannaður frá spjallborðinu vegna eins af þeim síum sem þú hefur sett inn.
 merge_th_page_list:Val þráða
-# Fuzzy
-most_users_online:Flestu notendir voru tengdir <b>{VAR: st_obj->most_online}</b> þann <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
+most_users_online:Flestu notendir voru tengdir <b>{VAR: st_obj->most_online}</b> þann <b>{TEMPLATE: most_online_time}</b>
 sub_unsub_all_forums:Hætta áskrift á öllum umræðum
 sub_unsub_all_topics:Hætta áskrift á öllum spjallþráðum
 unbookmark_all_topics:Fjarlægja öll bókarmerki
@@ -1122,8 +1121,7 @@ move_msg_th_expl:Tilgreindu auðkenni þráðarinns sem á að færa á (má ver
 captcha_img_alt:Captcha staðfesting: Þú þarft að bera kennsl á textann á þessari mynd.
 captcha_img_help:Það er ekki núll eða einn á myndinni.
 powered-by:Knúið af: FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:Höfundaréttur &copy;2001-2022 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Höfundaréttur &copy;2001-2023 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Kóði:
 code_select_all:Velja allt
 code_show_hide:sýna/fela

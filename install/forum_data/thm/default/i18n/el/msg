@@ -9,6 +9,7 @@
 # Author: NikosLikomitros
 # Author: Nikosgranturismogt
 # Author: Omnipaedista
+# Author: Spyridon Eftychios Kokotos
 # Author: ZaDiak
 
 action:Ενέργεια
@@ -376,6 +377,7 @@ post_title:Τίτλος:
 post_body:Κείμενο:
 post_options:Επιλογές:
 post_preview_btn:Προεπισκόπηση Μηνύματος
+post_diff_btn:Αλλαγές διαφορών
 post_cancel_btn:Ακύρωση
 ignore_users:Αγνοημένοι χρήστες
 forum_terms:Όροι χρήσης του φόρουμ
