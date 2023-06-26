@@ -622,6 +622,9 @@ thr_exch_decline:кабыл албоо
 thr_exch_no_threads:Тастыктоону күтүп жаткан темалар жок
 thr_exch_submit:Улантуу
 split_thread:Теманы бөлүү
+groupmgr_yes:Ооба
+groupmgr_no:Жок
+groupmgr_cancel:Жокко чыгаруу
 groupmgr_add_member:Катышуучуну кошуу
 groupmgr_update_member:Катышуучу тууралуу маалыматты жаңыртуу
 groupmgr_edit:Оңдоо
@@ -731,3 +734,4 @@ register_err_taken_alias:Сиз тандаган каймана ат, башка
 register_alias:Каймана ат
 register_allow_pm_msg:Жеке билдирүүлөргө уруксат берүү
 ip_search:Издөө
+mmd_abort_move:Жокко чыгаруу
