@@ -239,11 +239,13 @@ register_facebook:Facebook ID:
 register_yahoo:Yahoo Messenger:
 register_homepage:Haaptsäit:
 register_bday:Gebuertsdatum:
+register_bday_desc:Wann Dir e Gebuertsdatum agitt, kënnen aner Membere vum Forum deen an Ärem Profil gesinn.
 register_day:Dag
 register_month:Mount
 register_year:Joer
 register_gender:Geschlecht:
 register_bio:Biographie:
+register_bio_desc:E puer Detailer iwwer Iech, wéi zum Beispill Är Interêten, Äre Beruff asw.
 register_prefs:Astellungen
 register_sig:Ënnerschrëft:
 register_reset:Zrécksetzen
@@ -528,7 +530,8 @@ post_err_mod_forum_edit_ttl:FEELER
 dmsg_num:Message #{VAR: obj->id}
 delete_msg_pm_subject:Sujet: {VAR: data[15]}
 register_theme:Thema:
-uc_new_topic:Neit Thema
+uc_new_pm:Neie Private Message
+uc_new_topic:Neit Theema
 search_options:Sichoptiounen
 search_user_filter:Nom Benotzer filteren:
 findu_no_conf:net-confirméierte Benotzer
@@ -536,19 +539,30 @@ register_max_sig_len:Maximal Längt:
 register_turing:Iwwerpréiwung:
 modque_cat:Kategorie
 modque_forum:Forum
+mmd_del_title:Theeme läschen
+mmd_mov_title:Theeme réckelen
 mmd_abort_move:Ofbriechen
+mmd_move:Theeme réckelen
 pmsg_pdf_btn:PDF-Archiv maachen
 dmsg_ip:IP:
+sml_code:Code
 register_topics_per_page:Theme pro Säit:
+post_common_bold:Fett
+post_common_italics:Kursiv
+post_common_underline:Ënnerstrach
 post_common_link:E Link drasetzen
 post_common_email_popup:E-Mail-Adress:
 post_common_image:E Bild drasetzen
+post_common_image_popup:URL vum Bild:
+post_common_nlist:Nummeréiert Lëscht derbäisetzen
 post_common_quote:Zitat derbäisetzen
+post_common_code:Code derbäisetzen
 rating_delete:Läschen
 tabs_notifications:Notifikatiounen
 finduser_flag:Fändel
 post_descr:Beschreiwung vum Thema:
-move_messages:Message réckelen
+move_messages:Messagë réckelen
+move_msg_btn:Ausgewielte Messagë réckelen
 # Fuzzy
 copyright:Copyright &copy;2001-2022 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Code:
@@ -556,14 +570,17 @@ code_select_all:Alles uwielen
 code_show_hide:Weisen / Verstoppen
 btn_new_topic:Neie Sujet
 btn_about:Profil
+btn_small_pm:PM
 btn_delete:läschen
 btn_edit:änneren
 btn_reply:äntweren
 btn_forward:viruleeden
-btn_email:Mail
+btn_quote:zitéieren
+btn_email:E-Mail
 btn_homepage:www
 custom_filed_required:Dëst Feld ass obligatoresch.
 pages:Säiten
 page_list_heading:Disponibel Säiten
 pm_export_header:Privat Message fir {VAR: usr->alias}
 karma_delete:Läschen
+blog_new_members:Nei Memberen
