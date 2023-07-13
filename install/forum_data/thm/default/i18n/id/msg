@@ -21,6 +21,7 @@
 # Author: Naudefj
 # Author: StefanusRA
 # Author: Totosunarto
+# Author: Veracious
 # Author: WongKentir
 # Author: Zakiy
 
@@ -33,15 +34,15 @@ attachment:Sisipan:
 avatar:Avatar:
 average_post_count:{PLURAL: u->posted_msg_count|$1 Message|$1 Messages} ({PLURAL: avg|$1 average message|$1 average messages} per day)
 biography:Biografi:
-birth_date:Tgl.Lahir:
+birth_date:Tanggal Lahir:
 by:Oleh:
 by_mod:Oleh Moderator
 current_time:Waktu sekarang
 custom_avatar_queue:Antrean avatar kustom
-date_posted:Tgl dimasukkan
-date_registered:Tgl terdaftar:
-download_counter:Diunduh {PLURAL: v[3]|$1 time|$1 times}
-pmsg_download_counter:Diunduh {PLURAL: r->dlcount|$1 time|$1 times}
+date_posted:Tanggal Dipos
+date_registered:Tanggal Terdaftar:
+download_counter:Diunduh {PLURAL: v[3]|$1 kali}
+pmsg_download_counter:Diunduh {PLURAL: r->dlcount|$1 kali}
 email:Surel:
 email_to_friend:Surel ke teman
 email_to_friend_desc:Kirim URL halaman ini ke teman melalui surel
@@ -56,7 +57,7 @@ forum_new_messages:Pesan baru
 forum_none_messages:Hanya anggota forum terdaftar yang bisa menelusuri pesan terbaca &amp; blm terbaca
 forum_old_messages:Tidak ada pesan baru
 from:Dari:
-gender:Jns.Kelamin:
+gender:Jenis kelamin:
 go:Cari
 goto_next_msg:Ke pesan berikutnya
 goto_prev_msg:Ke pesan sebelumnya
@@ -438,6 +439,7 @@ post_title:Judul:
 post_body:Isi pesan:
 post_options:Pilihan:
 post_preview_btn:Tampilan sementara pesan
+post_diff_btn:Perubahan Diff
 post_cancel_btn:Batalkan
 ignore_users:Pengguna diacuhkan
 add_ignore:Tambah diacuhkan
@@ -646,8 +648,7 @@ post_err_lockedthread_msg:Topik ini sudah terkunci, tidak bisa menambah pembahas
 err_coppa_title:SALAH: Akun anda belum terkonfirmasi
 err_coppa_msg:Kami belum menerima konfirmasi dari orangtua dan/atau wali Anda yang sah, yang akan mengizinkan Anda untuk mengirim pesan. Jika Anda kehilangan COPPA <a href="{TEMPLATE: err_coppa_msg_lnk}">lihat lagi di sini</a>.
 err_banned_acct_title:SALAH: anda sudah di cekal.
-# Fuzzy
-err_banned_acct_msg:Akun anda {IF: $ban_expiry}di-cekal sementara sampai {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}permanen{ENDI} karena pelanggaran peraturan forum ini.
+err_banned_acct_msg:Akun Anda telah {IF: $ban_expiry}dicekal sementara hingga {TEMPLATE: ban_expiry_date}{ELSE}dicekal selamanya{ENDI} dari mengakses situs ini, karena melanggar peraturan forum.
 post_err_edttimelimit_title:GALAT
 post_err_edttimelimit_msg:Pesan tersebut sudah tidak boleh anda ubah
 post_err_noannontopics_msg2:<legend>ERROR: Wewenang tidak mencukupi</legend> Tamu tidak diperkenankan membuat topik.
@@ -1070,6 +1071,7 @@ search_options:Opsi pencarian
 search_user_filter:Filter atas dasar pengguna:
 register_none:Jangan beritahu saya
 findu_no_conf:Pengguna belum dikonfirmasi
+findu_banned:pengguna yang diblokir
 register_max_sig_len:Panjang maksimum:
 register_turing:Verifikasi:
 register_err_turing:Verifikasi gagal. Harap dicoba lagi.
@@ -1091,8 +1093,7 @@ dmsg_ip:IP:
 err_blockedaccnt_title:SALAH: Akun anda sudah di-filter.
 err_blockedaccnt_msg:Akun anda sudaj diblokir dari forum karena salah satu filter dari pengguna.
 merge_th_page_list:Pemilihan halaman topik
-# Fuzzy
-most_users_online:Paling banyak <b>{VAR: st_obj->most_online}</b> pengguna aktif pada <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
+most_users_online:Jumlah pengguna daring terbanyak selama ini adalah <b>{VAR: st_obj->most_online}</b> pada <b>{TEMPLATE: most_online_time}</b>
 sub_unsub_all_forums:Hentikan langgan dari semua forum
 sub_unsub_all_topics:Hentikan langgan dari semua topik
 unbookmark_all_topics:Hilangkan semua tanda
@@ -1134,8 +1135,7 @@ move_msg_th_expl:Penetapan ID dari tujuan topik (bisa juga terdapat di Forum lai
 captcha_img_alt:Verifikasi Captcha: Anda harus mengenali teks dalam gambar ini.
 captcha_img_help:Tidak ada nol atau satu pada berkas.
 powered-by:Di dukung oleh: FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:Hak-cipta&copy;2001-2022 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Hak Cipta ©2001-2023 <a href="http://fudforum.org/">Perangkat Lunak Papan Buletin FUDforum</a>
 code_title:Kode:
 code_select_all:Pilih semua
 code_show_hide:Tampil/ sembunyi
