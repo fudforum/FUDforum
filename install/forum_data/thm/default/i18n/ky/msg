@@ -442,6 +442,7 @@ rpasswd_invalid_passwd:Сырсөз туура эмес
 rpasswd_passwd_nomatch:Сырсөздөр дал келген жок
 rpasswd_passwd_length:Сырсөз минимум 6 символдон турушу абзел
 reset_remind_pass:Сырсөздү эске салуу
+reset_update:Сыр сөздү алмаштыруу
 rpasswd_change_pass:Сырсөздү өзгөртүү
 rpasswd_login:Кирүү
 rpasswd_cur_pass:Учурдагы сырсөз:
@@ -454,7 +455,7 @@ ruser_new_login:Жаңы кирүү ысымыңыз:
 ruser_cur_pass:Учурдагы сырсөз:
 login_passwd:Сырсөз:
 reset_email:Электрондук дарек:
-reset_reset_button:Сырсөздү өчүрүү
+reset_reset_button:Сыр сөздү алмаштыруу
 rate_this_thread:Баалоо
 report_reporting_about:Билдирүү тууралуу маалымат:
 report_subject:Тема:
@@ -602,13 +603,15 @@ register_err_short_login:Эсеп жазууда өтө кыска ысым та
 register_err_login_notallowed:Колдонуучунун ысымы жарабайт.
 register_err_shortpasswd:Сырсөз минимум 6 символдон турушу абзел
 register_err_passwdnomatch:Көрсөтулгөн сырсөздөр дал келбейт, сураныч, кайталаңыз.
+reset_err_rstconf_title:Маалымат
+reset_newpass_title:Сыр сөздү алмаштыруу
 email_title:Э-кат билдирүүсү
 finduser_title:Катышуучуну табуу
 help_title:Жардам
 login_title:Форумга кирүү
 poll_title:Добуштарды оңдоп-түзөө
 register_title:Катталуу
-reset_title:Сырсөздү түшүрүү
+reset_title:Сыр сөздү алмаштыруу
 rpasswd_title:Сырсөздү өзгөртүү
 error_title:Ката
 index_title:Биздин форумга кош келиңиз
