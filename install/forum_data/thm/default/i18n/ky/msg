@@ -22,7 +22,7 @@ date_posted:Жөнөтүлгөн күнү
 date_registered:Катталган күнү:
 download_counter:{PLURAL: v[3]|$1 жолу|$1 жолу} жүктөлдү
 pmsg_download_counter:{PLURAL: v[3]|$1 жолу|$1 жолу} жүктөлдү
-email:Электрондук дарек:
+email:Электрондук почта:
 email_to_friend:Электрондук дарек аркылуу жөнөтүү
 email_to_friend_desc:Бул билдирүүнүн URL шилтемесин электрондук дарекке жөнөтүү
 email_user:Колдонуучуга билдирүү жөнөтүү
@@ -239,7 +239,7 @@ writing_pm:Жекече кат түзүү
 browsing_folder:Папканы  <b>{VAR: folders[$folder_id]}</b> көрүү
 inbox:Келген каттар
 draft:Сомолор
-sent:Жөнөтүү
+sent:Жөнөтүлдү
 trash:Себет
 msg_author:Автор
 avatar_sel_form:Сүрөт тандоо
@@ -280,7 +280,7 @@ finduser_joindate:Катталган күнү
 finduser_action:Аракет
 yes:Ооба
 no:Жок
-register_email:Электрондук дарек
+register_email:Электрондук почта
 edit_time_limit:<b>Оңдоп туздөө убактысы</b>: {GVAR: EDIT_TIME_LIMIT} мүнөт
 no_edit_time_limit:<b>Оңдоп туздөө убактысы</b>: Мөөнөтсүз
 pmuserloc_login:Кирүү
@@ -427,7 +427,7 @@ coppa_fax_date:Дата:
 coppa_fax_questions:Түрдүү суроолор боюнча консультация <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
 coppa_fax_login:Кирүү
 coppa_fax_passwd:Сырсөз
-coppa_fax_remail:Электрондук дарек
+coppa_fax_remail:Электрондук почта
 coppa_fax_name:Ысымы
 login_not_logedin:Сиз форумга кирген жоксуз. Анын себеби төмөндө болушу ыктымал:
 login_want_to_register:Катталгыңыз келеби?
@@ -454,7 +454,7 @@ ruser_cur_login:Учурдагы кирүү ысымыңыз:
 ruser_new_login:Жаңы кирүү ысымыңыз:
 ruser_cur_pass:Учурдагы сырсөз:
 login_passwd:Сырсөз:
-reset_email:Электрондук дарек:
+reset_email:Электрондук почта:
 reset_reset_button:Сыр сөздү алмаштыруу
 rate_this_thread:Баалоо
 report_reporting_about:Билдирүү тууралуу маалымат:
@@ -498,10 +498,10 @@ mklist_disc:Диск
 mklist_circle:Айлана
 mklist_close:Жабуу
 email_to:Кимге:
-email_pg_title:Э-дарек
+email_pg_title:Электрондук почта
 email_subject:Тема:
 email_body:Текст:
-email_submit:Э-дарек
+email_submit:Электрондук почта
 ppost_quote_msg:{VAR: msg_to_list} жазды {TEMPLATE: ppost_quote_msg_date}
 ppost_quote:Цитаталар
 ppost_to:Кимге:
@@ -738,3 +738,4 @@ register_alias:Каймана ат
 register_allow_pm_msg:Жеке билдирүүлөргө уруксат берүү
 ip_search:Издөө
 mmd_abort_move:Жокко чыгаруу
+btn_email:Электрондук почта

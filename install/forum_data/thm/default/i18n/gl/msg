@@ -387,8 +387,7 @@ post_color:Cor
 post_font:Tipo de letra
 create_thread:Crear o fío
 submit_reply:Enviar a resposta
-# Fuzzy
-edit_message:Aplicar os cambios feitos á mensaxe
+edit_message:Aplicar os cambios
 apply_spell_changes:Aplicar os cambios feitos polo corrector ortográfico
 post_preview:Vista previa da mensaxe
 post_logedin_user:Usuario:
@@ -425,6 +424,7 @@ post_title:Título:
 post_body:Corpo:
 post_options:Opcións:
 post_preview_btn:Vista previa da mensaxe
+post_diff_btn:Mostrar as diferenzas
 post_cancel_btn:Cancelar
 ignore_users:Usuarios ignorados
 add_ignore:Ignorar o usuario
@@ -633,8 +633,7 @@ post_err_lockedthread_msg:Este fío está bloqueado; non se permite a publicaci�
 err_coppa_title:ERRO: A túa conta aínda non está confirmada
 err_coppa_msg:Aínda non recibimos a confirmación do teu pai e/ou titor legal que te permitirá publicar mensaxes. Se perdiches o formulario COPPA, <a href="{TEMPLATE: err_coppa_msg_lnk}">telo aquí de novo</a>.
 err_banned_acct_title:ERRO: Fuches expulsado.
-# Fuzzy
-err_banned_acct_msg:A túa conta foi {IF: $ban_expiry}temporalmente expulsada do foro ata {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}permanentemente expulsada do foro{ENDI} debido a unha violación do regras do mesmo.
+err_banned_acct_msg:A túa conta foi {IF: $ban_expiry}temporalmente expulsada do foro ata {TEMPLATE: ban_expiry_date}{ELSE}permanentemente expulsada do foro{ENDI} debido a unha violación do regras do mesmo.
 post_err_edttimelimit_title:ERRO
 post_err_edttimelimit_msg:Xa non podes editar máis esta mensaxe
 post_err_noannontopics_msg2:<legend>ERRO: Os teus privilexios son insuficientes</legend>Os usuarios anónimos non teñen os permisos necesarios para crear fíos.
@@ -1057,6 +1056,7 @@ search_options:Opcións de busca
 search_user_filter:Filtrar por usuario:
 register_none:Non me notifiquedes
 findu_no_conf:usuario non confirmado
+findu_banned:usuario expulsado
 register_max_sig_len:Lonxitude máxima:
 register_turing:Verificación:
 register_err_turing:Fallou a verificación. Por favor ténteo de novo.
@@ -1078,8 +1078,7 @@ dmsg_ip:Enderezo IP:
 err_blockedaccnt_title:ERRO: A túa conta foi filtrada.
 err_blockedaccnt_msg:A túa conta foi bloqueada fronte ao acceso ao foro debido a un dos filtros de usuario instalados.
 merge_th_page_list:Selección da páxina do fío
-# Fuzzy
-most_users_online:O número máximo de usuarios conectados á vez foi <b>{VAR: st_obj->most_online}</b> o <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
+most_users_online:O número máximo de usuarios conectados á vez foi <b>{VAR: st_obj->most_online}</b> o <b>{TEMPLATE: most_online_time}</b>
 sub_unsub_all_forums:Deixar a subscrición a todos os foros
 sub_unsub_all_topics:Deixar a subscrición a todos os fíos
 unbookmark_all_topics:Eliminar todos os favoritos
@@ -1121,8 +1120,7 @@ move_msg_th_expl:Especifica o ID do fío de destino (pode ser noutro foro)
 captcha_img_alt:Verificación por Captcha: terás que recoñecer o texto que hai nesta imaxe.
 captcha_img_help:Non hai cero ou un na imaxe.
 powered-by:Desenvolvido por: FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:Copyright &copy;2001-2022 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Copyright &copy;2001-2023 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Código:
 code_select_all:Seleccionar todo
 code_show_hide:Mostrar/agochar
