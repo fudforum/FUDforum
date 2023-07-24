@@ -736,6 +736,9 @@ pmsg_recepient:Алуучу
 register_err_taken_alias:Сиз тандаган каймана ат, башка бирөө тарабынан колдонот. Сураныч, алмаштырыңыз.
 register_alias:Каймана ат
 register_allow_pm_msg:Жеке билдирүүлөргө уруксат берүү
+saved:Сакталды
+iemail_msg_reply:Жооп берүү
 ip_search:Издөө
 mmd_abort_move:Жокко чыгаруу
+btn_reply:жооп берүү
 btn_email:Электрондук почта
