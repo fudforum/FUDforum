@@ -383,8 +383,7 @@ post_color:Barba
 post_font:Pismo
 create_thread:Temu załožić
 submit_reply:Wotmołwu wotpósłać
-# Fuzzy
-edit_message:Změny powěsće nałožić
+edit_message:Změny nałožić
 apply_spell_changes:Prawopisne změny nałožić
 post_preview:Powěsćowy přehlad
 post_logedin_user:Přizjewjeny wužiwar:
@@ -421,6 +420,7 @@ post_title:Titul:
 post_body:Ćěleso:
 post_options:Opcije:
 post_preview_btn:Powěsćowy přehlad
+post_diff_btn:Rozdźěle změnow
 post_cancel_btn:Přetorhnyć
 ignore_users:Ignorowani wužiwarjo
 add_ignore:Ignorowaneho přidać
@@ -1052,6 +1052,7 @@ search_options:Pytanske opcije
 search_user_filter:Po wužiwarjom filtrować:
 register_none:Njezdźělić
 findu_no_conf:njewobkrućeny wužiwar
+findu_banned:wuhnaty wužiwar
 register_max_sig_len:Maksimalna dołhosć:
 register_turing:Werifikacija:
 register_err_turing:Werifikacija zwrěšćena. Prošu spytaj znowa.

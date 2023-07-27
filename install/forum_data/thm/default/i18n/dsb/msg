@@ -379,8 +379,7 @@ post_color:Barwa
 post_font:Pismo
 create_thread:Temu napóraś
 submit_reply:Wótegrono wótpósłaś
-# Fuzzy
-edit_message:Změny powěsći nałožyś
+edit_message:Změny nałožyś
 apply_spell_changes:Pšawopisne změny nałožyś
 post_preview:Pśeglěd powěsći
 post_logedin_user:Pśizjawjony wužywaŕ:
@@ -417,6 +416,7 @@ post_title:Titel:
 post_body:Wopśimjeśe:
 post_options:Opcije:
 post_preview_btn:Powěsćowy pśeglěd
+post_diff_btn:Rozdźěle změnow
 post_cancel_btn:Pśetergnuś
 ignore_users:Ignorěrowane wužywarje
 add_ignore:K lisćinje ignorěrowanjow pśidaś
@@ -1048,6 +1048,7 @@ search_options:Pytańske opcije
 search_user_filter:Pó wužywarju filtrowaś
 register_none:Njeinforměrowaś
 findu_no_conf:njewobkšuśony wužywaŕ
+findu_banned:wugnany wužywaŕ
 register_max_sig_len:Maksimalna dłujkosć:
 register_turing:Werifikacija:
 register_err_turing:Werifikacija njejo se raźiła. Pšosym wopytaj znowego.

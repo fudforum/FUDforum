@@ -360,8 +360,7 @@ post_color:Цвят
 post_font:Шрифт
 create_thread:Започни тема
 submit_reply:Отговори
-# Fuzzy
-edit_message:Промени
+edit_message:Прилагане на промените
 apply_spell_changes:Поправи правописа
 post_preview:Предварителен преглед на съобщението
 post_logedin_user:Потребител:
