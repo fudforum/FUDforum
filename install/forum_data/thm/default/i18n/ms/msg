@@ -311,6 +311,7 @@ register_conf_pass:Sahkan Kata Laluan:
 # Fuzzy
 register_email_desc:Sial berikan alamat e-mel yang sah. Anda boleh memilih untuk menyorokkan alamat e-mel itu dalam bahagian Keutamaan di bawah.
 register_name:Nama:
+register_name_desc:Nama sebenar anda.
 register_your_pass:Kata Laluan Anda:
 register_update:Kemas kini
 register_avatar_type:Jenis Avatar:
@@ -332,6 +333,7 @@ register_occupation:Pekerjaan:
 register_interests:Minat:
 register_image:Gambar:
 register_icq:ICQ:
+register_facebook:ID Facebook:
 register_yahoo:Yahoo Messenger:
 register_homepage:Laman Utama:
 register_bday:Tarikh Lahir:
