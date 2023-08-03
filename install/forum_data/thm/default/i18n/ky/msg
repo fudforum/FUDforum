@@ -678,7 +678,7 @@ th_expr_two_week:2 Апта
 th_expr_one_month:1 Ай
 th_expr_two_month:2 Ай
 th_expr_four_month:4 Ай
-th_expr_one_year:1 Жыл
+th_expr_one_year:1 жыл
 thread_mod_delete:Өчүрүү
 action_ip:IP
 action_latest_post:Акыркы билдирүү

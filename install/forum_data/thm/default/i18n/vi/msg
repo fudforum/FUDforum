@@ -1094,7 +1094,6 @@ btn_quote:trích
 btn_email:Thư điện tử
 btn_show_posts:bài đăng
 btn_homepage:www
-ip_whois_connect_err:Không thể kết nối với máy chủ WHOIS ( {VAR: whois_server} ): {VAR: errstr}
 pages:Các trang
 page_list_heading:Các trang có sẵn
 pm_export_header:Gửi tin nhắn riêng tư cho {VAR: usr->alias}
@@ -1102,4 +1101,3 @@ pm_export_footer:Đã xuất:
 karma_track:Quản lý danh tiếng người dùng:
 karma_delete:Xoá
 rate_author:Đánh giá tác giả:
-blog_comments:{PLURAL: topic->replies| $1 nhận xét| $1 bình luận}
