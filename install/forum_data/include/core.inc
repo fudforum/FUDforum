@@ -45,6 +45,8 @@ if ($GLOBALS['FUD_OPT_3'] & 536870912) {	// Detailed logging.
 	ini_set('display_startup_errors', 1);
 	ini_set('log_errors_max_len', 0);
 	ini_set('error_log', $GLOBALS['ERROR_PATH'] .'/php_errors');
+
+	echo '<body>';	// Prevent Browser "Content Encoding Error".
 }
 
 // Load and initialize the plugin system.
