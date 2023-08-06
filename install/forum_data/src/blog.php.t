@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2021 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -94,7 +94,7 @@ $RSS = '{TEMPLATE: blog_RSS}';
 		$msg_list .= '{TEMPLATE: blog_msg_entry}';
 	}
 
-	// New posts for sidebar.
+	// New posts for sidebar, without duplicates.
 	$c = uq(q_limit('SELECT thread_id, subject
 		FROM {SQL_TABLE_PREFIX}msg m
 		INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id
@@ -102,7 +102,9 @@ $RSS = '{TEMPLATE: blog_RSS}';
                 LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='. _uid .' AND g2.resource_id=t.forum_id
                 LEFT JOIN {SQL_TABLE_PREFIX}mod mo ON mo.user_id='. _uid .' AND mo.forum_id=t.forum_id
 		WHERE apr=1
-                '. ($is_a ? '' : ' AND (mo.id IS NOT NULL OR '. q_bitand('COALESCE(g2.group_cache_opt, g1.group_cache_opt)', 1) .'> 0)') .'
+		  AND m.id > (select MAX(id) from {SQL_TABLE_PREFIX}msg) - 50
+		'. ($is_a ? '' : ' AND (mo.id IS NOT NULL OR '. q_bitand('COALESCE(g2.group_cache_opt, g1.group_cache_opt)', 1) .'> 0)') .'
+		GROUP BY thread_id
 		ORDER BY m.post_stamp DESC', 10));
         $new_topic_list = '<div class="item-list">';
         while ($topic = db_rowobj($c)) {
@@ -114,11 +116,12 @@ $RSS = '{TEMPLATE: blog_RSS}';
         }
 	$new_topic_list .= '</div>';
 
-	// Most viewed for sidebar.
-        $c = uq(q_limit('SELECT t.root_msg_id, t.id, t.rating, t.n_rating, t.replies, t.tdescr, m.thread_id, m.subject
+	// Most viewed for sidebar - past 90 days.
+        $c = uq(q_limit('SELECT t.root_msg_id, t.id, t.replies, t.tdescr, m.thread_id, m.subject
 			FROM {SQL_TABLE_PREFIX}thread t
 			INNER JOIN {SQL_TABLE_PREFIX}msg m ON m.id=t.root_msg_id
 		WHERE m.apr=1
+		  AND m.post_stamp > '. (__request_timestamp__ - 90*86400) .'
 		ORDER BY views DESC', 10));
         $most_viewed_list = '<div class="item-list">';
         while ($topic = db_rowobj($c)) {
@@ -128,10 +131,11 @@ $RSS = '{TEMPLATE: blog_RSS}';
 
 	// Best rated for sidebar.
 	if ($FUD_OPT_2 & 4096) {	// ENABLE_THREAD_RATING
-        	$c = uq(q_limit('SELECT t.root_msg_id, t.id, t.rating, t.n_rating, t.replies, t.tdescr, m.thread_id, m.subject
+		$c = uq(q_limit('SELECT t.root_msg_id, t.id, t.rating, t.n_rating, t.tdescr, m.thread_id, m.subject
 				FROM {SQL_TABLE_PREFIX}thread t
 				INNER JOIN {SQL_TABLE_PREFIX}msg m ON m.id=t.root_msg_id
 			WHERE m.apr=1
+			  AND t.rating > 0
 			ORDER BY rating*n_rating DESC, m.post_stamp DESC', 10));
 	        $best_rated_list = '<div class="item-list">';
         	while ($topic = db_rowobj($c)) {
