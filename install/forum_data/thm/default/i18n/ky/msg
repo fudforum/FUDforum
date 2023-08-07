@@ -13,7 +13,7 @@ attachment:Тиркеме:
 avatar:Сүрөт:
 average_post_count:{PLURAL: u->posted_msg_count|$1 Билдирүү|$1 Билдирүүлөр} (болжол менен{PLURAL: avg|$1 average билдирүү|$1 билдирүүлөр} бир күндө)
 biography:Биография:
-birth_date:Туулган жылы:
+birth_date:Туулган датасы:
 by:Кайдан/кимден:
 by_mod:Модератордон:
 current_time:Учурдагы убакыт
@@ -70,7 +70,7 @@ cal_goto_date:Өтүү:
 cal_day_heading:Күндүн окуялары
 cal_no_events:Бул күндүн окуялары жок
 cal_update:Форум жылнаамасын карап чыгуу
-cal_birthday:Туулган жылы: {VAR: user}
+cal_birthday:Туулган күнү: {VAR: user}
 cal_birthday_age:(жаш курагы{PLURAL: age|$1 жыл|$1 жылы} жашта).
 message:Билдирме
 message_counter:Биздин колдонуучулар тарабынан <b>{PLURAL: post_count|$1 билдирүү|$1 билдирүүлөр}</b> бул <b>{PLURAL: thread_count|$1 темага|$1 темаларга}</b>калтырылды.
@@ -740,7 +740,10 @@ saved:Сакталды
 iemail_msg_reply:Жооп берүү
 mnav_more:Көбүрөөк &raquo;&raquo;
 ip_search:Издөө
+uc_new_topic:Жаңы тема
 mmd_abort_move:Жокко чыгаруу
+post_common_link:Шилтеме кошуу
 tabs_notifications:Кабарламалар
+btn_new_topic:Жаңы тема
 btn_reply:жооп берүү
 btn_email:Электрондук почта
