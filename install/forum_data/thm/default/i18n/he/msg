@@ -108,8 +108,8 @@ no_messages:אין הודעות בפורום זה.<br />\nרוצה לפתוח א
 no_msg_body:אין גוף להודעה
 no_new_posts:אין הודעות חדשות
 no_posts:אין הודעות
-no_subscribed_forums:אין לך מינוי לאף פורום
-no_subscribed_threads:אין לך מינוי לאף נושא
+no_subscribed_forums:אין לך מינוי לשום פורום
+no_subscribed_threads:אין לך מינוי לשום נושא
 no_bookmarked_threads:אין נושאים שנוספו כסימנייה
 no_unread_locked:נושא זה ננעל
 no_unread_msg:בנושא זה ישנן הודעות שטרם נקראו
