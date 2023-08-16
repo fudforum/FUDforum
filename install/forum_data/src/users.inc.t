@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2021 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -13,6 +13,8 @@ function &init_user()
 {
 	$o1 =& $GLOBALS['FUD_OPT_1'];
 	$o2 =& $GLOBALS['FUD_OPT_2'];
+	$o3 =& $GLOBALS['FUD_OPT_3'];
+	$o4 =& $GLOBALS['FUD_OPT_4'];
 
 	if ($o2 & 32768 && empty($_SERVER['PATH_INFO']) && !empty($_SERVER['ORIG_PATH_INFO'])) {
 		$_SERVER['PATH_INFO'] = $_SERVER['ORIG_PATH_INFO'];
@@ -29,9 +31,13 @@ function &init_user()
 		}
 		$_SERVER['QUERY_STRING'] = htmlspecialchars($_SERVER['PATH_INFO']) .'?'. $_SERVER['QUERY_STRING'];
 
-		/* Default to index page. */
+		/* Default to index or blog page. */
 		if (!isset($p[0])) {
-			$p[0] = 'i';
+			if ($o4 & 16 && $o4 & 32) {	// Blog enabled and set as home page.
+				$p[0] = 'blog';
+			} else {
+				$p[0] = 'i';
+			}
 		}
 		/* Notice prevention code. */
 		for ($i = 1; $i < 5; $i++) {
@@ -658,7 +664,11 @@ function &init_user()
 	} else if (isset($_POST['t'])) {
 		$GLOBALS['t'] = (string) $_POST['t'];
 	} else {
-		$GLOBALS['t'] = 'index';
+		if ($o4 & 16 && $o4 & 32) {	// Blog enabled and set as home page.
+			$GLOBALS['t'] = 'blog';
+		} else {
+			$GLOBALS['t'] = 'index';
+		}
 	}
 
 	if ($GLOBALS['t'] == 'register') {

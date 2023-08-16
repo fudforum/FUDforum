@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2020 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -29,7 +29,7 @@
 {MAIN_SECTION: END}
 
 {SECTION: ucp_home_lnk Home URL}
-{ROOT}?t=index&amp;{DEF: _rsid}
+{IF: $FUD_OPT_4 & 16 && $FUD_OPT_4 & 32}{ROOT}?t=blog&amp;{DEF: _rsid}{ELSE}{ROOT}?t=index&amp;{DEF: _rsid}{END}
 {SECTION: END}
 
 {SECTION: ucp_help_lnk FAQ/Help URL}
