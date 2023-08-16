@@ -518,3 +518,5 @@ Display pages icon on menu. This setting will automatically be enaled if there a
 {{{BLOG_ENABLED	FUD_OPT_4	16
 Enable the forum's blog/ portal page.}}}
 
+{{{BLOG_HOMEPAGE	FUD_OPT_4	32
+Show blog/portal page as the front page.}}}

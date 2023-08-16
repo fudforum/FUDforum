@@ -23,6 +23,10 @@
 		if (isset($_POST['FUD_OPT_4_BLOG_ENABLED'])) {
 			toggle_bin_setting('BLOG_ENABLED', $_POST['FUD_OPT_4_BLOG_ENABLED']);
 		}
+		if (isset($_POST['FUD_OPT_4_BLOG_HOMEPAGE'])) {
+			toggle_bin_setting('BLOG_HOMEPAGE', $_POST['FUD_OPT_4_BLOG_HOMEPAGE']);
+		}
+
 		pf(successify('Settings successfully updated.'));
 	}
 
@@ -50,6 +54,7 @@
 <table class="datatable solidtable">
 <?php
 	print_bit_field('Blog Enabled',     'BLOG_ENABLED');
+	print_bit_field('Set as main page', 'BLOG_HOMEPAGE');
 ?>
 <tr class="fieldaction"><td colspan="2" align="right"><input type="submit" name="btn_submit" value="Set" /></td></tr>
 </table>
