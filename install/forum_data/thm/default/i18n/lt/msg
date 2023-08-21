@@ -391,8 +391,7 @@ post_color:Spalva
 post_font:Šriftas
 create_thread:Sukurti temą
 submit_reply:Siųsti atsakymą
-# Fuzzy
-edit_message:Atlikti žinutės pakeitimus
+edit_message:Taikyti pakeitimus
 apply_spell_changes:Taikyti Rašyba keitimai
 post_preview:Žinutės peržiūra
 post_logedin_user:Prisijungęs narys:
@@ -429,6 +428,7 @@ post_title:Pavadinimas:
 post_body:Žinutės tekstas:
 post_options:Nustatymai:
 post_preview_btn:Peržiūrėti žinutę
+post_diff_btn:Rodyti pakeitimus
 post_cancel_btn:Atšaukti
 ignore_users:Nepaisomi Vartotojai
 add_ignore:Pridėti nemokša
@@ -637,8 +637,7 @@ post_err_lockedthread_msg:Ši tema užrakinta. Rašymas nebeleidžiamas.
 err_coppa_title:KLAIDA: jūsų sąskaita dar nepatvirtinta
 err_coppa_msg:Mes negavome iš jūsų tėvų ir / ar teisėtų globėjų, patvirtinimo kuris leistų jums rašyti žinutes. Jei Jūs pametėte savo COPPA forma, <a href="{TEMPLATE: err_coppa_msg_lnk}">peržiūrėkit ją vėl</a> .
 err_banned_acct_title:KLAIDA: Jūs buvote užblokuotas.
-# Fuzzy
-err_banned_acct_msg:Jūsų sąskaita {IF: $ban_expiry}laikinai užblokuota {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}laikinai užblokuota{ENDI} pateikimui į puslapį, dėl forumo taisyklių pažeidimo.
+err_banned_acct_msg:Jūsų paskyra {IF: $ban_expiry}laikinai užblokuota iki {TEMPLATE: ban_expiry_date}{ELSE}visam laikui užblokuota{ENDI} ir todėl negalite patekti į puslapį, dėl forumo taisyklių pažeidimo.
 post_err_edttimelimit_title:KLAIDA
 post_err_edttimelimit_msg:Nebegalite redaguoti šios žinutės
 post_err_noannontopics_msg2:<legend> KLAIDA: Nepakanka privilegijų </legend> Anoniminiai vartotojai neleidžiama kurti temas.
@@ -1061,6 +1060,7 @@ search_options:Paieškos nustatymai
 search_user_filter:Filtruoti pagal vartotoją:
 register_none:Neperspėti manęs
 findu_no_conf:nepatvirtintas vartotojas
+findu_banned:užblokuotas naudotojas
 register_max_sig_len:Maksimalus ilgis:
 register_turing:Įveskite kodą, parodytą žemiau:
 register_err_turing:Tikrinimas nepavyko. Prašau, pabandykite dar kartą.
@@ -1082,8 +1082,7 @@ dmsg_ip:IP:
 err_blockedaccnt_title:KLAIDA: Jūsų sąskaita buvo išfiltruota.
 err_blockedaccnt_msg:Jūsų sąskaita buvo užblokuotas nuo prieigos prie forumo dėl vieno iš įdiegtų vartotojų filtrų.
 merge_th_page_list:Temos Puslapio Pasirinkimas
-# Fuzzy
-most_users_online:Daugiausia vartotojų buvo <b>{VAR: st_obj->most_online} ({DATE: st_obj->most_online_time %Y-%m-%d %H:%M})</b>.
+most_users_online:Daugiausia prisijungusių naudotojų buvo <b>{VAR: st_obj->most_online}</b> on <b>{TEMPLATE: most_online_time}</b>
 sub_unsub_all_forums:Nebeprenumeruoti visu forumų
 sub_unsub_all_topics:Nebeprenumeruoti visu temų
 unbookmark_all_topics:Šalinti visas žymes
@@ -1125,8 +1124,7 @@ move_msg_th_expl:Nurodykite paskirties temą (gali būti kituose forumuose) ID.
 captcha_img_alt:Captcha patikrinimas: jums reikia atpažinti tekstą paveikslėlije.
 captcha_img_help:Nėra nulio ar vieno šiame vaizde.
 powered-by:Pagal: FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:Autorinės teisės &copy;2001-2022 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Autorinės teisės &copy;2001-2023 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Kodas
 code_select_all:Pasirinkti visus
 code_show_hide:Rodyti / slėpti
