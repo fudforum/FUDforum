@@ -1028,7 +1028,7 @@ pf('<h2>Step 1: Admin login</h2>', true);
 
 	pf('SQL upgrades completed.');
 
-	// FUDforum 3.0.3 refedined FUD_OPT_3=536870912 as PAGES_ENABLED.
+	// FUDforum 3.0.3 redefined FUD_OPT_3=536870912 as PAGES_ENABLED.
 	require($GLOBALS['DATA_DIR'] .'include/page_adm.inc');
 	fud_page::enable_disable_pages_icon();
 
@@ -1056,7 +1056,7 @@ pf('<h2>Step 1: Admin login</h2>', true);
 	}
 
 	pf('Checking GLOBAL variables.');
-	// New GLOBALS.php settings to add.
+	/* New GLOBALS.php settings to add. */
 	$default = array(
 		'FUD_OPT_4'	=> 3,	// New in 3.0.2.
 	);
@@ -1066,6 +1066,9 @@ pf('<h2>Step 1: Admin login</h2>', true);
 			change_global_settings(array($k => $v));
 		}
 	}
+
+	/* Enable USE_ANON_TURING. */
+	change_global_settings(array('FUD_OPT_3' => ($GLOBALS['FUD_OPT_3'] | 8192)));
 
 	/* List of obsolete files in WWW_ROOT_DISK that should be removed. */
 	// JavaScript files moved to '/js' directory in 3.0.2.

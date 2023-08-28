@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2019 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -22,7 +22,7 @@
 
 	$GLOBALS['FUD_OPT_1']		= 1743713343;
 	$GLOBALS['FUD_OPT_2']		= 1777733759;
-	$GLOBALS['FUD_OPT_3']		= 41943104;
+	$GLOBALS['FUD_OPT_3']		= 41951296;
 	$GLOBALS['FUD_OPT_4']		= 3;
 
 	$GLOBALS['CUSTOM_AVATAR_MAX_SIZE'] = 20000;	/* bytes */
